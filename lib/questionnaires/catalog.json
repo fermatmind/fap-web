@@ -7302,5 +7302,28 @@
       "plans-and-decisions-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "feelings-connection-reflection",
+    "code": "FM_FEELINGS_CONNECTION8_OBSERVATIONS",
+    "version": "fm_feelings_connection8_observations_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "After Difficult Times: Feelings & Connection",
+      "zh": "困难时期之后：感受与联系"
+    },
+    "description": {
+      "en": "Eight original descriptions of recent feelings, settling, closeness and boundaries, with two complete free guides. Separate existing readings cover reminders and self-criticism. No PTSD or complex-PTSD score or diagnosis.",
+      "zh": "八条原创描述，回顾近期感受、平复、亲近与边界，附两篇完整免费指南。提醒与自我批评沿用独立既有读法，不生成PTSD或复杂性PTSD分数或诊断。"
+    },
+    "minutes": 3,
+    "formCode": "fm_feelings_connection8_observations_v1",
+    "questionCount": 8,
+    "resultSlugs": [
+      "feelings-and-settling-reading",
+      "closeness-and-boundaries-reading"
+    ],
+    "collection": "explore"
   }
 ]

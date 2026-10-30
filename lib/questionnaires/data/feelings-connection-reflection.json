@@ -1,0 +1,846 @@
+{
+  "slug": "feelings-connection-reflection",
+  "code": "FM_FEELINGS_CONNECTION8_OBSERVATIONS",
+  "version": "fm_feelings_connection8_observations_v1",
+  "kind": "feelings-connection8",
+  "updated": "2026-10-30",
+  "category": "framework",
+  "minutes": 3,
+  "title": {
+    "en": "After Difficult Times: Feelings & Connection",
+    "zh": "困难时期之后：感受与联系"
+  },
+  "seoTitle": {
+    "en": "After Difficult Times: Feelings & Connection Reflection",
+    "zh": "困难时期之后的感受与联系反思"
+  },
+  "description": {
+    "en": "Eight original descriptions of recent feelings, settling, closeness and boundaries, with two complete free guides. Separate existing readings cover reminders and self-criticism. No PTSD or complex-PTSD score or diagnosis.",
+    "zh": "八条原创描述，回顾近期感受、平复、亲近与边界，附两篇完整免费指南。提醒与自我批评沿用独立既有读法，不生成PTSD或复杂性PTSD分数或诊断。"
+  },
+  "introduction": {
+    "en": "You can describe recent moments without recounting a difficult event. Recall only the past four weeks if you want to; no event type, duration, repeated exposure or personal history is requested. A difficult period is not automatically clinical trauma, and a current feeling cannot verify a past event or its cause.",
+    "zh": "可以描述近期片刻，无需讲述困难事件。愿意时只回顾过去四周，不要求事件类型、时长、重复暴露或私人历史。困难时期不自动等于临床创伤，当前感受也不能核实过去事件或原因。"
+  },
+  "instructions": {
+    "en": "Choose a category from your own recollection, or leave it unscored when there was no relevant opportunity, recall is unclear or you prefer not to answer. Helpful actions and difficult moments stay separate without reversal. Do not recreate reminders, contact someone to test a relationship or search for evidence to answer.",
+    "zh": "按自身回忆选择类别；没有相关机会、回忆不清或不愿回答时，可选未计分。有帮助的行动与困难片刻分别保留，不反向。无需制造提醒、联系人测试关系或寻找证据来回答。"
+  },
+  "resultHeading": {
+    "en": "Your private recent feelings-and-connection record",
+    "zh": "你的私人近期感受与联系记录"
+  },
+  "directions": [
+    {
+      "id": "feelings-and-settling",
+      "title": {
+        "en": "Feelings and settling",
+        "zh": "感受与平复"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "closeness-and-boundaries",
+      "title": {
+        "en": "Closeness and boundaries",
+        "zh": "亲近与边界"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "FCO_01",
+      "prompt": {
+        "en": "After an unwelcome reminder of a difficult period, a feeling stayed intense while I tried to return to an ordinary activity.",
+        "zh": "一段困难时期的不想要的提醒出现后，我试着回到普通活动，感受却仍然强烈。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "feelings-and-settling"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "feelings-and-settling"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "feelings-and-settling"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "feelings-and-settling"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "feelings-and-settling"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FCO_02",
+      "prompt": {
+        "en": "One strong feeling shifted into another before I could put words to what I was experiencing.",
+        "zh": "我还没能用语言说清自己的体验，一种强烈感受就转成了另一种。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "feelings-and-settling"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "feelings-and-settling"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "feelings-and-settling"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "feelings-and-settling"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "feelings-and-settling"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FCO_03",
+      "prompt": {
+        "en": "I felt emotionally muted during an ordinary moment when I expected to notice a feeling.",
+        "zh": "在一个原以为会有感受的普通片刻，我却觉得情绪很淡。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "feelings-and-settling"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "feelings-and-settling"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "feelings-and-settling"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "feelings-and-settling"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "feelings-and-settling"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FCO_04",
+      "prompt": {
+        "en": "After a strong feeling, I used an available pause before returning to an ordinary activity.",
+        "zh": "一种强烈感受之后，我使用了一个可用的暂停机会，再回到普通活动。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "feelings-and-settling"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "feelings-and-settling"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "feelings-and-settling"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "feelings-and-settling"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "feelings-and-settling"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FCO_05",
+      "prompt": {
+        "en": "I wanted contact but found it difficult to feel at ease with someone I usually trust.",
+        "zh": "我想与人接触，却难以在一个平常信任的人身边感到自在。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "closeness-and-boundaries"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "closeness-and-boundaries"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "closeness-and-boundaries"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "closeness-and-boundaries"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "closeness-and-boundaries"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FCO_06",
+      "prompt": {
+        "en": "I held back an ordinary request for support because closeness felt difficult at the time.",
+        "zh": "当时觉得亲近不容易，我没有提出一个普通的支持请求。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "closeness-and-boundaries"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "closeness-and-boundaries"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "closeness-and-boundaries"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "closeness-and-boundaries"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "closeness-and-boundaries"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FCO_07",
+      "prompt": {
+        "en": "I asked to slow down or pause an ordinary exchange when I needed more space.",
+        "zh": "需要更多空间时，我提出放慢或暂停一次普通交流。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "closeness-and-boundaries"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "closeness-and-boundaries"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "closeness-and-boundaries"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "closeness-and-boundaries"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "closeness-and-boundaries"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FCO_08",
+      "prompt": {
+        "en": "I was unsure whether a small disagreement had changed a relationship I valued.",
+        "zh": "一次小分歧之后，我不确定一段重视的关系是否已经改变。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "closeness-and-boundaries"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "closeness-and-boundaries"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "closeness-and-boundaries"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "closeness-and-boundaries"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "closeness-and-boundaries"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "feelings-and-settling-reading",
+      "directionIds": [
+        "feelings-and-settling"
+      ],
+      "title": {
+        "en": "Feelings and settling — Complete Reflection Guide",
+        "zh": "感受与平复：完整反思指南"
+      },
+      "headline": {
+        "en": "Feelings and settling — Complete Reflection Guide",
+        "zh": "感受与平复：完整反思指南"
+      },
+      "summary": {
+        "en": "These four statements concern a feeling remaining intense after a reminder, feelings changing before you can name them, muted feeling and using an available pause. They allow different moments to coexist. A pause is not reverse-scored as evidence that a difficulty has gone away, and muted feeling is not coded as successful calm.",
+        "zh": "四条陈述涉及提醒后感受持续强烈、尚未说清就变化、感受很淡及使用可用的暂停。不同片刻可以并存。暂停不被反向算成困难已经消失，感受很淡也不被编码为成功平静。"
+      },
+      "scoreReading": {
+        "en": "Four descriptions retain six label counts without a clinical score, causal verdict or risk category.",
+        "zh": "四条描述保留六类标签计数，不生成临床分数、原因裁决或风险类别。"
+      },
+      "seo": {
+        "title": {
+          "en": "Feelings and settling — Complete Reflection Guide",
+          "zh": "感受与平复：完整反思指南"
+        },
+        "description": {
+          "en": "These four statements concern a feeling remaining intense after a reminder, feelings changing before you can name them, muted feeling and using an available pause. They allow different moments to coexist. A pause is not reverse-scored as evidence that a difficulty has gone away, and muted feeling is not coded as successful calm.",
+          "zh": "四条陈述涉及提醒后感受持续强烈、尚未说清就变化、感受很淡及使用可用的暂停。不同片刻可以并存。暂停不被反向算成困难已经消失，感受很淡也不被编码为成功平静。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "A strong, changing or muted feeling is a description",
+            "zh": "强烈、变化或很淡的感受，都是描述"
+          },
+          "paragraphs": [
+            {
+              "en": "These four statements concern a feeling remaining intense after a reminder, feelings changing before you can name them, muted feeling and using an available pause. They allow different moments to coexist. A pause is not reverse-scored as evidence that a difficulty has gone away, and muted feeling is not coded as successful calm.",
+              "zh": "四条陈述涉及提醒后感受持续强烈、尚未说清就变化、感受很淡及使用可用的暂停。不同片刻可以并存。暂停不被反向算成困难已经消失，感受很淡也不被编码为成功平静。"
+            },
+            {
+              "en": "The page does not observe the reminder, know what the feeling meant or distinguish among possible causes. It cannot establish emotion-regulation capacity, dissociation, a trauma response or a disorder. Current feelings do not verify an event, a person’s intention or a clinical history.",
+              "zh": "页面没有观察提醒，不知道感受意味着什么，也不能鉴别可能原因。不确定情绪调节能力、解离、创伤反应或疾病；当前感受不核实事件、他人意图或临床历史。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Four selections, six separate counts",
+            "zh": "四条选择，六类计数"
+          },
+          "paragraphs": [
+            {
+              "en": "Each topic retains four individual labels and six counts adding to four. IDs are not points. Counts refer to selected descriptions, not incidents, time, symptoms, severity or a percentage. There is no total, mean, highest topic, clinical cutoff or risk band.",
+              "zh": "每个主题保留四条独立标签，六类计数合计四条。标识不是点数，计数指所选描述，不是事件、时间、症状、严重程度或比例；没有总分、均分、最高主题、临床切点或风险档。"
+            },
+            {
+              "en": "One often, one sometimes and two unscored remain those four choices. No opportunity, unclear recall and withholding do not become did not notice. An entirely unscored topic provides no finding. Frequent labels cannot establish a condition; fewer labels cannot exclude a concern or determine support needs.",
+              "zh": "一条较常、一条有时、两条未计分，就保持四个选择。无机会、回忆不清与保留回答不变成没有注意到。全未计分不提供发现；频繁不确定疾病，较少不排除担忧或决定支持需要。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A fictional example without a causal conclusion",
+            "zh": "虚构例子，不下原因结论"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional adult who feels unsettled after an ordinary reminder and later takes an available pause. They may still feel unsettled on returning. Both observations can remain without declaring the pause effective or ineffective. Another day with no matching opportunity can simply stay unscored.",
+              "zh": "设想一位虚构成年人因普通提醒感到不安，后来使用了可用的暂停；回来时可能仍然不安。两条观察都可保留，不宣布暂停有效或无效。另一天没有匹配机会，就可以保持未计分。"
+            },
+            {
+              "en": "The example is not an expected answer or a task to reproduce. A later difference may reflect opportunities, interpretation or what you felt able to recall. It does not measure recovery, deterioration, treatment response or an improvement in a relationship.",
+              "zh": "例子不是期待答案或要重做的任务。后来差异可能反映机会、理解或愿意回想的内容，不测恢复、恶化、治疗反应或关系改善。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Keep original observations and other forms distinct",
+            "zh": "区分原创观察与其他题本"
+          },
+          "paragraphs": [
+            {
+              "en": "These eight bilingual descriptions and two overlapping editorial topics are original and unvalidated, not the International Trauma Questionnaire or a clinical short form. The four-week window is editorial. No exposure criterion, diagnosis, repeated-event requirement, norms or established language equivalence is supplied.",
+              "zh": "八条双语描述与两个可重叠编辑主题均为未经验证的原创，不是国际创伤问卷或临床短版。四周范围是编辑选择，不提供暴露标准、诊断、反复事件要求、常模或已建立的语言等值。"
+            },
+            {
+              "en": "The separate trauma-response reflection retains its original twenty descriptions and four full guides. The separate self-criticism questionnaire retains its twenty-two statements, three parts and its own general setback instructions without a fixed recall window. They are not converted into these eight observations or combined into a complex-PTSD score.",
+              "zh": "独立提醒反应回顾保留原有20条描述与四篇全文；独立自我批评问卷保留22条陈述、三部分及其无固定回忆期的一般挫折说明。它们不转成这里的八条观察，也不合成复杂性PTSD分数。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "One optional question about a real situation",
+            "zh": "关于真实情境的一个可选问题"
+          },
+          "paragraphs": [
+            {
+              "en": "If reflection feels useful, you can privately distinguish what was noticed, what space was available and what you wanted next. No detailed event narrative, exposure exercise, body check or attempt to suppress a feeling is required. You can stop when recollection feels unwelcome.",
+              "zh": "若反思有用，可以私下分清注意到什么、有什么空间及接下来想要什么。无需详细事件叙述、暴露练习、身体检查或压下感受；不想回忆时可以停止。"
+            },
+            {
+              "en": "Keep any reflection small and voluntary, with existing care and useful support intact. A category does not prescribe a technique or prove that a practical choice is effective. It is reasonable to read the guide without attempting an exercise or making any change.",
+              "zh": "反思可保持小幅、自愿，保留既有照护与有用支持。类别不规定技巧，也不证明实际选择有效。只读指南、不尝试练习或作改变，同样合理。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support, stopping and privacy",
+            "zh": "支持、停止与隐私"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask a qualified professional for help with distress or everyday participation without a diagnosis, a high count or proof of a past event. This page cannot decide medical need or urgency and should not delay care or change treatment. If immediate danger is present or you cannot stay safe, seek appropriate local emergency assistance rather than continuing.",
+              "zh": "可以就困扰或日常参与向合格专业人士求助，无需诊断、高计数或过去事件的证明。本页不决定医疗需要或紧急程度，不应用来推迟照护或改变治疗。有即时危险或无法保障安全时，应寻求当地合适的紧急援助而非继续。"
+            },
+            {
+              "en": "All descriptions can stay unscored and all full guides remain public. Answers stay only in current-page memory, with no draft storage, submission, questionnaire analytics or personal result address. Exit, reload, leaving and retake clear them. Copying includes only the public title and entry, never a private count or history.",
+              "zh": "可让所有描述保持未计分，全部全文仍然公开。回答只在当前页面内存，不存草稿、不提交、不作问卷分析、没有个人结果地址。退出、刷新、离页和重做会清除；复制只含公开标题与入口，不含私人计数或历史。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "closeness-and-boundaries-reading",
+      "directionIds": [
+        "closeness-and-boundaries"
+      ],
+      "title": {
+        "en": "Closeness and boundaries — Complete Reflection Guide",
+        "zh": "亲近与边界：完整反思指南"
+      },
+      "headline": {
+        "en": "Closeness and boundaries — Complete Reflection Guide",
+        "zh": "亲近与边界：完整反思指南"
+      },
+      "summary": {
+        "en": "The four descriptions concern wanting contact while not feeling at ease, withholding a support request, asking for a slower exchange and uncertainty after a disagreement. They concern your own experience rather than an assessment of another person. Neither closeness nor distance is assigned a preferred value.",
+        "zh": "四条描述涉及想接触却不自在、没有提出支持请求、请求放慢交流及分歧后的不确定。它们关注自身体验，不评估另一个人；亲近与距离都不被指定为理想值。"
+      },
+      "scoreReading": {
+        "en": "Four descriptions retain six label counts without a clinical score, causal verdict or risk category.",
+        "zh": "四条描述保留六类标签计数，不生成临床分数、原因裁决或风险类别。"
+      },
+      "seo": {
+        "title": {
+          "en": "Closeness and boundaries — Complete Reflection Guide",
+          "zh": "亲近与边界：完整反思指南"
+        },
+        "description": {
+          "en": "The four descriptions concern wanting contact while not feeling at ease, withholding a support request, asking for a slower exchange and uncertainty after a disagreement. They concern your own experience rather than an assessment of another person. Neither closeness nor distance is assigned a preferred value.",
+          "zh": "四条描述涉及想接触却不自在、没有提出支持请求、请求放慢交流及分歧后的不确定。它们关注自身体验，不评估另一个人；亲近与距离都不被指定为理想值。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Wanting connection and wanting space can coexist",
+            "zh": "想要联系与想要空间，可以并存"
+          },
+          "paragraphs": [
+            {
+              "en": "The four descriptions concern wanting contact while not feeling at ease, withholding a support request, asking for a slower exchange and uncertainty after a disagreement. They concern your own experience rather than an assessment of another person. Neither closeness nor distance is assigned a preferred value.",
+              "zh": "四条描述涉及想接触却不自在、没有提出支持请求、请求放慢交流及分歧后的不确定。它们关注自身体验，不评估另一个人；亲近与距离都不被指定为理想值。"
+            },
+            {
+              "en": "An uneasy feeling cannot prove that another person is unsafe or that a relationship is damaged. Feeling at ease cannot certify safety either. The page does not assess trustworthiness, attachment style, abuse, personality or whether you should stay in a relationship. Practical boundaries do not require a questionnaire verdict.",
+              "zh": "不自在不能证明对方不安全或关系已受损，自在也不认证安全。页面不评可信度、依恋类型、虐待、人格或是否应留在关系里。实际边界不需要问卷裁决。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Four selections, six separate counts",
+            "zh": "四条选择，六类计数"
+          },
+          "paragraphs": [
+            {
+              "en": "Each topic retains four individual labels and six counts adding to four. IDs are not points. Counts refer to selected descriptions, not incidents, time, symptoms, severity or a percentage. There is no total, mean, highest topic, clinical cutoff or risk band.",
+              "zh": "每个主题保留四条独立标签，六类计数合计四条。标识不是点数，计数指所选描述，不是事件、时间、症状、严重程度或比例；没有总分、均分、最高主题、临床切点或风险档。"
+            },
+            {
+              "en": "One often, one sometimes and two unscored remain those four choices. No opportunity, unclear recall and withholding do not become did not notice. An entirely unscored topic provides no finding. Frequent labels cannot establish a condition; fewer labels cannot exclude a concern or determine support needs.",
+              "zh": "一条较常、一条有时、两条未计分，就保持四个选择。无机会、回忆不清与保留回答不变成没有注意到。全未计分不提供发现；频繁不确定疾病，较少不排除担忧或决定支持需要。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A fictional example without a causal conclusion",
+            "zh": "虚构例子，不下原因结论"
+          },
+          "paragraphs": [
+            {
+              "en": "A fictional adult wants to speak to a familiar person but asks to pause an ordinary exchange. They can want contact and more room at the same time. A later disagreement may feel uncertain without proving that the relationship changed. No count can settle what the other person meant.",
+              "zh": "一位虚构成年人想和熟悉的人说话，又在普通交流中请求暂停。想接触与需要空间可以同时存在。后来对分歧的不确定，不证明关系改变；计数也不能确定对方的意思。"
+            },
+            {
+              "en": "The example is not an expected answer or a task to reproduce. A later difference may reflect opportunities, interpretation or what you felt able to recall. It does not measure recovery, deterioration, treatment response or an improvement in a relationship.",
+              "zh": "例子不是期待答案或要重做的任务。后来差异可能反映机会、理解或愿意回想的内容，不测恢复、恶化、治疗反应或关系改善。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Keep original observations and other forms distinct",
+            "zh": "区分原创观察与其他题本"
+          },
+          "paragraphs": [
+            {
+              "en": "These eight bilingual descriptions and two overlapping editorial topics are original and unvalidated, not the International Trauma Questionnaire or a clinical short form. The four-week window is editorial. No exposure criterion, diagnosis, repeated-event requirement, norms or established language equivalence is supplied.",
+              "zh": "八条双语描述与两个可重叠编辑主题均为未经验证的原创，不是国际创伤问卷或临床短版。四周范围是编辑选择，不提供暴露标准、诊断、反复事件要求、常模或已建立的语言等值。"
+            },
+            {
+              "en": "The separate trauma-response reflection retains its original twenty descriptions and four full guides. The separate self-criticism questionnaire retains its twenty-two statements, three parts and its own general setback instructions without a fixed recall window. They are not converted into these eight observations or combined into a complex-PTSD score.",
+              "zh": "独立提醒反应回顾保留原有20条描述与四篇全文；独立自我批评问卷保留22条陈述、三部分及其无固定回忆期的一般挫折说明。它们不转成这里的八条观察，也不合成复杂性PTSD分数。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "One optional question about a real situation",
+            "zh": "关于真实情境的一个可选问题"
+          },
+          "paragraphs": [
+            {
+              "en": "You may consider what made an existing exchange easier or harder to participate in, without contacting somebody for a test, demanding reassurance or disclosing a private history. Keep safety and consent in view. This guide does not instruct you to trust more, disclose more, confront somebody or remove a boundary.",
+              "zh": "可以想一段已有交流中什么让参与更容易或更难，无需联系人做测试、要求保证或披露私人历史。保留安全与同意；本指南不要求更多信任、披露、对质或撤掉边界。"
+            },
+            {
+              "en": "Keep any reflection small and voluntary, with existing care and useful support intact. A category does not prescribe a technique or prove that a practical choice is effective. It is reasonable to read the guide without attempting an exercise or making any change.",
+              "zh": "反思可保持小幅、自愿，保留既有照护与有用支持。类别不规定技巧，也不证明实际选择有效。只读指南、不尝试练习或作改变，同样合理。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support, stopping and privacy",
+            "zh": "支持、停止与隐私"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask a qualified professional for help with distress or everyday participation without a diagnosis, a high count or proof of a past event. This page cannot decide medical need or urgency and should not delay care or change treatment. If immediate danger is present or you cannot stay safe, seek appropriate local emergency assistance rather than continuing.",
+              "zh": "可以就困扰或日常参与向合格专业人士求助，无需诊断、高计数或过去事件的证明。本页不决定医疗需要或紧急程度，不应用来推迟照护或改变治疗。有即时危险或无法保障安全时，应寻求当地合适的紧急援助而非继续。"
+            },
+            {
+              "en": "All descriptions can stay unscored and all full guides remain public. Answers stay only in current-page memory, with no draft storage, submission, questionnaire analytics or personal result address. Exit, reload, leaving and retake clear them. Copying includes only the public title and entry, never a private count or history.",
+              "zh": "可让所有描述保持未计分，全部全文仍然公开。回答只在当前页面内存，不存草稿、不提交、不作问卷分析、没有个人结果地址。退出、刷新、离页和重做会清除；复制只含公开标题与入口，不含私人计数或历史。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "Two topics, alongside separate established entries",
+        "zh": "两个主题，与独立既有入口并列"
+      },
+      "paragraphs": [
+        {
+          "en": "This original supplement adds concrete recent situations rather than reauthoring the existing trauma-response and self-criticism banks. Their full public guides remain available with their own methods. No answers transfer and no combined clinical profile is created.",
+          "zh": "本原创补充增加具体近期情境，不重写已有提醒反应与自我批评题库。它们的完整公开指南按自身方法保留；不转移回答，也不生成联合临床档案。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Can these pages identify complex PTSD?",
+        "zh": "这些页面能识别复杂性PTSD吗？"
+      },
+      "answer": {
+        "en": "No. Neither the eight descriptions nor a combination with separate resources diagnoses PTSD or complex PTSD. They cannot establish exposure, developmental history, clinical criteria or a cause. Professional assessment is a different process.",
+        "zh": "不能。八条描述及与独立资源的组合，都不诊断PTSD或复杂性PTSD，不能确定暴露、发展史、临床标准或原因。专业评估是另一过程。"
+      }
+    },
+    {
+      "question": {
+        "en": "Must I prove prolonged or repeated harm?",
+        "zh": "必须证明长期或反复伤害吗？"
+      },
+      "answer": {
+        "en": "No. You do not need to prove an event, its duration or its frequency to read the guides or ask for support. This page uses no trauma-history gate and makes no diagnostic distinction between single and repeated events.",
+        "zh": "不必。阅读或求助无需证明事件、时长或次数。本页没有创伤历史门槛，也不据单次或反复事件作诊断区分。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "VA National Center for PTSD: complex PTSD definitions — background only",
+        "zh": "VA国家PTSD中心：复杂性PTSD定义，仅作背景"
+      },
+      "url": "https://www.ptsd.va.gov/professional/treat/essentials/complex_ptsd.asp"
+    },
+    {
+      "title": {
+        "en": "NIMH: coping with traumatic events — support background only",
+        "zh": "NIMH：应对创伤事件，仅作支持背景"
+      },
+      "url": "https://www.nimh.nih.gov/health/topics/coping-with-traumatic-events"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_feelings_connection_observations",
+    "formCode": "fm_feelings_connection8_observations_v1",
+    "itemBankVersion": "original8_bilingual_two_by_four_recent_observations_v1",
+    "scoringVersion": "six_label_counts_per_four_no_trauma_diagnosis_or_combination_v1",
+    "resultContentVersion": "two_full_bilingual_feelings_connection_guides_v1",
+    "itemBankSha256": "84693b124725696ac69045ad3956b77524feea4544ad262216779c83a04f544b",
+    "resultContentSha256": "ef879c00419102f5c1d7514fbe0460d65751c7ac78d724ab9bbf737dfac56533",
+    "psychometricValidationCompleted": false
+  }
+}
