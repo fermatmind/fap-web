@@ -92,11 +92,17 @@ test("@release original observations: hydration gates the start button until del
   let release!: () => void;
   const chunks = new Promise<void>(resolve => { release = resolve; });
   let delayed = 0;
+  // Slow styles can hold back the streamed content reveal before hydration.
+  // Keep JavaScript paused while exercising that independently delayed reveal.
+  await page.route("**/_next/static/**/*.css", async route => {
+    await new Promise(resolve => setTimeout(resolve, 6000));
+    await route.continue();
+  });
   await page.route("**/_next/static/**/*.js", async route => { delayed++; await chunks; await route.continue(); });
   try {
     await page.goto(path("en"), { waitUntil: "commit" });
     const start = page.getByRole("button", { name: "Begin original observations", exact: true });
-    await expect(start).toBeVisible(); await expect.poll(() => delayed).toBeGreaterThan(0);
+    await expect(start).toBeVisible({ timeout: 30000 }); await expect.poll(() => delayed).toBeGreaterThan(0);
     await expect(start).toBeDisabled();
     release();
     await page.waitForLoadState("load");
