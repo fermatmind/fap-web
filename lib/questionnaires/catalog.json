@@ -6878,5 +6878,30 @@
       "minggu-kliwon"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "sudden-fear-reflection",
+    "code": "FM_SUDDEN_FEAR20_OBSERVATIONS",
+    "version": "fm_sudden_fear20_observations_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Sudden Fear: Personal Reflection",
+      "zh": "突然强烈恐惧：个人回顾"
+    },
+    "description": {
+      "en": "Recall sudden fear, sensations and thoughts, anticipation and changes to plans with 20 original adult descriptions. Four full public guides and private category records; no PDSS score, diagnosis or medical reassurance.",
+      "zh": "用20条成年人原创描述回顾突然恐惧、感觉与想法、预先担心及计划变化。四篇全文公开，类别记录留在本页；不生成PDSS分数、诊断或医学安心保证。"
+    },
+    "minutes": 5,
+    "formCode": "fm_sudden_fear20_observations_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "sudden-waves-reading",
+      "sensations-and-thoughts-reading",
+      "worry-about-returning-reading",
+      "changes-to-plans-reading"
+    ],
+    "collection": "explore"
   }
 ]

@@ -1,0 +1,1964 @@
+{
+  "slug": "sudden-fear-reflection",
+  "code": "FM_SUDDEN_FEAR20_OBSERVATIONS",
+  "version": "fm_sudden_fear20_observations_v1",
+  "kind": "sudden-fear20",
+  "title": {
+    "en": "Sudden Fear: Personal Reflection",
+    "zh": "突然强烈恐惧：个人回顾"
+  },
+  "directions": [
+    {
+      "id": "sudden-waves",
+      "title": {
+        "en": "Sudden waves of strong fear",
+        "zh": "突然出现的强烈恐惧"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "sensations-and-thoughts",
+      "title": {
+        "en": "Sensations and thoughts during fear",
+        "zh": "恐惧时的感觉与想法"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "worry-about-returning",
+      "title": {
+        "en": "Worry about another wave",
+        "zh": "担心再次出现时"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "changes-to-plans",
+      "title": {
+        "en": "Changes to plans and participation",
+        "zh": "计划与参与的变化"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "SFR_01",
+      "prompt": {
+        "en": "I experienced a sudden rise in strong fear or discomfort that felt distinct from the moment just before.",
+        "zh": "我经历了突然增强的强烈恐惧或不适，与前一刻的感受明显不同。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "sudden-waves"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "sudden-waves"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "sudden-waves"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "sudden-waves"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "sudden-waves"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SFR_02",
+      "prompt": {
+        "en": "A strong wave of fear seemed to arrive before I could make sense of what was happening.",
+        "zh": "还没弄清正在发生什么时，一阵强烈恐惧似乎已经出现。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "sudden-waves"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "sudden-waves"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "sudden-waves"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "sudden-waves"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "sudden-waves"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SFR_03",
+      "prompt": {
+        "en": "During an ordinary moment, I noticed fear becoming intense within a short span.",
+        "zh": "一个普通时刻里，我注意到恐惧在很短一段时间内变得强烈。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "sudden-waves"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "sudden-waves"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "sudden-waves"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "sudden-waves"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "sudden-waves"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SFR_04",
+      "prompt": {
+        "en": "I felt startled by how abruptly a period of strong unease began.",
+        "zh": "一段强烈不安开始得很突然，让我感到惊讶。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "sudden-waves"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "sudden-waves"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "sudden-waves"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "sudden-waves"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "sudden-waves"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SFR_05",
+      "prompt": {
+        "en": "A sudden period of intense fear interrupted what I had been doing.",
+        "zh": "一阵突然的强烈恐惧打断了我正在做的事。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "sudden-waves"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "sudden-waves"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "sudden-waves"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "sudden-waves"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "sudden-waves"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SFR_06",
+      "prompt": {
+        "en": "Alongside a surge of fear, I became aware of my heart beating in a way that frightened me.",
+        "zh": "强烈恐惧出现时，我也注意到令自己害怕的心跳感觉。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "sensations-and-thoughts"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "sensations-and-thoughts"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "sensations-and-thoughts"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "sensations-and-thoughts"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "sensations-and-thoughts"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SFR_07",
+      "prompt": {
+        "en": "During strong fear, breathing felt uncomfortable to me.",
+        "zh": "感到强烈恐惧时，我觉得呼吸不舒服。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "sensations-and-thoughts"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "sensations-and-thoughts"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "sensations-and-thoughts"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "sensations-and-thoughts"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "sensations-and-thoughts"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SFR_08",
+      "prompt": {
+        "en": "While feeling suddenly afraid, I also felt unsteady or light-headed.",
+        "zh": "突然害怕时，我同时感到不稳或头晕。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "sensations-and-thoughts"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "sensations-and-thoughts"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "sensations-and-thoughts"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "sensations-and-thoughts"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "sensations-and-thoughts"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SFR_09",
+      "prompt": {
+        "en": "During a wave of fear, I worried that I was losing control of what was happening.",
+        "zh": "一阵恐惧中，我担心自己正在失去对当下情况的控制。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "sensations-and-thoughts"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "sensations-and-thoughts"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "sensations-and-thoughts"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "sensations-and-thoughts"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "sensations-and-thoughts"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SFR_10",
+      "prompt": {
+        "en": "In a sudden period of fear, a frightening thought about immediate harm held my attention.",
+        "zh": "突然的恐惧中，关于眼前可能受伤害的可怕想法占据了我的注意。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "sensations-and-thoughts"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "sensations-and-thoughts"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "sensations-and-thoughts"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "sensations-and-thoughts"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "sensations-and-thoughts"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SFR_11",
+      "prompt": {
+        "en": "Between periods of strong fear, I wondered when another might happen.",
+        "zh": "两段强烈恐惧之间，我想到下一次可能何时出现。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "worry-about-returning"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "worry-about-returning"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "worry-about-returning"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "worry-about-returning"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "worry-about-returning"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SFR_12",
+      "prompt": {
+        "en": "Remembering a sudden fearful period made me worry about experiencing it again.",
+        "zh": "想起一次突然害怕的经历时，我担心再次经历。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "worry-about-returning"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "worry-about-returning"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "worry-about-returning"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "worry-about-returning"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "worry-about-returning"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SFR_13",
+      "prompt": {
+        "en": "Before an ordinary activity, I worried that strong fear might interrupt it.",
+        "zh": "一项普通活动之前，我担心强烈恐惧会打断活动。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "worry-about-returning"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "worry-about-returning"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "worry-about-returning"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "worry-about-returning"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "worry-about-returning"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SFR_14",
+      "prompt": {
+        "en": "I found myself planning what I would do if another wave of fear happened.",
+        "zh": "我发现自己在考虑，如果再出现一阵恐惧，该怎么办。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "worry-about-returning"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "worry-about-returning"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "worry-about-returning"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "worry-about-returning"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "worry-about-returning"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SFR_15",
+      "prompt": {
+        "en": "A worry about renewed strong fear made it harder to focus on an unrelated activity.",
+        "zh": "担心强烈恐惧再次出现时，我更难注意另一项无关活动。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "worry-about-returning"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "worry-about-returning"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "worry-about-returning"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "worry-about-returning"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "worry-about-returning"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SFR_16",
+      "prompt": {
+        "en": "Because I worried about another wave of fear, I changed a plan I had wanted to follow.",
+        "zh": "因为担心再出现一阵恐惧，我改变了原本想实行的计划。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "changes-to-plans"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "changes-to-plans"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "changes-to-plans"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "changes-to-plans"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "changes-to-plans"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SFR_17",
+      "prompt": {
+        "en": "I hesitated to return to a setting where I had previously felt suddenly afraid.",
+        "zh": "对于回到曾突然害怕的环境，我感到犹豫。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "changes-to-plans"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "changes-to-plans"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "changes-to-plans"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "changes-to-plans"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "changes-to-plans"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SFR_18",
+      "prompt": {
+        "en": "I considered leaving an activity earlier because I was worried about strong fear returning.",
+        "zh": "因为担心强烈恐惧再次出现，我考虑提前离开一项活动。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "changes-to-plans"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "changes-to-plans"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "changes-to-plans"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "changes-to-plans"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "changes-to-plans"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SFR_19",
+      "prompt": {
+        "en": "I wanted company for an activity because I was concerned about experiencing strong fear again.",
+        "zh": "因为担心再次感到强烈恐惧，我希望有人陪同参加活动。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "changes-to-plans"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "changes-to-plans"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "changes-to-plans"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "changes-to-plans"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "changes-to-plans"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SFR_20",
+      "prompt": {
+        "en": "I decided not to take part in an activity because I worried about another sudden wave of fear.",
+        "zh": "因为担心再次出现突然的恐惧，我决定不参加一项活动。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "changes-to-plans"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "changes-to-plans"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "changes-to-plans"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "changes-to-plans"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "changes-to-plans"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "updated": "2026-10-30",
+  "category": "framework",
+  "minutes": 5,
+  "seoTitle": {
+    "en": "Sudden Fear Reflection: 20 Original Observations | FermatMind",
+    "zh": "突然强烈恐惧回顾：20条原创观察与完整指南｜费马测试"
+  },
+  "description": {
+    "en": "Recall sudden fear, sensations and thoughts, anticipation and changes to plans with 20 original adult descriptions. Four full public guides and private category records; no PDSS score, diagnosis or medical reassurance.",
+    "zh": "用20条成年人原创描述回顾突然恐惧、感觉与想法、预先担心及计划变化。四篇全文公开，类别记录留在本页；不生成PDSS分数、诊断或医学安心保证。"
+  },
+  "introduction": {
+    "en": "Four overlapping reading topics describe remembered experience without identifying a panic attack or panic disorder. The page cannot rule out a medical cause, decide a sensation is harmless or only anxiety, assess care urgency or replace existing professional advice.",
+    "zh": "四个可能重叠的阅读主题描述记得的经历，不识别惊恐发作或惊恐障碍。页面不能排除医学原因、判断感觉无害或只是焦虑、评估照护紧急程度，也不替代已有专业意见。"
+  },
+  "instructions": {
+    "en": "Recall the past four weeks; worry during that period can concern an earlier experience. Do not provoke sensations, check your body, control breathing or return to a feared setting to answer. Choose how often you noticed each description. No relevant experience, unclear recall or withholding can stay unscored, separate from did not notice. IDs are labels, not points or counts of attacks. Pause or leave whenever you want. Do not use a record to postpone assessment, wait for symptoms to pass or change care.",
+    "zh": "回顾过去四周；期间的担心可以涉及更早经历。不用为答题引出感觉、检查身体、控制呼吸或返回害怕场景。选择多常注意到每条；没有相关经历、回想不清或保留回答可未计分，与没有注意到分开。标识是标签，不是点数，也不算发作次数。可随时暂停或离开，不用记录推迟评估、等待症状过去或改变照护。"
+  },
+  "resultHeading": {
+    "en": "Your four separate sudden-fear observation records",
+    "zh": "四个分别阅读的突然恐惧观察记录"
+  },
+  "profiles": [
+    {
+      "id": "sudden-waves-reading",
+      "directionIds": [
+        "sudden-waves"
+      ],
+      "title": {
+        "en": "Sudden waves of strong fear — Complete Reading",
+        "zh": "突然出现的强烈恐惧：完整读法"
+      },
+      "headline": {
+        "en": "Sudden waves of strong fear — Complete Reading",
+        "zh": "突然出现的强烈恐惧：完整读法"
+      },
+      "summary": {
+        "en": "Describe a remembered sudden change without naming an attack, predicting recurrence or deciding that physical symptoms were harmless.",
+        "zh": "描述记得的突然变化，不命名发作、不预测再发，也不判断身体症状无害。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to five original descriptions, with individual labels retained. IDs are not points. There is no total, mean, rank, risk, diagnosis or medical verdict; counts do not measure attacks, duration, severity or recurrence probability.",
+        "zh": "六类计数合计五条原创描述，并保留逐条标签。标识不是点数，没有总分、均值、排名、风险、诊断或医学结论；计数不测发作、时长、严重程度或再发概率。"
+      },
+      "seo": {
+        "title": {
+          "en": "Sudden waves of strong fear: Full Sudden Fear Guide | FermatMind",
+          "zh": "突然出现的强烈恐惧：突然恐惧完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Describe a remembered sudden change without naming an attack, predicting recurrence or deciding that physical symptoms were harmless.",
+          "zh": "描述记得的突然变化，不命名发作、不预测再发，也不判断身体症状无害。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Describe a remembered change without naming an attack",
+            "zh": "描述记得的变化，不替发作命名"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme contains five original observations about a sudden rise in strong fear or discomfort, feeling unable to make sense of the moment before fear arrived, a rapid change in an ordinary setting, being startled by an abrupt beginning and an interruption to an activity. Adults can recall the past four weeks if they want to. These are descriptions of remembered experience, not criteria for identifying a panic attack, a measure of panic frequency or a diagnosis of panic disorder.",
+              "zh": "本主题五条原创观察描述强烈恐惧或不适突然增强、还没弄清情况恐惧就出现、普通场景里的快速变化、对突然开始感到惊讶，以及活动被打断。成年人可自愿回顾过去四周。这只是记得的经历，不是识别惊恐发作的标准、不测惊恐频率，也不诊断惊恐障碍。"
+            },
+            {
+              "en": "The page cannot tell what caused a fearful period, whether danger was present or whether a physical condition needs assessment. It has no examination or health history. Calling the topic sudden fear does not establish that a bodily experience was anxiety, a false alarm or harmless. It also does not confirm a medical condition. A single concern can deserve an appropriate professional question without a category record deciding which explanation is correct or how urgently it should be assessed.",
+              "zh": "页面不能说明恐惧时段的原因、是否存在危险，或身体状况是否需要评估，也没有检查或病史。把主题叫突然恐惧，不证明身体经历属于焦虑、误报或无害，也不确认疾病。单项担忧也可以值得向专业人士询问，无需类别记录决定哪种解释正确或评估多紧急。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Five observations are not a count of episodes",
+            "zh": "五条观察，不是发作次数"
+          },
+          "paragraphs": [
+            {
+              "en": "Each statement receives did not notice, rarely, sometimes, often, very often or unscored. The six counts add to five descriptions, with each selected label retained. They do not count attacks, days, minutes or separate events. For example, two often, one sometimes and two unscored remains that exact pattern rather than becoming three attacks or a severity level. IDs are labels rather than points, and there is no total, mean, highest theme, clinical cutoff or comparison with other people.",
+              "zh": "每条选择没有注意到、很少、有时、较常、经常或未计分。六类计数合计五条描述，并保留逐条标签，不算发作、天数、分钟或不同事件。两条较常、一条有时、两条未计分，就保持该组合，不变成三次发作或严重程度。标识不是点数，没有总分、均值、最高主题、临床界值或与别人比较。"
+            },
+            {
+              "en": "No relevant experience, unclear recall and withholding an answer remain unscored rather than becoming absence. An entirely unscored theme provides no personal finding about sudden fear or physical health. Did not notice is also confined to one description and the period recalled. Neither response can reassure you that a current experience is safe or that no support is needed. All four full guides and support information remain public before answering and unchanged for every possible selection pattern.",
+              "zh": "没有相关经历、回想不清和保留回答保持未计分，不变成没有发生。全未计分不提供突然恐惧或身体健康的个人发现。没有注意到，也只限一条和回顾时段。两者都不能保证眼前经历安全或无需支持。四篇全文和支持说明在答题前公开，任何组合下均相同。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "The same description can leave different questions open",
+            "zh": "同一描述，可以留下不同问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person remembering an abrupt fearful moment during an ordinary activity. Another remembers strong fear in circumstances they do not want to describe. Both might recognise an interruption, without having the same cause, physical experience or need for support. The questionnaire cannot compare their circumstances or establish that either fear was unprovoked. These examples are illustrations of the limits of a category, not invitations to recreate the moment, look for a trigger or disclose a private event.",
+              "zh": "设想一个人记得普通活动中的突然害怕，另一个人记得不想描述的背景下强烈恐惧。两者可能都认出活动被打断，却不必有相同原因、身体经历或支持需要。问卷不能比较背景，也不证明恐惧没有诱因。例子只说明类别的限制，不邀请重现时刻、寻找诱因或披露私人事件。"
+            },
+            {
+              "en": "You may remember a sharp change clearly while being unsure about its sequence or duration. This page requests no reconstruction, clock reading or account of what happened to your body. You can leave a description unscored when it does not fit or when recall is uncertain. A broad selection should not be treated as a measured peak, an exact beginning or evidence that a clinical definition has been met. You do not need a precise account to read the information.",
+              "zh": "可能清楚记得突然变化，却不确定顺序或时长。本页不要求重建、看钟或叙述身体发生什么。不适用或回想不清时可以未计分。宽泛选择不应当作测得的峰值、准确起点或已符合临床定义的证据；阅读资料无需精确叙述。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Recollection does not require recreating a sensation",
+            "zh": "回忆，不要求重现感觉"
+          },
+          "paragraphs": [
+            {
+              "en": "None of the observations asks you to provoke a bodily feeling, change your breathing, exercise to create sensations or return to a setting that feels unsafe. There is no exposure task or instruction to remain with distress until it changes. If recalling the descriptions becomes burdensome, you may pause or leave. Completion is needed only for this page to organise a private record, not for access to the guides, support information or an appropriate healthcare conversation.",
+              "zh": "没有观察要求引出身体感觉、改变呼吸、运动制造感觉，或回到觉得不安全的场景。不安排接触练习，也不要求留在难受中等待改变。回忆变得负担时可暂停或离开。完成只关系到本页整理私人记录，不关系到阅读指南、支持说明或合适医疗谈话。"
+            },
+            {
+              "en": "The other topics describe sensations and thoughts, worry about another wave, and changes to plans. They can overlap and are not established independent dimensions. Worry in the past four weeks might concern an experience from earlier, so its selections need not match the sudden-wave record. The four counts do not establish a progression, predict recurrence or identify the cause of another topic. No highest category tells you which experience to address first or what treatment would suit you.",
+              "zh": "其他主题描述感觉与想法、担心再次出现，以及计划变化；可能重叠，尚非已建立独立维度。过去四周的担忧可能涉及更早经历，所以不必与突然恐惧记录一致。四项记录不建立发展顺序、不预测复发，也不确定另一主题的原因。最高类别不决定先处理什么或哪种治疗适合。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "A clinical assessment asks broader questions",
+            "zh": "临床评估，会问更广的问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Public health sources distinguish an episode of panic from a diagnosis of panic disorder and describe broader assessment that can include physical health. They do not validate these original observations or allow this page to identify what happened to you. The exercise administers no Panic Disorder Severity Scale or diagnostic criteria. It sets no requirement to experience repeated waves or wait a month before asking about support. A diagnostic duration described elsewhere is not a waiting rule for this reflection.",
+              "zh": "公共健康资料区分一次惊恐与惊恐障碍诊断，并介绍可能包含身体健康的更广评估；不验证原创观察，也不授权本页识别你发生了什么。练习不施测惊恐障碍严重程度量表或诊断标准，不要求反复出现或等一个月再询问支持。别处的诊断时长不是本回顾的等待规则。"
+            },
+            {
+              "en": "If you want to ask a qualified healthcare professional about a remembered experience, one opening could be “I had a sudden period of strong fear and would like help understanding it.” You can ask what an assessment involves and which information is useful before deciding what to share. The page cannot evaluate symptoms, choose a treatment, judge previous care or decide that more tests are required. No count authorises changing medicine, cancelling care or altering professional monitoring instructions.",
+              "zh": "愿意向合格医疗专业人士询问时，可以说：“我有过一段突然的强烈恐惧，想得到帮助理解。”可以先问评估怎样进行、哪些信息有用，再决定分享什么。页面不评估症状、不选择治疗、不判断既往照护，也不决定需更多检查；计数不授权改药、取消照护或改变专业监测指示。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support is available without a pattern to prove",
+            "zh": "无需证明某种模式，也能询问支持"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask about a physical concern, sudden fear or the worry around it without finishing this exercise or reaching a minimum count. The page cannot assess the need or urgency of healthcare or replace existing professional advice. Do not use the record to postpone an assessment or wait for an experience to pass. If you are in immediate danger or cannot stay safe, seek local emergency assistance rather than continuing to answer. The page cannot observe you or respond to an emergency.",
+              "zh": "身体担忧、突然恐惧或周围担心，都可以询问，无需完成练习或达到最低计数。页面不评估医疗需要、紧急程度，也不替代已有专业意见。不要用记录推迟评估或等待经历过去。若有即时危险或无法保障安全，请寻求当地紧急援助，而非继续回答；页面不能观察你或响应紧急事件。"
+            },
+            {
+              "en": "A small count, a did-not-notice selection or an all-unscored record does not establish that a physical symptom is harmless or psychological. Support information remains unconditional on the entry and every complete guide, rather than appearing only for a high-frequency record. You do not need to provide the website with symptom details, a diagnosis or a medical history. You can choose an appropriate professional conversation without letting the questionnaire decide whether your experience counts as a panic attack or deserves attention.",
+              "zh": "计数小、没有注意到或全未计分，都不证明身体症状无害或属于心理原因。支持说明在入口和每篇全文无条件公开，不是高频记录才出现。不必给网站症状细节、诊断或病史。可以选择合适的专业谈话，不让问卷决定经历算不算惊恐发作或是否值得关注。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep a description separate from a forecast",
+            "zh": "描述，与预测分开"
+          },
+          "paragraphs": [
+            {
+              "en": "The original observations have no established norms, clinical threshold or demonstrated English–Chinese measurement equivalence. Comparing a later record cannot measure recovery, deterioration, attack probability or treatment response; circumstances, recall and interpretation can change. There is no bodily-alarm type, nervous-system state or judgment about resilience. You may keep one useful phrase and leave the rest. A remembered interruption can be worth discussing without a result defining your health, the danger present or how capable you are of managing fear.",
+              "zh": "原创观察尚无常模、临床阈值或验证中英文测量等值。比较之后记录不测恢复、恶化、发作概率或治疗反应，背景、回忆和理解可能变化。不分身体警报类型、神经系统状态，也不评价韧性。可以只留一句有用表述。记得的中断可以值得讨论，无需结果定义健康、危险或应对恐惧的能力。"
+            },
+            {
+              "en": "Answers stay only in current-page memory, with no saved draft, submission, questionnaire analytics or personal result address. Exit, retake, reload and leaving clear the record. Copying the public entry shares only its title and address. All four complete guides are the same public reading for everyone. You can read without answering, stop partway, keep an account private or ask a professional question without first obtaining a category pattern or a verdict from the page.",
+              "zh": "回答只留在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新或离页会清除。复制公开入口只含标题及地址。四篇全文对所有人相同。不答题阅读、中途停止、保留隐私或向专业人士提问，都无需先得到某种类别组合或页面结论。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sensations-and-thoughts-reading",
+      "directionIds": [
+        "sensations-and-thoughts"
+      ],
+      "title": {
+        "en": "Sensations and thoughts during fear — Complete Reading",
+        "zh": "恐惧时的感觉与想法：完整读法"
+      },
+      "headline": {
+        "en": "Sensations and thoughts during fear — Complete Reading",
+        "zh": "恐惧时的感觉与想法：完整读法"
+      },
+      "summary": {
+        "en": "Keep sensations and thoughts in context without establishing a medical cause, a false alarm or a physiological state.",
+        "zh": "把感觉与想法放回背景，不确定医学原因、误报或生理状态。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to five original descriptions, with individual labels retained. IDs are not points. There is no total, mean, rank, risk, diagnosis or medical verdict; counts do not measure attacks, duration, severity or recurrence probability.",
+        "zh": "六类计数合计五条原创描述，并保留逐条标签。标识不是点数，没有总分、均值、排名、风险、诊断或医学结论；计数不测发作、时长、严重程度或再发概率。"
+      },
+      "seo": {
+        "title": {
+          "en": "Sensations and thoughts during fear: Full Sudden Fear Guide | FermatMind",
+          "zh": "恐惧时的感觉与想法：突然恐惧完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Keep sensations and thoughts in context without establishing a medical cause, a false alarm or a physiological state.",
+          "zh": "把感觉与想法放回背景，不确定医学原因、误报或生理状态。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Remembered sensations are not a medical assessment",
+            "zh": "记得的感觉，不是医学评估"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme has five original observations about a frightening heartbeat feeling, uncomfortable breathing, unsteadiness or light-headedness, worry about losing control and a frightening thought about immediate harm during strong fear. Adults can consider the past four weeks from memory if they want to. The statements describe what was noticed alongside fear, without establishing what caused a bodily experience or which came first. They do not identify a panic attack, diagnose panic disorder or determine that a physical symptom is psychological.",
+              "zh": "本主题五条原创观察关注强烈恐惧时令自己害怕的心跳感觉、呼吸不适、不稳或头晕、担心失控，以及关于眼前可能受伤害的可怕想法。成年人可自愿凭回忆考虑过去四周。描述只问恐惧同时注意到什么，不确定身体经历原因或先后，不识别惊恐发作、不诊断惊恐障碍，也不判断身体症状属于心理原因。"
+            },
+            {
+              "en": "The page has no physical examination, health history or access to your current circumstances. It cannot rule out a medical condition, decide whether assessment is needed or urgent, or reassure you that a sensation is harmless. Fear and a physical concern can both deserve appropriate attention. Even a person with a previous diagnosis cannot use this category record to assess a new or changing experience. The record does not replace existing professional advice or make a medical decision for you.",
+              "zh": "页面没有身体检查、病史或当前背景，不能排除疾病、决定评估是否需要或紧急，也不能保证感觉无害。恐惧与身体问题都可以值得合适关注。即使已有诊断，也不能用类别记录评估新的或变化中的经历；记录不替代既有专业意见，也不替你作医疗决定。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Counts describe five statements, not symptom severity",
+            "zh": "计数描述五条陈述，不是症状严重程度"
+          },
+          "paragraphs": [
+            {
+              "en": "The available categories are did not notice, rarely, sometimes, often, very often and unscored. Six counts add to five descriptions, with the selected label for each statement retained. They do not measure pulse, breathing, balance, symptom intensity, duration or the probability of harm. One often, two sometimes and two unscored remains that particular record. IDs are not points, and there is no total, mean, symptom-load score, highest theme, risk band or diagnostic threshold.",
+              "zh": "可选没有注意到、很少、有时、较常、经常和未计分。六类计数合计五条，并保留逐条标签，不测脉搏、呼吸、平衡、症状强度、时长或受伤害概率。一条较常、两条有时、两条未计分，就保持具体记录。标识不是点数，没有总分、均值、症状负担分数、最高主题、风险档或诊断阈值。"
+            },
+            {
+              "en": "No relevant experience, unclear recall and withholding remain unscored rather than becoming absence. An entirely unscored theme offers no personal finding about sensations, thoughts or physical health. Did not notice is also restricted to one description and recollection period. Neither a small count nor any other selection pattern establishes that medical attention is unnecessary. All four full guides and support information are public before answering and remain available without a result unlocking a special tier.",
+              "zh": "没有相关经历、回想不清和保留回答保持未计分，不变成没有发生。全未计分不提供感觉、想法或身体健康的个人发现。没有注意到，也仅限一条与回顾时段。计数小或其他组合都不证明无需医学关注。四篇全文及支持说明答题前公开，不需要结果解锁额外档次。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "An account of fear does not settle what a feeling means",
+            "zh": "恐惧的叙述，不能确定感觉的意义"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person who remembers being frightened by a bodily feeling during a sudden period of fear. Another remembers a thought about losing control but is unsure what was happening physically. The page cannot infer a shared cause or compare the seriousness of their experiences. These examples are not reassurance that the sensations were caused by fear, and they do not tell you to recreate a feeling to check an explanation. They show what remains unknown after a short description.",
+              "zh": "设想一个人记得突然恐惧时被身体感觉吓到；另一个人记得担心失控，却不确定身体发生什么。页面不能推断共同原因或比较经历的严重程度。例子不保证感觉由恐惧造成，也不要求重现感觉来验证解释，只说明短描述之后仍有哪些未知。"
+            },
+            {
+              "en": "A frightening thought is an account of what came to mind, not confirmation that the feared event occurred or a forecast of what happens next. The questionnaire also cannot judge whether danger was actually present. You may keep the description broad, leave it unscored or decide not to continue. No details about a feared event, a symptom, another person or your medical history need to be entered. The guide does not ask you to defend the concern or prove it was unreasonable.",
+              "zh": "可怕想法只描述想到什么，不确认害怕事件已经发生，也不预测之后怎样。问卷同样不能判断危险是否真实存在。可以保留宽泛描述、未计分或停止，不必输入害怕事件、症状、他人或病史细节。指南不让你为担忧辩护，也不要求证明它不合理。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "No sensation-provocation or breathing exercise is assigned",
+            "zh": "不安排引出感觉或呼吸练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Answer only from recollection if you choose to answer. There is no instruction to check your pulse, inspect breathing, move your body to create a sensation or hold attention on discomfort. The page provides no breathing-control method, exposure protocol or test of how long you can tolerate fear. If considering the descriptions feels burdensome, you may pause or leave. Completion is relevant only to organising this page's private record, not to receiving information or asking about care.",
+              "zh": "选择答题时只凭回忆。不要求测脉搏、查看呼吸、用动作制造感觉或把注意留在不适上；不提供呼吸控制方法、接触方案或承受恐惧时长测试。考虑描述令人负担时可暂停或离开。完成只关系到本页整理私人记录，不关系到获得资料或询问照护。"
+            },
+            {
+              "en": "The other guides concern sudden waves, worry about another wave and changes to plans. These topics can overlap and are not validated independent dimensions. A sensation selection cannot explain another topic's count or establish a physiological state. No result assigns a nervous-system type, a false-alarm label or a sequence through which your body is meant to recover. The record does not tell you to remain in an unsafe setting, face a feared situation or continue an activity to prove that nothing is wrong.",
+              "zh": "其他指南关注突然恐惧、担心再来和计划变化，可能重叠，尚非验证独立维度。感觉选择不能解释另一主题的计数，也不建立生理状态。结果不分神经系统类型、不贴误报标签，也不规定身体该经过什么恢复顺序。不要求留在不安全环境、面对害怕情境，或继续活动证明没事。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "A professional conversation can consider more than a category",
+            "zh": "专业谈话，可以考虑类别之外的事"
+          },
+          "paragraphs": [
+            {
+              "en": "Public health information describes overlap between experiences associated with panic and symptoms of other conditions, and the role of broader professional assessment. It does not permit this original exercise to distinguish those conditions. This is not the Panic Disorder Severity Scale or a diagnostic interview. It sets no symptom count, number of episodes or elapsed month that you must reach before asking about support. A medical concern should not be postponed because the record is incomplete, unscored or infrequent.",
+              "zh": "公共健康资料介绍惊恐相关经历与其他状况症状的重叠，以及更广专业评估的作用，不授权原创练习区分疾病。它不是惊恐障碍严重程度量表或诊断访谈，不设置询问支持前必须达到的症状数、发作数或月份。不要因记录未完成、未计分或较少而推迟医学问题。"
+            },
+            {
+              "en": "If you choose to talk with a qualified healthcare professional, you could begin with “I had this physical experience during a period of strong fear, and I would like to understand what should be assessed.” That is an optional way to ask, not a diagnosis. You can ask which information is useful and how an appointment works. The page cannot judge previous care, decide that further tests are required or direct medicine changes, cancellation of care or changes to professional monitoring instructions.",
+              "zh": "愿意与合格医疗专业人士谈时，可以说：“强烈恐惧时我有过这项身体经历，想了解哪些需要评估。”这只是可选提问方式，不是诊断。可先问哪些信息有用、预约怎样进行。页面不评判既往照护、不决定需要进一步检查，也不指示改药、取消照护或改变专业监测安排。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Safety and support do not wait for the record",
+            "zh": "安全与支持，不等记录完成"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask about a physical concern, a frightening thought or sudden fear without completing this exercise or reaching a minimum category count. The page cannot assess the need or urgency of care or replace existing advice. Do not use its categories to wait for a sensation to pass or to decide an experience is only anxiety. If you are in immediate danger or cannot stay safe, seek local emergency assistance instead of continuing. This page cannot observe you or provide an emergency response.",
+              "zh": "身体问题、可怕想法或突然恐惧都可以询问，不用完成练习或达到最低类别计数。页面不评估照护需要或紧急程度，也不替代已有意见。不要用类别决定等待感觉过去，或判断经历只是焦虑。若有即时危险或无法保障安全，请寻求当地紧急援助，而非继续；页面不观察你、不作紧急响应。"
+            },
+            {
+              "en": "An all-unscored record does not remove those boundaries, and a frequent selection does not prove a disorder. The same support information is public on the entry, every guide and every response pattern. You may choose not to share an account with another reader or to keep the entire exercise private. A healthcare conversation does not require you to produce this questionnaire, disclose answers to the website or accept a label from a set of original descriptions.",
+              "zh": "全未计分不取消这些边界，选择频繁也不证明疾病。相同支持说明在入口、每篇指南与任何组合下公开。可以不向别的读者分享，或把整个练习保密。医疗谈话不要求出示问卷、向网站披露回答，或接受原创描述分配的标签。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "A description is not proof of a cause or recovery",
+            "zh": "描述，不证明原因或恢复"
+          },
+          "paragraphs": [
+            {
+              "en": "The original bilingual observations have no established norms, clinical cutoff or demonstrated English–Chinese measurement equivalence. A later difference cannot measure recovery, deterioration, medical risk or treatment response because recall, interpretation and circumstances may change. They do not establish the probability of another fearful period or the meaning of a physical sensation. One useful phrase may be enough to begin a conversation, without treating the whole record as evidence that a medical or psychological explanation has been confirmed.",
+              "zh": "原创双语观察尚无常模、临床界值或验证中英文测量等值。后来不同不测恢复、恶化、医学风险或治疗反应，回忆、理解和背景可能变化。不建立再次恐惧的概率或身体感觉意义。一句有用表述即可开始谈话，不把整份记录当成医学或心理解释已获确认的证据。"
+            },
+            {
+              "en": "Answers stay only in current-page memory, with no stored draft, submission, questionnaire analytics or personal result address. Exit, retake, reload and leaving clear the private record. Copying the public entry shares its title and address only. All four complete guides are the same public text for everyone. You can read without answering, stop partway or ask a professional question without letting the page provide reassurance about a symptom, assign a diagnosis or decide which concern deserves care.",
+              "zh": "回答只留在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新或离页会清除私人记录。复制公开入口只含标题及地址。四篇全文对所有人相同。不答题阅读、中途停止或向专业人士提问，都不让页面保证症状无害、分配诊断或决定哪项担忧值得照护。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "worry-about-returning-reading",
+      "directionIds": [
+        "worry-about-returning"
+      ],
+      "title": {
+        "en": "Worry about another wave — Complete Reading",
+        "zh": "担心再次出现时：完整读法"
+      },
+      "headline": {
+        "en": "Worry about another wave — Complete Reading",
+        "zh": "担心再次出现时：完整读法"
+      },
+      "summary": {
+        "en": "Notice anticipation without treating a thought as a forecast or making duration a requirement for support.",
+        "zh": "留意预先担心，不把想法当预测，也不以时长设置支持门槛。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to five original descriptions, with individual labels retained. IDs are not points. There is no total, mean, rank, risk, diagnosis or medical verdict; counts do not measure attacks, duration, severity or recurrence probability.",
+        "zh": "六类计数合计五条原创描述，并保留逐条标签。标识不是点数，没有总分、均值、排名、风险、诊断或医学结论；计数不测发作、时长、严重程度或再发概率。"
+      },
+      "seo": {
+        "title": {
+          "en": "Worry about another wave: Full Sudden Fear Guide | FermatMind",
+          "zh": "担心再次出现时：突然恐惧完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Notice anticipation without treating a thought as a forecast or making duration a requirement for support.",
+          "zh": "留意预先担心，不把想法当预测，也不以时长设置支持门槛。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Notice anticipation without predicting another wave",
+            "zh": "留意再次发生的担心，不预测下一次"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme contains five original observations about worrying between periods of strong fear, thinking about an earlier frightening experience, anticipating fear during an upcoming activity, considering what to do if it returns and finding that worry draws attention away from something else. Adults can recall the past four weeks. The experience being remembered may have happened earlier. The descriptions do not establish that another wave is likely, measure the chance of recurrence or identify panic disorder from the presence of worry.",
+              "zh": "本主题五条原创观察关注强烈恐惧时段之间的担心、想到更早的可怕经历、预想即将进行的活动中可能害怕、考虑若再来该怎么办，以及担心使注意离开其他事情。成年人可回顾过去四周，被想起的经历可能发生得更早。描述不证明下一次很可能出现、不测再次发生概率，也不凭担心识别惊恐障碍。"
+            },
+            {
+              "en": "A person might recognise anticipation while leaving all descriptions of sudden waves unscored for the current period. That is not an inconsistency to fix. Someone else may remember strong fear without much anticipation afterward. The page cannot infer what either pattern means medically or compare their needs. Worry about recurrence is a topic for reflection, not evidence that a feared event will happen, that the person is causing it or that a physical concern has already been explained.",
+              "zh": "有人可能认出预先担心，却把当前时段的突然恐惧全部留为未计分，这不需要修正。也有人记得强烈恐惧，之后却很少预先担心。页面不能推断医学意义或比较需要。再次发生的担心只是回顾主题，不证明害怕的事会发生、不说明是本人造成，也不表示身体问题已有解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Read five category labels without turning them into risk",
+            "zh": "读五条类别标签，不转为风险"
+          },
+          "paragraphs": [
+            {
+              "en": "For each statement, choose did not notice, rarely, sometimes, often, very often or unscored. The six category counts sum to five descriptions and preserve each selected label. They do not count episodes, anxious hours or days spent worrying. Two often, one rarely and two unscored stays that specific combination. IDs are labels rather than points. There is no total, mean, highest theme, recurrence-risk band, clinical threshold or comparison with how other people are expected to respond after fear.",
+              "zh": "每条可选没有注意到、很少、有时、较常、经常或未计分。六类计数合计五条，并保留逐条标签，不算发作、焦虑小时或担心天数。两条较常、一条很少、两条未计分就保持该组合。标识是标签，不是点数；没有总分、均值、最高主题、再发风险档、临床阈值，也不与别人面对恐惧的预期反应比较。"
+            },
+            {
+              "en": "Use unscored when there is no relevant experience, recall is unclear or you prefer not to answer. It remains separate from did not notice. An entirely unscored theme makes no personal finding about anticipation or health; a small count cannot confirm that support is unnecessary. Conversely, several frequent labels do not diagnose a disorder or make a prediction. Every full guide and the same support information are available before answering, after any category pattern and without completing a private record.",
+              "zh": "没有相关经历、回想不清或不愿回答时用未计分，与没有注意到分开。全未计分不提供预先担心或健康的个人发现；计数少不确认无需支持。几条频繁标签同样不诊断疾病或作预测。每篇全文和相同支持说明在答题前、任何类别组合后，以及未完成私人记录时都可阅读。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Separate a remembered concern from a forecast",
+            "zh": "把记得的担心与预测分开"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person who remembers worrying about feeling frightened during a journey. They may recognise anticipation without knowing what caused an earlier bodily experience. Another person may be considering a meeting after an experience they do not want to describe. Neither example establishes that the next journey or meeting is dangerous, safe or a suitable exposure exercise. The examples illustrate questions left open by a brief category record, rather than asking you to take a trip or attend an event.",
+              "zh": "设想有人记得担心旅途中害怕，却不知道较早身体经历的原因；另一个人在不想描述的经历之后考虑参加会议。例子都不证明下一次旅程或会议危险、安全，或适合作接触练习，只说明简短类别记录之后仍有哪些未知，不要求你出行或参加活动。"
+            },
+            {
+              "en": "You can recognise a thought such as “what if it happens again?” without accepting it as a forecast or having to prove it wrong. The page does not test the accuracy of your concern, ask you to argue with it or require a detailed account of an event. It also cannot determine whether an actual threat exists. You may keep recollection broad, leave a statement unscored or stop. A thought can be described without the questionnaire settling the circumstances around it.",
+              "zh": "可以认出“如果又发生怎么办”的想法，而不把它当预测，也不必证明它错误。页面不测试担心是否准确、不要求争辩或详细叙述事件，也不能判断是否确有威胁。可以宽泛回顾、留为未计分或停止。描述想法，不要求问卷确定周围背景。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Planning is not automatically a problem to remove",
+            "zh": "作打算，不自动成为需要消除的问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Considering what you might do if fear returns can cover very different situations. A practical question, a response to professional advice and repeated worry may all be described with similar everyday words. This page does not classify a plan as healthy or unhealthy, judge a precaution as excessive or tell you to remove a source of support. It cannot decide whether a companion, an exit route, an appointment or a safety arrangement is needed in your particular circumstances.",
+              "zh": "考虑若恐惧再次出现该怎么办，可能涉及很不相同的情况。实际问题、遵循专业意见和反复担心，都可能用相近日常词描述。页面不把打算分健康或不健康、不判断预防是否过多，也不让你移除支持，不能决定你的背景是否需要陪伴、出口、预约或安全安排。"
+            },
+            {
+              "en": "The exercise assigns no exposure, breathing-control practice, body-checking task or test of whether you can stay in a feared setting. It does not ask you to cancel a plan or force yourself to continue one. The other topics can overlap with anticipation and are not established independent dimensions. A change in one topic cannot explain another count or demonstrate progress. Use the record, if useful, as a few words about experience rather than a programme for changing behaviour.",
+              "zh": "练习不安排接触、呼吸控制、身体检查任务，也不测试能否留在害怕场景。不要求取消计划或强迫继续。其他主题可与预先担心重叠，尚非已建立独立维度；一项变化不能解释另一计数或证明进步。若有帮助，把记录当作描述经历的几句话，而非改变行为的方案。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Ask about the concern without adopting a diagnosis",
+            "zh": "询问担忧，不必接受诊断标签"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to speak with a qualified healthcare professional, an opening might be “Since a frightening experience, I have been worrying about it happening again.” You can ask what an assessment would involve and decide what details you want to share. This original reflection is not the Panic Disorder Severity Scale or a diagnostic interview. A professional conversation can consider physical health and wider circumstances that the website does not know, including information unrelated to the five descriptions.",
+              "zh": "愿意与合格医疗专业人士谈时，可以说：“一次可怕经历之后，我一直担心又发生。”可以先问评估怎样进行，再决定分享什么。原创回顾不是惊恐障碍严重程度量表或诊断访谈。专业谈话可以考虑网站不知道的身体健康与更广背景，包括五条描述之外的信息。"
+            },
+            {
+              "en": "Public clinical information distinguishes panic episodes from panic disorder, but its diagnostic duration is not a waiting requirement here. You do not need to worry for a month, experience repeated waves or produce a completed record before asking about support. The page cannot assess a bodily symptom or reassure you that it is only anxiety. No category pattern authorises medicine changes, cancelling care, altering monitoring instructions or postponing an assessment until worry reaches a particular frequency.",
+              "zh": "公共临床资料区分惊恐经历与惊恐障碍，但诊断时长不是此处的等待要求。不必担心满一个月、反复出现或完成记录才询问支持。页面不评估身体症状，也不保证只是焦虑。任何类别组合都不授权改药、取消照护、改变监测指示，或等担心达到某个频率才评估。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not depend on how often you anticipated fear",
+            "zh": "支持，不取决于预先担心的频率"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask about anticipation, an earlier frightening period or a physical concern without proving a pattern. The page cannot decide the need or urgency of healthcare or replace existing professional advice. Do not use the record to wait for symptoms to pass or to decide that danger is absent. If you are in immediate danger or cannot stay safe, seek local emergency assistance instead of continuing to answer. The website cannot observe your condition or respond to an emergency.",
+              "zh": "可以询问预先担心、更早的可怕时段或身体问题，无需证明某种模式。页面不能决定医疗需要或紧急程度，也不替代已有专业意见。不要用记录等待症状过去或判断没有危险。若有即时危险或无法保障安全，请寻求当地紧急援助，而非继续回答；网站不能观察你的状况或响应紧急事件。"
+            },
+            {
+              "en": "The same support information appears on the entry, every full guide and every response pattern, including all unscored. Reading it does not require disclosing a diagnosis, a medical history, an event or an answer to this website. You may also leave without choosing a label for what happened. A small count is not medical reassurance, and a frequent selection does not establish a disorder. The questionnaire does not decide whose concern is important enough to discuss with a professional.",
+              "zh": "相同支持说明在入口、每篇全文和任何回答组合中公开，包括全未计分。阅读不必向网站披露诊断、病史、事件或回答，也可不为经历命名就离开。计数少不是医学保证，选择频繁不建立疾病。问卷不决定谁的担忧重要到足以与专业人士谈。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "A changing record cannot measure recovery or recurrence",
+            "zh": "记录变化，不能测恢复或再发"
+          },
+          "paragraphs": [
+            {
+              "en": "These original observations have no established norms, validated clinical threshold or demonstrated English–Chinese measurement equivalence. A different record later can reflect recall, interpretation or circumstances and cannot measure recovery, deterioration or treatment response. It cannot estimate another wave's probability or establish that a plan prevented one. There is no score to improve or required monitoring schedule. You may keep one useful phrase without repeatedly completing the exercise or treating category changes as evidence about the state of your health.",
+              "zh": "原创观察尚无常模、验证临床阈值或中英文测量等值。后来记录不同，可能反映回忆、理解或背景，不能测恢复、恶化、治疗反应、再发概率，或证明某项打算预防了一次经历。没有要提高的分数或指定监测日程。可以只留一句有用表述，无需反复完成或把类别变化当作健康证据。"
+            },
+            {
+              "en": "Answers remain in current-page memory only, with no stored draft, submission, questionnaire analytics or personal result address. Exit, retake, reload and leaving clear the private record. Copying the public entry shares only its title and address. The four complete guides are identical public reading for every response pattern. You can read without answering, stop midway or ask a professional question without first resolving the worry, naming an attack or obtaining a forecast from the page.",
+              "zh": "回答只在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新或离页会清除。复制公开入口只含标题及地址。四篇全文对所有组合相同。不答题阅读、中途停止或向专业人士提问，都无需先解决担心、命名发作或取得页面预测。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "changes-to-plans-reading",
+      "directionIds": [
+        "changes-to-plans"
+      ],
+      "title": {
+        "en": "Changes to plans and participation — Complete Reading",
+        "zh": "计划与参与的变化：完整读法"
+      },
+      "headline": {
+        "en": "Changes to plans and participation — Complete Reading",
+        "zh": "计划与参与的变化：完整读法"
+      },
+      "summary": {
+        "en": "Describe changed plans without judging precautions, assigning exposure or deciding whether a setting is safe.",
+        "zh": "描述计划变化，不评判预防、不安排接触，也不决定场景安全。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to five original descriptions, with individual labels retained. IDs are not points. There is no total, mean, rank, risk, diagnosis or medical verdict; counts do not measure attacks, duration, severity or recurrence probability.",
+        "zh": "六类计数合计五条原创描述，并保留逐条标签。标识不是点数，没有总分、均值、排名、风险、诊断或医学结论；计数不测发作、时长、严重程度或再发概率。"
+      },
+      "seo": {
+        "title": {
+          "en": "Changes to plans and participation: Full Sudden Fear Guide | FermatMind",
+          "zh": "计划与参与的变化：突然恐惧完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Describe changed plans without judging precautions, assigning exposure or deciding whether a setting is safe.",
+          "zh": "描述计划变化，不评判预防、不安排接触，也不决定场景安全。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Describe a choice without judging the person",
+            "zh": "描述选择，不评价当事人"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme has five original observations about changing a wanted plan, hesitating to return to a setting, considering leaving an activity early, wanting someone to accompany you and not participating because you feared another period of strong fear. Adults can recall the past four weeks. These descriptions concern remembered choices and hesitations, without establishing why an environment felt difficult or whether a different choice would have been appropriate. They do not diagnose avoidance, panic disorder or an inability to manage everyday life.",
+              "zh": "本主题五条原创观察关注改动原本想做的计划、犹豫是否回到某场景、考虑提前离开活动、希望有人陪同，以及因害怕再次强烈恐惧而未参加。成年人可回顾过去四周。描述涉及记得的选择和犹豫，不确定环境为何困难或另一选择是否合适，不诊断回避、惊恐障碍或无法应付日常生活。"
+            },
+            {
+              "en": "The page cannot know whether a situation involved a real threat, a physical concern, accessibility needs, practical limits or existing professional advice. A category selection cannot establish that leaving was unnecessary, accompaniment was excessive or attending would have been safe. The same choice can have very different meanings in different circumstances. You do not need to defend a precaution or prove that fear was reasonable. The exercise offers words for recollection rather than instructions about where you should go next.",
+              "zh": "页面不知道场景是否涉及真实威胁、身体问题、无障碍需要、实际限制或已有专业意见。类别选择不证明离开没有必要、陪同过多或参加安全；相同选择在不同背景可有不同意义。不必为预防辩护或证明害怕合理。练习提供回顾用语，不指示下一步该去哪里。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Five descriptions are not a measure of functioning",
+            "zh": "五条描述，不是功能测量"
+          },
+          "paragraphs": [
+            {
+              "en": "Each statement uses did not notice, rarely, sometimes, often, very often or unscored. The six category counts add to five descriptions and retain the selected label for each one. They do not count cancelled events, missed workdays, lost opportunities or successful outings. One often, two sometimes and two unscored remains that combination rather than a percentage of functioning. IDs are not points, and there is no total, mean, highest theme, avoidance severity band or clinical cutoff.",
+              "zh": "每条用没有注意到、很少、有时、较常、经常或未计分。六类计数合计五条，并保留逐条标签，不算取消活动、缺勤天数、错过机会或成功外出次数。一条较常、两条有时、两条未计分就保持该组合，不变成功能百分比。标识不是点数，没有总分、均值、最高主题、回避严重程度档或临床界值。"
+            },
+            {
+              "en": "No relevant experience, unclear recall and withholding remain unscored rather than becoming absence. A person with fewer relevant activities may have fewer descriptions to consider, but this page cannot adjust counts into a comparison with another person. An entirely unscored record provides no personal finding about participation or health. Did not notice does not prove that an activity is safe. All full guides and support information remain available before answering, for every combination and without completing the private record.",
+              "zh": "没有相关经历、回想不清和保留回答保持未计分，不变成没有发生。相关活动少的人可能可回顾描述更少，但页面不能据此校正计数来与别人比较。全未计分不提供参与或健康的个人发现。没有注意到不证明活动安全。全文及支持说明在答题前、任何组合下及未完成记录时均可阅读。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Similar choices can leave different needs open",
+            "zh": "相似选择，可以留下不同需要"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person who wanted company for a journey after a frightening experience. Another considered leaving a meeting early because they worried about feeling strong fear again. The category record cannot decide whether either person needed company, an assessment, a practical adjustment or something else. These examples do not recommend travelling alone or staying in the meeting. They illustrate that a short statement leaves the reasons, surrounding circumstances and possible support needs open rather than settling them with a label.",
+              "zh": "设想有人在可怕经历后希望旅途有陪伴，另一个人因担心再度强烈恐惧而考虑提前离开会议。类别记录不能决定他们是否需要陪伴、评估、实际调整或其他支持。例子不建议独自出行或留在会议，只说明简短陈述仍留下原因、周围背景与可能支持需要，不能用标签确定。"
+            },
+            {
+              "en": "Changing a plan can involve more than one consideration, and you do not need to separate every motive before answering. Use unscored if the description does not fit or if you prefer not to consider it. The page asks for no location, route, workplace, companion's name or event narrative. You can leave the details private. A selection does not establish that fear was the only reason for a choice or that a different decision would have improved the situation.",
+              "zh": "改变计划可涉及多项考虑，不必分清每个动机再回答。不适用或不愿考虑时可未计分。页面不问地点、路线、工作单位、陪伴者姓名或事件叙述，可以保密。选择不证明恐惧是唯一原因，也不证明另一决定会改善情况。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "No return-to-setting or forced-participation task",
+            "zh": "不安排返回场景或强迫参与"
+          },
+          "paragraphs": [
+            {
+              "en": "There is no instruction to revisit a feared place, remain with discomfort, remove a companion or continue an activity to demonstrate that you can. The page does not provide an exposure protocol, breathing-control method or test of resilience. It also does not advise cancelling an activity because of a category pattern. Recollection requires no behavioural experiment. If considering the descriptions feels burdensome, you may pause or leave without completing them or obtaining a record to justify that decision.",
+              "zh": "不要求重回害怕地点、留在不适中、移除陪伴或继续活动证明能力。页面不提供接触方案、呼吸控制方法或韧性测试，也不建议因类别组合取消活动。回顾不需要行为实验。考虑描述令人负担时可暂停或离开，无需完成或取得记录来证明决定合理。"
+            },
+            {
+              "en": "The other topics concern sudden waves, sensations and thoughts, and worry about another wave. They can overlap and are not validated independent dimensions. A plan change cannot establish what caused a physical sensation, and anticipation need not match the number of sudden-wave descriptions recognised this month. No count orders the topics into stages or tells you which one to change first. You can use a phrase that fits without accepting a programme for increasing attendance, reducing precautions or changing care.",
+              "zh": "其他主题关注突然恐惧、感觉与想法、担心再次出现，可能重叠，尚非验证独立维度。计划变化不能确定身体感觉原因，预先担心也不必与本月认出的突然恐惧描述数一致。计数不排列阶段或决定先改变哪项。可以用合适表述，无需接受增加出席、减少预防或改变照护的方案。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Discuss participation in the context of your circumstances",
+            "zh": "把参与放在你的背景中讨论"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to ask a qualified healthcare professional about the experience, one opening could be “I have changed some plans because I am worried about feeling strong fear again.” You can ask what an assessment involves and which information would be useful. The conversation can consider physical health, the situation itself and practical needs beyond the questionnaire. This original exercise does not administer the Panic Disorder Severity Scale, assess disability, establish a diagnosis or determine what treatment is suitable.",
+              "zh": "愿意向合格医疗专业人士询问时，可以说：“因为担心再次强烈恐惧，我改变了一些计划。”可以先问评估怎样进行、哪些信息有用。谈话可考虑身体健康、场景本身和问卷以外的实际需要。原创练习不施测惊恐障碍严重程度量表、不评估残障、不建立诊断，也不决定适合的治疗。"
+            },
+            {
+              "en": "Public health information describes broader assessment and distinguishes a panic episode from panic disorder. It does not validate this record or make a month of worry, repeated episodes or a particular level of disruption a requirement for asking about care. The page cannot reassure you that symptoms are harmless or only anxiety. No selection authorises changing medicine, cancelling care, changing professional monitoring instructions or waiting for another disrupted plan before asking about a physical concern or support.",
+              "zh": "公共健康资料介绍更广评估，并区分一次惊恐与惊恐障碍，不验证本记录，也不把担心满一个月、反复出现或达到某种受影响程度当作询问照护的要求。页面不能保证症状无害或只是焦虑。任何选择都不授权改药、取消照护、改变专业监测指示，或等再打乱一个计划才询问身体问题与支持。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support is not conditional on lost activities",
+            "zh": "支持，不以失去活动为条件"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask about strong fear, a physical concern or a practical difficulty without proving that enough activities were affected. The page cannot assess healthcare urgency, decide that a situation is safe or replace existing professional advice. Do not use its record to postpone an assessment or wait for an experience to pass. If you are in immediate danger or cannot stay safe, seek local emergency assistance instead of continuing. This website cannot observe your circumstances or provide an emergency response.",
+              "zh": "可以询问强烈恐惧、身体问题或实际困难，不必证明有足够活动受影响。页面不评估医疗紧急程度、不决定场景安全，也不替代已有专业意见。不要用记录推迟评估或等待经历过去。若有即时危险或无法保障安全，请寻求当地紧急援助，而非继续；网站不能观察背景或提供紧急响应。"
+            },
+            {
+              "en": "The same support information is public on the entry, in every full guide and after every response pattern, including all unscored. You do not need to disclose an event, diagnosis or medical history to this website to read it. A low count does not prove that everything is manageable, and a frequent label does not establish a disorder. A private concern can be worth discussing even when no plan changed and no description on this page captures what mattered to you.",
+              "zh": "相同支持说明在入口、每篇全文及任何回答组合后公开，包括全未计分。阅读不必向网站披露事件、诊断或病史。计数低不证明一切可应付，频繁标签不建立疾病。即使计划没有变化、没有描述捕捉到你在意什么，私人担忧仍可以值得讨论。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep choices separate from a judgment about recovery",
+            "zh": "把选择与恢复评价分开"
+          },
+          "paragraphs": [
+            {
+              "en": "These original bilingual descriptions have no established norms, validated clinical threshold or demonstrated English–Chinese measurement equivalence. A later change cannot measure recovery, deterioration or treatment response because circumstances, opportunities, interpretation and recall may change. More participation does not by itself establish improved health, and less participation does not by itself establish worsening. There is no score to improve, attendance target or required monitoring schedule. You may keep one useful phrase while leaving the rest of the record behind.",
+              "zh": "原创双语描述尚无常模、验证临床阈值或中英文测量等值。后来变化不能测恢复、恶化或治疗反应，背景、机会、理解和回忆都可能改变。参与更多本身不证明健康改善，更少本身也不证明恶化。没有要提高的分数、出席目标或规定监测日程。可以只留一句有用表述，把其余记录放下。"
+            },
+            {
+              "en": "Answers stay in current-page memory only, with no stored draft, submission, questionnaire analytics or personal result address. Exit, retake, reload and leaving clear the record. Copying the public entry shares only its title and address. All four complete guides are identical public reading for everyone. You can read without answering, stop midway, keep a plan private or ask a professional question without this page deciding whether you should attend, leave, seek company or change any care arrangement.",
+              "zh": "回答只在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新或离页会清除记录。复制公开入口只含标题及地址。四篇全文对所有人相同。不答题阅读、中途停止、保密计划或向专业人士提问，都不让页面决定应参加、离开、寻求陪伴或改变照护安排。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "Four records of five descriptions",
+        "zh": "四组各五条描述的记录"
+      },
+      "paragraphs": [
+        {
+          "en": "Each original topic contains five observations. Six counts preserve did not notice, rarely, sometimes, often, very often and unscored, alongside individual selections. Counts concern descriptions rather than attacks, days or minutes. IDs are labels, not points; there is no total, mean, highest topic, severity band or prediction.",
+          "zh": "每个原创主题五条，六类计数保留没有注意到、很少、有时、较常、经常和未计分，并展示逐条选择。计数算描述，不是发作、天数或分钟。标识是标签，不是点数；没有总分、均值、最高主题、严重程度档或预测。"
+        },
+        {
+          "en": "No relevant experience, unclear recall and withholding remain unscored, separate from did not notice. An entirely unscored record gives no personal finding or reassurance about health. The topics may overlap and are not validated independent dimensions. Anticipation this month may concern an earlier experience and need not match current sudden-wave descriptions.",
+          "zh": "没有相关经历、回想不清和保留回答保持未计分，与没有注意到分开。全未计分不提供个人发现或健康保证。主题可能重叠，尚非验证独立维度。本月预先担心可能涉及更早经历，不必与当前突然恐惧描述一致。"
+        }
+      ]
+    },
+    {
+      "id": "care",
+      "title": {
+        "en": "A reflection cannot assess a physical symptom",
+        "zh": "回顾不能评估身体症状"
+      },
+      "paragraphs": [
+        {
+          "en": "These original adult observations are not the Panic Disorder Severity Scale, diagnostic criteria or a physical examination. They have no established norms, clinical cutoff or demonstrated English–Chinese measurement equivalence. The page cannot identify a panic attack or disorder, exclude a medical condition, label an experience a false alarm or say it was harmless or only anxiety.",
+          "zh": "成年人原创观察不是惊恐障碍严重程度量表、诊断标准或身体检查，尚无常模、临床界值或验证中英文测量等值。页面不识别惊恐发作或障碍、不排除疾病、不把经历标为误报，也不保证无害或只是焦虑。"
+        },
+        {
+          "en": "You can ask a qualified healthcare professional about strong fear or a physical concern without completing the exercise, repeated episodes or a month of worry. Do not use the record to postpone assessment, wait for symptoms to pass, cancel care, change medicine or alter professional monitoring instructions. It cannot assess care urgency or replace existing advice. If you are in immediate danger or cannot stay safe, seek local emergency assistance rather than continuing.",
+          "zh": "强烈恐惧或身体问题可向合格医疗专业人士询问，无需完成、反复出现或担心满一个月。不用记录推迟评估、等待症状过去、取消照护、改药或改变专业监测指示。页面不评估紧急程度，也不替代已有意见。若有即时危险或无法保障安全，请寻求当地紧急援助，而非继续。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Recollection only, full public reading",
+        "zh": "只凭回忆，完整公开读法"
+      },
+      "paragraphs": [
+        {
+          "en": "No sensation-provocation, body-checking, breathing-control, exposure or return-to-setting task is assigned. Answers remain only in current-page memory, with no draft storage, submission, questionnaire analytics or personal result address. Exit, retake, reload and leaving clear the record. Copying the public entry shares only its title and address.",
+          "zh": "不安排引出感觉、检查身体、控制呼吸、接触或返回场景任务。回答只在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新或离页会清除，复制公开入口只含标题及地址。"
+        },
+        {
+          "en": "All four complete bilingual guides and support information are public before answers and after every pattern, including all unscored. You can stop, withhold or seek appropriate support without finishing. The page cannot observe you, arrange care or provide an emergency response; a category record does not decide which concern deserves attention.",
+          "zh": "四篇双语全文和支持说明答题前及任何组合后均公开，包括全部未计分。可以停止、保留回答或不完成就寻求合适支持。页面不观察你、不安排照护，也不提供紧急响应；类别记录不决定哪项担忧值得关注。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this PDSS or a panic-disorder diagnosis?",
+        "zh": "这是PDSS或惊恐障碍诊断吗？"
+      },
+      "answer": {
+        "en": "No. These are 20 original observations, not PDSS items or clinical criteria. Topic similarity does not establish item or measurement equivalence.",
+        "zh": "不是。这是20条原创观察，不是PDSS题目或临床标准；主题相似不建立题目或测量等值。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can the record identify a panic attack or exclude a medical cause?",
+        "zh": "记录能识别惊恐发作或排除医学原因吗？"
+      },
+      "answer": {
+        "en": "No. It cannot assess symptoms, determine a cause, establish that a sensation is harmless or only anxiety, or decide care urgency.",
+        "zh": "不能。它不评估症状、不确定原因、不证明感觉无害或只是焦虑，也不决定照护紧急程度。"
+      }
+    },
+    {
+      "question": {
+        "en": "Must I wait for repeated episodes or a month of worry?",
+        "zh": "必须等反复出现或担心满一个月吗？"
+      },
+      "answer": {
+        "en": "No. No count, duration or completed record is required to ask about support or a physical concern. Do not use the record to postpone assessment or wait for symptoms to pass.",
+        "zh": "不必。询问支持或身体问题无需计数、时长或完成记录。不要用记录推迟评估或等待症状过去。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does the page assign breathing or exposure practice?",
+        "zh": "页面安排呼吸或接触练习吗？"
+      },
+      "answer": {
+        "en": "No. Answer only from recollection. It assigns no sensation-provocation, body-checking, breathing-control, exposure or return-to-setting task.",
+        "zh": "不安排。只凭回忆，不安排引出感觉、检查身体、呼吸控制、接触或返回场景任务。"
+      }
+    },
+    {
+      "question": {
+        "en": "Should I change a plan or care because of a count?",
+        "zh": "应该因计数改变计划或照护吗？"
+      },
+      "answer": {
+        "en": "The record does not judge whether to attend, leave or seek company. Do not use it to cancel care, change medicine or alter professional monitoring instructions.",
+        "zh": "记录不判断该参加、离开还是寻求陪伴；不要用它取消照护、改药或改变专业监测指示。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I read every guide without answering?",
+        "zh": "不答题能读全部指南吗？"
+      },
+      "answer": {
+        "en": "Yes. Four complete guides and unconditional support information remain public with every pattern, including all unscored.",
+        "zh": "可以。四篇全文和无条件支持说明对任何组合公开，包括全部未计分。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "NIMH: Panic Disorder — broader assessment background",
+        "zh": "NIMH：惊恐障碍——更广评估背景"
+      },
+      "url": "https://www.nimh.nih.gov/health/publications/panic-disorder-when-fear-overwhelms"
+    },
+    {
+      "title": {
+        "en": "NHS: Panic disorder — overlapping symptoms and assessment",
+        "zh": "NHS：惊恐障碍——症状重叠与评估"
+      },
+      "url": "https://www.nhs.uk/mental-health/conditions/panic-disorder/"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_sudden_fear_observations",
+    "formCode": "fm_sudden_fear20_observations_v1",
+    "itemBankVersion": "original20_bilingual_four_by_five_v1",
+    "scoringVersion": "six_categorical_counts_per_five_no_medical_verdict_v1",
+    "resultContentVersion": "four_full_bilingual_sudden_fear_readings_v1",
+    "itemBankSha256": "1dc1c8bab34ccf64531ec706eb14e739b618cd0b086c8aa61c4bee02498a1c7b",
+    "resultContentSha256": "461d251a35839912dbd85241b08eca0c3a7c44616f8c0ba571c13978857ef230",
+    "psychometricValidationCompleted": false
+  }
+}

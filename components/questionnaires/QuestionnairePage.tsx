@@ -5,6 +5,8 @@ import { isBpi21ConfigurationValid } from "@/lib/questionnaires/bpi21";
 import { ConnectionMeaningClient } from "./ConnectionMeaningClient";
 import { BodyFrameObservationsClient } from "./BodyFrameObservationsClient";
 import { ConnectionIdealsClient } from "./ConnectionIdealsClient";
+import { isSuddenFear20ConfigurationValid } from "@/lib/questionnaires/suddenFear20";
+import { SuddenFearPage } from "./SuddenFearPage";
 import { isHealthWorry21ConfigurationValid } from "@/lib/questionnaires/healthWorry21";
 import { HealthWorryPage } from "./HealthWorryPage";
 import { isSleepExperiences20ConfigurationValid } from "@/lib/questionnaires/sleepExperiences20";
@@ -145,6 +147,7 @@ type Props = { params: Promise<{ locale: string; slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug } = await params, locale = resolveLocale(input);
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "sudden-fear20" && !isSuddenFear20ConfigurationValid(quiz)) return { title: "Sudden-fear reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "health-worries21" && !isHealthWorry21ConfigurationValid(quiz)) return { title: "Health-worry reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "sleep-experiences20" && !isSleepExperiences20ConfigurationValid(quiz)) return { title: "Sleep reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "bereavement16" && !isBereavement16ConfigurationValid(quiz)) return { title: "Bereavement reflection unavailable", robots: { index: false, follow: false } };
@@ -184,6 +187,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function QuestionnairePage({ params }: Props) {
   const { locale: input, slug } = await params, locale = resolveLocale(input), zh = locale === "zh";
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "sudden-fear20") {
+    if (!isSuddenFear20ConfigurationValid(quiz)) notFound();
+    return <SuddenFearPage quiz={quiz} locale={locale} />;
+  }
   if (quiz?.kind === "health-worries21") {
     if (!isHealthWorry21ConfigurationValid(quiz)) notFound();
     return <HealthWorryPage quiz={quiz} locale={locale} />;
