@@ -1,0 +1,1726 @@
+{
+  "slug": "menstrual-cycle-context-reflection",
+  "code": "FM_CYCLE_CONTEXT16_RECOLLECTIONS",
+  "version": "fm_cycle_context16_recollections_v1",
+  "kind": "cycle-context16",
+  "updated": "2026-10-30",
+  "category": "framework",
+  "minutes": 8,
+  "title": {
+    "en": "Menstrual Cycle and Recent Experiences: Personal Reflection",
+    "zh": "月经周期与近期经历：个人回顾"
+  },
+  "seoTitle": {
+    "en": "Menstrual Cycle and Recent Experiences: Personal Reflection",
+    "zh": "月经周期与近期经历：个人回顾"
+  },
+  "description": {
+    "en": "16 original adult recollections about feelings, irritation, bodily and ordinary changes before a period, plus remembered before-and-after timing. Four full guides before answers. No PMDD diagnosis, cycle score or hormone inference.",
+    "zh": "16条成年人原创回顾，涉及经期前感受、烦躁、身体与日常变化，以及记得的前后时间。四篇全文答题前可读，不作PMDD诊断、周期评分或激素推断。"
+  },
+  "introduction": {
+    "en": "If you want, recall the days around one recent menstrual period you remember, before and after it began. No dates, cycle history or free-text account are entered. No relevant period recollection or uncertain recall can remain entirely unscored. This adult self-recollection does not assume gender, pregnancy history, parenthood or regular cycles.",
+    "zh": "愿意时回顾同一次最近记得的月经开始前后几天。不输入日期、周期史或自由叙述。无相关月经回忆或记忆不清时可全未计分。本成人自我回顾不假设性别、妊娠史、家长身份或规则周期。"
+  },
+  "instructions": {
+    "en": "Refer to the same remembered period start and the timing stated in each description. Choose does not match my recollection, matches slightly, partly, mostly or closely; use unscored for no relevant experience, unclear timing or withholding. Labels are not frequency, points or severity. Do not check a body sensation, reopen messages, start tracking or change sleep, food or care to answer.",
+    "zh": "以同一次记得的月经开始前后为背景，依照每条所述时间。选择与回忆不符、稍微符合、部分符合、大体符合或很符合；无相关经历、时间不清或保留回答时选未计分。标签不是频率、点数或严重度。不必查身体感觉、重开消息、开始追踪，或改睡眠、饮食和照护来回答。"
+  },
+  "resultHeading": {
+    "en": "Your four separate cycle-context records",
+    "zh": "四个分别阅读的周期情境记录"
+  },
+  "directions": [
+    {
+      "id": "feelings-before-a-period",
+      "title": {
+        "en": "Feelings before a period",
+        "zh": "经期前的感受"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "irritation-before-a-period",
+      "title": {
+        "en": "Irritation before a period",
+        "zh": "经期前的烦躁"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "body-and-routine-before-a-period",
+      "title": {
+        "en": "Body and routine before a period",
+        "zh": "经期前的身体与日常"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "recalled-cycle-timing",
+      "title": {
+        "en": "Recalled cycle timing",
+        "zh": "记得的周期时间关系"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "CYCLE_01",
+      "prompt": {
+        "en": "In the days before that period began, my feelings shifted more quickly than was usual for me.",
+        "zh": "那次月经开始前几天，我的感受变化比平时更快。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "feelings-before-a-period"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "feelings-before-a-period"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "feelings-before-a-period"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "feelings-before-a-period"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "feelings-before-a-period"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CYCLE_02",
+      "prompt": {
+        "en": "In the days before that period began, I noticed feeling lower than usual.",
+        "zh": "那次月经开始前几天，我注意到心情比平时低落。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "feelings-before-a-period"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "feelings-before-a-period"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "feelings-before-a-period"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "feelings-before-a-period"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "feelings-before-a-period"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CYCLE_03",
+      "prompt": {
+        "en": "In the days before that period began, I noticed more worry than was usual for me.",
+        "zh": "那次月经开始前几天，我注意到担心比平时更多。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "feelings-before-a-period"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "feelings-before-a-period"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "feelings-before-a-period"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "feelings-before-a-period"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "feelings-before-a-period"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CYCLE_04",
+      "prompt": {
+        "en": "In the days before that period began, an ordinary setback felt more overwhelming than usual.",
+        "zh": "那次月经开始前几天，一次普通挫折比平时更让我难以应付。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "feelings-before-a-period"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "feelings-before-a-period"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "feelings-before-a-period"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "feelings-before-a-period"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "feelings-before-a-period"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CYCLE_05",
+      "prompt": {
+        "en": "In the days before that period began, a small interruption irritated me more than usual.",
+        "zh": "那次月经开始前几天，一次小打断比平时更让我烦躁。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "irritation-before-a-period"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "irritation-before-a-period"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "irritation-before-a-period"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "irritation-before-a-period"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "irritation-before-a-period"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CYCLE_06",
+      "prompt": {
+        "en": "In the days before that period began, I noticed a sharper tone in my own words than usual.",
+        "zh": "那次月经开始前几天，我注意到自己的语气比平时更生硬。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "irritation-before-a-period"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "irritation-before-a-period"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "irritation-before-a-period"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "irritation-before-a-period"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "irritation-before-a-period"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CYCLE_07",
+      "prompt": {
+        "en": "In the days before that period began, I found it harder than usual to let a minor annoyance pass.",
+        "zh": "那次月经开始前几天，让一件小烦恼过去比平时更难。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "irritation-before-a-period"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "irritation-before-a-period"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "irritation-before-a-period"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "irritation-before-a-period"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "irritation-before-a-period"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CYCLE_08",
+      "prompt": {
+        "en": "In the days before that period began, I remembered wanting more distance from an ordinary disagreement.",
+        "zh": "那次月经开始前几天，我记得自己更想与一次普通分歧保持距离。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "irritation-before-a-period"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "irritation-before-a-period"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "irritation-before-a-period"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "irritation-before-a-period"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "irritation-before-a-period"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CYCLE_09",
+      "prompt": {
+        "en": "In the days before that period began, I noticed bodily discomfort during an ordinary activity.",
+        "zh": "那次月经开始前几天，进行普通活动时我注意到身体不适。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "body-and-routine-before-a-period"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "body-and-routine-before-a-period"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "body-and-routine-before-a-period"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "body-and-routine-before-a-period"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "body-and-routine-before-a-period"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CYCLE_10",
+      "prompt": {
+        "en": "In the days before that period began, settling into sleep felt different from usual.",
+        "zh": "那次月经开始前几天，安睡的感觉与平时不同。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "body-and-routine-before-a-period"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "body-and-routine-before-a-period"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "body-and-routine-before-a-period"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "body-and-routine-before-a-period"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "body-and-routine-before-a-period"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CYCLE_11",
+      "prompt": {
+        "en": "In the days before that period began, wanting food felt different from usual.",
+        "zh": "那次月经开始前几天，想吃东西的感觉与平时不同。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "body-and-routine-before-a-period"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "body-and-routine-before-a-period"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "body-and-routine-before-a-period"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "body-and-routine-before-a-period"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "body-and-routine-before-a-period"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CYCLE_12",
+      "prompt": {
+        "en": "In the days before that period began, I felt less energy for an ordinary activity than usual.",
+        "zh": "那次月经开始前几天，用于一项普通活动的精力比平时少。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "body-and-routine-before-a-period"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "body-and-routine-before-a-period"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "body-and-routine-before-a-period"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "body-and-routine-before-a-period"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "body-and-routine-before-a-period"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CYCLE_13",
+      "prompt": {
+        "en": "I remember noticing a change in my feelings before that period began.",
+        "zh": "我记得在那次月经开始前注意到感受变化。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "recalled-cycle-timing"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "recalled-cycle-timing"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "recalled-cycle-timing"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "recalled-cycle-timing"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "recalled-cycle-timing"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CYCLE_14",
+      "prompt": {
+        "en": "After that period began, I remember my feelings moving back towards my usual experience.",
+        "zh": "那次月经开始后，我记得感受逐渐接近平时。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "recalled-cycle-timing"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "recalled-cycle-timing"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "recalled-cycle-timing"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "recalled-cycle-timing"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "recalled-cycle-timing"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CYCLE_15",
+      "prompt": {
+        "en": "I remember some of the same feelings continuing after that period began.",
+        "zh": "我记得部分相同感受在那次月经开始后仍在继续。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "recalled-cycle-timing"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "recalled-cycle-timing"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "recalled-cycle-timing"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "recalled-cycle-timing"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "recalled-cycle-timing"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CYCLE_16",
+      "prompt": {
+        "en": "I can recall another recent time when my feelings were different from those days before the period.",
+        "zh": "我能记起另一段近期时间，感受与那次经期前几天不同。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "recalled-cycle-timing"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "recalled-cycle-timing"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "recalled-cycle-timing"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "recalled-cycle-timing"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "recalled-cycle-timing"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "feelings-before-a-period-reading",
+      "directionIds": [
+        "feelings-before-a-period"
+      ],
+      "title": {
+        "en": "Feelings before a period — Complete Reading",
+        "zh": "经期前的感受：完整读法"
+      },
+      "headline": {
+        "en": "Feelings before a period",
+        "zh": "经期前的感受"
+      },
+      "summary": {
+        "en": "Read this complete original public topic without answering. Every visitor sees the same explanation, with no personal categories, cycle history, counts or diagnosis.",
+        "zh": "无需答题即可读完整原创公开主题，每位访客看到相同解释，不含个人类别、周期史、计数或诊断。"
+      },
+      "scoreReading": {
+        "en": "Six separate recollection-match counts add to four descriptions. Unscored stays distinct from does not match. No frequency, symptom count, total, mean, weighting, risk tier or clinical inference.",
+        "zh": "六种独立回忆贴切计数合计四条描述，未计分与不符分开。没有频率、症状数、总分、均值、加权、风险档或临床推断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Feelings before a period — Complete Reading",
+          "zh": "经期前的感受：完整读法"
+        },
+        "description": {
+          "en": "Read this complete original public topic without answering. Every visitor sees the same explanation, with no personal categories, cycle history, counts or diagnosis.",
+          "zh": "无需答题即可读完整原创公开主题，每位访客看到相同解释，不含个人类别、周期史、计数或诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Keep the before-period context in the description",
+            "zh": "在描述中保留经期前背景"
+          },
+          "paragraphs": [
+            {
+              "en": "Four original descriptions concern feelings shifting quickly, feeling lower than usual, more worry and an ordinary setback feeling harder to manage in the days before one period began. They refer to your own remembered experience, not a standard for how someone should feel before menstruation. The wording does not claim that these feelings always belong together or have one cause.",
+              "zh": "四条原创描述涉及某次月经开始前几天，感受变化较快、比平时低落、担心较多及普通挫折更难应付。它们参照个人回忆，不规定经期前应该怎样感受。表述不声称这些感受总属于一起或只有一个原因。"
+            },
+            {
+              "en": "A page cannot know what happened around a feeling, whether it appeared at other times or how clear the timing is in memory. Recognising a statement does not establish PMDD, a mood condition or a hormone mechanism. You can retain what you remember without defending a reaction or accepting a judgement about emotional maturity, coping strength or character.",
+              "zh": "页面不知道感受周围发生什么、其他时候是否出现或记忆中的时间多清楚。认出陈述不建立PMDD、情绪状况或激素机制。可以保留记忆，不必为反应辩护或接受关于成熟、应付能力或品格的判断。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Read recollection matches, not a PMDD score",
+            "zh": "阅读回忆贴切程度，不作PMDD分数"
+          },
+          "paragraphs": [
+            {
+              "en": "Each original description uses does not match my recollection, matches slightly, partly, mostly, closely or unscored. These labels describe how a statement fits the period start you remember. They do not measure event frequency, symptom intensity or amount of impact. Six separate counts add to four descriptions, with each choice retained. IDs are labels, without points, a total, average, rank or winning topic.",
+              "zh": "每条原创描述可选与回忆不符、稍微符合、部分符合、大体符合、很符合或未计分。标签描述陈述对所记周期的贴切程度，不测事件频率、症状强度或影响量。六种计数合计四条，并保留选择。标识是标签，没有点数、总分、均值、排名或最高主题。"
+            },
+            {
+              "en": "Two partly matches, one closely matches and one unscored in a fictional account stay separate counts of two, one and one. They do not establish a symptom count, a clinical pattern or a threshold for support. The four editorial topics may overlap and have no validated independence. An unscored choice is not a zero and remains distinct from does not match.",
+              "zh": "虚构记录中两条部分符合、一条很符合、一条未计分，只保留二、一、一的独立数量，不建立症状数、临床模式或支持门槛。四个编辑主题可能重叠，尚无验证独立性。未计分不变成零，与不符分开。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Timing and the experience remain separate information",
+            "zh": "时间与经历是不同信息"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine remembering a difficult feeling shortly before a period. You may remember the feeling clearly but be unsure which days it occupied or whether it continued afterward. The record cannot fill that gap from a match label. A before-period description does not establish that the period explains the feeling or that the experience repeated in another cycle.",
+              "zh": "例如记得经期前一段困难感受，可能很清楚感受，却不确定占了哪几天或之后是否继续。记录不能从贴切标签补缺口。经期前描述不建立月经解释感受，也不建立另一个周期重复过。"
+            },
+            {
+              "en": "A feeling that continued after bleeding began can also matter without fitting a simple before-and-after account. Nothing here requires it to ease, asks you to ignore it outside the selected days or decides that a concern was merely menstrual. You do not need to revisit an upsetting event, reproduce the feeling or provide private details to leave a description unscored.",
+              "zh": "流血开始后仍继续的感受，也可重要，不必符合简单前后故事。这里不要求它缓解，不让你忽略选定日子之外的感受，也不决定担忧只是月经。不必重访难受事件、重现感受或提供私密细节才让描述未计分。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "General mood coverage does not settle a cycle question",
+            "zh": "一般心情覆盖不解决周期问题"
+          },
+          "paragraphs": [
+            {
+              "en": "The separate recent-mood and everyday-worry pages already provide original descriptions of feelings and worry. Their four-week references are not the selected before-period and after-period context here. They keep their own items and category records. This supplement does not repeat their answers, combine counts or claim that familiar mood themes are a new construct.",
+              "zh": "独立的近期心情与日常担心页本已提供感受和担心原创描述；它们的四周参照不是这里选定的经期前后背景，沿自己的题目与类别记录。本补充不复用其回答、不合计数，也不把熟悉的心情主题说成新构念。"
+            },
+            {
+              "en": "These sixteen original recollections do not administer a published clinical form. They cannot establish a cycle phase, a repeated prospective pattern, a diagnosis or why a change occurred. A professional can consider wider timing and history beyond this page. You need not produce a diary or identify the correct explanation before asking a question about a feeling that matters to you.",
+              "zh": "本十六条原创回顾不施测发表临床题本，不能建立周期阶段、重复前瞻模式、诊断或变化原因。专业人员可以考虑更广的时间关系和历史。无需先产生日记或找到正确解释，再询问对自己重要的感受。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "One optional remembered period start leaves gaps open",
+            "zh": "一次可选的月经开始前后回忆，保留未知"
+          },
+          "paragraphs": [
+            {
+              "en": "If you choose to answer, recall the days around one recent menstrual period you remember, before and after it began. These are editorial references, not a measured cycle phase or ovulation date. No dates, cycle history or free-text account are entered. This adult self-recollection does not assume a gender, pregnancy history, parent role or regular cycles.",
+              "zh": "愿意回答时，回顾同一次最近记得的月经开始前后几天。这是编辑参照，不是测得的周期阶段或排卵日期。不输入日期、周期史或自由叙述。本成人自我回顾不假设性别、妊娠史、家长角色或周期规则。"
+            },
+            {
+              "en": "No relevant period recollection, unclear timing and withholding can all remain unscored. Do not reconstruct a difficult memory, check a body sensation or start tracking to make an answer possible. All descriptions may be unscored without an invented personal interpretation. A later recollection can differ because memory or circumstances changed; it does not demonstrate improvement, deterioration, a hormone effect or treatment response.",
+              "zh": "无相关月经回忆、时间不清或保留回答都可未计分。不必重建困难记忆、检查身体感觉或开始追踪才能回答。全部未计分也不编造个人解释。后来回忆可能因记忆或处境变化而不同，不展示改善、恶化、激素作用或治疗反应。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not require a diary or cycle label",
+            "zh": "支持不要求日记或周期标签"
+          },
+          "paragraphs": [
+            {
+              "en": "You may ask a qualified healthcare or mental-health professional about a concern without completing this page, reaching a count or waiting through more cycles. Keep existing care, advice and support independent. Do not use a record to postpone assessment, change medicine or contraception or dismiss a concern as only cyclical. The page cannot assess healthcare need, urgency or personal safety.",
+              "zh": "可以不完成页面、不达到计数、不再等几个周期就向合格医疗或心理健康专业人员咨询。已有照护、意见和支持独立保留。不用记录推迟评估、改变药物或避孕安排，或把担忧当作只是周期性而忽视。页面不能评估医疗需要、紧急程度或个人安全。"
+            },
+            {
+              "en": "This is not DRSP, PSST or a PMDD diagnostic instrument. Retrospective labels do not replace prospective daily observations or professional assessment. No clinical norms, validated thresholds or bilingual measurement equivalence have been established. The Office on Women’s Health gives broader background, not these original items or validation. In immediate danger or if you cannot stay safe, seek local emergency assistance; this page cannot monitor you or respond to an emergency.",
+              "zh": "本版不是DRSP、PSST或PMDD诊断工具。回顾标签不替代前瞻逐日观察或专业评估，未建立临床常模、验证阈值或双语测量等值。美国女性健康办公室只提供更广背景，不提供本原创题或验证。如有即时危险或无法保障安全，请寻求当地紧急援助；页面不能监测或紧急响应。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep an optional question private",
+            "zh": "保留自愿咨询问题与隐私"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, you could describe what you remember noticing and how certain or uncertain the timing feels. You choose the detail and audience. This is an optional conversation opening, not a demand to track a cycle, control a feeling or prove a pattern. The page assigns no mood, sleep, diet, body-checking or exposure task and does not require a change in care.",
+              "zh": "若觉得有用，可描述记得注意到什么，以及时间关系多确定或不确定。细节和对象自行选择。这是可选交流开头，不要求追踪周期、控制感受或证明模式。页面不安排心情、睡眠、饮食、身体检查或暴露任务，也不要求改变照护。"
+            },
+            {
+              "en": "Choices remain in current-page memory, without drafts, submission, questionnaire analytics or a personal result address. Exit, retake, reload and leaving clear them. Copying shares only the public title and entry. All four complete guides are the same public text before answers and after every record, including all-unscored; reading and support never require a verified cycle history or finished questionnaire.",
+              "zh": "选择只留当前页内存，不存草稿、不提交、不作问卷分析，也无个人结果地址。退出、重做、刷新及离页清除；复制只含公开标题入口。四篇全文答题前及所有记录后相同，包括全未计分；阅读和支持不要求核实的周期史或完成问卷。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "irritation-before-a-period-reading",
+      "directionIds": [
+        "irritation-before-a-period"
+      ],
+      "title": {
+        "en": "Irritation before a period — Complete Reading",
+        "zh": "经期前的烦躁：完整读法"
+      },
+      "headline": {
+        "en": "Irritation before a period",
+        "zh": "经期前的烦躁"
+      },
+      "summary": {
+        "en": "Read this complete original public topic without answering. Every visitor sees the same explanation, with no personal categories, cycle history, counts or diagnosis.",
+        "zh": "无需答题即可读完整原创公开主题，每位访客看到相同解释，不含个人类别、周期史、计数或诊断。"
+      },
+      "scoreReading": {
+        "en": "Six separate recollection-match counts add to four descriptions. Unscored stays distinct from does not match. No frequency, symptom count, total, mean, weighting, risk tier or clinical inference.",
+        "zh": "六种独立回忆贴切计数合计四条描述，未计分与不符分开。没有频率、症状数、总分、均值、加权、风险档或临床推断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Irritation before a period — Complete Reading",
+          "zh": "经期前的烦躁：完整读法"
+        },
+        "description": {
+          "en": "Read this complete original public topic without answering. Every visitor sees the same explanation, with no personal categories, cycle history, counts or diagnosis.",
+          "zh": "无需答题即可读完整原创公开主题，每位访客看到相同解释，不含个人类别、周期史、计数或诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Describe irritation without a character label",
+            "zh": "描述烦躁，不贴品格标签"
+          },
+          "paragraphs": [
+            {
+              "en": "Four original descriptions concern irritation at a small interruption, a sharper tone, difficulty letting a minor annoyance pass and wanting distance from an ordinary disagreement in the days before one period. They are ways to recall your own experience. They do not decide that irritation was excessive, that a disagreement was your fault or that someone should tolerate how another person behaved.",
+              "zh": "四条原创描述涉及某次经期前几天，小打断引起烦躁、语气生硬、小烦恼难过去，以及想与普通分歧保持距离。它们只是回顾个人经历，不决定烦躁过度、分歧是你的错，或谁应该容忍他人的行为。"
+            },
+            {
+              "en": "The page has no account of the interaction and cannot know what was said, what boundaries mattered or whether treatment was harmful. A timing association cannot excuse behaviour or dismiss a practical concern as a symptom. You can recognise a description without adopting a label about being difficult, unstable, unreasonable or a person of a particular gender.",
+              "zh": "页面没有互动叙述，不知道说了什么、哪些边界重要或对待是否有害。时间关联不能替行为开脱，也不能把实际担忧当症状忽视。可认出描述，无需采用难相处、不稳定、不讲理或某性别应有表现的标签。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Read recollection matches, not a PMDD score",
+            "zh": "阅读回忆贴切程度，不作PMDD分数"
+          },
+          "paragraphs": [
+            {
+              "en": "Each original description uses does not match my recollection, matches slightly, partly, mostly, closely or unscored. These labels describe how a statement fits the period start you remember. They do not measure event frequency, symptom intensity or amount of impact. Six separate counts add to four descriptions, with each choice retained. IDs are labels, without points, a total, average, rank or winning topic.",
+              "zh": "每条原创描述可选与回忆不符、稍微符合、部分符合、大体符合、很符合或未计分。标签描述陈述对所记周期的贴切程度，不测事件频率、症状强度或影响量。六种计数合计四条，并保留选择。标识是标签，没有点数、总分、均值、排名或最高主题。"
+            },
+            {
+              "en": "Two partly matches, one closely matches and one unscored in a fictional account stay separate counts of two, one and one. They do not establish a symptom count, a clinical pattern or a threshold for support. The four editorial topics may overlap and have no validated independence. An unscored choice is not a zero and remains distinct from does not match.",
+              "zh": "虚构记录中两条部分符合、一条很符合、一条未计分，只保留二、一、一的独立数量，不建立症状数、临床模式或支持门槛。四个编辑主题可能重叠，尚无验证独立性。未计分不变成零，与不符分开。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "An interruption and its meaning remain different",
+            "zh": "打断与其意义保持区别"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine remembering a small interruption that felt unusually irritating before a period. The feeling, the interruption and the reason it mattered are separate information. A label cannot choose among explanations or establish that menstruation caused the response. Another person’s version of the exchange is not collected, and the record cannot determine whose interpretation was correct.",
+              "zh": "例如记得经期前一次小打断不同寻常地令人烦躁，感受、打断及其重要原因是不同信息。标签不能选择解释或建立月经导致反应。不收集另一人的叙述，也不能决定谁的理解正确。"
+            },
+            {
+              "en": "Wanting distance from a disagreement may also differ from acting on irritation. The statement asks about the recollection, not whether you withdrew, confronted someone or resolved a conflict. You are not asked to reopen a message, make contact, stay in a difficult interaction or rehearse a disagreement. A response can remain unscored without disclosing another person or recreating a private exchange.",
+              "zh": "想与分歧保持距离，也不同于按烦躁行动。描述只问回忆，不问是否退出、对质或解决冲突。不要求重开消息、联系他人、留在困难互动或排演分歧。无需披露别人或重现私人交流，就可未计分。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Before-period timing is not an explanation of an interaction",
+            "zh": "经期前时间不是互动解释"
+          },
+          "paragraphs": [
+            {
+              "en": "This record anchors recollection to days before a selected period, while the separate everyday-worry and recent-mood pages use their own four-week context. The same person can recognise related words on several pages without the records becoming interchangeable. No answers, counts or personal results transfer, and this topic is not an extension of a clinical irritability scale.",
+              "zh": "本记录以某次经期前几天为回忆参照，独立的日常担心和近期心情页使用各自四周背景。同一个人可在几页认出相近词语，但记录不因此可互换。不转移回答、计数或个人结果；本主题不是临床易怒量表扩展。"
+            },
+            {
+              "en": "The four editorial groups may overlap and do not form a validated cycle or relationship model. Categories cannot establish PMDD, a hormonal cause, a personality or how a conflict should be handled. Feelings outside the selected days remain relevant to you. You need not demonstrate repeated cycles, a change in behaviour or a completed record before asking a qualified professional about a concern.",
+              "zh": "四个编辑分组可能重叠，不构成验证的周期或关系模型。类别不能建立PMDD、激素原因、人格或冲突处理方式。选定日子之外的感受仍可重要；无需展示重复周期、行为改变或完整记录，便可向合格专业人员咨询。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "One optional remembered period start leaves gaps open",
+            "zh": "一次可选的月经开始前后回忆，保留未知"
+          },
+          "paragraphs": [
+            {
+              "en": "If you choose to answer, recall the days around one recent menstrual period you remember, before and after it began. These are editorial references, not a measured cycle phase or ovulation date. No dates, cycle history or free-text account are entered. This adult self-recollection does not assume a gender, pregnancy history, parent role or regular cycles.",
+              "zh": "愿意回答时，回顾同一次最近记得的月经开始前后几天。这是编辑参照，不是测得的周期阶段或排卵日期。不输入日期、周期史或自由叙述。本成人自我回顾不假设性别、妊娠史、家长角色或周期规则。"
+            },
+            {
+              "en": "No relevant period recollection, unclear timing and withholding can all remain unscored. Do not reconstruct a difficult memory, check a body sensation or start tracking to make an answer possible. All descriptions may be unscored without an invented personal interpretation. A later recollection can differ because memory or circumstances changed; it does not demonstrate improvement, deterioration, a hormone effect or treatment response.",
+              "zh": "无相关月经回忆、时间不清或保留回答都可未计分。不必重建困难记忆、检查身体感觉或开始追踪才能回答。全部未计分也不编造个人解释。后来回忆可能因记忆或处境变化而不同，不展示改善、恶化、激素作用或治疗反应。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not require a diary or cycle label",
+            "zh": "支持不要求日记或周期标签"
+          },
+          "paragraphs": [
+            {
+              "en": "You may ask a qualified healthcare or mental-health professional about a concern without completing this page, reaching a count or waiting through more cycles. Keep existing care, advice and support independent. Do not use a record to postpone assessment, change medicine or contraception or dismiss a concern as only cyclical. The page cannot assess healthcare need, urgency or personal safety.",
+              "zh": "可以不完成页面、不达到计数、不再等几个周期就向合格医疗或心理健康专业人员咨询。已有照护、意见和支持独立保留。不用记录推迟评估、改变药物或避孕安排，或把担忧当作只是周期性而忽视。页面不能评估医疗需要、紧急程度或个人安全。"
+            },
+            {
+              "en": "This is not DRSP, PSST or a PMDD diagnostic instrument. Retrospective labels do not replace prospective daily observations or professional assessment. No clinical norms, validated thresholds or bilingual measurement equivalence have been established. The Office on Women’s Health gives broader background, not these original items or validation. In immediate danger or if you cannot stay safe, seek local emergency assistance; this page cannot monitor you or respond to an emergency.",
+              "zh": "本版不是DRSP、PSST或PMDD诊断工具。回顾标签不替代前瞻逐日观察或专业评估，未建立临床常模、验证阈值或双语测量等值。美国女性健康办公室只提供更广背景，不提供本原创题或验证。如有即时危险或无法保障安全，请寻求当地紧急援助；页面不能监测或紧急响应。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep a question without a confrontation task",
+            "zh": "留下问题，不作对质任务"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, you could say that you remember irritation around a particular part of a cycle and would like help understanding the context. You choose the words and audience. There is no requirement to confirm a pattern, seek reassurance from another person, apologise or change an interaction. The website cannot judge intentions, decide safety or replace existing support about an actual difficulty.",
+              "zh": "若觉得有用，可说记得周期某部分周围的烦躁，想请人帮助理解背景。措辞和对象自行选择。不要求确认模式、向别人寻求保证、道歉或改变互动。网站不能判断意图、决定安全或替代关于实际困难的已有支持。"
+            },
+            {
+              "en": "Selections stay in page memory only, without drafts, submission, questionnaire analytics or a personal result URL. Exit, retake, reload and leaving clear them. Copying shares the public title and entry only. Four complete guides remain public before answers and for every record, including all-unscored. Access to information and support does not depend on how calm you were or whether a disagreement was resolved.",
+              "zh": "选择只在页内存，不存草稿、不提交、不作问卷分析，也无个人结果URL。退出、重做、刷新及离页清除；复制只含公开标题入口。四篇全文答题前及所有记录公开，包括全未计分。信息与支持不取决于多平静或分歧是否解决。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "body-and-routine-before-a-period-reading",
+      "directionIds": [
+        "body-and-routine-before-a-period"
+      ],
+      "title": {
+        "en": "Body and routine before a period — Complete Reading",
+        "zh": "经期前的身体与日常：完整读法"
+      },
+      "headline": {
+        "en": "Body and routine before a period",
+        "zh": "经期前的身体与日常"
+      },
+      "summary": {
+        "en": "Read this complete original public topic without answering. Every visitor sees the same explanation, with no personal categories, cycle history, counts or diagnosis.",
+        "zh": "无需答题即可读完整原创公开主题，每位访客看到相同解释，不含个人类别、周期史、计数或诊断。"
+      },
+      "scoreReading": {
+        "en": "Six separate recollection-match counts add to four descriptions. Unscored stays distinct from does not match. No frequency, symptom count, total, mean, weighting, risk tier or clinical inference.",
+        "zh": "六种独立回忆贴切计数合计四条描述，未计分与不符分开。没有频率、症状数、总分、均值、加权、风险档或临床推断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Body and routine before a period — Complete Reading",
+          "zh": "经期前的身体与日常：完整读法"
+        },
+        "description": {
+          "en": "Read this complete original public topic without answering. Every visitor sees the same explanation, with no personal categories, cycle history, counts or diagnosis.",
+          "zh": "无需答题即可读完整原创公开主题，每位访客看到相同解释，不含个人类别、周期史、计数或诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Recall bodily and ordinary changes without explaining them",
+            "zh": "回顾身体与日常变化，不解释原因"
+          },
+          "paragraphs": [
+            {
+              "en": "Four original descriptions concern bodily discomfort during an ordinary activity, sleep feeling different, wanting food feeling different and less energy for an activity in the days before one period began. They retain broad remembered experiences. They do not measure a body symptom, sleep quality, food intake or an amount of energy, and do not decide that the cycle caused any change.",
+              "zh": "四条原创描述涉及某次月经开始前几天，普通活动中的身体不适、安睡感觉不同、想吃东西的感觉不同，以及活动精力较少。它们保留宽泛回忆，不测身体症状、睡眠质量、摄食量或精力数值，也不决定周期造成变化。"
+            },
+            {
+              "en": "The descriptions leave many circumstances open, including what was available, what an activity required and health information the page does not have. A category cannot establish that a physical change is harmless, expected or only menstrual. You can retain a concern without fitting it to these statements, proving a pattern or deciding which explanation is correct.",
+              "zh": "描述保留许多背景未知，包括当时可用条件、活动要求及页面没有的健康信息。类别不能建立身体变化无害、理所当然或只是月经。无需符合陈述、证明模式或决定正确解释，也可以保留担忧。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Read recollection matches, not a PMDD score",
+            "zh": "阅读回忆贴切程度，不作PMDD分数"
+          },
+          "paragraphs": [
+            {
+              "en": "Each original description uses does not match my recollection, matches slightly, partly, mostly, closely or unscored. These labels describe how a statement fits the period start you remember. They do not measure event frequency, symptom intensity or amount of impact. Six separate counts add to four descriptions, with each choice retained. IDs are labels, without points, a total, average, rank or winning topic.",
+              "zh": "每条原创描述可选与回忆不符、稍微符合、部分符合、大体符合、很符合或未计分。标签描述陈述对所记周期的贴切程度，不测事件频率、症状强度或影响量。六种计数合计四条，并保留选择。标识是标签，没有点数、总分、均值、排名或最高主题。"
+            },
+            {
+              "en": "Two partly matches, one closely matches and one unscored in a fictional account stay separate counts of two, one and one. They do not establish a symptom count, a clinical pattern or a threshold for support. The four editorial topics may overlap and have no validated independence. An unscored choice is not a zero and remains distinct from does not match.",
+              "zh": "虚构记录中两条部分符合、一条很符合、一条未计分，只保留二、一、一的独立数量，不建立症状数、临床模式或支持门槛。四个编辑主题可能重叠，尚无验证独立性。未计分不变成零，与不符分开。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Sleep, appetite and opportunity are different information",
+            "zh": "睡眠、食欲与机会是不同信息"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine remembering that settling into sleep felt different before a period, while also remembering a change in the available time for sleep. Those are separate observations. The record cannot measure what sleep was needed, distinguish all causes of a difficult night or decide whether a change was explained by mood. No duration estimate, sleep device or test of staying awake is required.",
+              "zh": "例如记得经期前安睡感觉不同，也记得可睡时间改变，这是不同观察。记录不能测需要多少睡眠、区分困难夜晚的全部原因，或决定心情是否解释变化。不要求估时、睡眠设备或熬夜测试。"
+            },
+            {
+              "en": "Wanting food and having food available likewise differ. The statement does not judge what you ate, how much you should eat, a body measurement or nutritional status. An unfamiliar routine may make it hard to answer, which is a reason to keep information missing rather than guess. You are not asked to change a meal, restrict food or compare your body with anyone else.",
+              "zh": "想吃东西与有食物可吃也不同。陈述不评价吃了什么、应该吃多少、身体测量或营养状态。作息不熟悉可能使题难答，此时保留缺失比猜测更合适。不要求改一餐、限食或与别人比较身体。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "The timing anchor does not make a cause",
+            "zh": "时间参照不产生原因"
+          },
+          "paragraphs": [
+            {
+              "en": "These before-period descriptions are narrower in timing than the separate recent-mood page’s four-week recollection. General sleep, appetite and energy themes already exist in other site forms. This supplement does not claim a new construct, replace their questions or combine category counts with another result. Similar words can refer to different contexts without being equivalent measurements.",
+              "zh": "这些经期前描述在时间上比独立近期心情页的四周回顾更窄。一般睡眠、食欲和精力主题已在其他题本存在。本补充不称新构念、不替换其题目，也不与其他结果合计数。相似词语可以指不同背景，不等于等价测量。"
+            },
+            {
+              "en": "A remembered association with a period does not identify a hormone mechanism or establish PMDD, an eating condition, a sleep condition or another diagnosis. The four groups are overlapping editorial topics, not independent validated dimensions. A concern continuing outside the selected days must not be explained away by the page. Existing health advice and care remain separate from every category.",
+              "zh": "记得与月经有关联，不识别激素机制，不建立PMDD、进食状况、睡眠状况或其他诊断。四组是重叠编辑主题，不是验证独立维度。选定日子之外仍在的担忧，不能被页面解释掉。已有健康意见和照护独立于所有类别。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "One optional remembered period start leaves gaps open",
+            "zh": "一次可选的月经开始前后回忆，保留未知"
+          },
+          "paragraphs": [
+            {
+              "en": "If you choose to answer, recall the days around one recent menstrual period you remember, before and after it began. These are editorial references, not a measured cycle phase or ovulation date. No dates, cycle history or free-text account are entered. This adult self-recollection does not assume a gender, pregnancy history, parent role or regular cycles.",
+              "zh": "愿意回答时，回顾同一次最近记得的月经开始前后几天。这是编辑参照，不是测得的周期阶段或排卵日期。不输入日期、周期史或自由叙述。本成人自我回顾不假设性别、妊娠史、家长角色或周期规则。"
+            },
+            {
+              "en": "No relevant period recollection, unclear timing and withholding can all remain unscored. Do not reconstruct a difficult memory, check a body sensation or start tracking to make an answer possible. All descriptions may be unscored without an invented personal interpretation. A later recollection can differ because memory or circumstances changed; it does not demonstrate improvement, deterioration, a hormone effect or treatment response.",
+              "zh": "无相关月经回忆、时间不清或保留回答都可未计分。不必重建困难记忆、检查身体感觉或开始追踪才能回答。全部未计分也不编造个人解释。后来回忆可能因记忆或处境变化而不同，不展示改善、恶化、激素作用或治疗反应。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not require a diary or cycle label",
+            "zh": "支持不要求日记或周期标签"
+          },
+          "paragraphs": [
+            {
+              "en": "You may ask a qualified healthcare or mental-health professional about a concern without completing this page, reaching a count or waiting through more cycles. Keep existing care, advice and support independent. Do not use a record to postpone assessment, change medicine or contraception or dismiss a concern as only cyclical. The page cannot assess healthcare need, urgency or personal safety.",
+              "zh": "可以不完成页面、不达到计数、不再等几个周期就向合格医疗或心理健康专业人员咨询。已有照护、意见和支持独立保留。不用记录推迟评估、改变药物或避孕安排，或把担忧当作只是周期性而忽视。页面不能评估医疗需要、紧急程度或个人安全。"
+            },
+            {
+              "en": "This is not DRSP, PSST or a PMDD diagnostic instrument. Retrospective labels do not replace prospective daily observations or professional assessment. No clinical norms, validated thresholds or bilingual measurement equivalence have been established. The Office on Women’s Health gives broader background, not these original items or validation. In immediate danger or if you cannot stay safe, seek local emergency assistance; this page cannot monitor you or respond to an emergency.",
+              "zh": "本版不是DRSP、PSST或PMDD诊断工具。回顾标签不替代前瞻逐日观察或专业评估，未建立临床常模、验证阈值或双语测量等值。美国女性健康办公室只提供更广背景，不提供本原创题或验证。如有即时危险或无法保障安全，请寻求当地紧急援助；页面不能监测或紧急响应。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep an optional question without a body-checking task",
+            "zh": "留下自愿问题，不做身体检查任务"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, you could describe a remembered change and what you are uncertain about. You choose the detail and audience; you need not collect measurements, provide a cycle history or complete a diary first. This page assigns no body checking, sleep change, diet, supplement, exercise or medicine instructions. It cannot decide whether an existing precaution or professional advice should change.",
+              "zh": "若有用，可以描述记得的变化与不确定处，细节和对象自行选择。不必先收集测量、提供周期史或完成日记。本页不安排身体检查、改睡眠、饮食、补充剂、运动或药物指示，也不能决定已有预防或专业意见是否该变。"
+            },
+            {
+              "en": "Choices remain in current-page memory without drafts, submission, questionnaire analytics or a personal result address. Exit, retake, reload and leaving clear them. Copying shares only the public title and entry. Four full guides remain the same public text before answers and for every record, including all-unscored. Information and support do not depend on noticing a physical change or demonstrating that it occurred at a particular time.",
+              "zh": "选择只留当前页内存，不存草稿、不提交、不作问卷分析，也无个人结果地址。退出、重做、刷新及离页清除；复制只含公开标题入口。四篇全文答题前及所有记录相同，包括全未计分。信息与支持不依赖注意到身体变化或证明它发生在特定时间。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "recalled-cycle-timing-reading",
+      "directionIds": [
+        "recalled-cycle-timing"
+      ],
+      "title": {
+        "en": "Recalled cycle timing — Complete Reading",
+        "zh": "记得的周期时间关系：完整读法"
+      },
+      "headline": {
+        "en": "Recalled cycle timing",
+        "zh": "记得的周期时间关系"
+      },
+      "summary": {
+        "en": "Read this complete original public topic without answering. Every visitor sees the same explanation, with no personal categories, cycle history, counts or diagnosis.",
+        "zh": "无需答题即可读完整原创公开主题，每位访客看到相同解释，不含个人类别、周期史、计数或诊断。"
+      },
+      "scoreReading": {
+        "en": "Six separate recollection-match counts add to four descriptions. Unscored stays distinct from does not match. No frequency, symptom count, total, mean, weighting, risk tier or clinical inference.",
+        "zh": "六种独立回忆贴切计数合计四条描述，未计分与不符分开。没有频率、症状数、总分、均值、加权、风险档或临床推断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Recalled cycle timing — Complete Reading",
+          "zh": "记得的周期时间关系：完整读法"
+        },
+        "description": {
+          "en": "Read this complete original public topic without answering. Every visitor sees the same explanation, with no personal categories, cycle history, counts or diagnosis.",
+          "zh": "无需答题即可读完整原创公开主题，每位访客看到相同解释，不含个人类别、周期史、计数或诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Retain before and after as remembered context",
+            "zh": "把前后关系保留为回忆背景"
+          },
+          "paragraphs": [
+            {
+              "en": "Four original descriptions concern noticing a change before a period, feelings moving towards usual after it began, some of the same feelings continuing afterward and remembering a different experience at another recent time. They keep separate accounts of timing. Recognising several descriptions does not verify a clinical pattern, establish a cause or prove that feelings changed at the same point in every cycle.",
+              "zh": "四条原创描述涉及经期前注意到变化、开始后感受接近平时、部分相同感受之后仍在，以及另一段近期时间的感受不同。它们分别保留时间叙述。认出多条不核实临床模式、不建立原因，也不证明每个周期在相同点变化。"
+            },
+            {
+              "en": "The page collects no dates, daily entries, ovulation information or cycle history. It cannot reconstruct the days from a match label or decide that bleeding marked a particular physiological phase. If timing is unclear or there is no relevant completed cycle, you can leave any or every description unscored. Nothing requires you to turn an uncertain memory into a precise calendar account.",
+              "zh": "页面不收日期、逐日记录、排卵信息或周期史，不能从标签重建日期，或决定出血标记某个生理阶段。时间不清或没有相关完整周期时，可让任何或所有描述未计分。不要求把不确定记忆变成精确日历。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Read recollection matches, not a PMDD score",
+            "zh": "阅读回忆贴切程度，不作PMDD分数"
+          },
+          "paragraphs": [
+            {
+              "en": "Each original description uses does not match my recollection, matches slightly, partly, mostly, closely or unscored. These labels describe how a statement fits the period start you remember. They do not measure event frequency, symptom intensity or amount of impact. Six separate counts add to four descriptions, with each choice retained. IDs are labels, without points, a total, average, rank or winning topic.",
+              "zh": "每条原创描述可选与回忆不符、稍微符合、部分符合、大体符合、很符合或未计分。标签描述陈述对所记周期的贴切程度，不测事件频率、症状强度或影响量。六种计数合计四条，并保留选择。标识是标签，没有点数、总分、均值、排名或最高主题。"
+            },
+            {
+              "en": "Two partly matches, one closely matches and one unscored in a fictional account stay separate counts of two, one and one. They do not establish a symptom count, a clinical pattern or a threshold for support. The four editorial topics may overlap and have no validated independence. An unscored choice is not a zero and remains distinct from does not match.",
+              "zh": "虚构记录中两条部分符合、一条很符合、一条未计分，只保留二、一、一的独立数量，不建立症状数、临床模式或支持门槛。四个编辑主题可能重叠，尚无验证独立性。未计分不变成零，与不符分开。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Easing and continuing need not cancel each other",
+            "zh": "缓解与继续不必相互抵消"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine remembering that some feelings moved closer to usual after a period began while a different concern continued. Both recollections can remain. The continuing-after description is not reverse-scored, subtracted from easing or used to select a diagnosis. A category record cannot decide that one remembered change explains the whole period or that continued difficulty rules a particular condition in or out.",
+              "zh": "例如记得经期开始后，部分感受接近平时，另一项担忧仍继续，两种回忆都可保留。“之后仍在”不反向计分、不从缓解中减去，也不用来选诊断。类别记录不能决定某项变化解释整个时段，或持续困难确认排除特定状况。"
+            },
+            {
+              "en": "Likewise, remembering a different recent time is not a measured comparison period. The circumstances, opportunities and memory may differ. No label estimates the size of a before-and-after change or asks which time was healthier. You are not asked to search old messages, inspect a tracking app, recreate discomfort or begin daily logging to make the comparison more complete.",
+              "zh": "同样，记得另一段近期时间不同，不是测得的对照时段。背景、机会及记忆都可能不同。标签不估算前后变化量，也不问哪个时候更健康。不要求查旧消息、检查追踪应用、重现不适或开始逐日日志来补比较。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "One retrospective account is not prospective confirmation",
+            "zh": "一次回顾不是前瞻确证"
+          },
+          "paragraphs": [
+            {
+              "en": "This original page does not administer DRSP, PSST or a published PMDD form. Its recalled timing cannot replace prospective daily observations, establish recurrence or confirm a diagnostic pattern. The linked Office on Women’s Health publication describes broader professional assessment, not validation of these original descriptions. A professional may consider information that is absent from this page, and no diary is required by the website before a concern can be raised.",
+              "zh": "本原创页不施测DRSP、PSST或发表PMDD题本。回顾时间不能替代前瞻逐日观察、建立重复发生或确诊模式。链接的美国女性健康办公室资料介绍更广专业评估，不验证本原创描述。专业人员可考虑本页缺失信息，网站不要求先有日记才谈担忧。"
+            },
+            {
+              "en": "General mood and worry pages use other recall windows and keep their own methods. This timing supplement does not merge their answers, construct a weighted cycle score or turn ordinary feelings into a hormonal explanation. The four topics can overlap without being independent validated dimensions. No symptom threshold, cycle count or match pattern determines whether you deserve support.",
+              "zh": "一般心情与担心页使用其他回忆窗口，保留自己的方法。本时间补充不合回答、不建立加权周期分数，也不把普通感受变成激素解释。四主题可重叠，不是验证独立维度。症状阈值、周期次数或贴切组合都不决定是否值得支持。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "One optional remembered period start leaves gaps open",
+            "zh": "一次可选的月经开始前后回忆，保留未知"
+          },
+          "paragraphs": [
+            {
+              "en": "If you choose to answer, recall the days around one recent menstrual period you remember, before and after it began. These are editorial references, not a measured cycle phase or ovulation date. No dates, cycle history or free-text account are entered. This adult self-recollection does not assume a gender, pregnancy history, parent role or regular cycles.",
+              "zh": "愿意回答时，回顾同一次最近记得的月经开始前后几天。这是编辑参照，不是测得的周期阶段或排卵日期。不输入日期、周期史或自由叙述。本成人自我回顾不假设性别、妊娠史、家长角色或周期规则。"
+            },
+            {
+              "en": "No relevant period recollection, unclear timing and withholding can all remain unscored. Do not reconstruct a difficult memory, check a body sensation or start tracking to make an answer possible. All descriptions may be unscored without an invented personal interpretation. A later recollection can differ because memory or circumstances changed; it does not demonstrate improvement, deterioration, a hormone effect or treatment response.",
+              "zh": "无相关月经回忆、时间不清或保留回答都可未计分。不必重建困难记忆、检查身体感觉或开始追踪才能回答。全部未计分也不编造个人解释。后来回忆可能因记忆或处境变化而不同，不展示改善、恶化、激素作用或治疗反应。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not require a diary or cycle label",
+            "zh": "支持不要求日记或周期标签"
+          },
+          "paragraphs": [
+            {
+              "en": "You may ask a qualified healthcare or mental-health professional about a concern without completing this page, reaching a count or waiting through more cycles. Keep existing care, advice and support independent. Do not use a record to postpone assessment, change medicine or contraception or dismiss a concern as only cyclical. The page cannot assess healthcare need, urgency or personal safety.",
+              "zh": "可以不完成页面、不达到计数、不再等几个周期就向合格医疗或心理健康专业人员咨询。已有照护、意见和支持独立保留。不用记录推迟评估、改变药物或避孕安排，或把担忧当作只是周期性而忽视。页面不能评估医疗需要、紧急程度或个人安全。"
+            },
+            {
+              "en": "This is not DRSP, PSST or a PMDD diagnostic instrument. Retrospective labels do not replace prospective daily observations or professional assessment. No clinical norms, validated thresholds or bilingual measurement equivalence have been established. The Office on Women’s Health gives broader background, not these original items or validation. In immediate danger or if you cannot stay safe, seek local emergency assistance; this page cannot monitor you or respond to an emergency.",
+              "zh": "本版不是DRSP、PSST或PMDD诊断工具。回顾标签不替代前瞻逐日观察或专业评估，未建立临床常模、验证阈值或双语测量等值。美国女性健康办公室只提供更广背景，不提供本原创题或验证。如有即时危险或无法保障安全，请寻求当地紧急援助；页面不能监测或紧急响应。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep the uncertainty in an optional conversation",
+            "zh": "自愿交流时也保留不确定"
+          },
+          "paragraphs": [
+            {
+              "en": "If you choose to discuss timing, you could distinguish what you remember clearly from what you do not know. You decide the detail and audience. You need not label a phase, verify a repeating pattern or wait for another cycle. The page assigns no tracking schedule or treatment task. Existing concerns outside the selected period remain relevant and must not be dismissed because a category seemed to fit.",
+              "zh": "愿意讨论时间时，可以区分清楚记得与不知道的部分，细节和对象自行选择。不必命名阶段、核实重复模式或再等一个周期。页面不安排追踪日程或治疗任务。选定时段之外的已有担忧仍重要，不能因类别似乎符合而被忽视。"
+            },
+            {
+              "en": "Selections stay in page memory only, without drafts, submission, questionnaire analytics or a personal result URL. Exit, retake, reload and leaving clear them. Copying shares only the public title and entry. All four complete guides remain public before answers and after any record, including entirely unscored. Reading and support do not depend on an orderly calendar, regular cycles or a verified before-and-after story.",
+              "zh": "选择只在页内存，不存草稿、不提交、不作问卷分析，也无个人结果URL。退出、重做、刷新及离页清除；复制只含公开标题入口。四篇全文答题前及任何记录后公开，包括全部未计分。阅读与支持不依赖整齐日历、规则周期或核实的前后故事。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "cycle",
+      "title": {
+        "en": "A remembered period start is not prospective confirmation",
+        "zh": "回忆的月经开始前后不是前瞻确证"
+      },
+      "paragraphs": [
+        {
+          "en": "The days before and after a selected period are editorial references, not a measured phase or ovulation date. This page collects no dates, daily entries or cycle history and cannot establish recurrence, PMDD or a hormonal cause. It is not DRSP, PSST or a published diagnostic form. Retrospective recollection does not replace prospective daily observations or a professional assessment.",
+          "zh": "选定经期前后几天是编辑参照，不是测得的阶段或排卵日期。本页不收日期、逐日记录或周期史，不能建立重复发生、PMDD或激素原因。本版不是DRSP、PSST或发表诊断题本。回顾记忆不替代前瞻逐日观察或专业评估。"
+        },
+        {
+          "en": "General mood and worry themes already exist on the separate recent-mood and everyday-worry pages, under their own four-week methods. This supplement only adds the selected cycle context and remembered timing. It does not transfer answers, combine counts or claim a new clinical construct. Support never requires waiting through another cycle or bringing a diary.",
+          "zh": "一般心情与担心主题已在独立近期心情和日常担心页存在，沿其各自四周方法。本补充只增加选定周期背景和回忆时间，不转移回答、不合计数，也不称新临床构念。支持不要求再等一个周期或带日记。"
+        }
+      ]
+    },
+    {
+      "id": "labels",
+      "title": {
+        "en": "Matches describe recollection, without a cycle score",
+        "zh": "贴切程度描述回忆，没有周期分数"
+      },
+      "paragraphs": [
+        {
+          "en": "Six separate category counts add to four descriptions per topic. They do not count days, symptoms, cycles or amounts of impact, and the IDs carry no points. Counts are not added, averaged, weighted or used to select a highest topic. Descriptions about feelings continuing after a period are not reverse-scored or subtracted from remembered easing.",
+          "zh": "各主题六种独立类别计数合计四条，不计天数、症状、周期或影响量，标识没有点数。计数不相加、求均值、加权或选最高主题。“经期后仍继续”不反向计分，也不从记得的缓解中减去。"
+        },
+        {
+          "en": "No relevant period recollection, unclear recall and withholding remain unscored, separate from does not match. All sixteen descriptions may stay unscored without an invented personal interpretation. Sparse, small or unscored records do not establish health or the absence of support needs. Four overlapping editorial topics have no validated independence, clinical norms or bilingual measurement equivalence.",
+          "zh": "无相关月经回忆、回忆不清或保留回答保持未计分，与不符分开。十六条全未计分也不编造个人解释。稀疏、少量或未计分不建立健康或没有支持需要。四个重叠编辑主题没有验证独立性、临床常模或双语测量等值。"
+        }
+      ]
+    },
+    {
+      "id": "private",
+      "title": {
+        "en": "Recall only, with complete public reading",
+        "zh": "只凭回忆，完整阅读公开"
+      },
+      "paragraphs": [
+        {
+          "en": "No body check, message review, diary, sleep or food change or medical task is required. Choices remain in page memory without drafts, submission, questionnaire analytics or a personal result address. Exit, retake, reload and leaving clear them. Copying shares only the fixed public title and entry, without categories or cycle information.",
+          "zh": "不要求身体检查、回看消息、日记、睡眠饮食改变或医疗任务。选择留页面内存，不存草稿、不提交、不作问卷分析，也无个人结果地址。退出、重做、刷新及离页清除；复制只含固定公开标题入口，不含类别或周期信息。"
+        },
+        {
+          "en": "All four full guides and support information are public before answers and after any record, including entirely unscored. No target category, repeat schedule or treatment-effect claim follows from a later difference. Keep existing care and advice independent; a concern outside the selected days remains relevant and must not be dismissed as merely cyclical.",
+          "zh": "四篇全文和支持答题前及任何记录后公开，包括全部未计分。后来不同不产生目标类别、重测日程或治疗效果主张。已有照护与意见独立保留；选定日子之外的担忧仍重要，不能被当作只是周期性而忽视。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does this diagnose PMDD or measure hormones?",
+        "zh": "这能诊断PMDD或测激素吗？"
+      },
+      "answer": {
+        "en": "No. Sixteen original recollections cannot establish a diagnosis, cycle phase, hormonal cause or verified recurring pattern. This is not DRSP, PSST or a published clinical form.",
+        "zh": "不能。十六条原创回顾不能建立诊断、周期阶段、激素原因或核实的重复模式，不是DRSP、PSST或发表临床题本。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if I cannot recall a relevant period start or its timing?",
+        "zh": "想不起相关的月经开始时间怎么办？"
+      },
+      "answer": {
+        "en": "Leave any or all descriptions unscored. There is no need to reconstruct memory, check a body sensation or start tracking to qualify. The page does not assume regular cycles, gender, pregnancy history or parenthood.",
+        "zh": "任何或所有描述都可未计分，不必重建记忆、检查身体或开始追踪来符合条件。页面不假设规则周期、性别、妊娠史或家长身份。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does this replace daily records or a clinical evaluation?",
+        "zh": "这能替代逐日记录或临床评估吗？"
+      },
+      "answer": {
+        "en": "No. Retrospective match labels are not prospective daily observations or professional confirmation. You can ask a qualified professional without a diary, a count or waiting through another cycle.",
+        "zh": "不能。回顾贴切标签不是前瞻逐日观察或专业确证。无需日记、计数或再等一个周期便可咨询合格专业人员。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are continuing feelings reverse-scored?",
+        "zh": "继续的感受会反向计分吗？"
+      },
+      "answer": {
+        "en": "No. Every description keeps its own label. Counts are not points, days, symptoms or cycles; nothing is reversed, subtracted, weighted or combined into a cycle score.",
+        "zh": "不会。每条保留自身标签。计数不是点数、天数、症状或周期，不反向、不相减、不加权或合成周期分数。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need to complete this before seeking support?",
+        "zh": "寻求支持前需要完成吗？"
+      },
+      "answer": {
+        "en": "No. Support does not depend on completion, timing certainty or a category. The page cannot assess healthcare need, urgency or safety. Keep existing care and advice independent. In immediate danger or if you cannot stay safe, seek local emergency assistance.",
+        "zh": "不需要。支持不依赖完成、时间确定或类别。页面不能评估医疗需要、紧急程度或安全。已有照护与意见独立保留。如有即时危险或无法保障安全，请寻求当地紧急援助。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "Office on Women’s Health: PMDD — broader assessment background",
+        "zh": "美国女性健康办公室：PMDD的更广评估背景"
+      },
+      "url": "https://womenshealth.gov/menstrual-cycle/premenstrual-syndrome/premenstrual-dysphoric-disorder-pmdd"
+    },
+    {
+      "title": {
+        "en": "Office on Women’s Health: Your Menstrual Cycle — timing terminology background",
+        "zh": "美国女性健康办公室：月经周期时间术语背景"
+      },
+      "url": "https://womenshealth.gov/menstrual-cycle/your-menstrual-cycle"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_cycle_context_recollections16",
+    "formCode": "fm_cycle_context16_recollections_v1",
+    "itemBankVersion": "original16_bilingual_four_by_four_v1",
+    "scoringVersion": "six_recollection_match_counts_per_four_no_clinical_inference_v1",
+    "resultContentVersion": "four_full_bilingual_cycle_context_readings_v1",
+    "itemBankSha256": "9e9cc4e3d95b3b5378614df8b9e2f302a6d2eb40c3ea6f8f001727dc0041d9b7",
+    "resultContentSha256": "a4297fb6f5f6e55c4fde7f291d548787c29ab7f2136677e2caa2ad09b1a24e4b",
+    "psychometricValidationCompleted": false
+  }
+}

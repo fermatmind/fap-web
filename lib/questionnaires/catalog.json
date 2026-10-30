@@ -7399,5 +7399,30 @@
       "returning-attention-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "menstrual-cycle-context-reflection",
+    "code": "FM_CYCLE_CONTEXT16_RECOLLECTIONS",
+    "version": "fm_cycle_context16_recollections_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Menstrual Cycle and Recent Experiences: Personal Reflection",
+      "zh": "月经周期与近期经历：个人回顾"
+    },
+    "description": {
+      "en": "16 original adult recollections about feelings, irritation, bodily and ordinary changes before a period, plus remembered before-and-after timing. Four full guides before answers. No PMDD diagnosis, cycle score or hormone inference.",
+      "zh": "16条成年人原创回顾，涉及经期前感受、烦躁、身体与日常变化，以及记得的前后时间。四篇全文答题前可读，不作PMDD诊断、周期评分或激素推断。"
+    },
+    "minutes": 8,
+    "formCode": "fm_cycle_context16_recollections_v1",
+    "questionCount": 16,
+    "resultSlugs": [
+      "feelings-before-a-period-reading",
+      "irritation-before-a-period-reading",
+      "body-and-routine-before-a-period-reading",
+      "recalled-cycle-timing-reading"
+    ],
+    "collection": "explore"
   }
 ]

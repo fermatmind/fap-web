@@ -38,6 +38,8 @@ import { isRecentMood12ConfigurationValid } from "@/lib/questionnaires/recentMoo
 import { RecentMoodGuidePage } from "./RecentMoodPage";
 import { isMoodActivity16ConfigurationValid } from "@/lib/questionnaires/moodActivity16";
 import { MoodActivityGuidePage } from "./MoodActivityPage";
+import { isCycleContext16ConfigurationValid } from "@/lib/questionnaires/cycleContext16";
+import { CycleContextGuidePage } from "./CycleContextPage";
 import { isHealthWorry21ConfigurationValid } from "@/lib/questionnaires/healthWorry21";
 import { HealthWorryGuidePage } from "./HealthWorryPage";
 import { isSleepExperiences20ConfigurationValid } from "@/lib/questionnaires/sleepExperiences20";
@@ -175,6 +177,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (quiz?.kind === "worry-observations12" && !isEverydayWorry12ConfigurationValid(quiz)) return { title: "Everyday-worry reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "mood-observations12" && !isRecentMood12ConfigurationValid(quiz)) return { title: "Recent-mood reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "mood-activity16" && !isMoodActivity16ConfigurationValid(quiz)) return { title: "Mood-activity reflection unavailable", robots: { index: false, follow: false } };
+  if (quiz?.kind === "cycle-context16" && !isCycleContext16ConfigurationValid(quiz)) return { title: "Cycle-context reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "health-worries21" && !isHealthWorry21ConfigurationValid(quiz)) return { title: "Health-worry reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "sleep-experiences20" && !isSleepExperiences20ConfigurationValid(quiz)) return { title: "Sleep reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "bereavement16" && !isBereavement16ConfigurationValid(quiz)) return { title: "Bereavement reflection unavailable", robots: { index: false, follow: false } };
@@ -325,6 +328,12 @@ export default async function QuestionnaireResultGuide({ params }: Props) {
     const profile = quiz.profiles.find(p => p.id === id);
     if (!profile) notFound();
     return <MoodActivityGuidePage quiz={quiz} profile={profile} locale={locale} />;
+  }
+  if (quiz?.kind === "cycle-context16") {
+    if (!isCycleContext16ConfigurationValid(quiz)) notFound();
+    const profile = quiz.profiles.find(p => p.id === id);
+    if (!profile) notFound();
+    return <CycleContextGuidePage quiz={quiz} profile={profile} locale={locale} />;
   }
   if (quiz?.kind === "health-worries21") {
     if (!isHealthWorry21ConfigurationValid(quiz)) notFound();
