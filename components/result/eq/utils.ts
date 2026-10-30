@@ -31,7 +31,7 @@ import type {
   EqV5ViewModel,
 } from "./types";
 import type { Locale } from "@/lib/i18n/locales";
-import { resolveEqReadingCopy, EQ_READING_COPY_REVISION } from "@/lib/eq/readingCopyProjection";
+import { resolveEqReadingCopy } from "@/lib/eq/readingCopyProjection";
 
 const EQ_DIMENSION_ORDER = ["SA", "ER", "EM", "RM"] as const;
 const HASH_PATTERN = /^[a-f0-9]{64}$/;
@@ -383,7 +383,7 @@ export function normalizeEqV5Report(reportData: ReportResponse, locale: Locale):
   );
 
   return {
-    displayCopy: copy?.status === "ready" ? { revision: EQ_READING_COPY_REVISION,
+    displayCopy: copy?.status === "ready" ? { revision: text(copy.revision),
       sourceHash: text(readingAuthority?.source_hash), compiledHash: text(readingAuthority?.compiled_hash) } : undefined,
     locale,
     payload,

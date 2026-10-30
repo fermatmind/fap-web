@@ -4,7 +4,8 @@ import type { EqV5ReportPayload } from "@/components/result/eq/types";
 import { toScaleCodeV1 } from "@/lib/scaleCodeMode";
 import { EQ_READING_COPY_FIELDS } from "./readingCopyFields";
 
-export const EQ_READING_COPY_REVISION = "eq60.reading_copy.20261030.v1";
+export const EQ_READING_COPY_REVISION = "eq60.reading_copy.20261030.v2";
+const SUPPORTED_READING_COPY_REVISIONS = new Set(["eq60.reading_copy.20261030.v1", EQ_READING_COPY_REVISION]);
 type Row = Record<string, unknown>;
 type Path = (string | number)[];
 const record = (value: unknown): Row | null => value !== null && typeof value === "object" && !Array.isArray(value) ? value as Row : null;
@@ -53,7 +54,7 @@ export function resolveEqReadingCopy(input: ReportResponse, original: EqV5Report
   const originalAuthority = original._meta?.eq60_private_result_authority;
   const authority = record(view?.reading_authority);
   if (!view || !reading || view.status !== "ready" || view.schema_version !== "eq60.reading_copy.v1"
-    || view.revision !== EQ_READING_COPY_REVISION || view.locale !== expectedLocale
+    || typeof view.revision !== "string" || !SUPPORTED_READING_COPY_REVISIONS.has(view.revision) || view.locale !== expectedLocale
     || !originalAuthority || stable(originalAuthority) !== stable(view.original_authority)
     || authority?.schema_version !== "fap.eq60.private_result_authority.v1" || authority.authority_id !== originalAuthority.authority_id
     || authority.mode !== "canonical_active_release" || authority.pack_id !== "EQ_60" || authority.pack_version !== "v1"
