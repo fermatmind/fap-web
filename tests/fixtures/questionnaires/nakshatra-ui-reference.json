@@ -1,0 +1,22 @@
+{
+  "synthetic": true,
+  "single": {
+    "date": "2000-01-01",
+    "time": "12:00",
+    "zone": "UTC",
+    "referenceLongitude": 199.48642633506472,
+    "profileIds": [
+      "swati"
+    ]
+  },
+  "boundary": {
+    "date": "2000-01-01",
+    "time": "13:02",
+    "zone": "UTC",
+    "referenceLongitude": 200.0038768289155,
+    "profileIds": [
+      "vishakha",
+      "swati"
+    ]
+  }
+}

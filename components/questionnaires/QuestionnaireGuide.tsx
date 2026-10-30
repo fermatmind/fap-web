@@ -1,3 +1,5 @@
+import { isNakshatra27ConfigurationValid } from "@/lib/questionnaires/nakshatra27";
+import { Nakshatra27GuidePage } from "./Nakshatra27Page";
 import { isWetonStory35ConfigurationValid } from "@/lib/questionnaires/wetonStory35";
 import { isBpi21ConfigurationValid } from "@/lib/questionnaires/bpi21";
 import { isSuddenFear20ConfigurationValid } from "@/lib/questionnaires/suddenFear20";
@@ -127,6 +129,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input);
   const quiz = await loadQuestionnaire(slug);
   if (quiz?.kind === "sudden-fear20" && !isSuddenFear20ConfigurationValid(quiz)) return { title: "Sudden-fear reflection unavailable", robots: { index: false, follow: false } };
+  if (quiz?.kind === "nakshatra27" && !isNakshatra27ConfigurationValid(quiz)) return { title: "Birth-star reference unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "unwanted-actions20" && !isUnwantedActions20ConfigurationValid(quiz)) return { title: "Thoughts-and-actions reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "focus-context16" && !isFocusContext16ConfigurationValid(quiz)) return { title: "Daily-context reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "health-worries21" && !isHealthWorry21ConfigurationValid(quiz)) return { title: "Health-worry reflection unavailable", robots: { index: false, follow: false } };
@@ -190,6 +193,12 @@ export default async function QuestionnaireResultGuide({ params }: Props) {
     const profile = quiz.profiles.find(p => p.id === id);
     if (!profile) notFound();
     return <SuddenFearGuidePage quiz={quiz} profile={profile} locale={locale} />;
+  }
+  if (quiz?.kind === "nakshatra27") {
+    if (!isNakshatra27ConfigurationValid(quiz)) notFound();
+    const profile = quiz.profiles.find(p => p.id === id);
+    if (!profile) notFound();
+    return <Nakshatra27GuidePage quiz={quiz} profile={profile} locale={locale} />;
   }
   if (quiz?.kind === "unwanted-actions20") {
     if (!isUnwantedActions20ConfigurationValid(quiz)) notFound();

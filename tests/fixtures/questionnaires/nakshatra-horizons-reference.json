@@ -1,0 +1,140 @@
+{
+  "source": "NASA/JPL Horizons API",
+  "url": "https://ssd-api.jpl.nasa.gov/doc/horizons.html",
+  "params": {
+    "format": "json",
+    "COMMAND": "301",
+    "OBJ_DATA": "YES",
+    "MAKE_EPHEM": "YES",
+    "EPHEM_TYPE": "VECTORS",
+    "CENTER": "500@399",
+    "REF_SYSTEM": "ICRF",
+    "REF_PLANE": "FRAME",
+    "VEC_CORR": "NONE",
+    "VEC_TABLE": "1",
+    "OUT_UNITS": "AU-D",
+    "TIME_TYPE": "UT",
+    "CAL_TYPE": "GREGORIAN",
+    "START_TIME": "1900-01-01 00:00",
+    "STOP_TIME": "2026-10-30 00:00",
+    "STEP_SIZE": "1 MO",
+    "CSV_FORMAT": "YES"
+  },
+  "rawSHA256": "ca51affc2adb1bd2eb00389a5e723c608715846f0e8aaa2564285d97090b2085",
+  "fullMonthlyComparisonSamples": 1522,
+  "samplingLimitations": "Horizons ICRF and Astronomy Engine EQJ are compared as approximately aligned; not exact identity. Same AE Ecliptic rotation is used for both vector longitudes, not independently validated by this experiment. Fixed FK5 epoch/equinox J2000 catalog vector; ignores proper motion, parallax, aberration and binary orbital motion. Not certified Lahiri, Swiss True Chitra or IMD.",
+  "fixtures": [
+    {
+      "utc": "1900-01-01T00:00:00.000Z",
+      "moonICRFHorizonsAU": [
+        0.0001635241876528321,
+        -0.002272655244475669,
+        -0.0009340073043192622
+      ]
+    },
+    {
+      "utc": "1910-01-01T00:00:00.000Z",
+      "moonICRFHorizonsAU": [
+        -0.002528209918867519,
+        0.0006243433064911353,
+        0.0005327794190169055
+      ]
+    },
+    {
+      "utc": "1920-01-01T00:00:00.000Z",
+      "moonICRFHorizonsAU": [
+        0.002063600034065372,
+        0.001205640139645334,
+        0.0006133266080789384
+      ]
+    },
+    {
+      "utc": "1930-01-01T00:00:00.000Z",
+      "moonICRFHorizonsAU": [
+        0.001007387454367001,
+        -0.002215879788753051,
+        -0.001206984436509689
+      ]
+    },
+    {
+      "utc": "1940-01-01T00:00:00.000Z",
+      "moonICRFHorizonsAU": [
+        -0.002452340460208805,
+        0.0002630568416648112,
+        -1.370113555598541e-05
+      ]
+    },
+    {
+      "utc": "1950-01-01T00:00:00.000Z",
+      "moonICRFHorizonsAU": [
+        0.001246582067067094,
+        0.002091256121716012,
+        0.001099004798925361
+      ]
+    },
+    {
+      "utc": "1960-01-01T00:00:00.000Z",
+      "moonICRFHorizonsAU": [
+        0.001594764168292152,
+        -0.001756748556885443,
+        -0.000588856178247347
+      ]
+    },
+    {
+      "utc": "1970-01-01T00:00:00.000Z",
+      "moonICRFHorizonsAU": [
+        -0.002569306750162817,
+        -0.0004215719702933995,
+        -0.0002968470510425086
+      ]
+    },
+    {
+      "utc": "1980-01-01T00:00:00.000Z",
+      "moonICRFHorizonsAU": [
+        0.0002930419450405834,
+        0.002421984164023145,
+        0.0008195957110075698
+      ]
+    },
+    {
+      "utc": "1990-01-01T00:00:00.000Z",
+      "moonICRFHorizonsAU": [
+        0.002126708353062165,
+        -0.00129748809914291,
+        -0.0005201033986753729
+      ]
+    },
+    {
+      "utc": "2000-01-01T00:00:00.000Z",
+      "moonICRFHorizonsAU": [
+        -0.002123120083075749,
+        -0.001580982448002665,
+        -0.0004191022800053542
+      ]
+    },
+    {
+      "utc": "2010-01-01T00:00:00.000Z",
+      "moonICRFHorizonsAU": [
+        -0.0005444364148150027,
+        0.002134420707029793,
+        0.0009583742989012394
+      ]
+    },
+    {
+      "utc": "2020-01-01T00:00:00.000Z",
+      "moonICRFHorizonsAU": [
+        0.002608344889648244,
+        -0.0005111184649582983,
+        -0.0004726078367099633
+      ]
+    },
+    {
+      "utc": "2026-10-01T00:00:00.000Z",
+      "moonICRFHorizonsAU": [
+        0.00109670085730737,
+        0.001932715811401564,
+        0.001079467695968495
+      ]
+    }
+  ]
+}

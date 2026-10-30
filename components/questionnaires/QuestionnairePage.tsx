@@ -1,3 +1,5 @@
+import { isNakshatra27ConfigurationValid } from "@/lib/questionnaires/nakshatra27";
+import { Nakshatra27Page } from "./Nakshatra27Page";
 import { WetonStory35Client } from "./WetonStory35Client";
 import { isWetonStory35ConfigurationValid } from "@/lib/questionnaires/wetonStory35";
 import { Bpi21Client } from "./Bpi21Client";
@@ -152,6 +154,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug } = await params, locale = resolveLocale(input);
   const quiz = await loadQuestionnaire(slug);
   if (quiz?.kind === "sudden-fear20" && !isSuddenFear20ConfigurationValid(quiz)) return { title: "Sudden-fear reflection unavailable", robots: { index: false, follow: false } };
+  if (quiz?.kind === "nakshatra27" && !isNakshatra27ConfigurationValid(quiz)) return { title: "Birth-star reference unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "unwanted-actions20" && !isUnwantedActions20ConfigurationValid(quiz)) return { title: "Thoughts-and-actions reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "focus-context16" && !isFocusContext16ConfigurationValid(quiz)) return { title: "Daily-context reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "health-worries21" && !isHealthWorry21ConfigurationValid(quiz)) return { title: "Health-worry reflection unavailable", robots: { index: false, follow: false } };
@@ -196,6 +199,10 @@ export default async function QuestionnairePage({ params }: Props) {
   if (quiz?.kind === "sudden-fear20") {
     if (!isSuddenFear20ConfigurationValid(quiz)) notFound();
     return <SuddenFearPage quiz={quiz} locale={locale} />;
+  }
+  if (quiz?.kind === "nakshatra27") {
+    if (!isNakshatra27ConfigurationValid(quiz)) notFound();
+    return <Nakshatra27Page quiz={quiz} locale={locale} />;
   }
   if (quiz?.kind === "unwanted-actions20") {
     if (!isUnwantedActions20ConfigurationValid(quiz)) notFound();

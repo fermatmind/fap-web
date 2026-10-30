@@ -6954,5 +6954,53 @@
       "interpreting-social-experiences-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "nakshatra-spica-reference",
+    "code": "FM_NAKSHATRA_SPICA27",
+    "version": "fm_nakshatra_spica27_v1",
+    "updated": "2026-10-30",
+    "category": "fantasy",
+    "title": {
+      "en": "Nakshatra Birth-Star Calculator: Spica Reference",
+      "zh": "Nakshatra出生宿计算器：Spica参考口径"
+    },
+    "description": {
+      "en": "Use a known birth date, time and birthplace zone to calculate a geometric Spica-reference Moon sector. Read all 27 full cultural guides, with symbols, gana, rulers and boundary comparisons.",
+      "zh": "用已知出生日期、时间与出生地时区，计算几何Spica参考月球区段。27篇完整文化指南全部公开，说明符号、gana、主星与边界比较。"
+    },
+    "minutes": 2,
+    "formCode": "fm_nakshatra_spica27_v1",
+    "questionCount": 0,
+    "resultSlugs": [
+      "ashwini",
+      "bharani",
+      "krittika",
+      "rohini",
+      "mrigashira",
+      "ardra",
+      "punarvasu",
+      "pushya",
+      "ashlesha",
+      "magha",
+      "purva-phalguni",
+      "uttara-phalguni",
+      "hasta",
+      "chitra",
+      "swati",
+      "vishakha",
+      "anuradha",
+      "jyeshtha",
+      "mula",
+      "purva-ashadha",
+      "uttara-ashadha",
+      "shravana",
+      "dhanishta",
+      "shatabhisha",
+      "purva-bhadrapada",
+      "uttara-bhadrapada",
+      "revati"
+    ],
+    "collection": "explore"
   }
 ]
