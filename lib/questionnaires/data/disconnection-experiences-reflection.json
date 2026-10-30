@@ -1,0 +1,1811 @@
+{
+  "slug": "disconnection-experiences-reflection",
+  "code": "FM_DISCONNECTION20_OBSERVATIONS",
+  "version": "fm_disconnection20_observations_v1",
+  "kind": "disconnection20",
+  "updated": "2026-10-30",
+  "category": "framework",
+  "minutes": 5,
+  "title": {
+    "en": "Detachment, Absorption & Everyday Recall",
+    "zh": "距离感、投入与日常回忆"
+  },
+  "seoTitle": {
+    "en": "Detachment & Everyday Recall Reflection: Four Experience Topics",
+    "zh": "距离感与日常回忆反思：四个体验主题"
+  },
+  "description": {
+    "en": "Twenty original descriptions of self-experience, surroundings, absorption and uncertainty in everyday recall. Keep private category records and read four complete free guides, without a dissociation score, identity claim or diagnosis.",
+    "zh": "20条原创描述，回顾自身体验、环境、投入及日常回忆不确定。保留私人类别记录，阅读四篇完整免费指南，不生成解离分数、身份主张或诊断。"
+  },
+  "introduction": {
+    "en": "Adults can recall their own ordinary experiences over the past four weeks without deciding what caused them. A felt distance, an absorbing activity and uncertainty in recall are different descriptions. No traumatic history, personal narrative or evidence of an event is requested.",
+    "zh": "成年人可以回顾过去四周自身普通体验，无需先决定原因。距离感、投入活动与回忆不确定是不同描述，不要求创伤史、私人叙述或事件证据。"
+  },
+  "instructions": {
+    "en": "Use recollection only, with an unscored option for no opportunity, unclear recall or withholding. No body or reality checks, recreated sensations, document search, memory reconstruction or contact with another person is needed. Every full guide and the same support information remain public.",
+    "zh": "只用回忆作答；无机会、回忆不清或保留回答可选未计分。无需身体或现实检查、重做感受、查文件、重建记忆或联系别人。全部全文与相同支持说明始终公开。"
+  },
+  "resultHeading": {
+    "en": "Your private experience-and-recall record",
+    "zh": "你的私人体验与回忆记录"
+  },
+  "directions": [
+    {
+      "id": "experience-of-self",
+      "title": {
+        "en": "Experience of self",
+        "zh": "自身体验"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "experience-of-surroundings",
+      "title": {
+        "en": "Experience of surroundings",
+        "zh": "周围环境的体验"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "absorption-and-attention",
+      "title": {
+        "en": "Absorption and attention",
+        "zh": "投入与注意"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "everyday-recall-uncertainty",
+      "title": {
+        "en": "Uncertainty in everyday recall",
+        "zh": "日常回忆中的不确定"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "DCO_01",
+      "prompt": {
+        "en": "During an ordinary activity, I felt more like observing myself than taking part.",
+        "zh": "一项普通活动中，我感觉更像在旁观自己，而非身在其中。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "experience-of-self"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "experience-of-self"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "experience-of-self"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "experience-of-self"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "experience-of-self"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DCO_02",
+      "prompt": {
+        "en": "My own voice felt unfamiliar while I was speaking.",
+        "zh": "说话时，我自己的声音让我感到陌生。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "experience-of-self"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "experience-of-self"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "experience-of-self"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "experience-of-self"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "experience-of-self"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DCO_03",
+      "prompt": {
+        "en": "A routine action felt automatic in a way that seemed unfamiliar to me.",
+        "zh": "一个日常动作显得自动完成，这种感觉让我觉得陌生。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "experience-of-self"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "experience-of-self"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "experience-of-self"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "experience-of-self"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "experience-of-self"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DCO_04",
+      "prompt": {
+        "en": "I felt distant from a feeling I could name.",
+        "zh": "我能说出一种感受，却觉得自己与它有些距离。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "experience-of-self"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "experience-of-self"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "experience-of-self"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "experience-of-self"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "experience-of-self"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DCO_05",
+      "prompt": {
+        "en": "During a routine moment, I felt less connected with my bodily sensations.",
+        "zh": "一个日常片刻中，我觉得自己与身体感受的联系变弱。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "experience-of-self"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "experience-of-self"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "experience-of-self"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "experience-of-self"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "experience-of-self"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DCO_06",
+      "prompt": {
+        "en": "A familiar place felt strangely distant during an ordinary moment.",
+        "zh": "一个普通片刻里，熟悉的地方让我感到一种陌生的距离。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "experience-of-surroundings"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "experience-of-surroundings"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "experience-of-surroundings"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "experience-of-surroundings"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "experience-of-surroundings"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DCO_07",
+      "prompt": {
+        "en": "A familiar scene seemed dreamlike while I knew where I was.",
+        "zh": "我知道自己在哪里，却觉得熟悉场景像梦境一样。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "experience-of-surroundings"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "experience-of-surroundings"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "experience-of-surroundings"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "experience-of-surroundings"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "experience-of-surroundings"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DCO_08",
+      "prompt": {
+        "en": "Objects around me felt unusually flat or less immediate in my experience.",
+        "zh": "在我的体验中，周围物品显得异常平面，或少了一点直接感。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "experience-of-surroundings"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "experience-of-surroundings"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "experience-of-surroundings"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "experience-of-surroundings"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "experience-of-surroundings"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DCO_09",
+      "prompt": {
+        "en": "People I knew felt less familiar for an ordinary moment.",
+        "zh": "一个普通片刻里，认识的人让我感到不那么熟悉。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "experience-of-surroundings"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "experience-of-surroundings"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "experience-of-surroundings"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "experience-of-surroundings"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "experience-of-surroundings"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DCO_10",
+      "prompt": {
+        "en": "I found it hard to feel fully present in a familiar setting.",
+        "zh": "身处熟悉环境时，我觉得难以充分感到自己就在当下。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "experience-of-surroundings"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "experience-of-surroundings"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "experience-of-surroundings"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "experience-of-surroundings"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "experience-of-surroundings"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DCO_11",
+      "prompt": {
+        "en": "While absorbed in something I had chosen, I noticed less of the ordinary activity around me.",
+        "zh": "投入自己选择的事情时，我较少注意到周围的普通活动。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "absorption-and-attention"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "absorption-and-attention"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "absorption-and-attention"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "absorption-and-attention"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "absorption-and-attention"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DCO_12",
+      "prompt": {
+        "en": "I lost track of elapsed time while following a story or topic.",
+        "zh": "跟随一个故事或主题时，我没有留意时间已经过去多久。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "absorption-and-attention"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "absorption-and-attention"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "absorption-and-attention"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "absorption-and-attention"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "absorption-and-attention"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DCO_13",
+      "prompt": {
+        "en": "A daydream took my attention away from an ordinary activity.",
+        "zh": "一段白日梦把我的注意从普通活动中带走。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "absorption-and-attention"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "absorption-and-attention"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "absorption-and-attention"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "absorption-and-attention"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "absorption-and-attention"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DCO_14",
+      "prompt": {
+        "en": "I returned attention to my surroundings after noticing that my mind had wandered.",
+        "zh": "注意到走神后，我把注意转回了周围环境。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "absorption-and-attention"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "absorption-and-attention"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "absorption-and-attention"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "absorption-and-attention"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "absorption-and-attention"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DCO_15",
+      "prompt": {
+        "en": "I continued a familiar action while much of my attention was on an unrelated thought.",
+        "zh": "我继续一个熟悉动作时，大部分注意却在另一个无关想法上。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "absorption-and-attention"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "absorption-and-attention"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "absorption-and-attention"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "absorption-and-attention"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "absorption-and-attention"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DCO_16",
+      "prompt": {
+        "en": "Part of an ordinary conversation was unclear when I tried to recall it later.",
+        "zh": "后来试着回想一次普通谈话时，其中一部分不太清楚。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "everyday-recall-uncertainty"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "everyday-recall-uncertainty"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "everyday-recall-uncertainty"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "everyday-recall-uncertainty"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "everyday-recall-uncertainty"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DCO_17",
+      "prompt": {
+        "en": "I was unsure of the order of small steps in a routine I had already completed.",
+        "zh": "对于已经完成的一件日常事务，我不确定其中小步骤的先后顺序。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "everyday-recall-uncertainty"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "everyday-recall-uncertainty"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "everyday-recall-uncertainty"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "everyday-recall-uncertainty"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "everyday-recall-uncertainty"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DCO_18",
+      "prompt": {
+        "en": "A short stretch of an ordinary activity was difficult for me to bring to mind.",
+        "zh": "我觉得很难回想起一项普通活动中的短暂一段。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "everyday-recall-uncertainty"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "everyday-recall-uncertainty"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "everyday-recall-uncertainty"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "everyday-recall-uncertainty"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "everyday-recall-uncertainty"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DCO_19",
+      "prompt": {
+        "en": "I could recall that I had done a routine task but not some of its details.",
+        "zh": "我记得自己做过一件日常事务，却想不起其中一些细节。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "everyday-recall-uncertainty"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "everyday-recall-uncertainty"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "everyday-recall-uncertainty"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "everyday-recall-uncertainty"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "everyday-recall-uncertainty"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DCO_20",
+      "prompt": {
+        "en": "I could not readily connect a small remembered detail with the ordinary occasion it belonged to.",
+        "zh": "一个记得的小细节，我一时难以把它和对应的日常场合联系起来。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "everyday-recall-uncertainty"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "everyday-recall-uncertainty"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "everyday-recall-uncertainty"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "everyday-recall-uncertainty"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "everyday-recall-uncertainty"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "experience-of-self-reading",
+      "directionIds": [
+        "experience-of-self"
+      ],
+      "title": {
+        "en": "Experience of self — Complete Experience Guide",
+        "zh": "自身体验：完整体验指南"
+      },
+      "headline": {
+        "en": "Experience of self — Complete Experience Guide",
+        "zh": "自身体验：完整体验指南"
+      },
+      "summary": {
+        "en": "These descriptions concern feeling like an observer, an unfamiliar voice, an automatic-feeling action, distance from a named emotion and less connection with bodily sensations. They record how a moment felt. They do not state that you left your body, became another person or lacked a real self.",
+        "zh": "这些描述涉及旁观感、声音陌生、动作自动感、与能说出的情绪有距离，以及与身体感受联系变弱。它们记录片刻怎样被体验，不认定离开身体、变成另一个人或缺少真实自我。"
+      },
+      "scoreReading": {
+        "en": "Five descriptions retain six category counts without a clinical score, identity inference or causal conclusion.",
+        "zh": "五条描述保留六类计数，不生成临床分数、身份推断或原因结论。"
+      },
+      "seo": {
+        "title": {
+          "en": "Experience of self — Complete Experience Guide",
+          "zh": "自身体验：完整体验指南"
+        },
+        "description": {
+          "en": "These descriptions concern feeling like an observer, an unfamiliar voice, an automatic-feeling action, distance from a named emotion and less connection with bodily sensations. They record how a moment felt. They do not state that you left your body, became another person or lacked a real self.",
+          "zh": "这些描述涉及旁观感、声音陌生、动作自动感、与能说出的情绪有距离，以及与身体感受联系变弱。它们记录片刻怎样被体验，不认定离开身体、变成另一个人或缺少真实自我。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "A felt distance is not an identity finding",
+            "zh": "感到距离，不是身份发现"
+          },
+          "paragraphs": [
+            {
+              "en": "These descriptions concern feeling like an observer, an unfamiliar voice, an automatic-feeling action, distance from a named emotion and less connection with bodily sensations. They record how a moment felt. They do not state that you left your body, became another person or lacked a real self.",
+              "zh": "这些描述涉及旁观感、声音陌生、动作自动感、与能说出的情绪有距离，以及与身体感受联系变弱。它们记录片刻怎样被体验，不认定离开身体、变成另一个人或缺少真实自我。"
+            },
+            {
+              "en": "A description of felt distance cannot identify depersonalisation, dissociative identity disorder or a cause. It is also different from rating the strength of an emotion. You do not need to inspect a mirror, listen repeatedly to your voice or check your body to decide whether the prompt happened.",
+              "zh": "距离感描述不能识别人格解体、分离性身份障碍或原因，也不同于评价情绪强度。无需检查镜子、反复听自己的声音或检查身体来判断题述是否发生。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Five descriptions, six labels",
+            "zh": "五条描述，六类标签"
+          },
+          "paragraphs": [
+            {
+              "en": "Six category counts add to five selected descriptions. They do not count incidents, minutes, symptoms or a percentage of your life. IDs are not points. There is no total, mean, highest topic, cutoff, diagnosis or risk category.",
+              "zh": "六类计数合计五条所选描述，不数事件、分钟、症状或生活比例。标识不是点数，没有总分、均分、最高主题、切点、诊断或风险类别。"
+            },
+            {
+              "en": "One often, one sometimes and three unscored remain those five choices. No opportunity, unclear recall and withholding stay distinct from did not notice on relevant occasions. A fully unscored topic gives no finding. Few labels cannot exclude a concern, and frequent labels cannot establish a disorder or its cause.",
+              "zh": "一条较常、一条有时、三条未计分，就保持五个选择。无机会、回忆不清与保留回答，不变成有机会时没有注意到。全未计分不提供发现；少量不排除担忧，频繁选择也不能确定疾病或原因。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A fictional example with limits",
+            "zh": "一个有边界的虚构例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional adult recalling a routine conversation in which their own voice felt unfamiliar. They still know that they were speaking. The record can retain that experience without explaining its cause or turning it into an identity claim. If they cannot recall a relevant moment, it can stay unscored.",
+              "zh": "设想一位虚构成年人回忆一次普通谈话，当时自己的声音显得陌生，但仍知道自己正在说话。记录可以保留体验，不解释原因，也不转成身份主张。想不起相关片刻时，可保持未计分。"
+            },
+            {
+              "en": "The example is not an expected answer, evidence about you or a task to repeat. A later difference can reflect opportunity, interpretation or recollection. It cannot establish recovery, deterioration, memory recovery or treatment response.",
+              "zh": "例子不是期待答案、关于你的证据或要重复的任务。后来差异可反映机会、理解或回忆，不能确定恢复、恶化、记忆找回或治疗反应。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Original descriptions with a bounded purpose",
+            "zh": "有边界的原创描述"
+          },
+          "paragraphs": [
+            {
+              "en": "These twenty bilingual descriptions and four overlapping editorial topics are original and unvalidated. They are not the Dissociative Experiences Scale, DES-II or a screening instrument for dissociative identity disorder. The four-week window is editorial, with no norms, clinical thresholds or established language equivalence.",
+              "zh": "20条双语描述与四个可重叠编辑主题均为未经验证的原创，不是解离体验量表、DES-II或分离性身份障碍筛查工具。四周范围是编辑选择，没有常模、临床界值或已建立的语言等值。"
+            },
+            {
+              "en": "Related feelings, attention and trauma-response pages keep their own questions and methods. An overlapping word does not make their scores interchangeable or explain this record. Nothing here verifies a trauma history, hidden identity, external reality or a neurological or psychiatric cause.",
+              "zh": "相关感受、注意与提醒反应页面保留自身问题和方法。词语重叠不使分数可互换，也不解释本记录。这里不核实创伤史、隐藏身份、外部现实或神经与精神原因。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "An optional way to describe the concern",
+            "zh": "一种可选的担忧表达方式"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want a private note, you can distinguish the ordinary activity, the felt distance and whether you wanted support. No detailed personal history is needed. Do not repeat an uncomfortable sensation or use a count to decide whether your experience is real or deserves attention.",
+              "zh": "若愿意私下记录，可以区分普通活动、感到的距离及是否希望获得支持。无需详细私人历史，也不要重复不舒服感觉，或用计数判断体验是否真实、是否值得关注。"
+            },
+            {
+              "en": "You can leave any suggestion aside and read without doing an exercise. No result requires a changed behaviour, disclosure of private details or proof that you can control an experience. A practical need deserves attention on its own terms, without a questionnaire threshold.",
+              "zh": "可不采用任何建议，也可只读、不练习。结果不要求改变行为、披露私人细节或证明能控制体验。实际需要可以按自身情况被认真对待，无需问卷门槛。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support, stopping and privacy",
+            "zh": "支持、停止与隐私"
+          },
+          "paragraphs": [
+            {
+              "en": "If experiences are new, distressing or affecting everyday life, you can discuss them with a qualified healthcare professional without completing this page or reaching a count. The page cannot assess causes, medical need or urgency. Do not delay care or change treatment because of a record. If immediate danger is present or you cannot stay safe, seek appropriate local emergency assistance rather than continuing.",
+              "zh": "体验若是新出现、令人困扰或影响日常，可以向合格医疗专业人士讨论，无需完成或达到计数。页面不评原因、医疗需要或紧急程度；不要因记录推迟照护或改变治疗。有即时危险或无法保障安全时，寻求当地合适的紧急援助而非继续。"
+            },
+            {
+              "en": "All full guides and support information remain public for every answer pattern. Answers stay in current-page memory, without drafts, submission, questionnaire analytics or a private result address. Exit, refresh, leaving and retake clear them. Copying includes only the public title and entry, without selections, counts or a personal history.",
+              "zh": "全部全文与支持说明对任何组合都公开。回答只在当前页面内存，不存草稿、不提交、不作问卷分析、没有私人结果地址。退出、刷新、离页与重做会清除；复制只含公开标题与入口，不含选择、计数或私人历史。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "experience-of-surroundings-reading",
+      "directionIds": [
+        "experience-of-surroundings"
+      ],
+      "title": {
+        "en": "Experience of surroundings — Complete Experience Guide",
+        "zh": "周围环境的体验：完整体验指南"
+      },
+      "headline": {
+        "en": "Experience of surroundings — Complete Experience Guide",
+        "zh": "周围环境的体验：完整体验指南"
+      },
+      "summary": {
+        "en": "The five descriptions concern distance from a familiar place, a dreamlike scene, a less immediate appearance of objects, less familiarity with people and difficulty feeling present. They describe your experience rather than an objective change in the environment. The page cannot decide what caused a perception.",
+        "zh": "五条描述涉及熟悉地点的距离感、梦境般场景、物品少了直接感、对人不那么熟悉及难以感到在场。它们描述体验，不认定环境客观改变；页面不能判断感知由何造成。"
+      },
+      "scoreReading": {
+        "en": "Five descriptions retain six category counts without a clinical score, identity inference or causal conclusion.",
+        "zh": "五条描述保留六类计数，不生成临床分数、身份推断或原因结论。"
+      },
+      "seo": {
+        "title": {
+          "en": "Experience of surroundings — Complete Experience Guide",
+          "zh": "周围环境的体验：完整体验指南"
+        },
+        "description": {
+          "en": "The five descriptions concern distance from a familiar place, a dreamlike scene, a less immediate appearance of objects, less familiarity with people and difficulty feeling present. They describe your experience rather than an objective change in the environment. The page cannot decide what caused a perception.",
+          "zh": "五条描述涉及熟悉地点的距离感、梦境般场景、物品少了直接感、对人不那么熟悉及难以感到在场。它们描述体验，不认定环境客观改变；页面不能判断感知由何造成。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "A dreamlike feeling is an experience, not a verdict on the world",
+            "zh": "梦境般感觉，是体验而非对世界的裁决"
+          },
+          "paragraphs": [
+            {
+              "en": "The five descriptions concern distance from a familiar place, a dreamlike scene, a less immediate appearance of objects, less familiarity with people and difficulty feeling present. They describe your experience rather than an objective change in the environment. The page cannot decide what caused a perception.",
+              "zh": "五条描述涉及熟悉地点的距离感、梦境般场景、物品少了直接感、对人不那么熟悉及难以感到在场。它们描述体验，不认定环境客观改变；页面不能判断感知由何造成。"
+            },
+            {
+              "en": "A label neither proves that surroundings are unreal nor certifies that a medical concern is absent. These prompts are not vision, recognition or neurological tests. Knowing where you are does not make a questionnaire a safety assessment. Keep the distinction between an experience and an explanation of it.",
+              "zh": "标签既不证明周围不真实，也不认证没有医疗担忧。题目不是视力、识别或神经检查，知道自己在哪里也不会让问卷变成安全评估。保留体验与对它的解释之间的区别。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Five descriptions, six labels",
+            "zh": "五条描述，六类标签"
+          },
+          "paragraphs": [
+            {
+              "en": "Six category counts add to five selected descriptions. They do not count incidents, minutes, symptoms or a percentage of your life. IDs are not points. There is no total, mean, highest topic, cutoff, diagnosis or risk category.",
+              "zh": "六类计数合计五条所选描述，不数事件、分钟、症状或生活比例。标识不是点数，没有总分、均分、最高主题、切点、诊断或风险类别。"
+            },
+            {
+              "en": "One often, one sometimes and three unscored remain those five choices. No opportunity, unclear recall and withholding stay distinct from did not notice on relevant occasions. A fully unscored topic gives no finding. Few labels cannot exclude a concern, and frequent labels cannot establish a disorder or its cause.",
+              "zh": "一条较常、一条有时、三条未计分，就保持五个选择。无机会、回忆不清与保留回答，不变成有机会时没有注意到。全未计分不提供发现；少量不排除担忧，频繁选择也不能确定疾病或原因。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A fictional example with limits",
+            "zh": "一个有边界的虚构例子"
+          },
+          "paragraphs": [
+            {
+              "en": "A fictional adult remembers a familiar room seeming distant, although they knew which room they were in. The guide does not choose between possible explanations or ask them to test objects, people or places. An uncertain recollection can remain uncertain without a forced description.",
+              "zh": "一位虚构成年人记得熟悉房间显得遥远，同时知道自己在哪个房间。指南不从可能解释中作选择，也不要求测试物品、人物或地点。不确定的回忆可保留不确定，无需强迫描述。"
+            },
+            {
+              "en": "The example is not an expected answer, evidence about you or a task to repeat. A later difference can reflect opportunity, interpretation or recollection. It cannot establish recovery, deterioration, memory recovery or treatment response.",
+              "zh": "例子不是期待答案、关于你的证据或要重复的任务。后来差异可反映机会、理解或回忆，不能确定恢复、恶化、记忆找回或治疗反应。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Original descriptions with a bounded purpose",
+            "zh": "有边界的原创描述"
+          },
+          "paragraphs": [
+            {
+              "en": "These twenty bilingual descriptions and four overlapping editorial topics are original and unvalidated. They are not the Dissociative Experiences Scale, DES-II or a screening instrument for dissociative identity disorder. The four-week window is editorial, with no norms, clinical thresholds or established language equivalence.",
+              "zh": "20条双语描述与四个可重叠编辑主题均为未经验证的原创，不是解离体验量表、DES-II或分离性身份障碍筛查工具。四周范围是编辑选择，没有常模、临床界值或已建立的语言等值。"
+            },
+            {
+              "en": "Related feelings, attention and trauma-response pages keep their own questions and methods. An overlapping word does not make their scores interchangeable or explain this record. Nothing here verifies a trauma history, hidden identity, external reality or a neurological or psychiatric cause.",
+              "zh": "相关感受、注意与提醒反应页面保留自身问题和方法。词语重叠不使分数可互换，也不解释本记录。这里不核实创伤史、隐藏身份、外部现实或神经与精神原因。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "An optional way to describe the concern",
+            "zh": "一种可选的担忧表达方式"
+          },
+          "paragraphs": [
+            {
+              "en": "You can describe a concern in ordinary language to an appropriately qualified professional if you want help. No repeated checking, sensory experiment or visit to a difficult place is needed for this reflection. Existing care and useful support should not be altered because of a category.",
+              "zh": "若希望获得帮助，可以用普通语言向合适的专业人士描述担忧。本回顾无需反复检查、感官实验或重返困难地点，也不应因类别而改变既有照护与有用支持。"
+            },
+            {
+              "en": "You can leave any suggestion aside and read without doing an exercise. No result requires a changed behaviour, disclosure of private details or proof that you can control an experience. A practical need deserves attention on its own terms, without a questionnaire threshold.",
+              "zh": "可不采用任何建议，也可只读、不练习。结果不要求改变行为、披露私人细节或证明能控制体验。实际需要可以按自身情况被认真对待，无需问卷门槛。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support, stopping and privacy",
+            "zh": "支持、停止与隐私"
+          },
+          "paragraphs": [
+            {
+              "en": "If experiences are new, distressing or affecting everyday life, you can discuss them with a qualified healthcare professional without completing this page or reaching a count. The page cannot assess causes, medical need or urgency. Do not delay care or change treatment because of a record. If immediate danger is present or you cannot stay safe, seek appropriate local emergency assistance rather than continuing.",
+              "zh": "体验若是新出现、令人困扰或影响日常，可以向合格医疗专业人士讨论，无需完成或达到计数。页面不评原因、医疗需要或紧急程度；不要因记录推迟照护或改变治疗。有即时危险或无法保障安全时，寻求当地合适的紧急援助而非继续。"
+            },
+            {
+              "en": "All full guides and support information remain public for every answer pattern. Answers stay in current-page memory, without drafts, submission, questionnaire analytics or a private result address. Exit, refresh, leaving and retake clear them. Copying includes only the public title and entry, without selections, counts or a personal history.",
+              "zh": "全部全文与支持说明对任何组合都公开。回答只在当前页面内存，不存草稿、不提交、不作问卷分析、没有私人结果地址。退出、刷新、离页与重做会清除；复制只含公开标题与入口，不含选择、计数或私人历史。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "absorption-and-attention-reading",
+      "directionIds": [
+        "absorption-and-attention"
+      ],
+      "title": {
+        "en": "Absorption and attention — Complete Experience Guide",
+        "zh": "投入与注意：完整体验指南"
+      },
+      "headline": {
+        "en": "Absorption and attention — Complete Experience Guide",
+        "zh": "投入与注意：完整体验指南"
+      },
+      "summary": {
+        "en": "This topic concerns attention narrowing during a chosen activity, losing track of elapsed time, daydreaming, noticing mind-wandering and continuing a familiar action while thinking about something else. These are descriptions of attention. They do not establish missing memories, impaired functioning or a clinical dissociative state.",
+        "zh": "本主题关注所选活动中的注意收窄、未留意经过时间、白日梦、注意到走神及做熟悉动作时想着别的事。它们是注意描述，不能确定记忆缺失、功能受损或临床解离状态。"
+      },
+      "scoreReading": {
+        "en": "Five descriptions retain six category counts without a clinical score, identity inference or causal conclusion.",
+        "zh": "五条描述保留六类计数，不生成临床分数、身份推断或原因结论。"
+      },
+      "seo": {
+        "title": {
+          "en": "Absorption and attention — Complete Experience Guide",
+          "zh": "投入与注意：完整体验指南"
+        },
+        "description": {
+          "en": "This topic concerns attention narrowing during a chosen activity, losing track of elapsed time, daydreaming, noticing mind-wandering and continuing a familiar action while thinking about something else. These are descriptions of attention. They do not establish missing memories, impaired functioning or a clinical dissociative state.",
+          "zh": "本主题关注所选活动中的注意收窄、未留意经过时间、白日梦、注意到走神及做熟悉动作时想着别的事。它们是注意描述，不能确定记忆缺失、功能受损或临床解离状态。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Being absorbed is not automatically a disorder",
+            "zh": "投入其中，不自动等于疾病"
+          },
+          "paragraphs": [
+            {
+              "en": "This topic concerns attention narrowing during a chosen activity, losing track of elapsed time, daydreaming, noticing mind-wandering and continuing a familiar action while thinking about something else. These are descriptions of attention. They do not establish missing memories, impaired functioning or a clinical dissociative state.",
+              "zh": "本主题关注所选活动中的注意收窄、未留意经过时间、白日梦、注意到走神及做熟悉动作时想着别的事。它们是注意描述，不能确定记忆缺失、功能受损或临床解离状态。"
+            },
+            {
+              "en": "An engaging activity can be welcome, while an interruption of a task can feel unwelcome. The record does not give either a preferred score or subtract returning attention from other descriptions. It also does not identify ADHD, a flow state, creativity or an exceptional ability to focus.",
+              "zh": "投入活动可能合意，任务被打断也可能不合意。记录不为两者指定理想分数，也不以注意返回抵扣其他描述。它不识别ADHD、心流、创造力或非凡专注能力。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Five descriptions, six labels",
+            "zh": "五条描述，六类标签"
+          },
+          "paragraphs": [
+            {
+              "en": "Six category counts add to five selected descriptions. They do not count incidents, minutes, symptoms or a percentage of your life. IDs are not points. There is no total, mean, highest topic, cutoff, diagnosis or risk category.",
+              "zh": "六类计数合计五条所选描述，不数事件、分钟、症状或生活比例。标识不是点数，没有总分、均分、最高主题、切点、诊断或风险类别。"
+            },
+            {
+              "en": "One often, one sometimes and three unscored remain those five choices. No opportunity, unclear recall and withholding stay distinct from did not notice on relevant occasions. A fully unscored topic gives no finding. Few labels cannot exclude a concern, and frequent labels cannot establish a disorder or its cause.",
+              "zh": "一条较常、一条有时、三条未计分，就保持五个选择。无机会、回忆不清与保留回答，不变成有机会时没有注意到。全未计分不提供发现；少量不排除担忧，频繁选择也不能确定疾病或原因。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A fictional example with limits",
+            "zh": "一个有边界的虚构例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional reader noticing that more time has passed than expected while following a story. They then return attention to the room. Both observations can remain without calling the first a lost memory or the second proof that no concern exists. The example is not a task to recreate.",
+              "zh": "设想一位虚构读者跟随故事时，发现过去的时间比预想多，随后把注意转回房间。两者都可保留，不把前者叫记忆缺失，也不把后者当成没有担忧的证明。例子不是要重做的任务。"
+            },
+            {
+              "en": "The example is not an expected answer, evidence about you or a task to repeat. A later difference can reflect opportunity, interpretation or recollection. It cannot establish recovery, deterioration, memory recovery or treatment response.",
+              "zh": "例子不是期待答案、关于你的证据或要重复的任务。后来差异可反映机会、理解或回忆，不能确定恢复、恶化、记忆找回或治疗反应。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Original descriptions with a bounded purpose",
+            "zh": "有边界的原创描述"
+          },
+          "paragraphs": [
+            {
+              "en": "These twenty bilingual descriptions and four overlapping editorial topics are original and unvalidated. They are not the Dissociative Experiences Scale, DES-II or a screening instrument for dissociative identity disorder. The four-week window is editorial, with no norms, clinical thresholds or established language equivalence.",
+              "zh": "20条双语描述与四个可重叠编辑主题均为未经验证的原创，不是解离体验量表、DES-II或分离性身份障碍筛查工具。四周范围是编辑选择，没有常模、临床界值或已建立的语言等值。"
+            },
+            {
+              "en": "Related feelings, attention and trauma-response pages keep their own questions and methods. An overlapping word does not make their scores interchangeable or explain this record. Nothing here verifies a trauma history, hidden identity, external reality or a neurological or psychiatric cause.",
+              "zh": "相关感受、注意与提醒反应页面保留自身问题和方法。词语重叠不使分数可互换，也不解释本记录。这里不核实创伤史、隐藏身份、外部现实或神经与精神原因。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "An optional way to describe the concern",
+            "zh": "一种可选的担忧表达方式"
+          },
+          "paragraphs": [
+            {
+              "en": "For a useful private reflection, you may distinguish what held attention, what else you intended to do and what you noticed afterward. There is no need to create a distraction or push yourself into a prolonged activity. A practical concern should be considered from the actual situation rather than a count.",
+              "zh": "若私下反思有用，可以区分什么吸引注意、原本还想做什么及后来注意到什么。无需制造干扰或强迫长时间投入。实际担忧应按具体情境考虑，不靠计数决定。"
+            },
+            {
+              "en": "You can leave any suggestion aside and read without doing an exercise. No result requires a changed behaviour, disclosure of private details or proof that you can control an experience. A practical need deserves attention on its own terms, without a questionnaire threshold.",
+              "zh": "可不采用任何建议，也可只读、不练习。结果不要求改变行为、披露私人细节或证明能控制体验。实际需要可以按自身情况被认真对待，无需问卷门槛。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support, stopping and privacy",
+            "zh": "支持、停止与隐私"
+          },
+          "paragraphs": [
+            {
+              "en": "If experiences are new, distressing or affecting everyday life, you can discuss them with a qualified healthcare professional without completing this page or reaching a count. The page cannot assess causes, medical need or urgency. Do not delay care or change treatment because of a record. If immediate danger is present or you cannot stay safe, seek appropriate local emergency assistance rather than continuing.",
+              "zh": "体验若是新出现、令人困扰或影响日常，可以向合格医疗专业人士讨论，无需完成或达到计数。页面不评原因、医疗需要或紧急程度；不要因记录推迟照护或改变治疗。有即时危险或无法保障安全时，寻求当地合适的紧急援助而非继续。"
+            },
+            {
+              "en": "All full guides and support information remain public for every answer pattern. Answers stay in current-page memory, without drafts, submission, questionnaire analytics or a private result address. Exit, refresh, leaving and retake clear them. Copying includes only the public title and entry, without selections, counts or a personal history.",
+              "zh": "全部全文与支持说明对任何组合都公开。回答只在当前页面内存，不存草稿、不提交、不作问卷分析、没有私人结果地址。退出、刷新、离页与重做会清除；复制只含公开标题与入口，不含选择、计数或私人历史。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "everyday-recall-uncertainty-reading",
+      "directionIds": [
+        "everyday-recall-uncertainty"
+      ],
+      "title": {
+        "en": "Uncertainty in everyday recall — Complete Experience Guide",
+        "zh": "日常回忆中的不确定：完整体验指南"
+      },
+      "headline": {
+        "en": "Uncertainty in everyday recall — Complete Experience Guide",
+        "zh": "日常回忆中的不确定：完整体验指南"
+      },
+      "summary": {
+        "en": "The five descriptions concern unclear parts of a conversation, uncertainty about step order, a hard-to-recall stretch, missing routine details and difficulty placing a remembered detail. They describe uncertainty in ordinary recall. The page cannot establish amnesia, a hidden event, a separate identity or a reason for the uncertainty.",
+        "zh": "五条描述涉及谈话片段不清、步骤顺序不确定、难回想的一段、日常细节想不起及细节场合难定位。它们描述普通回忆的不确定，不能确定失忆、隐藏事件、另一身份或不确定的原因。"
+      },
+      "scoreReading": {
+        "en": "Five descriptions retain six category counts without a clinical score, identity inference or causal conclusion.",
+        "zh": "五条描述保留六类计数，不生成临床分数、身份推断或原因结论。"
+      },
+      "seo": {
+        "title": {
+          "en": "Uncertainty in everyday recall — Complete Experience Guide",
+          "zh": "日常回忆中的不确定：完整体验指南"
+        },
+        "description": {
+          "en": "The five descriptions concern unclear parts of a conversation, uncertainty about step order, a hard-to-recall stretch, missing routine details and difficulty placing a remembered detail. They describe uncertainty in ordinary recall. The page cannot establish amnesia, a hidden event, a separate identity or a reason for the uncertainty.",
+          "zh": "五条描述涉及谈话片段不清、步骤顺序不确定、难回想的一段、日常细节想不起及细节场合难定位。它们描述普通回忆的不确定，不能确定失忆、隐藏事件、另一身份或不确定的原因。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Uncertain recall does not prove an unremembered event",
+            "zh": "回忆不确定，不证明未记得的事件"
+          },
+          "paragraphs": [
+            {
+              "en": "The five descriptions concern unclear parts of a conversation, uncertainty about step order, a hard-to-recall stretch, missing routine details and difficulty placing a remembered detail. They describe uncertainty in ordinary recall. The page cannot establish amnesia, a hidden event, a separate identity or a reason for the uncertainty.",
+              "zh": "五条描述涉及谈话片段不清、步骤顺序不确定、难回想的一段、日常细节想不起及细节场合难定位。它们描述普通回忆的不确定，不能确定失忆、隐藏事件、另一身份或不确定的原因。"
+            },
+            {
+              "en": "Choose a frequency only if you recall that the uncertainty occurred. If you cannot decide whether the described experience happened, that answer can stay unscored. Do not infer that a forgotten harmful event must exist, reconstruct memories or ask other people to confirm a story for this page.",
+              "zh": "只有记得当时出现过这种不确定时，才选择频率。若无法判断题述体验是否发生，可保持未计分。不要据此推断一定有被忘记的伤害事件、重建记忆，或请别人为本页确认故事。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Five descriptions, six labels",
+            "zh": "五条描述，六类标签"
+          },
+          "paragraphs": [
+            {
+              "en": "Six category counts add to five selected descriptions. They do not count incidents, minutes, symptoms or a percentage of your life. IDs are not points. There is no total, mean, highest topic, cutoff, diagnosis or risk category.",
+              "zh": "六类计数合计五条所选描述，不数事件、分钟、症状或生活比例。标识不是点数，没有总分、均分、最高主题、切点、诊断或风险类别。"
+            },
+            {
+              "en": "One often, one sometimes and three unscored remain those five choices. No opportunity, unclear recall and withholding stay distinct from did not notice on relevant occasions. A fully unscored topic gives no finding. Few labels cannot exclude a concern, and frequent labels cannot establish a disorder or its cause.",
+              "zh": "一条较常、一条有时、三条未计分，就保持五个选择。无机会、回忆不清与保留回答，不变成有机会时没有注意到。全未计分不提供发现；少量不排除担忧，频繁选择也不能确定疾病或原因。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A fictional example with limits",
+            "zh": "一个有边界的虚构例子"
+          },
+          "paragraphs": [
+            {
+              "en": "A fictional adult remembers completing a familiar errand but cannot bring some small details to mind later. The record cannot tell whether attention, recall or another factor accounts for it. Keeping a detail uncertain is different from supplying an explanation or imagining the missing part.",
+              "zh": "一位虚构成年人记得完成了熟悉事务，后来却想不起一些小细节。记录不能确定来自注意、回忆或其他因素。让细节保持未知，不同于补出解释或想象缺失部分。"
+            },
+            {
+              "en": "The example is not an expected answer, evidence about you or a task to repeat. A later difference can reflect opportunity, interpretation or recollection. It cannot establish recovery, deterioration, memory recovery or treatment response.",
+              "zh": "例子不是期待答案、关于你的证据或要重复的任务。后来差异可反映机会、理解或回忆，不能确定恢复、恶化、记忆找回或治疗反应。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Original descriptions with a bounded purpose",
+            "zh": "有边界的原创描述"
+          },
+          "paragraphs": [
+            {
+              "en": "These twenty bilingual descriptions and four overlapping editorial topics are original and unvalidated. They are not the Dissociative Experiences Scale, DES-II or a screening instrument for dissociative identity disorder. The four-week window is editorial, with no norms, clinical thresholds or established language equivalence.",
+              "zh": "20条双语描述与四个可重叠编辑主题均为未经验证的原创，不是解离体验量表、DES-II或分离性身份障碍筛查工具。四周范围是编辑选择，没有常模、临床界值或已建立的语言等值。"
+            },
+            {
+              "en": "Related feelings, attention and trauma-response pages keep their own questions and methods. An overlapping word does not make their scores interchangeable or explain this record. Nothing here verifies a trauma history, hidden identity, external reality or a neurological or psychiatric cause.",
+              "zh": "相关感受、注意与提醒反应页面保留自身问题和方法。词语重叠不使分数可互换，也不解释本记录。这里不核实创伤史、隐藏身份、外部现实或神经与精神原因。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "An optional way to describe the concern",
+            "zh": "一种可选的担忧表达方式"
+          },
+          "paragraphs": [
+            {
+              "en": "If recall changes concern you or affect daily activities, describe the actual difficulty to a qualified healthcare professional without waiting for a count. No document search, repeated memory test or reconstruction exercise is required. The guide cannot decide medical urgency, cause or what care is needed.",
+              "zh": "若回忆变化让你担忧或影响日常，可以向合格医疗专业人士描述实际困难，无需等计数。本页无需查文件、重复记忆测试或重建练习，也不能决定医疗紧急程度、原因或所需照护。"
+            },
+            {
+              "en": "You can leave any suggestion aside and read without doing an exercise. No result requires a changed behaviour, disclosure of private details or proof that you can control an experience. A practical need deserves attention on its own terms, without a questionnaire threshold.",
+              "zh": "可不采用任何建议，也可只读、不练习。结果不要求改变行为、披露私人细节或证明能控制体验。实际需要可以按自身情况被认真对待，无需问卷门槛。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support, stopping and privacy",
+            "zh": "支持、停止与隐私"
+          },
+          "paragraphs": [
+            {
+              "en": "If experiences are new, distressing or affecting everyday life, you can discuss them with a qualified healthcare professional without completing this page or reaching a count. The page cannot assess causes, medical need or urgency. Do not delay care or change treatment because of a record. If immediate danger is present or you cannot stay safe, seek appropriate local emergency assistance rather than continuing.",
+              "zh": "体验若是新出现、令人困扰或影响日常，可以向合格医疗专业人士讨论，无需完成或达到计数。页面不评原因、医疗需要或紧急程度；不要因记录推迟照护或改变治疗。有即时危险或无法保障安全时，寻求当地合适的紧急援助而非继续。"
+            },
+            {
+              "en": "All full guides and support information remain public for every answer pattern. Answers stay in current-page memory, without drafts, submission, questionnaire analytics or a private result address. Exit, refresh, leaving and retake clear them. Copying includes only the public title and entry, without selections, counts or a personal history.",
+              "zh": "全部全文与支持说明对任何组合都公开。回答只在当前页面内存，不存草稿、不提交、不作问卷分析、没有私人结果地址。退出、刷新、离页与重做会清除；复制只含公开标题与入口，不含选择、计数或私人历史。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "Four experience topics without a clinical score",
+        "zh": "四个体验主题，不设临床分数"
+      },
+      "paragraphs": [
+        {
+          "en": "Each topic retains five selected labels and six separate counts. Positive, neutral and difficult descriptions are not reversed or combined. All four full guides remain free before answering, midway and after a fully unscored record.",
+          "zh": "每个主题保留五条所选标签与六类独立计数。正向、中性与困难描述不反向、不合分。四篇全文在答题前、中途及全未计分后均免费开放。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does this diagnose dissociation or identity disorders?",
+        "zh": "会诊断解离或身份障碍吗？"
+      },
+      "answer": {
+        "en": "No. It records descriptions without a clinical score, screening threshold, identity inference or diagnosis. It cannot explain a memory gap or verify an event. Professional assessment uses other information.",
+        "zh": "不会。它记录描述，不设临床分数、筛查门槛、身份推断或诊断，不能解释记忆缺口或核实事件。专业评估需要其他信息。"
+      }
+    },
+    {
+      "question": {
+        "en": "Should I recreate an experience or recover a memory?",
+        "zh": "需要重做体验或找回记忆吗？"
+      },
+      "answer": {
+        "en": "No. Use only what you already recall, leave uncertainty unscored and stop if you want. No check, reconstruction or personal evidence is needed to read all guides or ask for support.",
+        "zh": "不需要。只用已有回忆，不确定可保持未计分，也可随时停止。阅读全文或求助无需检查、重建或私人证据。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "NHS: dissociative disorders — professional background only",
+        "zh": "NHS：解离性障碍，仅作专业背景"
+      },
+      "url": "https://www.nhs.uk/mental-health/conditions/dissociative-disorders/"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_disconnection_recall_observations",
+    "formCode": "fm_disconnection20_observations_v1",
+    "itemBankVersion": "original20_bilingual_four_by_five_experiences_v1",
+    "scoringVersion": "six_label_counts_per_five_no_dissociation_or_identity_score_v1",
+    "resultContentVersion": "four_full_bilingual_disconnection_guides_v1",
+    "itemBankSha256": "779faff5ece1c49f76056b90bb2a595d1163a514616887cb0d2571404c6568eb",
+    "resultContentSha256": "4fbffa82fb2f342e763f8187edea07405dcdc2e628097d49b83ed7c82b6bea67",
+    "psychometricValidationCompleted": false
+  }
+}

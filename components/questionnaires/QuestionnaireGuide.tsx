@@ -1,3 +1,5 @@
+import { isDisconnection20ConfigurationValid } from "@/lib/questionnaires/disconnection20";
+import { DisconnectionGuidePage } from "./DisconnectionPage";
 import { isFeedbackWorth12ConfigurationValid } from "@/lib/questionnaires/feedbackWorth12";
 import { FeedbackWorthGuidePage } from "./FeedbackWorthPage";
 import { isSpatialContext4ConfigurationValid } from "@/lib/questionnaires/spatialContext4";
@@ -170,6 +172,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (quiz?.kind === "feelings-connection8" && !isFeelingsConnection8ConfigurationValid(quiz)) return { title: "Feelings reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "spatial-context4" && !isSpatialContext4ConfigurationValid(quiz)) return { title: "Spatial reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "care-feelings20" && !isCareFeelings20ConfigurationValid(quiz)) return { title: "Care reflection unavailable", robots: { index: false, follow: false } };
+  if (quiz?.kind === "disconnection20" && !isDisconnection20ConfigurationValid(quiz)) return { title: "Experience reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "focus-context16" && !isFocusContext16ConfigurationValid(quiz)) return { title: "Daily-context reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "written-language20" && !isWrittenLanguage20ConfigurationValid(quiz)) return { title: "Written-language reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "number-context20" && !isNumberContext20ConfigurationValid(quiz)) return { title: "Written-language reflection unavailable", robots: { index: false, follow: false } };
@@ -286,6 +289,12 @@ export default async function QuestionnaireResultGuide({ params }: Props) {
     const profile = quiz.profiles.find(p => p.id === id);
     if (!profile) notFound();
     return <CareFeelingsGuidePage quiz={quiz} profile={profile} locale={locale} />;
+  }
+  if (quiz?.kind === "disconnection20") {
+    if (!isDisconnection20ConfigurationValid(quiz)) notFound();
+    const profile = quiz.profiles.find(p => p.id === id);
+    if (!profile) notFound();
+    return <DisconnectionGuidePage quiz={quiz} profile={profile} locale={locale} />;
   }
   if (quiz?.kind === "focus-context16") {
     if (!isFocusContext16ConfigurationValid(quiz)) notFound();

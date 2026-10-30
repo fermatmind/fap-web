@@ -7424,5 +7424,30 @@
       "recalled-cycle-timing-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "disconnection-experiences-reflection",
+    "code": "FM_DISCONNECTION20_OBSERVATIONS",
+    "version": "fm_disconnection20_observations_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Detachment, Absorption & Everyday Recall",
+      "zh": "距离感、投入与日常回忆"
+    },
+    "description": {
+      "en": "Twenty original descriptions of self-experience, surroundings, absorption and uncertainty in everyday recall. Keep private category records and read four complete free guides, without a dissociation score, identity claim or diagnosis.",
+      "zh": "20条原创描述，回顾自身体验、环境、投入及日常回忆不确定。保留私人类别记录，阅读四篇完整免费指南，不生成解离分数、身份主张或诊断。"
+    },
+    "minutes": 5,
+    "formCode": "fm_disconnection20_observations_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "experience-of-self-reading",
+      "experience-of-surroundings-reading",
+      "absorption-and-attention-reading",
+      "everyday-recall-uncertainty-reading"
+    ],
+    "collection": "explore"
   }
 ]
