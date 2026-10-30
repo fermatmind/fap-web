@@ -107,6 +107,8 @@ describe("Original Weton story preferences and a separately bounded calendar", (
         dom.innerHTML = renderToStaticMarkup(await entry.default(props)); const meta = await entry.generateMetadata(props);
         expect(dom.querySelector("h1")?.textContent).toBe(quiz.title[locale]); expect(dom.querySelectorAll("#take-test")).toHaveLength(1); expect(dom.textContent).toContain(quiz.instructions![locale]); expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
         for (const section of quiz.guide) for (const paragraph of section.paragraphs) expect(dom.textContent).toContain(paragraph[locale]);
+        expect(dom.querySelector('form fieldset[disabled]')).not.toBeNull();
+        for (const control of dom.querySelectorAll('form input, form select, form button')) expect(control.matches(':disabled')).toBe(true);
         const directory = document.createElement("div"); directory.innerHTML = renderToStaticMarkup(<MoreTests locale={locale} />); expect(directory.querySelector(`a[href="${path}"]`)).not.toBeNull();
         for (const profile of quiz.profiles) {
           const pp = `${path}/results/${profile.id}`, gp = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };
