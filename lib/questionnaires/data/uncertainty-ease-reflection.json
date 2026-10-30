@@ -1,0 +1,617 @@
+{
+  "slug": "uncertainty-ease-reflection",
+  "code": "FM_UNCERTAINTY_EASE6_CATEGORIES",
+  "version": "fm_uncertainty6_four_weeks_v1",
+  "updated": "2026-10-30",
+  "category": "framework",
+  "kind": "uncertainty-ease6",
+  "title": {
+    "en": "Feeling at Ease with Uncertainty",
+    "zh": "面对未知的自在感回顾"
+  },
+  "seoTitle": {
+    "en": "Ease with Uncertainty: Six Original Statements, One Full Guide",
+    "zh": "面对未知的自在感：六条原创陈述与一篇完整指南"
+  },
+  "description": {
+    "en": "An adult reflection on felt ease, tension and uncertainty in ordinary low-stakes settings. One private description record, without a boldness, psychopathy or safety score.",
+    "zh": "成年人回顾普通低后果场合中的自在、紧张与未知。一份私密描述记录，不设大胆性、精神病态或安全分数。"
+  },
+  "minutes": 3,
+  "instructions": {
+    "en": "Answer only for yourself over the past four weeks, using ordinary low-stakes recollections. No private stories, names, fear challenge or new action is requested. Six choices make one independent record without points. Unknown, no experience and withheld remain separate. Leave whenever you want or read the full guide without answering. Answers stay only in current page memory.",
+    "zh": "只为自己回顾过去四周后果轻微的普通经历，不需私密故事、姓名、恐惧挑战或新行动。六条形成一份独立不计分记录，未知、无经历及不答分别保留。可随时离开，或不答读全文。回答只留当前页面内存。"
+  },
+  "resultHeading": {
+    "en": "Your description record",
+    "zh": "你的描述记录"
+  },
+  "introduction": {
+    "en": "Six original statements and one complete public guide, free without an account. Ordinary decision pace and interpersonal callousness or manipulation already have separate full readings, linked below with their own methods. They are not combined into a trait profile.",
+    "zh": "六条原创陈述与一篇完整公开指南，无需账户，全部免费。普通决定节奏、人际冷漠与操控已有独立全文，下方按各自方法链接，不合成特质画像。"
+  },
+  "source": {
+    "kind": "fermatmind_original_uncertainty_ease_statements",
+    "formCode": "fm_uncertainty6_four_weeks_v1",
+    "itemBankVersion": "original6_bilingual_one_theme_six_items_v1",
+    "scoringVersion": "six_mixed_categories_one_record_no_points_v1",
+    "resultContentVersion": "one_full_bilingual_uncertainty_reading_v1",
+    "psychometricValidationCompleted": false,
+    "itemBankSha256": "4d558e8d1be130e2613179277b24ffa90e3f8e310f382a792c9af823940cce53",
+    "resultContentSha256": "2201b0d0b3dcf20ea2c3ce041c1242e90de2a74632b6bcf54c03b7e1e71a9797"
+  },
+  "directions": [
+    {
+      "id": "ease-with-uncertainty",
+      "title": {
+        "en": "Feeling at ease with uncertainty",
+        "zh": "面对未知时的自在感"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "UNC_01",
+      "prompt": {
+        "en": "I felt at ease entering an unfamiliar, low-stakes situation.",
+        "zh": "进入一个不熟悉、后果轻微的场合时，我感到自在。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "ease-with-uncertainty"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "ease-with-uncertainty"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "ease-with-uncertainty"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "UNC_02",
+      "prompt": {
+        "en": "In an ordinary discussion, I felt comfortable speaking despite not knowing how my view would be received.",
+        "zh": "普通讨论中，即使不知道观点会怎样被接受，我仍感到能自在开口。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "ease-with-uncertainty"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "ease-with-uncertainty"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "ease-with-uncertainty"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "UNC_03",
+      "prompt": {
+        "en": "An unsettled ordinary plan did not prevent me from feeling composed.",
+        "zh": "一个尚未定下的普通安排，没有妨碍我感到平稳。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "ease-with-uncertainty"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "ease-with-uncertainty"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "ease-with-uncertainty"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "UNC_04",
+      "prompt": {
+        "en": "I felt tension about an unfamiliar task even when the practical stakes were small.",
+        "zh": "即使实际后果不大，不熟悉的任务仍令我紧张。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "ease-with-uncertainty"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "ease-with-uncertainty"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "ease-with-uncertainty"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "UNC_05",
+      "prompt": {
+        "en": "I felt unsure whether my calm appearance matched what I was experiencing inside.",
+        "zh": "我不确定外表平静是否符合内心体验。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "ease-with-uncertainty"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "ease-with-uncertainty"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "ease-with-uncertainty"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "UNC_06",
+      "prompt": {
+        "en": "I could feel uncertain about an ordinary outcome without needing to settle it immediately.",
+        "zh": "面对普通结果的未知，我能不要求立即把它定下来。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "ease-with-uncertainty"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "ease-with-uncertainty"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "ease-with-uncertainty"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "ease-with-uncertainty-reading",
+      "directionIds": [
+        "ease-with-uncertainty"
+      ],
+      "title": {
+        "en": "Feeling at ease with uncertainty: Complete Reflection Guide",
+        "zh": "面对未知时的自在感：完整回顾指南"
+      },
+      "headline": {
+        "en": "Separate ordinary experiences, without a personal label.",
+        "zh": "独立普通体验，不贴人身标签。"
+      },
+      "summary": {
+        "en": "Read the complete original explanation of feeling at ease with uncertainty, with uncertainty preserved.",
+        "zh": "完整阅读面对未知时的自在感的原创解释，保留未知。"
+      },
+      "scoreReading": {
+        "en": "Six original statements make one description record. Choose describes, partly describes or does not describe your past four weeks. Cannot judge, no relevant experience and prefer not to answer remain separate. Six category counts add to six, with the individual sentences and selected labels retained. Comfortable, tense and uncertain descriptions are not reverse-scored, subtracted or ranked. Counts are not points, frequencies, traits or severity. There is no total, mean, cutoff, boldness score, calculating–reactive spectrum or personal type.",
+        "zh": "六条原创陈述形成一份描述记录，选择是否符合过去四周、部分符合或不符合；无法判断、无相关经历及不答分别保留。六类计数合计六条，并保留原句与选择。自在、紧张及未知不反向计分、相减或排名。计数不是点数、频率、特质或严重度，不设总分、均值、界线、大胆性分数、算计反应谱系或人身类型。"
+      },
+      "seo": {
+        "title": {
+          "en": "Felt Ease with Uncertainty | Full Original Guide",
+          "zh": "面对未知的自在感｜完整原创指南"
+        },
+        "description": {
+          "en": "Full original guide without a diagnosis, risk clearance or trait score.",
+          "zh": "完整原创指南，不诊断、不作风险许可或特质分数。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Felt ease is different from an outward practice",
+            "zh": "内在自在不同于外在做法"
+          },
+          "paragraphs": [
+            {
+              "en": "These six statements concern ease in an unfamiliar low-stakes setting, speaking without knowing the reception, composure with an unsettled plan, tension before an unfamiliar task, uncertainty about a calm appearance and room to leave an outcome unresolved. They ask how a situation felt to you. They do not observe courage, charisma, social success or the ability to withstand danger. No actual task or private interaction is entered.",
+              "zh": "六句关注陌生低后果场合的自在、未知回应仍开口、未定计划中平稳、陌生任务前紧张、外表平静是否符合内心的未知，以及允许结果未定。只问感受，不观察勇气、魅力、社交成功或承受危险能力，不输入实际任务或互动。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Calm, tension and uncertainty can coexist",
+            "zh": "平静、紧张与未知可以并存"
+          },
+          "paragraphs": [
+            {
+              "en": "You might feel at ease speaking in one setting and tense before a different unfamiliar task. A calm appearance can also leave you unsure what to call the experience inside. These descriptions do not cancel each other or form a fearless–fearful axis. The first three statements cannot establish low fear, and the remaining statements are not reverse keys that identify a hidden trait when subtracted.",
+              "zh": "可能一处自在开口，另一陌生任务前紧张；外表平静时，也可能不知内心该叫什么。描述不抵消，不形成无畏害怕轴。前三句不确立低恐惧，其余也不是相减就揭示特质的反向键。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Different from responding under pressure",
+            "zh": "与压力下回应不同"
+          },
+          "paragraphs": [
+            {
+              "en": "The existing Work Traits reflection asks about practices such as clarifying an issue, pausing when possible and separating known information from anticipation. Its complete Responding Under Pressure guide explicitly does not measure feeling calm. This record adds selected felt experiences in ordinary low-stakes settings. Neither method is a substitute for the other, and work-frequency means are not converted into an uncertainty, boldness or safety score. The social-context and everyday-worry reflections record noticed worry, tension and related situations. Fewer such endorsements do not establish ease, and this record does not reverse their categories into a confidence measure.",
+              "zh": "现有工作特质回顾问澄清问题、有条件暂停、分开已知与预想等做法；其完整压力回应指南明确不测是否平静。这里补普通低后果场合的内在体验，不互相替代，也不把工作频率均值转成未知、大胆或安全分数。社交情境与日常担心回顾记录注意到的担心、紧绷及相关场景；较少认同不建立自在，本记录也不把它们反向成信心测量。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Ease does not determine care for other people",
+            "zh": "自在不决定怎样在意别人"
+          },
+          "paragraphs": [
+            {
+              "en": "Feeling composed does not imply disregard for another person, and feeling tense does not prove empathy. Those are different questions. The existing callousness and manipulation readings concern specific self-reported behaviours and have their own limits. No combination with this record establishes moral character, a disorder or how safe someone is to trust. An entirely unknown or withheld record supplies no personal conclusion or reassurance about actual conduct.",
+              "zh": "感到平稳不意味忽视别人，紧张也不证明共情，这是不同问题。既有冷漠操控读法关注具体自报行为且各有限制；与本记录组合也不确立道德、障碍或是否值得安全信任。全未知或不答，不对真实行为作结论或保证。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "No fear test or social challenge is required",
+            "zh": "不需要恐惧测试或社交挑战"
+          },
+          "paragraphs": [
+            {
+              "en": "You do not need to seek an unfamiliar setting, provoke tension, speak publicly or ask someone to evaluate your confidence. Use broad recollections or leave a sentence unknown. Reading may end without an action. If a real situation feels difficult, consider its actual demands and available support rather than trying to obtain a more comfortable category or treating this page as a readiness certificate.",
+              "zh": "无需找陌生场合、制造紧张、公开发言或请人评自信。用宽泛回忆或保留未知，读完可不行动。真实情境困难时，看实际要求与支持，不为得到更自在类别做试验，也不把页面当准备证明。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "How the record works",
+            "zh": "记录如何工作"
+          },
+          "paragraphs": [
+            {
+              "en": "Six original statements make one description record. Choose describes, partly describes or does not describe your past four weeks. Cannot judge, no relevant experience and prefer not to answer remain separate. Six category counts add to six, with the individual sentences and selected labels retained. Comfortable, tense and uncertain descriptions are not reverse-scored, subtracted or ranked. Counts are not points, frequencies, traits or severity. There is no total, mean, cutoff, boldness score, calculating–reactive spectrum or personal type.",
+              "zh": "六条原创陈述形成一份描述记录，选择是否符合过去四周、部分符合或不符合；无法判断、无相关经历及不答分别保留。六类计数合计六条，并保留原句与选择。自在、紧张及未知不反向计分、相减或排名。计数不是点数、频率、特质或严重度，不设总分、均值、界线、大胆性分数、算计反应谱系或人身类型。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Origin, limits and independent support",
+            "zh": "原创边界与独立支持"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these six statements and one complete reading. They are not TriPM, PPI, SRP, SD4 or a measure of psychopathy, sociopathy, boldness or clinical impulsivity. Reliability, validity, norms and language equivalence have not been established. Four weeks is a recall aid rather than a trait or diagnostic criterion. The record does not assess a person’s morality, empathy, safety or suitability for a role. Published neighbouring methods have their own items and interpretations and do not validate this original composition.",
+              "zh": "费马原创这六条陈述与一篇完整读法，不是TriPM、PPI、SRP、SD4，也不测精神病态、反社会标签、大胆性或临床冲动。尚未建立信效度、常模或跨语言等价。四周只是回忆提示，不是特质或诊断标准。记录不评道德、共情、安全或岗位适合度。相邻发表方法有自己的题目解释，不验证本组合。"
+            },
+            {
+              "en": "You may seek support for a troubling experience without a label, a count or completion. A qualified professional can consider actual concerns in an appropriate individual setting. The activity gives no risk clearance, treatment advice or permission for a consequential action. It asks for no fear challenge, risky experiment, disclosure or contact with another person. You can stop after reading. For immediate danger, seek local emergency help rather than rely on this record.",
+              "zh": "对令人困扰的体验寻求支持，不需标签、计数或完成。合格专业人士可在适当的个别场合考虑实际顾虑。本活动不作风险许可、不提治疗建议，也不授权重要后果的行动；不要求恐惧挑战、风险试验、披露或联系别人。可读完就停，有即时危险时寻求当地紧急帮助，不依赖记录。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "One description record",
+        "zh": "一份描述记录"
+      },
+      "paragraphs": [
+        {
+          "en": "Six original statements make one description record. Choose describes, partly describes or does not describe your past four weeks. Cannot judge, no relevant experience and prefer not to answer remain separate. Six category counts add to six, with the individual sentences and selected labels retained. Comfortable, tense and uncertain descriptions are not reverse-scored, subtracted or ranked. Counts are not points, frequencies, traits or severity. There is no total, mean, cutoff, boldness score, calculating–reactive spectrum or personal type.",
+          "zh": "六条原创陈述形成一份描述记录，选择是否符合过去四周、部分符合或不符合；无法判断、无相关经历及不答分别保留。六类计数合计六条，并保留原句与选择。自在、紧张及未知不反向计分、相减或排名。计数不是点数、频率、特质或严重度，不设总分、均值、界线、大胆性分数、算计反应谱系或人身类型。"
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "en": "Original method and its limits",
+        "zh": "原创方法与边界"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind authored these six statements and one complete reading. They are not TriPM, PPI, SRP, SD4 or a measure of psychopathy, sociopathy, boldness or clinical impulsivity. Reliability, validity, norms and language equivalence have not been established. Four weeks is a recall aid rather than a trait or diagnostic criterion. The record does not assess a person’s morality, empathy, safety or suitability for a role. Published neighbouring methods have their own items and interpretations and do not validate this original composition.",
+          "zh": "费马原创这六条陈述与一篇完整读法，不是TriPM、PPI、SRP、SD4，也不测精神病态、反社会标签、大胆性或临床冲动。尚未建立信效度、常模或跨语言等价。四周只是回忆提示，不是特质或诊断标准。记录不评道德、共情、安全或岗位适合度。相邻发表方法有自己的题目解释，不验证本组合。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does this identify a psychopath or sociopath?",
+        "zh": "它识别精神病态或反社会标签吗？"
+      },
+      "answer": {
+        "en": "FermatMind authored these six statements and one complete reading. They are not TriPM, PPI, SRP, SD4 or a measure of psychopathy, sociopathy, boldness or clinical impulsivity. Reliability, validity, norms and language equivalence have not been established. Four weeks is a recall aid rather than a trait or diagnostic criterion. The record does not assess a person’s morality, empathy, safety or suitability for a role. Published neighbouring methods have their own items and interpretations and do not validate this original composition.",
+        "zh": "费马原创这六条陈述与一篇完整读法，不是TriPM、PPI、SRP、SD4，也不测精神病态、反社会标签、大胆性或临床冲动。尚未建立信效度、常模或跨语言等价。四周只是回忆提示，不是特质或诊断标准。记录不评道德、共情、安全或岗位适合度。相邻发表方法有自己的题目解释，不验证本组合。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are linked interpersonal scores combined?",
+        "zh": "链接的人际分数会合并吗？"
+      },
+      "answer": {
+        "en": "No. Difficult Person callousness and manipulation retain their own four-item frequency method. The separate emotions-and-connections guide has three ordinary decision prompts with category records. None is imported, filled in or combined here, and none produces a four-trait or calculating–reactive profile.",
+        "zh": "不合并。DTP冷漠与操控保留各自四题频率方法；独立情绪联结指南用三条普通决定陈述与类别记录，不导入、不补答或相加，也不形成四特质或算计反应画像。"
+      }
+    },
+    {
+      "question": {
+        "en": "Must I test my confidence or make a decision?",
+        "zh": "必须测试自信或作决定吗？"
+      },
+      "answer": {
+        "en": "No. Existing low-stakes recollections are enough. No fear challenge, risky experiment or new action is part of completing the activity.",
+        "zh": "不需要。已有低后果回忆即可，不包含恐惧挑战、风险试验或新行动。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is support conditional on a count?",
+        "zh": "支持以计数为条件吗？"
+      },
+      "answer": {
+        "en": "You may seek support for a troubling experience without a label, a count or completion. A qualified professional can consider actual concerns in an appropriate individual setting. The activity gives no risk clearance, treatment advice or permission for a consequential action. It asks for no fear challenge, risky experiment, disclosure or contact with another person. You can stop after reading. For immediate danger, seek local emergency help rather than rely on this record.",
+        "zh": "对令人困扰的体验寻求支持，不需标签、计数或完成。合格专业人士可在适当的个别场合考虑实际顾虑。本活动不作风险许可、不提治疗建议，也不授权重要后果的行动；不要求恐惧挑战、风险试验、披露或联系别人。可读完就停，有即时危险时寻求当地紧急帮助，不依赖记录。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are my answers saved or shared?",
+        "zh": "回答会保存或分享吗？"
+      },
+      "answer": {
+        "en": "Answers and records stay in current page memory. No drafts, answer submissions or questionnaire analytics are used. Exit, retake, refresh or leaving clears them. Copying includes only the public title and entry, never personal answers.",
+        "zh": "回答与记录只留当前页面内存，不存草稿、不提交答卷、不发问卷分析。退出、重做、刷新或离开即清除。复制只含公开标题与入口，不含个人回答。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "SD4 author page — a different published instrument",
+        "zh": "SD4作者原页：另一种发表工具"
+      },
+      "url": "https://www.erinbuckels.com/project/short-dark-tetrad-sd4/"
+    }
+  ]
+}

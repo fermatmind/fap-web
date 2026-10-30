@@ -7449,5 +7449,27 @@
       "everyday-recall-uncertainty-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "uncertainty-ease-reflection",
+    "code": "FM_UNCERTAINTY_EASE6_CATEGORIES",
+    "version": "fm_uncertainty6_four_weeks_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Feeling at Ease with Uncertainty",
+      "zh": "面对未知的自在感回顾"
+    },
+    "description": {
+      "en": "An adult reflection on felt ease, tension and uncertainty in ordinary low-stakes settings. One private description record, without a boldness, psychopathy or safety score.",
+      "zh": "成年人回顾普通低后果场合中的自在、紧张与未知。一份私密描述记录，不设大胆性、精神病态或安全分数。"
+    },
+    "minutes": 3,
+    "formCode": "fm_uncertainty6_four_weeks_v1",
+    "questionCount": 6,
+    "resultSlugs": [
+      "ease-with-uncertainty-reading"
+    ],
+    "collection": "explore"
   }
 ]
