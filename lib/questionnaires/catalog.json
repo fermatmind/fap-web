@@ -7547,5 +7547,27 @@
       "recalled-time-of-year-patterns-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "perceived-stress-scale-4",
+    "code": "FM_PSS4_CMU_REFERENCE",
+    "version": "fm_pss4_en_site_zh_v1",
+    "updated": "2026-10-30",
+    "category": "everyday",
+    "title": {
+      "en": "Perceived Stress Scale — 4 Items (PSS-4)",
+      "zh": "四项感知压力量表（PSS-4）"
+    },
+    "description": {
+      "en": "Four past-month questions with a transparent 0–16 raw total and a complete guide. No diagnosis or universal score cutoffs.",
+      "zh": "四项月度回顾，公开0—16原始计分并提供完整指南；不作诊断，不派通用分档。"
+    },
+    "minutes": 1,
+    "formCode": "cmu_pss4_en_fm_zh_translation_v1",
+    "questionCount": 4,
+    "resultSlugs": [
+      "reading-pss4-total"
+    ],
+    "collection": "explore"
   }
 ]

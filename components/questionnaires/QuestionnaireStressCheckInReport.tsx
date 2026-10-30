@@ -1,3 +1,4 @@
+import type { Pss4Questionnaire } from "@/lib/questionnaires/pss4";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { StressReflection4Questionnaire, StressReflection4Result } from "@/lib/questionnaires/stressReflection4";
@@ -5,7 +6,7 @@ import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import { QuestionnaireReport } from "./QuestionnaireReport";
 
 type Complete = Extract<StressReflection4Result, { status: "complete" }>;
-export function QuestionnaireStressCheckInReport({ quiz, result, locale }: { quiz: StressReflection4Questionnaire; result: Complete; locale: Locale }) {
+export function QuestionnaireStressCheckInReport({ quiz, result, locale }: { quiz: StressReflection4Questionnaire | Pss4Questionnaire; result: Complete; locale: Locale }) {
   const zh = locale === "zh";
   const valid = result.status === "complete" && result.answered === 4 && result.contributions.length === 4
     && result.contributions.every((p, i) => p.id === quiz.questions[i].id && Number.isInteger(p.chosen) && p.chosen >= 0 && p.chosen <= 4
@@ -14,7 +15,7 @@ export function QuestionnaireStressCheckInReport({ quiz, result, locale }: { qui
   if (!valid) return <p role="status">{zh ? "本次总分暂不可用，可以清除后重新开始。" : "This total is unavailable. Clear it and start again."}</p>;
   const profile = quiz.profiles[0];
   return <div data-stress-check-in-result className="my-6 space-y-8">
-    <p data-stress-check-in-total className="rounded-lg border border-violet-200 bg-violet-50 p-5 text-2xl font-semibold">{zh ? "本次总分：" : "This check-in total: "}<span className="whitespace-nowrap">{result.total} / 16</span></p>
+    <p data-stress-check-in-total className="rounded-lg border border-violet-200 bg-violet-50 p-5 text-2xl font-semibold">{quiz.kind === "pss4" ? `${quiz.resultHeading[locale]}: ` : (zh ? "本次总分：" : "This check-in total: ")}<span className="whitespace-nowrap">{result.total} / 16</span></p>
     <p className="leading-8">{profile.scoreReading[locale]}</p>
     <section aria-labelledby="stress-check-in-calculation" className="rounded-lg border border-slate-200 p-4 sm:p-6">
       <h3 id="stress-check-in-calculation" className="text-xl font-semibold">{zh ? "这四项怎样相加" : "How these four choices add up"}</h3>

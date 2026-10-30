@@ -88,6 +88,7 @@ const loaders = {
   "sake-type": async () => (await import("./data/sake-type.json")).default as Questionnaire,
   "mattering": async () => (await import("./data/mattering.json")).default as Questionnaire,
   "stress-check-in-test": async () => (await import("./data/stress-check-in-test.json")).default as Questionnaire,
+  "perceived-stress-scale-4": async () => (await import("./data/perceived-stress-scale-4.json")).default as Questionnaire,
   "conflict-boundary-behaviors-test": async () => (await import("./data/conflict-boundary-behaviors-test.json")).default as Questionnaire,
   "four-axes-test": async () => (await import("./data/four-axes-test.json")).default as Questionnaire,
   "euphoria-character-quiz": async () => (await import("./data/euphoria-character-quiz.json")).default as Questionnaire,

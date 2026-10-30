@@ -2,6 +2,7 @@
 import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { isPss4ConfigurationValid, scorePss4Questionnaire, type Pss4Questionnaire } from "@/lib/questionnaires/pss4";
 import type { StressReflection4Result } from "@/lib/questionnaires/stressReflection4";
 import type { Locale } from "@/lib/i18n/locales";
 import type { QuestionnaireAnswers } from "@/lib/questionnaires/types";
@@ -14,11 +15,11 @@ const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-mediu
 const subscribeReady = () => () => {};
 
 export function QuestionnaireStressCheckInClient({ quiz, locale }: { quiz: unknown; locale: Locale }) {
-  if (!isStressReflection4ConfigurationValid(quiz)) return <p role="status">{locale === "zh" ? "问卷内容暂不可用。" : "The questionnaire content is unavailable."}</p>;
+  if (!isStressReflection4ConfigurationValid(quiz) && !isPss4ConfigurationValid(quiz)) return <p role="status">{locale === "zh" ? "问卷内容暂不可用。" : "The questionnaire content is unavailable."}</p>;
   return <ValidStressCheckInClient key={`${locale}:${quiz.version}`} quiz={quiz} locale={locale} />;
 }
 
-function ValidStressCheckInClient({ quiz, locale }: { quiz: StressReflection4Questionnaire; locale: Locale }) {
+function ValidStressCheckInClient({ quiz, locale }: { quiz: StressReflection4Questionnaire | Pss4Questionnaire; locale: Locale }) {
   const { start: recordStart, complete: recordComplete, view: recordView, consent: activityConsent, share: recordShare } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false), zh = locale === "zh";
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({}), [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome");
@@ -35,7 +36,7 @@ function ValidStressCheckInClient({ quiz, locale }: { quiz: StressReflection4Que
   }, [clear]);
   useEffect(() => { if (stage !== "welcome") { heading.current?.focus({ preventScroll: true }); (stage === "answer" ? progress.current : heading.current)?.scrollIntoView({ block: "start" }); } }, [stage, position]);
   function next() {
-    const checked = scoreStressReflection4Questionnaire(quiz, answers);
+    const checked = quiz.kind === "pss4" ? scorePss4Questionnaire(quiz, answers) : scoreStressReflection4Questionnaire(quiz, answers);
     if (checked.status === "invalid" || checked.status === "unavailable") { setMessage(zh ? "当前回答无法读取，请清除后重新开始。" : "These responses cannot be read. Clear and start again."); return; }
     if (!Object.hasOwn(answers, quiz.questions[position].id)) { setMessage(zh ? "请选择这段时间的常见程度；也可以退出，直接读指南。" : "Choose how often this occurred, or exit and read the guides."); return; }
     setMessage("");
@@ -50,7 +51,7 @@ function ValidStressCheckInClient({ quiz, locale }: { quiz: StressReflection4Que
     catch { if (revision.current !== copiedRevision) return; setManual(text); setMessage(zh ? "无法自动复制，可从下方手动复制公开链接。" : "Automatic copying is unavailable. Copy the public links below manually."); }
   }
   useEntertainmentResultView(recordView, stage === "result");
-  return <section id="take-test" data-stress-check-in-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
+  return <section id="take-test" data-questionnaire-kind={quiz.kind} data-stress-check-in-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
     {activityConsent}
     <p className="mb-4 text-sm leading-7 text-slate-600">{zh ? "只使用当前页面内存；不保存草稿或结果，不上传逐题选择。刷新、换语或离开会清除。" : "Current-page memory only: no draft or result is saved and choices are not uploaded. Reloading, changing language or leaving clears answers."}</p>
     <fieldset disabled={!ready} className="min-w-0 space-y-5 p-0">

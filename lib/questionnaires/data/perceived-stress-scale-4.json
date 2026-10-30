@@ -1,0 +1,567 @@
+{
+  "slug": "perceived-stress-scale-4",
+  "code": "FM_PSS4_CMU_REFERENCE",
+  "kind": "pss4",
+  "version": "fm_pss4_en_site_zh_v1",
+  "updated": "2026-10-30",
+  "category": "everyday",
+  "minutes": 1,
+  "title": {
+    "en": "Perceived Stress Scale — 4 Items (PSS-4)",
+    "zh": "四项感知压力量表（PSS-4）"
+  },
+  "seoTitle": {
+    "en": "PSS-4: Four-Item Past-Month Stress Check-In",
+    "zh": "PSS-4：过去一个月感知压力自评"
+  },
+  "description": {
+    "en": "Four past-month questions with a transparent 0–16 raw total and a complete guide. No diagnosis or universal score cutoffs.",
+    "zh": "四项月度回顾，公开0—16原始计分并提供完整指南；不作诊断，不派通用分档。"
+  },
+  "introduction": {
+    "en": "This page uses the published English PSS-4 items. The Chinese prompts are an independent FermatMind translation, not the listed official China version; Chinese measurement equivalence and norms are not claimed. Use your feelings and thoughts during the past month to answer each question. There is no target score.",
+    "zh": "本页使用作者实验室公开的英文PSS-4四题。中文为本站独立译文，非所列官方China译本；未主张已验证中文等效或中文常模。按过去一个月的感受与想法回答每题，无需追求目标分数。"
+  },
+  "instructions": {
+    "en": "Choose one frequency per question. You can exit and read the guide without a score. The website shows a total only after four valid responses.",
+    "zh": "每题选择一个频率。可以退出并无分读指南。本站仅在四项回答均有效时显示总分。"
+  },
+  "resultHeading": {
+    "en": "Your PSS-4 raw total",
+    "zh": "本次PSS-4原始总分"
+  },
+  "directions": [
+    {
+      "id": "PERCEIVED_STRESS",
+      "title": {
+        "en": "Past-month perceived stress",
+        "zh": "过去一个月感知压力"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "pss4-01",
+      "reverse": false,
+      "prompt": {
+        "en": "In the last month, how often have you felt that you were unable to control the important things in your life?",
+        "zh": "过去一个月，你有多常觉得自己无法控制生活中重要的事情？"
+      },
+      "options": [
+        {
+          "id": "0",
+          "score": 0,
+          "directionId": "PERCEIVED_STRESS",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          }
+        },
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "PERCEIVED_STRESS",
+          "label": {
+            "en": "Almost Never",
+            "zh": "几乎从不"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "PERCEIVED_STRESS",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "PERCEIVED_STRESS",
+          "label": {
+            "en": "Fairly Often",
+            "zh": "较为频繁"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "PERCEIVED_STRESS",
+          "label": {
+            "en": "Very Often",
+            "zh": "非常频繁"
+          }
+        }
+      ],
+      "zhContentStatus": "fermatmind_independent_translation"
+    },
+    {
+      "id": "pss4-02",
+      "reverse": true,
+      "prompt": {
+        "en": "In the last month, how often have you felt confident about your ability to handle your personal problems?",
+        "zh": "过去一个月，你有多常对自己处理个人问题的能力感到有信心？"
+      },
+      "options": [
+        {
+          "id": "0",
+          "score": 0,
+          "directionId": "PERCEIVED_STRESS",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          }
+        },
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "PERCEIVED_STRESS",
+          "label": {
+            "en": "Almost Never",
+            "zh": "几乎从不"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "PERCEIVED_STRESS",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "PERCEIVED_STRESS",
+          "label": {
+            "en": "Fairly Often",
+            "zh": "较为频繁"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "PERCEIVED_STRESS",
+          "label": {
+            "en": "Very Often",
+            "zh": "非常频繁"
+          }
+        }
+      ],
+      "zhContentStatus": "fermatmind_independent_translation"
+    },
+    {
+      "id": "pss4-03",
+      "reverse": true,
+      "prompt": {
+        "en": "In the last month, how often have you felt that things were going your way?",
+        "zh": "过去一个月，你有多常觉得事情的发展如你所愿？"
+      },
+      "options": [
+        {
+          "id": "0",
+          "score": 0,
+          "directionId": "PERCEIVED_STRESS",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          }
+        },
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "PERCEIVED_STRESS",
+          "label": {
+            "en": "Almost Never",
+            "zh": "几乎从不"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "PERCEIVED_STRESS",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "PERCEIVED_STRESS",
+          "label": {
+            "en": "Fairly Often",
+            "zh": "较为频繁"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "PERCEIVED_STRESS",
+          "label": {
+            "en": "Very Often",
+            "zh": "非常频繁"
+          }
+        }
+      ],
+      "zhContentStatus": "fermatmind_independent_translation"
+    },
+    {
+      "id": "pss4-04",
+      "reverse": false,
+      "prompt": {
+        "en": "In the last month, how often have you felt difficulties were piling up so high that you could not overcome them?",
+        "zh": "过去一个月，你有多常觉得困难越积越多，多到自己无法克服？"
+      },
+      "options": [
+        {
+          "id": "0",
+          "score": 0,
+          "directionId": "PERCEIVED_STRESS",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          }
+        },
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "PERCEIVED_STRESS",
+          "label": {
+            "en": "Almost Never",
+            "zh": "几乎从不"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "PERCEIVED_STRESS",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "PERCEIVED_STRESS",
+          "label": {
+            "en": "Fairly Often",
+            "zh": "较为频繁"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "PERCEIVED_STRESS",
+          "label": {
+            "en": "Very Often",
+            "zh": "非常频繁"
+          }
+        }
+      ],
+      "zhContentStatus": "fermatmind_independent_translation"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "reading-pss4-total",
+      "directionIds": [
+        "PERCEIVED_STRESS"
+      ],
+      "title": {
+        "en": "Reading Your PSS-4 Total",
+        "zh": "PSS-4总分读法"
+      },
+      "headline": {
+        "en": "Use the raw number alongside your circumstances",
+        "zh": "结合实际处境理解原始总分"
+      },
+      "summary": {
+        "en": "Read the arithmetic, response patterns, limitations and optional next steps without diagnostic cutoffs.",
+        "zh": "理解算术、回答组合、限制与可选下一步，不使用诊断分界。"
+      },
+      "scoreReading": {
+        "en": "Your total ranges from 0 to 16. Higher totals reflect more perceived stress in these answers; no universal severity band, diagnosis or population rank is assigned.",
+        "zh": "总分范围0—16。较大总分表示这些回答反映较多感知压力；不派通用严重度分档、诊断或人群排名。"
+      },
+      "seo": {
+        "title": {
+          "en": "PSS-4 Score Guide: Raw Total and Limits",
+          "zh": "PSS-4分数指南：原始总分与边界"
+        },
+        "description": {
+          "en": "Understand the 0–16 PSS-4 total, reverse scoring and limitations without universal low, medium or high cutoffs.",
+          "zh": "理解0—16的PSS-4总分、反向计分与限制，不使用通用低中高分界。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What this total describes",
+            "zh": "这个总分描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "PSS-4 asks about perceived control, confidence and accumulating difficulty during the past month. Your total summarizes these four answers; it does not count every stressor or establish a health condition.",
+              "zh": "PSS-4回看过去一个月对控制感、应对信心及困难累积的感受。总分汇总这四项回答，不能涵盖全部压力来源，也不能确立健康状况。"
+            },
+            {
+              "en": "This website explanation is editorial material. Published studies concern particular versions, languages and samples; they do not validate this website presentation or establish that every language edition works identically.",
+              "zh": "本页解释由本站编写。已发表研究针对具体版本、语言和样本，不能据此宣布本站呈现已获验证，或各语言版测量效果相同。"
+            }
+          ]
+        },
+        {
+          "id": "calculation",
+          "title": {
+            "en": "How the total is calculated",
+            "zh": "总分怎样计算"
+          },
+          "paragraphs": [
+            {
+              "en": "Each answer is valued from 0 to 4. Keep the values for questions 1 and 4; for questions 2 and 3, use 4 minus the selected value. Add the four contributions for a total from 0 to 16.",
+              "zh": "每项回答记0—4分。第1、4题保留所选值；第2、3题按4减所选值换算。四项贡献相加，总分为0—16。"
+            },
+            {
+              "en": "For example, 3, 1, 2 and 3 contribute 3, 3, 2 and 3, totaling 11. This arithmetic example is not a high-stress classification. The website displays a total only when all four answers are valid; that complete-response rule is a website policy, not a missing-data rule confirmed from the author.",
+              "zh": "例如选择3、1、2、3，贡献为3、3、2、3，合计11。这是算术例子，不代表高度压力。本站仅在四项回答均有效时显示总分；这是本站完整作答策略，不是已核实的作者缺失处理规定。"
+            }
+          ]
+        },
+        {
+          "id": "patterns",
+          "title": {
+            "en": "Read the number without a label",
+            "zh": "读数值，不贴标签"
+          },
+          "paragraphs": [
+            {
+              "en": "Within this form, a larger total reflects more perceived stress in the answers. There are no universal low, medium or high cutoffs established by the author. The total is not a diagnosis, probability, population percentile or hiring recommendation.",
+              "zh": "在本题本内，较大总分表示回答反映较多感知压力。作者没有规定通用的低、中、高分界。总分不是诊断、概率、人群百分位或招聘建议。"
+            },
+            {
+              "en": "Different answer patterns can produce the same sum. Look at a particular answer alongside an ordinary situation if that feels useful. The positive items are reversed for calculation; they do not create a separate validated coping-capacity score here.",
+              "zh": "不同回答组合可能得到相同总分。若觉得有帮助，可把某项回答与一个普通情境对照。正向题反向计分用于汇总；这里不据此另造已验证的应对能力分数。"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "en": "Put the answers in context",
+            "zh": "把回答放回处境"
+          },
+          "paragraphs": [
+            {
+              "en": "Workload, caregiving, illness, money and available support can shape what is possible. A questionnaire cannot resolve those conditions. You may simply notice one demand or one source of support without setting a target score.",
+              "zh": "工作量、照护责任、疾病、经济条件及可用支持，都可能影响行动空间。问卷不能解决这些处境。可以只留意一项要求或一个支持来源，无需设定目标分数。"
+            },
+            {
+              "en": "If difficulties persist or affect daily functioning, you can discuss the situation with a trusted health professional regardless of this total. No score here determines whether you deserve or need support.",
+              "zh": "如果困难持续或影响日常功能，无论此处总分多少，都可与可信的医疗专业人员结合实际处境讨论。这里的分数不决定你是否值得获得支持，也不判定治疗需要。"
+            }
+          ]
+        },
+        {
+          "id": "reflection",
+          "title": {
+            "en": "Use repeated check-ins carefully",
+            "zh": "谨慎使用下一次回看"
+          },
+          "paragraphs": [
+            {
+              "en": "Keep the past-month recall period if you choose to use the form again. Weekly completion still refers to overlapping months; it does not turn PSS-4 into a validated seven-day scale.",
+              "zh": "若自愿再次使用，仍保留过去一个月的回顾范围。每周作答仍涉及重叠月份，不会把PSS-4变成经过验证的七日量表。"
+            },
+            {
+              "en": "A small change can reflect recollection and circumstances. This website supplies no reliable-change threshold or personal trend diagnosis. You may note context privately, or stop after reading this guide.",
+              "zh": "小幅变化可能来自回忆或处境变化。本站不提供可靠变化门槛或个人趋势诊断。可以私下记录处境，也可以只读指南后结束。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Privacy, language and limits",
+            "zh": "隐私、语言与边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Your answers and total stay in current-page memory and are cleared on reload, language change or exit. Copying shares only this fixed public guide, without answers or a score.",
+              "zh": "回答与总分只留在当前页面内存，刷新、换语或退出时清除。复制只分享这篇固定公开指南，不含回答或分数。"
+            },
+            {
+              "en": "The English questions come from the author’s laboratory. Chinese prompts and answer labels are FermatMind’s independent translation, not the listed official China version. Validated Chinese equivalence and population norms are not claimed.",
+              "zh": "英文题目来源为作者实验室公开的四题文件；本页中文题干与锚为本站独立译文，非所列官方China译本，不主张已验证的中文测量等效或中文常模。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "identity",
+      "title": {
+        "en": "Source and measurement identity",
+        "zh": "来源与测量身份"
+      },
+      "paragraphs": [
+        {
+          "en": "This page uses the four English questions from the author-laboratory source file. FermatMind’s original One-Month Stress Check-In remains a separate form with its own prompts and reverse keys.",
+          "zh": "本页采用作者实验室源文件的英文四题。费马原创“近一个月压力自评”保留为另一题本，使用其原有题目和反向项。"
+        },
+        {
+          "en": "PSS-4 is a brief self-report, not a diagnostic instrument. Published validation results depend on the studied language and sample.",
+          "zh": "PSS-4是简短自评，不是诊断工具。已发表验证结果受所研究语言与样本限制。"
+        }
+      ]
+    },
+    {
+      "id": "arithmetic",
+      "title": {
+        "en": "Four contributions, one raw sum",
+        "zh": "四项贡献，一个原始和"
+      },
+      "paragraphs": [
+        {
+          "en": "Use x1 + (4 − x2) + (4 − x3) + x4. The total ranges from 0 to 16.",
+          "zh": "使用x1＋(4－x2)＋(4－x3)＋x4，总分0—16。"
+        },
+        {
+          "en": "The complete-response requirement is a website policy. A missing response is not zero and is not replaced by an average.",
+          "zh": "四题完整要求是本站策略。缺答不记0，也不用均值替代。"
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "en": "Read without universal bands",
+        "zh": "不套通用分档"
+      },
+      "paragraphs": [
+        {
+          "en": "A larger raw sum reflects more perceived stress in these answers. No universal low, medium or high cutoffs are assigned.",
+          "zh": "较大原始和表示这些回答反映较多感知压力，不派通用低中高分档。"
+        },
+        {
+          "en": "Historical US or UK norms and results from particular Chinese samples are not website population norms.",
+          "zh": "历史美英常模或特定中文样本结果，不是本站人群常模。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Private answers, public guide",
+        "zh": "私人回答，公开指南"
+      },
+      "paragraphs": [
+        {
+          "en": "Answers and the total remain only in page memory. Exit, reload or language change clears them.",
+          "zh": "回答和总分仅留页面内存，退出、刷新或换语时清除。"
+        },
+        {
+          "en": "Copy only the fixed guide title and URL. Do not put a personal score or response in a URL, analytics event or clipboard share.",
+          "zh": "只复制固定指南标题与地址，不把个人分数或回答放入地址、分析事件或复制分享。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "What does the number mean?",
+        "zh": "数值代表什么？"
+      },
+      "answer": {
+        "en": "It is the sum of four item contributions after reversing items 2 and 3. It describes these past-month answers rather than a diagnosis.",
+        "zh": "它是第2、3题反向换算后的四项贡献之和，描述这些过去一个月的回答，不是诊断。"
+      }
+    },
+    {
+      "question": {
+        "en": "Which scores are low or high?",
+        "zh": "多少分算低或高？"
+      },
+      "answer": {
+        "en": "No universal low, medium or high cutoffs are assigned. Read the total alongside your answers and circumstances.",
+        "zh": "这里不派通用低、中、高分档。请结合具体回答和处境理解总分。"
+      }
+    },
+    {
+      "question": {
+        "en": "Must I answer everything?",
+        "zh": "必须回答全部吗？"
+      },
+      "answer": {
+        "en": "You may leave without a score. This website requires four valid choices for a total and does not impute missing answers; that is its own implementation policy.",
+        "zh": "可以无分退出。本站要求四项有效回答才计总分，不插补缺答；这是本站实施策略。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I change the recall period?",
+        "zh": "能改变回顾时间吗？"
+      },
+      "answer": {
+        "en": "This edition keeps the past-month wording. It does not claim validation for a different recall period.",
+        "zh": "本版保留过去一个月的措辞，不声称其他回顾范围已获验证。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are language editions interchangeable?",
+        "zh": "不同语言版可以直接互换吗？"
+      },
+      "answer": {
+        "en": "Do not assume equal measurement properties. The Chinese prompts and answer labels here are FermatMind’s independent translation, not the listed official China version; validated cross-language equivalence and Chinese population norms are not claimed.",
+        "zh": "不能假定测量性质相同。这里的中文题干和回答锚为本站独立译文，非所列官方China版本；未主张已验证的跨语言等效或中文人口常模。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are answers saved or shared?",
+        "zh": "回答会保存或分享吗？"
+      },
+      "answer": {
+        "en": "No draft or answer history is retained. Only a fixed public guide title and URL are copied, without your answers or total.",
+        "zh": "不保留草稿或答题历史。复制只包含固定公开指南标题与地址，不含回答或总分。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "CMU: Perceived Stress Scale sources and limits",
+        "zh": "CMU：PSS来源与边界"
+      },
+      "url": "https://www.cmu.edu/dietrich/psychology/stress-immunity-disease-lab/scales/"
+    },
+    {
+      "title": {
+        "en": "CMU: Scoring the four-item PSS",
+        "zh": "CMU：四题PSS计分"
+      },
+      "url": "https://www.cmu.edu/dietrich/psychology/stress-immunity-disease-lab/scales/html/pssscoring.html"
+    }
+  ],
+  "source": {
+    "kind": "pss4_author_lab_english_reference_fm_zh_translation",
+    "formCode": "cmu_pss4_en_fm_zh_translation_v1",
+    "itemBankVersion": "CMU-public-pss_4_item.doc-SHA256-9f3cc76d;not-a-verified-publisher-release-number",
+    "scoringVersion": "pss4_reverse_2_3_sum_0to16_complete4_v1",
+    "resultContentVersion": "pss4_full_guide_v1",
+    "psychometricValidationCompleted": false,
+    "officialChineseForChinaTextObtained": false,
+    "chineseTranslation": "fermatmind_independent_translation_not_official_china",
+    "itemBankSha256": "5823050eb53a3ba169b50903b2bd996f79662fc194a18d2d31bdd77ffbe45759",
+    "resultContentSha256": "7c540b6d6cf603117047fc13a253854fccd586fc325ab043281c6ed2ec9a3da1"
+  }
+}
