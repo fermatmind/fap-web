@@ -11,11 +11,11 @@ import { QuestionnaireArchetypeReport } from "@/components/questionnaires/Questi
 
 vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/philosopher-personality-test.json", "utf8")) as Questionnaire;
-const bytes = readFileSync("tests/fixtures/questionnaires/philosopher-personality-test-reference.json");
-const reference = JSON.parse(bytes.toString()) as { questions: Questionnaire["questions"] };
+const bytes = readFileSync("tests/fixtures/questionnaires/philosopher-personality-test-roster9-reference.json");
+const reference = JSON.parse(bytes.toString()) as { questions: Questionnaire["questions"]; directions: Questionnaire["directions"] };
 const allA = (): QuestionnaireAnswers => Object.fromEntries(reference.questions.map(q => [q.id, "A"]));
 const oracle = (answers: QuestionnaireAnswers) => {
-  const counts: Record<string, number> = Object.fromEntries(quiz.directions.map(d => [d.id, 0]));
+  const counts: Record<string, number> = Object.fromEntries(reference.directions.map(d => [d.id, 0]));
   for (const question of reference.questions) {
     const option = question.options.find(o => o.id === answers[question.id]);
     if (!option) throw new Error("Reference witness must be complete");
@@ -26,25 +26,37 @@ const oracle = (answers: QuestionnaireAnswers) => {
 };
 
 describe("T056 original philosophical inquiry reading reflection", () => {
-  it("preserves18original situations,12balanced exposures and6complete bilingual reports with explicit framework scope", () => {
+  it("preserves18original situations,8balanced exposures and9complete bilingual reports with explicit framework scope", () => {
     expect(quiz.questions).toEqual(reference.questions); expect(quiz.questions).toHaveLength(18);
     expect(quiz.source.itemBankSha256).toBe(createHash("sha256").update(bytes).digest("hex"));
-    expect(new Set(quiz.profiles.map(p => p.seo?.title.en)).size).toBe(6);
-    expect(new Set(quiz.profiles.map(p => p.seo?.description.zh)).size).toBe(6);
-    expect(isArchetypeConfigurationValid(quiz)).toBe(true); expect(quiz.profiles).toHaveLength(6);
+    expect(new Set(quiz.profiles.map(p => p.seo?.title.en)).size).toBe(9);
+    expect(new Set(quiz.profiles.map(p => p.seo?.description.zh)).size).toBe(9);
+    expect(isArchetypeConfigurationValid(quiz)).toBe(true); expect(quiz.profiles).toHaveLength(9);
     expect(quiz.source.psychometricValidationCompleted).toBe(false);
+
+    const legacy = JSON.parse(readFileSync("tests/fixtures/questionnaires/philosopher-personality-test-reference.json", "utf8")) as typeof reference;
+    expect(quiz.questions.map(q => ({ id: q.id, prompt: q.prompt }))).toEqual(legacy.questions.map(q => ({ id: q.id, prompt: q.prompt })));
+    expect(quiz.questions.map(q => q.options.map(o => o.id))).toEqual(legacy.questions.map(q => q.options.map(o => o.id)));
+    const changed = quiz.questions.flatMap((q, i) => q.options.flatMap((o, j) => JSON.stringify(o) === JSON.stringify(legacy.questions[i].options[j]) ? [] : [`${q.id}${o.id}`]));
+    expect(changed.sort()).toEqual(["PHIL_01C", "PHIL_02A", "PHIL_02B", "PHIL_02D", "PHIL_03C", "PHIL_03D", "PHIL_04A", "PHIL_04D", "PHIL_05C", "PHIL_06D", "PHIL_07A", "PHIL_10B", "PHIL_11D", "PHIL_12A", "PHIL_12B", "PHIL_12C", "PHIL_13B", "PHIL_13D", "PHIL_14C", "PHIL_15A", "PHIL_15B", "PHIL_16C", "PHIL_17A", "PHIL_17B"]);
+    expect(quiz.source.formCode).toBe("fm_philosopher_reading_choices_18");
+    expect(quiz.source.resultContentSha256).toBe(createHash("sha256").update(JSON.stringify({ profiles: quiz.profiles, guide: quiz.guide, faq: quiz.faq })).digest("hex"));
+    const catalogEntry = JSON.parse(readFileSync("lib/questionnaires/catalog.json", "utf8")).find((e: { slug: string }) => e.slug === quiz.slug);
+    expect(catalogEntry).toMatchObject({ version: "1.1.0", formCode: quiz.source.formCode, questionCount: 18, resultSlugs: quiz.profiles.map(p => p.id) });
+
     expect(quiz.references?.map(r => r.url)).toContain("https://classics.mit.edu/Plato/apology.html");
     expect(quiz.title).toEqual({ zh: "哲学家性格测试", en: "Which Philosopher Are You?" });
     for (const direction of quiz.directions) {
-      expect(direction.comparisons).toBe(12);
-      for (const position of [0, 1, 2, 3]) expect(quiz.questions.filter(q => q.options[position].directionId === direction.id)).toHaveLength(3);
+      expect(direction.comparisons).toBe(8);
+      for (const position of [0, 1, 2, 3]) expect(quiz.questions.filter(q => q.options[position].directionId === direction.id)).toHaveLength(2);
     }
     for (const profile of quiz.profiles) {
       expect(profile.sections).toHaveLength(9);
       expect(profile.seo?.title.en).toContain("Result:");
-      expect(profile.seo?.title.zh).toContain("测试");
+      expect(profile.seo?.title.zh).toMatch(/测试|联想结果/u);
       expect(new Set(profile.sections.map(s => s.id)).size).toBe(9);
-      expect(profile.sections.at(-1)?.paragraphs[0].en).toContain("complete intellectual history");
+      if (quiz.profiles.indexOf(profile) < 6) expect(profile.sections.at(-1)?.paragraphs[0].en).toContain("complete intellectual history");
+      else expect(profile.sections.at(-1)?.paragraphs[0].en).toMatch(/whole thought|entire thought|complete philosophy|full philosophy/);
       expect(profile.sections.reduce((n, s) => n + s.paragraphs.map(p => p.en).join(" ").split(/\s+/).length, 0)).toBeGreaterThan(300);
     }
     const check = (value: unknown): void => {
@@ -67,35 +79,36 @@ describe("T056 original philosophical inquiry reading reflection", () => {
     }
   });
 
-  it("matches independent source addition across all31363reachable six-count states and every57highest-match set", () => {
-    let states = new Map<string, { counts: Record<string, number>; answers: QuestionnaireAnswers }>([["0|0|0|0|0|0", { counts: Object.fromEntries(quiz.directions.map(d => [d.id, 0])), answers: {} }]]);
-    for (const question of reference.questions) {
-      const next = new Map<string, { counts: Record<string, number>; answers: QuestionnaireAnswers }>();
-      for (const state of states.values()) for (const option of question.options) {
-        const counts = { ...state.counts, [option.directionId]: state.counts[option.directionId] + 1 };
-        next.set(quiz.directions.map(d => counts[d.id]).join("|"), { counts, answers: { ...state.answers, [question.id]: option.id } });
-      }
-      states = next;
+  it("matches independent source addition for every item-option mutation,512varied complete answers and each reachable philosopher", () => {
+    const witnesses: QuestionnaireAnswers[] = [allA()];
+    for (const question of reference.questions) for (const option of question.options) witnesses.push({ ...allA(), [question.id]: option.id });
+    let state = 5841;
+    for (let n = 0; n < 512; n++) witnesses.push(Object.fromEntries(reference.questions.map(q => {
+      state = (Math.imul(state, 1664525) + 1013904223) >>> 0;
+      return [q.id, q.options[(state >>> 16) % 4].id];
+    })));
+    for (const direction of quiz.directions) {
+      const answer = Object.fromEntries(reference.questions.map(q => [q.id, (q.options.find(o => o.directionId === direction.id) ?? q.options.find(o => o.directionId !== direction.id)!).id]));
+      const result = scoreArchetypeQuestionnaire(quiz, answer);
+      if (result.status !== "complete") throw new Error("Philosopher witness rejected");
+      expect(result.counts[direction.id]).toBe(8); expect(result.profileIds).toEqual([direction.id]);
+      witnesses.push(answer);
     }
-    expect(states.size).toBe(31363);
-    const matchSets = new Set<string>();
-    for (const { counts, answers } of states.values()) {
-      const expected = oracle(answers), actual = scoreArchetypeQuestionnaire(quiz, answers);
+    for (const answer of witnesses) {
+      const expected = oracle(answer), actual = scoreArchetypeQuestionnaire(quiz, answer);
       if (actual.status !== "complete") throw new Error("Complete source witness rejected");
-      expect(actual.counts).toEqual(counts); expect(actual.counts).toEqual(expected.counts);
-      expect([...actual.profileIds].sort()).toEqual(expected.winners);
-      expect(Object.values(actual.counts).reduce((sum, count) => sum + count, 0)).toBe(18);
-      expect(actual).not.toHaveProperty("secondary"); expect(actual).not.toHaveProperty("matchPercentage");
-      matchSets.add([...actual.profileIds].sort().join("|"));
+      expect(actual.counts).toEqual(expected.counts); expect([...actual.profileIds].sort()).toEqual(expected.winners);
+      expect(Object.values(actual.counts).reduce((n, v) => n + v, 0)).toBe(18);
+      expect(actual).not.toHaveProperty("percentile"); expect(actual).not.toHaveProperty("matchPercentage");
     }
-    expect(matchSets.size).toBe(57);
-    console.info("Philosophical inquiry preferences: all31363reachable six-count states and57highest-match sets; not4^18individual answer executions or psychometric validation.");
+    expect(witnesses).toHaveLength(594);
+    console.info("Philosopher reading:594 source-based complete witnesses (72 single-option mutations,512 varied answers,9 unique philosopher leaders and1 nine-way tie). Not an enumeration of4^18 answer patterns or psychometric validation.");
   });
 
-  it("keeps all six highest ties, withholds partial results and rejects malformed input or configuration", () => {
+  it("keeps all nine highest ties, withholds partial results and rejects malformed input or configuration", () => {
     const tie = scoreArchetypeQuestionnaire(quiz, allA());
     if (tie.status !== "complete") throw new Error("Balanced archetype witness rejected");
-    expect(Object.values(tie.counts)).toEqual(Array(6).fill(3)); expect(new Set(tie.profileIds)).toEqual(new Set(quiz.profiles.map(p => p.id)));
+    expect(Object.values(tie.counts)).toEqual(Array(9).fill(2)); expect(new Set(tie.profileIds)).toEqual(new Set(quiz.profiles.map(p => p.id)));
     const reordered = structuredClone(quiz); reordered.profiles.reverse();
     const same = scoreArchetypeQuestionnaire(reordered, allA());
     if (same.status !== "complete") throw new Error("Reordered source rejected");
@@ -107,13 +120,14 @@ describe("T056 original philosophical inquiry reading reflection", () => {
     expect(scoreArchetypeQuestionnaire(bad, {})).toEqual({ status: "unavailable", answered: 0 });
     const draft = { version: quiz.version, savedAt: 123456, answers: { PHIL_01: "B" } };
     expect(readQuestionnaireDraft(quiz, JSON.stringify(draft), 123457)).toEqual(draft.answers);
+    expect(readQuestionnaireDraft(quiz, JSON.stringify({ ...draft, version: "1.0.0" }), 123457)).toBeNull();
     expect(readQuestionnaireDraft(quiz, JSON.stringify(draft), 123456 + 86400000)).toBeNull();
     const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireArchetypeReport quiz={quiz} result={tie} locale="en" />);
-    expect(dom.querySelectorAll("[data-archetype-match]")).toHaveLength(6); expect(dom.querySelectorAll("h4")).toHaveLength(54);
+    expect(dom.querySelectorAll("[data-archetype-match]")).toHaveLength(9); expect(dom.querySelectorAll("h4")).toHaveLength(81);
     const ids = Array.from(dom.querySelectorAll("[id]"), e => e.id); expect(new Set(ids).size).toBe(ids.length);
   });
 
-  it("publishes one bilingual primary entry and all12substantive public guides with native SEO and safe navigation", async () => {
+  it("publishes one bilingual primary entry and all18substantive public guides with native SEO and safe navigation", async () => {
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com"); vi.resetModules();
     const entry = await import("@/app/(localized)/[locale]/tests/explore/[slug]/page");
     const guide = await import("@/app/(localized)/[locale]/tests/explore/[slug]/results/[profile]/page");
