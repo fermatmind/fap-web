@@ -7375,5 +7375,29 @@
       "spatial-relationships-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "feedback-self-worth-reflection",
+    "code": "FM_FEEDBACK_WORTH12_CATEGORIES",
+    "version": "fm_feedback12_four_weeks_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Feedback and Self-Worth Reflection",
+      "zh": "反馈与自我价值感回顾"
+    },
+    "description": {
+      "en": "A private adult reflection on feelings after feedback, wider self-judgments and returning attention. Three description records without a narcissism score or type.",
+      "zh": "成年人私下回顾反馈后感受、广泛自我判断与反复注意。三份描述记录，不设自恋分数或类型。"
+    },
+    "minutes": 4,
+    "formCode": "fm_feedback12_four_weeks_v1",
+    "questionCount": 12,
+    "resultSlugs": [
+      "feedback-feelings-reading",
+      "feedback-and-worth-reading",
+      "returning-attention-reading"
+    ],
+    "collection": "explore"
   }
 ]

@@ -1,0 +1,1233 @@
+{
+  "slug": "feedback-self-worth-reflection",
+  "code": "FM_FEEDBACK_WORTH12_CATEGORIES",
+  "version": "fm_feedback12_four_weeks_v1",
+  "updated": "2026-10-30",
+  "category": "framework",
+  "kind": "feedback-worth12",
+  "title": {
+    "en": "Feedback and Self-Worth Reflection",
+    "zh": "反馈与自我价值感回顾"
+  },
+  "seoTitle": {
+    "en": "Feedback and Self-Worth: 12 Original Statements, Three Full Guides",
+    "zh": "反馈与自我价值感：12条原创陈述与三篇完整指南"
+  },
+  "description": {
+    "en": "A private adult reflection on feelings after feedback, wider self-judgments and returning attention. Three description records without a narcissism score or type.",
+    "zh": "成年人私下回顾反馈后感受、广泛自我判断与反复注意。三份描述记录，不设自恋分数或类型。"
+  },
+  "minutes": 4,
+  "instructions": {
+    "en": "Answer only about yourself over the past four weeks, using ordinary existing recollections. No name, comment quotation, private example or new action is needed. Twelve choices form three independent records without points. Unknown, no experience and withheld stay distinct. Leave at any time or read all complete guides without answering. Your answers remain only in this page’s memory.",
+    "zh": "只为自己回顾过去四周，使用普通已有回忆，不需姓名、评论原话、私密例子或新行动。12条形成三份独立不计分记录，未知、无经历及不答分别保留。随时可离开，或不答读全部全文。回答只留本页内存。"
+  },
+  "resultHeading": {
+    "en": "Your three separate description records",
+    "zh": "你的三份独立描述记录"
+  },
+  "introduction": {
+    "en": "Twelve original statements and three complete public readings, free without an account. Neighbouring topics about attention, superiority and special treatment already have separate full guides; their methods are linked below and never combined into this record.",
+    "zh": "12条原创陈述与三篇完整公开读法，无需账户，全部免费。希望被看见、优越与特殊待遇等相邻主题已有独立全文，下方链接说明各自方法，数字不与本记录合并。"
+  },
+  "source": {
+    "kind": "fermatmind_original_feedback_worth_statements",
+    "formCode": "fm_feedback12_four_weeks_v1",
+    "itemBankVersion": "original12_bilingual_three_themes_four_each_v1",
+    "scoringVersion": "six_mixed_categories_three_records_no_points_v1",
+    "resultContentVersion": "three_full_bilingual_feedback_readings_v1",
+    "psychometricValidationCompleted": false,
+    "itemBankSha256": "6dbf1101a8df42b48f4e926f5db7bbbbf7cbf43e2db97aa7e9e8c626310160d9",
+    "resultContentSha256": "992b2f41fd8a6b5b4a15a278976847dc2b3799093740cf1db3691b483b410d45"
+  },
+  "directions": [
+    {
+      "id": "feedback-feelings",
+      "title": {
+        "en": "Feelings after feedback",
+        "zh": "反馈后的感受"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "feedback-and-worth",
+      "title": {
+        "en": "Feedback and my sense of worth",
+        "zh": "反馈与自我价值感"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "returning-attention",
+      "title": {
+        "en": "Where attention went afterwards",
+        "zh": "之后注意去了哪里"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "FBW_01",
+      "prompt": {
+        "en": "An ordinary critical comment felt personally painful to me.",
+        "zh": "一次普通批评让我感到个人层面的难受。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "feedback-feelings"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "feedback-feelings"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "feedback-feelings"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FBW_02",
+      "prompt": {
+        "en": "After a disagreement, I felt exposed even without anyone asking me to explain myself.",
+        "zh": "一次分歧后，即使没人要求我解释，我仍感觉自己被置于目光中。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "feedback-feelings"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "feedback-feelings"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "feedback-feelings"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FBW_03",
+      "prompt": {
+        "en": "I felt embarrassed about receiving a correction in front of other people.",
+        "zh": "在别人面前被纠正时，我感到尴尬。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "feedback-feelings"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "feedback-feelings"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "feedback-feelings"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FBW_04",
+      "prompt": {
+        "en": "I could feel disappointed by a comment without needing the feeling to disappear immediately.",
+        "zh": "我能为一条评论失落，同时不要求感受立即消失。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "feedback-feelings"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "feedback-feelings"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "feedback-feelings"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FBW_05",
+      "prompt": {
+        "en": "A critical comment changed how I felt about my worth, beyond the particular task.",
+        "zh": "一条批评改变了我的自我价值感，超出了那项具体任务。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "feedback-and-worth"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "feedback-and-worth"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "feedback-and-worth"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FBW_06",
+      "prompt": {
+        "en": "I found it difficult to separate disagreement with my work from rejection of me.",
+        "zh": "我发现难把对作品的不同意见与对我的拒绝分开。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "feedback-and-worth"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "feedback-and-worth"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "feedback-and-worth"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FBW_07",
+      "prompt": {
+        "en": "After a correction, I questioned a positive view of myself that had concerned something else.",
+        "zh": "一次纠正后，我连带质疑了对自己另一件事的正面看法。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "feedback-and-worth"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "feedback-and-worth"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "feedback-and-worth"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FBW_08",
+      "prompt": {
+        "en": "I could take a comment seriously without feeling that it settled my value as a person.",
+        "zh": "我能认真看待评论，同时不觉得它决定了我的个人价值。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "feedback-and-worth"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "feedback-and-worth"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "feedback-and-worth"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FBW_09",
+      "prompt": {
+        "en": "I returned to how a comment made me look rather than the practical point it raised.",
+        "zh": "我反复想着评论让我显得怎样，而不是其中的实际问题。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "returning-attention"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "returning-attention"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "returning-attention"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FBW_10",
+      "prompt": {
+        "en": "After the exchange ended, I kept mentally replaying how the correction had been said.",
+        "zh": "交流结束后，我仍在心里重放当时纠正的说法。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "returning-attention"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "returning-attention"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "returning-attention"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FBW_11",
+      "prompt": {
+        "en": "I found it difficult to return attention to an ordinary activity after feedback.",
+        "zh": "反馈后，我发现难把注意转回普通活动。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "returning-attention"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "returning-attention"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "returning-attention"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FBW_12",
+      "prompt": {
+        "en": "I felt able to leave part of my reaction unresolved while doing something else.",
+        "zh": "我的部分反应还没落定时，我仍感觉能先做别的事。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "returning-attention"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "returning-attention"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "returning-attention"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "feedback-feelings-reading",
+      "directionIds": [
+        "feedback-feelings"
+      ],
+      "title": {
+        "en": "Feelings after feedback: Complete Feedback Guide",
+        "zh": "反馈后的感受：完整反馈读法"
+      },
+      "headline": {
+        "en": "A description of experience, without a personal label.",
+        "zh": "描述体验，不贴人身标签。"
+      },
+      "summary": {
+        "en": "A complete original reading of feelings after feedback, with separate choices and explicit uncertainty.",
+        "zh": "完整阅读反馈后的感受，分别保留选择与未知。"
+      },
+      "scoreReading": {
+        "en": "Twelve original statements form three records of four. For each sentence, choose does not describe, partly describes or describes your past four weeks. Cannot judge, no relevant experience and prefer not to answer remain separate. Six category counts in each record add to four, with individual sentences and selected labels retained. A comfortable experience is not reverse-scored against a difficult one. There are no points, total, average, cutoff, strongest trait or personal type. Counts neither measure sensitivity nor establish a stable trait.",
+        "zh": "12句原创陈述形成三份各四条的记录，逐句选择过去四周的不符合、部分符合或符合；无法判断、无相关经历及不愿回答分别保留。每份六类计数合计四条，保留原句与标签。自在体验不与困难体验反向相减。不设点数、总分、均值、界线、最强特质或人身类型；计数不测敏感程度或确立稳定特质。"
+      },
+      "seo": {
+        "title": {
+          "en": "Feelings after feedback | Feedback Reflection",
+          "zh": "反馈后的感受｜反馈回顾"
+        },
+        "description": {
+          "en": "Read the full original guide without answering or receiving a clinical score.",
+          "zh": "无需作答或临床分数，阅读完整原创指南。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "A feeling after a comment",
+            "zh": "评论之后的一种感受"
+          },
+          "paragraphs": [
+            {
+              "en": "These four statements concern personal pain after an ordinary criticism, feeling exposed after disagreement, embarrassment during a public correction and room to let disappointment remain. They ask about your own recalled feelings. They do not establish what the comment meant, whether it was fair or how another person intended it. No quotation, name, workplace or private incident needs to be entered.",
+              "zh": "四句关注普通批评后的难受、分歧后被置于目光中的感觉、公开纠正的尴尬，以及容许失落继续存在的空间。只问自己的回忆，不确定评论含义、公平与否或他人意图；不输入原话、姓名、工作单位或私密事件。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Pain does not decide whether a comment is useful",
+            "zh": "难受不决定评论是否有用"
+          },
+          "paragraphs": [
+            {
+              "en": "A comment can contain a practical point and still feel painful. It can also be unhelpful without producing a strong reaction. The record cannot evaluate either property. Noticing your feeling is different from agreeing with the comment or rejecting it. A fitting answer is not evidence that you are too sensitive, and a non-fitting answer is not proof of confidence or emotional wellbeing.",
+              "zh": "评论可以有实际内容，同时令人难受；也可能无用，却不引起强烈反应。记录不评这两种属性。注意感受不同于同意或拒绝评论，符合不证明太敏感，不符合也不证明自信或健康。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Privacy and being seen are different",
+            "zh": "保密与被看见不同"
+          },
+          "paragraphs": [
+            {
+              "en": "Feeling exposed does not prove that private information became public or that anyone was watching closely. A public correction and a private disagreement can feel different, even about a similar issue. The questionnaire does not compare them or decide where feedback should happen. It keeps broad descriptions without collecting evidence about an actual exchange or asking you to reconstruct someone else’s reaction.",
+              "zh": "觉得暴露，不证明私密信息公开或别人在紧盯。同样问题的公开纠正与私下分歧，感受可能不同，问卷不比较，也不决定反馈应在哪里发生。只留宽泛描述，不收交流证据或重建别人反应。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "There is no ideal emotional combination",
+            "zh": "没有理想的情绪组合"
+          },
+          "paragraphs": [
+            {
+              "en": "You may recognise embarrassment and also feel able to let disappointment settle in its own time. Those choices can coexist without cancelling each other. Counts do not show how intense a feeling was, how long it lasted or whether a response was effective. The four sentences are not a test of whether you can take criticism well, and their order does not describe stages of recovery.",
+              "zh": "可同时认得尴尬，并感觉能让失落慢慢落定；两者不抵消。计数不展示强度、时长或回应是否有效。四句不检验是否善于接受批评，编排也不是恢复阶段。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "No need to invite criticism",
+            "zh": "无需主动招来批评"
+          },
+          "paragraphs": [
+            {
+              "en": "Use an existing recollection, choose an uncertainty category or read without answering. There is no task to request harsher feedback, revisit an uncomfortable exchange or ask another person to judge your reaction. You may finish with a private description and make no change. If the reaction is troubling, you can raise that concern without first showing that all four sentences fit or accepting a personality label.",
+              "zh": "可用已有回忆、选未知或不作答阅读。不要求索取更严厉反馈、重访不适交流或请别人评反应。可只保留描述，不作改变。反应令人困扰时，无需先四句符合或接受人格标签才提顾虑。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "How the record works",
+            "zh": "记录如何工作"
+          },
+          "paragraphs": [
+            {
+              "en": "Twelve original statements form three records of four. For each sentence, choose does not describe, partly describes or describes your past four weeks. Cannot judge, no relevant experience and prefer not to answer remain separate. Six category counts in each record add to four, with individual sentences and selected labels retained. A comfortable experience is not reverse-scored against a difficult one. There are no points, total, average, cutoff, strongest trait or personal type. Counts neither measure sensitivity nor establish a stable trait.",
+              "zh": "12句原创陈述形成三份各四条的记录，逐句选择过去四周的不符合、部分符合或符合；无法判断、无相关经历及不愿回答分别保留。每份六类计数合计四条，保留原句与标签。自在体验不与困难体验反向相减。不设点数、总分、均值、界线、最强特质或人身类型；计数不测敏感程度或确立稳定特质。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Origin, limits and independent support",
+            "zh": "原创边界与独立支持"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these statements and three complete readings. They are not NPI, PNI, FFNI, a narcissism scale or a personality-disorder screen. Reliability, validity, norms and language equivalence have not been established. Four weeks is only a recall aid. A clinical evaluation is a different process; these descriptions cannot provide a diagnosis, rule one out or sort people into grandiose and vulnerable categories. The background source concerns that distinction and supplies no items, scoring key or endorsement.",
+              "zh": "费马原创这些陈述与三篇完整读法，不是NPI、PNI、FFNI、自恋量表或人格障碍筛查。尚未建立信效度、常模或跨语言等价。四周仅提示回忆。临床评估是不同过程，本描述不能诊断、排除诊断或把人分成夸大与脆弱类别。背景来源只说明该边界，不提供题目、计分键或背书。"
+            },
+            {
+              "en": "Support is available for an actual concern without a label, a count or completion. You may discuss distressing reactions with a qualified professional and decide what to share. This activity asks for no disclosure, confrontation, criticism experiment or contact with someone who gave feedback. It cannot judge safety or prescribe treatment. You can leave at any time; immediate danger calls for local emergency help rather than continuing a questionnaire.",
+              "zh": "对实际顾虑寻求支持，不需标签、计数或完成。可与合格专业人士谈令人困扰的反应，自行决定分享多少。活动不要求披露、对峙、批评试验或联系反馈者，不判断安全、不规定治疗。可以随时离开；有即时危险时应寻求当地紧急援助，不继续依靠问卷。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "feedback-and-worth-reading",
+      "directionIds": [
+        "feedback-and-worth"
+      ],
+      "title": {
+        "en": "Feedback and my sense of worth: Complete Feedback Guide",
+        "zh": "反馈与自我价值感：完整反馈读法"
+      },
+      "headline": {
+        "en": "A description of experience, without a personal label.",
+        "zh": "描述体验，不贴人身标签。"
+      },
+      "summary": {
+        "en": "A complete original reading of feedback and my sense of worth, with separate choices and explicit uncertainty.",
+        "zh": "完整阅读反馈与自我价值感，分别保留选择与未知。"
+      },
+      "scoreReading": {
+        "en": "Twelve original statements form three records of four. For each sentence, choose does not describe, partly describes or describes your past four weeks. Cannot judge, no relevant experience and prefer not to answer remain separate. Six category counts in each record add to four, with individual sentences and selected labels retained. A comfortable experience is not reverse-scored against a difficult one. There are no points, total, average, cutoff, strongest trait or personal type. Counts neither measure sensitivity nor establish a stable trait.",
+        "zh": "12句原创陈述形成三份各四条的记录，逐句选择过去四周的不符合、部分符合或符合；无法判断、无相关经历及不愿回答分别保留。每份六类计数合计四条，保留原句与标签。自在体验不与困难体验反向相减。不设点数、总分、均值、界线、最强特质或人身类型；计数不测敏感程度或确立稳定特质。"
+      },
+      "seo": {
+        "title": {
+          "en": "Feedback and my sense of worth | Feedback Reflection",
+          "zh": "反馈与自我价值感｜反馈回顾"
+        },
+        "description": {
+          "en": "Read the full original guide without answering or receiving a clinical score.",
+          "zh": "无需作答或临床分数，阅读完整原创指南。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "The comment and a broader self-judgment",
+            "zh": "评论与更广泛的自我判断"
+          },
+          "paragraphs": [
+            {
+              "en": "This record concerns a comment affecting your worth beyond a task, difficulty separating disagreement from rejection, questioning an unrelated positive view and taking feedback seriously without letting it settle personal value. These are specific recollections. The form does not assess self-esteem, identify a hidden insecurity or establish what you actually believed about yourself outside those moments. A sentence can fit without defining you.",
+              "zh": "本记录关注评论影响任务之外的价值感、难分开分歧与拒绝、连带质疑另一种正面看法，以及认真对待但不让评论决定价值。只问具体回忆，不测自尊、不识别隐藏不安全感，也不确定那些时刻之外的实际看法。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "An evaluation has a scope",
+            "zh": "评价有它的范围"
+          },
+          "paragraphs": [
+            {
+              "en": "Feedback about one piece of work and a conclusion about a whole person are different claims. The questionnaire cannot decide whether an actual comment stayed within its scope or whether your interpretation did. It asks what you recall experiencing, not whether you ought to feel differently. You can recognise a broad self-judgment without agreeing that it was accurate or being required to replace it immediately.",
+              "zh": "一项作品反馈与对整个人的结论是不同主张。问卷不知道实际评论或自己的理解是否守住范围，只问体验，不要求应该怎样感受。可认出广泛自我判断，不同意其准确，也不必立即替换。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Different from spotlight and special treatment",
+            "zh": "与希望被看见和特殊待遇分开"
+          },
+          "paragraphs": [
+            {
+              "en": "The existing SD4 narcissism reading describes its published seven-item mean, including perceived distinction and showing off. The Difficult Person grandiosity reading concerns four ordinary statements about superiority and special treatment. They offer complete separate explanations for neighbouring questions. Neither numeric method is imported here, and a reaction to feedback cannot be inferred from either score. This record provides no combined four-trait narcissism profile. The existing FSCRS Inadequate Self guide separately explains self-critical responses to setbacks, with nine source items and no fixed recall period. This four-week record about external feedback is not that scale, a short form or a score conversion.",
+              "zh": "现有SD4自恋读法解释发表七题均值，涉及自感特别与展示；DTP夸大读法讨论优越与特殊待遇的四条普通行为。它们完整回答相邻问题，数字不导入本记录，也不从分数推反馈反应。这里不合四特质自恋画像。既有FSCRS不足感全文另解释挫折后的自我批评，含九条来源题且无固定回忆期。本四周外部反馈记录不是该量表、短版或分数换算。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Clear and difficult moments can coexist",
+            "zh": "清楚与困难时刻可以并存"
+          },
+          "paragraphs": [
+            {
+              "en": "You may separate a comment from your value in one situation and find that separation difficult in another. A comfortable sentence is not a reverse key that corrects the others. Similar counts can hide different contexts, and uncertainty supplies no missing positive or negative finding. The result cannot determine whether a view of yourself is more authentic, resilient or vulnerable than another person’s.",
+              "zh": "可能一处能分开评论与价值，另一处困难。自在句不是修正其他题的反向键，相似计数可隐藏背景差别，未知不补正面或负面结论。结果不判哪种自我看法更真实、有韧性或脆弱。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "You do not need a better self-description to finish",
+            "zh": "完成不需要更好的自我描述"
+          },
+          "paragraphs": [
+            {
+              "en": "There is no assignment to write positive statements, prove your worth, dispute feedback or tell another person that they affected you. You can simply keep a sentence that helps you describe an experience, or leave every answer unknown. In a separate supportive conversation, you may mention that a comment seemed to spread into a wider self-judgment, without bringing this page or its counts as evidence.",
+              "zh": "不要求写积极句、证明价值、反驳反馈或告诉别人其影响。可只保留帮助描述的句子，也可全部未知。另行支持谈话中，可说评论似乎扩散成广泛自我判断，不把网页计数当证据。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "How the record works",
+            "zh": "记录如何工作"
+          },
+          "paragraphs": [
+            {
+              "en": "Twelve original statements form three records of four. For each sentence, choose does not describe, partly describes or describes your past four weeks. Cannot judge, no relevant experience and prefer not to answer remain separate. Six category counts in each record add to four, with individual sentences and selected labels retained. A comfortable experience is not reverse-scored against a difficult one. There are no points, total, average, cutoff, strongest trait or personal type. Counts neither measure sensitivity nor establish a stable trait.",
+              "zh": "12句原创陈述形成三份各四条的记录，逐句选择过去四周的不符合、部分符合或符合；无法判断、无相关经历及不愿回答分别保留。每份六类计数合计四条，保留原句与标签。自在体验不与困难体验反向相减。不设点数、总分、均值、界线、最强特质或人身类型；计数不测敏感程度或确立稳定特质。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Origin, limits and independent support",
+            "zh": "原创边界与独立支持"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these statements and three complete readings. They are not NPI, PNI, FFNI, a narcissism scale or a personality-disorder screen. Reliability, validity, norms and language equivalence have not been established. Four weeks is only a recall aid. A clinical evaluation is a different process; these descriptions cannot provide a diagnosis, rule one out or sort people into grandiose and vulnerable categories. The background source concerns that distinction and supplies no items, scoring key or endorsement.",
+              "zh": "费马原创这些陈述与三篇完整读法，不是NPI、PNI、FFNI、自恋量表或人格障碍筛查。尚未建立信效度、常模或跨语言等价。四周仅提示回忆。临床评估是不同过程，本描述不能诊断、排除诊断或把人分成夸大与脆弱类别。背景来源只说明该边界，不提供题目、计分键或背书。"
+            },
+            {
+              "en": "Support is available for an actual concern without a label, a count or completion. You may discuss distressing reactions with a qualified professional and decide what to share. This activity asks for no disclosure, confrontation, criticism experiment or contact with someone who gave feedback. It cannot judge safety or prescribe treatment. You can leave at any time; immediate danger calls for local emergency help rather than continuing a questionnaire.",
+              "zh": "对实际顾虑寻求支持，不需标签、计数或完成。可与合格专业人士谈令人困扰的反应，自行决定分享多少。活动不要求披露、对峙、批评试验或联系反馈者，不判断安全、不规定治疗。可以随时离开；有即时危险时应寻求当地紧急援助，不继续依靠问卷。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "returning-attention-reading",
+      "directionIds": [
+        "returning-attention"
+      ],
+      "title": {
+        "en": "Where attention went afterwards: Complete Feedback Guide",
+        "zh": "之后注意去了哪里：完整反馈读法"
+      },
+      "headline": {
+        "en": "A description of experience, without a personal label.",
+        "zh": "描述体验，不贴人身标签。"
+      },
+      "summary": {
+        "en": "A complete original reading of where attention went afterwards, with separate choices and explicit uncertainty.",
+        "zh": "完整阅读之后注意去了哪里，分别保留选择与未知。"
+      },
+      "scoreReading": {
+        "en": "Twelve original statements form three records of four. For each sentence, choose does not describe, partly describes or describes your past four weeks. Cannot judge, no relevant experience and prefer not to answer remain separate. Six category counts in each record add to four, with individual sentences and selected labels retained. A comfortable experience is not reverse-scored against a difficult one. There are no points, total, average, cutoff, strongest trait or personal type. Counts neither measure sensitivity nor establish a stable trait.",
+        "zh": "12句原创陈述形成三份各四条的记录，逐句选择过去四周的不符合、部分符合或符合；无法判断、无相关经历及不愿回答分别保留。每份六类计数合计四条，保留原句与标签。自在体验不与困难体验反向相减。不设点数、总分、均值、界线、最强特质或人身类型；计数不测敏感程度或确立稳定特质。"
+      },
+      "seo": {
+        "title": {
+          "en": "Where attention went afterwards | Feedback Reflection",
+          "zh": "之后注意去了哪里｜反馈回顾"
+        },
+        "description": {
+          "en": "Read the full original guide without answering or receiving a clinical score.",
+          "zh": "无需作答或临床分数，阅读完整原创指南。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "What attention returned to",
+            "zh": "注意回到了什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These statements concern returning to how you looked, replaying a correction’s wording, difficulty resuming an activity and being able to leave part of a reaction unresolved. They record your own account of attention after feedback. They do not measure minutes, diagnose rumination or tell how much attention a comment deserved. No actual words or details of a conversation are requested.",
+              "zh": "题目关注反复想着显得怎样、重放纠正措辞、难回活动，以及反应未解决也能先做别事。记录反馈后注意的自述，不测分钟、不诊断反刍，也不判评论值得多少注意。不收原话或谈话细节。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Replaying does not reveal accuracy",
+            "zh": "重放不揭示准确性"
+          },
+          "paragraphs": [
+            {
+              "en": "Remembering a phrase repeatedly does not establish that it was the most important part of an exchange. Moving on quickly does not establish that a concern was resolved. The form cannot check either interpretation. It preserves what you selected while leaving the practical issue and another person’s intention outside its conclusions. You can remain unsure about why a particular phrase stayed with you.",
+              "zh": "反复记得某句，不证明它最重要；很快继续，也不证明顾虑解决。表单不能核查，只保留选择，把实际问题和别人意图留在结论之外。不确定某句为何留下，也可以。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Attention is different from an outward response",
+            "zh": "注意不同于外在回应"
+          },
+          "paragraphs": [
+            {
+              "en": "You may replay a comment without replying, or give a considered answer while still feeling unsettled. Neither description tells the website whether you defended an image, requested clarification or changed a task. The separate Dark Triad status-and-image guide discusses six owned action descriptions over three months. Its accuracy ratings and means are not substitutes for this four-week categorical record of attention.",
+              "zh": "可不回复却重放，也可审慎作答而内心仍未定；不由此知道是否维护形象、询问澄清或改变任务。独立Dark Triad地位形象全文讨论三个月内六条自有行动，其符合度均值不能代替这里四周类别注意记录。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "No count describes a fixed pattern",
+            "zh": "计数不描述固定模式"
+          },
+          "paragraphs": [
+            {
+              "en": "One exchange may keep returning while another leaves little trace. A partly fitting category can preserve such a difference without deciding a frequency. The four item counts are not a scale of how stuck you are and cannot forecast the next response. All unknown or withheld is not an all-clear result, and the website cannot infer what an omitted example would have shown.",
+              "zh": "一次交流可能反复回来，另一件却很快过去。部分符合可保留差别，不决定频率。四条计数不测卡住程度、不预测下次；全未知或不答不是没事，也不推省略例子会显示什么。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "No replaying or tracking task is needed",
+            "zh": "不安排重放或追踪任务"
+          },
+          "paragraphs": [
+            {
+              "en": "Do not reopen messages, record every return of a thought or test your concentration to complete this page. Use a broad recollection and leave uncertainty explicit. You can stop after reading, with no promise to resolve a comment or contact its author. If unwanted attention is troubling in everyday life, support can focus on that actual experience without waiting for a score or completing another assessment.",
+              "zh": "不需重开信息、记录每次想法回来或测试专注。宽泛回忆即可，未知明确保留。读完可停，不承诺解决评论或联系作者。注意反复占据日常而困扰时，可从实际体验寻求支持，不等分数或另一测评。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "How the record works",
+            "zh": "记录如何工作"
+          },
+          "paragraphs": [
+            {
+              "en": "Twelve original statements form three records of four. For each sentence, choose does not describe, partly describes or describes your past four weeks. Cannot judge, no relevant experience and prefer not to answer remain separate. Six category counts in each record add to four, with individual sentences and selected labels retained. A comfortable experience is not reverse-scored against a difficult one. There are no points, total, average, cutoff, strongest trait or personal type. Counts neither measure sensitivity nor establish a stable trait.",
+              "zh": "12句原创陈述形成三份各四条的记录，逐句选择过去四周的不符合、部分符合或符合；无法判断、无相关经历及不愿回答分别保留。每份六类计数合计四条，保留原句与标签。自在体验不与困难体验反向相减。不设点数、总分、均值、界线、最强特质或人身类型；计数不测敏感程度或确立稳定特质。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Origin, limits and independent support",
+            "zh": "原创边界与独立支持"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these statements and three complete readings. They are not NPI, PNI, FFNI, a narcissism scale or a personality-disorder screen. Reliability, validity, norms and language equivalence have not been established. Four weeks is only a recall aid. A clinical evaluation is a different process; these descriptions cannot provide a diagnosis, rule one out or sort people into grandiose and vulnerable categories. The background source concerns that distinction and supplies no items, scoring key or endorsement.",
+              "zh": "费马原创这些陈述与三篇完整读法，不是NPI、PNI、FFNI、自恋量表或人格障碍筛查。尚未建立信效度、常模或跨语言等价。四周仅提示回忆。临床评估是不同过程，本描述不能诊断、排除诊断或把人分成夸大与脆弱类别。背景来源只说明该边界，不提供题目、计分键或背书。"
+            },
+            {
+              "en": "Support is available for an actual concern without a label, a count or completion. You may discuss distressing reactions with a qualified professional and decide what to share. This activity asks for no disclosure, confrontation, criticism experiment or contact with someone who gave feedback. It cannot judge safety or prescribe treatment. You can leave at any time; immediate danger calls for local emergency help rather than continuing a questionnaire.",
+              "zh": "对实际顾虑寻求支持，不需标签、计数或完成。可与合格专业人士谈令人困扰的反应，自行决定分享多少。活动不要求披露、对峙、批评试验或联系反馈者，不判断安全、不规定治疗。可以随时离开；有即时危险时应寻求当地紧急援助，不继续依靠问卷。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "Separate category records",
+        "zh": "独立类别记录"
+      },
+      "paragraphs": [
+        {
+          "en": "Twelve original statements form three records of four. For each sentence, choose does not describe, partly describes or describes your past four weeks. Cannot judge, no relevant experience and prefer not to answer remain separate. Six category counts in each record add to four, with individual sentences and selected labels retained. A comfortable experience is not reverse-scored against a difficult one. There are no points, total, average, cutoff, strongest trait or personal type. Counts neither measure sensitivity nor establish a stable trait.",
+          "zh": "12句原创陈述形成三份各四条的记录，逐句选择过去四周的不符合、部分符合或符合；无法判断、无相关经历及不愿回答分别保留。每份六类计数合计四条，保留原句与标签。自在体验不与困难体验反向相减。不设点数、总分、均值、界线、最强特质或人身类型；计数不测敏感程度或确立稳定特质。"
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "en": "Original method and its limits",
+        "zh": "原创方法与边界"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind authored these statements and three complete readings. They are not NPI, PNI, FFNI, a narcissism scale or a personality-disorder screen. Reliability, validity, norms and language equivalence have not been established. Four weeks is only a recall aid. A clinical evaluation is a different process; these descriptions cannot provide a diagnosis, rule one out or sort people into grandiose and vulnerable categories. The background source concerns that distinction and supplies no items, scoring key or endorsement.",
+          "zh": "费马原创这些陈述与三篇完整读法，不是NPI、PNI、FFNI、自恋量表或人格障碍筛查。尚未建立信效度、常模或跨语言等价。四周仅提示回忆。临床评估是不同过程，本描述不能诊断、排除诊断或把人分成夸大与脆弱类别。背景来源只说明该边界，不提供题目、计分键或背书。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does this tell me whether I am a narcissist?",
+        "zh": "它会判断我是不是自恋者吗？"
+      },
+      "answer": {
+        "en": "FermatMind authored these statements and three complete readings. They are not NPI, PNI, FFNI, a narcissism scale or a personality-disorder screen. Reliability, validity, norms and language equivalence have not been established. Four weeks is only a recall aid. A clinical evaluation is a different process; these descriptions cannot provide a diagnosis, rule one out or sort people into grandiose and vulnerable categories. The background source concerns that distinction and supplies no items, scoring key or endorsement.",
+        "zh": "费马原创这些陈述与三篇完整读法，不是NPI、PNI、FFNI、自恋量表或人格障碍筛查。尚未建立信效度、常模或跨语言等价。四周仅提示回忆。临床评估是不同过程，本描述不能诊断、排除诊断或把人分成夸大与脆弱类别。背景来源只说明该边界，不提供题目、计分键或背书。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are the linked methods combined?",
+        "zh": "链接的方法会合并吗？"
+      },
+      "answer": {
+        "en": "No. SD4 has its own published seven-item mean, Difficult Person uses its own four-item frequency method, and Dark Triad describes its own six-item accuracy ratings. Read each full guide separately. They do not supply missing choices here or become a four-trait score, total or personality label.",
+        "zh": "不合并。SD4有发表七题均值，DTP有四题频率方法，Dark Triad有六题符合度；应分别读全文，不用来补这里缺失选择，也不合四特质分数、总分或人格标签。"
+      }
+    },
+    {
+      "question": {
+        "en": "Must I ask for feedback?",
+        "zh": "必须去索取反馈吗？"
+      },
+      "answer": {
+        "en": "No. Use existing recollections, an uncertainty choice or no answers. No criticism experiment, disclosure or contact is required.",
+        "zh": "不需要。用已有回忆、未知选择或不作答即可，不安排批评试验、披露或联系。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I seek support without a result?",
+        "zh": "没有结果也能寻求支持吗？"
+      },
+      "answer": {
+        "en": "Support is available for an actual concern without a label, a count or completion. You may discuss distressing reactions with a qualified professional and decide what to share. This activity asks for no disclosure, confrontation, criticism experiment or contact with someone who gave feedback. It cannot judge safety or prescribe treatment. You can leave at any time; immediate danger calls for local emergency help rather than continuing a questionnaire.",
+        "zh": "对实际顾虑寻求支持，不需标签、计数或完成。可与合格专业人士谈令人困扰的反应，自行决定分享多少。活动不要求披露、对峙、批评试验或联系反馈者，不判断安全、不规定治疗。可以随时离开；有即时危险时应寻求当地紧急援助，不继续依靠问卷。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are my answers saved or shared?",
+        "zh": "回答会保存或分享吗？"
+      },
+      "answer": {
+        "en": "Answers and records stay in current page memory. No drafts, answer submissions or questionnaire analytics are used. Exit, retake, refresh or leaving clears them. Copying includes only the public title and entry, never personal answers.",
+        "zh": "回答与记录只留当前页面内存，不存草稿、不提交答卷、不发问卷分析。退出、重做、刷新或离开即清除。复制只含公开标题与入口，不含个人回答。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "MedlinePlus: Narcissistic personality disorder — clinical boundary only",
+        "zh": "MedlinePlus：自恋型人格障碍，仅说明临床边界"
+      },
+      "url": "https://medlineplus.gov/ency/article/000934.htm"
+    }
+  ]
+}
