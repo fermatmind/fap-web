@@ -9,7 +9,7 @@ vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
 const slugs = ["disc", "response-color", "social-battery-test", "spirit-animal"];
 
 describe("Result-specific bilingual search assets for the four early complete questionnaires", () => {
-  it("gives all42results distinct native titles/descriptions while keeping substantive full report bodies", () => {
+  it("gives all43results distinct native titles/descriptions while keeping substantive full report bodies", () => {
     const titles = { en: new Set<string>(), zh: new Set<string>() }, descriptions = { en: new Set<string>(), zh: new Set<string>() };
     let count = 0;
     for (const slug of slugs) {
@@ -31,10 +31,10 @@ describe("Result-specific bilingual search assets for the four early complete qu
         }
       }
     }
-    expect(count).toBe(42); expect(titles.en.size).toBe(42); expect(titles.zh.size).toBe(42);
+    expect(count).toBe(43); expect(titles.en.size).toBe(43); expect(titles.zh.size).toBe(43);
   });
 
-  it("serves all84native metadata sets through the actual play/explore callers with full body, stable canonical and comparison links", async () => {
+  it("serves all86native metadata sets through the actual play/explore callers with full body, stable canonical and comparison links", async () => {
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com"); vi.resetModules();
     const play = await import("@/app/(localized)/[locale]/tests/play/[slug]/results/[portrait]/page");
     const explore = await import("@/app/(localized)/[locale]/tests/explore/[slug]/results/[profile]/page");

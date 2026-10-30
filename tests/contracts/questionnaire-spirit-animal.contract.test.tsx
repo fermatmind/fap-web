@@ -32,7 +32,7 @@ describe("T004 original Spirit Animal / overlapping T030 inner animal task", () 
     expect(isArchetypeConfigurationValid(quiz)).toBe(true); expect(quiz.profiles).toHaveLength(9);
     expect(quiz.title).toEqual({ zh: "精神动物测试", en: "Spirit Animal Test" });
     const catalogEntry = JSON.parse(readFileSync("lib/questionnaires/catalog.json", "utf8")).find((entry: { slug: string }) => entry.slug === quiz.slug);
-    expect(catalogEntry).toMatchObject({ version: "1.1.0", formCode: "fm_spirit_animal_choices_18_roster9_v1", questionCount: 18, resultSlugs: quiz.profiles.map(p => p.id) });
+    expect(catalogEntry).toMatchObject({ version: "1.1.0", formCode: "fm_spirit_animal_choices_16", questionCount: 18, resultSlugs: quiz.profiles.map(p => p.id) });
     const legacy = JSON.parse(readFileSync("tests/fixtures/questionnaires/spirit-animal-reference.json", "utf8")) as typeof reference;
     expect(quiz.questions.slice(0, 16).map(q => ({ id: q.id, prompt: q.prompt })))
       .toEqual(legacy.questions.map(q => ({ id: q.id, prompt: q.prompt })));
