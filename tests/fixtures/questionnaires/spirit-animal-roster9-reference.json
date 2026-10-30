@@ -1,0 +1,835 @@
+{
+  "formCode": "fm_spirit_animal_choices_18_roster9_v1",
+  "itemBankVersion": "1.1.0",
+  "scoringVersion": "1.0.0",
+  "kind": "archetype",
+  "directions": [
+    {
+      "id": "wolf",
+      "title": {
+        "zh": "狼",
+        "en": "Wolf"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "owl",
+      "title": {
+        "zh": "猫头鹰",
+        "en": "Owl"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "fox",
+      "title": {
+        "zh": "狐狸",
+        "en": "Fox"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "lion",
+      "title": {
+        "zh": "狮子",
+        "en": "Lion"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "dolphin",
+      "title": {
+        "zh": "海豚",
+        "en": "Dolphin"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "deer",
+      "title": {
+        "zh": "鹿",
+        "en": "Deer"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "bear",
+      "title": {
+        "zh": "熊",
+        "en": "Bear"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "eagle",
+      "title": {
+        "zh": "鹰",
+        "en": "Eagle"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "otter",
+      "title": {
+        "zh": "水獭",
+        "en": "Otter"
+      },
+      "comparisons": 8
+    }
+  ],
+  "questions": [
+    {
+      "id": "SPIRIT_01",
+      "prompt": {
+        "zh": "刚加入一个临时小组，大家还不熟悉。你通常先做什么？",
+        "en": "You have just joined a temporary group where nobody knows one another. What do you tend to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问清每个人负责什么，找到可以互相配合的位置。",
+            "en": "Find out what everyone is taking on and where we can support each other."
+          },
+          "directionId": "wolf"
+        },
+        {
+          "id": "B",
+          "directionId": "otter",
+          "label": {
+            "zh": "提议一个可以不参加的简短小游戏，让愿意的人一起轻松玩一会儿。",
+            "en": "Suggest a brief optional game so anyone who wants to can enjoy a little play together."
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "提出一个明确的起点，让大家先动起来。",
+            "en": "Suggest a clear starting point so we can get moving."
+          },
+          "directionId": "lion"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先听几轮，弄清问题和已有的信息。",
+            "en": "Listen for a while to understand the problem and the information already available."
+          },
+          "directionId": "owl"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_02",
+      "prompt": {
+        "zh": "周末突然空出半天，你更想怎样安排？",
+        "en": "Half a day unexpectedly opens up at the weekend. What would you most like to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把这段时间留给一个一直想推进的方向。",
+            "en": "Use the space to move toward something I have been wanting to pursue."
+          },
+          "directionId": "eagle"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "慢慢做完一件熟悉的事，留出不被催促的时间。",
+            "en": "Settle into something familiar with no need to rush."
+          },
+          "directionId": "bear"
+        },
+        {
+          "id": "C",
+          "directionId": "dolphin",
+          "label": {
+            "zh": "找人聊聊近况，把各自想说的话接起来。",
+            "en": "Catch up with someone and make room for what each of us wants to say."
+          }
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "挑一件贴合自己和身边人当下感受的事。",
+            "en": "Choose something that fits how I and the people around me are feeling."
+          },
+          "directionId": "deer"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_03",
+      "prompt": {
+        "zh": "原定的共同计划临时行不通了，你更自然的反应是？",
+        "en": "A shared plan falls through at short notice. What is your more natural response?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "利用现成条件换条路，先试试能不能走通。",
+            "en": "Work with what is available and test a different route."
+          },
+          "directionId": "fox"
+        },
+        {
+          "id": "B",
+          "directionId": "dolphin",
+          "label": {
+            "zh": "把大家的想法说清楚，确认彼此听懂了可选的替代安排。",
+            "en": "Connect everyone’s suggestions and check that we understand the available alternatives."
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先和原来的伙伴确认，尽量让大家还能一起参与。",
+            "en": "Check in with the original group and try to keep everyone involved."
+          },
+          "directionId": "wolf"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "缩小安排，保留一件确定能完成的事。",
+            "en": "Simplify the plan and keep one thing we can reliably do."
+          },
+          "directionId": "bear"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_04",
+      "prompt": {
+        "zh": "你想开始一个新爱好，通常怎样选第一步？",
+        "en": "When starting a new hobby, how do you usually choose a first step?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "选一个能马上完成的挑战，动手再调整。",
+            "en": "Pick a challenge I can attempt straight away and adjust as I go."
+          },
+          "directionId": "lion"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先了解基本原理和常见误区，再决定怎么练。",
+            "en": "Learn the basics and common pitfalls before choosing how to practise."
+          },
+          "directionId": "owl"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看哪种练习环境让我自在，也留意同伴是否舒服。",
+            "en": "Look for a setting where I feel at ease and notice how comfortable others seem."
+          },
+          "directionId": "deer"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先想它能给生活带来什么，再安排阶段目标。",
+            "en": "Consider what I want it to add to my life and set a few milestones."
+          },
+          "directionId": "eagle"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_05",
+      "prompt": {
+        "zh": "朋友之间出现误会，你通常更先关注哪件事？",
+        "en": "When friends misunderstand each other, what do you tend to attend to first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "谁的感受没有被听见，谈话能否更温和。",
+            "en": "Whose feelings have gone unheard and how the conversation could feel gentler."
+          },
+          "directionId": "deer"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "哪些承诺和信任需要重新说清楚。",
+            "en": "Which commitments and expectations of trust need to be clarified."
+          },
+          "directionId": "wolf"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "大家真正希望保住的关系或共同目标是什么。",
+            "en": "What relationship or shared aim everyone is trying to preserve."
+          },
+          "directionId": "eagle"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "能不能换个沟通方式，打破现在的僵局。",
+            "en": "Whether a different way of talking could get us out of the deadlock."
+          },
+          "directionId": "fox"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_06",
+      "prompt": {
+        "zh": "小组完成了一件难事，庆祝时你更愿意？",
+        "en": "Your group has finished something difficult. During the celebration, what would you rather do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "找个空当聊聊这次到底是什么起了作用。",
+            "en": "Find a moment to discuss what actually made the difference."
+          },
+          "directionId": "owl"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "清楚说出这次的成果，也大方接受肯定。",
+            "en": "Name what we achieved and be comfortable acknowledging it."
+          },
+          "directionId": "lion"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "安静享受收尾，照顾好那些还没做完的小事。",
+            "en": "Enjoy the finish quietly and take care of the small loose ends."
+          },
+          "directionId": "bear"
+        },
+        {
+          "id": "D",
+          "directionId": "dolphin",
+          "label": {
+            "zh": "让想说话的人有机会分享这一刻，也接住彼此的回应。",
+            "en": "Give those who want to speak a chance to share the moment and respond to one another."
+          }
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_07",
+      "prompt": {
+        "zh": "和别人一起安排短途出行，你最常补上的一环是？",
+        "en": "When planning a short trip with others, what do you most often contribute?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "落实时间和基本准备，避免一路赶来赶去。",
+            "en": "Sort out the practical timing and basics so we are not constantly rushing."
+          },
+          "directionId": "bear"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "决定这次最想体验什么，再让路线围绕它展开。",
+            "en": "Choose the experience we most want and build the route around it."
+          },
+          "directionId": "eagle"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "查清交通、费用或限制，免得重要信息遗漏。",
+            "en": "Check transport, costs or restrictions so important details are not missed."
+          },
+          "directionId": "owl"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "确认约定和分工，让伙伴之间能互相照应。",
+            "en": "Clarify arrangements so people can depend on one another."
+          },
+          "directionId": "wolf"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_08",
+      "prompt": {
+        "zh": "熟人聚会里来了一位新人，你更可能怎样回应？",
+        "en": "Someone new arrives at a gathering of people who know each other. How might you respond?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "otter",
+          "label": {
+            "zh": "问对方愿不愿一起玩个没有输赢要求的小玩法，不想参加也没关系。",
+            "en": "Ask whether they would enjoy a small game with no need to win, leaving them free to decline."
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先留意对方想热闹还是想慢慢适应，再靠近。",
+            "en": "Notice whether they want company or time to settle in, then approach accordingly."
+          },
+          "directionId": "deer"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "找一个新旧成员都能参与的小活动。",
+            "en": "Find a small activity both newcomers and regulars could join."
+          },
+          "directionId": "fox"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "主动介绍大家，直接给对方一个参与的位置。",
+            "en": "Make introductions and offer a clear way to take part."
+          },
+          "directionId": "lion"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_09",
+      "prompt": {
+        "zh": "别人对你的决定提出异议，你更愿意先问？",
+        "en": "Someone challenges a decision you have made. What would you rather ask first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "你希望我具体改哪一步？",
+            "en": "Which specific step would you like me to change?"
+          },
+          "directionId": "lion"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "这个决定有没有违背我们之前说好的事？",
+            "en": "Does this go against something we previously agreed on?"
+          },
+          "directionId": "wolf"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "这个决定给你带来了什么感受或负担？",
+            "en": "How has this decision felt for you, or what burden has it created?"
+          },
+          "directionId": "deer"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "有什么证据是我还没有考虑到的？",
+            "en": "What evidence have I not yet considered?"
+          },
+          "directionId": "owl"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_10",
+      "prompt": {
+        "zh": "一项自己的事情拖了很久，重新启动时你更倾向于？",
+        "en": "Something of your own has been unfinished for a while. How do you tend to restart it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "换工具或顺序，试一个不一样的小切口。",
+            "en": "Change the tool or sequence and test a different small entry point."
+          },
+          "directionId": "fox"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "重新确认它为什么重要，舍掉偏离目标的部分。",
+            "en": "Revisit why it matters and drop the parts that no longer serve the aim."
+          },
+          "directionId": "eagle"
+        },
+        {
+          "id": "C",
+          "directionId": "otter",
+          "label": {
+            "zh": "问一个愿意的人，要不要把其中一小步变成轻松的共同挑战，不要求比输赢。",
+            "en": "Ask a willing companion whether we could turn one small step into a light shared challenge without competing to win."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "dolphin",
+          "label": {
+            "zh": "找愿意听的人把卡点说清楚，再一起确认我想采取的下一步。",
+            "en": "Talk the sticking point through with a willing listener and clarify the next step I want to take."
+          }
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_11",
+      "prompt": {
+        "zh": "临近截止时间，团队还有几件事没完成。你更可能？",
+        "en": "A deadline is approaching and your team still has work left. What are you more likely to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "守住最必要的步骤，一件件稳妥收尾。",
+            "en": "Protect the essential steps and finish them steadily."
+          },
+          "directionId": "bear"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "保持沟通和士气，让大家敢及时说出卡点。",
+            "en": "Keep communication open so people feel able to say where they are stuck."
+          },
+          "directionId": "dolphin"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "协调谁能接手哪一项，避免有人独自扛着。",
+            "en": "Work out who can take which part so nobody is left carrying it alone."
+          },
+          "directionId": "wolf"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "明确取舍并推动执行，不再让决定悬着。",
+            "en": "Make the tradeoffs explicit and move us into action."
+          },
+          "directionId": "lion"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_12",
+      "prompt": {
+        "zh": "一个新点子让你很感兴趣，什么最能说服你投入？",
+        "en": "A new idea catches your attention. What most persuades you to invest effort?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "它的依据和逻辑经得起追问。",
+            "en": "Its evidence and reasoning hold up when questioned."
+          },
+          "directionId": "owl"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "它能照顾到现实中容易被忽略的需要。",
+            "en": "It responds to needs that are easily overlooked in everyday life."
+          },
+          "directionId": "deer"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "它打开了一个值得长期追求的可能。",
+            "en": "It opens a possibility worth pursuing over time."
+          },
+          "directionId": "eagle"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "有机会低成本试验，并随反馈改变做法。",
+            "en": "There is a low-cost way to try it and adapt to feedback."
+          },
+          "directionId": "fox"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_13",
+      "prompt": {
+        "zh": "一次意见不同的合作之后，你最希望留下什么？",
+        "en": "After a collaboration where people disagreed, what would you most want to carry forward?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "仍然说到做到、可以互相依靠的关系。",
+            "en": "Relationships where people keep their word and can still rely on one another."
+          },
+          "directionId": "wolf"
+        },
+        {
+          "id": "B",
+          "directionId": "otter",
+          "label": {
+            "zh": "意见不同之后，大家仍有自愿一起轻松玩乐的空间。",
+            "en": "Room to enjoy optional play together even after disagreeing."
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一个下次能灵活改进的方法，而不是死守流程。",
+            "en": "An approach we can adapt next time rather than a rigid process."
+          },
+          "directionId": "fox"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "大家的感受被承认，没有谁被随手贴上标签。",
+            "en": "Acknowledgment of people’s feelings without casually labelling anyone."
+          },
+          "directionId": "deer"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_14",
+      "prompt": {
+        "zh": "讨论变得很散，你更自然地怎样把它拉回来？",
+        "en": "A discussion has become scattered. How do you naturally bring it back?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让每个人轮流说一句，重新接上彼此的话。",
+            "en": "Give everyone a brief turn so people can reconnect with the conversation."
+          },
+          "directionId": "dolphin"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把眼前必须决定的问题直接摆出来。",
+            "en": "Put the decision we need to make directly on the table."
+          },
+          "directionId": "lion"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "区分已经知道的事实和还没证实的猜测。",
+            "en": "Separate what we know from what is still an assumption."
+          },
+          "directionId": "owl"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "提醒大家这次讨论想达到的整体目的。",
+            "en": "Remind us of the overall purpose of the discussion."
+          },
+          "directionId": "eagle"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_15",
+      "prompt": {
+        "zh": "日常安排里发现一个一直没人处理的小问题，你倾向于？",
+        "en": "You notice a small recurring problem that nobody has dealt with. What do you tend to do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把它放进更大的安排里，判断是否该重排优先级。",
+            "en": "Look at how it fits the bigger picture and whether priorities need to change."
+          },
+          "directionId": "eagle"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先观察几次，弄清它通常在什么条件下出现。",
+            "en": "Observe it a few times to understand the conditions in which it happens."
+          },
+          "directionId": "owl"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "从轻松的提醒开始，让人愿意一起改善。",
+            "en": "Start with a friendly prompt that makes people willing to improve it together."
+          },
+          "directionId": "dolphin"
+        },
+        {
+          "id": "D",
+          "directionId": "otter",
+          "label": {
+            "zh": "问相关的人愿不愿把这件小事变成一个轻松合作的小挑战，没人想玩时就照常处理。",
+            "en": "Ask those involved whether this small task could become a light shared challenge, using the ordinary approach if nobody wants to play."
+          }
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_16",
+      "prompt": {
+        "zh": "忙碌告一段落，接下来的空闲你更想怎样使用？",
+        "en": "A busy period is over. How would you most like to use the space afterward?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "otter",
+          "label": {
+            "zh": "找愿意的人一起做点只为好玩的事，不再给这段空闲设成果。",
+            "en": "Enjoy something with willing company simply for the fun of it, without setting another outcome for the free time."
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "做件和刚才不同的小事，让思路换个方向。",
+            "en": "Try a small change of activity that lets my thinking take another route."
+          },
+          "directionId": "fox"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "完成一个短而明确的个人心愿，享受主动掌控。",
+            "en": "Do one short, clear thing of my own choosing and enjoy taking the initiative."
+          },
+          "directionId": "lion"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "回到熟悉、安稳的节奏，不急着开启下一件事。",
+            "en": "Return to a familiar, settled pace without rushing into the next thing."
+          },
+          "directionId": "bear"
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_17",
+      "prompt": {
+        "zh": "几个朋友都愿意一起度过一段没有固定安排的空闲，你更自然地做什么？",
+        "en": "A few friends want to spend some unplanned free time together. What comes more naturally to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "dolphin",
+          "label": {
+            "zh": "聊聊大家各自想做什么，把不同想法接成一个说得清的安排。",
+            "en": "Talk through what everyone has in mind and connect the suggestions into a clear arrangement."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "bear",
+          "label": {
+            "zh": "留出安稳的节奏，先做一件熟悉、容易收尾的事。",
+            "en": "Keep a settled pace and begin with something familiar that is easy to bring to a close."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "otter",
+          "label": {
+            "zh": "邀请大家玩一个随时可退出的小玩法，重点是一起乐一会儿。",
+            "en": "Offer a small game anyone can leave, with the point simply being to enjoy it together."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "wolf",
+          "label": {
+            "zh": "先说清共同约定，看看大家愿意各自照应哪一部分。",
+            "en": "Clarify our shared arrangements and what each person is willing to look after."
+          }
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_18",
+      "prompt": {
+        "zh": "一项可选的共同活动已经完成，还剩一点空闲，你更愿意怎样继续？",
+        "en": "An optional shared activity has finished and there is a little free time left. How would you rather continue?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "deer",
+          "label": {
+            "zh": "留意大家此刻想热闹还是想安静，不急着再加安排。",
+            "en": "Notice whether people want company or quiet now, without rushing to add another plan."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "fox",
+          "label": {
+            "zh": "用手边的条件试一个和平时不同的小做法，看看能否行得通。",
+            "en": "Use what is available to try a small alternative to the usual approach and see whether it works."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "bear",
+          "label": {
+            "zh": "按舒服而熟悉的节奏收尾，把接下来要用的东西安顿好。",
+            "en": "Wind down at a comfortable, familiar pace and put things in order for what comes next."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "otter",
+          "label": {
+            "zh": "问还有没有人想一起玩个轻松的小把戏，玩到没兴致就停。",
+            "en": "Ask whether anyone would enjoy a little playful diversion, stopping when it is no longer fun."
+          }
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "selected_option": "one raw choice for its listed animal",
+    "outputs": "all9counts, every highest-scoring animal and each full profile; equalcountsneverbrokenarbitrarily",
+    "incomplete": "no counts/interpretedresultuntilall18answered",
+    "denominator": 8,
+    "no_inference": [
+      "spiritualidentity",
+      "speciesbehavior",
+      "psychometrictrait",
+      "populationrank",
+      "careerfit",
+      "MBTItype"
+    ],
+    "close_results": "allcountsvisible,otherpublicguidesreadable;onepointdifferenceisnotvalidatedmeaningfuldistance"
+  }
+}

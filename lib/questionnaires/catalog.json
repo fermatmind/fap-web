@@ -99,21 +99,21 @@
   {
     "slug": "spirit-animal",
     "code": "SPIRIT_ANIMAL",
-    "version": "1.0.0",
-    "updated": "2026-10-25",
+    "version": "1.1.0",
+    "updated": "2026-10-30",
     "category": "metaphor",
     "title": {
       "zh": "精神动物测试",
       "en": "Spirit Animal Test"
     },
     "description": {
-      "zh": "免费完成16道原创情境题，比较狼、猫头鹰、狐狸、狮子、海豚、鹿、熊和鹰的匹配线索。全部8份解释可直接阅读，保留并列，说明计分和实际取舍，无需注册。",
-      "en": "What is my spirit animal? Take 16 original questions, see every tied match and read all eight animal profiles with examples and clear scoring. Free, no signup."
+      "zh": "免费完成18道原创情境题，比较狼、猫头鹰、狐狸、狮子、海豚、鹿、熊、鹰和水獭的匹配线索。全部九份解释可直接阅读，保留全部最高并列，说明计分与实际取舍，无需注册。",
+      "en": "What is my spirit animal? Take 18 original questions, see every tied match and read all nine animal profiles, including Otter, with examples and clear scoring. Free, no signup."
     },
     "minutes": 4,
     "collection": "explore",
-    "formCode": "fm_spirit_animal_choices_16",
-    "questionCount": 16,
+    "formCode": "fm_spirit_animal_choices_18_roster9_v1",
+    "questionCount": 18,
     "resultSlugs": [
       "wolf",
       "owl",
@@ -122,7 +122,8 @@
       "dolphin",
       "deer",
       "bear",
-      "eagle"
+      "eagle",
+      "otter"
     ]
   },
   {

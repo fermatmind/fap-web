@@ -1,8 +1,8 @@
 {
   "slug": "spirit-animal",
   "code": "SPIRIT_ANIMAL",
-  "version": "1.0.0",
-  "updated": "2026-10-25",
+  "version": "1.1.0",
+  "updated": "2026-10-30",
   "category": "metaphor",
   "kind": "archetype",
   "minutes": 4,
@@ -11,29 +11,29 @@
     "en": "Spirit Animal Test"
   },
   "seoTitle": {
-    "zh": "精神动物测试：16题找到你的动物比喻",
+    "zh": "精神动物测试：18题找到你的动物比喻",
     "en": "Spirit Animal Test: What Is My Spirit Animal? Free Quiz"
   },
   "description": {
-    "zh": "免费完成16道原创情境题，比较狼、猫头鹰、狐狸、狮子、海豚、鹿、熊和鹰的匹配线索。全部8份解释可直接阅读，保留并列，说明计分和实际取舍，无需注册。",
-    "en": "What is my spirit animal? Take 16 original questions, see every tied match and read all eight animal profiles with examples and clear scoring. Free, no signup."
+    "zh": "免费完成18道原创情境题，比较狼、猫头鹰、狐狸、狮子、海豚、鹿、熊、鹰和水獭的匹配线索。全部九份解释可直接阅读，保留全部最高并列，说明计分与实际取舍，无需注册。",
+    "en": "What is my spirit animal? Take 18 original questions, see every tied match and read all nine animal profiles, including Otter, with examples and clear scoring. Free, no signup."
   },
   "introduction": {
-    "zh": "遇到分歧时，你先核对依据、保护共同约定，还是换条路试一试？这里用八种动物作比喻，观察你在具体选择中偏向哪些做法。精神动物测试也常被叫作内在动物人格测试；本页用同一份实际问卷承接这类探索，不从生日、MBTI或随机数生成动物。",
-    "en": "When a plan stalls, do you check the evidence, protect a shared commitment or test another route? This quiz uses eight animal metaphors to reflect the approaches selected in everyday situations. Also looking for an inner animal personality test? The same questionnaire lets you compare those patterns here, without deriving an animal from a birthday, MBTI code or random number."
+    "zh": "遇到分歧时，你先核对依据、保护共同约定，还是换条路试一试？这里用九种动物作比喻，观察你在具体选择中偏向哪些做法。水獭侧重自愿共同玩乐，海豚侧重接上对话与理解想法；它们不是同一项的改名。精神动物测试也常被叫作内在动物人格测试；本页用同一份实际问卷承接这类探索，不从生日、MBTI或随机数生成动物。",
+    "en": "When a plan stalls, do you check the evidence, protect a shared commitment or test another route? This quiz uses nine animal metaphors to reflect approaches selected in everyday situations. Otter concerns voluntary shared play; Dolphin concerns connecting conversation and understanding views. Also looking for an inner animal personality test? The same questionnaire compares those patterns here, without deriving an animal from a birthday, MBTI code or random number."
   },
   "instructions": {
-    "zh": "每题有四种都可能合理的做法，请选你在类似情境里更自然的一项，而不是最理想的一项。想起最近的具体经历再选；若几项都贴合，选更常先出现的做法。完成16题后显示全部计数和每个并列匹配的完整说明。",
-    "en": "Each question offers four responses that may all be reasonable. Choose what comes more naturally in a similar situation rather than what sounds ideal. Recall a recent example; if several fit, choose what you more often do first. After all 16 questions, you will see every count and the full explanation of every tied match."
+    "zh": "每题有四种都可能合理的做法，请选你在类似情境里更自然的一项，而不是最理想的一项。想起最近的具体经历再选；若几项都贴合，选更常先出现的做法。完成18题后显示全部计数和每个最高并列匹配的完整说明。",
+    "en": "Each question offers four responses that may all be reasonable. Choose what comes more naturally in a similar situation rather than what sounds ideal. Recall a recent example; if several fit, choose what you more often do first. After all 18 questions, you will see every count and the full explanation of every highest tied match."
   },
   "source": {
     "kind": "FermatMind original website symbolic choice quiz",
-    "formCode": "fm_spirit_animal_choices_16",
-    "itemBankVersion": "1.0.0",
+    "formCode": "fm_spirit_animal_choices_18_roster9_v1",
+    "itemBankVersion": "1.1.0",
     "scoringVersion": "1.0.0",
-    "resultContentVersion": "1.0.0",
-    "itemBankSha256": "b22fb35b2d40f7927465f1d43055357e78503a6de24f3318b80a292fe3b02cf3",
-    "resultContentSha256": "2326d99dc31825df3acca2f15bd695a55b206b49dba8552ef136e4a6bc519d0a",
+    "resultContentVersion": "1.1.0",
+    "itemBankSha256": "119fac91ce04da1fccef7853d0b6b999d9e0f92ee57c655f09094128f858e738",
+    "resultContentSha256": "a0365ff12cb1fa7057f7f93f686a5c1c8049ad868385e6af33af660f5af2fcec",
     "psychometricValidationCompleted": false
   },
   "directions": [
@@ -100,6 +100,14 @@
         "en": "Eagle"
       },
       "comparisons": 8
+    },
+    {
+      "id": "otter",
+      "title": {
+        "zh": "水獭",
+        "en": "Otter"
+      },
+      "comparisons": 8
     }
   ],
   "questions": [
@@ -120,11 +128,11 @@
         },
         {
           "id": "B",
+          "directionId": "otter",
           "label": {
-            "zh": "试一个小办法，看看大家对哪种做法有反应。",
-            "en": "Try a small approach and see what people respond to."
-          },
-          "directionId": "fox"
+            "zh": "提议一个可以不参加的简短小游戏，让愿意的人一起轻松玩一会儿。",
+            "en": "Suggest a brief optional game so anyone who wants to can enjoy a little play together."
+          }
         },
         {
           "id": "C",
@@ -169,11 +177,11 @@
         },
         {
           "id": "C",
+          "directionId": "dolphin",
           "label": {
-            "zh": "找人一起做点轻松的事，边玩边聊。",
-            "en": "Invite someone to do something easy and enjoy the conversation along the way."
-          },
-          "directionId": "dolphin"
+            "zh": "找人聊聊近况，把各自想说的话接起来。",
+            "en": "Catch up with someone and make room for what each of us wants to say."
+          }
         },
         {
           "id": "D",
@@ -202,11 +210,11 @@
         },
         {
           "id": "B",
+          "directionId": "dolphin",
           "label": {
-            "zh": "想一个大家会觉得有意思的替代活动。",
-            "en": "Think of an alternative people would enjoy doing together."
-          },
-          "directionId": "dolphin"
+            "zh": "把大家的想法说清楚，确认彼此听懂了可选的替代安排。",
+            "en": "Connect everyone’s suggestions and check that we understand the available alternatives."
+          }
         },
         {
           "id": "C",
@@ -341,11 +349,11 @@
         },
         {
           "id": "D",
+          "directionId": "dolphin",
           "label": {
-            "zh": "让气氛轻松起来，把不太说话的人也邀请进来。",
-            "en": "Keep things relaxed and invite quieter people into the moment."
-          },
-          "directionId": "dolphin"
+            "zh": "让想说话的人有机会分享这一刻，也接住彼此的回应。",
+            "en": "Give those who want to speak a chance to share the moment and respond to one another."
+          }
         }
       ]
     },
@@ -399,11 +407,11 @@
       "options": [
         {
           "id": "A",
+          "directionId": "otter",
           "label": {
-            "zh": "用一个轻松的话题把对方带入聊天。",
-            "en": "Offer an easy topic that gives them a way into the conversation."
-          },
-          "directionId": "dolphin"
+            "zh": "问对方愿不愿一起玩个没有输赢要求的小玩法，不想参加也没关系。",
+            "en": "Ask whether they would enjoy a small game with no need to win, leaving them free to decline."
+          }
         },
         {
           "id": "B",
@@ -497,19 +505,19 @@
         },
         {
           "id": "C",
+          "directionId": "otter",
           "label": {
-            "zh": "固定一小段时间，重复做同一个可完成步骤。",
-            "en": "Set aside a small regular slot for one manageable step."
-          },
-          "directionId": "bear"
+            "zh": "问一个愿意的人，要不要把其中一小步变成轻松的共同挑战，不要求比输赢。",
+            "en": "Ask a willing companion whether we could turn one small step into a light shared challenge without competing to win."
+          }
         },
         {
           "id": "D",
+          "directionId": "dolphin",
           "label": {
-            "zh": "找个人一起做，靠互动让过程重新有意思。",
-            "en": "Do it alongside someone and let the interaction make it engaging again."
-          },
-          "directionId": "dolphin"
+            "zh": "找愿意听的人把卡点说清楚，再一起确认我想采取的下一步。",
+            "en": "Talk the sticking point through with a willing listener and clarify the next step I want to take."
+          }
         }
       ]
     },
@@ -612,11 +620,11 @@
         },
         {
           "id": "B",
+          "directionId": "otter",
           "label": {
-            "zh": "一套不透支、能稳定重复的工作节奏。",
-            "en": "A sustainable rhythm we can repeat without exhausting ourselves."
-          },
-          "directionId": "bear"
+            "zh": "意见不同之后，大家仍有自愿一起轻松玩乐的空间。",
+            "en": "Room to enjoy optional play together even after disagreeing."
+          }
         },
         {
           "id": "C",
@@ -710,11 +718,11 @@
         },
         {
           "id": "D",
+          "directionId": "otter",
           "label": {
-            "zh": "找相关的人一起商量，让处理办法有人共同维护。",
-            "en": "Bring the people involved together so the solution has shared support."
-          },
-          "directionId": "wolf"
+            "zh": "问相关的人愿不愿把这件小事变成一个轻松合作的小挑战，没人想玩时就照常处理。",
+            "en": "Ask those involved whether this small task could become a light shared challenge, using the ordinary approach if nobody wants to play."
+          }
         }
       ]
     },
@@ -727,11 +735,11 @@
       "options": [
         {
           "id": "A",
+          "directionId": "otter",
           "label": {
-            "zh": "问问自己现在需要什么，给感受一点缓冲。",
-            "en": "Check what I need now and give my feelings some room to settle."
-          },
-          "directionId": "deer"
+            "zh": "找愿意的人一起做点只为好玩的事，不再给这段空闲设成果。",
+            "en": "Enjoy something with willing company simply for the fun of it, without setting another outcome for the free time."
+          }
         },
         {
           "id": "B",
@@ -758,6 +766,88 @@
           "directionId": "bear"
         }
       ]
+    },
+    {
+      "id": "SPIRIT_17",
+      "prompt": {
+        "zh": "几个朋友都愿意一起度过一段没有固定安排的空闲，你更自然地做什么？",
+        "en": "A few friends want to spend some unplanned free time together. What comes more naturally to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "dolphin",
+          "label": {
+            "zh": "聊聊大家各自想做什么，把不同想法接成一个说得清的安排。",
+            "en": "Talk through what everyone has in mind and connect the suggestions into a clear arrangement."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "bear",
+          "label": {
+            "zh": "留出安稳的节奏，先做一件熟悉、容易收尾的事。",
+            "en": "Keep a settled pace and begin with something familiar that is easy to bring to a close."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "otter",
+          "label": {
+            "zh": "邀请大家玩一个随时可退出的小玩法，重点是一起乐一会儿。",
+            "en": "Offer a small game anyone can leave, with the point simply being to enjoy it together."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "wolf",
+          "label": {
+            "zh": "先说清共同约定，看看大家愿意各自照应哪一部分。",
+            "en": "Clarify our shared arrangements and what each person is willing to look after."
+          }
+        }
+      ]
+    },
+    {
+      "id": "SPIRIT_18",
+      "prompt": {
+        "zh": "一项可选的共同活动已经完成，还剩一点空闲，你更愿意怎样继续？",
+        "en": "An optional shared activity has finished and there is a little free time left. How would you rather continue?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "deer",
+          "label": {
+            "zh": "留意大家此刻想热闹还是想安静，不急着再加安排。",
+            "en": "Notice whether people want company or quiet now, without rushing to add another plan."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "fox",
+          "label": {
+            "zh": "用手边的条件试一个和平时不同的小做法，看看能否行得通。",
+            "en": "Use what is available to try a small alternative to the usual approach and see whether it works."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "bear",
+          "label": {
+            "zh": "按舒服而熟悉的节奏收尾，把接下来要用的东西安顿好。",
+            "en": "Wind down at a comfortable, familiar pace and put things in order for what comes next."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "otter",
+          "label": {
+            "zh": "问还有没有人想一起玩个轻松的小把戏，玩到没兴致就停。",
+            "en": "Ask whether anyone would enjoy a little playful diversion, stopping when it is no longer fun."
+          }
+        }
+      ]
     }
   ],
   "profiles": [
@@ -779,8 +869,8 @@
         "en": "In this set, your choices more often favour clarifying commitments, sustaining cooperation and sharing responsibility. Wolf is a metaphor for mutual reliance here. It is not a loyalty rating or a requirement to stay on the same side forever."
       },
       "scoreReading": {
-        "zh": "本题组中，狼选项出现8次。每选中一次记1次，16题全部回答后才显示所有动物的计数。它与最高计数相同时，完整保留为本次匹配；并列不按名单顺序强行挑选。计数接近不代表已经验证的人格距离，分母8也不是相似度百分比。",
-        "en": "Wolf options appear eight times in this set. Each selected option adds one raw choice; all animal counts appear only after all 16 questions are answered. Any animal sharing the highest count remains a match, without a winner chosen by list order. Close counts are not validated personality distances, and the denominator of eight is not a match percentage."
+        "zh": "本题组中，狼选项出现8次。每选中一次记1次，18题全部回答后才显示所有动物的计数。它与最高计数相同时，完整保留为本次匹配；并列不按名单顺序强行挑选。计数接近不代表已经验证的人格距离，分母8也不是相似度百分比。",
+        "en": "Wolf options appear eight times in this set. Each selected option adds one raw choice; all animal counts appear only after all 18 questions are answered. Any animal sharing the highest count remains a match, without a winner chosen by list order. Close counts are not validated personality distances, and the denominator of eight is not a match percentage."
       },
       "sections": [
         {
@@ -858,6 +948,10 @@
             {
               "zh": "狼和海豚都可能主动联系别人，但狼选项更强调共同约定，海豚更强调互动是否轻松。狼与熊都可能稳定投入，熊选项则更关注可持续的节奏。若计数接近，请比较具体选项，而不是寻找哪种动物更好。",
               "en": "Wolf and Dolphin may both reach out, but Wolf options emphasise shared commitments while Dolphin options emphasise ease of interaction. Wolf and Bear may both stay involved; Bear puts more weight on a sustainable pace. If counts are close, compare the actual options instead of deciding which animal is better."
+            },
+            {
+              "zh": "新增水獭侧重自愿一起玩乐；狼侧重彼此愿意承担和维护的共同约定。一起玩不一定涉及长期承诺，履行约定也不要求把事情变成游戏。",
+              "en": "The added Otter theme concerns voluntary shared play; Wolf concerns commitments people agree to sustain. Playing together need not involve continuing obligations, and keeping an agreement need not become a game."
             }
           ]
         },
@@ -882,8 +976,8 @@
           },
           "paragraphs": [
             {
-              "zh": "这只说明在这16道题的具体比较中，你更常选了别的做法，不代表冷漠、不可靠或不重视关系。你可能用更直接、细致或安静的方式支持别人。需要理解一次真实分歧时，请谈当时的行为，不给自己或别人贴动物标签。",
-              "en": "It only means that other responses were selected more often in these 16 comparisons. It does not mean coldness, unreliability or a lack of care. You might support people through direct action, careful attention or quiet steadiness. Discuss the behaviour in an actual disagreement rather than assigning anyone an animal label."
+              "zh": "这只说明在这18道题的具体比较中，你更常选了别的做法，不代表冷漠、不可靠或不重视关系。你可能用更直接、细致或安静的方式支持别人。需要理解一次真实分歧时，请谈当时的行为，不给自己或别人贴动物标签。",
+              "en": "It only means that other responses were selected more often in these 18 comparisons. It does not mean coldness, unreliability or a lack of care. You might support people through direct action, careful attention or quiet steadiness. Discuss the behaviour in an actual disagreement rather than assigning anyone an animal label."
             }
           ]
         },
@@ -930,8 +1024,8 @@
         "en": "Owl represents observing, checking evidence and separating knowns from unknowns within this quiz. The match comes from particular choices. It does not establish intelligence, insight or greater rationality than other people."
       },
       "scoreReading": {
-        "zh": "本题组中，猫头鹰选项出现8次。每选中一次记1次，16题全部回答后才显示所有动物的计数。它与最高计数相同时，完整保留为本次匹配；并列不按名单顺序强行挑选。计数接近不代表已经验证的人格距离，分母8也不是相似度百分比。",
-        "en": "Owl options appear eight times in this set. Each selected option adds one raw choice; all animal counts appear only after all 16 questions are answered. Any animal sharing the highest count remains a match, without a winner chosen by list order. Close counts are not validated personality distances, and the denominator of eight is not a match percentage."
+        "zh": "本题组中，猫头鹰选项出现8次。每选中一次记1次，18题全部回答后才显示所有动物的计数。它与最高计数相同时，完整保留为本次匹配；并列不按名单顺序强行挑选。计数接近不代表已经验证的人格距离，分母8也不是相似度百分比。",
+        "en": "Owl options appear eight times in this set. Each selected option adds one raw choice; all animal counts appear only after all 18 questions are answered. Any animal sharing the highest count remains a match, without a winner chosen by list order. Close counts are not validated personality distances, and the denominator of eight is not a match percentage."
       },
       "sections": [
         {
@@ -1009,6 +1103,10 @@
             {
               "zh": "猫头鹰关注依据是否充分，鹰更关注事情指向什么整体目标。猫头鹰和熊都可能慢下来，但熊强调稳定节奏，猫头鹰强调弄清情况。接近的计数只提示多种做法都有出现，不能证明你兼具几个固定人格。",
               "en": "Owl asks whether the evidence is sufficient; Eagle asks what wider aim it serves. Owl and Bear may both slow down, but Bear emphasises a steady pace while Owl emphasises understanding the situation. Close counts suggest several responses appeared in this set, not that you possess multiple fixed personalities."
+            },
+            {
+              "zh": "水獭侧重自愿共同玩乐，猫头鹰侧重了解依据。你可以先弄清规则再玩，也可以只是为了趣味参与；题本只分别计数所选理由。",
+              "en": "Otter concerns voluntary shared play, while Owl concerns understanding the grounds. You may examine rules before playing or join simply for enjoyment; the set counts the selected reasons separately."
             }
           ]
         },
@@ -1081,8 +1179,8 @@
         "en": "Fox stands for using what is available, changing routes and adjusting to feedback in this quiz. It is a metaphor for an approach, not an equation of flexibility with deception or a judgment of honesty or intelligence."
       },
       "scoreReading": {
-        "zh": "本题组中，狐狸选项出现8次。每选中一次记1次，16题全部回答后才显示所有动物的计数。它与最高计数相同时，完整保留为本次匹配；并列不按名单顺序强行挑选。计数接近不代表已经验证的人格距离，分母8也不是相似度百分比。",
-        "en": "Fox options appear eight times in this set. Each selected option adds one raw choice; all animal counts appear only after all 16 questions are answered. Any animal sharing the highest count remains a match, without a winner chosen by list order. Close counts are not validated personality distances, and the denominator of eight is not a match percentage."
+        "zh": "本题组中，狐狸选项出现8次。每选中一次记1次，18题全部回答后才显示所有动物的计数。它与最高计数相同时，完整保留为本次匹配；并列不按名单顺序强行挑选。计数接近不代表已经验证的人格距离，分母8也不是相似度百分比。",
+        "en": "Fox options appear eight times in this set. Each selected option adds one raw choice; all animal counts appear only after all 18 questions are answered. Any animal sharing the highest count remains a match, without a winner chosen by list order. Close counts are not validated personality distances, and the denominator of eight is not a match percentage."
       },
       "sections": [
         {
@@ -1160,6 +1258,10 @@
             {
               "zh": "狐狸和狮子都可能很快行动：狐狸选项强调换路试验，狮子强调明确决定和推进。狐狸和鹰都可能提出新方向，但鹰更重视远处的目的。请比较动作的理由，不把“有点子”直接等同于任意一种动物。",
               "en": "Fox and Lion may both act quickly: Fox options emphasise trying another route, while Lion options emphasise a clear decision and movement. Fox and Eagle may propose new directions, but Eagle puts more weight on the longer view. Compare the reason for an action rather than treating every idea as the same pattern."
+            },
+            {
+              "zh": "狐狸与水獭都可能提出新玩法，但狐狸选项侧重用另一种办法试能否行得通，水獭侧重愿意的人一起享受玩乐。新颖和好玩不是同一理由。",
+              "en": "Fox and Otter may suggest something new, but Fox options test whether another approach works, while Otter options seek enjoyment with willing company. Novelty and shared fun are different reasons."
             }
           ]
         },
@@ -1232,8 +1334,8 @@
         "en": "Lion corresponds to taking initiative, stating tradeoffs and moving to a next step in these questions. It does not confer leadership, higher status or a right to decide on behalf of other people."
       },
       "scoreReading": {
-        "zh": "本题组中，狮子选项出现8次。每选中一次记1次，16题全部回答后才显示所有动物的计数。它与最高计数相同时，完整保留为本次匹配；并列不按名单顺序强行挑选。计数接近不代表已经验证的人格距离，分母8也不是相似度百分比。",
-        "en": "Lion options appear eight times in this set. Each selected option adds one raw choice; all animal counts appear only after all 16 questions are answered. Any animal sharing the highest count remains a match, without a winner chosen by list order. Close counts are not validated personality distances, and the denominator of eight is not a match percentage."
+        "zh": "本题组中，狮子选项出现8次。每选中一次记1次，18题全部回答后才显示所有动物的计数。它与最高计数相同时，完整保留为本次匹配；并列不按名单顺序强行挑选。计数接近不代表已经验证的人格距离，分母8也不是相似度百分比。",
+        "en": "Lion options appear eight times in this set. Each selected option adds one raw choice; all animal counts appear only after all 18 questions are answered. Any animal sharing the highest count remains a match, without a winner chosen by list order. Close counts are not validated personality distances, and the denominator of eight is not a match percentage."
       },
       "sections": [
         {
@@ -1311,6 +1413,10 @@
             {
               "zh": "狮子和鹰都可能指向一个目标：狮子选项更强调此刻要决定和执行的事，鹰强调为什么值得往那里走。狮子和狼也都可能组织小组，狼更在意共同承诺。近分只说明这些选项在本次题组中被选得相近。",
               "en": "Lion and Eagle may both point toward a goal: Lion options emphasise the decision and action needed now, while Eagle emphasises why the destination matters. Lion and Wolf may organise a group; Wolf puts more weight on shared commitments. Close counts only mean these options were chosen similar numbers of times here."
+            },
+            {
+              "zh": "水獭关注自愿共同玩乐，狮子关注明确决定并推进。一个活动可以同时有趣又有清楚起点，但玩乐不是必须达成的成绩，推进也不要求别人配合热闹。",
+              "en": "Otter concerns voluntary shared play; Lion concerns clear decisions and movement. An activity can have both, but fun is not a required achievement and action does not require everyone to join the excitement."
             }
           ]
         },
@@ -1383,8 +1489,8 @@
         "en": "Dolphin represents reaching out, easing interaction and inviting participation in this quiz. It is not an extraversion type or evidence that people like you, or that you can always make them happy."
       },
       "scoreReading": {
-        "zh": "本题组中，海豚选项出现8次。每选中一次记1次，16题全部回答后才显示所有动物的计数。它与最高计数相同时，完整保留为本次匹配；并列不按名单顺序强行挑选。计数接近不代表已经验证的人格距离，分母8也不是相似度百分比。",
-        "en": "Dolphin options appear eight times in this set. Each selected option adds one raw choice; all animal counts appear only after all 16 questions are answered. Any animal sharing the highest count remains a match, without a winner chosen by list order. Close counts are not validated personality distances, and the denominator of eight is not a match percentage."
+        "zh": "本题组中，海豚选项出现8次。每选中一次记1次，18题全部回答后才显示所有动物的计数。它与最高计数相同时，完整保留为本次匹配；并列不按名单顺序强行挑选。计数接近不代表已经验证的人格距离，分母8也不是相似度百分比。",
+        "en": "Dolphin options appear eight times in this set. Each selected option adds one raw choice; all animal counts appear only after all 18 questions are answered. Any animal sharing the highest count remains a match, without a winner chosen by list order. Close counts are not validated personality distances, and the denominator of eight is not a match percentage."
       },
       "sections": [
         {
@@ -1462,6 +1568,10 @@
             {
               "zh": "海豚与鹿都留意别人：海豚选项更强调接上互动，鹿更强调感受和参与是否舒服。海豚与狼都可能组局，但狼更看重共同约定。一次行动可以同时有多个理由，接近计数不需要硬分成一个固定主型。",
               "en": "Dolphin and Deer both attend to people: Dolphin options emphasise opening interaction, while Deer emphasises feelings and comfort. Dolphin and Wolf may organise company, but Wolf puts more weight on shared agreements. One action can have several reasons, so close counts do not need to become one fixed dominant type."
+            },
+            {
+              "zh": "水獭侧重自愿一起玩乐，海豚侧重接上对话、听懂想法与协调沟通。玩游戏可以很少说话，认真接话也可以完全不玩；两项接近时回看你选择的实际理由。",
+              "en": "Otter emphasises voluntary shared play; Dolphin emphasises connecting conversation, understanding views and coordinating communication. A game may involve little speech, and careful conversation may involve no play. Compare your actual reasons when counts are close."
             }
           ]
         },
@@ -1534,8 +1644,8 @@
         "en": "Deer corresponds to noticing needs, feelings and comfort in the situations offered. The metaphor does not equate gentleness with weakness, measure high sensitivity or require you to accommodate everyone else."
       },
       "scoreReading": {
-        "zh": "本题组中，鹿选项出现8次。每选中一次记1次，16题全部回答后才显示所有动物的计数。它与最高计数相同时，完整保留为本次匹配；并列不按名单顺序强行挑选。计数接近不代表已经验证的人格距离，分母8也不是相似度百分比。",
-        "en": "Deer options appear eight times in this set. Each selected option adds one raw choice; all animal counts appear only after all 16 questions are answered. Any animal sharing the highest count remains a match, without a winner chosen by list order. Close counts are not validated personality distances, and the denominator of eight is not a match percentage."
+        "zh": "本题组中，鹿选项出现8次。每选中一次记1次，18题全部回答后才显示所有动物的计数。它与最高计数相同时，完整保留为本次匹配；并列不按名单顺序强行挑选。计数接近不代表已经验证的人格距离，分母8也不是相似度百分比。",
+        "en": "Deer options appear eight times in this set. Each selected option adds one raw choice; all animal counts appear only after all 18 questions are answered. Any animal sharing the highest count remains a match, without a winner chosen by list order. Close counts are not validated personality distances, and the denominator of eight is not a match percentage."
       },
       "sections": [
         {
@@ -1613,6 +1723,10 @@
             {
               "zh": "鹿与海豚都可能照顾他人，但鹿选项重视是否舒服，海豚更重视互动能否接起来。鹿与猫头鹰都可能先观察，猫头鹰关注信息依据，鹿关注体验。别把安静自动等同于这几种动物，要回看所选做法的具体内容。",
               "en": "Deer and Dolphin may both attend to others, but Deer options emphasise comfort while Dolphin emphasises opening interaction. Deer and Owl may observe first; Owl attends to evidence and Deer to experience. Quietness alone does not identify any of these animals. Look back at what the selected responses actually involved."
+            },
+            {
+              "zh": "鹿关注参与是否舒服及感受有没有被留意，水獭关注愿意的人一起玩。确认别人愿意后可以玩，也可以发现对方更想安静；两项不是关心与不关心的对立。",
+              "en": "Deer concerns comfort and noticed feelings; Otter concerns play with willing company. Checking willingness may lead to play or to learning that someone prefers quiet. These are not opposing levels of care."
             }
           ]
         },
@@ -1685,8 +1799,8 @@
         "en": "Bear represents choosing stability, familiar steps and a manageable pace in this set. It does not imply laziness, a lack of ambition or emotional dullness, or establish physical stamina or resilience."
       },
       "scoreReading": {
-        "zh": "本题组中，熊选项出现8次。每选中一次记1次，16题全部回答后才显示所有动物的计数。它与最高计数相同时，完整保留为本次匹配；并列不按名单顺序强行挑选。计数接近不代表已经验证的人格距离，分母8也不是相似度百分比。",
-        "en": "Bear options appear eight times in this set. Each selected option adds one raw choice; all animal counts appear only after all 16 questions are answered. Any animal sharing the highest count remains a match, without a winner chosen by list order. Close counts are not validated personality distances, and the denominator of eight is not a match percentage."
+        "zh": "本题组中，熊选项出现8次。每选中一次记1次，18题全部回答后才显示所有动物的计数。它与最高计数相同时，完整保留为本次匹配；并列不按名单顺序强行挑选。计数接近不代表已经验证的人格距离，分母8也不是相似度百分比。",
+        "en": "Bear options appear eight times in this set. Each selected option adds one raw choice; all animal counts appear only after all 18 questions are answered. Any animal sharing the highest count remains a match, without a winner chosen by list order. Close counts are not validated personality distances, and the denominator of eight is not a match percentage."
       },
       "sections": [
         {
@@ -1764,6 +1878,10 @@
             {
               "zh": "熊和狼都可能持续投入：熊选项优先保护可重复的节奏，狼优先维护共同约定。熊和猫头鹰都可能不急着开始，猫头鹰更在意信息是否足够。动物名称只是帮助比较这些选择，不能把慢或快当作固定人格。",
               "en": "Bear and Wolf may both stay with something: Bear options protect a repeatable pace, while Wolf protects shared agreements. Bear and Owl may both delay a start, but Owl puts more weight on sufficient information. The animal names help compare these choices; neither speed nor slowness establishes a fixed personality."
+            },
+            {
+              "zh": "熊关注熟悉而可持续的节奏，水獭关注自愿共同玩乐。安静的游戏也可能节奏安稳，忙碌后想休息则不必加入游戏；不能把两项解释成无趣与有趣。",
+              "en": "Bear concerns a familiar, sustainable pace; Otter concerns voluntary shared play. A quiet game can have a settled rhythm, while rest may involve no game. Neither result measures how interesting someone is."
             }
           ]
         },
@@ -1836,8 +1954,8 @@
         "en": "Eagle corresponds to considering purpose, connections and a longer time horizon in this set. It does not establish superior vision or perspective, or predict success or leadership ability."
       },
       "scoreReading": {
-        "zh": "本题组中，鹰选项出现8次。每选中一次记1次，16题全部回答后才显示所有动物的计数。它与最高计数相同时，完整保留为本次匹配；并列不按名单顺序强行挑选。计数接近不代表已经验证的人格距离，分母8也不是相似度百分比。",
-        "en": "Eagle options appear eight times in this set. Each selected option adds one raw choice; all animal counts appear only after all 16 questions are answered. Any animal sharing the highest count remains a match, without a winner chosen by list order. Close counts are not validated personality distances, and the denominator of eight is not a match percentage."
+        "zh": "本题组中，鹰选项出现8次。每选中一次记1次，18题全部回答后才显示所有动物的计数。它与最高计数相同时，完整保留为本次匹配；并列不按名单顺序强行挑选。计数接近不代表已经验证的人格距离，分母8也不是相似度百分比。",
+        "en": "Eagle options appear eight times in this set. Each selected option adds one raw choice; all animal counts appear only after all 18 questions are answered. Any animal sharing the highest count remains a match, without a winner chosen by list order. Close counts are not validated personality distances, and the denominator of eight is not a match percentage."
       },
       "sections": [
         {
@@ -1915,6 +2033,10 @@
             {
               "zh": "鹰与猫头鹰都可能先想再做：鹰选项重视整体目的，猫头鹰重视依据和已知条件。鹰与狐狸都可能改变路线，狐狸更强调小范围试验。若两项并列，就完整阅读两份说明，不需要决定哪一种是“真正的你”。",
               "en": "Eagle and Owl may both think before acting: Eagle options emphasise overall purpose, while Owl emphasises evidence and known conditions. Eagle and Fox may both change routes, but Fox puts more weight on small trials. If two animals tie, read both complete guides without deciding which is the real you."
+            },
+            {
+              "zh": "鹰关注事情通向什么整体目的，水獭允许一段共同玩乐不另设成果。两者可以在不同时刻使用，不需要把有目标或没有目标排成更有价值的选择。",
+              "en": "Eagle concerns the wider purpose; Otter allows shared play to have no further required outcome. Both can fit different moments without ranking goal-directed and purely enjoyable time by personal worth."
             }
           ]
         },
@@ -1968,6 +2090,157 @@
           "en": "Read the Eagle spirit animal guide to purpose, connections and a longer time horizon. Full interpretation explains the metaphor without predicting success or superior leadership."
         }
       }
+    },
+    {
+      "id": "otter",
+      "directionIds": [
+        "otter"
+      ],
+      "title": {
+        "zh": "水獭",
+        "en": "Otter"
+      },
+      "headline": {
+        "zh": "为自愿一起玩乐留一点空间",
+        "en": "Leave room for freely chosen shared play"
+      },
+      "summary": {
+        "zh": "本题组里，你较常选择和愿意的人一起轻松玩乐，让一段相处不必总有成果。水獭只是这种选择的比喻，不代表外向、幽默能力、受欢迎程度或真实水獭的行为。",
+        "en": "In this set, you more often chose light play with willing company, allowing some shared time to have no required outcome. Otter is a metaphor for those choices, not an assessment of extraversion, humour, popularity or real otter behaviour."
+      },
+      "scoreReading": {
+        "zh": "水獭选项在18题中出现8次，A、B、C、D各2次。每选中一次记1次，完整作答后显示九种动物的原始计数。全部最高并列保留，不按名单顺序挑选。8是曝光次数，不是相似度百分比；相差一次不证明固定人格差异。",
+        "en": "Otter appears eight times across the 18 questions, twice in each position A, B, C and D. Each selection adds one count. A complete attempt shows all nine raw counts and retains every highest tie without list-order selection. Eight is an exposure denominator, not a similarity percentage; one extra choice establishes no fixed personality difference."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这项结果在说什么",
+            "en": "What the match describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "水獭选项共同指向一种具体选择：在条件允许、别人也愿意时，让相处带一点游戏和纯粹的趣味。它可能是短暂的小挑战，也可能是不计输赢的玩乐。重点不是把自己变成气氛担当，而是参与的人都可以说不、改变玩法或结束。一次选择只能说明那道题里的偏好，不能说明你任何时候都想玩。",
+              "en": "The Otter options concern a particular choice: making room for play and enjoyment when the setting allows it and others want to join. That might be a brief shared challenge or an activity with no need to win. The point is not to become the group’s entertainer. Participants can decline, change the activity or stop. A selection describes that situation, not a wish to play at every opportunity."
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": {
+            "zh": "可能带来的帮助",
+            "en": "Where it may help"
+          },
+          "paragraphs": [
+            {
+              "zh": "在没有紧迫任务的空闲里，共同玩乐可以成为一种相处方式，而不必用成绩或长篇交谈证明这段时间有价值。例如两个人都愿意时，随手编一小段接龙，觉得无趣便停。它的价值由参与者当下的体验决定，测试没有证明这种做法一定改善关系、减轻压力或让别人开心。",
+              "en": "During genuinely free time, shared play offers a way to be together without proving the time worthwhile through achievement or a long conversation. Two willing people might make up a short story one line at a time and stop when it loses its appeal. Its value depends on their experience. This quiz has not shown that the approach improves relationships, reduces stress or makes someone happy."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "什么时候需要收一点",
+            "en": "When to loosen the approach"
+          },
+          "paragraphs": [
+            {
+              "zh": "不是每个停顿都需要小游戏，完成必要事务也不能总变成玩乐。有人疲惫、难过或想安静时，可以直接问对方需要什么，而不是用“轻松一点”带过。若共同的小事确实需要处理，先把必要部分说清，再决定是否加入趣味。被拒绝的邀请到此为止，不需要说服别人配合你的动物结果。",
+              "en": "Not every pause needs a game, and necessary work cannot always become play. If someone is tired, upset or seeking quiet, ask what they need rather than brushing the moment aside with an invitation to lighten up. Establish what genuinely needs doing before adding a playful element. A declined invitation can end there; nobody needs to participate to confirm your animal result."
+            }
+          ]
+        },
+        {
+          "id": "everyday",
+          "title": {
+            "zh": "一个日常情境",
+            "en": "An everyday example"
+          },
+          "paragraphs": [
+            {
+              "zh": "朋友来家里坐坐，聊天暂时停下来。你可以问：“要不要用桌上的几样东西编个小故事？不想玩就继续坐着。”有人想参加，有人只想看，也有人想换话题，都可以。这里的水獭线索是共同玩乐的选择；若你主要想让每个人的想法被听懂，那更接近本题海豚的沟通线索。",
+              "en": "Friends are visiting and the conversation pauses. You might ask whether anyone wants to invent a tiny story using objects on the table, leaving sitting quietly as an equally available choice. Joining, watching or changing the subject can all be acceptable. The Otter element is the invitation to shared play. If your main purpose is to help people understand one another’s views, that is closer to this quiz’s Dolphin theme."
+            }
+          ]
+        },
+        {
+          "id": "shared-task",
+          "title": {
+            "zh": "放在共同任务里",
+            "en": "In a shared task"
+          },
+          "paragraphs": [
+            {
+              "zh": "处理一件低风险的小事时，可以先问伙伴是否愿意试一个轻松的小挑战，并说明不采用也能照常完成。不要让游戏影响必要的准确性、时间或责任分工，也不把赢输当能力判断。有的人喜欢边做边玩，有的人希望先做完再休息；两种方式都不需要由测试分出高下。",
+              "en": "For a low-stakes task, you can ask whether companions would enjoy a light shared challenge while keeping the ordinary method available. Play should not obscure necessary accuracy, timing or responsibility, and winning supplies no ability assessment. Some people enjoy playing along the way; others prefer finishing before relaxing. The quiz does not rank those choices or predict who will work well together."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其余八种动物怎样区分",
+            "en": "Comparing the other eight animals"
+          },
+          "paragraphs": [
+            {
+              "zh": "海豚侧重把对话接起来，水獭侧重自愿共同玩乐；两者可以同时出现。狐狸侧重换路试验，不一定为了好玩；狮子侧重决定与推进。狼关注共同约定，鹿关注感受与舒服的参与，熊关注安稳节奏，猫头鹰关注依据，鹰关注整体目的。同一个小游戏也可能有这些理由，计数只比较本题选项，不证明九种互斥人格。",
+              "en": "Dolphin emphasises connecting conversation; Otter emphasises voluntary shared play, and both may occur together. Fox tries alternative approaches without necessarily seeking fun; Lion focuses on decisions and movement. Wolf attends to commitments, Deer to feelings and comfortable participation, Bear to a settled pace, Owl to evidence and Eagle to the wider purpose. One game can involve several of these reasons. Counts compare options rather than establishing nine mutually exclusive personalities."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次小尝试",
+            "en": "One small experiment"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果你愿意，选一次真正有空、大家都可拒绝的相处，提出一个无需准备的短玩法。先说明可以只看，也可以随时停。结束后只回顾两个问题：参与的人是否真的有选择，我自己是否享受这个过程？没有兴趣或没有合适机会，就不必进行；这不是需要完成的社交训练。",
+              "en": "If you wish, choose genuinely free shared time when declining is possible and offer a brief activity needing no preparation. Make watching or stopping available from the outset. Afterwards, consider whether people really had a choice and whether you enjoyed the process. No suitable occasion or interest means no exercise is needed. This is an optional reflection, not social training you must complete."
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": {
+            "zh": "水獭计数不高意味着什么",
+            "en": "What if my Otter count is low?"
+          },
+          "paragraphs": [
+            {
+              "zh": "它只表示这18题里，你较常选择别的做法，不表示无趣、冷淡或不合群。你可能喜欢独自玩、需要先熟悉环境，或这次参照的是忙碌情境。本题没有测玩乐能力、幽默水平或别人是否喜欢与你相处。保留具体答案，比强迫自己符合一个轻松形象更有用。",
+              "en": "It only means you chose other responses more often in these 18 questions, not that you are dull, cold or unsociable. You may enjoy playing alone, prefer familiar settings or have answered with a busy period in mind. The set does not measure playfulness as an ability, humour or whether people enjoy your company. Keep the particular answers without trying to maintain a carefree image."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "这个比喻的边界",
+            "en": "Limits of the metaphor"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目、水獭对应与解释均为费马原创娱乐内容，没有建立信度、效度或人群常模。这里没有用真实水獭的动物学行为证明人的人格，也不识别精神向导或文化传承身份。结果不测能力、心理健康、成熟程度、关系质量或职业适配。可以只保留贴合的例子，不接受动物名称。",
+              "en": "The questions, Otter assignments and explanations are FermatMind’s original entertainment content, without established reliability, validity or population norms. Real otter behaviour supplies no evidence about human personality here, and the result identifies no spiritual guide or cultural identity. It does not measure ability, mental health, maturity, relationship quality or career fit. You can retain a useful example without accepting the animal name."
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "zh": "水獭精神动物结果：自愿一起玩乐的比喻",
+          "en": "Otter Spirit Animal Result: Voluntary Shared Play"
+        },
+        "description": {
+          "zh": "阅读水獭精神动物完整解释：自愿共同玩乐、具体例子、取舍与九种动物计数。区分水獭的玩乐和海豚的沟通，不作人格或动物学判断。",
+          "en": "Read the full Otter spirit animal guide: voluntary shared play, examples, tradeoffs and comparisons. A symbolic result rather than a personality or zoological assessment."
+        }
+      }
     }
   ],
   "guide": [
@@ -1979,8 +2252,8 @@
       },
       "paragraphs": [
         {
-          "zh": "16题各有4个选项，每个选项明确对应一只动物，选中加1次。八种动物各出现8次，且在A、B、C、D位置各出现2次。作答完整后展示全部原始计数；最高计数的每只动物都是本次匹配。计分不使用出生日期、隐藏抽签或外部人格结果。",
-          "en": "Each of the 16 questions has four options, each assigned to one animal and worth one raw choice. Every animal appears eight times, twice in each of positions A, B, C and D. A complete attempt shows all counts; every animal sharing the highest count is a match. Scoring uses no birth date, hidden draw or external personality result."
+          "zh": "18题各有4个选项，每个选项明确对应一只动物，选中加1次。九种动物各出现8次，且在A、B、C、D位置各出现2次。作答完整后展示全部原始计数；最高计数的每只动物都是本次匹配。固定选同一位置会九类各2次。计分不使用出生日期、隐藏抽签或外部人格结果。",
+          "en": "Each of the 18 questions has four options, each assigned to one animal and worth one raw choice. Every animal appears eight times, twice in each of positions A, B, C and D. A complete attempt shows all counts; every animal sharing the highest count is a match. Choosing one position throughout gives two counts for each animal. Scoring uses no birth date, hidden draw or external personality result."
         }
       ]
     },
@@ -2018,8 +2291,8 @@
       },
       "paragraphs": [
         {
-          "zh": "题目和八份报告为费马独立创作，不复刻竞品题库或结果正文，也不声称官方心理量表、文化传承或科学验证。这里不提供名人同型、招聘评价或职业适配分；想探索职业兴趣时，应使用独立的兴趣方法和真实职业信息。",
-          "en": "FermatMind independently authored the questions and eight reports rather than reproducing a competitor’s item bank or result text. This is not an official psychological instrument, a cultural tradition or a scientifically validated measure. It supplies no celebrity typing, hiring judgment or career-fit score. Career exploration needs a separate interest method and actual occupational information."
+          "zh": "题目和九份报告为费马独立创作，不复刻竞品题库或结果正文，也不声称官方心理量表、文化传承或科学验证。这里不提供名人同型、招聘评价或职业适配分；想探索职业兴趣时，应使用独立的兴趣方法和真实职业信息。",
+          "en": "FermatMind independently authored the questions and nine reports rather than reproducing a competitor’s item bank or result text. This is not an official psychological instrument, a cultural tradition or a scientifically validated measure. It supplies no celebrity typing, hiring judgment or career-fit score. Career exploration needs a separate interest method and actual occupational information."
         }
       ]
     }
@@ -2031,8 +2304,8 @@
         "en": "What is my spirit animal?"
       },
       "answer": {
-        "zh": "在这份娱乐问卷里，是你选中次数最高的动物比喻；可能不止一只。完成16道情境题后，会同时显示八种计数和全部并列匹配的完整说明。它不声称识别真实精神向导或固定身份。",
-        "en": "In this entertainment quiz, it is the animal metaphor with the most selected options, and there may be more than one. Complete the 16 scenarios to see all eight counts and every tied match in full. This does not claim to identify a spiritual guide or fixed identity."
+        "zh": "在这份娱乐问卷里，是你选中次数最高的动物比喻；可能不止一只。完成18道情境题后，会同时显示九种计数和全部最高并列匹配的完整说明。它不声称识别真实精神向导或固定身份。",
+        "en": "In this entertainment quiz, it is the animal metaphor with the most selected options, and there may be more than one. Complete the 18 scenarios to see all nine counts and every highest tied match in full. This does not claim to identify a spiritual guide or fixed identity."
       }
     },
     {
@@ -2041,8 +2314,8 @@
         "en": "Which animals can I get?"
       },
       "answer": {
-        "zh": "狼、猫头鹰、狐狸、狮子、海豚、鹿、熊和鹰。每份公开说明都有具体情境、可能的帮助、取舍、相近结果比较和一次小尝试。你可以先阅读所有说明，再决定是否开始。",
-        "en": "Wolf, Owl, Fox, Lion, Dolphin, Deer, Bear and Eagle. Each public guide includes situations, possible contributions, tradeoffs, comparisons and a small experiment. You can read every guide before deciding whether to start."
+        "zh": "狼、猫头鹰、狐狸、狮子、海豚、鹿、熊、鹰和水獭。每份公开说明都有具体情境、可能的帮助、取舍、相近结果比较和一次小尝试。水獭的共同玩乐与海豚的沟通有不同选项和解释。你可以先阅读所有说明，再决定是否开始。",
+        "en": "Wolf, Owl, Fox, Lion, Dolphin, Deer, Bear, Eagle and Otter. Each public guide includes situations, possible contributions, tradeoffs, comparisons and a small experiment. Otter’s shared play and Dolphin’s communication have distinct options and explanations. You can read every guide before deciding whether to start."
       }
     },
     {
@@ -2081,8 +2354,8 @@
         "en": "Are results free, and does sharing reveal my answers?"
       },
       "answer": {
-        "zh": "16题、八份完整解释、并列结果均免费，无需注册或先做其他测评。仅主动选择时在本标签页保留24小时草稿，完成或清除即删除。复制分享只包含动物名称与公开入口／说明链接，不含答卷、原始计数或个人均分。",
-        "en": "All 16 questions, eight complete explanations and tied results are free, with no signup or prerequisite test. An optional tab draft lasts 24 hours and clears on completion or clearing. Copying shares only animal names and a public entry or guide link, never answers, raw counts or personal means."
+        "zh": "18题、九份完整解释、并列结果均免费，无需注册或先做其他测评。仅主动选择时在本标签页保留24小时草稿，完成或清除即删除。复制分享只包含动物名称与公开入口／说明链接，不含答卷、原始计数或个人均分。",
+        "en": "All 18 questions, nine complete explanations and tied results are free, with no signup or prerequisite test. An optional tab draft lasts 24 hours and clears on completion or clearing. Copying shares only animal names and a public entry or guide link, never answers, raw counts or personal means."
       }
     }
   ]
