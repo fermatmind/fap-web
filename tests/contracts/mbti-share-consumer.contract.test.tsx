@@ -7,6 +7,7 @@ import { generateMetadata } from "@/app/(localized)/[locale]/share/[id]/page";
 import type { MbtiPublicProjectionV1Raw, ShareSummaryResponse } from "@/lib/api/v0_3";
 import { buildSharePageViewModel } from "@/lib/mbti/publicProjection";
 import { renderShareOgImage } from "@/lib/og/mbtiShare";
+import { SITE_URL } from "@/lib/site";
 
 function deferred<T>() {
   let resolve!: (value: T) => void;
@@ -1002,7 +1003,7 @@ describe("MBTI share consumer contract", () => {
     expect(metadata.description).toBe(
       "This public MBTI share page keeps only the lightweight result summary and never exposes paid content."
     );
-    expect(metadata.alternates?.canonical).toBe("http://localhost:3000/zh/share");
+    expect(metadata.alternates?.canonical).toBe(`${SITE_URL}/zh/share`);
     expect(metadata.robots).toMatchObject({
       index: false,
       follow: false,
@@ -1012,13 +1013,13 @@ describe("MBTI share consumer contract", () => {
     expect(metadata.openGraph).toMatchObject({
       title: "ENFP-T · Campaigner｜FermatMind",
       description: "This public MBTI share page keeps only the lightweight result summary and never exposes paid content.",
-      url: "http://localhost:3000/zh/share",
-      images: ["http://localhost:3000/brand/share-home-en-20261014.png"],
+      url: `${SITE_URL}/zh/share`,
+      images: [`${SITE_URL}/brand/share-home-en-20261014.png`],
     });
     expect(metadata.twitter).toMatchObject({
       title: "ENFP-T · Campaigner｜FermatMind",
       description: "This public MBTI share page keeps only the lightweight result summary and never exposes paid content.",
-      images: ["http://localhost:3000/brand/share-home-en-20261014.png"],
+      images: [`${SITE_URL}/brand/share-home-en-20261014.png`],
     });
     expect(JSON.stringify(metadata)).not.toContain("/share/share-123");
     expect(JSON.stringify(metadata)).not.toContain("/og/share/share-123");
@@ -1078,6 +1079,25 @@ describe("MBTI share consumer contract", () => {
     expect(viewModel.card?.displayType).toBe("IRC");
     expect(viewModel.card?.dimensions.map((dimension) => dimension.code)).toEqual(["R", "I", "A", "S", "E", "C"]);
     expect(viewModel.primaryCtaPath).toBe("/en/tests/holland-career-interest-test-riasec/take");
+  });
+
+  it.each(["en", "zh"] as const)("renders RIASEC scores in 0–100 units on the actual %s share page", async (locale) => {
+    hoisted.pathname = `/${locale}/share/share-riasec-units`;
+    hoisted.getShareSummary.mockResolvedValueOnce({
+      ok: true, share_id: "share-riasec-units", scale_code: "RIASEC", locale,
+      title: "Holland Code IRC",
+      primary_cta_label: "Take RIASEC",
+      primary_cta_path: `/${locale}/tests/holland-career-interest-test-riasec/take`,
+      riasec_public_projection_v1: {
+        top_code: "IRC", primary_type: "I", secondary_type: "R", tertiary_type: "C",
+        scores_0_100: { R: 82, I: 91, A: 44, S: 52, E: 48, C: 76 },
+      },
+    });
+    render(<ShareClient shareId="share-riasec-units" locale={locale} />);
+    const bars = await screen.findByTestId("mbti-share-dimension-bars");
+    expect(within(bars).getByText("91 / 100")).toBeInTheDocument();
+    expect(bars.textContent).not.toContain("%");
+    expect(within(bars).getByText(locale === "zh" ? "兴趣分数（0–100）" : "Interest scores (0–100)")).toBeInTheDocument();
   });
 
   it("renders share OG from projection and never from legacy aliases", () => {

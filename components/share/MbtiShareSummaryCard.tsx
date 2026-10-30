@@ -33,6 +33,7 @@ export default function MbtiShareSummaryCard({
   primaryActionLabel,
   showActions = true,
   showLibraryAction = true,
+  dimensionUnit = "percent",
   testId = "mbti-share-summary-card",
   className,
   onPrimaryActionClick,
@@ -45,6 +46,7 @@ export default function MbtiShareSummaryCard({
   primaryActionLabel?: string;
   showActions?: boolean;
   showLibraryAction?: boolean;
+  dimensionUnit?: "percent" | "score_0_100";
   testId?: string;
   className?: string;
   onPrimaryActionClick?: () => void;
@@ -59,13 +61,15 @@ export default function MbtiShareSummaryCard({
   const dimensionBars = card && card.dimensions.length > 0 ? (
     <div data-testid="mbti-share-dimension-bars" className="space-y-3">
       <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-        {locale === "zh" ? "维度概览" : "Dimension overview"}
+        {dimensionUnit === "score_0_100"
+          ? locale === "zh" ? "兴趣分数（0–100）" : "Interest scores (0–100)"
+          : locale === "zh" ? "维度概览" : "Dimension overview"}
       </p>
       {card.dimensions.map((dimension) => (
         <div key={`${dimension.code}-${dimension.label}`} className="space-y-1.5">
           <div className="flex items-center justify-between gap-3 text-sm text-slate-700">
             <span>{dimension.label}</span>
-            <span>{dimension.percent}%</span>
+            <span>{dimension.percent}{dimensionUnit === "score_0_100" ? " / 100" : "%"}</span>
           </div>
           <Progress value={dimension.percent} />
         </div>

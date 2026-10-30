@@ -602,6 +602,7 @@ export default function ShareClient({
         <MbtiShareSummaryCard
           locale={locale}
           card={viewModel.card}
+          dimensionUnit={shareScaleCode === "RIASEC" ? "score_0_100" : "percent"}
           primaryActionHref={primaryCtaHref}
           primaryActionLabel={viewModel.primaryCtaLabel}
           onPrimaryActionClick={() => {
