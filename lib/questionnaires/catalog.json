@@ -7277,5 +7277,30 @@
       "daily-context-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "mood-activity-changes-reflection",
+    "code": "FM_MOOD_ACTIVITY16_RECOLLECTIONS",
+    "version": "fm_mood_activity16_recollections_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Changes in Mood and Activity: Personal Reflection",
+      "zh": "心情与活动变化：个人回顾"
+    },
+    "description": {
+      "en": "16 original adult recollections about one period of changes in mood, confidence, sleep, activity, thoughts and decisions. Four full guides before answers. No bipolar diagnosis, episode identification or clinical score.",
+      "zh": "16条成年人原创回顾，参照同一段心情、自信、睡眠、活动、想法及决定变化的时间。四篇全文答题前可读，不作双相诊断、发作识别或临床评分。"
+    },
+    "minutes": 8,
+    "formCode": "fm_mood_activity16_recollections_v1",
+    "questionCount": 16,
+    "resultSlugs": [
+      "mood-and-confidence-reading",
+      "sleep-and-activity-reading",
+      "thoughts-and-conversation-reading",
+      "plans-and-decisions-reading"
+    ],
+    "collection": "explore"
   }
 ]

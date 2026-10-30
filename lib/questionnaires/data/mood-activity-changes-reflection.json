@@ -1,0 +1,1719 @@
+{
+  "slug": "mood-activity-changes-reflection",
+  "code": "FM_MOOD_ACTIVITY16_RECOLLECTIONS",
+  "version": "fm_mood_activity16_recollections_v1",
+  "kind": "mood-activity16",
+  "updated": "2026-10-30",
+  "category": "framework",
+  "minutes": 8,
+  "title": {
+    "en": "Changes in Mood and Activity: Personal Reflection",
+    "zh": "心情与活动变化：个人回顾"
+  },
+  "seoTitle": {
+    "en": "Changes in Mood and Activity: Personal Reflection",
+    "zh": "心情与活动变化：个人回顾"
+  },
+  "description": {
+    "en": "16 original adult recollections about one period of changes in mood, confidence, sleep, activity, thoughts and decisions. Four full guides before answers. No bipolar diagnosis, episode identification or clinical score.",
+    "zh": "16条成年人原创回顾，参照同一段心情、自信、睡眠、活动、想法及决定变化的时间。四篇全文答题前可读，不作双相诊断、发作识别或临床评分。"
+  },
+  "introduction": {
+    "en": "If you want, recall one period within the past year when mood or activity felt different from your usual experience. No dates or personal account are entered. No remembered period is required: every description can remain unscored. Four overlapping editorial topics keep separate labels and category counts, not a combined score.",
+    "zh": "愿意时可回顾过去一年中一段心情或活动与平时不同的时间，不输入日期或个人叙述。没有想到时段也可以，所有描述可未计分。四个可能重叠的编辑主题保留独立标签和类别计数，不合分数。"
+  },
+  "instructions": {
+    "en": "Refer to the same optional remembered period. Choose does not match my recollection, matches slightly, partly, mostly or closely. Use unscored for no relevant experience, unclear recall or withholding. These are recollection-match labels, not frequency, points or clinical severity. Do not recreate the period, change sleep or activity, check a body sensation, open a message or make a decision to answer.",
+    "zh": "参照同一可选回忆时段。选择与回忆不符、稍微符合、部分符合、大体符合或很符合；无相关经历、记忆不清或保留回答时选未计分。这是回忆贴切标签，不是频率、点数或临床严重度。不必重现时段、改睡眠活动、查身体感觉、开消息或作决定来回答。"
+  },
+  "resultHeading": {
+    "en": "Your four separate recollection records",
+    "zh": "四个分别阅读的回忆记录"
+  },
+  "directions": [
+    {
+      "id": "mood-and-confidence",
+      "title": {
+        "en": "Mood and confidence",
+        "zh": "心情与自信"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "sleep-and-activity",
+      "title": {
+        "en": "Sleep and activity",
+        "zh": "睡眠与活动"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "thoughts-and-conversation",
+      "title": {
+        "en": "Thoughts and conversation",
+        "zh": "想法与交谈"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "plans-and-decisions",
+      "title": {
+        "en": "Plans and decisions",
+        "zh": "计划与决定"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "MAC_01",
+      "prompt": {
+        "en": "During that period, my mood felt unusually upbeat compared with my usual mood.",
+        "zh": "那段时间，我的心情比平时显得不同寻常地高昂。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "mood-and-confidence"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "mood-and-confidence"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "mood-and-confidence"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "mood-and-confidence"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "mood-and-confidence"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "MAC_02",
+      "prompt": {
+        "en": "During that period, ordinary interruptions brought out more irritation in me than was usual.",
+        "zh": "那段时间，普通打断引起的烦躁比平时更多。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "mood-and-confidence"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "mood-and-confidence"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "mood-and-confidence"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "mood-and-confidence"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "mood-and-confidence"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "MAC_03",
+      "prompt": {
+        "en": "During that period, I felt unusually certain that I could handle things beyond my usual limits.",
+        "zh": "那段时间，我不同寻常地确信能处理超出自己平时能力范围的事。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "mood-and-confidence"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "mood-and-confidence"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "mood-and-confidence"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "mood-and-confidence"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "mood-and-confidence"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "MAC_04",
+      "prompt": {
+        "en": "During that period, my abilities seemed more exceptional to me than they usually do.",
+        "zh": "那段时间，在我看来自己的能力比平时显得更不一般。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "mood-and-confidence"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "mood-and-confidence"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "mood-and-confidence"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "mood-and-confidence"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "mood-and-confidence"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "MAC_05",
+      "prompt": {
+        "en": "During that period, I slept less than usual and at the time did not feel I needed more sleep.",
+        "zh": "那段时间，我睡得比平时少，当时却没觉得需要多睡。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "sleep-and-activity"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "sleep-and-activity"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "sleep-and-activity"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "sleep-and-activity"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "sleep-and-activity"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "MAC_06",
+      "prompt": {
+        "en": "During that period, I felt more energy for activity than was usual for me.",
+        "zh": "那段时间，我觉得用于活动的精力比自己平时更多。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "sleep-and-activity"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "sleep-and-activity"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "sleep-and-activity"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "sleep-and-activity"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "sleep-and-activity"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "MAC_07",
+      "prompt": {
+        "en": "During that period, I began more activities than I ordinarily would.",
+        "zh": "那段时间，我开始做的活动比平时更多。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "sleep-and-activity"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "sleep-and-activity"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "sleep-and-activity"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "sleep-and-activity"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "sleep-and-activity"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "MAC_08",
+      "prompt": {
+        "en": "During that period, I kept moving between activities when I would usually have paused.",
+        "zh": "那段时间，本来平时会停一停，我却不断转去做其他活动。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "sleep-and-activity"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "sleep-and-activity"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "sleep-and-activity"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "sleep-and-activity"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "sleep-and-activity"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "MAC_09",
+      "prompt": {
+        "en": "During that period, thoughts seemed to arrive faster than they usually do.",
+        "zh": "那段时间，想法似乎比平时来得更快。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "thoughts-and-conversation"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "thoughts-and-conversation"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "thoughts-and-conversation"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "thoughts-and-conversation"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "thoughts-and-conversation"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "MAC_10",
+      "prompt": {
+        "en": "During that period, several ideas seemed to crowd together in my mind.",
+        "zh": "那段时间，几个想法似乎在脑中挤在一起。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "thoughts-and-conversation"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "thoughts-and-conversation"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "thoughts-and-conversation"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "thoughts-and-conversation"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "thoughts-and-conversation"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "MAC_11",
+      "prompt": {
+        "en": "During that period, I talked more than I ordinarily would in a familiar conversation.",
+        "zh": "那段时间，在熟悉的交谈中我说得比平时更多。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "thoughts-and-conversation"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "thoughts-and-conversation"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "thoughts-and-conversation"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "thoughts-and-conversation"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "thoughts-and-conversation"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "MAC_12",
+      "prompt": {
+        "en": "During that period, I found it harder than usual to leave a pause for another person to speak.",
+        "zh": "那段时间，留出停顿让别人说话，比平时更难。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "thoughts-and-conversation"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "thoughts-and-conversation"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "thoughts-and-conversation"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "thoughts-and-conversation"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "thoughts-and-conversation"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "MAC_13",
+      "prompt": {
+        "en": "During that period, I took on commitments more quickly than I ordinarily would.",
+        "zh": "那段时间，我比平时更快地接下承诺。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "plans-and-decisions"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "plans-and-decisions"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "plans-and-decisions"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "plans-and-decisions"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "plans-and-decisions"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "MAC_14",
+      "prompt": {
+        "en": "During that period, I made a purchase or other practical decision with less consideration than usual.",
+        "zh": "那段时间，一次购买或其他实际决定所作的考虑比平时少。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "plans-and-decisions"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "plans-and-decisions"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "plans-and-decisions"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "plans-and-decisions"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "plans-and-decisions"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "MAC_15",
+      "prompt": {
+        "en": "During that period, I changed a plan more abruptly than was usual for me.",
+        "zh": "那段时间，我改变计划比平时更突然。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "plans-and-decisions"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "plans-and-decisions"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "plans-and-decisions"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "plans-and-decisions"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "plans-and-decisions"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "MAC_16",
+      "prompt": {
+        "en": "During that period, it felt harder than usual to set a new plan aside for later consideration.",
+        "zh": "那段时间，把新计划暂放一边、留待以后考虑，比平时更难。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "plans-and-decisions"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "plans-and-decisions"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "plans-and-decisions"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "plans-and-decisions"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "plans-and-decisions"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "mood-and-confidence-reading",
+      "directionIds": [
+        "mood-and-confidence"
+      ],
+      "title": {
+        "en": "Mood and confidence — Complete Reading",
+        "zh": "心情与自信：完整读法"
+      },
+      "headline": {
+        "en": "Mood and confidence",
+        "zh": "心情与自信"
+      },
+      "summary": {
+        "en": "Read the complete original public topic without answering. It is the same explanation for every visitor, without personal categories, counts, episode labels or diagnosis.",
+        "zh": "无需答题即可读完整原创公开主题；每位访客解释相同，不含个人类别、计数、发作标签或诊断。"
+      },
+      "scoreReading": {
+        "en": "Six separate recollection-match category counts add to four descriptions. Unscored stays distinct from does not match. No frequency, points, total, mean, highest topic, risk tier or clinical inference.",
+        "zh": "六种独立回忆贴切类别计数合计四条描述，未计分与不符分开。没有频率、点数、总分、均值、最高主题、风险档或临床推断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Mood and confidence — Complete Reading",
+          "zh": "心情与自信：完整读法"
+        },
+        "description": {
+          "en": "Read the complete original public topic without answering. It is the same explanation for every visitor, without personal categories, counts, episode labels or diagnosis.",
+          "zh": "无需答题即可读完整原创公开主题；每位访客解释相同，不含个人类别、计数、发作标签或诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Describe changes from your own usual experience",
+            "zh": "描述与自己平时不同的地方"
+          },
+          "paragraphs": [
+            {
+              "en": "Four original descriptions concern an unusually upbeat mood, irritation at ordinary interruptions, feeling unusually sure about handling things beyond usual limits and seeing one’s abilities as more exceptional than usual. They refer to the same optional remembered period. The comparison is with your own recollection of usual experience, not a standard for how cheerful, calm or confident a person should be.",
+              "zh": "四条原创描述涉及不同寻常的高昂心情、普通打断引起烦躁、不同寻常地确信能处理平时范围之外的事，以及觉得能力比平时更不一般。它们指同一可选回忆时段，与自己记得的平时比较，不规定人应该多开心、平静或自信。"
+            },
+            {
+              "en": "Recognising a description does not make positive feelings an illness, prove that confidence was unjustified or establish a clinical cause for irritation. The page cannot know what you could do, what happened around an interruption or whether an expectation was reasonable. You may describe an experience without accepting a judgement about arrogance, maturity, ability or character.",
+              "zh": "认出描述不把积极感受当疾病，不证明自信无根据，也不为烦躁建立临床原因。页面不知道你能做什么、打断周围发生什么，或预期是否合理。可以描述经历，无需接受关于傲慢、成熟、能力或品格的裁定。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Recollection matches are labels, not a scale",
+            "zh": "回忆贴切程度是标签，不是量表"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose does not match my recollection, matches slightly, partly, mostly, closely or unscored. These labels describe how a statement fits one remembered period. They do not measure how often something happened, how large a change was or how serious it was. Category IDs have no points. Six separate counts add to four descriptions, with each individual choice retained.",
+              "zh": "选择与回忆不符、稍微符合、部分符合、大体符合、很符合或未计分。标签描述陈述对同一段回忆的贴切程度，不测发生多频繁、变化多大或多严重。类别标识没有点数。六类计数合计四条，并保留每项选择。"
+            },
+            {
+              "en": "For a fictional example, two partly matches, one closely matches and one unscored remain counts of two, one and one. They do not create a total, mean, highest topic, risk tier or clinical threshold. No count establishes that the experiences occurred together, constituted an episode or were explained by bipolar disorder. These overlapping editorial groups are not validated independent dimensions.",
+              "zh": "虚构例中，两条部分符合、一条很符合、一条未计分，就保留二、一、一的计数，不生成总分、均值、最高主题、风险档或临床阈值。计数不建立经历同时发生、构成发作或由双相障碍解释。这些重叠编辑分组不是验证独立维度。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Confidence and demonstrated ability are different information",
+            "zh": "自信与实际能力是不同信息"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine remembering that a plan seemed unusually easy to handle. That feeling and whether the plan was feasible are separate accounts. A closely-matches label retains the feeling, without endorsing the plan or declaring it unrealistic. You are not asked to test a limit, take on a commitment or create evidence for how confident you felt.",
+              "zh": "例如记得某计划看起来不同寻常地容易应付，那种感觉与计划是否可行是两份信息。“很符合”保留感受，不认可计划，也不宣布它不现实。不要求试探能力界限、接下承诺或为自信制造证据。"
+            },
+            {
+              "en": "Likewise, irritation and an upbeat mood need not have appeared at the same moment. Grouping four descriptions for reading cannot prove simultaneous symptoms or a shared cause. If different periods come to mind, the record cannot resolve them into one episode. You may leave an observation unscored rather than merging incompatible memories into a confident account.",
+              "zh": "同样，烦躁与高昂心情不必在同一时刻出现。四条放在一起阅读不能证明症状同时发生或有共同原因。如果想到不同时间，记录不能把它们解决成一次发作。可以未计分，不必把不相容记忆合成确定叙述。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Keep the existing energy and attention pages separate",
+            "zh": "与已有精力和注意页面分开"
+          },
+          "paragraphs": [
+            {
+              "en": "The separate Energy Flow page records preferences around waking time, bounded activity, focus conditions and pauses. The Attention and Energy page records four-week activity context and includes ordinary feelings and available energy. Those existing themes remain real coverage; this original recollection adds a different reference to one period of change, rather than correcting or extending either form.",
+              "zh": "独立的能量流动页记录清醒时段、分段投入、专注条件与暂停偏好；注意力与能量页记录四周活动背景，包括普通感受和可用精力。已有主题保持真实覆盖，本原创回顾只加入同一变化期这一不同参照，不修正或扩展两份题本。"
+            },
+            {
+              "en": "No answers, means or category records are transferred between the pages. Similar words do not make them interchangeable or provide evidence for a combined clinical model. The sixteen descriptions here do not establish bipolar disorder, hypomania or mania, and do not exclude them when labels are sparse. A professional can consider information and history outside what this page asks.",
+              "zh": "页面之间不转移回答、均值或类别记录。词语相似不使其可互换，也不为联合临床模型提供证据。本十六条不建立双相障碍、轻躁狂或躁狂，标签少也不排除。专业人员可以考虑本页没有询问的信息与历史。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Keep an uncertain period uncertain",
+            "zh": "让不确定的时段保持不确定"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to answer, recall one period within the past year when mood or activity felt different from your usual experience. This is an optional editorial reference, not a diagnostic episode or duration rule. No dates or period description are entered. If no period comes to mind, every description can remain unscored; do not search for a difficult memory to qualify.",
+              "zh": "愿意回答时，可回想过去一年中一段心情或活动与平时不同的时间。这是可选编辑参照，不是诊断发作或时长规则。不输入日期或时段叙述。没有想到时段时可全未计分，不必寻找困难记忆来符合条件。"
+            },
+            {
+              "en": "Use unscored for no relevant experience, unclear recall or withholding. It stays separate from does not match and never supplies a zero. A later recollection may differ with memory, interpretation or circumstances; it does not measure recovery, deterioration or treatment response. No preferred category, repeat schedule or target count is provided, and a small or unscored record does not establish health.",
+              "zh": "没有相关经历、记忆不清或保留回答时选未计分，与不符合分开，不补零。以后回忆可能因记忆、理解或背景不同而变化，不测恢复、恶化或治疗反应。没有偏好类别、重测日程或目标计数；少量或未计分不建立健康。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not require an episode label",
+            "zh": "支持不要求发作标签"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask a qualified healthcare or mental-health professional about a concern without finishing, reaching a count or proving a period of a particular duration. The website cannot assess healthcare need, urgency or personal safety. Keep existing care, advice and safety support independent; do not use this record to postpone assessment, change medicine or cancel support.",
+              "zh": "可以不完成、不达到计数、不证明特定时长，就向合格医疗或心理健康专业人员咨询。网站不能评估医疗需要、紧急程度或个人安全。已有照护、意见和安全支持独立保留，不用记录推迟评估、改药或取消支持。"
+            },
+            {
+              "en": "This is not MDQ, HCL-32, YMRS or a clinical screen. No norms, validated thresholds or English–Chinese measurement equivalence have been established. NIMH gives broader bipolar-disorder assessment background, not these original items or validation. The page cannot monitor a visitor or respond to an emergency. In immediate danger or if you cannot stay safe, seek local emergency assistance instead of continuing.",
+              "zh": "本版不是MDQ、HCL-32、YMRS或临床筛查，未建立常模、验证阈值或双语测量等值。NIMH只提供更广的双相评估背景，不提供本原创题或验证。页面不能监测访客或紧急响应。如有即时危险或无法保障安全，请寻求当地紧急援助而非继续。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep a private description, without a verdict",
+            "zh": "保留私人描述，不作裁决"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want a conversation, you could describe what felt different from your usual experience and what you want help understanding. You choose the detail and audience. No mood-changing exercise, argument, confidence challenge or recreation of a period is required. You can read this guide without agreeing that a category captures your experience or adopting a clinical label.",
+              "zh": "若想交流，可以描述与平时有何不同及想请人帮助理解什么，细节和对象自行选择。不要求改变心情的练习、争辩、自信挑战或重现时段。可以读指南，无需认同类别足以表达经历或采用临床标签。"
+            },
+            {
+              "en": "Choices remain in current-page memory, without drafts, submission, questionnaire analytics or a personal result address. Exit, retake, reload and leaving clear them. Copying shares only the public title and entry. All four complete guides are the same public text before answers and after every record, including all-unscored; support never depends on a confident account or completed form.",
+              "zh": "选择只留当前页内存，不存草稿、不提交、不作问卷分析，也无个人结果地址。退出、重做、刷新及离页清除，复制只含公开标题入口。四篇全文答题前及所有记录后相同，包括全部未计分；支持不依赖确定叙述或完整题本。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sleep-and-activity-reading",
+      "directionIds": [
+        "sleep-and-activity"
+      ],
+      "title": {
+        "en": "Sleep and activity — Complete Reading",
+        "zh": "睡眠与活动：完整读法"
+      },
+      "headline": {
+        "en": "Sleep and activity",
+        "zh": "睡眠与活动"
+      },
+      "summary": {
+        "en": "Read the complete original public topic without answering. It is the same explanation for every visitor, without personal categories, counts, episode labels or diagnosis.",
+        "zh": "无需答题即可读完整原创公开主题；每位访客解释相同，不含个人类别、计数、发作标签或诊断。"
+      },
+      "scoreReading": {
+        "en": "Six separate recollection-match category counts add to four descriptions. Unscored stays distinct from does not match. No frequency, points, total, mean, highest topic, risk tier or clinical inference.",
+        "zh": "六种独立回忆贴切类别计数合计四条描述，未计分与不符分开。没有频率、点数、总分、均值、最高主题、风险档或临床推断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Sleep and activity — Complete Reading",
+          "zh": "睡眠与活动：完整读法"
+        },
+        "description": {
+          "en": "Read the complete original public topic without answering. It is the same explanation for every visitor, without personal categories, counts, episode labels or diagnosis.",
+          "zh": "无需答题即可读完整原创公开主题；每位访客解释相同，不含个人类别、计数、发作标签或诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Recall sleep and activity within the same period",
+            "zh": "在同一时段回顾睡眠与活动"
+          },
+          "paragraphs": [
+            {
+              "en": "Four original descriptions concern sleeping less while not feeling a need for more sleep at the time, feeling more energy for activity, beginning more activities and moving between activities when you would usually pause. They refer to one optional remembered period within the past year. These are separate recollections, not observed sleep, an energy measurement or a verified cluster of symptoms.",
+              "zh": "四条原创描述涉及睡得较少而当时未觉得需要更多睡眠、活动精力较多、开始较多活动，以及平时会停顿时不断转活动。它们指过去一年中同一可选回忆时段，是独立回忆，不是观测睡眠、精力测量或核实的症状组合。"
+            },
+            {
+              "en": "A page cannot determine how much sleep was available, how much was needed, whether an activity was helpful or what explained a change. Not remembering tiredness does not prove adequate rest or medical safety. You do not need to decide that a change was good, harmful or caused by a mood condition before choosing to retain or withhold a description.",
+              "zh": "页面不能决定可睡多久、需要睡多久、活动是否有帮助或变化原因。没记得疲惫不证明休息足够或医学安全。保留或不答描述前，无需先决定变化好坏，或是否由情绪状况造成。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Recollection matches are labels, not a scale",
+            "zh": "回忆贴切程度是标签，不是量表"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose does not match my recollection, matches slightly, partly, mostly, closely or unscored. These labels describe how a statement fits one remembered period. They do not measure how often something happened, how large a change was or how serious it was. Category IDs have no points. Six separate counts add to four descriptions, with each individual choice retained.",
+              "zh": "选择与回忆不符、稍微符合、部分符合、大体符合、很符合或未计分。标签描述陈述对同一段回忆的贴切程度，不测发生多频繁、变化多大或多严重。类别标识没有点数。六类计数合计四条，并保留每项选择。"
+            },
+            {
+              "en": "For a fictional example, two partly matches, one closely matches and one unscored remain counts of two, one and one. They do not create a total, mean, highest topic, risk tier or clinical threshold. No count establishes that the experiences occurred together, constituted an episode or were explained by bipolar disorder. These overlapping editorial groups are not validated independent dimensions.",
+              "zh": "虚构例中，两条部分符合、一条很符合、一条未计分，就保留二、一、一的计数，不生成总分、均值、最高主题、风险档或临床阈值。计数不建立经历同时发生、构成发作或由双相障碍解释。这些重叠编辑分组不是验证独立维度。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Less sleep is not proof of needing less sleep",
+            "zh": "睡得少不证明需要睡得少"
+          },
+          "paragraphs": [
+            {
+              "en": "The first description preserves a distinction between remembered sleep and how the need for it felt at the time. It does not test biological sleep need. A closely-matches choice cannot certify that reduced sleep was safe, that you functioned well or that the experience was hypomania. An unclear memory can stay unscored without an estimated sleep duration or a body check.",
+              "zh": "第一条区分记得的睡眠与当时对睡眠需要的感觉，不测试生理睡眠需要。“很符合”不能认证少睡安全、表现良好或经历属于轻躁狂。记忆不清可未计分，无需估算睡眠时长或检查身体。"
+            },
+            {
+              "en": "Beginning several activities also says nothing by itself about completion or performance. Someone might recall more starts but not remember whether they paused, while another recalls movement between tasks without unusual energy. These differences remain individual choices. You are not asked to stay awake, exercise, remove a rest opportunity or take on tasks to see which description fits.",
+              "zh": "开始多项活动本身也不说明完成或表现。可能记得开始较多，却不记得是否停顿；也可能记得换任务，却无不同寻常精力。区别保留逐项选择。不要求熬夜、运动、取消休息或接任务来检验描述。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Preferences and a period of change remain different",
+            "zh": "偏好与变化时段保持区别"
+          },
+          "paragraphs": [
+            {
+              "en": "Energy Flow asks about ordinary preferences and experiences around waking time, bounded effort, focus conditions and pauses. Its published site method uses separate descriptive means. The Attention and Energy page keeps recent category records about activities and feelings. Neither supplies missing sleep answers here, and this new record does not turn their energy language into evidence of a mood episode.",
+              "zh": "能量流动问清醒时段、分段投入、专注条件及暂停的普通偏好与经验，本站所公开方法使用独立描述均值。注意力与能量页保留近期活动和感受类别。两者都不补本页睡眠回答，本新记录也不把其精力用语变成情绪发作证据。"
+            },
+            {
+              "en": "The original topics here overlap and have no validated independence or common clinical score. Do not compare their counts with another form’s means or read more activity as better health, productivity or work suitability. NIMH provides assessment background, not a sleep prescription or endorsement of these descriptions. Existing advice about sleep and health stays independent from this website record.",
+              "zh": "本原创主题重叠，没有验证独立性或共同临床分数。不把计数与其他题本均值比较，也不把活动更多读成更健康、高产出或工作适配。NIMH提供评估背景，不是睡眠处方或对描述的背书。已有睡眠与健康意见独立于网站记录。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Keep an uncertain period uncertain",
+            "zh": "让不确定的时段保持不确定"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to answer, recall one period within the past year when mood or activity felt different from your usual experience. This is an optional editorial reference, not a diagnostic episode or duration rule. No dates or period description are entered. If no period comes to mind, every description can remain unscored; do not search for a difficult memory to qualify.",
+              "zh": "愿意回答时，可回想过去一年中一段心情或活动与平时不同的时间。这是可选编辑参照，不是诊断发作或时长规则。不输入日期或时段叙述。没有想到时段时可全未计分，不必寻找困难记忆来符合条件。"
+            },
+            {
+              "en": "Use unscored for no relevant experience, unclear recall or withholding. It stays separate from does not match and never supplies a zero. A later recollection may differ with memory, interpretation or circumstances; it does not measure recovery, deterioration or treatment response. No preferred category, repeat schedule or target count is provided, and a small or unscored record does not establish health.",
+              "zh": "没有相关经历、记忆不清或保留回答时选未计分，与不符合分开，不补零。以后回忆可能因记忆、理解或背景不同而变化，不测恢复、恶化或治疗反应。没有偏好类别、重测日程或目标计数；少量或未计分不建立健康。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not require an episode label",
+            "zh": "支持不要求发作标签"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask a qualified healthcare or mental-health professional about a concern without finishing, reaching a count or proving a period of a particular duration. The website cannot assess healthcare need, urgency or personal safety. Keep existing care, advice and safety support independent; do not use this record to postpone assessment, change medicine or cancel support.",
+              "zh": "可以不完成、不达到计数、不证明特定时长，就向合格医疗或心理健康专业人员咨询。网站不能评估医疗需要、紧急程度或个人安全。已有照护、意见和安全支持独立保留，不用记录推迟评估、改药或取消支持。"
+            },
+            {
+              "en": "This is not MDQ, HCL-32, YMRS or a clinical screen. No norms, validated thresholds or English–Chinese measurement equivalence have been established. NIMH gives broader bipolar-disorder assessment background, not these original items or validation. The page cannot monitor a visitor or respond to an emergency. In immediate danger or if you cannot stay safe, seek local emergency assistance instead of continuing.",
+              "zh": "本版不是MDQ、HCL-32、YMRS或临床筛查，未建立常模、验证阈值或双语测量等值。NIMH只提供更广的双相评估背景，不提供本原创题或验证。页面不能监测访客或紧急响应。如有即时危险或无法保障安全，请寻求当地紧急援助而非继续。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep an optional question about the change",
+            "zh": "保留关于变化的自愿问题"
+          },
+          "paragraphs": [
+            {
+              "en": "You could ask a professional about a remembered change in sleep or activity without proving a duration, recreating it or making a plan to alter energy. Choose what you want to describe. This page offers no medicine, sleep, exercise or activity instructions. A question can remain useful even when the account is incomplete or different descriptions do not fit the same period.",
+              "zh": "可以询问记得的睡眠或活动变化，无需证明时长、重现经历或安排改变精力。描述内容自行选择。本页不提供药物、睡眠、运动或活动指示。即使叙述不完整，或不同描述不适合同一时段，问题仍可值得咨询。"
+            },
+            {
+              "en": "Selections stay in page memory only, without saved drafts, submission, questionnaire analytics or a personal result URL. Exit, retake, reload and leaving clear them; copying shares only the public title and entry. Four complete guides remain public before answers and for every record. An entirely unscored account is allowed and never removes support or creates a claim that your sleep is safe.",
+              "zh": "选择只在页内存，不存草稿、不提交、不作问卷分析，也无个人结果URL。退出、重做、刷新及离页清除；复制只含公开标题入口。四篇全文答题前及所有记录可读，全未计分也允许，不撤掉支持或声称睡眠安全。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thoughts-and-conversation-reading",
+      "directionIds": [
+        "thoughts-and-conversation"
+      ],
+      "title": {
+        "en": "Thoughts and conversation — Complete Reading",
+        "zh": "想法与交谈：完整读法"
+      },
+      "headline": {
+        "en": "Thoughts and conversation",
+        "zh": "想法与交谈"
+      },
+      "summary": {
+        "en": "Read the complete original public topic without answering. It is the same explanation for every visitor, without personal categories, counts, episode labels or diagnosis.",
+        "zh": "无需答题即可读完整原创公开主题；每位访客解释相同，不含个人类别、计数、发作标签或诊断。"
+      },
+      "scoreReading": {
+        "en": "Six separate recollection-match category counts add to four descriptions. Unscored stays distinct from does not match. No frequency, points, total, mean, highest topic, risk tier or clinical inference.",
+        "zh": "六种独立回忆贴切类别计数合计四条描述，未计分与不符分开。没有频率、点数、总分、均值、最高主题、风险档或临床推断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Thoughts and conversation — Complete Reading",
+          "zh": "想法与交谈：完整读法"
+        },
+        "description": {
+          "en": "Read the complete original public topic without answering. It is the same explanation for every visitor, without personal categories, counts, episode labels or diagnosis.",
+          "zh": "无需答题即可读完整原创公开主题；每位访客解释相同，不含个人类别、计数、发作标签或诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Recall the pace of thoughts and conversation",
+            "zh": "回顾想法与交谈的节奏"
+          },
+          "paragraphs": [
+            {
+              "en": "Four original descriptions concern thoughts seeming to arrive faster, several ideas crowding together, talking more in a familiar conversation and finding it harder to leave a pause for another speaker. If you choose to answer, refer to the same optional remembered period. The page asks about your account of a difference from usual, not the speed of thought measured by a task or an observer.",
+              "zh": "四条原创描述涉及想法似乎来得更快、几个念头挤在一起、熟悉交谈中说得更多，以及更难留停顿给别人。愿意回答时参照同一可选回忆时段。页面问自己记得与平时不同的地方，不是用任务或观察者测得的思考速度。"
+            },
+            {
+              "en": "A description does not establish what caused the pace, how clear the ideas were or how another person received the conversation. It cannot judge intelligence, social ability or whether you should speak less. You can retain a difference without assigning a clinical label or deciding that a familiar conversation was successful, harmful, appropriate or inappropriate.",
+              "zh": "描述不建立节奏原因、想法清楚程度或对方怎样接收谈话，不判断智力、社交能力或是否应该少说。可以保留区别，无需采用临床标签或决定熟悉谈话成功、有害、合适或不合适。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Recollection matches are labels, not a scale",
+            "zh": "回忆贴切程度是标签，不是量表"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose does not match my recollection, matches slightly, partly, mostly, closely or unscored. These labels describe how a statement fits one remembered period. They do not measure how often something happened, how large a change was or how serious it was. Category IDs have no points. Six separate counts add to four descriptions, with each individual choice retained.",
+              "zh": "选择与回忆不符、稍微符合、部分符合、大体符合、很符合或未计分。标签描述陈述对同一段回忆的贴切程度，不测发生多频繁、变化多大或多严重。类别标识没有点数。六类计数合计四条，并保留每项选择。"
+            },
+            {
+              "en": "For a fictional example, two partly matches, one closely matches and one unscored remain counts of two, one and one. They do not create a total, mean, highest topic, risk tier or clinical threshold. No count establishes that the experiences occurred together, constituted an episode or were explained by bipolar disorder. These overlapping editorial groups are not validated independent dimensions.",
+              "zh": "虚构例中，两条部分符合、一条很符合、一条未计分，就保留二、一、一的计数，不生成总分、均值、最高主题、风险档或临床阈值。计数不建立经历同时发生、构成发作或由双相障碍解释。这些重叠编辑分组不是验证独立维度。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Crowded ideas and an interrupted conversation differ",
+            "zh": "想法拥挤与谈话打断不同"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine remembering that several ideas seemed present at once while you were alone. You might recognise the crowded-thought description while having no conversation to recall. Another person might recall speaking more than usual without remembering faster thoughts. Separate labels preserve these differences; they do not fill a missing answer or turn two accounts into one event.",
+              "zh": "例如独处时记得几个想法似乎同时在脑中，可能认出想法拥挤，却没有交谈可回想；也可能记得说得较多，却不记得想法更快。独立标签保留区别，不补缺答，也不把两种叙述变成同一事件。"
+            },
+            {
+              "en": "The page has no conversation recording and does not know the language, topic, available pauses or other participants’ intentions. A label cannot prove that you interrupted someone or were misunderstood. You do not need to replay a private exchange, reopen a message, contact another person or demonstrate a speaking style to choose unscored or leave the page.",
+              "zh": "页面没有谈话录音，不知道语言、话题、停顿机会或他人意图。标签不能证明打断别人或被误解。不必回放私人交流、重开消息、联系他人或展示说话方式，才能选未计分或离开。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Keep repetitive thought and everyday attention distinct",
+            "zh": "与重复思维和日常注意分开"
+          },
+          "paragraphs": [
+            {
+              "en": "This topic does not replace the site’s separate PTQ descriptions of repetitive negative thinking or the Attention and Energy page’s recent activity context. Faster-seeming ideas, losing the thread of a conversation and repeatedly wondering about an exchange are different questions, even when one person recognises several. Shared language does not make the forms equivalent or establish a common cause.",
+              "zh": "本主题不替代本站PTQ的重复消极思维描述或注意力与能量页的近期活动背景。想法似乎更快、没跟上谈话和反复琢磨交流，是不同问题，即使同一人都认出也一样。词语共用不使题本等价，也不建立共同原因。"
+            },
+            {
+              "en": "Neither answers nor numbers transfer between pages. No combination establishes bipolar disorder, ADHD, a neurotype or a measured ability. The four groups in this original recollection may overlap without forming validated independent dimensions. Thinking and speaking descriptions do not establish an episode, the duration of a change or the amount of impact on daily life. Those remain outside this record.",
+              "zh": "页面之间不转移回答或数字。组合不建立双相障碍、ADHD、神经类型或实测能力。本原创回顾四组可能重叠，不构成验证独立维度。想法与说话描述不建立发作、变化时长或生活影响量，这些留在记录范围之外。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Keep an uncertain period uncertain",
+            "zh": "让不确定的时段保持不确定"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to answer, recall one period within the past year when mood or activity felt different from your usual experience. This is an optional editorial reference, not a diagnostic episode or duration rule. No dates or period description are entered. If no period comes to mind, every description can remain unscored; do not search for a difficult memory to qualify.",
+              "zh": "愿意回答时，可回想过去一年中一段心情或活动与平时不同的时间。这是可选编辑参照，不是诊断发作或时长规则。不输入日期或时段叙述。没有想到时段时可全未计分，不必寻找困难记忆来符合条件。"
+            },
+            {
+              "en": "Use unscored for no relevant experience, unclear recall or withholding. It stays separate from does not match and never supplies a zero. A later recollection may differ with memory, interpretation or circumstances; it does not measure recovery, deterioration or treatment response. No preferred category, repeat schedule or target count is provided, and a small or unscored record does not establish health.",
+              "zh": "没有相关经历、记忆不清或保留回答时选未计分，与不符合分开，不补零。以后回忆可能因记忆、理解或背景不同而变化，不测恢复、恶化或治疗反应。没有偏好类别、重测日程或目标计数；少量或未计分不建立健康。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not require an episode label",
+            "zh": "支持不要求发作标签"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask a qualified healthcare or mental-health professional about a concern without finishing, reaching a count or proving a period of a particular duration. The website cannot assess healthcare need, urgency or personal safety. Keep existing care, advice and safety support independent; do not use this record to postpone assessment, change medicine or cancel support.",
+              "zh": "可以不完成、不达到计数、不证明特定时长，就向合格医疗或心理健康专业人员咨询。网站不能评估医疗需要、紧急程度或个人安全。已有照护、意见和安全支持独立保留，不用记录推迟评估、改药或取消支持。"
+            },
+            {
+              "en": "This is not MDQ, HCL-32, YMRS or a clinical screen. No norms, validated thresholds or English–Chinese measurement equivalence have been established. NIMH gives broader bipolar-disorder assessment background, not these original items or validation. The page cannot monitor a visitor or respond to an emergency. In immediate danger or if you cannot stay safe, seek local emergency assistance instead of continuing.",
+              "zh": "本版不是MDQ、HCL-32、YMRS或临床筛查，未建立常模、验证阈值或双语测量等值。NIMH只提供更广的双相评估背景，不提供本原创题或验证。页面不能监测访客或紧急响应。如有即时危险或无法保障安全，请寻求当地紧急援助而非继续。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Choose an optional question, without a speech task",
+            "zh": "选择自愿的问题，不做言语任务"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to talk to a qualified professional, you could describe what felt different from your usual thinking or conversation and what you want help understanding. You choose the detail and audience. No thought-suppression, forced slowing, message review or conversation task is assigned. You do not need to recreate the period or produce a transcript before asking a question.",
+              "zh": "若想咨询合格专业人员，可以描述思考或交谈与平时有何不同，以及想请人帮助理解什么。细节和对象自行选择。不安排压制想法、强迫减慢、回看消息或谈话任务，也不必重现时段或提供实录后才提问。"
+            },
+            {
+              "en": "Choices remain in current-page memory without drafts, submission, questionnaire analytics or a personal result address. Exit, retake, reload and leaving clear them. Copying shares only the public title and entry. All four full guides are the same public text before answers and after any record, including all-unscored; support never requires a polished account, a slower conversation or proof of a diagnostic episode.",
+              "zh": "选择只留当前页内存，不存草稿、不提交、不作问卷分析，也无个人结果地址。退出、重做、刷新及离页清除，复制只含公开标题入口。四篇全文答题前及任何记录后相同，包括全未计分；支持不要求完善叙述、较慢谈话或诊断发作证据。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "plans-and-decisions-reading",
+      "directionIds": [
+        "plans-and-decisions"
+      ],
+      "title": {
+        "en": "Plans and decisions — Complete Reading",
+        "zh": "计划与决定：完整读法"
+      },
+      "headline": {
+        "en": "Plans and decisions",
+        "zh": "计划与决定"
+      },
+      "summary": {
+        "en": "Read the complete original public topic without answering. It is the same explanation for every visitor, without personal categories, counts, episode labels or diagnosis.",
+        "zh": "无需答题即可读完整原创公开主题；每位访客解释相同，不含个人类别、计数、发作标签或诊断。"
+      },
+      "scoreReading": {
+        "en": "Six separate recollection-match category counts add to four descriptions. Unscored stays distinct from does not match. No frequency, points, total, mean, highest topic, risk tier or clinical inference.",
+        "zh": "六种独立回忆贴切类别计数合计四条描述，未计分与不符分开。没有频率、点数、总分、均值、最高主题、风险档或临床推断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Plans and decisions — Complete Reading",
+          "zh": "计划与决定：完整读法"
+        },
+        "description": {
+          "en": "Read the complete original public topic without answering. It is the same explanation for every visitor, without personal categories, counts, episode labels or diagnosis.",
+          "zh": "无需答题即可读完整原创公开主题；每位访客解释相同，不含个人类别、计数、发作标签或诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Describe remembered differences in decisions",
+            "zh": "描述记得的决定方式差别"
+          },
+          "paragraphs": [
+            {
+              "en": "Four original descriptions concern taking on commitments more quickly, giving a purchase or practical decision less consideration, changing a plan more abruptly and finding it harder to set a new plan aside. They refer to the same optional remembered period. The comparison is with your own usual experience, not a rule for how quickly everyone should decide or how many plans a person should have.",
+              "zh": "四条原创描述涉及更快接下承诺、购买或实际决定考虑较少、更突然改计划，以及更难暂放新计划。它们指同一可选回忆时段，与自己平时比较，不规定人人应多快决定或拥有多少计划。"
+            },
+            {
+              "en": "The page cannot inspect a decision, know the options available or determine whether it was safe, affordable or appropriate. A closely-matches label does not prove impulsivity, poor judgement or a clinical condition. A does-not-match label cannot certify a decision as safe. You may describe an experience without turning the record into a financial, employment or relationship assessment.",
+              "zh": "页面不能检查决定、了解可选项或判断安全、负担得起与否或是否合适。“很符合”不证明冲动、判断差或临床状况；“不符”不认证决定安全。可以描述经历，不把记录当成财务、雇佣或关系评估。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Recollection matches are labels, not a scale",
+            "zh": "回忆贴切程度是标签，不是量表"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose does not match my recollection, matches slightly, partly, mostly, closely or unscored. These labels describe how a statement fits one remembered period. They do not measure how often something happened, how large a change was or how serious it was. Category IDs have no points. Six separate counts add to four descriptions, with each individual choice retained.",
+              "zh": "选择与回忆不符、稍微符合、部分符合、大体符合、很符合或未计分。标签描述陈述对同一段回忆的贴切程度，不测发生多频繁、变化多大或多严重。类别标识没有点数。六类计数合计四条，并保留每项选择。"
+            },
+            {
+              "en": "For a fictional example, two partly matches, one closely matches and one unscored remain counts of two, one and one. They do not create a total, mean, highest topic, risk tier or clinical threshold. No count establishes that the experiences occurred together, constituted an episode or were explained by bipolar disorder. These overlapping editorial groups are not validated independent dimensions.",
+              "zh": "虚构例中，两条部分符合、一条很符合、一条未计分，就保留二、一、一的计数，不生成总分、均值、最高主题、风险档或临床阈值。计数不建立经历同时发生、构成发作或由双相障碍解释。这些重叠编辑分组不是验证独立维度。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Speed, consideration and consequences are separate",
+            "zh": "速度、考虑与后果是不同信息"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person remembering accepting an ordinary commitment more quickly than usual. They may not remember whether the consequences differed. Another person might recall considering less before a decision that still worked out. The category record preserves the description, not a verdict from the outcome. It cannot infer that a good outcome makes a choice safe or that a difficult outcome proves a disorder.",
+              "zh": "例如虚构人物记得比平时更快接受普通承诺，却不记得后果是否不同；也可能记得决定前考虑少，事情仍顺利。类别保留描述，不从结果作裁决。不能因结果好而推断选择安全，也不能因结果困难而证明疾病。"
+            },
+            {
+              "en": "Setting aside a plan can also depend on deadlines, other responsibilities or information the statement does not capture. No label establishes that you could freely have chosen otherwise. The page asks for no purchase, account history, commitment, test of restraint or discussion with someone affected. You can leave a description unscored without producing evidence that you did or did not consider enough.",
+              "zh": "暂放计划也受期限、其他责任或陈述未捕捉的信息影响。标签不建立当时可自由另选。页面不要求购买、账户历史、承诺、克制测试或与相关人讨论。不必证明考虑够不够，便可让描述未计分。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "A planning description is not a bipolar score",
+            "zh": "计划描述不是双相分数"
+          },
+          "paragraphs": [
+            {
+              "en": "The separate executive-function and daily-context pages keep their own descriptions of inhibition, task switching and activity. They do not supply answers to this record about one remembered period of change. A similar phrase can refer to a different context or method. Existing forms are not extended or combined here, and their arithmetic cannot be added to a recollection-match category count.",
+              "zh": "独立执行功能与日常情境页保留关于抑制、换任务及活动的描述，不为本页同一变化期回顾补回答。相似句子可能指不同背景或方法。这里不扩展或合并题本，其算术不能加入回忆贴切类别计数。"
+            },
+            {
+              "en": "The sixteen original descriptions do not administer MDQ, HCL-32, YMRS or a diagnostic interview. No count identifies bipolar disorder, an episode, a personality or capacity to make decisions. The four editorial groupings may overlap and have no established clinical threshold or measurement equivalence. NIMH provides broader assessment background without supplying these original questions, category rules or validation.",
+              "zh": "十六条原创描述不施测MDQ、HCL-32、YMRS或诊断访谈。计数不识别双相障碍、发作、人格或作决定的能力。四个编辑分组可能重叠，尚无临床阈值或测量等值。NIMH只提供更广评估背景，不提供本原创题、类别规则或验证。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Keep an uncertain period uncertain",
+            "zh": "让不确定的时段保持不确定"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to answer, recall one period within the past year when mood or activity felt different from your usual experience. This is an optional editorial reference, not a diagnostic episode or duration rule. No dates or period description are entered. If no period comes to mind, every description can remain unscored; do not search for a difficult memory to qualify.",
+              "zh": "愿意回答时，可回想过去一年中一段心情或活动与平时不同的时间。这是可选编辑参照，不是诊断发作或时长规则。不输入日期或时段叙述。没有想到时段时可全未计分，不必寻找困难记忆来符合条件。"
+            },
+            {
+              "en": "Use unscored for no relevant experience, unclear recall or withholding. It stays separate from does not match and never supplies a zero. A later recollection may differ with memory, interpretation or circumstances; it does not measure recovery, deterioration or treatment response. No preferred category, repeat schedule or target count is provided, and a small or unscored record does not establish health.",
+              "zh": "没有相关经历、记忆不清或保留回答时选未计分，与不符合分开，不补零。以后回忆可能因记忆、理解或背景不同而变化，不测恢复、恶化或治疗反应。没有偏好类别、重测日程或目标计数；少量或未计分不建立健康。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not require an episode label",
+            "zh": "支持不要求发作标签"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask a qualified healthcare or mental-health professional about a concern without finishing, reaching a count or proving a period of a particular duration. The website cannot assess healthcare need, urgency or personal safety. Keep existing care, advice and safety support independent; do not use this record to postpone assessment, change medicine or cancel support.",
+              "zh": "可以不完成、不达到计数、不证明特定时长，就向合格医疗或心理健康专业人员咨询。网站不能评估医疗需要、紧急程度或个人安全。已有照护、意见和安全支持独立保留，不用记录推迟评估、改药或取消支持。"
+            },
+            {
+              "en": "This is not MDQ, HCL-32, YMRS or a clinical screen. No norms, validated thresholds or English–Chinese measurement equivalence have been established. NIMH gives broader bipolar-disorder assessment background, not these original items or validation. The page cannot monitor a visitor or respond to an emergency. In immediate danger or if you cannot stay safe, seek local emergency assistance instead of continuing.",
+              "zh": "本版不是MDQ、HCL-32、YMRS或临床筛查，未建立常模、验证阈值或双语测量等值。NIMH只提供更广的双相评估背景，不提供本原创题或验证。页面不能监测访客或紧急响应。如有即时危险或无法保障安全，请寻求当地紧急援助而非继续。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep a question without making a new commitment",
+            "zh": "留下问题，不必增加承诺"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want a professional conversation, you could describe a remembered difference and what you would like help understanding. You choose which details to share and with whom. No new decision, spending change, restriction exercise or recreation of the period is required. This website cannot give financial, legal or medical clearance for an action, and it assigns no plan for changing how you decide.",
+              "zh": "若想专业交流，可以描述记得的差别与想请人帮助理解什么，细节和对象自行选择。不要求新决定、消费改变、限制练习或重现时段。网站不能给行动作财务、法律或医疗许可，也不安排改变决定方式的计划。"
+            },
+            {
+              "en": "Selections stay in page memory, without drafts, submission, questionnaire analytics or a personal result URL. Exit, retake, reload and leaving clear them. Copying shares the public title and entry only. Four complete guides remain public before answers and for any record, including entirely unscored. Reading or support never depends on a count, a demonstrated consequence or accepting a clinical label about a decision.",
+              "zh": "选择只在页内存，不存草稿、不提交、不作问卷分析，也无个人结果URL。退出、重做、刷新及离页清除，复制只含公开标题入口。四篇全文答题前和任何记录可读，包括全未计分；阅读或支持不依赖计数、展示后果或接受关于决定的临床标签。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "period",
+      "title": {
+        "en": "One optional remembered period, not a diagnosed episode",
+        "zh": "同一可选回忆时段，不是诊断发作"
+      },
+      "paragraphs": [
+        {
+          "en": "Recall one period within the past year if it comes to mind. The editorial reference does not establish a duration, episode, simultaneous symptoms or cause. No dates, free-text account or medical history are entered. If different periods come to mind, the record cannot merge them into one episode; unclear or missing experience can remain unscored.",
+          "zh": "自然想到时，可回想过去一年中同一段时间。编辑参照不建立时长、发作、症状同时出现或原因。不输入日期、自由叙述或病史。想到不同时间时，记录不能把它们合成一次发作；不清或无相关经历可未计分。"
+        },
+        {
+          "en": "These sixteen original adult descriptions are not MDQ, HCL-32, YMRS or a clinical screen. They cannot confirm or exclude bipolar disorder, mania, hypomania or another condition, identify a clinical episode or establish severity, cause or decision-making capacity. No clinical norms, thresholds or bilingual measurement equivalence have been established.",
+          "zh": "本十六条成年人原创描述不是MDQ、HCL-32、YMRS或临床筛查。不能确认或排除双相障碍、躁狂、轻躁狂或其他状况，不能识别临床发作，也不建立严重度、原因或决策能力。没有建立临床常模、阈值或双语测量等值。"
+        }
+      ]
+    },
+    {
+      "id": "labels",
+      "title": {
+        "en": "Match labels, without frequency or a combined score",
+        "zh": "贴切标签，没有频率或合并分数"
+      },
+      "paragraphs": [
+        {
+          "en": "Each description retains a match label or unscored. Six separate counts add to four descriptions per topic; they do not count days, episodes, activities or amounts of impact. Category IDs are not points, and counts are not added, averaged, weighted, ranked or used to select a winning theme.",
+          "zh": "每条保留贴切标签或未计分。各主题六种计数合计四条，不计天数、发作、活动或影响量。类别标识不是点数，计数不相加、平均、加权、排序或选最高主题。"
+        },
+        {
+          "en": "Unscored means no relevant experience, unclear recall or withholding. It is distinct from does not match and never supplies zero. All descriptions may be unscored without a personal interpretation being invented. A small or unscored record does not establish health, safe sleep, safe decisions or the absence of support needs.",
+          "zh": "未计分表示无相关经历、回忆不清或保留，与不符分开，不补零。全部未计分也不编造个人解释。少量或未计分不建立健康、安全睡眠、安全决定或没有支持需要。"
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "en": "Existing pages and public full text remain separate",
+        "zh": "已有页面与完整公开正文"
+      },
+      "paragraphs": [
+        {
+          "en": "The existing Energy Flow and Attention and Energy pages already cover ordinary preferences and activity context, including feelings and energy. This record adds a reference to one remembered period of change. It does not rewrite their questions, transfer answers or combine their means or counts. Read the separate methods without treating similar words as equivalent measurements.",
+          "zh": "已有能量流动与注意力能量页面覆盖普通偏好及活动背景，包括感受和精力。本记录只加入同一变化时段参照，不改其题目、不转移回答、不合均值或计数。分别阅读方法，不把相似词语当等价测量。"
+        },
+        {
+          "en": "No task, sleep change, activity challenge, message review or decision is required. Choices remain in page memory without drafts, submission, questionnaire analytics or a personal result address. Exit, retake, reload and leaving clear them. Copying shares only the public title and entry. All four complete guides and support remain public before answers and after any record.",
+          "zh": "不要求任务、睡眠改变、活动挑战、回看消息或作决定。选择留页面内存，不存草稿、不提交、不作问卷分析，也无个人结果地址。退出、重做、刷新及离页清除，复制只含公开标题入口。四篇全文与支持答题前及所有记录后公开。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does this identify bipolar disorder or a mood episode?",
+        "zh": "这能识别双相障碍或情绪发作吗？"
+      },
+      "answer": {
+        "en": "No. Original recollection-match categories are not a diagnosis, clinical screen or published scale. They cannot confirm or exclude a condition, identify an episode or establish a cause or severity.",
+        "zh": "不能。原创回忆贴切类别不是诊断、临床筛查或发表量表，不能确认或排除状况、识别发作或建立原因及严重度。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if I cannot recall one period?",
+        "zh": "回想不到同一时段怎么办？"
+      },
+      "answer": {
+        "en": "Leave any or every description unscored. Do not search for a difficult memory, recreate a period or combine different times to qualify. This editorial reference is not a clinical duration or episode rule.",
+        "zh": "任何或所有描述都可未计分。不必寻找困难记忆、重现时段或合并不同时间来符合条件。编辑参照不是临床时长或发作规则。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are the categories frequency or severity ratings?",
+        "zh": "类别是频率或严重度评分吗？"
+      },
+      "answer": {
+        "en": "No. They describe how each statement matches your recollection. Separate counts concern descriptions, not days, episodes, symptoms or points. Unscored stays separate from does not match.",
+        "zh": "不是。它们描述陈述对回忆的贴切程度。独立计数针对描述，不是天数、发作、症状或点数；未计分与不符分开。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this combined with Energy Flow or the Attention and Energy page?",
+        "zh": "与能量流动或注意力能量页合并吗？"
+      },
+      "answer": {
+        "en": "No. Those existing forms keep their own questions and methods. No answers, means or counts are transferred or combined, and similar words do not make the methods interchangeable.",
+        "zh": "不合并。已有题本保留自己的题目与方法，不转移或合并回答、均值、计数，相似词语不使方法可互换。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need a count or a particular duration before asking for support?",
+        "zh": "寻求支持前需要计数或特定时长吗？"
+      },
+      "answer": {
+        "en": "No. Ask a qualified professional without completing this record or proving an episode. Keep existing care and advice independent. The page cannot assess healthcare need, urgency or personal safety. In immediate danger or if you cannot stay safe, seek local emergency assistance.",
+        "zh": "不需要。无需完成记录或证明发作即可咨询合格专业人员；已有照护和意见独立保留。页面不评估医疗需要、紧急程度或个人安全。如有即时危险或无法保障安全，请寻求当地紧急援助。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "NIMH: Bipolar Disorder — broader assessment background",
+        "zh": "NIMH：双相障碍的更广评估背景"
+      },
+      "url": "https://www.nimh.nih.gov/health/publications/bipolar-disorder"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_mood_activity_recollections16",
+    "formCode": "fm_mood_activity16_recollections_v1",
+    "itemBankVersion": "original16_bilingual_four_by_four_v1",
+    "scoringVersion": "six_recollection_match_counts_per_four_no_clinical_inference_v1",
+    "resultContentVersion": "four_full_bilingual_mood_activity_readings_v1",
+    "itemBankSha256": "b2908308fb2e467648e1833c6668ac061799e6926e78512aa475dbd5aa4beea2",
+    "resultContentSha256": "58117130139c5163c928af31fe4361af287e727bdc951aac2915f386684191c9",
+    "psychometricValidationCompleted": false
+  }
+}
