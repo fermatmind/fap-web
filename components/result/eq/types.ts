@@ -73,6 +73,7 @@ export type EqV5ReportPayload = {
     scoring_version?: string;
     report_version?: string;
     content_version?: string;
+    norm_provenance?: { norm_version?: string; norm_status?: string; authority?: string };
   };
   asset_refs?: unknown;
   assets?: EqV5ResolvedAssets;
@@ -106,6 +107,8 @@ export type EqSnapshotBinding = {
   canonical_payload_sha256: string;
   locale: "zh-CN" | "en";
   pack_version: string;
+  norm_version?: string;
+  norm_status?: string;
 };
 
 export type EqV5SignalSignature = {
@@ -405,6 +408,7 @@ export type EqV5PersonalizationRoute = {
 };
 
 export type EqV5ViewModel = {
+  displayCopy?: { revision: string; sourceHash: string; compiledHash: string };
   locale: Locale;
   payload: EqV5ReportPayload;
   lockedAnomaly: boolean;

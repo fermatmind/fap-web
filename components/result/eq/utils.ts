@@ -31,6 +31,7 @@ import type {
   EqV5ViewModel,
 } from "./types";
 import type { Locale } from "@/lib/i18n/locales";
+import { resolveEqReadingCopy, EQ_READING_COPY_REVISION } from "@/lib/eq/readingCopyProjection";
 
 const EQ_DIMENSION_ORDER = ["SA", "ER", "EM", "RM"] as const;
 const HASH_PATTERN = /^[a-f0-9]{64}$/;
@@ -343,9 +344,14 @@ export function isEqV5AccessRestricted(reportData: ReportResponse | null | undef
 }
 
 export function normalizeEqV5Report(reportData: ReportResponse, locale: Locale): EqV5ViewModel | null {
-  const payload = resolveEqV5Payload(reportData);
+  const original = resolveEqV5Payload(reportData);
   const canonical = resolveEqV5Authority(reportData, locale);
-  if (!payload || !canonical) return null;
+  if (!original || !canonical) return null;
+  const payload = resolveEqReadingCopy(reportData, original, locale);
+  if (!payload || !hasRequiredEditorialAssets(payload)) return null;
+  const copy = asRecord(asRecord(reportData)?.eq60_reading_copy_v1);
+  const readingAuthority = asRecord(copy?.reading_authority);
+  const provenance = asRecord(payload.methodology?.norm_provenance);
 
   const assets = normalizeAssetObject<EqV5ResolvedAssets>(payload.assets);
   const refs = assetRefs(payload);
@@ -377,6 +383,8 @@ export function normalizeEqV5Report(reportData: ReportResponse, locale: Locale):
   );
 
   return {
+    displayCopy: copy?.status === "ready" ? { revision: EQ_READING_COPY_REVISION,
+      sourceHash: text(readingAuthority?.source_hash), compiledHash: text(readingAuthority?.compiled_hash) } : undefined,
     locale,
     payload,
     lockedAnomaly: isEqV5AccessRestricted(reportData),
@@ -419,6 +427,11 @@ export function normalizeEqV5Report(reportData: ReportResponse, locale: Locale):
       scoring_version: text(payload.methodology?.scoring_version),
       report_version: text(payload.methodology?.report_version),
       content_version: text(payload.methodology?.content_version),
+      norm_provenance: {
+        norm_version: text(provenance?.norm_version) || text(canonical.snapshotBinding.norm_version),
+        norm_status: text(provenance?.norm_status) || text(payload.methodology?.norm_status),
+        authority: text(provenance?.authority),
+      },
     },
     assets: {
       result_snapshot: normalizeAssetObject<EqResultSnapshotAsset>(assets.result_snapshot),

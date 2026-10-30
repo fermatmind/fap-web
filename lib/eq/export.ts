@@ -20,7 +20,7 @@ export function buildEqResultExport(reportData: ReportResponse, locale: Locale):
     assessment: { formCode: view.authority.pack_id, questionCount: 60, locale: view.authority.locale },
     versions: [
       { label: zh ? "题包版本" : "Pack version", value: view.authority.pack_version },
-      ...Object.entries(view.methodology).filter(([key]) => key.endsWith("_version")).map(([label, value]) => ({ label, value: value || null })),
+      ...(["scoring_version", "report_version", "content_version"] as const).map(label => ({ label, value: view.methodology[label] || null })),
     ],
     sections: [
       { id: "summary", title: view.globalScore?.label || (zh ? "总分" : "Overall score"), fields: metric(view.globalScore) },
@@ -28,6 +28,9 @@ export function buildEqResultExport(reportData: ReportResponse, locale: Locale):
     ],
     reference: [
       { label: zh ? "参照状态" : "Reference status", value: view.methodology.norm_status || null },
+      { label: zh ? "参照版本" : "Reference version", value: view.methodology.norm_provenance?.norm_version || null },
+      { label: zh ? "参照来源" : "Reference source", value: view.methodology.norm_provenance?.norm_version === "bootstrap_v1"
+        ? (zh ? "Bootstrap 模型参照" : "Bootstrap model reference") : null },
       { label: zh ? "参照说明" : "Reference explanation", value: view.assets.scientific_contract.norm_status_statement || null },
       { label: zh ? "百分位说明" : "Percentile note", value: view.assets.score_system.score_notes?.percentile || null },
     ],

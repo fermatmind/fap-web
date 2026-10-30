@@ -29,8 +29,12 @@ export function EQScientificBoundary({ viewModel }: { viewModel: EqV5ViewModel }
         </ul>
         <dl className="mt-4 grid gap-3 text-sm md:grid-cols-3">
           <BoundaryMeta
-            label={viewModel.locale === "zh" ? "常模状态" : "Norm status"}
+            label={viewModel.locale === "zh" ? "参照状态" : "Reference status"}
             value={localizeEqTechnicalValue(viewModel.methodology.norm_status, viewModel.locale)}
+          />
+          <BoundaryMeta
+            label={viewModel.locale === "zh" ? "参照版本" : "Reference version"}
+            value={viewModel.methodology.norm_provenance?.norm_version}
           />
           <BoundaryMeta
             label={viewModel.locale === "zh" ? "计分版本" : "Scoring version"}
@@ -48,7 +52,7 @@ export function EQScientificBoundary({ viewModel }: { viewModel: EqV5ViewModel }
                 <h3 className="font-semibold text-slate-900">
                   {item.user_facing_status_label || item.label || item.id}
                 </h3>
-                {item.status ? (
+                {item.status && item.id !== "eq.evidence.norm_status" ? (
                   <p className="mt-1 text-xs uppercase tracking-[0.08em] text-slate-500">
                     {localizeEqTechnicalValue(item.status, viewModel.locale)}
                   </p>

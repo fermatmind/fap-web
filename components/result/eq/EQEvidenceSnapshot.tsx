@@ -17,9 +17,11 @@ export function EQEvidenceSnapshot({ viewModel }: { viewModel: EqV5ViewModel }) 
           meta={`${locale === "zh" ? "原始总分" : "Raw sum"} ${formatEqScore(globalScore?.raw_score)} · ${locale === "zh" ? "参照百分位" : "Reference percentile"} ${formatEqScore(globalScore?.percentile)}`}
         />
         <SnapshotMetric
-          label={locale === "zh" ? "常模状态" : "Norm status"}
+          label={locale === "zh" ? "参照状态" : "Reference status"}
           value={localizeEqTechnicalValue(methodology.norm_status, locale) || "—"}
-          meta={methodology.norm_status === "provisional" ? (locale === "zh" ? "阶段性常模" : "Provisional norms") : undefined}
+          meta={methodology.norm_provenance?.norm_version === "bootstrap_v1"
+            ? (locale === "zh" ? "Bootstrap 模型参照 · bootstrap_v1" : "Bootstrap model reference · bootstrap_v1")
+            : methodology.norm_provenance?.norm_version || (locale === "zh" ? "参照版本未提供" : "Reference version unavailable")}
         />
         <SnapshotMetric
           label={locale === "zh" ? "阅读路径" : "Reading path"}

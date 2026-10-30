@@ -59,7 +59,7 @@ export function EQResultV5({
   const resultPdfState = exportPdfState === "pending" ? "pending" : "unavailable";
 
   return (
-    <main data-testid="eq-result-v5" className="mx-auto w-full min-w-0 max-w-6xl space-y-6 [overflow-wrap:anywhere]">
+    <main data-testid="eq-result-v5" data-reading-copy-revision={viewModel.displayCopy?.revision} data-reading-source-hash={viewModel.displayCopy?.sourceHash} className="mx-auto w-full min-w-0 max-w-6xl space-y-6 [overflow-wrap:anywhere]">
       <EQResultHero viewModel={viewModel} />
       {exportProjection ? <ResultExportPanel projection={exportProjection} locale={locale} pdfState={resultPdfState} /> : null}
       {lowConfidence ? (
