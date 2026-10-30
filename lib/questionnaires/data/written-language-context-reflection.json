@@ -1,0 +1,1971 @@
+{
+  "slug": "written-language-context-reflection",
+  "code": "FM_WRITTEN_LANGUAGE20_OBSERVATIONS",
+  "version": "fm_written_language20_observations_v1",
+  "kind": "written-language20",
+  "title": {
+    "en": "Reading & Writing: Everyday Context",
+    "zh": "阅读与书写：日常情境回顾"
+  },
+  "directions": [
+    {
+      "id": "following-written-text",
+      "title": {
+        "en": "Following written text",
+        "zh": "跟随书面内容"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "putting-words-on-page",
+      "title": {
+        "en": "Putting words on the page",
+        "zh": "把想法写下来"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "unfamiliar-words-and-sequences",
+      "title": {
+        "en": "Unfamiliar words and short sequences",
+        "zh": "陌生词语与简短顺序"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "ways-of-accessing-text",
+      "title": {
+        "en": "Ways of accessing written information",
+        "zh": "接触书面信息的方式"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "WLC_01",
+      "prompt": {
+        "en": "I went back over a line because I had lost my place in the text.",
+        "zh": "我因为找不到刚才读到的位置，回头重看了一行。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "following-written-text"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "following-written-text"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "following-written-text"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "following-written-text"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "following-written-text"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WLC_02",
+      "prompt": {
+        "en": "I read a sentence again before its meaning became clear to me.",
+        "zh": "我把一句话又读了一遍，才明白它的意思。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "following-written-text"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "following-written-text"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "following-written-text"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "following-written-text"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "following-written-text"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WLC_03",
+      "prompt": {
+        "en": "I paused partway through a short written notice to work out what it asked.",
+        "zh": "读简短书面通知时，我中途停下来想它要求做什么。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "following-written-text"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "following-written-text"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "following-written-text"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "following-written-text"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "following-written-text"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WLC_04",
+      "prompt": {
+        "en": "I returned to an earlier part of a paragraph to connect it with what came next.",
+        "zh": "我回看一段文字的前面部分，想把它和后面的内容联系起来。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "following-written-text"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "following-written-text"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "following-written-text"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "following-written-text"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "following-written-text"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WLC_05",
+      "prompt": {
+        "en": "I needed a break from following a piece of written information I wanted to understand.",
+        "zh": "跟随一份自己想看懂的书面信息时，我需要停下来休息。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "following-written-text"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "following-written-text"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "following-written-text"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "following-written-text"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "following-written-text"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WLC_06",
+      "prompt": {
+        "en": "I paused while writing because I was unsure how to write a word or character.",
+        "zh": "写东西时，我因为不确定某个词语或字怎么写而停下。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "putting-words-on-page"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "putting-words-on-page"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "putting-words-on-page"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "putting-words-on-page"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "putting-words-on-page"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WLC_07",
+      "prompt": {
+        "en": "I changed a word or character after noticing that the written form was not what I intended.",
+        "zh": "我发现写下来的词语或字不是自己本来想写的，于是作了修改。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "putting-words-on-page"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "putting-words-on-page"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "putting-words-on-page"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "putting-words-on-page"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "putting-words-on-page"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WLC_08",
+      "prompt": {
+        "en": "I could express an idea aloud more readily than I could put that idea into writing.",
+        "zh": "同一个想法，我说出来比把它写下来更顺手。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "putting-words-on-page"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "putting-words-on-page"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "putting-words-on-page"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "putting-words-on-page"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "putting-words-on-page"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WLC_09",
+      "prompt": {
+        "en": "I rearranged a sentence because the written words did not yet express my thought.",
+        "zh": "我调整了一句话的词序，因为写下来的内容还没有表达出我的想法。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "putting-words-on-page"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "putting-words-on-page"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "putting-words-on-page"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "putting-words-on-page"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "putting-words-on-page"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WLC_10",
+      "prompt": {
+        "en": "I checked the written form of a name or term before including it in my own text.",
+        "zh": "把一个名称或术语写进自己的文字前，我核对了它的写法。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "putting-words-on-page"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "putting-words-on-page"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "putting-words-on-page"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "putting-words-on-page"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "putting-words-on-page"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WLC_11",
+      "prompt": {
+        "en": "An unfamiliar written name or term interrupted the flow of my reading.",
+        "zh": "一个陌生的书面名称或术语打断了我阅读的连贯感。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "unfamiliar-words-and-sequences"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "unfamiliar-words-and-sequences"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "unfamiliar-words-and-sequences"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "unfamiliar-words-and-sequences"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "unfamiliar-words-and-sequences"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WLC_12",
+      "prompt": {
+        "en": "I was unsure how a written word would be said in the language I was using.",
+        "zh": "对于眼前的一个词语，我不确定在所用语言里该怎么读。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "unfamiliar-words-and-sequences"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "unfamiliar-words-and-sequences"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "unfamiliar-words-and-sequences"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "unfamiliar-words-and-sequences"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "unfamiliar-words-and-sequences"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WLC_13",
+      "prompt": {
+        "en": "I needed to look back at a short written sequence rather than keep its order in mind.",
+        "zh": "面对一小串书面内容，我需要回看，而不是只凭记忆保留顺序。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "unfamiliar-words-and-sequences"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "unfamiliar-words-and-sequences"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "unfamiliar-words-and-sequences"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "unfamiliar-words-and-sequences"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "unfamiliar-words-and-sequences"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WLC_14",
+      "prompt": {
+        "en": "After reading several written instructions, I was unsure which part came next.",
+        "zh": "读过几项书面指示后，我不确定接下来是哪一项。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "unfamiliar-words-and-sequences"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "unfamiliar-words-and-sequences"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "unfamiliar-words-and-sequences"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "unfamiliar-words-and-sequences"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "unfamiliar-words-and-sequences"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WLC_15",
+      "prompt": {
+        "en": "While copying a short piece of text, I noticed that I had changed the order of part of it.",
+        "zh": "抄写一小段文字时，我发现自己把其中一部分的顺序写变了。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "unfamiliar-words-and-sequences"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "unfamiliar-words-and-sequences"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "unfamiliar-words-and-sequences"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "unfamiliar-words-and-sequences"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "unfamiliar-words-and-sequences"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WLC_16",
+      "prompt": {
+        "en": "I chose audio or a spoken explanation when I could also have used written information.",
+        "zh": "在也可以使用书面信息的情况下，我选择了音频或口头说明。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "ways-of-accessing-text"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "ways-of-accessing-text"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "ways-of-accessing-text"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "ways-of-accessing-text"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "ways-of-accessing-text"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WLC_17",
+      "prompt": {
+        "en": "I used speech input or asked for help recording an idea instead of writing all of it myself.",
+        "zh": "记录想法时，我使用语音输入或请人帮忙，而没有全部自己书写。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "ways-of-accessing-text"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "ways-of-accessing-text"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "ways-of-accessing-text"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "ways-of-accessing-text"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "ways-of-accessing-text"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WLC_18",
+      "prompt": {
+        "en": "I used a writing aid, such as a spelling or character suggestion, while preparing text.",
+        "zh": "准备文字时，我使用了拼写检查、候选字提示等书写辅助。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "ways-of-accessing-text"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "ways-of-accessing-text"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "ways-of-accessing-text"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "ways-of-accessing-text"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "ways-of-accessing-text"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WLC_19",
+      "prompt": {
+        "en": "I divided written information into smaller parts to make it easier for me to follow.",
+        "zh": "我把书面信息分成更小的部分，让自己更容易跟上。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "ways-of-accessing-text"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "ways-of-accessing-text"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "ways-of-accessing-text"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "ways-of-accessing-text"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "ways-of-accessing-text"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WLC_20",
+      "prompt": {
+        "en": "I changed the format or timing of a reading or writing task because of the effort it took.",
+        "zh": "我因为阅读或书写所需的精力，调整了任务的形式或时间。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "ways-of-accessing-text"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "ways-of-accessing-text"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "ways-of-accessing-text"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "ways-of-accessing-text"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "ways-of-accessing-text"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "updated": "2026-10-30",
+  "category": "framework",
+  "minutes": 8,
+  "seoTitle": {
+    "en": "Reading & Writing: Everyday Context",
+    "zh": "阅读与书写：日常情境回顾"
+  },
+  "description": {
+    "en": "20 original adult observations about reading, writing, unfamiliar words and access choices. Four full bilingual guides, free. Recall only; no diagnosis or ability score.",
+    "zh": "20条成年人原创观察，回顾阅读、书写、陌生词语及接触信息方式。四篇双语全文免费；只凭回忆，不作诊断或能力评分。"
+  },
+  "introduction": {
+    "en": "Recall everyday written-language experiences without a performance task. Four overlapping editorial topics remain separate categorical records, not validated dimensions or a dyslexia test. Access choices are not additional symptoms.",
+    "zh": "不用做表现任务，回顾日常书面语言经历。四个可能重叠的编辑主题各自记录类别，不是验证维度或阅读障碍测试；接触信息的选择不是追加症状。"
+  },
+  "instructions": {
+    "en": "If you choose to answer, recall the past four weeks in the language and settings you used. Select did not notice, rarely, sometimes, often or very often; choose unscored for no relevant experience, unclear recall or withholding. No reading aloud, copying, spelling or memory task is needed. Labels are not points and unscored is not zero.",
+    "zh": "愿意回答时，回顾过去四周在所用语言和场景里的经历。可选没有注意到、很少、有时、较常、经常；没有相关经历、回想不清或保留回答时选未计分。不必朗读、抄写、拼写或做记忆任务。标签不是点数，未计分不是零分。"
+  },
+  "resultHeading": {
+    "en": "Your four separate written-language records",
+    "zh": "四个分别阅读的书面语言记录"
+  },
+  "profiles": [
+    {
+      "id": "following-written-text-reading",
+      "directionIds": [
+        "following-written-text"
+      ],
+      "title": {
+        "en": "Following written text — Complete Reading",
+        "zh": "跟随书面内容：完整读法"
+      },
+      "headline": {
+        "en": "Following written text",
+        "zh": "跟随书面内容"
+      },
+      "summary": {
+        "en": "Read the full original topic explanation without answers, scores or a diagnostic label. This public text is the same for every reader.",
+        "zh": "不必答题即可读完整原创主题说明，没有分数或诊断标签；公开正文对所有读者相同。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to five descriptions. Individual labels remain visible; unscored stays separate from did not notice. No total, average, ranking, risk band or ability conclusion.",
+        "zh": "六种类别计数合计五条描述，并保留逐条标签。未计分与没有注意到分开；没有总分、均值、排序、风险档或能力结论。"
+      },
+      "seo": {
+        "title": {
+          "en": "Following written text — Complete Reading",
+          "zh": "跟随书面内容：完整读法"
+        },
+        "description": {
+          "en": "Complete original adult written-language context reading, free and public. No diagnosis, language-proficiency score or performance test.",
+          "zh": "完整成年人原创书面语言情境读法，免费公开；不作诊断、语言熟练度评分或表现测试。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Recall following written information",
+            "zh": "回顾跟随书面信息"
+          },
+          "paragraphs": [
+            {
+              "en": "This topic contains five original adult observations about finding your place in text, reading a sentence again, understanding a short notice, connecting parts of a paragraph and needing a break. If you choose to answer, recall the past four weeks rather than testing yourself now. These are descriptions of remembered experiences in particular activities. They do not measure reading speed, accuracy, comprehension, intelligence or how hard you tried. No selection can confirm or exclude dyslexia or identify the cause of an experience.",
+              "zh": "本主题五条成年人原创观察关注寻找读到的位置、重读句子、理解简短通知、联系段落前后，以及需要休息。愿意回答时，只回顾过去四周，不必现在测试自己。这些是具体活动中记得的经历，不测阅读速度、准确率、理解能力、智力或努力程度。任何选择都不能确认或排除阅读障碍，也不能找出经历的原因。"
+            },
+            {
+              "en": "A short notice may have unclear instructions, and a familiar-looking paragraph may use a term you have never met. The page cannot see the text, know your language experience or judge whether the setting supported you. It would be a mistake to turn an account of rereading into a permanent limit on your ability to learn. You can describe a difficult moment without accepting a label, explaining your brain or comparing your reading with another person's performance.",
+              "zh": "简短通知可能指示不清，外观熟悉的段落也可能用了没见过的词语。页面看不到原文，不知道你的语言经历，也不能判断环境是否支持你。不应把重读经历当成学习能力的永久上限。可以描述困难时刻，而不必接受标签、解释大脑或与他人的表现比较。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Five descriptions and six separate categories",
+            "zh": "五条描述与六种独立类别"
+          },
+          "paragraphs": [
+            {
+              "en": "The six response categories record what you remember noticing: did not notice, rarely, sometimes, often, very often and unscored. The numeric-looking category identifiers are labels rather than points. Within this topic, their six counts add to five statements, alongside the category selected for each statement. There is no total, average, highest topic, severity band or percentage of dyslexia. Choosing often for a description does not establish how many passages, minutes, mistakes or reading events occurred.",
+              "zh": "六种回答记录记得的情况：没有注意到、很少、有时、较常、经常，以及未计分。看起来像数字的类别标识只是标签，不是点数。本主题六种计数合计五条描述，并保留每条的选择。没有总分、均值、最高主题、严重程度档位或阅读障碍概率。对一条描述选经常，不说明读了多少段、花了几分钟、出了多少错或发生了几次阅读事件。"
+            },
+            {
+              "en": "Unscored covers no relevant experience, uncertain recall or a choice not to answer. It stays separate from did not notice, because being unable or unwilling to describe an activity is not evidence that it went easily. Five unscored selections do not establish good reading or an absence of support needs. Five did-not-notice selections also cannot rule anything out. You do not need to create a reading opportunity, search old documents or reproduce a mistake in order to fill a category.",
+              "zh": "未计分包括没有相关经历、回想不清或不愿回答，与没有注意到分别显示。无法或不愿描述一项活动，不证明它很轻松。五条未计分不证明阅读良好或无需支持，五条没有注意到也不能排除任何情况。不必创造阅读机会、搜索旧文件或重现错误来填选项。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Keep the material and setting in view",
+            "zh": "把材料与场景留在视野里"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to put an experience into words, a bounded description can be more useful than a general verdict. For example, you might remember returning to a paragraph while reading instructions on a phone, with the next step becoming unclear. That description leaves open what was unfamiliar, how the information was presented and what else was happening. It does not require naming a condition or deciding whether attention, written language, tiredness, layout or something else caused the moment.",
+              "zh": "如果想表述经历，有限而具体的描述可能比笼统判断更有用。例如，可能记得在手机上读指示时回看段落，因为不清楚下一步。这种表述保留了材料是否陌生、怎样呈现以及当时还有什么事等问题，不要求给状况命名，也不要求认定注意、书面语言、疲倦、排版或其他因素就是原因。"
+            },
+            {
+              "en": "Familiarity, the language being used and the purpose of reading belong to the context, not to an explanation generated by the website. Reading a work message, a novel and a formal application may involve different demands. The record does not standardise those demands or compare them fairly across people. You may leave private details unspecified. There is no need to upload documents, identify a workplace, reveal another person's message or prove that a passage was objectively difficult.",
+              "zh": "材料熟悉程度、所用语言和阅读目的属于背景，不是网站生成的解释。工作消息、小说和正式申请可能有不同要求，记录没有把这些要求标准化，也不能公平比较不同的人。私人细节可以不说，不必上传文档、透露工作地点、展示别人的消息或证明文字客观上很难。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Rereading is not a diagnostic result",
+            "zh": "重读不是诊断结果"
+          },
+          "paragraphs": [
+            {
+              "en": "The page has no passage to read and no examiner observing how you approach it. It cannot distinguish a reading difficulty from other possible explanations, or establish that an experience has been present throughout life. A recognised experience can be worth discussing without being specific to one condition. Equally, a person may have questions that these five descriptions do not capture. This original topic is not a substitute for an appropriately qualified assessment or a way to check an existing diagnosis.",
+              "zh": "页面没有阅读材料，也没有评估者观察阅读过程。它不能把阅读困难与其他可能解释区分开，也不能证明经历从小一直存在。一种经历可以值得讨论，同时并不专属于某种状况；五条描述也可能没有涵盖你真正的问题。本原创主题不替代合适专业人员的评估，也不能用来复核已有诊断。"
+            },
+            {
+              "en": "The English and Chinese versions offer descriptions for their readers; they have not been shown to measure the same thing in the same way. Different writing systems, language histories and opportunities to read cannot be reduced to a shared clinical number here. Familiar stereotypes about reversed letters or a particular kind of learner should not be added to the record. Nothing in this topic assigns an intelligence level, a learning style, educational eligibility or suitability for a course or job.",
+              "zh": "英文和中文版本为各自读者提供描述，尚未证实以相同方式测到同一事物。不同文字系统、语言经历与阅读机会不能在这里压成共同临床数字。不应把字母倒写或某种学习者的刻板印象加进记录。本主题不分配智力水平、学习风格、教育资格，也不判断课程或工作适配。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Access choices do not need to be earned",
+            "zh": "接触信息的选择无需先获得资格"
+          },
+          "paragraphs": [
+            {
+              "en": "You do not need a count from this page before asking for information in a form you can use. Depending on the situation and what is available, you may want to ask about a clearer explanation, smaller sections, audio or more time to consider written material. These are possible discussion topics, not a treatment plan or a promise that a particular change will help. You can keep an aid you already use without proving difficulty or removing it to obtain a more revealing result.",
+              "zh": "询问能使用的信息形式，不需要先获得页面计数。根据场景与可用条件，可以询问更清楚的说明、更小段落、音频或更多处理书面材料的时间。这些是可能的讨论话题，不是治疗方案，也不保证某种调整一定有效。已有辅助可以继续使用，无需证明困难或为了得到更有揭示性的结果而撤掉辅助。"
+            },
+            {
+              "en": "The record does not judge whether asking for help is reasonable, whether support will be provided or whether you qualify for a formal adjustment or funding scheme. Those questions depend on the relevant service and your circumstances. You are not required to disclose personal information to an employer, school or another reader because you used this page. If sharing would feel unsafe or intrusive, you can keep the conversation limited to a practical information need or decide not to share.",
+              "zh": "记录不判断求助是否合理、支持是否会提供，也不判断正式调整或资助资格。这些问题取决于相关服务和自身情况。使用页面不要求向雇主、学校或其他读者披露个人信息。若分享会让人感到不安全或被侵扰，可以只谈实际信息需求，也可以不分享。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Questions for support without a threshold",
+            "zh": "无需门槛的支持问题"
+          },
+          "paragraphs": [
+            {
+              "en": "If reading is a concern, you can ask an appropriately qualified learning-support or assessment professional what information would help them understand your experience. You do not need a high count, childhood evidence or a completed record before asking that question. Assessment routes vary; this website cannot determine who can assess you locally or what a service will conclude. The NHS adult information linked on the entry describes assessment context in its own setting, not an endorsement of this original questionnaire.",
+              "zh": "若对阅读有担忧，可以询问合适的学习支持或评估专业人员：哪些信息有助于理解自己的经历。不必先有高计数、童年证据或完成记录。评估途径因地而异，网站不能决定当地谁能评估，也不能决定结论。入口链接的NHS成年人资料介绍其自身环境里的评估背景，不是对本原创问卷的背书。"
+            },
+            {
+              "en": "Use existing professional advice and available support independently of this record. It cannot explain away a new or changing health concern, decide that symptoms are harmless or tell you to postpone healthcare. If there is an immediate danger or you cannot stay safe, seek local emergency assistance instead of continuing. These boundaries apply regardless of what you selected or whether reading difficulty seems longstanding. A questionnaire category is neither a medical reassurance nor a decision about the urgency of your situation.",
+              "zh": "已有专业意见和可用支持不依赖这份记录。它不能解释掉新出现或变化的健康担忧，不能判定症状无害，也不能让你推迟医疗。若有即时危险或无法保障安全，请寻求当地紧急援助而不是继续。不论选了什么、阅读困难似乎持续多久，这些边界都适用；问卷类别不是医疗安慰，也不决定情况的紧急程度。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep a useful description without keeping a score",
+            "zh": "留下有用表述，不留下分数"
+          },
+          "paragraphs": [
+            {
+              "en": "There is no score to improve and no schedule for repeating the observations. A different selection later might reflect what you read, what you recall, how you understood a description or which supports were available. It is not evidence of recovery, deterioration, treatment response or a change in reading ability. The four topics can overlap and are editorial groupings rather than validated independent dimensions. Choosing an access method in another topic does not confirm that an underlying difficulty was hidden or compensated for.",
+              "zh": "没有要提高的分数，也没有重复记录日程。以后选择不同，可能涉及读过什么、记得什么、怎样理解描述或有哪些支持，不证明恢复、恶化、治疗反应或阅读能力变化。四个主题可能重叠，是编辑分组而非验证独立维度。在另一主题选择信息辅助，也不证明某种深层困难被隐藏或补偿。"
+            },
+            {
+              "en": "Answers stay only in current-page memory, with no saved draft, submission, questionnaire analytics or personal result address. Leaving, reloading, exiting and retaking clear the record. Copying the public entry shares its title and address rather than your selections. All four complete guides remain public and have the same text for every reader. You may read without answering, pause partway through or keep a plain-language question for a professional conversation without receiving a diagnostic label from the website.",
+              "zh": "回答只在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。离页、刷新、退出和重做会清除记录。复制公开入口只分享标题及地址，不含选择。四篇全文始终公开，对所有读者显示相同文字。可以不答题阅读、中途暂停，或留一句普通语言的问题用于专业沟通，无需网站给出诊断标签。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "putting-words-on-page-reading",
+      "directionIds": [
+        "putting-words-on-page"
+      ],
+      "title": {
+        "en": "Putting words on the page — Complete Reading",
+        "zh": "把想法写下来：完整读法"
+      },
+      "headline": {
+        "en": "Putting words on the page",
+        "zh": "把想法写下来"
+      },
+      "summary": {
+        "en": "Read the full original topic explanation without answers, scores or a diagnostic label. This public text is the same for every reader.",
+        "zh": "不必答题即可读完整原创主题说明，没有分数或诊断标签；公开正文对所有读者相同。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to five descriptions. Individual labels remain visible; unscored stays separate from did not notice. No total, average, ranking, risk band or ability conclusion.",
+        "zh": "六种类别计数合计五条描述，并保留逐条标签。未计分与没有注意到分开；没有总分、均值、排序、风险档或能力结论。"
+      },
+      "seo": {
+        "title": {
+          "en": "Putting words on the page — Complete Reading",
+          "zh": "把想法写下来：完整读法"
+        },
+        "description": {
+          "en": "Complete original adult written-language context reading, free and public. No diagnosis, language-proficiency score or performance test.",
+          "zh": "完整成年人原创书面语言情境读法，免费公开；不作诊断、语言熟练度评分或表现测试。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Recall turning an idea into written words",
+            "zh": "回顾把想法变成文字"
+          },
+          "paragraphs": [
+            {
+              "en": "This topic contains five original adult observations about uncertainty over a written word or character, changing an unintended written form, finding an idea easier to say than write, rearranging a sentence and checking a name or term. You may recall the past four weeks without producing a new writing sample. The descriptions concern your experience of preparing text, not an examination of spelling, handwriting, grammar, language knowledge or intelligence. They cannot identify dyslexia, dysgraphia, a neurological condition or the reason a task felt difficult.",
+              "zh": "本主题五条成年人原创观察关注不确定词语或字的写法、修改非本意的写法、想法说起来比写下来顺手、调整句子，以及核对名称或术语。可以只回顾过去四周，不必新写样本。描述关注准备文字的体验，不考拼写、手写、语法、语言知识或智力，也不能识别阅读障碍、书写障碍、神经系统状况或任务困难的原因。"
+            },
+            {
+              "en": "Writing a private note, a formal application and a message in a less familiar language can place different demands on someone. This page cannot see those demands or judge whether an expectation was reasonable. An experience of revising a sentence does not establish a permanent problem, and a comfortable writing experience does not rule a condition out. You can notice a specific difficulty while leaving its explanation open. There is no requirement to compare yourself with classmates, colleagues or an imagined average writer.",
+              "zh": "私人笔记、正式申请和不太熟悉语言里的消息，可能提出不同要求。页面看不到这些要求，也不能判断期待是否合理。修改句子的经历不证明永久问题，书写顺利也不能排除某种状况。可以注意到具体困难，同时保留解释。不要求与同学、同事或想象中的一般书写者比较。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Categories describe recollection rather than writing quality",
+            "zh": "类别记录回忆，不评文字质量"
+          },
+          "paragraphs": [
+            {
+              "en": "The available categories are did not notice, rarely, sometimes, often, very often and unscored. Their identifiers are labels, not points to add up. Each topic shows six counts that together describe five statements, followed by your category for each statement. There is no writing mark, error rate, overall score, average or high-risk band. Often means you chose that description of your recollection; it does not count errors, drafts, minutes of effort or pieces of writing.",
+              "zh": "可用类别是没有注意到、很少、有时、较常、经常和未计分。标识只是标签，不是可以相加的点数。每个主题六种计数合计五条描述，随后列出每条选择。没有文字成绩、错误率、总分、均值或高风险档。经常只表示你对回忆选择了这个描述，不统计错误、草稿、费力分钟数或文稿篇数。"
+            },
+            {
+              "en": "Choose unscored if there was no relevant activity, you cannot recall it or you prefer not to answer. This is different from did not notice and is never treated as an error-free writing performance. A completely unscored topic still leaves the full guide and support information available. You do not have to retrieve an old message, inspect a school record, turn off autocorrect or attempt unfamiliar writing to make a selection. An unanswered experience does not need to become evidence for anyone.",
+              "zh": "没有相关活动、无法回想或不愿回答时可以选未计分。它与没有注意到不同，绝不视为一次零错误表现。整组未计分时仍可读全文和支持说明。不必翻找旧消息、查看学校记录、关闭自动纠错或尝试陌生书写来作答。没有回答的经历无需成为给任何人的证据。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Separate your intended meaning from the finished text",
+            "zh": "区分想表达的意思与成文"
+          },
+          "paragraphs": [
+            {
+              "en": "One possible description is that you knew the point you wanted to make but needed to change the order of a sentence before it expressed that point. That account records an interaction between an idea and a written form. It does not tell whether the idea was unclear, whether the task was accessible or whether more than one explanation mattered. You may keep the description this limited rather than deciding that you are bad at language or unable to express yourself.",
+              "zh": "一种可能的表述是：自己知道想说什么，但调整句子顺序后才表达出来。这记录了想法与书面形式之间的一次互动，不说明想法是否清楚、任务是否可用，也不排除多个解释同时有关。可以把描述保留在这个范围，而不认定自己语言差或无法表达。"
+            },
+            {
+              "en": "The distinction between speaking and writing in one remembered situation is not a diagnosis or a profile of strengths and weaknesses. Spoken conversation can also be demanding, and the page does not test either activity. Likewise, a revision may be ordinary editing, a response to an unfamiliar term or something you want to ask about. The questionnaire does not choose among those possibilities. It has no sample, examiner, reference group or standardised task from which to draw a performance conclusion.",
+              "zh": "在一个回忆场景里，说与写的差异不是诊断，也不是优势弱点档案。口头交流同样可能费力，页面没有测试任何一种活动。一次修改也可能是普通编辑、对陌生术语的反应或想咨询的情况。问卷不替你在这些可能之间作选择，没有样本、评估者、参照群体或标准化任务可据以判断表现。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Keep language and tools in the description",
+            "zh": "在描述里保留语言与工具"
+          },
+          "paragraphs": [
+            {
+              "en": "A useful account may include the language you were using and whether the term was familiar, if you want to share that context. Writing systems and spelling conventions differ; this English and Chinese content has not been shown to provide equivalent measurement. A difficulty with a character cannot simply be converted into a difficulty with an English spelling pattern. The record offers words for experiences, not a universal written-language scale, a translation-based diagnosis or a judgement about proficiency in any language.",
+              "zh": "愿意分享背景时，可说明当时用哪种语言、术语是否熟悉。文字系统和拼写约定不同，本中英文内容尚未证实测量等值。对一个字的困难不能直接换算为对某种英文拼写模式的困难。记录提供表述经历的语言，不是普遍书面语言量表、通过翻译得出的诊断，也不判断任何语言的熟练程度。"
+            },
+            {
+              "en": "You may already use a keyboard, dictation, character suggestions, spelling support, a template or another person's help. Those choices do not invalidate a recollection, and using them does not prove that a disorder was concealed. Keep useful aids in place. You are not asked to write unaided, copy a passage, spell aloud or send the website a sample. Tool access is part of the setting and can be mentioned without turning the tool into a symptom or a test condition.",
+              "zh": "你可能已经使用键盘、语音输入、候选字、拼写辅助、模板或他人帮助。这些选择不会让回忆失效，也不证明某种障碍被隐藏。可以保留有用辅助，不要求脱离辅助书写、抄段落、口头拼写或向网站发送样本。工具可用性属于场景，可以提及，而不把工具当成症状或测试条件。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Ask about a writing task you want to complete",
+            "zh": "围绕想完成的书写任务提问"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want help, a practical starting point can be the task you need to complete and what currently makes it hard to express your meaning. You might ask whether another format, clearer instructions, a template or a chance to review a draft is available. These are optional questions rather than a prescribed programme. This page cannot guarantee a service, decide which adjustment fits you or establish a right to funding, admission, employment or a particular assessment outcome.",
+              "zh": "若想获得帮助，可以从要完成的任务、以及目前什么让意思难以写清楚谈起。可以询问其他形式、更清楚的指示、模板或复看草稿的机会。这些是可选问题，不是规定训练。页面不能保证服务，不能决定哪种调整适合你，也不建立资助、录取、就业或某种评估结论的资格。"
+            },
+            {
+              "en": "You can describe the practical need without sharing the private content of your writing. There is no requirement to identify a client, colleague, school or family member, and no need to show a personal message as proof. You decide whether and how to approach another person. Using a public reflection page does not create a duty to disclose a diagnosis or seek one. If a proposed conversation feels unsafe, you may limit what you share or choose a different source of support.",
+              "zh": "可以描述实际需要，而不分享文字里的私人内容。不必透露客户、同事、学校或家人的身份，也不必展示私人消息作为证明。是否以及怎样接触他人由自己决定。使用公开回顾页不产生披露诊断或寻求诊断的义务。若某次交流让人感到不安全，可以限制分享范围或选择另一支持来源。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support can begin with a question",
+            "zh": "支持可以从一个问题开始"
+          },
+          "paragraphs": [
+            {
+              "en": "A qualified learning-support or assessment professional can explain what information they would need to understand a writing concern. You may ask without a high count, proof of childhood difficulty or a completed questionnaire. A full assessment and its local route are separate from this record, which is not a published diagnostic checklist. The background sources linked from the entry do not supply these original statements, validate their categories or endorse the website's topic groupings. They cannot make the record a clinical result.",
+              "zh": "合适的学习支持或评估专业人员可以说明，理解书写担忧需要哪些资料。询问不需要高计数、童年困难证明或完成问卷。全面评估及当地途径与这份记录分开；它不是发表的诊断清单。入口背景来源没有提供这些原创条目、验证类别或背书网站分组，也不能使记录变成临床结果。"
+            },
+            {
+              "en": "Do not use the record to replace existing professional advice, stop useful support or postpone healthcare. It cannot establish that a new or changing difficulty has a harmless cause, or decide what medical attention is needed. If there is immediate danger or you cannot stay safe, seek local emergency assistance instead of completing more observations. Support is available as a question independently of every category, including an entirely unscored record. There is no need to demonstrate enough writing mistakes to deserve being heard.",
+              "zh": "不要用记录替代已有专业意见、停止有用支持或推迟医疗。它不能证明新出现或变化的困难原因无害，也不能决定需要什么医疗。若有即时危险或无法保障安全，请寻求当地紧急援助而非继续观察。任何类别都不妨碍提出支持问题，包括整份未计分；无需展示足够多书写错误才值得被听见。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "A record is not a progress mark",
+            "zh": "记录不是进步成绩"
+          },
+          "paragraphs": [
+            {
+              "en": "There is no score to improve, target category or required practice schedule. Later selections may change with the writing tasks you encountered, your recollection, available tools or how you read a statement. They do not demonstrate recovery, decline, treatment response or a change in intelligence or writing ability. The four editorial topics overlap rather than form validated independent dimensions. A pattern across them cannot establish dyslexia, a separate writing disorder, a hidden strength or a fixed limit on education and work.",
+              "zh": "没有要提高的分数、目标类别或规定练习日程。以后选择可能随接触过的任务、回忆、可用工具或对描述的理解而变，不证明恢复、退步、治疗反应、智力或书写能力变化。四个编辑主题可能重叠，不是验证独立维度。跨主题图形也不能建立阅读障碍、另一书写障碍、隐藏优势或教育工作的固定上限。"
+            },
+            {
+              "en": "Your selections stay only in current-page memory. There is no saved draft, submission, questionnaire analytics or private result URL; exit, retake, reload and leaving clear the record. The public-entry copy contains only a title and address. All four full guides are available before answering and show the same text to every reader. You may stop after finding a useful description, read without selecting anything or bring an ordinary-language question to a professional conversation without accepting a diagnosis from the page.",
+              "zh": "选择只在当前页面内存，不存草稿、不提交、不作问卷分析，也没有私人结果网址。退出、重做、刷新和离页会清除记录。复制公开入口只含标题及地址。四篇全文答题前即可读，对所有读者相同。找到有用表述后可以停止，也可以不选任何内容阅读，或带一个普通语言的问题进行专业沟通，无需接受页面诊断。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unfamiliar-words-and-sequences-reading",
+      "directionIds": [
+        "unfamiliar-words-and-sequences"
+      ],
+      "title": {
+        "en": "Unfamiliar words and short sequences — Complete Reading",
+        "zh": "陌生词语与简短顺序：完整读法"
+      },
+      "headline": {
+        "en": "Unfamiliar words and short sequences",
+        "zh": "陌生词语与简短顺序"
+      },
+      "summary": {
+        "en": "Read the full original topic explanation without answers, scores or a diagnostic label. This public text is the same for every reader.",
+        "zh": "不必答题即可读完整原创主题说明，没有分数或诊断标签；公开正文对所有读者相同。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to five descriptions. Individual labels remain visible; unscored stays separate from did not notice. No total, average, ranking, risk band or ability conclusion.",
+        "zh": "六种类别计数合计五条描述，并保留逐条标签。未计分与没有注意到分开；没有总分、均值、排序、风险档或能力结论。"
+      },
+      "seo": {
+        "title": {
+          "en": "Unfamiliar words and short sequences — Complete Reading",
+          "zh": "陌生词语与简短顺序：完整读法"
+        },
+        "description": {
+          "en": "Complete original adult written-language context reading, free and public. No diagnosis, language-proficiency score or performance test.",
+          "zh": "完整成年人原创书面语言情境读法，免费公开；不作诊断、语言熟练度评分或表现测试。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Recall unfamiliar words and short written sequences",
+            "zh": "回顾陌生词语与简短书面顺序"
+          },
+          "paragraphs": [
+            {
+              "en": "These five original adult observations concern a written term interrupting your flow, uncertainty about how a word would be said, looking back at a short sequence, following several instructions and noticing a changed order while copying. Recall only experiences from the past four weeks if you choose. The page asks you to remember an experience, not to pronounce a word, repeat a sequence or copy text now. It does not measure phonological processing, memory capacity, reading accuracy or a diagnostic feature of dyslexia.",
+              "zh": "这五条成年人原创观察关注书面术语打断连贯感、不确定词语读法、回看简短顺序、跟随多项指示，以及抄写时发现顺序改变。愿意时只回顾过去四周的经历。页面请你回忆，不要求现在读出词语、复述顺序或抄文字，也不测语音加工、记忆容量、阅读准确率或阅读障碍诊断特征。"
+            },
+            {
+              "en": "An unfamiliar abbreviation, a name in a language you rarely use and a sequence of instructions are different kinds of material. The questionnaire cannot make them equivalent or identify the source of uncertainty. You can describe being unsure without deciding that a processing system is impaired. The descriptions are not evidence of low intelligence, poor effort or an inability to learn a subject. They also do not establish a special strength, a neurotype or a reason you should choose or avoid a job.",
+              "zh": "陌生缩写、不常用语言里的名称和一串指示，是不同材料。问卷不能把它们等同，也不能找到不确定的来源。可以描述不确定，而不认定某种加工系统受损。这些描述不证明智力低、努力少或无法学某学科，也不建立特殊优势、神经类型或应该选择或避开某份工作的理由。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Keep each category in its own place",
+            "zh": "让每种类别保留原意"
+          },
+          "paragraphs": [
+            {
+              "en": "The six labels range from did not notice through rarely, sometimes, often and very often, with a separate unscored option. Labels are not numerical points. Their counts add to five descriptions in this topic, and the individual selections remain visible. The record has no total, average, percentage, risk band or ranking across topics. A count of descriptions is not a count of missed instructions, transposed characters, pronunciation errors or minutes of difficulty, and it cannot provide a probability of dyslexia.",
+              "zh": "六种标签包括没有注意到、很少、有时、较常、经常，以及独立的未计分。标签不是数字点数。本主题计数合计五条描述，并显示逐项选择。记录没有总分、均值、百分比、风险档或跨主题排序。描述计数不等于漏掉的指示、顺序改变的字、读音错误或困难分钟数，也不能提供阅读障碍概率。"
+            },
+            {
+              "en": "Unscored means no relevant experience, uncertain recall or withholding an answer. It remains separate from did not notice, even if every statement is unscored. A person who did not encounter unfamiliar written terms has not demonstrated easy pronunciation or reading. You do not need to find a rare word, read aloud to someone, create a memory challenge or inspect an old mistake to complete the page. Leaving a description unscored is an available answer, not a failure to supply usable evidence.",
+              "zh": "未计分表示没有相关经历、回想不清或保留回答，即使全部未计分，也与没有注意到分开。没遇见陌生书面术语的人，并没有因此展示读音或阅读轻松。不必寻找生僻词、给别人朗读、设置记忆挑战或检查旧错误。把描述留作未计分是可用回答，不是没能提供有用证据。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "An unfamiliar word is part of a context",
+            "zh": "陌生词语属于具体背景"
+          },
+          "paragraphs": [
+            {
+              "en": "You might remember pausing at a term in instructions for something new. That account says which part of an activity interrupted the flow; it does not say why. Knowing a spoken word, recognising its written form and knowing a technical meaning are not identical experiences, but this page does not test or separate those processes. You may keep the description at the level you actually recall, without inventing an explanation about sounds, visual processing or how your brain is organised.",
+              "zh": "你可能记得读新事物的说明时停在一个术语上。这说明活动里哪里打断了连贯感，不说明原因。知道口头词语、认出书面形式和理解专业意思，并非完全相同的经历，但页面不测试或拆分这些过程。可以只描述真正记得的部分，不必编造关于声音、视觉加工或大脑组织方式的解释。"
+            },
+            {
+              "en": "Language history matters to what counts as familiar. A term may be ordinary to one reader and new to another, and a writing system may offer different clues about pronunciation. The bilingual descriptions have no established cross-language measurement equivalence. They must not be treated as matching clinical tasks or a universal phonological score. Neither selecting uncertainty nor selecting did not notice establishes proficiency in English, Chinese or another language. The website has no language test or reference sample to support such a conclusion.",
+              "zh": "语言经历会影响什么算熟悉：一个读者觉得常见的术语，另一个人可能初次见到，文字系统对读音提供的线索也可能不同。双语描述没有已确立的跨语言测量等值，不应视为配对临床任务或普遍语音分数。选择不确定或没有注意到，都不建立英文、中文或其他语言的熟练程度；网站没有语言测试或参照样本支持这种结论。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Following instructions does not isolate memory",
+            "zh": "跟随指示不能单独测出记忆"
+          },
+          "paragraphs": [
+            {
+              "en": "If several written instructions left you unsure about the next step, you can describe that uncertainty without labelling it a memory deficit. The instructions may have been unfamiliar, hard to find or unclear about their order. Other demands may also have mattered. The page cannot choose among those explanations or determine that the sequence was reasonable. It does not observe what you read, how long you had to consider it or whether a useful reference remained available while you were acting.",
+              "zh": "多项书面指示让人不清楚下一步时，可以描述这种不确定，而不标为记忆缺陷。指示可能陌生、难找，或顺序不清，也可能有其他要求。页面不能在解释中作选择，也不能判断顺序要求是否合理；它没有观察读了什么、有多久考虑，或行动时是否还能查看有用参照。"
+            },
+            {
+              "en": "The separate existing executive-function form elsewhere on the site retains its own items and reading method. These five descriptions do not reproduce that form, add to its raw sums or establish a combined working-memory result. Looking back at written material can be an access choice rather than evidence of impairment. You do not need to remove the reference, hold more information in mind or test how much you can repeat. A remembered copying error is also not a standardised assessment of sequencing.",
+              "zh": "站内另一份已有执行功能题本保留自己的题目与读法。这五条描述不复制它、不加入其原始合计，也不建立联合工作记忆结果。回看书面材料可以是一种接触信息的选择，不是受损证据。不必撤掉参照、强记更多信息或测试能复述多少；记得的一次抄写顺序错误也不是标准化顺序评估。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Keep useful references available",
+            "zh": "保留有用参照"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to discuss a practical need, you could ask whether instructions can stay available, be divided into smaller parts or be explained in another form. Those are optional questions for a particular setting, not a treatment programme or a test of willingness to improve. This page cannot know which arrangement is available or useful for you. You can retain tools and references you already use without proving an underlying condition or making your task harder for the sake of an observation.",
+              "zh": "若想讨论实际需要，可以询问指示能否保留供查看、拆成小部分或换形式说明。这些是针对场景的可选问题，不是治疗训练，也不考愿不愿改进。页面不知道哪些安排可用或有帮助。可以继续使用已有工具和参照，无需证明某种状况，也无需为了观察故意增加任务难度。"
+            },
+            {
+              "en": "No count creates a right to an adjustment, funding or a particular educational or employment decision. Services and assessment routes have their own requirements, which this page does not determine. You can ask what is possible while keeping private names, documents and messages out of the conversation. There is no need to show a mistake, reveal a diagnosis or disclose to an employer because you used this guide. You choose the amount of information you want to share and may choose not to share.",
+              "zh": "任何计数都不建立调整、资助或特定教育就业决定的资格。服务和评估途径有自身要求，页面不作决定。可以询问有哪些可能，同时不透露私人名称、文档和消息。不必展示错误、披露诊断，也不因使用指南就必须向雇主说明。分享多少由自己决定，也可以不分享。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Ask about concerns without proving a pattern",
+            "zh": "无需证明某种模式即可咨询"
+          },
+          "paragraphs": [
+            {
+              "en": "You may ask an appropriately qualified learning-support or assessment professional how they would explore a concern about written words or instructions. A high count, childhood record or completed questionnaire is not required before asking. This original inventory is not a published dyslexia checklist, and its four overlapping topics are not validated independent dimensions. The linked NHS and British Dyslexia Association background concerns broader assessment context; it does not validate these original statements, provide their scoring or endorse an interpretation of your categories.",
+              "zh": "可以询问合适的学习支持或评估专业人员，会怎样了解关于书面词语或指示的担忧。提问前不要求高计数、童年记录或完成问卷。本原创题组不是发表的阅读障碍清单，四个重叠主题也不是验证独立维度。链接的NHS和英国阅读障碍协会背景涉及更广评估场景，没有验证原创条目、提供计分或背书类别解释。"
+            },
+            {
+              "en": "The record cannot rule out a health concern, decide that a new or changing difficulty is harmless or replace existing professional advice. Keep appropriate care and support independent of the page; do not postpone them because a category seems reassuring. If there is immediate danger or you cannot stay safe, seek local emergency assistance instead of continuing. This support boundary applies before any answers and for every possible record. You do not need to produce enough uncertainty or mistakes to deserve a conversation.",
+              "zh": "记录不能排除健康担忧、判断新出现或变化的困难无害，也不替代已有专业意见。合适的照护和支持应独立于页面，不要因类别似乎让人安心而推迟。若有即时危险或无法保障安全，请寻求当地紧急援助而非继续。任何回答之前及所有记录下，这一支持边界都适用，无需制造足够多不确定或错误才值得交流。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Leave without a score to monitor",
+            "zh": "离开时无需带走监测分数"
+          },
+          "paragraphs": [
+            {
+              "en": "There is no target category, score to improve or required schedule for returning. Different selections later can reflect different terms, instructions, activities, tools, recall or interpretations of a description. They do not demonstrate treatment response, decline, recovery or a change in memory or reading ability. The four topic counts cannot be combined into a neurotype, a clinical profile or evidence that support methods are compensating for a hidden disorder. A useful description can stay limited to a remembered situation and an open question.",
+              "zh": "没有目标类别、要提高的分数或规定回访日程。以后选择不同，可能反映不同术语、指示、活动、工具、回忆或对描述的理解，不证明治疗反应、退步、恢复，或记忆阅读能力改变。四主题计数不能合成神经类型、临床档案，也不能证明辅助方式在补偿隐藏障碍。有用描述可以只限于一个记得的场景和一个开放问题。"
+            },
+            {
+              "en": "Selections stay in current-page memory only. The page saves no draft, submits no answers, performs no questionnaire analytics and creates no private result address. Leaving, reload, exit and retake clear the record; the public-entry copy contains only its title and address. All four guides are public before answering and use the same text for every reader. You may stop, leave descriptions unscored or read without a questionnaire. Nothing requires you to obtain a diagnosis, explain your brain or demonstrate a processing difference.",
+              "zh": "选择只在当前页面内存，不存草稿、不提交回答、不作问卷分析，也不生成私人结果地址。离页、刷新、退出和重做会清除，复制公开入口只含标题及地址。四篇指南答题前公开，所有读者看到同样文字。可以停止、保留未计分或不做问卷阅读，无需取得诊断、解释大脑或展示加工差异。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ways-of-accessing-text-reading",
+      "directionIds": [
+        "ways-of-accessing-text"
+      ],
+      "title": {
+        "en": "Ways of accessing written information — Complete Reading",
+        "zh": "接触书面信息的方式：完整读法"
+      },
+      "headline": {
+        "en": "Ways of accessing written information",
+        "zh": "接触书面信息的方式"
+      },
+      "summary": {
+        "en": "Read the full original topic explanation without answers, scores or a diagnostic label. This public text is the same for every reader.",
+        "zh": "不必答题即可读完整原创主题说明，没有分数或诊断标签；公开正文对所有读者相同。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to five descriptions. Individual labels remain visible; unscored stays separate from did not notice. No total, average, ranking, risk band or ability conclusion.",
+        "zh": "六种类别计数合计五条描述，并保留逐条标签。未计分与没有注意到分开；没有总分、均值、排序、风险档或能力结论。"
+      },
+      "seo": {
+        "title": {
+          "en": "Ways of accessing written information — Complete Reading",
+          "zh": "接触书面信息的方式：完整读法"
+        },
+        "description": {
+          "en": "Complete original adult written-language context reading, free and public. No diagnosis, language-proficiency score or performance test.",
+          "zh": "完整成年人原创书面语言情境读法，免费公开；不作诊断、语言熟练度评分或表现测试。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Recall how you accessed written information",
+            "zh": "回顾怎样接触书面信息"
+          },
+          "paragraphs": [
+            {
+              "en": "This topic contains five original adult observations about choosing audio, using speech input or help recording an idea, using writing suggestions, dividing information into smaller parts and changing a task's format or timing. You may recall the past four weeks without changing anything you currently use. These are access methods and practical choices, not additional symptoms of dyslexia. Using an aid does not prove a hidden disorder, while not using one does not demonstrate that reading or writing was easy or that support was unnecessary.",
+              "zh": "本主题五条成年人原创观察关注选择音频、用语音输入或请人帮助记录、使用书写提示、拆分信息，以及改变任务形式或时间。可以回顾过去四周，不必改变目前使用的任何东西。这些是接触信息的方法和实际选择，不是追加阅读障碍症状。使用辅助不证明隐藏障碍，不使用也不展示阅读书写轻松或支持无必要。"
+            },
+            {
+              "en": "A method may be chosen for convenience, availability, preference, fatigue, the demands of a task or reasons the page cannot know. The record cannot decide which explanation applies. It should not turn a sensible choice into a clinical clue, a special learning style or a judgement about independence. You may describe what helped you reach information without proving that you could not manage another way. There is no ranking of more legitimate or less legitimate ways to read, write or ask for assistance here.",
+              "zh": "方法可能因为方便、可用、偏好、疲倦、任务要求或页面不知道的原因而被选择。记录不能决定哪种解释适用，不应把合理选择变成临床线索、特殊学习风格或独立能力判断。可以描述什么帮助接触到信息，而无需证明别的方法做不到。这里不把阅读、书写或求助方式分成更正当与不那么正当。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Five descriptions are not five points for difficulty",
+            "zh": "五条描述不是五分困难"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose among did not notice, rarely, sometimes, often, very often and unscored. These are categorical labels rather than points. Their counts add to five statements for this topic and sit beside the individual selections. There is no sum, mean, highest topic, risk band, percentage or support-needs score. Often using audio does not establish frequent reading failure, and rarely using a writing aid does not establish writing accuracy. Counts describe selected statements, not how many tools, tasks, minutes or successful activities you had.",
+              "zh": "可以选择没有注意到、很少、有时、较常、经常或未计分。这些是类别标签，不是点数。本主题计数合计五条描述，并与逐项选择一起显示。没有合计分、均值、最高主题、风险档、百分比或支持需要分数。经常用音频不证明经常阅读失败，很少用书写辅助不证明书写准确。计数描述选中的条目，不统计工具、任务、分钟或成功活动数量。"
+            },
+            {
+              "en": "Unscored includes no relevant experience, uncertain recall and a preference not to answer. It is kept separate from did not notice. Not having access to a particular tool is not the same as choosing not to use it, but this short record cannot determine which happened. You may leave the item unscored without explaining that difference. Do not buy software, try a new device, ask someone to watch or remove familiar aids simply to supply an answer for a public reflection page.",
+              "zh": "未计分包括没有相关经历、回想不清和不愿回答，与没有注意到分开。无法获得某工具与主动不用并不同，但简短记录不能决定发生的是哪一种。可以不解释这个差异而留作未计分。不必买软件、试新设备、请人观看或撤掉熟悉辅助，只为给公开回顾页一个回答。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Describe the task rather than a presumed deficit",
+            "zh": "描述任务，不预设缺陷"
+          },
+          "paragraphs": [
+            {
+              "en": "A bounded description could be that listening to information made a particular task more manageable that day, or that dividing instructions helped you find the next step. It need not become a statement that you cannot read or that one format is always best for you. The same method may work differently in another setting. This page does not compare formats, test their effects or identify an underlying cause; it only offers language for a remembered choice in context.",
+              "zh": "有限描述可以是：那一天听信息让某项任务更好处理，或拆开指示帮助找到下一步。无需把它变成自己不会阅读或某形式永远最适合的陈述。同一方法在其他场景里可能不同。页面不比较形式、不测试效果，也不找深层原因，只为具体背景里记得的选择提供表述。"
+            },
+            {
+              "en": "Practical context can include whether the information was available in another form and whether you had a chance to use it. You may mention that context if useful, without a detailed personal history. There is no requirement to show an unaided baseline or prove that an aid changed a result. An accessible route is not less genuine because it is easier to use. The website cannot certify that a method is effective, safe, universally suitable or evidence of a particular learning profile.",
+              "zh": "实际背景可以包括信息是否有另一形式，以及自己有没有机会使用。若有用，可以提及这些背景，无需详细个人史。不要求展示无辅助基线，也无需证明辅助改变结果。容易使用的接触途径并不因此不真实。网站不能认证某方法有效、安全、普遍适用，或证明某种学习档案。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Available options shape what can be chosen",
+            "zh": "可用选项影响实际选择"
+          },
+          "paragraphs": [
+            {
+              "en": "Some situations provide audio, dictation, clear templates or help from another person; others do not. A selection cannot tell whether an option was accessible, affordable, private or permitted in the setting. The record therefore cannot measure unmet need or decide that you made the best available choice. It also cannot infer avoidance, dependence or lack of effort from the format you used. You do not owe the page an explanation of your resources, workplace rules or arrangements with another person.",
+              "zh": "有些场景提供音频、语音输入、清楚模板或他人帮助，有些不提供。选择不能说明选项是否能获得、负担得起、私密或被场景允许。因此记录不能测未满足需要，也不能决定是否选了最佳方式；更不能从所用形式推断回避、依赖或不努力。无需向页面说明资源、工作规则或与他人的安排。"
+            },
+            {
+              "en": "The English and Chinese descriptions have no established measurement equivalence. Tools may offer different features across languages, devices and writing systems. A frequent selection in one language is not comparable with the same label from someone writing in another language. There is no cross-language norm or proficiency score. Nor can the other three topics turn these access choices into a clinical pattern. Four overlapping editorial groupings remain descriptions, even when displayed together on a page.",
+              "zh": "中英文描述没有已确立的测量等值，工具在语言、设备和文字系统之间可能提供不同功能。一种语言里经常选择，不可与另一语言使用者的相同标签直接比较。没有跨语言常模或熟练度分数。其他三个主题也不能把接触信息的选择变成临床模式，四个重叠编辑分组即使一起显示，仍是描述。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Ask about access without earning it through a record",
+            "zh": "询问信息可用性无需靠记录赢得"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask whether another format or clearer information is available without a high count or a diagnostic label from this website. A practical question might concern a particular document, task or way of responding. The guide does not prescribe a tool, a training plan or a treatment, and it cannot guarantee that any change will help. Keep existing useful arrangements in place while considering what you want to ask. There is no instruction to challenge yourself by returning to a less usable format.",
+              "zh": "询问是否有另一形式或更清楚信息，不需要高计数或网站诊断标签。实际问题可以针对某份文档、任务或回应方式。指南不指定工具、训练计划或治疗，也不能保证改变有帮助。考虑想问什么时，可保留已有有用安排；不要求为了挑战自己而回到较难使用的形式。"
+            },
+            {
+              "en": "A question about access is different from a claim about formal entitlement. Local education, employment, assessment and funding services have their own processes, which this page does not determine. You may ask what is possible without sharing private writing or a personal history. No category requires disclosure to an employer or another reader. If you choose to seek help, you can decide what to share, whom to approach and whether a conversation feels appropriate and safe in your circumstances.",
+              "zh": "询问信息可用性不同于主张正式权益。当地教育、就业、评估和资助服务有自身流程，页面不作决定。可以询问有哪些可能，而不展示私人文字或个人史。任何类别都不要求向雇主或其他读者披露。若选择求助，分享什么、找谁，以及交流是否适合并安全，都可以按自身情况决定。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support is independent of every selection",
+            "zh": "支持独立于所有选择"
+          },
+          "paragraphs": [
+            {
+              "en": "If you have concerns about reading or writing, you may ask an appropriately qualified learning-support or assessment professional what information would be useful. You do not need enough difficulty, proof from childhood or a completed questionnaire. This original inventory is not a diagnostic checklist, and access choices cannot confirm or rule out dyslexia. The linked background information describes broader assessment and support contexts; it supplies no original items, scoring key, evidence of validity or endorsement for these four topics.",
+              "zh": "若对阅读或书写有担忧，可以询问合适的学习支持或评估专业人员，哪些资料会有用。不需要足够困难、童年证明或完成问卷。本原创题组不是诊断清单，接触信息的选择不能确认或排除阅读障碍。链接背景介绍更广的评估支持场景，没有提供本原创题目、计分键、有效性证据或四主题背书。"
+            },
+            {
+              "en": "Do not use a record to postpone healthcare, alter existing care or dismiss new or changing health concerns. The page cannot determine medical need, urgency or that a difficulty is harmless. If there is immediate danger or you cannot stay safe, seek local emergency assistance rather than continuing the observations. These limits apply to all selections, including a completely unscored record. Asking a professional question does not require first withdrawing useful assistance, demonstrating failure or collecting a larger number of difficult experiences.",
+              "zh": "不要用记录推迟医疗、改变已有照护或忽视新出现或变化的健康担忧。页面不能决定医疗需要、紧急程度或困难无害。若有即时危险或无法保障安全，请寻求当地紧急援助而非继续观察。包括全部未计分在内，任何选择下都适用这些边界。提出专业问题不要求先撤掉有用帮助、展示失败或搜集更多困难经历。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep options without turning them into a score",
+            "zh": "保留选择，不把它们变成分数"
+          },
+          "paragraphs": [
+            {
+              "en": "There is no preferred category, target total or schedule for monitoring these methods. Using more aids later could reflect better access, different tasks or many other circumstances; using fewer could also have several explanations. Neither change demonstrates improvement, deterioration or treatment response. The page cannot decide whether you became more independent or whether support stopped being necessary. A useful outcome may simply be finding a way to describe an information need while leaving diagnosis, ability and future choices open.",
+              "zh": "没有偏好的类别、目标总分或监测方法的日程。以后用更多辅助，可能涉及更好获取、不同任务或许多其他情况；用得少也可能有多种解释。任何变化都不展示改善、恶化或治疗反应。页面不能决定是否更独立或支持已无必要。有用收获可能只是找到描述信息需求的方式，同时保留诊断、能力与未来选择的开放性。"
+            },
+            {
+              "en": "Your answers remain in current-page memory only, without stored drafts, submission, questionnaire analytics or a private result URL. Exit, retake, reload and leaving clear the record. Copying the public entry shares only its title and address, not your selections. All four complete guides stay public before answers and show the same text to every reader. You can read without answering, stop at any point or keep a useful question without receiving a clinical explanation or an instruction to change how you access information.",
+              "zh": "回答只在当前页面内存，不存草稿、不提交、不作问卷分析，也没有私人结果网址。退出、重做、刷新和离页会清除。复制公开入口只含标题及地址，不含选择。四篇全文答题前始终公开，所有读者看到相同文字。可以不答题阅读、随时停止或留一个有用问题，无需临床解释，也无需接受改变接触信息方式的指令。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "original-context",
+      "title": {
+        "en": "Original observations, not a dyslexia instrument",
+        "zh": "原创观察，不是阅读障碍工具"
+      },
+      "paragraphs": [
+        {
+          "en": "Twenty original descriptions are grouped into four overlapping editorial topics of five. They are not the BDA adult checklist, a published screener, diagnostic criteria or a clinical scale. No items or scoring keys are taken from the linked background sources.",
+          "zh": "20条原创描述分成四个可能重叠的编辑主题，每组五条。它们不是BDA成人清单、发表筛查工具、诊断标准或临床量表；未从链接背景资料提取题目或计分键。"
+        },
+        {
+          "en": "The past four weeks is an editorial recall window, not a diagnostic duration. Do not create difficult reading, remove tools or reproduce errors to answer.",
+          "zh": "过去四周是编辑设定的回忆窗口，不是诊断时长。不要为回答而寻找难材料、撤掉辅助或重现错误。"
+        }
+      ]
+    },
+    {
+      "id": "categorical-record",
+      "title": {
+        "en": "Categories without points",
+        "zh": "类别不作点数"
+      },
+      "paragraphs": [
+        {
+          "en": "Within each topic the six category counts add to five descriptions. Numeric-looking IDs are labels. No total, mean, highest topic, few/some/many band, risk, diagnosis or proficiency is inferred. Counts describe statements, not events or errors.",
+          "zh": "每主题六种类别计数合计五条描述。像数字的标识只是标签，不推断总分、均值、最高主题、迹象少中多档位、风险、诊断或熟练度；计数针对描述，不是事件或错误。"
+        },
+        {
+          "en": "No relevant experience, unclear recall and withheld answers share an explicit unscored category. It never becomes did not notice or evidence that an activity was easy.",
+          "zh": "没有相关经历、回想不清和保留回答共用明确的未计分类别，绝不变成没有注意到，也不证明活动轻松。"
+        }
+      ]
+    },
+    {
+      "id": "limits-and-support",
+      "title": {
+        "en": "Language, access and support",
+        "zh": "语言、接触方式与支持"
+      },
+      "paragraphs": [
+        {
+          "en": "English and Chinese measurement equivalence, norms and diagnostic validity are not established. Access choices are not symptoms or proof of compensation. No label establishes intelligence, effort, neurotype, a cause or eligibility for study, work, funding or adjustments.",
+          "zh": "尚未建立中英文测量等值、常模或诊断有效性。接触方式不是症状或补偿证明；任何标签不建立智力、努力、神经类型、原因，或学习、工作、资助及调整资格。"
+        },
+        {
+          "en": "Ask an appropriately qualified support or assessment professional without a count, childhood proof or completed record. Keep useful aids and existing care independent of the page. The record cannot explain away new or changing health concerns or assess urgency.",
+          "zh": "咨询合适的支持或评估专业人员，不需要计数、童年证明或完成记录。有用辅助和已有照护独立于页面；记录不能解释掉新出现或变化的健康担忧，也不评估紧急程度。"
+        }
+      ]
+    },
+    {
+      "id": "memory-only",
+      "title": {
+        "en": "Private selections, public readings",
+        "zh": "私人选择与公开读法"
+      },
+      "paragraphs": [
+        {
+          "en": "Selections remain only in current-page memory: no saved drafts, submissions, questionnaire analytics or personal result URL. Retake, exit, reload and leaving clear the record. Copy shares only the public title and entry.",
+          "zh": "选择只留在当前页面内存：不存草稿、不提交、不作问卷分析，也没有个人结果网址。重做、退出、刷新和离页会清除；复制仅含公开标题及入口。"
+        },
+        {
+          "en": "The four complete guides are public before answers, unchanged by categories and available for all-unscored records. Read freely, withhold answers or stop at any point.",
+          "zh": "四篇完整指南答题前即公开，不随类别改变，全部未计分也可读。可以自由阅读、保留回答或随时停止。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Can this tell me whether I have dyslexia?",
+        "zh": "能告诉我是否有阅读障碍吗？"
+      },
+      "answer": {
+        "en": "No. These original observations cannot confirm or exclude dyslexia or identify a cause. They are not a published diagnostic checklist, examination or substitute for an appropriately qualified assessment.",
+        "zh": "不能。原创观察不能确认或排除阅读障碍，也不能找原因；不是发表诊断清单、考试或合适专业评估的替代。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need to read, spell or copy something now?",
+        "zh": "现在需要阅读、拼写或抄写吗？"
+      },
+      "answer": {
+        "en": "No. Recall only. Keep useful aids, do not recreate errors and use unscored for unclear recall, no relevant experience or withholding. No samples are requested or uploaded.",
+        "zh": "不需要。只凭回忆，保留有用辅助，不重现错误；回想不清、没有相关经历或保留回答时选未计分。不要求或上传样本。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are support methods extra symptoms?",
+        "zh": "辅助方式是追加症状吗？"
+      },
+      "answer": {
+        "en": "No. Audio, speech input, writing suggestions and format choices are access methods. Their use or absence does not establish a disorder, independence, eligibility or a special learning style.",
+        "zh": "不是。音频、语音输入、书写提示和形式选择是接触信息的方法，使用或不使用都不建立障碍、独立程度、资格或特殊学习风格。"
+      }
+    },
+    {
+      "question": {
+        "en": "Must I finish or reach a count before asking for support?",
+        "zh": "求助前必须完成或达到计数吗？"
+      },
+      "answer": {
+        "en": "No. Support questions and all four guides are available without answers or a threshold. The page cannot decide medical need or urgency. If there is immediate danger or you cannot stay safe, seek local emergency assistance instead of continuing.",
+        "zh": "不必。没有回答或门槛也能提出支持问题并读四篇指南。页面不能决定医疗需要或紧急程度；若有即时危险或无法保障安全，请寻求当地紧急援助而非继续。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are English and Chinese results comparable?",
+        "zh": "中英文结果能直接比较吗？"
+      },
+      "answer": {
+        "en": "No measurement equivalence, norms or diagnostic validity are established. Languages, writing systems, tasks and tools differ; categorical records are not proficiency scores or cross-language comparisons.",
+        "zh": "尚未建立测量等值、常模或诊断有效性。语言、文字系统、任务和工具不同；类别记录不是熟练度分数或跨语言比较。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "NHS: Dyslexia in adults",
+        "zh": "NHS：成年人阅读障碍背景"
+      },
+      "url": "https://www.nhs.uk/conditions/dyslexia-in-adults/"
+    },
+    {
+      "title": {
+        "en": "British Dyslexia Association: Signs of dyslexia (adult)",
+        "zh": "英国阅读障碍协会：成人背景资料"
+      },
+      "url": "https://www.bdadyslexia.org.uk/advice/adults/am-i-dyslexic/signs-of-dyslexia"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_written_language_observations",
+    "formCode": "fm_written_language20_observations_v1",
+    "itemBankVersion": "original20_bilingual_four_by_five_v1",
+    "scoringVersion": "six_categorical_counts_per_five_no_dyslexia_inference_v1",
+    "resultContentVersion": "four_full_bilingual_written_language_readings_v1",
+    "itemBankSha256": "d8efd255de7e9d253c31b0566451df9bb8f561085424b3252988e2d938cdf3be",
+    "resultContentSha256": "0ea7b913b32b98469a2588616090c155e3709cc158723903408e054510783296",
+    "psychometricValidationCompleted": false
+  }
+}

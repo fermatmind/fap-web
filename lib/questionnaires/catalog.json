@@ -7002,5 +7002,30 @@
       "revati"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "written-language-context-reflection",
+    "code": "FM_WRITTEN_LANGUAGE20_OBSERVATIONS",
+    "version": "fm_written_language20_observations_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Reading & Writing: Everyday Context",
+      "zh": "阅读与书写：日常情境回顾"
+    },
+    "description": {
+      "en": "20 original adult observations about reading, writing, unfamiliar words and access choices. Four full bilingual guides, free. Recall only; no diagnosis or ability score.",
+      "zh": "20条成年人原创观察，回顾阅读、书写、陌生词语及接触信息方式。四篇双语全文免费；只凭回忆，不作诊断或能力评分。"
+    },
+    "minutes": 8,
+    "formCode": "fm_written_language20_observations_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "following-written-text-reading",
+      "putting-words-on-page-reading",
+      "unfamiliar-words-and-sequences-reading",
+      "ways-of-accessing-text-reading"
+    ],
+    "collection": "explore"
   }
 ]
