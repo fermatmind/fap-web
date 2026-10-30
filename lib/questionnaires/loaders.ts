@@ -18,6 +18,7 @@ const loaders = {
   "written-language-context-reflection": async () => (await import("./data/written-language-context-reflection.json")).default as Questionnaire,
   "number-context-reflection": async () => (await import("./data/number-context-reflection.json")).default as Questionnaire,
   "social-context-reflection": async () => (await import("./data/social-context-reflection.json")).default as Questionnaire,
+  "everyday-worry-reflection": async () => (await import("./data/everyday-worry-reflection.json")).default as Questionnaire,
   "health-worries-reflection": async () => (await import("./data/health-worries-reflection.json")).default as Questionnaire,
   "sleep-experiences-reflection": async () => (await import("./data/sleep-experiences-reflection.json")).default as Questionnaire,
   "after-bereavement-reflection": async () => (await import("./data/after-bereavement-reflection.json")).default as Questionnaire,

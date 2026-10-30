@@ -1,0 +1,1347 @@
+{
+  "slug": "everyday-worry-reflection",
+  "code": "FM_EVERYDAY_WORRY12_OBSERVATIONS",
+  "version": "fm_everyday_worry12_observations_v1",
+  "updated": "2026-10-30",
+  "category": "framework",
+  "kind": "worry-observations12",
+  "minutes": 6,
+  "title": {
+    "en": "Everyday Worry: Personal Reflection",
+    "zh": "日常担心：个人回顾"
+  },
+  "seoTitle": {
+    "en": "Everyday Worry: Personal Reflection",
+    "zh": "日常担心：个人回顾"
+  },
+  "description": {
+    "en": "12 original adult observations about recurring worries, tension, restlessness and ordinary activities. Three full guides are free before answers. Recall only; no anxiety diagnosis or severity score.",
+    "zh": "12条成年人原创观察，回顾反复担心、紧绷、坐立不安与日常活动。三篇完整指南答题前免费可读；只凭回忆，不作焦虑诊断或严重度评分。"
+  },
+  "introduction": {
+    "en": "Recall the past four weeks through three separate editorial topics. Choices remain individual labels and category counts, without points, a total, mean or highest topic. These original descriptions are not GAD-7 or a published clinical scale.",
+    "zh": "通过三个分别阅读的编辑主题回顾过去四周。选择保留逐项标签与类别计数，不作点数、总分、均值或最高主题。本原创描述不是GAD-7或发表临床量表。"
+  },
+  "instructions": {
+    "en": "If you want to answer, recall the past four weeks. Choose did not notice, rarely, sometimes, often or very often. Use unscored for no relevant experience, unclear recall or withholding. No thought-suppression, body check, reassurance, breathing or exposure task is needed. Labels are not points; unscored stays separate from did not notice.",
+    "zh": "愿意回答时回顾过去四周。可选没有注意到、很少、有时、较常或经常；没有相关经历、回想不清或保留回答时选未计分。不必压制想法、检查身体、寻求安心确认、做呼吸或暴露任务。标签不是点数，未计分与没有注意到分开。"
+  },
+  "resultHeading": {
+    "en": "Your three separate everyday-worry records",
+    "zh": "三个分别阅读的日常担心记录"
+  },
+  "directions": [
+    {
+      "id": "recurring-worries",
+      "title": {
+        "en": "Recurring worries",
+        "zh": "反复出现的担心"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "tension-and-restlessness",
+      "title": {
+        "en": "Tension and restlessness",
+        "zh": "紧绷与坐立不安"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "worry-in-daily-activities",
+      "title": {
+        "en": "Worry during ordinary activities",
+        "zh": "日常活动中的担心"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "WRY_01",
+      "prompt": {
+        "en": "Across an ordinary day, several different worries kept drawing my attention.",
+        "zh": "在普通的一天里，几件不同的担心不断吸引我的注意。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "recurring-worries"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "recurring-worries"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "recurring-worries"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "recurring-worries"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "recurring-worries"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WRY_02",
+      "prompt": {
+        "en": "A concern stayed in my thoughts after I had dealt with the practical part I could address.",
+        "zh": "在处理了自己能处理的实际部分后，一项担心仍留在脑中。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "recurring-worries"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "recurring-worries"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "recurring-worries"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "recurring-worries"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "recurring-worries"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WRY_03",
+      "prompt": {
+        "en": "I repeatedly imagined an unfavourable outcome to an everyday situation.",
+        "zh": "面对日常情况时，我反复想到不利的结果。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "recurring-worries"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "recurring-worries"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "recurring-worries"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "recurring-worries"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "recurring-worries"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WRY_04",
+      "prompt": {
+        "en": "I wanted to turn to another activity but found it hard to leave a worry behind.",
+        "zh": "我想转去做别的事，却觉得难以放下某项担心。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "recurring-worries"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "recurring-worries"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "recurring-worries"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "recurring-worries"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "recurring-worries"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WRY_05",
+      "prompt": {
+        "en": "During a pause in activity, I found it hard to feel settled.",
+        "zh": "活动暂停时，我仍觉得难以安定下来。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "tension-and-restlessness"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "tension-and-restlessness"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "tension-and-restlessness"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "tension-and-restlessness"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "tension-and-restlessness"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WRY_06",
+      "prompt": {
+        "en": "I noticed myself holding muscles tight without choosing to do so.",
+        "zh": "我注意到自己并非有意地绷紧着肌肉。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "tension-and-restlessness"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "tension-and-restlessness"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "tension-and-restlessness"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "tension-and-restlessness"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "tension-and-restlessness"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WRY_07",
+      "prompt": {
+        "en": "I felt a need to move around when the activity did not require movement.",
+        "zh": "活动本身不需要走动时，我仍感到想动来动去。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "tension-and-restlessness"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "tension-and-restlessness"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "tension-and-restlessness"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "tension-and-restlessness"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "tension-and-restlessness"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WRY_08",
+      "prompt": {
+        "en": "A small interruption felt harder to tolerate while I was feeling tense.",
+        "zh": "感到紧绷时，一次小打断也让我觉得更难忍受。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "tension-and-restlessness"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "tension-and-restlessness"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "tension-and-restlessness"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "tension-and-restlessness"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "tension-and-restlessness"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WRY_09",
+      "prompt": {
+        "en": "Worry drew my attention away from an activity I had chosen to do.",
+        "zh": "担心把我的注意力从自己选择要做的活动上拉开。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "worry-in-daily-activities"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "worry-in-daily-activities"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "worry-in-daily-activities"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "worry-in-daily-activities"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "worry-in-daily-activities"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WRY_10",
+      "prompt": {
+        "en": "Thoughts about a concern interrupted my attempt to settle for sleep.",
+        "zh": "准备安睡时，关于某项担心的想法打断了安定下来的过程。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "worry-in-daily-activities"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "worry-in-daily-activities"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "worry-in-daily-activities"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "worry-in-daily-activities"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "worry-in-daily-activities"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WRY_11",
+      "prompt": {
+        "en": "After a period when I felt tense, I noticed feeling tired.",
+        "zh": "在一段感到紧绷的时间之后，我注意到自己感到疲惫。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "worry-in-daily-activities"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "worry-in-daily-activities"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "worry-in-daily-activities"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "worry-in-daily-activities"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "worry-in-daily-activities"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "WRY_12",
+      "prompt": {
+        "en": "I put off an ordinary task while I felt occupied by worries.",
+        "zh": "觉得脑中被担心占据时，我推迟了一项日常任务。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "worry-in-daily-activities"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "worry-in-daily-activities"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "worry-in-daily-activities"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "worry-in-daily-activities"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "worry-in-daily-activities"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "recurring-worries-reading",
+      "directionIds": [
+        "recurring-worries"
+      ],
+      "title": {
+        "en": "Recurring worries — Complete Reading",
+        "zh": "反复出现的担心：完整读法"
+      },
+      "headline": {
+        "en": "Recurring worries",
+        "zh": "反复出现的担心"
+      },
+      "summary": {
+        "en": "Read the complete original topic without answering. This public explanation is the same for every visitor and contains no personal choices, counts or diagnosis.",
+        "zh": "不必答题即可读完整原创主题说明。公开解释对所有访客相同，不含个人选择、计数或诊断。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to four descriptions, with individual choices retained. Unscored stays separate from did not notice. No total, mean, ranking, risk level or clinical inference.",
+        "zh": "六种类别计数合计四条描述，并保留逐项选择。未计分与没有注意到分开；没有总分、均值、排序、风险水平或临床推断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Recurring worries — Complete Reading",
+          "zh": "反复出现的担心：完整读法"
+        },
+        "description": {
+          "en": "Read the complete original topic without answering. This public explanation is the same for every visitor and contains no personal choices, counts or diagnosis.",
+          "zh": "不必答题即可读完整原创主题说明。公开解释对所有访客相同，不含个人选择、计数或诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Several concerns within a recent period",
+            "zh": "近期的几项担心"
+          },
+          "paragraphs": [
+            {
+              "en": "The first four original descriptions ask about several worries drawing your attention, a concern remaining after a practical step, imagining an unfavourable outcome and difficulty moving to something else. If you choose to answer, recall the past four weeks. This is an editorial window for a private recollection, rather than a diagnostic duration or a demand to review every day.",
+              "zh": "前四条原创描述询问几项担心吸引注意、处理实际部分后仍惦记、想到不利结果，以及难以转去做别的事。愿意回答时回顾过去四周。这个窗口帮助私人回忆，不是诊断时长，也不要求逐日复查。"
+            },
+            {
+              "en": "A concern can involve a real uncertainty, an unresolved practical problem or something you cannot control. The page cannot tell whether a worry is reasonable, whether a problem has been solved or what another person intends. You can describe the experience without accepting a judgement that your thoughts are excessive, irrational or a failure of will.",
+              "zh": "担心可能涉及真实不确定、未解决的实际问题，或无法控制的事。页面不能判断担心得是否合理、问题是否解决或他人意图。可以描述经历，无需接受想太多、不理性或意志不足的判断。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Read four descriptions through six categories",
+            "zh": "用六种类别读四条描述"
+          },
+          "paragraphs": [
+            {
+              "en": "Each statement has did not notice, rarely, sometimes, often, very often and an unscored option. The interface records separate counts for these labels and retains your individual choices. Within this topic the six counts add to four descriptions. They are not four days, four episodes or four separate problems, and no label contributes points to a total.",
+              "zh": "每条可选没有注意到、很少、有时、较常、经常或未计分。界面分别统计标签，并保留逐条选择。本主题六种计数合计四条描述，不是四天、四次发作或四件问题；标签不贡献总分点数。"
+            },
+            {
+              "en": "For a fictional example, one description selected sometimes, two selected often and one unscored produce counts of one, two and one in those categories. That arithmetic does not identify a strongest worry, a moderate level or a need for treatment. The record does not add category IDs, take their mean or choose a winning topic.",
+              "zh": "举例说，一条选有时、两条选较常、一条未计分，对应类别分别计一、二、一。这不识别最强担心、中度水平或治疗需要。记录不把类别标识相加，不求均值，也不选最高主题。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "An unfinished concern and repeated thought differ",
+            "zh": "问题未解决与想法重复有所区别"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine that an ordinary plan depends on a reply you have not received. You may remember the same question returning while the needed information is still missing. A record can describe that experience, but it cannot decide that more thought was useless, that you should have contacted someone or that waiting was the correct choice.",
+              "zh": "例如一项日常计划还在等回复，缺少的信息没来，同一个问题反复出现。记录可以描述这种经历，却不能决定继续想没有用、应该联系对方，或等待才正确。"
+            },
+            {
+              "en": "You may also remember having taken the practical step available to you while the concern remained. Those are two separate observations: what you could do and what you continued to notice. They do not prove that the situation was safe or resolved. No message checking, reassurance request or experiment is assigned to make the account more complete.",
+              "zh": "也可能记得已经做了当时能做的实际一步，担心却还在。能做什么和继续注意到什么，是两个观察，不证明事情安全或已解决。不安排检查消息、索要安心保证或做实验来补全记录。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Keep this recent record distinct from the PTQ",
+            "zh": "与PTQ的通常思考方式分开"
+          },
+          "paragraphs": [
+            {
+              "en": "The separate PTQ on this site retains its published instruction about typical thinking concerning negative experiences or problems. It uses fifteen source statements and its own arithmetic. These twelve original observations instead make a recent recollection of worry, tension and ordinary activities. Neither form supplies missing answers for the other, and their numbers cannot be combined.",
+              "zh": "本站另有PTQ，保留关于负面经历或问题的通常思考方式这一原指示，使用十五条源陈述及自身算术。本十二条原创观察回顾近期担心、紧绷与日常活动。两者不能互补缺失回答，数字也不能合并。"
+            },
+            {
+              "en": "The three topics here are overlapping editorial groupings, not validated independent dimensions. This is not GAD-7, a published anxiety scale or a clinical screen. No diagnosis, population rank, personality, probability or severity category follows from a response. English and Chinese measurement equivalence and the validity of these original groupings have not been established.",
+              "zh": "这里三个主题是可能重叠的编辑分组，不是已验证的独立维度。本版不是GAD-7、发表焦虑量表或临床筛查。回答不产生诊断、人群排名、人格、概率或严重度档；尚未建立双语测量等值及原创分组有效性。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Leave room for uncertainty and privacy",
+            "zh": "保留不确定与私人边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Use unscored when there is no relevant experience, recall is unclear or you prefer not to answer. This remains separate from did not notice and never becomes a zero. You need not reconstruct a difficult event, supply a private thought or identify another person. All four unscored descriptions can be completed without a personal interpretation being invented.",
+              "zh": "没有相关经历、回想不清或不愿回答时可选未计分。它与没有注意到分开，绝不变成零分。不必重建困难事件、提供私人想法或透露他人身份。四条全未计分也能完成，不编造个人解释。"
+            },
+            {
+              "en": "A later recollection can differ because circumstances, opportunities or interpretations changed. That difference does not establish recovery, deterioration or a treatment effect. There is no target category and no schedule for repeating the record. You may keep one useful phrase, read a public guide or leave without trying to reduce a count.",
+              "zh": "以后回忆可能因处境、机会或理解变化而不同，不建立恢复、恶化或治疗效果。没有目标类别或规定重测日程。可以只留一句有用表述、阅读公开指南或离开，无需降低计数。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "A question about support needs no threshold",
+            "zh": "咨询支持无需门槛"
+          },
+          "paragraphs": [
+            {
+              "en": "You may ask a qualified healthcare or mental-health professional about worry without completing the record, reaching a count or waiting six months. The website cannot decide that a concern is too small to discuss or that a clinical condition explains it. The linked NIMH publication provides broader assessment background; it supplies none of these original items, keys or validation.",
+              "zh": "咨询合格医疗或心理健康专业人员，不必完成记录、达到计数或等六个月。网站不能决定担忧太小不值得谈，也不能给出临床解释。链接NIMH资料提供更广评估背景，不提供原创题目、计分键或验证。"
+            },
+            {
+              "en": "Keep existing advice, care and safety support independent of this page. It cannot assess medical need or urgency, explain a physical symptom or establish that a sensation is harmless or only anxiety. Do not use a category to postpone assessment, change medication or cancel support. In immediate danger or if you cannot stay safe, seek local emergency assistance rather than continue.",
+              "zh": "已有意见、照护和安全支持独立保留。页面不能评估医疗需要或紧急程度，不能解释身体症状，也不能建立感觉无害或只是焦虑。不要因类别推迟评估、改药或取消支持。有即时危险或无法保障安全时，请寻求当地紧急援助而非继续。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "A useful description can stay small",
+            "zh": "有用描述可以保持有限"
+          },
+          "paragraphs": [
+            {
+              "en": "An optional phrase could identify the ordinary task, the returning concern and what you would like to ask about. It need not explain the entire situation or reveal the content of a private thought. The page asks for no exposure, thought-suppression, checking or reassurance exercise. You can retain existing boundaries and decide that no further reflection would be useful today.",
+              "zh": "可选表述可以指出日常任务、反复出现的担心及想问什么，无需解释整件事或透露私人想法。页面不安排暴露、压制想法、检查或安心确认练习。可以保留既有边界，也可以觉得今天无需再回顾。"
+            },
+            {
+              "en": "Selections stay only in current-page memory, without a saved draft, submission, questionnaire analytics or a personal result address. Exiting, retaking, reloading and leaving clear them. Copying shares only the fixed public title and entry. Every complete guide remains public before answers, after all-unscored selections and for every categorical record.",
+              "zh": "选择只在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新和离页会清除。复制仅含固定公开标题与入口。答题前、全未计分后及任何类别下，完整指南都公开可读。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tension-and-restlessness-reading",
+      "directionIds": [
+        "tension-and-restlessness"
+      ],
+      "title": {
+        "en": "Tension and restlessness — Complete Reading",
+        "zh": "紧绷与坐立不安：完整读法"
+      },
+      "headline": {
+        "en": "Tension and restlessness",
+        "zh": "紧绷与坐立不安"
+      },
+      "summary": {
+        "en": "Read the complete original topic without answering. This public explanation is the same for every visitor and contains no personal choices, counts or diagnosis.",
+        "zh": "不必答题即可读完整原创主题说明。公开解释对所有访客相同，不含个人选择、计数或诊断。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to four descriptions, with individual choices retained. Unscored stays separate from did not notice. No total, mean, ranking, risk level or clinical inference.",
+        "zh": "六种类别计数合计四条描述，并保留逐项选择。未计分与没有注意到分开；没有总分、均值、排序、风险水平或临床推断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Tension and restlessness — Complete Reading",
+          "zh": "紧绷与坐立不安：完整读法"
+        },
+        "description": {
+          "en": "Read the complete original topic without answering. This public explanation is the same for every visitor and contains no personal choices, counts or diagnosis.",
+          "zh": "不必答题即可读完整原创主题说明。公开解释对所有访客相同，不含个人选择、计数或诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Recall what you noticed without checking now",
+            "zh": "回顾注意到什么，不必现在检查"
+          },
+          "paragraphs": [
+            {
+              "en": "These four original descriptions concern difficulty feeling settled during a pause, holding muscles tight, wanting to move when movement was not required and tolerating a small interruption while tense. They ask about your recollection of the past four weeks. You need not examine your body, create discomfort or change your breathing to decide which category to select.",
+              "zh": "这四条原创描述涉及暂停时难以安定、肌肉绷紧、活动不需走动却想动，以及紧绷时难忍小打断。只回忆过去四周，不必检查身体、制造不适或改变呼吸来选类别。"
+            },
+            {
+              "en": "The topic title groups descriptions for reading; it does not say they have one cause or must occur together. A physical sensation, an urge to move and irritation are different experiences. You may select different categories for each. The page cannot decide that anxiety explains them, exclude a medical cause or establish that a sensation is harmless.",
+              "zh": "主题标题只为方便阅读，不表示描述原因相同或必须同时发生。身体感觉、想动和烦躁是不同经历，可以各选不同类别。页面不能认定焦虑是解释，不能排除医学原因或建立感觉无害。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Count descriptions rather than symptoms or episodes",
+            "zh": "统计描述，不算症状或发作"
+          },
+          "paragraphs": [
+            {
+              "en": "Did not notice, rarely, sometimes, often and very often remain separate labels, alongside an explicit unscored category. Six counts add to four descriptions. This is not a symptom total, tension index or restlessness level. The page does not measure muscle activity, time spent moving, intensity of discomfort or the number of interruptions you experienced.",
+              "zh": "没有注意到、很少、有时、较常、经常和明确未计分类别分别保留。六种计数合计四条描述，不是症状总数、紧绷指数或不安水平。页面不测肌肉活动、走动时间、不适强度或被打断次数。"
+            },
+            {
+              "en": "In a fictional record, one sometimes, one often and two unscored selections mean exactly those four chosen descriptions. The two unscored responses cannot be changed to did not notice or estimated from the other answers. There is no combined total with the worry or everyday-activity topics, and no rule that the most common category describes the whole person.",
+              "zh": "虚构记录中，一条有时、一条较常和两条未计分，只表示这四项选择。未计分不能改成没有注意到，也不能靠别的回答估算。不与担心或日常活动主题合总分，不把最多类别当整个人的描述。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A pause is a context, not a relaxation test",
+            "zh": "暂停是情境，不是放松测试"
+          },
+          "paragraphs": [
+            {
+              "en": "You might remember an ordinary gap between activities in which settling felt difficult. Describing that gap does not test your ability to relax or establish that you should have felt calm. Demands may still have been present. The page cannot inspect the setting, judge whether it was safe or know what support or practical choices were available.",
+              "zh": "可能记得活动之间的普通空隙里难以安定。描述空隙不是测试放松能力，也不建立当时应该平静；要求可能仍在。页面不能检查场景、判断安全或知道有哪些支持与实际选择。"
+            },
+            {
+              "en": "Likewise, noticing a small interruption while tense does not establish an anger problem, blame another person or explain what happened next. The statement records your remembered experience, not observed behaviour or character. It does not ask you to revisit a disagreement, tolerate another interruption or prove that you can remain still or patient.",
+              "zh": "同样，紧绷时注意到小打断，不建立愤怒问题，不归咎他人，也不解释后续。陈述记录回忆，不是可观察行为或品格。不要求重返争执、忍受再一次打断，或证明能安静和耐心。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Keep bodily observations separate from clinical conclusions",
+            "zh": "身体观察与临床结论分开"
+          },
+          "paragraphs": [
+            {
+              "en": "A recollection has no examination, medical history or measurements. A category cannot distinguish a psychological explanation from another health concern, medication effect, environmental demand or ordinary variation. Nor can the website decide which of those explanations is relevant to you. New or changing physical concerns should not be explained away by an online record.",
+              "zh": "回忆没有体检、病史或测量。类别不能区分心理解释、其他健康担忧、药物影响、环境要求或日常变化，网站也不能选择哪个解释与你有关。不要用在线记录解释掉新出现或变化的身体担忧。"
+            },
+            {
+              "en": "This is an original editorial topic, not GAD-7, a medical device or a published anxiety measure. Four descriptions do not constitute diagnostic criteria or a validated independent dimension. There are no clinical bands, population comparisons or English-to-Chinese norms. A small count, an all-unscored record or no noticed sensation cannot confirm health or rule out a condition.",
+              "zh": "这是原创编辑主题，不是GAD-7、医疗器械或发表焦虑测量。四条描述不组成诊断标准或已验证的独立维度。没有临床档、人群比较或中英文常模。少量、全未计分或未注意到感觉，都不能确认健康或排除状况。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Leave out an observation when recall is unclear",
+            "zh": "回想不清时保留未计分"
+          },
+          "paragraphs": [
+            {
+              "en": "Use unscored for no relevant experience, unclear recall or withholding an answer. You do not need to observe yourself for longer, test a muscle, count movements or seek a stronger example. The record can be finished with all four descriptions unscored, while the same complete guide and support information remain available.",
+              "zh": "没有相关经历、回想不清或保留回答时可选未计分。不必延长自我观察、测试肌肉、数动作或寻找更强例子。四条全未计分也能完成，相同全文和支持说明仍然可读。"
+            },
+            {
+              "en": "Later choices may differ because the activities, demands, recollections or interpretation of the wording differ. The page is not monitoring your body between visits. It supplies no target count, preferred answer or schedule for repeating observations. Differences cannot demonstrate recovery, deterioration, treatment response or a change in your ability to cope.",
+              "zh": "以后选择可能因活动、要求、回忆或措辞理解不同而变。页面不在访问之间监测身体，没有目标计数、偏好答案或重复观察日程。差异不能展示恢复、恶化、治疗反应或应对能力变化。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "A question about support needs no threshold",
+            "zh": "咨询支持无需门槛"
+          },
+          "paragraphs": [
+            {
+              "en": "You may ask a qualified healthcare or mental-health professional about worry without completing the record, reaching a count or waiting six months. The website cannot decide that a concern is too small to discuss or that a clinical condition explains it. The linked NIMH publication provides broader assessment background; it supplies none of these original items, keys or validation.",
+              "zh": "咨询合格医疗或心理健康专业人员，不必完成记录、达到计数或等六个月。网站不能决定担忧太小不值得谈，也不能给出临床解释。链接NIMH资料提供更广评估背景，不提供原创题目、计分键或验证。"
+            },
+            {
+              "en": "Keep existing advice, care and safety support independent of this page. It cannot assess medical need or urgency, explain a physical symptom or establish that a sensation is harmless or only anxiety. Do not use a category to postpone assessment, change medication or cancel support. In immediate danger or if you cannot stay safe, seek local emergency assistance rather than continue.",
+              "zh": "已有意见、照护和安全支持独立保留。页面不能评估医疗需要或紧急程度，不能解释身体症状，也不能建立感觉无害或只是焦虑。不要因类别推迟评估、改药或取消支持。有即时危险或无法保障安全时，请寻求当地紧急援助而非继续。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Describe a question without prescribing an exercise",
+            "zh": "描述问题，不安排练习"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, you may retain a simple phrase about what you noticed and the activity in which it happened. You do not have to attach a cause or a diagnosis. No relaxation, breathing, movement, stillness or exposure exercise is assigned. Keep useful supports and existing professional instructions independent of these categories, and stop whenever further recollection is unhelpful.",
+              "zh": "若有用，可以留一句注意到什么、发生在什么活动中，不必加原因或诊断。不安排放松、呼吸、运动、保持不动或暴露练习。有用支持和已有专业指示独立保留，回忆无益时可以停止。"
+            },
+            {
+              "en": "Your selections remain in current-page memory without drafts, submissions, questionnaire analytics or a personal result URL. Exit, retake, refresh and leaving clear them. Copying shares only the public title and entry. This full reading remains identical for every visitor and needs no completed questionnaire, symptom demonstration or particular count.",
+              "zh": "选择只留当前页面内存，不存草稿、不提交、不作问卷分析，也无个人结果网址。退出、重做、刷新和离页会清除。复制只含公开标题入口。本全文对所有读者相同，不需完成问卷、展示症状或达到计数。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "worry-in-daily-activities-reading",
+      "directionIds": [
+        "worry-in-daily-activities"
+      ],
+      "title": {
+        "en": "Worry during ordinary activities — Complete Reading",
+        "zh": "日常活动中的担心：完整读法"
+      },
+      "headline": {
+        "en": "Worry during ordinary activities",
+        "zh": "日常活动中的担心"
+      },
+      "summary": {
+        "en": "Read the complete original topic without answering. This public explanation is the same for every visitor and contains no personal choices, counts or diagnosis.",
+        "zh": "不必答题即可读完整原创主题说明。公开解释对所有访客相同，不含个人选择、计数或诊断。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to four descriptions, with individual choices retained. Unscored stays separate from did not notice. No total, mean, ranking, risk level or clinical inference.",
+        "zh": "六种类别计数合计四条描述，并保留逐项选择。未计分与没有注意到分开；没有总分、均值、排序、风险水平或临床推断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Worry during ordinary activities — Complete Reading",
+          "zh": "日常活动中的担心：完整读法"
+        },
+        "description": {
+          "en": "Read the complete original topic without answering. This public explanation is the same for every visitor and contains no personal choices, counts or diagnosis.",
+          "zh": "不必答题即可读完整原创主题说明。公开解释对所有访客相同，不含个人选择、计数或诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "An activity gives a recollection some context",
+            "zh": "让活动为回忆提供背景"
+          },
+          "paragraphs": [
+            {
+              "en": "These four original descriptions concern attention drawn from a chosen activity, worry while settling for sleep, tiredness after a tense period and postponing an ordinary task while occupied by worries. Recall the past four weeks only if you want to answer. The topic does not measure functioning, productivity, disability, sleep quality or whether you met another person’s expectations.",
+              "zh": "这四条原创描述涉及注意力离开所选活动、安睡时担心、紧绷之后疲惫，以及担心占据脑中时推迟任务。愿意时回顾过去四周。主题不测功能、生产力、残障、睡眠质量，或是否达到他人期待。"
+            },
+            {
+              "en": "A remembered sequence is not proof of cause. Feeling tired after a tense period does not establish that worry caused the tiredness; postponing a task while worried does not establish that worry was the only reason. The website cannot inspect workload, health, caring responsibilities or the resources available. Those questions remain open rather than being filled in by a category.",
+              "zh": "记得先后顺序不证明原因。紧绷后疲惫不证明担心造成疲惫；担心时推迟任务也不证明唯一原因。网站不能检查工作量、健康、照顾责任或可用资源，这些问题保持开放，不由类别填补。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Four descriptions retain their individual labels",
+            "zh": "四条描述保留逐项标签"
+          },
+          "paragraphs": [
+            {
+              "en": "The six categories are did not notice, rarely, sometimes, often, very often and unscored. Their separate counts add to four descriptions, with every selection shown. They are not points, missed-task counts, nights of poor sleep or minutes of lost attention. No total, average, risk band, impairment grade or comparison with other visitors is calculated.",
+              "zh": "六类别是没有注意到、很少、有时、较常、经常和未计分。分别计数合计四条，并显示每项选择；不是点数、漏做任务、睡不好夜数或注意力损失分钟。不算总分、均值、风险档、受损等级或与其他访客比较。"
+            },
+            {
+              "en": "A fictional person might choose often for attention being drawn away and unscored for sleep because they cannot recall it clearly. The record retains exactly that difference. It cannot infer a sleep answer from an attention answer, assume that unscored means easy sleep or turn often into a precise event rate. Equal category counts may describe very different circumstances.",
+              "zh": "虚构例中，某人注意力一项选较常，睡眠因回想不清选未计分。记录保留这个区别，不能从注意力推断睡眠，不能把未计分当轻松入睡，也不能把较常变成精确发生率。相同计数可能对应不同处境。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A task and the concern beside it are different information",
+            "zh": "任务与旁边的担心是不同信息"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine choosing to read an ordinary notice while a concern keeps drawing your attention. You can describe the task and the interruption without concluding that you have poor concentration in every setting. The page has not observed you reading. It cannot decide what information you retained, whether the notice was clear or what caused the interruption.",
+              "zh": "例如本想读一则普通通知，某项担心却不断吸引注意。可以描述任务和打断，不必认定自己在任何场景都专注差。页面没有观察阅读，不知道记住什么、通知是否清楚或打断原因。"
+            },
+            {
+              "en": "A postponed task can also have practical reasons that are not captured by a statement. Missing information, competing needs or an unavailable resource may matter. No selection determines laziness, motivation, intelligence or suitability for work. You are not asked to finish a task, contact someone or produce evidence of difficulty before you can read the guide.",
+              "zh": "推迟任务也可能有陈述未捕捉的实际原因，如缺信息、需求竞争或资源不可用。选择不决定懒惰、动机、智力或工作适配。阅读指南前，不必完成任务、联系人或提交困难证据。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Sleep and energy cannot be explained by one topic",
+            "zh": "一个主题解释不了睡眠与精力"
+          },
+          "paragraphs": [
+            {
+              "en": "Remembering worry when you tried to settle for sleep does not establish an insomnia diagnosis, explain sleep duration or distinguish all possible causes. Tiredness likewise does not identify a mood disorder, burnout or a physical condition. These descriptions cannot replace the separate sleep reflection, a professional assessment or information you already have about your health.",
+              "zh": "记得安睡时担心，不建立失眠诊断、不解释睡眠时长，也不能区分所有原因。疲惫同样不识别情绪障碍、倦怠或身体状况。这些描述不替代独立睡眠回顾、专业评估或已有健康资料。"
+            },
+            {
+              "en": "This original topic is not a validated functional scale. The three groupings can overlap and have no established independence, clinical norms or bilingual measurement equivalence. No response confirms or excludes anxiety, assigns a severity level or determines healthcare need. A concern remains worth asking about without proving a particular effect on sleep, work or ordinary activity.",
+              "zh": "本原创主题不是已验证的功能量表。三分组可能重叠，未建立独立性、临床常模或双语测量等值。回答不确认或排除焦虑，不分严重度，也不决定医疗需要。无需证明对睡眠、工作或日常活动的特定影响，也可咨询担忧。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Unscored leaves missing information visible",
+            "zh": "未计分保留信息缺口"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose unscored if an activity did not occur, you cannot recall the experience or you would rather withhold it. This stays separate from did not notice. You do not need to stay awake, delay a task or check your attention to manufacture an example. No answer is preferred and no explanation of an unscored selection is requested.",
+              "zh": "活动没发生、回想不清或不愿回答时，可选未计分，与没有注意到分开。不必熬夜、延迟任务或检查注意力来制造例子。没有偏好答案，也不要求解释未计分原因。"
+            },
+            {
+              "en": "Repeating the record is optional. Different choices may reflect different tasks, available opportunities, memory or interpretation, rather than a change in health or performance. There is no monitoring schedule, progress score or reliable-change threshold. You may simply read the complete public text and stop, without trying to move a category in a desired direction.",
+              "zh": "重做是自愿的。不同选择可能反映不同任务、机会、记忆或理解，而非健康或表现变化。没有监测日程、进步分数或可靠变化门槛。可以只读完整公开正文后停止，不必让类别朝某方向变化。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "A question about support needs no threshold",
+            "zh": "咨询支持无需门槛"
+          },
+          "paragraphs": [
+            {
+              "en": "You may ask a qualified healthcare or mental-health professional about worry without completing the record, reaching a count or waiting six months. The website cannot decide that a concern is too small to discuss or that a clinical condition explains it. The linked NIMH publication provides broader assessment background; it supplies none of these original items, keys or validation.",
+              "zh": "咨询合格医疗或心理健康专业人员，不必完成记录、达到计数或等六个月。网站不能决定担忧太小不值得谈，也不能给出临床解释。链接NIMH资料提供更广评估背景，不提供原创题目、计分键或验证。"
+            },
+            {
+              "en": "Keep existing advice, care and safety support independent of this page. It cannot assess medical need or urgency, explain a physical symptom or establish that a sensation is harmless or only anxiety. Do not use a category to postpone assessment, change medication or cancel support. In immediate danger or if you cannot stay safe, seek local emergency assistance rather than continue.",
+              "zh": "已有意见、照护和安全支持独立保留。页面不能评估医疗需要或紧急程度，不能解释身体症状，也不能建立感觉无害或只是焦虑。不要因类别推迟评估、改药或取消支持。有即时危险或无法保障安全时，请寻求当地紧急援助而非继续。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep a practical question rather than a performance verdict",
+            "zh": "留下实际问题，不作表现裁定"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to discuss an experience, you could identify an activity, what drew your attention and what you would like help understanding. You choose the detail and audience; there is no need to share private thoughts, work records or medical information here. This is an optional description, not a task-management plan, sleep intervention or guarantee that any change will help.",
+              "zh": "若想讨论，可以指出活动、什么吸引注意，以及想请人帮助理解什么。细节和对象自行选择，不必在这里分享私人想法、工作记录或医疗信息。这是可选描述，不是任务管理、睡眠干预或改变一定有用的保证。"
+            },
+            {
+              "en": "Selections remain in current-page memory only, without saved drafts, submission, questionnaire analytics or a personal result address. Exit, retake, reload and leaving clear the record. Copying shares only the public title and entry. The same complete guide is available before answers and for every record, including four unscored choices; support is never earned by completing a task.",
+              "zh": "选择只在当前页面内存，不存草稿、不提交、不作问卷分析，也无个人结果地址。退出、重做、刷新和离页会清除。复制只含公开标题入口。答题前及所有记录，包括四项全未计分，都能读相同全文；支持无需靠完成任务获得。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "original-method",
+      "title": {
+        "en": "Original descriptions and an editorial recall window",
+        "zh": "原创描述与编辑回忆窗口"
+      },
+      "paragraphs": [
+        {
+          "en": "Twelve original adult descriptions form three overlapping topics of four. The past four weeks is a recall aid, not a diagnostic duration or a rule to wait before seeking help. This is not GAD-7, the PTQ, PSS-4 or a validated replacement.",
+          "zh": "十二条成年人原创描述分为三个可能重叠的主题，每组四条。过去四周帮助回忆，不是诊断时长或求助等待规则。本版不是GAD-7、PTQ、PSS-4或其已验证替代品。"
+        },
+        {
+          "en": "The linked NIMH publication describes broader worry and professional-assessment contexts. It supplies none of these original items, category keys, evidence of validity or endorsement. English and Chinese measurement equivalence and norms have not been established.",
+          "zh": "链接NIMH资料介绍更广担心与专业评估背景，不提供原创题目、类别键、有效性证据或背书。尚未建立双语测量等值或常模。"
+        }
+      ]
+    },
+    {
+      "id": "separate-counts",
+      "title": {
+        "en": "Separate category counts, without points",
+        "zh": "分别统计类别，不作点数"
+      },
+      "paragraphs": [
+        {
+          "en": "Each topic keeps six separate category counts and four individual choices. The counts add to four descriptions rather than days, events or symptoms. Numeric-looking IDs are labels. No total, mean, highest topic, risk, diagnosis or severity follows.",
+          "zh": "每主题保留六种类别计数及四项选择，合计四条描述而非天数、事件或症状。像数字的标识只是标签，不产生总分、均值、最高主题、风险、诊断或严重度。"
+        },
+        {
+          "en": "Unscored covers no relevant experience, unclear recall or withholding. It is never estimated, recoded to zero or treated as did not notice. All-unscored can finish with every full guide still public.",
+          "zh": "未计分包括无相关经历、回想不清或保留回答，绝不估算、记零或当没有注意到。全未计分也能完成，所有全文仍然公开。"
+        }
+      ]
+    },
+    {
+      "id": "support-context",
+      "title": {
+        "en": "Support without waiting for a record",
+        "zh": "咨询支持无需等记录"
+      },
+      "paragraphs": [
+        {
+          "en": "Ask a qualified healthcare or mental-health professional without a count, proof of impairment, six months of symptoms or a finished record. The page cannot determine causes, medical need or urgency, or establish that a physical sensation is harmless or only anxiety.",
+          "zh": "咨询合格医疗或心理健康专业人员，不需要计数、受损证明、六个月症状或完成记录。页面不能决定原因、医疗需要或紧急程度，也不能建立身体感觉无害或只是焦虑。"
+        },
+        {
+          "en": "Keep existing care, advice and safety supports independent. Do not use a category to postpone assessment, change medicine or cancel support. No exposure, thought-suppression, breathing, body-checking or reassurance exercise is assigned. In immediate danger or if you cannot stay safe, seek local emergency assistance instead of continuing.",
+          "zh": "已有照护、意见和安全支持独立保留。不要因类别推迟评估、改药或取消支持。不安排暴露、压制想法、呼吸、身体检查或安心确认练习。有即时危险或无法保障安全时，请寻求当地紧急援助而非继续。"
+        }
+      ]
+    },
+    {
+      "id": "memory-only",
+      "title": {
+        "en": "Private selections and complete public readings",
+        "zh": "私人选择与完整公开读法"
+      },
+      "paragraphs": [
+        {
+          "en": "Selections stay only in current-page memory, without drafts, submission, questionnaire analytics or a personal result URL. Exit, retake, reload and leaving clear them. Copying shares only the fixed public title and entry, without categories.",
+          "zh": "选择只留当前页面内存，不存草稿、不提交、不作问卷分析，也无个人结果网址。退出、重做、刷新和离页会清除。复制只含固定公开标题入口，不含类别。"
+        },
+        {
+          "en": "Read all three complete guides before answering or after any record, including all-unscored. Every visitor sees the same full text. A later record cannot demonstrate recovery, deterioration or treatment response, and there is no target count or required monitoring schedule.",
+          "zh": "答题前及任何记录后，包括全部未计分，都能读三篇完整指南。所有读者看到同样全文。后一次记录不能展示恢复、恶化或治疗反应，没有目标计数或规定监测日程。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this a GAD-7 score or a diagnosis?",
+        "zh": "这是GAD-7分数或诊断吗？"
+      },
+      "answer": {
+        "en": "No. These twelve original descriptions create categorical records, not a published clinical score. They cannot confirm or exclude anxiety or another condition, assign severity or establish a cause.",
+        "zh": "不是。这十二条原创描述产生类别记录，不是发表临床分数，不能确认或排除焦虑或其他状况，不能分严重度或找原因。"
+      }
+    },
+    {
+      "question": {
+        "en": "How is it different from the PTQ or monthly stress check-in?",
+        "zh": "与PTQ或月度压力自评有何区别？"
+      },
+      "answer": {
+        "en": "The PTQ asks about typical repetitive negative thinking and has its own published item key. The original monthly stress form asks about feeling rushed and room to pause. This recent recollection includes worry, tension, restlessness and everyday activities. They are separate forms; answers and numbers are not combined.",
+        "zh": "PTQ询问通常的重复消极思维，有自身发表题项键；原创月度压力题本询问急迫感与停顿空间。本近期回顾涉及担心、紧绷、坐立不安及日常活动。它们是独立题本，不合并回答或数字。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need to check a sensation or recreate worry?",
+        "zh": "需要检查感觉或重现担心吗？"
+      },
+      "answer": {
+        "en": "No. Recall only. No body check, exposure, breathing, thought-suppression or reassurance task is required. Withhold any observation or stop. A category cannot establish that a sensation is harmless or only anxiety.",
+        "zh": "不需要，只凭回忆。不要求检查身体、暴露、呼吸、压制想法或安心确认任务。任何观察都可不答，也可停止；类别不能建立感觉无害或只是焦虑。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I finish with every observation unscored?",
+        "zh": "所有观察未计分也能完成吗？"
+      },
+      "answer": {
+        "en": "Yes. Unscored remains separate from did not notice, without an invented personal interpretation. All three complete guides and support remain public regardless of completion or categories.",
+        "zh": "可以。未计分与没有注意到分开，不编造个人解释。无论完成与否或选择什么，三篇全文及支持说明始终公开。"
+      }
+    },
+    {
+      "question": {
+        "en": "Must I wait or reach a count before asking for help?",
+        "zh": "求助前必须等待或达到计数吗？"
+      },
+      "answer": {
+        "en": "No. You may ask a qualified professional without a completed record, count or waiting period. The page cannot assess healthcare need or urgency or replace existing care. Do not use it to postpone assessment or change medicine or support.",
+        "zh": "不必。无需完成记录、达到计数或等候即可咨询合格专业人员。页面不能评估医疗需要或紧急程度，也不替代已有照护。不要用它推迟评估、改药或改变支持。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "NIMH: Generalized Anxiety Disorder — broader assessment background",
+        "zh": "NIMH：广泛性焦虑障碍的评估背景"
+      },
+      "url": "https://www.nimh.nih.gov/health/publications/generalized-anxiety-disorder-gad"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_everyday_worry_observations",
+    "formCode": "fm_everyday_worry12_observations_v1",
+    "itemBankVersion": "original12_bilingual_three_by_four_v1",
+    "scoringVersion": "six_categorical_counts_per_four_no_clinical_inference_v1",
+    "resultContentVersion": "three_full_bilingual_everyday_worry_readings_v1",
+    "itemBankSha256": "7d83d31f6fb78e8fbe6e0375873ad026671f3659a2a93175445e193644853cc5",
+    "resultContentSha256": "4c1d6172ae28959c5672bfe233005ea05975840d1c8c5bb3c1ab587d73d21e76",
+    "psychometricValidationCompleted": false
+  }
+}

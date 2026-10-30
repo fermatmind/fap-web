@@ -7127,5 +7127,29 @@
       "body-experiences-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "everyday-worry-reflection",
+    "code": "FM_EVERYDAY_WORRY12_OBSERVATIONS",
+    "version": "fm_everyday_worry12_observations_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Everyday Worry: Personal Reflection",
+      "zh": "日常担心：个人回顾"
+    },
+    "description": {
+      "en": "12 original adult observations about recurring worries, tension, restlessness and ordinary activities. Three full guides are free before answers. Recall only; no anxiety diagnosis or severity score.",
+      "zh": "12条成年人原创观察，回顾反复担心、紧绷、坐立不安与日常活动。三篇完整指南答题前免费可读；只凭回忆，不作焦虑诊断或严重度评分。"
+    },
+    "minutes": 6,
+    "formCode": "fm_everyday_worry12_observations_v1",
+    "questionCount": 12,
+    "resultSlugs": [
+      "recurring-worries-reading",
+      "tension-and-restlessness-reading",
+      "worry-in-daily-activities-reading"
+    ],
+    "collection": "explore"
   }
 ]
