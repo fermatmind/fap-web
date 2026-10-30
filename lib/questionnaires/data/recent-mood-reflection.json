@@ -1,0 +1,1330 @@
+{
+  "slug": "recent-mood-reflection",
+  "code": "FM_RECENT_MOOD12_OBSERVATIONS",
+  "version": "fm_recent_mood12_observations_v1",
+  "updated": "2026-10-30",
+  "category": "framework",
+  "kind": "mood-observations12",
+  "minutes": 6,
+  "title": {
+    "en": "Recent Mood: Personal Reflection",
+    "zh": "近期心情：个人回顾"
+  },
+  "seoTitle": {
+    "en": "Recent Mood: Personal Reflection",
+    "zh": "近期心情：个人回顾"
+  },
+  "description": {
+    "en": "12 original adult descriptions of recent mood, interest, sleep, appetite, energy, attention and inner words. Three full guides before answers. Recall only, without depression diagnosis or severity scoring.",
+    "zh": "12条成年人原创描述，回顾近期心情、兴趣、睡眠、食欲、精力、注意与内心语言。三篇全文答题前可读，只凭回忆，不作抑郁诊断或严重度评分。"
+  },
+  "introduction": {
+    "en": "Recall the past four weeks through three overlapping editorial topics. Each choice stays an individual category and contributes only to a category count, without points, a total or highest topic. This is not PHQ-9, SDS or a replacement for the separate clinical assessment.",
+    "zh": "通过三个可能重叠的编辑主题回顾过去四周。选择保留逐项类别，只作类别计数，没有点数、总分或最高主题。本版不是PHQ-9、SDS，也不替代独立临床评估。"
+  },
+  "instructions": {
+    "en": "If you choose to answer, recall the past four weeks. Choose did not notice, rarely, sometimes, often or very often; use unscored for no relevant experience, unclear memory or withholding. Recall only. No task, sleep or food change, body measurement or thought exercise is required. Unscored stays separate from did not notice.",
+    "zh": "愿意回答时回顾过去四周。可选没有注意到、很少、有时、较常或经常；没有相关经历、记忆不清或保留回答时选未计分。只凭回忆，不要求任务、睡眠饮食改变、身体测量或思维练习。未计分与没有注意到分开。"
+  },
+  "resultHeading": {
+    "en": "Your three separate recent-mood records",
+    "zh": "三个分别阅读的近期心情记录"
+  },
+  "directions": [
+    {
+      "id": "mood-and-interest",
+      "title": {
+        "en": "Mood and interest",
+        "zh": "心情与兴趣"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "sleep-and-appetite",
+      "title": {
+        "en": "Sleep and appetite",
+        "zh": "睡眠与食欲"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "energy-attention-and-self-talk",
+      "title": {
+        "en": "Energy, attention and inner words",
+        "zh": "精力、注意与内心语言"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "MOD_01",
+      "prompt": {
+        "en": "My mood felt lower than it usually does during an ordinary part of the day.",
+        "zh": "在一天的某个普通时段，我感觉心情比自己平时低落。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "mood-and-interest"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "mood-and-interest"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "mood-and-interest"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "mood-and-interest"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "mood-and-interest"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "MOD_02",
+      "prompt": {
+        "en": "Something I would usually look forward to felt less appealing.",
+        "zh": "一件自己平时会期待的事，变得不那么吸引我。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "mood-and-interest"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "mood-and-interest"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "mood-and-interest"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "mood-and-interest"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "mood-and-interest"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "MOD_03",
+      "prompt": {
+        "en": "While doing something I usually enjoy, I noticed less enjoyment.",
+        "zh": "做一件自己平时喜欢的事时，我注意到享受的感觉少了些。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "mood-and-interest"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "mood-and-interest"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "mood-and-interest"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "mood-and-interest"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "mood-and-interest"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "MOD_04",
+      "prompt": {
+        "en": "I noticed feeling emotionally flat during an ordinary activity.",
+        "zh": "进行一项普通活动时，我注意到情绪上有些平淡或麻木。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "mood-and-interest"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "mood-and-interest"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "mood-and-interest"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "mood-and-interest"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "mood-and-interest"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "MOD_05",
+      "prompt": {
+        "en": "At a time I intended to sleep, I found it hard to settle into sleep.",
+        "zh": "到了自己打算睡觉的时间，我却觉得难以安睡。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "sleep-and-appetite"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "sleep-and-appetite"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "sleep-and-appetite"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "sleep-and-appetite"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "sleep-and-appetite"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "MOD_06",
+      "prompt": {
+        "en": "I stayed asleep or in bed longer than I had intended.",
+        "zh": "我睡着或待在床上的时间，比自己原本打算的更长。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "sleep-and-appetite"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "sleep-and-appetite"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "sleep-and-appetite"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "sleep-and-appetite"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "sleep-and-appetite"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "MOD_07",
+      "prompt": {
+        "en": "An ordinary meal felt less appealing than it usually does.",
+        "zh": "一顿普通饭菜，比平时更难提起我的食欲。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "sleep-and-appetite"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "sleep-and-appetite"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "sleep-and-appetite"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "sleep-and-appetite"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "sleep-and-appetite"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "MOD_08",
+      "prompt": {
+        "en": "I noticed wanting food more than was usual for me.",
+        "zh": "我注意到自己比平时更想吃东西。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "sleep-and-appetite"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "sleep-and-appetite"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "sleep-and-appetite"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "sleep-and-appetite"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "sleep-and-appetite"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "MOD_09",
+      "prompt": {
+        "en": "A familiar activity felt harder to start because I felt short of energy.",
+        "zh": "一项熟悉活动因为感觉精力不足而更难开始。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "energy-attention-and-self-talk"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "energy-attention-and-self-talk"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "energy-attention-and-self-talk"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "energy-attention-and-self-talk"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "energy-attention-and-self-talk"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "MOD_10",
+      "prompt": {
+        "en": "While reading or listening to ordinary information, I found it hard to stay with it.",
+        "zh": "阅读或听取普通信息时，我觉得难以持续留意内容。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "energy-attention-and-self-talk"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "energy-attention-and-self-talk"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "energy-attention-and-self-talk"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "energy-attention-and-self-talk"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "energy-attention-and-self-talk"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "MOD_11",
+      "prompt": {
+        "en": "After a small setback, I spoke harshly to myself in my thoughts.",
+        "zh": "遇到一次小挫折后，我在心里对自己说了苛刻的话。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "energy-attention-and-self-talk"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "energy-attention-and-self-talk"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "energy-attention-and-self-talk"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "energy-attention-and-self-talk"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "energy-attention-and-self-talk"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "MOD_12",
+      "prompt": {
+        "en": "I noticed thoughts that what I did did not count for much.",
+        "zh": "我注意到一种想法：自己做的事似乎没有多少价值。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "energy-attention-and-self-talk"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "energy-attention-and-self-talk"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "energy-attention-and-self-talk"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "energy-attention-and-self-talk"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "energy-attention-and-self-talk"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "mood-and-interest-reading",
+      "directionIds": [
+        "mood-and-interest"
+      ],
+      "title": {
+        "en": "Mood and interest — Complete Reading",
+        "zh": "心情与兴趣：完整读法"
+      },
+      "headline": {
+        "en": "Mood and interest",
+        "zh": "心情与兴趣"
+      },
+      "summary": {
+        "en": "Read this complete original public topic without answers. Every visitor sees the same explanation, without personal categories, counts or diagnosis.",
+        "zh": "不必答题即可阅读完整原创公开主题。每位访客看到相同解释，不含个人类别、计数或诊断。"
+      },
+      "scoreReading": {
+        "en": "Six separate category counts add to four descriptions. Each choice remains visible, and unscored stays distinct from did not notice. No total, mean, rank, risk tier or clinical inference.",
+        "zh": "六种独立类别计数合计四条描述，保留每项选择。未计分与没有注意到分开，没有总分、均值、排名、风险档或临床推断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Mood and interest — Complete Reading",
+          "zh": "心情与兴趣：完整读法"
+        },
+        "description": {
+          "en": "Read this complete original public topic without answers. Every visitor sees the same explanation, without personal categories, counts or diagnosis.",
+          "zh": "不必答题即可阅读完整原创公开主题。每位访客看到相同解释，不含个人类别、计数或诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Describe a recent experience without naming a condition",
+            "zh": "描述近期经历，不替它命名疾病"
+          },
+          "paragraphs": [
+            {
+              "en": "These four original descriptions concern feeling lower than usual, finding an anticipated activity less appealing, noticing less enjoyment and feeling emotionally flat during an ordinary activity. If you choose to answer, recall the past four weeks. This editorial window gives the recollection a boundary; it is not a diagnostic duration, a required waiting period or a demand to remember every day.",
+              "zh": "这四条原创描述涉及比平时低落、期待的活动吸引力下降、享受减少，以及普通活动中的平淡或麻木。愿意回答时回顾过去四周。这是编辑设定的回忆边界，不是诊断时长、必要等待期，也不要求记住每天。"
+            },
+            {
+              "en": "You can notice one experience without knowing why it occurred. The page cannot distinguish all the circumstances that might matter, observe an activity or decide what you ought to enjoy. A description is a way to retain what you remember, rather than a judgement that your response was inappropriate or that a named condition explains it.",
+              "zh": "可以注意到一种经历而不知道原因。页面无法区分所有相关处境、观察活动，或决定你应该喜欢什么。描述只是保留回忆，不裁定反应不当，也不认定某种疾病解释了它。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Keep mood, anticipation and enjoyment separate",
+            "zh": "区分心情、期待与享受"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine an ordinary activity you normally look forward to. You might remember having little interest beforehand while still enjoying part of it once it began. Another person might anticipate it as usual but notice little enjoyment during it. Those accounts need not be forced into a single verdict. The separate descriptions leave room for differences between anticipation and the experience itself.",
+              "zh": "例如一项平时期待的普通活动，开始前可能没什么兴趣，实际进行时却仍有部分乐趣；也可能照常期待，进行时却享受不多。不必把这些情况压成一个结论。分别描述，能保留期待与实际感受的区别。"
+            },
+            {
+              "en": "An activity may also have changed, become unavailable or carried demands that the statement does not capture. The record cannot decide that the change came from your mood, that you should repeat the activity or that enjoyment would prove good health. You need not arrange an activity or revisit a painful memory to test a response.",
+              "zh": "活动本身也可能改变、无法进行，或附带陈述没捕捉的要求。记录不能认定变化来自心情，不要求重复活动，也不能以享受来证明健康。不必安排活动或重访痛苦记忆来检验回答。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Read category counts as descriptions",
+            "zh": "把类别计数读作描述数量"
+          },
+          "paragraphs": [
+            {
+              "en": "Each description offers did not notice, rarely, sometimes, often, very often and unscored. The six separate counts add to four descriptions, with each selection retained. They are not four symptoms, days or episodes. Category IDs are labels, without points, a combined score, an average, a winning topic or a comparison with other visitors.",
+              "zh": "每条可选没有注意到、很少、有时、较常、经常和未计分。六种计数合计四条描述，并保留逐项选择；不是四种症状、四天或四次发作。类别标识只是标签，不是点数，不合总分、均值、最高主题或访客比较。"
+            },
+            {
+              "en": "For a fictional example, two selections of sometimes, one of often and one unscored remain exactly those category counts. That arithmetic cannot decide whether someone has depression, how severe an experience is or whether care is needed. A larger count in one category does not make this topic more important than another experience you want to discuss.",
+              "zh": "例如虚构记录中，两条有时、一条较常、一条未计分，只保留这些类别数量。算术不能判断是否抑郁、经历多严重或是否需要照护。某类别数量更多，也不使本主题比你想讨论的其他经历更重要。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Keep the original method distinct from clinical assessment",
+            "zh": "把原创方法与临床评估分开"
+          },
+          "paragraphs": [
+            {
+              "en": "This is an original personal recollection, not PHQ-9, SDS or a replacement for the site’s separate clinical assessment. That service has its own questions and reporting contract. General mood and interest themes already occur there; offering this private record does not make them a newly discovered construct. Do not transfer answers, combine numbers or treat the forms as interchangeable.",
+              "zh": "这是原创个人回顾，不是PHQ-9、SDS，也不替代本站另行提供的临床评估；后者有自己的题目及报告契约。一般心情和兴趣主题本已存在，私人记录不使它们成为新发现的构念。不要转移回答、合并数字或把题本互换。"
+            },
+            {
+              "en": "The three editorial topics here may overlap and have not been validated as independent dimensions. No clinical threshold, population norm, diagnostic probability or English–Chinese measurement equivalence has been established. The linked NIMH depression publication gives broader background about assessment and support. It supplies none of these original items, category rules or claims of validity.",
+              "zh": "三个编辑主题可能重叠，尚未验证为独立维度。没有建立临床阈值、人群常模、诊断概率或中英文测量等值。链接的NIMH抑郁资料只提供更广的评估和支持背景，不提供这些原创题、类别规则或有效性背书。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Leave uncertainty visible",
+            "zh": "让不确定保留下来"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose unscored if an activity did not happen, recall is unclear or you prefer not to answer. It remains separate from did not notice and is never converted into zero. You may complete all four descriptions unscored. The page will not fill the gaps, infer an emotional state from missing answers or ask you to justify withholding an experience.",
+              "zh": "活动没发生、记忆不清或不愿回答时，可选未计分，与没有注意到分开，不转换为零。四条全未计分也能完成。页面不补缺口、不从缺答推断情绪，也不要求解释保留回答的理由。"
+            },
+            {
+              "en": "A later recollection might differ because an opportunity, context, memory or interpretation changed. This method cannot establish improvement, deterioration or treatment response. There is no target category, repeat schedule or reliable-change rule. You can stop after reading, retain a useful phrase or discuss something the original descriptions did not ask about.",
+              "zh": "以后回顾可能因机会、处境、记忆或理解改变而不同。本方法不能建立改善、恶化或治疗反应，没有目标类别、重测日程或可靠变化规则。可以读完就停，留一句有用表述，或讨论原创描述没有询问的事。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not depend on a record",
+            "zh": "支持不取决于记录"
+          },
+          "paragraphs": [
+            {
+              "en": "You may ask a qualified healthcare or mental-health professional about a concern without completing these descriptions, reaching a count or waiting two weeks. The page cannot assess healthcare need, urgency or personal safety. Keep existing care, advice and support independent; do not use a record to postpone assessment, change medicine or decide that an experience is too small to discuss.",
+              "zh": "可以不完成描述、不达到计数、不等两周就向合格医疗或心理健康专业人员咨询。页面不能评估医疗需要、紧急程度或个人安全。已有照护、意见和支持独立保留；不要用记录推迟评估、改药，或认定经历太小不值得讨论。"
+            },
+            {
+              "en": "The absence of a self-harm question is a limit of this voluntary recollection, not evidence that someone is safe. The page cannot monitor a visitor or provide an emergency response. If there is immediate danger or you cannot stay safe, seek local emergency assistance instead of continuing. No category or completed questionnaire is required before asking for support.",
+              "zh": "未询问自伤是自愿回顾的范围限制，不是安全证据。页面不能监测访客或作紧急响应。如有即时危险或无法保障安全，应寻求当地紧急援助而非继续；寻求支持无需特定类别或完成问卷。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep an optional description private",
+            "zh": "保留自愿描述与隐私"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want a conversation, you could describe an activity, what felt different from your usual experience and what you would like help understanding. You choose the detail and audience. There is no request to disclose a painful event, prove a loss of enjoyment or share private health information on this page. This is an optional description, not an activity prescription or treatment plan.",
+              "zh": "若想交流，可以描述一项活动、与平时有何不同，以及想请人帮助理解什么。细节和对象由你决定。不要求透露痛苦事件、证明享受减少或在本页分享私人健康信息。这是可选描述，不是活动处方或治疗计划。"
+            },
+            {
+              "en": "Selections remain in current-page memory, without saved drafts, submission, questionnaire analytics or a personal result address. Exit, retake, reload and leaving clear them. Copying shares only the public title and entry. This same complete guide is available before answers and after every record, including an entirely unscored one; reading and support never depend on finishing.",
+              "zh": "选择只留当前页面内存，不存草稿、不提交、不作问卷分析，也无个人结果地址。退出、重做、刷新及离页会清除。复制只含公开标题入口。答题前及所有记录后，包括全部未计分，都能读同一全文；阅读与支持不以完成为条件。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sleep-and-appetite-reading",
+      "directionIds": [
+        "sleep-and-appetite"
+      ],
+      "title": {
+        "en": "Sleep and appetite — Complete Reading",
+        "zh": "睡眠与食欲：完整读法"
+      },
+      "headline": {
+        "en": "Sleep and appetite",
+        "zh": "睡眠与食欲"
+      },
+      "summary": {
+        "en": "Read this complete original public topic without answers. Every visitor sees the same explanation, without personal categories, counts or diagnosis.",
+        "zh": "不必答题即可阅读完整原创公开主题。每位访客看到相同解释，不含个人类别、计数或诊断。"
+      },
+      "scoreReading": {
+        "en": "Six separate category counts add to four descriptions. Each choice remains visible, and unscored stays distinct from did not notice. No total, mean, rank, risk tier or clinical inference.",
+        "zh": "六种独立类别计数合计四条描述，保留每项选择。未计分与没有注意到分开，没有总分、均值、排名、风险档或临床推断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Sleep and appetite — Complete Reading",
+          "zh": "睡眠与食欲：完整读法"
+        },
+        "description": {
+          "en": "Read this complete original public topic without answers. Every visitor sees the same explanation, without personal categories, counts or diagnosis.",
+          "zh": "不必答题即可阅读完整原创公开主题。每位访客看到相同解释，不含个人类别、计数或诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Recall sleep and appetite without looking for a cause",
+            "zh": "回顾睡眠与食欲，不急于找原因"
+          },
+          "paragraphs": [
+            {
+              "en": "Four original descriptions concern difficulty settling at an intended sleep time, sleeping or remaining in bed longer than intended, a meal feeling less appealing and wanting food more than usual. Recall the past four weeks if you choose to answer. This is a recent personal recollection, not a sleep assessment, nutrition assessment or test of whether a change belongs to a mood condition.",
+              "zh": "四条原创描述涉及打算睡时难以安睡、睡着或待床比打算更久、饭菜吸引力下降，以及比平时更想吃东西。愿意回答时回顾过去四周。这是近期个人回忆，不是睡眠或营养评估，也不检验变化是否属于情绪状况。"
+            },
+            {
+              "en": "The descriptions deliberately leave many circumstances unknown. A page cannot know the hours available for sleep, the food available, a change in routine, existing health information or the reasons behind a choice. You can retain what you noticed without supplying a cause. A category must not fill in that missing context or establish that a physical change is harmless.",
+              "zh": "描述有意保留许多未知处境。页面不知道可睡时段、能获得的食物、日程变化、已有健康信息或选择原因。可以保留观察而不提供原因；类别不能填补这些处境，也不能建立身体变化无害。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Sleep opportunity is different from sleep experience",
+            "zh": "睡眠机会与睡眠经历不同"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine intending to sleep while a practical responsibility interrupts the available time. You may remember an interruption clearly but be unsure whether settling into sleep was difficult. Those are different pieces of information. No answer establishes insomnia, measures sleep quality or decides whether an interrupted night came from mood, worry, the environment or another circumstance.",
+              "zh": "例如打算睡时，实际责任打断了可睡时间。也许很记得打断，却不确定是否难以入睡。这是不同信息。回答不建立失眠、不测睡眠质量，也不决定打断来自心情、担心、环境或其他处境。"
+            },
+            {
+              "en": "Remaining in bed and sleeping are also different experiences, even though one description allows either to be recalled. You are not asked to calculate time, wear a device, stay awake or change a routine to separate them for this page. If the wording does not fit or memory is unclear, leave it unscored. A professional conversation can retain the distinction more precisely if you want to discuss it.",
+              "zh": "待床与睡着也不同，尽管某条描述允许回忆其中一种。不要求计时、戴设备、熬夜或改变作息来替本页区分。表述不适合或记忆不清时可未计分；若想咨询，专业交流可以更具体地保留区别。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Appetite is not a judgement about eating",
+            "zh": "食欲不是对进食的裁定"
+          },
+          "paragraphs": [
+            {
+              "en": "A familiar meal may seem less appealing, or wanting food may feel different from usual. The descriptions ask about those remembered experiences, not how much you ate, whether a food was good or bad or whether a body should change. They cannot determine nutritional status, a weight change, an eating disorder or what anyone ought to eat.",
+              "zh": "熟悉饭菜可能吸引力下降，想吃东西的感觉也可能与平时不同。描述只问记得的经历，不问吃了多少、不裁定食物好坏，也不要求身体改变。不能决定营养状态、体重变化、进食障碍或应该吃什么。"
+            },
+            {
+              "en": "For example, a meal being unavailable and a meal being unappealing are not the same account. An unfamiliar food or an altered schedule may leave the description hard to answer. There is no requirement to try a meal, restrict food, monitor portions or record a body measurement. Existing care and advice remain independent, and a concern need not fit these four descriptions before it can be discussed.",
+              "zh": "例如没有饭可吃与饭没吸引力，不是同一种情况。陌生食物或日程变化也可能让描述难答。不要求试吃、限食、监测份量或记录身体测量。已有照护和意见独立保留；担忧不必符合四条描述也能咨询。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Four descriptions do not become a symptom score",
+            "zh": "四条描述不变成症状分数"
+          },
+          "paragraphs": [
+            {
+              "en": "Did not notice, rarely, sometimes, often, very often and unscored remain six separate category labels. Counts add to four descriptions, with individual choices displayed. They do not count nights, meals, episodes or symptoms. One rarely and three unscored choices remain one and three in those categories; they are not added as numbers, averaged or compared with a clinical cut-off.",
+              "zh": "没有注意到、很少、有时、较常、经常和未计分是六个独立类别。计数合计四条，并显示逐项选择，不计夜数、餐数、发作或症状。例如一条很少、三条未计分，就保留对应的一和三，不加数字、不求平均，也不与临床阈值比较。"
+            },
+            {
+              "en": "These overlapping editorial topics are not validated independent dimensions, and the English and Chinese versions have no established measurement equivalence. This original method is not PHQ-9, SDS or a clinical screen. The site’s separate clinical assessment retains its own contract and questions. General sleep and appetite themes already exist there; this record supplies no replacement answers or comparable score.",
+              "zh": "这些可能重叠的编辑主题不是已验证的独立维度，双语尚无测量等值。本原创方法不是PHQ-9、SDS或临床筛查。本站独立临床评估保留自己的契约和题目，其中已有一般睡眠和食欲主题；本记录不补回答，也不提供可比分数。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Unscored preserves the missing information",
+            "zh": "未计分保留缺失信息"
+          },
+          "paragraphs": [
+            {
+              "en": "Use unscored for no relevant experience, uncertain recall or a wish to withhold. It stays separate from did not notice and never becomes zero. All four observations may remain unscored without an invented personal explanation. You do not need to reconstruct a night, produce a meal history or disclose information about someone who shares your living space.",
+              "zh": "没有相关经历、记忆不清或保留回答时用未计分，与没有注意到分开，不变成零。四条全未计分也不会编造个人解释。不必重建某晚、列进餐史或透露同住者信息。"
+            },
+            {
+              "en": "A later response may differ because opportunity, routine, memory or interpretation changed. No reliable-change threshold or progress measure has been established. Repetition is optional, and there is no preferred category. The record cannot show that a sleep or food change improved health, caused a mood change or demonstrated a treatment effect.",
+              "zh": "以后回答可能因机会、作息、记忆或理解变化而不同。没有建立可靠变化阈值或进展指标。重做自愿，没有优选类别；记录不能显示睡眠或饮食变化改善健康、导致心情变化或产生治疗效果。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not depend on a record",
+            "zh": "支持不取决于记录"
+          },
+          "paragraphs": [
+            {
+              "en": "You may ask a qualified healthcare or mental-health professional about a concern without completing these descriptions, reaching a count or waiting two weeks. The page cannot assess healthcare need, urgency or personal safety. Keep existing care, advice and support independent; do not use a record to postpone assessment, change medicine or decide that an experience is too small to discuss.",
+              "zh": "可以不完成描述、不达到计数、不等两周就向合格医疗或心理健康专业人员咨询。页面不能评估医疗需要、紧急程度或个人安全。已有照护、意见和支持独立保留；不要用记录推迟评估、改药，或认定经历太小不值得讨论。"
+            },
+            {
+              "en": "The absence of a self-harm question is a limit of this voluntary recollection, not evidence that someone is safe. The page cannot monitor a visitor or provide an emergency response. If there is immediate danger or you cannot stay safe, seek local emergency assistance instead of continuing. No category or completed questionnaire is required before asking for support.",
+              "zh": "未询问自伤是自愿回顾的范围限制，不是安全证据。页面不能监测访客或作紧急响应。如有即时危险或无法保障安全，应寻求当地紧急援助而非继续；寻求支持无需特定类别或完成问卷。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep a question you choose to ask",
+            "zh": "留下自己选择的咨询问题"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to discuss an experience, you could distinguish what you intended, what was possible and what you remember noticing. Choose the detail and the person you tell. You need not bring a completed record, prove a physical change or follow a sleep or food experiment. This page offers no diet, sleep-restriction, exercise or medicine instructions. A professional can consider information outside its limited descriptions.",
+              "zh": "若想讨论，可以区分原打算、当时可能做到的事与记得的观察。细节及交流对象由你决定，不必带完整记录、证明身体变化，或先做睡眠饮食实验。本页不提供饮食、限睡、运动或药物指示；专业人员可以考虑描述范围之外的信息。"
+            },
+            {
+              "en": "Selections stay in current-page memory without drafts, submission, questionnaire analytics or a personal result URL. Exit, retake, reload and leaving clear the record. Copying includes only the public title and entry. The same complete guide is public before answers and after every record, including all-unscored; access to reading or support does not depend on changing a habit or category.",
+              "zh": "选择只在当前页内存，不存草稿、不提交、不作问卷分析，也无个人结果URL。退出、重做、刷新及离页清除，复制只含公开标题入口。答题前和所有记录后，包括全部未计分，都能读同一全文；阅读或支持不以改变习惯或类别为条件。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "energy-attention-and-self-talk-reading",
+      "directionIds": [
+        "energy-attention-and-self-talk"
+      ],
+      "title": {
+        "en": "Energy, attention and inner words — Complete Reading",
+        "zh": "精力、注意与内心语言：完整读法"
+      },
+      "headline": {
+        "en": "Energy, attention and inner words",
+        "zh": "精力、注意与内心语言"
+      },
+      "summary": {
+        "en": "Read this complete original public topic without answers. Every visitor sees the same explanation, without personal categories, counts or diagnosis.",
+        "zh": "不必答题即可阅读完整原创公开主题。每位访客看到相同解释，不含个人类别、计数或诊断。"
+      },
+      "scoreReading": {
+        "en": "Six separate category counts add to four descriptions. Each choice remains visible, and unscored stays distinct from did not notice. No total, mean, rank, risk tier or clinical inference.",
+        "zh": "六种独立类别计数合计四条描述，保留每项选择。未计分与没有注意到分开，没有总分、均值、排名、风险档或临床推断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Energy, attention and inner words — Complete Reading",
+          "zh": "精力、注意与内心语言：完整读法"
+        },
+        "description": {
+          "en": "Read this complete original public topic without answers. Every visitor sees the same explanation, without personal categories, counts or diagnosis.",
+          "zh": "不必答题即可阅读完整原创公开主题。每位访客看到相同解释，不含个人类别、计数或诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Notice effort, attention and inner words separately",
+            "zh": "分别留意用力感、注意与内心语言"
+          },
+          "paragraphs": [
+            {
+              "en": "Four original descriptions concern feeling short of energy when starting a familiar activity, difficulty staying with ordinary information, harsh inner words after a small setback and thoughts that what you did counted for little. If you choose to answer, recall the past four weeks. This is a bounded recollection of different experiences, not a test of intelligence, motivation, productivity or personal worth.",
+              "zh": "四条原创描述涉及精力不足时难开始熟悉活动、难以持续留意普通信息、小挫折后的苛刻内心话，以及觉得所做事情价值不多。愿意回答时回顾过去四周。这是有边界地回忆不同经历，不测试智力、动机、产出或个人价值。"
+            },
+            {
+              "en": "The wording does not mean that these experiences always occur together or have one cause. You might recognise one description and leave another unscored. The page cannot observe you, read your thoughts or decide which account is most important. An experience outside these descriptions can matter to you without first being represented in this record.",
+              "zh": "表述不意味这些经历总同时出现或只有一个原因。可以认出一条而让另一条未计分。页面不能观察你、读心或决定哪个叙述最重要。描述之外的经历也可对你重要，无需先被本记录表示。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Effort is not the same as achievement",
+            "zh": "用力感与完成量不同"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a familiar activity that felt harder to begin on one occasion. The record asks about remembering low energy beside that difficulty. It does not measure how much you accomplished or decide that energy caused every delay. Missing information, practical barriers, competing responsibilities and features of the activity are not resolved by choosing a category.",
+              "zh": "例如一次熟悉活动较难开始，记录问的是是否记得困难伴着精力不足，不测完成多少，也不认定每次推迟都由精力造成。缺信息、实际障碍、责任竞争及活动特点，不能靠选类别解决。"
+            },
+            {
+              "en": "Someone can complete an activity while finding it effortful, or leave it unfinished for reasons this topic never asks about. Neither account gives a work-suitability judgement or a measure of character. You are not required to attempt a task, push through tiredness, provide evidence of output or compare yourself with someone else to make a response acceptable.",
+              "zh": "可能完成活动却觉得费力，也可能因本主题没问的原因未完成；两者都不产生工作适配或品格裁定。不必试做任务、强撑疲惫、提供产出证据或与别人比较，回答才算有效。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Attention depends on an account the page cannot observe",
+            "zh": "注意的实际过程不由页面观察"
+          },
+          "paragraphs": [
+            {
+              "en": "A description about reading or listening retains your recollection of difficulty staying with ordinary information. It is not an attention task: no timing, recall test or accuracy score is recorded. The page cannot establish what information you understood, whether the material was clear or whether a remembered interruption applies in every setting.",
+              "zh": "阅读或听取的描述保留难以持续留意普通信息的回忆，不是注意任务，不记时间、回忆测试或正确率。页面不能建立理解了什么、材料是否清楚，或记得的打断是否发生于所有场景。"
+            },
+            {
+              "en": "For example, you might remember losing the thread of an ordinary message without remembering why. You can retain that uncertainty. No category identifies ADHD, a cognitive impairment, a mood condition or a medical cause. Do not recreate a difficulty, stay awake or repeatedly check your concentration for this record. A professional discussion can consider circumstances that the description leaves open.",
+              "zh": "例如记得一则普通消息没跟上，却不记得原因，可以保留不确定。类别不识别ADHD、认知受损、情绪状况或医疗原因。不要为记录重现困难、熬夜或反复检查专注；专业讨论可考虑描述保留的处境。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "An inner judgement is not a fact about your value",
+            "zh": "内心判断不是个人价值的事实"
+          },
+          "paragraphs": [
+            {
+              "en": "Remembering a harsh thought after a setback does not establish that the thought was true. The description asks whether you noticed that kind of inner language, not whether you deserve blame or have failed. You do not need to write the words, revisit the event or disclose another person’s role. Withholding a response remains an ordinary available choice.",
+              "zh": "记得挫折后出现苛刻想法，不建立想法为真。描述问是否留意这种内心语言，不问是否应受责备或已经失败。不必写出原话、重访事件或透露别人角色，保留回答始终是正常选项。"
+            },
+            {
+              "en": "Likewise, a thought that what you did counted for little is an experience to describe, not a verdict on contribution or worth. The page cannot adjudicate a disagreement, assess a relationship or decide that a positive thought would solve a concern. It assigns no affirmation, thought-suppression, exposure or self-criticism exercise. You can leave a description alone rather than trying to correct it here.",
+              "zh": "觉得做的事价值不多，是可以描述的经历，不是贡献或价值裁定。页面不能裁决争执、评估关系，或认定正面想法会解决担忧。不安排肯定语、压制想法、暴露或自我批评练习；可以暂放描述，不必在这里纠正。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Categories preserve choices without combining them",
+            "zh": "类别保留选择而不合并"
+          },
+          "paragraphs": [
+            {
+              "en": "Did not notice, rarely, sometimes, often, very often and unscored have separate counts that add to four descriptions. Each individual choice remains visible. They are not task failures, lost minutes, symptoms or points. Unscored means no relevant experience, unclear recall or withholding; it stays distinct from did not notice and never supplies a zero for an average.",
+              "zh": "没有注意到、很少、有时、较常、经常及未计分分别计数，合计四条，每项选择保留；不是任务失败、损失分钟、症状或点数。未计分表示无相关经历、回想不清或保留，与没有注意到分开，不为均值补零。"
+            },
+            {
+              "en": "Three sometimes choices and one unscored choice in a fictional record do not create a moderate tier or identify the strongest topic. These overlapping editorial groups have no established independent dimensions, clinical norms or bilingual measurement equivalence. This is not PHQ-9, SDS or an equivalent of the separate clinical service. General energy and attention themes already occur there, under its own questions and reporting contract.",
+              "zh": "虚构记录中三条有时、一条未计分，不产生中度档或最强主题。这些重叠编辑分组尚无独立维度、临床常模或双语测量等值。本版不是PHQ-9、SDS，也不与独立临床服务等价；一般精力与注意主题本已存在，沿其自己的题目和报告契约。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not depend on a record",
+            "zh": "支持不取决于记录"
+          },
+          "paragraphs": [
+            {
+              "en": "You may ask a qualified healthcare or mental-health professional about a concern without completing these descriptions, reaching a count or waiting two weeks. The page cannot assess healthcare need, urgency or personal safety. Keep existing care, advice and support independent; do not use a record to postpone assessment, change medicine or decide that an experience is too small to discuss.",
+              "zh": "可以不完成描述、不达到计数、不等两周就向合格医疗或心理健康专业人员咨询。页面不能评估医疗需要、紧急程度或个人安全。已有照护、意见和支持独立保留；不要用记录推迟评估、改药，或认定经历太小不值得讨论。"
+            },
+            {
+              "en": "The absence of a self-harm question is a limit of this voluntary recollection, not evidence that someone is safe. The page cannot monitor a visitor or provide an emergency response. If there is immediate danger or you cannot stay safe, seek local emergency assistance instead of continuing. No category or completed questionnaire is required before asking for support.",
+              "zh": "未询问自伤是自愿回顾的范围限制，不是安全证据。页面不能监测访客或作紧急响应。如有即时危险或无法保障安全，应寻求当地紧急援助而非继续；寻求支持无需特定类别或完成问卷。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Retain a description you choose to discuss",
+            "zh": "留下自己选择讨论的描述"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want a conversation, you could describe what you were trying to do, what you noticed and what you would like help understanding. You choose the detail and audience. A later recollection might differ because tasks, opportunities, memory or interpretation changed; the page cannot establish recovery, deterioration or treatment response. There is no preferred category, target count, productivity plan or required repeat schedule.",
+              "zh": "若想交流，可以描述原本想做什么、注意到什么及想请人帮助理解什么。细节和对象自行选择。以后回顾可能因任务、机会、记忆或理解变化而不同，页面不能建立恢复、恶化或治疗反应；没有偏好类别、目标计数、产出计划或规定重测日程。"
+            },
+            {
+              "en": "Choices remain in current-page memory, without drafts, submission, questionnaire analytics or a personal result address. Exit, retake, reload and leaving clear them. Copying shares only the public title and entry. All four descriptions may be unscored, and every visitor can read the same complete guide before answering. Reading or support never requires you to demonstrate effort, change an inner thought or finish a task.",
+              "zh": "选择只留当前页内存，不存草稿、不提交、不作问卷分析，也无个人结果地址。退出、重做、刷新及离页清除，复制只含公开标题入口。四条可全未计分，每位访客答题前都能读相同全文。阅读或支持不要求证明努力、改变内心话或完成任务。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "original",
+      "title": {
+        "en": "An original recollection, with existing clinical themes kept distinct",
+        "zh": "原创回顾，与已有临床主题分开"
+      },
+      "paragraphs": [
+        {
+          "en": "These twelve original adult descriptions supplement a private recollection flow. General mood, interest, sleep, appetite, energy and attention already occur in the separate clinical assessment; these are not new constructs. That service keeps its own questions and reporting contract. Do not transfer answers or compare numbers.",
+          "zh": "这十二条成年人原创描述补充私人回顾流程。一般心情、兴趣、睡眠、食欲、精力及注意主题本已存在于独立临床评估，不是新构念。后者保留自己的题目和报告契约，不转移回答或比较数字。"
+        },
+        {
+          "en": "This is not PHQ-9, SDS, a clinical screen or a validated three-dimension model. No diagnosis, severity, probability, healthcare-need decision, population norm or bilingual measurement equivalence has been established. NIMH supplies background only, not these original descriptions or category rules.",
+          "zh": "本版不是PHQ-9、SDS、临床筛查或验证的三维模型。不建立诊断、严重度、概率、医疗需要决定、人群常模或双语测量等值。NIMH只提供背景，不提供本原创描述或类别规则。"
+        }
+      ]
+    },
+    {
+      "id": "categories",
+      "title": {
+        "en": "Categories count descriptions, without a total",
+        "zh": "类别计描述数量，不合总分"
+      },
+      "paragraphs": [
+        {
+          "en": "Choose a category for each description or leave it explicitly unscored. Six separate counts add to four descriptions in each topic. They do not count days, symptoms, meals, nights, episodes or degrees of impact. Category IDs are labels; there are no points, means, winning topics or cut-offs.",
+          "zh": "为每条选类别或明确未计分。各主题六种计数合计四条，不计天数、症状、餐数、夜数、发作或影响程度。类别标识只是标签，没有点数、均值、最高主题或阈值。"
+        },
+        {
+          "en": "Unscored means no relevant experience, unclear recall or withholding. It is not did not notice and never becomes zero. All descriptions may be unscored without an invented personal interpretation. A low, sparse or unscored record does not establish health or the absence of support needs.",
+          "zh": "未计分表示无相关经历、记忆不清或保留，不是没有注意到，也不变成零。全部未计分也不编造个人解释。少量、稀疏或未计分的记录不建立健康或没有支持需要。"
+        }
+      ]
+    },
+    {
+      "id": "private",
+      "title": {
+        "en": "Recall only, with all guides public",
+        "zh": "只凭回忆，全部指南公开"
+      },
+      "paragraphs": [
+        {
+          "en": "No task, sleep or food change, body measurement or thought exercise is needed. Selections remain in page memory without drafts, submission, questionnaire analytics or a personal result address. Exit, retake, reload and leaving clear them. Copying shares only the fixed public title and entry.",
+          "zh": "不必做任务、改睡眠饮食、测身体或练习思维。选择留页面内存，不存草稿、不提交、不作问卷分析，也无个人结果地址；退出、重做、刷新及离页清除。复制只含固定公开标题入口。"
+        },
+        {
+          "en": "All three complete guides are available before answers and after every record. There is no target count, repeat schedule or proof of recovery or deterioration. Support does not depend on completion, a count or waiting two weeks. The page does not assess personal safety or provide emergency response.",
+          "zh": "三篇全文答题前及所有记录后可读。没有目标计数、重测日程，或恢复恶化的证据。支持不取决于完成、计数或等待两周。页面不评估个人安全，也不作紧急响应。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this a depression diagnosis or a PHQ-9 score?",
+        "zh": "这是抑郁诊断或PHQ-9分数吗？"
+      },
+      "answer": {
+        "en": "No. Twelve original descriptions produce category records, not a published scale, diagnosis or severity tier. A record cannot confirm or exclude a mood condition or establish a cause.",
+        "zh": "不是。十二条原创描述产生类别记录，不是发表量表、诊断或严重度档。记录不能确认或排除情绪状况或建立原因。"
+      }
+    },
+    {
+      "question": {
+        "en": "How does this relate to the separate clinical assessment?",
+        "zh": "与独立临床评估有什么关系？"
+      },
+      "answer": {
+        "en": "General mood themes already occur there under its own questions and reporting contract. This offers an independent private recollection flow with public full guides. Do not transfer answers, combine numbers or treat it as an equivalent.",
+        "zh": "一般心情主题本已存在于独立临床评估，沿其自己的题目及报告契约。本版提供独立私人回顾与公开全文，不转移回答、合并数字或当等价方法。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need to change sleep, food or an activity?",
+        "zh": "需要改变睡眠、食物或活动吗？"
+      },
+      "answer": {
+        "en": "No. Recall only. No task, food or sleep change, body measurement or thought exercise is required. The page cannot explain a physical change or establish that it is harmless.",
+        "zh": "不需要，只凭回忆。不要求任务、饮食睡眠改变、身体测量或思维练习。页面不能解释身体变化或建立它无害。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can everything remain unscored?",
+        "zh": "可以全部未计分吗？"
+      },
+      "answer": {
+        "en": "Yes. No relevant experience, unclear recall and withholding stay separate from did not notice. Every guide and support explanation remains public regardless of completion or categories.",
+        "zh": "可以。没有相关经历、记忆不清及保留回答，与没有注意到分开。无论完成与否或类别如何，所有指南与支持说明都公开。"
+      }
+    },
+    {
+      "question": {
+        "en": "Must I wait two weeks before asking for support?",
+        "zh": "寻求支持前必须等两周吗？"
+      },
+      "answer": {
+        "en": "No. You can ask a qualified professional without a count, duration or completed record. Keep existing care and support independent. Do not use this page to postpone assessment or change medicine. In immediate danger or if you cannot stay safe, seek local emergency assistance.",
+        "zh": "不必。无需计数、时长或完整记录即可咨询合格专业人员。已有照护与支持独立保留，不用本页推迟评估或改药。如有即时危险或无法保障安全，请寻求当地紧急援助。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "NIMH: Depression — broader assessment and support background",
+        "zh": "NIMH：抑郁的评估与支持背景"
+      },
+      "url": "https://www.nimh.nih.gov/health/publications/depression"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_recent_mood_observations",
+    "formCode": "fm_recent_mood12_observations_v1",
+    "itemBankVersion": "original12_bilingual_three_by_four_v1",
+    "scoringVersion": "six_categorical_counts_per_four_no_clinical_inference_v1",
+    "resultContentVersion": "three_full_bilingual_recent_mood_readings_v1",
+    "itemBankSha256": "6c27d3cdda303082cf4aceec5dd87460731c8f25106f48414e8db88525903b09",
+    "resultContentSha256": "c7cfe176da0d9c5bcc113c6a41c541dbbc4fd45fc40ea4fce92c531faee59b2a",
+    "psychometricValidationCompleted": false
+  }
+}

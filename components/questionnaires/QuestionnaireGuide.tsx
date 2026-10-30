@@ -20,6 +20,8 @@ import { isSocialContext20ConfigurationValid } from "@/lib/questionnaires/social
 import { SocialContextGuidePage } from "./SocialContextPage";
 import { isEverydayWorry12ConfigurationValid } from "@/lib/questionnaires/everydayWorry12";
 import { EverydayWorryGuidePage } from "./EverydayWorryPage";
+import { isRecentMood12ConfigurationValid } from "@/lib/questionnaires/recentMood12";
+import { RecentMoodGuidePage } from "./RecentMoodPage";
 import { isHealthWorry21ConfigurationValid } from "@/lib/questionnaires/healthWorry21";
 import { HealthWorryGuidePage } from "./HealthWorryPage";
 import { isSleepExperiences20ConfigurationValid } from "@/lib/questionnaires/sleepExperiences20";
@@ -152,6 +154,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (quiz?.kind === "number-context20" && !isNumberContext20ConfigurationValid(quiz)) return { title: "Written-language reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "social-context20" && !isSocialContext20ConfigurationValid(quiz)) return { title: "Social-context reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "worry-observations12" && !isEverydayWorry12ConfigurationValid(quiz)) return { title: "Everyday-worry reflection unavailable", robots: { index: false, follow: false } };
+  if (quiz?.kind === "mood-observations12" && !isRecentMood12ConfigurationValid(quiz)) return { title: "Recent-mood reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "health-worries21" && !isHealthWorry21ConfigurationValid(quiz)) return { title: "Health-worry reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "sleep-experiences20" && !isSleepExperiences20ConfigurationValid(quiz)) return { title: "Sleep reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "bereavement16" && !isBereavement16ConfigurationValid(quiz)) return { title: "Bereavement reflection unavailable", robots: { index: false, follow: false } };
@@ -268,6 +271,12 @@ export default async function QuestionnaireResultGuide({ params }: Props) {
     const profile = quiz.profiles.find(p => p.id === id);
     if (!profile) notFound();
     return <EverydayWorryGuidePage quiz={quiz} profile={profile} locale={locale} />;
+  }
+  if (quiz?.kind === "mood-observations12") {
+    if (!isRecentMood12ConfigurationValid(quiz)) notFound();
+    const profile = quiz.profiles.find(p => p.id === id);
+    if (!profile) notFound();
+    return <RecentMoodGuidePage quiz={quiz} profile={profile} locale={locale} />;
   }
   if (quiz?.kind === "health-worries21") {
     if (!isHealthWorry21ConfigurationValid(quiz)) notFound();

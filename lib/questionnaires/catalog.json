@@ -7176,5 +7176,29 @@
       "observed-context-and-support-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "recent-mood-reflection",
+    "code": "FM_RECENT_MOOD12_OBSERVATIONS",
+    "version": "fm_recent_mood12_observations_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Recent Mood: Personal Reflection",
+      "zh": "近期心情：个人回顾"
+    },
+    "description": {
+      "en": "12 original adult descriptions of recent mood, interest, sleep, appetite, energy, attention and inner words. Three full guides before answers. Recall only, without depression diagnosis or severity scoring.",
+      "zh": "12条成年人原创描述，回顾近期心情、兴趣、睡眠、食欲、精力、注意与内心语言。三篇全文答题前可读，只凭回忆，不作抑郁诊断或严重度评分。"
+    },
+    "minutes": 6,
+    "formCode": "fm_recent_mood12_observations_v1",
+    "questionCount": 12,
+    "resultSlugs": [
+      "mood-and-interest-reading",
+      "sleep-and-appetite-reading",
+      "energy-attention-and-self-talk-reading"
+    ],
+    "collection": "explore"
   }
 ]
