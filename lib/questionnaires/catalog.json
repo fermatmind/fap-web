@@ -7471,5 +7471,30 @@
       "ease-with-uncertainty-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "after-childbirth-context-reflection",
+    "code": "FM_BIRTH_CONTEXT16_RECOLLECTIONS",
+    "version": "fm_birth_context16_recollections_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "After Childbirth: Personal Reflection",
+      "zh": "分娩之后：个人回顾"
+    },
+    "description": {
+      "en": "16 original adult self-recollections after childbirth: mood and interest, worry and self-blame, rest and demands, and connection with self. Four full guides before answers. No postpartum-depression diagnosis, parenting verdict or clinical score.",
+      "zh": "16条分娩后成年人本人原创回顾：心情与兴趣、担心与自责、休息与需求，以及与自己的联系。四篇全文答题前可读，不作产后抑郁诊断、育儿裁定或临床评分。"
+    },
+    "minutes": 8,
+    "formCode": "fm_birth_context16_recollections_v1",
+    "questionCount": 16,
+    "resultSlugs": [
+      "mood-and-interest-after-childbirth-reading",
+      "worry-and-self-blame-after-childbirth-reading",
+      "rest-and-demands-after-childbirth-reading",
+      "connection-with-self-after-childbirth-reading"
+    ],
+    "collection": "explore"
   }
 ]

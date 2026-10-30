@@ -1,0 +1,1719 @@
+{
+  "slug": "after-childbirth-context-reflection",
+  "code": "FM_BIRTH_CONTEXT16_RECOLLECTIONS",
+  "version": "fm_birth_context16_recollections_v1",
+  "kind": "birth-context16",
+  "updated": "2026-10-30",
+  "category": "framework",
+  "minutes": 8,
+  "title": {
+    "en": "After Childbirth: Personal Reflection",
+    "zh": "分娩之后：个人回顾"
+  },
+  "seoTitle": {
+    "en": "After Childbirth: Personal Reflection",
+    "zh": "分娩之后：个人回顾"
+  },
+  "description": {
+    "en": "16 original adult self-recollections after childbirth: mood and interest, worry and self-blame, rest and demands, and connection with self. Four full guides before answers. No postpartum-depression diagnosis, parenting verdict or clinical score.",
+    "zh": "16条分娩后成年人本人原创回顾：心情与兴趣、担心与自责、休息与需求，以及与自己的联系。四篇全文答题前可读，不作产后抑郁诊断、育儿裁定或临床评分。"
+  },
+  "introduction": {
+    "en": "For an adult who has given birth and chooses this context. Recall the past four weeks if you want; this is an editorial window, not a diagnostic postpartum interval or waiting rule. No birth date, pregnancy history, child information or free-text account is entered. Gender, parent identity, a living baby, a child at home and a particular care role are not assumed.",
+    "zh": "供有分娩经历、愿意采用此背景的成年人本人使用。愿意时回顾过去四周，这是编辑窗口，不是诊断的产后区间或等待规则。不输入分娩日期、妊娠史、儿童信息或自由叙述，不假设性别、家长身份、婴儿存活、孩子在家或特定照护角色。"
+  },
+  "instructions": {
+    "en": "Use your own recollection of the past four weeks, not a partner or caregiver report. Choose does not match my recollection, matches slightly, partly, mostly or closely; use unscored for no relevant experience, unclear recall or withholding. Labels are not frequency, points or severity. No activity, body check, sleep or feeding change, thought exercise or reconstruction of a birth is required.",
+    "zh": "使用本人过去四周的回忆，不作伴侣或照顾者代理报告。选择与回忆不符、稍微符合、部分符合、大体符合或很符合；无相关经历、记忆不清或保留回答时选未计分。标签不是频率、点数或严重度。不要求活动、身体检查、睡眠喂养改变、思维练习或重建分娩经历。"
+  },
+  "resultHeading": {
+    "en": "Your four separate after-childbirth records",
+    "zh": "四个分别阅读的分娩后记录"
+  },
+  "directions": [
+    {
+      "id": "mood-and-interest-after-childbirth",
+      "title": {
+        "en": "Mood and interest after childbirth",
+        "zh": "分娩后的心情与兴趣"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "worry-and-self-blame-after-childbirth",
+      "title": {
+        "en": "Worry and self-blame after childbirth",
+        "zh": "分娩后的担心与自责"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "rest-and-demands-after-childbirth",
+      "title": {
+        "en": "Rest and ordinary demands after childbirth",
+        "zh": "分娩后的休息与日常需求"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "connection-with-self-after-childbirth",
+      "title": {
+        "en": "Connection with self after childbirth",
+        "zh": "分娩后与自己的联系"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "BIRTH_01",
+      "prompt": {
+        "en": "In the past four weeks, I noticed feeling lower than was usual for me.",
+        "zh": "过去四周，我注意到心情比自己平时低落。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "mood-and-interest-after-childbirth"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "mood-and-interest-after-childbirth"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "mood-and-interest-after-childbirth"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "mood-and-interest-after-childbirth"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "mood-and-interest-after-childbirth"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BIRTH_02",
+      "prompt": {
+        "en": "In the past four weeks, something I would usually look forward to felt less appealing.",
+        "zh": "过去四周，一件平时会期待的事变得不那么吸引我。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "mood-and-interest-after-childbirth"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "mood-and-interest-after-childbirth"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "mood-and-interest-after-childbirth"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "mood-and-interest-after-childbirth"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "mood-and-interest-after-childbirth"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BIRTH_03",
+      "prompt": {
+        "en": "In the past four weeks, I noticed less enjoyment during a familiar activity.",
+        "zh": "过去四周，进行一项熟悉活动时，我注意到享受少了些。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "mood-and-interest-after-childbirth"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "mood-and-interest-after-childbirth"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "mood-and-interest-after-childbirth"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "mood-and-interest-after-childbirth"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "mood-and-interest-after-childbirth"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BIRTH_04",
+      "prompt": {
+        "en": "In the past four weeks, I noticed feeling emotionally flat during an ordinary part of the day.",
+        "zh": "过去四周，一天中的普通时段里，我注意到情绪有些平淡或麻木。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "mood-and-interest-after-childbirth"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "mood-and-interest-after-childbirth"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "mood-and-interest-after-childbirth"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "mood-and-interest-after-childbirth"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "mood-and-interest-after-childbirth"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BIRTH_05",
+      "prompt": {
+        "en": "In the past four weeks, a concern kept returning to my attention.",
+        "zh": "过去四周，一项担心反复吸引我的注意。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "worry-and-self-blame-after-childbirth"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "worry-and-self-blame-after-childbirth"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "worry-and-self-blame-after-childbirth"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "worry-and-self-blame-after-childbirth"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "worry-and-self-blame-after-childbirth"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BIRTH_06",
+      "prompt": {
+        "en": "In the past four weeks, it felt hard to put a concern aside during an ordinary activity.",
+        "zh": "过去四周，进行普通活动时，暂放一项担心让我觉得困难。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "worry-and-self-blame-after-childbirth"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "worry-and-self-blame-after-childbirth"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "worry-and-self-blame-after-childbirth"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "worry-and-self-blame-after-childbirth"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "worry-and-self-blame-after-childbirth"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BIRTH_07",
+      "prompt": {
+        "en": "In the past four weeks, I blamed myself after an ordinary difficulty.",
+        "zh": "过去四周，一次普通困难之后，我责备了自己。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "worry-and-self-blame-after-childbirth"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "worry-and-self-blame-after-childbirth"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "worry-and-self-blame-after-childbirth"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "worry-and-self-blame-after-childbirth"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "worry-and-self-blame-after-childbirth"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BIRTH_08",
+      "prompt": {
+        "en": "In the past four weeks, I compared what I managed with what I thought I should manage.",
+        "zh": "过去四周，我把自己做到的事与觉得应该做到的事作了比较。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "worry-and-self-blame-after-childbirth"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "worry-and-self-blame-after-childbirth"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "worry-and-self-blame-after-childbirth"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "worry-and-self-blame-after-childbirth"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "worry-and-self-blame-after-childbirth"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BIRTH_09",
+      "prompt": {
+        "en": "In the past four weeks, when I had an opportunity to sleep, I found it hard to settle into sleep.",
+        "zh": "过去四周，有机会睡觉时，我觉得难以安睡。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "rest-and-demands-after-childbirth"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "rest-and-demands-after-childbirth"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "rest-and-demands-after-childbirth"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "rest-and-demands-after-childbirth"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "rest-and-demands-after-childbirth"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BIRTH_10",
+      "prompt": {
+        "en": "In the past four weeks, I found it hard to rest during an available pause.",
+        "zh": "过去四周，有一段可以停顿的时间时，我觉得难以休息。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "rest-and-demands-after-childbirth"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "rest-and-demands-after-childbirth"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "rest-and-demands-after-childbirth"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "rest-and-demands-after-childbirth"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "rest-and-demands-after-childbirth"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BIRTH_11",
+      "prompt": {
+        "en": "In the past four weeks, an ordinary set of demands felt harder to manage than usual.",
+        "zh": "过去四周，一组普通需求比平时更让我觉得难以应付。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "rest-and-demands-after-childbirth"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "rest-and-demands-after-childbirth"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "rest-and-demands-after-childbirth"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "rest-and-demands-after-childbirth"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "rest-and-demands-after-childbirth"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BIRTH_12",
+      "prompt": {
+        "en": "In the past four weeks, it felt hard to decide which ordinary demand to address first.",
+        "zh": "过去四周，决定先处理哪一项普通需求让我觉得困难。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "rest-and-demands-after-childbirth"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "rest-and-demands-after-childbirth"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "rest-and-demands-after-childbirth"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "rest-and-demands-after-childbirth"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "rest-and-demands-after-childbirth"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BIRTH_13",
+      "prompt": {
+        "en": "In the past four weeks, something that mattered to me before giving birth felt harder to connect with.",
+        "zh": "过去四周，与分娩前对自己重要的一件事保持联系，比以前更难。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "connection-with-self-after-childbirth"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "connection-with-self-after-childbirth"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "connection-with-self-after-childbirth"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "connection-with-self-after-childbirth"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "connection-with-self-after-childbirth"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BIRTH_14",
+      "prompt": {
+        "en": "In the past four weeks, I found it hard to recognise my usual preferences in an ordinary choice.",
+        "zh": "过去四周，作一次普通选择时，我觉得难以辨认自己平时的偏好。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "connection-with-self-after-childbirth"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "connection-with-self-after-childbirth"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "connection-with-self-after-childbirth"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "connection-with-self-after-childbirth"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "connection-with-self-after-childbirth"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BIRTH_15",
+      "prompt": {
+        "en": "In the past four weeks, I noticed a gap between how I felt and how others seemed to expect me to feel.",
+        "zh": "过去四周，我注意到自己的感受与别人似乎期待我有的感受之间有落差。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "connection-with-self-after-childbirth"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "connection-with-self-after-childbirth"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "connection-with-self-after-childbirth"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "connection-with-self-after-childbirth"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "connection-with-self-after-childbirth"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BIRTH_16",
+      "prompt": {
+        "en": "In the past four weeks, I wanted space for a part of myself beyond the responsibilities around me.",
+        "zh": "过去四周，我想为周围责任之外的某部分自己留一点空间。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "connection-with-self-after-childbirth"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "connection-with-self-after-childbirth"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "connection-with-self-after-childbirth"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "connection-with-self-after-childbirth"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "connection-with-self-after-childbirth"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "mood-and-interest-after-childbirth-reading",
+      "directionIds": [
+        "mood-and-interest-after-childbirth"
+      ],
+      "title": {
+        "en": "Mood and interest after childbirth — Complete Reading",
+        "zh": "分娩后的心情与兴趣：完整读法"
+      },
+      "headline": {
+        "en": "Mood and interest after childbirth",
+        "zh": "分娩后的心情与兴趣"
+      },
+      "summary": {
+        "en": "Read the complete original public topic without answering. Every visitor sees the same explanation, with no personal choices, birth or child information, counts or diagnosis.",
+        "zh": "无需答题即可阅读完整原创公开主题；每位访客看到同一解释，不含个人选择、分娩或儿童信息、计数或诊断。"
+      },
+      "scoreReading": {
+        "en": "Six separate recollection-match counts add to four descriptions. Unscored stays distinct from does not match. No frequency, symptom count, total, mean, risk tier, parenting judgement or clinical inference.",
+        "zh": "六种独立回忆贴切计数合计四条描述，未计分与不符分开。没有频率、症状数、总分、均值、风险档、育儿判断或临床推断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Mood and interest after childbirth — Complete Reading",
+          "zh": "分娩后的心情与兴趣：完整读法"
+        },
+        "description": {
+          "en": "Read the complete original public topic without answering. Every visitor sees the same explanation, with no personal choices, birth or child information, counts or diagnosis.",
+          "zh": "无需答题即可阅读完整原创公开主题；每位访客看到同一解释，不含个人选择、分娩或儿童信息、计数或诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Describe feelings without an expected reaction to birth",
+            "zh": "描述感受，不规定对分娩的反应"
+          },
+          "paragraphs": [
+            {
+              "en": "Four original descriptions concern feeling lower than usual, something becoming less appealing, less enjoyment during a familiar activity and emotional flatness during an ordinary part of the day. They refer to the past four weeks within the after-childbirth context you choose. They do not decide how you should feel about giving birth, a baby, another person or your life.",
+              "zh": "四条原创描述涉及比平时低落、某事吸引力下降、熟悉活动中的享受减少，以及普通时段的平淡或麻木。它们指自选分娩后背景中的过去四周，不决定你对分娩、婴儿、他人或生活应该有什么感受。"
+            },
+            {
+              "en": "Recognising one description does not establish a diagnosis, a cause or a failure to feel something expected. The page cannot observe an activity, know your history or distinguish every circumstance that might matter. You can retain a feeling without explaining it as hormones, tiredness, personal weakness or a judgement about whether you are a good parent.",
+              "zh": "认出一条不建立诊断、原因或未达到预期感受的失败。页面不能观察活动、了解历史或区分所有重要背景。可以保留感受，不把它解释为激素、疲惫、个人软弱或是否好家长的裁定。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Recollection matches do not become a depression score",
+            "zh": "回忆贴切程度不变成抑郁分数"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose does not match my recollection, matches slightly, partly, mostly, closely or unscored for each original description. The labels concern how it fits your remembered experience. They are not event frequency, symptom intensity or an amount of impact. Six separate counts add to four descriptions per topic and retain each choice; IDs carry no points, total, average, rank or winning theme.",
+              "zh": "每条原创描述可选与回忆不符、稍微符合、部分符合、大体符合、很符合或未计分。标签只问对回忆的贴切程度，不是事件频率、症状强度或影响量。每主题六种计数合计四条，并保留每项选择；标识不带点数、总分、均值、排名或最高主题。"
+            },
+            {
+              "en": "Two partly matches, one closely matches and one unscored in a fictional account remain those separate counts. They do not identify postpartum depression, determine care needs or judge parenting. These four overlapping editorial topics are not validated independent dimensions. Unscored stays distinct from does not match and never supplies a zero. A small or unscored record does not establish health or safety.",
+              "zh": "虚构例中两条部分符合、一条很符合、一条未计分，只保留独立计数，不识别产后抑郁、不决定照护需要或评价育儿。四个重叠编辑主题不是验证独立维度。未计分与不符分开，不补零。少量或未计分不建立健康或安全。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Interest, opportunity and enjoyment are different",
+            "zh": "兴趣、机会与享受不同"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine remembering that a familiar activity felt less appealing while the opportunity to do it had also changed. The record cannot decide whether the interest, the opportunity or another circumstance explains the experience. You might still enjoy part of an activity once it begins or be unsure what to recall. Separate descriptions leave those differences visible without requiring them to agree.",
+              "zh": "例如记得熟悉活动吸引力下降，同时做活动的机会也改变了。记录不能决定兴趣、机会或其他背景解释经历。活动开始后仍可能部分享受，也可能不确定回忆什么。分开描述保留区别，不要求彼此一致。"
+            },
+            {
+              "en": "No description measures your feelings toward a baby, attachment, bonding or ability to care for someone. It does not ask you to interact with a child, repeat an activity or revisit a birth experience to test enjoyment. A relevant concern may sit outside every statement. You can leave information unscored without proving a loss of pleasure or disclosing an event.",
+              "zh": "描述不测对婴儿的感受、依恋、联结或照顾他人的能力。不要求与儿童互动、重复活动或重访分娩经历来检验享受。重要担忧也可落在全部陈述之外。不必证明乐趣减少或披露事件，便可未计分。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "The context supplements existing mood coverage",
+            "zh": "背景补充已有心情主题"
+          },
+          "paragraphs": [
+            {
+              "en": "The separate recent-mood page and public clinical question pack already cover general mood and interest themes. This after-childbirth record does not make them a new construct or extend a clinical scale. It keeps a particular self-report context and its own recollection-match labels. No answers or numbers transfer between forms, and their records cannot be combined or compared as equivalent measurements.",
+              "zh": "独立近期心情页与公开临床题包已有一般心情及兴趣主题。本分娩后记录不使它们成为新构念，也不扩展临床量表，只保留特定本人报告背景与自己的回忆贴切标签。不转移回答或数字，记录不能当等价测量合并比较。"
+            },
+            {
+              "en": "It is not a partner, caregiver or observer questionnaire. An adult reading on someone else’s behalf can read the public guides but cannot infer that person’s feelings from these descriptions. The four groups are overlapping editorial topics, not seven validated postpartum domains or a model of identity. A professional can consider wider history and circumstances that the page does not ask about.",
+              "zh": "本版不是伴侣、照顾者或观察者问卷。替别人阅读的成年人可读公开指南，却不能从描述推断对方感受。四组是重叠编辑主题，不是七个验证产后领域或身份模型。专业人员可考虑本页未询问的更广历史和背景。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "An optional after-childbirth context, without a medical time rule",
+            "zh": "可选分娩后背景，不设医学时限"
+          },
+          "paragraphs": [
+            {
+              "en": "This self-recollection is for an adult who has given birth and chooses this context. Recall the past four weeks if you want; this is an editorial window, not a diagnostic postpartum interval or waiting period. No birth date, pregnancy history, child information or free-text account is entered. It does not assume a gender, parent identity, a living baby, a child at home or a particular caring role.",
+              "zh": "本自我回顾供有分娩经历、愿意采用此背景的成年人使用。愿意时回顾过去四周，这是编辑窗口，不是诊断的产后区间或等待期。不输入分娩日期、妊娠史、儿童信息或自由叙述；不假设性别、家长身份、婴儿存活、孩子在家或特定照护角色。"
+            },
+            {
+              "en": "No relevant experience, unclear recall or withholding can stay unscored, including every description. Do not reconstruct a difficult event or search for evidence to make an answer possible. A later difference may reflect memory, opportunities or circumstances rather than improvement, deterioration or treatment response. There is no preferred category, target count or repeat schedule, and no interpretation is invented for missing information.",
+              "zh": "无相关经历、记忆不清或保留回答可未计分，包括全部描述。不必重建困难事件或寻找证据才能回答。后来不同可能反映记忆、机会或处境，而非改善、恶化或治疗反应。没有优选类别、目标计数或重测日程，不为缺失信息编造解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not require waiting or proving a parent role",
+            "zh": "支持不要求等待或证明家长角色"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask a qualified healthcare or mental-health professional about a concern without finishing, reaching a count or waiting two weeks. Keep existing care, advice, monitoring and support independent. Do not use a record to postpone assessment, change medicine or cancel support. The website cannot assess healthcare need, urgency, your safety or another person’s safety, and it does not replace existing professional advice.",
+              "zh": "可以不完成、不达到计数、不等两周就向合格医疗或心理健康专业人员咨询。已有照护、意见、监测和支持独立保留，不用记录推迟评估、改药或取消支持。网站不能评估医疗需要、紧急程度、本人或他人安全，也不替代已有专业意见。"
+            },
+            {
+              "en": "This is not EPDS, PHQ-9 or a clinical screen. No norms, validated thresholds or bilingual measurement equivalence have been established. NIMH provides broader perinatal-depression background, which includes contexts beyond this after-childbirth page; it supplies none of these original items or validation. Not asking about self-harm does not establish anyone’s safety. In immediate danger or if you cannot stay safe, seek local emergency assistance; the page cannot monitor or respond to an emergency.",
+              "zh": "本版不是EPDS、PHQ-9或临床筛查，未建立常模、验证阈值或双语测量等值。NIMH提供更广围产期抑郁背景，包括本分娩后页面之外的背景，不提供本原创题或验证。未询问自伤不能证明任何人的安全。如有即时危险或无法保障安全，请寻求当地紧急援助；页面不能监测或紧急响应。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep an optional description without an activity prescription",
+            "zh": "保留自愿描述，不开活动处方"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want a conversation, you could describe an ordinary experience, what felt different from usual and what you would like help understanding. You choose the detail and audience. No activity, sleep change, feeding plan, mood exercise or effort to produce a particular feeling is assigned. You do not need to finish a record, describe a birth or adopt a parent label before asking for support.",
+              "zh": "若想交流，可以描述普通经历、与平时有何不同及想请人帮助理解什么，细节和对象自行选择。不安排活动、睡眠改变、喂养方案、心情练习或制造特定感受。不必完成记录、叙述分娩或采用家长标签，再寻求支持。"
+            },
+            {
+              "en": "Choices remain in current-page memory without drafts, submission, questionnaire analytics or a personal result address. Exit, retake, reload and leaving clear them. Copying shares only the public title and entry. All four full guides are the same public text before answers and for every record, including all-unscored. Reading and support never require enjoyment, a diagnosis or proof of being a particular kind of parent.",
+              "zh": "选择只留当前页内存，不存草稿、不提交、不作问卷分析，也无个人结果地址。退出、重做、刷新及离页清除；复制只含公开标题入口。四篇全文答题前及所有记录相同，包括全未计分。阅读和支持不要求享受、诊断或证明自己是哪一种家长。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "worry-and-self-blame-after-childbirth-reading",
+      "directionIds": [
+        "worry-and-self-blame-after-childbirth"
+      ],
+      "title": {
+        "en": "Worry and self-blame after childbirth — Complete Reading",
+        "zh": "分娩后的担心与自责：完整读法"
+      },
+      "headline": {
+        "en": "Worry and self-blame after childbirth",
+        "zh": "分娩后的担心与自责"
+      },
+      "summary": {
+        "en": "Read the complete original public topic without answering. Every visitor sees the same explanation, with no personal choices, birth or child information, counts or diagnosis.",
+        "zh": "无需答题即可阅读完整原创公开主题；每位访客看到同一解释，不含个人选择、分娩或儿童信息、计数或诊断。"
+      },
+      "scoreReading": {
+        "en": "Six separate recollection-match counts add to four descriptions. Unscored stays distinct from does not match. No frequency, symptom count, total, mean, risk tier, parenting judgement or clinical inference.",
+        "zh": "六种独立回忆贴切计数合计四条描述，未计分与不符分开。没有频率、症状数、总分、均值、风险档、育儿判断或临床推断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Worry and self-blame after childbirth — Complete Reading",
+          "zh": "分娩后的担心与自责：完整读法"
+        },
+        "description": {
+          "en": "Read the complete original public topic without answering. Every visitor sees the same explanation, with no personal choices, birth or child information, counts or diagnosis.",
+          "zh": "无需答题即可阅读完整原创公开主题；每位访客看到同一解释，不含个人选择、分娩或儿童信息、计数或诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Keep a concern and a self-judgement separate",
+            "zh": "把担忧与自我判断分开"
+          },
+          "paragraphs": [
+            {
+              "en": "Four original descriptions concern a worry returning, difficulty putting a concern aside during an activity, self-blame after an ordinary difficulty and comparing what you managed with what you thought you should manage. They refer to the past four weeks within the after-childbirth context you choose. Two concern worry and two concern self-judgement; grouping them for reading does not make them one measured trait.",
+              "zh": "四条原创描述涉及担忧反复出现、活动中难以暂放担心、普通困难后的自责，以及把做到的事与觉得应该做到的事比较。它们指自选分娩后背景中的过去四周。两条关于担心，两条关于自我判断，合在一起阅读不等于同一实测特质。"
+            },
+            {
+              "en": "The page cannot know whether a concern involved an unresolved practical problem, a real health question or another circumstance. It cannot decide that a worry was unreasonable or that self-blame was deserved. You can describe an inner experience without accepting a verdict about fault, adequacy, willingness to care or what kind of person or parent you are.",
+              "zh": "页面不知道担忧是否涉及未解决的实际问题、真实健康问题或其他处境，不能决定担心不合理或自责应当。可以描述内心经历，无需接受关于过错、是否够好、照顾意愿或自己是哪种人或家长的裁定。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Recollection matches do not become a depression score",
+            "zh": "回忆贴切程度不变成抑郁分数"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose does not match my recollection, matches slightly, partly, mostly, closely or unscored for each original description. The labels concern how it fits your remembered experience. They are not event frequency, symptom intensity or an amount of impact. Six separate counts add to four descriptions per topic and retain each choice; IDs carry no points, total, average, rank or winning theme.",
+              "zh": "每条原创描述可选与回忆不符、稍微符合、部分符合、大体符合、很符合或未计分。标签只问对回忆的贴切程度，不是事件频率、症状强度或影响量。每主题六种计数合计四条，并保留每项选择；标识不带点数、总分、均值、排名或最高主题。"
+            },
+            {
+              "en": "Two partly matches, one closely matches and one unscored in a fictional account remain those separate counts. They do not identify postpartum depression, determine care needs or judge parenting. These four overlapping editorial topics are not validated independent dimensions. Unscored stays distinct from does not match and never supplies a zero. A small or unscored record does not establish health or safety.",
+              "zh": "虚构例中两条部分符合、一条很符合、一条未计分，只保留独立计数，不识别产后抑郁、不决定照护需要或评价育儿。四个重叠编辑主题不是验证独立维度。未计分与不符分开，不补零。少量或未计分不建立健康或安全。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Remembering a thought does not make it true",
+            "zh": "记得一种想法，不使它变真"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine remembering an ordinary difficulty and a harsh thought about how much you should have managed. The event, the thought and what was actually possible are separate information. A match label preserves the recollection, not the truth of the judgement. The page does not know the resources, support, opportunity or demands that surrounded the situation.",
+              "zh": "例如记得一次普通困难，及关于自己本该做到多少的苛刻想法。事件、想法及实际可能做到什么，是不同信息。贴切标签保留回忆，不证明判断为真。页面不知道周围资源、支持、机会或需求。"
+            },
+            {
+              "en": "A concern can also remain after you have done what was available without that proving the issue was resolved or safe. No question requires reassurance, a body check, checking on another person or repeating an action. You do not need to supply the thought’s words, describe a difficult event or obtain someone else’s account to leave information unscored.",
+              "zh": "做了当时能做的事后，担忧仍可能在，不证明问题已解决或安全。题目不要求寻求保证、检查身体、检查别人或重复行动。不必提供想法原话、描述困难事件或取得他人叙述，便可未计分。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Existing worry coverage retains its own method",
+            "zh": "已有担心主题保留自身方法"
+          },
+          "paragraphs": [
+            {
+              "en": "The separate everyday-worry page and public clinical questions already cover general worry, tension and related experiences. Their methods are not replaced or extended here. This record retains a particular after-childbirth self-report context and recollection-match labels, without transferring answers or comparing category counts with another form’s frequency ratings or clinical arithmetic. Familiar themes are not claimed as a newly discovered construct.",
+              "zh": "独立日常担心页与公开临床题目已有一般担忧、紧绷及相关经历，本页不替代或扩展其方法。这里只保留特定分娩后本人报告背景与回忆贴切标签，不转移回答，也不把类别计数与其他题本频率或临床算术比较。不把熟悉主题声称为新发现的构念。"
+            },
+            {
+              "en": "These original descriptions cannot identify postpartum depression, an anxiety condition or why an experience occurred. They do not measure coping capacity, parental competence or an amount of guilt. The four topics can overlap without being validated independent dimensions. A qualified professional can consider a broader history and actual circumstances, including concerns the statements never ask about. You need not prove a particular explanation before asking for help.",
+              "zh": "这些原创描述不能识别产后抑郁、焦虑状况或经历原因，不测应付能力、育儿能力或内疚量。四主题可重叠，不是验证独立维度。合格专业人员可考虑更广历史与实际背景，包括陈述未问的担忧；无需证明特定解释便可咨询。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "An optional after-childbirth context, without a medical time rule",
+            "zh": "可选分娩后背景，不设医学时限"
+          },
+          "paragraphs": [
+            {
+              "en": "This self-recollection is for an adult who has given birth and chooses this context. Recall the past four weeks if you want; this is an editorial window, not a diagnostic postpartum interval or waiting period. No birth date, pregnancy history, child information or free-text account is entered. It does not assume a gender, parent identity, a living baby, a child at home or a particular caring role.",
+              "zh": "本自我回顾供有分娩经历、愿意采用此背景的成年人使用。愿意时回顾过去四周，这是编辑窗口，不是诊断的产后区间或等待期。不输入分娩日期、妊娠史、儿童信息或自由叙述；不假设性别、家长身份、婴儿存活、孩子在家或特定照护角色。"
+            },
+            {
+              "en": "No relevant experience, unclear recall or withholding can stay unscored, including every description. Do not reconstruct a difficult event or search for evidence to make an answer possible. A later difference may reflect memory, opportunities or circumstances rather than improvement, deterioration or treatment response. There is no preferred category, target count or repeat schedule, and no interpretation is invented for missing information.",
+              "zh": "无相关经历、记忆不清或保留回答可未计分，包括全部描述。不必重建困难事件或寻找证据才能回答。后来不同可能反映记忆、机会或处境，而非改善、恶化或治疗反应。没有优选类别、目标计数或重测日程，不为缺失信息编造解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not require waiting or proving a parent role",
+            "zh": "支持不要求等待或证明家长角色"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask a qualified healthcare or mental-health professional about a concern without finishing, reaching a count or waiting two weeks. Keep existing care, advice, monitoring and support independent. Do not use a record to postpone assessment, change medicine or cancel support. The website cannot assess healthcare need, urgency, your safety or another person’s safety, and it does not replace existing professional advice.",
+              "zh": "可以不完成、不达到计数、不等两周就向合格医疗或心理健康专业人员咨询。已有照护、意见、监测和支持独立保留，不用记录推迟评估、改药或取消支持。网站不能评估医疗需要、紧急程度、本人或他人安全，也不替代已有专业意见。"
+            },
+            {
+              "en": "This is not EPDS, PHQ-9 or a clinical screen. No norms, validated thresholds or bilingual measurement equivalence have been established. NIMH provides broader perinatal-depression background, which includes contexts beyond this after-childbirth page; it supplies none of these original items or validation. Not asking about self-harm does not establish anyone’s safety. In immediate danger or if you cannot stay safe, seek local emergency assistance; the page cannot monitor or respond to an emergency.",
+              "zh": "本版不是EPDS、PHQ-9或临床筛查，未建立常模、验证阈值或双语测量等值。NIMH提供更广围产期抑郁背景，包括本分娩后页面之外的背景，不提供本原创题或验证。未询问自伤不能证明任何人的安全。如有即时危险或无法保障安全，请寻求当地紧急援助；页面不能监测或紧急响应。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep an optional question without a reassurance task",
+            "zh": "留下自愿问题，不安排寻求保证任务"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, you could describe what kept drawing your attention and what you would like help understanding. Choose the detail and audience. There is no request to suppress thoughts, test a worry, check a baby or another person, change monitoring or seek confirmation that you are a good parent. This is an optional description, not a plan for managing a health or care concern.",
+              "zh": "若有用，可以描述什么不断吸引注意，以及想请人帮助理解什么，细节和对象自行选择。不要求压制想法、测试担忧、检查婴儿或他人、改变监测，或确认自己是好家长。这是可选描述，不是管理健康或照护担忧的方案。"
+            },
+            {
+              "en": "Choices stay in page memory, without drafts, submission, questionnaire analytics or a personal result URL. Exit, retake, reload and leaving clear them; copying shares only the public title and entry. All four complete guides remain public before answers and after every record, including all-unscored. Reading and support do not require a count, a justified thought, a care role or proof that you managed enough.",
+              "zh": "选择只留页内存，不存草稿、不提交、不作问卷分析，也无个人结果URL。退出、重做、刷新及离页清除，复制只含公开标题入口。四篇全文答题前及所有记录公开，包括全未计分。阅读和支持不要求计数、合理想法、照护角色或证明自己已做到够多。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rest-and-demands-after-childbirth-reading",
+      "directionIds": [
+        "rest-and-demands-after-childbirth"
+      ],
+      "title": {
+        "en": "Rest and ordinary demands after childbirth — Complete Reading",
+        "zh": "分娩后的休息与日常需求：完整读法"
+      },
+      "headline": {
+        "en": "Rest and ordinary demands after childbirth",
+        "zh": "分娩后的休息与日常需求"
+      },
+      "summary": {
+        "en": "Read the complete original public topic without answering. Every visitor sees the same explanation, with no personal choices, birth or child information, counts or diagnosis.",
+        "zh": "无需答题即可阅读完整原创公开主题；每位访客看到同一解释，不含个人选择、分娩或儿童信息、计数或诊断。"
+      },
+      "scoreReading": {
+        "en": "Six separate recollection-match counts add to four descriptions. Unscored stays distinct from does not match. No frequency, symptom count, total, mean, risk tier, parenting judgement or clinical inference.",
+        "zh": "六种独立回忆贴切计数合计四条描述，未计分与不符分开。没有频率、症状数、总分、均值、风险档、育儿判断或临床推断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Rest and ordinary demands after childbirth — Complete Reading",
+          "zh": "分娩后的休息与日常需求：完整读法"
+        },
+        "description": {
+          "en": "Read the complete original public topic without answering. Every visitor sees the same explanation, with no personal choices, birth or child information, counts or diagnosis.",
+          "zh": "无需答题即可阅读完整原创公开主题；每位访客看到同一解释，不含个人选择、分娩或儿童信息、计数或诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Recall opportunity, rest and ordinary demands separately",
+            "zh": "分别回顾机会、休息与日常需求"
+          },
+          "paragraphs": [
+            {
+              "en": "Four original descriptions concern difficulty settling into sleep when an opportunity existed, difficulty resting during an available pause, ordinary demands feeling harder to manage and difficulty choosing which demand to address first. They refer to the past four weeks within the after-childbirth context you choose. They describe separate experiences, not a measure of sleep need, coping capacity or ability to care for someone.",
+              "zh": "四条原创描述涉及有睡眠机会时难安睡、有停顿时难休息、普通需求更难应付，以及难决定先处理哪一项。它们指自选分娩后背景中的过去四周，是分别的经历，不测睡眠需要、应付能力或照顾他人的能力。"
+            },
+            {
+              "en": "The page does not know which opportunities were available, the demands around you, physical health or existing arrangements. A description cannot decide that a baby’s schedule explains a difficulty or that the difficulty goes beyond what a newborn would explain. No baby, child at home or particular caring role is assumed, and no category assigns a cause or a parenting judgement.",
+              "zh": "页面不知道有哪些机会、周围需求、身体健康或已有安排。描述不能决定婴儿作息解释困难，也不能判断困难超出了新生儿所能解释的范围。不假设婴儿、孩子在家或特定照护角色，类别不分配原因或育儿判断。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Recollection matches do not become a depression score",
+            "zh": "回忆贴切程度不变成抑郁分数"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose does not match my recollection, matches slightly, partly, mostly, closely or unscored for each original description. The labels concern how it fits your remembered experience. They are not event frequency, symptom intensity or an amount of impact. Six separate counts add to four descriptions per topic and retain each choice; IDs carry no points, total, average, rank or winning theme.",
+              "zh": "每条原创描述可选与回忆不符、稍微符合、部分符合、大体符合、很符合或未计分。标签只问对回忆的贴切程度，不是事件频率、症状强度或影响量。每主题六种计数合计四条，并保留每项选择；标识不带点数、总分、均值、排名或最高主题。"
+            },
+            {
+              "en": "Two partly matches, one closely matches and one unscored in a fictional account remain those separate counts. They do not identify postpartum depression, determine care needs or judge parenting. These four overlapping editorial topics are not validated independent dimensions. Unscored stays distinct from does not match and never supplies a zero. A small or unscored record does not establish health or safety.",
+              "zh": "虚构例中两条部分符合、一条很符合、一条未计分，只保留独立计数，不识别产后抑郁、不决定照护需要或评价育儿。四个重叠编辑主题不是验证独立维度。未计分与不符分开，不补零。少量或未计分不建立健康或安全。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "An opportunity to sleep is not the same as sleeping",
+            "zh": "有机会睡与实际睡眠不同"
+          },
+          "paragraphs": [
+            {
+              "en": "The first description explicitly refers to an opportunity to sleep. If no such opportunity comes to mind, unscored is available rather than assuming easy sleep or inventing a difficult night. The page cannot measure whether an opportunity was adequate, what sleep was needed or why settling was hard. It does not diagnose insomnia or establish that less sleep was safe.",
+              "zh": "第一条明确指有机会睡觉。如果想不起这样的机会，可未计分，不假设睡得容易，也不编造困难夜晚。页面不能测机会是否足够、需要多少睡眠或难安睡原因，不诊断失眠，也不建立少睡安全。"
+            },
+            {
+              "en": "Likewise, an available pause and feeling rested are different information. You might recall a pause clearly but be unsure what resting felt like, or recall a demanding day without remembering a pause. Keep those gaps. No sleep duration, device reading, child schedule or medical detail is entered, and you are not asked to stay awake, change a routine or remove an existing support to test the statement.",
+              "zh": "同样，可停顿与觉得休息到了，是不同信息。也许记得停顿却不确定休息感，也许记得繁忙一天却不记得停顿，保留这些缺口。不输入睡眠时长、设备读数、儿童作息或医学细节；不要求熬夜、改作息或移除已有支持来测试陈述。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "A demand description is not an ability assessment",
+            "zh": "需求描述不是能力评估"
+          },
+          "paragraphs": [
+            {
+              "en": "Difficulty choosing what to address first can occur in an account where information, time or support was limited. The category cannot know which practical constraints mattered or decide that a task should have been manageable. Recognising the description does not establish laziness, incapacity, poor organisation or failure in a parent role. The page has not observed what you did or what alternatives existed.",
+              "zh": "难决定先处理什么的叙述，可能涉及信息、时间或支持有限。类别不知道哪些限制重要，也不能决定任务本来应可应付。认出描述不建立懒惰、无能力、组织差或家长角色失败。页面没观察你做了什么或有哪些替代选择。"
+            },
+            {
+              "en": "General sleep and energy themes already appear in the public clinical pack and the separate recent-mood page. This original record only retains an after-childbirth self-report context. It does not replace those methods, transfer answers or combine counts with another form’s numbers. The four editorial groups may overlap and are not validated independent dimensions or a clinical coping model.",
+              "zh": "公开临床题包和独立近期心情页已有一般睡眠及精力主题。本原创记录只保留分娩后本人报告背景，不替代方法、不转移回答，也不与其他题本数字合计数。四个编辑分组可能重叠，不是验证独立维度或临床应付模型。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "An optional after-childbirth context, without a medical time rule",
+            "zh": "可选分娩后背景，不设医学时限"
+          },
+          "paragraphs": [
+            {
+              "en": "This self-recollection is for an adult who has given birth and chooses this context. Recall the past four weeks if you want; this is an editorial window, not a diagnostic postpartum interval or waiting period. No birth date, pregnancy history, child information or free-text account is entered. It does not assume a gender, parent identity, a living baby, a child at home or a particular caring role.",
+              "zh": "本自我回顾供有分娩经历、愿意采用此背景的成年人使用。愿意时回顾过去四周，这是编辑窗口，不是诊断的产后区间或等待期。不输入分娩日期、妊娠史、儿童信息或自由叙述；不假设性别、家长身份、婴儿存活、孩子在家或特定照护角色。"
+            },
+            {
+              "en": "No relevant experience, unclear recall or withholding can stay unscored, including every description. Do not reconstruct a difficult event or search for evidence to make an answer possible. A later difference may reflect memory, opportunities or circumstances rather than improvement, deterioration or treatment response. There is no preferred category, target count or repeat schedule, and no interpretation is invented for missing information.",
+              "zh": "无相关经历、记忆不清或保留回答可未计分，包括全部描述。不必重建困难事件或寻找证据才能回答。后来不同可能反映记忆、机会或处境，而非改善、恶化或治疗反应。没有优选类别、目标计数或重测日程，不为缺失信息编造解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not require waiting or proving a parent role",
+            "zh": "支持不要求等待或证明家长角色"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask a qualified healthcare or mental-health professional about a concern without finishing, reaching a count or waiting two weeks. Keep existing care, advice, monitoring and support independent. Do not use a record to postpone assessment, change medicine or cancel support. The website cannot assess healthcare need, urgency, your safety or another person’s safety, and it does not replace existing professional advice.",
+              "zh": "可以不完成、不达到计数、不等两周就向合格医疗或心理健康专业人员咨询。已有照护、意见、监测和支持独立保留，不用记录推迟评估、改药或取消支持。网站不能评估医疗需要、紧急程度、本人或他人安全，也不替代已有专业意见。"
+            },
+            {
+              "en": "This is not EPDS, PHQ-9 or a clinical screen. No norms, validated thresholds or bilingual measurement equivalence have been established. NIMH provides broader perinatal-depression background, which includes contexts beyond this after-childbirth page; it supplies none of these original items or validation. Not asking about self-harm does not establish anyone’s safety. In immediate danger or if you cannot stay safe, seek local emergency assistance; the page cannot monitor or respond to an emergency.",
+              "zh": "本版不是EPDS、PHQ-9或临床筛查，未建立常模、验证阈值或双语测量等值。NIMH提供更广围产期抑郁背景，包括本分娩后页面之外的背景，不提供本原创题或验证。未询问自伤不能证明任何人的安全。如有即时危险或无法保障安全，请寻求当地紧急援助；页面不能监测或紧急响应。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep a question without a sleep or caregiving assignment",
+            "zh": "留下问题，不安排睡眠或照护任务"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, you could distinguish what opportunity you remember, what felt difficult and what you would like help understanding. You choose the detail and audience. The page offers no sleep, feeding, medicine, exercise or child-care plan, and asks for no change in monitoring or responsibilities. A professional can consider wider circumstances; a concern need not fit this limited set of descriptions or wait for a more complete record.",
+              "zh": "若有用，可区分记得的机会、困难感及想请人帮助理解什么，细节和对象自行选择。页面不提供睡眠、喂养、药物、运动或儿童照护计划，不要求改变监测或责任。专业人员可考虑更广处境；担忧不必符合有限描述，也不必等记录更完整。"
+            },
+            {
+              "en": "Selections stay in page memory only, without drafts, submission, questionnaire analytics or a personal result URL. Exit, retake, reload and leaving clear them. Copying shares only the public title and entry. All four complete guides remain public before answers and for every record, including entirely unscored. Reading and support never require you to change sleep, demonstrate coping or complete a caring task.",
+              "zh": "选择只在页内存，不存草稿、不提交、不作问卷分析，也无个人结果URL。退出、重做、刷新及离页清除，复制只含公开标题入口。四篇全文答题前及所有记录公开，包括全部未计分。阅读与支持不要求改变睡眠、展示应付能力或完成照护任务。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "connection-with-self-after-childbirth-reading",
+      "directionIds": [
+        "connection-with-self-after-childbirth"
+      ],
+      "title": {
+        "en": "Connection with self after childbirth — Complete Reading",
+        "zh": "分娩后与自己的联系：完整读法"
+      },
+      "headline": {
+        "en": "Connection with self after childbirth",
+        "zh": "分娩后与自己的联系"
+      },
+      "summary": {
+        "en": "Read the complete original public topic without answering. Every visitor sees the same explanation, with no personal choices, birth or child information, counts or diagnosis.",
+        "zh": "无需答题即可阅读完整原创公开主题；每位访客看到同一解释，不含个人选择、分娩或儿童信息、计数或诊断。"
+      },
+      "scoreReading": {
+        "en": "Six separate recollection-match counts add to four descriptions. Unscored stays distinct from does not match. No frequency, symptom count, total, mean, risk tier, parenting judgement or clinical inference.",
+        "zh": "六种独立回忆贴切计数合计四条描述，未计分与不符分开。没有频率、症状数、总分、均值、风险档、育儿判断或临床推断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Connection with self after childbirth — Complete Reading",
+          "zh": "分娩后与自己的联系：完整读法"
+        },
+        "description": {
+          "en": "Read the complete original public topic without answering. Every visitor sees the same explanation, with no personal choices, birth or child information, counts or diagnosis.",
+          "zh": "无需答题即可阅读完整原创公开主题；每位访客看到同一解释，不含个人选择、分娩或儿童信息、计数或诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Describe connection with yourself without defining who you are",
+            "zh": "描述与自己的联系，不定义自己是谁"
+          },
+          "paragraphs": [
+            {
+              "en": "Four original descriptions concern connecting with something that mattered before giving birth, recognising usual preferences, a gap between feelings and what others seemed to expect, and wanting space for a part of yourself beyond surrounding responsibilities. They refer to the past four weeks within the context you choose. They are remembered experiences, not a measure of identity, authenticity or how a parent should feel.",
+              "zh": "四条原创描述涉及与分娩前重要事物的联系、辨认平时偏好、感受与别人似乎期待之间的落差，以及想为周围责任之外的某部分自己留空间。它们指自选背景中的过去四周，是回忆经历，不测身份、真实自我或家长应该怎样感受。"
+            },
+            {
+              "en": "The page cannot decide which interests should remain, what a role should mean or whether a changed preference is a problem. Recognising a description does not establish loss of identity, detachment from a baby or a diagnosis. You can retain an uncertainty without choosing a fixed parent label, comparing yourself with someone else or treating a previous version of yourself as a required goal.",
+              "zh": "页面不能决定哪些兴趣该留下、角色应意味什么，或偏好变化是否是问题。认出描述不建立身份丧失、与婴儿疏离或诊断。可以保留不确定，不必选择固定家长标签、与别人比较，或把以前的自己当必达目标。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Recollection matches do not become a depression score",
+            "zh": "回忆贴切程度不变成抑郁分数"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose does not match my recollection, matches slightly, partly, mostly, closely or unscored for each original description. The labels concern how it fits your remembered experience. They are not event frequency, symptom intensity or an amount of impact. Six separate counts add to four descriptions per topic and retain each choice; IDs carry no points, total, average, rank or winning theme.",
+              "zh": "每条原创描述可选与回忆不符、稍微符合、部分符合、大体符合、很符合或未计分。标签只问对回忆的贴切程度，不是事件频率、症状强度或影响量。每主题六种计数合计四条，并保留每项选择；标识不带点数、总分、均值、排名或最高主题。"
+            },
+            {
+              "en": "Two partly matches, one closely matches and one unscored in a fictional account remain those separate counts. They do not identify postpartum depression, determine care needs or judge parenting. These four overlapping editorial topics are not validated independent dimensions. Unscored stays distinct from does not match and never supplies a zero. A small or unscored record does not establish health or safety.",
+              "zh": "虚构例中两条部分符合、一条很符合、一条未计分，只保留独立计数，不识别产后抑郁、不决定照护需要或评价育儿。四个重叠编辑主题不是验证独立维度。未计分与不符分开，不补零。少量或未计分不建立健康或安全。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "An interest, an opportunity and a preference differ",
+            "zh": "兴趣、机会与偏好不同"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine remembering difficulty connecting with an activity that mattered before giving birth while the opportunity to do it had also changed. The statement cannot tell whether the interest changed, the opportunity was missing or another circumstance mattered. A category leaves those explanations open. You are not asked to return to an activity or prove that an old interest still belongs to you.",
+              "zh": "例如记得难以联系分娩前重要活动，同时参与机会也改变。陈述不能判断兴趣变了、机会缺失或其他背景重要，类别保留解释未知。不要求回到活动或证明旧兴趣仍属于自己。"
+            },
+            {
+              "en": "Similarly, being unsure what you prefer in one ordinary choice does not mean having no preferences or a permanent identity problem. You can recall one uncertainty without extending it to every setting. No personal history, photograph, birth account or proof of former interests is entered. If an experience is unclear or the wording does not fit, unscored is an ordinary available option.",
+              "zh": "同样，在一次普通选择中不确定偏好，不意味没有偏好或永久身份问题。可以回忆一次不确定，不推广到所有场景。不输入个人史、照片、分娩叙述或过去兴趣证据。经历不清或文字不适合时，未计分是正常可选项。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Perceived expectations do not reveal another mind",
+            "zh": "感到的期待不读取他人内心"
+          },
+          "paragraphs": [
+            {
+              "en": "Remembering a gap between your feelings and what someone seemed to expect concerns your recollection of that gap. The page cannot verify another person’s expectations or decide that their treatment was fair, harmless or explained by a misunderstanding. It cannot dismiss an actual difficulty as a symptom. No label determines your obligations or whose interpretation of an interaction was right.",
+              "zh": "记得感受与别人似乎期待之间的落差，只关乎对落差的回忆。页面不能核实对方期待、决定对待公平无害或只是误解，也不能把实际困难当症状忽视。标签不决定义务或谁对互动的理解正确。"
+            },
+            {
+              "en": "Wanting space beyond responsibilities likewise does not establish unwillingness to care or a need to change an arrangement. The page knows neither the responsibilities nor the available support. You are not asked to contact someone, reopen a message, confront an expectation or set aside a caring task. A remembered wish can remain a description without becoming an action plan or a verdict about your worth.",
+              "zh": "想在责任之外留空间，也不建立不愿照顾或需要改变安排。页面不知道责任或可用支持。不要求联系人、重开消息、对质期待或放下照护任务。记得的愿望可以只是描述，不变成行动方案或个人价值裁定。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "An optional after-childbirth context, without a medical time rule",
+            "zh": "可选分娩后背景，不设医学时限"
+          },
+          "paragraphs": [
+            {
+              "en": "This self-recollection is for an adult who has given birth and chooses this context. Recall the past four weeks if you want; this is an editorial window, not a diagnostic postpartum interval or waiting period. No birth date, pregnancy history, child information or free-text account is entered. It does not assume a gender, parent identity, a living baby, a child at home or a particular caring role.",
+              "zh": "本自我回顾供有分娩经历、愿意采用此背景的成年人使用。愿意时回顾过去四周，这是编辑窗口，不是诊断的产后区间或等待期。不输入分娩日期、妊娠史、儿童信息或自由叙述；不假设性别、家长身份、婴儿存活、孩子在家或特定照护角色。"
+            },
+            {
+              "en": "No relevant experience, unclear recall or withholding can stay unscored, including every description. Do not reconstruct a difficult event or search for evidence to make an answer possible. A later difference may reflect memory, opportunities or circumstances rather than improvement, deterioration or treatment response. There is no preferred category, target count or repeat schedule, and no interpretation is invented for missing information.",
+              "zh": "无相关经历、记忆不清或保留回答可未计分，包括全部描述。不必重建困难事件或寻找证据才能回答。后来不同可能反映记忆、机会或处境，而非改善、恶化或治疗反应。没有优选类别、目标计数或重测日程，不为缺失信息编造解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not require waiting or proving a parent role",
+            "zh": "支持不要求等待或证明家长角色"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask a qualified healthcare or mental-health professional about a concern without finishing, reaching a count or waiting two weeks. Keep existing care, advice, monitoring and support independent. Do not use a record to postpone assessment, change medicine or cancel support. The website cannot assess healthcare need, urgency, your safety or another person’s safety, and it does not replace existing professional advice.",
+              "zh": "可以不完成、不达到计数、不等两周就向合格医疗或心理健康专业人员咨询。已有照护、意见、监测和支持独立保留，不用记录推迟评估、改药或取消支持。网站不能评估医疗需要、紧急程度、本人或他人安全，也不替代已有专业意见。"
+            },
+            {
+              "en": "This is not EPDS, PHQ-9 or a clinical screen. No norms, validated thresholds or bilingual measurement equivalence have been established. NIMH provides broader perinatal-depression background, which includes contexts beyond this after-childbirth page; it supplies none of these original items or validation. Not asking about self-harm does not establish anyone’s safety. In immediate danger or if you cannot stay safe, seek local emergency assistance; the page cannot monitor or respond to an emergency.",
+              "zh": "本版不是EPDS、PHQ-9或临床筛查，未建立常模、验证阈值或双语测量等值。NIMH提供更广围产期抑郁背景，包括本分娩后页面之外的背景，不提供本原创题或验证。未询问自伤不能证明任何人的安全。如有即时危险或无法保障安全，请寻求当地紧急援助；页面不能监测或紧急响应。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep an optional question without recovering a prescribed identity",
+            "zh": "留下自愿问题，不恢复规定的身份"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want a conversation, you could describe what feels hard to connect with, what remains uncertain and what you would like help understanding. Choose the detail and audience. There is no requirement to recover a former self, demonstrate bonding, adopt a parent identity or make time for an activity. This original topic is not a validated identity scale, and the four editorial groups do not create a clinical model.",
+              "zh": "若想交流，可以描述难以联系的事、不确定处及想请人帮助理解什么，细节和对象自行选择。不要求恢复以前的自己、展示联结、采用家长身份或为活动腾时间。本原创主题不是验证身份量表，四个编辑分组不建立临床模型。"
+            },
+            {
+              "en": "Choices stay in current-page memory without drafts, submission, questionnaire analytics or a personal result URL. Exit, retake, reload and leaving clear them. Copying shares only the public title and entry. All four full guides are the same public text before answers and after every record, including all-unscored. Reading and support never depend on proving an identity, a role or the right feeling toward anyone.",
+              "zh": "选择只留当前页内存，不存草稿、不提交、不作问卷分析，也无个人结果URL。退出、重做、刷新及离页清除；复制只含公开标题入口。四篇全文答题前及所有记录相同，包括全未计分。阅读与支持不依赖证明身份、角色或对任何人有正确感受。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "context",
+      "title": {
+        "en": "A chosen self-report context, not a clinical time window",
+        "zh": "自选本人报告背景，不是临床时间窗"
+      },
+      "paragraphs": [
+        {
+          "en": "This is an adult self-recollection after childbirth, not a proxy questionnaire about a partner, child or another person. The past four weeks give memory an editorial boundary, without identifying an onset, diagnostic postpartum interval or cause. No personal history or child data is entered. If the context does not fit, read without answering or leave every description unscored.",
+          "zh": "本版是分娩后成年人自我回顾，不是关于伴侣、儿童或他人的代理问卷。过去四周只是编辑回忆边界，不识别起始、诊断产后区间或原因。不输入个人史或儿童资料。背景不适合时，可不答题阅读或让全部描述未计分。"
+        },
+        {
+          "en": "General mood, interest, worry, sleep and energy already appear in the public clinical question pack and separate original mood and worry pages. This supplement only retains the after-childbirth self-report context. It does not claim new clinical constructs, transfer answers or combine numbers. These sixteen original descriptions are not EPDS, PHQ-9 or a validated clinical screen.",
+          "zh": "一般心情、兴趣、担心、睡眠和精力已在公开临床题包及独立原创心情担心页存在。本补充只保留分娩后本人报告背景，不称新临床构念、不转移回答或合数字。这十六条原创描述不是EPDS、PHQ-9或验证临床筛查。"
+        }
+      ]
+    },
+    {
+      "id": "labels",
+      "title": {
+        "en": "Separate category records, without a parent or health verdict",
+        "zh": "独立类别记录，不裁定育儿或健康"
+      },
+      "paragraphs": [
+        {
+          "en": "Six category counts add to four descriptions per topic. IDs are labels, not points, and counts do not measure symptoms, nights, demands, events or an amount of impact. No total, average, weighting, highest topic or diagnostic threshold is calculated. The four editorial topics can overlap and have no validated independence or established bilingual measurement equivalence.",
+          "zh": "每主题六种计数合计四条描述，标识是标签不是点数；计数不测症状、夜数、需求、事件或影响量。不算总分、均值、加权、最高主题或诊断阈值。四个编辑主题可重叠，尚无验证独立性或双语测量等值。"
+        },
+        {
+          "en": "No relevant experience, unclear recall and withholding remain unscored, separate from does not match and never converted to zero. All descriptions may be unscored without an invented personal interpretation. A sparse or unscored record does not establish health, personal or infant safety, bonding, identity, coping capacity or whether support is needed.",
+          "zh": "无相关经历、记忆不清及保留回答保持未计分，与不符分开，不变成零。全部未计分也不编造个人解释。稀疏或未计分不建立健康、本人或婴儿安全、联结、身份、应付能力或支持需要。"
+        }
+      ]
+    },
+    {
+      "id": "private",
+      "title": {
+        "en": "Recall only, with all full guides public",
+        "zh": "只凭回忆，所有全文公开"
+      },
+      "paragraphs": [
+        {
+          "en": "No activity, sleep or feeding change, body check, thought exercise or recreation of a birth is needed. Choices stay in page memory without drafts, submission, questionnaire analytics or a personal result address. Exit, retake, reload and leaving clear them. Copying shares only the public title and entry, without categories, birth history or child information.",
+          "zh": "不必做活动、改睡眠喂养、查身体、练思维或重现分娩。选择留页内存，不存草稿、不提交、不作问卷分析，也无个人结果地址。退出、重做、刷新及离页清除；复制只含公开标题入口，不含类别、分娩史或儿童信息。"
+        },
+        {
+          "en": "All four complete guides and support are public before answers and after every record. No count, waiting period or two-week rule is needed before asking a qualified professional about a concern. Keep existing care, advice and monitoring independent. The page cannot assess healthcare need, urgency or safety, observe anyone or provide emergency response.",
+          "zh": "四篇全文与支持在答题前及所有记录后公开。咨询合格专业人员无需计数、等待或两周规则。已有照护、意见及监测独立保留。页面不能评估医疗需要、紧急程度或安全，不能观察任何人或作紧急响应。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does this diagnose postpartum depression or give an EPDS score?",
+        "zh": "这能诊断产后抑郁或给EPDS分数吗？"
+      },
+      "answer": {
+        "en": "No. Sixteen original recollections are not EPDS, PHQ-9 or a clinical screen. Categories cannot confirm or exclude a condition, establish a cause or severity or judge parenting.",
+        "zh": "不能。十六条原创回顾不是EPDS、PHQ-9或临床筛查；类别不能确认或排除状况、建立原因严重度或评价育儿。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can a partner or caregiver answer for someone else?",
+        "zh": "伴侣或照顾者能替别人回答吗？"
+      },
+      "answer": {
+        "en": "No. This is an adult’s own recollection, not a proxy or infant assessment. Anyone can read the public guides, but the descriptions cannot determine another person’s feelings, health or safety.",
+        "zh": "不能。本版使用成年人本人回忆，不是代理或婴儿评估。任何人都可读公开指南，但描述不能决定他人感受、健康或安全。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does difficulty sleeping mean it is more than a newborn’s schedule?",
+        "zh": "睡眠困难意味着超过新生儿作息能解释的范围吗？"
+      },
+      "answer": {
+        "en": "The page cannot make that distinction or establish a cause. A sleep opportunity is different from actually sleeping; no remembered opportunity can remain unscored. No sleep, feeding or medicine instructions are provided.",
+        "zh": "页面不能作此区分或建立原因。睡眠机会与实际睡眠不同，想不起机会时可未计分；本页不提供睡眠、喂养或药物指示。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if this context does not fit or I want to withhold?",
+        "zh": "背景不适合或想保留回答怎么办？"
+      },
+      "answer": {
+        "en": "Read without answering or leave any or all descriptions unscored. Gender, parent identity, a living baby, a child at home and a particular care role are not assumed. All four full guides and support remain public.",
+        "zh": "可不答题阅读，或让任何乃至全部描述未计分。不假设性别、家长身份、婴儿存活、孩子在家或特定照护角色，四篇全文与支持始终公开。"
+      }
+    },
+    {
+      "question": {
+        "en": "Must I wait two weeks or finish before seeking support?",
+        "zh": "寻求支持前必须等两周或完成吗？"
+      },
+      "answer": {
+        "en": "No. Ask a qualified professional without a count, wait or completed record. Keep existing care and advice independent. The page cannot assess healthcare need or safety. In immediate danger or if you cannot stay safe, seek local emergency assistance.",
+        "zh": "不必。无需计数、等待或完整记录即可咨询合格专业人员；已有照护和意见独立保留。页面不能评估医疗需要或安全。如有即时危险或无法保障安全，请寻求当地紧急援助。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "NIMH: Perinatal Depression — broader assessment and support background",
+        "zh": "NIMH：围产期抑郁的更广评估与支持背景"
+      },
+      "url": "https://www.nimh.nih.gov/health/publications/perinatal-depression"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_birth_context_recollections16",
+    "formCode": "fm_birth_context16_recollections_v1",
+    "itemBankVersion": "original16_bilingual_four_by_four_v1",
+    "scoringVersion": "six_recollection_match_counts_per_four_no_clinical_inference_v1",
+    "resultContentVersion": "four_full_bilingual_birth_context_readings_v1",
+    "itemBankSha256": "0252cf3cad3dfa375c66d4069514340b5d631909bcbe6fe39223bf8fa9344cb2",
+    "resultContentSha256": "a91b632d35707dea19aa7730431d2a8c2708639c8d8b840fd59ed0d2394a2a69",
+    "psychometricValidationCompleted": false
+  }
+}

@@ -32,6 +32,7 @@ const loaders = {
   "recent-mood-reflection": async () => (await import("./data/recent-mood-reflection.json")).default as Questionnaire,
   "mood-activity-changes-reflection": async () => (await import("./data/mood-activity-changes-reflection.json")).default as Questionnaire,
   "menstrual-cycle-context-reflection": async () => (await import("./data/menstrual-cycle-context-reflection.json")).default as Questionnaire,
+  "after-childbirth-context-reflection": async () => (await import("./data/after-childbirth-context-reflection.json")).default as Questionnaire,
   "health-worries-reflection": async () => (await import("./data/health-worries-reflection.json")).default as Questionnaire,
   "sleep-experiences-reflection": async () => (await import("./data/sleep-experiences-reflection.json")).default as Questionnaire,
   "after-bereavement-reflection": async () => (await import("./data/after-bereavement-reflection.json")).default as Questionnaire,
