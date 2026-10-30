@@ -119,7 +119,7 @@ test("@release Weton calendar: every control waits for hydration and the first d
       const input = page.locator('input[type="date"]'), select = page.locator("select"), show = page.getByRole("button", { name: zh ? "查看历法参考" : "Show calendar reference", exact: true });
       await expect(input).toBeVisible(); await expect(input).toBeDisabled(); await expect(select).toBeDisabled(); await expect(show).toBeDisabled();
       await expect(page.getByRole("button", { name: zh ? "清除历法输入" : "Clear calendar inputs", exact: true })).toBeDisabled();
-      release(); await expect(input).toBeEnabled(); await input.fill("1945-08-17"); await show.click();
+      release(); await page.waitForLoadState("load"); await expect(input).toBeEnabled(); await input.fill("1945-08-17"); await show.click();
       await expect(input).toHaveValue("1945-08-17"); await expect(page.locator("[data-weton-calendar-reference]")).toHaveCount(2);
       await expect(page.locator("[data-weton-calendar-result]")).toContainText("Jumat Legi"); await expect(page.locator("[data-weton-calendar-result]")).toContainText("Sabtu Pahing");
       expect(new URL(page.url()).search).toBe("");
