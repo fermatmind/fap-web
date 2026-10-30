@@ -6903,5 +6903,31 @@
       "changes-to-plans-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "unwanted-thoughts-actions-reflection",
+    "code": "FM_UNWANTED_ACTIONS20_OBSERVATIONS",
+    "version": "fm_unwanted_actions20_observations_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Unwanted Thoughts & Repeated Actions: Personal Reflection",
+      "zh": "不想要的想法与重复动作：个人回顾"
+    },
+    "description": {
+      "en": "Recall cleaning concerns, checking, order and repetition, unwanted thoughts, and keeping belongings with 20 original adult descriptions. Five full public guides and private category records; no Y-BOCS or OCI score, diagnosis or danger judgment.",
+      "zh": "用20条成年人原创描述回顾清洁担忧、再次查看、秩序与重复、不想要的想法，以及保留物品。五篇全文公开，类别记录留在本页；不生成Y-BOCS或OCI分数、诊断或危险判断。"
+    },
+    "minutes": 5,
+    "formCode": "fm_unwanted_actions20_observations_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "cleaning-concerns-reading",
+      "checking-again-reading",
+      "order-and-repetition-reading",
+      "unwanted-thoughts-reading",
+      "keeping-and-discarding-reading"
+    ],
+    "collection": "explore"
   }
 ]

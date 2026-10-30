@@ -1,0 +1,2132 @@
+{
+  "slug": "unwanted-thoughts-actions-reflection",
+  "code": "FM_UNWANTED_ACTIONS20_OBSERVATIONS",
+  "version": "fm_unwanted_actions20_observations_v1",
+  "kind": "unwanted-actions20",
+  "title": {
+    "en": "Unwanted Thoughts & Repeated Actions: Personal Reflection",
+    "zh": "不想要的想法与重复动作：个人回顾"
+  },
+  "directions": [
+    {
+      "id": "cleaning-concerns",
+      "title": {
+        "en": "Cleaning-related concerns",
+        "zh": "与清洁有关的担忧"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "checking-again",
+      "title": {
+        "en": "Checking again",
+        "zh": "再次查看时"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "order-and-repetition",
+      "title": {
+        "en": "Order and repetition",
+        "zh": "秩序与重复动作"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "unwanted-thoughts",
+      "title": {
+        "en": "Unwanted thoughts and mental responses",
+        "zh": "不想要的想法与心中回应"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "keeping-and-discarding",
+      "title": {
+        "en": "Keeping and discarding belongings",
+        "zh": "保留与舍弃物品"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "URA_01",
+      "prompt": {
+        "en": "Concern about dirt or contamination kept returning to my attention.",
+        "zh": "关于污物或污染的担忧反复进入我的注意。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "cleaning-concerns"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "cleaning-concerns"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "cleaning-concerns"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "cleaning-concerns"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "cleaning-concerns"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "URA_02",
+      "prompt": {
+        "en": "After finishing the cleaning I intended, I still felt unsure whether it was enough.",
+        "zh": "完成原本打算做的清洁后，我仍不确定是否足够。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "cleaning-concerns"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "cleaning-concerns"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "cleaning-concerns"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "cleaning-concerns"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "cleaning-concerns"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "URA_03",
+      "prompt": {
+        "en": "I felt drawn to repeat a cleaning action I had just completed.",
+        "zh": "我感到想重复刚刚完成的一项清洁动作。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "cleaning-concerns"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "cleaning-concerns"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "cleaning-concerns"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "cleaning-concerns"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "cleaning-concerns"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "URA_04",
+      "prompt": {
+        "en": "Cleaning-related concern interrupted something else I wanted to do.",
+        "zh": "与清洁有关的担忧打断了我原本想做的其他事。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "cleaning-concerns"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "cleaning-concerns"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "cleaning-concerns"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "cleaning-concerns"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "cleaning-concerns"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "URA_05",
+      "prompt": {
+        "en": "I went back to check a detail I remembered checking already.",
+        "zh": "我回去查看一个记得已经看过的细节。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "checking-again"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "checking-again"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "checking-again"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "checking-again"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "checking-again"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "URA_06",
+      "prompt": {
+        "en": "Uncertainty returned soon after I had checked something.",
+        "zh": "查看过某件事不久后，不确定感又出现了。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "checking-again"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "checking-again"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "checking-again"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "checking-again"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "checking-again"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "URA_07",
+      "prompt": {
+        "en": "I delayed moving on because I wanted to check something again.",
+        "zh": "我因为想再查看一次某件事而迟迟没有进行下一步。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "checking-again"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "checking-again"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "checking-again"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "checking-again"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "checking-again"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "URA_08",
+      "prompt": {
+        "en": "I sought confirmation again after receiving an answer about the same concern.",
+        "zh": "同一项担忧已经得到回答后，我又寻求确认。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "checking-again"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "checking-again"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "checking-again"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "checking-again"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "checking-again"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "URA_09",
+      "prompt": {
+        "en": "A small mismatch in an arrangement kept drawing my attention.",
+        "zh": "排列中的一点不一致不断吸引我的注意。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "order-and-repetition"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "order-and-repetition"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "order-and-repetition"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "order-and-repetition"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "order-and-repetition"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "URA_10",
+      "prompt": {
+        "en": "I adjusted the same arrangement several times before it felt settled to me.",
+        "zh": "我数次调整同一排列，才觉得可以放下它。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "order-and-repetition"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "order-and-repetition"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "order-and-repetition"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "order-and-repetition"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "order-and-repetition"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "URA_11",
+      "prompt": {
+        "en": "I repeated an ordinary action because the previous attempt did not feel quite right.",
+        "zh": "我因为上一次感觉不太对，而重复一个普通动作。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "order-and-repetition"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "order-and-repetition"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "order-and-repetition"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "order-and-repetition"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "order-and-repetition"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "URA_12",
+      "prompt": {
+        "en": "An urge to arrange or repeat made it harder to move to another activity.",
+        "zh": "想排列或重复的感觉使我更难转向另一项活动。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "order-and-repetition"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "order-and-repetition"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "order-and-repetition"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "order-and-repetition"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "order-and-repetition"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "URA_13",
+      "prompt": {
+        "en": "An unwanted thought or image returned even though I did not want to consider it.",
+        "zh": "一个我不想考虑的想法或画面仍反复出现。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "unwanted-thoughts"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "unwanted-thoughts"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "unwanted-thoughts"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "unwanted-thoughts"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "unwanted-thoughts"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "URA_14",
+      "prompt": {
+        "en": "I became upset while wondering what an unwanted thought meant about me.",
+        "zh": "我在琢磨一个不想要的想法说明自己什么时感到难受。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "unwanted-thoughts"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "unwanted-thoughts"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "unwanted-thoughts"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "unwanted-thoughts"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "unwanted-thoughts"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "URA_15",
+      "prompt": {
+        "en": "I repeated words or another thought in my mind in response to an unwanted thought.",
+        "zh": "面对一个不想要的想法，我在心里重复词句或另一个想法。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "unwanted-thoughts"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "unwanted-thoughts"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "unwanted-thoughts"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "unwanted-thoughts"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "unwanted-thoughts"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "URA_16",
+      "prompt": {
+        "en": "I felt pulled to obtain certainty about the meaning of an unwanted thought.",
+        "zh": "我感到想弄清一个不想要的想法的含义，直到得到确定。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "unwanted-thoughts"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "unwanted-thoughts"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "unwanted-thoughts"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "unwanted-thoughts"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "unwanted-thoughts"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "URA_17",
+      "prompt": {
+        "en": "Deciding whether to keep or let go of a belonging felt difficult.",
+        "zh": "决定保留还是放下一件物品让我感到困难。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "keeping-and-discarding"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "keeping-and-discarding"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "keeping-and-discarding"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "keeping-and-discarding"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "keeping-and-discarding"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "URA_18",
+      "prompt": {
+        "en": "I put off a decision about letting go of belongings.",
+        "zh": "我推迟了关于放下物品的决定。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "keeping-and-discarding"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "keeping-and-discarding"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "keeping-and-discarding"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "keeping-and-discarding"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "keeping-and-discarding"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "URA_19",
+      "prompt": {
+        "en": "I wanted to keep an item while feeling unsure how I would use it.",
+        "zh": "我不确定会怎样使用某件物品，却仍想保留它。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "keeping-and-discarding"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "keeping-and-discarding"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "keeping-and-discarding"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "keeping-and-discarding"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "keeping-and-discarding"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "URA_20",
+      "prompt": {
+        "en": "The way belongings were stored made it harder to use a space as I intended.",
+        "zh": "物品的存放方式使我更难按原本打算使用一处空间。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "keeping-and-discarding"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "keeping-and-discarding"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "keeping-and-discarding"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "keeping-and-discarding"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "keeping-and-discarding"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "updated": "2026-10-30",
+  "category": "framework",
+  "minutes": 5,
+  "seoTitle": {
+    "en": "Unwanted Thoughts & Repeated Actions: 20 Original Observations | FermatMind",
+    "zh": "不想要的想法与重复动作：20条原创观察与完整指南｜费马测试"
+  },
+  "description": {
+    "en": "Recall cleaning concerns, checking, order and repetition, unwanted thoughts, and keeping belongings with 20 original adult descriptions. Five full public guides and private category records; no Y-BOCS or OCI score, diagnosis or danger judgment.",
+    "zh": "用20条成年人原创描述回顾清洁担忧、再次查看、秩序与重复、不想要的想法，以及保留物品。五篇全文公开，类别记录留在本页；不生成Y-BOCS或OCI分数、诊断或危险判断。"
+  },
+  "introduction": {
+    "en": "Five overlapping reading topics describe remembered experience, not five OCD subtypes or validated independent dimensions. Hoarding disorder is considered a separate condition; this page diagnoses neither OCD nor hoarding disorder. An unwanted thought does not by itself establish intent or action. The page cannot assess actual intent, immediate danger, physical health or whether someone can stay safe.",
+    "zh": "五个可能重叠的阅读主题描述记得的经历，不是五种强迫症亚型或验证独立维度。囤积障碍被视为独立状况；本页两种都不诊断。不想要的想法本身不建立意图或行动。页面不能评估实际意图、即时危险、身体健康或能否保障安全。"
+  },
+  "instructions": {
+    "en": "Recall the past four weeks without performing a check, cleaning, repeating an action, bringing a thought to mind or discarding anything to answer. Choose how often you noticed each description. No relevant experience, unclear recall or withholding can stay unscored, separate from did not notice. IDs are labels, not points or counts of actions. You can pause or leave. No safety precaution, medicine, care or property decision should be changed because of the record.",
+    "zh": "只凭回忆回顾过去四周，不用为答题查看、清洁、重复动作、引出想法或丢弃东西。选择多常注意到每条描述。没有相关经历、回想不清或保留回答可未计分，与没有注意到分开。标识是标签，不是点数或动作次数。可暂停或离开，不因记录改变安全预防、药物、照护或财物决定。"
+  },
+  "resultHeading": {
+    "en": "Your five separate descriptive records",
+    "zh": "五个分别阅读的描述记录"
+  },
+  "profiles": [
+    {
+      "id": "cleaning-concerns-reading",
+      "directionIds": [
+        "cleaning-concerns"
+      ],
+      "title": {
+        "en": "Cleaning-related concerns — Complete Reading",
+        "zh": "与清洁有关的担忧：完整读法"
+      },
+      "headline": {
+        "en": "Cleaning-related concerns — Complete Reading",
+        "zh": "与清洁有关的担忧：完整读法"
+      },
+      "summary": {
+        "en": "Recall a cleaning concern without judging hygiene, contamination, necessary precautions or whether an action should stop.",
+        "zh": "回顾清洁担忧，不评判卫生、污染、必要预防或动作该不该停止。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to four original descriptions, with individual labels retained. IDs are not points. There is no total, mean, rank, clinical score, diagnosis or danger judgment; counts do not measure thoughts, actions, time, contamination or household safety.",
+        "zh": "六类计数合计四条原创描述，并保留逐条标签。标识不是点数，没有总分、均值、排名、临床分数、诊断或危险判断；计数不测想法、动作、耗时、污染或住房安全。"
+      },
+      "seo": {
+        "title": {
+          "en": "Cleaning-related concerns: Full Reflection Guide | FermatMind",
+          "zh": "与清洁有关的担忧：完整回顾指南｜费马测试"
+        },
+        "description": {
+          "en": "Recall a cleaning concern without judging hygiene, contamination, necessary precautions or whether an action should stop.",
+          "zh": "回顾清洁担忧，不评判卫生、污染、必要预防或动作该不该停止。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Recall a concern without evaluating cleanliness",
+            "zh": "回顾担忧，不评价清洁程度"
+          },
+          "paragraphs": [
+            {
+              "en": "This topic contains four original observations about recurring concern over dirt or contamination, uncertainty after finishing intended cleaning, feeling drawn to repeat a completed cleaning action and a cleaning-related concern interrupting another activity. Adults can recall the past four weeks if they choose. These are descriptions of remembered experience, not an examination of cleanliness, infection risk or hygiene needs. They do not diagnose obsessive-compulsive disorder or establish that a person's cleaning was unnecessary, excessive or sufficient for the circumstances.",
+              "zh": "本主题四条原创观察关注反复想到污物或污染、完成打算的清洁后仍不确定、想重复刚完成的清洁，以及相关担忧打断其他活动。成年人可自愿回顾过去四周。这些是记得的经历，不检查清洁程度、感染风险或卫生需要，不诊断强迫症，也不证明清洁没有必要、过多或已足以应付背景。"
+            },
+            {
+              "en": "The page does not know your workplace requirements, medical advice, living situation or exposure history. A category cannot tell you which precautions to keep, whether an object is contaminated or when handwashing is appropriate. Necessary hygiene and worry can occur together without a short reflection distinguishing them. No result instructs you to change cleaning, ignore a safety requirement or alter professional advice. You can leave a description unscored when the context cannot be captured by the words provided.",
+              "zh": "页面不知道工作要求、医疗意见、居住情况或接触史。类别不能决定保留哪些预防、物品是否受污染或何时适合洗手。必要卫生与担心可同时存在，短回顾不能区分。结果不要求改变清洁、忽视安全要求或调整专业意见；背景无法被文字容纳时可未计分。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Four descriptions remain six separate category counts",
+            "zh": "四条描述，保留六类计数"
+          },
+          "paragraphs": [
+            {
+              "en": "Each observation uses did not notice, rarely, sometimes, often, very often or unscored. The six counts sum to four descriptions and retain every selected label. They do not count washing episodes, cleaning minutes, contaminated objects or days of difficulty. One often, one sometimes and two unscored remains that combination rather than a hygiene score. IDs are labels rather than points. There is no total, mean, highest topic, symptom severity band, diagnostic cutoff or comparison with other people's cleaning habits.",
+              "zh": "每条用没有注意到、很少、有时、较常、经常或未计分。六类计数合计四条并保留逐条标签，不算洗涤次数、清洁分钟、受污染物品或困难天数。一条较常、一条有时、两条未计分就保持该组合，不变成卫生分数。标识不是点数，没有总分、均值、最高主题、症状严重档、诊断界值或与他人清洁习惯比较。"
+            },
+            {
+              "en": "No relevant experience, unclear recall and withholding remain unscored, separate from did not notice. An entirely unscored topic gives no personal finding about cleaning or health. A small count does not establish that an environment is safe or that support is unnecessary. Several frequent labels do not establish a disorder. All five complete guides and the same support information remain public before answers, after every category pattern and without a completed private record unlocking access to the text.",
+              "zh": "没有相关经历、回想不清和保留回答保持未计分，与没有注意到分开。全未计分不提供清洁或健康的个人发现。计数少不证明环境安全或无需支持；几条频繁标签不建立疾病。五篇全文及相同支持说明在答题前和任何组合后公开，无需完成私人记录来解锁。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A similar action can have different circumstances",
+            "zh": "相似动作，可以有不同背景"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person who remembers uncertainty after finishing a household task. Another remembers cleaning under instructions that this website does not know. They might recognise similar words while having different practical needs. The page cannot compare them, determine that a precaution was unreasonable or tell either person to stop an action. These examples illustrate the limits of a description rather than inviting you to inspect an object, test contamination or recreate the concern to see whether the category fits.",
+              "zh": "设想有人记得完成家务后仍不确定，另一个人在网站不知道的指示下清洁。两者可能认出相似词语，却有不同实际需要。页面不能比较、认定预防不合理或要求停止动作。例子只说明描述的限制，不邀请检查物品、测试污染或重现担忧来判断类别适不适用。"
+            },
+            {
+              "en": "You may recognise an interruption more clearly than the reason for it. You do not need to reconstruct the sequence, count actions from memory or decide whether a concern was rational. The exercise asks for no substances, locations, health conditions or descriptions of a private event. You can keep the account broad and leave any statement unscored. Recognising one description does not establish why the experience happened or whether another topic on the page explains it.",
+              "zh": "可能更清楚记得被打断，而非原因。不必重建顺序、凭回忆数动作或决定担忧是否合理。练习不问物质、地点、健康状况或私人事件，可以宽泛保留并把任一条未计分。认出一条不确定发生原因，也不证明另一主题可以解释它。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "No cleaning experiment or response-prevention task",
+            "zh": "不安排清洁实验或阻止反应任务"
+          },
+          "paragraphs": [
+            {
+              "en": "Answer from recollection only if you choose to answer. The page assigns no contact with dirt, stopping of washing, delay of a safety action, exposure exercise or response-prevention task. It also does not ask you to clean again to obtain certainty. These practices require context that an original questionnaire does not assess. If considering a description becomes burdensome, you can pause or leave. Completing the record is never required to read information, ask about support or keep an existing care arrangement.",
+              "zh": "选择答题时只凭回忆。页面不安排接触污物、停止洗涤、推迟安全动作、接触练习或阻止反应任务，也不让你再次清洁以取得确定。这些做法需要原创问卷不评估的背景。考虑描述令人负担时可暂停或离开。阅读、询问支持或保留已有照护安排，从不需要完成记录。"
+            },
+            {
+              "en": "The five reading topics may overlap and are not validated independent dimensions or five OCD subtypes. Keeping and discarding belongings is a separate descriptive topic; hoarding disorder is considered a separate condition, and this page diagnoses neither condition. A cleaning-related selection cannot identify what another thought means or establish an overall pattern. The category record does not order topics into stages, identify a cause or tell you which behaviour should be changed first.",
+              "zh": "五个阅读主题可能重叠，尚非验证独立维度，也不是五种强迫症亚型。保留与舍弃物品是另一个描述主题；囤积障碍被视为独立状况，本页两者都不诊断。清洁选择不能解释另一个想法或建立整体模式。类别记录不排列阶段、不识别原因，也不决定先改变哪个行为。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Ask about what is difficult without supplying a label",
+            "zh": "询问困难，无需提供标签"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to speak with a qualified healthcare professional, one opening could be “I keep feeling uncertain around cleaning, and it has been difficult for me.” You can ask what an assessment involves and which information would be useful before deciding what to share. This original reflection does not administer the Yale–Brown Obsessive Compulsive Scale, the Obsessive–Compulsive Inventory or diagnostic criteria. A professional conversation can consider circumstances, physical health and other concerns that are outside these four descriptions.",
+              "zh": "愿意与合格医疗专业人士谈时，可以说：“我在清洁方面反复不确定，这让我感到困难。”可以先问评估怎样进行、哪些信息有用，再决定分享什么。原创回顾不施测耶鲁—布朗强迫量表、强迫症状清单或诊断标准。专业谈话可考虑这四条以外的背景、身体健康和其他担忧。"
+            },
+            {
+              "en": "Public health information distinguishes ordinary habits from clinically assessed obsessions or compulsions. It does not validate this original bank or turn every repeated action into a symptom. You do not need to spend a stated number of minutes, reach a high count or finish this exercise before asking about support. No record authorises medicine changes, cancelling care or altering professional monitoring instructions. The page cannot choose a treatment, judge previous care or decide whether a practical precaution is needed.",
+              "zh": "公共健康资料区分日常习惯与经临床评估的强迫观念或行为，不验证原创题组，也不把每个重复动作变成症状。询问支持无需耗费指定分钟、达到高计数或完成练习。记录不授权改药、取消照护或改变专业监测指示；页面不选择治疗、不评价既往照护，也不决定实际预防是否需要。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not wait for an amount of cleaning",
+            "zh": "支持，不等待某种清洁量"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask about worry, repeated actions or practical difficulty without proving that a threshold has been crossed. The page cannot assess the need or urgency of healthcare or replace existing professional advice. Do not use a category record to postpone an assessment or disregard a physical concern. If you are in immediate danger or cannot stay safe, seek local emergency assistance instead of continuing to answer. The website cannot observe your circumstances or provide a response to an emergency.",
+              "zh": "可以询问担心、重复动作或实际困难，不必证明跨过了阈值。页面不评估医疗需要或紧急程度，也不替代已有专业意见。不要用类别记录推迟评估或忽视身体问题。若有即时危险或无法保障安全，请寻求当地紧急援助，而非继续回答；网站不能观察背景或响应紧急事件。"
+            },
+            {
+              "en": "The same support information appears on the entry, every full guide and every response pattern, including all unscored. Access does not require disclosing a diagnosis, a private event or an answer to this website. A low count is not reassurance about contamination or health, and a frequent label does not diagnose a disorder. One concern can be worth discussing without describing it as a compulsion or accepting the page as a judge of how clean something should be.",
+              "zh": "相同支持说明出现在入口、每篇全文及任何组合，包括全未计分。阅读不必向网站披露诊断、私人事件或回答。计数低不是污染或健康方面的保证，频繁标签不诊断疾病。一项担忧也可以值得讨论，无需称它为强迫行为或让页面裁定该清洁到什么程度。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "A changed record is not proof of improvement",
+            "zh": "记录变化，不证明改善"
+          },
+          "paragraphs": [
+            {
+              "en": "These original bilingual observations have no established norms, validated clinical cutoff or demonstrated English–Chinese measurement equivalence. A later difference can reflect recall, interpretation or circumstances and cannot measure recovery, deterioration or treatment response. Fewer cleaning-related selections do not prove that precautions are adequate; more selections do not prove worsening. There is no score to improve, required reduction in actions or monitoring schedule. You may keep one useful phrase without completing the exercise repeatedly to seek reassurance about the same concern.",
+              "zh": "原创双语观察尚无常模、验证临床界值或中英文测量等值。后来差异可能反映回忆、理解或背景，不能测恢复、恶化或治疗反应。更少相关选择不证明预防足够，更多不证明恶化。没有要提高的分数、规定动作减少量或监测日程。可以只留一句有用表述，无需反复完成来为同一担忧寻求保证。"
+            },
+            {
+              "en": "Answers remain only in current-page memory, with no stored draft, submission, questionnaire analytics or personal result address. Exit, retake, reload and leaving clear the record. Copying the public entry shares only its title and address. The five complete guides are identical public text for every reader. You can read without answering, stop midway or ask a professional question without checking an object, changing hygiene, proving a concern unreasonable or obtaining a medical judgment from the page.",
+              "zh": "回答只在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新或离页会清除。复制公开入口只含标题及地址。五篇全文对所有读者相同。不答题阅读、中途停止或向专业人士提问，都无需检查物品、改变卫生、证明担忧不合理或取得页面医学判断。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "checking-again-reading",
+      "directionIds": [
+        "checking-again"
+      ],
+      "title": {
+        "en": "Checking again — Complete Reading",
+        "zh": "再次查看时：完整读法"
+      },
+      "headline": {
+        "en": "Checking again — Complete Reading",
+        "zh": "再次查看时：完整读法"
+      },
+      "summary": {
+        "en": "Describe checking and returning uncertainty without deciding that a check is unnecessary or that a situation is safe.",
+        "zh": "描述查看与再次不确定，不决定查看多余或场景安全。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to four original descriptions, with individual labels retained. IDs are not points. There is no total, mean, rank, clinical score, diagnosis or danger judgment; counts do not measure thoughts, actions, time, contamination or household safety.",
+        "zh": "六类计数合计四条原创描述，并保留逐条标签。标识不是点数，没有总分、均值、排名、临床分数、诊断或危险判断；计数不测想法、动作、耗时、污染或住房安全。"
+      },
+      "seo": {
+        "title": {
+          "en": "Checking again: Full Reflection Guide | FermatMind",
+          "zh": "再次查看时：完整回顾指南｜费马测试"
+        },
+        "description": {
+          "en": "Describe checking and returning uncertainty without deciding that a check is unnecessary or that a situation is safe.",
+          "zh": "描述查看与再次不确定，不决定查看多余或场景安全。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Remember checking without judging whether it was needed",
+            "zh": "回忆查看，不裁定是否必要"
+          },
+          "paragraphs": [
+            {
+              "en": "This topic contains four original observations about returning to a detail already checked, uncertainty coming back after a check, delaying the next activity to check again and seeking confirmation after an answer to the same concern. Adults can consider the past four weeks from memory. The descriptions do not determine whether a check was necessary, whether a detail was correct or whether a real hazard existed. They do not diagnose obsessive-compulsive disorder, assess responsibility or establish that a person's precautions were excessive.",
+              "zh": "本主题四条原创观察关注返回已看过的细节、查看后不确定感又出现、为再查看而推迟下一活动，以及同一担忧得到回答后又寻求确认。成年人可凭回忆考虑过去四周。描述不决定查看是否必要、细节是否正确或有无真实危险，不诊断强迫症、不评价责任感，也不证明预防过多。"
+            },
+            {
+              "en": "The page does not know the task, workplace procedure, medical instruction or practical situation behind a remembered check. Some actions are required for safety or accuracy, and a short questionnaire cannot distinguish those requirements from a concern that feels difficult. No record tells you to stop checking equipment, ignore a warning or depart from a professional instruction. You can recognise uncertainty without asking the website to decide whether a particular object, message or situation is safe to leave unchecked.",
+              "zh": "页面不知道查看背后的任务、工作程序、医疗指示或实际场景。有些动作是安全或准确性要求，短问卷不能将这些要求与令人困难的担心区分。记录不让你停止设备检查、忽视警示或偏离专业指示。可以认出不确定，而不让网站决定某物品、消息或场景是否可安全地不查看。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Counts describe statements rather than repeated checks",
+            "zh": "计数算陈述，不算查看次数"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose did not notice, rarely, sometimes, often, very often or unscored for each statement. Six counts sum to four descriptions, with every individual selection retained. They do not count checks, requests, errors prevented or minutes lost. Two sometimes, one often and one unscored remains that pattern rather than a score for checking too much. IDs are labels, not points. There is no total, mean, highest topic, clinical cutoff, responsibility rating or comparison with the habits of typical people.",
+              "zh": "每条选择没有注意到、很少、有时、较常、经常或未计分。六类计数合计四条并保留逐条选择，不算查看、请求、避免错误或失去的分钟。两条有时、一条较常、一条未计分就保持该模式，不变成查看过多分数。标识不是点数，没有总分、均值、最高主题、临床界值、责任感评分或与典型人习惯比较。"
+            },
+            {
+              "en": "Use unscored when there is no relevant experience, recall is uncertain or you prefer not to answer. It is distinct from did not notice and does not become zero. An entirely unscored topic offers no personal finding about checking or health. A small count cannot reassure you that no hazard exists or that support is unnecessary. Frequent selections do not establish a disorder. The same five complete guides and support information are available before answers and for every response combination.",
+              "zh": "没有相关经历、回想不清或不愿回答时用未计分，与没有注意到分开，不变成零。全未计分不提供查看或健康的个人发现。计数少不能保证没有危险或无需支持；频繁选择不建立疾病。相同五篇全文和支持说明在答题前及任何组合下公开。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "An answer can be remembered without settling uncertainty",
+            "zh": "记得回答，也未必解决不确定"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person who remembers receiving an answer and then wanting confirmation again. Another remembers going back to a detail because the practical consequences felt important. The website cannot determine whether either request was reasonable, whether information was reliable or what happened after the check. The examples illustrate missing context rather than a rule for limiting requests. They do not ask you to reopen a message, inspect a lock or test whether you can tolerate leaving something uncertain.",
+              "zh": "设想有人记得已获回答，之后又想确认；另一个人因觉得实际后果重要而回看细节。网站不能判断请求是否合理、信息是否可靠，或查看后发生什么。例子说明缺失背景，不规定请求次数，也不让你重开消息、检查门锁或测试能否忍受不确定。"
+            },
+            {
+              "en": "You may recognise a delay even when you cannot remember exactly how often a check occurred. The page does not request a reconstruction or ask you to count from memory. It also does not equate seeking information with a compulsion. A useful question, an unclear answer and repeated concern may coexist. Keep the description broad, leave it unscored or stop if it does not fit. You do not need to prove that a doubt was rational or unreasonable to read the guide.",
+              "zh": "可能认出一次耽搁，却记不清查看频率。页面不要求重建或凭回忆计数，也不把寻求信息等同强迫行为。有用的问题、含糊回答和反复担忧可能同时存在。可宽泛回顾、未计分或停止，无需证明怀疑合理或不合理才阅读。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "No checking ban or reassurance test is assigned",
+            "zh": "不安排禁止查看或寻求保证测试"
+          },
+          "paragraphs": [
+            {
+              "en": "The exercise assigns no response-prevention task, exposure, delay of a precaution or removal of support. It does not set a maximum number of checks or instruct you to act without necessary information. It also does not tell you to seek another confirmation until certainty appears. Those choices require context the page cannot assess. If answering becomes burdensome, you may pause or leave. Completing a record is relevant only to organising this private reflection, not access to reading or professional support.",
+              "zh": "练习不安排阻止反应、接触、推迟预防或移除支持，不规定查看上限，也不要求在缺少必要信息时行动；同样不让你继续确认直到确定。这些选择需要页面无法评估的背景。答题令人负担时可暂停或离开。完成只关系到整理私人回顾，不关系到阅读或专业支持。"
+            },
+            {
+              "en": "The other reading topics concern cleaning, order and repetition, unwanted thoughts and mental responses, and keeping or discarding belongings. They can overlap and are not established independent dimensions or five OCD subtypes. A checking-related label cannot explain another thought or identify a cause. Keeping belongings is not automatically part of OCD; hoarding disorder is considered a separate condition. The record neither classifies these conditions nor turns the highest count into a priority for changing behaviour.",
+              "zh": "其他阅读主题关注清洁、秩序与重复、不想要的想法及心中回应，以及保留舍弃物品。它们可能重叠，尚非已建立独立维度，也不是五种强迫症亚型。查看标签不解释另一想法或识别原因。保留物品不自动属于强迫症；囤积障碍被视为独立状况。记录不分类，也不把最高计数当作改变行为的优先项。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "A conversation can begin with one concrete difficulty",
+            "zh": "谈话可以从一项具体困难开始"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to ask a qualified healthcare professional about the experience, an opening might be “I keep going back to checks or questions, and moving on has felt difficult.” You can ask what an assessment involves and which details would be useful before deciding what to share. The website does not need your message contents, location, workplace procedure or medical history. A professional conversation can consider practical requirements, physical health and broader circumstances beyond the four original descriptions.",
+              "zh": "愿意向合格医疗专业人士询问时，可以说：“我反复回到查看或提问，觉得难以进行下一步。”可先问评估怎样进行、哪些细节有用，再决定分享什么。网站不需要消息内容、地点、工作程序或病史。专业谈话可考虑四条以外的实际要求、身体健康和更广背景。"
+            },
+            {
+              "en": "This is not the Yale–Brown Obsessive Compulsive Scale, the Obsessive–Compulsive Inventory or a diagnostic interview. Public health sources distinguish everyday habits from clinically assessed symptoms, but they do not validate this original bank. No time threshold, high count or completed exercise is required to ask about support. No selection authorises cancelling care, changing medicine or altering professional monitoring instructions. The page cannot choose a treatment or decide that a necessary check should be removed from an existing safety procedure.",
+              "zh": "本页不是耶鲁—布朗强迫量表、强迫症状清单或诊断访谈。公共健康资料区分日常习惯与经临床评估的症状，但不验证原创题组。询问支持无需时长门槛、高计数或完成练习。选择不授权取消照护、改药或改变专业监测指示；页面不选治疗，也不决定从已有安全程序移除必要检查。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support is available without a count to justify it",
+            "zh": "无需计数来证明支持合理"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask about uncertainty, repeated actions or difficulty moving on without showing that a threshold has been crossed. The page cannot assess the need or urgency of healthcare, judge a real hazard or replace existing advice. Do not use the record to postpone an assessment or disregard a practical safety concern. If you are in immediate danger or cannot stay safe, seek local emergency assistance instead of continuing. This website cannot observe your situation or respond to an emergency.",
+              "zh": "可以询问不确定、重复动作或难以继续，无需展示超过阈值。页面不评估医疗需要或紧急程度、不判断实际危险，也不替代已有意见。不要用记录推迟评估或忽视实际安全问题。若有即时危险或无法保障安全，请寻求当地紧急援助，而非继续；网站不能观察处境或响应紧急事件。"
+            },
+            {
+              "en": "The same support information is public on the entry, every complete guide and every category pattern, including all unscored. Reading it does not require giving the website an event, diagnosis or answer. A low count does not confirm that a check was sufficient, and a frequent label does not diagnose a disorder. You may choose to keep the whole reflection private. A concern can deserve a professional question without accepting a label about responsibility or whether you are checking correctly.",
+              "zh": "相同支持说明在入口、每篇全文及任何组合中公开，包括全未计分。阅读不必给网站事件、诊断或回答。计数低不确认检查充分，频繁标签不诊断疾病。可以把回顾完全保密。一项担忧可以值得向专业人士询问，无需接受关于责任感或查看是否正确的标签。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Do not make the record another certainty requirement",
+            "zh": "不把记录变成另一项确定要求"
+          },
+          "paragraphs": [
+            {
+              "en": "These original bilingual observations have no established norms, validated clinical threshold or demonstrated English–Chinese measurement equivalence. Repeating the exercise cannot certify safety or measure recovery, deterioration or treatment response. Recall, interpretation and circumstances can change. There is no score to improve, target for reducing checks or required monitoring schedule. You can keep one useful phrase without trying to obtain the same record again or treating a different category pattern as proof that an earlier concern has been resolved.",
+              "zh": "原创双语观察尚无常模、验证临床阈值或中英文测量等值。反复完成不能认证安全或测恢复、恶化、治疗反应；回忆、理解和背景可能变化。没有要提高的分数、减少查看目标或规定监测日程。可以只留一句有用表述，无需努力取得同样记录，或把不同组合当成既往担忧已解决的证据。"
+            },
+            {
+              "en": "Answers remain only in current-page memory, without stored drafts, submission, questionnaire analytics or a personal result address. Exit, retake, reload and leaving clear the record. Copying the public entry shares only its title and address. All five complete guides are the same public text for everyone. You can read without answering, stop midway or ask a professional question without performing a check, suppressing a doubt or letting this page decide whether another confirmation is necessary.",
+              "zh": "回答只在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新或离页会清除。复制公开入口只含标题及地址。五篇全文对所有人相同。不答题阅读、中途停止或向专业人士提问，都无需执行查看、压住怀疑或让页面决定是否还需确认。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "order-and-repetition-reading",
+      "directionIds": [
+        "order-and-repetition"
+      ],
+      "title": {
+        "en": "Order and repetition — Complete Reading",
+        "zh": "秩序与重复动作：完整读法"
+      },
+      "headline": {
+        "en": "Order and repetition — Complete Reading",
+        "zh": "秩序与重复动作：完整读法"
+      },
+      "summary": {
+        "en": "Read remembered mismatch and repetition without assigning perfectionism, a subtype or a task to create disorder.",
+        "zh": "阅读记得的不对劲与重复，不分配完美主义、亚型或制造无序任务。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to four original descriptions, with individual labels retained. IDs are not points. There is no total, mean, rank, clinical score, diagnosis or danger judgment; counts do not measure thoughts, actions, time, contamination or household safety.",
+        "zh": "六类计数合计四条原创描述，并保留逐条标签。标识不是点数，没有总分、均值、排名、临床分数、诊断或危险判断；计数不测想法、动作、耗时、污染或住房安全。"
+      },
+      "seo": {
+        "title": {
+          "en": "Order and repetition: Full Reflection Guide | FermatMind",
+          "zh": "秩序与重复动作：完整回顾指南｜费马测试"
+        },
+        "description": {
+          "en": "Read remembered mismatch and repetition without assigning perfectionism, a subtype or a task to create disorder.",
+          "zh": "阅读记得的不对劲与重复，不分配完美主义、亚型或制造无序任务。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Describe a feeling of mismatch without assigning a subtype",
+            "zh": "描述不对劲，不分配亚型"
+          },
+          "paragraphs": [
+            {
+              "en": "This topic has four original observations about a small mismatch repeatedly drawing attention, adjusting the same arrangement several times, repeating an ordinary action because it did not feel quite right and finding it harder to move on when an urge to arrange or repeat appeared. Adults may recall the past four weeks. The descriptions do not diagnose obsessive-compulsive disorder, identify a symmetry subtype or establish that a preference for order is a symptom. They concern remembered experience rather than an evaluation of taste.",
+              "zh": "本主题四条原创观察关注一点不一致反复吸引注意、数次调整同一排列、因感觉不太对而重复普通动作，以及想排列或重复时更难继续。成年人可回顾过去四周。描述不诊断强迫症、不识别对称亚型，也不证明喜欢秩序就是症状，只涉及记得的经历，不评价审美。"
+            },
+            {
+              "en": "The page cannot know whether an arrangement served accessibility, accuracy, cultural practice, work requirements or another purpose. A repeated action might have practical context that these words do not capture. No category establishes that a method was irrational, a routine was unnecessary or an object should be left in a different position. You can recognise a feeling of mismatch without letting the questionnaire decide what an environment should look like or whether a particular action ought to be repeated.",
+              "zh": "页面不知道排列是否服务于无障碍、准确性、文化惯例、工作要求或其他目的；重复动作可能有文字无法容纳的实际背景。类别不证明方法不合理、惯例多余或物品该放在别处。可以认出不对劲的感觉，不让问卷决定环境该是什么样或动作是否应该重复。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Four labels do not measure perfectionism or severity",
+            "zh": "四条标签，不测完美主义或严重程度"
+          },
+          "paragraphs": [
+            {
+              "en": "Each description uses did not notice, rarely, sometimes, often, very often or unscored. The six category counts add to four observations and retain the label selected for each one. They do not count arrangements, repetitions, mistakes or minutes. Two sometimes and two unscored remains that pattern rather than a perfectionism score or impairment percentage. IDs are not points. There is no total, mean, highest topic, clinical threshold, precision ranking or comparison with another person's tolerance for a mismatch.",
+              "zh": "每条用没有注意到、很少、有时、较常、经常或未计分。六类计数合计四条，并保留逐条标签，不算排列、重复、错误或分钟。两条有时、两条未计分就保持该组合，不变成完美主义分数或受损百分比。标识不是点数，没有总分、均值、最高主题、临床阈值、精确排名或与他人容忍不一致程度比较。"
+            },
+            {
+              "en": "No relevant experience, uncertain recall and withholding remain unscored rather than becoming absence. Did not notice is restricted to one description and recollection period. Neither a small count nor an entirely unscored record establishes that support is unnecessary or that a practical situation is safe. Frequent labels do not establish a disorder. All five complete guides and unconditional support information are available before answering, after every pattern and without a result unlocking additional advice or a more authoritative interpretation.",
+              "zh": "没有相关经历、回想不清和保留回答保持未计分，不变成没有发生。没有注意到仅限一条与回顾时段。计数少或全未计分都不证明无需支持或实际场景安全；频繁标签不建立疾病。五篇全文和无条件支持说明在答题前及任何组合后公开，不靠结果解锁额外建议或更权威解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A preference and a difficult experience can use similar words",
+            "zh": "偏好与困难经历，可能使用相似词语"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person who remembers adjusting a display because the arrangement mattered for a task. Another remembers feeling unable to move on after an action did not feel settled. The questionnaire cannot compare their circumstances, identify a shared cause or diagnose either person. These examples show the limits of a description rather than a test of whether your reason is good enough. They do not ask you to rearrange something, create a mismatch or repeat an action to see what happens.",
+              "zh": "设想有人因排列关系到任务而调整展示；另一个人记得动作做完后仍觉得不能放下。问卷不能比较背景、识别共同原因或诊断任何一人。例子说明描述的限制，不测试理由是否足够好，也不要求重新排列、制造不一致或重复动作看看怎样。"
+            },
+            {
+              "en": "You might recognise the phrase not quite right without having a clear explanation for it. You do not need to supply one, reconstruct a private event or decide whether your experience is reasonable. The page asks for no arrangement photographs, descriptions of a ritual, workplace details or information about another person. Keep recollection broad if that is useful, leave a statement unscored or stop. The exercise does not turn an uncertainty about meaning into evidence of an underlying clinical condition.",
+              "zh": "可能认出不太对的感觉，却没有明确解释；无需提供解释、重建私人事件或判断经历是否合理。页面不问排列照片、仪式细节、工作信息或他人资料。可以宽泛回顾、未计分或停止。练习不把对意义的不确定变成潜在临床状况的证据。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "No deliberate mismatch or repetition challenge",
+            "zh": "不安排故意不一致或重复挑战"
+          },
+          "paragraphs": [
+            {
+              "en": "Answer only from recollection if you choose to answer. The page assigns no exposure, response prevention, deliberate disordering, stopping of a ritual or test of how long you can tolerate an urge. It also does not ask you to repeat an action until you feel certain. Context and any professional care plan matter, and the questionnaire cannot assess them. If considering the descriptions becomes burdensome, pause or leave. Completion is never required to read the public guides or ask about appropriate support.",
+              "zh": "选择答题时只凭回忆。不安排接触、阻止反应、故意弄乱、停止仪式或测试忍受冲动多久，也不让你重复直到确定。背景及专业照护计划重要，而问卷无法评估。考虑描述令人负担时可暂停或离开。阅读公开指南或询问合适支持，从不要求完成。"
+            },
+            {
+              "en": "The five topics can overlap and are not validated independent dimensions or five OCD subtypes. For example, uncertainty may be present in more than one topic without proving a common cause. Keeping and discarding belongings is a separate reading topic; hoarding disorder is considered a separate condition. A category pattern cannot identify either disorder, rank the topics into stages or decide which one should be addressed first. You may use a phrase without accepting an overall label about your personality.",
+              "zh": "五个主题可能重叠，尚非验证独立维度，也不是五种强迫症亚型。不确定可出现在多个主题，却不证明共同原因。保留与舍弃物品是单独阅读主题；囤积障碍被视为独立状况。类别组合不识别两类疾病、不排列阶段，也不决定先处理哪项。可以用一句表述，无需接受人格整体标签。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "A professional question can focus on moving on",
+            "zh": "专业提问，可以关注难以继续"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to speak with a qualified healthcare professional, one opening could be “Sometimes arranging or repeating makes it hard for me to move on.” You can ask what an assessment involves and which information would be useful before choosing what to share. A professional conversation can consider practical requirements, physical health, distress and broader circumstances that the website does not know. You do not need to bring a category record or describe yourself as having a particular subtype to start that conversation.",
+              "zh": "愿意与合格医疗专业人士谈时，可以说：“有时排列或重复让我难以进行下一步。”可先问评估怎样进行、哪些信息有用，再选择分享什么。专业谈话可考虑网站不知道的实际要求、身体健康、难受及更广背景。开始谈话不必带类别记录或把自己称为某个亚型。"
+            },
+            {
+              "en": "This original bank is not the Yale–Brown Obsessive Compulsive Scale, the Obsessive–Compulsive Inventory or diagnostic criteria. Public health information distinguishes ordinary habits from clinically assessed symptoms but does not validate these descriptions. No amount of time, high count or completed reflection is required to ask about support. No record authorises changing medicine, cancelling care, departing from safety requirements or altering professional monitoring instructions. The page cannot choose a treatment or decide that a person's routine should be removed.",
+              "zh": "原创题组不是耶鲁—布朗强迫量表、强迫症状清单或诊断标准。公共健康资料区分日常习惯与经临床评估的症状，但不验证这些描述。询问支持无需指定时长、高计数或完成回顾。记录不授权改药、取消照护、偏离安全要求或改变专业监测指示；页面不选治疗，也不决定移除谁的惯例。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support is not earned by the number of repetitions",
+            "zh": "支持，不由重复次数换取"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask about a difficult urge, a repeated action or a concern that the descriptions do not capture without proving a threshold. The page cannot assess healthcare need or urgency, judge actual danger or replace existing professional advice. Do not use its record to postpone an assessment or ignore a physical concern. If you are in immediate danger or cannot stay safe, seek local emergency assistance instead of continuing. This website cannot observe you or provide an emergency response.",
+              "zh": "困难的冲动、重复动作或描述未捕捉到的担忧，都可以询问，无需证明阈值。页面不评估医疗需要或紧急程度、不判断实际危险，也不替代已有专业意见。不要用记录推迟评估或忽视身体问题。若有即时危险或无法保障安全，请寻求当地紧急援助，而非继续；网站不能观察你或作紧急响应。"
+            },
+            {
+              "en": "The same support information is public on the entry, every complete guide and every response pattern, including all unscored. You do not need to give this website a diagnosis, ritual description or answer to read it. A low count does not certify that everything is manageable, and a frequent label does not diagnose a disorder. You may keep the whole reflection private and ask a professional question without allowing a category to decide whether your difficulty is important enough.",
+              "zh": "相同支持说明在入口、每篇全文和任何组合中公开，包括全未计分。阅读不必给网站诊断、仪式描述或回答。计数低不认证一切可应付，频繁标签不诊断疾病。可以保密回顾并向专业人士提问，不让类别决定困难是否足够重要。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "A different record does not measure progress",
+            "zh": "记录不同，不测进步"
+          },
+          "paragraphs": [
+            {
+              "en": "These original bilingual descriptions have no established norms, validated clinical cutoff or demonstrated English–Chinese measurement equivalence. A later record cannot measure recovery, deterioration or treatment response because recall, interpretation and circumstances can change. Fewer selections do not prove that an action is safe to stop, and more do not prove worsening. There is no score to improve, target for accepting a mismatch or required monitoring schedule. You can keep one useful phrase without repeating the exercise until its pattern feels correct.",
+              "zh": "原创双语描述尚无常模、验证临床界值或中英文测量等值。后续记录不测恢复、恶化或治疗反应，回忆、理解和背景可能变化。更少选择不证明可安全停止动作，更多不证明恶化。没有要提高的分数、接受不一致目标或规定监测日程。可以只留一句有用表述，无需重复练习直到组合感觉正确。"
+            },
+            {
+              "en": "Answers stay in current-page memory only, with no stored draft, submission, questionnaire analytics or personal result address. Exit, retake, reload and leaving clear the record. Copying the public entry shares only its title and address. The five complete guides are identical public reading for every pattern. You can read without answering, stop midway or ask a professional question without rearranging an object, demonstrating tolerance or obtaining a verdict about your habits or health from the page.",
+              "zh": "回答只在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新或离页会清除。复制公开入口只含标题及地址。五篇全文对任何组合相同。不答题阅读、中途停止或向专业人士提问，都无需重新摆物、展示忍受程度或取得页面对习惯和健康的裁决。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unwanted-thoughts-reading",
+      "directionIds": [
+        "unwanted-thoughts"
+      ],
+      "title": {
+        "en": "Unwanted thoughts and mental responses — Complete Reading",
+        "zh": "不想要的想法与心中回应：完整读法"
+      },
+      "headline": {
+        "en": "Unwanted thoughts and mental responses — Complete Reading",
+        "zh": "不想要的想法与心中回应：完整读法"
+      },
+      "summary": {
+        "en": "Keep unwanted thoughts distinct from intent and action without interpreting their content or certifying safety.",
+        "zh": "把不想要的想法与意图、行动区分，不解释内容或认证安全。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to four original descriptions, with individual labels retained. IDs are not points. There is no total, mean, rank, clinical score, diagnosis or danger judgment; counts do not measure thoughts, actions, time, contamination or household safety.",
+        "zh": "六类计数合计四条原创描述，并保留逐条标签。标识不是点数，没有总分、均值、排名、临床分数、诊断或危险判断；计数不测想法、动作、耗时、污染或住房安全。"
+      },
+      "seo": {
+        "title": {
+          "en": "Unwanted thoughts and mental responses: Full Reflection Guide | FermatMind",
+          "zh": "不想要的想法与心中回应：完整回顾指南｜费马测试"
+        },
+        "description": {
+          "en": "Keep unwanted thoughts distinct from intent and action without interpreting their content or certifying safety.",
+          "zh": "把不想要的想法与意图、行动区分，不解释内容或认证安全。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Describe an unwanted thought without assigning intent",
+            "zh": "描述不想要的想法，不分配意图"
+          },
+          "paragraphs": [
+            {
+              "en": "This topic contains four original observations about an unwanted thought or image returning, feeling upset while wondering what it means about you, repeating words or another thought in response and feeling drawn to obtain certainty about its meaning. Adults can recall the past four weeks. These descriptions do not diagnose obsessive-compulsive disorder or assess the content of a thought. An unwanted thought or image does not by itself establish intention, desire or action, and this category record cannot determine any of those things.",
+              "zh": "本主题四条原创观察关注不想要的想法或画面反复出现、琢磨它说明自己什么而难受、在心里重复词句或其他想法来回应，以及想取得对其含义的确定。成年人可回顾过去四周。这些描述不诊断强迫症，也不评估想法内容。不想要的想法或画面本身不建立意图、愿望或行动，类别记录同样不能确定这些。"
+            },
+            {
+              "en": "The page cannot assess actual intent, a plan, immediate danger or whether someone can stay safe. It must not be used to dismiss an existing safety concern as merely intrusive. Equally, noticing an unwanted thought does not authorise the website to label you dangerous or infer what you want. There is no danger score. You can keep the content entirely private, leave a statement unscored or stop; no description of an image, feared event or another person is required.",
+              "zh": "页面不能评估实际意图、计划、即时危险或能否保障安全，不能用来把已有安全担忧当成仅仅侵入性而忽视。同样，注意到不想要的想法，也不授权网站给你贴危险标签或推断愿望。没有危险分数。可完全保密内容、未计分或停止，不要求描述画面、害怕事件或他人。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Four descriptions are not a measure of dangerousness",
+            "zh": "四条描述，不测危险性"
+          },
+          "paragraphs": [
+            {
+              "en": "For each statement, choose did not notice, rarely, sometimes, often, very often or unscored. Six category counts add to four descriptions and retain each individual label. They do not count thoughts, intentions, actions or minutes spent thinking. One often, one sometimes and two unscored remains that exact combination. IDs are labels rather than points. There is no total, mean, highest topic, clinical cutoff, moral judgment, risk band or comparison with how often another person is expected to have an unwanted thought.",
+              "zh": "每条选择没有注意到、很少、有时、较常、经常或未计分。六类计数合计四条，并保留逐条标签，不算想法、意图、行动或思考分钟。一条较常、一条有时、两条未计分就保持该组合。标识不是点数，没有总分、均值、最高主题、临床界值、道德评价、风险档或与他人预期出现频率比较。"
+            },
+            {
+              "en": "No relevant experience, unclear recall and withholding remain unscored, separate from did not notice. An entirely unscored topic provides no personal finding about mental health, intention or safety. A small count does not certify safety, and frequent selections do not establish intent or a disorder. All five full guides and the same support information remain public before answers and after every pattern. Support is never unlocked by how distressing, frequent or specific a thought is described as being.",
+              "zh": "没有相关经历、回想不清和保留回答保持未计分，与没有注意到分开。全未计分不提供心理健康、意图或安全方面的个人发现。计数少不认证安全，频繁选择不建立意图或疾病。五篇全文和相同支持说明在答题前及任何组合后公开，从不按描述多难受、多频繁或多具体来解锁。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Meaning can remain unanswered in a brief record",
+            "zh": "简短记录，可以不回答含义"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person who remembers wondering whether an unwanted thought says something about their character. Another remembers responding with words in their mind but prefers not to say more. The page cannot interpret either thought, judge the response or decide what assessment is appropriate. The examples do not ask you to recreate a thought, explain its content or prove that it conflicts with your values. They show how a short category can describe an experience while leaving its meaning and circumstances open.",
+              "zh": "设想有人记得琢磨不想要的想法是否说明自己的品格；另一个人记得在心里用词句回应，但不愿多说。页面不能解释想法、评判回应或决定合适评估。例子不让你重现、解释内容或证明想法与价值观冲突，只说明短类别可描述经历，同时保留含义与背景未知。"
+            },
+            {
+              "en": "You do not need to decide whether something was an obsession, a memory, a worry or another experience before reading this guide. A brief exercise cannot make that distinction for you. You may recognise uncertainty or distress without adopting a diagnosis. The questionnaire asks for no narrative, private message or account of a feared consequence. It does not test whether a thought is true, reasonable or morally acceptable, and it cannot settle a question about who you are.",
+              "zh": "阅读前无需决定它是强迫观念、记忆、担忧还是其他经历，简短练习也不能替你区分。可以认出不确定或难受，无需接受诊断。问卷不要求叙述、私人消息或害怕后果，不测试想法真实、合理或道德上可接受，也不能解决“我是谁”的问题。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "No thought suppression, neutralising or exposure task",
+            "zh": "不安排压制、抵消或接触任务"
+          },
+          "paragraphs": [
+            {
+              "en": "Answer only from recollection if you choose to answer. The page does not instruct you to suppress a thought, replace it with a particular phrase, seek certainty, confess its content or deliberately bring it to mind. It assigns no exposure or response-prevention task and no stopping of an existing ritual. These choices need context the questionnaire cannot assess. If reading or recalling becomes burdensome, pause or leave. Completion is relevant only to organising a private record, not access to information or professional support.",
+              "zh": "选择答题时只凭回忆。页面不要求压制想法、用指定词句替换、寻求确定、坦白内容或故意把它想起来；不安排接触或阻止反应任务，也不要求停止已有仪式。这些选择需要问卷无法评估的背景。阅读或回忆令人负担时可暂停或离开。完成只关系到整理私人记录，不关系到阅读或专业支持。"
+            },
+            {
+              "en": "The five reading topics may overlap and are not validated independent dimensions or five OCD subtypes. An unwanted thought can appear alongside checking or cleaning without a category establishing a causal chain. Keeping or discarding belongings is a separate descriptive topic; hoarding disorder is considered a separate condition. The page diagnoses neither condition. No highest count explains your thoughts, classifies a physiological state or tells you which response should be changed first to improve another topic.",
+              "zh": "五个阅读主题可能重叠，尚非验证独立维度，也不是五种强迫症亚型。不想要的想法可与查看或清洁同时出现，但类别不建立因果链。保留舍弃物品是另一个描述主题；囤积障碍被视为独立状况，本页均不诊断。最高计数不解释想法、不分类生理状态，也不决定先改哪种回应来改善另一主题。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "A question about support need not disclose the thought here",
+            "zh": "询问支持，无需在此披露想法"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to speak with a qualified healthcare professional, one opening could be “I have unwanted thoughts and have been distressed about what they mean.” You can ask how the conversation works, what confidentiality covers and which information would be useful before deciding what to share. The website does not need the content. A professional assessment can consider intent, actual safety, mental and physical health and wider circumstances that this original reflection cannot establish from a category pattern.",
+              "zh": "愿意与合格医疗专业人士谈时，可以说：“我有不想要的想法，也因它们的含义感到难受。”可先问谈话如何进行、保密范围和哪些信息有用，再决定分享什么。网站不需要内容。专业评估可考虑意图、实际安全、身心健康及更广背景，这些无法从原创回顾类别组合确定。"
+            },
+            {
+              "en": "This is not the Yale–Brown Obsessive Compulsive Scale, the Obsessive–Compulsive Inventory or a diagnostic interview. Public health sources describe unwanted thoughts and mental actions but do not validate this original bank. No frequency, time spent or completed exercise is required to ask about support. No record authorises changing medicine, cancelling care or altering professional monitoring instructions. The page cannot choose a treatment or provide a guarantee about what a thought means or what someone will do.",
+              "zh": "本页不是耶鲁—布朗强迫量表、强迫症状清单或诊断访谈。公共健康资料介绍不想要的想法和心理动作，但不验证原创题组。询问支持无需频率、耗时或完成练习。记录不授权改药、取消照护或改变专业监测指示；页面不选治疗，也不保证想法含义或谁会做什么。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Immediate safety is separate from the category record",
+            "zh": "即时安全，与类别记录分开"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask about distress or safety without completing this exercise or deciding which label fits. The page cannot assess healthcare urgency or replace existing professional advice. If there is actual intent or a plan to harm, immediate danger or an inability to stay safe, seek appropriate urgent or local emergency assistance rather than continuing the reflection. Do not wait for a count, a diagnosis or this page to distinguish the experience. The website cannot observe you or provide an emergency response.",
+              "zh": "可以询问难受或安全问题，无需完成或决定适合哪个标签。页面不评估医疗紧急程度，也不替代已有专业意见。若有实际伤害意图或计划、即时危险或无法保障安全，请寻求合适的紧急或当地急救援助，而非继续回顾。不要等计数、诊断或页面区分经历；网站不能观察你或作紧急响应。"
+            },
+            {
+              "en": "The same support information remains public before answers, on every complete guide and for every pattern, including all unscored. A low count does not dismiss a safety concern, and frequent labels do not identify dangerousness. You may keep an account private while asking a professional how to begin a conversation. Reading this page does not require describing a thought to a friend or proving that it is unwanted. Support is not conditional on the category record supplying a particular explanation.",
+              "zh": "相同支持说明在答题前、每篇全文和任何组合下公开，包括全未计分。计数低不排除安全担忧，频繁标签不识别危险性。可以保密叙述，同时询问专业人士怎样开始谈。阅读不要求向朋友描述想法或证明它不想要，支持不以类别记录提供某种解释为条件。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Do not use repeated records to prove a thought harmless",
+            "zh": "不用反复记录证明想法无害"
+          },
+          "paragraphs": [
+            {
+              "en": "These original bilingual observations have no established norms, validated clinical cutoff or demonstrated English–Chinese measurement equivalence. A later difference cannot measure recovery, deterioration, treatment response or actual risk because recall, interpretation and circumstances can change. There is no score to improve or required monitoring schedule. Repeating the exercise cannot prove intention absent or certify a thought harmless. You may keep one useful phrase without obtaining certainty, reproducing a particular pattern or turning the record into another requirement before asking about support.",
+              "zh": "原创双语观察尚无常模、验证临床界值或中英文测量等值。后来差异不测恢复、恶化、治疗反应或实际风险，回忆、理解和背景可能变化。没有要提高的分数或规定监测日程。反复完成不能证明没有意图或认证想法无害。可以只留一句有用表述，无需取得确定、重现特定组合，或把记录变成询问支持前另一要求。"
+            },
+            {
+              "en": "Answers remain only in current-page memory, with no stored draft, submission, questionnaire analytics or personal result address. Exit, retake, reload and leaving clear the record. Copying the public entry shares only its title and address. The five complete guides are identical public text for everyone. You can read without answering, stop midway, keep a thought private or ask a professional question without the page assigning intention, a diagnosis, a moral identity or a verdict about safety.",
+              "zh": "回答只在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新或离页会清除。复制公开入口只含标题及地址。五篇全文对所有人相同。不答题阅读、中途停止、保密想法或向专业人士提问，都不让页面分配意图、诊断、道德身份或安全裁决。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keeping-and-discarding-reading",
+      "directionIds": [
+        "keeping-and-discarding"
+      ],
+      "title": {
+        "en": "Keeping and discarding belongings — Complete Reading",
+        "zh": "保留与舍弃物品：完整读法"
+      },
+      "headline": {
+        "en": "Keeping and discarding belongings — Complete Reading",
+        "zh": "保留与舍弃物品：完整读法"
+      },
+      "summary": {
+        "en": "Consider decisions about belongings as a separate topic, without diagnosing hoarding or directing disposal.",
+        "zh": "把物品决定作为单独主题，不诊断囤积或指示丢弃。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to four original descriptions, with individual labels retained. IDs are not points. There is no total, mean, rank, clinical score, diagnosis or danger judgment; counts do not measure thoughts, actions, time, contamination or household safety.",
+        "zh": "六类计数合计四条原创描述，并保留逐条标签。标识不是点数，没有总分、均值、排名、临床分数、诊断或危险判断；计数不测想法、动作、耗时、污染或住房安全。"
+      },
+      "seo": {
+        "title": {
+          "en": "Keeping and discarding belongings: Full Reflection Guide | FermatMind",
+          "zh": "保留与舍弃物品：完整回顾指南｜费马测试"
+        },
+        "description": {
+          "en": "Consider decisions about belongings as a separate topic, without diagnosing hoarding or directing disposal.",
+          "zh": "把物品决定作为单独主题，不诊断囤积或指示丢弃。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Keeping belongings is a separate descriptive topic",
+            "zh": "保留物品，是单独的描述主题"
+          },
+          "paragraphs": [
+            {
+              "en": "This topic contains four original observations about difficulty deciding whether to keep a belonging, postponing a decision about letting something go, wanting to keep an item without being sure how it will be used and storage making a space harder to use as intended. Adults can recall the past four weeks. This reading does not diagnose hoarding disorder or obsessive-compulsive disorder. Hoarding disorder is considered a separate condition, so including this topic does not make it a fifth subtype of OCD.",
+              "zh": "本主题四条原创观察关注难以决定是否保留物品、推迟放下物品的决定、不确定怎样使用却想保留，以及存放方式使空间更难按原打算使用。成年人可回顾过去四周。本读法不诊断囤积障碍或强迫症。囤积障碍被视为独立状况，所以纳入本主题不使它成为第五种强迫症亚型。"
+            },
+            {
+              "en": "The page does not know an item's practical use, ownership, emotional meaning or the resources available to the person. It cannot distinguish collecting, limited storage, a temporary move, financial circumstances or a clinical condition from a few category choices. No record establishes that an item has no value or should be discarded. You may recognise a difficult decision without accepting a judgment about cleanliness, responsibility, attachment or how much another person is entitled to remove from your space.",
+              "zh": "页面不知道物品用途、所有权、情感意义或可用资源，不能凭少数类别区分收藏、储物不足、临时搬迁、经济背景或临床状况。记录不证明物品没价值或该丢弃。可以认出困难决定，无需接受关于清洁、责任、依恋的评价，也不决定别人有权移除你空间中多少东西。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Four descriptions do not measure a room or a diagnosis",
+            "zh": "四条描述，不测房间或诊断"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose did not notice, rarely, sometimes, often, very often or unscored for each observation. The six category counts sum to four descriptions and retain every selected label. They do not count possessions, bags, rooms, blocked areas or days of difficulty. One often, one rarely and two unscored remains that combination rather than a clutter score. IDs are labels rather than points. There is no total, mean, highest topic, clinical cutoff, household rating or comparison with what other people are expected to keep.",
+              "zh": "每条选择没有注意到、很少、有时、较常、经常或未计分。六类计数合计四条并保留逐条标签，不算财物、袋子、房间、被占区域或困难天数。一条较常、一条很少、两条未计分就保持该组合，不变成杂乱分数。标识不是点数，没有总分、均值、最高主题、临床界值、家庭评级或与别人预期保留量比较。"
+            },
+            {
+              "en": "No relevant experience, unclear recall and withholding remain unscored, separate from did not notice. An entirely unscored topic offers no personal finding about possessions, health or housing safety. A small count cannot certify a room safe, and frequent labels do not establish a disorder. All five complete guides and unconditional support information remain public before answers and after every pattern. Access does not depend on providing photographs, a list of possessions or proof that enough space has been affected.",
+              "zh": "没有相关经历、回想不清和保留回答保持未计分，与没有注意到分开。全未计分不提供物品、健康或住房安全的个人发现。计数少不认证房间安全，频繁标签不建立疾病。五篇全文及无条件支持说明在答题前和任何组合后公开，无需提供照片、物品清单或证明有足够空间受影响。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A similar hesitation can have different meanings",
+            "zh": "相似犹豫，可以有不同意义"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person who postpones a decision while moving between homes. Another feels distressed about letting go of something with personal meaning. Both might recognise hesitation without having the same circumstances or support needs. The page cannot compare them or decide whose reasons are acceptable. These examples illustrate the limits of a short description rather than a rule for sorting possessions. They do not ask you to choose an item, test your willingness to discard it or invite someone to clear the space.",
+              "zh": "设想有人搬家期间推迟决定，另一个人因放下有个人意义的物品而难受。两者可能都认出犹豫，却未必有相同背景或支持需要。页面不能比较或裁定谁的理由可接受。例子说明短描述的限制，不规定整理财物的方法，也不要求挑一件物品、测试丢弃意愿或邀请别人清理。"
+            },
+            {
+              "en": "You may remember a difficulty using space without wanting to describe the space itself. The questionnaire requires no address, household details, ownership information or account of a disagreement. You can keep the context private, leave a statement unscored or stop. A category cannot tell whether a difficulty arose from the belongings, the available space or another circumstance. Recognising one description does not establish a cause, prove lack of insight or mean that another person should take over the decision.",
+              "zh": "可能记得空间难用，却不愿描述空间。问卷不要求地址、家庭细节、所有权或争执叙述。可以保密背景、未计分或停止。类别不能判断困难来自财物、空间条件还是其他背景。认出一条不建立原因、不证明缺乏认识，也不表示该由别人接管决定。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "No discarding task or forced clear-out is assigned",
+            "zh": "不安排丢弃任务或强制清理"
+          },
+          "paragraphs": [
+            {
+              "en": "Answer only from recollection if you choose to answer. The page assigns no discarding exercise, exposure, forced clean-out, removal of another person's belongings or stopping of a repeated action. It also does not tell you to keep an item because of a category record. Decisions about property, practical safety and care require context the questionnaire cannot assess. If considering the statements becomes burdensome, pause or leave. Reading and asking about support never require completing a record or demonstrating that you can let something go.",
+              "zh": "选择答题时只凭回忆。页面不安排丢弃练习、接触、强制清理、移除他人物品或停止重复动作，也不因类别记录要求保留物品。财物、实际安全与照护决定需要问卷不能评估的背景。考虑陈述令人负担时可暂停或离开。阅读或询问支持无需完成记录或展示能放下东西。"
+            },
+            {
+              "en": "The other topics concern cleaning, checking, order and repetition, and unwanted thoughts with mental responses. They may overlap in everyday language without being validated independent dimensions or a set of OCD subtypes. A difficulty with possessions cannot explain another thought or identify the cause of another count. The page diagnoses neither OCD nor hoarding disorder, measures no household risk and does not order the topics into stages or tell a family member which issue to change first.",
+              "zh": "其他主题关注清洁、查看、秩序与重复，以及不想要的想法与心中回应。日常词语可能重叠，却不成为验证独立维度或一组强迫症亚型。物品困难不能解释另一想法或识别另一计数的原因。页面不诊断两种疾病、不测家庭风险，也不排列阶段或告诉家人先改哪项。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Ask about the difficulty in the circumstances you choose",
+            "zh": "按愿意分享的背景询问困难"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to speak with a qualified healthcare professional, an opening could be “Decisions about belongings or using my space have felt difficult, and I would like to ask about support.” You can ask what an assessment involves and which information would be useful before choosing what to share. A professional conversation can consider health, practical conditions and wider circumstances that the website does not know. You do not need to accept a diagnosis, provide a photograph here or bring this questionnaire to start.",
+              "zh": "愿意与合格医疗专业人士谈时，可以说：“决定物品或使用空间让我感到困难，想询问支持。”可先问评估怎样进行、哪些信息有用，再选择分享什么。专业谈话可考虑网站不知道的健康、实际条件与更广背景。开始不必接受诊断、在此提供照片或带这份问卷。"
+            },
+            {
+              "en": "Public health information describes hoarding disorder as a separate condition and broader assessment rather than validating this original bank. This exercise administers no published hoarding scale, Yale–Brown Obsessive Compulsive Scale, Obsessive–Compulsive Inventory or diagnostic criteria. There is no minimum amount of possessions, time or count before you may ask about support. No selection authorises changing medicine, cancelling care or altering professional monitoring instructions. The page cannot choose treatment, judge previous care or grant permission for someone else to remove property.",
+              "zh": "公共健康资料将囤积障碍介绍为独立状况并说明更广评估，不验证原创题组。练习不施测发表的囤积量表、耶鲁—布朗强迫量表、强迫症状清单或诊断标准。询问支持没有财物量、时长或计数下限。选择不授权改药、取消照护或改变专业监测指示；页面不选治疗、不评判既往照护，也不授权别人移除财物。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Practical safety does not wait for a category pattern",
+            "zh": "实际安全，不等待类别组合"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask about a concern with belongings or a practical hazard without proving a questionnaire threshold. The page cannot inspect a home, assess healthcare urgency or replace existing professional advice. Do not use its record to postpone an assessment or disregard a known safety problem. If you are in immediate danger or cannot stay safe, seek local emergency assistance rather than continuing to answer. The website cannot observe the space, arrange help or provide an emergency response.",
+              "zh": "可以询问物品担忧或实际危险，无需证明问卷阈值。页面不能检查住房、评估医疗紧急程度，也不替代已有专业意见。不要用记录推迟评估或忽视已知安全问题。若有即时危险或无法保障安全，请寻求当地紧急援助，而非继续回答；网站不能观察空间、安排帮助或作紧急响应。"
+            },
+            {
+              "en": "The same support information is public on the entry, every full guide and every response pattern, including all unscored. A low count does not clear a hazard, and frequent labels do not diagnose a disorder. You can keep the whole account private while asking a professional how to begin. You do not need to wait until a room cannot be used, prove an effect on someone else or obtain the page's agreement that a concern is serious enough to discuss.",
+              "zh": "相同支持说明在入口、每篇全文及任何组合下公开，包括全未计分。计数低不排除危险，频繁标签不诊断疾病。可以保密叙述并问专业人士如何开始。不必等房间无法使用、不必证明影响他人，也不必取得页面同意担忧足够严重才讨论。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "A later record cannot measure the value of letting go",
+            "zh": "后来记录，不测放下的价值"
+          },
+          "paragraphs": [
+            {
+              "en": "These original bilingual descriptions have no established norms, validated clinical cutoff or demonstrated English–Chinese measurement equivalence. A later difference can reflect recall, interpretation, practical resources or circumstances and cannot measure recovery, deterioration or treatment response. Fewer selections do not prove that a clear-out helped, and more do not prove worsening. There is no score to improve, disposal target or required monitoring schedule. You may keep one useful phrase without repeating the exercise to obtain permission, reassurance or agreement about a particular belonging.",
+              "zh": "原创双语描述尚无常模、验证临床界值或中英文测量等值。后续差异可能反映回忆、理解、实际资源或背景，不能测恢复、恶化或治疗反应。更少选择不证明清理有效，更多不证明恶化。没有要提高的分数、丢弃目标或规定监测日程。可以只留一句有用表述，无需反复完成来取得对某物品的许可、保证或赞同。"
+            },
+            {
+              "en": "Answers remain only in current-page memory, without stored drafts, submission, questionnaire analytics or a personal result address. Exit, retake, reload and leaving clear the record. Copying the public entry shares only its title and address. All five complete guides are identical public text for everyone. You can read without answering, stop midway, keep possessions private or ask a professional question without discarding anything, allowing another person to inspect your home or accepting a diagnosis from the page.",
+              "zh": "回答只在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新或离页会清除。复制公开入口只含标题及地址。五篇全文对所有人相同。不答题阅读、中途停止、保密财物或向专业人士提问，都无需丢弃东西、让别人检查住房或接受页面诊断。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "Five records of four descriptions",
+        "zh": "五组各四条描述的记录"
+      },
+      "paragraphs": [
+        {
+          "en": "Each original reading topic contains four observations. Six category counts preserve did not notice, rarely, sometimes, often, very often and unscored, alongside individual selections. Counts concern descriptions, not events or minutes. IDs are labels rather than points. There is no total, mean, highest topic, symptom band, risk judgment or norm comparison.",
+          "zh": "每个原创阅读主题四条，六类计数保留没有注意到、很少、有时、较常、经常和未计分，并展示逐条选择。计数算描述，不是事件或分钟。标识是标签，不是点数；没有总分、均值、最高主题、症状档、风险判断或常模比较。"
+        },
+        {
+          "en": "No relevant experience, unclear recall and withholding remain unscored, separate from did not notice. An entirely unscored record gives no personal finding or safety reassurance. These topics may overlap and are not validated independent dimensions or five OCD subtypes. The belongings topic does not make hoarding disorder part of an OCD classification.",
+          "zh": "没有相关经历、回想不清和保留回答保持未计分，与没有注意到分开。全未计分不提供个人发现或安全保证。主题可能重叠，尚非验证独立维度，也不是五种强迫症亚型。物品主题不把囤积障碍纳入强迫症分类。"
+        }
+      ]
+    },
+    {
+      "id": "care",
+      "title": {
+        "en": "Description does not establish a diagnosis or intent",
+        "zh": "描述不建立诊断或意图"
+      },
+      "paragraphs": [
+        {
+          "en": "These original adult observations are not Y-BOCS, OCI, a published hoarding scale or diagnostic criteria. They have no established norms, clinical cutoff or demonstrated English–Chinese measurement equivalence. Not every habit or repeated thought is a clinically assessed compulsion or obsession. An unwanted thought does not by itself establish intent or action; the page cannot assess actual intent or immediate safety.",
+          "zh": "成年人原创观察不是Y-BOCS、OCI、发表的囤积量表或诊断标准，尚无常模、临床界值或验证中英文测量等值。不是每项习惯或重复想法都属于经临床评估的强迫行为或观念。不想要的想法本身不建立意图或行动；页面不能评估实际意图或即时安全。"
+        },
+        {
+          "en": "You can ask a qualified healthcare professional without a minimum count, time spent or completed record. Do not use the record to postpone assessment, change medicine, cancel care, alter professional monitoring or disregard a safety requirement. If there is actual intent or a plan to harm, immediate danger or an inability to stay safe, seek appropriate urgent or local emergency assistance rather than continuing. The page cannot assess care urgency or respond to an emergency.",
+          "zh": "可向合格医疗专业人士询问，无需最低计数、耗时或完成记录。不用记录推迟评估、改药、取消照护、改变专业监测或忽视安全要求。若有实际伤害意图或计划、即时危险或无法保障安全，请寻求合适的紧急或当地急救援助，而非继续。页面不评估照护紧急程度，也不作紧急响应。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Recollection only, five full public guides",
+        "zh": "只凭回忆，五篇完整公开指南"
+      },
+      "paragraphs": [
+        {
+          "en": "No exposure, response prevention, thought suppression, neutralising, stopping of rituals, hygiene change, discarding task or family clear-out is assigned. Answers remain only in current-page memory, with no stored draft, submission, questionnaire analytics or personal result address. Exit, retake, reload and leaving clear the record. Copying the public entry shares only its title and address.",
+          "zh": "不安排接触、阻止反应、压制想法、抵消、停止仪式、改变卫生、丢弃任务或家庭清理。回答只在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新或离页会清除，复制公开入口只含标题及地址。"
+        },
+        {
+          "en": "Five complete bilingual guides and unconditional support information are public before answers and after every pattern, including all unscored. No thought content, photograph, location, possession list or diagnosis needs to be supplied. You may stop, withhold or ask about support without finishing. Repeating the record cannot certify safety or provide certainty about a concern.",
+          "zh": "五篇双语全文和无条件支持说明在答题前及任何组合后公开，包括全部未计分。不需提供想法内容、照片、地点、物品清单或诊断。可停止、保留回答或不完成就询问支持。反复记录不能认证安全或为担忧提供确定。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this Y-BOCS, OCI or an OCD diagnosis?",
+        "zh": "这是Y-BOCS、OCI或强迫症诊断吗？"
+      },
+      "answer": {
+        "en": "No. These are 20 original descriptions, not a published instrument or clinical criteria. Topic similarity does not establish item or measurement equivalence.",
+        "zh": "不是。这是20条原创描述，不是发表量表或临床标准；主题相似不建立题目或测量等值。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does an unwanted thought establish intent or dangerousness?",
+        "zh": "不想要的想法能证明意图或危险性吗？"
+      },
+      "answer": {
+        "en": "No. An unwanted thought does not by itself establish intent or action. The page cannot assess actual intent, plans or safety and must not be used to dismiss an existing safety concern.",
+        "zh": "不能。不想要的想法本身不建立意图或行动。页面不能评估实际意图、计划或安全，也不能用来忽视已有安全担忧。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are these five OCD subtypes?",
+        "zh": "这是五种强迫症亚型吗？"
+      },
+      "answer": {
+        "en": "No. They are overlapping reading topics. Hoarding disorder is considered a separate condition; this page diagnoses neither OCD nor hoarding disorder.",
+        "zh": "不是。这是可能重叠的阅读主题。囤积障碍被视为独立状况；本页两者均不诊断。"
+      }
+    },
+    {
+      "question": {
+        "en": "Must I check, clean, stop a ritual or discard something?",
+        "zh": "必须查看、清洁、停止仪式或丢弃东西吗？"
+      },
+      "answer": {
+        "en": "No. Answer from recollection only if you want to. No exposure, response prevention, suppression, neutralising, hygiene change or discarding task is assigned.",
+        "zh": "不必。愿意时只凭回忆，不安排接触、阻止反应、压制、抵消、改变卫生或丢弃任务。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is there a minimum count or amount of time before support?",
+        "zh": "询问支持有计数或时长下限吗？"
+      },
+      "answer": {
+        "en": "No. A count, time spent or completed record is never required. Do not use the reflection to postpone assessment or change care or safety instructions.",
+        "zh": "没有。始终不要求计数、耗时或完成记录；不用回顾推迟评估或改变照护及安全指示。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I read every guide without answering?",
+        "zh": "不答题可以读全部指南吗？"
+      },
+      "answer": {
+        "en": "Yes. Five complete guides and unconditional support information remain public with every response pattern, including all unscored.",
+        "zh": "可以。五篇全文和无条件支持说明对任何组合公开，包括全部未计分。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "NIMH: OCD — unwanted thoughts, repeated actions and broader assessment",
+        "zh": "NIMH：强迫症——不想要的想法、重复动作与更广评估"
+      },
+      "url": "https://www.nimh.nih.gov/health/publications/obsessive-compulsive-disorder-when-unwanted-thoughts-or-repetitive-behaviors-take-over"
+    },
+    {
+      "title": {
+        "en": "NHS: OCD symptoms — thoughts and actions are distinct",
+        "zh": "NHS：强迫症症状——想法与行动有别"
+      },
+      "url": "https://www.nhs.uk/mental-health/conditions/obsessive-compulsive-disorder-ocd/symptoms/"
+    },
+    {
+      "title": {
+        "en": "NHS: Hoarding disorder — a separate condition",
+        "zh": "NHS：囤积障碍——独立状况"
+      },
+      "url": "https://www.nhs.uk/mental-health/conditions/hoarding-disorder/"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_unwanted_actions_observations",
+    "formCode": "fm_unwanted_actions20_observations_v1",
+    "itemBankVersion": "original20_bilingual_five_by_four_v1",
+    "scoringVersion": "six_categorical_counts_per_four_no_danger_or_diagnosis_v1",
+    "resultContentVersion": "five_full_bilingual_unwanted_actions_readings_v1",
+    "itemBankSha256": "f0e8d4c1b635c84f6e4ddee37f4b60e002e64e69da3559c07f047194100f0afc",
+    "resultContentSha256": "af42369eea2113aae1ed3a3fed07f0d6a3a5ce61125810157e3393f07b0cd084",
+    "psychometricValidationCompleted": false
+  }
+}
