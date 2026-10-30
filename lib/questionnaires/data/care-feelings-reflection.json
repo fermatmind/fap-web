@@ -1,0 +1,1841 @@
+{
+  "slug": "care-feelings-reflection",
+  "code": "FM_CARE_FEELINGS20_OBSERVATIONS",
+  "version": "fm_care_feelings20_mixed_recall_v1",
+  "kind": "care-feelings20",
+  "title": {
+    "en": "Care & Feelings: Recollections and Today",
+    "zh": "照护与感受：回忆与当下"
+  },
+  "category": "framework",
+  "directions": [
+    {
+      "id": "remembered-emotional-attention",
+      "title": {
+        "en": "Remembered attention to feelings",
+        "zh": "记得的情绪关注"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "remembered-feelings-responses",
+      "title": {
+        "en": "Remembered responses to feelings",
+        "zh": "记得的感受回应"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "remembered-comfort-and-support",
+      "title": {
+        "en": "Remembered comfort and support",
+        "zh": "记得的安慰与支持"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "feelings-and-support-now",
+      "title": {
+        "en": "Feelings and support recently",
+        "zh": "近期感受与支持"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "CFN_01",
+      "prompt": {
+        "en": "I remember wanting an adult to ask what I was feeling.",
+        "zh": "我记得自己希望有成年人问问我当时的感受。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not fit what I recall",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "remembered-emotional-attention"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Fits a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "remembered-emotional-attention"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Fits partly",
+            "zh": "部分符合"
+          },
+          "directionId": "remembered-emotional-attention"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Fits closely",
+            "zh": "较符合"
+          },
+          "directionId": "remembered-emotional-attention"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Fits very closely",
+            "zh": "很符合"
+          },
+          "directionId": "remembered-emotional-attention"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot say / no relevant experience or recollection / prefer not to answer",
+            "zh": "无法判断／没有相关经历或回忆／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CFN_02",
+      "prompt": {
+        "en": "I remember an adult noticing a change in my mood.",
+        "zh": "我记得有成年人注意到我的情绪变化。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not fit what I recall",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "remembered-emotional-attention"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Fits a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "remembered-emotional-attention"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Fits partly",
+            "zh": "部分符合"
+          },
+          "directionId": "remembered-emotional-attention"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Fits closely",
+            "zh": "较符合"
+          },
+          "directionId": "remembered-emotional-attention"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Fits very closely",
+            "zh": "很符合"
+          },
+          "directionId": "remembered-emotional-attention"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot say / no relevant experience or recollection / prefer not to answer",
+            "zh": "无法判断／没有相关经历或回忆／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CFN_03",
+      "prompt": {
+        "en": "I remember keeping a feeling to myself because I was unsure how it would be received.",
+        "zh": "我记得自己因为不确定感受会得到怎样的回应，而没有说出来。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not fit what I recall",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "remembered-emotional-attention"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Fits a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "remembered-emotional-attention"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Fits partly",
+            "zh": "部分符合"
+          },
+          "directionId": "remembered-emotional-attention"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Fits closely",
+            "zh": "较符合"
+          },
+          "directionId": "remembered-emotional-attention"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Fits very closely",
+            "zh": "很符合"
+          },
+          "directionId": "remembered-emotional-attention"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot say / no relevant experience or recollection / prefer not to answer",
+            "zh": "无法判断／没有相关经历或回忆／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CFN_04",
+      "prompt": {
+        "en": "I remember an adult asking about my feelings after a difficult moment.",
+        "zh": "我记得一次难熬的时刻之后，有成年人问起我的感受。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not fit what I recall",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "remembered-emotional-attention"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Fits a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "remembered-emotional-attention"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Fits partly",
+            "zh": "部分符合"
+          },
+          "directionId": "remembered-emotional-attention"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Fits closely",
+            "zh": "较符合"
+          },
+          "directionId": "remembered-emotional-attention"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Fits very closely",
+            "zh": "很符合"
+          },
+          "directionId": "remembered-emotional-attention"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot say / no relevant experience or recollection / prefer not to answer",
+            "zh": "无法判断／没有相关经历或回忆／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CFN_05",
+      "prompt": {
+        "en": "I remember being unsure which adult I could talk to about a feeling.",
+        "zh": "我记得自己不确定能向哪位成年人谈某种感受。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not fit what I recall",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "remembered-emotional-attention"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Fits a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "remembered-emotional-attention"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Fits partly",
+            "zh": "部分符合"
+          },
+          "directionId": "remembered-emotional-attention"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Fits closely",
+            "zh": "较符合"
+          },
+          "directionId": "remembered-emotional-attention"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Fits very closely",
+            "zh": "很符合"
+          },
+          "directionId": "remembered-emotional-attention"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot say / no relevant experience or recollection / prefer not to answer",
+            "zh": "无法判断／没有相关经历或回忆／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CFN_06",
+      "prompt": {
+        "en": "I remember an adult treating my feeling as understandable.",
+        "zh": "我记得有成年人觉得我的某种感受可以理解。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not fit what I recall",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "remembered-feelings-responses"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Fits a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "remembered-feelings-responses"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Fits partly",
+            "zh": "部分符合"
+          },
+          "directionId": "remembered-feelings-responses"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Fits closely",
+            "zh": "较符合"
+          },
+          "directionId": "remembered-feelings-responses"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Fits very closely",
+            "zh": "很符合"
+          },
+          "directionId": "remembered-feelings-responses"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot say / no relevant experience or recollection / prefer not to answer",
+            "zh": "无法判断／没有相关经历或回忆／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CFN_07",
+      "prompt": {
+        "en": "I remember being told that I should not feel the way I did.",
+        "zh": "我记得有人告诉我，不应该有当时那种感受。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not fit what I recall",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "remembered-feelings-responses"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Fits a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "remembered-feelings-responses"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Fits partly",
+            "zh": "部分符合"
+          },
+          "directionId": "remembered-feelings-responses"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Fits closely",
+            "zh": "较符合"
+          },
+          "directionId": "remembered-feelings-responses"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Fits very closely",
+            "zh": "很符合"
+          },
+          "directionId": "remembered-feelings-responses"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot say / no relevant experience or recollection / prefer not to answer",
+            "zh": "无法判断／没有相关经历或回忆／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CFN_08",
+      "prompt": {
+        "en": "I remember an adult trying to understand my feeling before offering advice.",
+        "zh": "我记得有成年人先试着理解我的感受，再给意见。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not fit what I recall",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "remembered-feelings-responses"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Fits a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "remembered-feelings-responses"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Fits partly",
+            "zh": "部分符合"
+          },
+          "directionId": "remembered-feelings-responses"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Fits closely",
+            "zh": "较符合"
+          },
+          "directionId": "remembered-feelings-responses"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Fits very closely",
+            "zh": "很符合"
+          },
+          "directionId": "remembered-feelings-responses"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot say / no relevant experience or recollection / prefer not to answer",
+            "zh": "无法判断／没有相关经历或回忆／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CFN_09",
+      "prompt": {
+        "en": "I remember worrying that my feelings were too much for other people.",
+        "zh": "我记得自己担心，自己的感受对别人来说太多了。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not fit what I recall",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "remembered-feelings-responses"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Fits a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "remembered-feelings-responses"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Fits partly",
+            "zh": "部分符合"
+          },
+          "directionId": "remembered-feelings-responses"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Fits closely",
+            "zh": "较符合"
+          },
+          "directionId": "remembered-feelings-responses"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Fits very closely",
+            "zh": "很符合"
+          },
+          "directionId": "remembered-feelings-responses"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot say / no relevant experience or recollection / prefer not to answer",
+            "zh": "无法判断／没有相关经历或回忆／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CFN_10",
+      "prompt": {
+        "en": "I remember being able to describe a feeling without needing to justify it.",
+        "zh": "我记得自己可以描述一种感受，而不必为它辩护。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not fit what I recall",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "remembered-feelings-responses"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Fits a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "remembered-feelings-responses"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Fits partly",
+            "zh": "部分符合"
+          },
+          "directionId": "remembered-feelings-responses"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Fits closely",
+            "zh": "较符合"
+          },
+          "directionId": "remembered-feelings-responses"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Fits very closely",
+            "zh": "很符合"
+          },
+          "directionId": "remembered-feelings-responses"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot say / no relevant experience or recollection / prefer not to answer",
+            "zh": "无法判断／没有相关经历或回忆／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CFN_11",
+      "prompt": {
+        "en": "I remember an adult offering comfort when I was upset.",
+        "zh": "我记得难过时，有成年人向我提供安慰。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not fit what I recall",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "remembered-comfort-and-support"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Fits a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "remembered-comfort-and-support"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Fits partly",
+            "zh": "部分符合"
+          },
+          "directionId": "remembered-comfort-and-support"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Fits closely",
+            "zh": "较符合"
+          },
+          "directionId": "remembered-comfort-and-support"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Fits very closely",
+            "zh": "很符合"
+          },
+          "directionId": "remembered-comfort-and-support"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot say / no relevant experience or recollection / prefer not to answer",
+            "zh": "无法判断／没有相关经历或回忆／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CFN_12",
+      "prompt": {
+        "en": "I remember wanting emotional support but being unsure how to ask for it.",
+        "zh": "我记得自己想要情感支持，却不确定怎样开口。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not fit what I recall",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "remembered-comfort-and-support"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Fits a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "remembered-comfort-and-support"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Fits partly",
+            "zh": "部分符合"
+          },
+          "directionId": "remembered-comfort-and-support"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Fits closely",
+            "zh": "较符合"
+          },
+          "directionId": "remembered-comfort-and-support"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Fits very closely",
+            "zh": "很符合"
+          },
+          "directionId": "remembered-comfort-and-support"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot say / no relevant experience or recollection / prefer not to answer",
+            "zh": "无法判断／没有相关经历或回忆／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CFN_13",
+      "prompt": {
+        "en": "I remember an adult staying available while I was having a difficult feeling.",
+        "zh": "我记得自己有难受的感受时，有成年人仍愿意陪着或听我说。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not fit what I recall",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "remembered-comfort-and-support"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Fits a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "remembered-comfort-and-support"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Fits partly",
+            "zh": "部分符合"
+          },
+          "directionId": "remembered-comfort-and-support"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Fits closely",
+            "zh": "较符合"
+          },
+          "directionId": "remembered-comfort-and-support"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Fits very closely",
+            "zh": "很符合"
+          },
+          "directionId": "remembered-comfort-and-support"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot say / no relevant experience or recollection / prefer not to answer",
+            "zh": "无法判断／没有相关经历或回忆／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CFN_14",
+      "prompt": {
+        "en": "I remember looking for comfort without finding a way to ask that felt available to me.",
+        "zh": "我记得自己想找安慰，却没有找到当时觉得能用的求助方式。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not fit what I recall",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "remembered-comfort-and-support"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Fits a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "remembered-comfort-and-support"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Fits partly",
+            "zh": "部分符合"
+          },
+          "directionId": "remembered-comfort-and-support"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Fits closely",
+            "zh": "较符合"
+          },
+          "directionId": "remembered-comfort-and-support"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Fits very closely",
+            "zh": "很符合"
+          },
+          "directionId": "remembered-comfort-and-support"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot say / no relevant experience or recollection / prefer not to answer",
+            "zh": "无法判断／没有相关经历或回忆／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CFN_15",
+      "prompt": {
+        "en": "I remember a difficult feeling being left out of a conversation about what I needed.",
+        "zh": "我记得谈到自身需要时，一种难受的感受没有进入当时的谈话。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not fit what I recall",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "remembered-comfort-and-support"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Fits a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "remembered-comfort-and-support"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Fits partly",
+            "zh": "部分符合"
+          },
+          "directionId": "remembered-comfort-and-support"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Fits closely",
+            "zh": "较符合"
+          },
+          "directionId": "remembered-comfort-and-support"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Fits very closely",
+            "zh": "很符合"
+          },
+          "directionId": "remembered-comfort-and-support"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot say / no relevant experience or recollection / prefer not to answer",
+            "zh": "无法判断／没有相关经历或回忆／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CFN_16",
+      "prompt": {
+        "en": "I paused because I was unsure how to name a feeling I was having.",
+        "zh": "我因为不确定怎样称呼当时的感受而停下来。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not fit what I recall",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "feelings-and-support-now"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Fits a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "feelings-and-support-now"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Fits partly",
+            "zh": "部分符合"
+          },
+          "directionId": "feelings-and-support-now"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Fits closely",
+            "zh": "较符合"
+          },
+          "directionId": "feelings-and-support-now"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Fits very closely",
+            "zh": "很符合"
+          },
+          "directionId": "feelings-and-support-now"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot say / no relevant experience or recollection / prefer not to answer",
+            "zh": "无法判断／没有相关经历或回忆／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CFN_17",
+      "prompt": {
+        "en": "I wanted emotional support but felt guilty about asking for it.",
+        "zh": "我想要情感支持，却对开口请求感到内疚。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not fit what I recall",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "feelings-and-support-now"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Fits a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "feelings-and-support-now"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Fits partly",
+            "zh": "部分符合"
+          },
+          "directionId": "feelings-and-support-now"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Fits closely",
+            "zh": "较符合"
+          },
+          "directionId": "feelings-and-support-now"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Fits very closely",
+            "zh": "很符合"
+          },
+          "directionId": "feelings-and-support-now"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot say / no relevant experience or recollection / prefer not to answer",
+            "zh": "无法判断／没有相关经历或回忆／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CFN_18",
+      "prompt": {
+        "en": "I tried to handle something emotionally difficult alone even though I wanted company.",
+        "zh": "我虽然想有人陪伴，仍试着独自处理一件让自己情绪难熬的事。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not fit what I recall",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "feelings-and-support-now"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Fits a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "feelings-and-support-now"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Fits partly",
+            "zh": "部分符合"
+          },
+          "directionId": "feelings-and-support-now"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Fits closely",
+            "zh": "较符合"
+          },
+          "directionId": "feelings-and-support-now"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Fits very closely",
+            "zh": "很符合"
+          },
+          "directionId": "feelings-and-support-now"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot say / no relevant experience or recollection / prefer not to answer",
+            "zh": "无法判断／没有相关经历或回忆／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CFN_19",
+      "prompt": {
+        "en": "I let myself acknowledge a feeling before deciding what to do.",
+        "zh": "我在决定做什么之前，先允许自己承认一种感受。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not fit what I recall",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "feelings-and-support-now"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Fits a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "feelings-and-support-now"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Fits partly",
+            "zh": "部分符合"
+          },
+          "directionId": "feelings-and-support-now"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Fits closely",
+            "zh": "较符合"
+          },
+          "directionId": "feelings-and-support-now"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Fits very closely",
+            "zh": "很符合"
+          },
+          "directionId": "feelings-and-support-now"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot say / no relevant experience or recollection / prefer not to answer",
+            "zh": "无法判断／没有相关经历或回忆／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CFN_20",
+      "prompt": {
+        "en": "I asked for comfort or understanding when I wanted it.",
+        "zh": "我在想要安慰或理解时提出了请求。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not fit what I recall",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "feelings-and-support-now"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Fits a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "feelings-and-support-now"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Fits partly",
+            "zh": "部分符合"
+          },
+          "directionId": "feelings-and-support-now"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Fits closely",
+            "zh": "较符合"
+          },
+          "directionId": "feelings-and-support-now"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Fits very closely",
+            "zh": "很符合"
+          },
+          "directionId": "feelings-and-support-now"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot say / no relevant experience or recollection / prefer not to answer",
+            "zh": "无法判断／没有相关经历或回忆／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "updated": "2026-10-30",
+  "minutes": 5,
+  "seoTitle": {
+    "en": "Childhood Emotional Neglect Reflection: Care & Feelings",
+    "zh": "童年情感忽视反思：照护与感受"
+  },
+  "description": {
+    "en": "Twenty original adult reflections on remembered emotional attention, responses and comfort, alongside recent feelings and support. Four complete free guides and private item-by-item records; no neglect score or diagnosis.",
+    "zh": "20条成人原创反思，分别整理记得的情绪关注、感受回应、安慰，以及近期感受与支持。四篇完整免费指南与私人的逐条记录，不生成忽视分数或诊断。"
+  },
+  "introduction": {
+    "en": "You may want words for how feelings were received while growing up, without deciding on a label for your family. The first fifteen descriptions concern optional childhood or adolescent recollections; the last five concern the past four weeks. Each topic keeps its own response labels. Present feelings cannot establish past events or their causes.",
+    "zh": "你可能想为成长中感受怎样得到回应寻找表达，而不急着给家庭下结论。前15条可自愿回想童年或青少年时期，后5条只看过去四周；各主题保留自己的回答标签。当下感受不能证明过去发生了什么或其原因。"
+  },
+  "instructions": {
+    "en": "For each description, choose how closely it fits what you recall. Positive and difficult experiences are mixed deliberately: neither is reversed or added into a score. Use unscored for unclear or absent recall, no relevant experience, or anything you prefer to withhold. Do not reconstruct memories or search for evidence to answer. No names, dates or stories are requested.",
+    "zh": "逐条选择描述与回忆的贴近程度。题目有意混合获得回应与感到困难的经历，均不反向、不合成分数。回忆不清、没有相关经历或不愿回答时选未计分。无需重建记忆或寻找证据，不要求姓名、日期或私人叙述。"
+  },
+  "resultHeading": {
+    "en": "Your private description record",
+    "zh": "你的私人描述记录"
+  },
+  "profiles": [
+    {
+      "id": "remembered-emotional-attention-reading",
+      "directionIds": [
+        "remembered-emotional-attention"
+      ],
+      "title": {
+        "en": "Remembered attention to feelings — Complete Reading",
+        "zh": "记得的情绪关注：完整读法"
+      },
+      "headline": {
+        "en": "Remembered attention to feelings — Complete Reading",
+        "zh": "记得的情绪关注：完整读法"
+      },
+      "summary": {
+        "en": "These five descriptions concern wanting an adult to ask about a feeling, remembered mood changes being noticed, keeping a feeling private, being asked after a difficult moment, and uncertainty about whom to approach. They record what you recall now, not how attentive every adult was throughout childhood.",
+        "zh": "五条描述涉及希望有人问起感受、记得情绪变化被留意、把感受留在心里、难熬后有人询问，以及不确定能向谁开口。它们记录现在记得的情况，不判断每位成年人在整个童年有多关注你。"
+      },
+      "scoreReading": {
+        "en": "Six category counts retain five individual descriptions, without points, reversal, totals or a verdict about childhood.",
+        "zh": "六类计数保留五条独立描述，不作点数、反向、总分或童年裁决。"
+      },
+      "seo": {
+        "title": {
+          "en": "Remembered attention to feelings — Complete Reading",
+          "zh": "记得的情绪关注：完整读法"
+        },
+        "description": {
+          "en": "These five descriptions concern wanting an adult to ask about a feeling, remembered mood changes being noticed, keeping a feeling private, being asked after a difficult moment, and uncertainty about whom to approach. They record what you recall now, not how attentive every adult was throughout childhood.",
+          "zh": "五条描述涉及希望有人问起感受、记得情绪变化被留意、把感受留在心里、难熬后有人询问，以及不确定能向谁开口。它们记录现在记得的情况，不判断每位成年人在整个童年有多关注你。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Attention to feelings is different from noticing behaviour",
+            "zh": "留意感受，与留意行为不同"
+          },
+          "paragraphs": [
+            {
+              "en": "These five descriptions concern wanting an adult to ask about a feeling, remembered mood changes being noticed, keeping a feeling private, being asked after a difficult moment, and uncertainty about whom to approach. They record what you recall now, not how attentive every adult was throughout childhood.",
+              "zh": "五条描述涉及希望有人问起感受、记得情绪变化被留意、把感受留在心里、难熬后有人询问，以及不确定能向谁开口。它们记录现在记得的情况，不判断每位成年人在整个童年有多关注你。"
+            },
+            {
+              "en": "An adult might have noticed schoolwork or practical needs without a conversation about feelings. You may also remember a caring exchange clearly. These accounts can coexist. The page does not assume that food, housing or safety were provided, or that a remembered lack of conversation establishes neglect.",
+              "zh": "有人可能留意功课或实际需要，却没有谈感受；你也可能清楚记得一次关心。两种记忆可以同时存在。页面不预设吃住或安全已得到满足，也不以记得缺少谈话来确认忽视。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Read labels, not a neglect score",
+            "zh": "看标签，不生成忽视分数"
+          },
+          "paragraphs": [
+            {
+              "en": "Each of five descriptions retains its selected category: does not fit, fits a little, fits partly, fits closely, fits very closely, or unscored. Six counts add to five descriptions. IDs are labels, not points; there is no sum, mean, highest topic, risk band or diagnosis.",
+              "zh": "五条各保留所选类别：不符、有一点符合、部分符合、较符合、很符合或未计分。六类计数合计五条描述。标识不是点数；没有总分、均值、最高主题、风险档位或诊断。"
+            },
+            {
+              "en": "Positive and difficult descriptions are mixed. A close fit to receiving comfort cannot be subtracted from a close fit to wanting it. Unclear recall stays unscored, distinct from does not fit. An entirely unscored topic establishes no finding about what happened, your health or your need for support.",
+              "zh": "获得回应与感到困难的描述混合呈现。获得安慰很符合，不能从想要安慰很符合中相减。回忆不清保持未计分，与不符分开。全未计分不确定过去发生什么、健康或支持需要。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A mixed example can remain mixed",
+            "zh": "混合的例子，可以保持混合"
+          },
+          "paragraphs": [
+            {
+              "en": "One fictional person recalls being asked about an upset after school but not knowing whom to approach on another occasion. Another cannot recall either situation. The first record keeps both descriptions; the second can stay unscored. Neither becomes a verdict about whether a childhood was good or bad.",
+              "zh": "例如，一个虚构人物记得放学难过后有人询问，另一次却不知道能找谁；另一个人两类情况都想不起来。前者保留两条描述，后者可保持未计分。两者都不变成童年好坏裁决。"
+            },
+            {
+              "en": "For example, two close fits, one partial fit and two unscored remain exactly that record. They do not mean two events, a majority of childhood, reliable recall or a level of neglect. The page cannot check memories, infer intentions or settle whether an account is complete.",
+              "zh": "例如，两条较符合、一条部分符合和两条未计分，就保持这种记录，不表示两次事件、童年大部分时间、可靠回忆或忽视程度。页面不能核实记忆、推断意图或确定叙述完整。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Keep one phrase if it is useful",
+            "zh": "有用时，只保留一句话"
+          },
+          "paragraphs": [
+            {
+              "en": "A phrase you might keep is “I remember wanting someone to ask how I felt.” It describes a recollection without deciding why an adult responded as they did. You need not identify a person, recover an earlier scene or compare your memories with someone else’s account.",
+              "zh": "可以保留的表达是：“我记得希望有人问问我的感受。”它描述回忆，不决定成年人为何那样回应。不必指认谁、找回更早场景，或把自己的记忆与别人说法比较。"
+            },
+            {
+              "en": "Participation is optional for adults describing themselves. This is not a form for assessing a child, partner, employee or caregiver. You need not search for earlier memories, disclose private events, persuade anyone or accept a family label. Choosing not to continue is not an interpretation of your history.",
+              "zh": "仅供成年人自愿描述自己，不用于评估儿童、伴侣、雇员或照顾者。不必寻找更早记忆、披露私人事件、说服谁或接受家庭标签。不继续，也不被解释为某种历史信号。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Support is available without a result",
+            "zh": "无需结果，也可询问支持"
+          },
+          "paragraphs": [
+            {
+              "en": "You can discuss feelings, questions or distress with a qualified healthcare professional without completing this page, reaching a count or proving childhood harm. This page cannot assess medical need or urgency, choose treatment or replace existing professional advice. Do not use it to delay care or dismiss a real safety concern.",
+              "zh": "可以向合格医疗专业人士谈感受、问题或难受，无需完成、达到计数或证明童年伤害。页面不评医疗需要或紧急程度、不选择治疗，也不替代已有专业意见。不要用它拖延照护或忽视真实安全担忧。"
+            },
+            {
+              "en": "If you are in immediate danger or cannot stay safe, seek local emergency assistance instead of continuing. The page cannot observe you, arrange care or respond to an emergency. The same support information is public before answers, in all four guides and for every record, including entirely unscored.",
+              "zh": "若有即时危险或无法保障安全，请寻求当地紧急援助而非继续。页面不能观察你、安排照护或紧急响应。相同支持说明在答题前、四篇指南与任何记录下公开，包括全部未计分。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Original content and private page memory",
+            "zh": "原创内容与页面内存"
+          },
+          "paragraphs": [
+            {
+              "en": "These are twenty original bilingual descriptions, not the Childhood Trauma Questionnaire, a Jonice Webb checklist or a validated measure of emotional neglect. The four overlapping editorial topics have no established norms, clinical thresholds or English–Chinese measurement equivalence. A later difference cannot measure recovery, deterioration or treatment response.",
+              "zh": "这是20条原创双语描述，不是童年创伤问卷、Jonice Webb检查表或经过验证的情感忽视测量。四个可重叠的编辑主题没有已建立常模、临床界值或中英文测量等值。后来差异不测恢复、恶化或治疗反应。"
+            },
+            {
+              "en": "Answers and individual records stay in current-page memory only. There is no stored draft, submission, questionnaire analytics or personal result URL. Exit, retake, reload and leaving clear them. Copying the entry shares only its public title and address. All four complete readings are the same public text for everyone.",
+              "zh": "回答与逐条记录只在当前页面内存，不存草稿、不提交、不作问卷分析、没有个人结果网址。退出、重做、刷新与离页会清除。复制入口只含公开标题和地址。四篇完整读法对所有人相同。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "remembered-feelings-responses-reading",
+      "directionIds": [
+        "remembered-feelings-responses"
+      ],
+      "title": {
+        "en": "Remembered responses to feelings — Complete Reading",
+        "zh": "记得的感受回应：完整读法"
+      },
+      "headline": {
+        "en": "Remembered responses to feelings — Complete Reading",
+        "zh": "记得的感受回应：完整读法"
+      },
+      "summary": {
+        "en": "These descriptions concern feeling understood, being told not to feel a certain way, someone seeking understanding before advice, worrying that feelings were too much, and speaking without having to defend a feeling. They are recollections of responses, not a scale of whether your reactions were correct.",
+        "zh": "这些描述涉及感受被理解、被告知不该这样感受、给意见前先理解、担心感受太多，以及无需辩护就能表达。它们回顾回应，不评价你的反应是否正确。"
+      },
+      "scoreReading": {
+        "en": "Six category counts retain five individual descriptions, without points, reversal, totals or a verdict about childhood.",
+        "zh": "六类计数保留五条独立描述，不作点数、反向、总分或童年裁决。"
+      },
+      "seo": {
+        "title": {
+          "en": "Remembered responses to feelings — Complete Reading",
+          "zh": "记得的感受回应：完整读法"
+        },
+        "description": {
+          "en": "These descriptions concern feeling understood, being told not to feel a certain way, someone seeking understanding before advice, worrying that feelings were too much, and speaking without having to defend a feeling. They are recollections of responses, not a scale of whether your reactions were correct.",
+          "zh": "这些描述涉及感受被理解、被告知不该这样感受、给意见前先理解、担心感受太多，以及无需辩护就能表达。它们回顾回应，不评价你的反应是否正确。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "A response can acknowledge a feeling without agreeing to every request",
+            "zh": "回应感受，不等于同意所有要求"
+          },
+          "paragraphs": [
+            {
+              "en": "These descriptions concern feeling understood, being told not to feel a certain way, someone seeking understanding before advice, worrying that feelings were too much, and speaking without having to defend a feeling. They are recollections of responses, not a scale of whether your reactions were correct.",
+              "zh": "这些描述涉及感受被理解、被告知不该这样感受、给意见前先理解、担心感受太多，以及无需辩护就能表达。它们回顾回应，不评价你的反应是否正确。"
+            },
+            {
+              "en": "Acknowledging a feeling is different from approving every action or granting every wish. Conversely, a practical explanation does not tell us whether you felt heard. A short record cannot determine another person’s intentions, moral character or willingness to care, or resolve disagreements about the past.",
+              "zh": "承认一种感受，与赞同所有行为或满足所有愿望不同。反过来，实际解释也不能告诉我们你是否觉得被听见。短记录不能判断他人意图、品格、关心意愿，或解决对往事的分歧。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Read labels, not a neglect score",
+            "zh": "看标签，不生成忽视分数"
+          },
+          "paragraphs": [
+            {
+              "en": "Each of five descriptions retains its selected category: does not fit, fits a little, fits partly, fits closely, fits very closely, or unscored. Six counts add to five descriptions. IDs are labels, not points; there is no sum, mean, highest topic, risk band or diagnosis.",
+              "zh": "五条各保留所选类别：不符、有一点符合、部分符合、较符合、很符合或未计分。六类计数合计五条描述。标识不是点数；没有总分、均值、最高主题、风险档位或诊断。"
+            },
+            {
+              "en": "Positive and difficult descriptions are mixed. A close fit to receiving comfort cannot be subtracted from a close fit to wanting it. Unclear recall stays unscored, distinct from does not fit. An entirely unscored topic establishes no finding about what happened, your health or your need for support.",
+              "zh": "获得回应与感到困难的描述混合呈现。获得安慰很符合，不能从想要安慰很符合中相减。回忆不清保持未计分，与不符分开。全未计分不确定过去发生什么、健康或支持需要。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A mixed example can remain mixed",
+            "zh": "混合的例子，可以保持混合"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine remembering both a dismissive comment and a later attempt to listen. Both descriptions may fit. There is no instruction to cancel one with the other. A category records fit with a sentence, not the number of such exchanges, how justified a feeling was or a percentage of validation received.",
+              "zh": "设想记得一句轻视的评论，也记得后来有人试着听。两条可以都符合，不要求相互抵消。类别只记录一句描述的贴近程度，不算交流次数、感受合理性或获得认可的百分比。"
+            },
+            {
+              "en": "For example, two close fits, one partial fit and two unscored remain exactly that record. They do not mean two events, a majority of childhood, reliable recall or a level of neglect. The page cannot check memories, infer intentions or settle whether an account is complete.",
+              "zh": "例如，两条较符合、一条部分符合和两条未计分，就保持这种记录，不表示两次事件、童年大部分时间、可靠回忆或忽视程度。页面不能核实记忆、推断意图或确定叙述完整。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Keep one phrase if it is useful",
+            "zh": "有用时，只保留一句话"
+          },
+          "paragraphs": [
+            {
+              "en": "An optional wording is “I remember wanting my feeling to be understood before advice.” You can use it privately or leave it unused. The page assigns no confrontation, request for an apology, forgiveness, reconciliation or decision about continued contact.",
+              "zh": "一种可选表达是：“我记得希望在给意见之前，先理解我的感受。”可以私下保留，也可以不用。页面不安排对质、要求道歉、原谅、和解或是否继续联系的决定。"
+            },
+            {
+              "en": "Participation is optional for adults describing themselves. This is not a form for assessing a child, partner, employee or caregiver. You need not search for earlier memories, disclose private events, persuade anyone or accept a family label. Choosing not to continue is not an interpretation of your history.",
+              "zh": "仅供成年人自愿描述自己，不用于评估儿童、伴侣、雇员或照顾者。不必寻找更早记忆、披露私人事件、说服谁或接受家庭标签。不继续，也不被解释为某种历史信号。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Support is available without a result",
+            "zh": "无需结果，也可询问支持"
+          },
+          "paragraphs": [
+            {
+              "en": "You can discuss feelings, questions or distress with a qualified healthcare professional without completing this page, reaching a count or proving childhood harm. This page cannot assess medical need or urgency, choose treatment or replace existing professional advice. Do not use it to delay care or dismiss a real safety concern.",
+              "zh": "可以向合格医疗专业人士谈感受、问题或难受，无需完成、达到计数或证明童年伤害。页面不评医疗需要或紧急程度、不选择治疗，也不替代已有专业意见。不要用它拖延照护或忽视真实安全担忧。"
+            },
+            {
+              "en": "If you are in immediate danger or cannot stay safe, seek local emergency assistance instead of continuing. The page cannot observe you, arrange care or respond to an emergency. The same support information is public before answers, in all four guides and for every record, including entirely unscored.",
+              "zh": "若有即时危险或无法保障安全，请寻求当地紧急援助而非继续。页面不能观察你、安排照护或紧急响应。相同支持说明在答题前、四篇指南与任何记录下公开，包括全部未计分。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Original content and private page memory",
+            "zh": "原创内容与页面内存"
+          },
+          "paragraphs": [
+            {
+              "en": "These are twenty original bilingual descriptions, not the Childhood Trauma Questionnaire, a Jonice Webb checklist or a validated measure of emotional neglect. The four overlapping editorial topics have no established norms, clinical thresholds or English–Chinese measurement equivalence. A later difference cannot measure recovery, deterioration or treatment response.",
+              "zh": "这是20条原创双语描述，不是童年创伤问卷、Jonice Webb检查表或经过验证的情感忽视测量。四个可重叠的编辑主题没有已建立常模、临床界值或中英文测量等值。后来差异不测恢复、恶化或治疗反应。"
+            },
+            {
+              "en": "Answers and individual records stay in current-page memory only. There is no stored draft, submission, questionnaire analytics or personal result URL. Exit, retake, reload and leaving clear them. Copying the entry shares only its public title and address. All four complete readings are the same public text for everyone.",
+              "zh": "回答与逐条记录只在当前页面内存，不存草稿、不提交、不作问卷分析、没有个人结果网址。退出、重做、刷新与离页会清除。复制入口只含公开标题和地址。四篇完整读法对所有人相同。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "remembered-comfort-and-support-reading",
+      "directionIds": [
+        "remembered-comfort-and-support"
+      ],
+      "title": {
+        "en": "Remembered comfort and support — Complete Reading",
+        "zh": "记得的安慰与支持：完整读法"
+      },
+      "headline": {
+        "en": "Remembered comfort and support — Complete Reading",
+        "zh": "记得的安慰与支持：完整读法"
+      },
+      "summary": {
+        "en": "This topic recalls comfort being offered, uncertainty about asking, an adult remaining available, not finding an available way to seek comfort, and a difficult feeling being absent from a conversation about needs. It does not ask you to judge whether any caregiver loved you.",
+        "zh": "本主题回想有人安慰、不确定怎样请求、成年人仍愿陪伴、找不到可用求助方式，以及谈需要时感受没有进入谈话。不要求判断任何照顾者是否爱你。"
+      },
+      "scoreReading": {
+        "en": "Six category counts retain five individual descriptions, without points, reversal, totals or a verdict about childhood.",
+        "zh": "六类计数保留五条独立描述，不作点数、反向、总分或童年裁决。"
+      },
+      "seo": {
+        "title": {
+          "en": "Remembered comfort and support — Complete Reading",
+          "zh": "记得的安慰与支持：完整读法"
+        },
+        "description": {
+          "en": "This topic recalls comfort being offered, uncertainty about asking, an adult remaining available, not finding an available way to seek comfort, and a difficult feeling being absent from a conversation about needs. It does not ask you to judge whether any caregiver loved you.",
+          "zh": "本主题回想有人安慰、不确定怎样请求、成年人仍愿陪伴、找不到可用求助方式，以及谈需要时感受没有进入谈话。不要求判断任何照顾者是否爱你。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Comfort and practical help are related but distinct",
+            "zh": "安慰与实际帮助，有联系也有区别"
+          },
+          "paragraphs": [
+            {
+              "en": "This topic recalls comfort being offered, uncertainty about asking, an adult remaining available, not finding an available way to seek comfort, and a difficult feeling being absent from a conversation about needs. It does not ask you to judge whether any caregiver loved you.",
+              "zh": "本主题回想有人安慰、不确定怎样请求、成年人仍愿陪伴、找不到可用求助方式，以及谈需要时感受没有进入谈话。不要求判断任何照顾者是否爱你。"
+            },
+            {
+              "en": "An account of practical help does not settle whether emotional comfort was available. Nor does uncertainty about asking prove that nobody would have responded. You can describe what you remember needing and receiving while leaving the explanation open. Abuse and neglect are not treated here as mutually exclusive categories.",
+              "zh": "记得实际帮助，不等于确定情绪安慰是否可得；不确定怎样开口，也不证明无人愿回应。可以描述记得的需要与接收到的回应，同时不确定解释。本页不把虐待与忽视当作互斥类别。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Read labels, not a neglect score",
+            "zh": "看标签，不生成忽视分数"
+          },
+          "paragraphs": [
+            {
+              "en": "Each of five descriptions retains its selected category: does not fit, fits a little, fits partly, fits closely, fits very closely, or unscored. Six counts add to five descriptions. IDs are labels, not points; there is no sum, mean, highest topic, risk band or diagnosis.",
+              "zh": "五条各保留所选类别：不符、有一点符合、部分符合、较符合、很符合或未计分。六类计数合计五条描述。标识不是点数；没有总分、均值、最高主题、风险档位或诊断。"
+            },
+            {
+              "en": "Positive and difficult descriptions are mixed. A close fit to receiving comfort cannot be subtracted from a close fit to wanting it. Unclear recall stays unscored, distinct from does not fit. An entirely unscored topic establishes no finding about what happened, your health or your need for support.",
+              "zh": "获得回应与感到困难的描述混合呈现。获得安慰很符合，不能从想要安慰很符合中相减。回忆不清保持未计分，与不符分开。全未计分不确定过去发生什么、健康或支持需要。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A mixed example can remain mixed",
+            "zh": "混合的例子，可以保持混合"
+          },
+          "paragraphs": [
+            {
+              "en": "A fictional person remembers someone staying nearby during a hard moment but recalls difficulty asking on other occasions. Keeping both statements prevents a single label from flattening a mixed history. No category proves that support was always present, always absent or sufficient for every need.",
+              "zh": "例如，虚构人物记得难熬时有人陪着，也记得别的时刻难以开口。保留两条，避免单一标签抹平复杂历史。类别不证明支持始终存在、始终缺少或足以满足每种需要。"
+            },
+            {
+              "en": "For example, two close fits, one partial fit and two unscored remain exactly that record. They do not mean two events, a majority of childhood, reliable recall or a level of neglect. The page cannot check memories, infer intentions or settle whether an account is complete.",
+              "zh": "例如，两条较符合、一条部分符合和两条未计分，就保持这种记录，不表示两次事件、童年大部分时间、可靠回忆或忽视程度。页面不能核实记忆、推断意图或确定叙述完整。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Keep one phrase if it is useful",
+            "zh": "有用时，只保留一句话"
+          },
+          "paragraphs": [
+            {
+              "en": "You may keep the sentence “I remember wanting comfort and not knowing how to ask.” No family interview, photo search, message review, timeline or detailed retelling is required. If a description feels intrusive, leaving it unscored or stopping is a complete choice, not evidence of avoidance or hidden harm.",
+              "zh": "可以保留一句：“我记得想要安慰，却不知道怎样开口。”不要求家人访谈、翻照片、查消息、时间线或详细重述。若觉得被打扰，选未计分或停止就足够，不把它解释成回避或隐藏伤害。"
+            },
+            {
+              "en": "Participation is optional for adults describing themselves. This is not a form for assessing a child, partner, employee or caregiver. You need not search for earlier memories, disclose private events, persuade anyone or accept a family label. Choosing not to continue is not an interpretation of your history.",
+              "zh": "仅供成年人自愿描述自己，不用于评估儿童、伴侣、雇员或照顾者。不必寻找更早记忆、披露私人事件、说服谁或接受家庭标签。不继续，也不被解释为某种历史信号。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Support is available without a result",
+            "zh": "无需结果，也可询问支持"
+          },
+          "paragraphs": [
+            {
+              "en": "You can discuss feelings, questions or distress with a qualified healthcare professional without completing this page, reaching a count or proving childhood harm. This page cannot assess medical need or urgency, choose treatment or replace existing professional advice. Do not use it to delay care or dismiss a real safety concern.",
+              "zh": "可以向合格医疗专业人士谈感受、问题或难受，无需完成、达到计数或证明童年伤害。页面不评医疗需要或紧急程度、不选择治疗，也不替代已有专业意见。不要用它拖延照护或忽视真实安全担忧。"
+            },
+            {
+              "en": "If you are in immediate danger or cannot stay safe, seek local emergency assistance instead of continuing. The page cannot observe you, arrange care or respond to an emergency. The same support information is public before answers, in all four guides and for every record, including entirely unscored.",
+              "zh": "若有即时危险或无法保障安全，请寻求当地紧急援助而非继续。页面不能观察你、安排照护或紧急响应。相同支持说明在答题前、四篇指南与任何记录下公开，包括全部未计分。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Original content and private page memory",
+            "zh": "原创内容与页面内存"
+          },
+          "paragraphs": [
+            {
+              "en": "These are twenty original bilingual descriptions, not the Childhood Trauma Questionnaire, a Jonice Webb checklist or a validated measure of emotional neglect. The four overlapping editorial topics have no established norms, clinical thresholds or English–Chinese measurement equivalence. A later difference cannot measure recovery, deterioration or treatment response.",
+              "zh": "这是20条原创双语描述，不是童年创伤问卷、Jonice Webb检查表或经过验证的情感忽视测量。四个可重叠的编辑主题没有已建立常模、临床界值或中英文测量等值。后来差异不测恢复、恶化或治疗反应。"
+            },
+            {
+              "en": "Answers and individual records stay in current-page memory only. There is no stored draft, submission, questionnaire analytics or personal result URL. Exit, retake, reload and leaving clear them. Copying the entry shares only its public title and address. All four complete readings are the same public text for everyone.",
+              "zh": "回答与逐条记录只在当前页面内存，不存草稿、不提交、不作问卷分析、没有个人结果网址。退出、重做、刷新与离页会清除。复制入口只含公开标题和地址。四篇完整读法对所有人相同。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "feelings-and-support-now-reading",
+      "directionIds": [
+        "feelings-and-support-now"
+      ],
+      "title": {
+        "en": "Feelings and support recently — Complete Reading",
+        "zh": "近期感受与支持：完整读法"
+      },
+      "headline": {
+        "en": "Feelings and support recently — Complete Reading",
+        "zh": "近期感受与支持：完整读法"
+      },
+      "summary": {
+        "en": "Only these last five descriptions concern the past four weeks: finding a name for a feeling, guilt about asking, handling difficulty alone despite wanting company, acknowledging a feeling, and requesting comfort. They are not a retrospective history test and cannot establish why a current experience occurred.",
+        "zh": "只有最后五条涉及过去四周：为感受找词、请求时内疚、想有人陪仍独自应对、承认感受，以及提出安慰请求。它们不是回溯历史测试，不能确认现在经历为何发生。"
+      },
+      "scoreReading": {
+        "en": "Six category counts retain five individual descriptions, without points, reversal, totals or a verdict about childhood.",
+        "zh": "六类计数保留五条独立描述，不作点数、反向、总分或童年裁决。"
+      },
+      "seo": {
+        "title": {
+          "en": "Feelings and support recently — Complete Reading",
+          "zh": "近期感受与支持：完整读法"
+        },
+        "description": {
+          "en": "Only these last five descriptions concern the past four weeks: finding a name for a feeling, guilt about asking, handling difficulty alone despite wanting company, acknowledging a feeling, and requesting comfort. They are not a retrospective history test and cannot establish why a current experience occurred.",
+          "zh": "只有最后五条涉及过去四周：为感受找词、请求时内疚、想有人陪仍独自应对、承认感受，以及提出安慰请求。它们不是回溯历史测试，不能确认现在经历为何发生。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Recent feelings deserve their own account",
+            "zh": "近期感受，值得独立描述"
+          },
+          "paragraphs": [
+            {
+              "en": "Only these last five descriptions concern the past four weeks: finding a name for a feeling, guilt about asking, handling difficulty alone despite wanting company, acknowledging a feeling, and requesting comfort. They are not a retrospective history test and cannot establish why a current experience occurred.",
+              "zh": "只有最后五条涉及过去四周：为感受找词、请求时内疚、想有人陪仍独自应对、承认感受，以及提出安慰请求。它们不是回溯历史测试，不能确认现在经历为何发生。"
+            },
+            {
+              "en": "Wanting support and sometimes finding it difficult to ask can coexist with acknowledging feelings or making a request. Neither response is reversed into a deficit score. The record does not assess emotional maturity, attachment, independence, strength or readiness for therapy. Four weeks is an editorial recall window, not a clinical duration.",
+              "zh": "想要支持、开口困难，可以与承认感受、提出请求并存。不反向换成缺陷分数。不评情绪成熟、依恋、独立、坚强或治疗准备度。四周是编辑回忆窗口，不是临床时长。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Read labels, not a neglect score",
+            "zh": "看标签，不生成忽视分数"
+          },
+          "paragraphs": [
+            {
+              "en": "Each of five descriptions retains its selected category: does not fit, fits a little, fits partly, fits closely, fits very closely, or unscored. Six counts add to five descriptions. IDs are labels, not points; there is no sum, mean, highest topic, risk band or diagnosis.",
+              "zh": "五条各保留所选类别：不符、有一点符合、部分符合、较符合、很符合或未计分。六类计数合计五条描述。标识不是点数；没有总分、均值、最高主题、风险档位或诊断。"
+            },
+            {
+              "en": "Positive and difficult descriptions are mixed. A close fit to receiving comfort cannot be subtracted from a close fit to wanting it. Unclear recall stays unscored, distinct from does not fit. An entirely unscored topic establishes no finding about what happened, your health or your need for support.",
+              "zh": "获得回应与感到困难的描述混合呈现。获得安慰很符合，不能从想要安慰很符合中相减。回忆不清保持未计分，与不符分开。全未计分不确定过去发生什么、健康或支持需要。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A mixed example can remain mixed",
+            "zh": "混合的例子，可以保持混合"
+          },
+          "paragraphs": [
+            {
+              "en": "Someone may recall guilt before asking for company and also recall a request that was made. Those are separate descriptions of recent experience. Combining them with childhood recollections would not establish a repeating pattern or a childhood cause. You do not need a matching past account for a present concern to matter.",
+              "zh": "有人记得开口前内疚，也记得确实提出了请求。这是近期经历的两条独立描述。与童年回忆合并，不能建立重复模式或童年原因。当前担忧值得被听见，无需匹配的过去叙述。"
+            },
+            {
+              "en": "For example, two close fits, one partial fit and two unscored remain exactly that record. They do not mean two events, a majority of childhood, reliable recall or a level of neglect. The page cannot check memories, infer intentions or settle whether an account is complete.",
+              "zh": "例如，两条较符合、一条部分符合和两条未计分，就保持这种记录，不表示两次事件、童年大部分时间、可靠回忆或忽视程度。页面不能核实记忆、推断意图或确定叙述完整。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Keep one phrase if it is useful",
+            "zh": "有用时，只保留一句话"
+          },
+          "paragraphs": [
+            {
+              "en": "An optional conversation opening is “I would like help putting words to what I feel or need recently.” You can ask this without a family explanation. The page does not ask you to disclose more, make a request to an unsafe person, change existing care or prove a particular history before seeking support.",
+              "zh": "可选开场是：“我想有人帮我说清近期的感受或需要。”无需家庭解释也能这样询问。页面不要求更多披露、向不安全的人请求、改变已有照护，或先证明某种历史才寻求支持。"
+            },
+            {
+              "en": "Participation is optional for adults describing themselves. This is not a form for assessing a child, partner, employee or caregiver. You need not search for earlier memories, disclose private events, persuade anyone or accept a family label. Choosing not to continue is not an interpretation of your history.",
+              "zh": "仅供成年人自愿描述自己，不用于评估儿童、伴侣、雇员或照顾者。不必寻找更早记忆、披露私人事件、说服谁或接受家庭标签。不继续，也不被解释为某种历史信号。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Support is available without a result",
+            "zh": "无需结果，也可询问支持"
+          },
+          "paragraphs": [
+            {
+              "en": "You can discuss feelings, questions or distress with a qualified healthcare professional without completing this page, reaching a count or proving childhood harm. This page cannot assess medical need or urgency, choose treatment or replace existing professional advice. Do not use it to delay care or dismiss a real safety concern.",
+              "zh": "可以向合格医疗专业人士谈感受、问题或难受，无需完成、达到计数或证明童年伤害。页面不评医疗需要或紧急程度、不选择治疗，也不替代已有专业意见。不要用它拖延照护或忽视真实安全担忧。"
+            },
+            {
+              "en": "If you are in immediate danger or cannot stay safe, seek local emergency assistance instead of continuing. The page cannot observe you, arrange care or respond to an emergency. The same support information is public before answers, in all four guides and for every record, including entirely unscored.",
+              "zh": "若有即时危险或无法保障安全，请寻求当地紧急援助而非继续。页面不能观察你、安排照护或紧急响应。相同支持说明在答题前、四篇指南与任何记录下公开，包括全部未计分。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Original content and private page memory",
+            "zh": "原创内容与页面内存"
+          },
+          "paragraphs": [
+            {
+              "en": "These are twenty original bilingual descriptions, not the Childhood Trauma Questionnaire, a Jonice Webb checklist or a validated measure of emotional neglect. The four overlapping editorial topics have no established norms, clinical thresholds or English–Chinese measurement equivalence. A later difference cannot measure recovery, deterioration or treatment response.",
+              "zh": "这是20条原创双语描述，不是童年创伤问卷、Jonice Webb检查表或经过验证的情感忽视测量。四个可重叠的编辑主题没有已建立常模、临床界值或中英文测量等值。后来差异不测恢复、恶化或治疗反应。"
+            },
+            {
+              "en": "Answers and individual records stay in current-page memory only. There is no stored draft, submission, questionnaire analytics or personal result URL. Exit, retake, reload and leaving clear them. Copying the entry shares only its public title and address. All four complete readings are the same public text for everyone.",
+              "zh": "回答与逐条记录只在当前页面内存，不存草稿、不提交、不作问卷分析、没有个人结果网址。退出、重做、刷新与离页会清除。复制入口只含公开标题和地址。四篇完整读法对所有人相同。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "windows",
+      "title": {
+        "en": "Two recall windows, kept separate",
+        "zh": "两种回忆窗口，分别保留"
+      },
+      "paragraphs": [
+        {
+          "en": "The first fifteen descriptions invite optional childhood or adolescent recollections. The last five concern the past four weeks only. Neither window is evidence that the other caused it. No chronology, age, name or detailed event is requested.",
+          "zh": "前15条可自愿回想童年或青少年时期，后5条仅涉及过去四周。任何一段都不能证明另一段导致它。不要求时间线、年龄、姓名或详细事件。"
+        }
+      ]
+    },
+    {
+      "id": "labels",
+      "title": {
+        "en": "No neglect score or family verdict",
+        "zh": "不生成忽视分数或家庭裁决"
+      },
+      "paragraphs": [
+        {
+          "en": "Categories record how each sentence fits recollection. Positive and difficult descriptions are neither reversed nor combined. Unclear recall is unscored, not zero. Four guides are available before answers and after every pattern.",
+          "zh": "类别记录每句话与回忆的贴近程度。获得回应与感到困难的描述不反向、不合并。回忆不清选未计分，不作零。四篇指南在答题前及任何组合后公开。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does this tell me I experienced emotional neglect?",
+        "zh": "能确认我经历过情感忽视吗？"
+      },
+      "answer": {
+        "en": "No. It organises what you choose to recall without verifying events, identifying a cause or judging a caregiver. This original reflection is not a clinical scale or diagnosis.",
+        "zh": "不能。它整理你自愿回顾的内容，不核实事件、不识别原因、不评价照顾者。原创反思不是临床量表或诊断。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if I cannot remember?",
+        "zh": "想不起来怎么办？"
+      },
+      "answer": {
+        "en": "Choose unscored or leave. You do not need to search records or recover memories. Unclear recall does not prove that care was present or absent.",
+        "zh": "选未计分或离开。无需查记录或找回记忆。回想不清不证明照护存在或缺少。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I read everything without answering?",
+        "zh": "不答题能读全部内容吗？"
+      },
+      "answer": {
+        "en": "Yes. All four full guides and support information are public, free and available without signup, a score or a personal story.",
+        "zh": "可以。四篇全文和支持说明公开免费，无需注册、分数或私人故事。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "CDC: physical and emotional needs — background only",
+        "zh": "CDC：身体与情感需要，仅作背景"
+      },
+      "url": "https://www.cdc.gov/child-abuse-neglect/about/index.html"
+    },
+    {
+      "title": {
+        "en": "NIMH: professional support after traumatic events — background only",
+        "zh": "NIMH：困难经历后的专业支持，仅作背景"
+      },
+      "url": "https://www.nimh.nih.gov/health/topics/coping-with-traumatic-events"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_care_feelings_observations",
+    "formCode": "fm_care_feelings20_mixed_recall_v1",
+    "itemBankVersion": "original20_bilingual_four_by_five_mixed_recall_v1",
+    "scoringVersion": "six_category_counts_per_five_no_reversal_or_history_verdict_v1",
+    "resultContentVersion": "four_full_bilingual_care_feelings_readings_v1",
+    "itemBankSha256": "f220f6e9da82a2b95ae5cee9f030d99a94017f3a830ad8d10cfb5d4b909561f7",
+    "resultContentSha256": "fe517ba481258b29c3a66b00a589de52550a941e2d389356fc7a38bfe06c1b7e",
+    "psychometricValidationCompleted": false
+  }
+}

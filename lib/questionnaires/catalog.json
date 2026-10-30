@@ -7077,5 +7077,30 @@
       "sensations-in-social-context-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "care-feelings-reflection",
+    "code": "FM_CARE_FEELINGS20_OBSERVATIONS",
+    "version": "fm_care_feelings20_mixed_recall_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Care & Feelings: Recollections and Today",
+      "zh": "照护与感受：回忆与当下"
+    },
+    "description": {
+      "en": "Twenty original adult reflections on remembered emotional attention, responses and comfort, alongside recent feelings and support. Four complete free guides and private item-by-item records; no neglect score or diagnosis.",
+      "zh": "20条成人原创反思，分别整理记得的情绪关注、感受回应、安慰，以及近期感受与支持。四篇完整免费指南与私人的逐条记录，不生成忽视分数或诊断。"
+    },
+    "minutes": 5,
+    "formCode": "fm_care_feelings20_mixed_recall_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "remembered-emotional-attention-reading",
+      "remembered-feelings-responses-reading",
+      "remembered-comfort-and-support-reading",
+      "feelings-and-support-now-reading"
+    ],
+    "collection": "explore"
   }
 ]

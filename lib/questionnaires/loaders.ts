@@ -1,6 +1,7 @@
 import type { Questionnaire } from "./types";
 
 const loaders = {
+  "care-feelings-reflection": async () => (await import("./data/care-feelings-reflection.json")).default as Questionnaire,
   "nakshatra-spica-reference": async () => (await import("./data/nakshatra-spica-reference.json")).default as Questionnaire,
   "weton-story-preferences": async () => (await import("./data/weton-story-preferences.json")).default as Questionnaire,
   "prakriti-inventory21": async () => (await import("./data/prakriti-inventory21.json")).default as Questionnaire,

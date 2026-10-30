@@ -1,3 +1,5 @@
+import { isCareFeelings20ConfigurationValid } from "@/lib/questionnaires/careFeelings20";
+import { CareFeelingsGuidePage } from "./CareFeelingsPage";
 import { isNakshatra27ConfigurationValid } from "@/lib/questionnaires/nakshatra27";
 import { Nakshatra27GuidePage } from "./Nakshatra27Page";
 import { isWetonStory35ConfigurationValid } from "@/lib/questionnaires/wetonStory35";
@@ -137,6 +139,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (quiz?.kind === "sudden-fear20" && !isSuddenFear20ConfigurationValid(quiz)) return { title: "Sudden-fear reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "nakshatra27" && !isNakshatra27ConfigurationValid(quiz)) return { title: "Birth-star reference unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "unwanted-actions20" && !isUnwantedActions20ConfigurationValid(quiz)) return { title: "Thoughts-and-actions reflection unavailable", robots: { index: false, follow: false } };
+  if (quiz?.kind === "care-feelings20" && !isCareFeelings20ConfigurationValid(quiz)) return { title: "Care reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "focus-context16" && !isFocusContext16ConfigurationValid(quiz)) return { title: "Daily-context reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "written-language20" && !isWrittenLanguage20ConfigurationValid(quiz)) return { title: "Written-language reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "number-context20" && !isNumberContext20ConfigurationValid(quiz)) return { title: "Written-language reflection unavailable", robots: { index: false, follow: false } };
@@ -214,6 +217,12 @@ export default async function QuestionnaireResultGuide({ params }: Props) {
     const profile = quiz.profiles.find(p => p.id === id);
     if (!profile) notFound();
     return <UnwantedActionsGuidePage quiz={quiz} profile={profile} locale={locale} />;
+  }
+  if (quiz?.kind === "care-feelings20") {
+    if (!isCareFeelings20ConfigurationValid(quiz)) notFound();
+    const profile = quiz.profiles.find(p => p.id === id);
+    if (!profile) notFound();
+    return <CareFeelingsGuidePage quiz={quiz} profile={profile} locale={locale} />;
   }
   if (quiz?.kind === "focus-context16") {
     if (!isFocusContext16ConfigurationValid(quiz)) notFound();
