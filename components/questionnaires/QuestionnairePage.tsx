@@ -1,3 +1,5 @@
+import { isCaregiverContext20ConfigurationValid } from "@/lib/questionnaires/caregiverContext20";
+import { CaregiverContextPage } from "./CaregiverContextPage";
 import { isCareFeelings20ConfigurationValid } from "@/lib/questionnaires/careFeelings20";
 import { CareFeelingsPage } from "./CareFeelingsPage";
 import { isNakshatra27ConfigurationValid } from "@/lib/questionnaires/nakshatra27";
@@ -168,6 +170,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (quiz?.kind === "sudden-fear20" && !isSuddenFear20ConfigurationValid(quiz)) return { title: "Sudden-fear reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "nakshatra27" && !isNakshatra27ConfigurationValid(quiz)) return { title: "Birth-star reference unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "unwanted-actions20" && !isUnwantedActions20ConfigurationValid(quiz)) return { title: "Thoughts-and-actions reflection unavailable", robots: { index: false, follow: false } };
+  if (quiz?.kind === "caregiver-context20" && !isCaregiverContext20ConfigurationValid(quiz)) return { title: "Caregiver reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "care-feelings20" && !isCareFeelings20ConfigurationValid(quiz)) return { title: "Care reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "focus-context16" && !isFocusContext16ConfigurationValid(quiz)) return { title: "Daily-context reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "written-language20" && !isWrittenLanguage20ConfigurationValid(quiz)) return { title: "Written-language reflection unavailable", robots: { index: false, follow: false } };
@@ -225,6 +228,10 @@ export default async function QuestionnairePage({ params }: Props) {
   if (quiz?.kind === "unwanted-actions20") {
     if (!isUnwantedActions20ConfigurationValid(quiz)) notFound();
     return <UnwantedActionsPage quiz={quiz} locale={locale} />;
+  }
+  if (quiz?.kind === "caregiver-context20") {
+    if (!isCaregiverContext20ConfigurationValid(quiz)) notFound();
+    return <CaregiverContextPage quiz={quiz} locale={locale} />;
   }
   if (quiz?.kind === "care-feelings20") {
     if (!isCareFeelings20ConfigurationValid(quiz)) notFound();

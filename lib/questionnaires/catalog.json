@@ -7151,5 +7151,30 @@
       "worry-in-daily-activities-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "child-focus-activity-observations",
+    "code": "FM_CAREGIVER_CONTEXT20_OBSERVATIONS",
+    "version": "fm_caregiver_context20_observations_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Child Focus & Activity: Caregiver Observations",
+      "zh": "儿童专注与活动：照顾者观察"
+    },
+    "description": {
+      "en": "Twenty original descriptions for adult caregivers reflecting on their own direct observations. Four complete free guides, separate category records and no child ADHD score, subtype, age comparison or diagnosis.",
+      "zh": "供成年照顾者回顾自己直接观察的20条原创描述。四篇完整免费指南和独立类别记录，不生成儿童ADHD分数、亚型、年龄比较或诊断。"
+    },
+    "minutes": 5,
+    "formCode": "fm_caregiver_context20_observations_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "shared-activity-attention-reading",
+      "movement-during-activities-reading",
+      "turns-and-starts-reading",
+      "observed-context-and-support-reading"
+    ],
+    "collection": "explore"
   }
 ]

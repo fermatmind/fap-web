@@ -1,0 +1,1834 @@
+{
+  "slug": "child-focus-activity-observations",
+  "code": "FM_CAREGIVER_CONTEXT20_OBSERVATIONS",
+  "version": "fm_caregiver_context20_observations_v1",
+  "kind": "caregiver-context20",
+  "updated": "2026-10-30",
+  "category": "framework",
+  "minutes": 5,
+  "title": {
+    "en": "Child Focus & Activity: Caregiver Observations",
+    "zh": "儿童专注与活动：照顾者观察"
+  },
+  "seoTitle": {
+    "en": "Child Focus & Activity Reflection for Caregivers",
+    "zh": "儿童专注与活动反思：照顾者观察"
+  },
+  "description": {
+    "en": "Twenty original descriptions for adult caregivers reflecting on their own direct observations. Four complete free guides, separate category records and no child ADHD score, subtype, age comparison or diagnosis.",
+    "zh": "供成年照顾者回顾自己直接观察的20条原创描述。四篇完整免费指南和独立类别记录，不生成儿童ADHD分数、亚型、年龄比较或诊断。"
+  },
+  "introduction": {
+    "en": "An adult caregiver can describe ordinary moments without deciding what a child is like. Use only situations you personally observed during the past four weeks. Do not fill gaps with school reports, another adult’s account or assumptions about feelings. No child’s name, age, school or private history is requested.",
+    "zh": "成年照顾者可以描述普通片刻，而不急着判断孩子是怎样的人。只使用过去四周亲自观察的情境，不用学校报告、另一位成年人的说法或对感受的猜测填补空白。不要求孩子姓名、年龄、学校或私人历史。"
+  },
+  "instructions": {
+    "en": "Choose a frequency category only when you directly observed a relevant opportunity. No direct observation, no opportunity, unclear recall or withholding stays unscored, distinct from did not observe. Positive actions and difficulties are not reversed or added into a score. Do not ask a child to demonstrate, sit still or repeat anything for this page.",
+    "zh": "只有亲自观察到相关机会时才选频率类别。未直接观察、没有机会、回忆不清或保留回答时选未计分，与在相关情境中没有观察到分开。正向行动与困难不反向、不合成分数。不要让孩子为了本页演示、保持不动或重复行为。"
+  },
+  "resultHeading": {
+    "en": "Your private caregiver observation record",
+    "zh": "你的私人照顾者观察记录"
+  },
+  "directions": [
+    {
+      "id": "shared-activity-attention",
+      "title": {
+        "en": "Attention in shared activities",
+        "zh": "共同活动中的注意"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "movement-during-activities",
+      "title": {
+        "en": "Movement during activities",
+        "zh": "活动过程中的身体移动"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "turns-and-starts",
+      "title": {
+        "en": "Taking turns and beginning steps",
+        "zh": "轮流与开始步骤"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "observed-context-and-support",
+      "title": {
+        "en": "Observed context and available support",
+        "zh": "观察到的情境与可用协助"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "CGO_01",
+      "prompt": {
+        "en": "During an activity we had chosen together, the child moved to another activity before the agreed step was finished.",
+        "zh": "在我们共同选择的活动中，约定的一步还没完成，孩子就转向另一项活动。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not observe this in a relevant situation",
+            "zh": "在相关情境中没有观察到"
+          },
+          "directionId": "shared-activity-attention"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely observed",
+            "zh": "很少观察到"
+          },
+          "directionId": "shared-activity-attention"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes observed",
+            "zh": "有时观察到"
+          },
+          "directionId": "shared-activity-attention"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often observed",
+            "zh": "较常观察到"
+          },
+          "directionId": "shared-activity-attention"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often observed",
+            "zh": "经常观察到"
+          },
+          "directionId": "shared-activity-attention"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not directly observed / no relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "未直接观察／没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CGO_02",
+      "prompt": {
+        "en": "After I gave an ordinary instruction, the child asked me to say it again.",
+        "zh": "我给出一条普通指示后，孩子请我再说一次。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not observe this in a relevant situation",
+            "zh": "在相关情境中没有观察到"
+          },
+          "directionId": "shared-activity-attention"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely observed",
+            "zh": "很少观察到"
+          },
+          "directionId": "shared-activity-attention"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes observed",
+            "zh": "有时观察到"
+          },
+          "directionId": "shared-activity-attention"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often observed",
+            "zh": "较常观察到"
+          },
+          "directionId": "shared-activity-attention"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often observed",
+            "zh": "经常观察到"
+          },
+          "directionId": "shared-activity-attention"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not directly observed / no relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "未直接观察／没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CGO_03",
+      "prompt": {
+        "en": "While we were looking at a book together, the child looked away toward something else.",
+        "zh": "我们一起看书时，孩子转头看向了别的东西。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not observe this in a relevant situation",
+            "zh": "在相关情境中没有观察到"
+          },
+          "directionId": "shared-activity-attention"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely observed",
+            "zh": "很少观察到"
+          },
+          "directionId": "shared-activity-attention"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes observed",
+            "zh": "有时观察到"
+          },
+          "directionId": "shared-activity-attention"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often observed",
+            "zh": "较常观察到"
+          },
+          "directionId": "shared-activity-attention"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often observed",
+            "zh": "经常观察到"
+          },
+          "directionId": "shared-activity-attention"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not directly observed / no relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "未直接观察／没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CGO_04",
+      "prompt": {
+        "en": "The child returned to an agreed activity after an ordinary reminder.",
+        "zh": "经过一次普通提醒，孩子回到了约定的活动。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not observe this in a relevant situation",
+            "zh": "在相关情境中没有观察到"
+          },
+          "directionId": "shared-activity-attention"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely observed",
+            "zh": "很少观察到"
+          },
+          "directionId": "shared-activity-attention"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes observed",
+            "zh": "有时观察到"
+          },
+          "directionId": "shared-activity-attention"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often observed",
+            "zh": "较常观察到"
+          },
+          "directionId": "shared-activity-attention"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often observed",
+            "zh": "经常观察到"
+          },
+          "directionId": "shared-activity-attention"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not directly observed / no relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "未直接观察／没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CGO_05",
+      "prompt": {
+        "en": "After an ordinary interruption, the child started doing something different from the shared activity.",
+        "zh": "一次普通打断之后，孩子开始做与共同活动不同的事。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not observe this in a relevant situation",
+            "zh": "在相关情境中没有观察到"
+          },
+          "directionId": "shared-activity-attention"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely observed",
+            "zh": "很少观察到"
+          },
+          "directionId": "shared-activity-attention"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes observed",
+            "zh": "有时观察到"
+          },
+          "directionId": "shared-activity-attention"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often observed",
+            "zh": "较常观察到"
+          },
+          "directionId": "shared-activity-attention"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often observed",
+            "zh": "经常观察到"
+          },
+          "directionId": "shared-activity-attention"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not directly observed / no relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "未直接观察／没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CGO_06",
+      "prompt": {
+        "en": "During an activity with a seated option, the child stood up or walked around.",
+        "zh": "一项可以坐着进行的活动中，孩子站了起来或四处走动。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not observe this in a relevant situation",
+            "zh": "在相关情境中没有观察到"
+          },
+          "directionId": "movement-during-activities"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely observed",
+            "zh": "很少观察到"
+          },
+          "directionId": "movement-during-activities"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes observed",
+            "zh": "有时观察到"
+          },
+          "directionId": "movement-during-activities"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often observed",
+            "zh": "较常观察到"
+          },
+          "directionId": "movement-during-activities"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often observed",
+            "zh": "经常观察到"
+          },
+          "directionId": "movement-during-activities"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not directly observed / no relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "未直接观察／没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CGO_07",
+      "prompt": {
+        "en": "The child changed sitting position several times during an ordinary shared activity.",
+        "zh": "一项普通共同活动中，孩子多次调整坐姿。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not observe this in a relevant situation",
+            "zh": "在相关情境中没有观察到"
+          },
+          "directionId": "movement-during-activities"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely observed",
+            "zh": "很少观察到"
+          },
+          "directionId": "movement-during-activities"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes observed",
+            "zh": "有时观察到"
+          },
+          "directionId": "movement-during-activities"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often observed",
+            "zh": "较常观察到"
+          },
+          "directionId": "movement-during-activities"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often observed",
+            "zh": "经常观察到"
+          },
+          "directionId": "movement-during-activities"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not directly observed / no relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "未直接观察／没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CGO_08",
+      "prompt": {
+        "en": "During a quiet activity, the child tapped or moved an object that was already nearby.",
+        "zh": "安静活动中，孩子敲打或移动了身边已有的物品。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not observe this in a relevant situation",
+            "zh": "在相关情境中没有观察到"
+          },
+          "directionId": "movement-during-activities"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely observed",
+            "zh": "很少观察到"
+          },
+          "directionId": "movement-during-activities"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes observed",
+            "zh": "有时观察到"
+          },
+          "directionId": "movement-during-activities"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often observed",
+            "zh": "较常观察到"
+          },
+          "directionId": "movement-during-activities"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often observed",
+            "zh": "经常观察到"
+          },
+          "directionId": "movement-during-activities"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not directly observed / no relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "未直接观察／没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CGO_09",
+      "prompt": {
+        "en": "The child chose an offered opportunity to move or take a break.",
+        "zh": "得到可走动或休息的选择时，孩子选择了这个机会。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not observe this in a relevant situation",
+            "zh": "在相关情境中没有观察到"
+          },
+          "directionId": "movement-during-activities"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely observed",
+            "zh": "很少观察到"
+          },
+          "directionId": "movement-during-activities"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes observed",
+            "zh": "有时观察到"
+          },
+          "directionId": "movement-during-activities"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often observed",
+            "zh": "较常观察到"
+          },
+          "directionId": "movement-during-activities"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often observed",
+            "zh": "经常观察到"
+          },
+          "directionId": "movement-during-activities"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not directly observed / no relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "未直接观察／没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CGO_10",
+      "prompt": {
+        "en": "The child kept participating in an activity while moving part of their body.",
+        "zh": "孩子在身体某个部分保持活动的同时，仍继续参与一项活动。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not observe this in a relevant situation",
+            "zh": "在相关情境中没有观察到"
+          },
+          "directionId": "movement-during-activities"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely observed",
+            "zh": "很少观察到"
+          },
+          "directionId": "movement-during-activities"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes observed",
+            "zh": "有时观察到"
+          },
+          "directionId": "movement-during-activities"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often observed",
+            "zh": "较常观察到"
+          },
+          "directionId": "movement-during-activities"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often observed",
+            "zh": "经常观察到"
+          },
+          "directionId": "movement-during-activities"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not directly observed / no relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "未直接观察／没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CGO_11",
+      "prompt": {
+        "en": "In an ordinary conversation I directly observed, the child started speaking before another person finished.",
+        "zh": "我直接观察的一次普通谈话中，另一个人还没说完，孩子就开始说话。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not observe this in a relevant situation",
+            "zh": "在相关情境中没有观察到"
+          },
+          "directionId": "turns-and-starts"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely observed",
+            "zh": "很少观察到"
+          },
+          "directionId": "turns-and-starts"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes observed",
+            "zh": "有时观察到"
+          },
+          "directionId": "turns-and-starts"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often observed",
+            "zh": "较常观察到"
+          },
+          "directionId": "turns-and-starts"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often observed",
+            "zh": "经常观察到"
+          },
+          "directionId": "turns-and-starts"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not directly observed / no relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "未直接观察／没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CGO_12",
+      "prompt": {
+        "en": "During a game with an agreed order, the child reached for a shared item before their turn.",
+        "zh": "一个约好顺序的游戏中，还没轮到孩子，孩子就伸手取了共用物品。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not observe this in a relevant situation",
+            "zh": "在相关情境中没有观察到"
+          },
+          "directionId": "turns-and-starts"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely observed",
+            "zh": "很少观察到"
+          },
+          "directionId": "turns-and-starts"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes observed",
+            "zh": "有时观察到"
+          },
+          "directionId": "turns-and-starts"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often observed",
+            "zh": "较常观察到"
+          },
+          "directionId": "turns-and-starts"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often observed",
+            "zh": "经常观察到"
+          },
+          "directionId": "turns-and-starts"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not directly observed / no relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "未直接观察／没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CGO_13",
+      "prompt": {
+        "en": "After a simple wait cue, the child paused before continuing.",
+        "zh": "得到一个简单的等待提示后，孩子停了一下才继续。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not observe this in a relevant situation",
+            "zh": "在相关情境中没有观察到"
+          },
+          "directionId": "turns-and-starts"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely observed",
+            "zh": "很少观察到"
+          },
+          "directionId": "turns-and-starts"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes observed",
+            "zh": "有时观察到"
+          },
+          "directionId": "turns-and-starts"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often observed",
+            "zh": "较常观察到"
+          },
+          "directionId": "turns-and-starts"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often observed",
+            "zh": "经常观察到"
+          },
+          "directionId": "turns-and-starts"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not directly observed / no relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "未直接观察／没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CGO_14",
+      "prompt": {
+        "en": "The child asked when their turn would come.",
+        "zh": "孩子问什么时候轮到自己。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not observe this in a relevant situation",
+            "zh": "在相关情境中没有观察到"
+          },
+          "directionId": "turns-and-starts"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely observed",
+            "zh": "很少观察到"
+          },
+          "directionId": "turns-and-starts"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes observed",
+            "zh": "有时观察到"
+          },
+          "directionId": "turns-and-starts"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often observed",
+            "zh": "较常观察到"
+          },
+          "directionId": "turns-and-starts"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often observed",
+            "zh": "经常观察到"
+          },
+          "directionId": "turns-and-starts"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not directly observed / no relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "未直接观察／没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CGO_15",
+      "prompt": {
+        "en": "The child began an agreed activity step before its explanation was finished.",
+        "zh": "约定活动步骤的说明还没说完，孩子就开始了那一步。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not observe this in a relevant situation",
+            "zh": "在相关情境中没有观察到"
+          },
+          "directionId": "turns-and-starts"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely observed",
+            "zh": "很少观察到"
+          },
+          "directionId": "turns-and-starts"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes observed",
+            "zh": "有时观察到"
+          },
+          "directionId": "turns-and-starts"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often observed",
+            "zh": "较常观察到"
+          },
+          "directionId": "turns-and-starts"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often observed",
+            "zh": "经常观察到"
+          },
+          "directionId": "turns-and-starts"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not directly observed / no relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "未直接观察／没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CGO_16",
+      "prompt": {
+        "en": "When an ordinary plan changed, the child asked what would happen next.",
+        "zh": "一个普通计划改变时，孩子问接下来会发生什么。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not observe this in a relevant situation",
+            "zh": "在相关情境中没有观察到"
+          },
+          "directionId": "observed-context-and-support"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely observed",
+            "zh": "很少观察到"
+          },
+          "directionId": "observed-context-and-support"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes observed",
+            "zh": "有时观察到"
+          },
+          "directionId": "observed-context-and-support"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often observed",
+            "zh": "较常观察到"
+          },
+          "directionId": "observed-context-and-support"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often observed",
+            "zh": "经常观察到"
+          },
+          "directionId": "observed-context-and-support"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not directly observed / no relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "未直接观察／没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CGO_17",
+      "prompt": {
+        "en": "The child continued a chosen activity while there was ordinary background activity nearby.",
+        "zh": "周围有普通背景活动时，孩子仍继续自己选择的活动。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not observe this in a relevant situation",
+            "zh": "在相关情境中没有观察到"
+          },
+          "directionId": "observed-context-and-support"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely observed",
+            "zh": "很少观察到"
+          },
+          "directionId": "observed-context-and-support"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes observed",
+            "zh": "有时观察到"
+          },
+          "directionId": "observed-context-and-support"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often observed",
+            "zh": "较常观察到"
+          },
+          "directionId": "observed-context-and-support"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often observed",
+            "zh": "经常观察到"
+          },
+          "directionId": "observed-context-and-support"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not directly observed / no relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "未直接观察／没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CGO_18",
+      "prompt": {
+        "en": "After a pause in an ordinary routine, the child needed another reminder of the next step.",
+        "zh": "普通日常安排暂停之后，孩子需要别人再次提醒下一步。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not observe this in a relevant situation",
+            "zh": "在相关情境中没有观察到"
+          },
+          "directionId": "observed-context-and-support"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely observed",
+            "zh": "很少观察到"
+          },
+          "directionId": "observed-context-and-support"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes observed",
+            "zh": "有时观察到"
+          },
+          "directionId": "observed-context-and-support"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often observed",
+            "zh": "较常观察到"
+          },
+          "directionId": "observed-context-and-support"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often observed",
+            "zh": "经常观察到"
+          },
+          "directionId": "observed-context-and-support"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not directly observed / no relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "未直接观察／没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CGO_19",
+      "prompt": {
+        "en": "The child asked an available adult for help during an ordinary activity.",
+        "zh": "一项普通活动中，孩子向在场的成年人请求帮助。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not observe this in a relevant situation",
+            "zh": "在相关情境中没有观察到"
+          },
+          "directionId": "observed-context-and-support"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely observed",
+            "zh": "很少观察到"
+          },
+          "directionId": "observed-context-and-support"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes observed",
+            "zh": "有时观察到"
+          },
+          "directionId": "observed-context-and-support"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often observed",
+            "zh": "较常观察到"
+          },
+          "directionId": "observed-context-and-support"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often observed",
+            "zh": "经常观察到"
+          },
+          "directionId": "observed-context-and-support"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not directly observed / no relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "未直接观察／没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CGO_20",
+      "prompt": {
+        "en": "The child used an offered pause before returning to an ordinary activity.",
+        "zh": "孩子使用了被提供的暂停机会，之后回到一项普通活动。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not observe this in a relevant situation",
+            "zh": "在相关情境中没有观察到"
+          },
+          "directionId": "observed-context-and-support"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely observed",
+            "zh": "很少观察到"
+          },
+          "directionId": "observed-context-and-support"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes observed",
+            "zh": "有时观察到"
+          },
+          "directionId": "observed-context-and-support"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often observed",
+            "zh": "较常观察到"
+          },
+          "directionId": "observed-context-and-support"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often observed",
+            "zh": "经常观察到"
+          },
+          "directionId": "observed-context-and-support"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not directly observed / no relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "未直接观察／没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "shared-activity-attention-reading",
+      "directionIds": [
+        "shared-activity-attention"
+      ],
+      "title": {
+        "en": "Attention in shared activities — Complete Caregiver Guide",
+        "zh": "共同活动中的注意：完整照顾者指南"
+      },
+      "headline": {
+        "en": "Attention in shared activities — Complete Caregiver Guide",
+        "zh": "共同活动中的注意：完整照顾者指南"
+      },
+      "summary": {
+        "en": "The five descriptions concern moving to another activity before an agreed step finishes, asking for an instruction again, looking away from a shared book, returning after a reminder and beginning something different after an interruption. They concern actions you personally saw or heard, not what the child intended or how hard they tried.",
+        "zh": "五条描述关注约定步骤未结束就换活动、请再说一次指示、看书时转头、提醒后回来，以及打断后开始别的事。它们只涉及亲眼看到或亲耳听到的行动，不判断孩子的意图或努力程度。"
+      },
+      "scoreReading": {
+        "en": "Five descriptions retain six separate category counts, without a child score, subtype or age comparison.",
+        "zh": "五条描述保留六类独立计数，不生成儿童分数、亚型或年龄比较。"
+      },
+      "seo": {
+        "title": {
+          "en": "Attention in shared activities — Complete Caregiver Guide",
+          "zh": "共同活动中的注意：完整照顾者指南"
+        },
+        "description": {
+          "en": "The five descriptions concern moving to another activity before an agreed step finishes, asking for an instruction again, looking away from a shared book, returning after a reminder and beginning something different after an interruption. They concern actions you personally saw or heard, not what the child intended or how hard they tried.",
+          "zh": "五条描述关注约定步骤未结束就换活动、请再说一次指示、看书时转头、提醒后回来，以及打断后开始别的事。它们只涉及亲眼看到或亲耳听到的行动，不判断孩子的意图或努力程度。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Describe visible participation, not an attention capacity",
+            "zh": "描述可见参与，不测注意容量"
+          },
+          "paragraphs": [
+            {
+              "en": "The five descriptions concern moving to another activity before an agreed step finishes, asking for an instruction again, looking away from a shared book, returning after a reminder and beginning something different after an interruption. They concern actions you personally saw or heard, not what the child intended or how hard they tried.",
+              "zh": "五条描述关注约定步骤未结束就换活动、请再说一次指示、看书时转头、提醒后回来，以及打断后开始别的事。它们只涉及亲眼看到或亲耳听到的行动，不判断孩子的意图或努力程度。"
+            },
+            {
+              "en": "An instruction might have been unclear, the activity unfamiliar or something else worth noticing. A short record cannot sort among those possibilities. Looking away does not establish that understanding stopped; returning after a reminder does not certify attention strength. The page does not judge the child’s intelligence, motivation, character or learning potential.",
+              "zh": "指示可能不清楚、活动可能陌生，也可能有其他值得留意的东西。短记录不能鉴别原因。转头不证明理解停止，提醒后回来不认证注意力强。页面不评价孩子的智力、动机、品格或学习潜力。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Keep the six labels separate",
+            "zh": "六种标签分别保留"
+          },
+          "paragraphs": [
+            {
+              "en": "Six category counts add to five descriptions, with each selected label retained. They do not count incidents, minutes, symptoms or occasions. IDs are not points. There is no total, mean, highest topic, severity band, diagnosis or comparison with a developmental norm. A child is not assigned a preferred response pattern.",
+              "zh": "六类计数合计五条描述，并保留每条标签，不算事件、分钟、症状或场合。标识不是点数，没有总分、均值、最高主题、严重档位、诊断或发展常模比较，也不为孩子指定理想回答组合。"
+            },
+            {
+              "en": "Not directly observed, no relevant opportunity, unclear recall and withholding remain unscored. They do not become “did not observe in a relevant situation.” An entirely unscored theme provides no finding about the child. A low count cannot rule out a concern, and frequent labels cannot establish a disorder or need for treatment.",
+              "zh": "未直接观察、没有相关机会、回忆不清和保留回答都保持未计分，不变成“在相关情境中没有观察到”。全部未计分不提供关于孩子的发现。低计数不排除担忧，频繁标签不确定疾病或治疗需要。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "One observed example does not establish a cause",
+            "zh": "一个观察实例，不确定原因"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional caregiver remembering a child asking for a direction again. The caregiver also recalls leaving out an important step. The observation can remain “asked again” without deciding that a memory or attention problem caused it. Another occasion may be different. Neither a familiar nor an unfamiliar task becomes a test to repeat.",
+              "zh": "设想一位虚构照顾者记得孩子请再说一次，也记得自己漏说了一步。可以只保留“请再说一次”，无需认定记忆或注意问题造成它。另一次情况可能不同。不把熟悉或陌生任务变成要重复的测试。"
+            },
+            {
+              "en": "For example, one often, one sometimes and three unscored remain those five choices. They are not a percentage of a child’s day or evidence that a pattern occurs across settings. The same selected category can describe very different opportunities. The page cannot verify an observer’s recall or choose between explanations.",
+              "zh": "例如，一条较常、一条有时和三条未计分，就保持五个选择，不是孩子一天的比例，也不证明跨场景出现。相同类别可以来自很不同的机会。页面不能核实观察者回忆或选择解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "An original caregiver reflection, separate from adult forms",
+            "zh": "原创照顾者回顾，与成人题本分开"
+          },
+          "paragraphs": [
+            {
+              "en": "These twenty bilingual descriptions are original FermatMind content, not the Vanderbilt, SNAP-IV, Conners or CHEXI. Four overlapping editorial topics are not validated independent dimensions. There are no age norms, clinical cutoffs, independent validation or established English–Chinese measurement equivalence.",
+              "zh": "这20条双语描述是费马原创，不是Vanderbilt、SNAP-IV、Conners或CHEXI。四个可重叠的编辑主题不是验证独立维度；没有年龄常模、临床界值、独立验证或已建立的中英文测量等值。"
+            },
+            {
+              "en": "The separate adult executive-function and focus-and-energy pages concern adults describing themselves. Their items, response anchors and readings cannot be converted into child or caregiver forms through a link. No answers or scores transfer. This page does not expand an adult scale, combine forms, evaluate a child’s identity or make an education or eligibility decision.",
+              "zh": "独立成人执行功能与专注精力页涉及成年人描述自己，其题目、锚点和读法不会因链接转为儿童或照顾者题本。不转移回答或分数。本页不扩成人量表、不合题本、不评儿童身份，也不作教育或资格决定。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Ask for support without a questionnaire verdict",
+            "zh": "询问支持，无需问卷裁决"
+          },
+          "paragraphs": [
+            {
+              "en": "If you have a question about a child’s development or everyday participation, you can discuss your observations with an appropriately qualified healthcare professional without finishing this page or producing a high count. A professional can consider history, other explanations and information from appropriate people and settings. This page cannot provide that assessment or decide its urgency.",
+              "zh": "若对儿童发展或日常参与有疑问，可以向合适的医疗专业人士讨论观察，无需完成本页或达到高计数。专业人士可考虑历史、其他解释及合适报告人与场景的信息。页面不提供该评估，也不决定紧急程度。"
+            },
+            {
+              "en": "Do not use this record to delay care, change medicine, remove an existing adjustment or impose a behaviour plan. It cannot certify safety or replace existing professional advice. If immediate danger is present, seek appropriate local emergency assistance instead of continuing. The same support information and four full guides remain public before answering and after every pattern.",
+              "zh": "不要用记录推迟照护、改变药物、撤掉已有调整或强加行为方案。它不认证安全，也不替代已有专业意见。有即时危险时，应寻求当地合适的紧急援助而非继续。相同支持说明和四篇全文在答题前及任何组合后公开。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Privacy, stopping and later differences",
+            "zh": "隐私、停止与后来差异"
+          },
+          "paragraphs": [
+            {
+              "en": "Only an adult caregiver’s own direct observations belong here. Do not enter a child’s name, age, school, medical history, message or private document. No written narrative is requested. Do not ask the child to perform, remain still or repeat an event for the exercise. You can leave any statement unscored, pause or leave without a judgment about the child or your caregiving.",
+              "zh": "这里只使用成年照顾者自己的直接观察。不要输入孩子姓名、年龄、学校、病史、消息或私人文件；不要求书面叙述。不要让孩子为了练习演示、保持不动或重做事件。可保留任何回答、暂停或离开，不因此评价孩子或你的照顾。"
+            },
+            {
+              "en": "Answers and records stay in current-page memory, with no draft storage, submission, questionnaire analytics or personal result address. Exit, retake, reload and leaving clear them. Copying shares only the public title and entry. A later difference may reflect recall, opportunity or setting; it cannot measure development, recovery, deterioration or treatment response.",
+              "zh": "回答和记录只在当前页面内存，不存草稿、不提交、不作问卷分析、没有个人结果地址。退出、重做、刷新与离页会清除。复制只含公开标题和入口。后来差异可能反映回忆、机会或环境，不测发展、恢复、恶化或治疗反应。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "movement-during-activities-reading",
+      "directionIds": [
+        "movement-during-activities"
+      ],
+      "title": {
+        "en": "Movement during activities — Complete Caregiver Guide",
+        "zh": "活动过程中的身体移动：完整照顾者指南"
+      },
+      "headline": {
+        "en": "Movement during activities — Complete Caregiver Guide",
+        "zh": "活动过程中的身体移动：完整照顾者指南"
+      },
+      "summary": {
+        "en": "These five descriptions cover standing or walking during an activity with a seated option, changing position, moving a nearby object, choosing an offered movement break and continuing while moving part of the body. More movement is not automatically worse, and stillness is not the goal of this record.",
+        "zh": "五条描述涉及可以坐着进行时站起或走动、换姿势、移动身边物品、选择被提供的活动休息，以及身体活动时继续参与。动得多不自动更差，静止不是本记录的目标。"
+      },
+      "scoreReading": {
+        "en": "Five descriptions retain six separate category counts, without a child score, subtype or age comparison.",
+        "zh": "五条描述保留六类独立计数，不生成儿童分数、亚型或年龄比较。"
+      },
+      "seo": {
+        "title": {
+          "en": "Movement during activities — Complete Caregiver Guide",
+          "zh": "活动过程中的身体移动：完整照顾者指南"
+        },
+        "description": {
+          "en": "These five descriptions cover standing or walking during an activity with a seated option, changing position, moving a nearby object, choosing an offered movement break and continuing while moving part of the body. More movement is not automatically worse, and stillness is not the goal of this record.",
+          "zh": "五条描述涉及可以坐着进行时站起或走动、换姿势、移动身边物品、选择被提供的活动休息，以及身体活动时继续参与。动得多不自动更差，静止不是本记录的目标。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Movement can coexist with participating",
+            "zh": "身体活动，可以与参与并存"
+          },
+          "paragraphs": [
+            {
+              "en": "These five descriptions cover standing or walking during an activity with a seated option, changing position, moving a nearby object, choosing an offered movement break and continuing while moving part of the body. More movement is not automatically worse, and stillness is not the goal of this record.",
+              "zh": "五条描述涉及可以坐着进行时站起或走动、换姿势、移动身边物品、选择被提供的活动休息，以及身体活动时继续参与。动得多不自动更差，静止不是本记录的目标。"
+            },
+            {
+              "en": "The page does not know comfort, access needs, the setting or the reason for a movement. It does not assess whether the child ought to have remained seated. A label cannot establish hyperactivity, self-control, safety or a developmental difference. Do not remove an adjustment, require stillness or create discomfort to obtain an observation.",
+              "zh": "页面不了解舒适度、无障碍需要、环境或活动原因，不评孩子本应坐着不动。标签不能确定多动、自制、安全或发展差异。不要为了获得观察而撤掉调整、要求静止或制造不舒服。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Keep the six labels separate",
+            "zh": "六种标签分别保留"
+          },
+          "paragraphs": [
+            {
+              "en": "Six category counts add to five descriptions, with each selected label retained. They do not count incidents, minutes, symptoms or occasions. IDs are not points. There is no total, mean, highest topic, severity band, diagnosis or comparison with a developmental norm. A child is not assigned a preferred response pattern.",
+              "zh": "六类计数合计五条描述，并保留每条标签，不算事件、分钟、症状或场合。标识不是点数，没有总分、均值、最高主题、严重档位、诊断或发展常模比较，也不为孩子指定理想回答组合。"
+            },
+            {
+              "en": "Not directly observed, no relevant opportunity, unclear recall and withholding remain unscored. They do not become “did not observe in a relevant situation.” An entirely unscored theme provides no finding about the child. A low count cannot rule out a concern, and frequent labels cannot establish a disorder or need for treatment.",
+              "zh": "未直接观察、没有相关机会、回忆不清和保留回答都保持未计分，不变成“在相关情境中没有观察到”。全部未计分不提供关于孩子的发现。低计数不排除担忧，频繁标签不确定疾病或治疗需要。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "One observed example does not establish a cause",
+            "zh": "一个观察实例，不确定原因"
+          },
+          "paragraphs": [
+            {
+              "en": "A fictional child may move a foot while continuing to draw, then choose a break that was offered. Those are two observable descriptions, not evidence that participation failed. A caregiver may not know what the movement meant. Keeping that uncertainty is more accurate than converting visible activity into a judgment about behaviour or health.",
+              "zh": "一个虚构孩子可能一边动脚一边继续画，之后选择被提供的休息。这是两条可见描述，不证明参与失败。照顾者可能不知道动作意味着什么。保留不确定，比把活动转成行为或健康评价更准确。"
+            },
+            {
+              "en": "For example, one often, one sometimes and three unscored remain those five choices. They are not a percentage of a child’s day or evidence that a pattern occurs across settings. The same selected category can describe very different opportunities. The page cannot verify an observer’s recall or choose between explanations.",
+              "zh": "例如，一条较常、一条有时和三条未计分，就保持五个选择，不是孩子一天的比例，也不证明跨场景出现。相同类别可以来自很不同的机会。页面不能核实观察者回忆或选择解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "An original caregiver reflection, separate from adult forms",
+            "zh": "原创照顾者回顾，与成人题本分开"
+          },
+          "paragraphs": [
+            {
+              "en": "These twenty bilingual descriptions are original FermatMind content, not the Vanderbilt, SNAP-IV, Conners or CHEXI. Four overlapping editorial topics are not validated independent dimensions. There are no age norms, clinical cutoffs, independent validation or established English–Chinese measurement equivalence.",
+              "zh": "这20条双语描述是费马原创，不是Vanderbilt、SNAP-IV、Conners或CHEXI。四个可重叠的编辑主题不是验证独立维度；没有年龄常模、临床界值、独立验证或已建立的中英文测量等值。"
+            },
+            {
+              "en": "The separate adult executive-function and focus-and-energy pages concern adults describing themselves. Their items, response anchors and readings cannot be converted into child or caregiver forms through a link. No answers or scores transfer. This page does not expand an adult scale, combine forms, evaluate a child’s identity or make an education or eligibility decision.",
+              "zh": "独立成人执行功能与专注精力页涉及成年人描述自己，其题目、锚点和读法不会因链接转为儿童或照顾者题本。不转移回答或分数。本页不扩成人量表、不合题本、不评儿童身份，也不作教育或资格决定。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Ask for support without a questionnaire verdict",
+            "zh": "询问支持，无需问卷裁决"
+          },
+          "paragraphs": [
+            {
+              "en": "If you have a question about a child’s development or everyday participation, you can discuss your observations with an appropriately qualified healthcare professional without finishing this page or producing a high count. A professional can consider history, other explanations and information from appropriate people and settings. This page cannot provide that assessment or decide its urgency.",
+              "zh": "若对儿童发展或日常参与有疑问，可以向合适的医疗专业人士讨论观察，无需完成本页或达到高计数。专业人士可考虑历史、其他解释及合适报告人与场景的信息。页面不提供该评估，也不决定紧急程度。"
+            },
+            {
+              "en": "Do not use this record to delay care, change medicine, remove an existing adjustment or impose a behaviour plan. It cannot certify safety or replace existing professional advice. If immediate danger is present, seek appropriate local emergency assistance instead of continuing. The same support information and four full guides remain public before answering and after every pattern.",
+              "zh": "不要用记录推迟照护、改变药物、撤掉已有调整或强加行为方案。它不认证安全，也不替代已有专业意见。有即时危险时，应寻求当地合适的紧急援助而非继续。相同支持说明和四篇全文在答题前及任何组合后公开。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Privacy, stopping and later differences",
+            "zh": "隐私、停止与后来差异"
+          },
+          "paragraphs": [
+            {
+              "en": "Only an adult caregiver’s own direct observations belong here. Do not enter a child’s name, age, school, medical history, message or private document. No written narrative is requested. Do not ask the child to perform, remain still or repeat an event for the exercise. You can leave any statement unscored, pause or leave without a judgment about the child or your caregiving.",
+              "zh": "这里只使用成年照顾者自己的直接观察。不要输入孩子姓名、年龄、学校、病史、消息或私人文件；不要求书面叙述。不要让孩子为了练习演示、保持不动或重做事件。可保留任何回答、暂停或离开，不因此评价孩子或你的照顾。"
+            },
+            {
+              "en": "Answers and records stay in current-page memory, with no draft storage, submission, questionnaire analytics or personal result address. Exit, retake, reload and leaving clear them. Copying shares only the public title and entry. A later difference may reflect recall, opportunity or setting; it cannot measure development, recovery, deterioration or treatment response.",
+              "zh": "回答和记录只在当前页面内存，不存草稿、不提交、不作问卷分析、没有个人结果地址。退出、重做、刷新与离页会清除。复制只含公开标题和入口。后来差异可能反映回忆、机会或环境，不测发展、恢复、恶化或治疗反应。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "turns-and-starts-reading",
+      "directionIds": [
+        "turns-and-starts"
+      ],
+      "title": {
+        "en": "Taking turns and beginning steps — Complete Caregiver Guide",
+        "zh": "轮流与开始步骤：完整照顾者指南"
+      },
+      "headline": {
+        "en": "Taking turns and beginning steps — Complete Caregiver Guide",
+        "zh": "轮流与开始步骤：完整照顾者指南"
+      },
+      "summary": {
+        "en": "This topic concerns starting to speak before another person finishes, reaching for an item before an agreed turn, pausing after a wait cue, asking when a turn comes and beginning a step before its explanation ends. Positive and difficult descriptions remain separate. Asking about a turn is not scored as either a symptom or good behaviour.",
+        "zh": "本主题涉及别人未说完就开口、未轮到就取物、提示后暂停、询问何时轮到，以及说明未完就开始。正向与困难描述分开保留。询问轮次不被算成症状或良好行为。"
+      },
+      "scoreReading": {
+        "en": "Five descriptions retain six separate category counts, without a child score, subtype or age comparison.",
+        "zh": "五条描述保留六类独立计数，不生成儿童分数、亚型或年龄比较。"
+      },
+      "seo": {
+        "title": {
+          "en": "Taking turns and beginning steps — Complete Caregiver Guide",
+          "zh": "轮流与开始步骤：完整照顾者指南"
+        },
+        "description": {
+          "en": "This topic concerns starting to speak before another person finishes, reaching for an item before an agreed turn, pausing after a wait cue, asking when a turn comes and beginning a step before its explanation ends. Positive and difficult descriptions remain separate. Asking about a turn is not scored as either a symptom or good behaviour.",
+          "zh": "本主题涉及别人未说完就开口、未轮到就取物、提示后暂停、询问何时轮到，以及说明未完就开始。正向与困难描述分开保留。询问轮次不被算成症状或良好行为。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Turn-taking descriptions are not moral judgments",
+            "zh": "轮流描述，不是品格裁决"
+          },
+          "paragraphs": [
+            {
+              "en": "This topic concerns starting to speak before another person finishes, reaching for an item before an agreed turn, pausing after a wait cue, asking when a turn comes and beginning a step before its explanation ends. Positive and difficult descriptions remain separate. Asking about a turn is not scored as either a symptom or good behaviour.",
+              "zh": "本主题涉及别人未说完就开口、未轮到就取物、提示后暂停、询问何时轮到，以及说明未完就开始。正向与困难描述分开保留。询问轮次不被算成症状或良好行为。"
+            },
+            {
+              "en": "Conversation, games and explanations involve arrangements that may or may not have been clear. The record does not assess politeness, intention, impulsivity, obedience or the fairness of a rule. It cannot compare a child with peers or decide what is expected at a particular age. No label selects an ADHD subtype or a discipline response.",
+              "zh": "谈话、游戏与说明涉及可能清楚也可能不清楚的安排。记录不评礼貌、意图、冲动、服从或规则公平性，不比较同龄儿童，也不决定某年龄应当怎样。标签不选择ADHD亚型或管教回应。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Keep the six labels separate",
+            "zh": "六种标签分别保留"
+          },
+          "paragraphs": [
+            {
+              "en": "Six category counts add to five descriptions, with each selected label retained. They do not count incidents, minutes, symptoms or occasions. IDs are not points. There is no total, mean, highest topic, severity band, diagnosis or comparison with a developmental norm. A child is not assigned a preferred response pattern.",
+              "zh": "六类计数合计五条描述，并保留每条标签，不算事件、分钟、症状或场合。标识不是点数，没有总分、均值、最高主题、严重档位、诊断或发展常模比较，也不为孩子指定理想回答组合。"
+            },
+            {
+              "en": "Not directly observed, no relevant opportunity, unclear recall and withholding remain unscored. They do not become “did not observe in a relevant situation.” An entirely unscored theme provides no finding about the child. A low count cannot rule out a concern, and frequent labels cannot establish a disorder or need for treatment.",
+              "zh": "未直接观察、没有相关机会、回忆不清和保留回答都保持未计分，不变成“在相关情境中没有观察到”。全部未计分不提供关于孩子的发现。低计数不排除担忧，频繁标签不确定疾病或治疗需要。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "One observed example does not establish a cause",
+            "zh": "一个观察实例，不确定原因"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional caregiver seeing a child reach for a game piece and then pause after a cue. Both actions can be retained without cancelling each other. The page cannot know whether the turn order was understood. The example gives no instruction to recreate the game, make a rule harder or reward a preferred category.",
+              "zh": "设想照顾者看到孩子伸手取棋子，又在提示后停下。两者都可保留，不相抵消。页面不知道孩子是否理解了顺序。例子不要求重玩、把规则加难，或奖励某个更喜欢的类别。"
+            },
+            {
+              "en": "For example, one often, one sometimes and three unscored remain those five choices. They are not a percentage of a child’s day or evidence that a pattern occurs across settings. The same selected category can describe very different opportunities. The page cannot verify an observer’s recall or choose between explanations.",
+              "zh": "例如，一条较常、一条有时和三条未计分，就保持五个选择，不是孩子一天的比例，也不证明跨场景出现。相同类别可以来自很不同的机会。页面不能核实观察者回忆或选择解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "An original caregiver reflection, separate from adult forms",
+            "zh": "原创照顾者回顾，与成人题本分开"
+          },
+          "paragraphs": [
+            {
+              "en": "These twenty bilingual descriptions are original FermatMind content, not the Vanderbilt, SNAP-IV, Conners or CHEXI. Four overlapping editorial topics are not validated independent dimensions. There are no age norms, clinical cutoffs, independent validation or established English–Chinese measurement equivalence.",
+              "zh": "这20条双语描述是费马原创，不是Vanderbilt、SNAP-IV、Conners或CHEXI。四个可重叠的编辑主题不是验证独立维度；没有年龄常模、临床界值、独立验证或已建立的中英文测量等值。"
+            },
+            {
+              "en": "The separate adult executive-function and focus-and-energy pages concern adults describing themselves. Their items, response anchors and readings cannot be converted into child or caregiver forms through a link. No answers or scores transfer. This page does not expand an adult scale, combine forms, evaluate a child’s identity or make an education or eligibility decision.",
+              "zh": "独立成人执行功能与专注精力页涉及成年人描述自己，其题目、锚点和读法不会因链接转为儿童或照顾者题本。不转移回答或分数。本页不扩成人量表、不合题本、不评儿童身份，也不作教育或资格决定。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Ask for support without a questionnaire verdict",
+            "zh": "询问支持，无需问卷裁决"
+          },
+          "paragraphs": [
+            {
+              "en": "If you have a question about a child’s development or everyday participation, you can discuss your observations with an appropriately qualified healthcare professional without finishing this page or producing a high count. A professional can consider history, other explanations and information from appropriate people and settings. This page cannot provide that assessment or decide its urgency.",
+              "zh": "若对儿童发展或日常参与有疑问，可以向合适的医疗专业人士讨论观察，无需完成本页或达到高计数。专业人士可考虑历史、其他解释及合适报告人与场景的信息。页面不提供该评估，也不决定紧急程度。"
+            },
+            {
+              "en": "Do not use this record to delay care, change medicine, remove an existing adjustment or impose a behaviour plan. It cannot certify safety or replace existing professional advice. If immediate danger is present, seek appropriate local emergency assistance instead of continuing. The same support information and four full guides remain public before answering and after every pattern.",
+              "zh": "不要用记录推迟照护、改变药物、撤掉已有调整或强加行为方案。它不认证安全，也不替代已有专业意见。有即时危险时，应寻求当地合适的紧急援助而非继续。相同支持说明和四篇全文在答题前及任何组合后公开。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Privacy, stopping and later differences",
+            "zh": "隐私、停止与后来差异"
+          },
+          "paragraphs": [
+            {
+              "en": "Only an adult caregiver’s own direct observations belong here. Do not enter a child’s name, age, school, medical history, message or private document. No written narrative is requested. Do not ask the child to perform, remain still or repeat an event for the exercise. You can leave any statement unscored, pause or leave without a judgment about the child or your caregiving.",
+              "zh": "这里只使用成年照顾者自己的直接观察。不要输入孩子姓名、年龄、学校、病史、消息或私人文件；不要求书面叙述。不要让孩子为了练习演示、保持不动或重做事件。可保留任何回答、暂停或离开，不因此评价孩子或你的照顾。"
+            },
+            {
+              "en": "Answers and records stay in current-page memory, with no draft storage, submission, questionnaire analytics or personal result address. Exit, retake, reload and leaving clear them. Copying shares only the public title and entry. A later difference may reflect recall, opportunity or setting; it cannot measure development, recovery, deterioration or treatment response.",
+              "zh": "回答和记录只在当前页面内存，不存草稿、不提交、不作问卷分析、没有个人结果地址。退出、重做、刷新与离页会清除。复制只含公开标题和入口。后来差异可能反映回忆、机会或环境，不测发展、恢复、恶化或治疗反应。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "observed-context-and-support-reading",
+      "directionIds": [
+        "observed-context-and-support"
+      ],
+      "title": {
+        "en": "Observed context and available support — Complete Caregiver Guide",
+        "zh": "观察到的情境与可用协助：完整照顾者指南"
+      },
+      "headline": {
+        "en": "Observed context and available support — Complete Caregiver Guide",
+        "zh": "观察到的情境与可用协助：完整照顾者指南"
+      },
+      "summary": {
+        "en": "These observations concern asking what follows a changed plan, continuing amid background activity, needing another reminder after a pause, asking an available adult for help and using an offered pause before returning. They keep context and available support visible without treating independence as a better outcome.",
+        "zh": "这些观察涉及计划改变后询问下一步、背景活动中继续、暂停后需要再提醒、向在场成年人求助，以及使用暂停后返回。它们让情境和协助可见，不把独立当成更好的结果。"
+      },
+      "scoreReading": {
+        "en": "Five descriptions retain six separate category counts, without a child score, subtype or age comparison.",
+        "zh": "五条描述保留六类独立计数，不生成儿童分数、亚型或年龄比较。"
+      },
+      "seo": {
+        "title": {
+          "en": "Observed context and available support — Complete Caregiver Guide",
+          "zh": "观察到的情境与可用协助：完整照顾者指南"
+        },
+        "description": {
+          "en": "These observations concern asking what follows a changed plan, continuing amid background activity, needing another reminder after a pause, asking an available adult for help and using an offered pause before returning. They keep context and available support visible without treating independence as a better outcome.",
+          "zh": "这些观察涉及计划改变后询问下一步、背景活动中继续、暂停后需要再提醒、向在场成年人求助，以及使用暂停后返回。它们让情境和协助可见，不把独立当成更好的结果。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Describe support within the setting you actually saw",
+            "zh": "在亲眼见到的情境中描述协助"
+          },
+          "paragraphs": [
+            {
+              "en": "These observations concern asking what follows a changed plan, continuing amid background activity, needing another reminder after a pause, asking an available adult for help and using an offered pause before returning. They keep context and available support visible without treating independence as a better outcome.",
+              "zh": "这些观察涉及计划改变后询问下一步、背景活动中继续、暂停后需要再提醒、向在场成年人求助，以及使用暂停后返回。它们让情境和协助可见，不把独立当成更好的结果。"
+            },
+            {
+              "en": "A caregiver’s observations at home cannot supply what happened at school or with peers when the caregiver was absent. Leave those gaps unscored rather than using someone else’s account here. This page is not a multi-informant assessment, a measure of functioning or a judgment of parenting quality. It cannot determine which support a child needs.",
+              "zh": "照顾者在家中的观察，不能补出自己不在场时学校或同伴间发生什么。缺口保持未计分，不在这里用他人说法补足。页面不是多报告人评估、功能测量或养育质量裁决，不能确定孩子需要何种支持。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Keep the six labels separate",
+            "zh": "六种标签分别保留"
+          },
+          "paragraphs": [
+            {
+              "en": "Six category counts add to five descriptions, with each selected label retained. They do not count incidents, minutes, symptoms or occasions. IDs are not points. There is no total, mean, highest topic, severity band, diagnosis or comparison with a developmental norm. A child is not assigned a preferred response pattern.",
+              "zh": "六类计数合计五条描述，并保留每条标签，不算事件、分钟、症状或场合。标识不是点数，没有总分、均值、最高主题、严重档位、诊断或发展常模比较，也不为孩子指定理想回答组合。"
+            },
+            {
+              "en": "Not directly observed, no relevant opportunity, unclear recall and withholding remain unscored. They do not become “did not observe in a relevant situation.” An entirely unscored theme provides no finding about the child. A low count cannot rule out a concern, and frequent labels cannot establish a disorder or need for treatment.",
+              "zh": "未直接观察、没有相关机会、回忆不清和保留回答都保持未计分，不变成“在相关情境中没有观察到”。全部未计分不提供关于孩子的发现。低计数不排除担忧，频繁标签不确定疾病或治疗需要。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "One observed example does not establish a cause",
+            "zh": "一个观察实例，不确定原因"
+          },
+          "paragraphs": [
+            {
+              "en": "A fictional child asks what happens after a plan changes. The caregiver gives a brief explanation and later notices a return to the activity. These observations do not prove the explanation worked or that the child would respond similarly elsewhere. Another adult’s setting remains unknown unless it was directly observed by the person completing this page.",
+              "zh": "一个虚构孩子在计划改变后询问下一步，照顾者简短解释，后来注意到孩子回到活动。这不证明解释有效，也不证明换个环境会一样。另一成年人的场景若非答题者直接观察，就仍然未知。"
+            },
+            {
+              "en": "For example, one often, one sometimes and three unscored remain those five choices. They are not a percentage of a child’s day or evidence that a pattern occurs across settings. The same selected category can describe very different opportunities. The page cannot verify an observer’s recall or choose between explanations.",
+              "zh": "例如，一条较常、一条有时和三条未计分，就保持五个选择，不是孩子一天的比例，也不证明跨场景出现。相同类别可以来自很不同的机会。页面不能核实观察者回忆或选择解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "An original caregiver reflection, separate from adult forms",
+            "zh": "原创照顾者回顾，与成人题本分开"
+          },
+          "paragraphs": [
+            {
+              "en": "These twenty bilingual descriptions are original FermatMind content, not the Vanderbilt, SNAP-IV, Conners or CHEXI. Four overlapping editorial topics are not validated independent dimensions. There are no age norms, clinical cutoffs, independent validation or established English–Chinese measurement equivalence.",
+              "zh": "这20条双语描述是费马原创，不是Vanderbilt、SNAP-IV、Conners或CHEXI。四个可重叠的编辑主题不是验证独立维度；没有年龄常模、临床界值、独立验证或已建立的中英文测量等值。"
+            },
+            {
+              "en": "The separate adult executive-function and focus-and-energy pages concern adults describing themselves. Their items, response anchors and readings cannot be converted into child or caregiver forms through a link. No answers or scores transfer. This page does not expand an adult scale, combine forms, evaluate a child’s identity or make an education or eligibility decision.",
+              "zh": "独立成人执行功能与专注精力页涉及成年人描述自己，其题目、锚点和读法不会因链接转为儿童或照顾者题本。不转移回答或分数。本页不扩成人量表、不合题本、不评儿童身份，也不作教育或资格决定。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Ask for support without a questionnaire verdict",
+            "zh": "询问支持，无需问卷裁决"
+          },
+          "paragraphs": [
+            {
+              "en": "If you have a question about a child’s development or everyday participation, you can discuss your observations with an appropriately qualified healthcare professional without finishing this page or producing a high count. A professional can consider history, other explanations and information from appropriate people and settings. This page cannot provide that assessment or decide its urgency.",
+              "zh": "若对儿童发展或日常参与有疑问，可以向合适的医疗专业人士讨论观察，无需完成本页或达到高计数。专业人士可考虑历史、其他解释及合适报告人与场景的信息。页面不提供该评估，也不决定紧急程度。"
+            },
+            {
+              "en": "Do not use this record to delay care, change medicine, remove an existing adjustment or impose a behaviour plan. It cannot certify safety or replace existing professional advice. If immediate danger is present, seek appropriate local emergency assistance instead of continuing. The same support information and four full guides remain public before answering and after every pattern.",
+              "zh": "不要用记录推迟照护、改变药物、撤掉已有调整或强加行为方案。它不认证安全，也不替代已有专业意见。有即时危险时，应寻求当地合适的紧急援助而非继续。相同支持说明和四篇全文在答题前及任何组合后公开。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Privacy, stopping and later differences",
+            "zh": "隐私、停止与后来差异"
+          },
+          "paragraphs": [
+            {
+              "en": "Only an adult caregiver’s own direct observations belong here. Do not enter a child’s name, age, school, medical history, message or private document. No written narrative is requested. Do not ask the child to perform, remain still or repeat an event for the exercise. You can leave any statement unscored, pause or leave without a judgment about the child or your caregiving.",
+              "zh": "这里只使用成年照顾者自己的直接观察。不要输入孩子姓名、年龄、学校、病史、消息或私人文件；不要求书面叙述。不要让孩子为了练习演示、保持不动或重做事件。可保留任何回答、暂停或离开，不因此评价孩子或你的照顾。"
+            },
+            {
+              "en": "Answers and records stay in current-page memory, with no draft storage, submission, questionnaire analytics or personal result address. Exit, retake, reload and leaving clear them. Copying shares only the public title and entry. A later difference may reflect recall, opportunity or setting; it cannot measure development, recovery, deterioration or treatment response.",
+              "zh": "回答和记录只在当前页面内存，不存草稿、不提交、不作问卷分析、没有个人结果地址。退出、重做、刷新与离页会清除。复制只含公开标题和入口。后来差异可能反映回忆、机会或环境，不测发展、恢复、恶化或治疗反应。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "reporter",
+      "title": {
+        "en": "Direct observation by an adult caregiver",
+        "zh": "成年照顾者的直接观察"
+      },
+      "paragraphs": [
+        {
+          "en": "Only describe what you personally saw or heard. Do not fill a gap using another adult’s report or assumptions about school. No observation is unscored rather than evidence of absence.",
+          "zh": "只描述自己亲眼看到或亲耳听到的情况。不以另一位成年人报告或对学校的猜测填空；没有观察保持未计分，不作为没有发生的证据。"
+        }
+      ]
+    },
+    {
+      "id": "categories",
+      "title": {
+        "en": "Twenty descriptions, no diagnostic scoring",
+        "zh": "20条描述，不作诊断计分"
+      },
+      "paragraphs": [
+        {
+          "en": "Each group keeps five individual labels and six counts. Positive actions are not reversed into difficulty, and groups are not combined. All four full guides and support information are available before answers, midway and after an entirely unscored record.",
+          "zh": "每组保留五条标签和六类计数。正向行动不反向变成困难，各组不合并。四篇全文和支持说明在答题前、中途及全未计分后均可阅读。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does this assess or diagnose my child?",
+        "zh": "会评估或诊断我的孩子吗？"
+      },
+      "answer": {
+        "en": "No. It organises an adult caregiver’s selected descriptions without a clinical score, ADHD subtype, age norm or diagnosis. It cannot replace a developmental or healthcare assessment.",
+        "zh": "不会。它整理成年照顾者所选描述，不生成临床分数、ADHD亚型、年龄常模或诊断，不能替代发展或医疗评估。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I answer about school using a report?",
+        "zh": "能用学校报告回答吗？"
+      },
+      "answer": {
+        "en": "Use only your own direct observations here. An unobserved setting remains unscored. Appropriate professional assessment may involve information from several people and settings, which this page does not collect or combine.",
+        "zh": "这里只使用自己的直接观察，未观察的场景保持未计分。合适的专业评估可能涉及多位报告人与多个场景；本页不收集或合并这些信息。"
+      }
+    },
+    {
+      "question": {
+        "en": "Must I complete it to read the guides?",
+        "zh": "必须完成才能读指南吗？"
+      },
+      "answer": {
+        "en": "No. All four complete guides and the same support information are public and free without a score, signup or child details.",
+        "zh": "不必。四篇全文与相同支持说明公开免费，无需分数、注册或儿童细节。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "CDC: diagnosing ADHD — professional assessment background only",
+        "zh": "CDC：ADHD诊断，仅作专业评估背景"
+      },
+      "url": "https://www.cdc.gov/adhd/diagnosis/"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_caregiver_observations",
+    "formCode": "fm_caregiver_context20_observations_v1",
+    "itemBankVersion": "original20_bilingual_direct_observation_four_by_five_v1",
+    "scoringVersion": "six_label_counts_per_five_no_child_score_or_norm_v1",
+    "resultContentVersion": "four_full_bilingual_caregiver_guides_v1",
+    "itemBankSha256": "86b63b75eb4526892449475bbd97fc6d4095715093bdd2f10643c45a1b70c7f3",
+    "resultContentSha256": "aa1597fd3240d04015358cf4a8cea21409fa7339f13ec47a556469e69ef55cbd",
+    "psychometricValidationCompleted": false
+  }
+}
