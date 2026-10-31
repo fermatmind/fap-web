@@ -12,9 +12,16 @@ const hash = (value: unknown) => typeof value === "string" && /^[a-f0-9]{64}$/.t
 /** Remove only copy surfaces; all measurement, provenance, access and structural facts remain comparable. */
 function protectedReport(input: Row): Row {
   const value = structuredClone(input);
+  const protectActions = (actions: unknown) => {
+    for (const item of Array.isArray(actions) ? actions : []) {
+      const action = record(item);
+      if (action) delete action.instruction;
+    }
+  };
   for (const item of Array.isArray(value.candidates) ? value.candidates : []) {
     const candidate = record(item);
     if (!candidate) continue;
+    protectActions(candidate.growth_actions);
     for (const child of Array.isArray(candidate.sections) ? candidate.sections : []) {
       const section = record(child);
       if (!section) continue;
@@ -29,6 +36,11 @@ function protectedReport(input: Row): Row {
     for (const item of Array.isArray(modules) ? modules : []) {
       const reportModule = record(item), content = record(reportModule?.content);
       if (!reportModule || !content) continue;
+      if (reportModule.module_key === "growth_actions") {
+        for (const item of Array.isArray(content.candidates) ? content.candidates : []) {
+          protectActions(record(item)?.actions);
+        }
+      }
       if (reportModule.module_key === "result_overview") delete content.body;
       if (reportModule.module_key === "candidate_pair_comparison") {
         for (const item of Array.isArray(content.dimensions) ? content.dimensions : []) {

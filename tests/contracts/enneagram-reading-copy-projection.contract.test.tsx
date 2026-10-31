@@ -42,6 +42,36 @@ describe("source-bound separate Enneagram reading copy", () => {
     expect(vm.candidates).toEqual([]);
   });
 
+  it("allows instruction-only reading copy in candidates and mirrored growth modules while retaining action facts", () => {
+    const raw = structuredClone(fixtures["en/enneagram_likert_105"]);
+    const original = raw.enneagram_reading_copy_v1.report_v2.candidates[0].growth_actions[0].instruction;
+    const revised = "Ask the listed questions before explaining your own view.";
+    // Synthetic copy-only contract case over the existing admitted wire, not a new measurement result.
+    const replaceInstruction = (value: unknown): void => {
+      if (!value || typeof value !== "object") return;
+      for (const [key, child] of Object.entries(value)) {
+        if (key === "instruction" && child === original) Reflect.set(value, key, revised);
+        else replaceInstruction(child);
+      }
+    };
+    replaceInstruction(raw.enneagram_reading_copy_v1.report_v2);
+    const input = raw as unknown as ReportResponse;
+    const before = structuredClone(input);
+    expect(resolveEnneagramReadingReport(input, "en")).not.toBeNull();
+    const vm = assembleEnneagramResultViewModel({ reportData: input, locale: "en", gate: { isFreeVariant: false } });
+    render(<EnneagramResultShell locale="en" attemptId="" reportLocked={false} viewModel={vm} />);
+    expect(screen.getAllByText(new RegExp(revised.replaceAll(".", "\\."))).length).toBeGreaterThan(0);
+    expect(input).toEqual(before);
+    for (const field of ["action_id", "observable_outcome", "evidence_level"]) {
+      const bad = structuredClone(raw);
+      Reflect.set(bad.enneagram_reading_copy_v1.report_v2.candidates[0].growth_actions[0], field, "changed fact");
+      expect(resolveEnneagramReadingReport(bad as unknown as ReportResponse, "en")).toBeNull();
+    }
+    const locked = assembleEnneagramResultViewModel({ reportData: input, locale: "en", gate: { isFreeVariant: true, modulesAllowed: new Set(["enneagram_core"]) } });
+    expect(locked.reportV2).toBeNull();
+    expect(locked.candidates).toEqual([]);
+  });
+
   it("rejects altered original authority, language, score, classification and level assignment", () => {
     const changes = [
       (v: typeof fixtures["en/enneagram_likert_105"]["enneagram_reading_copy_v1"]) => { v.original_authority.source_hash = "a".repeat(64); },

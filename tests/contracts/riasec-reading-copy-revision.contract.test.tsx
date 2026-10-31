@@ -30,10 +30,21 @@ describe("approved RIASEC reading copy over immutable snapshots", () => {
     expect(vm.reportContent).toBeNull();
     expect(vm.displayCopy).toMatchObject({ revision: copy.revision, approvedSourceHash: copy.reviewedSourceHash });
     expect(vm.displayCopy?.appliedKeys).toEqual(expect.arrayContaining(["lifecycle.low_quality_share", "lifecycle.score_faq", "lifecycle.share_safe_card", "lifecycle.F01", "lifecycle.F02", "lifecycle.F09"]));
+    const historicalActivities = copy.activities.filter(row => ["R", "I", "A"].includes(row.activityKey[0].toUpperCase()));
+    expect(historicalActivities).toHaveLength(10);
+    for (const row of historicalActivities) {
+      const activity = vm.activityExplorer!.codeActivityPack.activities.find(item => item.activityKey === row.activityKey)!;
+      expect(row.field === "activityUserCopy" ? activity.activityUserCopy : activity.taskExamples[row.index!]).toBe(row.after);
+      expect(vm.displayCopy?.appliedKeys).toContain(`activity.${row.activityKey}.${row.field}`);
+    }
     render(<RichResultReport locale="en" reportData={input} />);
     expect(screen.getByTestId("riasec-reading-report").getAttribute("data-riasec-display-copy-revision")).toBe(copy.revision);
     expect(screen.getByText(copy.faq.question.after)).toBeTruthy();
     expect(screen.queryByText(copy.faq.question.before)).toBeNull();
+    for (const row of historicalActivities) {
+      expect(screen.getByText(row.after)).toBeTruthy();
+      expect(screen.queryByText(row.before)).toBeNull();
+    }
     expect(input).toEqual(before);
     expect(applyRiasecReadingCopyRevision(vm)).toBe(vm);
   });
@@ -129,21 +140,29 @@ describe("approved RIASEC reading copy over immutable snapshots", () => {
     expect(applyRiasecReadingCopyRevision(unrelated)).toBe(unrelated);
   });
 
-  it("refreshes the nine activity leaves by activity identity and exact text without touching task facts", () => {
+  it("refreshes the finite activity leaves by activity identity and exact text without touching task facts", () => {
     const vm = assembleRiasecResultViewModel(wire("1.9/en/riasec_140"), "en");
     const original = vm.activityExplorer!.codeActivityPack.activities[0];
-    const activities = copy.activities.map(row => ({ ...original, activityKey: row.activityKey,
-      activityUserCopy: row.field === "activityUserCopy" ? row.before : "Keep this boundary",
-      taskExamples: row.field === "taskExamples" ? Array.from({ length: 8 }, (_, i) => i === row.index ? row.before : `Keep task ${i}`) : original.taskExamples }));
+    const byKey = new Map<string, typeof original>();
+    for (const row of copy.activities) {
+      const activity = byKey.get(row.activityKey) ?? { ...original, activityKey: row.activityKey,
+        activityUserCopy: "Keep this boundary", taskExamples: [] };
+      if (row.field === "activityUserCopy") activity.activityUserCopy = row.before;
+      else activity.taskExamples = Array.from({ length: Math.max(8, activity.taskExamples.length, (row.index ?? -1) + 1) },
+        (_, i) => i === row.index ? row.before : activity.taskExamples[i] ?? `Keep task ${i}`);
+      byKey.set(row.activityKey, activity);
+    }
+    const activities = [...byKey.values()];
     const controlled = { ...vm, displayCopy: undefined, activityExplorer: { ...vm.activityExplorer!,
       codeActivityPack: { ...vm.activityExplorer!.codeActivityPack, activities } } };
     const revised = applyRiasecReadingCopyRevision(controlled);
-    for (const [i, row] of copy.activities.entries()) {
+    for (const row of copy.activities) {
+      const i = activities.findIndex(activity => activity.activityKey === row.activityKey);
       const activity = revised.activityExplorer!.codeActivityPack.activities[i];
       expect(row.field === "activityUserCopy" ? activity.activityUserCopy : activity.taskExamples[row.index!]).toBe(row.after);
       expect(activity.riasecDimensions).toBe(activities[i].riasecDimensions);
       expect(activity.occupationExamples).toBe(activities[i].occupationExamples);
-      if (row.field === "taskExamples") expect(activity.taskExamples.slice(0, 7)).toEqual(activities[i].taskExamples.slice(0, 7));
+      if (row.field === "taskExamples") expect(activity.taskExamples.filter((_, index) => index !== row.index)).toEqual(activities[i].taskExamples.filter((_, index) => index !== row.index));
     }
     render(<RiasecResultShell locale="en" viewModel={revised} />);
     for (const row of copy.activities) {
