@@ -1,0 +1,125 @@
+{
+  "thoughts-reading": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者见到一次回复延迟，脑中多次出现“自己会被取代”的猜想。重复想到与实际被取代是两回事；题目记录回想中的思维频率，不能核实延迟原因，也不能让对方承担证明清白的义务。",
+          "en": "In an additional original scene: A fictional reader repeatedly imagines being replaced after a delayed reply. Repeated thoughts and actual replacement are different. Items describe recalled thought frequency without verifying the delay’s cause or imposing a duty on someone else to prove innocence."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“这段虚构描述中，哪些是观察，哪些是猜想，哪些仍不知道？”可只读或讨论虚构人物，不需分享答案、核实伴侣、请求解释或争取更低均分。听者保留不参与和不回答的选择。",
+          "en": "An optional discussion card asks: “Which parts of this fictional account are observations, interpretations or unknowns?” Read alone or discuss the fictional reader without sharing answers, verifying a partner, requesting explanations or pursuing a lower mean. A listener may decline participation or answers."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原有观察均可跳过。始终回想同一段当前恋爱关系或最近一段重要关系的过去四周，已结束时取最后四周；这是编辑窗口。十八条分三组各六条直接计入，无反向。思维和行动的1至5表示相关机会中的频率，3为有时；不适的1至5表示强度，3为中等不适，均不是中立。没有相关经历、无法判断或不愿答保留不计分，不补成从未、没有不适、零或中点。十八项均需回应，各组必须六项数字齐全才求和除以六，显示一位小数；思维2、3、4、2、3、4为3.0，不适4、2、3、5、2、3为3.2，行动1、2、3、2、4、3为2.5。这些均分没有共同心理单位，不跨组排名、相加或计算差距；同数不证明相同体验，变化不证明改善。一项未评分仅使所属组暂不给均分，其余完整组与三篇全文保留。完整与小数显示不证明可靠或精确。本原创十八题不是MJS原版或验证短版；研究仅作概念背景，不转移常模、信效度或中英等值证据。没有嫉妒类型、严重度、爱的程度、忠诚或关系预测结论。阅读无需联系、调查、查看私密资料、复现行动或披露个人经历；听者不要求认同、解释、安慰或继续关系。原有页面内存、自选24小时标签页草稿及完成、重测、退出清除保持不变，复制不含答案或均分。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices; existing observations are optional. Keep one current romantic or most recent significant relationship in mind over four weeks, or its final four weeks if ended, an editorial window. Eighteen direct items form three groups of six without reversals. Thought and action ratings 1–5 describe frequency in relevant opportunities; three means sometimes. Discomfort ratings describe intensity; three means moderate discomfort, not neutrality. No experience, uncertainty or withholding stays unscored without replacement by never, no discomfort, zero or midpoint. All items require responses. Each group needs all six numeric ratings for sum divided by six, displayed to one decimal. Thought ratings 2, 3, 4, 2, 3, 4 give 3.0; discomfort ratings 4, 2, 3, 5, 2, 3 give 3.2; action ratings 1, 2, 3, 2, 4, 3 give 2.5. Means share no psychological unit and are never ranked, added or subtracted across groups. Equal numbers establish no equal experience; changes establish no improvement. One unscored answer withholds only its group’s mean; complete groups and all three guides remain available. Completeness and decimal display prove neither reliability nor precision. These original eighteen items are neither original MJS nor a validated short form. Research provides conceptual background without transferring norms, validity, reliability or English–Chinese equivalence. There is no jealousy type, severity, amount of love, loyalty or relationship prediction. Reading needs no contact, investigation, private-material access, reproduced action or personal disclosure. A listener requires no agreement, explanation, reassurance or continuation. Existing page memory, optional 24-hour tab drafts and completion, retake or exit clearing remain unchanged; copying contains no answers or means."
+        }
+      ]
+    }
+  ],
+  "discomfort-reading": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者回想一次听说伴侣与别人相处愉快的情境，记得当时明显不适，但不确定持续多久或是否常发生。强度、持续时间、出现次数与行动不同；强烈感受不认证事件真相，也不要求对方承认同样的理解。",
+          "en": "In an additional original scene: A fictional reader recalls strong discomfort after hearing about a partner’s enjoyable interaction with someone else, without knowing its duration or recurrence. Intensity, duration, frequency and action differ. A strong feeling verifies no event and requires nobody else to endorse the same interpretation."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“这段虚构描述已经说明了哪种感受，还没有说明哪些频率、事实或行动？”可只读或讨论虚构人物，不需分享答案、核实伴侣、请求解释或争取更低均分。听者保留不参与和不回答的选择。",
+          "en": "An optional discussion card asks: “Which feeling does this fictional account describe, and which frequencies, facts or actions remain unspecified?” Read alone or discuss the fictional reader without sharing answers, verifying a partner, requesting explanations or pursuing a lower mean. A listener may decline participation or answers."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原有观察均可跳过。始终回想同一段当前恋爱关系或最近一段重要关系的过去四周，已结束时取最后四周；这是编辑窗口。十八条分三组各六条直接计入，无反向。思维和行动的1至5表示相关机会中的频率，3为有时；不适的1至5表示强度，3为中等不适，均不是中立。没有相关经历、无法判断或不愿答保留不计分，不补成从未、没有不适、零或中点。十八项均需回应，各组必须六项数字齐全才求和除以六，显示一位小数；思维2、3、4、2、3、4为3.0，不适4、2、3、5、2、3为3.2，行动1、2、3、2、4、3为2.5。这些均分没有共同心理单位，不跨组排名、相加或计算差距；同数不证明相同体验，变化不证明改善。一项未评分仅使所属组暂不给均分，其余完整组与三篇全文保留。完整与小数显示不证明可靠或精确。本原创十八题不是MJS原版或验证短版；研究仅作概念背景，不转移常模、信效度或中英等值证据。没有嫉妒类型、严重度、爱的程度、忠诚或关系预测结论。阅读无需联系、调查、查看私密资料、复现行动或披露个人经历；听者不要求认同、解释、安慰或继续关系。原有页面内存、自选24小时标签页草稿及完成、重测、退出清除保持不变，复制不含答案或均分。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices; existing observations are optional. Keep one current romantic or most recent significant relationship in mind over four weeks, or its final four weeks if ended, an editorial window. Eighteen direct items form three groups of six without reversals. Thought and action ratings 1–5 describe frequency in relevant opportunities; three means sometimes. Discomfort ratings describe intensity; three means moderate discomfort, not neutrality. No experience, uncertainty or withholding stays unscored without replacement by never, no discomfort, zero or midpoint. All items require responses. Each group needs all six numeric ratings for sum divided by six, displayed to one decimal. Thought ratings 2, 3, 4, 2, 3, 4 give 3.0; discomfort ratings 4, 2, 3, 5, 2, 3 give 3.2; action ratings 1, 2, 3, 2, 4, 3 give 2.5. Means share no psychological unit and are never ranked, added or subtracted across groups. Equal numbers establish no equal experience; changes establish no improvement. One unscored answer withholds only its group’s mean; complete groups and all three guides remain available. Completeness and decimal display prove neither reliability nor precision. These original eighteen items are neither original MJS nor a validated short form. Research provides conceptual background without transferring norms, validity, reliability or English–Chinese equivalence. There is no jealousy type, severity, amount of love, loyalty or relationship prediction. Reading needs no contact, investigation, private-material access, reproduced action or personal disclosure. A listener requires no agreement, explanation, reassurance or continuation. Existing page memory, optional 24-hour tab drafts and completion, retake or exit clearing remain unchanged; copying contains no answers or means."
+        }
+      ]
+    }
+  ],
+  "responses-reading": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者已收到一次解释，又把同一担心带回交谈。回忆这一行动与判断其影响、对方感受或是否造成伤害不同；较低均分也不能排除某次越界。理解自身行动不要求重新追问、查资料或安排对方作答。",
+          "en": "In an additional original scene: A fictional reader returns to the same worry after receiving an explanation. Recalling an action differs from assessing its impact, another person’s experience or harm. A lower mean cannot rule out a particular boundary violation. Understanding one’s actions needs no renewed questioning, information search or partner participation."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“这段虚构互动中，读者做了什么，哪些影响仍不清楚，哪里可以停止而不再追问？”可只读或讨论虚构人物，不需分享答案、核实伴侣、请求解释或争取更低均分。听者保留不参与和不回答的选择。",
+          "en": "An optional discussion card asks: “What did the fictional reader do, which effects remain unknown, and where could the exchange end without renewed questioning?” Read alone or discuss the fictional reader without sharing answers, verifying a partner, requesting explanations or pursuing a lower mean. A listener may decline participation or answers."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原有观察均可跳过。始终回想同一段当前恋爱关系或最近一段重要关系的过去四周，已结束时取最后四周；这是编辑窗口。十八条分三组各六条直接计入，无反向。思维和行动的1至5表示相关机会中的频率，3为有时；不适的1至5表示强度，3为中等不适，均不是中立。没有相关经历、无法判断或不愿答保留不计分，不补成从未、没有不适、零或中点。十八项均需回应，各组必须六项数字齐全才求和除以六，显示一位小数；思维2、3、4、2、3、4为3.0，不适4、2、3、5、2、3为3.2，行动1、2、3、2、4、3为2.5。这些均分没有共同心理单位，不跨组排名、相加或计算差距；同数不证明相同体验，变化不证明改善。一项未评分仅使所属组暂不给均分，其余完整组与三篇全文保留。完整与小数显示不证明可靠或精确。本原创十八题不是MJS原版或验证短版；研究仅作概念背景，不转移常模、信效度或中英等值证据。没有嫉妒类型、严重度、爱的程度、忠诚或关系预测结论。阅读无需联系、调查、查看私密资料、复现行动或披露个人经历；听者不要求认同、解释、安慰或继续关系。原有页面内存、自选24小时标签页草稿及完成、重测、退出清除保持不变，复制不含答案或均分。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices; existing observations are optional. Keep one current romantic or most recent significant relationship in mind over four weeks, or its final four weeks if ended, an editorial window. Eighteen direct items form three groups of six without reversals. Thought and action ratings 1–5 describe frequency in relevant opportunities; three means sometimes. Discomfort ratings describe intensity; three means moderate discomfort, not neutrality. No experience, uncertainty or withholding stays unscored without replacement by never, no discomfort, zero or midpoint. All items require responses. Each group needs all six numeric ratings for sum divided by six, displayed to one decimal. Thought ratings 2, 3, 4, 2, 3, 4 give 3.0; discomfort ratings 4, 2, 3, 5, 2, 3 give 3.2; action ratings 1, 2, 3, 2, 4, 3 give 2.5. Means share no psychological unit and are never ranked, added or subtracted across groups. Equal numbers establish no equal experience; changes establish no improvement. One unscored answer withholds only its group’s mean; complete groups and all three guides remain available. Completeness and decimal display prove neither reliability nor precision. These original eighteen items are neither original MJS nor a validated short form. Research provides conceptual background without transferring norms, validity, reliability or English–Chinese equivalence. There is no jealousy type, severity, amount of love, loyalty or relationship prediction. Reading needs no contact, investigation, private-material access, reproduced action or personal disclosure. A listener requires no agreement, explanation, reassurance or continuation. Existing page memory, optional 24-hour tab drafts and completion, retake or exit clearing remain unchanged; copying contains no answers or means."
+        }
+      ]
+    }
+  ]
+}

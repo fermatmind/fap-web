@@ -1,0 +1,226 @@
+{
+  "ichigo-kurosaki": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘帮助的范围与结束",
+        "en": "Review the scope and ending of help"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的帮助设想，确认对方是否需要、自己是否愿意，以及做到哪里就结束。没解决全部问题也可以按约定交还；不知道时直接留下未知。提供过一次帮助不自动承担下次，不用困难程度或感谢多少评价关心。",
+          "en": "After the help idea above, check need, your willingness and where it ends. Hand back as agreed without solving everything, and say when something is unknown. One offer creates no automatic next occasion. Neither the difficulty nor the thanks you receive measures how much you care."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个只看一小段的帮助",
+        "en": "Share help with one small passage"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设朋友请你看一页说明，你愿意看哪两段，何时结束，哪些仍不知道？”可以不提供，不把角色匹配当成保护所有人的承诺。",
+          "en": "Ask: “If a friend asked about imaginary instructions, which two passages would you consider, when would you end and what remains unknown?” Declining is available; a match promises no universal protection."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "rukia-kuchiki": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘说明与实际需要是否相接",
+        "en": "Review whether the explanation fits the need"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的步骤说明，区分自己知道的用法、对方真正想了解的部分和仍不确定的条件。说明可以缩短或改顺序，不需要把所有知识一次讲完。若别人不照做，先了解实际需要，不把它解释为不听话，也不靠回忆准确率评价教学能力。",
+          "en": "After the procedure above, separate the use you know, what the listener wants and uncertain conditions. Shorten or reorder it without delivering everything at once. If someone uses another method, ask about actual needs rather than disobedience. This exercise does not assess teaching ability through a listener’s recall."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个只解释所需部分的问题",
+        "en": "Share a question about explaining only what is needed"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设说明普通文具怎样取用和归位，你想听哪部分，也可以暂时不听？”讨论顺序，不按角色分配老师与学生。",
+          "en": "Ask: “For an imaginary explanation of taking and returning stationery, which part would you want, or would you skip it?” Discuss sequence without assigning teacher and student roles by character."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "sosuke-aizen": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘新问题与原框架的用途",
+        "en": "Review the new question and the original frame"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的自用清单，分别写出它原来回答什么、现在想问什么，以及哪些原记录仍有用。新框架也可能不适合，可以保留旧版或都不改。重看分类只限自己的普通材料，不以此否定他人的经历、动机或现实判断。",
+          "en": "After the private list above, separate its original question, your current question and records still useful. A new frame may not fit either; keep the old version or make no change. Reconsider your own ordinary material without discrediting someone else’s experience, motives or reality."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可以保留旧版的分类问题",
+        "en": "Share a classification question that can keep the old version"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设收藏清单原按年份排，现在想找愿意重看的段落，要不要换问题？”允许不同用途并存，不比赛谁看得更透或更会控制安排。",
+          "en": "Ask: “If an imaginary collection list used years but now sought passages to revisit, would you change its question?” Different uses can coexist without a contest in insight or control."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "byakuya-kuchiki": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘已接受与需要再问的承诺",
+        "en": "Review accepted commitments and matters to ask again"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的约定范围，核对双方实际接受的内容、结束时间和哪些变化需重新确认。条件改变时可以提出修改，不用沉默或强撑维持形式。清楚承诺不保证事情顺利，也不因一次改期就否定可靠性；未同意的部分仍未同意。",
+          "en": "After the agreement above, check accepted content, its endpoint and changes needing another discussion. Propose revisions instead of silence or forced adherence. A clear commitment cannot guarantee a smooth outcome, and rescheduling once says nothing by itself about reliability. Unagreed parts remain unagreed."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可以再确认的借阅约定",
+        "en": "Share a lending agreement that can be revisited"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设借一本小册子，归还日期、可用书签和延期怎样说清？”可以不借，不靠从不改变或严肃语气证明守约。",
+          "en": "Ask: “For an imaginary booklet loan, how would you state return timing, page markers and extensions?” You may also decide against lending. Unchanging terms and a solemn tone do not prove commitment."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "orihime-inoue": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘对方的意愿与自己的范围",
+        "en": "Review their wishes and your own scope"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的回应设想，区分对方明确说过的需要、自己猜的部分和愿意提供的范围。若没有说清，可以问一次或保留未知；不同意见也能存在。不需要不停提供建议来证明体贴，双方都可以结束普通交流。",
+          "en": "After the response idea above, separate stated needs, your guesses and what you want to offer. Ask or retain uncertainty when unclear; different views can coexist. You do not need to keep offering advice to demonstrate consideration, and either person may end an ordinary exchange."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个不默认需要建议的问题",
+        "en": "Share a question that assumes no need for advice"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设朋友提到一个普通爱好，现在想让人听听、一起想办法，还是只是提一句？”按本人答复回应，不猜隐藏求助或评分共情。",
+          "en": "Ask: “If a friend mentioned an imaginary ordinary hobby, would they want listening, ideas together or simply to mention it?” Follow the stated response without hidden-help guesses or empathy ratings."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "kisuke-urahara": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘小样说明了什么",
+        "en": "Review what the sample actually showed"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的最小小样，记下它让自己看清的一点和仍未试过的条件。一个样例不证明整个办法有效；没有继续兴趣也可以直接收起。先确认材料和改动范围，不用新奇、采用人数或是否猜中结果评价创造力。",
+          "en": "After the smallest sample above, note what it clarified and which conditions remain untried. One sample proves no whole method effective. Put it away when interest ends. Check materials and scope. The sample’s novelty, adoption or predictability is not a creativity score."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个不必做成成品的小样",
+        "en": "Share a sample that needs no finished product"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设自己的标签先在废纸写两字试位置，你想看哪一点，何时就不做？”允许只想不做，不把小样扩成必须完成的系统。",
+          "en": "Ask: “For an imaginary two-word label on scrap paper, what would you examine and when would you not make it?” Thinking is enough without a compulsory system or finished product."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "kenpachi-zaraki": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘这项挑战是否仍自愿",
+        "en": "Review whether the challenge remains wanted"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的一个小点，核对现在是否还想试、条件是否合适，以及到哪里可以停。没做成时可以换容易版本、只看或结束，不需要增加难度补偿。挑战不是比赛，也不以挫折后坚持多久评价勇气、身体能力或角色相似程度。",
+          "en": "After the small point above, check whether you still want it, whether conditions fit and where to stop. Choose an easier version, watch or end an unfinished attempt without compensating through greater difficulty. A contest or persisting through frustration cannot by itself establish courage, physical ability or resemblance."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个不升级的小尝试",
+        "en": "Share an attempt that need not escalate"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设只愿意试一次普通折纸，你想试哪一折，什么情况下就停？”不用重复次数、受挫或胜过别人验证结果。",
+          "en": "Ask: “For one imaginary ordinary paper fold, which would you choose and when would you stop?” Repetitions, frustration and surpassing someone else need not verify a result."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ]
+}

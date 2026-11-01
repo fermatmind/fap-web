@@ -1,0 +1,214 @@
+{
+  "interaction-load": [
+    {
+      "id": "editorial-together",
+      "title": {
+        "zh": "交流之后费力，和协调安排费力怎样分开？",
+        "en": "Separating conversation effort from coordination effort"
+      },
+      "paragraphs": [
+        {
+          "zh": "同样一次聚会，可以分别回顾见面前的订位、确认与改时间，以及见面时的听、说和持续回应。若前者已经让你疲惫，先减少组织工作；若到了现场才难以继续投入，可以先调整交流时长或形式。它们只是待核对的线索，均分本身不能确定原因。",
+          "en": "For one gathering, review booking, confirmations and rescheduling separately from listening, speaking and responding during the meeting. If the preparation was demanding, consider reducing organising duties; if participation became effortful at the event, consider duration or format. These are clues to check, rather than causes established by a mean."
+        },
+        {
+          "zh": "“我喜欢这次相处”和“结束后不想再聊”可以同时成立。不要用这一部分否定相处中的开心，也不需要为解释休息需求而先证明对方让人疲惫。",
+          "en": "Enjoying the time together and not wanting another conversation afterwards can coexist. This part need not negate enjoyment or require you to establish that the other person is tiring before requesting a break."
+        }
+      ]
+    },
+    {
+      "id": "editorial-observe",
+      "title": {
+        "zh": "一次尝试之后，记录什么才有用？",
+        "en": "What to note after a trial"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的结束时间小尝试，记录活动大致时长、是否需要主持或照顾全场、结束时想继续做什么，以及留出缓冲后是否有变化。尽量一次只调整一个可控环节；若当天睡眠、通勤或任务也不同，就把这些变化一起记下，不把体验改善全归于缓冲。",
+          "en": "For the end-time trial above, note approximate event duration, whether you had to host or support the whole group, what you wanted to do afterwards and any change after the pause. Where practical, change one manageable feature at a time. Note differences in sleep, travel or tasks too, rather than attributing all improvement to the pause."
+        },
+        {
+          "zh": "如果没有更轻松，这仍是有用信息，可以换一种形式或保留原安排。一次记录不能验证“我只能社交多少分钟”，也不必为了得到明确结论反复消耗自己。",
+          "en": "No improvement is useful information too: you may change the format or keep the original arrangement. One observation cannot establish a fixed limit on your social minutes, and you need not exhaust yourself seeking a definitive answer."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "向朋友说明需要，而非公布电量等级",
+        "en": "Share a need rather than a battery rank"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以自行复制：“我最近在观察交流结束后的负担。我很愿意见你，这次想把结束时间说清楚，之后先不接新安排。你希望怎样安排？”这句话不预设你本次均分较高；按真实需要修改，也可以只分享安排、不分享分数。",
+          "en": "You can copy: “I am noticing how I feel after conversations. I would like to see you and agree an end time, then avoid another commitment immediately afterwards. What would work for you?” This does not presume a high mean in your attempt. Edit it to match your needs, or share the arrangement without a score."
+        },
+        {
+          "zh": "对方也需要休息时，可以讨论双方各自能参加的时长，不比较谁“电量更差”。公开说明页只包含通用读法，不显示你的个人均分或答案。",
+          "en": "If the other person also needs a break, discuss the time each of you can join rather than ranking whose battery is worse. The public guide contains general interpretation without your personal means or answers."
+        }
+      ]
+    }
+  ],
+  "coordination-load": [
+    {
+      "id": "editorial-together",
+      "title": {
+        "zh": "把组织角色与相处本身分开观察",
+        "en": "Separate the organising role from the time together"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以把一次见面拆成三段：确认时间和条件、实际相处、之后的跟进。若安排顺畅但现场交流费力，不能用协调负担解释全部体验；若一想到反复确认就不想参加，也不等于你不喜欢这些朋友。",
+          "en": "Break a meeting into confirming time and conditions, spending time together and following up afterwards. If arrangements were easy but conversation was demanding, coordination load cannot explain the whole experience. Reluctance about repeated confirmations does not establish dislike of your friends."
+        },
+        {
+          "zh": "协调负担与安静恢复感也不互为反面。即使安静独处后感觉轻松，原本不清楚的分工仍可能需要商量；恢复感不能替代重新分配任务。",
+          "en": "Coordination load and recovery through quiet are not opposites. Feeling better after time alone does not resolve an unclear division of tasks; restoration cannot substitute for discussing responsibility."
+        }
+      ]
+    },
+    {
+      "id": "editorial-observe",
+      "title": {
+        "zh": "怎样看一次重新分工有没有帮助",
+        "en": "Reviewing a trial of shared responsibility"
+      },
+      "paragraphs": [
+        {
+          "zh": "在上面的分工尝试中，提前写清自己只负责哪一项、谁来确认其余条件以及何时不再改安排。结束后回看自己追问了多少次、有没有替别人补做确认、实际相处是否受到影响。这里的次数只是日常笔记，不是新的测评分数。",
+          "en": "For the shared-responsibility trial above, state your task, who will confirm the remaining conditions and when changes stop. Afterwards, review repeated follow-ups, confirmations you took over and any effect on the time together. These are ordinary notes, rather than a new assessment score."
+        },
+        {
+          "zh": "若事情变得更乱，先检查分工是否清楚、其他人是否真有时间，而不是立即归结为“只有我能组织”。也可以缩小活动范围，不必在同一次安排中证明分工一定有效。",
+          "en": "If arrangements become less clear, check task clarity and other people’s availability before concluding that only you can organise. Reducing the activity’s scope is another option; one arrangement need not prove that sharing responsibility always works."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "让别人知道你愿意负责哪一部分",
+        "en": "Share the part you are willing to own"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以自行复制：“我想把见面前的安排做简单一点。这次我负责订位，大家各自确认时间和需要；有变化请在约定时间前说。这样对你方便吗？”它是协商邀请，不是用结果要求别人配合。",
+          "en": "You can copy: “I would like to simplify the arrangements. I can book the place; could each person confirm their time and needs, with changes before our agreed deadline? Would that work for you?” This invites discussion rather than using a result to demand compliance."
+        },
+        {
+          "zh": "不必公开所有均分，也不拿负担高低评价谁更负责。公开结果链接不会附带你承担过的任务、联系人或答卷；具体分工只分享给需要知道的人。",
+          "en": "You need not disclose every mean or use reported effort to judge responsibility. The public result link does not include your tasks, contacts or answers. Share specific arrangements only with those who need them."
+        }
+      ]
+    }
+  ],
+  "quiet-recovery": [
+    {
+      "id": "editorial-together",
+      "title": {
+        "zh": "独处有帮助，不等于陪伴就无帮助",
+        "en": "Solitude helping does not rule out helpful company"
+      },
+      "paragraphs": [
+        {
+          "zh": "这部分与轻松陪伴部分可以同时报告较常出现恢复感。可以问自己：先独处再见熟人是否更舒服，还是不同日子需要不同形式？问卷不要求二选一，也不根据均分替你安排顺序。",
+          "en": "Recovery through quiet and through easy company can both be reported frequently. Consider whether quiet time before seeing someone familiar works better, or whether different days call for different formats. The questionnaire does not require a choice between them or prescribe an order from the means."
+        },
+        {
+          "zh": "较少报告独处恢复感，也不能推出你必须一直有人陪。先回顾独处时是否还在处理消息、工作或其他要求；“一个人”与“暂时没有回应要求”是不同的观察条件。",
+          "en": "Less frequent restoration through solitude does not imply that you always need company. Review whether being alone still involved messages, work or other demands. Being alone and being free of response demands are different conditions."
+        }
+      ]
+    },
+    {
+      "id": "editorial-observe",
+      "title": {
+        "zh": "比较短休息时，保留哪些条件",
+        "en": "What to note when comparing short pauses"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面两种短休息的尝试，记下是否仍需回复、周围是否吵闹、自己做了什么，以及结束后想继续或停止什么活动。两次情境很难完全相同；若差异较大，就保留“暂时无法比较”，不要把一天的感受变成通用恢复规律。",
+          "en": "For the two-pause comparison above, note any response demands, noise, what you did and which activity you wanted to continue or stop afterwards. Two occasions rarely match exactly. If conditions differ substantially, retain “not comparable yet” rather than treating one day’s experience as a general recovery rule."
+        },
+        {
+          "zh": "你可以随时结束不舒服的尝试，或不做比较。这里观察的是主观体验，不是在测身体能量，也不能用休息时长计算“充满需要多久”。",
+          "en": "You may stop an uncomfortable trial or decline the comparison. This observes subjective experience, rather than bodily energy, and cannot turn time resting into a calculation of how long a full charge takes."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "把安静需要说成一个可协商的安排",
+        "en": "Make a quiet pause a discussable arrangement"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以自行复制：“我想先留一段不处理消息的安静时间，之后再商量什么时候聊。若有需要及时处理的事，我们先说清楚。”用自己的真实时间改写；不用承诺某段独处一定让你恢复，也不必为每次沉默解释人格。",
+          "en": "You can copy: “I would like some quiet time without handling messages, then we can agree when to talk. If something needs a timely response, let us clarify it first.” Use times that fit your situation, without promising that a pause will restore you or explaining every silence as personality."
+        },
+        {
+          "zh": "朋友可以表达自己的联络需要，你也可以说明暂时做不到的部分。分享这份公开读法不等于分享个人均分，更不意味着对方能据此推断你喜欢或不喜欢他。",
+          "en": "A friend may state their contact needs, and you may explain what you cannot offer for now. Sharing this public reading does not disclose your personal mean or establish whether you like someone."
+        }
+      ]
+    }
+  ],
+  "easy-company": [
+    {
+      "id": "editorial-together",
+      "title": {
+        "zh": "陪伴的形式比“爱不爱社交”更具体",
+        "en": "The form of company is more specific than liking socialising"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以区分安静散步、各做各事、持续聊天与负责活跃气氛。你可能从一种相处中感觉缓过来，却在另一种相处后更费力；一个均分不识别是哪一位朋友或哪一种形式在起作用。",
+          "en": "Distinguish a quiet walk, separate activities together, continuous conversation and entertaining others. One format may feel restoring while another feels demanding; a mean cannot identify which friend or format accounts for the experience."
+        },
+        {
+          "zh": "若这部分与交流负担都较常出现，可以先调整相处要求，而不急着决定应该多社交还是完全独处。资料不足时，只能先看自己实际经历过什么，不能把缺少观察解释为不需要陪伴。",
+          "en": "If restoration through company and interaction load are both frequently reported, consider the demands of the contact before deciding on more socialising or total solitude. With insufficient information, begin with what you experienced; missing observations do not mean you have no need for company."
+        }
+      ]
+    },
+    {
+      "id": "editorial-observe",
+      "title": {
+        "zh": "一次小邀请后，怎样避免误判",
+        "en": "Avoiding overinterpretation after a small invitation"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的自愿小邀请，事先说清是否需要聊天、时长能否调整，以及任何一方能否结束。之后记录是更轻松、差不多还是更费力，并注明当时活动与其他要求。不要把一次没感觉更好解释为对方陪伴得不够好。",
+          "en": "For the voluntary invitation above, clarify conversation expectations, whether timing can change and whether either person can finish. Afterwards, note feeling more at ease, about the same or more effortful, together with activities and other demands. A lack of improvement is not evidence that the other person provided inadequate company."
+        },
+        {
+          "zh": "对方没有时间或不愿参加，也不为这一部分提供高低证据。你可以另选形式、另约时间，或者结束尝试；不需要通过持续联系来验证结果。",
+          "en": "A person being unavailable or declining provides no evidence for a higher or lower mean here. You can change the format, arrange another time or end the trial, without maintaining contact to validate a result."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "邀请陪伴，同时给对方选择空间",
+        "en": "Invite company while preserving choice"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以自行复制：“你愿意一起散步或各做各事待一会儿吗？我现在不太想持续聊天，你也可以随时说不方便。”这只表达此刻的需要，不要求对方负责让你恢复，也不预设你本次获得了某个分数。",
+          "en": "You can copy: “Would you like a walk or a little time doing our own things together? I do not feel like a continuous conversation, and it is fine if that does not work for you.” This expresses a current need without making the other person responsible for restoration or presuming a particular score."
+        },
+        {
+          "zh": "也可以问对方更喜欢哪种陪伴，而不把两人的均分排出匹配程度。公开链接是通用说明，个人频率回答、均分和私下邀请都不会自动随链接发布。",
+          "en": "You may also ask which kind of company the other person prefers, without ranking compatibility from your means. The public link is a general guide; frequency responses, personal means and private invitations are not automatically published with it."
+        }
+      ]
+    }
+  ]
+}

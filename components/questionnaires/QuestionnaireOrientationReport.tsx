@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
+import type { QuestionnaireProfile } from "@/lib/questionnaires/types";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { MiniOrientationQuestionnaire, OrientationRecord } from "@/lib/questionnaires/miniOrientation";
 import type { Locale } from "@/lib/i18n/locales";
 
-export function QuestionnaireOrientationReport({ quiz, result, locale }: { quiz: MiniOrientationQuestionnaire; result: OrientationRecord; locale: Locale }) {
+export function QuestionnaireOrientationReport({ quiz, result, locale, readingProfiles }: { quiz: MiniOrientationQuestionnaire; result: OrientationRecord; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
   const zh = locale === "zh";
   return <div data-orientation-result className="my-6 space-y-8">
     <p className="leading-8">{zh ? "这里只整理自我观察回答，不判定取向、身份或概率，不能确定、证明或改变取向，也不推断吸引对象。无须公开、解释或证明自己。" : "This records self-observation responses, not orientation, identity or probability. It cannot determine, prove or change orientation, or infer whom you are attracted to. No disclosure, explanation or proof is required."}</p>
@@ -16,12 +17,13 @@ export function QuestionnaireOrientationReport({ quiz, result, locale }: { quiz:
       {quiz.directions.map(direction => {
         const record = result.domains[direction.id], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
         const options = quiz.questions.find(q => q.options[0].directionId === direction.id)!.options;
+        const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === 1 && item.directionIds[0] === direction.id && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
         return <section key={direction.id} data-orientation-domain={direction.id} className="rounded-lg border border-slate-200 p-4 sm:p-6" aria-labelledby={`orientation-${direction.id}`}>
           <h3 id={`orientation-${direction.id}`} className="text-2xl font-semibold">{direction.title[locale]}</h3>
           <p data-orientation-counts className="my-4 leading-8">{zh ? `4条陈述：${record.numeric}个数字回答（其中${record.uncertain}个暂不确定），${record.skipped}个明确跳过。` : `4 statements: ${record.numeric} numeric responses (including ${record.uncertain} uncertain); ${record.skipped} explicitly skipped.`}</p>
           <dl data-orientation-distribution className="space-y-3 rounded-lg bg-slate-50 p-4">{options.map(option => <div key={option.id} className="flex items-start justify-between gap-4"><dt className="leading-7">{option.id === "na" ? "" : `${option.id} — `}{option.label[locale]}</dt><dd className="shrink-0 leading-7">{zh ? `${record.choices[option.id]}次` : `${record.choices[option.id]}`}</dd></div>)}</dl>
           {record.skipped === 4 && <p data-orientation-domain-skipped className="mt-4 leading-8">{zh ? "本主题四题均跳过，保留此选择，不推断原因；下方只是通用指南，不是对你的解释。" : "All four statements in this topic were skipped. The choices remain without inferred reasons; the text below is general guidance, not an interpretation of you."}</p>}
-          <div className="mt-6"><QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`orientation-report-${profile.id}`} /></div>
+          <div className="mt-6"><QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`orientation-report-${profile.id}`} /></div>
           <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "单独阅读本主题通用全文（不含个人记录）" : "Read this topic’s general full guide separately (no personal record)"}</Link>
         </section>;
       })}

@@ -1,0 +1,98 @@
+{
+  "problem-steps": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：能同时符合两种解释的观察，还不能区分原因",
+        "en": "Review observations that fit more than one explanation"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例发现九张虚构展览标签中两张与当前目录不同，先记这两张的文字、位置及目录版本，不先指责制作者。小模型只允许H1使用旧母版、H2使用当前母版但抄错，两者都预测可能出现当前不匹配；仅看到不匹配，不能区分。若模型还规定有可信、未被改动的打印输入记录，且H1预测旧版本、H2预测当前版本，检查输入版本才给出不同预测。此时按该简化模型判断，并不证明现实只有两种原因。先写观察、候选解释、各自预测及检查结果，再比较补救，避免把改过标签当成找到了原因。",
+          "en": "Use a fresh fictional display: two of nine labels disagree with the current catalogue. Record their text, positions and catalogue version before blaming a maker. A small model allows only H1, an old master, and H2, a copying error from the current master. Both permit a mismatch, so that observation alone does not distinguish them. Suppose the model also supplies a trustworthy unchanged print-input record: H1 predicts an old version and H2 the current version. Checking that input version now gives different predictions. A conclusion within this simplified model does not establish only two real causes. Write observations, candidate explanations, their predictions and check results before comparing remedies; correcting labels is not evidence that their cause has been identified."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "交换推理，比较规则与未知项",
+        "en": "Exchange reasoning and compare rules and unknowns"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“你的检查会在两个假设下得到不同预测吗？如果两边都能解释同一观察，还缺什么？”先各自写已知、所用规则和仍未知的事，再交换并找第一处分歧。可只读、画图、用计算器或更换虚构数量，不比赛速度，不按正确数评价朋友聪明与否、学业潜力或职业适合度。",
+          "en": "Ask: “Does your check predict different observations under the two hypotheses, and what remains missing when both fit?” Separately write known facts, the rule used and remaining unknowns, then exchange and locate the first difference. Read, sketch, use a calculator or replace fictional quantities without racing; do not rate friends’ intelligence, academic potential or career suitability from correct counts."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。三组是复习分类，不是思维能力诊断、常模或官方教育认证。30题固定，熟题提高不证明新问题迁移；可另设例子，先预测再核查，说明适用条件。练习不需要真实学生资料，也不授权改变学校流程。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Three groups organise revision rather than diagnosing thinking ability, providing norms or awarding official educational certification. Retakes reuse thirty items; improvement on familiar questions does not establish transfer. Predict and check a fresh example while stating its conditions. The exercise requires no real pupil information and authorises no changes to school processes."
+        }
+      ]
+    }
+  ],
+  "decision-tools": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：先筛必需限制，再看加权分",
+        "en": "Review mandatory limits before a weighted preference"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例规定费用至多30代币、时长至多20分钟，在合格者中按2×易读分+耐用分择高。A费用28、时长18、分项(3,4)，B为24、19、(4,1)，C为32、17、(5,5)。C虽得15分，却超费用线；A得10、B得9，故本规则选A。只把偏好权重改成4×易读分+耐用分，仍按原限制筛选，则A16、B17，改选B。权重改变的是合格者中的排序，不取消费用线，也不证明B客观更好。先检查边界是否包含等号，再保留规则、分项与总分，让他人能复算。",
+          "en": "Use a fresh rule: cost at most thirty tokens and duration at most twenty minutes, then prefer the highest 2×readability+durability score among eligible plans. A costs twenty-eight, takes eighteen and scores (3,4); B has twenty-four, nineteen and (4,1); C has thirty-two, seventeen and (5,5). C scores fifteen but violates the cost cap. A scores ten and B nine, selecting A. Change only the preference to 4×readability+durability while keeping the same limits: A now scores sixteen and B seventeen, selecting B. Changing weights changes eligible rankings, not the cost cap or objective quality. Check inclusive boundaries and retain the rule, components and totals for someone else to reproduce."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "交换推理，比较规则与未知项",
+        "en": "Exchange reasoning and compare rules and unknowns"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“最高分为什么可能不合格？如果只改偏好权重，哪条必需限制仍然保留？”先各自写已知、所用规则和仍未知的事，再交换并找第一处分歧。可只读、画图、用计算器或更换虚构数量，不比赛速度，不按正确数评价朋友聪明与否、学业潜力或职业适合度。",
+          "en": "Ask: “Why can the highest-scoring plan be ineligible, and which mandatory limits remain when only preference weights change?” Separately write known facts, the rule used and remaining unknowns, then exchange and locate the first difference. Read, sketch, use a calculator or replace fictional quantities without racing; do not rate friends’ intelligence, academic potential or career suitability from correct counts."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。三组是复习分类，不是思维能力诊断、常模或官方教育认证。30题固定，熟题提高不证明新问题迁移；可另设例子，先预测再核查，说明适用条件。练习不需要真实学生资料，也不授权改变学校流程。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Three groups organise revision rather than diagnosing thinking ability, providing norms or awarding official educational certification. Retakes reuse thirty items; improvement on familiar questions does not establish transfer. Predict and check a fresh example while stating its conditions. The exercise requires no real pupil information and authorises no changes to school processes."
+        }
+      ]
+    }
+  ],
+  "review-and-learning": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：反例推翻全部，未知数量仍保留范围",
+        "en": "Review a counterexample while retaining bounds on unknown counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例十张虚构海报，已查四张中三张有房间号、一张没有，另六张未查。“十张全有”已被反例推翻，“十张全无”也被三张已知有号者推翻；无号总数至少1、至多7，不能写成恰好1。另设汇总20人、到场12、缺席6，尚有2人状态未交代；数量差不确定这两人到场或缺席。把已知有、已知无、未查分别列出，再写结论和可缩小范围的下一项检查。不要为了让摘要整齐而补造状态，也别把缺记录当成个人态度或能力证据。",
+          "en": "Use ten fresh fictional posters: four inspected include three with room numbers and one without; six remain unchecked. The counterexample refutes all ten having numbers, while the three known numbered posters refute none having them. The unnumbered total ranges from one through seven, not exactly one. In a separate twenty-person summary, twelve present and six absent leave two statuses unaccounted for; that difference determines neither person’s attendance. List known presence, known absence and unchecked cases separately, then state conclusions and the next check that could narrow the range. Do not invent statuses to tidy a summary or treat missing records as evidence about someone’s attitude or ability."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "交换推理，比较规则与未知项",
+        "en": "Exchange reasoning and compare rules and unknowns"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“什么主张已经被推翻，什么数量仍未知？你能给出上下界，而不是编一个精确数吗？”先各自写已知、所用规则和仍未知的事，再交换并找第一处分歧。可只读、画图、用计算器或更换虚构数量，不比赛速度，不按正确数评价朋友聪明与否、学业潜力或职业适合度。",
+          "en": "Ask: “Which claims are already refuted, which count remains unknown, and can you give bounds instead of inventing a precise total?” Separately write known facts, the rule used and remaining unknowns, then exchange and locate the first difference. Read, sketch, use a calculator or replace fictional quantities without racing; do not rate friends’ intelligence, academic potential or career suitability from correct counts."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。三组是复习分类，不是思维能力诊断、常模或官方教育认证。30题固定，熟题提高不证明新问题迁移；可另设例子，先预测再核查，说明适用条件。练习不需要真实学生资料，也不授权改变学校流程。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Three groups organise revision rather than diagnosing thinking ability, providing norms or awarding official educational certification. Retakes reuse thirty items; improvement on familiar questions does not establish transfer. Predict and check a fresh example while stating its conditions. The exercise requires no real pupil information and authorises no changes to school processes."
+        }
+      ]
+    }
+  ]
+}

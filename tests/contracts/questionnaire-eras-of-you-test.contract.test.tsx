@@ -1,3 +1,4 @@
+import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -133,7 +134,7 @@ describe("T083 original six current-chapter observations", () => {
         }
         const raw = scoreLikertQuestionnaire(quiz, answersWith("na"));
         if (raw.status !== "complete") throw new Error("NA witness rejected");
-        const resultHtml = renderToStaticMarkup(<QuestionnaireChapterReport quiz={quiz} result={raw} locale={locale} />);
+        const resultHtml = renderToStaticMarkup(<QuestionnaireChapterReport quiz={prepareQuestionnaireResultReadings(quiz)} result={raw} locale={locale} />);
         const dom = document.createElement("div"); dom.innerHTML = resultHtml;
         expect(dom.querySelectorAll("[data-facet-score]")).toHaveLength(6);
         expect(dom.textContent).toContain(locale === "zh" ? "资料不足" : "Insufficient information");

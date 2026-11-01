@@ -1,0 +1,1027 @@
+{
+  "self-critic": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充情境：把画像放回日常",
+        "en": "An everyday scene for this portrait"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：宁交了清单后发现漏一项，先补充更正，再把“我整个人不行”留作未经证明的解释。乔也拿到IMSB，却可能正满意自己的作品；同代码并不核实相同经历。补清实际遗漏，不需要认领辱骂自己的昵称。",
+          "en": "An additional original fictional scene: Ning notices one missing item after sending a list and corrects it. “I am entirely incapable” remains an unsupported interpretation. Jo receives IMSB while feeling pleased with their work. Equal codes verify no shared experience, and correcting an omission requires no insulting self-description."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "一个可选的观察",
+        "en": "One optional observation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样把可更正的一项工作与对整个人的贬低分开？”可以只针对上面的虚构人物，分别列出已知行为、可能解释与仍未知的部分；不需要找出谁更像这个昵称。参与者可以不同意、跳过或结束，不交换真实答卷、身份或私事，不把另一个人的标签当成对方应配合的理由。",
+          "en": "An optional discussion prompt asks: “How can a correctable task detail remain separate from an insult directed at the whole person?” Use only the fictional people above to separate observed actions, possible interpretations and unknowns, without deciding who best fits the nickname. Participants may disagree, skip or stop without exchanging real responses, identities or private experiences, or treating someone’s label as a reason they must cooperate."
+        }
+      ]
+    },
+    {
+      "id": "source-method",
+      "title": {
+        "zh": "原玩法数字怎样阅读",
+        "en": "Reading the original model numbers"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是自有小程序原31题的固定娱乐玩法，25个代码与原中文题、原维度计算和分配规则保持。英文为工作译文，未建立语言等值或心理测量验证。31题每题须选一项给定选项才生成一个画像，缺答不补零、不填中立，不愿回答可以退出；选项含不同题式，不统一把A或C当作高分。选项影响值按原规则整理并映射十五个模型读数，显示0至100及低于40、40至69、不低于70的模型分段。这不是百分位、量表诊断阈值、能力分或真实人格强度；十五维也不能推导MBTI类型。分配保留原来的确定性步骤，包括按读数指纹的固定分桶，不能笼统说成最近画像，也不是提交时随机抽取。匹配展示保留原52%至96%的显示范围，不是准确率、预测概率或对你叙述正确的比例；预设稀有度是原表常数，不是样本频率、人口占比或个人价值。相同代码不保证相同回答或经历；原画像的十五句文字属于该代码模板，并不随每个个人读数重新写作。原故事中的能力、最稀有、性别化昵称与贬称均为夸张角色声音，不证明健康、身份、收入、宗教、道德、家庭经历或他人感受；可以拒绝任何不合适的昵称，不需为了符合画像改变自己。完整公开25篇作答前可读，个人完成后保留选中画像、十五维数字、原故事及本站情境与观察，不需注册、付款或继续测评。新增虚构例子和讨论只帮助核对具体行为，不是量表证据、治疗、行为预测、招聘或伴侣匹配，也没有重测进步或有意义变化阈值。不要求联系真实人物、披露关系、证明困境、花钱、饮酒或承担更多照顾。回答与本次结果只留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复、退出或重测按现有流程清除。分享仅复制选中画像的公开URL，无答卷、十五维数字、匹配值或答卷标识；URL本身可让收件人看见是哪种画像，若说明这是自己的结果，会披露这次标签，是否分享可自行决定。公开页面本身不认证发送者做过测试。可选匿名动作计数需本页许可与全站分析同意，不发送作答或个人读数；清除不抹掉历史、截屏或旁人看屏。可只读、不同意故事、拒绝讨论或停止。",
+          "en": "This fixed entertainment game retains the owned Mini edition’s original 31 Chinese questions, 25 codes, dimension calculations and assignment. English is a working translation without established language equivalence or psychometric validation. One offered response per item is required for a portrait; missing responses are not filled with zero or neutral, and declining to answer permits exit. Response formats vary, so A or C is not uniformly a higher score. Original option impacts map to fifteen model readouts displayed from zero to 100, with model bands below 40, 40–69 and at least 70. These are not percentiles, diagnostic thresholds, ability scores or actual trait intensity, and they infer no MBTI type. Assignment preserves deterministic steps including fixed buckets from a readout fingerprint: it is neither simply the nearest portrait nor a fresh random draw at submission. The original match display spans 52%–96%, without representing accuracy, prediction probability or the proportion of a story true about you. Preset rarity is an original table constant, not sample frequency, population share or personal worth. Equal codes guarantee no equal answers or experiences. The fifteen textual descriptions belong to a code’s template and are not rewritten for each personal readout. Ability claims, rarity, gendered names and insults in the original story are exaggerated character voices, establishing no health, identity, income, religion, morality, family history or other people’s feelings. Reject any unsuitable nickname without changing yourself to fit it. All 25 public guides are readable before answering. Completion retains the selected portrait, fifteen readouts, original story and editorial scenes and reflections without signup, payment or further testing. New fictional examples help inspect particular actions, providing no scale evidence, treatment, behavioral prediction, hiring or partner match, or meaningful repeat-change threshold. No contact, relationship disclosure, proof of difficulty, spending, drinking or additional care is required. Responses and results stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration, exit or retaking. Sharing copies only the selected portrait’s public URL without responses, fifteen readouts, match or attempt identifier. The URL reveals which portrait it describes; calling it your own result discloses that label, so sharing is optional. A public guide certifies no completed attempt by its sender. Optional anonymous action counts require page permission and site analytics consent without sending responses or personal readouts. Clearing erases no history, screenshots or screen observation. Reading alone, disagreeing with the story, declining discussion or stopping is allowed."
+        }
+      ]
+    }
+  ],
+  "initiator": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充情境：把画像放回日常",
+        "en": "An everyday scene for this portrait"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：沐主动为自愿读书会列两个日期，思提醒其中一天无法参加。沐修改提案而非要求思服从；BOSS只是故事代码，不给沐组织权或证明其更有领导力。思不愿解释私人安排，也可以表达不可行。",
+          "en": "An additional original fictional scene: Mu proposes two dates for a voluntary reading group. Si cannot attend one, so Mu revises the proposal rather than demanding compliance. BOSS supplies neither authority nor proof of leadership. Si can name an unavailable date without explaining private arrangements."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "一个可选的观察",
+        "en": "One optional observation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样让主动提案真正保留他人否决和修改的空间？”可以只针对上面的虚构人物，分别列出已知行为、可能解释与仍未知的部分；不需要找出谁更像这个昵称。参与者可以不同意、跳过或结束，不交换真实答卷、身份或私事，不把另一个人的标签当成对方应配合的理由。",
+          "en": "An optional discussion prompt asks: “How can an initiative leave genuine room for others to decline or revise it?” Use only the fictional people above to separate observed actions, possible interpretations and unknowns, without deciding who best fits the nickname. Participants may disagree, skip or stop without exchanging real responses, identities or private experiences, or treating someone’s label as a reason they must cooperate."
+        }
+      ]
+    },
+    {
+      "id": "source-method",
+      "title": {
+        "zh": "原玩法数字怎样阅读",
+        "en": "Reading the original model numbers"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是自有小程序原31题的固定娱乐玩法，25个代码与原中文题、原维度计算和分配规则保持。英文为工作译文，未建立语言等值或心理测量验证。31题每题须选一项给定选项才生成一个画像，缺答不补零、不填中立，不愿回答可以退出；选项含不同题式，不统一把A或C当作高分。选项影响值按原规则整理并映射十五个模型读数，显示0至100及低于40、40至69、不低于70的模型分段。这不是百分位、量表诊断阈值、能力分或真实人格强度；十五维也不能推导MBTI类型。分配保留原来的确定性步骤，包括按读数指纹的固定分桶，不能笼统说成最近画像，也不是提交时随机抽取。匹配展示保留原52%至96%的显示范围，不是准确率、预测概率或对你叙述正确的比例；预设稀有度是原表常数，不是样本频率、人口占比或个人价值。相同代码不保证相同回答或经历；原画像的十五句文字属于该代码模板，并不随每个个人读数重新写作。原故事中的能力、最稀有、性别化昵称与贬称均为夸张角色声音，不证明健康、身份、收入、宗教、道德、家庭经历或他人感受；可以拒绝任何不合适的昵称，不需为了符合画像改变自己。完整公开25篇作答前可读，个人完成后保留选中画像、十五维数字、原故事及本站情境与观察，不需注册、付款或继续测评。新增虚构例子和讨论只帮助核对具体行为，不是量表证据、治疗、行为预测、招聘或伴侣匹配，也没有重测进步或有意义变化阈值。不要求联系真实人物、披露关系、证明困境、花钱、饮酒或承担更多照顾。回答与本次结果只留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复、退出或重测按现有流程清除。分享仅复制选中画像的公开URL，无答卷、十五维数字、匹配值或答卷标识；URL本身可让收件人看见是哪种画像，若说明这是自己的结果，会披露这次标签，是否分享可自行决定。公开页面本身不认证发送者做过测试。可选匿名动作计数需本页许可与全站分析同意，不发送作答或个人读数；清除不抹掉历史、截屏或旁人看屏。可只读、不同意故事、拒绝讨论或停止。",
+          "en": "This fixed entertainment game retains the owned Mini edition’s original 31 Chinese questions, 25 codes, dimension calculations and assignment. English is a working translation without established language equivalence or psychometric validation. One offered response per item is required for a portrait; missing responses are not filled with zero or neutral, and declining to answer permits exit. Response formats vary, so A or C is not uniformly a higher score. Original option impacts map to fifteen model readouts displayed from zero to 100, with model bands below 40, 40–69 and at least 70. These are not percentiles, diagnostic thresholds, ability scores or actual trait intensity, and they infer no MBTI type. Assignment preserves deterministic steps including fixed buckets from a readout fingerprint: it is neither simply the nearest portrait nor a fresh random draw at submission. The original match display spans 52%–96%, without representing accuracy, prediction probability or the proportion of a story true about you. Preset rarity is an original table constant, not sample frequency, population share or personal worth. Equal codes guarantee no equal answers or experiences. The fifteen textual descriptions belong to a code’s template and are not rewritten for each personal readout. Ability claims, rarity, gendered names and insults in the original story are exaggerated character voices, establishing no health, identity, income, religion, morality, family history or other people’s feelings. Reject any unsuitable nickname without changing yourself to fit it. All 25 public guides are readable before answering. Completion retains the selected portrait, fifteen readouts, original story and editorial scenes and reflections without signup, payment or further testing. New fictional examples help inspect particular actions, providing no scale evidence, treatment, behavioral prediction, hiring or partner match, or meaningful repeat-change threshold. No contact, relationship disclosure, proof of difficulty, spending, drinking or additional care is required. Responses and results stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration, exit or retaking. Sharing copies only the selected portrait’s public URL without responses, fifteen readouts, match or attempt identifier. The URL reveals which portrait it describes; calling it your own result discloses that label, so sharing is optional. A public guide certifies no completed attempt by its sender. Optional anonymous action counts require page permission and site analytics consent without sending responses or personal readouts. Clearing erases no history, screenshots or screen observation. Reading alone, disagreeing with the story, declining discussion or stopping is allowed."
+        }
+      ]
+    }
+  ],
+  "caregiver": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充情境：把画像放回日常",
+        "en": "An everyday scene for this portrait"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：羽看见安安静，先问是否想换个话题；安说只想听。羽接受回答，不继续“照顾”到安必须解释情绪。MUM不验证读心、性别或育儿身份，愿意关心与自己也需要休息可以并存。",
+          "en": "An additional original fictional scene: Yu notices An is quiet and asks about changing the subject. An prefers listening, and Yu accepts that without requiring an emotional explanation. MUM establishes no mind-reading, gender or parenthood. Caring and needing rest oneself can coexist."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "一个可选的观察",
+        "en": "One optional observation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样提出能被拒绝的关心，而不猜测对方真正需要什么？”可以只针对上面的虚构人物，分别列出已知行为、可能解释与仍未知的部分；不需要找出谁更像这个昵称。参与者可以不同意、跳过或结束，不交换真实答卷、身份或私事，不把另一个人的标签当成对方应配合的理由。",
+          "en": "An optional discussion prompt asks: “How can care be offered with room for refusal rather than guessing what someone really needs?” Use only the fictional people above to separate observed actions, possible interpretations and unknowns, without deciding who best fits the nickname. Participants may disagree, skip or stop without exchanging real responses, identities or private experiences, or treating someone’s label as a reason they must cooperate."
+        }
+      ]
+    },
+    {
+      "id": "source-method",
+      "title": {
+        "zh": "原玩法数字怎样阅读",
+        "en": "Reading the original model numbers"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是自有小程序原31题的固定娱乐玩法，25个代码与原中文题、原维度计算和分配规则保持。英文为工作译文，未建立语言等值或心理测量验证。31题每题须选一项给定选项才生成一个画像，缺答不补零、不填中立，不愿回答可以退出；选项含不同题式，不统一把A或C当作高分。选项影响值按原规则整理并映射十五个模型读数，显示0至100及低于40、40至69、不低于70的模型分段。这不是百分位、量表诊断阈值、能力分或真实人格强度；十五维也不能推导MBTI类型。分配保留原来的确定性步骤，包括按读数指纹的固定分桶，不能笼统说成最近画像，也不是提交时随机抽取。匹配展示保留原52%至96%的显示范围，不是准确率、预测概率或对你叙述正确的比例；预设稀有度是原表常数，不是样本频率、人口占比或个人价值。相同代码不保证相同回答或经历；原画像的十五句文字属于该代码模板，并不随每个个人读数重新写作。原故事中的能力、最稀有、性别化昵称与贬称均为夸张角色声音，不证明健康、身份、收入、宗教、道德、家庭经历或他人感受；可以拒绝任何不合适的昵称，不需为了符合画像改变自己。完整公开25篇作答前可读，个人完成后保留选中画像、十五维数字、原故事及本站情境与观察，不需注册、付款或继续测评。新增虚构例子和讨论只帮助核对具体行为，不是量表证据、治疗、行为预测、招聘或伴侣匹配，也没有重测进步或有意义变化阈值。不要求联系真实人物、披露关系、证明困境、花钱、饮酒或承担更多照顾。回答与本次结果只留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复、退出或重测按现有流程清除。分享仅复制选中画像的公开URL，无答卷、十五维数字、匹配值或答卷标识；URL本身可让收件人看见是哪种画像，若说明这是自己的结果，会披露这次标签，是否分享可自行决定。公开页面本身不认证发送者做过测试。可选匿名动作计数需本页许可与全站分析同意，不发送作答或个人读数；清除不抹掉历史、截屏或旁人看屏。可只读、不同意故事、拒绝讨论或停止。",
+          "en": "This fixed entertainment game retains the owned Mini edition’s original 31 Chinese questions, 25 codes, dimension calculations and assignment. English is a working translation without established language equivalence or psychometric validation. One offered response per item is required for a portrait; missing responses are not filled with zero or neutral, and declining to answer permits exit. Response formats vary, so A or C is not uniformly a higher score. Original option impacts map to fifteen model readouts displayed from zero to 100, with model bands below 40, 40–69 and at least 70. These are not percentiles, diagnostic thresholds, ability scores or actual trait intensity, and they infer no MBTI type. Assignment preserves deterministic steps including fixed buckets from a readout fingerprint: it is neither simply the nearest portrait nor a fresh random draw at submission. The original match display spans 52%–96%, without representing accuracy, prediction probability or the proportion of a story true about you. Preset rarity is an original table constant, not sample frequency, population share or personal worth. Equal codes guarantee no equal answers or experiences. The fifteen textual descriptions belong to a code’s template and are not rewritten for each personal readout. Ability claims, rarity, gendered names and insults in the original story are exaggerated character voices, establishing no health, identity, income, religion, morality, family history or other people’s feelings. Reject any unsuitable nickname without changing yourself to fit it. All 25 public guides are readable before answering. Completion retains the selected portrait, fifteen readouts, original story and editorial scenes and reflections without signup, payment or further testing. New fictional examples help inspect particular actions, providing no scale evidence, treatment, behavioral prediction, hiring or partner match, or meaningful repeat-change threshold. No contact, relationship disclosure, proof of difficulty, spending, drinking or additional care is required. Responses and results stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration, exit or retaking. Sharing copies only the selected portrait’s public URL without responses, fifteen readouts, match or attempt identifier. The URL reveals which portrait it describes; calling it your own result discloses that label, so sharing is optional. A public guide certifies no completed attempt by its sender. Optional anonymous action counts require page permission and site analytics consent without sending responses or personal readouts. Clearing erases no history, screenshots or screen observation. Reading alone, disagreeing with the story, declining discussion or stopping is allowed."
+        }
+      ]
+    }
+  ],
+  "social-adapter": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充情境：把画像放回日常",
+        "en": "An everyday scene for this portrait"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：悦对朋友简短拒绝任务，对新伙伴多解释一点背景，两次核心都是“这周接不了”。FAKE不能把调整措辞判作欺骗，也不能证明两次请求都已被听懂；可核对的是对方理解到的安排。",
+          "en": "An additional original fictional scene: Yue declines a task briefly with a friend and adds context with a new collaborator; both mean “not this week.” FAKE proves neither deception nor successful communication. What can be checked is the arrangement each listener actually understood."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "一个可选的观察",
+        "en": "One optional observation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样区别表达随场合变化与把自己的请求藏掉？”可以只针对上面的虚构人物，分别列出已知行为、可能解释与仍未知的部分；不需要找出谁更像这个昵称。参与者可以不同意、跳过或结束，不交换真实答卷、身份或私事，不把另一个人的标签当成对方应配合的理由。",
+          "en": "An optional discussion prompt asks: “How can adapting expression be distinguished from hiding the request itself?” Use only the fictional people above to separate observed actions, possible interpretations and unknowns, without deciding who best fits the nickname. Participants may disagree, skip or stop without exchanging real responses, identities or private experiences, or treating someone’s label as a reason they must cooperate."
+        }
+      ]
+    },
+    {
+      "id": "source-method",
+      "title": {
+        "zh": "原玩法数字怎样阅读",
+        "en": "Reading the original model numbers"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是自有小程序原31题的固定娱乐玩法，25个代码与原中文题、原维度计算和分配规则保持。英文为工作译文，未建立语言等值或心理测量验证。31题每题须选一项给定选项才生成一个画像，缺答不补零、不填中立，不愿回答可以退出；选项含不同题式，不统一把A或C当作高分。选项影响值按原规则整理并映射十五个模型读数，显示0至100及低于40、40至69、不低于70的模型分段。这不是百分位、量表诊断阈值、能力分或真实人格强度；十五维也不能推导MBTI类型。分配保留原来的确定性步骤，包括按读数指纹的固定分桶，不能笼统说成最近画像，也不是提交时随机抽取。匹配展示保留原52%至96%的显示范围，不是准确率、预测概率或对你叙述正确的比例；预设稀有度是原表常数，不是样本频率、人口占比或个人价值。相同代码不保证相同回答或经历；原画像的十五句文字属于该代码模板，并不随每个个人读数重新写作。原故事中的能力、最稀有、性别化昵称与贬称均为夸张角色声音，不证明健康、身份、收入、宗教、道德、家庭经历或他人感受；可以拒绝任何不合适的昵称，不需为了符合画像改变自己。完整公开25篇作答前可读，个人完成后保留选中画像、十五维数字、原故事及本站情境与观察，不需注册、付款或继续测评。新增虚构例子和讨论只帮助核对具体行为，不是量表证据、治疗、行为预测、招聘或伴侣匹配，也没有重测进步或有意义变化阈值。不要求联系真实人物、披露关系、证明困境、花钱、饮酒或承担更多照顾。回答与本次结果只留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复、退出或重测按现有流程清除。分享仅复制选中画像的公开URL，无答卷、十五维数字、匹配值或答卷标识；URL本身可让收件人看见是哪种画像，若说明这是自己的结果，会披露这次标签，是否分享可自行决定。公开页面本身不认证发送者做过测试。可选匿名动作计数需本页许可与全站分析同意，不发送作答或个人读数；清除不抹掉历史、截屏或旁人看屏。可只读、不同意故事、拒绝讨论或停止。",
+          "en": "This fixed entertainment game retains the owned Mini edition’s original 31 Chinese questions, 25 codes, dimension calculations and assignment. English is a working translation without established language equivalence or psychometric validation. One offered response per item is required for a portrait; missing responses are not filled with zero or neutral, and declining to answer permits exit. Response formats vary, so A or C is not uniformly a higher score. Original option impacts map to fifteen model readouts displayed from zero to 100, with model bands below 40, 40–69 and at least 70. These are not percentiles, diagnostic thresholds, ability scores or actual trait intensity, and they infer no MBTI type. Assignment preserves deterministic steps including fixed buckets from a readout fingerprint: it is neither simply the nearest portrait nor a fresh random draw at submission. The original match display spans 52%–96%, without representing accuracy, prediction probability or the proportion of a story true about you. Preset rarity is an original table constant, not sample frequency, population share or personal worth. Equal codes guarantee no equal answers or experiences. The fifteen textual descriptions belong to a code’s template and are not rewritten for each personal readout. Ability claims, rarity, gendered names and insults in the original story are exaggerated character voices, establishing no health, identity, income, religion, morality, family history or other people’s feelings. Reject any unsuitable nickname without changing yourself to fit it. All 25 public guides are readable before answering. Completion retains the selected portrait, fifteen readouts, original story and editorial scenes and reflections without signup, payment or further testing. New fictional examples help inspect particular actions, providing no scale evidence, treatment, behavioral prediction, hiring or partner match, or meaningful repeat-change threshold. No contact, relationship disclosure, proof of difficulty, spending, drinking or additional care is required. Responses and results stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration, exit or retaking. Sharing copies only the selected portrait’s public URL without responses, fifteen readouts, match or attempt identifier. The URL reveals which portrait it describes; calling it your own result discloses that label, so sharing is optional. A public guide certifies no completed attempt by its sender. Optional anonymous action counts require page permission and site analytics consent without sending responses or personal readouts. Clearing erases no history, screenshots or screen observation. Reading alone, disagreeing with the story, declining discussion or stopping is allowed."
+        }
+      ]
+    }
+  ],
+  "detached-observer": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充情境：把画像放回日常",
+        "en": "An everyday scene for this portrait"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：宁不想参加一个被称为“必须去”的普通活动，先问内容，再决定不去。DEAD既不证明人生已被看透，也不意味着没有实际需要。另一个同代码的人可以很期待活动；昵称不要求保持抽离或掩盖持续困难。",
+          "en": "An additional original fictional scene: Ning asks what an allegedly essential ordinary event involves, then declines. DEAD proves no special insight or absence of needs. Someone with the same code may eagerly attend. The nickname requires neither detachment nor hiding continuing difficulty."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "一个可选的观察",
+        "en": "One optional observation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样说清一次邀请的实际理由，而不把参加或拒绝当人格高低？”可以只针对上面的虚构人物，分别列出已知行为、可能解释与仍未知的部分；不需要找出谁更像这个昵称。参与者可以不同意、跳过或结束，不交换真实答卷、身份或私事，不把另一个人的标签当成对方应配合的理由。",
+          "en": "An optional discussion prompt asks: “How can reasons for an invitation be discussed without ranking attendance or refusal as a personality virtue?” Use only the fictional people above to separate observed actions, possible interpretations and unknowns, without deciding who best fits the nickname. Participants may disagree, skip or stop without exchanging real responses, identities or private experiences, or treating someone’s label as a reason they must cooperate."
+        }
+      ]
+    },
+    {
+      "id": "source-method",
+      "title": {
+        "zh": "原玩法数字怎样阅读",
+        "en": "Reading the original model numbers"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是自有小程序原31题的固定娱乐玩法，25个代码与原中文题、原维度计算和分配规则保持。英文为工作译文，未建立语言等值或心理测量验证。31题每题须选一项给定选项才生成一个画像，缺答不补零、不填中立，不愿回答可以退出；选项含不同题式，不统一把A或C当作高分。选项影响值按原规则整理并映射十五个模型读数，显示0至100及低于40、40至69、不低于70的模型分段。这不是百分位、量表诊断阈值、能力分或真实人格强度；十五维也不能推导MBTI类型。分配保留原来的确定性步骤，包括按读数指纹的固定分桶，不能笼统说成最近画像，也不是提交时随机抽取。匹配展示保留原52%至96%的显示范围，不是准确率、预测概率或对你叙述正确的比例；预设稀有度是原表常数，不是样本频率、人口占比或个人价值。相同代码不保证相同回答或经历；原画像的十五句文字属于该代码模板，并不随每个个人读数重新写作。原故事中的能力、最稀有、性别化昵称与贬称均为夸张角色声音，不证明健康、身份、收入、宗教、道德、家庭经历或他人感受；可以拒绝任何不合适的昵称，不需为了符合画像改变自己。完整公开25篇作答前可读，个人完成后保留选中画像、十五维数字、原故事及本站情境与观察，不需注册、付款或继续测评。新增虚构例子和讨论只帮助核对具体行为，不是量表证据、治疗、行为预测、招聘或伴侣匹配，也没有重测进步或有意义变化阈值。不要求联系真实人物、披露关系、证明困境、花钱、饮酒或承担更多照顾。回答与本次结果只留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复、退出或重测按现有流程清除。分享仅复制选中画像的公开URL，无答卷、十五维数字、匹配值或答卷标识；URL本身可让收件人看见是哪种画像，若说明这是自己的结果，会披露这次标签，是否分享可自行决定。公开页面本身不认证发送者做过测试。可选匿名动作计数需本页许可与全站分析同意，不发送作答或个人读数；清除不抹掉历史、截屏或旁人看屏。可只读、不同意故事、拒绝讨论或停止。",
+          "en": "This fixed entertainment game retains the owned Mini edition’s original 31 Chinese questions, 25 codes, dimension calculations and assignment. English is a working translation without established language equivalence or psychometric validation. One offered response per item is required for a portrait; missing responses are not filled with zero or neutral, and declining to answer permits exit. Response formats vary, so A or C is not uniformly a higher score. Original option impacts map to fifteen model readouts displayed from zero to 100, with model bands below 40, 40–69 and at least 70. These are not percentiles, diagnostic thresholds, ability scores or actual trait intensity, and they infer no MBTI type. Assignment preserves deterministic steps including fixed buckets from a readout fingerprint: it is neither simply the nearest portrait nor a fresh random draw at submission. The original match display spans 52%–96%, without representing accuracy, prediction probability or the proportion of a story true about you. Preset rarity is an original table constant, not sample frequency, population share or personal worth. Equal codes guarantee no equal answers or experiences. The fifteen textual descriptions belong to a code’s template and are not rewritten for each personal readout. Ability claims, rarity, gendered names and insults in the original story are exaggerated character voices, establishing no health, identity, income, religion, morality, family history or other people’s feelings. Reject any unsuitable nickname without changing yourself to fit it. All 25 public guides are readable before answering. Completion retains the selected portrait, fifteen readouts, original story and editorial scenes and reflections without signup, payment or further testing. New fictional examples help inspect particular actions, providing no scale evidence, treatment, behavioral prediction, hiring or partner match, or meaningful repeat-change threshold. No contact, relationship disclosure, proof of difficulty, spending, drinking or additional care is required. Responses and results stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration, exit or retaking. Sharing copies only the selected portrait’s public URL without responses, fifteen readouts, match or attempt identifier. The URL reveals which portrait it describes; calling it your own result discloses that label, so sharing is optional. A public guide certifies no completed attempt by its sender. Optional anonymous action counts require page permission and site analytics consent without sending responses or personal readouts. Clearing erases no history, screenshots or screen observation. Reading alone, disagreeing with the story, declining discussion or stopping is allowed."
+        }
+      ]
+    }
+  ],
+  "pause-taker": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充情境：把画像放回日常",
+        "en": "An everyday scene for this portrait"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：沐暂时无法回一项非紧急请求，说明晚间再看；晚间仍无余力时，重新商量期限或交接，而非让昵称替自己开脱。ZZZZ不保证拖到截止会成功，也不要求以立即回复证明负责。",
+          "en": "An additional original fictional scene: Mu cannot handle a nonurgent request yet and suggests reviewing it that evening. If capacity remains limited, the deadline or handoff needs renegotiation. ZZZZ excuses no missed agreement, guarantees no last-minute success and requires no instant response as proof of responsibility."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "一个可选的观察",
+        "en": "One optional observation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样给暂停留下可协商的返回点，同时承认期限也可能要改变？”可以只针对上面的虚构人物，分别列出已知行为、可能解释与仍未知的部分；不需要找出谁更像这个昵称。参与者可以不同意、跳过或结束，不交换真实答卷、身份或私事，不把另一个人的标签当成对方应配合的理由。",
+          "en": "An optional discussion prompt asks: “How can a pause have a negotiable return point while allowing that a deadline may also need changing?” Use only the fictional people above to separate observed actions, possible interpretations and unknowns, without deciding who best fits the nickname. Participants may disagree, skip or stop without exchanging real responses, identities or private experiences, or treating someone’s label as a reason they must cooperate."
+        }
+      ]
+    },
+    {
+      "id": "source-method",
+      "title": {
+        "zh": "原玩法数字怎样阅读",
+        "en": "Reading the original model numbers"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是自有小程序原31题的固定娱乐玩法，25个代码与原中文题、原维度计算和分配规则保持。英文为工作译文，未建立语言等值或心理测量验证。31题每题须选一项给定选项才生成一个画像，缺答不补零、不填中立，不愿回答可以退出；选项含不同题式，不统一把A或C当作高分。选项影响值按原规则整理并映射十五个模型读数，显示0至100及低于40、40至69、不低于70的模型分段。这不是百分位、量表诊断阈值、能力分或真实人格强度；十五维也不能推导MBTI类型。分配保留原来的确定性步骤，包括按读数指纹的固定分桶，不能笼统说成最近画像，也不是提交时随机抽取。匹配展示保留原52%至96%的显示范围，不是准确率、预测概率或对你叙述正确的比例；预设稀有度是原表常数，不是样本频率、人口占比或个人价值。相同代码不保证相同回答或经历；原画像的十五句文字属于该代码模板，并不随每个个人读数重新写作。原故事中的能力、最稀有、性别化昵称与贬称均为夸张角色声音，不证明健康、身份、收入、宗教、道德、家庭经历或他人感受；可以拒绝任何不合适的昵称，不需为了符合画像改变自己。完整公开25篇作答前可读，个人完成后保留选中画像、十五维数字、原故事及本站情境与观察，不需注册、付款或继续测评。新增虚构例子和讨论只帮助核对具体行为，不是量表证据、治疗、行为预测、招聘或伴侣匹配，也没有重测进步或有意义变化阈值。不要求联系真实人物、披露关系、证明困境、花钱、饮酒或承担更多照顾。回答与本次结果只留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复、退出或重测按现有流程清除。分享仅复制选中画像的公开URL，无答卷、十五维数字、匹配值或答卷标识；URL本身可让收件人看见是哪种画像，若说明这是自己的结果，会披露这次标签，是否分享可自行决定。公开页面本身不认证发送者做过测试。可选匿名动作计数需本页许可与全站分析同意，不发送作答或个人读数；清除不抹掉历史、截屏或旁人看屏。可只读、不同意故事、拒绝讨论或停止。",
+          "en": "This fixed entertainment game retains the owned Mini edition’s original 31 Chinese questions, 25 codes, dimension calculations and assignment. English is a working translation without established language equivalence or psychometric validation. One offered response per item is required for a portrait; missing responses are not filled with zero or neutral, and declining to answer permits exit. Response formats vary, so A or C is not uniformly a higher score. Original option impacts map to fifteen model readouts displayed from zero to 100, with model bands below 40, 40–69 and at least 70. These are not percentiles, diagnostic thresholds, ability scores or actual trait intensity, and they infer no MBTI type. Assignment preserves deterministic steps including fixed buckets from a readout fingerprint: it is neither simply the nearest portrait nor a fresh random draw at submission. The original match display spans 52%–96%, without representing accuracy, prediction probability or the proportion of a story true about you. Preset rarity is an original table constant, not sample frequency, population share or personal worth. Equal codes guarantee no equal answers or experiences. The fifteen textual descriptions belong to a code’s template and are not rewritten for each personal readout. Ability claims, rarity, gendered names and insults in the original story are exaggerated character voices, establishing no health, identity, income, religion, morality, family history or other people’s feelings. Reject any unsuitable nickname without changing yourself to fit it. All 25 public guides are readable before answering. Completion retains the selected portrait, fifteen readouts, original story and editorial scenes and reflections without signup, payment or further testing. New fictional examples help inspect particular actions, providing no scale evidence, treatment, behavioral prediction, hiring or partner match, or meaningful repeat-change threshold. No contact, relationship disclosure, proof of difficulty, spending, drinking or additional care is required. Responses and results stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration, exit or retaking. Sharing copies only the selected portrait’s public URL without responses, fifteen readouts, match or attempt identifier. The URL reveals which portrait it describes; calling it your own result discloses that label, so sharing is optional. A public guide certifies no completed attempt by its sender. Optional anonymous action counts require page permission and site analytics consent without sending responses or personal readouts. Clearing erases no history, screenshots or screen observation. Reading alone, disagreeing with the story, declining discussion or stopping is allowed."
+        }
+      ]
+    }
+  ],
+  "action-starter": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充情境：把画像放回日常",
+        "en": "An everyday scene for this portrait"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：羽想试一张私人活动海报，先画草稿给愿意看的人，再决定是否继续。GOGO不要求直接发布、付钱或越过许可；发现缺少素材时暂停获取信息，也不是没有行动力。",
+          "en": "An additional original fictional scene: Yu sketches a private event poster for a willing reader before deciding to continue. GOGO requires no publication, purchase or bypassing permission. Pausing for missing information is no failure of initiative."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "一个可选的观察",
+        "en": "One optional observation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样让试一试有明确问题与停止点，而不把持续推进当义务？”可以只针对上面的虚构人物，分别列出已知行为、可能解释与仍未知的部分；不需要找出谁更像这个昵称。参与者可以不同意、跳过或结束，不交换真实答卷、身份或私事，不把另一个人的标签当成对方应配合的理由。",
+          "en": "An optional discussion prompt asks: “How can a trial have a clear question and stopping point without making continued action obligatory?” Use only the fictional people above to separate observed actions, possible interpretations and unknowns, without deciding who best fits the nickname. Participants may disagree, skip or stop without exchanging real responses, identities or private experiences, or treating someone’s label as a reason they must cooperate."
+        }
+      ]
+    },
+    {
+      "id": "source-method",
+      "title": {
+        "zh": "原玩法数字怎样阅读",
+        "en": "Reading the original model numbers"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是自有小程序原31题的固定娱乐玩法，25个代码与原中文题、原维度计算和分配规则保持。英文为工作译文，未建立语言等值或心理测量验证。31题每题须选一项给定选项才生成一个画像，缺答不补零、不填中立，不愿回答可以退出；选项含不同题式，不统一把A或C当作高分。选项影响值按原规则整理并映射十五个模型读数，显示0至100及低于40、40至69、不低于70的模型分段。这不是百分位、量表诊断阈值、能力分或真实人格强度；十五维也不能推导MBTI类型。分配保留原来的确定性步骤，包括按读数指纹的固定分桶，不能笼统说成最近画像，也不是提交时随机抽取。匹配展示保留原52%至96%的显示范围，不是准确率、预测概率或对你叙述正确的比例；预设稀有度是原表常数，不是样本频率、人口占比或个人价值。相同代码不保证相同回答或经历；原画像的十五句文字属于该代码模板，并不随每个个人读数重新写作。原故事中的能力、最稀有、性别化昵称与贬称均为夸张角色声音，不证明健康、身份、收入、宗教、道德、家庭经历或他人感受；可以拒绝任何不合适的昵称，不需为了符合画像改变自己。完整公开25篇作答前可读，个人完成后保留选中画像、十五维数字、原故事及本站情境与观察，不需注册、付款或继续测评。新增虚构例子和讨论只帮助核对具体行为，不是量表证据、治疗、行为预测、招聘或伴侣匹配，也没有重测进步或有意义变化阈值。不要求联系真实人物、披露关系、证明困境、花钱、饮酒或承担更多照顾。回答与本次结果只留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复、退出或重测按现有流程清除。分享仅复制选中画像的公开URL，无答卷、十五维数字、匹配值或答卷标识；URL本身可让收件人看见是哪种画像，若说明这是自己的结果，会披露这次标签，是否分享可自行决定。公开页面本身不认证发送者做过测试。可选匿名动作计数需本页许可与全站分析同意，不发送作答或个人读数；清除不抹掉历史、截屏或旁人看屏。可只读、不同意故事、拒绝讨论或停止。",
+          "en": "This fixed entertainment game retains the owned Mini edition’s original 31 Chinese questions, 25 codes, dimension calculations and assignment. English is a working translation without established language equivalence or psychometric validation. One offered response per item is required for a portrait; missing responses are not filled with zero or neutral, and declining to answer permits exit. Response formats vary, so A or C is not uniformly a higher score. Original option impacts map to fifteen model readouts displayed from zero to 100, with model bands below 40, 40–69 and at least 70. These are not percentiles, diagnostic thresholds, ability scores or actual trait intensity, and they infer no MBTI type. Assignment preserves deterministic steps including fixed buckets from a readout fingerprint: it is neither simply the nearest portrait nor a fresh random draw at submission. The original match display spans 52%–96%, without representing accuracy, prediction probability or the proportion of a story true about you. Preset rarity is an original table constant, not sample frequency, population share or personal worth. Equal codes guarantee no equal answers or experiences. The fifteen textual descriptions belong to a code’s template and are not rewritten for each personal readout. Ability claims, rarity, gendered names and insults in the original story are exaggerated character voices, establishing no health, identity, income, religion, morality, family history or other people’s feelings. Reject any unsuitable nickname without changing yourself to fit it. All 25 public guides are readable before answering. Completion retains the selected portrait, fifteen readouts, original story and editorial scenes and reflections without signup, payment or further testing. New fictional examples help inspect particular actions, providing no scale evidence, treatment, behavioral prediction, hiring or partner match, or meaningful repeat-change threshold. No contact, relationship disclosure, proof of difficulty, spending, drinking or additional care is required. Responses and results stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration, exit or retaking. Sharing copies only the selected portrait’s public URL without responses, fifteen readouts, match or attempt identifier. The URL reveals which portrait it describes; calling it your own result discloses that label, so sharing is optional. A public guide certifies no completed attempt by its sender. Optional anonymous action counts require page permission and site analytics consent without sending responses or personal readouts. Clearing erases no history, screenshots or screen observation. Reading alone, disagreeing with the story, declining discussion or stopping is allowed."
+        }
+      ]
+    }
+  ],
+  "pressure-speaker": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充情境：把画像放回日常",
+        "en": "An everyday scene for this portrait"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：安面对临时追加任务，明确说今天只能完成一项，请对方选优先次序；无需辱骂才能表达界限。FUCK是保留的原代码，不授予威胁或压过别人回答的许可，安也不因语气平静而失去拒绝权。",
+          "en": "An additional original fictional scene: An can complete only one newly competing task today and asks which has priority. A boundary needs no insult. FUCK is the retained source code, granting no permission to threaten or silence a reply; calm delivery does not weaken a refusal."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "一个可选的观察",
+        "en": "One optional observation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样让限制与请求清楚，而不把强烈表达当成伤害他人的许可？”可以只针对上面的虚构人物，分别列出已知行为、可能解释与仍未知的部分；不需要找出谁更像这个昵称。参与者可以不同意、跳过或结束，不交换真实答卷、身份或私事，不把另一个人的标签当成对方应配合的理由。",
+          "en": "An optional discussion prompt asks: “How can limits and requests remain clear without treating intensity as permission to hurt others?” Use only the fictional people above to separate observed actions, possible interpretations and unknowns, without deciding who best fits the nickname. Participants may disagree, skip or stop without exchanging real responses, identities or private experiences, or treating someone’s label as a reason they must cooperate."
+        }
+      ]
+    },
+    {
+      "id": "source-method",
+      "title": {
+        "zh": "原玩法数字怎样阅读",
+        "en": "Reading the original model numbers"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是自有小程序原31题的固定娱乐玩法，25个代码与原中文题、原维度计算和分配规则保持。英文为工作译文，未建立语言等值或心理测量验证。31题每题须选一项给定选项才生成一个画像，缺答不补零、不填中立，不愿回答可以退出；选项含不同题式，不统一把A或C当作高分。选项影响值按原规则整理并映射十五个模型读数，显示0至100及低于40、40至69、不低于70的模型分段。这不是百分位、量表诊断阈值、能力分或真实人格强度；十五维也不能推导MBTI类型。分配保留原来的确定性步骤，包括按读数指纹的固定分桶，不能笼统说成最近画像，也不是提交时随机抽取。匹配展示保留原52%至96%的显示范围，不是准确率、预测概率或对你叙述正确的比例；预设稀有度是原表常数，不是样本频率、人口占比或个人价值。相同代码不保证相同回答或经历；原画像的十五句文字属于该代码模板，并不随每个个人读数重新写作。原故事中的能力、最稀有、性别化昵称与贬称均为夸张角色声音，不证明健康、身份、收入、宗教、道德、家庭经历或他人感受；可以拒绝任何不合适的昵称，不需为了符合画像改变自己。完整公开25篇作答前可读，个人完成后保留选中画像、十五维数字、原故事及本站情境与观察，不需注册、付款或继续测评。新增虚构例子和讨论只帮助核对具体行为，不是量表证据、治疗、行为预测、招聘或伴侣匹配，也没有重测进步或有意义变化阈值。不要求联系真实人物、披露关系、证明困境、花钱、饮酒或承担更多照顾。回答与本次结果只留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复、退出或重测按现有流程清除。分享仅复制选中画像的公开URL，无答卷、十五维数字、匹配值或答卷标识；URL本身可让收件人看见是哪种画像，若说明这是自己的结果，会披露这次标签，是否分享可自行决定。公开页面本身不认证发送者做过测试。可选匿名动作计数需本页许可与全站分析同意，不发送作答或个人读数；清除不抹掉历史、截屏或旁人看屏。可只读、不同意故事、拒绝讨论或停止。",
+          "en": "This fixed entertainment game retains the owned Mini edition’s original 31 Chinese questions, 25 codes, dimension calculations and assignment. English is a working translation without established language equivalence or psychometric validation. One offered response per item is required for a portrait; missing responses are not filled with zero or neutral, and declining to answer permits exit. Response formats vary, so A or C is not uniformly a higher score. Original option impacts map to fifteen model readouts displayed from zero to 100, with model bands below 40, 40–69 and at least 70. These are not percentiles, diagnostic thresholds, ability scores or actual trait intensity, and they infer no MBTI type. Assignment preserves deterministic steps including fixed buckets from a readout fingerprint: it is neither simply the nearest portrait nor a fresh random draw at submission. The original match display spans 52%–96%, without representing accuracy, prediction probability or the proportion of a story true about you. Preset rarity is an original table constant, not sample frequency, population share or personal worth. Equal codes guarantee no equal answers or experiences. The fifteen textual descriptions belong to a code’s template and are not rewritten for each personal readout. Ability claims, rarity, gendered names and insults in the original story are exaggerated character voices, establishing no health, identity, income, religion, morality, family history or other people’s feelings. Reject any unsuitable nickname without changing yourself to fit it. All 25 public guides are readable before answering. Completion retains the selected portrait, fifteen readouts, original story and editorial scenes and reflections without signup, payment or further testing. New fictional examples help inspect particular actions, providing no scale evidence, treatment, behavioral prediction, hiring or partner match, or meaningful repeat-change threshold. No contact, relationship disclosure, proof of difficulty, spending, drinking or additional care is required. Responses and results stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration, exit or retaking. Sharing copies only the selected portrait’s public URL without responses, fifteen readouts, match or attempt identifier. The URL reveals which portrait it describes; calling it your own result discloses that label, so sharing is optional. A public guide certifies no completed attempt by its sender. Optional anonymous action counts require page permission and site analytics consent without sending responses or personal readouts. Clearing erases no history, screenshots or screen observation. Reading alone, disagreeing with the story, declining discussion or stopping is allowed."
+        }
+      ]
+    }
+  ],
+  "contingency-planner": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充情境：把画像放回日常",
+        "en": "An everyday scene for this portrait"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：悦给普通聚会准备一个下雨备选地点，先问大家是否方便。CTRL不保证预判准确，也不让悦管理他人心情。若参与者说明出入限制，计划可以取消或改小，不需要为了证明掌控而加更多清单。",
+          "en": "An additional original fictional scene: Yue proposes a rain alternative for an ordinary gathering and checks access with participants. CTRL guarantees no accurate forecast or control over feelings. An access constraint can justify cancelling or reducing the plan rather than adding checklists to prove control."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "一个可选的观察",
+        "en": "One optional observation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样区分实际依赖、自己的偏好和需要他人同意的安排？”可以只针对上面的虚构人物，分别列出已知行为、可能解释与仍未知的部分；不需要找出谁更像这个昵称。参与者可以不同意、跳过或结束，不交换真实答卷、身份或私事，不把另一个人的标签当成对方应配合的理由。",
+          "en": "An optional discussion prompt asks: “How can practical dependencies, personal preferences and arrangements needing others’ agreement be separated?” Use only the fictional people above to separate observed actions, possible interpretations and unknowns, without deciding who best fits the nickname. Participants may disagree, skip or stop without exchanging real responses, identities or private experiences, or treating someone’s label as a reason they must cooperate."
+        }
+      ]
+    },
+    {
+      "id": "source-method",
+      "title": {
+        "zh": "原玩法数字怎样阅读",
+        "en": "Reading the original model numbers"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是自有小程序原31题的固定娱乐玩法，25个代码与原中文题、原维度计算和分配规则保持。英文为工作译文，未建立语言等值或心理测量验证。31题每题须选一项给定选项才生成一个画像，缺答不补零、不填中立，不愿回答可以退出；选项含不同题式，不统一把A或C当作高分。选项影响值按原规则整理并映射十五个模型读数，显示0至100及低于40、40至69、不低于70的模型分段。这不是百分位、量表诊断阈值、能力分或真实人格强度；十五维也不能推导MBTI类型。分配保留原来的确定性步骤，包括按读数指纹的固定分桶，不能笼统说成最近画像，也不是提交时随机抽取。匹配展示保留原52%至96%的显示范围，不是准确率、预测概率或对你叙述正确的比例；预设稀有度是原表常数，不是样本频率、人口占比或个人价值。相同代码不保证相同回答或经历；原画像的十五句文字属于该代码模板，并不随每个个人读数重新写作。原故事中的能力、最稀有、性别化昵称与贬称均为夸张角色声音，不证明健康、身份、收入、宗教、道德、家庭经历或他人感受；可以拒绝任何不合适的昵称，不需为了符合画像改变自己。完整公开25篇作答前可读，个人完成后保留选中画像、十五维数字、原故事及本站情境与观察，不需注册、付款或继续测评。新增虚构例子和讨论只帮助核对具体行为，不是量表证据、治疗、行为预测、招聘或伴侣匹配，也没有重测进步或有意义变化阈值。不要求联系真实人物、披露关系、证明困境、花钱、饮酒或承担更多照顾。回答与本次结果只留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复、退出或重测按现有流程清除。分享仅复制选中画像的公开URL，无答卷、十五维数字、匹配值或答卷标识；URL本身可让收件人看见是哪种画像，若说明这是自己的结果，会披露这次标签，是否分享可自行决定。公开页面本身不认证发送者做过测试。可选匿名动作计数需本页许可与全站分析同意，不发送作答或个人读数；清除不抹掉历史、截屏或旁人看屏。可只读、不同意故事、拒绝讨论或停止。",
+          "en": "This fixed entertainment game retains the owned Mini edition’s original 31 Chinese questions, 25 codes, dimension calculations and assignment. English is a working translation without established language equivalence or psychometric validation. One offered response per item is required for a portrait; missing responses are not filled with zero or neutral, and declining to answer permits exit. Response formats vary, so A or C is not uniformly a higher score. Original option impacts map to fifteen model readouts displayed from zero to 100, with model bands below 40, 40–69 and at least 70. These are not percentiles, diagnostic thresholds, ability scores or actual trait intensity, and they infer no MBTI type. Assignment preserves deterministic steps including fixed buckets from a readout fingerprint: it is neither simply the nearest portrait nor a fresh random draw at submission. The original match display spans 52%–96%, without representing accuracy, prediction probability or the proportion of a story true about you. Preset rarity is an original table constant, not sample frequency, population share or personal worth. Equal codes guarantee no equal answers or experiences. The fifteen textual descriptions belong to a code’s template and are not rewritten for each personal readout. Ability claims, rarity, gendered names and insults in the original story are exaggerated character voices, establishing no health, identity, income, religion, morality, family history or other people’s feelings. Reject any unsuitable nickname without changing yourself to fit it. All 25 public guides are readable before answering. Completion retains the selected portrait, fifteen readouts, original story and editorial scenes and reflections without signup, payment or further testing. New fictional examples help inspect particular actions, providing no scale evidence, treatment, behavioral prediction, hiring or partner match, or meaningful repeat-change threshold. No contact, relationship disclosure, proof of difficulty, spending, drinking or additional care is required. Responses and results stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration, exit or retaking. Sharing copies only the selected portrait’s public URL without responses, fifteen readouts, match or attempt identifier. The URL reveals which portrait it describes; calling it your own result discloses that label, so sharing is optional. A public guide certifies no completed attempt by its sender. Optional anonymous action counts require page permission and site analytics consent without sending responses or personal readouts. Clearing erases no history, screenshots or screen observation. Reading alone, disagreeing with the story, declining discussion or stopping is allowed."
+        }
+      ]
+    }
+  ],
+  "lightener": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充情境：把画像放回日常",
+        "en": "An everyday scene for this portrait"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：宁在朋友弄错普通菜单后开了个小玩笑，朋友说现在不想笑，宁就回到点单问题。HHHH不证明总能缓和气氛，也不要求朋友配合；沉默、失望与轻松都可有自己的位置。",
+          "en": "An additional original fictional scene: Ning jokes after a harmless menu mix-up. The friend does not want humour now, so Ning returns to the order. HHHH proves no ability to lighten every room and requires no laughter in return. Silence, disappointment and playfulness can each have room."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "一个可选的观察",
+        "en": "One optional observation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样确认玩笑是否被欢迎，并允许它在别人不想参与时停止？”可以只针对上面的虚构人物，分别列出已知行为、可能解释与仍未知的部分；不需要找出谁更像这个昵称。参与者可以不同意、跳过或结束，不交换真实答卷、身份或私事，不把另一个人的标签当成对方应配合的理由。",
+          "en": "An optional discussion prompt asks: “How can a joke’s welcome be checked and the joke stopped when someone declines?” Use only the fictional people above to separate observed actions, possible interpretations and unknowns, without deciding who best fits the nickname. Participants may disagree, skip or stop without exchanging real responses, identities or private experiences, or treating someone’s label as a reason they must cooperate."
+        }
+      ]
+    },
+    {
+      "id": "source-method",
+      "title": {
+        "zh": "原玩法数字怎样阅读",
+        "en": "Reading the original model numbers"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是自有小程序原31题的固定娱乐玩法，25个代码与原中文题、原维度计算和分配规则保持。英文为工作译文，未建立语言等值或心理测量验证。31题每题须选一项给定选项才生成一个画像，缺答不补零、不填中立，不愿回答可以退出；选项含不同题式，不统一把A或C当作高分。选项影响值按原规则整理并映射十五个模型读数，显示0至100及低于40、40至69、不低于70的模型分段。这不是百分位、量表诊断阈值、能力分或真实人格强度；十五维也不能推导MBTI类型。分配保留原来的确定性步骤，包括按读数指纹的固定分桶，不能笼统说成最近画像，也不是提交时随机抽取。匹配展示保留原52%至96%的显示范围，不是准确率、预测概率或对你叙述正确的比例；预设稀有度是原表常数，不是样本频率、人口占比或个人价值。相同代码不保证相同回答或经历；原画像的十五句文字属于该代码模板，并不随每个个人读数重新写作。原故事中的能力、最稀有、性别化昵称与贬称均为夸张角色声音，不证明健康、身份、收入、宗教、道德、家庭经历或他人感受；可以拒绝任何不合适的昵称，不需为了符合画像改变自己。完整公开25篇作答前可读，个人完成后保留选中画像、十五维数字、原故事及本站情境与观察，不需注册、付款或继续测评。新增虚构例子和讨论只帮助核对具体行为，不是量表证据、治疗、行为预测、招聘或伴侣匹配，也没有重测进步或有意义变化阈值。不要求联系真实人物、披露关系、证明困境、花钱、饮酒或承担更多照顾。回答与本次结果只留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复、退出或重测按现有流程清除。分享仅复制选中画像的公开URL，无答卷、十五维数字、匹配值或答卷标识；URL本身可让收件人看见是哪种画像，若说明这是自己的结果，会披露这次标签，是否分享可自行决定。公开页面本身不认证发送者做过测试。可选匿名动作计数需本页许可与全站分析同意，不发送作答或个人读数；清除不抹掉历史、截屏或旁人看屏。可只读、不同意故事、拒绝讨论或停止。",
+          "en": "This fixed entertainment game retains the owned Mini edition’s original 31 Chinese questions, 25 codes, dimension calculations and assignment. English is a working translation without established language equivalence or psychometric validation. One offered response per item is required for a portrait; missing responses are not filled with zero or neutral, and declining to answer permits exit. Response formats vary, so A or C is not uniformly a higher score. Original option impacts map to fifteen model readouts displayed from zero to 100, with model bands below 40, 40–69 and at least 70. These are not percentiles, diagnostic thresholds, ability scores or actual trait intensity, and they infer no MBTI type. Assignment preserves deterministic steps including fixed buckets from a readout fingerprint: it is neither simply the nearest portrait nor a fresh random draw at submission. The original match display spans 52%–96%, without representing accuracy, prediction probability or the proportion of a story true about you. Preset rarity is an original table constant, not sample frequency, population share or personal worth. Equal codes guarantee no equal answers or experiences. The fifteen textual descriptions belong to a code’s template and are not rewritten for each personal readout. Ability claims, rarity, gendered names and insults in the original story are exaggerated character voices, establishing no health, identity, income, religion, morality, family history or other people’s feelings. Reject any unsuitable nickname without changing yourself to fit it. All 25 public guides are readable before answering. Completion retains the selected portrait, fifteen readouts, original story and editorial scenes and reflections without signup, payment or further testing. New fictional examples help inspect particular actions, providing no scale evidence, treatment, behavioral prediction, hiring or partner match, or meaningful repeat-change threshold. No contact, relationship disclosure, proof of difficulty, spending, drinking or additional care is required. Responses and results stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration, exit or retaking. Sharing copies only the selected portrait’s public URL without responses, fifteen readouts, match or attempt identifier. The URL reveals which portrait it describes; calling it your own result discloses that label, so sharing is optional. A public guide certifies no completed attempt by its sender. Optional anonymous action counts require page permission and site analytics consent without sending responses or personal readouts. Clearing erases no history, screenshots or screen observation. Reading alone, disagreeing with the story, declining discussion or stopping is allowed."
+        }
+      ]
+    }
+  ],
+  "expressive-styler": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充情境：把画像放回日常",
+        "en": "An everyday scene for this portrait"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：沐给私人邀请挑一幅小画，也清楚写明时间与地点；朋友只回复是否参加，未评价造型。SEXY不把这种回应解释为吸引、同意或拒绝，沐也可以下次只发朴素文字，不必花钱维持画像。",
+          "en": "An additional original fictional scene: Mu adds a small drawing to a private invitation with a clear time and place. A friend replies about attendance without commenting on style. SEXY establishes no attraction, consent or rejection, and Mu can use plain text next time without spending to maintain a portrait."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "一个可选的观察",
+        "en": "One optional observation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样让表达风格服务实际交流，而不据他人的反应推断吸引力或同意？”可以只针对上面的虚构人物，分别列出已知行为、可能解释与仍未知的部分；不需要找出谁更像这个昵称。参与者可以不同意、跳过或结束，不交换真实答卷、身份或私事，不把另一个人的标签当成对方应配合的理由。",
+          "en": "An optional discussion prompt asks: “How can style serve communication without inferring attraction or consent from a response?” Use only the fictional people above to separate observed actions, possible interpretations and unknowns, without deciding who best fits the nickname. Participants may disagree, skip or stop without exchanging real responses, identities or private experiences, or treating someone’s label as a reason they must cooperate."
+        }
+      ]
+    },
+    {
+      "id": "source-method",
+      "title": {
+        "zh": "原玩法数字怎样阅读",
+        "en": "Reading the original model numbers"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是自有小程序原31题的固定娱乐玩法，25个代码与原中文题、原维度计算和分配规则保持。英文为工作译文，未建立语言等值或心理测量验证。31题每题须选一项给定选项才生成一个画像，缺答不补零、不填中立，不愿回答可以退出；选项含不同题式，不统一把A或C当作高分。选项影响值按原规则整理并映射十五个模型读数，显示0至100及低于40、40至69、不低于70的模型分段。这不是百分位、量表诊断阈值、能力分或真实人格强度；十五维也不能推导MBTI类型。分配保留原来的确定性步骤，包括按读数指纹的固定分桶，不能笼统说成最近画像，也不是提交时随机抽取。匹配展示保留原52%至96%的显示范围，不是准确率、预测概率或对你叙述正确的比例；预设稀有度是原表常数，不是样本频率、人口占比或个人价值。相同代码不保证相同回答或经历；原画像的十五句文字属于该代码模板，并不随每个个人读数重新写作。原故事中的能力、最稀有、性别化昵称与贬称均为夸张角色声音，不证明健康、身份、收入、宗教、道德、家庭经历或他人感受；可以拒绝任何不合适的昵称，不需为了符合画像改变自己。完整公开25篇作答前可读，个人完成后保留选中画像、十五维数字、原故事及本站情境与观察，不需注册、付款或继续测评。新增虚构例子和讨论只帮助核对具体行为，不是量表证据、治疗、行为预测、招聘或伴侣匹配，也没有重测进步或有意义变化阈值。不要求联系真实人物、披露关系、证明困境、花钱、饮酒或承担更多照顾。回答与本次结果只留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复、退出或重测按现有流程清除。分享仅复制选中画像的公开URL，无答卷、十五维数字、匹配值或答卷标识；URL本身可让收件人看见是哪种画像，若说明这是自己的结果，会披露这次标签，是否分享可自行决定。公开页面本身不认证发送者做过测试。可选匿名动作计数需本页许可与全站分析同意，不发送作答或个人读数；清除不抹掉历史、截屏或旁人看屏。可只读、不同意故事、拒绝讨论或停止。",
+          "en": "This fixed entertainment game retains the owned Mini edition’s original 31 Chinese questions, 25 codes, dimension calculations and assignment. English is a working translation without established language equivalence or psychometric validation. One offered response per item is required for a portrait; missing responses are not filled with zero or neutral, and declining to answer permits exit. Response formats vary, so A or C is not uniformly a higher score. Original option impacts map to fifteen model readouts displayed from zero to 100, with model bands below 40, 40–69 and at least 70. These are not percentiles, diagnostic thresholds, ability scores or actual trait intensity, and they infer no MBTI type. Assignment preserves deterministic steps including fixed buckets from a readout fingerprint: it is neither simply the nearest portrait nor a fresh random draw at submission. The original match display spans 52%–96%, without representing accuracy, prediction probability or the proportion of a story true about you. Preset rarity is an original table constant, not sample frequency, population share or personal worth. Equal codes guarantee no equal answers or experiences. The fifteen textual descriptions belong to a code’s template and are not rewritten for each personal readout. Ability claims, rarity, gendered names and insults in the original story are exaggerated character voices, establishing no health, identity, income, religion, morality, family history or other people’s feelings. Reject any unsuitable nickname without changing yourself to fit it. All 25 public guides are readable before answering. Completion retains the selected portrait, fifteen readouts, original story and editorial scenes and reflections without signup, payment or further testing. New fictional examples help inspect particular actions, providing no scale evidence, treatment, behavioral prediction, hiring or partner match, or meaningful repeat-change threshold. No contact, relationship disclosure, proof of difficulty, spending, drinking or additional care is required. Responses and results stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration, exit or retaking. Sharing copies only the selected portrait’s public URL without responses, fifteen readouts, match or attempt identifier. The URL reveals which portrait it describes; calling it your own result discloses that label, so sharing is optional. A public guide certifies no completed attempt by its sender. Optional anonymous action counts require page permission and site analytics consent without sending responses or personal readouts. Clearing erases no history, screenshots or screen observation. Reading alone, disagreeing with the story, declining discussion or stopping is allowed."
+        }
+      ]
+    }
+  ],
+  "easygoing": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充情境：把画像放回日常",
+        "en": "An everyday scene for this portrait"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：羽觉得两段普通散步路线都合适，但说明需要六点前结束。“都行”因此有真实范围。OJBK不要求忍受不便，也不使另一个人的重要需求变小；新信息出现后可以改变选择。",
+          "en": "An additional original fictional scene: Yu finds two ordinary walking routes acceptable but needs to finish before six. “Either” has a real boundary. OJBK requires no endurance of inconvenience or dismissal of another person’s needs. New information can change the choice."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "一个可选的观察",
+        "en": "One optional observation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样同时表达灵活范围与一个不能省略的限制？”可以只针对上面的虚构人物，分别列出已知行为、可能解释与仍未知的部分；不需要找出谁更像这个昵称。参与者可以不同意、跳过或结束，不交换真实答卷、身份或私事，不把另一个人的标签当成对方应配合的理由。",
+          "en": "An optional discussion prompt asks: “How can an acceptable range and an essential limit be expressed together?” Use only the fictional people above to separate observed actions, possible interpretations and unknowns, without deciding who best fits the nickname. Participants may disagree, skip or stop without exchanging real responses, identities or private experiences, or treating someone’s label as a reason they must cooperate."
+        }
+      ]
+    },
+    {
+      "id": "source-method",
+      "title": {
+        "zh": "原玩法数字怎样阅读",
+        "en": "Reading the original model numbers"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是自有小程序原31题的固定娱乐玩法，25个代码与原中文题、原维度计算和分配规则保持。英文为工作译文，未建立语言等值或心理测量验证。31题每题须选一项给定选项才生成一个画像，缺答不补零、不填中立，不愿回答可以退出；选项含不同题式，不统一把A或C当作高分。选项影响值按原规则整理并映射十五个模型读数，显示0至100及低于40、40至69、不低于70的模型分段。这不是百分位、量表诊断阈值、能力分或真实人格强度；十五维也不能推导MBTI类型。分配保留原来的确定性步骤，包括按读数指纹的固定分桶，不能笼统说成最近画像，也不是提交时随机抽取。匹配展示保留原52%至96%的显示范围，不是准确率、预测概率或对你叙述正确的比例；预设稀有度是原表常数，不是样本频率、人口占比或个人价值。相同代码不保证相同回答或经历；原画像的十五句文字属于该代码模板，并不随每个个人读数重新写作。原故事中的能力、最稀有、性别化昵称与贬称均为夸张角色声音，不证明健康、身份、收入、宗教、道德、家庭经历或他人感受；可以拒绝任何不合适的昵称，不需为了符合画像改变自己。完整公开25篇作答前可读，个人完成后保留选中画像、十五维数字、原故事及本站情境与观察，不需注册、付款或继续测评。新增虚构例子和讨论只帮助核对具体行为，不是量表证据、治疗、行为预测、招聘或伴侣匹配，也没有重测进步或有意义变化阈值。不要求联系真实人物、披露关系、证明困境、花钱、饮酒或承担更多照顾。回答与本次结果只留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复、退出或重测按现有流程清除。分享仅复制选中画像的公开URL，无答卷、十五维数字、匹配值或答卷标识；URL本身可让收件人看见是哪种画像，若说明这是自己的结果，会披露这次标签，是否分享可自行决定。公开页面本身不认证发送者做过测试。可选匿名动作计数需本页许可与全站分析同意，不发送作答或个人读数；清除不抹掉历史、截屏或旁人看屏。可只读、不同意故事、拒绝讨论或停止。",
+          "en": "This fixed entertainment game retains the owned Mini edition’s original 31 Chinese questions, 25 codes, dimension calculations and assignment. English is a working translation without established language equivalence or psychometric validation. One offered response per item is required for a portrait; missing responses are not filled with zero or neutral, and declining to answer permits exit. Response formats vary, so A or C is not uniformly a higher score. Original option impacts map to fifteen model readouts displayed from zero to 100, with model bands below 40, 40–69 and at least 70. These are not percentiles, diagnostic thresholds, ability scores or actual trait intensity, and they infer no MBTI type. Assignment preserves deterministic steps including fixed buckets from a readout fingerprint: it is neither simply the nearest portrait nor a fresh random draw at submission. The original match display spans 52%–96%, without representing accuracy, prediction probability or the proportion of a story true about you. Preset rarity is an original table constant, not sample frequency, population share or personal worth. Equal codes guarantee no equal answers or experiences. The fifteen textual descriptions belong to a code’s template and are not rewritten for each personal readout. Ability claims, rarity, gendered names and insults in the original story are exaggerated character voices, establishing no health, identity, income, religion, morality, family history or other people’s feelings. Reject any unsuitable nickname without changing yourself to fit it. All 25 public guides are readable before answering. Completion retains the selected portrait, fifteen readouts, original story and editorial scenes and reflections without signup, payment or further testing. New fictional examples help inspect particular actions, providing no scale evidence, treatment, behavioral prediction, hiring or partner match, or meaningful repeat-change threshold. No contact, relationship disclosure, proof of difficulty, spending, drinking or additional care is required. Responses and results stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration, exit or retaking. Sharing copies only the selected portrait’s public URL without responses, fifteen readouts, match or attempt identifier. The URL reveals which portrait it describes; calling it your own result discloses that label, so sharing is optional. A public guide certifies no completed attempt by its sender. Optional anonymous action counts require page permission and site analytics consent without sending responses or personal readouts. Clearing erases no history, screenshots or screen observation. Reading alone, disagreeing with the story, declining discussion or stopping is allowed."
+        }
+      ]
+    }
+  ],
+  "resource-keeper": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充情境：把画像放回日常",
+        "en": "An everyday scene for this portrait"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：安考虑一项自愿课程，只核对交通时间与准备量，不向朋友公开财务。POOR不能证明收入、负债或阶层；最后参加与暂时不去都可能合理，游戏不替安决定预算或把节省当更高尚。",
+          "en": "An additional original fictional scene: An reviews travel time and preparation for an optional course without disclosing finances. POOR reveals no income, debt or class. Attending or declining can each fit the situation; the game sets no budget or moral preference for saving."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "一个可选的观察",
+        "en": "One optional observation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样谈可承担的承诺，而不猜测财务处境或要求证明资源不足？”可以只针对上面的虚构人物，分别列出已知行为、可能解释与仍未知的部分；不需要找出谁更像这个昵称。参与者可以不同意、跳过或结束，不交换真实答卷、身份或私事，不把另一个人的标签当成对方应配合的理由。",
+          "en": "An optional discussion prompt asks: “How can manageable commitments be discussed without guessing finances or requiring proof of scarcity?” Use only the fictional people above to separate observed actions, possible interpretations and unknowns, without deciding who best fits the nickname. Participants may disagree, skip or stop without exchanging real responses, identities or private experiences, or treating someone’s label as a reason they must cooperate."
+        }
+      ]
+    },
+    {
+      "id": "source-method",
+      "title": {
+        "zh": "原玩法数字怎样阅读",
+        "en": "Reading the original model numbers"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是自有小程序原31题的固定娱乐玩法，25个代码与原中文题、原维度计算和分配规则保持。英文为工作译文，未建立语言等值或心理测量验证。31题每题须选一项给定选项才生成一个画像，缺答不补零、不填中立，不愿回答可以退出；选项含不同题式，不统一把A或C当作高分。选项影响值按原规则整理并映射十五个模型读数，显示0至100及低于40、40至69、不低于70的模型分段。这不是百分位、量表诊断阈值、能力分或真实人格强度；十五维也不能推导MBTI类型。分配保留原来的确定性步骤，包括按读数指纹的固定分桶，不能笼统说成最近画像，也不是提交时随机抽取。匹配展示保留原52%至96%的显示范围，不是准确率、预测概率或对你叙述正确的比例；预设稀有度是原表常数，不是样本频率、人口占比或个人价值。相同代码不保证相同回答或经历；原画像的十五句文字属于该代码模板，并不随每个个人读数重新写作。原故事中的能力、最稀有、性别化昵称与贬称均为夸张角色声音，不证明健康、身份、收入、宗教、道德、家庭经历或他人感受；可以拒绝任何不合适的昵称，不需为了符合画像改变自己。完整公开25篇作答前可读，个人完成后保留选中画像、十五维数字、原故事及本站情境与观察，不需注册、付款或继续测评。新增虚构例子和讨论只帮助核对具体行为，不是量表证据、治疗、行为预测、招聘或伴侣匹配，也没有重测进步或有意义变化阈值。不要求联系真实人物、披露关系、证明困境、花钱、饮酒或承担更多照顾。回答与本次结果只留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复、退出或重测按现有流程清除。分享仅复制选中画像的公开URL，无答卷、十五维数字、匹配值或答卷标识；URL本身可让收件人看见是哪种画像，若说明这是自己的结果，会披露这次标签，是否分享可自行决定。公开页面本身不认证发送者做过测试。可选匿名动作计数需本页许可与全站分析同意，不发送作答或个人读数；清除不抹掉历史、截屏或旁人看屏。可只读、不同意故事、拒绝讨论或停止。",
+          "en": "This fixed entertainment game retains the owned Mini edition’s original 31 Chinese questions, 25 codes, dimension calculations and assignment. English is a working translation without established language equivalence or psychometric validation. One offered response per item is required for a portrait; missing responses are not filled with zero or neutral, and declining to answer permits exit. Response formats vary, so A or C is not uniformly a higher score. Original option impacts map to fifteen model readouts displayed from zero to 100, with model bands below 40, 40–69 and at least 70. These are not percentiles, diagnostic thresholds, ability scores or actual trait intensity, and they infer no MBTI type. Assignment preserves deterministic steps including fixed buckets from a readout fingerprint: it is neither simply the nearest portrait nor a fresh random draw at submission. The original match display spans 52%–96%, without representing accuracy, prediction probability or the proportion of a story true about you. Preset rarity is an original table constant, not sample frequency, population share or personal worth. Equal codes guarantee no equal answers or experiences. The fifteen textual descriptions belong to a code’s template and are not rewritten for each personal readout. Ability claims, rarity, gendered names and insults in the original story are exaggerated character voices, establishing no health, identity, income, religion, morality, family history or other people’s feelings. Reject any unsuitable nickname without changing yourself to fit it. All 25 public guides are readable before answering. Completion retains the selected portrait, fifteen readouts, original story and editorial scenes and reflections without signup, payment or further testing. New fictional examples help inspect particular actions, providing no scale evidence, treatment, behavioral prediction, hiring or partner match, or meaningful repeat-change threshold. No contact, relationship disclosure, proof of difficulty, spending, drinking or additional care is required. Responses and results stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration, exit or retaking. Sharing copies only the selected portrait’s public URL without responses, fifteen readouts, match or attempt identifier. The URL reveals which portrait it describes; calling it your own result discloses that label, so sharing is optional. A public guide certifies no completed attempt by its sender. Optional anonymous action counts require page permission and site analytics consent without sending responses or personal readouts. Clearing erases no history, screenshots or screen observation. Reading alone, disagreeing with the story, declining discussion or stopping is allowed."
+        }
+      ]
+    }
+  ],
+  "risk-watcher": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充情境：把画像放回日常",
+        "en": "An everyday scene for this portrait"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：悦发现活动日期来自旧消息，请人核对最新通知；日期最后没有变化，也不证明这个问题多余或所有担忧都会应验。OH-NO不给风险预测认证。核对一次有据的信息后，仍可以保留无法解决的未知。",
+          "en": "An additional original fictional scene: Yue notices an event date came from an old message and asks for the current notice. The date is unchanged. OH-NO certifies no forecast; an unchanged answer proves neither a useless question nor the accuracy of every concern. Some uncertainty can remain after checking available evidence."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "一个可选的观察",
+        "en": "One optional observation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样把可核实的疑问与未经证明的最坏结局分开？”可以只针对上面的虚构人物，分别列出已知行为、可能解释与仍未知的部分；不需要找出谁更像这个昵称。参与者可以不同意、跳过或结束，不交换真实答卷、身份或私事，不把另一个人的标签当成对方应配合的理由。",
+          "en": "An optional discussion prompt asks: “How can a checkable question remain separate from an unproven worst-case ending?” Use only the fictional people above to separate observed actions, possible interpretations and unknowns, without deciding who best fits the nickname. Participants may disagree, skip or stop without exchanging real responses, identities or private experiences, or treating someone’s label as a reason they must cooperate."
+        }
+      ]
+    },
+    {
+      "id": "source-method",
+      "title": {
+        "zh": "原玩法数字怎样阅读",
+        "en": "Reading the original model numbers"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是自有小程序原31题的固定娱乐玩法，25个代码与原中文题、原维度计算和分配规则保持。英文为工作译文，未建立语言等值或心理测量验证。31题每题须选一项给定选项才生成一个画像，缺答不补零、不填中立，不愿回答可以退出；选项含不同题式，不统一把A或C当作高分。选项影响值按原规则整理并映射十五个模型读数，显示0至100及低于40、40至69、不低于70的模型分段。这不是百分位、量表诊断阈值、能力分或真实人格强度；十五维也不能推导MBTI类型。分配保留原来的确定性步骤，包括按读数指纹的固定分桶，不能笼统说成最近画像，也不是提交时随机抽取。匹配展示保留原52%至96%的显示范围，不是准确率、预测概率或对你叙述正确的比例；预设稀有度是原表常数，不是样本频率、人口占比或个人价值。相同代码不保证相同回答或经历；原画像的十五句文字属于该代码模板，并不随每个个人读数重新写作。原故事中的能力、最稀有、性别化昵称与贬称均为夸张角色声音，不证明健康、身份、收入、宗教、道德、家庭经历或他人感受；可以拒绝任何不合适的昵称，不需为了符合画像改变自己。完整公开25篇作答前可读，个人完成后保留选中画像、十五维数字、原故事及本站情境与观察，不需注册、付款或继续测评。新增虚构例子和讨论只帮助核对具体行为，不是量表证据、治疗、行为预测、招聘或伴侣匹配，也没有重测进步或有意义变化阈值。不要求联系真实人物、披露关系、证明困境、花钱、饮酒或承担更多照顾。回答与本次结果只留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复、退出或重测按现有流程清除。分享仅复制选中画像的公开URL，无答卷、十五维数字、匹配值或答卷标识；URL本身可让收件人看见是哪种画像，若说明这是自己的结果，会披露这次标签，是否分享可自行决定。公开页面本身不认证发送者做过测试。可选匿名动作计数需本页许可与全站分析同意，不发送作答或个人读数；清除不抹掉历史、截屏或旁人看屏。可只读、不同意故事、拒绝讨论或停止。",
+          "en": "This fixed entertainment game retains the owned Mini edition’s original 31 Chinese questions, 25 codes, dimension calculations and assignment. English is a working translation without established language equivalence or psychometric validation. One offered response per item is required for a portrait; missing responses are not filled with zero or neutral, and declining to answer permits exit. Response formats vary, so A or C is not uniformly a higher score. Original option impacts map to fifteen model readouts displayed from zero to 100, with model bands below 40, 40–69 and at least 70. These are not percentiles, diagnostic thresholds, ability scores or actual trait intensity, and they infer no MBTI type. Assignment preserves deterministic steps including fixed buckets from a readout fingerprint: it is neither simply the nearest portrait nor a fresh random draw at submission. The original match display spans 52%–96%, without representing accuracy, prediction probability or the proportion of a story true about you. Preset rarity is an original table constant, not sample frequency, population share or personal worth. Equal codes guarantee no equal answers or experiences. The fifteen textual descriptions belong to a code’s template and are not rewritten for each personal readout. Ability claims, rarity, gendered names and insults in the original story are exaggerated character voices, establishing no health, identity, income, religion, morality, family history or other people’s feelings. Reject any unsuitable nickname without changing yourself to fit it. All 25 public guides are readable before answering. Completion retains the selected portrait, fifteen readouts, original story and editorial scenes and reflections without signup, payment or further testing. New fictional examples help inspect particular actions, providing no scale evidence, treatment, behavioral prediction, hiring or partner match, or meaningful repeat-change threshold. No contact, relationship disclosure, proof of difficulty, spending, drinking or additional care is required. Responses and results stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration, exit or retaking. Sharing copies only the selected portrait’s public URL without responses, fifteen readouts, match or attempt identifier. The URL reveals which portrait it describes; calling it your own result discloses that label, so sharing is optional. A public guide certifies no completed attempt by its sender. Optional anonymous action counts require page permission and site analytics consent without sending responses or personal readouts. Clearing erases no history, screenshots or screen observation. Reading alone, disagreeing with the story, declining discussion or stopping is allowed."
+        }
+      ]
+    }
+  ],
+  "quiet-observer": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充情境：把画像放回日常",
+        "en": "An everyday scene for this portrait"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：宁喜欢独自做纸上拼图，也期待下周一起讨论。MONK不把安静认证为更高修养，不推断宗教或亲密身份；想被认可、想参与或继续独处，都无需通过故事昵称审批。",
+          "en": "An additional original fictional scene: Ning enjoys a paper puzzle alone and looks forward to discussing it next week. MONK certifies no superior virtue, religion or intimate identity. Wanting recognition, company or solitude needs no approval from the nickname."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "一个可选的观察",
+        "en": "One optional observation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样给安静与被看见都留位置，而不把少欲当作优越标准？”可以只针对上面的虚构人物，分别列出已知行为、可能解释与仍未知的部分；不需要找出谁更像这个昵称。参与者可以不同意、跳过或结束，不交换真实答卷、身份或私事，不把另一个人的标签当成对方应配合的理由。",
+          "en": "An optional discussion prompt asks: “How can quiet and recognition both have room without treating fewer desires as superior?” Use only the fictional people above to separate observed actions, possible interpretations and unknowns, without deciding who best fits the nickname. Participants may disagree, skip or stop without exchanging real responses, identities or private experiences, or treating someone’s label as a reason they must cooperate."
+        }
+      ]
+    },
+    {
+      "id": "source-method",
+      "title": {
+        "zh": "原玩法数字怎样阅读",
+        "en": "Reading the original model numbers"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是自有小程序原31题的固定娱乐玩法，25个代码与原中文题、原维度计算和分配规则保持。英文为工作译文，未建立语言等值或心理测量验证。31题每题须选一项给定选项才生成一个画像，缺答不补零、不填中立，不愿回答可以退出；选项含不同题式，不统一把A或C当作高分。选项影响值按原规则整理并映射十五个模型读数，显示0至100及低于40、40至69、不低于70的模型分段。这不是百分位、量表诊断阈值、能力分或真实人格强度；十五维也不能推导MBTI类型。分配保留原来的确定性步骤，包括按读数指纹的固定分桶，不能笼统说成最近画像，也不是提交时随机抽取。匹配展示保留原52%至96%的显示范围，不是准确率、预测概率或对你叙述正确的比例；预设稀有度是原表常数，不是样本频率、人口占比或个人价值。相同代码不保证相同回答或经历；原画像的十五句文字属于该代码模板，并不随每个个人读数重新写作。原故事中的能力、最稀有、性别化昵称与贬称均为夸张角色声音，不证明健康、身份、收入、宗教、道德、家庭经历或他人感受；可以拒绝任何不合适的昵称，不需为了符合画像改变自己。完整公开25篇作答前可读，个人完成后保留选中画像、十五维数字、原故事及本站情境与观察，不需注册、付款或继续测评。新增虚构例子和讨论只帮助核对具体行为，不是量表证据、治疗、行为预测、招聘或伴侣匹配，也没有重测进步或有意义变化阈值。不要求联系真实人物、披露关系、证明困境、花钱、饮酒或承担更多照顾。回答与本次结果只留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复、退出或重测按现有流程清除。分享仅复制选中画像的公开URL，无答卷、十五维数字、匹配值或答卷标识；URL本身可让收件人看见是哪种画像，若说明这是自己的结果，会披露这次标签，是否分享可自行决定。公开页面本身不认证发送者做过测试。可选匿名动作计数需本页许可与全站分析同意，不发送作答或个人读数；清除不抹掉历史、截屏或旁人看屏。可只读、不同意故事、拒绝讨论或停止。",
+          "en": "This fixed entertainment game retains the owned Mini edition’s original 31 Chinese questions, 25 codes, dimension calculations and assignment. English is a working translation without established language equivalence or psychometric validation. One offered response per item is required for a portrait; missing responses are not filled with zero or neutral, and declining to answer permits exit. Response formats vary, so A or C is not uniformly a higher score. Original option impacts map to fifteen model readouts displayed from zero to 100, with model bands below 40, 40–69 and at least 70. These are not percentiles, diagnostic thresholds, ability scores or actual trait intensity, and they infer no MBTI type. Assignment preserves deterministic steps including fixed buckets from a readout fingerprint: it is neither simply the nearest portrait nor a fresh random draw at submission. The original match display spans 52%–96%, without representing accuracy, prediction probability or the proportion of a story true about you. Preset rarity is an original table constant, not sample frequency, population share or personal worth. Equal codes guarantee no equal answers or experiences. The fifteen textual descriptions belong to a code’s template and are not rewritten for each personal readout. Ability claims, rarity, gendered names and insults in the original story are exaggerated character voices, establishing no health, identity, income, religion, morality, family history or other people’s feelings. Reject any unsuitable nickname without changing yourself to fit it. All 25 public guides are readable before answering. Completion retains the selected portrait, fifteen readouts, original story and editorial scenes and reflections without signup, payment or further testing. New fictional examples help inspect particular actions, providing no scale evidence, treatment, behavioral prediction, hiring or partner match, or meaningful repeat-change threshold. No contact, relationship disclosure, proof of difficulty, spending, drinking or additional care is required. Responses and results stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration, exit or retaking. Sharing copies only the selected portrait’s public URL without responses, fifteen readouts, match or attempt identifier. The URL reveals which portrait it describes; calling it your own result discloses that label, so sharing is optional. A public guide certifies no completed attempt by its sender. Optional anonymous action counts require page permission and site analytics consent without sending responses or personal readouts. Clearing erases no history, screenshots or screen observation. Reading alone, disagreeing with the story, declining discussion or stopping is allowed."
+        }
+      ]
+    }
+  ],
+  "venting-fixer": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充情境：把画像放回日常",
+        "en": "An everyday scene for this portrait"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：沐对清单反复变动很烦，说明只能再核一次，之后需由负责者确认。SHIT不证明沐必须继续补位，也不把辱骂别人当有效协作。明确限制与提出问题可以并存，不要求靠忍耐获得“有用”评价。",
+          "en": "An additional original fictional scene: Mu is frustrated by repeated list changes and offers one more check before the responsible person confirms it. SHIT creates no duty to keep rescuing the task or permission to insult. Limits and concerns can coexist without earning usefulness through endurance."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "一个可选的观察",
+        "en": "One optional observation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样同时说出问题与能承担的范围，而不默默接下全部收尾？”可以只针对上面的虚构人物，分别列出已知行为、可能解释与仍未知的部分；不需要找出谁更像这个昵称。参与者可以不同意、跳过或结束，不交换真实答卷、身份或私事，不把另一个人的标签当成对方应配合的理由。",
+          "en": "An optional discussion prompt asks: “How can a problem and a limited contribution be named without silently taking every remaining task?” Use only the fictional people above to separate observed actions, possible interpretations and unknowns, without deciding who best fits the nickname. Participants may disagree, skip or stop without exchanging real responses, identities or private experiences, or treating someone’s label as a reason they must cooperate."
+        }
+      ]
+    },
+    {
+      "id": "source-method",
+      "title": {
+        "zh": "原玩法数字怎样阅读",
+        "en": "Reading the original model numbers"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是自有小程序原31题的固定娱乐玩法，25个代码与原中文题、原维度计算和分配规则保持。英文为工作译文，未建立语言等值或心理测量验证。31题每题须选一项给定选项才生成一个画像，缺答不补零、不填中立，不愿回答可以退出；选项含不同题式，不统一把A或C当作高分。选项影响值按原规则整理并映射十五个模型读数，显示0至100及低于40、40至69、不低于70的模型分段。这不是百分位、量表诊断阈值、能力分或真实人格强度；十五维也不能推导MBTI类型。分配保留原来的确定性步骤，包括按读数指纹的固定分桶，不能笼统说成最近画像，也不是提交时随机抽取。匹配展示保留原52%至96%的显示范围，不是准确率、预测概率或对你叙述正确的比例；预设稀有度是原表常数，不是样本频率、人口占比或个人价值。相同代码不保证相同回答或经历；原画像的十五句文字属于该代码模板，并不随每个个人读数重新写作。原故事中的能力、最稀有、性别化昵称与贬称均为夸张角色声音，不证明健康、身份、收入、宗教、道德、家庭经历或他人感受；可以拒绝任何不合适的昵称，不需为了符合画像改变自己。完整公开25篇作答前可读，个人完成后保留选中画像、十五维数字、原故事及本站情境与观察，不需注册、付款或继续测评。新增虚构例子和讨论只帮助核对具体行为，不是量表证据、治疗、行为预测、招聘或伴侣匹配，也没有重测进步或有意义变化阈值。不要求联系真实人物、披露关系、证明困境、花钱、饮酒或承担更多照顾。回答与本次结果只留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复、退出或重测按现有流程清除。分享仅复制选中画像的公开URL，无答卷、十五维数字、匹配值或答卷标识；URL本身可让收件人看见是哪种画像，若说明这是自己的结果，会披露这次标签，是否分享可自行决定。公开页面本身不认证发送者做过测试。可选匿名动作计数需本页许可与全站分析同意，不发送作答或个人读数；清除不抹掉历史、截屏或旁人看屏。可只读、不同意故事、拒绝讨论或停止。",
+          "en": "This fixed entertainment game retains the owned Mini edition’s original 31 Chinese questions, 25 codes, dimension calculations and assignment. English is a working translation without established language equivalence or psychometric validation. One offered response per item is required for a portrait; missing responses are not filled with zero or neutral, and declining to answer permits exit. Response formats vary, so A or C is not uniformly a higher score. Original option impacts map to fifteen model readouts displayed from zero to 100, with model bands below 40, 40–69 and at least 70. These are not percentiles, diagnostic thresholds, ability scores or actual trait intensity, and they infer no MBTI type. Assignment preserves deterministic steps including fixed buckets from a readout fingerprint: it is neither simply the nearest portrait nor a fresh random draw at submission. The original match display spans 52%–96%, without representing accuracy, prediction probability or the proportion of a story true about you. Preset rarity is an original table constant, not sample frequency, population share or personal worth. Equal codes guarantee no equal answers or experiences. The fifteen textual descriptions belong to a code’s template and are not rewritten for each personal readout. Ability claims, rarity, gendered names and insults in the original story are exaggerated character voices, establishing no health, identity, income, religion, morality, family history or other people’s feelings. Reject any unsuitable nickname without changing yourself to fit it. All 25 public guides are readable before answering. Completion retains the selected portrait, fifteen readouts, original story and editorial scenes and reflections without signup, payment or further testing. New fictional examples help inspect particular actions, providing no scale evidence, treatment, behavioral prediction, hiring or partner match, or meaningful repeat-change threshold. No contact, relationship disclosure, proof of difficulty, spending, drinking or additional care is required. Responses and results stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration, exit or retaking. Sharing copies only the selected portrait’s public URL without responses, fifteen readouts, match or attempt identifier. The URL reveals which portrait it describes; calling it your own result discloses that label, so sharing is optional. A public guide certifies no completed attempt by its sender. Optional anonymous action counts require page permission and site analytics consent without sending responses or personal readouts. Clearing erases no history, screenshots or screen observation. Reading alone, disagreeing with the story, declining discussion or stopping is allowed."
+        }
+      ]
+    }
+  ],
+  "appreciator": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充情境：把画像放回日常",
+        "en": "An everyday scene for this portrait"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：羽感谢安送来一本落下的书，同时另谈安上次迟到造成的安排问题。THAN-K不使帮助变成债务，不取消羽提异议或退出关系的资格；两件实际事情无需在一份人格账本里抵消。",
+          "en": "An additional original fictional scene: Yu thanks An for returning a forgotten book and separately discusses a scheduling problem from earlier lateness. THAN-K turns no kindness into debt and removes no right to object or leave. The two events need no cancellation in a personality ledger."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "一个可选的观察",
+        "en": "One optional observation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样让感谢与尚未解决的边界分别表达？”可以只针对上面的虚构人物，分别列出已知行为、可能解释与仍未知的部分；不需要找出谁更像这个昵称。参与者可以不同意、跳过或结束，不交换真实答卷、身份或私事，不把另一个人的标签当成对方应配合的理由。",
+          "en": "An optional discussion prompt asks: “How can thanks and an unresolved boundary be expressed separately?” Use only the fictional people above to separate observed actions, possible interpretations and unknowns, without deciding who best fits the nickname. Participants may disagree, skip or stop without exchanging real responses, identities or private experiences, or treating someone’s label as a reason they must cooperate."
+        }
+      ]
+    },
+    {
+      "id": "source-method",
+      "title": {
+        "zh": "原玩法数字怎样阅读",
+        "en": "Reading the original model numbers"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是自有小程序原31题的固定娱乐玩法，25个代码与原中文题、原维度计算和分配规则保持。英文为工作译文，未建立语言等值或心理测量验证。31题每题须选一项给定选项才生成一个画像，缺答不补零、不填中立，不愿回答可以退出；选项含不同题式，不统一把A或C当作高分。选项影响值按原规则整理并映射十五个模型读数，显示0至100及低于40、40至69、不低于70的模型分段。这不是百分位、量表诊断阈值、能力分或真实人格强度；十五维也不能推导MBTI类型。分配保留原来的确定性步骤，包括按读数指纹的固定分桶，不能笼统说成最近画像，也不是提交时随机抽取。匹配展示保留原52%至96%的显示范围，不是准确率、预测概率或对你叙述正确的比例；预设稀有度是原表常数，不是样本频率、人口占比或个人价值。相同代码不保证相同回答或经历；原画像的十五句文字属于该代码模板，并不随每个个人读数重新写作。原故事中的能力、最稀有、性别化昵称与贬称均为夸张角色声音，不证明健康、身份、收入、宗教、道德、家庭经历或他人感受；可以拒绝任何不合适的昵称，不需为了符合画像改变自己。完整公开25篇作答前可读，个人完成后保留选中画像、十五维数字、原故事及本站情境与观察，不需注册、付款或继续测评。新增虚构例子和讨论只帮助核对具体行为，不是量表证据、治疗、行为预测、招聘或伴侣匹配，也没有重测进步或有意义变化阈值。不要求联系真实人物、披露关系、证明困境、花钱、饮酒或承担更多照顾。回答与本次结果只留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复、退出或重测按现有流程清除。分享仅复制选中画像的公开URL，无答卷、十五维数字、匹配值或答卷标识；URL本身可让收件人看见是哪种画像，若说明这是自己的结果，会披露这次标签，是否分享可自行决定。公开页面本身不认证发送者做过测试。可选匿名动作计数需本页许可与全站分析同意，不发送作答或个人读数；清除不抹掉历史、截屏或旁人看屏。可只读、不同意故事、拒绝讨论或停止。",
+          "en": "This fixed entertainment game retains the owned Mini edition’s original 31 Chinese questions, 25 codes, dimension calculations and assignment. English is a working translation without established language equivalence or psychometric validation. One offered response per item is required for a portrait; missing responses are not filled with zero or neutral, and declining to answer permits exit. Response formats vary, so A or C is not uniformly a higher score. Original option impacts map to fifteen model readouts displayed from zero to 100, with model bands below 40, 40–69 and at least 70. These are not percentiles, diagnostic thresholds, ability scores or actual trait intensity, and they infer no MBTI type. Assignment preserves deterministic steps including fixed buckets from a readout fingerprint: it is neither simply the nearest portrait nor a fresh random draw at submission. The original match display spans 52%–96%, without representing accuracy, prediction probability or the proportion of a story true about you. Preset rarity is an original table constant, not sample frequency, population share or personal worth. Equal codes guarantee no equal answers or experiences. The fifteen textual descriptions belong to a code’s template and are not rewritten for each personal readout. Ability claims, rarity, gendered names and insults in the original story are exaggerated character voices, establishing no health, identity, income, religion, morality, family history or other people’s feelings. Reject any unsuitable nickname without changing yourself to fit it. All 25 public guides are readable before answering. Completion retains the selected portrait, fifteen readouts, original story and editorial scenes and reflections without signup, payment or further testing. New fictional examples help inspect particular actions, providing no scale evidence, treatment, behavioral prediction, hiring or partner match, or meaningful repeat-change threshold. No contact, relationship disclosure, proof of difficulty, spending, drinking or additional care is required. Responses and results stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration, exit or retaking. Sharing copies only the selected portrait’s public URL without responses, fifteen readouts, match or attempt identifier. The URL reveals which portrait it describes; calling it your own result discloses that label, so sharing is optional. A public guide certifies no completed attempt by its sender. Optional anonymous action counts require page permission and site analytics consent without sending responses or personal readouts. Clearing erases no history, screenshots or screen observation. Reading alone, disagreeing with the story, declining discussion or stopping is allowed."
+        }
+      ]
+    }
+  ],
+  "improviser": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充情境：把画像放回日常",
+        "en": "An everyday scene for this portrait"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：悦因场地变更，把自愿交流改成较短的远程讨论，并先问参与者是否能使用。MALO不保证临时补丁合适；若条件不满足，可以延期，不必继续忙碌来证明有韧性。",
+          "en": "An additional original fictional scene: A venue change leads Yue to propose a shorter remote discussion and check participants’ access. MALO guarantees no suitable workaround. If conditions fail, postponement is allowed without proving resilience through more busyness."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "一个可选的观察",
+        "en": "One optional observation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样说明临时替代保留了什么、放弃了什么，并让受影响者参与决定？”可以只针对上面的虚构人物，分别列出已知行为、可能解释与仍未知的部分；不需要找出谁更像这个昵称。参与者可以不同意、跳过或结束，不交换真实答卷、身份或私事，不把另一个人的标签当成对方应配合的理由。",
+          "en": "An optional discussion prompt asks: “How can a workaround’s retained and lost features be stated while including those affected in the decision?” Use only the fictional people above to separate observed actions, possible interpretations and unknowns, without deciding who best fits the nickname. Participants may disagree, skip or stop without exchanging real responses, identities or private experiences, or treating someone’s label as a reason they must cooperate."
+        }
+      ]
+    },
+    {
+      "id": "source-method",
+      "title": {
+        "zh": "原玩法数字怎样阅读",
+        "en": "Reading the original model numbers"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是自有小程序原31题的固定娱乐玩法，25个代码与原中文题、原维度计算和分配规则保持。英文为工作译文，未建立语言等值或心理测量验证。31题每题须选一项给定选项才生成一个画像，缺答不补零、不填中立，不愿回答可以退出；选项含不同题式，不统一把A或C当作高分。选项影响值按原规则整理并映射十五个模型读数，显示0至100及低于40、40至69、不低于70的模型分段。这不是百分位、量表诊断阈值、能力分或真实人格强度；十五维也不能推导MBTI类型。分配保留原来的确定性步骤，包括按读数指纹的固定分桶，不能笼统说成最近画像，也不是提交时随机抽取。匹配展示保留原52%至96%的显示范围，不是准确率、预测概率或对你叙述正确的比例；预设稀有度是原表常数，不是样本频率、人口占比或个人价值。相同代码不保证相同回答或经历；原画像的十五句文字属于该代码模板，并不随每个个人读数重新写作。原故事中的能力、最稀有、性别化昵称与贬称均为夸张角色声音，不证明健康、身份、收入、宗教、道德、家庭经历或他人感受；可以拒绝任何不合适的昵称，不需为了符合画像改变自己。完整公开25篇作答前可读，个人完成后保留选中画像、十五维数字、原故事及本站情境与观察，不需注册、付款或继续测评。新增虚构例子和讨论只帮助核对具体行为，不是量表证据、治疗、行为预测、招聘或伴侣匹配，也没有重测进步或有意义变化阈值。不要求联系真实人物、披露关系、证明困境、花钱、饮酒或承担更多照顾。回答与本次结果只留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复、退出或重测按现有流程清除。分享仅复制选中画像的公开URL，无答卷、十五维数字、匹配值或答卷标识；URL本身可让收件人看见是哪种画像，若说明这是自己的结果，会披露这次标签，是否分享可自行决定。公开页面本身不认证发送者做过测试。可选匿名动作计数需本页许可与全站分析同意，不发送作答或个人读数；清除不抹掉历史、截屏或旁人看屏。可只读、不同意故事、拒绝讨论或停止。",
+          "en": "This fixed entertainment game retains the owned Mini edition’s original 31 Chinese questions, 25 codes, dimension calculations and assignment. English is a working translation without established language equivalence or psychometric validation. One offered response per item is required for a portrait; missing responses are not filled with zero or neutral, and declining to answer permits exit. Response formats vary, so A or C is not uniformly a higher score. Original option impacts map to fifteen model readouts displayed from zero to 100, with model bands below 40, 40–69 and at least 70. These are not percentiles, diagnostic thresholds, ability scores or actual trait intensity, and they infer no MBTI type. Assignment preserves deterministic steps including fixed buckets from a readout fingerprint: it is neither simply the nearest portrait nor a fresh random draw at submission. The original match display spans 52%–96%, without representing accuracy, prediction probability or the proportion of a story true about you. Preset rarity is an original table constant, not sample frequency, population share or personal worth. Equal codes guarantee no equal answers or experiences. The fifteen textual descriptions belong to a code’s template and are not rewritten for each personal readout. Ability claims, rarity, gendered names and insults in the original story are exaggerated character voices, establishing no health, identity, income, religion, morality, family history or other people’s feelings. Reject any unsuitable nickname without changing yourself to fit it. All 25 public guides are readable before answering. Completion retains the selected portrait, fifteen readouts, original story and editorial scenes and reflections without signup, payment or further testing. New fictional examples help inspect particular actions, providing no scale evidence, treatment, behavioral prediction, hiring or partner match, or meaningful repeat-change threshold. No contact, relationship disclosure, proof of difficulty, spending, drinking or additional care is required. Responses and results stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration, exit or retaking. Sharing copies only the selected portrait’s public URL without responses, fifteen readouts, match or attempt identifier. The URL reveals which portrait it describes; calling it your own result discloses that label, so sharing is optional. A public guide certifies no completed attempt by its sender. Optional anonymous action counts require page permission and site analytics consent without sending responses or personal readouts. Clearing erases no history, screenshots or screen observation. Reading alone, disagreeing with the story, declining discussion or stopping is allowed."
+        }
+      ]
+    }
+  ],
+  "giver": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充情境：把画像放回日常",
+        "en": "An everyday scene for this portrait"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：宁愿帮朋友整理一小节资料，说明不接整个任务；朋友可以拒绝。ATM不透露财富，也不让对方有权索取更多。想停止或期待互助，可以另谈，不能由昵称推定双方已经同意。",
+          "en": "An additional original fictional scene: Ning offers to organise one section for a friend, not the whole task, and the friend may decline. ATM reveals no wealth or entitlement to more help. Stopping or hoping for reciprocity needs its own discussion, not presumed agreement from a nickname."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "一个可选的观察",
+        "en": "One optional observation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样让付出有范围且可拒绝，而不制造未说出的资源义务？”可以只针对上面的虚构人物，分别列出已知行为、可能解释与仍未知的部分；不需要找出谁更像这个昵称。参与者可以不同意、跳过或结束，不交换真实答卷、身份或私事，不把另一个人的标签当成对方应配合的理由。",
+          "en": "An optional discussion prompt asks: “How can giving be bounded and declinable without creating unspoken obligations over resources?” Use only the fictional people above to separate observed actions, possible interpretations and unknowns, without deciding who best fits the nickname. Participants may disagree, skip or stop without exchanging real responses, identities or private experiences, or treating someone’s label as a reason they must cooperate."
+        }
+      ]
+    },
+    {
+      "id": "source-method",
+      "title": {
+        "zh": "原玩法数字怎样阅读",
+        "en": "Reading the original model numbers"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是自有小程序原31题的固定娱乐玩法，25个代码与原中文题、原维度计算和分配规则保持。英文为工作译文，未建立语言等值或心理测量验证。31题每题须选一项给定选项才生成一个画像，缺答不补零、不填中立，不愿回答可以退出；选项含不同题式，不统一把A或C当作高分。选项影响值按原规则整理并映射十五个模型读数，显示0至100及低于40、40至69、不低于70的模型分段。这不是百分位、量表诊断阈值、能力分或真实人格强度；十五维也不能推导MBTI类型。分配保留原来的确定性步骤，包括按读数指纹的固定分桶，不能笼统说成最近画像，也不是提交时随机抽取。匹配展示保留原52%至96%的显示范围，不是准确率、预测概率或对你叙述正确的比例；预设稀有度是原表常数，不是样本频率、人口占比或个人价值。相同代码不保证相同回答或经历；原画像的十五句文字属于该代码模板，并不随每个个人读数重新写作。原故事中的能力、最稀有、性别化昵称与贬称均为夸张角色声音，不证明健康、身份、收入、宗教、道德、家庭经历或他人感受；可以拒绝任何不合适的昵称，不需为了符合画像改变自己。完整公开25篇作答前可读，个人完成后保留选中画像、十五维数字、原故事及本站情境与观察，不需注册、付款或继续测评。新增虚构例子和讨论只帮助核对具体行为，不是量表证据、治疗、行为预测、招聘或伴侣匹配，也没有重测进步或有意义变化阈值。不要求联系真实人物、披露关系、证明困境、花钱、饮酒或承担更多照顾。回答与本次结果只留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复、退出或重测按现有流程清除。分享仅复制选中画像的公开URL，无答卷、十五维数字、匹配值或答卷标识；URL本身可让收件人看见是哪种画像，若说明这是自己的结果，会披露这次标签，是否分享可自行决定。公开页面本身不认证发送者做过测试。可选匿名动作计数需本页许可与全站分析同意，不发送作答或个人读数；清除不抹掉历史、截屏或旁人看屏。可只读、不同意故事、拒绝讨论或停止。",
+          "en": "This fixed entertainment game retains the owned Mini edition’s original 31 Chinese questions, 25 codes, dimension calculations and assignment. English is a working translation without established language equivalence or psychometric validation. One offered response per item is required for a portrait; missing responses are not filled with zero or neutral, and declining to answer permits exit. Response formats vary, so A or C is not uniformly a higher score. Original option impacts map to fifteen model readouts displayed from zero to 100, with model bands below 40, 40–69 and at least 70. These are not percentiles, diagnostic thresholds, ability scores or actual trait intensity, and they infer no MBTI type. Assignment preserves deterministic steps including fixed buckets from a readout fingerprint: it is neither simply the nearest portrait nor a fresh random draw at submission. The original match display spans 52%–96%, without representing accuracy, prediction probability or the proportion of a story true about you. Preset rarity is an original table constant, not sample frequency, population share or personal worth. Equal codes guarantee no equal answers or experiences. The fifteen textual descriptions belong to a code’s template and are not rewritten for each personal readout. Ability claims, rarity, gendered names and insults in the original story are exaggerated character voices, establishing no health, identity, income, religion, morality, family history or other people’s feelings. Reject any unsuitable nickname without changing yourself to fit it. All 25 public guides are readable before answering. Completion retains the selected portrait, fifteen readouts, original story and editorial scenes and reflections without signup, payment or further testing. New fictional examples help inspect particular actions, providing no scale evidence, treatment, behavioral prediction, hiring or partner match, or meaningful repeat-change threshold. No contact, relationship disclosure, proof of difficulty, spending, drinking or additional care is required. Responses and results stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration, exit or retaking. Sharing copies only the selected portrait’s public URL without responses, fifteen readouts, match or attempt identifier. The URL reveals which portrait it describes; calling it your own result discloses that label, so sharing is optional. A public guide certifies no completed attempt by its sender. Optional anonymous action counts require page permission and site analytics consent without sending responses or personal readouts. Clearing erases no history, screenshots or screen observation. Reading alone, disagreeing with the story, declining discussion or stopping is allowed."
+        }
+      ]
+    }
+  ],
+  "reflective-thinker": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充情境：把画像放回日常",
+        "en": "An everyday scene for this portrait"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：安对一条短回复列两种可能解释，后来直接问清漏答的问题；答案仍未知时，也可以暂留。THIN-K不认证更聪明或更深刻，不要求替别人编善意理由，也不使反复分析成为必须完成的任务。",
+          "en": "An additional original fictional scene: An considers two explanations for a short reply, then asks about the unanswered point. Remaining uncertainty can stay open. THIN-K certifies no greater intelligence or depth, requires no charitable invention and makes no duty of repeated analysis."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "一个可选的观察",
+        "en": "One optional observation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样区分观察、暂定解释与下一条真正有用的信息？”可以只针对上面的虚构人物，分别列出已知行为、可能解释与仍未知的部分；不需要找出谁更像这个昵称。参与者可以不同意、跳过或结束，不交换真实答卷、身份或私事，不把另一个人的标签当成对方应配合的理由。",
+          "en": "An optional discussion prompt asks: “How can observation, a provisional explanation and the next useful fact be distinguished?” Use only the fictional people above to separate observed actions, possible interpretations and unknowns, without deciding who best fits the nickname. Participants may disagree, skip or stop without exchanging real responses, identities or private experiences, or treating someone’s label as a reason they must cooperate."
+        }
+      ]
+    },
+    {
+      "id": "source-method",
+      "title": {
+        "zh": "原玩法数字怎样阅读",
+        "en": "Reading the original model numbers"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是自有小程序原31题的固定娱乐玩法，25个代码与原中文题、原维度计算和分配规则保持。英文为工作译文，未建立语言等值或心理测量验证。31题每题须选一项给定选项才生成一个画像，缺答不补零、不填中立，不愿回答可以退出；选项含不同题式，不统一把A或C当作高分。选项影响值按原规则整理并映射十五个模型读数，显示0至100及低于40、40至69、不低于70的模型分段。这不是百分位、量表诊断阈值、能力分或真实人格强度；十五维也不能推导MBTI类型。分配保留原来的确定性步骤，包括按读数指纹的固定分桶，不能笼统说成最近画像，也不是提交时随机抽取。匹配展示保留原52%至96%的显示范围，不是准确率、预测概率或对你叙述正确的比例；预设稀有度是原表常数，不是样本频率、人口占比或个人价值。相同代码不保证相同回答或经历；原画像的十五句文字属于该代码模板，并不随每个个人读数重新写作。原故事中的能力、最稀有、性别化昵称与贬称均为夸张角色声音，不证明健康、身份、收入、宗教、道德、家庭经历或他人感受；可以拒绝任何不合适的昵称，不需为了符合画像改变自己。完整公开25篇作答前可读，个人完成后保留选中画像、十五维数字、原故事及本站情境与观察，不需注册、付款或继续测评。新增虚构例子和讨论只帮助核对具体行为，不是量表证据、治疗、行为预测、招聘或伴侣匹配，也没有重测进步或有意义变化阈值。不要求联系真实人物、披露关系、证明困境、花钱、饮酒或承担更多照顾。回答与本次结果只留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复、退出或重测按现有流程清除。分享仅复制选中画像的公开URL，无答卷、十五维数字、匹配值或答卷标识；URL本身可让收件人看见是哪种画像，若说明这是自己的结果，会披露这次标签，是否分享可自行决定。公开页面本身不认证发送者做过测试。可选匿名动作计数需本页许可与全站分析同意，不发送作答或个人读数；清除不抹掉历史、截屏或旁人看屏。可只读、不同意故事、拒绝讨论或停止。",
+          "en": "This fixed entertainment game retains the owned Mini edition’s original 31 Chinese questions, 25 codes, dimension calculations and assignment. English is a working translation without established language equivalence or psychometric validation. One offered response per item is required for a portrait; missing responses are not filled with zero or neutral, and declining to answer permits exit. Response formats vary, so A or C is not uniformly a higher score. Original option impacts map to fifteen model readouts displayed from zero to 100, with model bands below 40, 40–69 and at least 70. These are not percentiles, diagnostic thresholds, ability scores or actual trait intensity, and they infer no MBTI type. Assignment preserves deterministic steps including fixed buckets from a readout fingerprint: it is neither simply the nearest portrait nor a fresh random draw at submission. The original match display spans 52%–96%, without representing accuracy, prediction probability or the proportion of a story true about you. Preset rarity is an original table constant, not sample frequency, population share or personal worth. Equal codes guarantee no equal answers or experiences. The fifteen textual descriptions belong to a code’s template and are not rewritten for each personal readout. Ability claims, rarity, gendered names and insults in the original story are exaggerated character voices, establishing no health, identity, income, religion, morality, family history or other people’s feelings. Reject any unsuitable nickname without changing yourself to fit it. All 25 public guides are readable before answering. Completion retains the selected portrait, fifteen readouts, original story and editorial scenes and reflections without signup, payment or further testing. New fictional examples help inspect particular actions, providing no scale evidence, treatment, behavioral prediction, hiring or partner match, or meaningful repeat-change threshold. No contact, relationship disclosure, proof of difficulty, spending, drinking or additional care is required. Responses and results stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration, exit or retaking. Sharing copies only the selected portrait’s public URL without responses, fifteen readouts, match or attempt identifier. The URL reveals which portrait it describes; calling it your own result discloses that label, so sharing is optional. A public guide certifies no completed attempt by its sender. Optional anonymous action counts require page permission and site analytics consent without sending responses or personal readouts. Clearing erases no history, screenshots or screen observation. Reading alone, disagreeing with the story, declining discussion or stopping is allowed."
+        }
+      ]
+    }
+  ],
+  "independent-walker": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充情境：把画像放回日常",
+        "en": "An everyday scene for this portrait"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：悦想自己整理私人书架，却请朋友帮查一项分类方法。SOLO不证明家庭经历或不需要支持；直接一起做、立即求助或拒绝建议都可以，没人需要凭独自完成证明自己够独立。",
+          "en": "An additional original fictional scene: Yue wants to arrange a private bookshelf alone but asks a friend about one classification method. SOLO reveals no family history or absence of support needs. Working together, asking immediately or declining advice are all possible without proving independence through solitary completion."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "一个可选的观察",
+        "en": "One optional observation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样说明希望保留的自主部分和欢迎帮助的部分？”可以只针对上面的虚构人物，分别列出已知行为、可能解释与仍未知的部分；不需要找出谁更像这个昵称。参与者可以不同意、跳过或结束，不交换真实答卷、身份或私事，不把另一个人的标签当成对方应配合的理由。",
+          "en": "An optional discussion prompt asks: “How can desired autonomy and welcome assistance be named separately?” Use only the fictional people above to separate observed actions, possible interpretations and unknowns, without deciding who best fits the nickname. Participants may disagree, skip or stop without exchanging real responses, identities or private experiences, or treating someone’s label as a reason they must cooperate."
+        }
+      ]
+    },
+    {
+      "id": "source-method",
+      "title": {
+        "zh": "原玩法数字怎样阅读",
+        "en": "Reading the original model numbers"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是自有小程序原31题的固定娱乐玩法，25个代码与原中文题、原维度计算和分配规则保持。英文为工作译文，未建立语言等值或心理测量验证。31题每题须选一项给定选项才生成一个画像，缺答不补零、不填中立，不愿回答可以退出；选项含不同题式，不统一把A或C当作高分。选项影响值按原规则整理并映射十五个模型读数，显示0至100及低于40、40至69、不低于70的模型分段。这不是百分位、量表诊断阈值、能力分或真实人格强度；十五维也不能推导MBTI类型。分配保留原来的确定性步骤，包括按读数指纹的固定分桶，不能笼统说成最近画像，也不是提交时随机抽取。匹配展示保留原52%至96%的显示范围，不是准确率、预测概率或对你叙述正确的比例；预设稀有度是原表常数，不是样本频率、人口占比或个人价值。相同代码不保证相同回答或经历；原画像的十五句文字属于该代码模板，并不随每个个人读数重新写作。原故事中的能力、最稀有、性别化昵称与贬称均为夸张角色声音，不证明健康、身份、收入、宗教、道德、家庭经历或他人感受；可以拒绝任何不合适的昵称，不需为了符合画像改变自己。完整公开25篇作答前可读，个人完成后保留选中画像、十五维数字、原故事及本站情境与观察，不需注册、付款或继续测评。新增虚构例子和讨论只帮助核对具体行为，不是量表证据、治疗、行为预测、招聘或伴侣匹配，也没有重测进步或有意义变化阈值。不要求联系真实人物、披露关系、证明困境、花钱、饮酒或承担更多照顾。回答与本次结果只留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复、退出或重测按现有流程清除。分享仅复制选中画像的公开URL，无答卷、十五维数字、匹配值或答卷标识；URL本身可让收件人看见是哪种画像，若说明这是自己的结果，会披露这次标签，是否分享可自行决定。公开页面本身不认证发送者做过测试。可选匿名动作计数需本页许可与全站分析同意，不发送作答或个人读数；清除不抹掉历史、截屏或旁人看屏。可只读、不同意故事、拒绝讨论或停止。",
+          "en": "This fixed entertainment game retains the owned Mini edition’s original 31 Chinese questions, 25 codes, dimension calculations and assignment. English is a working translation without established language equivalence or psychometric validation. One offered response per item is required for a portrait; missing responses are not filled with zero or neutral, and declining to answer permits exit. Response formats vary, so A or C is not uniformly a higher score. Original option impacts map to fifteen model readouts displayed from zero to 100, with model bands below 40, 40–69 and at least 70. These are not percentiles, diagnostic thresholds, ability scores or actual trait intensity, and they infer no MBTI type. Assignment preserves deterministic steps including fixed buckets from a readout fingerprint: it is neither simply the nearest portrait nor a fresh random draw at submission. The original match display spans 52%–96%, without representing accuracy, prediction probability or the proportion of a story true about you. Preset rarity is an original table constant, not sample frequency, population share or personal worth. Equal codes guarantee no equal answers or experiences. The fifteen textual descriptions belong to a code’s template and are not rewritten for each personal readout. Ability claims, rarity, gendered names and insults in the original story are exaggerated character voices, establishing no health, identity, income, religion, morality, family history or other people’s feelings. Reject any unsuitable nickname without changing yourself to fit it. All 25 public guides are readable before answering. Completion retains the selected portrait, fifteen readouts, original story and editorial scenes and reflections without signup, payment or further testing. New fictional examples help inspect particular actions, providing no scale evidence, treatment, behavioral prediction, hiring or partner match, or meaningful repeat-change threshold. No contact, relationship disclosure, proof of difficulty, spending, drinking or additional care is required. Responses and results stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration, exit or retaking. Sharing copies only the selected portrait’s public URL without responses, fifteen readouts, match or attempt identifier. The URL reveals which portrait it describes; calling it your own result discloses that label, so sharing is optional. A public guide certifies no completed attempt by its sender. Optional anonymous action counts require page permission and site analytics consent without sending responses or personal readouts. Clearing erases no history, screenshots or screen observation. Reading alone, disagreeing with the story, declining discussion or stopping is allowed."
+        }
+      ]
+    }
+  ],
+  "romantic-connector": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充情境：把画像放回日常",
+        "en": "An everyday scene for this portrait"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：宁期待与一位朋友看展，提出一次邀请，对方说不想去。LOVE-R不把想象变成对方承诺；宁可以失望，也可把期待留在私下，不用结果说服对方、追问隐私或改变自己的关系身份。",
+          "en": "An additional original fictional scene: Ning hopes to visit an exhibition with a friend, who declines. LOVE-R turns no imagined future into the friend’s promise. Disappointment or private reflection needs no persuasion with a result, private questioning or change of relationship identity."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "一个可选的观察",
+        "en": "One optional observation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样保留自己的期待，同时让对方的拒绝成为完整答案？”可以只针对上面的虚构人物，分别列出已知行为、可能解释与仍未知的部分；不需要找出谁更像这个昵称。参与者可以不同意、跳过或结束，不交换真实答卷、身份或私事，不把另一个人的标签当成对方应配合的理由。",
+          "en": "An optional discussion prompt asks: “How can personal hope remain valid while another person’s refusal remains a complete answer?” Use only the fictional people above to separate observed actions, possible interpretations and unknowns, without deciding who best fits the nickname. Participants may disagree, skip or stop without exchanging real responses, identities or private experiences, or treating someone’s label as a reason they must cooperate."
+        }
+      ]
+    },
+    {
+      "id": "source-method",
+      "title": {
+        "zh": "原玩法数字怎样阅读",
+        "en": "Reading the original model numbers"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是自有小程序原31题的固定娱乐玩法，25个代码与原中文题、原维度计算和分配规则保持。英文为工作译文，未建立语言等值或心理测量验证。31题每题须选一项给定选项才生成一个画像，缺答不补零、不填中立，不愿回答可以退出；选项含不同题式，不统一把A或C当作高分。选项影响值按原规则整理并映射十五个模型读数，显示0至100及低于40、40至69、不低于70的模型分段。这不是百分位、量表诊断阈值、能力分或真实人格强度；十五维也不能推导MBTI类型。分配保留原来的确定性步骤，包括按读数指纹的固定分桶，不能笼统说成最近画像，也不是提交时随机抽取。匹配展示保留原52%至96%的显示范围，不是准确率、预测概率或对你叙述正确的比例；预设稀有度是原表常数，不是样本频率、人口占比或个人价值。相同代码不保证相同回答或经历；原画像的十五句文字属于该代码模板，并不随每个个人读数重新写作。原故事中的能力、最稀有、性别化昵称与贬称均为夸张角色声音，不证明健康、身份、收入、宗教、道德、家庭经历或他人感受；可以拒绝任何不合适的昵称，不需为了符合画像改变自己。完整公开25篇作答前可读，个人完成后保留选中画像、十五维数字、原故事及本站情境与观察，不需注册、付款或继续测评。新增虚构例子和讨论只帮助核对具体行为，不是量表证据、治疗、行为预测、招聘或伴侣匹配，也没有重测进步或有意义变化阈值。不要求联系真实人物、披露关系、证明困境、花钱、饮酒或承担更多照顾。回答与本次结果只留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复、退出或重测按现有流程清除。分享仅复制选中画像的公开URL，无答卷、十五维数字、匹配值或答卷标识；URL本身可让收件人看见是哪种画像，若说明这是自己的结果，会披露这次标签，是否分享可自行决定。公开页面本身不认证发送者做过测试。可选匿名动作计数需本页许可与全站分析同意，不发送作答或个人读数；清除不抹掉历史、截屏或旁人看屏。可只读、不同意故事、拒绝讨论或停止。",
+          "en": "This fixed entertainment game retains the owned Mini edition’s original 31 Chinese questions, 25 codes, dimension calculations and assignment. English is a working translation without established language equivalence or psychometric validation. One offered response per item is required for a portrait; missing responses are not filled with zero or neutral, and declining to answer permits exit. Response formats vary, so A or C is not uniformly a higher score. Original option impacts map to fifteen model readouts displayed from zero to 100, with model bands below 40, 40–69 and at least 70. These are not percentiles, diagnostic thresholds, ability scores or actual trait intensity, and they infer no MBTI type. Assignment preserves deterministic steps including fixed buckets from a readout fingerprint: it is neither simply the nearest portrait nor a fresh random draw at submission. The original match display spans 52%–96%, without representing accuracy, prediction probability or the proportion of a story true about you. Preset rarity is an original table constant, not sample frequency, population share or personal worth. Equal codes guarantee no equal answers or experiences. The fifteen textual descriptions belong to a code’s template and are not rewritten for each personal readout. Ability claims, rarity, gendered names and insults in the original story are exaggerated character voices, establishing no health, identity, income, religion, morality, family history or other people’s feelings. Reject any unsuitable nickname without changing yourself to fit it. All 25 public guides are readable before answering. Completion retains the selected portrait, fifteen readouts, original story and editorial scenes and reflections without signup, payment or further testing. New fictional examples help inspect particular actions, providing no scale evidence, treatment, behavioral prediction, hiring or partner match, or meaningful repeat-change threshold. No contact, relationship disclosure, proof of difficulty, spending, drinking or additional care is required. Responses and results stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration, exit or retaking. Sharing copies only the selected portrait’s public URL without responses, fifteen readouts, match or attempt identifier. The URL reveals which portrait it describes; calling it your own result discloses that label, so sharing is optional. A public guide certifies no completed attempt by its sender. Optional anonymous action counts require page permission and site analytics consent without sending responses or personal readouts. Clearing erases no history, screenshots or screen observation. Reading alone, disagreeing with the story, declining discussion or stopping is allowed."
+        }
+      ]
+    }
+  ],
+  "surprised-commentator": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充情境：把画像放回日常",
+        "en": "An everyday scene for this portrait"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：沐听到普通活动临时换地点，先惊讶，核对通知后发现仍能到。WOC不把最初反应认证为最真实判断；转述可以补“当时我以为……后来核实……”，不带他人身份，也不要求所有人同样兴奋。",
+          "en": "An additional original fictional scene: Mu reacts with surprise to an ordinary venue change, then checks the notice and can still attend. WOC certifies no uniquely honest first reaction. A retelling can separate the initial impression from the checked facts without identities or a demand for shared excitement."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "一个可选的观察",
+        "en": "One optional observation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样在生动转述中标明第一印象与已核实事实？”可以只针对上面的虚构人物，分别列出已知行为、可能解释与仍未知的部分；不需要找出谁更像这个昵称。参与者可以不同意、跳过或结束，不交换真实答卷、身份或私事，不把另一个人的标签当成对方应配合的理由。",
+          "en": "An optional discussion prompt asks: “How can a vivid retelling distinguish first impressions from checked facts?” Use only the fictional people above to separate observed actions, possible interpretations and unknowns, without deciding who best fits the nickname. Participants may disagree, skip or stop without exchanging real responses, identities or private experiences, or treating someone’s label as a reason they must cooperate."
+        }
+      ]
+    },
+    {
+      "id": "source-method",
+      "title": {
+        "zh": "原玩法数字怎样阅读",
+        "en": "Reading the original model numbers"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是自有小程序原31题的固定娱乐玩法，25个代码与原中文题、原维度计算和分配规则保持。英文为工作译文，未建立语言等值或心理测量验证。31题每题须选一项给定选项才生成一个画像，缺答不补零、不填中立，不愿回答可以退出；选项含不同题式，不统一把A或C当作高分。选项影响值按原规则整理并映射十五个模型读数，显示0至100及低于40、40至69、不低于70的模型分段。这不是百分位、量表诊断阈值、能力分或真实人格强度；十五维也不能推导MBTI类型。分配保留原来的确定性步骤，包括按读数指纹的固定分桶，不能笼统说成最近画像，也不是提交时随机抽取。匹配展示保留原52%至96%的显示范围，不是准确率、预测概率或对你叙述正确的比例；预设稀有度是原表常数，不是样本频率、人口占比或个人价值。相同代码不保证相同回答或经历；原画像的十五句文字属于该代码模板，并不随每个个人读数重新写作。原故事中的能力、最稀有、性别化昵称与贬称均为夸张角色声音，不证明健康、身份、收入、宗教、道德、家庭经历或他人感受；可以拒绝任何不合适的昵称，不需为了符合画像改变自己。完整公开25篇作答前可读，个人完成后保留选中画像、十五维数字、原故事及本站情境与观察，不需注册、付款或继续测评。新增虚构例子和讨论只帮助核对具体行为，不是量表证据、治疗、行为预测、招聘或伴侣匹配，也没有重测进步或有意义变化阈值。不要求联系真实人物、披露关系、证明困境、花钱、饮酒或承担更多照顾。回答与本次结果只留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复、退出或重测按现有流程清除。分享仅复制选中画像的公开URL，无答卷、十五维数字、匹配值或答卷标识；URL本身可让收件人看见是哪种画像，若说明这是自己的结果，会披露这次标签，是否分享可自行决定。公开页面本身不认证发送者做过测试。可选匿名动作计数需本页许可与全站分析同意，不发送作答或个人读数；清除不抹掉历史、截屏或旁人看屏。可只读、不同意故事、拒绝讨论或停止。",
+          "en": "This fixed entertainment game retains the owned Mini edition’s original 31 Chinese questions, 25 codes, dimension calculations and assignment. English is a working translation without established language equivalence or psychometric validation. One offered response per item is required for a portrait; missing responses are not filled with zero or neutral, and declining to answer permits exit. Response formats vary, so A or C is not uniformly a higher score. Original option impacts map to fifteen model readouts displayed from zero to 100, with model bands below 40, 40–69 and at least 70. These are not percentiles, diagnostic thresholds, ability scores or actual trait intensity, and they infer no MBTI type. Assignment preserves deterministic steps including fixed buckets from a readout fingerprint: it is neither simply the nearest portrait nor a fresh random draw at submission. The original match display spans 52%–96%, without representing accuracy, prediction probability or the proportion of a story true about you. Preset rarity is an original table constant, not sample frequency, population share or personal worth. Equal codes guarantee no equal answers or experiences. The fifteen textual descriptions belong to a code’s template and are not rewritten for each personal readout. Ability claims, rarity, gendered names and insults in the original story are exaggerated character voices, establishing no health, identity, income, religion, morality, family history or other people’s feelings. Reject any unsuitable nickname without changing yourself to fit it. All 25 public guides are readable before answering. Completion retains the selected portrait, fifteen readouts, original story and editorial scenes and reflections without signup, payment or further testing. New fictional examples help inspect particular actions, providing no scale evidence, treatment, behavioral prediction, hiring or partner match, or meaningful repeat-change threshold. No contact, relationship disclosure, proof of difficulty, spending, drinking or additional care is required. Responses and results stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration, exit or retaking. Sharing copies only the selected portrait’s public URL without responses, fifteen readouts, match or attempt identifier. The URL reveals which portrait it describes; calling it your own result discloses that label, so sharing is optional. A public guide certifies no completed attempt by its sender. Optional anonymous action counts require page permission and site analytics consent without sending responses or personal readouts. Clearing erases no history, screenshots or screen observation. Reading alone, disagreeing with the story, declining discussion or stopping is allowed."
+        }
+      ]
+    }
+  ],
+  "atmosphere-seeker": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充情境：把画像放回日常",
+        "en": "An everyday scene for this portrait"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：羽想在普通休息时听一首熟悉歌曲，先问同处的人是否欢迎；对方想安静，便不外放。DRUNK不推断饮酒或依赖，也不推荐任何物质；不花钱、不聚会或什么都不安排，也可结束阅读。",
+          "en": "An additional original fictional scene: Yu wants a familiar song during an ordinary break and checks whether others welcome it. Someone prefers quiet, so it is not played aloud. DRUNK infers no drinking or dependence and recommends no substance. No purchase, gathering or activity is needed to finish this guide."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "一个可选的观察",
+        "en": "One optional observation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样照顾自己的感官偏好，同时不把它当作所有人的舒适条件？”可以只针对上面的虚构人物，分别列出已知行为、可能解释与仍未知的部分；不需要找出谁更像这个昵称。参与者可以不同意、跳过或结束，不交换真实答卷、身份或私事，不把另一个人的标签当成对方应配合的理由。",
+          "en": "An optional discussion prompt asks: “How can sensory preferences be respected without assuming they suit everyone?” Use only the fictional people above to separate observed actions, possible interpretations and unknowns, without deciding who best fits the nickname. Participants may disagree, skip or stop without exchanging real responses, identities or private experiences, or treating someone’s label as a reason they must cooperate."
+        }
+      ]
+    },
+    {
+      "id": "source-method",
+      "title": {
+        "zh": "原玩法数字怎样阅读",
+        "en": "Reading the original model numbers"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是自有小程序原31题的固定娱乐玩法，25个代码与原中文题、原维度计算和分配规则保持。英文为工作译文，未建立语言等值或心理测量验证。31题每题须选一项给定选项才生成一个画像，缺答不补零、不填中立，不愿回答可以退出；选项含不同题式，不统一把A或C当作高分。选项影响值按原规则整理并映射十五个模型读数，显示0至100及低于40、40至69、不低于70的模型分段。这不是百分位、量表诊断阈值、能力分或真实人格强度；十五维也不能推导MBTI类型。分配保留原来的确定性步骤，包括按读数指纹的固定分桶，不能笼统说成最近画像，也不是提交时随机抽取。匹配展示保留原52%至96%的显示范围，不是准确率、预测概率或对你叙述正确的比例；预设稀有度是原表常数，不是样本频率、人口占比或个人价值。相同代码不保证相同回答或经历；原画像的十五句文字属于该代码模板，并不随每个个人读数重新写作。原故事中的能力、最稀有、性别化昵称与贬称均为夸张角色声音，不证明健康、身份、收入、宗教、道德、家庭经历或他人感受；可以拒绝任何不合适的昵称，不需为了符合画像改变自己。完整公开25篇作答前可读，个人完成后保留选中画像、十五维数字、原故事及本站情境与观察，不需注册、付款或继续测评。新增虚构例子和讨论只帮助核对具体行为，不是量表证据、治疗、行为预测、招聘或伴侣匹配，也没有重测进步或有意义变化阈值。不要求联系真实人物、披露关系、证明困境、花钱、饮酒或承担更多照顾。回答与本次结果只留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复、退出或重测按现有流程清除。分享仅复制选中画像的公开URL，无答卷、十五维数字、匹配值或答卷标识；URL本身可让收件人看见是哪种画像，若说明这是自己的结果，会披露这次标签，是否分享可自行决定。公开页面本身不认证发送者做过测试。可选匿名动作计数需本页许可与全站分析同意，不发送作答或个人读数；清除不抹掉历史、截屏或旁人看屏。可只读、不同意故事、拒绝讨论或停止。",
+          "en": "This fixed entertainment game retains the owned Mini edition’s original 31 Chinese questions, 25 codes, dimension calculations and assignment. English is a working translation without established language equivalence or psychometric validation. One offered response per item is required for a portrait; missing responses are not filled with zero or neutral, and declining to answer permits exit. Response formats vary, so A or C is not uniformly a higher score. Original option impacts map to fifteen model readouts displayed from zero to 100, with model bands below 40, 40–69 and at least 70. These are not percentiles, diagnostic thresholds, ability scores or actual trait intensity, and they infer no MBTI type. Assignment preserves deterministic steps including fixed buckets from a readout fingerprint: it is neither simply the nearest portrait nor a fresh random draw at submission. The original match display spans 52%–96%, without representing accuracy, prediction probability or the proportion of a story true about you. Preset rarity is an original table constant, not sample frequency, population share or personal worth. Equal codes guarantee no equal answers or experiences. The fifteen textual descriptions belong to a code’s template and are not rewritten for each personal readout. Ability claims, rarity, gendered names and insults in the original story are exaggerated character voices, establishing no health, identity, income, religion, morality, family history or other people’s feelings. Reject any unsuitable nickname without changing yourself to fit it. All 25 public guides are readable before answering. Completion retains the selected portrait, fifteen readouts, original story and editorial scenes and reflections without signup, payment or further testing. New fictional examples help inspect particular actions, providing no scale evidence, treatment, behavioral prediction, hiring or partner match, or meaningful repeat-change threshold. No contact, relationship disclosure, proof of difficulty, spending, drinking or additional care is required. Responses and results stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration, exit or retaking. Sharing copies only the selected portrait’s public URL without responses, fifteen readouts, match or attempt identifier. The URL reveals which portrait it describes; calling it your own result discloses that label, so sharing is optional. A public guide certifies no completed attempt by its sender. Optional anonymous action counts require page permission and site analytics consent without sending responses or personal readouts. Clearing erases no history, screenshots or screen observation. Reading alone, disagreeing with the story, declining discussion or stopping is allowed."
+        }
+      ]
+    }
+  ],
+  "low-battery-rebuilder": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充情境：把画像放回日常",
+        "en": "An everyday scene for this portrait"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：安面对改稿暂时没有余力，先问清必须做的部分，也可以申请延后。IMFW不验证“废物”的辱称，不诊断原因或要求靠产出换取休息。若小步骤仍是负担，停止和寻找现实支持不与故事冲突。",
+          "en": "An additional original fictional scene: An lacks capacity for a revision, asks what is essential and may request more time. IMFW validates no insult, diagnoses no cause and requires no output to earn rest. Stopping or seeking practical support when a small step is still a burden does not contradict a story."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "一个可选的观察",
+        "en": "One optional observation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样把实际要求与自我贬低分开，并允许休息不以完成任务为条件？”可以只针对上面的虚构人物，分别列出已知行为、可能解释与仍未知的部分；不需要找出谁更像这个昵称。参与者可以不同意、跳过或结束，不交换真实答卷、身份或私事，不把另一个人的标签当成对方应配合的理由。",
+          "en": "An optional discussion prompt asks: “How can practical demands be separated from self-insults while rest remains independent of task completion?” Use only the fictional people above to separate observed actions, possible interpretations and unknowns, without deciding who best fits the nickname. Participants may disagree, skip or stop without exchanging real responses, identities or private experiences, or treating someone’s label as a reason they must cooperate."
+        }
+      ]
+    },
+    {
+      "id": "source-method",
+      "title": {
+        "zh": "原玩法数字怎样阅读",
+        "en": "Reading the original model numbers"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是自有小程序原31题的固定娱乐玩法，25个代码与原中文题、原维度计算和分配规则保持。英文为工作译文，未建立语言等值或心理测量验证。31题每题须选一项给定选项才生成一个画像，缺答不补零、不填中立，不愿回答可以退出；选项含不同题式，不统一把A或C当作高分。选项影响值按原规则整理并映射十五个模型读数，显示0至100及低于40、40至69、不低于70的模型分段。这不是百分位、量表诊断阈值、能力分或真实人格强度；十五维也不能推导MBTI类型。分配保留原来的确定性步骤，包括按读数指纹的固定分桶，不能笼统说成最近画像，也不是提交时随机抽取。匹配展示保留原52%至96%的显示范围，不是准确率、预测概率或对你叙述正确的比例；预设稀有度是原表常数，不是样本频率、人口占比或个人价值。相同代码不保证相同回答或经历；原画像的十五句文字属于该代码模板，并不随每个个人读数重新写作。原故事中的能力、最稀有、性别化昵称与贬称均为夸张角色声音，不证明健康、身份、收入、宗教、道德、家庭经历或他人感受；可以拒绝任何不合适的昵称，不需为了符合画像改变自己。完整公开25篇作答前可读，个人完成后保留选中画像、十五维数字、原故事及本站情境与观察，不需注册、付款或继续测评。新增虚构例子和讨论只帮助核对具体行为，不是量表证据、治疗、行为预测、招聘或伴侣匹配，也没有重测进步或有意义变化阈值。不要求联系真实人物、披露关系、证明困境、花钱、饮酒或承担更多照顾。回答与本次结果只留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复、退出或重测按现有流程清除。分享仅复制选中画像的公开URL，无答卷、十五维数字、匹配值或答卷标识；URL本身可让收件人看见是哪种画像，若说明这是自己的结果，会披露这次标签，是否分享可自行决定。公开页面本身不认证发送者做过测试。可选匿名动作计数需本页许可与全站分析同意，不发送作答或个人读数；清除不抹掉历史、截屏或旁人看屏。可只读、不同意故事、拒绝讨论或停止。",
+          "en": "This fixed entertainment game retains the owned Mini edition’s original 31 Chinese questions, 25 codes, dimension calculations and assignment. English is a working translation without established language equivalence or psychometric validation. One offered response per item is required for a portrait; missing responses are not filled with zero or neutral, and declining to answer permits exit. Response formats vary, so A or C is not uniformly a higher score. Original option impacts map to fifteen model readouts displayed from zero to 100, with model bands below 40, 40–69 and at least 70. These are not percentiles, diagnostic thresholds, ability scores or actual trait intensity, and they infer no MBTI type. Assignment preserves deterministic steps including fixed buckets from a readout fingerprint: it is neither simply the nearest portrait nor a fresh random draw at submission. The original match display spans 52%–96%, without representing accuracy, prediction probability or the proportion of a story true about you. Preset rarity is an original table constant, not sample frequency, population share or personal worth. Equal codes guarantee no equal answers or experiences. The fifteen textual descriptions belong to a code’s template and are not rewritten for each personal readout. Ability claims, rarity, gendered names and insults in the original story are exaggerated character voices, establishing no health, identity, income, religion, morality, family history or other people’s feelings. Reject any unsuitable nickname without changing yourself to fit it. All 25 public guides are readable before answering. Completion retains the selected portrait, fifteen readouts, original story and editorial scenes and reflections without signup, payment or further testing. New fictional examples help inspect particular actions, providing no scale evidence, treatment, behavioral prediction, hiring or partner match, or meaningful repeat-change threshold. No contact, relationship disclosure, proof of difficulty, spending, drinking or additional care is required. Responses and results stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration, exit or retaking. Sharing copies only the selected portrait’s public URL without responses, fifteen readouts, match or attempt identifier. The URL reveals which portrait it describes; calling it your own result discloses that label, so sharing is optional. A public guide certifies no completed attempt by its sender. Optional anonymous action counts require page permission and site analytics consent without sending responses or personal readouts. Clearing erases no history, screenshots or screen observation. Reading alone, disagreeing with the story, declining discussion or stopping is allowed."
+        }
+      ]
+    }
+  ]
+}

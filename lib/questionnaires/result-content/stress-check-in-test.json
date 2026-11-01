@@ -1,0 +1,43 @@
+{
+  "reading-your-check-in": [
+    {
+      "id": "context",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者记得同一个月里既有连续消息带来的急迫，也曾有一次能停下来；另一个人四条都选有时。两组都可能合计8分，但不是相同的日程、资源或应对能力。可以只读这两个例子，不重建消息次数、不检查身体，也不要求先证明能暂停。总分不判断哪项要求可以忽略或哪种安排适合本人。",
+          "en": "In an additional original scene, a reader recalls both pressure from successive messages and an opportunity to pause within one month. Another reader chooses Sometimes throughout. Both patterns can total eight without matching schedules, resources or coping ability. Reading the examples requires no reconstructed message count, body check or proof of an available pause. The total decides neither which demand can be ignored nor what arrangement fits a person."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“我想谈一段觉得被催促的情境；有些背景想保留；先想了解可以讨论什么安排。”可以只读虚构卡，不展示四条回答或总分。听者先问想被听见还是希望一起澄清要求，不用分数评判抗压、效率或努力，也不承诺能改变期限。医学或其他专业问题保留自己的评估背景，不因这张卡推迟合适支持。",
+          "en": "An optional conversation card names one setting of feeling pressed, keeps some context private and asks what arrangements are open to discussion. Read only the fictional card without showing four answers or a total. A listener asks whether listening or clarification of demands is wanted, judges no resilience, efficiency or effort from a number and promises no changed deadline. Medical or other professional questions retain their own assessment context; this card delays no appropriate support."
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，不是标准PSS-4、授权译本、临床筛查或治疗练习。四条仍用0—4频率，第二、第四条以4减所选值，完整相加为0—16；没有未评分补值、严重度分档、百分位或可靠变化阈值。同一总分可有不同回答，不能据此确定原因、能力、健康或治疗需要。原创题本尚无独立心理测量验证、常模或中英文测量等值；过去一个月是回忆框架，不是求助等待期，也不要求定期重测追求低分。原题本与独立PSS-4保留各自题目和契约，不转移回答或合并总分。全文无需答案，复制仍只含固定公开标题与指南地址，不含分数、贡献值、私人情境或健康资料；原有分析选择与内存清除行为保持各自规则。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading, not standard PSS-4, an authorised translation, clinical screening or treatment exercises. Four prompts retain frequencies from zero to four, with the second and fourth contributing four minus the chosen value, for a complete total from zero to sixteen. There is no imputed unscored value, severity band, percentile or reliable-change threshold. One total can contain different responses and establishes no cause, ability, health condition or treatment need. The original form lacks independent psychometric validation, norms or established English–Chinese measurement equivalence. The past month is a recall frame, not a waiting period for support or a required retesting schedule to pursue a lower score. This original form and separate PSS-4 retain their own items and contracts without transferred answers or combined totals. The full guide needs no answers. Copying retains only the fixed public title and guide address, without scores, contributions, private settings or health information. Existing analytics choices and memory-clearing behaviour keep their own rules."
+        }
+      ]
+    }
+  ]
+}

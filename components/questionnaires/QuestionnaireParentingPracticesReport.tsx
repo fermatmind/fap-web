@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
@@ -7,8 +7,8 @@ import type { Locale } from "@/lib/i18n/locales";
 
 type Complete = Extract<FacetResult, { status: "complete" }>;
 
-export function QuestionnaireParentingPracticesReport({ quiz, result, locale }: {
-  quiz: Questionnaire; result: Complete; locale: Locale;
+export function QuestionnaireParentingPracticesReport({ quiz, result, locale, readingProfiles }: {
+  quiz: Questionnaire; result: Complete; locale: Locale; readingProfiles?: Questionnaire["profiles"];
 }) {
   const zh = locale === "zh";
   return <div data-parenting-practices-result className="my-6 space-y-8">
@@ -39,13 +39,15 @@ export function QuestionnaireParentingPracticesReport({ quiz, result, locale }: 
     <section aria-labelledby="parenting-practices-guides" className="space-y-6">
       <h2 id="parenting-practices-guides" className="text-2xl font-semibold">{zh ? "四种风格的完整通用指南" : "Four complete general parenting-style guides"}</h2>
       <p className="leading-8">{zh ? "每个人都能阅读全部四份，比较概念、算例、日常情境与反例。打开指南不会改变你的作答或均分。" : "Everyone can read all four, comparing concepts, worked examples, everyday situations and counterexamples. Opening a guide does not change your answers or means."}</p>
-      {quiz.profiles.map(profile => <section key={profile.id} data-parenting-practices-guide={profile.id}
+      {quiz.profiles.map(sourceProfile => {
+        const profile = readingProfiles?.find(p => p.id === sourceProfile.id && p.resultReading?.quizSlug === quiz.slug && p.resultReading.profileId === sourceProfile.id) ?? sourceProfile;
+        return <section key={profile.id} data-parenting-practices-guide={profile.id}
         aria-labelledby={`parenting-practices-guide-${profile.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
         <h3 id={`parenting-practices-guide-${profile.id}`} className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`parenting-practices-report-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`parenting-practices-report-${profile.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline"
           href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "打开这份完整公开指南" : "Open this complete public guide"}</Link>
-      </section>)}
+      </section>;})}
     </section>
   </div>;
 }

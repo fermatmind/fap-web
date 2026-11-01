@@ -3,7 +3,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 export function IntimacyValuesReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh";
@@ -19,7 +19,7 @@ export function IntimacyValuesReport({ quiz, result, locale }: { quiz: Questionn
         <p className="mb-4 leading-7">{part.mean === null
           ? (zh ? "以下是完整通用指南，不是本次个人偏好的结论。" : "The complete text below is a general guide, not a conclusion about your preferences in this attempt.")
           : (zh ? "较高只表示更重视本组条件；较低不解释原因，也不授权忽视任何人的边界。相同均值可能来自不同回答，请结合具体条件阅读。" : "A higher mean records more importance placed on this set. A lower mean explains no cause and never permits disregarding anyone’s boundaries. Different answers can yield the same mean; read the actual conditions in context.")}</p>
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`intimacy-reading-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`intimacy-reading-${profile.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一主题的完整公开指南" : "Read this topic’s full public guide"}</Link>
       </section>;
     })}

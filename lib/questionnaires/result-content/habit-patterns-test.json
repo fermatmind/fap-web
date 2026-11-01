@@ -1,0 +1,207 @@
+{
+  "cues-and-urges": [
+    {
+      "id": "cues-and-urges-example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境：虚构读者等待一个短任务完成时想到相册，但还没有打开。想到、想开始与实际开始可以分开描述；若原本就安排了短休息，同样的线索也可能与计划一致。一次回想不证明触发的原因、冲动强度或是否需要改变。",
+          "en": "In an additional scene, a fictional reader waiting for a short task thinks of a photo folder without opening it. A reminder, wanting to start and actually starting can be described separately. If a short break was planned, the same cue might fit the plan. One recollection establishes no cause, urge intensity or need to change."
+        }
+      ]
+    },
+    {
+      "id": "cues-and-urges-observation",
+      "title": {
+        "zh": "可选讨论提示",
+        "en": "An optional discussion prompt"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“哪些发生在开始之前，哪些是想法，哪些行动确实发生了？”可以只读或讨论虚构人物，不需要说出自己的习惯、答案、均值或私人笔记。先区分事实、解释和未知；听者可以不参与，无需同意一种原因，也不必把讨论变成改变计划。",
+          "en": "An optional discussion prompt asks: “What happened before the start, which details were thoughts, and which actions actually occurred?” Read alone or discuss the fictional reader without naming a personal habit or revealing answers, means or private notes. Separate facts, interpretations and unknowns. Participation, agreement on a cause and a plan to change are optional."
+        }
+      ]
+    },
+    {
+      "id": "cues-and-urges-limits",
+      "title": {
+        "zh": "补充读法与来源边界",
+        "en": "Additional method and source limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论提示由费马测试编辑部原创。始终只回想过去30天心中同一个普通、非紧急日常习惯，不收名称或自由文本。二十条分五组各四条，1至5为符合程度，3“不确定或视情况”仍是数字，不是频率、中立或跳过；全部直接计入，无反向。每题作数字或明确跳过才能结束，空白不同于跳过。各组至少三个数字才显示个人原始和、均值与解释；按实际数字数求和并除以该数，显示四位小数。2、4、5与一题跳过得和11、均值3.6667；补入3变和14、均值3.5000，差异不是改善证据。跳过不补零或中点；少于三题隐藏所属组个人数值及解释，其他有效组保留，五组都不足也可结束。公开通用全文可单独阅读。五组不合总分、不排名、不构成独立严重性证据或因果链。原创题本与工作英译未建立常模、信效度、临床或公平性验证，不继承其他习惯量表证据。表单仅用页面内存，不新增草稿、个人分享或分析；退出、刷新、换语或历史恢复清除。讨论虚构例子不要求真实经历、重复行为或改变习惯。",
+          "en": "FermatMind Editorial authored these additions. Recall only one common, nonurgent everyday habit over the past 30 days, without entering its name or free text. Twenty direct items form five groups of four. Values 1–5 describe endorsement; three, uncertain or depends, remains numeric rather than frequency, neutrality or a skip. There are no reversals. One numeric or explicit skip choice per item finishes; blanks differ from skips. A group needs at least three numeric answers for a personal sum, mean and interpretation. Add the actual numeric values and divide by their count, displaying four decimals. Values 2, 4, 5 and a skip give sum 11 and mean 3.6667; adding 3 gives sum 14 and mean 3.5000, without evidence of improvement. Skips supply no zero or midpoint. Fewer than three withholds only that group’s personal values and interpretation; available groups remain. All insufficient groups still finish. Public general guides remain readable separately. Groups create no total, ranking, independent severity evidence or causal chain. Norms, reliability, validity, clinical and fairness validation are unestablished for this original bank and working English; other habit scales’ evidence does not transfer. Only page memory is used, without added drafts, personal sharing or analytics. Exit, reload, language change and history restoration clear answers. Fictional discussion needs no personal disclosure, repeated behaviour or habit change."
+        }
+      ]
+    }
+  ],
+  "automatic-starts": [
+    {
+      "id": "automatic-starts-example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境：虚构读者放下包就打开常用页面，之后才注意到顺序。另一个人可能主动决定查资料后打开同一页，外观相同却未必是同一种启动。均值不能核实意识发生的时点，也不能由顺手程度判断习惯有害或无法选择。",
+          "en": "In an additional scene, a fictional reader puts down a bag and opens a familiar page before noticing the sequence. Another person might deliberately choose to consult a document and open the same page. Similar appearances need not mean identical starts. The mean verifies neither awareness timing nor harm or inability to choose."
+        }
+      ]
+    },
+    {
+      "id": "automatic-starts-observation",
+      "title": {
+        "zh": "可选讨论提示",
+        "en": "An optional discussion prompt"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“前一个动作、注意到的时点和主动决定有哪些已知与未知？”可以只读或讨论虚构人物，不需要说出自己的习惯、答案、均值或私人笔记。先区分事实、解释和未知；听者可以不参与，无需同意一种原因，也不必把讨论变成改变计划。",
+          "en": "An optional discussion prompt asks: “What is known or unknown about the preceding action, moment of awareness and deliberate decision?” Read alone or discuss the fictional reader without naming a personal habit or revealing answers, means or private notes. Separate facts, interpretations and unknowns. Participation, agreement on a cause and a plan to change are optional."
+        }
+      ]
+    },
+    {
+      "id": "automatic-starts-limits",
+      "title": {
+        "zh": "补充读法与来源边界",
+        "en": "Additional method and source limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论提示由费马测试编辑部原创。始终只回想过去30天心中同一个普通、非紧急日常习惯，不收名称或自由文本。二十条分五组各四条，1至5为符合程度，3“不确定或视情况”仍是数字，不是频率、中立或跳过；全部直接计入，无反向。每题作数字或明确跳过才能结束，空白不同于跳过。各组至少三个数字才显示个人原始和、均值与解释；按实际数字数求和并除以该数，显示四位小数。2、4、5与一题跳过得和11、均值3.6667；补入3变和14、均值3.5000，差异不是改善证据。跳过不补零或中点；少于三题隐藏所属组个人数值及解释，其他有效组保留，五组都不足也可结束。公开通用全文可单独阅读。五组不合总分、不排名、不构成独立严重性证据或因果链。原创题本与工作英译未建立常模、信效度、临床或公平性验证，不继承其他习惯量表证据。表单仅用页面内存，不新增草稿、个人分享或分析；退出、刷新、换语或历史恢复清除。讨论虚构例子不要求真实经历、重复行为或改变习惯。",
+          "en": "FermatMind Editorial authored these additions. Recall only one common, nonurgent everyday habit over the past 30 days, without entering its name or free text. Twenty direct items form five groups of four. Values 1–5 describe endorsement; three, uncertain or depends, remains numeric rather than frequency, neutrality or a skip. There are no reversals. One numeric or explicit skip choice per item finishes; blanks differ from skips. A group needs at least three numeric answers for a personal sum, mean and interpretation. Add the actual numeric values and divide by their count, displaying four decimals. Values 2, 4, 5 and a skip give sum 11 and mean 3.6667; adding 3 gives sum 14 and mean 3.5000, without evidence of improvement. Skips supply no zero or midpoint. Fewer than three withholds only that group’s personal values and interpretation; available groups remain. All insufficient groups still finish. Public general guides remain readable separately. Groups create no total, ranking, independent severity evidence or causal chain. Norms, reliability, validity, clinical and fairness validation are unestablished for this original bank and working English; other habit scales’ evidence does not transfer. Only page memory is used, without added drafts, personal sharing or analytics. Exit, reload, language change and history restoration clear answers. Fictional discussion needs no personal disclosure, repeated behaviour or habit change."
+        }
+      ]
+    }
+  ],
+  "displaced-plans": [
+    {
+      "id": "displaced-plans-example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境：虚构读者原定浏览照片后做一项家务，实际开始家务更晚。原安排、后来的选择、外部打断和影响需要分别核对；事先自愿改约又是另一种情况。均值不能换算损失分钟数，也不能决定这次变动是否不可接受。",
+          "en": "In an additional scene, a fictional reader starts a household task later than planned after browsing photos. The original arrangement, later choices, interruptions and effects need separate checking; a voluntary prior reschedule is another case. The mean converts to neither minutes lost nor a decision that this change was unacceptable."
+        }
+      ]
+    },
+    {
+      "id": "displaced-plans-observation",
+      "title": {
+        "zh": "可选讨论提示",
+        "en": "An optional discussion prompt"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“原安排是什么、什么改变了、谁受影响，哪些替代解释仍在？”可以只读或讨论虚构人物，不需要说出自己的习惯、答案、均值或私人笔记。先区分事实、解释和未知；听者可以不参与，无需同意一种原因，也不必把讨论变成改变计划。",
+          "en": "An optional discussion prompt asks: “What was planned, what changed, who was affected, and which alternative explanations remain?” Read alone or discuss the fictional reader without naming a personal habit or revealing answers, means or private notes. Separate facts, interpretations and unknowns. Participation, agreement on a cause and a plan to change are optional."
+        }
+      ]
+    },
+    {
+      "id": "displaced-plans-limits",
+      "title": {
+        "zh": "补充读法与来源边界",
+        "en": "Additional method and source limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论提示由费马测试编辑部原创。始终只回想过去30天心中同一个普通、非紧急日常习惯，不收名称或自由文本。二十条分五组各四条，1至5为符合程度，3“不确定或视情况”仍是数字，不是频率、中立或跳过；全部直接计入，无反向。每题作数字或明确跳过才能结束，空白不同于跳过。各组至少三个数字才显示个人原始和、均值与解释；按实际数字数求和并除以该数，显示四位小数。2、4、5与一题跳过得和11、均值3.6667；补入3变和14、均值3.5000，差异不是改善证据。跳过不补零或中点；少于三题隐藏所属组个人数值及解释，其他有效组保留，五组都不足也可结束。公开通用全文可单独阅读。五组不合总分、不排名、不构成独立严重性证据或因果链。原创题本与工作英译未建立常模、信效度、临床或公平性验证，不继承其他习惯量表证据。表单仅用页面内存，不新增草稿、个人分享或分析；退出、刷新、换语或历史恢复清除。讨论虚构例子不要求真实经历、重复行为或改变习惯。",
+          "en": "FermatMind Editorial authored these additions. Recall only one common, nonurgent everyday habit over the past 30 days, without entering its name or free text. Twenty direct items form five groups of four. Values 1–5 describe endorsement; three, uncertain or depends, remains numeric rather than frequency, neutrality or a skip. There are no reversals. One numeric or explicit skip choice per item finishes; blanks differ from skips. A group needs at least three numeric answers for a personal sum, mean and interpretation. Add the actual numeric values and divide by their count, displaying four decimals. Values 2, 4, 5 and a skip give sum 11 and mean 3.6667; adding 3 gives sum 14 and mean 3.5000, without evidence of improvement. Skips supply no zero or midpoint. Fewer than three withholds only that group’s personal values and interpretation; available groups remain. All insufficient groups still finish. Public general guides remain readable separately. Groups create no total, ranking, independent severity evidence or causal chain. Norms, reliability, validity, clinical and fairness validation are unestablished for this original bank and working English; other habit scales’ evidence does not transfer. Only page memory is used, without added drafts, personal sharing or analytics. Exit, reload, language change and history restoration clear answers. Fictional discussion needs no personal disclosure, repeated behaviour or habit change."
+        }
+      ]
+    }
+  ],
+  "continuing-after-inconvenience": [
+    {
+      "id": "continuing-after-inconvenience-example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境：虚构读者想在短任务前停止浏览兴趣页面，当次没有做到，后来发现任务时间变少。预定限度、实际顺序和办法能否落实是不同信息；如果当天早已被打断，原计划也可能不再可行。一次未做到不证明缺乏意志，也不推导停止活动的要求。",
+          "en": "In an additional scene, a fictional reader intends to stop browsing before a short task, continues, and later has less task time. The intended limit, actual sequence and feasibility of the plan differ. An earlier interruption might already have made the plan unworkable. One missed intention proves no lack of willpower and creates no requirement to stop the activity."
+        }
+      ]
+    },
+    {
+      "id": "continuing-after-inconvenience-observation",
+      "title": {
+        "zh": "可选讨论提示",
+        "en": "An optional discussion prompt"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“原本准备怎样调整、当时能否做到，哪些条件改变了？”可以只读或讨论虚构人物，不需要说出自己的习惯、答案、均值或私人笔记。先区分事实、解释和未知；听者可以不参与，无需同意一种原因，也不必把讨论变成改变计划。",
+          "en": "An optional discussion prompt asks: “What adjustment was intended, was it feasible then, and which conditions changed?” Read alone or discuss the fictional reader without naming a personal habit or revealing answers, means or private notes. Separate facts, interpretations and unknowns. Participation, agreement on a cause and a plan to change are optional."
+        }
+      ]
+    },
+    {
+      "id": "continuing-after-inconvenience-limits",
+      "title": {
+        "zh": "补充读法与来源边界",
+        "en": "Additional method and source limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论提示由费马测试编辑部原创。始终只回想过去30天心中同一个普通、非紧急日常习惯，不收名称或自由文本。二十条分五组各四条，1至5为符合程度，3“不确定或视情况”仍是数字，不是频率、中立或跳过；全部直接计入，无反向。每题作数字或明确跳过才能结束，空白不同于跳过。各组至少三个数字才显示个人原始和、均值与解释；按实际数字数求和并除以该数，显示四位小数。2、4、5与一题跳过得和11、均值3.6667；补入3变和14、均值3.5000，差异不是改善证据。跳过不补零或中点；少于三题隐藏所属组个人数值及解释，其他有效组保留，五组都不足也可结束。公开通用全文可单独阅读。五组不合总分、不排名、不构成独立严重性证据或因果链。原创题本与工作英译未建立常模、信效度、临床或公平性验证，不继承其他习惯量表证据。表单仅用页面内存，不新增草稿、个人分享或分析；退出、刷新、换语或历史恢复清除。讨论虚构例子不要求真实经历、重复行为或改变习惯。",
+          "en": "FermatMind Editorial authored these additions. Recall only one common, nonurgent everyday habit over the past 30 days, without entering its name or free text. Twenty direct items form five groups of four. Values 1–5 describe endorsement; three, uncertain or depends, remains numeric rather than frequency, neutrality or a skip. There are no reversals. One numeric or explicit skip choice per item finishes; blanks differ from skips. A group needs at least three numeric answers for a personal sum, mean and interpretation. Add the actual numeric values and divide by their count, displaying four decimals. Values 2, 4, 5 and a skip give sum 11 and mean 3.6667; adding 3 gives sum 14 and mean 3.5000, without evidence of improvement. Skips supply no zero or midpoint. Fewer than three withholds only that group’s personal values and interpretation; available groups remain. All insufficient groups still finish. Public general guides remain readable separately. Groups create no total, ranking, independent severity evidence or causal chain. Norms, reliability, validity, clinical and fairness validation are unestablished for this original bank and working English; other habit scales’ evidence does not transfer. Only page memory is used, without added drafts, personal sharing or analytics. Exit, reload, language change and history restoration clear answers. Fictional discussion needs no personal disclosure, repeated behaviour or habit change."
+        }
+      ]
+    }
+  ],
+  "everyday-effects": [
+    {
+      "id": "everyday-effects-example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境：虚构读者浏览收藏后迟到一通原定电话，需要了解对方实际体验。电话是否提前改约、还有哪些责任、变化持续多久，都不能由四条回答补出。没有数字或均值较小，也不排除某项具体约定需要处理；一般指南不能代替真实双方的说明。",
+          "en": "In an additional scene, a fictional reader begins a planned call late after browsing a collection and needs to understand the other person’s actual experience. Prior rescheduling, other obligations and duration of effects are not supplied by four responses. Missing values or a smaller mean do not rule out a commitment needing attention; a general guide cannot replace the people’s accounts."
+        }
+      ]
+    },
+    {
+      "id": "everyday-effects-observation",
+      "title": {
+        "zh": "可选讨论提示",
+        "en": "An optional discussion prompt"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“哪项安排受影响、对方体验有哪些直接信息，哪些原因还不能确定？”可以只读或讨论虚构人物，不需要说出自己的习惯、答案、均值或私人笔记。先区分事实、解释和未知；听者可以不参与，无需同意一种原因，也不必把讨论变成改变计划。",
+          "en": "An optional discussion prompt asks: “Which arrangement was affected, what direct information exists about the other person’s experience, and which causes remain uncertain?” Read alone or discuss the fictional reader without naming a personal habit or revealing answers, means or private notes. Separate facts, interpretations and unknowns. Participation, agreement on a cause and a plan to change are optional."
+        }
+      ]
+    },
+    {
+      "id": "everyday-effects-limits",
+      "title": {
+        "zh": "补充读法与来源边界",
+        "en": "Additional method and source limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论提示由费马测试编辑部原创。始终只回想过去30天心中同一个普通、非紧急日常习惯，不收名称或自由文本。二十条分五组各四条，1至5为符合程度，3“不确定或视情况”仍是数字，不是频率、中立或跳过；全部直接计入，无反向。每题作数字或明确跳过才能结束，空白不同于跳过。各组至少三个数字才显示个人原始和、均值与解释；按实际数字数求和并除以该数，显示四位小数。2、4、5与一题跳过得和11、均值3.6667；补入3变和14、均值3.5000，差异不是改善证据。跳过不补零或中点；少于三题隐藏所属组个人数值及解释，其他有效组保留，五组都不足也可结束。公开通用全文可单独阅读。五组不合总分、不排名、不构成独立严重性证据或因果链。原创题本与工作英译未建立常模、信效度、临床或公平性验证，不继承其他习惯量表证据。表单仅用页面内存，不新增草稿、个人分享或分析；退出、刷新、换语或历史恢复清除。讨论虚构例子不要求真实经历、重复行为或改变习惯。",
+          "en": "FermatMind Editorial authored these additions. Recall only one common, nonurgent everyday habit over the past 30 days, without entering its name or free text. Twenty direct items form five groups of four. Values 1–5 describe endorsement; three, uncertain or depends, remains numeric rather than frequency, neutrality or a skip. There are no reversals. One numeric or explicit skip choice per item finishes; blanks differ from skips. A group needs at least three numeric answers for a personal sum, mean and interpretation. Add the actual numeric values and divide by their count, displaying four decimals. Values 2, 4, 5 and a skip give sum 11 and mean 3.6667; adding 3 gives sum 14 and mean 3.5000, without evidence of improvement. Skips supply no zero or midpoint. Fewer than three withholds only that group’s personal values and interpretation; available groups remain. All insufficient groups still finish. Public general guides remain readable separately. Groups create no total, ranking, independent severity evidence or causal chain. Norms, reliability, validity, clinical and fairness validation are unestablished for this original bank and working English; other habit scales’ evidence does not transfer. Only page memory is used, without added drafts, personal sharing or analytics. Exit, reload, language change and history restoration clear answers. Fictional discussion needs no personal disclosure, repeated behaviour or habit change."
+        }
+      ]
+    }
+  ]
+}

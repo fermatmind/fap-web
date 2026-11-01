@@ -3,7 +3,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 export function QuestionnaireEmotionDashboardReport({ quiz, result, answers, locale }: {
   quiz: Questionnaire;
@@ -39,7 +39,7 @@ export function QuestionnaireEmotionDashboardReport({ quiz, result, answers, loc
           ? (zh ? `观察不足：${score.rated}/${score.total}条数值，至少需要${quiz.minimumRatedItems}条，不给个人均值。` : `Insufficient observations: ${score.rated}/${score.total} numeric ratings; at least ${quiz.minimumRatedItems} are needed. No personal mean.`)
           : (zh ? `本题组频率均值：${score.mean.toFixed(1)} / 5（${score.rated}/${score.total}条数值）` : `Frequency mean for these items: ${score.mean.toFixed(1)} / 5 (${score.rated}/${score.total} numeric ratings)`)}</p>
         {score.mean === null && <p className="mb-4 text-sm leading-7 text-slate-600">{zh ? "观察不足不同于感受较少。以下是通用读法，不能当成对本次个人状态的解释。" : "Insufficient observations differ from a lower frequency. The following is a general guide, not an interpretation of a personal state in this attempt."}</p>}
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`emotion-${direction.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`emotion-${direction.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这类感受的公开完整指南" : "Read this emotion’s complete public guide"}</Link>
       </section>;
     })}

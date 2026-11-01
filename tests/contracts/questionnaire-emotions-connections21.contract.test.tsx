@@ -85,8 +85,8 @@ describe("Original emotions and connections descriptions without scores or clini
   it("makes all fifty-six paragraphs public before answers and on their own guide pages", () => {
     for (const locale of ["en", "zh"] as const) {
       const html = renderToStaticMarkup(<EmotionsConnectionsPage quiz={quiz} locale={locale} />);
-      expect((html.match(/data-emotions-connections-full-guide=/g) ?? [])).toHaveLength(7); expect(html).not.toContain("data-emotions-connections-result");
-      const dom = document.createElement("div"); dom.innerHTML = html;
+      expect((html.match(/data-emotions-connections-full-guide=/g) ?? [])).toHaveLength(7);
+      const dom = document.createElement("div"); dom.innerHTML = html; expect(dom.querySelector("[data-emotions-connections-result]")).toBeNull();
       expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(true);
       for (const p of quiz.profiles) {
         const guide = renderToStaticMarkup(<EmotionsConnectionsGuidePage quiz={quiz} profile={p} locale={locale} />);

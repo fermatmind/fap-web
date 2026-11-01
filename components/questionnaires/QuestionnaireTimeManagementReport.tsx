@@ -3,7 +3,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 export function QuestionnaireTimeManagementReport({ quiz, result, locale }: {
   quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale;
@@ -21,7 +21,7 @@ export function QuestionnaireTimeManagementReport({ quiz, result, locale }: {
           ? (zh ? `资料不足：${score.rated}/${score.total}题有频率回答，需要完整6题；本部分不计算均分。` : `Insufficient information: ${score.rated}/${score.total} frequency responses; all six are required. No mean for this part.`)
           : (zh ? `计分后均分：${score.mean.toFixed(1)} / 5（${score.sum} ÷ ${score.rated}，显示一位小数）` : `Keyed mean: ${score.mean.toFixed(1)} / 5 (${score.sum} ÷ ${score.rated}, displayed to one decimal)`)}</p>
         {score.mean === null && <p className="mb-4 text-sm leading-7 text-slate-600">{zh ? "无相关机会或跳过不是低分，不填补。下面保留完整通用读法，不能当成本次个人成绩。" : "No relevant occasion or a skip is not a low score and is not filled in. The complete general guide remains available without assigning a personal score here."}</p>}
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`time-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`time-${profile.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一部分的公开完整指南" : "Read this part’s complete public guide"}</Link>
       </section>;
     })}

@@ -1,0 +1,386 @@
+{
+  "rat": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "先试信息连接，不替别人猜答案",
+        "en": "Test an information link without guessing someone else’s answer"
+      },
+      "paragraphs": [
+        {
+          "zh": "原创场景：虚构图书角的目录按书名排，架签却按主题排。你画一张两栏对照卡，先用一册书检查能否从目录找到架位；无法确认的位置标待核，不把看似相关当成同一本。与龙的整体构想相比，先补一处具体连接；与鸡的核对相比，重点是找到连接办法，仍须确认实际架位。若现有目录已经够用，不必为了像“找路人”再造捷径。",
+          "en": "In an original scene, an invented book corner has a title-based catalogue and subject-based shelf labels. Draw a two-column cross-reference and check whether one book can be located; mark an unconfirmed location rather than equating apparently related entries. Compared with Dragon’s larger picture, connect one specific gap; alongside Rooster, the proposed link still needs checking against the shelf. If the existing catalogue works, there is no need to invent a shortcut to fit the Wayfinder."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个具体选择聊天，不按出生年给真人分类",
+        "en": "Discuss a specific choice without classifying people by birth year"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这条连接让谁少猜了一步，哪里还需要核？”用三本编造书名画一张对照，不用真实借阅记录，不拿速度证明聪明。另一人找不到时先改提示，不据此判断其理解能力。",
+          "en": "Ask: “Whose guess does this link remove, and what still needs checking?” Use three invented book titles without real borrowing records or a speed comparison. If someone cannot follow the link, revise the cue before inferring anything about their understanding."
+        },
+        {
+          "zh": "本站复制只含结果名与公开说明链接，不含答案或次数；本指南也可自行分享。12题中每条原创路线出现4次，原始次数不表示生肖相似百分比、人群位置或能力；所有最高并列均保留全文。这里借用十二生肖文化动物名写故事镜头，不计算出生生肖、历法边界、五行、运势或关系匹配，也不能换算MBTI类型。可以读其他11份指南、只留一个有用问题或结束，不需要再测或公开个人信息。",
+          "en": "Website copying includes result names and public explanation links, not answers or counts; this guide can also be shared separately. Each original route appears four times across twelve items. Counts are not zodiac similarity percentages, population positions or abilities, and every highest tie retains its full text. These story lenses borrow cultural animal names without calculating a birth sign, calendar boundary, elements, fortune or compatibility, and cannot be converted to MBTI types. Read the other eleven guides, retain a useful question or finish without another test or personal disclosure."
+        }
+      ]
+    }
+  ],
+  "ox": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "让重复可完成，也给暂停留位置",
+        "en": "Make repetition manageable and leave room to pause"
+      },
+      "paragraphs": [
+        {
+          "zh": "原创场景：纸模型展需要三块相同底板，你先做一块，记下尺寸，再约定是否还有时间做其余两块。重复有明确数量和结束点，不自动成为每周义务。与虎的首次开场相比，重点是让后续版本可重复；与猴的换法相比，此轮可先沿用已确认的尺寸。如果材料变了，应重核做法，不以坚持旧步骤证明耐心。",
+          "en": "In an original scene, a paper-model display needs three matching bases. Make one, record its dimensions and agree whether there is time for the other two. Repetition has a quantity and an ending, not an automatic weekly obligation. Compared with Tiger’s opening, make later versions repeatable; compared with Monkey’s variation, retain the confirmed dimensions for this round. Changed materials may require a different method rather than persistence with an obsolete step."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个具体选择聊天，不按出生年给真人分类",
+        "en": "Discuss a specific choice without classifying people by birth year"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“还剩几块、何时算完成、变了什么就停下来再看？”只写三步虚构制作单，也可以不实际制作。完成得少不等于懒，次数多也不等于勤奋或更适合某职业。",
+          "en": "Ask: “How many remain, what counts as finished, and what change calls for another look?” A three-step fictional plan is enough without making anything. Fewer pieces prove no laziness, and more repetitions establish neither diligence nor career suitability."
+        },
+        {
+          "zh": "本站复制只含结果名与公开说明链接，不含答案或次数；本指南也可自行分享。12题中每条原创路线出现4次，原始次数不表示生肖相似百分比、人群位置或能力；所有最高并列均保留全文。这里借用十二生肖文化动物名写故事镜头，不计算出生生肖、历法边界、五行、运势或关系匹配，也不能换算MBTI类型。可以读其他11份指南、只留一个有用问题或结束，不需要再测或公开个人信息。",
+          "en": "Website copying includes result names and public explanation links, not answers or counts; this guide can also be shared separately. Each original route appears four times across twelve items. Counts are not zodiac similarity percentages, population positions or abilities, and every highest tie retains its full text. These story lenses borrow cultural animal names without calculating a birth sign, calendar boundary, elements, fortune or compatibility, and cannot be converted to MBTI types. Read the other eleven guides, retain a useful question or finish without another test or personal disclosure."
+        }
+      ]
+    }
+  ],
+  "tiger": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "先开一个可修改的版本，让别人有回应空间",
+        "en": "Open a revisable version and leave room for responses"
+      },
+      "paragraphs": [
+        {
+          "zh": "原创场景：朋友想编一个三格小故事，却都等第一句。你提出一个可删的开头，并问大家想续写、改写还是不参加。首稿只负责让讨论有对象，不要求别人照你的方向走。与龙相比，这里先有具体一笔；与兔相比，开场也应保留轻松加入或退出的方式。若已有人写了开头，回应其版本可能比再抢一个开场更合适。",
+          "en": "In an original scene, friends are inventing a three-panel story but waiting for its first sentence. Offer a deletable opening and ask whether they want to continue, revise or sit out. A first draft gives discussion an object, not an obligation to follow your direction. Compared with Dragon, start with a concrete mark; alongside Rabbit, keep entry and exit comfortable. When an opening already exists, responding to it may be more useful than starting over."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个具体选择聊天，不按出生年给真人分类",
+        "en": "Discuss a specific choice without classifying people by birth year"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这句给了哪些选择，有没有把邀请写成命令？”各写一个虚构开头，允许只读。无需大胆表演、竞争主导或冒险；不把一次选择当作外向、自信或领导能力证明。",
+          "en": "Ask: “What choices does this opening offer, and does an invitation sound like an instruction?” Write an invented opening or simply read. Performance, dominance and risk are unnecessary; one choice establishes neither extraversion, confidence nor leadership ability."
+        },
+        {
+          "zh": "本站复制只含结果名与公开说明链接，不含答案或次数；本指南也可自行分享。12题中每条原创路线出现4次，原始次数不表示生肖相似百分比、人群位置或能力；所有最高并列均保留全文。这里借用十二生肖文化动物名写故事镜头，不计算出生生肖、历法边界、五行、运势或关系匹配，也不能换算MBTI类型。可以读其他11份指南、只留一个有用问题或结束，不需要再测或公开个人信息。",
+          "en": "Website copying includes result names and public explanation links, not answers or counts; this guide can also be shared separately. Each original route appears four times across twelve items. Counts are not zodiac similarity percentages, population positions or abilities, and every highest tie retains its full text. These story lenses borrow cultural animal names without calculating a birth sign, calendar boundary, elements, fortune or compatibility, and cannot be converted to MBTI types. Read the other eleven guides, retain a useful question or finish without another test or personal disclosure."
+        }
+      ]
+    }
+  ],
+  "rabbit": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把进入方式说清，也让安静参与成立",
+        "en": "Clarify ways to join, including quiet participation"
+      },
+      "paragraphs": [
+        {
+          "zh": "原创场景：虚构拼贴活动的邀请只写“来了就要介绍作品”。你补一句可以先看、只贴一片或不发言，并向组织者确认这些确实可选，不自行承诺。与猪的共享停歇相比，重点在进入活动的过渡；与虎相比，不必另开新活动才让人加入。若来客已经清楚方式且无不适，不需要替人假定紧张或继续安排照顾。",
+          "en": "In an original scene, an invented collage invitation says every guest must introduce a piece. Suggest watching first, adding one fragment or not speaking, and confirm with the organiser that these are genuine options. Compared with Pig’s shared pause, focus on entering an activity; compared with Tiger, joining need not require a new opening. When guests understand the options and are comfortable, do not presume anxiety or arrange unsolicited care."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个具体选择聊天，不按出生年给真人分类",
+        "en": "Discuss a specific choice without classifying people by birth year"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“邀请中哪一项真可不做，谁能确认？”改一段编造邀请，不替真实朋友解释情绪。安静与热闹都可接受；结果不测情商，也不指定谁负责调停或让所有人满意。",
+          "en": "Ask: “Which part is genuinely optional, and who can confirm that?” Revise an invented invitation without interpreting real friends’ emotions. Quiet and lively participation are both possible; the result measures no emotional intelligence and appoints no mediator or caretaker."
+        },
+        {
+          "zh": "本站复制只含结果名与公开说明链接，不含答案或次数；本指南也可自行分享。12题中每条原创路线出现4次，原始次数不表示生肖相似百分比、人群位置或能力；所有最高并列均保留全文。这里借用十二生肖文化动物名写故事镜头，不计算出生生肖、历法边界、五行、运势或关系匹配，也不能换算MBTI类型。可以读其他11份指南、只留一个有用问题或结束，不需要再测或公开个人信息。",
+          "en": "Website copying includes result names and public explanation links, not answers or counts; this guide can also be shared separately. Each original route appears four times across twelve items. Counts are not zodiac similarity percentages, population positions or abilities, and every highest tie retains its full text. These story lenses borrow cultural animal names without calculating a birth sign, calendar boundary, elements, fortune or compatibility, and cannot be converted to MBTI types. Read the other eleven guides, retain a useful question or finish without another test or personal disclosure."
+        }
+      ]
+    }
+  ],
+  "dragon": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把整体图画出来，区分构想与已约定事项",
+        "en": "Draw the larger picture and distinguish ideas from agreements"
+      },
+      "paragraphs": [
+        {
+          "zh": "原创场景：虚构社团有地图、旧照片和手绘卡三份零散材料，你画一张“街区故事册”草图，标出它们可能怎样相连，再标哪些仅是提议。与鼠的一处连接相比，你展示整体结构；与牛相比，草图还需拆成有人同意且能完成的小项。别人可能只想留三份独立材料，允许这个选择，不把完整愿景变成默认共同目标。",
+          "en": "In an original scene, a fictional club has a map, old photographs and illustrated cards. Sketch how they might form a neighbourhood storybook, labelling proposals separately from agreed parts. Compared with Rat’s specific connection, show the larger structure; alongside Ox, the sketch still needs manageable tasks that someone accepts. Others may prefer three separate items. A coherent vision does not silently become everyone’s goal."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个具体选择聊天，不按出生年给真人分类",
+        "en": "Discuss a specific choice without classifying people by birth year"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“哪些已存在，哪些只是可能，谁还没答应？”为三件虚构材料画关系图，不需真实募资或招人。愿景大小不表示格局高低，结果也不授予领导资格或预示好运。",
+          "en": "Ask: “What exists, what is only possible, and who has not agreed?” Map three fictional materials without fundraising or recruiting. The size of a vision is no personal ranking; the result grants neither leadership authority nor favourable fortune."
+        },
+        {
+          "zh": "本站复制只含结果名与公开说明链接，不含答案或次数；本指南也可自行分享。12题中每条原创路线出现4次，原始次数不表示生肖相似百分比、人群位置或能力；所有最高并列均保留全文。这里借用十二生肖文化动物名写故事镜头，不计算出生生肖、历法边界、五行、运势或关系匹配，也不能换算MBTI类型。可以读其他11份指南、只留一个有用问题或结束，不需要再测或公开个人信息。",
+          "en": "Website copying includes result names and public explanation links, not answers or counts; this guide can also be shared separately. Each original route appears four times across twelve items. Counts are not zodiac similarity percentages, population positions or abilities, and every highest tie retains its full text. These story lenses borrow cultural animal names without calculating a birth sign, calendar boundary, elements, fortune or compatibility, and cannot be converted to MBTI types. Read the other eleven guides, retain a useful question or finish without another test or personal disclosure."
+        }
+      ]
+    }
+  ],
+  "snake": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "想清一个待答问题，并给思考设一个回看点",
+        "en": "Frame an unanswered question and choose when to revisit it"
+      },
+      "paragraphs": [
+        {
+          "zh": "原创场景：你为虚构展览在长说明与短卡片之间犹豫。先写“读者需要知道哪一步”，各列一项支持与未知，再约十分钟后重看；可以暂留两版，不把未决定写成结论。与鸡相比，你在组织问题，不只是核一处事实；与猴相比，下一步也可试读，而非继续独想。若已有足够信息支持一个可逆选择，不必为符合静思者而延迟。",
+          "en": "In an original scene, you are choosing a long explanation or a short card for an invented exhibition. Ask which step readers need, list one supporting point and one unknown for each, then revisit in ten minutes. Both drafts may remain open. Compared with Rooster, frame the question rather than only check a fact; alongside Monkey, a reading trial can follow reflection. Enough information for a reversible choice need not become delay to fit the Reflective Planner."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个具体选择聊天，不按出生年给真人分类",
+        "en": "Discuss a specific choice without classifying people by birth year"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“再知道哪一件事会改变选择？”只讨论编造展品，不猜朋友内心、不披露私人经历。想得久不证明更深刻，较快决定也不证明浅薄；不把次数当洞察力或谋略。",
+          "en": "Ask: “What additional information would change the choice?” Use an invented exhibit without guessing motives or disclosing private history. Longer reflection proves no greater depth, and a quicker choice proves no shallowness; counts measure neither insight nor strategic skill."
+        },
+        {
+          "zh": "本站复制只含结果名与公开说明链接，不含答案或次数；本指南也可自行分享。12题中每条原创路线出现4次，原始次数不表示生肖相似百分比、人群位置或能力；所有最高并列均保留全文。这里借用十二生肖文化动物名写故事镜头，不计算出生生肖、历法边界、五行、运势或关系匹配，也不能换算MBTI类型。可以读其他11份指南、只留一个有用问题或结束，不需要再测或公开个人信息。",
+          "en": "Website copying includes result names and public explanation links, not answers or counts; this guide can also be shared separately. Each original route appears four times across twelve items. Counts are not zodiac similarity percentages, population positions or abilities, and every highest tie retains its full text. These story lenses borrow cultural animal names without calculating a birth sign, calendar boundary, elements, fortune or compatibility, and cannot be converted to MBTI types. Read the other eleven guides, retain a useful question or finish without another test or personal disclosure."
+        }
+      ]
+    }
+  ],
+  "horse": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "探索另一种可能，同时保留原来的返回点",
+        "en": "Explore an alternative while keeping a way back"
+      },
+      "paragraphs": [
+        {
+          "zh": "原创场景：你在纸上设计虚构花园图，想给既有主路加一个可选观景支路。保留主路与返回点，先问支路是否影响原用途；不需要实际出行。与鼠相比，你寻找另一种体验，不只是缩短原路线；与狗相比，原有集合约定仍需保留。如果对方只需要明确的主路，这轮不添支路也可以，不用探索多少证明自由。",
+          "en": "In an original scene, you sketch an optional viewpoint branch on an invented garden map. Keep the main path and return point, checking whether the branch affects the original use. No physical trip is needed. Compared with Rat, explore a different experience rather than merely shorten a route; alongside Dog, retain an existing meeting agreement. If someone needs only a clear main path, omitting the branch is also reasonable. Freedom needs no tally of detours."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个具体选择聊天，不按出生年给真人分类",
+        "en": "Discuss a specific choice without classifying people by birth year"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“新选项提供什么，哪些原有约定仍在？”各画一条虚构支路，允许选择不去，不比较旅行经历、身体能力或消费。结果不推断坐不住、承诺不足或需要逃离现实。",
+          "en": "Ask: “What does this option offer, and which original agreements remain?” Sketch a fictional branch with the option not to take it. Avoid comparisons of travel, physical ability or spending; the result implies neither restlessness, poor commitment nor a need to escape."
+        },
+        {
+          "zh": "本站复制只含结果名与公开说明链接，不含答案或次数；本指南也可自行分享。12题中每条原创路线出现4次，原始次数不表示生肖相似百分比、人群位置或能力；所有最高并列均保留全文。这里借用十二生肖文化动物名写故事镜头，不计算出生生肖、历法边界、五行、运势或关系匹配，也不能换算MBTI类型。可以读其他11份指南、只留一个有用问题或结束，不需要再测或公开个人信息。",
+          "en": "Website copying includes result names and public explanation links, not answers or counts; this guide can also be shared separately. Each original route appears four times across twelve items. Counts are not zodiac similarity percentages, population positions or abilities, and every highest tie retains its full text. These story lenses borrow cultural animal names without calculating a birth sign, calendar boundary, elements, fortune or compatibility, and cannot be converted to MBTI types. Read the other eleven guides, retain a useful question or finish without another test or personal disclosure."
+        }
+      ]
+    }
+  ],
+  "goat": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "说明你改了哪种感受，也问别人能否使用",
+        "en": "Describe the intended atmosphere and check usability"
+      },
+      "paragraphs": [
+        {
+          "zh": "原创场景：虚构故事桌只有三张纸和几个纸块，你想调整间距，让中心的小景容易被注意。先说明这是氛围提议，再问标题是否仍清楚、桌面是否还留使用空间。与龙相比，关注眼前布局的感受而非整个故事；与鸡相比，好看也不能替代内容核对。别人可能喜欢原布局，允许保留，不把自己的审美推为统一答案。",
+          "en": "In an original scene, an invented story table has three sheets and a few paper shapes. Adjust spacing to draw attention to the centre, naming this as an atmosphere proposal, then ask whether the title stays clear and the table usable. Compared with Dragon, focus on the immediate arrangement rather than the whole story; alongside Rooster, appearance does not replace checking content. Others may prefer the original layout. Taste need not become a single correct answer."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个具体选择聊天，不按出生年给真人分类",
+        "en": "Discuss a specific choice without classifying people by birth year"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这个改动想突出什么，又遮住了什么？”在纸上画两种布置，不购置物品、不评价他人外貌。结果不测艺术天赋、敏感程度或感官状态，也不要求任何人接受某种颜色、声音或触感。",
+          "en": "Ask: “What does the change highlight, and what might it obscure?” Draw two layouts without buying materials or judging anyone’s appearance. The result measures neither artistic talent, sensitivity nor sensory status and requires no particular colour, sound or texture."
+        },
+        {
+          "zh": "本站复制只含结果名与公开说明链接，不含答案或次数；本指南也可自行分享。12题中每条原创路线出现4次，原始次数不表示生肖相似百分比、人群位置或能力；所有最高并列均保留全文。这里借用十二生肖文化动物名写故事镜头，不计算出生生肖、历法边界、五行、运势或关系匹配，也不能换算MBTI类型。可以读其他11份指南、只留一个有用问题或结束，不需要再测或公开个人信息。",
+          "en": "Website copying includes result names and public explanation links, not answers or counts; this guide can also be shared separately. Each original route appears four times across twelve items. Counts are not zodiac similarity percentages, population positions or abilities, and every highest tie retains its full text. These story lenses borrow cultural animal names without calculating a birth sign, calendar boundary, elements, fortune or compatibility, and cannot be converted to MBTI types. Read the other eleven guides, retain a useful question or finish without another test or personal disclosure."
+        }
+      ]
+    }
+  ],
+  "monkey": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "让两个试版只差一处，先看见变化再解释",
+        "en": "Change one feature between drafts before interpreting the difference"
+      },
+      "paragraphs": [
+        {
+          "zh": "原创场景：你为虚构桌游写两张提示卡，只改变线索顺序，其他文字相同。让自愿读者说第一步会做什么，而不把顺利与否归因为聪明。与虎相比，这里比较已出现的版本；与鸡相比，试版发现差异后仍需核具体文字。少量读者不能证明哪版对所有人更好，若两版都不清楚，也可先重写问题。",
+          "en": "In an original scene, you make two clue cards for an invented game, changing only clue order. Ask willing readers what they would do first, without attributing success to intelligence. Compared with Tiger, compare versions that already exist; alongside Rooster, investigate the wording behind a difference. A few readers cannot establish which version works for everyone. If both are unclear, revising the question may be the next step."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个具体选择聊天，不按出生年给真人分类",
+        "en": "Discuss a specific choice without classifying people by birth year"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“究竟只改了哪一处，观察够不够支持解释？”用编造文字试排版，可只自己读，不对朋友作隐瞒测试。结果不证明更聪明、更会玩或不守规矩；没发现差别也是可保留的信息。",
+          "en": "Ask: “What exactly changed, and does the observation support the explanation?” Rearrange invented text privately if preferred, without covertly testing friends. The result proves neither cleverness, playfulness nor rule-breaking. Not observing a difference is information too."
+        },
+        {
+          "zh": "本站复制只含结果名与公开说明链接，不含答案或次数；本指南也可自行分享。12题中每条原创路线出现4次，原始次数不表示生肖相似百分比、人群位置或能力；所有最高并列均保留全文。这里借用十二生肖文化动物名写故事镜头，不计算出生生肖、历法边界、五行、运势或关系匹配，也不能换算MBTI类型。可以读其他11份指南、只留一个有用问题或结束，不需要再测或公开个人信息。",
+          "en": "Website copying includes result names and public explanation links, not answers or counts; this guide can also be shared separately. Each original route appears four times across twelve items. Counts are not zodiac similarity percentages, population positions or abilities, and every highest tie retains its full text. These story lenses borrow cultural animal names without calculating a birth sign, calendar boundary, elements, fortune or compatibility, and cannot be converted to MBTI types. Read the other eleven guides, retain a useful question or finish without another test or personal disclosure."
+        }
+      ]
+    }
+  ],
+  "rooster": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "核对具体出处，不把新稿自动当成定稿",
+        "en": "Check the actual source rather than treating a newer draft as final"
+      },
+      "paragraphs": [
+        {
+          "zh": "原创场景：虚构故事集的目录写第八页，正文草稿却把标题移到第九页。你标出两处不一致，问哪份版本将供阅读；确认前不自行宣布正确页码。与鼠相比，此处主要核具体引用；与蛇相比，已有明确核对对象，无需猜动机。若这一轮只讨论未排版草图，页码可能暂时无关，可记待排版时核，不持续纠正所有细节。",
+          "en": "In an original scene, an invented storybook’s contents page points to page eight while a draft has the heading on page nine. Mark the discrepancy and ask which version will be read before declaring a correct reference. Compared with Rat, check a specific citation; compared with Snake, the source to clarify is already concrete, so motives need no guessing. Page numbers may be irrelevant during a rough-layout discussion. Record a later check rather than correcting every detail now."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个具体选择聊天，不按出生年给真人分类",
+        "en": "Discuss a specific choice without classifying people by birth year"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“读者会用哪一版，谁能确认？”用两条编造目录练核对，不搜私人信息，也不把一处错写成人品或能力。次数不证明更诚实、更细心，修正自己的记录同样可取。",
+          "en": "Ask: “Which version will readers use, and who can confirm it?” Check invented references without searching private information or turning an error into a judgment of character or ability. Counts prove neither honesty nor attentiveness; revising your own note is useful too."
+        },
+        {
+          "zh": "本站复制只含结果名与公开说明链接，不含答案或次数；本指南也可自行分享。12题中每条原创路线出现4次，原始次数不表示生肖相似百分比、人群位置或能力；所有最高并列均保留全文。这里借用十二生肖文化动物名写故事镜头，不计算出生生肖、历法边界、五行、运势或关系匹配，也不能换算MBTI类型。可以读其他11份指南、只留一个有用问题或结束，不需要再测或公开个人信息。",
+          "en": "Website copying includes result names and public explanation links, not answers or counts; this guide can also be shared separately. Each original route appears four times across twelve items. Counts are not zodiac similarity percentages, population positions or abilities, and every highest tie retains its full text. These story lenses borrow cultural animal names without calculating a birth sign, calendar boundary, elements, fortune or compatibility, and cannot be converted to MBTI types. Read the other eleven guides, retain a useful question or finish without another test or personal disclosure."
+        }
+      ]
+    }
+  ],
+  "dog": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "守住实际约定，也允许重新商量范围",
+        "en": "Retain the actual agreement and allow its scope to change"
+      },
+      "paragraphs": [
+        {
+          "zh": "原创场景：你答应把虚构故事会的两张海报草图交给下一位，后来又被默认负责全部印制。先确认原来是交草图，再说明印制尚未约定；若不能按时交草图，应尽早告诉对方并商量调整，不假装已完成。与牛相比，重点是别人正在依赖的交接；与猪相比，愿意贡献不自动等于继续提供更多。清楚说不能承担也可以，比无条件答应更能让下一步被看见。",
+          "en": "In an original scene, you agreed to hand over two poster sketches for an invented story evening, then printing is assumed to be your task too. Confirm the sketch agreement and clarify that printing is unagreed. If the sketches will be late, communicate and discuss a change rather than claim completion. Compared with Ox, focus on a handoff someone relies on; compared with Pig, a contribution does not automatically expand. Saying what you cannot undertake can make the next step clearer than unconditional acceptance."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个具体选择聊天，不按出生年给真人分类",
+        "en": "Discuss a specific choice without classifying people by birth year"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“答应过的是什么，新增的是什么，哪项状态还没确认？”写一条虚构交接，不做忠诚试探、不代朋友作保证。结果不要求牺牲，也不测可信度、依恋或某年出生者的责任。",
+          "en": "Ask: “What was agreed, what was added, and what remains unconfirmed?” Write an invented handoff without loyalty tests or guarantees on a friend’s behalf. The result requires no sacrifice and measures neither trustworthiness, attachment nor obligations attached to a birth year."
+        },
+        {
+          "zh": "本站复制只含结果名与公开说明链接，不含答案或次数；本指南也可自行分享。12题中每条原创路线出现4次，原始次数不表示生肖相似百分比、人群位置或能力；所有最高并列均保留全文。这里借用十二生肖文化动物名写故事镜头，不计算出生生肖、历法边界、五行、运势或关系匹配，也不能换算MBTI类型。可以读其他11份指南、只留一个有用问题或结束，不需要再测或公开个人信息。",
+          "en": "Website copying includes result names and public explanation links, not answers or counts; this guide can also be shared separately. Each original route appears four times across twelve items. Counts are not zodiac similarity percentages, population positions or abilities, and every highest tie retains its full text. These story lenses borrow cultural animal names without calculating a birth sign, calendar boundary, elements, fortune or compatibility, and cannot be converted to MBTI types. Read the other eleven guides, retain a useful question or finish without another test or personal disclosure."
+        }
+      ]
+    }
+  ],
+  "pig": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "给共享留选择，也让结束被尊重",
+        "en": "Leave choices within sharing and respect the ending"
+      },
+      "paragraphs": [
+        {
+          "zh": "原创场景：虚构读书会结束后，你想留十分钟让大家看已完成的折页。先说明可以看看、补一句或直接离开；不用拿出食物、花钱或额外承担收拾，除非另有约定。与兔相比，此处重在已有成果如何共同停留；与狗相比，可选停歇不是每个人承诺延长活动。若大家想结束，按时收尾也可让共享有清楚边界，不需继续热场。",
+          "en": "In an original scene, you offer ten minutes after an invented reading club to view finished folded pages. People may look, add a sentence or leave. Food, spending and extra cleanup are unnecessary unless separately agreed. Compared with Rabbit, focus on enjoying what exists; alongside Dog, an optional pause does not mean everyone promised a longer event. If people want to finish, ending on time can give sharing a clear boundary without keeping the atmosphere going."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个具体选择聊天，不按出生年给真人分类",
+        "en": "Discuss a specific choice without classifying people by birth year"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这里可以不贡献、只停留或离开吗？”编一句可退出的收尾邀请，也可只留给自己。不拿分享数量证明慷慨，不追问谁为什么离开；结果不说明懒散、天真或注定服务他人。",
+          "en": "Ask: “Can someone add nothing, simply stay or leave?” Draft an optional closing invitation, privately if preferred. Contributions are no generosity score, and departure requires no explanation; the result establishes neither laziness, naivety nor a duty to serve others."
+        },
+        {
+          "zh": "本站复制只含结果名与公开说明链接，不含答案或次数；本指南也可自行分享。12题中每条原创路线出现4次，原始次数不表示生肖相似百分比、人群位置或能力；所有最高并列均保留全文。这里借用十二生肖文化动物名写故事镜头，不计算出生生肖、历法边界、五行、运势或关系匹配，也不能换算MBTI类型。可以读其他11份指南、只留一个有用问题或结束，不需要再测或公开个人信息。",
+          "en": "Website copying includes result names and public explanation links, not answers or counts; this guide can also be shared separately. Each original route appears four times across twelve items. Counts are not zodiac similarity percentages, population positions or abilities, and every highest tie retains its full text. These story lenses borrow cultural animal names without calculating a birth sign, calendar boundary, elements, fortune or compatibility, and cannot be converted to MBTI types. Read the other eleven guides, retain a useful question or finish without another test or personal disclosure."
+        }
+      ]
+    }
+  ]
+}

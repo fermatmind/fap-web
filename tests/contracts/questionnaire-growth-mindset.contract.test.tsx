@@ -1,3 +1,4 @@
+import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync, readdirSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -88,11 +89,11 @@ describe("T060 original selected-skill growth and fixed belief reflection", () =
     expect(readQuestionnaireDraft(quiz, JSON.stringify(draft), 123456 + 86400000)).toBeNull();
   });
 
-  it("keeps the entire9section continuum for either endpoint and NA, using its own agreement report", () => {
+  it("keeps the entire11section continuum for either endpoint and NA, using its own agreement report", () => {
     for (const locale of ["en", "zh"] as const) for (const value of ["1", "5", "na"]) {
       const result = scoreQuestionnaire(quiz, all(value)); if (result.status !== "complete" || !("facets" in result)) throw new Error("Rejected report witness");
-      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireGrowthReport quiz={quiz} result={result} locale={locale} />);
-      expect(dom.querySelectorAll("[data-growth-facet]")).toHaveLength(1); expect(dom.querySelectorAll("[data-growth-profile]")).toHaveLength(1); expect(dom.querySelectorAll("h4")).toHaveLength(9);
+      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireGrowthReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale={locale} />);
+      expect(dom.querySelectorAll("[data-growth-facet]")).toHaveLength(1); expect(dom.querySelectorAll("[data-growth-profile]")).toHaveLength(1); expect(dom.querySelectorAll("h4")).toHaveLength(11);
       expect(dom.querySelectorAll("[data-growth-insufficient]")).toHaveLength(value === "na" ? 1 : 0);
       expect(dom.querySelector("[data-growth-mean]")?.textContent).toBe(value === "na" ? (locale === "zh" ? "资料不足" : "Insufficient information") : `${value}.0 / 5`);
       const ids = Array.from(dom.querySelectorAll("[id]"), e => e.id); expect(new Set(ids).size).toBe(ids.length);

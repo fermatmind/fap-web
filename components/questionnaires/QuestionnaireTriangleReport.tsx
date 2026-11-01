@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
@@ -26,7 +26,7 @@ export function QuestionnaireTriangleReport({ quiz, result, locale }: {
         {score.mean === null && <p className="mb-4 text-sm leading-7 text-slate-600">{zh
           ? "不适用、无法判断或不愿回答都保留为不计分，不变成低爱或缺陷。以下是完整通用读法，不是本次个人结论。"
           : "Not applicable, uncertain or a choice not to answer remains unscored, never low love or a defect. The full guide below is general information rather than a personal conclusion."}</p>}
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`triangle-reflection-report-${direction.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`triangle-reflection-report-${direction.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline"
           href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本成分的完整公开指南" : "Read this component’s full public guide"}</Link>
       </section>;

@@ -1,0 +1,162 @@
+{
+  "priorities": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：排序规则和可用容量要同时满足",
+        "en": "Review ordering rules and available capacity together"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例虚构队列规定先1级后2级，同级先较早到期。P为2级08:00，Q为1级11:00，R为1级10:00，应排R、Q、P；只看最早钟点会误选P。另设当日45分钟，必做评审需28分钟、第二项24分钟，共52，缺7分钟。若本例已约定保住评审并请协调人调整第二项，就不能靠承诺两项全完来补容量。先写排序依据，再核时间及通知条件；把可用时间改成52分钟后，原先“容量不足”的理由就应重新判断，不能永远照搬改期。",
+          "en": "Use a fresh fictional queue: priority one before two, with earlier deadlines breaking ties. P is priority two due at eight, Q priority one due at eleven and R priority one due at ten. Order R, Q, P rather than selecting P by clock time alone. Separately, forty-five available minutes cannot fit a required twenty-eight-minute review and a twenty-four-minute task: fifty-two are needed, seven short. If this example protects the review and routes the second task to the coordinator, promising both creates no capacity. Check ordering, time and communication conditions. Change availability to fifty-two and reconsider the shortfall rather than mechanically requesting rescheduling."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起改条件，解释答案为什么变化",
+        "en": "Change a condition together and explain why a response changes"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“哪个条件决定先后，哪个条件决定做不做得完？可用时间增加后，你的理由是否仍成立？”先各自标规则、事实、待核项和下一步，再交换解释，找最早分歧。可只读、画时间线、用计算器或另编例子，不比赛速度，不需要发消息、改日历或提供真实职场资料。",
+          "en": "Ask: “Which condition orders work, which determines feasibility, and does your reason survive increased available time?” Mark rules, facts, remaining checks and the next action separately, then exchange explanations and locate the first difference. Read, draw a timeline, use a calculator or invent another case without racing, messaging, editing calendars or supplying real workplace records."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组是条件决策复习，不是雇主SJT、领导力或诚实量表、录用线或认证。本版按明示虚构条件作作者核对，未建立独立专业共识或心理测量验证。25题固定，熟题提高可能来自记忆；换一条规则并重新说明理由，能检查是否真在应用条件。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups support conditional-decision revision rather than employer SJTs, leadership or honesty scales, hiring cutoffs or certification. Author-reviewed fictional conditions establish no independent professional consensus or psychometric validation. Retakes reuse twenty-five items and may reward recall; change a rule and explain the reasoning again to check whether you are applying the conditions."
+        }
+      ]
+    }
+  ],
+  "ownership": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：发出交接、接收责任和做完工作是三个状态",
+        "en": "Review a sent handover, accepted ownership and completed work separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例约定Eli明确接收前由Noor负责。09:00发出交接、尚无回复时，仍记Noor负责；09:10 Eli明确答应14:00前处理，可更新为Eli接收、14:00到期、动作仍未完成。到14:00没有完成证据，也不能只因时钟到了就结项。若这份约定另要求请求方确认结果，交付后应保留该待确认状态。每一条状态变化都写对应的实际消息或观察，不把发出当接收、把承诺当结果。这里按本例的接收与结项定义推理，真实团队若定义不同，要依实际约定重新判断。",
+          "en": "Use a fresh rule keeping Noor responsible until Eli explicitly accepts. A handover sent at nine with no reply leaves Noor owning it. At nine ten, Eli agrees to handle it by fourteen hundred: record Eli’s acceptance and due time while leaving the action unfinished. Reaching fourteen hundred alone supplies no completion evidence. If this agreement separately requires requester confirmation, retain that pending state after delivery. Attach each state change to an actual message or observation instead of equating sending with acceptance or commitment with outcome. These are this example’s transfer and closure definitions; different real agreements require their own interpretation."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起改条件，解释答案为什么变化",
+        "en": "Change a condition together and explain why a response changes"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“你的记录哪一项证明责任已接收，哪一项证明工作完成？到了约定时刻会自动改变哪个事实吗？”先各自标规则、事实、待核项和下一步，再交换解释，找最早分歧。可只读、画时间线、用计算器或另编例子，不比赛速度，不需要发消息、改日历或提供真实职场资料。",
+          "en": "Ask: “Which record establishes accepted responsibility, which establishes completion, and does reaching a due time automatically change either fact?” Mark rules, facts, remaining checks and the next action separately, then exchange explanations and locate the first difference. Read, draw a timeline, use a calculator or invent another case without racing, messaging, editing calendars or supplying real workplace records."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组是条件决策复习，不是雇主SJT、领导力或诚实量表、录用线或认证。本版按明示虚构条件作作者核对，未建立独立专业共识或心理测量验证。25题固定，熟题提高可能来自记忆；换一条规则并重新说明理由，能检查是否真在应用条件。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups support conditional-decision revision rather than employer SJTs, leadership or honesty scales, hiring cutoffs or certification. Author-reviewed fictional conditions establish no independent professional consensus or psychometric validation. Retakes reuse twenty-five items and may reward recall; change a rule and explain the reasoning again to check whether you are applying the conditions."
+        }
+      ]
+    }
+  ],
+  "updates": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：旧值、不可用、零和修复承诺分别标明",
+        "en": "Review dated values, unavailability, zero and repair promises separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例昨天已核数量18，今天来源不可读，只能写昨天18、当前不可用，不能写今日18或今日零。若已观察传输失败、原因未明，约定10:30更新，能承诺的是届时报告状态，不是10:30必定修好。另有房间记录14席与26席，需求20席；平均数恰好20也不使容量变成已核事实。应找题定当前权威来源核容量，再作相应承诺。把消息拆成已观察、仍未知、下一核查与更新时间，逐句检查证据支持，别让一个算得出的数字替代尚未取得的事实。",
+          "en": "Use a fresh verified count of eighteen yesterday with today’s source unreadable. Report the dated eighteen and current unavailability, not eighteen today or a measured zero. An observed transfer failure with unknown cause and an agreed ten-thirty update supports a status report then, not a guaranteed repair. Separately, room records of fourteen and twenty-six seats average twenty, exactly a meeting’s requirement, yet establish no verified capacity. Check the stated current authority before making a booking commitment. Split an update into observations, unknowns, next check and update time, testing each sentence against evidence. A calculable number cannot replace a fact not yet obtained."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起改条件，解释答案为什么变化",
+        "en": "Change a condition together and explain why a response changes"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“哪句话是旧观察，哪句话是当前未知？算术平均或约定更新时间，能替代容量或修复证据吗？”先各自标规则、事实、待核项和下一步，再交换解释，找最早分歧。可只读、画时间线、用计算器或另编例子，不比赛速度，不需要发消息、改日历或提供真实职场资料。",
+          "en": "Ask: “Which sentence reports a dated observation or current unknown, and can an average or update time replace capacity or repair evidence?” Mark rules, facts, remaining checks and the next action separately, then exchange explanations and locate the first difference. Read, draw a timeline, use a calculator or invent another case without racing, messaging, editing calendars or supplying real workplace records."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组是条件决策复习，不是雇主SJT、领导力或诚实量表、录用线或认证。本版按明示虚构条件作作者核对，未建立独立专业共识或心理测量验证。25题固定，熟题提高可能来自记忆；换一条规则并重新说明理由，能检查是否真在应用条件。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups support conditional-decision revision rather than employer SJTs, leadership or honesty scales, hiring cutoffs or certification. Author-reviewed fictional conditions establish no independent professional consensus or psychometric validation. Retakes reuse twenty-five items and may reward recall; change a rule and explain the reasoning again to check whether you are applying the conditions."
+        }
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：权限改变后，下一步也可能改变",
+        "en": "Review the next action when delegation changes"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例角色表规定Ren可编辑、Asha批准发布。Ren写完草稿并不等于取得Asha批准，应按该表交由Asha决定；资历、赶时间或自加“已批准”标签都不补证据。现在只改一条明示条件：Asha已明确委派Ren在核对文本符合约定后自行发布。此时Ren满足已委派条件后可按新职责继续，不应机械要求再取得同一项许可。先读当前授权、适用动作和前置条件，再判断是否在范围内。练习意在准确读权限，不规定所有工作都加审批，也不授权操作任何真实账户。",
+          "en": "Use a fresh role table allowing Ren to edit while Asha approves publication. A finished draft is not Asha’s approval; follow that table rather than relying on seniority, urgency or an added approved label. Change one explicit fact: Asha has delegated publication to Ren after Ren checks the text against the agreement. Once that delegated condition is met, Ren can proceed under the new role without mechanically requesting the same permission again. Read current authority, the action covered and prerequisites before judging scope. This practises accurate delegation reasoning rather than imposing approval on every task or authorising a real account action."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起改条件，解释答案为什么变化",
+        "en": "Change a condition together and explain why a response changes"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“你依据的是现在的授权，还是背下的旧答案？哪些明确变更会让原来越权的动作转为获准？”先各自标规则、事实、待核项和下一步，再交换解释，找最早分歧。可只读、画时间线、用计算器或另编例子，不比赛速度，不需要发消息、改日历或提供真实职场资料。",
+          "en": "Ask: “Are you applying current delegation or memorising an old answer, and which explicit change makes a previously out-of-scope action permitted?” Mark rules, facts, remaining checks and the next action separately, then exchange explanations and locate the first difference. Read, draw a timeline, use a calculator or invent another case without racing, messaging, editing calendars or supplying real workplace records."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组是条件决策复习，不是雇主SJT、领导力或诚实量表、录用线或认证。本版按明示虚构条件作作者核对，未建立独立专业共识或心理测量验证。25题固定，熟题提高可能来自记忆；换一条规则并重新说明理由，能检查是否真在应用条件。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups support conditional-decision revision rather than employer SJTs, leadership or honesty scales, hiring cutoffs or certification. Author-reviewed fictional conditions establish no independent professional consensus or psychometric validation. Retakes reuse twenty-five items and may reward recall; change a rule and explain the reasoning again to check whether you are applying the conditions."
+        }
+      ]
+    }
+  ],
+  "teamwork": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：分工、核查和未解异议都应保留",
+        "en": "Review assigned work, checking and unresolved objections together"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例双人简报由Sam起草、你核数字；源中17与26合计43，稿中写41。收到稿件不代表你已复核，按源更正合计并解决相关问题，才满足本例发送前核查。另设团队选择C方案，但Rae的疑问仍未解决；若记录要求保留两者，就写决定C、Rae疑问待后续，不改成全员无疑虑，也不编成Rae已否决。写清谁做了哪一步、哪项检查有依据、哪个疑问仍开放。一次选择符合规则不证明人格更好，具体记录也不必为了显得友好而抹去事实差异。",
+          "en": "Use a fresh paired brief: Sam drafts and you check numbers. Source values seventeen and twenty-six total forty-three, while the draft says forty-one. Receiving it is not completing your check; correct the total from the source and resolve related issues under the stated pre-send rule. Separately, a team selects C while Rae’s concern remains unresolved. A record requiring both should preserve decision C and the open concern, without claiming unanimity or inventing a veto. State who performed each part, what evidence supports the check and what remains open. Matching a rule establishes no superior character, and friendly wording need not erase factual differences."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起改条件，解释答案为什么变化",
+        "en": "Change a condition together and explain why a response changes"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“收到同伴稿件后，哪项仍是你的分工？决定已经作出，是否意味着所有异议已经消失？”先各自标规则、事实、待核项和下一步，再交换解释，找最早分歧。可只读、画时间线、用计算器或另编例子，不比赛速度，不需要发消息、改日历或提供真实职场资料。",
+          "en": "Ask: “Which assigned task remains after receiving a draft, and does a decision establish that every concern has disappeared?” Mark rules, facts, remaining checks and the next action separately, then exchange explanations and locate the first difference. Read, draw a timeline, use a calculator or invent another case without racing, messaging, editing calendars or supplying real workplace records."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组是条件决策复习，不是雇主SJT、领导力或诚实量表、录用线或认证。本版按明示虚构条件作作者核对，未建立独立专业共识或心理测量验证。25题固定，熟题提高可能来自记忆；换一条规则并重新说明理由，能检查是否真在应用条件。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups support conditional-decision revision rather than employer SJTs, leadership or honesty scales, hiring cutoffs or certification. Author-reviewed fictional conditions establish no independent professional consensus or psychometric validation. Retakes reuse twenty-five items and may reward recall; change a rule and explain the reasoning again to check whether you are applying the conditions."
+        }
+      ]
+    }
+  ]
+}

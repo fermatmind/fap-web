@@ -1,0 +1,166 @@
+{
+  "energy-presence-reading": [
+    {
+      "id": "coverage",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者在熟悉群聊里先回应，遇到新协作却先听。两种参与方式可在同一个人身上并存，3:3也可能来自完全不同的六项选择。是否被听见、是否有接话空间与次数不同，不需用更热情证明参与资格。",
+          "en": "In an additional original scene: A fictional reader responds early in a familiar group chat but listens first in a new collaboration. Both approaches can coexist, and 3:3 may arise from very different choices. Being heard and leaving room for replies differ from counts; inclusion requires no performance of greater enthusiasm."
+        }
+      ]
+    },
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构参与者想表达什么，在哪个时点给别人留下回应空间？”可以只读或谈虚构人物，不需提交自己的次数、重新安排真实交流或获得对方认可。可以不回答、保留不同看法或到此结束。",
+          "en": "An optional discussion card asks: “What does the fictional participant want to contribute, and where is there room for another reply?” Read alone or discuss the fictional reader without supplying counts, arranging an exchange or obtaining approval. Decline an answer, retain a different view or finish here."
+        }
+      ]
+    },
+    {
+      "id": "review",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原尝试均可跳过。围绕目前的自然互动选择，不增加四周等固定回忆期限。保留小程序原二十四条中文、题序与映射，英文为新增译文；0.2.0-preview为原题本与计分标识，不代表已验证正式量表。四组六道二选一，A和B交替对应两侧，每侧各三次放在前面；按所选内容记一次，不把同一字母当同一侧。每组两侧合六，完整显示0:6、1:5、2:4、3:3、4:2、5:1或6:0；3:3原样保留，四次以上只表示本组六次中较多选择。二十四项全部有效才解释任一组，没有计分跳过；缺答不补零、另一侧或替代结果。两项都不适合可停止直接读四篇全文。四组不合总分、百分比、排名或魅力原型；同次数不证明同样情境、完美平衡或同等能力，较少侧也不表示缺陷。原题本、新译文与分组均无已建立信效度、常模及中英等值，不推断人气、吸引力、他人评价、诚实、情商、适配或录用资格。虚构讨论无需实际联系、披露、表演热情或证明照顾，任何回应和邀请仍可拒绝。页面内存、自选24小时标签页草稿及完成、退出、重测清除保持不变，复制只有公开标题与入口，不含个人答案或次数。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices; existing experiments are optional. Consider current natural interaction choices without imposing a four-week or other fixed recall window. Original mini-program Chinese items, order and mappings remain; English is a new translation. The 0.2.0-preview bank and scoring identifiers certify no validated instrument. Four groups each contain six pairs. A and B alternate between sides, with each side first three times. Count the selected content once, not a fixed option letter as one side. Each group sums to six, showing 0:6, 1:5, 2:4, 3:3, 4:2, 5:1 or 6:0. Three each remain tied; four or more means more selections within these six only. All twenty-four choices must be valid before interpreting any group. There is no scored skip and missingness becomes neither zero, the other side nor a substitute result. If neither fits, stop and read all four full guides. Groups create no total, percentage, rank or charm archetype. Equal counts establish neither identical contexts, perfect balance nor equal abilities; the less-selected side is no deficit. The original bank, new translation and groups have no established reliability, validity, norms or English–Chinese equivalence and establish no popularity, attraction, others’ views, honesty, emotional intelligence, compatibility or hiring suitability. Fictional discussion needs no contact, disclosure, performed enthusiasm or demonstrated care. Any response or invitation may still be declined. Page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged; copying contains only a public title and entry link without answers or counts."
+        }
+      ]
+    }
+  ],
+  "clarity-pacing-reading": [
+    {
+      "id": "coverage",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者先问现在是否方便，再直接指出两页数字不一致。核对时机与说清重点可以同时做到，不是必须二选一的人格两极。对方能否理解需看具体交流，较多直接选择不认证诚实，较多委婉选择不认证善良。",
+          "en": "In an additional original scene: A fictional reader checks whether now is convenient, then directly identifies inconsistent figures on two pages. Timing and a clear point can coexist rather than form exclusive traits. Understanding depends on the exchange; more direct choices certify no honesty and more tactful choices certify no kindness."
+        }
+      ]
+    },
+    {
+      "id": "dialogue",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构信息的重点是什么，听者需要回应什么，哪些解释可以保留？”可以只读或谈虚构人物，不需提交自己的次数、重新安排真实交流或获得对方认可。可以不回答、保留不同看法或到此结束。",
+          "en": "An optional discussion card asks: “What is the fictional message’s point, what response does it request, and which explanations may remain private?” Read alone or discuss the fictional reader without supplying counts, arranging an exchange or obtaining approval. Decline an answer, retain a different view or finish here."
+        }
+      ]
+    },
+    {
+      "id": "review",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原尝试均可跳过。围绕目前的自然互动选择，不增加四周等固定回忆期限。保留小程序原二十四条中文、题序与映射，英文为新增译文；0.2.0-preview为原题本与计分标识，不代表已验证正式量表。四组六道二选一，A和B交替对应两侧，每侧各三次放在前面；按所选内容记一次，不把同一字母当同一侧。每组两侧合六，完整显示0:6、1:5、2:4、3:3、4:2、5:1或6:0；3:3原样保留，四次以上只表示本组六次中较多选择。二十四项全部有效才解释任一组，没有计分跳过；缺答不补零、另一侧或替代结果。两项都不适合可停止直接读四篇全文。四组不合总分、百分比、排名或魅力原型；同次数不证明同样情境、完美平衡或同等能力，较少侧也不表示缺陷。原题本、新译文与分组均无已建立信效度、常模及中英等值，不推断人气、吸引力、他人评价、诚实、情商、适配或录用资格。虚构讨论无需实际联系、披露、表演热情或证明照顾，任何回应和邀请仍可拒绝。页面内存、自选24小时标签页草稿及完成、退出、重测清除保持不变，复制只有公开标题与入口，不含个人答案或次数。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices; existing experiments are optional. Consider current natural interaction choices without imposing a four-week or other fixed recall window. Original mini-program Chinese items, order and mappings remain; English is a new translation. The 0.2.0-preview bank and scoring identifiers certify no validated instrument. Four groups each contain six pairs. A and B alternate between sides, with each side first three times. Count the selected content once, not a fixed option letter as one side. Each group sums to six, showing 0:6, 1:5, 2:4, 3:3, 4:2, 5:1 or 6:0. Three each remain tied; four or more means more selections within these six only. All twenty-four choices must be valid before interpreting any group. There is no scored skip and missingness becomes neither zero, the other side nor a substitute result. If neither fits, stop and read all four full guides. Groups create no total, percentage, rank or charm archetype. Equal counts establish neither identical contexts, perfect balance nor equal abilities; the less-selected side is no deficit. The original bank, new translation and groups have no established reliability, validity, norms or English–Chinese equivalence and establish no popularity, attraction, others’ views, honesty, emotional intelligence, compatibility or hiring suitability. Fictional discussion needs no contact, disclosure, performed enthusiasm or demonstrated care. Any response or invitation may still be declined. Page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged; copying contains only a public title and entry link without answers or counts."
+        }
+      ]
+    }
+  ],
+  "support-timing-reading": [
+    {
+      "id": "coverage",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者当下确认听见朋友的困难，却没有余力承诺之后联系。确认信息、同意帮忙与承诺跟进不同；即时或后续次数都不产生继续陪伴义务，也不能代替另一人说明希望。",
+          "en": "In an additional original scene: A fictional reader acknowledges a friend’s difficulty but lacks capacity to promise later contact. Acknowledgment, agreeing to help and promising follow-up differ. Neither timing count creates a duty of continued company or supplies another person’s wishes."
+        }
+      ]
+    },
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“哪些是已经表达的事实，哪些是仍可拒绝的帮助或联系提议？”可以只读或谈虚构人物，不需提交自己的次数、重新安排真实交流或获得对方认可。可以不回答、保留不同看法或到此结束。",
+          "en": "An optional discussion card asks: “Which facts were expressed, and which offers of help or contact still permit refusal?” Read alone or discuss the fictional reader without supplying counts, arranging an exchange or obtaining approval. Decline an answer, retain a different view or finish here."
+        }
+      ]
+    },
+    {
+      "id": "review",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原尝试均可跳过。围绕目前的自然互动选择，不增加四周等固定回忆期限。保留小程序原二十四条中文、题序与映射，英文为新增译文；0.2.0-preview为原题本与计分标识，不代表已验证正式量表。四组六道二选一，A和B交替对应两侧，每侧各三次放在前面；按所选内容记一次，不把同一字母当同一侧。每组两侧合六，完整显示0:6、1:5、2:4、3:3、4:2、5:1或6:0；3:3原样保留，四次以上只表示本组六次中较多选择。二十四项全部有效才解释任一组，没有计分跳过；缺答不补零、另一侧或替代结果。两项都不适合可停止直接读四篇全文。四组不合总分、百分比、排名或魅力原型；同次数不证明同样情境、完美平衡或同等能力，较少侧也不表示缺陷。原题本、新译文与分组均无已建立信效度、常模及中英等值，不推断人气、吸引力、他人评价、诚实、情商、适配或录用资格。虚构讨论无需实际联系、披露、表演热情或证明照顾，任何回应和邀请仍可拒绝。页面内存、自选24小时标签页草稿及完成、退出、重测清除保持不变，复制只有公开标题与入口，不含个人答案或次数。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices; existing experiments are optional. Consider current natural interaction choices without imposing a four-week or other fixed recall window. Original mini-program Chinese items, order and mappings remain; English is a new translation. The 0.2.0-preview bank and scoring identifiers certify no validated instrument. Four groups each contain six pairs. A and B alternate between sides, with each side first three times. Count the selected content once, not a fixed option letter as one side. Each group sums to six, showing 0:6, 1:5, 2:4, 3:3, 4:2, 5:1 or 6:0. Three each remain tied; four or more means more selections within these six only. All twenty-four choices must be valid before interpreting any group. There is no scored skip and missingness becomes neither zero, the other side nor a substitute result. If neither fits, stop and read all four full guides. Groups create no total, percentage, rank or charm archetype. Equal counts establish neither identical contexts, perfect balance nor equal abilities; the less-selected side is no deficit. The original bank, new translation and groups have no established reliability, validity, norms or English–Chinese equivalence and establish no popularity, attraction, others’ views, honesty, emotional intelligence, compatibility or hiring suitability. Fictional discussion needs no contact, disclosure, performed enthusiasm or demonstrated care. Any response or invitation may still be declined. Page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged; copying contains only a public title and entry link without answers or counts."
+        }
+      ]
+    }
+  ],
+  "sharing-boundary-reading": [
+    {
+      "id": "coverage",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者愿意在自我介绍里谈兴趣，却不愿将同样内容长期留在公共平台。受众、用途和留存范围会改变披露选择；同一条信息也需要新的同意，次数不能授权转述自己或别人的私事。",
+          "en": "In an additional original scene: A fictional reader shares an interest in an introduction but does not want it retained on a public platform. Audience, purpose and permanence can change a disclosure choice. Even the same information needs fresh agreement; counts authorise no retelling of anyone’s private story."
+        }
+      ]
+    },
+    {
+      "id": "example",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构信息可对谁、为哪种用途分享，哪些保留不需额外理由？”可以只读或谈虚构人物，不需提交自己的次数、重新安排真实交流或获得对方认可。可以不回答、保留不同看法或到此结束。",
+          "en": "An optional discussion card asks: “For which audience and purpose could the fictional information be shared, and what may remain private without further reasons?” Read alone or discuss the fictional reader without supplying counts, arranging an exchange or obtaining approval. Decline an answer, retain a different view or finish here."
+        }
+      ]
+    },
+    {
+      "id": "review",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原尝试均可跳过。围绕目前的自然互动选择，不增加四周等固定回忆期限。保留小程序原二十四条中文、题序与映射，英文为新增译文；0.2.0-preview为原题本与计分标识，不代表已验证正式量表。四组六道二选一，A和B交替对应两侧，每侧各三次放在前面；按所选内容记一次，不把同一字母当同一侧。每组两侧合六，完整显示0:6、1:5、2:4、3:3、4:2、5:1或6:0；3:3原样保留，四次以上只表示本组六次中较多选择。二十四项全部有效才解释任一组，没有计分跳过；缺答不补零、另一侧或替代结果。两项都不适合可停止直接读四篇全文。四组不合总分、百分比、排名或魅力原型；同次数不证明同样情境、完美平衡或同等能力，较少侧也不表示缺陷。原题本、新译文与分组均无已建立信效度、常模及中英等值，不推断人气、吸引力、他人评价、诚实、情商、适配或录用资格。虚构讨论无需实际联系、披露、表演热情或证明照顾，任何回应和邀请仍可拒绝。页面内存、自选24小时标签页草稿及完成、退出、重测清除保持不变，复制只有公开标题与入口，不含个人答案或次数。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices; existing experiments are optional. Consider current natural interaction choices without imposing a four-week or other fixed recall window. Original mini-program Chinese items, order and mappings remain; English is a new translation. The 0.2.0-preview bank and scoring identifiers certify no validated instrument. Four groups each contain six pairs. A and B alternate between sides, with each side first three times. Count the selected content once, not a fixed option letter as one side. Each group sums to six, showing 0:6, 1:5, 2:4, 3:3, 4:2, 5:1 or 6:0. Three each remain tied; four or more means more selections within these six only. All twenty-four choices must be valid before interpreting any group. There is no scored skip and missingness becomes neither zero, the other side nor a substitute result. If neither fits, stop and read all four full guides. Groups create no total, percentage, rank or charm archetype. Equal counts establish neither identical contexts, perfect balance nor equal abilities; the less-selected side is no deficit. The original bank, new translation and groups have no established reliability, validity, norms or English–Chinese equivalence and establish no popularity, attraction, others’ views, honesty, emotional intelligence, compatibility or hiring suitability. Fictional discussion needs no contact, disclosure, performed enthusiasm or demonstrated care. Any response or invitation may still be declined. Page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged; copying contains only a public title and entry link without answers or counts."
+        }
+      ]
+    }
+  ]
+}

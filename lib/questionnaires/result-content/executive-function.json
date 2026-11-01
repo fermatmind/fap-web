@@ -1,0 +1,98 @@
+{
+  "overall-sum-reading": [
+    {
+      "id": "example",
+      "title": {
+        "en": "Put one answer back into its setting",
+        "zh": "把回答放回具体场景"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者在两项准备任务中，分别遇到口头步骤太长与到点难停下活动的情境。整体合计不能重建哪次发生了什么，也不能把两种经历排成能力高低。可以只核对指示、当时安排及实际行动；不需要把任务结果、答卷或合计交给雇主来证明是否胜任。",
+          "en": "An additional original scene: A fictional reader encounters lengthy spoken steps in one preparation task and difficulty stopping an activity on time in another. An overall sum reconstructs neither episode nor a hierarchy of capacities. Check the instructions, arrangement and actual actions without supplying task outcomes, answers or a total to an employer as proof of competence."
+        }
+      ]
+    },
+    {
+      "id": "action-source",
+      "title": {
+        "en": "An optional observation and the source version",
+        "zh": "一个自选观察及来源版本"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“哪些是实际发生的步骤或安排，哪些只是可能解释，哪些还不知道？”可以只讨论虚构人物，将观察、解释和未知分开。愿意参与的人可以不同意或停止，不必分享个人数值、证明能力，或先接受某种诊断标签；也可不做练习。",
+          "en": "An optional discussion prompt asks: “Which steps or arrangements actually occurred, which are possible explanations, and what remains unknown?” Discuss only the fictional reader, separating observations, interpretations and unknowns. Willing participants can disagree or stop without sharing personal values, demonstrating capacity or accepting a diagnostic label. The exercise can be skipped."
+        },
+        {
+          "zh": "新增情境与讨论提示由费马测试编辑部原创，不属于官方条目。保留作者官网英文及Angela Siu简体中文自评措辞、题序与五个锚点，包括“睇电视”；本页不另造翻译或固定近期时间窗。1完全不正确、2不正确、3部分正确、4正确、5完全正确，描述对自己贴切程度，3不是“有时”或跳过；十四题直接计分无反向。工作记忆第1、2、5、7、8、9、11、12、13题合9—45，除以九显示两位小数；抑制第3、4、6、10、14题合5—25，除以五显示两位小数；十四题原始整体合计14—70，不平均两均分另造总值。九个2与五个4给18+20=38、均分2.00和4.00；九个3与五个回答1、1、1、3、5也给27+11=38，却是另一组体验。原始和题量不同不排名，均分范围相同不证明能力单位相同。网页十四项都选数值或明确不计分才完成；一项不计分暂缺所属合计、均分及整体，其他完整部分保留，全部不计分仍可完成并读三篇全文。不补零、中点或按比例放大；严格齐全是网页编辑政策，不是经验证的缺失阈值。较大表示更认同所用困难陈述，不表示能力更强，不划诊断、神经类型、百分位或职业适配。本网站未建立自己的信效度、跨语言等值或有意义变化标准；官方版本可获取不等于背书本解读。保留来源与译者署名。可只读虚构情境，不需披露身份、答卷或他人私事；现有自愿24小时标签页草稿及完成、重测、退出清除不变，复制仅公开标题与入口，不增加最终结果缓存或逐题上传。",
+          "en": "FermatMind Editorial authored these scenes and prompts, not official items. The supplied English and Angela Siu simplified-Chinese self-report wording, order and five anchors remain, including the Chinese regional television wording. No new translation or fixed recent window is added. One is Definitely not true, two Not true, three Partially true, four True and five Definitely true. Three describes endorsement rather than Sometimes or a skip. All fourteen items are direct-scored. Working-memory items 1, 2, 5, 7, 8, 9, 11, 12, 13 sum to 9–45; divide by nine for a two-decimal mean. Inhibition items 3, 4, 6, 10, 14 sum to 5–25; divide by five. The fourteen-item raw total is 14–70, without averaging the two means. Nine twos and five fours give 18+20=38 with means 2.00 and 4.00; nine threes and inhibition choices 1, 1, 1, 3, 5 also give 27+11=38 with different responses. Unequal item counts prohibit raw-sum ranking; equal mean ranges establish no common capacity unit. All fourteen need a numeric or explicit unscored choice to finish on the website. One unscored answer withholds its sum, mean and overall total, preserving the complete other part; an all-unscored attempt can finish and read all three guides. No zero, midpoint or prorating is supplied. Strict completeness is editorial rather than a validated missing-data threshold. Larger means greater endorsement of the adopted difficulty statements, not stronger capacity, diagnosis, neurotype, percentile or career fit. This website has not established its own reliability, validity, cross-language equivalence or meaningful-change standard. Available official versions do not endorse these interpretations. Source and translator credit remain. Read fictional scenes without identifying information, answers or another person’s private affairs. Existing opt-in 24-hour tab drafts and completion, retake and exit clearing remain. Copying retains only the public title and entry, without added final-result caches or item uploads."
+        }
+      ]
+    }
+  ],
+  "working-memory-reading": [
+    {
+      "id": "example",
+      "title": {
+        "en": "A long instruction can have several contexts",
+        "zh": "一长串指示可能对应多种处境"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者听到取三份材料的要求，到了柜边却不确定第三份的名称。先确认原要求是否说清、有没有可用书面信息，以及不确定从哪一步开始。请求澄清不证明记忆差，独自完成也不证明没有困难；这九题没有观察现场表现，更不授权别人以分数取消合理支持。",
+          "en": "An additional original scene: A fictional reader hears a request for three documents and reaches the cabinet unsure of the third name. Check whether the request was explicit, written information was available and where uncertainty began. Asking for clarification proves no poor memory, and completing a task alone proves no absence of difficulty. Nine items observe no task performance and authorise no withdrawal of support on the basis of a score."
+        }
+      ]
+    },
+    {
+      "id": "action-source",
+      "title": {
+        "en": "An optional task note, with the version visible",
+        "zh": "一个自选任务记录及版本说明"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“原指示明确到什么程度，哪一步变得不清楚，哪些支持实际可用？”可以只讨论虚构人物，将观察、解释和未知分开。愿意参与的人可以不同意或停止，不必分享个人数值、证明能力，或先接受某种诊断标签；也可不做练习。",
+          "en": "An optional discussion prompt asks: “How explicit were the instructions, where did the next step become unclear, and which support was available?” Discuss only the fictional reader, separating observations, interpretations and unknowns. Willing participants can disagree or stop without sharing personal values, demonstrating capacity or accepting a diagnostic label. The exercise can be skipped."
+        },
+        {
+          "zh": "新增情境与讨论提示由费马测试编辑部原创，不属于官方条目。保留作者官网英文及Angela Siu简体中文自评措辞、题序与五个锚点，包括“睇电视”；本页不另造翻译或固定近期时间窗。1完全不正确、2不正确、3部分正确、4正确、5完全正确，描述对自己贴切程度，3不是“有时”或跳过；十四题直接计分无反向。工作记忆第1、2、5、7、8、9、11、12、13题合9—45，除以九显示两位小数；抑制第3、4、6、10、14题合5—25，除以五显示两位小数；十四题原始整体合计14—70，不平均两均分另造总值。九个2与五个4给18+20=38、均分2.00和4.00；九个3与五个回答1、1、1、3、5也给27+11=38，却是另一组体验。原始和题量不同不排名，均分范围相同不证明能力单位相同。网页十四项都选数值或明确不计分才完成；一项不计分暂缺所属合计、均分及整体，其他完整部分保留，全部不计分仍可完成并读三篇全文。不补零、中点或按比例放大；严格齐全是网页编辑政策，不是经验证的缺失阈值。较大表示更认同所用困难陈述，不表示能力更强，不划诊断、神经类型、百分位或职业适配。本网站未建立自己的信效度、跨语言等值或有意义变化标准；官方版本可获取不等于背书本解读。保留来源与译者署名。可只读虚构情境，不需披露身份、答卷或他人私事；现有自愿24小时标签页草稿及完成、重测、退出清除不变，复制仅公开标题与入口，不增加最终结果缓存或逐题上传。",
+          "en": "FermatMind Editorial authored these scenes and prompts, not official items. The supplied English and Angela Siu simplified-Chinese self-report wording, order and five anchors remain, including the Chinese regional television wording. No new translation or fixed recent window is added. One is Definitely not true, two Not true, three Partially true, four True and five Definitely true. Three describes endorsement rather than Sometimes or a skip. All fourteen items are direct-scored. Working-memory items 1, 2, 5, 7, 8, 9, 11, 12, 13 sum to 9–45; divide by nine for a two-decimal mean. Inhibition items 3, 4, 6, 10, 14 sum to 5–25; divide by five. The fourteen-item raw total is 14–70, without averaging the two means. Nine twos and five fours give 18+20=38 with means 2.00 and 4.00; nine threes and inhibition choices 1, 1, 1, 3, 5 also give 27+11=38 with different responses. Unequal item counts prohibit raw-sum ranking; equal mean ranges establish no common capacity unit. All fourteen need a numeric or explicit unscored choice to finish on the website. One unscored answer withholds its sum, mean and overall total, preserving the complete other part; an all-unscored attempt can finish and read all three guides. No zero, midpoint or prorating is supplied. Strict completeness is editorial rather than a validated missing-data threshold. Larger means greater endorsement of the adopted difficulty statements, not stronger capacity, diagnosis, neurotype, percentile or career fit. This website has not established its own reliability, validity, cross-language equivalence or meaningful-change standard. Available official versions do not endorse these interpretations. Source and translator credit remain. Read fictional scenes without identifying information, answers or another person’s private affairs. Existing opt-in 24-hour tab drafts and completion, retake and exit clearing remain. Copying retains only the public title and entry, without added final-result caches or item uploads."
+        }
+      ]
+    }
+  ],
+  "inhibition-reading": [
+    {
+      "id": "example",
+      "title": {
+        "en": "Stopping an enjoyable activity",
+        "zh": "停止一项喜欢的活动"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者原打算画完一小段就出发，后来仍继续画；另一次则是各方同意晚些出发。是否改变约定、是否注意到提示与实际何时停止可以分开。均分无法判断两次是否相同，也不能认定不接受别人限制就是能力缺陷；自选观察不要求顺从不合理或不安全的要求。",
+          "en": "An additional original scene: A fictional reader plans to leave after finishing part of a drawing but continues; on another occasion everyone agrees to depart later. A changed agreement, a noticed cue and the actual stopping point differ. A mean establishes no equivalence between occasions or deficit from declining another person’s restriction. An optional observation requires no compliance with unreasonable or unsafe demands."
+        }
+      ]
+    },
+    {
+      "id": "action-source",
+      "title": {
+        "en": "A voluntary cue and the supplied wording",
+        "zh": "一个自选提示及所用原题措辞"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“约定是否改变、提示是否出现，实际动作和仍未知的原因分别是什么？”可以只讨论虚构人物，将观察、解释和未知分开。愿意参与的人可以不同意或停止，不必分享个人数值、证明能力，或先接受某种诊断标签；也可不做练习。",
+          "en": "An optional discussion prompt asks: “Did the agreement change, was a cue available, and which actions and unknown causes can be separated?” Discuss only the fictional reader, separating observations, interpretations and unknowns. Willing participants can disagree or stop without sharing personal values, demonstrating capacity or accepting a diagnostic label. The exercise can be skipped."
+        },
+        {
+          "zh": "新增情境与讨论提示由费马测试编辑部原创，不属于官方条目。保留作者官网英文及Angela Siu简体中文自评措辞、题序与五个锚点，包括“睇电视”；本页不另造翻译或固定近期时间窗。1完全不正确、2不正确、3部分正确、4正确、5完全正确，描述对自己贴切程度，3不是“有时”或跳过；十四题直接计分无反向。工作记忆第1、2、5、7、8、9、11、12、13题合9—45，除以九显示两位小数；抑制第3、4、6、10、14题合5—25，除以五显示两位小数；十四题原始整体合计14—70，不平均两均分另造总值。九个2与五个4给18+20=38、均分2.00和4.00；九个3与五个回答1、1、1、3、5也给27+11=38，却是另一组体验。原始和题量不同不排名，均分范围相同不证明能力单位相同。网页十四项都选数值或明确不计分才完成；一项不计分暂缺所属合计、均分及整体，其他完整部分保留，全部不计分仍可完成并读三篇全文。不补零、中点或按比例放大；严格齐全是网页编辑政策，不是经验证的缺失阈值。较大表示更认同所用困难陈述，不表示能力更强，不划诊断、神经类型、百分位或职业适配。本网站未建立自己的信效度、跨语言等值或有意义变化标准；官方版本可获取不等于背书本解读。保留来源与译者署名。可只读虚构情境，不需披露身份、答卷或他人私事；现有自愿24小时标签页草稿及完成、重测、退出清除不变，复制仅公开标题与入口，不增加最终结果缓存或逐题上传。",
+          "en": "FermatMind Editorial authored these scenes and prompts, not official items. The supplied English and Angela Siu simplified-Chinese self-report wording, order and five anchors remain, including the Chinese regional television wording. No new translation or fixed recent window is added. One is Definitely not true, two Not true, three Partially true, four True and five Definitely true. Three describes endorsement rather than Sometimes or a skip. All fourteen items are direct-scored. Working-memory items 1, 2, 5, 7, 8, 9, 11, 12, 13 sum to 9–45; divide by nine for a two-decimal mean. Inhibition items 3, 4, 6, 10, 14 sum to 5–25; divide by five. The fourteen-item raw total is 14–70, without averaging the two means. Nine twos and five fours give 18+20=38 with means 2.00 and 4.00; nine threes and inhibition choices 1, 1, 1, 3, 5 also give 27+11=38 with different responses. Unequal item counts prohibit raw-sum ranking; equal mean ranges establish no common capacity unit. All fourteen need a numeric or explicit unscored choice to finish on the website. One unscored answer withholds its sum, mean and overall total, preserving the complete other part; an all-unscored attempt can finish and read all three guides. No zero, midpoint or prorating is supplied. Strict completeness is editorial rather than a validated missing-data threshold. Larger means greater endorsement of the adopted difficulty statements, not stronger capacity, diagnosis, neurotype, percentile or career fit. This website has not established its own reliability, validity, cross-language equivalence or meaningful-change standard. Available official versions do not endorse these interpretations. Source and translator credit remain. Read fictional scenes without identifying information, answers or another person’s private affairs. Existing opt-in 24-hour tab drafts and completion, retake and exit clearing remain. Copying retains only the public title and entry, without added final-result caches or item uploads."
+        }
+      ]
+    }
+  ]
+}

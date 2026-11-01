@@ -2,15 +2,17 @@ import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { MiniCopingQuestionnaire, MiniCopingResult } from "@/lib/questionnaires/miniCoping";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
+import type { QuestionnaireProfile } from "@/lib/questionnaires/types";
 
 type Complete = Extract<MiniCopingResult, { status: "complete" }>;
-export function QuestionnaireCopingReport({ quiz, result, locale }: { quiz: MiniCopingQuestionnaire; result: Complete; locale: Locale }) {
+export function QuestionnaireCopingReport({ quiz, result, locale, readingProfiles }: { quiz: MiniCopingQuestionnaire; result: Complete; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
   const zh = locale === "zh";
   return <div data-coping-result className="my-6 space-y-8">
     <p className="leading-8">{zh ? "四组分别读，两侧各记录本组六次比较中的选择次数，合计六次。不合总分、跨组排名、综合类型、年龄或成熟等级。下方全文是每组的一般性读法，不从次数补出能力或健康结论。" : "Read the four groups separately. The two sides record choices within six comparisons and sum to six. There is no overall score, cross-group ranking, combined type, age or maturity grade. The complete texts below are general readings, without inferring ability or health from a count."}</p>
     {result.interactionPairs.map(pair => {
       const profile = quiz.profiles.find(p => p.id === pair.profileId)!;
+      const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === 2 && item.directionIds.every((id, index) => id === profile.directionIds[index]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
       return <section key={pair.id} data-coping-pair={pair.id} aria-labelledby={`coping-${pair.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
         <h3 id={`coping-${pair.id}`} className="text-2xl font-semibold">{profile.title[locale]}</h3>
         <dl className="my-4 space-y-3" aria-label={zh ? "本组原始选择次数" : "Raw choices within this group"}>
@@ -22,7 +24,7 @@ export function QuestionnaireCopingReport({ quiz, result, locale }: { quiz: Mini
         <p data-coping-tie={pair.leaders.length === 2 ? "true" : "false"} className="mb-5 leading-8">{pair.leaders.length === 2
           ? (zh ? "两侧各三次，保留并列；不表示完美平衡或心理年龄居中，无需改答选赢家。" : "Three choices each: both sides remain tied. This is neither perfect balance nor an intermediate psychological age, and no answer needs changing to choose a winner.")
           : (zh ? "本组六次相对选择中一侧次数较多。较少的一侧仍有完整解释，不表示缺失或缺点，也不证明年龄、成熟度或能力。" : "One side has more selections within these six relative choices. The other side still has a full explanation and is not missing or a deficit; no count establishes age, maturity or ability.")}</p>
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`coping-report-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`coping-report-${profile.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "单独阅读本组完整公开指南" : "Read this group’s complete public guide separately"}</Link>
       </section>;
     })}

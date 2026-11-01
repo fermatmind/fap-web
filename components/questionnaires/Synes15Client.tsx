@@ -3,20 +3,20 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Locale } from "@/lib/i18n/locales";
-import type { QuestionnaireAnswers } from "@/lib/questionnaires/types";
+import type { QuestionnaireAnswers, QuestionnaireProfile } from "@/lib/questionnaires/types";
 import { SYNES15_TOPICS, isSynes15ConfigurationValid, scoreSynes15, type Synes15Questionnaire, type Synes15Result } from "@/lib/questionnaires/synes15";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
 const subscribeReady = () => () => {};
 
-export function Synes15Client({ quiz, locale }: { quiz: unknown; locale: Locale }) {
+export function Synes15Client({ quiz, locale, readingProfiles }: { quiz: unknown; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
   if (!isSynes15ConfigurationValid(quiz)) return <p role="status">{locale === "zh" ? "问卷内容暂不可用。" : "The questionnaire content is unavailable."}</p>;
-  return <ValidSynes15Client key={`${locale}:${quiz.version}`} quiz={quiz} locale={locale} />;
+  return <ValidSynes15Client key={`${locale}:${quiz.version}`} quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
 }
-function ValidSynes15Client({ quiz, locale }: { quiz: Synes15Questionnaire; locale: Locale }) {
+function ValidSynes15Client({ quiz, locale, readingProfiles }: { quiz: Synes15Questionnaire; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
   const zh = locale === "zh", ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const { start: recordStart, complete: recordComplete, view: recordView, share: recordShare, consent: activityConsent } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({}), [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome");
@@ -77,6 +77,7 @@ function ValidSynes15Client({ quiz, locale }: { quiz: Synes15Questionnaire; loca
         <p className="leading-8">{zh ? "15项均已作明确选择。五组分别保留四种回答计数和每条原始选择；不计算总分、均分、强度或概率，不分配类型，也不确认联觉。没有仅指有机会却未记得，不代表终身缺失。" : "All 15 prompts have an explicit choice. Five groups retain four literal response counts and each original choice, without a total, mean, strength, probability, type assignment or confirmation of synaesthesia. No means relevant opportunities but no recollection, not lifetime absence."}</p>
         <div data-synes15-result className="space-y-6">{SYNES15_TOPICS.map(id => {
           const score = result[id], profile = quiz.profiles.find(p => p.id === id)!;
+          const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === 1 && item.directionIds[0] === id && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
           return <section key={id} data-synes15-part={id} aria-labelledby={`synes15-${id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
             <h3 id={`synes15-${id}`} className="scroll-mt-24 text-xl font-semibold">{profile.title[locale]}</h3>
             <p data-synes15-count className="my-3 leading-8">{zh ? `三条中的回答计数：有 ${score.counts.yes}；没有 ${score.counts.no}；不确定 ${score.counts.unsure}；无机会／不愿回答 ${score.counts.na}。` : `Response counts out of three: yes ${score.counts.yes}; no ${score.counts.no}; unsure ${score.counts.unsure}; no opportunity / decline ${score.counts.na}.`}</p>
@@ -85,7 +86,7 @@ function ValidSynes15Client({ quiz, locale }: { quiz: Synes15Questionnaire; loca
               const chosen = item.options.find(o => o.id === response.choice)!;
               return <li key={response.questionId} className="rounded-lg bg-slate-50 p-4 leading-8"><p>{item.prompt[locale]}</p><p className="mt-2 font-semibold">{chosen.label[locale]}</p></li>;
             })}</ol>
-            <details className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开此部分完整读法" : "Expand this full reading"}</summary><div className="mt-5"><QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`synes15-${id}`} /></div></details>
+            <details className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开此部分完整读法" : "Expand this full reading"}</summary><div className="mt-5"><QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`synes15-${id}`} /></div></details>
             <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "阅读完整公开指南" : "Read the complete public guide"}</Link>
           </section>;
         })}</div>

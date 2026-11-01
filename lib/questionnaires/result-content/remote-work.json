@@ -1,0 +1,207 @@
+{
+  "setup-and-access-reading": [
+    {
+      "id": "scenario",
+      "title": {
+        "en": "The shared file opens for only one person",
+        "zh": "共享材料并没有对所有人可用"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构团队用无敏感信息的日程样例演练远程任务。一位协作者能打开工具，却无法使用其中一种显示方式；团队先向支持人员核对可访问的替代方式，暂不把这项条件记成已经落实。问题在具体接入安排，不能从中推断对方不擅长技术；练习不要求修改权限、检查家庭空间或披露健康情况。",
+          "en": "An additional original scene: A fictional team rehearses a remote task with a nonsensitive sample schedule. One collaborator can open the tool but cannot use one display mode. The team asks support about an accessible alternative and leaves that condition unresolved for now. This concerns access arrangements rather than proving poor technical skill. The exercise requires no permission changes, inspection of a home or health disclosure."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "en": "Try an ordinary task with dummy material",
+        "zh": "用虚构材料试跑一个普通任务"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“这项任务需要的条件哪些已经试过，哪些仍待合适人员确认或提供支持？”可以只讨论虚构团队，把已知事实、约定、待决定事项与支持条件分开。参与者可以保留不同理解或结束讨论，无需展示数值、同事信息或私人空间，也不以演练要求任何真实工作操作。",
+          "en": "An optional discussion prompt asks: “Which conditions for this task have been tried, and which still need confirmation or support from the appropriate person?” Discuss only the fictional team, distinguishing known facts, agreements, open decisions and support conditions. Participants may keep different interpretations or stop, without values, colleague information, private spaces or required real work operations."
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "en": "Keep uncertainty visible",
+        "zh": "保留未能判断的条件"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境与讨论由费马测试编辑部原创，可只用虚构任务，也可以略过；不要求已有远程岗位、提交工作文件、展示家庭空间、披露健康或照护细节。以一项当前或拟议远程安排及代表性任务为参照，回看截至今天仍适用的准备，没有固定回顾天数。二十项按连续五组各四项直接记录：0针对当前安排尚未开始，1已写出草案但尚未试跑，2已在真实或模拟任务试跑，3试跑后已复盘并调整；不适用／无法判断／不愿回答是独立非数值项，不是零。零是有效阶段，不表示缺少能力、资源或支持的原因；3不认证真实表现、安全或权限。二十项均明确选择才完成，空白不等于非数值。每组四项数值齐全才显示和0—12及和除以四的一位小数均值，例如1÷4显示0.3；数值间隔不代表相同能力增量。一项非数值只撤下所属组的和与均值，其他完整组保留，不补零、不换中点、不缩分母；五种阶段计数与四项原选择仍保留。全部非数值也能完成并读五篇全文。3、3、0、0与2、2、1、1均为1.5，但待落实的行动可以不同；先看逐项记录，不抵消必要条件、跨组排名或合总分、准备率、主导风格。二十题、五组、四阶段与读法均为费马原创；ILO的2020年疫情背景实践文章与HSE面向大不列颠地区雇主及居家、混合工作的指导只提供情境参考，不是题本、背书或通用法律判断。题本及英文尚未建立信效度、常模、语言等价或有意义变化阈值，不验证远程适配、工作量、安全配置、组织支持或健康结果。讨论可以不同意或停止，不要求真实联系、监控、绕过权限或忽略紧急责任。只有自愿开启且会话存储可用时，本标签页保留24小时草稿，完成、重测或退出并清除时删除；没有新增最终结果缓存。复制只包含五份公开指南标题与链接，不含阶段、次数、数值、逐题选择或作答标识。",
+          "en": "FermatMind Editorial authored the additional scenes and prompts. Use fictional tasks or decline, without a remote job, work files, home inspection or health and caring details. Refer to one current or proposed remote arrangement and representative task, considering preparation applicable today with no fixed recall period. Five consecutive four-action groups directly record 0 Not started for this arrangement; 1 Drafted a plan, not yet tried it; 2 Tried it in a real or simulated task; and 3 Reviewed the trial and adjusted the plan. Not applicable / cannot assess / prefer not to answer is separate and nonnumeric, never zero. Zero is a valid stage and explains no cause of missing ability, resources or support; three certifies no real performance, safety or permission. All 20 need an explicit choice to finish; blank differs from non-rating. Four numeric answers per group are required for a sum of 0–12 and the sum divided by four to one decimal; 1 ÷ 4 displays 0.3. Intervals establish no equal increments in ability. One non-rating choice withholds only its group sum and mean, keeping other complete groups without zero, midpoint or smaller-denominator substitution. Counts of all five response states and the four choices remain. All non-rating choices still finish and retain all five full guides. Stages 3, 3, 0, 0 and 2, 2, 1, 1 both yield 1.5 with potentially different unfinished actions. Inspect rows without compensating for necessary conditions, ranking groups or forming an overall score, readiness percentage or dominant style. All 20 items, five groups, four stages and readings are original FermatMind content. The ILO’s 2020 pandemic-context practical article and HSE guidance for employers and home or hybrid working in Great Britain provide contextual references, rather than an instrument, endorsement or universal legal judgment. Reliability, validity, norms, language equivalence and meaningful-change thresholds remain unestablished for the bank and English wording. It verifies no remote suitability, workload, security configuration, organizational support or health outcome. Discussion can contain disagreement or stop without real contact, monitoring, bypassed permissions or ignored urgent responsibilities. Only voluntary saving with available session storage retains a 24-hour tab draft, cleared on completion, retake or exit-and-clear. No final-result cache is added. Copying includes only five public guide titles and links, without stages, counts, numbers, item choices or attempt identifiers."
+        }
+      ]
+    }
+  ],
+  "work-planning-reading": [
+    {
+      "id": "scenario",
+      "title": {
+        "en": "A plan meets a missing dependency",
+        "zh": "计划遇到了未落实的依赖"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构团队准备远程修改一页活动介绍，先约定什么算可评审稿，并写明一条信息仍待确认。他们可以记录已完成部分、说明阻塞，也可以重谈评审时间；一直在线并不能补出缺失信息。回看关注产出与依赖是否更清楚，不要求增加在线时间或证明整天没有照护与休息需要。",
+          "en": "An additional original scene: A fictional team prepares to revise one event-information page remotely. They agree what counts as a reviewable draft and note one fact awaiting confirmation. They can record completed work, explain the blocker or revisit review timing; constant online presence supplies no missing information. Review whether the output and dependency became clearer, without longer online hours or proof of a day without care or rest needs."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "en": "Run a plan small enough to inspect",
+        "zh": "试行一份可以看清过程的小计划"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“下一步需要什么产出、依赖谁的信息，怎样让进度可见而不变成持续监控？”可以只讨论虚构团队，把已知事实、约定、待决定事项与支持条件分开。参与者可以保留不同理解或结束讨论，无需展示数值、同事信息或私人空间，也不以演练要求任何真实工作操作。",
+          "en": "An optional discussion prompt asks: “What output comes next, whose information is needed, and how can progress be visible without continuous monitoring?” Discuss only the fictional team, distinguishing known facts, agreements, open decisions and support conditions. Participants may keep different interpretations or stop, without values, colleague information, private spaces or required real work operations."
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "en": "Look behind a close pair of means",
+        "zh": "相近均值要回到具体行动读"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境与讨论由费马测试编辑部原创，可只用虚构任务，也可以略过；不要求已有远程岗位、提交工作文件、展示家庭空间、披露健康或照护细节。以一项当前或拟议远程安排及代表性任务为参照，回看截至今天仍适用的准备，没有固定回顾天数。二十项按连续五组各四项直接记录：0针对当前安排尚未开始，1已写出草案但尚未试跑，2已在真实或模拟任务试跑，3试跑后已复盘并调整；不适用／无法判断／不愿回答是独立非数值项，不是零。零是有效阶段，不表示缺少能力、资源或支持的原因；3不认证真实表现、安全或权限。二十项均明确选择才完成，空白不等于非数值。每组四项数值齐全才显示和0—12及和除以四的一位小数均值，例如1÷4显示0.3；数值间隔不代表相同能力增量。一项非数值只撤下所属组的和与均值，其他完整组保留，不补零、不换中点、不缩分母；五种阶段计数与四项原选择仍保留。全部非数值也能完成并读五篇全文。3、3、0、0与2、2、1、1均为1.5，但待落实的行动可以不同；先看逐项记录，不抵消必要条件、跨组排名或合总分、准备率、主导风格。二十题、五组、四阶段与读法均为费马原创；ILO的2020年疫情背景实践文章与HSE面向大不列颠地区雇主及居家、混合工作的指导只提供情境参考，不是题本、背书或通用法律判断。题本及英文尚未建立信效度、常模、语言等价或有意义变化阈值，不验证远程适配、工作量、安全配置、组织支持或健康结果。讨论可以不同意或停止，不要求真实联系、监控、绕过权限或忽略紧急责任。只有自愿开启且会话存储可用时，本标签页保留24小时草稿，完成、重测或退出并清除时删除；没有新增最终结果缓存。复制只包含五份公开指南标题与链接，不含阶段、次数、数值、逐题选择或作答标识。",
+          "en": "FermatMind Editorial authored the additional scenes and prompts. Use fictional tasks or decline, without a remote job, work files, home inspection or health and caring details. Refer to one current or proposed remote arrangement and representative task, considering preparation applicable today with no fixed recall period. Five consecutive four-action groups directly record 0 Not started for this arrangement; 1 Drafted a plan, not yet tried it; 2 Tried it in a real or simulated task; and 3 Reviewed the trial and adjusted the plan. Not applicable / cannot assess / prefer not to answer is separate and nonnumeric, never zero. Zero is a valid stage and explains no cause of missing ability, resources or support; three certifies no real performance, safety or permission. All 20 need an explicit choice to finish; blank differs from non-rating. Four numeric answers per group are required for a sum of 0–12 and the sum divided by four to one decimal; 1 ÷ 4 displays 0.3. Intervals establish no equal increments in ability. One non-rating choice withholds only its group sum and mean, keeping other complete groups without zero, midpoint or smaller-denominator substitution. Counts of all five response states and the four choices remain. All non-rating choices still finish and retain all five full guides. Stages 3, 3, 0, 0 and 2, 2, 1, 1 both yield 1.5 with potentially different unfinished actions. Inspect rows without compensating for necessary conditions, ranking groups or forming an overall score, readiness percentage or dominant style. All 20 items, five groups, four stages and readings are original FermatMind content. The ILO’s 2020 pandemic-context practical article and HSE guidance for employers and home or hybrid working in Great Britain provide contextual references, rather than an instrument, endorsement or universal legal judgment. Reliability, validity, norms, language equivalence and meaningful-change thresholds remain unestablished for the bank and English wording. It verifies no remote suitability, workload, security configuration, organizational support or health outcome. Discussion can contain disagreement or stop without real contact, monitoring, bypassed permissions or ignored urgent responsibilities. Only voluntary saving with available session storage retains a 24-hour tab draft, cleared on completion, retake or exit-and-clear. No final-result cache is added. Copying includes only five public guide titles and links, without stages, counts, numbers, item choices or attempt identifiers."
+        }
+      ]
+    }
+  ],
+  "handover-and-decisions-reading": [
+    {
+      "id": "scenario",
+      "title": {
+        "en": "The decision is buried in the conversation",
+        "zh": "决定埋在了对话里"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构团队讨论一份模拟通知后，整理者把一条建议写成“待确认”，协作者却以为已经通过。他们可以核对决定人、更新结论和当前文件位置，再让未参加讨论的人复述下一步。对齐的是信息与决定状态，不是在评定接收人的理解力，也不需要公开真实聊天或录制别人。",
+          "en": "An additional original scene: After discussing a simulated notice, a fictional team records a suggestion as awaiting confirmation, while a collaborator thinks it is approved. They can check the decision owner, update the outcome and current file location, then ask an absent peer to restate the next step. This aligns information and decision status rather than judging comprehension, and needs no real chat history or recording of others."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "en": "Test a handover with a fresh reader",
+        "zh": "请一位新读者试着接手"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“哪条是已确认结论、哪条还待决定，新接手的人会据此做什么？”可以只讨论虚构团队，把已知事实、约定、待决定事项与支持条件分开。参与者可以保留不同理解或结束讨论，无需展示数值、同事信息或私人空间，也不以演练要求任何真实工作操作。",
+          "en": "An optional discussion prompt asks: “Which point is confirmed, which awaits a decision, and what would a new collaborator do from this note?” Discuss only the fictional team, distinguishing known facts, agreements, open decisions and support conditions. Participants may keep different interpretations or stop, without values, colleague information, private spaces or required real work operations."
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "en": "Treat the number as a prompt to inspect the handover",
+        "zh": "用数字提醒自己检查交接"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境与讨论由费马测试编辑部原创，可只用虚构任务，也可以略过；不要求已有远程岗位、提交工作文件、展示家庭空间、披露健康或照护细节。以一项当前或拟议远程安排及代表性任务为参照，回看截至今天仍适用的准备，没有固定回顾天数。二十项按连续五组各四项直接记录：0针对当前安排尚未开始，1已写出草案但尚未试跑，2已在真实或模拟任务试跑，3试跑后已复盘并调整；不适用／无法判断／不愿回答是独立非数值项，不是零。零是有效阶段，不表示缺少能力、资源或支持的原因；3不认证真实表现、安全或权限。二十项均明确选择才完成，空白不等于非数值。每组四项数值齐全才显示和0—12及和除以四的一位小数均值，例如1÷4显示0.3；数值间隔不代表相同能力增量。一项非数值只撤下所属组的和与均值，其他完整组保留，不补零、不换中点、不缩分母；五种阶段计数与四项原选择仍保留。全部非数值也能完成并读五篇全文。3、3、0、0与2、2、1、1均为1.5，但待落实的行动可以不同；先看逐项记录，不抵消必要条件、跨组排名或合总分、准备率、主导风格。二十题、五组、四阶段与读法均为费马原创；ILO的2020年疫情背景实践文章与HSE面向大不列颠地区雇主及居家、混合工作的指导只提供情境参考，不是题本、背书或通用法律判断。题本及英文尚未建立信效度、常模、语言等价或有意义变化阈值，不验证远程适配、工作量、安全配置、组织支持或健康结果。讨论可以不同意或停止，不要求真实联系、监控、绕过权限或忽略紧急责任。只有自愿开启且会话存储可用时，本标签页保留24小时草稿，完成、重测或退出并清除时删除；没有新增最终结果缓存。复制只包含五份公开指南标题与链接，不含阶段、次数、数值、逐题选择或作答标识。",
+          "en": "FermatMind Editorial authored the additional scenes and prompts. Use fictional tasks or decline, without a remote job, work files, home inspection or health and caring details. Refer to one current or proposed remote arrangement and representative task, considering preparation applicable today with no fixed recall period. Five consecutive four-action groups directly record 0 Not started for this arrangement; 1 Drafted a plan, not yet tried it; 2 Tried it in a real or simulated task; and 3 Reviewed the trial and adjusted the plan. Not applicable / cannot assess / prefer not to answer is separate and nonnumeric, never zero. Zero is a valid stage and explains no cause of missing ability, resources or support; three certifies no real performance, safety or permission. All 20 need an explicit choice to finish; blank differs from non-rating. Four numeric answers per group are required for a sum of 0–12 and the sum divided by four to one decimal; 1 ÷ 4 displays 0.3. Intervals establish no equal increments in ability. One non-rating choice withholds only its group sum and mean, keeping other complete groups without zero, midpoint or smaller-denominator substitution. Counts of all five response states and the four choices remain. All non-rating choices still finish and retain all five full guides. Stages 3, 3, 0, 0 and 2, 2, 1, 1 both yield 1.5 with potentially different unfinished actions. Inspect rows without compensating for necessary conditions, ranking groups or forming an overall score, readiness percentage or dominant style. All 20 items, five groups, four stages and readings are original FermatMind content. The ILO’s 2020 pandemic-context practical article and HSE guidance for employers and home or hybrid working in Great Britain provide contextual references, rather than an instrument, endorsement or universal legal judgment. Reliability, validity, norms, language equivalence and meaningful-change thresholds remain unestablished for the bank and English wording. It verifies no remote suitability, workload, security configuration, organizational support or health outcome. Discussion can contain disagreement or stop without real contact, monitoring, bypassed permissions or ignored urgent responsibilities. Only voluntary saving with available session storage retains a 24-hour tab draft, cleared on completion, retake or exit-and-clear. No final-result cache is added. Copying includes only five public guide titles and links, without stages, counts, numbers, item choices or attempt identifiers."
+        }
+      ]
+    }
+  ],
+  "help-and-coordination-reading": [
+    {
+      "id": "scenario",
+      "title": {
+        "en": "A question waits while the deadline approaches",
+        "zh": "问题一直悬着，截止时间却在接近"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者在模拟项目中等待资料，发现原联系人不在。他先写清受影响的部分、所需决定与约定求助路径，再向愿意演练的同伴确认说明是否够用。没有回复时仍可保留未决定状态，不能默认同意或扩大权限；这次演练也不能证明真实团队一定有替代联系人。",
+          "en": "An additional original scene: A fictional reader awaiting material in a simulated project finds the usual contact unavailable. They state the affected work, decision needed and agreed help route, then ask a willing rehearsal partner whether the note is sufficient. No reply can remain undecided rather than becoming approval or expanded permission. The rehearsal also proves no real team has an alternative contact."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "en": "Practise a short blocker message",
+        "zh": "练习一条简短的阻塞说明"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“现在具体被什么阻塞，谁有权回应，等待时哪些工作仍能按约定继续？”可以只讨论虚构团队，把已知事实、约定、待决定事项与支持条件分开。参与者可以保留不同理解或结束讨论，无需展示数值、同事信息或私人空间，也不以演练要求任何真实工作操作。",
+          "en": "An optional discussion prompt asks: “What exactly is blocked, who has authority to respond, and which work can continue under the agreement while waiting?” Discuss only the fictional team, distinguishing known facts, agreements, open decisions and support conditions. Participants may keep different interpretations or stop, without values, colleague information, private spaces or required real work operations."
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "en": "Use the detail before comparing stages",
+        "zh": "比较阶段前，先看具体条件"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境与讨论由费马测试编辑部原创，可只用虚构任务，也可以略过；不要求已有远程岗位、提交工作文件、展示家庭空间、披露健康或照护细节。以一项当前或拟议远程安排及代表性任务为参照，回看截至今天仍适用的准备，没有固定回顾天数。二十项按连续五组各四项直接记录：0针对当前安排尚未开始，1已写出草案但尚未试跑，2已在真实或模拟任务试跑，3试跑后已复盘并调整；不适用／无法判断／不愿回答是独立非数值项，不是零。零是有效阶段，不表示缺少能力、资源或支持的原因；3不认证真实表现、安全或权限。二十项均明确选择才完成，空白不等于非数值。每组四项数值齐全才显示和0—12及和除以四的一位小数均值，例如1÷4显示0.3；数值间隔不代表相同能力增量。一项非数值只撤下所属组的和与均值，其他完整组保留，不补零、不换中点、不缩分母；五种阶段计数与四项原选择仍保留。全部非数值也能完成并读五篇全文。3、3、0、0与2、2、1、1均为1.5，但待落实的行动可以不同；先看逐项记录，不抵消必要条件、跨组排名或合总分、准备率、主导风格。二十题、五组、四阶段与读法均为费马原创；ILO的2020年疫情背景实践文章与HSE面向大不列颠地区雇主及居家、混合工作的指导只提供情境参考，不是题本、背书或通用法律判断。题本及英文尚未建立信效度、常模、语言等价或有意义变化阈值，不验证远程适配、工作量、安全配置、组织支持或健康结果。讨论可以不同意或停止，不要求真实联系、监控、绕过权限或忽略紧急责任。只有自愿开启且会话存储可用时，本标签页保留24小时草稿，完成、重测或退出并清除时删除；没有新增最终结果缓存。复制只包含五份公开指南标题与链接，不含阶段、次数、数值、逐题选择或作答标识。",
+          "en": "FermatMind Editorial authored the additional scenes and prompts. Use fictional tasks or decline, without a remote job, work files, home inspection or health and caring details. Refer to one current or proposed remote arrangement and representative task, considering preparation applicable today with no fixed recall period. Five consecutive four-action groups directly record 0 Not started for this arrangement; 1 Drafted a plan, not yet tried it; 2 Tried it in a real or simulated task; and 3 Reviewed the trial and adjusted the plan. Not applicable / cannot assess / prefer not to answer is separate and nonnumeric, never zero. Zero is a valid stage and explains no cause of missing ability, resources or support; three certifies no real performance, safety or permission. All 20 need an explicit choice to finish; blank differs from non-rating. Four numeric answers per group are required for a sum of 0–12 and the sum divided by four to one decimal; 1 ÷ 4 displays 0.3. Intervals establish no equal increments in ability. One non-rating choice withholds only its group sum and mean, keeping other complete groups without zero, midpoint or smaller-denominator substitution. Counts of all five response states and the four choices remain. All non-rating choices still finish and retain all five full guides. Stages 3, 3, 0, 0 and 2, 2, 1, 1 both yield 1.5 with potentially different unfinished actions. Inspect rows without compensating for necessary conditions, ranking groups or forming an overall score, readiness percentage or dominant style. All 20 items, five groups, four stages and readings are original FermatMind content. The ILO’s 2020 pandemic-context practical article and HSE guidance for employers and home or hybrid working in Great Britain provide contextual references, rather than an instrument, endorsement or universal legal judgment. Reliability, validity, norms, language equivalence and meaningful-change thresholds remain unestablished for the bank and English wording. It verifies no remote suitability, workload, security configuration, organizational support or health outcome. Discussion can contain disagreement or stop without real contact, monitoring, bypassed permissions or ignored urgent responsibilities. Only voluntary saving with available session storage retains a 24-hour tab draft, cleared on completion, retake or exit-and-clear. No final-result cache is added. Copying includes only five public guide titles and links, without stages, counts, numbers, item choices or attempt identifiers."
+        }
+      ]
+    }
+  ],
+  "boundaries-and-recovery-reading": [
+    {
+      "id": "scenario",
+      "title": {
+        "en": "An ordinary message arrives after the agreed time",
+        "zh": "约定时段之外，来了一条普通消息"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构团队演练约定时段之后收到普通消息的处理方式，发现发送者只想留下记录，接收者却以为需要立即交付。他们可以澄清回应窗口、真正紧急的单独路径和条件变化后的讨论人，不要求每个人采用相同日程。写下边界与实际能用休息仍是两件事，记录不能代替组织支持。",
+          "en": "An additional original scene: A fictional team rehearses a routine message arriving outside agreed contact hours. The sender intended a note for later, while the recipient assumed immediate delivery was expected. They can clarify the response window, a separate route for genuine urgency and whom to approach when conditions change, without imposing one schedule. A written boundary differs from usable rest, and the record replaces no organizational support."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "en": "Rehearse a start, a pause and a finish",
+        "zh": "试演开始、暂停和结束"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“普通消息何时需要回应，真正紧急时采用什么约定，哪些条件仍需共同调整？”可以只讨论虚构团队，把已知事实、约定、待决定事项与支持条件分开。参与者可以保留不同理解或结束讨论，无需展示数值、同事信息或私人空间，也不以演练要求任何真实工作操作。",
+          "en": "An optional discussion prompt asks: “When does a routine message need a reply, what is agreed for genuine urgency, and which conditions still need shared adjustment?” Discuss only the fictional team, distinguishing known facts, agreements, open decisions and support conditions. Participants may keep different interpretations or stop, without values, colleague information, private spaces or required real work operations."
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "en": "Keep the result open to revision",
+        "zh": "把结果留给下一次调整"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境与讨论由费马测试编辑部原创，可只用虚构任务，也可以略过；不要求已有远程岗位、提交工作文件、展示家庭空间、披露健康或照护细节。以一项当前或拟议远程安排及代表性任务为参照，回看截至今天仍适用的准备，没有固定回顾天数。二十项按连续五组各四项直接记录：0针对当前安排尚未开始，1已写出草案但尚未试跑，2已在真实或模拟任务试跑，3试跑后已复盘并调整；不适用／无法判断／不愿回答是独立非数值项，不是零。零是有效阶段，不表示缺少能力、资源或支持的原因；3不认证真实表现、安全或权限。二十项均明确选择才完成，空白不等于非数值。每组四项数值齐全才显示和0—12及和除以四的一位小数均值，例如1÷4显示0.3；数值间隔不代表相同能力增量。一项非数值只撤下所属组的和与均值，其他完整组保留，不补零、不换中点、不缩分母；五种阶段计数与四项原选择仍保留。全部非数值也能完成并读五篇全文。3、3、0、0与2、2、1、1均为1.5，但待落实的行动可以不同；先看逐项记录，不抵消必要条件、跨组排名或合总分、准备率、主导风格。二十题、五组、四阶段与读法均为费马原创；ILO的2020年疫情背景实践文章与HSE面向大不列颠地区雇主及居家、混合工作的指导只提供情境参考，不是题本、背书或通用法律判断。题本及英文尚未建立信效度、常模、语言等价或有意义变化阈值，不验证远程适配、工作量、安全配置、组织支持或健康结果。讨论可以不同意或停止，不要求真实联系、监控、绕过权限或忽略紧急责任。只有自愿开启且会话存储可用时，本标签页保留24小时草稿，完成、重测或退出并清除时删除；没有新增最终结果缓存。复制只包含五份公开指南标题与链接，不含阶段、次数、数值、逐题选择或作答标识。",
+          "en": "FermatMind Editorial authored the additional scenes and prompts. Use fictional tasks or decline, without a remote job, work files, home inspection or health and caring details. Refer to one current or proposed remote arrangement and representative task, considering preparation applicable today with no fixed recall period. Five consecutive four-action groups directly record 0 Not started for this arrangement; 1 Drafted a plan, not yet tried it; 2 Tried it in a real or simulated task; and 3 Reviewed the trial and adjusted the plan. Not applicable / cannot assess / prefer not to answer is separate and nonnumeric, never zero. Zero is a valid stage and explains no cause of missing ability, resources or support; three certifies no real performance, safety or permission. All 20 need an explicit choice to finish; blank differs from non-rating. Four numeric answers per group are required for a sum of 0–12 and the sum divided by four to one decimal; 1 ÷ 4 displays 0.3. Intervals establish no equal increments in ability. One non-rating choice withholds only its group sum and mean, keeping other complete groups without zero, midpoint or smaller-denominator substitution. Counts of all five response states and the four choices remain. All non-rating choices still finish and retain all five full guides. Stages 3, 3, 0, 0 and 2, 2, 1, 1 both yield 1.5 with potentially different unfinished actions. Inspect rows without compensating for necessary conditions, ranking groups or forming an overall score, readiness percentage or dominant style. All 20 items, five groups, four stages and readings are original FermatMind content. The ILO’s 2020 pandemic-context practical article and HSE guidance for employers and home or hybrid working in Great Britain provide contextual references, rather than an instrument, endorsement or universal legal judgment. Reliability, validity, norms, language equivalence and meaningful-change thresholds remain unestablished for the bank and English wording. It verifies no remote suitability, workload, security configuration, organizational support or health outcome. Discussion can contain disagreement or stop without real contact, monitoring, bypassed permissions or ignored urgent responsibilities. Only voluntary saving with available session storage retains a 24-hour tab draft, cleared on completion, retake or exit-and-clear. No final-result cache is added. Copying includes only five public guide titles and links, without stages, counts, numbers, item choices or attempt identifiers."
+        }
+      ]
+    }
+  ]
+}

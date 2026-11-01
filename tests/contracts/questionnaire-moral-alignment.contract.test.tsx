@@ -1,3 +1,4 @@
+import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -74,8 +75,8 @@ describe("T009 original two-axis Moral Alignment Test", () => {
       for (const id of actual.alignmentIds) reachable.add(id);
       if ([4, 8].includes(state.order) && [4, 8].includes(state.good)) expect(actual.alignmentIds).toHaveLength(4);
       if (state.order === 4 && state.good === 4) {
-        const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireAlignmentReport quiz={quiz} result={actual} locale="en" />);
-        expect(dom.querySelectorAll("[data-alignment-match]")).toHaveLength(4); expect(dom.querySelectorAll("h4")).toHaveLength(36);
+        const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireAlignmentReport quiz={prepareQuestionnaireResultReadings(quiz)} result={actual} locale="en" />);
+        expect(dom.querySelectorAll("[data-alignment-match]")).toHaveLength(4); expect(dom.querySelectorAll("h4")).toHaveLength(48);
         expect(dom.querySelectorAll("table a")).toHaveLength(9);
         const ids = Array.from(dom.querySelectorAll("[id]"), e => e.id); expect(new Set(ids).size).toBe(ids.length);
       }

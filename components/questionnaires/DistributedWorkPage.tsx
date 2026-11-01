@@ -5,7 +5,8 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire, QuestionnaireProfile } from "@/lib/questionnaires/types";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
+import { prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
 import { QuestionnaireClient } from "./QuestionnaireClient";
 import { DistributedWorkContext } from "./DistributedWorkReport";
 
@@ -34,7 +35,7 @@ export function DistributedWorkPage({ quiz, locale }: { quiz: Questionnaire; loc
     <Library quiz={quiz} locale={locale} />
     {quiz.profiles.map(p => <section key={p.id} id={`distributed-public-${p.directionIds[0]}`} data-distributed-full-guide={p.id} className="my-10 scroll-mt-24 border-t border-slate-200 pt-7">
       <h2 className="mb-5 text-2xl font-semibold">{p.title[locale]}</h2>
-      <QuestionnaireReport profile={p} locale={locale} headingLevel={3} idPrefix={`distributed-public-${p.id}`} />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={prepareResultProfile(quiz.slug, p)} locale={locale} headingLevel={3} idPrefix={`distributed-public-${p.id}`} />
     </section>)}
     <section className="my-10 space-y-5 leading-8" aria-labelledby="distributed-faq"><h2 id="distributed-faq" className="text-2xl font-semibold">{zh ? "常见问题" : "Frequently asked questions"}</h2>{quiz.faq.map((f, i) => <div key={i}><h3 className="font-semibold">{f.question[locale]}</h3><p className="mt-2">{f.answer[locale]}</p></div>)}</section>
     <section className="my-8" aria-labelledby="distributed-references"><h2 id="distributed-references" className="text-xl font-semibold">{zh ? "公开工作实践背景" : "Public work-practice background"}</h2><ul className="mt-4 space-y-3">{quiz.references!.map(r => <li key={r.url}><a className="underline" href={r.url} rel="noopener noreferrer">{r.title[locale]}</a></li>)}</ul><p className="mt-4 leading-7">{zh ? "参考提供背景，不提供本原创题组的题目、计分键、验证或背书。" : "The reference supplies background, not this original inventory’s items, scoring key, validation or endorsement."}</p></section>
@@ -51,7 +52,7 @@ export function DistributedWorkGuidePage({ quiz, profile, locale }: { quiz: Ques
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{profile.title[locale]}</h1>
     <p className="my-5 leading-8">{zh ? "这是所有人都可阅读的完整主题说明，不包含任何人的选择、数量或表现。无需先答题，也没有按次数解锁的等级。" : "This complete theme explanation is available to everyone, without anyone’s choices, counts or performance. No prior answers are needed and no count unlocks a level."}</p>
     <DistributedWorkContext locale={locale} />
-    <div data-distributed-full-guide={profile.id}><QuestionnaireReport profile={profile} locale={locale} headingLevel={2} idPrefix="report" /></div>
+    <div data-distributed-full-guide={profile.id}><QuestionnaireResultReading quizSlug={quiz.slug} profile={prepareResultProfile(quiz.slug, profile)} locale={locale} headingLevel={2} idPrefix="report" /></div>
     <Library quiz={quiz} locale={locale} />
     <Link prefetch={false} className="inline-block min-h-11 py-2 font-semibold underline" href={`${entry}#take-test`}>{zh ? "返回24组原创配对" : "Return to the 24 original pairs"}</Link>
   </Container></main>;

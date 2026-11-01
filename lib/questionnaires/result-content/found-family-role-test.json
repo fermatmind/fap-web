@@ -1,0 +1,170 @@
+{
+  "welcome-keeper": [
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "复盘一个具体选择",
+        "en": "Review one specific choice"
+      },
+      "paragraphs": [
+        {
+          "zh": "复盘只改一条邀请里的默认要求：把“大家会轮流介绍自己”换成“可以先坐着看，想介绍时再说”。分别标出加入方式由谁选，以及你实际愿意说明的那一小段。保留原版、缩短或取消这次假想邀请都可以。比较的是文字提供的选择，不拿出席率、热闹程度或别人的回应判断欢迎是否成功。",
+          "en": "For review, change one assumed requirement in an invented invitation: replace taking turns to introduce yourselves with sitting to watch before choosing whether to speak. Mark who chooses how to join and the part you are willing to explain. Keep, shorten or withdraw the imagined invitation. Compare the choices the wording offers rather than attendance, liveliness or somebody’s response as evidence of successful welcome."
+        }
+      ]
+    },
+    {
+      "id": "access",
+      "title": {
+        "zh": "一起核对这份贡献",
+        "en": "Discuss this contribution together"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这条邀请有没有让人必须先表现自己？怎样保留只坐一会儿的选择？”各提一处修改，再请对方复述看到了哪些参与方式。可只讨论虚构文字、只看或不答，不必邀请真实新人或展示自己的结果次数；不同选择不评价谁更友善。",
+          "en": "Ask: “Does this invitation require someone to perform an introduction, and how could it allow a brief quiet visit?” Suggest one edit each and restate the participation choices. Discuss fictional wording, observe or decline without inviting a real newcomer or comparing counts. Different choices do not rank friendliness."
+        }
+      ]
+    }
+  ],
+  "practical-pal": [
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "复盘一个具体选择",
+        "en": "Review one specific choice"
+      },
+      "paragraphs": [
+        {
+          "zh": "复盘把假想借书交接分成“已经答应”“完成证据”“另议的下一件事”三栏。书与书套按约定交回，可以结束这一件；安排下一次读书会并未随之自动答应。请同伴核对你写的终点是否清楚，而不是核速度或完成质量。没有实际任务就留在纸上，不用为了结果再认领杂事。",
+          "en": "For review, divide an imagined book handover into what was agreed, evidence of completion and a separate possible next task. Returning book and cover as agreed can finish this contribution without accepting the next reading meeting. Ask whether the written endpoint is clear rather than grading speed or workmanship. Keep it on paper without claiming another chore because of a result."
+        }
+      ]
+    },
+    {
+      "id": "access",
+      "title": {
+        "zh": "一起核对这份贡献",
+        "en": "Discuss this contribution together"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“书和书套交还后，哪一件已完成，哪一件仍需要另问愿不愿意？”各用一句话写终点，再核是否不小心承诺了整个借阅安排。可只看或不答，不需工具、真实任务或工作表现；群体后续事务也不由一次结果分配。",
+          "en": "Ask: “Once book and cover are returned, what is finished and what still needs a separate agreement?” Write an endpoint each and check whether it accidentally promises the whole borrowing process. Observe or decline without tools, real tasks or performance evidence. A result assigns no later group duties."
+        }
+      ]
+    }
+  ],
+  "story-keeper": [
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "复盘一个具体选择",
+        "en": "Review one specific choice"
+      },
+      "paragraphs": [
+        {
+          "zh": "复盘用一个虚构的雨天活动，分别写“我记得的片段”“不确定的细节”“只由本人决定是否补充的部分”。让不同记忆并列，不为凑完整故事而替别人补话。若之后有人不愿保留自己的部分，就把是否记录作为另一项选择。比较的是注释有没有说明来源与不确定性，不是记忆力或谁更重视友谊。",
+          "en": "For review, use an invented rainy-day activity and separate the fragment you remember, uncertain details and another person’s optional contribution. Let accounts coexist without supplying someone else’s words to complete a story. Whether to retain another person’s part remains a separate choice. Compare whether the note identifies its perspective and uncertainty, rather than memory ability or devotion to friendship."
+        }
+      ]
+    },
+    {
+      "id": "access",
+      "title": {
+        "zh": "一起核对这份贡献",
+        "en": "Discuss this contribution together"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果两人记得不同片段，怎样在小卡上标清自己的版本，又不给对方补台词？”各写一句虚构注释，允许留白或不记录。分享公开指南即可，不调用真实照片、朋友往事或私人群聊，也不拿故事多少评价关系深浅。",
+          "en": "Ask: “With different recollections, how could a card identify your own version without inventing the other person’s words?” Write a fictional caption each, allowing blank space or no record. Share the public guide without real photographs, friends’ histories or private chats, and without ranking relationships by story count."
+        }
+      ]
+    }
+  ],
+  "spark-starter": [
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "复盘一个具体选择",
+        "en": "Review one specific choice"
+      },
+      "paragraphs": [
+        {
+          "zh": "复盘把纸上的小点子改成两版：同样内容，一版结束后自动开始下一轮，一版到约定时间就结束、是否继续另问。圈出这一处差别，再看自己实际愿意发起哪种范围。若都不想发起，也可停在提议。参与人数和笑声不验证点子好坏，比较不要求真实组织活动。",
+          "en": "For review, make two paper versions of the same idea: one automatically starts another round, while the other ends at the agreed point and asks separately about continuing. Mark this difference and the scope you would want to start. Keep neither if preferred. Participation or laughter does not validate the idea, and the comparison requires no real event."
+        }
+      ]
+    },
+    {
+      "id": "access",
+      "title": {
+        "zh": "一起核对这份贡献",
+        "en": "Discuss this contribution together"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“同一个小玩法，怎样让结束点和下一轮的选择都清楚？”一人提出试用版，另一人只指出加入、退出与结束是否看得见，再交换。可只看或不答，不办活动、不计创意分，也不把不参加解释成不合群。",
+          "en": "Ask: “How can one little activity make its endpoint and a possible next round clear?” One person drafts a trial and the other checks whether joining, declining and ending are visible, then swap. Observe or decline without holding an event or scoring creativity. Nonparticipation establishes no failure to fit in."
+        }
+      ]
+    }
+  ],
+  "listening-companion": [
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "复盘一个具体选择",
+        "en": "Review one specific choice"
+      },
+      "paragraphs": [
+        {
+          "zh": "复盘只用虚构句子“我最喜欢的是最后起名字那一段”，把回应分成重复听到的内容与自己的猜测。可以问“你想多说起名字的哪一点吗”，而不要补成“你一定需要认可”。再让同伴指出哪处仍待确认。比较回应是否留有纠正空间，不要求猜准心理、持续聊天或记录真实谈话。",
+          "en": "For review, use the invented line about enjoying the naming part and separate what it says from your guess. Ask which part of naming the speaker wants to discuss rather than claiming they need approval. Let a partner identify what still needs checking. Compare room for correction without guessing psychology, sustaining a conversation or recording real speech."
+        }
+      ]
+    },
+    {
+      "id": "access",
+      "title": {
+        "zh": "一起核对这份贡献",
+        "en": "Discuss this contribution together"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这句更新明确说了什么？哪一句回应给对方留了纠正的位置？”各写一个只沿原话的小问题，再核是否添了未说出的原因。可换例子、只看或不答，不用真实倾诉或私事，也不把问得多当作理解能力更强。",
+          "en": "Ask: “What does this update explicitly say, and which response leaves room for correction?” Write a small question following the words, then check for an invented cause. Change examples, observe or decline without real disclosures. More questions do not establish greater understanding."
+        }
+      ]
+    }
+  ],
+  "thread-weaver": [
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "复盘一个具体选择",
+        "en": "Review one specific choice"
+      },
+      "paragraphs": [
+        {
+          "zh": "复盘把假想邀请分成“这次是什么”“愿不愿意接收”“我的联络到哪里结束”。删掉默认进群或必须解释不来的句子，再核对方可否选择只收这一次、以后再说或不收。你也可把下一轮留给另一位愿意的人。比较联系选择是否清楚，不看回复率、出席数或谁更在乎谁。",
+          "en": "For review, divide an imagined invitation into what this occasion is, whether receiving it is wanted and where your contact effort ends. Remove automatic group membership or demands to explain absence. Check whether receiving only this invitation, deciding later or declining are possible. Another willing person may handle a later round. Compare clear choices without reply rates, attendance or judgments of affection."
+        }
+      ]
+    },
+    {
+      "id": "access",
+      "title": {
+        "zh": "一起核对这份贡献",
+        "en": "Discuss this contribution together"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这条消息能不能只接受这一次，而不自动答应下一轮联系？”各改一句默认安排，再复述自己愿意承担到哪里。可只写虚构邀请、只看或不答，不发真实消息、不收集联系方式，也不把联系频率当作关系好坏的证据。",
+          "en": "Ask: “Can someone accept this invitation without automatically agreeing to the next contact?” Edit one default each and restate where your own contribution ends. Use fictional invitations, observe or decline without sending messages or collecting contact details. Contact frequency does not establish relationship quality."
+        }
+      ]
+    }
+  ]
+}

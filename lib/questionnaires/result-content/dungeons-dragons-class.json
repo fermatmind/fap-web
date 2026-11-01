@@ -1,0 +1,386 @@
+{
+  "barbarian": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘原初力量画面与其他选择",
+        "en": "Review the primal-power image and other choices"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的虚构障碍，看看吸引自己的是力量画面、直接进入场景，还是一个与平日不同的人物。再留一种非直接手段，供同桌讨论。喜欢这一幕不要求长期都用它；若实际规则或团风不合，可以保留故事兴趣而另选职业。",
+          "en": "After the fictional obstacle above, consider whether the appeal is the power image, entering the scene directly or a character unlike your everyday self. Leave another approach for discussion. Enjoying this scene need not mean using it throughout a campaign; keep the story interest while choosing another class if rules or table style differ."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个不只靠力量的场景问题",
+        "en": "Share a scene question beyond force"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问同桌：“假设角色遇见旧门，直接投入的画面哪里有趣，又想保留哪些交流或探索机会？”只讨论虚构戏份，不要求玩家证明体力、胆量或脾气。",
+          "en": "Ask the table: “At an imaginary old gate, what appeals about direct commitment, and what conversation or exploration would you also want?” Discuss fictional opportunities without tests of strength, courage or temper."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；这段讨论不要求验证谁的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; discussion requires no validation of anyone’s result."
+        }
+      ]
+    }
+  ],
+  "bard": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘表演主题与玩家的参与方式",
+        "en": "Review performance themes and player participation"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的一句故事贡献，区分喜欢的是气氛、魔法主题，还是多种场景都能参与。可以只描述表演，不唱、不演；也可以发现更喜欢另一种支援主题。让同桌知道想要的轮流与安静空间，不把职业结果变成持续娱乐大家的承诺。",
+          "en": "After the story contribution above, distinguish atmosphere, magical theme and participation across scenes. Describe a performance without singing or acting, or choose another support theme. Tell the table about turns and quiet space without making the result a promise to entertain everyone."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可以只用描述的表演问题",
+        "en": "Share a performance question that permits description"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设出发前讲一句虚构故事，你想用自己的声音演出，还是只描述角色做了什么？”两种都可以，不以真实表演或他人喝彩评价适配。",
+          "en": "Ask: “For a fictional departure story, would you perform it or describe what the character does?” Both are available without performance quality or applause deciding fit."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；这段讨论不要求验证谁的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; discussion requires no validation of anyone’s result."
+        }
+      ]
+    }
+  ],
+  "cleric": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘支援主题与自己的角色愿望",
+        "en": "Review support themes and your own character wishes"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的同伴挑战，列出自己愿意贡献的一点，以及还想为角色保留的一项个人目标。资源和实际效果按选定规则确认；同伴提出需要不等于必须答应。喜欢神圣魔法可以与探索、行动或不同剧情兴趣并存，不自动分配现实照顾责任。",
+          "en": "After the party challenge above, name a contribution you would enjoy and a personal character aim to retain. Confirm resources and effects under the chosen rules; a request requires no automatic acceptance. Divine magic can coexist with exploration and other story interests without assigning real care duties."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个双方都有愿望的支援问题",
+        "en": "Share a support question with wishes on both sides"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设角色愿意支援一次虚构挑战，你还希望同伴帮你的角色完成什么？”不把职业名当永远提供帮助的约定，也不评现实信仰或善良。",
+          "en": "Ask: “If your character offered support in a fictional challenge, what would you also want companions to help your character do?” A class name promises no permanent assistance and grades no actual faith or goodness."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；这段讨论不要求验证谁的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; discussion requires no validation of anyone’s result."
+        }
+      ]
+    }
+  ],
+  "druid": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘自然、形态与实际查阅意愿",
+        "en": "Review nature, forms and willingness to consult rules"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的虚构环境，看看兴趣来自景象、变化形态，还是不同路线。再问自己是否想处理该版本实际提供的选项；故事想象与规则管理可以分别喜欢。若只有自然主题吸引，也可比较其他职业，不需要户外经验或模仿动物来证明结果。",
+          "en": "After the fictional environment above, distinguish scenery, changing forms and different routes. Separately ask whether you want the options provided by the chosen rules. Story imagery and rules management can appeal differently. Compare another nature-themed character without outdoor experience or animal imitation proving the result."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个先问规则的形态问题",
+        "en": "Share a form question that checks rules first"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设想在虚构森林用不同形态找路，哪些画面想保留，哪些允许形式需要先问？”只讨论故事，不把幻想当真实自然知识或身体练习。",
+          "en": "Ask: “For finding a route in a fictional forest through another form, which image appeals and which permitted forms need checking?” Keep it fictional without nature-knowledge claims or bodily practice."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；这段讨论不要求验证谁的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; discussion requires no validation of anyone’s result."
+        }
+      ]
+    }
+  ],
+  "fighter": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘明确招式与动作之外的戏份",
+        "en": "Review clear moves and scenes beyond action"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的武技画面与非武力场景，看看喜欢的是训练背景、清楚的动作描述，还是某段人物故事。规则不熟可以提问；不需要选对每一步证明战士适合自己。再确认团里想看的交流和探索机会，不由一个最高计数决定整个角色。",
+          "en": "After the martial image and non-force scene above, consider trained background, clear descriptions and personal story separately. Ask about unfamiliar rules without perfect decisions proving fit. Confirm conversation and exploration opportunities rather than letting one highest count determine the whole character."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个动作之外的角色问题",
+        "en": "Share a character question beyond action"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设角色会一套练熟的招式，在交谈或探索时还想关心什么？”不用玩家示范动作，也不把职业简化成容易、强壮或必须带队。",
+          "en": "Ask: “If a fictional character knew practised moves, what else would interest them in conversation or exploration?” Require no demonstration or assumption of simplicity, strength or leadership."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；这段讨论不要求验证谁的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; discussion requires no validation of anyone’s result."
+        }
+      ]
+    }
+  ],
+  "monk": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘移动画面与规则问题",
+        "en": "Review movement imagery and rules questions"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的纸上场景，分开记下角色想去哪里、玩家需要问什么规则，以及自己是否想处理位置选择。可以喜欢身法画面而不喜欢某种管理方式。故事里的敏捷不要求玩家反应快、安静或练动作；换职业仍可保留喜欢的风格。",
+          "en": "After the paper scene above, separate the character’s destination, rules questions and your interest in position choices. Enjoying movement imagery need not mean liking every management detail. Fictional agility requires neither fast reactions, silence nor practice from the player; retain the style with another class if preferred."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个只在纸上移动的问题",
+        "en": "Share a movement question that stays on paper"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设虚构平台改变位置，你想描写哪条路线，又需同桌确认什么限制？”只谈人物意图，不做现实跳跃、武术或修行。",
+          "en": "Ask: “If fictional platforms changed position, which route would you describe and which limits need checking?” Discuss intention without real jumping, martial or spiritual practice."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；这段讨论不要求验证谁的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; discussion requires no validation of anyone’s result."
+        }
+      ]
+    }
+  ],
+  "paladin": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘誓言故事与同桌选择",
+        "en": "Review the oath story and choices at the table"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的虚构守护与分歧，看看有趣的是承诺本身、解释承诺的变化，还是与同伴商量。把角色分歧与玩家评价分开，具体规则另行确认。故事里的誓言不让自己成为全桌裁判，也不要求真实立誓、道德证明或承担别人的安全。",
+          "en": "After the fictional protection and disagreement above, consider commitment, changing interpretations and discussion separately. Keep character disagreement distinct from judging players, and confirm rules. An oath story appoints no table-wide judge and requires no actual oath, moral proof or responsibility for another person’s safety."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个不强迫同伴的承诺问题",
+        "en": "Share a commitment question that compels no companion"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设角色守护一件虚构事物，怎样表达关心，也让同伴有别的目标？”不比较谁更正义，不要求别人接受你的誓言解释。",
+          "en": "Ask: “If a character protected something fictional, how could they express that concern while companions kept other aims?” Rank no justice and require no acceptance of your oath interpretation."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；这段讨论不要求验证谁的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; discussion requires no validation of anyone’s result."
+        }
+      ]
+    }
+  ],
+  "ranger": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘路线兴趣与团的探索空间",
+        "en": "Review route interests and the campaign’s exploration"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的三个虚构地点，区分地图、环境线索与多手段参与分别哪里吸引。再问实际团有多少此类戏份，以及是否共同作路线选择。一个人不必记住全部资料；也可以用其他职业写旅程故事，不把角色结果变成导航责任。",
+          "en": "After the three fictional places above, distinguish maps, environmental clues and varied contributions. Ask how much the campaign includes these and whether route decisions are shared. No player must retain every detail. Another class can carry a journey story without assigning navigation duties through a result."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个共享路线选择的问题",
+        "en": "Share a route-choice question the group can decide"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设虚构地点有两条路线，各自想知道什么，再怎样一起决定？”不用真实地图、野外知识或独行经历证明适配。",
+          "en": "Ask: “With two routes among fictional places, what would each person want to know before deciding together?” Real maps, survival knowledge and solo travel need not prove fit."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；这段讨论不要求验证谁的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; discussion requires no validation of anyone’s result."
+        }
+      ]
+    }
+  ],
+  "rogue": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘细节兴趣与共享线索",
+        "en": "Review interest in details and sharing clues"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的虚构谜题，看看喜欢的是发现切口、行动时机，还是与大家一起推理。线索可以分享，不要求玩家独自解开所有隐藏点。具体行动由同桌规则确定；若更喜欢故事而非某种机制，也可以另选职业，不以现实秘密或技巧验证结果。",
+          "en": "After the invented puzzle above, distinguish an opening, timing and shared reasoning. Share clues without solving every hidden detail alone. The table’s rules determine actions. Choose another class when the story appeals more than its mechanics; no real secrets or techniques need verify the result."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可共同解的虚构谜题",
+        "en": "Share an invented puzzle that can be solved together"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设完全虚构的图案门出现一个小线索，怎样让其他角色也参与？”不查真实锁具，也不把隐瞒或欺骗玩家当职业要求。",
+          "en": "Ask: “If a wholly fictional patterned door offered a clue, how could other characters participate?” Research no real locks and make no concealment or deception between players a class requirement."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；这段讨论不要求验证谁的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; discussion requires no validation of anyone’s result."
+        }
+      ]
+    }
+  ],
+  "sorcerer": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘魔法画面与可用选项",
+        "en": "Review magical imagery and available options"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的虚构魔法变化，区分喜欢的力量来源、当下选择和仍需核对的规则。想象一个效果不代表该版本允许；可以改描述或换办法。天生魔法属于角色故事，玩家仍能慢慢查阅、准备和提问，不由此评价真实天赋或情绪。",
+          "en": "After the fictional magical variation above, separate the source, choices in the moment and rules to check. Imagining an effect does not make it available; revise the description or method. Innate magic is a story premise, while players can consult, prepare and ask gradually without talent or emotion ratings."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个不测试天赋的塑形问题",
+        "en": "Share a shaping question that tests no talent"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设角色自己的魔法出现一种变化，你想保留什么意象，哪些实际选项先确认？”不要求快速决定、模仿魔法或用出身解释喜好。",
+          "en": "Ask: “If a character’s magic changed, which image would you retain and which options need checking?” Require no fast decision, magical imitation or ancestry-based explanation of preference."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；这段讨论不要求验证谁的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; discussion requires no validation of anyone’s result."
+        }
+      ]
+    }
+  ],
+  "warlock": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘契约主题与不想进入的故事",
+        "en": "Review pact themes and stories you do not want"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的两种故事方向，核对喜欢的悬念、角色仍有的选择，以及不想包含的主题。先与同桌讨论，不把角色契约当玩家已经同意的剧情。可以缩短、修改或不使用这条线；无须真实承诺、仪式或服从来证明喜欢邪术师。",
+          "en": "After the two story directions above, check the mystery, the character’s choices and unwanted themes. Discuss them with the table; a fictional pact is no agreement already made by the player. Shorten, revise or omit the thread without real promises, rituals or obedience proving interest."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可以删掉主题的契约问题",
+        "en": "Share a pact question that allows omitting themes"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设虚构力量来源留下一个问题，你欢迎哪些走向，又有哪些不演？”不按职业比较善恶，也不让结果替玩家同意不舒服的情节。",
+          "en": "Ask: “If a fictional source of power left a question, which directions would you welcome or leave out?” Rank no morality and let no result consent to an uncomfortable scene."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；这段讨论不要求验证谁的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; discussion requires no validation of anyone’s result."
+        }
+      ]
+    }
+  ],
+  "wizard": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘研习主题与实际管理量",
+        "en": "Review study themes and the management involved"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的两个预备魔法思路，区分喜欢知识故事、比较选项，还是事前安排。再确认自己想承担多少实际查阅和记录；喜欢法术笔记的画面不要求背熟所有规则。若临场需要同伴帮助或换办法，也不说明人物或玩家不够聪明。",
+          "en": "After the two prepared magical approaches above, distinguish knowledge stories, comparing options and preparation. Confirm how much actual lookup and recording you want. Enjoying spell-note imagery requires no memorisation of every rule. Help or another approach says nothing about a character’s or player’s intelligence."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个不需背规则的准备问题",
+        "en": "Share a preparation question that needs no memorisation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设虚构谜题有两个预备思路，你想怎样记录，哪些资料希望方便查阅？”不考学历、记忆或谁更会学习，也不要求完成角色卡。",
+          "en": "Ask: “With two prepared ideas for a fictional puzzle, how would you record them and which references would help?” Test no education, memory or learning skill and require no character sheet."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；这段讨论不要求验证谁的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; discussion requires no validation of anyone’s result."
+        }
+      ]
+    }
+  ]
+}

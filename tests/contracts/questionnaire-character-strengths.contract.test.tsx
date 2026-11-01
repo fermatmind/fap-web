@@ -1,3 +1,4 @@
+import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -90,11 +91,11 @@ describe("T029 public-domain IPIP-VIA-R96 reflection", () => {
     const now = 1000000000, draft = (version = quiz.version, savedAt = now) => JSON.stringify({ version, savedAt, answers: all() });
     expect(readQuestionnaireDraft(quiz, draft(), now)).toEqual(all()); expect(readQuestionnaireDraft(quiz, draft("other"), now)).toBeNull(); expect(readQuestionnaireDraft(quiz, draft(quiz.version, now - 86400000), now)).toBeNull();
   });
-  it("uses its own24part report, all216full sections, explicit NA and no social-battery interpretation", () => {
+  it("uses its own24part report, all264full sections, explicit NA and no social-battery interpretation", () => {
     for (const locale of ["en", "zh"] as const) for (const value of ["5", "na"]) {
       const result = scoreQuestionnaire(quiz, all(value)); if (result.status !== "complete" || !("facets" in result)) throw new Error("Rejected input");
-      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireCharacterStrengthsReport quiz={quiz} result={result} locale={locale} />);
-      expect(dom.querySelectorAll("[data-character-facet]")).toHaveLength(24); expect(dom.querySelectorAll("h4")).toHaveLength(216); expect(dom.querySelectorAll("[data-character-profile]")).toHaveLength(24);
+      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireCharacterStrengthsReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale={locale} />);
+      expect(dom.querySelectorAll("[data-character-facet]")).toHaveLength(24); expect(dom.querySelectorAll("h4")).toHaveLength(264); expect(dom.querySelectorAll("[data-character-profile]")).toHaveLength(24);
       expect(dom.querySelectorAll("[data-character-insufficient]")).toHaveLength(value === "na" ? 1 : 0);
       expect(dom.querySelectorAll("[data-character-sum]")).toHaveLength(value === "na" ? 0 : 24);
       expect(dom.querySelector("[data-character-source] a")?.getAttribute("href")).toBe("https://ipip.ori.org/IPIP-VIA-R_Key.html");

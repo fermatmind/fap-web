@@ -1,0 +1,162 @@
+{
+  "pressing-own-plan": [
+    {
+      "id": "example",
+      "title": {
+        "en": "A shared-room decision with a real constraint",
+        "zh": "共同用房安排中的实际限制"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构展板要在下午送印，你提出保留原来的大字号，对方希望放进更多文字。可以说清“远处也要能认出时间地点”这项要求，再核对删字、调整层级等其他办法。继续争取大字号，和证明只有这一版能满足要求，是不同的事；有截止时间也不让自己的审美偏好自动成为唯一标准。例子关注行动与理由，不能从均分证明方案正确或负责人有权压过异议。",
+          "en": "In an additional original scene, an invented display goes to print this afternoon. You press to keep large lettering; someone wants more text. Name the need to identify time and place from a distance, then check alternatives such as fewer words or a different hierarchy. Advocating large lettering differs from proving only this design meets the need. A deadline makes no aesthetic preference the sole standard. The example concerns actions and reasons, without making a mean evidence of a correct design or authority to override objections."
+        }
+      ]
+    },
+    {
+      "id": "action",
+      "title": {
+        "en": "One optional check before pushing a plan",
+        "zh": "推动方案前的一个自选核对"
+      },
+      "paragraphs": [
+        {
+          "zh": "可用虚构提议写一张讨论卡：“我想保留的办法是……；它服务的条件是……；若另一办法也满足条件，我会重新考虑什么？”请别人比较卡片上的理由即可，不需要互报分数或判断谁更强势，也不必真的争论。",
+          "en": "Draft a card for an invented proposal: “The method I want is …; the condition it serves is …; if another method meets it, I would reconsider ….” Someone may compare the reasons without exchanging scores, judging dominance or starting an actual argument."
+        },
+        {
+          "zh": "这些原创讨论素材可以只读或保留私人草稿。二十道原创题按过去四周自己的行动频率作答，五组各四题完整数值回答才给独立均分；NA不补低分，全部五份指南仍可读。公开指南可单独分享，不需要发送答案、均分或真实事件。不同方式可以发生在同一事件的不同阶段，本版不记录先后，也不按最高均分选类型或要求改变分数。",
+          "en": "These original discussion prompts allow reading or a private draft. Twenty original items concern your own actions over four weeks; each of five groups needs four numeric ratings for a separate mean. NA receives no low-score filling and all five guides stay available. Share a public guide without answers, means or real events. Different approaches can occur at different stages of an event; this edition records no sequence, selects no highest-mean type and requires no score change."
+        }
+      ]
+    }
+  ],
+  "joint-problem-solving": [
+    {
+      "id": "example",
+      "title": {
+        "en": "A shift arrangement with more than two possible answers",
+        "zh": "排班分歧不一定只有两个原方案"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读书活动中，一人希望完整讨论一章，另一人只能留二十分钟。共同询问后，可以考虑先讨论两人都读过的一段，剩余部分另作安排；也可能发现双方这次的目的无法兼顾。提出第三个办法只是新选项，尚需确认是否真能回应各自条件、由谁决定和是否愿意参加。均分不能证明已经双赢，也不能把没有参加的人解释为不合作。",
+          "en": "In an additional original scene, one person wants a whole chapter discussed while another has twenty minutes. They might consider a passage both have read and another arrangement for the rest, or find their aims incompatible this time. A third option still needs checking against the stated conditions, decision authority and willingness to attend. The mean certifies no shared win and makes no non-participant uncooperative."
+        }
+      ]
+    },
+    {
+      "id": "action",
+      "title": {
+        "en": "Try one bounded question, if useful",
+        "zh": "适合时先问一个有范围的问题"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以给虚构活动写两项已说出的条件和一个新选项，再各写一条“仍未满足”或“还不知道”。讨论句可以是：“这个选项具体回应了哪一项条件，哪一项仍需确认？”只讨论例子，不要求任何人交出私人理由来证明条件真实。",
+          "en": "List two stated conditions, a new option and what remains unmet or unknown in an invented activity. Ask which condition it addresses and what still needs confirmation. Discuss the example without demanding private reasons as proof that a condition is real."
+        },
+        {
+          "zh": "这些原创讨论素材可以只读或保留私人草稿。二十道原创题按过去四周自己的行动频率作答，五组各四题完整数值回答才给独立均分；NA不补低分，全部五份指南仍可读。公开指南可单独分享，不需要发送答案、均分或真实事件。不同方式可以发生在同一事件的不同阶段，本版不记录先后，也不按最高均分选类型或要求改变分数。",
+          "en": "These original discussion prompts allow reading or a private draft. Twenty original items concern your own actions over four weeks; each of five groups needs four numeric ratings for a separate mean. NA receives no low-score filling and all five guides stay available. Share a public guide without answers, means or real events. Different approaches can occur at different stages of an event; this edition records no sequence, selects no highest-mean type and requires no score change."
+        }
+      ]
+    }
+  ],
+  "trading-concessions": [
+    {
+      "id": "example",
+      "title": {
+        "en": "An agreement on scope and timing",
+        "zh": "围绕范围与时间达成有限约定"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构排练中，一人愿意少排十分钟，换取提前拿到修改稿；另一人愿意提前发稿，换取本次只改两处。这可能形成明确交换，也可能把不同版本的条件误当成同一约定。需要核对“提前”是哪天、“两处”指什么，以及谁还需同意。双方都让了一步，仍不能证明成本相同、无压力或效果公平；频率均分也无法替代这些信息。",
+          "en": "In an additional original scene, someone offers ten fewer rehearsal minutes for an earlier revised script. Another offers earlier delivery if only two changes are made. They might have an explicit exchange or still mean different conditions. Check the day, what counts as two changes and any further approval needed. Concessions on both sides establish neither equal cost, freedom from pressure nor fairness. A frequency mean supplies none of that missing information."
+        }
+      ]
+    },
+    {
+      "id": "action",
+      "title": {
+        "en": "Write the proposed exchange in plain terms",
+        "zh": "把拟议交换写成清楚的话"
+      },
+      "paragraphs": [
+        {
+          "zh": "可写一张虚构交换卡，分列“我调整什么”“请求对方调整什么”“尚未确认什么”。再问：“没有对应回报时，我还会自愿接受同一安排吗？”答案用于区分交换与单方选择，不用把每次帮助换算成债务。分享卡片无需分享真实谈判或个人均分。",
+          "en": "Draft an invented exchange with your adjustment, the requested adjustment and unconfirmed terms. Ask whether you would freely accept it without a matching return. Use that to distinguish an exchange from a one-sided choice, without converting every favour into debt or sharing real negotiations or means."
+        },
+        {
+          "zh": "这些原创讨论素材可以只读或保留私人草稿。二十道原创题按过去四周自己的行动频率作答，五组各四题完整数值回答才给独立均分；NA不补低分，全部五份指南仍可读。公开指南可单独分享，不需要发送答案、均分或真实事件。不同方式可以发生在同一事件的不同阶段，本版不记录先后，也不按最高均分选类型或要求改变分数。",
+          "en": "These original discussion prompts allow reading or a private draft. Twenty original items concern your own actions over four weeks; each of five groups needs four numeric ratings for a separate mean. NA receives no low-score filling and all five guides stay available. Share a public guide without answers, means or real events. Different approaches can occur at different stages of an event; this edition records no sequence, selects no highest-mean type and requires no score change."
+        }
+      ]
+    }
+  ],
+  "stepping-back": [
+    {
+      "id": "example",
+      "title": {
+        "en": "Pausing a discussion and losing the issue are different",
+        "zh": "谈话暂停后，事项仍然需要被看见"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构项目对两张表的数字有分歧，但原始记录暂时找不到。此时停止争论，可以同时记下需核对哪一列、信息由谁提供、是否有实际截止时间；若无法承诺回谈时间，就先明确未知。谈话停止不等于已经解决，也不证明任何人冷漠。补齐资料后是否还有必要讨论，仍需另看；均分没有记录这一事件的后续过程。",
+          "en": "In an additional original scene, two project tables disagree and the original record is unavailable. A pause can name the column to check, who can supply information and any actual deadline. Leave the return time unknown if it cannot be promised. Stopping proves neither resolution nor indifference. Whether further discussion is needed after the record appears remains a separate question; the mean records no event history."
+        }
+      ]
+    },
+    {
+      "id": "action",
+      "title": {
+        "en": "One optional note about what remains pending",
+        "zh": "针对待办问题写一份自选小记录"
+      },
+      "paragraphs": [
+        {
+          "zh": "可用虚构待办写“暂停了哪项讨论”“仍需哪项信息”“现有可行途径”。一句讨论稿是：“现在还不能判断的是……，有资料后再确认是否需要决定。”不需要为了完成练习重启真实分歧，也不把拒绝危险互动改成待改善的沟通缺点。",
+          "en": "For an invented pending issue, list the paused discussion, missing information and an available route. Draft: “What remains unknown is …; once the record is available we can check whether a decision is still needed.” Reopen no real dispute for the exercise and recast no refusal of danger as a communication defect."
+        },
+        {
+          "zh": "这些原创讨论素材可以只读或保留私人草稿。二十道原创题按过去四周自己的行动频率作答，五组各四题完整数值回答才给独立均分；NA不补低分，全部五份指南仍可读。公开指南可单独分享，不需要发送答案、均分或真实事件。不同方式可以发生在同一事件的不同阶段，本版不记录先后，也不按最高均分选类型或要求改变分数。",
+          "en": "These original discussion prompts allow reading or a private draft. Twenty original items concern your own actions over four weeks; each of five groups needs four numeric ratings for a separate mean. NA receives no low-score filling and all five guides stay available. Share a public guide without answers, means or real events. Different approaches can occur at different stages of an event; this edition records no sequence, selects no highest-mean type and requires no score change."
+        }
+      ]
+    }
+  ],
+  "yielding-choice": [
+    {
+      "id": "example",
+      "title": {
+        "en": "A different order for a shared task",
+        "zh": "共同任务中采用另一种顺序"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的共同整理中，你偏好按日期排列卡片，对方想按主题。你愿意这次采用主题顺序，不要求下次必须听你的。仍可说明哪些卡片不能漏掉，或指出决定只适用于这次整理。让出一种方法不等于放弃共同目标，更不等于同意一切后续要求；均分也无法推断你是出于礼让、信息更新还是压力才这样做。",
+          "en": "In an additional original scene, you prefer cards arranged by date while someone prefers topics. You freely use topics this time without requiring your choice next time. You can still name cards that must remain and limit the choice to this task. Yielding a method abandons no shared aim and accepts no future request automatically. The mean cannot infer courtesy, new information or pressure as the reason."
+        }
+      ]
+    },
+    {
+      "id": "action",
+      "title": {
+        "en": "Check the scope of one voluntary yes",
+        "zh": "核对一次自愿答应的实际范围"
+      },
+      "paragraphs": [
+        {
+          "zh": "可为虚构选择写一句有限的同意：“这次我愿意按……，仍需保留……；其他事项还没决定。”再区分“我自愿不要求回报”和“我没有说出的交换期待”。可以只留草稿，不需要真的答应一个请求或用拒绝证明自己有边界。",
+          "en": "Draft a limited yes to an invented choice: “For this task I agree to …, while keeping …; other matters remain undecided.” Separate freely expecting no return from an unstated exchange expectation. Keep it private without accepting a real request or refusing one to prove boundaries."
+        },
+        {
+          "zh": "这些原创讨论素材可以只读或保留私人草稿。二十道原创题按过去四周自己的行动频率作答，五组各四题完整数值回答才给独立均分；NA不补低分，全部五份指南仍可读。公开指南可单独分享，不需要发送答案、均分或真实事件。不同方式可以发生在同一事件的不同阶段，本版不记录先后，也不按最高均分选类型或要求改变分数。",
+          "en": "These original discussion prompts allow reading or a private draft. Twenty original items concern your own actions over four weeks; each of five groups needs four numeric ratings for a separate mean. NA receives no low-score filling and all five guides stay available. Share a public guide without answers, means or real events. Different approaches can occur at different stages of an event; this edition records no sequence, selects no highest-mean type and requires no score change."
+        }
+      ]
+    }
+  ]
+}

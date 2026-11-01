@@ -1,3 +1,4 @@
+import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -104,11 +105,11 @@ describe("T052 public-domain IPIP single-construct Optimism reflection", () => {
   it("renders both complete boundary reports without duplicate IDs and renders no score or classification for missing data", () => {
     for (const locale of ["en", "zh"] as const) {
       const result = scoreOptimismQuestionnaire(quiz, all("1")); if (result.status !== "complete") throw new Error("Invalid witness");
-      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireOptimismReport quiz={quiz} result={result} locale={locale} />);
-      expect(dom.querySelectorAll("[data-optimism-match]")).toHaveLength(2); expect(dom.querySelectorAll("h4")).toHaveLength(18);
+      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireOptimismReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale={locale} />);
+      expect(dom.querySelectorAll("[data-optimism-match]")).toHaveLength(2); expect(dom.querySelectorAll("h4")).toHaveLength(22);
       const htmlIds = Array.from(dom.querySelectorAll("[id]"), e => e.id); expect(new Set(htmlIds).size).toBe(htmlIds.length);
       const missing = scoreOptimismQuestionnaire(quiz, all("na")); if (missing.status !== "complete") throw new Error("Invalid missing witness");
-      dom.innerHTML = renderToStaticMarkup(<QuestionnaireOptimismReport quiz={quiz} result={missing} locale={locale} />);
+      dom.innerHTML = renderToStaticMarkup(<QuestionnaireOptimismReport quiz={prepareQuestionnaireResultReadings(quiz)} result={missing} locale={locale} />);
       expect(dom.querySelectorAll("[data-optimism-score], [data-optimism-match]")).toHaveLength(0);
       expect(dom.querySelectorAll("a")).toHaveLength(5); expect(dom.querySelector("[data-optimism-insufficient]")).toBeTruthy();
     }

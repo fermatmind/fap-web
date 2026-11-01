@@ -1,0 +1,248 @@
+{
+  "dragon": [
+    {
+      "id": "editorial-creative-invitation",
+      "title": {
+        "zh": "一起创作时，可以这样开口",
+        "en": "An invitation to create something together"
+      },
+      "paragraphs": [
+        {
+          "zh": "如果愿意一起做一张“想象岛屿”小卡，可以从一个具体起点开始：“我先画一个登岛的入口，再留一半让你补。这个起点可以改，你想从哪里开始？”这是一段原创创作邀请，不要求作品完整，也不让先动笔的人自动拥有最后决定权。",
+          "en": "For an optional imaginary-island card, begin with one concrete proposal: “I will sketch a landing point and leave half for you. We can change this start; where would you begin?” This original creative invitation requires no complete work and gives the first person drawing no automatic final authority."
+        }
+      ]
+    },
+    {
+      "id": "editorial-tied-readings",
+      "title": {
+        "zh": "多个匹配时，把角度分别使用",
+        "en": "Using the angles separately when several match"
+      },
+      "paragraphs": [
+        {
+          "zh": "若龙与独角兽同时最高，可以分别讨论先开始哪一小步、还想保留什么设想；若也想先私下整理，就说明希望何时再看草稿。一个开头可以带着未知，别人提出新点子也不一定是在阻止开始。并列只保留多个读法，不证明你已兼具几种能力。",
+          "en": "If Dragon and Unicorn share the highest count, discuss a first step separately from possibilities to keep open. If you also want private thinking time, agree when to revisit the draft. A start can retain uncertainty, and new ideas need not obstruct it. A tie preserves readings without establishing combined abilities."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "把结果变成一个有趣的话题",
+        "en": "Turn the result into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "“这次我的最高幻想生物里有龙：先给想法一个小起点。假如一起画一座岛，我会先试一个入口；你想先画什么？”可以把句子改成自己的小点子。这里的龙是本版创作角度，不是强弱、权力或领导身份。",
+          "en": "“Dragon was among my highest fantasy matches: give an idea a small start. If we drew an island together, I would try a landing point first; what would you draw?” Replace the idea with your own. Dragon here is a creative angle, without ranking strength, power or leadership."
+        }
+      ]
+    }
+  ],
+  "phoenix": [
+    {
+      "id": "editorial-creative-invitation",
+      "title": {
+        "zh": "一起创作时，可以这样开口",
+        "en": "An invitation to create something together"
+      },
+      "paragraphs": [
+        {
+          "zh": "同一张“想象岛屿”小卡若画到一半不想继续，可以问：“旧版还有一个我喜欢的细节，愿意只留下它换一张试试吗？也可以先收起来。”改版的邀请先确认现在还想不想做，不要求把不满意变成励志故事。",
+          "en": "If an imaginary-island card loses appeal halfway, ask: “There is one detail I still like. Would you keep just that and try another card, or put it away for now?” An invitation to revise begins with whether you still want to create, without turning disappointment into an uplifting story."
+        }
+      ]
+    },
+    {
+      "id": "editorial-tied-readings",
+      "title": {
+        "zh": "多个匹配时，把角度分别使用",
+        "en": "Using the angles separately when several match"
+      },
+      "paragraphs": [
+        {
+          "zh": "若凤凰与龙同时最高，可以先分开“旧版哪里不适合”与“下一版先做什么”；若与美人鱼同时最高，也可以先承认不舍或失落再决定是否重来。顺序由当时意愿与条件决定，不由名称判断谁恢复得更快。",
+          "en": "If Phoenix and Dragon share the highest count, separate what did not fit in the old version from a first step for another. With Mermaid, you might acknowledge reluctance or disappointment before deciding whether to restart. Current wishes and conditions determine the order, rather than a label for faster recovery."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "把结果变成一个有趣的话题",
+        "en": "Turn the result into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "“这次我的最高幻想生物里有凤凰：看看旧尝试里想留什么、想改什么。要不要各说一个想保留的细节？不想重来也可以。”分享的是改版的观察角度，不是在公开经历、评定韧性或要求彼此一直重新开始。",
+          "en": "“Phoenix was among my highest fantasy matches: consider what to keep or change from an old attempt. Shall we each name one detail to retain? Not restarting is fine too.” This shares an angle on revision, rather than disclosing experiences, assessing resilience or requiring repeated restarts."
+        }
+      ]
+    }
+  ],
+  "unicorn": [
+    {
+      "id": "editorial-creative-invitation",
+      "title": {
+        "zh": "一起创作时，可以这样开口",
+        "en": "An invitation to create something together"
+      },
+      "paragraphs": [
+        {
+          "zh": "给“想象岛屿”增加一条暂定规则，例如“这里的影子会代人收信”。可以问：“如果只改这一条，故事第一句话会怎样？你也可以提出完全不同的设定。”把它当作短暂游戏，先允许可能存在，不急着为设定证明实用性或独一无二。",
+          "en": "Give an imaginary island a provisional rule, such as shadows collecting letters for people. Ask: “If this alone changed, what could the first sentence be? You can suggest a different rule too.” Treat it as brief play, allowing a possibility before demanding usefulness or uniqueness."
+        }
+      ]
+    },
+    {
+      "id": "editorial-tied-readings",
+      "title": {
+        "zh": "多个匹配时，把角度分别使用",
+        "en": "Using the angles separately when several match"
+      },
+      "paragraphs": [
+        {
+          "zh": "若独角兽与凤凰同时最高，可以区分从未试过的设定与旧版本的一项改动；若与龙同时最高，可以给发散留一点空间，再自愿选一个小开头。没有被选的点子不必马上完成，也不因为暂时不采用就失去价值。",
+          "en": "If Unicorn and Phoenix share the highest count, distinguish an untried premise from a change to an old version. With Dragon, leave room for possibilities before voluntarily choosing a small start. Unselected ideas need not become tasks or lose their value because they are not used now."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "把结果变成一个有趣的话题",
+        "en": "Turn the result into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "“这次我的最高幻想生物里有独角兽：先留一个‘如果’。如果一座岛只有一条奇怪规则，你想改哪条？”对方不想创作时，也可以只聊喜欢的设定。这不说明稀有、天才或任何特别身份，也不需要比谁的想法更怪。",
+          "en": "“Unicorn was among my highest fantasy matches: leave room for a ‘what if’. If an island had one unusual rule, what would you change?” Someone may prefer discussing a premise to creating one. This establishes neither rarity nor genius or a special identity, and needs no contest for the strangest idea."
+        }
+      ]
+    }
+  ],
+  "griffin": [
+    {
+      "id": "editorial-creative-invitation",
+      "title": {
+        "zh": "一起创作时，可以这样开口",
+        "en": "An invitation to create something together"
+      },
+      "paragraphs": [
+        {
+          "zh": "一起做“想象岛屿”小卡前，可以先问：“你想写一句、画一角，还是只看看？只有你明确愿意的部分才算约定，之后也能调整。”让每个人自己确认范围，而不是因为有人说了“听起来不错”，就默认对方负责完成作品。",
+          "en": "Before making an imaginary-island card, ask: “Would you like to write a sentence, draw a corner or just look? Only what you explicitly choose is agreed, and we can adjust it.” Let each person confirm their scope rather than treating interest in an idea as responsibility for completing it."
+        }
+      ]
+    },
+    {
+      "id": "editorial-tied-readings",
+      "title": {
+        "zh": "多个匹配时，把角度分别使用",
+        "en": "Using the angles separately when several match"
+      },
+      "paragraphs": [
+        {
+          "zh": "若狮鹫与龙同时最高，可以先区分个人可直接开始的部分与需要共同同意的部分；若与克拉肯同时最高，可以约定只交流愿意公开的一小段。确认同意不要求签下永久承诺，私下保留也不必被当作不愿合作。",
+          "en": "If Griffin and Dragon share the highest count, distinguish what you can begin alone from what needs agreement. With Kraken, agree to discuss only a small part each person wants to share. Consent is not a permanent promise, and keeping something private need not mean rejecting cooperation."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "把结果变成一个有趣的话题",
+        "en": "Turn the result into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "“这次我的最高幻想生物里有狮鹫：先问愿意什么，再说清各自承担多少。我们一起做点小事时，你想参与哪一部分？”这不是忠诚或善良证明；也欢迎对方说暂时不参与，不拿结果要求别人承担同样多。",
+          "en": "“Griffin was among my highest fantasy matches: ask what people want and clarify what each will take on. Which part would you like in a small shared activity?” This proves neither loyalty nor goodness. Declining is welcome, without using a result to require equal contributions."
+        }
+      ]
+    }
+  ],
+  "mermaid": [
+    {
+      "id": "editorial-creative-invitation",
+      "title": {
+        "zh": "一起创作时，可以这样开口",
+        "en": "An invitation to create something together"
+      },
+      "paragraphs": [
+        {
+          "zh": "给“想象岛屿”写一句抵达时的心情，可以同时保留两种感受：“看见远处的灯，我有点期待，也有点舍不得离开原来的地方。”接着问伙伴是否愿意写自己的版本，不猜这是否影射真实经历，也不要求解释私人情绪。",
+          "en": "Write one arrival feeling for an imaginary island, allowing two feelings together: “The distant lights make me curious, and I also miss the place I left.” Invite a companion’s version without guessing whether it reflects real experience or requiring private emotions to be explained."
+        }
+      ]
+    },
+    {
+      "id": "editorial-tied-readings",
+      "title": {
+        "zh": "多个匹配时，把角度分别使用",
+        "en": "Using the angles separately when several match"
+      },
+      "paragraphs": [
+        {
+          "zh": "若美人鱼与克拉肯同时最高，可以先自己写再选一小段交流；若与狮鹫同时最高，可以分开“我感受到什么”与“我们愿意怎样继续”。别人可能对同一段故事有不同感受，理解差异不要求找出谁才读得正确。",
+          "en": "If Mermaid and Kraken share the highest count, write privately before choosing a small part to discuss. With Griffin, separate feelings from what you agree to do next. People may feel differently about a story; understanding the difference does not require deciding who read it correctly."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "把结果变成一个有趣的话题",
+        "en": "Turn the result into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "“这次我的最高幻想生物里有美人鱼：给没说清的心情一点具体样子。一个故事开头，你更先留意情节，还是人物的两种矛盾感受？”可以只谈虚构人物，不讲个人经历；这个角度不认证情商、读心或共情准确率。",
+          "en": "“Mermaid was among my highest fantasy matches: make an unclear feeling a little more specific. In a story opening, do you first notice events or a character’s mixed feelings?” You can stay with fictional characters rather than personal experience. This certifies neither EQ, mind-reading nor empathic accuracy."
+        }
+      ]
+    }
+  ],
+  "kraken": [
+    {
+      "id": "editorial-creative-invitation",
+      "title": {
+        "zh": "一起创作时，可以这样开口",
+        "en": "An invitation to create something together"
+      },
+      "paragraphs": [
+        {
+          "zh": "给“想象岛屿”留一页自己的草稿，只挑一个现在愿意给伙伴看的问题：“这一角还想自己整理，今天只聊入口这句，可以吗？”保留的部分不必真的含有秘密，也不因为不展示就比公开的内容更深刻。分享范围由你这次的意愿决定。",
+          "en": "Keep a private draft for an imaginary island and choose one question to discuss: “I want to keep this corner to myself for now. Could we discuss only this opening sentence today?” A private part need contain no secret or be deeper than shared work. Your current preference determines the scope."
+        }
+      ]
+    },
+    {
+      "id": "editorial-tied-readings",
+      "title": {
+        "zh": "多个匹配时，把角度分别使用",
+        "en": "Using the angles separately when several match"
+      },
+      "paragraphs": [
+        {
+          "zh": "若克拉肯与美人鱼同时最高，可以保留个人文字，只说愿意谈的感受或只谈虚构角色；若与龙同时最高，可以先写一版，再约时间交流一个具体起点。私下整理与主动开始可以共存，不需要选谁是“真正的自己”。",
+          "en": "If Kraken and Mermaid share the highest count, keep personal writing private and discuss only chosen feelings or fictional characters. With Dragon, draft first and agree a time to discuss a concrete start. Private thinking and initiating can coexist, without choosing which is the real you."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "把结果变成一个有趣的话题",
+        "en": "Turn the result into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "“这次我的最高幻想生物里有克拉肯：先整理，再选择分享多少。我愿意先聊一个已经想清的小点，你想现在回应还是也留点时间？”不分享某一页不等于不信任对方，分享这份公开读法也不会把私下草稿或个人答案发出去。",
+          "en": "“Kraken was among my highest fantasy matches: think first, then choose what to share. I would like to discuss one point I have clarified. Would you respond now or take time too?” Keeping a page private does not establish mistrust, and the public reading does not send private drafts or personal answers."
+        }
+      ]
+    }
+  ]
+}

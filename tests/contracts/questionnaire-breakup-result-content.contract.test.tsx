@@ -1,0 +1,26 @@
+import { describe, expect, it, vi } from 'vitest';
+import { renderToStaticMarkup } from 'react-dom/server';
+import source from '@/lib/questionnaires/data/breakup-reflection-test.json';
+import { breakupReflectionResultProfile } from '@/lib/questionnaires/result-content/breakup-reflection-test';
+import { prepareResultProfile } from '@/lib/questionnaires/result-content/readings';
+import { isMiniBreakupConfigurationValid, scoreMiniBreakupQuestionnaire } from '@/lib/questionnaires/miniBreakup';
+import { QuestionnaireBreakupReviewReport } from '@/components/questionnaires/QuestionnaireBreakupReviewReport';
+import type { Questionnaire } from '@/lib/questionnaires/types';
+vi.mock('next/headers',()=>({headers:async()=>new Headers()}));
+const quiz=source as Questionnaire,readings=quiz.profiles.map(p=>prepareResultProfile(quiz.slug,p));
+const answers=(v:string)=>Object.fromEntries(quiz.questions.map(q=>[q.id,v]));
+describe('Four separate breakup readings with protected original arithmetic',()=>{
+ it('keeps strict source and every original paragraph while preparing immutable readings',()=>{
+  const before=JSON.stringify(quiz);expect(isMiniBreakupConfigurationValid(quiz)).toBe(true);expect(isMiniBreakupConfigurationValid({...quiz,profiles:readings})).toBe(false);
+  for(const p of quiz.profiles){const r=breakupReflectionResultProfile(p);expect({...r,sections:p.sections}).toEqual(p);expect(r.sections.map(s=>s.id)).toEqual(p.sections.map(s=>s.id));expect(r.sections.flatMap(s=>s.paragraphs)).toHaveLength(19);for(const s of p.sections)expect(r.sections.find(t=>t.id===s.id)!.paragraphs.slice(0,s.paragraphs.length)).toEqual(s.paragraphs);const prepared=prepareResultProfile(quiz.slug,p);expect(prepareResultProfile(quiz.slug,prepared)).toBe(prepared);}
+  expect(JSON.stringify(quiz)).toBe(before);const unknown={...quiz.profiles[0],id:'__proto__'};expect(breakupReflectionResultProfile(unknown)).toBe(unknown);
+ });
+ it.each(['zh','en']as const)('opens four complete public %s guides without personal values',async locale=>{
+  const route=await import('@/components/questionnaires/QuestionnaireGuide');for(const p of quiz.profiles){const dom=document.createElement('div');dom.innerHTML=renderToStaticMarkup(await route.default({params:Promise.resolve({locale,slug:quiz.slug,profile:p.id})}));expect(dom.querySelectorAll('[data-breakup-reflection-result-reading] h2')).toHaveLength(8);expect(dom.querySelector('[data-breakup-review-sum],[data-breakup-review-mean]')).toBeNull();for(const s of breakupReflectionResultProfile(p).sections)for(const t of s.paragraphs)expect(dom.querySelector(`#report-${s.id}`)?.textContent).toContain(t[locale]);if(locale==='en')expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);}
+ });
+ it.each(['zh','en']as const)('preserves all %s sums, skips and editorial identity guards',locale=>{
+  for(let sum=6;sum<=30;sum++){const vals=Array.from({length:6},(_,i)=>String(1+Math.min(4,Math.max(0,sum-6-i*4)))),a=Object.fromEntries(quiz.questions.map((q,i)=>[q.id,vals[i%6]])),r=scoreMiniBreakupQuestionnaire(quiz,a);if(r.status!=='complete')throw Error('Complete record required');const dom=document.createElement('div');dom.innerHTML=renderToStaticMarkup(<QuestionnaireBreakupReviewReport quiz={quiz} result={r} locale={locale} readingProfiles={readings}/>);expect(dom.querySelectorAll('[data-breakup-reflection-result-reading] h4')).toHaveLength(32);for(const d of quiz.directions){const mean=(Math.round((sum/6+Number.EPSILON)*10000)/10000).toFixed(4);expect(r.facets[d.id]).toMatchObject({sum,rated:6,total:6});expect(dom.querySelector(`[data-breakup-review-part="${d.id}"] [data-breakup-review-mean]`)?.textContent).toContain(mean);}for(const p of quiz.profiles)for(const s of breakupReflectionResultProfile(p).sections)for(const t of s.paragraphs)expect(dom.querySelector(`[data-breakup-reflection-result-reading="${p.id}"]`)?.textContent).toContain(t[locale]);const ids=[...dom.querySelectorAll('[id]')].map(n=>n.id);expect(new Set(ids).size).toBe(ids.length);}
+  for(const a of [{...answers('3'),[quiz.questions[0].id]:'na'},answers('na')]){const r=scoreMiniBreakupQuestionnaire(quiz,a);if(r.status!=='complete')throw Error('Explicit skips must finish');const dom=document.createElement('div');dom.innerHTML=renderToStaticMarkup(<QuestionnaireBreakupReviewReport quiz={quiz} result={r} locale={locale} readingProfiles={readings}/>);expect(dom.querySelectorAll('[data-breakup-reflection-result-reading] h4')).toHaveLength(32);expect(dom.querySelectorAll('[data-breakup-review-sum]')).toHaveLength(Object.values(r.facets).filter(f=>f.rated===6).length);}
+  const r=scoreMiniBreakupQuestionnaire(quiz,answers('3'));if(r.status!=='complete')throw Error('Complete record required');for(const field of ['slug','profile']as const){const wrong=readings.map(p=>({...p,resultReading:{...p.resultReading!,...(field==='slug'?{quizSlug:'other'}:{profileId:'other'})}}));const dom=document.createElement('div');dom.innerHTML=renderToStaticMarkup(<QuestionnaireBreakupReviewReport quiz={quiz} result={r} locale={locale} readingProfiles={wrong}/>);expect(dom.querySelector('[data-breakup-reflection-result-reading]')).toBeNull();expect(dom.querySelectorAll('h4')).toHaveLength(32);}
+ });
+});

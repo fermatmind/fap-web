@@ -3,7 +3,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 export function RelationshipHabitsReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh";
@@ -23,7 +23,7 @@ export function RelationshipHabitsReport({ quiz, result, locale }: { quiz: Quest
         <p className="mb-4 leading-7">{part.mean === null
           ? (zh ? "以下完整正文是通用读法，不是本次个人习惯的结论。" : "The complete text below is a general guide, not a conclusion about your habits in this attempt.")
           : (zh ? "较高只表示本组时刻更常被你报告，不确定动机、客观公平、后果或别人的感受。请结合实际题目和场合阅读。" : "A higher mean records more frequent endorsement of these moments. It does not establish motives, objective fairness, outcomes or another person’s feelings. Read the actual prompts in context.")}</p>
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`relationship-habits-reading-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`relationship-habits-reading-${profile.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一习惯的完整公开指南" : "Read this habit’s full public guide"}</Link>
       </section>;
     })}

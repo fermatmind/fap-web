@@ -1,0 +1,166 @@
+{
+  "sparkling-wine": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者为想象中的换书活动设计一个有趣开头，但把参与自愿、时间和地点直接写清。意外感与清楚说明可以并存，惊喜不要求收件人回应、参加或公开表现兴奋；选择这种开头也不证明自己外向。",
+          "en": "In an additional original scene: A fictional reader designs a playful opening for an imagined book swap while plainly stating that participation is optional, with time and place. Surprise and clear information can coexist. Nobody owes a reply, attendance or performed excitement; choosing this opening establishes no extraversion."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“哪些信息必须直接可见，哪一小处可以保留有趣的揭晓？”可以只读或讨论虚构材料，不需自己的饮品标签、私人经历或真实参加者。不同意见可以保留，不以改变类型或赢得认可结束讨论。",
+          "en": "An optional discussion card asks: “Which information must be plainly visible, and which small detail could keep a playful reveal?” Read alone or discuss fictional material without personal drink labels, private experiences or actual participants. Different views may remain; changing type or winning approval is never required."
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原练习可跳过。四个饮品名称仅为本原创游戏的意象，不代表传统分类、真实口味或应饮用的东西。按此刻愿意探索的想象场面选择，不增加回顾期限。十六题各四选一，每题四意象各出现一次，位置轮换，每意象各四次出现在每个位置；选项字母不固定代表同一意象。每题只给所选意象记一次，无权重或反向，完成后四项合十六，每项分母十六表示可选机会，不是人格占比或相似度。十六项全部有效才生成结果，无不适用评分，缺答不补零、假定偏好或提前派型；都不合适可停止直接读四份全文。保留全部最高值，例如6、6、3、1保留两份，5、5、5、1保留三份，4、4、4、4保留四份；固定显示顺序不打破并列，也不派主副型。相差一次不是已验证显著差异，同数不证明同等心理特征，零次不表示能力或品质缺失。框架无已建立信效度、常模、预测或中英等值，不评社交价值、智力、修养、适配或文化人格。虚构讨论无需饮酒、购买、了解饮品、提供身体信息、办活动或取得他人认可；任何邀请均可拒绝。页面内存、自选24小时标签页草稿及完成、退出、重测清除保持不变；复制可包含匹配名称和公开指南或入口，不含答案或次数，公开指南也不恢复私人结果。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices; existing exercises are optional. Four drink names are images in this original game, not a traditional taxonomy, actual taste or something to consume. Choose imagined scenes you would enjoy exploring now without adding a recall window. Sixteen four-choice questions each offer every image once. Positions rotate, giving each image four appearances in every position; an option letter does not identify a fixed image. Each choice adds one without weights or reversals. Complete counts sum to sixteen; each denominator of sixteen describes opportunities, not personality shares or similarity. All sixteen answers must be valid for a result. There is no not-applicable score and missingness supplies no zero, assumed preference or early type. If none fits, stop and read all four complete guides. Keep every highest count: 6, 6, 3, 1 retains two, 5, 5, 5, 1 retains three, and 4, 4, 4, 4 retains four. Fixed display order breaks no tie and assigns no primary or secondary type. One extra choice establishes no significant difference; equal counts prove no equal psychological qualities, and zero indicates no missing ability or virtue. The framework has no established reliability, validity, norms, prediction or English–Chinese equivalence and assesses no social worth, intelligence, refinement, compatibility or cultural personality. Fictional discussion needs no drinking, purchase, beverage knowledge, bodily information, event or approval. Any invitation may be declined. Page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying may include matched titles and a public guide or entry link without answers or counts; a public guide restores no private result."
+        }
+      ]
+    }
+  ],
+  "beer": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者为想象中的拼图交换写“可以只看看、不必带物品”，仍保留别人觉得不合适而不参加的空间。容易加入不等于所有人都舒服，熟悉气氛也不代替核对可达性或参与条件；未到场不证明谁不友好。",
+          "en": "In an additional original scene: A fictional reader writes that an imagined puzzle swap welcomes browsing without bringing anything, while leaving others free not to attend. Easy entry does not mean everyone is comfortable, and familiarity replaces no check of access or participation conditions. Absence proves no lack of friendliness."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构新来者需要知道什么，哪些参与和贡献仍可以不做？”可以只读或讨论虚构材料，不需自己的饮品标签、私人经历或真实参加者。不同意见可以保留，不以改变类型或赢得认可结束讨论。",
+          "en": "An optional discussion card asks: “What does the fictional newcomer need to know, and which participation or contribution remains optional?” Read alone or discuss fictional material without personal drink labels, private experiences or actual participants. Different views may remain; changing type or winning approval is never required."
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原练习可跳过。四个饮品名称仅为本原创游戏的意象，不代表传统分类、真实口味或应饮用的东西。按此刻愿意探索的想象场面选择，不增加回顾期限。十六题各四选一，每题四意象各出现一次，位置轮换，每意象各四次出现在每个位置；选项字母不固定代表同一意象。每题只给所选意象记一次，无权重或反向，完成后四项合十六，每项分母十六表示可选机会，不是人格占比或相似度。十六项全部有效才生成结果，无不适用评分，缺答不补零、假定偏好或提前派型；都不合适可停止直接读四份全文。保留全部最高值，例如6、6、3、1保留两份，5、5、5、1保留三份，4、4、4、4保留四份；固定显示顺序不打破并列，也不派主副型。相差一次不是已验证显著差异，同数不证明同等心理特征，零次不表示能力或品质缺失。框架无已建立信效度、常模、预测或中英等值，不评社交价值、智力、修养、适配或文化人格。虚构讨论无需饮酒、购买、了解饮品、提供身体信息、办活动或取得他人认可；任何邀请均可拒绝。页面内存、自选24小时标签页草稿及完成、退出、重测清除保持不变；复制可包含匹配名称和公开指南或入口，不含答案或次数，公开指南也不恢复私人结果。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices; existing exercises are optional. Four drink names are images in this original game, not a traditional taxonomy, actual taste or something to consume. Choose imagined scenes you would enjoy exploring now without adding a recall window. Sixteen four-choice questions each offer every image once. Positions rotate, giving each image four appearances in every position; an option letter does not identify a fixed image. Each choice adds one without weights or reversals. Complete counts sum to sixteen; each denominator of sixteen describes opportunities, not personality shares or similarity. All sixteen answers must be valid for a result. There is no not-applicable score and missingness supplies no zero, assumed preference or early type. If none fits, stop and read all four complete guides. Keep every highest count: 6, 6, 3, 1 retains two, 5, 5, 5, 1 retains three, and 4, 4, 4, 4 retains four. Fixed display order breaks no tie and assigns no primary or secondary type. One extra choice establishes no significant difference; equal counts prove no equal psychological qualities, and zero indicates no missing ability or virtue. The framework has no established reliability, validity, norms, prediction or English–Chinese equivalence and assesses no social worth, intelligence, refinement, compatibility or cultural personality. Fictional discussion needs no drinking, purchase, beverage knowledge, bodily information, event or approval. Any invitation may be declined. Page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying may include matched titles and a public guide or entry link without answers or counts; a public guide restores no private result."
+        }
+      ]
+    }
+  ],
+  "whisky": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者在想象的社区展览小册子里，让旧门牌插图与街区变化的故事呼应，同时保留直接可见的参观路线。层次不应遮住实际信息，也不证明创作者更深刻；删掉一个关联仍可以是合适的创作选择。",
+          "en": "In an additional original scene: A fictional reader connects an old door-number illustration with a story of neighbourhood change in an imagined exhibition booklet, while keeping the visitor route plain. Layers need not obscure practical information or prove greater depth. Removing a connection can still be an appropriate creative choice."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“哪项关联帮助当前读者，哪项基本信息不应藏在线索之后？”可以只读或讨论虚构材料，不需自己的饮品标签、私人经历或真实参加者。不同意见可以保留，不以改变类型或赢得认可结束讨论。",
+          "en": "An optional discussion card asks: “Which connection helps the current reader, and which basic information should not be hidden behind clues?” Read alone or discuss fictional material without personal drink labels, private experiences or actual participants. Different views may remain; changing type or winning approval is never required."
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原练习可跳过。四个饮品名称仅为本原创游戏的意象，不代表传统分类、真实口味或应饮用的东西。按此刻愿意探索的想象场面选择，不增加回顾期限。十六题各四选一，每题四意象各出现一次，位置轮换，每意象各四次出现在每个位置；选项字母不固定代表同一意象。每题只给所选意象记一次，无权重或反向，完成后四项合十六，每项分母十六表示可选机会，不是人格占比或相似度。十六项全部有效才生成结果，无不适用评分，缺答不补零、假定偏好或提前派型；都不合适可停止直接读四份全文。保留全部最高值，例如6、6、3、1保留两份，5、5、5、1保留三份，4、4、4、4保留四份；固定显示顺序不打破并列，也不派主副型。相差一次不是已验证显著差异，同数不证明同等心理特征，零次不表示能力或品质缺失。框架无已建立信效度、常模、预测或中英等值，不评社交价值、智力、修养、适配或文化人格。虚构讨论无需饮酒、购买、了解饮品、提供身体信息、办活动或取得他人认可；任何邀请均可拒绝。页面内存、自选24小时标签页草稿及完成、退出、重测清除保持不变；复制可包含匹配名称和公开指南或入口，不含答案或次数，公开指南也不恢复私人结果。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices; existing exercises are optional. Four drink names are images in this original game, not a traditional taxonomy, actual taste or something to consume. Choose imagined scenes you would enjoy exploring now without adding a recall window. Sixteen four-choice questions each offer every image once. Positions rotate, giving each image four appearances in every position; an option letter does not identify a fixed image. Each choice adds one without weights or reversals. Complete counts sum to sixteen; each denominator of sixteen describes opportunities, not personality shares or similarity. All sixteen answers must be valid for a result. There is no not-applicable score and missingness supplies no zero, assumed preference or early type. If none fits, stop and read all four complete guides. Keep every highest count: 6, 6, 3, 1 retains two, 5, 5, 5, 1 retains three, and 4, 4, 4, 4 retains four. Fixed display order breaks no tie and assigns no primary or secondary type. One extra choice establishes no significant difference; equal counts prove no equal psychological qualities, and zero indicates no missing ability or virtue. The framework has no established reliability, validity, norms, prediction or English–Chinese equivalence and assesses no social worth, intelligence, refinement, compatibility or cultural personality. Fictional discussion needs no drinking, purchase, beverage knowledge, bodily information, event or approval. Any invitation may be declined. Page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying may include matched titles and a public guide or entry link without answers or counts; a public guide restores no private result."
+        }
+      ]
+    }
+  ],
+  "sake": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者在想象的社区留言角保留一张卡和一句短提示，却发现“可以不写”的说明不能省去。少放内容、注意细节与让人自在使用并非同一件事；安静布局不能证明内心平静，也不要求他人同样喜欢留白。",
+          "en": "In an additional original scene: A fictional reader keeps one card and a short prompt in an imagined community message corner, but finds that permission not to write must remain explicit. Fewer elements, attention to detail and comfortable use differ. A quiet layout proves no inner calm and requires nobody else to prefer blank space."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“哪些删减让信息清楚，哪些删减反而让人不知道可以拒绝？”可以只读或讨论虚构材料，不需自己的饮品标签、私人经历或真实参加者。不同意见可以保留，不以改变类型或赢得认可结束讨论。",
+          "en": "An optional discussion card asks: “Which omissions clarify the message, and which make the option to decline unclear?” Read alone or discuss fictional material without personal drink labels, private experiences or actual participants. Different views may remain; changing type or winning approval is never required."
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原练习可跳过。四个饮品名称仅为本原创游戏的意象，不代表传统分类、真实口味或应饮用的东西。按此刻愿意探索的想象场面选择，不增加回顾期限。十六题各四选一，每题四意象各出现一次，位置轮换，每意象各四次出现在每个位置；选项字母不固定代表同一意象。每题只给所选意象记一次，无权重或反向，完成后四项合十六，每项分母十六表示可选机会，不是人格占比或相似度。十六项全部有效才生成结果，无不适用评分，缺答不补零、假定偏好或提前派型；都不合适可停止直接读四份全文。保留全部最高值，例如6、6、3、1保留两份，5、5、5、1保留三份，4、4、4、4保留四份；固定显示顺序不打破并列，也不派主副型。相差一次不是已验证显著差异，同数不证明同等心理特征，零次不表示能力或品质缺失。框架无已建立信效度、常模、预测或中英等值，不评社交价值、智力、修养、适配或文化人格。虚构讨论无需饮酒、购买、了解饮品、提供身体信息、办活动或取得他人认可；任何邀请均可拒绝。页面内存、自选24小时标签页草稿及完成、退出、重测清除保持不变；复制可包含匹配名称和公开指南或入口，不含答案或次数，公开指南也不恢复私人结果。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices; existing exercises are optional. Four drink names are images in this original game, not a traditional taxonomy, actual taste or something to consume. Choose imagined scenes you would enjoy exploring now without adding a recall window. Sixteen four-choice questions each offer every image once. Positions rotate, giving each image four appearances in every position; an option letter does not identify a fixed image. Each choice adds one without weights or reversals. Complete counts sum to sixteen; each denominator of sixteen describes opportunities, not personality shares or similarity. All sixteen answers must be valid for a result. There is no not-applicable score and missingness supplies no zero, assumed preference or early type. If none fits, stop and read all four complete guides. Keep every highest count: 6, 6, 3, 1 retains two, 5, 5, 5, 1 retains three, and 4, 4, 4, 4 retains four. Fixed display order breaks no tie and assigns no primary or secondary type. One extra choice establishes no significant difference; equal counts prove no equal psychological qualities, and zero indicates no missing ability or virtue. The framework has no established reliability, validity, norms, prediction or English–Chinese equivalence and assesses no social worth, intelligence, refinement, compatibility or cultural personality. Fictional discussion needs no drinking, purchase, beverage knowledge, bodily information, event or approval. Any invitation may be declined. Page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying may include matched titles and a public guide or entry link without answers or counts; a public guide restores no private result."
+        }
+      ]
+    }
+  ]
+}

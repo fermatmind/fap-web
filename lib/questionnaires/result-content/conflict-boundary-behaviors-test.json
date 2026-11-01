@@ -1,0 +1,166 @@
+{
+  "pressure-during-disagreements": [
+    {
+      "id": "pressure-during-disagreements-context",
+      "title": {
+        "en": "An ordinary situation to examine",
+        "zh": "可以回看的具体情境"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者在非紧急的活动筹备分歧中想继续追问，但对方已请求暂停。他可以不发出第二条信息，私下区分待完成事务、已说过的话和仍未知的回应；不需要联系对方来完成这项观察。停止追加问题不证明整段关系安全，也不要求对方肯定改变，实际影响仍需独立看待。",
+          "en": "An additional original scene: A fictional reader wants to keep questioning during a nonurgent disagreement about an event, but the other person has requested a pause. They can leave the second message unsent and privately separate the pending task, words already used and response still unknown. No contact is required for this observation. Stopping added questions certifies no safe relationship and requires no validation of improvement; actual effects remain a separate matter."
+        }
+      ]
+    },
+    {
+      "id": "pressure-during-disagreements-observation",
+      "title": {
+        "en": "One optional, observable next step",
+        "zh": "一个可选的事实观察"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“已经表达的暂停是什么，哪一步是自己能停止的，哪些事实仍然不知道？”可以只依据上面的虚构情境，把已知行动、他人明确表达的选择与未知分开。参与者可以不同意或停止，不展示数值、真实通信或身份，也不要求任何人配合证明改变。",
+          "en": "An optional discussion prompt asks: “What pause was expressed, which action can the reader stop, and which facts remain unknown?” Use only the fictional situation to distinguish known actions, another person’s expressed choice and unknowns. Participants may disagree or stop without values, real communications or identities, and nobody must validate a change."
+        }
+      ]
+    },
+    {
+      "id": "pressure-during-disagreements-limits",
+      "title": {
+        "en": "Limits, privacy and safety",
+        "zh": "解释、隐私与安全边界"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充场景与讨论由费马测试编辑部原创，只作可选的本人行为观察；可以仅讨论虚构读者，也可以不做，不要求联系、披露经历、原谅或恢复信任。本人过去三个月是题目范围，不替他人填答。二十四题按连续四组六题直接计分，无反向题；1完全不符合、2比较不符合、3不确定或视情况、4比较符合、5非常符合，另可明确选择“我不想回答这题”。3是数值，不表示发生频率、严重程度或中等风险；跳过与空白不同。二十四项均作明确选择才完成，每组六项中至少四个数值，才显示该组原始和及和除以数值回答数的四位小数均值，分母为实际四、五或六项。例如1、2、4、4和两次跳过为11÷4＝2.7500；1、2、3、4、4和一次跳过为14÷5＝2.8000。跳过不补零或中点，少于四个数值时，页面也不显示该组原始和、均值或个人全文解释；其他足够完整的组保留。四组均不足时只显示一般信息和边界，不生成个人因素卡片；四篇公开通用指南始终可以独立阅读。不同回答数或跳过题目会改变摘要含义，不能用相同均值认定同样经历，也不比较原始和来排名。四组分别计算不证明统计独立，不合总分、主导人格、危险等级或安全阈值。四项门槛、四位小数、分组与英文工作译文尚未建立信效度、常模、跨语言等价、预测或变化阈值；原来源的模型编辑核查不等于人类专家审查或临床验证。较低数值不排除真实伤害，较高数值不鉴定动机、责任或将来行为，重测下降也不能证明安全或修复成功。所有讨论均可停止，不以题目或结果要求他人回应，不把沉默、旧同意或关系身份当继续接触的许可。回答与结果只在本页内存，不保存草稿、结果缓存或上传逐题选择，没有个人结果复制或分享功能。普通页面分析保持禁用；答题页另有默认关闭的匿名动作统计，只有自愿开启并允许全站分析时才可记录开始、完成和查看，不带答案、结果内容或身份。离开、刷新、换语、重测按现有流程清除。现实中已有伤害或紧急安全问题时，不等待数值、讨论或重测，应按实际情况寻求适当现实支持。",
+          "en": "FermatMind Editorial authored the additional scenes and prompts for optional self-observation. Discuss fictional readers only or decline, without contact, personal history, forgiveness or restored trust. Questions concern your own past three months, never answers for someone else. Four consecutive six-item groups are direct-scored without reversal: 1 Does not fit at all, 2 Mostly does not fit, 3 Uncertain or depends on the situation, 4 Mostly fits and 5 Fits very well, plus explicit preference not to answer. Three is numeric, not frequency, severity or medium risk; a skip differs from blank. All 24 require an explicit choice to finish. Each group needs at least four numeric answers before its raw sum and sum divided by the actual four, five or six numeric answers appear to four decimals. For example, 1, 2, 4, 4 and two skips yield 11 ÷ 4 = 2.7500; 1, 2, 3, 4, 4 and one skip yield 14 ÷ 5 = 2.8000. Skips receive no zero or midpoint. Below four numeric answers, the page withholds that group’s sum, mean and personal full interpretation while retaining other available groups. If all four groups are insufficient, only general information and boundaries appear, without personal factor cards. All four public general guides remain independently readable. Different response counts and skipped items change what a summary covers. Equal means establish no equal experiences, and raw sums are not ranked. Separate calculation establishes no statistical independence, overall score, dominant personality, danger grade or safety threshold. The four-answer rule, decimals, grouping and working English translation have no established reliability, validity, norms, language equivalence, prediction or change threshold. Model-based editorial checking in the source is no human expert review or clinical validation. Low values rule out no actual harm; high values establish no motive, responsibility or future behavior, and lower retest values prove no safety or successful repair. Discussion may stop without demanding a response through a question or result. Silence, previous agreement and relationship roles provide no permission for continued contact. Responses and results stay in page memory without drafts, result caches or item uploads. There is no personal-result copy or sharing. Ordinary page analytics remain disabled; the answering page separately offers anonymous action counts, off by default. Only page opt-in together with site analytics consent can allow start, completion and view counts, without answers, result content or identity. Leaving, reloading, changing language and retaking follow existing clearing behavior. Actual harm or urgent safety concerns merit appropriate real-world support without waiting for numbers, discussion or retesting."
+        }
+      ]
+    }
+  ],
+  "responding-to-no-and-pauses": [
+    {
+      "id": "responding-to-no-and-pauses-context",
+      "title": {
+        "en": "An ordinary situation to examine",
+        "zh": "可以回看的具体情境"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者收到“今天不想讨论”的回应，想换个应用确认原因。他可以把“想知道原因”与“对方已同意继续”分开，不把更换渠道当许可，也不需要补发解释自己的消息。观察可以只针对这个虚构选择结束；没有答复不等于同意，低均值也不能为继续联系提供理由。",
+          "en": "An additional original scene: A fictional reader hears “I do not want to discuss this today” and wants to ask why through another app. They can distinguish wanting a reason from having agreement to continue, without treating another channel as permission or sending an explanatory follow-up. The fictional choice can end the observation. No response is no agreement, and a low mean authorizes no further contact."
+        }
+      ]
+    },
+    {
+      "id": "responding-to-no-and-pauses-observation",
+      "title": {
+        "en": "One optional, observable next step",
+        "zh": "一个可选的事实观察"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“请求原本说了什么，自己希望它代表什么，两者是否被混为一谈？”可以只依据上面的虚构情境，把已知行动、他人明确表达的选择与未知分开。参与者可以不同意或停止，不展示数值、真实通信或身份，也不要求任何人配合证明改变。",
+          "en": "An optional discussion prompt asks: “What did the request actually say, what does the reader wish it meant, and have those been confused?” Use only the fictional situation to distinguish known actions, another person’s expressed choice and unknowns. Participants may disagree or stop without values, real communications or identities, and nobody must validate a change."
+        }
+      ]
+    },
+    {
+      "id": "responding-to-no-and-pauses-limits",
+      "title": {
+        "en": "Limits, privacy and safety",
+        "zh": "解释、隐私与安全边界"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充场景与讨论由费马测试编辑部原创，只作可选的本人行为观察；可以仅讨论虚构读者，也可以不做，不要求联系、披露经历、原谅或恢复信任。本人过去三个月是题目范围，不替他人填答。二十四题按连续四组六题直接计分，无反向题；1完全不符合、2比较不符合、3不确定或视情况、4比较符合、5非常符合，另可明确选择“我不想回答这题”。3是数值，不表示发生频率、严重程度或中等风险；跳过与空白不同。二十四项均作明确选择才完成，每组六项中至少四个数值，才显示该组原始和及和除以数值回答数的四位小数均值，分母为实际四、五或六项。例如1、2、4、4和两次跳过为11÷4＝2.7500；1、2、3、4、4和一次跳过为14÷5＝2.8000。跳过不补零或中点，少于四个数值时，页面也不显示该组原始和、均值或个人全文解释；其他足够完整的组保留。四组均不足时只显示一般信息和边界，不生成个人因素卡片；四篇公开通用指南始终可以独立阅读。不同回答数或跳过题目会改变摘要含义，不能用相同均值认定同样经历，也不比较原始和来排名。四组分别计算不证明统计独立，不合总分、主导人格、危险等级或安全阈值。四项门槛、四位小数、分组与英文工作译文尚未建立信效度、常模、跨语言等价、预测或变化阈值；原来源的模型编辑核查不等于人类专家审查或临床验证。较低数值不排除真实伤害，较高数值不鉴定动机、责任或将来行为，重测下降也不能证明安全或修复成功。所有讨论均可停止，不以题目或结果要求他人回应，不把沉默、旧同意或关系身份当继续接触的许可。回答与结果只在本页内存，不保存草稿、结果缓存或上传逐题选择，没有个人结果复制或分享功能。普通页面分析保持禁用；答题页另有默认关闭的匿名动作统计，只有自愿开启并允许全站分析时才可记录开始、完成和查看，不带答案、结果内容或身份。离开、刷新、换语、重测按现有流程清除。现实中已有伤害或紧急安全问题时，不等待数值、讨论或重测，应按实际情况寻求适当现实支持。",
+          "en": "FermatMind Editorial authored the additional scenes and prompts for optional self-observation. Discuss fictional readers only or decline, without contact, personal history, forgiveness or restored trust. Questions concern your own past three months, never answers for someone else. Four consecutive six-item groups are direct-scored without reversal: 1 Does not fit at all, 2 Mostly does not fit, 3 Uncertain or depends on the situation, 4 Mostly fits and 5 Fits very well, plus explicit preference not to answer. Three is numeric, not frequency, severity or medium risk; a skip differs from blank. All 24 require an explicit choice to finish. Each group needs at least four numeric answers before its raw sum and sum divided by the actual four, five or six numeric answers appear to four decimals. For example, 1, 2, 4, 4 and two skips yield 11 ÷ 4 = 2.7500; 1, 2, 3, 4, 4 and one skip yield 14 ÷ 5 = 2.8000. Skips receive no zero or midpoint. Below four numeric answers, the page withholds that group’s sum, mean and personal full interpretation while retaining other available groups. If all four groups are insufficient, only general information and boundaries appear, without personal factor cards. All four public general guides remain independently readable. Different response counts and skipped items change what a summary covers. Equal means establish no equal experiences, and raw sums are not ranked. Separate calculation establishes no statistical independence, overall score, dominant personality, danger grade or safety threshold. The four-answer rule, decimals, grouping and working English translation have no established reliability, validity, norms, language equivalence, prediction or change threshold. Model-based editorial checking in the source is no human expert review or clinical validation. Low values rule out no actual harm; high values establish no motive, responsibility or future behavior, and lower retest values prove no safety or successful repair. Discussion may stop without demanding a response through a question or result. Silence, previous agreement and relationship roles provide no permission for continued contact. Responses and results stay in page memory without drafts, result caches or item uploads. There is no personal-result copy or sharing. Ordinary page analytics remain disabled; the answering page separately offers anonymous action counts, off by default. Only page opt-in together with site analytics consent can allow start, completion and view counts, without answers, result content or identity. Leaving, reloading, changing language and retaking follow existing clearing behavior. Actual harm or urgent safety concerns merit appropriate real-world support without waiting for numbers, discussion or retesting."
+        }
+      ]
+    }
+  ],
+  "responding-to-behavioral-impact": [
+    {
+      "id": "responding-to-behavioral-impact-context",
+      "title": {
+        "en": "An ordinary situation to examine",
+        "zh": "可以回看的具体情境"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者修改了一份模拟清单，协作者指出新增了返工。他可以私下分开修改内容、核实的额外工作和自己原本的意图，保留还不能确认的部分。听取影响不等于接受全部解释，也不需要要求对方证明感受足够合理；测试数值不替任何一方裁定事实或责任。",
+          "en": "An additional original scene: A fictional reader changes a simulated checklist and a collaborator reports extra rework. The reader can privately distinguish the change, verified added work and original intention, keeping uncertain details open. Hearing an impact means neither accepting every explanation nor requiring proof that a feeling is reasonable enough. No test value decides facts or responsibility for either person."
+        }
+      ]
+    },
+    {
+      "id": "responding-to-behavioral-impact-observation",
+      "title": {
+        "en": "One optional, observable next step",
+        "zh": "一个可选的事实观察"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“哪项行动可以核对，哪项影响已有证据，哪些解释还需要保留不确定？”可以只依据上面的虚构情境，把已知行动、他人明确表达的选择与未知分开。参与者可以不同意或停止，不展示数值、真实通信或身份，也不要求任何人配合证明改变。",
+          "en": "An optional discussion prompt asks: “Which action can be checked, which impact has evidence, and which explanations remain uncertain?” Use only the fictional situation to distinguish known actions, another person’s expressed choice and unknowns. Participants may disagree or stop without values, real communications or identities, and nobody must validate a change."
+        }
+      ]
+    },
+    {
+      "id": "responding-to-behavioral-impact-limits",
+      "title": {
+        "en": "Limits, privacy and safety",
+        "zh": "解释、隐私与安全边界"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充场景与讨论由费马测试编辑部原创，只作可选的本人行为观察；可以仅讨论虚构读者，也可以不做，不要求联系、披露经历、原谅或恢复信任。本人过去三个月是题目范围，不替他人填答。二十四题按连续四组六题直接计分，无反向题；1完全不符合、2比较不符合、3不确定或视情况、4比较符合、5非常符合，另可明确选择“我不想回答这题”。3是数值，不表示发生频率、严重程度或中等风险；跳过与空白不同。二十四项均作明确选择才完成，每组六项中至少四个数值，才显示该组原始和及和除以数值回答数的四位小数均值，分母为实际四、五或六项。例如1、2、4、4和两次跳过为11÷4＝2.7500；1、2、3、4、4和一次跳过为14÷5＝2.8000。跳过不补零或中点，少于四个数值时，页面也不显示该组原始和、均值或个人全文解释；其他足够完整的组保留。四组均不足时只显示一般信息和边界，不生成个人因素卡片；四篇公开通用指南始终可以独立阅读。不同回答数或跳过题目会改变摘要含义，不能用相同均值认定同样经历，也不比较原始和来排名。四组分别计算不证明统计独立，不合总分、主导人格、危险等级或安全阈值。四项门槛、四位小数、分组与英文工作译文尚未建立信效度、常模、跨语言等价、预测或变化阈值；原来源的模型编辑核查不等于人类专家审查或临床验证。较低数值不排除真实伤害，较高数值不鉴定动机、责任或将来行为，重测下降也不能证明安全或修复成功。所有讨论均可停止，不以题目或结果要求他人回应，不把沉默、旧同意或关系身份当继续接触的许可。回答与结果只在本页内存，不保存草稿、结果缓存或上传逐题选择，没有个人结果复制或分享功能。普通页面分析保持禁用；答题页另有默认关闭的匿名动作统计，只有自愿开启并允许全站分析时才可记录开始、完成和查看，不带答案、结果内容或身份。离开、刷新、换语、重测按现有流程清除。现实中已有伤害或紧急安全问题时，不等待数值、讨论或重测，应按实际情况寻求适当现实支持。",
+          "en": "FermatMind Editorial authored the additional scenes and prompts for optional self-observation. Discuss fictional readers only or decline, without contact, personal history, forgiveness or restored trust. Questions concern your own past three months, never answers for someone else. Four consecutive six-item groups are direct-scored without reversal: 1 Does not fit at all, 2 Mostly does not fit, 3 Uncertain or depends on the situation, 4 Mostly fits and 5 Fits very well, plus explicit preference not to answer. Three is numeric, not frequency, severity or medium risk; a skip differs from blank. All 24 require an explicit choice to finish. Each group needs at least four numeric answers before its raw sum and sum divided by the actual four, five or six numeric answers appear to four decimals. For example, 1, 2, 4, 4 and two skips yield 11 ÷ 4 = 2.7500; 1, 2, 3, 4, 4 and one skip yield 14 ÷ 5 = 2.8000. Skips receive no zero or midpoint. Below four numeric answers, the page withholds that group’s sum, mean and personal full interpretation while retaining other available groups. If all four groups are insufficient, only general information and boundaries appear, without personal factor cards. All four public general guides remain independently readable. Different response counts and skipped items change what a summary covers. Equal means establish no equal experiences, and raw sums are not ranked. Separate calculation establishes no statistical independence, overall score, dominant personality, danger grade or safety threshold. The four-answer rule, decimals, grouping and working English translation have no established reliability, validity, norms, language equivalence, prediction or change threshold. Model-based editorial checking in the source is no human expert review or clinical validation. Low values rule out no actual harm; high values establish no motive, responsibility or future behavior, and lower retest values prove no safety or successful repair. Discussion may stop without demanding a response through a question or result. Silence, previous agreement and relationship roles provide no permission for continued contact. Responses and results stay in page memory without drafts, result caches or item uploads. There is no personal-result copy or sharing. Ordinary page analytics remain disabled; the answering page separately offers anonymous action counts, off by default. Only page opt-in together with site analytics consent can allow start, completion and view counts, without answers, result content or identity. Leaving, reloading, changing language and retaking follow existing clearing behavior. Actual harm or urgent safety concerns merit appropriate real-world support without waiting for numbers, discussion or retesting."
+        }
+      ]
+    }
+  ],
+  "following-through-after-repair": [
+    {
+      "id": "following-through-after-repair-context",
+      "title": {
+        "en": "An ordinary situation to examine",
+        "zh": "可以回看的具体情境"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者曾在模拟任务中答应一次更新，却错过时间。他可以只记录承诺、实际发生的事和下一步怎样改得可行，不用“已经道歉”代替跟进事实。如果对方要求停止联系，练习无需发送新承诺、索取原谅或证明信任；也不能从一次记录变化预测以后不会再发生。",
+          "en": "An additional original scene: A fictional reader promised an update in a simulated task and missed it. They can record the commitment, what occurred and a more workable next step, without using an apology as evidence of follow-through. If contact has been declined, the exercise requires no new promise, request for forgiveness or proof of trust. One changed record predicts no absence of recurrence."
+        }
+      ]
+    },
+    {
+      "id": "following-through-after-repair-observation",
+      "title": {
+        "en": "One optional, observable next step",
+        "zh": "一个可选的事实观察"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“承诺的行动和时间是什么，后来实际发生什么，下一步是否具体且不越过已有边界？”可以只依据上面的虚构情境，把已知行动、他人明确表达的选择与未知分开。参与者可以不同意或停止，不展示数值、真实通信或身份，也不要求任何人配合证明改变。",
+          "en": "An optional discussion prompt asks: “What action and time were promised, what actually followed, and is a next step specific without crossing an existing boundary?” Use only the fictional situation to distinguish known actions, another person’s expressed choice and unknowns. Participants may disagree or stop without values, real communications or identities, and nobody must validate a change."
+        }
+      ]
+    },
+    {
+      "id": "following-through-after-repair-limits",
+      "title": {
+        "en": "Limits, privacy and safety",
+        "zh": "解释、隐私与安全边界"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充场景与讨论由费马测试编辑部原创，只作可选的本人行为观察；可以仅讨论虚构读者，也可以不做，不要求联系、披露经历、原谅或恢复信任。本人过去三个月是题目范围，不替他人填答。二十四题按连续四组六题直接计分，无反向题；1完全不符合、2比较不符合、3不确定或视情况、4比较符合、5非常符合，另可明确选择“我不想回答这题”。3是数值，不表示发生频率、严重程度或中等风险；跳过与空白不同。二十四项均作明确选择才完成，每组六项中至少四个数值，才显示该组原始和及和除以数值回答数的四位小数均值，分母为实际四、五或六项。例如1、2、4、4和两次跳过为11÷4＝2.7500；1、2、3、4、4和一次跳过为14÷5＝2.8000。跳过不补零或中点，少于四个数值时，页面也不显示该组原始和、均值或个人全文解释；其他足够完整的组保留。四组均不足时只显示一般信息和边界，不生成个人因素卡片；四篇公开通用指南始终可以独立阅读。不同回答数或跳过题目会改变摘要含义，不能用相同均值认定同样经历，也不比较原始和来排名。四组分别计算不证明统计独立，不合总分、主导人格、危险等级或安全阈值。四项门槛、四位小数、分组与英文工作译文尚未建立信效度、常模、跨语言等价、预测或变化阈值；原来源的模型编辑核查不等于人类专家审查或临床验证。较低数值不排除真实伤害，较高数值不鉴定动机、责任或将来行为，重测下降也不能证明安全或修复成功。所有讨论均可停止，不以题目或结果要求他人回应，不把沉默、旧同意或关系身份当继续接触的许可。回答与结果只在本页内存，不保存草稿、结果缓存或上传逐题选择，没有个人结果复制或分享功能。普通页面分析保持禁用；答题页另有默认关闭的匿名动作统计，只有自愿开启并允许全站分析时才可记录开始、完成和查看，不带答案、结果内容或身份。离开、刷新、换语、重测按现有流程清除。现实中已有伤害或紧急安全问题时，不等待数值、讨论或重测，应按实际情况寻求适当现实支持。",
+          "en": "FermatMind Editorial authored the additional scenes and prompts for optional self-observation. Discuss fictional readers only or decline, without contact, personal history, forgiveness or restored trust. Questions concern your own past three months, never answers for someone else. Four consecutive six-item groups are direct-scored without reversal: 1 Does not fit at all, 2 Mostly does not fit, 3 Uncertain or depends on the situation, 4 Mostly fits and 5 Fits very well, plus explicit preference not to answer. Three is numeric, not frequency, severity or medium risk; a skip differs from blank. All 24 require an explicit choice to finish. Each group needs at least four numeric answers before its raw sum and sum divided by the actual four, five or six numeric answers appear to four decimals. For example, 1, 2, 4, 4 and two skips yield 11 ÷ 4 = 2.7500; 1, 2, 3, 4, 4 and one skip yield 14 ÷ 5 = 2.8000. Skips receive no zero or midpoint. Below four numeric answers, the page withholds that group’s sum, mean and personal full interpretation while retaining other available groups. If all four groups are insufficient, only general information and boundaries appear, without personal factor cards. All four public general guides remain independently readable. Different response counts and skipped items change what a summary covers. Equal means establish no equal experiences, and raw sums are not ranked. Separate calculation establishes no statistical independence, overall score, dominant personality, danger grade or safety threshold. The four-answer rule, decimals, grouping and working English translation have no established reliability, validity, norms, language equivalence, prediction or change threshold. Model-based editorial checking in the source is no human expert review or clinical validation. Low values rule out no actual harm; high values establish no motive, responsibility or future behavior, and lower retest values prove no safety or successful repair. Discussion may stop without demanding a response through a question or result. Silence, previous agreement and relationship roles provide no permission for continued contact. Responses and results stay in page memory without drafts, result caches or item uploads. There is no personal-result copy or sharing. Ordinary page analytics remain disabled; the answering page separately offers anonymous action counts, off by default. Only page opt-in together with site analytics consent can allow start, completion and view counts, without answers, result content or identity. Leaving, reloading, changing language and retaking follow existing clearing behavior. Actual harm or urgent safety concerns merit appropriate real-world support without waiting for numbers, discussion or retesting."
+        }
+      ]
+    }
+  ]
+}

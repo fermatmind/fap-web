@@ -1,0 +1,166 @@
+{
+  "objects": [
+    {
+      "id": "s3",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者理解“白碗与蓝点”的位置关系，但舒适尝试后没有视觉画面；另一条物体描述只带来轮廓，颜色并不清楚。理解、轮廓和颜色可以不同，不用补上细节来证明认真。例子无需额外成像或真实物品，只说明零与其他描述都按实际体验选择。",
+          "en": "In an additional original scene, a reader understands the bowl and dot’s positions but has no visual image after a comfortable attempt. Another object description brings an outline with unclear colour. Understanding, outline and colour may differ; details need not be supplied to demonstrate effort. The example requires no extra imagery or real object and illustrates choosing zero or another description from the actual experience."
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只为虚构整理任务，文字清单、草图或实物分别提供什么信息？”听者可询问需要哪种说明，不把均分变成学习风格，不要求提高画面清晰度才接受一种辅助。无需分享个人读数或再做意象尝试，实际使用效果仍由具体任务确认。",
+          "en": "An optional conversation card asks what a written list, sketch or real object would contribute to a fictional organising task. A listener can ask which explanation is wanted without turning a mean into a learning style or requiring clearer imagery before accepting an aid. No personal readout or further imagery attempt is needed; usefulness remains for the actual task to establish."
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读；它们不增加作答步骤。原12个虚构场景按物体、面孔、地点、运动各三条组织，每条原有0—4描述直接使用、无反向。舒适尝试后没有视觉画面可记0；未尝试、不确定或保留回答选跳过，不补成0或微弱意象。本组三条全部为数字才显示合计0—12及除以三的0—4均分，两位小数；例如1、2、2合计5，均分1.67，小数来自算术而非更精密测量。任一跳过只使本组合计与均分暂缺，其他完整组照常显示。没有整体总分、赢家、VVIQ换算、心盲类别、常模或能力排名，原题本及中英文等值尚未验证。研究中的受控生理任务不验证这些原创文字题，也不在本页进行。无需反复练习、强迫成像、提供真实人物地点或制造刺激；已有支持不以读数为条件。四篇公开全文及结果内读法保持可读；原有页内存及退出、刷新、离页、换语言、重测清除不变，复制只含四篇公开指南标题和链接，不含回答、合计或均分。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading, without extra answer steps. Twelve invented scenes retain four contexts of three: objects, faces, places and movement. Original 0–4 descriptions are used directly, without reversal. Zero is valid after a comfortable attempt with no visual image; not trying, uncertainty and withholding use the separate skip, never zero replacement or an assumed faint image. Only three numeric responses produce a context’s sum from 0 to 12 and mean from 0 to 4, divided by three and displayed to two decimals. For example, 1, 2 and 2 give sum 5 and mean 1.67; the decimals come from arithmetic rather than finer measurement. Any skip withholds only that context’s sum and mean while other complete contexts remain available. There is no overall total, winner, VVIQ conversion, aphantasia category, norm or ability ranking. The original form and language equivalence are unvalidated. Controlled physiological research neither validates these original text prompts nor takes place on this page. No repeated practice, forced image, actual person or location, or created stimulus is required. Existing support does not depend on a readout. All four public guides and full result readings remain available. Page memory and existing exit, reload, leaving, language-change and retake clearing remain unchanged. Copying includes only four public guide titles and links, without responses, sums or means."
+        }
+      ]
+    }
+  ],
+  "faces": [
+    {
+      "id": "s3",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者想象圆框眼镜时只有局部画面，并不能补成完整面孔；另一位能用语言准确说明特征，却没有脑中图像。局部画面与概念描述分别保留，不将后者改填为画面微弱。例子不需要照片、熟人姓名、真实人物回忆或面孔辨认。",
+          "en": "In an additional original scene, a reader has a partial image of round glasses without a complete face. Another can describe the features in words without a mental picture. Partial imagery and conceptual description stay distinct; the latter need not be rated as faint imagery. The example requires no photograph, familiar person’s name, personal memory or face-recognition task."
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只为虚构会面安排，哪些信息适合用文字或经同意的名单保留？”听者不把面孔均分当作是否关心人的指标，也不索要照片或身份来验证。可以不形成真实名单；任何实际记录仍需考虑参与者同意与隐私。",
+          "en": "An optional conversation card asks which details of a fictional meeting could be kept in writing or an agreed list. A listener does not treat a face-imagery mean as a measure of caring or request photographs or identities as proof. No real list needs creating; any actual record still depends on participants’ consent and privacy."
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读；它们不增加作答步骤。原12个虚构场景按物体、面孔、地点、运动各三条组织，每条原有0—4描述直接使用、无反向。舒适尝试后没有视觉画面可记0；未尝试、不确定或保留回答选跳过，不补成0或微弱意象。本组三条全部为数字才显示合计0—12及除以三的0—4均分，两位小数；例如1、2、2合计5，均分1.67，小数来自算术而非更精密测量。任一跳过只使本组合计与均分暂缺，其他完整组照常显示。没有整体总分、赢家、VVIQ换算、心盲类别、常模或能力排名，原题本及中英文等值尚未验证。研究中的受控生理任务不验证这些原创文字题，也不在本页进行。无需反复练习、强迫成像、提供真实人物地点或制造刺激；已有支持不以读数为条件。四篇公开全文及结果内读法保持可读；原有页内存及退出、刷新、离页、换语言、重测清除不变，复制只含四篇公开指南标题和链接，不含回答、合计或均分。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading, without extra answer steps. Twelve invented scenes retain four contexts of three: objects, faces, places and movement. Original 0–4 descriptions are used directly, without reversal. Zero is valid after a comfortable attempt with no visual image; not trying, uncertainty and withholding use the separate skip, never zero replacement or an assumed faint image. Only three numeric responses produce a context’s sum from 0 to 12 and mean from 0 to 4, divided by three and displayed to two decimals. For example, 1, 2 and 2 give sum 5 and mean 1.67; the decimals come from arithmetic rather than finer measurement. Any skip withholds only that context’s sum and mean while other complete contexts remain available. There is no overall total, winner, VVIQ conversion, aphantasia category, norm or ability ranking. The original form and language equivalence are unvalidated. Controlled physiological research neither validates these original text prompts nor takes place on this page. No repeated practice, forced image, actual person or location, or created stimulus is required. Existing support does not depend on a readout. All four public guides and full result readings remain available. Page memory and existing exit, reload, leaving, language-change and retake clearing remain unchanged. Copying includes only four public guide titles and links, without responses, sums or means."
+        }
+      ]
+    }
+  ],
+  "places": [
+    {
+      "id": "s3",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者知道走廊里长凳在左、钟在前，却没有彩色场景；另一位有场景画面，但对距离不确定。布局知识、视觉体验与距离判断是不同信息，均分不决定谁能找路。例子只供阅读，不需提供地址、出门验证或按脑中地图行动。",
+          "en": "In an additional original scene, a reader knows the bench is left and the clock ahead without a coloured hallway. Another has a scene image but uncertain distances. Layout knowledge, visual experience and distance judgement are different information; a mean cannot decide who can navigate. Read the example without an address, a trip to verify it or movement guided by a mental map."
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只看虚构布置任务，文字顺序、外部草图与真实信息各负责什么？”听者不因均分指定唯一可用形式，也不把方案错误归给意象水平。可以只讨论例子；真正使用的图纸、路线或安排须按实际信息核对。",
+          "en": "An optional conversation card separates written steps, an external sketch and real information in a fictional layout task. A listener does not prescribe one format from a mean or blame a plan’s error on imagery. Discussion can stay fictional; any drawing, route or arrangement actually used needs checking against real information."
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读；它们不增加作答步骤。原12个虚构场景按物体、面孔、地点、运动各三条组织，每条原有0—4描述直接使用、无反向。舒适尝试后没有视觉画面可记0；未尝试、不确定或保留回答选跳过，不补成0或微弱意象。本组三条全部为数字才显示合计0—12及除以三的0—4均分，两位小数；例如1、2、2合计5，均分1.67，小数来自算术而非更精密测量。任一跳过只使本组合计与均分暂缺，其他完整组照常显示。没有整体总分、赢家、VVIQ换算、心盲类别、常模或能力排名，原题本及中英文等值尚未验证。研究中的受控生理任务不验证这些原创文字题，也不在本页进行。无需反复练习、强迫成像、提供真实人物地点或制造刺激；已有支持不以读数为条件。四篇公开全文及结果内读法保持可读；原有页内存及退出、刷新、离页、换语言、重测清除不变，复制只含四篇公开指南标题和链接，不含回答、合计或均分。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading, without extra answer steps. Twelve invented scenes retain four contexts of three: objects, faces, places and movement. Original 0–4 descriptions are used directly, without reversal. Zero is valid after a comfortable attempt with no visual image; not trying, uncertainty and withholding use the separate skip, never zero replacement or an assumed faint image. Only three numeric responses produce a context’s sum from 0 to 12 and mean from 0 to 4, divided by three and displayed to two decimals. For example, 1, 2 and 2 give sum 5 and mean 1.67; the decimals come from arithmetic rather than finer measurement. Any skip withholds only that context’s sum and mean while other complete contexts remain available. There is no overall total, winner, VVIQ conversion, aphantasia category, norm or ability ranking. The original form and language equivalence are unvalidated. Controlled physiological research neither validates these original text prompts nor takes place on this page. No repeated practice, forced image, actual person or location, or created stimulus is required. Existing support does not depend on a readout. All four public guides and full result readings remain available. Page memory and existing exit, reload, leaving, language-change and retake clearing remain unchanged. Copying includes only four public guide titles and links, without responses, sums or means."
+        }
+      ]
+    }
+  ],
+  "motion": [
+    {
+      "id": "s3",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者理解纸方片如何转向，但只想到几个静止位置；另一条弹珠描述带来很微弱的运动印象。动作推理与运动画面不必一致，也不要求连续得像电影。无需转动物品、模仿动作、计时或观看光线变化来改善回答。",
+          "en": "In an additional original scene, a reader understands a paper square’s change in orientation but thinks of separate still positions. A marble description brings a faint impression of movement. Reasoning about an action need not match pictured motion, and a movie-like sequence is not required. No rotated object, performed movement, timing or changing light is needed to improve an answer."
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只为虚构日常步骤，文字说明与外部示范各有哪些待确认信息？”听者不由运动画面均分判断协调性、体育能力或工作安全，不要求现场做动作来证明。可只读，实际步骤仍按真实任务与适用安全要求理解。",
+          "en": "An optional conversation card asks what remains to be checked in written steps and an external demonstration for a fictional everyday sequence. A listener uses no movement-imagery mean to judge coordination, athletic ability or workplace safety and requests no performed action as proof. Read only if preferred; actual steps still depend on the real task and its safety requirements."
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读；它们不增加作答步骤。原12个虚构场景按物体、面孔、地点、运动各三条组织，每条原有0—4描述直接使用、无反向。舒适尝试后没有视觉画面可记0；未尝试、不确定或保留回答选跳过，不补成0或微弱意象。本组三条全部为数字才显示合计0—12及除以三的0—4均分，两位小数；例如1、2、2合计5，均分1.67，小数来自算术而非更精密测量。任一跳过只使本组合计与均分暂缺，其他完整组照常显示。没有整体总分、赢家、VVIQ换算、心盲类别、常模或能力排名，原题本及中英文等值尚未验证。研究中的受控生理任务不验证这些原创文字题，也不在本页进行。无需反复练习、强迫成像、提供真实人物地点或制造刺激；已有支持不以读数为条件。四篇公开全文及结果内读法保持可读；原有页内存及退出、刷新、离页、换语言、重测清除不变，复制只含四篇公开指南标题和链接，不含回答、合计或均分。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading, without extra answer steps. Twelve invented scenes retain four contexts of three: objects, faces, places and movement. Original 0–4 descriptions are used directly, without reversal. Zero is valid after a comfortable attempt with no visual image; not trying, uncertainty and withholding use the separate skip, never zero replacement or an assumed faint image. Only three numeric responses produce a context’s sum from 0 to 12 and mean from 0 to 4, divided by three and displayed to two decimals. For example, 1, 2 and 2 give sum 5 and mean 1.67; the decimals come from arithmetic rather than finer measurement. Any skip withholds only that context’s sum and mean while other complete contexts remain available. There is no overall total, winner, VVIQ conversion, aphantasia category, norm or ability ranking. The original form and language equivalence are unvalidated. Controlled physiological research neither validates these original text prompts nor takes place on this page. No repeated practice, forced image, actual person or location, or created stimulus is required. Existing support does not depend on a readout. All four public guides and full result readings remain available. Page memory and existing exit, reload, leaving, language-change and retake clearing remain unchanged. Copying includes only four public guide titles and links, without responses, sums or means."
+        }
+      ]
+    }
+  ]
+}

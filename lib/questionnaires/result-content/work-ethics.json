@@ -1,0 +1,130 @@
+{
+  "commitments-reading": [
+    {
+      "id": "example",
+      "title": {
+        "en": "A changed deadline can still leave a useful agreement",
+        "zh": "期限改变后仍可形成有用约定"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创场景：虚构的读书活动里，你答应周三提供一份提纲，后来得知引用材料周四才能确认。可以说明周三能给哪些已完成部分、哪段仍待核实，再请接收方确认是否接受这种交付。发出更新、对方看见更新与双方同意新安排，是不同状态。履约习惯关注这些核对和沟通，不要求把未知写成已完成，也不因得到较高均分就保证下次一定守约。",
+          "en": "In an additional original scene, you agree to provide an outline for a fictional reading activity on Wednesday, then learn that a reference cannot be confirmed until Thursday. Explain what can be delivered and what remains unverified, then ask whether that boundary is acceptable. Sending an update, its being seen and agreement to a new arrangement are separate states. These habits concern checking and communication without treating unknown work as complete or a higher mean as a guarantee of keeping the next promise."
+        }
+      ]
+    },
+    {
+      "id": "experiment",
+      "title": {
+        "en": "Check one live agreement with a small update",
+        "zh": "用一条简短更新核对现有约定"
+      },
+      "paragraphs": [
+        {
+          "zh": "可在私人草稿分开写“原来答应什么”“出现了什么新信息”“拟议调整是什么”“还需确认什么”。若并未得到同意，就把调整保留为提议。无需增加承诺或公开实际工作材料；不能兑现的要求可以另行说明，而不是用自评证明自己应该承担。",
+          "en": "Privately separate the original commitment, new information, a proposed adjustment and outstanding confirmation. Keep an unaccepted adjustment as a proposal. No additional promise or actual work material is needed, and an unworkable demand can be identified without using a self-rating to establish that you should bear it."
+        },
+        {
+          "zh": "这些原创说明不是对你或同事行为的核实。四组各六题，含每组两项反向处理，完整回答才有独立均分；NA不补低值或可疑标记，四份完整指南始终可读。不合成伦理或可靠性等级。可以只读或写不发送的草稿，分享公开指南无需发送答案、分数、身份或工作记录。",
+          "en": "These original explanations do not verify your conduct or a colleague’s. Each of four groups has six items, including two reversals, and requires complete ratings for a separate mean. NA becomes neither a low value nor a suspicious marker; all four full guides remain readable. No ethical or reliability grade is combined. Reading or an unsent draft is enough; sharing the public guide needs no answers, scores, identities or work records."
+        }
+      ]
+    }
+  ],
+  "quality-reading": [
+    {
+      "id": "example",
+      "title": {
+        "en": "Check the detail the recipient will actually use",
+        "zh": "核对接收方实际会用的细节"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创场景：虚构活动的指引文字都已校对，导出的单页却裁掉了入口编号。核对字句与核对接收者实际能用的文件，是不同检查；标注“已检查”也不能代替实际打开导出文件。发现遗漏后可以修正或说明限制，不必把全部外观重新打磨。本组记录自报核对习惯，不检查这份文件，也不把更高均分当成零错误证明。",
+          "en": "In an additional original scene, instructions for an invented activity have been proofread, but their exported page cuts off the entrance number. Checking text and checking the usable file are different checks; a reviewed label does not replace opening the export. Correct or identify the omission without reworking every visual detail. This group records reported checking habits without inspecting the file or making a higher mean evidence of zero errors."
+        }
+      ]
+    },
+    {
+      "id": "experiment",
+      "title": {
+        "en": "Choose one proportionate check before a handover",
+        "zh": "交接前选一项适度核对"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以为虚构成果写“接收方要用它做什么”“哪一种问题会妨碍使用”“哪项检查能发现该问题”。再注明未检查的范围。核对可以适度，有疑问时澄清要求，不把自评或一份整齐清单当专业认证，也无需为练习创建新的汇报流程。",
+          "en": "For a fictional deliverable, write its intended use, a problem that would prevent that use and a check capable of finding it. Note what remains outside the check. Use proportionate checking and clarify uncertain requirements, without treating a self-report or tidy checklist as professional certification or creating another reporting process."
+        },
+        {
+          "zh": "这些原创说明不是对你或同事行为的核实。四组各六题，含每组两项反向处理，完整回答才有独立均分；NA不补低值或可疑标记，四份完整指南始终可读。不合成伦理或可靠性等级。可以只读或写不发送的草稿，分享公开指南无需发送答案、分数、身份或工作记录。",
+          "en": "These original explanations do not verify your conduct or a colleague’s. Each of four groups has six items, including two reversals, and requires complete ratings for a separate mean. NA becomes neither a low value nor a suspicious marker; all four full guides remain readable. No ethical or reliability grade is combined. Reading or an unsent draft is enough; sharing the public guide needs no answers, scores, identities or work records."
+        }
+      ]
+    }
+  ],
+  "honesty-reading": [
+    {
+      "id": "example",
+      "title": {
+        "en": "A progress update can distinguish three states",
+        "zh": "进展说明可以区分三种状态"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创场景：虚构的共同文案中，你修改了标题，同伴提供了插图，末段数据尚未核实。可以分别说明自己的修改、他人贡献与未知状态；“预计今天核实”仍不是“已经核实”。如实说明也不要求向不适合的接收者发送原始资料，可以在获准范围内说明限制。此处观察说法如何被区分，不由反向题、较高均分或跳题判断谁诚实或可疑。",
+          "en": "In an additional original scene, you revise a title in shared fictional copy, another contributor supplies an illustration and a final figure remains unverified. Separate your revision, their contribution and the unknown status. Expected verification today is not completed verification. Accurate reporting requires no raw material sent to an inappropriate audience; explain limits within permitted sharing. This concerns distinctions in statements, without using reverse items, higher means or skips to identify honest or suspicious people."
+        }
+      ]
+    },
+    {
+      "id": "experiment",
+      "title": {
+        "en": "Clarify one ordinary update you are permitted to share",
+        "zh": "澄清一条获准分享的普通更新"
+      },
+      "paragraphs": [
+        {
+          "zh": "私人草稿可写三句：“我已完成……”“这部分来自……”“目前还不能确认……”。只用虚构材料，不填写同事姓名或受限数据。公开指南可以作为讨论表达方式的素材，不应被用来要求别人公开回答或证明其品格。",
+          "en": "Draft three private sentences: “I completed …”; “This contribution comes from …”; and “I cannot yet confirm ….” Use invented material without colleagues’ names or restricted data. The public guide can support discussing wording, without requiring someone’s answers or proof of character."
+        },
+        {
+          "zh": "这些原创说明不是对你或同事行为的核实。四组各六题，含每组两项反向处理，完整回答才有独立均分；NA不补低值或可疑标记，四份完整指南始终可读。不合成伦理或可靠性等级。可以只读或写不发送的草稿，分享公开指南无需发送答案、分数、身份或工作记录。",
+          "en": "These original explanations do not verify your conduct or a colleague’s. Each of four groups has six items, including two reversals, and requires complete ratings for a separate mean. NA becomes neither a low value nor a suspicious marker; all four full guides remain readable. No ethical or reliability grade is combined. Reading or an unsent draft is enough; sharing the public guide needs no answers, scores, identities or work records."
+        }
+      ]
+    }
+  ],
+  "repair-reading": [
+    {
+      "id": "example",
+      "title": {
+        "en": "Correct a duplicate without claiming the whole system",
+        "zh": "修正重复项，不等于承担整个系统"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创场景：虚构的活动名单中，你重复录入一行。可以先确认是否确为重复、哪些用途受影响，再通过获准方式修正并核对需要的信息仍在。删去一行的动作不自动证明修正正确，也不意味着清单里的所有错误都由你负责；若缺少修改权限，说明受阻与承诺已经修好不同。这里回看范围明确的跟进行为，不推算真实责任或修复效果。",
+          "en": "In an additional original scene, you enter a duplicate row in an invented event list. Confirm the duplication and affected use, make a permitted correction and check that needed information remains. Removing a row does not automatically establish a correct repair or responsibility for every list error. Without edit access, stating the blockage differs from claiming a completed fix. This concerns bounded follow-through without determining actual responsibility or repair effectiveness."
+        }
+      ]
+    },
+    {
+      "id": "experiment",
+      "title": {
+        "en": "Agree a correction with a stopping point",
+        "zh": "商定一项有结束条件的修正"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以只为虚构问题写“已知影响”“自己能改的部分”“所需帮助”和“结束前的一项核对”。把已尝试、仍受阻与已核对完成分别写清；不需要现场试验、承担权限外修复或披露真实事故，也不以重测均分作为修正已经有效的证据。",
+          "en": "For an invented problem, list the known impact, your controllable part, needed help and one closing check. Distinguish an attempted step, a blockage and verified completion. No live test, repair beyond authority or actual incident disclosure is needed, and a retest mean is no evidence that a correction worked."
+        },
+        {
+          "zh": "这些原创说明不是对你或同事行为的核实。四组各六题，含每组两项反向处理，完整回答才有独立均分；NA不补低值或可疑标记，四份完整指南始终可读。不合成伦理或可靠性等级。可以只读或写不发送的草稿，分享公开指南无需发送答案、分数、身份或工作记录。",
+          "en": "These original explanations do not verify your conduct or a colleague’s. Each of four groups has six items, including two reversals, and requires complete ratings for a separate mean. NA becomes neither a low value nor a suspicious marker; all four full guides remain readable. No ethical or reliability grade is combined. Reading or an unsent draft is enough; sharing the public guide needs no answers, scores, identities or work records."
+        }
+      ]
+    }
+  ]
+}

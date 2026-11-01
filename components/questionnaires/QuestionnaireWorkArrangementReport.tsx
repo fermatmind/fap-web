@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { Questionnaire, Text } from "@/lib/questionnaires/types";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
@@ -35,7 +35,7 @@ export function QuestionnaireWorkArrangementReport({ quiz, result, locale }: {
         {score.mean === null && <p className="mb-4 text-sm leading-7 text-slate-600">{zh
           ? "不相关、无法判断或不愿回答都可以不计分，不转成低偏好、低能力或态度判断。以下完整指南仍可阅读。"
           : "Irrelevant situations, uncertainty or a choice not to answer stay unscored, never low preference, low ability or an attitude judgment. The complete guide remains available below."}</p>}
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`work-arrangement-report-${direction.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`work-arrangement-report-${direction.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本组完整公开指南" : "Read this group’s full public guide"}</Link>
       </section>;
     })}

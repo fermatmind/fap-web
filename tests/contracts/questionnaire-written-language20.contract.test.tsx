@@ -88,8 +88,8 @@ describe("Original written-language context observation categories, never a clin
     for (const locale of ["en", "zh"] as const) {
       const html = renderToStaticMarkup(<WrittenLanguagePage quiz={quiz} locale={locale} />);
       expect((html.match(/data-written-language-full-guide=/g) ?? [])).toHaveLength(4);
-      expect(html).not.toContain("data-written-language-result");
       const dom = document.createElement("div"); dom.innerHTML = html;
+      expect(dom.querySelector("[data-written-language-result]")).toBeNull();
       expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(true);
       for (const p of quiz.profiles) {
         const guide = renderToStaticMarkup(<WrittenLanguageGuidePage quiz={quiz} profile={p} locale={locale} />);

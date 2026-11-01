@@ -1,3 +1,4 @@
+import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
@@ -86,10 +87,10 @@ describe("T148 original finite-rule abstract practice", () => {
   it("shows all24 explanations and all4FULL7 guides at zero,partial and perfect counts in both languages", () => {
     for (const locale of ["en", "zh"] as const) for (const counts of [[0, 0, 0, 0], [1, 4, 6, 2], [6, 6, 6, 6]]) {
       const result = scoreQuestionnaire(quiz, answer(counts)); if (result.status !== "complete" || !("practice" in result)) throw Error("Valid report rejected");
-      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnairePracticeReport quiz={quiz} result={result} locale={locale} />);
+      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnairePracticeReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale={locale} />);
       expect(dom.querySelectorAll("[data-practice-question]")).toHaveLength(24); expect(dom.querySelectorAll("[data-practice-explanation]")).toHaveLength(24); expect(dom.querySelectorAll("[data-practice-guide]")).toHaveLength(4);
       for (const q of quiz.questions) expect(dom.querySelector(`[data-practice-question="${q.id}"]`)?.textContent).toContain(q.explanation![locale]);
-      for (const p of quiz.profiles) for (const section of p.sections) for (const text of section.paragraphs) expect(dom.textContent).toContain(text[locale]);
+      for (const p of prepareQuestionnaireResultReadings(quiz).profiles) for (const section of p.sections) for (const text of section.paragraphs) expect(dom.textContent).toContain(text[locale]);
       const ids = Array.from(dom.querySelectorAll("[id]"), e => e.id); expect(new Set(ids).size).toBe(ids.length);
     }
   });
@@ -113,7 +114,7 @@ describe("T148 original finite-rule abstract practice", () => {
       expect([...entryDom.querySelectorAll("p")].filter(p => p.textContent === scoringText)).toHaveLength(1);
       for (const p of quiz.profiles) {
         const native = `${path}/results/${p.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: p.id }) }, html = renderToStaticMarkup(await guide.default(props)), metadata = await guide.generateMetadata(props), dom = document.createElement("div"); dom.innerHTML = html;
-        expect(dom.querySelector("h1")?.textContent).toBe(p.title[locale]); for (const s of p.sections) for (const text of s.paragraphs) expect(dom.textContent).toContain(text[locale]);
+        expect(dom.querySelector("h1")?.textContent).toBe(p.title[locale]); for (const s of prepareQuestionnaireResultReadings(quiz).profiles.find(profile => profile.id === p.id)!.sections) for (const text of s.paragraphs) expect(dom.textContent).toContain(text[locale]);
         expect(metadata.title).toBe(p.seo!.title[locale]); expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${native}`); expect(maps.some(e => e.loc === `https://fermatmind.com${native}`)).toBe(true); expect(dom.querySelector("[data-practice-correct]")).toBeNull();
       }
     } } finally { vi.unstubAllEnvs(); vi.resetModules(); }

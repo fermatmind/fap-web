@@ -1,0 +1,130 @@
+{
+  "values-and-text": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：除数变号后仍用恒等式核对",
+        "en": "Review a changed divisor with the same integer identity"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例print(17 // -5, 17 % -5, sep=\":\")输出-4:-3。商17/(-5)为-3.4，向下取整是-4；余数由17=(-4)*(-5)+(-3)核得-3，与负除数同号。对照print(-17 // 5, -17 % 5, sep=\":\")的-4:3，商虽然相同，余数符号不同。先分别代回整数恒等式，不把其他语言的向零截断规则或“余数总为正”带进来。两段都用CPython 3.14.5核过，是不计分新例。",
+          "en": "In a fresh example, print(17 // -5, 17 % -5, sep=\":\") prints -4:-3. The quotient before flooring is -3.4, so its floor is -4. Check the remainder using 17=(-4)*(-5)+(-3); it has the negative divisor’s sign. Compare print(-17 // 5, -17 % 5, sep=\":\"), which prints -4:3. Equal floor quotients do not require equal remainders. Substitute each pair into the integer identity rather than importing truncation toward zero or assuming every remainder is positive. Both unscored examples were checked with CPython 3.14.5."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "交流推理步骤，分享公开复习指南",
+        "en": "Compare reasoning steps and share the public guide"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“为什么这两个例子的商相同，余数符号却不同？哪一项决定余数的符号，代回恒等式能否同时成立？”先各自记录预测与中间状态，再对照规则找第一个分歧。可以只读、不运行、查文档或换一例，不必比赛速度、展示仓库或讲工作中的失误。讨论这段代码的明确条件，不用一道选择给对方贴能力标签。",
+          "en": "Ask: “Why do the two examples have equal quotients but differently signed remainders, and does each pair satisfy the integer identity?” Record predictions and intermediate states separately, then use the rules to locate the first divergence. Read without running, consult documentation or choose another example, without racing, showing a repository or disclosing workplace mistakes. Discuss the snippet’s stated conditions without assigning an ability label from one choice."
+        },
+        {
+          "zh": "分享按钮复制不含个人答案与正确数的公开练习入口，也可自行转发本公开指南。四组是复习方向，不是开发者档位、招聘资格或认证。特定解释器的输出核对支持给定程序行为，不验证题组心理测量表现，也不证明已能处理真实应用或所有Python实现。",
+          "en": "The share button copies the public practice entry without personal answers or correct counts; you can also send this public guide yourself. Four groups organise revision rather than developer bands, hiring qualifications or certification. Output checks in a stated interpreter support the supplied program behaviour, without validating the bank’s psychometric performance or proving competence with real applications or every Python implementation."
+        }
+      ]
+    }
+  ],
+  "loops-and-functions": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：负步长也不包含停止边界",
+        "en": "Review the excluded stop with a negative step"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例values=range(9, 2, -3)，print(\",\".join(str(n) for n in values), sum(values), sep=\":\")输出9,6,3:18。步长为-3，依次取9、6、3；下一项0越过边界，不加入。仅把停止值2改成3，3也被排除，输出9,6:15。先列实际项，再求和，别把终点当必取项。range可再次迭代，本例不是一次性迭代器；不要把第一次join误当成已耗尽后续sum的输入。两个独立脚本均已用CPython 3.14.5核过，不计分。",
+          "en": "Let values=range(9, 2, -3), then use print(\",\".join(str(n) for n in values), sum(values), sep=\":\"). Output is 9,6,3:18. Stepping by negative three visits nine, six and three; zero would cross the stopping boundary. Changing only the stop from two to three excludes three too, giving 9,6:15. List actual terms before summing. The range object can be iterated again: it is not a one-shot iterator, so join does not exhaust the later sum input here. Both independent scripts were checked with CPython 3.14.5 as unscored revision."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "交流推理步骤，分享公开复习指南",
+        "en": "Compare reasoning steps and share the public guide"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“为什么stop从2改成3后，3反而不再出现？为什么同一个range能先用于join，再用于sum？”先各自记录预测与中间状态，再对照规则找第一个分歧。可以只读、不运行、查文档或换一例，不必比赛速度、展示仓库或讲工作中的失误。讨论这段代码的明确条件，不用一道选择给对方贴能力标签。",
+          "en": "Ask: “Why does changing the stop from two to three remove three, and why can the same range supply both join and sum?” Record predictions and intermediate states separately, then use the rules to locate the first divergence. Read without running, consult documentation or choose another example, without racing, showing a repository or disclosing workplace mistakes. Discuss the snippet’s stated conditions without assigning an ability label from one choice."
+        },
+        {
+          "zh": "分享按钮复制不含个人答案与正确数的公开练习入口，也可自行转发本公开指南。四组是复习方向，不是开发者档位、招聘资格或认证。特定解释器的输出核对支持给定程序行为，不验证题组心理测量表现，也不证明已能处理真实应用或所有Python实现。",
+          "en": "The share button copies the public practice entry without personal answers or correct counts; you can also send this public guide yourself. Four groups organise revision rather than developer bands, hiring qualifications or certification. Output checks in a stated interpreter support the supplied program behaviour, without validating the bank’s psychometric performance or proving competence with real applications or every Python implementation."
+        }
+      ]
+    }
+  ],
+  "collections-and-aliases": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：后备值与新条目分两步记录",
+        "en": "Review fallback lookup separately from insertion"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例counts={\"elm\":2}，依次执行first=counts.get(\"oak\",7)、before=len(counts)、counts[\"oak\"]=first，再print(first,before,len(counts),sep=\":\")，输出7:1:2。get返回7时没有插入oak，所以before为1；之后明确赋值才新增条目，长度变2。把返回值与字典状态分列，不因已拿到后备值就认为它已存入。若oak本已存在，get会给原值，后续同键赋值也不会新增相等键。该独立脚本已在CPython 3.14.5核对，不计分。",
+          "en": "Start counts={\"elm\":2}, then execute first=counts.get(\"oak\",7), before=len(counts), counts[\"oak\"]=first and print(first,before,len(counts),sep=\":\"). Output is 7:1:2. The get call returns seven without inserting oak, leaving before at one. Only the explicit assignment adds an entry and changes length to two. Track returned value and dictionary state separately. If oak already existed, get would return its stored value and assigning that equal key would not add another entry. This independent script was checked with CPython 3.14.5 and is unscored."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "交流推理步骤，分享公开复习指南",
+        "en": "Compare reasoning steps and share the public guide"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“哪一条语句真正改变了字典长度？如果删掉显式赋值，拿到后备值以后字典会留下什么？”先各自记录预测与中间状态，再对照规则找第一个分歧。可以只读、不运行、查文档或换一例，不必比赛速度、展示仓库或讲工作中的失误。讨论这段代码的明确条件，不用一道选择给对方贴能力标签。",
+          "en": "Ask: “Which statement changes dictionary length, and what remains in the dictionary if the explicit assignment is removed?” Record predictions and intermediate states separately, then use the rules to locate the first divergence. Read without running, consult documentation or choose another example, without racing, showing a repository or disclosing workplace mistakes. Discuss the snippet’s stated conditions without assigning an ability label from one choice."
+        },
+        {
+          "zh": "分享按钮复制不含个人答案与正确数的公开练习入口，也可自行转发本公开指南。四组是复习方向，不是开发者档位、招聘资格或认证。特定解释器的输出核对支持给定程序行为，不验证题组心理测量表现，也不证明已能处理真实应用或所有Python实现。",
+          "en": "The share button copies the public practice entry without personal answers or correct counts; you can also send this public guide yourself. Four groups organise revision rather than developer bands, hiring qualifications or certification. Output checks in a stated interpreter support the supplied program behaviour, without validating the bank’s psychometric performance or proving competence with real applications or every Python implementation."
+        }
+      ]
+    }
+  ],
+  "errors-and-objects": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：成功进入后，退出是否压制异常",
+        "en": "Review whether a successful entry leads to suppression on exit"
+      },
+      "paragraphs": [
+        {
+          "zh": "新事件例的__enter__记录enter并成功返回；with主体先记录body，再raise ValueError(\"demo\")；__exit__记录exit并返回False；外层except ValueError记录handled。按冒号连接得enter:body:exit:handled，主体之后、仍在try里的after记录不会运行。仅将__exit__返回值改True，异常被压制，轨迹变enter:body:exit:after，外层except不运行。这两个独立CPython 3.14.5脚本已核对，只改虚构事件列表、不获取资源，也不把这一成功进入条件推广到进入失败。",
+          "en": "In a fresh event trace, __enter__ records enter and returns successfully. The with body records body and raises ValueError(\"demo\"). __exit__ records exit and returns False; an outer except ValueError records handled. Joining events with colons gives enter:body:exit:handled. An after event placed after with, still inside try, is skipped. Changing only the exit return to True suppresses the exception, producing enter:body:exit:after without the outer handler. Both independent CPython 3.14.5 scripts were checked. They change only a fictional event list, acquire no resources and do not extend the successful-entry condition to failed entry."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "交流推理步骤，分享公开复习指南",
+        "en": "Compare reasoning steps and share the public guide"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“两个变体都执行exit，为什么只有一个到外层except？返回True改变的是退出是否发生，还是异常是否继续传播？”先各自记录预测与中间状态，再对照规则找第一个分歧。可以只读、不运行、查文档或换一例，不必比赛速度、展示仓库或讲工作中的失误。讨论这段代码的明确条件，不用一道选择给对方贴能力标签。",
+          "en": "Ask: “Both variants record exit; why does only one reach the outer except, and does returning True change exit execution or exception propagation?” Record predictions and intermediate states separately, then use the rules to locate the first divergence. Read without running, consult documentation or choose another example, without racing, showing a repository or disclosing workplace mistakes. Discuss the snippet’s stated conditions without assigning an ability label from one choice."
+        },
+        {
+          "zh": "分享按钮复制不含个人答案与正确数的公开练习入口，也可自行转发本公开指南。四组是复习方向，不是开发者档位、招聘资格或认证。特定解释器的输出核对支持给定程序行为，不验证题组心理测量表现，也不证明已能处理真实应用或所有Python实现。",
+          "en": "The share button copies the public practice entry without personal answers or correct counts; you can also send this public guide yourself. Four groups organise revision rather than developer bands, hiring qualifications or certification. Output checks in a stated interpreter support the supplied program behaviour, without validating the bank’s psychometric performance or proving competence with real applications or every Python implementation."
+        }
+      ]
+    }
+  ]
+}

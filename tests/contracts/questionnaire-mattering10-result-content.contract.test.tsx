@@ -1,0 +1,38 @@
+import { readFileSync } from "node:fs";
+import { fireEvent, render, screen, cleanup } from "@testing-library/react";
+import { renderToStaticMarkup } from "react-dom/server";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { QuestionnaireMattering10Client } from "@/components/questionnaires/QuestionnaireMattering10Client";
+import { isMattering10ConfigurationValid, scoreMattering10, type Mattering10Questionnaire } from "@/lib/questionnaires/mattering10";
+import { Mattering10Report } from "@/components/questionnaires/Mattering10Report";
+import { prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
+import type { QuestionnaireProfile } from "@/lib/questionnaires/types";
+vi.mock("next/headers",()=>({headers:async()=>new Headers()}));
+const quiz=JSON.parse(readFileSync("lib/questionnaires/data/mattering.json","utf8")) as Mattering10Questionnaire;
+const readings=quiz.profiles.map(p=>prepareResultProfile(quiz.slug,p));
+beforeEach(()=>Object.defineProperty(HTMLElement.prototype,"scrollIntoView",{configurable:true,value:vi.fn()}));
+afterEach(cleanup);
+const fixed=(v="2")=>Object.fromEntries(quiz.questions.map(q=>[q.id,v]));
+function finish(container:HTMLElement,locale:"en"|"zh",answers:Record<string,string>=fixed()){
+ fireEvent.click(screen.getByRole("button",{name:locale==="zh"?"开始测试":"Start test"}));
+ for(const[i,q]of quiz.questions.entries()){fireEvent.click(container.querySelector(`input[value="${answers[q.id]}"]`)!);fireEvent.click(screen.getByRole("button",{name:i===9?(locale==="zh"?"查看两项独立分数":"See both separate scores"):(locale==="zh"?"下一题":"Next")}));}
+}
+describe("two separate GMS and AMS readings without a combined worth score",()=>{
+ it("keeps the strict original source and all paragraphs intact with idempotent projection",()=>{
+  const before=JSON.stringify(quiz);expect(isMattering10ConfigurationValid(quiz)).toBe(true);expect(isMattering10ConfigurationValid({...quiz,profiles:readings})).toBe(false);
+  for(const[i,p]of readings.entries()){expect(prepareResultProfile(quiz.slug,p)).toBe(p);expect(p.sections.flatMap(s=>s.paragraphs)).toHaveLength(15);expect([p.id,p.title,p.directionIds,p.seo]).toEqual([quiz.profiles[i].id,quiz.profiles[i].title,quiz.profiles[i].directionIds,quiz.profiles[i].seo]);for(const[j,s]of p.sections.entries())expect(s.paragraphs.slice(0,2)).toEqual(quiz.profiles[i].sections[j].paragraphs);}
+  expect(JSON.stringify(quiz)).toBe(before);const unknown={...quiz.profiles[0],id:"__proto__"};expect(prepareResultProfile(quiz.slug,unknown)).toBe(unknown);
+ });
+ it("publishes all four full guides with collapsed contents, attribution and no personal numeric readouts",async()=>{
+  const{default:Guide}=await import("@/components/questionnaires/QuestionnaireGuide");for(const locale of ["en","zh"]as const)for(const p of readings){const d=document.createElement("div");d.innerHTML=renderToStaticMarkup(await Guide({params:Promise.resolve({locale,slug:quiz.slug,profile:p.id})}));const reader=d.querySelector(`[data-mattering10-result-reading="${p.id}"]`)!;expect(reader).not.toBeNull();expect(reader.querySelectorAll("h2")).toHaveLength(6);expect(reader.querySelectorAll("section li")).toHaveLength(15);expect(reader.querySelectorAll("details:not([open]) nav a")).toHaveLength(6);for(const a of reader.querySelectorAll("nav a"))expect(d.querySelector(a.getAttribute("href")!)).not.toBeNull();for(const s of p.sections)for(const para of s.paragraphs)expect(reader.textContent).toContain(para[locale]);expect(d.querySelector("input,textarea,[data-mattering10-total],[data-mattering10-result]")).toBeNull();expect(d.querySelector('a[href="https://creativecommons.org/licenses/by/4.0/"]')).not.toBeNull();if(locale==="en")expect(d.textContent).not.toMatch(/\p{Script=Han}/u);}
+ });
+ it("retains separate complete-only sums and both full readings for all64 per-scale missing masks",()=>{
+  for(let side=0;side<2;side++)for(let mask=0;mask<32;mask++){const a=fixed();for(let j=0;j<5;j++)if(!(mask&(1<<j)))delete a[quiz.questions[side*5+j].id];const result=scoreMattering10(quiz,a);if(!("scales"in result))throw Error(result.status);const{container}=render(<Mattering10Report quiz={quiz} result={result} locale="en" readingProfiles={readings}/>);expect(container.querySelectorAll("[data-mattering10-result-reading]")).toHaveLength(2);const rated=Array.from({length:5},(_,j)=>mask&(1<<j)?1:0).reduce<number>((a,b)=>a+b,0);const totals=container.querySelectorAll("[data-mattering10-total]");expect(totals[side].textContent).toBe(rated===5?"10 (possible range: 5–20)":`Incomplete: ${rated}/5 items`);expect(totals[1-side].textContent).toBe("10 (possible range: 5–20)");cleanup();}
+ });
+ it.each(["en","zh"]as const)("%s actual client retains both separate directions and full readings, then edits or clears without saving",locale=>{
+  const storage=vi.spyOn(Storage.prototype,"setItem");for(const mode of ["one","four","gms-four","ams-four","mixed"]){const a=fixed(mode==="one"?"1":mode==="four"?"4":"2");if(mode==="gms-four"||mode==="ams-four")for(let i=0;i<10;i++)a[quiz.questions[i].id]=(i<5)===(mode==="gms-four")?"4":"1";if(mode==="mixed")for(let i=0;i<10;i++)a[quiz.questions[i].id]=["1","4","2","3","2"][i%5];const{container}=render(<QuestionnaireMattering10Client quiz={quiz} locale={locale} readingProfiles={readings}/>);finish(container,locale,a);expect(container.querySelectorAll("[data-mattering10-scale]")).toHaveLength(2);expect(container.querySelectorAll("[data-mattering10-result-reading]")).toHaveLength(2);for(const[i,p]of readings.entries()){const id=i?"AMS":"GMS",part=container.querySelector(`[data-mattering10-scale="${id}"]`)!;expect(part.querySelectorAll("h4")).toHaveLength(6);for(const s of p.sections)for(const para of s.paragraphs)expect(part.textContent).toContain(para[locale]);const values=quiz.questions.slice(i*5,i*5+5).map(q=>Number(a[q.id])),sum=values.reduce((a,b)=>a+b,0);expect(part.querySelector("[data-mattering10-total]")?.textContent).toBe(`${sum} (${locale==="zh"?"可得范围":"possible range"}: 5–20)`);expect(part.textContent).toContain(values.join(" + ")+" = "+sum);}const ids=[...container.querySelectorAll("[id]")].map(n=>n.id);expect(new Set(ids).size).toBe(ids.length);for(const a of container.querySelectorAll('[data-mattering10-result-reading] nav a'))expect(container.querySelector(a.getAttribute("href")!)).not.toBeNull();fireEvent.click(screen.getByRole("button",{name:locale==="zh"?"修改回答（清除当前结果）":"Edit answers and clear this result"}));expect(container.querySelector("[data-mattering10-result]")).toBeNull();expect((container.querySelector(`input[value="${a[quiz.questions[0].id]}"]`) as HTMLInputElement).checked).toBe(true);fireEvent.click(screen.getByRole("button",{name:locale==="zh"?"退出并清除本次回答":"Exit and clear these responses"}));expect(container.querySelector("[data-mattering10-result-reading]")).toBeNull();cleanup();}expect(storage).not.toHaveBeenCalled();storage.mockRestore();
+ });
+ it("requires every single factor identity and correct provenance before replacing a source reading",()=>{
+  const p=readings[0];for(const bad of [undefined,[{...p,id:"other"}],[{...p,directionIds:[]}],[{...p,directionIds:["other"]}],[{...p,resultReading:{...p.resultReading!,quizSlug:"other"}}],[{...p,resultReading:{...p.resultReading!,profileId:"other"}}]]as (QuestionnaireProfile[]|undefined)[]){const{container}=render(<QuestionnaireMattering10Client quiz={quiz} locale="en" readingProfiles={bad}/>);finish(container,"en");expect(container.querySelector("[data-mattering10-result-reading]")).toBeNull();expect(container.querySelector('[data-mattering10-scale="GMS"]')?.querySelectorAll("article section li")).toHaveLength(12);cleanup();}
+ });
+});

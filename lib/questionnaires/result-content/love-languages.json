@@ -1,0 +1,207 @@
+{
+  "words": [
+    {
+      "id": "editorial-two-role-reading",
+      "title": {
+        "zh": "两边不同时，先问表达的形式",
+        "en": "When the sides differ, ask about the form"
+      },
+      "paragraphs": [
+        {
+          "zh": "假如你觉得写感谢有意义，却不太喜欢收到称赞，可以分别谈写给谁、公开还是私下、具体还是笼统。这两组题目本来就在问不同角色，不必解释成矛盾。若两边都重要，也还不知道实际交流是否有效；一句话有没有贴合当时，需要听对方回应。",
+          "en": "If writing appreciation matters to you but receiving praise does not, discuss the audience, public versus private setting, and specific versus general wording separately. The prompts concern different roles, so this need not be a contradiction. Finding both meaningful still establishes no effect on an actual exchange; hear how the words landed."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "感谢之后，回看什么",
+        "en": "What to notice after appreciation"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的感谢尝试，回看你说的是实际观察，还是替对方定义“你就是怎样的人”。可以问“这句话贴近你的感受吗？”对方若更想讨论一件没解决的事，就先听那件事。不要把“谢谢”变成要求对方开心、原谅或马上回赞的暗号。",
+          "en": "After the appreciation trial above, consider whether you named something observed or defined what kind of person the recipient is. Ask whether the words fit their experience. If they would rather discuss something unresolved, hear that concern. Appreciation need not require happiness, forgiveness or a compliment in return."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "适合分享的是一句具体邀请",
+        "en": "Share a concrete invitation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以选一句改成自己的话：“我喜欢听到你具体注意到了什么，也想知道你喜欢怎样被感谢。私下说、写下来，还是暂时不评价，会更舒服？”不必贴出均分或替朋友定爱语；分享这份公开读法后，也允许对方只谈自己愿意谈的部分。",
+          "en": "Adapt this invitation: “I like hearing the particular thing you noticed, and would like to know how you enjoy being thanked. Would private words, a note or no appraisal feel better?” No means or labels for friends are needed. Someone reading this public guide may choose which parts to discuss."
+        }
+      ]
+    }
+  ],
+  "acts": [
+    {
+      "id": "editorial-two-role-reading",
+      "title": {
+        "zh": "愿意帮忙与愿意被帮，不是同一件事",
+        "en": "Offering and welcoming help are separate"
+      },
+      "paragraphs": [
+        {
+          "zh": "表达侧对你有意义，不表示别人需要你接手；接收侧有意义，也不说明你欠下同等劳动。两边不同时，可以先分开谈“我愿意提供什么”和“我希望保留什么决定”。事情忙不忙、谁实际做了多少，需要另看现实安排，不能从这两个均分倒推。",
+          "en": "Finding an offer meaningful does not establish that someone wants you to take over. Welcoming help creates no equal labour debt. When the sides differ, separate what you want to offer from decisions you want to retain. Actual workload and who did what require a discussion of the arrangement, rather than inference from two means."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "帮助有没有对上这次需要",
+        "en": "Did the assistance fit this need?"
+      },
+      "paragraphs": [
+        {
+          "zh": "完成上面约定的小事后，可以问：“这部分确实减轻了事情，还是你还需要重新处理？”若方法不合适，先调整范围，不把反馈理解为不知感恩。也可以确认下一次是否仍希望得到帮助；这次的接受不自动成为以后的固定分工。",
+          "en": "After the agreed task above, ask whether that part helped or left something to redo. If the approach missed, adjust its scope rather than interpreting feedback as ingratitude. Check whether help would be welcome next time too. Acceptance once need not establish an ongoing assignment."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "从一个可协商的帮忙开始",
+        "en": "Begin with a negotiable offer"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以说：“这周我愿意分担这一小段，你觉得有用吗？如果希望自己处理，也可以直接告诉我。”或者说：“我需要这一部分协助，其他决定想自己保留。”分享的是具体安排，不是比较谁的行动支持均分更高；两人不必相同才可以合作。",
+          "en": "Try: “I can offer this small part this week. Would it help? You can tell me if you prefer handling it yourself.” Or: “Help with this part would be useful; I would like to retain the other decisions.” Share the arrangement rather than compete over means. Similar ratings are no requirement for collaboration."
+        }
+      ]
+    }
+  ],
+  "gifts": [
+    {
+      "id": "editorial-two-role-reading",
+      "title": {
+        "zh": "送与收，可以各有偏好",
+        "en": "Giving and receiving can have different preferences"
+      },
+      "paragraphs": [
+        {
+          "zh": "喜欢做小纪念，却不愿收物件，可能与收纳、场合或个人喜好有关，但问卷没有查明原因。可以问自己：我珍惜的是记住某个细节，还是保存一段经历？接收那边又是什么形式舒服？保留两边的不同，比推断慷慨或物质更贴近本版题目。",
+          "en": "Enjoying making keepsakes while not wanting objects may concern storage, setting or preference, but this questionnaire establishes no cause. Ask whether remembering a detail or marking an experience matters when giving, and what form feels welcome when receiving. Keeping the sides separate fits these prompts better than inferences about generosity or materialism."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "心意有没有被理解，也能否被拒绝",
+        "en": "Was the intention understood, with room to decline?"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的心意尝试，可以轻问：“这个物件让你想到我想表达的那件事吗？”若对方不想收，改成口头说说那段经历也可以。不要要求保留、摆出来或拍照证明喜欢；之后是否继续送同类东西，仍要重新询问。",
+          "en": "After the thoughtful-token trial above, ask whether the object conveyed the particular intention. If it is unwanted, talking about the experience is another option. Keeping it, displaying it or photographing it need not be proof of appreciation. Ask again before assuming similar gifts will remain welcome."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "用一段记忆打开话题",
+        "en": "Open with a memory"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“有哪件不贵的小东西，让你记起一个人或一段经历？如果你不喜欢留物件，也可以只讲那件事。”这是自愿的故事邀请，不是晒礼物、消费能力或关系证明。公开说明不带你的个人均分，转发时也不必附上答卷。",
+          "en": "Ask: “Has a modest little object reminded you of a person or an experience? If you do not keep objects, you could just tell the story.” This is an optional story invitation, without a need to display presents, spending power or relationship proof. This public guide contains no personal means; sharing needs no answer sheet."
+        }
+      ]
+    }
+  ],
+  "time": [
+    {
+      "id": "editorial-two-role-reading",
+      "title": {
+        "zh": "想提供陪伴与想怎样被陪伴",
+        "en": "Offering company and choosing its form"
+      },
+      "paragraphs": [
+        {
+          "zh": "你可能喜欢认真听别人说一件事，却更愿意自己用散步或安静相处接收关心。表达与接收不同，不表示一方付出更多。两边都重要时，也要另谈时间和方式；意义感不能替你腾出空闲，也不能替别人答应随时在线。",
+          "en": "You may value listening attentively while preferring a walk or quiet company when receiving care. Different giving and receiving preferences establish no imbalance in effort. Even when both matter, discuss the time and format separately. Meaningfulness creates neither spare time nor someone else’s agreement to remain available."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "一起待过之后，具体回看一段",
+        "en": "Review one part of the shared time"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的小活动：哪一段适合交流，哪一段想保留安静，结束时间是否舒服？可以保留有用的部分，下次换一种形式或改期。不要用聊了多久、是否一直看着对方来验收关心；问卷没有给出标准时长或注意力表现。",
+          "en": "After the shared activity above, consider which part suited talking, where quiet felt welcome and whether the ending fitted. Keep a useful part, change the format or reschedule next time. Duration or continuous eye contact need not certify care; this questionnaire specifies no ideal time or attention performance."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "把“陪我”说得更容易回答",
+        "en": "Make an invitation easier to answer"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以说：“我想和你一起做这件小事。你更愿意散步聊聊、安静待着，还是另约时间？”对方可以选别的方式或不参加。分享这份读法可以开启相处形式的讨论，不需要宣布“我的主爱语是陪伴”，也不把改期解读成不匹配。",
+          "en": "Try: “I would enjoy doing this small thing together. Would you prefer a talking walk, quiet company or another time?” Someone may suggest a different form or decline. Sharing this guide can start a discussion of company without declaring one primary language or treating rescheduling as incompatibility."
+        }
+      ]
+    }
+  ],
+  "touch": [
+    {
+      "id": "editorial-two-role-reading",
+      "title": {
+        "zh": "两边的评分都不能替当下作答",
+        "en": "Neither side can answer for the present moment"
+      },
+      "paragraphs": [
+        {
+          "zh": "认为拥抱是有意义的表达，与现在是否想拥抱某个人，是两个问题；接收侧也是如此。即使两边均分相同，具体对象、场合与形式仍要另问。若两边不同或资料不足，不需要找经历解释，也不要求补做任何接触来确认结果。",
+          "en": "Finding a hug meaningful as an expression and wanting to hug someone now are separate questions, as are meaningfulness and present willingness when receiving. Even equal means leave the person, setting and form to discuss. Different or insufficient ratings require neither an explanation through personal history nor contact to confirm a result."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "这项尝试可以完全不发生接触",
+        "en": "This trial can involve no contact at all"
+      },
+      "paragraphs": [
+        {
+          "zh": "上面建议先聊问法与替代方式。回看时可以只问：“你能轻松说不或改主意吗？不接触时，哪种表达也舒服？”没有实际拥抱也能完成这次讨论。若不想谈，就到此为止，不把完成练习当作亲密程度或信任的考核。",
+          "en": "The trial above begins with ways of asking and alternatives. Review whether saying no or changing one’s mind felt easy, and which expression without contact felt welcome. This conversation needs no actual hug. If someone does not want to discuss it, stop there; completing an exercise is no test of closeness or trust."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享问法，无须分享身体边界细节",
+        "en": "Share a way of asking without personal details"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以只分享这个问题：“见面时先问拥抱还是挥手，你更喜欢怎样被询问？”不需要向朋友公开接触偏好、原因或均分，更不能替别人贴“接触型”标签。分享这份说明只提供通用读法；任何结果都不构成现在或以后的许可。",
+          "en": "You can share just a question: “When meeting, how would you like to be asked about a hug or a wave?” No disclosure of contact preferences, reasons or means is needed, and no one else needs a touch-type label. This is a general public reading; no result supplies permission now or later."
+        }
+      ]
+    }
+  ]
+}

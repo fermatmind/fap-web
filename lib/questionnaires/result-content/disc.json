@@ -1,0 +1,923 @@
+{
+  "single-d": {
+    "headline": {
+      "zh": "先把下一步说清楚",
+      "en": "Making the next step concrete"
+    },
+    "summary": {
+      "zh": "本次比较中，推进处理的选项被选得最多。可以把它当作一个观察问题：面对模糊任务，你是否常先问要完成什么、谁来做、什么时候回看？这不说明你天生适合领导，也不能推出你在所有场合都果断。",
+      "en": "Moving-forward options received your highest count in this attempt. A useful question is whether you first clarify the outcome, owner and review time when a task is vague. This does not establish leadership suitability or decisiveness in every setting."
+    },
+    "sections": [
+      {
+        "id": "editorial-contribution",
+        "title": {
+          "zh": "可以发挥的作用",
+          "en": "A possible contribution"
+        },
+        "paragraphs": [
+          {
+            "zh": "当大家已经同意目标、却迟迟没有行动时，提出一个可撤回的小步骤可能减少等待。前提是你确实有决策权限，也给受影响的人留下表达条件的机会。",
+            "en": "When a goal is agreed but action stalls, a small reversible step may reduce waiting. This depends on having the authority to decide and allowing affected people to state their conditions."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "过度使用时的代价",
+          "en": "When the approach is overused"
+        },
+        "paragraphs": [
+          {
+            "zh": "速度变成唯一标准时，尚未说出的顾虑可能被当作默认同意。观察的重点不是“我是不是太强势”，而是谁还没有发言、哪些后果尚未检查，以及返工是否抵消了节省的时间。",
+            "en": "When speed becomes the only criterion, unspoken concerns may be mistaken for agreement. Check who has not spoken, which consequences remain unchecked and whether rework cancels the time saved, rather than assigning yourself a harsh label."
+          }
+        ]
+      },
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "放进一个日常场景",
+          "en": "A situation to consider"
+        },
+        "paragraphs": [
+          {
+            "zh": "例如筹备一次朋友聚会，你可以先提两个时间和一个预算，请大家确认。若有人还不知道能否出席，就把时间标为暂定；一个便于行动的提案与替所有人作决定，有这一步之差。",
+            "en": "For a gathering, propose two dates and a budget, then ask for confirmation. If someone cannot yet confirm availability, mark the date provisional. That separates a workable proposal from deciding for everyone."
+          }
+        ]
+      },
+      {
+        "id": "editorial-conversation",
+        "title": {
+          "zh": "可以直接使用的沟通句",
+          "en": "Words to try in a conversation"
+        },
+        "paragraphs": [
+          {
+            "zh": "可以说：“我有一个先试的小方案。在决定之前，你最担心哪一步？什么情况需要暂停？”对方需要倾诉时，先问希望你听一听还是一起想办法，再使用解决问题的节奏。",
+            "en": "Try: “I have a small proposal we could test. Before deciding, which step concerns you, and when should we pause?” If someone is sharing a difficulty, ask whether they want listening or joint problem-solving before offering a plan."
+          }
+        ]
+      },
+      {
+        "id": "editorial-experiment",
+        "title": {
+          "zh": "本周做一次小尝试",
+          "en": "One small experiment this week"
+        },
+        "paragraphs": [
+          {
+            "zh": "本周选一次低风险讨论，在提方案前邀请一位尚未发言的人说出条件。记下原方案、听到的信息和最后改动；回看有没有减少返工。只做一次就可以，不用强迫自己每次都放慢。",
+            "en": "In one low-risk discussion this week, invite someone who has not spoken to state a condition before proposing your plan. Note the initial plan, new information and final change, then review whether rework decreased. One trial is enough."
+          }
+        ]
+      },
+      {
+        "id": "editorial-comparison",
+        "title": {
+          "zh": "与相近方向怎样区分",
+          "en": "Distinguishing related directions"
+        },
+        "paragraphs": [
+          {
+            "zh": "D与C都可能提出明确要求，但本版D选项侧重启动与推进，C侧重标准与核对；D与I都可能主动开口，I更侧重表达与带动。行为外表相似时，回看当时在解决什么问题，比凭语气分型更有用。",
+            "en": "D and C may both make clear requests; here D options emphasise initiating and advancing, while C emphasises standards and checks. D and I may both speak first, but I emphasises expression and engagement. Review the problem being addressed rather than typing someone from tone."
+          }
+        ]
+      }
+    ]
+  },
+  "single-i": {
+    "headline": {
+      "zh": "让想法进入对话",
+      "en": "Bringing ideas into conversation"
+    },
+    "summary": {
+      "zh": "本次比较中，表达带动的选项被选得最多。你可以回想自己是否常通过讲出来、邀请回应或分享想象来启动交流。这个计数不等于外向程度、受欢迎程度或社交能力。",
+      "en": "Expression-and-engagement options received the highest count. Consider whether speaking ideas aloud, inviting responses or sharing possibilities often helps you begin an exchange. The count does not measure extraversion, popularity or social skill."
+    },
+    "sections": [
+      {
+        "id": "editorial-contribution",
+        "title": {
+          "zh": "可以发挥的作用",
+          "en": "A possible contribution"
+        },
+        "paragraphs": [
+          {
+            "zh": "当小组缺少共同画面时，一个具体故事或开放问题可能让更多人愿意参与。价值在于别人是否听懂并能接着表达，而非场面是否一直热闹。",
+            "en": "When a group lacks a shared picture, a concrete story or open question may invite participation. The useful outcome is whether others understand and can contribute, rather than keeping the atmosphere lively throughout."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "过度使用时的代价",
+          "en": "When the approach is overused"
+        },
+        "paragraphs": [
+          {
+            "zh": "表达的热度可能跑在确认之前：别人觉得有趣，不一定表示愿意负责。留意你是否把赞同当承诺，或为了继续聊下去而答应了超出时间和精力的事情。",
+            "en": "Enthusiasm can run ahead of confirmation: finding an idea interesting does not mean accepting responsibility. Notice whether you treat approval as commitment or agree to more than your available time and energy."
+          }
+        ]
+      },
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "放进一个日常场景",
+          "en": "A situation to consider"
+        },
+        "paragraphs": [
+          {
+            "zh": "例如发起一次读书小聚，可以用一个有趣问题开场，再明确时间、人数与是否需要准备。若有人只想旁听，也让他有这个选项；参与不必以同样多的发言衡量。",
+            "en": "For a reading gathering, open with an interesting question, then clarify timing, numbers and preparation. Offer a listening-only option; participation need not mean equal amounts of speaking."
+          }
+        ]
+      },
+      {
+        "id": "editorial-conversation",
+        "title": {
+          "zh": "可以直接使用的沟通句",
+          "en": "Words to try in a conversation"
+        },
+        "paragraphs": [
+          {
+            "zh": "可以说：“我先说一个想法，你也可以不同意。你愿意参与哪一部分，或者只想先听听？”讲完后留出停顿，再复述对方的重点；安静不自动表示无聊或不合群。",
+            "en": "Try: “Here is one idea, and disagreement is welcome. Which part would you like to join, or would you rather listen first?” Pause after speaking and reflect the other person’s point. Quietness does not automatically mean boredom or exclusion."
+          }
+        ]
+      },
+      {
+        "id": "editorial-experiment",
+        "title": {
+          "zh": "本周做一次小尝试",
+          "en": "One small experiment this week"
+        },
+        "paragraphs": [
+          {
+            "zh": "本周选一次讨论，先用一分钟说明想法，然后邀请对方提出一处疑问，最后只确认一项双方愿意做的事。记录实际约定与后续是否完成，观察表达有没有转成彼此理解的行动。",
+            "en": "In one discussion this week, describe an idea briefly, invite one question and agree only one action both people want to take. Record what was agreed and whether it happened to see whether expression became mutually understood action."
+          }
+        ]
+      },
+      {
+        "id": "editorial-comparison",
+        "title": {
+          "zh": "与相近方向怎样区分",
+          "en": "Distinguishing related directions"
+        },
+        "paragraphs": [
+          {
+            "zh": "I与S都可能关心互动，但本版I侧重表达与激发回应，S侧重稳定陪伴与持续支持；I与D都可能先开口，D更关注作决定和推进。一次话多或话少不足以区分这些方向。",
+            "en": "I and S can both attend to interaction; here I emphasises expression and responses, while S emphasises consistent support. I and D may both speak first, but D focuses on decisions and progress. How much someone speaks on one occasion cannot distinguish the directions."
+          }
+        ]
+      }
+    ]
+  },
+  "single-s": {
+    "headline": {
+      "zh": "让配合能够持续",
+      "en": "Making cooperation sustainable"
+    },
+    "summary": {
+      "zh": "本次比较中，稳定支持的选项被选得最多。可以核对自己是否常先关注节奏、承诺和大家能否跟上。这个结果不等于被动、没有主见，也不证明别人可以把照顾责任交给你。",
+      "en": "Steady-support options received the highest count. Consider whether you often attend first to pace, commitments and whether people can keep up. This does not imply passivity or lack of opinions, or make you responsible for caring for everyone."
+    },
+    "sections": [
+      {
+        "id": "editorial-contribution",
+        "title": {
+          "zh": "可以发挥的作用",
+          "en": "A possible contribution"
+        },
+        "paragraphs": [
+          {
+            "zh": "当安排反复变化、有人需要适应时间时，稳定的提醒、明确交接和持续回应可能减少遗漏。支持是否有效，应看对方需要什么和你能承担什么，而非你是否总在场。",
+            "en": "When plans change repeatedly or people need time to adjust, consistent reminders, clear handovers and follow-through may reduce omissions. Useful support depends on the other person’s needs and your capacity, rather than constant availability."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "过度使用时的代价",
+          "en": "When the approach is overused"
+        },
+        "paragraphs": [
+          {
+            "zh": "如果维持和气比说出需求更优先，不同意可能被拖到很晚才出现。留意是否答应之后才发现负担过重，或把暂时不反对变成了长期承诺。",
+            "en": "If preserving harmony takes priority over stating needs, disagreement may surface late. Notice whether a commitment proves too heavy after you accept it, or temporary non-objection becomes an ongoing responsibility."
+          }
+        ]
+      },
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "放进一个日常场景",
+          "en": "A situation to consider"
+        },
+        "paragraphs": [
+          {
+            "zh": "例如朋友固定每周一起练习，你可以提出一个自己能稳定参加的时段，并提前说明偶尔需要休息。安排里同时有持续性和退出方式，通常比“我都可以”更便于双方计划。",
+            "en": "For a weekly practice with a friend, suggest a time you can usually attend and explain that you may sometimes need a break. A consistent plan with a way to opt out gives both people clearer information than “anything works for me.”"
+          }
+        ]
+      },
+      {
+        "id": "editorial-conversation",
+        "title": {
+          "zh": "可以直接使用的沟通句",
+          "en": "Words to try in a conversation"
+        },
+        "paragraphs": [
+          {
+            "zh": "可以说：“我愿意帮这一步，能安排到周四；后面那部分我现在接不了。你最需要哪一种支持？”拒绝一部分并不会自动否定你对这段关系或共同任务的重视。",
+            "en": "Try: “I can help with this step until Thursday, but cannot take the later part. Which kind of support matters most?” Declining part of a request does not automatically negate your care for the relationship or shared task."
+          }
+        ]
+      },
+      {
+        "id": "editorial-experiment",
+        "title": {
+          "zh": "本周做一次小尝试",
+          "en": "One small experiment this week"
+        },
+        "paragraphs": [
+          {
+            "zh": "本周在一次低风险安排中，提前说出一个真实偏好和一个可承担的范围。之后记下对方如何回应、计划是否更清楚，以及自己有没有减少勉强。无需刻意制造冲突。",
+            "en": "In one low-risk arrangement this week, state a real preference and the limit of what you can take on. Note the response, whether the plan became clearer and whether you felt less overextended. There is no need to create conflict."
+          }
+        ]
+      },
+      {
+        "id": "editorial-comparison",
+        "title": {
+          "zh": "与相近方向怎样区分",
+          "en": "Distinguishing related directions"
+        },
+        "paragraphs": [
+          {
+            "zh": "S与C都可能重视可靠，但本版S侧重支持和节奏，C侧重标准与核查；S与I都关心互动，I更侧重表达带动。安静、细心或友好都不能单独说明你属于哪一方向。",
+            "en": "S and C may both value reliability; here S emphasises support and pace, while C emphasises standards and checking. S and I both attend to interaction, with I focused more on expression. Quietness, care or friendliness alone cannot identify a direction."
+          }
+        ]
+      }
+    ]
+  },
+  "single-c": {
+    "headline": {
+      "zh": "先把依据与标准对齐",
+      "en": "Aligning evidence and standards"
+    },
+    "summary": {
+      "zh": "本次比较中，规范核对的选项被选得最多。可以回想自己是否常先确认定义、依据与验收标准，再接受一个结论。这个计数不测智力、专业水平或是否比别人更理性。",
+      "en": "Standards-and-checking options received the highest count. Consider whether you first clarify definitions, evidence and acceptance criteria before accepting a conclusion. This count does not measure intelligence, expertise or greater rationality than others."
+    },
+    "sections": [
+      {
+        "id": "editorial-contribution",
+        "title": {
+          "zh": "可以发挥的作用",
+          "en": "A possible contribution"
+        },
+        "paragraphs": [
+          {
+            "zh": "当任务要求准确交接、避免遗漏或解释依据时，把标准写清楚可能减少各说各话。检查的价值取决于它能否改变判断或降低相关错误，不在于检查次数越多越好。",
+            "en": "For accurate handovers, avoiding omissions or explaining evidence, explicit criteria may reduce mismatched expectations. A check is useful when it can change a decision or reduce relevant errors, rather than simply adding another review."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "过度使用时的代价",
+          "en": "When the approach is overused"
+        },
+        "paragraphs": [
+          {
+            "zh": "若完成标准不断增加，原本足够的方案可能迟迟无法交付。观察是否区分了必须修正的错误、可接受的不确定性和个人偏好；也留意追问依据是否让对方误以为你否定了他整个人。",
+            "en": "If completion criteria keep expanding, an adequate plan may never be delivered. Distinguish errors that require correction, acceptable uncertainty and personal preferences. Consider whether requests for evidence are being heard as rejection of the person."
+          }
+        ]
+      },
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "放进一个日常场景",
+          "en": "A situation to consider"
+        },
+        "paragraphs": [
+          {
+            "zh": "例如核对一次共同出游的费用，可以先约定金额、凭据和截止时间。若账目已经符合约定，就不必因为表格风格不同而重做；标准能帮助结束检查，也能帮助开始检查。",
+            "en": "For shared trip expenses, agree the amounts, records and deadline first. Once the record meets those criteria, a different spreadsheet style need not trigger rework. Criteria can tell you when to stop checking as well as when to begin."
+          }
+        ]
+      },
+      {
+        "id": "editorial-conversation",
+        "title": {
+          "zh": "可以直接使用的沟通句",
+          "en": "Words to try in a conversation"
+        },
+        "paragraphs": [
+          {
+            "zh": "可以说：“我想确认的是这条依据，不是在否定你的想法。哪一项必须现在核实，哪一项可以先试后查？”把问题指向具体主张，也说明你愿意接受什么样的答案。",
+            "en": "Try: “I am checking this piece of evidence, rather than rejecting your idea. What must we verify now, and what can we test first?” Direct the question at a specific claim and explain what would answer it."
+          }
+        ]
+      },
+      {
+        "id": "editorial-experiment",
+        "title": {
+          "zh": "本周做一次小尝试",
+          "en": "One small experiment this week"
+        },
+        "paragraphs": [
+          {
+            "zh": "本周为一次低风险任务预先写下三项完成条件，符合后停止追加标准。记下剩余的不确定性以及后来是否真的影响使用；若出现关键新信息，仍可以重新检查。",
+            "en": "For one low-risk task this week, write three completion criteria in advance and stop adding criteria once they are met. Note remaining uncertainty and whether it later affected use. Important new information can still justify another check."
+          }
+        ]
+      },
+      {
+        "id": "editorial-comparison",
+        "title": {
+          "zh": "与相近方向怎样区分",
+          "en": "Distinguishing related directions"
+        },
+        "paragraphs": [
+          {
+            "zh": "C与D都可能直接提出要求，本版C侧重核对依据，D侧重推进取舍；C与S都可能稳定可靠，S更侧重支持与节奏。相同的认真表现，可能服务于不同的当下需要。",
+            "en": "C and D can both make direct requests; here C focuses on checking evidence and D on advancing tradeoffs. C and S may both be reliable, with S focused more on support and pace. Similar careful behaviour can serve different immediate needs."
+          }
+        ]
+      }
+    ]
+  },
+  "tied-d-i": {
+    "headline": {
+      "zh": "把提案说出来，再确认谁愿意行动",
+      "en": "Voice a proposal, then confirm participation"
+    },
+    "summary": {
+      "zh": "本次D / I的原始选择次数共同最高。这里逐项提供观察角度，不把它们合成一个新人格，也不指定主型与副型。相同计数可能来自不同情境中的选择，不能据此判断你为什么作出选择。",
+      "en": "D / I share the highest raw choice count in this attempt. Read each as an observation angle, without creating a new personality or assigning a primary and secondary type. Equal counts can arise from choices in different situations and do not reveal why you made them."
+    },
+    "sections": [
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "用具体情境理解并列",
+          "en": "Understanding the tie in a situation"
+        },
+        "paragraphs": [
+          {
+            "zh": "讨论聚会时，先画出有趣的活动，再问谁愿意负责哪一步。",
+            "en": "For a gathering, describe an appealing activity, then ask who wants to take which step."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "可能的拉扯与误读",
+          "en": "Possible tensions and misreadings"
+        },
+        "paragraphs": [
+          {
+            "zh": "推进可能快于共识，热情也可能被误当承诺。",
+            "en": "Progress can outrun agreement, and enthusiasm can be mistaken for commitment."
+          }
+        ]
+      },
+      {
+        "id": "editorial-experiment",
+        "title": {
+          "zh": "本周做一次小尝试",
+          "en": "One small experiment this week"
+        },
+        "paragraphs": [
+          {
+            "zh": "把“大家觉得不错”与“某人明确答应负责”分开记录。",
+            "en": "Record “people liked it” separately from “someone explicitly agreed to own it.”"
+          }
+        ]
+      }
+    ]
+  },
+  "tied-d-s": {
+    "headline": {
+      "zh": "给出下一步，也给适应留时间",
+      "en": "Offer a next step and time to adjust"
+    },
+    "summary": {
+      "zh": "本次D / S的原始选择次数共同最高。这里逐项提供观察角度，不把它们合成一个新人格，也不指定主型与副型。相同计数可能来自不同情境中的选择，不能据此判断你为什么作出选择。",
+      "en": "D / S share the highest raw choice count in this attempt. Read each as an observation angle, without creating a new personality or assigning a primary and secondary type. Equal counts can arise from choices in different situations and do not reveal why you made them."
+    },
+    "sections": [
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "用具体情境理解并列",
+          "en": "Understanding the tie in a situation"
+        },
+        "paragraphs": [
+          {
+            "zh": "共同活动临时换地点时，先提可行替代，再确认同行者是否能到达。",
+            "en": "When an activity changes location, propose an alternative and check whether everyone joining can reach it."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "可能的拉扯与误读",
+          "en": "Possible tensions and misreadings"
+        },
+        "paragraphs": [
+          {
+            "zh": "想尽快解决和不愿给别人添麻烦，可能拉向不同安排。",
+            "en": "Wanting a quick solution and wanting to avoid burdening others can favour different plans."
+          }
+        ]
+      },
+      {
+        "id": "editorial-experiment",
+        "title": {
+          "zh": "本周做一次小尝试",
+          "en": "One small experiment this week"
+        },
+        "paragraphs": [
+          {
+            "zh": "分别写下最迟决定时间与需要确认的实际困难，再选一个暂定方案。",
+            "en": "Write the decision deadline and practical concerns separately before choosing a provisional plan."
+          }
+        ]
+      }
+    ]
+  },
+  "tied-d-c": {
+    "headline": {
+      "zh": "用完成条件约束推进",
+      "en": "Use completion criteria to guide progress"
+    },
+    "summary": {
+      "zh": "本次D / C的原始选择次数共同最高。这里逐项提供观察角度，不把它们合成一个新人格，也不指定主型与副型。相同计数可能来自不同情境中的选择，不能据此判断你为什么作出选择。",
+      "en": "D / C share the highest raw choice count in this attempt. Read each as an observation angle, without creating a new personality or assigning a primary and secondary type. Equal counts can arise from choices in different situations and do not reveal why you made them."
+    },
+    "sections": [
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "用具体情境理解并列",
+          "en": "Understanding the tie in a situation"
+        },
+        "paragraphs": [
+          {
+            "zh": "赶一份共同演示时，先确认必须无误的事实，再决定哪些排版可以以后调整。",
+            "en": "For a shared presentation on a deadline, identify facts that must be correct before deciding which layout details can wait."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "可能的拉扯与误读",
+          "en": "Possible tensions and misreadings"
+        },
+        "paragraphs": [
+          {
+            "zh": "想现在推进与想核实充分可能互相牵制；两项并列不证明你已兼得速度与质量。",
+            "en": "The wish to proceed and the wish to verify can pull against each other; a tie does not prove both speed and quality."
+          }
+        ]
+      },
+      {
+        "id": "editorial-experiment",
+        "title": {
+          "zh": "本周做一次小尝试",
+          "en": "One small experiment this week"
+        },
+        "paragraphs": [
+          {
+            "zh": "列出一项推进前必须完成的检查，再约定一次小范围试用与回看时间。",
+            "en": "Choose one check required before proceeding, then agree a limited trial and review time."
+          }
+        ]
+      }
+    ]
+  },
+  "tied-i-s": {
+    "headline": {
+      "zh": "邀请回应，也接住不同节奏",
+      "en": "Invite responses while allowing different paces"
+    },
+    "summary": {
+      "zh": "本次I / S的原始选择次数共同最高。这里逐项提供观察角度，不把它们合成一个新人格，也不指定主型与副型。相同计数可能来自不同情境中的选择，不能据此判断你为什么作出选择。",
+      "en": "I / S share the highest raw choice count in this attempt. Read each as an observation angle, without creating a new personality or assigning a primary and secondary type. Equal counts can arise from choices in different situations and do not reveal why you made them."
+    },
+    "sections": [
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "用具体情境理解并列",
+          "en": "Understanding the tie in a situation"
+        },
+        "paragraphs": [
+          {
+            "zh": "朋友聚餐时，可以提一个轻松话题，也让只想听的人自在旁听。",
+            "en": "At a meal with friends, offer an easy topic and allow people who prefer listening to do so."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "可能的拉扯与误读",
+          "en": "Possible tensions and misreadings"
+        },
+        "paragraphs": [
+          {
+            "zh": "想让气氛热络和想让每个人舒服不一定同时成立；安静未必需要被改变。",
+            "en": "Liveliness and everyone’s comfort do not always coincide; quietness may not need changing."
+          }
+        ]
+      },
+      {
+        "id": "editorial-experiment",
+        "title": {
+          "zh": "本周做一次小尝试",
+          "en": "One small experiment this week"
+        },
+        "paragraphs": [
+          {
+            "zh": "邀请一次即可，再问对方喜欢说、听还是稍后聊，不替他决定参与方式。",
+            "en": "Invite once, then ask whether the person prefers speaking, listening or talking later rather than choosing for them."
+          }
+        ]
+      }
+    ]
+  },
+  "tied-i-c": {
+    "headline": {
+      "zh": "让想法有画面，也有依据",
+      "en": "Give an idea both a picture and evidence"
+    },
+    "summary": {
+      "zh": "本次I / C的原始选择次数共同最高。这里逐项提供观察角度，不把它们合成一个新人格，也不指定主型与副型。相同计数可能来自不同情境中的选择，不能据此判断你为什么作出选择。",
+      "en": "I / C share the highest raw choice count in this attempt. Read each as an observation angle, without creating a new personality or assigning a primary and secondary type. Equal counts can arise from choices in different situations and do not reveal why you made them."
+    },
+    "sections": [
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "用具体情境理解并列",
+          "en": "Understanding the tie in a situation"
+        },
+        "paragraphs": [
+          {
+            "zh": "推荐一本书时，可以先讲吸引你的主题，再区分书中事实和自己的感受。",
+            "en": "When recommending a book, describe the appealing theme and distinguish the book’s factual claims from your impressions."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "可能的拉扯与误读",
+          "en": "Possible tensions and misreadings"
+        },
+        "paragraphs": [
+          {
+            "zh": "说得生动不代表依据充分，反复补充细节也可能遮住主要观点。",
+            "en": "A vivid explanation is not sufficient evidence, while repeated detail can obscure the main point."
+          }
+        ]
+      },
+      {
+        "id": "editorial-experiment",
+        "title": {
+          "zh": "本周做一次小尝试",
+          "en": "One small experiment this week"
+        },
+        "paragraphs": [
+          {
+            "zh": "用三句话分别写出提议、支持它的依据，以及尚不知道的部分。",
+            "en": "Write three separate sentences for the proposal, its supporting evidence and what remains unknown."
+          }
+        ]
+      }
+    ]
+  },
+  "tied-s-c": {
+    "headline": {
+      "zh": "把可靠变成清楚的约定",
+      "en": "Turn reliability into explicit agreements"
+    },
+    "summary": {
+      "zh": "本次S / C的原始选择次数共同最高。这里逐项提供观察角度，不把它们合成一个新人格，也不指定主型与副型。相同计数可能来自不同情境中的选择，不能据此判断你为什么作出选择。",
+      "en": "S / C share the highest raw choice count in this attempt. Read each as an observation angle, without creating a new personality or assigning a primary and secondary type. Equal counts can arise from choices in different situations and do not reveal why you made them."
+    },
+    "sections": [
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "用具体情境理解并列",
+          "en": "Understanding the tie in a situation"
+        },
+        "paragraphs": [
+          {
+            "zh": "共同照看植物时，既约好谁在哪天浇水，也说明如何判断是否需要浇。",
+            "en": "When sharing plant care, agree who checks on which day and how to decide whether watering is needed."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "可能的拉扯与误读",
+          "en": "Possible tensions and misreadings"
+        },
+        "paragraphs": [
+          {
+            "zh": "怕打扰别人可能让标准不清，怕出错又可能让自己默默接下所有检查。",
+            "en": "Avoiding inconvenience can leave criteria unclear, while fear of mistakes can lead you to take on every check silently."
+          }
+        ]
+      },
+      {
+        "id": "editorial-experiment",
+        "title": {
+          "zh": "本周做一次小尝试",
+          "en": "One small experiment this week"
+        },
+        "paragraphs": [
+          {
+            "zh": "提前确认一条标准、一位负责人和一个自己不能承担的范围。",
+            "en": "Confirm one criterion, an owner and one limit to what you can take on."
+          }
+        ]
+      }
+    ]
+  },
+  "tied-d-i-s": {
+    "headline": {
+      "zh": "让行动、表达与支持各有位置",
+      "en": "Make room for action, expression and support"
+    },
+    "summary": {
+      "zh": "本次D / I / S的原始选择次数共同最高。这里逐项提供观察角度，不把它们合成一个新人格，也不指定主型与副型。相同计数可能来自不同情境中的选择，不能据此判断你为什么作出选择。",
+      "en": "D / I / S share the highest raw choice count in this attempt. Read each as an observation angle, without creating a new personality or assigning a primary and secondary type. Equal counts can arise from choices in different situations and do not reveal why you made them."
+    },
+    "sections": [
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "用具体情境理解并列",
+          "en": "Understanding the tie in a situation"
+        },
+        "paragraphs": [
+          {
+            "zh": "组织朋友共同做饭时，可以先征集菜式，询问各自愿意做什么，再定开饭时间。",
+            "en": "For a shared meal, invite menu ideas, ask what each person wants to do and then agree a serving time."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "可能的拉扯与误读",
+          "en": "Possible tensions and misreadings"
+        },
+        "paragraphs": [
+          {
+            "zh": "热情地发起后又想照顾全部偏好，可能让范围越来越大。",
+            "en": "An enthusiastic start followed by accommodating every preference can expand the scope."
+          }
+        ]
+      },
+      {
+        "id": "editorial-experiment",
+        "title": {
+          "zh": "本周做一次小尝试",
+          "en": "One small experiment this week"
+        },
+        "paragraphs": [
+          {
+            "zh": "本次只确认一道共同菜、各自一项自愿分工，以及可以不参加的选项。",
+            "en": "Agree one shared dish, one voluntary task per participant and an option not to join."
+          }
+        ]
+      }
+    ]
+  },
+  "tied-d-i-c": {
+    "headline": {
+      "zh": "把有吸引力的提案变成可检查的小步",
+      "en": "Turn an appealing proposal into a checkable step"
+    },
+    "summary": {
+      "zh": "本次D / I / C的原始选择次数共同最高。这里逐项提供观察角度，不把它们合成一个新人格，也不指定主型与副型。相同计数可能来自不同情境中的选择，不能据此判断你为什么作出选择。",
+      "en": "D / I / C share the highest raw choice count in this attempt. Read each as an observation angle, without creating a new personality or assigning a primary and secondary type. Equal counts can arise from choices in different situations and do not reveal why you made them."
+    },
+    "sections": [
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "用具体情境理解并列",
+          "en": "Understanding the tie in a situation"
+        },
+        "paragraphs": [
+          {
+            "zh": "筹备一次读书分享时，先说主题、核对引用来源，再确定第一场只讨论哪个问题。",
+            "en": "For a reading session, describe the theme, verify references and choose just one question for the first meeting."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "可能的拉扯与误读",
+          "en": "Possible tensions and misreadings"
+        },
+        "paragraphs": [
+          {
+            "zh": "想快、想有感染力和想准确可能分别要求不同准备；并列不证明三者总能同时做到。",
+            "en": "Speed, engagement and accuracy may require different preparation; a tie does not establish that all three are always achieved."
+          }
+        ]
+      },
+      {
+        "id": "editorial-experiment",
+        "title": {
+          "zh": "本周做一次小尝试",
+          "en": "One small experiment this week"
+        },
+        "paragraphs": [
+          {
+            "zh": "约定第一步、最关键的事实检查和一句不夸大承诺的邀请。",
+            "en": "Agree the first step, the most important factual check and an invitation without inflated promises."
+          }
+        ]
+      }
+    ]
+  },
+  "tied-d-s-c": {
+    "headline": {
+      "zh": "用可承担的标准安排下一步",
+      "en": "Plan the next step with workable criteria"
+    },
+    "summary": {
+      "zh": "本次D / S / C的原始选择次数共同最高。这里逐项提供观察角度，不把它们合成一个新人格，也不指定主型与副型。相同计数可能来自不同情境中的选择，不能据此判断你为什么作出选择。",
+      "en": "D / S / C share the highest raw choice count in this attempt. Read each as an observation angle, without creating a new personality or assigning a primary and secondary type. Equal counts can arise from choices in different situations and do not reveal why you made them."
+    },
+    "sections": [
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "用具体情境理解并列",
+          "en": "Understanding the tie in a situation"
+        },
+        "paragraphs": [
+          {
+            "zh": "共同整理资料时，先约定归档标准，再确认每人可用时间，最后安排一个小批次。",
+            "en": "When organising shared documents, agree filing criteria, check available time and schedule a small batch."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "可能的拉扯与误读",
+          "en": "Possible tensions and misreadings"
+        },
+        "paragraphs": [
+          {
+            "zh": "进度、照顾节奏和检查质量可能争夺时间；没有必要一次把所有问题都解决。",
+            "en": "Progress, accommodating pace and checking quality can compete for time; not every issue must be solved at once."
+          }
+        ]
+      },
+      {
+        "id": "editorial-experiment",
+        "title": {
+          "zh": "本周做一次小尝试",
+          "en": "One small experiment this week"
+        },
+        "paragraphs": [
+          {
+            "zh": "划定一小批范围，写明谁负责、何时算完成，以及遇到困难如何调整。",
+            "en": "Choose a small batch and state ownership, completion criteria and how to adjust if difficulties arise."
+          }
+        ]
+      }
+    ]
+  },
+  "tied-i-s-c": {
+    "headline": {
+      "zh": "让理解、舒适与准确可以分别确认",
+      "en": "Check understanding, comfort and accuracy separately"
+    },
+    "summary": {
+      "zh": "本次I / S / C的原始选择次数共同最高。这里逐项提供观察角度，不把它们合成一个新人格，也不指定主型与副型。相同计数可能来自不同情境中的选择，不能据此判断你为什么作出选择。",
+      "en": "I / S / C share the highest raw choice count in this attempt. Read each as an observation angle, without creating a new personality or assigning a primary and secondary type. Equal counts can arise from choices in different situations and do not reveal why you made them."
+    },
+    "sections": [
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "用具体情境理解并列",
+          "en": "Understanding the tie in a situation"
+        },
+        "paragraphs": [
+          {
+            "zh": "朋友一起选活动时，先解释选项、问各自方便程度，再核对时间与费用。",
+            "en": "When friends choose an activity, explain the options, ask what works for each person and verify timing and cost."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "可能的拉扯与误读",
+          "en": "Possible tensions and misreadings"
+        },
+        "paragraphs": [
+          {
+            "zh": "为了讲得完整又不让人失望，可能迟迟说不清自己的限制。",
+            "en": "Trying to explain everything without disappointing anyone can delay stating your own limits."
+          }
+        ]
+      },
+      {
+        "id": "editorial-experiment",
+        "title": {
+          "zh": "本周做一次小尝试",
+          "en": "One small experiment this week"
+        },
+        "paragraphs": [
+          {
+            "zh": "先说一个自己的真实条件，再邀请对方补充，最后只核对影响选择的信息。",
+            "en": "State one real condition of your own, invite the other person’s input and verify only the information that affects the choice."
+          }
+        ]
+      }
+    ]
+  },
+  "tied-d-i-s-c": {
+    "headline": {
+      "zh": "四项相同，先回到具体选择",
+      "en": "With four equal counts, return to specific choices"
+    },
+    "summary": {
+      "zh": "本次D / I / S / C的原始选择次数共同最高。这里逐项提供观察角度，不把它们合成一个新人格，也不指定主型与副型。相同计数可能来自不同情境中的选择，不能据此判断你为什么作出选择。",
+      "en": "D / I / S / C share the highest raw choice count in this attempt. Read each as an observation angle, without creating a new personality or assigning a primary and secondary type. Equal counts can arise from choices in different situations and do not reveal why you made them."
+    },
+    "sections": [
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "用具体情境理解并列",
+          "en": "Understanding the tie in a situation"
+        },
+        "paragraphs": [
+          {
+            "zh": "同一次活动里，你可能在定时间时想推进、聊创意时想表达、分工时想照顾节奏、核对费用时想查清楚。这里只是可核对的例子。",
+            "en": "In one activity, setting a time might call for action, ideas for expression, task sharing for support and expenses for checking. These are examples to compare with experience."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "可能的拉扯与误读",
+          "en": "Possible tensions and misreadings"
+        },
+        "paragraphs": [
+          {
+            "zh": "四项相同既不证明全能、平衡或适应性强，也不证明没有个性；它只说明本次四个计数相等。",
+            "en": "Equal counts do not establish versatility, balance or adaptability, or a lack of individuality. They only record four equal counts in this attempt."
+          }
+        ]
+      },
+      {
+        "id": "editorial-experiment",
+        "title": {
+          "zh": "本周做一次小尝试",
+          "en": "One small experiment this week"
+        },
+        "paragraphs": [
+          {
+            "zh": "选一题回想具体经历，记录当时两个选项为何难取舍；无需为了得到单一字母重测。",
+            "en": "Choose one question and recall a specific experience, noting why its two options were difficult to choose between. There is no need to retake just to obtain one letter."
+          }
+        ]
+      }
+    ]
+  }
+}

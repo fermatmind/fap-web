@@ -1,0 +1,207 @@
+{
+  "directness-reading": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者先说明一个计划时间不够，之后才补背景；听者当下没有回应。顺序、可用背景和听者真实理解不同，沉默不证明不满，较高均值也不认证造成伤害。清楚拒绝可以仍然合适，不需为降低数字而增加所有解释。",
+          "en": "In an additional original scene: A fictional reader first says a plan has insufficient time and adds context later; the listener gives no immediate answer. Sequence, available context and the listener’s actual understanding differ. Silence proves no dislike and a higher mean certifies no harm. A clear refusal may remain appropriate without extra explanations to lower a number."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构叙述里实际说了什么，哪些背景已提供，哪些他人反应仍未知？”可只读或谈虚构人物，不需找证人、征求他人评价或公开个人数字。保留未知和不同理解即可，讨论不以取得喜欢、重建联系或降低均值为目标。",
+          "en": "An optional discussion card asks: “What was actually said in the fictional account, what context was supplied, and which reactions remain unknown?” Read alone or discuss fictional people without witnesses, other people’s evaluations or public numbers. Unknowns and different interpretations may remain; liking, resumed contact and lower means are never goals."
+        }
+      ]
+    },
+    {
+      "id": "science",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创，可只读，原行动和回忆均可跳过。回想目前能确认的互动，不增加四周等固定窗口。保留原小程序二十条中文及五个符合程度选项，英文为新工作译文；五组各四题直接计入，无反向。1至5问陈述是否符合自身，中点3保留“不确定或视情况”，是有效数值，不换成有时、中立或缺失。此源题本无NA、不计分选项；二十项全部有效才展示任何个人和、均值及解释，缺答不补零或中点，不按已答子集作判断。没有贴切项可停止直接读五篇全文。每组原始和4—20，再除以四得准确四分之一步长均值，显示两位小数；4、3、2、4合13，为3.25；不再舍入为一位小数。五组不合总分、排名、主要原因、缺点或严重度，同和不证明同等影响，重测变化不认证改善。题本只收自报，没有同伴或伴侣评价、观察及事件核实，不能确定他人是否注意、受影响或讨厌自己。框架无已建立信效度、常模、公平性、预测或中英等值，不用于诊断、人缘、价值、录用、关系筛选或安全决定。虚构讨论无需真人回答、披露、联系、讨好、过度承诺、解释拒绝或降低边界；谁都可以不参与。清楚说不可以是完整边界，停止不安全联系无需协商或承诺回来。页面内存、自选24小时标签页草稿及完成、退出、重测清除保持不变，无最终个人结果缓存；复制只有公开标题与入口，不含答案、原始和或均值，公开页不恢复私人作答。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices; existing actions and recall exercises are optional. Consider interactions you can recall now without imposing a four-week or other fixed window. Original mini-program Chinese items and five endorsement anchors remain, with new working English. Five groups each have four direct items without reversals. Ratings 1–5 describe fit; three retains uncertainty or depending on the situation as numeric information, not sometimes, neutrality or missingness. This source form has no NA or unscored response. All twenty answers must be valid before any personal sum, mean or interpretation. Missingness supplies no zero or midpoint and no answered subset is interpreted. If nothing fits, stop and read all five guides. Each group has a raw sum of 4–20 divided by four for an exact quarter-step mean, displayed to two decimals. Ratings 4, 3, 2, 4 sum to thirteen and give 3.25, without one-decimal approximation. Groups have no total, rank, main cause, flaw or severity. Equal sums establish no equal effects; retake changes certify no improvement. Only self-reports are collected, without peer or partner ratings, observation or event verification. They reveal neither whether others noticed, were affected nor dislike the reader. There are no established reliability, validity, norms, fairness, prediction or English–Chinese equivalence, and no diagnosis, popularity, worth, hiring, relationship selection or safety decision. Fictional discussion needs no actual person’s answer, disclosure, contact, pleasing, overpromising, explanation of refusal or lower boundaries. Anyone may decline. A clear no can be complete; ending unsafe contact requires neither negotiation nor a return promise. Page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged, without a final personal-result cache. Copying contains only a public title and entry link, without answers, raw sums or means; public pages restore no private attempt."
+        }
+      ]
+    }
+  ],
+  "pause-reading": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者在普通交谈后暂停，没有约定返回时间。暂停、解释、可用时间和愿意再谈分别是不同选择；均值不能说明冷漠、惩罚或对方感到距离，也不产生恢复联系的义务。保护自己不需要先得到测试许可。",
+          "en": "In an additional original scene: A fictional reader pauses after an ordinary conversation without agreeing on a return time. Pausing, explaining, availability and willingness to resume are separate choices. The mean establishes neither coldness, punishment nor another person’s distance and creates no duty to resume contact. Protection requires no test permission."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“哪些是当前限度，哪些返回或说明只是可以不作出的承诺？”可只读或谈虚构人物，不需找证人、征求他人评价或公开个人数字。保留未知和不同理解即可，讨论不以取得喜欢、重建联系或降低均值为目标。",
+          "en": "An optional discussion card asks: “Which limits are current, and which return or explanation promises may remain unmade?” Read alone or discuss fictional people without witnesses, other people’s evaluations or public numbers. Unknowns and different interpretations may remain; liking, resumed contact and lower means are never goals."
+        }
+      ]
+    },
+    {
+      "id": "science",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创，可只读，原行动和回忆均可跳过。回想目前能确认的互动，不增加四周等固定窗口。保留原小程序二十条中文及五个符合程度选项，英文为新工作译文；五组各四题直接计入，无反向。1至5问陈述是否符合自身，中点3保留“不确定或视情况”，是有效数值，不换成有时、中立或缺失。此源题本无NA、不计分选项；二十项全部有效才展示任何个人和、均值及解释，缺答不补零或中点，不按已答子集作判断。没有贴切项可停止直接读五篇全文。每组原始和4—20，再除以四得准确四分之一步长均值，显示两位小数；4、3、2、4合13，为3.25；不再舍入为一位小数。五组不合总分、排名、主要原因、缺点或严重度，同和不证明同等影响，重测变化不认证改善。题本只收自报，没有同伴或伴侣评价、观察及事件核实，不能确定他人是否注意、受影响或讨厌自己。框架无已建立信效度、常模、公平性、预测或中英等值，不用于诊断、人缘、价值、录用、关系筛选或安全决定。虚构讨论无需真人回答、披露、联系、讨好、过度承诺、解释拒绝或降低边界；谁都可以不参与。清楚说不可以是完整边界，停止不安全联系无需协商或承诺回来。页面内存、自选24小时标签页草稿及完成、退出、重测清除保持不变，无最终个人结果缓存；复制只有公开标题与入口，不含答案、原始和或均值，公开页不恢复私人作答。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices; existing actions and recall exercises are optional. Consider interactions you can recall now without imposing a four-week or other fixed window. Original mini-program Chinese items and five endorsement anchors remain, with new working English. Five groups each have four direct items without reversals. Ratings 1–5 describe fit; three retains uncertainty or depending on the situation as numeric information, not sometimes, neutrality or missingness. This source form has no NA or unscored response. All twenty answers must be valid before any personal sum, mean or interpretation. Missingness supplies no zero or midpoint and no answered subset is interpreted. If nothing fits, stop and read all five guides. Each group has a raw sum of 4–20 divided by four for an exact quarter-step mean, displayed to two decimals. Ratings 4, 3, 2, 4 sum to thirteen and give 3.25, without one-decimal approximation. Groups have no total, rank, main cause, flaw or severity. Equal sums establish no equal effects; retake changes certify no improvement. Only self-reports are collected, without peer or partner ratings, observation or event verification. They reveal neither whether others noticed, were affected nor dislike the reader. There are no established reliability, validity, norms, fairness, prediction or English–Chinese equivalence, and no diagnosis, popularity, worth, hiring, relationship selection or safety decision. Fictional discussion needs no actual person’s answer, disclosure, contact, pleasing, overpromising, explanation of refusal or lower boundaries. Anyone may decline. A clear no can be complete; ending unsafe contact requires neither negotiation nor a return promise. Page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged, without a final personal-result cache. Copying contains only a public title and entry link, without answers, raw sums or means; public pages restore no private attempt."
+        }
+      ]
+    }
+  ],
+  "expectations-reading": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者原先期待有人看终稿，却还不知道双方是否真正约过。期待、已表达请求、对方理解和实际同意可以不同；认同题目不证明自私或由自己造成落差。新请求仍可被拒绝，谁都不因分数而承担所有期待。",
+          "en": "In an additional original scene: A fictional reader expected a final-draft review but does not know whether it was agreed. Expectations, expressed requests, another person’s understanding and actual agreement can differ. Endorsement proves neither selfishness nor responsibility for a gap. A new request may be declined, and scores assign nobody all expectations."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“哪些只是想法，哪些说过，哪些获得明确同意，什么仍不知道？”可只读或谈虚构人物，不需找证人、征求他人评价或公开个人数字。保留未知和不同理解即可，讨论不以取得喜欢、重建联系或降低均值为目标。",
+          "en": "An optional discussion card asks: “Which parts were thoughts, which were stated, which were agreed, and what remains unknown?” Read alone or discuss fictional people without witnesses, other people’s evaluations or public numbers. Unknowns and different interpretations may remain; liking, resumed contact and lower means are never goals."
+        }
+      ]
+    },
+    {
+      "id": "science",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创，可只读，原行动和回忆均可跳过。回想目前能确认的互动，不增加四周等固定窗口。保留原小程序二十条中文及五个符合程度选项，英文为新工作译文；五组各四题直接计入，无反向。1至5问陈述是否符合自身，中点3保留“不确定或视情况”，是有效数值，不换成有时、中立或缺失。此源题本无NA、不计分选项；二十项全部有效才展示任何个人和、均值及解释，缺答不补零或中点，不按已答子集作判断。没有贴切项可停止直接读五篇全文。每组原始和4—20，再除以四得准确四分之一步长均值，显示两位小数；4、3、2、4合13，为3.25；不再舍入为一位小数。五组不合总分、排名、主要原因、缺点或严重度，同和不证明同等影响，重测变化不认证改善。题本只收自报，没有同伴或伴侣评价、观察及事件核实，不能确定他人是否注意、受影响或讨厌自己。框架无已建立信效度、常模、公平性、预测或中英等值，不用于诊断、人缘、价值、录用、关系筛选或安全决定。虚构讨论无需真人回答、披露、联系、讨好、过度承诺、解释拒绝或降低边界；谁都可以不参与。清楚说不可以是完整边界，停止不安全联系无需协商或承诺回来。页面内存、自选24小时标签页草稿及完成、退出、重测清除保持不变，无最终个人结果缓存；复制只有公开标题与入口，不含答案、原始和或均值，公开页不恢复私人作答。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices; existing actions and recall exercises are optional. Consider interactions you can recall now without imposing a four-week or other fixed window. Original mini-program Chinese items and five endorsement anchors remain, with new working English. Five groups each have four direct items without reversals. Ratings 1–5 describe fit; three retains uncertainty or depending on the situation as numeric information, not sometimes, neutrality or missingness. This source form has no NA or unscored response. All twenty answers must be valid before any personal sum, mean or interpretation. Missingness supplies no zero or midpoint and no answered subset is interpreted. If nothing fits, stop and read all five guides. Each group has a raw sum of 4–20 divided by four for an exact quarter-step mean, displayed to two decimals. Ratings 4, 3, 2, 4 sum to thirteen and give 3.25, without one-decimal approximation. Groups have no total, rank, main cause, flaw or severity. Equal sums establish no equal effects; retake changes certify no improvement. Only self-reports are collected, without peer or partner ratings, observation or event verification. They reveal neither whether others noticed, were affected nor dislike the reader. There are no established reliability, validity, norms, fairness, prediction or English–Chinese equivalence, and no diagnosis, popularity, worth, hiring, relationship selection or safety decision. Fictional discussion needs no actual person’s answer, disclosure, contact, pleasing, overpromising, explanation of refusal or lower boundaries. Anyone may decline. A clear no can be complete; ending unsafe contact requires neither negotiation nor a return promise. Page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged, without a final personal-result cache. Copying contains only a public title and entry link, without answers, raw sums or means; public pages restore no private attempt."
+        }
+      ]
+    }
+  ],
+  "updates-reading": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者发现原安排资源不够，愿意说明现在能完成的一部分，却无法保证新的完成时点。改变、通知、承受范围和对方评价不同；均值不判可靠性，更新也不需要披露私人安排或作不真实承诺。",
+          "en": "In an additional original scene: A fictional reader finds resources insufficient and wants to state the part they can do, without guaranteeing a new completion time. Changes, updates, capacity and another person’s evaluation differ. The mean judges no reliability; an update requires neither private details nor an unrealistic promise."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“可以如实说明哪项变化，哪些时间或能力仍不能承诺？”可只读或谈虚构人物，不需找证人、征求他人评价或公开个人数字。保留未知和不同理解即可，讨论不以取得喜欢、重建联系或降低均值为目标。",
+          "en": "An optional discussion card asks: “Which change can be stated accurately, and which timing or capacity remains unpromised?” Read alone or discuss fictional people without witnesses, other people’s evaluations or public numbers. Unknowns and different interpretations may remain; liking, resumed contact and lower means are never goals."
+        }
+      ]
+    },
+    {
+      "id": "science",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创，可只读，原行动和回忆均可跳过。回想目前能确认的互动，不增加四周等固定窗口。保留原小程序二十条中文及五个符合程度选项，英文为新工作译文；五组各四题直接计入，无反向。1至5问陈述是否符合自身，中点3保留“不确定或视情况”，是有效数值，不换成有时、中立或缺失。此源题本无NA、不计分选项；二十项全部有效才展示任何个人和、均值及解释，缺答不补零或中点，不按已答子集作判断。没有贴切项可停止直接读五篇全文。每组原始和4—20，再除以四得准确四分之一步长均值，显示两位小数；4、3、2、4合13，为3.25；不再舍入为一位小数。五组不合总分、排名、主要原因、缺点或严重度，同和不证明同等影响，重测变化不认证改善。题本只收自报，没有同伴或伴侣评价、观察及事件核实，不能确定他人是否注意、受影响或讨厌自己。框架无已建立信效度、常模、公平性、预测或中英等值，不用于诊断、人缘、价值、录用、关系筛选或安全决定。虚构讨论无需真人回答、披露、联系、讨好、过度承诺、解释拒绝或降低边界；谁都可以不参与。清楚说不可以是完整边界，停止不安全联系无需协商或承诺回来。页面内存、自选24小时标签页草稿及完成、退出、重测清除保持不变，无最终个人结果缓存；复制只有公开标题与入口，不含答案、原始和或均值，公开页不恢复私人作答。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices; existing actions and recall exercises are optional. Consider interactions you can recall now without imposing a four-week or other fixed window. Original mini-program Chinese items and five endorsement anchors remain, with new working English. Five groups each have four direct items without reversals. Ratings 1–5 describe fit; three retains uncertainty or depending on the situation as numeric information, not sometimes, neutrality or missingness. This source form has no NA or unscored response. All twenty answers must be valid before any personal sum, mean or interpretation. Missingness supplies no zero or midpoint and no answered subset is interpreted. If nothing fits, stop and read all five guides. Each group has a raw sum of 4–20 divided by four for an exact quarter-step mean, displayed to two decimals. Ratings 4, 3, 2, 4 sum to thirteen and give 3.25, without one-decimal approximation. Groups have no total, rank, main cause, flaw or severity. Equal sums establish no equal effects; retake changes certify no improvement. Only self-reports are collected, without peer or partner ratings, observation or event verification. They reveal neither whether others noticed, were affected nor dislike the reader. There are no established reliability, validity, norms, fairness, prediction or English–Chinese equivalence, and no diagnosis, popularity, worth, hiring, relationship selection or safety decision. Fictional discussion needs no actual person’s answer, disclosure, contact, pleasing, overpromising, explanation of refusal or lower boundaries. Anyone may decline. A clear no can be complete; ending unsafe contact requires neither negotiation nor a return promise. Page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged, without a final personal-result cache. Copying contains only a public title and entry link, without answers, raw sums or means; public pages restore no private attempt."
+        }
+      ]
+    }
+  ],
+  "boundaries-reading": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者用一句“不，这件事我不接”结束请求，没有补理由或替代方案。简短、边界本身、对方理解和尊重是不同问题；认同题目不证明边界错误，均值也不能要求软化拒绝、降低限度或争取喜欢。",
+          "en": "In an additional original scene: A fictional reader ends a request with “No, I will not take that on,” without reasons or an alternative. Brevity, the boundary itself, another person’s understanding and respect differ. Endorsement proves no faulty boundary, and a mean cannot require softer refusal, lower limits or pursuit of approval."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“哪些是已表达的拒绝，哪些额外理由或替代仍完全自愿？”可只读或谈虚构人物，不需找证人、征求他人评价或公开个人数字。保留未知和不同理解即可，讨论不以取得喜欢、重建联系或降低均值为目标。",
+          "en": "An optional discussion card asks: “Which refusal was expressed, and which additional reasons or alternatives remain entirely optional?” Read alone or discuss fictional people without witnesses, other people’s evaluations or public numbers. Unknowns and different interpretations may remain; liking, resumed contact and lower means are never goals."
+        }
+      ]
+    },
+    {
+      "id": "science",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创，可只读，原行动和回忆均可跳过。回想目前能确认的互动，不增加四周等固定窗口。保留原小程序二十条中文及五个符合程度选项，英文为新工作译文；五组各四题直接计入，无反向。1至5问陈述是否符合自身，中点3保留“不确定或视情况”，是有效数值，不换成有时、中立或缺失。此源题本无NA、不计分选项；二十项全部有效才展示任何个人和、均值及解释，缺答不补零或中点，不按已答子集作判断。没有贴切项可停止直接读五篇全文。每组原始和4—20，再除以四得准确四分之一步长均值，显示两位小数；4、3、2、4合13，为3.25；不再舍入为一位小数。五组不合总分、排名、主要原因、缺点或严重度，同和不证明同等影响，重测变化不认证改善。题本只收自报，没有同伴或伴侣评价、观察及事件核实，不能确定他人是否注意、受影响或讨厌自己。框架无已建立信效度、常模、公平性、预测或中英等值，不用于诊断、人缘、价值、录用、关系筛选或安全决定。虚构讨论无需真人回答、披露、联系、讨好、过度承诺、解释拒绝或降低边界；谁都可以不参与。清楚说不可以是完整边界，停止不安全联系无需协商或承诺回来。页面内存、自选24小时标签页草稿及完成、退出、重测清除保持不变，无最终个人结果缓存；复制只有公开标题与入口，不含答案、原始和或均值，公开页不恢复私人作答。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices; existing actions and recall exercises are optional. Consider interactions you can recall now without imposing a four-week or other fixed window. Original mini-program Chinese items and five endorsement anchors remain, with new working English. Five groups each have four direct items without reversals. Ratings 1–5 describe fit; three retains uncertainty or depending on the situation as numeric information, not sometimes, neutrality or missingness. This source form has no NA or unscored response. All twenty answers must be valid before any personal sum, mean or interpretation. Missingness supplies no zero or midpoint and no answered subset is interpreted. If nothing fits, stop and read all five guides. Each group has a raw sum of 4–20 divided by four for an exact quarter-step mean, displayed to two decimals. Ratings 4, 3, 2, 4 sum to thirteen and give 3.25, without one-decimal approximation. Groups have no total, rank, main cause, flaw or severity. Equal sums establish no equal effects; retake changes certify no improvement. Only self-reports are collected, without peer or partner ratings, observation or event verification. They reveal neither whether others noticed, were affected nor dislike the reader. There are no established reliability, validity, norms, fairness, prediction or English–Chinese equivalence, and no diagnosis, popularity, worth, hiring, relationship selection or safety decision. Fictional discussion needs no actual person’s answer, disclosure, contact, pleasing, overpromising, explanation of refusal or lower boundaries. Anyone may decline. A clear no can be complete; ending unsafe contact requires neither negotiation nor a return promise. Page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged, without a final personal-result cache. Copying contains only a public title and entry link, without answers, raw sums or means; public pages restore no private attempt."
+        }
+      ]
+    }
+  ]
+}

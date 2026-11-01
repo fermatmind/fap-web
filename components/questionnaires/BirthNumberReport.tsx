@@ -16,8 +16,16 @@ function Reduction({ reduction, locale }: { reduction: BirthNumberReduction; loc
 export function BirthNumberGuideBody({ profile, locale, headingLevel = 3, idPrefix = "birth-guide" }: {
   profile: BirthNumberProfile; locale: Locale; headingLevel?: 2 | 3 | 4; idPrefix?: string;
 }) {
+  const candidate = profile.resultReading;
+  const reading = candidate?.quizSlug === "life-path-number" && candidate.profileId === profile.id ? candidate : null;
   const Heading = headingLevel === 2 ? "h2" : headingLevel === 4 ? "h4" : "h3";
-  return <article data-birth-number-guide={profile.id} className="space-y-7 leading-8 [overflow-wrap:anywhere]">
+  return <article data-birth-number-guide={profile.id} data-birth-symbol-result-reading={reading ? profile.id : undefined} className="space-y-7 leading-8 [overflow-wrap:anywhere]">
+    {reading && <details className="mb-6 rounded-lg bg-slate-50 p-4">
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{locale === "zh" ? "跳转到解读模块" : "Jump to a reading section"}</summary>
+      <nav aria-label={locale === "zh" ? "结果解读目录" : "Result reading contents"} className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm leading-7">
+        {profile.sections.map(section => <a key={section.id} className="min-h-11 py-2 underline" href={`#${idPrefix}-${section.id}`}>{section.title[locale]}</a>)}
+      </nav>
+    </details>}
     <p>{profile.summary[locale]}</p>
     <p className="rounded-lg bg-slate-50 p-4 text-sm leading-7">{profile.scoreReading[locale]}</p>
     {profile.sections.map(section => <section id={`${idPrefix}-${section.id}`} key={section.id} className="scroll-mt-24">
@@ -36,7 +44,7 @@ export function BirthNumberAttribution({ quiz, locale }: { quiz: BirthNumberQues
   </aside>;
 }
 
-export function BirthNumberReport({ quiz, results, locale }: { quiz: BirthNumberQuestionnaire; results: Complete[]; locale: Locale }) {
+export function BirthNumberReport({ quiz, results, locale, readingProfiles }: { quiz: BirthNumberQuestionnaire; results: Complete[]; locale: Locale; readingProfiles?: readonly BirthNumberProfile[] }) {
   const zh = locale === "zh";
   if (!isBirthNumberConfigurationValid(quiz) || !Array.isArray(results) || results.length < 1 || results.length > 2
     || !Array.from(results).every(result => result?.status === "complete" && BIRTH_NUMBER_METHODS.includes(result.method)
@@ -46,6 +54,7 @@ export function BirthNumberReport({ quiz, results, locale }: { quiz: BirthNumber
   }
   const profiles = [...new Set(results.map(result => result.number))].map(number => quiz.profiles.find(profile => profile.symbol === number));
   if (profiles.some(profile => !profile)) return <p role="status">{zh ? "符号指南暂不可用。" : "The symbolic guide is unavailable."}</p>;
+  const projected = (profile: BirthNumberProfile) => readingProfiles?.find(item => item.id === profile.id && item.symbol === profile.symbol && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
   const partLabels = zh ? { month: "月份", day: "日期", year: "年份" } : { month: "Month", day: "Day", year: "Year" };
   return <div data-birth-number-result className="mt-6 space-y-8">
     <div className="grid gap-5 sm:grid-cols-2">{results.map(result => <section key={result.method} data-birth-number-method={result.method} className="min-w-0 rounded-lg border border-slate-200 bg-white p-5 leading-8">
@@ -62,7 +71,7 @@ export function BirthNumberReport({ quiz, results, locale }: { quiz: BirthNumber
     <p className="text-sm leading-7 text-slate-600">{zh ? "这些详细算式只显示在当前页面。复制功能不包含生日或算式。两法得到同一数字时，下方共用同一篇完整指南。" : "Detailed operations stay on this page. Copying omits the date and operations. When both rules reach the same number, they share one complete guide below."}</p>
     {profiles.map(profile => profile && <section key={profile.id} className="rounded-lg border border-violet-200 bg-white p-5 sm:p-7" aria-labelledby={`birth-reading-${profile.id}`}>
       <h3 id={`birth-reading-${profile.id}`} className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
-      <BirthNumberGuideBody profile={profile} locale={locale} headingLevel={4} idPrefix={`birth-result-${profile.id}`} />
+      <BirthNumberGuideBody profile={projected(profile)} locale={locale} headingLevel={4} idPrefix={`birth-result-${profile.id}`} />
       <Link prefetch={false} className="mt-6 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这篇完整公开指南" : "Read this complete public guide"}</Link>
     </section>)}
   </div>;

@@ -1,0 +1,412 @@
+{
+  "achievement": [
+    {
+      "id": "achievement-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者希望把一份说明文档做到约定的清晰标准，却不要求新增功能、公开表扬或保证它一定改变决策。完成标准、学到新东西、后续被使用是三种资料。一项任务未达目标也不能用“我重视成就”的选择替代实际检查。",
+          "en": "In an additional original scene, a fictional reader wants an explanatory document to meet an agreed clarity standard without requiring a new feature, public praise or a changed decision. Completion, learning and downstream use are different evidence. Choosing Achievement cannot replace checking whether the document actually met its target."
+        }
+      ]
+    },
+    {
+      "id": "achievement-6",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“这份虚构文档的完成标准是什么？怎样核对标准可行，而不把数量或口号当质量？”可只读，不必提交成果或竞争。听者不从选择次数判断勤奋、绩效或岗位资格。",
+          "en": "An optional discussion card asks for the fictional document’s completion standard and how to check its feasibility without equating quantity or slogans with quality. Reading alone suffices without submitting work or competing. Counts establish no diligence, performance or occupational qualification."
+        }
+      ]
+    },
+    {
+      "id": "achievement-7",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创，可只读，也可跳过原有观察。始终用同一份普通下一阶段工作作设想；公平薪酬、安全和法律条件已是前提，不拿来交换。三十题四选一，每次只记选中价值一次，其他三项未选不等于反对。十项各出现十二次、四个位置各三次，每两项同题四次；合计三十次不是人格总分。名次为1加上次数更多的项数，同次保留同名次，例如6、6、4为1、1、3；十项各三次全部最高。全部最高读法保留，无固定前三或隐藏赢家；改选从原项减一、另一项加一，不证明优先事项稳定改变。平衡出现不验证措辞、十因子独立性或测量精度。本原创十项题本尚无已建立的信效度、常模或中英等值，与CareerOneStop／O*NET六项价值分别存在，不能继承其效度或职业推荐。计数不推断能力、品格、满意度、健康或岗位适配。虚构讨论无需披露单位、收入或私人经历。十篇全文公开；原有页面内存、自选24小时标签页草稿及完成退出重测清除不变，复制只含公开标题与入口。",
+          "en": "FermatMind Editorial authored these added scenes and discussion cards. Reading alone suffices and existing observations are optional. Keep one ordinary next-role setting throughout, with fair pay, safety and legal conditions already required rather than traded away. Each of thirty four-option choices contributes one count; declining three alternatives establishes no rejection. Ten priorities each appear twelve times, three per position, with four co-exposures per pair. Thirty choices are no personality total. Rank is one plus the number of priorities with greater counts: 6, 6, 4 yield ranks 1, 1, 3. Three choices each retain all ten highest readings. No fixed top-three cutoff or hidden winner applies. An edit subtracts one from its original value and adds one to another, establishing no lasting priority change. Balanced exposure validates neither wording, ten independent factors nor precision. This original ten-priority bank has no established reliability, validity, norms or English–Chinese equivalence. CareerOneStop / O*NET’s six-value model supplies no inherited validity or career recommendations. Counts infer neither ability, character, satisfaction, health nor job fit. Fictional discussion needs no employer, income or personal-history disclosure. All ten full guides remain public. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged; copying includes only the public title and entry."
+        }
+      ]
+    }
+  ],
+  "autonomy": [
+    {
+      "id": "autonomy-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者希望在交付要求不变时，自己决定文档编写顺序，但仍共同确认对外内容。方法裁量、预算权限和不受问责不同。喜欢自主不代表拒绝指导；陌生部分需要支持，也不取消希望自行安排熟悉步骤的选择。",
+          "en": "In an additional original scene, a fictional reader wants to choose the writing sequence within an unchanged brief while agreeing external content with collaborators. Method discretion, budget authority and freedom from accountability differ. Guidance on unfamiliar work can coexist with choosing familiar steps independently."
+        }
+      ]
+    },
+    {
+      "id": "autonomy-6",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构任务中哪些决定可以自己做，哪些需协商，检查点放在哪里？”可只读，不要求在真实单位越权或提供内部审批细节。听者不把自主次数当独立决策能力。",
+          "en": "An optional discussion card separates individual decisions, shared decisions and checkpoints in the fictional task. Reading alone suffices without exceeding real authority or disclosing internal approval processes. Autonomy counts establish no independent decision-making ability."
+        }
+      ]
+    },
+    {
+      "id": "autonomy-7",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创，可只读，也可跳过原有观察。始终用同一份普通下一阶段工作作设想；公平薪酬、安全和法律条件已是前提，不拿来交换。三十题四选一，每次只记选中价值一次，其他三项未选不等于反对。十项各出现十二次、四个位置各三次，每两项同题四次；合计三十次不是人格总分。名次为1加上次数更多的项数，同次保留同名次，例如6、6、4为1、1、3；十项各三次全部最高。全部最高读法保留，无固定前三或隐藏赢家；改选从原项减一、另一项加一，不证明优先事项稳定改变。平衡出现不验证措辞、十因子独立性或测量精度。本原创十项题本尚无已建立的信效度、常模或中英等值，与CareerOneStop／O*NET六项价值分别存在，不能继承其效度或职业推荐。计数不推断能力、品格、满意度、健康或岗位适配。虚构讨论无需披露单位、收入或私人经历。十篇全文公开；原有页面内存、自选24小时标签页草稿及完成退出重测清除不变，复制只含公开标题与入口。",
+          "en": "FermatMind Editorial authored these added scenes and discussion cards. Reading alone suffices and existing observations are optional. Keep one ordinary next-role setting throughout, with fair pay, safety and legal conditions already required rather than traded away. Each of thirty four-option choices contributes one count; declining three alternatives establishes no rejection. Ten priorities each appear twelve times, three per position, with four co-exposures per pair. Thirty choices are no personality total. Rank is one plus the number of priorities with greater counts: 6, 6, 4 yield ranks 1, 1, 3. Three choices each retain all ten highest readings. No fixed top-three cutoff or hidden winner applies. An edit subtracts one from its original value and adds one to another, establishing no lasting priority change. Balanced exposure validates neither wording, ten independent factors nor precision. This original ten-priority bank has no established reliability, validity, norms or English–Chinese equivalence. CareerOneStop / O*NET’s six-value model supplies no inherited validity or career recommendations. Counts infer neither ability, character, satisfaction, health nor job fit. Fictional discussion needs no employer, income or personal-history disclosure. All ten full guides remain public. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged; copying includes only the public title and entry."
+        }
+      ]
+    }
+  ],
+  "creativity": [
+    {
+      "id": "creativity-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者想为重复说明尝试一种新图示，先留一小块可撤销草稿供检查；最后仍可能采用旧版。欢迎构思、获得实施许可、方案新颖与方案有用并不等同。没有采用新图示，不证明读者缺少创造力或试验失败。",
+          "en": "In an additional original scene, a fictional reader tries a new diagram for a recurring explanation using a small reversible draft, then may retain the old version. Welcoming invention, permission, novelty and usefulness differ. Keeping the old diagram establishes neither lack of creativity nor a failed trial."
+        }
+      ]
+    },
+    {
+      "id": "creativity-6",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构图示究竟改变什么，谁能提出反馈，哪些条件尚未知？”可只读，不需设计作品或购买工具。讨论不按点子数量评分，也不把选择次数转换成创意天赋。",
+          "en": "An optional discussion card identifies what the fictional diagram changes, who could offer feedback and which conditions remain unknown. Reading alone suffices without making a portfolio or buying tools. Neither idea counts nor these choices assess creative talent."
+        }
+      ]
+    },
+    {
+      "id": "creativity-7",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创，可只读，也可跳过原有观察。始终用同一份普通下一阶段工作作设想；公平薪酬、安全和法律条件已是前提，不拿来交换。三十题四选一，每次只记选中价值一次，其他三项未选不等于反对。十项各出现十二次、四个位置各三次，每两项同题四次；合计三十次不是人格总分。名次为1加上次数更多的项数，同次保留同名次，例如6、6、4为1、1、3；十项各三次全部最高。全部最高读法保留，无固定前三或隐藏赢家；改选从原项减一、另一项加一，不证明优先事项稳定改变。平衡出现不验证措辞、十因子独立性或测量精度。本原创十项题本尚无已建立的信效度、常模或中英等值，与CareerOneStop／O*NET六项价值分别存在，不能继承其效度或职业推荐。计数不推断能力、品格、满意度、健康或岗位适配。虚构讨论无需披露单位、收入或私人经历。十篇全文公开；原有页面内存、自选24小时标签页草稿及完成退出重测清除不变，复制只含公开标题与入口。",
+          "en": "FermatMind Editorial authored these added scenes and discussion cards. Reading alone suffices and existing observations are optional. Keep one ordinary next-role setting throughout, with fair pay, safety and legal conditions already required rather than traded away. Each of thirty four-option choices contributes one count; declining three alternatives establishes no rejection. Ten priorities each appear twelve times, three per position, with four co-exposures per pair. Thirty choices are no personality total. Rank is one plus the number of priorities with greater counts: 6, 6, 4 yield ranks 1, 1, 3. Three choices each retain all ten highest readings. No fixed top-three cutoff or hidden winner applies. An edit subtracts one from its original value and adds one to another, establishing no lasting priority change. Balanced exposure validates neither wording, ten independent factors nor precision. This original ten-priority bank has no established reliability, validity, norms or English–Chinese equivalence. CareerOneStop / O*NET’s six-value model supplies no inherited validity or career recommendations. Counts infer neither ability, character, satisfaction, health nor job fit. Fictional discussion needs no employer, income or personal-history disclosure. All ten full guides remain public. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged; copying includes only the public title and entry."
+        }
+      ]
+    }
+  ],
+  "security": [
+    {
+      "id": "security-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构岗位说明写明下次复核时间和变化通知方式，却没有永久延续保证。读者可以重视可核对信息，同时承认尚未知晓后续经费。想要稳定、实际获得稳定与能承受损失是不同问题；计数不评估真实财务或合同。",
+          "en": "In an additional original scene, a fictional role states a review date and change-notice process without promising permanence. A reader can value verifiable information while future funding remains unknown. Wanting continuity, having it and being able to bear losses differ; counts assess no actual finances or contract."
+        }
+      ]
+    },
+    {
+      "id": "security-6",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构说明中哪些是确认条件，哪些是预期，下一次何时能再核对？”可只读，不需透露收入、家庭责任或合同。不要用高低次数建议他人留下、离职或承担风险。",
+          "en": "An optional discussion card separates confirmed conditions, expectations and the next opportunity to check the fictional role. Reading alone suffices without income, family or contract disclosures. Counts justify no recommendation to stay, leave or accept risk."
+        }
+      ]
+    },
+    {
+      "id": "security-7",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创，可只读，也可跳过原有观察。始终用同一份普通下一阶段工作作设想；公平薪酬、安全和法律条件已是前提，不拿来交换。三十题四选一，每次只记选中价值一次，其他三项未选不等于反对。十项各出现十二次、四个位置各三次，每两项同题四次；合计三十次不是人格总分。名次为1加上次数更多的项数，同次保留同名次，例如6、6、4为1、1、3；十项各三次全部最高。全部最高读法保留，无固定前三或隐藏赢家；改选从原项减一、另一项加一，不证明优先事项稳定改变。平衡出现不验证措辞、十因子独立性或测量精度。本原创十项题本尚无已建立的信效度、常模或中英等值，与CareerOneStop／O*NET六项价值分别存在，不能继承其效度或职业推荐。计数不推断能力、品格、满意度、健康或岗位适配。虚构讨论无需披露单位、收入或私人经历。十篇全文公开；原有页面内存、自选24小时标签页草稿及完成退出重测清除不变，复制只含公开标题与入口。",
+          "en": "FermatMind Editorial authored these added scenes and discussion cards. Reading alone suffices and existing observations are optional. Keep one ordinary next-role setting throughout, with fair pay, safety and legal conditions already required rather than traded away. Each of thirty four-option choices contributes one count; declining three alternatives establishes no rejection. Ten priorities each appear twelve times, three per position, with four co-exposures per pair. Thirty choices are no personality total. Rank is one plus the number of priorities with greater counts: 6, 6, 4 yield ranks 1, 1, 3. Three choices each retain all ten highest readings. No fixed top-three cutoff or hidden winner applies. An edit subtracts one from its original value and adds one to another, establishing no lasting priority change. Balanced exposure validates neither wording, ten independent factors nor precision. This original ten-priority bank has no established reliability, validity, norms or English–Chinese equivalence. CareerOneStop / O*NET’s six-value model supplies no inherited validity or career recommendations. Counts infer neither ability, character, satisfaction, health nor job fit. Fictional discussion needs no employer, income or personal-history disclosure. All ten full guides remain public. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged; copying includes only the public title and entry."
+        }
+      ]
+    }
+  ],
+  "altruism": [
+    {
+      "id": "altruism-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者希望在职责范围内为服务使用者澄清一段说明，对方却表示已经明白、不需要继续协助。重视直接帮助不要求坚持介入。助人意愿、接收者需要、专业资格和实际帮助效果应分别核对。",
+          "en": "In an additional original scene, a fictional reader wants to clarify instructions within their service role, but the recipient says they understand and need no further assistance. Valuing help requires no continued intervention. Willingness, recipient need, professional qualification and actual benefit require separate evidence."
+        }
+      ]
+    },
+    {
+      "id": "altruism-6",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构接收者需要什么，何时停止，超出范围的请求该交给谁？”可只读，不需服务他人或披露私人个案。讨论不把较少次数当自私，也不把较多次数当专业服务资格。",
+          "en": "An optional discussion card asks what the fictional recipient needs, when to stop and who handles requests beyond scope. Reading alone suffices without helping someone or disclosing cases. Fewer choices establish no selfishness; more establish no professional qualification."
+        }
+      ]
+    },
+    {
+      "id": "altruism-7",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创，可只读，也可跳过原有观察。始终用同一份普通下一阶段工作作设想；公平薪酬、安全和法律条件已是前提，不拿来交换。三十题四选一，每次只记选中价值一次，其他三项未选不等于反对。十项各出现十二次、四个位置各三次，每两项同题四次；合计三十次不是人格总分。名次为1加上次数更多的项数，同次保留同名次，例如6、6、4为1、1、3；十项各三次全部最高。全部最高读法保留，无固定前三或隐藏赢家；改选从原项减一、另一项加一，不证明优先事项稳定改变。平衡出现不验证措辞、十因子独立性或测量精度。本原创十项题本尚无已建立的信效度、常模或中英等值，与CareerOneStop／O*NET六项价值分别存在，不能继承其效度或职业推荐。计数不推断能力、品格、满意度、健康或岗位适配。虚构讨论无需披露单位、收入或私人经历。十篇全文公开；原有页面内存、自选24小时标签页草稿及完成退出重测清除不变，复制只含公开标题与入口。",
+          "en": "FermatMind Editorial authored these added scenes and discussion cards. Reading alone suffices and existing observations are optional. Keep one ordinary next-role setting throughout, with fair pay, safety and legal conditions already required rather than traded away. Each of thirty four-option choices contributes one count; declining three alternatives establishes no rejection. Ten priorities each appear twelve times, three per position, with four co-exposures per pair. Thirty choices are no personality total. Rank is one plus the number of priorities with greater counts: 6, 6, 4 yield ranks 1, 1, 3. Three choices each retain all ten highest readings. No fixed top-three cutoff or hidden winner applies. An edit subtracts one from its original value and adds one to another, establishing no lasting priority change. Balanced exposure validates neither wording, ten independent factors nor precision. This original ten-priority bank has no established reliability, validity, norms or English–Chinese equivalence. CareerOneStop / O*NET’s six-value model supplies no inherited validity or career recommendations. Counts infer neither ability, character, satisfaction, health nor job fit. Fictional discussion needs no employer, income or personal-history disclosure. All ten full guides remain public. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged; copying includes only the public title and entry."
+        }
+      ]
+    }
+  ],
+  "recognition": [
+    {
+      "id": "recognition-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者希望共享文档如实列明各方贡献，却不想参加公开表彰。归功记录、个人感谢、名气与成果质量可以不同。希望被准确记录不证明追求地位；没有选择认可也不表示接受不公平归功。",
+          "en": "In an additional original scene, a fictional reader wants accurate contribution records on a shared document without public celebration. Attribution, thanks, fame and work quality differ. Accurate credit establishes no status-seeking motive; fewer Recognition choices establish no acceptance of unfair attribution."
+        }
+      ]
+    },
+    {
+      "id": "recognition-6",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构协作中要记录哪项贡献，用什么普通办法核对，是否需要公开关注？”可只读，不需公开姓名或要求奖励。听者不以次数判断自尊、虚荣或谦逊。",
+          "en": "An optional discussion card asks what contribution to record, how to verify it ordinarily and whether publicity is needed in the fictional collaboration. Reading alone suffices without names or rewards. Counts establish neither self-esteem, vanity nor humility."
+        }
+      ]
+    },
+    {
+      "id": "recognition-7",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创，可只读，也可跳过原有观察。始终用同一份普通下一阶段工作作设想；公平薪酬、安全和法律条件已是前提，不拿来交换。三十题四选一，每次只记选中价值一次，其他三项未选不等于反对。十项各出现十二次、四个位置各三次，每两项同题四次；合计三十次不是人格总分。名次为1加上次数更多的项数，同次保留同名次，例如6、6、4为1、1、3；十项各三次全部最高。全部最高读法保留，无固定前三或隐藏赢家；改选从原项减一、另一项加一，不证明优先事项稳定改变。平衡出现不验证措辞、十因子独立性或测量精度。本原创十项题本尚无已建立的信效度、常模或中英等值，与CareerOneStop／O*NET六项价值分别存在，不能继承其效度或职业推荐。计数不推断能力、品格、满意度、健康或岗位适配。虚构讨论无需披露单位、收入或私人经历。十篇全文公开；原有页面内存、自选24小时标签页草稿及完成退出重测清除不变，复制只含公开标题与入口。",
+          "en": "FermatMind Editorial authored these added scenes and discussion cards. Reading alone suffices and existing observations are optional. Keep one ordinary next-role setting throughout, with fair pay, safety and legal conditions already required rather than traded away. Each of thirty four-option choices contributes one count; declining three alternatives establishes no rejection. Ten priorities each appear twelve times, three per position, with four co-exposures per pair. Thirty choices are no personality total. Rank is one plus the number of priorities with greater counts: 6, 6, 4 yield ranks 1, 1, 3. Three choices each retain all ten highest readings. No fixed top-three cutoff or hidden winner applies. An edit subtracts one from its original value and adds one to another, establishing no lasting priority change. Balanced exposure validates neither wording, ten independent factors nor precision. This original ten-priority bank has no established reliability, validity, norms or English–Chinese equivalence. CareerOneStop / O*NET’s six-value model supplies no inherited validity or career recommendations. Counts infer neither ability, character, satisfaction, health nor job fit. Fictional discussion needs no employer, income or personal-history disclosure. All ten full guides remain public. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged; copying includes only the public title and entry."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "relationships-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构团队成员会提前说明交接变化，也允许同事在不透露私事的情况下拒绝非必要聚会。可靠连接可以包含边界，不必等于持续聊天或像家人。希望这种条件不证明团队已经支持自己，也不预测与哪位同事相处合适。",
+          "en": "In an additional original scene, fictional colleagues explain hand-off changes and allow declining optional gatherings without private reasons. Dependable connection can include boundaries without constant conversation or a family identity. Wanting it establishes neither existing support nor compatibility with particular colleagues."
+        }
+      ]
+    },
+    {
+      "id": "relationships-6",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构团队用什么行为表现体谅，成员不想交流私事时怎样保留合作？”可只读，不需评价真实同事或分享关系经历。较低次数不贴孤独、内向或社交能力标签。",
+          "en": "An optional discussion card names considerate behaviours in the fictional team and ways to cooperate without sharing private matters. Reading alone suffices without judging colleagues or disclosing relationships. Lower counts establish neither loneliness, introversion nor social ability."
+        }
+      ]
+    },
+    {
+      "id": "relationships-7",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创，可只读，也可跳过原有观察。始终用同一份普通下一阶段工作作设想；公平薪酬、安全和法律条件已是前提，不拿来交换。三十题四选一，每次只记选中价值一次，其他三项未选不等于反对。十项各出现十二次、四个位置各三次，每两项同题四次；合计三十次不是人格总分。名次为1加上次数更多的项数，同次保留同名次，例如6、6、4为1、1、3；十项各三次全部最高。全部最高读法保留，无固定前三或隐藏赢家；改选从原项减一、另一项加一，不证明优先事项稳定改变。平衡出现不验证措辞、十因子独立性或测量精度。本原创十项题本尚无已建立的信效度、常模或中英等值，与CareerOneStop／O*NET六项价值分别存在，不能继承其效度或职业推荐。计数不推断能力、品格、满意度、健康或岗位适配。虚构讨论无需披露单位、收入或私人经历。十篇全文公开；原有页面内存、自选24小时标签页草稿及完成退出重测清除不变，复制只含公开标题与入口。",
+          "en": "FermatMind Editorial authored these added scenes and discussion cards. Reading alone suffices and existing observations are optional. Keep one ordinary next-role setting throughout, with fair pay, safety and legal conditions already required rather than traded away. Each of thirty four-option choices contributes one count; declining three alternatives establishes no rejection. Ten priorities each appear twelve times, three per position, with four co-exposures per pair. Thirty choices are no personality total. Rank is one plus the number of priorities with greater counts: 6, 6, 4 yield ranks 1, 1, 3. Three choices each retain all ten highest readings. No fixed top-three cutoff or hidden winner applies. An edit subtracts one from its original value and adds one to another, establishing no lasting priority change. Balanced exposure validates neither wording, ten independent factors nor precision. This original ten-priority bank has no established reliability, validity, norms or English–Chinese equivalence. CareerOneStop / O*NET’s six-value model supplies no inherited validity or career recommendations. Counts infer neither ability, character, satisfaction, health nor job fit. Fictional discussion needs no employer, income or personal-history disclosure. All ten full guides remain public. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged; copying includes only the public title and entry."
+        }
+      ]
+    }
+  ],
+  "learning": [
+    {
+      "id": "learning-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者希望在任务时间内练习陌生检查方法，并获得具体反馈；是否掌握仍需看实际尝试。繁重任务、接触新名词与有支持的学习机会不同。选择学习不要求无偿加时，也不证明学习速度或现有能力。",
+          "en": "In an additional original scene, a fictional reader wants supported practice of an unfamiliar checking method within task time. Mastery still needs evidence from attempts. A heavy workload, new terminology and supported learning differ. Choosing Learning requires no unpaid extra time and establishes no learning speed or current ability."
+        }
+      ]
+    },
+    {
+      "id": "learning-6",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构练习准备学会什么，反馈从哪里来，哪些支持仍未知？”可只读，不需报名课程或展示进步。讨论不把低次数解释成拒绝成长，也不把高次数当学习成果。",
+          "en": "An optional discussion card identifies the fictional learning aim, feedback source and unknown support. Reading alone suffices without courses or demonstrated progress. Lower counts establish no refusal to grow; higher counts establish no learning outcome."
+        }
+      ]
+    },
+    {
+      "id": "learning-7",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创，可只读，也可跳过原有观察。始终用同一份普通下一阶段工作作设想；公平薪酬、安全和法律条件已是前提，不拿来交换。三十题四选一，每次只记选中价值一次，其他三项未选不等于反对。十项各出现十二次、四个位置各三次，每两项同题四次；合计三十次不是人格总分。名次为1加上次数更多的项数，同次保留同名次，例如6、6、4为1、1、3；十项各三次全部最高。全部最高读法保留，无固定前三或隐藏赢家；改选从原项减一、另一项加一，不证明优先事项稳定改变。平衡出现不验证措辞、十因子独立性或测量精度。本原创十项题本尚无已建立的信效度、常模或中英等值，与CareerOneStop／O*NET六项价值分别存在，不能继承其效度或职业推荐。计数不推断能力、品格、满意度、健康或岗位适配。虚构讨论无需披露单位、收入或私人经历。十篇全文公开；原有页面内存、自选24小时标签页草稿及完成退出重测清除不变，复制只含公开标题与入口。",
+          "en": "FermatMind Editorial authored these added scenes and discussion cards. Reading alone suffices and existing observations are optional. Keep one ordinary next-role setting throughout, with fair pay, safety and legal conditions already required rather than traded away. Each of thirty four-option choices contributes one count; declining three alternatives establishes no rejection. Ten priorities each appear twelve times, three per position, with four co-exposures per pair. Thirty choices are no personality total. Rank is one plus the number of priorities with greater counts: 6, 6, 4 yield ranks 1, 1, 3. Three choices each retain all ten highest readings. No fixed top-three cutoff or hidden winner applies. An edit subtracts one from its original value and adds one to another, establishing no lasting priority change. Balanced exposure validates neither wording, ten independent factors nor precision. This original ten-priority bank has no established reliability, validity, norms or English–Chinese equivalence. CareerOneStop / O*NET’s six-value model supplies no inherited validity or career recommendations. Counts infer neither ability, character, satisfaction, health nor job fit. Fictional discussion needs no employer, income or personal-history disclosure. All ten full guides remain public. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged; copying includes only the public title and entry."
+        }
+      ]
+    }
+  ],
+  "balance": [
+    {
+      "id": "balance-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者希望约定回复时段，遇到例外时另行说明范围，而不是默认随时在线。工作内选择方法与工作外可用时间不同。保护边界不证明韧性不足，较少选择也不能成为放弃休息或同意无限加时的依据。",
+          "en": "In an additional original scene, a fictional reader wants agreed response windows and explicit exceptions rather than default constant availability. Method freedom differs from time outside work. Boundaries establish no lack of resilience; fewer Balance choices establish no waiver of rest or consent to unlimited hours."
+        }
+      ]
+    },
+    {
+      "id": "balance-6",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构安排的普通结束点、例外和后续调整分别是什么？”可只读，不需透露私人日程或改变真实承诺。听者不按次数划事业型与生活型，也不把偏好当健康评估。",
+          "en": "An optional discussion card distinguishes the fictional arrangement’s ordinary stopping point, exceptions and later adjustments. Reading alone suffices without private schedules or changed commitments. Counts assign neither career-focused nor life-focused identities and provide no health assessment."
+        }
+      ]
+    },
+    {
+      "id": "balance-7",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创，可只读，也可跳过原有观察。始终用同一份普通下一阶段工作作设想；公平薪酬、安全和法律条件已是前提，不拿来交换。三十题四选一，每次只记选中价值一次，其他三项未选不等于反对。十项各出现十二次、四个位置各三次，每两项同题四次；合计三十次不是人格总分。名次为1加上次数更多的项数，同次保留同名次，例如6、6、4为1、1、3；十项各三次全部最高。全部最高读法保留，无固定前三或隐藏赢家；改选从原项减一、另一项加一，不证明优先事项稳定改变。平衡出现不验证措辞、十因子独立性或测量精度。本原创十项题本尚无已建立的信效度、常模或中英等值，与CareerOneStop／O*NET六项价值分别存在，不能继承其效度或职业推荐。计数不推断能力、品格、满意度、健康或岗位适配。虚构讨论无需披露单位、收入或私人经历。十篇全文公开；原有页面内存、自选24小时标签页草稿及完成退出重测清除不变，复制只含公开标题与入口。",
+          "en": "FermatMind Editorial authored these added scenes and discussion cards. Reading alone suffices and existing observations are optional. Keep one ordinary next-role setting throughout, with fair pay, safety and legal conditions already required rather than traded away. Each of thirty four-option choices contributes one count; declining three alternatives establishes no rejection. Ten priorities each appear twelve times, three per position, with four co-exposures per pair. Thirty choices are no personality total. Rank is one plus the number of priorities with greater counts: 6, 6, 4 yield ranks 1, 1, 3. Three choices each retain all ten highest readings. No fixed top-three cutoff or hidden winner applies. An edit subtracts one from its original value and adds one to another, establishing no lasting priority change. Balanced exposure validates neither wording, ten independent factors nor precision. This original ten-priority bank has no established reliability, validity, norms or English–Chinese equivalence. CareerOneStop / O*NET’s six-value model supplies no inherited validity or career recommendations. Counts infer neither ability, character, satisfaction, health nor job fit. Fictional discussion needs no employer, income or personal-history disclosure. All ten full guides remain public. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged; copying includes only the public title and entry."
+        }
+      ]
+    }
+  ],
+  "impact": [
+    {
+      "id": "impact-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者希望知道交接的清单是否被后续流程使用；收到“已接收”还不足以证明实际改善。产出完成、被使用、发生变化与变化由谁造成应分开。想追踪作用不代表已经有影响，也不把未追踪到的效果当作零。",
+          "en": "In an additional original scene, a fictional reader wants to know whether a handed-off checklist was used. A receipt alone proves no improvement. Completion, use, change and causal contribution differ. Wanting traceability establishes no impact, and an unobserved effect is not automatically zero."
+        }
+      ]
+    },
+    {
+      "id": "impact-6",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构清单交接后哪些情况已知、哪些只是推测、哪些未知？”可只读，不需提交成果、使命声明或真实使用者信息。讨论可以停在未知，不按次数评定工作意义。",
+          "en": "An optional discussion card separates known, inferred and unknown events after the fictional checklist hand-off. Reading alone suffices without outputs, mission statements or user information. Unknown can remain unknown; counts do not grade meaningful work."
+        }
+      ]
+    },
+    {
+      "id": "impact-7",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创，可只读，也可跳过原有观察。始终用同一份普通下一阶段工作作设想；公平薪酬、安全和法律条件已是前提，不拿来交换。三十题四选一，每次只记选中价值一次，其他三项未选不等于反对。十项各出现十二次、四个位置各三次，每两项同题四次；合计三十次不是人格总分。名次为1加上次数更多的项数，同次保留同名次，例如6、6、4为1、1、3；十项各三次全部最高。全部最高读法保留，无固定前三或隐藏赢家；改选从原项减一、另一项加一，不证明优先事项稳定改变。平衡出现不验证措辞、十因子独立性或测量精度。本原创十项题本尚无已建立的信效度、常模或中英等值，与CareerOneStop／O*NET六项价值分别存在，不能继承其效度或职业推荐。计数不推断能力、品格、满意度、健康或岗位适配。虚构讨论无需披露单位、收入或私人经历。十篇全文公开；原有页面内存、自选24小时标签页草稿及完成退出重测清除不变，复制只含公开标题与入口。",
+          "en": "FermatMind Editorial authored these added scenes and discussion cards. Reading alone suffices and existing observations are optional. Keep one ordinary next-role setting throughout, with fair pay, safety and legal conditions already required rather than traded away. Each of thirty four-option choices contributes one count; declining three alternatives establishes no rejection. Ten priorities each appear twelve times, three per position, with four co-exposures per pair. Thirty choices are no personality total. Rank is one plus the number of priorities with greater counts: 6, 6, 4 yield ranks 1, 1, 3. Three choices each retain all ten highest readings. No fixed top-three cutoff or hidden winner applies. An edit subtracts one from its original value and adds one to another, establishing no lasting priority change. Balanced exposure validates neither wording, ten independent factors nor precision. This original ten-priority bank has no established reliability, validity, norms or English–Chinese equivalence. CareerOneStop / O*NET’s six-value model supplies no inherited validity or career recommendations. Counts infer neither ability, character, satisfaction, health nor job fit. Fictional discussion needs no employer, income or personal-history disclosure. All ten full guides remain public. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged; copying includes only the public title and entry."
+        }
+      ]
+    }
+  ]
+}

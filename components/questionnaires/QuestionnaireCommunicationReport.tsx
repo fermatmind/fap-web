@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
 import type { Questionnaire } from "@/lib/questionnaires/types";
@@ -21,7 +21,7 @@ export function QuestionnaireCommunicationReport({ quiz, result, locale }: { qui
     <p className="leading-8">{zh ? "以下四份完整说明都呈现具体回应、工作与日常例子、边界、取舍、相近比较、反例和小尝试。它们不因均分高低而隐藏，也不用于替别人判断动机。" : "All four full guides follow, with concrete responses, work and everyday examples, boundaries, tradeoffs, comparisons, counterexamples and small experiments. None is hidden by its mean or used to infer someone else’s motives."}</p>
     {quiz.profiles.map(profile => <section key={profile.id} data-communication-profile={profile.id} aria-labelledby={`communication-title-${profile.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
       <h3 id={`communication-title-${profile.id}`} className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
-      <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这种方式的公开说明" : "Read this response pattern’s public guide"}</Link>
     </section>)}
   </div>;

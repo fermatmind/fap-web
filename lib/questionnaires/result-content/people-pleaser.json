@@ -1,0 +1,125 @@
+{
+  "needs": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同一个请求，先分清自己的需要",
+        "en": "For one request, identify your own need first"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：朋友请你临时帮忙整理一份材料。你原本需要休息或完成已答应的事，却没有给它留位置，更贴近本部分的观察；认真考虑后自愿调整，则需要另一种理解。他人期望部分另问难以拒绝，责任感部分另问照顾愿望，不由这一次答应补出另外两个均分。",
+          "en": "In a fictional example, a friend asks for help organising material. Overlooking rest or an existing commitment fits this part’s concern more closely than a considered, voluntary adjustment. The other parts separately concern expectations and caring responsibility. One agreement cannot supply their means."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "观察之后，不必马上推翻安排",
+        "en": "Observation need not immediately reverse an arrangement"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的三件事记录，回看自己的需要是在答应之前没注意到，还是注意到了却没能说出。可以先保留这种区别，再选择一处确实可协商的细节。若已有职责仍需完成，就按实际条件处理；观察不是要求突然停止照顾、立即对抗或用拒绝次数证明改变。",
+          "en": "After noting the request, need and agreement above, distinguish not noticing a need from noticing but not expressing it. Keep that distinction before choosing one genuinely negotiable detail. Existing responsibilities still require attention to actual conditions. Observation demands neither abrupt withdrawal of care, confrontation nor proof through refusal counts."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个澄清范围的问题",
+        "en": "Share a question about clarifying scope"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“有人临时加一个请求时，你希望怎样先确认自己已有的安排，再给答复？”可以只讨论虚构场景，不公布均分、私人请求或关系经历。分享这份公开读法不要求认领“讨好型人格”，也不能让别人据此判断你自私、软弱或应该让步。",
+          "en": "Ask: “When an extra request appears, how would you like to check existing plans before replying?” A fictional scene needs no means, private request or relationship history. Sharing this guide requires no people-pleaser identity and supplies no basis to judge selfishness, weakness or who should give way."
+        }
+      ]
+    }
+  ],
+  "responsibility": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "关心愿望与实际职责，分别写清",
+        "en": "Separate a wish to care from actual duties"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：你想支持朋友完成一件事，愿意提供一段帮助，却不保证其最终满意。照顾愿望、已经答应的职责与无法控制的结果可以分开。责任部分均分不能独自证明过度负责；忽略需要或难拒绝的体验，要看另外的题目与实际情境，不能由关心推断。",
+          "en": "In a fictional example, you want to support a friend and offer some help without guaranteeing their satisfaction. A caring wish, an agreed duty and an uncontrollable outcome can be separated. This part’s mean alone cannot establish excessive responsibility or supply another part’s experience of neglected needs or difficulty refusing."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看承诺是否具体、能否做到",
+        "en": "Review whether a commitment is specific and feasible"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的三栏记录，检查“我明确答应的”是否具体到一件事，而不是让对方永远开心。需要确认的部分可以再问，不由自己猜完；无法保证的结果也不等于不关心。若有必要照顾或岗位职责，不用一个分数否定它，先按真实责任范围理解。",
+          "en": "After the three-column note above, check whether the agreement names a task rather than permanent happiness for someone else. Clarify uncertain parts instead of guessing them. An outcome you cannot guarantee does not mean indifference. A score does not cancel necessary care or role duties; understand their actual scope first."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享支持的范围，不评判谁更有爱",
+        "en": "Share the scope of support without ranking care"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“当你想帮忙时，希望先确认信息、时间，还是决定由谁来做？哪种支持会真正有用？”不要求对方公布经历或给你的关心打分。公开读法不带个人均分，也不把强责任感自动称作有害，更不把较低认同解释成没有同理心。",
+          "en": "Ask: “When you want to help, would you first clarify information, time or who decides? Which support would actually help?” No history disclosure or rating of your care is required. This guide carries no personal means and equates neither strong responsibility with harm nor lower agreement with missing empathy."
+        }
+      ]
+    }
+  ],
+  "expectations": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "明确请求与猜测期待不是一回事",
+        "en": "An explicit request differs from a guessed expectation"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：朋友说希望周末得到回复，你猜对方其实要求当天完成全部事情。可以先分清原话、自己的猜测和实际承诺，再决定是否需要澄清。期望部分记录你对条目的认同，不检查朋友真实想法，也不把每一次履行合理约定都归成害怕别人失望。",
+          "en": "In a fictional example, a friend asks for a weekend reply while you infer that everything must be finished today. Separate their words, your inference and an actual commitment before clarifying. This part records item agreement, not another person’s thoughts or proof that every reasonable commitment comes from fear of disappointment."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看澄清后仍有哪些未知",
+        "en": "Review what remains unknown after clarification"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的原话与猜测记录，看看一个小问题是否已经足够：例如需要什么时候回复，而不是先答应整个任务。对方仍可能失望或提出别的需要，不能由此判断你做错，也不必立即补偿。没有合适机会时可以只私下记录，不把整个关系当作验证练习。",
+          "en": "After separating words and guesses above, consider whether one question is enough, such as when a reply is needed rather than agreeing to the whole task. Disappointment or another request proves no wrongdoing and requires no immediate compensation. Keep a private note if discussion does not fit; no relationship experiment is needed."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一种留出决定空间的说法",
+        "en": "Share wording that leaves room to decide"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以说：“我想先确认范围再答应。如果你需要更早回复，请告诉我具体时间。”也可以只问朋友更喜欢怎样收到尚未决定的答复。无需分享均分、聊天截图或私人原因；这份说明不要求永远说不，也不让别人用结果质疑你的承诺或动机。",
+          "en": "Try: “I would like to check the scope before agreeing. If you need an earlier reply, please say when.” Or discuss how someone prefers to hear that a decision is still open. No means, screenshots or private reasons are needed. This guide demands neither constant refusal nor suspicion of your commitments or motives."
+        }
+      ]
+    }
+  ]
+}

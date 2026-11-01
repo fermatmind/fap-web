@@ -1,0 +1,184 @@
+{
+  "title": {
+    "zh": "怎样继续读这份比较",
+    "en": "How to read this comparison further"
+  },
+  "intro": {
+    "zh": "下面八个模块是每次比较都可阅读的通用指南，不按选择分派类型或生成个性化建议；某个职业不可用时，也不替它补上交集。",
+    "en": "These eight modules are general guidance available for every comparison. They assign no type or personalized recommendation and fill no intersection for an unavailable role."
+  },
+  "sections": [
+    {
+      "id": "method",
+      "title": {
+        "zh": "先核对两组输入",
+        "en": "Check the two inputs first"
+      },
+      "paragraphs": [
+        {
+          "zh": "这里的输入是你勾选的一至六个主题，以及你选的两个或三个不同职业。勾选顺序没有权重，未选不等于讨厌；职业依选择顺序展示，共同主题按R、I、A、S、E、C固定顺序排列。没有题目作答、兴趣强度、前三名或平局破除，换一个勾选组合就是换了比较问题。",
+          "en": "The inputs are your one to six selected themes and two or three different occupations. Selection order carries no weight, and unselected does not mean disliked. Roles appear in your selection order; shared themes use the fixed R, I, A, S, E, C order. There are no questionnaire responses, interest intensities, top three or tie-breaking. Changing the selection changes the comparison question."
+        },
+        {
+          "zh": "原创虚构例子：宁选A、S，两个虚构短代码分别为ASE与RIC。第一份交集为A、S，第二份没有共同所选主题。不能把前者叫作“100%适配”，也不能把后者叫作“不适合”。如果宁改为全选六项，每个有效代码中的字母都会出现；这只是集合变宽，没有增加关于宁的证据。这些示例代码不对应或推荐真实职业。",
+          "en": "An original fictional example: Ning selects A and S against the fictional short codes ASE and RIC. The first intersection is A and S; the second has no shared selected theme. The first does not establish 100% fit, and the second does not establish unsuitability. If Ning selects all six, every letter in each valid code appears: the set has broadened without adding evidence about Ning. These example codes identify or recommend no real occupation."
+        },
+        {
+          "zh": "可选讨论：“我们改变的是输入、资料，还是对资料的解释？”可以只使用虚构字母，不展示自己的选择。共同字母数、在页面上的先后或短代码长度都不用于给职业打分；暂时不知道自己想选什么，也可以清除并结束。",
+          "en": "Optional discussion: “Did we change the input, the information or our interpretation?” Use fictional letters only, without displaying your choices. Shared-letter count, page position and short-code length do not score occupations. If you do not know what to select, clearing and ending are available."
+        }
+      ]
+    },
+    {
+      "id": "evidence",
+      "title": {
+        "zh": "把交集变成可核实的问题",
+        "en": "Turn an intersection into a checkable question"
+      },
+      "paragraphs": [
+        {
+          "zh": "每个职业卡片保留已发布代码、代码标签、兴趣说明及其说明文字。它们来自当前语言的公开职业档案；本页只是截取兴趣模块作比较，不能替完整任务、入门要求或工作环境。短代码里未出现的所选主题，不证明实际工作完全没有相关活动。",
+          "en": "Each role card retains its published code, label and interest explanations from the public profile in the current language. This page compares an interest excerpt; it cannot replace the full tasks, entry requirements or working context. A selected theme absent from the short code does not establish that the work contains no related activity."
+        },
+        {
+          "zh": "虚构的乔看到两个卡片都含I，仍不能决定去哪一个岗位。可以分别打开完整档案，各挑一项已写出的普通任务，分开问：吸引自己的活动是什么，实际需要什么训练或资格，工作条件有哪些仍未了解？这些是需要核实的问题，不会由字母自动回答。未知可以保留，不必立即报名、购买课程、投递或作职业决定。",
+          "en": "Fictional Jo sees I in both cards and still cannot decide between roles. Opening each complete profile and choosing one stated ordinary task allows separate questions: which activity appeals, what training or qualifications are required, and which working conditions remain unclear? Letters do not answer those questions automatically. Unknowns may remain, without enrolling, buying a course, applying or making a career decision."
+        },
+        {
+          "zh": "某份资料缺失、不符合所需结构或读取失败时，该职业的交集保持不可用；它不同于成功读取后“没有共同主题”。不要用别的职业、旧代码、MBTI类型或猜测补位。可以重试或打开原职业页查看状态。这里不根据输入预测能力、收入、录用或成功，也没有个人常模。",
+          "en": "A missing, structurally invalid or failed read leaves that role’s intersection unavailable. This differs from a successful read showing no shared theme. Another role, old code, MBTI type or guess cannot fill the gap. Retry or open the original profile for its current state. Inputs predict no ability, income, hiring or success, and there are no personal norms here."
+        }
+      ]
+    },
+    {
+      "id": "theme-R",
+      "title": {
+        "zh": "R：核对具体活动与条件",
+        "en": "R: inspect practical activities and conditions"
+      },
+      "paragraphs": [
+        {
+          "zh": "R关注与实物、设备、材料或户外等有关的实际活动。它不等于“务实的人”，也不证明体能、操作技能或某种性别更适合工作。即使共同R出现，具体对象、训练、工作位置与安全条件仍需从完整档案核对。",
+          "en": "R concerns practical activities involving things, equipment, materials or outdoor settings. It is no label for a pragmatic person and establishes no physical capacity, operating skill or gender suitability. Even with a shared R, the objects, training, setting and safety conditions need checking in the full profile."
+        },
+        {
+          "zh": "原创虚构情境：岑喜欢阅读如何修整一个小模型的说明，乔更想了解设备保养的流程；两人都可以选择R，却不表示喜欢同样的工具、环境或责任。可只比较档案中的任务描述，不操作设备、不进入现场，也不用完成实际练习来证明字母。",
+          "en": "An original fictional scene: Cen enjoys reading instructions for adjusting a small model; Jo wants to understand equipment-maintenance procedures. Both can select R without enjoying the same tools, setting or responsibilities. Compare written task descriptions only, without operating equipment, entering a site or completing a practical trial to prove a letter."
+        },
+        {
+          "zh": "可选讨论：“哪一项活动吸引了虚构人物，哪些现实条件仍未知？”把兴趣、经验和岗位条件分别说清；没有共同R也不能据此排除动手类任务。可以不回答，不公开雇主、健康状况或私人工作经历。",
+          "en": "Optional discussion: “Which activity appeals to the fictional reader, and which real conditions remain unknown?” Keep interest, experience and working conditions separate. An absent R in the intersection does not rule out practical tasks. Declining is allowed, without an employer, health details or private work history."
+        }
+      ]
+    },
+    {
+      "id": "theme-I",
+      "title": {
+        "zh": "I：区分探究兴趣与研究能力",
+        "en": "I: separate inquiry from research ability"
+      },
+      "paragraphs": [
+        {
+          "zh": "I关注研究、分析、解释与证据。共同I不能认证聪明程度、研究资格或某种方法的熟练程度；职业短代码也不说明你会喜欢它的每个课题。理解“有共同主题”后，仍需回到岗位写出的实际研究或分析任务。",
+          "en": "I concerns inquiry, analysis, explanation and evidence. Shared I certifies no intelligence, research qualification or methodological proficiency. A short occupational code cannot establish interest in every topic. After noticing the shared theme, return to the role’s stated research or analytical tasks."
+        },
+        {
+          "zh": "原创虚构情境：沐愿意比较两种解释，思喜欢整理观察记录，但不确定是否喜欢长期重复检验。两人都可选择I，活动偏好仍不同。可阅读一个公开的简短例子，把提出问题、整理信息和解释结论分开，不收集他人资料或设计真实研究来测试兴趣。",
+          "en": "An original fictional scene: Mu wants to compare two explanations; Si enjoys organizing observations but is unsure about repeated testing over time. Both can select I while preferring different activities. Read a short public example and distinguish forming a question, organizing information and explaining a conclusion, without collecting anyone’s data or conducting a real study to test interest."
+        },
+        {
+          "zh": "可选讨论：“哪一个环节值得继续了解，哪一项资格尚未核实？”不要从愿意探究推断已经胜任，也不要把没有共同I解释为学不会。保留未知，不需要提供学历、成绩或自己的研究经历。",
+          "en": "Optional discussion: “Which stage merits further reading, and which qualification remains unchecked?” Willingness to inquire establishes no competence, and an absent I in the intersection does not mean an inability to learn. Leave unknowns open, without qualifications, grades or personal research history."
+        }
+      ]
+    },
+    {
+      "id": "theme-A",
+      "title": {
+        "zh": "A：看创作过程而非天赋标签",
+        "en": "A: examine creative work beyond a talent label"
+      },
+      "paragraphs": [
+        {
+          "zh": "A关注创作、表达与设计等活动。共同A不是天赋、作品水平、原创性或“艺术家身份”的认证。媒介、要求是否清楚、修改次数、合作和期限，都可能是同一个宽泛主题之下仍需分别了解的条件。",
+          "en": "A concerns creating, expressing and designing. Shared A certifies no talent, work quality, originality or artist identity. Medium, clarity of a brief, revision, collaboration and deadlines remain distinct conditions within the broad theme."
+        },
+        {
+          "zh": "原创虚构情境：羽喜欢起草一小段故事，安喜欢按明确要求编排一个页面；两人都选A，却不一定喜欢开放委托或同一种反馈。可从完整职业档案各挑一项任务，问创作之外还包含什么日常环节。只读说明就足够，无需买设备、发表作品或把私人材料给别人看。",
+          "en": "An original fictional scene: Yu likes drafting a short story; An enjoys arranging a page to a clear brief. Both select A without necessarily enjoying open commissions or the same feedback. Choose one task from each complete profile and ask which everyday stages accompany creation. Reading is enough, without buying equipment, publishing work or showing personal material."
+        },
+        {
+          "zh": "可选讨论：“虚构人物喜欢的是哪种创作环节，哪些协作条件还不确定？”不把主题变成有无创造力的评价，也不凭没有共同A否定某人的作品。参与者可不同意或结束，无需交作品或接受点评。",
+          "en": "Optional discussion: “Which creative stage appeals to the fictional reader, and which collaborative conditions remain uncertain?” The theme judges no person’s creativity, and an absent A in the intersection does not justify dismissing anyone’s work. Participants may disagree or end, without submitting work or accepting critique."
+        }
+      ]
+    },
+    {
+      "id": "theme-S",
+      "title": {
+        "zh": "S：把助人活动与职责边界分开",
+        "en": "S: distinguish helping activities from responsibilities"
+      },
+      "paragraphs": [
+        {
+          "zh": "S关注帮助、教学、建议或服务。共同S不能证明善良、共情、外向程度或受监管助人职业的资格。具体服务对象、职责、培训、支持条件与边界需要另外核实；喜欢某一种互动，不表示喜欢所有接触人的场景。",
+          "en": "S concerns helping, teaching, advising or serving. Shared S establishes no kindness, empathy, extraversion or qualification for regulated helping work. People served, responsibilities, training, support and boundaries need separate checks. Enjoying one interaction does not establish interest in every people-facing situation."
+        },
+        {
+          "zh": "原创虚构情境：悦喜欢解释一个熟悉概念，橙想了解怎样组织普通小组活动；两人都选S，仍可对一对一、群体和高压力任务有不同想法。可读任务描述来分清这些情境，不询问他人的隐私、不提供专业建议，也不安排真实干预来验证兴趣。",
+          "en": "An original fictional scene: Yue enjoys explaining a familiar idea; Cheng wants to understand organizing an ordinary group activity. Both select S while viewing individual, group and high-pressure tasks differently. Use written task descriptions to distinguish settings, without requesting private histories, giving professional advice or arranging an intervention to verify interest."
+        },
+        {
+          "zh": "可选讨论：“哪一种互动吸引虚构人物，什么支持或训练仍需了解？”允许不愿承担某项职责；字母不能要求他人照顾谁，也不能用来评判关系。可以只谈虚构例子，不提供服务对象、家庭或健康信息。",
+          "en": "Optional discussion: “Which interaction appeals to the fictional reader, and what support or training remains unclear?” Declining a responsibility is allowed. A letter cannot oblige care for someone or judge a relationship. Discuss fiction only, without client, family or health information."
+        }
+      ]
+    },
+    {
+      "id": "theme-E",
+      "title": {
+        "zh": "E：核实协商、权限与责任",
+        "en": "E: check negotiation, authority and responsibilities"
+      },
+      "paragraphs": [
+        {
+          "zh": "E关注发起、管理、协商、说服或推动活动，不要求拥有企业。共同E不能推断领导能力、销售表现、投资适合性或是否应该创业。职业的实际权限、激励、协作和落实责任，都不包含在字母交集里。",
+          "en": "E concerns initiating, managing, negotiating, persuading or advancing activities; owning a business is unnecessary. Shared E establishes no leadership ability, sales performance, investment suitability or reason to start a business. Actual authority, incentives, collaboration and follow-through are absent from the intersection."
+        },
+        {
+          "zh": "原创虚构情境：洛喜欢比较两种普通计划并协商优先事项，岚更想了解后续协调。两人都选E，也不表示愿意承担同一预算、责任或工作方式。可以从任务描述核对“需要推动什么、能决定什么、得到什么支持”，不向陌生人推销、不作财务承诺或接下未经约定的任务。",
+          "en": "An original fictional scene: Lo enjoys comparing two ordinary plans and negotiating priorities; Lan wants to understand follow-up coordination. Both select E without accepting the same budget, responsibility or way of working. Check the task description for what must be advanced, what can be decided and what support is provided, without pitching strangers, making financial commitments or accepting unagreed work."
+        },
+        {
+          "zh": "可选讨论：“主题上的兴趣与实际权限之间，还缺什么资料？”不把更多共同字母当成更多领导资格，也不把无交集当成不能协商。保留疑问即可，不需要说出收入、客户或真实商业安排。",
+          "en": "Optional discussion: “What information is missing between interest in a theme and actual authority?” More shared letters confer no additional leadership qualification; an empty intersection does not establish an inability to negotiate. Questions can remain open, without income, clients or real business arrangements."
+        }
+      ]
+    },
+    {
+      "id": "theme-C",
+      "title": {
+        "zh": "C：理解信息组织与流程偏好",
+        "en": "C: understand information and procedure interests"
+      },
+      "paragraphs": [
+        {
+          "zh": "C关注按流程组织信息、数据或记录等活动。共同C不表示政治保守、缺乏创造力、服从性、可靠性或准确性。对流程的兴趣与执行能力、重复程度、信息敏感性和改进空间，是需要分别看的问题。",
+          "en": "C concerns organizing information, data or records through procedures. Shared C implies no political conservatism, lack of creativity, obedience, reliability or accuracy. Interest in a procedure differs from proficiency, repetition, information sensitivity and scope to improve it."
+        },
+        {
+          "zh": "原创虚构情境：溪想了解如何整理一小组虚构记录，贝更喜欢核对规则并寻找可以改进的步骤；两人都选C，却可能对重复录入有不同兴趣。可读档案里的任务说明，把整理、核对和改进区分开，不上传工作文件、账户详情或真实个人记录。",
+          "en": "An original fictional scene: Xi wants to understand organizing a small invented record set; Bei prefers checking rules and identifying steps to improve. Both select C while viewing repetitive entry differently. Read the profile’s task wording to distinguish organizing, checking and improving, without uploading work files, account details or real personal records."
+        },
+        {
+          "zh": "可选讨论：“虚构人物喜欢哪个环节，实际流程有哪些仍未知的条件？”无需把兴趣当作能力考试或固定身份；无共同C也不能判断一个人粗心。可以不练习、不讨论，在本次阅读后结束。",
+          "en": "Optional discussion: “Which stage appeals to the fictional reader, and which conditions of the actual process remain unknown?” Interest is not an ability test or fixed identity; an absent C in the intersection does not establish carelessness. No exercise or discussion is required, and this reading can be the stopping point."
+        }
+      ]
+    }
+  ],
+  "scope": {
+    "zh": "方法与来源：RIASEC宽泛主题可参照O*NET官方兴趣类型说明；本工具的手选集合交集与上述情境为费马原创，不是新的RIASEC测量、经验证的适配模型或O*NET推荐。资料缺失状态不能转换为零分。输入与本地职业名筛选留在本页内存；读取目录及所选公开档案会向服务请求相应公开资料，服务仍可处理正常请求记录，不承诺所选职业的网络读取完全不可见。没有把兴趣或筛选文字放进请求。清除、离开、刷新或换语移除本页输入；不存草稿。复制仅含公开标题与入口。可选匿名动作次数遵循现有同意控制，不含输入；浏览器历史、旁人看屏与截图并不会因此消失。可以保留未知、拒绝讨论或直接结束。",
+    "en": "Method and source: O*NET’s official interest-type descriptions explain the broad RIASEC themes. This tool’s manually selected set intersection and the scenes above are original FermatMind material, not a new RIASEC measurement, validated fit model or O*NET recommendation. Unavailable information is not zero. Inputs and title-filter text stay in page memory. Reading the directory and selected public profiles requests that public information from the service; ordinary request records may still be processed, so network reads of selected roles are not promised to be invisible. Interests and filter text are not put in requests. Clearing, leaving, reloading or switching language removes page inputs; there is no draft. Copying contains only the public title and entry. Optional anonymous activity counts follow existing consent controls without inputs. Browser history, screen observation and screenshots do not disappear. Unknowns, declining discussion or ending are available."
+  }
+}

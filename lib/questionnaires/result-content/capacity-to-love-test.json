@@ -1,0 +1,248 @@
+{
+  "interest-reading": [
+    {
+      "id": "example",
+      "title": {
+        "en": "Invite a story without requesting private plans",
+        "zh": "邀请分享，不索取隐私计划"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者知道伴侣最近在准备一场展览，却不知道对方是否愿意谈进度。可以先区分已经分享的信息、自己想了解的部分和仍需询问的意愿。题目中的关注不授权追问每个细节、检查消息或替对方规划；不分享一次进度，也不能由均值判为不信任。",
+          "en": "An additional original scene: A fictional reader knows a partner is preparing an exhibition without knowing whether they want to discuss progress. Separate information already shared, the reader’s curiosity and the willingness that remains unknown. Interest authorises no demand for every detail, inspection of messages or planning on someone else’s behalf. One unshared update supports no verdict about trust from a mean."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "Keep one voluntary question, or finish here",
+        "zh": "保留一个自选问题，或结束"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“哪些内容已自愿分享，想了解什么，是否愿意谈仍有什么未知？”可以只读或讨论虚构人物，把已知、解释与未知分开。愿意参与的人可以不同意或停止；无需按均值为彼此打分、索取披露、联系或亲密，也无需达成一致才可结束。",
+          "en": "An optional discussion prompt asks: “What has already been shared voluntarily, what would be interesting to understand, and what remains unknown about willingness to talk?” Read alone or discuss the fictional reader, separating known information, interpretations and unknowns. Willing participants can disagree or stop. No rating of one another, disclosure, contact, intimacy or agreement is required."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "A licensed 2018 item source and new website reading",
+        "zh": "2018许可题文与网页新读法"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境及讨论提示由费马测试编辑部原创，不属于源题文。保留2018表一英文、新中文工作译文与既有署名；网页解释不继承源研究验证。以当前或上段重要关系为同一参照，不另加固定周数。四选项1—4，2、3仅为数字，不编成官方中立、频率或跳过；没有NA。任何一项不相关、没有经历或不愿答，可退出并读六篇全文，不以低值或中点填补。全部41项有效前不显示任何个人领域数值。六组各7、9、7、8、2、8题；第7、13、15及32—41题按5减原值，其余原值保留，各组求和除本组题数，计算不先舍入，显示两位小数。反向是算术键，不是道德判断；相同均值可能来自不同逐题回答，2题与9题也没有因此获得相同精度。六组不加总、排名、划等级或换算匹配，数字范围相同不证明心理单位相同。隐私与拒绝不需数字支持，性激情两题不等于个人性功能评估，哀伤不设期限。可讨论虚构人物而不披露答卷、伴侣身份或私信，也可不讨论。现有可选24小时标签页草稿、完成、重测和退出清除不变；复制仅公开标题与入口，不增加最终结果缓存或逐题上传。",
+          "en": "FermatMind Editorial authored these scenes and prompts; they are not source items. The 2018 English items, new Chinese working translation and existing attribution remain. Web explanations inherit no source validation. Keep one current or last important relationship as the reference without adding a fixed number of weeks. Choices are 1–4; two and three remain numeric, without invented official neutrality, frequency or skip labels. There is no NA. For an irrelevant, unfamiliar or unwanted statement, exit and read all six guides without supplying a low or middle answer. No personal domain value appears before all 41 choices are valid. Groups contain 7, 9, 7, 8, 2 and 8 items. Items 7, 13, 15 and 32–41 use five minus the raw choice; others retain it. Sum within each group and divide by its item count, retaining the unrounded mean and displaying two decimals. Reversal is an arithmetic key rather than a moral judgment. Equal means can arise from different item answers; two and nine items do not thereby acquire equal precision. Groups are never totalled, ranked, graded or converted to a match; equal numeric ranges establish no common psychological unit. Privacy and refusal need no supporting number, the two passion statements do not assess personal sexual functioning, and mourning has no deadline. Discuss fictional readers without disclosing answers, identities or private messages, or decline discussion. Existing opt-in 24-hour tab drafts and completion, retake and exit clearing remain. Copying includes only the public title and entry, without added final-result caches or item uploads."
+        }
+      ]
+    }
+  ],
+  "trust-reading": [
+    {
+      "id": "example",
+      "title": {
+        "en": "Ask about support without demanding disclosure",
+        "zh": "询问支持，不要求披露"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者愿意说自己有一项工作困扰，但涉及同事的细节不能透露。想得到倾听、愿意说到哪里和需保密的信息可以同时存在；保留隐私不等于欺骗。源秘密题的反向键不授权伴侣查看账号，也不要求在不安全时披露来证明信任。",
+          "en": "An additional original scene: A fictional reader wants to mention a work difficulty while keeping a colleague’s details confidential. Wanted listening, limits on disclosure and confidential information can coexist; privacy is not automatically deception. The source secrecy item’s reverse key authorises no account access and requires no disclosure in an unsafe situation to demonstrate trust."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "Choose the boundary as well as the question",
+        "zh": "问题与边界都可自选"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“想得到哪种支持，愿意分享哪一部分，哪些信息仍由本人决定保留？”可以只读或讨论虚构人物，把已知、解释与未知分开。愿意参与的人可以不同意或停止；无需按均值为彼此打分、索取披露、联系或亲密，也无需达成一致才可结束。",
+          "en": "An optional discussion prompt asks: “What support is wanted, which part is available to share, and which information remains the person’s choice to keep private?” Read alone or discuss the fictional reader, separating known information, interpretations and unknowns. Willing participants can disagree or stop. No rating of one another, disclosure, contact, intimacy or agreement is required."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Keep the edition and its translation limits visible",
+        "zh": "明确版本与翻译边界"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境及讨论提示由费马测试编辑部原创，不属于源题文。保留2018表一英文、新中文工作译文与既有署名；网页解释不继承源研究验证。以当前或上段重要关系为同一参照，不另加固定周数。四选项1—4，2、3仅为数字，不编成官方中立、频率或跳过；没有NA。任何一项不相关、没有经历或不愿答，可退出并读六篇全文，不以低值或中点填补。全部41项有效前不显示任何个人领域数值。六组各7、9、7、8、2、8题；第7、13、15及32—41题按5减原值，其余原值保留，各组求和除本组题数，计算不先舍入，显示两位小数。反向是算术键，不是道德判断；相同均值可能来自不同逐题回答，2题与9题也没有因此获得相同精度。六组不加总、排名、划等级或换算匹配，数字范围相同不证明心理单位相同。隐私与拒绝不需数字支持，性激情两题不等于个人性功能评估，哀伤不设期限。可讨论虚构人物而不披露答卷、伴侣身份或私信，也可不讨论。现有可选24小时标签页草稿、完成、重测和退出清除不变；复制仅公开标题与入口，不增加最终结果缓存或逐题上传。",
+          "en": "FermatMind Editorial authored these scenes and prompts; they are not source items. The 2018 English items, new Chinese working translation and existing attribution remain. Web explanations inherit no source validation. Keep one current or last important relationship as the reference without adding a fixed number of weeks. Choices are 1–4; two and three remain numeric, without invented official neutrality, frequency or skip labels. There is no NA. For an irrelevant, unfamiliar or unwanted statement, exit and read all six guides without supplying a low or middle answer. No personal domain value appears before all 41 choices are valid. Groups contain 7, 9, 7, 8, 2 and 8 items. Items 7, 13, 15 and 32–41 use five minus the raw choice; others retain it. Sum within each group and divide by its item count, retaining the unrounded mean and displaying two decimals. Reversal is an arithmetic key rather than a moral judgment. Equal means can arise from different item answers; two and nine items do not thereby acquire equal precision. Groups are never totalled, ranked, graded or converted to a match; equal numeric ranges establish no common psychological unit. Privacy and refusal need no supporting number, the two passion statements do not assess personal sexual functioning, and mourning has no deadline. Discuss fictional readers without disclosing answers, identities or private messages, or decline discussion. Existing opt-in 24-hour tab drafts and completion, retake and exit clearing remain. Copying includes only the public title and entry, without added final-result caches or item uploads."
+        }
+      ]
+    }
+  ],
+  "gratitude-reading": [
+    {
+      "id": "example",
+      "title": {
+        "en": "Offer help with room for a different preference",
+        "zh": "提供帮助，容许不同偏好"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者感激伴侣曾帮忙取物，这次却没有时间代办另一件事。感谢、当前资源与是否愿意接受请求是不同问题；一次帮助不使未来照顾或亲密成为欠款。均值不决定分工是否公平，也不要求用超出能力的行动证明自己懂得感恩。",
+          "en": "An additional original scene: A fictional reader appreciates a partner collecting something earlier but has no time for a different errand now. Appreciation, present resources and willingness to accept a request differ. Earlier help creates no debt of future care or intimacy. A mean decides neither fairness of responsibilities nor a need to overextend to demonstrate gratitude."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "Choose one welcome action, or none",
+        "zh": "选择一个受欢迎动作，或不行动"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“感激的具体事情是什么，眼下有哪些资源或限制，当前请求是否自愿接受？”可以只读或讨论虚构人物，把已知、解释与未知分开。愿意参与的人可以不同意或停止；无需按均值为彼此打分、索取披露、联系或亲密，也无需达成一致才可结束。",
+          "en": "An optional discussion prompt asks: “What specific action is appreciated, which resources or limits apply now, and is the current request being accepted voluntarily?” Read alone or discuss the fictional reader, separating known information, interpretations and unknowns. Willing participants can disagree or stop. No rating of one another, disclosure, contact, intimacy or agreement is required."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Source attribution is separate from validation",
+        "zh": "来源署名与验证分开"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境及讨论提示由费马测试编辑部原创，不属于源题文。保留2018表一英文、新中文工作译文与既有署名；网页解释不继承源研究验证。以当前或上段重要关系为同一参照，不另加固定周数。四选项1—4，2、3仅为数字，不编成官方中立、频率或跳过；没有NA。任何一项不相关、没有经历或不愿答，可退出并读六篇全文，不以低值或中点填补。全部41项有效前不显示任何个人领域数值。六组各7、9、7、8、2、8题；第7、13、15及32—41题按5减原值，其余原值保留，各组求和除本组题数，计算不先舍入，显示两位小数。反向是算术键，不是道德判断；相同均值可能来自不同逐题回答，2题与9题也没有因此获得相同精度。六组不加总、排名、划等级或换算匹配，数字范围相同不证明心理单位相同。隐私与拒绝不需数字支持，性激情两题不等于个人性功能评估，哀伤不设期限。可讨论虚构人物而不披露答卷、伴侣身份或私信，也可不讨论。现有可选24小时标签页草稿、完成、重测和退出清除不变；复制仅公开标题与入口，不增加最终结果缓存或逐题上传。",
+          "en": "FermatMind Editorial authored these scenes and prompts; they are not source items. The 2018 English items, new Chinese working translation and existing attribution remain. Web explanations inherit no source validation. Keep one current or last important relationship as the reference without adding a fixed number of weeks. Choices are 1–4; two and three remain numeric, without invented official neutrality, frequency or skip labels. There is no NA. For an irrelevant, unfamiliar or unwanted statement, exit and read all six guides without supplying a low or middle answer. No personal domain value appears before all 41 choices are valid. Groups contain 7, 9, 7, 8, 2 and 8 items. Items 7, 13, 15 and 32–41 use five minus the raw choice; others retain it. Sum within each group and divide by its item count, retaining the unrounded mean and displaying two decimals. Reversal is an arithmetic key rather than a moral judgment. Equal means can arise from different item answers; two and nine items do not thereby acquire equal precision. Groups are never totalled, ranked, graded or converted to a match; equal numeric ranges establish no common psychological unit. Privacy and refusal need no supporting number, the two passion statements do not assess personal sexual functioning, and mourning has no deadline. Discuss fictional readers without disclosing answers, identities or private messages, or decline discussion. Existing opt-in 24-hour tab drafts and completion, retake and exit clearing remain. Copying includes only the public title and entry, without added final-result caches or item uploads."
+        }
+      ]
+    }
+  ],
+  "shared-ideal-reading": [
+    {
+      "id": "example",
+      "title": {
+        "en": "Check a shared intention without assuming it",
+        "zh": "核对共同意向，不预设一致"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者希望以后在同一城市生活，伴侣还在考虑工作安排。自己的愿望、讨论过的可能性与双方已同意的计划并不相同。可以把尚未确定的事保留为未知；相同价值词不证明具体方案相同，投入均值也不替另一人承诺搬迁、共同生活或继续关系。",
+          "en": "An additional original scene: A fictional reader hopes to live in the same city in future while the partner is considering work arrangements. A personal wish, a discussed possibility and a mutually agreed plan differ. Unsettled matters can remain unknown. Shared value words establish no identical plan, and a dedication mean commits no other person to moving, living together or continuing a relationship."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "Separate your wish from a joint decision",
+        "zh": "分开自己的愿望与共同决定"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“哪一项是自己的愿望，哪一项双方明确同意，哪些仍未决定？”可以只读或讨论虚构人物，把已知、解释与未知分开。愿意参与的人可以不同意或停止；无需按均值为彼此打分、索取披露、联系或亲密，也无需达成一致才可结束。",
+          "en": "An optional discussion prompt asks: “Which detail is a personal wish, which has been explicitly agreed by both people, and what remains undecided?” Read alone or discuss the fictional reader, separating known information, interpretations and unknowns. Willing participants can disagree or stop. No rating of one another, disclosure, contact, intimacy or agreement is required."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Preserved items, new working presentation",
+        "zh": "保留题文，新工作呈现"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境及讨论提示由费马测试编辑部原创，不属于源题文。保留2018表一英文、新中文工作译文与既有署名；网页解释不继承源研究验证。以当前或上段重要关系为同一参照，不另加固定周数。四选项1—4，2、3仅为数字，不编成官方中立、频率或跳过；没有NA。任何一项不相关、没有经历或不愿答，可退出并读六篇全文，不以低值或中点填补。全部41项有效前不显示任何个人领域数值。六组各7、9、7、8、2、8题；第7、13、15及32—41题按5减原值，其余原值保留，各组求和除本组题数，计算不先舍入，显示两位小数。反向是算术键，不是道德判断；相同均值可能来自不同逐题回答，2题与9题也没有因此获得相同精度。六组不加总、排名、划等级或换算匹配，数字范围相同不证明心理单位相同。隐私与拒绝不需数字支持，性激情两题不等于个人性功能评估，哀伤不设期限。可讨论虚构人物而不披露答卷、伴侣身份或私信，也可不讨论。现有可选24小时标签页草稿、完成、重测和退出清除不变；复制仅公开标题与入口，不增加最终结果缓存或逐题上传。",
+          "en": "FermatMind Editorial authored these scenes and prompts; they are not source items. The 2018 English items, new Chinese working translation and existing attribution remain. Web explanations inherit no source validation. Keep one current or last important relationship as the reference without adding a fixed number of weeks. Choices are 1–4; two and three remain numeric, without invented official neutrality, frequency or skip labels. There is no NA. For an irrelevant, unfamiliar or unwanted statement, exit and read all six guides without supplying a low or middle answer. No personal domain value appears before all 41 choices are valid. Groups contain 7, 9, 7, 8, 2 and 8 items. Items 7, 13, 15 and 32–41 use five minus the raw choice; others retain it. Sum within each group and divide by its item count, retaining the unrounded mean and displaying two decimals. Reversal is an arithmetic key rather than a moral judgment. Equal means can arise from different item answers; two and nine items do not thereby acquire equal precision. Groups are never totalled, ranked, graded or converted to a match; equal numeric ranges establish no common psychological unit. Privacy and refusal need no supporting number, the two passion statements do not assess personal sexual functioning, and mourning has no deadline. Discuss fictional readers without disclosing answers, identities or private messages, or decline discussion. Existing opt-in 24-hour tab drafts and completion, retake and exit clearing remain. Copying includes only the public title and entry, without added final-result caches or item uploads."
+        }
+      ]
+    }
+  ],
+  "sexual-passion-reading": [
+    {
+      "id": "example",
+      "title": {
+        "en": "Discuss a belief without requiring an experience",
+        "zh": "讨论一个看法，不要求某种经历"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者把两条题文理解为关于长期关系的普遍看法，另一个人想到的是自己最近的感受。同一数字可能来自不同理解，并不能核验任何人的身体体验。可只讨论“一般说法”与“个人经历”的区别，不需提供亲密细节，更不需尝试接触或性活动来检查结果。",
+          "en": "An additional original scene: A fictional reader understands the two prompts as general beliefs about long relationships, while another thinks of recent personal feelings. The same number can arise from different interpretations and verifies no bodily experience. Discuss only the distinction between a general claim and a personal experience; intimate details, contact and sexual activity are not needed to check a result."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "Choose whether this topic is useful at all",
+        "zh": "自主决定此话题是否有用"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“这里表达的是一般信念、某次个人体验，还是仍无法确认的理解？”可以只读或讨论虚构人物，把已知、解释与未知分开。愿意参与的人可以不同意或停止；无需按均值为彼此打分、索取披露、联系或亲密，也无需达成一致才可结束。",
+          "en": "An optional discussion prompt asks: “Is this a general belief, a particular personal experience, or an interpretation that remains uncertain?” Read alone or discuss the fictional reader, separating known information, interpretations and unknowns. Willing participants can disagree or stop. No rating of one another, disclosure, contact, intimacy or agreement is required."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Keep the 2018 wording and adaptation distinct",
+        "zh": "分清2018题文与改编"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境及讨论提示由费马测试编辑部原创，不属于源题文。保留2018表一英文、新中文工作译文与既有署名；网页解释不继承源研究验证。以当前或上段重要关系为同一参照，不另加固定周数。四选项1—4，2、3仅为数字，不编成官方中立、频率或跳过；没有NA。任何一项不相关、没有经历或不愿答，可退出并读六篇全文，不以低值或中点填补。全部41项有效前不显示任何个人领域数值。六组各7、9、7、8、2、8题；第7、13、15及32—41题按5减原值，其余原值保留，各组求和除本组题数，计算不先舍入，显示两位小数。反向是算术键，不是道德判断；相同均值可能来自不同逐题回答，2题与9题也没有因此获得相同精度。六组不加总、排名、划等级或换算匹配，数字范围相同不证明心理单位相同。隐私与拒绝不需数字支持，性激情两题不等于个人性功能评估，哀伤不设期限。可讨论虚构人物而不披露答卷、伴侣身份或私信，也可不讨论。现有可选24小时标签页草稿、完成、重测和退出清除不变；复制仅公开标题与入口，不增加最终结果缓存或逐题上传。",
+          "en": "FermatMind Editorial authored these scenes and prompts; they are not source items. The 2018 English items, new Chinese working translation and existing attribution remain. Web explanations inherit no source validation. Keep one current or last important relationship as the reference without adding a fixed number of weeks. Choices are 1–4; two and three remain numeric, without invented official neutrality, frequency or skip labels. There is no NA. For an irrelevant, unfamiliar or unwanted statement, exit and read all six guides without supplying a low or middle answer. No personal domain value appears before all 41 choices are valid. Groups contain 7, 9, 7, 8, 2 and 8 items. Items 7, 13, 15 and 32–41 use five minus the raw choice; others retain it. Sum within each group and divide by its item count, retaining the unrounded mean and displaying two decimals. Reversal is an arithmetic key rather than a moral judgment. Equal means can arise from different item answers; two and nine items do not thereby acquire equal precision. Groups are never totalled, ranked, graded or converted to a match; equal numeric ranges establish no common psychological unit. Privacy and refusal need no supporting number, the two passion statements do not assess personal sexual functioning, and mourning has no deadline. Discuss fictional readers without disclosing answers, identities or private messages, or decline discussion. Existing opt-in 24-hour tab drafts and completion, retake and exit clearing remain. Copying includes only the public title and entry, without added final-result caches or item uploads."
+        }
+      ]
+    }
+  ],
+  "loss-reading": [
+    {
+      "id": "example",
+      "title": {
+        "en": "Name a feeling without creating a demand",
+        "zh": "说出感受，不产生要求"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者在关系结束后仍感到难过，同时选择不再联系。感受、想法、实际行动和现在希望得到的支持可以分开；难过不取消拒绝接触，也不要求寻找新伴侣。源反向键不会规定哀伤期限，另一人的不同进度也不是比较恢复好坏的标尺。",
+          "en": "An additional original scene: A fictional reader still feels sad after a relationship ends and chooses no further contact. Feelings, thoughts, actual actions and wanted support can be separated. Sadness cancels no refusal of contact and requires no new partner. The source reverse key sets no grief deadline, and someone else’s different course supplies no measure of better recovery."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "Choose a small step without a deadline",
+        "zh": "自选小步骤，不设期限"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“哪些是感受或想法，哪些实际发生，现在愿意考虑什么支持或不行动？”可以只读或讨论虚构人物，把已知、解释与未知分开。愿意参与的人可以不同意或停止；无需按均值为彼此打分、索取披露、联系或亲密，也无需达成一致才可结束。",
+          "en": "An optional discussion prompt asks: “Which details are feelings or thoughts, which actions actually occurred, and what support or nonaction is wanted now?” Read alone or discuss the fictional reader, separating known information, interpretations and unknowns. Willing participants can disagree or stop. No rating of one another, disclosure, contact, intimacy or agreement is required."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Licensed source wording, limited web interpretation",
+        "zh": "许可源题文与有限网页解读"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境及讨论提示由费马测试编辑部原创，不属于源题文。保留2018表一英文、新中文工作译文与既有署名；网页解释不继承源研究验证。以当前或上段重要关系为同一参照，不另加固定周数。四选项1—4，2、3仅为数字，不编成官方中立、频率或跳过；没有NA。任何一项不相关、没有经历或不愿答，可退出并读六篇全文，不以低值或中点填补。全部41项有效前不显示任何个人领域数值。六组各7、9、7、8、2、8题；第7、13、15及32—41题按5减原值，其余原值保留，各组求和除本组题数，计算不先舍入，显示两位小数。反向是算术键，不是道德判断；相同均值可能来自不同逐题回答，2题与9题也没有因此获得相同精度。六组不加总、排名、划等级或换算匹配，数字范围相同不证明心理单位相同。隐私与拒绝不需数字支持，性激情两题不等于个人性功能评估，哀伤不设期限。可讨论虚构人物而不披露答卷、伴侣身份或私信，也可不讨论。现有可选24小时标签页草稿、完成、重测和退出清除不变；复制仅公开标题与入口，不增加最终结果缓存或逐题上传。",
+          "en": "FermatMind Editorial authored these scenes and prompts; they are not source items. The 2018 English items, new Chinese working translation and existing attribution remain. Web explanations inherit no source validation. Keep one current or last important relationship as the reference without adding a fixed number of weeks. Choices are 1–4; two and three remain numeric, without invented official neutrality, frequency or skip labels. There is no NA. For an irrelevant, unfamiliar or unwanted statement, exit and read all six guides without supplying a low or middle answer. No personal domain value appears before all 41 choices are valid. Groups contain 7, 9, 7, 8, 2 and 8 items. Items 7, 13, 15 and 32–41 use five minus the raw choice; others retain it. Sum within each group and divide by its item count, retaining the unrounded mean and displaying two decimals. Reversal is an arithmetic key rather than a moral judgment. Equal means can arise from different item answers; two and nine items do not thereby acquire equal precision. Groups are never totalled, ranked, graded or converted to a match; equal numeric ranges establish no common psychological unit. Privacy and refusal need no supporting number, the two passion statements do not assess personal sexual functioning, and mourning has no deadline. Discuss fictional readers without disclosing answers, identities or private messages, or decline discussion. Existing opt-in 24-hour tab drafts and completion, retake and exit clearing remain. Copying includes only the public title and entry, without added final-result caches or item uploads."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "authoritative": [
+    {
+      "id": "authoritative-3",
+      "title": {
+        "en": "An ordinary transition",
+        "zh": "一次日常活动转换"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构照料者准备带孩子从画画转去吃饭，先说明还剩哪一步、画作放在哪里，并听孩子想保留什么。孩子仍不高兴，不说明回应无效或边界失败；也不能仅凭这一次互动称照料者为权威型。可核对实际限制与孩子能做的步骤，不用额外限制或索要好评来证明温暖而坚定。",
+          "en": "An additional original scene: A fictional caregiver is moving from drawing to a meal. They explain the remaining step and where the picture can stay, then listen to what the child wants to keep. Continued disappointment establishes neither a failed response nor a failed boundary; one exchange assigns no authoritative identity. Check the practical limit and manageable next step without adding restrictions or seeking praise to prove warmth and firmness."
+        }
+      ]
+    },
+    {
+      "id": "authoritative-7",
+      "title": {
+        "en": "Try one small, voluntary change",
+        "zh": "尝试一个小而自选的调整"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“这次转换的实际限制是什么，孩子理解了哪一步，仍需什么帮助？”愿意参与的照料者可以只讨论虚构情境，把已确认的约定、可观察的行动与未知分开。可以不分享作答、不评他人类型，也不要求孩子在场或承担成年人的协调责任；不讨论也不影响阅读全文。",
+          "en": "An optional discussion prompt asks: “What is the actual limit in this transition, which step did the child understand, and what help is still needed?” Willing caregivers can discuss only the fictional scene, separating confirmed agreements, observable actions and unknowns. No answers, judgments of another caregiver’s type or child’s presence are required. A child need not coordinate adults. Declining discussion leaves every guide readable."
+        }
+      ]
+    },
+    {
+      "id": "authoritative-8",
+      "title": {
+        "en": "Keep the source and the purpose visible",
+        "zh": "保留来源与使用目的"
+      },
+      "paragraphs": [
+        {
+          "zh": "本页新增情境与讨论提示由费马测试编辑部原创。问卷回看过去四周，本人照料同一位3至12岁孩子的行动；十二题分为温暖回应与清楚日常边界各六题，均为正向。1从不、2很少、3有时、4经常、5几乎总是，描述有相关机会时的频率，不是符合程度或实际次数。有机会未做与无相关机会、无法判断、不愿回答不同，后者可以明确选不计分。十二项都选择数字或不计分才完成，每组六项数字齐全才求和除以六、显示一位小数；4、2、3、5、2、4的20÷6显示3.3。1、1、1、5、5、5与六个3都显示3.0，却有不同逐项回答。任一项不计分只使所属均分暂缺，不补零、中点或缩小分母；另一完整组保留，全部不计分仍能完成并读四篇通用指南。两组不加总、不排名、不画高低象限，也不从数字分配任何风格；清楚边界条目没有测量严厉控制。斯坦福四风格概述、CDC幼儿及学龄前规则说明、美国儿科学会家庭关系与日常安排资料只提供背景，不验证本原创十二题或把CDC幼儿例子自动推广至所有3至12岁孩子。四周期限和齐全规则是编辑约定；本题本尚无已建立的信效度、常模、语言等价性或儿童发展预测证据。不可用于监护、法律认定或判定谁更爱孩子。讨论可用虚构情境，不要求孩子配合测评、改善分数或安慰成年人；无需披露孩子姓名、学校、照片或他人私事。现有主动选择的24小时标签页草稿与完成、重测、退出清除不变；复制仅公开标题和入口，不增加最终结果缓存或逐题上传。",
+          "en": "FermatMind Editorial authored the additional scenes and prompts. Recall your own care of one child aged 3–12 over the past four weeks. Twelve direct-scored items form two six-item parts: warm responses and clear everyday boundaries. One is Never, two Rarely, three Sometimes, four Often and five Almost always. These are frequency choices when relevant occasions arose, not endorsement or actual counts. An occasion without the action differs from no occasion, uncertainty or withholding an answer, which can be explicitly unscored. All twelve need a number or unscored choice to finish. A part needs six numeric answers; divide their sum by six and display one decimal. Responses 4, 2, 3, 5, 2, 4 give 20 ÷ 6, displayed as 3.3. Responses 1, 1, 1, 5, 5, 5 and six threes both display 3.0 with different item answers. Any unscored answer withholds only that part’s mean, without zero, midpoint or a smaller denominator. The other complete part remains; an all-unscored attempt can finish and read all four general guides. Parts are never totalled, ranked, divided into high/low quadrants or used to assign any style. Clear-boundary items do not measure harsh control. Stanford’s four-style overview, CDC toddler and preschool rules guidance and AAP material on family relationships and routines are background, not validation of these original twelve items. CDC examples do not automatically extend to every child aged 3–12. Four weeks and completeness are editorial choices. Reliability, validity, norms, language equivalence and child-outcome prediction are unestablished. No custody decision, legal finding or judgment of who loves a child more follows. Discuss fictional scenes without asking a child to support the test, improve a score or reassure an adult. No child’s name, school, picture or another person’s private affairs need disclosure. Existing opt-in 24-hour tab drafts and completion, retake and exit clearing remain; copying includes only the public title and entry, without added final-result caches or item uploads."
+        }
+      ]
+    }
+  ],
+  "authoritarian": [
+    {
+      "id": "authoritarian-3",
+      "title": {
+        "en": "A question during homework",
+        "zh": "作业中的一次提问"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构照料者要求先把桌面收好，孩子问材料可否留在原处。先前的指令与孩子提问的原因可以分开核对：孩子可能没理解收哪些，也可能需要作品晾干。这里只展示可澄清的信息，不要求成年人接受所有请求，也不把一句简短指令诊断成专制；孩子不必先同意标签才有机会说明实际困难。",
+          "en": "An additional original scene: A fictional caregiver asks for a table to be cleared, and the child asks whether some materials can stay. The instruction and reason for the question need separate checking: the child might not know which objects to move or might need a picture to dry. These are possible clarifications, not a requirement to accept every request or diagnose a brief instruction as authoritarian. A child need not accept a label to explain a practical difficulty."
+        }
+      ]
+    },
+    {
+      "id": "authoritarian-7",
+      "title": {
+        "en": "Try one question about a rule",
+        "zh": "试着核对一项规则"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“原要求指哪些具体行动，孩子的问题带来什么新信息，哪些仍未确认？”愿意参与的照料者可以只讨论虚构情境，把已确认的约定、可观察的行动与未知分开。可以不分享作答、不评他人类型，也不要求孩子在场或承担成年人的协调责任；不讨论也不影响阅读全文。",
+          "en": "An optional discussion prompt asks: “Which concrete actions did the request concern, what new information did the question offer, and what remains unconfirmed?” Willing caregivers can discuss only the fictional scene, separating confirmed agreements, observable actions and unknowns. No answers, judgments of another caregiver’s type or child’s presence are required. A child need not coordinate adults. Declining discussion leaves every guide readable."
+        }
+      ]
+    },
+    {
+      "id": "authoritarian-8",
+      "title": {
+        "en": "Use the concept to ask a better question",
+        "zh": "用概念提出更好的问题"
+      },
+      "paragraphs": [
+        {
+          "zh": "本页新增情境与讨论提示由费马测试编辑部原创。问卷回看过去四周，本人照料同一位3至12岁孩子的行动；十二题分为温暖回应与清楚日常边界各六题，均为正向。1从不、2很少、3有时、4经常、5几乎总是，描述有相关机会时的频率，不是符合程度或实际次数。有机会未做与无相关机会、无法判断、不愿回答不同，后者可以明确选不计分。十二项都选择数字或不计分才完成，每组六项数字齐全才求和除以六、显示一位小数；4、2、3、5、2、4的20÷6显示3.3。1、1、1、5、5、5与六个3都显示3.0，却有不同逐项回答。任一项不计分只使所属均分暂缺，不补零、中点或缩小分母；另一完整组保留，全部不计分仍能完成并读四篇通用指南。两组不加总、不排名、不画高低象限，也不从数字分配任何风格；清楚边界条目没有测量严厉控制。斯坦福四风格概述、CDC幼儿及学龄前规则说明、美国儿科学会家庭关系与日常安排资料只提供背景，不验证本原创十二题或把CDC幼儿例子自动推广至所有3至12岁孩子。四周期限和齐全规则是编辑约定；本题本尚无已建立的信效度、常模、语言等价性或儿童发展预测证据。不可用于监护、法律认定或判定谁更爱孩子。讨论可用虚构情境，不要求孩子配合测评、改善分数或安慰成年人；无需披露孩子姓名、学校、照片或他人私事。现有主动选择的24小时标签页草稿与完成、重测、退出清除不变；复制仅公开标题和入口，不增加最终结果缓存或逐题上传。",
+          "en": "FermatMind Editorial authored the additional scenes and prompts. Recall your own care of one child aged 3–12 over the past four weeks. Twelve direct-scored items form two six-item parts: warm responses and clear everyday boundaries. One is Never, two Rarely, three Sometimes, four Often and five Almost always. These are frequency choices when relevant occasions arose, not endorsement or actual counts. An occasion without the action differs from no occasion, uncertainty or withholding an answer, which can be explicitly unscored. All twelve need a number or unscored choice to finish. A part needs six numeric answers; divide their sum by six and display one decimal. Responses 4, 2, 3, 5, 2, 4 give 20 ÷ 6, displayed as 3.3. Responses 1, 1, 1, 5, 5, 5 and six threes both display 3.0 with different item answers. Any unscored answer withholds only that part’s mean, without zero, midpoint or a smaller denominator. The other complete part remains; an all-unscored attempt can finish and read all four general guides. Parts are never totalled, ranked, divided into high/low quadrants or used to assign any style. Clear-boundary items do not measure harsh control. Stanford’s four-style overview, CDC toddler and preschool rules guidance and AAP material on family relationships and routines are background, not validation of these original twelve items. CDC examples do not automatically extend to every child aged 3–12. Four weeks and completeness are editorial choices. Reliability, validity, norms, language equivalence and child-outcome prediction are unestablished. No custody decision, legal finding or judgment of who loves a child more follows. Discuss fictional scenes without asking a child to support the test, improve a score or reassure an adult. No child’s name, school, picture or another person’s private affairs need disclosure. Existing opt-in 24-hour tab drafts and completion, retake and exit clearing remain; copying includes only the public title and entry, without added final-result caches or item uploads."
+        }
+      ]
+    }
+  ],
+  "permissive": [
+    {
+      "id": "permissive-3",
+      "title": {
+        "en": "An evening arrangement that remains unclear",
+        "zh": "一项仍不清楚的晚间安排"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构照料者原约定故事读完就收书，却没有说明一篇还是整本。核对含糊之处后，可以说清本次怎么结束，也可以说明为什么修订。修订不等于纵容，孩子还有失望也不证明安排失败；不需要增加惩罚或撤回陪伴来提高“边界”均分。",
+          "en": "An additional original scene: A fictional caregiver agreed to put a book away after a story without clarifying whether that meant one story or the whole book. After checking the ambiguity, they can explain how this occasion will end or why the plan is being revised. Revision is not automatically indulgence, and disappointment proves no failed arrangement. Extra punishment or withdrawn attention is not needed to raise a boundaries mean."
+        }
+      ]
+    },
+    {
+      "id": "permissive-7",
+      "title": {
+        "en": "Clarify one routine rather than adding many rules",
+        "zh": "先说清一个流程，不急着增加规则"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“先前约定哪里含糊，新的下一步怎样说明，哪些帮助实际可用？”愿意参与的照料者可以只讨论虚构情境，把已确认的约定、可观察的行动与未知分开。可以不分享作答、不评他人类型，也不要求孩子在场或承担成年人的协调责任；不讨论也不影响阅读全文。",
+          "en": "An optional discussion prompt asks: “What was ambiguous in the earlier agreement, how is the new next step explained, and which help is actually available?” Willing caregivers can discuss only the fictional scene, separating confirmed agreements, observable actions and unknowns. No answers, judgments of another caregiver’s type or child’s presence are required. A child need not coordinate adults. Declining discussion leaves every guide readable."
+        }
+      ]
+    },
+    {
+      "id": "permissive-8",
+      "title": {
+        "en": "A guide is not an outcome forecast",
+        "zh": "指南不是发展预测"
+      },
+      "paragraphs": [
+        {
+          "zh": "本页新增情境与讨论提示由费马测试编辑部原创。问卷回看过去四周，本人照料同一位3至12岁孩子的行动；十二题分为温暖回应与清楚日常边界各六题，均为正向。1从不、2很少、3有时、4经常、5几乎总是，描述有相关机会时的频率，不是符合程度或实际次数。有机会未做与无相关机会、无法判断、不愿回答不同，后者可以明确选不计分。十二项都选择数字或不计分才完成，每组六项数字齐全才求和除以六、显示一位小数；4、2、3、5、2、4的20÷6显示3.3。1、1、1、5、5、5与六个3都显示3.0，却有不同逐项回答。任一项不计分只使所属均分暂缺，不补零、中点或缩小分母；另一完整组保留，全部不计分仍能完成并读四篇通用指南。两组不加总、不排名、不画高低象限，也不从数字分配任何风格；清楚边界条目没有测量严厉控制。斯坦福四风格概述、CDC幼儿及学龄前规则说明、美国儿科学会家庭关系与日常安排资料只提供背景，不验证本原创十二题或把CDC幼儿例子自动推广至所有3至12岁孩子。四周期限和齐全规则是编辑约定；本题本尚无已建立的信效度、常模、语言等价性或儿童发展预测证据。不可用于监护、法律认定或判定谁更爱孩子。讨论可用虚构情境，不要求孩子配合测评、改善分数或安慰成年人；无需披露孩子姓名、学校、照片或他人私事。现有主动选择的24小时标签页草稿与完成、重测、退出清除不变；复制仅公开标题和入口，不增加最终结果缓存或逐题上传。",
+          "en": "FermatMind Editorial authored the additional scenes and prompts. Recall your own care of one child aged 3–12 over the past four weeks. Twelve direct-scored items form two six-item parts: warm responses and clear everyday boundaries. One is Never, two Rarely, three Sometimes, four Often and five Almost always. These are frequency choices when relevant occasions arose, not endorsement or actual counts. An occasion without the action differs from no occasion, uncertainty or withholding an answer, which can be explicitly unscored. All twelve need a number or unscored choice to finish. A part needs six numeric answers; divide their sum by six and display one decimal. Responses 4, 2, 3, 5, 2, 4 give 20 ÷ 6, displayed as 3.3. Responses 1, 1, 1, 5, 5, 5 and six threes both display 3.0 with different item answers. Any unscored answer withholds only that part’s mean, without zero, midpoint or a smaller denominator. The other complete part remains; an all-unscored attempt can finish and read all four general guides. Parts are never totalled, ranked, divided into high/low quadrants or used to assign any style. Clear-boundary items do not measure harsh control. Stanford’s four-style overview, CDC toddler and preschool rules guidance and AAP material on family relationships and routines are background, not validation of these original twelve items. CDC examples do not automatically extend to every child aged 3–12. Four weeks and completeness are editorial choices. Reliability, validity, norms, language equivalence and child-outcome prediction are unestablished. No custody decision, legal finding or judgment of who loves a child more follows. Discuss fictional scenes without asking a child to support the test, improve a score or reassure an adult. No child’s name, school, picture or another person’s private affairs need disclosure. Existing opt-in 24-hour tab drafts and completion, retake and exit clearing remain; copying includes only the public title and entry, without added final-result caches or item uploads."
+        }
+      ]
+    }
+  ],
+  "uninvolved": [
+    {
+      "id": "uninvolved-3",
+      "title": {
+        "en": "A handover makes the question concrete",
+        "zh": "用一次交接把问题说具体"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构照料者发现自己当天无法完成活动后的接送，先确认另一位成年人是否确实同意、何时能够到达，以及安排失效时由谁处理。没有回应不能当成已经答应，测试分数也不能完成交接。这个例子不推断资源少、轮班或共同照料就是低投入；实际需要无法被满足时，应处理需要本身，无须等到重测。",
+          "en": "An additional original scene: A fictional caregiver finds they cannot collect a child after an activity. They check whether another adult has actually agreed, when that person can arrive and who handles a failed arrangement. No reply is not agreement, and a test value completes no handover. Limited resources, shifts or shared care do not establish an uninvolved pattern. Address an unmet practical need without waiting for another attempt."
+        }
+      ]
+    },
+    {
+      "id": "uninvolved-7",
+      "title": {
+        "en": "Choose one practical point of contact",
+        "zh": "核对一个实际可回应的环节"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“谁已明确同意负责，什么时候可回应，安排改变时由谁确认下一步？”愿意参与的照料者可以只讨论虚构情境，把已确认的约定、可观察的行动与未知分开。可以不分享作答、不评他人类型，也不要求孩子在场或承担成年人的协调责任；不讨论也不影响阅读全文。",
+          "en": "An optional discussion prompt asks: “Who has explicitly agreed to take responsibility, when are they available, and who confirms the next step if plans change?” Willing caregivers can discuss only the fictional scene, separating confirmed agreements, observable actions and unknowns. No answers, judgments of another caregiver’s type or child’s presence are required. A child need not coordinate adults. Declining discussion leaves every guide readable."
+        }
+      ]
+    },
+    {
+      "id": "uninvolved-8",
+      "title": {
+        "en": "Keep judgments within the available evidence",
+        "zh": "让判断止于现有证据"
+      },
+      "paragraphs": [
+        {
+          "zh": "本页新增情境与讨论提示由费马测试编辑部原创。问卷回看过去四周，本人照料同一位3至12岁孩子的行动；十二题分为温暖回应与清楚日常边界各六题，均为正向。1从不、2很少、3有时、4经常、5几乎总是，描述有相关机会时的频率，不是符合程度或实际次数。有机会未做与无相关机会、无法判断、不愿回答不同，后者可以明确选不计分。十二项都选择数字或不计分才完成，每组六项数字齐全才求和除以六、显示一位小数；4、2、3、5、2、4的20÷6显示3.3。1、1、1、5、5、5与六个3都显示3.0，却有不同逐项回答。任一项不计分只使所属均分暂缺，不补零、中点或缩小分母；另一完整组保留，全部不计分仍能完成并读四篇通用指南。两组不加总、不排名、不画高低象限，也不从数字分配任何风格；清楚边界条目没有测量严厉控制。斯坦福四风格概述、CDC幼儿及学龄前规则说明、美国儿科学会家庭关系与日常安排资料只提供背景，不验证本原创十二题或把CDC幼儿例子自动推广至所有3至12岁孩子。四周期限和齐全规则是编辑约定；本题本尚无已建立的信效度、常模、语言等价性或儿童发展预测证据。不可用于监护、法律认定或判定谁更爱孩子。讨论可用虚构情境，不要求孩子配合测评、改善分数或安慰成年人；无需披露孩子姓名、学校、照片或他人私事。现有主动选择的24小时标签页草稿与完成、重测、退出清除不变；复制仅公开标题和入口，不增加最终结果缓存或逐题上传。",
+          "en": "FermatMind Editorial authored the additional scenes and prompts. Recall your own care of one child aged 3–12 over the past four weeks. Twelve direct-scored items form two six-item parts: warm responses and clear everyday boundaries. One is Never, two Rarely, three Sometimes, four Often and five Almost always. These are frequency choices when relevant occasions arose, not endorsement or actual counts. An occasion without the action differs from no occasion, uncertainty or withholding an answer, which can be explicitly unscored. All twelve need a number or unscored choice to finish. A part needs six numeric answers; divide their sum by six and display one decimal. Responses 4, 2, 3, 5, 2, 4 give 20 ÷ 6, displayed as 3.3. Responses 1, 1, 1, 5, 5, 5 and six threes both display 3.0 with different item answers. Any unscored answer withholds only that part’s mean, without zero, midpoint or a smaller denominator. The other complete part remains; an all-unscored attempt can finish and read all four general guides. Parts are never totalled, ranked, divided into high/low quadrants or used to assign any style. Clear-boundary items do not measure harsh control. Stanford’s four-style overview, CDC toddler and preschool rules guidance and AAP material on family relationships and routines are background, not validation of these original twelve items. CDC examples do not automatically extend to every child aged 3–12. Four weeks and completeness are editorial choices. Reliability, validity, norms, language equivalence and child-outcome prediction are unestablished. No custody decision, legal finding or judgment of who loves a child more follows. Discuss fictional scenes without asking a child to support the test, improve a score or reassure an adult. No child’s name, school, picture or another person’s private affairs need disclosure. Existing opt-in 24-hour tab drafts and completion, retake and exit clearing remain; copying includes only the public title and entry, without added final-result caches or item uploads."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "spq92-total-reading": [
+    {
+      "id": "context-and-limits",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：两位虚构读者得到相同总分，一位描述阅读时的眩光，另一位提到公共空间里的背景声。相同总分不能替他们选出同一个需要，也不能证明感官能力相同。可以只读这个例子，区分题中自述、眼前环境与尚未知晓的原因；不需重现刺激、比较耐受、请别人偷偷改变环境或补做感官实验。",
+          "en": "In an additional original scene, two readers have the same total. One describes glare while reading; the other mentions background sound in a shared space. Equal totals cannot select the same need for them or establish equal sensory abilities. You can simply read the example and separate self-report, surroundings and unknown causes. No recreated stimulus, tolerance comparison, secretly changed environment or sensory experiment is needed."
+        }
+      ]
+    },
+    {
+      "id": "everyday-conversation",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只为虚构场景写一句需要说明：哪个条件影响了什么活动、希望讨论什么可撤回的安排、共用空间的人还有哪些需要？”可以不提出真实请求。听者先确认理解，不用总分评判需要是否合理，不把较低分当作意见优先权，也不要求对方证明更敏感；警报、通风、防护、处方设备和既有无障碍支持不由本分数决定。",
+          "en": "An optional conversation card asks for one sentence about a fictional setting: which condition affected which activity, what reversible arrangement could be discussed, and what others sharing the space need. Making a real request is optional. A listener checks their understanding without using a total to approve someone’s needs, give lower scores priority or demand proof of greater sensitivity. This score does not determine alarms, ventilation, protective or prescribed equipment, or existing accessibility support."
+        }
+      ]
+    },
+    {
+      "id": "source-and-edition",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "以上新增情境与交流卡为费马编辑部原创，和源题本及论文证据分开。92条按原四个同意锚点0、1、2、3作答，44条反向用3减原值，再加总为0—276；较低表示在所选键下自报更敏感，不是更好或更差。源题本未规定近期回忆期限，不另加过去四周的回忆限制。任一不计分会暂不给整体总分，不补零、不估算或把部分和放大；全部不计分仍可完成并读全文。总分不是敏感百分比、客观阈值、常模位置、诊断、类型或职业适配，也不把35项短版与92项版混算。原研究证据不自动验证本站工作中译、不计分选项和完整度政策，不能由两次数字判断可靠变化或某项调整的效果。只凭已有经验作答，不尝试热、痛、气味、闪光、声音、旋转或其他题述刺激。可选标签页草稿仍需主动保存、24小时失效，并在完成或重测时清除；复制只带公开标题和入口，不含回答与个人总分。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material, separate from the source items and study evidence. The 92 statements retain four agreement anchors valued 0, 1, 2 and 3. Forty-four reversals use 3 minus the raw value before summation from 0 to 276; lower means more self-reported sensitivity under the selected key, not better or worse. The source specifies no recent recall window; no four-week recall window is added. Any unscored choice withholds the whole total without zero replacement, estimation or an inflated partial sum; all-unscored attempts still finish with the full guide. A total is not a sensitivity percentage, observed threshold, normative position, diagnosis, type or career match. The 35-item and 92-item forms remain separate. Source research does not automatically validate this working Chinese translation, added unscored option or completeness policy. Two totals do not establish reliable change or an adjustment’s effect. Answer from existing experience without trying heat, pain, smells, flashing lights, sound, spinning or other described stimuli. Optional tab drafts still require active saving, expire after 24 hours and clear on completion or retake. Copying includes only the public title and entry link, without responses or a personal total."
+        }
+      ]
+    }
+  ]
+}

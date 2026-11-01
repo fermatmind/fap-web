@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
 import type { Questionnaire } from "@/lib/questionnaires/types";
@@ -31,7 +31,7 @@ export function QuestionnaireChakraReport({ quiz, result, locale }: {
           <div className="flex flex-wrap justify-between gap-3"><dt>{zh ? "本组自述均分" : "This group’s self-report mean"}</dt><dd data-chakra-mean>{available ? `${score.mean!.toFixed(1)} / 5` : missing}</dd></div>
         </dl>
         {!available && <p data-chakra-insufficient className="mb-5 rounded-lg bg-amber-50 p-4 leading-7">{zh ? `本组${score.rated}条有效评分，少于所需${quiz.minimumRatedItems}条，不计算个人总和或均分。下面仍可读完整通用说明，不能据此解释你这次的状态。` : `This group has ${score.rated} ratings, fewer than the ${quiz.minimumRatedItems} needed. No personal sum or mean is interpreted. The full general guide follows, but it is not an interpretation of your state in this attempt.`}</p>}
-        <div data-chakra-guide={profile.id}><QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} /></div>
+        <div data-chakra-guide={profile.id}><QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} /></div>
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一主题的公开说明" : "Read this theme’s public guide"}</Link>
       </section>;
     })}

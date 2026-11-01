@@ -1,0 +1,248 @@
+{
+  "invite": [
+    {
+      "id": "invite-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者把小组活动的时间、内容和了解详情的位置告诉新成员，对方暂不决定。提供机会、对方接受和对方感到被接纳分别保留；邀请较多不能证明三者相同。例子不要求增加邀约或再次追问，被拒绝后仍尊重答复。",
+          "en": "In an additional original scene, a reader gives a fictional newcomer an activity’s time, content and information source. The newcomer has not decided. An offer, acceptance and feeling included remain separate; frequent invitations establish none as equivalent. No extra invitation or repeated question is required, and a refusal remains respected."
+        }
+      ]
+    },
+    {
+      "id": "invite-5",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只看虚构邀请，哪些细节能帮助决定，怎样保留拒绝或稍后回应的空间？”可只读，不联系真实成员。听者不从均分判断友善或社交能力，也不以接受邀请验证自己的价值。",
+          "en": "An optional conversation card asks which fictional invitation details help a decision and how refusal or a later answer remains possible. Reading alone needs no real contact. A listener judges no friendliness or social skill from a mean and uses no acceptance to test personal worth."
+        }
+      ]
+    },
+    {
+      "id": "invite-6",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，原有行动建议均自愿。沿用过去四周同一普通自愿小组或熟悉互动情境；1至5为从不、很少、有时、经常、非常经常，3不是中立或缺失。没有情境或保留评价记未评分，不补零或中点。24题按六组各四题直接计入，无反向；每组至少三条数字才用有效原始和除以有效项数，保留一位小数。2、3、4与未评分为9/3＝3.0；两条数字不显示均分，其他完整组照常显示。六组固定顺序，行动与期望分别保留，不相减、不取配对平均、不合总分、不排名或判断匹配。期望不是实际收到的回应，也不证明别人欠什么；相同或不同均分均不能确立平衡、冲突、原因或成长。FIRO-B概念与其正式工具证据不验证本原创题本，尚无已建立的信效度、常模或英中文测量等值。讨论可全用虚构材料，不要求联系、披露或测试对方。六篇公开全文始终开放；原有页面内存、主动选择的24小时标签页草稿及完成退出重测清除不变，复制仅含公开标题和入口，不含回答或均分。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading; existing action suggestions remain voluntary. Keep one ordinary voluntary group or familiar interaction context over the past four weeks. Ratings one to five mean Never, Rarely, Sometimes, Often and Very often; three is neither neutral nor missing. No context or withholding remains unscored without zero or midpoint replacement. Twenty-four direct items form six groups of four without reversal. Each group needs three numeric responses for its rated sum divided by rated count, rounded to one decimal. Responses 2, 3, 4 and unscored give 9/3 = 3.0. Two numeric responses yield no mean; other sufficiently rated groups remain available. Six groups retain fixed order, with actions and wishes separate and no subtraction, paired average, overall total, ranking or compatibility decision. Wishes are not received responses or evidence of debt. Equal or different means establish no balance, conflict, cause or growth. FIRO-B concepts and official instrument evidence do not validate this original form, which lacks established reliability, validity, norms or English–Chinese measurement equivalence. Fictional discussion needs no contact, disclosure or test of another person. All six public full guides remain open. Existing page memory, explicitly chosen 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying includes only the public title and entry, without answers or means."
+        }
+      ]
+    }
+  ],
+  "be-included": [
+    {
+      "id": "be-included-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者当天有别的安排，仍希望先收到散步邀请，最后可能拒绝。期望有选择与希望每次参加不同，也不证明朋友故意忽略。另一人希望少些邀请，同样可以保留；数字不选定两种想法的原因。",
+          "en": "In an additional original scene, a reader with other plans still wants a fictional walk invitation and may decline. Wanting a choice differs from wanting every event and proves no intentional exclusion. Another person can prefer fewer invitations; numbers select no cause for either account."
+        }
+      ]
+    },
+    {
+      "id": "be-included-5",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只看虚构散步，想被问到、决定参加和享受活动分别是什么？哪些原因还不知道？”可不提出真实请求。听者不替别人承诺邀请、不把拒绝解读成不重视，也不要求展示结果来获得参与机会。",
+          "en": "An optional conversation card separates wanting to be asked, attending and enjoying a fictional walk, leaving reasons unknown. No real request is required. A listener promises nobody’s invitation, interprets no refusal as disregard and requires no displayed result for an opportunity to join."
+        }
+      ]
+    },
+    {
+      "id": "be-included-6",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，原有行动建议均自愿。沿用过去四周同一普通自愿小组或熟悉互动情境；1至5为从不、很少、有时、经常、非常经常，3不是中立或缺失。没有情境或保留评价记未评分，不补零或中点。24题按六组各四题直接计入，无反向；每组至少三条数字才用有效原始和除以有效项数，保留一位小数。2、3、4与未评分为9/3＝3.0；两条数字不显示均分，其他完整组照常显示。六组固定顺序，行动与期望分别保留，不相减、不取配对平均、不合总分、不排名或判断匹配。期望不是实际收到的回应，也不证明别人欠什么；相同或不同均分均不能确立平衡、冲突、原因或成长。FIRO-B概念与其正式工具证据不验证本原创题本，尚无已建立的信效度、常模或英中文测量等值。讨论可全用虚构材料，不要求联系、披露或测试对方。六篇公开全文始终开放；原有页面内存、主动选择的24小时标签页草稿及完成退出重测清除不变，复制仅含公开标题和入口，不含回答或均分。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading; existing action suggestions remain voluntary. Keep one ordinary voluntary group or familiar interaction context over the past four weeks. Ratings one to five mean Never, Rarely, Sometimes, Often and Very often; three is neither neutral nor missing. No context or withholding remains unscored without zero or midpoint replacement. Twenty-four direct items form six groups of four without reversal. Each group needs three numeric responses for its rated sum divided by rated count, rounded to one decimal. Responses 2, 3, 4 and unscored give 9/3 = 3.0. Two numeric responses yield no mean; other sufficiently rated groups remain available. Six groups retain fixed order, with actions and wishes separate and no subtraction, paired average, overall total, ranking or compatibility decision. Wishes are not received responses or evidence of debt. Equal or different means establish no balance, conflict, cause or growth. FIRO-B concepts and official instrument evidence do not validate this original form, which lacks established reliability, validity, norms or English–Chinese measurement equivalence. Fictional discussion needs no contact, disclosure or test of another person. All six public full guides remain open. Existing page memory, explicitly chosen 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying includes only the public title and entry, without answers or means."
+        }
+      ]
+    }
+  ],
+  "coordinate": [
+    {
+      "id": "coordinate-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者提出只收集出行日期，其他人同意汇总方式，但各自仍决定是否参加。有限协调不等于替所有人定时间；后来没有余量时，也可重谈职责。频率不认证领导力，不因常协调就必须持续承担。",
+          "en": "In an additional original scene, a reader offers only to collect fictional outing dates. Others agree to the summary method while retaining attendance choices. Bounded coordination does not decide everyone’s schedule; reduced capacity can prompt a new agreement. Frequency certifies no leadership and creates no continuing duty."
+        }
+      ]
+    },
+    {
+      "id": "coordinate-5",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只看虚构分工，提议、已经同意的范围和仍由各人决定的部分是什么？”可不接任务。听者不把协调次数变成支配分，不把同意讨论当作授权，也不按结果安排谁永远带领。",
+          "en": "An optional conversation card separates the fictional proposal, agreed scope and choices still belonging to each person. No task needs accepting. A listener turns no coordination count into dominance, mistakes no discussion for authority and appoints no permanent leader from a result."
+        }
+      ]
+    },
+    {
+      "id": "coordinate-6",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，原有行动建议均自愿。沿用过去四周同一普通自愿小组或熟悉互动情境；1至5为从不、很少、有时、经常、非常经常，3不是中立或缺失。没有情境或保留评价记未评分，不补零或中点。24题按六组各四题直接计入，无反向；每组至少三条数字才用有效原始和除以有效项数，保留一位小数。2、3、4与未评分为9/3＝3.0；两条数字不显示均分，其他完整组照常显示。六组固定顺序，行动与期望分别保留，不相减、不取配对平均、不合总分、不排名或判断匹配。期望不是实际收到的回应，也不证明别人欠什么；相同或不同均分均不能确立平衡、冲突、原因或成长。FIRO-B概念与其正式工具证据不验证本原创题本，尚无已建立的信效度、常模或英中文测量等值。讨论可全用虚构材料，不要求联系、披露或测试对方。六篇公开全文始终开放；原有页面内存、主动选择的24小时标签页草稿及完成退出重测清除不变，复制仅含公开标题和入口，不含回答或均分。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading; existing action suggestions remain voluntary. Keep one ordinary voluntary group or familiar interaction context over the past four weeks. Ratings one to five mean Never, Rarely, Sometimes, Often and Very often; three is neither neutral nor missing. No context or withholding remains unscored without zero or midpoint replacement. Twenty-four direct items form six groups of four without reversal. Each group needs three numeric responses for its rated sum divided by rated count, rounded to one decimal. Responses 2, 3, 4 and unscored give 9/3 = 3.0. Two numeric responses yield no mean; other sufficiently rated groups remain available. Six groups retain fixed order, with actions and wishes separate and no subtraction, paired average, overall total, ranking or compatibility decision. Wishes are not received responses or evidence of debt. Equal or different means establish no balance, conflict, cause or growth. FIRO-B concepts and official instrument evidence do not validate this original form, which lacks established reliability, validity, norms or English–Chinese measurement equivalence. Fictional discussion needs no contact, disclosure or test of another person. All six public full guides remain open. Existing page memory, explicitly chosen 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying includes only the public title and entry, without answers or means."
+        }
+      ]
+    }
+  ],
+  "receive-coordination": [
+    {
+      "id": "receive-coordination-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者熟悉材料准备，却不熟悉活动顺序，希望负责人说明下一步；自己仍可询问或拒绝不合适的职责。期望一条有用信息不等于交出决定权，也不证明别人此前失职。主动协调与希望获得协调可以同时存在。",
+          "en": "In an additional original scene, a reader knows material preparation but wants the fictional activity owner to clarify its unfamiliar sequence. They retain questions and the option to decline an unsuitable role. Wanting useful information surrenders no authority and proves no prior failure by others. Offering and wanting coordination can coexist."
+        }
+      ]
+    },
+    {
+      "id": "receive-coordination-5",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只看虚构任务，哪一条安排能帮助决定，哪些事仍由参与者选择？”可只保留问题。听者不把期望解释成依赖、服从或能力不足，也不要求接受不愿接受的指令来取得支持。",
+          "en": "An optional conversation card asks which fictional task detail helps a decision and which choices remain with participants. A question alone suffices. A listener infers no dependence, obedience or low ability and requires no unwanted instruction accepted in exchange for support."
+        }
+      ]
+    },
+    {
+      "id": "receive-coordination-6",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，原有行动建议均自愿。沿用过去四周同一普通自愿小组或熟悉互动情境；1至5为从不、很少、有时、经常、非常经常，3不是中立或缺失。没有情境或保留评价记未评分，不补零或中点。24题按六组各四题直接计入，无反向；每组至少三条数字才用有效原始和除以有效项数，保留一位小数。2、3、4与未评分为9/3＝3.0；两条数字不显示均分，其他完整组照常显示。六组固定顺序，行动与期望分别保留，不相减、不取配对平均、不合总分、不排名或判断匹配。期望不是实际收到的回应，也不证明别人欠什么；相同或不同均分均不能确立平衡、冲突、原因或成长。FIRO-B概念与其正式工具证据不验证本原创题本，尚无已建立的信效度、常模或英中文测量等值。讨论可全用虚构材料，不要求联系、披露或测试对方。六篇公开全文始终开放；原有页面内存、主动选择的24小时标签页草稿及完成退出重测清除不变，复制仅含公开标题和入口，不含回答或均分。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading; existing action suggestions remain voluntary. Keep one ordinary voluntary group or familiar interaction context over the past four weeks. Ratings one to five mean Never, Rarely, Sometimes, Often and Very often; three is neither neutral nor missing. No context or withholding remains unscored without zero or midpoint replacement. Twenty-four direct items form six groups of four without reversal. Each group needs three numeric responses for its rated sum divided by rated count, rounded to one decimal. Responses 2, 3, 4 and unscored give 9/3 = 3.0. Two numeric responses yield no mean; other sufficiently rated groups remain available. Six groups retain fixed order, with actions and wishes separate and no subtraction, paired average, overall total, ranking or compatibility decision. Wishes are not received responses or evidence of debt. Equal or different means establish no balance, conflict, cause or growth. FIRO-B concepts and official instrument evidence do not validate this original form, which lacks established reliability, validity, norms or English–Chinese measurement equivalence. Fictional discussion needs no contact, disclosure or test of another person. All six public full guides remain open. Existing page memory, explicitly chosen 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying includes only the public title and entry, without answers or means."
+        }
+      ]
+    }
+  ],
+  "offer-warmth": [
+    {
+      "id": "offer-warmth-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者问熟悉的人想聊聊还是安静，对方选择安静；这次关心提议仍可记录，是否感到受支持由对方说明。善意与效果分别保留，不凭频率认证共情或感情。例子不要求反复问候、建议、披露或越过正式边界。",
+          "en": "In an additional original scene, a reader offers a familiar person a fictional chat or quiet, and quiet is chosen. The offer can still be recorded; the recipient supplies any account of support. Intention and effect remain separate without frequency certifying empathy or affection. No repeated check-in, advice, disclosure or crossed formal boundary is required."
+        }
+      ]
+    },
+    {
+      "id": "offer-warmth-5",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只看虚构关心提议，接受、拒绝和不解释都可以怎样被保留？”可以不尝试。听者不从少表达推断冷漠，不把多表达当作对等回应的债权，也不要求让所有人舒服。",
+          "en": "An optional conversation card asks how acceptance, refusal and no explanation can remain possible in the fictional offer. No attempt is needed. A listener infers no coldness from fewer offers, creates no debt for equal attention from more offers and requires nobody to make everyone comfortable."
+        }
+      ]
+    },
+    {
+      "id": "offer-warmth-6",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，原有行动建议均自愿。沿用过去四周同一普通自愿小组或熟悉互动情境；1至5为从不、很少、有时、经常、非常经常，3不是中立或缺失。没有情境或保留评价记未评分，不补零或中点。24题按六组各四题直接计入，无反向；每组至少三条数字才用有效原始和除以有效项数，保留一位小数。2、3、4与未评分为9/3＝3.0；两条数字不显示均分，其他完整组照常显示。六组固定顺序，行动与期望分别保留，不相减、不取配对平均、不合总分、不排名或判断匹配。期望不是实际收到的回应，也不证明别人欠什么；相同或不同均分均不能确立平衡、冲突、原因或成长。FIRO-B概念与其正式工具证据不验证本原创题本，尚无已建立的信效度、常模或英中文测量等值。讨论可全用虚构材料，不要求联系、披露或测试对方。六篇公开全文始终开放；原有页面内存、主动选择的24小时标签页草稿及完成退出重测清除不变，复制仅含公开标题和入口，不含回答或均分。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading; existing action suggestions remain voluntary. Keep one ordinary voluntary group or familiar interaction context over the past four weeks. Ratings one to five mean Never, Rarely, Sometimes, Often and Very often; three is neither neutral nor missing. No context or withholding remains unscored without zero or midpoint replacement. Twenty-four direct items form six groups of four without reversal. Each group needs three numeric responses for its rated sum divided by rated count, rounded to one decimal. Responses 2, 3, 4 and unscored give 9/3 = 3.0. Two numeric responses yield no mean; other sufficiently rated groups remain available. Six groups retain fixed order, with actions and wishes separate and no subtraction, paired average, overall total, ranking or compatibility decision. Wishes are not received responses or evidence of debt. Equal or different means establish no balance, conflict, cause or growth. FIRO-B concepts and official instrument evidence do not validate this original form, which lacks established reliability, validity, norms or English–Chinese measurement equivalence. Fictional discussion needs no contact, disclosure or test of another person. All six public full guides remain open. Existing page memory, explicitly chosen 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying includes only the public title and entry, without answers or means."
+        }
+      ]
+    }
+  ],
+  "receive-warmth": [
+    {
+      "id": "receive-warmth-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者完成共同任务后，希望听到一句直接感谢，同时不愿谈私人感受。想获得回应、实际收到回应与决定分享多少分别保留；期望较常出现，不证明缺乏支持或别人没有在乎。例子不要求寻求保证、联系谁或重复测试关系。",
+          "en": "In an additional original scene, a reader wants direct thanks after a fictional shared task while keeping private feelings private. Wanted attention, received attention and chosen disclosure remain separate. Frequent wishes prove neither insufficient support nor someone else’s lack of care. No reassurance, contact or repeated relationship test is required."
+        }
+      ]
+    },
+    {
+      "id": "receive-warmth-5",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只看虚构期待，具体希望什么回应，什么想保留，怎样允许对方现在不方便？”可以不提出请求。听者不替任何人保证回应，不用均分判断依恋、安全感或关系质量，也不把表达结果当作获得关心的条件。",
+          "en": "An optional conversation card asks for the fictional wanted response, retained privacy and room for another person’s unavailability. No request is required. A listener guarantees nobody’s response, infers no attachment, security or relationship quality from a mean and requires no result disclosure for care."
+        }
+      ]
+    },
+    {
+      "id": "receive-warmth-6",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，原有行动建议均自愿。沿用过去四周同一普通自愿小组或熟悉互动情境；1至5为从不、很少、有时、经常、非常经常，3不是中立或缺失。没有情境或保留评价记未评分，不补零或中点。24题按六组各四题直接计入，无反向；每组至少三条数字才用有效原始和除以有效项数，保留一位小数。2、3、4与未评分为9/3＝3.0；两条数字不显示均分，其他完整组照常显示。六组固定顺序，行动与期望分别保留，不相减、不取配对平均、不合总分、不排名或判断匹配。期望不是实际收到的回应，也不证明别人欠什么；相同或不同均分均不能确立平衡、冲突、原因或成长。FIRO-B概念与其正式工具证据不验证本原创题本，尚无已建立的信效度、常模或英中文测量等值。讨论可全用虚构材料，不要求联系、披露或测试对方。六篇公开全文始终开放；原有页面内存、主动选择的24小时标签页草稿及完成退出重测清除不变，复制仅含公开标题和入口，不含回答或均分。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading; existing action suggestions remain voluntary. Keep one ordinary voluntary group or familiar interaction context over the past four weeks. Ratings one to five mean Never, Rarely, Sometimes, Often and Very often; three is neither neutral nor missing. No context or withholding remains unscored without zero or midpoint replacement. Twenty-four direct items form six groups of four without reversal. Each group needs three numeric responses for its rated sum divided by rated count, rounded to one decimal. Responses 2, 3, 4 and unscored give 9/3 = 3.0. Two numeric responses yield no mean; other sufficiently rated groups remain available. Six groups retain fixed order, with actions and wishes separate and no subtraction, paired average, overall total, ranking or compatibility decision. Wishes are not received responses or evidence of debt. Equal or different means establish no balance, conflict, cause or growth. FIRO-B concepts and official instrument evidence do not validate this original form, which lacks established reliability, validity, norms or English–Chinese measurement equivalence. Fictional discussion needs no contact, disclosure or test of another person. All six public full guides remain open. Existing page memory, explicitly chosen 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying includes only the public title and entry, without answers or means."
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
 import type { Questionnaire } from "@/lib/questionnaires/types";
@@ -21,7 +21,7 @@ export function QuestionnaireMusicReport({ quiz, result, locale }: { quiz: Quest
     <p className="leading-8">{zh ? "以下八份完整说明都保留具体声音线索、内部差异、场景、取舍、相近比较、反例和可选聆听小尝试。均分或资料不足均不隐藏正文。想配合心情、细听、共同选歌、发现新声音或回到熟悉作品，要按实际场景另外选择，不由曲风推定能力或健康效果。" : "All eight full guides retain sound cues, variation, contexts, tradeoffs, comparisons, counterexamples and optional listening experiments. Means or insufficient information never hide the text. Choosing for a mood, listening closely, making a shared choice, discovering sounds or returning to familiar music depends on the actual context; genres establish neither abilities nor health effects."}</p>
     {quiz.profiles.map(profile => <section key={profile.id} data-music-profile={profile.id} aria-labelledby={`music-title-${profile.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
       <h3 id={`music-title-${profile.id}`} className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
-      <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这类声音的公开说明" : "Read this sound family’s public guide"}</Link>
     </section>)}
   </div>;

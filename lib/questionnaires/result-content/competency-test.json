@@ -1,0 +1,248 @@
+{
+  "message-checking-reading": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构协作者说“周末前完成”，另一人理解为不同的截止时点。读者核对日期、时区和需要交付什么，仍需听对方确认。这一次有共同含义，不证明以后沟通总有效；核对次数也不能说明术语、指示或听者之间究竟哪里困难。",
+          "en": "In an additional original scene, fictional collaborators interpret “before the weekend” differently. A reader checks date, time zone and required output, still needing the recipient’s confirmation. Shared meaning once establishes no general communication effectiveness; frequency cannot locate the difficulty in terminology, instructions or the interaction."
+        }
+      ]
+    },
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构请求的词、单位和下一步中，哪一处尚有两种理解？”可只读，无需发送真实消息或收集聊天。听者不以核对频率判断谁更会沟通，也不把重复次数当理解证据。",
+          "en": "An optional discussion card identifies an ambiguous word, unit or next step in the fictional request. Reading alone suffices without messages or chat records. Checking frequency ranks no communicator, and repetition proves no understanding."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创；可只读，原有观察也可跳过。只回顾过去四周工作、学习、志愿或共同项目中有相关机会时自己的行为。36项按六组各六项直接计入，无反向；1从未、2很少、3有时、4经常、5几乎每次，3不是中立。没有机会、无法判断或不想回答不计分，不补零或中点。全部36项都需回应，每组必须六项数字齐全才相加除以六，显示一位小数；3、4、3、2、4、3合计19，显示3.2；一项不计分便不给本组均分，其余完整组保留，六篇全文始终可读。六项齐全是编辑完整度规则，小数不证明精度。频率不等于机会百分比、效果、能力、领导力或岗位资格；成熟流程里较少核对也可能够用，相同均分可有不同内容与机会，变化不认证进步。OPM与O*NET只作概念背景，不验证此原创题本、六主题或四周回忆；尚无已建立的信效度、常模或英中等值。不合总分、不排名、不派最强最弱或招聘等级。虚构讨论无需权限变更、额外工作、机密或真实联系人；原有页面内存、自选24小时标签页草稿及完成退出重测清除不变，复制不含私人回答或均分。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing observations are optional. Recall your own actions when relevant occasions arose in work, study, volunteering or shared projects during the past four weeks. Thirty-six direct items form six groups of six without reversals. Anchors are 1 Never, 2 Rarely, 3 Sometimes, 4 Often and 5 Almost always; three is not neutral. No occasion, inability to judge or withholding remains unscored without zero or midpoint replacement. All prompts need responses. Each group requires all six numbers for sum divided by six, displayed to one decimal. Ratings 3, 4, 3, 2, 4, 3 sum to 19 and display 3.2. One unscored item withholds only its group’s mean; other complete groups and all six full guides remain available. Completeness is an editorial rule and decimal display establishes no precision. Frequency establishes neither percentage of occasions, effectiveness, ability, leadership nor qualification. A routine can need fewer checks; equal means can involve different actions and opportunities, and changes certify no progress. OPM and O*NET provide conceptual background without validating this original bank, six themes or four-week recall. Reliability, validity, norms and English–Chinese equivalence are unestablished. There is no total, ranking, strongest or weakest type or hiring grade. Fictional discussion requires no changed permissions, extra duties, confidential material or real contacts. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged; copying includes no private answers or means."
+        }
+      ]
+    }
+  ],
+  "problem-framing-reading": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构清单的合计不符，读者先区分少一行与统计范围不同，再用获准的虚构样本核对。没有验证权限时保留未知，也算准确描述限制。较多核对不保证选对原因；结果顺利也不能单独证明最初推理方法可靠。",
+          "en": "In an additional original scene, a fictional list’s total differs. A reader distinguishes a missing row from a different counting scope using an authorised dummy sample. Without permission, unknown can remain unknown. More checking guarantees no correct cause, and a favourable result alone validates no reasoning method."
+        }
+      ]
+    },
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构合计差别的两个解释是什么？什么观察能区分，又有什么查不了？”可只读，不需访问数据、执行修复或证明第一想法正确。讨论不把均分换算成推理能力。",
+          "en": "An optional discussion card names two explanations for the fictional total, a distinguishing observation and what cannot be checked. Reading alone suffices without data access, repairs or proving the first idea right. The mean measures no reasoning ability."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创；可只读，原有观察也可跳过。只回顾过去四周工作、学习、志愿或共同项目中有相关机会时自己的行为。36项按六组各六项直接计入，无反向；1从未、2很少、3有时、4经常、5几乎每次，3不是中立。没有机会、无法判断或不想回答不计分，不补零或中点。全部36项都需回应，每组必须六项数字齐全才相加除以六，显示一位小数；3、4、3、2、4、3合计19，显示3.2；一项不计分便不给本组均分，其余完整组保留，六篇全文始终可读。六项齐全是编辑完整度规则，小数不证明精度。频率不等于机会百分比、效果、能力、领导力或岗位资格；成熟流程里较少核对也可能够用，相同均分可有不同内容与机会，变化不认证进步。OPM与O*NET只作概念背景，不验证此原创题本、六主题或四周回忆；尚无已建立的信效度、常模或英中等值。不合总分、不排名、不派最强最弱或招聘等级。虚构讨论无需权限变更、额外工作、机密或真实联系人；原有页面内存、自选24小时标签页草稿及完成退出重测清除不变，复制不含私人回答或均分。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing observations are optional. Recall your own actions when relevant occasions arose in work, study, volunteering or shared projects during the past four weeks. Thirty-six direct items form six groups of six without reversals. Anchors are 1 Never, 2 Rarely, 3 Sometimes, 4 Often and 5 Almost always; three is not neutral. No occasion, inability to judge or withholding remains unscored without zero or midpoint replacement. All prompts need responses. Each group requires all six numbers for sum divided by six, displayed to one decimal. Ratings 3, 4, 3, 2, 4, 3 sum to 19 and display 3.2. One unscored item withholds only its group’s mean; other complete groups and all six full guides remain available. Completeness is an editorial rule and decimal display establishes no precision. Frequency establishes neither percentage of occasions, effectiveness, ability, leadership nor qualification. A routine can need fewer checks; equal means can involve different actions and opportunities, and changes certify no progress. OPM and O*NET provide conceptual background without validating this original bank, six themes or four-week recall. Reliability, validity, norms and English–Chinese equivalence are unestablished. There is no total, ranking, strongest or weakest type or hiring grade. Fictional discussion requires no changed permissions, extra duties, confidential material or real contacts. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged; copying includes no private answers or means."
+        }
+      ]
+    }
+  ],
+  "agreed-action-reading": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构社团成员建议调整展示顺序，先问目的是否共同认可，再说明自己只能协调一块材料。提出建议、获得同意和拥有决定权限不同。对方婉拒后保留原安排，不证明缺乏主动性；频繁协调也不代表应当承担全部责任。",
+          "en": "In an additional original scene, a fictional club member proposes a display-order change, checks the shared purpose and offers to coordinate one part. Proposal, agreement and authority differ. Keeping the existing arrangement after a refusal establishes no lack of initiative; frequent coordination assigns no unlimited responsibility."
+        }
+      ]
+    },
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构提案中什么已经商定、谁能决定、谁愿意执行？”可只读，不分派真实工作，不把沉默当同意。讨论不以次数选择领导，也不把未评分解释为低潜力。",
+          "en": "An optional discussion card separates agreed points, decision authority and willing contributors in the fictional proposal. Reading alone assigns no real tasks and treats no silence as agreement. Counts select no leader; unscored answers establish no low potential."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创；可只读，原有观察也可跳过。只回顾过去四周工作、学习、志愿或共同项目中有相关机会时自己的行为。36项按六组各六项直接计入，无反向；1从未、2很少、3有时、4经常、5几乎每次，3不是中立。没有机会、无法判断或不想回答不计分，不补零或中点。全部36项都需回应，每组必须六项数字齐全才相加除以六，显示一位小数；3、4、3、2、4、3合计19，显示3.2；一项不计分便不给本组均分，其余完整组保留，六篇全文始终可读。六项齐全是编辑完整度规则，小数不证明精度。频率不等于机会百分比、效果、能力、领导力或岗位资格；成熟流程里较少核对也可能够用，相同均分可有不同内容与机会，变化不认证进步。OPM与O*NET只作概念背景，不验证此原创题本、六主题或四周回忆；尚无已建立的信效度、常模或英中等值。不合总分、不排名、不派最强最弱或招聘等级。虚构讨论无需权限变更、额外工作、机密或真实联系人；原有页面内存、自选24小时标签页草稿及完成退出重测清除不变，复制不含私人回答或均分。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing observations are optional. Recall your own actions when relevant occasions arose in work, study, volunteering or shared projects during the past four weeks. Thirty-six direct items form six groups of six without reversals. Anchors are 1 Never, 2 Rarely, 3 Sometimes, 4 Often and 5 Almost always; three is not neutral. No occasion, inability to judge or withholding remains unscored without zero or midpoint replacement. All prompts need responses. Each group requires all six numbers for sum divided by six, displayed to one decimal. Ratings 3, 4, 3, 2, 4, 3 sum to 19 and display 3.2. One unscored item withholds only its group’s mean; other complete groups and all six full guides remain available. Completeness is an editorial rule and decimal display establishes no precision. Frequency establishes neither percentage of occasions, effectiveness, ability, leadership nor qualification. A routine can need fewer checks; equal means can involve different actions and opportunities, and changes certify no progress. OPM and O*NET provide conceptual background without validating this original bank, six themes or four-week recall. Reliability, validity, norms and English–Chinese equivalence are unestablished. There is no total, ranking, strongest or weakest type or hiring grade. Fictional discussion requires no changed permissions, extra duties, confidential material or real contacts. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged; copying includes no private answers or means."
+        }
+      ]
+    }
+  ],
+  "work-planning-reading": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者准备一张说明卡，先核对阅读者、尺寸、文件格式与支架条件；即使所有部分准时到齐，也仍可能无法安装。说明依赖、技术规格正确和成果可用是不同证据。均分不评规划复杂度，也不把更多文档视为更有效。",
+          "en": "In an additional original scene, a fictional reader checks a display card’s reader, dimensions, format and stand. On-time parts may still fail to fit. Describing dependencies, technical correctness and usability require different evidence. The mean assesses no planning complexity and equates no extra documentation with effectiveness."
+        }
+      ]
+    },
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构说明卡必须连接哪项输入、什么条件会使它不能使用？”可只读，不添加臆测需求或执行项目。听者区分安排日期与明确规格，不以次数认证项目管理能力。",
+          "en": "An optional discussion card identifies an input and a condition that could prevent use of the fictional card. Reading alone adds no speculative requirements and executes no project. Scheduling differs from specification; counts certify no project-management ability."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创；可只读，原有观察也可跳过。只回顾过去四周工作、学习、志愿或共同项目中有相关机会时自己的行为。36项按六组各六项直接计入，无反向；1从未、2很少、3有时、4经常、5几乎每次，3不是中立。没有机会、无法判断或不想回答不计分，不补零或中点。全部36项都需回应，每组必须六项数字齐全才相加除以六，显示一位小数；3、4、3、2、4、3合计19，显示3.2；一项不计分便不给本组均分，其余完整组保留，六篇全文始终可读。六项齐全是编辑完整度规则，小数不证明精度。频率不等于机会百分比、效果、能力、领导力或岗位资格；成熟流程里较少核对也可能够用，相同均分可有不同内容与机会，变化不认证进步。OPM与O*NET只作概念背景，不验证此原创题本、六主题或四周回忆；尚无已建立的信效度、常模或英中等值。不合总分、不排名、不派最强最弱或招聘等级。虚构讨论无需权限变更、额外工作、机密或真实联系人；原有页面内存、自选24小时标签页草稿及完成退出重测清除不变，复制不含私人回答或均分。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing observations are optional. Recall your own actions when relevant occasions arose in work, study, volunteering or shared projects during the past four weeks. Thirty-six direct items form six groups of six without reversals. Anchors are 1 Never, 2 Rarely, 3 Sometimes, 4 Often and 5 Almost always; three is not neutral. No occasion, inability to judge or withholding remains unscored without zero or midpoint replacement. All prompts need responses. Each group requires all six numbers for sum divided by six, displayed to one decimal. Ratings 3, 4, 3, 2, 4, 3 sum to 19 and display 3.2. One unscored item withholds only its group’s mean; other complete groups and all six full guides remain available. Completeness is an editorial rule and decimal display establishes no precision. Frequency establishes neither percentage of occasions, effectiveness, ability, leadership nor qualification. A routine can need fewer checks; equal means can involve different actions and opportunities, and changes certify no progress. OPM and O*NET provide conceptual background without validating this original bank, six themes or four-week recall. Reliability, validity, norms and English–Chinese equivalence are unestablished. There is no total, ranking, strongest or weakest type or hiring grade. Fictional discussion requires no changed permissions, extra duties, confidential material or real contacts. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged; copying includes no private answers or means."
+        }
+      ]
+    }
+  ],
+  "response-to-change-reading": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者试新工具的一个示例，发现它无法保留所需格式，于是说明限制并暂停扩大使用。修订做法不总等于换工具，保留旧法也可能符合要求。试用频率不能证明学习快、适应性高或不加判断地服从变化。",
+          "en": "In an additional original scene, a fictional reader tests one example in a new tool, finds a required format missing and pauses wider use. Revising an approach need not mean replacing the tool; keeping the old method may meet the brief. Trial frequency establishes neither learning speed, adaptability nor unquestioning compliance."
+        }
+      ]
+    },
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构修订要解决什么，哪个要求仍须保留，什么结果支持停止？”可只读，不安装工具或迁移共同文件。听者不把报告限制称为抗拒，也不把更高均分当新工作适配证据。",
+          "en": "An optional discussion card identifies the fictional revision’s purpose, retained requirement and stopping evidence. Reading alone requires no installation or shared-file migration. Reporting a limit establishes no resistance, and a higher mean establishes no fit for a new role."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创；可只读，原有观察也可跳过。只回顾过去四周工作、学习、志愿或共同项目中有相关机会时自己的行为。36项按六组各六项直接计入，无反向；1从未、2很少、3有时、4经常、5几乎每次，3不是中立。没有机会、无法判断或不想回答不计分，不补零或中点。全部36项都需回应，每组必须六项数字齐全才相加除以六，显示一位小数；3、4、3、2、4、3合计19，显示3.2；一项不计分便不给本组均分，其余完整组保留，六篇全文始终可读。六项齐全是编辑完整度规则，小数不证明精度。频率不等于机会百分比、效果、能力、领导力或岗位资格；成熟流程里较少核对也可能够用，相同均分可有不同内容与机会，变化不认证进步。OPM与O*NET只作概念背景，不验证此原创题本、六主题或四周回忆；尚无已建立的信效度、常模或英中等值。不合总分、不排名、不派最强最弱或招聘等级。虚构讨论无需权限变更、额外工作、机密或真实联系人；原有页面内存、自选24小时标签页草稿及完成退出重测清除不变，复制不含私人回答或均分。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing observations are optional. Recall your own actions when relevant occasions arose in work, study, volunteering or shared projects during the past four weeks. Thirty-six direct items form six groups of six without reversals. Anchors are 1 Never, 2 Rarely, 3 Sometimes, 4 Often and 5 Almost always; three is not neutral. No occasion, inability to judge or withholding remains unscored without zero or midpoint replacement. All prompts need responses. Each group requires all six numbers for sum divided by six, displayed to one decimal. Ratings 3, 4, 3, 2, 4, 3 sum to 19 and display 3.2. One unscored item withholds only its group’s mean; other complete groups and all six full guides remain available. Completeness is an editorial rule and decimal display establishes no precision. Frequency establishes neither percentage of occasions, effectiveness, ability, leadership nor qualification. A routine can need fewer checks; equal means can involve different actions and opportunities, and changes certify no progress. OPM and O*NET provide conceptual background without validating this original bank, six themes or four-week recall. Reliability, validity, norms and English–Chinese equivalence are unestablished. There is no total, ranking, strongest or weakest type or hiring grade. Fictional discussion requires no changed permissions, extra duties, confidential material or real contacts. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged; copying includes no private answers or means."
+        }
+      ]
+    }
+  ],
+  "shared-delivery-reading": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构小组两份展示稿各自完成，却对同一术语定义不同。读者把差异带回约定问题，先确认由谁修改、对方是否需要帮助。协调与接管不同，实际整合是否成功仍需检查；频率不说明谁受欢迎、谁应该多承担工作。",
+          "en": "In an additional original scene, two fictional presentation sections use different definitions. A reader checks the agreed question, revision ownership and whether help is wanted. Coordination differs from taking over; successful integration still needs checking. Frequency establishes neither popularity nor who should take extra work."
+        }
+      ]
+    },
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构组合成果哪里不兼容，什么已共同商定，提供帮助还需问什么？”可只读，不接手真实任务或披露分歧。听者不以自评分要求别人认可，也不把缺少共同工作机会当难以共事。",
+          "en": "An optional discussion card locates incompatibility, shared agreements and questions before offering help with the fictional output. Reading alone takes no real task and discloses no dispute. Self-ratings require no endorsement, and absent teamwork opportunities establish no difficulty working with someone."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创；可只读，原有观察也可跳过。只回顾过去四周工作、学习、志愿或共同项目中有相关机会时自己的行为。36项按六组各六项直接计入，无反向；1从未、2很少、3有时、4经常、5几乎每次，3不是中立。没有机会、无法判断或不想回答不计分，不补零或中点。全部36项都需回应，每组必须六项数字齐全才相加除以六，显示一位小数；3、4、3、2、4、3合计19，显示3.2；一项不计分便不给本组均分，其余完整组保留，六篇全文始终可读。六项齐全是编辑完整度规则，小数不证明精度。频率不等于机会百分比、效果、能力、领导力或岗位资格；成熟流程里较少核对也可能够用，相同均分可有不同内容与机会，变化不认证进步。OPM与O*NET只作概念背景，不验证此原创题本、六主题或四周回忆；尚无已建立的信效度、常模或英中等值。不合总分、不排名、不派最强最弱或招聘等级。虚构讨论无需权限变更、额外工作、机密或真实联系人；原有页面内存、自选24小时标签页草稿及完成退出重测清除不变，复制不含私人回答或均分。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing observations are optional. Recall your own actions when relevant occasions arose in work, study, volunteering or shared projects during the past four weeks. Thirty-six direct items form six groups of six without reversals. Anchors are 1 Never, 2 Rarely, 3 Sometimes, 4 Often and 5 Almost always; three is not neutral. No occasion, inability to judge or withholding remains unscored without zero or midpoint replacement. All prompts need responses. Each group requires all six numbers for sum divided by six, displayed to one decimal. Ratings 3, 4, 3, 2, 4, 3 sum to 19 and display 3.2. One unscored item withholds only its group’s mean; other complete groups and all six full guides remain available. Completeness is an editorial rule and decimal display establishes no precision. Frequency establishes neither percentage of occasions, effectiveness, ability, leadership nor qualification. A routine can need fewer checks; equal means can involve different actions and opportunities, and changes certify no progress. OPM and O*NET provide conceptual background without validating this original bank, six themes or four-week recall. Reliability, validity, norms and English–Chinese equivalence are unestablished. There is no total, ranking, strongest or weakest type or hiring grade. Fictional discussion requires no changed permissions, extra duties, confidential material or real contacts. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged; copying includes no private answers or means."
+        }
+      ]
+    }
+  ]
+}

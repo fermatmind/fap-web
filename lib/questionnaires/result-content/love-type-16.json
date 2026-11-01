@@ -1,0 +1,658 @@
+{
+  "lcro": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者先提一个路程合适的午后活动，希望对方关心自己的近况，但尚未答应晚饭。提出活动、接受关心与保留后续时间分别成立；对方愿意赴约，也不等于愿意提供全部安慰。",
+          "en": "In an additional original scene: The reader proposes a nearby afternoon activity and would like a check-in, without agreeing to dinner. Initiating, receiving care and leaving later time open are separate choices. Accepting the invitation creates no duty to provide every form of reassurance."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“哪些已约定，哪些只是希望被关心或尚未决定？”可只读或谈虚构人物，不需透露自己的代码和次数、邀请真实伴侣或得到一致答案；讨论可随时结束。",
+          "en": "An optional discussion card asks: “Which parts are agreed, which are wishes for care, and which remain undecided?” Read alone or discuss the fictional reader without disclosing codes or counts, involving a partner or reaching identical answers. Discussion may end at any point."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原练习均可跳过。围绕同一个当前或假设的安全关系情境，不增加回顾时长。三十二道原创二选一分四轴各八题，每侧各四次在前；字母对应所选内容，不把位置当同一侧。每次只给所选字母记一次，本轴两侧合八；5:3是八题中的选择次数，不是人格占比、爱意或人群百分位。4:4保留两侧，四轴交叉组合完整展示一、二、四、八或十六份兼容读法，无抽签、优先级或补题。兼容仅指符合本次保留字母，不指伴侣适配；显示顺序不排名。三十二项都需有效选择，无不适用计分；两项都不合适时可停止直接读全部指南，不把部分作答补成类型。四轴不合总分或比较强弱，同次数不证明偏好同强，重测不同不证明人格改变。本版题文和解读独立原创，不是官方LoveType题本、角色或算法，也不转换为MBTI；无已建立信效度、常模或中英等值，不评爱意、忠诚、依恋、安全、他人意图及关系未来。虚构讨论无需披露、联系、配对、承诺或证明自己符合代码。另一人可以拒绝任何邀请；提供照顾不产生回报债务，接受关心不意味着无限同意。原页面内存、自选24小时会话草稿及完成、退出、重测清除保持不变，复制只有公开标题与入口，不含次数、答案或个人兼容集合。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing exercises are optional. Keep one current or imagined safe relationship situation without adding a recall window. Thirty-two original pairs form four axes of eight, with each side first four times. Letters follow selected content, not a fixed option position. Each choice adds one to its letter and each axis sums to eight. A 5:3 count describes eight choices, not personality shares, love or population percentiles. A 4:4 tie keeps both sides. Combining all retained letters shows one, two, four, eight or sixteen complete compatible readings, without draws, priorities or extra questions. Compatible means consistent with this attempt’s letters, not partner compatibility; display order is not rank. All thirty-two choices must be valid. There is no not-applicable score; if neither fits, stop and read all guides rather than turning a partial attempt into a type. Axes have no combined total or strength comparison. Equal counts establish no equal preference strength; a changed retake proves no personality change. These independently authored questions and readings are neither official LoveType questions, characters nor algorithms and do not convert into MBTI. There are no established reliability, validity, norms or English–Chinese equivalence, nor conclusions about love, fidelity, attachment, safety, another person’s intentions or a relationship’s future. Fictional discussion needs no disclosure, contact, matching, promises or proof of fitting a code. Anyone may decline an invitation; offered care creates no repayment debt and receiving care implies no unlimited agreement. Page memory, optional 24-hour session drafts and completion, exit or retake clearing remain unchanged. Copying contains only a public title and entry link, without counts, answers or the personal compatible set."
+        }
+      ]
+    }
+  ],
+  "lcre": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者提一个双方方便的短通话，说明希望被倾听，也想确认是否固定下来。可行时间、倾听方式和重复安排需分别获得回应；确认一次通话不认证未来承诺。",
+          "en": "In an additional original scene: The reader proposes a convenient short call, asks to be heard and wonders about making it recurring. Timing, listening and recurrence need separate responses. One agreed call certifies no future commitment."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“哪些问题关于时间，哪些关于照顾，哪些关于重复约定？”可只读或谈虚构人物，不需透露自己的代码和次数、邀请真实伴侣或得到一致答案；讨论可随时结束。",
+          "en": "An optional discussion card asks: “Which questions concern timing, care or a recurring agreement?” Read alone or discuss the fictional reader without disclosing codes or counts, involving a partner or reaching identical answers. Discussion may end at any point."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原练习均可跳过。围绕同一个当前或假设的安全关系情境，不增加回顾时长。三十二道原创二选一分四轴各八题，每侧各四次在前；字母对应所选内容，不把位置当同一侧。每次只给所选字母记一次，本轴两侧合八；5:3是八题中的选择次数，不是人格占比、爱意或人群百分位。4:4保留两侧，四轴交叉组合完整展示一、二、四、八或十六份兼容读法，无抽签、优先级或补题。兼容仅指符合本次保留字母，不指伴侣适配；显示顺序不排名。三十二项都需有效选择，无不适用计分；两项都不合适时可停止直接读全部指南，不把部分作答补成类型。四轴不合总分或比较强弱，同次数不证明偏好同强，重测不同不证明人格改变。本版题文和解读独立原创，不是官方LoveType题本、角色或算法，也不转换为MBTI；无已建立信效度、常模或中英等值，不评爱意、忠诚、依恋、安全、他人意图及关系未来。虚构讨论无需披露、联系、配对、承诺或证明自己符合代码。另一人可以拒绝任何邀请；提供照顾不产生回报债务，接受关心不意味着无限同意。原页面内存、自选24小时会话草稿及完成、退出、重测清除保持不变，复制只有公开标题与入口，不含次数、答案或个人兼容集合。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing exercises are optional. Keep one current or imagined safe relationship situation without adding a recall window. Thirty-two original pairs form four axes of eight, with each side first four times. Letters follow selected content, not a fixed option position. Each choice adds one to its letter and each axis sums to eight. A 5:3 count describes eight choices, not personality shares, love or population percentiles. A 4:4 tie keeps both sides. Combining all retained letters shows one, two, four, eight or sixteen complete compatible readings, without draws, priorities or extra questions. Compatible means consistent with this attempt’s letters, not partner compatibility; display order is not rank. All thirty-two choices must be valid. There is no not-applicable score; if neither fits, stop and read all guides rather than turning a partial attempt into a type. Axes have no combined total or strength comparison. Equal counts establish no equal preference strength; a changed retake proves no personality change. These independently authored questions and readings are neither official LoveType questions, characters nor algorithms and do not convert into MBTI. There are no established reliability, validity, norms or English–Chinese equivalence, nor conclusions about love, fidelity, attachment, safety, another person’s intentions or a relationship’s future. Fictional discussion needs no disclosure, contact, matching, promises or proof of fitting a code. Anyone may decline an invitation; offered care creates no repayment debt and receiving care implies no unlimited agreement. Page memory, optional 24-hour session drafts and completion, exit or retake clearing remain unchanged. Copying contains only a public title and entry link, without counts, answers or the personal compatible set."
+        }
+      ]
+    }
+  ],
+  "lcpo": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者先邀请看一段晚霞，希望有人温和陪伴，又想保留提早回家的选项。心动、希望被陪与结束自由可以同时存在，不需要对方用持续时间证明心意。",
+          "en": "In an additional original scene: The reader initiates sunset watching, wants gentle company and keeps an option to leave early. Romantic appeal, receiving company and freedom to end can coexist; duration proves no affection."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“怎样让短暂邀请容纳陪伴愿望与拒绝继续的空间？”可只读或谈虚构人物，不需透露自己的代码和次数、邀请真实伴侣或得到一致答案；讨论可随时结束。",
+          "en": "An optional discussion card asks: “How could a brief invitation leave room for company and refusal to continue?” Read alone or discuss the fictional reader without disclosing codes or counts, involving a partner or reaching identical answers. Discussion may end at any point."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原练习均可跳过。围绕同一个当前或假设的安全关系情境，不增加回顾时长。三十二道原创二选一分四轴各八题，每侧各四次在前；字母对应所选内容，不把位置当同一侧。每次只给所选字母记一次，本轴两侧合八；5:3是八题中的选择次数，不是人格占比、爱意或人群百分位。4:4保留两侧，四轴交叉组合完整展示一、二、四、八或十六份兼容读法，无抽签、优先级或补题。兼容仅指符合本次保留字母，不指伴侣适配；显示顺序不排名。三十二项都需有效选择，无不适用计分；两项都不合适时可停止直接读全部指南，不把部分作答补成类型。四轴不合总分或比较强弱，同次数不证明偏好同强，重测不同不证明人格改变。本版题文和解读独立原创，不是官方LoveType题本、角色或算法，也不转换为MBTI；无已建立信效度、常模或中英等值，不评爱意、忠诚、依恋、安全、他人意图及关系未来。虚构讨论无需披露、联系、配对、承诺或证明自己符合代码。另一人可以拒绝任何邀请；提供照顾不产生回报债务，接受关心不意味着无限同意。原页面内存、自选24小时会话草稿及完成、退出、重测清除保持不变，复制只有公开标题与入口，不含次数、答案或个人兼容集合。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing exercises are optional. Keep one current or imagined safe relationship situation without adding a recall window. Thirty-two original pairs form four axes of eight, with each side first four times. Letters follow selected content, not a fixed option position. Each choice adds one to its letter and each axis sums to eight. A 5:3 count describes eight choices, not personality shares, love or population percentiles. A 4:4 tie keeps both sides. Combining all retained letters shows one, two, four, eight or sixteen complete compatible readings, without draws, priorities or extra questions. Compatible means consistent with this attempt’s letters, not partner compatibility; display order is not rank. All thirty-two choices must be valid. There is no not-applicable score; if neither fits, stop and read all guides rather than turning a partial attempt into a type. Axes have no combined total or strength comparison. Equal counts establish no equal preference strength; a changed retake proves no personality change. These independently authored questions and readings are neither official LoveType questions, characters nor algorithms and do not convert into MBTI. There are no established reliability, validity, norms or English–Chinese equivalence, nor conclusions about love, fidelity, attachment, safety, another person’s intentions or a relationship’s future. Fictional discussion needs no disclosure, contact, matching, promises or proof of fitting a code. Anyone may decline an invitation; offered care creates no repayment debt and receiving care implies no unlimited agreement. Page memory, optional 24-hour session drafts and completion, exit or retake clearing remain unchanged. Copying contains only a public title and entry link, without counts, answers or the personal compatible set."
+        }
+      ]
+    }
+  ],
+  "lcpe": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者先写一张表达感受的小卡，希望得到温和回应，并想另谈双方怎样理解关系。收卡、感谢、相似感受与共同定义不互相代替；卡片不附回应义务。",
+          "en": "In an additional original scene: The reader initiates a small note, hopes for warmth and separately wants to discuss how each person understands the relationship. Receiving it, thanking, sharing the feeling and agreeing on meaning differ; the note creates no response debt."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“哪些是个人表达，哪些仍需要另一人自由回答？”可只读或谈虚构人物，不需透露自己的代码和次数、邀请真实伴侣或得到一致答案；讨论可随时结束。",
+          "en": "An optional discussion card asks: “Which parts express one person’s feelings, and which still need another person’s free answer?” Read alone or discuss the fictional reader without disclosing codes or counts, involving a partner or reaching identical answers. Discussion may end at any point."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原练习均可跳过。围绕同一个当前或假设的安全关系情境，不增加回顾时长。三十二道原创二选一分四轴各八题，每侧各四次在前；字母对应所选内容，不把位置当同一侧。每次只给所选字母记一次，本轴两侧合八；5:3是八题中的选择次数，不是人格占比、爱意或人群百分位。4:4保留两侧，四轴交叉组合完整展示一、二、四、八或十六份兼容读法，无抽签、优先级或补题。兼容仅指符合本次保留字母，不指伴侣适配；显示顺序不排名。三十二项都需有效选择，无不适用计分；两项都不合适时可停止直接读全部指南，不把部分作答补成类型。四轴不合总分或比较强弱，同次数不证明偏好同强，重测不同不证明人格改变。本版题文和解读独立原创，不是官方LoveType题本、角色或算法，也不转换为MBTI；无已建立信效度、常模或中英等值，不评爱意、忠诚、依恋、安全、他人意图及关系未来。虚构讨论无需披露、联系、配对、承诺或证明自己符合代码。另一人可以拒绝任何邀请；提供照顾不产生回报债务，接受关心不意味着无限同意。原页面内存、自选24小时会话草稿及完成、退出、重测清除保持不变，复制只有公开标题与入口，不含次数、答案或个人兼容集合。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing exercises are optional. Keep one current or imagined safe relationship situation without adding a recall window. Thirty-two original pairs form four axes of eight, with each side first four times. Letters follow selected content, not a fixed option position. Each choice adds one to its letter and each axis sums to eight. A 5:3 count describes eight choices, not personality shares, love or population percentiles. A 4:4 tie keeps both sides. Combining all retained letters shows one, two, four, eight or sixteen complete compatible readings, without draws, priorities or extra questions. Compatible means consistent with this attempt’s letters, not partner compatibility; display order is not rank. All thirty-two choices must be valid. There is no not-applicable score; if neither fits, stop and read all guides rather than turning a partial attempt into a type. Axes have no combined total or strength comparison. Equal counts establish no equal preference strength; a changed retake proves no personality change. These independently authored questions and readings are neither official LoveType questions, characters nor algorithms and do not convert into MBTI. There are no established reliability, validity, norms or English–Chinese equivalence, nor conclusions about love, fidelity, attachment, safety, another person’s intentions or a relationship’s future. Fictional discussion needs no disclosure, contact, matching, promises or proof of fitting a code. Anyone may decline an invitation; offered care creates no repayment debt and receiving care implies no unlimited agreement. Page memory, optional 24-hour session drafts and completion, exit or retake clearing remain unchanged. Copying contains only a public title and entry link, without counts, answers or the personal compatible set."
+        }
+      ]
+    }
+  ],
+  "laro": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者先提一顿方便的简餐，愿意带食物，但不承诺负责对方整个晚上的心情。照顾可以只是一项被欢迎的小帮助，之后安排仍可由双方另选。",
+          "en": "In an additional original scene: The reader initiates an easy meal and offers food without undertaking responsibility for someone’s whole evening mood. Care can be one welcome contribution while later plans remain open to both people."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“帮助到哪里结束，怎样先确认是否受欢迎？”可只读或谈虚构人物，不需透露自己的代码和次数、邀请真实伴侣或得到一致答案；讨论可随时结束。",
+          "en": "An optional discussion card asks: “Where does the offer end, and how could its welcome be checked first?” Read alone or discuss the fictional reader without disclosing codes or counts, involving a partner or reaching identical answers. Discussion may end at any point."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原练习均可跳过。围绕同一个当前或假设的安全关系情境，不增加回顾时长。三十二道原创二选一分四轴各八题，每侧各四次在前；字母对应所选内容，不把位置当同一侧。每次只给所选字母记一次，本轴两侧合八；5:3是八题中的选择次数，不是人格占比、爱意或人群百分位。4:4保留两侧，四轴交叉组合完整展示一、二、四、八或十六份兼容读法，无抽签、优先级或补题。兼容仅指符合本次保留字母，不指伴侣适配；显示顺序不排名。三十二项都需有效选择，无不适用计分；两项都不合适时可停止直接读全部指南，不把部分作答补成类型。四轴不合总分或比较强弱，同次数不证明偏好同强，重测不同不证明人格改变。本版题文和解读独立原创，不是官方LoveType题本、角色或算法，也不转换为MBTI；无已建立信效度、常模或中英等值，不评爱意、忠诚、依恋、安全、他人意图及关系未来。虚构讨论无需披露、联系、配对、承诺或证明自己符合代码。另一人可以拒绝任何邀请；提供照顾不产生回报债务，接受关心不意味着无限同意。原页面内存、自选24小时会话草稿及完成、退出、重测清除保持不变，复制只有公开标题与入口，不含次数、答案或个人兼容集合。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing exercises are optional. Keep one current or imagined safe relationship situation without adding a recall window. Thirty-two original pairs form four axes of eight, with each side first four times. Letters follow selected content, not a fixed option position. Each choice adds one to its letter and each axis sums to eight. A 5:3 count describes eight choices, not personality shares, love or population percentiles. A 4:4 tie keeps both sides. Combining all retained letters shows one, two, four, eight or sixteen complete compatible readings, without draws, priorities or extra questions. Compatible means consistent with this attempt’s letters, not partner compatibility; display order is not rank. All thirty-two choices must be valid. There is no not-applicable score; if neither fits, stop and read all guides rather than turning a partial attempt into a type. Axes have no combined total or strength comparison. Equal counts establish no equal preference strength; a changed retake proves no personality change. These independently authored questions and readings are neither official LoveType questions, characters nor algorithms and do not convert into MBTI. There are no established reliability, validity, norms or English–Chinese equivalence, nor conclusions about love, fidelity, attachment, safety, another person’s intentions or a relationship’s future. Fictional discussion needs no disclosure, contact, matching, promises or proof of fitting a code. Anyone may decline an invitation; offered care creates no repayment debt and receiving care implies no unlimited agreement. Page memory, optional 24-hour session drafts and completion, exit or retake clearing remain unchanged. Copying contains only a public title and entry link, without counts, answers or the personal compatible set."
+        }
+      ]
+    }
+  ],
+  "lare": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者先提出共同采购并愿意负责一部分，想说清各自时间与修改方式。明确分工不变成监督权；自己承担一项任务，不让对方欠同等照顾。",
+          "en": "In an additional original scene: The reader initiates shared shopping, offers one contribution and wants clear timing and revision options. Clear roles create no supervision right, and taking a task creates no debt of equivalent care."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“共同约定怎样区分自愿贡献与单方面要求？”可只读或谈虚构人物，不需透露自己的代码和次数、邀请真实伴侣或得到一致答案；讨论可随时结束。",
+          "en": "An optional discussion card asks: “How could a shared agreement distinguish voluntary contributions from unilateral demands?” Read alone or discuss the fictional reader without disclosing codes or counts, involving a partner or reaching identical answers. Discussion may end at any point."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原练习均可跳过。围绕同一个当前或假设的安全关系情境，不增加回顾时长。三十二道原创二选一分四轴各八题，每侧各四次在前；字母对应所选内容，不把位置当同一侧。每次只给所选字母记一次，本轴两侧合八；5:3是八题中的选择次数，不是人格占比、爱意或人群百分位。4:4保留两侧，四轴交叉组合完整展示一、二、四、八或十六份兼容读法，无抽签、优先级或补题。兼容仅指符合本次保留字母，不指伴侣适配；显示顺序不排名。三十二项都需有效选择，无不适用计分；两项都不合适时可停止直接读全部指南，不把部分作答补成类型。四轴不合总分或比较强弱，同次数不证明偏好同强，重测不同不证明人格改变。本版题文和解读独立原创，不是官方LoveType题本、角色或算法，也不转换为MBTI；无已建立信效度、常模或中英等值，不评爱意、忠诚、依恋、安全、他人意图及关系未来。虚构讨论无需披露、联系、配对、承诺或证明自己符合代码。另一人可以拒绝任何邀请；提供照顾不产生回报债务，接受关心不意味着无限同意。原页面内存、自选24小时会话草稿及完成、退出、重测清除保持不变，复制只有公开标题与入口，不含次数、答案或个人兼容集合。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing exercises are optional. Keep one current or imagined safe relationship situation without adding a recall window. Thirty-two original pairs form four axes of eight, with each side first four times. Letters follow selected content, not a fixed option position. Each choice adds one to its letter and each axis sums to eight. A 5:3 count describes eight choices, not personality shares, love or population percentiles. A 4:4 tie keeps both sides. Combining all retained letters shows one, two, four, eight or sixteen complete compatible readings, without draws, priorities or extra questions. Compatible means consistent with this attempt’s letters, not partner compatibility; display order is not rank. All thirty-two choices must be valid. There is no not-applicable score; if neither fits, stop and read all guides rather than turning a partial attempt into a type. Axes have no combined total or strength comparison. Equal counts establish no equal preference strength; a changed retake proves no personality change. These independently authored questions and readings are neither official LoveType questions, characters nor algorithms and do not convert into MBTI. There are no established reliability, validity, norms or English–Chinese equivalence, nor conclusions about love, fidelity, attachment, safety, another person’s intentions or a relationship’s future. Fictional discussion needs no disclosure, contact, matching, promises or proof of fitting a code. Anyone may decline an invitation; offered care creates no repayment debt and receiving care implies no unlimited agreement. Page memory, optional 24-hour session drafts and completion, exit or retake clearing remain unchanged. Copying contains only a public title and entry link, without counts, answers or the personal compatible set."
+        }
+      ]
+    }
+  ],
+  "lapo": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者先提重访一个有回忆的地点，愿意准备小点心，同时容许当天改为在附近散步。心意不依赖完成原计划，投入准备不削弱另一人拒绝的自由。",
+          "en": "In an additional original scene: The reader initiates revisiting a memorable place and offers a snack while allowing a nearby walk instead. Meaning need not depend on executing the original plan; preparation reduces nobody’s freedom to decline."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“哪些心意可保留，哪些实际安排仍可以改变？”可只读或谈虚构人物，不需透露自己的代码和次数、邀请真实伴侣或得到一致答案；讨论可随时结束。",
+          "en": "An optional discussion card asks: “Which intention could remain while practical arrangements change?” Read alone or discuss the fictional reader without disclosing codes or counts, involving a partner or reaching identical answers. Discussion may end at any point."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原练习均可跳过。围绕同一个当前或假设的安全关系情境，不增加回顾时长。三十二道原创二选一分四轴各八题，每侧各四次在前；字母对应所选内容，不把位置当同一侧。每次只给所选字母记一次，本轴两侧合八；5:3是八题中的选择次数，不是人格占比、爱意或人群百分位。4:4保留两侧，四轴交叉组合完整展示一、二、四、八或十六份兼容读法，无抽签、优先级或补题。兼容仅指符合本次保留字母，不指伴侣适配；显示顺序不排名。三十二项都需有效选择，无不适用计分；两项都不合适时可停止直接读全部指南，不把部分作答补成类型。四轴不合总分或比较强弱，同次数不证明偏好同强，重测不同不证明人格改变。本版题文和解读独立原创，不是官方LoveType题本、角色或算法，也不转换为MBTI；无已建立信效度、常模或中英等值，不评爱意、忠诚、依恋、安全、他人意图及关系未来。虚构讨论无需披露、联系、配对、承诺或证明自己符合代码。另一人可以拒绝任何邀请；提供照顾不产生回报债务，接受关心不意味着无限同意。原页面内存、自选24小时会话草稿及完成、退出、重测清除保持不变，复制只有公开标题与入口，不含次数、答案或个人兼容集合。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing exercises are optional. Keep one current or imagined safe relationship situation without adding a recall window. Thirty-two original pairs form four axes of eight, with each side first four times. Letters follow selected content, not a fixed option position. Each choice adds one to its letter and each axis sums to eight. A 5:3 count describes eight choices, not personality shares, love or population percentiles. A 4:4 tie keeps both sides. Combining all retained letters shows one, two, four, eight or sixteen complete compatible readings, without draws, priorities or extra questions. Compatible means consistent with this attempt’s letters, not partner compatibility; display order is not rank. All thirty-two choices must be valid. There is no not-applicable score; if neither fits, stop and read all guides rather than turning a partial attempt into a type. Axes have no combined total or strength comparison. Equal counts establish no equal preference strength; a changed retake proves no personality change. These independently authored questions and readings are neither official LoveType questions, characters nor algorithms and do not convert into MBTI. There are no established reliability, validity, norms or English–Chinese equivalence, nor conclusions about love, fidelity, attachment, safety, another person’s intentions or a relationship’s future. Fictional discussion needs no disclosure, contact, matching, promises or proof of fitting a code. Anyone may decline an invitation; offered care creates no repayment debt and receiving care implies no unlimited agreement. Page memory, optional 24-hour session drafts and completion, exit or retake clearing remain unchanged. Copying contains only a public title and entry link, without counts, answers or the personal compatible set."
+        }
+      ]
+    }
+  ],
+  "lape": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者先提共同做一件纪念物，愿意准备材料，也说明自己赋予的意义。对方可以珍惜回忆而不参与制作，不需用同样物品或宣言回应。",
+          "en": "In an additional original scene: The reader initiates making a keepsake, offers materials and explains its personal meaning. Another person may value the memory without joining the craft and need not respond with a matching object or declaration."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“参与活动、表达感谢与承诺关系分别需要怎样的回答？”可只读或谈虚构人物，不需透露自己的代码和次数、邀请真实伴侣或得到一致答案；讨论可随时结束。",
+          "en": "An optional discussion card asks: “How do joining an activity, expressing thanks and making a commitment need separate answers?” Read alone or discuss the fictional reader without disclosing codes or counts, involving a partner or reaching identical answers. Discussion may end at any point."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原练习均可跳过。围绕同一个当前或假设的安全关系情境，不增加回顾时长。三十二道原创二选一分四轴各八题，每侧各四次在前；字母对应所选内容，不把位置当同一侧。每次只给所选字母记一次，本轴两侧合八；5:3是八题中的选择次数，不是人格占比、爱意或人群百分位。4:4保留两侧，四轴交叉组合完整展示一、二、四、八或十六份兼容读法，无抽签、优先级或补题。兼容仅指符合本次保留字母，不指伴侣适配；显示顺序不排名。三十二项都需有效选择，无不适用计分；两项都不合适时可停止直接读全部指南，不把部分作答补成类型。四轴不合总分或比较强弱，同次数不证明偏好同强，重测不同不证明人格改变。本版题文和解读独立原创，不是官方LoveType题本、角色或算法，也不转换为MBTI；无已建立信效度、常模或中英等值，不评爱意、忠诚、依恋、安全、他人意图及关系未来。虚构讨论无需披露、联系、配对、承诺或证明自己符合代码。另一人可以拒绝任何邀请；提供照顾不产生回报债务，接受关心不意味着无限同意。原页面内存、自选24小时会话草稿及完成、退出、重测清除保持不变，复制只有公开标题与入口，不含次数、答案或个人兼容集合。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing exercises are optional. Keep one current or imagined safe relationship situation without adding a recall window. Thirty-two original pairs form four axes of eight, with each side first four times. Letters follow selected content, not a fixed option position. Each choice adds one to its letter and each axis sums to eight. A 5:3 count describes eight choices, not personality shares, love or population percentiles. A 4:4 tie keeps both sides. Combining all retained letters shows one, two, four, eight or sixteen complete compatible readings, without draws, priorities or extra questions. Compatible means consistent with this attempt’s letters, not partner compatibility; display order is not rank. All thirty-two choices must be valid. There is no not-applicable score; if neither fits, stop and read all guides rather than turning a partial attempt into a type. Axes have no combined total or strength comparison. Equal counts establish no equal preference strength; a changed retake proves no personality change. These independently authored questions and readings are neither official LoveType questions, characters nor algorithms and do not convert into MBTI. There are no established reliability, validity, norms or English–Chinese equivalence, nor conclusions about love, fidelity, attachment, safety, another person’s intentions or a relationship’s future. Fictional discussion needs no disclosure, contact, matching, promises or proof of fitting a code. Anyone may decline an invitation; offered care creates no repayment debt and receiving care implies no unlimited agreement. Page memory, optional 24-hour session drafts and completion, exit or retake clearing remain unchanged. Copying contains only a public title and entry link, without counts, answers or the personal compatible set."
+        }
+      ]
+    }
+  ],
+  "fcro": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构收到附近活动的提议后，读者回应一个更适合的时间，希望对方照顾一个小细节，其他安排暂留开放。回应可以包含修改和拒绝，不意味着同意整套计划。",
+          "en": "In an additional original scene: After a nearby activity is proposed, the reader responds with a better time, asks for care over one detail and leaves the rest open. Responding may include revision or refusal rather than agreement to the whole plan."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“怎样在感谢邀请时说明一个现实条件和自己的愿望？”可只读或谈虚构人物，不需透露自己的代码和次数、邀请真实伴侣或得到一致答案；讨论可随时结束。",
+          "en": "An optional discussion card asks: “How could appreciation include a practical condition and the reader’s own wish?” Read alone or discuss the fictional reader without disclosing codes or counts, involving a partner or reaching identical answers. Discussion may end at any point."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原练习均可跳过。围绕同一个当前或假设的安全关系情境，不增加回顾时长。三十二道原创二选一分四轴各八题，每侧各四次在前；字母对应所选内容，不把位置当同一侧。每次只给所选字母记一次，本轴两侧合八；5:3是八题中的选择次数，不是人格占比、爱意或人群百分位。4:4保留两侧，四轴交叉组合完整展示一、二、四、八或十六份兼容读法，无抽签、优先级或补题。兼容仅指符合本次保留字母，不指伴侣适配；显示顺序不排名。三十二项都需有效选择，无不适用计分；两项都不合适时可停止直接读全部指南，不把部分作答补成类型。四轴不合总分或比较强弱，同次数不证明偏好同强，重测不同不证明人格改变。本版题文和解读独立原创，不是官方LoveType题本、角色或算法，也不转换为MBTI；无已建立信效度、常模或中英等值，不评爱意、忠诚、依恋、安全、他人意图及关系未来。虚构讨论无需披露、联系、配对、承诺或证明自己符合代码。另一人可以拒绝任何邀请；提供照顾不产生回报债务，接受关心不意味着无限同意。原页面内存、自选24小时会话草稿及完成、退出、重测清除保持不变，复制只有公开标题与入口，不含次数、答案或个人兼容集合。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing exercises are optional. Keep one current or imagined safe relationship situation without adding a recall window. Thirty-two original pairs form four axes of eight, with each side first four times. Letters follow selected content, not a fixed option position. Each choice adds one to its letter and each axis sums to eight. A 5:3 count describes eight choices, not personality shares, love or population percentiles. A 4:4 tie keeps both sides. Combining all retained letters shows one, two, four, eight or sixteen complete compatible readings, without draws, priorities or extra questions. Compatible means consistent with this attempt’s letters, not partner compatibility; display order is not rank. All thirty-two choices must be valid. There is no not-applicable score; if neither fits, stop and read all guides rather than turning a partial attempt into a type. Axes have no combined total or strength comparison. Equal counts establish no equal preference strength; a changed retake proves no personality change. These independently authored questions and readings are neither official LoveType questions, characters nor algorithms and do not convert into MBTI. There are no established reliability, validity, norms or English–Chinese equivalence, nor conclusions about love, fidelity, attachment, safety, another person’s intentions or a relationship’s future. Fictional discussion needs no disclosure, contact, matching, promises or proof of fitting a code. Anyone may decline an invitation; offered care creates no repayment debt and receiving care implies no unlimited agreement. Page memory, optional 24-hour session drafts and completion, exit or retake clearing remain unchanged. Copying contains only a public title and entry link, without counts, answers or the personal compatible set."
+        }
+      ]
+    }
+  ],
+  "fcre": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构收到见面邀请后，读者回应可行的时段，希望安静被倾听，并想确认结束时间。清楚回应也表达自己的需要，不把提供所有确定感的任务交给发起者。",
+          "en": "In an additional original scene: After an invitation, the reader gives a workable time, asks for quiet listening and clarifies an end time. A clear response names the reader’s needs rather than making the initiator supply all certainty."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“哪些是可以核实的安排，哪些感受不能由一个保证解决？”可只读或谈虚构人物，不需透露自己的代码和次数、邀请真实伴侣或得到一致答案；讨论可随时结束。",
+          "en": "An optional discussion card asks: “Which arrangements can be clarified, and which feelings cannot be settled by a guarantee?” Read alone or discuss the fictional reader without disclosing codes or counts, involving a partner or reaching identical answers. Discussion may end at any point."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原练习均可跳过。围绕同一个当前或假设的安全关系情境，不增加回顾时长。三十二道原创二选一分四轴各八题，每侧各四次在前；字母对应所选内容，不把位置当同一侧。每次只给所选字母记一次，本轴两侧合八；5:3是八题中的选择次数，不是人格占比、爱意或人群百分位。4:4保留两侧，四轴交叉组合完整展示一、二、四、八或十六份兼容读法，无抽签、优先级或补题。兼容仅指符合本次保留字母，不指伴侣适配；显示顺序不排名。三十二项都需有效选择，无不适用计分；两项都不合适时可停止直接读全部指南，不把部分作答补成类型。四轴不合总分或比较强弱，同次数不证明偏好同强，重测不同不证明人格改变。本版题文和解读独立原创，不是官方LoveType题本、角色或算法，也不转换为MBTI；无已建立信效度、常模或中英等值，不评爱意、忠诚、依恋、安全、他人意图及关系未来。虚构讨论无需披露、联系、配对、承诺或证明自己符合代码。另一人可以拒绝任何邀请；提供照顾不产生回报债务，接受关心不意味着无限同意。原页面内存、自选24小时会话草稿及完成、退出、重测清除保持不变，复制只有公开标题与入口，不含次数、答案或个人兼容集合。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing exercises are optional. Keep one current or imagined safe relationship situation without adding a recall window. Thirty-two original pairs form four axes of eight, with each side first four times. Letters follow selected content, not a fixed option position. Each choice adds one to its letter and each axis sums to eight. A 5:3 count describes eight choices, not personality shares, love or population percentiles. A 4:4 tie keeps both sides. Combining all retained letters shows one, two, four, eight or sixteen complete compatible readings, without draws, priorities or extra questions. Compatible means consistent with this attempt’s letters, not partner compatibility; display order is not rank. All thirty-two choices must be valid. There is no not-applicable score; if neither fits, stop and read all guides rather than turning a partial attempt into a type. Axes have no combined total or strength comparison. Equal counts establish no equal preference strength; a changed retake proves no personality change. These independently authored questions and readings are neither official LoveType questions, characters nor algorithms and do not convert into MBTI. There are no established reliability, validity, norms or English–Chinese equivalence, nor conclusions about love, fidelity, attachment, safety, another person’s intentions or a relationship’s future. Fictional discussion needs no disclosure, contact, matching, promises or proof of fitting a code. Anyone may decline an invitation; offered care creates no repayment debt and receiving care implies no unlimited agreement. Page memory, optional 24-hour session drafts and completion, exit or retake clearing remain unchanged. Copying contains only a public title and entry link, without counts, answers or the personal compatible set."
+        }
+      ]
+    }
+  ],
+  "fcpo": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构收到听音乐的邀请后，读者喜欢气氛并希望得到一点关心，但想先选安静座位。接受邀请不等于同意所有后续活动，热情也不取消修改空间。",
+          "en": "In an additional original scene: After a music invitation, the reader welcomes the atmosphere and some care but asks for quiet seating. Accepting one invitation agrees to no later activities; enthusiasm removes no room for revision."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“哪些欢迎的部分可以保留，哪些细节仍想改变？”可只读或谈虚构人物，不需透露自己的代码和次数、邀请真实伴侣或得到一致答案；讨论可随时结束。",
+          "en": "An optional discussion card asks: “Which welcome parts could remain, and which details would the reader change?” Read alone or discuss the fictional reader without disclosing codes or counts, involving a partner or reaching identical answers. Discussion may end at any point."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原练习均可跳过。围绕同一个当前或假设的安全关系情境，不增加回顾时长。三十二道原创二选一分四轴各八题，每侧各四次在前；字母对应所选内容，不把位置当同一侧。每次只给所选字母记一次，本轴两侧合八；5:3是八题中的选择次数，不是人格占比、爱意或人群百分位。4:4保留两侧，四轴交叉组合完整展示一、二、四、八或十六份兼容读法，无抽签、优先级或补题。兼容仅指符合本次保留字母，不指伴侣适配；显示顺序不排名。三十二项都需有效选择，无不适用计分；两项都不合适时可停止直接读全部指南，不把部分作答补成类型。四轴不合总分或比较强弱，同次数不证明偏好同强，重测不同不证明人格改变。本版题文和解读独立原创，不是官方LoveType题本、角色或算法，也不转换为MBTI；无已建立信效度、常模或中英等值，不评爱意、忠诚、依恋、安全、他人意图及关系未来。虚构讨论无需披露、联系、配对、承诺或证明自己符合代码。另一人可以拒绝任何邀请；提供照顾不产生回报债务，接受关心不意味着无限同意。原页面内存、自选24小时会话草稿及完成、退出、重测清除保持不变，复制只有公开标题与入口，不含次数、答案或个人兼容集合。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing exercises are optional. Keep one current or imagined safe relationship situation without adding a recall window. Thirty-two original pairs form four axes of eight, with each side first four times. Letters follow selected content, not a fixed option position. Each choice adds one to its letter and each axis sums to eight. A 5:3 count describes eight choices, not personality shares, love or population percentiles. A 4:4 tie keeps both sides. Combining all retained letters shows one, two, four, eight or sixteen complete compatible readings, without draws, priorities or extra questions. Compatible means consistent with this attempt’s letters, not partner compatibility; display order is not rank. All thirty-two choices must be valid. There is no not-applicable score; if neither fits, stop and read all guides rather than turning a partial attempt into a type. Axes have no combined total or strength comparison. Equal counts establish no equal preference strength; a changed retake proves no personality change. These independently authored questions and readings are neither official LoveType questions, characters nor algorithms and do not convert into MBTI. There are no established reliability, validity, norms or English–Chinese equivalence, nor conclusions about love, fidelity, attachment, safety, another person’s intentions or a relationship’s future. Fictional discussion needs no disclosure, contact, matching, promises or proof of fitting a code. Anyone may decline an invitation; offered care creates no repayment debt and receiving care implies no unlimited agreement. Page memory, optional 24-hour session drafts and completion, exit or retake clearing remain unchanged. Copying contains only a public title and entry link, without counts, answers or the personal compatible set."
+        }
+      ]
+    }
+  ],
+  "fcpe": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构收到有纪念意味的邀请后，读者回应感谢，希望被关心，并先问对方怎样理解这次相处。听见较轻的意图后可以重新考虑，不把失落或犹豫当作谁的类型错误。",
+          "en": "In an additional original scene: After a meaningful invitation, the reader expresses thanks, wants care and asks what the occasion means. A lighter intended meaning may prompt reconsideration without making disappointment or hesitation a type error."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“感谢、同意赴约与认可同一种意义怎样分开？”可只读或谈虚构人物，不需透露自己的代码和次数、邀请真实伴侣或得到一致答案；讨论可随时结束。",
+          "en": "An optional discussion card asks: “How do thanks, agreement to attend and agreement on meaning differ?” Read alone or discuss the fictional reader without disclosing codes or counts, involving a partner or reaching identical answers. Discussion may end at any point."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原练习均可跳过。围绕同一个当前或假设的安全关系情境，不增加回顾时长。三十二道原创二选一分四轴各八题，每侧各四次在前；字母对应所选内容，不把位置当同一侧。每次只给所选字母记一次，本轴两侧合八；5:3是八题中的选择次数，不是人格占比、爱意或人群百分位。4:4保留两侧，四轴交叉组合完整展示一、二、四、八或十六份兼容读法，无抽签、优先级或补题。兼容仅指符合本次保留字母，不指伴侣适配；显示顺序不排名。三十二项都需有效选择，无不适用计分；两项都不合适时可停止直接读全部指南，不把部分作答补成类型。四轴不合总分或比较强弱，同次数不证明偏好同强，重测不同不证明人格改变。本版题文和解读独立原创，不是官方LoveType题本、角色或算法，也不转换为MBTI；无已建立信效度、常模或中英等值，不评爱意、忠诚、依恋、安全、他人意图及关系未来。虚构讨论无需披露、联系、配对、承诺或证明自己符合代码。另一人可以拒绝任何邀请；提供照顾不产生回报债务，接受关心不意味着无限同意。原页面内存、自选24小时会话草稿及完成、退出、重测清除保持不变，复制只有公开标题与入口，不含次数、答案或个人兼容集合。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing exercises are optional. Keep one current or imagined safe relationship situation without adding a recall window. Thirty-two original pairs form four axes of eight, with each side first four times. Letters follow selected content, not a fixed option position. Each choice adds one to its letter and each axis sums to eight. A 5:3 count describes eight choices, not personality shares, love or population percentiles. A 4:4 tie keeps both sides. Combining all retained letters shows one, two, four, eight or sixteen complete compatible readings, without draws, priorities or extra questions. Compatible means consistent with this attempt’s letters, not partner compatibility; display order is not rank. All thirty-two choices must be valid. There is no not-applicable score; if neither fits, stop and read all guides rather than turning a partial attempt into a type. Axes have no combined total or strength comparison. Equal counts establish no equal preference strength; a changed retake proves no personality change. These independently authored questions and readings are neither official LoveType questions, characters nor algorithms and do not convert into MBTI. There are no established reliability, validity, norms or English–Chinese equivalence, nor conclusions about love, fidelity, attachment, safety, another person’s intentions or a relationship’s future. Fictional discussion needs no disclosure, contact, matching, promises or proof of fitting a code. Anyone may decline an invitation; offered care creates no repayment debt and receiving care implies no unlimited agreement. Page memory, optional 24-hour session drafts and completion, exit or retake clearing remain unchanged. Copying contains only a public title and entry link, without counts, answers or the personal compatible set."
+        }
+      ]
+    }
+  ],
+  "faro": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构回应周末活动时，读者愿意带一样有用物品，也先确认路程适合自己，其他活动到时再定。提供支持不要求先接受不合适的计划，弹性不抹去基本约定。",
+          "en": "In an additional original scene: Responding to a weekend activity, the reader offers one useful item, checks the journey suits them and leaves optional activities open. Support requires no acceptance of an unsuitable plan, and flexibility erases no basic agreement."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“在追加帮忙前，哪些自身条件和共同细节需要说明？”可只读或谈虚构人物，不需透露自己的代码和次数、邀请真实伴侣或得到一致答案；讨论可随时结束。",
+          "en": "An optional discussion card asks: “Which personal conditions and shared details need stating before adding help?” Read alone or discuss the fictional reader without disclosing codes or counts, involving a partner or reaching identical answers. Discussion may end at any point."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原练习均可跳过。围绕同一个当前或假设的安全关系情境，不增加回顾时长。三十二道原创二选一分四轴各八题，每侧各四次在前；字母对应所选内容，不把位置当同一侧。每次只给所选字母记一次，本轴两侧合八；5:3是八题中的选择次数，不是人格占比、爱意或人群百分位。4:4保留两侧，四轴交叉组合完整展示一、二、四、八或十六份兼容读法，无抽签、优先级或补题。兼容仅指符合本次保留字母，不指伴侣适配；显示顺序不排名。三十二项都需有效选择，无不适用计分；两项都不合适时可停止直接读全部指南，不把部分作答补成类型。四轴不合总分或比较强弱，同次数不证明偏好同强，重测不同不证明人格改变。本版题文和解读独立原创，不是官方LoveType题本、角色或算法，也不转换为MBTI；无已建立信效度、常模或中英等值，不评爱意、忠诚、依恋、安全、他人意图及关系未来。虚构讨论无需披露、联系、配对、承诺或证明自己符合代码。另一人可以拒绝任何邀请；提供照顾不产生回报债务，接受关心不意味着无限同意。原页面内存、自选24小时会话草稿及完成、退出、重测清除保持不变，复制只有公开标题与入口，不含次数、答案或个人兼容集合。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing exercises are optional. Keep one current or imagined safe relationship situation without adding a recall window. Thirty-two original pairs form four axes of eight, with each side first four times. Letters follow selected content, not a fixed option position. Each choice adds one to its letter and each axis sums to eight. A 5:3 count describes eight choices, not personality shares, love or population percentiles. A 4:4 tie keeps both sides. Combining all retained letters shows one, two, four, eight or sixteen complete compatible readings, without draws, priorities or extra questions. Compatible means consistent with this attempt’s letters, not partner compatibility; display order is not rank. All thirty-two choices must be valid. There is no not-applicable score; if neither fits, stop and read all guides rather than turning a partial attempt into a type. Axes have no combined total or strength comparison. Equal counts establish no equal preference strength; a changed retake proves no personality change. These independently authored questions and readings are neither official LoveType questions, characters nor algorithms and do not convert into MBTI. There are no established reliability, validity, norms or English–Chinese equivalence, nor conclusions about love, fidelity, attachment, safety, another person’s intentions or a relationship’s future. Fictional discussion needs no disclosure, contact, matching, promises or proof of fitting a code. Anyone may decline an invitation; offered care creates no repayment debt and receiving care implies no unlimited agreement. Page memory, optional 24-hour session drafts and completion, exit or retake clearing remain unchanged. Copying contains only a public title and entry link, without counts, answers or the personal compatible set."
+        }
+      ]
+    }
+  ],
+  "fare": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构回应小聚会的请求时，读者愿意负责一道菜，明确可用时间与变更方式。有限贡献仍可以有用，不成为负责整场的义务，也不要求对方因帮助而给好评。",
+          "en": "In an additional original scene: Responding to a gathering request, the reader offers one dish and states time and revision limits. A bounded contribution can help without becoming responsibility for the whole event or requiring favourable feedback."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“怎样把“能帮这一部分”与“同意承担全部”分清？”可只读或谈虚构人物，不需透露自己的代码和次数、邀请真实伴侣或得到一致答案；讨论可随时结束。",
+          "en": "An optional discussion card asks: “How does offering one contribution differ from agreeing to take responsibility for everything?” Read alone or discuss the fictional reader without disclosing codes or counts, involving a partner or reaching identical answers. Discussion may end at any point."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原练习均可跳过。围绕同一个当前或假设的安全关系情境，不增加回顾时长。三十二道原创二选一分四轴各八题，每侧各四次在前；字母对应所选内容，不把位置当同一侧。每次只给所选字母记一次，本轴两侧合八；5:3是八题中的选择次数，不是人格占比、爱意或人群百分位。4:4保留两侧，四轴交叉组合完整展示一、二、四、八或十六份兼容读法，无抽签、优先级或补题。兼容仅指符合本次保留字母，不指伴侣适配；显示顺序不排名。三十二项都需有效选择，无不适用计分；两项都不合适时可停止直接读全部指南，不把部分作答补成类型。四轴不合总分或比较强弱，同次数不证明偏好同强，重测不同不证明人格改变。本版题文和解读独立原创，不是官方LoveType题本、角色或算法，也不转换为MBTI；无已建立信效度、常模或中英等值，不评爱意、忠诚、依恋、安全、他人意图及关系未来。虚构讨论无需披露、联系、配对、承诺或证明自己符合代码。另一人可以拒绝任何邀请；提供照顾不产生回报债务，接受关心不意味着无限同意。原页面内存、自选24小时会话草稿及完成、退出、重测清除保持不变，复制只有公开标题与入口，不含次数、答案或个人兼容集合。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing exercises are optional. Keep one current or imagined safe relationship situation without adding a recall window. Thirty-two original pairs form four axes of eight, with each side first four times. Letters follow selected content, not a fixed option position. Each choice adds one to its letter and each axis sums to eight. A 5:3 count describes eight choices, not personality shares, love or population percentiles. A 4:4 tie keeps both sides. Combining all retained letters shows one, two, four, eight or sixteen complete compatible readings, without draws, priorities or extra questions. Compatible means consistent with this attempt’s letters, not partner compatibility; display order is not rank. All thirty-two choices must be valid. There is no not-applicable score; if neither fits, stop and read all guides rather than turning a partial attempt into a type. Axes have no combined total or strength comparison. Equal counts establish no equal preference strength; a changed retake proves no personality change. These independently authored questions and readings are neither official LoveType questions, characters nor algorithms and do not convert into MBTI. There are no established reliability, validity, norms or English–Chinese equivalence, nor conclusions about love, fidelity, attachment, safety, another person’s intentions or a relationship’s future. Fictional discussion needs no disclosure, contact, matching, promises or proof of fitting a code. Anyone may decline an invitation; offered care creates no repayment debt and receiving care implies no unlimited agreement. Page memory, optional 24-hour session drafts and completion, exit or retake clearing remain unchanged. Copying contains only a public title and entry link, without counts, answers or the personal compatible set."
+        }
+      ]
+    }
+  ],
+  "fapo": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构回应临时野餐时，读者喜欢浪漫感，也愿意带食物，但保留天气不适时不出行的选择。支持当下心意不要求维持原气氛或超出体力投入。",
+          "en": "In an additional original scene: Responding to a spontaneous picnic, the reader welcomes the romantic appeal and offers food while keeping an option not to go in poor weather. Supporting the intention requires no preservation of the original mood or effort beyond capacity."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“哪些帮助真正自愿，哪些改动可以不被解释成不关心？”可只读或谈虚构人物，不需透露自己的代码和次数、邀请真实伴侣或得到一致答案；讨论可随时结束。",
+          "en": "An optional discussion card asks: “Which support is freely offered, and which changes need not mean a lack of care?” Read alone or discuss the fictional reader without disclosing codes or counts, involving a partner or reaching identical answers. Discussion may end at any point."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原练习均可跳过。围绕同一个当前或假设的安全关系情境，不增加回顾时长。三十二道原创二选一分四轴各八题，每侧各四次在前；字母对应所选内容，不把位置当同一侧。每次只给所选字母记一次，本轴两侧合八；5:3是八题中的选择次数，不是人格占比、爱意或人群百分位。4:4保留两侧，四轴交叉组合完整展示一、二、四、八或十六份兼容读法，无抽签、优先级或补题。兼容仅指符合本次保留字母，不指伴侣适配；显示顺序不排名。三十二项都需有效选择，无不适用计分；两项都不合适时可停止直接读全部指南，不把部分作答补成类型。四轴不合总分或比较强弱，同次数不证明偏好同强，重测不同不证明人格改变。本版题文和解读独立原创，不是官方LoveType题本、角色或算法，也不转换为MBTI；无已建立信效度、常模或中英等值，不评爱意、忠诚、依恋、安全、他人意图及关系未来。虚构讨论无需披露、联系、配对、承诺或证明自己符合代码。另一人可以拒绝任何邀请；提供照顾不产生回报债务，接受关心不意味着无限同意。原页面内存、自选24小时会话草稿及完成、退出、重测清除保持不变，复制只有公开标题与入口，不含次数、答案或个人兼容集合。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing exercises are optional. Keep one current or imagined safe relationship situation without adding a recall window. Thirty-two original pairs form four axes of eight, with each side first four times. Letters follow selected content, not a fixed option position. Each choice adds one to its letter and each axis sums to eight. A 5:3 count describes eight choices, not personality shares, love or population percentiles. A 4:4 tie keeps both sides. Combining all retained letters shows one, two, four, eight or sixteen complete compatible readings, without draws, priorities or extra questions. Compatible means consistent with this attempt’s letters, not partner compatibility; display order is not rank. All thirty-two choices must be valid. There is no not-applicable score; if neither fits, stop and read all guides rather than turning a partial attempt into a type. Axes have no combined total or strength comparison. Equal counts establish no equal preference strength; a changed retake proves no personality change. These independently authored questions and readings are neither official LoveType questions, characters nor algorithms and do not convert into MBTI. There are no established reliability, validity, norms or English–Chinese equivalence, nor conclusions about love, fidelity, attachment, safety, another person’s intentions or a relationship’s future. Fictional discussion needs no disclosure, contact, matching, promises or proof of fitting a code. Anyone may decline an invitation; offered care creates no repayment debt and receiving care implies no unlimited agreement. Page memory, optional 24-hour session drafts and completion, exit or retake clearing remain unchanged. Copying contains only a public title and entry link, without counts, answers or the personal compatible set."
+        }
+      ]
+    }
+  ],
+  "fape": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构回应共同小传统的提议时，读者愿意贡献温暖，也先确认是否想作重复约定。喜欢点子、愿意帮忙与愿意长期重复可以有不同答案，认真意图仍容许以后修改。",
+          "en": "In an additional original scene: Responding to a shared tradition, the reader offers warmth while separately deciding about recurrence. Liking an idea, helping and repeating it may have different answers; explicit intention still allows later revision."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“哪些是一次愿望，哪些才是双方明白同意的重复约定？”可只读或谈虚构人物，不需透露自己的代码和次数、邀请真实伴侣或得到一致答案；讨论可随时结束。",
+          "en": "An optional discussion card asks: “Which parts are a one-time wish, and which are an understood recurring agreement?” Read alone or discuss the fictional reader without disclosing codes or counts, involving a partner or reaching identical answers. Discussion may end at any point."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原练习均可跳过。围绕同一个当前或假设的安全关系情境，不增加回顾时长。三十二道原创二选一分四轴各八题，每侧各四次在前；字母对应所选内容，不把位置当同一侧。每次只给所选字母记一次，本轴两侧合八；5:3是八题中的选择次数，不是人格占比、爱意或人群百分位。4:4保留两侧，四轴交叉组合完整展示一、二、四、八或十六份兼容读法，无抽签、优先级或补题。兼容仅指符合本次保留字母，不指伴侣适配；显示顺序不排名。三十二项都需有效选择，无不适用计分；两项都不合适时可停止直接读全部指南，不把部分作答补成类型。四轴不合总分或比较强弱，同次数不证明偏好同强，重测不同不证明人格改变。本版题文和解读独立原创，不是官方LoveType题本、角色或算法，也不转换为MBTI；无已建立信效度、常模或中英等值，不评爱意、忠诚、依恋、安全、他人意图及关系未来。虚构讨论无需披露、联系、配对、承诺或证明自己符合代码。另一人可以拒绝任何邀请；提供照顾不产生回报债务，接受关心不意味着无限同意。原页面内存、自选24小时会话草稿及完成、退出、重测清除保持不变，复制只有公开标题与入口，不含次数、答案或个人兼容集合。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing exercises are optional. Keep one current or imagined safe relationship situation without adding a recall window. Thirty-two original pairs form four axes of eight, with each side first four times. Letters follow selected content, not a fixed option position. Each choice adds one to its letter and each axis sums to eight. A 5:3 count describes eight choices, not personality shares, love or population percentiles. A 4:4 tie keeps both sides. Combining all retained letters shows one, two, four, eight or sixteen complete compatible readings, without draws, priorities or extra questions. Compatible means consistent with this attempt’s letters, not partner compatibility; display order is not rank. All thirty-two choices must be valid. There is no not-applicable score; if neither fits, stop and read all guides rather than turning a partial attempt into a type. Axes have no combined total or strength comparison. Equal counts establish no equal preference strength; a changed retake proves no personality change. These independently authored questions and readings are neither official LoveType questions, characters nor algorithms and do not convert into MBTI. There are no established reliability, validity, norms or English–Chinese equivalence, nor conclusions about love, fidelity, attachment, safety, another person’s intentions or a relationship’s future. Fictional discussion needs no disclosure, contact, matching, promises or proof of fitting a code. Anyone may decline an invitation; offered care creates no repayment debt and receiving care implies no unlimited agreement. Page memory, optional 24-hour session drafts and completion, exit or retake clearing remain unchanged. Copying contains only a public title and entry link, without counts, answers or the personal compatible set."
+        }
+      ]
+    }
+  ]
+}

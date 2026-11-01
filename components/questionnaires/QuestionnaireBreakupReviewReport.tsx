@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
@@ -7,8 +7,8 @@ import type { Locale } from "@/lib/i18n/locales";
 
 type Complete = Extract<FacetResult, { status: "complete" }>;
 
-export function QuestionnaireBreakupReviewReport({ quiz, result, locale }: {
-  quiz: Questionnaire; result: Complete; locale: Locale;
+export function QuestionnaireBreakupReviewReport({ quiz, result, locale, readingProfiles }: {
+  quiz: Questionnaire; result: Complete; locale: Locale; readingProfiles?: Questionnaire["profiles"];
 }) {
   const zh = locale === "zh";
   return <div data-breakup-review-result className="my-6 space-y-8">
@@ -20,7 +20,8 @@ export function QuestionnaireBreakupReviewReport({ quiz, result, locale }: {
       : "The safety boundary applies at every score: violence, coercion, stalking, threats, force and control are not ordinary poor communication or mutual incompatibility. Contact, confrontation, explanation and reconciliation are not required. If there is a practical safety threat, you can pause the test or contact with the former partner, and seek help from a trusted person, local emergency services or appropriate professional support."}</aside>
     {quiz.directions.map(direction => {
       const score = result.facets[direction.id];
-      const profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
+      const sourceProfile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
+      const profile = readingProfiles?.find(p => p.id === sourceProfile.id && p.resultReading?.quizSlug === quiz.slug && p.resultReading.profileId === sourceProfile.id) ?? sourceProfile;
       const available = score.rated === 6;
       // Match the original six-item arithmetic and its four-decimal rounding.
       const mean = score.mean;
@@ -36,7 +37,7 @@ export function QuestionnaireBreakupReviewReport({ quiz, result, locale }: {
         {!available && <p className="mb-4 leading-8 text-slate-600">{zh
           ? "本组保留暂缺，不以零或中点代答；其他完整组仍分别保留。以下通用指南可读，但不是本次个人因素解释。全部不计分也可以完成并阅读四份全文。"
           : "This group remains unavailable without zero or midpoint imputation. Other complete groups remain separate. The general guide below is readable without assigning a personal interpretation. An entirely unscored attempt can finish and read all four full guides."}</p>}
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`breakup-review-report-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`breakup-review-report-${profile.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline"
           href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本组完整公开指南" : "Read this group’s complete public guide"}</Link>
       </section>;

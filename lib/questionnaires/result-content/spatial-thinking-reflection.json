@@ -1,0 +1,34 @@
+{
+  "spatial-relationships-reading": [
+    {
+      "id": "section-3",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者回忆规划桌上几件收纳用品时，先用“开口朝向自己”这样的语言描述关系，后来又借助一张简单草图。他对一个转动后的左右关系不确定，仍可保留自己曾尝试推想的描述。采用辅助与出现困难不互相抵消，也不据此判定适合哪种职业；记录不知道最后摆放是否合用，不要求现在重摆或解题证明。",
+          "en": "In an additional original scene, a reader recalls planning storage items on a desk, first describing an opening as facing them and later using a simple sketch. Uncertainty about left and right after a turn can remain alongside the attempt to reason. Using an aid and encountering difficulty do not cancel each other or establish career suitability. The record does not know whether the arrangement worked and requests no rearrangement or puzzle as proof."
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "title": {
+        "zh": "可选讨论素材",
+        "en": "Optional discussion material"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡可以只谈虚构例子：“任务要求是什么”“有哪些辅助可用”“哪些关系仍不确定”。两个人即使用了相同标签，也可能是在回忆不同任务和不同机会，不必比较谁更有空间天赋。分享公开指南不要求报自己的选择、画图或展示操作；真实任务仍按它自身的要求核对，卡片不认证结果。",
+          "en": "An optional discussion card can stay with the fictional example: the task requirements, available aids and relationships still uncertain. Two people choosing the same label may recall different tasks and opportunities; no comparison of spatial talent is needed. Sharing the public guide requires no personal choices, drawing or demonstration. A real task still needs checking against its own requirements; the card certifies no outcome."
+        },
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创，可只读，不是训练、表现测试或改进承诺。原四条、六类记录及逐条标签保持不变，未计分不当作没有注意到，不反向、不求均分，不形成能力、学习风格或职业结论。四周只提示回忆，尚无独立验证、常模或跨语言等价；研究背景不替代本题本的验证。公开指南无需答题，分享不含个人回答或计数。",
+          "en": "These additional scenes and cards are original FermatMind Editorial material for optional reading, not training, a performance test or a promise of improvement. The four descriptions, six-category record and individual labels stay intact. Unscored is not did not notice; nothing is reversed or averaged into ability, learning-style or career conclusions. Four weeks is a recall aid, without independent validation, norms or language equivalence. Research background does not validate this form. The public guide requires no answers and sharing includes no personal choices or counts."
+        }
+      ]
+    }
+  ]
+}

@@ -5,7 +5,8 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire, QuestionnaireProfile } from "@/lib/questionnaires/types";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
+import { prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
 import { UncertaintyEaseClient } from "./UncertaintyEaseClient";
 import { UncertaintyEaseSupport } from "./UncertaintyEaseReport";
 function Library({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
@@ -24,7 +25,7 @@ export function UncertaintyEasePage({ quiz, locale }: { quiz: Questionnaire; loc
     <UncertaintyEaseClient key={`${quiz.slug}:${locale}`} quiz={quiz} locale={locale} />
     {quiz.guide.map(s => <section key={s.id} className="my-8 space-y-4 leading-8" aria-labelledby={`uncertainty-ease-method-${s.id}`}><h2 id={`uncertainty-ease-method-${s.id}`} className="text-2xl font-semibold">{s.title[locale]}</h2>{s.paragraphs.map((p, i) => <p key={i}>{p[locale]}</p>)}</section>)}
     <Library quiz={quiz} locale={locale} />
-    {quiz.profiles.map(p => <section key={p.id} id={`uncertainty-ease-public-${p.directionIds[0]}`} data-uncertainty-ease-full-guide={p.id} className="my-10 scroll-mt-24 border-t border-slate-200 pt-7"><h2 className="mb-5 text-2xl font-semibold">{p.title[locale]}</h2><QuestionnaireReport profile={p} locale={locale} headingLevel={3} idPrefix={`uncertainty-ease-public-${p.id}`} /></section>)}
+    {quiz.profiles.map(p => <section key={p.id} id={`uncertainty-ease-public-${p.directionIds[0]}`} data-uncertainty-ease-full-guide={p.id} className="my-10 scroll-mt-24 border-t border-slate-200 pt-7"><h2 className="mb-5 text-2xl font-semibold">{p.title[locale]}</h2><QuestionnaireResultReading quizSlug={quiz.slug} profile={prepareResultProfile(quiz.slug, p)} locale={locale} headingLevel={3} idPrefix={`uncertainty-ease-public-${p.id}`} /></section>)}
     <section data-uncertainty-ease-existing-guides className="my-10 space-y-4 leading-8" aria-labelledby="uncertainty-ease-existing-guides"><h2 id="uncertainty-ease-existing-guides" className="text-2xl font-semibold">{zh ? "其余问题已有完整读法" : "Complete existing readings for the other questions"}</h2>
       <p>{zh ? "直接阅读公开全文，无需再答问卷。DTP冷漠和操控各有四条行为及独立频率方法；普通决定回顾保留三条陈述与类别。它们不补这里的回答、不合分数，也不共同识别精神病态、临床冲动或算计反应谱系。" : "Read the public full text without another questionnaire. DTP callousness and manipulation each retain four behaviours and an independent frequency method; the ordinary-decision record retains three statements and categories. They do not supply responses here, combine scores or jointly identify psychopathy, clinical impulsivity or a calculating–reactive spectrum."}</p>
       <ul className="space-y-3">
@@ -45,7 +46,7 @@ export function UncertaintyEaseGuidePage({ quiz, profile, locale }: { quiz: Ques
     <Link prefetch={false} className="mb-6 inline-block min-h-11 py-2 underline" href={entry}>{quiz.title[locale]}</Link>
     <p className="font-semibold text-violet-800">{zh ? "完整公开面对未知的自在体验读法" : "Complete public uncertainty-ease reading"}</p><h1 className="mt-3 text-4xl font-semibold leading-tight">{profile.title[locale]}</h1>
     <p className="my-5 leading-8">{zh ? "这是所有人都可阅读的原创主题说明，没有任何人的回答或计数。无需先答题，也不是个人结果、风险档位或诊断。" : "This original theme explanation is available to everyone without anyone’s answers or counts. No prior answers are needed. It is not a personal result, risk band or diagnosis."}</p>
-    <UncertaintyEaseSupport locale={locale} /><div data-uncertainty-ease-full-guide={profile.id}><QuestionnaireReport profile={profile} locale={locale} headingLevel={2} idPrefix="report" /></div><Library quiz={quiz} locale={locale} />
+    <UncertaintyEaseSupport locale={locale} /><div data-uncertainty-ease-full-guide={profile.id}><QuestionnaireResultReading quizSlug={quiz.slug} profile={prepareResultProfile(quiz.slug, profile)} locale={locale} headingLevel={2} idPrefix="report" /></div><Library quiz={quiz} locale={locale} />
     <Link prefetch={false} className="inline-block min-h-11 py-2 font-semibold underline" href={`${entry}#take-test`}>{zh ? "返回6条原创陈述" : "Return to the 6 original statements"}</Link>
   </Container></main>;
 }

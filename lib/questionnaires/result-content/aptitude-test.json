@@ -1,0 +1,227 @@
+{
+  "numerical": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：先写基数，再求最终值",
+        "en": "Practise a base and a final value"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构数量从120增加15%。先写基数120，增加量为120×15/100＝18，最终值为138。若只答18，就答了另一个问题。把138减回18，可检查是否回到120。再自拟一个数量，保持所问是最终值；纸笔、计算器都可用。",
+          "en": "A fictional quantity of 120 increases by 15%. State the base as 120, the increase as 120 × 15/100 = 18 and the final value as 138. Answering 18 addresses a different question. Subtract 18 from 138 to check the original 120. Invent another starting quantity while keeping the request for a final value; paper or a calculator is allowed."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：把错误落到某一步",
+        "en": "Review the particular step"
+      },
+      "paragraphs": [
+        {
+          "zh": "把一次选择拆成所求、基数、算式、单位和回查。只选一个需要调整的步骤，再换数重做；不必重复整套。对新例子算对，说明这次方法与答案一致，不能据此推断总体能力提高或招聘成绩。",
+          "en": "Separate a choice into the requested quantity, base, expression, units and check. Change one step and try new numbers without repeating the whole bank. A correct fresh example supports consistency of this solution, without establishing improved general ability or a recruitment score."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享方法，不分享能力排名",
+        "en": "Share a method without an ability ranking"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“你会怎样解释“增加18”和“增加后的138”回答的是两个不同问题？”各写一版理由，再一起核对给定信息。可用纸笔、只读解析、跳过或结束，不必计时或比赛。",
+          "en": "Ask: “How would you explain why an increase of 18 and a final value of 138 answer different questions?” Write a reason each and check it against the supplied information. Use paper, read the explanation only, skip or stop without a timer or competition."
+        },
+        {
+          "zh": "可分享公开指南，链接不含作答与正确数。30题的五部分是练习类别，不是人格类型或能力等级；不据此评价同学、同事或招聘对象。不要上传真实记录，也不要求对方透露错误、成绩或学习经历。",
+          "en": "Share the public guide without answers or correct counts in the link. Five sections of 30 tasks are practice categories, not personality types or ability levels. Do not assess classmates, colleagues or job applicants through them, upload real records or request errors, grades or learning history."
+        }
+      ]
+    }
+  ],
+  "verbal": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：把已知与未说明分开",
+        "en": "Practise separating stated facts from gaps"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构通知写“周六14:00开始，可自愿参加，需提前登记”，没有说是否收费。可以推出时间、参与自愿及登记要求；不能推出免费或收费，也不能推出所有登记者都会到场。试着补一句价格信息，观察哪个问题这时才有答案。",
+          "en": "A fictional notice says “Starts Saturday at 14:00; participation is optional; register beforehand,” without mentioning a fee. It supports the time, optional participation and registration requirement, but neither a fee nor free entry, nor attendance by every registrant. Add one price statement and identify the question it newly answers."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：缺口不必被猜测填满",
+        "en": "Review a gap without filling it by guesswork"
+      },
+      "paragraphs": [
+        {
+          "zh": "先看题目问支持、反对还是未知，再把所选句与具体原文并排。若主张多出了原因、动机或总体结论，标出多出来的部分。可以停在“资料不足”；这不表示日常交谈永远不能推测，只是本题需要依据已给文字。",
+          "en": "Check whether the request concerns support, contradiction or missing information, then place the selected claim beside the text. Mark an added cause, motive or population conclusion. “Not enough information” can be a complete response here; this does not ban ordinary speculation, but follows this exercise’s textual boundary."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享方法，不分享能力排名",
+        "en": "Share a method without an ability ranking"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“对于一份没有写价格的通知，你能确认什么，又有什么必须等补充信息才能回答？”各写一版理由，再一起核对给定信息。可用纸笔、只读解析、跳过或结束，不必计时或比赛。",
+          "en": "Ask: “For a notice omitting the price, what can you confirm and what needs more information?” Write a reason each and check it against the supplied information. Use paper, read the explanation only, skip or stop without a timer or competition."
+        },
+        {
+          "zh": "可分享公开指南，链接不含作答与正确数。30题的五部分是练习类别，不是人格类型或能力等级；不据此评价同学、同事或招聘对象。不要上传真实记录，也不要求对方透露错误、成绩或学习经历。",
+          "en": "Share the public guide without answers or correct counts in the link. Five sections of 30 tasks are practice categories, not personality types or ability levels. Do not assess classmates, colleagues or job applicants through them, upload real records or request errors, grades or learning history."
+        }
+      ]
+    }
+  ],
+  "deductive": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：检查一个允许的反例",
+        "en": "Practise one allowed counterexample"
+      },
+      "paragraphs": [
+        {
+          "zh": "另设规则：每个圆形牌都是绿色牌。一个绿色方形牌符合规则，因此“绿色必为圆形”不是必然结论。一个非绿色圆形牌则违反规则。只讨论这条虚构规则，不根据现实物品经验加条件；用画牌或文字都可。",
+          "en": "Set a fresh rule: every round tile is green. A green square satisfies it, so “green means round” is not necessary. A non-green round tile violates it. Use drawings or words and only this fictional rule, without adding conditions from experience with real objects."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：可能与必然各有检查办法",
+        "en": "Review possibility separately from necessity"
+      },
+      "paragraphs": [
+        {
+          "zh": "对“可能”，找一个满足所有规则的例子即可；对“必然”，一个允许的反例就足以否定。重新检查你画的反例是否也违反了前提，若违反便不能使用。此处检验论证，不评争论能力，也不把形式规则当现实系统保证。",
+          "en": "For possibility, one example satisfying every rule is enough. For necessity, one allowed counterexample defeats the claim. Recheck that the proposed counterexample does not break a premise. This examines an argument rather than debating skill and gives no guarantee about real systems."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享方法，不分享能力排名",
+        "en": "Share a method without an ability ranking"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“在“圆形牌都是绿色”这条规则下，你会画哪张牌来检查“绿色都是圆形”是否必然？”各写一版理由，再一起核对给定信息。可用纸笔、只读解析、跳过或结束，不必计时或比赛。",
+          "en": "Ask: “Under “every round tile is green,” which tile would you draw to check whether every green tile must be round?” Write a reason each and check it against the supplied information. Use paper, read the explanation only, skip or stop without a timer or competition."
+        },
+        {
+          "zh": "可分享公开指南，链接不含作答与正确数。30题的五部分是练习类别，不是人格类型或能力等级；不据此评价同学、同事或招聘对象。不要上传真实记录，也不要求对方透露错误、成绩或学习经历。",
+          "en": "Share the public guide without answers or correct counts in the link. Five sections of 30 tasks are practice categories, not personality types or ability levels. Do not assess classmates, colleagues or job applicants through them, upload real records or request errors, grades or learning history."
+        }
+      ]
+    }
+  ],
+  "patterns": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：把操作顺序写成两行",
+        "en": "Practise a two-line operation order"
+      },
+      "paragraphs": [
+        {
+          "zh": "另设数字机器：先加3，再乘2。输入5，第一步得到8，第二步得到16；若先乘2再加3，会得13，违反给定顺序。保持原规则，把输入改为1，依次得到4和8。规则已给出，不需要从两个输出猜一种普遍规律。",
+          "en": "A fresh number machine adds 3, then multiplies by 2. Input 5 becomes 8, then 16. Multiplying first and adding 3 gives 13, contrary to the supplied order. Keep the rule and change the input to 1: it becomes 4, then 8. The explicit rule needs no universal pattern inferred from two outputs."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：每步是否还是原来的规则",
+        "en": "Review each step against the supplied rule"
+      },
+      "paragraphs": [
+        {
+          "zh": "把输入、第一次操作、第二次操作和输出排开。错在顺序就练顺序，错在算术就单独核算；不从一题失误推断抽象推理弱。换输入后的正确解只是这一例的检查，不能换算IQ、速度或文化公平性。",
+          "en": "Lay out the input, first operation, second operation and output. Practise the order if that changed, or check arithmetic separately. One error does not establish weak abstract reasoning. A correct new input checks that example, without yielding IQ, speed or cultural-fairness evidence."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享方法，不分享能力排名",
+        "en": "Share a method without an ability ranking"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果把“先加3再乘2”改成“先乘2再加3”，你会用什么输入展示两者不同？”各写一版理由，再一起核对给定信息。可用纸笔、只读解析、跳过或结束，不必计时或比赛。",
+          "en": "Ask: “Which input would you use to show the difference between adding 3 then multiplying by 2 and doing those operations in reverse?” Write a reason each and check it against the supplied information. Use paper, read the explanation only, skip or stop without a timer or competition."
+        },
+        {
+          "zh": "可分享公开指南，链接不含作答与正确数。30题的五部分是练习类别，不是人格类型或能力等级；不据此评价同学、同事或招聘对象。不要上传真实记录，也不要求对方透露错误、成绩或学习经历。",
+          "en": "Share the public guide without answers or correct counts in the link. Five sections of 30 tasks are practice categories, not personality types or ability levels. Do not assess classmates, colleagues or job applicants through them, upload real records or request errors, grades or learning history."
+        }
+      ]
+    }
+  ],
+  "error-checking": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：标准化只做允许的一步",
+        "en": "Practise only the permitted normalization"
+      },
+      "paragraphs": [
+        {
+          "zh": "另设规则只忽略空格，大小写和连字符都保留。M N-4与MN-4处理后同为MN-4；Mn-4仍不同。给两边用同一规则，再逐字符比较。这里用的是虚构规则，与原题“只忽略连字符”不同；不能把这一步带回原题。",
+          "en": "Set a fresh rule ignoring spaces only, while retaining case and hyphens. M N-4 and MN-4 both become MN-4, while Mn-4 remains different. Apply the same rule to both sides and compare every character. This fictional rule differs from the original item’s hyphen-only rule; do not carry this transformation back into that item."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：先说比较对象，再数差异",
+        "en": "Review the comparison before counting differences"
+      },
+      "paragraphs": [
+        {
+          "zh": "分别写下要数的是字符、字段还是位置，并保留完整原件。两处字符变化可能只在一个字段，也可能分布两字段；按本次要求作答。可用全新虚构编码再核一遍，不用真实客户记录，不把熟记答案后的正确数当注意力提升。",
+          "en": "State whether you are counting characters, fields or positions, and keep the full reference. Two changed characters may occupy one field or two; follow the current request. Recheck fresh fictional codes without real customer records or interpreting remembered correct answers as improved attention."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享方法，不分享能力排名",
+        "en": "Share a method without an ability ranking"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果本次只准忽略空格，你会怎样说明为什么MN-4与Mn-4仍然不同？”各写一版理由，再一起核对给定信息。可用纸笔、只读解析、跳过或结束，不必计时或比赛。",
+          "en": "Ask: “If only spaces may be ignored, how would you explain why MN-4 and Mn-4 still differ?” Write a reason each and check it against the supplied information. Use paper, read the explanation only, skip or stop without a timer or competition."
+        },
+        {
+          "zh": "可分享公开指南，链接不含作答与正确数。30题的五部分是练习类别，不是人格类型或能力等级；不据此评价同学、同事或招聘对象。不要上传真实记录，也不要求对方透露错误、成绩或学习经历。",
+          "en": "Share the public guide without answers or correct counts in the link. Five sections of 30 tasks are practice categories, not personality types or ability levels. Do not assess classmates, colleagues or job applicants through them, upload real records or request errors, grades or learning history."
+        }
+      ]
+    }
+  ]
+}

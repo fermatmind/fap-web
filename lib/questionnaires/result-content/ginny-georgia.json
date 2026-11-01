@@ -1,0 +1,162 @@
+{
+  "ginny": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：留下了哪一句自己的话",
+        "en": "Review which words still sound like yours"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到上面两版题注，挑出一处你真正想保留的细节，再看共同版本是否仍让读者理解作品。可以只在心里比较，不必发布或要求别人认可。若精确表达与篇幅冲突，可以缩短、另放说明或暂不投稿；一次删改不裁定你是否真实。复盘关注意思和实际限制怎样相遇，不统计别人赞同的次数，也不要求所有个人理由都公开。",
+          "en": "Return to the two captions above. Identify one detail you want to retain and consider whether the shared version still helps a reader understand the work. Compare privately without publishing or seeking approval. When precision and space conflict, shorten, add a separate note or decline to contribute for now. One edit does not determine authenticity. Review meaning alongside practical limits without counting agreement or making every personal reason public."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个虚构场景聊聊选择",
+        "en": "Discuss a choice through a fictional scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假如一段作品介绍只能留一句，你想保留哪一个细节，哪些部分可以交给共同介绍？”把角色名当作本版的一种阅读角度，聊具体做法和可选替代即可；不比较谁更像角色，也不用认同角色的整段经历或行为。",
+          "en": "Ask: “If a work could have only one sentence of introduction, which detail would you retain and what could the shared introduction cover?” Treat the character name as one reading angle in this edition and discuss actions and alternatives without ranking resemblance or endorsing the character’s history and behaviour."
+        },
+        {
+          "zh": "可以只分享公开说明，链接不包含答案或计数。对方可以选别的角度、不看剧、不回答或结束；不需要讲述家庭、关系或心理健康经历，也不替不在场的人做角色判断。",
+          "en": "You can share the public guide; the link contains no answers or counts. The other person may prefer another angle, be unfamiliar with the show, decline or stop without disclosing family, relationship or mental-health experiences. Do not assign a character to an absent person."
+        }
+      ]
+    }
+  ],
+  "georgia": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：可行也包括谁愿意承担",
+        "en": "Review whose agreement makes a plan workable"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的三行安排，把“我能做”与“已经得到同意”分别标出来。尚未确认的分工可以保持空白，不必用接下全部工作填满。设想若有人不愿改展台，能否缩小、延后或换一种呈现；不需要真的组织活动。复盘看计划是否同时容纳作品、资源和参与者的回答，而非用完成速度或被需要的程度证明价值。主动找办法也可以包括这次不负责。",
+          "en": "For the three-line arrangement above, separate what you can offer from what others have agreed to. Leave unconfirmed roles open rather than taking everything on. Imagine a maker declining the revised display: could it shrink, wait or use another format? No event needs to be organised. Review the work, resources and participants’ answers together without proving worth through speed or being needed. Taking initiative can include declining responsibility this time."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个虚构场景聊聊选择",
+        "en": "Discuss a choice through a fictional scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假如展架临时借不到，怎样的小方案既能保留作品重点，也能让每个人选择承担多少？”把角色名当作本版的一种阅读角度，聊具体做法和可选替代即可；不比较谁更像角色，也不用认同角色的整段经历或行为。",
+          "en": "Ask: “If the display stand fell through, what small arrangement could preserve the work while letting each person choose their contribution?” Treat the character name as one reading angle in this edition and discuss actions and alternatives without ranking resemblance or endorsing the character’s history and behaviour."
+        },
+        {
+          "zh": "可以只分享公开说明，链接不包含答案或计数。对方可以选别的角度、不看剧、不回答或结束；不需要讲述家庭、关系或心理健康经历，也不替不在场的人做角色判断。",
+          "en": "You can share the public guide; the link contains no answers or counts. The other person may prefer another angle, be unfamiliar with the show, decline or stop without disclosing family, relationship or mental-health experiences. Do not assign a character to an absent person."
+        }
+      ]
+    }
+  ],
+  "austin": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：游戏之外也留一个入口",
+        "en": "Review the entrance outside the game"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看两句虚构场景，设想一个只想知道怎么借书的人：实际规则是否不用加入故事也能看懂？可以在纸上或心里分开“想象邀请”和“必要说明”，不用招募参与者。若没有人续写，故事仍可以属于你；若直接说明更合适，也不用证明自己有创造力。复盘关注参与是否可选择，不根据人数、年龄或回应速度给想象力打分。",
+          "en": "Revisit the two-line scene and imagine someone who only wants to borrow a book. Are practical rules understandable without joining the story? Separate the imaginative invitation from essential instructions on paper or in thought, without recruiting participants. The story may remain yours if nobody continues it; a literal explanation can also fit better. Review whether participation is optional without grading imagination through attendance, age or response speed."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个虚构场景聊聊选择",
+        "en": "Discuss a choice through a fictional scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假如阅读架上有一条能续写的小故事，怎样让只想看书、不想参与游戏的人也自在？”把角色名当作本版的一种阅读角度，聊具体做法和可选替代即可；不比较谁更像角色，也不用认同角色的整段经历或行为。",
+          "en": "Ask: “If a reading shelf carried a story people could continue, how could someone who only wanted a book feel equally welcome?” Treat the character name as one reading angle in this edition and discuss actions and alternatives without ranking resemblance or endorsing the character’s history and behaviour."
+        },
+        {
+          "zh": "可以只分享公开说明，链接不包含答案或计数。对方可以选别的角度、不看剧、不回答或结束；不需要讲述家庭、关系或心理健康经历，也不替不在场的人做角色判断。",
+          "en": "You can share the public guide; the link contains no answers or counts. The other person may prefer another angle, be unfamiliar with the show, decline or stop without disclosing family, relationship or mental-health experiences. Do not assign a character to an absent person."
+        }
+      ]
+    }
+  ],
+  "marcus": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：安静的形式是否说清楚了",
+        "en": "Review whether the quieter format is clear"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到陪听小曲的例子，分清你愿意提供什么、朋友实际想要什么，以及哪些部分还没问过。可以只比较两句邀请：“一起听一遍”与“一起排练”，不用发出消息。若需求不同，可以另约、换搭档或各自暂停，不由谁声音更小决定谁更深刻。复盘关注形式是否被理解、双方是否能说不，不把沉默当读心线索，也不要求别人追问来证明在乎。",
+          "en": "Return to listening to the unfinished tune. Distinguish what you can offer, what your friend wants and what has not been asked. Compare “listen once together” with “rehearse together” without sending a message. Different requests may lead to another time, another partner or a pause. A quieter voice establishes no greater depth. Review mutual understanding and room to decline without reading minds from silence or requiring pursuit as proof of care."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个虚构场景聊聊选择",
+        "en": "Discuss a choice through a fictional scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假如朋友分享一段没完成的小曲，你愿意怎样陪伴，又怎样先问清对方想要倾听还是一起试唱？”把角色名当作本版的一种阅读角度，聊具体做法和可选替代即可；不比较谁更像角色，也不用认同角色的整段经历或行为。",
+          "en": "Ask: “If a friend shared an unfinished tune, what company would you offer and how would you ask whether they wanted listening or singing together?” Treat the character name as one reading angle in this edition and discuss actions and alternatives without ranking resemblance or endorsing the character’s history and behaviour."
+        },
+        {
+          "zh": "可以只分享公开说明，链接不包含答案或计数。对方可以选别的角度、不看剧、不回答或结束；不需要讲述家庭、关系或心理健康经历，也不替不在场的人做角色判断。",
+          "en": "You can share the public guide; the link contains no answers or counts. The other person may prefer another angle, be unfamiliar with the show, decline or stop without disclosing family, relationship or mental-health experiences. Do not assign a character to an absent person."
+        }
+      ]
+    }
+  ],
+  "max": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：被看见的方式由谁选择",
+        "en": "Review who chooses the form of recognition"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到作品介绍的例子，分别想想喜欢说话、只想展示作品和暂不参加的三个人。你准备的邀请是否都有位置，介绍里的内容是否由本人确认？不必真的主持、拍照或收集反馈。若有人选安静展示，可以保留自己的热情而调整形式。复盘关注选择是否清楚，而非掌声、人数或全场是否跟上；一次活动也不裁定你的外向程度或朋友关系。",
+          "en": "Return to the showcase and imagine someone who wants to speak, someone who only wants to display the work and someone sitting out. Does the invitation accommodate each, with introductions approved by their subjects? No hosting, photographs or feedback collection is required. Quiet display can coexist with your enthusiasm. Review clear choices rather than applause, attendance or a uniformly lively room. One event establishes neither extraversion nor the quality of a friendship."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个虚构场景聊聊选择",
+        "en": "Discuss a choice through a fictional scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假如要介绍一组手工作品，你会怎样让想说一句、想安静展示和不想被介绍的人都能选择？”把角色名当作本版的一种阅读角度，聊具体做法和可选替代即可；不比较谁更像角色，也不用认同角色的整段经历或行为。",
+          "en": "Ask: “When introducing handmade work, how would you accommodate someone who wants to speak, display quietly or have no introduction?” Treat the character name as one reading angle in this edition and discuss actions and alternatives without ranking resemblance or endorsing the character’s history and behaviour."
+        },
+        {
+          "zh": "可以只分享公开说明，链接不包含答案或计数。对方可以选别的角度、不看剧、不回答或结束；不需要讲述家庭、关系或心理健康经历，也不替不在场的人做角色判断。",
+          "en": "You can share the public guide; the link contains no answers or counts. The other person may prefer another angle, be unfamiliar with the show, decline or stop without disclosing family, relationship or mental-health experiences. Do not assign a character to an absent person."
+        }
+      ]
+    }
+  ]
+}

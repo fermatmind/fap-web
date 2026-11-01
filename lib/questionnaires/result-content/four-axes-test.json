@@ -1,0 +1,166 @@
+{
+  "gender": [
+    {
+      "id": "context",
+      "title": {
+        "en": "Mixed answers and changing settings",
+        "zh": "混合回答与情境变化"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：两位虚构读者安排共同完成一项小任务，一人先说能够投入的时间，再问对方有哪些顾虑；另一人可以不同意，双方也可以暂不安排。明确自身界限与关照对方可以同时发生，不必用一端抵消另一端。这里核对的是这次交流是否说清条件，不用表现方式猜测任何人的性别、身份或关系角色。",
+          "en": "An additional original scene: Two fictional readers consider a small shared task. One states the time they can offer and asks about the other person’s concerns. The other may disagree, and they can leave the arrangement open. A clear boundary can coexist with care rather than cancelling it. Review whether this exchange clarified conditions without guessing sex, identity or relationship roles from an expressive style."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "en": "Try one small comparison",
+        "zh": "做一次小比较"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“这句话是否同时说清自己的条件并给对方回应空间，哪些仍需要问？”可只针对上面的虚构情境，把观察、解释、偏好和未知分开。愿意参与的人可以保留分歧或停止，无需交换分数、为身份辩护或调整观点来符合图条。",
+          "en": "An optional discussion prompt asks: “Does the wording state one person’s conditions while leaving room for the other to respond, and what still needs asking?” Use only the fictional situation to separate observations, explanations, preferences and unknowns. Willing participants may keep disagreements or stop, without exchanging scores, defending an identity or changing views to fit a bar."
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "en": "How far the reading can go",
+        "zh": "读法能走到哪里"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充场景与讨论由费马测试编辑部原创，可只讨论虚构人物，也可略过；无需披露身份、健康、政策答案或私人经历。题目问通常情境下今天如何描述自己，没有固定回顾天数。六十题交错分到四轴，每轴十五题、八题正向与七题反向。0强烈不同意、1不同意、2既不同意也不反对、3同意、4强烈同意；2是有效数值，不是缺答或不计分。反向题按4减所选值计分，六十题全部有效才显示任何图条，没有跳过选项；不愿回答可退出读四篇全文，不补零、不换中点。每轴原始和0—60，高端位置为和÷60×100，另一端为100减该位置，分别显示一位小数。全选2得到和30及两端50.0%；全选4得到和32、高端53.3%和另一端46.7%，全选0得到和28、高端46.7%；到达端点需要按各题方向形成回答，而不是一律同意。这个百分数是算法区间位置，不是人口比例、百分位、概率、现实频率或统计置信度；50.0%不是常模平均，也不表示两种心理属性恰好各占一半。相同和可以来自不同题目组合，四轴分别计算不证明统计独立，不相互推导或合成人格类型。表达中的自主与关照可以并存；联想不判正常与异常；生活态度不确定文化身份；选定经济议题不推断未问立场、政党或投票。公开四轴形式仅提供主题参考，不复现IDRlabs专有算法或继承其证据；WHO概念区分与WVS社会层面文化地图都不能验证本题本或用于个体换算。原创题本、等权、两端显示及英文尚未建立信效度、常模、语言等价或有意义变化阈值。讨论可以不同意或停止，不用于诊断、选拔、身份评判或定向说服。当前页面仅内存保存回答和图条，没有草稿或结果缓存；修改时清除当前结果，重测、退出、刷新、换语和离开按现有流程清除。复制只含相同四篇公开指南标题与链接，不含数值、答案或作答标识；这些地址对所有位置相同，不是个人画像。",
+          "en": "FermatMind Editorial authored the additional scenes and prompts. Discuss fictional people only or decline, without identity, health, policy answers or private history. Questions ask for usual circumstances and how you describe yourself today, with no fixed recall period. Sixty interleaved statements form four axes of 15 items, eight forward and seven reverse. Responses are 0 Strongly disagree, 1 Disagree, 2 Neither agree nor disagree, 3 Agree and 4 Strongly agree. Two is numeric rather than missing or unscored. Reverse items use four minus the chosen value. All 60 must be valid before any bar appears; there is no skip. Leave and read four full guides if you prefer, without zero or midpoint substitution. Each axis sums to 0–60. Its high-end position is sum ÷ 60 × 100; the other end is 100 minus that position, each displayed to one decimal. All twos yield 30 and 50.0% at each end. All fours yield 32, high-end 53.3% and other-end 46.7%; all zeros yield 28 and high-end 46.7%. Reaching an endpoint requires a polarity-specific pattern rather than blanket agreement. A percentage is a recipe-range position, not a population share, percentile, probability, actual frequency or statistical confidence. Fifty is no normative average or proof of two psychological attributes in equal halves. Equal sums can have different item patterns. Separate calculation establishes no statistical independence, cross-axis inference or combined personality type. Agency and care can coexist; associations determine no normality; lifestyle establishes no cultural identity; selected economic issues predict no unasked position, party or vote. The public four-axis format supplies topic references without reproducing IDRlabs’ proprietary algorithm or inheriting its evidence. WHO distinctions and the WVS society-level cultural map validate no item bank or individual conversion here. Reliability, validity, norms, language equivalence and meaningful-change thresholds remain unestablished for the original items, equal weights, two-ended display and English wording. Discussion may contain disagreement or stop and serves no diagnosis, selection, identity judgment or targeted persuasion. Answers and bars remain in current-page memory without drafts or result caches. Editing clears the current result; retaking, exiting, reloading, changing language and leaving follow existing clearing behavior. Copying includes the same four public guide titles and links without values, answers or attempt identifiers. Those addresses are identical across positions rather than personal profiles."
+        }
+      ]
+    }
+  ],
+  "personality": [
+    {
+      "id": "context",
+      "title": {
+        "en": "One total, several patterns",
+        "zh": "相同总分，不同模式"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者看见窗边一处光影，想到几个故事画面。他可以把“看见一道影子”与“它让我想到什么”分开，再选择是否写成虚构故事。鲜明、熟悉或跳跃都是这次描述中的线索，不验证想象准确、感知特殊或心理正常与否；同伴也可以只回应叙述是否清楚，不评价读者的健康。",
+          "en": "An additional original scene: A fictional reader sees a pattern of light by a window and imagines several story scenes. They can separate “I saw a shadow” from “it reminded me of this” before deciding whether to write fiction. Vivid, familiar or associative descriptions verify no accurate imagination, special perception or psychological normality. A willing peer can discuss clarity without judging the reader’s health."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "en": "Keep observations and possibilities distinct",
+        "zh": "把观察与可能性分开"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“这里直接观察到了什么，哪些是联想或暂时解释，叙述还缺哪一步？”可只针对上面的虚构情境，把观察、解释、偏好和未知分开。愿意参与的人可以保留分歧或停止，无需交换分数、为身份辩护或调整观点来符合图条。",
+          "en": "An optional discussion prompt asks: “What was directly observed, which parts are associations or provisional explanations, and which connecting step is missing?” Use only the fictional situation to separate observations, explanations, preferences and unknowns. Willing participants may keep disagreements or stop, without exchanging scores, defending an identity or changing views to fit a bar."
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "en": "What the axis cannot settle",
+        "zh": "这条轴不能决定什么"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充场景与讨论由费马测试编辑部原创，可只讨论虚构人物，也可略过；无需披露身份、健康、政策答案或私人经历。题目问通常情境下今天如何描述自己，没有固定回顾天数。六十题交错分到四轴，每轴十五题、八题正向与七题反向。0强烈不同意、1不同意、2既不同意也不反对、3同意、4强烈同意；2是有效数值，不是缺答或不计分。反向题按4减所选值计分，六十题全部有效才显示任何图条，没有跳过选项；不愿回答可退出读四篇全文，不补零、不换中点。每轴原始和0—60，高端位置为和÷60×100，另一端为100减该位置，分别显示一位小数。全选2得到和30及两端50.0%；全选4得到和32、高端53.3%和另一端46.7%，全选0得到和28、高端46.7%；到达端点需要按各题方向形成回答，而不是一律同意。这个百分数是算法区间位置，不是人口比例、百分位、概率、现实频率或统计置信度；50.0%不是常模平均，也不表示两种心理属性恰好各占一半。相同和可以来自不同题目组合，四轴分别计算不证明统计独立，不相互推导或合成人格类型。表达中的自主与关照可以并存；联想不判正常与异常；生活态度不确定文化身份；选定经济议题不推断未问立场、政党或投票。公开四轴形式仅提供主题参考，不复现IDRlabs专有算法或继承其证据；WHO概念区分与WVS社会层面文化地图都不能验证本题本或用于个体换算。原创题本、等权、两端显示及英文尚未建立信效度、常模、语言等价或有意义变化阈值。讨论可以不同意或停止，不用于诊断、选拔、身份评判或定向说服。当前页面仅内存保存回答和图条，没有草稿或结果缓存；修改时清除当前结果，重测、退出、刷新、换语和离开按现有流程清除。复制只含相同四篇公开指南标题与链接，不含数值、答案或作答标识；这些地址对所有位置相同，不是个人画像。",
+          "en": "FermatMind Editorial authored the additional scenes and prompts. Discuss fictional people only or decline, without identity, health, policy answers or private history. Questions ask for usual circumstances and how you describe yourself today, with no fixed recall period. Sixty interleaved statements form four axes of 15 items, eight forward and seven reverse. Responses are 0 Strongly disagree, 1 Disagree, 2 Neither agree nor disagree, 3 Agree and 4 Strongly agree. Two is numeric rather than missing or unscored. Reverse items use four minus the chosen value. All 60 must be valid before any bar appears; there is no skip. Leave and read four full guides if you prefer, without zero or midpoint substitution. Each axis sums to 0–60. Its high-end position is sum ÷ 60 × 100; the other end is 100 minus that position, each displayed to one decimal. All twos yield 30 and 50.0% at each end. All fours yield 32, high-end 53.3% and other-end 46.7%; all zeros yield 28 and high-end 46.7%. Reaching an endpoint requires a polarity-specific pattern rather than blanket agreement. A percentage is a recipe-range position, not a population share, percentile, probability, actual frequency or statistical confidence. Fifty is no normative average or proof of two psychological attributes in equal halves. Equal sums can have different item patterns. Separate calculation establishes no statistical independence, cross-axis inference or combined personality type. Agency and care can coexist; associations determine no normality; lifestyle establishes no cultural identity; selected economic issues predict no unasked position, party or vote. The public four-axis format supplies topic references without reproducing IDRlabs’ proprietary algorithm or inheriting its evidence. WHO distinctions and the WVS society-level cultural map validate no item bank or individual conversion here. Reliability, validity, norms, language equivalence and meaningful-change thresholds remain unestablished for the original items, equal weights, two-ended display and English wording. Discussion may contain disagreement or stop and serves no diagnosis, selection, identity judgment or targeted persuasion. Answers and bars remain in current-page memory without drafts or result caches. Editing clears the current result; retaking, exiting, reloading, changing language and leaving follow existing clearing behavior. Copying includes the same four public guide titles and links without values, answers or attempt identifiers. Those addresses are identical across positions rather than personal profiles."
+        }
+      ]
+    }
+  ],
+  "lifestyle": [
+    {
+      "id": "context",
+      "title": {
+        "en": "Several preferences can coexist",
+        "zh": "不同偏好可以并存"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构小组想保留每月一起做一道菜的习惯，却发现原时段让部分成员难以参加。他们可以先问大家在意的是哪一部分，再讨论改时间、改形式、保留原样或暂缓，不要求所有人认可同一种意义。保留与调整可以发生在同一安排，不由百分数决定谁更现代、落伍或更重视彼此。",
+          "en": "An additional original scene: A fictional group wants to keep a monthly shared cooking tradition, but the usual time is difficult for some members. They can ask what matters to each person before considering a different time, format, no change or a pause. No single shared meaning is required. Continuity and revision can coexist without a percentage deciding who is modern, outdated or more caring."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "en": "Review one modest practice",
+        "zh": "审视一个小做法"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“各自想保留什么，具体哪项条件不合适，有没有双方愿意讨论的小调整？”可只针对上面的虚构情境，把观察、解释、偏好和未知分开。愿意参与的人可以保留分歧或停止，无需交换分数、为身份辩护或调整观点来符合图条。",
+          "en": "An optional discussion prompt asks: “What does each person want to preserve, which condition does not fit, and is there a small adjustment both want to discuss?” Use only the fictional situation to separate observations, explanations, preferences and unknowns. Willing participants may keep disagreements or stop, without exchanging scores, defending an identity or changing views to fit a bar."
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "en": "An editorial perspective, not a social ranking",
+        "zh": "编辑视角，不是社会排名"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充场景与讨论由费马测试编辑部原创，可只讨论虚构人物，也可略过；无需披露身份、健康、政策答案或私人经历。题目问通常情境下今天如何描述自己，没有固定回顾天数。六十题交错分到四轴，每轴十五题、八题正向与七题反向。0强烈不同意、1不同意、2既不同意也不反对、3同意、4强烈同意；2是有效数值，不是缺答或不计分。反向题按4减所选值计分，六十题全部有效才显示任何图条，没有跳过选项；不愿回答可退出读四篇全文，不补零、不换中点。每轴原始和0—60，高端位置为和÷60×100，另一端为100减该位置，分别显示一位小数。全选2得到和30及两端50.0%；全选4得到和32、高端53.3%和另一端46.7%，全选0得到和28、高端46.7%；到达端点需要按各题方向形成回答，而不是一律同意。这个百分数是算法区间位置，不是人口比例、百分位、概率、现实频率或统计置信度；50.0%不是常模平均，也不表示两种心理属性恰好各占一半。相同和可以来自不同题目组合，四轴分别计算不证明统计独立，不相互推导或合成人格类型。表达中的自主与关照可以并存；联想不判正常与异常；生活态度不确定文化身份；选定经济议题不推断未问立场、政党或投票。公开四轴形式仅提供主题参考，不复现IDRlabs专有算法或继承其证据；WHO概念区分与WVS社会层面文化地图都不能验证本题本或用于个体换算。原创题本、等权、两端显示及英文尚未建立信效度、常模、语言等价或有意义变化阈值。讨论可以不同意或停止，不用于诊断、选拔、身份评判或定向说服。当前页面仅内存保存回答和图条，没有草稿或结果缓存；修改时清除当前结果，重测、退出、刷新、换语和离开按现有流程清除。复制只含相同四篇公开指南标题与链接，不含数值、答案或作答标识；这些地址对所有位置相同，不是个人画像。",
+          "en": "FermatMind Editorial authored the additional scenes and prompts. Discuss fictional people only or decline, without identity, health, policy answers or private history. Questions ask for usual circumstances and how you describe yourself today, with no fixed recall period. Sixty interleaved statements form four axes of 15 items, eight forward and seven reverse. Responses are 0 Strongly disagree, 1 Disagree, 2 Neither agree nor disagree, 3 Agree and 4 Strongly agree. Two is numeric rather than missing or unscored. Reverse items use four minus the chosen value. All 60 must be valid before any bar appears; there is no skip. Leave and read four full guides if you prefer, without zero or midpoint substitution. Each axis sums to 0–60. Its high-end position is sum ÷ 60 × 100; the other end is 100 minus that position, each displayed to one decimal. All twos yield 30 and 50.0% at each end. All fours yield 32, high-end 53.3% and other-end 46.7%; all zeros yield 28 and high-end 46.7%. Reaching an endpoint requires a polarity-specific pattern rather than blanket agreement. A percentage is a recipe-range position, not a population share, percentile, probability, actual frequency or statistical confidence. Fifty is no normative average or proof of two psychological attributes in equal halves. Equal sums can have different item patterns. Separate calculation establishes no statistical independence, cross-axis inference or combined personality type. Agency and care can coexist; associations determine no normality; lifestyle establishes no cultural identity; selected economic issues predict no unasked position, party or vote. The public four-axis format supplies topic references without reproducing IDRlabs’ proprietary algorithm or inheriting its evidence. WHO distinctions and the WVS society-level cultural map validate no item bank or individual conversion here. Reliability, validity, norms, language equivalence and meaningful-change thresholds remain unestablished for the original items, equal weights, two-ended display and English wording. Discussion may contain disagreement or stop and serves no diagnosis, selection, identity judgment or targeted persuasion. Answers and bars remain in current-page memory without drafts or result caches. Editing clears the current result; retaking, exiting, reloading, changing language and leaving follow existing clearing behavior. Copying includes the same four public guide titles and links without values, answers or attempt identifiers. Those addresses are identical across positions rather than personal profiles."
+        }
+      ]
+    }
+  ],
+  "political": [
+    {
+      "id": "context",
+      "title": {
+        "en": "A mixed position is possible",
+        "zh": "混合立场可以成立"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构小组讨论一个尚无真实预算的社区工具借用点，只先列使用机会、费用、管理责任和需要核实的资料。有人关心稳定获得服务，有人关心可选择的方式；双方可以准确复述对方关切，仍保留不同意见。例子不推荐筹资方案、政党或投票，也不从一项意见推出整套立场。",
+          "en": "An additional original scene: A fictional group discusses a community tool-lending point with no real budget. They first list access, costs, responsibility and facts needing verification. One concern is reliable access; another is room for choice. Each person can restate the other’s concern accurately while disagreeing. The example recommends no funding arrangement, party or vote and infers no complete outlook from one view."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "en": "Examine one proposal on its merits",
+        "zh": "按具体方案检查取舍"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“哪些是希望达到的目标，哪些是待核实的效果，什么信息会影响对具体方案的判断？”可只针对上面的虚构情境，把观察、解释、偏好和未知分开。愿意参与的人可以保留分歧或停止，无需交换分数、为身份辩护或调整观点来符合图条。",
+          "en": "An optional discussion prompt asks: “Which points are desired goals, which effects need verification, and what information would affect judgment of this specific proposal?” Use only the fictional situation to separate observations, explanations, preferences and unknowns. Willing participants may keep disagreements or stop, without exchanging scores, defending an identity or changing views to fit a bar."
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "en": "Keep the interpretation bounded",
+        "zh": "保持解释边界"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充场景与讨论由费马测试编辑部原创，可只讨论虚构人物，也可略过；无需披露身份、健康、政策答案或私人经历。题目问通常情境下今天如何描述自己，没有固定回顾天数。六十题交错分到四轴，每轴十五题、八题正向与七题反向。0强烈不同意、1不同意、2既不同意也不反对、3同意、4强烈同意；2是有效数值，不是缺答或不计分。反向题按4减所选值计分，六十题全部有效才显示任何图条，没有跳过选项；不愿回答可退出读四篇全文，不补零、不换中点。每轴原始和0—60，高端位置为和÷60×100，另一端为100减该位置，分别显示一位小数。全选2得到和30及两端50.0%；全选4得到和32、高端53.3%和另一端46.7%，全选0得到和28、高端46.7%；到达端点需要按各题方向形成回答，而不是一律同意。这个百分数是算法区间位置，不是人口比例、百分位、概率、现实频率或统计置信度；50.0%不是常模平均，也不表示两种心理属性恰好各占一半。相同和可以来自不同题目组合，四轴分别计算不证明统计独立，不相互推导或合成人格类型。表达中的自主与关照可以并存；联想不判正常与异常；生活态度不确定文化身份；选定经济议题不推断未问立场、政党或投票。公开四轴形式仅提供主题参考，不复现IDRlabs专有算法或继承其证据；WHO概念区分与WVS社会层面文化地图都不能验证本题本或用于个体换算。原创题本、等权、两端显示及英文尚未建立信效度、常模、语言等价或有意义变化阈值。讨论可以不同意或停止，不用于诊断、选拔、身份评判或定向说服。当前页面仅内存保存回答和图条，没有草稿或结果缓存；修改时清除当前结果，重测、退出、刷新、换语和离开按现有流程清除。复制只含相同四篇公开指南标题与链接，不含数值、答案或作答标识；这些地址对所有位置相同，不是个人画像。",
+          "en": "FermatMind Editorial authored the additional scenes and prompts. Discuss fictional people only or decline, without identity, health, policy answers or private history. Questions ask for usual circumstances and how you describe yourself today, with no fixed recall period. Sixty interleaved statements form four axes of 15 items, eight forward and seven reverse. Responses are 0 Strongly disagree, 1 Disagree, 2 Neither agree nor disagree, 3 Agree and 4 Strongly agree. Two is numeric rather than missing or unscored. Reverse items use four minus the chosen value. All 60 must be valid before any bar appears; there is no skip. Leave and read four full guides if you prefer, without zero or midpoint substitution. Each axis sums to 0–60. Its high-end position is sum ÷ 60 × 100; the other end is 100 minus that position, each displayed to one decimal. All twos yield 30 and 50.0% at each end. All fours yield 32, high-end 53.3% and other-end 46.7%; all zeros yield 28 and high-end 46.7%. Reaching an endpoint requires a polarity-specific pattern rather than blanket agreement. A percentage is a recipe-range position, not a population share, percentile, probability, actual frequency or statistical confidence. Fifty is no normative average or proof of two psychological attributes in equal halves. Equal sums can have different item patterns. Separate calculation establishes no statistical independence, cross-axis inference or combined personality type. Agency and care can coexist; associations determine no normality; lifestyle establishes no cultural identity; selected economic issues predict no unasked position, party or vote. The public four-axis format supplies topic references without reproducing IDRlabs’ proprietary algorithm or inheriting its evidence. WHO distinctions and the WVS society-level cultural map validate no item bank or individual conversion here. Reliability, validity, norms, language equivalence and meaningful-change thresholds remain unestablished for the original items, equal weights, two-ended display and English wording. Discussion may contain disagreement or stop and serves no diagnosis, selection, identity judgment or targeted persuasion. Answers and bars remain in current-page memory without drafts or result caches. Editing clears the current result; retaking, exiting, reloading, changing language and leaving follow existing clearing behavior. Copying includes the same four public guide titles and links without values, answers or attempt identifiers. Those addresses are identical across positions rather than personal profiles."
+        }
+      ]
+    }
+  ]
+}

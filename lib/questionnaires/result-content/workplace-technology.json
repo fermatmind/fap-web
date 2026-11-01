@@ -1,0 +1,182 @@
+{
+  "handover": [
+    {
+      "id": "count-reading",
+      "title": {
+        "zh": "正确数只核对题定案例",
+        "en": "Correct counts check the supplied cases"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版16题，每题答对计1，四分项各4题；总数不检查真实软件、工作记录或实际协作表现。0题、部分或全部答对，都能阅读每题所选答案、正确答案、解析及四份复习说明。先选一个漏看的字段、条件或分母复习，不用结果给自己派工作角色。看过解析重做会包含熟悉与记忆，分数提高不单独证明可迁移技能、招聘资格或培训效果；公开说明不含个人作答或正确数。",
+          "en": "This edition has sixteen items, one count per correct answer and four per section. The total inspects no real software, work record or collaboration. Selected answers, keys, explanations and four guides remain available at zero, partial or perfect counts. Review a missed field, condition or denominator without assigning yourself a work role. Repetition after explanations includes familiarity and memory; a higher count alone establishes no transferable skill, hiring qualification or training effect. This public guide contains no personal answers or counts."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：先核资格，再比较新旧",
+        "en": "Review eligibility before recency"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用R5已批准、R6仍是草稿的例子，先圈出符合引用规则的版本，再比较时间；不要把最新文件直接当最新可用来源。另用一张虚构交接卡核对负责人、期限、状态和引用，让每个字段各过一遍。复盘记下漏的是哪项条件，不只写“沟通不够”。纸上演练即可，不需要真实文档；题里的批准规则也不自动变成你所在项目的规定。",
+          "en": "For approved R5 and draft R6, first identify versions eligible under the citation rule, then compare time. The newest file is not automatically the newest eligible source. Check owner, deadline, state and reference on a fictional handover card separately. Record the missed condition rather than only insufficient communication. Work on paper without real documents; this approval rule does not automatically apply to your project."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用虚构工作卡讨论核对方法",
+        "en": "Discuss a checking method through fictional work cards"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果较晚文件仍是草稿，而题目只允许引用已批准版本，你会怎样说明先筛什么、再比较什么？”讨论题面依据，或一起换一组虚构数字，不需要互考、比速度或提供成绩。",
+          "en": "Ask: “If the later file were still a draft and only approved versions were allowed, what would you filter first and compare next?” Discuss the supplied evidence or try fresh fictional numbers without quizzing each other, racing or supplying results."
+        },
+        {
+          "zh": "可分享公开说明，链接不含答案或计数。不要放入真实同事姓名、项目链接、权限设置或内部记录；对方可换例子、不回答或结束。题定规则不替代真实组织规定，练习也不用于评价谁更适合工作、管理或决定他人的责任。",
+          "en": "Share the public guide without answers or counts in the link. Include no real colleagues’ names, project links, permissions or internal records. The other person may change examples, decline or stop. Supplied rules do not replace organisational policies, and practice assigns neither work or management suitability nor authority over others’ responsibilities."
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "id": "count-reading",
+      "title": {
+        "zh": "正确数只核对题定案例",
+        "en": "Correct counts check the supplied cases"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版16题，每题答对计1，四分项各4题；总数不检查真实软件、工作记录或实际协作表现。0题、部分或全部答对，都能阅读每题所选答案、正确答案、解析及四份复习说明。先选一个漏看的字段、条件或分母复习，不用结果给自己派工作角色。看过解析重做会包含熟悉与记忆，分数提高不单独证明可迁移技能、招聘资格或培训效果；公开说明不含个人作答或正确数。",
+          "en": "This edition has sixteen items, one count per correct answer and four per section. The total inspects no real software, work record or collaboration. Selected answers, keys, explanations and four guides remain available at zero, partial or perfect counts. Review a missed field, condition or denominator without assigning yourself a work role. Repetition after explanations includes familiarity and memory; a higher count alone establishes no transferable skill, hiring qualification or training effect. This public guide contains no personal answers or counts."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：每项参与要求都被满足了吗",
+        "en": "Review every participation requirement"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到共同UTC时间窗口，画出两人的区间，只把交集当可用时间，再放入完整会议时长。场景题则分开检查能听、能读、能问和事后留存，不用工具名称代替功能核对。若两个虚构方案都符合，先说还缺哪项条件，不能凭偏好制造唯一答案。复盘关注题定要求；真实团队的可访问性和资源仍需实际确认。",
+          "en": "Draw both UTC windows and fit the entire meeting inside their intersection. For setup questions, check hearing, reading, questions and retained records separately rather than substituting a tool name for capabilities. If two fictional setups fit, state the missing constraint instead of inventing a unique answer from preference. Review supplied requirements; a real team’s accessibility and resources still need confirmation."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用虚构工作卡讨论核对方法",
+        "en": "Discuss a checking method through fictional work cards"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果一次混合讨论要求所有人听到、读到并能提问，你会怎样逐项比较两个虚构安排，而不是先选喜欢的平台？”讨论题面依据，或一起换一组虚构数字，不需要互考、比速度或提供成绩。",
+          "en": "Ask: “If a hybrid discussion required everyone to hear, read and ask questions, how would you compare two fictional setups before choosing a favourite platform?” Discuss the supplied evidence or try fresh fictional numbers without quizzing each other, racing or supplying results."
+        },
+        {
+          "zh": "可分享公开说明，链接不含答案或计数。不要放入真实同事姓名、项目链接、权限设置或内部记录；对方可换例子、不回答或结束。题定规则不替代真实组织规定，练习也不用于评价谁更适合工作、管理或决定他人的责任。",
+          "en": "Share the public guide without answers or counts in the link. Include no real colleagues’ names, project links, permissions or internal records. The other person may change examples, decline or stop. Supplied rules do not replace organisational policies, and practice assigns neither work or management suitability nor authority over others’ responsibilities."
+        }
+      ]
+    }
+  ],
+  "shared-work": [
+    {
+      "id": "count-reading",
+      "title": {
+        "zh": "正确数只核对题定案例",
+        "en": "Correct counts check the supplied cases"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版16题，每题答对计1，四分项各4题；总数不检查真实软件、工作记录或实际协作表现。0题、部分或全部答对，都能阅读每题所选答案、正确答案、解析及四份复习说明。先选一个漏看的字段、条件或分母复习，不用结果给自己派工作角色。看过解析重做会包含熟悉与记忆，分数提高不单独证明可迁移技能、招聘资格或培训效果；公开说明不含个人作答或正确数。",
+          "en": "This edition has sixteen items, one count per correct answer and four per section. The total inspects no real software, work record or collaboration. Selected answers, keys, explanations and four guides remain available at zero, partial or perfect counts. Review a missed field, condition or denominator without assigning yourself a work role. Repetition after explanations includes familiarity and memory; a higher count alone establishes no transferable skill, hiring qualification or training effect. This public guide contains no personal answers or counts."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：条件交集与责任归属分开检查",
+        "en": "Review intersecting conditions and assigned responsibility"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用P、Q、R任务板，先筛负责人，再筛未完成，最后核对每个编号是否仍符合。另把评论权限和解决讨论的责任分别列出：能补充观察，不等于接下了所有决定。可以只用虚构任务在纸上标注，不改实际权限或同事讨论。复盘记录漏看的是条件、状态变化还是责任边界，不从四题正确数判断自己或他人是否可靠。",
+          "en": "For the P, Q, R board, filter owner and unfinished state before checking each identifier again. Separately list commenting capability and responsibility for resolving a thread: contributing an observation does not take over every decision. Annotate fictional tasks without changing permissions or colleagues’ discussions. Record whether a miss concerned a condition, state change or responsibility boundary rather than rating reliability from four answers."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用虚构工作卡讨论核对方法",
+        "en": "Discuss a checking method through fictional work cards"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果要跟进某人的未完成任务，你会怎样同时核对负责人和状态，再区分可评论与可解决讨论的权限？”讨论题面依据，或一起换一组虚构数字，不需要互考、比速度或提供成绩。",
+          "en": "Ask: “When following up someone’s unfinished tasks, how would you check both owner and state, then distinguish commenting from resolving a thread?” Discuss the supplied evidence or try fresh fictional numbers without quizzing each other, racing or supplying results."
+        },
+        {
+          "zh": "可分享公开说明，链接不含答案或计数。不要放入真实同事姓名、项目链接、权限设置或内部记录；对方可换例子、不回答或结束。题定规则不替代真实组织规定，练习也不用于评价谁更适合工作、管理或决定他人的责任。",
+          "en": "Share the public guide without answers or counts in the link. Include no real colleagues’ names, project links, permissions or internal records. The other person may change examples, decline or stop. Supplied rules do not replace organisational policies, and practice assigns neither work or management suitability nor authority over others’ responsibilities."
+        }
+      ]
+    }
+  ],
+  "work-change": [
+    {
+      "id": "count-reading",
+      "title": {
+        "zh": "正确数只核对题定案例",
+        "en": "Correct counts check the supplied cases"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版16题，每题答对计1，四分项各4题；总数不检查真实软件、工作记录或实际协作表现。0题、部分或全部答对，都能阅读每题所选答案、正确答案、解析及四份复习说明。先选一个漏看的字段、条件或分母复习，不用结果给自己派工作角色。看过解析重做会包含熟悉与记忆，分数提高不单独证明可迁移技能、招聘资格或培训效果；公开说明不含个人作答或正确数。",
+          "en": "This edition has sixteen items, one count per correct answer and four per section. The total inspects no real software, work record or collaboration. Selected answers, keys, explanations and four guides remain available at zero, partial or perfect counts. Review a missed field, condition or denominator without assigning yourself a work role. Repetition after explanations includes familiarity and memory; a higher count alone establishes no transferable skill, hiring qualification or training effect. This public guide contains no personal answers or counts."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：数字变化与原因结论分别写",
+        "en": "Review a numerical change separately from its cause"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到30分钟变25分钟的虚构流程，把抄录、核对和新增记录全部列入，不只计算变快的那一步。再把两周各2次错误与10例、20例的分母分开写，得到20%和10%。数量、比例与原因是不同问题。复盘列一条能从日志算出的结论，再列一条仍缺资料的结论；这些数字不证明工具单独造成变化，也不能算出岗位或人数如何变化。",
+          "en": "For the fictional change from thirty to twenty-five minutes, include copying, checking and added logging rather than only the faster step. Separately write two errors with denominators of ten and twenty, yielding twenty and ten percent. Counts, rates and causes are different questions. Record one calculable conclusion and one needing more information. The figures establish neither the tool as the sole cause nor a change in jobs or headcount."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用虚构工作卡讨论核对方法",
+        "en": "Discuss a checking method through fictional work cards"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果两次试用都记了2次错误，但总例数分别是10和20，你会怎样同时说明数量、比例和还不能确定的原因？”讨论题面依据，或一起换一组虚构数字，不需要互考、比速度或提供成绩。",
+          "en": "Ask: “If two pilots each recorded two errors among ten and twenty cases respectively, how would you state the count, rate and still-unknown cause separately?” Discuss the supplied evidence or try fresh fictional numbers without quizzing each other, racing or supplying results."
+        },
+        {
+          "zh": "可分享公开说明，链接不含答案或计数。不要放入真实同事姓名、项目链接、权限设置或内部记录；对方可换例子、不回答或结束。题定规则不替代真实组织规定，练习也不用于评价谁更适合工作、管理或决定他人的责任。",
+          "en": "Share the public guide without answers or counts in the link. Include no real colleagues’ names, project links, permissions or internal records. The other person may change examples, decline or stop. Supplied rules do not replace organisational policies, and practice assigns neither work or management suitability nor authority over others’ responsibilities."
+        }
+      ]
+    }
+  ]
+}

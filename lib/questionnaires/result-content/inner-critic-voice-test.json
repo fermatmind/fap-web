@@ -1,0 +1,125 @@
+{
+  "inadequate": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境：虚构读者改好了初稿中的日期，却仍把这次修正理解为自己什么都做不好。日期、修正行动和整体自我评价可以同时存在，不能由其中一项推算九条陈述的答案。读者也不必否认失误或马上表现自信，才有资格寻求协助。",
+          "en": "In an additional scene, a fictional reader corrects a draft’s date but still takes the correction to mean they cannot do anything well. The date, repair and global self-judgment can coexist; none supplies answers to all nine statements. The reader need not deny the mistake or perform confidence before asking for assistance."
+        }
+      ]
+    },
+    {
+      "id": "observation",
+      "title": {
+        "zh": "可选讨论提示",
+        "en": "An optional discussion prompt"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“这段虚构经历中，哪些是可核实的事情，哪些是读者对自己的评价，实际下一步还需要什么？”可以只读，也可以讨论虚构人物，无须透露自己的答案或过去经历。听者可以不参与，不用比较分数、重现敏感想法或要求彼此安慰；需要实际支持时不必先讨论完结果。",
+          "en": "An optional discussion prompt asks: “Which details in this fictional account are observable events or the reader’s self-evaluations, and what does the next practical step need?” Read alone or discuss the fictional reader without revealing personal answers or past experiences. Participation is optional. No score comparison, recreation of sensitive thoughts or reciprocal reassurance is needed; practical support need not wait for a finished discussion."
+        }
+      ]
+    },
+    {
+      "id": "missing-change",
+      "title": {
+        "zh": "补充读法与来源边界",
+        "en": "Additional method and source limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境和讨论提示由费马测试编辑部原创，不是新增FSCRS题目或治疗。保留Halamová等（2019）表1的22条英文陈述与三组归属，并注明Gilbert等（2004）来源及CC BY 4.0许可；中文为费马工作译文。按事情不顺时与自身相符程度选择1至5，两端为完全不符合我、非常符合我，中间2、3、4不新增频率或中立标签，无固定回顾期限。三组分别9、5、8条，全部直接计入；各组数字齐全才求和，范围9—45、5—25、8—40，再除以本组题数显示两位小数。九题和25得2.78，五题和15得3.00，八题和27得3.38。跳过不补零或中点，只隐藏所属组的和与均值；全部跳过仍可结束并读三篇全文。三组不合总分、不抵扣、不排名；同数不表示同等经历，变化不认证疗效，低值或自我支持高值均不证明安全。研究不自动验证本网页或新中文译文，不迁入其他编码的常模或阈值。答案仅留本页内存；退出、刷新、换语言清除，不新增草稿或私人分享。公开复制保留三篇通用解释链接，不含答案与数值。",
+          "en": "FermatMind Editorial authored these additions; they add neither FSCRS items nor treatment. The 22 English statements and three keys retain Halamová et al. (2019), Table 1, credit to Gilbert et al. (2004), and CC BY 4.0. Chinese remains a working translation. Rate how like you the response is when things go wrong, 1–5, from Not at all like me to Extremely like me; 2, 3 and 4 receive no added frequency or neutral labels. No fixed recall period is added. The three direct-scored groups contain 9, 5 and 8 items. Complete numeric groups yield sums of 9–45, 5–25 and 8–40, divided by their item counts and displayed to two decimals: 25/9 gives 2.78, 15/5 gives 3.00 and 27/8 gives 3.38. A skip supplies no zero or midpoint and withholds only its group’s sum and mean. All skips still finish with all three full readings. Groups are never totalled, offset or ranked. Equal numbers establish no equal experience; changes certify no treatment effect. Low values or high self-reassurance establish no safety. Research does not automatically validate this web edition or new Chinese wording; other codings’ norms and cutoffs are not imported. Answers stay only in page memory and clear on exit, reload or language change, without drafts or private sharing. Copying retains three general public explanation links without answers or values."
+        }
+      ]
+    }
+  ],
+  "hated": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境：虚构读者在一次项目谈话后，用贬损的称呼说自己，同时想修正事情。修正责任与是否值得获得基本照顾是不同问题；谈话经过、当下需要和当前安全状况也不能由五题均分代替。这个例子不要求重现令人痛苦的想法；担心当前安全时，直接使用页面已有支持说明。",
+          "en": "In an additional scene, a fictional reader uses a harsh name for themselves after a project conversation while also wanting to repair the problem. Responsibility for repair differs from deserving ordinary care. A five-item mean cannot supply the conversation’s details, present needs or current safety. No painful thought needs to be recreated; use the existing support information directly if current safety is a concern."
+        }
+      ]
+    },
+    {
+      "id": "next-step",
+      "title": {
+        "zh": "可选讨论提示",
+        "en": "An optional discussion prompt"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“只看这个虚构例子，具体事情、对自己的称呼与可获得的支持有哪些区别？”可以只读，也可以讨论虚构人物，无须透露自己的答案或过去经历。听者可以不参与，不用比较分数、重现敏感想法或要求彼此安慰；需要实际支持时不必先讨论完结果。",
+          "en": "An optional discussion prompt asks: “Looking only at the fictional account, how do the practical issue, self-directed words and available support differ?” Read alone or discuss the fictional reader without revealing personal answers or past experiences. Participation is optional. No score comparison, recreation of sensitive thoughts or reciprocal reassurance is needed; practical support need not wait for a finished discussion."
+        }
+      ]
+    },
+    {
+      "id": "coexist",
+      "title": {
+        "zh": "补充读法与来源边界",
+        "en": "Additional method and source limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境和讨论提示由费马测试编辑部原创，不是新增FSCRS题目或治疗。保留Halamová等（2019）表1的22条英文陈述与三组归属，并注明Gilbert等（2004）来源及CC BY 4.0许可；中文为费马工作译文。按事情不顺时与自身相符程度选择1至5，两端为完全不符合我、非常符合我，中间2、3、4不新增频率或中立标签，无固定回顾期限。三组分别9、5、8条，全部直接计入；各组数字齐全才求和，范围9—45、5—25、8—40，再除以本组题数显示两位小数。九题和25得2.78，五题和15得3.00，八题和27得3.38。跳过不补零或中点，只隐藏所属组的和与均值；全部跳过仍可结束并读三篇全文。三组不合总分、不抵扣、不排名；同数不表示同等经历，变化不认证疗效，低值或自我支持高值均不证明安全。研究不自动验证本网页或新中文译文，不迁入其他编码的常模或阈值。答案仅留本页内存；退出、刷新、换语言清除，不新增草稿或私人分享。公开复制保留三篇通用解释链接，不含答案与数值。",
+          "en": "FermatMind Editorial authored these additions; they add neither FSCRS items nor treatment. The 22 English statements and three keys retain Halamová et al. (2019), Table 1, credit to Gilbert et al. (2004), and CC BY 4.0. Chinese remains a working translation. Rate how like you the response is when things go wrong, 1–5, from Not at all like me to Extremely like me; 2, 3 and 4 receive no added frequency or neutral labels. No fixed recall period is added. The three direct-scored groups contain 9, 5 and 8 items. Complete numeric groups yield sums of 9–45, 5–25 and 8–40, divided by their item counts and displayed to two decimals: 25/9 gives 2.78, 15/5 gives 3.00 and 27/8 gives 3.38. A skip supplies no zero or midpoint and withholds only its group’s sum and mean. All skips still finish with all three full readings. Groups are never totalled, offset or ranked. Equal numbers establish no equal experience; changes certify no treatment effect. Low values or high self-reassurance establish no safety. Research does not automatically validate this web edition or new Chinese wording; other codings’ norms and cutoffs are not imported. Answers stay only in page memory and clear on exit, reload or language change, without drafts or private sharing. Copying retains three general public explanation links without answers or values."
+        }
+      ]
+    }
+  ],
+  "reassured": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境：虚构读者对考试失利感到失望，同时能承认自己仍可得到照顾，并愿意询问一道错题。失望与支持自己并不矛盾；这既不推算八题读数，也不保证成绩改善。暂时说不出安慰的话时，也可以先接受别人的实际帮助。",
+          "en": "In an additional scene, a fictional reader feels disappointed by an exam result while recognising that care remains available and asking about one mistake. Disappointment and self-support can coexist. This supplies neither an eight-item readout nor a promise of improved performance. Someone unable to find reassuring words may receive practical help first."
+        }
+      ]
+    },
+    {
+      "id": "credible-response",
+      "title": {
+        "zh": "可选讨论提示",
+        "en": "An optional discussion prompt"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“这个虚构例子里，哪些回应承认了失望，哪些提供了实际支持，两者能否同时存在？”可以只读，也可以讨论虚构人物，无须透露自己的答案或过去经历。听者可以不参与，不用比较分数、重现敏感想法或要求彼此安慰；需要实际支持时不必先讨论完结果。",
+          "en": "An optional discussion prompt asks: “Which responses acknowledge disappointment or offer practical support in this fictional account, and can both be present?” Read alone or discuss the fictional reader without revealing personal answers or past experiences. Participation is optional. No score comparison, recreation of sensitive thoughts or reciprocal reassurance is needed; practical support need not wait for a finished discussion."
+        }
+      ]
+    },
+    {
+      "id": "translation-change",
+      "title": {
+        "zh": "补充读法与来源边界",
+        "en": "Additional method and source limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境和讨论提示由费马测试编辑部原创，不是新增FSCRS题目或治疗。保留Halamová等（2019）表1的22条英文陈述与三组归属，并注明Gilbert等（2004）来源及CC BY 4.0许可；中文为费马工作译文。按事情不顺时与自身相符程度选择1至5，两端为完全不符合我、非常符合我，中间2、3、4不新增频率或中立标签，无固定回顾期限。三组分别9、5、8条，全部直接计入；各组数字齐全才求和，范围9—45、5—25、8—40，再除以本组题数显示两位小数。九题和25得2.78，五题和15得3.00，八题和27得3.38。跳过不补零或中点，只隐藏所属组的和与均值；全部跳过仍可结束并读三篇全文。三组不合总分、不抵扣、不排名；同数不表示同等经历，变化不认证疗效，低值或自我支持高值均不证明安全。研究不自动验证本网页或新中文译文，不迁入其他编码的常模或阈值。答案仅留本页内存；退出、刷新、换语言清除，不新增草稿或私人分享。公开复制保留三篇通用解释链接，不含答案与数值。",
+          "en": "FermatMind Editorial authored these additions; they add neither FSCRS items nor treatment. The 22 English statements and three keys retain Halamová et al. (2019), Table 1, credit to Gilbert et al. (2004), and CC BY 4.0. Chinese remains a working translation. Rate how like you the response is when things go wrong, 1–5, from Not at all like me to Extremely like me; 2, 3 and 4 receive no added frequency or neutral labels. No fixed recall period is added. The three direct-scored groups contain 9, 5 and 8 items. Complete numeric groups yield sums of 9–45, 5–25 and 8–40, divided by their item counts and displayed to two decimals: 25/9 gives 2.78, 15/5 gives 3.00 and 27/8 gives 3.38. A skip supplies no zero or midpoint and withholds only its group’s sum and mean. All skips still finish with all three full readings. Groups are never totalled, offset or ranked. Equal numbers establish no equal experience; changes certify no treatment effect. Low values or high self-reassurance establish no safety. Research does not automatically validate this web edition or new Chinese wording; other codings’ norms and cutoffs are not imported. Answers stay only in page memory and clear on exit, reload or language change, without drafts or private sharing. Copying retains three general public explanation links without answers or values."
+        }
+      ]
+    }
+  ]
+}

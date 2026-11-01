@@ -1,0 +1,130 @@
+{
+  "time-urgency": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘真实时间与额外催促",
+        "en": "Review actual timing and added hurry"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的普通活动记录，分开看原来可用的时间、后来真实改变的条件和自己额外加上的紧迫。三者可能同时出现，也可能没有足够情境可回忆。无需立刻放慢或追求低均分；这次复盘只让一个具体事件更清楚，不把客观职责归成个人缺点。",
+          "en": "After the ordinary activity note above, separate originally available time, actual changed conditions and added internal hurry. They may coexist, or there may be insufficient context to recall. No immediate slowing or lower mean is required. Clarify one event without turning external duties into a personal defect."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个只谈实际时间的问题",
+        "en": "Share a question about actual timing"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设整理私人卡片没有临近期限，原来的结束时间是什么，又有哪些后来增加的要求？”只用虚构例子，不交换均分，也不比较谁更像A型。",
+          "en": "Ask: “If imaginary private cards had no approaching deadline, what was the original endpoint and what requirements appeared later?” Use a fictional example without exchanging means or comparing who is more Type A."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或均分，对方可以不回答；这段讨论不要求验证谁的结果。",
+          "en": "You may share the public general guide or keep it private. The link carries no answers or means from this attempt. The other person may decline; discussion requires no validation of anyone’s result."
+        }
+      ]
+    }
+  ],
+  "competitive-comparison": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘目标、比较与内容兴趣",
+        "en": "Review the goal, comparison and interest in content"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的三点笔记情境，区分原目标、看到别人的数量后想改什么，以及新增内容本身是否仍有兴趣。原因可以混合，问卷不能替你确定。正式要求另看实际规则；不需要缩小目标或表现毫不在意来证明自己更平衡。",
+          "en": "After the three-point note scene above, separate the original aim, a change after seeing others’ quantity and interest in the added content itself. Reasons may mix; the questionnaire cannot settle them. Check formal requirements separately without shrinking goals or performing indifference to prove balance."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个不按数量排人的比较",
+        "en": "Share a comparison that ranks no person by quantity"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设自己记了三点、别人记了五点，你想补的是什么，原目标是否已够？”不查朋友成绩或给人贴竞争、自私、上进不足等标签。",
+          "en": "Ask: “If imaginary notes had three points and someone else’s five, what would you add and was your original aim sufficient?” Seek no friends’ scores and assign no competitiveness, selfishness or ambition labels."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或均分，对方可以不回答；这段讨论不要求验证谁的结果。",
+          "en": "You may share the public general guide or keep it private. The link carries no answers or means from this attempt. The other person may decline; discussion requires no validation of anyone’s result."
+        }
+      ]
+    }
+  ],
+  "waiting-irritation": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘等待信息、感受与行动",
+        "en": "Review wait information, feeling and action"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的普通短等候，分别记下已知时间、实际影响、感到什么和做了什么。不舒服的环境或新情况可以改变原情境；感受也不等于行为。可以没有合适事件，不制造等待或压住情绪；均分不判定谁更有耐心或感受是否合理。",
+          "en": "After the ordinary brief wait above, separate known timing, actual effects, feeling and action. An uncomfortable setting or new information may change the premise; feelings and conduct differ. Keep no suitable event if needed without creating waits or suppressing feelings. Means judge neither patience nor justified feeling."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个分开事实与感受的问题",
+        "en": "Share a question separating facts and feelings"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设活动还有几分钟开始，哪些时间信息已知、有没有实际影响，又可能有什么感受？”不把烦躁当敌意、健康风险或对他人的指控。",
+          "en": "Ask: “If an imaginary activity began in a few minutes, what timing is known, what actual effects exist and what feelings might occur?” Treat irritation as no hostility, health-risk estimate or accusation."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或均分，对方可以不回答；这段讨论不要求验证谁的结果。",
+          "en": "You may share the public general guide or keep it private. The link carries no answers or means from this attempt. The other person may decline; discussion requires no validation of anyone’s result."
+        }
+      ]
+    }
+  ],
+  "difficulty-stopping": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘已完成、追加与能否结束",
+        "en": "Review completion, additions and whether stopping was possible"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的结束点，分开看原目标是否已满足、后来加了什么，以及当时是否真的能自由结束。继续可能出于兴趣、目标变化或其他条件，不由均分判定。若是共同活动，新增范围需另问意愿；无需为了低分停止必要任务，也不以继续多少评价认真。",
+          "en": "After the endpoint above, separate whether the original aim was met, added parts and whether ending was actually available. Interest, changed aims or other conditions may explain continuation; the mean cannot decide. Ask separately about extensions to shared activity. Neither a lower score nor proof of seriousness requires stopping duties or continuing."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可以重新写目标的问题",
+        "en": "Share a question that can restate the aim"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设私人笔记三点已写完，下一条是原要求、现在愿意的新选择，还是另有条件？”只讨论情境，不交换停不下来的诊断或固定A/B类型。",
+          "en": "Ask: “If three imaginary private notes were finished, is the next point an original requirement, a new choice or another condition?” Discuss the scene without diagnoses or fixed A/B types."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或均分，对方可以不回答；这段讨论不要求验证谁的结果。",
+          "en": "You may share the public general guide or keep it private. The link carries no answers or means from this attempt. The other person may decline; discussion requires no validation of anyone’s result."
+        }
+      ]
+    }
+  ]
+}

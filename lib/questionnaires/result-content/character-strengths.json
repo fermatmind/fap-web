@@ -1,0 +1,770 @@
+{
+  "appreciation-of-beauty": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "从一件小事回看这项自述",
+        "en": "Review this self-report through one small event"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的日常留意记录，把对象的具体特征与自己的感受分成两句。可以是线条、声音或布局，也可以没有特别感受；记录不必转成作品或消费。若想继续了解，再另外写一个问题，让欣赏与探索各有位置。",
+          "en": "After the observation above, separate a feature of the object from your response in two sentences. A line, sound or arrangement may interest you, or nothing in particular may arise. No artwork or purchase is required. If you want to investigate, add a separate question so appreciation and exploration remain distinct."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：用具体问题开始",
+        "en": "Optional sharing: begin with a concrete question"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构一张普通窗边景物卡，你会想多看哪一处，又有哪些细节没有感觉？可以不同，不用评谁更有品位。",
+          "en": "For an imaginary view beside a window, what would you pause over, and what leaves you unmoved? Different responses need no ranking of taste."
+        },
+        {
+          "zh": "可以只分享这份公开通用读法，也可以不分享。链接不带本次分数或答案；不需要提供私人记录、收集他人评分或让对方验证你的性格。对方也可以不回答。",
+          "en": "You can share this public general guide or choose not to. Its link carries no attempt scores or answers. No private records, ratings from others or validation of your character are required. The other person may decline too."
+        }
+      ]
+    }
+  ],
+  "love": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "从一件小事回看这项自述",
+        "en": "Review this self-report through one small event"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的关心互动记录，区分提议、自己的需要和愿意回应的范围。接受帮助、感谢后拒绝、改天再谈都可以写成具体选择。若不知道对方如何理解，就保留未知；不以透露多少或接受多少来证明亲近。",
+          "en": "After the care-exchange note above, separate the offer, your need and the response you wanted. Accepting, thanking while declining or talking another day can each be a concrete choice. Retain uncertainty about the other person’s interpretation. Neither disclosure nor accepting help has to prove closeness."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：用具体问题开始",
+        "en": "Optional sharing: begin with a concrete question"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构朋友提出送晚饭，你想接受、自己安排，还是改天再聊？不需要讲真实关系，也不用用答案证明谁更会爱。",
+          "en": "If an imaginary friend offers dinner, would you accept, arrange your own meal or talk another day? No real relationship or proof of capacity for love is needed."
+        },
+        {
+          "zh": "可以只分享这份公开通用读法，也可以不分享。链接不带本次分数或答案；不需要提供私人记录、收集他人评分或让对方验证你的性格。对方也可以不回答。",
+          "en": "You can share this public general guide or choose not to. Its link carries no attempt scores or answers. No private records, ratings from others or validation of your character are required. The other person may decline too."
+        }
+      ]
+    }
+  ],
+  "teamwork": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "从一件小事回看这项自述",
+        "en": "Review this self-report through one small event"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的交接记录，看看自己的部分是否已说清，哪些事项仍没人确认。可以独立完成分工，也可以提出协作需要；复盘依据是约定与实际动作，不是一直在线或替大家做完多少。若任务范围变了，先把变化列出来。",
+          "en": "After the handover note above, check whether your part was explicit and which matters had no confirmed owner. Independent work and a request for collaboration can both fit. Review agreements and actions rather than availability or how much you completed for everyone. List any changed scope first."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：用具体问题开始",
+        "en": "Optional sharing: begin with a concrete question"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构三人整理聚会费用，你想怎样说明自己的部分、交接点和可用时间？只谈安排，不给同伴评好队友分。",
+          "en": "For three imaginary people organising meal costs, how would you state your part, handover and available time? Discuss arrangements without rating teammates."
+        },
+        {
+          "zh": "可以只分享这份公开通用读法，也可以不分享。链接不带本次分数或答案；不需要提供私人记录、收集他人评分或让对方验证你的性格。对方也可以不回答。",
+          "en": "You can share this public general guide or choose not to. Its link carries no attempt scores or answers. No private records, ratings from others or validation of your character are required. The other person may decline too."
+        }
+      ]
+    }
+  ],
+  "curiosity": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "从一件小事回看这项自述",
+        "en": "Review this self-report through one small event"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的公开小问题，记下你想知道的具体内容、可访问的来源和今天愿意投入多少。查到一个答案、留下一个新问题或暂不查都能成为记录。兴趣的广度与深度可以不同，不用增加活动数量来配合结果名称。",
+          "en": "After noting the public question above, identify what you want to know, an accessible source and the effort you want to spend today. An answer, a further question or no search can each be recorded. Breadth and depth may differ; no extra activities are needed to fit the name."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：用具体问题开始",
+        "en": "Optional sharing: begin with a concrete question"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构一个计时器原理问题，你会想查什么，还是把问题先放着？只需普通问题，不邀请追问任何人的私事。",
+          "en": "For an imaginary question about a timer, what would you look up, or would you leave it for later? An ordinary question needs no inquiry into anyone’s private life."
+        },
+        {
+          "zh": "可以只分享这份公开通用读法，也可以不分享。链接不带本次分数或答案；不需要提供私人记录、收集他人评分或让对方验证你的性格。对方也可以不回答。",
+          "en": "You can share this public general guide or choose not to. Its link carries no attempt scores or answers. No private records, ratings from others or validation of your character are required. The other person may decline too."
+        }
+      ]
+    }
+  ],
+  "fairness": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "从一件小事回看这项自述",
+        "en": "Review this self-report through one small event"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的资源分配记录，把原规则、实际条件与希望调整的部分分开。看看同样条件出现时能否说明同一依据，也听取明确指出的遗漏。可以保留分歧，不用用均分裁决谁公正；相同份额与不同支持需要具体讨论。",
+          "en": "After the allocation note above, separate the original rule, actual conditions and requested changes. Ask whether the same basis could be explained in a comparable case, and consider identified omissions. Disagreement may remain. A mean decides no one’s fairness; equal shares and differing support need concrete discussion."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：用具体问题开始",
+        "en": "Optional sharing: begin with a concrete question"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构共同采购，有人没用某项材料，你想先核对哪条约定？不用披露真实账单或宣布谁最公平。",
+          "en": "In an imaginary shared purchase where someone used no part of an item, which agreement would you check first? No real bill or fairest-person verdict is required."
+        },
+        {
+          "zh": "可以只分享这份公开通用读法，也可以不分享。链接不带本次分数或答案；不需要提供私人记录、收集他人评分或让对方验证你的性格。对方也可以不回答。",
+          "en": "You can share this public general guide or choose not to. Its link carries no attempt scores or answers. No private records, ratings from others or validation of your character are required. The other person may decline too."
+        }
+      ]
+    }
+  ],
+  "forgiveness": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "从一件小事回看这项自述",
+        "en": "Review this self-report through one small event"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的轻微旧分歧，分开写感受是否变化、实际后果是否处理、今后愿意保留什么界限。三者不必同步；理解原因也可以仍需归还物品。只回顾已结束且安全的小事，不把记录变成联系、和解或再次信任的任务。",
+          "en": "After the minor concluded disagreement above, separate changed feelings, practical consequences and future boundaries. They need not move together; understanding a reason can coexist with needing an item returned. Keep to a safe, ended matter without making contact, reconciliation or renewed trust the task."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：用具体问题开始",
+        "en": "Optional sharing: begin with a concrete question"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构普通物品迟还，你想怎样同时说明影响和下一步？不必说已原谅，也不要求分享严重经历或恢复联系。",
+          "en": "For an imaginary late return of an ordinary item, how would you state its effect and the next step? No declaration of forgiveness, serious experience or renewed contact is needed."
+        },
+        {
+          "zh": "可以只分享这份公开通用读法，也可以不分享。链接不带本次分数或答案；不需要提供私人记录、收集他人评分或让对方验证你的性格。对方也可以不回答。",
+          "en": "You can share this public general guide or choose not to. Its link carries no attempt scores or answers. No private records, ratings from others or validation of your character are required. The other person may decline too."
+        }
+      ]
+    }
+  ],
+  "gratitude": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "从一件小事回看这项自述",
+        "en": "Review this self-report through one small event"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的帮助记录，明确是哪一个动作带来了什么便利，再单独保留仍有的问题。表达可以是一句具体感谢，也可以先留作私人文字。感谢不必扩大成欠下人情或否定不满；没有想写的例子也可以停止。",
+          "en": "After the help note above, name the action and the difference it made, retaining remaining problems separately. A specific thank-you or a private note is available. Appreciation need not become a debt or erase dissatisfaction. If no example comes to mind, you can stop."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：用具体问题开始",
+        "en": "Optional sharing: begin with a concrete question"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构一次有人解释清楚步骤，你会怎样感谢，又保留尚未解决的问题？不需互送赞美或公开感恩清单。",
+          "en": "If someone imaginary clarified a step, how would you thank them while retaining an unresolved issue? No exchange of praise or public gratitude list is required."
+        },
+        {
+          "zh": "可以只分享这份公开通用读法，也可以不分享。链接不带本次分数或答案；不需要提供私人记录、收集他人评分或让对方验证你的性格。对方也可以不回答。",
+          "en": "You can share this public general guide or choose not to. Its link carries no attempt scores or answers. No private records, ratings from others or validation of your character are required. The other person may decline too."
+        }
+      ]
+    }
+  ],
+  "hope": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "从一件小事回看这项自述",
+        "en": "Review this self-report through one small event"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的低风险等待事项，把希望的结果、已知事实和可以做的下一步分开。后来结果无论如何，都先看新增了什么信息；它不验证你是否足够乐观。备选安排可以保留，不必靠反复积极表达来获得资格。",
+          "en": "After the low-stakes waiting example above, separate your hoped-for outcome, known facts and an available next step. Whatever happens, first note the new information. The outcome does not test whether you were optimistic enough. An alternative can remain without earning it through repeated positive statements."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：用具体问题开始",
+        "en": "Optional sharing: begin with a concrete question"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构一次普通活动报名尚无回复，你想核对什么，又愿意保留什么备选？可以说不确定，不用相互保证成功。",
+          "en": "For an imaginary activity application awaiting a reply, what would you check and which alternative would you keep? Uncertainty is welcome; no success guarantee is needed."
+        },
+        {
+          "zh": "可以只分享这份公开通用读法，也可以不分享。链接不带本次分数或答案；不需要提供私人记录、收集他人评分或让对方验证你的性格。对方也可以不回答。",
+          "en": "You can share this public general guide or choose not to. Its link carries no attempt scores or answers. No private records, ratings from others or validation of your character are required. The other person may decline too."
+        }
+      ]
+    }
+  ],
+  "humor": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "从一件小事回看这项自述",
+        "en": "Review this self-report through one small event"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的轻松时刻，分开记录自己觉得有趣的地方和对方明确表现出的回应。若没有回应，就保持未知；若对方想回到任务，可以就此结束。让人笑、妥善处理事情和彼此舒适是不同问题，不必由一次玩笑全部证明。",
+          "en": "After the light moment above, separate what amused you from the response actually expressed. No response can remain unknown; a wish to return to the task can end the moment. Laughter, handling the practical issue and comfort are separate questions that one joke need not settle."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：用具体问题开始",
+        "en": "Optional sharing: begin with a concrete question"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构一个纸盒像帽子的瞬间，你想看看、笑一下，还是继续收拾？可以不接梗，不用证明幽默感或关系好坏。",
+          "en": "If an imaginary box looks like a hat, would you look, laugh or continue tidying? You need not join the joke or prove humour or relationship quality."
+        },
+        {
+          "zh": "可以只分享这份公开通用读法，也可以不分享。链接不带本次分数或答案；不需要提供私人记录、收集他人评分或让对方验证你的性格。对方也可以不回答。",
+          "en": "You can share this public general guide or choose not to. Its link carries no attempt scores or answers. No private records, ratings from others or validation of your character are required. The other person may decline too."
+        }
+      ]
+    }
+  ],
+  "perseverance": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "从一件小事回看这项自述",
+        "en": "Review this self-report through one small event"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的小任务，回看原定完成点、实际推进与暂停条件有没有变化。完成一部分可以如实记，改变主意也可说明理由；继续和停止都需要现实条件。记录不要求延长投入、忍受不适或把所有开始过的事都做完。",
+          "en": "After the small-task note above, review the intended endpoint, actual progress and any changed conditions for pausing. Partial completion can be recorded, and a changed choice can have a reason. Continuing and stopping both need context. The note requires neither longer effort, discomfort nor finishing everything ever started."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：用具体问题开始",
+        "en": "Optional sharing: begin with a concrete question"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构整理一小盒零件，怎样算今天完成，什么情况下可以暂停？可以讨论结束点，不比较谁更能坚持。",
+          "en": "For an imaginary small box of fittings, what counts as done today and what could justify pausing? Discuss endpoints without ranking persistence."
+        },
+        {
+          "zh": "可以只分享这份公开通用读法，也可以不分享。链接不带本次分数或答案；不需要提供私人记录、收集他人评分或让对方验证你的性格。对方也可以不回答。",
+          "en": "You can share this public general guide or choose not to. Its link carries no attempt scores or answers. No private records, ratings from others or validation of your character are required. The other person may decline too."
+        }
+      ]
+    }
+  ],
+  "honesty": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "从一件小事回看这项自述",
+        "en": "Review this self-report through one small event"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的普通承诺记录，区分最初答应的范围、后来知道的变化和实际通知。可以承认答应过快，再商量可行安排；无需透露无关私事。复盘的是事实是否说清与后续是否确认，不用分数代替核对或要求别人立即相信。",
+          "en": "After the ordinary-commitment note above, separate the original scope, later information and the update actually given. You can acknowledge agreeing too quickly and discuss feasible arrangements without unrelated private details. Review clarity and follow-up rather than offering a score as evidence or demanding immediate trust."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：用具体问题开始",
+        "en": "Optional sharing: begin with a concrete question"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构约定时间冲突，你会怎样准确更新，又保护无关隐私？不分享秘密、真实聊天或要求互相认证诚实。",
+          "en": "For an imaginary scheduling conflict, how would you update accurately while protecting unrelated privacy? No secrets, real chats or mutual honesty certification is needed."
+        },
+        {
+          "zh": "可以只分享这份公开通用读法，也可以不分享。链接不带本次分数或答案；不需要提供私人记录、收集他人评分或让对方验证你的性格。对方也可以不回答。",
+          "en": "You can share this public general guide or choose not to. Its link carries no attempt scores or answers. No private records, ratings from others or validation of your character are required. The other person may decline too."
+        }
+      ]
+    }
+  ],
+  "judgment": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "从一件小事回看这项自述",
+        "en": "Review this self-report through one small event"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的可撤回选择，看看两条事实是否有来源，未知项后来有没有查清，取舍是否仍是自己在意的。即使选得顺利，也不把结果反写成当时全都知道；若没选好，可以只调整一处信息，不用给整个人的判断力定级。",
+          "en": "After the reversible choice above, check the basis of the facts, whether the unknown was resolved and whether the tradeoff still mattered to you. A smooth outcome does not mean everything was known beforehand. A poor fit can prompt one information change without grading your whole judgment."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：用具体问题开始",
+        "en": "Optional sharing: begin with a concrete question"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构选两个桌面收纳盒，你想先核对尺寸、便利还是仍未知的条件？只讨论依据，不以决定快慢排名聪明程度。",
+          "en": "For two imaginary desk boxes, would you first check dimensions, convenience or an unknown condition? Discuss evidence without ranking intelligence by decision speed."
+        },
+        {
+          "zh": "可以只分享这份公开通用读法，也可以不分享。链接不带本次分数或答案；不需要提供私人记录、收集他人评分或让对方验证你的性格。对方也可以不回答。",
+          "en": "You can share this public general guide or choose not to. Its link carries no attempt scores or answers. No private records, ratings from others or validation of your character are required. The other person may decline too."
+        }
+      ]
+    }
+  ],
+  "kindness": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "从一件小事回看这项自述",
+        "en": "Review this self-report through one small event"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的帮助请求，分别看明确需要、自己愿意提供与实际能做的部分。若帮助没被接受，先保留对方选择，不补成自己没用或对方不感激。有限的具体帮助与明确拒绝都可以被准确描述，不以付出数量给善意打分。",
+          "en": "After the request note above, separate the stated need, what you wanted to offer and what you could do. If help was declined, retain that choice without inferring personal uselessness or ingratitude. Limited help and a clear decline can both be described accurately; quantity given does not grade kindness."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：用具体问题开始",
+        "en": "Optional sharing: begin with a concrete question"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构邻居请你搬空纸箱，你想怎样确认需要和可帮范围？不要求真实帮忙、回报或评价谁更善良。",
+          "en": "For an imaginary request to move empty boxes, how would you clarify the need and your feasible part? No actual help, repayment or kindness rating is required."
+        },
+        {
+          "zh": "可以只分享这份公开通用读法，也可以不分享。链接不带本次分数或答案；不需要提供私人记录、收集他人评分或让对方验证你的性格。对方也可以不回答。",
+          "en": "You can share this public general guide or choose not to. Its link carries no attempt scores or answers. No private records, ratings from others or validation of your character are required. The other person may decline too."
+        }
+      ]
+    }
+  ],
+  "leadership": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "从一件小事回看这项自述",
+        "en": "Review this self-report through one small event"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的协调记录，回看角色是否被同意、信息是否齐全、未确认部分由谁继续核对。有人不同意方案时，记录具体条件，不把它解释成不服从。协调可以只负责一小部分，也可以交接；自评不授权替别人决定。",
+          "en": "After the coordination note above, check agreed roles, available information and ownership of remaining questions. Record the condition behind disagreement rather than assuming disobedience. Coordination can cover one small part and be handed over. A self-rating provides no authority to decide for others."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：用具体问题开始",
+        "en": "Optional sharing: begin with a concrete question"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构朋友安排散步，你愿意收集时间、提出选项还是接下别的小部分？先问是否需要，不以均分指定负责人。",
+          "en": "For imaginary friends arranging a walk, would you collect times, offer options or take another small part? Ask what is wanted rather than assigning a coordinator by mean."
+        },
+        {
+          "zh": "可以只分享这份公开通用读法，也可以不分享。链接不带本次分数或答案；不需要提供私人记录、收集他人评分或让对方验证你的性格。对方也可以不回答。",
+          "en": "You can share this public general guide or choose not to. Its link carries no attempt scores or answers. No private records, ratings from others or validation of your character are required. The other person may decline too."
+        }
+      ]
+    }
+  ],
+  "love-of-learning": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "从一件小事回看这项自述",
+        "en": "Review this self-report through one small event"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面想了解的小内容，回看问题是什么、形式是否可访问、今天是否仍想继续。获得一点理解、出现新问题或决定休息都能留下具体记录。不以非虚构阅读量、报课数量或随时学习来证明兴趣，更不把不喜欢的必要学习算作个人缺陷。",
+          "en": "After the small learning question above, review the question, access to the medium and whether you want to continue today. Some understanding, a new question or rest can each be recorded. Nonfiction volume, courses and constant learning need not prove interest, and disliking necessary study is no personal defect."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：用具体问题开始",
+        "en": "Optional sharing: begin with a concrete question"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构一个家用计时器功能，你想了解哪一步，今天想停在哪里？不用分享成绩、买课或证明自己是终身学习者。",
+          "en": "For an imaginary timer function, what would you want to understand and where would you stop today? No grades, course purchase or proof of lifelong learning is needed."
+        },
+        {
+          "zh": "可以只分享这份公开通用读法，也可以不分享。链接不带本次分数或答案；不需要提供私人记录、收集他人评分或让对方验证你的性格。对方也可以不回答。",
+          "en": "You can share this public general guide or choose not to. Its link carries no attempt scores or answers. No private records, ratings from others or validation of your character are required. The other person may decline too."
+        }
+      ]
+    }
+  ],
+  "humility": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "从一件小事回看这项自述",
+        "en": "Review this self-report through one small event"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的完成事项，把自己的贡献、他人的贡献与尚不知道的部分各留一行。可以准确介绍自己的成果，也可以承认限制；公开与否由你决定。少说、自贬或让出署名都不必成为练习目标，重点是描述有没有依据。",
+          "en": "After the completed-task note above, keep one line each for your contribution, others’ contributions and what you do not know. Accurate self-description and limits can coexist; publication is your choice. Silence, self-deprecation and surrendering credit need not be goals. Examine the basis of the account."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：用具体问题开始",
+        "en": "Optional sharing: begin with a concrete question"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构小组完成一次安排，你会怎样讲清自己的部分，又准确提到别人？不用自谦比赛，也不要求淡化实际劳动。",
+          "en": "After an imaginary group arrangement, how would you explain your part and accurately acknowledge others? No contest in modesty or minimising actual work is needed."
+        },
+        {
+          "zh": "可以只分享这份公开通用读法，也可以不分享。链接不带本次分数或答案；不需要提供私人记录、收集他人评分或让对方验证你的性格。对方也可以不回答。",
+          "en": "You can share this public general guide or choose not to. Its link carries no attempt scores or answers. No private records, ratings from others or validation of your character are required. The other person may decline too."
+        }
+      ]
+    }
+  ],
+  "creativity": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "从一件小事回看这项自述",
+        "en": "Review this self-report through one small event"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的可撤回小安排，回看原问题、提出的替代与实际是否适用。想到办法与办法有效可以分开记录；保留原做法也能是考虑后的选择。无需证明前所未有，也不改他人的物品或重要流程来展示原创身份。",
+          "en": "After the reversible arrangement above, review the original problem, proposed alternative and actual fit. Having an idea and finding it useful can be recorded separately. Keeping the existing method can be considered too. No unprecedented invention or changes to others’ belongings or important procedures are needed."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：用具体问题开始",
+        "en": "Optional sharing: begin with a concrete question"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构整理桌面小物，你会试按用途还是按颜色放，为什么？可以保留原方法，不比较谁有天赋或要求实现新点子。",
+          "en": "For imaginary desk items, would you try sorting by use or colour, and why? Keeping the current method is available without ranking talent or requiring an idea to be implemented."
+        },
+        {
+          "zh": "可以只分享这份公开通用读法，也可以不分享。链接不带本次分数或答案；不需要提供私人记录、收集他人评分或让对方验证你的性格。对方也可以不回答。",
+          "en": "You can share this public general guide or choose not to. Its link carries no attempt scores or answers. No private records, ratings from others or validation of your character are required. The other person may decline too."
+        }
+      ]
+    }
+  ],
+  "perspective": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "从一件小事回看这项自述",
+        "en": "Review this self-report through one small event"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的已结束小选择，分开看当时最在意什么、有哪些信息缺口、建议是否经过对方邀请。可以指出一个角度而不替人定优先级。复盘不要求解释整个人生；被问得多、年龄更长或说得深奥都不能代替具体依据。",
+          "en": "After the concluded small choice above, separate what mattered then, information gaps and whether advice was invited. You can offer one perspective without setting another person’s priorities. No whole-life explanation is needed; frequency of consultation, age or elaborate wording cannot replace concrete grounds."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：用具体问题开始",
+        "en": "Optional sharing: begin with a concrete question"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构周末安排同时想休息和见朋友，你会先问当事人在意什么？可以只听，不要求给出人生建议或比成熟度。",
+          "en": "For an imaginary weekend balancing rest and company, what would you ask about the person’s priorities? Listening is available without life advice or maturity rankings."
+        },
+        {
+          "zh": "可以只分享这份公开通用读法，也可以不分享。链接不带本次分数或答案；不需要提供私人记录、收集他人评分或让对方验证你的性格。对方也可以不回答。",
+          "en": "You can share this public general guide or choose not to. Its link carries no attempt scores or answers. No private records, ratings from others or validation of your character are required. The other person may decline too."
+        }
+      ]
+    }
+  ],
+  "prudence": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "从一件小事回看这项自述",
+        "en": "Review this self-report through one small event"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的低风险可撤回事项，回看一条后果、一处未知和恢复原状的方法是否都具体。核对后可以行动，也可以因条件未齐而暂停；不以等待越久越谨慎。一次结果不认证安全，普通观察也不扩展为专业风险判断。",
+          "en": "After the low-risk reversible matter above, check whether a consequence, unknown and way back were specific. You may act after checking or pause for missing conditions. Longer waiting does not establish greater prudence. One outcome certifies no safety, and the ordinary observation does not become a specialist risk assessment."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：用具体问题开始",
+        "en": "Optional sharing: begin with a concrete question"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构移动一个轻收纳盒，你会先确认是否挡住共用物品、能否放回？只谈普通安排，不用实际冒险证明谨慎。",
+          "en": "Before an imaginary light-box move, would you check shared access and whether it can be put back? Discuss an ordinary arrangement without taking a risk to prove caution."
+        },
+        {
+          "zh": "可以只分享这份公开通用读法，也可以不分享。链接不带本次分数或答案；不需要提供私人记录、收集他人评分或让对方验证你的性格。对方也可以不回答。",
+          "en": "You can share this public general guide or choose not to. Its link carries no attempt scores or answers. No private records, ratings from others or validation of your character are required. The other person may decline too."
+        }
+      ]
+    }
+  ],
+  "self-regulation": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "从一件小事回看这项自述",
+        "en": "Review this self-report through one small event"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的普通中断记录，分开看自己想做什么、需要什么以及实际选择。休息可以是有意选择，继续也可留出停止点。只观察无关饮食、健康和重大财务的小事，不制造诱惑、惩罚或限制基本需要来换取自律形象。",
+          "en": "After the ordinary-interruption note above, separate your want, need and actual choice. Rest may be deliberate, and continuing can retain a stopping point. Keep to a matter unrelated to eating, health or consequential finances, without manufactured temptation, punishment or restrictions on basic needs to appear disciplined."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：用具体问题开始",
+        "en": "Optional sharing: begin with a concrete question"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构整理中想打开无关网页，你想先休息、记下链接还是结束整理？不用监督、惩罚或互评意志力。",
+          "en": "If imaginary sorting prompts an unrelated webpage, would you rest, note the link or stop sorting? No monitoring, punishment or willpower rating is needed."
+        },
+        {
+          "zh": "可以只分享这份公开通用读法，也可以不分享。链接不带本次分数或答案；不需要提供私人记录、收集他人评分或让对方验证你的性格。对方也可以不回答。",
+          "en": "You can share this public general guide or choose not to. Its link carries no attempt scores or answers. No private records, ratings from others or validation of your character are required. The other person may decline too."
+        }
+      ]
+    }
+  ],
+  "social-intelligence": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "从一件小事回看这项自述",
+        "en": "Review this self-report through one small event"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的交流三栏，标出可观察信息、自己的推测与后来明确说出的内容。若推测没被确认，保持未定；可以只问一个实际安排。自信与准确是两回事，不需要搜集隐私、反复试探或替别人命名感受来完成复盘。",
+          "en": "After the exchange note above, mark observations, your inference and what was later explicitly said. Unconfirmed inferences can remain open; one practical clarification may suffice. Confidence and accuracy differ. No private information gathering, repeated tests or naming another person’s feelings is needed."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：用具体问题开始",
+        "en": "Optional sharing: begin with a concrete question"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构邀请只收到简短回复，你会怎样问清时间是否合适，同时允许不解释？不猜真实聊天对象，也不认证谁情商高。",
+          "en": "For an imaginary brief reply to an invitation, how would you clarify timing while allowing no explanation? No real recipient needs guessing or an emotional-intelligence rating."
+        },
+        {
+          "zh": "可以只分享这份公开通用读法，也可以不分享。链接不带本次分数或答案；不需要提供私人记录、收集他人评分或让对方验证你的性格。对方也可以不回答。",
+          "en": "You can share this public general guide or choose not to. Its link carries no attempt scores or answers. No private records, ratings from others or validation of your character are required. The other person may decline too."
+        }
+      ]
+    }
+  ],
+  "spirituality": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "从一件小事回看这项自述",
+        "en": "Review this self-report through one small event"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的重要小事记录，把事情为何重要与是否用宗教语言理解分开。可以只写照料植物、陪伴或一个承诺，也可以不写任何信念。保留原题键向不意味着需要提高此项；不信仰、犹疑和保护隐私均不要求通过练习改变。",
+          "en": "After the important-matter note above, separate why it matters from any religious interpretation. You may name plant care, company or a commitment without writing beliefs. Retaining the source key does not create a need to raise this mean. Nonbelief, uncertainty and privacy require no exercise to change them."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：用具体问题开始",
+        "en": "Optional sharing: begin with a concrete question"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构一件值得保留的小事，你愿意说具体原因，还是保持私人？不需要透露宗教、不信仰或人生意义经历，也不相互劝信。",
+          "en": "For an imaginary small matter worth keeping, would you state a concrete reason or keep it private? No religion, nonbelief or experience of meaning needs disclosure or persuasion."
+        },
+        {
+          "zh": "可以只分享这份公开通用读法，也可以不分享。链接不带本次分数或答案；不需要提供私人记录、收集他人评分或让对方验证你的性格。对方也可以不回答。",
+          "en": "You can share this public general guide or choose not to. Its link carries no attempt scores or answers. No private records, ratings from others or validation of your character are required. The other person may decline too."
+        }
+      ]
+    }
+  ],
+  "bravery": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "从一件小事回看这项自述",
+        "en": "Review this self-report through one small event"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的安全旧分歧，回看想表达的内容、可用方式与保留的退出选择。公开说、私下写和不继续都需要具体处境；声音大小不替代观点依据。不制造反对、不接触不安全的人，也不以承担更多代价证明勇敢。",
+          "en": "After the safe concluded disagreement above, review what you wanted to express, available routes and exit choices. Public speech, private writing and ending need context; volume cannot replace grounds for a view. Manufacture no opposition or unsafe contact, and take no extra cost as proof of bravery."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：用具体问题开始",
+        "en": "Optional sharing: begin with a concrete question"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构朋友活动时间不合适，你想怎样表达不参加，也允许别人保留安排？无需争赢、公开表态或比谁敢说。",
+          "en": "For an imaginary unsuitable activity time, how would you decline while allowing others to keep their plan? No winning, public declaration or courage contest is required."
+        },
+        {
+          "zh": "可以只分享这份公开通用读法，也可以不分享。链接不带本次分数或答案；不需要提供私人记录、收集他人评分或让对方验证你的性格。对方也可以不回答。",
+          "en": "You can share this public general guide or choose not to. Its link carries no attempt scores or answers. No private records, ratings from others or validation of your character are required. The other person may decline too."
+        }
+      ]
+    }
+  ],
+  "zest": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "从一件小事回看这项自述",
+        "en": "Review this self-report through one small event"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的普通时刻记录，把兴趣、实际精力和需要的节奏分别写下。可以很想参与却只做一点，也可以没有特别热情而完成必要部分。复盘不增加活动、不缩短休息；低项无法单独解释疲劳，高项也不能取消支持需要。",
+          "en": "After the ordinary-moment note above, separate interest, available energy and pace. You may want involvement but do a little, or finish something necessary without enthusiasm. Add no activities or reduce rest for the review. A lower mean cannot explain fatigue, and a higher one removes no support needs."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：用具体问题开始",
+        "en": "Optional sharing: begin with a concrete question"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构一点空闲时间，你想看新叶、做必要照料还是休息？不用展示日程或比谁积极，也不把安静解释成没活力。",
+          "en": "With imaginary free time, would you look at a new leaf, do necessary care or rest? No schedule or positivity contest is needed, and quiet need not mean no vitality."
+        },
+        {
+          "zh": "可以只分享这份公开通用读法，也可以不分享。链接不带本次分数或答案；不需要提供私人记录、收集他人评分或让对方验证你的性格。对方也可以不回答。",
+          "en": "You can share this public general guide or choose not to. Its link carries no attempt scores or answers. No private records, ratings from others or validation of your character are required. The other person may decline too."
+        }
+      ]
+    }
+  ]
+}

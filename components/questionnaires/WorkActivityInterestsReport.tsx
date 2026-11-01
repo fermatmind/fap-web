@@ -4,7 +4,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 export function WorkActivityContext({ locale }: { locale: Locale }) {
   const zh = locale === "zh";
@@ -44,7 +44,7 @@ export function WorkActivityInterestsReport({ quiz, result, locale }: {
         <p className="mb-4 leading-7">{facet.mean === null
           ? (zh ? "以下是对所有人相同的完整指南，不是本次个人兴趣结论。" : "The complete guide below is identical for everyone, not a personal interest conclusion from this attempt.")
           : (zh ? "较高只表示更喜欢本组已评任务，不表示更擅长或更适任；以下指南对所有回答相同。" : "Higher means more liking for this group’s rated tasks, not greater skill or suitability. The guide below is the same for every response pattern.")}</p>
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`work-activity-report-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`work-activity-report-${profile.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本组完整公开指南" : "Read this group’s full public guide"}</Link>
       </section>;
     })}

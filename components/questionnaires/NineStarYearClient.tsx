@@ -3,19 +3,19 @@ import { useEntertainmentMetrics, useEntertainmentResultView } from "@/component
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore, type FormEvent } from "react";
 import type { Locale } from "@/lib/i18n/locales";
-import { calculateNineStarYearFromInput, isNineStarYearConfigurationValid, NINE_STAR_SIDES, type NineStarReference, type NineStarYearQuestionnaire } from "@/lib/questionnaires/nineStarYear";
+import { calculateNineStarYearFromInput, isNineStarYearConfigurationValid, NINE_STAR_SIDES, type NineStarYearProfile, type NineStarReference, type NineStarYearQuestionnaire } from "@/lib/questionnaires/nineStarYear";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import { NineStarYearReport } from "./NineStarYearReport";
 
 const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
 const subscribeReady = () => () => {};
 
-export function NineStarYearClient({ quiz, locale }: { quiz: unknown; locale: Locale }) {
+export function NineStarYearClient({ quiz, locale, readingProfiles }: { quiz: unknown; locale: Locale; readingProfiles?: readonly NineStarYearProfile[] }) {
   if (!isNineStarYearConfigurationValid(quiz)) return <p role="status">{locale === "zh" ? "节年参考暂不可用。" : "The year reference is unavailable."}</p>;
-  return <ValidNineStarYearClient key={locale} quiz={quiz} locale={locale} />;
+  return <ValidNineStarYearClient key={locale} quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
 }
 
-function ValidNineStarYearClient({ quiz, locale }: { quiz: NineStarYearQuestionnaire; locale: Locale }) {
+function ValidNineStarYearClient({ quiz, locale, readingProfiles }: { quiz: NineStarYearQuestionnaire; locale: Locale; readingProfiles?: readonly NineStarYearProfile[] }) {
   const { start: recordStart, complete: recordComplete, view: recordView, consent: activityConsent, share: recordShare } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false), zh = locale === "zh";
   const [year, setYear] = useState(""), [side, setSide] = useState("");
@@ -86,7 +86,7 @@ function ValidNineStarYearClient({ quiz, locale }: { quiz: NineStarYearQuestionn
       <h2 id="nine-star-result-title" ref={resultHeading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading[locale]}</h2>
       <div className="my-4"><button type="button" className={button} onClick={copy}>{zh ? "复制公开指南链接" : "Copy public guide links"}</button></div>
       {manual && <label className="my-4 block">{zh ? "手动复制文字" : "Text for manual copying"}<textarea readOnly value={manual} className="mt-2 min-h-28 w-full rounded-lg border border-slate-300 p-3" /></label>}
-      <NineStarYearReport quiz={quiz} result={finished} locale={locale} />
+      <NineStarYearReport quiz={quiz} result={finished} locale={locale} readingProfiles={readingProfiles} />
     </section>}
     <noscript><p>{zh ? "计算需要浏览器启用JavaScript；下方方法和九篇完整文化指南仍可阅读。" : "Calculation requires JavaScript; the methods and all nine complete cultural guides below remain readable."}</p></noscript>
   </section>;

@@ -1,0 +1,194 @@
+{
+  "zeus": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘共同约定与自愿承担",
+        "en": "Review shared agreements and accepted work"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的三栏记录，核对哪些决定已经得到同意、自己接受了哪部分、哪项仍需讨论。若收尾无人承担，可以先把问题说清或缩小范围，不默认补到自己或别人身上。是否继续协调仍是一个选择；清晰交接比维持“总负责人”形象更具体。",
+          "en": "After the three-column note above, check what was agreed, which part you accepted and what still needs discussion. If closing has no volunteer, name the gap or reduce scope rather than silently assigning it to yourself or someone else. Continuing to coordinate remains a choice. A clear handover is more concrete than maintaining a permanent-organiser identity."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个职责确认的问题",
+        "en": "Share a question about agreed responsibilities"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“虚构一次小型旧书交换，哪些安排已同意，谁愿意负责哪部分，还有什么没定？”只讨论普通情境，不给朋友派神话角色，也不用公开计数证明自己适合组织。",
+          "en": "Ask: “For an imaginary small book exchange, what is agreed, who wants which part and what remains undecided?” Discuss an ordinary situation without assigning friends mythological roles or publishing counts as proof that you should organise."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不带本次答案或计数，不需要收集他人评分或让对方认证你的性格。对方可以不回答。",
+          "en": "You may share this public general guide or keep it private. The link carries no attempt answers or counts. No ratings from others or validation of your character are required, and the other person may decline."
+        }
+      ]
+    }
+  ],
+  "athena": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘比较依据与停止点",
+        "en": "Review the comparison and its stopping point"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的两个方案，分别标出已知条件、仍未知的一点，以及何时已有足够信息作这次选择。实际结果可以帮助修正安排，不必反过来证明自己智慧或愚笨。你可以保留一个临时办法，也可以暂停比较；具体需求与可用时间仍要另行确认。",
+          "en": "After the two-option note above, mark the known conditions, one unknown and when you have enough information for this choice. The outcome can inform an adjustment without grading your wisdom. You can keep a temporary method or stop comparing. Actual needs and available time still need checking."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个比较方法的问题",
+        "en": "Share a question about comparing methods"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“虚构几张资料卡，按日期还是按用途更方便找到？还缺什么信息？”可以提出不同依据，也可以先不决定；不用把答案变成智力、理性程度或研究能力比赛。",
+          "en": "Ask: “For imaginary information cards, would date or use make retrieval easier? What information is missing?” Different reasons or no decision yet are available without a contest in intelligence, rationality or research ability."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不带本次答案或计数，不需要收集他人评分或让对方认证你的性格。对方可以不回答。",
+          "en": "You may share this public general guide or keep it private. The link carries no attempt answers or counts. No ratings from others or validation of your character are required, and the other person may decline."
+        }
+      ]
+    }
+  ],
+  "apollo": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘表达、保留与是否分享",
+        "en": "Review expression, keeping and sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的三行字或小片段，选一处最接近自己体验的地方，再决定保留、修改或删除。创作与公开是两件事；不需要录下别人、借用受保护作品或等到有人称赞才结束。也可以发现今天只想欣赏，把这次选择记录下来即可。",
+          "en": "After the three lines or small piece above, choose a part that comes close to your experience, then keep, revise or delete it. Making and publishing are separate decisions. You need neither record another person, borrow protected work nor wait for praise before finishing. Wanting only to appreciate something today can be recorded too."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个表达选择的问题",
+        "en": "Share a question about expression"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“虚构一个普通傍晚，你想用三行字、一个自己做的声音，还是只留在记忆里？”不要求交作品、互评天赋或公开私人感受，形式也不必与本次计数一致。",
+          "en": "Ask: “For an imaginary ordinary evening, would you choose three lines, a sound you make yourself or simply a memory?” No submitted work, talent ratings or private feelings are required, and the format need not match a count from this attempt."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不带本次答案或计数，不需要收集他人评分或让对方认证你的性格。对方可以不回答。",
+          "en": "You may share this public general guide or keep it private. The link carries no attempt answers or counts. No ratings from others or validation of your character are required, and the other person may decline."
+        }
+      ]
+    }
+  ],
+  "aphrodite": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘自己的喜欢与共用需要",
+        "en": "Review your preference and shared access needs"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的空间小调整，把自己喜欢的细节与共用者明确提出的需要分开。喜欢、不喜欢或没有明显变化都能记录；若对方没反馈，就保留未知。可以改回原样或继续商量，不用从一个布置推断魅力、受欢迎程度或关系是否改善。",
+          "en": "After the small-space adjustment above, separate the detail you enjoy from a co-user’s stated needs. Liking, disliking or noticing no change can each be recorded. No feedback can remain unknown. Restore the arrangement or discuss it further without treating one detail as evidence of charm, popularity or an improved relationship."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个细节与体验的问题",
+        "en": "Share a question about details and experience"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“虚构一张读书交流邀请卡，你想保留哪处配色、留白或措辞，又有哪些使用需要？”只谈卡片，不上传真实房间或人物照片，也不要求对方觉得你的审美更好。",
+          "en": "Ask: “For an imaginary reading-discussion card, which colour, space or wording would you keep, and what access needs matter?” Discuss the card without real-room or personal photos, or a requirement that someone prefer your taste."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不带本次答案或计数，不需要收集他人评分或让对方认证你的性格。对方可以不回答。",
+          "en": "You may share this public general guide or keep it private. The link carries no attempt answers or counts. No ratings from others or validation of your character are required, and the other person may decline."
+        }
+      ]
+    }
+  ],
+  "ares": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘尝试范围与是否继续",
+        "en": "Review the attempted part and whether to continue"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的小练习，记录自己实际试了哪一步、需要哪些条件，以及现在是否还愿意继续。成功、没做成或停下都可以具体描述，不用增加难度或延长时间来配合神话标签。这个记录讨论一次普通尝试，不评价勇气、体力或长期毅力。",
+          "en": "After the small practice above, note the step actually tried, its conditions and whether you want to continue now. Completion, an unfinished attempt and stopping can all be described concretely. No harder task or longer session is needed to fit the label. This reviews one ordinary attempt rather than courage, fitness or enduring persistence."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个尝试与暂停的问题",
+        "en": "Share a question about trying and pausing"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“虚构只练一次纸折痕，你想先看说明、试一轮还是今天不做？在哪里停下合适？”不发起竞赛、公开计数或要求真实挑战；选择休息同样可以成为讨论答案。",
+          "en": "Ask: “For one imaginary paper crease, would you read instructions, try once or skip it today? Where would you stop?” No contest, published count or real challenge is needed. Rest can be an answer too."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不带本次答案或计数，不需要收集他人评分或让对方认证你的性格。对方可以不回答。",
+          "en": "You may share this public general guide or keep it private. The link carries no attempt answers or counts. No ratings from others or validation of your character are required, and the other person may decline."
+        }
+      ]
+    }
+  ],
+  "artemis": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘自主节奏与可用支持",
+        "en": "Review your pace and available support"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的自选关注点，记录自己想看什么、实际可访问的条件和舒服的结束方式。自主安排可以包括请求帮助或转为共同活动，不需要独自完成所有事情。若今天不想观察自然，也可以换一个关注点；一次选择不规定长期生活方式。",
+          "en": "After the self-chosen focus above, note what you wanted to notice, available access and a comfortable ending. A self-directed arrangement can include help or a shared activity; doing everything alone is unnecessary. If nature is not your focus today, choose another subject. One choice prescribes no lasting way of life."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个自选时间的问题",
+        "en": "Share a question about self-directed time"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“虚构一小段空闲，你想看窗边光影、自己选别的事，还是与人一起？需要哪些支持？”可以保留不同节奏，不评价谁更独立，也不用公布住处、行程或独处计数。",
+          "en": "Ask: “With an imaginary short break, would you notice window light, choose something else or join someone? What support would help?” Different paces need no independence ranking or disclosure of locations, plans or counts about solitude."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不带本次答案或计数，不需要收集他人评分或让对方认证你的性格。对方可以不回答。",
+          "en": "You may share this public general guide or keep it private. The link carries no attempt answers or counts. No ratings from others or validation of your character are required, and the other person may decline."
+        }
+      ]
+    }
+  ]
+}

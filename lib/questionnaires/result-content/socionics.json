@@ -1,0 +1,130 @@
+{
+  "alpha": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把“想先讨论什么”写成两句话",
+        "en": "Put your information priorities into two sentences"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的材料分类情境，先写一个想探索的替代方案，再写一条判断分类是否自洽的规则。若你更在意使用体验或讨论气氛，也可以把那一对信息作为起点。接着问：任务已经规定了什么，别人最想先弄清什么？一次有用的复盘，是把讨论顺序说明白，而不是让所有人同意你的分类。另一场讨论可以有别的优先项，并列结果也都保留。",
+          "en": "Revisit the materials example by naming one alternative category and one rule for checking its consistency. If experience or shared mood mattered more, begin with that pair instead. Then ask what the task already required and what others wanted clarified first. A useful review makes the discussion sequence explicit without requiring agreement on your categories. Another discussion can start elsewhere, and tied readings remain available."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起比较讨论顺序",
+        "en": "Compare the order of discussion"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设几个人整理兴趣资料，你会先比较两种分类、核对规则，还是先聊使用感受？别人想先了解什么？”用具体信息说明选择，再听另一种顺序的理由；同一人也可能随情境改变顺序。",
+          "en": "Ask: “If a few people organised interest materials, would you begin with alternative categories, consistent rules or the experience of using them? What would others want to understand first?” Explain the information behind your choice and hear the reasons for another sequence. The same person may choose a different order in another setting."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含本次答案或计数。对方可以跳过问题；四个quadra不决定谁与谁合得来，也不需要据此推定双方的16型或MBTI。",
+          "en": "You can share this public guide; its link contains no answers or counts from this attempt. The other person may skip the question. Quadras determine no compatibility and require no inference of either person’s sixteen-type or MBTI identity."
+        }
+      ]
+    }
+  ],
+  "beta": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把整体方向与眼前决定分别说清",
+        "en": "Distinguish overall direction from the next decision"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的活动或展示情境，写一句希望形成的整体方向，再标出当下真正需要决定的一件事。如果你先想到共享感受或结构，也把具体内容写出来。然后区分已经确定的要求和仍可协商的部分，邀请别人补充遗漏的信息。这样可以讨论先后顺序，而不把“我想先明确”变成“由我决定”。任务未必需要立刻推进，另一种信息也可能更紧要。",
+          "en": "For the activity or display example, state the intended overall direction and identify one decision actually needed now. If shared expression or structure came first, name that information too. Separate settled requirements from negotiable details and invite missing information. This lets you discuss sequence without turning “I want clarity first” into authority to decide. The task may need no immediate push, and another information priority may be more pressing."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起比较讨论顺序",
+        "en": "Compare the order of discussion"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设一起布置一个小展示区，整体想表达什么，哪些边界需要先确认，哪些部分还可以听建议？”用具体信息说明选择，再听另一种顺序的理由；同一人也可能随情境改变顺序。",
+          "en": "Ask: “If you arranged a small shared display, what would it express overall, which boundaries need clarifying first and which details could remain open to suggestions?” Explain the information behind your choice and hear the reasons for another sequence. The same person may choose a different order in another setting."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含本次答案或计数。对方可以跳过问题；四个quadra不决定谁与谁合得来，也不需要据此推定双方的16型或MBTI。",
+          "en": "You can share this public guide; its link contains no answers or counts from this attempt. The other person may skip the question. Quadras determine no compatibility and require no inference of either person’s sixteen-type or MBTI identity."
+        }
+      ]
+    }
+  ],
+  "gamma": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "区分实际检查与对关系的猜测",
+        "en": "Separate practical checks from assumptions about relationships"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的普通提案，列出一个想了解的后续走向、一项检查实用性的办法，以及需要当事人亲自确认的参与边界。只写与这次情境相关的部分。能核对的结果、暂时的推测和个人意愿各放一栏；不要用效率或关系远近替别人回答。若愿意讨论，可挑一个尚未清楚的问题。问题得到更多信息就有价值，不需要证明自己更现实或预测得更准。",
+          "en": "Revisit the proposal by identifying a possible trajectory, a way to check practical usefulness and a participation boundary the person concerned would need to confirm. Include only what fits this situation. Keep checkable outcomes, tentative expectations and personal wishes in separate columns, without answering for others through efficiency or assumed closeness. One genuinely unanswered question can start a discussion; its value lies in better information rather than proving realism or predictive skill."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起比较讨论顺序",
+        "en": "Compare the order of discussion"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设两种整理办法都可行，你想怎样检查它们是否好用，又有哪些参与条件要问本人？”用具体信息说明选择，再听另一种顺序的理由；同一人也可能随情境改变顺序。",
+          "en": "Ask: “If two ways of organising materials were feasible, how would you check their usefulness, and which participation conditions would you ask each person to confirm?” Explain the information behind your choice and hear the reasons for another sequence. The same person may choose a different order in another setting."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含本次答案或计数。对方可以跳过问题；四个quadra不决定谁与谁合得来，也不需要据此推定双方的16型或MBTI。",
+          "en": "You can share this public guide; its link contains no answers or counts from this attempt. The other person may skip the question. Quadras determine no compatibility and require no inference of either person’s sixteen-type or MBTI identity."
+        }
+      ]
+    }
+  ],
+  "delta": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把改进细节与个人意愿放在同一张清单",
+        "en": "Bring practical refinements and personal wishes into view"
+      },
+      "paragraphs": [
+        {
+          "zh": "以先前的清单或兴趣安排为例，记下一个可尝试的变化、一个影响使用感受的细节，或一个需要确认的个人意愿。选真实相关的即可，不用把三类都凑齐。再问：这个改动是否可行、谁愿意参与、是否碰到已定要求？若决定尝试，只调整一个小处并听取反馈。保持原样也可以；更舒适、更实用和每个人的偏好可能需要协商。",
+          "en": "For the checklist or interest plan above, note a possible variation, a detail affecting the experience of use or a personal wish needing confirmation. Include what matters rather than filling every category. Ask whether the change is feasible, who wants to participate and whether fixed requirements apply. If you choose to try it, adjust one small detail and hear the feedback. Keeping the original is also possible; comfort, practical use and individual preferences may need negotiation."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起比较讨论顺序",
+        "en": "Compare the order of discussion"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设一份清单能更顺手，你想改哪一处，怎样试用，又该先问谁是否愿意？”用具体信息说明选择，再听另一种顺序的理由；同一人也可能随情境改变顺序。",
+          "en": "Ask: “If a checklist could be easier to use, which detail would you change, how would you try it and whose willingness would you check first?” Explain the information behind your choice and hear the reasons for another sequence. The same person may choose a different order in another setting."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含本次答案或计数。对方可以跳过问题；四个quadra不决定谁与谁合得来，也不需要据此推定双方的16型或MBTI。",
+          "en": "You can share this public guide; its link contains no answers or counts from this attempt. The other person may skip the question. Quadras determine no compatibility and require no inference of either person’s sixteen-type or MBTI identity."
+        }
+      ]
+    }
+  ]
+}

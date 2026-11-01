@@ -85,8 +85,8 @@ describe("Original feedback and self-worth descriptions without scores or clinic
   it("makes all twenty-four paragraphs public before answers and on their own guide pages", () => {
     for (const locale of ["en", "zh"] as const) {
       const html = renderToStaticMarkup(<FeedbackWorthPage quiz={quiz} locale={locale} />);
-      expect((html.match(/data-feedback-worth-full-guide=/g) ?? [])).toHaveLength(3); expect(html).not.toContain("data-feedback-worth-result");
-      const dom = document.createElement("div"); dom.innerHTML = html;
+      expect((html.match(/data-feedback-worth-full-guide=/g) ?? [])).toHaveLength(3);
+      const dom = document.createElement("div"); dom.innerHTML = html; expect(dom.querySelector("[data-feedback-worth-result]")).toBeNull();
       expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(true);
       for (const p of quiz.profiles) {
         const guide = renderToStaticMarkup(<FeedbackWorthGuidePage quiz={quiz} profile={p} locale={locale} />);

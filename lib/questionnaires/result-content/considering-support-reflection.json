@@ -1,0 +1,166 @@
+{
+  "concerns-carried-reading": [
+    {
+      "id": "section-3",
+      "title": {
+        "en": "A concrete sentence can be enough",
+        "zh": "一句具体描述可能已经够用"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：虚构的遥四条依次选符合、不符合、无法判断、部分符合；舟把前两条对调，六类计数仍相同。遥反复想到一件事，舟想有人协助理解；计数相同不代表同一种困扰。四周是回想范围，不是必须忍耐四周才能询问支持，也不从符合一条或四条推断需要何种照护。",
+          "en": "An additional original fictional scene: Fictional Yao selects describes, does not describe, cannot judge and partly describes. Zhou swaps the first two, leaving identical category counts. One describes attention returning to a concern; the other wants help understanding it. Identical counts do not establish identical concerns. Four weeks is the recall window, not a waiting requirement or a basis for deciding care from one or four fitting statements."
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "title": {
+        "en": "Ask for a bounded kind of support",
+        "zh": "可以提出范围有限的支持请求"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样把同样的类别数量重新读回具体陈述，而不猜病名？”只使用上述虚构人物与信息，区分已知、推断与未知；可以不同意、保留回答或结束，不推断他人是否需要治疗，不要求交换个人记录或解释拒绝。",
+          "en": "An optional discussion prompt asks: “How can equal category counts be traced back to particular statements without guessing a diagnosis?” Use only the fictional people and information above to distinguish what is known, inferred and unknown. Disagreeing, withholding or stopping needs no explanation, personal record or judgment about someone else’s need for treatment."
+        }
+      ]
+    },
+    {
+      "id": "section-7",
+      "title": {
+        "en": "Keep a reflection separate from a decision",
+        "zh": "把回顾与决定分开"
+      },
+      "paragraphs": [
+        {
+          "zh": "十八条均为费马原创，不施测已发表临床量表或改变阶段算法。前八条回想过去四周，后十条关注当前条件和疑问；选择描述的符合关系，不填天数或频率。六类原标签分别保留：不符合、部分符合、符合、无法判断、没有相关经历、不愿回答；后三类不补零、不混为中间值。18条各选一个给定类别才整理记录，四主题依次4、4、5、5条，各自六类计数合计自身条数，并保留18条所选标签。资源、障碍、隐私及信息愿望可同时符合，没有加总、均值、排名、反向扣分、准备等级或治疗建议。全未知或保留仍可完成，不成为无需帮助的结论；中途退出或不答题也能读相同四篇七节全文。尚无常模、阈值、验证或中英文测量等值；之后类别不同不证明改善、恶化或干预有效。NIMH资料只提供专业谈话背景，不验证原创题目、类别或编辑新增虚构情境。可选地只讨论虚构例子，不需交换本人记录、说服他人求助或披露经历。回答及整理记录仅留本页内存，无草稿、提交、问卷分析或个人结果地址；完成时清除作答状态，退出、重做、刷新、离页清除记录。复制按钮只含公开标题和入口，不含类别或计数；清除不会抹掉截图、浏览器记录或旁人已看到的信息。支持信息始终可见，是否询问合格专业人士不由计数许可；有即时危险或无法保障安全时寻求当地紧急援助，不等待完成此页。",
+          "en": "All 18 statements are FermatMind originals, not a published clinical scale or stage-of-change algorithm. The first eight recall four weeks; the remaining ten concern current conditions and questions. Responses describe fit, not days or frequency. The six original categories remain separate: does not describe, partly describes, describes, cannot judge, no relevant experience and prefer not to answer. The last three become neither zero nor midpoint values. Every statement needs an offered category to organize the record. Four themes contain four, four, five and five statements, with six counts summing to each theme’s size and all 18 selected labels retained. Resources, barriers, privacy and information wishes can coexist without an overall score, mean, ranking, reverse deduction, readiness tier or treatment recommendation. An entirely unknown or withheld record can finish without implying that help is unnecessary. All four seven-section guides remain identical and public before answers or after leaving midway. No norms, thresholds, validation or English–Chinese measurement equivalence are established; changed categories prove no improvement, deterioration or intervention effect. NIMH supplies background about professional conversations, not validation of these items, categories or new fictional scenes. Optional discussion can use fiction without personal records, disclosure or persuading someone to seek help. Answers and records stay in page memory without drafts, submission, questionnaire analytics or personal-result addresses. Completing clears answer state; exit, retake, reload and leaving clear the record. Copying includes only the public title and entry, without categories or counts. Clearing erases no screenshots, browser records or information already seen. Support information remains visible, and no count grants permission to ask a qualified professional. Immediate danger or inability to stay safe calls for local emergency assistance rather than waiting to complete this page."
+        }
+      ]
+    }
+  ],
+  "everyday-impact-reading": [
+    {
+      "id": "section-3",
+      "title": {
+        "en": "Describe one interruption in its circumstances",
+        "zh": "把一次中断放回当时背景"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：虚构的青四条依次选符合、部分符合、无法判断、不愿回答，六类中四类各为1、另两类为0，而非一个影响分数。澄也推迟了一次通话，却因日程延迟而非此处描述的困扰。外在活动相似不能代填同一类别；青可只说明哪一部分变难，保留原因不确定及不愿披露的内容。",
+          "en": "An additional original fictional scene: Fictional Qing selects describes, partly describes, cannot judge and prefer not to answer across four statements. Four separate category counts of one are not an impact score. Cheng also postpones a call, because of a delayed schedule rather than the concern described here. Similar activities justify no proxy answer. Qing can name what became harder while keeping causes uncertain and private details withheld."
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "title": {
+        "en": "Keep practical help and personal discussion distinct",
+        "zh": "实际协助与私人讨论可以分开"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样区分注意到的活动变化、原因不确定及本人希望获得的协助？”只使用上述虚构人物与信息，区分已知、推断与未知；可以不同意、保留回答或结束，不推断他人是否需要治疗，不要求交换个人记录或解释拒绝。",
+          "en": "An optional discussion prompt asks: “How can an observed activity change, uncertainty about causes and a desired kind of help be kept separate?” Use only the fictional people and information above to distinguish what is known, inferred and unknown. Disagreeing, withholding or stopping needs no explanation, personal record or judgment about someone else’s need for treatment."
+        }
+      ]
+    },
+    {
+      "id": "section-7",
+      "title": {
+        "en": "A limited description can remain limited",
+        "zh": "有限描述可以就保持有限"
+      },
+      "paragraphs": [
+        {
+          "zh": "十八条均为费马原创，不施测已发表临床量表或改变阶段算法。前八条回想过去四周，后十条关注当前条件和疑问；选择描述的符合关系，不填天数或频率。六类原标签分别保留：不符合、部分符合、符合、无法判断、没有相关经历、不愿回答；后三类不补零、不混为中间值。18条各选一个给定类别才整理记录，四主题依次4、4、5、5条，各自六类计数合计自身条数，并保留18条所选标签。资源、障碍、隐私及信息愿望可同时符合，没有加总、均值、排名、反向扣分、准备等级或治疗建议。全未知或保留仍可完成，不成为无需帮助的结论；中途退出或不答题也能读相同四篇七节全文。尚无常模、阈值、验证或中英文测量等值；之后类别不同不证明改善、恶化或干预有效。NIMH资料只提供专业谈话背景，不验证原创题目、类别或编辑新增虚构情境。可选地只讨论虚构例子，不需交换本人记录、说服他人求助或披露经历。回答及整理记录仅留本页内存，无草稿、提交、问卷分析或个人结果地址；完成时清除作答状态，退出、重做、刷新、离页清除记录。复制按钮只含公开标题和入口，不含类别或计数；清除不会抹掉截图、浏览器记录或旁人已看到的信息。支持信息始终可见，是否询问合格专业人士不由计数许可；有即时危险或无法保障安全时寻求当地紧急援助，不等待完成此页。",
+          "en": "All 18 statements are FermatMind originals, not a published clinical scale or stage-of-change algorithm. The first eight recall four weeks; the remaining ten concern current conditions and questions. Responses describe fit, not days or frequency. The six original categories remain separate: does not describe, partly describes, describes, cannot judge, no relevant experience and prefer not to answer. The last three become neither zero nor midpoint values. Every statement needs an offered category to organize the record. Four themes contain four, four, five and five statements, with six counts summing to each theme’s size and all 18 selected labels retained. Resources, barriers, privacy and information wishes can coexist without an overall score, mean, ranking, reverse deduction, readiness tier or treatment recommendation. An entirely unknown or withheld record can finish without implying that help is unnecessary. All four seven-section guides remain identical and public before answers or after leaving midway. No norms, thresholds, validation or English–Chinese measurement equivalence are established; changed categories prove no improvement, deterioration or intervention effect. NIMH supplies background about professional conversations, not validation of these items, categories or new fictional scenes. Optional discussion can use fiction without personal records, disclosure or persuading someone to seek help. Answers and records stay in page memory without drafts, submission, questionnaire analytics or personal-result addresses. Completing clears answer state; exit, retake, reload and leaving clear the record. Copying includes only the public title and entry, without categories or counts. Clearing erases no screenshots, browser records or information already seen. Support information remains visible, and no count grants permission to ask a qualified professional. Immediate danger or inability to stay safe calls for local emergency assistance rather than waiting to complete this page."
+        }
+      ]
+    }
+  ],
+  "available-support-reading": [
+    {
+      "id": "section-3",
+      "title": {
+        "en": "Company, information and practical assistance differ",
+        "zh": "陪伴、信息与实际协助各不相同"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：虚构的禾能想到愿意听的朋友，也因时段限制难以使用一项服务，两条均可选符合；这不是资源与障碍相减。知的五条也是两条符合，却对应隐私边界和想先了解选项。两人符合数相同，所需信息并不相同；五条比前两个主题多一条，也不代表支持更多。",
+          "en": "An additional original fictional scene: Fictional He can name a willing listener and faces a scheduling barrier to a service; both statements can fit without subtracting a barrier from a resource. Zhi also has two fitting statements, concerning privacy boundaries and wanting information about options. Equal counts identify no common need. Having five rather than four statements does not mean that this theme contains more support."
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "title": {
+        "en": "Access barriers are not a readiness label",
+        "zh": "参与障碍不是准备度标签"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样把一个资源、一个障碍和一个信息问题分别说清？”只使用上述虚构人物与信息，区分已知、推断与未知；可以不同意、保留回答或结束，不推断他人是否需要治疗，不要求交换个人记录或解释拒绝。",
+          "en": "An optional discussion prompt asks: “How can a resource, a barrier and a request for information be stated separately?” Use only the fictional people and information above to distinguish what is known, inferred and unknown. Disagreeing, withholding or stopping needs no explanation, personal record or judgment about someone else’s need for treatment."
+        }
+      ]
+    },
+    {
+      "id": "section-7",
+      "title": {
+        "en": "A current inventory stays open to revision",
+        "zh": "当前盘点可以随时修订"
+      },
+      "paragraphs": [
+        {
+          "zh": "十八条均为费马原创，不施测已发表临床量表或改变阶段算法。前八条回想过去四周，后十条关注当前条件和疑问；选择描述的符合关系，不填天数或频率。六类原标签分别保留：不符合、部分符合、符合、无法判断、没有相关经历、不愿回答；后三类不补零、不混为中间值。18条各选一个给定类别才整理记录，四主题依次4、4、5、5条，各自六类计数合计自身条数，并保留18条所选标签。资源、障碍、隐私及信息愿望可同时符合，没有加总、均值、排名、反向扣分、准备等级或治疗建议。全未知或保留仍可完成，不成为无需帮助的结论；中途退出或不答题也能读相同四篇七节全文。尚无常模、阈值、验证或中英文测量等值；之后类别不同不证明改善、恶化或干预有效。NIMH资料只提供专业谈话背景，不验证原创题目、类别或编辑新增虚构情境。可选地只讨论虚构例子，不需交换本人记录、说服他人求助或披露经历。回答及整理记录仅留本页内存，无草稿、提交、问卷分析或个人结果地址；完成时清除作答状态，退出、重做、刷新、离页清除记录。复制按钮只含公开标题和入口，不含类别或计数；清除不会抹掉截图、浏览器记录或旁人已看到的信息。支持信息始终可见，是否询问合格专业人士不由计数许可；有即时危险或无法保障安全时寻求当地紧急援助，不等待完成此页。",
+          "en": "All 18 statements are FermatMind originals, not a published clinical scale or stage-of-change algorithm. The first eight recall four weeks; the remaining ten concern current conditions and questions. Responses describe fit, not days or frequency. The six original categories remain separate: does not describe, partly describes, describes, cannot judge, no relevant experience and prefer not to answer. The last three become neither zero nor midpoint values. Every statement needs an offered category to organize the record. Four themes contain four, four, five and five statements, with six counts summing to each theme’s size and all 18 selected labels retained. Resources, barriers, privacy and information wishes can coexist without an overall score, mean, ranking, reverse deduction, readiness tier or treatment recommendation. An entirely unknown or withheld record can finish without implying that help is unnecessary. All four seven-section guides remain identical and public before answers or after leaving midway. No norms, thresholds, validation or English–Chinese measurement equivalence are established; changed categories prove no improvement, deterioration or intervention effect. NIMH supplies background about professional conversations, not validation of these items, categories or new fictional scenes. Optional discussion can use fiction without personal records, disclosure or persuading someone to seek help. Answers and records stay in page memory without drafts, submission, questionnaire analytics or personal-result addresses. Completing clears answer state; exit, retake, reload and leaving clear the record. Copying includes only the public title and entry, without categories or counts. Clearing erases no screenshots, browser records or information already seen. Support information remains visible, and no count grants permission to ask a qualified professional. Immediate danger or inability to stay safe calls for local emergency assistance rather than waiting to complete this page."
+        }
+      ]
+    }
+  ],
+  "questions-about-care-reading": [
+    {
+      "id": "section-3",
+      "title": {
+        "en": "An enquiry can begin with process information",
+        "zh": "询问可以先从流程信息开始"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创虚构情境：虚构的岑五条均选符合：想了解首次谈话、保密限制、费用、顾虑处理与暂停空间。苇五条均选无法判断。前者不等于准备好或已承诺治疗，后者不等于抗拒或不需要支持；两人都可只询问一次流程。本页不代发、不预约，也不核实某项服务会接受何种安排。",
+          "en": "An additional original fictional scene: Fictional Cen selects describes for all five questions about a first conversation, confidentiality limits, costs, reservations and room to pause. Wei selects cannot judge for all five. Neither pattern establishes readiness, commitment, resistance or a lack of need. Either person may ask one process question. This page sends no enquiry, books no appointment and verifies no service arrangement."
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "title": {
+        "en": "Privacy and practical terms need their own answers",
+        "zh": "隐私和实际条件需要各自的答案"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样询问服务流程，同时保留不承诺和不披露私人经历的空间？”只使用上述虚构人物与信息，区分已知、推断与未知；可以不同意、保留回答或结束，不推断他人是否需要治疗，不要求交换个人记录或解释拒绝。",
+          "en": "An optional discussion prompt asks: “How can a service enquiry leave room to decline a commitment and withhold private experiences?” Use only the fictional people and information above to distinguish what is known, inferred and unknown. Disagreeing, withholding or stopping needs no explanation, personal record or judgment about someone else’s need for treatment."
+        }
+      ]
+    },
+    {
+      "id": "section-7",
+      "title": {
+        "en": "Keep information separate from an automatic recommendation",
+        "zh": "信息不等于自动建议"
+      },
+      "paragraphs": [
+        {
+          "zh": "十八条均为费马原创，不施测已发表临床量表或改变阶段算法。前八条回想过去四周，后十条关注当前条件和疑问；选择描述的符合关系，不填天数或频率。六类原标签分别保留：不符合、部分符合、符合、无法判断、没有相关经历、不愿回答；后三类不补零、不混为中间值。18条各选一个给定类别才整理记录，四主题依次4、4、5、5条，各自六类计数合计自身条数，并保留18条所选标签。资源、障碍、隐私及信息愿望可同时符合，没有加总、均值、排名、反向扣分、准备等级或治疗建议。全未知或保留仍可完成，不成为无需帮助的结论；中途退出或不答题也能读相同四篇七节全文。尚无常模、阈值、验证或中英文测量等值；之后类别不同不证明改善、恶化或干预有效。NIMH资料只提供专业谈话背景，不验证原创题目、类别或编辑新增虚构情境。可选地只讨论虚构例子，不需交换本人记录、说服他人求助或披露经历。回答及整理记录仅留本页内存，无草稿、提交、问卷分析或个人结果地址；完成时清除作答状态，退出、重做、刷新、离页清除记录。复制按钮只含公开标题和入口，不含类别或计数；清除不会抹掉截图、浏览器记录或旁人已看到的信息。支持信息始终可见，是否询问合格专业人士不由计数许可；有即时危险或无法保障安全时寻求当地紧急援助，不等待完成此页。",
+          "en": "All 18 statements are FermatMind originals, not a published clinical scale or stage-of-change algorithm. The first eight recall four weeks; the remaining ten concern current conditions and questions. Responses describe fit, not days or frequency. The six original categories remain separate: does not describe, partly describes, describes, cannot judge, no relevant experience and prefer not to answer. The last three become neither zero nor midpoint values. Every statement needs an offered category to organize the record. Four themes contain four, four, five and five statements, with six counts summing to each theme’s size and all 18 selected labels retained. Resources, barriers, privacy and information wishes can coexist without an overall score, mean, ranking, reverse deduction, readiness tier or treatment recommendation. An entirely unknown or withheld record can finish without implying that help is unnecessary. All four seven-section guides remain identical and public before answers or after leaving midway. No norms, thresholds, validation or English–Chinese measurement equivalence are established; changed categories prove no improvement, deterioration or intervention effect. NIMH supplies background about professional conversations, not validation of these items, categories or new fictional scenes. Optional discussion can use fiction without personal records, disclosure or persuading someone to seek help. Answers and records stay in page memory without drafts, submission, questionnaire analytics or personal-result addresses. Completing clears answer state; exit, retake, reload and leaving clear the record. Copying includes only the public title and entry, without categories or counts. Clearing erases no screenshots, browser records or information already seen. Support information remains visible, and no count grants permission to ask a qualified professional. Immediate danger or inability to stay safe calls for local emergency assistance rather than waiting to complete this page."
+        }
+      ]
+    }
+  ]
+}

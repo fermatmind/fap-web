@@ -1,0 +1,248 @@
+{
+  "cottagecore": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同一张卡片，自然元素也有不同读法",
+        "en": "One card can use natural cues differently"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：一张自己画的卡片保留暖米底、小花与柔和边缘，贴近本版田园线索；换成苔色、不规则斑点，更贴近林野奇趣；减少纹样、增加浅色间隔，又能借用极简或海岸线索。可以只选一部分，最高并列分别读，不要求做成“纯风格”。",
+          "en": "In a fictional self-drawn card, a warm cream base, small flowers and soft edges fit this edition’s Cottagecore cues. Moss and irregular speckles shift toward Goblincore; fewer motifs and pale space can borrow minimal or Coastal cues. Keep selected parts and read highest ties separately, without a pure-style requirement."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看暖色与花纹分别的作用",
+        "en": "Review warmth and pattern separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的两张小构图，看看减少花纹后，喜欢的是不是仍然存在。可以保留暖色与一处织纹，不必把每个角落填满；也可以发现其实更喜欢另外一种边缘。纸面选择不要求改变生活节奏、添置器皿或把房间拍成田园图片。",
+          "en": "After the two small compositions above, ask whether the appeal remains with fewer motifs. Warmth and one woven detail may be enough; another edge may appeal more. A paper choice requires neither a slower lifestyle, more tableware nor a room staged as a rural image."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个视觉选择题",
+        "en": "Share a visual choice"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“同一张卡片，你想保留暖色、小花，还是手作边缘？也可以三样都不要。”分享自己的简单草图或通用读法即可，不必晒家、购物或公布计数。不从回答判断谁更温柔、自然，或更适合家庭角色。",
+          "en": "Ask: “On the same card, would you keep the warm colour, small flowers or handmade edges, or none?” Share your own simple sketch or this guide without home photos, purchases or counts. A response establishes neither gentleness, naturalness nor suitability for a family role."
+        }
+      ]
+    }
+  ],
+  "dark-academia": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "深色背景，焦点可以很不同",
+        "en": "A dark background can have different focal points"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：同一张卡片上，深绿底与纸页般细边框贴近暗色学院；保留暗底、把边框换成亮色网格，则偏向赛博线索。区别在本版选定的形状和质感，不由暗色多少认定心情，也不以书本图形认证学术身份。",
+          "en": "In a fictional card, deep green and a fine paper-like border fit Dark Academia; retaining the dark base with a bright grid shifts toward Cyberpunk cues. These compare selected shapes and textures. Darkness establishes no mood, and book motifs certify no academic identity."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看正式线条与可读性",
+        "en": "Review formal lines and readability"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的深浅构图比较，看看增加浅纸色后，哪些细节更容易看清，自己是否仍喜欢原来的厚重感。可以只保留一条正式边线，不用加满书纸。实际文字应清楚；视觉氛围不需要昏暗环境、读书量或失眠来支持。",
+          "en": "After comparing deep and pale compositions above, note which details became clearer and whether the visual weight still appeals. One formal border can remain without filling the scene with paper motifs. Keep actual text readable. Atmosphere needs neither dim conditions, extensive reading nor lost sleep."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "讨论画面，不考知识",
+        "en": "Discuss the composition without testing knowledge"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“你更喜欢深色与暖纸色的关系，还是正式边框？如果去掉书本图形，还会喜欢吗？”不要求谈文学名著、学历、均分或真实书房。公开读法只提供比较线索，不把另一人的审美当作智力、忧郁或职业证据。",
+          "en": "Ask: “Do you prefer the deep-and-warm-paper colours or the formal border? Would it still appeal without book motifs?” No literature knowledge, education, means or real study is needed. This public guide offers visual comparisons without evidence about intelligence, sadness or careers."
+        }
+      ]
+    }
+  ],
+  "clean-girl": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "浅色留白，不等于只有一种风格",
+        "en": "Pale open space need not imply one style"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：一张浅色卡片减少到几何轮廓与均匀间隔，贴近本版清爽极简；加入疏朗蓝白条纹，便有海岸线索；只留一个技术形状，也可与赛博结合。减少元素是构图选择，不是把生活、身体或其他风格分成干净与不干净。",
+          "en": "In a fictional pale card, geometry and even spacing fit this edition’s minimal cues; open blue-white stripes add Coastal cues, while one technical shape can borrow Cyberpunk. Reducing elements is a composition choice, without dividing lives, bodies or other aesthetics into clean and unclean."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看删去与保留了什么",
+        "en": "Review what was removed and retained"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的间隔与色数比较，确认减少元素有没有拿掉自己真正喜欢的细节。可以把一块复杂纹样放回来，也可以只改变间距，不丢任何物品。照片上的留白不需要长期维持；这个观察不衡量自律、卫生或能否管理生活。",
+          "en": "After comparing spacing and colour count above, ask whether reduction removed a detail you liked. Restore a complex motif or change only spacing without discarding possessions. Photographic blank space needs no permanent maintenance. The observation measures neither discipline, hygiene nor life management."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享留白偏好，不评价人",
+        "en": "Share a spacing preference without judging people"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这张卡片你想加一点细节，还是拉开间隔？保留哪个有意义的元素？”不要求晒脸、身材、护肤或真实桌面，也不必公布计数。标签里的Girl不限制参与者；分享通用读法不把任何人判作更清爽或更优越。",
+          "en": "Ask: “Would you add detail or widen the spacing on this card, and which meaningful element would you keep?” No face, body, skincare, real desk or count is needed. Girl in the label restricts no participant. Sharing this guide ranks nobody as cleaner or superior."
+        }
+      ]
+    }
+  ],
+  "coastal-grandmother": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同样浅色，条纹与几何可以不同",
+        "en": "The same pale tones can support stripes or geometry"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：浅蓝与米白卡片配宽条纹、舒展间隔，贴近海岸休闲；换成少量规整几何，则借用极简；暖色小花又带田园线索。颜色、纹理和间隔可以分开选择，不由一个名称要求海边住宅、年龄或好客角色。",
+          "en": "In a fictional pale blue-and-cream card, broad stripes and open intervals fit Coastal cues. Orderly geometry borrows minimal cues, and warm small florals add Cottagecore. Colour, texture and spacing can be chosen separately, without a seaside home, age or hosting role required by a name."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看蓝白之外还喜欢什么",
+        "en": "Review what appeals beyond blue and white"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的两版纸面比较，试着问去掉蓝色后，宽松织纹或开阔间隔是否仍吸引你。可以只借一种关系，换成自己已有颜色。视觉通透不证明真实空间舒适，也不用以招待朋友、做饭或生活悠闲来验证偏好。",
+          "en": "After comparing paper versions above, ask whether relaxed weave or open intervals still appeal without blue. Borrow one relationship using colours already available. An airy impression proves no real-space comfort, and the preference needs no hosting, cooking or unhurried lifestyle to confirm it."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "用卡片问一个轻松的问题",
+        "en": "Use a card for a simple question"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这种浅色条纹，你更喜欢颜色、织纹，还是周围空白？”分享一张自己的抽象草图也可以，不需要住所、家庭或计数。任何年龄和性别都能喜欢；不从回答推断谁愿意照顾人、拥有财富或适合某种生活节奏。",
+          "en": "Ask: “Do you prefer the colour, weave or surrounding space in these pale stripes?” Your own abstract sketch is enough without home, family or counts. Any age or gender can enjoy it. A response establishes neither caring obligations, wealth nor a suitable life pace."
+        }
+      ]
+    }
+  ],
+  "goblincore": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "自然线索，颜色与边缘分开看",
+        "en": "Separate colour and edges within natural cues"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：同一张卡片保留苔色斑点与不均匀轮廓，贴近林野奇趣；换成暖浅小花，则更贴近田园。也可以用极简布局只放一个不规则形状。喜欢这些组合不要求采集自然物、保留旧物或反对所有整齐排列。",
+          "en": "In a fictional card, moss speckles and uneven outlines fit Goblincore; pale warm flowers shift toward Cottagecore. A simple layout can also hold one irregular shape. Enjoying these combinations requires neither collecting from nature, keeping old objects nor rejecting every orderly arrangement."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看不规则的哪一处有趣",
+        "en": "Review which irregular detail interests you"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的两种纹样比较，看看吸引你的是斑点大小、边缘变化，还是土色本身。若细节太密，可以拉开间隔，不必继续增加收藏。用自己的草图就能观察；它不认证观察力，也不让个人风格决定共享空间的清洁和收纳安排。",
+          "en": "After comparing motifs above, identify the appeal of speckle size, uneven edges or earth tones. Space dense details out without acquiring more objects. Your own sketch supports observation without certifying perceptiveness or letting personal taste decide shared-space cleaning and storage."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一处纹理，不给人贴标签",
+        "en": "Share a texture without labelling people"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这张图你更喜欢均匀重复，还是边缘有一点变化？如果只留一处，会选哪里？”不需展示收藏、真实房间或计数。回答不说明卫生、成熟或心理状态；分享通用读法也不要求朋友接受某种群体身份。",
+          "en": "Ask: “Would you prefer even repeats or some uneven edges here, and where would you keep just one detail?” No collection, real room or count is needed. An answer establishes neither hygiene, maturity nor mental state, and sharing this guide assigns no group identity to friends."
+        }
+      ]
+    }
+  ],
+  "cyberpunk": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "暗底与亮线，可以保留不同部分",
+        "en": "Keep different parts of dark surfaces and bright lines"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：深色卡片上，一个亮色交点与抽象技术网格贴近赛博线索；把网格换成正式纸页边框，则更接近暗色学院。也可以保留极简间隔、只加一个人工光感。视觉组合不要求认同文学中的社会观点，也不证明懂软件或技术结构。",
+          "en": "In a fictional dark card, a bright intersection and abstract technical grid fit Cyberpunk cues; replacing the grid with formal paper borders shifts toward Dark Academia. Minimal spacing can retain one artificial-light impression. These visual choices require no literary social position and prove no software or structural expertise."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看焦点，而不是复杂度多少",
+        "en": "Review the focal point rather than complexity"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的两张抽象构图，问问删去亮线后，焦点更清楚还是少了喜欢的关系。可以降低反差、换颜色或增加空白，不用追求“越复杂越赛博”。用纸面表达已经足够，不需改设备、使用真实电路或让文字变得难以阅读。",
+          "en": "After comparing abstract compositions above, ask whether fewer bright lines clarified the focus or removed a relationship you liked. Lower contrast, change colour or add space without making complexity the standard. Paper is enough, without modifying devices, using circuitry or obscuring text."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个抽象图形问题",
+        "en": "Share an abstract-shape question"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果这张暗底图只留一个亮色焦点，你会放在哪里？想换成什么颜色？”不需要复制游戏、影视或艺术家的画面，也不必公布计数。分享自己的简单图形或公开读法，不从朋友的选择推断技术、政治、性格或职业。",
+          "en": "Ask: “If this dark composition kept one bright focus, where would you place it, and which colour would you choose?” No copied game, film or artwork, or count is needed. Share your own simple shapes or this guide without inferences about friends’ technology skills, politics, personality or careers."
+        }
+      ]
+    }
+  ]
+}

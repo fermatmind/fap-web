@@ -1,0 +1,248 @@
+{
+  "wanderer": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同一段下午，不同的决定方式",
+        "en": "One afternoon, different ways to decide"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：半天出游，先确认会合时间，再留一段到现场选择的空白，体现随兴漫游；先把几处重点衔接好，则体现规划。空白里也可以看展、吃东西或休息。安排方式与活动兴趣可以重叠，多个最高匹配请分别读，不合成新的人格或固定主副型。",
+          "en": "In a fictional half-day outing, confirming a meeting time and leaving a period for choices on arrival illustrates wandering; connecting priorities beforehand illustrates planning. The open period could include an exhibition, food or rest. Arrangement and interests can overlap. Read highest ties separately without a new blended personality or fixed primary and secondary type."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看谁承担了临时决定",
+        "en": "Review who made the on-the-spot decisions"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的留白尝试，问问临时发现是否真的可以选择，还是有人一直在查询和协调。若同行者想提前知道一点，可以只补一个会合点或停止时间。灵活不是把准备工作交给别人；一次不合适也不要求你放弃随兴偏好，可以调整这次范围。",
+          "en": "After the open-time trial above, ask whether choices were genuinely open or someone was continuously researching and coordinating. A meeting point or stopping time may supply advance clarity a companion wants. Flexibility need not transfer preparation to someone else. Adjust one period that missed rather than reject the preference entirely."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个留白问题",
+        "en": "Share a question about open time"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果有半天空闲，你想提前确定什么，又想留哪一段到现场再说？”可以只讨论纸面草案，不需公开真实行程、计数或个人去向。分享公开说明提供一般读法，不要求对方随时改变计划，也不代表你有更强适应力。",
+          "en": "Ask: “For a free half-day, what would you want settled ahead, and what could wait until arrival?” Discuss a paper draft without actual routes, counts or whereabouts. This general public reading creates no duty for others to change plans and establishes no superior adaptability."
+        }
+      ]
+    }
+  ],
+  "planner": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "规划可以包含休息与自由时间",
+        "en": "Planning can include rest and open time"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：半天里先定会合与一个重点，另留一段可以删去或自由决定的时间。这仍可以体现规划，不因留白就失去条理。文化、饮食或户外兴趣可以成为重点，休闲也能直接写进计划。六份读法比较不同层面，不用选择一种来排斥其余做法。",
+          "en": "In a fictional half-day, a meeting and one priority are fixed while another period can be dropped or decided freely. That can still be planning. Culture, food or outdoors may supply the priority, and rest can be planned directly. The six guides compare different layers without requiring one to exclude the others."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看准备中真正有用的一项",
+        "en": "Review one preparation that actually helped"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的轻量草案尝试，分开记录已核实条件、个人愿望和没有用上的资料。如果某段后来改了，看看是新信息还是偏好变化，不急着评价计划失败。还可以问谁愿意负责下次查询，避免“比较会规划”变成长期默认分工。",
+          "en": "After the light draft above, separate verified conditions, wishes and information unused. If a period changed, ask whether new information or a changed preference mattered rather than declare failure. Discuss who wants to research next time so being regarded as organised does not become a permanent default assignment."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个可修改的草案",
+        "en": "Share a draft that can change"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“我会先列几个重点，你最想保留哪项？哪一段希望慢一点或到时再定？”用虚构安排也可以，不需要发布真实预订、路线或计数。对方可以提出不同节奏；读法不认证你更可靠，也不要求别人执行你的清单。",
+          "en": "Ask: “I would list a few priorities first. Which matters to you, and where would you prefer a slower pace or later decision?” A fictional arrangement is enough without bookings, routes or counts. Others may suggest another pace. This guide certifies no greater reliability or duty to follow your list."
+        }
+      ]
+    }
+  ],
+  "culture": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "文化兴趣与安排方式可以组合",
+        "en": "Cultural interest can combine with different arrangements"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：想了解一片街区的一个公开展览，可以事先安排，也可以在允许的自由时间发现后再决定。前者带规划，后者带随兴；参观后从容用餐或休息也不冲突。这里的文化兴趣不比其他活动更高级，一个最高匹配也不能推断你已掌握多少知识。",
+          "en": "In a fictional outing, an open neighbourhood exhibition could be planned or chosen during permitted free time. One combines planning, the other wandering. An unhurried meal or rest afterwards fits too. Cultural interest ranks no activity as superior and a highest match establishes no existing knowledge."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看一个知道与一个未知",
+        "en": "Review something learned and something still unknown"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的单问题观察，可以写一条新了解的内容，以及一个还没核实的问题。若资料有不同说法，保留来源和各自范围，不急着替整个地方下结论。没有读完展陈也可以结束；本次回看关注具体理解，不以停留长短或知识多少证明自己。",
+          "en": "After exploring one question above, note something learned and an unresolved point. When accounts differ, keep their sources and scopes rather than conclude for an entire place. You may finish without reading every display. This review concerns one understanding, without proof through duration or quantity of knowledge."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个问题，不替别人上课",
+        "en": "Share a question without assigning a lesson"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果参观一个地方，你会想先弄清哪个小问题？也可以只想看看景色。”不要求同行者读同样资料、公布计数或认领文化型身份。分享这份公开说明可以谈兴趣，不能让当地人的私人生活、拍摄或接触自动成为可用素材。",
+          "en": "Ask: “When visiting a place, what small question would you want to explore first? Simply enjoying the view is fine too.” Shared reading, counts or a cultural-type identity are unnecessary. This public guide can open discussion without granting access to local people’s privacy, photographs or contact."
+        }
+      ]
+    }
+  ],
+  "outdoors": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "想参与什么，与能否参与分开看",
+        "en": "Separate the desired experience from participation conditions"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：你想给自然观察留一段时间，同时希望事先确认安排，也可能想活动之后休息。户外兴趣可与规划、随兴或休闲并存，最高并列分别保留。偏好不证明体能、装备、天气或实际开放合适，更不把更远、更难当作更真实的户外体验。",
+          "en": "In a fictional outing, you want time for nature observation, advance arrangements and perhaps rest afterwards. Outdoor interest can coexist with planning, wandering or rest, with highest ties retained separately. A preference establishes neither fitness, equipment, weather nor actual access, and longer or harder is no more authentic."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看期待与实际条件",
+        "en": "Review expectations and actual conditions"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的具体过程观察，问问吸引你的是看见、学习还是参与某个步骤，实际条件有没有让选择改变。没有参加也可以记下原因，不需要用完成距离或忍耐来补证。若与人同行，再看支持和会合是否说清；这只是回顾安排，不是路线或健康效果建议。",
+          "en": "After observing the desired process above, ask whether seeing, learning or a particular step appealed, and which actual condition changed a choice. Not participating can be recorded without proof through distance or endurance. Review support and meeting arrangements too. This is reflection on an arrangement, not route or health-effect advice."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享兴趣，也保留不参加的选择",
+        "en": "Share interest while retaining a choice not to participate"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“哪种自然观察或低负担体验会让你感兴趣？什么条件不合适时，你会选择别的安排？”可以只聊假设，不公布能力、健康、真实地点或计数。分享读法不要求别人证明勇敢，也不承诺任何人能够提供照护或承担风险。",
+          "en": "Ask: “What nature observation or low-burden experience might interest you, and which conditions would lead you to another plan?” Keep it hypothetical without abilities, health, real locations or counts. Sharing requires no proof of courage and promises neither someone’s care nor their acceptance of risk."
+        }
+      ]
+    }
+  ],
+  "rest": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "休息也是可明确安排的重点",
+        "en": "Rest can be an explicit priority"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：半天参观只保留一个地点，之后留一段不赶下一站的时间。这个节奏可以事先规划，也可以临时共同调整；还可以穿插饮食或文化兴趣。休闲不等于完全没有活动，更不从选择少去一处推断懒惰、疲惫或恢复需要。",
+          "en": "In a fictional half-day, keep one visit and a pause without another stop to reach. The pace can be planned or agreed later, alongside food or cultural interests. Rest need not mean no activity, and omitting a stop establishes neither laziness, fatigue nor a recovery need."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看舒适条件，而非恢复分数",
+        "en": "Review comfort conditions rather than a recovery score"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的留休息时间尝试，看看是否真的能停留、是否还在承担查询、看管或等候责任。若不舒服，可以调整地点、时段或分工，不必因“放松型”标签接受安排。一次感受不验证健康效果；可以只记录下次想保留哪项条件。",
+          "en": "After protecting a pause above, check whether stopping was practical or still involved research, watching belongings or waiting duties. Change the place, period or responsibilities if it missed, without accepting it for a rest-focused label. One experience validates no health effect; note a condition to keep next time."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "把想保留的空白说具体",
+        "en": "Make the desired pause specific"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“我想保留一段不安排活动的时间。你希望一起坐会儿、单独做点事，还是之后再会合？”用虚构半天也能讨论，不需要公开疲惫原因、行程或计数。对方可以有自己的节奏，不由本页决定谁应该等待、照顾或取悦别人。",
+          "en": "Ask: “I would like a period without activities. Would you prefer sitting together, doing something separately or meeting afterwards?” A fictional half-day needs no fatigue history, itinerary or counts. Others can choose their pace; this guide assigns nobody waiting, caring or entertaining duties."
+        }
+      ]
+    }
+  ],
+  "food": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "一餐可以是兴趣，也可以是共同节奏",
+        "en": "A meal can express an interest or a shared pace"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：给一项饮食介绍或从容用餐留时间，可以带文化探索，也可以是休闲节奏；提前安排与现场选择又是另一个层面。相同饮食计数不区分你更想了解做法、背景还是味道。先问这次具体期待，不把“懂吃”或追求新奇当作结果附赠的能力。",
+          "en": "In a fictional outing, time for a food introduction or unhurried meal can involve culture or rest; planning it or deciding on arrival is another layer. Equal food counts do not distinguish preparation, context or taste as the interest. Ask about the expectation without assigning expertise or novelty seeking."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看味道、过程与等待分别怎样",
+        "en": "Review taste, process and waiting separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的一个小体验尝试，分别问自己期待的是哪部分，实际时间和同行选择是否合适。可以发现喜欢了解背景，却不想重复排队；也可以保留个人饮食需要而换个体验。观察一次安排，不用价格、稀有度或尝试数量证明爱好。",
+          "en": "After the small food experience above, identify the expected part and whether timing and companions’ choices fitted. You may enjoy the context without wanting another queue, or choose another experience fitting dietary needs. Observe an arrangement without proof through price, rarity or the number of foods tried."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个可选择的用餐问题",
+        "en": "Share a meal question with room for choice"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这次你更想了解做法、听一点背景，还是只从容吃一顿？哪些需要先保留？”无需公布限制的私人原因、真实预订或计数。对方可以另选餐食或不参加；分享读法不认证任何食物安全、健康或适合所有人。",
+          "en": "Ask: “Would you rather learn about preparation, hear some context or simply have an unhurried meal? What needs should remain protected?” No private reason for a restriction, actual booking or count is required. Different food or declining is welcome. This guide certifies no food’s safety, healthfulness or suitability for everyone."
+        }
+      ]
+    }
+  ]
+}

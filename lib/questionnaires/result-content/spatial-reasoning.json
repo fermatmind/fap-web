@@ -1,0 +1,162 @@
+{
+  "rotations": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：中心、方向和距离要一起核",
+        "en": "Review centre, direction and distance together"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例固定+x向右、+y向上，中心C(-1,2)，点P(2,4)。先减中心得位移(3,2)，逆时针90°变(-2,3)，加回中心得P′(-3,5)。把结果绕同一中心顺时针转回，应回P。到C的距离平方均为13，但顺时针转原P会得(1,-1)，距离平方也13；因此仅距离相同不能确定方向正确。若误绕原点转，得到(-4,2)，回答的是另一中心的题。每步保留点名、中心和相对位移，别在中途旋转坐标轴或用另一端点替换所问点。",
+          "en": "Use a fresh fixed grid with positive x right and positive y up, centre C(-1,2) and point P(2,4). Subtract the centre to get offset (3,2), rotate counterclockwise ninety degrees to (-2,3), then add C to obtain (-3,5). Reverse that turn about the same centre to recover P. Squared distance from C stays thirteen, but clockwise rotation of the original gives (1,-1), also thirteen away. Distance alone therefore cannot establish direction. Rotating about the origin instead gives (-4,2), answering a different problem. Retain point identity, centre and offset without rotating axes or substituting another endpoint."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起画图与复算，比较参照条件",
+        "en": "Sketch and recompute together, comparing reference conditions"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“两个候选都离中心同样远，哪条信息才能区分？你是否先减中心、最后又加回？”先各自写参照系、规则、中间结果与所求量，再交换核查。可只读、画草图、做表或用计算器，不比赛速度；比较过程，不按正确数给朋友贴空间天赋、记忆能力或职业适合度标签。",
+          "en": "Ask: “What separates two candidates equally far from the centre, and did you subtract and restore that centre?” Write the reference frame, rule, intermediate results and requested quantity separately, then exchange checks. Read, sketch, make a table or use a calculator without racing. Compare processes rather than labelling friends’ spatial talent, memory capacity or career suitability from correct counts."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组用于文字与坐标模型复习，不是IQ、空间类型、手巧程度、常模排名或资格认证；题库未完成心理测量验证。30题固定，重做提高可能来自记忆；另换坐标或一条明示条件，逐步复算，才能更具体地说明理解了什么。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups revise written coordinate models rather than IQ, spatial types, manual dexterity, norm-based rankings or certification; this bank has not undergone psychometric validation. Retakes reuse thirty items and may reward recall. Change coordinates or an explicit condition and recompute step by step to explain what you understand."
+        }
+      ]
+    }
+  ],
+  "reflections": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：镜线的偏移不是可忽略的常数",
+        "en": "Review the mirror line’s offset rather than ignoring it"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例点P(6,-1)关于x=2镜像。原点在镜线右方4格，伙伴应在左方4格，为(-2,-1)；y不变，二者横坐标平均为2。再对同一镜线镜像一次回到(6,-1)。若仅把x取负得到(-6,-1)，其镜线是x=0，不能回答原题。对另一个任务若镜线改成y=x，则同一原P会到(-1,6)，不是沿竖直镜线的结果。先写实际镜线及点到线的关系，再选坐标公式；画出的图像相似，也不能代替镜线身份和全部坐标的核对。",
+          "en": "Use fresh P(6,-1) reflected across x=2. It lies four units right of the line, so its partner lies four left at (-2,-1). Vertical coordinate stays fixed, and the two horizontal coordinates average to two. Reflecting again across that line returns (6,-1). Merely negating x gives (-6,-1), which uses x=0 instead. In another task changing the line to y=x, the same original P maps to (-1,6), not the vertical-line result. Write the actual mirror and distance relationship before choosing a formula; a similar-looking sketch cannot replace checking line identity and every coordinate."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起画图与复算，比较参照条件",
+        "en": "Sketch and recompute together, comparing reference conditions"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“你用的公式对应哪一条线？中点落在镜线上，是否还能与再次镜像复原一起核对？”先各自写参照系、规则、中间结果与所求量，再交换核查。可只读、画草图、做表或用计算器，不比赛速度；比较过程，不按正确数给朋友贴空间天赋、记忆能力或职业适合度标签。",
+          "en": "Ask: “Which line does your formula describe, and can you check both the midpoint and the return after reflecting again?” Write the reference frame, rule, intermediate results and requested quantity separately, then exchange checks. Read, sketch, make a table or use a calculator without racing. Compare processes rather than labelling friends’ spatial talent, memory capacity or career suitability from correct counts."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组用于文字与坐标模型复习，不是IQ、空间类型、手巧程度、常模排名或资格认证；题库未完成心理测量验证。30题固定，重做提高可能来自记忆；另换坐标或一条明示条件，逐步复算，才能更具体地说明理解了什么。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups revise written coordinate models rather than IQ, spatial types, manual dexterity, norm-based rankings or certification; this bank has not undergone psychometric validation. Retakes reuse thirty items and may reward recall. Change coordinates or an explicit condition and recompute step by step to explain what you understand."
+        }
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：展开阶段、原像位置和材料边界分别检查",
+        "en": "Review unfolding stage, preimages and material bounds separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例为无厚度方纸-5≤x,y≤5，先把正x沿x=0折向负x，再把正y沿y=0折向负y，在(-2,-3)贯穿所有层打理想点孔。只开最后y折时，有(-2,-3)、(-2,3)两个位置，x方向伙伴仍重叠；完全展开才有(±2,±3)四个位置，均在原纸内。若另把点孔改到(0,-3)，在该理想模型中x镜像重合，完全展开只有(0,-3)、(0,3)，不能仍机械报四。先说清展开到哪一步，按反向折叠追位置，再剔除材料外位置、合并重合点；不要把层数与不同孔位数混算。",
+          "en": "Use a fresh zero-thickness square with both coordinates from −5 through five. Fold positive x across zero onto negative x, then positive y onto negative y, and punch every layer at (-2,-3). Opening only the last y fold gives (-2,-3) and (-2,3); x partners remain superimposed. Full unfolding gives four positions (±2,±3), all inside the original sheet. Change the ideal point punch to (0,-3): coincident x images leave only (0,-3) and (0,3) after full unfolding. State the stage, reverse the folds, reject unsupported material positions and merge coinciding points rather than equating layer count with distinct locations."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起画图与复算，比较参照条件",
+        "en": "Sketch and recompute together, comparing reference conditions"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“你数的是当前阶段位置、全部原像还是层数？孔在折线上时，哪一步会出现重合？”先各自写参照系、规则、中间结果与所求量，再交换核查。可只读、画草图、做表或用计算器，不比赛速度；比较过程，不按正确数给朋友贴空间天赋、记忆能力或职业适合度标签。",
+          "en": "Ask: “Are you counting current positions, full preimages or layers, and where do images coincide for a punch on a crease?” Write the reference frame, rule, intermediate results and requested quantity separately, then exchange checks. Read, sketch, make a table or use a calculator without racing. Compare processes rather than labelling friends’ spatial talent, memory capacity or career suitability from correct counts."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组用于文字与坐标模型复习，不是IQ、空间类型、手巧程度、常模排名或资格认证；题库未完成心理测量验证。30题固定，重做提高可能来自记忆；另换坐标或一条明示条件，逐步复算，才能更具体地说明理解了什么。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups revise written coordinate models rather than IQ, spatial types, manual dexterity, norm-based rankings or certification; this bank has not undergone psychometric validation. Retakes reuse thirty items and may reward recall. Change coordinates or an explicit condition and recompute step by step to explain what you understand."
+        }
+      ]
+    }
+  ],
+  "cube-turns": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：每一步从旧行读取，标签不随位置改名",
+        "en": "Review each move from the old row without renaming labels"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例初始顶T、底B、前F、后K、右R、左L，按本题定义先向前滚，再水平右转，再向右滚。向前为顶→前→底→后→顶；水平右转为前→右→后→左→前；向右为顶→右→底→左→顶，各保留未列的一对位置。三步后顶B、前L、右K。若交换前两步，改成水平右转、向前、向右，最终顶K、前T，不能只数动作种类与次数。每步同时从旧六格读标签、写到新六格，核六标签各一次及原对面关系保留；不要把当前顶面重新命名为T。",
+          "en": "Use fresh initial labels T top, B bottom, F front, K back, R right and L left. Follow forward, yaw-right, then right. Define forward as top→front→bottom→back→top; yaw-right as front→right→back→left→front; right as top→right→bottom→left→top, keeping the unlisted pair fixed each time. The final top is B, front L and right K. Swapping the first two moves gives top K and front T instead. Counts of move kinds cannot replace their order. Read all six old labels before writing the new row, checking each label occurs once and opposite pairs remain opposite. Do not rename the current top T."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起画图与复算，比较参照条件",
+        "en": "Sketch and recompute together, comparing reference conditions"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“你追踪的是位置还是贴在面的标签？相同动作换顺序后，哪一个中间状态先改变？”先各自写参照系、规则、中间结果与所求量，再交换核查。可只读、画草图、做表或用计算器，不比赛速度；比较过程，不按正确数给朋友贴空间天赋、记忆能力或职业适合度标签。",
+          "en": "Ask: “Are you tracking positions or labels attached to faces, and which intermediate state first changes when moves are reordered?” Write the reference frame, rule, intermediate results and requested quantity separately, then exchange checks. Read, sketch, make a table or use a calculator without racing. Compare processes rather than labelling friends’ spatial talent, memory capacity or career suitability from correct counts."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组用于文字与坐标模型复习，不是IQ、空间类型、手巧程度、常模排名或资格认证；题库未完成心理测量验证。30题固定，重做提高可能来自记忆；另换坐标或一条明示条件，逐步复算，才能更具体地说明理解了什么。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups revise written coordinate models rather than IQ, spatial types, manual dexterity, norm-based rankings or certification; this bank has not undergone psychometric validation. Retakes reuse thirty items and may reward recall. Change coordinates or an explicit condition and recompute step by step to explain what you understand."
+        }
+      ]
+    }
+  ],
+  "layouts": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：总块数、足迹与前投影可以同时不同",
+        "en": "Review material total, footprint and front projection as distinct quantities"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例固定x从左到右、y分两行、z向上，实心竖堆无空隙，第一行高度[1,0,3]、第二行[2,2,1]。总块数9，非空足迹5格；沿负y看向正y时，各x列最高为(2,2,3)，前投影7格。把第二行末堆从1加到2，总块数变10，足迹仍5格，前投影仍7格，因为该列另一行已有高度3。相同投影并不能还原唯一材料总量。每次先写所求视图与单位，再决定求和、数非空位置，还是去重投影；只有明示实心条件，才可按堆高计入隐藏块。",
+          "en": "Use fresh solid stacks without gaps, x left to right, two y rows and z upward. Heights [1,0,3] and [2,2,1] contain nine cubes and occupy five footprint cells. Looking from negative toward positive y, column maxima (2,2,3) give seven front-projection cells. Raise the second row’s final stack from one to two: material increases to ten, while footprint stays five and front projection seven because another stack in that column already reaches three. Equal projections do not determine a unique material total. Name view and unit before summing, counting nonempty locations or deduplicating projected cells. Hidden-cube counts from heights require the stated solid-stack condition."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起画图与复算，比较参照条件",
+        "en": "Sketch and recompute together, comparing reference conditions"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“多一块为什么可能不改变前视图？你现在回答的是材料、足迹，还是投影格数？”先各自写参照系、规则、中间结果与所求量，再交换核查。可只读、画草图、做表或用计算器，不比赛速度；比较过程，不按正确数给朋友贴空间天赋、记忆能力或职业适合度标签。",
+          "en": "Ask: “Why can another cube leave the front view unchanged, and are you answering a material, footprint or projection question?” Write the reference frame, rule, intermediate results and requested quantity separately, then exchange checks. Read, sketch, make a table or use a calculator without racing. Compare processes rather than labelling friends’ spatial talent, memory capacity or career suitability from correct counts."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组用于文字与坐标模型复习，不是IQ、空间类型、手巧程度、常模排名或资格认证；题库未完成心理测量验证。30题固定，重做提高可能来自记忆；另换坐标或一条明示条件，逐步复算，才能更具体地说明理解了什么。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups revise written coordinate models rather than IQ, spatial types, manual dexterity, norm-based rankings or certification; this bank has not undergone psychometric validation. Retakes reuse thirty items and may reward recall. Change coordinates or an explicit condition and recompute step by step to explain what you understand."
+        }
+      ]
+    }
+  ]
+}

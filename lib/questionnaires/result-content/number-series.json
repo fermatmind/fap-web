@@ -1,0 +1,162 @@
+{
+  "difference": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：中间缺项要从两侧验算",
+        "en": "Review a missing middle term from both sides"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例限定为等差数列：−17，−10，□，4，11。已知相邻差为7，缺项是−3；从左算−10+7，从右算4−7，得到同一数。若误填3，左右差变成13和1，不能满足原规则。把项的位置编号，列每一对相邻差，不把项值的正负当作变化方向。若仅末项不同，先定位那一步，而不是因前两步吻合就接受整条数列。这里的结论依赖题目明示等差；少量数字本身不能证明任何未来过程必定继续加7。",
+          "en": "Use a fresh sequence explicitly restricted to constant differences: −17, −10, □, 4, 11. The common difference is seven, so the missing term is −3. Both −10+7 from the left and 4−7 from the right give it. Substituting positive three instead produces neighbouring differences thirteen and one, violating the rule. Number positions and list every adjacent difference rather than treating a negative term as evidence of decrease. If only the last transition fails, locate that step instead of accepting the whole row after two matches. This conclusion assumes the stated arithmetic family; a few observed numbers do not prove that a future process must keep adding seven."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起找规则，也一起检验反例",
+        "en": "Find a rule together and test counterexamples"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“为什么负数也能逐步增大？你从缺项左边和右边算出的值是否一致？”先各自写规则与验算，再交换过程并找第一处差异。可只读、用计算器、查笔记或换一组数，不比赛速度。先确认使用同一条题设和规则范围，再讨论差异；不按正确数给朋友贴聪明、迟钝或职业适合度标签。",
+          "en": "Ask: “How can negative terms increase, and do calculations from both sides of the blank agree?” Write the rule and checks separately, then exchange reasoning and locate the first difference. Read, use a calculator, consult notes or change the numbers without racing. Confirm the same assumptions and rule bounds before comparing approaches; correct counts do not label friends as clever, slow or suited to a career."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组是复习分类，不是智商、人格或常模排名；本题库未完成心理测量验证。30题固定，重做的提高可能来自记忆。要检查理解，可换数后重新验算全部已知项，并说清你的结论依赖哪个规则族。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups organise revision rather than IQ, personality or norm-based rankings; this bank has not undergone psychometric validation. Retakes reuse thirty fixed items and may reward recall. Change the numbers, check every known transition and name the rule family on which your conclusion depends."
+        }
+      ]
+    }
+  ],
+  "ratio": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：负倍率要同时核符号和大小",
+        "en": "Review sign and magnitude under a negative multiplier"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例限定为固定倍率：32，−16，8，−4，□。每一步乘−1/2，所以下项为2；相邻商均为−0.5。填−2只保留大小减半，丢掉了符号翻转。另列倍率+1/2的对照行32，16，8，4，2：末项同为2，却不是同一条中间路径。不要只用答案相同判断推理相同；将候选倍率逐步代回所有已知项。若要用相邻项作分母，先核它不为零，不能把零除零当作倍率证据。这个限定练习不推断投资、人口或其他现实增长。",
+          "en": "Use a fresh row explicitly restricted to a fixed multiplier: 32, −16, 8, −4, □. Multiplying by −1/2 each time gives positive two; every adjacent quotient is −0.5. Negative two halves the magnitude but misses the sign reversal. Contrast the positive-half row 32, 16, 8, 4, 2. Both end at two, yet their intermediate paths differ. Matching a final answer does not establish matching reasoning: substitute the proposed multiplier through every known transition. Before dividing by a previous term, check that it is nonzero; zero divided by zero supplies no ratio evidence. This bounded exercise predicts no investment, population or other real-world growth."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起找规则，也一起检验反例",
+        "en": "Find a rule together and test counterexamples"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“两种倍率为何可能得到同一个末项？哪一个中间步骤最先区分它们？”先各自写规则与验算，再交换过程并找第一处差异。可只读、用计算器、查笔记或换一组数，不比赛速度。先确认使用同一条题设和规则范围，再讨论差异；不按正确数给朋友贴聪明、迟钝或职业适合度标签。",
+          "en": "Ask: “Why can different multipliers produce the same final term, and which intermediate step first separates them?” Write the rule and checks separately, then exchange reasoning and locate the first difference. Read, use a calculator, consult notes or change the numbers without racing. Confirm the same assumptions and rule bounds before comparing approaches; correct counts do not label friends as clever, slow or suited to a career."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组是复习分类，不是智商、人格或常模排名；本题库未完成心理测量验证。30题固定，重做的提高可能来自记忆。要检查理解，可换数后重新验算全部已知项，并说清你的结论依赖哪个规则族。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups organise revision rather than IQ, personality or norm-based rankings; this bank has not undergone psychometric validation. Retakes reuse thirty fixed items and may reward recall. Change the numbers, check every known transition and name the rule family on which your conclusion depends."
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：差值行和原数列不要混用",
+        "en": "Review the gap row separately from the original terms"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例限定相邻差值按非零固定增量变化：6，10，17，27，40，□。差值行是4，7，10，13，下一差为16；把16加回原末项40，得56。16是下一差，不是下一项；直接写53则误把上一差13再次使用。列两行并对齐：每个差值放在它连接的两项之间，再检查差值行每次加3。对照差值按固定倍数变化的情况，要逐步验算而非见到差值增大就认定加法。判断始终受题目给定的差值规则族约束。",
+          "en": "Use a fresh row whose gaps are explicitly restricted to a constant nonzero increment: 6, 10, 17, 27, 40, □. The gap row is 4, 7, 10, 13, followed by sixteen. Add sixteen to the original final term forty to obtain fifty-six. Sixteen is the next gap, not the next term; fifty-three would wrongly reuse the previous gap thirteen. Write two aligned rows, placing each gap between the terms it connects, then check that the gap row increases by three throughout. A constant-multiplier gap rule requires its own transition checks: growing gaps alone do not establish addition. Keep the conclusion within the family named by the question."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起找规则，也一起检验反例",
+        "en": "Find a rule together and test counterexamples"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“你算出的是下一差还是下一项？把候选项填回后，最后两个差还满足同一条规则吗？”先各自写规则与验算，再交换过程并找第一处差异。可只读、用计算器、查笔记或换一组数，不比赛速度。先确认使用同一条题设和规则范围，再讨论差异；不按正确数给朋友贴聪明、迟钝或职业适合度标签。",
+          "en": "Ask: “Did you calculate the next gap or the next term, and do the final two gaps still follow the rule after substitution?” Write the rule and checks separately, then exchange reasoning and locate the first difference. Read, use a calculator, consult notes or change the numbers without racing. Confirm the same assumptions and rule bounds before comparing approaches; correct counts do not label friends as clever, slow or suited to a career."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组是复习分类，不是智商、人格或常模排名；本题库未完成心理测量验证。30题固定，重做的提高可能来自记忆。要检查理解，可换数后重新验算全部已知项，并说清你的结论依赖哪个规则族。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups organise revision rather than IQ, personality or norm-based rankings; this bank has not undergone psychometric validation. Retakes reuse thirty fixed items and may reward recall. Change the numbers, check every known transition and name the rule family on which your conclusion depends."
+        }
+      ]
+    }
+  ],
+  "interleave": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：按位置拆分，不按数值奇偶拆分",
+        "en": "Review branches by position, not by odd or even values"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例限定奇数位置、偶数位置各自等差：5，40，9，35，13，30，□，□。第1、3、5、7位组成5、9、13、17，每次加4；第2、4、6、8位组成40、35、30、25，每次减5，所以两空依次为17、25。这里“奇偶”修饰位置，第一支的数值恰好全是奇数并不是拆支理由。先写位置1至8，再分支求解，最后按原位置交错放回。只检查一支不能证明整行满足题设，分支中公差为零也应按常数支处理。",
+          "en": "Use a fresh row explicitly restricted to separate arithmetic sequences at odd and even positions: 5, 40, 9, 35, 13, 30, □, □. Positions one, three, five and seven give 5, 9, 13, 17, adding four. Positions two, four, six and eight give 40, 35, 30, 25, subtracting five. The blanks are seventeen then twenty-five. Odd and even describe positions; the first branch happening to contain odd values is not the reason for splitting it. Label positions one through eight, solve each branch and interleave them back in order. Checking one branch cannot validate the whole row, and a zero common difference is a constant branch."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起找规则，也一起检验反例",
+        "en": "Find a rule together and test counterexamples"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果把第一项的数值换成偶数，分支位置会改变吗？你是否核完了两支再放回原位？”先各自写规则与验算，再交换过程并找第一处差异。可只读、用计算器、查笔记或换一组数，不比赛速度。先确认使用同一条题设和规则范围，再讨论差异；不按正确数给朋友贴聪明、迟钝或职业适合度标签。",
+          "en": "Ask: “Would changing the first value to an even number change its branch, and have you checked both branches before interleaving?” Write the rule and checks separately, then exchange reasoning and locate the first difference. Read, use a calculator, consult notes or change the numbers without racing. Confirm the same assumptions and rule bounds before comparing approaches; correct counts do not label friends as clever, slow or suited to a career."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组是复习分类，不是智商、人格或常模排名；本题库未完成心理测量验证。30题固定，重做的提高可能来自记忆。要检查理解，可换数后重新验算全部已知项，并说清你的结论依赖哪个规则族。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups organise revision rather than IQ, personality or norm-based rankings; this bank has not undergone psychometric validation. Retakes reuse thirty fixed items and may reward recall. Change the numbers, check every known transition and name the rule family on which your conclusion depends."
+        }
+      ]
+    }
+  ],
+  "recurrence": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：可兼容的公式可以不止一条",
+        "en": "Review more than one compatible recurrence"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例沿用本题组的范围：从第三项起，新项=p×前一项+q×前两项+c，p、q是−2至3的整数，c是−3至3的整数。对1，3，7，15，31，□，(p,q,c)=(1,2,2)、(2,0,1)及(3,−2,0)都符合已知步骤，且都给63。把每组系数从第三项一路代入，不能因为一组有效就说公式唯一；也不能因为公式不同就说下一值必不同。本例在所述范围内只有这三组兼容系数，它们给相同下项。范围以外的公式不在本练习承诺之内，更不能据此声称有限数据在数学上只有一种延续。",
+          "en": "Use this group’s stated bounds: from the third term, new=p×previous+q×two-back+c, with integer p and q from −2 through three and integer c from −3 through three. For 1, 3, 7, 15, 31, □, all three sets (p,q,c)=(1,2,2), (2,0,1) and (3,−2,0) fit every known transition and give sixty-three next. Substitute each coefficient set from the third term onward. One successful rule does not prove a unique formula, and different formulas need not produce different next values. Within the stated bounds, these are the only three compatible sets in this example and they agree on the next term. Other families lie outside this exercise; finite observations do not establish a mathematically unique continuation."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起找规则，也一起检验反例",
+        "en": "Find a rule together and test counterexamples"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这些公式在哪里不同，又为什么在这行给出相同下一项？你比较的是公式数量还是候选数值数量？”先各自写规则与验算，再交换过程并找第一处差异。可只读、用计算器、查笔记或换一组数，不比赛速度。先确认使用同一条题设和规则范围，再讨论差异；不按正确数给朋友贴聪明、迟钝或职业适合度标签。",
+          "en": "Ask: “Where do these formulas differ, why do they agree on the next term here, and are you counting formulas or distinct candidate values?” Write the rule and checks separately, then exchange reasoning and locate the first difference. Read, use a calculator, consult notes or change the numbers without racing. Confirm the same assumptions and rule bounds before comparing approaches; correct counts do not label friends as clever, slow or suited to a career."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组是复习分类，不是智商、人格或常模排名；本题库未完成心理测量验证。30题固定，重做的提高可能来自记忆。要检查理解，可换数后重新验算全部已知项，并说清你的结论依赖哪个规则族。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups organise revision rather than IQ, personality or norm-based rankings; this bank has not undergone psychometric validation. Retakes reuse thirty fixed items and may reward recall. Change the numbers, check every known transition and name the rule family on which your conclusion depends."
+        }
+      ]
+    }
+  ]
+}

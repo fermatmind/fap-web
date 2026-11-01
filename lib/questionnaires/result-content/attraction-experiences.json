@@ -1,0 +1,207 @@
+{
+  "romantic-presence": [
+    {
+      "id": "reading-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者记得对某个人的浪漫感受在忙碌一周里再次出现，却没有约会或联系对方。再次出现的体验与是否行动、是否被回应分别保留；欣赏一段浪漫故事也不能替代这段感受。可以只读例子，不寻找对象、不联系任何人，也无需披露相关记忆。",
+          "en": "In an additional original scene, a reader remembers a romantic feeling returning during a busy week without dating or contacting the person. A recurring experience remains separate from action or reciprocation; enjoying a romantic story cannot substitute for it. You can read only, without finding someone, contacting anyone or disclosing the memory."
+        }
+      ]
+    },
+    {
+      "id": "reading-6",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只看虚构例子，感受再次出现、想要关系与实际行动分别是什么？”听者不从均值推断身份、感情强度或对自己的兴趣。可以只读，不回答私人问题；任何实际关系中的沟通与同意仍需当事人自己表达。",
+          "en": "An optional conversation card distinguishes a returning feeling, wanting a relationship and acting in the fictional example. A listener infers neither an identity, intensity of feeling nor interest in them from a mean. Read only if preferred, without private answers; communication and consent in any actual relationship remain for the people involved to express."
+        }
+      ]
+    },
+    {
+      "id": "reading-8",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，仍围绕成年人本人过去十二个月的体验。十五条分五项各三条，全部直接计1—5认同，3是中立，不是不确定。三条全部数值有效才把原始和除以3，显示一位小数；例如1、2、4得2.3。任一未评分只让所属项没有均值，不补0、3或估计，不合总分、不选最高，也不排身份或取向。再次出现题中没有浪漫吸引可以有意义地不同意；联结先后题没有吸引起点、性吸引题没有合适比较时保持未评分，不能互相套用。均值不是次数、强度、光谱位置、关系承诺或同意。原创题本无已建立信效度、常模或中英文等值，社群背景资源不验证这五项，也不提供题本或计分键。无需约会、联系、重返场所、尝试行为或列举个人资料来补答；选择与边界不以数字为条件。五篇全文始终可读；原有页内存、不存草稿、不发测试流程统计、不分享个人结果保持不变，刷新、换语言或离开会丢弃作答。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading about an adult’s own experiences over the past twelve months. Fifteen statements retain five parts of three direct 1–5 agreement ratings. Three is Neutral, not uncertainty. All three numeric responses are needed for a part’s raw sum divided by three, displayed to one decimal; 1, 2 and 4 give 2.3. Any unscored response withholds only its part’s mean without zero, midpoint or estimated replacement. There is no combined total, highest part, identity or orientation ranking. No romantic attraction can be meaningful disagreement with recurrence statements. Bond-order statements without an attraction onset, and sexual-attraction comparisons without suitable experience, remain unscored; these rules are not interchangeable. A mean is not an event count, intensity, spectrum position, relationship commitment or consent. The original form lacks established reliability, validity, norms or language equivalence. Community background resources do not validate these parts or supply their items or key. No dating, contact, revisited setting, activity or personal details are needed to fill a gap. Choices and boundaries do not depend on numbers. All five full guides remain available. Existing page memory, no drafts, no quiz-flow statistics and no personal-result sharing remain unchanged; reload, language change or leaving discards the attempt."
+        }
+      ]
+    }
+  ],
+  "bond-first-context": [
+    {
+      "id": "reading-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者先与某人熟悉，后来才体验到浪漫吸引；另一段亲近联结却没有出现吸引。先后顺序不证明因果或始终必要，也不表示等待和关心可以换来回应。没有吸引起点时不编造顺序，保留未评分；例子不安排加深联结或测试感受。",
+          "en": "In an additional original scene, a reader becomes close to someone before experiencing romantic attraction, while another close connection involves none. The sequence establishes neither causation nor an always-necessary condition, and care or waiting earns no response. With no attraction onset, leave the sequence unscored rather than inventing one. No deeper connection or test of feelings is assigned."
+        }
+      ]
+    },
+    {
+      "id": "reading-6",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只读虚构顺序，发生在先与造成了后者有什么不同？”听者不把联结均值当成等待期限或获得回应的办法，也不请谁证明亲近。可以不谈真实关系，保留没有起点或顺序不清的情况。",
+          "en": "An optional conversation card asks how happening first differs from causing what follows in a fictional sequence. A listener treats no mean as a waiting period or way to obtain a response and asks nobody to prove closeness. No actual relationship needs discussing; absent or unclear beginnings can stay unresolved."
+        }
+      ]
+    },
+    {
+      "id": "reading-8",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，仍围绕成年人本人过去十二个月的体验。十五条分五项各三条，全部直接计1—5认同，3是中立，不是不确定。三条全部数值有效才把原始和除以3，显示一位小数；例如1、2、4得2.3。任一未评分只让所属项没有均值，不补0、3或估计，不合总分、不选最高，也不排身份或取向。再次出现题中没有浪漫吸引可以有意义地不同意；联结先后题没有吸引起点、性吸引题没有合适比较时保持未评分，不能互相套用。均值不是次数、强度、光谱位置、关系承诺或同意。原创题本无已建立信效度、常模或中英文等值，社群背景资源不验证这五项，也不提供题本或计分键。无需约会、联系、重返场所、尝试行为或列举个人资料来补答；选择与边界不以数字为条件。五篇全文始终可读；原有页内存、不存草稿、不发测试流程统计、不分享个人结果保持不变，刷新、换语言或离开会丢弃作答。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading about an adult’s own experiences over the past twelve months. Fifteen statements retain five parts of three direct 1–5 agreement ratings. Three is Neutral, not uncertainty. All three numeric responses are needed for a part’s raw sum divided by three, displayed to one decimal; 1, 2 and 4 give 2.3. Any unscored response withholds only its part’s mean without zero, midpoint or estimated replacement. There is no combined total, highest part, identity or orientation ranking. No romantic attraction can be meaningful disagreement with recurrence statements. Bond-order statements without an attraction onset, and sexual-attraction comparisons without suitable experience, remain unscored; these rules are not interchangeable. A mean is not an event count, intensity, spectrum position, relationship commitment or consent. The original form lacks established reliability, validity, norms or language equivalence. Community background resources do not validate these parts or supply their items or key. No dating, contact, revisited setting, activity or personal details are needed to fill a gap. Choices and boundaries do not depend on numbers. All five full guides remain available. Existing page memory, no drafts, no quiz-flow statistics and no personal-result sharing remain unchanged; reload, language change or leaving discards the attempt."
+        }
+      ]
+    }
+  ],
+  "sexual-continuity": [
+    {
+      "id": "reading-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者在较早和较后两次合适经历中感到一种熟悉的吸引力，同时也注意到别的特质不同。相近与不同都可保留，不要求每条评分一致。若没有合适的前后比较，缺口保持未评分，不用关系史、行为或身体唤起来填补，也无需寻找新经历。",
+          "en": "In an additional original scene, a reader notices a familiar appeal in suitable earlier and later experiences while other qualities differ. Similarity and difference can both remain without identical ratings. With no suitable comparison, leave the gap unscored rather than filling it with relationship history, behaviour or bodily arousal. No new experience is needed."
+        }
+      ]
+    },
+    {
+      "id": "reading-6",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只看虚构比较，熟悉特质、不同特质和未知细节各是什么？”听者不把延续均值当作忠诚、永久取向或未来承诺，也不要求另一人说明其经历。无需分享自己的均值或记忆，话题可以到此结束。",
+          "en": "An optional conversation card separates familiar qualities, differences and unknown details in the fictional comparison. A listener does not treat continuity as loyalty, permanent orientation or a future commitment, or request another person’s history. No personal mean or memory needs sharing; the discussion can end here."
+        }
+      ]
+    },
+    {
+      "id": "reading-8",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，仍围绕成年人本人过去十二个月的体验。十五条分五项各三条，全部直接计1—5认同，3是中立，不是不确定。三条全部数值有效才把原始和除以3，显示一位小数；例如1、2、4得2.3。任一未评分只让所属项没有均值，不补0、3或估计，不合总分、不选最高，也不排身份或取向。再次出现题中没有浪漫吸引可以有意义地不同意；联结先后题没有吸引起点、性吸引题没有合适比较时保持未评分，不能互相套用。均值不是次数、强度、光谱位置、关系承诺或同意。原创题本无已建立信效度、常模或中英文等值，社群背景资源不验证这五项，也不提供题本或计分键。无需约会、联系、重返场所、尝试行为或列举个人资料来补答；选择与边界不以数字为条件。五篇全文始终可读；原有页内存、不存草稿、不发测试流程统计、不分享个人结果保持不变，刷新、换语言或离开会丢弃作答。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading about an adult’s own experiences over the past twelve months. Fifteen statements retain five parts of three direct 1–5 agreement ratings. Three is Neutral, not uncertainty. All three numeric responses are needed for a part’s raw sum divided by three, displayed to one decimal; 1, 2 and 4 give 2.3. Any unscored response withholds only its part’s mean without zero, midpoint or estimated replacement. There is no combined total, highest part, identity or orientation ranking. No romantic attraction can be meaningful disagreement with recurrence statements. Bond-order statements without an attraction onset, and sexual-attraction comparisons without suitable experience, remain unscored; these rules are not interchangeable. A mean is not an event count, intensity, spectrum position, relationship commitment or consent. The original form lacks established reliability, validity, norms or language equivalence. Community background resources do not validate these parts or supply their items or key. No dating, contact, revisited setting, activity or personal details are needed to fill a gap. Choices and boundaries do not depend on numbers. All five full guides remain available. Existing page memory, no drafts, no quiz-flow statistics and no personal-result sharing remain unchanged; reload, language change or leaving discards the attempt."
+        }
+      ]
+    }
+  ],
+  "sexual-context-variation": [
+    {
+      "id": "reading-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者记得同一特质在两个普通场合中有不同吸引力，但不确定是场合、当时理解还是其他条件相关。记得的差异与未知解释分开，不能由均值决定原因。例子不要求重返场所、改变互动或尝试行为来验证，也不把舒适度变化自动当作吸引变化。",
+          "en": "In an additional original scene, a reader remembers a quality having different appeal in two ordinary settings but is unsure which surrounding conditions mattered. A recalled difference stays separate from an unknown explanation; a mean cannot settle its cause. No revisited setting, changed interaction or activity is needed as a test, and changed comfort is not automatically changed attraction."
+        }
+      ]
+    },
+    {
+      "id": "reading-6",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只用虚构场合，哪些是记得的体验差异，哪些只是可能解释？”听者不替人解释取向，不把情境变化当成可以改变他人感受的依据，也不安排实验或接触。可以保留未知，只讨论文字。",
+          "en": "An optional conversation card separates remembered differences from possible explanations in fictional settings. A listener neither explains someone’s orientation for them nor treats variation as evidence that their feelings can be changed. No experiment or contact is assigned; unknowns can remain and discussion can stay with the text."
+        }
+      ]
+    },
+    {
+      "id": "reading-8",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，仍围绕成年人本人过去十二个月的体验。十五条分五项各三条，全部直接计1—5认同，3是中立，不是不确定。三条全部数值有效才把原始和除以3，显示一位小数；例如1、2、4得2.3。任一未评分只让所属项没有均值，不补0、3或估计，不合总分、不选最高，也不排身份或取向。再次出现题中没有浪漫吸引可以有意义地不同意；联结先后题没有吸引起点、性吸引题没有合适比较时保持未评分，不能互相套用。均值不是次数、强度、光谱位置、关系承诺或同意。原创题本无已建立信效度、常模或中英文等值，社群背景资源不验证这五项，也不提供题本或计分键。无需约会、联系、重返场所、尝试行为或列举个人资料来补答；选择与边界不以数字为条件。五篇全文始终可读；原有页内存、不存草稿、不发测试流程统计、不分享个人结果保持不变，刷新、换语言或离开会丢弃作答。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading about an adult’s own experiences over the past twelve months. Fifteen statements retain five parts of three direct 1–5 agreement ratings. Three is Neutral, not uncertainty. All three numeric responses are needed for a part’s raw sum divided by three, displayed to one decimal; 1, 2 and 4 give 2.3. Any unscored response withholds only its part’s mean without zero, midpoint or estimated replacement. There is no combined total, highest part, identity or orientation ranking. No romantic attraction can be meaningful disagreement with recurrence statements. Bond-order statements without an attraction onset, and sexual-attraction comparisons without suitable experience, remain unscored; these rules are not interchangeable. A mean is not an event count, intensity, spectrum position, relationship commitment or consent. The original form lacks established reliability, validity, norms or language equivalence. Community background resources do not validate these parts or supply their items or key. No dating, contact, revisited setting, activity or personal details are needed to fill a gap. Choices and boundaries do not depend on numbers. All five full guides remain available. Existing page memory, no drafts, no quiz-flow statistics and no personal-result sharing remain unchanged; reload, language change or leaving discards the attempt."
+        }
+      ]
+    }
+  ],
+  "sexual-attraction-breadth": [
+    {
+      "id": "reading-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者在不同经历中觉得有吸引力的特质各不相同，但其中一些特质整年也保持熟悉。多样与延续可以同时存在，不用挑一项作为主要身份。若没有足够合适经历比较，保留未评分，不列人名、性别、身体特征或私下行为来证明范围。",
+          "en": "In an additional original scene, a reader finds varied qualities appealing across experiences while some remain familiar throughout the year. Breadth and continuity can coexist without selecting a main identity. With too few suitable experiences to compare, leave the part unscored instead of listing names, genders, bodies or private behaviour as proof of a range."
+        }
+      ]
+    },
+    {
+      "id": "reading-6",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只用虚构体验，多种特质与跨时间的熟悉感能否同时描述？”听者不由范围均值推断开放、可接近、专一或愿意行动，不把标签当作披露要求。可以不选任何身份词，也不提供个人经历。",
+          "en": "An optional conversation card asks whether varied qualities and familiarity over time can both describe the fictional experiences. A listener infers neither openness, availability, loyalty nor willingness to act from breadth and uses no label to require disclosure. No identity term or personal account is necessary."
+        }
+      ]
+    },
+    {
+      "id": "reading-8",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，仍围绕成年人本人过去十二个月的体验。十五条分五项各三条，全部直接计1—5认同，3是中立，不是不确定。三条全部数值有效才把原始和除以3，显示一位小数；例如1、2、4得2.3。任一未评分只让所属项没有均值，不补0、3或估计，不合总分、不选最高，也不排身份或取向。再次出现题中没有浪漫吸引可以有意义地不同意；联结先后题没有吸引起点、性吸引题没有合适比较时保持未评分，不能互相套用。均值不是次数、强度、光谱位置、关系承诺或同意。原创题本无已建立信效度、常模或中英文等值，社群背景资源不验证这五项，也不提供题本或计分键。无需约会、联系、重返场所、尝试行为或列举个人资料来补答；选择与边界不以数字为条件。五篇全文始终可读；原有页内存、不存草稿、不发测试流程统计、不分享个人结果保持不变，刷新、换语言或离开会丢弃作答。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading about an adult’s own experiences over the past twelve months. Fifteen statements retain five parts of three direct 1–5 agreement ratings. Three is Neutral, not uncertainty. All three numeric responses are needed for a part’s raw sum divided by three, displayed to one decimal; 1, 2 and 4 give 2.3. Any unscored response withholds only its part’s mean without zero, midpoint or estimated replacement. There is no combined total, highest part, identity or orientation ranking. No romantic attraction can be meaningful disagreement with recurrence statements. Bond-order statements without an attraction onset, and sexual-attraction comparisons without suitable experience, remain unscored; these rules are not interchangeable. A mean is not an event count, intensity, spectrum position, relationship commitment or consent. The original form lacks established reliability, validity, norms or language equivalence. Community background resources do not validate these parts or supply their items or key. No dating, contact, revisited setting, activity or personal details are needed to fill a gap. Choices and boundaries do not depend on numbers. All five full guides remain available. Existing page memory, no drafts, no quiz-flow statistics and no personal-result sharing remain unchanged; reload, language change or leaving discards the attempt."
+        }
+      ]
+    }
+  ]
+}

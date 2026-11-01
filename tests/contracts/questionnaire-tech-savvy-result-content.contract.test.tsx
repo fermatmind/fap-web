@@ -1,0 +1,22 @@
+import { describe, expect, it, vi } from "vitest";
+import { renderToStaticMarkup } from "react-dom/server";
+import source from "@/lib/questionnaires/data/tech-savvy.json";
+import content from "@/lib/questionnaires/result-content/tech-savvy.json";
+import { techConfidenceResultProfile } from "@/lib/questionnaires/result-content/tech-savvy";
+import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
+import { isLikertConfigurationValid, scoreLikertQuestionnaire } from "@/lib/questionnaires/scoring";
+import { QuestionnaireTechConfidenceReport } from "@/components/questionnaires/QuestionnaireTechConfidenceReport";
+import type { Questionnaire } from "@/lib/questionnaires/types";
+vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
+const quiz=source as Questionnaire,prepared=prepareQuestionnaireResultReadings(quiz);
+describe("One complete continuous tool confidence reading",()=>{
+  it("preserves raw identities and all six original modules without changing calculation",()=>{
+    const before=JSON.stringify(quiz);expect(Object.keys(content).sort()).toEqual(quiz.profiles.map(p=>p.id).sort());for(const p of quiz.profiles){const r=techConfidenceResultProfile(p);expect({...r,sections:p.sections}).toEqual(p);expect(r.sections.map(s=>s.id)).toEqual(p.sections.map(s=>s.id));expect(r.sections.flatMap(s=>s.paragraphs)).toHaveLength(15);for(const s of p.sections)expect(r.sections.find(v=>v.id===s.id)!.paragraphs.slice(0,s.paragraphs.length)).toEqual(s.paragraphs);}const unknown={...quiz.profiles[0],id:"__proto__"};expect(techConfidenceResultProfile(unknown)).toBe(unknown);expect(prepareQuestionnaireResultReadings(prepared)).toBe(prepared);expect(JSON.stringify(quiz)).toBe(before);expect(isLikertConfigurationValid(prepared)).toBe(true);
+  });
+  it.each(["zh","en"] as const)("opens all %s public modules and anchors without private means",async locale=>{
+    const route=await import("@/components/questionnaires/QuestionnaireGuide");for(const p of quiz.profiles){const dom=document.createElement("div");dom.innerHTML=renderToStaticMarkup(await route.default({params:Promise.resolve({locale,slug:quiz.slug,profile:p.id})}));expect(dom.querySelector(`[data-tech-confidence-result-reading="${p.id}"]`)).not.toBeNull();expect(dom.querySelectorAll('[data-tech-confidence-result-reading] h2')).toHaveLength(6);expect(dom.querySelector('[data-tech-confidence-mean]')).toBeNull();for(const s of content[p.id as keyof typeof content])for(const t of s.paragraphs)expect(dom.querySelector(`#report-${s.id}`)?.textContent).toContain(t[locale]);const ids=[...dom.querySelectorAll('[id]')].map(n=>n.id);expect(new Set(ids).size).toBe(ids.length);for(const a of dom.querySelectorAll('nav a[href^="#"]'))expect(ids).toContain(a.getAttribute('href')!.slice(1));if(locale==="en")expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);}
+  });
+  it.each(["zh","en"] as const)("keeps coverage and contrasting separate %s responses with complete guides",locale=>{
+    for(let n=0;n<=6;n++){const answers=Object.fromEntries(quiz.questions.map((q,i)=>[q.id,i<n?String(i%5+1):"na"]));const result=scoreLikertQuestionnaire(prepared,answers);expect(result).toEqual(scoreLikertQuestionnaire(quiz,answers));if(result.status!=="complete")throw Error("Complete result required");const sum=Array.from({length:n},(_,i)=>i%5+1).reduce((a,b)=>a+b,0);expect(result.facets["tool-confidence"]).toEqual({rated:n,sum,total:6,mean:n>=4?Math.round(sum/n*10)/10:null});const dom=document.createElement("div");dom.innerHTML=renderToStaticMarkup(<QuestionnaireTechConfidenceReport quiz={prepared} result={result} answers={answers} locale={locale}/>);expect(dom.querySelectorAll('[data-tech-confidence-result-reading] h4')).toHaveLength(6);expect(dom.querySelector('[data-tech-confidence-count]')?.textContent).toBe(`${n} / 6`);expect(dom.querySelector('[data-tech-confidence-sum]')?.textContent).toBe(n?String(sum):"—");expect(dom.querySelector('[data-tech-confidence-mean]')?.textContent).toBe(n<4?(locale==="zh"?"不计算":"Not calculated"):`${(Math.round(sum/n*10)/10).toFixed(1)} / 5`);expect(dom.querySelectorAll('[data-tech-confidence-answer]')).toHaveLength(6);for(const ss of Object.values(content))for(const s of ss)for(const t of s.paragraphs)expect(dom.textContent).toContain(t[locale]);const ids=[...dom.querySelectorAll('[id]')].map(n=>n.id);expect(new Set(ids).size).toBe(ids.length);for(const a of dom.querySelectorAll('nav a[href^="#"]'))expect(ids).toContain(a.getAttribute('href')!.slice(1));}
+  });
+});

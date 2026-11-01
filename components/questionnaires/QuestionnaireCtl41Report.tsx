@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { Ctl41Result } from "@/lib/questionnaires/ctl41";
@@ -22,7 +22,7 @@ export function QuestionnaireCtl41Report({ quiz, result, locale }: {
         <p data-ctl41-score={part.id} className="my-4 rounded-lg bg-slate-50 p-4 font-semibold">{zh
           ? `本域${part.itemCount}题计分和：${part.rawSum}（范围${part.itemCount}—${part.itemCount * 4}）；计分均值：${part.mean.toFixed(2)}（范围1—4）。`
           : `${part.itemCount}-item keyed sum: ${part.rawSum} (range ${part.itemCount}–${part.itemCount * 4}); keyed mean: ${part.mean.toFixed(2)} (range 1–4).`}</p>
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`ctl41-report-${part.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`ctl41-report-${part.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本领域完整公开指南" : "Read this domain’s full public guide"}</Link>
       </section>;
     })}

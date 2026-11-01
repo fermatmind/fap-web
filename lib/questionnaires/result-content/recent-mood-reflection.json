@@ -1,0 +1,125 @@
+{
+  "mood-and-interest-reading": [
+    {
+      "id": "section-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者记得一项熟悉活动开始前不太期待，进行时却仍有片刻乐趣；另一次活动形式有变化，享受是否不同记不清。期待、实际体验与活动条件可以分别保留，不用选出统一情绪结论。例子不要求再做活动、搜寻快乐或回访痛苦记忆，也不以享受过一次证明健康。",
+          "en": "In an additional original scene, a reader recalls little anticipation before a familiar activity but some enjoyment during it. On another occasion the activity format changed, and any difference in enjoyment is unclear. Anticipation, experience and activity conditions remain separate without one mood verdict. The scene requires no repeated activity, search for pleasure or return to a painful memory and treats no moment of enjoyment as proof of health."
+        }
+      ]
+    },
+    {
+      "id": "section-7",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“我想分别说开始前的期待和当时的感受；原因还不清楚；部分背景想保留。”可以只读虚构卡。听者不规定应该喜欢什么，不要求证明失去兴趣，也不拿一次乐趣否定困扰。专业提问不需要先完成活动、达到计数或接受某种诊断。",
+          "en": "An optional conversation card separates anticipation from the experience itself, leaves causes unknown and keeps some context private. Read only the fictional card. A listener prescribes no interest, requires no proof of lost enjoyment and dismisses no concern because of a pleasant moment. A professional question needs no completed activity, count or accepted diagnosis."
+        }
+      ]
+    },
+    {
+      "id": "section-4",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，不是PHQ-9、SDS、诊断、活动处方或治疗练习。12条仍保留三组各四条的六类记录；计数算描述，不算天数、症状、餐数、夜数、发作或影响程度，未计分不补零。三个可重叠的主题是编辑分组，不建立原因、严重度、能力或个人价值。原观察尚无独立验证、常模或中英文测量等值；四周是编辑回忆时段，不是诊断时长或求助等待期。独立临床评估保留自己的题目与报告契约，不转移回答或合并数字。任何组合不解释身体变化为无害，不替代合适评估及已有专业意见；没有自伤题也不证明安全。三篇全文与支持说明无需作答，复制仅含公开标题与入口，不含私人类别、想法或健康资料。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading, not PHQ-9, SDS, diagnosis, an activity prescription or treatment exercises. Twelve descriptions retain three six-category records of four. Counts concern descriptions, not days, symptoms, meals, nights, episodes or amounts of impact; unscored is not zero. Three overlapping topics are editorial groupings and establish no cause, severity, ability or personal worth. The original observations lack independent validation, norms or established English–Chinese measurement equivalence; four weeks is an editorial recall window, not a diagnostic duration or waiting period for support. The separate clinical assessment keeps its own questions and reporting contract without transferred answers or combined numbers. No pattern establishes a harmless physical change or replaces appropriate assessment and existing professional advice. The absence of a self-harm question does not establish safety. All three guides and support information need no answers. Copying contains only the public title and entry, without private categories, thoughts or health information."
+        }
+      ]
+    }
+  ],
+  "sleep-and-appetite-reading": [
+    {
+      "id": "section-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者记得可睡时段被事务打断，却不确定后来是睡着还是待床；另一天普通饭菜不太吸引自己，食物与日程背景记不清。睡眠机会、经历和食欲可以分别描述，不连成情绪造成身体变化的故事。例子不安排计时、试吃、限制食物、限睡或身体测量。",
+          "en": "In an additional original scene, a reader recalls responsibilities interrupting available sleep time but is unsure whether later time was spent asleep or in bed. On another day a meal seemed less appealing, with food and routine context unclear. Sleep opportunity, experience and appetite remain separate without a story of mood causing a physical change. The scene assigns no timing, food trial, restriction, reduced sleep or body measurement."
+        }
+      ]
+    },
+    {
+      "id": "section-7",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡分开“原本打算什么”“当时可能做到什么”和“记得注意到什么”，可全谈虚构例子，不列进餐或夜间记录。听者不评价食物、体型或自律，不替变化找无害原因，也不要求先改变习惯。已有照护与合适评估不等待卡片完成或身体变化被证明。",
+          "en": "An optional conversation card separates intention, opportunity and recollection, using entirely fictional material without meal or night records. A listener judges no food, body shape or discipline, supplies no harmless explanation and requires no habit change first. Existing care and appropriate assessment need not wait for a completed card or a demonstrated physical change."
+        }
+      ]
+    },
+    {
+      "id": "section-4",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，不是PHQ-9、SDS、诊断、活动处方或治疗练习。12条仍保留三组各四条的六类记录；计数算描述，不算天数、症状、餐数、夜数、发作或影响程度，未计分不补零。三个可重叠的主题是编辑分组，不建立原因、严重度、能力或个人价值。原观察尚无独立验证、常模或中英文测量等值；四周是编辑回忆时段，不是诊断时长或求助等待期。独立临床评估保留自己的题目与报告契约，不转移回答或合并数字。任何组合不解释身体变化为无害，不替代合适评估及已有专业意见；没有自伤题也不证明安全。三篇全文与支持说明无需作答，复制仅含公开标题与入口，不含私人类别、想法或健康资料。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading, not PHQ-9, SDS, diagnosis, an activity prescription or treatment exercises. Twelve descriptions retain three six-category records of four. Counts concern descriptions, not days, symptoms, meals, nights, episodes or amounts of impact; unscored is not zero. Three overlapping topics are editorial groupings and establish no cause, severity, ability or personal worth. The original observations lack independent validation, norms or established English–Chinese measurement equivalence; four weeks is an editorial recall window, not a diagnostic duration or waiting period for support. The separate clinical assessment keeps its own questions and reporting contract without transferred answers or combined numbers. No pattern establishes a harmless physical change or replaces appropriate assessment and existing professional advice. The absence of a self-harm question does not establish safety. All three guides and support information need no answers. Copying contains only the public title and entry, without private categories, thoughts or health information."
+        }
+      ]
+    }
+  ],
+  "energy-attention-and-self-talk-reading": [
+    {
+      "id": "section-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者记得一次熟悉活动开始费力，同时还有信息不足；另一次小挫折后出现苛刻内心话，却不愿重述内容。活动要求、精力、想法与未知可以分别保留，不把苛刻话当成价值事实，也不由同一时段推出因果。例子不要求补做任务、证明努力、写出想法或用肯定语替换。",
+          "en": "In an additional original scene, a reader recalls difficulty starting a familiar activity alongside missing information. After another small setback harsh inner words appeared, but their content stays private. Task demands, energy, thoughts and unknowns remain separate. Harsh words establish no fact about worth, and a shared period establishes no cause. The scene requires no completed task, proof of effort, written thought or replacement affirmation."
+        }
+      ]
+    },
+    {
+      "id": "section-7",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“我记得开始费力或内心话变苛刻；这些不是对能力与价值的裁定；现在想问怎样谈这项困扰。”可以只读，不提供产出或私人原话。听者不测试注意、不评价懒惰，也不要求先纠正想法才回应；可以保留解释未知，支持不以完成任务或维持积极表达为条件。",
+          "en": "An optional conversation card names remembered effort or harsh inner language, separates it from an ability or worth verdict and asks how to discuss the concern. Read without output records or private wording. A listener tests no attention, judges no laziness and requires no corrected thought before responding. Explanations can remain unknown; support depends on neither a finished task nor positive expression."
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，不是PHQ-9、SDS、诊断、活动处方或治疗练习。12条仍保留三组各四条的六类记录；计数算描述，不算天数、症状、餐数、夜数、发作或影响程度，未计分不补零。三个可重叠的主题是编辑分组，不建立原因、严重度、能力或个人价值。原观察尚无独立验证、常模或中英文测量等值；四周是编辑回忆时段，不是诊断时长或求助等待期。独立临床评估保留自己的题目与报告契约，不转移回答或合并数字。任何组合不解释身体变化为无害，不替代合适评估及已有专业意见；没有自伤题也不证明安全。三篇全文与支持说明无需作答，复制仅含公开标题与入口，不含私人类别、想法或健康资料。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading, not PHQ-9, SDS, diagnosis, an activity prescription or treatment exercises. Twelve descriptions retain three six-category records of four. Counts concern descriptions, not days, symptoms, meals, nights, episodes or amounts of impact; unscored is not zero. Three overlapping topics are editorial groupings and establish no cause, severity, ability or personal worth. The original observations lack independent validation, norms or established English–Chinese measurement equivalence; four weeks is an editorial recall window, not a diagnostic duration or waiting period for support. The separate clinical assessment keeps its own questions and reporting contract without transferred answers or combined numbers. No pattern establishes a harmless physical change or replaces appropriate assessment and existing professional advice. The absence of a self-harm question does not establish safety. All three guides and support information need no answers. Copying contains only the public title and entry, without private categories, thoughts or health information."
+        }
+      ]
+    }
+  ]
+}

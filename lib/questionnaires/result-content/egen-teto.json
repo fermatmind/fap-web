@@ -1,0 +1,86 @@
+{
+  "egen": [
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "一次低成本的两步尝试",
+        "en": "Try one small two-step opening"
+      },
+      "paragraphs": [
+        {
+          "zh": "复盘可以沿用下雨野餐：写一句只回应已听见的失落，再写一个室内地点的提议。若对方没有表达失落，就先问，不代填情绪；若正在淋雨，可先找遮蔽。比较两句是否都保留了修改和拒绝空间，而非是否足够温柔。只写虚构草稿也可以，不必联系朋友或重做题目。",
+          "en": "Review the rainy picnic with one sentence acknowledging only disappointment actually expressed and one proposal for a covered place. Ask rather than supply an unspoken emotion, and seek shelter first if people are getting wet. Compare room to revise or refuse both sentences instead of grading gentleness. Draft fiction without contacting a friend or retaking the quiz."
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "zh": "文化标签与完整免费范围",
+        "en": "A playful cultural name with full access"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果野餐临时遇雨，你会怎样把“还想见面”和“可以去哪里”接起来，又让大家能说今天不去了？”各拟一句开场，再说哪些条件会让自己换一种说法。对方可换题、只读、不回答或结束；不猜其激素、性别、能力与关系适配，也不把结果贴到缺席的人身上。公开链接只带通用说明，邀请讨论不需要展示答案和次数。",
+          "en": "Ask: “If rain interrupted a picnic, how would you connect wanting to meet with a possible place while leaving room to cancel?” Draft an opening each and name conditions that might change it. The other person may change topics, read only, decline or stop. Infer no hormones, gender, ability or compatibility and assign no label to an absent person. The public link opens a general guide; discussion needs no disclosure of answers or counts."
+        }
+      ]
+    }
+  ],
+  "teto": [
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "把一个方案写成可拒绝的邀请",
+        "en": "Make one proposal easy to accept or decline"
+      },
+      "paragraphs": [
+        {
+          "zh": "复盘可以沿用三张照片的相册开头：先说这是可修改的小样，再问有没有一段必须保留的回忆。若大家尚未约定相册目的，就先停在这个问题，不急着筛照片。比较的是提议是否清楚、是否听到了不同需要，不是执行速度或是否说服所有人。可以只起草一句邀请，不必制作或分享真实照片。",
+          "en": "Review the three-photo album opening by naming it a revisable sample and asking about a memory that should remain. If the album’s purpose is not agreed, pause there rather than sort photos immediately. Compare a clear proposal and room for another need, not speed or persuading everyone. Draft an invitation without making an album or sharing real photos."
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "zh": "保留文化话题，不建立生物判断",
+        "en": "Keep the topic separate from biological claims"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果想把相册开头先缩成三张照片，你会怎样提出小样，又给大家想保留的故事留位置？”各拟一句开场，再说哪些条件会让自己换一种说法。对方可换题、只读、不回答或结束；不猜其激素、性别、能力与关系适配，也不把结果贴到缺席的人身上。公开链接只带通用说明，邀请讨论不需要展示答案和次数。",
+          "en": "Ask: “If you proposed a three-photo album opening, how would you offer a sample while leaving room for stories people want to keep?” Draft an opening each and name conditions that might change it. The other person may change topics, read only, decline or stop. Infer no hormones, gender, ability or compatibility and assign no label to an absent person. The public link opens a general guide; discussion needs no disclosure of answers or counts."
+        }
+      ]
+    }
+  ],
+  "tie": [
+    {
+      "id": "practice",
+      "title": {
+        "zh": "用一个询问代替猜测",
+        "en": "Replace a guess with one short question"
+      },
+      "paragraphs": [
+        {
+          "zh": "复盘时可把野餐与相册各写一个开场，标出是哪条具体信息让你选择先听或先提议。再改一个条件，例如对方明确说想先听方案，观察草稿会怎样变。两次顺序可以一样，也可以不同；不必刻意一半对一半，更不用表演灵活。可以只看虚构例子，不记录私人对话。",
+          "en": "Review one picnic opening and one album opening, marking the specific information behind listening or proposing first. Change one condition, such as an explicit request for a plan, and reconsider the draft. The order may remain or change without aiming for half of each or performing flexibility. Use fictional examples without recording private conversations."
+        }
+      ]
+    },
+    {
+      "id": "access",
+      "title": {
+        "zh": "平分也有完整结果，不再解锁一层",
+        "en": "A tie is a full result with no extra unlock"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果下雨野餐和制作相册让你想用不同开场，分别是哪条信息影响了你？改一个条件后会怎样？”各拟一句开场，再说哪些条件会让自己换一种说法。对方可换题、只读、不回答或结束；不猜其激素、性别、能力与关系适配，也不把结果贴到缺席的人身上。公开链接只带通用说明，邀请讨论不需要展示答案和次数。",
+          "en": "Ask: “If a rainy picnic and making an album invited different openings, which detail influenced each choice and what would changing one condition do?” Draft an opening each and name conditions that might change it. The other person may change topics, read only, decline or stop. Infer no hormones, gender, ability or compatibility and assign no label to an absent person. The public link opens a general guide; discussion needs no disclosure of answers or counts."
+        }
+      ]
+    }
+  ]
+}

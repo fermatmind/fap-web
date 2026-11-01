@@ -1,0 +1,330 @@
+{
+  "rue-bennett": [
+    {
+      "id": "example",
+      "title": {
+        "en": "An original everyday example",
+        "zh": "原创日常情境"
+      },
+      "paragraphs": [
+        {
+          "zh": "另设一个原创场景：逛展时大家还想继续，你先打趣自己的腿已经提前闭馆，随后直接说想坐十分钟。笑点只是开口，实际请求是休息；朋友可以听懂请求，也可以说明自己的安排。若你只讲笑话、没有说需要什么，对方没停下并不能证明不在乎你。可以直接提出同一请求而不讲笑话；两种表达都不需要模仿角色的剧情或生活经历。",
+          "en": "In another original scene, friends want to keep exploring an exhibition. You joke that your legs have already closed for the day, then plainly ask to sit for ten minutes. Humour opens the conversation; rest is the actual request. Friends can respond to that request and describe their own plans. If you make only the joke, their continuing does not prove indifference. You can make the same request directly without humour. Neither version requires imitating the character’s story or personal history."
+        }
+      ]
+    },
+    {
+      "id": "compare",
+      "title": {
+        "en": "Compare nearby routes",
+        "zh": "比较相近路线"
+      },
+      "paragraphs": [
+        {
+          "zh": "与莱克西的区别可放在下一步：鲁路线先找一种讲述入口，莱克西路线先核对观察到的细节。一次玩笑也可能只是共享笑点，不代表回避；一次直接表达也不会推翻本结果。这里比较选项的用途，不给两种方式排成熟度。",
+          "en": "Compare the next move: this route finds an entry into telling, while Lexi’s first checks observed detail. A joke may simply share amusement rather than conceal anything, and a direct request does not invalidate this result. Compare the uses of the options without ranking either as more mature."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "en": "An optional observation or conversation",
+        "zh": "可选观察或对话"
+      },
+      "paragraphs": [
+        {
+          "zh": "可与愿意参与的人讨论：“这个例子里的玩笑之后，还需要哪句明确请求？”各写一句玩笑版和直接版，再说自己在此情境更舒服哪种。只谈编造场景，不要求讲痛苦经历，也不用角色名猜测朋友是否隐藏问题。",
+          "en": "With someone willing to participate, ask: “What explicit request still needs to follow the joke?” Write one humorous and one direct version, then describe which feels more comfortable in this invented situation. No difficult personal disclosure is required, and the character name cannot reveal whether a friend is hiding a problem."
+        }
+      ]
+    }
+  ],
+  "jules-vaughn": [
+    {
+      "id": "example",
+      "title": {
+        "en": "An original everyday example",
+        "zh": "原创日常情境"
+      },
+      "paragraphs": [
+        {
+          "zh": "另设原创场景：手工小组想换材料，你提出先用一小块新纸折一个样件，旧材料仍保留。先说清样件只花十分钟、谁愿意试、怎样结束，不把所有人的作品一起更换。试过发现新纸不好用，可以回到旧方案。好奇体现为一个可选择的小尝试，而不是必须坚持新东西或让别人承担额外花费。",
+          "en": "In another original scene, a craft group considers changing materials. You suggest folding one sample from a small piece of unfamiliar paper while keeping the old supply. Agree on ten minutes, willing participants and a stopping point instead of replacing everyone’s work. If the paper proves unsuitable, return to the familiar option. Curiosity becomes a small voluntary trial, not an obligation to keep the novelty or impose extra costs on others."
+        }
+      ]
+    },
+    {
+      "id": "compare",
+      "title": {
+        "en": "Compare nearby routes",
+        "zh": "比较相近路线"
+      },
+      "paragraphs": [
+        {
+          "zh": "与凯特相比，先问兴趣落在新材料的效果，还是它表达什么风格；与内特相比，先问探索是否还允许结果未知。资源不足时不尝试不能说明缺少想象力，喜欢熟悉材料也不比本路线保守或低一级。",
+          "en": "Compared with Kat, ask whether the interest concerns an unfamiliar material’s possibilities or the style it expresses. Compared with Nate, ask whether the exploration still permits an unknown outcome. Limited resources do not establish a lack of imagination, and preferring familiar material is not a lower-status route."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "en": "An optional observation or conversation",
+        "zh": "可选观察或对话"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这个小尝试怎样才方便拒绝或停止？”各自提出一种能撤回的试法，说明最想了解什么。可以只比较纸上的想法，不花钱、不外出、不披露性别或关系经历，也不把愿不愿尝试当勇敢考试。",
+          "en": "Ask: “How could this small trial be easy to decline or stop?” Offer a reversible version and say what you would want to learn. Comparing ideas on paper is enough: no spending, trip, gender disclosure or relationship history is needed, and willingness to try is not a bravery test."
+        }
+      ]
+    }
+  ],
+  "cassie-howard": [
+    {
+      "id": "example",
+      "title": {
+        "en": "An original everyday example",
+        "zh": "原创日常情境"
+      },
+      "paragraphs": [
+        {
+          "zh": "另设原创场景：朋友取消周末电影，你想念相处，可以问本周是否愿意找十分钟通话，也允许对方说现在没空。不把一个取消自动改写成“不重视我”，也不把答应通话视为必须不断证明亲近。原安排、你此刻的愿望与对方可用时间可以分别说清；对方拒绝这个时间，仍可能愿意另约，也可能暂时没有安排。",
+          "en": "In another original scene, a friend cancels a weekend film. Missing their company, you ask whether they would like a ten-minute call sometime this week, with room to say they have no time. One cancellation does not automatically mean disregard, and accepting a call creates no duty to keep proving closeness. Separate the cancelled plan, your current wish and their availability. Declining that time may leave another possibility, or no new arrangement for now."
+        }
+      ]
+    },
+    {
+      "id": "compare",
+      "title": {
+        "en": "Compare nearby routes",
+        "zh": "比较相近路线"
+      },
+      "paragraphs": [
+        {
+          "zh": "与费兹相比，这里首先想要的是相处，未必需要解决事务；与麦迪相比，可以同时表达“想见面”和“我只能聊十分钟”。寻求连接不排斥界限，不请求陪伴也不证明更独立。次数不能判断依恋类型或一段关系的健康。",
+          "en": "Compared with Fezco, the first wish is company rather than a task being solved. Alongside Maddy’s theme, “I want to meet” can coexist with “I have ten minutes.” Connection does not exclude limits, and not asking for company does not establish greater independence. Counts cannot identify attachment style or relationship health."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "en": "An optional observation or conversation",
+        "zh": "可选观察或对话"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“怎样把愿望说出来，又不替对方决定有空？”各写一条简短邀请，保留明确拒绝空间。不检查朋友的聊天记录，不要求证明感情，也不拿真实争执来验证角色结果；不想讨论关系时可只读例子。",
+          "en": "Ask: “How can the wish be expressed without deciding the other person’s availability?” Write a short invitation with clear room to decline. Do not inspect messages, demand proof of affection or use a real dispute to validate the character result. Reading the example alone is enough."
+        }
+      ]
+    }
+  ],
+  "maddy-perez": [
+    {
+      "id": "example",
+      "title": {
+        "en": "An original everyday example",
+        "zh": "原创日常情境"
+      },
+      "paragraphs": [
+        {
+          "zh": "另设原创场景：朋友准备把集体照片公开，你只同意自己收藏，不同意上传。可以说“这张请先别发，我愿意另选一张”，也可以直接拒绝，不必以同意另一张交换拒绝权。对方怎样回应是另一件事，不能从你选择直接表达就假定界限一定获尊重。此例讨论普通分享安排，不要求在不安全的关系中当面对抗或披露计划。",
+          "en": "In another original scene, friends want to publish a group photograph. You are comfortable keeping a private copy but not posting it. You might ask them not to publish this one and offer to choose another; refusing does not require that exchange. Their response is a separate fact, so a preference for direct expression does not establish that a limit will be respected. This ordinary sharing example does not require confrontation or disclosure of plans in an unsafe relationship."
+        }
+      ]
+    },
+    {
+      "id": "compare",
+      "title": {
+        "en": "Compare nearby routes",
+        "zh": "比较相近路线"
+      },
+      "paragraphs": [
+        {
+          "zh": "与内特相比，这里的首要信息是自己的许可范围，而非统筹发布步骤；与凯特相比，先问是否愿意公开，而非公开成什么样。安静地拒绝也能清楚，无法安全拒绝不是个人果断失败，更不能把受到伤害解释为角色命运。",
+          "en": "Compared with Nate, the first information is your permission rather than a publishing schedule. Compared with Kat, ask whether to publish before how to present it. A quiet refusal can be clear. Being unable to refuse safely is not a failure of assertiveness, and harm is not a character destiny."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "en": "An optional observation or conversation",
+        "zh": "可选观察或对话"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这句话明确了哪种许可，哪些仍没有同意？”用一张想象的照片练习区分私藏、发群与公开，不分享真实照片或他人私事。愿意时只讨论措辞，不评谁更强势，也不要求解释拒绝的私人原因。",
+          "en": "Ask: “Which permission does this sentence give, and what remains unapproved?” Use an imagined photograph to distinguish a private copy, a group message and public posting. No real photograph or private story is needed. Discuss wording without ranking assertiveness or requiring personal reasons for declining."
+        }
+      ]
+    }
+  ],
+  "lexi-howard": [
+    {
+      "id": "example",
+      "title": {
+        "en": "An original everyday example",
+        "zh": "原创日常情境"
+      },
+      "paragraphs": [
+        {
+          "zh": "另设原创场景：兴趣小组讨论过周六见面，但没有确认。你写纪要时标“有人提议周六，时间待确认”，而不写“大家决定周六”。发送前请相关的人核对，也允许私人片段不纳入。准确叙述关注哪些事实被说过、哪些仍未知，不等于能看透动机；文字详细也可能保留错误，因此可修正比“记录者一定记得对”更有用。",
+          "en": "In another original scene, a hobby group discussed Saturday without confirming it. Your note says “Saturday proposed; time unconfirmed,” not “Everyone decided on Saturday.” Ask participants to check before sharing, and leave private moments out if requested. An accurate account distinguishes stated facts from unknowns without claiming to see motives. Detailed writing can still preserve an error, so room for correction is more useful than assuming the recorder must remember correctly."
+        }
+      ]
+    },
+    {
+      "id": "compare",
+      "title": {
+        "en": "Compare nearby routes",
+        "zh": "比较相近路线"
+      },
+      "paragraphs": [
+        {
+          "zh": "与鲁相比，先核事实而非先找到讲述语气；与内特相比，先分清提议和决定，再安排下一步。写记录不能自动代表他人的视角，不写记录也不证明观察力差。真实信息矛盾时，本结果不会替你判定谁说真话。",
+          "en": "Compared with Rue, first check facts rather than a storytelling tone. Compared with Nate, distinguish proposal from decision before arranging action. Recording does not automatically represent others’ perspectives, and not recording does not establish poor observation. This result cannot decide who is truthful when real accounts conflict."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "en": "An optional observation or conversation",
+        "zh": "可选观察或对话"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这段纪要中哪句是事实，哪句是推断，哪句需要确认？”一起改一段编造的三句纪要即可，不公开真人故事、不要求翻聊天记录，也不把朋友变成故事素材。允许对同一情境保留不同视角。",
+          "en": "Ask: “Which sentence records a fact, an inference or something needing confirmation?” Edit three invented sentences together without publishing a real story, requesting chat histories or turning friends into material. Different perspectives on the imagined scene can remain."
+        }
+      ]
+    }
+  ],
+  "fezco": [
+    {
+      "id": "example",
+      "title": {
+        "en": "An original everyday example",
+        "zh": "原创日常情境"
+      },
+      "paragraphs": [
+        {
+          "zh": "另设原创场景：朋友要布置小展，你能在下午帮忙贴三张标签，于是先问是否需要这一部分，再确认结束时间。对方若更想独自做，就不接手；实际帮助不是替对方重新安排全部作品。做不到接送、花钱或多留一天时，可以说出限制，关心不靠任务数量证明。完成本例也不需要替别人承担风险或隐瞒问题。",
+          "en": "In another original scene, a friend is setting up a small display. You can help attach three labels one afternoon, so ask whether that part would be useful and agree on an ending time. If they prefer doing it alone, do not take over or reorganize the whole display. Limits on transport, money or an extra day can be stated; care is not proven by the number of tasks accepted. This example creates no obligation to take risks or conceal problems for someone."
+        }
+      ]
+    },
+    {
+      "id": "compare",
+      "title": {
+        "en": "Compare nearby routes",
+        "zh": "比较相近路线"
+      },
+      "paragraphs": [
+        {
+          "zh": "与卡西相比，首先提出可做的具体事，而非先问是否要陪伴；与内特相比，先核对接受者需要，再谈分工。帮助被拒绝不等于关系被拒绝，也不能从帮忙多推断可靠性或边界健康。角色的犯罪情节仍不属于本路线的肯定内容。",
+          "en": "Compared with Cassie, first offer a specific task rather than company. Compared with Nate, check the recipient’s need before assigning work. Declining help does not necessarily reject the relationship, and many favours do not establish reliability or healthy limits. The character’s criminal actions remain outside anything this route endorses."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "en": "An optional observation or conversation",
+        "zh": "可选观察或对话"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这个帮助的范围、结束点和拒绝方式清楚吗？”各写一份只含一件小事的可选提议，不承诺真实金钱、运输或照顾责任。不想提供帮助时也可只读，不用结果给朋友分配固定照顾者角色。",
+          "en": "Ask: “Are the scope, ending and way to decline clear?” Write an optional offer involving one small task, without committing real money, transport or care responsibilities. Reading alone is fine; do not use a result to appoint a friend as the permanent carer."
+        }
+      ]
+    }
+  ],
+  "nate-jacobs": [
+    {
+      "id": "example",
+      "title": {
+        "en": "An original everyday example",
+        "zh": "原创日常情境"
+      },
+      "paragraphs": [
+        {
+          "zh": "另设原创场景：活动结束剩五分钟收拾，你列出桌面、材料和垃圾三件事，询问谁愿意做哪项，并让大家改动安排。没人愿意接的部分仍需协商，不因你写了清单就自动归别人。若任务超出可用时间，可以缩小范围、另约或请合适的人确认。组织下一步关注可核对的约定，不赋予查看别人消息、施压或决定其私人时间的权力。",
+          "en": "In another original scene, five minutes remain for tidying after an event. List tables, materials and rubbish, then ask who freely wants each task and allow revisions. An unclaimed task still needs discussion; writing it down does not assign it to someone. If work exceeds available time, reduce the scope, arrange another time or ask the appropriate person. Structuring a next move concerns checkable commitments, not access to private messages or authority to pressure others or allocate their personal time."
+        }
+      ]
+    },
+    {
+      "id": "compare",
+      "title": {
+        "en": "Compare nearby routes",
+        "zh": "比较相近路线"
+      },
+      "paragraphs": [
+        {
+          "zh": "与麦迪相比，先核大家接受什么安排，而不只说自己的偏好；与莱克西相比，先确认事实后才能把记录变成约定。喜欢可见结果不证明控制或领导力，清单完成也不能冲销逼迫。对方可真实拒绝，是这个普通协作例子的重要条件。",
+          "en": "Compared with Maddy, check the arrangement others accept as well as your own preference. Compared with Lexi, establish facts before turning a record into a commitment. Wanting a visible outcome proves neither control nor leadership, and a finished checklist cannot cancel coercion. A real opportunity to decline matters in this ordinary collaboration example."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "en": "An optional observation or conversation",
+        "zh": "可选观察或对话"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这份计划里谁已经同意，谁只是被写进去了？”用编造三人清单检查自愿、时段与可修改之处。不实际安排朋友的工作，不把角色匹配当管理权限，也不把强迫说成效率。",
+          "en": "Ask: “Who has agreed to this plan, and who has merely been written into it?” Check willingness, time and revisability in an invented three-person list. Do not allocate friends’ real work, treat a character match as management authority or rename coercion as efficiency."
+        }
+      ]
+    }
+  ],
+  "kat-hernandez": [
+    {
+      "id": "example",
+      "title": {
+        "en": "An original everyday example",
+        "zh": "原创日常情境"
+      },
+      "paragraphs": [
+        {
+          "zh": "另设原创场景：为读书会写三十字介绍，你试一个活泼版和一个朴素版，再选自己愿意让这群人看到的内容。两版都可以真实，也都不必附照片、身体细节或私人经历。若受众从小组变成公开网页，可以重新缩小信息范围；选择呈现方式不意味着必须不断变大胆，保留普通版本或不发布也可以。",
+          "en": "In another original scene, you draft a thirty-word reading-group introduction in playful and plain versions, then choose what you want that audience to see. Both can be truthful without a photograph, body details or personal history. If the audience changes from a small group to a public page, reconsider the information included. Choosing presentation does not require becoming ever bolder; a familiar version or no publication is also available."
+        }
+      ]
+    },
+    {
+      "id": "compare",
+      "title": {
+        "en": "Compare nearby routes",
+        "zh": "比较相近路线"
+      },
+      "paragraphs": [
+        {
+          "zh": "与朱尔斯相比，先问想表达怎样的声音，而不只是想试什么新体验；与麦迪相比，呈现风格仍须以同意公开为前提。换语气不证明虚假，保留原样不证明自信。这里没有吸引力、身体评价、性行为或网络身份诊断。",
+          "en": "Compared with Jules, ask what voice to express rather than only which unfamiliar experience to try. Alongside Maddy’s theme, style still requires permission to publish. A change of tone does not prove deception, and keeping the original does not prove confidence. No attractiveness, body, sexual-behaviour or online-identity assessment follows."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "en": "An optional observation or conversation",
+        "zh": "可选观察或对话"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“哪一句表达了兴趣，哪一句其实不想让这个受众知道？”共同修改虚构介绍，不要求晒自拍、真实账号或隐私经历。可以只比较文字，不替朋友选择形象，也不用角色结果要求更多线上暴露。",
+          "en": "Ask: “Which sentence expresses an interest, and which reveals something this audience need not know?” Edit an invented introduction without selfies, real accounts or private experiences. Compare wording without choosing a friend’s image for them or demanding more online exposure because of a character result."
+        }
+      ]
+    }
+  ]
+}

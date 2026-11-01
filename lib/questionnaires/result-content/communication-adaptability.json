@@ -1,0 +1,162 @@
+{
+  "audience-purpose-review": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：同一状态，按问题调整必要信息",
+        "en": "Review one status against different readers’ questions"
+      },
+      "paragraphs": [
+        {
+          "zh": "新虚构情景：活动场地申请仍待批准。新成员问现在能做什么，负责人问是否可发确认通知。给新成员可说明“场地未确认，现在可先整理材料”；给负责人应保留“待批准，尚不能当作已确认”，并说明所需决定或后续确认方式。两条消息的信息重点不同，底层状态必须相同。先写读者的问题，再删去不相关经过；不要为了让回应听起来肯定而把待定改成完成。这个例子练表达选择，不授权发送通知或批准申请。",
+          "en": "In a fresh fictional case, a venue request is awaiting approval. A new member asks what to do now, while a coordinator asks whether confirmation can be announced. The member may need “The venue is unconfirmed; materials can be prepared meanwhile.” The coordinator needs the pending status and the required decision or confirmation route. The emphasis changes, but the underlying status must agree. Write the reader’s question before removing irrelevant history. Do not change pending into complete to sound confident. This example practises message choices without authorizing an announcement or approving a request."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起改写虚构消息，比较理由",
+        "en": "Rewrite a fictional message together and compare reasons"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“两位读者分别需要什么？哪些背景可以缩短，哪个状态绝不能为了适应受众而改变？”先各自写一句改写，再说明保留了什么事实、回应了哪个需要。可只读、查资料、换例子或不参与，不要求公开聊天记录、表演沟通风格或评价谁更适合工作。本练习的编辑答案依题设条件，不代表对现实互动的观察。",
+          "en": "Ask: “What does each reader need, which background can be shortened, and which status must remain unchanged?” Write one revision separately, then explain which fact it preserves and which need it addresses. Read, consult a source, change examples or decline without showing chat histories, performing a communication style or rating job suitability. Editorial keys follow the supplied conditions rather than observations of real interactions."
+        },
+        {
+          "zh": "分享按钮复制公开练习入口，不带个人选项和一致题数，也可自行分享本公开指南。五组是复习方向，不是沟通人格、适应力等级、Duran量表分数或招聘结论。30题使用同一固定题组，重测提高可能来自记忆；可换一个新情景，看自己能否解释受众、事实及待核点。",
+          "en": "The share button copies the public practice entry without personal choices or match counts; you can also share this public guide yourself. Five groups organise revision rather than communication personalities, adaptability grades, Duran scale scores or hiring conclusions. Retakes reuse the same 30 items and may reward recall. Try a fresh case and explain its audience, facts and remaining uncertainties."
+        }
+      ]
+    }
+  ],
+  "channel-record-review": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：让指定受众找到同一个已同意版本",
+        "en": "Review retrieval and audience without widening access"
+      },
+      "paragraphs": [
+        {
+          "zh": "新虚构小组只有三位指定成员，可使用既有受限文档空间。通话已商定改用材料v3，Mira负责在给定时间更新。可在原批准位置记录“使用v3、负责人Mira、约定生效时间”，并给这三人可用的版本位置；“刚聊过”不留下同样信息。先核是否确已商定、文件是否为该版本、接收范围是否仍为三人。不要为了易找就建立公开链接，也不要把尚未商定的v4写成决定。这里仅规划练习记录，不实际改文件权限或工作分工。",
+          "en": "A fresh fictional group has three named members and an existing restricted document space. A call agreed to use material v3, with Mira responsible for updating it at the supplied time. Record the version, agreed owner and effective time in that approved location, giving the three recipients a usable way to retrieve the same version. “We talked” does not preserve those details. Check agreement, version identity and audience separately. Do not create a public link for convenience or record an unagreed v4 as the decision. This example plans a practice record without changing real permissions or assignments."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起改写虚构消息，比较理由",
+        "en": "Rewrite a fictional message together and compare reasons"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“容易找到、版本一致、受众合适分别怎样核对？如果把链接公开，解决了查找是否也同时满足权限条件？”先各自写一句改写，再说明保留了什么事实、回应了哪个需要。可只读、查资料、换例子或不参与，不要求公开聊天记录、表演沟通风格或评价谁更适合工作。本练习的编辑答案依题设条件，不代表对现实互动的观察。",
+          "en": "Ask: “How would you check retrieval, version identity and audience separately, and would making the link public satisfy the stated restriction?” Write one revision separately, then explain which fact it preserves and which need it addresses. Read, consult a source, change examples or decline without showing chat histories, performing a communication style or rating job suitability. Editorial keys follow the supplied conditions rather than observations of real interactions."
+        },
+        {
+          "zh": "分享按钮复制公开练习入口，不带个人选项和一致题数，也可自行分享本公开指南。五组是复习方向，不是沟通人格、适应力等级、Duran量表分数或招聘结论。30题使用同一固定题组，重测提高可能来自记忆；可换一个新情景，看自己能否解释受众、事实及待核点。",
+          "en": "The share button copies the public practice entry without personal choices or match counts; you can also share this public guide yourself. Five groups organise revision rather than communication personalities, adaptability grades, Duran scale scores or hiring conclusions. Retakes reuse the same 30 items and may reward recall. Try a fresh case and explain its audience, facts and remaining uncertainties."
+        }
+      ]
+    }
+  ],
+  "context-access-review": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：固定偏移与完整日期一起写清",
+        "en": "Review an explicit offset together with the complete date"
+      },
+      "paragraphs": [
+        {
+          "zh": "新虚构邀请明确为“6 November 2026, 14:00 UTC+08:00”。同一时刻按UTC+00:00表示是该日06:00，差八小时；这两个固定偏移已给出，不需要猜地区或夏令时。若只写“6/11下午两点”，月份顺序、年份和时区都可能缺失。按接收者已说明的需要呈现完整日期与偏移，再核对其是否能使用该格式；不知道偏好时可询问，不按国籍分配习惯。这个算例不安排真实会议，也不声称某城市全年使用某个偏移。",
+          "en": "A fresh fictional invitation states “6 November 2026, 14:00 UTC+08:00.” The same instant is 06:00 that day at UTC+00:00, an eight-hour difference. These fixed offsets are supplied, so no regional or daylight-saving assumption is needed. “6/11 at two” can leave month order, year and time zone unspecified. Present the complete date and offset for the recipient’s stated need, then check whether that format is usable. Ask about an unknown preference instead of assigning a convention by nationality. This arithmetic example schedules no real meeting and claims no city uses one offset throughout the year."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起改写虚构消息，比较理由",
+        "en": "Rewrite a fictional message together and compare reasons"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“两个时刻为什么可以指同一瞬间？如果只知道城市名但没有日期或偏移，还缺什么信息？”先各自写一句改写，再说明保留了什么事实、回应了哪个需要。可只读、查资料、换例子或不参与，不要求公开聊天记录、表演沟通风格或评价谁更适合工作。本练习的编辑答案依题设条件，不代表对现实互动的观察。",
+          "en": "Ask: “Why can the two clock times represent one instant, and what remains to check when only a city name is supplied?” Write one revision separately, then explain which fact it preserves and which need it addresses. Read, consult a source, change examples or decline without showing chat histories, performing a communication style or rating job suitability. Editorial keys follow the supplied conditions rather than observations of real interactions."
+        },
+        {
+          "zh": "分享按钮复制公开练习入口，不带个人选项和一致题数，也可自行分享本公开指南。五组是复习方向，不是沟通人格、适应力等级、Duran量表分数或招聘结论。30题使用同一固定题组，重测提高可能来自记忆；可换一个新情景，看自己能否解释受众、事实及待核点。",
+          "en": "The share button copies the public practice entry without personal choices or match counts; you can also share this public guide yourself. Five groups organise revision rather than communication personalities, adaptability grades, Duran scale scores or hiring conclusions. Retakes reuse the same 30 items and may reward recall. Try a fresh case and explain its audience, facts and remaining uncertainties."
+        }
+      ]
+    }
+  ],
+  "understanding-review": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：只追问仍缺的那一项",
+        "en": "Review the remaining gap without reopening settled details"
+      },
+      "paragraphs": [
+        {
+          "zh": "新虚构约定已明确：Mira负责把三张表合成一个文件，期限写“6 November 2026, 18:00”，但跨地区小组尚未说明时区。可以复述已知任务，并只问“这里18:00按哪个时区？”而不是要求重新确认每个表名或暗定自己的时区。得到答案后，把完整期限补入同一约定；此前不要称它已明确。这个例子练把疑问限定到真正缺口，不等于所有日常消息都需要更多批准，也不把收到、理解与接受分工混成一个状态。",
+          "en": "A fresh fictional agreement names Mira to combine three tables into one file by “6 November 2026, 18:00,” but the mixed-location group has not supplied a time zone. Restate the known task and ask specifically which zone applies. Do not reopen every table name or silently choose your own clock. After receiving the answer, add the complete deadline to the same agreement; before that, its timing remains incomplete. This example narrows clarification to a genuine gap rather than requiring more approval for every routine message or treating receipt, understanding and task acceptance as one state."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起改写虚构消息，比较理由",
+        "en": "Rewrite a fictional message together and compare reasons"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“哪些内容已经明确，哪个问题仍能改变执行？怎样简短询问而不让对方把全部信息重讲一次？”先各自写一句改写，再说明保留了什么事实、回应了哪个需要。可只读、查资料、换例子或不参与，不要求公开聊天记录、表演沟通风格或评价谁更适合工作。本练习的编辑答案依题设条件，不代表对现实互动的观察。",
+          "en": "Ask: “Which details are settled, which remaining gap could change execution, and how can you ask without making the sender repeat everything?” Write one revision separately, then explain which fact it preserves and which need it addresses. Read, consult a source, change examples or decline without showing chat histories, performing a communication style or rating job suitability. Editorial keys follow the supplied conditions rather than observations of real interactions."
+        },
+        {
+          "zh": "分享按钮复制公开练习入口，不带个人选项和一致题数，也可自行分享本公开指南。五组是复习方向，不是沟通人格、适应力等级、Duran量表分数或招聘结论。30题使用同一固定题组，重测提高可能来自记忆；可换一个新情景，看自己能否解释受众、事实及待核点。",
+          "en": "The share button copies the public practice entry without personal choices or match counts; you can also share this public guide yourself. Five groups organise revision rather than communication personalities, adaptability grades, Duran scale scores or hiring conclusions. Retakes reuse the same 30 items and may reward recall. Try a fresh case and explain its audience, facts and remaining uncertainties."
+        }
+      ]
+    }
+  ],
+  "communication-modes-review": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：表达方式与信息是否可用分别核",
+        "en": "Review the mode separately from whether its information is usable"
+      },
+      "paragraphs": [
+        {
+          "zh": "新虚构图表列出Elm为4、Pine为7，讲解者口头说“Pine较多”，同时指向图。如果接收者无法看见，口头比较保留了大小关系，却没有给出两个准确值。可按对方需要补“Elm为4，Pine为7”的文字或合适口头说明，再核是否足够。给图命名为视觉、给话语命名为口头，只是在辨认承载方式；没有自动证明对方收到、理解、同意或材料符合正式无障碍标准。这里的数值是虚构标签，不是任何群体的测量结果。",
+          "en": "A fresh fictional chart lists Elm as four and Pine as seven. A presenter says “Pine has more” while pointing at it. If a recipient cannot see the chart, the spoken comparison preserves the ordering but not both exact values. Add the values in text or a suitable spoken explanation according to the stated need, then check whether that is enough. Calling the chart visual and the explanation spoken identifies their modes without proving receipt, understanding, agreement or formal accessibility compliance. The values are invented labels rather than measurements of any group."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起改写虚构消息，比较理由",
+        "en": "Rewrite a fictional message together and compare reasons"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“去掉图像后还保留了什么，丢了什么？辨认出两种沟通方式以后，为什么仍需检查关键信息能否接收？”先各自写一句改写，再说明保留了什么事实、回应了哪个需要。可只读、查资料、换例子或不参与，不要求公开聊天记录、表演沟通风格或评价谁更适合工作。本练习的编辑答案依题设条件，不代表对现实互动的观察。",
+          "en": "Ask: “What survives without the chart, what is lost, and why should you check access to essential details after naming both modes?” Write one revision separately, then explain which fact it preserves and which need it addresses. Read, consult a source, change examples or decline without showing chat histories, performing a communication style or rating job suitability. Editorial keys follow the supplied conditions rather than observations of real interactions."
+        },
+        {
+          "zh": "分享按钮复制公开练习入口，不带个人选项和一致题数，也可自行分享本公开指南。五组是复习方向，不是沟通人格、适应力等级、Duran量表分数或招聘结论。30题使用同一固定题组，重测提高可能来自记忆；可换一个新情景，看自己能否解释受众、事实及待核点。",
+          "en": "The share button copies the public practice entry without personal choices or match counts; you can also share this public guide yourself. Five groups organise revision rather than communication personalities, adaptability grades, Duran scale scores or hiring conclusions. Retakes reuse the same 30 items and may reward recall. Try a fresh case and explain its audience, facts and remaining uncertainties."
+        }
+      ]
+    }
+  ]
+}

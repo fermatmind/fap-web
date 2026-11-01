@@ -3,10 +3,11 @@ import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { StressReflection4Questionnaire, StressReflection4Result } from "@/lib/questionnaires/stressReflection4";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
+import type { QuestionnaireProfile } from "@/lib/questionnaires/types";
 
 type Complete = Extract<StressReflection4Result, { status: "complete" }>;
-export function QuestionnaireStressCheckInReport({ quiz, result, locale }: { quiz: StressReflection4Questionnaire | Pss4Questionnaire; result: Complete; locale: Locale }) {
+export function QuestionnaireStressCheckInReport({ quiz, result, locale, resultProfile }: { quiz: StressReflection4Questionnaire | Pss4Questionnaire; result: Complete; locale: Locale; resultProfile?: QuestionnaireProfile }) {
   const zh = locale === "zh";
   const valid = result.status === "complete" && result.answered === 4 && result.contributions.length === 4
     && result.contributions.every((p, i) => p.id === quiz.questions[i].id && Number.isInteger(p.chosen) && p.chosen >= 0 && p.chosen <= 4
@@ -14,6 +15,7 @@ export function QuestionnaireStressCheckInReport({ quiz, result, locale }: { qui
     && result.total === result.contributions.reduce((sum, p) => sum + p.value, 0);
   if (!valid) return <p role="status">{zh ? "本次总分暂不可用，可以清除后重新开始。" : "This total is unavailable. Clear it and start again."}</p>;
   const profile = quiz.profiles[0];
+  const readingProfile = (quiz.kind === "stress-reflection4" || quiz.kind === "pss4") && resultProfile?.id === profile.id && resultProfile.resultReading?.quizSlug === quiz.slug ? resultProfile : profile;
   return <div data-stress-check-in-result className="my-6 space-y-8">
     <p data-stress-check-in-total className="rounded-lg border border-violet-200 bg-violet-50 p-5 text-2xl font-semibold">{quiz.kind === "pss4" ? `${quiz.resultHeading[locale]}: ` : (zh ? "本次总分：" : "This check-in total: ")}<span className="whitespace-nowrap">{result.total} / 16</span></p>
     <p className="leading-8">{profile.scoreReading[locale]}</p>
@@ -25,7 +27,7 @@ export function QuestionnaireStressCheckInReport({ quiz, result, locale }: { qui
       </li>)}</ol>
       <p className="leading-8">{result.contributions.map(p => p.value).join(" + ")} = {result.total}</p>
     </section>
-    <QuestionnaireReport profile={profile} locale={locale} headingLevel={3} idPrefix="stress-check-in-report" />
+    <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={3} idPrefix="stress-check-in-report" />
     <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "单独阅读完整公开指南" : "Read the complete public guide separately"}</Link>
     <p className="rounded-lg border border-slate-200 p-4 leading-8">{quiz.guide.find(s => s.id === "privacy")!.paragraphs[0][locale]}</p>
     <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试" : "Back to all tests"}</Link>

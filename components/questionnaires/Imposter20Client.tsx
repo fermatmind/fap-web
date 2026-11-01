@@ -3,20 +3,20 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Locale } from "@/lib/i18n/locales";
-import type { QuestionnaireAnswers } from "@/lib/questionnaires/types";
+import type { QuestionnaireAnswers, QuestionnaireProfile } from "@/lib/questionnaires/types";
 import { IMPOSTER20_TOPICS, isImposter20ConfigurationValid, scoreImposter20, type Imposter20Questionnaire, type Imposter20Result } from "@/lib/questionnaires/imposter20";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
 const subscribeReady = () => () => {};
 
-export function Imposter20Client({ quiz, locale }: { quiz: unknown; locale: Locale }) {
+export function Imposter20Client({ quiz, locale, readingProfiles }: { quiz: unknown; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
   if (!isImposter20ConfigurationValid(quiz)) return <p role="status">{locale === "zh" ? "问卷内容暂不可用。" : "The questionnaire content is unavailable."}</p>;
-  return <ValidImposter20Client key={`${locale}:${quiz.version}`} quiz={quiz} locale={locale} />;
+  return <ValidImposter20Client key={`${locale}:${quiz.version}`} quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
 }
-function ValidImposter20Client({ quiz, locale }: { quiz: Imposter20Questionnaire; locale: Locale }) {
+function ValidImposter20Client({ quiz, locale, readingProfiles }: { quiz: Imposter20Questionnaire; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
   const zh = locale === "zh", ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const { start: recordStart, complete: recordComplete, view: recordView, share: recordShare, consent: activityConsent } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({}), [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome");
@@ -77,6 +77,7 @@ function ValidImposter20Client({ quiz, locale }: { quiz: Imposter20Questionnaire
         <p className="leading-8">{zh ? "20项均已作明确选择，包括跳过项。五组分开显示，不合成总分，不选主导类型，也不作诊断。均分只描述本次答案的频率，不能证明实际能力或比较各组严重程度。" : "All 20 statements have an explicit choice, including skips. The five topics are shown separately, without a total, dominant type or diagnosis. Means describe these responses, not actual ability or comparable severity across topics."}</p>
         <div data-imposter20-result className="space-y-6">{IMPOSTER20_TOPICS.map(id => {
           const score = result[id], profile = quiz.profiles.find(p => p.id === id)!;
+          const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === 1 && item.directionIds[0] === id && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
           return <section key={id} data-imposter20-part={id} aria-labelledby={`imposter20-${id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
             <h3 id={`imposter20-${id}`} className="scroll-mt-24 text-xl font-semibold">{profile.title[locale]}</h3>
             <p data-imposter20-count className="my-3 leading-7">{zh ? `数字答案 ${score.numericCount}/${score.requiredCount}；跳过 ${score.skippedCount} 条。` : `Numeric responses ${score.numericCount}/${score.requiredCount}; ${score.skippedCount} skipped.`}</p>
@@ -84,7 +85,7 @@ function ValidImposter20Client({ quiz, locale }: { quiz: Imposter20Questionnaire
               <p data-imposter20-sum className="text-xl font-semibold">{zh ? `已答数字合计：${score.sum}（范围 0—${score.numericCount * 4}）` : `Rated sum: ${score.sum} (range 0–${score.numericCount * 4})`}</p>
               <p data-imposter20-mean>{zh ? `均分：${score.mean.toFixed(2)}（范围0—4）；合计除以${score.numericCount}，不是百分比或百分位。` : `Mean: ${score.mean.toFixed(2)} (range 0–4); sum divided by ${score.numericCount}, not a percentage or percentile.`}</p>
             </div>}
-            <details className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开此部分完整读法" : "Expand this full reading"}</summary><div className="mt-5"><QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`imposter20-${id}`} /></div></details>
+            <details className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开此部分完整读法" : "Expand this full reading"}</summary><div className="mt-5"><QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`imposter20-${id}`} /></div></details>
             <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "阅读完整公开指南" : "Read the complete public guide"}</Link>
           </section>;
         })}</div>

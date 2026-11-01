@@ -3,7 +3,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { ArchetypeResult } from "@/lib/questionnaires/scoring";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 export function QuestionnaireWorkValuesReport({ quiz, result, answers, locale }: {
   quiz: Questionnaire;
@@ -32,7 +32,7 @@ export function QuestionnaireWorkValuesReport({ quiz, result, answers, locale }:
       const profile = quiz.profiles.find(p => p.id === id)!;
       return <section key={id} data-work-value-reading={id} aria-labelledby={`work-value-title-${id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
         <h3 id={`work-value-title-${id}`} className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`work-value-${id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`work-value-${id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "阅读这项工作价值的公开指南" : "Read this work value’s public guide"}</Link>
       </section>;
     })}

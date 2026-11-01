@@ -1,0 +1,166 @@
+{
+  "tsundere": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同一个感谢，反差有没有挡住本意",
+        "en": "Does the playful contrast leave the thanks clear?"
+      },
+      "paragraphs": [
+        {
+          "zh": "原创对照：朋友替你找到一张普通便签，你想表示感谢。“眼力还不错嘛，谢谢你帮我找到”先轻松打趣再说清感谢；只留下前半句，意思可能仍不明确。这里比较说法，不把需要解释当作对方不够懂你；玩笑不合适时，直接道谢就是完整表达。",
+          "en": "Original comparison: a friend finds an ordinary note for you. “Sharp eyes! Thanks for finding it” adds a playful front before clear thanks. Leaving only the first part may leave the meaning unclear. This compares wording without making clarification a failure to understand you. Direct thanks is a complete option when joking is unwelcome."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "复盘反差与清楚能否同时保留",
+        "en": "Review the contrast and the explicit meaning"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的轻松版与直接版练习，圈出真正表达感谢的那一句，再看其余玩笑是否仍想保留。可以只在纸上改写，不发送、不等反应来验证关系；若对方明确不喜欢，就按这个反馈处理，不替拒绝补上隐藏好感。",
+          "en": "After the playful/direct wording exercise above, mark the sentence carrying the thanks and decide whether to keep the rest. Private rewriting is enough, without sending or waiting for a relationship verdict. If someone explicitly dislikes it, use that feedback rather than adding hidden affection to a refusal."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一句不需要猜的感谢",
+        "en": "Share thanks that require no guessing"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“虚构朋友帮忙找到便签，你喜欢先打趣再道谢，还是直接说谢谢？”不公布计数、不猜现实对象心意，也不要求对方接受这种语气。公开读法不含本次答案；任何一方都可以不分享或不回答。",
+          "en": "Ask: “If an imaginary friend finds a note, would you prefer a playful opening before thanks or direct thanks?” No counts, guesses about a real person or acceptance of the tone are needed. The public guide carries no attempt answers; either person may decline sharing or answering."
+        }
+      ]
+    }
+  ],
+  "kuudere": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "简短说法里，哪条信息不可省",
+        "en": "What information does a brief sentence need?"
+      },
+      "paragraphs": [
+        {
+          "zh": "原创对照：朋友归还一支普通铅笔，你想说“谢谢，放这儿就好”。简短可以同时交代感谢和放置位置；若只点头，意思则可能还需核对。与闷娇的稍后表达相比，这里讨论当下的简洁形式，不从话少推断情绪冷淡或内心稳定。",
+          "en": "Original comparison: a friend returns an ordinary pencil and you want to say, “Thanks; here is fine.” Brevity can carry both appreciation and placement. A nod alone may need clarification. Compared with dandere’s later expression, this concerns a concise present form, without inferring cold feelings or inner stability from few words."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "复盘具体意思，而非情绪表演",
+        "en": "Review the specific meaning rather than a performance"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的一句关心，检查对象、感谢或安排是否已说清，哪些感受想保留私人。可以补一条必要条件，也可以维持短句；复盘不以表情多少、对方是否猜懂或是否觉得你可靠来打分。没有明确回应的部分，继续保持未知。",
+          "en": "After the one-sentence expression above, check what person, thanks or arrangement is clear and which feelings stay private. Add a necessary condition or keep it short. Expression, successful guessing and perceived reliability do not grade the review. An unconfirmed response can remain unknown."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个简洁表达的问题",
+        "en": "Share a question about concise wording"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“虚构一次归还铅笔，怎样一句话把感谢和放置位置说清？”可以选择更热情或更简短的版本，不必用计数证明个性。公开链接不带个人答案；不用上传真实聊天、测试信任或要求别人自动理解沉默。",
+          "en": "Ask: “For an imaginary returned pencil, how could one sentence state thanks and where it goes?” Warmer or shorter versions are available without counts proving an identity. The public link carries no personal answers and calls for no real chat, trust test or automatic interpretation of silence."
+        }
+      ]
+    }
+  ],
+  "dandere": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "表达时机与是否愿意表达分开",
+        "en": "Separate timing from willingness to express"
+      },
+      "paragraphs": [
+        {
+          "zh": "原创对照：朋友在小组里展示自己做的书签，你当时还没组织好话。若本来就想说，可以另选私下时刻讲一处喜欢的细节，也可以决定不补充。稍后说与平静短句是不同选择，不能把没有后续消息解释成感情不够或等待别人来打开你。",
+          "en": "Original comparison: a friend shows a bookmark in a group while you are still finding words. If you want, choose a private moment to mention a detail, or add nothing. Later expression differs from a calm short sentence; no later message need imply insufficient affection or waiting for someone to open you up."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "复盘渠道是否真的由自己选择",
+        "en": "Review whether the medium was your choice"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的时间、渠道与范围记录，看看当时愿意说什么、在哪里更自在、哪些内容决定不说。写给自己也能结束练习，不需要补发消息或把私下表达当成长目标。别人的沉默同样不构成邀请，等待也不能换取对方的私人感受。",
+          "en": "After the time/medium/scope note above, review what you wanted to say, where you felt comfortable and what you withheld. Private writing can end the exercise; a later message or private expression is no required growth target. Another person’s silence likewise invites no disclosure, and waiting earns no access to feelings."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个时机选择的问题",
+        "en": "Share a question about timing"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“虚构看到朋友的手工书签，你想当面说、稍后私下说，还是先不补充？”不要求解释害羞、依恋或真实关系，也不公布计数。公开读法不含个人答案；对方可以不参与，保留自己的时间和范围。",
+          "en": "Ask: “After seeing an imaginary friend’s handmade bookmark, would you speak now, privately later or add nothing?” No account of shyness, attachment, real relationships or counts is needed. The public guide carries no personal answers; participation, timing and scope remain optional."
+        }
+      ]
+    }
+  ],
+  "deredere": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "把开心说清，也留下不同回应",
+        "en": "State pleasure while leaving room for a different response"
+      },
+      "paragraphs": [
+        {
+          "zh": "原创对照：朋友分享一张普通植物照片，你想直接说“新叶很好看，看到它我很开心”。这说的是你的体验；对方可以只简短回应或结束聊天。与轻松逞强、平静短句或稍后私下说相比，区别是表达形式，不是双方感情浓度。",
+          "en": "Original comparison: a friend shares an ordinary plant photo and you want to say, “The new leaf looks lovely; I enjoyed seeing it.” That states your experience. They may reply briefly or end the chat. Compared with a playful front, calm brevity or later private words, the difference is form rather than mutual affection."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "复盘热情有没有附带回报要求",
+        "en": "Review whether enthusiasm carried a demand in return"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的一句感谢，检查自己说清了哪件事，又是否无意加上“你也要这样说”的期待。可以保留开心，也可以缩短、暂停或不发送。若没有回复，先保留未知，不增加消息来证明热情，不把互动结果全部归到自己身上。",
+          "en": "After the specific thank-you above, review what it expressed and whether it added an expectation of equal expression. Keep the pleasure, shorten it, pause or send nothing. No reply can remain unknown, without extra messages proving enthusiasm or assigning the whole interaction’s outcome to yourself."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个直接而自愿的表达",
+        "en": "Share a direct, optional expression"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“虚构分享新叶照片，你喜欢明说开心、简短道谢，还是只看看？”不以反应测关系、不公布计数，也不要求持续积极。公开链接不带本次答案；双方可以不回答，不用扮演始终热情的人。",
+          "en": "Ask: “For an imaginary new-leaf photo, would you prefer open pleasure, brief thanks or simply looking?” No reaction needs to test a relationship, disclose counts or sustain positivity. The public link carries no attempt answers; either person may decline without performing constant warmth."
+        }
+      ]
+    }
+  ]
+}

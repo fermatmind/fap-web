@@ -1,0 +1,162 @@
+{
+  "consequences": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把受影响的人与未知后果分别列出",
+        "en": "Separate affected people from unconfirmed effects"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的展示名额，分别考虑保留预约和调整安排可能让谁等待、落空或增加工作，再挑一项尚未确认的影响。可以先留问号，也可以考虑有没有另一种展示办法；人数多不自动替代影响大小、承诺或参与者意见。复盘只看预测依据与缺口，不用计数证明自己务实、冷静或更会作决定，也不要求在信息不足时选出最佳方案。",
+          "en": "For the display places above, consider who might wait, lose an opportunity or do extra work under retaining or changing the reservation, then identify an unconfirmed effect. Leave a question open or consider another display arrangement. Headcount does not replace magnitude, commitments or participants’ accounts. Review grounds and gaps without using a count to certify practicality, calmness or decision skill, or requiring a best option with insufficient information."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "比较先问什么，不比较谁更有道德",
+        "en": "Compare starting questions without ranking morality"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果展示名额有限，哪一项影响仍只是预测，谁可能承担它，还能提出什么待核对的方案？”先比较想核对的信息，再听另一种提问理由；不同起点可以走向相同选择，同一选择也可能有不同理由。无需把对方归入某种哲学阵营。",
+          "en": "Ask: “If display places were limited, which effect would remain a prediction, who might bear it and what alternative would need checking?” Compare the information you would check before hearing a reason for another starting question. Different starts can lead to the same choice, and the same choice can have different reasons, without assigning a philosophical camp."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含答案或次数。对方可以不回答、另选一种问题或结束；不需讲述真实困境、他人情况或私人经历，也不用再做测试来证明判断。",
+          "en": "You can share this public guide; its link contains no answers or counts. The other person may decline, choose another question or stop without describing a real dilemma, others’ circumstances or private experiences, or taking a test to prove judgment."
+        }
+      ]
+    }
+  ],
+  "principles": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把承诺内容与自己的偏好分开",
+        "en": "Separate the commitment from your preference"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到上面的工具预约，先区分实际说定的内容、他人据此做过的安排和自己希望怎样处理。可以问原约定是否留有共同修改空间，也可以保留尚未弄清的部分；不由一句“有原则”直接决定借或不借。复盘看承诺为什么在这里成立，以及变化需要向谁说明，不以守住原样证明品格，也不把同意调整叫作没有原则。",
+          "en": "For the reserved tool above, distinguish what was agreed, arrangements made in reliance on it and your own preference. Ask whether joint revision was possible or retain uncertainty; declaring a principle decides neither lending nor refusal. Review why a commitment applies and who would need an account of change without proving character by retaining the original arrangement or treating an agreed revision as unprincipled."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "比较先问什么，不比较谁更有道德",
+        "en": "Compare starting questions without ranking morality"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果有人临时想借已预约的工具，哪些承诺确实存在，哪些只是个人偏好，调整还需要确认什么？”先比较想核对的信息，再听另一种提问理由；不同起点可以走向相同选择，同一选择也可能有不同理由。无需把对方归入某种哲学阵营。",
+          "en": "Ask: “If someone requested a reserved tool, what commitment would actually exist, what would be a preference and what would a revision need confirmed?” Compare the information you would check before hearing a reason for another starting question. Different starts can lead to the same choice, and the same choice can have different reasons, without assigning a philosophical camp."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含答案或次数。对方可以不回答、另选一种问题或结束；不需讲述真实困境、他人情况或私人经历，也不用再做测试来证明判断。",
+          "en": "You can share this public guide; its link contains no answers or counts. The other person may decline, choose another question or stop without describing a real dilemma, others’ circumstances or private experiences, or taking a test to prove judgment."
+        }
+      ]
+    }
+  ],
+  "character": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "让一个品质词对应可说明的做法",
+        "en": "Connect a quality word with an explainable practice"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的短剧开场角色，挑“诚实”“鼓励”或“审慎”中的一个词，说明它在本次排练条件下可能对应什么做法，再留一个不同情境的反例。鼓励可以涉及说明难度与支持，不必立刻决定角色归谁。复盘关注词与实际条件的联系，不以漂亮理由、较高计数或最后选择认证好人、勇气或稳定品格，也不替他人规定怎样的人生才好。",
+          "en": "For the opening role in the short play above, choose honesty, encouragement or careful judgment and describe a practice it might involve under the rehearsal conditions, retaining a counterexample from another setting. Encouragement might include explaining difficulty and support without immediately assigning the role. Review the word’s connection with circumstances without certifying goodness, courage or stable character through an admirable reason, count or final choice, or prescribing another person’s good life."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "比较先问什么，不比较谁更有道德",
+        "en": "Compare starting questions without ranking morality"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“讨论开场角色时，如果说要鼓励新人，这个词可以对应哪些具体做法，又有哪些条件仍未确认？”先比较想核对的信息，再听另一种提问理由；不同起点可以走向相同选择，同一选择也可能有不同理由。无需把对方归入某种哲学阵营。",
+          "en": "Ask: “When discussing the opening role, what practices might encouraging a newcomer involve and what conditions would still be unconfirmed?” Compare the information you would check before hearing a reason for another starting question. Different starts can lead to the same choice, and the same choice can have different reasons, without assigning a philosophical camp."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含答案或次数。对方可以不回答、另选一种问题或结束；不需讲述真实困境、他人情况或私人经历，也不用再做测试来证明判断。",
+          "en": "You can share this public guide; its link contains no answers or counts. The other person may decline, choose another question or stop without describing a real dilemma, others’ circumstances or private experiences, or taking a test to prove judgment."
+        }
+      ]
+    }
+  ],
+  "care": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把想象的需要改成可以拒绝的问题",
+        "en": "Turn an imagined need into a question that permits refusal"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到上面的手工示范，先区分初学者已经说清的困难、自己猜测的需要和主持者实际可提供的时间。可以问是否需要再看一个步骤，也可以仅承认尚不清楚；不要求公开个人原因。复盘保留接受、拒绝和调整的选择，不把想帮忙当已经帮上忙，也不由关怀计数决定谁应承担额外工作。其他人的时间和共同约定仍值得另问。",
+          "en": "For the craft demonstration above, distinguish the difficulty the beginner stated, the need you imagined and time the facilitator could actually offer. Ask whether another look at one step is wanted or simply retain uncertainty without requesting private reasons. Review acceptance, refusal and revision without treating willingness as effective help or using care counts to assign extra work. Others’ time and shared commitments still deserve questions."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "比较先问什么，不比较谁更有道德",
+        "en": "Compare starting questions without ranking morality"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果有人还没看懂一个手工步骤，哪些需要已经说清，怎样问是否需要帮助而不替对方决定？”先比较想核对的信息，再听另一种提问理由；不同起点可以走向相同选择，同一选择也可能有不同理由。无需把对方归入某种哲学阵营。",
+          "en": "Ask: “If someone had not understood a craft step, what need would be stated and how could you ask about help without deciding for them?” Compare the information you would check before hearing a reason for another starting question. Different starts can lead to the same choice, and the same choice can have different reasons, without assigning a philosophical camp."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含答案或次数。对方可以不回答、另选一种问题或结束；不需讲述真实困境、他人情况或私人经历，也不用再做测试来证明判断。",
+          "en": "You can share this public guide; its link contains no answers or counts. The other person may decline, choose another question or stop without describing a real dilemma, others’ circumstances or private experiences, or taking a test to prove judgment."
+        }
+      ]
+    }
+  ],
+  "fairness": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把分配依据与实际负担一起核对",
+        "en": "Check the allocation basis alongside actual burdens"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的做饭后清理，分别看原先轮值怎样约定、准备工作是否被考虑，以及剩余任务怎样分配。可以先问依据是否公开、一致和允许提出疑问，而不直接要求平分或免除某人。复盘看哪些事实仍缺少，不由同样分钟数就认证公允，也不由不同份额就判偏私。计数不替参与者裁决，保留分歧或暂不决定同样可以。",
+          "en": "For cleanup after cooking above, distinguish the rotation agreement, whether preparation was considered and how remaining tasks would be allocated. Ask whether the basis is public, consistent and open to questions without immediately requiring equal shares or an exemption. Review missing facts without certifying fairness from equal minutes or favouritism from unequal shares. Counts decide for no participant; disagreement or an undecided matter can remain."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "比较先问什么，不比较谁更有道德",
+        "en": "Compare starting questions without ranking morality"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“讨论清理轮值时，准备与清理分别有哪些负担，分配依据是否说清，还有谁没有机会提出疑问？”先比较想核对的信息，再听另一种提问理由；不同起点可以走向相同选择，同一选择也可能有不同理由。无需把对方归入某种哲学阵营。",
+          "en": "Ask: “When discussing cleanup rotation, what preparation and cleanup burdens would matter, would the basis be clear and who might lack a chance to question it?” Compare the information you would check before hearing a reason for another starting question. Different starts can lead to the same choice, and the same choice can have different reasons, without assigning a philosophical camp."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含答案或次数。对方可以不回答、另选一种问题或结束；不需讲述真实困境、他人情况或私人经历，也不用再做测试来证明判断。",
+          "en": "You can share this public guide; its link contains no answers or counts. The other person may decline, choose another question or stop without describing a real dilemma, others’ circumstances or private experiences, or taking a test to prove judgment."
+        }
+      ]
+    }
+  ]
+}

@@ -24,6 +24,10 @@ export type QuestionnaireProfile = {
   seo?: { title: Text; description: Text };
   scoreReading: Text;
   sections: QuestionnaireSection[];
+  resultReading?: {
+    quizSlug: string; profileId: string; attribute: string;
+    note?: Text; references?: { title: Text; url: string }[];
+  };
 };
 export type Questionnaire = {
   slug: string;

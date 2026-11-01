@@ -1,3 +1,4 @@
+import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -67,9 +68,9 @@ describe("T061 public-domain IPIP twenty-item total locus of control", () => {
     for (const locale of ["en", "zh"] as const) for (const value of ["1", "5", "na", "exact41"]) {
       const answers = all(value === "exact41" ? "2" : value); if (value === "exact41") answers.LOC_01 = "3";
       const result = scoreQuestionnaire(quiz, answers); if (result.status !== "complete" || !("facets" in result)) throw new Error("Rejected report witness");
-      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireLocusReport quiz={quiz} result={result} locale={locale} />);
+      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireLocusReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale={locale} />);
       const missing = locale === "zh" ? "资料不足" : "Insufficient information";
-      expect(dom.querySelectorAll("[data-locus-facet]")).toHaveLength(1); expect(dom.querySelectorAll("[data-locus-profile]")).toHaveLength(1); expect(dom.querySelectorAll("h4")).toHaveLength(9);
+      expect(dom.querySelectorAll("[data-locus-facet]")).toHaveLength(1); expect(dom.querySelectorAll("[data-locus-profile]")).toHaveLength(1); expect(dom.querySelectorAll("h4")).toHaveLength(11);
       expect(dom.querySelectorAll("[data-locus-insufficient]")).toHaveLength(value === "na" ? 1 : 0);
       const count = dom.querySelector("[data-locus-rated]"); expect(count?.tagName).toBe("DD"); expect(count?.parentElement?.querySelector("dt")?.textContent).toBe(locale === "zh" ? "本次有效条目" : "Ratings supplied"); expect(count?.textContent).toContain(`${value === "na" ? 0 : 20} / 20`);
       for (const group of Array.from(dom.querySelectorAll("dl > div"))) { expect(group.querySelector("dt")).not.toBeNull(); expect(group.querySelector("dd")).not.toBeNull(); }

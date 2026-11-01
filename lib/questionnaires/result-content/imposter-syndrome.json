@@ -1,0 +1,207 @@
+{
+  "contribution": [
+    {
+      "id": "s3",
+      "title": {
+        "en": "A shared-project example",
+        "zh": "共同完成事情的例子"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的宁在一次小组材料中核对了两个数字，乔提供了原始资料。宁可以同时承认资料来自乔和自己做过核对，不必把一方的贡献变成另一方没有贡献。若某份贡献组记录为0、2、4、跳过，合计6、均分2.00；另一份0、1、3、4合计8，均分也为2.00。覆盖与具体回答不同，均分并不决定谁该获得多少功劳，更不能评定谁胜任。",
+          "en": "An additional original scene: Fictional Ning checks two figures in a group document, and Jo supplies the original material. Ning can acknowledge both Jo’s material and the checking without erasing either contribution. A contribution record of 0, 2, 4, skip gives sum six and mean 2.00; 0, 1, 3, 4 gives sum eight and the same 2.00. Coverage and responses differ. The mean allocates no credit and determines no competence."
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "title": {
+        "en": "One optional next observation",
+        "zh": "一个可选的后续观察"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样把可观察的行动、他人帮助和仍未知的条件同时保留，而不强迫给自己积极评价？”可以只针对上述虚构人物，把题目中的自述、实际证据和未确认的解释分开。参与者可以不同意、保留未知、不回答或结束，不必提供自己的工作表现、分数、诊断、雇主信息或他人经历，也不把讨论当作必须变自信或认错的任务。",
+          "en": "An optional discussion prompt asks: “How can observable actions, others’ help and unknown conditions remain visible without requiring a positive self-rating?” Use only the fictional readers above to separate self-report, actual evidence and unconfirmed explanations. Participants may disagree, retain unknowns, decline or end without personal performance, scores, diagnoses, employer details or anyone else’s experiences. Discussion requires neither greater confidence nor an admission of being wrong."
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "title": {
+        "en": "Use and privacy limits",
+        "zh": "使用与隐私边界"
+      },
+      "paragraphs": [
+        {
+          "zh": "本原创版本的范围：面向18岁及以上成年人，私下选定同一个工作、学习或志愿项目情境，回顾近四周，不把多个场景或不同回顾时段混成一个可比分数。20条按五组连续四题组织，均为正向0从不、1很少、2有时、3经常、4非常经常；“没有对应情境／不愿回答”是明确跳过，不是零或中点。20条都作选择后才显示五组记录，空白尚未完成。每组至少三条数字才给合计与均分：三条合计0—12、除以3，四条合计0—16、除以4；0也计入数字条数。不足三条时合计与均分都暂不给，不显示残缺数字和，也不补值。均分从原始数字和计算再显示两位小数，不是事件比例、症状百分比或人群位置。三条与四条相同均分不保证概括相同经历；共同选项也不使五组成为同等校准或已证实独立的量表。没有整体分数、主导类型、严重分段或CIPS换算。全跳过、全组不足三条或某组缺项，仍保留全部五份通用全文，不按个人数字生成意见。题项、五组组织、至少三条规则和解释未经心理测量验证，中英文等值、个人常模、变化阈值和干预效果未建立。背景综述所述概念、测量和情境差异不能验证这些新题，也不能把研究群体比例当作个人概率或本站发生率。实际技能空缺、评价规则不清、资源差异或排斥都可能需要另外了解；本问卷不能判定原因、公平性或支持资格。可以只读、不讨论或根据现实需要寻求支持，不必交出分数或达到门槛。答案与数字只存当前页内存，无草稿或账户历史，刷新、换语、离开、历史恢复、清空或重测按现有流程清除。复制仅含五份公开解释标题与链接，无答案或个人数值；常规页面分析关闭，可选匿名动作计数需本页许可与全站分析同意。清除不抹掉浏览器历史、截屏或旁人看屏；无需把解释变成新的自证任务。",
+          "en": "Scope of this original edition: private reflection for adults aged 18 and over on one chosen work, study or voluntary-project context during the past four weeks. Mixing settings or recall periods creates no comparable score. Twenty direct items form five consecutive groups of four: zero never, one rarely, two sometimes, three often and four very often. No opportunity or preference not to answer is an explicit skip, not zero or a midpoint. All 20 require choices before the five records appear; blank is unfinished. A part needs at least three numeric responses for its sum and mean. Three yield 0–12 divided by three; four yield 0–16 divided by four. Zero counts as numeric. Below three, both values are withheld, without a partial numeric sum or imputation. Means use the raw numeric sum and display two decimals, not event proportions, symptom percentages or population positions. Equal means with three and four responses need not summarize the same experiences. Shared anchors do not make these equally calibrated or established independent scales. There is no overall score, dominant type, severity band or CIPS conversion. All skips, insufficient coverage everywhere or missing items in one part still retain all five general full guides, without opinions generated from personal numbers. Items, grouping, minimum-three rule and explanations lack psychometric validation. Language equivalence, personal norms, change thresholds and intervention effects remain unestablished. Reviews describing conceptual, measurement and contextual differences validate none of these new items, and research-group proportions become no individual probability or site prevalence. Skill gaps, unclear evaluation, unequal resources or exclusion may need separate attention; this questionnaire establishes no cause, fairness or support eligibility. Reading alone, declining discussion or seeking support for real needs is allowed without supplying a score or meeting a threshold. Answers and values stay in page memory without drafts or account history; refresh, language change, leaving, history restoration, clearing or retaking follows existing clearing behavior. Copying includes only titles and links for five public explanations, without personal responses or values. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation. The reading need not become another task of proving yourself."
+        }
+      ]
+    }
+  ],
+  "feedback": [
+    {
+      "id": "s3",
+      "title": {
+        "en": "Ask what the feedback refers to",
+        "zh": "弄清反馈具体指什么"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的沐收到“这一段解释更清楚”的反馈，思同时收到一条肯定和一条修正。题目记录两人回顾自己反应的频率，不核实说话者意图或反馈是否准确。某份反馈组选四个2，合计8、均分2.00；另一份4、0、4、0也为8和2.00，却反映不同题间组合。都不能说成拒绝了一半赞美，也不要求为了降分接受不可信的评价。",
+          "en": "An additional original scene: Fictional Mu hears that an explanation is clearer; Si receives both a positive observation and a correction. The prompts record recalled response frequency without verifying the speaker’s intention or accuracy. Four twos give a feedback sum of eight and mean 2.00; 4, 0, 4, 0 gives the same values with a different item pattern. Neither means rejecting half of all praise or requires accepting untrustworthy feedback to lower a number."
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "title": {
+        "en": "A small information check",
+        "zh": "一个小的信息核对"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样把一句反馈包含的信息与说话者的意图分开，同时允许暂时不相信或不确定？”可以只针对上述虚构人物，把题目中的自述、实际证据和未确认的解释分开。参与者可以不同意、保留未知、不回答或结束，不必提供自己的工作表现、分数、诊断、雇主信息或他人经历，也不把讨论当作必须变自信或认错的任务。",
+          "en": "An optional discussion prompt asks: “How can information in feedback be separated from the speaker’s intention while allowing doubt or uncertainty?” Use only the fictional readers above to separate self-report, actual evidence and unconfirmed explanations. Participants may disagree, retain unknowns, decline or end without personal performance, scores, diagnoses, employer details or anyone else’s experiences. Discussion requires neither greater confidence nor an admission of being wrong."
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "title": {
+        "en": "Boundaries and next steps",
+        "zh": "边界与下一步"
+      },
+      "paragraphs": [
+        {
+          "zh": "本原创版本的范围：面向18岁及以上成年人，私下选定同一个工作、学习或志愿项目情境，回顾近四周，不把多个场景或不同回顾时段混成一个可比分数。20条按五组连续四题组织，均为正向0从不、1很少、2有时、3经常、4非常经常；“没有对应情境／不愿回答”是明确跳过，不是零或中点。20条都作选择后才显示五组记录，空白尚未完成。每组至少三条数字才给合计与均分：三条合计0—12、除以3，四条合计0—16、除以4；0也计入数字条数。不足三条时合计与均分都暂不给，不显示残缺数字和，也不补值。均分从原始数字和计算再显示两位小数，不是事件比例、症状百分比或人群位置。三条与四条相同均分不保证概括相同经历；共同选项也不使五组成为同等校准或已证实独立的量表。没有整体分数、主导类型、严重分段或CIPS换算。全跳过、全组不足三条或某组缺项，仍保留全部五份通用全文，不按个人数字生成意见。题项、五组组织、至少三条规则和解释未经心理测量验证，中英文等值、个人常模、变化阈值和干预效果未建立。背景综述所述概念、测量和情境差异不能验证这些新题，也不能把研究群体比例当作个人概率或本站发生率。实际技能空缺、评价规则不清、资源差异或排斥都可能需要另外了解；本问卷不能判定原因、公平性或支持资格。可以只读、不讨论或根据现实需要寻求支持，不必交出分数或达到门槛。答案与数字只存当前页内存，无草稿或账户历史，刷新、换语、离开、历史恢复、清空或重测按现有流程清除。复制仅含五份公开解释标题与链接，无答案或个人数值；常规页面分析关闭，可选匿名动作计数需本页许可与全站分析同意。清除不抹掉浏览器历史、截屏或旁人看屏；无需把解释变成新的自证任务。",
+          "en": "Scope of this original edition: private reflection for adults aged 18 and over on one chosen work, study or voluntary-project context during the past four weeks. Mixing settings or recall periods creates no comparable score. Twenty direct items form five consecutive groups of four: zero never, one rarely, two sometimes, three often and four very often. No opportunity or preference not to answer is an explicit skip, not zero or a midpoint. All 20 require choices before the five records appear; blank is unfinished. A part needs at least three numeric responses for its sum and mean. Three yield 0–12 divided by three; four yield 0–16 divided by four. Zero counts as numeric. Below three, both values are withheld, without a partial numeric sum or imputation. Means use the raw numeric sum and display two decimals, not event proportions, symptom percentages or population positions. Equal means with three and four responses need not summarize the same experiences. Shared anchors do not make these equally calibrated or established independent scales. There is no overall score, dominant type, severity band or CIPS conversion. All skips, insufficient coverage everywhere or missing items in one part still retain all five general full guides, without opinions generated from personal numbers. Items, grouping, minimum-three rule and explanations lack psychometric validation. Language equivalence, personal norms, change thresholds and intervention effects remain unestablished. Reviews describing conceptual, measurement and contextual differences validate none of these new items, and research-group proportions become no individual probability or site prevalence. Skill gaps, unclear evaluation, unequal resources or exclusion may need separate attention; this questionnaire establishes no cause, fairness or support eligibility. Reading alone, declining discussion or seeking support for real needs is allowed without supplying a score or meeting a threshold. Answers and values stay in page memory without drafts or account history; refresh, language change, leaving, history restoration, clearing or retaking follows existing clearing behavior. Copying includes only titles and links for five public explanations, without personal responses or values. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation. The reading need not become another task of proving yourself."
+        }
+      ]
+    }
+  ],
+  "evaluation": [
+    {
+      "id": "s3",
+      "title": {
+        "en": "Separate a question from a verdict",
+        "zh": "把提问与判决分开"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的羽在普通回顾中被问“为什么用这个方法”，安在相似提问前担心会被全面否定。问句可能涉及记录、澄清或真实问题，记录没有辨别当时是哪一种，也没有证明评价公平。评价组3、4、2、跳过，合计9、均分3.00；同样合计9若来自0、2、3、4，均分为2.25。只看合计会漏掉分母，两个均分也都不是对工作能力或担忧合理性的裁决。",
+          "en": "An additional original scene: Fictional Yu is asked why a method was used in an ordinary review; An anticipates wholesale rejection before a similar question. The question may concern documentation, clarification or a real problem. The record distinguishes none of these and verifies no fairness. Evaluation responses of 3, 4, 2, skip give sum nine and mean 3.00; the same sum from 0, 2, 3, 4 gives 2.25. The sum alone hides the denominator, and neither mean judges work ability or whether a concern is justified."
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "title": {
+        "en": "An optional clarification step",
+        "zh": "可选的澄清动作"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“题目、预想中的判断和实际评价证据，分别能告诉我们什么，哪些仍然未知？”可以只针对上述虚构人物，把题目中的自述、实际证据和未确认的解释分开。参与者可以不同意、保留未知、不回答或结束，不必提供自己的工作表现、分数、诊断、雇主信息或他人经历，也不把讨论当作必须变自信或认错的任务。",
+          "en": "An optional discussion prompt asks: “What do the question, an anticipated judgment and actual evaluation evidence each establish, and what remains unknown?” Use only the fictional readers above to separate self-report, actual evidence and unconfirmed explanations. Participants may disagree, retain unknowns, decline or end without personal performance, scores, diagnoses, employer details or anyone else’s experiences. Discussion requires neither greater confidence nor an admission of being wrong."
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "title": {
+        "en": "Use the guide without a label",
+        "zh": "不贴标签也能阅读"
+      },
+      "paragraphs": [
+        {
+          "zh": "本原创版本的范围：面向18岁及以上成年人，私下选定同一个工作、学习或志愿项目情境，回顾近四周，不把多个场景或不同回顾时段混成一个可比分数。20条按五组连续四题组织，均为正向0从不、1很少、2有时、3经常、4非常经常；“没有对应情境／不愿回答”是明确跳过，不是零或中点。20条都作选择后才显示五组记录，空白尚未完成。每组至少三条数字才给合计与均分：三条合计0—12、除以3，四条合计0—16、除以4；0也计入数字条数。不足三条时合计与均分都暂不给，不显示残缺数字和，也不补值。均分从原始数字和计算再显示两位小数，不是事件比例、症状百分比或人群位置。三条与四条相同均分不保证概括相同经历；共同选项也不使五组成为同等校准或已证实独立的量表。没有整体分数、主导类型、严重分段或CIPS换算。全跳过、全组不足三条或某组缺项，仍保留全部五份通用全文，不按个人数字生成意见。题项、五组组织、至少三条规则和解释未经心理测量验证，中英文等值、个人常模、变化阈值和干预效果未建立。背景综述所述概念、测量和情境差异不能验证这些新题，也不能把研究群体比例当作个人概率或本站发生率。实际技能空缺、评价规则不清、资源差异或排斥都可能需要另外了解；本问卷不能判定原因、公平性或支持资格。可以只读、不讨论或根据现实需要寻求支持，不必交出分数或达到门槛。答案与数字只存当前页内存，无草稿或账户历史，刷新、换语、离开、历史恢复、清空或重测按现有流程清除。复制仅含五份公开解释标题与链接，无答案或个人数值；常规页面分析关闭，可选匿名动作计数需本页许可与全站分析同意。清除不抹掉浏览器历史、截屏或旁人看屏；无需把解释变成新的自证任务。",
+          "en": "Scope of this original edition: private reflection for adults aged 18 and over on one chosen work, study or voluntary-project context during the past four weeks. Mixing settings or recall periods creates no comparable score. Twenty direct items form five consecutive groups of four: zero never, one rarely, two sometimes, three often and four very often. No opportunity or preference not to answer is an explicit skip, not zero or a midpoint. All 20 require choices before the five records appear; blank is unfinished. A part needs at least three numeric responses for its sum and mean. Three yield 0–12 divided by three; four yield 0–16 divided by four. Zero counts as numeric. Below three, both values are withheld, without a partial numeric sum or imputation. Means use the raw numeric sum and display two decimals, not event proportions, symptom percentages or population positions. Equal means with three and four responses need not summarize the same experiences. Shared anchors do not make these equally calibrated or established independent scales. There is no overall score, dominant type, severity band or CIPS conversion. All skips, insufficient coverage everywhere or missing items in one part still retain all five general full guides, without opinions generated from personal numbers. Items, grouping, minimum-three rule and explanations lack psychometric validation. Language equivalence, personal norms, change thresholds and intervention effects remain unestablished. Reviews describing conceptual, measurement and contextual differences validate none of these new items, and research-group proportions become no individual probability or site prevalence. Skill gaps, unclear evaluation, unequal resources or exclusion may need separate attention; this questionnaire establishes no cause, fairness or support eligibility. Reading alone, declining discussion or seeking support for real needs is allowed without supplying a score or meeting a threshold. Answers and values stay in page memory without drafts or account history; refresh, language change, leaving, history restoration, clearing or retaking follows existing clearing behavior. Copying includes only titles and links for five public explanations, without personal responses or values. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation. The reading need not become another task of proving yourself."
+        }
+      ]
+    }
+  ],
+  "comparison": [
+    {
+      "id": "s3",
+      "title": {
+        "en": "A learning example",
+        "zh": "学习中的例子"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的悦看到别人展示成稿，橙只知道自己还在修改初稿；对方的准备时间、既有经验和获得的帮助都未知。相似的比较反应可能出现在不同条件下，本问卷既不证明能力相同，也不证明能力较差。若比较组只有两条数字，哪怕都选4，也暂不给合计或均分；缺少机会不能补成0、凑出一个看似完整的结果，五份通用指南仍可读。",
+          "en": "An additional original scene: Fictional Yue sees someone’s polished output; Cheng knows only that their own first draft still needs revision. The other person’s preparation, prior experience and help remain unknown. Similar comparison responses can arise under different conditions, proving neither equal nor lower ability. If a comparison part has only two numeric responses, even two fours, no sum or mean is displayed. Missing opportunities cannot become zero to manufacture a complete-looking result; all five general guides remain readable."
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "title": {
+        "en": "An optional comparison audit",
+        "zh": "一次可选的比较核对"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“哪些比较条件确实知道，哪些只能标为未知，怎样避免靠猜测补齐他人的经历？”可以只针对上述虚构人物，把题目中的自述、实际证据和未确认的解释分开。参与者可以不同意、保留未知、不回答或结束，不必提供自己的工作表现、分数、诊断、雇主信息或他人经历，也不把讨论当作必须变自信或认错的任务。",
+          "en": "An optional discussion prompt asks: “Which comparison conditions are known, which remain unknown, and how can gaps stay open without guessing someone else’s experience?” Use only the fictional readers above to separate self-report, actual evidence and unconfirmed explanations. Participants may disagree, retain unknowns, decline or end without personal performance, scores, diagnoses, employer details or anyone else’s experiences. Discussion requires neither greater confidence nor an admission of being wrong."
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "title": {
+        "en": "Limits and private use",
+        "zh": "边界与私人使用"
+      },
+      "paragraphs": [
+        {
+          "zh": "本原创版本的范围：面向18岁及以上成年人，私下选定同一个工作、学习或志愿项目情境，回顾近四周，不把多个场景或不同回顾时段混成一个可比分数。20条按五组连续四题组织，均为正向0从不、1很少、2有时、3经常、4非常经常；“没有对应情境／不愿回答”是明确跳过，不是零或中点。20条都作选择后才显示五组记录，空白尚未完成。每组至少三条数字才给合计与均分：三条合计0—12、除以3，四条合计0—16、除以4；0也计入数字条数。不足三条时合计与均分都暂不给，不显示残缺数字和，也不补值。均分从原始数字和计算再显示两位小数，不是事件比例、症状百分比或人群位置。三条与四条相同均分不保证概括相同经历；共同选项也不使五组成为同等校准或已证实独立的量表。没有整体分数、主导类型、严重分段或CIPS换算。全跳过、全组不足三条或某组缺项，仍保留全部五份通用全文，不按个人数字生成意见。题项、五组组织、至少三条规则和解释未经心理测量验证，中英文等值、个人常模、变化阈值和干预效果未建立。背景综述所述概念、测量和情境差异不能验证这些新题，也不能把研究群体比例当作个人概率或本站发生率。实际技能空缺、评价规则不清、资源差异或排斥都可能需要另外了解；本问卷不能判定原因、公平性或支持资格。可以只读、不讨论或根据现实需要寻求支持，不必交出分数或达到门槛。答案与数字只存当前页内存，无草稿或账户历史，刷新、换语、离开、历史恢复、清空或重测按现有流程清除。复制仅含五份公开解释标题与链接，无答案或个人数值；常规页面分析关闭，可选匿名动作计数需本页许可与全站分析同意。清除不抹掉浏览器历史、截屏或旁人看屏；无需把解释变成新的自证任务。",
+          "en": "Scope of this original edition: private reflection for adults aged 18 and over on one chosen work, study or voluntary-project context during the past four weeks. Mixing settings or recall periods creates no comparable score. Twenty direct items form five consecutive groups of four: zero never, one rarely, two sometimes, three often and four very often. No opportunity or preference not to answer is an explicit skip, not zero or a midpoint. All 20 require choices before the five records appear; blank is unfinished. A part needs at least three numeric responses for its sum and mean. Three yield 0–12 divided by three; four yield 0–16 divided by four. Zero counts as numeric. Below three, both values are withheld, without a partial numeric sum or imputation. Means use the raw numeric sum and display two decimals, not event proportions, symptom percentages or population positions. Equal means with three and four responses need not summarize the same experiences. Shared anchors do not make these equally calibrated or established independent scales. There is no overall score, dominant type, severity band or CIPS conversion. All skips, insufficient coverage everywhere or missing items in one part still retain all five general full guides, without opinions generated from personal numbers. Items, grouping, minimum-three rule and explanations lack psychometric validation. Language equivalence, personal norms, change thresholds and intervention effects remain unestablished. Reviews describing conceptual, measurement and contextual differences validate none of these new items, and research-group proportions become no individual probability or site prevalence. Skill gaps, unclear evaluation, unequal resources or exclusion may need separate attention; this questionnaire establishes no cause, fairness or support eligibility. Reading alone, declining discussion or seeking support for real needs is allowed without supplying a score or meeting a threshold. Answers and values stay in page memory without drafts or account history; refresh, language change, leaving, history restoration, clearing or retaking follows existing clearing behavior. Copying includes only titles and links for five public explanations, without personal responses or values. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation. The reading need not become another task of proving yourself."
+        }
+      ]
+    }
+  ],
+  "preparation": [
+    {
+      "id": "s3",
+      "title": {
+        "en": "A stopping-rule example",
+        "zh": "停止规则的例子"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的洛完成了一份低风险说明的约定检查，却担心小错会否定自己的位置；岚还发现一处真实事实错误，需要按要求核对。两种准备不能只凭时长或次数混为一谈。若准备组0、0、0、跳过，合计0、均分0.00，因为三条“从不”是有效数字；全跳过则没有数字，两种记录不同。任何读数都不能批准停止必要检查，也不能认证交付已安全或准备充分。",
+          "en": "An additional original scene: Fictional Lo completes agreed checks on a low-stakes note but worries that a small error could invalidate their place; Lan finds a real factual problem requiring the applicable check. These preparations cannot be equated by time or counts alone. Preparation responses of 0, 0, 0, skip give sum zero and mean 0.00 because three never responses are numeric. All skips give no values: a different record. Neither readout authorizes stopping essential checks or certifies a safe, adequately prepared deliverable."
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "title": {
+        "en": "An optional boundary conversation",
+        "zh": "一个可选的边界讨论"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样区分已知错误、必须完成的检查和额外自证的担忧，而不凭问卷要求少做或多做工作？”可以只针对上述虚构人物，把题目中的自述、实际证据和未确认的解释分开。参与者可以不同意、保留未知、不回答或结束，不必提供自己的工作表现、分数、诊断、雇主信息或他人经历，也不把讨论当作必须变自信或认错的任务。",
+          "en": "An optional discussion prompt asks: “How can a known error, required checks and fears about proving oneself remain separate without using the questionnaire to require less or more work?” Use only the fictional readers above to separate self-report, actual evidence and unconfirmed explanations. Participants may disagree, retain unknowns, decline or end without personal performance, scores, diagnoses, employer details or anyone else’s experiences. Discussion requires neither greater confidence nor an admission of being wrong."
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "title": {
+        "en": "Boundaries and support",
+        "zh": "边界与支持"
+      },
+      "paragraphs": [
+        {
+          "zh": "本原创版本的范围：面向18岁及以上成年人，私下选定同一个工作、学习或志愿项目情境，回顾近四周，不把多个场景或不同回顾时段混成一个可比分数。20条按五组连续四题组织，均为正向0从不、1很少、2有时、3经常、4非常经常；“没有对应情境／不愿回答”是明确跳过，不是零或中点。20条都作选择后才显示五组记录，空白尚未完成。每组至少三条数字才给合计与均分：三条合计0—12、除以3，四条合计0—16、除以4；0也计入数字条数。不足三条时合计与均分都暂不给，不显示残缺数字和，也不补值。均分从原始数字和计算再显示两位小数，不是事件比例、症状百分比或人群位置。三条与四条相同均分不保证概括相同经历；共同选项也不使五组成为同等校准或已证实独立的量表。没有整体分数、主导类型、严重分段或CIPS换算。全跳过、全组不足三条或某组缺项，仍保留全部五份通用全文，不按个人数字生成意见。题项、五组组织、至少三条规则和解释未经心理测量验证，中英文等值、个人常模、变化阈值和干预效果未建立。背景综述所述概念、测量和情境差异不能验证这些新题，也不能把研究群体比例当作个人概率或本站发生率。实际技能空缺、评价规则不清、资源差异或排斥都可能需要另外了解；本问卷不能判定原因、公平性或支持资格。可以只读、不讨论或根据现实需要寻求支持，不必交出分数或达到门槛。答案与数字只存当前页内存，无草稿或账户历史，刷新、换语、离开、历史恢复、清空或重测按现有流程清除。复制仅含五份公开解释标题与链接，无答案或个人数值；常规页面分析关闭，可选匿名动作计数需本页许可与全站分析同意。清除不抹掉浏览器历史、截屏或旁人看屏；无需把解释变成新的自证任务。",
+          "en": "Scope of this original edition: private reflection for adults aged 18 and over on one chosen work, study or voluntary-project context during the past four weeks. Mixing settings or recall periods creates no comparable score. Twenty direct items form five consecutive groups of four: zero never, one rarely, two sometimes, three often and four very often. No opportunity or preference not to answer is an explicit skip, not zero or a midpoint. All 20 require choices before the five records appear; blank is unfinished. A part needs at least three numeric responses for its sum and mean. Three yield 0–12 divided by three; four yield 0–16 divided by four. Zero counts as numeric. Below three, both values are withheld, without a partial numeric sum or imputation. Means use the raw numeric sum and display two decimals, not event proportions, symptom percentages or population positions. Equal means with three and four responses need not summarize the same experiences. Shared anchors do not make these equally calibrated or established independent scales. There is no overall score, dominant type, severity band or CIPS conversion. All skips, insufficient coverage everywhere or missing items in one part still retain all five general full guides, without opinions generated from personal numbers. Items, grouping, minimum-three rule and explanations lack psychometric validation. Language equivalence, personal norms, change thresholds and intervention effects remain unestablished. Reviews describing conceptual, measurement and contextual differences validate none of these new items, and research-group proportions become no individual probability or site prevalence. Skill gaps, unclear evaluation, unequal resources or exclusion may need separate attention; this questionnaire establishes no cause, fairness or support eligibility. Reading alone, declining discussion or seeking support for real needs is allowed without supplying a score or meeting a threshold. Answers and values stay in page memory without drafts or account history; refresh, language change, leaving, history restoration, clearing or retaking follows existing clearing behavior. Copying includes only titles and links for five public explanations, without personal responses or values. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation. The reading need not become another task of proving yourself."
+        }
+      ]
+    }
+  ]
+}

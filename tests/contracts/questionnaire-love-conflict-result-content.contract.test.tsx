@@ -1,0 +1,22 @@
+import { describe, expect, it, vi } from "vitest";
+import { renderToStaticMarkup } from "react-dom/server";
+import source from "@/lib/questionnaires/data/love-fight-style.json";
+import content from "@/lib/questionnaires/result-content/love-fight-style.json";
+import { loveConflictResultProfile } from "@/lib/questionnaires/result-content/love-fight-style";
+import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
+import { isLikertConfigurationValid, scoreLikertQuestionnaire } from "@/lib/questionnaires/scoring";
+import { QuestionnaireLoveConflictProcessReport } from "@/components/questionnaires/QuestionnaireLoveConflictProcessReport";
+import type { Questionnaire } from "@/lib/questionnaires/types";
+vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
+const quiz=source as Questionnaire,prepared=prepareQuestionnaireResultReadings(quiz);
+describe("Four complete conflict-process readings with strict coverage",()=>{
+  it("preserves raw identities and all eight original modules without changing calculation",()=>{
+    const before=JSON.stringify(quiz);expect(Object.keys(content).sort()).toEqual(quiz.profiles.map(p=>p.id).sort());for(const p of quiz.profiles){const r=loveConflictResultProfile(p);expect({...r,sections:p.sections}).toEqual(p);expect(r.sections.map(s=>s.id)).toEqual(p.sections.map(s=>s.id));expect(r.sections.flatMap(s=>s.paragraphs)).toHaveLength(11);for(const s of p.sections)expect(r.sections.find(v=>v.id===s.id)!.paragraphs.slice(0,s.paragraphs.length)).toEqual(s.paragraphs);}const unknown={...quiz.profiles[0],id:"__proto__"};expect(loveConflictResultProfile(unknown)).toBe(unknown);expect(prepareQuestionnaireResultReadings(prepared)).toBe(prepared);expect(JSON.stringify(quiz)).toBe(before);expect(isLikertConfigurationValid(prepared)).toBe(true);
+  });
+  it.each(["zh","en"] as const)("opens all %s public modules and anchors without private means",async locale=>{
+    const route=await import("@/components/questionnaires/QuestionnaireGuide");for(const p of quiz.profiles){const dom=document.createElement("div");dom.innerHTML=renderToStaticMarkup(await route.default({params:Promise.resolve({locale,slug:quiz.slug,profile:p.id})}));expect(dom.querySelector(`[data-love-conflict-result-reading="${p.id}"]`)).not.toBeNull();expect(dom.querySelectorAll('[data-love-conflict-result-reading] h2')).toHaveLength(8);expect(dom.querySelector('[data-love-conflict-process-score]')).toBeNull();for(const s of content[p.id as keyof typeof content])for(const t of s.paragraphs)expect(dom.querySelector(`#report-${s.id}`)?.textContent).toContain(t[locale]);const ids=[...dom.querySelectorAll('[id]')].map(n=>n.id);expect(new Set(ids).size).toBe(ids.length);for(const a of dom.querySelectorAll('nav a[href^="#"]'))expect(ids).toContain(a.getAttribute('href')!.slice(1));if(locale==="en")expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);}
+  });
+  it.each(["zh","en"] as const)("keeps coverage and contrasting separate %s responses with complete guides",locale=>{
+    for(const mode of [0,1,2,3,4,5,"alternating-low","alternating-high"] as const){const answers=Object.fromEntries(quiz.questions.map((q,i)=>[q.id,typeof mode==="number"?(i%5<mode?String(i%5%5+1):"na"):(i%2===(mode==="alternating-low"?0:1)?"1":"5")]));const result=scoreLikertQuestionnaire(prepared,answers);expect(result).toEqual(scoreLikertQuestionnaire(quiz,answers));if(result.status!=="complete")throw Error("Complete result required");const dom=document.createElement("div");dom.innerHTML=renderToStaticMarkup(<QuestionnaireLoveConflictProcessReport quiz={prepared} result={result} locale={locale}/>);expect(dom.querySelectorAll('[data-love-conflict-result-reading] h4')).toHaveLength(32);for(const [i,d]of quiz.directions.entries()){const nums=quiz.questions.map((q,j)=>Math.floor(j/5)===i&&answers[q.id]!=="na"?Number(answers[q.id]):null).filter((n):n is number=>n!==null),sum=nums.reduce((a,b)=>a+b,0),rated=nums.length;expect(result.facets[d.id]).toEqual({rated,sum,total:5,mean:rated>=5?Math.round(sum/rated*10)/10:null});expect(dom.querySelector(`[data-love-conflict-process-score="${d.id}"]`)?.textContent).toContain(`${rated}/5`);}for(const p of quiz.profiles)for(const s of content[p.id as keyof typeof content])for(const t of s.paragraphs)expect(dom.querySelector(`[data-love-conflict-result-reading="${p.id}"]`)?.textContent).toContain(t[locale]);expect(Object.keys(result).sort()).toEqual(["answered","facets","status"]);}
+  });
+});

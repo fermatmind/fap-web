@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { QuestionnaireCbiAttribution } from "./QuestionnaireCbiAttribution";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { CbiResult, CbiDomain } from "@/lib/questionnaires/cbi";
 import type { Questionnaire } from "@/lib/questionnaires/types";
@@ -27,7 +27,7 @@ export function QuestionnaireCbiReport({ quiz, result, locale }: { quiz: Questio
     </div>
     {quiz.profiles.map(profile => <section key={profile.id} aria-labelledby={`cbi-guide-title-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
       <h3 id={`cbi-guide-title-${profile.id}`} className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
-      <div data-cbi-guide={profile.id}><QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} /></div>
+      <div data-cbi-guide={profile.id}><QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} /></div>
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本模块完整公开说明" : "Read this module’s full public guide"}</Link>
     </section>)}
     <QuestionnaireCbiAttribution locale={locale} />

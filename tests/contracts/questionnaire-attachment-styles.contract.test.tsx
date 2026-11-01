@@ -1,3 +1,4 @@
+import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -90,8 +91,8 @@ describe("T017 original adult relationship frequency reflection", () => {
   it("renders four full36section guides and only draws a continuous point when both means exist", () => {
     for (const locale of ["en", "zh"] as const) for (const value of ["3", "na"]) {
       const result = scoreAttachmentQuestionnaire(quiz, all(value)); if (result.status !== "complete") throw new Error("Rejected input");
-      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireAttachmentReport quiz={quiz} result={result} locale={locale} />);
-      expect(dom.querySelectorAll("[data-attachment-axis]")).toHaveLength(2); expect(dom.querySelectorAll("h4")).toHaveLength(36); expect(dom.querySelectorAll("[data-attachment-profile]")).toHaveLength(4);
+      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireAttachmentReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale={locale} />);
+      expect(dom.querySelectorAll("[data-attachment-axis]")).toHaveLength(2); expect(dom.querySelectorAll("h4")).toHaveLength(48); expect(dom.querySelectorAll("[data-attachment-profile]")).toHaveLength(4);
       expect(dom.querySelectorAll("[data-attachment-insufficient]")).toHaveLength(value === "na" ? 1 : 0);
       expect(dom.querySelectorAll("[data-attachment-map]")).toHaveLength(value === "na" ? 0 : 1);
       const ids = Array.from(dom.querySelectorAll("[id]"), x => x.id); expect(new Set(ids).size).toBe(ids.length);
@@ -100,7 +101,7 @@ describe("T017 original adult relationship frequency reflection", () => {
     }
     const mixed = all("na"); for (const q of source.questions.filter(q => q.options[0].directionId === "anxiety")) mixed[q.id] = "3";
     const result = scoreAttachmentQuestionnaire(quiz, mixed); if (result.status !== "complete") throw new Error("Rejected mixed input");
-    expect(renderToStaticMarkup(<QuestionnaireAttachmentReport quiz={quiz} result={result} locale="en" />)).not.toContain("data-attachment-map");
+    expect(renderToStaticMarkup(<QuestionnaireAttachmentReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale="en" />)).not.toContain("data-attachment-map");
   });
   it("publishes ten native bilingual entry/guideURLs with complete bodies, individual SEO and safe navigation", async () => {
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com"); vi.resetModules();

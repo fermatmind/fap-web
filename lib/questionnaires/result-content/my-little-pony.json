@@ -1,0 +1,194 @@
+{
+  "twilight-sparkle": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：有了答案以后能一起开始吗",
+        "en": "Review whether the answer lets you begin together"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到兴趣桌的例子，选一个会影响第一步的问题，比如材料能不能共用。想象拿到答案后，删去暂时不需要的背景，给彼此留出真正尝试的时间。可以只改一段说明，不必继续查资料。复盘关注答案是否让活动更好加入；发现大家已经懂了，就能从解释转为参与，不用靠知道得最多证明这个结果。",
+          "en": "For the hobby table, choose a question that affects the first step, such as whether materials are shared. Imagine receiving an answer, leaving unnecessary background for later and making time to try together. Revise a short explanation without further research. Review whether the answer helps entry. When people already understand, joining them can replace explaining without proving that you know the most."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起选一种友谊小场景",
+        "en": "Choose a small friendship scene together"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果要和朋友第一次试一种手工，你只先问一个问题会问什么，有了答案后想一起做哪一步？”每人挑一个喜欢的细节，再借另一位小马的角度换个版本；可以一起想象，不要求实际完成活动。",
+          "en": "Ask: “If trying a craft with a friend for the first time, which single question would you ask and what would you try together once it was answered?” Pick a detail each person enjoys, then try another pony’s angle. Imagining together does not require completing an activity."
+        },
+        {
+          "zh": "可分享这份公开说明，链接不含答案或计数。这里只借虚构角色聊选择，不评分诚实、忠诚或善良，也不分谁是更好的朋友。对方可以不熟悉作品、换个角色、不回答或结束，不必披露真实友谊矛盾。",
+          "en": "Share this public guide without answers or counts in its link. Fictional characters open a discussion of choices without grading honesty, loyalty, kindness or who is a better friend. The other person may be unfamiliar with the story, choose another character, decline or stop without disclosing real friendship conflicts."
+        }
+      ]
+    }
+  ],
+  "rainbow-dash": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：陪伴的范围有没有让双方更轻松",
+        "en": "Review whether the scope of company works for both people"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用第一轮陪伴的例子，分别想想对方想一起去、想自己先试和临时改主意。哪种情况下，你能清楚说出自己能陪的起止？可以只设想一句回应，不用发邀请。复盘看陪伴是否被欢迎、时间是否现实；未参加下一场不否定已经做到的约定，也不用拿谁待得更久比较友谊。",
+          "en": "For the first-round offer, imagine a friend wanting company, trying alone or changing plans. In each case, can you state when your company begins and ends? Imagine a response without making an invitation. Review welcome and realistic time. Missing the next activity does not undo a completed agreement, and staying longest is no friendship ranking."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起选一种友谊小场景",
+        "en": "Choose a small friendship scene together"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果朋友第一次参加兴趣活动，你最愿意陪哪一小段，又怎样让对方自己去或改计划也自然？”每人挑一个喜欢的细节，再借另一位小马的角度换个版本；可以一起想象，不要求实际完成活动。",
+          "en": "Ask: “For a friend’s first hobby session, which small part would you join and how would you leave room for them to go alone or change plans?” Pick a detail each person enjoys, then try another pony’s angle. Imagining together does not require completing an activity."
+        },
+        {
+          "zh": "可分享这份公开说明，链接不含答案或计数。这里只借虚构角色聊选择，不评分诚实、忠诚或善良，也不分谁是更好的朋友。对方可以不熟悉作品、换个角色、不回答或结束，不必披露真实友谊矛盾。",
+          "en": "Share this public guide without answers or counts in its link. Fictional characters open a discussion of choices without grading honesty, loyalty, kindness or who is a better friend. The other person may be unfamiliar with the story, choose another character, decline or stop without disclosing real friendship conflicts."
+        }
+      ]
+    }
+  ],
+  "applejack": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：做完的事是否正好有用",
+        "en": "Review whether the finished task meets the need"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到野餐的一道菜和一小包物品，分清你愿意完成的部分、完成时间和需要另作安排的部分。再设想有人其实更需要确认交通，而非多一道菜：能否调整分工，而不把全部任务接过来？可以只改清单。复盘关注实际需要和交接是否明确，不用做事多少证明诚实，也不把别人的陪伴、想法或休息当成较低等的贡献。",
+          "en": "For the picnic dish and small bag, distinguish your contribution, its timing and what needs another arrangement. Imagine that transport matters more than another dish. Could roles change without taking everything on? Revise a list without acting on it. Review the actual need and handover rather than proving honesty through workload or treating company, ideas and rest as lesser contributions."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起选一种友谊小场景",
+        "en": "Choose a small friendship scene together"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果一起野餐，你会说清自己能准备哪一件事、何时就绪，以及哪件事需要大家另作安排？”每人挑一个喜欢的细节，再借另一位小马的角度换个版本；可以一起想象，不要求实际完成活动。",
+          "en": "Ask: “For a shared picnic, what would you prepare, when would it be ready and what would need a separate arrangement?” Pick a detail each person enjoys, then try another pony’s angle. Imagining together does not require completing an activity."
+        },
+        {
+          "zh": "可分享这份公开说明，链接不含答案或计数。这里只借虚构角色聊选择，不评分诚实、忠诚或善良，也不分谁是更好的朋友。对方可以不熟悉作品、换个角色、不回答或结束，不必披露真实友谊矛盾。",
+          "en": "Share this public guide without answers or counts in its link. Fictional characters open a discussion of choices without grading honesty, loyalty, kindness or who is a better friend. The other person may be unfamiliar with the story, choose another character, decline or stop without disclosing real friendship conflicts."
+        }
+      ]
+    }
+  ],
+  "rarity": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：细节是对方喜欢，还是自己喜欢",
+        "en": "Review whose preference the detail serves"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到颜色名签，设想同一个人可以选彩色边角料、简单大字或不加装饰。哪一处让名签更方便使用，哪一处主要让你制作时开心？两者可以同时存在，也可以各留一个位置。无需真的送礼、花钱或索取公开反应。复盘看接收者有没有选择，不把工时、价格或精致程度换算成关心多少。",
+          "en": "For the coloured name label, imagine a choice of a coloured scrap, plain large lettering or no decoration. Which detail improves use, and which mainly gives you pleasure in making it? Both can coexist or have separate places. No gift, spending or public reaction is required. Review the recipient’s choice without translating time, price or polish into an amount of care."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起选一种友谊小场景",
+        "en": "Choose a small friendship scene together"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果给朋友做一张普通名签，你会怎样在一个贴心细节和清楚好用之间找到对方喜欢的版本？”每人挑一个喜欢的细节，再借另一位小马的角度换个版本；可以一起想象，不要求实际完成活动。",
+          "en": "Ask: “When making a simple name label for a friend, how would you combine a personal detail with a clear, usable version they prefer?” Pick a detail each person enjoys, then try another pony’s angle. Imagining together does not require completing an activity."
+        },
+        {
+          "zh": "可分享这份公开说明，链接不含答案或计数。这里只借虚构角色聊选择，不评分诚实、忠诚或善良，也不分谁是更好的朋友。对方可以不熟悉作品、换个角色、不回答或结束，不必披露真实友谊矛盾。",
+          "en": "Share this public guide without answers or counts in its link. Fictional characters open a discussion of choices without grading honesty, loyalty, kindness or who is a better friend. The other person may be unfamiliar with the story, choose another character, decline or stop without disclosing real friendship conflicts."
+        }
+      ]
+    }
+  ],
+  "pinkie-pie": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：小庆祝还能轻松结束吗",
+        "en": "Review whether a small celebration is easy to end"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用十秒虚构颁奖，想象对方想玩一下、只想听祝贺或想继续专心。为三种回答各留一个自然收尾，点子就不必靠全员兴奋才能成立。可以只想一个好玩的奖项，不必组织聚会。复盘关注当时是否合适、能不能自由跳过，不用笑声和参加人数证明幽默感，也不要求自己维持所有人的心情。",
+          "en": "For the ten-second imaginary award, imagine someone joining, preferring a simple congratulations or continuing to concentrate. Give each response an easy ending so the idea need not depend on universal excitement. Invent a playful award without hosting a gathering. Review timing and room to skip rather than proving humour through laughter or attendance or taking responsibility for everyone’s mood."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起选一种友谊小场景",
+        "en": "Choose a small friendship scene together"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果要为朋友完成手工第一页庆祝十秒，你会颁什么虚构小奖，又给不想玩的人留什么替代？”每人挑一个喜欢的细节，再借另一位小马的角度换个版本；可以一起想象，不要求实际完成活动。",
+          "en": "Ask: “For a ten-second celebration of a friend’s first craft page, which imaginary award would you invent and what alternative would suit someone not wanting to play?” Pick a detail each person enjoys, then try another pony’s angle. Imagining together does not require completing an activity."
+        },
+        {
+          "zh": "可分享这份公开说明，链接不含答案或计数。这里只借虚构角色聊选择，不评分诚实、忠诚或善良，也不分谁是更好的朋友。对方可以不熟悉作品、换个角色、不回答或结束，不必披露真实友谊矛盾。",
+          "en": "Share this public guide without answers or counts in its link. Fictional characters open a discussion of choices without grading honesty, loyalty, kindness or who is a better friend. The other person may be unfamiliar with the story, choose another character, decline or stop without disclosing real friendship conflicts."
+        }
+      ]
+    }
+  ],
+  "fluttershy": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：留空间以后仍让对方选择",
+        "en": "Review whether space still leaves the choice with them"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到桌边留座的例子，设想对方先看、马上加入或想去热闹一点的地方。三种都可能是舒服的节奏，不需要从犹豫推断原因。可以只拟一句同时说明“这里能坐”和自己偏好的话，不必真的招待谁。复盘看选择是否清楚、自己是否也有位置；安静和热闹都不证明谁更善良，照顾节奏也不要求永远退让。",
+          "en": "For the seat at the craft table, imagine watching first, joining immediately or seeking a livelier place. Each could be comfortable without inferring a reason from hesitation. Draft a sentence offering the seat and naming your preference without hosting anyone. Review clear choices and room for yourself. Quietness and liveliness establish no kindness rank, and respecting pace requires no permanent yielding."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起选一种友谊小场景",
+        "en": "Choose a small friendship scene together"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果朋友来到手工桌旁，你会怎样提供先看或马上加入的选择，同时说出自己喜欢的节奏？”每人挑一个喜欢的细节，再借另一位小马的角度换个版本；可以一起想象，不要求实际完成活动。",
+          "en": "Ask: “When a friend arrives at a craft table, how would you offer watching or joining while also naming the pace you prefer?” Pick a detail each person enjoys, then try another pony’s angle. Imagining together does not require completing an activity."
+        },
+        {
+          "zh": "可分享这份公开说明，链接不含答案或计数。这里只借虚构角色聊选择，不评分诚实、忠诚或善良，也不分谁是更好的朋友。对方可以不熟悉作品、换个角色、不回答或结束，不必披露真实友谊矛盾。",
+          "en": "Share this public guide without answers or counts in its link. Fictional characters open a discussion of choices without grading honesty, loyalty, kindness or who is a better friend. The other person may be unfamiliar with the story, choose another character, decline or stop without disclosing real friendship conflicts."
+        }
+      ]
+    }
+  ]
+}

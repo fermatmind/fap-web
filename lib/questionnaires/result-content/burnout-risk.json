@@ -1,0 +1,66 @@
+{
+  "personal": [
+    {
+      "id": "counterexample",
+      "title": {
+        "zh": "具体情境与不同原因",
+        "en": "Specific situations and different causes"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者在一次普通整理活动后说自己很疲倦，但谈话中还没有说明这种感受何时开始、在其他时候是否出现。另一位读者也可能选相同的频率，却想到完全不同的时段。本模块的均分不能把两者归为同一原因，也不能把一个活动之后的感受直接解释为工作造成。讨论时可以只说自己注意到的具体困难，并标明哪些时间、情境或原因还不清楚；没有必要为了说明困难而先得到某个分数。",
+          "en": "In an additional original scene, a reader describes tiredness after an ordinary sorting task, without yet explaining when it began or whether it occurs elsewhere. Another reader could choose the same frequency while thinking of different occasions. A module mean establishes neither a shared cause nor a work-related explanation. Describe the difficulty noticed and leave uncertain timing, context or causes explicit, without needing a particular score before describing it."
+        }
+      ]
+    },
+    {
+      "id": "support-and-context",
+      "title": {
+        "zh": "准备交流内容",
+        "en": "Prepare a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“我注意到的感受是……；它妨碍的一件事是……；我希望获得帮助理解的是……。”可用虚构整理活动，也可只读不记录。若分享公开指南，不必附上均分、健康信息或完整答卷；对方不需要凭测试判断你是否值得获得支持。这张卡用于准备描述，不提供疲倦成因或治疗方案。",
+          "en": "An optional conversation card can name the experience noticed, one activity it affects and what you would like help understanding. Use an invented sorting task or simply read. A public guide needs no mean, health details or answer sheet; another person need not judge eligibility for support from a test. This prepares a description without assigning a cause or treatment."
+        },
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，与CBI源题区分，可只读或留作私人笔记。原个人六题、工作七题、两种回答格式、唯一精力反向键及至少3／4项有效的源规则保持不变；缺失不补0或50，均分只除以实际有效数，两模块不合成总分或分摊成因。工作中译、自愿NA与交错呈现未建立本地或跨语言测量等价。两份全文始终开放，公开指南不含个人回答或均分，也不要求用分数为获得支持争取资格。",
+          "en": "These new scenes and cards are original FermatMind Editorial material, separate from the CBI source items. Reading or private notes are optional. The six personal and seven work items, two response formats, single energy reversal and source minima of three and four stay intact. Missing information receives no zero or fifty; means use actual valid counts and are neither combined nor used to allocate causes. Working Chinese, optional NA and interleaving lack established local or cross-language equivalence. Both full guides remain open, public links contain no personal answers or means and support requires no score-based qualification."
+        }
+      ]
+    }
+  ],
+  "work": [
+    {
+      "id": "counterexample",
+      "title": {
+        "zh": "具体情境与不同原因",
+        "en": "Specific situations and different causes"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的一次工作交接中，读者想说明自己在工作日结束时很疲惫。对方提出“是不是只要早点休息”，但这段话还没有核对任务量、交接时间或已有支持，也没有排除其他需要了解的情况。工作模块记录的是本人感到的工作联系，不能替谈话确定唯一原因。可以把已经发生的具体安排、自己的感受和希望讨论的调整分开说；一次交流与一次均分都不能保证某项调整会有效。",
+          "en": "In an additional original scene, a reader describes being worn out at the end of a working day during a handover. Someone suggests simply resting earlier before task volume, handover timing or existing support have been discussed. The module records a perceived work connection, not an established sole cause. Separate actual arrangements, reported experience and changes you would like to discuss; neither one conversation nor a mean guarantees that a change will work."
+        }
+      ]
+    },
+    {
+      "id": "support-and-context",
+      "title": {
+        "zh": "准备交流内容",
+        "en": "Prepare a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡可列“想说明的一项工作困难”“需要核对的工作条件”“希望讨论的支持”。先用虚构交接回答即可；是否、何时、向谁表达，结合现实可行性自行决定，不必交出答卷或以分数证明责任归属。工作不适用时可以保留NA，本卡也不要求虚构工作经历或继续其他测评。",
+          "en": "An optional conversation card can separate a work difficulty, conditions needing clarification and support you would like to discuss. Begin with an invented handover. Decide whether, when and with whom to discuss it in your circumstances, without surrendering answers or assigning responsibility by a score. Keep NA when work is inapplicable; no invented employment experience or additional assessment is required."
+        },
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，与CBI源题区分，可只读或留作私人笔记。原个人六题、工作七题、两种回答格式、唯一精力反向键及至少3／4项有效的源规则保持不变；缺失不补0或50，均分只除以实际有效数，两模块不合成总分或分摊成因。工作中译、自愿NA与交错呈现未建立本地或跨语言测量等价。两份全文始终开放，公开指南不含个人回答或均分，也不要求用分数为获得支持争取资格。",
+          "en": "These new scenes and cards are original FermatMind Editorial material, separate from the CBI source items. Reading or private notes are optional. The six personal and seven work items, two response formats, single energy reversal and source minima of three and four stay intact. Missing information receives no zero or fifty; means use actual valid counts and are neither combined nor used to allocate causes. Working Chinese, optional NA and interleaving lack established local or cross-language equivalence. Both full guides remain open, public links contain no personal answers or means and support requires no score-based qualification."
+        }
+      ]
+    }
+  ]
+}

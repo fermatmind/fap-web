@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
 import type { Questionnaire } from "@/lib/questionnaires/types";
@@ -21,7 +21,7 @@ export function QuestionnaireFrictionReport({ quiz, result, locale }: { quiz: Qu
     <p className="leading-8">{zh ? "七份完整说明均保留高低与混合读法、原创对话、反例、相近比较、情境限制和可选小观察。均分或资料不足都不隐藏正文。需要、职责、隐私、合理谨慎、坚定反对与经过考虑的尝试，都要按实际情况理解；不靠自报给伴侣判型、判断关系安全或预测伤害。" : "All seven full guides retain higher, lower and mixed readings, original dialogue, counterexamples, comparisons, context limits and optional observations. Means or insufficiency never hide the text. Needs, duties, privacy, reasonable caution, firm opposition and considered attempts require actual context. Self-report cannot type a partner, judge relationship safety or predict harm."}</p>
     {quiz.profiles.map(profile => <section key={profile.id} data-friction-profile={profile.id} aria-labelledby={`friction-title-${profile.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
       <h3 id={`friction-title-${profile.id}`} className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
-      <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一部分的公开说明" : "Read this part’s public guide"}</Link>
     </section>)}
   </div>;

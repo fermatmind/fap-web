@@ -3,7 +3,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 export function DatingOutlookReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh";
@@ -18,7 +18,7 @@ export function DatingOutlookReport({ quiz, result, locale }: { quiz: Questionna
           : (zh ? `原始和 ${part.sum}，${part.rated}/4条有效，认同均值 ${part.mean.toFixed(1)} / 5` : `Raw sum ${part.sum}; ${part.rated}/4 rated; agreement mean ${part.mean.toFixed(1)} / 5`)}</p>
         {part.mean !== null && <div className="mb-5"><div role="meter" aria-labelledby={`dating-outlook-${direction.id}`} aria-valuemin={1} aria-valuemax={5} aria-valuenow={part.mean} aria-valuetext={zh ? `原始认同均值${part.mean.toFixed(1)}，范围1强烈不同意至5强烈同意` : `Raw agreement mean ${part.mean.toFixed(1)}, from 1 strongly disagree to 5 strongly agree`} className="h-3 overflow-hidden rounded-full bg-slate-100"><div className="h-full rounded-full bg-violet-600" style={{ width: `${(part.mean - 1) / 4 * 100}%` }} /></div><p className="mt-2 flex justify-between gap-4 text-xs leading-6 text-slate-600"><span>{zh ? "1 强烈不同意" : "1 Strongly disagree"}</span><span>{zh ? "5 强烈同意" : "5 Strongly agree"}</span></p></div>}
         <p className="mb-4 leading-7">{part.mean === null ? (zh ? "以下完整正文是通用读法，不是本次个人看法的结论。" : "The complete text below is a general guide, not a conclusion about your views in this attempt.") : (zh ? "较高只表示更认同本组陈述，不证明观点真实、你已具备某种技巧，或任何关系将怎样发展。请逐句阅读。" : "A higher mean records more agreement with these statements. It does not verify a belief, demonstrate a skill or establish how a relationship will develop. Read each statement in context.")}</p>
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`dating-outlook-reading-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`dating-outlook-reading-${profile.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一信念的完整公开指南" : "Read this belief’s full public guide"}</Link>
       </section>;
     })}

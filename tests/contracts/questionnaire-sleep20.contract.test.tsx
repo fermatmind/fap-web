@@ -83,8 +83,8 @@ describe("Original sleep experiences observation categories, never a clinical sc
     for (const locale of ["en", "zh"] as const) {
       const html = renderToStaticMarkup(<SleepExperiencesPage quiz={quiz} locale={locale} />);
       expect((html.match(/data-sleep-experiences-full-guide=/g) ?? [])).toHaveLength(5);
-      expect(html).not.toContain("data-sleep-experiences-result");
       const dom = document.createElement("div"); dom.innerHTML = html;
+      expect(dom.querySelector("[data-sleep-experiences-result]")).toBeNull();
       expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(true);
       for (const p of quiz.profiles) {
         const guide = renderToStaticMarkup(<SleepExperiencesGuidePage quiz={quiz} profile={p} locale={locale} />);

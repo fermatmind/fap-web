@@ -1,3 +1,4 @@
+import { prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { NatalChartQuestionnaire, NatalSignProfile } from "@/lib/questionnaires/natalChart";
@@ -17,7 +18,7 @@ export function NatalChartPage({ quiz, locale }: { quiz: NatalChartQuestionnaire
     <p className="text-sm font-semibold text-violet-800">{zh ? "已知时间星盘 · 十二份完整符号指南免费" : "Known-time chart · Twelve complete symbol guides, free"}</p>
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8 text-slate-700">{quiz.description[locale]}</p>
     <p className="mt-5 leading-8">{quiz.introduction[locale]}</p><p className="mt-3 text-sm leading-7 text-slate-600">{quiz.instructions[locale]}</p>
-    <NatalChartClient quiz={quiz} locale={locale} />
+    <NatalChartClient quiz={quiz} readingProfiles={quiz.profiles.map(profile => ({ ...profile, ...prepareResultProfile(quiz.slug, profile), id: profile.id }))} locale={locale} />
     <NatalAspectGuide quiz={quiz} locale={locale} />
     <NatalMotionGuide quiz={quiz} locale={locale} />
     <NatalAnglesGuide quiz={quiz} locale={locale} />
@@ -43,7 +44,7 @@ export function NatalChartGuidePage({ quiz, profile, locale }: { quiz: NatalChar
     <nav aria-label={zh ? "面包屑" : "Breadcrumb"} className="mb-6 text-sm"><Link prefetch={false} className="underline" href={entry}>{quiz.title[locale]}</Link></nav>
     <p className="text-sm font-semibold text-violet-800">{zh ? "星盘符号完整解释 · 不含个人出生资料" : "Complete chart-symbol reading · No personal birth data"}</p>
     <h1 className="my-5 text-4xl font-semibold leading-tight">{profile.title[locale]}</h1>
-    <NatalSignGuideBody profile={profile} locale={locale} idPrefix={`natal-public-${profile.id}`} />
+    <NatalSignGuideBody profile={{ ...profile, ...prepareResultProfile(quiz.slug, profile), id: profile.id }} locale={locale} idPrefix={`natal-public-${profile.id}`} />
     <section className="my-8 space-y-4 leading-8" aria-labelledby="natal-guide-method"><h2 id="natal-guide-method" className="text-2xl font-semibold">{zh ? "把符号与计算分开" : "Keep symbols separate from computation"}</h2><p>{quiz.natalChart.boundaries.calculationVsMeaning[locale]}</p><p>{quiz.natalChart.boundaries.rounding[locale]}</p><p>{quiz.natalChart.boundaries.timezone[locale]}</p><p>{quiz.natalChart.privacy[locale]}</p></section>
     <NatalChartAttribution quiz={quiz} locale={locale} />
     <Link prefetch={false} className="my-5 inline-block min-h-11 py-2 font-semibold underline" href={entry}>{zh ? "返回计算器与全部解释" : "Return to the calculator and all readings"}</Link>

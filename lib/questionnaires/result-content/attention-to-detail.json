@@ -1,0 +1,182 @@
+{
+  "records": [
+    {
+      "id": "count-reading",
+      "title": {
+        "zh": "正确数怎样帮助复习",
+        "en": "Use correct counts to guide revision"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版24题，每题答对计1，各分项6题；总正确数是四组相加，不计速度、不换算人群位置。结果始终显示24题的所选答案、正确答案与解析，以及四份完整复习说明；0题答对也能阅读全部内容。先找具体差异，再选想练的一步。看过解析后的同题重做同时受记忆影响，不能单凭分数变化证明整体能力提高；公开说明不包含你的作答或本次正确数。",
+          "en": "This edition has twenty-four items, one count per correct answer and six items per section. The total adds four sections without speed scoring or a population position. Every result includes selected answers, answer keys, explanations and all four revision guides, including at zero correct. Find a specific difference before choosing a practice step. Repeating items after reading explanations also involves memory; a changed count alone establishes no general ability improvement. This public guide contains no personal answers or attempt counts."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：漏看的是字段还是字段里的位置",
+        "en": "Review the field separately from positions within it"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到盘位F3、批次512与521的例子，先标出两个字段，再只在批次里标出末两位的变化。这是一个字段变了、两个字符位置不同，分别回答不同问题。用新的虚构编号试一对，再从原件重新比对，不只盯着自己改过的位置。可以放大字符、分段遮住其余内容；复盘记具体漏点与所用方法，不从一次正确数给自己贴“粗心”标签。",
+          "en": "For tray F3 and lots 512 versus 521, mark the two fields before marking the last two changed positions inside the lot. One changed field and two changed character positions answer different questions. Try a fresh fictional pair and compare again from the reference, rather than only checking your edited position. Zoom or cover other sections if useful. Record the missed detail and method without turning a count into a careless identity."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享核对方法，不给彼此能力打分",
+        "en": "Share a checking method without rating each other"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果抄本只改了批次中的两位数字，你会怎样同时说明“哪个字段变了”和“哪里不一样”？”用虚构记录一起说明方法即可，不用互考、比速度或提供分数。",
+          "en": "Ask: “If a copy changed two digits inside a lot number, how would you describe both the changed field and the different positions?” Explain a method together using fictional records without quizzing each other, racing or supplying scores."
+        },
+        {
+          "zh": "可分享公开说明，链接不含个人答案与正确数。真实账号、地址、账目或工作记录不要带入聊天；对方可以换例子、不回答或结束。练习表现不用于判断智力、健康、招聘资格或谁更可靠。",
+          "en": "Share the public guide without personal answers or counts in its link. Keep real accounts, addresses, ledgers and work records out of the conversation. The other person may change examples, decline or stop. Practice results establish no intelligence, health, hiring qualification or reliability ranking."
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "id": "count-reading",
+      "title": {
+        "zh": "正确数怎样帮助复习",
+        "en": "Use correct counts to guide revision"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版24题，每题答对计1，各分项6题；总正确数是四组相加，不计速度、不换算人群位置。结果始终显示24题的所选答案、正确答案与解析，以及四份完整复习说明；0题答对也能阅读全部内容。先找具体差异，再选想练的一步。看过解析后的同题重做同时受记忆影响，不能单凭分数变化证明整体能力提高；公开说明不包含你的作答或本次正确数。",
+          "en": "This edition has twenty-four items, one count per correct answer and six items per section. The total adds four sections without speed scoring or a population position. Every result includes selected answers, answer keys, explanations and all four revision guides, including at zero correct. Find a specific difference before choosing a practice step. Repeating items after reading explanations also involves memory; a changed count alone establishes no general ability improvement. This public guide contains no personal answers or attempt counts."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：先拆条件，再检查例外",
+        "en": "Review conditions before checking an exception"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用绿票但VOID除外的例子，做三张虚构票：普通绿票、VOID绿票、普通红票。逐张写“颜色是否符合”和“是否需要排除”，再按题意决定纳入与否。换规则时重新读，不把这次的例外带到下一题。复盘记录漏的是正反问法、主条件、例外还是排序优先级；同一个总数不能替你区分这些原因。这里只用虚构资料，不据此改真实流程。",
+          "en": "For green tickets excluding VOID, imagine an ordinary green ticket, a VOID green ticket and an ordinary red ticket. For each, check colour and exclusion separately before deciding inclusion. Read each new rule afresh without carrying the previous exception forward. Record whether a miss concerned the question’s polarity, main condition, exception or sorting priority; a total cannot distinguish them. Use fictional data without changing a real procedure."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享核对方法，不给彼此能力打分",
+        "en": "Share a checking method without rating each other"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果规则是“纳入绿票，但VOID除外”，你会把它写成哪两个独立检查，怎样解释普通红票也不符合？”用虚构记录一起说明方法即可，不用互考、比速度或提供分数。",
+          "en": "Ask: “For “include green tickets except VOID,” which two checks would you write, and how would you explain why an ordinary red ticket also fails?” Explain a method together using fictional records without quizzing each other, racing or supplying scores."
+        },
+        {
+          "zh": "可分享公开说明，链接不含个人答案与正确数。真实账号、地址、账目或工作记录不要带入聊天；对方可以换例子、不回答或结束。练习表现不用于判断智力、健康、招聘资格或谁更可靠。",
+          "en": "Share the public guide without personal answers or counts in its link. Keep real accounts, addresses, ledgers and work records out of the conversation. The other person may change examples, decline or stop. Practice results establish no intelligence, health, hiring qualification or reliability ranking."
+        }
+      ]
+    }
+  ],
+  "quantities": [
+    {
+      "id": "count-reading",
+      "title": {
+        "zh": "正确数怎样帮助复习",
+        "en": "Use correct counts to guide revision"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版24题，每题答对计1，各分项6题；总正确数是四组相加，不计速度、不换算人群位置。结果始终显示24题的所选答案、正确答案与解析，以及四份完整复习说明；0题答对也能阅读全部内容。先找具体差异，再选想练的一步。看过解析后的同题重做同时受记忆影响，不能单凭分数变化证明整体能力提高；公开说明不包含你的作答或本次正确数。",
+          "en": "This edition has twenty-four items, one count per correct answer and six items per section. The total adds four sections without speed scoring or a population position. Every result includes selected answers, answer keys, explanations and all four revision guides, including at zero correct. Find a specific difference before choosing a practice step. Repeating items after reading explanations also involves memory; a changed count alone establishes no general ability improvement. This public guide contains no personal answers or attempt counts."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：从描述重建算式，不只重算数字",
+        "en": "Review the expression against the description"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到两捆、每捆7张、另有4张的例子，先写“捆×张／捆＋张”，再代入数字得到18张。第二遍从描述检查是否漏了散张，而不是只再按一次同样的算式。可用纸笔或计算器，记录使用条件。若重做原题更快，也可能只是记住答案；选新的虚构数值看能否解释取数与单位，仍不把它当财务能力或一般数学能力的认证。",
+          "en": "For two bundles of seven labels plus four loose labels, write bundles times labels per bundle plus labels before substituting values to obtain eighteen labels. On a second pass, check the description for omitted loose items rather than merely repeating the expression. Paper or a calculator is fine; note the conditions used. Faster repetition may reflect memory. Explain quantities and units with fresh fictional values without treating this as financial or general mathematical certification."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享核对方法，不给彼此能力打分",
+        "en": "Share a checking method without rating each other"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果一张表同时写包数、每包件数和散件，你会怎样先写单位，再检查有没有把不同单位直接相加？”用虚构记录一起说明方法即可，不用互考、比速度或提供分数。",
+          "en": "Ask: “If a sheet listed packs, items per pack and loose items, how would you write units first and check that unlike units were not simply added?” Explain a method together using fictional records without quizzing each other, racing or supplying scores."
+        },
+        {
+          "zh": "可分享公开说明，链接不含个人答案与正确数。真实账号、地址、账目或工作记录不要带入聊天；对方可以换例子、不回答或结束。练习表现不用于判断智力、健康、招聘资格或谁更可靠。",
+          "en": "Share the public guide without personal answers or counts in its link. Keep real accounts, addresses, ledgers and work records out of the conversation. The other person may change examples, decline or stop. Practice results establish no intelligence, health, hiring qualification or reliability ranking."
+        }
+      ]
+    }
+  ],
+  "formats": [
+    {
+      "id": "count-reading",
+      "title": {
+        "zh": "正确数怎样帮助复习",
+        "en": "Use correct counts to guide revision"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版24题，每题答对计1，各分项6题；总正确数是四组相加，不计速度、不换算人群位置。结果始终显示24题的所选答案、正确答案与解析，以及四份完整复习说明；0题答对也能阅读全部内容。先找具体差异，再选想练的一步。看过解析后的同题重做同时受记忆影响，不能单凭分数变化证明整体能力提高；公开说明不包含你的作答或本次正确数。",
+          "en": "This edition has twenty-four items, one count per correct answer and six items per section. The total adds four sections without speed scoring or a population position. Every result includes selected answers, answer keys, explanations and all four revision guides, including at zero correct. Find a specific difference before choosing a practice step. Repeating items after reading explanations also involves memory; a changed count alone establishes no general ability improvement. This public guide contains no personal answers or attempt counts."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：允许忽略什么，就只忽略什么",
+        "en": "Review only the transformations the rule allows"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用XY 62与X Y62的例子，先抄出规则“只忽略空格”，再把两个原串去空格后比较。另放一条XY-62和一条xy62，检查连字符与大小写仍需保留。不要因为格式看着接近就自动放宽要求。复盘记录检查过的长度、字符、顺序和范围；字符看不清可放大，显示条件的差异也值得记下，不从漏看一次推断视力或注意力状况。",
+          "en": "For XY 62 and X Y62, copy the rule “ignore spaces only” before comparing the originals with spaces removed. Add XY-62 and xy62 to check that hyphens and case still matter. Similar appearance does not authorise relaxed requirements. Record checks of length, characters, order and ranges. Zoom unclear characters and note display differences without inferring eyesight or attention conditions from a miss."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享核对方法，不给彼此能力打分",
+        "en": "Share a checking method without rating each other"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果题目只允许忽略空格，你会怎样说明大小写、连字符和数字顺序为什么还需要逐项比较？”用虚构记录一起说明方法即可，不用互考、比速度或提供分数。",
+          "en": "Ask: “If a task allowed ignoring spaces only, how would you explain why case, hyphens and digit order still need separate checks?” Explain a method together using fictional records without quizzing each other, racing or supplying scores."
+        },
+        {
+          "zh": "可分享公开说明，链接不含个人答案与正确数。真实账号、地址、账目或工作记录不要带入聊天；对方可以换例子、不回答或结束。练习表现不用于判断智力、健康、招聘资格或谁更可靠。",
+          "en": "Share the public guide without personal answers or counts in its link. Keep real accounts, addresses, ledgers and work records out of the conversation. The other person may change examples, decline or stop. Practice results establish no intelligence, health, hiring qualification or reliability ranking."
+        }
+      ]
+    }
+  ]
+}

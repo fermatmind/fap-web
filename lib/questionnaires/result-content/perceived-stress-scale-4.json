@@ -1,0 +1,43 @@
+{
+  "reading-pss4-total": [
+    {
+      "id": "context",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者记得月底困难集中，也有过对处理问题较有信心的片刻；另一个人四条都选有时。不同选择可能得到同一总分，但不证明处境、资源或能力相同。可以只读例子，不列出全部压力源、不检验自己是否真能控制事情，也不用低总分推断身体或生活已经没有问题。",
+          "en": "In an additional original scene, a reader recalls difficulties accumulating near month-end alongside moments of confidence in handling problems. Another reader chooses Sometimes throughout. Different responses can yield one total without matching circumstances, resources or ability. Reading the example requires no complete stressor list or test of actual control. A lower total establishes no absence of physical or practical concerns."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“我想谈这一段时间的一项困难，以及目前能获得哪些支持；部分背景想保留。”可以只读虚构卡，不给别人看分数或四条回答。听者先问希望被听见还是一起澄清实际要求，不以总分评价坚强、责任或工作能力；可以问专业谈话怎样进行，不必先接受诊断、达到阈值或再做一次确认。",
+          "en": "An optional conversation card names one recent difficulty and asks what support is available while keeping some context private. Read only the fictional card without showing a total or four responses. A listener asks whether listening or clarification of practical demands is wanted, judges no strength, responsibility or work ability from a total and can discuss how a professional conversation begins. No accepted diagnosis, threshold or repeated confirmation is needed."
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创解释，不是PSS-4新增条目、临床筛查或治疗练习。英文四题及原有本站中文译文、0—4回答锚保持原样；第2、3题用4减所选值，第1、4题直接相加，总分0—16。四题有效才显示总分是本站完整作答策略，不声称作者规定如此处理缺失，也不补0或均值。总分不派通用严重度、疾病、能力、概率或人群位置。中文仍是费马独立译文，不是所列官方China译本，本站呈现与跨语言测量等值未获独立验证。过去一个月是原回忆范围，不是求助等待期；重复月份不变成七日量表，也不提供可靠变化门槛。原创月度回看使用不同题目和反向键，不能转移回答或合并总分。全文无需作答，复制只含固定公开指南标题与地址，不含答案、贡献值、分数或私人情境；原有分析选择及内存清除规则保持不变。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial explanations, not added PSS-4 items, clinical screening or treatment exercises. The four English questions, existing independent site Chinese translation and zero-to-four response anchors stay unchanged. Questions two and three contribute four minus the chosen value; questions one and four contribute their selected values, for a total from zero to sixteen. Requiring four valid answers is a website completion policy, not a claimed author rule for missing data; neither zero nor a mean is imputed. The total assigns no universal severity, disease, ability, probability or population position. Chinese remains FermatMind’s independent translation, not the listed official China version. The website presentation and cross-language measurement equivalence lack independent validation. The past month remains the recall period, not a waiting period for support. Overlapping months create no seven-day scale or reliable-change threshold. The separate original monthly check-in uses different prompts and reverse keys, with no transferred answers or combined totals. The full guide needs no answers. Copying contains only its fixed public title and address, without answers, contributions, scores or private settings. Existing analytics choices and memory-clearing rules stay unchanged."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,258 @@
+{
+  "scribe": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘记录给后来读者留下什么",
+        "en": "Review what a later reader could learn"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的文字记录，找出一项读者能直接知道的内容、一处来源和一个遗漏。若省略是为了隐私，可以明确记录范围，而不是补齐所有细节。看懂这条记录与了解整个事件是两回事；下次可以改用图示或口述，不必维持书吏角色。",
+          "en": "After the written record above, identify one thing a reader could learn directly, a source and an omission. When privacy explains an omission, state the record’s scope instead of filling every gap. Understanding this note differs from understanding the whole event. A diagram or spoken account can suit another occasion without maintaining a scribe role."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个虚构记录的问题",
+        "en": "Share a question about an invented record"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设只留三行说明给明天整理纸盒的人，你会写什么，哪些要标成未知？”只用虚构材料，不收集私人往事，也不评判谁记忆好。",
+          "en": "Ask: “If you left three lines for someone sorting imaginary paper boxes tomorrow, what would you write and what would you mark unknown?” Use invented material without collecting private histories or rating memory."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不需要让朋友认证你的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline, and no friend needs to validate your result."
+        }
+      ]
+    }
+  ],
+  "potter": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘形状设想与尚未检验的用途",
+        "en": "Review the shape proposal and untested use"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的器物轮廓，选一个与用途有关的细节，例如开口或底部，再注明自己还不知道什么。纸上看起来方便不等于实物已经合用。可以只欣赏形状，不制作、不购买；这次记录关注兴趣，而不是恢复某种古代手艺。",
+          "en": "After the vessel outline above, choose a use-related detail such as its opening or base and mark what you still do not know. Convenience on paper does not establish a usable object. Simply appreciate the shape without making or buying anything. The note concerns present interest rather than recovering an ancient craft."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个器物用途的设想",
+        "en": "Share a vessel-use idea"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设画两个装纸夹的小容器，你想比较开口、底部还是别的细节？”把图当设想讨论，不以像不像古物或画得好不好验证结果。",
+          "en": "Ask: “For two imagined paper-clip containers, would you compare openings, bases or another detail?” Discuss proposals without using resemblance to an artefact or drawing quality to verify the result."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不需要让朋友认证你的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline, and no friend needs to validate your result."
+        }
+      ]
+    }
+  ],
+  "printer": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘重复部分与有意保留的差异",
+        "en": "Review repetition and retained differences"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的两份版面，标出想保持一致的一点，以及愿意留下的一处变化。若文字来自他人，另外核对许可和署名；重复本身不证明准确或有效传播。可以只比较现有材料，不需要追求完全相同，更不从熟悉感推断过去身份。",
+          "en": "After the two layouts above, mark one feature to keep consistent and a difference you want to retain. Separately check permission and attribution for someone else’s words. Repetition proves neither accuracy nor effective distribution. Compare existing material without pursuing perfect sameness or inferring a past identity from familiarity."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个重复与变化的问题",
+        "en": "Share a question about repetition and change"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设同一句原创问候写在两张卡上，哪些位置想相同，哪些想改变？”不同版面可以并存，不把一致性当成认真程度比赛。",
+          "en": "Ask: “If an original greeting appeared on two imaginary cards, which placements would stay the same and which would change?” Different layouts can coexist without a contest in conscientiousness."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不需要让朋友认证你的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline, and no friend needs to validate your result."
+        }
+      ]
+    }
+  ],
+  "weaver": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘图案局部怎样接上整体",
+        "en": "Review how a pattern part joins the whole"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的交错图案，选一处连接和一处间距变化，看看自己愿意保留哪部分。画不清或不想继续都可以记录，不需要完成一整块作品。实际织造涉及的技术和历史劳动条件仍需另行学习，这次小图不据此评价耐心或合作能力。",
+          "en": "After the interlaced pattern above, choose a join and a spacing change, then consider what you want to retain. Unclear lines or a wish to stop can be recorded without completing a whole piece. Actual weaving techniques and historical labour conditions require separate study; this diagram grades neither patience nor cooperation."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个局部连接的问题",
+        "en": "Share a question about a pattern join"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设两段自画纹样相接，你想重复一处、留一个空格，还是换一种连接？”只谈图案选择，不按角色给朋友分配重复劳动。",
+          "en": "Ask: “If two patterns you drew met, would you repeat a part, leave a gap or choose another join?” Discuss the pattern without assigning friends repetitive work through a role label."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不需要让朋友认证你的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline, and no friend needs to validate your result."
+        }
+      ]
+    }
+  ],
+  "drafter": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘构图选择与修改空间",
+        "en": "Review composition choices and room to revise"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的两种摆放，写下视线先落在哪里，以及自己还想改哪一处。喜欢一种布局不要求它比另一种更好；草稿也可以就是这次结束。若希望别人反馈，先说明想听的是位置关系还是别的内容，不把赞美或相似度当艺术天赋证明。",
+          "en": "After the two placements above, note where your attention first went and a part you might revise. Preferring one arrangement need not make it better, and a draft can be this occasion’s ending. If you want feedback, specify whether it concerns placement or something else without taking praise or likeness as proof of artistic talent."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个摆放比较",
+        "en": "Share a placement comparison"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设杯子和纸只用几根线表示，并排、前后或留空，哪种关系让你想多看一眼？”不要求画得像，也不把选择匹配到真实艺术家。",
+          "en": "Ask: “With a cup and sheet shown by a few imaginary lines, would side-by-side placement, overlap or space invite another look?” No likeness or assignment to a real artist is required."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不需要让朋友认证你的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline, and no friend needs to validate your result."
+        }
+      ]
+    }
+  ],
+  "trader": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘描述、同意与没有成交的空间",
+        "en": "Review descriptions, agreement and no exchange"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的虚构物品卡，核对描述里有什么、双方愿意接受什么，以及哪些条件仍未同意。没有交换可以是完整结尾，不必继续劝说或解释成谈判失败。这个纸上情境只帮助比较表达兴趣，不给真实交易、估值或风险判断提供依据。",
+          "en": "After the invented goods cards above, check the descriptions, what each side would accept and which terms remain unagreed. No exchange can be a complete ending without further persuasion or a verdict of failed negotiation. This paper scene explores interest in describing terms, not grounds for real transactions, valuation or risk judgement."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可不交换的情境",
+        "en": "Share a scene where no exchange is needed"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设两人各有一张虚构纸片卡，你想先说明什么，什么情况下就不交换？”允许双方说不，不用真实钱物或成交结果评价谁有商业头脑。",
+          "en": "Ask: “If two people each had an imaginary paper card, what would you state first, and when would you choose no exchange?” Both may decline without real money, goods or a deal grading business ability."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不需要让朋友认证你的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline, and no friend needs to validate your result."
+        }
+      ]
+    }
+  ],
+  "chartmaker": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘图上信息与图外未知",
+        "en": "Review mapped information and what lies beyond it"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的虚构地点图，把确定画出的连接与距离、可达性等未知分开。线条相连只说明这张图的设定，不代表真实可通行。可以换成文字表，或留下一个未画出的部分；图示兴趣不要求旅行，也不授予为他人导航的资格。",
+          "en": "After the fictional place diagram above, separate drawn connections from unknown distances or access. A connecting line states this diagram’s premise rather than a real passable route. Use a written list or leave part undrawn if preferred. Interest in diagrams requires no travel and grants no qualification to navigate for others."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个虚构地图的问题",
+        "en": "Share a question about a fictional map"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设A、B、C是虚构地点，你想怎样标连接，又想把什么留作未知？”不用真实住址或行程，也不比较谁更勇敢或方向感更好。",
+          "en": "Ask: “If A, B and C were fictional places, how would you mark connections and what would stay unknown?” Use no real addresses or itineraries, and make no ranking of courage or sense of direction."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不需要让朋友认证你的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline, and no friend needs to validate your result."
+        }
+      ]
+    }
+  ],
+  "naturalist": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘观察、标签来源与不确定",
+        "en": "Review observation, label source and uncertainty"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的图像细节，分别记下直接看到的形状、名称来自哪里，以及仍需核查的一点。若名字不可靠，可以只留描述。观察兴趣不等于已识别物种；不需要采集、接触未知材料或复现历史技术来验证这份结果。",
+          "en": "After the image detail above, separate the directly observed shape, where a name came from and a point still needing verification. Keep only a description when a name is unreliable. Interest in observation is no species identification, and verifying this result requires neither collecting, touching unknown materials nor recreating historical techniques."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个只描述所见的问题",
+        "en": "Share a question about describing what is visible"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设看一张允许使用的叶片照片，你能描述哪条边或纹路，哪些名称还不知道？”可以保留未知，不竞猜疗效、隐藏性质或谁更有科学天赋。",
+          "en": "Ask: “In an imagined permitted leaf photo, which edge or line could you describe and which names would remain unknown?” Leave uncertainty open without guesses about remedies, hidden properties or scientific talent."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不需要让朋友认证你的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline, and no friend needs to validate your result."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "wrong-target": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者看见一张通知放在另一桌旁，认出了“内容可用、去处不对”的例子，但并未报告自己做过同样的事。若原意本就是在另一桌预览，外观相同也未必是错位。先分清目的与实际去处，不能从熟悉感推断注意力或意图。",
+          "en": "In an additional original scene: A fictional reader recognises a notice beside another table as an example of usable content at an unintended destination, without reporting having done it. If a preview at that table was intended, the same appearance need not be an error. Separate purpose and destination rather than inferring attention or intention from familiarity."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“实际物件、原定去处与观察到的去处分别是什么，哪些仍不知道？”可以只读或讨论虚构人物，不需寻找谁犯错、公开自己的计数或请真人解释。不同理解可保留，讨论不以贴标签或让计数降低为目标。",
+          "en": "An optional discussion card asks: “What are the object, intended destination and observed destination, and what remains unknown?” Read alone or discuss fictional people without finding fault, publishing counts or requesting an actual person’s explanation. Different interpretations may remain; labels and lower counts are never goals."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创，可只读，原练习可跳过。按当前能认出的无害例子选择，不增加回忆期限；熟悉感可以来自故事、观察或想象，不认证事件曾发生在自己身上。十二题各提供四个例子，共六个编辑主题；每主题仅出现八次、各答位两次，没出现在某题不算被拒绝。按明确映射为所选主题记一次，不按固定答位推断主题，不加权或反向。全部十二项有效才显示任何个人计数，无计分NA，缺答不补零、另一主题或提前派结果；都不合适可停止直接读六份全文。六项次数合十二，每项分母八为选项曝光，不是失误机会、发生率或严重度。最高值全部保留，例如全选第一项六类各二次，六份均展示；显示顺序不选赢家、不排主副型。受本题本选项限制，并非所有想象计数组合或并列集合都可达，不勉强生成缺少的结果。相差一次没有已验证的人群意义，同数不证明同样经历、原因或品质，较低值也不认证无失误。六主题描述选中例子的可见结果，现实可以重叠，不是通用科学分类；框架无已建立信效度、常模、预测或中英等值，不评智商、记忆、教育、注意、临床状况、道德和人的价值。虚构讨论无需真实文件、消息、地址、个人经历、联系或实际纠错；无人需要披露、受评或承担额外检查。页面内存、自选24小时标签页草稿及完成、退出、重测清除保持不变，复制只有公开匹配名称和链接，不含答案或次数，公开页不恢复私人答卷。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices; existing exercises are optional. Choose harmless examples you currently recognise without adding a recall period. Familiarity may come from stories, observation or imagination and confirms no personal incident. Twelve questions each offer four examples across six editorial themes. Each theme appears only eight times, twice per position; absence from a question is no rejection. Add one to the selected theme through the stated mapping, not a fixed answer position, without weights or reversals. All twelve choices must be valid before any personal count. There is no scored NA and missingness supplies no zero, alternative theme or early result. If none fits, stop and read all six full guides. Six counts sum to twelve. A denominator of eight is option exposure, not error opportunities, frequency or severity. Keep every maximum: all first-position choices give two each and all six guides. Display order selects no winner or primary and secondary type. The offered options constrain reachable count vectors and tied sets; unavailable outcomes are not fabricated. One extra choice has no established population meaning; equal counts prove no equal experiences, causes or qualities, and lower values certify no absence of error. Themes describe visible outcomes in selected examples, can overlap in real life and are no universal scientific taxonomy. The framework has no established reliability, validity, norms, prediction or English–Chinese equivalence and assesses no IQ, memory, education, attention, clinical condition, morality or worth. Fictional discussion needs no real files, messages, addresses, personal history, contact or corrective action. Nobody owes disclosure, evaluation or extra checking. Page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying contains only public matched titles and a link without answers or counts; public pages restore no private attempt."
+        }
+      ]
+    }
+  ],
+  "wrong-version": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者认出海报日期已改、导出的却是旧稿的例子。若活动原本要比较修改前后，旧稿又可能正是所需。较新的保存时间、文件名中的“最终”或测试计数，都不能代替采用哪份的真实约定。",
+          "en": "In an additional original scene: A fictional reader recognises a poster exported from a draft preceding a date change. If the activity was to compare revisions, that older copy might be exactly what was needed. A later save time, a “final” filename or quiz count replaces no actual agreement on which copy to use."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“哪份是约好使用的副本，哪份只是较新或留作比较？”可以只读或讨论虚构人物，不需寻找谁犯错、公开自己的计数或请真人解释。不同理解可保留，讨论不以贴标签或让计数降低为目标。",
+          "en": "An optional discussion card asks: “Which copy was agreed for use, and which is merely newer or retained for comparison?” Read alone or discuss fictional people without finding fault, publishing counts or requesting an actual person’s explanation. Different interpretations may remain; labels and lower counts are never goals."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创，可只读，原练习可跳过。按当前能认出的无害例子选择，不增加回忆期限；熟悉感可以来自故事、观察或想象，不认证事件曾发生在自己身上。十二题各提供四个例子，共六个编辑主题；每主题仅出现八次、各答位两次，没出现在某题不算被拒绝。按明确映射为所选主题记一次，不按固定答位推断主题，不加权或反向。全部十二项有效才显示任何个人计数，无计分NA，缺答不补零、另一主题或提前派结果；都不合适可停止直接读六份全文。六项次数合十二，每项分母八为选项曝光，不是失误机会、发生率或严重度。最高值全部保留，例如全选第一项六类各二次，六份均展示；显示顺序不选赢家、不排主副型。受本题本选项限制，并非所有想象计数组合或并列集合都可达，不勉强生成缺少的结果。相差一次没有已验证的人群意义，同数不证明同样经历、原因或品质，较低值也不认证无失误。六主题描述选中例子的可见结果，现实可以重叠，不是通用科学分类；框架无已建立信效度、常模、预测或中英等值，不评智商、记忆、教育、注意、临床状况、道德和人的价值。虚构讨论无需真实文件、消息、地址、个人经历、联系或实际纠错；无人需要披露、受评或承担额外检查。页面内存、自选24小时标签页草稿及完成、退出、重测清除保持不变，复制只有公开匹配名称和链接，不含答案或次数，公开页不恢复私人答卷。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices; existing exercises are optional. Choose harmless examples you currently recognise without adding a recall period. Familiarity may come from stories, observation or imagination and confirms no personal incident. Twelve questions each offer four examples across six editorial themes. Each theme appears only eight times, twice per position; absence from a question is no rejection. Add one to the selected theme through the stated mapping, not a fixed answer position, without weights or reversals. All twelve choices must be valid before any personal count. There is no scored NA and missingness supplies no zero, alternative theme or early result. If none fits, stop and read all six full guides. Six counts sum to twelve. A denominator of eight is option exposure, not error opportunities, frequency or severity. Keep every maximum: all first-position choices give two each and all six guides. Display order selects no winner or primary and secondary type. The offered options constrain reachable count vectors and tied sets; unavailable outcomes are not fabricated. One extra choice has no established population meaning; equal counts prove no equal experiences, causes or qualities, and lower values certify no absence of error. Themes describe visible outcomes in selected examples, can overlap in real life and are no universal scientific taxonomy. The framework has no established reliability, validity, norms, prediction or English–Chinese equivalence and assesses no IQ, memory, education, attention, clinical condition, morality or worth. Fictional discussion needs no real files, messages, addresses, personal history, contact or corrective action. Nobody owes disclosure, evaluation or extra checking. Page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying contains only public matched titles and a link without answers or counts; public pages restore no private attempt."
+        }
+      ]
+    }
+  ],
+  "missing-step": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者认出换书架少了索引卡的例子，但若当天已改成随意翻阅，卡片未必仍是所需。缺少某物与漏掉约定部分不同，补齐所有可能项目也不自动更好；计数不能判断完成能力或谁该负责。",
+          "en": "In an additional original scene: A fictional reader recognises a book-swap shelf without index cards, but cards may not be needed if the event now uses casual browsing. An absent object differs from an omitted agreed requirement. Adding every possible component is not automatically better, and counts judge neither completion ability nor responsibility."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“当前约定需要哪一小项，什么可以不做而仍然能用？”可以只读或讨论虚构人物，不需寻找谁犯错、公开自己的计数或请真人解释。不同理解可保留，讨论不以贴标签或让计数降低为目标。",
+          "en": "An optional discussion card asks: “Which small part does the current agreement require, and what may be omitted while it remains usable?” Read alone or discuss fictional people without finding fault, publishing counts or requesting an actual person’s explanation. Different interpretations may remain; labels and lower counts are never goals."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创，可只读，原练习可跳过。按当前能认出的无害例子选择，不增加回忆期限；熟悉感可以来自故事、观察或想象，不认证事件曾发生在自己身上。十二题各提供四个例子，共六个编辑主题；每主题仅出现八次、各答位两次，没出现在某题不算被拒绝。按明确映射为所选主题记一次，不按固定答位推断主题，不加权或反向。全部十二项有效才显示任何个人计数，无计分NA，缺答不补零、另一主题或提前派结果；都不合适可停止直接读六份全文。六项次数合十二，每项分母八为选项曝光，不是失误机会、发生率或严重度。最高值全部保留，例如全选第一项六类各二次，六份均展示；显示顺序不选赢家、不排主副型。受本题本选项限制，并非所有想象计数组合或并列集合都可达，不勉强生成缺少的结果。相差一次没有已验证的人群意义，同数不证明同样经历、原因或品质，较低值也不认证无失误。六主题描述选中例子的可见结果，现实可以重叠，不是通用科学分类；框架无已建立信效度、常模、预测或中英等值，不评智商、记忆、教育、注意、临床状况、道德和人的价值。虚构讨论无需真实文件、消息、地址、个人经历、联系或实际纠错；无人需要披露、受评或承担额外检查。页面内存、自选24小时标签页草稿及完成、退出、重测清除保持不变，复制只有公开匹配名称和链接，不含答案或次数，公开页不恢复私人答卷。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices; existing exercises are optional. Choose harmless examples you currently recognise without adding a recall period. Familiarity may come from stories, observation or imagination and confirms no personal incident. Twelve questions each offer four examples across six editorial themes. Each theme appears only eight times, twice per position; absence from a question is no rejection. Add one to the selected theme through the stated mapping, not a fixed answer position, without weights or reversals. All twelve choices must be valid before any personal count. There is no scored NA and missingness supplies no zero, alternative theme or early result. If none fits, stop and read all six full guides. Six counts sum to twelve. A denominator of eight is option exposure, not error opportunities, frequency or severity. Keep every maximum: all first-position choices give two each and all six guides. Display order selects no winner or primary and secondary type. The offered options constrain reachable count vectors and tied sets; unavailable outcomes are not fabricated. One extra choice has no established population meaning; equal counts prove no equal experiences, causes or qualities, and lower values certify no absence of error. Themes describe visible outcomes in selected examples, can overlap in real life and are no universal scientific taxonomy. The framework has no established reliability, validity, norms, prediction or English–Chinese equivalence and assesses no IQ, memory, education, attention, clinical condition, morality or worth. Fictional discussion needs no real files, messages, addresses, personal history, contact or corrective action. Nobody owes disclosure, evaluation or extra checking. Page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying contains only public matched titles and a link without answers or counts; public pages restore no private attempt."
+        }
+      ]
+    }
+  ],
+  "duplicate-step": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者认出简报中同一通知出现两遍，却还不知道是否为不同读者有意重复。先核对内容、用途和原定份数，再讨论保留哪份；结果不要求删真实文件、取消备份或让人害怕任何重复。",
+          "en": "In an additional original scene: A fictional reader recognises the same notice twice in a newsletter without knowing whether repetition serves different readers. Check content, purpose and intended quantity before deciding what to keep. The result requires neither deleting real files, abandoning backups nor avoiding all repetition."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“这两份是否真的相同，重复是否有明确用途，哪些信息尚未核实？”可以只读或讨论虚构人物，不需寻找谁犯错、公开自己的计数或请真人解释。不同理解可保留，讨论不以贴标签或让计数降低为目标。",
+          "en": "An optional discussion card asks: “Are the two copies identical, does repetition have a stated purpose, and which details remain unchecked?” Read alone or discuss fictional people without finding fault, publishing counts or requesting an actual person’s explanation. Different interpretations may remain; labels and lower counts are never goals."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创，可只读，原练习可跳过。按当前能认出的无害例子选择，不增加回忆期限；熟悉感可以来自故事、观察或想象，不认证事件曾发生在自己身上。十二题各提供四个例子，共六个编辑主题；每主题仅出现八次、各答位两次，没出现在某题不算被拒绝。按明确映射为所选主题记一次，不按固定答位推断主题，不加权或反向。全部十二项有效才显示任何个人计数，无计分NA，缺答不补零、另一主题或提前派结果；都不合适可停止直接读六份全文。六项次数合十二，每项分母八为选项曝光，不是失误机会、发生率或严重度。最高值全部保留，例如全选第一项六类各二次，六份均展示；显示顺序不选赢家、不排主副型。受本题本选项限制，并非所有想象计数组合或并列集合都可达，不勉强生成缺少的结果。相差一次没有已验证的人群意义，同数不证明同样经历、原因或品质，较低值也不认证无失误。六主题描述选中例子的可见结果，现实可以重叠，不是通用科学分类；框架无已建立信效度、常模、预测或中英等值，不评智商、记忆、教育、注意、临床状况、道德和人的价值。虚构讨论无需真实文件、消息、地址、个人经历、联系或实际纠错；无人需要披露、受评或承担额外检查。页面内存、自选24小时标签页草稿及完成、退出、重测清除保持不变，复制只有公开匹配名称和链接，不含答案或次数，公开页不恢复私人答卷。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices; existing exercises are optional. Choose harmless examples you currently recognise without adding a recall period. Familiarity may come from stories, observation or imagination and confirms no personal incident. Twelve questions each offer four examples across six editorial themes. Each theme appears only eight times, twice per position; absence from a question is no rejection. Add one to the selected theme through the stated mapping, not a fixed answer position, without weights or reversals. All twelve choices must be valid before any personal count. There is no scored NA and missingness supplies no zero, alternative theme or early result. If none fits, stop and read all six full guides. Six counts sum to twelve. A denominator of eight is option exposure, not error opportunities, frequency or severity. Keep every maximum: all first-position choices give two each and all six guides. Display order selects no winner or primary and secondary type. The offered options constrain reachable count vectors and tied sets; unavailable outcomes are not fabricated. One extra choice has no established population meaning; equal counts prove no equal experiences, causes or qualities, and lower values certify no absence of error. Themes describe visible outcomes in selected examples, can overlap in real life and are no universal scientific taxonomy. The framework has no established reliability, validity, norms, prediction or English–Chinese equivalence and assesses no IQ, memory, education, attention, clinical condition, morality or worth. Fictional discussion needs no real files, messages, addresses, personal history, contact or corrective action. Nobody owes disclosure, evaluation or extra checking. Page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying contains only public matched titles and a link without answers or counts; public pages restore no private attempt."
+        }
+      ]
+    }
+  ],
+  "mixed-amount": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者认出便签写十对书签、现场只有十张的例子。数字、单位和实际所需份数要分开说清；若计划已改，原数目也可能不再适用。这不是一道限时算术题，认出例子不认证或否定数学能力。",
+          "en": "In an additional original scene: A fictional reader recognises a note requesting ten pairs of bookmarks while ten individual bookmarks arrive. Distinguish number, unit and actual required quantity; a changed plan may make the original number irrelevant. This is no timed calculation, and recognising the example establishes neither mathematical ability nor its absence."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“数字指单件、成对还是成套，现场需要与原说明是否仍一致？”可以只读或讨论虚构人物，不需寻找谁犯错、公开自己的计数或请真人解释。不同理解可保留，讨论不以贴标签或让计数降低为目标。",
+          "en": "An optional discussion card asks: “Does the number mean pieces, pairs or sets, and do current needs still match the original instruction?” Read alone or discuss fictional people without finding fault, publishing counts or requesting an actual person’s explanation. Different interpretations may remain; labels and lower counts are never goals."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创，可只读，原练习可跳过。按当前能认出的无害例子选择，不增加回忆期限；熟悉感可以来自故事、观察或想象，不认证事件曾发生在自己身上。十二题各提供四个例子，共六个编辑主题；每主题仅出现八次、各答位两次，没出现在某题不算被拒绝。按明确映射为所选主题记一次，不按固定答位推断主题，不加权或反向。全部十二项有效才显示任何个人计数，无计分NA，缺答不补零、另一主题或提前派结果；都不合适可停止直接读六份全文。六项次数合十二，每项分母八为选项曝光，不是失误机会、发生率或严重度。最高值全部保留，例如全选第一项六类各二次，六份均展示；显示顺序不选赢家、不排主副型。受本题本选项限制，并非所有想象计数组合或并列集合都可达，不勉强生成缺少的结果。相差一次没有已验证的人群意义，同数不证明同样经历、原因或品质，较低值也不认证无失误。六主题描述选中例子的可见结果，现实可以重叠，不是通用科学分类；框架无已建立信效度、常模、预测或中英等值，不评智商、记忆、教育、注意、临床状况、道德和人的价值。虚构讨论无需真实文件、消息、地址、个人经历、联系或实际纠错；无人需要披露、受评或承担额外检查。页面内存、自选24小时标签页草稿及完成、退出、重测清除保持不变，复制只有公开匹配名称和链接，不含答案或次数，公开页不恢复私人答卷。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices; existing exercises are optional. Choose harmless examples you currently recognise without adding a recall period. Familiarity may come from stories, observation or imagination and confirms no personal incident. Twelve questions each offer four examples across six editorial themes. Each theme appears only eight times, twice per position; absence from a question is no rejection. Add one to the selected theme through the stated mapping, not a fixed answer position, without weights or reversals. All twelve choices must be valid before any personal count. There is no scored NA and missingness supplies no zero, alternative theme or early result. If none fits, stop and read all six full guides. Six counts sum to twelve. A denominator of eight is option exposure, not error opportunities, frequency or severity. Keep every maximum: all first-position choices give two each and all six guides. Display order selects no winner or primary and secondary type. The offered options constrain reachable count vectors and tied sets; unavailable outcomes are not fabricated. One extra choice has no established population meaning; equal counts prove no equal experiences, causes or qualities, and lower values certify no absence of error. Themes describe visible outcomes in selected examples, can overlap in real life and are no universal scientific taxonomy. The framework has no established reliability, validity, norms, prediction or English–Chinese equivalence and assesses no IQ, memory, education, attention, clinical condition, morality or worth. Fictional discussion needs no real files, messages, addresses, personal history, contact or corrective action. Nobody owes disclosure, evaluation or extra checking. Page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying contains only public matched titles and a link without answers or counts; public pages restore no private attempt."
+        }
+      ]
+    }
+  ],
+  "unspoken-handoff": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者认出两位编辑都以为由对方发送的例子，却不能从中知道谁听见过什么约定。就绪信号、下一位行动者和完成确认各需清楚；这也不要求一个人承担所有提醒，或让另一人因结果而证明可靠。",
+          "en": "In an additional original scene: A fictional reader recognises two editors each expecting the other to send a newsletter, without knowing what each heard. Readiness signals, the next actor and confirmation of completion need clarity. This requires nobody to carry every reminder or prove reliability because of a quiz result."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“谁曾同意哪一步，什么表示已就绪，哪些安排仍需双方自愿确认？”可以只读或讨论虚构人物，不需寻找谁犯错、公开自己的计数或请真人解释。不同理解可保留，讨论不以贴标签或让计数降低为目标。",
+          "en": "An optional discussion card asks: “Who agreed to which step, what signals readiness, and which arrangements still need voluntary confirmation?” Read alone or discuss fictional people without finding fault, publishing counts or requesting an actual person’s explanation. Different interpretations may remain; labels and lower counts are never goals."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创，可只读，原练习可跳过。按当前能认出的无害例子选择，不增加回忆期限；熟悉感可以来自故事、观察或想象，不认证事件曾发生在自己身上。十二题各提供四个例子，共六个编辑主题；每主题仅出现八次、各答位两次，没出现在某题不算被拒绝。按明确映射为所选主题记一次，不按固定答位推断主题，不加权或反向。全部十二项有效才显示任何个人计数，无计分NA，缺答不补零、另一主题或提前派结果；都不合适可停止直接读六份全文。六项次数合十二，每项分母八为选项曝光，不是失误机会、发生率或严重度。最高值全部保留，例如全选第一项六类各二次，六份均展示；显示顺序不选赢家、不排主副型。受本题本选项限制，并非所有想象计数组合或并列集合都可达，不勉强生成缺少的结果。相差一次没有已验证的人群意义，同数不证明同样经历、原因或品质，较低值也不认证无失误。六主题描述选中例子的可见结果，现实可以重叠，不是通用科学分类；框架无已建立信效度、常模、预测或中英等值，不评智商、记忆、教育、注意、临床状况、道德和人的价值。虚构讨论无需真实文件、消息、地址、个人经历、联系或实际纠错；无人需要披露、受评或承担额外检查。页面内存、自选24小时标签页草稿及完成、退出、重测清除保持不变，复制只有公开匹配名称和链接，不含答案或次数，公开页不恢复私人答卷。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices; existing exercises are optional. Choose harmless examples you currently recognise without adding a recall period. Familiarity may come from stories, observation or imagination and confirms no personal incident. Twelve questions each offer four examples across six editorial themes. Each theme appears only eight times, twice per position; absence from a question is no rejection. Add one to the selected theme through the stated mapping, not a fixed answer position, without weights or reversals. All twelve choices must be valid before any personal count. There is no scored NA and missingness supplies no zero, alternative theme or early result. If none fits, stop and read all six full guides. Six counts sum to twelve. A denominator of eight is option exposure, not error opportunities, frequency or severity. Keep every maximum: all first-position choices give two each and all six guides. Display order selects no winner or primary and secondary type. The offered options constrain reachable count vectors and tied sets; unavailable outcomes are not fabricated. One extra choice has no established population meaning; equal counts prove no equal experiences, causes or qualities, and lower values certify no absence of error. Themes describe visible outcomes in selected examples, can overlap in real life and are no universal scientific taxonomy. The framework has no established reliability, validity, norms, prediction or English–Chinese equivalence and assesses no IQ, memory, education, attention, clinical condition, morality or worth. Fictional discussion needs no real files, messages, addresses, personal history, contact or corrective action. Nobody owes disclosure, evaluation or extra checking. Page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying contains only public matched titles and a link without answers or counts; public pages restore no private attempt."
+        }
+      ]
+    }
+  ]
+}

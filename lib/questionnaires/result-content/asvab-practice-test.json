@@ -1,0 +1,166 @@
+{
+  "arithmetic-reasoning": [
+    {
+      "id": "worked",
+      "title": {
+        "en": "A worked approach",
+        "zh": "一个可复算的思路"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创学习情境：虚构的宁本组答对5、答错2、未答1；乔答对5、答错0、未答3。两者各有八题记录，但相同正确数没有保留尝试与留空的差别，也不知道答案是否猜中。可用另一个原创例子检查过程：七袋各八枚筹码，合并后取走五枚，剩余7×8−5=51枚。先写所求量与单位，再说明为什么不是袋数、起初56枚或加五。能够复述这个过程仍不证明能解决所有应用题，也不将未答推定为不会。",
+          "en": "An additional original learning scene: Fictional Ning records five correct, two wrong and one unanswered; Jo records five correct, zero wrong and three unanswered. Each record accounts for eight items, but equal correct counts omit differences in attempts and blanks and reveal no guessing. Check a process with another original example: seven bags of eight tokens, then five removed from the combined supply, leave 7 × 8 − 5 = 51 tokens. Name the requested quantity and unit before explaining why neither bag count, the initial 56 nor adding five answers the question. Explaining this process proves no mastery of all word problems, and unanswered does not establish inability."
+        }
+      ]
+    },
+    {
+      "id": "review",
+      "title": {
+        "en": "Review and try again",
+        "zh": "复盘与重练"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样用一个新数量情境核对所求量和单位，而不凭同样的正确数断言两人能力或原因相同？”可以只用上述虚构人物和新例子，一人说明依据，另一人检查单位、条件或措辞；允许不同意、留待核查或停止，不需交换个人答卷、成绩、语言背景或申请资料，不以速度或同意程度给参与者排名。",
+          "en": "An optional discussion prompt asks: “How can a new quantity problem check the requested value and units without using equal correct counts to infer equal ability or causes?” Use only the fictional learners and new examples above: one person explains the evidence and another checks units, conditions or wording. Participants may disagree, leave a point for checking or stop without exchanging private answer sheets, scores, language backgrounds or application details. Neither speed nor agreement ranks participants."
+        }
+      ]
+    },
+    {
+      "id": "boundary",
+      "title": {
+        "en": "Keep the boundary clear",
+        "zh": "保留方法边界"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版本为费马独立编写的固定英文练习，AR、WK、PC、MK四部分各八题，共32题；中文界面保留相同英文题干与选项，说明、解析和指南双语，不是另一套中文能力测验。匹配答案键为正确，选其他A—D为错误，明确留空或未触及都为未答；三类数量每部分相加为八、整体为32，不把未答补成已选错误，不加权或校正猜测。四份公开指南作答前即可阅读。在私人结果中，四部分全部结束后显示本次记录、全部题目答案解析及相同通用指南，包括全部留空的记录。计时模式的本站上限依次4:00、2:40、4:00、4:00，活动时间合14:40，不含段间等待；不计时学习使用同一题本，无截止时间。每段由本人点击开始，开放期间可前后修改；主动结束或到时后锁定，空白保留未答，下一段等另行开始。切后台不暂停，设备双时钟不一致时按现有流程清除，不生成计时结果；这不是监考或防作弊认证。本站设置不复刻正式CAT、纸笔或PiCAT的时限、自适应、返回与猜题规则。正确数与模式只描述此题本此次操作，不产生AFQT合成分、标准分、百分位、预测、通过线、军职或入伍资格；正式AFQT依据四项正式分测的标准分程序和参照群体，不能用本练习答对比例替代。八题分母相同不使不同部分难度等值，最低正确数不诊断弱项；正确也不能证明推理过程、未答原因或独立完成。题目未经能力测量验证，无常模、语言等值、进步阈值或备考效果保证，官方来源仅界定题型与正式流程，不提供正式题库或背书。练习可先解释具体步骤，再用陌生材料核对，不必公开成绩、申请经历或个人信息。答案、模式和本次计时仅留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复或重练按现有流程清除。复制只含全部四篇公开指南标题与链接，不含答案、数量、模式或用时；常规页面分析关闭，可选匿名动作计数需本页许可与全站分析同意。清除不抹掉浏览器历史、截屏或旁人看屏，可只读、不讨论或退出。",
+          "en": "This is an independently authored fixed English practice bank: eight questions each in AR, WK, PC and MK, 32 in all. Chinese UI retains the same English stems and choices with bilingual instructions, explanations and guides, not a separate Chinese aptitude test. A key match is correct, another A–D choice wrong, and explicit skips or untouched items unanswered. The three counts sum to eight per part and 32 overall, without converting blanks to selected wrong responses, weighting or guessing correction. The public guides are freely readable before answering. In the private result, all four parts must close before the attempt record, every question and explanation, and the same general guides appear, including all-unanswered attempts. Site-selected timed caps are 4:00, 2:40, 4:00 and 4:00: 14:40 of active time excluding waits. Untimed study uses the same bank without deadlines. Each part starts on a deliberate click; open parts allow backtracking and edits. Finishing or expiry locks a part with blanks retained, and the next part waits for another start. Background tabs do not pause the clock. Inconsistent device clocks clear the attempt through the existing process without a timed result, not proctoring or anti-cheating certification. These settings reproduce no official CAT, paper or PiCAT timing, adaptive, return or guessing rules. Correct counts and mode describe this attempt only, yielding no AFQT composite, standard score, percentile, prediction, passing threshold, military-job or enlistment qualification. Official AFQT uses standard-score procedures and a reference group for four official subtests, not this bank’s correct-answer proportion. Equal eight-item denominators do not equate difficulty across parts; the lowest count diagnoses no weakness. Correct choices establish no reasoning process, reason for blanks or independent completion. This bank lacks aptitude-measure validation, norms, language equivalence, improvement thresholds or guaranteed preparation effects. Official sources define topic and process boundaries without supplying actual test items or endorsement. Explain concrete steps and try unfamiliar materials without disclosing scores, applications or personal details. Answers, mode and timing stay in page memory without drafts or long-term history; refresh, leaving, language change, cached-page restoration or restarting follows existing clearing. Copying includes all four public guide titles and links without responses, counts, mode or time. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation. Reading alone, declining discussion or leaving is allowed."
+        }
+      ]
+    }
+  ],
+  "word-knowledge": [
+    {
+      "id": "worked",
+      "title": {
+        "en": "A worked approach",
+        "zh": "一个可复算的思路"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创学习情境：虚构的沐在计时条件下选对六题，思在不计时学习中也选对六题；记录没有监考两人是否查词，也不能将模式差别换成优劣。另一个原创句子是“The entrance remained accessible, so visitors could still enter.”这里线索支持入口仍可进入，不支持入口漂亮、隐蔽或永久开放。先解释句中词义，再换一句检验，而不是记某个选项字母；这段虚构说明也不是现实场所的通行政策。",
+          "en": "An additional original learning scene: Fictional Mu answers six correctly under section timers; Si answers six correctly in untimed study. The page does not proctor dictionary use, and a mode difference establishes no ranking. Consider another original sentence: “The entrance remained accessible, so visitors could still enter.” The clue supports an entrance remaining usable for entry, not beautiful, hidden or permanently open. Explain the contextual meaning and try another sentence rather than memorizing an option letter. This fictional notice establishes no real location’s access policy."
+        }
+      ]
+    },
+    {
+      "id": "review",
+      "title": {
+        "en": "Review and try again",
+        "zh": "复盘与重练"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样把语境提供的词义线索与额外联想分开，同时保留独立首答和查词学习条件的差别？”可以只用上述虚构人物和新例子，一人说明依据，另一人检查单位、条件或措辞；允许不同意、留待核查或停止，不需交换个人答卷、成绩、语言背景或申请资料，不以速度或同意程度给参与者排名。",
+          "en": "An optional discussion prompt asks: “How can contextual meaning be separated from extra associations while preserving differences between independent first responses and dictionary-assisted study?” Use only the fictional learners and new examples above: one person explains the evidence and another checks units, conditions or wording. Participants may disagree, leave a point for checking or stop without exchanging private answer sheets, scores, language backgrounds or application details. Neither speed nor agreement ranks participants."
+        }
+      ]
+    },
+    {
+      "id": "boundary",
+      "title": {
+        "en": "Keep the boundary clear",
+        "zh": "保留方法边界"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版本为费马独立编写的固定英文练习，AR、WK、PC、MK四部分各八题，共32题；中文界面保留相同英文题干与选项，说明、解析和指南双语，不是另一套中文能力测验。匹配答案键为正确，选其他A—D为错误，明确留空或未触及都为未答；三类数量每部分相加为八、整体为32，不把未答补成已选错误，不加权或校正猜测。四份公开指南作答前即可阅读。在私人结果中，四部分全部结束后显示本次记录、全部题目答案解析及相同通用指南，包括全部留空的记录。计时模式的本站上限依次4:00、2:40、4:00、4:00，活动时间合14:40，不含段间等待；不计时学习使用同一题本，无截止时间。每段由本人点击开始，开放期间可前后修改；主动结束或到时后锁定，空白保留未答，下一段等另行开始。切后台不暂停，设备双时钟不一致时按现有流程清除，不生成计时结果；这不是监考或防作弊认证。本站设置不复刻正式CAT、纸笔或PiCAT的时限、自适应、返回与猜题规则。正确数与模式只描述此题本此次操作，不产生AFQT合成分、标准分、百分位、预测、通过线、军职或入伍资格；正式AFQT依据四项正式分测的标准分程序和参照群体，不能用本练习答对比例替代。八题分母相同不使不同部分难度等值，最低正确数不诊断弱项；正确也不能证明推理过程、未答原因或独立完成。题目未经能力测量验证，无常模、语言等值、进步阈值或备考效果保证，官方来源仅界定题型与正式流程，不提供正式题库或背书。练习可先解释具体步骤，再用陌生材料核对，不必公开成绩、申请经历或个人信息。答案、模式和本次计时仅留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复或重练按现有流程清除。复制只含全部四篇公开指南标题与链接，不含答案、数量、模式或用时；常规页面分析关闭，可选匿名动作计数需本页许可与全站分析同意。清除不抹掉浏览器历史、截屏或旁人看屏，可只读、不讨论或退出。",
+          "en": "This is an independently authored fixed English practice bank: eight questions each in AR, WK, PC and MK, 32 in all. Chinese UI retains the same English stems and choices with bilingual instructions, explanations and guides, not a separate Chinese aptitude test. A key match is correct, another A–D choice wrong, and explicit skips or untouched items unanswered. The three counts sum to eight per part and 32 overall, without converting blanks to selected wrong responses, weighting or guessing correction. The public guides are freely readable before answering. In the private result, all four parts must close before the attempt record, every question and explanation, and the same general guides appear, including all-unanswered attempts. Site-selected timed caps are 4:00, 2:40, 4:00 and 4:00: 14:40 of active time excluding waits. Untimed study uses the same bank without deadlines. Each part starts on a deliberate click; open parts allow backtracking and edits. Finishing or expiry locks a part with blanks retained, and the next part waits for another start. Background tabs do not pause the clock. Inconsistent device clocks clear the attempt through the existing process without a timed result, not proctoring or anti-cheating certification. These settings reproduce no official CAT, paper or PiCAT timing, adaptive, return or guessing rules. Correct counts and mode describe this attempt only, yielding no AFQT composite, standard score, percentile, prediction, passing threshold, military-job or enlistment qualification. Official AFQT uses standard-score procedures and a reference group for four official subtests, not this bank’s correct-answer proportion. Equal eight-item denominators do not equate difficulty across parts; the lowest count diagnoses no weakness. Correct choices establish no reasoning process, reason for blanks or independent completion. This bank lacks aptitude-measure validation, norms, language equivalence, improvement thresholds or guaranteed preparation effects. Official sources define topic and process boundaries without supplying actual test items or endorsement. Explain concrete steps and try unfamiliar materials without disclosing scores, applications or personal details. Answers, mode and timing stay in page memory without drafts or long-term history; refresh, leaving, language change, cached-page restoration or restarting follows existing clearing. Copying includes all four public guide titles and links without responses, counts, mode or time. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation. Reading alone, declining discussion or leaving is allowed."
+        }
+      ]
+    }
+  ],
+  "paragraph-comprehension": [
+    {
+      "id": "worked",
+      "title": {
+        "en": "A worked approach",
+        "zh": "一个可复算的思路"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创学习情境：虚构的羽读到另一则原创通知：“本周四资料室因检查改到中午开放；周五安排待确认。”若问已确定什么，能说本周四中午开放，不能补成每天中午开放、周五关闭或永久改时。安选择的句子即使用了通知中的多数词，只要改掉日期或确定程度，也不因此受支持。某组四对、两错、两未答保留三种事实，不把未答说成否认文章，也不由一题断定稳定阅读弱项。",
+          "en": "An additional original learning scene: Fictional Yu reads another original notice: “This Thursday the records room opens at noon because of an inspection; Friday’s arrangement is awaiting confirmation.” What is settled is Thursday’s noon opening, not a daily noon schedule, Friday closure or permanent change. An’s choice can repeat most words yet lack support if it changes the date or certainty. A part with four correct, two wrong and two unanswered retains three facts: unanswered is no rejection of the passage, and one item establishes no stable reading weakness."
+        }
+      ]
+    },
+    {
+      "id": "review",
+      "title": {
+        "en": "Review and try again",
+        "zh": "复盘与重练"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样指出通知中最短的支持依据，再说明一个看似相近的选项在哪个限定上越界？”可以只用上述虚构人物和新例子，一人说明依据，另一人检查单位、条件或措辞；允许不同意、留待核查或停止，不需交换个人答卷、成绩、语言背景或申请资料，不以速度或同意程度给参与者排名。",
+          "en": "An optional discussion prompt asks: “How can we identify the shortest supporting evidence and the exact qualifier changed by a tempting alternative?” Use only the fictional learners and new examples above: one person explains the evidence and another checks units, conditions or wording. Participants may disagree, leave a point for checking or stop without exchanging private answer sheets, scores, language backgrounds or application details. Neither speed nor agreement ranks participants."
+        }
+      ]
+    },
+    {
+      "id": "boundary",
+      "title": {
+        "en": "Keep the boundary clear",
+        "zh": "保留方法边界"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版本为费马独立编写的固定英文练习，AR、WK、PC、MK四部分各八题，共32题；中文界面保留相同英文题干与选项，说明、解析和指南双语，不是另一套中文能力测验。匹配答案键为正确，选其他A—D为错误，明确留空或未触及都为未答；三类数量每部分相加为八、整体为32，不把未答补成已选错误，不加权或校正猜测。四份公开指南作答前即可阅读。在私人结果中，四部分全部结束后显示本次记录、全部题目答案解析及相同通用指南，包括全部留空的记录。计时模式的本站上限依次4:00、2:40、4:00、4:00，活动时间合14:40，不含段间等待；不计时学习使用同一题本，无截止时间。每段由本人点击开始，开放期间可前后修改；主动结束或到时后锁定，空白保留未答，下一段等另行开始。切后台不暂停，设备双时钟不一致时按现有流程清除，不生成计时结果；这不是监考或防作弊认证。本站设置不复刻正式CAT、纸笔或PiCAT的时限、自适应、返回与猜题规则。正确数与模式只描述此题本此次操作，不产生AFQT合成分、标准分、百分位、预测、通过线、军职或入伍资格；正式AFQT依据四项正式分测的标准分程序和参照群体，不能用本练习答对比例替代。八题分母相同不使不同部分难度等值，最低正确数不诊断弱项；正确也不能证明推理过程、未答原因或独立完成。题目未经能力测量验证，无常模、语言等值、进步阈值或备考效果保证，官方来源仅界定题型与正式流程，不提供正式题库或背书。练习可先解释具体步骤，再用陌生材料核对，不必公开成绩、申请经历或个人信息。答案、模式和本次计时仅留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复或重练按现有流程清除。复制只含全部四篇公开指南标题与链接，不含答案、数量、模式或用时；常规页面分析关闭，可选匿名动作计数需本页许可与全站分析同意。清除不抹掉浏览器历史、截屏或旁人看屏，可只读、不讨论或退出。",
+          "en": "This is an independently authored fixed English practice bank: eight questions each in AR, WK, PC and MK, 32 in all. Chinese UI retains the same English stems and choices with bilingual instructions, explanations and guides, not a separate Chinese aptitude test. A key match is correct, another A–D choice wrong, and explicit skips or untouched items unanswered. The three counts sum to eight per part and 32 overall, without converting blanks to selected wrong responses, weighting or guessing correction. The public guides are freely readable before answering. In the private result, all four parts must close before the attempt record, every question and explanation, and the same general guides appear, including all-unanswered attempts. Site-selected timed caps are 4:00, 2:40, 4:00 and 4:00: 14:40 of active time excluding waits. Untimed study uses the same bank without deadlines. Each part starts on a deliberate click; open parts allow backtracking and edits. Finishing or expiry locks a part with blanks retained, and the next part waits for another start. Background tabs do not pause the clock. Inconsistent device clocks clear the attempt through the existing process without a timed result, not proctoring or anti-cheating certification. These settings reproduce no official CAT, paper or PiCAT timing, adaptive, return or guessing rules. Correct counts and mode describe this attempt only, yielding no AFQT composite, standard score, percentile, prediction, passing threshold, military-job or enlistment qualification. Official AFQT uses standard-score procedures and a reference group for four official subtests, not this bank’s correct-answer proportion. Equal eight-item denominators do not equate difficulty across parts; the lowest count diagnoses no weakness. Correct choices establish no reasoning process, reason for blanks or independent completion. This bank lacks aptitude-measure validation, norms, language equivalence, improvement thresholds or guaranteed preparation effects. Official sources define topic and process boundaries without supplying actual test items or endorsement. Explain concrete steps and try unfamiliar materials without disclosing scores, applications or personal details. Answers, mode and timing stay in page memory without drafts or long-term history; refresh, leaving, language change, cached-page restoration or restarting follows existing clearing. Copying includes all four public guide titles and links without responses, counts, mode or time. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation. Reading alone, declining discussion or leaving is allowed."
+        }
+      ]
+    }
+  ],
+  "mathematics-knowledge": [
+    {
+      "id": "worked",
+      "title": {
+        "en": "A worked approach",
+        "zh": "一个可复算的思路"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创学习情境：虚构的悦与橙本组都答对六题，数字没有说明用过什么公式、是否核算或记得旧题。另用原创方程4x+3=27：两边减3再除4得x=6，代回4×6+3=27；x=7代回为31，不满足原式。检查的是这道方程的等价变形，不是一般智力或所有数学知识。换数字后能独立说明过程，可作为学习观察，却不能由固定题本重做提高推出正式成绩、迁移已验证或达到通过线。",
+          "en": "An additional original learning scene: Fictional Yue and Cheng each answer six correctly. Counts reveal no formulas, external checks or memory of previous items. Try another original equation, 4x + 3 = 27: subtract three from both sides and divide by four to obtain x = 6. Substitution gives 4 × 6 + 3 = 27; x = 7 gives 31 and fails the original equation. This checks an equivalent transformation on one equation, not general intelligence or all mathematics. Explaining a changed-number problem independently can inform learning, but gains on a repeated fixed bank establish no official score, validated transfer or passing threshold."
+        }
+      ]
+    },
+    {
+      "id": "review",
+      "title": {
+        "en": "Review and try again",
+        "zh": "复盘与重练"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样把“这个值满足原式”的证据与“已经掌握整个领域”的推断分开？”可以只用上述虚构人物和新例子，一人说明依据，另一人检查单位、条件或措辞；允许不同意、留待核查或停止，不需交换个人答卷、成绩、语言背景或申请资料，不以速度或同意程度给参与者排名。",
+          "en": "An optional discussion prompt asks: “How can evidence that a value satisfies the original equation stay separate from an inference of mastery of the whole area?” Use only the fictional learners and new examples above: one person explains the evidence and another checks units, conditions or wording. Participants may disagree, leave a point for checking or stop without exchanging private answer sheets, scores, language backgrounds or application details. Neither speed nor agreement ranks participants."
+        }
+      ]
+    },
+    {
+      "id": "boundary",
+      "title": {
+        "en": "Keep the boundary clear",
+        "zh": "保留方法边界"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版本为费马独立编写的固定英文练习，AR、WK、PC、MK四部分各八题，共32题；中文界面保留相同英文题干与选项，说明、解析和指南双语，不是另一套中文能力测验。匹配答案键为正确，选其他A—D为错误，明确留空或未触及都为未答；三类数量每部分相加为八、整体为32，不把未答补成已选错误，不加权或校正猜测。四份公开指南作答前即可阅读。在私人结果中，四部分全部结束后显示本次记录、全部题目答案解析及相同通用指南，包括全部留空的记录。计时模式的本站上限依次4:00、2:40、4:00、4:00，活动时间合14:40，不含段间等待；不计时学习使用同一题本，无截止时间。每段由本人点击开始，开放期间可前后修改；主动结束或到时后锁定，空白保留未答，下一段等另行开始。切后台不暂停，设备双时钟不一致时按现有流程清除，不生成计时结果；这不是监考或防作弊认证。本站设置不复刻正式CAT、纸笔或PiCAT的时限、自适应、返回与猜题规则。正确数与模式只描述此题本此次操作，不产生AFQT合成分、标准分、百分位、预测、通过线、军职或入伍资格；正式AFQT依据四项正式分测的标准分程序和参照群体，不能用本练习答对比例替代。八题分母相同不使不同部分难度等值，最低正确数不诊断弱项；正确也不能证明推理过程、未答原因或独立完成。题目未经能力测量验证，无常模、语言等值、进步阈值或备考效果保证，官方来源仅界定题型与正式流程，不提供正式题库或背书。练习可先解释具体步骤，再用陌生材料核对，不必公开成绩、申请经历或个人信息。答案、模式和本次计时仅留页面内存，无草稿或长期历史，刷新、离开、换语言、缓存恢复或重练按现有流程清除。复制只含全部四篇公开指南标题与链接，不含答案、数量、模式或用时；常规页面分析关闭，可选匿名动作计数需本页许可与全站分析同意。清除不抹掉浏览器历史、截屏或旁人看屏，可只读、不讨论或退出。",
+          "en": "This is an independently authored fixed English practice bank: eight questions each in AR, WK, PC and MK, 32 in all. Chinese UI retains the same English stems and choices with bilingual instructions, explanations and guides, not a separate Chinese aptitude test. A key match is correct, another A–D choice wrong, and explicit skips or untouched items unanswered. The three counts sum to eight per part and 32 overall, without converting blanks to selected wrong responses, weighting or guessing correction. The public guides are freely readable before answering. In the private result, all four parts must close before the attempt record, every question and explanation, and the same general guides appear, including all-unanswered attempts. Site-selected timed caps are 4:00, 2:40, 4:00 and 4:00: 14:40 of active time excluding waits. Untimed study uses the same bank without deadlines. Each part starts on a deliberate click; open parts allow backtracking and edits. Finishing or expiry locks a part with blanks retained, and the next part waits for another start. Background tabs do not pause the clock. Inconsistent device clocks clear the attempt through the existing process without a timed result, not proctoring or anti-cheating certification. These settings reproduce no official CAT, paper or PiCAT timing, adaptive, return or guessing rules. Correct counts and mode describe this attempt only, yielding no AFQT composite, standard score, percentile, prediction, passing threshold, military-job or enlistment qualification. Official AFQT uses standard-score procedures and a reference group for four official subtests, not this bank’s correct-answer proportion. Equal eight-item denominators do not equate difficulty across parts; the lowest count diagnoses no weakness. Correct choices establish no reasoning process, reason for blanks or independent completion. This bank lacks aptitude-measure validation, norms, language equivalence, improvement thresholds or guaranteed preparation effects. Official sources define topic and process boundaries without supplying actual test items or endorsement. Explain concrete steps and try unfamiliar materials without disclosing scores, applications or personal details. Answers, mode and timing stay in page memory without drafts or long-term history; refresh, leaving, language change, cached-page restoration or restarting follows existing clearing. Copying includes all four public guide titles and links without responses, counts, mode or time. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation. Reading alone, declining discussion or leaving is allowed."
+        }
+      ]
+    }
+  ]
+}

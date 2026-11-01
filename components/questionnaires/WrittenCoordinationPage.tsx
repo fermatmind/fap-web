@@ -6,7 +6,8 @@ import type { QuestionnaireProfile } from "@/lib/questionnaires/types";
 import type { WrittenCoordinationQuiz } from "@/lib/questionnaires/writtenCoordination";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
+import { prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
 import { WrittenCoordinationClient } from "./WrittenCoordinationClient";
 import { WrittenCoordinationGrid } from "./WrittenCoordinationGrid";
 
@@ -28,7 +29,7 @@ function Reading({ quiz, profile, locale, idPrefix }: { quiz: WrittenCoordinatio
   return <section data-written-full-guide={profile.id} className="my-10 border-t border-slate-200 pt-7">
     <h2 className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h2>
     {profile.id === "map" && <WrittenCoordinationGrid grid={quiz.coordination.grid} locale={locale} idPrefix={`${idPrefix}-grid`} />}
-    <QuestionnaireReport profile={profile} locale={locale} headingLevel={3} idPrefix={idPrefix} />
+    <QuestionnaireResultReading quizSlug={quiz.slug} profile={prepareResultProfile(quiz.slug, profile)} locale={locale} headingLevel={3} idPrefix={idPrefix} />
   </section>;
 }
 export function WrittenCoordinationPage({ quiz, locale }: { quiz: WrittenCoordinationQuiz; locale: Locale }) {
@@ -62,7 +63,7 @@ export function WrittenCoordinationGuidePage({ quiz, profile, locale }: { quiz: 
     <Link prefetch={false} className="inline-block min-h-11 py-2 font-semibold underline" href={`${entry}#take-test`}>{zh ? "选择一项免费练习" : "Choose a free practice module"}</Link>
     <Context locale={locale} />
     {profile.id === "map" && <WrittenCoordinationGrid grid={quiz.coordination.grid} locale={locale} idPrefix="written-guide-grid" />}
-    <div data-written-full-guide={profile.id}><QuestionnaireReport profile={profile} locale={locale} headingLevel={2} idPrefix="report" /></div>
+    <div data-written-full-guide={profile.id}><QuestionnaireResultReading quizSlug={quiz.slug} profile={prepareResultProfile(quiz.slug, profile)} locale={locale} headingLevel={2} idPrefix="report" /></div>
     <Library quiz={quiz} locale={locale} selected={profile.id} />
     <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`${entry}#take-test`}>{zh ? "返回六模块练习" : "Return to the six practice modules"}</Link>
   </Container></main>;

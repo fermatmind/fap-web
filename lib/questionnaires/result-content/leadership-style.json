@@ -1,0 +1,166 @@
+{
+  "autocratic": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同一个活动方案，谁决定什么",
+        "en": "One event plan: who decides what?"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：小组筹备一场社区读书活动。你先确定场次与分工，集中决策的角度更明显；请成员共同商定，则偏向参与；让成员自行安排、等被问到才加入，体现低介入；先讨论活动希望带来什么变化，再支持一次新尝试，体现方向与发展。一次真实安排可以包含不止一种做法，计数只记录题中选的第一步。",
+          "en": "In a fictional community reading event, setting sessions and roles yourself foregrounds concentrated decisions. Agreeing them with members foregrounds participation; leaving arrangements to members and joining when asked shows limited involvement; exploring the intended change and supporting an experiment foregrounds direction and development. An actual arrangement can include several approaches; counts record only the chosen first move."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "决定之后，信息还能怎样进入",
+        "en": "After deciding, how can new information reach you?"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的权责尝试，回看成员是否知道哪些事不用等你、哪些新情况值得重新讨论。若出现等待，是权限不清、资料不足，还是确实需要你的决定？把原因逐件核实后再调整安排，不用“大家执行力不够”替代事实，也不把一次推进顺利当作集中决策最优的证明。",
+          "en": "After the authority-and-responsibility trial above, ask whether members knew what needed no approval and which new facts warranted reconsideration. Did waiting concern unclear discretion, missing information or a decision genuinely required from you? Check each cause before changing the arrangement, without a global judgment about execution or treating one smooth task as proof that central control is best."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个决定边界的问题",
+        "en": "Share a question about decision boundaries"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以说：“这次集中决策是我的最高选择之一。我想比较：哪件事需要一人确认，哪件事让负责的人直接决定更清楚？”可以不提结果名称，只讨论一个小任务。公开读法不包含个人计数，也不认证你有领导资格、比同伴更果断或有权要求服从。",
+          "en": "Try: “Concentrated decisions were among my highest choices. Which decision needs one person’s confirmation, and which is clearer when left to its owner?” You can discuss a small task without the label. This public reading contains no personal counts and certifies neither leadership qualification, greater decisiveness nor authority to demand obedience."
+        }
+      ]
+    }
+  ],
+  "democratic": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "参与讨论与共同决定，有什么差别",
+        "en": "How does consultation differ from a shared decision?"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：读书活动有两套形式。收集大家意见后仍由你作最终选择，是咨询；先约好投票或共同同意，再按该规则决定，才说明这次共同决定怎样发生。两者都可以有参与，不必用发言人数证明“民主”。本版题目区分不同的第一步，不能告诉你实际成员有多少影响力。",
+          "en": "In a fictional reading event with two formats, gathering opinions before making the final choice yourself is consultation. Agreeing a vote or shared agreement first explains how a collective decision will happen. Both can involve participation; a headcount of speakers proves no democratic process. The items distinguish first moves without establishing members’ actual influence."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "讨论结束后，哪条意见改变了安排",
+        "en": "After discussion, which contribution changed the plan?"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的开放决定尝试，回看哪条信息进入了方案、哪个未采用的建议得到了说明，以及是否有人缺少参与条件。如果没有共识，就按事先说好的规则处理，而不是临时要求所有人一致。记录一个具体改变，比把这次讨论概括为“团队更有凝聚力”更容易核实。",
+          "en": "After the open-decision trial above, identify information included, an unadopted suggestion that received an explanation, and any missing conditions for participation. If consensus did not emerge, follow the agreed rule rather than impose unanimity at the end. One specific change is easier to verify than declaring improved team cohesion."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "邀请讨论参与规则",
+        "en": "Invite discussion of participation rules"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“选活动方案时，你希望先独立写意见、一起讨论，还是听取意见后由负责人决定？哪些条件要先说清？”不需要公开计数，也不替朋友断言他们是否喜欢民主领导。读这份说明可以比较规则，不把不同意见当不合作，更不把政治观点代入测试结果。",
+          "en": "Ask: “For choosing an event plan, would you prefer initial written ideas, a group discussion or an owner deciding after consultation? What conditions should be clear first?” No counts or claim about a friend’s preferred leadership is needed. Compare rules without treating disagreement as non-cooperation or reading political beliefs into a result."
+        }
+      ]
+    }
+  ],
+  "laissez-faire": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "留空间与缺少支持，可以分别观察",
+        "en": "Observe discretion and missing support separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：读书活动由成员各自准备，你很少主动问进展。若目标、资源和求助方式早已清楚，这可能保留了想要的自主；若一项衔接无人确认，也可能有人在等待。相同的低介入外观不能说明信任或失职，先查具体约定。题目中的选择更不能替成员证明他们希望你少参与。",
+          "en": "In a fictional reading event, members prepare their parts with few proactive check-ins from you. Clear aims, resources and help arrangements may preserve wanted autonomy; an unowned dependency may leave someone waiting. The same appearance of limited involvement establishes neither trust nor neglect. Check the actual agreement, without using an item choice as evidence that members want less involvement."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "没人来问，还需要核实什么",
+        "en": "What remains to check when nobody asks?"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的授权任务尝试，问清成员是否知道能向谁求助、能自己决定到哪里。没有提问可能表示顺利，也可能表示不知道怎么问，本次自评分不清。可以保留成员不想要的检查以外的必要支持；调整的是一项实际安排，不需要因为读到“放任型”就突然接管所有细节。",
+          "en": "After the delegated-task trial above, check who can help and where a member’s discretion ends. No questions might mean progress or uncertainty about how to ask; this reflection cannot distinguish them. Keep necessary support without unwanted check-ins. Adjust one actual arrangement rather than take every detail over because you read a laissez-faire label."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "把“放手”拆成可回答的问题",
+        "en": "Turn “stepping back” into answerable questions"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“哪一段希望自己决定？哪些信息、资源或回应需要负责人提供？什么时候检查反而打断你？”可以只谈这三件事，不必公开结果或要求同伴给你打分。分享本页不代表承诺完全不管，也不替任何人免除已经承担的职责。",
+          "en": "Ask: “Which part would you like to decide yourself? What information, resources or responses do you need from the lead? When would a check-in interrupt?” Discuss these without publishing a result or asking others to rate you. Sharing this page promises neither complete non-involvement nor release from existing responsibilities."
+        }
+      ]
+    }
+  ],
+  "transformational": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "说清方向之后，谁愿意怎样尝试",
+        "en": "After the purpose, who wants to try what?"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：想让读书活动更便于新成员加入。先问现有方式漏掉了谁，再和愿意参与的成员设计一个小尝试，贴近本页方向与发展的角度。共同选方案也可能有民主参与，最后分工也可能保留集中决定。它们能同时出现；一次愿景讨论不证明鼓舞了别人，更不把成员的不愿参与解释成缺乏成长心态。",
+          "en": "In a fictional reading event meant to welcome newcomers, ask whom the current format misses and design a small trial with willing members. This illustrates direction and development. Choosing a plan together may also involve participation, while assigning work may retain central decisions. These can coexist. A purpose discussion establishes neither inspiration nor a lack of growth in anyone who declines."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "小实验结束后，也检查代价",
+        "en": "After the experiment, review its costs too"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的低风险改进尝试，分别问：学到了什么、谁增加了工作、哪些条件与最初不同？若效果不明或代价过大，可以缩小、暂停或不推广。说明这些变化也属于回看，不必用成功故事包装每次尝试；问卷计数没有验证长期绩效或成员的发展结果。",
+          "en": "After the small improvement trial above, ask what was learned, whose workload increased and what conditions differed from the plan. Unclear results or excessive costs may justify reducing, pausing or not extending it. Reporting those changes is part of review; every trial needs no success story. Counts validate neither long-term performance nor members’ development outcomes."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个愿景落到行动的问题",
+        "en": "Share a question that connects purpose and action"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果只改一件小事，让新成员更容易参与，你愿意试什么，需要什么支持？”别人也可以质疑目标或选择不参加。无需公布计数、称自己天生有感染力，或让同伴认同你的愿景；公开读法可以开启讨论，不能代替真实的资源与共同意愿。",
+          "en": "Ask: “If we changed one small thing to help newcomers participate, what would you want to try, and what support would it need?” Someone may question the aim or decline. No counts, born-inspirer identity or agreement with your vision is required. A public reading can open discussion without replacing resources and actual willingness."
+        }
+      ]
+    }
+  ]
+}

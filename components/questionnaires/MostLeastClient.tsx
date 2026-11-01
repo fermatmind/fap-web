@@ -3,24 +3,24 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
-import type { Questionnaire } from "@/lib/questionnaires/types";
+import type { Questionnaire, QuestionnaireProfile } from "@/lib/questionnaires/types";
 import { isMostLeastConfigurationValid, scoreMostLeast, type MostLeastAnswers } from "@/lib/questionnaires/mostLeast";
 import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import { trackEvent } from "@/lib/analytics";
 import { appendSeoCtaContextParamsToHref, buildSeoCtaContextParams, buildSeoCtaTrackingPayload } from "@/lib/tracking/seoCtaAttribution";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
 const subscribeReady = () => () => {};
 
-export function MostLeastClient({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
+export function MostLeastClient({ quiz, locale, readingProfiles }: { quiz: Questionnaire; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
   if (!isMostLeastConfigurationValid(quiz)) return <p role="status">{locale === "zh" ? "练习暂不可用。" : "Practice is unavailable."}</p>;
-  return <ValidMostLeastClient key={`${quiz.slug}:${quiz.version}:${locale}`} quiz={quiz} locale={locale} />;
+  return <ValidMostLeastClient key={`${quiz.slug}:${quiz.version}:${locale}`} quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
 }
 
-function ValidMostLeastClient({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
+function ValidMostLeastClient({ quiz, locale, readingProfiles }: { quiz: Questionnaire; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
   const zh = locale === "zh", ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const metrics = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const [phase, setPhase] = useState<"ready" | "answering" | "result">("ready");
@@ -79,9 +79,9 @@ function ValidMostLeastClient({ quiz, locale }: { quiz: Questionnaire; locale: L
     {phase === "result" && result.status === "complete" && <>
       <p className="my-5 leading-8">{zh ? "以下是八主题在固定菜单中的原始选择次数。差值＝最符合－最不符合，不排序、不分类，也不换算为Caliper分数。八主题的差值合计恒为零。" : "These are raw selections within fixed menus across all eight topics. Difference = Most − Least. Topics are not ranked or assigned as types, and counts are not converted into Caliper scores. All eight differences sum to zero."}</p>
       <div className="my-5 flex flex-wrap gap-3"><button type="button" className={button} onClick={start}>{zh ? "重新练习" : "Retake practice"}</button><button type="button" className={button} onClick={share}>{zh ? "复制公开练习链接" : "Copy public practice link"}</button><button type="button" className={button} onClick={reset}>{zh ? "清空并退出" : "Clear and exit"}</button></div>
-      {quiz.profiles.map(p => { const c = result.counts[p.id]; return <section key={p.id} data-most-least-topic={p.id} className="my-6 rounded-lg border border-slate-200 p-4">
+      {quiz.profiles.map(p => { const c = result.counts[p.id]; const readingProfile = readingProfiles?.find(item => item.id === p.id && item.directionIds.length === 1 && item.directionIds[0] === p.id && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === p.id) ?? p; return <section key={p.id} data-most-least-topic={p.id} className="my-6 rounded-lg border border-slate-200 p-4">
         <h3 className="scroll-mt-24 text-xl font-semibold">{p.title[locale]}</h3><dl className="my-4 grid grid-cols-3 gap-2 text-center text-sm">{(["most", "least", "difference"] as const).map(k => <div key={k}><dt>{k === "most" ? (zh ? "最符合" : "Most") : k === "least" ? (zh ? "最不符合" : "Least") : (zh ? "差值" : "Difference")}</dt><dd data-count={k} className="mt-2 text-lg font-semibold">{c[k]}{k === "difference" ? "" : " / 8"}</dd></div>)}</dl>
-        <p className="leading-8">{p.summary[locale]}</p><details className="mt-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开完整读法" : "Read the full guide"}</summary><QuestionnaireReport profile={p} locale={locale} headingLevel={4} idPrefix={`most-least-${p.id}`} /></details>
+        <p className="leading-8">{p.summary[locale]}</p><details className="mt-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开完整读法" : "Read the full guide"}</summary><QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`most-least-${p.id}`} /></details>
         <Link prefetch={false} className="mt-3 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, p.id)}>{zh ? "打开不含个人次数的公开指南" : "Open the public guide without personal counts"}</Link>
       </section>; })}
       <aside className="my-6 border-t pt-5"><h3 className="text-xl font-semibold">{zh ? "按需继续，或在这里结束" : "Continue if useful, or finish here"}</h3><p className="my-3 leading-8">{zh ? "大五是另一个独立测评，需另外作答；它的维度不由本页次数推算，也不是查看完整读法的条件。" : "Big Five is a separate assessment with its own questions. Its dimensions are not inferred from these counts, and taking it is not required to read any full guide."}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={big5Href} onClick={() => trackEvent("click_test", buildSeoCtaTrackingPayload(recommendation))}>{zh ? "可选：了解大五测试与题本" : "Optional: explore Big Five and its versions"}</Link></aside>

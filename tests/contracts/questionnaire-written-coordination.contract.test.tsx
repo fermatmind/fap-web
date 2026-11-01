@@ -130,7 +130,7 @@ describe("Original written coordination: six separate practices, no overall or q
         expect(maps.filter(item => item.loc === `https://fermatmind.com${path}`)).toHaveLength(1);
         for (const p of quiz.profiles) {
           const inline = dom.querySelector(`[data-written-full-guide="${p.id}"]`)!;
-          expect(inline.querySelectorAll("h3")).toHaveLength(7);
+          expect(inline.querySelectorAll("h3")).toHaveLength(9);
           for (const s of p.sections) for (const text of s.paragraphs) expect(inline.textContent).toContain(text[locale]);
           const url = `${path}/results/${p.id}`, args = { params: Promise.resolve({ locale, slug: quiz.slug, profile: p.id }) };
           const html = renderToStaticMarkup(await guide.default(args)), page = document.createElement("div"); page.innerHTML = html;

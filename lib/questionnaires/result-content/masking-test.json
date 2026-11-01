@@ -1,0 +1,166 @@
+{
+  "overall": [
+    {
+      "id": "example",
+      "title": {
+        "en": "A worked example: why 100 is not a cutoff",
+        "zh": "算例：100为什么不是切点"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的宁每项都选4，合计100，三个部分为36、32、32；乔也从全4开始，只把第1项改5、第2项改3，合计仍为100，部分变为37、31、32。两个总均分都是4.00，却不是同样的回答。即使宁准备过见面话题、乔留意过自己的表情，记录仍不知道当时的环境、是否出于自主、是否费力或需要什么支持。不能从100或这段例子确认或排除任何诊断。",
+          "en": "An additional original scene: Fictional Ning selects four throughout: total 100 and part sums 36, 32, 32. Jo starts from all fours, changing only item 1 to five and item 2 to three: total 100 again, with parts 37, 31, 32. Both total means are 4.00, with different responses. Even if Ning prepared conversation topics and Jo monitored an expression, the record establishes no setting, choice, effort or support need. Neither 100 nor this example confirms or rules out a diagnosis."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "en": "Reflect without trying to lower a number",
+        "zh": "反思不必以降分为目标"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“相同总分保留了什么信息，哪些具体体验和支持需要仍未被询问？”可以只谈上面的虚构例子，区分所选答案、算术规则与未询问的背景。不报自己的分数、诊断、私人对话或他人经历；允许不同理解、不回应或结束，不用讨论迫使任何人改变互动方式。",
+          "en": "An optional discussion prompt asks: “What does an equal total retain, and which experiences and support needs remain unasked?” Use only the fictional example above to distinguish chosen answers, arithmetic and unasked context. No personal scores, diagnoses, private conversations or anyone else’s experiences are needed. Different readings, no response or ending are allowed, without using discussion to require a change in interaction."
+        }
+      ]
+    },
+    {
+      "id": "missing",
+      "title": {
+        "en": "Skipped items and public reading",
+        "zh": "跳过题项与公开阅读"
+      },
+      "paragraphs": [
+        {
+          "zh": "本线上版本的范围：面向18岁及以上成年人，原始说明询问社交互动体验，没有固定的一周、一个月或其他统一回顾时段。每项选择1至7的同意程度，4为“既不赞同，也不反对”，或明确跳过；25项都作选择后才显示记录，空白与跳过不同。原第3、12、19、22、24项以8减所选值反向，不能为追分而据此改选。补偿九项，掩饰与融入各八项，全部数值时合计范围分别9—63、8—56、8—56；总分25—175按25题等权相加，总均分是总和÷25，不是三组均分等权平均。均分只显示两位小数，不代表已校准的人群位置或变化意义。任一跳过使所在部分与整体的合计和均分均暂不给，不显示残缺部分的数字和、不补0或4；其他完整部分仍显示数字。全部跳过仍保留四份通用完整读法，非按数值生成个性化意见。原始研究不自动验证本站的工作中译、可选跳过、缺项规则或新增解释，中文等值、个人常模与变化阈值未建立。2026作者观点公开摘要及社群说明提醒避免诊断决定与干预监测；2025研究在其成人样本中总体支持构念效度，同时提示部分融入题与相关体验的重叠，不把整份工具判为无效，也不把这部分变成焦虑诊断。可以讨论需要而不交出分数，不以降低数字要求暴露、眼神接触、披露身份或撤去帮助安全的策略。答案和数字仅存当前页内存，无草稿或账户历史，刷新、换语、离开、历史恢复、清空或重做按既有流程清除。复制只含四份公开解释的标题与链接，没有个人答案或数字；常规页面分析关闭，可选匿名动作计数需要本页许可和全站同意。清除不消除浏览器历史、截屏或旁人看屏；可以停止阅读或结束，不必完成讨论。",
+          "en": "Scope of this online edition: self-reflection for adults aged 18 and over. The source asks about social-interaction experiences without a fixed week, month or other uniform recall period. Each item takes agreement from one to seven, with four neither agree nor disagree, or an explicit skip. All 25 require a choice before the record appears; blank differs from skipped. Original items 3, 12, 19, 22, 24 are recoded as eight minus the selected value, not an instruction to change answers to chase a score. Compensation has nine items; Masking and Assimilation have eight each, with complete sum ranges 9–63, 8–56, 8–56. The total 25–175 adds 25 equally weighted items; its mean is total divided by 25, not an equal-weight average of three part means. Two-decimal display establishes no calibrated population position or meaningful change. A skip withholds both sum and mean for its part and the total, without displaying a partial numeric sum or filling zero or four. Other complete parts retain numbers. All-skipped records still retain four general full readings, not personalized opinions generated from values. Source research does not automatically validate this site’s working Chinese, optional skips, missingness rule or added readings. Chinese equivalence, personal norms and change thresholds remain unestablished. The 2026 authors’ public abstract and community brief caution against diagnostic decisions and intervention monitoring. The 2025 study broadly supports construct validity within its adult sample while noting overlap for some Assimilation content; this neither invalidates the entire measure nor makes the part an anxiety diagnostic tool. Needs can be discussed without supplying a score or requiring exposure, eye contact, identity disclosure or removal of a strategy that supports safety to lower a number. Answers and values stay only in page memory, without drafts or account history. Refresh, language change, leaving, history restoration, clearing or retaking follows existing clearing behavior. Copying includes only titles and links for four public explanations, without personal responses or values. Ordinary page analytics is disabled; optional anonymous activity counts need page permission and site consent. Clearing erases no browser history, screenshots or screen observation. Stopping reading or ending is allowed, without completing discussion."
+        }
+      ]
+    }
+  ],
+  "compensation": [
+    {
+      "id": "example",
+      "title": {
+        "en": "An example to distinguish action from outcome",
+        "zh": "区分动作与效果的例子"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的沐在一次不熟悉的小组会面前准备了话题，思也准备了话题，但原因与感受没有被记录。若沐九项都选4，合计36；另一份九项数字依次为1、2、3、4、4、4、5、6、7，也合计36、均分4.00。补偿九项均不反向，这些是不同的同意程度组合，不是36次真实行为。共同出现的准备动作与相同均分，都不能判定谁更擅长社交、更疲惫或更需要某项治疗。",
+          "en": "An additional original scene: Fictional Mu prepares topics before an unfamiliar group meeting; Si also prepares topics, without recorded reasons or feelings. If Mu selects four for all nine items, the sum is 36. Nine responses of 1, 2, 3, 4, 4, 4, 5, 6, 7 also give 36 and a mean of 4.00. None of the nine Compensation items is reversed. These are different agreement patterns, not 36 real behaviours. The shared preparation and equal mean determine no greater social skill, tiredness or need for a treatment."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "en": "One optional way to think about a strategy",
+        "zh": "可选地想一想一种策略"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样区分准备方法、对题文的认同和方法是否有用，而不要求别人演示或停止准备？”可以只谈上面的虚构例子，区分所选答案、算术规则与未询问的背景。不报自己的分数、诊断、私人对话或他人经历；允许不同理解、不回应或结束，不用讨论迫使任何人改变互动方式。",
+          "en": "An optional discussion prompt asks: “How can preparation, endorsement and usefulness remain separate without asking someone to demonstrate or abandon a strategy?” Use only the fictional example above to distinguish chosen answers, arithmetic and unasked context. No personal scores, diagnoses, private conversations or anyone else’s experiences are needed. Different readings, no response or ending are allowed, without using discussion to require a change in interaction."
+        }
+      ]
+    },
+    {
+      "id": "missing",
+      "title": {
+        "en": "Missing answers, retaking and privacy",
+        "zh": "缺失回答、重做与隐私"
+      },
+      "paragraphs": [
+        {
+          "zh": "本线上版本的范围：面向18岁及以上成年人，原始说明询问社交互动体验，没有固定的一周、一个月或其他统一回顾时段。每项选择1至7的同意程度，4为“既不赞同，也不反对”，或明确跳过；25项都作选择后才显示记录，空白与跳过不同。原第3、12、19、22、24项以8减所选值反向，不能为追分而据此改选。补偿九项，掩饰与融入各八项，全部数值时合计范围分别9—63、8—56、8—56；总分25—175按25题等权相加，总均分是总和÷25，不是三组均分等权平均。均分只显示两位小数，不代表已校准的人群位置或变化意义。任一跳过使所在部分与整体的合计和均分均暂不给，不显示残缺部分的数字和、不补0或4；其他完整部分仍显示数字。全部跳过仍保留四份通用完整读法，非按数值生成个性化意见。原始研究不自动验证本站的工作中译、可选跳过、缺项规则或新增解释，中文等值、个人常模与变化阈值未建立。2026作者观点公开摘要及社群说明提醒避免诊断决定与干预监测；2025研究在其成人样本中总体支持构念效度，同时提示部分融入题与相关体验的重叠，不把整份工具判为无效，也不把这部分变成焦虑诊断。可以讨论需要而不交出分数，不以降低数字要求暴露、眼神接触、披露身份或撤去帮助安全的策略。答案和数字仅存当前页内存，无草稿或账户历史，刷新、换语、离开、历史恢复、清空或重做按既有流程清除。复制只含四份公开解释的标题与链接，没有个人答案或数字；常规页面分析关闭，可选匿名动作计数需要本页许可和全站同意。清除不消除浏览器历史、截屏或旁人看屏；可以停止阅读或结束，不必完成讨论。",
+          "en": "Scope of this online edition: self-reflection for adults aged 18 and over. The source asks about social-interaction experiences without a fixed week, month or other uniform recall period. Each item takes agreement from one to seven, with four neither agree nor disagree, or an explicit skip. All 25 require a choice before the record appears; blank differs from skipped. Original items 3, 12, 19, 22, 24 are recoded as eight minus the selected value, not an instruction to change answers to chase a score. Compensation has nine items; Masking and Assimilation have eight each, with complete sum ranges 9–63, 8–56, 8–56. The total 25–175 adds 25 equally weighted items; its mean is total divided by 25, not an equal-weight average of three part means. Two-decimal display establishes no calibrated population position or meaningful change. A skip withholds both sum and mean for its part and the total, without displaying a partial numeric sum or filling zero or four. Other complete parts retain numbers. All-skipped records still retain four general full readings, not personalized opinions generated from values. Source research does not automatically validate this site’s working Chinese, optional skips, missingness rule or added readings. Chinese equivalence, personal norms and change thresholds remain unestablished. The 2026 authors’ public abstract and community brief caution against diagnostic decisions and intervention monitoring. The 2025 study broadly supports construct validity within its adult sample while noting overlap for some Assimilation content; this neither invalidates the entire measure nor makes the part an anxiety diagnostic tool. Needs can be discussed without supplying a score or requiring exposure, eye contact, identity disclosure or removal of a strategy that supports safety to lower a number. Answers and values stay only in page memory, without drafts or account history. Refresh, language change, leaving, history restoration, clearing or retaking follows existing clearing behavior. Copying includes only titles and links for four public explanations, without personal responses or values. Ordinary page analytics is disabled; optional anonymous activity counts need page permission and site consent. Clearing erases no browser history, screenshots or screen observation. Stopping reading or ending is allowed, without completing discussion."
+        }
+      ]
+    }
+  ],
+  "masking": [
+    {
+      "id": "example",
+      "title": {
+        "en": "Presentation and experience can differ",
+        "zh": "外在表现与自身体验可能不同"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的羽和安都在一次普通交流中留意过表情，但问卷没有观察那次交流。羽八项均选4，合计32、均分4.00；另一份只将第12项从4改为6，其重编码值从4变2，本部分合计变30、均分3.75。这里“更同意”的回答会因反向键减少合计，不是诚实程度、真实自我或社交成功改变的证明。两个数字也不能判断他人是否看出变化，或撤掉某种表现方式是否安全。",
+          "en": "An additional original scene: Fictional Yu and An each monitor an expression in an ordinary exchange, but the questionnaire observes neither exchange. Yu selects four on all eight items: sum 32, mean 4.00. Another record changes only item 12 from four to six; its recoded value changes from four to two, producing sum 30 and mean 3.75. Greater agreement here reduces the sum because of the reverse key, without proving any change in honesty, authenticity or social success. Neither value determines what others noticed or whether dropping a presentation strategy would be safe."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "en": "Choice and comfort before a target score",
+        "zh": "自主与舒适先于目标分数"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样解释反向计算，同时不把较少或较多留意表现评价为更真实、更诚实或更安全？”可以只谈上面的虚构例子，区分所选答案、算术规则与未询问的背景。不报自己的分数、诊断、私人对话或他人经历；允许不同理解、不回应或结束，不用讨论迫使任何人改变互动方式。",
+          "en": "An optional discussion prompt asks: “How can reverse scoring be explained without treating less or more attention to presentation as more authentic, honest or safe?” Use only the fictional example above to distinguish chosen answers, arithmetic and unasked context. No personal scores, diagnoses, private conversations or anyone else’s experiences are needed. Different readings, no response or ending are allowed, without using discussion to require a change in interaction."
+        }
+      ]
+    },
+    {
+      "id": "missing",
+      "title": {
+        "en": "Skipped responses and public links",
+        "zh": "跳过回答与公开链接"
+      },
+      "paragraphs": [
+        {
+          "zh": "本线上版本的范围：面向18岁及以上成年人，原始说明询问社交互动体验，没有固定的一周、一个月或其他统一回顾时段。每项选择1至7的同意程度，4为“既不赞同，也不反对”，或明确跳过；25项都作选择后才显示记录，空白与跳过不同。原第3、12、19、22、24项以8减所选值反向，不能为追分而据此改选。补偿九项，掩饰与融入各八项，全部数值时合计范围分别9—63、8—56、8—56；总分25—175按25题等权相加，总均分是总和÷25，不是三组均分等权平均。均分只显示两位小数，不代表已校准的人群位置或变化意义。任一跳过使所在部分与整体的合计和均分均暂不给，不显示残缺部分的数字和、不补0或4；其他完整部分仍显示数字。全部跳过仍保留四份通用完整读法，非按数值生成个性化意见。原始研究不自动验证本站的工作中译、可选跳过、缺项规则或新增解释，中文等值、个人常模与变化阈值未建立。2026作者观点公开摘要及社群说明提醒避免诊断决定与干预监测；2025研究在其成人样本中总体支持构念效度，同时提示部分融入题与相关体验的重叠，不把整份工具判为无效，也不把这部分变成焦虑诊断。可以讨论需要而不交出分数，不以降低数字要求暴露、眼神接触、披露身份或撤去帮助安全的策略。答案和数字仅存当前页内存，无草稿或账户历史，刷新、换语、离开、历史恢复、清空或重做按既有流程清除。复制只含四份公开解释的标题与链接，没有个人答案或数字；常规页面分析关闭，可选匿名动作计数需要本页许可和全站同意。清除不消除浏览器历史、截屏或旁人看屏；可以停止阅读或结束，不必完成讨论。",
+          "en": "Scope of this online edition: self-reflection for adults aged 18 and over. The source asks about social-interaction experiences without a fixed week, month or other uniform recall period. Each item takes agreement from one to seven, with four neither agree nor disagree, or an explicit skip. All 25 require a choice before the record appears; blank differs from skipped. Original items 3, 12, 19, 22, 24 are recoded as eight minus the selected value, not an instruction to change answers to chase a score. Compensation has nine items; Masking and Assimilation have eight each, with complete sum ranges 9–63, 8–56, 8–56. The total 25–175 adds 25 equally weighted items; its mean is total divided by 25, not an equal-weight average of three part means. Two-decimal display establishes no calibrated population position or meaningful change. A skip withholds both sum and mean for its part and the total, without displaying a partial numeric sum or filling zero or four. Other complete parts retain numbers. All-skipped records still retain four general full readings, not personalized opinions generated from values. Source research does not automatically validate this site’s working Chinese, optional skips, missingness rule or added readings. Chinese equivalence, personal norms and change thresholds remain unestablished. The 2026 authors’ public abstract and community brief caution against diagnostic decisions and intervention monitoring. The 2025 study broadly supports construct validity within its adult sample while noting overlap for some Assimilation content; this neither invalidates the entire measure nor makes the part an anxiety diagnostic tool. Needs can be discussed without supplying a score or requiring exposure, eye contact, identity disclosure or removal of a strategy that supports safety to lower a number. Answers and values stay only in page memory, without drafts or account history. Refresh, language change, leaving, history restoration, clearing or retaking follows existing clearing behavior. Copying includes only titles and links for four public explanations, without personal responses or values. Ordinary page analytics is disabled; optional anonymous activity counts need page permission and site consent. Clearing erases no browser history, screenshots or screen observation. Stopping reading or ending is allowed, without completing discussion."
+        }
+      ]
+    }
+  ],
+  "assimilation": [
+    {
+      "id": "example",
+      "title": {
+        "en": "A situation does not explain its cause",
+        "zh": "一个场景不能解释成因"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的悦觉得熟悉的人在场时更容易参与，橙希望先知道可以何时离开；这些需要不必由分数证明。融入八项均选4会得32、均分4.00；若只把第3项改为1，重编码由4变7，合计35、均分4.38。数字变化没有解释原因，也不能把同意“在表演”、需要支持或偏好较少互动，换成对自闭症、焦虑或独立能力的结论。对带引号“正常”的回答同样不认证谁更真实。",
+          "en": "An additional original scene: Fictional Yue finds joining easier with a familiar person present; Cheng wants to know when leaving is possible. These needs require no score as proof. Eight midpoint Assimilation answers give 32 and 4.00. Changing only item 3 to one recodes it from four to seven, giving 35 and 4.38. The change explains no cause. Endorsing performing, needing support or preferring less interaction cannot become a conclusion about autism, anxiety or independence. An answer about the quoted word normal likewise certifies no greater authenticity."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "en": "Support without compulsory exposure",
+        "zh": "支持不等于强制暴露"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样谈虚构人物希望得到的支持，而不把融入分数当成成因、身份或必须增加社交的理由？”可以只谈上面的虚构例子，区分所选答案、算术规则与未询问的背景。不报自己的分数、诊断、私人对话或他人经历；允许不同理解、不回应或结束，不用讨论迫使任何人改变互动方式。",
+          "en": "An optional discussion prompt asks: “How can desired support for a fictional reader be discussed without using an Assimilation score as a cause, identity or reason to require more socializing?” Use only the fictional example above to distinguish chosen answers, arithmetic and unasked context. No personal scores, diagnoses, private conversations or anyone else’s experiences are needed. Different readings, no response or ending are allowed, without using discussion to require a change in interaction."
+        }
+      ]
+    },
+    {
+      "id": "missing",
+      "title": {
+        "en": "Incomplete parts and the working translation",
+        "zh": "不完整部分与工作译文"
+      },
+      "paragraphs": [
+        {
+          "zh": "本线上版本的范围：面向18岁及以上成年人，原始说明询问社交互动体验，没有固定的一周、一个月或其他统一回顾时段。每项选择1至7的同意程度，4为“既不赞同，也不反对”，或明确跳过；25项都作选择后才显示记录，空白与跳过不同。原第3、12、19、22、24项以8减所选值反向，不能为追分而据此改选。补偿九项，掩饰与融入各八项，全部数值时合计范围分别9—63、8—56、8—56；总分25—175按25题等权相加，总均分是总和÷25，不是三组均分等权平均。均分只显示两位小数，不代表已校准的人群位置或变化意义。任一跳过使所在部分与整体的合计和均分均暂不给，不显示残缺部分的数字和、不补0或4；其他完整部分仍显示数字。全部跳过仍保留四份通用完整读法，非按数值生成个性化意见。原始研究不自动验证本站的工作中译、可选跳过、缺项规则或新增解释，中文等值、个人常模与变化阈值未建立。2026作者观点公开摘要及社群说明提醒避免诊断决定与干预监测；2025研究在其成人样本中总体支持构念效度，同时提示部分融入题与相关体验的重叠，不把整份工具判为无效，也不把这部分变成焦虑诊断。可以讨论需要而不交出分数，不以降低数字要求暴露、眼神接触、披露身份或撤去帮助安全的策略。答案和数字仅存当前页内存，无草稿或账户历史，刷新、换语、离开、历史恢复、清空或重做按既有流程清除。复制只含四份公开解释的标题与链接，没有个人答案或数字；常规页面分析关闭，可选匿名动作计数需要本页许可和全站同意。清除不消除浏览器历史、截屏或旁人看屏；可以停止阅读或结束，不必完成讨论。",
+          "en": "Scope of this online edition: self-reflection for adults aged 18 and over. The source asks about social-interaction experiences without a fixed week, month or other uniform recall period. Each item takes agreement from one to seven, with four neither agree nor disagree, or an explicit skip. All 25 require a choice before the record appears; blank differs from skipped. Original items 3, 12, 19, 22, 24 are recoded as eight minus the selected value, not an instruction to change answers to chase a score. Compensation has nine items; Masking and Assimilation have eight each, with complete sum ranges 9–63, 8–56, 8–56. The total 25–175 adds 25 equally weighted items; its mean is total divided by 25, not an equal-weight average of three part means. Two-decimal display establishes no calibrated population position or meaningful change. A skip withholds both sum and mean for its part and the total, without displaying a partial numeric sum or filling zero or four. Other complete parts retain numbers. All-skipped records still retain four general full readings, not personalized opinions generated from values. Source research does not automatically validate this site’s working Chinese, optional skips, missingness rule or added readings. Chinese equivalence, personal norms and change thresholds remain unestablished. The 2026 authors’ public abstract and community brief caution against diagnostic decisions and intervention monitoring. The 2025 study broadly supports construct validity within its adult sample while noting overlap for some Assimilation content; this neither invalidates the entire measure nor makes the part an anxiety diagnostic tool. Needs can be discussed without supplying a score or requiring exposure, eye contact, identity disclosure or removal of a strategy that supports safety to lower a number. Answers and values stay only in page memory, without drafts or account history. Refresh, language change, leaving, history restoration, clearing or retaking follows existing clearing behavior. Copying includes only titles and links for four public explanations, without personal responses or values. Ordinary page analytics is disabled; optional anonymous activity counts need page permission and site consent. Clearing erases no browser history, screenshots or screen observation. Stopping reading or ending is allowed, without completing discussion."
+        }
+      ]
+    }
+  ]
+}

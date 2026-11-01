@@ -1,0 +1,125 @@
+{
+  "verbal": [
+    {
+      "id": "verbal-2",
+      "title": {
+        "en": "True, False and Cannot say",
+        "zh": "真、假与无法判断"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创学习情境：虚构的宁与乔在阅读组都答对四题，分别一错一未答、零错两未答；相同正确数没有记录他们怎样读。另设新短文：“所有已发出的通行证均获批准；一份获批准的申请尚未发证。”由此“至少一份已获批申请尚未发证”为真，“所有获批申请均已发证”为假，“周五发出了通行证”无法判断。第三种不是个人犹豫，而是短文未给日期；第一句也不能倒转为获批必已发出。这里只谈虚构通行证，不是任何实际申请规则。",
+          "en": "An additional original learning scene: Fictional Ning and Jo each answer four verbal items correctly, with one wrong and one unanswered versus zero wrong and two unanswered. Equal correct counts record no reading process. Consider a fresh passage: “Every issued pass was approved; one approved application has not yet resulted in an issued pass.” At least one approved application has no issued pass is true; every approved application has an issued pass is false; passes were issued on Friday cannot be determined. The third classification concerns missing dates, not personal hesitation. Approval alone does not imply issuance. These fictional passes specify no real application rules."
+        }
+      ]
+    },
+    {
+      "id": "verbal-6",
+      "title": {
+        "en": "Review the first unsupported step",
+        "zh": "复盘第一个无据步骤"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样指出每个分类所需的原文证据，并区分缺失信息与明确冲突？”可以只谈上述虚构人物与新纸上例子，一人说明规则，另一人检查证据、条件或约束；允许分歧、保留待核查或停止。不需交换个人答卷、成绩、健康信息或申请资料，不要求实物操作，也不以速度或答案数量给参与者贴能力标签。",
+          "en": "An optional discussion prompt asks: “How can the textual evidence for each classification distinguish missing information from an explicit contradiction?” Discuss only the fictional learners and new paper examples above: one explains a rule and another checks evidence, bases or constraints. Participants may disagree, leave a point for checking or stop without exchanging private answer sheets, scores, health details or applications. No physical task is required, and neither speed nor counts label anyone’s ability."
+        }
+      ]
+    },
+    {
+      "id": "verbal-7",
+      "title": {
+        "en": "Interpret repeats and public guidance",
+        "zh": "理解重测与公开指南"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是费马独立编写的固定十八道英文题，阅读、数量与文字逻辑各六题；中文界面保留英文题干与选项，说明、解析和指南双语，不确立语言成绩等值。阅读前三题为真、假、无法判断三选一，后三题与其余两组为四选一；并非统一提供方题式、自适应题库或正式施测。选中答案键计正确，其他给定选项计错误，明确留空或未触及计未答；三数各组合六、总计十八，无补答、猜测校正、速度奖励、加权或常模。选项数不同、领域难度未等值，最低正确数不能诊断最弱能力；总数不换算SHL、Korn Ferry成绩、IQ、百分位、通过线或录用概率。三篇完整公开指南作答前即可读；三部分全部结束后，包括零正确或全未答，私人结果均开放全部十八题、本人选择、答案与本语言解析，并保留相同三份通用指南。计时模式依次3:00、5:00、4:00，十二分钟活动计时不含段间等待；学习模式同题无截止。每段主动开始后计时，开放段可返回修改，主动结束或到时锁定，下一段等待本人开始；后台不暂停，设备双时钟不一致按现有流程清除而不生成计时结果。本站允许纸笔、计算器用于学习，不能据此推断实际招聘测评的设备、帮助、导航或时限；须核具体邀请和安排。所引SHL资料涉及已退役旧代和2018年格式，Korn Ferry候选指南为2021年版，资料日期与原归属保留，不能证明每家雇主当前规则或为此题本背书。无测量验证、迁移证明或进步阈值，固定题重做可能含记忆、熟悉度或条件变化，不认证独立作答。新例只用于检查证据、基数或规则，不需交换私人答卷、申请或雇主资料；可只读、拒绝讨论或停止。答案、模式和计时仅留页面内存，无草稿或长期历史，依现有刷新、离开、换语言、缓存恢复与重练行为清除；复制仅含三篇公开指南标题和链接，无答案、数量、模式或用时。常规页面分析关闭，可选匿名动作计数需本页许可和全站分析同意；清除不抹除浏览器历史、截屏或旁人看屏。",
+          "en": "This independently authored fixed bank has 18 English questions: six each in passage, numerical and written logical reasoning. Chinese UI retains English stems and options alongside bilingual instructions, explanations and guides, without establishing language-score equivalence. The first three verbal tasks classify true, false or undetermined claims; the next three and both other areas offer four choices. This is no uniform provider format, adaptive bank or official administration. A key match counts as correct, another offered option as wrong, and an explicit skip or untouched item as unanswered. Counts sum to six per area and 18 overall without imputation, guessing correction, speed bonuses, weighting or norms. Option counts differ and areas are not difficulty-equated: the lowest correct count diagnoses no weakest ability. Totals yield no SHL or Korn Ferry score, IQ, percentile, passing threshold or hiring probability. All three full public guides are readable before answering. After all three parts close, even with zero correct or every item unanswered, the private result opens all 18 stems, selections, keys and explanations in the chosen UI language, alongside the same three general guides. Timed caps are 3:00, 5:00 and 4:00: twelve active minutes excluding waits. Study uses the same bank without deadlines. Each part starts deliberately, allows backtracking while open, locks on finishing or expiry and waits for the next deliberate start. Background tabs do not pause time; inconsistent device clocks clear the attempt through existing behavior without a timed result. This site permits paper and a calculator for learning, establishing no equipment, assistance, navigation or timing rules for actual recruitment assessments: check the specific invitation and arrangements. Linked SHL materials concern a retired generation and a 2018 format; the Korn Ferry candidate guide is dated 2021. Dates and attribution remain, establishing neither current rules for every employer nor endorsement of this bank. There is no measurement validation, proof of transfer or meaningful-improvement threshold. Repeating fixed items can reflect memory, familiarity or changed conditions and certifies no independent performance. New examples check evidence, bases or rules without exchanging private responses, applications or employer material. Reading alone, declining discussion or stopping is allowed. Answers, mode and timing stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration or restarting. Copying includes only three public guide titles and links without responses, counts, mode or time. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation."
+        }
+      ]
+    }
+  ],
+  "numerical": [
+    {
+      "id": "numerical-2",
+      "title": {
+        "en": "Percent change needs an original base",
+        "zh": "增长率需要原基数"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创学习情境：虚构的沐与思在数量组各答对五题，一人自述算过，一人说记得选项；正确数无法认证独立求解。另设纸上数量80先增25%至100，再减20%至80。虽然回到起点，25与20并不相等；两个百分比基数不同，不能据此推广为“相同幅度增减必抵消”。若这八十个单位分在两批20与一批40中，每批均值80÷3，而非把20与40平均成30。用单位、总量和观察次数分别复核；这是虚构单位，非价格、汇率或运营预测。",
+          "en": "An additional original learning scene: Fictional Mu and Si each answer five numerical items correctly. One reports calculating, the other remembering options; counts certify no independent solution. A new paper quantity rises 25% from 80 to 100, then falls 20% to 80. Returning to the start does not make 25 equal to 20: the percentage bases differ, so equal percentage increases and decreases do not generally cancel. If these 80 units occur in two batches of 20 and one of 40, the mean per batch is 80 ÷ 3, rather than the unweighted midpoint of 20 and 40, which is 30. Check units, totals and observation counts separately. These fictional units predict no price, exchange rate or operations."
+        }
+      ]
+    },
+    {
+      "id": "numerical-6",
+      "title": {
+        "en": "Use time without hiding assumptions",
+        "zh": "用时安排不隐藏假设"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样解释不同百分比基数与批次权重，而不只交换最后的答案字母？”可以只谈上述虚构人物与新纸上例子，一人说明规则，另一人检查证据、条件或约束；允许分歧、保留待核查或停止。不需交换个人答卷、成绩、健康信息或申请资料，不要求实物操作，也不以速度或答案数量给参与者贴能力标签。",
+          "en": "An optional discussion prompt asks: “How can different percentage bases and batch weights be explained without merely exchanging final option letters?” Discuss only the fictional learners and new paper examples above: one explains a rule and another checks evidence, bases or constraints. Participants may disagree, leave a point for checking or stop without exchanging private answer sheets, scores, health details or applications. No physical task is required, and neither speed nor counts label anyone’s ability."
+        }
+      ]
+    },
+    {
+      "id": "numerical-7",
+      "title": {
+        "en": "Turn a wrong answer into a fresh example",
+        "zh": "把错答变成新例"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是费马独立编写的固定十八道英文题，阅读、数量与文字逻辑各六题；中文界面保留英文题干与选项，说明、解析和指南双语，不确立语言成绩等值。阅读前三题为真、假、无法判断三选一，后三题与其余两组为四选一；并非统一提供方题式、自适应题库或正式施测。选中答案键计正确，其他给定选项计错误，明确留空或未触及计未答；三数各组合六、总计十八，无补答、猜测校正、速度奖励、加权或常模。选项数不同、领域难度未等值，最低正确数不能诊断最弱能力；总数不换算SHL、Korn Ferry成绩、IQ、百分位、通过线或录用概率。三篇完整公开指南作答前即可读；三部分全部结束后，包括零正确或全未答，私人结果均开放全部十八题、本人选择、答案与本语言解析，并保留相同三份通用指南。计时模式依次3:00、5:00、4:00，十二分钟活动计时不含段间等待；学习模式同题无截止。每段主动开始后计时，开放段可返回修改，主动结束或到时锁定，下一段等待本人开始；后台不暂停，设备双时钟不一致按现有流程清除而不生成计时结果。本站允许纸笔、计算器用于学习，不能据此推断实际招聘测评的设备、帮助、导航或时限；须核具体邀请和安排。所引SHL资料涉及已退役旧代和2018年格式，Korn Ferry候选指南为2021年版，资料日期与原归属保留，不能证明每家雇主当前规则或为此题本背书。无测量验证、迁移证明或进步阈值，固定题重做可能含记忆、熟悉度或条件变化，不认证独立作答。新例只用于检查证据、基数或规则，不需交换私人答卷、申请或雇主资料；可只读、拒绝讨论或停止。答案、模式和计时仅留页面内存，无草稿或长期历史，依现有刷新、离开、换语言、缓存恢复与重练行为清除；复制仅含三篇公开指南标题和链接，无答案、数量、模式或用时。常规页面分析关闭，可选匿名动作计数需本页许可和全站分析同意；清除不抹除浏览器历史、截屏或旁人看屏。",
+          "en": "This independently authored fixed bank has 18 English questions: six each in passage, numerical and written logical reasoning. Chinese UI retains English stems and options alongside bilingual instructions, explanations and guides, without establishing language-score equivalence. The first three verbal tasks classify true, false or undetermined claims; the next three and both other areas offer four choices. This is no uniform provider format, adaptive bank or official administration. A key match counts as correct, another offered option as wrong, and an explicit skip or untouched item as unanswered. Counts sum to six per area and 18 overall without imputation, guessing correction, speed bonuses, weighting or norms. Option counts differ and areas are not difficulty-equated: the lowest correct count diagnoses no weakest ability. Totals yield no SHL or Korn Ferry score, IQ, percentile, passing threshold or hiring probability. All three full public guides are readable before answering. After all three parts close, even with zero correct or every item unanswered, the private result opens all 18 stems, selections, keys and explanations in the chosen UI language, alongside the same three general guides. Timed caps are 3:00, 5:00 and 4:00: twelve active minutes excluding waits. Study uses the same bank without deadlines. Each part starts deliberately, allows backtracking while open, locks on finishing or expiry and waits for the next deliberate start. Background tabs do not pause time; inconsistent device clocks clear the attempt through existing behavior without a timed result. This site permits paper and a calculator for learning, establishing no equipment, assistance, navigation or timing rules for actual recruitment assessments: check the specific invitation and arrangements. Linked SHL materials concern a retired generation and a 2018 format; the Korn Ferry candidate guide is dated 2021. Dates and attribution remain, establishing neither current rules for every employer nor endorsement of this bank. There is no measurement validation, proof of transfer or meaningful-improvement threshold. Repeating fixed items can reflect memory, familiarity or changed conditions and certifies no independent performance. New examples check evidence, bases or rules without exchanging private responses, applications or employer material. Reading alone, declining discussion or stopping is allowed. Answers, mode and timing stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration or restarting. Copying includes only three public guide titles and links without responses, counts, mode or time. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation."
+        }
+      ]
+    }
+  ],
+  "logical": [
+    {
+      "id": "logical-2",
+      "title": {
+        "en": "Use differences only when allowed",
+        "zh": "在允许的规则内看差"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创学习情境：虚构的羽与安在逻辑组都三对两错一未答，这不说明二人违反同一规则。新例限定相邻差每次增加3：4、9、17、28的差为5、8、11，下差14，下一项42；没有规则族限制时，有限前项不能确定唯一自然续法。另一个排序例只规定P在R前、Q在R前，P-Q-R与Q-P-R都满足，所以没有确定谁第一。能构造第二个有效排列与能延长一条指定数列，是两种不同证据动作，不能相互替代或据数量给人物贴逻辑能力标签。",
+          "en": "An additional original learning scene: Fictional Yu and An each have three correct, two wrong and one unanswered logical item. This establishes no shared error. A fresh sequence explicitly requires consecutive differences to increase by three: 4, 9, 17, 28 has differences 5, 8, 11, followed by 14 and therefore 42. Without a restricted rule family, finite terms establish no unique natural continuation. In a separate ordering example, P before R and Q before R permit both P-Q-R and Q-P-R, leaving first place unsettled. Constructing another valid arrangement and extending a specified sequence are different evidence tasks; neither replaces the other or labels someone’s reasoning ability from counts."
+        }
+      ]
+    },
+    {
+      "id": "logical-6",
+      "title": {
+        "en": "Practise pacing with an explicit record",
+        "zh": "明确记录条件再练节奏"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样回核全部已知项，并用另一个有效排列检验“必然”的排序主张？”可以只谈上述虚构人物与新纸上例子，一人说明规则，另一人检查证据、条件或约束；允许分歧、保留待核查或停止。不需交换个人答卷、成绩、健康信息或申请资料，不要求实物操作，也不以速度或答案数量给参与者贴能力标签。",
+          "en": "An optional discussion prompt asks: “How can all known terms be checked and another valid arrangement test an ordering claim of necessity?” Discuss only the fictional learners and new paper examples above: one explains a rule and another checks evidence, bases or constraints. Participants may disagree, leave a point for checking or stop without exchanging private answer sheets, scores, health details or applications. No physical task is required, and neither speed nor counts label anyone’s ability."
+        }
+      ]
+    },
+    {
+      "id": "logical-7",
+      "title": {
+        "en": "Review without turning counts into a label",
+        "zh": "复盘而不把数量变标签"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是费马独立编写的固定十八道英文题，阅读、数量与文字逻辑各六题；中文界面保留英文题干与选项，说明、解析和指南双语，不确立语言成绩等值。阅读前三题为真、假、无法判断三选一，后三题与其余两组为四选一；并非统一提供方题式、自适应题库或正式施测。选中答案键计正确，其他给定选项计错误，明确留空或未触及计未答；三数各组合六、总计十八，无补答、猜测校正、速度奖励、加权或常模。选项数不同、领域难度未等值，最低正确数不能诊断最弱能力；总数不换算SHL、Korn Ferry成绩、IQ、百分位、通过线或录用概率。三篇完整公开指南作答前即可读；三部分全部结束后，包括零正确或全未答，私人结果均开放全部十八题、本人选择、答案与本语言解析，并保留相同三份通用指南。计时模式依次3:00、5:00、4:00，十二分钟活动计时不含段间等待；学习模式同题无截止。每段主动开始后计时，开放段可返回修改，主动结束或到时锁定，下一段等待本人开始；后台不暂停，设备双时钟不一致按现有流程清除而不生成计时结果。本站允许纸笔、计算器用于学习，不能据此推断实际招聘测评的设备、帮助、导航或时限；须核具体邀请和安排。所引SHL资料涉及已退役旧代和2018年格式，Korn Ferry候选指南为2021年版，资料日期与原归属保留，不能证明每家雇主当前规则或为此题本背书。无测量验证、迁移证明或进步阈值，固定题重做可能含记忆、熟悉度或条件变化，不认证独立作答。新例只用于检查证据、基数或规则，不需交换私人答卷、申请或雇主资料；可只读、拒绝讨论或停止。答案、模式和计时仅留页面内存，无草稿或长期历史，依现有刷新、离开、换语言、缓存恢复与重练行为清除；复制仅含三篇公开指南标题和链接，无答案、数量、模式或用时。常规页面分析关闭，可选匿名动作计数需本页许可和全站分析同意；清除不抹除浏览器历史、截屏或旁人看屏。",
+          "en": "This independently authored fixed bank has 18 English questions: six each in passage, numerical and written logical reasoning. Chinese UI retains English stems and options alongside bilingual instructions, explanations and guides, without establishing language-score equivalence. The first three verbal tasks classify true, false or undetermined claims; the next three and both other areas offer four choices. This is no uniform provider format, adaptive bank or official administration. A key match counts as correct, another offered option as wrong, and an explicit skip or untouched item as unanswered. Counts sum to six per area and 18 overall without imputation, guessing correction, speed bonuses, weighting or norms. Option counts differ and areas are not difficulty-equated: the lowest correct count diagnoses no weakest ability. Totals yield no SHL or Korn Ferry score, IQ, percentile, passing threshold or hiring probability. All three full public guides are readable before answering. After all three parts close, even with zero correct or every item unanswered, the private result opens all 18 stems, selections, keys and explanations in the chosen UI language, alongside the same three general guides. Timed caps are 3:00, 5:00 and 4:00: twelve active minutes excluding waits. Study uses the same bank without deadlines. Each part starts deliberately, allows backtracking while open, locks on finishing or expiry and waits for the next deliberate start. Background tabs do not pause time; inconsistent device clocks clear the attempt through existing behavior without a timed result. This site permits paper and a calculator for learning, establishing no equipment, assistance, navigation or timing rules for actual recruitment assessments: check the specific invitation and arrangements. Linked SHL materials concern a retired generation and a 2018 format; the Korn Ferry candidate guide is dated 2021. Dates and attribution remain, establishing neither current rules for every employer nor endorsement of this bank. There is no measurement validation, proof of transfer or meaningful-improvement threshold. Repeating fixed items can reflect memory, familiarity or changed conditions and certifies no independent performance. New examples check evidence, bases or rules without exchanging private responses, applications or employer material. Reading alone, declining discussion or stopping is allowed. Answers, mode and timing stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration or restarting. Copying includes only three public guide titles and links without responses, counts, mode or time. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation."
+        }
+      ]
+    }
+  ]
+}

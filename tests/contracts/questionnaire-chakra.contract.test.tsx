@@ -1,3 +1,4 @@
+import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync, readdirSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -83,8 +84,8 @@ describe("T175 original seven-theme chakra symbolic self-reflection", () => {
       if (mode === "example") ["2", "4", "5", "2"].forEach((v, i) => answers[`CHAKRA_ROOT_0${i + 1}`] = v);
       const result = scoreQuestionnaire(quiz, answers);
       if (result.status !== "complete" || !("facets" in result)) throw new Error("Complete source witness rejected");
-      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireChakraReport quiz={quiz} result={result} locale={locale} />);
-      expect(dom.querySelectorAll("[data-chakra-group]")).toHaveLength(7); expect(dom.querySelectorAll("[data-chakra-guide]")).toHaveLength(7); expect(dom.querySelectorAll("h4")).toHaveLength(42);
+      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireChakraReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale={locale} />);
+      expect(dom.querySelectorAll("[data-chakra-group]")).toHaveLength(7); expect(dom.querySelectorAll("[data-chakra-guide]")).toHaveLength(7); expect(dom.querySelectorAll("h4")).toHaveLength(63);
       expect(dom.querySelectorAll("[data-chakra-insufficient]")).toHaveLength(mode === "na" ? 7 : mode === "partial" ? 1 : 0);
       for (const profile of quiz.profiles) for (const section of profile.sections) for (const paragraph of section.paragraphs) expect(dom.textContent).toContain(paragraph[locale]);
       const root = dom.querySelector('[data-chakra-group="root"]')!;

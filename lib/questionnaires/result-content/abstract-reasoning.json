@@ -1,0 +1,130 @@
+{
+  "series": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：数量相同不代表操作相同",
+        "en": "Review equal token counts without assuming equal operations"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例只从左轮移一位、逐位取反两种规则选择。0101变1010，两种都符合，且取反前后各有两个1，所以仅核数量不能区分。再给0001变1110：左轮移会得0010，不符；逐位取反符合。本例两候选中因此保留取反，作用于0000得1111。逐位取反把每个原0写成1、原1写成0，不是互换两个位置；它可能改变0、1各自数量，但平衡位串可保持数量相同。把候选逐一代入全部已知箭头，找第一处矛盾；结论只在本例明列候选中唯一，不声称有限序列只有一种数学延续。",
+          "en": "Use a fresh choice restricted to left rotation by one or inversion of every bit. Both take 0101 to 1010, retaining two ones, so counts alone cannot separate them. Add 0001→1110: left rotation would give 0010 and fails, while inversion fits. Within these two candidates, inversion survives and takes 0000 to 1111. It writes one for each original zero and zero for each original one, rather than swapping positions. It can change the counts, but a balanced row can retain equal counts. Substitute each candidate through every known arrow and locate its first contradiction. Uniqueness here concerns the listed candidates, not every possible continuation of finite data."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起验规则，比较第一个分歧",
+        "en": "Check rules together and compare the first divergence"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“第一条变化为什么不能区分候选？逐位取反前后1的个数相同，是否就能证明没做取反？”先各自写候选、位置对应和中间结果，再交换核查。可只读、画表、换符号或不答，不比赛速度，也不按正确数给朋友贴聪明、迟钝或职业适合度标签。",
+          "en": "Ask: “Why is the first transition insufficient, and do equal counts before and after prove that inversion did not occur?” Write candidates, position maps and intermediate rows separately, then exchange checks. Read, sketch a table, replace symbols or decline without racing or labelling friends’ intelligence, speed of thought or career suitability from correct counts."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。四组是本版符号规则复习，不是IQ、流体智力、常模排名或招聘认证；唯一解只限明示规则范围，未完成心理测量验证。24题固定，重做提高可能来自记忆；换输入并解释全部步骤，可更具体地检查理解。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Four groups revise symbolic rules rather than IQ, fluid intelligence, norm-based rankings or hiring certification. Uniqueness is bounded by stated rules and the bank has not undergone psychometric validation. Retakes reuse twenty-four items and may reward recall; change inputs and explain every step to inspect understanding."
+        }
+      ]
+    }
+  ],
+  "analogies": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：重复符号会隐藏位置变化",
+        "en": "Review position changes hidden by repeated tokens"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例候选为保持不变、全倒序、只换首尾、只换中间。HIIH变HIIH时四者都符合，不能凭这一个示例选规则。再给JKLM变MLKJ，只有全倒序符合全部四个位置；只换首尾会得MKLJ。把该关系用于PQTV得VTQP，其中两个中间位置也反向，不能只看首尾。先列每个原位置去哪里，再核每一个已知输入输出对。重复字母的偶然相同不能替代第二份区分性示例；候选若仍有多个满足，就保留歧义，不靠“更像考试答案”强选。",
+          "en": "Use fresh candidates: identity, full reversal, swapping only the ends or swapping only the middle. All four map HIIH to HIIH, so this pair cannot select a rule. Add JKLM→MLKJ: only full reversal fits every position; swapping the ends would produce MKLJ. Applying reversal to PQTV gives VTQP, including exchanged middle positions rather than only moved ends. Map each original position and check every demonstrated pair. Coincidental matches from repeated letters cannot replace a distinguishing example. If multiple candidates still fit, retain ambiguity instead of choosing what merely resembles an expected test answer."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起验规则，比较第一个分歧",
+        "en": "Check rules together and compare the first divergence"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“哪一组示例真正区分了操作？你是否核了中间位置，而不只比较首尾？”先各自写候选、位置对应和中间结果，再交换核查。可只读、画表、换符号或不答，不比赛速度，也不按正确数给朋友贴聪明、迟钝或职业适合度标签。",
+          "en": "Ask: “Which demonstration actually separates the operations, and did you inspect middle positions as well as the ends?” Write candidates, position maps and intermediate rows separately, then exchange checks. Read, sketch a table, replace symbols or decline without racing or labelling friends’ intelligence, speed of thought or career suitability from correct counts."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。四组是本版符号规则复习，不是IQ、流体智力、常模排名或招聘认证；唯一解只限明示规则范围，未完成心理测量验证。24题固定，重做提高可能来自记忆；换输入并解释全部步骤，可更具体地检查理解。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Four groups revise symbolic rules rather than IQ, fluid intelligence, norm-based rankings or hiring certification. Uniqueness is bounded by stated rules and the bank has not undergone psychometric validation. Retakes reuse twenty-four items and may reward recall; change inputs and explain every step to inspect understanding."
+        }
+      ]
+    }
+  ],
+  "classification": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：把完整条件与近似反例一起核",
+        "en": "Review the full criterion against a near-miss row"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例候选限定为：中间两位相同、首末互异且均不同于中间；存在任意重复；全回文；恰有两种符号。组内ABBC、XYYZ，组外ABBA、ABCD。首个完整条件符合全部标签；任意重复会错误接受ABBA，回文及两种符号又不符合组内。新串DEEF符合首个条件，DEED虽有相同中间，却因首末相同而不符。对每个候选逐条核正、反例，再判新串，不能只挑一条组内共有特征。这个限定候选中的结论，不为所有可能分类函数宣称唯一性。",
+          "en": "Use fresh candidate criteria: equal middle positions with two different outside tokens also distinct from the middle; any repetition; full palindrome; exactly two token kinds. Label ABBC and XYYZ IN, ABBA and ABCD OUT. The full first criterion fits all labels. Any repetition wrongly accepts ABBA, while palindrome and two kinds fail the positives. DEEF fits the surviving criterion; DEED has equal middle tokens but fails distinct outside positions. Check positives and negatives for each candidate before judging a target, rather than selecting a shared positive feature alone. This conclusion is unique within the stated candidates, not among all possible classification functions."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起验规则，比较第一个分歧",
+        "en": "Check rules together and compare the first divergence"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“近似串DEED具体漏了哪条条件？仅在组内样本上成立的性质，为什么仍可能不是规则？”先各自写候选、位置对应和中间结果，再交换核查。可只读、画表、换符号或不答，不比赛速度，也不按正确数给朋友贴聪明、迟钝或职业适合度标签。",
+          "en": "Ask: “Which exact condition does DEED miss, and why can a property shared by positives still fail as the rule?” Write candidates, position maps and intermediate rows separately, then exchange checks. Read, sketch a table, replace symbols or decline without racing or labelling friends’ intelligence, speed of thought or career suitability from correct counts."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。四组是本版符号规则复习，不是IQ、流体智力、常模排名或招聘认证；唯一解只限明示规则范围，未完成心理测量验证。24题固定，重做提高可能来自记忆；换输入并解释全部步骤，可更具体地检查理解。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Four groups revise symbolic rules rather than IQ, fluid intelligence, norm-based rankings or hiring certification. Uniqueness is bounded by stated rules and the bank has not undergone psychometric validation. Retakes reuse twenty-four items and may reward recall; change inputs and explain every step to inspect understanding."
+        }
+      ]
+    }
+  ],
+  "transformations": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：中间结果与原始输入分栏记录",
+        "en": "Review intermediate results separately from original inputs"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例MNOP先右轮移得PMNO，再倒序当前串得ONMP。若先倒序成PONM，再右轮移，得MPON，说明不能交换指定顺序。另设同时替换M→NP、N→M、P→N，原串MNP应逐个输出NP|M|N，合为NPMN；新写出的N、P不是待再次替换的输入。可用两栏保存原串与当前结果，在每个箭头后核长度和符号来源。轮移、倒序保留长度，扩展替换则可能改变长度；用正确的不变量排错，但仍须核全部顺序与条件。",
+          "en": "Use fresh MNOP: rotating right yields PMNO, then reversing that current row gives ONMP. Reversing first gives PONM, followed by right rotation to MPON, so the specified order matters. Separately, simultaneous substitution M→NP, N→M and P→N maps original MNP into NP|M|N, or NPMN. Newly written N and P are outputs rather than inputs for another pass. Keep original and current rows in separate columns, checking length and token origin after each arrow. Rotation and reversal preserve length, while expansion can change it. Use appropriate invariants to detect errors, then still check every ordered step and condition."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起验规则，比较第一个分歧",
+        "en": "Check rules together and compare the first divergence"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“你在处理原符号，还是错误地重处理新输出？把两步交换后，哪一个中间结果最先不同？”先各自写候选、位置对应和中间结果，再交换核查。可只读、画表、换符号或不答，不比赛速度，也不按正确数给朋友贴聪明、迟钝或职业适合度标签。",
+          "en": "Ask: “Are you processing original symbols or reprocessing output, and which intermediate state first changes when the steps are reversed?” Write candidates, position maps and intermediate rows separately, then exchange checks. Read, sketch a table, replace symbols or decline without racing or labelling friends’ intelligence, speed of thought or career suitability from correct counts."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。四组是本版符号规则复习，不是IQ、流体智力、常模排名或招聘认证；唯一解只限明示规则范围，未完成心理测量验证。24题固定，重做提高可能来自记忆；换输入并解释全部步骤，可更具体地检查理解。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Four groups revise symbolic rules rather than IQ, fluid intelligence, norm-based rankings or hiring certification. Uniqueness is bounded by stated rules and the bank has not undergone psychometric validation. Retakes reuse twenty-four items and may reward recall; change inputs and explain every step to inspect understanding."
+        }
+      ]
+    }
+  ]
+}

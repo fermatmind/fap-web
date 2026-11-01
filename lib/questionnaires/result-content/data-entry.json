@@ -1,0 +1,66 @@
+{
+  "assets": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：字段等权，不代表字符长度相同",
+        "en": "Review equal field weights without assuming equal lengths"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例四字段为ST-012、Oak Box、004、C-09，分别长6、7、3、4字符，完整一分钟最终共20字符。若仅把Oak Box录成oak Box，字段准确率为3÷4=75%，字符KPH仍20×60=1200，但完整匹配字段只含13字符，精确字段字符KPH为780。把1200乘75%会得900，不能替代780，因为字段长短不同。该记录仍为零条完整记录，不是三条完整记录。若另在一条全空记录明确点下一条，纳入字段变八、精确字段仍三，准确率降至37.5%；仅显示未动的记录不产生这个变化。记录比较时保留纳入范围、字段与字符单位，不从差异标签推断粗心或注意问题。",
+          "en": "Use fresh fields ST-012, Oak Box, 004 and C-09, with lengths six, seven, three and four. Twenty final characters remain after the full minute. Changing only Oak Box to oak Box gives three exact fields out of four, or seventy-five percent, and character KPH remains 1200. Fully matching fields contain thirteen characters, so exact-field character KPH is 780. Multiplying 1200 by seventy-five percent gives nine hundred instead, because equal field weights do not imply equal lengths. There are still zero complete records, not three. Explicitly advancing through another blank record adds four fields: accuracy becomes three out of eight, or 37.5 percent. Merely viewing it does not. Keep scope and units alongside the figures without interpreting error categories as causes or attention problems."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用虚构四字段记录一起核，不比招聘等级",
+        "en": "Check fictional four-field records together without hiring labels"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“为什么75%字段准确率不能直接乘字符产量？什么时候一条空记录会改变分母？”先各自列源字段、最终字段、长度和是否整字段匹配，再交换复算。可以只读、用计算器或慢慢核，不比赛键速。不输入真实库存、包裹单号、客户地址、密码或工作资料；只比较这次记录，不用KPH或准确率评价朋友的智力、认真程度或职业适合度。",
+          "en": "Ask: “Why cannot field accuracy simply multiply character output, and when does an empty record change the denominator?” List source and final fields, lengths and whole-field matches separately, then exchange checks. Read, use a calculator or work slowly without racing. Do not enter real inventory, parcel identifiers, customer addresses, passwords or work records. Compare this record rather than using KPH or accuracy to judge friends’ intelligence, conscientiousness or career suitability."
+        },
+        {
+          "zh": "复制公开练习链接只含通用标题与入口，不含字段、数量、速度或准确率；也可自行分享本公开指南。两份完整指南在未尝试、部分及完整录入后都可读。未尝试准确率不适用，与明确纳入空记录后的零准确率不同。本站一分钟折算没有常模、雇主通过线或证书效力；固定来源重做可能因熟悉变容易。复习时另换一条虚构记录，说明各指标如何重算，比只追一个更大数字更具体。",
+          "en": "Copying the public practice link includes only the general title and entry, without fields, counts, speed or accuracy; you can also share this guide yourself. Both full readings remain available after no attempt, partial entry or complete entry. Unavailable accuracy for no attempted record differs from zero accuracy after including a blank record. A one-minute extrapolation supplies no norm, employer cutoff or certification. Reusing fixed material may reward familiarity. Change a fictional record and explain each recalculation to describe your next practice step more concretely than pursuing a larger number."
+        }
+      ]
+    }
+  ],
+  "dispatch": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：两条记录互换字段，字符总量可能不变",
+        "en": "Review swapped fields when the character total stays unchanged"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例两条虚构记录分别为PK-182、2026-05-16、4.50、WEST-08，以及PK-183、2026-05-17、7.20、EAST-09；每条27字符，合计54。只把两条日期相互填错，最终仍54字符，字符KPH3240；八字段中六个完整匹配，字段准确率75%，却没有一条完整记录。两错日期各10字符不进精确字段字符产量，剩34×60=2040，而不是3240×75%=2430。回到对应源记录改正日期后，八字段全对、两条完整，最终字符数仍54；改错时间仍在同一60秒中，不把旧日期字符再累计。先核字段属于哪条记录，再核格式；日期看起来有效，也不代表抄对了源记录。",
+          "en": "Use two fresh fictional records: PK-182, 2026-05-16, 4.50, WEST-08; and PK-183, 2026-05-17, 7.20, EAST-09. Each has twenty-seven characters, fifty-four together. Swap only the dates: output stays fifty-four and character KPH 3240. Six of eight fields match, or seventy-five percent, but neither record is complete. Excluding both ten-character dates leaves thirty-four characters in exact fields, giving 2040 exact-field character KPH, not 3240×75%=2430. Correcting the dates against their own source produces eight exact fields and two complete records while final character count stays fifty-four. Correction time remains inside the same minute; discarded date strings are not added to output. Check record association before format: a plausible date need not be the date supplied for that record."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用虚构四字段记录一起核，不比招聘等级",
+        "en": "Check fictional four-field records together without hiring labels"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“日期格式都正确，为什么仍可能是错字段？字符数没变，完整记录数为何能改变？”先各自列源字段、最终字段、长度和是否整字段匹配，再交换复算。可以只读、用计算器或慢慢核，不比赛键速。不输入真实库存、包裹单号、客户地址、密码或工作资料；只比较这次记录，不用KPH或准确率评价朋友的智力、认真程度或职业适合度。",
+          "en": "Ask: “Why can a correctly formatted date be the wrong field, and how can complete-record count change without changing character count?” List source and final fields, lengths and whole-field matches separately, then exchange checks. Read, use a calculator or work slowly without racing. Do not enter real inventory, parcel identifiers, customer addresses, passwords or work records. Compare this record rather than using KPH or accuracy to judge friends’ intelligence, conscientiousness or career suitability."
+        },
+        {
+          "zh": "复制公开练习链接只含通用标题与入口，不含字段、数量、速度或准确率；也可自行分享本公开指南。两份完整指南在未尝试、部分及完整录入后都可读。未尝试准确率不适用，与明确纳入空记录后的零准确率不同。本站一分钟折算没有常模、雇主通过线或证书效力；固定来源重做可能因熟悉变容易。复习时另换一条虚构记录，说明各指标如何重算，比只追一个更大数字更具体。",
+          "en": "Copying the public practice link includes only the general title and entry, without fields, counts, speed or accuracy; you can also share this guide yourself. Both full readings remain available after no attempt, partial entry or complete entry. Unavailable accuracy for no attempted record differs from zero accuracy after including a blank record. A one-minute extrapolation supplies no norm, employer cutoff or certification. Reusing fixed material may reward familiarity. Change a fictional record and explain each recalculation to describe your next practice step more concretely than pursuing a larger number."
+        }
+      ]
+    }
+  ]
+}

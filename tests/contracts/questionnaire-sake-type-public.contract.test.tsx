@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
+import { sakeResultProfile } from "@/lib/questionnaires/result-content/sake-type";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
 import { MoreTests } from "@/components/entertainment/MoreTests";
@@ -27,7 +28,7 @@ describe("Frozen J Sake Type real public/native/SEO callers", () => {
           expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]); expect(m.title).toBe(profile.seo!.title[locale]); expect(m.description).toBe(profile.seo!.description[locale]);
           expect(m.alternates?.canonical).toBe(`https://fermatmind.com${publicPath}`);
           expect(m.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/sake-type/results/${profile.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/sake-type/results/${profile.id}`, "x-default": `https://fermatmind.com/en/tests/explore/sake-type/results/${profile.id}` });
-          for (const s of profile.sections) for (const p of s.paragraphs) expect(dom.querySelector(`#report-${s.id}`)?.textContent).toContain(p[locale]);
+          for (const s of sakeResultProfile(profile).sections) for (const p of s.paragraphs) expect(dom.querySelector(`#report-${s.id}`)?.textContent).toContain(p[locale]);
           expect(dom.querySelector("[data-archetype-count]")).toBeNull(); expect(dom.querySelector(`a[href='${path}#take-test']`)).not.toBeNull();
           expect(maps.filter(e => e.loc === `https://fermatmind.com${publicPath}`)).toHaveLength(1); if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u); pages++;
         }

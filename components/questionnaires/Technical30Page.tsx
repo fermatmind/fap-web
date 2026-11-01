@@ -7,7 +7,8 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
 import { Technical30Client } from "./Technical30Client";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
+import { prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
 
 function Source({ quiz, locale }: { quiz: Technical30Questionnaire; locale: Locale }) {
   return <aside data-technical30-attribution className="my-8 space-y-3 border-t pt-6 text-sm leading-7 text-slate-600"><p>{quiz.technical30.attribution[locale]}</p><p>{quiz.technical30.editionNotice[locale]}</p>{quiz.references?.map(r => <p key={r.url}><a className="underline" href={r.url} rel="noopener noreferrer">{r.title[locale]}</a></p>)}</aside>;
@@ -23,7 +24,7 @@ export function Technical30Page({ quiz, locale }: { quiz: Technical30Questionnai
     <p className="mt-5 text-lg leading-8 text-slate-700">{quiz.description[locale]}</p>
     <p className="mt-3 text-sm text-slate-600">{zh ? "30道英文题 · 约24分钟含说明 · 分段计时／不计时 · 无需注册" : "30 English questions · About 24 minutes including instructions · Timed / untimed · No signup"}</p>
     <p className="mt-5 leading-8">{quiz.introduction[locale]}</p>
-    <Technical30Client quiz={quiz} locale={locale} />
+    <Technical30Client quiz={quiz} locale={locale} readingProfiles={quiz.profiles.map(profile => prepareResultProfile(quiz.slug, profile))} />
     <section aria-labelledby="technical30-method" className="my-10 space-y-8"><h2 id="technical30-method" className="text-2xl font-semibold">{zh ? "题本、计时与使用边界" : "Edition, timing and use"}</h2>{quiz.guide.map(s => <section key={s.id}><h3 className="text-xl font-semibold">{s.title[locale]}</h3>{s.paragraphs.map((p, i) => <p key={i} className="mt-3 leading-8">{p[locale]}</p>)}</section>)}</section>
     <section aria-labelledby="technical30-public-guides" className="my-10"><h2 id="technical30-public-guides" className="text-2xl font-semibold">{zh ? "五领域完整公开学习指南" : "Full public guides: five science and technical areas"}</h2><p className="my-4 leading-8">{zh ? "不作答也可阅读。以下对所有人相同，不含个人答案或分数。" : "Read without answering. These pages are identical for everyone, without personal responses or scores."}</p><ul className="space-y-2">{quiz.profiles.map(p => <li key={p.id}><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, p.id)}>{p.title[locale]}</Link></li>)}</ul></section>
     <section aria-labelledby="technical30-faq" className="my-10 space-y-6"><h2 id="technical30-faq" className="text-2xl font-semibold">{zh ? "常见问题" : "Frequently asked questions"}</h2>{quiz.faq.map((f, i) => <section key={i}><h3 className="text-lg font-semibold">{f.question[locale]}</h3><p className="mt-2 leading-8">{f.answer[locale]}</p></section>)}</section>
@@ -41,7 +42,7 @@ export function Technical30GuidePage({ quiz, profile, locale }: { quiz: Technica
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{profile.title[locale]}</h1>
     <p className="my-5 leading-8">{zh ? "此指南对所有人相同，不含个人答案或数量，不是个人ASVAB报告。" : "This guide is identical for everyone, without personal answers or counts. It is not an individual ASVAB report."}</p>
     <Link prefetch={false} className="mb-6 inline-block min-h-11 py-2 font-semibold underline" href={`${entry}#take-test`}>{zh ? "免费尝试30道英文题" : "Try the free 30 English questions"}</Link>
-    <div className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8"><QuestionnaireReport profile={profile} locale={locale} headingLevel={2} idPrefix={`public-${profile.id}`} /></div>
+    <div className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8"><QuestionnaireResultReading quizSlug={quiz.slug} profile={prepareResultProfile(quiz.slug, profile)} locale={locale} headingLevel={2} idPrefix={`public-${profile.id}`} /></div>
     <Source quiz={quiz} locale={locale} />
     <section className="my-8"><h2 className="text-xl font-semibold">{zh ? "阅读其他部分" : "Read the other parts"}</h2><ul>{quiz.profiles.filter(p => p.id !== profile.id).map(p => <li key={p.id}><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, p.id)}>{p.title[locale]}</Link></li>)}</ul></section>
   </Container></main>;

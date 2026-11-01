@@ -1,0 +1,194 @@
+{
+  "pooh": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：普通停歇之后，仍可选别的活动",
+        "en": "Review an ordinary pause with room for another choice"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用看书签成品的片刻，给当下留一小段不安排任务的空间，再问愿意的伙伴想继续看、换活动还是结束。可以只想象这个安排，不必实际聚会。复盘看这次停歇是否合意，不用安静程度评智力、体形、温暖或友谊，也不把享受片刻当接受所有不合适安排的理由。",
+          "en": "For looking at the finished bookmarks, leave a brief interval without another task, then ask a willing partner about continuing, changing activity or finishing. Imagine the arrangement without attending a gathering. Review whether this pause suited the moment, without quietness as intelligence, body size, warmth or friendship, or enjoying a moment as a reason to accept unsuitable arrangements."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "借纸上野餐聊不同选择",
+        "en": "Discuss choices through an invented paper-picnic"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果做好书签后暂时没有下一项安排，怎样享受一小段空白，又让大家能换活动或结束？”各拟一种做法，再借另一角色角度改一处。可只用虚构例子，不必参加活动、公开经历或展示作品。",
+          "en": "Ask: “If no next activity followed the finished bookmarks, how would you enjoy a brief pause while leaving room to change activity or finish?” Offer an approach each and revise through another character angle. Use invented examples without attending, sharing personal experiences or displaying work."
+        },
+        {
+          "zh": "可分享不含答卷与计数的公开说明。六个名字只对应本版选项，不是诊断、年龄模式、家庭角色或友情评分；官方人物名单不验证题本。对方可换角色、不同意、不回答或结束，不推断病史、隐私或照顾义务，也不评价缺席者。",
+          "en": "Share the public guide without answers or counts. Six names concern this edition’s options, not diagnosis, age patterns, family roles or friendship ratings; an official character list does not validate the bank. Others may change characters, disagree, decline or stop. Infer no medical history, private life or duty of care, and label no absent person."
+        }
+      ]
+    }
+  ],
+  "piglet": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：一件小任务完成后，再作一次选择",
+        "en": "Review a fresh choice after one small task"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用书签上的一个自选部分，先说完成点，再留继续、换部分和停下三种选择。不因做完一项就默认接下余下全部，也不需用害怕或疲倦证明可以停止。可以只写任务卡。复盘看所选任务是否有趣、下个邀请是否仍自愿，不以任务大小或继续与否评焦虑、自信、勇气和忠诚。",
+          "en": "For one chosen bookmark part, state its finish and leave continuing, changing parts or stopping available. One completed task does not accept all remaining work, and stopping needs no claim of fear or exhaustion. Write a task card only. Review enjoyment and voluntary invitations without task size or continuation as anxiety, confidence, courage or loyalty."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "借纸上野餐聊不同选择",
+        "en": "Discuss choices through an invented paper-picnic"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果只想完成书签的一小部分，怎样先说结束点，再在完成后自由选择继续、换一项或停止？”各拟一种做法，再借另一角色角度改一处。可只用虚构例子，不必参加活动、公开经历或展示作品。",
+          "en": "Ask: “If you wanted one small bookmark task, how would you state its finish and choose again afterwards among continuing, changing or stopping?” Offer an approach each and revise through another character angle. Use invented examples without attending, sharing personal experiences or displaying work."
+        },
+        {
+          "zh": "可分享不含答卷与计数的公开说明。六个名字只对应本版选项，不是诊断、年龄模式、家庭角色或友情评分；官方人物名单不验证题本。对方可换角色、不同意、不回答或结束，不推断病史、隐私或照顾义务，也不评价缺席者。",
+          "en": "Share the public guide without answers or counts. Six names concern this edition’s options, not diagnosis, age patterns, family roles or friendship ratings; an official character list does not validate the bank. Others may change characters, disagree, decline or stop. Infer no medical history, private life or duty of care, and label no absent person."
+        }
+      ]
+    }
+  ],
+  "owl": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：看见的结果与还不知道的部分分开",
+        "en": "Review what the sample shows and what remains unknown"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用两种纸折解释，先用一个自制小样核对同一细节，分别写看见了什么、哪些还不能确定。请愿意的伙伴指出需澄清的一处，够用即可停，也可以只看图不动手。不把一次小样当所有材料的通则；复盘评这一解释，不据长短、自信声音或是否答对评智力、教育与专业资格。",
+          "en": "For two fold explanations, check the same detail with a self-made sample and separate what it shows from what remains uncertain. Ask a willing partner for one clarification and stop when usable, or inspect a drawing only. One sample is no rule for every material. Review the explanation without length, confident delivery or correctness as intelligence, education or professional qualification."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "借纸上野餐聊不同选择",
+        "en": "Discuss choices through an invented paper-picnic"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果两种折法说明不同，一个小样能核实哪一处，又有哪些部分仍需要保留“不知道”？”各拟一种做法，再借另一角色角度改一处。可只用虚构例子，不必参加活动、公开经历或展示作品。",
+          "en": "Ask: “If two fold explanations differed, which detail could one sample check and what would still need an explicit “unknown”?” Offer an approach each and revise through another character angle. Use invented examples without attending, sharing personal experiences or displaying work."
+        },
+        {
+          "zh": "可分享不含答卷与计数的公开说明。六个名字只对应本版选项，不是诊断、年龄模式、家庭角色或友情评分；官方人物名单不验证题本。对方可换角色、不同意、不回答或结束，不推断病史、隐私或照顾义务，也不评价缺席者。",
+          "en": "Share the public guide without answers or counts. Six names concern this edition’s options, not diagnosis, age patterns, family roles or friendship ratings; an official character list does not validate the bank. Others may change characters, disagree, decline or stop. Infer no medical history, private life or duty of care, and label no absent person."
+        }
+      ]
+    }
+  ],
+  "tigger": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：游戏邀请要让不参加也容易",
+        "en": "Review a game invitation that is easy to decline"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用最后一轮纸游戏，写清玩法、何时结束和旁观或不参加的方式，再请自愿伙伴看是否容易选。无人想玩，也能把点子留到以后或结束活动。可以只改邀请句。复盘看选择有没有说清，不用笑声、加入人数或兴奋程度评注意力、精力、社交魅力，也不把安静偏好当对邀请者的否定。",
+          "en": "For the final paper round, state the play, finish and ways to watch or decline, then ask a willing partner whether the choices are clear. Save the idea or finish if nobody wants it. Revise the invitation only. Review clarity without laughter, attendance or excitement as attention, energy or charisma, or a quiet preference as rejection of the inviter."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "借纸上野餐聊不同选择",
+        "en": "Discuss choices through an invented paper-picnic"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果想邀请最后一轮纸游戏，怎样说清结束点与旁观选项，并接受大家今天都不想玩？”各拟一种做法，再借另一角色角度改一处。可只用虚构例子，不必参加活动、公开经历或展示作品。",
+          "en": "Ask: “If you offered one final paper game, how would you explain its finish and watching option while accepting that nobody wanted to play today?” Offer an approach each and revise through another character angle. Use invented examples without attending, sharing personal experiences or displaying work."
+        },
+        {
+          "zh": "可分享不含答卷与计数的公开说明。六个名字只对应本版选项，不是诊断、年龄模式、家庭角色或友情评分；官方人物名单不验证题本。对方可换角色、不同意、不回答或结束，不推断病史、隐私或照顾义务，也不评价缺席者。",
+          "en": "Share the public guide without answers or counts. Six names concern this edition’s options, not diagnosis, age patterns, family roles or friendship ratings; an official character list does not validate the bank. Others may change characters, disagree, decline or stop. Infer no medical history, private life or duty of care, and label no absent person."
+        }
+      ]
+    }
+  ],
+  "eeyore": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：说喜欢哪部分，不给提议者下判断",
+        "en": "Review a specific preference without judging its maker"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用安静看成品与热闹游戏的选择，写一句今天更想哪项，再问愿意的伙伴想什么；不必同意同一种结尾。可只讨论虚构安排，不公开真实心情。复盘看反馈是否具体，不强装热情，也不把不同偏好解释成抑郁、悲观、表面开心或友情深浅，更不派谁负责让谁高兴。",
+          "en": "For looking quietly at finished pieces versus a lively game, state today’s preference and ask a willing partner for theirs without requiring the same ending. Discuss an invented plan without disclosing a mood. Review specific feedback without forced enthusiasm or different preferences as depression, pessimism, superficial cheerfulness or friendship depth, and assign no duty to make someone happy."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "借纸上野餐聊不同选择",
+        "en": "Discuss choices through an invented paper-picnic"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果你更喜欢安静看成品，而朋友想再游戏，怎样说清今天的偏好，又让对方保留不同选择？”各拟一种做法，再借另一角色角度改一处。可只用虚构例子，不必参加活动、公开经历或展示作品。",
+          "en": "Ask: “If you preferred quietly viewing finished pieces while a friend wanted another game, how would you state your preference while preserving theirs?” Offer an approach each and revise through another character angle. Use invented examples without attending, sharing personal experiences or displaying work."
+        },
+        {
+          "zh": "可分享不含答卷与计数的公开说明。六个名字只对应本版选项，不是诊断、年龄模式、家庭角色或友情评分；官方人物名单不验证题本。对方可换角色、不同意、不回答或结束，不推断病史、隐私或照顾义务，也不评价缺席者。",
+          "en": "Share the public guide without answers or counts. Six names concern this edition’s options, not diagnosis, age patterns, family roles or friendship ratings; an official character list does not validate the bank. Others may change characters, disagree, decline or stop. Infer no medical history, private life or duty of care, and label no absent person."
+        }
+      ]
+    }
+  ],
+  "kanga": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：先问所需，再约一个有限提议",
+        "en": "Review a requested adjustment and a bounded offer"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用纸上位置的小调整，先问对方想改哪处，再说明自己愿意做的一项与结束点。对方可自己做、留原版或拒绝帮助，你也可不接新增部分。可以只写两句对话，不移动真人物品。复盘看调整是否有用，不以接受或付出多少证明照顾能力、性别、父母身份或关系价值。",
+          "en": "For a small paper-place adjustment, ask what is wanted before stating one chosen task and its finish. The other person may do it, keep the original or decline help; you may decline additions. Draft dialogue without moving anyone’s belongings. Review usefulness without acceptance or effort as care competence, gender, parental identity or relationship value."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "借纸上野餐聊不同选择",
+        "en": "Discuss choices through an invented paper-picnic"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果朋友说纸上位置不方便，怎样先问具体想改什么，再给一个能拒绝、也有终点的小提议？”各拟一种做法，再借另一角色角度改一处。可只用虚构例子，不必参加活动、公开经历或展示作品。",
+          "en": "Ask: “If a friend found the paper place awkward, how would you ask what they wanted changed and offer one bounded adjustment they could decline?” Offer an approach each and revise through another character angle. Use invented examples without attending, sharing personal experiences or displaying work."
+        },
+        {
+          "zh": "可分享不含答卷与计数的公开说明。六个名字只对应本版选项，不是诊断、年龄模式、家庭角色或友情评分；官方人物名单不验证题本。对方可换角色、不同意、不回答或结束，不推断病史、隐私或照顾义务，也不评价缺席者。",
+          "en": "Share the public guide without answers or counts. Six names concern this edition’s options, not diagnosis, age patterns, family roles or friendship ratings; an official character list does not validate the bank. Others may change characters, disagree, decline or stop. Infer no medical history, private life or duty of care, and label no absent person."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "initial-opening": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "把范围说清的小合作",
+        "en": "A small collaboration with an explicit scope"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构桌游活动里，你请一位新成员从两种公开的计分方式中选一种，自己仍保留是否参加这一轮的决定。这是给一个有限选择，不是把所有规则或后续安排都交给对方。对方作出了选择，只能说明这次选择发生了，不能证明其在钱款、隐私或其他责任上同样可靠；交流没有继续，也不自动证明这次开放失败。均分记录自己的行动频率，不替一次小机会确定好坏。",
+          "en": "In an additional original scene, you invite a new participant at an invented board-game session to choose between two public scoring methods while retaining your choice to join that round. This is a bounded choice, rather than control over every rule or future plan. Making that choice establishes no reliability with money, privacy or other responsibilities. An exchange can end without showing that the opening was a mistake. The mean records your reported action frequency without judging the opportunity."
+        }
+      ]
+    },
+    {
+      "id": "private-practice",
+      "title": {
+        "zh": "一次完全私人的观察练习",
+        "en": "A private observation exercise"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以为虚构活动写一句“我愿意先让出的是……，这次不包括……，我们都可以选择不继续”。讨论时问：“选择的范围在哪里结束？”只比较句子是否清楚，不给真人安排信任考试，也不需要透露自己的分数。",
+          "en": "For an invented activity, draft what you are willing to leave open, what is excluded and how either person can stop. Discuss where the choice ends. Compare clarity without giving anyone a trust test or disclosing your own score."
+        },
+        {
+          "zh": "以上是自选的费马原创讨论素材，可只读或保留私人草稿。四组各六条，回顾过去四周自己在普通、低风险、能拒绝的相处中的行动频率；全六题数字有效才显示各组均分，NA不补低分，四份全文始终可读。不把最高项派型、不判断他人可靠性，也不从一次小合作推断整体关系；分享公开指南无需附答案、均分或真实事件。",
+          "en": "These optional FermatMind discussion prompts allow reading or a private draft. Four six-item groups concern your own reported actions over four weeks in ordinary, low-risk interactions where refusal was possible. Each needs six numeric ratings for a separate mean; NA receives no low-score filling and all four full guides remain readable. Select no highest-mean type, judge no other person’s reliability and infer no whole relationship from one collaboration. Share a public guide without answers, means or real events."
+        }
+      ]
+    }
+  ],
+  "gradual-building": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "志愿活动里的有限步骤",
+        "en": "A bounded step in a volunteer activity"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的小组准备公开路线图，先约定各自核对两个公共站点，周五一起确认。下一轮可以保留同样范围、减少一个重复核对，也可以不继续；需要看这次具体发生了什么和双方意愿。按时交回两条信息，不等于以后必须交出管理权。这里的回顾点事先公开，和暗中设题等对方“过关”不同，六题频率也不证明有一个通用的信任升级速度。",
+          "en": "In an additional original scene, a group preparing a public route map agrees to check two public stops each and review on Friday. Another round might keep that scope, remove one repeated check or not happen. Consider the event and both people’s wishes. Returning two entries on time creates no obligation to transfer control later. The review is openly agreed, rather than a hidden test. Six frequency items establish no universal speed for increasing trust."
+        }
+      ]
+    },
+    {
+      "id": "private-practice",
+      "title": {
+        "zh": "回顾一次已经发生的调整",
+        "en": "Review one adjustment that already happened"
+      },
+      "paragraphs": [
+        {
+          "zh": "可写一张虚构回顾卡：“这轮范围”“约好的回顾点”“实际观察”“仍由双方各自决定的下一步”。问：“如果选择不增加范围，这张卡是否仍说得通？”允许答案是维持或结束，不用一次履约替对方获得所有领域的资格。",
+          "en": "Draft an invented review card with the current scope, agreed review point, observations and choices still belonging to each person. Ask whether it works if scope does not increase. Staying or ending can fit, without treating one completed task as qualification in every area."
+        },
+        {
+          "zh": "以上是自选的费马原创讨论素材，可只读或保留私人草稿。四组各六条，回顾过去四周自己在普通、低风险、能拒绝的相处中的行动频率；全六题数字有效才显示各组均分，NA不补低分，四份全文始终可读。不把最高项派型、不判断他人可靠性，也不从一次小合作推断整体关系；分享公开指南无需附答案、均分或真实事件。",
+          "en": "These optional FermatMind discussion prompts allow reading or a private draft. Four six-item groups concern your own reported actions over four weeks in ordinary, low-risk interactions where refusal was possible. Each needs six numeric ratings for a separate mean; NA receives no low-score filling and all four full guides remain readable. Select no highest-mean type, judge no other person’s reliability and infer no whole relationship from one collaboration. Share a public guide without answers, means or real events."
+        }
+      ]
+    }
+  ],
+  "agreement-clarity": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "共同海报中的修改权限",
+        "en": "Editing permissions in a shared poster"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构活动要把一张公开地图发给参与者。你先确认哪一版已获相关人同意、谁能修改，以及“发给大家”指哪些人。问的是共同材料的范围，不需要索取某个人的私人聊天来证明诚意。如果答案暂时不知道，可以先不发送或改用已明确公开的材料。问得清楚并不保证之后没有误会；六题均分也不能把更多追问换算成识谎能力。",
+          "en": "In an additional original scene, a group plans to distribute a public map. Check the agreed version, editing permissions and who “everyone” includes. This concerns shared material and requires no private messages as proof of sincerity. An unknown answer can leave distribution pending or lead to already-public material. Clear questions guarantee no absence of misunderstanding, and six frequency items convert no further questioning into lie detection."
+        }
+      ]
+    },
+    {
+      "id": "private-practice",
+      "title": {
+        "zh": "把一个模糊点写成有限问题",
+        "en": "Turn one uncertainty into a bounded question"
+      },
+      "paragraphs": [
+        {
+          "zh": "可用虚构材料写一个有限问题：“这版可发给……吗，还是目前只供……？”再列一个在不知道答案时也不施压的选择。讨论问题是否只索取共同任务所需的信息，不比谁问得多，不追问谁的私人经历更能证明可信。",
+          "en": "For invented material, draft one bounded question about its permitted audience and one non-pressuring option if the answer is unknown. Discuss whether it asks only what the shared task needs, without comparing question counts or demanding personal histories as proof of reliability."
+        },
+        {
+          "zh": "以上是自选的费马原创讨论素材，可只读或保留私人草稿。四组各六条，回顾过去四周自己在普通、低风险、能拒绝的相处中的行动频率；全六题数字有效才显示各组均分，NA不补低分，四份全文始终可读。不把最高项派型、不判断他人可靠性，也不从一次小合作推断整体关系；分享公开指南无需附答案、均分或真实事件。",
+          "en": "These optional FermatMind discussion prompts allow reading or a private draft. Four six-item groups concern your own reported actions over four weeks in ordinary, low-risk interactions where refusal was possible. Each needs six numeric ratings for a separate mean; NA receives no low-score filling and all four full guides remain readable. Select no highest-mean type, judge no other person’s reliability and infer no whole relationship from one collaboration. Share a public guide without answers, means or real events."
+        }
+      ]
+    }
+  ],
+  "protective-distance": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "一个备用方案是否仍有用",
+        "en": "Whether a backup still serves its purpose"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的活动伙伴愿意帮忙整理公共路线，你仍另存一份备用版本。可以分别观察备份花了多少时间、有没有覆盖双方同意使用的版本，以及你是否满意这项安排。保留一份资料与重复接管对方全部工作，可能有不同成本；单凭“做了备用”无法决定哪一种发生。较高频率不证明对方不可靠，也不要求你删除备份、增加接触或改变私人界限。",
+          "en": "In an additional original scene, a partner offers to prepare a public route while you keep a backup. Examine the time involved, whether it overrides the agreed version and your satisfaction. Keeping a copy may cost differently from repeating the other person’s whole task; “made a backup” alone identifies neither. Higher frequency establishes no unreliability in the other person and requires neither deleting the copy, increasing contact nor changing a private boundary."
+        }
+      ]
+    },
+    {
+      "id": "private-practice",
+      "title": {
+        "zh": "一次不要求接触任何人的回顾",
+        "en": "A review that requires no new contact"
+      },
+      "paragraphs": [
+        {
+          "zh": "可为虚构备用安排写“保留的资源”“额外成本”“是否需要改变”。第三栏可以是“满意，维持原样”。讨论时问：“这是我实际不想承担的成本，还是别人希望我更容易配合？”只讨论例子即可，不需要找人测试依赖或交出资料。",
+          "en": "For an invented backup, list the retained resource, extra cost and whether change is wanted. “Satisfied; keep it” can fill the last entry. Discuss whether the cost is unwanted by you or merely inconvenient for someone seeking more cooperation. Use the example without testing dependence or handing over information."
+        },
+        {
+          "zh": "以上是自选的费马原创讨论素材，可只读或保留私人草稿。四组各六条，回顾过去四周自己在普通、低风险、能拒绝的相处中的行动频率；全六题数字有效才显示各组均分，NA不补低分，四份全文始终可读。不把最高项派型、不判断他人可靠性，也不从一次小合作推断整体关系；分享公开指南无需附答案、均分或真实事件。",
+          "en": "These optional FermatMind discussion prompts allow reading or a private draft. Four six-item groups concern your own reported actions over four weeks in ordinary, low-risk interactions where refusal was possible. Each needs six numeric ratings for a separate mean; NA receives no low-score filling and all four full guides remain readable. Select no highest-mean type, judge no other person’s reliability and infer no whole relationship from one collaboration. Share a public guide without answers, means or real events."
+        }
+      ]
+    }
+  ]
+}

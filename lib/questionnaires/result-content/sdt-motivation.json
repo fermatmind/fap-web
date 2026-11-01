@@ -1,0 +1,194 @@
+{
+  "autonomy-satisfaction": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把愿意参与的理由说具体",
+        "en": "Name what makes participation worthwhile"
+      },
+      "paragraphs": [
+        {
+          "zh": "选一件已经做过的小事，写下“共同要求是什么、我认同什么、我还想调整什么”。例如，同意用统一格式整理材料，同时希望保留一处自己的说明。三栏可以同时成立。若要在下次已安排的活动里尝试，只选一个可协商的细节，并问清固定条件。复盘的收获是更清楚地表达参与理由；是否由你最先提议、是否接受建议，都不是自主满足的成绩单。",
+          "en": "Choose one small completed activity and note the shared requirement, what you endorsed and what you would adjust. You might accept a common format while wanting space for one explanation of your own. All three can coexist. In an already planned activity, choose one negotiable detail and ask which conditions are fixed. The useful outcome is a clearer account of participation, rather than a score for originating ideas or getting suggestions accepted."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "把结果变成一个交流问题",
+        "en": "Turn the reading into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以从一个虚构情境开始：“假设大家统一整理一份活动清单，你愿意采用这个办法的理由是什么？还有哪一个细节想商量？”先听对方怎样看，再谈有哪些相同或不同的条件。",
+          "en": "Start with a fictional situation: “If a group used one format for an activity list, what would make that approach worth accepting, and which detail would you discuss?” Hear the other person’s view before comparing the conditions each of you had in mind."
+        },
+        {
+          "zh": "分享公开说明即可，链接不含本次答案或均分。可以跳过问题，也可以只阅读；不需要按分数给彼此排序或确定谁更需要某种体验。",
+          "en": "You can share the public guide; its link contains no answers or means from this attempt. Either person can skip the question or just read. No score ranking or verdict on who needs an experience more is required."
+        }
+      ]
+    }
+  ],
+  "autonomy-frustration": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "分清固定要求与表达空间",
+        "en": "Separate fixed requirements from room to speak"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的普通安排，分开记录已经明确的要求、自己记得的原话，以及当时感到受压的部分。再圈出一个信息缺口：是理由未说明、备选办法不清，还是表达意见的方式没有约定？这些问题可能并存。若愿意交流，可从其中一个具体问题开始；也可以只整理信息。复盘不要求反对共同规则，或先证明对方有意控制，才允许自己承认不舒服。",
+          "en": "Using the ordinary arrangement above, separate the stated requirement, words you remember and the pressure you experienced. Identify one information gap: an unexplained reason, unclear alternatives or no agreed way to raise a different view. Several may coexist. If you want a conversation, begin with one specific question; organising the information is also enough. You can acknowledge discomfort without first opposing shared rules or proving a deliberate controlling intention."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "把结果变成一个交流问题",
+        "en": "Turn the reading into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以从一个虚构情境开始：“假设一项活动必须使用同一种材料，哪些条件不能改，哪些做法还可以提建议？”先听对方怎样看，再谈有哪些相同或不同的条件。",
+          "en": "Start with a fictional situation: “If an activity required everyone to use the same material, which conditions would be fixed and which approaches could still be discussed?” Hear the other person’s view before comparing the conditions each of you had in mind."
+        },
+        {
+          "zh": "分享公开说明即可，链接不含本次答案或均分。可以跳过问题，也可以只阅读；不需要按分数给彼此排序或确定谁更需要某种体验。",
+          "en": "You can share the public guide; its link contains no answers or means from this attempt. Either person can skip the question or just read. No score ranking or verdict on who needs an experience more is required."
+        }
+      ]
+    }
+  ],
+  "competence-satisfaction": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "留下一个看得见的完成依据",
+        "en": "Identify evidence for one manageable step"
+      },
+      "paragraphs": [
+        {
+          "zh": "把上面的“小步做得动”写成一个具体动作，再补上判断依据：你完成了什么、用什么要求核对、下一步还需要什么。比如，照示范连接好一个部件，并知道怎样检查连接，而整件作品仍未完成。若下一次本来就要继续，可保留这个检查办法。这样既能说清已有进展，也能提出具体帮助需求；感到有效参与与实际成品质量仍分别看。",
+          "en": "Turn the manageable step above into a specific action, then note what you completed, the criterion used to check it and what the next step still needs. For example, you connected one part after a demonstration and know how to check the connection, while the whole piece remains unfinished. Keep that check if you already plan to continue. This makes progress and requests for help more specific while leaving felt effectiveness and finished quality as separate questions."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "把结果变成一个交流问题",
+        "en": "Turn the reading into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以从一个虚构情境开始：“假设你刚学会一个小步骤，别人提供什么反馈，能帮助你知道它是否完成？”先听对方怎样看，再谈有哪些相同或不同的条件。",
+          "en": "Start with a fictional situation: “If you had just learned one small step, what feedback would help you tell whether it was complete?” Hear the other person’s view before comparing the conditions each of you had in mind."
+        },
+        {
+          "zh": "分享公开说明即可，链接不含本次答案或均分。可以跳过问题，也可以只阅读；不需要按分数给彼此排序或确定谁更需要某种体验。",
+          "en": "You can share the public guide; its link contains no answers or means from this attempt. Either person can skip the question or just read. No score ranking or verdict on who needs an experience more is required."
+        }
+      ]
+    }
+  ],
+  "competence-frustration": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把笼统评价拆成可核对的问题",
+        "en": "Turn a broad judgment into a checkable question"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的尝试，把“实际做了哪一步、收到什么反馈、自己怎样理解、还缺什么条件”分开。若反馈只有笼统好坏，具体标准可以暂留未知；不要替对方补出理由。愿意继续了解时，可以只问一个可核对之处，例如哪个环节没有达到什么要求。一次复盘也可以止于看清信息不足，不要求马上重做、证明能力或把所有困难归因于自己。",
+          "en": "Revisit the attempt above by separating the step taken, feedback received, your interpretation and missing conditions. If feedback was only a broad judgment, leave the specific criterion unknown rather than supplying the speaker’s reasons. If you want more information, ask about one checkable point: which part missed which requirement? The review can end with recognising missing information; it requires no immediate redo, demonstration of ability or assumption that every difficulty comes from you."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "把结果变成一个交流问题",
+        "en": "Turn the reading into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以从一个虚构情境开始：“假设一个初学者只听到“这样不行”，怎样把反馈改成一个具体步骤和一个核对标准？”先听对方怎样看，再谈有哪些相同或不同的条件。",
+          "en": "Start with a fictional situation: “If a beginner heard only “that does not work,” how could the feedback specify one step and one criterion to check?” Hear the other person’s view before comparing the conditions each of you had in mind."
+        },
+        {
+          "zh": "分享公开说明即可，链接不含本次答案或均分。可以跳过问题，也可以只阅读；不需要按分数给彼此排序或确定谁更需要某种体验。",
+          "en": "You can share the public guide; its link contains no answers or means from this attempt. Either person can skip the question or just read. No score ranking or verdict on who needs an experience more is required."
+        }
+      ]
+    }
+  ],
+  "relatedness-satisfaction": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "说清哪一个细节让你感到被听见",
+        "en": "Name the detail that helped you feel heard"
+      },
+      "paragraphs": [
+        {
+          "zh": "从上面的普通交流里挑一个细节：对方记住了什么、怎样回应，或给了你什么表达空间。分别写下可回忆的行为和自己的感受，再想想这种交流方式是否适合当时的安排。想表达感谢时，一句具体的话就可以，例如“你先听完我的解释，我觉得被认真对待了”。对方可以有不同体验；这次分享不需要换来同样的亲近程度或更多联系。",
+          "en": "Choose one detail from the ordinary exchange above: something remembered, a response or space to explain. Separate the behaviour you recall from how it felt, then consider whether that communication suited the arrangement. A specific acknowledgment may be enough: “When you let me finish explaining, I felt taken seriously.” The other person may have a different experience. Sharing asks for neither equal closeness nor more contact."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "把结果变成一个交流问题",
+        "en": "Turn the reading into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以从一个虚构情境开始：“假设朋友记住了你上次提到的一件小事，你会怎样说明自己喜欢这个细节？”先听对方怎样看，再谈有哪些相同或不同的条件。",
+          "en": "Start with a fictional situation: “If a friend remembered one small thing you mentioned earlier, how would you describe what you appreciated about that detail?” Hear the other person’s view before comparing the conditions each of you had in mind."
+        },
+        {
+          "zh": "分享公开说明即可，链接不含本次答案或均分。可以跳过问题，也可以只阅读；不需要按分数给彼此排序或确定谁更需要某种体验。",
+          "en": "You can share the public guide; its link contains no answers or means from this attempt. Either person can skip the question or just read. No score ranking or verdict on who needs an experience more is required."
+        }
+      ]
+    }
+  ],
+  "relatedness-frustration": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把信息遗漏、感受与原因分开",
+        "en": "Separate missing information, experience and cause"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的活动通知情境，先列出原本约定的渠道、实际收到的信息和缺少的部分，再写当时的感受。原因暂时不清楚时，把它留在未知栏。若你愿意核对，可以只问活动信息在哪里发布、以后如何确认收到；无需交换私人经历或立刻评价整段关系。也可以不联系任何人，只把经过理清。具体感受可以被保留，原因则由更多事实来说明。",
+          "en": "For the activity-notice example above, list the agreed channel, information received and what was missing, then record how it felt. Leave unclear causes in an unknown column. If you wish to check, ask where the notice appeared and how receipt could be confirmed next time. No private history or immediate verdict on the relationship is needed. You can also clarify the sequence without contacting anyone. Keep the experience while allowing further facts to inform the cause."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "把结果变成一个交流问题",
+        "en": "Turn the reading into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以从一个虚构情境开始：“假设有人没收到共同活动的通知，可以先核对哪一项流程信息？”先听对方怎样看，再谈有哪些相同或不同的条件。",
+          "en": "Start with a fictional situation: “If someone missed a shared activity notice, which detail of the communication process could be checked first?” Hear the other person’s view before comparing the conditions each of you had in mind."
+        },
+        {
+          "zh": "分享公开说明即可，链接不含本次答案或均分。可以跳过问题，也可以只阅读；不需要按分数给彼此排序或确定谁更需要某种体验。",
+          "en": "You can share the public guide; its link contains no answers or means from this attempt. Either person can skip the question or just read. No score ranking or verdict on who needs an experience more is required."
+        }
+      ]
+    }
+  ]
+}

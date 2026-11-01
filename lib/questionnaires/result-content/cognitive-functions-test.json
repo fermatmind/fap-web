@@ -1,0 +1,330 @@
+{
+  "ni": [
+    {
+      "id": "ni-example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者看到三次活动调整，暂时解释为目标改变；另一条观察却可能支持资源不足。形成解释与解释成立分别保留，不把安静思考当作预知，也不推断他人的隐秘动机。",
+          "en": "In an additional original scene, a reader interprets three activity changes as a changed goal, while another observation could support limited resources instead. Forming an interpretation and establishing it remain separate. Quiet reflection is neither foresight nor access to someone’s private motives."
+        }
+      ]
+    },
+    {
+      "id": "ni-try",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只看虚构活动，哪些是观察，哪个是解释，什么信息可能改变读法？”听者可以保留分歧，不由Ni均值决定谁更有洞察，也不要求公开私人笔记。",
+          "en": "An optional conversation card separates observations, interpretation and information that could change the fictional account. A listener can retain disagreement without using a Ni mean to decide whose insight is greater or requiring private notes."
+        }
+      ]
+    },
+    {
+      "id": "ni-limits",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，供自愿阅读，不增加作答任务。32题仍按八组各四题展示过去一个月自选情境中的符合程度：前三题直接使用1—5，第四题贡献为6减所选数，3包括部分符合／视情况；没有机会或不想评价保留不评分。至少三项数字才用换算和除以数字项数，保留一位小数。例如4、3、5、2贡献4、3、5、4，和16、均值4.0；4、不评分、5、2为和13、三项、均值4.3。不足三项不给均值，不补0或3，其他完整组照常显示。八组固定顺序，不合总分、不排名，不换算主导功能、功能栈、能力或MBTI类型。不同题组未共同标定，并列及小差值没有验证解释；原创双语题本尚无已建立的信效度、常模或语言等值。框架来源只解释术语，56题相对选择版另行作答、数字不换算。例子不要求收集私人记录、刺激、对话或每日练习；可只读，任何实际任务仍需真实证据、适用要求和当事人同意。原有可选标签页草稿、24小时失效及完成退出重测清除不变；分享只含公开标题入口，不含回答与均值。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading, without extra answer tasks. Thirty-two prompts retain eight groups of four about fit with your approach over the past month in a chosen setting. The first three use 1–5 directly; the fourth contributes 6 minus the response. Three includes partly or depends. No opportunity or withholding remains unscored. At least three numeric responses are needed for their keyed sum divided by their count, rounded to one decimal. Responses 4, 3, 5 and 2 contribute 4, 3, 5 and 4: sum 16, mean 4.0. Responses 4, unscored, 5 and 2 give sum 13, count three and mean 4.3. Fewer than three yields no mean, without zero or midpoint replacement; other sufficiently rated groups remain available. Eight topics stay in a fixed order, without a total, ranking, dominant function, stack, ability or MBTI conversion. Different sets have no common calibration; ties and small gaps lack a validated interpretation. This original bilingual form lacks established reliability, validity, norms or language equivalence. The framework source explains terminology only. The separate 56-choice edition needs its own answers and has no numeric conversion. Examples require no private records, stimulus, conversation or daily practice. Read only if preferred; actual tasks still need real evidence, applicable requirements and agreement. Optional tab drafts, 24-hour expiry and completion, exit-and-clear or retake removal remain unchanged. Sharing includes only the public title and entry, without answers or means."
+        }
+      ]
+    }
+  ],
+  "ne": [
+    {
+      "id": "ne-example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者从一张闲置告示板想到交换信息、展示作品和公布活动三种用途，但场地只允许其中一种。产生可能性、场地许可与方案质量分别保留，均值不证明创造力。",
+          "en": "In an additional original scene, an unused noticeboard suggests information exchange, artwork and activity notices, but the setting permits only one. Generating possibilities, permission and quality remain separate; a mean establishes no creativity score."
+        }
+      ]
+    },
+    {
+      "id": "ne-try",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只用虚构告示板，每个可能性还缺什么信息？”听者不以点子多少、说话速度或均值评判人，可以不继续扩展，也不把想法直接变成别人要做的任务。",
+          "en": "An optional conversation card asks what information each fictional possibility lacks. A listener judges nobody by idea count, speaking speed or mean. Further expansion is optional, and ideas do not become someone else’s assignments."
+        }
+      ]
+    },
+    {
+      "id": "ne-limits",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，供自愿阅读，不增加作答任务。32题仍按八组各四题展示过去一个月自选情境中的符合程度：前三题直接使用1—5，第四题贡献为6减所选数，3包括部分符合／视情况；没有机会或不想评价保留不评分。至少三项数字才用换算和除以数字项数，保留一位小数。例如4、3、5、2贡献4、3、5、4，和16、均值4.0；4、不评分、5、2为和13、三项、均值4.3。不足三项不给均值，不补0或3，其他完整组照常显示。八组固定顺序，不合总分、不排名，不换算主导功能、功能栈、能力或MBTI类型。不同题组未共同标定，并列及小差值没有验证解释；原创双语题本尚无已建立的信效度、常模或语言等值。框架来源只解释术语，56题相对选择版另行作答、数字不换算。例子不要求收集私人记录、刺激、对话或每日练习；可只读，任何实际任务仍需真实证据、适用要求和当事人同意。原有可选标签页草稿、24小时失效及完成退出重测清除不变；分享只含公开标题入口，不含回答与均值。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading, without extra answer tasks. Thirty-two prompts retain eight groups of four about fit with your approach over the past month in a chosen setting. The first three use 1–5 directly; the fourth contributes 6 minus the response. Three includes partly or depends. No opportunity or withholding remains unscored. At least three numeric responses are needed for their keyed sum divided by their count, rounded to one decimal. Responses 4, 3, 5 and 2 contribute 4, 3, 5 and 4: sum 16, mean 4.0. Responses 4, unscored, 5 and 2 give sum 13, count three and mean 4.3. Fewer than three yields no mean, without zero or midpoint replacement; other sufficiently rated groups remain available. Eight topics stay in a fixed order, without a total, ranking, dominant function, stack, ability or MBTI conversion. Different sets have no common calibration; ties and small gaps lack a validated interpretation. This original bilingual form lacks established reliability, validity, norms or language equivalence. The framework source explains terminology only. The separate 56-choice edition needs its own answers and has no numeric conversion. Examples require no private records, stimulus, conversation or daily practice. Read only if preferred; actual tasks still need real evidence, applicable requirements and agreement. Optional tab drafts, 24-hour expiry and completion, exit-and-clear or retake removal remain unchanged. Sharing includes only the public title and entry, without answers or means."
+        }
+      ]
+    }
+  ],
+  "si": [
+    {
+      "id": "si-example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者觉得新纸张与以前用过的质感相近，查到规格后才发现并不相同。熟悉印象与规格事实分别保留，参考经验不证明回忆准确，也不妨碍采用新材料。",
+          "en": "In an additional original scene, new paper feels like a remembered material, but its specification differs. Familiar impressions and specifications stay separate. Consulting experience proves neither accurate recall nor reluctance to use something new."
+        }
+      ]
+    },
+    {
+      "id": "si-try",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只读虚构纸张，什么是记得的，什么是眼前可核对的？”听者不把记忆分歧当失败，不由Si均值判断谁守旧或更可靠，真实任务仍需核对实际信息。",
+          "en": "An optional conversation card distinguishes recollection from checkable information in the fictional paper example. A listener treats no memory difference as failure and uses no Si mean to judge conservatism or reliability. Actual tasks still need actual information."
+        }
+      ]
+    },
+    {
+      "id": "si-limits",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，供自愿阅读，不增加作答任务。32题仍按八组各四题展示过去一个月自选情境中的符合程度：前三题直接使用1—5，第四题贡献为6减所选数，3包括部分符合／视情况；没有机会或不想评价保留不评分。至少三项数字才用换算和除以数字项数，保留一位小数。例如4、3、5、2贡献4、3、5、4，和16、均值4.0；4、不评分、5、2为和13、三项、均值4.3。不足三项不给均值，不补0或3，其他完整组照常显示。八组固定顺序，不合总分、不排名，不换算主导功能、功能栈、能力或MBTI类型。不同题组未共同标定，并列及小差值没有验证解释；原创双语题本尚无已建立的信效度、常模或语言等值。框架来源只解释术语，56题相对选择版另行作答、数字不换算。例子不要求收集私人记录、刺激、对话或每日练习；可只读，任何实际任务仍需真实证据、适用要求和当事人同意。原有可选标签页草稿、24小时失效及完成退出重测清除不变；分享只含公开标题入口，不含回答与均值。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading, without extra answer tasks. Thirty-two prompts retain eight groups of four about fit with your approach over the past month in a chosen setting. The first three use 1–5 directly; the fourth contributes 6 minus the response. Three includes partly or depends. No opportunity or withholding remains unscored. At least three numeric responses are needed for their keyed sum divided by their count, rounded to one decimal. Responses 4, 3, 5 and 2 contribute 4, 3, 5 and 4: sum 16, mean 4.0. Responses 4, unscored, 5 and 2 give sum 13, count three and mean 4.3. Fewer than three yields no mean, without zero or midpoint replacement; other sufficiently rated groups remain available. Eight topics stay in a fixed order, without a total, ranking, dominant function, stack, ability or MBTI conversion. Different sets have no common calibration; ties and small gaps lack a validated interpretation. This original bilingual form lacks established reliability, validity, norms or language equivalence. The framework source explains terminology only. The separate 56-choice edition needs its own answers and has no numeric conversion. Examples require no private records, stimulus, conversation or daily practice. Read only if preferred; actual tasks still need real evidence, applicable requirements and agreement. Optional tab drafts, 24-hour expiry and completion, exit-and-clear or retake removal remain unchanged. Sharing includes only the public title and entry, without answers or means."
+        }
+      ]
+    }
+  ],
+  "se": [
+    {
+      "id": "se-example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者看到桌面摆放已变，先描述当前位置，再阅读调整说明。留意眼前信息与遵循说明可以并存，均值不评感官敏锐、动作快慢或能否安全操作。",
+          "en": "In an additional original scene, a reader describes a changed tabletop arrangement before reading its explanation. Attention to the scene and following instructions can coexist. A mean rates neither sensory acuity, speed nor safe operation."
+        }
+      ]
+    },
+    {
+      "id": "se-try",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只看虚构桌面，哪些信息可以直接确认，哪些还需说明？”可只读，不触碰材料或改变环境。听者不把Se均值当作刺激需求，也不要求展示动作来证明。",
+          "en": "An optional conversation card separates directly checkable and still-unexplained information on the fictional tabletop. Read only, without touching materials or changing surroundings. A listener infers no need for stimulation from a Se mean or requests a demonstration as proof."
+        }
+      ]
+    },
+    {
+      "id": "se-limits",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，供自愿阅读，不增加作答任务。32题仍按八组各四题展示过去一个月自选情境中的符合程度：前三题直接使用1—5，第四题贡献为6减所选数，3包括部分符合／视情况；没有机会或不想评价保留不评分。至少三项数字才用换算和除以数字项数，保留一位小数。例如4、3、5、2贡献4、3、5、4，和16、均值4.0；4、不评分、5、2为和13、三项、均值4.3。不足三项不给均值，不补0或3，其他完整组照常显示。八组固定顺序，不合总分、不排名，不换算主导功能、功能栈、能力或MBTI类型。不同题组未共同标定，并列及小差值没有验证解释；原创双语题本尚无已建立的信效度、常模或语言等值。框架来源只解释术语，56题相对选择版另行作答、数字不换算。例子不要求收集私人记录、刺激、对话或每日练习；可只读，任何实际任务仍需真实证据、适用要求和当事人同意。原有可选标签页草稿、24小时失效及完成退出重测清除不变；分享只含公开标题入口，不含回答与均值。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading, without extra answer tasks. Thirty-two prompts retain eight groups of four about fit with your approach over the past month in a chosen setting. The first three use 1–5 directly; the fourth contributes 6 minus the response. Three includes partly or depends. No opportunity or withholding remains unscored. At least three numeric responses are needed for their keyed sum divided by their count, rounded to one decimal. Responses 4, 3, 5 and 2 contribute 4, 3, 5 and 4: sum 16, mean 4.0. Responses 4, unscored, 5 and 2 give sum 13, count three and mean 4.3. Fewer than three yields no mean, without zero or midpoint replacement; other sufficiently rated groups remain available. Eight topics stay in a fixed order, without a total, ranking, dominant function, stack, ability or MBTI conversion. Different sets have no common calibration; ties and small gaps lack a validated interpretation. This original bilingual form lacks established reliability, validity, norms or language equivalence. The framework source explains terminology only. The separate 56-choice edition needs its own answers and has no numeric conversion. Examples require no private records, stimulus, conversation or daily practice. Read only if preferred; actual tasks still need real evidence, applicable requirements and agreement. Optional tab drafts, 24-hour expiry and completion, exit-and-clear or retake removal remain unchanged. Sharing includes only the public title and entry, without answers or means."
+        }
+      ]
+    }
+  ],
+  "ti": [
+    {
+      "id": "ti-example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者发现游戏说明中“完成”有两种用法，先分别举例，再查规则。解释内部一致与规则依据分别保留；愿意辨析不证明结论正确，也不要求别人加入辩论。",
+          "en": "In an additional original scene, a reader finds two meanings of complete in game instructions, gives examples and checks the rules. Internal consistency and supporting rules stay separate. Willingness to analyse establishes no correct conclusion or obligation for others to debate."
+        }
+      ]
+    },
+    {
+      "id": "ti-try",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“虚构争点是定义不同，还是事实还不清楚？”听者不由Ti均值评智力或同理心，可以采用暂时约定，也可以停止讨论。",
+          "en": "An optional conversation card asks whether the fictional disagreement concerns definitions or unclear facts. A listener uses no Ti mean to rate intelligence or empathy. A temporary convention or ending the discussion remains possible."
+        }
+      ]
+    },
+    {
+      "id": "ti-limits",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，供自愿阅读，不增加作答任务。32题仍按八组各四题展示过去一个月自选情境中的符合程度：前三题直接使用1—5，第四题贡献为6减所选数，3包括部分符合／视情况；没有机会或不想评价保留不评分。至少三项数字才用换算和除以数字项数，保留一位小数。例如4、3、5、2贡献4、3、5、4，和16、均值4.0；4、不评分、5、2为和13、三项、均值4.3。不足三项不给均值，不补0或3，其他完整组照常显示。八组固定顺序，不合总分、不排名，不换算主导功能、功能栈、能力或MBTI类型。不同题组未共同标定，并列及小差值没有验证解释；原创双语题本尚无已建立的信效度、常模或语言等值。框架来源只解释术语，56题相对选择版另行作答、数字不换算。例子不要求收集私人记录、刺激、对话或每日练习；可只读，任何实际任务仍需真实证据、适用要求和当事人同意。原有可选标签页草稿、24小时失效及完成退出重测清除不变；分享只含公开标题入口，不含回答与均值。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading, without extra answer tasks. Thirty-two prompts retain eight groups of four about fit with your approach over the past month in a chosen setting. The first three use 1–5 directly; the fourth contributes 6 minus the response. Three includes partly or depends. No opportunity or withholding remains unscored. At least three numeric responses are needed for their keyed sum divided by their count, rounded to one decimal. Responses 4, 3, 5 and 2 contribute 4, 3, 5 and 4: sum 16, mean 4.0. Responses 4, unscored, 5 and 2 give sum 13, count three and mean 4.3. Fewer than three yields no mean, without zero or midpoint replacement; other sufficiently rated groups remain available. Eight topics stay in a fixed order, without a total, ranking, dominant function, stack, ability or MBTI conversion. Different sets have no common calibration; ties and small gaps lack a validated interpretation. This original bilingual form lacks established reliability, validity, norms or language equivalence. The framework source explains terminology only. The separate 56-choice edition needs its own answers and has no numeric conversion. Examples require no private records, stimulus, conversation or daily practice. Read only if preferred; actual tasks still need real evidence, applicable requirements and agreement. Optional tab drafts, 24-hour expiry and completion, exit-and-clear or retake removal remain unchanged. Sharing includes only the public title and entry, without answers or means."
+        }
+      ]
+    }
+  ],
+  "te": [
+    {
+      "id": "te-example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构小组约定整理书架，写明分工和完成条件后，有人提出时间并不够。目标明确与条件可行分别保留，不用Te均值证明安排合理，也不由组织意愿取得指挥权。",
+          "en": "In an additional original scene, a group states roles and completion conditions for shelving books, then learns that time is insufficient. Clear goals and feasible conditions stay separate. A Te mean neither approves the plan nor grants authority to direct people."
+        }
+      ]
+    },
+    {
+      "id": "te-try",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“虚构安排中，哪些条件已确认，谁还需表达是否愿意？”听者不把均值当作效率或晋升分；可修订或取消检查，不必让普通活动都带目标。",
+          "en": "An optional conversation card separates confirmed conditions from agreement still needed in the fictional arrangement. A listener treats no mean as efficiency or promotion potential. Checks can be revised or dropped; ordinary activities need not all have targets."
+        }
+      ]
+    },
+    {
+      "id": "te-limits",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，供自愿阅读，不增加作答任务。32题仍按八组各四题展示过去一个月自选情境中的符合程度：前三题直接使用1—5，第四题贡献为6减所选数，3包括部分符合／视情况；没有机会或不想评价保留不评分。至少三项数字才用换算和除以数字项数，保留一位小数。例如4、3、5、2贡献4、3、5、4，和16、均值4.0；4、不评分、5、2为和13、三项、均值4.3。不足三项不给均值，不补0或3，其他完整组照常显示。八组固定顺序，不合总分、不排名，不换算主导功能、功能栈、能力或MBTI类型。不同题组未共同标定，并列及小差值没有验证解释；原创双语题本尚无已建立的信效度、常模或语言等值。框架来源只解释术语，56题相对选择版另行作答、数字不换算。例子不要求收集私人记录、刺激、对话或每日练习；可只读，任何实际任务仍需真实证据、适用要求和当事人同意。原有可选标签页草稿、24小时失效及完成退出重测清除不变；分享只含公开标题入口，不含回答与均值。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading, without extra answer tasks. Thirty-two prompts retain eight groups of four about fit with your approach over the past month in a chosen setting. The first three use 1–5 directly; the fourth contributes 6 minus the response. Three includes partly or depends. No opportunity or withholding remains unscored. At least three numeric responses are needed for their keyed sum divided by their count, rounded to one decimal. Responses 4, 3, 5 and 2 contribute 4, 3, 5 and 4: sum 16, mean 4.0. Responses 4, unscored, 5 and 2 give sum 13, count three and mean 4.3. Fewer than three yields no mean, without zero or midpoint replacement; other sufficiently rated groups remain available. Eight topics stay in a fixed order, without a total, ranking, dominant function, stack, ability or MBTI conversion. Different sets have no common calibration; ties and small gaps lack a validated interpretation. This original bilingual form lacks established reliability, validity, norms or language equivalence. The framework source explains terminology only. The separate 56-choice edition needs its own answers and has no numeric conversion. Examples require no private records, stimulus, conversation or daily practice. Read only if preferred; actual tasks still need real evidence, applicable requirements and agreement. Optional tab drafts, 24-hour expiry and completion, exit-and-clear or retake removal remain unchanged. Sharing includes only the public title and entry, without answers or means."
+        }
+      ]
+    }
+  ],
+  "fi": [
+    {
+      "id": "fi-example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者面对大家赞成的活动，想到个人重视的公平，同时还不了解参与条件。价值参照与条件事实分别保留，不由均值认证价值正确或判断朋友没有原则。",
+          "en": "In an additional original scene, a reader considers fairness in an activity others welcome while its conditions remain unclear. A values reference stays separate from facts about participation. A mean certifies neither correct values nor an absence of principles in friends."
+        }
+      ]
+    },
+    {
+      "id": "fi-try",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“虚构选择里，什么受到重视，什么取舍还没说清？”听者不由Fi均值判真实性或道德，不要求披露信念或对质；可以不作真实决定。",
+          "en": "An optional conversation card separates what matters from unstated trade-offs in the fictional choice. A listener judges neither authenticity nor morality from a Fi mean and requires no disclosed belief or confrontation. No actual decision is needed."
+        }
+      ]
+    },
+    {
+      "id": "fi-limits",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，供自愿阅读，不增加作答任务。32题仍按八组各四题展示过去一个月自选情境中的符合程度：前三题直接使用1—5，第四题贡献为6减所选数，3包括部分符合／视情况；没有机会或不想评价保留不评分。至少三项数字才用换算和除以数字项数，保留一位小数。例如4、3、5、2贡献4、3、5、4，和16、均值4.0；4、不评分、5、2为和13、三项、均值4.3。不足三项不给均值，不补0或3，其他完整组照常显示。八组固定顺序，不合总分、不排名，不换算主导功能、功能栈、能力或MBTI类型。不同题组未共同标定，并列及小差值没有验证解释；原创双语题本尚无已建立的信效度、常模或语言等值。框架来源只解释术语，56题相对选择版另行作答、数字不换算。例子不要求收集私人记录、刺激、对话或每日练习；可只读，任何实际任务仍需真实证据、适用要求和当事人同意。原有可选标签页草稿、24小时失效及完成退出重测清除不变；分享只含公开标题入口，不含回答与均值。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading, without extra answer tasks. Thirty-two prompts retain eight groups of four about fit with your approach over the past month in a chosen setting. The first three use 1–5 directly; the fourth contributes 6 minus the response. Three includes partly or depends. No opportunity or withholding remains unscored. At least three numeric responses are needed for their keyed sum divided by their count, rounded to one decimal. Responses 4, 3, 5 and 2 contribute 4, 3, 5 and 4: sum 16, mean 4.0. Responses 4, unscored, 5 and 2 give sum 13, count three and mean 4.3. Fewer than three yields no mean, without zero or midpoint replacement; other sufficiently rated groups remain available. Eight topics stay in a fixed order, without a total, ranking, dominant function, stack, ability or MBTI conversion. Different sets have no common calibration; ties and small gaps lack a validated interpretation. This original bilingual form lacks established reliability, validity, norms or language equivalence. The framework source explains terminology only. The separate 56-choice edition needs its own answers and has no numeric conversion. Examples require no private records, stimulus, conversation or daily practice. Read only if preferred; actual tasks still need real evidence, applicable requirements and agreement. Optional tab drafts, 24-hour expiry and completion, exit-and-clear or retake removal remain unchanged. Sharing includes only the public title and entry, without answers or means."
+        }
+      ]
+    }
+  ],
+  "fe": [
+    {
+      "id": "fe-example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者注意到有人少说话，但对方表示只是想安静听。印象与当事人愿意表达的回答分开，不由Fe均值证明读懂情绪，也不要求追问或负责让所有人开心。",
+          "en": "In an additional original scene, someone speaks less and says they prefer listening quietly. An impression stays separate from the person’s offered account. A Fe mean establishes no accurate emotion-reading or duty to keep asking or make everyone happy."
+        }
+      ]
+    },
+    {
+      "id": "fe-try",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“虚构互动里，谁已经表达了什么，哪些仍未知？”听者不把均值变成调解义务，也不替人发言；可以尊重不回答和真实分歧。",
+          "en": "An optional conversation card distinguishes what was expressed from what remains unknown in the fictional interaction. A listener turns no mean into a mediation duty or speaks for someone else. Silence and disagreement can be respected."
+        }
+      ]
+    },
+    {
+      "id": "fe-limits",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，供自愿阅读，不增加作答任务。32题仍按八组各四题展示过去一个月自选情境中的符合程度：前三题直接使用1—5，第四题贡献为6减所选数，3包括部分符合／视情况；没有机会或不想评价保留不评分。至少三项数字才用换算和除以数字项数，保留一位小数。例如4、3、5、2贡献4、3、5、4，和16、均值4.0；4、不评分、5、2为和13、三项、均值4.3。不足三项不给均值，不补0或3，其他完整组照常显示。八组固定顺序，不合总分、不排名，不换算主导功能、功能栈、能力或MBTI类型。不同题组未共同标定，并列及小差值没有验证解释；原创双语题本尚无已建立的信效度、常模或语言等值。框架来源只解释术语，56题相对选择版另行作答、数字不换算。例子不要求收集私人记录、刺激、对话或每日练习；可只读，任何实际任务仍需真实证据、适用要求和当事人同意。原有可选标签页草稿、24小时失效及完成退出重测清除不变；分享只含公开标题入口，不含回答与均值。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading, without extra answer tasks. Thirty-two prompts retain eight groups of four about fit with your approach over the past month in a chosen setting. The first three use 1–5 directly; the fourth contributes 6 minus the response. Three includes partly or depends. No opportunity or withholding remains unscored. At least three numeric responses are needed for their keyed sum divided by their count, rounded to one decimal. Responses 4, 3, 5 and 2 contribute 4, 3, 5 and 4: sum 16, mean 4.0. Responses 4, unscored, 5 and 2 give sum 13, count three and mean 4.3. Fewer than three yields no mean, without zero or midpoint replacement; other sufficiently rated groups remain available. Eight topics stay in a fixed order, without a total, ranking, dominant function, stack, ability or MBTI conversion. Different sets have no common calibration; ties and small gaps lack a validated interpretation. This original bilingual form lacks established reliability, validity, norms or language equivalence. The framework source explains terminology only. The separate 56-choice edition needs its own answers and has no numeric conversion. Examples require no private records, stimulus, conversation or daily practice. Read only if preferred; actual tasks still need real evidence, applicable requirements and agreement. Optional tab drafts, 24-hour expiry and completion, exit-and-clear or retake removal remain unchanged. Sharing includes only the public title and entry, without answers or means."
+        }
+      ]
+    }
+  ]
+}

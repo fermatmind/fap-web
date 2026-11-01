@@ -1,0 +1,317 @@
+{
+  "root": [
+    {
+      "id": "mean-reading",
+      "title": {
+        "zh": "把均分还原成这四条回答",
+        "en": "Read the mean alongside its four responses"
+      },
+      "paragraphs": [
+        {
+          "zh": "本组只概括过去两周的四条行动频率。前三题保留1—5，第四题用6减原回答；不可评分项排除，至少三条才显示按实际有效条数计算的一位小数均分。例如按本组顺序答2、4、5、2，计分后为2、4、5、4，15÷4显示3.8；第三题改为不可评分，则10÷3显示3.3。两者不是同样资料，显示精度不代表测量准确度。七组分别读，不选最高作类型、不补理想总分。",
+          "en": "This group summarises four reported action frequencies over the last two weeks. The first three retain 1–5; the fourth uses 6 minus the response. Unavailable items are excluded. At least three ratings produce a one-decimal mean using the actual rated count. In group order, responses 2, 4, 5, 2 key to 2, 4, 5, 4: 15 divided by 4 displays 3.8. With the third unavailable, 10 divided by 3 displays 3.3. These use different information, and display precision is not measurement accuracy. Read seven groups separately without a highest-score type or ideal total."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：支持来自哪里",
+        "en": "Review where support came from"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用缩小日常安排的练习，比较两个普通日子：哪一天有时间或空间，哪一天条件不同？可以只回想，不必打卡。记录一个有帮助的条件，再决定保留、调整或暂停安排。若没有帮助，也许需要换一种支持或承认暂时无法改变的限制；不把两天的体验当疗效，也不靠重测追求均分上升。",
+          "en": "For the smaller routine above, compare two ordinary days: when was time or space available, and when were conditions different? Recall them without starting a streak. Note one helpful condition and decide whether to keep, adjust or pause the arrangement. An unhelpful routine may call for different support or recognition of a current constraint. Two days establish no treatment effect, and retesting need not seek a higher mean."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个主题，不替彼此解释分数",
+        "en": "Share a theme without interpreting each other’s scores"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果日程被打乱，你希望还保留哪一件小事，什么条件能让它更现实？”聊具体情境，也可以换一个主题；不需要提供均分、答案或私人经历。",
+          "en": "Ask: “If a schedule changed, which small thing would you retain and what would make it realistic?” Discuss a concrete situation or choose another theme without supplying means, answers or private experiences."
+        },
+        {
+          "zh": "可分享这份公开通用说明，链接不含个人计分。脉轮名在这里是意象，不是身体检查、灵性等级或信仰要求；对方可以不认同这个意象、不回答或结束，不推断他人的健康、关系或能量。",
+          "en": "Share this public general guide without personal scores in the link. Chakra names are symbols here, not physical examinations, spiritual ranks or belief requirements. The other person may reject the symbol, decline or stop. Infer no health, relationship or energy condition."
+        }
+      ]
+    }
+  ],
+  "sacral": [
+    {
+      "id": "mean-reading",
+      "title": {
+        "zh": "把均分还原成这四条回答",
+        "en": "Read the mean alongside its four responses"
+      },
+      "paragraphs": [
+        {
+          "zh": "本组只概括过去两周的四条行动频率。前三题保留1—5，第四题用6减原回答；不可评分项排除，至少三条才显示按实际有效条数计算的一位小数均分。例如按本组顺序答2、4、5、2，计分后为2、4、5、4，15÷4显示3.8；第三题改为不可评分，则10÷3显示3.3。两者不是同样资料，显示精度不代表测量准确度。七组分别读，不选最高作类型、不补理想总分。",
+          "en": "This group summarises four reported action frequencies over the last two weeks. The first three retain 1–5; the fourth uses 6 minus the response. Unavailable items are excluded. At least three ratings produce a one-decimal mean using the actual rated count. In group order, responses 2, 4, 5, 2 key to 2, 4, 5, 4: 15 divided by 4 displays 3.8. With the third unavailable, 10 divided by 3 displays 3.3. These use different information, and display precision is not measurement accuracy. Read seven groups separately without a highest-score type or ideal total."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：喜欢的细节不必有产出",
+        "en": "Review the detail you liked without demanding an output"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看十分钟小活动，分开“有没有机会做”和“做时喜欢哪一点”。也许喜欢颜色、手感或熟悉的步骤，也许发现自己想换一件事；没有作品可以展示，同样有可用的观察。可以只设想一种选择，不必购买材料。复盘关注偏好与可用条件，不把新奇、效率或公开反馈当创造力证明。",
+          "en": "Revisit the ten-minute activity and distinguish having an opportunity from liking something while doing it. Colour, texture or familiar steps may appeal, or another activity may fit better. There can be a useful observation without a displayable product. Imagine a choice without buying supplies. Review preferences and available conditions rather than treating novelty, efficiency or public feedback as proof of creativity."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个主题，不替彼此解释分数",
+        "en": "Share a theme without interpreting each other’s scores"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果一件小活动不需要有用、也不需要展示，你会保留哪一个让自己喜欢的细节？”聊具体情境，也可以换一个主题；不需要提供均分、答案或私人经历。",
+          "en": "Ask: “If a small activity needed neither usefulness nor an audience, which enjoyable detail would you keep?” Discuss a concrete situation or choose another theme without supplying means, answers or private experiences."
+        },
+        {
+          "zh": "可分享这份公开通用说明，链接不含个人计分。脉轮名在这里是意象，不是身体检查、灵性等级或信仰要求；对方可以不认同这个意象、不回答或结束，不推断他人的健康、关系或能量。",
+          "en": "Share this public general guide without personal scores in the link. Chakra names are symbols here, not physical examinations, spiritual ranks or belief requirements. The other person may reject the symbol, decline or stop. Infer no health, relationship or energy condition."
+        }
+      ]
+    }
+  ],
+  "solar-plexus": [
+    {
+      "id": "mean-reading",
+      "title": {
+        "zh": "把均分还原成这四条回答",
+        "en": "Read the mean alongside its four responses"
+      },
+      "paragraphs": [
+        {
+          "zh": "本组只概括过去两周的四条行动频率。前三题保留1—5，第四题用6减原回答；不可评分项排除，至少三条才显示按实际有效条数计算的一位小数均分。例如按本组顺序答2、4、5、2，计分后为2、4、5、4，15÷4显示3.8；第三题改为不可评分，则10÷3显示3.3。两者不是同样资料，显示精度不代表测量准确度。七组分别读，不选最高作类型、不补理想总分。",
+          "en": "This group summarises four reported action frequencies over the last two weeks. The first three retain 1–5; the fourth uses 6 minus the response. Unavailable items are excluded. At least three ratings produce a one-decimal mean using the actual rated count. In group order, responses 2, 4, 5, 2 key to 2, 4, 5, 4: 15 divided by 4 displays 3.8. With the third unavailable, 10 divided by 3 displays 3.3. These use different information, and display precision is not measurement accuracy. Read seven groups separately without a highest-score type or ideal total."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：自己的下一步与全局结果分开",
+        "en": "Review your next step separately from the whole outcome"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到写会议问题的例子，分成“我能写下的问题”“需要别人回应的部分”和“这次先不决定的部分”。可以只起草，不要求马上开口或推进。复盘看行动是否在自己的选择范围、承诺是否现实；等待资料也可以是合适下一步。不要用会议是否顺利，倒推这次均分说明了多少决断力。",
+          "en": "For the meeting question above, separate the question you can draft, the response needed from others and what can remain undecided. Draft without requiring yourself to speak or advance the plan immediately. Review your actual choice and a realistic commitment; awaiting information may be a suitable next step. The meeting’s outcome cannot retrospectively turn a mean into decision-making ability."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个主题，不替彼此解释分数",
+        "en": "Share a theme without interpreting each other’s scores"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果一个计划只有部分由你决定，你愿意先做哪一小步，哪些事需要等别人回答？”聊具体情境，也可以换一个主题；不需要提供均分、答案或私人经历。",
+          "en": "Ask: “If only part of a plan were yours to decide, which small step would you take and what would await another person’s answer?” Discuss a concrete situation or choose another theme without supplying means, answers or private experiences."
+        },
+        {
+          "zh": "可分享这份公开通用说明，链接不含个人计分。脉轮名在这里是意象，不是身体检查、灵性等级或信仰要求；对方可以不认同这个意象、不回答或结束，不推断他人的健康、关系或能量。",
+          "en": "Share this public general guide without personal scores in the link. Chakra names are symbols here, not physical examinations, spiritual ranks or belief requirements. The other person may reject the symbol, decline or stop. Infer no health, relationship or energy condition."
+        }
+      ]
+    }
+  ],
+  "heart": [
+    {
+      "id": "mean-reading",
+      "title": {
+        "zh": "把均分还原成这四条回答",
+        "en": "Read the mean alongside its four responses"
+      },
+      "paragraphs": [
+        {
+          "zh": "本组只概括过去两周的四条行动频率。前三题保留1—5，第四题用6减原回答；不可评分项排除，至少三条才显示按实际有效条数计算的一位小数均分。例如按本组顺序答2、4、5、2，计分后为2、4、5、4，15÷4显示3.8；第三题改为不可评分，则10÷3显示3.3。两者不是同样资料，显示精度不代表测量准确度。七组分别读，不选最高作类型、不补理想总分。",
+          "en": "This group summarises four reported action frequencies over the last two weeks. The first three retain 1–5; the fourth uses 6 minus the response. Unavailable items are excluded. At least three ratings produce a one-decimal mean using the actual rated count. In group order, responses 2, 4, 5, 2 key to 2, 4, 5, 4: 15 divided by 4 displays 3.8. With the third unavailable, 10 divided by 3 displays 3.3. These use different information, and display precision is not measurement accuracy. Read seven groups separately without a highest-score type or ideal total."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：给予与接收都留得下选择吗",
+        "en": "Review choice on both sides of support"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用小帮助的例子，分别想一想愿意提供什么、愿意接受什么，以及哪种拒绝会让双方容易理解。可以使用虚构情境，不必联系任何人。复盘关注需要是否说清、帮助是否自愿，不用互相提供相同数量的帮助证明公平。没有合适关系或本次不想参与时，可以跳过，通用说明不会替你判断现实关系。",
+          "en": "For the small offer of help, consider what you would give, what you would welcome and a refusal both people could understand. Use a fictional scene without contacting anyone. Review clear needs and voluntary support rather than proving fairness through identical quantities of help. Skip when no suitable relationship exists or participation is unwanted; the general guide does not judge a real relationship."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个主题，不替彼此解释分数",
+        "en": "Share a theme without interpreting each other’s scores"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果只能提供或接受一件小帮助，怎样说清需要，又让双方都能舒服地拒绝？”聊具体情境，也可以换一个主题；不需要提供均分、答案或私人经历。",
+          "en": "Ask: “For one small offer or request for help, how could you state the need while leaving both people room to decline?” Discuss a concrete situation or choose another theme without supplying means, answers or private experiences."
+        },
+        {
+          "zh": "可分享这份公开通用说明，链接不含个人计分。脉轮名在这里是意象，不是身体检查、灵性等级或信仰要求；对方可以不认同这个意象、不回答或结束，不推断他人的健康、关系或能量。",
+          "en": "Share this public general guide without personal scores in the link. Chakra names are symbols here, not physical examinations, spiritual ranks or belief requirements. The other person may reject the symbol, decline or stop. Infer no health, relationship or energy condition."
+        }
+      ]
+    }
+  ],
+  "throat": [
+    {
+      "id": "mean-reading",
+      "title": {
+        "zh": "把均分还原成这四条回答",
+        "en": "Read the mean alongside its four responses"
+      },
+      "paragraphs": [
+        {
+          "zh": "本组只概括过去两周的四条行动频率。前三题保留1—5，第四题用6减原回答；不可评分项排除，至少三条才显示按实际有效条数计算的一位小数均分。例如按本组顺序答2、4、5、2，计分后为2、4、5、4，15÷4显示3.8；第三题改为不可评分，则10÷3显示3.3。两者不是同样资料，显示精度不代表测量准确度。七组分别读，不选最高作类型、不补理想总分。",
+          "en": "This group summarises four reported action frequencies over the last two weeks. The first three retain 1–5; the fourth uses 6 minus the response. Unavailable items are excluded. At least three ratings produce a one-decimal mean using the actual rated count. In group order, responses 2, 4, 5, 2 key to 2, 4, 5, 4: 15 divided by 4 displays 3.8. With the third unavailable, 10 divided by 3 displays 3.3. These use different information, and display precision is not measurement accuracy. Read seven groups separately without a highest-score type or ideal total."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：表达以后仍有哪些未知",
+        "en": "Review what remains unknown after a message"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到“安静一点的地方”或“今天还是明天”的草稿，看看是否说明了一个具体偏好或问题，再区分已经表达与对方是否理解。可以只改一句话，不必发送。若没有回应，先保留未知，不用说得更多证明自己表达正确。复盘关注信息和场合是否合适，沉默、延后或换媒介也可以是可选方式。",
+          "en": "Revisit the draft about a quieter place or today versus tomorrow. Does it state a concrete preference or question? Distinguish expressing it from knowing whether it was understood. Revise one sentence without sending it. An absent response can remain unknown without speaking more to prove correctness. Review information and context; silence, delay or a different medium can also be options."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个主题，不替彼此解释分数",
+        "en": "Share a theme without interpreting each other’s scores"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果要商量一次普通见面，你想先说清哪个偏好，又会问什么来确认对方的意思？”聊具体情境，也可以换一个主题；不需要提供均分、答案或私人经历。",
+          "en": "Ask: “When planning an ordinary meetup, which preference would you state and what would you ask to clarify the other person’s meaning?” Discuss a concrete situation or choose another theme without supplying means, answers or private experiences."
+        },
+        {
+          "zh": "可分享这份公开通用说明，链接不含个人计分。脉轮名在这里是意象，不是身体检查、灵性等级或信仰要求；对方可以不认同这个意象、不回答或结束，不推断他人的健康、关系或能量。",
+          "en": "Share this public general guide without personal scores in the link. Chakra names are symbols here, not physical examinations, spiritual ranks or belief requirements. The other person may reject the symbol, decline or stop. Infer no health, relationship or energy condition."
+        }
+      ]
+    }
+  ],
+  "third-eye": [
+    {
+      "id": "mean-reading",
+      "title": {
+        "zh": "把均分还原成这四条回答",
+        "en": "Read the mean alongside its four responses"
+      },
+      "paragraphs": [
+        {
+          "zh": "本组只概括过去两周的四条行动频率。前三题保留1—5，第四题用6减原回答；不可评分项排除，至少三条才显示按实际有效条数计算的一位小数均分。例如按本组顺序答2、4、5、2，计分后为2、4、5、4，15÷4显示3.8；第三题改为不可评分，则10÷3显示3.3。两者不是同样资料，显示精度不代表测量准确度。七组分别读，不选最高作类型、不补理想总分。",
+          "en": "This group summarises four reported action frequencies over the last two weeks. The first three retain 1–5; the fourth uses 6 minus the response. Unavailable items are excluded. At least three ratings produce a one-decimal mean using the actual rated count. In group order, responses 2, 4, 5, 2 key to 2, 4, 5, 4: 15 divided by 4 displays 3.8. With the third unavailable, 10 divided by 3 displays 3.3. These use different information, and display precision is not measurement accuracy. Read seven groups separately without a highest-score type or ideal total."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：解释旁边放一处可核对的线索",
+        "en": "Review one checkable detail beside the explanation"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用消息晚到的例子，分别写实际时间、一个可能原因、另一个可能原因，以及现在还缺的资料。再选一个后果很小、确实有用的核对；没有合适办法时就写“暂不确定”。可以只分析虚构消息，不必查看他人记录或追问私事。复盘看事实和推测是否分开，不把解释数量或搜索时长当洞察力。",
+          "en": "For the late message, list the observed time, one possible cause, another cause and missing information. Choose one useful, low-stakes check, or retain uncertainty when none is suitable. Analyse a fictional message without examining someone else’s records or asking private questions. Review separation of facts and guesses rather than treating the number of explanations or time spent searching as insight."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个主题，不替彼此解释分数",
+        "en": "Share a theme without interpreting each other’s scores"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果一条消息比约定晚到，哪些是直接知道的，哪些只是可能解释，什么资料才可能帮助分清？”聊具体情境，也可以换一个主题；不需要提供均分、答案或私人经历。",
+          "en": "Ask: “If a message arrived after an agreed time, what would be known, what would be a possible explanation and what information might help distinguish them?” Discuss a concrete situation or choose another theme without supplying means, answers or private experiences."
+        },
+        {
+          "zh": "可分享这份公开通用说明，链接不含个人计分。脉轮名在这里是意象，不是身体检查、灵性等级或信仰要求；对方可以不认同这个意象、不回答或结束，不推断他人的健康、关系或能量。",
+          "en": "Share this public general guide without personal scores in the link. Chakra names are symbols here, not physical examinations, spiritual ranks or belief requirements. The other person may reject the symbol, decline or stop. Infer no health, relationship or energy condition."
+        }
+      ]
+    }
+  ],
+  "crown": [
+    {
+      "id": "mean-reading",
+      "title": {
+        "zh": "把均分还原成这四条回答",
+        "en": "Read the mean alongside its four responses"
+      },
+      "paragraphs": [
+        {
+          "zh": "本组只概括过去两周的四条行动频率。前三题保留1—5，第四题用6减原回答；不可评分项排除，至少三条才显示按实际有效条数计算的一位小数均分。例如按本组顺序答2、4、5、2，计分后为2、4、5、4，15÷4显示3.8；第三题改为不可评分，则10÷3显示3.3。两者不是同样资料，显示精度不代表测量准确度。七组分别读，不选最高作类型、不补理想总分。",
+          "en": "This group summarises four reported action frequencies over the last two weeks. The first three retain 1–5; the fourth uses 6 minus the response. Unavailable items are excluded. At least three ratings produce a one-decimal mean using the actual rated count. In group order, responses 2, 4, 5, 2 key to 2, 4, 5, 4: 15 divided by 4 displays 3.8. With the third unavailable, 10 divided by 3 displays 3.3. These use different information, and display precision is not measurement accuracy. Read seven groups separately without a highest-score type or ideal total."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：普通的一天也可以不附结论",
+        "en": "Review an ordinary day without requiring a lesson"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到今天的一件小事，分清“我愿意保留的联系”“只是现实需要”和“现在说不清”。三种都可以停在原处，不必把跑腿、休息或看天空改写成人生使命。可以回想，也可以让问题暂时开放。复盘关注这件事是否值得继续、缩小或换一种方式，而非给一天的重要程度打分，更不用把七组均分排成成长阶梯。",
+          "en": "For one small action today, distinguish a connection you value, a practical necessity and something still unclear. Each may stand without turning errands, rest or looking at the sky into a mission. Recall or leave the question open. Review whether to keep, narrow or change the activity rather than grading the day’s importance or arranging seven means into a ladder of growth."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个主题，不替彼此解释分数",
+        "en": "Share a theme without interpreting each other’s scores"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“回想一件普通小事，它连接了你在意的什么，还是这次只是必要的事、暂时不需要解释？”聊具体情境，也可以换一个主题；不需要提供均分、答案或私人经历。",
+          "en": "Ask: “Did one ordinary action connect with something you care about, or was it simply necessary without needing an explanation today?” Discuss a concrete situation or choose another theme without supplying means, answers or private experiences."
+        },
+        {
+          "zh": "可分享这份公开通用说明，链接不含个人计分。脉轮名在这里是意象，不是身体检查、灵性等级或信仰要求；对方可以不认同这个意象、不回答或结束，不推断他人的健康、关系或能量。",
+          "en": "Share this public general guide without personal scores in the link. Chakra names are symbols here, not physical examinations, spiritual ranks or belief requirements. The other person may reject the symbol, decline or stop. Infer no health, relationship or energy condition."
+        }
+      ]
+    }
+  ]
+}

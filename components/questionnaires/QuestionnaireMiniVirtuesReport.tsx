@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { MiniVirtuesResult } from "@/lib/questionnaires/miniVirtues";
@@ -25,7 +25,7 @@ export function QuestionnaireMiniVirtuesReport({ quiz, result, locale }: {
         <p data-mini-virtues-score={part.id} className="my-4 rounded-lg bg-slate-50 p-4 font-semibold">{zh
           ? `本次四题原始和：${part.rawSum}（范围4—20）；均值：${part.mean.toFixed(2)}（范围1—5）`
           : `This attempt: four-item sum ${part.rawSum} (range 4–20); mean ${part.mean.toFixed(2)} (range 1–5)`}</p>
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline"
           href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这组公开完整指南" : "Read this group’s full public guide"}</Link>
       </section>;

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { SecsResult, SecsDomain } from "@/lib/questionnaires/secs";
 import type { Questionnaire } from "@/lib/questionnaires/types";
@@ -21,7 +21,7 @@ export function QuestionnaireSecsReport({ quiz, result, locale }: { quiz: Questi
           <div className="text-sm text-slate-600"><dt className="sr-only">{zh ? "有效温度回答" : "Valid warmth ratings"}</dt><dd data-secs-rated>{zh ? `${score.rated} / ${score.total}项有效温度评分` : `${score.rated} / ${score.total} rated warmth items`}</dd></div>
         </dl>
         {!scored && <p data-secs-insufficient className="mb-5 leading-8">{zh ? "本领域资料不足，没有生成个人总和或均分；下面完整指南不能当作对你本次政治立场的判断。你可以保留未评分，也可以重测。" : "This domain has insufficient information, so no personal sum or mean was generated. The full guide below is not a judgement of your political position in this attempt. You can leave it unscored or retake."}</p>}
-        <div data-secs-guide={profile.id}><QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} /></div>
+        <div data-secs-guide={profile.id}><QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} /></div>
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本领域完整公开说明" : "Read this domain’s full public guide"}</Link>
       </section>;
     })}

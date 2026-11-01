@@ -1,0 +1,166 @@
+{
+  "sanguine": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "相同节奏，可能有不同理由",
+        "en": "Similar paces can have different reasons"
+      },
+      "paragraphs": [
+        {
+          "zh": "同样是接触一个新爱好：若先体验几种有趣玩法，再决定是否继续，更接近本版多血质；若先定一个小成果，更接近胆汁质；若先找自己在意的细节，更接近抑郁质；若接到熟悉习惯后面，更接近黏液质。比较的是开始的入口，不是热情或聪明程度。",
+          "en": "For the same new hobby, trying interesting variations before deciding whether to continue fits this edition’s Sanguine angle; setting a small outcome fits Choleric; considering meaningful details fits Melancholic; connecting it to a familiar habit fits Phlegmatic. These compare ways of beginning, not enthusiasm or intelligence."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "小尝试之后怎样回看",
+        "en": "Reviewing the small trial"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的有趣开头尝试：新鲜感具体帮助了哪一步，你承诺的时间和范围是否清楚，后面是否需要另加一个稳定步骤？若新玩法不吸引你，也可以保留旧办法。一次没有兴致不说明失去某种气质，更不要求靠增加活动来提高计数。",
+          "en": "After the interesting-start trial above, note the step novelty helped, the clarity of your time commitment and whether a steady follow-on step is needed. You may keep the old method if the variation does not appeal. Lack of interest once does not mean losing a temperament or needing more activities to raise a count."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "把风格线索说成具体需要",
+        "en": "Turn a style cue into a practical need"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以说：“这次多血质是我的最高风格线索之一。我想先试一点有趣的部分，再说清愿意继续到哪里。你更想先体验、定目标、看细节，还是从熟悉步骤开始？”只聊做法也可以，不必公布计数；古典名称不说明天生乐观或必须外向。",
+          "en": "Try: “Sanguine was among my highest style cues. I would like an interesting first try, then to clarify how far to continue. Would you prefer experience, a goal, details or a familiar step first?” You can discuss methods without counts. The historical name establishes neither inborn optimism nor required extraversion."
+        }
+      ]
+    }
+  ],
+  "choleric": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "相同节奏，可能有不同理由",
+        "en": "Similar paces can have different reasons"
+      },
+      "paragraphs": [
+        {
+          "zh": "同样给周末留一段空闲，明确想把一件事推进到哪里，是本版胆汁质的线索；想找新鲜体验、深入一个细节或保留熟悉节奏，则分别提供其他三个角度。提出目标不等于决定正确，也不因为别人先想一想，就能推断对方缺少行动力。",
+          "en": "For free time at the weekend, deciding how far to advance one activity fits this edition’s Choleric cue; novelty, detailed reflection and familiar pace offer the other three angles. A goal does not establish a correct decision, and someone thinking first does not establish poor ability to act."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "小尝试之后怎样回看",
+        "en": "Reviewing the small trial"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的目标与下一步尝试：参与者是否知道还可补充什么条件，最终方案与最初提议改了哪里？既看推进，也看有没有遗漏实际需要。别人不同意不必变成效率比赛；把安排缩小或延后，也可能是这次更合适的决定。",
+          "en": "After proposing a goal and next step above, ask whether participants knew they could add conditions and what changed from the first proposal. Review progress and missed needs. Disagreement need not become an efficiency contest; a smaller or later plan may fit better."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "把风格线索说成具体需要",
+        "en": "Turn a style cue into a practical need"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以说：“这次胆汁质是我的最高风格线索之一。我想把下一步说具体，也想听哪些条件没考虑到。你希望先确定哪一件事？”可以不使用古典名称，直接讨论提议；它不认证领导力，也不把愤怒或控制他人算作你的特征。",
+          "en": "Try: “Choleric was among my highest style cues. I want to make the next step concrete and hear any missed conditions. What would you clarify first?” You may discuss the proposal without the historical label. It certifies no leadership or traits of anger or control."
+        }
+      ]
+    }
+  ],
+  "melancholic": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "相同节奏，可能有不同理由",
+        "en": "Similar paces can have different reasons"
+      },
+      "paragraphs": [
+        {
+          "zh": "同样看一本兴趣入门书，想弄清某个细节为何值得投入，是本版抑郁质的线索；想尽快做一个小成果，则更接近胆汁质；想沿用顺手步骤则接近黏液质。停留在一页上不能单独说明读得更深或情绪低落，需要问当时在意什么。",
+          "en": "When reading a hobby introduction, considering why a detail matters fits this edition’s Melancholic cue; aiming for a small outcome fits Choleric; using familiar steps fits Phlegmatic. Spending time on one page establishes neither deeper understanding nor low mood. Ask what mattered then."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "小尝试之后怎样回看",
+        "en": "Reviewing the small trial"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的关键信息尝试：哪条细节改变了选择，哪些只有实际开始后才清楚？若迟迟无法获得资料，可以说明未知，并重新决定这件小事是否值得继续。不要把思考时间长短当作深度评分，也不需要因这个历史名称认领悲伤或完美主义。",
+          "en": "After the key-information trial above, ask which detail changed the choice and what became clear only after beginning. If information remains unavailable, state uncertainty and reconsider continuing. Time spent thinking is not a depth score, and the historical name requires no identification with sadness or perfectionism."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "把风格线索说成具体需要",
+        "en": "Turn a style cue into a practical need"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以说：“我想先看清一处自己在意的差别，再给你回应，也可以约一个确认时间。”这比直接说自己是抑郁质更便于协商。若分享本版读法，请明确它不是抑郁症筛查，不据此判断自己或朋友的心理状态。",
+          "en": "Try: “I would like to clarify one difference that matters to me before replying, and we can agree a time to confirm.” This gives more useful conditions than a Melancholic declaration. If sharing the reading, clarify that it is not depression screening and establishes no mental state for you or a friend."
+        }
+      ]
+    }
+  ],
+  "phlegmatic": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "相同节奏，可能有不同理由",
+        "en": "Similar paces can have different reasons"
+      },
+      "paragraphs": [
+        {
+          "zh": "同样开始一个新练习，把它接到现有习惯后面，是本版黏液质的线索；反复想清它为什么重要可能接近抑郁质，先试不同玩法则可能接近多血质。相同的慢节奏可以有不同理由，不由速度判断懒惰、情绪稳定或学习能力。",
+          "en": "For a new practice, connecting it to an existing habit fits this edition’s Phlegmatic cue; considering why it matters may fit Melancholic, and trying variations Sanguine. A similar unhurried pace can have different reasons. Speed does not establish laziness, emotional stability or learning ability."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "小尝试之后怎样回看",
+        "en": "Reviewing the small trial"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的熟悉起点与真实偏好尝试：哪个衔接减少了来回切换，你想改变的部分是否也说清？若原步骤已经不合适，可以只更新一项。保持熟悉不等于接受全部现状，也不需要为了证明温和而隐藏不同意见。",
+          "en": "After the familiar-start and real-preference trial above, review which connection reduced switching and whether you stated what you wanted to change. You may update one step that no longer fits. Familiarity requires neither accepting everything nor hiding disagreement to appear gentle."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "把风格线索说成具体需要",
+        "en": "Turn a style cue into a practical need"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以说：“这次稳定节奏是我较常选的角度。我想保留一个顺手起点，也说清哪部分可以调整。你最想保留什么条件？”可以只分享参与需要，不公布计数；黏液质这个历史名称不能推断身体成分、反应速度或照顾别人的义务。",
+          "en": "Try: “A steady pace was one angle I selected often. I would like a familiar start and to clarify what can change. Which condition matters most to you?” Share needs without counts. The historical Phlegmatic label establishes neither bodily composition, reaction speed nor an obligation to care for others."
+        }
+      ]
+    }
+  ]
+}

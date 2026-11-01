@@ -1,0 +1,194 @@
+{
+  "wonder-explorer": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "留下一个还想再看一眼的小问题",
+        "en": "Keep one small question worth another look"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的纸张比较，记下最吸引你的一个细节，以及你还想知道什么。例如，薄纸与厚纸的折痕不同，下一次想先看哪一处？也可以发现自己其实更喜欢完成模型，而不想继续比较。若原本就有可用材料和一点空闲，可以只看一个问题，再决定是否结束。无需产出作品或给观察配上童年原因；复盘只是让这次兴趣更具体，也容许兴趣到此为止。",
+          "en": "Revisit the paper comparison and note one detail that caught your attention and one question still interesting to you. Thin and thick paper may crease differently: which detail would you look at next? You might instead prefer finishing a model and have no wish to compare further. With materials and free time already available, explore one question and decide whether to stop. No finished work or childhood explanation is needed; make this interest specific while allowing it to end here."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个今天想怎么玩的问题",
+        "en": "Share a question about play today"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设桌上有两种普通纸，你最想观察哪一点，还是更想直接做一个东西？”比较的是眼前的玩法与条件，不需要证明哪一个标签更像自己，也不追问童年经历。",
+          "en": "Ask: “If two ordinary kinds of paper were on a table, which detail would you examine, or would you rather make something straight away?” Compare present-day approaches and conditions without proving which label fits or asking for childhood experiences."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含本次答案或计数。对方可以跳过问题，也不必展示作品、回忆过去或接受一起玩的邀请。",
+          "en": "You can share this public guide; its link contains no answers or counts from this attempt. The other person may skip the question without showing a creation, recalling the past or accepting an invitation to play."
+        }
+      ]
+    }
+  ],
+  "independent-maker": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "找出想亲手试的那一步",
+        "en": "Find the step you want to try yourself"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的折纸，把想自己尝试的一步、愿意参考的说明和需要协助的部分分别写清。比如，你想改变最后一折，同时希望先看清前面的做法。试过以后可以保留变化、回到原版，或结束；都不用证明独立性。若和别人共用材料，先确认哪一张可以尝试、哪些部分要保持一致。亲手决定一小步与接受帮助可以并存，结果不要求你把整件事独自完成。",
+          "en": "For the origami example, separate the step you want to try, instructions you would use and help you might welcome. You may want to change the last fold while seeing the earlier steps demonstrated. Afterwards, keep the change, return to the original or stop; none needs to prove independence. With shared materials, agree which piece can be used for a variation and what must remain consistent. Choosing one step and accepting help can coexist without doing the entire activity alone."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个今天想怎么玩的问题",
+        "en": "Share a question about play today"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设看过一个折纸示范，你想自己改哪一步，又愿意在哪一步接受帮助？”比较的是眼前的玩法与条件，不需要证明哪一个标签更像自己，也不追问童年经历。",
+          "en": "Ask: “After an origami demonstration, which step would you change yourself and where would you welcome help?” Compare present-day approaches and conditions without proving which label fits or asking for childhood experiences."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含本次答案或计数。对方可以跳过问题，也不必展示作品、回忆过去或接受一起玩的邀请。",
+          "en": "You can share this public guide; its link contains no answers or counts from this attempt. The other person may skip the question without showing a creation, recalling the past or accepting an invitation to play."
+        }
+      ]
+    }
+  ],
+  "prepared-player": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "用一个具体问题确认怎样参与",
+        "en": "Clarify participation with one specific question"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到上面的桌游示范，挑出你真正想了解的一件事：一轮怎样结束、要多久，还是能否先旁观？把问题说具体以后，再看答案是否足以让你决定。还不想加入，也可以保留这个选择；信息清楚并不等于必须参加。如果已经熟悉玩法，可能没有问题需要再问。复盘不统计准备时间或勇气，只让这一次入场方式更适合实际时间、兴趣与安排。",
+          "en": "Return to the board-game demonstration and identify what you wanted to know: how a round ends, its duration or whether watching first is welcome. Ask specifically, then consider whether the answer is enough to decide. Clear information creates no obligation to join, and a familiar game may need no further question. Review the entry arrangement that fits your time and interest rather than measure preparation time or courage."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个今天想怎么玩的问题",
+        "en": "Share a question about play today"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设有人邀请你玩一个新桌游，哪个小问题最有助于你决定加入还是旁观？”比较的是眼前的玩法与条件，不需要证明哪一个标签更像自己，也不追问童年经历。",
+          "en": "Ask: “If you were invited to an unfamiliar board game, which small question would help you choose between joining and watching?” Compare present-day approaches and conditions without proving which label fits or asking for childhood experiences."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含本次答案或计数。对方可以跳过问题，也不必展示作品、回忆过去或接受一起玩的邀请。",
+          "en": "You can share this public guide; its link contains no answers or counts from this attempt. The other person may skip the question without showing a creation, recalling the past or accepting an invitation to play."
+        }
+      ]
+    }
+  ],
+  "expressive-player": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "挑一种今天愿意使用的表达形式",
+        "en": "Choose a form of expression you want today"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的纸偶或画面，分开看看吸引你的是颜色、声音、动作，还是有人一起参与。只选今天愿意的一种形式即可：给纸偶画表情，不一定要配台词；想试一句台词，也不必表演整段故事。若会影响共用空间，先确认时间和音量是否合适。之后可以问自己喜欢哪个细节，也可以什么都不记录。表达不需要观众认可，更不需要解释它象征了什么。",
+          "en": "For the puppet or drawing above, distinguish the appeal of colour, sound, movement and company. Choose one form you want today: drawing a puppet’s expression needs no spoken line, and trying one line needs no full performance. Check timing and volume when using shared space. Afterwards, notice a detail you liked or record nothing. Expression needs neither audience approval nor an explanation of what it symbolises."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个今天想怎么玩的问题",
+        "en": "Share a question about play today"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设给纸偶增加一个小细节，你会画表情、配一句话、试一个动作，还是选择别的方式？”比较的是眼前的玩法与条件，不需要证明哪一个标签更像自己，也不追问童年经历。",
+          "en": "Ask: “If you added one detail to a paper puppet, would you draw an expression, give it a line, try a movement or choose another form?” Compare present-day approaches and conditions without proving which label fits or asking for childhood experiences."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含本次答案或计数。对方可以跳过问题，也不必展示作品、回忆过去或接受一起玩的邀请。",
+          "en": "You can share this public guide; its link contains no answers or counts from this attempt. The other person may skip the question without showing a creation, recalling the past or accepting an invitation to play."
+        }
+      ]
+    }
+  ],
+  "quiet-imaginer": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "说明想象空间与陪伴方式",
+        "en": "Describe the imagined space and the company you want"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的杯子小房间，记下你想增加的一个细节，再决定这部分是否只留给自己。想安静画几分钟，与想不想有人在旁边，是两个可以分别说明的选择。若有同伴，可以约定各画各的、稍后再看，或不展示；也可以邀请对方补一件家具。无须完成故事或解释图画。这里整理的是当下的玩法和分享范围，不用据此减少社交或寻找过去独处的原因。",
+          "en": "Revisit the mug’s little room, name one detail you might add and decide whether to keep it private. Wanting a few quiet drawing minutes and wanting company nearby are separate choices. With a companion, agree to draw separately, look later or keep the page private; you could also invite one added piece of furniture. No finished story or interpretation of the drawing is needed. Clarify play and sharing preferences without reducing contact or searching for reasons in past solitude."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个今天想怎么玩的问题",
+        "en": "Share a question about play today"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设画一个杯子住的小房间，你想加什么细节，又希望别人怎样参与或旁观？”比较的是眼前的玩法与条件，不需要证明哪一个标签更像自己，也不追问童年经历。",
+          "en": "Ask: “If you drew a little room for a mug, what detail would you add and how would you want someone else to join or watch?” Compare present-day approaches and conditions without proving which label fits or asking for childhood experiences."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含本次答案或计数。对方可以跳过问题，也不必展示作品、回忆过去或接受一起玩的邀请。",
+          "en": "You can share this public guide; its link contains no answers or counts from this attempt. The other person may skip the question without showing a creation, recalling the past or accepting an invitation to play."
+        }
+      ]
+    }
+  ],
+  "welcoming-companion": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "让一起玩包含各自的选择",
+        "en": "Make shared play leave room for individual choices"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的小册子，先说自己愿意做哪一页，再问对方有没有想做的部分。共同完成、各做各的和只旁观都可以讨论；对方不想加入时，一次邀请就可以结束。若双方愿意继续，约定大概时长和怎样收尾，途中也能改主意。之后回看的是安排是否适合双方，而不是谁更会照顾人。你自己的时间、兴趣和拒绝空间也属于这次共同选择。",
+          "en": "For the booklet above, say which page you want to make and ask whether the other person wants a part. Making something together, working separately and watching can all be discussed. One invitation can end if they decline. If both want to continue, agree on approximate timing and an ending, with room to change your minds. Review whether the arrangement suited both people rather than who cared better. Your time, interest and room to decline belong in the shared choice too."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个今天想怎么玩的问题",
+        "en": "Share a question about play today"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设和朋友做一本小册子，你们各想做哪一部分，如果有人只想旁观会怎样安排？”比较的是眼前的玩法与条件，不需要证明哪一个标签更像自己，也不追问童年经历。",
+          "en": "Ask: “If you made a small booklet with a friend, which part would each choose and how would you arrange it if one person only wanted to watch?” Compare present-day approaches and conditions without proving which label fits or asking for childhood experiences."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含本次答案或计数。对方可以跳过问题，也不必展示作品、回忆过去或接受一起玩的邀请。",
+          "en": "You can share this public guide; its link contains no answers or counts from this attempt. The other person may skip the question without showing a creation, recalling the past or accepting an invitation to play."
+        }
+      ]
+    }
+  ]
+}

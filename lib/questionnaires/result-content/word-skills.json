@@ -1,0 +1,162 @@
+{
+  "paragraphs-and-formatting": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：标题与下段、段内各行分别检查",
+        "en": "Review the heading relationship separately from lines within it"
+      },
+      "paragraphs": [
+        {
+          "zh": "设想一份虚构活动通知：短标题“集合地点”后接两行说明，前文编辑后标题落在页底。先显示编辑标记，确认两者是相邻的两个段落，再检查标题的Keep with next；若问题发生在说明段内部，才另外核Keep lines together。不要先增空行或接受修订来试位置。改完后给前文增加一句，再检查标题、说明和相邻分页；具体换页位置仍取决于可用空间与其他设置。这个新情境用于复习判断顺序，网站没有实际运行Windows Word或测量排版成功率。",
+          "en": "Imagine a fictional event notice: a short Meeting point heading precedes a two-line description, but editing earlier text leaves the heading at a page bottom. Show formatting marks and confirm that these are two adjacent paragraphs, then inspect Keep with next on the heading. If the issue concerns lines inside the description, inspect Keep lines together separately. Avoid testing placement by adding empty paragraphs or accepting revisions. Add a sentence earlier and recheck the relationship after changing the setting; exact pagination still depends on available space and other settings. This scenario practises diagnosis, without claiming that the website operated Windows Word or measured layout success."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起说明操作和预期，不比较工作能力",
+        "en": "Compare the intended operation and outcome without rating job competence"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“要保留的是标题和下一段的关系，还是一段内部各行？前文再改后，应检查哪些位置？”先各自描述目标、条件和预期，再比较分歧。可只读、画结构、查官方说明或不参与，不要求安装软件、上传文件或公开工作失误。讨论给定小情境，正确数不能替代真实文档上的操作观察。",
+          "en": "Ask: “Are you preserving a heading-to-next-paragraph relationship or lines within one paragraph, and what should you recheck after earlier text changes?” Describe the goal, conditions and prediction separately before comparing disagreements. Read, draw the structure, consult official guidance or decline, without installing software, uploading documents or disclosing workplace mistakes. Discuss the small supplied scenario; a count cannot replace observing operations on a real document."
+        },
+        {
+          "zh": "分享按钮复制不带答案和正确数的公开练习入口，也可自行发送本公开指南。五组是复习主题，不是Word熟练等级、微软认证或招聘通过线。25题重测使用同一固定题组，看过解析后的提高可能来自记忆；下一步宜用新的虚构内容验证自己是否说得清操作及影响范围。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also send this public guide yourself. Five groups organise revision rather than Word proficiency levels, Microsoft certification or hiring thresholds. Retakes reuse the same 25 tasks, so improvement after reading explanations may reflect memory. Use new fictional content to explore whether you can explain the operation and its scope."
+        }
+      ]
+    }
+  ],
+  "styles-and-structure": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：按大纲核新条目，而不是只看字号",
+        "en": "Review a new entry against the outline rather than font size"
+      },
+      "paragraphs": [
+        {
+          "zh": "新练习可用“到达”“离开”两个标题1，给“到达”下的“随身物品”应用标题2，并生成自动目录。随后在同级新增“雨天安排”，先预测它应处于“到达”之下，再更新整个目录，核条目文字、级别和所指位置。若缺条目，检查实际样式及目录设置，不把手动加粗或直接在目录打字当成修复结构。可以只在纸上列预期大纲；这是一个新的本地练习建议，不代表本次正确数验证了真实Word文件、全部目录配置或无障碍合规。",
+          "en": "For a fresh exercise, use Arrival and Departure as Heading 1 paragraphs, with Packing under Arrival as Heading 2, and create an automatic contents list. Add Rain plan at the same subordinate level. Predict where it belongs, then update the entire table and inspect entry text, level and destination. If it is missing, check the applied style and contents configuration instead of relying on bold text or typing directly into the contents. A paper outline is enough to discuss the expected structure. This suggested local exercise does not mean your count verified a real Word file, every contents configuration or accessibility compliance."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起说明操作和预期，不比较工作能力",
+        "en": "Compare the intended operation and outcome without rating job competence"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：““雨天安排”应属于哪一级？如果只在目录里手打出来，正文的标题结构是否因此正确了？”先各自描述目标、条件和预期，再比较分歧。可只读、画结构、查官方说明或不参与，不要求安装软件、上传文件或公开工作失误。讨论给定小情境，正确数不能替代真实文档上的操作观察。",
+          "en": "Ask: “Which level should Rain plan use, and would manually typing it into the contents establish the correct body-heading structure?” Describe the goal, conditions and prediction separately before comparing disagreements. Read, draw the structure, consult official guidance or decline, without installing software, uploading documents or disclosing workplace mistakes. Discuss the small supplied scenario; a count cannot replace observing operations on a real document."
+        },
+        {
+          "zh": "分享按钮复制不带答案和正确数的公开练习入口，也可自行发送本公开指南。五组是复习主题，不是Word熟练等级、微软认证或招聘通过线。25题重测使用同一固定题组，看过解析后的提高可能来自记忆；下一步宜用新的虚构内容验证自己是否说得清操作及影响范围。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also send this public guide yourself. Five groups organise revision rather than Word proficiency levels, Microsoft certification or hiring thresholds. Retakes reuse the same 25 tasks, so improvement after reading explanations may reflect memory. Use new fictional content to explore whether you can explain the operation and its scope."
+        }
+      ]
+    }
+  ],
+  "sections-and-tables": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：可维护的重复表头与手工副本不同",
+        "en": "Review a maintained repeated header separately from copied text"
+      },
+      "paragraphs": [
+        {
+          "zh": "新练习可建一张虚构物品清单，首行为“项目、数量”，让正文行自然延伸到第二页。在打印布局中选择包含第一行的表头，使用Repeat Header Rows，再将首次出现的“数量”改为“件数”，检查后页重复表头。核的是同一表的维护关系；手工在第二页复制一行，看起来相同也不证明已设重复表头。保留自动分页条件，不用表内手动分页替代；正文行是否允许跨页断开另行检查。本例是Windows桌面Word练法，没有声称网站开过Word或实际生成、打印过文件。",
+          "en": "Create an invented item list with Item and Quantity in its first row, letting body rows extend naturally to a second page. In Print Layout, select a header including the first row and use Repeat Header Rows. Rename Quantity to Pieces in the first occurrence and inspect the repeated header later. You are checking a maintained relationship within one table: manually copying a similar row onto page two does not establish that setting. Retain automatic pagination rather than substituting a manual break inside the table; body-row splitting is a separate check. This Windows desktop Word exercise does not claim the website opened Word, generated a document or printed one."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起说明操作和预期，不比较工作能力",
+        "en": "Compare the intended operation and outcome without rating job competence"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“改第一页表头后，后页应怎样变化？如果只是复制了一行，看上去一样为什么仍需核设置？”先各自描述目标、条件和预期，再比较分歧。可只读、画结构、查官方说明或不参与，不要求安装软件、上传文件或公开工作失误。讨论给定小情境，正确数不能替代真实文档上的操作观察。",
+          "en": "Ask: “What should happen after the original header changes, and why should you inspect the setting even when a copied row looks identical?” Describe the goal, conditions and prediction separately before comparing disagreements. Read, draw the structure, consult official guidance or decline, without installing software, uploading documents or disclosing workplace mistakes. Discuss the small supplied scenario; a count cannot replace observing operations on a real document."
+        },
+        {
+          "zh": "分享按钮复制不带答案和正确数的公开练习入口，也可自行发送本公开指南。五组是复习主题，不是Word熟练等级、微软认证或招聘通过线。25题重测使用同一固定题组，看过解析后的提高可能来自记忆；下一步宜用新的虚构内容验证自己是否说得清操作及影响范围。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also send this public guide yourself. Five groups organise revision rather than Word proficiency levels, Microsoft certification or hiring thresholds. Retakes reuse the same 25 tasks, so improvement after reading explanations may reflect memory. Use new fictional content to explore whether you can explain the operation and its scope."
+        }
+      ]
+    }
+  ],
+  "fields-and-mail-merge": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：逐条核字段、选择与源记录",
+        "en": "Review field values, selection and source records separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例数据源有三条虚构记录：Mira/Maple、Sol/Reed、Tavi/Cove，列名为Name和Room。信函插入真实的Name、Room合并域，预期三条分别配对，不把两个域都指向Name。若本次排除Sol，当前选择应剩Mira和Tavi，源记录仍三条。用Preview Results并切换记录，分别核姓名、房间及固定句子；第一条正确不证明其他条正确。这里只规划预期与核对顺序，不执行合并、不发信、不读取名单。若在本机尝试，用副本与虚构记录，不需要任何真实联系人。",
+          "en": "Use three fictional source records: Mira/Maple, Sol/Reed and Tavi/Cove, under Name and Room columns. Insert actual Name and Room merge fields and predict each pairing; pointing both fields to Name would be a different result. Excluding Sol should leave Mira and Tavi selected while retaining three source records. Use Preview Results and navigate records, checking name, room and fixed text separately. A correct first record does not establish the others. This example plans expected values and review order without executing a merge, sending messages or reading a mailing list. Use a disposable copy and invented records if practising locally; real contacts are unnecessary."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起说明操作和预期，不比较工作能力",
+        "en": "Compare the intended operation and outcome without rating job competence"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“排除Sol后，当前选择与源记录各有几条？怎样发现Room误连到了Name，为什么只看第一条不够？”先各自描述目标、条件和预期，再比较分歧。可只读、画结构、查官方说明或不参与，不要求安装软件、上传文件或公开工作失误。讨论给定小情境，正确数不能替代真实文档上的操作观察。",
+          "en": "Ask: “After excluding Sol, how many records are selected and retained in the source, and how would you detect Room incorrectly pointing to Name?” Describe the goal, conditions and prediction separately before comparing disagreements. Read, draw the structure, consult official guidance or decline, without installing software, uploading documents or disclosing workplace mistakes. Discuss the small supplied scenario; a count cannot replace observing operations on a real document."
+        },
+        {
+          "zh": "分享按钮复制不带答案和正确数的公开练习入口，也可自行发送本公开指南。五组是复习主题，不是Word熟练等级、微软认证或招聘通过线。25题重测使用同一固定题组，看过解析后的提高可能来自记忆；下一步宜用新的虚构内容验证自己是否说得清操作及影响范围。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also send this public guide yourself. Five groups organise revision rather than Word proficiency levels, Microsoft certification or hiring thresholds. Retakes reuse the same 25 tasks, so improvement after reading explanations may reflect memory. Use new fictional content to explore whether you can explain the operation and its scope."
+        }
+      ]
+    }
+  ],
+  "review-and-templates": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：显示、记录与决定分成三列",
+        "en": "Review display, recording and decisions in separate columns"
+      },
+      "paragraphs": [
+        {
+          "zh": "设想副本中“周一见”已有一项待处理的删除修订。切到No Markup只改变显示；关闭Track Changes只影响之后是否记录新改动。两步都不决定这项删除。现在只选该删除并Reject，才恢复“周一见”；不要为去标记而Accept All。可在纸上列“看见什么、后续是否记录、旧删除是否已决定”，逐步核三个状态。本情境按Windows桌面Word规则说明操作含义，不声称已经编辑或检查真实文件；模板格式也不能代替修订决定。",
+          "en": "Imagine a copy containing an unresolved tracked deletion of See you Monday. No Markup changes display; turning Track Changes off changes whether later edits are recorded. Neither action decides that earlier deletion. Selecting only that deletion and choosing Reject restores See you Monday. Avoid using Accept All merely to remove visible marks. Make three paper columns: what is displayed, whether subsequent edits are recorded and whether the old deletion has been decided. This Windows desktop Word scenario explains the operations without claiming that a real document was edited or inspected; choosing a template format cannot substitute for revision decisions."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起说明操作和预期，不比较工作能力",
+        "en": "Compare the intended operation and outcome without rating job competence"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“文字暂时看不见、停止记录新改动、拒绝旧删除，这三个动作分别改变哪一列？”先各自描述目标、条件和预期，再比较分歧。可只读、画结构、查官方说明或不参与，不要求安装软件、上传文件或公开工作失误。讨论给定小情境，正确数不能替代真实文档上的操作观察。",
+          "en": "Ask: “Which state changes when deleted text is hidden, new tracking stops or the earlier deletion is rejected?” Describe the goal, conditions and prediction separately before comparing disagreements. Read, draw the structure, consult official guidance or decline, without installing software, uploading documents or disclosing workplace mistakes. Discuss the small supplied scenario; a count cannot replace observing operations on a real document."
+        },
+        {
+          "zh": "分享按钮复制不带答案和正确数的公开练习入口，也可自行发送本公开指南。五组是复习主题，不是Word熟练等级、微软认证或招聘通过线。25题重测使用同一固定题组，看过解析后的提高可能来自记忆；下一步宜用新的虚构内容验证自己是否说得清操作及影响范围。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also send this public guide yourself. Five groups organise revision rather than Word proficiency levels, Microsoft certification or hiring thresholds. Retakes reuse the same 25 tasks, so improvement after reading explanations may reflect memory. Use new fictional content to explore whether you can explain the operation and its scope."
+        }
+      ]
+    }
+  ]
+}

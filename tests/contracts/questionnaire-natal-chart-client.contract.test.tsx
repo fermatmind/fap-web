@@ -58,9 +58,9 @@ describe("T199 memory-only native chart client and complete public prose", () =>
       for (const p of quiz.profiles) {
         const body = renderToStaticMarkup(<NatalChartGuidePage quiz={quiz} profile={p} locale={locale} />);
         expect(body).not.toContain("data-natal-result");
+        const guide = document.createElement("div"); guide.innerHTML = body;
         for (const s of p.sections) for (const paragraph of s.paragraphs) {
-          const escaped = renderToStaticMarkup(<p>{paragraph[locale]}</p>);
-          expect(body).toContain(escaped);
+          expect(guide.querySelector(`#natal-public-${p.id}-${s.id}`)?.textContent).toContain(paragraph[locale]);
         }
         expect(body).toContain("natal-chart/results/");
       }

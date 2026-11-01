@@ -1,0 +1,21 @@
+import { describe, expect, it, vi } from 'vitest';
+import { renderToStaticMarkup } from 'react-dom/server';
+import source from '@/lib/questionnaires/data/capacity-to-love-test.json';
+import { capacityToLoveResultProfile } from '@/lib/questionnaires/result-content/capacity-to-love-test';
+import { prepareResultProfile, prepareQuestionnaireResultReadings } from '@/lib/questionnaires/result-content/readings';
+import { isCtl41ConfigurationValid, scoreCtl41Questionnaire } from '@/lib/questionnaires/ctl41';
+import { QuestionnaireCtl41Report } from '@/components/questionnaires/QuestionnaireCtl41Report';
+import type { Questionnaire } from '@/lib/questionnaires/types';
+vi.mock('next/headers',()=>({headers:async()=>new Headers()}));
+const quiz=source as Questionnaire,prepared=prepareQuestionnaireResultReadings(quiz);
+describe('Six complete CTL-I readings with original keys and no assigned grade',()=>{
+ it('preserves the raw edition and all original paragraphs, with idempotent prepared scoring',()=>{
+  const before=JSON.stringify(quiz);expect(isCtl41ConfigurationValid(quiz)).toBe(true);expect(isCtl41ConfigurationValid(prepared)).toBe(true);for(const p of quiz.profiles){const r=capacityToLoveResultProfile(p);expect({...r,sections:p.sections}).toEqual(p);expect(r.sections.map(s=>s.id)).toEqual(p.sections.map(s=>s.id));expect(r.sections.flatMap(s=>s.paragraphs)).toHaveLength(11);for(const s of p.sections)expect(r.sections.find(t=>t.id===s.id)!.paragraphs[0]).toEqual(s.paragraphs[0]);const ready=prepareResultProfile(quiz.slug,p);expect(prepareResultProfile(quiz.slug,ready)).toBe(ready);}const all=Object.fromEntries(quiz.questions.map(q=>[q.id,'2']));for(const q of quiz.questions){const a={...all};delete a[q.id];expect(scoreCtl41Questionnaire(prepared,a)).toEqual({status:'incomplete',answered:40});}expect(JSON.stringify(quiz)).toBe(before);const unknown={...quiz.profiles[0],id:'__proto__'};expect(capacityToLoveResultProfile(unknown)).toBe(unknown);
+ });
+ it.each(['zh','en']as const)('opens six complete public %s guides with visible attribution and no personal values',async locale=>{
+  const route=await import('@/components/questionnaires/QuestionnaireGuide');for(const p of quiz.profiles){const dom=document.createElement('div');dom.innerHTML=renderToStaticMarkup(await route.default({params:Promise.resolve({locale,slug:quiz.slug,profile:p.id})}));expect(dom.querySelectorAll('[data-capacity-to-love-result-reading] h2')).toHaveLength(8);expect(dom.querySelector('[data-ctl41-score]')).toBeNull();expect(dom.querySelector('[data-ctl41-attribution]')?.textContent).toContain('CC BY 4.0');for(const s of capacityToLoveResultProfile(p).sections)for(const t of s.paragraphs)expect(dom.querySelector(`#report-${s.id}`)?.textContent).toContain(t[locale]);if(locale==='en')expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);}
+ });
+ it.each(['zh','en']as const)('retains all %s source keys, exact rendered arithmetic and complete editorial modules',locale=>{
+  for(const raw of [1,2,3,4])for(const reverse of [false,true]){const a=Object.fromEntries(quiz.questions.map(q=>[q.id,String(reverse&&q.reverse?5-raw:raw)])),r=scoreCtl41Questionnaire(prepared,a);expect(r).toEqual(scoreCtl41Questionnaire(quiz,a));if(r.status!=='complete')throw Error('Complete record required');const dom=document.createElement('div');dom.innerHTML=renderToStaticMarkup(<QuestionnaireCtl41Report quiz={prepared} result={r} locale={locale}/>);expect(dom.querySelectorAll('[data-capacity-to-love-result-reading] h4')).toHaveLength(48);for(const p of r.ctl41){const expected=locale==='zh'?`本域${p.itemCount}题计分和：${p.rawSum}（范围${p.itemCount}—${p.itemCount*4}）；计分均值：${p.mean.toFixed(2)}（范围1—4）。`:`${p.itemCount}-item keyed sum: ${p.rawSum} (range ${p.itemCount}–${p.itemCount*4}); keyed mean: ${p.mean.toFixed(2)} (range 1–4).`;expect(dom.querySelector(`[data-ctl41-score="${p.id}"]`)?.textContent).toBe(expected);}for(const p of quiz.profiles)for(const s of capacityToLoveResultProfile(p).sections)for(const t of s.paragraphs)expect(dom.querySelector(`[data-capacity-to-love-result-reading="${p.id}"]`)?.textContent).toContain(t[locale]);const ids=[...dom.querySelectorAll('[id]')].map(n=>n.id);expect(new Set(ids).size).toBe(ids.length);}
+ });
+});

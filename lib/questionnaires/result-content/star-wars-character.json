@@ -1,0 +1,226 @@
+{
+  "han-solo": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘眼前材料与够用的办法",
+        "en": "Review available material and an adequate method"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的临时版本，记下实际用了什么、它满足哪一点，以及哪些条件仍缺。够用可以意味着只做一部分，也可以先留空；不用加材料把每个缺口补齐。若原方法后来更合适，可以换回。这个记录比较一次普通安排，不按速度或惊险程度评价变通能力。",
+          "en": "After the temporary version above, note what you used, the need it met and missing conditions. Adequate may mean doing only part or leaving space without filling every gap. Return to the original method if it fits better. Review one ordinary arrangement without using speed or drama to grade adaptability."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个只用现有材料的选择",
+        "en": "Share a choice using existing material"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设卡片少了一块装饰，你想用自己的余纸换个排法，还是留白？”比较各自觉得够用的范围，不必当场制作或证明谁更机灵。",
+          "en": "Ask: “If an imaginary card lacked a decoration, would you rearrange your own spare paper or leave space?” Compare what feels sufficient without making anything or proving cleverness."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "palpatine": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘持续安排与重新选择的时点",
+        "en": "Review continuation and when to choose again"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的持续记录，核对想保留的用途、何时再看，以及哪些变化会让自己提前结束。可以只安排到今天，不要求长期保持。若涉及共用内容，另行确认双方意愿；自己的续办想法与别人已经接受的约定分开记录。",
+          "en": "After the continuation note above, check the use to retain, a review point and changes that might prompt an earlier ending. Keep it to today if preferred. For shared material, confirm both people’s wishes separately and distinguish your continuation idea from what someone else actually accepted."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可以提前结束的安排",
+        "en": "Share an arrangement that can end earlier"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设私人笔记想留用到下个月，你会何时再看、什么情况不继续？”只谈自用范围，不把较长计划当更成熟或更会领导。",
+          "en": "Ask: “If an imaginary private notebook might continue next month, when would you reconsider and what might end it?” Discuss personal scope without longer plans ranking maturity or leadership."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "darth-vader": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘这一步与它的终点",
+        "en": "Review this step and its endpoint"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的明确一步，看看实际范围是否仍是自己想要的，以及哪里已经可以收住。一步没有完成，也可以暂停或改选；完成后不自动产生整理全部空间的任务。这个角度关注怎样说清范围，不以坚持、整齐或别人照做评价执行力。",
+          "en": "After the clear step above, check whether its scope remains wanted and where it can end. If it remains unfinished, pause or choose another step. Completing it creates no task to organise the whole space. Clarify scope without persistence, neatness or others’ compliance grading execution."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个只做到这里的小步骤",
+        "en": "Share a step that stops here"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设只把自己的三张卡放在一起，你想怎样说这次到这里，之后再决定？”不要求继续扩大，也不用强硬语气证明像某个角色。",
+          "en": "Ask: “If you grouped only three of your imaginary cards, how would you say it ends here and leave later decisions open?” No expansion or forceful tone is needed to resemble a character."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "leia-organa": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘共同安排里的不同意见",
+        "en": "Review different views within a shared plan"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的意见与问题，区分自己偏好的部分、对方实际说的意愿和仍未同意的安排。不同路线可以并存，分别看再会合也是选项。若没有达成共同计划，可以结束讨论；说清意见不等于需要把所有人带到同一答案。",
+          "en": "After your view and question above, separate your preference, the other person’s stated wish and unagreed arrangements. Different routes can coexist, including separate viewing and meeting later. End without a joint plan if needed. Expressing a view requires no single answer for everyone."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个允许分开看的安排",
+        "en": "Share a plan that permits separate viewing"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设一起看小展示，你想先看哪处；如果兴趣不同，怎样各自选？”比较愿望与实际条件，不按说服成功与否评价领导力。",
+          "en": "Ask: “At an imaginary small display, where would you start, and how could each person choose when interests differ?” Compare wishes and conditions without persuasion outcomes grading leadership."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "obi-wan-kenobi": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘经验与现在条件的距离",
+        "en": "Review experience against current conditions"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的实际经验，核对哪些条件确实试过、哪些没有，以及现在的材料是否不同。一项经验可以只供参考，也可以发现没有合适经验可讲。对方不用它，不必继续劝说；分享与替人作决定是不同的事。",
+          "en": "After the actual experience above, check the conditions you tried, what remains untried and differences in present material. Offer it only as a reference, or acknowledge having no suitable experience. When someone does not adopt it, accept that without further persuasion. Sharing and deciding for someone are separate acts."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一项也可以不采用的经验",
+        "en": "Share an experience that need not be adopted"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设你试过一种纸作临时书签，怎样说清只试过这种厚度，其他还不知道？”允许不同方法，不以资历或采用次数评价智慧。",
+          "en": "Ask: “If you tried one paper as a temporary bookmark, how would you state that only this thickness was tested?” Allow other methods without seniority or adoption totals grading wisdom."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "luke-skywalker": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘这一点学到了什么",
+        "en": "Review what this small beginning clarified"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的自选问题，记下一个已理解的点、所用材料和仍不清楚的部分。可以停在粗略了解，也可以以后换问题；不需要补成整门知识。学习意愿、可用条件与实际能力分别看，不按速度、记忆或是否继续评价天赋。",
+          "en": "After the chosen question above, note one point understood, the material used and what remains unclear. Stop at a rough understanding or change the question later without completing a whole subject. Distinguish willingness, conditions and ability rather than grading talent by speed, recall or continuation."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个不必全学会的开头",
+        "en": "Share a beginning that needs no complete mastery"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设遇到一个普通爱好新词，你想先看哪个例子，哪里不清楚也可以留下？”不要求记忆测验、长期计划或证明成长。",
+          "en": "Ask: “For an imaginary new hobby term, which example would you start with and what could stay unclear?” No recall test, long-term plan or proof of growth is required."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "yoda": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘假设、资料与保留原方法",
+        "en": "Review the assumption, material and original method"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的初始假设，看看它是否影响这次选择，以及什么资料能说明它有无必要。原顺序可能确实合用，可以保留；没有答案也可以结束。提出问题不需要听起来深奥，更不意味着别人采用熟悉办法就是缺乏思考。",
+          "en": "After the initial assumption above, check whether it affects this choice and what material could clarify its necessity. Retain a suitable original sequence or end without an answer. A question needs no profound tone. Choosing a familiar method does not imply thoughtlessness."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可以保留顺序的问题",
+        "en": "Share a question that may retain the sequence"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设看一份普通资料，为什么觉得必须从第一页读完？它是否真的需要顺序？”可以维持原办法，不比赛谁更有智慧或更不受常规限制。",
+          "en": "Ask: “For imaginary ordinary material, why assume reading must begin at page one, and does it require sequence?” Keep the original without a contest in wisdom or freedom from convention."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ]
+}

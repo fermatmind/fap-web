@@ -3,20 +3,20 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Locale } from "@/lib/i18n/locales";
-import type { QuestionnaireAnswers } from "@/lib/questionnaires/types";
+import type { QuestionnaireAnswers, QuestionnaireProfile } from "@/lib/questionnaires/types";
 import { CATQ25_GUIDES, isCatQ25ConfigurationValid, scoreCatQ25, type CatQ25Questionnaire, type CatQ25Result } from "@/lib/questionnaires/catq25";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
 const subscribeReady = () => () => {};
 
-export function CatQ25Client({ quiz, locale }: { quiz: unknown; locale: Locale }) {
+export function CatQ25Client({ quiz, locale, readingProfiles }: { quiz: unknown; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
   if (!isCatQ25ConfigurationValid(quiz)) return <p role="status">{locale === "zh" ? "问卷内容暂不可用。" : "The questionnaire content is unavailable."}</p>;
-  return <ValidCatQ25Client key={`${locale}:${quiz.version}`} quiz={quiz} locale={locale} />;
+  return <ValidCatQ25Client key={`${locale}:${quiz.version}`} quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
 }
-function ValidCatQ25Client({ quiz, locale }: { quiz: CatQ25Questionnaire; locale: Locale }) {
+function ValidCatQ25Client({ quiz, locale, readingProfiles }: { quiz: CatQ25Questionnaire; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
   const zh = locale === "zh", ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const { start: recordStart, complete: recordComplete, view: recordView, share: recordShare, consent: activityConsent } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({}), [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome");
@@ -77,6 +77,7 @@ function ValidCatQ25Client({ quiz, locale }: { quiz: CatQ25Questionnaire; locale
         <p className="leading-8">{zh ? "25项均已作明确选择，包括跳过项。以下是原始合计与均分，不划等级、不选主导类型，也不作诊断。" : "All 25 statements have an explicit choice, including skips. These are raw sums and means, without bands, a dominant type or a diagnosis."}</p>
         <div data-catq25-result className="space-y-6">{CATQ25_GUIDES.map(id => {
           const score = id === "overall" ? result.total : result.parts[id], profile = quiz.profiles.find(p => p.id === id)!;
+          const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === profile.directionIds.length && item.directionIds.every((value, index) => value === profile.directionIds[index]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
           return <section key={id} data-catq25-part={id} aria-labelledby={`catq25-${id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
             <h3 id={`catq25-${id}`} className="scroll-mt-24 text-xl font-semibold">{profile.title[locale]}</h3>
             <p data-catq25-count className="my-3 leading-7">{zh ? `数字答案 ${score.numericCount}/${score.requiredCount}；跳过 ${score.skippedCount} 条。` : `Numeric responses ${score.numericCount}/${score.requiredCount}; ${score.skippedCount} skipped.`}</p>
@@ -84,7 +85,7 @@ function ValidCatQ25Client({ quiz, locale }: { quiz: CatQ25Questionnaire; locale
               <p data-catq25-sum className="text-xl font-semibold">{zh ? `原始合计：${score.sum}（范围 ${score.requiredCount}—${score.requiredCount * 7}）` : `Raw sum: ${score.sum} (range ${score.requiredCount}–${score.requiredCount * 7})`}</p>
               <p data-catq25-mean>{zh ? `均分：${score.mean.toFixed(2)}（范围1—7）；合计除以${score.requiredCount}，不是百分位。` : `Mean: ${score.mean.toFixed(2)} (range 1–7); sum divided by ${score.requiredCount}, not a percentile.`}</p>
             </div>}
-            <details className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开此部分完整读法" : "Expand this full reading"}</summary><div className="mt-5"><QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`catq25-${id}`} /></div></details>
+            <details className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开此部分完整读法" : "Expand this full reading"}</summary><div className="mt-5"><QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`catq25-${id}`} /></div></details>
             <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "阅读完整公开指南" : "Read the complete public guide"}</Link>
           </section>;
         })}</div>

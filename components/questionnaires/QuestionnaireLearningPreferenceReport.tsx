@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
 import type { Questionnaire } from "@/lib/questionnaires/types";
@@ -21,7 +21,7 @@ export function QuestionnaireLearningPreferenceReport({ quiz, result, locale }: 
     <p className="leading-8">{zh ? "全部四份完整说明保留高低与混合读法、同一内容的不同呈现、对话、比较、反例与可选小观察。材料、任务与可访问需要仍要分别核对；不能访问不代表不喜欢，均分或资料不足都不隐藏正文，也不决定课程、职业、固定分班或无障碍安排。" : "All four full guides retain higher, lower and mixed readings, alternative presentations of one topic, dialogue, comparisons, counterexamples and optional observations. Material, task and access needs still matter. Inaccessibility is not dislike. Means or insufficient information never hide the body or determine courses, careers, fixed groups or accommodations."}</p>
     {quiz.profiles.map(profile => <section key={profile.id} data-learning-profile={profile.id} aria-labelledby={`learning-title-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
       <h3 id={`learning-title-${profile.id}`} className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
-      <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一部分的公开说明" : "Read this part’s public guide"}</Link>
     </section>)}
   </div>;

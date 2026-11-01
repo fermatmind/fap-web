@@ -3,20 +3,20 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Locale } from "@/lib/i18n/locales";
-import type { QuestionnaireAnswers } from "@/lib/questionnaires/types";
+import type { QuestionnaireAnswers, QuestionnaireProfile } from "@/lib/questionnaires/types";
 import { isDvmsq18ConfigurationValid, scoreDvmsq18, type Dvmsq18Questionnaire, type Dvmsq18Result } from "@/lib/questionnaires/dvmsq18";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
 const subscribeReady = () => () => {};
 
-export function Dvmsq18Client({ quiz, locale }: { quiz: unknown; locale: Locale }) {
+export function Dvmsq18Client({ quiz, locale, readingProfiles }: { quiz: unknown; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
   if (!isDvmsq18ConfigurationValid(quiz)) return <p role="status">{locale === "zh" ? "问卷内容暂不可用。" : "The questionnaire content is unavailable."}</p>;
-  return <ValidDvmsq18Client key={`${locale}:${quiz.version}`} quiz={quiz} locale={locale} />;
+  return <ValidDvmsq18Client key={`${locale}:${quiz.version}`} quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
 }
-function ValidDvmsq18Client({ quiz, locale }: { quiz: Dvmsq18Questionnaire; locale: Locale }) {
+function ValidDvmsq18Client({ quiz, locale, readingProfiles }: { quiz: Dvmsq18Questionnaire; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
   const zh = locale === "zh", ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const { start: recordStart, complete: recordComplete, view: recordView, share: recordShare, consent: activityConsent } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({}), [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome");
@@ -101,11 +101,13 @@ function ValidDvmsq18Client({ quiz, locale }: { quiz: Dvmsq18Questionnaire; loca
           const item = quiz.questions.find(q => q.id === response.questionId)!;
           return <li key={item.id} className="rounded-lg bg-slate-50 p-4 leading-8"><p>{item.prompt[locale]}</p><p className="mt-2 font-semibold">{item.options.find(o => o.id === response.choice)!.label[locale]}</p></li>;
         })}</ol></details>
-        <div className="space-y-6">{quiz.profiles.map(profile => <section key={profile.id} data-dvmsq18-guide={profile.id} className="rounded-lg border border-slate-200 p-4 sm:p-6">
+        <div className="space-y-6">{quiz.profiles.map(profile => {
+          const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === profile.directionIds.length && item.directionIds.every((id, i) => id === profile.directionIds[i]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
+          return <section key={profile.id} data-dvmsq18-guide={profile.id} className="rounded-lg border border-slate-200 p-4 sm:p-6">
           <h3 className="scroll-mt-24 text-xl font-semibold">{profile.title[locale]}</h3>
-          <details className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开此部分完整读法" : "Expand this full reading"}</summary><div className="mt-5"><QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`dvmsq18-${profile.id}`} /></div></details>
+          <details className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开此部分完整读法" : "Expand this full reading"}</summary><div className="mt-5"><QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`dvmsq18-${profile.id}`} /></div></details>
           <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读完整公开指南" : "Read the complete public guide"}</Link>
-        </section>)}</div>
+        </section>; })}</div>
         <button type="button" className={button} onClick={copyPublicLinks}>{zh ? "复制公开解释链接" : "Copy public explanation links"}</button>
         {manual && <label className="block leading-7">{zh ? "手动复制公开链接" : "Public links for manual copying"}<textarea readOnly value={manual} className="mt-2 min-h-40 w-full rounded-lg border border-slate-300 p-3" /></label>}
         <button type="button" className={button} onClick={clear}>{zh ? "清空并重新测试" : "Clear and retake"}</button>

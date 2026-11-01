@@ -1,3 +1,4 @@
+import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -122,8 +123,8 @@ describe("T056 original philosophical inquiry reading reflection", () => {
     expect(readQuestionnaireDraft(quiz, JSON.stringify(draft), 123457)).toEqual(draft.answers);
     expect(readQuestionnaireDraft(quiz, JSON.stringify({ ...draft, version: "1.0.0" }), 123457)).toBeNull();
     expect(readQuestionnaireDraft(quiz, JSON.stringify(draft), 123456 + 86400000)).toBeNull();
-    const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireArchetypeReport quiz={quiz} result={tie} locale="en" />);
-    expect(dom.querySelectorAll("[data-archetype-match]")).toHaveLength(9); expect(dom.querySelectorAll("h4")).toHaveLength(81);
+    const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireArchetypeReport quiz={prepareQuestionnaireResultReadings(quiz)} result={tie} locale="en" />);
+    expect(dom.querySelectorAll("[data-archetype-match]")).toHaveLength(9); expect(dom.querySelectorAll("h4")).toHaveLength(99);
     const ids = Array.from(dom.querySelectorAll("[id]"), e => e.id); expect(new Set(ids).size).toBe(ids.length);
   });
 

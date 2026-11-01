@@ -1,3 +1,4 @@
+import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -103,11 +104,11 @@ describe("T013 public-domain IPIP BFM ten-item Extraversion reflection", () => {
   it("renders both complete boundary reports without duplicate IDs and renders no score or classification for missing data", () => {
     for (const locale of ["en", "zh"] as const) {
       const result = scoreExtraversionQuestionnaire(quiz, all("3")); if (result.status !== "complete") throw new Error("Invalid witness");
-      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireExtraversionReport quiz={quiz} result={result} locale={locale} />);
-      expect(dom.querySelectorAll("[data-extraversion-match]")).toHaveLength(2); expect(dom.querySelectorAll("h4")).toHaveLength(18);
+      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireExtraversionReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale={locale} />);
+      expect(dom.querySelectorAll("[data-extraversion-match]")).toHaveLength(2); expect(dom.querySelectorAll("h4")).toHaveLength(24);
       const htmlIds = Array.from(dom.querySelectorAll("[id]"), e => e.id); expect(new Set(htmlIds).size).toBe(htmlIds.length);
       const missing = scoreExtraversionQuestionnaire(quiz, all("na")); if (missing.status !== "complete") throw new Error("Invalid missing witness");
-      dom.innerHTML = renderToStaticMarkup(<QuestionnaireExtraversionReport quiz={quiz} result={missing} locale={locale} />);
+      dom.innerHTML = renderToStaticMarkup(<QuestionnaireExtraversionReport quiz={prepareQuestionnaireResultReadings(quiz)} result={missing} locale={locale} />);
       expect(dom.querySelectorAll("[data-extraversion-score], [data-extraversion-match]")).toHaveLength(0);
       expect(dom.querySelectorAll("a")).toHaveLength(4); expect(dom.querySelector("[data-extraversion-insufficient]")).toBeTruthy();
     }

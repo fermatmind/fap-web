@@ -1,0 +1,182 @@
+{
+  "files": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：先写目标路径，再决定动作",
+        "en": "Practise specifying a path before an operation"
+      },
+      "paragraphs": [
+        {
+          "zh": "自拟需求：保留Sandbox/Source/card-v2.txt，在Sandbox/Review放一个副本。先在纸上写出源路径与目标路径，再说明为什么是复制而非移动。如果目标已有同名文件，应先了解它是否需要保留，不直接覆盖。把副本改名为card-v2.pdf也不等于转换格式。可只讨论这个虚构例子，不必操作真实文件。",
+          "en": "Use an original brief: retain Sandbox/Source/card-v2.txt and place a copy in Sandbox/Review. Write source and destination paths before explaining why copying fits while moving does not. If the destination already has the same name, determine whether it needs preserving before replacing it. Renaming the copy card-v2.pdf would not convert its format. Discuss the fictional example without operating on real files."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：把位置、动作、内容核查分开",
+        "en": "Review location, operation and content separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "对一处错题分别记录：题目指定哪份、原件要不要保留、操作后应看到什么。匹配路径不证明内容获批，复制完成也不等于已核每字节。若选择实际练习，只用自己新建的可丢弃样本，遇同名提示先停下核对；不把识别选对当作已经独立完成复杂文件操作。",
+          "en": "For one missed item, record which copy is requested, whether the source must remain and what should be visible afterwards. A matching path does not establish approval, and finishing a copy is separate from checking every byte. For hands-on practice, use a disposable sample you created and inspect any same-name prompt before continuing. Recognition alone does not establish independent completion of complex file work."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起解释操作，不给使用者分级",
+        "en": "Explain an operation together without grading users"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果要求保留Source里的原件又在Review增加一份，怎样先写两个路径，再解释复制与移动的差别？”先各说依据，再对照虚构任务与官方帮助。可只看、查资料、换例子或不答；不用登录账号、发送消息或展示真实设备上的私人内容。",
+          "en": "Ask: “If a brief keeps the Source original and adds a Review copy, how would two written paths help explain copying versus moving?” Explain your reasons, then compare the fictional task with official help. Observe, consult a source, change examples or decline without account access, sending messages or displaying private device content."
+        },
+        {
+          "zh": "可分享不含个人答卷与正确数的公开指南。四组是复习主题，不是电脑能力等级或招聘认证；不要求同伴公开错题、工作文档或成绩。软件功能核对与这些原创题目的心理测量验证是不同事项。",
+          "en": "Share the public guide without personal answers or correct counts. Four groups organise revision rather than computer-proficiency levels or hiring certification. Request no errors, work documents or scores from others. Checking software features is separate from psychometric validation of these original items."
+        }
+      ]
+    }
+  ],
+  "browser": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：给下载记录和文件各画一格",
+        "en": "Practise separating the download record from the file"
+      },
+      "paragraphs": [
+        {
+          "zh": "自拟一个已保存的poster-sample.pdf，画两格分别代表Chrome下载列表条目与文件夹里的文件。仅从历史移除条目时，把列表格划掉，文件格仍保留；要定位文件则考虑“在文件夹中显示”，再核名字与位置。纸上演示即可，不必真的下载或删除。图示只表示这两个对象，不表示备份或同步位置已经清除。",
+          "en": "Invent a saved poster-sample.pdf and draw separate boxes for its Chrome Downloads entry and its stored file. Removing the history entry crosses out the list box while leaving the file box. To locate the file, consider Show in folder and check its name and location. Demonstrate on paper without downloading or deleting anything. The diagram concerns these two objects and makes no claim about backups or synchronized copies."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：先说希望改变的是哪个对象",
+        "en": "Review which object you intend to change"
+      },
+      "paragraphs": [
+        {
+          "zh": "把目标写成“回到网址”“定位文件”或“移除列表条目”，再核哪项控件对应它。书签、开着的标签页、下载记录和本地文件不是同一对象。界面与设备不符时查当前帮助，不机械套Windows快捷键；换一个无风险例子解释操作后什么改变、什么仍未知。",
+          "en": "State whether your goal is returning to an address, locating a file or removing a list entry, then match the control to it. Bookmarks, open tabs, download records and local files are distinct objects. Consult current help for a different interface or device rather than mechanically applying Windows shortcuts. Use a harmless new example to explain what changes and what remains unknown."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起解释操作，不给使用者分级",
+        "en": "Explain an operation together without grading users"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果下载列表里不再显示poster-sample.pdf，为什么仍需单独核对它是否在保存文件夹里？”先各说依据，再对照虚构任务与官方帮助。可只看、查资料、换例子或不答；不用登录账号、发送消息或展示真实设备上的私人内容。",
+          "en": "Ask: “If poster-sample.pdf no longer appears in Downloads, why would its saved folder still need a separate check?” Explain your reasons, then compare the fictional task with official help. Observe, consult a source, change examples or decline without account access, sending messages or displaying private device content."
+        },
+        {
+          "zh": "可分享不含个人答卷与正确数的公开指南。四组是复习主题，不是电脑能力等级或招聘认证；不要求同伴公开错题、工作文档或成绩。软件功能核对与这些原创题目的心理测量验证是不同事项。",
+          "en": "Share the public guide without personal answers or correct counts. Four groups organise revision rather than computer-proficiency levels or hiring certification. Request no errors, work documents or scores from others. Checking software features is separate from psychometric validation of these original items."
+        }
+      ]
+    }
+  ],
+  "email": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：主题、附件和收件人分别列出",
+        "en": "Practise separating subject, attachment and recipients"
+      },
+      "paragraphs": [
+        {
+          "zh": "自拟任务：Maple项目第2版草稿，请周二前审阅，待发附件应为outline-v2.pdf。主题可写Maple draft v2 — review by Tuesday，但写了文件名或版本不代表附件已经加入。另列收件人、附件与任务期限，逐项对照不发送的草稿。所列条件仅属于这个虚构任务，不要求登录邮箱或发送邮件。",
+          "en": "Use an original brief: Maple draft version 2 needs review by Tuesday, with outline-v2.pdf as the intended attachment. A subject can read Maple draft v2 — review by Tuesday, but naming a file or version does not attach it. List recipients, attachment and deadline separately, then check an unsent draft against each. These conditions belong only to the fictional brief and require neither a mailbox login nor sending."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：用待发内容核对，不只凭按钮名",
+        "en": "Review the outgoing content rather than the button name alone"
+      },
+      "paragraphs": [
+        {
+          "zh": "分别看主题是否保留任务条件、附件是否为所需版本、收件字段是否为预期对象。Outlook.com回复和转发的原附件默认不同，仍需核实际待发列表。若只在纸上练，可以画出这些字段再检查；不要为验证投递向别人发测试信，也不把草稿存在当作收件或同意。",
+          "en": "Check whether the subject preserves the brief, the attachment is the intended version and recipient fields name the intended people. Outlook.com reply and forward defaults differ for original attachments, so inspect the actual outgoing list. Draw the fields for a paper exercise if preferred. Do not send test messages to verify delivery or treat an existing draft as receipt or agreement."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起解释操作，不给使用者分级",
+        "en": "Explain an operation together without grading users"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果主题准确写了Maple第2版与周二期限，发送前仍有哪些字段不能仅凭主题就认定正确？”先各说依据，再对照虚构任务与官方帮助。可只看、查资料、换例子或不答；不用登录账号、发送消息或展示真实设备上的私人内容。",
+          "en": "Ask: “If a subject correctly names Maple version 2 and Tuesday, which outgoing fields still cannot be verified from that subject alone?” Explain your reasons, then compare the fictional task with official help. Observe, consult a source, change examples or decline without account access, sending messages or displaying private device content."
+        },
+        {
+          "zh": "可分享不含个人答卷与正确数的公开指南。四组是复习主题，不是电脑能力等级或招聘认证；不要求同伴公开错题、工作文档或成绩。软件功能核对与这些原创题目的心理测量验证是不同事项。",
+          "en": "Share the public guide without personal answers or correct counts. Four groups organise revision rather than computer-proficiency levels or hiring certification. Request no errors, work documents or scores from others. Checking software features is separate from psychometric validation of these original items."
+        }
+      ]
+    }
+  ],
+  "office": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：向下一行，逐项核公式引用",
+        "en": "Practise checking references after copying down one row"
+      },
+      "paragraphs": [
+        {
+          "zh": "自拟E8公式=D8*$J$2，复制到E9后应为=D9*$J$2。若D8=3、D9=4、J2=5，两式分别得15与20：相对行号改变，固定乘数位置保留。先手算，再对照公式；这里讨论复制一行，不是移动格、插行或重命名工作表。可以在纸上推演，不新增测试分数。",
+          "en": "Use the original formula =D8*$J$2 in E8. Copying down one row to E9 gives =D9*$J$2. With D8=3, D9=4 and J2=5, the results are 15 and 20: the relative row changes while the fixed multiplier location remains. Calculate manually before checking the formulas. This concerns copying, rather than moving cells, inserting rows or renaming a sheet. Work on paper without adding to the test score."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：范围、引用和记录关联分开核",
+        "en": "Review range, references and record relationships separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "先说明当前动作：求和、复制公式、筛选或整行排序。求和核边界，复制核哪些行列固定，筛选核隐藏与删除的区别，排序核ID与原值仍绑定。只挑一项新小例子检查，保留原始样本作对照；结果看起来整齐或算出一个数字，都不足以独立证明整张表正确。",
+          "en": "Name the operation first: summing, copying a formula, filtering or sorting whole rows. Check range boundaries for sums, fixed rows and columns for copying, hidden versus deleted rows for filtering and preserved ID–value pairs for sorting. Inspect one fresh small example with its original as a comparison. Neat formatting or a computed number alone does not establish a correct workbook."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起解释操作，不给使用者分级",
+        "en": "Explain an operation together without grading users"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“把=D8*$J$2向下复制一行时，怎样分别说明D8和$J$2为什么变化或保留？”先各说依据，再对照虚构任务与官方帮助。可只看、查资料、换例子或不答；不用登录账号、发送消息或展示真实设备上的私人内容。",
+          "en": "Ask: “When copying =D8*$J$2 down one row, how would you explain separately what changes in D8 and what stays fixed in $J$2?” Explain your reasons, then compare the fictional task with official help. Observe, consult a source, change examples or decline without account access, sending messages or displaying private device content."
+        },
+        {
+          "zh": "可分享不含个人答卷与正确数的公开指南。四组是复习主题，不是电脑能力等级或招聘认证；不要求同伴公开错题、工作文档或成绩。软件功能核对与这些原创题目的心理测量验证是不同事项。",
+          "en": "Share the public guide without personal answers or correct counts. Four groups organise revision rather than computer-proficiency levels or hiring certification. Request no errors, work documents or scores from others. Checking software features is separate from psychometric validation of these original items."
+        }
+      ]
+    }
+  ]
+}

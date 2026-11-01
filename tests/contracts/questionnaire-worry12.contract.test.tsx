@@ -88,8 +88,8 @@ describe("Original everyday-worry context observation categories, never a clinic
     for (const locale of ["en", "zh"] as const) {
       const html = renderToStaticMarkup(<EverydayWorryPage quiz={quiz} locale={locale} />);
       expect((html.match(/data-everyday-worry-full-guide=/g) ?? [])).toHaveLength(3);
-      expect(html).not.toContain("data-everyday-worry-result");
       const dom = document.createElement("div"); dom.innerHTML = html;
+      expect(dom.querySelector("[data-everyday-worry-result]")).toBeNull();
       expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(true);
       for (const p of quiz.profiles) {
         const guide = renderToStaticMarkup(<EverydayWorryGuidePage quiz={quiz} profile={p} locale={locale} />);

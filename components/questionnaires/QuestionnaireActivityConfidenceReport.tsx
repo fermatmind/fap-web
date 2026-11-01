@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
@@ -26,7 +26,7 @@ export function QuestionnaireActivityConfidenceReport({ quiz, result, locale }: 
         {score.mean === null && <p className="mb-4 text-sm leading-7 text-slate-600">{zh
           ? "经验不足、无法接触或不愿评价都可以不计分，不转成低分。以下完整指南是通用读法，不是对你能力或状态的判断。"
           : "Insufficient experience, inaccessible activities or a choice not to rate remain unscored, never low scores. The complete guide below is general information, not a judgment of your ability or state."}</p>}
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`activity-confidence-report-${direction.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`activity-confidence-report-${direction.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline"
           href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本组完整公开指南" : "Read this group’s full public guide"}</Link>
       </section>;

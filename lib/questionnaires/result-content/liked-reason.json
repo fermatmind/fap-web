@@ -1,0 +1,994 @@
+{
+  "warmth": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "一次普通闲聊后，若愿意，只记下自己问了什么、对方明确说了什么，以及哪些感受仍是自己的猜测。下次可以先问“你想让我听一会儿吗？”；没有回答就保留未知，不把沉默写成需要照顾。",
+          "en": "After an ordinary chat, optionally note what you asked, what the other person explicitly said and which feelings remain your guesses. Next time you could ask, “Would you like me to listen for a while?” Leave an unanswered question open rather than reading silence as a need for care."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "想一起看这份温暖留意的通用说明吗？在虚构的朋友聊天中，你更希望被问近况，还是先有一点安静空间？不用评价我是否体贴。",
+          "en": "Want to read this general warmth guide together? In an imagined chat with a friend, would you prefer a check-in or some quiet space first? There is no need to rate how caring I am."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "follow-through": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "挑一件很小、已经答应的事，分开记“原约定、实际进度、是否已通知变化”。复盘能否把范围说清，而非是否获得感谢；发现做不到时，更新约定比再接一件事更值得讨论。",
+          "en": "Choose one small existing commitment and separate the agreement, actual progress and any update you sent. Review whether the scope was clear rather than whether you received thanks. If it is no longer feasible, discuss revising it rather than taking on another task."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "如果我们虚构一个借书约定，你希望先确认归还日期，还是确定有变化时怎么通知？这份说明没有替任何人作保证。",
+          "en": "For an imagined book loan, would you rather confirm a return date first or agree how to communicate changes? This guide makes no guarantee about anyone."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "lightness": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看一次自己加了轻松表达的普通场合，只区分表达本身与对方明确的回应。笑声不必解释成认可，没笑也不等于失败；若对方想换话题，就记录自己是否留出了这个出口。",
+          "en": "Recall an ordinary moment when you added a light remark. Separate what you said from the response actually expressed. Laughter need not mean approval, and no laughter need not mean failure. If someone wanted a different topic, note whether that option remained open."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "在一个想象中的聚会空档，你想接一句轻松话题，还是让安静持续一会儿？可以选安静，不用负责接梗。",
+          "en": "In an imagined quiet moment at a gathering, would you welcome a light topic or prefer to leave the silence? Quiet is an option; nobody has to respond to a joke."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "curiosity": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "尝试把一个宽泛问题缩成可不回答的小问题，例如“愿意讲讲你喜欢它的哪一点吗？”复盘有没有得到继续的许可、是否真的想听答案；话题结束也是一个完整结果，不以问题数量评判交流。",
+          "en": "Optionally narrow a broad question to a small, answer-optional one: “Would you like to say what you enjoy about it?” Review permission to continue and your interest in listening. Ending the topic is a complete outcome too; question counts do not grade a conversation."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "若聊一个虚构的兴趣爱好，你喜欢别人问具体细节，还是让你自己决定从哪里说？不必交代真实私人经历。",
+          "en": "For an imaginary hobby conversation, would you prefer a specific question or to choose your own starting point? No real personal experience is needed."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "把一次普通拒绝拆成自己的限制、已经说出的范围和仍待协商的安排。复盘能否明确表达，同时允许对方有不同感受；对方失望不自动证明你表达错误，也不要求你改口答应。",
+          "en": "Separate an ordinary refusal into your limit, the scope you stated and arrangements still open for discussion. Review clarity while allowing a different reaction. Someone’s disappointment does not automatically make your wording wrong or require you to agree after all."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构一次活动邀请，你更希望听到直接的不能参加，还是附带可行替代时间？没有替代方案也可以拒绝。",
+          "en": "For an imaginary invitation, would you prefer a direct decline or an alternative time if one is feasible? Declining does not require an alternative."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "warmth-follow-through": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "朋友改了见面时间，你可以分别核对“是否想谈感受”和“原约定还有哪部分有效”。复盘有没有把关心说成额外承诺，或把完成事项当作对方已被安慰；两件事各自确认即可。",
+          "en": "If a friend changes a meeting time, separately check whether they want to discuss feelings and what remains of the agreement. Review whether care became an added promise or finishing a task was treated as proof of comfort. Each can be checked on its own."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "假设约好的事情有变，你想先听到进度更新，还是先说说自己的感受？我们可以不同，不据此评谁更可靠或体贴。",
+          "en": "If an imagined agreement changes, would you prefer an update or space to say how you feel first? Different preferences need not rank reliability or care."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "warmth-lightness": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "想象朋友说今天不太顺。先区分自己想陪着听，还是想说点轻松内容；实际尝试时可以让对方选，也允许都不要。复盘选择有没有被尊重，不把气氛变热闹当作安慰成功。",
+          "en": "Imagine a friend saying their day went badly. Distinguish wanting to listen from wanting to offer something light. If you try this, let them choose, including neither. Review respect for that choice rather than treating a livelier mood as successful comfort."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构一个不顺心的下午，你想有人安静陪着，还是分享一件轻松小事？也可以都不选，不需要报出真实烦恼。",
+          "en": "For an imaginary difficult afternoon, would you want quiet company or a light anecdote? Choosing neither is fine too, without disclosing a real concern."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "warmth-curiosity": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "一次认识新人的聊天可以只留一个可选问题，再观察自己是否给出了停顿。复盘“我注意到了什么”和“对方确认了什么”是否分开；继续追问与表示理解都不必抢在对方之前。",
+          "en": "In a conversation with someone new, you could offer one optional question and leave a pause. Review the difference between what you noticed and what they confirmed. Neither another question nor an expression of understanding has to come before their own account."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "若虚构一次初次见面，你更想从兴趣开始，还是先熟悉环境？这只是聊天入口，不邀请你验证我会不会共情。",
+          "en": "In an imaginary first meeting, would you prefer starting with an interest or settling into the setting? This is a conversation opener, not a test of my empathy."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "warmth-boundaries": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "对方暂时不说话时，可以提出一次陪伴选项，再接受不需要。复盘自己有没有把关心变成留在场边的理由，也有没有把尊重空间误写成冷漠；没有明确反馈的部分保持未定。",
+          "en": "If someone is quiet, you could offer company once and accept a decline. Review whether concern became a reason to stay anyway, or space was interpreted as coldness. Keep anything without explicit feedback undecided."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构朋友想独处的时刻，你喜欢收到一次陪伴邀请，还是约好之后再联系？不必解释想独处的原因。",
+          "en": "If an imaginary friend wants solitude, would you prefer one offer of company or an agreed later check-in? No explanation for wanting space is required."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "follow-through-lightness": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "共同活动稍有延误时，把需要更新的安排与可选的轻松内容分开。复盘哪条信息确实需要对方知道、哪种表达可以省略；幽默不负责交代进度，清楚交代也不要求一直严肃。",
+          "en": "When a shared activity is slightly delayed, separate the needed update from optional light content. Review what others needed to know and what could be omitted. Humour does not communicate progress by itself, and a clear update does not demand constant seriousness."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "假设小组安排延迟，你想先知道新的时间，还是先暂停一下再听安排？轻松表达可以有，也可以没有。",
+          "en": "If an imagined group plan is delayed, would you prefer the new timing first or a brief pause before the update? Lightness is optional."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "follow-through-curiosity": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "有人请你帮忙查一项信息时，先区分“了解为什么重要”和“答应查到什么”。复盘新增的问题是否改变了任务范围；可以只听背景而不接任务，也可以完成已约定的范围而不继续探问。",
+          "en": "If someone asks you to look something up, distinguish understanding why it matters from agreeing what to find. Review whether new questions changed the scope. You can hear the background without accepting the task, or finish an agreement without further probing."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构一次资料托付，你想先说明用途，还是先确认能查什么、何时回复？两种顺序都可讨论，不等于兴趣或责任高低。",
+          "en": "For an imaginary information request, would you start with its purpose or agree scope and timing first? Either order can be discussed without ranking interest or responsibility."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "follow-through-boundaries": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "原约定无法照办时，分别写下已经完成的部分、无法完成的部分和可协商的下一步。复盘通知是否准确，而非是否让所有人满意；说明限制不能让旧约定自动消失，更新约定也不要求接下新增任务。",
+          "en": "If an agreement becomes infeasible, separate what is done, what cannot be done and what remains negotiable. Review the accuracy of the update rather than universal satisfaction. A limit does not automatically erase an agreement, and revising one need not add new work."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构借用物品要延期，你希望先听到实际情况，还是一起核对新的可行安排？我们只讨论怎么说，不为谁贴守信标签。",
+          "en": "For an imaginary delayed return, would you want the actual situation first or to discuss a feasible new arrangement? We can discuss wording without judging anyone’s character."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "lightness-curiosity": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "一次闲聊中，轻松话题与深入问题都可以出现，也都可以停下。复盘两者是否真由当时兴趣支持，还是只因怕冷场；没有继续讨论不证明话题失败，不需要再用玩笑或问题补满空白。",
+          "en": "Light content and deeper questions may both appear in a chat, and both can stop. Review whether interest supported them or whether you were filling silence. No further discussion need not mean a failed topic; another joke or question is not owed."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "若聚会有十分钟空档，你想聊一件有趣小事，还是探索一个新问题？也可以不聊天，不以选择判断外向程度。",
+          "en": "With an imagined ten-minute gap, would you prefer a light anecdote or a new question? Not chatting is available too, without an extraversion verdict."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "lightness-boundaries": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "出现一个小尴尬后，可以先确认是否需要说明，再决定有没有适合的轻松回应。复盘玩笑是否让原来的意思更模糊，坦诚是否变成要求别人接受；说清、换题和暂停都是可选结果。",
+          "en": "After a minor awkward moment, check whether clarification is wanted before choosing any light response. Review whether humour obscured the issue or honesty became a demand for acceptance. Clarifying, changing topic and pausing are all possible outcomes."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构一次说错名字的小尴尬，你想直接更正后继续，还是接受一句轻松自嘲？不喜欢玩笑可以直接说。",
+          "en": "For an imaginary name mix-up, would you prefer a simple correction or a light self-directed remark? Disliking the joke is a valid response."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "curiosity-boundaries": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "遇到不同观点，可以先问是否愿意再谈一个问题，再决定自己要表达什么。复盘有没有把对方回答当成必须被说服的入口；允许各自保留立场，停止讨论不需要一方认输。",
+          "en": "With a different view, you could ask permission for one more question before stating your own position. Review whether an answer became an opening for compulsory persuasion. Each person may retain a view; ending the discussion need not produce a loser."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构一次观点不同，你更希望别人问依据，还是先各自说清立场？可以选择不展开，无须提交真实争议。",
+          "en": "For an imagined disagreement, would you prefer a question about reasons or each person stating their view? You can decline to elaborate without bringing a real dispute."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "warmth-follow-through-lightness": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "共同布置桌面时，有人担心没做好。可以把回应感受、确认剩余事项和加入轻松表达列成三个选项，只做当下愿意且需要的一项。复盘有没有借安慰多接任务，或借玩笑跳过必要更新。",
+          "en": "While arranging a table together, someone worries about their contribution. Treat responding to feelings, checking remaining work and adding lightness as three options; one may be enough. Review whether comfort added unwanted tasks or humour skipped a needed update."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构活动收尾时，你想先确认完成情况、说说感受，还是轻松歇一下？我们可以选不同项，不必共同扮演全能搭档。",
+          "en": "At an imagined activity’s end, would you prefer checking completion, talking about feelings or a light pause? Different choices need not make anyone an all-purpose partner."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "warmth-follow-through-curiosity": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "朋友谈一件委托的小事时，分别记下愿意听的范围、仍不明白的问题和确实答应的动作。复盘提问是否被当成接下任务，关心是否被当成保证结果；三者可以独立确认。",
+          "en": "When a friend discusses a small request, separate what you are willing to hear, what you still want to understand and any action you actually agreed to. Review whether questions implied accepting work or care implied a guaranteed outcome. Confirm each separately."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构一个需要查资料的小烦恼，你想先被听见、说明背景，还是确认下一步？不用用真实经历证明我们的关系。",
+          "en": "For an imaginary concern involving information, would you prefer listening, explaining the background or agreeing a next step? No real experience is needed to prove a relationship."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "warmth-follow-through-boundaries": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "答应帮朋友整理物品却只有半小时，可以把愿意听、能做多少和到时离开分别说清。复盘有没有把对方不舍解释成必须留下；余量、原约定与感受可以同时被看见，不要求同时满足。",
+          "en": "If you agreed to help sort belongings but have half an hour, separately state willingness to listen, feasible work and leaving time. Review whether reluctance to end became a duty to stay. Capacity, agreements and feelings can be acknowledged without all being satisfied."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "假设朋友只能帮忙半小时，你希望怎么确认范围，又怎么保留表达感受的空间？讨论安排即可，不比较谁更值得信任。",
+          "en": "If an imaginary friend can help for half an hour, how would you agree scope and leave room for feelings? Discuss arrangements without ranking trustworthiness."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "warmth-lightness-curiosity": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "遇到一位分享新兴趣的朋友，可以列出陪着听、问一个细节和说点轻松内容三种可能。复盘哪项是对方明确愿意的、哪项只是自己想做；不必把每个兴趣话题都变成长谈。",
+          "en": "With a friend sharing a new interest, consider listening, asking one detail and adding light content as separate possibilities. Review what they explicitly welcomed and what you merely wanted to do. An interest need not turn into a long conversation."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构一次聊新爱好，你想先介绍细节、随意聊聊，还是让别人安静听？不用让同一个回答同时满足三个方向。",
+          "en": "For an imaginary new hobby, would you prefer explaining details, light chat or quiet listening? One answer need not serve all three approaches."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "warmth-lightness-boundaries": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "对方在聚会中想安静坐会儿，可以让陪伴、轻松话题和独处成为真正可拒绝的选项。复盘自己是否只口头允许暂停，却又不断邀请；尊重一次拒绝也可以是这段互动的结尾。",
+          "en": "If someone wants quiet at a gathering, make company, light conversation and solitude genuinely optional. Review whether a pause was offered verbally but followed by repeated invitations. Accepting one decline can be the end of the interaction."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "想象聚会中途休息，你想有人陪着不说话、聊点轻松内容，还是独处？不用挑最有社交感的答案。",
+          "en": "Imagine a break during a gathering: quiet company, a light topic or solitude? You need not choose whichever seems most sociable."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "warmth-curiosity-boundaries": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "朋友提到一件不想细说的事，可以分别确认是否想被听见、是否愿意回答一个问题、是否到此为止。复盘有没有因为自己关心就继续探问；未知可以保留，不必补出故事或情绪解释。",
+          "en": "If a friend mentions something they do not want to detail, separately check whether listening, one question or stopping is wanted. Review whether your concern became a reason to probe. The unknown can remain unknown without an invented story or feeling."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构一次只愿简单提起的近况，你希望别人怎么表示关心，又怎么让你决定说到哪里？不需要提供真实秘密。",
+          "en": "For an imaginary update you only want to mention briefly, how could someone show interest while leaving its scope to you? No real secret is needed."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "follow-through-lightness-curiosity": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "一起完成一份简单清单时，新的问题和轻松闲聊可能让结束时间变化。复盘有没有先核对已约定的完成点，再决定继续聊什么；不把询问新想法理解成同意延长任务。",
+          "en": "While completing a simple checklist together, new questions and light chat may change the ending time. Review whether the agreed finishing point was checked before further conversation. Asking about a new idea need not mean agreeing to extend the task."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构清单快做完时，你想先交付、聊点轻松内容，还是问一个新角度？我们可以把新话题留到以后。",
+          "en": "Near the end of an imaginary checklist, would you prefer finishing, light chat or a new angle? A new topic can wait."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "follow-through-lightness-boundaries": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "约好收尾的时间到了，有人还想用轻松话题留下大家。可以单独确认交接是否完成、谁愿意继续、谁需要离开。复盘离开是否被误说成扫兴；收尾与休息都不靠讨好完成。",
+          "en": "At an agreed ending time, someone offers light chat to keep the group together. Separately check handover, willingness to continue and who needs to leave. Review whether leaving was treated as spoiling the mood. Neither finishing nor resting requires approval."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "假设约好的活动结束，你想先确认交接，还是直接进入自愿闲聊？要离开的人不必解释私人安排。",
+          "en": "After an imagined activity ends, would you check handover or move to optional chat? Anyone leaving need not explain private plans."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "follow-through-curiosity-boundaries": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "查找一项约定信息时发现还有许多问题，可以把已答应的交付、可选追问和停止时间分开。复盘好奇有没有悄悄扩大承诺，边界有没有被用来略去必要更新；重新协商允许只交付原范围。",
+          "en": "If an information task opens more questions, separate the agreed delivery, optional exploration and stopping time. Review whether curiosity quietly expanded a promise or a limit omitted a needed update. Renegotiation can retain only the original scope."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构查资料遇到新线索，你想先收下已有结果，还是另约时间讨论？继续探索需要另行同意，不是默认附赠。",
+          "en": "If an imaginary search reveals a new lead, would you prefer the existing result or a separately agreed discussion? Further exploration requires a new agreement."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "lightness-curiosity-boundaries": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "一个轻松话题转向不同意见时，可以选择追问一点、换个话题或清楚结束。复盘有没有用幽默压住分歧，或把提问当成必须继续的理由；没有共识也可以保留轻松或结束。",
+          "en": "If a light topic becomes a disagreement, consider one question, changing topic or ending clearly. Review whether humour hid the difference or a question implied compulsory continuation. No consensus is required to keep things light or stop."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构一次闲聊观点不同，你想继续了解、换轻松话题，还是暂停？可以各选各的，不必证明谁更会聊天。",
+          "en": "When an imaginary chat reaches differing views, would you explore, switch to a light topic or pause? Different choices need not rank conversational skill."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "follow-through-lightness-curiosity-boundaries": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "小组清单做完后还有新点子，可以分别核对已交付的事项、愿不愿轻松聊、想问什么和各自结束时间。复盘哪些选项确实被选择；没做完四种行为不算缺项，也不需要补上未在顶部的方向。",
+          "en": "After a group checklist is finished, new ideas may arise. Separately check delivery, optional light chat, questions and ending times. Review which options were actually chosen. Not performing four behaviours is no omission, and no absent leading direction needs adding."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构协作结束，你会选确认清单、轻松聊、问新想法还是结束？只选一个也行，不邀请你评价我是否全面。",
+          "en": "After imaginary teamwork, would you confirm the list, chat lightly, ask about an idea or finish? One choice is enough; no rating of my completeness is needed."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "warmth-lightness-curiosity-boundaries": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "普通闲聊里有人显得累，可以把“似乎累了”留作猜测，再问是否想继续。若继续，陪着听、问细节或聊轻松内容仍需分别选择；复盘不以聊天时长、笑声或分享多少衡量双方投入。",
+          "en": "If someone seems tired in a casual chat, keep that as a guess and ask whether they want to continue. Listening, details and light content remain separate options if they do. Review without grading engagement by duration, laughter or disclosure."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构一次聊到有点累，你想安静陪伴、轻松换题、回答一个问题还是结束？无需同时解释感受和提供故事。",
+          "en": "In an imaginary tiring chat, would you want quiet company, a light topic, one question or an ending? No explanation of feelings or story is owed."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "warmth-follow-through-curiosity-boundaries": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "朋友既想谈心又问一项已托付的信息，可以分别写下愿意听多久、能问的范围、信息进度和自己的限制。复盘四件事有没有被混成“我都能负责”；一项明确的小承诺可以比笼统答应更可讨论。",
+          "en": "If a friend wants to talk and asks about an existing information request, separate listening time, permissible questions, progress and your limits. Review whether these became “I can take care of everything.” One specific commitment may be easier to discuss than a broad promise."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构一次朋友来谈事，你想先说感受、解释问题、听进度还是约定时间范围？可分开讨论，不评谁最值得依赖。",
+          "en": "For an imagined conversation with a friend, would you start with feelings, the issue, progress or time limits? Discuss them separately without ranking dependability."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "warmth-follow-through-lightness-boundaries": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "准备一顿普通聚餐时，照顾感受、确认分工、轻松表达和结束帮忙可能互相占用时间。复盘自己实际选择了哪项、舍下了哪项；不要把聚餐顺利解释成四种能力都得到证实。",
+          "en": "Preparing an ordinary shared meal, feelings, agreed tasks, lightness and ending help may compete for time. Review what you chose and what you left aside. A smooth meal does not establish four abilities."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构聚餐准备慢了些，你想先确认分工、歇会儿、说说感受还是说明离开时间？没有必须四项兼顾的答案。",
+          "en": "If imaginary meal preparation runs slowly, would you check tasks, take a light pause, discuss feelings or state your leaving time? No answer has to cover all four."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "warmth-follow-through-lightness-curiosity": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "一次小组交流将结束，可以分别确认感受是否愿意谈、已答应什么、是否想聊轻松内容或再问一题。复盘有没有把热情当成可以延时的许可；边界即使不在顶部，也不需要靠本结果才成立。",
+          "en": "Near the end of a group conversation, separately check willingness to discuss feelings, existing promises, light chat or another question. Review whether enthusiasm became assumed permission to extend. Boundaries remain valid regardless of their count in this result."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构活动结束前，你想先完成约定、听感受、轻松聊还是问一件事？也可以直接结束，这不是增加社交投入的要求。",
+          "en": "Before an imagined activity ends, would you finish an agreement, hear feelings, chat lightly or ask something? Ending directly is also available; extra engagement is not required."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ],
+  "all-five-tied": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把选择放回具体情境",
+        "en": "Review a choice in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "若愿意，从两个普通场景各选一个你当时最想做的动作，并注明时间、余力或对方明确请求这些条件。比较情境怎样改变选择，不给五种方式排永久顺序；一次也可以什么都不补做。",
+          "en": "If you wish, choose one action you preferred in each of two ordinary situations and note conditions such as time, capacity or an explicit request. Compare how context changed the choice without permanently ranking five approaches. You may add no action at all."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "可选分享：邀请讨论，不求好感认证",
+        "en": "Optional sharing: invite a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "这份五项并列只说明本次没有唯一顶部。虚构聚会结束时，你想听一会儿、确认约定、轻松聊、问近况还是离开？可以保留不确定，不需要再测一遍破平局。",
+          "en": "This five-way tie only means no sole leader in this attempt. At an imaginary gathering’s end, would you listen, confirm an agreement, chat lightly, ask for an update or leave? Uncertainty is fine; no retest is needed to break the tie."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不附带本次计数或答案；对方可以不回答，不需要互相评分、上传聊天记录或披露私人经历。",
+          "en": "You can share only this public general guide, or choose not to share. Its link carries no counts or answers from your attempt. The other person may decline; no mutual rating, chat upload or private experience is needed."
+        }
+      ]
+    }
+  ]
+}

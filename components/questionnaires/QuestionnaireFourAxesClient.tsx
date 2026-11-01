@@ -4,7 +4,7 @@ import { useEntertainmentMetrics, useEntertainmentResultView } from "@/component
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { FourAxesResult } from "@/lib/questionnaires/fourAxes";
 import type { Locale } from "@/lib/i18n/locales";
-import type { QuestionnaireAnswers } from "@/lib/questionnaires/types";
+import type { QuestionnaireAnswers, QuestionnaireProfile } from "@/lib/questionnaires/types";
 import { isFourAxesConfigurationValid, scoreFourAxesQuestionnaire, type FourAxesQuestionnaire } from "@/lib/questionnaires/fourAxes";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import { QuestionnaireFourAxesReport } from "./QuestionnaireFourAxesReport";
@@ -13,12 +13,12 @@ type Complete = Extract<FourAxesResult, { status: "complete" }>;
 const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
 const subscribeReady = () => () => {};
 
-export function QuestionnaireFourAxesClient({ quiz, locale }: { quiz: unknown; locale: Locale }) {
+export function QuestionnaireFourAxesClient({ quiz, locale, readingProfiles }: { quiz: unknown; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
   if (!isFourAxesConfigurationValid(quiz)) return <p role="status">{locale === "zh" ? "问卷内容暂不可用。" : "The questionnaire content is unavailable."}</p>;
-  return <ValidFourAxesClient key={`${locale}:${quiz.version}`} quiz={quiz} locale={locale} />;
+  return <ValidFourAxesClient key={`${locale}:${quiz.version}`} quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
 }
 
-function ValidFourAxesClient({ quiz, locale }: { quiz: FourAxesQuestionnaire; locale: Locale }) {
+function ValidFourAxesClient({ quiz, locale, readingProfiles }: { quiz: FourAxesQuestionnaire; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
   const { start: recordStart, complete: recordComplete, view: recordView, consent: activityConsent, share: recordShare } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false), zh = locale === "zh";
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({}), [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome");
@@ -73,7 +73,7 @@ function ValidFourAxesClient({ quiz, locale }: { quiz: FourAxesQuestionnaire; lo
       </>}
       {stage === "result" && result && <>
         <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading[locale]}</h2>
-        <QuestionnaireFourAxesReport quiz={quiz} result={result} locale={locale} />
+        <QuestionnaireFourAxesReport quiz={quiz} result={result} locale={locale} readingProfiles={readingProfiles} />
         <button type="button" className={button} onClick={() => { revision.current += 1; setResult(null); setManual(""); setMessage(""); setStage("answer"); setPosition(0); }}>{zh ? "修改回答（清除当前结果）" : "Edit answers and clear this result"}</button>
         <button type="button" className={button} onClick={copyPublicLinks}>{zh ? "复制公开解释链接" : "Copy public explanation links"}</button>
         {manual && <label className="block leading-7">{zh ? "手动复制公开链接" : "Public links for manual copying"}<textarea readOnly value={manual} className="mt-2 min-h-40 w-full rounded-lg border border-slate-300 p-3" /></label>}

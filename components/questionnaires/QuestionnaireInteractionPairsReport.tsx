@@ -3,7 +3,7 @@ import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { InteractionPairsResult } from "@/lib/questionnaires/interactionPairs";
 import type { Locale } from "@/lib/i18n/locales";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 export function QuestionnaireInteractionPairsReport({ quiz, result, locale }: {
   quiz: Questionnaire;
@@ -29,7 +29,7 @@ export function QuestionnaireInteractionPairsReport({ quiz, result, locale }: {
         <p className="mb-5 leading-8" data-interaction-tie={pair.leaders.length === 2 ? "true" : "false"}>{pair.leaders.length === 2
           ? (zh ? "两侧各三次，保留并列；这不证明完美平衡，也不需要改答来选出唯一方向。" : "Three choices each: both sides remain. A tie does not prove perfect balance, and you need not change answers to produce a single direction.")
           : (zh ? "本组一侧次数较多，只表示这六次相对选择；较少的一侧仍有完整解释，不表示缺失或缺点。" : "One side has more choices in this set of six. The less-selected side still has a full explanation and is not a deficit.")}</p>
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`interaction-report-${pair.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`interaction-report-${pair.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline"
           href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本组完整公开指南" : "Read this comparison’s full public guide"}</Link>
       </section>;

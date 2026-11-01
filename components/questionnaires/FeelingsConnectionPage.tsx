@@ -5,7 +5,8 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire, QuestionnaireProfile } from "@/lib/questionnaires/types";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
+import { prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
 import { FeelingsConnectionClient } from "./FeelingsConnectionClient";
 import { FeelingsConnectionSupport } from "./FeelingsConnectionReport";
 function Library({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
@@ -29,7 +30,7 @@ export function FeelingsConnectionPage({ quiz, locale }: { quiz: Questionnaire; 
     <FeelingsConnectionClient key={`${quiz.slug}:${locale}`} quiz={quiz} locale={locale} />
     {quiz.guide.map(s => <section key={s.id} className="my-8 space-y-4 leading-8" aria-labelledby={`feelings-connection-method-${s.id}`}><h2 id={`feelings-connection-method-${s.id}`} className="text-2xl font-semibold">{s.title[locale]}</h2>{s.paragraphs.map((p, i) => <p key={i}>{p[locale]}</p>)}</section>)}
     <SeparateReadings locale={locale} /><Library quiz={quiz} locale={locale} />
-    {quiz.profiles.map(p => <section key={p.id} id={`feelings-connection-public-${p.directionIds[0]}`} data-feelings-connection-full-guide={p.id} className="my-10 scroll-mt-24 border-t border-slate-200 pt-7"><h2 className="mb-5 text-2xl font-semibold">{p.title[locale]}</h2><QuestionnaireReport profile={p} locale={locale} headingLevel={3} idPrefix={`feelings-connection-public-${p.id}`} /></section>)}
+    {quiz.profiles.map(p => <section key={p.id} id={`feelings-connection-public-${p.directionIds[0]}`} data-feelings-connection-full-guide={p.id} className="my-10 scroll-mt-24 border-t border-slate-200 pt-7"><h2 className="mb-5 text-2xl font-semibold">{p.title[locale]}</h2><QuestionnaireResultReading quizSlug={quiz.slug} profile={prepareResultProfile(quiz.slug, p)} locale={locale} headingLevel={3} idPrefix={`feelings-connection-public-${p.id}`} /></section>)}
     <section className="my-10 space-y-5 leading-8" aria-labelledby="feelings-connection-faq"><h2 id="feelings-connection-faq" className="text-2xl font-semibold">{zh ? "常见问题" : "Frequently asked questions"}</h2>{quiz.faq.map((f, i) => <div key={i}><h3 className="font-semibold">{f.question[locale]}</h3><p className="mt-2">{f.answer[locale]}</p></div>)}</section>
     <section className="my-8" aria-labelledby="feelings-connection-references"><h2 id="feelings-connection-references" className="text-xl font-semibold">{zh ? "困难经历与专业支持背景" : "Public topic and support background"}</h2><ul className="mt-4 space-y-3">{quiz.references!.map(r => <li key={r.url}><a className="underline" href={r.url} rel="noopener noreferrer">{r.title[locale]}</a></li>)}</ul><p className="mt-4 leading-7">{zh ? "资料只提供专业背景，不为原创题本提供题目、计分、验证、历史确证或诊断。" : "These sources supply professional background, not items, scoring, validation, historical verification, diagnosis or endorsement of these original observations."}</p></section>
     <p className="mt-8 text-sm text-slate-600">{zh ? "原创内容版本" : "Original content edition"} {quiz.version} · <time dateTime={quiz.updated}>{quiz.updated}</time></p>
@@ -42,7 +43,7 @@ export function FeelingsConnectionGuidePage({ quiz, profile, locale }: { quiz: Q
     <Link prefetch={false} className="mb-6 inline-block min-h-11 py-2 underline" href={entry}>{quiz.title[locale]}</Link>
     <p className="font-semibold text-violet-800">{zh ? "完整公开感受与联系指南" : "Complete public feelings-and-connection guide"}</p><h1 className="mt-3 text-4xl font-semibold leading-tight">{profile.title[locale]}</h1>
     <p className="my-5 leading-8">{zh ? "这是所有人都可阅读的原创主题说明，没有任何人的回答或计数。无需先答题，也不是个人结果、风险档位或诊断。" : "This original theme explanation is available to everyone without anyone’s answers or counts. No prior answers are needed. It is not a personal result, risk band or diagnosis."}</p>
-    <FeelingsConnectionSupport locale={locale} /><div data-feelings-connection-full-guide={profile.id}><QuestionnaireReport profile={profile} locale={locale} headingLevel={2} idPrefix="report" /></div><SeparateReadings locale={locale} /><Library quiz={quiz} locale={locale} />
+    <FeelingsConnectionSupport locale={locale} /><div data-feelings-connection-full-guide={profile.id}><QuestionnaireResultReading quizSlug={quiz.slug} profile={prepareResultProfile(quiz.slug, profile)} locale={locale} headingLevel={2} idPrefix="report" /></div><SeparateReadings locale={locale} /><Library quiz={quiz} locale={locale} />
     <Link prefetch={false} className="inline-block min-h-11 py-2 font-semibold underline" href={`${entry}#take-test`}>{zh ? "返回八条原创描述" : "Return to the eight original descriptions"}</Link>
   </Container></main>;
 }

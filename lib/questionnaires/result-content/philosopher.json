@@ -1,0 +1,290 @@
+{
+  "socrates": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "给一个判断补上含义、根据与反例",
+        "en": "Give a claim its meaning, grounds and a counterexample"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的公平安排，先用自己的话说明“公平”在这里指什么，再写一个支持这个判断的例子和一个可能使你修改判断的情况。也可以发现双方说的是不同问题。若还有讨论时间，只挑一个最关键的词澄清，同时说出自己的理由。问题可以暂时没有答案；不需要靠连续追问赢过对方。这是对本次说法的检视，不是用发问数量证明自己更接近苏格拉底。",
+          "en": "Revisit the fairness example by stating what fair means here, one supporting example and a circumstance that might change your judgment. You may discover that people mean different things. If time permits, clarify one key term and give your own reasons too. An answer may remain open; repeated questions need not become a contest. Examine this claim rather than count questions as proof of resemblance to Socrates."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "把阅读联想变成一个讨论问题",
+        "en": "Turn the reading association into a discussion"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设两个人都说座位安排应该公平，他们可能分别在重视什么？”说明自己的理由，也听另一种看法。这是本站从选定阅读入口展开的原创情境，不是请古代或现代作者替现实争论裁决。",
+          "en": "Ask: “If two people both wanted fair seating, what different things might each mean?” Explain your reasons and hear another view. This is an original contemporary situation developed from the selected reading entrance, rather than asking a historical author to decide a present dispute."
+        },
+        {
+          "zh": "可以分享这份公开说明，链接不含本次答案或计数。对方可以跳过问题；不需要证明自己属于某个学派，也不以结果判断谁更有智慧或更值得交往。",
+          "en": "You can share this public guide; its link contains no answers or counts from this attempt. The other person may skip the question. No philosophical-school identity, wisdom ranking or relationship verdict is required."
+        }
+      ]
+    }
+  ],
+  "aristotle": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "为一次做法写明适用条件",
+        "en": "State the conditions that make a practice fit"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的共读时长，把目的、参与者时间和文本难度分别列出，再说明为什么某个安排适合这一回。可以提出先读一段、之后再决定下一次时长，而不是把两个提议取平均。也记下一种会让这个安排不再合适的条件。复盘不需要给自己评德性；它让做法有具体理由，必要时可以修订。已有明确要求的部分仍按实际要求处理，不为寻找中间点而改动。",
+          "en": "For the reading-session example, separate purpose, available time and the text’s difficulty, then explain why an arrangement fits this occasion. You might read one passage before deciding a later session’s length rather than average two proposals. Name a condition under which the arrangement would no longer fit. This gives a practice reasons and room for revision without rating your virtue or altering explicit requirements to manufacture a midpoint."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "把阅读联想变成一个讨论问题",
+        "en": "Turn the reading association into a discussion"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设一人想读十分钟，另一人想读一小时，还需要了解哪些条件才能安排？”说明自己的理由，也听另一种看法。这是本站从选定阅读入口展开的原创情境，不是请古代或现代作者替现实争论裁决。",
+          "en": "Ask: “If one person wanted ten minutes of reading and another an hour, what else would you need to know before arranging it?” Explain your reasons and hear another view. This is an original contemporary situation developed from the selected reading entrance, rather than asking a historical author to decide a present dispute."
+        },
+        {
+          "zh": "可以分享这份公开说明，链接不含本次答案或计数。对方可以跳过问题；不需要证明自己属于某个学派，也不以结果判断谁更有智慧或更值得交往。",
+          "en": "You can share this public guide; its link contains no answers or counts from this attempt. The other person may skip the question. No philosophical-school identity, wisdom ranking or relationship verdict is required."
+        }
+      ]
+    }
+  ],
+  "confucius": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把学到、说过与实际做到的事分开",
+        "en": "Separate what you learned, said and actually did"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到上面的学习约定，分别记下自己理解的承诺、实际准备到哪里，以及需要向对方说明什么。没读完可以如实说出，再问是一起读一段还是另约时间。若理解本来就不一致，先确认双方原先各自以为什么。复盘可以停在一个具体调整，不必把一次延误扩成品格结论，也不要求接受每项旧习惯。它连接学习与相处，让真实情况进入讨论。",
+          "en": "Return to the study agreement and separate the commitment you understood, preparation actually completed and what the other person needs to know. If unfinished, say so and ask whether to read one passage together or meet later. If expectations differed, clarify what each originally understood. One adjustment may be enough; neither a character verdict from a delay nor acceptance of every old custom is needed. Bring the actual situation into a discussion of learning and relationships."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "把阅读联想变成一个讨论问题",
+        "en": "Turn the reading association into a discussion"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设约好共读却没准备完，怎样如实说明，并重新商量这次安排？”说明自己的理由，也听另一种看法。这是本站从选定阅读入口展开的原创情境，不是请古代或现代作者替现实争论裁决。",
+          "en": "Ask: “If you had not finished preparing for agreed shared reading, how would you explain that and discuss this occasion’s arrangement?” Explain your reasons and hear another view. This is an original contemporary situation developed from the selected reading entrance, rather than asking a historical author to decide a present dispute."
+        },
+        {
+          "zh": "可以分享这份公开说明，链接不含本次答案或计数。对方可以跳过问题；不需要证明自己属于某个学派，也不以结果判断谁更有智慧或更值得交往。",
+          "en": "You can share this public guide; its link contains no answers or counts from this attempt. The other person may skip the question. No philosophical-school identity, wisdom ranking or relationship verdict is required."
+        }
+      ]
+    }
+  ],
+  "laozi": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "区分必要约定与后来加上的控制",
+        "en": "Separate necessary agreements from added control"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的阅读聚会，写出原目的、必须保留的安排，以及后来为了显得积极而增加的要求。例如，结束时间可能有实际用途，固定发言句数则值得另问理由。若参与者本来就愿意讨论，可以提出只检查一项新增要求是否需要；也可能决定保留它。这里不是越少越好，更不取消必要边界。复盘让增加和减少都有理由，不把现代小建议当作无为的全部含义。",
+          "en": "For the reading gathering, note its purpose, necessary arrangements and requirements added to display participation. An ending time may have a practical role while a sentence quota invites another question. If participants want to discuss it, examine one added requirement; keeping it remains possible. This is no rule that less is always better or that necessary boundaries disappear. Give both adding and reducing reasons without treating a modern suggestion as the whole meaning of non-action."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "把阅读联想变成一个讨论问题",
+        "en": "Turn the reading association into a discussion"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设聚会新增了固定发言句数，这个要求在帮助什么，又可能遮住什么？”说明自己的理由，也听另一种看法。这是本站从选定阅读入口展开的原创情境，不是请古代或现代作者替现实争论裁决。",
+          "en": "Ask: “If a gathering added a fixed sentence quota, what might it help and what might it obscure?” Explain your reasons and hear another view. This is an original contemporary situation developed from the selected reading entrance, rather than asking a historical author to decide a present dispute."
+        },
+        {
+          "zh": "可以分享这份公开说明，链接不含本次答案或计数。对方可以跳过问题；不需要证明自己属于某个学派，也不以结果判断谁更有智慧或更值得交往。",
+          "en": "You can share this public guide; its link contains no answers or counts from this attempt. The other person may skip the question. No philosophical-school identity, wisdom ranking or relationship verdict is required."
+        }
+      ]
+    }
+  ],
+  "epicurus": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把想得到的体验与后续负担一起看",
+        "en": "Consider the desired experience and what follows"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的额外活动，写下真正想得到的体验，再把交通、后续安排和已有空闲放在旁边比较。有些信息可能还未知。愿意承担这些条件可以参加，不值得也可以保留原计划；简单并不自动更好，复杂也不自动过度。复盘只比较这一次追求和后果，不要求减少所有愿望，更不从古代论述推出现代饮食或健康建议。",
+          "en": "Revisit the extra activity by naming the experience you want alongside travel, later arrangements and existing free time. Some information may remain unknown. Join if those conditions are worthwhile to you, or retain the original plan. Simplicity is not automatically better and complexity is not automatically excessive. Compare this pursuit and its consequences without reducing every wish or turning ancient discussion into contemporary dietary or health advice."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "把阅读联想变成一个讨论问题",
+        "en": "Turn the reading association into a discussion"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设散步途中多了一个可选活动，你想得到什么，又愿意为此增加哪些安排？”说明自己的理由，也听另一种看法。这是本站从选定阅读入口展开的原创情境，不是请古代或现代作者替现实争论裁决。",
+          "en": "Ask: “If an optional activity appeared during a walk, what would you want from it and which extra arrangements would you accept?” Explain your reasons and hear another view. This is an original contemporary situation developed from the selected reading entrance, rather than asking a historical author to decide a present dispute."
+        },
+        {
+          "zh": "可以分享这份公开说明，链接不含本次答案或计数。对方可以跳过问题；不需要证明自己属于某个学派，也不以结果判断谁更有智慧或更值得交往。",
+          "en": "You can share this public guide; its link contains no answers or counts from this attempt. The other person may skip the question. No philosophical-school identity, wisdom ranking or relationship verdict is required."
+        }
+      ]
+    }
+  ],
+  "epictetus": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "区分下一步选择与不能保证的回应",
+        "en": "Distinguish a next choice from a response you cannot guarantee"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的展示反馈，分别列出可以进一步说明的内容、需要别人提供的信息，以及你不能保证的回应。可以选择修改说明、请求具体反馈，也可以先停一停。若现实条件限制了行动，把限制和需要的帮助一并记下；不必假装自己能随意控制所有感受。复盘只是把可讨论的下一步说清，不以外在结果是否改变评定是否坚强。",
+          "en": "For the display feedback, separate what you could explain further, information others would need to provide and responses you cannot guarantee. You might revise an explanation, request specific feedback or pause. Note constraints and needed help where action is limited rather than pretend every feeling is freely controllable. Clarify a possible next step without judging strength by whether the external outcome changes."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "把阅读联想变成一个讨论问题",
+        "en": "Turn the reading association into a discussion"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设展示得到意外反馈，哪部分可以再说明，哪部分仍取决于对方怎样回应？”说明自己的理由，也听另一种看法。这是本站从选定阅读入口展开的原创情境，不是请古代或现代作者替现实争论裁决。",
+          "en": "Ask: “If a display received unexpected feedback, what could be explained further and what would still depend on the other person’s response?” Explain your reasons and hear another view. This is an original contemporary situation developed from the selected reading entrance, rather than asking a historical author to decide a present dispute."
+        },
+        {
+          "zh": "可以分享这份公开说明，链接不含本次答案或计数。对方可以跳过问题；不需要证明自己属于某个学派，也不以结果判断谁更有智慧或更值得交往。",
+          "en": "You can share this public guide; its link contains no answers or counts from this attempt. The other person may skip the question. No philosophical-school identity, wisdom ranking or relationship verdict is required."
+        }
+      ]
+    }
+  ],
+  "nietzsche": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把正在使用的标准本身写出来",
+        "en": "Name the standard you are using"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到上面的额外目标，先写出使它显得值得追求的标准，例如“空闲也应该有成果”。再问这个标准现在支持什么、妨碍什么，以及你是否愿意重新选择它。继续原目标、缩小范围或不参加都可以有具体理由。无需为了显得独立而反对一切熟悉标准；涉及同伴的承诺也仍要说明。这里是一个有限的当代自问，不是自我超越的完成证明或更努力的命令。",
+          "en": "Return to the extra goal and state the standard making it seem worthwhile, such as expecting free time to produce an outcome. Ask what that standard supports, what it obstructs and whether you would choose it again. Continuing, narrowing or declining may each have reasons. Familiar standards need not all be rejected to demonstrate independence, and commitments to others still need explanation. This is a limited contemporary question rather than proof of self-surpassing or an order to work harder."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "把阅读联想变成一个讨论问题",
+        "en": "Turn the reading association into a discussion"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设一个目标很受赞赏，你判断它值得投入时，用的是哪一个标准？”说明自己的理由，也听另一种看法。这是本站从选定阅读入口展开的原创情境，不是请古代或现代作者替现实争论裁决。",
+          "en": "Ask: “If a goal was widely admired, which standard would you use to decide whether it deserved your effort?” Explain your reasons and hear another view. This is an original contemporary situation developed from the selected reading entrance, rather than asking a historical author to decide a present dispute."
+        },
+        {
+          "zh": "可以分享这份公开说明，链接不含本次答案或计数。对方可以跳过问题；不需要证明自己属于某个学派，也不以结果判断谁更有智慧或更值得交往。",
+          "en": "You can share this public guide; its link contains no answers or counts from this attempt. The other person may skip the question. No philosophical-school identity, wisdom ranking or relationship verdict is required."
+        }
+      ]
+    }
+  ],
+  "simone-de-beauvoir": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把自己的计划与别人的选择同时摆出",
+        "en": "Bring your project and others’ choices into view"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的活动改期，分别写下自己希望怎样、其他人实际说了什么，以及他们还可以提出哪些方向。已投入准备可以说明自己的期待，却不能代替别人的同意。若需要重新商量，先讲清固定条件，再认真听取不同计划；也允许出现暂时无法一起完成的情况。选择余地仍受资源与责任影响。复盘讨论的是这次具体安排，不用一句“你自由选择”代替真正听取回答。",
+          "en": "For the changed activity, separate your preferred plan, what others actually said and directions they could still propose. Preparation explains your hopes but cannot supply their agreement. If renegotiating, state fixed conditions and hear different projects, allowing that a shared plan may not be possible for now. Resources and responsibilities still shape available choices. Discuss this arrangement rather than use a formula of free choice in place of listening to an answer."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "把阅读联想变成一个讨论问题",
+        "en": "Turn the reading association into a discussion"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设你已准备好替代活动，怎样说明自己的希望，也让别人真正提出不同安排？”说明自己的理由，也听另一种看法。这是本站从选定阅读入口展开的原创情境，不是请古代或现代作者替现实争论裁决。",
+          "en": "Ask: “If you had prepared a replacement activity, how would you state your preference while leaving others able to propose a different plan?” Explain your reasons and hear another view. This is an original contemporary situation developed from the selected reading entrance, rather than asking a historical author to decide a present dispute."
+        },
+        {
+          "zh": "可以分享这份公开说明，链接不含本次答案或计数。对方可以跳过问题；不需要证明自己属于某个学派，也不以结果判断谁更有智慧或更值得交往。",
+          "en": "You can share this public guide; its link contains no answers or counts from this attempt. The other person may skip the question. No philosophical-school identity, wisdom ranking or relationship verdict is required."
+        }
+      ]
+    }
+  ],
+  "marcus-aurelius": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "分开已知事实、附加判断与眼前回应",
+        "en": "Separate known facts, added judgment and the present response"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的意见不同，先写下确实发生的事，再把自己增加的解释另放一栏。例如，对方说不参加，与认定对方故意为难并不是同一句话。接着选一个当下可行的回应：核对条件、说明界限、暂停或寻求帮助。仍然失望也可以，不需要用平静语气证明结果正确。复盘既看自己的理解，也保留外部条件可能需要改变的事实。",
+          "en": "Revisit the disagreement by recording what happened and placing your added interpretation separately. Someone declining participation differs from a conclusion that they are deliberately difficult. Then consider a feasible response: clarify conditions, state a boundary, pause or seek help. Disappointment may remain, and an even tone proves no correctness. Review your interpretation while retaining the possibility that external conditions also need changing."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "把阅读联想变成一个讨论问题",
+        "en": "Turn the reading association into a discussion"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设同伴不接受一个安排，你已经知道什么，哪些还是解释，现在又能怎样回应？”说明自己的理由，也听另一种看法。这是本站从选定阅读入口展开的原创情境，不是请古代或现代作者替现实争论裁决。",
+          "en": "Ask: “If a companion declined an arrangement, what would you know, what would still be interpretation and how might you respond now?” Explain your reasons and hear another view. This is an original contemporary situation developed from the selected reading entrance, rather than asking a historical author to decide a present dispute."
+        },
+        {
+          "zh": "可以分享这份公开说明，链接不含本次答案或计数。对方可以跳过问题；不需要证明自己属于某个学派，也不以结果判断谁更有智慧或更值得交往。",
+          "en": "You can share this public guide; its link contains no answers or counts from this attempt. The other person may skip the question. No philosophical-school identity, wisdom ranking or relationship verdict is required."
+        }
+      ]
+    }
+  ]
+}

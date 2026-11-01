@@ -1,0 +1,226 @@
+{
+  "hello-kitty": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘欢迎的内容与自己的范围",
+        "en": "Review the welcome and your own scope"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的邀请，确认它提供的是座位、材料、观看还是交流，以及这些是否在自己可提供的范围里。对方只看、拒绝或离开都可以是完整回答。欢迎之后可以回到自己的活动，不需要承担全场聊天，也不按新朋友数量评价这次选择。",
+          "en": "After the invitation above, identify whether it offers a place, material, watching or conversation, and whether you may offer it. Watching, declining and leaving can be complete answers. Return to your own activity afterwards without hosting every conversation or grading the choice by new acquaintances."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个让新人自选的邀请",
+        "en": "Share an invitation a newcomer can choose"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设卡片桌边有空位，你会怎样邀请人制作、看看，或不参加？”讨论清楚的开头，不要求热烈回应或彼此认证人缘。",
+          "en": "Ask: “At an imaginary card table with space, how would you invite making, watching or passing?” Discuss a clear opening without requiring enthusiasm or validation of popularity."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "my-melody": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘熟悉做法为何吸引自己",
+        "en": "Review what appeals about the familiar process"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的熟悉小事，区分自己喜欢的是少准备、过程本身，还是与熟人一起。三者可以不同；想独自做也不否定陪伴。若对方想换方法，可以各做各的再决定是否交流，不要求相同成品或持续聊天来证明关系亲近。",
+          "en": "After the familiar activity above, distinguish reduced preparation, the process itself and familiar company. These may differ, and doing it alone does not negate companionship. Use different methods if preferred, without matching objects or continuous conversation proving closeness."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可以各用各方法的熟悉活动",
+        "en": "Share a familiar activity with different methods"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设又做一次普通书签，你想沿用旧折法、换个做法，还是只坐在旁边？”不把重复或改变排成更温柔、更独立的类型。",
+          "en": "Ask: “For an imaginary bookmark-making afternoon, would you repeat a fold, change it or sit alongside?” Repetition and change create no ranking of gentleness or independence."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "keroppi": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘共同玩的是哪一部分",
+        "en": "Review which part of shared play appeals"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的无胜负小活动，看看吸引自己的是轮流、一起注意一件事，还是不必做成作品。若实际玩过，记录参与者愿意说的体验，不从笑声或人数猜成功。想换成聊天、只看或结束都可以，不需要不断发明新游戏。",
+          "en": "After the small game without winners above, check whether turns, shared attention or no finished product appeals. If tried, record only experiences participants choose to express rather than inferring success from laughter or attendance. Talk, watch or end without continually inventing new games."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个允许跳过的轮流玩法",
+        "en": "Share turn-taking that permits passing"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设纸上轮流添一根线，你想添、只看，还是跳过这一轮？”不评价画得好不好，也不拿别人的贡献开玩笑。",
+          "en": "Ask: “For an imaginary shared doodle, would you add a line, watch or pass this turn?” No drawing ratings or jokes at someone’s contribution are needed."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "chococat": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘更新、确认与实际影响",
+        "en": "Review the update, confirmation and effect"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的已知更新，分别写下看到的变化、是否已经确认，以及它是否影响自己的安排。没有新变化也可以结束；看到消息不等于需要转发或负责通知所有人。可以少看更新、晚点回复，不按消息多少和速度评价注意力。",
+          "en": "After the known update above, separate the change seen, its confirmation and its effect on your arrangement. End when nothing changed. Seeing an update requires neither forwarding it nor notifying everyone. Fewer updates and later replies need not grade attention."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个不抢先发布的更新问题",
+        "en": "Share an update question without a race to publish"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设普通活动时间晚了半小时，什么已确认，你自己的安排要不要变？”只用可分享的信息，不收集私事或比谁最先知道。",
+          "en": "Ask: “If an imaginary activity moved half an hour later, what is confirmed and does your arrangement change?” Use shareable information without private inquiries or a race to know first."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "badtz-maru": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘趣味与必须特别的压力",
+        "en": "Review enjoyment and pressure to stand out"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的自有物件细节，看看自己喜欢它本身，还是只是想与别人不同。两种都可以如实记下，不急着修改；发现喜欢常见版本也可以。个人趣味可以安静保留，既不需要反对别人，也不靠被称为大胆来获得价值。",
+          "en": "After the personal detail above, check whether you enjoy it itself or mainly want a difference. Record either without rushing to change; a common version can appeal too. Keep playfulness quietly without opposing others or needing to be called daring for the detail to matter."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个相同也可以的设计选择",
+        "en": "Share a design choice that may match others"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设自己的书签可留一个不对称角，也可用大家都喜欢的版本，你今天想选哪种？”只谈自己的物件，不嘲讽别人或证明更酷。",
+          "en": "Ask: “For your imaginary bookmark, would you keep an asymmetric corner or a version everyone likes?” Discuss your object without mocking others or proving coolness."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "cinnamoroll": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘观看本身与是否想加入",
+        "en": "Review watching itself and whether to join"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的参与条件，区分观看本身的兴趣、想知道的规则，以及是否真的愿意动手。看完离开也可以，不把参与当必须的下一阶段。若今天直接想加入，同样可以；这次记录描述具体节奏，不诊断害羞，也不以多说话证明友好。",
+          "en": "After the participation conditions above, distinguish interest in watching, rules to understand and whether you want to make something. Leave after watching without treating participation as a required next stage. Joining directly fits too. Describe this pace without diagnosing shyness or extra speech proving friendliness."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个不预设下一步的观看方式",
+        "en": "Share watching without a predetermined next step"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设初次看一个普通手作活动，你想问材料、先看一轮，还是直接试？”按本人选择理解，不把不参加当作需要鼓励突破。",
+          "en": "Ask: “At an imaginary first craft activity, would you ask about materials, watch a round or try directly?” Follow the stated choice without treating nonparticipation as something encouragement must overcome."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "pompompurin": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘从容需要哪些具体条件",
+        "en": "Review the conditions for unhurried time"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的空闲安排，看看舒服来自座位、安静间隔、无需成品，还是清楚的结束时间。自己的条件不必适合每个人，可以分别活动或换时机。也可以发现今天更喜欢结构；不需要证明放松成功，更不把这段偏好解释为长期效率。",
+          "en": "After the free-time arrangement above, check whether seating, quiet gaps, no finished product or a clear ending makes it comfortable. Others may need different conditions; choose separate activities or another occasion. Prefer structure today if it fits, without proving successful relaxation or inferring long-term productivity."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个有终点的轻松间隔",
+        "en": "Share an easy interval with an endpoint"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设相聚不用完成作品，你想留哪段空白，又何时结束？”允许不同节奏，不要求吃东西、午睡或随和表演来符合角色。",
+          "en": "Ask: “If an imaginary gathering needed no finished piece, what space would you leave and when would it end?” Different paces need no food, nap or agreeable performance to fit the character."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ]
+}

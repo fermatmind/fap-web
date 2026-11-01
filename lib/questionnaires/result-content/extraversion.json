@@ -1,0 +1,166 @@
+{
+  "introvert": [
+    {
+      "id": "editorial-score-example",
+      "title": {
+        "zh": "用一个算例读清总分与标签",
+        "en": "Read the total and label through an illustration"
+      },
+      "paragraphs": [
+        {
+          "zh": "算例：十条全部有效、计分后总分15，均分就是1.5，并进入本版内向侧读法。这里的15不是15%外向，也不是低于85%的人；十项回应的具体高低仍可能不同。若某题暂不作答，本版不根据其余题推算这份总分。算例不是你的实际分数。",
+          "en": "Illustration: ten valid keyed ratings totalling 15 give a mean of 1.5 and this edition’s introvert-side reading. The 15 is neither 15% extraversion nor a rank below 85% of people; individual responses may still differ. An unscored item prevents this total being inferred from the rest. This illustration is not your personal score."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "参与方式尝试后，怎样看效果",
+        "en": "Reviewing a participation-format trial"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的参与方式尝试：原本想表达的内容是否有机会说清，先看材料、文字补充或小范围交流中，哪个条件真正有帮助？不必记录说了多少句话，也不以活动后是否想独处来反证分数。若安排不合适，可以换一种形式，而不把提高分数设成目标。",
+          "en": "After the participation-format trial above, review whether you could express what you intended and which condition helped: prior material, writing or a smaller conversation. No sentence count is needed, and wanting solitude afterwards does not refute the score. Change the format without making a higher score the goal."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "只分享参与需要，也可以交流",
+        "en": "Discuss participation needs without a score"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以只说：“这份十条外向性读法让我想聊参与方式。我有时希望先了解材料，再选一个问题回应；你更喜欢怎样开始？”无需公布总分或认领固定内向身份。双方可以保留不同节奏，不拿分数判断谁更会交流。",
+          "en": "You can simply say: “This ten-item extraversion reading makes me want to discuss participation. Sometimes I would like the material first and then respond to one question. How do you like to begin?” No score or fixed identity is required, and different paces do not rank communication skill."
+        }
+      ]
+    }
+  ],
+  "ambivert-intro": [
+    {
+      "id": "editorial-score-example",
+      "title": {
+        "zh": "用一个算例读清总分与标签",
+        "en": "Read the total and label through an illustration"
+      },
+      "paragraphs": [
+        {
+          "zh": "算例：十条计分后总分25，均分为2.5，进入本版中间偏内向读法；20与30则分别保留相邻两份说明。25不表示比一半人内向，也不说明拥有一半内向、一半外向能力。同样的25可能来自不同条目组合，需回看具体回应。算例不是个人成绩。",
+          "en": "Illustration: a keyed total of 25 gives a mean of 2.5 and this edition’s lower-middle reading; 20 and 30 retain adjacent readings. The 25 neither ranks you below half the population nor divides ability into introvert and extravert halves. Different item patterns can produce 25. This is an illustration, not a personal score."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "参与方式尝试后，怎样看效果",
+        "en": "Reviewing a participation-format trial"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的主动部分与保留条件：你有没有说清愿意参与什么、哪些形式不合适，别人实际理解到了什么？可以记录场合熟悉程度，而不把一场活跃、一场安静看成人格反复。若想重测，先说明参照情境是否改变；两次差值本身没有被验证为有意义的变化。",
+          "en": "After choosing a contribution and a retained condition above, review what you offered, what did not fit and what others understood. Note familiarity without treating an active and a quiet occasion as unstable personality. For a retake, consider changed reference contexts; a score difference alone has no established meaningful-change interpretation."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "只分享参与需要，也可以交流",
+        "en": "Discuss participation needs without a score"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“在什么场合你愿意先开口，什么场合更喜欢先听或写下来？”只交流例子也可以，不需要把自己介绍成全能切换的中间型。这个总分不测社交调节能力，也不决定你需要配合别人到什么程度。",
+          "en": "Ask: “When do you like speaking first, and when listening or writing?” You can exchange examples without claiming an effortlessly switching middle type. The total measures no ability to regulate social performance or obligation to accommodate others."
+        }
+      ]
+    }
+  ],
+  "ambivert-extro": [
+    {
+      "id": "editorial-score-example",
+      "title": {
+        "zh": "用一个算例读清总分与标签",
+        "en": "Read the total and label through an illustration"
+      },
+      "paragraphs": [
+        {
+          "zh": "算例：十条计分后总分35，均分为3.5，进入本版中间偏外向读法；30与40各显示相邻两份。35是这十条回应的总和，不是35%外向或人群排名。较多认可主动交谈，也不必同时认可成为注意焦点；只看总分不能还原每条回答。算例不是你的分数。",
+          "en": "Illustration: a keyed total of 35 gives a mean of 3.5 and this edition’s upper-middle reading; 30 and 40 each show adjacent readings. The 35 is a sum, not 35% extraversion or a population rank. Endorsing conversation need not mean endorsing attention, and a total cannot reconstruct every response. This is not your score."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "参与方式尝试后，怎样看效果",
+        "en": "Reviewing a participation-format trial"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的小组贡献：自己原想说清的内容是什么，是否给了别人不同的回应方式，是否明确不负责的部分？愿意提出点子不等于愿意主持整场。一次没有主动说话也不需要解释成退步，练习评价的是安排是否贴合当时目标。",
+          "en": "After the small-group contribution above, review your intended point, other ways people could respond and responsibilities you declined. Offering an idea need not mean hosting the whole session. Not initiating once is not regression; assess whether the arrangement fit the occasion’s goal."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "只分享参与需要，也可以交流",
+        "en": "Discuss participation needs without a score"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以说：“我可能愿意先提一个点子，但也想留出先想或用文字回应的空间。你这次想怎样参与？”不用附个人分数，也不把中间偏外向当作适应所有场合的证明。实际需要可以逐次商量，不由标签一次决定。",
+          "en": "Try: “I may offer an idea first, and would also like room for thinking or written responses. How would you like to join this time?” No score is needed, and an upper-middle reading establishes no universal adaptability. Discuss needs each time rather than assigning them permanently from a label."
+        }
+      ]
+    }
+  ],
+  "extrovert": [
+    {
+      "id": "editorial-score-example",
+      "title": {
+        "zh": "用一个算例读清总分与标签",
+        "en": "Read the total and label through an illustration"
+      },
+      "paragraphs": [
+        {
+          "zh": "算例：十条计分后总分45，均分为4.5，进入本版外向侧读法；40分同时保留中间偏外向与外向侧说明。45不表示45%外向、超过45%的人或更高社交能力。即使总分达到50，也只是这套计分的最高可能值。算例不代表你的实际成绩。",
+          "en": "Illustration: a keyed total of 45 gives a mean of 4.5 and this edition’s extravert-side reading; 40 retains both upper-middle and extravert-side guides. The 45 establishes neither 45% extraversion, a population rank nor greater social skill. Even 50 is only the highest possible keyed total. This is not your actual score."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "参与方式尝试后，怎样看效果",
+        "en": "Reviewing a participation-format trial"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的不同参与方式尝试：对方是否有机会按自己喜欢的形式回应，你是否听懂了原先不清楚的一点？不要只看谈话时长、热闹程度或发言人数。需要安静、暂时没话说或拒绝邀请，都不能由这次总分判成不符合自己的本性。",
+          "en": "After inviting another participation format above, check whether the person could respond as they preferred and whether something became clearer. Duration, liveliness and number of speakers are insufficient. Quiet, having nothing to add or declining an invitation cannot be judged inauthentic from this total."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "只分享参与需要，也可以交流",
+        "en": "Discuss participation needs without a score"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以说：“我常愿意口头交流，但不想替你决定节奏。你希望现在聊、稍后再说，还是用文字补充？”分享偏好不需要公布分数，也不要求别人回应得同样多。这份读法不保证社交后不会累，休息需求应直接表达。",
+          "en": "Try: “I often welcome spoken conversation without deciding your pace. Would you prefer talking now, later or in writing?” Sharing a preference requires neither a score nor equal amounts of response. This reading does not guarantee freedom from fatigue; state rest needs directly."
+        }
+      ]
+    }
+  ]
+}

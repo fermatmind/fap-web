@@ -5,7 +5,7 @@ import { QuestionnaireJavaCode } from "./QuestionnaireJavaCode";
 import { QuestionnaireJavaScriptCode } from "./QuestionnaireJavaScriptCode";
 import { QuestionnairePythonCode } from "./QuestionnairePythonCode";
 import { QuestionnaireSqlCode } from "./QuestionnaireSqlCode";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 export function QuestionnairePracticeReport({ quiz, result, locale }: {
   quiz: Questionnaire; result: Extract<PracticeResult, { status: "complete" }>; locale: Locale;
@@ -47,7 +47,7 @@ export function QuestionnairePracticeReport({ quiz, result, locale }: {
       <p className="text-xl font-semibold">{zh ? "全部分项复习说明" : "All section revision guides"}</p>
       {quiz.profiles.map(profile => <section key={profile.id} data-practice-guide={profile.id}>
         <h3 className="mb-4 text-xl font-semibold">{profile.title[locale]}</h3>
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`practice-guide-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`practice-guide-${profile.id}`} />
       </section>)}
     </section>
   </div>;

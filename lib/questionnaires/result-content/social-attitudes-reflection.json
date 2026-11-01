@@ -1,0 +1,166 @@
+{
+  "reviewing-rules": [
+    {
+      "id": "reviewing-rules-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构小组收到“报名步骤不清楚”的反馈，先核对通知文字与具体步骤，还不知道修改后是否更方便。认同听取反馈不等于同意每项修改；一次修改有效，也不能反向证明选择者的总体立场或善意。均分没有调查这张通知。",
+          "en": "In an additional original scene, a fictional group hears that sign-up steps are unclear and checks the notice and process without yet knowing whether a revision helps. Hearing feedback differs from endorsing every change. A useful revision validates no overall stance or intention, and the mean has investigated no notice."
+        }
+      ]
+    },
+    {
+      "id": "reviewing-rules-5",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“只看虚构通知，哪些是原文、哪些是参与者描述、哪些后果还未知？”可只读，不需联系真实群体、说服别人或宣布立场。讨论可以保留对句子含义的分歧，不比较谁的分数更正确。",
+          "en": "An optional discussion card separates the fictional notice’s wording, participant accounts and unknown consequences. Reading alone suffices without contacting groups, persuading anyone or declaring a position. Interpretive disagreement can remain without judging whose score is more correct."
+        }
+      ]
+    },
+    {
+      "id": "reviewing-rules-6",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创，可只读，也可跳过原有反思。只回答自己，以同一种普通自愿共同活动为参照，无规定回忆时段，不代他人回答。24条分四组六条直接计入，无反向；1至5是认同程度，3为有效中立，不确定、没有合适情境或不想回答则不评分，不补零或中立。全部24条都需回应；每组至少四项数字，用和除以数字项数，显示一位小数。2、3、4、5与两项未评分为14÷4＝3.5；三项数字不给该组均分，其他足够组照常，四篇全文始终可读。四项规则是编辑完整度约定，小数不证明精度。四均分不合成、不排名、不派身份；相同均分可有不同回答，变化不验证行为改善或观念转变。尚无已建立的信效度、常模或英中等值，不推断性取向、性别、种族、信仰、党派、道德或真实行为；不裁定他人体验或事件公平。没有目标分数、必须改变的信念或政治建议。虚构讨论无需披露或联系；原有页面内存、自选24小时标签页草稿及完成退出重测清除不变，复制只有通用文字与公开链接，不含答案或均分。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing reflections are optional. Answer only for yourself with one ordinary voluntary shared-activity context and no prescribed recall window. Twenty-four direct statements form four groups of six, without reversals. Ratings 1–5 express agreement; three is a valid neutral response. Uncertainty, absent context or withholding remains unscored, without zero or neutral replacement. All prompts need responses. Each group needs four numeric answers for sum divided by numeric count, displayed to one decimal. Ratings 2, 3, 4, 5 and two unscored give 14/4 = 3.5. Three numbers yield no mean for that group; sufficient groups and all four full guides remain available. Four is an editorial completeness rule and decimal display establishes no precision. Means are neither combined, ranked nor used for identities. Equal means can contain different responses; changes validate neither improved conduct nor changed beliefs. No reliability, validity, norms or English–Chinese equivalence is established. Responses infer neither orientation, gender, race, faith, party, morality nor actual conduct, and decide no other person’s experience or event’s fairness. There is no target score, required belief change or political recommendation. Fictional discussion requires no disclosure or contact. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying contains general text and a public link, without answers or means."
+        }
+      ]
+    }
+  ],
+  "gender-roles": [
+    {
+      "id": "gender-roles-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构两人按当天时间和经验分配准备材料与修理器具，明确这只是一次安排。任务名称不证明是否自愿、负担相等或谁有能力承担；态度认同也不替代双方对实际过程的描述，不推断任何人的性别或私人分工。",
+          "en": "In an additional original scene, two fictional people allocate preparation and repair by that day’s time and experience, explicitly for one occasion. Task names prove neither agreement, equal burden nor capability. Reported agreement replaces neither person’s account and infers no gender or private division of responsibilities."
+        }
+      ]
+    },
+    {
+      "id": "gender-roles-5",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构安排已说明哪些条件？判断负担与选择是否开放，还缺什么信息？”可只读，不要求讨论家庭分歧、披露身份或修改信念。听者不根据六题均分判断平等行为或歧视动机。",
+          "en": "An optional discussion card identifies stated conditions in the fictional arrangement and missing evidence about burden and available choice. Reading alone suffices without family disputes, identity disclosure or changed beliefs. Six ratings establish neither equitable conduct nor discriminatory motives."
+        }
+      ]
+    },
+    {
+      "id": "gender-roles-6",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创，可只读，也可跳过原有反思。只回答自己，以同一种普通自愿共同活动为参照，无规定回忆时段，不代他人回答。24条分四组六条直接计入，无反向；1至5是认同程度，3为有效中立，不确定、没有合适情境或不想回答则不评分，不补零或中立。全部24条都需回应；每组至少四项数字，用和除以数字项数，显示一位小数。2、3、4、5与两项未评分为14÷4＝3.5；三项数字不给该组均分，其他足够组照常，四篇全文始终可读。四项规则是编辑完整度约定，小数不证明精度。四均分不合成、不排名、不派身份；相同均分可有不同回答，变化不验证行为改善或观念转变。尚无已建立的信效度、常模或英中等值，不推断性取向、性别、种族、信仰、党派、道德或真实行为；不裁定他人体验或事件公平。没有目标分数、必须改变的信念或政治建议。虚构讨论无需披露或联系；原有页面内存、自选24小时标签页草稿及完成退出重测清除不变，复制只有通用文字与公开链接，不含答案或均分。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing reflections are optional. Answer only for yourself with one ordinary voluntary shared-activity context and no prescribed recall window. Twenty-four direct statements form four groups of six, without reversals. Ratings 1–5 express agreement; three is a valid neutral response. Uncertainty, absent context or withholding remains unscored, without zero or neutral replacement. All prompts need responses. Each group needs four numeric answers for sum divided by numeric count, displayed to one decimal. Ratings 2, 3, 4, 5 and two unscored give 14/4 = 3.5. Three numbers yield no mean for that group; sufficient groups and all four full guides remain available. Four is an editorial completeness rule and decimal display establishes no precision. Means are neither combined, ranked nor used for identities. Equal means can contain different responses; changes validate neither improved conduct nor changed beliefs. No reliability, validity, norms or English–Chinese equivalence is established. Responses infer neither orientation, gender, race, faith, party, morality nor actual conduct, and decide no other person’s experience or event’s fairness. There is no target score, required belief change or political recommendation. Fictional discussion requires no disclosure or contact. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying contains general text and a public link, without answers or means."
+        }
+      ]
+    }
+  ],
+  "gay-lesbian-inclusion": [
+    {
+      "id": "gay-lesbian-inclusion-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构参加者在小组闲聊时只说伴侣会稍晚到，没有讲私人经历。可以区分自愿提供的信息与听者补入的假设；结果不能授权追问身份，也不说明参加者怎样体验这次互动。对六句的认同不是任何人的性取向或可信度。",
+          "en": "In an additional original scene, a fictional participant mentions that their partner will arrive later without giving private history. Volunteered information differs from a listener’s assumptions. A result authorises no identity questions and establishes no participant experience. Agreement with six sentences identifies neither orientation nor trustworthiness."
+        }
+      ]
+    },
+    {
+      "id": "gay-lesbian-inclusion-5",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构交谈中对方实际说了什么？哪些私人信息尚未知，也不需要知道？”可只读，不需实际接触、出柜或要求别人表态。讨论不猜测身份、不为陌生人填写问卷，也不以分数检验朋友。",
+          "en": "An optional discussion card separates what the fictional participant said from private information that is unknown and need not be known. Reading alone suffices without contact, coming out or declarations from others. Discussion guesses no identity, answers for nobody else and uses no score to test a friend."
+        }
+      ]
+    },
+    {
+      "id": "gay-lesbian-inclusion-6",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创，可只读，也可跳过原有反思。只回答自己，以同一种普通自愿共同活动为参照，无规定回忆时段，不代他人回答。24条分四组六条直接计入，无反向；1至5是认同程度，3为有效中立，不确定、没有合适情境或不想回答则不评分，不补零或中立。全部24条都需回应；每组至少四项数字，用和除以数字项数，显示一位小数。2、3、4、5与两项未评分为14÷4＝3.5；三项数字不给该组均分，其他足够组照常，四篇全文始终可读。四项规则是编辑完整度约定，小数不证明精度。四均分不合成、不排名、不派身份；相同均分可有不同回答，变化不验证行为改善或观念转变。尚无已建立的信效度、常模或英中等值，不推断性取向、性别、种族、信仰、党派、道德或真实行为；不裁定他人体验或事件公平。没有目标分数、必须改变的信念或政治建议。虚构讨论无需披露或联系；原有页面内存、自选24小时标签页草稿及完成退出重测清除不变，复制只有通用文字与公开链接，不含答案或均分。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing reflections are optional. Answer only for yourself with one ordinary voluntary shared-activity context and no prescribed recall window. Twenty-four direct statements form four groups of six, without reversals. Ratings 1–5 express agreement; three is a valid neutral response. Uncertainty, absent context or withholding remains unscored, without zero or neutral replacement. All prompts need responses. Each group needs four numeric answers for sum divided by numeric count, displayed to one decimal. Ratings 2, 3, 4, 5 and two unscored give 14/4 = 3.5. Three numbers yield no mean for that group; sufficient groups and all four full guides remain available. Four is an editorial completeness rule and decimal display establishes no precision. Means are neither combined, ranked nor used for identities. Equal means can contain different responses; changes validate neither improved conduct nor changed beliefs. No reliability, validity, norms or English–Chinese equivalence is established. Responses infer neither orientation, gender, race, faith, party, morality nor actual conduct, and decide no other person’s experience or event’s fairness. There is no target score, required belief change or political recommendation. Fictional discussion requires no disclosure or contact. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying contains general text and a public link, without answers or means."
+        }
+      ]
+    }
+  ],
+  "racial-context": [
+    {
+      "id": "racial-context-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构小组使用同一报名表，有参加者描述操作障碍；目前只有一份描述，还没有流程核对或其他体验。可以同时保留统一文字与具体困难，不从个人经历推定整个背景群体，也不从均分裁定歧视、原因或法律责任。",
+          "en": "In an additional original scene, a fictional group uses one sign-up form and receives an account of a practical barrier, without a process check or other accounts yet. Uniform wording and a reported difficulty can both remain visible. One account generalises to no racial group, and a mean establishes neither discrimination, cause nor legal responsibility."
+        }
+      ]
+    },
+    {
+      "id": "racial-context-5",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构表格的已知步骤、个人描述与仍需核对的解释分别是什么？”可只读，不需讲述受伤经历、透露背景或代表群体。讨论允许未知，不以较高均分认证无偏见，也不以较低均分指认敌意。",
+          "en": "An optional discussion card separates known form steps, an individual account and explanations still needing evidence. Reading alone suffices without recounting harm, disclosing background or representing a group. Unknown remains unknown; higher agreement certifies no absence of bias and lower agreement establishes no hostility."
+        }
+      ]
+    },
+    {
+      "id": "racial-context-6",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创，可只读，也可跳过原有反思。只回答自己，以同一种普通自愿共同活动为参照，无规定回忆时段，不代他人回答。24条分四组六条直接计入，无反向；1至5是认同程度，3为有效中立，不确定、没有合适情境或不想回答则不评分，不补零或中立。全部24条都需回应；每组至少四项数字，用和除以数字项数，显示一位小数。2、3、4、5与两项未评分为14÷4＝3.5；三项数字不给该组均分，其他足够组照常，四篇全文始终可读。四项规则是编辑完整度约定，小数不证明精度。四均分不合成、不排名、不派身份；相同均分可有不同回答，变化不验证行为改善或观念转变。尚无已建立的信效度、常模或英中等值，不推断性取向、性别、种族、信仰、党派、道德或真实行为；不裁定他人体验或事件公平。没有目标分数、必须改变的信念或政治建议。虚构讨论无需披露或联系；原有页面内存、自选24小时标签页草稿及完成退出重测清除不变，复制只有通用文字与公开链接，不含答案或均分。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing reflections are optional. Answer only for yourself with one ordinary voluntary shared-activity context and no prescribed recall window. Twenty-four direct statements form four groups of six, without reversals. Ratings 1–5 express agreement; three is a valid neutral response. Uncertainty, absent context or withholding remains unscored, without zero or neutral replacement. All prompts need responses. Each group needs four numeric answers for sum divided by numeric count, displayed to one decimal. Ratings 2, 3, 4, 5 and two unscored give 14/4 = 3.5. Three numbers yield no mean for that group; sufficient groups and all four full guides remain available. Four is an editorial completeness rule and decimal display establishes no precision. Means are neither combined, ranked nor used for identities. Equal means can contain different responses; changes validate neither improved conduct nor changed beliefs. No reliability, validity, norms or English–Chinese equivalence is established. Responses infer neither orientation, gender, race, faith, party, morality nor actual conduct, and decide no other person’s experience or event’s fairness. There is no target score, required belief change or political recommendation. Fictional discussion requires no disclosure or contact. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying contains general text and a public link, without answers or means."
+        }
+      ]
+    }
+  ]
+}

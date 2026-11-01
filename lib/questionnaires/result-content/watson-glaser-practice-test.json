@@ -1,0 +1,207 @@
+{
+  "inference": [
+    {
+      "id": "inference-2",
+      "title": {
+        "en": "Identify a certain conclusion",
+        "zh": "识别确定结论"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创学习情境：虚构的宁与乔在推断组都四对一错一未答，却不知二人用了事实、概率还是记忆。新纸上模型有九枚三角片和三枚圆片，等概率取一枚：三角片为9/12，按本站明示规则属可能真；圆片为3/12，属可能假，二者都非确定。若没有抽取方式，库存比例不能自行成为被选中比例；若只问某人是否看过盒子，模型也没有该人的资料。可能性标签只用于这个虚构抽取，不预测真实人与事件。",
+          "en": "An additional original learning scene: Fictional Ning and Jo each have four correct, one wrong and one unanswered inference item, revealing no use of facts, probability or memory. A new paper model contains nine triangular tokens and three circular tokens, with one selected uniformly. A triangle has probability 9/12, classified Probably true under this site’s explicit rule; a circle has probability 3/12, classified Probably false. Neither is certain. Without a selection process, stock proportions do not establish selection probabilities. A question about whether someone saw the box remains unanswered by this model. These labels concern only the fictional draw, predicting no real person or event."
+        }
+      ]
+    },
+    {
+      "id": "inference-6",
+      "title": {
+        "en": "Use the shared clock thoughtfully",
+        "zh": "有意识使用共享时钟"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样区分明示概率、确定事实和完全未提及的信息，并保留本版规则与提供方规则的差别？”可以只谈上述虚构人物与新纸上例子，一人说明规则，另一人检查证据、条件或约束；允许分歧、保留待核查或停止。不需交换个人答卷、成绩、健康信息或申请资料，不要求实物操作，也不以速度或答案数量给参与者贴能力标签。",
+          "en": "An optional discussion prompt asks: “How can explicit probability, certain facts and unmentioned information be separated while preserving the difference between this edition and provider rules?” Discuss only the fictional learners and new paper examples above: one explains a rule and another checks evidence, bases or constraints. Participants may disagree, leave a point for checking or stop without exchanging private answer sheets, scores, health details or applications. No physical task is required, and neither speed nor counts label anyone’s ability."
+        }
+      ]
+    },
+    {
+      "id": "inference-7",
+      "title": {
+        "en": "Review the reason behind each choice",
+        "zh": "复盘每个选择的依据"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是费马独立编写的固定三十道英文题，推断、假设识别、演绎、解读与论证评价各六题。中文界面保留英文题干与选项，说明、解析和指南双语，不确立语言等值。推断有五个标签，本版将可能性限定于明示事实或抽样模型；其余四段各用本段二选一规则，不把信息不足、未被预设、非必然、未获支持与理由弱当作同一判断。历史提供方推断说明允许某些常识背景，不能用本站的数值概率约定替代正式指令。选中答案键计正确，其他有效给定项计错误，主动留空或未触及计未答；三数各组合六、总计三十，不补答、不按空白为错选，无猜测校正、速度奖励、加权或常模。五选一与二选一机会不同、难度未等值，不能按最低正确数诊断最弱能力或由个人数量识别猜测。无Watson–Glaser成绩、IQ、百分位、表现档、通过线、法律胜任力或录用概率。五篇相同公开全文作答前可读；整卷结束后包括零正确或全未答，全部三十题、本人选择、答案及本语言解析和五篇通用指南均开放。计时模式整卷共用本站30:00，从本人开始起一次连续计时，读指令、换段、返回、切后台均不暂停或重置；可跳至任一段首题，结束前可改任题，主动结束或到时锁全卷，无逐段关闭与重启。学习模式同题无截止，设备双时钟不一致依现有行为清除而不生成计时结果；不提供监考或无帮助认证。网站计时、导航与允许帮助不决定实际招聘规则，须核具体邀请与安排。官方练习页也区分了解题式与经试测可解释的成绩；所引历史英国册保留年代、归属和版权背景，本站不复制其试题、样例或记录表，也不获其背书。本题本未做测量验证，无迁移或进步阈值；固定题重做可能含记忆、熟悉度、条件或推理变化，不凭提高判定原因。新例只谈虚构记录，不需真实雇主材料、私人答卷或敏感观点；可只读、拒绝讨论或停止。答案、模式与计时仅留页面内存，无草稿或长期历史，依现有刷新、离开、换语言、缓存恢复与重练行为清除。复制仅含五篇公开指南标题和链接，无答案、数量、模式或时间；常规页面分析关闭，可选匿名动作计数需本页许可与全站分析同意。清除不抹掉浏览器历史、截屏或旁人看屏。",
+          "en": "This independently authored fixed bank has 30 English questions: six each in inference, assumptions, deduction, interpretation and arguments. Chinese UI retains English stems and options alongside bilingual instructions, explanations and guides, without language equivalence. Inference offers five labels with likelihood bounded to explicit facts or sampling models; the four binary parts each apply their own rule. Insufficient data, not assumed, not necessary, unsupported and weak are different judgements. Historical provider inference instructions permit some common background knowledge: this site’s numerical probability convention does not replace official directions. A key match counts as correct, another offered option as wrong, and an explicit skip or untouched item as unanswered. Counts sum to six per area and 30 overall without imputation, converting blanks into wrong selections, guessing correction, speed bonuses, weighting or norms. Five-option and binary tasks differ in chance and are not difficulty-equated; the lowest count diagnoses no weakest ability, and an individual count identifies no guessing. There is no Watson–Glaser score, IQ, percentile, performance band, passing threshold, legal competence or hiring probability. All five identical public guides are readable before answering. Once the whole attempt closes, even with zero correct or all blanks, every stem, selection, key and explanation in the chosen UI language opens alongside the five general guides. Timed mode uses one site-selected 30:00 clock beginning at deliberate start. Reading instructions, changing parts, backtracking and background tabs do not pause or reset it. Navigation can jump to any part’s first question and any response can change before finishing or expiry locks the entire attempt; there are no separately closed or restarted parts. Study uses the same bank without deadlines. Inconsistent device clocks clear the attempt through existing behavior without a timed result, providing no proctoring or unassisted-performance certification. Site timing, navigation and assistance rules determine no actual recruitment conditions: check the specific invitation and arrangements. The official practice page also distinguishes format familiarity from interpretable trialled scores. The linked historical UK booklet retains its dated attribution and copyright context; this site reproduces none of its items, examples or record forms and has no endorsement. This bank lacks measurement validation, transfer or meaningful-improvement thresholds. Repeating fixed items can reflect memory, familiarity, changed conditions or reasoning without identifying a cause. New examples need only fictional records, not employer material, private responses or sensitive views. Reading alone, declining discussion or stopping is allowed. Answers, mode and timing stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration or restarting. Copying includes only five public guide titles and links without responses, counts, mode or time. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation."
+        }
+      ]
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumptions-2",
+      "title": {
+        "en": "Separate assumptions from stated facts",
+        "zh": "区分假设与已述事实"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创学习情境：虚构的沐在假设组五对一错，思五对一未答，相同正确数不揭示谁掌握了什么。另设计划：“只在一台终端收表，每名受邀者都能交表。”它预设每名受邀者可使用这台终端；终端是否银色不影响这一机制，因而未必被预设。若否定可使用性、其余条件不变，有人便无法经唯一渠道交表。若计划另有纸表渠道，依赖关系应重查。识别所需访问条件并不核实实际可访问性，也不评人是否愿意配合。",
+          "en": "An additional original learning scene: Fictional Mu has five correct and one wrong assumption item; Si has five correct and one unanswered. Equal correct counts reveal no mastery. A fresh plan says: “Only one kiosk accepts forms, and every invited person can submit.” It takes for granted that every invitee can use the kiosk; a silver casing is not required by that mechanism. Denying access while keeping other conditions fixed prevents someone submitting through the sole route. If a paper route is also specified, reconsider the dependency. Identifying a needed access condition verifies no real access and judges no willingness to cooperate."
+        }
+      ]
+    },
+    {
+      "id": "assumptions-6",
+      "title": {
+        "en": "Use one clock across all parts",
+        "zh": "全卷使用同一时钟"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样说明一个条件为何被计划预设，并另列实际仍待核查的事项？”可以只谈上述虚构人物与新纸上例子，一人说明规则，另一人检查证据、条件或约束；允许分歧、保留待核查或停止。不需交换个人答卷、成绩、健康信息或申请资料，不要求实物操作，也不以速度或答案数量给参与者贴能力标签。",
+          "en": "An optional discussion prompt asks: “How can a condition taken for granted by a plan be explained separately from what still needs checking in reality?” Discuss only the fictional learners and new paper examples above: one explains a rule and another checks evidence, bases or constraints. Participants may disagree, leave a point for checking or stop without exchanging private answer sheets, scores, health details or applications. No physical task is required, and neither speed nor counts label anyone’s ability."
+        }
+      ]
+    },
+    {
+      "id": "assumptions-7",
+      "title": {
+        "en": "Turn the result into a concrete check",
+        "zh": "把复盘变成具体核查"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是费马独立编写的固定三十道英文题，推断、假设识别、演绎、解读与论证评价各六题。中文界面保留英文题干与选项，说明、解析和指南双语，不确立语言等值。推断有五个标签，本版将可能性限定于明示事实或抽样模型；其余四段各用本段二选一规则，不把信息不足、未被预设、非必然、未获支持与理由弱当作同一判断。历史提供方推断说明允许某些常识背景，不能用本站的数值概率约定替代正式指令。选中答案键计正确，其他有效给定项计错误，主动留空或未触及计未答；三数各组合六、总计三十，不补答、不按空白为错选，无猜测校正、速度奖励、加权或常模。五选一与二选一机会不同、难度未等值，不能按最低正确数诊断最弱能力或由个人数量识别猜测。无Watson–Glaser成绩、IQ、百分位、表现档、通过线、法律胜任力或录用概率。五篇相同公开全文作答前可读；整卷结束后包括零正确或全未答，全部三十题、本人选择、答案及本语言解析和五篇通用指南均开放。计时模式整卷共用本站30:00，从本人开始起一次连续计时，读指令、换段、返回、切后台均不暂停或重置；可跳至任一段首题，结束前可改任题，主动结束或到时锁全卷，无逐段关闭与重启。学习模式同题无截止，设备双时钟不一致依现有行为清除而不生成计时结果；不提供监考或无帮助认证。网站计时、导航与允许帮助不决定实际招聘规则，须核具体邀请与安排。官方练习页也区分了解题式与经试测可解释的成绩；所引历史英国册保留年代、归属和版权背景，本站不复制其试题、样例或记录表，也不获其背书。本题本未做测量验证，无迁移或进步阈值；固定题重做可能含记忆、熟悉度、条件或推理变化，不凭提高判定原因。新例只谈虚构记录，不需真实雇主材料、私人答卷或敏感观点；可只读、拒绝讨论或停止。答案、模式与计时仅留页面内存，无草稿或长期历史，依现有刷新、离开、换语言、缓存恢复与重练行为清除。复制仅含五篇公开指南标题和链接，无答案、数量、模式或时间；常规页面分析关闭，可选匿名动作计数需本页许可与全站分析同意。清除不抹掉浏览器历史、截屏或旁人看屏。",
+          "en": "This independently authored fixed bank has 30 English questions: six each in inference, assumptions, deduction, interpretation and arguments. Chinese UI retains English stems and options alongside bilingual instructions, explanations and guides, without language equivalence. Inference offers five labels with likelihood bounded to explicit facts or sampling models; the four binary parts each apply their own rule. Insufficient data, not assumed, not necessary, unsupported and weak are different judgements. Historical provider inference instructions permit some common background knowledge: this site’s numerical probability convention does not replace official directions. A key match counts as correct, another offered option as wrong, and an explicit skip or untouched item as unanswered. Counts sum to six per area and 30 overall without imputation, converting blanks into wrong selections, guessing correction, speed bonuses, weighting or norms. Five-option and binary tasks differ in chance and are not difficulty-equated; the lowest count diagnoses no weakest ability, and an individual count identifies no guessing. There is no Watson–Glaser score, IQ, percentile, performance band, passing threshold, legal competence or hiring probability. All five identical public guides are readable before answering. Once the whole attempt closes, even with zero correct or all blanks, every stem, selection, key and explanation in the chosen UI language opens alongside the five general guides. Timed mode uses one site-selected 30:00 clock beginning at deliberate start. Reading instructions, changing parts, backtracking and background tabs do not pause or reset it. Navigation can jump to any part’s first question and any response can change before finishing or expiry locks the entire attempt; there are no separately closed or restarted parts. Study uses the same bank without deadlines. Inconsistent device clocks clear the attempt through existing behavior without a timed result, providing no proctoring or unassisted-performance certification. Site timing, navigation and assistance rules determine no actual recruitment conditions: check the specific invitation and arrangements. The official practice page also distinguishes format familiarity from interpretable trialled scores. The linked historical UK booklet retains its dated attribution and copyright context; this site reproduces none of its items, examples or record forms and has no endorsement. This bank lacks measurement validation, transfer or meaningful-improvement thresholds. Repeating fixed items can reflect memory, familiarity, changed conditions or reasoning without identifying a cause. New examples need only fictional records, not employer material, private responses or sensitive views. Reading alone, declining discussion or stopping is allowed. Answers, mode and timing stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration or restarting. Copying includes only five public guide titles and links without responses, counts, mode or time. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation."
+        }
+      ]
+    }
+  ],
+  "deduction": [
+    {
+      "id": "deduction-2",
+      "title": {
+        "en": "Track inclusion without reversing it",
+        "zh": "追踪包含而不倒转"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创学习情境：虚构的羽与安在演绎组各三对两错一未答，不能据此断言二人都倒转了条件。新模型规定每枚橙色片均有编号，且至少存在一枚橙色片；因此至少一枚有编号片为橙色。反向“所有有编号片均橙色”不必然，一枚有编号蓝片可满足原前提而反驳结论。删去橙色片的存在前提，则空的橙色类也满足全称条件，不能再仅凭该条件造出实例。反例必须同时保留原前提，不能只让结论失败。",
+          "en": "An additional original learning scene: Fictional Yu and An each have three correct, two wrong and one unanswered deduction item. This cannot establish that both reversed a condition. A new model states that every orange token is numbered and at least one orange token exists. At least one numbered token is therefore orange. The reverse claim that all numbered tokens are orange is unnecessary: a numbered blue token can satisfy the premises while refuting it. Remove the existence premise and an empty orange class can satisfy the universal rule, which supplies no instance on its own. A countermodel must preserve all original premises as well as falsify the conclusion."
+        }
+      ]
+    },
+    {
+      "id": "deduction-6",
+      "title": {
+        "en": "Plan within the whole-test clock",
+        "zh": "在整卷时钟内安排"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样写出满足全部前提的反例，并说明哪些结论真正需要存在前提？”可以只谈上述虚构人物与新纸上例子，一人说明规则，另一人检查证据、条件或约束；允许分歧、保留待核查或停止。不需交换个人答卷、成绩、健康信息或申请资料，不要求实物操作，也不以速度或答案数量给参与者贴能力标签。",
+          "en": "An optional discussion prompt asks: “How can a countermodel preserve every premise and show which conclusions actually require an existence premise?” Discuss only the fictional learners and new paper examples above: one explains a rule and another checks evidence, bases or constraints. Participants may disagree, leave a point for checking or stop without exchanging private answer sheets, scores, health details or applications. No physical task is required, and neither speed nor counts label anyone’s ability."
+        }
+      ]
+    },
+    {
+      "id": "deduction-7",
+      "title": {
+        "en": "Review the logical witness",
+        "zh": "复盘逻辑证据"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是费马独立编写的固定三十道英文题，推断、假设识别、演绎、解读与论证评价各六题。中文界面保留英文题干与选项，说明、解析和指南双语，不确立语言等值。推断有五个标签，本版将可能性限定于明示事实或抽样模型；其余四段各用本段二选一规则，不把信息不足、未被预设、非必然、未获支持与理由弱当作同一判断。历史提供方推断说明允许某些常识背景，不能用本站的数值概率约定替代正式指令。选中答案键计正确，其他有效给定项计错误，主动留空或未触及计未答；三数各组合六、总计三十，不补答、不按空白为错选，无猜测校正、速度奖励、加权或常模。五选一与二选一机会不同、难度未等值，不能按最低正确数诊断最弱能力或由个人数量识别猜测。无Watson–Glaser成绩、IQ、百分位、表现档、通过线、法律胜任力或录用概率。五篇相同公开全文作答前可读；整卷结束后包括零正确或全未答，全部三十题、本人选择、答案及本语言解析和五篇通用指南均开放。计时模式整卷共用本站30:00，从本人开始起一次连续计时，读指令、换段、返回、切后台均不暂停或重置；可跳至任一段首题，结束前可改任题，主动结束或到时锁全卷，无逐段关闭与重启。学习模式同题无截止，设备双时钟不一致依现有行为清除而不生成计时结果；不提供监考或无帮助认证。网站计时、导航与允许帮助不决定实际招聘规则，须核具体邀请与安排。官方练习页也区分了解题式与经试测可解释的成绩；所引历史英国册保留年代、归属和版权背景，本站不复制其试题、样例或记录表，也不获其背书。本题本未做测量验证，无迁移或进步阈值；固定题重做可能含记忆、熟悉度、条件或推理变化，不凭提高判定原因。新例只谈虚构记录，不需真实雇主材料、私人答卷或敏感观点；可只读、拒绝讨论或停止。答案、模式与计时仅留页面内存，无草稿或长期历史，依现有刷新、离开、换语言、缓存恢复与重练行为清除。复制仅含五篇公开指南标题和链接，无答案、数量、模式或时间；常规页面分析关闭，可选匿名动作计数需本页许可与全站分析同意。清除不抹掉浏览器历史、截屏或旁人看屏。",
+          "en": "This independently authored fixed bank has 30 English questions: six each in inference, assumptions, deduction, interpretation and arguments. Chinese UI retains English stems and options alongside bilingual instructions, explanations and guides, without language equivalence. Inference offers five labels with likelihood bounded to explicit facts or sampling models; the four binary parts each apply their own rule. Insufficient data, not assumed, not necessary, unsupported and weak are different judgements. Historical provider inference instructions permit some common background knowledge: this site’s numerical probability convention does not replace official directions. A key match counts as correct, another offered option as wrong, and an explicit skip or untouched item as unanswered. Counts sum to six per area and 30 overall without imputation, converting blanks into wrong selections, guessing correction, speed bonuses, weighting or norms. Five-option and binary tasks differ in chance and are not difficulty-equated; the lowest count diagnoses no weakest ability, and an individual count identifies no guessing. There is no Watson–Glaser score, IQ, percentile, performance band, passing threshold, legal competence or hiring probability. All five identical public guides are readable before answering. Once the whole attempt closes, even with zero correct or all blanks, every stem, selection, key and explanation in the chosen UI language opens alongside the five general guides. Timed mode uses one site-selected 30:00 clock beginning at deliberate start. Reading instructions, changing parts, backtracking and background tabs do not pause or reset it. Navigation can jump to any part’s first question and any response can change before finishing or expiry locks the entire attempt; there are no separately closed or restarted parts. Study uses the same bank without deadlines. Inconsistent device clocks clear the attempt through existing behavior without a timed result, providing no proctoring or unassisted-performance certification. Site timing, navigation and assistance rules determine no actual recruitment conditions: check the specific invitation and arrangements. The official practice page also distinguishes format familiarity from interpretable trialled scores. The linked historical UK booklet retains its dated attribution and copyright context; this site reproduces none of its items, examples or record forms and has no endorsement. This bank lacks measurement validation, transfer or meaningful-improvement thresholds. Repeating fixed items can reflect memory, familiarity, changed conditions or reasoning without identifying a cause. New examples need only fictional records, not employer material, private responses or sensitive views. Reading alone, declining discussion or stopping is allowed. Answers, mode and timing stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration or restarting. Copying includes only five public guide titles and links without responses, counts, mode or time. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation."
+        }
+      ]
+    }
+  ],
+  "interpretation": [
+    {
+      "id": "interpretation-2",
+      "title": {
+        "en": "Preserve the observed population",
+        "zh": "保留观察人群"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创学习情境：虚构的悦与橙在解读组都四对两未答，记录没有说明留空原因。另设自愿调查只有四十名回复者，其中三十选方案C；这支持“回复者中75%选C”，没有建立全体成员也75%或大多数选C。随后两名录入者对这四十份选择记录完全一致，只支持该批记录一致，不能单独核实问题是否有效、回复是否真实或代表全员。有限观察可以有据；尚不能推广不等于观察毫无信息。",
+          "en": "An additional original learning scene: Fictional Yue and Cheng each have four correct and two unanswered interpretation items, with no reason for the blanks established. A new voluntary survey has 40 respondents, 30 choosing Plan C. This supports 75% among respondents, establishing neither 75% nor a majority among all members. Two clerks then record identical choices for these 40 responses. That supports agreement on this batch, not by itself valid questions, truthful replies or representation of all members. A bounded observation can be supported: a missing generalisation does not make it uninformative."
+        }
+      ]
+    },
+    {
+      "id": "interpretation-6",
+      "title": {
+        "en": "Allocate attention under one clock",
+        "zh": "在同一时钟下分配注意"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样同时保留观察确实支持的窄结论，以及人群、准确性或因果仍未知的部分？”可以只谈上述虚构人物与新纸上例子，一人说明规则，另一人检查证据、条件或约束；允许分歧、保留待核查或停止。不需交换个人答卷、成绩、健康信息或申请资料，不要求实物操作，也不以速度或答案数量给参与者贴能力标签。",
+          "en": "An optional discussion prompt asks: “How can a supported narrow observation remain visible alongside what is unknown about population, accuracy or cause?” Discuss only the fictional learners and new paper examples above: one explains a rule and another checks evidence, bases or constraints. Participants may disagree, leave a point for checking or stop without exchanging private answer sheets, scores, health details or applications. No physical task is required, and neither speed nor counts label anyone’s ability."
+        }
+      ]
+    },
+    {
+      "id": "interpretation-7",
+      "title": {
+        "en": "Review a supported boundary",
+        "zh": "复盘有据的边界"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是费马独立编写的固定三十道英文题，推断、假设识别、演绎、解读与论证评价各六题。中文界面保留英文题干与选项，说明、解析和指南双语，不确立语言等值。推断有五个标签，本版将可能性限定于明示事实或抽样模型；其余四段各用本段二选一规则，不把信息不足、未被预设、非必然、未获支持与理由弱当作同一判断。历史提供方推断说明允许某些常识背景，不能用本站的数值概率约定替代正式指令。选中答案键计正确，其他有效给定项计错误，主动留空或未触及计未答；三数各组合六、总计三十，不补答、不按空白为错选，无猜测校正、速度奖励、加权或常模。五选一与二选一机会不同、难度未等值，不能按最低正确数诊断最弱能力或由个人数量识别猜测。无Watson–Glaser成绩、IQ、百分位、表现档、通过线、法律胜任力或录用概率。五篇相同公开全文作答前可读；整卷结束后包括零正确或全未答，全部三十题、本人选择、答案及本语言解析和五篇通用指南均开放。计时模式整卷共用本站30:00，从本人开始起一次连续计时，读指令、换段、返回、切后台均不暂停或重置；可跳至任一段首题，结束前可改任题，主动结束或到时锁全卷，无逐段关闭与重启。学习模式同题无截止，设备双时钟不一致依现有行为清除而不生成计时结果；不提供监考或无帮助认证。网站计时、导航与允许帮助不决定实际招聘规则，须核具体邀请与安排。官方练习页也区分了解题式与经试测可解释的成绩；所引历史英国册保留年代、归属和版权背景，本站不复制其试题、样例或记录表，也不获其背书。本题本未做测量验证，无迁移或进步阈值；固定题重做可能含记忆、熟悉度、条件或推理变化，不凭提高判定原因。新例只谈虚构记录，不需真实雇主材料、私人答卷或敏感观点；可只读、拒绝讨论或停止。答案、模式与计时仅留页面内存，无草稿或长期历史，依现有刷新、离开、换语言、缓存恢复与重练行为清除。复制仅含五篇公开指南标题和链接，无答案、数量、模式或时间；常规页面分析关闭，可选匿名动作计数需本页许可与全站分析同意。清除不抹掉浏览器历史、截屏或旁人看屏。",
+          "en": "This independently authored fixed bank has 30 English questions: six each in inference, assumptions, deduction, interpretation and arguments. Chinese UI retains English stems and options alongside bilingual instructions, explanations and guides, without language equivalence. Inference offers five labels with likelihood bounded to explicit facts or sampling models; the four binary parts each apply their own rule. Insufficient data, not assumed, not necessary, unsupported and weak are different judgements. Historical provider inference instructions permit some common background knowledge: this site’s numerical probability convention does not replace official directions. A key match counts as correct, another offered option as wrong, and an explicit skip or untouched item as unanswered. Counts sum to six per area and 30 overall without imputation, converting blanks into wrong selections, guessing correction, speed bonuses, weighting or norms. Five-option and binary tasks differ in chance and are not difficulty-equated; the lowest count diagnoses no weakest ability, and an individual count identifies no guessing. There is no Watson–Glaser score, IQ, percentile, performance band, passing threshold, legal competence or hiring probability. All five identical public guides are readable before answering. Once the whole attempt closes, even with zero correct or all blanks, every stem, selection, key and explanation in the chosen UI language opens alongside the five general guides. Timed mode uses one site-selected 30:00 clock beginning at deliberate start. Reading instructions, changing parts, backtracking and background tabs do not pause or reset it. Navigation can jump to any part’s first question and any response can change before finishing or expiry locks the entire attempt; there are no separately closed or restarted parts. Study uses the same bank without deadlines. Inconsistent device clocks clear the attempt through existing behavior without a timed result, providing no proctoring or unassisted-performance certification. Site timing, navigation and assistance rules determine no actual recruitment conditions: check the specific invitation and arrangements. The official practice page also distinguishes format familiarity from interpretable trialled scores. The linked historical UK booklet retains its dated attribution and copyright context; this site reproduces none of its items, examples or record forms and has no endorsement. This bank lacks measurement validation, transfer or meaningful-improvement thresholds. Repeating fixed items can reflect memory, familiarity, changed conditions or reasoning without identifying a cause. New examples need only fictional records, not employer material, private responses or sensitive views. Reading alone, declining discussion or stopping is allowed. Answers, mode and timing stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration or restarting. Copying includes only five public guide titles and links without responses, counts, mode or time. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation."
+        }
+      ]
+    }
+  ],
+  "arguments": [
+    {
+      "id": "arguments-2",
+      "title": {
+        "en": "Separate truth from relevance",
+        "zh": "分开真假与相关性"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创学习情境：虚构的宁与沐在论证组都五对一错，这不表明二人政治观点或道德价值相同。新决定目标是“在不增加领取延误的前提下减少纸张使用”。按题设视理由为真，“电子回执使纸张减少40%且延误不增”直接且实质相关；“通知标题更押韵”并不说明这两个目标。强理由仍未解决费用、隐私或替代路线，不能自动推出真实组织应实施。若改问标题记忆性，押韵的相关性需按新目标重新评价。",
+          "en": "An additional original learning scene: Fictional Ning and Mu each have five correct and one wrong argument item. This establishes no shared politics or moral worth. A fresh decision goal is to reduce paper without increasing collection delays. Under the stipulated truth rule, electronic receipts cutting paper by 40% without increasing delays is directly and materially relevant; a more rhyming notice title establishes neither goal. A strong reason still leaves cost, privacy and alternative routes unresolved, so it does not automatically recommend implementation by a real organisation. If the goal changes to remembering the title, reconsider relevance under that new goal."
+        }
+      ]
+    },
+    {
+      "id": "arguments-6",
+      "title": {
+        "en": "Work within one continuous clock",
+        "zh": "在连续时钟下作答"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样先按题设接受理由，再评价它对限定目标的重要性，而不把强理由当成完整行动建议？”可以只谈上述虚构人物与新纸上例子，一人说明规则，另一人检查证据、条件或约束；允许分歧、保留待核查或停止。不需交换个人答卷、成绩、健康信息或申请资料，不要求实物操作，也不以速度或答案数量给参与者贴能力标签。",
+          "en": "An optional discussion prompt asks: “How can a reason be accepted as stipulated and judged for its importance to a bounded goal without turning it into a complete recommendation?” Discuss only the fictional learners and new paper examples above: one explains a rule and another checks evidence, bases or constraints. Participants may disagree, leave a point for checking or stop without exchanging private answer sheets, scores, health details or applications. No physical task is required, and neither speed nor counts label anyone’s ability."
+        }
+      ]
+    },
+    {
+      "id": "arguments-7",
+      "title": {
+        "en": "Review the connection, then make a new case",
+        "zh": "复盘连接，再造新例"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是费马独立编写的固定三十道英文题，推断、假设识别、演绎、解读与论证评价各六题。中文界面保留英文题干与选项，说明、解析和指南双语，不确立语言等值。推断有五个标签，本版将可能性限定于明示事实或抽样模型；其余四段各用本段二选一规则，不把信息不足、未被预设、非必然、未获支持与理由弱当作同一判断。历史提供方推断说明允许某些常识背景，不能用本站的数值概率约定替代正式指令。选中答案键计正确，其他有效给定项计错误，主动留空或未触及计未答；三数各组合六、总计三十，不补答、不按空白为错选，无猜测校正、速度奖励、加权或常模。五选一与二选一机会不同、难度未等值，不能按最低正确数诊断最弱能力或由个人数量识别猜测。无Watson–Glaser成绩、IQ、百分位、表现档、通过线、法律胜任力或录用概率。五篇相同公开全文作答前可读；整卷结束后包括零正确或全未答，全部三十题、本人选择、答案及本语言解析和五篇通用指南均开放。计时模式整卷共用本站30:00，从本人开始起一次连续计时，读指令、换段、返回、切后台均不暂停或重置；可跳至任一段首题，结束前可改任题，主动结束或到时锁全卷，无逐段关闭与重启。学习模式同题无截止，设备双时钟不一致依现有行为清除而不生成计时结果；不提供监考或无帮助认证。网站计时、导航与允许帮助不决定实际招聘规则，须核具体邀请与安排。官方练习页也区分了解题式与经试测可解释的成绩；所引历史英国册保留年代、归属和版权背景，本站不复制其试题、样例或记录表，也不获其背书。本题本未做测量验证，无迁移或进步阈值；固定题重做可能含记忆、熟悉度、条件或推理变化，不凭提高判定原因。新例只谈虚构记录，不需真实雇主材料、私人答卷或敏感观点；可只读、拒绝讨论或停止。答案、模式与计时仅留页面内存，无草稿或长期历史，依现有刷新、离开、换语言、缓存恢复与重练行为清除。复制仅含五篇公开指南标题和链接，无答案、数量、模式或时间；常规页面分析关闭，可选匿名动作计数需本页许可与全站分析同意。清除不抹掉浏览器历史、截屏或旁人看屏。",
+          "en": "This independently authored fixed bank has 30 English questions: six each in inference, assumptions, deduction, interpretation and arguments. Chinese UI retains English stems and options alongside bilingual instructions, explanations and guides, without language equivalence. Inference offers five labels with likelihood bounded to explicit facts or sampling models; the four binary parts each apply their own rule. Insufficient data, not assumed, not necessary, unsupported and weak are different judgements. Historical provider inference instructions permit some common background knowledge: this site’s numerical probability convention does not replace official directions. A key match counts as correct, another offered option as wrong, and an explicit skip or untouched item as unanswered. Counts sum to six per area and 30 overall without imputation, converting blanks into wrong selections, guessing correction, speed bonuses, weighting or norms. Five-option and binary tasks differ in chance and are not difficulty-equated; the lowest count diagnoses no weakest ability, and an individual count identifies no guessing. There is no Watson–Glaser score, IQ, percentile, performance band, passing threshold, legal competence or hiring probability. All five identical public guides are readable before answering. Once the whole attempt closes, even with zero correct or all blanks, every stem, selection, key and explanation in the chosen UI language opens alongside the five general guides. Timed mode uses one site-selected 30:00 clock beginning at deliberate start. Reading instructions, changing parts, backtracking and background tabs do not pause or reset it. Navigation can jump to any part’s first question and any response can change before finishing or expiry locks the entire attempt; there are no separately closed or restarted parts. Study uses the same bank without deadlines. Inconsistent device clocks clear the attempt through existing behavior without a timed result, providing no proctoring or unassisted-performance certification. Site timing, navigation and assistance rules determine no actual recruitment conditions: check the specific invitation and arrangements. The official practice page also distinguishes format familiarity from interpretable trialled scores. The linked historical UK booklet retains its dated attribution and copyright context; this site reproduces none of its items, examples or record forms and has no endorsement. This bank lacks measurement validation, transfer or meaningful-improvement thresholds. Repeating fixed items can reflect memory, familiarity, changed conditions or reasoning without identifying a cause. New examples need only fictional records, not employer material, private responses or sensitive views. Reading alone, declining discussion or stopping is allowed. Answers, mode and timing stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration or restarting. Copying includes only five public guide titles and links without responses, counts, mode or time. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation."
+        }
+      ]
+    }
+  ]
+}

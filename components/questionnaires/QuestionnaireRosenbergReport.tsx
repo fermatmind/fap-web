@@ -3,7 +3,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { RosenbergResult } from "@/lib/questionnaires/rosenberg";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 export function QuestionnaireRosenbergReport({ quiz, result, locale }: {
   quiz: Questionnaire; result: Extract<RosenbergResult, { status: "complete" }>; locale: Locale;
@@ -22,7 +22,7 @@ export function QuestionnaireRosenbergReport({ quiz, result, locale }: {
     </section>
     <section aria-labelledby="rses-reading-heading">
       <h3 id="rses-reading-heading" className="mb-4 text-2xl font-semibold">{profile.title[locale]}</h3>
-      <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix="rses-score-reading" />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix="rses-score-reading" />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读公开的完整分数说明" : "Read the complete public score guide"}</Link>
     </section>
   </div>;

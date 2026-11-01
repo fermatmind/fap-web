@@ -1,0 +1,226 @@
+{
+  "isagi": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：一条观察，只支持一处小改",
+        "en": "Review one observation and one small revision"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用有缺口的纸球场，先写示例实际走了哪一步，再提出只改一条连线的版本。请愿意的伙伴按同样走法各试一次，也可只画图。复盘比较连接是否更清楚，保留暂时不知道的地方；不用一次成功证明智力、空间能力、学习速度或看穿真人的本领。",
+          "en": "For the paper pitch with a gap, record the demonstrated move and propose changing one connection. A willing partner can try the same move on both versions, or compare drawings only. Review clarity while retaining unknowns, without one success as proof of intelligence, spatial ability, learning speed or insight into real people."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "借自愿纸游戏聊不同贡献",
+        "en": "Discuss contributions through a voluntary paper game"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果示例回合只暴露一处连接不清，你会记录什么，再怎样只改一条线来比较？”各拟一个办法，再从另一角色角度改一处。可只用虚构例子，不必玩游戏、竞赛或展示个人经历。",
+          "en": "Ask: “If a sample turn revealed one unclear connection, what would you record before comparing a one-line revision?” Suggest an approach each and revise one part through another character angle. Use invented examples without playing, competing or sharing personal experiences."
+        },
+        {
+          "zh": "可分享不含答卷和计数的公开说明。七名称只对应本版选项，不测体育、智力、自我水平、诊断或关系健康；不提供伤后恢复建议。对方可换角色、不同意、不回答或结束，不追问病史、创伤或私人关系，不评价缺席者。",
+          "en": "Share the public guide without answers or counts. Seven names concern this edition’s options, not athletics, intelligence, ego levels, diagnosis or relationship health, and offer no injury-recovery advice. Others may change characters, disagree, decline or stop. Request no medical history, trauma or private relationships, and assess no absent person."
+        }
+      ]
+    }
+  ],
+  "bachira": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：趣味变化先说明，再自愿选择",
+        "en": "Review a playful variation explained in advance"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用反转一条无害规则，先展示旧版、新版各一次走法，再问想试哪种或今天不玩。不同意也能保留想象，不设计让别人尴尬的惊喜。可以只起草两张规则卡。复盘看新意是否让参与者更享受，不以反应猜孤独、内心声音、独立性或需要认可的程度。",
+          "en": "For reversing a harmless rule, show one move under each version before asking which to try, including no game today. Keep the idea without staging an embarrassing surprise if unwanted. Draft two cards only. Review shared enjoyment without reactions as evidence about loneliness, inner voices, independence or need for approval."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "借自愿纸游戏聊不同贡献",
+        "en": "Discuss contributions through a voluntary paper game"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果想把纸棋子的一条规则反过来，怎样先说明变化，再让大家选旧版、新版或不玩？”各拟一个办法，再从另一角色角度改一处。可只用虚构例子，不必玩游戏、竞赛或展示个人经历。",
+          "en": "Ask: “If you wanted to reverse a paper-counter rule, how would you explain the change and offer the original, the variation or no game?” Suggest an approach each and revise one part through another character angle. Use invented examples without playing, competing or sharing personal experiences."
+        },
+        {
+          "zh": "可分享不含答卷和计数的公开说明。七名称只对应本版选项，不测体育、智力、自我水平、诊断或关系健康；不提供伤后恢复建议。对方可换角色、不同意、不回答或结束，不追问病史、创伤或私人关系，不评价缺席者。",
+          "en": "Share the public guide without answers or counts. Seven names concern this edition’s options, not athletics, intelligence, ego levels, diagnosis or relationship health, and offer no injury-recovery advice. Others may change characters, disagree, decline or stop. Request no medical history, trauma or private relationships, and assess no absent person."
+        }
+      ]
+    }
+  ],
+  "nagi": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：一个可玩回合，也写清准备和收尾",
+        "en": "Review one playable turn with setup and finish"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用短回合，把所需棋子、一个动作与结束点写成三行，先核谁自愿准备，不把简单版变成别人默默包办。可以只读示例，不需实际玩。复盘看缩小范围后是否仍有乐趣，不用低投入证明天才，也不从是否继续推断懒惰、冷漠或潜能。",
+          "en": "For the short round, list pieces, one move and the finish, checking who voluntarily prepares rather than leaving hidden work to someone else. Read an example without playing. Review whether the reduced scope remains enjoyable, without low effort as genius or continuation as evidence of laziness, indifference or potential."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "借自愿纸游戏聊不同贡献",
+        "en": "Discuss contributions through a voluntary paper game"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果只有几分钟玩一回合，怎样列出最小准备、一个动作和结束点，又不默认别人做好全部？”各拟一个办法，再从另一角色角度改一处。可只用虚构例子，不必玩游戏、竞赛或展示个人经历。",
+          "en": "Ask: “If only a few minutes were available, how would you name the setup, one move and finish without assuming someone else would prepare everything?” Suggest an approach each and revise one part through another character angle. Use invented examples without playing, competing or sharing personal experiences."
+        },
+        {
+          "zh": "可分享不含答卷和计数的公开说明。七名称只对应本版选项，不测体育、智力、自我水平、诊断或关系健康；不提供伤后恢复建议。对方可换角色、不同意、不回答或结束，不追问病史、创伤或私人关系，不评价缺席者。",
+          "en": "Share the public guide without answers or counts. Seven names concern this edition’s options, not athletics, intelligence, ego levels, diagnosis or relationship health, and offer no injury-recovery advice. Others may change characters, disagree, decline or stop. Request no medical history, trauma or private relationships, and assess no absent person."
+        }
+      ]
+    }
+  ],
+  "reo": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：新的兴趣与旧任务分开约清",
+        "en": "Review a new interest alongside an earlier task"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用从摆棋子转向写规则，分别写想试的新部分、旧部分目前做到哪里和需要交接什么。问愿意的伙伴是否换，未约好可保留原安排或结束自愿活动。可以只改分工卡。复盘关注此次协商，不用换角色证明多才、独立，也不把坚持原角色解释成依赖或关系问题。",
+          "en": "For changing from counters to rules, separate the desired new part, the old part’s status and any handover. Ask a willing partner about a swap, keeping the arrangement or ending optional participation if no change is agreed. Edit a task card only. Review this agreement without role changes as versatility or independence, or staying as dependence or relationship trouble."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "借自愿纸游戏聊不同贡献",
+        "en": "Discuss contributions through a voluntary paper game"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果摆棋子后更想写示例规则，怎样说清想换什么、旧任务到哪里，并询问是否有人愿意交换？”各拟一个办法，再从另一角色角度改一处。可只用虚构例子，不必玩游戏、竞赛或展示个人经历。",
+          "en": "Ask: “If you wanted to write a rule after arranging counters, how would you describe the change, the old task’s status and an optional swap?” Suggest an approach each and revise one part through another character angle. Use invented examples without playing, competing or sharing personal experiences."
+        },
+        {
+          "zh": "可分享不含答卷和计数的公开说明。七名称只对应本版选项，不测体育、智力、自我水平、诊断或关系健康；不提供伤后恢复建议。对方可换角色、不同意、不回答或结束，不追问病史、创伤或私人关系，不评价缺席者。",
+          "en": "Share the public guide without answers or counts. Seven names concern this edition’s options, not athletics, intelligence, ego levels, diagnosis or relationship health, and offer no injury-recovery advice. Others may change characters, disagree, decline or stop. Request no medical history, trauma or private relationships, and assess no absent person."
+        }
+      ]
+    }
+  ],
+  "rin": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：说明是否足够清楚，能开始下一轮",
+        "en": "Review an explanation clear enough for the next round"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用规则与示例不合的地方，分别写原句、实际走步和可能的两种读法，再与愿意的伙伴约一处修正。每多一步说明都问是否解决具体困惑；够用即可停。可以只比较文字，不考试别人。复盘评本条说明，不判断完美主义、情绪控制、手足关系或推理高低。",
+          "en": "For the mismatch between rule and example, list the wording, the demonstrated move and two readings, then agree one correction with a willing partner. Ask whether each extra step resolves a specific confusion and stop when usable. Compare text without testing a person. Review this instruction rather than perfectionism, emotional control, sibling relationships or reasoning rank."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "借自愿纸游戏聊不同贡献",
+        "en": "Discuss contributions through a voluntary paper game"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果规则和示例走法不合，怎样分别指出文字与动作，再只改一处，让大家能开始下一轮？”各拟一个办法，再从另一角色角度改一处。可只用虚构例子，不必玩游戏、竞赛或展示个人经历。",
+          "en": "Ask: “If a rule and example move disagreed, how would you identify the wording and action and revise one point for the next round?” Suggest an approach each and revise one part through another character angle. Use invented examples without playing, competing or sharing personal experiences."
+        },
+        {
+          "zh": "可分享不含答卷和计数的公开说明。七名称只对应本版选项，不测体育、智力、自我水平、诊断或关系健康；不提供伤后恢复建议。对方可换角色、不同意、不回答或结束，不追问病史、创伤或私人关系，不评价缺席者。",
+          "en": "Share the public guide without answers or counts. Seven names concern this edition’s options, not athletics, intelligence, ego levels, diagnosis or relationship health, and offer no injury-recovery advice. Others may change characters, disagree, decline or stop. Request no medical history, trauma or private relationships, and assess no absent person."
+        }
+      ]
+    }
+  ],
+  "barou": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：个人复位惯例，只调整自己的材料",
+        "en": "Review a personal reset for your own pieces"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用棋子混到备用纸，给自己的物件画一张摆放小图，试一轮后看是否更容易找到；无益可改或不用。不移动伙伴的东西、不要求照搬，也能只画图。复盘描述本次找物的差别，不以整齐或持续次数评纪律、强迫、支配力、认真程度或个人价值。",
+          "en": "For counters mixed with spare paper, sketch a placement for your own pieces and check after a round whether finding them is easier. Change or drop it if unhelpful. Move no partner’s belongings and require no copying; sketch only if preferred. Describe this difference without neatness or repetition as discipline, compulsion, dominance, seriousness or worth."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "借自愿纸游戏聊不同贡献",
+        "en": "Discuss contributions through a voluntary paper game"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果自己的棋子总混在备用纸中，怎样试一个个人摆放办法，又保留别人按自己习惯整理的选择？”各拟一个办法，再从另一角色角度改一处。可只用虚构例子，不必玩游戏、竞赛或展示个人经历。",
+          "en": "Ask: “If your counters mixed with spare paper, how would you try a personal arrangement while leaving others free to organise differently?” Suggest an approach each and revise one part through another character angle. Use invented examples without playing, competing or sharing personal experiences."
+        },
+        {
+          "zh": "可分享不含答卷和计数的公开说明。七名称只对应本版选项，不测体育、智力、自我水平、诊断或关系健康；不提供伤后恢复建议。对方可换角色、不同意、不回答或结束，不追问病史、创伤或私人关系，不评价缺席者。",
+          "en": "Share the public guide without answers or counts. Seven names concern this edition’s options, not athletics, intelligence, ego levels, diagnosis or relationship health, and offer no injury-recovery advice. Others may change characters, disagree, decline or stop. Request no medical history, trauma or private relationships, and assess no absent person."
+        }
+      ]
+    }
+  ],
+  "chigiri": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：节奏可以重选，暂停无需证明理由",
+        "en": "Review a pace that can change without justification"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用慢轮、快轮的提议，先说当下愿选哪版，再约怎样暂停、略过或不参加；之后也可重新选，不需用秒表验证进步。可以只拟规则。复盘问本轮是否好享受，不比较身体或勇气，不把加快、放慢当康复、退步或克服恐惧的证据，也不讨论伤病处理。",
+          "en": "For the offered slow and quick rounds, choose the present version and agree how to pause, pass or decline, with room to choose again. Require no stopwatch as proof of progress; draft rules only. Review enjoyment without comparing bodies or courage, treating tempo as recovery, decline or conquered fear, or discussing injury management."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "借自愿纸游戏聊不同贡献",
+        "en": "Discuss contributions through a voluntary paper game"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果下轮有人想快、有人想慢，怎样提供可选节奏和暂停方式，而不把速度变成能力或勇气排名？”各拟一个办法，再从另一角色角度改一处。可只用虚构例子，不必玩游戏、竞赛或展示个人经历。",
+          "en": "Ask: “If some wanted a quicker round and others a slower one, how would you offer pace and pauses without ranking ability or courage?” Suggest an approach each and revise one part through another character angle. Use invented examples without playing, competing or sharing personal experiences."
+        },
+        {
+          "zh": "可分享不含答卷和计数的公开说明。七名称只对应本版选项，不测体育、智力、自我水平、诊断或关系健康；不提供伤后恢复建议。对方可换角色、不同意、不回答或结束，不追问病史、创伤或私人关系，不评价缺席者。",
+          "en": "Share the public guide without answers or counts. Seven names concern this edition’s options, not athletics, intelligence, ego levels, diagnosis or relationship health, and offer no injury-recovery advice. Others may change characters, disagree, decline or stop. Request no medical history, trauma or private relationships, and assess no absent person."
+        }
+      ]
+    }
+  ]
+}

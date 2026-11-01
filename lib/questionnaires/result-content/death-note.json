@@ -1,0 +1,258 @@
+{
+  "light-yagami": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘目标是否仍是自选的",
+        "en": "Review whether the aim remains chosen"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的自用目标，区分自己想保留的用途、还未决定的部分，以及是否需要他人实际同意。目标可以缩小、改变或暂时放下，不按完成程度评价价值。若它开始要求别人配合，先把自己的希望与共同约定分开，不由角色名字赋予决定权。",
+          "en": "After the private aim above, separate the use you want, undecided parts and anything requiring another person’s agreement. Reduce, change or leave the aim without grading worth by completion. If it depends on someone else, distinguish your hope from a shared agreement; a character name gives no authority to decide."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个自用页面的目的",
+        "en": "Share the purpose of a personal page"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设一页读书笔记只留想再看的段落，而不作完整摘要，你想让它服务什么？”只谈自己的用途，不评价谁的目标更高或更正确。",
+          "en": "Ask: “If imaginary reading notes kept passages to revisit instead of full summaries, what would you want the page to do?” Discuss personal use without ranking aims as higher or more correct."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "l": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘问题与证据是否分清",
+        "en": "Review the question and the evidence separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的两种解释，看看提出的问题是否真的能区分它们、现有材料能否回答，以及两种是否也可能同时成立。没有答案可以留白；好问题本身不是证据。讨论只用可用材料，不把答不上来理解成隐瞒或需要继续盘问。",
+          "en": "After the two explanations above, check whether the question distinguishes them, whether available material can answer it and whether both might hold. Leave the answer open; a useful question is not itself evidence. Use permitted material without taking an unanswered question as concealment or a reason to interrogate."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可以没有结论的问题",
+        "en": "Share a question that may have no conclusion"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设照片的影子有两种普通解释，需要看见什么才可能分清，又有哪些不能从图里知道？”不猜真实人物心思，不比较侦探能力或智商。",
+          "en": "Ask: “If an imaginary photo’s shadow had two ordinary explanations, what might distinguish them and what could the image not tell you?” Guess no real person’s thoughts and make no detective-skill or IQ comparison."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "ryuk": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘细节与是否需要解释",
+        "en": "Review the detail and whether to explain it"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的物件细节，只留直接注意到的部分，再决定是否想提问、讨论或结束。没有解释不减少这次观看的意义。若实际已有责任，仍按真实约定处理；旁观兴趣不自动取消已接受的部分，也不把别人的困难当作新奇素材。",
+          "en": "After the object detail above, keep what you directly noticed and decide whether to ask, discuss or end. No explanation is required for the look to matter. Handle actual responsibilities through real agreements; interest in observing cancels no accepted role and makes no one’s difficulty material for novelty."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个不用解释原因的细节",
+        "en": "Share a detail without explaining its cause"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设自己的普通纸卡边缘有个不寻常纹路，你愿意描述哪处，也可以只看不说？”不寻找更刺激的场景，也不把冷淡当作角色要求。",
+          "en": "Ask: “If your imaginary ordinary card had an unusual edge pattern, which part would you describe, or would you simply look?” No more dramatic scene or performance of coldness is needed."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "misa-amane": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘呈现方式与期待的回应",
+        "en": "Review presentation and the response you want"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的表达设想，区分自己喜欢的形式、愿意给谁看，以及是否真想要某种反馈。可以只留私人版本，也可以单独提出具体问题。没人回应时原因仍未知；不用点赞、称赞或关系中的牺牲来证明表达成功或值得被喜欢。",
+          "en": "After the expression idea above, separate the form you enjoy, who may see it and whether you want particular feedback. Keep it private or ask a specific question separately. No response leaves its reason unknown; likes, praise and relationship sacrifices need not prove success or worthiness of affection."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可不评价的封面选择",
+        "en": "Share a cover choice that needs no rating"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设私人笔记封面选一句话和一种排法，你愿意展示哪部分，还是先留给自己？”不要求模仿装扮、互评外貌或证明谁更忠诚。",
+          "en": "Ask: “For an imaginary private notebook cover, which words or layout would you show, or would it stay private?” No imitation of clothing, appearance ratings or proof of loyalty is required."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "near": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘资料、分类与仍缺的部分",
+        "en": "Review material, categories and gaps"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的笔记，核对原文说了什么、自己的问题是什么，以及哪部分没有来源。排整齐可以帮助查看，却不补足缺失证据；分类不合用时可以修改或不用。保留未知是完整记录的一部分，不需要收集别人的信息来凑成一个故事。",
+          "en": "After the note above, check the actual wording, your question and any part lacking a source. Order can help inspection without supplying missing evidence. Change or omit unsuitable categories. Unknowns belong in the record without collecting others’ information to complete a story."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个允许空缺的信息整理",
+        "en": "Share information sorting that permits gaps"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设几条普通阅读记录混在一起，哪些是原文、哪些是问题，什么还不知道？”只用已有材料，不比谁能最快拼出结论。",
+          "en": "Ask: “In imaginary mixed reading notes, what is original wording, what is a question and what remains unknown?” Use existing material without a race to assemble a conclusion."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "mello": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘另一条路是否确实可回头",
+        "en": "Review whether the alternative is reversible"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的替代摆放，检查原位置有没有留下、材料能否承受改动，以及是否影响别人。若恢复不清楚，可以先画图而不动实物。回到原样也可以是完整结果，不靠速度、变动大小或与人竞争证明这次选择有价值。",
+          "en": "After the alternative arrangement above, check the recorded original, whether materials allow the change and any effect on others. Sketch instead when restoration is unclear. Returning to the original is a complete outcome without speed, scale or competition proving the choice valuable."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可以恢复的摆放设想",
+        "en": "Share a restorable arrangement idea"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设自己的明信片换个顺序，你想先记住什么，什么条件下就不改？”可以保留原样，不把谨慎说成胆小或阻碍。",
+          "en": "Ask: “Before reordering your imaginary postcards, what would you record and when would you leave them unchanged?” Keep the original without calling caution cowardice or obstruction."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "teru-mikami": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘条件是否适合这些物品",
+        "en": "Review whether the criterion fits these objects"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的物品条件，确认它服务哪次用途、遗漏了什么差异，以及何时愿意修改。条件一致不等于正确或公平，也不让未选中的物品失去价值。这个练习只比较自己可用的普通材料，不扩展为对人的分类、奖惩或道德判断。",
+          "en": "After the object criterion above, check its purpose, differences it misses and when you would revise it. Consistency guarantees neither correctness nor fairness and devalues no unselected object. Compare only ordinary materials you may use, without extending the exercise to classifying, rewarding or judging people."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可以修订的物品条件",
+        "en": "Share an object criterion that can change"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设私人卡片页这次只选建筑图，后来更在意颜色，可以怎样改条件？”讨论用途与例外，不要求始终遵守第一版或评价谁有原则。",
+          "en": "Ask: “If an imaginary card page first selected buildings but later focused on colour, how might its criterion change?” Discuss purpose and exceptions without permanent adherence or ratings of principle."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "minoru-tanaka": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘新用途与保留原样的空间",
+        "en": "Review another use and room to keep the original"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的余卡设想，核对材料是否确实可改、有没有他人内容，以及原用途是否已经合用。另想用途不要求实际制作，更不要求把每样东西变成收益。留白、归还或继续原用都可以；没有改造也不说明缺乏资源意识。",
+          "en": "After the spare-card idea above, check permission to alter it, others’ content and whether its original use already fits. Another use requires neither making nor extracting value from everything. Leave it blank, return it or keep the original use without judging resourcefulness."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个不用花钱的新用途",
+        "en": "Share another use that needs no spending"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设自己的空白卡原本记读书笔记，现在想当书签或留空，你会怎样选？”不用真实交易、收益计算或短篇情节当理财方法。",
+          "en": "Ask: “If your imaginary blank reading card could become a bookmark or stay blank, how would you choose?” No real transaction, return calculation or short-story plot serves as financial advice."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ]
+}

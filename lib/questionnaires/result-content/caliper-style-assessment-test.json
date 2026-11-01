@@ -1,0 +1,330 @@
+{
+  "context": [
+    {
+      "id": "example",
+      "title": {
+        "en": "A concrete example",
+        "zh": "具体例子"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的宁在一次文字交接里说明请求缘由，乔发现双方已经共享背景，于是直接核对交付。两人都可能做得有用，但同组四陈述中，交代背景不一定都成为“最符合”。同一主题4次最符合与4次最不符合，差值为0；0次与0次也为0，后者八次出现均选了其他动作。两份记录不等于同样的交接习惯，页内次数也没有核实交接质量。",
+          "en": "An additional original scene: Fictional Ning explains a request’s background in a written handoff; Jo finds the background already shared and checks the deliverable instead. Either action may be useful, but explaining context need not become Most for both readers within the four-statement menu. Four Most and four Least choices give a zero difference; zero and zero also give zero, with other actions chosen on all eight appearances. These records do not establish identical handoff habits, and the counts verify no handoff quality."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "One optional next step",
+        "zh": "一个可选下一步"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样区分已共享的背景、题块里的相对选择和仍未知的沟通效果？”可以只谈上面的虚构人物与记录，区分已选动作、可能背景与尚未观察的效果。参与者可不同意、不回答或结束，不报个人次数、工作表现、雇主信息或他人经历，也不为证明某种特质而要求实际行动。",
+          "en": "An optional discussion prompt asks: “How can shared background, a relative menu choice and an unknown communication outcome be kept separate?” Discuss only the fictional readers and records above, separating selections, possible context and unobserved effects. Participants may disagree, decline or end, without personal counts, work performance, employer details or anyone else’s experiences, and without requiring an action to prove a trait."
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "en": "Read the complete record",
+        "zh": "完整读取次数"
+      },
+      "paragraphs": [
+        {
+          "zh": "本原创练习的解释范围：回看“最近普通工作或学习”，没有规定统一日数。16组各有四条陈述，每组必须选一条最符合和另一条最不符合；空白、只选一边或同项两边都不能生成完整记录，也没有不评分项，可清空或结束。每主题出现八次、四个位置各两次，最符合M与最不符合L都为0至8，且M＋L≤8；余下8−M−L次是本主题两边都未选，不是缺项或“不适用”。差值M−L为−8至＋8，既不是百分比，也不是等距校准的能力或性格分。完整记录八主题M合计16、L合计16、差值合计0，不能当成八个独立测量来排名，也不表示所有动作实际同样多或整体“平衡”。全选同一位置组合也可能每主题2次与2次而差值全零；没有理想作答或及格目标。题块、主题与新增解释没有建立信效度、常模、语言等值或变化阈值；Talogy正式工具资料不验证、授权或背书本练习。八份全文对所有人相同，公开指南没有个人次数。回答仅存当前页面内存，不存草稿；刷新、换语、离开、历史恢复、清空或重做按现有流程清除。复制只含公开标题与练习入口，不含答案、次数或主题归类；匿名动作统计需本页许可与全站分析同意。清除不会抹去浏览器历史或截图，也不能防止旁人看屏。可以只读本指南，拒绝练习或讨论后结束。",
+          "en": "Scope of this original practice: consider recent ordinary work or study, without a fixed number of days. Each of 16 four-statement blocks requires one Most and a different Least choice. A blank, one-sided or duplicate-side block cannot yield a complete record; there is no unscored option, and clearing or stopping is available. Each topic appears eight times, twice in each position. Most M and Least L each range from zero to eight, with M + L no greater than eight. The remaining 8 − M − L appearances select neither side for that topic; they are not missing or not-applicable responses. Difference M − L ranges from −8 to +8, without becoming a percentage or a calibrated interval score for ability or personality. Complete records total 16 Most, 16 Least and zero difference across topics. These are not eight independent measurements to rank, and the totals establish neither equal everyday activity nor overall balance. Repeating one position pair can give two Most and two Least selections per topic with all differences zero. There is no ideal pattern or pass target. Reliability, validity, norms, language equivalence and meaningful-change thresholds remain unestablished for the blocks, topics and added readings. Official Talogy material does not validate, license or endorse this practice. All eight full guides are identical for everyone; public guides contain no personal counts. Answers stay only in current-page memory without drafts; refresh, language change, leaving, history restoration, clearing or retaking follows existing clearing behavior. Copying contains only the public title and practice entry, without answers, counts or a topic assignment. Anonymous activity counts require page permission and site analytics consent. Clearing erases no browser history or screenshots and prevents no screen observation. Reading this guide alone, declining practice or discussion, and ending are available."
+        }
+      ]
+    }
+  ],
+  "options": [
+    {
+      "id": "example",
+      "title": {
+        "en": "A concrete example",
+        "zh": "具体例子"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的沐在可丢弃的草稿上比较两个标题，思面对已经获准的固定流程而选择先完成步骤。即使“尝试替代方案”在其中一份记录更常成为最符合，也不能推断想法更有创意或试验更有效。这个主题6次最符合、2次最不符合的差值为4；4次与0次也为4，题块中的两类选择并不相同。",
+          "en": "An additional original scene: Fictional Mu compares two headings on a disposable draft; Si follows an already authorized procedure and chooses to finish a step first. More Most selections for trying alternatives in one record establish no greater creativity or experimental success. Six Most and two Least choices give a difference of four; four and zero also give four, with different two-sided records."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "One optional next step",
+        "zh": "一个可选下一步"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“同样的差值为什么不能证明同样的探索方式，更不能证明方案有效？”可以只谈上面的虚构人物与记录，区分已选动作、可能背景与尚未观察的效果。参与者可不同意、不回答或结束，不报个人次数、工作表现、雇主信息或他人经历，也不为证明某种特质而要求实际行动。",
+          "en": "An optional discussion prompt asks: “Why does the same difference establish neither the same exploration pattern nor an effective solution?” Discuss only the fictional readers and records above, separating selections, possible context and unobserved effects. Participants may disagree, decline or end, without personal counts, work performance, employer details or anyone else’s experiences, and without requiring an action to prove a trait."
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "en": "Read the complete record",
+        "zh": "完整读取次数"
+      },
+      "paragraphs": [
+        {
+          "zh": "本原创练习的解释范围：回看“最近普通工作或学习”，没有规定统一日数。16组各有四条陈述，每组必须选一条最符合和另一条最不符合；空白、只选一边或同项两边都不能生成完整记录，也没有不评分项，可清空或结束。每主题出现八次、四个位置各两次，最符合M与最不符合L都为0至8，且M＋L≤8；余下8−M−L次是本主题两边都未选，不是缺项或“不适用”。差值M−L为−8至＋8，既不是百分比，也不是等距校准的能力或性格分。完整记录八主题M合计16、L合计16、差值合计0，不能当成八个独立测量来排名，也不表示所有动作实际同样多或整体“平衡”。全选同一位置组合也可能每主题2次与2次而差值全零；没有理想作答或及格目标。题块、主题与新增解释没有建立信效度、常模、语言等值或变化阈值；Talogy正式工具资料不验证、授权或背书本练习。八份全文对所有人相同，公开指南没有个人次数。回答仅存当前页面内存，不存草稿；刷新、换语、离开、历史恢复、清空或重做按现有流程清除。复制只含公开标题与练习入口，不含答案、次数或主题归类；匿名动作统计需本页许可与全站分析同意。清除不会抹去浏览器历史或截图，也不能防止旁人看屏。可以只读本指南，拒绝练习或讨论后结束。",
+          "en": "Scope of this original practice: consider recent ordinary work or study, without a fixed number of days. Each of 16 four-statement blocks requires one Most and a different Least choice. A blank, one-sided or duplicate-side block cannot yield a complete record; there is no unscored option, and clearing or stopping is available. Each topic appears eight times, twice in each position. Most M and Least L each range from zero to eight, with M + L no greater than eight. The remaining 8 − M − L appearances select neither side for that topic; they are not missing or not-applicable responses. Difference M − L ranges from −8 to +8, without becoming a percentage or a calibrated interval score for ability or personality. Complete records total 16 Most, 16 Least and zero difference across topics. These are not eight independent measurements to rank, and the totals establish neither equal everyday activity nor overall balance. Repeating one position pair can give two Most and two Least selections per topic with all differences zero. There is no ideal pattern or pass target. Reliability, validity, norms, language equivalence and meaningful-change thresholds remain unestablished for the blocks, topics and added readings. Official Talogy material does not validate, license or endorse this practice. All eight full guides are identical for everyone; public guides contain no personal counts. Answers stay only in current-page memory without drafts; refresh, language change, leaving, history restoration, clearing or retaking follows existing clearing behavior. Copying contains only the public title and practice entry, without answers, counts or a topic assignment. Anonymous activity counts require page permission and site analytics consent. Clearing erases no browser history or screenshots and prevents no screen observation. Reading this guide alone, declining practice or discussion, and ending are available."
+        }
+      ]
+    }
+  ],
+  "finish": [
+    {
+      "id": "example",
+      "title": {
+        "en": "A concrete example",
+        "zh": "具体例子"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的羽把一段定义清楚的文字做到可用，安因前提改变先暂停确认。完成步骤与暂停核对可以出现在不同的有效工作安排里，题块却要求在四项中作相对选择。完成主题0次最符合、4次最不符合的差值为−4；2次与6次也为−4。两者都不证明懒惰、拖延或没有完成能力，也没有评估目标是否值得继续。",
+          "en": "An additional original scene: Fictional Yu brings a defined paragraph to a usable state; An pauses to check a changed assumption. Finishing and checking can belong to different useful work arrangements, although the menu requires a relative choice. Zero Most and four Least selections for finishing give −4; two and six also give −4. Neither establishes laziness, procrastination or an inability to finish, and the value does not evaluate whether the goal merits continuing."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "One optional next step",
+        "zh": "一个可选下一步"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“菜单里的相对选择、任务是否值得做与实际是否完成，分别还需要什么信息？”可以只谈上面的虚构人物与记录，区分已选动作、可能背景与尚未观察的效果。参与者可不同意、不回答或结束，不报个人次数、工作表现、雇主信息或他人经历，也不为证明某种特质而要求实际行动。",
+          "en": "An optional discussion prompt asks: “What additional information separates the relative choice, whether a task is worthwhile and whether it was completed?” Discuss only the fictional readers and records above, separating selections, possible context and unobserved effects. Participants may disagree, decline or end, without personal counts, work performance, employer details or anyone else’s experiences, and without requiring an action to prove a trait."
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "en": "Read the complete record",
+        "zh": "完整读取次数"
+      },
+      "paragraphs": [
+        {
+          "zh": "本原创练习的解释范围：回看“最近普通工作或学习”，没有规定统一日数。16组各有四条陈述，每组必须选一条最符合和另一条最不符合；空白、只选一边或同项两边都不能生成完整记录，也没有不评分项，可清空或结束。每主题出现八次、四个位置各两次，最符合M与最不符合L都为0至8，且M＋L≤8；余下8−M−L次是本主题两边都未选，不是缺项或“不适用”。差值M−L为−8至＋8，既不是百分比，也不是等距校准的能力或性格分。完整记录八主题M合计16、L合计16、差值合计0，不能当成八个独立测量来排名，也不表示所有动作实际同样多或整体“平衡”。全选同一位置组合也可能每主题2次与2次而差值全零；没有理想作答或及格目标。题块、主题与新增解释没有建立信效度、常模、语言等值或变化阈值；Talogy正式工具资料不验证、授权或背书本练习。八份全文对所有人相同，公开指南没有个人次数。回答仅存当前页面内存，不存草稿；刷新、换语、离开、历史恢复、清空或重做按现有流程清除。复制只含公开标题与练习入口，不含答案、次数或主题归类；匿名动作统计需本页许可与全站分析同意。清除不会抹去浏览器历史或截图，也不能防止旁人看屏。可以只读本指南，拒绝练习或讨论后结束。",
+          "en": "Scope of this original practice: consider recent ordinary work or study, without a fixed number of days. Each of 16 four-statement blocks requires one Most and a different Least choice. A blank, one-sided or duplicate-side block cannot yield a complete record; there is no unscored option, and clearing or stopping is available. Each topic appears eight times, twice in each position. Most M and Least L each range from zero to eight, with M + L no greater than eight. The remaining 8 − M − L appearances select neither side for that topic; they are not missing or not-applicable responses. Difference M − L ranges from −8 to +8, without becoming a percentage or a calibrated interval score for ability or personality. Complete records total 16 Most, 16 Least and zero difference across topics. These are not eight independent measurements to rank, and the totals establish neither equal everyday activity nor overall balance. Repeating one position pair can give two Most and two Least selections per topic with all differences zero. There is no ideal pattern or pass target. Reliability, validity, norms, language equivalence and meaningful-change thresholds remain unestablished for the blocks, topics and added readings. Official Talogy material does not validate, license or endorse this practice. All eight full guides are identical for everyone; public guides contain no personal counts. Answers stay only in current-page memory without drafts; refresh, language change, leaving, history restoration, clearing or retaking follows existing clearing behavior. Copying contains only the public title and practice entry, without answers, counts or a topic assignment. Anonymous activity counts require page permission and site analytics consent. Clearing erases no browser history or screenshots and prevents no screen observation. Reading this guide alone, declining practice or discussion, and ending are available."
+        }
+      ]
+    }
+  ],
+  "details": [
+    {
+      "id": "example",
+      "title": {
+        "en": "A concrete example",
+        "zh": "具体例子"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的悦为当前文件标好版本，橙所用共享系统已自动处理版本，转而选择跟进约定。题块可以让两人把不同动作选作最符合，不能据此评判谁更细心。整理细节3次最符合、1次最不符合与5次、3次的差值都为2；它们不核实标签是否正确、资料是否容易找到或别人是否受益。",
+          "en": "An additional original scene: Fictional Yue labels a current file version; Cheng’s shared system already handles versions, so Cheng chooses to follow up on an agreement. The menu can produce different Most choices without deciding who is more careful. Three Most and one Least choices for details, and five and three, both give a difference of two. Neither verifies correct labels, findable information or benefit to someone else."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "One optional next step",
+        "zh": "一个可选下一步"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“哪些信息只是次数，怎样才能另外核实一个整理动作是否有用？”可以只谈上面的虚构人物与记录，区分已选动作、可能背景与尚未观察的效果。参与者可不同意、不回答或结束，不报个人次数、工作表现、雇主信息或他人经历，也不为证明某种特质而要求实际行动。",
+          "en": "An optional discussion prompt asks: “Which information is only a count, and how could usefulness of an organizing action be checked separately?” Discuss only the fictional readers and records above, separating selections, possible context and unobserved effects. Participants may disagree, decline or end, without personal counts, work performance, employer details or anyone else’s experiences, and without requiring an action to prove a trait."
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "en": "Read the complete record",
+        "zh": "完整读取次数"
+      },
+      "paragraphs": [
+        {
+          "zh": "本原创练习的解释范围：回看“最近普通工作或学习”，没有规定统一日数。16组各有四条陈述，每组必须选一条最符合和另一条最不符合；空白、只选一边或同项两边都不能生成完整记录，也没有不评分项，可清空或结束。每主题出现八次、四个位置各两次，最符合M与最不符合L都为0至8，且M＋L≤8；余下8−M−L次是本主题两边都未选，不是缺项或“不适用”。差值M−L为−8至＋8，既不是百分比，也不是等距校准的能力或性格分。完整记录八主题M合计16、L合计16、差值合计0，不能当成八个独立测量来排名，也不表示所有动作实际同样多或整体“平衡”。全选同一位置组合也可能每主题2次与2次而差值全零；没有理想作答或及格目标。题块、主题与新增解释没有建立信效度、常模、语言等值或变化阈值；Talogy正式工具资料不验证、授权或背书本练习。八份全文对所有人相同，公开指南没有个人次数。回答仅存当前页面内存，不存草稿；刷新、换语、离开、历史恢复、清空或重做按现有流程清除。复制只含公开标题与练习入口，不含答案、次数或主题归类；匿名动作统计需本页许可与全站分析同意。清除不会抹去浏览器历史或截图，也不能防止旁人看屏。可以只读本指南，拒绝练习或讨论后结束。",
+          "en": "Scope of this original practice: consider recent ordinary work or study, without a fixed number of days. Each of 16 four-statement blocks requires one Most and a different Least choice. A blank, one-sided or duplicate-side block cannot yield a complete record; there is no unscored option, and clearing or stopping is available. Each topic appears eight times, twice in each position. Most M and Least L each range from zero to eight, with M + L no greater than eight. The remaining 8 − M − L appearances select neither side for that topic; they are not missing or not-applicable responses. Difference M − L ranges from −8 to +8, without becoming a percentage or a calibrated interval score for ability or personality. Complete records total 16 Most, 16 Least and zero difference across topics. These are not eight independent measurements to rank, and the totals establish neither equal everyday activity nor overall balance. Repeating one position pair can give two Most and two Least selections per topic with all differences zero. There is no ideal pattern or pass target. Reliability, validity, norms, language equivalence and meaningful-change thresholds remain unestablished for the blocks, topics and added readings. Official Talogy material does not validate, license or endorse this practice. All eight full guides are identical for everyone; public guides contain no personal counts. Answers stay only in current-page memory without drafts; refresh, language change, leaving, history restoration, clearing or retaking follows existing clearing behavior. Copying contains only the public title and practice entry, without answers, counts or a topic assignment. Anonymous activity counts require page permission and site analytics consent. Clearing erases no browser history or screenshots and prevents no screen observation. Reading this guide alone, declining practice or discussion, and ending are available."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "example",
+      "title": {
+        "en": "A concrete example",
+        "zh": "具体例子"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的洛先问期限究竟针对哪一部分交付，岚的期限早已确认，于是先比较两种做法。对限制条件的不同相对选择不能证明谁更谨慎或计划更好。该主题0次最符合、0次最不符合，与4次、4次都为零差值；前者每次都选了竞争动作，后者两类选择各占四次。来源没有核实两个场景中的限制是否已经清楚。",
+          "en": "An additional original scene: Fictional Lo asks which part of a deliverable a deadline concerns; Lan’s deadline is already confirmed, so Lan compares two approaches. Different relative choices about constraints establish no greater caution or planning quality. Zero Most and zero Least selections, and four and four, both give zero differences. The first record chooses competing actions every time; the second chooses this topic on four occasions on each side. The record does not verify whether the constraints in either scene were clear."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "One optional next step",
+        "zh": "一个可选下一步"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“知道限制已经明确，与本组中把澄清动作选作最不符合，是否是一回事？”可以只谈上面的虚构人物与记录，区分已选动作、可能背景与尚未观察的效果。参与者可不同意、不回答或结束，不报个人次数、工作表现、雇主信息或他人经历，也不为证明某种特质而要求实际行动。",
+          "en": "An optional discussion prompt asks: “Is knowing that a constraint is already clear the same as selecting its clarification as Least in a block?” Discuss only the fictional readers and records above, separating selections, possible context and unobserved effects. Participants may disagree, decline or end, without personal counts, work performance, employer details or anyone else’s experiences, and without requiring an action to prove a trait."
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "en": "Read the complete record",
+        "zh": "完整读取次数"
+      },
+      "paragraphs": [
+        {
+          "zh": "本原创练习的解释范围：回看“最近普通工作或学习”，没有规定统一日数。16组各有四条陈述，每组必须选一条最符合和另一条最不符合；空白、只选一边或同项两边都不能生成完整记录，也没有不评分项，可清空或结束。每主题出现八次、四个位置各两次，最符合M与最不符合L都为0至8，且M＋L≤8；余下8−M−L次是本主题两边都未选，不是缺项或“不适用”。差值M−L为−8至＋8，既不是百分比，也不是等距校准的能力或性格分。完整记录八主题M合计16、L合计16、差值合计0，不能当成八个独立测量来排名，也不表示所有动作实际同样多或整体“平衡”。全选同一位置组合也可能每主题2次与2次而差值全零；没有理想作答或及格目标。题块、主题与新增解释没有建立信效度、常模、语言等值或变化阈值；Talogy正式工具资料不验证、授权或背书本练习。八份全文对所有人相同，公开指南没有个人次数。回答仅存当前页面内存，不存草稿；刷新、换语、离开、历史恢复、清空或重做按现有流程清除。复制只含公开标题与练习入口，不含答案、次数或主题归类；匿名动作统计需本页许可与全站分析同意。清除不会抹去浏览器历史或截图，也不能防止旁人看屏。可以只读本指南，拒绝练习或讨论后结束。",
+          "en": "Scope of this original practice: consider recent ordinary work or study, without a fixed number of days. Each of 16 four-statement blocks requires one Most and a different Least choice. A blank, one-sided or duplicate-side block cannot yield a complete record; there is no unscored option, and clearing or stopping is available. Each topic appears eight times, twice in each position. Most M and Least L each range from zero to eight, with M + L no greater than eight. The remaining 8 − M − L appearances select neither side for that topic; they are not missing or not-applicable responses. Difference M − L ranges from −8 to +8, without becoming a percentage or a calibrated interval score for ability or personality. Complete records total 16 Most, 16 Least and zero difference across topics. These are not eight independent measurements to rank, and the totals establish neither equal everyday activity nor overall balance. Repeating one position pair can give two Most and two Least selections per topic with all differences zero. There is no ideal pattern or pass target. Reliability, validity, norms, language equivalence and meaningful-change thresholds remain unestablished for the blocks, topics and added readings. Official Talogy material does not validate, license or endorse this practice. All eight full guides are identical for everyone; public guides contain no personal counts. Answers stay only in current-page memory without drafts; refresh, language change, leaving, history restoration, clearing or retaking follows existing clearing behavior. Copying contains only the public title and practice entry, without answers, counts or a topic assignment. Anonymous activity counts require page permission and site analytics consent. Clearing erases no browser history or screenshots and prevents no screen observation. Reading this guide alone, declining practice or discussion, and ending are available."
+        }
+      ]
+    }
+  ],
+  "understanding": [
+    {
+      "id": "example",
+      "title": {
+        "en": "A concrete example",
+        "zh": "具体例子"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的溪复述请求后得到一句纠正，贝在熟悉的简写下先交代下一步。核对共同理解的次数不能告诉我们谁更有共情，也不证明真正达成一致。5次最符合、2次最不符合，与3次、0次差值都为3，却记录了不同的相对选择。纠正是否改变实际工作，需要看交流本身，不由差值回答。",
+          "en": "An additional original scene: Fictional Xi receives a correction after restating a request; Bei works with familiar shorthand and chooses to explain the next step. Counts for checking understanding establish neither greater empathy nor actual agreement. Five Most and two Least choices, and three and zero, both give a difference of three but record different relative selections. Whether a correction changes the work requires looking at the exchange itself."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "One optional next step",
+        "zh": "一个可选下一步"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样讨论对题意的理解，而不把次数变成对别人智力、诚意或同意程度的判断？”可以只谈上面的虚构人物与记录，区分已选动作、可能背景与尚未观察的效果。参与者可不同意、不回答或结束，不报个人次数、工作表现、雇主信息或他人经历，也不为证明某种特质而要求实际行动。",
+          "en": "An optional discussion prompt asks: “How can the wording be discussed without turning counts into judgments about someone’s intelligence, sincerity or agreement?” Discuss only the fictional readers and records above, separating selections, possible context and unobserved effects. Participants may disagree, decline or end, without personal counts, work performance, employer details or anyone else’s experiences, and without requiring an action to prove a trait."
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "en": "Read the complete record",
+        "zh": "完整读取次数"
+      },
+      "paragraphs": [
+        {
+          "zh": "本原创练习的解释范围：回看“最近普通工作或学习”，没有规定统一日数。16组各有四条陈述，每组必须选一条最符合和另一条最不符合；空白、只选一边或同项两边都不能生成完整记录，也没有不评分项，可清空或结束。每主题出现八次、四个位置各两次，最符合M与最不符合L都为0至8，且M＋L≤8；余下8−M−L次是本主题两边都未选，不是缺项或“不适用”。差值M−L为−8至＋8，既不是百分比，也不是等距校准的能力或性格分。完整记录八主题M合计16、L合计16、差值合计0，不能当成八个独立测量来排名，也不表示所有动作实际同样多或整体“平衡”。全选同一位置组合也可能每主题2次与2次而差值全零；没有理想作答或及格目标。题块、主题与新增解释没有建立信效度、常模、语言等值或变化阈值；Talogy正式工具资料不验证、授权或背书本练习。八份全文对所有人相同，公开指南没有个人次数。回答仅存当前页面内存，不存草稿；刷新、换语、离开、历史恢复、清空或重做按现有流程清除。复制只含公开标题与练习入口，不含答案、次数或主题归类；匿名动作统计需本页许可与全站分析同意。清除不会抹去浏览器历史或截图，也不能防止旁人看屏。可以只读本指南，拒绝练习或讨论后结束。",
+          "en": "Scope of this original practice: consider recent ordinary work or study, without a fixed number of days. Each of 16 four-statement blocks requires one Most and a different Least choice. A blank, one-sided or duplicate-side block cannot yield a complete record; there is no unscored option, and clearing or stopping is available. Each topic appears eight times, twice in each position. Most M and Least L each range from zero to eight, with M + L no greater than eight. The remaining 8 − M − L appearances select neither side for that topic; they are not missing or not-applicable responses. Difference M − L ranges from −8 to +8, without becoming a percentage or a calibrated interval score for ability or personality. Complete records total 16 Most, 16 Least and zero difference across topics. These are not eight independent measurements to rank, and the totals establish neither equal everyday activity nor overall balance. Repeating one position pair can give two Most and two Least selections per topic with all differences zero. There is no ideal pattern or pass target. Reliability, validity, norms, language equivalence and meaningful-change thresholds remain unestablished for the blocks, topics and added readings. Official Talogy material does not validate, license or endorse this practice. All eight full guides are identical for everyone; public guides contain no personal counts. Answers stay only in current-page memory without drafts; refresh, language change, leaving, history restoration, clearing or retaking follows existing clearing behavior. Copying contains only the public title and practice entry, without answers, counts or a topic assignment. Anonymous activity counts require page permission and site analytics consent. Clearing erases no browser history or screenshots and prevents no screen observation. Reading this guide alone, declining practice or discussion, and ending are available."
+        }
+      ]
+    }
+  ],
+  "followup": [
+    {
+      "id": "example",
+      "title": {
+        "en": "A concrete example",
+        "zh": "具体例子"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的澄在约定时间获知回复仍受阻，苏已交付一段可用内容却没有新的待跟进事项。前者跟进不等于完成，后者暂时没跟进也不等于失信。该主题1次最符合、3次最不符合，与3次、5次差值都为−2；这些次数没有询问提醒是否受欢迎、约定是否合理或阻碍后来是否消除。",
+          "en": "An additional original scene: Fictional Cheng learns at an agreed check-in that a reply remains blocked; Su has delivered a usable section with no new follow-up due. The first action is not completion, and the absence of follow-up in the second is not broken trust. One Most and three Least selections, and three and five, both give −2. The counts do not ask whether reminders were welcome, the agreement reasonable or the blocker later resolved."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "One optional next step",
+        "zh": "一个可选下一步"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样区分跟进动作、完成交付与对承诺质量的评价？”可以只谈上面的虚构人物与记录，区分已选动作、可能背景与尚未观察的效果。参与者可不同意、不回答或结束，不报个人次数、工作表现、雇主信息或他人经历，也不为证明某种特质而要求实际行动。",
+          "en": "An optional discussion prompt asks: “How can following up, completing a deliverable and judging a commitment’s quality remain separate?” Discuss only the fictional readers and records above, separating selections, possible context and unobserved effects. Participants may disagree, decline or end, without personal counts, work performance, employer details or anyone else’s experiences, and without requiring an action to prove a trait."
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "en": "Read the complete record",
+        "zh": "完整读取次数"
+      },
+      "paragraphs": [
+        {
+          "zh": "本原创练习的解释范围：回看“最近普通工作或学习”，没有规定统一日数。16组各有四条陈述，每组必须选一条最符合和另一条最不符合；空白、只选一边或同项两边都不能生成完整记录，也没有不评分项，可清空或结束。每主题出现八次、四个位置各两次，最符合M与最不符合L都为0至8，且M＋L≤8；余下8−M−L次是本主题两边都未选，不是缺项或“不适用”。差值M−L为−8至＋8，既不是百分比，也不是等距校准的能力或性格分。完整记录八主题M合计16、L合计16、差值合计0，不能当成八个独立测量来排名，也不表示所有动作实际同样多或整体“平衡”。全选同一位置组合也可能每主题2次与2次而差值全零；没有理想作答或及格目标。题块、主题与新增解释没有建立信效度、常模、语言等值或变化阈值；Talogy正式工具资料不验证、授权或背书本练习。八份全文对所有人相同，公开指南没有个人次数。回答仅存当前页面内存，不存草稿；刷新、换语、离开、历史恢复、清空或重做按现有流程清除。复制只含公开标题与练习入口，不含答案、次数或主题归类；匿名动作统计需本页许可与全站分析同意。清除不会抹去浏览器历史或截图，也不能防止旁人看屏。可以只读本指南，拒绝练习或讨论后结束。",
+          "en": "Scope of this original practice: consider recent ordinary work or study, without a fixed number of days. Each of 16 four-statement blocks requires one Most and a different Least choice. A blank, one-sided or duplicate-side block cannot yield a complete record; there is no unscored option, and clearing or stopping is available. Each topic appears eight times, twice in each position. Most M and Least L each range from zero to eight, with M + L no greater than eight. The remaining 8 − M − L appearances select neither side for that topic; they are not missing or not-applicable responses. Difference M − L ranges from −8 to +8, without becoming a percentage or a calibrated interval score for ability or personality. Complete records total 16 Most, 16 Least and zero difference across topics. These are not eight independent measurements to rank, and the totals establish neither equal everyday activity nor overall balance. Repeating one position pair can give two Most and two Least selections per topic with all differences zero. There is no ideal pattern or pass target. Reliability, validity, norms, language equivalence and meaningful-change thresholds remain unestablished for the blocks, topics and added readings. Official Talogy material does not validate, license or endorse this practice. All eight full guides are identical for everyone; public guides contain no personal counts. Answers stay only in current-page memory without drafts; refresh, language change, leaving, history restoration, clearing or retaking follows existing clearing behavior. Copying contains only the public title and practice entry, without answers, counts or a topic assignment. Anonymous activity counts require page permission and site analytics consent. Clearing erases no browser history or screenshots and prevents no screen observation. Reading this guide alone, declining practice or discussion, and ending are available."
+        }
+      ]
+    }
+  ],
+  "pause": [
+    {
+      "id": "example",
+      "title": {
+        "en": "A concrete example",
+        "zh": "具体例子"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的岑对非紧急信息简短重读一次，乔对意思清楚的普通请求直接回答。停顿次数不能决定哪次回应更冷静或有效。该主题2次最符合、2次最不符合，与0次、0次差值同为0，却有不同选择记录。题块中的Least只是在另三项比较下相对更不像，不证明冲动，也没有询问回应后的实际影响。",
+          "en": "An additional original scene: Fictional Cen briefly rereads a non-urgent message; Jo answers a clear ordinary request directly. Pause counts cannot decide which response was calmer or more effective. Two Most and two Least selections, and zero and zero, both give zero differences with different records. Least is relative to three other statements, not evidence of impulsivity, and the block does not ask about the response’s actual effects."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "One optional next step",
+        "zh": "一个可选下一步"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“短暂停顿的选择记录，与回应是否及时、安全或有效之间，还缺什么信息？”可以只谈上面的虚构人物与记录，区分已选动作、可能背景与尚未观察的效果。参与者可不同意、不回答或结束，不报个人次数、工作表现、雇主信息或他人经历，也不为证明某种特质而要求实际行动。",
+          "en": "An optional discussion prompt asks: “What information is missing between selecting a brief pause and knowing whether a response was timely, safe or effective?” Discuss only the fictional readers and records above, separating selections, possible context and unobserved effects. Participants may disagree, decline or end, without personal counts, work performance, employer details or anyone else’s experiences, and without requiring an action to prove a trait."
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "en": "Read the complete record",
+        "zh": "完整读取次数"
+      },
+      "paragraphs": [
+        {
+          "zh": "本原创练习的解释范围：回看“最近普通工作或学习”，没有规定统一日数。16组各有四条陈述，每组必须选一条最符合和另一条最不符合；空白、只选一边或同项两边都不能生成完整记录，也没有不评分项，可清空或结束。每主题出现八次、四个位置各两次，最符合M与最不符合L都为0至8，且M＋L≤8；余下8−M−L次是本主题两边都未选，不是缺项或“不适用”。差值M−L为−8至＋8，既不是百分比，也不是等距校准的能力或性格分。完整记录八主题M合计16、L合计16、差值合计0，不能当成八个独立测量来排名，也不表示所有动作实际同样多或整体“平衡”。全选同一位置组合也可能每主题2次与2次而差值全零；没有理想作答或及格目标。题块、主题与新增解释没有建立信效度、常模、语言等值或变化阈值；Talogy正式工具资料不验证、授权或背书本练习。八份全文对所有人相同，公开指南没有个人次数。回答仅存当前页面内存，不存草稿；刷新、换语、离开、历史恢复、清空或重做按现有流程清除。复制只含公开标题与练习入口，不含答案、次数或主题归类；匿名动作统计需本页许可与全站分析同意。清除不会抹去浏览器历史或截图，也不能防止旁人看屏。可以只读本指南，拒绝练习或讨论后结束。",
+          "en": "Scope of this original practice: consider recent ordinary work or study, without a fixed number of days. Each of 16 four-statement blocks requires one Most and a different Least choice. A blank, one-sided or duplicate-side block cannot yield a complete record; there is no unscored option, and clearing or stopping is available. Each topic appears eight times, twice in each position. Most M and Least L each range from zero to eight, with M + L no greater than eight. The remaining 8 − M − L appearances select neither side for that topic; they are not missing or not-applicable responses. Difference M − L ranges from −8 to +8, without becoming a percentage or a calibrated interval score for ability or personality. Complete records total 16 Most, 16 Least and zero difference across topics. These are not eight independent measurements to rank, and the totals establish neither equal everyday activity nor overall balance. Repeating one position pair can give two Most and two Least selections per topic with all differences zero. There is no ideal pattern or pass target. Reliability, validity, norms, language equivalence and meaningful-change thresholds remain unestablished for the blocks, topics and added readings. Official Talogy material does not validate, license or endorse this practice. All eight full guides are identical for everyone; public guides contain no personal counts. Answers stay only in current-page memory without drafts; refresh, language change, leaving, history restoration, clearing or retaking follows existing clearing behavior. Copying contains only the public title and practice entry, without answers, counts or a topic assignment. Anonymous activity counts require page permission and site analytics consent. Clearing erases no browser history or screenshots and prevents no screen observation. Reading this guide alone, declining practice or discussion, and ending are available."
+        }
+      ]
+    }
+  ]
+}

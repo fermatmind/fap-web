@@ -1,0 +1,166 @@
+{
+  "assertive": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同一个改期请求，怎样保留双方选择",
+        "en": "One rescheduling request with room for both people"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：原定周六的聚会改到周日，你周日有安排。说清“我周日不能到，周六或下周是否合适”，并听对方的限制，贴近本页坚定表达；直接答应却把自己的需要藏起来，更贴近被动表达；不许别人提出其他时间，更贴近强硬压过他人。比较的是这次回应，不是把人分成四种。",
+          "en": "In a fictional example, a Saturday gathering moves to Sunday, when you have another plan. Stating that Sunday does not work, suggesting Saturday or next week, and hearing others’ limits illustrates the assertive angle. Agreeing while hiding a need fits the passive angle; refusing to hear alternatives fits the aggressive angle. Compare responses in this event rather than divide people into four kinds."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "说清之后，分别看表达与结果",
+        "en": "After speaking, separate clarity from the outcome"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的简短请求尝试，回看对方是否知道你在问哪件事、能提供什么、希望怎样回复。没有达成一致时，可以继续澄清，也可以结束这次协商；对方不同意并不自动说明你表达失败。若你愿意，还可记下一处听到对方范围后调整了的部分，而不以说服成功率给自己打分。",
+          "en": "After the brief request above, review whether the other person could identify the matter, what you could offer and the response you wanted. Disagreement may lead to clarification or an end to this negotiation; it does not automatically establish failed expression. If useful, note one adjustment made after hearing their limits, without scoring yourself by persuasion success."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "邀请别人讨论说法，不评价人格",
+        "en": "Invite discussion of wording rather than personality"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以分享这个问题：“同一件改期的小事，怎样既说清自己不能做到的部分，也让对方有空间回应？”也可以给出自己愿意采用的一句话。无需公布均分、称自己沟通能力高，或让朋友接受“坚定型”标签；一次好用的说法也可以因关系与场合而改变。",
+          "en": "Share a question: “For a small change of plans, how could someone clarify what they cannot do while leaving room for an answer?” You can offer wording you would use. No means, claim of superior skill or assertive-type label for friends is needed. Useful wording can change with the relationship and setting."
+        }
+      ]
+    }
+  ],
+  "passive": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同样说“都可以”，意思未必相同",
+        "en": "“Either is fine” can mean different things"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：朋友商量周末时间。你确实没有偏好而说“都可以”，与有一个无法到场的时间却仍答应，是不同情况。本页只讨论后者这类想表达而未表达的需要；如果暂时不说是为了保留隐私或等待合适时机，也要单独了解，不能仅凭沉默判断。",
+          "en": "In a fictional weekend plan, having no preference and saying either time is fine differs from agreeing despite a time you cannot attend. This guide concerns intended needs left unstated, as in the latter case. Choosing privacy or waiting for suitable timing requires its own context; silence alone cannot decide which situation occurred."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "先确认自己的需要是否更清楚",
+        "en": "First notice whether your own need became clearer"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面写小偏好的尝试，回看你是否分清“我愿意让步”“我还没决定”与“我不想答应”。可以把不确定说出来，也可以暂时只为自己保留这句话。若对方催促，不必为了完成练习立即答应或披露原因；这次观察不以说了多少、获得多少让步衡量。",
+          "en": "After drafting the small preference above, distinguish willing flexibility, not having decided, and not wanting to agree. You can state uncertainty or keep the sentence for yourself. Pressure from someone else creates no duty to accept or disclose reasons to finish an exercise. Word count and concessions obtained are not the measure of this observation."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个小偏好就够了",
+        "en": "A small preference is enough to share"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以说：“这次我想先确认时间再答应。你通常希望别人怎样告诉你暂时不能决定？”这不需要解释自己为什么没有早说，也不用公开均分或私人经历。别人可以讨论回应方式，不能用本页标签要求你以后必须开口、必须争取或接受某种安排。",
+          "en": "Try: “I would like to check the timing before agreeing. How would you prefer someone to say they cannot decide yet?” You need no account of why you did not speak earlier, means or personal history. Others can discuss responses without using this label to demand speech, confrontation or acceptance in future."
+        }
+      ]
+    }
+  ],
+  "aggressive": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "直接拒绝与压住别人，差在哪里",
+        "en": "Where does a direct refusal differ from shutting someone down?"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：聚会改期，你不能参加。“我周日不能到”只是在说范围；“就按我说的，别再提别的时间”则排挤他人的意见。两句都可能很简短，区别不由字数、音量或是否微笑决定。本页比较的是是否让对方仍能表达，不把维护自身边界等同强硬压过他人。",
+          "en": "In a fictional rescheduling, “I cannot attend on Sunday” states a limit; insisting on your own time and forbidding alternatives sidelines others’ views. Both can be brief. Word count, volume and smiling do not decide the distinction. The comparison concerns room for another person’s position, without equating a personal boundary with aggression."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "保留异议，去掉对整个人的评价",
+        "en": "Keep the objection while removing a judgment of the whole person"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的两栏改写尝试，检查新句子是否仍说清你实际不同意的事情，以及希望下一步讨论什么。若只删掉责备，却把自己的需要也藏起来，可以再补清楚需要。对方是否接受仍未知；也不要要求对方当场表扬你的改写或证明没有受到影响。",
+          "en": "After the two-part rewrite above, check whether the new wording still names your actual objection and a next point for discussion. If removing blame also hid your need, clarify the need again. Acceptance remains unknown. The other person need not praise the rewrite or establish that the earlier exchange had no effect."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "把一条虚构说法当讨论材料",
+        "en": "Use fictional wording as discussion material"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以分享一个无关真实当事人的问题：“怎样把对整个人的责备，改成对这次具体缺口的说明，同时保留拒绝权？”不需要展示聊天截图、公布均分或承认某种“攻击型人格”。讨论一次表达，不把某人的不同意、简短回应或口音当作标签证据。",
+          "en": "Share a question without real participants: “How could blame of a whole person become a description of this particular gap, while keeping a right to refuse?” No chat screenshots, means or aggressive-personality declaration is needed. Discuss an expression without using disagreement, brevity or accent as evidence for a label."
+        }
+      ]
+    }
+  ],
+  "passive-aggressive": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "没有回复，不足以说明有意抗拒",
+        "en": "A missing reply cannot establish intentional resistance"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：改期后没有及时确认，可能是还没看见、需要查日程或忘记。只有当事人自报“我故意拖着，让对方猜出不满”时，才贴近本组题目的条件。被动表达更关注有需要却没说，不要求存在这种有意暗示；本页不能替你从外观断定他人的动机。",
+          "en": "In a fictional rescheduling, a delayed confirmation might mean an unread message, a calendar check or forgetting. The items’ condition is closer to someone reporting that they intentionally delayed so others would infer displeasure. Passive items concern an unstated intended need without requiring that deliberate signal. This guide cannot infer someone else’s motive from appearances."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "把反话背后的异议写成可回答的问题",
+        "en": "Turn the objection behind sarcasm into an answerable question"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的异议澄清尝试，检查你真正反对的是哪一部分，而不是替对方写出他们应该懂的意思。如果适合，可以说“我还没有答应新增部分，能否先谈范围？”若不适合交流，保留这份澄清也可以。观察的是异议是否更明确，不是对方是否被你说服或立即道歉。",
+          "en": "After clarifying the objection above, identify the actual part you oppose rather than write what someone else should already understand. If discussion fits, clarify that you have not agreed to the addition and ask to discuss scope first. You may keep that clarification private if discussion does not fit. Notice specificity rather than persuasion or an immediate apology."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一种更清楚的问法",
+        "en": "Share a clearer way to ask"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“不同意某个安排又暂时不想争论时，怎样先说清还没有答应哪一部分？”不必指认谁在冷暴力、谁故意拖延，也不需要公布真实聊天或均分。分享通用读法可以讨论措辞，但不授权别人审问你、让你自证清白或给某段关系判输赢。",
+          "en": "Ask: “When someone disagrees with an arrangement but does not want an argument now, how could they clarify which part they have not agreed to?” No accusation, private chat or mean is needed. Sharing general wording invites neither interrogation, a demand to prove innocence nor a verdict on who wins a relationship."
+        }
+      ]
+    }
+  ]
+}

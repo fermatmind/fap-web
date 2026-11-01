@@ -1,0 +1,289 @@
+{
+  "callousness": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同一项安排，先看明确说出的影响",
+        "en": "For one arrangement, begin with the stated impact"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：共同活动临时加任务，有人明确说时间不合适。先听清具体影响，仍可不同意其方案；直接把不便当作不值得考虑，才更贴近本部分所问。有没有辱骂、谁决定任务是另外的问题，不因一句冷淡回应就补成全部七种行为。",
+          "en": "In a fictional activity, an added task conflicts with someone’s time. Understanding the stated impact still permits disagreement. Dismissing it as unworthy of consideration fits this part more closely. Insults and decision authority are separate questions; one dismissive reply cannot supply all seven behaviours."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看听到的信息有没有进入下一步",
+        "en": "Review whether the information entered the next step"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的影响与动作记录，看看下一步有没有处理对方明确提到的那一处，还是只说了礼貌话。调整不一定能满足所有要求，可以说明实际限制。若不知道对方后来怎样感受，就保留未知，不要求对方原谅、表扬或为这次自评作证。",
+          "en": "After noting an impact and action above, ask whether the next step addressed that detail or only included polite words. A change need not meet every request; actual limits can be stated. Keep later feelings unknown without demanding forgiveness, praise or evidence for this self-report."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个倾听问题",
+        "en": "Share a listening question"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“别人说一个安排不方便时，怎样先听清具体问题，又保留双方的限制？”可以只用虚构场景，不公布均分或指认谁没有同理心。公开读法帮助讨论回应，不评价谁值得被关心，也不证明某次影响已经解决。",
+          "en": "Ask: “How could someone clarify an inconvenient arrangement while keeping both people’s limits?” A fictional scene needs no means or accusation of missing empathy. This guide supports discussion without deciding who deserves care or proving an impact has been resolved."
+        }
+      ]
+    }
+  ],
+  "grandiosity": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "特殊需要与默认优待分开看",
+        "en": "Separate a particular need from assumed priority"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：活动中你希望先完成自己的部分。说明一个实际时间限制，与认为自己天然更该优先，不是同一依据。已有规则、职责或必要支持也要另外看；本部分不通过谁先办完来裁决公平，更不能把合理提出需要等同自我抬高。",
+          "en": "In a fictional activity, explaining a real time constraint differs from assuming natural priority. Existing rules, duties and necessary support require their own context. The part cannot decide fairness by who finishes first or equate a legitimate request with self-importance."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看提出的依据，而非让出了多少",
+        "en": "Review the reason offered rather than concessions made"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的调整记录，检查自己提出的是一项可说明的条件，还是对整个人高低的评价。可以在同一规则里讨论不同需要，不必把所有便利让出去。若不同意见仍存在，保留它；一次没有获得优先不说明自我价值，获得优先也不验证能力更高。",
+          "en": "After noting an adjustment above, check whether its basis is an explainable condition or a ranking of people. Different needs can be discussed under a shared rule without surrendering every convenience. Unresolved disagreement can remain. Gaining or losing priority establishes neither worth nor superior ability."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个分配依据的问题",
+        "en": "Share a question about allocation reasons"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“同一规则下出现不同时间需要，哪些条件应该先说明，怎样商量顺序？”不需要公布均分、收入或职位，也不把朋友的要求直接叫作自大。分享通用读法可以比较依据，不用以谦逊或特殊待遇给人排名。",
+          "en": "Ask: “Under a shared rule, which timing needs should be explained before agreeing an order?” Means, income and titles are unnecessary, as is calling a friend’s request arrogant. Discuss reasons without ranking people by modesty or special treatment."
+        }
+      ]
+    }
+  ],
+  "domineering": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "建议、授权与共同决定分开看",
+        "en": "Separate proposals, authority and shared decisions"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：临时任务由谁完成尚未商量。提出方案与直接替所有人定下方案不同；若已有明确授权，又应先核对授权范围。本部分关注实际决定空间，不把主动发言、担任负责人或有力建议自动算成强行主导，也不从沉默推断同意。",
+          "en": "In a fictional task, a proposal differs from deciding for everyone before roles are discussed. An existing mandate needs its scope checked first. The part concerns decision space, without automatically counting initiative, leadership or a strong proposal as overriding, or silence as agreement."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看哪些意见确实还能影响决定",
+        "en": "Review what input could genuinely affect the decision"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的决定权记录，看看尚未商量的部分是否真的开放，还是决定已定却继续要求反馈。可以说明哪些已固定、哪些可改，不必把所有事交给全员投票。对方不愿讨论时可以停止；不能用“已经问过”代替后来是否考虑了具体信息。",
+          "en": "After mapping decision rights above, ask which undiscussed part was genuinely open. Clarify fixed and changeable parts without voting on everything. Respect a wish not to discuss. Merely asking for input does not establish that later information was considered."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个谁决定什么的问题",
+        "en": "Share a question about who decides what"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“共同做一件小事时，哪部分由负责人决定，哪部分需要相关人一起商量？”只谈虚构任务也可以，不公布均分或要求别人评价你是否强势。公开读法不授权越过既有职责，也不要求让出所有决定来证明自己。",
+          "en": "Ask: “In a small shared task, what belongs to the owner and what needs the affected people’s discussion?” Use a fictional task without means or a rating of your forcefulness. This guide authorises neither overriding existing duties nor surrendering every decision to prove yourself."
+        }
+      ]
+    }
+  ],
+  "manipulation": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "信息相关性与个人隐私不是同一件事",
+        "en": "Decision-relevant information differs from personal privacy"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：请人帮忙前，你已知道可能还需一次修改。说明这项投入，与用含糊范围取得答应不同；但请求之外的私人经历不必全部公开。本部分关注所问行为，不是测谎工具，也不能只因某人没说所有事情就认定其刻意操控。",
+          "en": "In a fictional request, stating a known possible revision differs from obtaining agreement through vague scope. Unrelated personal history need not be disclosed. The part concerns specified actions, not lie detection or proof of deliberate manipulation whenever someone has not shared everything."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看选择空间是否真实",
+        "en": "Review whether the available choice was genuine"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的请求条件记录，检查拒绝、另约或缩小范围是否真的可行；若某部分由职责决定，就如实说明，不虚构自由选择。澄清可能带来不答应，这仍是有信息的结果，不用把练习变成更有效取得同意的方法。",
+          "en": "After noting request conditions above, check whether declining, rescheduling or narrowing scope is actually possible. State a duty honestly rather than invent free choice. Clarification may lead to no agreement. That is useful information, not a reason to turn the exercise into better persuasion."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享清楚提出请求的方法",
+        "en": "Share a way to state a request clearly"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“一个帮忙请求，哪些时间、投入和可选范围需要先说清？”用虚构例子即可，不展示私人聊天、不公布均分，也不猜朋友的隐藏动机。分享公开说明可以讨论信息，不用于盘问、给人定罪或证明自己一定透明。",
+          "en": "Ask: “Which timing, effort and options should be clear before a request for help?” A fictional example needs no private chat, means or guessed motive. Discuss information without interrogation, accusations or proof of perfect transparency."
+        }
+      ]
+    }
+  ],
+  "suspiciousness": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "含糊回应与已知事实分开写",
+        "en": "Separate an ambiguous reply from known facts"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：一条简短回复没有说清是否同意时间。你知道的是文字本身，不知道的是对方意图；若有其他明确记录，也应保留，而不是为显得信任把它删掉。本部分问依据不足时的确定判断，不判定别人实际是否可信。",
+          "en": "In a fictional short reply, the wording is known while agreement to a time or another person’s intention may remain unclear. Keep other explicit records too; appearing trusting is no reason to erase them. This part concerns certainty without enough basis, not someone else’s trustworthiness."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看新信息改变了什么",
+        "en": "Review what changed with new information"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的事实与解释两栏，看看哪些解释需要调整，哪些仍没有答案。可以只核实一个必要细节，也可保持限制；不要反复检查私人内容来完成练习。没有得到确认不是自动证明原猜测，更不是必须放下谨慎或继续联系的理由。",
+          "en": "After separating facts and interpretations above, note what needs revision and what remains unanswered. Check one necessary detail or keep a limit, without repeatedly inspecting private information. No confirmation is not proof of the original guess or a duty to abandon caution or continue contact."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个澄清问题，不分享私人证据",
+        "en": "Share a clarification question without private evidence"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“收到意思不明确的回复时，怎样只问清一件实际安排，又保留不知道的部分？”不需要贴聊天截图、均分或真实争执。公开读法不取消合理核查，也不让别人用高低分断言谁安全、谁多疑或谁必须信任。",
+          "en": "Ask: “With an unclear reply, how could someone clarify one practical point while retaining what is unknown?” No screenshots, means or real dispute is needed. This guide cancels no reasonable checks and establishes neither safety, suspicion as an identity nor a duty to trust."
+        }
+      ]
+    }
+  ],
+  "aggression": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "反对意见与人身评价分开看",
+        "en": "Separate an objection from a personal judgment"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：新增任务超出约定，清楚说“这一部分我没有答应”是在说明范围；把不同意的人贬低或用威吓迫其接受，是另一种行为。两者不由语句长短决定。生气本身也不能补成辱骂，均分更不能淡化已经发生的具体影响。",
+          "en": "In a fictional added task, stating that a part was not agreed clarifies scope; degrading or intimidating a dissenter is a different action. Sentence length does not decide the distinction. Anger alone supplies no insult, and a mean cannot minimise an actual effect."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看措辞，不重演冲突",
+        "en": "Review wording without re-enacting conflict"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的已结束分歧记录，区分想表达的事情与对整个人加上的评价。可以先为自己写一个只谈事情的版本，不必马上发送，也不要求受到影响的人指导你。若涉及实际伤害或威胁，应按真实情况处理；这次小观察不替代责任或安全判断。",
+          "en": "After reviewing an ended disagreement above, separate the issue from judgments of the whole person. Draft issue-focused wording privately without sending it or asking an affected person to coach you. Actual harm or threats need responses suited to the facts; this observation replaces neither responsibility nor safety judgment."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一段虚构措辞的改写",
+        "en": "Share a rewrite of fictional wording"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“怎样保留拒绝和异议，又不把它变成人身侮辱？”用虚构小事即可，不公布均分或要求朋友证明没有被伤害。分享通用读法不认证任何人无害，也不需要用强硬语气证明成长；对方可以不参与这个讨论。",
+          "en": "Ask: “How could someone retain refusal and disagreement without personal insults?” Use a fictional matter without means or demands that friends prove no hurt. This guide certifies nobody as harmless and needs no forceful performance as proof of growth. Discussion is optional."
+        }
+      ]
+    }
+  ],
+  "risk-taking": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "当时知道什么，与事后知道什么分开",
+        "en": "Separate knowledge at the time from hindsight"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：为了省一步确认，你临时改变共同安排，后来恰好没有出问题。这个结果不说明当时考虑过影响；反过来，考虑过条件但结果仍不确定，也不自动是忽略风险。本部分不把尝试新事物、户外兴趣或决定速度换算为风险能力。",
+          "en": "In a fictional shared arrangement, skipping confirmation happens to cause no problem. That outcome does not prove prior consideration. An uncertain result after considering conditions is not automatically disregard either. This part converts neither novelty, outdoor interest nor decision speed into risk capacity."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看一条当时可核对的信息",
+        "en": "Review one fact that could have been checked then"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的已结束小事记录，看看哪条信息当时已知、哪条只能后来知道。如果确有可澄清职责，就在合适时确认，不需要制造新风险测试改变。记录可以只包含一处差别；成功、失败或均分变化都不能单独认证安全或预见能力。",
+          "en": "After reviewing an ended matter above, identify information available then and information learned later. Clarify a duty when appropriate without creating a new risk to test change. One difference is enough. Success, failure and changed means alone certify neither safety nor foresight."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个影响核对问题",
+        "en": "Share a question about checking effects"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“改一项共同小安排前，你会先确认谁受影响、什么已经约好？”不必公开真实项目、后果或均分。分享公开读法帮助讨论普通选择，不批准任何现实风险，也不让同行者或同事承担证明你勇敢、谨慎或已经改进的任务。",
+          "en": "Ask: “Before changing a small shared plan, whom would you check is affected, and what is already agreed?” No real project, consequence or mean is needed. Discuss ordinary choices without approval of a real risk or assigning others proof of your bravery, caution or improvement."
+        }
+      ]
+    }
+  ]
+}

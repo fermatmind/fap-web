@@ -4,17 +4,18 @@ import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "
 import bank from "@/lib/questionnaires/jung56Bank.json";
 import content from "@/lib/questionnaires/jung56Content.json";
 import { isJung56ConfigurationValid, isJung56ContentValid, scoreJung56, type Jung56Bank, type Jung56Content, type Jung56Result } from "@/lib/questionnaires/jung56";
+import type { Jung56ResultReading } from "@/lib/questionnaires/result-content/jung56-reading-types";
 import type { Locale } from "@/lib/i18n/locales";
 import { recordEntertainmentActivity, type ActivityAction } from "@/lib/entertainment/activity";
 import { useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
 import { Jung56GuideContent } from "./Jung56GuideContent";
 const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
 const subscribeReady = () => () => {};
-export default function Jung56Client({ locale }: { locale: Locale }) {
+export default function Jung56Client({ locale, readings }: { locale: Locale; readings?: Jung56ResultReading[] }) {
   if (!isJung56ConfigurationValid(bank) || !isJung56ContentValid(content)) return <p role="status">{locale === "zh" ? "此版本暂不可用，请稍后重试。" : "This edition is unavailable. Please try later."}</p>;
-  return <ValidJung56Client key={locale} bank={bank} content={content} locale={locale} />;
+  return <ValidJung56Client key={locale} bank={bank} content={content} locale={locale} readings={readings} />;
 }
-function ValidJung56Client({ bank, content, locale }: { bank: Jung56Bank; content: Jung56Content; locale: Locale }) {
+function ValidJung56Client({ bank, content, locale, readings }: { bank: Jung56Bank; content: Jung56Content; locale: Locale; readings?: Jung56ResultReading[] }) {
   const zh = locale === "zh", ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome"), [position, setPosition] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({}), [result, setResult] = useState<Jung56Result | null>(null);
@@ -73,7 +74,7 @@ function ValidJung56Client({ bank, content, locale }: { bank: Jung56Bank; conten
         <p className="leading-8">{content.common.tie_explanation[locale]}</p>
         <dl data-jung56-counts className="space-y-3">{result.rows.map(row => <div key={row.id} className="flex flex-wrap justify-between gap-2 rounded-lg bg-slate-50 p-3"><dt className="font-semibold">{content.cards.find(c => c.id === row.id)!.display_name[locale]} · {row.id[0].toUpperCase() + row.id[1]}</dt><dd data-jung56-count={row.id}>{row.wins} / 14</dd></div>)}</dl>
         <p className="leading-8">{zh ? "八方向共计56次选择；每方向出现14次。次数彼此相关，不是强度、能力、人群百分位、功能栈或MBTI类型；低次数不代表缺失。" : "The eight counts sum to 56 selections; each direction appeared 14 times. Counts depend on one another. They are not strength, ability, population percentiles, a function stack or an MBTI type. Lower counts do not mean absence."}</p>
-        {content.cards.map(card => <section key={card.id} className="rounded-lg border p-4 sm:p-6"><h3 className="text-xl font-semibold">{card.display_name[locale]} · {card.id[0].toUpperCase() + card.id[1]}</h3><p className="my-3 leading-8">{card.construct_definition[locale]}</p><details className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开本方向完整解释" : "Expand this direction’s full explanation"}</summary><Jung56GuideContent card={card} locale={locale} idPrefix="jung56-result" /></details><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests/explore/cognitive-functions-test/results/${card.id}#paired56`}>{zh ? "阅读不含个人次数的公开指南" : "Read the public guide without personal counts"}</Link></section>)}
+        {content.cards.map(card => <section key={card.id} className="rounded-lg border p-4 sm:p-6"><h3 className="text-xl font-semibold">{card.display_name[locale]} · {card.id[0].toUpperCase() + card.id[1]}</h3><p className="my-3 leading-8">{card.construct_definition[locale]}</p><details className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开本方向完整解释" : "Expand this direction’s full explanation"}</summary><Jung56GuideContent card={card} reading={readings?.find(r => r.profileId === card.id)} locale={locale} idPrefix="jung56-result" /></details><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests/explore/cognitive-functions-test/results/${card.id}#paired56`}>{zh ? "阅读不含个人次数的公开指南" : "Read the public guide without personal counts"}</Link></section>)}
         <p className="leading-8">{content.common.not_a_fixed_identity[locale]}</p><p className="leading-8">{content.common.retest_guidance[locale]}</p>
         <div className="flex flex-wrap gap-3"><button type="button" className={button} onClick={copyPublicEntry}>{zh ? "复制公开入口" : "Copy public entry"}</button><button type="button" className={button} onClick={clear}>{zh ? "清空并重新作答56题" : "Clear and retake the 56 choices"}</button></div>
         {manual && <label className="block leading-7">{zh ? "手动复制公开入口" : "Public entry for manual copying"}<textarea className="mt-2 min-h-32 w-full rounded-lg border p-3" readOnly value={manual} /></label>}

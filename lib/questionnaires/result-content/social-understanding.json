@@ -1,0 +1,34 @@
+{
+  "social-understanding-guide": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把“收到”保留为已知，把理解程度留待确认",
+        "en": "Treat “received” as known and understanding as unconfirmed"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的共同任务说明，先区分实际看到的简短回复、自己补出的含义，以及安排中确实需要确认的一件事。可以只问截止时间或某个步骤是否合适；得到明确答案后按答案处理，不继续追问私人感受。若没有协调需要，未知也可以保留。复盘不以回复长短、自己猜中多少或下次总分更高证明社交能力，也不用制造对话、保存聊天记录或要求对方验证你的测试结果。",
+          "en": "For the shared-task instructions above, separate the short reply you saw, the meaning you supplied and one matter that genuinely needs confirmation. Ask whether a deadline or step fits, then act on the answer without pursuing private feelings. Leave uncertainty where no coordination is needed. Review without proving social ability through reply length, correct guesses or a higher total next time, or manufacturing a conversation, keeping messages or asking someone to validate your test result."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "围绕可核对的安排交换理解",
+        "en": "Compare understandings of a checkable arrangement"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果任务说明只收到一句‘收到’，什么已经确定，哪些具体安排还需要确认，哪些感受不必猜？”交流问题与信息即可，不比较谁更会读心、更受欢迎或情商更高。对方可以说不知道、不同意或不想继续。",
+          "en": "Ask: “If instructions received only ‘received’ in reply, what would be known, which arrangements would still need confirmation and which feelings need not be guessed?” Discuss questions and information without ranking mind-reading, popularity or EQ. The other person may remain unsure, disagree or stop."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含四个回答、总分、均分或有效条数。不需要展示私人对话、解释社交困难或做完测试才能参与，也可以另换话题或结束。",
+          "en": "You can share this public guide; its link contains none of the four answers, total, mean or rated count. No private conversation, explanation of social difficulty or completed test is needed to join, and changing the topic or stopping is welcome."
+        }
+      ]
+    }
+  ]
+}

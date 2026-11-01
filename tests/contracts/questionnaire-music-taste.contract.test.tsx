@@ -1,3 +1,4 @@
+import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -79,11 +80,11 @@ describe("T023 original music sound-liking reflection", () => {
     const now = 1000000000, draft = (version = quiz.version, savedAt = now) => JSON.stringify({ version, savedAt, answers: all() });
     expect(readQuestionnaireDraft(quiz, draft(), now)).toEqual(all()); expect(readQuestionnaireDraft(quiz, draft("other"), now)).toBeNull(); expect(readQuestionnaireDraft(quiz, draft(quiz.version, now - 86400000), now)).toBeNull();
   });
-  it("uses its own8preference report, all72unique full sections, explicit NA and no social-battery interpretation", () => {
+  it("uses its own8preference report, all96unique full sections, explicit NA and no social-battery interpretation", () => {
     for (const locale of ["en", "zh"] as const) for (const value of ["5", "na"]) {
       const result = scoreQuestionnaire(quiz, all(value)); if (result.status !== "complete" || !("facets" in result)) throw new Error("Rejected input");
-      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireMusicReport quiz={quiz} result={result} locale={locale} />);
-      expect(dom.querySelectorAll("[data-music-facet]")).toHaveLength(8); expect(dom.querySelectorAll("h4")).toHaveLength(72); expect(dom.querySelectorAll("[data-music-profile]")).toHaveLength(8);
+      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireMusicReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale={locale} />);
+      expect(dom.querySelectorAll("[data-music-facet]")).toHaveLength(8); expect(dom.querySelectorAll("h4")).toHaveLength(96); expect(dom.querySelectorAll("[data-music-profile]")).toHaveLength(8);
       expect(dom.querySelectorAll("[data-music-insufficient]")).toHaveLength(value === "na" ? 1 : 0);
       const ids = Array.from(dom.querySelectorAll("[id]"), x => x.id); expect(new Set(ids).size).toBe(ids.length);
       expect(dom.textContent).not.toMatch(/battery|quiet recovery|coordination load|社交电量|安静恢复|expression frequency|Almost always|几乎总是/i);

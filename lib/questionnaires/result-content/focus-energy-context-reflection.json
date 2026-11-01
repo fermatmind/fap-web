@@ -1,0 +1,166 @@
+{
+  "attention-in-activities-reading": [
+    {
+      "id": "section-3",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者记得看一份自选材料时被别的事打断，之后很难回到原来那一步；另一段谈话则只记得没有跟上，周围背景不清。两段可以分开描述，不需要比较能力或选出唯一原因。例子不要求重读、计时、做记忆测试或证明自己更努力，尚未知的材料与环境条件可以留白。",
+          "en": "In an additional original scene, a reader recalls an interruption while reading chosen material and difficulty returning to the intended step. Another conversation is remembered only as losing the thread, with surrounding context unclear. These remain separate descriptions without comparing ability or selecting one cause. The scene requires no rereading, timing, memory test or proof of greater effort; unknown material and setting conditions can stay open."
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“我记得想跟上的活动中有过这样的时刻；有些条件还不清楚；想先谈哪种困难最值得说明。”可以只读虚构卡，不提供材料或工作记录。听者不测验记忆、不评价懒惰或智力，也不要求先证明童年已有困难；是否进一步询问由当事人按已有支持说明决定。",
+          "en": "An optional conversation card names a remembered moment in an activity the reader wanted to follow, leaves some conditions unknown and asks which difficulty would be useful to explain. Read only the fictional card without materials or workplace records. A listener tests no memory, judges neither laziness nor intelligence and requires no proof of childhood difficulty before a question. The reader can use the existing support guidance to decide how to ask further."
+        }
+      ]
+    },
+    {
+      "id": "section-7",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，不是ASRS、ADHD诊断、注意训练或治疗。16条仍保留四组各四条的六类记录；计数算描述，不算事件、分钟或症状，未计分不补零。四个可重叠的主题不建立神经类型、能力、情绪机制或他人意图。原观察尚无独立验证、常模或中英文测量等值；四周是编辑回忆时段，不是诊断时长。已有ADEXI14保留独立题目、锚点、算法及三篇读法，不转移回答、不与16条合成30题或联合分数。四篇全文及支持说明无需作答；不用记录推迟评估或改变已有专业指示。复制仅含公开标题与入口，不含私人选择与计数。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading, not ASRS, an ADHD diagnosis, attention training or treatment. Sixteen descriptions retain four six-category records of four. Counts concern descriptions, not events, minutes or symptoms; unscored is not zero. Four overlapping topics establish no neurotype, ability, emotional mechanism or another person’s intentions. The original observations lack independent validation, norms or established English–Chinese measurement equivalence; four weeks is an editorial recall window, not a diagnostic duration. Existing ADEXI14 items, anchors, arithmetic and three readings remain separate. No answers transfer, and fourteen plus sixteen does not become a thirty-item instrument or combined score. All four guides and support information need no answers. Do not use the record to postpone assessment or alter existing professional instructions. Copying contains only the public title and entry, without private selections or counts."
+        }
+      ]
+    }
+  ],
+  "restlessness-in-activities-reading": [
+    {
+      "id": "section-3",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者记得在一次自选活动里想换姿势，却不确定当时座位条件与身体舒适度；另一段记忆只剩“想动一动”。两段不需要相互解释，也不证明活动过多或需要压住动作。例子不安排静坐、姿势测试、运动或移除已有调整，不把能否维持不动当作健康与自制的检验。",
+          "en": "In an additional original scene, a reader recalls wanting to change position during a chosen activity but is unsure about the seating and physical comfort at the time. Another recollection is only a wish to move. Neither account explains the other or establishes excessive movement or a need to suppress it. The scene assigns no stillness, posture test, exercise or removal of an existing adjustment, and uses no ability to stay still as a test of health or self-control."
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡分开“记得的活动需要”“背景未知”和“现在想了解的事”，无需展示动作或身体数据。可以只读。听者不规定坐姿、活动量或可接受的安静程度，不把无障碍调整视为失败；讨论可停在怎样开始询问，不先接受多动或生理状态标签。",
+          "en": "An optional conversation card separates a remembered movement need, unknown context and a present question without a demonstration or body data. Reading alone is enough. A listener prescribes no posture, activity amount or acceptable level of stillness and treats no accessibility adjustment as failure. Discussion can concern how to begin asking without first accepting a hyperactivity or physiological-state label."
+        }
+      ]
+    },
+    {
+      "id": "section-7",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，不是ASRS、ADHD诊断、注意训练或治疗。16条仍保留四组各四条的六类记录；计数算描述，不算事件、分钟或症状，未计分不补零。四个可重叠的主题不建立神经类型、能力、情绪机制或他人意图。原观察尚无独立验证、常模或中英文测量等值；四周是编辑回忆时段，不是诊断时长。已有ADEXI14保留独立题目、锚点、算法及三篇读法，不转移回答、不与16条合成30题或联合分数。四篇全文及支持说明无需作答；不用记录推迟评估或改变已有专业指示。复制仅含公开标题与入口，不含私人选择与计数。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading, not ASRS, an ADHD diagnosis, attention training or treatment. Sixteen descriptions retain four six-category records of four. Counts concern descriptions, not events, minutes or symptoms; unscored is not zero. Four overlapping topics establish no neurotype, ability, emotional mechanism or another person’s intentions. The original observations lack independent validation, norms or established English–Chinese measurement equivalence; four weeks is an editorial recall window, not a diagnostic duration. Existing ADEXI14 items, anchors, arithmetic and three readings remain separate. No answers transfer, and fourteen plus sixteen does not become a thirty-item instrument or combined score. All four guides and support information need no answers. Do not use the record to postpone assessment or alter existing professional instructions. Copying contains only the public title and entry, without private selections or counts."
+        }
+      ]
+    }
+  ],
+  "feelings-and-energy-context-reading": [
+    {
+      "id": "section-3",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者记得一场谈话后仍在意某种感受，另一天则只记得原定活动节奏难以维持，不知道为什么。这些回忆不必连成情绪造成精力变化的故事，也不变成同一种症状。例子不安排情绪日记、故意引出感受、改变睡眠或顶着不适完成活动来验证解释。",
+          "en": "In an additional original scene, a reader recalls a feeling remaining in attention after a conversation and, on another day, only difficulty maintaining an intended activity pace without knowing why. These recollections need no story in which emotion caused an energy change and do not become one symptom. The scene assigns no emotion diary, deliberately provoked feeling, sleep change or completion through discomfort to test an explanation."
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“我想分别说感受与可用精力的经历，还不知道两者有没有关系；部分健康背景想留待专业谈话。”可以只读虚构卡。听者不按强弱评价成熟，不把精力变化解释成动机不足，也不把两个描述相加为情绪稳定分数；可以先问哪些背景有助于理解。",
+          "en": "An optional conversation card keeps feelings and available-energy experiences separate, leaves their connection unknown and reserves some health context for a professional conversation. Read only the fictional card if preferred. A listener judges no maturity by intensity, explains no energy change as low motivation and adds no descriptions into a mood-stability score. A first question can concern which context would help understanding."
+        }
+      ]
+    },
+    {
+      "id": "section-7",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，不是ASRS、ADHD诊断、注意训练或治疗。16条仍保留四组各四条的六类记录；计数算描述，不算事件、分钟或症状，未计分不补零。四个可重叠的主题不建立神经类型、能力、情绪机制或他人意图。原观察尚无独立验证、常模或中英文测量等值；四周是编辑回忆时段，不是诊断时长。已有ADEXI14保留独立题目、锚点、算法及三篇读法，不转移回答、不与16条合成30题或联合分数。四篇全文及支持说明无需作答；不用记录推迟评估或改变已有专业指示。复制仅含公开标题与入口，不含私人选择与计数。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading, not ASRS, an ADHD diagnosis, attention training or treatment. Sixteen descriptions retain four six-category records of four. Counts concern descriptions, not events, minutes or symptoms; unscored is not zero. Four overlapping topics establish no neurotype, ability, emotional mechanism or another person’s intentions. The original observations lack independent validation, norms or established English–Chinese measurement equivalence; four weeks is an editorial recall window, not a diagnostic duration. Existing ADEXI14 items, anchors, arithmetic and three readings remain separate. No answers transfer, and fourteen plus sixteen does not become a thirty-item instrument or combined score. All four guides and support information need no answers. Do not use the record to postpone assessment or alter existing professional instructions. Copying contains only the public title and entry, without private selections or counts."
+        }
+      ]
+    }
+  ],
+  "interpreting-social-experiences-reading": [
+    {
+      "id": "section-3",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者记得一条简短回复让自己不确定，却不愿重开消息；另一段记忆涉及实际不舒服的对待，有些细节想保留。两段不用由同一解释覆盖。例子既不保证对方没有批评，也不把不确定当成受害证据，不要求联系对方、收集材料或原谅某种行为。",
+          "en": "In an additional original scene, a reader recalls uncertainty after a short reply and prefers not to reopen it; another recollection involves uncomfortable treatment with some details kept private. One explanation need not cover both. The scene neither guarantees an absence of criticism nor treats uncertainty as proof of mistreatment. It requires no contact, evidence gathering or forgiveness."
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡分开“记得发生的事”“对含义的猜测”和“尚未知的背景”，可以完全使用虚构例子。听者不读心，不用敏感或神经类型标签否定实际对待，也不替关系作健康保证。交流不要求打开消息或接受对质；当前安全安排与已有专业意见不以完成卡片为条件。",
+          "en": "An optional conversation card separates a remembered event, an interpretation of its meaning and unknown context, using only a fictional example if preferred. A listener reads no mind, dismisses no actual treatment with a sensitivity or neurotype label and guarantees no relationship health. Discussion requires no opened message or confrontation. Current safety arrangements and existing professional advice do not depend on completing the card."
+        }
+      ]
+    },
+    {
+      "id": "section-7",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，不是ASRS、ADHD诊断、注意训练或治疗。16条仍保留四组各四条的六类记录；计数算描述，不算事件、分钟或症状，未计分不补零。四个可重叠的主题不建立神经类型、能力、情绪机制或他人意图。原观察尚无独立验证、常模或中英文测量等值；四周是编辑回忆时段，不是诊断时长。已有ADEXI14保留独立题目、锚点、算法及三篇读法，不转移回答、不与16条合成30题或联合分数。四篇全文及支持说明无需作答；不用记录推迟评估或改变已有专业指示。复制仅含公开标题与入口，不含私人选择与计数。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading, not ASRS, an ADHD diagnosis, attention training or treatment. Sixteen descriptions retain four six-category records of four. Counts concern descriptions, not events, minutes or symptoms; unscored is not zero. Four overlapping topics establish no neurotype, ability, emotional mechanism or another person’s intentions. The original observations lack independent validation, norms or established English–Chinese measurement equivalence; four weeks is an editorial recall window, not a diagnostic duration. Existing ADEXI14 items, anchors, arithmetic and three readings remain separate. No answers transfer, and fourteen plus sixteen does not become a thirty-item instrument or combined score. All four guides and support information need no answers. Do not use the record to postpone assessment or alter existing professional instructions. Copying contains only the public title and entry, without private selections or counts."
+        }
+      ]
+    }
+  ]
+}

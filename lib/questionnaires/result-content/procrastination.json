@@ -1,0 +1,248 @@
+{
+  "perfectionist": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "必要要求与额外润色，怎样分开",
+        "en": "Separate requirements from added polish"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构对照：给自己做一张读书便签。缺少书名时，补信息是完成要求；书名、页码都齐了，仍因字体不理想不肯保存，更贴近本部分描述。同样晚了十分钟，缺的信息和额外标准不同，不能只比较耗时。",
+          "en": "Fictional comparison: make a private reading note. Adding a missing book title meets a requirement. With title and page already present, postponing saving because of the font is closer to this part. The same ten-minute delay can involve different information and standards; elapsed time alone cannot distinguish them."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "复盘一个可修改的小版本",
+        "en": "Review one editable small version"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的私人草稿观察，回看你列出的必要条件是否真的来自任务，哪个细节可以以后再改。若决定保存初版，只记保存了什么、还留了什么，不用评价自己是否终于克服完美主义。若必要条件仍缺，补足条件也可以是下一步。",
+          "en": "Following the private-draft observation above, check which requirements came from the task and which detail could change later. If you save a first version, note what it contains and what remains, without a verdict that perfectionism is overcome. Meeting a missing requirement can also be the next step."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个版本范围的问题",
+        "en": "Share a question about version scope"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设只做一张私人便签，哪些信息不可缺，哪些样式可以以后再选？”只用虚构小任务，不公开均分或催别人交初稿。公开说明不含本次答案；你和对方都可以不参与，不需要互评谁更追求完美。",
+          "en": "Ask: “For an imaginary private note, what information is necessary and which styling can wait?” Use a fictional small task without means or demands for someone’s draft. This public guide contains no answers from your attempt. Either person may decline without rating perfectionism."
+        }
+      ]
+    }
+  ],
+  "dreamer": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "构想、准备与可做动作怎样区分",
+        "en": "Distinguish imagining, preparation and action"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构对照：想整理自己的书签。尚未找到书签文件时，寻找材料是必要准备；文件已在眼前、也已决定先分出三条，却继续构想漂亮分类而没动手，更贴近本部分。构想仍可保留，关键是它与原本想做的一步是什么关系。",
+          "en": "Fictional comparison: organise your own bookmarks. Locating a missing file is necessary preparation. With the file available and a first step of sorting three entries decided, continuing to imagine an elegant system instead is closer to this part. Ideas may remain useful; examine their relation to the step you intended."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "复盘想法有没有替代原步骤",
+        "en": "Review whether ideas replaced the intended step"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的“新想法／下一步”两栏，看看原步骤是否仍值得做、当时能否做、后来有没有实际尝试。决定暂时不做可以单独记录，不硬算成失败；多了新点子也不等于进展更多。记录服务于澄清选择，不必变成新的打卡项目。",
+          "en": "After the ideas/next-action note above, check whether the step was still wanted, feasible then and actually attempted. Record a deliberate decision not to proceed separately rather than calling it failure. More ideas need not mean more progress. The note clarifies a choice without becoming another tracking project."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个想法落到哪一步的问题",
+        "en": "Share a question about a first action"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“虚构一个整理书签的计划，你会先补什么材料，还是已有一个想做的小动作？”不用展示真实未完成清单、均分或证明执行力。公开读法可以讨论准备与动作；双方都能选择只聊想法，不承诺完成项目。",
+          "en": "Ask: “For an imaginary bookmark project, would you need materials first, or is there a small action you want to try?” No unfinished-project list, mean or proof of execution is needed. Discuss preparation and action, with the option to enjoy ideas without a commitment to finish."
+        }
+      ]
+    }
+  ],
+  "worrier": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "已知条件与想到的可能性分开",
+        "en": "Separate known conditions from imagined possibilities"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构对照：给自己写一张普通提醒。日期还没确认，继续核对有实际信息需要；日期已经确认，却反复设想自己可能理解错而一直不写，更接近本部分。两种情况可能同时出现，不能由“还没开始”反推心理原因或风险是否真实。",
+          "en": "Fictional comparison: write yourself an ordinary reminder. An unconfirmed date calls for information. With the date confirmed, repeatedly imagining a misunderstanding while postponing writing is closer to this part. Both can occur together; not starting does not reveal a psychological cause or decide whether a risk is real."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "复盘问题是否真的得到回答",
+        "en": "Review which question was actually answered"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的已知／未知记录，看看待核对的问题有没有新增事实，还是仍只是可能性。你可以保留担心，也可以决定暂不尝试；观察的重点是条件与原计划，不是逼自己无所畏惧。不根据一次记录或均分变化判断心理健康。",
+          "en": "Following the known/unknown note above, check whether a question gained new facts or remains a possibility. You may retain the worry or decide not to try. Observe conditions and the original plan rather than forcing fearlessness. One record or changed mean cannot assess mental health."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个信息核对的问题",
+        "en": "Share a question about checking information"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设提醒里的日期已确认，还有哪一个具体问题值得先查，哪些只是尚不能确定的设想？”不用公开焦虑经历或均分。公开读法不要求对方安慰、催促或陪你做害怕的事；任何一方都可以结束讨论。",
+          "en": "Ask: “If an imaginary reminder’s date is confirmed, what specific question still needs checking, and what remains a possibility?” No anxiety history or mean is needed. The guide asks for neither reassurance, pressure nor company in a feared activity. Either person can end the discussion."
+        }
+      ]
+    }
+  ],
+  "defier": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "调整请求与已接下事项分开",
+        "en": "Separate an adjustment request from accepted work"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构对照：你同意整理自己的活动笔记，却不喜欢朋友反复提醒。提出想改提醒方式，与不说明情况而延后原本想做的事，是不同动作。若从未同意替别人整理，拒绝这个任务又是另一回事，不能把三者都叫作反抗。",
+          "en": "Fictional comparison: you agreed to organise your activity notes but dislike a friend’s repeated reminders. Asking to change reminders differs from delaying without clarifying. If you never agreed to organise notes for someone else, declining is another situation. These three actions cannot all be called defiance."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "复盘能否把问题指向具体安排",
+        "en": "Review whether the concern names an arrangement"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的三栏记录，检查不喜欢的是频率、方式、范围还是事项本身，再看看是否存在安全可用的协商渠道。可以只为自己写清，不必发送。即使调整未获同意，也先保留事实，不用拖延或顺从来证明自己的独立与价值。",
+          "en": "Following the three-part note above, identify whether the concern is frequency, method, scope or the task itself, then consider any safe available discussion channel. Private wording is enough. If an adjustment is not accepted, retain that fact without using delay or compliance to prove independence or worth."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个协商安排的问题",
+        "en": "Share a question about arrangements"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“虚构一次已经答应的小事，如果提醒方式不合适，怎样把原约定和调整请求分别说清？”不展示真实工作纠纷或均分，不以标签指责朋友消极。讨论可以只停在措辞，不要求发送消息或服从原安排。",
+          "en": "Ask: “For an imaginary accepted small task, how could someone separate the agreement from a request to change reminders?” No work dispute or mean is needed, and no label need accuse a friend of passivity. Discuss wording without requiring a message or compliance with the arrangement."
+        }
+      ]
+    }
+  ],
+  "crisis-maker": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "接近期限，不等于同一种推迟",
+        "en": "A late start can have different contexts"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构对照：周日想整理自己的书架。若周六才拿到必要收纳材料，周六开始有现实条件；若周三已有材料和空档，却等到周日快结束才开始，更接近本部分。都在周末做，并不能证明相同原因，也不能据此赞美临场能力。",
+          "en": "Fictional comparison: organise your shelf by Sunday. If necessary storage materials arrive Saturday, a Saturday start has a practical context. With materials and time available Wednesday, waiting until Sunday is nearly over is closer to this part. Weekend timing alone establishes neither a shared cause nor skill under pressure."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "复盘可用时段与实际动作",
+        "en": "Review available time and actual action"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的普通小事观察，比较原本可用的时段、后来新增的条件和实际做了哪一步。提前打开文件不必算完成，晚些做也不必自动算拖延。可以只记一次差别，不制造倒计时、熬夜或请朋友监督来证明自己能够改变。",
+          "en": "Following the ordinary-task observation above, compare available time, later changes in conditions and the step actually taken. Opening a file early is not completion, and a later action is not automatically delay. One difference is enough, without countdowns, lost sleep or recruiting a friend to monitor change."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个开始条件的问题",
+        "en": "Share a question about starting conditions"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设周日想整理书架，哪段时间真的能做一步，当时还缺什么？”不用公开真实期限或均分，不相互叫作危机制造者。公开说明只帮助核对时间与条件，不要求伙伴催促，也不提供高压工作适配结论。",
+          "en": "Ask: “For imaginary shelf organising by Sunday, when would one step actually be feasible, and what would still be missing?” No real deadline or mean is needed, and no one needs a crisis-maker label. Discuss timing and conditions without monitoring or claims about suitability for high-pressure work."
+        }
+      ]
+    }
+  ],
+  "over-doer": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "事项很多与可选承诺怎样区分",
+        "en": "Distinguish many duties from optional commitments"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构对照：原本想整理私人文件，临时承担无法自行取消的照护，与有余地拒绝却又接下几个可延期小忙，不是同一种处境。都可能挤掉原计划；本部分只取选定的自报描述，不能用“忙”替代对义务、资源与选择空间的了解。",
+          "en": "Fictional comparison: a private filing plan displaced by caring duties you cannot cancel differs from accepting several optional favours that could wait. Both may displace the plan. This part covers selected self-reports; busyness cannot replace understanding duties, resources and actual choice."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "复盘哪些范围真的可以调整",
+        "en": "Review what scope could actually change"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的已答应／可协商／未接下分类，回看哪段时间发生重叠，哪些依赖需要先核对。可以暂缓答复一个可选请求，也可以发现根本没有可独立调整的空间。记录不以拒绝数量为成绩，不靠撤销责任来换取更低均分。",
+          "en": "Following the accepted/negotiable/not-yet-accepted list above, check overlapping time and dependencies needing clarification. You may defer an optional reply or find no independently changeable scope. Refusal counts do not grade the note, and cancelling duties is no route to a lower mean."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个投入范围的问题",
+        "en": "Share a question about available effort"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“虚构一次新增帮忙请求，先核对哪些已约定事项，才能说明能接多少？”不用公开照护、工作安排或均分，也不猜谁在利用谁。双方可以只谈请求措辞，拒绝分享真实日程，不需要证明忙碌或讨好动机。",
+          "en": "Ask: “Before an imaginary new favour, which existing agreements would need checking to state a feasible contribution?” No caring duties, work schedule, mean or accusation of exploitation is needed. Discuss wording while keeping real calendars private, without proving busyness or a pleasing motive."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,330 @@
+{
+  "pop": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "相同旋律，不同编排",
+        "en": "One melody, different arrangements"
+      },
+      "paragraphs": [
+        {
+          "zh": "想象同一首歌的两个版本：一个让歌声和副歌靠前，一个增加吉他层次或合成节拍。你可以同时喜欢歌曲结构与另一种声音质感。流行、摇滚和电子这几项因此不需要选边；先说出吸引自己的那一层，比把作品锁进唯一曲风更具体。",
+          "en": "Imagine two versions of a song: one foregrounds the singing and chorus, while another adds guitar layers or synthesised beats. Enjoying song structure and another texture together requires no choice between pop, rock and electronic readings. Name the layer that appeals rather than force one genre label."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看副歌还是声音层次",
+        "en": "Review the chorus and the texture separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的两首歌观察，看看吸引你的细节是否来自旋律回来、人声位置或伴奏变化。可以只保留一处，也可记录“今天没想听”。若两首反应不同，不必用均分抹平；想重新播放某一段，也不是需要整张专辑或榜单都喜欢。",
+          "en": "After the two-song observation above, identify a returning melody, vocal prominence or a backing change that mattered. Keep one detail, or note not wanting music today. Different responses need no smoothing into a mean. Wanting one passage again creates no duty to enjoy an album or chart."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个具体听感",
+        "en": "Share one particular listening impression"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这首你更喜欢副歌回来，还是人声和伴奏的配合？要不要换一个更简约的版本？”对方可以不熟悉或不想听。分享这份公开读法不含个人均分，不必贴出私人歌单，也不用比较谁更懂流行。",
+          "en": "Ask: “Do you prefer the returning chorus or how the voice fits the backing? Would a sparser version suit?” Someone may be unfamiliar or want no music. This public guide contains no personal means; sharing needs neither a private playlist nor a contest over pop knowledge."
+        }
+      ]
+    }
+  ],
+  "rock": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同样有吉他，喜欢的部分也可能不同",
+        "en": "The same guitar can invite different preferences"
+      },
+      "paragraphs": [
+        {
+          "zh": "设想一段先只有吉他，后来贝斯和鼓加入的录音。你可能喜欢前半段的音色，也可能喜欢整队展开的变化；另一人可能只喜欢旋律。摇滚题中的乐队推进，与流行题中的副歌结构可以同时有吸引力，不由哪项高决定该听哪个版本。",
+          "en": "Imagine a recording beginning with guitar before bass and drums enter. The first timbre, the full-band change or the melody may appeal to different listeners. Band drive and pop chorus structure can both matter, without a higher mean deciding which version you should hear."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看哪件乐器改变了感受",
+        "en": "Review which instrument changed the impression"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的版本比较，写下加入贝斯或鼓之后，自己想继续听还是更想回到简约段落。不确定是哪件乐器也可以用自己的词描述。观察一次版本差别，不评判原版、改编或听众是否够“摇滚”，也不需要调高音量来确认。",
+          "en": "After comparing versions above, note whether added bass or drums made you want to continue or return to the sparse passage. Use your own words if the instrument is uncertain. Observe an arrangement without authenticity judgments about versions or listeners, and without increasing volume to confirm a preference."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "讨论层次，不考资历",
+        "en": "Discuss layers rather than credentials"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果这段少一层吉他，或先只听贝斯和鼓，你觉得会更合此刻吗？”可以不同意，也可换歌。无须列出演出经历、收藏或均分；共同选歌关注实际声音与意愿，不把不喜欢某一段解释成没有热情。",
+          "en": "Ask: “Would this moment suit fewer guitar layers, or a focus on bass and drums?” Disagreement or another song is welcome. No concert history, collection or mean is needed. A shared choice concerns sound and willingness, without treating disinterest in a passage as missing enthusiasm."
+        }
+      ]
+    }
+  ],
+  "hip-hop": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "人声、节拍和制作，可以分别喜欢",
+        "en": "Voice, beat and production can appeal separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "设想同一段声音里，人声停顿、鼓和低音循环、电子音色各有明显特点。你可能喜欢节拍而不偏爱人声处理，也可能相反。嘻哈与电子、流行读法提供不同线索，不要求对作品所有层面都赞同，更不从喜欢节奏推断对歌词主题的立场。",
+          "en": "Imagine a passage with distinct vocal pauses, a drum-and-bass loop and electronic timbres. You may like the beat without the vocal treatment, or the reverse. Hip-hop, electronic and pop readings highlight different cues without requiring approval of every layer or inferring a lyrical position from rhythmic liking."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看两次短听的不同注意点",
+        "en": "Review what differed across two short listens"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面先听人声、再听鼓和低音的尝试，看看哪一处变化最影响喜欢程度。也可以发现自己只是更熟悉这个版本，而暂时说不清声音原因。无需跟唱、复述歌词或模仿口音；不能辨认某个细节不等于偏好不成立。",
+          "en": "After listening first to vocals and then drums and bass above, note which change mattered to liking. Familiarity may matter even when a sound-based reason remains unclear. No rapping along, lyric repetition or accent imitation is required. An unidentified detail does not invalidate a preference."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个层次问题",
+        "en": "Share a question about one layer"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这段你更想跟着人声的停顿，还是鼓和低音？也可以都不特别注意。”不需要证明文化知识、引用歌词或上传音频。分享公开说明不带个人均分；对方的回答只说这次听感，不替其判断身份或价值观。",
+          "en": "Ask: “Would you rather follow the vocal pauses or the drums and bass, or neither in particular?” No cultural-knowledge proof, quoted lyrics or audio upload is needed. Sharing this public guide carries no means; a response concerns this listening impression rather than identity or values."
+        }
+      ]
+    }
+  ],
+  "electronic": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "重复没有改变，也可能有层次变化",
+        "en": "A repeating beat can accompany changing layers"
+      },
+      "paragraphs": [
+        {
+          "zh": "想象一段节拍保持重复、某个声音逐渐进入又淡出的录音。喜欢稳定循环与喜欢音色变化可以同时存在；也可能只喜欢其中一个。电子读法关注这些制作线索，与流行歌曲的人声结构或嘻哈节拍可以交叉，不把层次多寡排为技术品位高低。",
+          "en": "Imagine a repeating beat while one sound gradually enters and fades. A stable loop and changing timbre can both appeal, or only one may. These production cues can overlap pop vocal structures or hip-hop beats. More layers establish no superior technical taste."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看细节与整体哪边更合适",
+        "en": "Review the detail and the whole texture"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的单声音观察，比较跟踪一层与听整体时，自己更想保留哪种方式。可以只写“回响太长”或“喜欢慢慢加入”，不用猜制作软件。换一天想听别的也可以；这个记录帮助具体选择，不是技术能力或听辨进步评分。",
+          "en": "After following one sound above, compare that focus with hearing the whole texture. “The echo feels too long” or “I like the gradual entrance” is enough, without guessing software. Another choice on another day is welcome. The note informs selection rather than measures technical skill or auditory improvement."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享音色偏好，不推定生活方式",
+        "en": "Share timbre preferences without assuming a lifestyle"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“现在更想听稳定循环、明显旋律，还是较少节拍的空间感？”也允许安静。无需谈设备价格、夜生活或均分。公开读法可以帮助描述声音，不能替在场者决定播放，也不保证某种声音让人放松或提高效率。",
+          "en": "Ask: “Would a steady loop, a clear melody or spacious sound with less beat suit now?” Silence is welcome too. Equipment prices, nightlife and means need no discussion. This guide can help describe sounds without deciding for others or promising relaxation or productivity."
+        }
+      ]
+    }
+  ],
+  "jazz": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "相似的乐句变化，不同的观察入口",
+        "en": "Similar phrase changes, different observation angles"
+      },
+      "paragraphs": [
+        {
+          "zh": "想象一小段旋律由一件乐器提出，另一件接入并改变结尾。爵士题关注乐句、重音和回应；西方古典器乐题也可能涉及主题变化，但所选描述不同。你可以两边都喜欢，也不能仅凭听起来像对话，就确认录音是怎样即兴或制作的。",
+          "en": "Imagine one instrument introducing a short idea and another changing its ending. Jazz items foreground phrases, accents and responses; classical instrumental items may also concern theme changes through different descriptions. Both can appeal. A conversational impression alone cannot establish improvisation or a recording process."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看一处变化就够了",
+        "en": "One change is enough to review"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的短句观察，记下自己更喜欢延续、停顿还是转向，也可记“不确定”。没有认出乐器或结构，不需要补一份乐理答案；也不必听完长独奏。一次具体的喜欢或不喜欢，比“爵士听众应该怎样”更接近本版的自评。",
+          "en": "After observing a short phrase above, note a continuation, pause or change you liked, or uncertainty. Missing an instrument or structure needs no theory answer, and no long solo must be completed. One particular response fits this reflection better than a rule for how a jazz listener should react."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "用自己的词邀请交流",
+        "en": "Invite discussion in your own words"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这一小段的回应，你觉得更像延续还是换方向？你想继续听吗？”对方可以用普通词、只听整体或拒绝。分享不需要乐评术语、收藏或均分，不把听感不同当作文化修养、教育或耐心差异的证明。",
+          "en": "Ask: “Does the reply in this short passage feel like continuation or a new direction, and would you like to keep listening?” Ordinary words, the overall impression or declining are fine. Sharing needs no review vocabulary, collection or means and establishes no difference in education, refinement or patience."
+        }
+      ]
+    }
+  ],
+  "western-classical": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同一主题回来，哪种变化吸引你",
+        "en": "Which change in a returning theme appeals?"
+      },
+      "paragraphs": [
+        {
+          "zh": "想象一段熟悉旋律再次出现，改由另一件乐器演奏，伴奏也更稀疏。你可能喜欢主题、音色或留白中的某一项；爵士和原声民谣的读法也可能提供相近线索。这里不以“没有歌声”归入所有器乐，更不把其他古典传统并进这个西方器乐标签。",
+          "en": "Imagine a familiar melody returning on another instrument with sparser backing. The theme, timbre or space may appeal separately, and jazz or acoustic folk readings may offer related cues. This label neither gathers all instrumental music by the absence of singing nor includes every classical tradition."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看主题与演奏版本分别有什么作用",
+        "en": "Review the theme and performance separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的两个短段落观察，写下自己喜欢的是重复、变化、某种乐器，还是某个录音版本的声音。说不出结构名也没有缺项；不想继续长听也可以。不要用篇幅、难度或听完次数证明认真，更不用把一次喜好变成提升智力的任务。",
+          "en": "After comparing short passages above, note the appeal of repetition, change, an instrument or a particular recording. No formal name is missing work, and longer listening is optional. Length, difficulty and completed plays prove no seriousness; liking need not become an intelligence-improvement assignment."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一处听感，不设入门资格",
+        "en": "Share an impression without an entry requirement"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这段换成另一件乐器时，你更喜欢哪种声音？不熟悉也可以直接说。”不要求报出作曲家、年代或术语。公开说明不带均分，也不把喜好换算成修养、财富或能力；若此刻想听别的或保持安静，同样可以。",
+          "en": "Ask: “Which sound do you prefer when this passage moves to another instrument? Unfamiliar is a fine answer.” No composer, period or terminology is required. This public guide carries no means or inference about refinement, wealth or ability. Another sound or silence can suit now."
+        }
+      ]
+    }
+  ],
+  "acoustic-folk": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "声音少，不等于喜欢的理由只有一个",
+        "en": "Sparse sound need not have one reason for appeal"
+      },
+      "paragraphs": [
+        {
+          "zh": "设想一段歌声配少量弦乐的录音：有人在意扫弦细节，有人喜欢讲述感，也有人只喜欢旋律。这些线索可能与乡村或简约流行交叉。原声民谣只是本版较窄的选定范围，不代表全部地方传统，也不能由声音简约推断表演者或听众更真实。",
+          "en": "Imagine singing with a few strings: one listener notices strumming, another the storytelling feel, another the melody. These can overlap country or sparse pop. Acoustic folk is this edition’s narrower selected range, not every local tradition, and sparse sound establishes no greater authenticity for performers or listeners."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看歌声、弦乐和留白",
+        "en": "Review voice, strings and space"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的熟悉段落观察，看看哪一个细节让你想重听，或哪一处不合当下喜好。可以喜欢少量配器，却在别的场景选择密集电子声音；不需要为某种“自然生活”身份统一选择。记录自己的声音感受即可，不必调查录音是否完全没有处理。",
+          "en": "After observing a familiar passage above, note a detail you would repeat or one that does not suit now. Sparse instrumentation can appeal alongside dense electronic sound elsewhere. No natural-lifestyle identity needs consistent choices. Record the impression without investigating whether a recording has no processing."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "从一个声音细节分享",
+        "en": "Share through a sound detail"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这段更吸引你的是歌声、拨弦，还是一句结束后的空白？”愿意的话再谈个人联系，也可以完全不讲回忆。分享公开读法不带歌单或均分，不因别人不喜欢简约声音就评价其真诚、温柔或生活方式。",
+          "en": "Ask: “Is the appeal here the voice, plucked strings or space after a phrase?” A personal connection is optional, with no memory required. Sharing this public guide supplies neither playlist nor means and gives no basis to judge sincerity, gentleness or lifestyle from a different preference."
+        }
+      ]
+    }
+  ],
+  "country": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "叙述与弦乐，可以有不同偏好",
+        "en": "Storytelling and strings can appeal differently"
+      },
+      "paragraphs": [
+        {
+          "zh": "设想同一首歌曲换成较简约和较完整的编排。你可能喜欢歌声的讲述感，却更愿意少一点乐器；另一人可能偏爱滑音或拉弦细节。乡村、原声民谣和摇滚的线索会交叉，不能由喜欢哪层推断住在哪里、相信什么或赞同故事里每件事。",
+          "en": "Imagine sparse and fuller arrangements of a song. You may enjoy the storytelling vocal with fewer instruments; another listener may prefer sliding or bowed string details. Country, acoustic folk and rock cues can overlap without revealing where someone lives, what they believe or approval of every event in a story."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "回看内容与声音各自的作用",
+        "en": "Review content and sound separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的两段作品观察，分别写下歌声与弦乐中喜欢的一处。若声音喜欢、主题不想听，可以换版本或作品，不必全盘接受或拒绝。也可能暂时不熟悉某种音色；保留不知道，不把它补成不喜欢来凑一份个人均分。",
+          "en": "After comparing passages above, note one appeal in singing and one in strings. Enjoying sound while not wanting a subject may lead to another version or recording, without complete approval or rejection. Keep unfamiliar timbres uncertain rather than fill them with dislike to obtain a mean."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一处偏好，不要求共同身份",
+        "en": "Share a preference without a shared identity"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这段你更想听歌声的讲述，还是乐器接上的短句？现在适合一起放吗？”无需证明熟悉艺人，也不要求对方有相同背景。公开读法不带个人均分，不把同样喜欢乡村当作关系匹配，不同喜好也不意味着相处不来。",
+          "en": "Ask: “Would you rather follow the vocal story or the short instrumental reply, and does it suit listening together now?” Artist knowledge and a shared background are unnecessary. This guide carries no means; similar country preferences prove no compatibility, and differences no inability to get along."
+        }
+      ]
+    }
+  ]
+}

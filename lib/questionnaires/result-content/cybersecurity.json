@@ -1,0 +1,227 @@
+{
+  "phishing": [
+    {
+      "id": "count-reading",
+      "title": {
+        "zh": "用正确数选择复习重点",
+        "en": "Use correct counts to choose a revision focus"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版20题，每题答对计1，五分项各4题；总正确数只加总这些题，不检查真实账户、设备或安全行为。无论0题还是20题答对，全部所选答案、正确答案、解析和五份复习说明都可阅读。先找一个具体误解，再用虚构情境解释正确行动依据。看过解析后的同题提高可能包含记忆，不等于现实防护改善、资质认证或事件已处置；公开说明不含本次答案或正确数。",
+          "en": "This edition has twenty items, one count per correct answer and four per section. The total adds these answers without inspecting real accounts, devices or behaviour. All selected answers, keys, explanations and five guides remain available at zero or twenty correct. Identify a specific misunderstanding and explain a supported action in a fictional scenario. Improvement after seeing explanations may include memory, establishing no improved real protection, qualification or incident resolution. This public guide contains no attempt answers or counts."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：核实有没有离开消息提供的路径",
+        "en": "Review whether verification leaves the message’s route"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到快递短信，把“对方声称什么”“自己需要核实什么”和“独立可信入口”分别写成一行。若新号码也来自同一短信，就仍属于消息提供的路径；标志和订单号本身不能完成身份核实。可以只画一条虚构流程，不点击、回复或转发真实可疑消息。复盘关注所选渠道的依据，不根据一次答对就认定真实消息已经通过鉴定。",
+          "en": "For the delivery text, separate its claim, what needs verification and an independently trusted route. A new number from the same text remains part of its route; a logo or order number does not authenticate the sender. Draw a fictional flow without clicking, replying to or forwarding a real suspicious message. Review the basis for the chosen channel rather than treating a correct answer as authentication of an actual message."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用虚构情境讨论，不交换秘密",
+        "en": "Discuss a fictional scenario without exchanging secrets"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果一条虚构快递短信催你登录，你会先核实什么，又怎样说明自己选的入口为何独立于短信？”讨论行动依据即可，不需要互查账户、演示登录、提交可疑链接或展示实际事件截图。",
+          "en": "Ask: “If a fictional delivery text urged a login, what would you verify and why would your chosen route be independent of the text?” Discuss the reasoning without checking each other’s accounts, demonstrating logins, submitting suspicious links or displaying real incident screenshots."
+        },
+        {
+          "zh": "可分享这份公开通用说明，链接不含个人答案或成绩。不要提供密码、验证码、找回信息、证件或组织内部记录；对方可换情境、不回答或结束。练习不是安全审计，也不用结果判断谁可信、谁该承担真实系统责任。",
+          "en": "Share this public general guide without personal answers or results in the link. Provide no passwords, codes, recovery details, identity documents or internal records. The other person may change scenarios, decline or stop. Practice is no security audit and assigns neither trustworthiness nor responsibility for a real system."
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "id": "count-reading",
+      "title": {
+        "zh": "用正确数选择复习重点",
+        "en": "Use correct counts to choose a revision focus"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版20题，每题答对计1，五分项各4题；总正确数只加总这些题，不检查真实账户、设备或安全行为。无论0题还是20题答对，全部所选答案、正确答案、解析和五份复习说明都可阅读。先找一个具体误解，再用虚构情境解释正确行动依据。看过解析后的同题提高可能包含记忆，不等于现实防护改善、资质认证或事件已处置；公开说明不含本次答案或正确数。",
+          "en": "This edition has twenty items, one count per correct answer and four per section. The total adds these answers without inspecting real accounts, devices or behaviour. All selected answers, keys, explanations and five guides remain available at zero or twenty correct. Identify a specific misunderstanding and explain a supported action in a fictional scenario. Improvement after seeing explanations may include memory, establishing no improved real protection, qualification or incident resolution. This public guide contains no attempt answers or counts."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：分清账户名、秘密和另一类因素",
+        "en": "Review account names, secrets and another factor category"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用密码加已登记安全密钥的例子，只用类别名说明“知道什么”和“持有什么”，不要写任何真实密码、验证码或找回信息。再比较用户名加邮箱：两个标识不等于两类认证因素。为虚构来电写一句拒绝索码的话，再指出应从哪里独立联系服务方。复盘关注具体概念和入口，不据练习成绩声称自己的账户已安全；实际设置按提供方说明进行。",
+          "en": "For a password plus registered security key, use category names for knowledge and possession without writing real passwords, codes or recovery details. Compare a username plus email: two identifiers are not two factor categories. Draft a refusal for a fictional code request and identify an independent service contact. Review concepts and routes without declaring an account secure from a practice result. Follow provider instructions for actual settings."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用虚构情境讨论，不交换秘密",
+        "en": "Discuss a fictional scenario without exchanging secrets"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“不使用任何真实凭据，你会怎样解释“密码加安全密钥”和“用户名加邮箱”的区别？”讨论行动依据即可，不需要互查账户、演示登录、提交可疑链接或展示实际事件截图。",
+          "en": "Ask: “Without using real credentials, how would you explain the difference between a password plus security key and a username plus email?” Discuss the reasoning without checking each other’s accounts, demonstrating logins, submitting suspicious links or displaying real incident screenshots."
+        },
+        {
+          "zh": "可分享这份公开通用说明，链接不含个人答案或成绩。不要提供密码、验证码、找回信息、证件或组织内部记录；对方可换情境、不回答或结束。练习不是安全审计，也不用结果判断谁可信、谁该承担真实系统责任。",
+          "en": "Share this public general guide without personal answers or results in the link. Provide no passwords, codes, recovery details, identity documents or internal records. The other person may change scenarios, decline or stop. Practice is no security audit and assigns neither trustworthiness nor responsibility for a real system."
+        }
+      ]
+    }
+  ],
+  "devices": [
+    {
+      "id": "count-reading",
+      "title": {
+        "zh": "用正确数选择复习重点",
+        "en": "Use correct counts to choose a revision focus"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版20题，每题答对计1，五分项各4题；总正确数只加总这些题，不检查真实账户、设备或安全行为。无论0题还是20题答对，全部所选答案、正确答案、解析和五份复习说明都可阅读。先找一个具体误解，再用虚构情境解释正确行动依据。看过解析后的同题提高可能包含记忆，不等于现实防护改善、资质认证或事件已处置；公开说明不含本次答案或正确数。",
+          "en": "This edition has twenty items, one count per correct answer and four per section. The total adds these answers without inspecting real accounts, devices or behaviour. All selected answers, keys, explanations and five guides remain available at zero or twenty correct. Identify a specific misunderstanding and explain a supported action in a fictional scenario. Improvement after seeing explanations may include memory, establishing no improved real protection, qualification or incident resolution. This public guide contains no attempt answers or counts."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：每个动作解决的是哪件事",
+        "en": "Review the purpose of each action"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到电脑移交的虚构清单，把保留文件副本、确认所需文件可读取、按制造商说明清除资料分开。再看更新与可信工具属于哪些问题，不用“我设了密码”替代这些步骤。这里只做纸上对应，不安装软件、删除文件或清除真实设备。复盘关注步骤是否对应实际目的；练习不能确认备份完整、清除成功或设备没有感染，工作设备还需遵循组织流程。",
+          "en": "For a fictional computer handover, separate keeping another copy, checking needed files are readable and following manufacturer erasure instructions. Distinguish updates and trusted tools from those purposes; a password does not substitute for them. Map steps on paper without installing software, deleting files or erasing a real device. Practice establishes neither backup completeness, successful erasure nor absence of infection. Work devices also follow organisational procedures."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用虚构情境讨论，不交换秘密",
+        "en": "Discuss a fictional scenario without exchanging secrets"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果只在纸上规划一台虚构电脑的移交，你会怎样分开保留所需文件与清除原设备资料的目的？”讨论行动依据即可，不需要互查账户、演示登录、提交可疑链接或展示实际事件截图。",
+          "en": "Ask: “On paper, how would you distinguish preserving needed files from removing personal data on a fictional computer being handed over?” Discuss the reasoning without checking each other’s accounts, demonstrating logins, submitting suspicious links or displaying real incident screenshots."
+        },
+        {
+          "zh": "可分享这份公开通用说明，链接不含个人答案或成绩。不要提供密码、验证码、找回信息、证件或组织内部记录；对方可换情境、不回答或结束。练习不是安全审计，也不用结果判断谁可信、谁该承担真实系统责任。",
+          "en": "Share this public general guide without personal answers or results in the link. Provide no passwords, codes, recovery details, identity documents or internal records. The other person may change scenarios, decline or stop. Practice is no security audit and assigns neither trustworthiness nor responsibility for a real system."
+        }
+      ]
+    }
+  ],
+  "sharing": [
+    {
+      "id": "count-reading",
+      "title": {
+        "zh": "用正确数选择复习重点",
+        "en": "Use correct counts to choose a revision focus"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版20题，每题答对计1，五分项各4题；总正确数只加总这些题，不检查真实账户、设备或安全行为。无论0题还是20题答对，全部所选答案、正确答案、解析和五份复习说明都可阅读。先找一个具体误解，再用虚构情境解释正确行动依据。看过解析后的同题提高可能包含记忆，不等于现实防护改善、资质认证或事件已处置；公开说明不含本次答案或正确数。",
+          "en": "This edition has twenty items, one count per correct answer and four per section. The total adds these answers without inspecting real accounts, devices or behaviour. All selected answers, keys, explanations and five guides remain available at zero or twenty correct. Identify a specific misunderstanding and explain a supported action in a fictional scenario. Improvement after seeing explanations may include memory, establishing no improved real protection, qualification or incident resolution. This public guide contains no attempt answers or counts."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：先说明受众，再看实际控制",
+        "en": "Review the audience before the access control"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用只允许两个指定账户查看的虚构文件，先写获授权受众，再比较文件名和分享设置各能做什么。“私人”标签表达意图，实际访问限制仍取决于权限控制。可以只画示意，不上传真实文件或修改真实权限。复盘也可选支持表单：哪些报错信息有用，哪些秘密必须排除？题目给定的制度只约束这个虚构情境，真实组织规则仍需另查。",
+          "en": "For the fictional file limited to two named accounts, state the authorised audience before comparing a filename with a sharing setting. A private label expresses intent; access restrictions depend on permission controls. Sketch without uploading files or changing real permissions. Alternatively, review useful error details and secrets excluded from a support form. A supplied fictional policy applies to that scenario; actual organisational rules must be checked separately."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用虚构情境讨论，不交换秘密",
+        "en": "Discuss a fictional scenario without exchanging secrets"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果一个虚构文件只能给两个指定账户，你会怎样说明改名为“私人”和限制访问并不是同一个动作？”讨论行动依据即可，不需要互查账户、演示登录、提交可疑链接或展示实际事件截图。",
+          "en": "Ask: “If a fictional file were for two named accounts only, how would you explain why naming it private and restricting access are different actions?” Discuss the reasoning without checking each other’s accounts, demonstrating logins, submitting suspicious links or displaying real incident screenshots."
+        },
+        {
+          "zh": "可分享这份公开通用说明，链接不含个人答案或成绩。不要提供密码、验证码、找回信息、证件或组织内部记录；对方可换情境、不回答或结束。练习不是安全审计，也不用结果判断谁可信、谁该承担真实系统责任。",
+          "en": "Share this public general guide without personal answers or results in the link. Provide no passwords, codes, recovery details, identity documents or internal records. The other person may change scenarios, decline or stop. Practice is no security audit and assigns neither trustworthiness nor responsibility for a real system."
+        }
+      ]
+    }
+  ],
+  "response": [
+    {
+      "id": "count-reading",
+      "title": {
+        "zh": "用正确数选择复习重点",
+        "en": "Use correct counts to choose a revision focus"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版20题，每题答对计1，五分项各4题；总正确数只加总这些题，不检查真实账户、设备或安全行为。无论0题还是20题答对，全部所选答案、正确答案、解析和五份复习说明都可阅读。先找一个具体误解，再用虚构情境解释正确行动依据。看过解析后的同题提高可能包含记忆，不等于现实防护改善、资质认证或事件已处置；公开说明不含本次答案或正确数。",
+          "en": "This edition has twenty items, one count per correct answer and four per section. The total adds these answers without inspecting real accounts, devices or behaviour. All selected answers, keys, explanations and five guides remain available at zero or twenty correct. Identify a specific misunderstanding and explain a supported action in a fictional scenario. Improvement after seeing explanations may include memory, establishing no improved real protection, qualification or incident resolution. This public guide contains no attempt answers or counts."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：报告和恢复分别完成了什么",
+        "en": "Review reporting separately from recovery"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到虚构密码暴露事件，分栏记“已经发生的事”“仍未知的事”“应报告的非秘密信息”和“需查的服务方恢复说明”。发出报告并不会自行撤销凭据，也不证明事件已结束。只做纸上区分，不重演可疑登录、打开附件或自行检查他人账户。复盘关注下一步的责任和可信渠道；真实事件按受影响服务及组织既定流程处理，不等待练习分数给出结论。",
+          "en": "For the fictional exposed password, separate known events, unknowns, non-secret reporting details and provider recovery instructions to consult. A report neither revokes credentials by itself nor establishes resolution. Work on paper without repeating a suspicious login, opening an attachment or inspecting another person’s account. Review responsibilities and trusted routes. Real events follow the affected service and organisation’s established processes rather than awaiting a practice-score verdict."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用虚构情境讨论，不交换秘密",
+        "en": "Discuss a fictional scenario without exchanging secrets"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“在一个虚构账户事件里，报告已经发出后，还有哪些事不能假定完成，应该向哪里查恢复步骤？”讨论行动依据即可，不需要互查账户、演示登录、提交可疑链接或展示实际事件截图。",
+          "en": "Ask: “After a report in a fictional account incident, what remains unproven and where would you look for recovery steps?” Discuss the reasoning without checking each other’s accounts, demonstrating logins, submitting suspicious links or displaying real incident screenshots."
+        },
+        {
+          "zh": "可分享这份公开通用说明，链接不含个人答案或成绩。不要提供密码、验证码、找回信息、证件或组织内部记录；对方可换情境、不回答或结束。练习不是安全审计，也不用结果判断谁可信、谁该承担真实系统责任。",
+          "en": "Share this public general guide without personal answers or results in the link. Provide no passwords, codes, recovery details, identity documents or internal records. The other person may change scenarios, decline or stop. Practice is no security audit and assigns neither trustworthiness nor responsibility for a real system."
+        }
+      ]
+    }
+  ]
+}

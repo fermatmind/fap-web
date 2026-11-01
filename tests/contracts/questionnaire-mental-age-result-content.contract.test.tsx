@@ -1,0 +1,25 @@
+import { describe, expect, it, vi } from "vitest";
+import { renderToStaticMarkup } from "react-dom/server";
+import source from "@/lib/questionnaires/data/mental-age.json";
+import content from "@/lib/questionnaires/result-content/mental-age.json";
+import { mentalAgeResultProfile } from "@/lib/questionnaires/result-content/mental-age";
+import { prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
+import { isMentalAgeConfigurationValid, scoreMentalAgeQuestionnaire } from "@/lib/questionnaires/mentalAge";
+import { QuestionnaireMentalAgeReport } from "@/components/questionnaires/QuestionnaireMentalAgeReport";
+import type { Questionnaire } from "@/lib/questionnaires/types";
+vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
+const quiz=source as Questionnaire,profile=quiz.profiles[0],reading=prepareResultProfile(quiz.slug,profile);
+const values=(sum:number)=>Array.from({length:12},(_,i)=>Math.min(3,Math.max(0,sum-i*3)));
+const answersFor=(points:number[])=>Object.fromEntries(quiz.questions.map((q,i)=>[q.id,q.options.find(o=>o.score===points[i])!.id]));
+describe("One complete playful-age reading for all thirty-seven arbitrary values",()=>{
+ it("keeps the strict source recipe and all original paragraphs apart from explicit additions",()=>{
+  const before=JSON.stringify(quiz),r=mentalAgeResultProfile(profile);expect({...r,sections:profile.sections}).toEqual(profile);expect(r.sections.map(s=>s.id)).toEqual(profile.sections.map(s=>s.id));expect(r.sections.flatMap(s=>s.paragraphs)).toHaveLength(19);for(const s of profile.sections)expect(r.sections.find(t=>t.id===s.id)!.paragraphs.slice(0,2)).toEqual(s.paragraphs);expect(prepareResultProfile(quiz.slug,reading)).toBe(reading);expect(isMentalAgeConfigurationValid(quiz)).toBe(true);expect(isMentalAgeConfigurationValid({...quiz,profiles:[reading]})).toBe(false);const unknown={...profile,id:'__proto__'};expect(mentalAgeResultProfile(unknown)).toBe(unknown);expect(JSON.stringify(quiz)).toBe(before);
+ });
+ it.each(["zh","en"]as const)("opens the full public %s guide without a personal age or answer table",async locale=>{
+  const route=await import("@/components/questionnaires/QuestionnaireGuide"),dom=document.createElement('div');dom.innerHTML=renderToStaticMarkup(await route.default({params:Promise.resolve({locale,slug:quiz.slug,profile:profile.id})}));expect(dom.querySelector('[data-mental-age-result-reading]')).not.toBeNull();expect(dom.querySelectorAll('[data-mental-age-result-reading] h2')).toHaveLength(8);expect(dom.querySelector('[data-mental-age-value], [data-mental-age-answer]')).toBeNull();for(const s of content[profile.id as keyof typeof content])for(const t of s.paragraphs)expect(dom.querySelector(`#report-${s.id}`)?.textContent).toContain(t[locale]);const ids=[...dom.querySelectorAll('[id]')].map(n=>n.id);expect(new Set(ids).size).toBe(ids.length);for(const a of dom.querySelectorAll('nav a[href^="#"]'))expect(ids).toContain(a.getAttribute('href')!.slice(1));if(locale==='en')expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);
+ });
+ it.each(["zh","en"]as const)("retains every sum, formula, choice and complete %s reading with guarded props",locale=>{
+  for(let sum=0;sum<=36;sum++){const points=values(sum),answers=answersFor(points),result=scoreMentalAgeQuestionnaire(quiz,answers);if(result.status!=='complete')throw Error('Complete result required');const dom=document.createElement('div');dom.innerHTML=renderToStaticMarkup(<QuestionnaireMentalAgeReport quiz={quiz} result={result} answers={answers} locale={locale} readingProfile={reading}/>);expect(result.mentalAge.sum).toBe(sum);expect(result.mentalAge.playfulAge).toBe(18+2*sum);expect(dom.querySelector('[data-mental-age-value]')?.textContent).toBe(`${18+2*sum}${locale==='zh'?'岁':' years'}`);expect(dom.querySelectorAll('[data-mental-age-result-reading] h4')).toHaveLength(8);for(const s of content[profile.id as keyof typeof content])for(const t of s.paragraphs)expect(dom.textContent).toContain(t[locale]);for(const [i,q]of quiz.questions.entries()){const row=dom.querySelector(`[data-mental-age-answer="${q.id}"]`)!;expect(row.textContent).toContain(q.options.find(o=>o.id===answers[q.id])!.label[locale]);expect(row.textContent).toContain(`${points[i]}${locale==='zh'?'点':' points'}`);}expect(Object.keys(result).sort()).toEqual(['answered','mentalAge','status']);const ids=[...dom.querySelectorAll('[id]')].map(n=>n.id);expect(new Set(ids).size).toBe(ids.length);}
+  const answers=answersFor(values(18)),result=scoreMentalAgeQuestionnaire(quiz,answers);if(result.status!=='complete')throw Error('result');for(const wrong of [{...reading,id:'other'},{...reading,resultReading:reading.resultReading?{...reading.resultReading,quizSlug:'other'}:undefined},{...reading,resultReading:reading.resultReading?{...reading.resultReading,profileId:'other'}:undefined}]){const html=renderToStaticMarkup(<QuestionnaireMentalAgeReport quiz={quiz} result={result} answers={answers} locale={locale} readingProfile={wrong}/>);expect(html).not.toContain('data-mental-age-result-reading');expect(html).toContain(profile.sections[0].paragraphs[0][locale]);}
+ });
+});

@@ -1,0 +1,166 @@
+{
+  "gryffindor": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同一场虚构交流，先迈哪一小步",
+        "en": "Which small first step in an imagined discussion?"
+      },
+      "paragraphs": [
+        {
+          "zh": "原创场景：四位自愿参与者准备介绍各自喜欢的一件普通物品。格兰芬多读法可以是先示范一个很短的开场；赫奇帕奇可以核对参与方式，拉文克劳可以澄清问题，斯莱特林可以整理目标与时间。四种贡献可以分别提出，不因谁先开口就确定谁更勇敢。",
+          "en": "Original scene: four willing people prepare to introduce an ordinary object they like. A Gryffindor reading could offer a brief opening; Hufflepuff could check participation, Ravenclaw clarify the question and Slytherin organise goals and time. These contributions can be proposed separately. Speaking first does not establish greater courage."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "复盘第一步的条件和停止点",
+        "en": "Review the conditions and endpoint of a first step"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的可撤回第一步，看看必要条件是否齐全、是否确实自愿、何时准备停下听反馈。可以只写计划，也可以改变做法；完成与否不验证学院归属。若少选了这一主题，仍能在别的情境发声，不需要补做挑战来证明勇气。",
+          "en": "After the reversible first step above, review necessary conditions, actual willingness and when to stop for feedback. Planning or changing approach is available; completion does not validate house membership. Choosing this theme less leaves room to speak elsewhere, without an extra challenge to prove courage."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个开始方式的问题",
+        "en": "Share a question about beginning"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“虚构物品交流已经同意范围，你想先示范、核对参与、理解问题还是排一下时间？”不公布计数、不把学院当能力或善恶等级。公开读法不含个人答案；可以选多个、选别的或不讨论，不需要参加官方分院来验证。",
+          "en": "Ask: “For an imagined object discussion with agreed scope, would you demonstrate, check participation, clarify or plan time first?” No counts or ranking of ability or morality is needed. The public guide carries no personal answers; several choices, another choice or no discussion are available without official sorting as verification."
+        }
+      ]
+    }
+  ],
+  "hufflepuff": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同一份整理任务，先问谁能参与",
+        "en": "Who can participate in the same sorting task?"
+      },
+      "paragraphs": [
+        {
+          "zh": "原创场景：几个人自愿整理一叠空白活动卡。赫奇帕奇读法可以先问每人方便做哪部分；格兰芬多可以示范一张，拉文克劳可以弄清分类依据，斯莱特林可以确定这次需要整理到哪里。核对参与不等于平均分工，更不把剩余部分默认交给选到本学院的人。",
+          "en": "Original scene: willing people sort a stack of blank activity cards. A Hufflepuff reading could ask what part each can do; Gryffindor demonstrate one, Ravenclaw clarify categories and Slytherin define the endpoint. Participation does not require identical assignments or leave all remaining work to someone matching this house."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "复盘共同安排与个人余量",
+        "en": "Review the shared arrangement and individual capacity"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的合作记录，看看明确约定了哪些分工、哪项需要尚未确认、自己实际能承担多少。可以提出调整和休息，而不靠多做一点换认可。少选这个主题不能证明不关心，高计数也不代替受影响者的真实体验或实际公平核查。",
+          "en": "After the collaboration note above, review agreed work, an unconfirmed need and your feasible contribution. Adjustments and rest require no extra giving to earn recognition. Fewer selections establish no lack of care, and a higher count replaces neither affected people’s accounts nor examination of actual fairness."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个分担范围的问题",
+        "en": "Share a question about sharing work"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“虚构整理活动卡，怎样先问可参与的范围，再约定交接？”不要求真实帮忙、持续付出或公开计数，也不称其他学院自私。公开链接不带个人答案；双方可以只谈安排或不参与，选择独立做一部分也可以。",
+          "en": "Ask: “For imaginary activity cards, how could we clarify feasible participation before agreeing a handover?” No actual help, constant giving, counts or selfish-house accusation is needed. The public link carries no personal answers; discussion, declining or independently handling one part are available."
+        }
+      ]
+    }
+  ],
+  "ravenclaw": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同一个分类问题，先弄懂哪一点",
+        "en": "Which part of the same classification needs understanding?"
+      },
+      "paragraphs": [
+        {
+          "zh": "原创场景：自己的几个书签总被放到不同位置。拉文克劳读法可以先问按用途还是按阅读顺序更清楚；格兰芬多可以试一个可撤回安排，赫奇帕奇可以问共用者需要，斯莱特林可以明确这次最想解决的问题。提问与行动都不认证智力，也不要求不断展示知识。",
+          "en": "Original scene: your bookmarks keep ending up in different places. A Ravenclaw reading could ask whether use or reading order makes a clearer grouping; Gryffindor try a reversible arrangement, Hufflepuff check shared needs and Slytherin name the target problem. Neither questions nor action certify intelligence or require continual displays of knowledge."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "复盘问题、依据和仍未知的部分",
+        "en": "Review the question, its basis and remaining unknowns"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的公开资料小问题，区分想了解什么、实际找到的说明和仍待核对的内容。可以留下疑问，也可以决定今天到此为止；资料是否可访问和时间是否够用要单独考虑。一次弄清问题不验证智慧，暂不探索也不取消你的兴趣。",
+          "en": "After the public-information question above, separate what you wanted to know, the explanation found and what remains to check. Open questions or stopping today are available; access and time need separate attention. One clarified question validates no wisdom, and no exploration today cancels no interest."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个想了解的问题",
+        "en": "Share a question worth exploring"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“虚构几个书签经常混放，你想先了解使用顺序，还是直接试个安排？”不公开成绩、计数或私人笔记，不比较谁更聪明。公开读法不含个人答案；可以换问题或停止，不以答知识题证明拉文克劳身份。",
+          "en": "Ask: “If imaginary bookmarks keep getting mixed, would you first explore their use or try an arrangement?” No grades, counts, private notes or intelligence ranking is needed. The public guide carries no personal answers; changing the question or stopping needs no knowledge test to prove a Ravenclaw identity."
+        }
+      ]
+    }
+  ],
+  "slytherin": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同一段有限时间，目标怎样说清",
+        "en": "How would you name a goal within the same limited time?"
+      },
+      "paragraphs": [
+        {
+          "zh": "原创场景：你想用一小段自选时间整理私人资料。斯莱特林读法可以先确定找到常用信息这一目标；拉文克劳可以理解分类缘由，格兰芬多可以试一个入口，赫奇帕奇可以考虑共用安排。取舍只是这件事里的范围，不把高计数变成隐藏野心、成功预告或支配他人的权利。",
+          "en": "Original scene: you have a little chosen time to organise private information. A Slytherin reading could name finding common items as the goal; Ravenclaw explore categories, Gryffindor try an entry point and Hufflepuff consider shared access. A tradeoff concerns this scope, not hidden ambition, predicted success or authority over others."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "复盘目标是否仍值得、条件是否足够",
+        "en": "Review whether the goal still matters and conditions suffice"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的低风险目标记录，核对最重要的一步、已有资源、缺少条件与停止点。可以缩小目标、请求支持或暂不做；这些都不需要解释成不够上进。目标不能代替他人同意，详细计划也仍需事实，不用结果标签给每个人分派工具性角色。",
+          "en": "After the low-stakes goal note above, check its key step, resources, missing conditions and endpoint. Narrowing it, asking for support or doing nothing now need no verdict of low ambition. Goals do not override anyone’s consent. A detailed plan still needs facts, and a house label does not decide anyone else’s role."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个目标与条件的问题",
+        "en": "Share a question about goals and conditions"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“虚构只整理一小份资料，你最想解决什么，又要保留谁的哪些需要？”不披露真实计划、资源或计数，不以学院评信任和人品。公开链接不带个人答案；可以修改目标或不分享，无需用成绩、财富或竞争证明身份。",
+          "en": "Ask: “For imaginary small-scale filing, what would you most want to solve, and whose needs must remain visible?” No real plans, resources, counts or house-based trust verdict is needed. The public link carries no personal answers. You may revise the goal or keep it private; achievements, wealth and competition do not prove house membership."
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
 import type { Questionnaire } from "@/lib/questionnaires/types";
@@ -21,7 +21,7 @@ export function QuestionnaireSdtNeedsReport({ quiz, result, locale }: { quiz: Qu
     <p className="leading-8">{zh ? "全部六份完整说明保留高低、混合与资料不足读法、具体情境、表达、其他五项比较、反例和可选观察。自主不等于必须独立做事，胜任感不等于客观技能，联结不等于朋友数量。它是原创情境观察，不是官方标准量表或固定动机人物分类。均分与NA都不隐藏正文；现实条件、他人意图和行动原因仍需实际信息。" : "All six full guides retain higher, lower, mixed and insufficient readings, concrete situations, wording, five comparisons, counterexamples and optional observations. Autonomy requires no independence, felt competence is no measured skill, and connection is no friend count. This is an original contextual reflection rather than an official standard instrument or fixed motivation-persona classification. Means and NA never hide the body; actual conditions, intentions and reasons for action need actual information."}</p>
     {quiz.profiles.map(profile => <section key={profile.id} data-sdt-needs-profile={profile.id} aria-labelledby={`sdt-needs-title-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
       <h3 id={`sdt-needs-title-${profile.id}`} className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
-      <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一部分的公开说明" : "Read this part’s public guide"}</Link>
     </section>)}
   </div>;

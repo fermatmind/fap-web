@@ -1,0 +1,162 @@
+{
+  "scope-and-change": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：新增请求、变更决定与验收证据分开记",
+        "en": "Review a request, its decision and acceptance evidence separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例：虚构活动索引约定交付文字目录与导出文件，排除照片；新增照片请求已有两天估计和指定决策人，但尚未决定。此时可记“已评估、待决定”，不能记“已批准”或默默替换目录。随后即使新增获准，也仍须按更新后的约定验证交付。若导出已通过而目录可读性未试，应记一项通过、一项未核，而不是全部通过或目录失败。先写当前状态、对应证据和下一项待核内容，防止把愿望、权限和完成混成一个“好了”。这是本例约定，不是所有团队统一审批流程。",
+          "en": "Use a fresh fictional event index requiring a text directory and an export, with photos excluded. A photo request has a two-day estimate and a named decision owner but no decision. Record it as assessed and awaiting a decision, rather than approved or silently substituted for the directory. Even a later approved addition still needs verification against the revised agreement. If export passes while directory readability remains untested, record one passed check and one unverified check, not complete acceptance or a failed directory. Write the current state, supporting evidence and next unresolved check. This separates wishes, authority and completion under this example’s agreement without prescribing one approval process for every team."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起对照记录，交换判断依据",
+        "en": "Compare records together and exchange the evidence for a decision"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“哪条证据支持“已批准”，哪条支持“已验收”？仅缺一次检查时，为什么不能写成通过或失败？”先各自标出题定规则、当前证据和仍未知的事，再交换判断；可只读、画图、用计算器或改一项虚构条件，不比赛速度。比较推理如何跟随条件，不据正确数评判朋友的领导力、职业资格或项目成功概率。",
+          "en": "Ask: “What evidence supports approval, what supports acceptance, and why does a missing check establish neither pass nor failure?” Separately mark the stated rule, current evidence and remaining unknowns, then exchange judgments. Read, sketch, use a calculator or change one fictional condition without racing. Compare how reasoning follows conditions, without rating friends’ leadership, qualifications or project success probabilities from correct counts."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组用于复习，不是PMP、CAPM、PRINCE2考试、常模等级或招聘线。30题固定，重做提高可能来自记忆；想检查理解，可换情境并明确列出权限、证据与数量假设，不使用真实保密项目记录。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this general public guide yourself. Five groups support revision rather than PMP, CAPM or PRINCE2 examinations, norm-based tiers or hiring cutoffs. Retakes reuse thirty fixed items and may reward recall. Change the situation and state authority, evidence and quantity assumptions to explore understanding, using no confidential project records."
+        }
+      ]
+    }
+  ],
+  "schedule-and-capacity": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：最大支路、串行限制和可选组合分别核",
+        "en": "Review parallel branches, serial constraints and feasible subsets"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例准备1小时，之后P三小时、Q五小时可并行，最后检查2小时等两者完成。固定时长、独立资源且无间隔时，总历时1+max(3,5)+2=8小时；P可晚2小时结束而不移动检查。若新增条件要求P、Q共用同一人且不可重叠，在不额外加入准备或切换时间的模型下，总历时改成1+3+5+2=11小时，旧余量不能沿用。另设三项整任务大小2、5、8，容量10且无依赖，各最多选一次；可达总量0、2、5、7、8、10、13、15，最大可行10。先确认依赖、资源及可分割性，再选计算。",
+          "en": "Use a fresh model: one hour of preparation, then P taking three hours and Q five in parallel, followed by a two-hour check waiting for both. With fixed durations, independent resources and no gaps, elapsed time is 1+max(3,5)+2=8 hours; P can finish two hours later without moving the check. Change to one shared person with no P/Q overlap, adding no setup or switching time: elapsed time becomes 1+3+5+2=11 hours, and the old allowance cannot be reused. Separately, whole tasks sized two, five and eight, each selectable once under capacity ten with no dependencies, yield totals 0,2,5,7,8,10,13,15. Ten is the largest feasible total. Check dependencies, resources and divisibility before choosing the calculation."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起对照记录，交换判断依据",
+        "en": "Compare records together and exchange the evidence for a decision"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“哪一条新资源限制使八小时结论失效？容量上限与实际可组合的总量有什么不同？”先各自标出题定规则、当前证据和仍未知的事，再交换判断；可只读、画图、用计算器或改一项虚构条件，不比赛速度。比较推理如何跟随条件，不据正确数评判朋友的领导力、职业资格或项目成功概率。",
+          "en": "Ask: “Which new resource constraint invalidates the eight-hour result, and how does a capacity limit differ from a reachable total?” Separately mark the stated rule, current evidence and remaining unknowns, then exchange judgments. Read, sketch, use a calculator or change one fictional condition without racing. Compare how reasoning follows conditions, without rating friends’ leadership, qualifications or project success probabilities from correct counts."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组用于复习，不是PMP、CAPM、PRINCE2考试、常模等级或招聘线。30题固定，重做提高可能来自记忆；想检查理解，可换情境并明确列出权限、证据与数量假设，不使用真实保密项目记录。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this general public guide yourself. Five groups support revision rather than PMP, CAPM or PRINCE2 examinations, norm-based tiers or hiring cutoffs. Retakes reuse thirty fixed items and may reward recall. Change the situation and state authority, evidence and quantity assumptions to explore understanding, using no confidential project records."
+        }
+      ]
+    }
+  ],
+  "risk-and-response": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：触发响应不等于响应已成功",
+        "en": "Review a triggered response without assuming it succeeded"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例规定11点若仍未确认演示用房，监测人Lee应向场地方询问备选。11点没有确认记录，条件成立，可以记“已触发，已询问”，但不能记“备选已订妥”。若11点10分才收到备选可用消息，应另记新事实，并核是否实际分配给本次演示；可用不同于已预订。若原房间预约明确取消，则记录已发生问题，同时保留后续演示受影响等未来不确定性。每一步区分观察、按本例获准的动作、动作后的证据，不从一条记录推断风险归零，也不自行承诺支出或场地安排。",
+          "en": "Use a fresh plan: if a demo room remains unconfirmed at eleven, monitor Lee asks the venue about an alternative. At eleven no confirmation is recorded, so the condition holds. Record the trigger and enquiry, but not a secured booking. A message at eleven ten saying an alternative is available is a new fact; check whether it is actually allocated to this demo. Availability is not reservation. If the original booking is explicitly cancelled, record the observed issue while retaining future uncertainties about the demo. Separate observation, the action allowed by this example and subsequent evidence. One documented response neither eliminates all risk nor authorises spending or venue commitments."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起对照记录，交换判断依据",
+        "en": "Compare records together and exchange the evidence for a decision"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“询问、可用和已预订分别需要什么证据？一个已发生问题还会产生哪些未确定的后续结果？”先各自标出题定规则、当前证据和仍未知的事，再交换判断；可只读、画图、用计算器或改一项虚构条件，不比赛速度。比较推理如何跟随条件，不据正确数评判朋友的领导力、职业资格或项目成功概率。",
+          "en": "Ask: “What evidence distinguishes an enquiry, availability and a reservation, and what future uncertainty can remain after an issue occurs?” Separately mark the stated rule, current evidence and remaining unknowns, then exchange judgments. Read, sketch, use a calculator or change one fictional condition without racing. Compare how reasoning follows conditions, without rating friends’ leadership, qualifications or project success probabilities from correct counts."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组用于复习，不是PMP、CAPM、PRINCE2考试、常模等级或招聘线。30题固定，重做提高可能来自记忆；想检查理解，可换情境并明确列出权限、证据与数量假设，不使用真实保密项目记录。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this general public guide yourself. Five groups support revision rather than PMP, CAPM or PRINCE2 examinations, norm-based tiers or hiring cutoffs. Retakes reuse thirty fixed items and may reward recall. Change the situation and state authority, evidence and quantity assumptions to explore understanding, using no confidential project records."
+        }
+      ]
+    }
+  ],
+  "communication-and-decisions": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：决定了方案，不自动批准其他领域",
+        "en": "Review a decision within its actual domain"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例虚构权限表：Ari可选标牌版式，Bo可批印刷支出。Ari在11月4日选择Elm，记录可写方案Elm、决策人Ari、日期11月4日；这支持版式已决定，不支持支出已获批。Bo尚未回复时，按本例要求明确答复的约定，支出仍未决，不推断同意、拒绝或对方态度。给Bo的跟进说明待决金额、两种方案及等待对印刷安排的实际影响，按约定渠道发给对应人。练习只用虚构金额与名称，分享公开指南不需要复制真实聊天、名单或联系方式。",
+          "en": "Use a fresh fictional authority table: Ari chooses sign layout; Bo approves printing expenditure. Ari selects Elm on November fourth. Recording Elm, Ari and the date supports a layout decision, not spending approval. With no reply from Bo, expenditure remains unresolved under this example’s explicit-response agreement; infer neither consent, rejection nor attitude. A follow-up to Bo identifies the amount requiring a decision, the two options and the actual effect of waiting on printing arrangements, using the agreed channel. Use invented amounts and names in this exercise. Sharing the general public guide requires no real chat transcript, participant list or contact information."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起对照记录，交换判断依据",
+        "en": "Compare records together and exchange the evidence for a decision"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“一条完整的版式决策记录为什么不能证明费用获批？跟进消息需要哪个具体决定和哪些相关事实？”先各自标出题定规则、当前证据和仍未知的事，再交换判断；可只读、画图、用计算器或改一项虚构条件，不比赛速度。比较推理如何跟随条件，不据正确数评判朋友的领导力、职业资格或项目成功概率。",
+          "en": "Ask: “Why does a complete layout decision not establish spending approval, and which decision and relevant facts belong in the follow-up?” Separately mark the stated rule, current evidence and remaining unknowns, then exchange judgments. Read, sketch, use a calculator or change one fictional condition without racing. Compare how reasoning follows conditions, without rating friends’ leadership, qualifications or project success probabilities from correct counts."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组用于复习，不是PMP、CAPM、PRINCE2考试、常模等级或招聘线。30题固定，重做提高可能来自记忆；想检查理解，可换情境并明确列出权限、证据与数量假设，不使用真实保密项目记录。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this general public guide yourself. Five groups support revision rather than PMP, CAPM or PRINCE2 examinations, norm-based tiers or hiring cutoffs. Retakes reuse thirty fixed items and may reward recall. Change the situation and state authority, evidence and quantity assumptions to explore understanding, using no confidential project records."
+        }
+      ]
+    }
+  ],
+  "budget-and-quantities": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：余额、预测余量与使用权限分开核",
+        "en": "Review recorded remainder, forecast headroom and spending authority"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例虚构分配150代币，订单六套、每套7，另一次性设置费8，订单总50。此前已花30，无其他已记录支出时，入账后余额150−30−50=70。若此时预计完成另需45，预测总支出125、余量25；若剩余估计后来改成75，总支出155、余量−5。先固定订单费只收一次，再区分已记录余额与含未来估计的预测。余额70不证明全部可自由采购，预测余量25也不保证最终节余；使用权限、未付承诺及估计完整性要按真实约定另核。本例仅练虚构算术。",
+          "en": "Use a fresh fictional allocation of 150 tokens. Six kits at seven each plus one eight-token setup fee cost fifty. With thirty already spent and no other recorded spending, posting the order leaves seventy. If estimated remaining work then costs forty-five, forecast total spending is 125 and headroom twenty-five. Revising that estimate to seventy-five changes forecast spending to 155 and headroom to negative five. Charge the setup fee once and separate recorded remainder from forecasts containing future estimates. Seventy remaining does not establish unrestricted purchase authority; twenty-five forecast headroom does not guarantee final savings. Check real authority, unpaid commitments and estimate completeness under the actual agreement. This example practises fictional arithmetic only."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起对照记录，交换判断依据",
+        "en": "Compare records together and exchange the evidence for a decision"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“哪一个数只含已记录支出，哪一个包含未来估计？估计改变时为什么余量会从正数变负数？”先各自标出题定规则、当前证据和仍未知的事，再交换判断；可只读、画图、用计算器或改一项虚构条件，不比赛速度。比较推理如何跟随条件，不据正确数评判朋友的领导力、职业资格或项目成功概率。",
+          "en": "Ask: “Which figure includes recorded spending only, which includes a future estimate, and why can revised estimates turn headroom negative?” Separately mark the stated rule, current evidence and remaining unknowns, then exchange judgments. Read, sketch, use a calculator or change one fictional condition without racing. Compare how reasoning follows conditions, without rating friends’ leadership, qualifications or project success probabilities from correct counts."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组用于复习，不是PMP、CAPM、PRINCE2考试、常模等级或招聘线。30题固定，重做提高可能来自记忆；想检查理解，可换情境并明确列出权限、证据与数量假设，不使用真实保密项目记录。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this general public guide yourself. Five groups support revision rather than PMP, CAPM or PRINCE2 examinations, norm-based tiers or hiring cutoffs. Retakes reuse thirty fixed items and may reward recall. Change the situation and state authority, evidence and quantity assumptions to explore understanding, using no confidential project records."
+        }
+      ]
+    }
+  ]
+}

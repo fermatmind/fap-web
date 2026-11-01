@@ -1,0 +1,371 @@
+{
+  "lawful-good": [
+    {
+      "id": "editorial-character-scene",
+      "title": {
+        "zh": "用虚构角色场景理解，不代入现实身份",
+        "en": "Understand a fictional scene without assigning real identities"
+      },
+      "paragraphs": [
+        {
+          "zh": "在一个原创纸上故事里，小镇按报名顺序分配灯会材料。这个角色既想让约定可预期，也注意到有人始终收不到通知。可以写一段他怎样先了解遗漏，再与受影响者讨论修订规则。重点是原则保护了谁，而不是因为角色守序就默认安排公平。",
+          "en": "In an original paper story, a town allocates festival materials by signup order. This character wants predictable agreements and notices that some people never receive the notice. Write how they check the omission and discuss a revision with those affected. Ask whom the principle protects, rather than assuming a lawful arrangement is fair."
+        }
+      ]
+    },
+    {
+      "id": "editorial-boundary-reading",
+      "title": {
+        "zh": "与相邻报告一起显示时怎样读",
+        "en": "Reading this alongside adjacent reports"
+      },
+      "paragraphs": [
+        {
+          "zh": "若与中立善良同时显示，先看秩序轴是否处在显示边界；两份解读可以分别问怎样维持可预期的准则、怎样根据实际需要调整。若与守序中立同时显示，则回看另一轴。相邻报告是本版4或8次的显示约定，不是两种人格正在争夺主导。",
+          "en": "If Neutral Good is also shown, check whether the order axis lies on a display boundary. Review predictable principles separately from responding to current needs. With Lawful Neutral, review the other axis. Adjacent readings reflect this edition’s count-4 or count-8 convention, rather than competing personalities."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "只分享提问，也可以参与讨论",
+        "en": "Share a question without sharing a personal result"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以只分享提问：“一条约定既要前后一致，也要照顾受影响的人，怎样发现它遗漏了谁？”和朋友各举一个虚构例子即可，不必公布个人格子，也不以谁更像守序善良来评判谁更值得信任。",
+          "en": "You may share only the question: “How can a consistent agreement also account for people it overlooks?” Discuss fictional examples with a friend without disclosing a personal grid position or using resemblance to Lawful Good to judge trustworthiness."
+        }
+      ]
+    }
+  ],
+  "neutral-good": [
+    {
+      "id": "editorial-character-scene",
+      "title": {
+        "zh": "用虚构角色场景理解，不代入现实身份",
+        "en": "Understand a fictional scene without assigning real identities"
+      },
+      "paragraphs": [
+        {
+          "zh": "同一个灯会故事里，角色先关注谁缺少必要材料，再判断保留原分法还是商量例外。可以写出一次询问：对方真正需要什么，改变会影响谁？这与单纯让所有人满意不同，也不要求角色凭自己的好意替别人决定。",
+          "en": "In the same festival story, a character first considers who lacks essential materials, then whether to retain the arrangement or discuss an exception. Write one inquiry about actual needs and who a change affects. Helping is not the same as satisfying everyone or deciding for others from goodwill alone."
+        }
+      ]
+    },
+    {
+      "id": "editorial-boundary-reading",
+      "title": {
+        "zh": "与相邻报告一起显示时怎样读",
+        "en": "Reading this alongside adjacent reports"
+      },
+      "paragraphs": [
+        {
+          "zh": "若同时显示守序善良或混乱善良，可以分别回看在什么情境选择统一准则、在什么情境选择自主判断；不必把中间计数解释为兼具两端优点。若另一轴也在边界，最多四份报告都保留，名单顺序不确定哪个才是真正的你。",
+          "en": "If Lawful Good or Chaotic Good is also shown, review situations favouring consistent principles separately from those favouring independent judgment. A middle count does not establish the strengths of both ends. If the other axis is also on a boundary, all four readings remain; list order selects no real identity."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "只分享提问，也可以参与讨论",
+        "en": "Share a question without sharing a personal result"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问朋友：“想帮忙时，你希望别人先问需要、提供几个选项，还是先说能承担多久？”用这份公开读法讨论安排即可，不需要交换个人答案。中立善良不是关心程度或共情能力证书。",
+          "en": "Ask a friend: “When someone wants to help, would you prefer being asked what you need, hearing options or knowing their available time first?” Use the public reading to discuss arrangements without exchanging answers. Neutral Good does not certify care or empathy."
+        }
+      ]
+    }
+  ],
+  "chaotic-good": [
+    {
+      "id": "editorial-character-scene",
+      "title": {
+        "zh": "用虚构角色场景理解，不代入现实身份",
+        "en": "Understand a fictional scene without assigning real identities"
+      },
+      "paragraphs": [
+        {
+          "zh": "在灯会故事里，旧办法让一部分居民一直无法参与。这个角色想试一种不同的分配方式，可以先向受影响的人确认，再写出愿意承担的改动和试行范围。让故事说明改变怎样影响参与者，而不把反对旧办法本身当成勇敢或正确。",
+          "en": "In the festival story, the old arrangement excludes some residents repeatedly. This character proposes another allocation method. Write how they check with affected people and state a limited trial and their contribution. Show the effects of change without treating opposition itself as courage or correctness."
+        }
+      ]
+    },
+    {
+      "id": "editorial-boundary-reading",
+      "title": {
+        "zh": "与相邻报告一起显示时怎样读",
+        "en": "Reading this alongside adjacent reports"
+      },
+      "paragraphs": [
+        {
+          "zh": "若与中立善良同时显示，回看秩序轴边界：当前条件下自主调整与沿用共同办法，各自解决什么问题？若与混乱中立同时显示，则关注另一轴中的具体选择。这里的混乱不是心理状态，边界也不表示现实判断有一部分失控。",
+          "en": "With Neutral Good also shown, review the order-axis boundary: what problems do independent adjustment and shared methods address here? With Chaotic Neutral, review choices on the other axis. Chaotic is not a mental state, and a boundary does not imply partially uncontrolled judgment."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "只分享提问，也可以参与讨论",
+        "en": "Share a question without sharing a personal result"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以只分享一个角色讨论题：“发现原办法让人难参与，怎样提出不同做法，也让别人能拒绝？”不必分享自己的阵营名称。现实中是否合适仍要看具体情况，不能靠角色标签给改变或违约增加正当性。",
+          "en": "You can share a character question: “How could someone propose an alternative to an excluding arrangement while allowing others to decline?” No personal label is needed. Actual suitability depends on the situation; a character label does not justify changes or broken commitments."
+        }
+      ]
+    }
+  ],
+  "lawful-neutral": [
+    {
+      "id": "editorial-character-scene",
+      "title": {
+        "zh": "用虚构角色场景理解，不代入现实身份",
+        "en": "Understand a fictional scene without assigning real identities"
+      },
+      "paragraphs": [
+        {
+          "zh": "在灯会故事里，这个角色先核对公告、登记与约定的修改方式。写作时可以让另一位人物提出一个被流程遗漏的情况，再看角色怎样回应。遵循准则是这个框架的线索；是否听到实际影响，需要在故事中另外呈现，不能由中立两个字推定公正。",
+          "en": "In the festival story, this character checks notices, records and the agreed revision process. Let another character raise an overlooked circumstance and show the response. Following a code is the framework cue; attention to its effects must be shown separately, without treating Neutral as proof of fairness."
+        }
+      ]
+    },
+    {
+      "id": "editorial-boundary-reading",
+      "title": {
+        "zh": "与相邻报告一起显示时怎样读",
+        "en": "Reading this alongside adjacent reports"
+      },
+      "paragraphs": [
+        {
+          "zh": "若与守序善良或守序邪恶同时显示，差别来自另一轴进入显示边界，不能把三份解释排成可靠程度。若与绝对中立同时显示，回看秩序轴的具体题目。中立区不是人群平均，也不表示没有感情或永远会采取折中方案。",
+          "en": "If Lawful Good or Lawful Evil is also shown, the other axis has reached a display boundary; the readings do not rank dependability. With True Neutral, review specific order-axis questions. A neutral band is neither a population average nor evidence of no emotion or constant compromise."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "只分享提问，也可以参与讨论",
+        "en": "Share a question without sharing a personal result"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“一条规则除了写清内容，还需要怎样说明适用条件与复核方式？”你和朋友可以各设计一条虚构活动规则，不互相审核道德格子。讨论的是规则怎样被理解，不是谁天生适合管理别人。",
+          "en": "Ask: “Besides stating a rule, how should its conditions and review process be explained?” Design fictional activity rules with a friend without reviewing each other’s moral positions. Discuss understanding an arrangement, rather than who is naturally suited to manage others."
+        }
+      ]
+    }
+  ],
+  "true-neutral": [
+    {
+      "id": "editorial-character-scene",
+      "title": {
+        "zh": "用虚构角色场景理解，不代入现实身份",
+        "en": "Understand a fictional scene without assigning real identities"
+      },
+      "paragraphs": [
+        {
+          "zh": "在灯会故事里，这个角色还没形成统一立场，可能在不同问题上采用不同办法。可以先写三句：已知道的情况、愿意参加的部分、还想确认的条件。暂不选边仍能把自己参与到哪里说清，也不需要被写成永远看得最全面的调解者。",
+          "en": "In the festival story, this character has no uniform position and may use different approaches to different questions. Write three statements: known circumstances, the part they will join and what remains to clarify. An open position can still make participation clear without making the character an all-seeing mediator."
+        }
+      ]
+    },
+    {
+      "id": "editorial-boundary-reading",
+      "title": {
+        "zh": "与相邻报告一起显示时怎样读",
+        "en": "Reading this alongside adjacent reports"
+      },
+      "paragraphs": [
+        {
+          "zh": "两轴5—7次都只显示中间区；4或8次才会同时保留相邻区。因此两轴都是6次不会显示九份报告，而是本版的绝对中立读法。多个报告也不是“中立得不够”。这些都是显示算术，不能证明平衡、稀有或道德中性。",
+          "en": "Counts of 5–7 show only the middle band; 4 or 8 also retain an adjacent band. Two counts of 6 therefore show this edition’s True Neutral reading, rather than all nine reports. Several readings do not mean insufficient neutrality. This display arithmetic establishes no balance, rarity or moral neutrality."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "只分享提问，也可以参与讨论",
+        "en": "Share a question without sharing a personal result"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以只问朋友：“同一件小事里，哪些条件你已确定，哪些还想再了解？”不需要宣布自己是绝对中立，也不把暂时未定当作没有原则。公开链接只呈现框架读法，不包含你的两轴计数或个人答案。",
+          "en": "You can simply ask: “For one small situation, what is already decided for you and what would you like to understand first?” No True Neutral declaration is needed, and an open question does not establish lack of principles. The public link contains no personal axis counts or answers."
+        }
+      ]
+    }
+  ],
+  "chaotic-neutral": [
+    {
+      "id": "editorial-character-scene",
+      "title": {
+        "zh": "用虚构角色场景理解，不代入现实身份",
+        "en": "Understand a fictional scene without assigning real identities"
+      },
+      "paragraphs": [
+        {
+          "zh": "在灯会故事里，角色想另选参观路线，不必全程跟着同伴。可以写他怎样说清想保留的自由、仍答应的集合时间与不同意同行的空间。个人意愿是角色线索，不自动说明实际影响，也不意味着其他角色必须为变化补上所有准备。",
+          "en": "In the festival story, a character wants another route rather than following companions throughout. Write how they state their freedom, an agreed meeting time and room not to join. Personal choice is a character cue, not evidence about its effects or a reason others must cover all changed preparation."
+        }
+      ]
+    },
+    {
+      "id": "editorial-boundary-reading",
+      "title": {
+        "zh": "与相邻报告一起显示时怎样读",
+        "en": "Reading this alongside adjacent reports"
+      },
+      "paragraphs": [
+        {
+          "zh": "若与绝对中立同时显示，回看秩序轴上的边界；若与混乱善良或混乱邪恶同时显示，回看另一轴。不能把一轴的灵活选择当成另一轴的结论，也不把多个报告合成冲动或不可靠程度。两份原始计数要分别解释。",
+          "en": "With True Neutral also shown, review the order-axis boundary; with Chaotic Good or Chaotic Evil, review the other axis. Flexible choices on one axis do not determine the other, and several readings do not combine into a score for impulsiveness or unreliability. Interpret the counts separately."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "只分享提问，也可以参与讨论",
+        "en": "Share a question without sharing a personal result"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问朋友：“共同出行时，你想保留哪些自由选择，又希望哪些事情提前说定？”这比按混乱中立给人定型更具体。你可以只分享这道讨论题，不披露结果，也不用为了维持一个自由人设拒绝所有约定。",
+          "en": "Ask a friend: “On a shared outing, what choices would you leave open and what would you agree in advance?” This is more specific than labelling someone Chaotic Neutral. Share the question without a result or a requirement to refuse agreements to maintain an image of freedom."
+        }
+      ]
+    }
+  ],
+  "lawful-evil": [
+    {
+      "id": "editorial-character-scene",
+      "title": {
+        "zh": "用虚构角色场景理解，不代入现实身份",
+        "en": "Understand a fictional scene without assigning real identities"
+      },
+      "paragraphs": [
+        {
+          "zh": "在虚构灯会故事里，一个反面角色利用自己写的分配条款，把共同材料留给自己，又把损失说成流程问题。分析时可以问：谁知道这些条件，谁能提出异议，故事怎样呈现后果？这是对角色冲突的分析，不是把这种做法称为高效、聪明或可采用的策略。",
+          "en": "In the fictional festival story, an antagonist uses allocation terms they wrote to keep shared materials and describes others’ losses as a procedural issue. Ask who knew the conditions, who could object and how consequences appear in the story. This analyses conflict without praising or recommending the conduct as efficient or clever."
+        }
+      ]
+    },
+    {
+      "id": "editorial-boundary-reading",
+      "title": {
+        "zh": "与相邻报告一起显示时怎样读",
+        "en": "Reading this alongside adjacent reports"
+      },
+      "paragraphs": [
+        {
+          "zh": "若与守序中立同时显示，说明另一轴在本版显示边界，不能理解为一部分好人一部分坏人；若与中立邪恶同时显示，回看秩序轴。原始选择没有确认现实行为或动机，更没有测得利用规则的能力。邻近报告也不是伤害轻重等级。",
+          "en": "With Lawful Neutral also shown, the other axis is on a display boundary, rather than identifying a partly good and partly bad person. With Neutral Evil, review the order axis. Choices establish neither actual conduct and motives nor an ability to exploit rules. Adjacent readings do not rank harm."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "只分享提问，也可以参与讨论",
+        "en": "Share a question without sharing a personal result"
+      },
+      "paragraphs": [
+        {
+          "zh": "若想聊这套框架，可以不公开个人格子，只问：“一个流程完成了，怎样检查仍未被回应的影响？”不要拿结果指认朋友在算计，也不要求自己通过过量付出来反驳标签。具体责任应根据事实讨论，不能由测试认证或免除。",
+          "en": "To discuss the framework without a personal position, ask: “Once a process is complete, how can unaddressed effects still be reviewed?” Do not use results to accuse friends or overextend yourself to refute a label. Facts determine actual responsibility, which a test neither certifies nor removes."
+        }
+      ]
+    }
+  ],
+  "neutral-evil": [
+    {
+      "id": "editorial-character-scene",
+      "title": {
+        "zh": "用虚构角色场景理解，不代入现实身份",
+        "en": "Understand a fictional scene without assigning real identities"
+      },
+      "paragraphs": [
+        {
+          "zh": "在虚构灯会故事里，一个反面角色只想拿走自己要的材料，不在乎其他人的份额，也不坚持用固定流程或打破流程。可以写旁人怎样说出受到的影响。分析这种角色，不等于把正常个人需要、拒绝帮忙或希望休息写成邪恶。",
+          "en": "In the fictional festival story, an antagonist takes desired materials without concern for others’ shares and without a commitment to either following or breaking procedure. Show another character stating the effect. Analysing this role does not make ordinary needs, declining help or resting Evil."
+        }
+      ]
+    },
+    {
+      "id": "editorial-boundary-reading",
+      "title": {
+        "zh": "与相邻报告一起显示时怎样读",
+        "en": "Reading this alongside adjacent reports"
+      },
+      "paragraphs": [
+        {
+          "zh": "若与绝对中立同时显示，回看另一轴边界的实际选择；若与守序邪恶或混乱邪恶同时显示，回看秩序轴。中间的秩序计数不是“会灵活作恶”的能力，也不能从邪恶端计数推断你在生活中做过什么。框架与事实须分开。",
+          "en": "With True Neutral also shown, review choices around the other-axis boundary. With Lawful Evil or Chaotic Evil, review the order axis. A middle order count is not an ability to act harmfully with flexibility, and Evil-end choices do not establish what happened in your life. Keep framework and facts separate."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "只分享提问，也可以参与讨论",
+        "en": "Share a question without sharing a personal result"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以只分享这道问题：“自己的需要要说清，哪些成本也需要先征得别人同意？”不必公布个人阵营或交换答案。对方拒绝承担一项要求，不证明他得到某个结果；正常界限与未经同意转移损失，应按具体行为区分。",
+          "en": "You can share only the question: “Alongside stating our needs, which costs require another person’s agreement?” No personal alignment or answer exchange is needed. Someone declining a demand does not establish a result; distinguish limits from shifting losses through actual conduct."
+        }
+      ]
+    }
+  ],
+  "chaotic-evil": [
+    {
+      "id": "editorial-character-scene",
+      "title": {
+        "zh": "用虚构角色场景理解，不代入现实身份",
+        "en": "Understand a fictional scene without assigning real identities"
+      },
+      "paragraphs": [
+        {
+          "zh": "在角色分析中，可以讨论一个不受既有约束、又蓄意造成破坏的虚构反面角色，并把影响写清，不把破坏包装成自由或创意。本题本没有暴力题或风险评估，灯会这类日常情境也无法代表官方概念的全部内容；两轴计数不能把这个角色的经历与动机移到你身上。",
+          "en": "For character analysis, consider a fictional antagonist who rejects constraints and deliberately causes destruction, showing effects without presenting destruction as freedom or creativity. This questionnaire has no violence items or risk assessment, and ordinary festival situations cannot represent the full official concept. Counts cannot transfer a character’s history or motives to you."
+        }
+      ]
+    },
+    {
+      "id": "editorial-boundary-reading",
+      "title": {
+        "zh": "与相邻报告一起显示时怎样读",
+        "en": "Reading this alongside adjacent reports"
+      },
+      "paragraphs": [
+        {
+          "zh": "若与混乱中立同时显示，回看另一轴；若与中立邪恶同时显示，回看秩序轴。即使只显示这一格，也不比边界结果更能证明危险性。一个或多个显示区都来自同一原创映射，不能用来确认或排除现实中的具体问题。",
+          "en": "With Chaotic Neutral also shown, review the other axis; with Neutral Evil, review order. A single displayed position establishes dangerousness no better than a boundary result. One or several bands come from the same original mapping and cannot confirm or exclude an actual concern."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "只分享提问，也可以参与讨论",
+        "en": "Share a question without sharing a personal result"
+      },
+      "paragraphs": [
+        {
+          "zh": "你可以不分享阵营名称，只与愿意的人讨论：“故事标签能解释到哪里，哪些判断必须另看具体行为？”不拿这个结果开针对现实个体的危险玩笑，也不把它当作现实风险已经被评估。公开读法没有附带个人计数或答卷。",
+          "en": "You may omit the alignment name and ask a willing participant: “What can a story label explain, and which judgments need actual behaviour?” Do not turn the result into claims about a real person’s dangerousness or a completed risk assessment. The public reading contains no personal counts or answers."
+        }
+      ]
+    }
+  ]
+}

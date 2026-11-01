@@ -1,0 +1,130 @@
+{
+  "priorities-and-capacity": [
+    {
+      "id": "example",
+      "title": {
+        "en": "A deadline conflict in practice",
+        "zh": "一个截止时间冲突"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创场景：虚构的社区活动需要校对说明和布置场地，一人当天还承担固定照护。新加一项海报修改时，可以先列出已有承诺，再问哪项成果能缩小或交由其他愿意的人处理。把休息和照护写进容量，不是从工作时间里扣掉“不够努力”的部分；说明冲突也不保证对方允许调整。本部分关注核对与取舍，不以最终完成任务多少认定能力。",
+          "en": "In an additional original scene, a fictional community event needs proofreading and room preparation while one person has fixed caring duties. A new poster revision can prompt listing existing commitments and asking what could be reduced or handled by someone else willing. Rest and care belong in capacity rather than being deductions for insufficient effort. Naming a conflict guarantees no permission to change it. This part concerns checking trade-offs, not ability inferred from completed tasks."
+        }
+      ]
+    },
+    {
+      "id": "action",
+      "title": {
+        "en": "Try one visible capacity check",
+        "zh": "试一次看得见的容量核对"
+      },
+      "paragraphs": [
+        {
+          "zh": "可在私人草稿写“新增事项”“已占用时间”“需要确认的优先顺序”，再拟一句：“若先做这项，原来那项的范围或时间需要怎样调整？”无法协商时也可只记录限制，不必公开日程或为了证明会管理时间而拒绝必要责任。",
+          "en": "Privately list the new request, occupied time and a priority needing confirmation. Draft: “If this comes first, how should the scope or timing of the existing commitment change?” Where negotiation is unavailable, recording that limit is enough. No calendar disclosure or refusal of an essential duty is needed to prove time-management habits."
+        },
+        {
+          "zh": "这些原创案例用于理解行为题意，不是你的工作记录或干预效果证明。四部分各六题，含每组两项反向计分，完整回答才显示各自均分；NA不填补，四份全文始终可读。可以只读或写私人草稿，分享公开指南无需发送回答、分数、日程或工作材料，也不必据此改变职业决定。",
+          "en": "These original examples clarify behaviour prompts rather than document your work or prove an intervention effect. Each of four parts has six items, including two reverse keys, and requires complete ratings for its own mean. NA is not filled and all four full guides remain readable. Reading or a private draft is enough; sharing a public guide needs no answers, scores, calendars or work materials, or a changed career decision."
+        }
+      ]
+    }
+  ],
+  "steps-and-estimates": [
+    {
+      "id": "example",
+      "title": {
+        "en": "A small delivery with hidden steps",
+        "zh": "交付中容易漏掉的步骤"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创场景：虚构的活动小册预计只需改一页，却还要找到正确底稿、等一条资料确认并检查导出的页码。可以把自己动手的时间与等待条件分别列出，而不是把等待都当作个人速度慢。写下这些步骤让估计更容易讨论，不证明估计准确；若任务随后变更，原记录仍需保留适用条件。这里看计划行为，与按期交付或专注能力不同。",
+          "en": "In an additional original scene, revising one page of an invented event booklet also requires the correct draft, a confirmation and checking exported page numbers. List hands-on time separately from waiting conditions rather than attribute every wait to slow work. Visible steps make an estimate discussable without proving accuracy. Changed requirements still need their context retained. Planning behaviour differs from on-time delivery or attention capacity."
+        }
+      ]
+    },
+    {
+      "id": "action",
+      "title": {
+        "en": "Compare one estimate with what happened",
+        "zh": "比较一次估时与实际"
+      },
+      "paragraphs": [
+        {
+          "zh": "可为虚构任务写“现在能开始的一步”“开始前缺什么”和“做到哪里先停”。若参考上次用时，再注明这次有哪些不同。不需要填满日历，也不把一个估时误差变成固定拖延标签；草稿写到有用的程度即可。",
+          "en": "For an invented task, draft a startable step, a missing prerequisite and a usable stopping point. If using a previous duration, note what differs this time. No filled calendar is required, and one estimate error creates no fixed procrastination label. Stop drafting when it is useful."
+        },
+        {
+          "zh": "这些原创案例用于理解行为题意，不是你的工作记录或干预效果证明。四部分各六题，含每组两项反向计分，完整回答才显示各自均分；NA不填补，四份全文始终可读。可以只读或写私人草稿，分享公开指南无需发送回答、分数、日程或工作材料，也不必据此改变职业决定。",
+          "en": "These original examples clarify behaviour prompts rather than document your work or prove an intervention effect. Each of four parts has six items, including two reverse keys, and requires complete ratings for its own mean. NA is not filled and all four full guides remain readable. Reading or a private draft is enough; sharing a public guide needs no answers, scores, calendars or work materials, or a changed career decision."
+        }
+      ]
+    }
+  ],
+  "attention-and-return": [
+    {
+      "id": "example",
+      "title": {
+        "en": "Returning after a necessary interruption",
+        "zh": "必要打断之后怎样接着做"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创场景：虚构的资料整理中，一人必须先处理门口送达的物品，离开前可记“下次从第三张卡的日期开始核对”。回来后仍要检查材料是否更新，提示不是可以无条件继续旧步骤的保证。必要打断不等于管理失败，不留下提示也不能单独说明注意障碍。此处看可用的返回线索，与能否控制环境、最终核对正确率分别理解。",
+          "en": "In an additional original scene, someone sorting fictional records must handle a delivery. A note could say, “Resume with the date on card three.” Returning still requires checking whether materials changed; the cue does not guarantee that the old step remains valid. A necessary interruption is no management failure, and an absent cue establishes no attention disorder. Usable return information differs from environmental control or checked accuracy."
+        }
+      ]
+    },
+    {
+      "id": "action",
+      "title": {
+        "en": "Test one return cue",
+        "zh": "试一个返回提示"
+      },
+      "paragraphs": [
+        {
+          "zh": "在一个虚构暂停点，只写“停在哪里”“下一步是什么”“返回前需核对什么”。句子可以很短，也可用适合自己的其他提示。不要为这项练习延误必须回应的事务；若提示增加负担，换方式或不做都可以，不需靠重测分数判断有无帮助。",
+          "en": "At a fictional pause, note where you stopped, the next action and what needs checking on return. A short sentence or another suitable cue is enough. Delay no essential response for the exercise. Change or omit a burdensome cue without relying on a retest score to decide whether it helped."
+        },
+        {
+          "zh": "这些原创案例用于理解行为题意，不是你的工作记录或干预效果证明。四部分各六题，含每组两项反向计分，完整回答才显示各自均分；NA不填补，四份全文始终可读。可以只读或写私人草稿，分享公开指南无需发送回答、分数、日程或工作材料，也不必据此改变职业决定。",
+          "en": "These original examples clarify behaviour prompts rather than document your work or prove an intervention effect. Each of four parts has six items, including two reverse keys, and requires complete ratings for its own mean. NA is not filled and all four full guides remain readable. Reading or a private draft is enough; sharing a public guide needs no answers, scores, calendars or work materials, or a changed career decision."
+        }
+      ]
+    }
+  ],
+  "review-and-renegotiation": [
+    {
+      "id": "example",
+      "title": {
+        "en": "An approval arrives late",
+        "zh": "审批晚到之后"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创场景：虚构活动的场地临时调整，原来的布置清单有几项不再适用。可以先确认新入口和仍需完成的部分，再说明原来的时间安排受到什么影响。删掉无须再做的事，与忘记履行承诺并不相同；提出修订也不等于修订已被接受。本部分看回看和沟通行为，不用修改次数多少判定可靠性。",
+          "en": "In an additional original scene, a venue change makes parts of an invented event setup list obsolete. Check the new entrance and remaining work, then explain the effect on timing. Dropping unnecessary work differs from forgetting a commitment; proposing a revision does not establish its acceptance. This part concerns review and communication, without using the number of revisions to determine reliability."
+        }
+      ]
+    },
+    {
+      "id": "action",
+      "title": {
+        "en": "Use a short, bounded review",
+        "zh": "做一次有边界的回看"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以写一段不发送的更新：“变化的是……；仍保留的是……；建议下一步是……；还需谁确认……。”区分自己的建议和已确认安排。无需增加固定汇报或透露他人信息；若合适的下一步是等待或停止，也可以明确写出来。",
+          "en": "Draft an unsent update: “What changed is …; what remains is …; my proposed next step is …; confirmation is still needed from ….” Separate your proposal from an agreed arrangement. Add no compulsory reporting or personal information. Waiting or stopping can be an explicit next step when appropriate."
+        },
+        {
+          "zh": "这些原创案例用于理解行为题意，不是你的工作记录或干预效果证明。四部分各六题，含每组两项反向计分，完整回答才显示各自均分；NA不填补，四份全文始终可读。可以只读或写私人草稿，分享公开指南无需发送回答、分数、日程或工作材料，也不必据此改变职业决定。",
+          "en": "These original examples clarify behaviour prompts rather than document your work or prove an intervention effect. Each of four parts has six items, including two reverse keys, and requires complete ratings for its own mean. NA is not filled and all four full guides remain readable. Reading or a private draft is enough; sharing a public guide needs no answers, scores, calendars or work materials, or a changed career decision."
+        }
+      ]
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -85,8 +86,8 @@ describe("T050 original six-part SDT need experience reflection", () => {
   it("uses its own6part report, all54unique full sections, explicit NA and no social-battery interpretation", () => {
     for (const locale of ["en", "zh"] as const) for (const value of ["5", "na"]) {
       const result = scoreQuestionnaire(quiz, all(value)); if (result.status !== "complete" || !("facets" in result)) throw new Error("Rejected input");
-      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireSdtNeedsReport quiz={quiz} result={result} locale={locale} />);
-      expect(dom.querySelectorAll("[data-sdt-needs-facet]")).toHaveLength(6); expect(dom.querySelectorAll("h4")).toHaveLength(54); expect(dom.querySelectorAll("[data-sdt-needs-profile]")).toHaveLength(6);
+      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireSdtNeedsReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale={locale} />);
+      expect(dom.querySelectorAll("[data-sdt-needs-facet]")).toHaveLength(6); expect(dom.querySelectorAll("h4")).toHaveLength(66); expect(dom.querySelectorAll("[data-sdt-needs-profile]")).toHaveLength(6);
       expect(dom.querySelectorAll("[data-sdt-needs-insufficient]")).toHaveLength(value === "na" ? 1 : 0);
       const ids = Array.from(dom.querySelectorAll("[id]"), x => x.id); expect(new Set(ids).size).toBe(ids.length);
       expect(dom.textContent).not.toMatch(/battery|quiet recovery|coordination load|社交电量|安静恢复|learning effectiveness|format preferences|学习效果|PPS item/);

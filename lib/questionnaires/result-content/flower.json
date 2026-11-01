@@ -1,0 +1,248 @@
+{
+  "rose": [
+    {
+      "id": "editorial-comparison-example",
+      "title": {
+        "zh": "同一种表达，可能有不同理由",
+        "en": "The same expression can have different reasons"
+      },
+      "paragraphs": [
+        {
+          "zh": "同样是一张手写卡片：若重点是它指向某个人与共同记忆，更接近本版玫瑰；若重点是纸张、配色或字形很像自己的风格，更接近兰花；若只是随手记录一件有趣小事，也可能更接近雏菊。物品本身没有唯一归属，请看你真正想表达什么。",
+          "en": "The same handwritten card could emphasise a person and shared memory, fitting this edition’s rose; paper, colour or lettering that fits your style could fit orchid; an informal note of something amusing could fit daisy. An object has no single category: consider what you want to express."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "做完小尝试后，怎样判断是否有用",
+        "en": "Review whether the small experiment was useful"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的感谢尝试：对方是否能看懂你具体感谢了什么，你是否给出了不立即回复的空间？若回应不如期待，可以分开记录“心意已经表达”与“我还期待什么”，不把回复快慢当作感谢是否有价值的评分。",
+          "en": "After the gratitude exercise above, consider whether the specific appreciation was understandable and whether an immediate reply was optional. If the response differed from your hope, separate expressing appreciation from what you still expected. Reply speed is not a score for its value."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "与朋友分享时的一种说法",
+        "en": "A way to share it with a friend"
+      },
+      "paragraphs": [
+        {
+          "zh": "“这次我的最高花朵匹配里有玫瑰。我想保留的是具体表达心意，而不是把每次联系都做成仪式。你更喜欢直接说、留一句话还是一起做点小事？”这不预设恋爱风格，也不要求对方用同样形式回应。",
+          "en": "“Rose was among my highest flower matches. I want to keep expressing care specifically, without turning every contact into a ceremony. Do you prefer a direct conversation, a short note or doing something together?” This does not define a romantic style or require the same form in return."
+        }
+      ]
+    }
+  ],
+  "sunflower": [
+    {
+      "id": "editorial-comparison-example",
+      "title": {
+        "zh": "同一种表达，可能有不同理由",
+        "en": "The same expression can have different reasons"
+      },
+      "paragraphs": [
+        {
+          "zh": "同样是午休的小邀请：若重点是让愿意的人容易加入，更接近本版向日葵；若只是分享一个即时小发现，更接近雏菊；若想认真回应某位朋友的特殊时刻，更接近玫瑰。热闹程度不是分界，人数也不是温暖程度的计量。",
+          "en": "For the same lunch invitation, making it easy for willing people to join may fit sunflower; sharing an amusing discovery may fit daisy; recognising one friend’s particular moment may fit rose. Liveliness is not the dividing line, and numbers do not measure warmth."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "做完小尝试后，怎样判断是否有用",
+        "en": "Review whether the small experiment was useful"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的小邀请：时间、内容与拒绝空间是否清楚，自己有没有承担超出余力的准备？有人没来或只停留片刻，都不能说明邀请失败。若需要的是明确答复，可以直接说明安排需要，而不要求对方表现得开心。",
+          "en": "After the small invitation above, check clarity about timing, activity and declining, and whether preparation exceeded your capacity. Someone not coming or staying briefly does not establish failure. If planning needs a reply, state that practical need without requiring enthusiasm."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "与朋友分享时的一种说法",
+        "en": "A way to share it with a friend"
+      },
+      "paragraphs": [
+        {
+          "zh": "“这次我的最高匹配里有向日葵。我想让愿意的人容易加入，也想保留不参加的空间。下次见面，你希望安排清楚一点还是更随意？”这只是表达偏好的话题，不等于我永远积极或该负责气氛。",
+          "en": "“Sunflower was among my highest matches. I want to make joining easy while leaving room not to participate. Would you prefer clearer plans or something informal next time?” This starts a discussion of expression preferences, without implying constant positivity or responsibility for the atmosphere."
+        }
+      ]
+    }
+  ],
+  "lavender": [
+    {
+      "id": "editorial-comparison-example",
+      "title": {
+        "zh": "同一种表达，可能有不同理由",
+        "en": "The same expression can have different reasons"
+      },
+      "paragraphs": [
+        {
+          "zh": "同样是安静坐一会儿：若重点是减少需要回应的要求，更接近本版薰衣草；若借此回看一段变化，更接近莲花；若只是享受一个轻巧的小发现，也可能带有雏菊的角度。安静不自动表示内向或具有疗愈作用。",
+          "en": "Sitting quietly could emphasise fewer response demands, fitting lavender; reflecting on a change could fit lotus; enjoying a small discovery could also involve daisy. Quietness does not automatically establish introversion or a healing effect."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "做完小尝试后，怎样判断是否有用",
+        "en": "Review whether the small experiment was useful"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的小空间尝试：少放一件东西后，你是更喜欢、差不多还是更不喜欢？也记录它是否影响实际使用。若不喜欢就放回；喜欢留白不意味着必须清理所有物品，更不要求这次调整让情绪变好。",
+          "en": "After removing an item in the small-space exercise above, note whether you prefer it, feel the same or prefer the original. Include any effect on use. Put it back if you wish: liking open space does not require clearing everything or improving your mood."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "与朋友分享时的一种说法",
+        "en": "A way to share it with a friend"
+      },
+      "paragraphs": [
+        {
+          "zh": "“这次我的最高花朵匹配里有薰衣草。我想给表达留一点不急于回应的空间，但需要说清的事仍会说。你希望我们怎样约定联系时间？”这个比喻不证明情绪稳定，也不要求别人与你一样安静。",
+          "en": "“Lavender was among my highest flower matches. I would like some space without immediate replies, while still stating what needs to be clear. How would you like us to agree contact times?” The metaphor does not establish emotional stability or require shared quietness."
+        }
+      ]
+    }
+  ],
+  "lotus": [
+    {
+      "id": "editorial-comparison-example",
+      "title": {
+        "zh": "同一种表达，可能有不同理由",
+        "en": "The same expression can have different reasons"
+      },
+      "paragraphs": [
+        {
+          "zh": "同样保存一张旧照片：若重点是前后发生的变化，更接近本版莲花；若重点是与某人的共同记忆，更接近玫瑰；若重点是自己喜欢的构图与细节，更接近兰花。它们可以并存，不必为照片选一个唯一意义。",
+          "en": "Keeping an old photograph could focus on changes over time, fitting lotus; a memory with someone could fit rose; composition and details you like could fit orchid. These can coexist without assigning the photograph a single meaning."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "做完小尝试后，怎样判断是否有用",
+        "en": "Review whether the small experiment was useful"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的两句记录：有没有写下真实注意到的变化，哪些部分仍不清楚？“没有明显变化”或“暂时不想保留”都可以成为记录。无需把经历重写成积极结局，也不把愿不愿回顾当作成长程度。",
+          "en": "After the two-sentence reflection above, review the change you actually noticed and what remains unclear. “No clear change” or “nothing I want to keep for now” can be valid notes. There is no need for a positive ending or to treat willingness to reflect as a level of growth."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "与朋友分享时的一种说法",
+        "en": "A way to share it with a friend"
+      },
+      "paragraphs": [
+        {
+          "zh": "“这次我的最高花朵匹配里有莲花。我想聊一段经历里注意到的变化，也允许现在没有答案。你愿意分享一个想保留或放下的小细节吗？”对方不想回顾也可以；这不代表谁经历更多或更有韧性。",
+          "en": "“Lotus was among my highest flower matches. I would like to discuss a change I noticed, while allowing no answer yet. Would you share a small detail you want to keep or leave behind?” Declining reflection is fine; the result does not rank experience or resilience."
+        }
+      ]
+    }
+  ],
+  "orchid": [
+    {
+      "id": "editorial-comparison-example",
+      "title": {
+        "zh": "同一种表达，可能有不同理由",
+        "en": "The same expression can have different reasons"
+      },
+      "paragraphs": [
+        {
+          "zh": "同样挑选一件常见小物：若重点是它某个细节很合自己的喜好，更接近本版兰花；若因为它承载某次重要心意，更接近玫瑰；若只是看到就想随手玩一会儿，更接近雏菊。常见或昂贵都不是分界，别人不喜欢也不让你的喜好失效。",
+          "en": "Choosing an ordinary object could focus on a detail you like, fitting orchid; a meaningful gesture attached to it could fit rose; wanting to play with it briefly could fit daisy. Rarity and price do not determine the category, and another person’s dislike does not invalidate your preference."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "做完小尝试后，怎样判断是否有用",
+        "en": "Review whether the small experiment was useful"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的三样已有物品：你写下的是具体颜色、形状、使用感或私人联系，还是“它应该很有品味”？若理由不清楚，可以暂时保留喜欢而不解释。练习用于认识自己的取舍，不是向别人证明审美，也不要求为了风格添购物品。",
+          "en": "Review the three existing objects above: did your notes describe colour, shape, use or a personal connection, or an expectation of good taste? You may keep a preference without an explanation. The exercise explores choices rather than proving taste or requiring purchases to complete a style."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "与朋友分享时的一种说法",
+        "en": "A way to share it with a friend"
+      },
+      "paragraphs": [
+        {
+          "zh": "“这次我的最高花朵匹配里有兰花。我想解释一个自己真喜欢的细节，也想听你喜欢哪里。共享的空间里，我们可以各保留一点。”这不表示稀有、高级或难相处，更不需要给彼此喜好排序。",
+          "en": "“Orchid was among my highest flower matches. I would like to explain one detail I enjoy and hear what you like. In a shared space, we can each keep something.” This does not imply rarity, superiority or difficulty getting along, or require ranking preferences."
+        }
+      ]
+    }
+  ],
+  "daisy": [
+    {
+      "id": "editorial-comparison-example",
+      "title": {
+        "zh": "同一种表达，可能有不同理由",
+        "en": "The same expression can have different reasons"
+      },
+      "paragraphs": [
+        {
+          "zh": "同样拍下一张随手照片：若重点是当下一个有趣发现，更接近本版雏菊；若想让愿意的人共同参与，更接近向日葵；若反复选择最像个人风格的细节，更接近兰花。照片是否精修、好不好看，不决定这些表达角度。",
+          "en": "An informal photograph could capture an amusing discovery, fitting daisy; inviting willing people to join could fit sunflower; selecting a personally fitting detail could fit orchid. Editing and attractiveness do not determine these expression angles."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "做完小尝试后，怎样判断是否有用",
+        "en": "Review whether the small experiment was useful"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的两分钟小记录：自己是否觉得有趣，是否还想再做一次，还是这次没有感觉？不分享、不重复或没有新发现都可以。若别人正在认真说事，先回应实际需要，不用为了维持轻松形象把每个话题都变成玩笑。",
+          "en": "After the two-minute note above, ask whether it interested you and whether you want to repeat it, or felt nothing this time. Not sharing, repeating or finding anything is fine. When someone raises a serious concern, respond to that need rather than making every topic humorous to maintain an image."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "与朋友分享时的一种说法",
+        "en": "A way to share it with a friend"
+      },
+      "paragraphs": [
+        {
+          "zh": "“这次我的最高花朵匹配里有雏菊。我想给小趣味留一点位置，也知道有些事需要认真听。你现在更想聊正事，还是交换一个小发现？”这不是成熟度或深度的评价，对方也可以不想轻松一点。",
+          "en": "“Daisy was among my highest flower matches. I would like room for small pleasures, while recognising when to listen seriously. Would you prefer discussing something important or exchanging a small discovery?” This does not judge maturity or depth, and the other person need not want levity."
+        }
+      ]
+    }
+  ]
+}

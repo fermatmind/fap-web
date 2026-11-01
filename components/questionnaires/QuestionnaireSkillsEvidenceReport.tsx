@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { skillsEvidenceStates, type SkillsEvidenceResult } from "@/lib/questionnaires/skillsEvidence";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { Questionnaire, Text } from "@/lib/questionnaires/types";
@@ -39,7 +39,7 @@ export function QuestionnaireSkillsEvidenceReport({ quiz, result, locale }: {
             <p className="text-sm font-semibold text-slate-600" data-skills-evidence-state={row.questionId}>{labels[row.stateId][locale]}</p>
           </li>)}
         </ul>
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`skills-evidence-report-${part.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`skills-evidence-report-${part.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline"
           href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本组完整公开指南" : "Read this group’s full public guide"}</Link>
       </section>;

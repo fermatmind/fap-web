@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { MiniFrictionResult } from "@/lib/questionnaires/miniFriction";
@@ -22,7 +22,7 @@ export function QuestionnaireMiniFrictionReport({ quiz, result, locale }: {
         <p data-mini-friction-score={part.id} className="my-4 rounded-lg bg-slate-50 p-4 font-semibold">{zh
           ? `四题原始和：${part.rawSum}（范围4—20）；符合程度均值：${part.mean.toFixed(2)}（范围1—5）。`
           : `Four-item raw sum: ${part.rawSum} (range 4–20); endorsement mean: ${part.mean.toFixed(2)} (range 1–5).`}</p>
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`mini-friction-report-${part.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`mini-friction-report-${part.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本组完整公开指南" : "Read this group’s full public guide"}</Link>
       </section>;
     })}

@@ -1,0 +1,207 @@
+{
+  "general-science": [
+    {
+      "id": "general-science-2",
+      "title": {
+        "en": "A fresh calculation with a check",
+        "zh": "用新数字完整核算"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创学习情境：虚构的宁本组四对、一错、一未答，乔四对、零错、两未答。两份六题记录的正确数相同，却不知道是否误读单位、尚未学过或没有尝试。可用一个新纸上样品检查关系：质量240克、体积80厘米³，密度240÷80=3克/厘米³；3×80可还原240克，单独数字3却不能识别物质。科学事实题另需核对过程或来源，不能用一道密度题推断整个科学领域已掌握，也不用生物题解释个人健康。",
+          "en": "An additional original learning scene: Fictional Ning has four correct, one wrong and one unanswered; Jo has four correct, zero wrong and two unanswered. Equal correct counts across six items reveal neither misread units, unfamiliar knowledge nor lack of an attempt. Check a new paper sample: mass 240 grams and volume 80 cubic centimetres give density 240 ÷ 80 = 3 grams per cubic centimetre. Multiplying three by 80 recovers 240 grams, but the number three identifies no substance. Factual questions separately require a process or source check. One density task establishes no mastery of all science, and biology items interpret no personal health."
+        }
+      ]
+    },
+    {
+      "id": "general-science-6",
+      "title": {
+        "en": "A short, concrete study session",
+        "zh": "一次具体的学习安排"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样把公式、单位与事实来源分别核对，而不由相同正确数猜测人物为何答错或留空？”可以只谈上述虚构人物与新纸上例子，一人说明规则，另一人检查单位、条件或坐标；允许分歧、保留待核查或停止。不需交换个人答卷、成绩、健康信息或申请资料，不要求实物操作，也不以速度或答案数量给参与者贴能力标签。",
+          "en": "An optional discussion prompt asks: “How can formulas, units and factual sources be checked separately without guessing why someone answered incorrectly or left a blank from equal correct counts?” Discuss only the fictional learners and new paper examples above: one explains a rule and another checks units, conditions or coordinates. Participants may disagree, leave a point for checking or stop without exchanging private answer sheets, scores, health details or applications. No physical task is required, and neither speed nor counts label anyone’s ability."
+        }
+      ]
+    },
+    {
+      "id": "general-science-7",
+      "title": {
+        "en": "What a repeat can and cannot show",
+        "zh": "重做可以说明什么"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是费马独立编写的固定英文三十题，科学、机械、电学、汽车车间与文字组装五组各六题，说明、解析与指南双语；中文界面不改成中文题干，不确立语言成绩等值。GS、MC、EI、AS、AO是本练习的领域标签，不是正式施测复刻；汽车与车间为合并学习主题，文字组装采用坐标与文字规则，不代替官方图形分测验。匹配答案键为正确，其他有效A—D为错误，主动留空或未触及均为未答；三类数量各组合为六、总计三十，不补成已选错误，无猜测校正、速度奖励或加权。公开五篇指南作答前即可读；五部分全部结束后，私人结果保留全部三十题的原题、选择、答案及解析，包括零题正确或全部留空，五份相同通用指南也始终开放。计时模式上限依次3:00、4:00、4:00、3:00、5:00，活动时间共19:00、不含段间等待；学习模式同题不计时。本人开始每段后才计时，开放部分可前后修改，主动结束或到时即锁定，下一部分等本人另行开始；切后台不暂停，设备双时钟不一致按现有流程清除、不生成计时结果。这些设置不是正式CAT、纸笔或PiCAT的时限、自适应、返回规则或监考认证。外部资料、工具与重复识别会改变学习条件，正确数不能分辨原因或证明独立操作。五部分难度未等值，六题分母相同不使计数可作能力排名，最低正确数不诊断弱项。没有ASVAB标准分、AFQT输入合成、百分位、通过线、军职资格或职业匹配；正式AFQT使用另外四个分测领域的标准分，不能纳入本五组数量估算。题目未经能力测量验证，无常模、迁移或进步阈值，官方与科学资料用于题型边界和知识核对，不背书本题本。模型练习无需接电、车辆、机械、打孔或切割，不评个人健康，也不认证实际设备安全或实操技能。可用新纸上例子检查过程，不需公开成绩、私人经历或购买设备。答案、模式和计时仅留页面内存，无草稿或长期历史，按现有刷新、离开、换语言、缓存恢复与重练流程清除。复制只含全部五份公开指南标题和链接，无答案、数量、模式或用时；常规页面分析关闭，可选匿名动作计数需本页许可与全站分析同意。清除不抹掉浏览器历史、截屏或旁人看屏；可只读、拒绝讨论或退出。",
+          "en": "This independently authored fixed English bank has 30 questions: six each in science, mechanics, electronics, auto/shop and written assembly, with bilingual instructions, explanations and guides. Chinese UI retains English questions and establishes no language-score equivalence. GS, MC, EI, AS and AO are practice-area labels, not official administration. Auto/shop combines learning topics; written assembly uses coordinates and verbal rules rather than reproducing the official graphical subtest. A key match is correct, another valid A–D choice wrong, and explicit skips or untouched items unanswered. Counts sum to six per part and 30 overall without converting blanks to selected wrong responses, guessing correction, speed bonuses or weighting. All five public guides are readable before answering. After all five parts close, the private result retains all 30 stems, choices, keys and explanations, even with zero correct or every item unanswered, alongside the same five general guides. Timed caps are 3:00, 4:00, 4:00, 3:00 and 5:00: 19:00 active time excluding waits. Study uses the same bank without deadlines. Each part starts deliberately, permits backtracking while open, locks on finishing or expiry and waits for the next deliberate start. Background tabs do not pause time; inconsistent device clocks clear the attempt through existing behavior without a timed result. These settings supply no official CAT, paper or PiCAT timing, adaptive, return or proctoring rules. External materials, tools and recognition alter learning conditions; counts identify no cause or independent performance. Parts are not difficulty-equated: equal six-item denominators provide no ability ranking, and the lowest correct count diagnoses no weakness. There are no ASVAB standard scores, AFQT composites, percentiles, passing thresholds, military qualifications or job matches. Official AFQT uses standard scores from four other subtest areas, not these five practice counts. This bank lacks aptitude-measure validation, norms, transfer or improvement thresholds. Official and science sources inform boundaries and knowledge checks without endorsement. Paper models require no wiring, vehicle, machinery, punching or cutting, assess no personal health and certify no equipment safety or practical skill. New paper examples can check reasoning without disclosing scores, private experiences or buying equipment. Answers, mode and timing stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration or restarting. Copying includes all five public guide titles and links without responses, counts, mode or time. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation. Reading alone, declining discussion or leaving is allowed."
+        }
+      ]
+    }
+  ],
+  "mechanical": [
+    {
+      "id": "mechanical-2",
+      "title": {
+        "en": "A lever example and its reverse check",
+        "zh": "杠杆新例与反向复核"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创学习情境：虚构的沐与思在机械组都答对五题，一人说记得选项，另一人说画过力臂图；页面记录不能验证这些过程。另设纸上理想无重杠杆，100牛负载的垂直力臂0.20米，与动力的0.50米力臂形成反向力矩：F×0.50=100×0.20，得40牛，两端力矩均20牛米。只要“垂直力臂、反向、理想”条件不同，就应重新判断方程，不能用这个数值指定真实负载、设备或操作。",
+          "en": "An additional original learning scene: Fictional Mu and Si each answer five mechanical items correctly. One says an option was remembered; the other reports drawing moment arms. The page verifies neither process. In a new paper model of an ideal massless lever, a 100-newton load with a 0.20-metre perpendicular arm opposes effort with a 0.50-metre arm. F × 0.50 = 100 × 0.20 gives 40 newtons, with both moments equal to 20 newton-metres. Changes to perpendicular arms, opposition or ideal conditions require reconsidering the equation. This value specifies no real load, equipment or operation."
+        }
+      ]
+    },
+    {
+      "id": "mechanical-6",
+      "title": {
+        "en": "Use errors to select a fresh exercise",
+        "zh": "按错误选择新练习"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样说明模型为什么能列这个方程，再明确它仍没有告诉我们哪些真实设备条件？”可以只谈上述虚构人物与新纸上例子，一人说明规则，另一人检查单位、条件或坐标；允许分歧、保留待核查或停止。不需交换个人答卷、成绩、健康信息或申请资料，不要求实物操作，也不以速度或答案数量给参与者贴能力标签。",
+          "en": "An optional discussion prompt asks: “How can we explain why the model permits this equation and which real equipment conditions it leaves unknown?” Discuss only the fictional learners and new paper examples above: one explains a rule and another checks units, conditions or coordinates. Participants may disagree, leave a point for checking or stop without exchanging private answer sheets, scores, health details or applications. No physical task is required, and neither speed nor counts label anyone’s ability."
+        }
+      ]
+    },
+    {
+      "id": "mechanical-7",
+      "title": {
+        "en": "Practice boundaries and next reading",
+        "zh": "练习边界与后续阅读"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是费马独立编写的固定英文三十题，科学、机械、电学、汽车车间与文字组装五组各六题，说明、解析与指南双语；中文界面不改成中文题干，不确立语言成绩等值。GS、MC、EI、AS、AO是本练习的领域标签，不是正式施测复刻；汽车与车间为合并学习主题，文字组装采用坐标与文字规则，不代替官方图形分测验。匹配答案键为正确，其他有效A—D为错误，主动留空或未触及均为未答；三类数量各组合为六、总计三十，不补成已选错误，无猜测校正、速度奖励或加权。公开五篇指南作答前即可读；五部分全部结束后，私人结果保留全部三十题的原题、选择、答案及解析，包括零题正确或全部留空，五份相同通用指南也始终开放。计时模式上限依次3:00、4:00、4:00、3:00、5:00，活动时间共19:00、不含段间等待；学习模式同题不计时。本人开始每段后才计时，开放部分可前后修改，主动结束或到时即锁定，下一部分等本人另行开始；切后台不暂停，设备双时钟不一致按现有流程清除、不生成计时结果。这些设置不是正式CAT、纸笔或PiCAT的时限、自适应、返回规则或监考认证。外部资料、工具与重复识别会改变学习条件，正确数不能分辨原因或证明独立操作。五部分难度未等值，六题分母相同不使计数可作能力排名，最低正确数不诊断弱项。没有ASVAB标准分、AFQT输入合成、百分位、通过线、军职资格或职业匹配；正式AFQT使用另外四个分测领域的标准分，不能纳入本五组数量估算。题目未经能力测量验证，无常模、迁移或进步阈值，官方与科学资料用于题型边界和知识核对，不背书本题本。模型练习无需接电、车辆、机械、打孔或切割，不评个人健康，也不认证实际设备安全或实操技能。可用新纸上例子检查过程，不需公开成绩、私人经历或购买设备。答案、模式和计时仅留页面内存，无草稿或长期历史，按现有刷新、离开、换语言、缓存恢复与重练流程清除。复制只含全部五份公开指南标题和链接，无答案、数量、模式或用时；常规页面分析关闭，可选匿名动作计数需本页许可与全站分析同意。清除不抹掉浏览器历史、截屏或旁人看屏；可只读、拒绝讨论或退出。",
+          "en": "This independently authored fixed English bank has 30 questions: six each in science, mechanics, electronics, auto/shop and written assembly, with bilingual instructions, explanations and guides. Chinese UI retains English questions and establishes no language-score equivalence. GS, MC, EI, AS and AO are practice-area labels, not official administration. Auto/shop combines learning topics; written assembly uses coordinates and verbal rules rather than reproducing the official graphical subtest. A key match is correct, another valid A–D choice wrong, and explicit skips or untouched items unanswered. Counts sum to six per part and 30 overall without converting blanks to selected wrong responses, guessing correction, speed bonuses or weighting. All five public guides are readable before answering. After all five parts close, the private result retains all 30 stems, choices, keys and explanations, even with zero correct or every item unanswered, alongside the same five general guides. Timed caps are 3:00, 4:00, 4:00, 3:00 and 5:00: 19:00 active time excluding waits. Study uses the same bank without deadlines. Each part starts deliberately, permits backtracking while open, locks on finishing or expiry and waits for the next deliberate start. Background tabs do not pause time; inconsistent device clocks clear the attempt through existing behavior without a timed result. These settings supply no official CAT, paper or PiCAT timing, adaptive, return or proctoring rules. External materials, tools and recognition alter learning conditions; counts identify no cause or independent performance. Parts are not difficulty-equated: equal six-item denominators provide no ability ranking, and the lowest correct count diagnoses no weakness. There are no ASVAB standard scores, AFQT composites, percentiles, passing thresholds, military qualifications or job matches. Official AFQT uses standard scores from four other subtest areas, not these five practice counts. This bank lacks aptitude-measure validation, norms, transfer or improvement thresholds. Official and science sources inform boundaries and knowledge checks without endorsement. Paper models require no wiring, vehicle, machinery, punching or cutting, assess no personal health and certify no equipment safety or practical skill. New paper examples can check reasoning without disclosing scores, private experiences or buying equipment. Answers, mode and timing stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration or restarting. Copying includes all five public guide titles and links without responses, counts, mode or time. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation. Reading alone, declining discussion or leaving is allowed."
+        }
+      ]
+    }
+  ],
+  "electronics": [
+    {
+      "id": "electronics-2",
+      "title": {
+        "en": "A fresh Ohm calculation",
+        "zh": "欧姆关系新算例"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创学习情境：虚构的羽在电学组答对六题，安也答对六题但自述用过外部核算；正确数不认证独立完成或电气操作能力。另一个理想纸上例子中，固定9欧电阻两端18伏，I=18÷9=2安，P=18×2=36瓦。电流、功率与能量不是同一种量；题中未给持续时间，不能把36瓦当作36焦总能量。推导只处理明示理想条件，无需接电、测量元件或照此选用真实装置。",
+          "en": "An additional original learning scene: Fictional Yu answers six electronics items correctly; An does too but reports an external check. Correct counts certify neither independent work nor electrical practice. In another ideal paper example, 18 volts across a fixed nine-ohm resistor give I = 18 ÷ 9 = 2 amperes and P = 18 × 2 = 36 watts. Current, power and energy are different quantities. Without a duration, 36 watts is not 36 joules of total energy. This derivation addresses only stated ideal conditions and needs no wiring, component measurement or real equipment selection."
+        }
+      ]
+    },
+    {
+      "id": "electronics-6",
+      "title": {
+        "en": "A practical paper-study routine",
+        "zh": "具体的纸上复习步骤"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样用单位发现把电流、功率或能量混为一谈的地方，同时保持讨论为纸上模型？”可以只谈上述虚构人物与新纸上例子，一人说明规则，另一人检查单位、条件或坐标；允许分歧、保留待核查或停止。不需交换个人答卷、成绩、健康信息或申请资料，不要求实物操作，也不以速度或答案数量给参与者贴能力标签。",
+          "en": "An optional discussion prompt asks: “How can units reveal confusion between current, power and energy while keeping the discussion within a paper model?” Discuss only the fictional learners and new paper examples above: one explains a rule and another checks units, conditions or coordinates. Participants may disagree, leave a point for checking or stop without exchanging private answer sheets, scores, health details or applications. No physical task is required, and neither speed nor counts label anyone’s ability."
+        }
+      ]
+    },
+    {
+      "id": "electronics-7",
+      "title": {
+        "en": "Read the counts within their limits",
+        "zh": "按有限范围读计数"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是费马独立编写的固定英文三十题，科学、机械、电学、汽车车间与文字组装五组各六题，说明、解析与指南双语；中文界面不改成中文题干，不确立语言成绩等值。GS、MC、EI、AS、AO是本练习的领域标签，不是正式施测复刻；汽车与车间为合并学习主题，文字组装采用坐标与文字规则，不代替官方图形分测验。匹配答案键为正确，其他有效A—D为错误，主动留空或未触及均为未答；三类数量各组合为六、总计三十，不补成已选错误，无猜测校正、速度奖励或加权。公开五篇指南作答前即可读；五部分全部结束后，私人结果保留全部三十题的原题、选择、答案及解析，包括零题正确或全部留空，五份相同通用指南也始终开放。计时模式上限依次3:00、4:00、4:00、3:00、5:00，活动时间共19:00、不含段间等待；学习模式同题不计时。本人开始每段后才计时，开放部分可前后修改，主动结束或到时即锁定，下一部分等本人另行开始；切后台不暂停，设备双时钟不一致按现有流程清除、不生成计时结果。这些设置不是正式CAT、纸笔或PiCAT的时限、自适应、返回规则或监考认证。外部资料、工具与重复识别会改变学习条件，正确数不能分辨原因或证明独立操作。五部分难度未等值，六题分母相同不使计数可作能力排名，最低正确数不诊断弱项。没有ASVAB标准分、AFQT输入合成、百分位、通过线、军职资格或职业匹配；正式AFQT使用另外四个分测领域的标准分，不能纳入本五组数量估算。题目未经能力测量验证，无常模、迁移或进步阈值，官方与科学资料用于题型边界和知识核对，不背书本题本。模型练习无需接电、车辆、机械、打孔或切割，不评个人健康，也不认证实际设备安全或实操技能。可用新纸上例子检查过程，不需公开成绩、私人经历或购买设备。答案、模式和计时仅留页面内存，无草稿或长期历史，按现有刷新、离开、换语言、缓存恢复与重练流程清除。复制只含全部五份公开指南标题和链接，无答案、数量、模式或用时；常规页面分析关闭，可选匿名动作计数需本页许可与全站分析同意。清除不抹掉浏览器历史、截屏或旁人看屏；可只读、拒绝讨论或退出。",
+          "en": "This independently authored fixed English bank has 30 questions: six each in science, mechanics, electronics, auto/shop and written assembly, with bilingual instructions, explanations and guides. Chinese UI retains English questions and establishes no language-score equivalence. GS, MC, EI, AS and AO are practice-area labels, not official administration. Auto/shop combines learning topics; written assembly uses coordinates and verbal rules rather than reproducing the official graphical subtest. A key match is correct, another valid A–D choice wrong, and explicit skips or untouched items unanswered. Counts sum to six per part and 30 overall without converting blanks to selected wrong responses, guessing correction, speed bonuses or weighting. All five public guides are readable before answering. After all five parts close, the private result retains all 30 stems, choices, keys and explanations, even with zero correct or every item unanswered, alongside the same five general guides. Timed caps are 3:00, 4:00, 4:00, 3:00 and 5:00: 19:00 active time excluding waits. Study uses the same bank without deadlines. Each part starts deliberately, permits backtracking while open, locks on finishing or expiry and waits for the next deliberate start. Background tabs do not pause time; inconsistent device clocks clear the attempt through existing behavior without a timed result. These settings supply no official CAT, paper or PiCAT timing, adaptive, return or proctoring rules. External materials, tools and recognition alter learning conditions; counts identify no cause or independent performance. Parts are not difficulty-equated: equal six-item denominators provide no ability ranking, and the lowest correct count diagnoses no weakness. There are no ASVAB standard scores, AFQT composites, percentiles, passing thresholds, military qualifications or job matches. Official AFQT uses standard scores from four other subtest areas, not these five practice counts. This bank lacks aptitude-measure validation, norms, transfer or improvement thresholds. Official and science sources inform boundaries and knowledge checks without endorsement. Paper models require no wiring, vehicle, machinery, punching or cutting, assess no personal health and certify no equipment safety or practical skill. New paper examples can check reasoning without disclosing scores, private experiences or buying equipment. Answers, mode and timing stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration or restarting. Copying includes all five public guide titles and links without responses, counts, mode or time. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation. Reading alone, declining discussion or leaving is allowed."
+        }
+      ]
+    }
+  ],
+  "auto-shop": [
+    {
+      "id": "auto-shop-2",
+      "title": {
+        "en": "Follow the engine sequence",
+        "zh": "顺着发动机循环理解"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创学习情境：虚构的悦认得发动机部件名称，却在尺寸题漏了单位；橙尺寸换算正确，却不熟悉部件用途。同为三对、两错、一未答，记录仍不能指出唯一原因，更不能给维修资格。另设纸上尺寸0.032米，乘1000为32毫米；相邻刻线相隔0.25毫米，首末相距十一个间隔，距离为2.75毫米，若两端均有刻线会有十二条线。数间隔不等于数端点，数值正确也没有检验公差、材料或实际装配。",
+          "en": "An additional original learning scene: Fictional Yue recognizes engine component names but misses a unit in a dimension problem; Cheng converts dimensions correctly but is unfamiliar with component roles. Both may have three correct, two wrong and one unanswered. Counts establish no single cause or repair qualification. A new paper dimension of 0.032 metres becomes 32 millimetres after multiplying by 1000. With ticks 0.25 millimetres apart and eleven intervals between endpoints, the distance is 2.75 millimetres, with twelve ticks if both endpoints are marked. Intervals differ from endpoints, and a correct value checks no tolerance, material or actual assembly."
+        }
+      ]
+    },
+    {
+      "id": "auto-shop-6",
+      "title": {
+        "en": "Study a missed question concretely",
+        "zh": "针对错题做具体学习"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样把部件用途、单位换算和刻度间隔分开复盘，而不把小组记录当作维修能力证明？”可以只谈上述虚构人物与新纸上例子，一人说明规则，另一人检查单位、条件或坐标；允许分歧、保留待核查或停止。不需交换个人答卷、成绩、健康信息或申请资料，不要求实物操作，也不以速度或答案数量给参与者贴能力标签。",
+          "en": "An optional discussion prompt asks: “How can component roles, unit conversion and tick intervals be reviewed separately without making a small record proof of repair ability?” Discuss only the fictional learners and new paper examples above: one explains a rule and another checks units, conditions or coordinates. Participants may disagree, leave a point for checking or stop without exchanging private answer sheets, scores, health details or applications. No physical task is required, and neither speed nor counts label anyone’s ability."
+        }
+      ]
+    },
+    {
+      "id": "auto-shop-7",
+      "title": {
+        "en": "Interpret the small record accurately",
+        "zh": "准确解释小组记录"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是费马独立编写的固定英文三十题，科学、机械、电学、汽车车间与文字组装五组各六题，说明、解析与指南双语；中文界面不改成中文题干，不确立语言成绩等值。GS、MC、EI、AS、AO是本练习的领域标签，不是正式施测复刻；汽车与车间为合并学习主题，文字组装采用坐标与文字规则，不代替官方图形分测验。匹配答案键为正确，其他有效A—D为错误，主动留空或未触及均为未答；三类数量各组合为六、总计三十，不补成已选错误，无猜测校正、速度奖励或加权。公开五篇指南作答前即可读；五部分全部结束后，私人结果保留全部三十题的原题、选择、答案及解析，包括零题正确或全部留空，五份相同通用指南也始终开放。计时模式上限依次3:00、4:00、4:00、3:00、5:00，活动时间共19:00、不含段间等待；学习模式同题不计时。本人开始每段后才计时，开放部分可前后修改，主动结束或到时即锁定，下一部分等本人另行开始；切后台不暂停，设备双时钟不一致按现有流程清除、不生成计时结果。这些设置不是正式CAT、纸笔或PiCAT的时限、自适应、返回规则或监考认证。外部资料、工具与重复识别会改变学习条件，正确数不能分辨原因或证明独立操作。五部分难度未等值，六题分母相同不使计数可作能力排名，最低正确数不诊断弱项。没有ASVAB标准分、AFQT输入合成、百分位、通过线、军职资格或职业匹配；正式AFQT使用另外四个分测领域的标准分，不能纳入本五组数量估算。题目未经能力测量验证，无常模、迁移或进步阈值，官方与科学资料用于题型边界和知识核对，不背书本题本。模型练习无需接电、车辆、机械、打孔或切割，不评个人健康，也不认证实际设备安全或实操技能。可用新纸上例子检查过程，不需公开成绩、私人经历或购买设备。答案、模式和计时仅留页面内存，无草稿或长期历史，按现有刷新、离开、换语言、缓存恢复与重练流程清除。复制只含全部五份公开指南标题和链接，无答案、数量、模式或用时；常规页面分析关闭，可选匿名动作计数需本页许可与全站分析同意。清除不抹掉浏览器历史、截屏或旁人看屏；可只读、拒绝讨论或退出。",
+          "en": "This independently authored fixed English bank has 30 questions: six each in science, mechanics, electronics, auto/shop and written assembly, with bilingual instructions, explanations and guides. Chinese UI retains English questions and establishes no language-score equivalence. GS, MC, EI, AS and AO are practice-area labels, not official administration. Auto/shop combines learning topics; written assembly uses coordinates and verbal rules rather than reproducing the official graphical subtest. A key match is correct, another valid A–D choice wrong, and explicit skips or untouched items unanswered. Counts sum to six per part and 30 overall without converting blanks to selected wrong responses, guessing correction, speed bonuses or weighting. All five public guides are readable before answering. After all five parts close, the private result retains all 30 stems, choices, keys and explanations, even with zero correct or every item unanswered, alongside the same five general guides. Timed caps are 3:00, 4:00, 4:00, 3:00 and 5:00: 19:00 active time excluding waits. Study uses the same bank without deadlines. Each part starts deliberately, permits backtracking while open, locks on finishing or expiry and waits for the next deliberate start. Background tabs do not pause time; inconsistent device clocks clear the attempt through existing behavior without a timed result. These settings supply no official CAT, paper or PiCAT timing, adaptive, return or proctoring rules. External materials, tools and recognition alter learning conditions; counts identify no cause or independent performance. Parts are not difficulty-equated: equal six-item denominators provide no ability ranking, and the lowest correct count diagnoses no weakness. There are no ASVAB standard scores, AFQT composites, percentiles, passing thresholds, military qualifications or job matches. Official AFQT uses standard scores from four other subtest areas, not these five practice counts. This bank lacks aptitude-measure validation, norms, transfer or improvement thresholds. Official and science sources inform boundaries and knowledge checks without endorsement. Paper models require no wiring, vehicle, machinery, punching or cutting, assess no personal health and certify no equipment safety or practical skill. New paper examples can check reasoning without disclosing scores, private experiences or buying equipment. Answers, mode and timing stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration or restarting. Copying includes all five public guide titles and links without responses, counts, mode or time. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation. Reading alone, declining discussion or leaving is allowed."
+        }
+      ]
+    }
+  ],
+  "assembling": [
+    {
+      "id": "assembling-2",
+      "title": {
+        "en": "A fresh piece-fitting example",
+        "zh": "一个新拼合算例"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创学习情境：虚构的洛与岚都答对四道文字组装题，页面不知道谁画过图、谁列过坐标或认出旧题。另设目标为x∈{0,1,2}、y∈{0,1}的六格，固定块占y=0的三格，另一块起初也占这三格；只平移(0,1)后，移动块填满y=1一行，交集为空、并集恰为目标。另一个沿x=1的镜像将(0,1)映到(2,1)，不是仅让x反号。先保留坐标系与允许变换，再检查所有格子；这核对文字规则，不测实物拼装、心像清晰度或整个空间能力。",
+          "en": "An additional original learning scene: Fictional Lo and Lan each answer four written-assembly items correctly. The page knows neither who drew a diagram, listed coordinates nor recognized old items. Take a new six-cell target with x in {0,1,2} and y in {0,1}. A fixed piece occupies the three y = 0 cells, and another starts on those same cells. Translating it by (0,1) fills the y = 1 row: intersection empty, union exactly the target. Separately, reflection across x = 1 maps (0,1) to (2,1), not merely a reversal of x’s sign. Retain the coordinate frame and allowed transformation, then check every cell. This verifies written rules, not physical assembly, imagery vividness or all spatial ability."
+        }
+      ]
+    },
+    {
+      "id": "assembling-6",
+      "title": {
+        "en": "A checkable spatial study routine",
+        "zh": "可核对的空间练习步骤"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样用完整坐标集合和指定镜线检验一个解，而不靠看起来相似或只数格子？”可以只谈上述虚构人物与新纸上例子，一人说明规则，另一人检查单位、条件或坐标；允许分歧、保留待核查或停止。不需交换个人答卷、成绩、健康信息或申请资料，不要求实物操作，也不以速度或答案数量给参与者贴能力标签。",
+          "en": "An optional discussion prompt asks: “How can full coordinate sets and the specified mirror line check a solution without relying on resemblance or cell count alone?” Discuss only the fictional learners and new paper examples above: one explains a rule and another checks units, conditions or coordinates. Participants may disagree, leave a point for checking or stop without exchanging private answer sheets, scores, health details or applications. No physical task is required, and neither speed nor counts label anyone’s ability."
+        }
+      ]
+    },
+    {
+      "id": "assembling-7",
+      "title": {
+        "en": "The boundary of this written practice",
+        "zh": "文字练习的解释边界"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是费马独立编写的固定英文三十题，科学、机械、电学、汽车车间与文字组装五组各六题，说明、解析与指南双语；中文界面不改成中文题干，不确立语言成绩等值。GS、MC、EI、AS、AO是本练习的领域标签，不是正式施测复刻；汽车与车间为合并学习主题，文字组装采用坐标与文字规则，不代替官方图形分测验。匹配答案键为正确，其他有效A—D为错误，主动留空或未触及均为未答；三类数量各组合为六、总计三十，不补成已选错误，无猜测校正、速度奖励或加权。公开五篇指南作答前即可读；五部分全部结束后，私人结果保留全部三十题的原题、选择、答案及解析，包括零题正确或全部留空，五份相同通用指南也始终开放。计时模式上限依次3:00、4:00、4:00、3:00、5:00，活动时间共19:00、不含段间等待；学习模式同题不计时。本人开始每段后才计时，开放部分可前后修改，主动结束或到时即锁定，下一部分等本人另行开始；切后台不暂停，设备双时钟不一致按现有流程清除、不生成计时结果。这些设置不是正式CAT、纸笔或PiCAT的时限、自适应、返回规则或监考认证。外部资料、工具与重复识别会改变学习条件，正确数不能分辨原因或证明独立操作。五部分难度未等值，六题分母相同不使计数可作能力排名，最低正确数不诊断弱项。没有ASVAB标准分、AFQT输入合成、百分位、通过线、军职资格或职业匹配；正式AFQT使用另外四个分测领域的标准分，不能纳入本五组数量估算。题目未经能力测量验证，无常模、迁移或进步阈值，官方与科学资料用于题型边界和知识核对，不背书本题本。模型练习无需接电、车辆、机械、打孔或切割，不评个人健康，也不认证实际设备安全或实操技能。可用新纸上例子检查过程，不需公开成绩、私人经历或购买设备。答案、模式和计时仅留页面内存，无草稿或长期历史，按现有刷新、离开、换语言、缓存恢复与重练流程清除。复制只含全部五份公开指南标题和链接，无答案、数量、模式或用时；常规页面分析关闭，可选匿名动作计数需本页许可与全站分析同意。清除不抹掉浏览器历史、截屏或旁人看屏；可只读、拒绝讨论或退出。",
+          "en": "This independently authored fixed English bank has 30 questions: six each in science, mechanics, electronics, auto/shop and written assembly, with bilingual instructions, explanations and guides. Chinese UI retains English questions and establishes no language-score equivalence. GS, MC, EI, AS and AO are practice-area labels, not official administration. Auto/shop combines learning topics; written assembly uses coordinates and verbal rules rather than reproducing the official graphical subtest. A key match is correct, another valid A–D choice wrong, and explicit skips or untouched items unanswered. Counts sum to six per part and 30 overall without converting blanks to selected wrong responses, guessing correction, speed bonuses or weighting. All five public guides are readable before answering. After all five parts close, the private result retains all 30 stems, choices, keys and explanations, even with zero correct or every item unanswered, alongside the same five general guides. Timed caps are 3:00, 4:00, 4:00, 3:00 and 5:00: 19:00 active time excluding waits. Study uses the same bank without deadlines. Each part starts deliberately, permits backtracking while open, locks on finishing or expiry and waits for the next deliberate start. Background tabs do not pause time; inconsistent device clocks clear the attempt through existing behavior without a timed result. These settings supply no official CAT, paper or PiCAT timing, adaptive, return or proctoring rules. External materials, tools and recognition alter learning conditions; counts identify no cause or independent performance. Parts are not difficulty-equated: equal six-item denominators provide no ability ranking, and the lowest correct count diagnoses no weakness. There are no ASVAB standard scores, AFQT composites, percentiles, passing thresholds, military qualifications or job matches. Official AFQT uses standard scores from four other subtest areas, not these five practice counts. This bank lacks aptitude-measure validation, norms, transfer or improvement thresholds. Official and science sources inform boundaries and knowledge checks without endorsement. Paper models require no wiring, vehicle, machinery, punching or cutting, assess no personal health and certify no equipment safety or practical skill. New paper examples can check reasoning without disclosing scores, private experiences or buying equipment. Answers, mode and timing stay in page memory without drafts or long-term history, following existing clearing on refresh, leaving, language change, cached-page restoration or restarting. Copying includes all five public guide titles and links without responses, counts, mode or time. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation. Reading alone, declining discussion or leaving is allowed."
+        }
+      ]
+    }
+  ]
+}

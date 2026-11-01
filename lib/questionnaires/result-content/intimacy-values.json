@@ -1,0 +1,207 @@
+{
+  "privacy": [
+    {
+      "id": "privacy-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者很重视分享消息前说清使用方式，也重视私人话题的交谈场合，却对独处时间的强调较少。几种隐私条件不必同分，更不能用均值推定已经同意分享。共同经历里属于自己与涉及别人的部分可以分别保留，例子不需要真实消息、图片、姓名或隐私披露。",
+          "en": "In an additional original scene, a reader values clarity about message use before sharing and a private setting for personal topics, while placing less emphasis on time alone. Privacy conditions need not receive identical ratings, and no mean supplies agreement to share. One’s own part of a shared experience and details involving another person remain separate. The scene needs no actual message, image, name or private disclosure."
+        }
+      ]
+    },
+    {
+      "id": "privacy-6",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只用虚构故事，分开信息内容、会听到的人和使用方式，哪些预期还没说清？”可以只读问题。听者不把较低重要程度当作发布许可，不要求用披露证明信任，也不替别人说明边界；任何私人内容都可略过。",
+          "en": "An optional conversation card uses a fictional story to distinguish content, audience and use, asking which expectations remain unclear. Read only the question if preferred. A listener treats no lower importance as publication permission, requires no disclosure as proof of trust and supplies no boundary on someone else’s behalf. Leave out every private detail."
+        }
+      ]
+    },
+    {
+      "id": "privacy-8",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，解释条件的重要程度，不评价实际关系。25条仍分五组各五条直接评分：1对我不重要、2对我有一点重要、3对我中等重要、4对我很重要、5对我极其重要；3不是频率“有时”、认同度中立或不确定。每组至少四条数字才显示独立一位小数均值，例如2、3、4、5加一条未评分得3.5，只有三条则资料不足，不补零或3。五项可都高、都低或相同，不合总分、不排名、不选主导或派发类型。重要程度不说明条件已满足、实际行为、信任程度、性取向、私人经历、伴侣质量或关系未来；同意与尊重始终是底线，不参与得分取舍。原题本尚无已建立的信效度、常模或中英文测量等值，不继承其他人格分类或研究量表的权威。无需提供私人记录、分享答案、联系、试验、约会、增加陪伴或让出边界。全部未评分仍可读五篇全文；独立的关系角色二选一保持自己的题本和计数，不与本次均值换算。原有可选标签页草稿24小时期限及完成、重测清除保持不变，复制仅含公开标题与入口，不含个人答案或均值。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading about the importance of conditions, not a rating of an actual relationship. Twenty-five prompts retain five groups of five direct ratings: 1 not important to me, 2 a little important to me, 3 moderately important to me, 4 very important to me and 5 extremely important to me. Three means neither frequency sometimes, neutral agreement nor uncertainty. Each group needs at least four numeric ratings for an independent one-decimal mean. For example, 2, 3, 4 and 5 with one unscored response give 3.5; three numeric ratings are insufficient, without zero or three imputed. All five groups can be high, low or equal without a total, rank, dominant priority or assigned type. Importance establishes neither fulfilled conditions, actual behaviour, degree of trust, orientation, private history, partner quality nor a relationship’s future. Consent and respect remain baseline conditions, never scored trade-offs. The original form lacks established reliability, validity, norms or English–Chinese measurement equivalence and inherits no authority from other persona classifications or research instruments. No private records, answer sharing, contact, experiment, dating, increased company or surrendered boundary is needed. All five full guides remain available with every answer unscored. Separate relationship-role choices retain their own form and counts without conversion to these means. Existing optional tab drafts retain their 24-hour expiry and completion or retake clearing. Copying includes only the public title and entry link, without personal answers or means."
+        }
+      ]
+    }
+  ],
+  "play": [
+    {
+      "id": "play-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者喜欢双方欢迎的小变化，却更愿意严肃面对尴尬；另一人重视自在幽默，却偏好熟悉安排。两种组合都可保留，不用同一均值选出更有趣的人。受欢迎的变化与要求对方接受惊喜不同，例子不安排活动、试验、购买或任何必须尝试的体验。",
+          "en": "In an additional original scene, one reader values mutually welcome variation but prefers a serious response to awkwardness. Another values comfortable humour while preferring familiar plans. Both combinations remain available without using an equal mean to choose the more interesting person. Welcome variation differs from requiring acceptance of a surprise. The scene assigns no activity, experiment, purchase or required experience."
+        }
+      ]
+    },
+    {
+      "id": "play-6",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只比较虚构安排，怎样区分有趣的变化与双方是否欢迎？不知道另一人的偏好时先保留未知。”无需提出真实新活动。听者不以高均值要求冒险或表演，也不把低均值称为无趣；可以仍然选择原安排，或只结束阅读。",
+          "en": "An optional conversation card compares a fictional change with whether both people welcome it, leaving an unknown preference unknown. No real new activity needs a proposal. A listener uses no higher mean to require risk or performance and calls no lower mean dullness. Keeping the original plan or simply ending the reading remains an option."
+        }
+      ]
+    },
+    {
+      "id": "play-8",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，解释条件的重要程度，不评价实际关系。25条仍分五组各五条直接评分：1对我不重要、2对我有一点重要、3对我中等重要、4对我很重要、5对我极其重要；3不是频率“有时”、认同度中立或不确定。每组至少四条数字才显示独立一位小数均值，例如2、3、4、5加一条未评分得3.5，只有三条则资料不足，不补零或3。五项可都高、都低或相同，不合总分、不排名、不选主导或派发类型。重要程度不说明条件已满足、实际行为、信任程度、性取向、私人经历、伴侣质量或关系未来；同意与尊重始终是底线，不参与得分取舍。原题本尚无已建立的信效度、常模或中英文测量等值，不继承其他人格分类或研究量表的权威。无需提供私人记录、分享答案、联系、试验、约会、增加陪伴或让出边界。全部未评分仍可读五篇全文；独立的关系角色二选一保持自己的题本和计数，不与本次均值换算。原有可选标签页草稿24小时期限及完成、重测清除保持不变，复制仅含公开标题与入口，不含个人答案或均值。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading about the importance of conditions, not a rating of an actual relationship. Twenty-five prompts retain five groups of five direct ratings: 1 not important to me, 2 a little important to me, 3 moderately important to me, 4 very important to me and 5 extremely important to me. Three means neither frequency sometimes, neutral agreement nor uncertainty. Each group needs at least four numeric ratings for an independent one-decimal mean. For example, 2, 3, 4 and 5 with one unscored response give 3.5; three numeric ratings are insufficient, without zero or three imputed. All five groups can be high, low or equal without a total, rank, dominant priority or assigned type. Importance establishes neither fulfilled conditions, actual behaviour, degree of trust, orientation, private history, partner quality nor a relationship’s future. Consent and respect remain baseline conditions, never scored trade-offs. The original form lacks established reliability, validity, norms or English–Chinese measurement equivalence and inherits no authority from other persona classifications or research instruments. No private records, answer sharing, contact, experiment, dating, increased company or surrendered boundary is needed. All five full guides remain available with every answer unscored. Separate relationship-role choices retain their own form and counts without conversion to these means. Existing optional tab drafts retain their 24-hour expiry and completion or retake clearing. Copying includes only the public title and entry link, without personal answers or means."
+        }
+      ]
+    }
+  ],
+  "steadiness": [
+    {
+      "id": "steadiness-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者重视见面之间的延续感，却未必想固定每天的时间；另一人重视熟悉节奏，同时希望需要变化时可以重新商量。可预期的条件不是永不改变的承诺。均值不证明谁可靠，也不说明别人必须持续在线；例子不要求提交日程、增加联系或索取未来保证。",
+          "en": "In an additional original scene, one reader values continuity between meetings without a fixed daily time. Another values a familiar rhythm while wanting room to discuss changes. Predictable conditions are not a promise of no change. A mean certifies nobody’s reliability and requires nobody’s continuous availability. The scene requests no schedule, additional contact or guarantee about the future."
+        }
+      ]
+    },
+    {
+      "id": "steadiness-6",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“在虚构的忙碌一周里，需要说清的是下次大概何时联系，还是安排变动怎样说明？”不必解决任何真实安排。听者不把重要程度当作另一人没有做到的证据，也不规定联系次数；可把稳定与双方欢迎的变化并列阅读。",
+          "en": "An optional conversation card asks whether a fictional busy week needs clarity about the next likely contact or how changed plans are explained. No real arrangement needs resolution. A listener treats importance as no evidence of someone else’s failure and prescribes no contact count. Read steadiness alongside mutually welcome variation if useful."
+        }
+      ]
+    },
+    {
+      "id": "steadiness-8",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，解释条件的重要程度，不评价实际关系。25条仍分五组各五条直接评分：1对我不重要、2对我有一点重要、3对我中等重要、4对我很重要、5对我极其重要；3不是频率“有时”、认同度中立或不确定。每组至少四条数字才显示独立一位小数均值，例如2、3、4、5加一条未评分得3.5，只有三条则资料不足，不补零或3。五项可都高、都低或相同，不合总分、不排名、不选主导或派发类型。重要程度不说明条件已满足、实际行为、信任程度、性取向、私人经历、伴侣质量或关系未来；同意与尊重始终是底线，不参与得分取舍。原题本尚无已建立的信效度、常模或中英文测量等值，不继承其他人格分类或研究量表的权威。无需提供私人记录、分享答案、联系、试验、约会、增加陪伴或让出边界。全部未评分仍可读五篇全文；独立的关系角色二选一保持自己的题本和计数，不与本次均值换算。原有可选标签页草稿24小时期限及完成、重测清除保持不变，复制仅含公开标题与入口，不含个人答案或均值。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading about the importance of conditions, not a rating of an actual relationship. Twenty-five prompts retain five groups of five direct ratings: 1 not important to me, 2 a little important to me, 3 moderately important to me, 4 very important to me and 5 extremely important to me. Three means neither frequency sometimes, neutral agreement nor uncertainty. Each group needs at least four numeric ratings for an independent one-decimal mean. For example, 2, 3, 4 and 5 with one unscored response give 3.5; three numeric ratings are insufficient, without zero or three imputed. All five groups can be high, low or equal without a total, rank, dominant priority or assigned type. Importance establishes neither fulfilled conditions, actual behaviour, degree of trust, orientation, private history, partner quality nor a relationship’s future. Consent and respect remain baseline conditions, never scored trade-offs. The original form lacks established reliability, validity, norms or English–Chinese measurement equivalence and inherits no authority from other persona classifications or research instruments. No private records, answer sharing, contact, experiment, dating, increased company or surrendered boundary is needed. All five full guides remain available with every answer unscored. Separate relationship-role choices retain their own form and counts without conversion to these means. Existing optional tab drafts retain their 24-hour expiry and completion or retake clearing. Copying includes only the public title and entry link, without personal answers or means."
+        }
+      ]
+    }
+  ],
+  "trust": [
+    {
+      "id": "trust-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构人物都说“晚些时候联系”，一人想到当天，另一人想到周内。读者可能很重视确认这类措辞，同时对其他题中条件有不同评分。想要清楚与现实已经清楚不同，报告不决定谁说真话或值得信任，也不要求用记录、访问权限或更多隐私来消除不确定。",
+          "en": "In an additional original scene, two fictional people say they will be in touch later; one imagines the same day and the other sometime that week. A reader may value clarifying this phrase while rating other conditions differently. Wanting clarity differs from already having it. The report decides neither truthfulness nor trustworthiness and requires no records, access or further private information to remove uncertainty."
+        }
+      ]
+    },
+    {
+      "id": "trust-6",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只看虚构措辞，可以有哪两种理解？哪些含义仍不知道？”无需请别人解释真实承诺。听者不把本项均值变成诚信分，不以低值许可忽视约定，也不把保留隐私当作信任不足；可以停在指出含义差异。",
+          "en": "An optional conversation card asks for two possible readings of a fictional phrase and meanings that remain unknown. No actual promise needs someone’s explanation. A listener turns no mean into an honesty score, uses no lower value to permit disregarding an agreement and treats privacy as no trust deficit. Identifying different meanings can be the last step."
+        }
+      ]
+    },
+    {
+      "id": "trust-8",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，解释条件的重要程度，不评价实际关系。25条仍分五组各五条直接评分：1对我不重要、2对我有一点重要、3对我中等重要、4对我很重要、5对我极其重要；3不是频率“有时”、认同度中立或不确定。每组至少四条数字才显示独立一位小数均值，例如2、3、4、5加一条未评分得3.5，只有三条则资料不足，不补零或3。五项可都高、都低或相同，不合总分、不排名、不选主导或派发类型。重要程度不说明条件已满足、实际行为、信任程度、性取向、私人经历、伴侣质量或关系未来；同意与尊重始终是底线，不参与得分取舍。原题本尚无已建立的信效度、常模或中英文测量等值，不继承其他人格分类或研究量表的权威。无需提供私人记录、分享答案、联系、试验、约会、增加陪伴或让出边界。全部未评分仍可读五篇全文；独立的关系角色二选一保持自己的题本和计数，不与本次均值换算。原有可选标签页草稿24小时期限及完成、重测清除保持不变，复制仅含公开标题与入口，不含个人答案或均值。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading about the importance of conditions, not a rating of an actual relationship. Twenty-five prompts retain five groups of five direct ratings: 1 not important to me, 2 a little important to me, 3 moderately important to me, 4 very important to me and 5 extremely important to me. Three means neither frequency sometimes, neutral agreement nor uncertainty. Each group needs at least four numeric ratings for an independent one-decimal mean. For example, 2, 3, 4 and 5 with one unscored response give 3.5; three numeric ratings are insufficient, without zero or three imputed. All five groups can be high, low or equal without a total, rank, dominant priority or assigned type. Importance establishes neither fulfilled conditions, actual behaviour, degree of trust, orientation, private history, partner quality nor a relationship’s future. Consent and respect remain baseline conditions, never scored trade-offs. The original form lacks established reliability, validity, norms or English–Chinese measurement equivalence and inherits no authority from other persona classifications or research instruments. No private records, answer sharing, contact, experiment, dating, increased company or surrendered boundary is needed. All five full guides remain available with every answer unscored. Separate relationship-role choices retain their own form and counts without conversion to these means. Existing optional tab drafts retain their 24-hour expiry and completion or retake clearing. Copying includes only the public title and entry link, without personal answers or means."
+        }
+      ]
+    }
+  ],
+  "closeness": [
+    {
+      "id": "closeness-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者重视短时间内双方专注的谈话，也希望之后各自做喜欢的事；另一人更重视谈联结意义，而不强调每次共处很久。相同均值可能包含不同条件。重要程度不测目前有多亲近、爱有多少或别人怎样感受，也不能用来规定更多联系、表露或陪伴。",
+          "en": "In an additional original scene, one reader values a short conversation with mutual attention followed by separate interests. Another values discussing what a connection means without lengthy shared time on each occasion. Equal means can contain different conditions. Importance measures neither current closeness, an amount of love nor someone else’s feelings, and prescribes no additional contact, expression or company."
+        }
+      ]
+    },
+    {
+      "id": "closeness-6",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只在虚构情境中，分开专注、表达关心和各自兴趣，哪个条件让这句话更具体？”可以不谈自己的关系。听者不把高值当作黏人、不把低值当作冷漠，也不要求以放弃个人空间证明亲近；可以保留隐私而结束。",
+          "en": "An optional conversation card distinguishes attention, expressions of care and separate interests in a fictional scene, asking which condition makes the wording more specific. No personal relationship needs discussion. A listener labels neither a higher value needy nor a lower value cold and requires no surrendered personal space as proof of closeness. Keep privacy and finish if preferred."
+        }
+      ]
+    },
+    {
+      "id": "closeness-8",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，解释条件的重要程度，不评价实际关系。25条仍分五组各五条直接评分：1对我不重要、2对我有一点重要、3对我中等重要、4对我很重要、5对我极其重要；3不是频率“有时”、认同度中立或不确定。每组至少四条数字才显示独立一位小数均值，例如2、3、4、5加一条未评分得3.5，只有三条则资料不足，不补零或3。五项可都高、都低或相同，不合总分、不排名、不选主导或派发类型。重要程度不说明条件已满足、实际行为、信任程度、性取向、私人经历、伴侣质量或关系未来；同意与尊重始终是底线，不参与得分取舍。原题本尚无已建立的信效度、常模或中英文测量等值，不继承其他人格分类或研究量表的权威。无需提供私人记录、分享答案、联系、试验、约会、增加陪伴或让出边界。全部未评分仍可读五篇全文；独立的关系角色二选一保持自己的题本和计数，不与本次均值换算。原有可选标签页草稿24小时期限及完成、重测清除保持不变，复制仅含公开标题与入口，不含个人答案或均值。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading about the importance of conditions, not a rating of an actual relationship. Twenty-five prompts retain five groups of five direct ratings: 1 not important to me, 2 a little important to me, 3 moderately important to me, 4 very important to me and 5 extremely important to me. Three means neither frequency sometimes, neutral agreement nor uncertainty. Each group needs at least four numeric ratings for an independent one-decimal mean. For example, 2, 3, 4 and 5 with one unscored response give 3.5; three numeric ratings are insufficient, without zero or three imputed. All five groups can be high, low or equal without a total, rank, dominant priority or assigned type. Importance establishes neither fulfilled conditions, actual behaviour, degree of trust, orientation, private history, partner quality nor a relationship’s future. Consent and respect remain baseline conditions, never scored trade-offs. The original form lacks established reliability, validity, norms or English–Chinese measurement equivalence and inherits no authority from other persona classifications or research instruments. No private records, answer sharing, contact, experiment, dating, increased company or surrendered boundary is needed. All five full guides remain available with every answer unscored. Separate relationship-role choices retain their own form and counts without conversion to these means. Existing optional tab drafts retain their 24-hour expiry and completion or retake clearing. Copying includes only the public title and entry link, without personal answers or means."
+        }
+      ]
+    }
+  ]
+}

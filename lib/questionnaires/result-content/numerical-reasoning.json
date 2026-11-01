@@ -1,0 +1,162 @@
+{
+  "arithmetic": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：完整瓶数与剩余体积是两个答案",
+        "en": "Review full bottles separately from leftover volume"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例有9.4升液体，每瓶装0.6升，无损耗。问装满几瓶时，15瓶用9升，余0.4升；第16瓶要再有0.2升才满。9.4÷0.6=15又2/3是容量比，不是能装满15又2/3个完整瓶。若问容纳全部液体至少需几个这种容量的容器，则需16个，末个未满。先写所求是满瓶数、最少容器数还是剩余升数，再计算。可用15×0.6+0.4=9.4核总量，并检查余量小于单瓶容量。这是虚构数量练习，不提供实际分装操作建议。",
+          "en": "Use a fresh fictional volume of 9.4 litres with bottles holding 0.6 litres and no loss. Fifteen full bottles use nine litres and leave 0.4; a sixteenth needs another 0.2 litre to be full. The quotient 15 and two-thirds is a capacity ratio, not that many completely filled bottles. If asked instead for the fewest such containers needed to hold all the liquid, the answer is sixteen, with the final container partly filled. Name the output: full bottles, minimum containers or leftover litres. Check 15×0.6+0.4=9.4 and that the remainder is smaller than a bottle. This fictional quantity exercise supplies no practical filling procedure."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "交换列式，讨论数量与假设",
+        "en": "Exchange equations and discuss quantities and assumptions"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“同一组数字为什么可以得到15瓶和16个容器？你回答了哪个问题，余量是否小于一瓶？”先各自标所求量、单位及基数，写算式后再交换。找第一处不同的选择，算完再核条件；可以只读、用计算器或换数，不比赛速度，也不按正确数评价朋友的智力、收入潜力或职业适合度。",
+          "en": "Ask: “Why can the same quantities give fifteen full bottles and sixteen containers, and which question did you answer?” Independently label the requested quantity, units and base, then exchange equations. Locate the first different choice and check assumptions after calculating. Read, use a calculator or change the numbers without racing; do not use correct counts to rate friends’ intelligence, earning potential or career suitability."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组用于复习，不是能力等级或群体排名，本题库未完成心理测量验证。30题固定，重复提高可能来自记忆。要检查理解，另换一组虚构数量，说明列式成立的条件，核单位和反向运算，不直接套用到真实财务或运营决定。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups support revision rather than ability bands or population rankings; this bank has not undergone psychometric validation. Retakes reuse thirty fixed items and may reward recall. Change fictional quantities, explain the equation’s assumptions and check units and reverse operations before claiming understanding; do not directly apply these examples to real financial or operational decisions."
+        }
+      ]
+    }
+  ],
+  "percentages": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：百分点、相对增长与恢复比例",
+        "en": "Review points, relative growth and the return change"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例占比从20%到25%，上升5个百分点，相对原占比增加5÷20=25%。若再从25%回到20%，下降仍是5个百分点，但相对当前占比下降5÷25=20%。因此“上升25%再下降25%”不会恢复原值：对初值200，先乘1.25得250，再乘0.75得187.5；要回200，应乘0.8。每个百分数旁写明基数，百分点旁保留“点”单位，再代回最终数量。例中的占比与数量均为虚构，不从比例变化推断原因、群体价值或个人能力。",
+          "en": "Use a fresh share moving from twenty to twenty-five percent. It rises five percentage points, or twenty-five percent relative to the original share. Returning to twenty percent loses the same five points but twenty percent relative to the current share. Increasing and then decreasing by twenty-five percent therefore does not restore an original quantity: 200×1.25=250, followed by ×0.75=187.5. Returning to 200 requires ×0.8 instead. Write the base beside each percentage, retain the points unit for share differences and substitute into the final quantity. These fictional shares and quantities establish no cause, group value or personal ability."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "交换列式，讨论数量与假设",
+        "en": "Exchange equations and discuss quantities and assumptions"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“为什么相同的5个百分点，对应25%的上升和20%的下降？你每次用的是哪个基数？”先各自标所求量、单位及基数，写算式后再交换。找第一处不同的选择，算完再核条件；可以只读、用计算器或换数，不比赛速度，也不按正确数评价朋友的智力、收入潜力或职业适合度。",
+          "en": "Ask: “Why do the same five points represent a twenty-five percent rise and a twenty percent fall, and which base did you use?” Independently label the requested quantity, units and base, then exchange equations. Locate the first different choice and check assumptions after calculating. Read, use a calculator or change the numbers without racing; do not use correct counts to rate friends’ intelligence, earning potential or career suitability."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组用于复习，不是能力等级或群体排名，本题库未完成心理测量验证。30题固定，重复提高可能来自记忆。要检查理解，另换一组虚构数量，说明列式成立的条件，核单位和反向运算，不直接套用到真实财务或运营决定。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups support revision rather than ability bands or population rankings; this bank has not undergone psychometric validation. Retakes reuse thirty fixed items and may reward recall. Change fictional quantities, explain the equation’s assumptions and check units and reverse operations before claiming understanding; do not directly apply these examples to real financial or operational decisions."
+        }
+      ]
+    }
+  ],
+  "ratios": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：相同数字配给整体或一方，答案不同",
+        "en": "Review whether a supplied amount belongs to the whole or one part"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例虚构混合物体积可相加，甲:乙=4:5。若总量900毫升，共九份，每份100，甲400、乙500毫升。若改成仅乙900毫升，其五份对应900，每份180，甲720，总量1620毫升。比例相同、给定数字相同，数量归属一改，结果就变；不能自动把900当分子或整体。分别核400:500和720:900都约为4:5，再核前者总量900、后者乙量900。写下具名组与单位后再列式，题目没有给的组不能自行添加。",
+          "en": "Use a fresh fictional additive-volume mixture with A:B=4:5. If the combined volume is 900 mL, nine parts make one hundred each: A is four hundred and B five hundred. If instead B alone is 900 mL, its five parts make one hundred eighty each: A is seven hundred twenty and the total sixteen hundred twenty. The ratio and supplied number are unchanged, but the number’s ownership changes the answer. Do not automatically treat nine hundred as the whole. Both 400:500 and 720:900 simplify to 4:5; also check the first combined total and the second B amount. Label groups and units before calculating, without inventing additional groups."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "交换列式，讨论数量与假设",
+        "en": "Exchange equations and discuss quantities and assumptions"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“给定的900属于谁？你的答案是否既满足比例，也满足题目给出的那一个数量？”先各自标所求量、单位及基数，写算式后再交换。找第一处不同的选择，算完再核条件；可以只读、用计算器或换数，不比赛速度，也不按正确数评价朋友的智力、收入潜力或职业适合度。",
+          "en": "Ask: “Which quantity owns the nine hundred, and does your answer satisfy both the ratio and that supplied quantity?” Independently label the requested quantity, units and base, then exchange equations. Locate the first different choice and check assumptions after calculating. Read, use a calculator or change the numbers without racing; do not use correct counts to rate friends’ intelligence, earning potential or career suitability."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组用于复习，不是能力等级或群体排名，本题库未完成心理测量验证。30题固定，重复提高可能来自记忆。要检查理解，另换一组虚构数量，说明列式成立的条件，核单位和反向运算，不直接套用到真实财务或运营决定。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups support revision rather than ability bands or population rankings; this bank has not undergone psychometric validation. Retakes reuse thirty fixed items and may reward recall. Change fictional quantities, explain the equation’s assumptions and check units and reverse operations before claiming understanding; do not directly apply these examples to real financial or operational decisions."
+        }
+      ]
+    }
+  ],
+  "data": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：先还原组总量，再核合并分母",
+        "en": "Review reconstructed group totals and the combined denominator"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例两组记录互不重叠，测量指标和单位相同，均值精确：8条均值10，12条均值20。总量80+240=320，总条数20，合并均值16；简单平均两组均值得15，会给小组过大权重。16处于10和20之间只是合理性检查，不足以证明权重正确，因为错误的15也在区间内。若另外两组40条中25%符合、60条中50%符合，应先还原10和30条，再得40/100=40%，不能把两百分数直接平均成37.5%。缺少组规模、重叠信息或精确口径时，不补造总体。",
+          "en": "Use fresh disjoint groups with the same measure and units and exact means: eight records average ten and twelve average twenty. Reconstructed totals are eighty and two hundred forty; 320 divided by twenty records gives sixteen. Averaging the group means gives fifteen and overweights the smaller group. Being between ten and twenty is only a reasonableness check: the incorrect fifteen also passes it. In a separate example, forty records with twenty-five percent meeting a criterion and sixty with fifty percent yield counts ten and thirty, hence forty percent pooled, not the unweighted 37.5 percent. Missing group sizes, overlap information or compatible definitions do not justify an invented overall summary."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "交换列式，讨论数量与假设",
+        "en": "Exchange equations and discuss quantities and assumptions"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“一个错误均值也可能落在两组均值之间吗？你能还原分子和分母，而不是只平均摘要吗？”先各自标所求量、单位及基数，写算式后再交换。找第一处不同的选择，算完再核条件；可以只读、用计算器或换数，不比赛速度，也不按正确数评价朋友的智力、收入潜力或职业适合度。",
+          "en": "Ask: “Can an incorrect mean still lie between the group means, and can you reconstruct both numerator and denominator?” Independently label the requested quantity, units and base, then exchange equations. Locate the first different choice and check assumptions after calculating. Read, use a calculator or change the numbers without racing; do not use correct counts to rate friends’ intelligence, earning potential or career suitability."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组用于复习，不是能力等级或群体排名，本题库未完成心理测量验证。30题固定，重复提高可能来自记忆。要检查理解，另换一组虚构数量，说明列式成立的条件，核单位和反向运算，不直接套用到真实财务或运营决定。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups support revision rather than ability bands or population rankings; this bank has not undergone psychometric validation. Retakes reuse thirty fixed items and may reward recall. Change fictional quantities, explain the equation’s assumptions and check units and reverse operations before claiming understanding; do not directly apply these examples to real financial or operational decisions."
+        }
+      ]
+    }
+  ],
+  "rates": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：等路程与等时长要分别列式",
+        "en": "Review equal distances and equal durations separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例虚构行程，两段各60千米，分别按30和60千米/小时行进。耗时2与1小时，总平均120÷3=40千米/小时。若改成两段各行1小时，则距离30与60千米，总平均90÷2=45千米/小时。简单平均两速度只适用于这里改成等时长的条件，不能拿来解等路程。每次列两段距离和耗时，再把总距离除总时间；题面若含停顿，求全程平均就保留停顿时间。平均速度不说明任何时刻速度，也不用于判断驾驶安全或安排真实出行。",
+          "en": "Use a fresh fictional journey with two sixty-kilometre legs at thirty and sixty kilometres per hour. They take two and one hours; overall speed is 120/3=40 kilometres per hour. Change the condition to one hour at each speed: distances become thirty and sixty kilometres, giving 90/2=45 overall. The arithmetic mean of the two speeds works under this equal-duration condition, not for the equal-distance version. List each distance and duration, then divide total distance by total time. When the question includes a stop in the whole-journey denominator, retain it. Average speed establishes no instantaneous speed, driving safety or real travel plan."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "交换列式，讨论数量与假设",
+        "en": "Exchange equations and discuss quantities and assumptions"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“题面给的是等路程还是等时长？在改条件后，哪些距离、时间和权重必须一起改？”先各自标所求量、单位及基数，写算式后再交换。找第一处不同的选择，算完再核条件；可以只读、用计算器或换数，不比赛速度，也不按正确数评价朋友的智力、收入潜力或职业适合度。",
+          "en": "Ask: “Does the prompt specify equal distances or equal durations, and which distances, times and weights change with that condition?” Independently label the requested quantity, units and base, then exchange equations. Locate the first different choice and check assumptions after calculating. Read, use a calculator or change the numbers without racing; do not use correct counts to rate friends’ intelligence, earning potential or career suitability."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组用于复习，不是能力等级或群体排名，本题库未完成心理测量验证。30题固定，重复提高可能来自记忆。要检查理解，另换一组虚构数量，说明列式成立的条件，核单位和反向运算，不直接套用到真实财务或运营决定。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups support revision rather than ability bands or population rankings; this bank has not undergone psychometric validation. Retakes reuse thirty fixed items and may reward recall. Change fictional quantities, explain the equation’s assumptions and check units and reverse operations before claiming understanding; do not directly apply these examples to real financial or operational decisions."
+        }
+      ]
+    }
+  ]
+}

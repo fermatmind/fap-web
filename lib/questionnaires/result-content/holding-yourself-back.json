@@ -1,0 +1,289 @@
+{
+  "emotion-recovery-reading": [
+    {
+      "id": "emotion-recovery-3",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "情境补充：虚构读者在预约延误后，已经重新安排好下午，开始读书时仍感紧绷。安排问题是否解决、感受是否持续、当时能否留出恢复时间，是三个观察点。仍然紧绷不表示感受不合理，也不能从均分推断需要多久才能恢复。",
+          "en": "In an additional scene, a fictional reader has rearranged an afternoon after an appointment delay but remains tense while starting a book. Whether the practical issue ended, the feeling persisted and recovery time was available are separate observations. Continued tension neither makes the feeling illegitimate nor lets a mean predict recovery time."
+        }
+      ]
+    },
+    {
+      "id": "emotion-recovery-5",
+      "title": {
+        "zh": "可选讨论提示",
+        "en": "An optional discussion prompt"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“实际问题何时结束，感受何时改变，下一项活动有哪些可用条件？”可以只读，也可以讨论虚构人物。先说清观察、推断及未知，不用交换个人答案、比较均分或要求对方解释经历；不同理解可以保留。",
+          "en": "An optional discussion prompt asks: “When did the practical issue end, when did the feeling change, and what conditions were available for the next activity?” Read alone or discuss the fictional reader. Separate observations, inferences and unknowns without exchanging personal answers, comparing means or requiring an account of someone’s experiences. Different interpretations may remain."
+        }
+      ]
+    },
+    {
+      "id": "emotion-recovery-6",
+      "title": {
+        "zh": "补充读法与来源边界",
+        "en": "Additional method and source limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境和讨论提示由费马测试编辑部原创。回想过去四周相关场合的出现频率，1至5分别为从不、很少、有时、经常、几乎每次，3不是中立。35题按七个主题各五题直接计入，无反向或加权；每题作一次明确选择后结束。没有相关场合、无法判断或不愿答选NA，不补成零、从不或中点。每项需五题数值齐全才求和除以五，显示一位小数；2、3、4、2、4得3.0。一题NA只隐藏本项均分，其他完整项及七篇全文保留，全部NA也能结束。七项不相加、不排名、不选择主导类型、严重度或成因。研究仅提供主题背景，本原创题本不是IPRS或其验证短版，想象主题有意限于日常神游；未建立常模、信效度、预测或中英等值。复制仅含公开标题及入口，不含回答或均分；现有页面内存、自选24小时标签页草稿和完成、重测、退出清除保持不变。",
+          "en": "FermatMind Editorial authored these additions. Recall frequency in relevant occasions over the past four weeks: Never, Rarely, Sometimes, Often and Almost always map to 1–5; three is not neutrality. Thirty-five direct items form seven groups of five without reversal or weighting. One explicit choice per item finishes. No opportunity, uncertainty or withholding stays NA, never zero, Never or midpoint. Each mean requires all five numeric answers, sum divided by five, displayed to one decimal; 2, 3, 4, 2, 4 gives 3.0. One NA withholds only its topic’s mean; complete topics and all seven guides remain, including all-NA completion. Means are never added, ranked or used to choose a dominant type, severity or cause. Research supplies topic background only. This original bank is neither IPRS nor a validated short form; imagined scenarios deliberately covers everyday absorption only. Norms, reliability, validity, prediction and language equivalence are unestablished. Copying contains only the public title and entry, without answers or means. Existing page memory, optional 24-hour tab drafts and completion, retake and exit clearing remain unchanged."
+        }
+      ]
+    }
+  ],
+  "self-doubt-reading": [
+    {
+      "id": "self-doubt-3",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "情境补充：虚构读者漏带一件清单物品，收到提醒后想到“我什么都做不好”。漏带、提醒原话与整体自我评价应分别记录；不能假定提醒者赞同那个评价。即使没有马上换成积极想法，也可以只处理那件物品。",
+          "en": "In an additional scene, a fictional reader forgets one listed item and interprets a reminder as “I cannot do anything well.” The omission, actual reminder and global self-judgment are separate. The reminder does not establish that its speaker shares that judgment. Addressing the item need not wait for a positive replacement thought."
+        }
+      ]
+    },
+    {
+      "id": "self-doubt-5",
+      "title": {
+        "zh": "可选讨论提示",
+        "en": "An optional discussion prompt"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“哪些是清单事实、提醒原话，哪些是读者自己的推断？”可以只读，也可以讨论虚构人物。先说清观察、推断及未知，不用交换个人答案、比较均分或要求对方解释经历；不同理解可以保留。",
+          "en": "An optional discussion prompt asks: “Which details are the list omission and actual reminder, and which are the reader’s inferences?” Read alone or discuss the fictional reader. Separate observations, inferences and unknowns without exchanging personal answers, comparing means or requiring an account of someone’s experiences. Different interpretations may remain."
+        }
+      ]
+    },
+    {
+      "id": "self-doubt-6",
+      "title": {
+        "zh": "补充读法与来源边界",
+        "en": "Additional method and source limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境和讨论提示由费马测试编辑部原创。回想过去四周相关场合的出现频率，1至5分别为从不、很少、有时、经常、几乎每次，3不是中立。35题按七个主题各五题直接计入，无反向或加权；每题作一次明确选择后结束。没有相关场合、无法判断或不愿答选NA，不补成零、从不或中点。每项需五题数值齐全才求和除以五，显示一位小数；2、3、4、2、4得3.0。一题NA只隐藏本项均分，其他完整项及七篇全文保留，全部NA也能结束。七项不相加、不排名、不选择主导类型、严重度或成因。研究仅提供主题背景，本原创题本不是IPRS或其验证短版，想象主题有意限于日常神游；未建立常模、信效度、预测或中英等值。复制仅含公开标题及入口，不含回答或均分；现有页面内存、自选24小时标签页草稿和完成、重测、退出清除保持不变。",
+          "en": "FermatMind Editorial authored these additions. Recall frequency in relevant occasions over the past four weeks: Never, Rarely, Sometimes, Often and Almost always map to 1–5; three is not neutrality. Thirty-five direct items form seven groups of five without reversal or weighting. One explicit choice per item finishes. No opportunity, uncertainty or withholding stays NA, never zero, Never or midpoint. Each mean requires all five numeric answers, sum divided by five, displayed to one decimal; 2, 3, 4, 2, 4 gives 3.0. One NA withholds only its topic’s mean; complete topics and all seven guides remain, including all-NA completion. Means are never added, ranked or used to choose a dominant type, severity or cause. Research supplies topic background only. This original bank is neither IPRS nor a validated short form; imagined scenarios deliberately covers everyday absorption only. Norms, reliability, validity, prediction and language equivalence are unestablished. Copying contains only the public title and entry, without answers or means. Existing page memory, optional 24-hour tab drafts and completion, retake and exit clearing remain unchanged."
+        }
+      ]
+    }
+  ],
+  "direction-attention-reading": [
+    {
+      "id": "direction-attention-3",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "情境补充：虚构读者为预约留出十五分钟，知道要订哪一项，却在打断后没有接回来。若预约系统关闭，则原本就没有可用行动；若系统开放，也还需区分被打断与未选定下一步。相同的未完成结果不能确定注意困难或成因。",
+          "en": "In an additional scene, a fictional reader knows which appointment to book but does not return after an interruption. If booking was closed, no action was available; if open, interruption still differs from never choosing a next step. The same unfinished outcome establishes neither an attention condition nor its cause."
+        }
+      ]
+    },
+    {
+      "id": "direction-attention-5",
+      "title": {
+        "zh": "可选讨论提示",
+        "en": "An optional discussion prompt"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“下一步是否选定、能否执行，中断后从哪里接回？”可以只读，也可以讨论虚构人物。先说清观察、推断及未知，不用交换个人答案、比较均分或要求对方解释经历；不同理解可以保留。",
+          "en": "An optional discussion prompt asks: “Was the next step chosen and available, and where could it resume after interruption?” Read alone or discuss the fictional reader. Separate observations, inferences and unknowns without exchanging personal answers, comparing means or requiring an account of someone’s experiences. Different interpretations may remain."
+        }
+      ]
+    },
+    {
+      "id": "direction-attention-6",
+      "title": {
+        "zh": "补充读法与来源边界",
+        "en": "Additional method and source limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境和讨论提示由费马测试编辑部原创。回想过去四周相关场合的出现频率，1至5分别为从不、很少、有时、经常、几乎每次，3不是中立。35题按七个主题各五题直接计入，无反向或加权；每题作一次明确选择后结束。没有相关场合、无法判断或不愿答选NA，不补成零、从不或中点。每项需五题数值齐全才求和除以五，显示一位小数；2、3、4、2、4得3.0。一题NA只隐藏本项均分，其他完整项及七篇全文保留，全部NA也能结束。七项不相加、不排名、不选择主导类型、严重度或成因。研究仅提供主题背景，本原创题本不是IPRS或其验证短版，想象主题有意限于日常神游；未建立常模、信效度、预测或中英等值。复制仅含公开标题及入口，不含回答或均分；现有页面内存、自选24小时标签页草稿和完成、重测、退出清除保持不变。",
+          "en": "FermatMind Editorial authored these additions. Recall frequency in relevant occasions over the past four weeks: Never, Rarely, Sometimes, Often and Almost always map to 1–5; three is not neutrality. Thirty-five direct items form seven groups of five without reversal or weighting. One explicit choice per item finishes. No opportunity, uncertainty or withholding stays NA, never zero, Never or midpoint. Each mean requires all five numeric answers, sum divided by five, displayed to one decimal; 2, 3, 4, 2, 4 gives 3.0. One NA withholds only its topic’s mean; complete topics and all seven guides remain, including all-NA completion. Means are never added, ranked or used to choose a dominant type, severity or cause. Research supplies topic background only. This original bank is neither IPRS nor a validated short form; imagined scenarios deliberately covers everyday absorption only. Norms, reliability, validity, prediction and language equivalence are unestablished. Copying contains only the public title and entry, without answers or means. Existing page memory, optional 24-hour tab drafts and completion, retake and exit clearing remain unchanged."
+        }
+      ]
+    }
+  ],
+  "outward-actions-reading": [
+    {
+      "id": "outward-actions-3",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "情境补充：虚构读者很想帮忙，未经物主许可就答应借出器材。帮助意愿、已有许可和实际影响需要分别查明；平静心情不能替代许可，较低的主题均分也不能免除某次必要补救。讨论虚构情境即可，不必真实越过规则来验证。",
+          "en": "In an additional scene, a fictional reader wants to help and offers someone’s equipment without permission. Helpful intent, available permission and actual effects need separate examination. Calm feelings do not supply permission; a lower topic mean cannot erase a particular need for repair. Discuss the fictional case without testing it through an actual rule violation."
+        }
+      ]
+    },
+    {
+      "id": "outward-actions-5",
+      "title": {
+        "zh": "可选讨论提示",
+        "en": "An optional discussion prompt"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“谁有权许可、当时约定是什么，哪些实际影响仍待确认？”可以只读，也可以讨论虚构人物。先说清观察、推断及未知，不用交换个人答案、比较均分或要求对方解释经历；不同理解可以保留。",
+          "en": "An optional discussion prompt asks: “Who could give permission, what was agreed, and which actual effects remain unknown?” Read alone or discuss the fictional reader. Separate observations, inferences and unknowns without exchanging personal answers, comparing means or requiring an account of someone’s experiences. Different interpretations may remain."
+        }
+      ]
+    },
+    {
+      "id": "outward-actions-6",
+      "title": {
+        "zh": "补充读法与来源边界",
+        "en": "Additional method and source limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境和讨论提示由费马测试编辑部原创。回想过去四周相关场合的出现频率，1至5分别为从不、很少、有时、经常、几乎每次，3不是中立。35题按七个主题各五题直接计入，无反向或加权；每题作一次明确选择后结束。没有相关场合、无法判断或不愿答选NA，不补成零、从不或中点。每项需五题数值齐全才求和除以五，显示一位小数；2、3、4、2、4得3.0。一题NA只隐藏本项均分，其他完整项及七篇全文保留，全部NA也能结束。七项不相加、不排名、不选择主导类型、严重度或成因。研究仅提供主题背景，本原创题本不是IPRS或其验证短版，想象主题有意限于日常神游；未建立常模、信效度、预测或中英等值。复制仅含公开标题及入口，不含回答或均分；现有页面内存、自选24小时标签页草稿和完成、重测、退出清除保持不变。",
+          "en": "FermatMind Editorial authored these additions. Recall frequency in relevant occasions over the past four weeks: Never, Rarely, Sometimes, Often and Almost always map to 1–5; three is not neutrality. Thirty-five direct items form seven groups of five without reversal or weighting. One explicit choice per item finishes. No opportunity, uncertainty or withholding stays NA, never zero, Never or midpoint. Each mean requires all five numeric answers, sum divided by five, displayed to one decimal; 2, 3, 4, 2, 4 gives 3.0. One NA withholds only its topic’s mean; complete topics and all seven guides remain, including all-NA completion. Means are never added, ranked or used to choose a dominant type, severity or cause. Research supplies topic background only. This original bank is neither IPRS nor a validated short form; imagined scenarios deliberately covers everyday absorption only. Norms, reliability, validity, prediction and language equivalence are unestablished. Copying contains only the public title and entry, without answers or means. Existing page memory, optional 24-hour tab drafts and completion, retake and exit clearing remain unchanged."
+        }
+      ]
+    }
+  ],
+  "rigid-standards-reading": [
+    {
+      "id": "rigid-standards-3",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "情境补充：虚构读者确认邀请的时间地点正确后继续调间距，错过原先计划的发送时间。若新增了场地变更，重新检查可能必要；若没有新信息，则可观察继续打磨与及时送达的取舍。均分不能替每项任务决定何时停，也不授权跳过必要核对。",
+          "en": "In an additional scene, a fictional reader keeps adjusting a correct invitation’s spacing and misses the planned sending time. A new venue change could justify review; without new information, further polish and timely delivery form a tradeoff to examine. A mean sets no universal stopping point and does not authorise skipping required checks."
+        }
+      ]
+    },
+    {
+      "id": "rigid-standards-5",
+      "title": {
+        "zh": "可选讨论提示",
+        "en": "An optional discussion prompt"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“多检查一次会带来什么新信息，接收者现在需要什么？”可以只读，也可以讨论虚构人物。先说清观察、推断及未知，不用交换个人答案、比较均分或要求对方解释经历；不同理解可以保留。",
+          "en": "An optional discussion prompt asks: “What new information would another check add, and what does the recipient need now?” Read alone or discuss the fictional reader. Separate observations, inferences and unknowns without exchanging personal answers, comparing means or requiring an account of someone’s experiences. Different interpretations may remain."
+        }
+      ]
+    },
+    {
+      "id": "rigid-standards-6",
+      "title": {
+        "zh": "补充读法与来源边界",
+        "en": "Additional method and source limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境和讨论提示由费马测试编辑部原创。回想过去四周相关场合的出现频率，1至5分别为从不、很少、有时、经常、几乎每次，3不是中立。35题按七个主题各五题直接计入，无反向或加权；每题作一次明确选择后结束。没有相关场合、无法判断或不愿答选NA，不补成零、从不或中点。每项需五题数值齐全才求和除以五，显示一位小数；2、3、4、2、4得3.0。一题NA只隐藏本项均分，其他完整项及七篇全文保留，全部NA也能结束。七项不相加、不排名、不选择主导类型、严重度或成因。研究仅提供主题背景，本原创题本不是IPRS或其验证短版，想象主题有意限于日常神游；未建立常模、信效度、预测或中英等值。复制仅含公开标题及入口，不含回答或均分；现有页面内存、自选24小时标签页草稿和完成、重测、退出清除保持不变。",
+          "en": "FermatMind Editorial authored these additions. Recall frequency in relevant occasions over the past four weeks: Never, Rarely, Sometimes, Often and Almost always map to 1–5; three is not neutrality. Thirty-five direct items form seven groups of five without reversal or weighting. One explicit choice per item finishes. No opportunity, uncertainty or withholding stays NA, never zero, Never or midpoint. Each mean requires all five numeric answers, sum divided by five, displayed to one decimal; 2, 3, 4, 2, 4 gives 3.0. One NA withholds only its topic’s mean; complete topics and all seven guides remain, including all-NA completion. Means are never added, ranked or used to choose a dominant type, severity or cause. Research supplies topic background only. This original bank is neither IPRS nor a validated short form; imagined scenarios deliberately covers everyday absorption only. Norms, reliability, validity, prediction and language equivalence are unestablished. Copying contains only the public title and entry, without answers or means. Existing page memory, optional 24-hour tab drafts and completion, retake and exit clearing remain unchanged."
+        }
+      ]
+    }
+  ],
+  "imagined-scenarios-reading": [
+    {
+      "id": "imagined-scenarios-3",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "情境补充：虚构读者原定组装架子，却一直想象房间布置，没有打开说明书。若这段时间本来用于设计，同样的想象就可能符合目的。先确定自选目标、可用行动和时间用途，再谈是否错位；不能把神游或创意本身当成问题。",
+          "en": "In an additional scene, a fictional reader intends to assemble a shelf but pictures the room without opening the instructions. If the time was reserved for design, the same imagery might serve its purpose. Establish the chosen aim, available action and intended use of time before calling it a mismatch. Daydreaming or creativity alone is not a difficulty."
+        }
+      ]
+    },
+    {
+      "id": "imagined-scenarios-5",
+      "title": {
+        "zh": "可选讨论提示",
+        "en": "An optional discussion prompt"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“这段时间原本用于构思还是落实，是否真有可做的一步？”可以只读，也可以讨论虚构人物。先说清观察、推断及未知，不用交换个人答案、比较均分或要求对方解释经历；不同理解可以保留。",
+          "en": "An optional discussion prompt asks: “Was the time intended for imagining or carrying out, and was a concrete step available?” Read alone or discuss the fictional reader. Separate observations, inferences and unknowns without exchanging personal answers, comparing means or requiring an account of someone’s experiences. Different interpretations may remain."
+        }
+      ]
+    },
+    {
+      "id": "imagined-scenarios-6",
+      "title": {
+        "zh": "补充读法与来源边界",
+        "en": "Additional method and source limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境和讨论提示由费马测试编辑部原创。回想过去四周相关场合的出现频率，1至5分别为从不、很少、有时、经常、几乎每次，3不是中立。35题按七个主题各五题直接计入，无反向或加权；每题作一次明确选择后结束。没有相关场合、无法判断或不愿答选NA，不补成零、从不或中点。每项需五题数值齐全才求和除以五，显示一位小数；2、3、4、2、4得3.0。一题NA只隐藏本项均分，其他完整项及七篇全文保留，全部NA也能结束。七项不相加、不排名、不选择主导类型、严重度或成因。研究仅提供主题背景，本原创题本不是IPRS或其验证短版，想象主题有意限于日常神游；未建立常模、信效度、预测或中英等值。复制仅含公开标题及入口，不含回答或均分；现有页面内存、自选24小时标签页草稿和完成、重测、退出清除保持不变。",
+          "en": "FermatMind Editorial authored these additions. Recall frequency in relevant occasions over the past four weeks: Never, Rarely, Sometimes, Often and Almost always map to 1–5; three is not neutrality. Thirty-five direct items form seven groups of five without reversal or weighting. One explicit choice per item finishes. No opportunity, uncertainty or withholding stays NA, never zero, Never or midpoint. Each mean requires all five numeric answers, sum divided by five, displayed to one decimal; 2, 3, 4, 2, 4 gives 3.0. One NA withholds only its topic’s mean; complete topics and all seven guides remain, including all-NA completion. Means are never added, ranked or used to choose a dominant type, severity or cause. Research supplies topic background only. This original bank is neither IPRS nor a validated short form; imagined scenarios deliberately covers everyday absorption only. Norms, reliability, validity, prediction and language equivalence are unestablished. Copying contains only the public title and entry, without answers or means. Existing page memory, optional 24-hour tab drafts and completion, retake and exit clearing remain unchanged."
+        }
+      ]
+    }
+  ],
+  "interest-engagement-reading": [
+    {
+      "id": "interest-engagement-3",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "情境补充：虚构读者参加自选的熟悉游戏，能完成一局，却没感到多少投入。能否参与、当次兴趣和过去是否喜欢是不同信息；只对这一款失去兴趣也不证明对所有活动如此。网页均分不能区分兴趣变化、疲惫或其他原因。",
+          "en": "In an additional scene, a fictional reader completes a familiar, freely chosen game with little involvement. Access, interest on this occasion and past enjoyment are different information. Losing interest in one game establishes no loss across all activities. A website mean cannot distinguish changed interests, tiredness or other causes."
+        }
+      ]
+    },
+    {
+      "id": "interest-engagement-5",
+      "title": {
+        "zh": "可选讨论提示",
+        "en": "An optional discussion prompt"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“活动是否自选且可及，开始前、进行中和结束后感受有何不同？”可以只读，也可以讨论虚构人物。先说清观察、推断及未知，不用交换个人答案、比较均分或要求对方解释经历；不同理解可以保留。",
+          "en": "An optional discussion prompt asks: “Was the activity freely chosen and accessible, and how did interest differ before, during and after it?” Read alone or discuss the fictional reader. Separate observations, inferences and unknowns without exchanging personal answers, comparing means or requiring an account of someone’s experiences. Different interpretations may remain."
+        }
+      ]
+    },
+    {
+      "id": "interest-engagement-6",
+      "title": {
+        "zh": "补充读法与来源边界",
+        "en": "Additional method and source limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境和讨论提示由费马测试编辑部原创。回想过去四周相关场合的出现频率，1至5分别为从不、很少、有时、经常、几乎每次，3不是中立。35题按七个主题各五题直接计入，无反向或加权；每题作一次明确选择后结束。没有相关场合、无法判断或不愿答选NA，不补成零、从不或中点。每项需五题数值齐全才求和除以五，显示一位小数；2、3、4、2、4得3.0。一题NA只隐藏本项均分，其他完整项及七篇全文保留，全部NA也能结束。七项不相加、不排名、不选择主导类型、严重度或成因。研究仅提供主题背景，本原创题本不是IPRS或其验证短版，想象主题有意限于日常神游；未建立常模、信效度、预测或中英等值。复制仅含公开标题及入口，不含回答或均分；现有页面内存、自选24小时标签页草稿和完成、重测、退出清除保持不变。",
+          "en": "FermatMind Editorial authored these additions. Recall frequency in relevant occasions over the past four weeks: Never, Rarely, Sometimes, Often and Almost always map to 1–5; three is not neutrality. Thirty-five direct items form seven groups of five without reversal or weighting. One explicit choice per item finishes. No opportunity, uncertainty or withholding stays NA, never zero, Never or midpoint. Each mean requires all five numeric answers, sum divided by five, displayed to one decimal; 2, 3, 4, 2, 4 gives 3.0. One NA withholds only its topic’s mean; complete topics and all seven guides remain, including all-NA completion. Means are never added, ranked or used to choose a dominant type, severity or cause. Research supplies topic background only. This original bank is neither IPRS nor a validated short form; imagined scenarios deliberately covers everyday absorption only. Norms, reliability, validity, prediction and language equivalence are unestablished. Copying contains only the public title and entry, without answers or means. Existing page memory, optional 24-hour tab drafts and completion, retake and exit clearing remain unchanged."
+        }
+      ]
+    }
+  ]
+}

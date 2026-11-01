@@ -1,3 +1,4 @@
+import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -82,11 +83,11 @@ describe("T016 independent two-role meaningfulness reflection", () => {
     expect(readQuestionnaireDraft(quiz, draft("other"), now)).toBeNull(); expect(readQuestionnaireDraft(quiz, draft(quiz.version, now - 86400000), now)).toBeNull();
     expect(readQuestionnaireDraft(quiz, JSON.stringify({ version: quiz.version, savedAt: now, answers: { bad: "3" } }), now)).toBeNull();
   });
-  it("renders all ten means and45unique full sections even when all parts lack ratings", () => {
+  it("renders all ten means and60unique full sections even when all parts lack ratings", () => {
     for (const locale of ["en", "zh"] as const) for (const value of ["5", "na"]) {
       const result = scoreAffectionQuestionnaire(quiz, all(value)); if (result.status !== "complete") throw new Error("Rejected input");
-      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireAffectionReport quiz={quiz} result={result} locale={locale} />);
-      expect(dom.querySelectorAll("[data-affection-facet]")).toHaveLength(10); expect(dom.querySelectorAll("h4")).toHaveLength(45);
+      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireAffectionReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale={locale} />);
+      expect(dom.querySelectorAll("[data-affection-facet]")).toHaveLength(10); expect(dom.querySelectorAll("h4")).toHaveLength(60);
       expect(dom.querySelectorAll("[data-affection-profile]")).toHaveLength(5); expect(dom.querySelectorAll("[data-affection-insufficient]")).toHaveLength(value === "na" ? 1 : 0);
       const ids = Array.from(dom.querySelectorAll("[id]"), x => x.id); expect(new Set(ids).size).toBe(ids.length);
       if (value === "na") for (const mean of dom.querySelectorAll("[data-affection-mean]")) expect(mean.textContent).not.toMatch(/0|3\.0/);

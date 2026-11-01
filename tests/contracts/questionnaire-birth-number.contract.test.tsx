@@ -224,7 +224,7 @@ describe("one birthday calculator, two rules and twelve shared original guides",
           const params = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };
           dom.innerHTML = renderToStaticMarkup(await guide.default(params)); const metadata = await guide.generateMetadata(params);
           expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]);
-          expect(dom.querySelectorAll("[data-birth-number-guide] section > p")).toHaveLength(8);
+          expect(dom.querySelectorAll("[data-birth-number-guide] section > p")).toHaveLength(11);
           for (const section of profile.sections) expect(dom.textContent).toContain(section.paragraphs[0][locale]);
           expect(metadata.title).toBe(profile.seo.title[locale]); expect(metadata.description).toBe(profile.seo.description[locale]);
           expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}/results/${profile.id}`);

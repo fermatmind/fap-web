@@ -1,0 +1,182 @@
+{
+  "vocabulary": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：够用要写明具体需要",
+        "en": "Practise stating the need behind enough"
+      },
+      "paragraphs": [
+        {
+          "zh": "自拟情境：两人各做一张卡片，每张需一张空白纸，现有两张。在这个条件下纸够用，却不能推出有剩余或够做明天的卡片。把任务改为每人做两张，原来的两张便不够。写出需要与现有数量，再说明词义如何随语境应用；这组不计分的例子不新增词汇量估计。",
+          "en": "Use an original scenario: two people each make one card, requiring one blank sheet per card, with two sheets available. The supply meets this need without implying a surplus or enough for tomorrow. Change the task to two cards per person and the same supply no longer meets it. State need and supply before applying the meaning. These unscored examples add no vocabulary-size estimate."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：把词义与额外推测分开",
+        "en": "Review meaning separately from added predictions"
+      },
+      "paragraphs": [
+        {
+          "zh": "另写一句临时安排，把目前采用的做法、仍待核实的事项分开。允许保留原安排与日后修改两种后续，检查自己是否误把“可调整”写成“必改变”。可查词典或只观察一个例子；不要把熟悉某个词当作所有语境都掌握，也不把两种语言的正确数直接比较。",
+          "en": "Write a fresh temporary arrangement and separate the current plan from unresolved details. Allow either retaining or revising it, checking whether you replaced may change with must change. Consult a dictionary or observe one example. Familiarity with one word does not establish command of every context, and counts across the two languages are not directly comparable."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起核依据，不比赛谁更聪明",
+        "en": "Check the evidence together without ranking intelligence"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“在两个人各做一张卡片的条件下，两张纸够用；如果需求改变，应该重新核哪两个数量？”各自给出依据或一个允许情形，再对照题定关系。可只看、查资料、换例子或不回答，无需比赛、计时或当众展示作答。",
+          "en": "Ask: “If two sheets meet the need for two people making one card each, which two quantities would you check again after changing the task?” Offer evidence or a permitted case each, then check the specified relation. Observe, consult a source, change examples or decline without competition, timing or a public performance."
+        },
+        {
+          "zh": "可分享不含个人答卷与正确数的公开指南。四组是复习主题，不是智力类型、语言等级或招聘标准；不要求同伴披露错题、学习困难、私人文字或成绩。核对词义和有限推论不等于心理测量验证。",
+          "en": "Share the public guide without personal answers or correct counts. The four groups organise revision rather than intelligence types, language levels or hiring standards. Request no errors, learning difficulties, private writing or grades. Checking meanings and finite consequences is separate from psychometric validation."
+        }
+      ]
+    }
+  ],
+  "analogies": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：为同一物件写两种关系",
+        "en": "Practise two relations involving the same object"
+      },
+      "paragraphs": [
+        {
+          "zh": "自拟词对“钥匙：开锁”与“钥匙：钥匙圈”。前者按题定用途是工具到动作，后者是物件到收纳配件。若要求工具到动作，“剪刀：剪切”符合方向，“剪切：剪刀”虽有关联却反向。先把关系说成完整句，再检查新词对；这些例子不计分，也不声称钥匙只有一种用途。",
+          "en": "Use the original pairs key : unlock and key : key ring. Under the specified use, one connects a tool to an action; the other connects an object to a storage accessory. For tool to action, scissors : cut follows the direction, while cut : scissors reverses it despite the association. State the relation as a sentence before checking a new pair. These examples are unscored and do not give keys a single possible use."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：先排题目歧义，再判断关系",
+        "en": "Review ambiguity before judging the relation"
+      },
+      "paragraphs": [
+        {
+          "zh": "替一个新词对写明所需关系和方向，再造一个同向、一个反向、一个换角色的选项。逐项核对完整关系，若两项都符合，应改题而非随意判其中一个错。可由两人各提一种关系再协商题目约束；不同联想不说明谁缺乏逻辑，也不构成人格或职业适配判断。",
+          "en": "For a new pair, specify relation and direction, then make a matching choice, a reversed choice and a role-changing choice. Check the full relation against each. If two fit, revise the task rather than arbitrarily rejecting one. Two people may suggest different relations before agreeing on the constraint. Different associations establish neither poor logic nor personality or occupational fit."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起核依据，不比赛谁更聪明",
+        "en": "Check the evidence together without ranking intelligence"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：““钥匙：开锁”和“钥匙：钥匙圈”都有关联，怎样把关系说完整，解释为何只选其中一对？”各自给出依据或一个允许情形，再对照题定关系。可只看、查资料、换例子或不回答，无需比赛、计时或当众展示作答。",
+          "en": "Ask: “Key : unlock and key : key ring are both associated; how would stating the full relation explain why a particular task accepts only one?” Offer evidence or a permitted case each, then check the specified relation. Observe, consult a source, change examples or decline without competition, timing or a public performance."
+        },
+        {
+          "zh": "可分享不含个人答卷与正确数的公开指南。四组是复习主题，不是智力类型、语言等级或招聘标准；不要求同伴披露错题、学习困难、私人文字或成绩。核对词义和有限推论不等于心理测量验证。",
+          "en": "Share the public guide without personal answers or correct counts. The four groups organise revision rather than intelligence types, language levels or hiring standards. Request no errors, learning difficulties, private writing or grades. Checking meanings and finite consequences is separate from psychometric validation."
+        }
+      ]
+    }
+  ],
+  "reading": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：限定条件留在概括里",
+        "en": "Practise keeping qualifications in a summary"
+      },
+      "paragraphs": [
+        {
+          "zh": "自拟通知：露天画展周六因雨暂停，室内阅览室仍开放，画展重开日期待定。可概括为“露天画展暂停，阅览室照常开放，重开日期未知”。不能据此说全馆关闭，或保证周日恢复。分别标出暂停对象、保留开放的对象与未定信息，再给每项找原句。这不是新的计分题或真实场馆消息。",
+          "en": "Use an original notice: rain suspends the outdoor art display on Saturday; the indoor reading room remains open; a reopening date for the display is undecided. A summary can preserve all three facts. It cannot close the whole venue or guarantee reopening on Sunday. Mark what is suspended, what remains open and what is unresolved, attaching each to the notice. This is neither a new scored item nor a real venue announcement."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：未知也应保留为未知",
+        "en": "Review what the passage leaves unresolved"
+      },
+      "paragraphs": [
+        {
+          "zh": "用新的虚构短文，分列明确陈述、合理但未证的猜想和需要补充的信息。对每个概括追问是否换了对象、时间、分母或确定程度。没有依据不等于相反结论为真；可停在“原文未说明”。读过答案后的熟悉感不当阅读能力增长，练习可查资料、不计时，也无需上传真实消息。",
+          "en": "With a fresh fictional passage, separate explicit statements, plausible but unsupported guesses and missing information. For each summary, check whether subject, time, denominator or certainty changed. Lack of support does not make the opposite true; the passage may leave it unresolved. Familiarity after seeing an answer is not evidence of reading growth. Consult sources without timing or uploading real messages."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起核依据，不比赛谁更聪明",
+        "en": "Check the evidence together without ranking intelligence"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“若通知只暂停露天活动，却说阅览室仍开，怎样写一句概括而不让读者误以为整个场馆关闭？”各自给出依据或一个允许情形，再对照题定关系。可只看、查资料、换例子或不回答，无需比赛、计时或当众展示作答。",
+          "en": "Ask: “If a notice suspends an outdoor event but keeps a reading room open, how would a one-sentence summary avoid implying the entire venue is closed?” Offer evidence or a permitted case each, then check the specified relation. Observe, consult a source, change examples or decline without competition, timing or a public performance."
+        },
+        {
+          "zh": "可分享不含个人答卷与正确数的公开指南。四组是复习主题，不是智力类型、语言等级或招聘标准；不要求同伴披露错题、学习困难、私人文字或成绩。核对词义和有限推论不等于心理测量验证。",
+          "en": "Share the public guide without personal answers or correct counts. The four groups organise revision rather than intelligence types, language levels or hiring standards. Request no errors, learning difficulties, private writing or grades. Checking meanings and finite consequences is separate from psychometric validation."
+        }
+      ]
+    }
+  ],
+  "logic": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：用两个允许情形核单向规则",
+        "en": "Practise checking a one-way rule with two cases"
+      },
+      "paragraphs": [
+        {
+          "zh": "自拟前提：每个带三角标记的盒子都在架子S上；盒子K在S上。情形一让K有三角标记，情形二让K没有标记，两者都可满足前提。因此“在S上”不能确定K是否有三角标记。再把第二条改成K不在S上；此时若K有三角标记就违反第一条，所以K不能有该标记。逐条核前提，这不是现实收纳规则或新计分题。",
+          "en": "Use original premises: every triangle-marked box is on shelf S, and box K is on S. One case gives K the mark; another leaves K unmarked. Both can satisfy the premises, so being on S does not determine the mark. Replace the second premise with K is not on S: marking K would now violate the first premise, so K cannot have the mark. Check each premise. This is neither a real storage rule nor a new scored item."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：反例必须先满足所有前提",
+        "en": "Review whether a counterexample meets every premise"
+      },
+      "paragraphs": [
+        {
+          "zh": "画一个只有两三个对象的小情形，逐条勾选题设，再问结论能否为假。若先违背题设，它不能反驳题内的必然推论。找不到反例也不自动等于完成证明；可以列全一个明确有限的小系统，或暂记未核完。形式检查说明给定规则下的后果，不证明自然语言表述已独立验证，也不换算智商。",
+          "en": "Draw a small case with two or three objects, check each premise, then ask whether the conclusion can be false. A case violating a premise cannot refute entailment within the task. Failing to find a counterexample alone is not a proof: exhaust an explicitly finite system or record that checking is unfinished. Formal checks concern consequences of supplied rules, not independent validation of wording or an IQ conversion."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起核依据，不比赛谁更聪明",
+        "en": "Check the evidence together without ranking intelligence"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果所有三角标记盒都在S上，而K也在S上，能否各画一个K有标记与没标记、又都符合规则的情形？”各自给出依据或一个允许情形，再对照题定关系。可只看、查资料、换例子或不回答，无需比赛、计时或当众展示作答。",
+          "en": "Ask: “If every triangle-marked box is on S and K is on S, can you draw a marked-K case and an unmarked-K case that both satisfy the rule?” Offer evidence or a permitted case each, then check the specified relation. Observe, consult a source, change examples or decline without competition, timing or a public performance."
+        },
+        {
+          "zh": "可分享不含个人答卷与正确数的公开指南。四组是复习主题，不是智力类型、语言等级或招聘标准；不要求同伴披露错题、学习困难、私人文字或成绩。核对词义和有限推论不等于心理测量验证。",
+          "en": "Share the public guide without personal answers or correct counts. The four groups organise revision rather than intelligence types, language levels or hiring standards. Request no errors, learning difficulties, private writing or grades. Checking meanings and finite consequences is separate from psychometric validation."
+        }
+      ]
+    }
+  ]
+}

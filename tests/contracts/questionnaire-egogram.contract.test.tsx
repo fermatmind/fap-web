@@ -1,3 +1,4 @@
+import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -70,9 +71,9 @@ describe("T070 original five functional-stance frequency reflections", () => {
     for (const locale of ["en", "zh"] as const) for (const mode of ["exact9", "na", "missing-part"]) {
       const answers = all(mode === "na" ? "na" : mode === "missing-part" ? "4" : "2"); if (mode === "exact9") answers.EGO_CP_01 = "3"; if (mode === "missing-part") answers.EGO_CP_04 = "na";
       const result = scoreQuestionnaire(quiz, answers); if (result.status !== "complete" || !("facets" in result)) throw new Error("Report witness rejected");
-      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireEgogramReport quiz={quiz} result={result} locale={locale} />);
+      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireEgogramReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale={locale} />);
       const legend = dom.querySelector("[data-ego-legend]"); expect(legend).not.toBeNull(); for (const option of quiz.questions[0].options.slice(0, 5)) expect(legend?.textContent).toContain(`${option.id}${locale === "zh" ? "" : " "}${option.label[locale]}`);
-      expect(dom.querySelectorAll("[data-ego-facet]")).toHaveLength(5); expect(dom.querySelectorAll("[data-ego-profile]")).toHaveLength(5); expect(dom.querySelectorAll("h4")).toHaveLength(45);
+      expect(dom.querySelectorAll("[data-ego-facet]")).toHaveLength(5); expect(dom.querySelectorAll("[data-ego-profile]")).toHaveLength(5); expect(dom.querySelectorAll("h4")).toHaveLength(55);
       expect(dom.querySelectorAll("[data-ego-insufficient]")).toHaveLength(mode === "na" ? 5 : mode === "missing-part" ? 1 : 0); expect(dom.querySelectorAll("[data-ego-bar]")).toHaveLength(mode === "na" ? 0 : mode === "missing-part" ? 4 : 5);
       for (const direction of quiz.directions) {
         const facet = result.facets[direction.id], section = dom.querySelector(`[data-ego-facet="${direction.id}"]`)!, valid = facet.rated === 4, missing = locale === "zh" ? "资料不足" : "Insufficient information";

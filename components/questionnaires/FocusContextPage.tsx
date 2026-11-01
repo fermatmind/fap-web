@@ -5,7 +5,8 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire, QuestionnaireProfile } from "@/lib/questionnaires/types";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
+import { prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
 import { FocusContextClient } from "./FocusContextClient";
 import { FocusContextSupport } from "./FocusContextReport";
 function Library({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
@@ -38,7 +39,7 @@ export function FocusContextPage({ quiz, locale }: { quiz: Questionnaire; locale
     <FocusContextClient key={`${quiz.slug}:${locale}`} quiz={quiz} locale={locale} />
     {quiz.guide.map(s => <section key={s.id} className="my-8 space-y-4 leading-8" aria-labelledby={`focus-context-method-${s.id}`}><h2 id={`focus-context-method-${s.id}`} className="text-2xl font-semibold">{s.title[locale]}</h2>{s.paragraphs.map((p, i) => <p key={i}>{p[locale]}</p>)}</section>)}
     <ExistingExecutiveReading locale={locale} /><Library quiz={quiz} locale={locale} />
-    {quiz.profiles.map(p => <section key={p.id} id={`focus-context-public-${p.directionIds[0]}`} data-focus-context-full-guide={p.id} className="my-10 scroll-mt-24 border-t border-slate-200 pt-7"><h2 className="mb-5 text-2xl font-semibold">{p.title[locale]}</h2><QuestionnaireReport profile={p} locale={locale} headingLevel={3} idPrefix={`focus-context-public-${p.id}`} /></section>)}
+    {quiz.profiles.map(p => <section key={p.id} id={`focus-context-public-${p.directionIds[0]}`} data-focus-context-full-guide={p.id} className="my-10 scroll-mt-24 border-t border-slate-200 pt-7"><h2 className="mb-5 text-2xl font-semibold">{p.title[locale]}</h2><QuestionnaireResultReading quizSlug={quiz.slug} profile={prepareResultProfile(quiz.slug, p)} locale={locale} headingLevel={3} idPrefix={`focus-context-public-${p.id}`} /></section>)}
     <section className="my-10 space-y-5 leading-8" aria-labelledby="focus-context-faq"><h2 id="focus-context-faq" className="text-2xl font-semibold">{zh ? "常见问题" : "Frequently asked questions"}</h2>{quiz.faq.map((f, i) => <div key={i}><h3 className="font-semibold">{f.question[locale]}</h3><p className="mt-2">{f.answer[locale]}</p></div>)}</section>
     <section className="my-8" aria-labelledby="focus-context-references"><h2 id="focus-context-references" className="text-xl font-semibold">{zh ? "公开日常情境与支持背景资料" : "Public topic and support background"}</h2><ul className="mt-4 space-y-3">{quiz.references!.map(r => <li key={r.url}><a className="underline" href={r.url} rel="noopener noreferrer">{r.title[locale]}</a></li>)}</ul><p className="mt-4 leading-7">{zh ? "资料说明成年人注意相关问题的更广专业评估背景，不为本原创题组提供题目、计分键、验证、医学评估、诊断或背书。" : "These sources describe broader professional assessment of adult attention-related concerns. They do not validate this original supplement or its reading topics. They supply no items, scoring key, validation, medical assessment, diagnosis or endorsement for this original inventory."}</p></section>
     <p className="mt-8 text-sm text-slate-600">{zh ? "原创内容版本" : "Original content edition"} {quiz.version} · <time dateTime={quiz.updated}>{quiz.updated}</time></p>
@@ -51,7 +52,7 @@ export function FocusContextGuidePage({ quiz, profile, locale }: { quiz: Questio
     <Link prefetch={false} className="mb-6 inline-block min-h-11 py-2 underline" href={entry}>{quiz.title[locale]}</Link>
     <p className="font-semibold text-violet-800">{zh ? "完整公开日常情境读法" : "Complete public daily-context reading"}</p><h1 className="mt-3 text-4xl font-semibold leading-tight">{profile.title[locale]}</h1>
     <p className="my-5 leading-8">{zh ? "这是所有人都可阅读的原创主题说明，没有任何人的回答或计数。无需先答题，也不是个人结果、风险档位或诊断。" : "This original theme explanation is available to everyone without anyone’s answers or counts. No prior answers are needed. It is not a personal result, risk band or diagnosis."}</p>
-    <FocusContextSupport locale={locale} /><div data-focus-context-full-guide={profile.id}><QuestionnaireReport profile={profile} locale={locale} headingLevel={2} idPrefix="report" /></div><ExistingExecutiveReading locale={locale} /><Library quiz={quiz} locale={locale} />
+    <FocusContextSupport locale={locale} /><div data-focus-context-full-guide={profile.id}><QuestionnaireResultReading quizSlug={quiz.slug} profile={prepareResultProfile(quiz.slug, profile)} locale={locale} headingLevel={2} idPrefix="report" /></div><ExistingExecutiveReading locale={locale} /><Library quiz={quiz} locale={locale} />
     <Link prefetch={false} className="inline-block min-h-11 py-2 font-semibold underline" href={`${entry}#take-test`}>{zh ? "返回16条原创观察" : "Return to the 16 original observations"}</Link>
   </Container></main>;
 }

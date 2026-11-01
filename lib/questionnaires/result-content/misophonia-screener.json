@@ -1,0 +1,125 @@
+{
+  "overall": [
+    {
+      "id": "s4",
+      "title": {
+        "en": "Missing is not the lowest response",
+        "zh": "缺答不是最低反应"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的宁在前置题选否，按源表结束，总分显示0；乔在前置题选是，随后十八条明确选0，十条计分反应题合计0，七条影响题合计0，总分也为0。数字相同，施测路径不同：宁没有这两个分项或十八条回答，不能替宁补零，也不能从任一总分断言没有声音困难。前置选不确定或不愿回答又是另一条路径，结束但不产生数字，三份通用指南均可读。",
+          "en": "An additional original scene: Fictional Ning selects no at the initial question and ends with the source-defined total zero. Jo selects yes and explicitly chooses zero on all 18 subsequent prompts, producing symptom sum zero, impact sum zero and total zero. The number matches but administration differs: Ning has neither those subscores nor 18 answers. Do not fill them with zeros or infer no sound-related difficulty from either total. Initial unsure or decline is another path, ending without numbers. All three general guides remain readable."
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "title": {
+        "en": "Useful context beyond the number",
+        "zh": "数字之外的有用情境"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“面对同为0的两份记录，怎样先说明实际施测了什么，再讨论仍不知道什么？”可只谈上述虚构人物，把已知回答、所用规则与未知背景分开。参与者可不同意、不回答或停止，不要求公开个人分数、身体反应、诊断或他人身份；不以录音、发声或重现困扰证明谁更值得支持，也不据此给人物处方。",
+          "en": "An optional discussion prompt asks: “When two records both show zero, how can we first describe what was administered and then what remains unknown?” Discuss only the fictional readers above, separating known responses, rules and unknown context. Participants may disagree, decline or stop without disclosing personal scores, bodily reactions, diagnoses or others’ identities. No recording, sound-making or recreated distress is needed to establish whose needs deserve support, and the discussion prescribes no intervention."
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "title": {
+        "en": "Attribution, adaptation and private use",
+        "zh": "署名、改编与私人使用"
+      },
+      "paragraphs": [
+        {
+          "zh": "此处采用成人DVMSQ v1.5网页改编：一个前置问题，加最多十八条源题；不是早期二十题题池或八十六题DMQ。前置选否按源规则结束并显示总分0，其余题与分项未施测；新增不确定或不愿回答结束但不产生数字。选是后十八条都需明确选择0—4或新增不计分，空白不算完成。第1、2及4—11题十条均为数字才给反应合计0—40，第12—18题七条均为数字才给影响合计0—28；十七条均为数字才给总分0—68。第3题恐惧仅保留回答，不进任何合计；只在该题不计分不挡其他十七条总分。任何计入题不计分，都暂不给对应分项与总分，另一完整分项保留，不取均值、不显示残缺数字和、不补零。频率措辞针对接触声音时的反应，未统一设近期时段；第12—15题为过去七天，第16—18题保留未指定时段的一般影响。三份通用读法对所有分支相同，数字不生成个性化意见。不运行来源的理论性诊断算法，不假定持续时间，不分临床类型、严重分段、百分位、概率或支持资格；研究的测量证据不等于本网页与中文工作译文已验证。保留来源版权、CC BY-SA 4.0许可及改动说明，本补充也按相同许可提供，不暗示作者背书。无需播放、收集、重现声音或接受暴露，不用提供身份、录音、私人声音清单或身体描述；冲动不等于行动，任何读数都不授权控制或伤害他人。困扰、疼痛或日常困难可按实际情况寻求适当意见，不必达到数字门槛。答案与合计只留页面内存，无草稿或账户历史，按现有刷新、换语言、离开、历史恢复、清空和重测流程清除。复制仅含全部三份公开指南标题与链接；常规页面分析关闭，可选匿名动作计数需本页许可和全站分析同意。清除不会抹掉浏览器历史、截屏或旁人看屏；可以只读、不讨论或退出。",
+          "en": "This adult web adaptation uses DVMSQ v1.5: one initial question and up to 18 source prompts, distinct from the early 20-item pool or 86-item DMQ. Initial no ends with the source-defined total zero; other prompts and subscores were not administered. Added unsure or decline ends without a number. After yes, all 18 prompts need an explicit zero-to-four or added unscored choice; blank is incomplete. Ten numeric responses on items 1, 2 and 4–11 give symptom sum 0–40. Seven numeric responses on items 12–18 give impact sum 0–28. All 17 counted items must be numeric for total 0–68. Fear item 3 is retained but excluded from every sum; only leaving it unscored does not block the other 17-item total. Any counted unscored item withholds its part and total while preserving the other complete part. There is no averaging, partial numeric sum or zero imputation. Frequency wording concerns reactions on exposure without a uniform recent window. Items 12–15 concern the past seven days; 16–18 retain general-impact wording without a specified window. The same three general readings remain available on every path, with no personal opinions generated from numbers. No source theory-based diagnostic algorithm, assumed duration, clinical type, severity band, percentile, probability or support eligibility is applied. Research evidence does not validate this web adaptation or Chinese working translation. Copyright, CC BY-SA 4.0 and identified changes remain visible; these additions use the same license without author endorsement. No sound playback, collection, recreation or exposure is required, nor identities, recordings, private sound lists or bodily descriptions. An urge is not an action, and no readout authorizes controlling or harming anyone. Distress, pain or everyday difficulties warrant advice about actual needs without a numeric threshold. Answers and sums stay in page memory without drafts or account history, following existing clearing on refresh, language change, leaving, history restoration, clearing or retaking. Copying includes all three public guide titles and links only. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation. Reading alone, declining discussion or leaving is allowed."
+        }
+      ]
+    }
+  ],
+  "symptom": [
+    {
+      "id": "s4",
+      "title": {
+        "en": "Distinguish attention, urge and action",
+        "zh": "区分注意、冲动与行动"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的沐对十条计入反应题都选2，反应合计20；思也这样回答，但只把第3题恐惧从0改成4。两人的反应合计仍相同，总分也不会因这一题改变；这不是说恐惧无关紧要，单条回答仍可回看。若沐只在第3题选不计分，其他十七条均为数字，总分仍可算；若思在计入的第4题选不计分，反应合计及总分均暂不显示，完整影响组仍可显示。不计分不是0。",
+          "en": "An additional original scene: Fictional Mu chooses two on all ten counted symptom items, giving sum 20. Si does the same but changes only fear item 3 from zero to four. Their symptom sums still match, and this item changes neither total. That makes no judgment about the importance of fear; its response remains available. If Mu leaves only item 3 unscored while the other 17 items are numeric, the total remains calculable. If Si leaves counted item 4 unscored, the symptom sum and total are withheld while a complete impact part remains available. Unscored is not zero."
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "title": {
+        "en": "What a practical next step can use",
+        "zh": "实际下一步可以用什么"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样同时尊重来源的计分键与人物实际报告的恐惧，而不根据合计忽略体验或推断另一诊断？”可只谈上述虚构人物，把已知回答、所用规则与未知背景分开。参与者可不同意、不回答或停止，不要求公开个人分数、身体反应、诊断或他人身份；不以录音、发声或重现困扰证明谁更值得支持，也不据此给人物处方。",
+          "en": "An optional discussion prompt asks: “How can the source key and a person’s reported fear both be respected without overlooking experience or inferring another diagnosis from a sum?” Discuss only the fictional readers above, separating known responses, rules and unknown context. Participants may disagree, decline or stop without disclosing personal scores, bodily reactions, diagnoses or others’ identities. No recording, sound-making or recreated distress is needed to establish whose needs deserve support, and the discussion prescribes no intervention."
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "title": {
+        "en": "Use and attribution limits",
+        "zh": "使用与署名边界"
+      },
+      "paragraphs": [
+        {
+          "zh": "此处采用成人DVMSQ v1.5网页改编：一个前置问题，加最多十八条源题；不是早期二十题题池或八十六题DMQ。前置选否按源规则结束并显示总分0，其余题与分项未施测；新增不确定或不愿回答结束但不产生数字。选是后十八条都需明确选择0—4或新增不计分，空白不算完成。第1、2及4—11题十条均为数字才给反应合计0—40，第12—18题七条均为数字才给影响合计0—28；十七条均为数字才给总分0—68。第3题恐惧仅保留回答，不进任何合计；只在该题不计分不挡其他十七条总分。任何计入题不计分，都暂不给对应分项与总分，另一完整分项保留，不取均值、不显示残缺数字和、不补零。频率措辞针对接触声音时的反应，未统一设近期时段；第12—15题为过去七天，第16—18题保留未指定时段的一般影响。三份通用读法对所有分支相同，数字不生成个性化意见。不运行来源的理论性诊断算法，不假定持续时间，不分临床类型、严重分段、百分位、概率或支持资格；研究的测量证据不等于本网页与中文工作译文已验证。保留来源版权、CC BY-SA 4.0许可及改动说明，本补充也按相同许可提供，不暗示作者背书。无需播放、收集、重现声音或接受暴露，不用提供身份、录音、私人声音清单或身体描述；冲动不等于行动，任何读数都不授权控制或伤害他人。困扰、疼痛或日常困难可按实际情况寻求适当意见，不必达到数字门槛。答案与合计只留页面内存，无草稿或账户历史，按现有刷新、换语言、离开、历史恢复、清空和重测流程清除。复制仅含全部三份公开指南标题与链接；常规页面分析关闭，可选匿名动作计数需本页许可和全站分析同意。清除不会抹掉浏览器历史、截屏或旁人看屏；可以只读、不讨论或退出。",
+          "en": "This adult web adaptation uses DVMSQ v1.5: one initial question and up to 18 source prompts, distinct from the early 20-item pool or 86-item DMQ. Initial no ends with the source-defined total zero; other prompts and subscores were not administered. Added unsure or decline ends without a number. After yes, all 18 prompts need an explicit zero-to-four or added unscored choice; blank is incomplete. Ten numeric responses on items 1, 2 and 4–11 give symptom sum 0–40. Seven numeric responses on items 12–18 give impact sum 0–28. All 17 counted items must be numeric for total 0–68. Fear item 3 is retained but excluded from every sum; only leaving it unscored does not block the other 17-item total. Any counted unscored item withholds its part and total while preserving the other complete part. There is no averaging, partial numeric sum or zero imputation. Frequency wording concerns reactions on exposure without a uniform recent window. Items 12–15 concern the past seven days; 16–18 retain general-impact wording without a specified window. The same three general readings remain available on every path, with no personal opinions generated from numbers. No source theory-based diagnostic algorithm, assumed duration, clinical type, severity band, percentile, probability or support eligibility is applied. Research evidence does not validate this web adaptation or Chinese working translation. Copyright, CC BY-SA 4.0 and identified changes remain visible; these additions use the same license without author endorsement. No sound playback, collection, recreation or exposure is required, nor identities, recordings, private sound lists or bodily descriptions. An urge is not an action, and no readout authorizes controlling or harming anyone. Distress, pain or everyday difficulties warrant advice about actual needs without a numeric threshold. Answers and sums stay in page memory without drafts or account history, following existing clearing on refresh, language change, leaving, history restoration, clearing or retaking. Copying includes all three public guide titles and links only. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation. Reading alone, declining discussion or leaving is allowed."
+        }
+      ]
+    }
+  ],
+  "impairment": [
+    {
+      "id": "s4",
+      "title": {
+        "en": "No completion by filling gaps",
+        "zh": "不靠填补缺口完成数字"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的羽对七条影响题都选2，合计14；安分别选4、4、4、2、0、0、0，也合计14。前四条过去七天的干扰与后三条未指定时段的一般影响，组合显然不同。合计相同不意味着本周经历、可参加活动的机会或所需支持相同。若安把一条改成没有相关机会的新增不计分项，影响合计与总分暂不显示；这不证明困难减轻，也不需要安排一次活动来凑齐数字。",
+          "en": "An additional original scene: Fictional Yu chooses two on all seven impact items, summing to 14. An chooses 4, 4, 4, 2, 0, 0, 0, also summing to 14. Their patterns differ across four interference items about the past seven days and three general-impact items without a specified window. Equal sums establish no shared week, opportunities or support needs. If An changes one response to the added unscored choice for no relevant opportunity, the impact sum and total are withheld. That establishes no improvement and requires no activity to manufacture a number."
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "title": {
+        "en": "A conversation can start with a situation",
+        "zh": "沟通可从具体情境开始"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样在同一个影响合计之外，保留具体生活情境、不同回顾时段和没有活动机会的限制？”可只谈上述虚构人物，把已知回答、所用规则与未知背景分开。参与者可不同意、不回答或停止，不要求公开个人分数、身体反应、诊断或他人身份；不以录音、发声或重现困扰证明谁更值得支持，也不据此给人物处方。",
+          "en": "An optional discussion prompt asks: “How can concrete life contexts, different recall windows and limited opportunities remain visible beyond a shared impact sum?” Discuss only the fictional readers above, separating known responses, rules and unknown context. Participants may disagree, decline or stop without disclosing personal scores, bodily reactions, diagnoses or others’ identities. No recording, sound-making or recreated distress is needed to establish whose needs deserve support, and the discussion prescribes no intervention."
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "title": {
+        "en": "Source rights and privacy",
+        "zh": "来源权利与隐私"
+      },
+      "paragraphs": [
+        {
+          "zh": "此处采用成人DVMSQ v1.5网页改编：一个前置问题，加最多十八条源题；不是早期二十题题池或八十六题DMQ。前置选否按源规则结束并显示总分0，其余题与分项未施测；新增不确定或不愿回答结束但不产生数字。选是后十八条都需明确选择0—4或新增不计分，空白不算完成。第1、2及4—11题十条均为数字才给反应合计0—40，第12—18题七条均为数字才给影响合计0—28；十七条均为数字才给总分0—68。第3题恐惧仅保留回答，不进任何合计；只在该题不计分不挡其他十七条总分。任何计入题不计分，都暂不给对应分项与总分，另一完整分项保留，不取均值、不显示残缺数字和、不补零。频率措辞针对接触声音时的反应，未统一设近期时段；第12—15题为过去七天，第16—18题保留未指定时段的一般影响。三份通用读法对所有分支相同，数字不生成个性化意见。不运行来源的理论性诊断算法，不假定持续时间，不分临床类型、严重分段、百分位、概率或支持资格；研究的测量证据不等于本网页与中文工作译文已验证。保留来源版权、CC BY-SA 4.0许可及改动说明，本补充也按相同许可提供，不暗示作者背书。无需播放、收集、重现声音或接受暴露，不用提供身份、录音、私人声音清单或身体描述；冲动不等于行动，任何读数都不授权控制或伤害他人。困扰、疼痛或日常困难可按实际情况寻求适当意见，不必达到数字门槛。答案与合计只留页面内存，无草稿或账户历史，按现有刷新、换语言、离开、历史恢复、清空和重测流程清除。复制仅含全部三份公开指南标题与链接；常规页面分析关闭，可选匿名动作计数需本页许可和全站分析同意。清除不会抹掉浏览器历史、截屏或旁人看屏；可以只读、不讨论或退出。",
+          "en": "This adult web adaptation uses DVMSQ v1.5: one initial question and up to 18 source prompts, distinct from the early 20-item pool or 86-item DMQ. Initial no ends with the source-defined total zero; other prompts and subscores were not administered. Added unsure or decline ends without a number. After yes, all 18 prompts need an explicit zero-to-four or added unscored choice; blank is incomplete. Ten numeric responses on items 1, 2 and 4–11 give symptom sum 0–40. Seven numeric responses on items 12–18 give impact sum 0–28. All 17 counted items must be numeric for total 0–68. Fear item 3 is retained but excluded from every sum; only leaving it unscored does not block the other 17-item total. Any counted unscored item withholds its part and total while preserving the other complete part. There is no averaging, partial numeric sum or zero imputation. Frequency wording concerns reactions on exposure without a uniform recent window. Items 12–15 concern the past seven days; 16–18 retain general-impact wording without a specified window. The same three general readings remain available on every path, with no personal opinions generated from numbers. No source theory-based diagnostic algorithm, assumed duration, clinical type, severity band, percentile, probability or support eligibility is applied. Research evidence does not validate this web adaptation or Chinese working translation. Copyright, CC BY-SA 4.0 and identified changes remain visible; these additions use the same license without author endorsement. No sound playback, collection, recreation or exposure is required, nor identities, recordings, private sound lists or bodily descriptions. An urge is not an action, and no readout authorizes controlling or harming anyone. Distress, pain or everyday difficulties warrant advice about actual needs without a numeric threshold. Answers and sums stay in page memory without drafts or account history, following existing clearing on refresh, language change, leaving, history restoration, clearing or retaking. Copying includes all three public guide titles and links only. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation. Reading alone, declining discussion or leaving is allowed."
+        }
+      ]
+    }
+  ]
+}

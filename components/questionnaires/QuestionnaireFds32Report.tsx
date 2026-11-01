@@ -1,13 +1,13 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { QuestionnaireFds32Attribution } from "./QuestionnaireFds32Attribution";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
 import type { Locale } from "@/lib/i18n/locales";
 
-export function QuestionnaireFds32Report({ quiz, result, answers, locale }: {
-  quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; answers: QuestionnaireAnswers; locale: Locale;
+export function QuestionnaireFds32Report({ quiz, result, answers, locale, readingProfiles }: {
+  quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; answers: QuestionnaireAnswers; locale: Locale; readingProfiles?: Questionnaire["profiles"];
 }) {
   const zh = locale === "zh";
   return <div className="mt-6 space-y-8" data-fds-report="">
@@ -21,9 +21,11 @@ export function QuestionnaireFds32Report({ quiz, result, answers, locale }: {
     })}</section>
     <details className="rounded-lg border border-slate-200 p-4 leading-8"><summary className="cursor-pointer font-semibold">{zh ? "回看32题回答" : "Revisit all 32 responses"}</summary><ol className="mt-4 list-decimal space-y-4 pl-5">{quiz.questions.map(q => <li key={q.id} data-fds-answer={q.id}><p>{q.prompt[locale]}</p><p className="font-semibold">{q.options.find(o => o.id === answers[q.id])?.label[locale]}</p></li>)}</ol></details>
     <QuestionnaireFds32Attribution locale={locale} />
-    {quiz.profiles.map(profile => <section key={profile.id} aria-labelledby={`fds-guide-${profile.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6" data-fds-full={profile.id}>
-      <h3 id={`fds-guide-${profile.id}`} className="text-2xl font-semibold">{profile.title[locale]}</h3><QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix="report" />
+    {quiz.profiles.map(profile => {
+      const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === 1 && item.directionIds[0] === profile.directionIds[0] && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
+      return <section key={profile.id} aria-labelledby={`fds-guide-${profile.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6" data-fds-full={profile.id}>
+      <h3 id={`fds-guide-${profile.id}`} className="text-2xl font-semibold">{profile.title[locale]}</h3><QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix="report" />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读不含个人数值的公开完整指南" : "Read the complete public guide without personal values"}</Link>
-    </section>)}
+    </section>; })}
   </div>;
 }

@@ -5,7 +5,8 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire, QuestionnaireProfile } from "@/lib/questionnaires/types";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
+import { prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
 import { SpatialContextClient } from "./SpatialContextClient";
 import { SpatialContextSupport } from "./SpatialContextReport";
 function Library({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
@@ -29,7 +30,7 @@ export function SpatialContextPage({ quiz, locale }: { quiz: Questionnaire; loca
     <SpatialContextClient key={`${quiz.slug}:${locale}`} quiz={quiz} locale={locale} />
     {quiz.guide.map(s => <section key={s.id} className="my-8 space-y-4 leading-8" aria-labelledby={`spatial-context-method-${s.id}`}><h2 id={`spatial-context-method-${s.id}`} className="text-2xl font-semibold">{s.title[locale]}</h2>{s.paragraphs.map((p, i) => <p key={i}>{p[locale]}</p>)}</section>)}
     <SeparateResources locale={locale} /><Library quiz={quiz} locale={locale} />
-    {quiz.profiles.map(p => <section key={p.id} id={`spatial-context-public-${p.directionIds[0]}`} data-spatial-context-full-guide={p.id} className="my-10 scroll-mt-24 border-t border-slate-200 pt-7"><h2 className="mb-5 text-2xl font-semibold">{p.title[locale]}</h2><QuestionnaireReport profile={p} locale={locale} headingLevel={3} idPrefix={`spatial-context-public-${p.id}`} /></section>)}
+    {quiz.profiles.map(p => <section key={p.id} id={`spatial-context-public-${p.directionIds[0]}`} data-spatial-context-full-guide={p.id} className="my-10 scroll-mt-24 border-t border-slate-200 pt-7"><h2 className="mb-5 text-2xl font-semibold">{p.title[locale]}</h2><QuestionnaireResultReading quizSlug={quiz.slug} profile={prepareResultProfile(quiz.slug, p)} locale={locale} headingLevel={3} idPrefix={`spatial-context-public-${p.id}`} /></section>)}
     <section className="my-10 space-y-5 leading-8" aria-labelledby="spatial-context-faq"><h2 id="spatial-context-faq" className="text-2xl font-semibold">{zh ? "常见问题" : "Frequently asked questions"}</h2>{quiz.faq.map((f, i) => <div key={i}><h3 className="font-semibold">{f.question[locale]}</h3><p className="mt-2">{f.answer[locale]}</p></div>)}</section>
     <section className="my-8" aria-labelledby="spatial-context-references"><h2 id="spatial-context-references" className="text-xl font-semibold">{zh ? "参考研究：任务方法区别" : "Reference: task-method background"}</h2><ul className="mt-4 space-y-3">{quiz.references!.map(r => <li key={r.url}><a className="underline" href={r.url} rel="noopener noreferrer">{r.title[locale]}</a></li>)}</ul><p className="mt-4 leading-7">{zh ? "引用的研究摘要用于区分计时判断与回忆描述，不为本原创题本提供刺激材料、题目、计分、常模或验证。" : "The cited research abstract distinguishes timed judgments from recollections. It supplies no stimuli, items, scoring, norms or validation for these original prompts."}</p></section>
     <p className="mt-8 text-sm text-slate-600">{zh ? "原创内容版本" : "Original content edition"} {quiz.version} · <time dateTime={quiz.updated}>{quiz.updated}</time></p>
@@ -42,7 +43,7 @@ export function SpatialContextGuidePage({ quiz, profile, locale }: { quiz: Quest
     <Link prefetch={false} className="mb-6 inline-block min-h-11 py-2 underline" href={entry}>{quiz.title[locale]}</Link>
     <p className="font-semibold text-violet-800">{zh ? "完整公开空间思考指南" : "Complete public spatial-thinking guide"}</p><h1 className="mt-3 text-4xl font-semibold leading-tight">{profile.title[locale]}</h1>
     <p className="my-5 leading-8">{zh ? "这是一篇对所有人公开的原创回顾指南，不含个人回答或计数。无需先答题，也不提供正确率、能力级别或固定思考风格。" : "This original recollection guide is public and contains no one’s answers or counts. No prior answers are needed; it provides no correctness score, ability level or fixed thinking style."}</p>
-    <SpatialContextSupport locale={locale} /><div data-spatial-context-full-guide={profile.id}><QuestionnaireReport profile={profile} locale={locale} headingLevel={2} idPrefix="report" /></div><SeparateResources locale={locale} /><Library quiz={quiz} locale={locale} />
+    <SpatialContextSupport locale={locale} /><div data-spatial-context-full-guide={profile.id}><QuestionnaireResultReading quizSlug={quiz.slug} profile={prepareResultProfile(quiz.slug, profile)} locale={locale} headingLevel={2} idPrefix="report" /></div><SeparateResources locale={locale} /><Library quiz={quiz} locale={locale} />
     <Link prefetch={false} className="inline-block min-h-11 py-2 font-semibold underline" href={`${entry}#take-test`}>{zh ? "返回四条原创描述" : "Return to the four original descriptions"}</Link>
   </Container></main>;
 }

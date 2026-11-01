@@ -1,0 +1,66 @@
+{
+  "standards-reading": [
+    {
+      "id": "3",
+      "title": {
+        "zh": "具体任务情境",
+        "en": "A specific task scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者准备一张读书会桌牌，希望名字准确、远处能读清，也希望纸张颜色协调。另一个人同样认同高要求，却把准确和易读作为这次的完成条件，把配色留到有时间再选。四题标准回答可以相近，当前取舍仍不同。均值不能替你决定哪项检查必要、某次润色是否值得，或任务是否已经完成；先说明桌牌要给谁用、何时使用及已有约定，再谈自己的期待。",
+          "en": "In an additional original scene, two readers want accurate names, readable text and coordinated colours on a book-club place card. One makes accuracy and readability the completion conditions and leaves colour for available time. Similar Standards responses can accompany different task choices. A mean decides neither necessary checks nor whether a refinement is worthwhile or the task complete. Name the audience, timing and agreement before discussing expectations."
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "讨论卡可分“本次必须满足的要求”“我额外喜欢的细节”“确认后可以停止的条件”。只用虚构桌牌即可；不要求一律降低期待，也不让朋友凭均值判断你勤奋、拖延或适合什么工作。",
+          "en": "For an invented place card, distinguish required features, preferred extras and a checkable stopping condition. No blanket reduction in expectations is required, and friends need not infer diligence, procrastination or career fit from a mean."
+        },
+        {
+          "zh": "新增情境和讨论卡为费马编辑部原创，与Rice及同事的SAPS陈述区分，可只读或私人使用，不是治疗安排或效果承诺。原八题、七级同意程度、两组各四题和无反向键保持不变；八题均有效后分别求和与取均值，不合成第三指标。中文工作译稿与独立网页施测尚未建立本地效度或跨语言等价。两份完整指南作答前即可阅读，公开说明和分享不包含个人回答、总和或均值。",
+          "en": "These additional scenes and cards are original FermatMind Editorial material, separate from Rice and colleagues’ SAPS statements. Reading or private use is optional, without treatment or outcome claims. The eight items, seven agreement anchors, two four-item groups and absence of reverse keys stay intact. All eight valid responses are required for separate sums and means, without a third combined measure. Working Chinese and standalone web administration lack established local validity or language equivalence. Both full guides are available before answering; public guides and sharing contain no personal responses, sums or means."
+        }
+      ]
+    }
+  ],
+  "discrepancy-reading": [
+    {
+      "id": "3",
+      "title": {
+        "zh": "具体任务情境",
+        "en": "A specific task scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者做完一张路线图后仍觉得不满意。核对时发现一个转弯标注需要补上，另外几处只是与自己设想的样子不同。另一个人也可能有相近的差距均值，却想到完全不同的任务。失望、可核对的遗漏与个人偏好不必混成同一结论；量表不能判断路线图实际是否可用，也不能决定他人的反馈更正确。可以保留感受，同时把下一项修正说具体。",
+          "en": "In an additional original scene, a reader remains dissatisfied with a route map. Checking reveals one missing turn marker and other details that merely differ from the imagined design. Another reader with a similar Discrepancy mean may recall a different task. Disappointment, a checkable omission and a preference need not become one conclusion. The scale decides neither usability nor whose feedback is correct. Keep the feeling visible while naming a particular correction."
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "讨论卡可写“我觉得不够的地方”“能核对的要求或证据”“现在想处理的一项变化”。用虚构路线图，不必证明自己应该满意，也不把差距均值当作失败大小或请别人给个人价值打分。",
+          "en": "For an invented route map, name what feels insufficient, a requirement or evidence that can be checked and one change to consider. There is no need to prove you should be satisfied or treat the mean as failure size or personal worth."
+        },
+        {
+          "zh": "新增情境和讨论卡为费马编辑部原创，与Rice及同事的SAPS陈述区分，可只读或私人使用，不是治疗安排或效果承诺。原八题、七级同意程度、两组各四题和无反向键保持不变；八题均有效后分别求和与取均值，不合成第三指标。中文工作译稿与独立网页施测尚未建立本地效度或跨语言等价。两份完整指南作答前即可阅读，公开说明和分享不包含个人回答、总和或均值。",
+          "en": "These additional scenes and cards are original FermatMind Editorial material, separate from Rice and colleagues’ SAPS statements. Reading or private use is optional, without treatment or outcome claims. The eight items, seven agreement anchors, two four-item groups and absence of reverse keys stay intact. All eight valid responses are required for separate sums and means, without a third combined measure. Working Chinese and standalone web administration lack established local validity or language equivalence. Both full guides are available before answering; public guides and sharing contain no personal responses, sums or means."
+        }
+      ]
+    }
+  ]
+}

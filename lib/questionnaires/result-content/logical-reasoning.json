@@ -1,0 +1,182 @@
+{
+  "quantifiers": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：沿同一个存在对象走一步",
+        "en": "Practise following the same existing object"
+      },
+      "paragraphs": [
+        {
+          "zh": "新设虚构筹码规则：所有有压印的筹码都有标签，且至少一枚绿色筹码有压印。取这枚绿色压印筹码，它必有标签，因此至少一枚绿色筹码有标签。不能把“至少一枚”扩成“所有绿色都如此”，也不能倒转为“有标签就有压印”。另放一枚有标签但没压印的筹码，并不违背第一条。",
+          "en": "Use fresh fictional token rules: every embossed token is tagged, and at least one green token is embossed. That same green embossed token must be tagged, so at least one green token is tagged. This neither makes all green tokens tagged nor reverses tagged into embossed. Adding a tagged token without embossing can still satisfy the first rule."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：先找存在来自哪里，再核全称方向",
+        "en": "Review existence before the direction of inclusion"
+      },
+      "paragraphs": [
+        {
+          "zh": "先圈出题目明确给的至少一个对象，再记录它沿哪条包含或排斥规则移动。若只有全称规则，就不要自动补出该类对象存在。对诱人的“所有”选项，尝试另放一个仍满足前提的反例；找不到时也要逐条说明依据，不把直觉当证明。这是新练习，不加题分或换算智商。",
+          "en": "Mark the object whose existence is given, then trace the inclusion or exclusion it follows. A universal rule alone does not supply an object in its subject category. For a tempting all claim, try another object that preserves the premises while breaking it. Still explain each step rather than treating intuition as proof. This fresh practice adds no score or IQ conversion."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起找依据，不比赛谁更聪明",
+        "en": "Check the premises together without ranking intelligence"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“绿色压印筹码为什么能证明“至少一枚绿色有标签”，却不能证明所有绿色或所有有标签筹码的情况？”各写一个步骤或相容情形，再逐条核原前提。可只看、查资料、换例子或不答；不需计时比赛、展示真实工作判断或个人正确数。",
+          "en": "Ask: “Why does the green embossed token establish at least one green tagged token without settling every green or every tagged token?” Write a step or permitted case each, then check every original premise. Observe, consult a source, change examples or decline without racing, showing workplace decisions or comparing personal correct counts."
+        },
+        {
+          "zh": "可分享不含答卷与正确数的公开指南。四组是复习主题，不是智力类型、LSAT成绩或招聘资格。有限枚举核对编码后的特定结论，不等于心理测量验证，也不能替真实情境补前提。",
+          "en": "Share the public guide without answers or correct counts. Four groups organise revision rather than intelligence types, LSAT results or hiring qualifications. Finite enumeration checks encoded consequences, not psychometric validity, and supplies no missing premises for an actual situation."
+        }
+      ]
+    }
+  ],
+  "conditions": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：后件成立时写两个相容情形",
+        "en": "Practise two permitted cases with a true consequent"
+      },
+      "paragraphs": [
+        {
+          "zh": "新规则只有“若卡片有印戳P，则贴签Q”，另知Q为真。情形一P真、Q真，情形二P假、Q真，都符合规则与已知事实；所以P仍无法确定。若另把事实改成Q假，规则才排除P真。不要把单向规则改成只有这一种贴签途径，也不要从未贴签直接猜卡片损坏。",
+          "en": "The only new rule is that a stamped card P is tagged Q, and Q is given true. Both P true with Q true and P false with Q true satisfy the rule and fact, leaving P undetermined. Replacing the fact with Q false would rule out P true. Do not silently make stamping the only route to a tag or infer damage from an absent tag."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：区分无法确定、必真与必假",
+        "en": "Review undetermined, forced true and forced false"
+      },
+      "paragraphs": [
+        {
+          "zh": "把每个前提分别写出，再核自己构造的情形是否全部满足。只有保住所有前提的情形才能用于检验结论。无法确定需要允许结论真、假两种情形，不是说结论必假或前提矛盾。可以列一个小真值表，只改一条事实再核；这不评判断速度，也不推现实系统的可靠性。",
+          "en": "Write each premise and check that every proposed case satisfies them all. Only a premise-preserving case can test the conclusion. Undetermined permits both true and false cases; it means neither forced false nor inconsistent premises. Use a small truth table and change one fact before checking again. This assesses neither speed nor a real system’s reliability."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起找依据，不比赛谁更聪明",
+        "en": "Check the premises together without ranking intelligence"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“已知贴签Q为真时，怎样各写一个P真与P假的情形，让两者都不违反P推出Q？”各写一个步骤或相容情形，再逐条核原前提。可只看、查资料、换例子或不答；不需计时比赛、展示真实工作判断或个人正确数。",
+          "en": "Ask: “With Q true, how would you write a P-true case and a P-false case that both preserve P implies Q?” Write a step or permitted case each, then check every original premise. Observe, consult a source, change examples or decline without racing, showing workplace decisions or comparing personal correct counts."
+        },
+        {
+          "zh": "可分享不含答卷与正确数的公开指南。四组是复习主题，不是智力类型、LSAT成绩或招聘资格。有限枚举核对编码后的特定结论，不等于心理测量验证，也不能替真实情境补前提。",
+          "en": "Share the public guide without answers or correct counts. Four groups organise revision rather than intelligence types, LSAT results or hiring qualifications. Finite enumeration checks encoded consequences, not psychometric validity, and supplies no missing premises for an actual situation."
+        }
+      ]
+    }
+  ],
+  "deduction": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：合取规则要保留两个条件",
+        "en": "Practise retaining both parts of a conjunction"
+      },
+      "paragraphs": [
+        {
+          "zh": "新虚构规则：“圆灯P与方灯Q都亮时，铃R响”，另知P亮。Q不亮时，R响或不响都可以满足给定前提，所以仅P亮不强迫R。若再明确Q也亮，才满足P且Q并推出R。把新得到的事实写在支持它的规则旁，不用“有一盏亮”替代“两盏都亮”。",
+          "en": "Use a fresh fictional rule: if round light P and square light Q are both on, bell R sounds. P alone is given on. With Q off, either R sounding or silent fits those premises, so P alone does not force R. Adding Q on satisfies the full conjunction and forces R. Put each derived fact beside its supporting rule rather than substituting one light for both."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：找推理链最先缺依据的一步",
+        "en": "Review the first unsupported step in a chain"
+      },
+      "paragraphs": [
+        {
+          "zh": "逐行区分已给事实、已推出事实与仍待满足的条件。用一条规则时，逐个核它需要的全部条件；若缺一项，先保留未知，不自行补成真。否定结论也只排除指定状态，不自动指向另一个具体原因或替代项。可用新字母重写同一关系，说明结构而不背答案顺序。",
+          "en": "Separate given facts, derived facts and unmet conditions line by line. Check every requirement before using a rule; a missing condition remains unknown rather than becoming true by assumption. A negative conclusion excludes its stated condition without automatically identifying a cause or alternative. Rewrite with fresh letters to explain structure instead of memorising answers."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起找依据，不比赛谁更聪明",
+        "en": "Check the premises together without ranking intelligence"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“只有圆灯亮时，为什么不能省掉方灯条件？补上方灯亮之后，推理链新增了哪一步？”各写一个步骤或相容情形，再逐条核原前提。可只看、查资料、换例子或不答；不需计时比赛、展示真实工作判断或个人正确数。",
+          "en": "Ask: “Why cannot the square-light condition be omitted when only the round light is on, and what new step becomes available when it is added?” Write a step or permitted case each, then check every original premise. Observe, consult a source, change examples or decline without racing, showing workplace decisions or comparing personal correct counts."
+        },
+        {
+          "zh": "可分享不含答卷与正确数的公开指南。四组是复习主题，不是智力类型、LSAT成绩或招聘资格。有限枚举核对编码后的特定结论，不等于心理测量验证，也不能替真实情境补前提。",
+          "en": "Share the public guide without answers or correct counts. Four groups organise revision rather than intelligence types, LSAT results or hiring qualifications. Finite enumeration checks encoded consequences, not psychometric validity, and supplies no missing premises for an actual situation."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：只改相邻条件，比较完整排列",
+        "en": "Practise changing adjacency while keeping the other rules"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例A、B、C、D各占1至4号位一次，C固定第4。若A在B前，合法排列是A–B–D–C、A–D–B–C、D–A–B–C三种；若仅把该条件改成A紧挨B之前，则只保留第一与第三种。A–D–B–C的A仍在B前，却不相邻。写全清单与每位一个，才可按同一条件比较。",
+          "en": "In a fresh example, A, B, C and D occupy slots one to four once each, with C fourth. A before B permits A–B–D–C, A–D–B–C and D–A–B–C. Changing only that rule to A immediately before B retains the first and third. A–D–B–C preserves before but not adjacency. Keep the complete inventory and one-per-slot rule when comparing."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：一个可行排列只证明可能",
+        "en": "Review what one permitted arrangement establishes"
+      },
+      "paragraphs": [
+        {
+          "zh": "先列所有对象与位置，逐条检查每个候选排列。问题若问必然，要核其他合法排列能否改变所问位置，不能只找到一例就结束。改变线索后，从其余原限制重新核对，不悄悄加入唯一解假设。位置先后也不确定时间长短、距离或规划能力；本例是有限纸上排列练习。",
+          "en": "List all objects and slots, then check every candidate against each clue. For a must question, test whether another permitted arrangement changes the queried position; one example establishes only possibility. After editing a clue, recheck the remaining restrictions without assuming uniqueness. Order establishes neither duration, distance nor planning skill. This is finite paper practice."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起找依据，不比赛谁更聪明",
+        "en": "Check the premises together without ranking intelligence"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“A–D–B–C为什么满足A在B前，却不满足紧挨之前？删掉哪一种限制会让允许的排列增多？”各写一个步骤或相容情形，再逐条核原前提。可只看、查资料、换例子或不答；不需计时比赛、展示真实工作判断或个人正确数。",
+          "en": "Ask: “Why does A–D–B–C meet before but not immediately before, and which weakened restriction permits more arrangements?” Write a step or permitted case each, then check every original premise. Observe, consult a source, change examples or decline without racing, showing workplace decisions or comparing personal correct counts."
+        },
+        {
+          "zh": "可分享不含答卷与正确数的公开指南。四组是复习主题，不是智力类型、LSAT成绩或招聘资格。有限枚举核对编码后的特定结论，不等于心理测量验证，也不能替真实情境补前提。",
+          "en": "Share the public guide without answers or correct counts. Four groups organise revision rather than intelligence types, LSAT results or hiring qualifications. Finite enumeration checks encoded consequences, not psychometric validity, and supplies no missing premises for an actual situation."
+        }
+      ]
+    }
+  ]
+}

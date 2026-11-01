@@ -1,0 +1,43 @@
+{
+  "compassion-reading": [
+    {
+      "id": "care-that-fits",
+      "title": {
+        "en": "Ask what kind of care would fit",
+        "zh": "先问哪一种帮助合适"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的小组活动中，一位朋友因交通延误晚到。你注意到对方少说话，可以先问是否需要了解刚才的安排，或想稍后再加入，而不是宣布“我知道你很难过”。如果对方只需要一份活动说明，帮助可以限定在找到那份说明；不必把关心扩展成替对方处理整天的安排。关怀意愿、推测的感受、被请求的行动和实际完成，是四条不同信息，十题原始总分不会替你核实后三条。",
+          "en": "In an additional original scene, someone arrives late at an invented group activity after a travel delay. You notice less talking. Ask whether they need the earlier instructions or prefer joining later, rather than declaring how they feel. If they want only the instructions, help can stay within finding them instead of managing the rest of their day. Willingness, an inferred feeling, a requested action and its completion are separate information. The ten-item raw total verifies none of the latter three."
+        }
+      ]
+    },
+    {
+      "id": "same-total-different-patterns",
+      "title": {
+        "en": "Compare patterns rather than ranking people",
+        "zh": "比较回答含义，不给别人排座次"
+      },
+      "paragraphs": [
+        {
+          "zh": "可单独分享一张虚构讨论卡，不附个人分数：“看见的是晚到与少说话；我猜测的是失落；对方明确请求的是活动说明；我实际提供的是……。”问“哪一栏仍需要确认？”比问“谁更有同理心”更能定位下一步。对方愿意谈的内容可以不同，也可以不谈；同一份公开指南不要求双方答题、交换答案或解释私人原因。",
+          "en": "Share an invented discussion card without a score: “Observed: late arrival and less talking. Inferred: disappointment. Requested: activity instructions. Provided: ….” Ask which entry still needs checking. This identifies a next question without ranking empathy. What someone wishes to discuss may differ, including nothing. A public guide requires no paired testing, exchanged answers or explanation of private reasons."
+        }
+      ]
+    },
+    {
+      "id": "one-small-observation",
+      "title": {
+        "en": "Try one small, observable conversation step",
+        "zh": "选择一个看得见的小尝试"
+      },
+      "paragraphs": [
+        {
+          "zh": "也可以只在私人草稿把上述卡片补完，标出一项可询问的未知，以及自己真实可提供的范围；若没有合适的帮助，就保留空白，不编一个承诺。无需实际联系任何人，也不把观察变成提分任务。原有十条IPIP英文与五道反向键保持不变，中文仍为工作译文；十题数字完整才给一个总分，NA不补低分。新增案例是费马编辑素材，不验证中文、建立常模或增加任何同理心分量表。",
+          "en": "Alternatively complete the card privately with one unknown that could be asked about and the help actually within your capacity. Leave the offer blank when none fits; invent no promise. Contact nobody or pursue no higher score for the exercise. The ten original IPIP English statements and five reverse keys stay intact, and Chinese remains a working translation. Ten numeric answers are needed for one total; NA receives no low-score filling. These FermatMind examples validate no Chinese wording, create no norms and add no empathy subscale."
+        }
+      ]
+    }
+  ]
+}

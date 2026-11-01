@@ -1,3 +1,4 @@
+import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync, readdirSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -87,7 +88,7 @@ describe("T064 original five-part interpersonal habits accuracy reflection", () 
     ["1", "2", "3", "3"].forEach((v, i) => { answers[part[i].id] = v; });
     const scored = scoreQuestionnaire(quiz, answers); if (scored.status !== "complete" || !("facets" in scored)) throw new Error("Rejected exact witness");
     expect(scored.facets["unchecked-retelling"].sum).toBe(9); expect(scored.facets["unchecked-retelling"].mean).toBe(2.3);
-    const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireHabitsReport quiz={quiz} result={scored} locale="en" />);
+    const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireHabitsReport quiz={prepareQuestionnaireResultReadings(quiz)} result={scored} locale="en" />);
     expect(dom.querySelector('[data-habits-facet="unchecked-retelling"] [data-habits-mean]')?.textContent).toBe("2.25 / 5");
     expect(dom.querySelector('[data-habits-facet="comparison-turns"] [data-habits-mean]')?.textContent).toBe("3.00 / 5");
     for (const group of dom.querySelectorAll("dl > div")) { expect(group.querySelector("dt")).not.toBeNull(); expect(group.querySelector("dd")).not.toBeNull(); }
@@ -107,11 +108,11 @@ describe("T064 original five-part interpersonal habits accuracy reflection", () 
     const now = 1000000000, draft = (version = quiz.version, savedAt = now) => JSON.stringify({ version, savedAt, answers: all() });
     expect(readQuestionnaireDraft(quiz, draft(), now)).toEqual(all()); expect(readQuestionnaireDraft(quiz, draft("other"), now)).toBeNull(); expect(readQuestionnaireDraft(quiz, draft(quiz.version, now - 86400000), now)).toBeNull();
   });
-  it("uses its own5part report, all45unique full sections, explicit NA and no social-battery interpretation", () => {
+  it("uses its own5part report, all55unique full sections, explicit NA and no social-battery interpretation", () => {
     for (const locale of ["en", "zh"] as const) for (const value of ["5", "na"]) {
       const result = scoreQuestionnaire(quiz, all(value)); if (result.status !== "complete" || !("facets" in result)) throw new Error("Rejected input");
-      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireHabitsReport quiz={quiz} result={result} locale={locale} />);
-      expect(dom.querySelectorAll("[data-habits-facet]")).toHaveLength(5); expect(dom.querySelectorAll("h4")).toHaveLength(45); expect(dom.querySelectorAll("[data-habits-profile]")).toHaveLength(5);
+      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireHabitsReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale={locale} />);
+      expect(dom.querySelectorAll("[data-habits-facet]")).toHaveLength(5); expect(dom.querySelectorAll("h4")).toHaveLength(55); expect(dom.querySelectorAll("[data-habits-profile]")).toHaveLength(5);
       expect(dom.querySelectorAll("[data-habits-insufficient]")).toHaveLength(value === "na" ? 1 : 0);
       const ids = Array.from(dom.querySelectorAll("[id]"), x => x.id); expect(new Set(ids).size).toBe(ids.length);
       expect(dom.textContent).not.toMatch(/battery|quiet recovery|coordination load|社交电量|安静恢复|learning effectiveness|format preferences|学习效果|PPS item/);

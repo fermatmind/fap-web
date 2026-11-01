@@ -1,3 +1,4 @@
+import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -59,20 +60,20 @@ describe("T069 public-domain IPIP-VIA-R four-item social-understanding focus", (
     const draft = { version: quiz.version, savedAt: 123456, answers: all() }; expect(readQuestionnaireDraft(quiz, JSON.stringify(draft), 123457)).toEqual(draft.answers); expect(readQuestionnaireDraft(quiz, JSON.stringify(draft), 123456 + 86400000)).toBeNull();
   });
 
-  it("shows raw totals first and exact two-decimal means, retaining all nine sections with NA", () => {
+  it("shows raw totals first and exact two-decimal means, retaining all eleven sections with NA", () => {
     for (const locale of ["en", "zh"] as const) for (const value of ["1", "5", "na", "exact9"]) {
       const answers = all(value === "exact9" ? "2" : value); if (value === "exact9") answers.IPIPVIA_SOC_1 = "3";
       const result = scoreQuestionnaire(quiz, answers); if (result.status !== "complete" || !("facets" in result)) throw new Error("Rejected report witness");
-      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireSocialReport quiz={quiz} result={result} locale={locale} />);
+      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireSocialReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale={locale} />);
       const missing = locale === "zh" ? "资料不足" : "Insufficient information";
-      expect(dom.querySelectorAll("[data-social-facet]")).toHaveLength(1); expect(dom.querySelectorAll("[data-social-profile]")).toHaveLength(1); expect(dom.querySelectorAll("h4")).toHaveLength(9);
+      expect(dom.querySelectorAll("[data-social-facet]")).toHaveLength(1); expect(dom.querySelectorAll("[data-social-profile]")).toHaveLength(1); expect(dom.querySelectorAll("h4")).toHaveLength(11);
       expect(dom.querySelectorAll("[data-social-insufficient]")).toHaveLength(value === "na" ? 1 : 0);
       expect(dom.querySelector("[data-social-total]")?.textContent).toBe(value === "na" ? missing : value === "exact9" ? "9" : String(Number(value) * 4));
       expect(dom.querySelector("[data-social-mean]")?.textContent).toBe(value === "na" ? missing : value === "exact9" ? "2.25 / 5" : `${value}.00 / 5`);
       const count = dom.querySelector("[data-social-rated]"); expect(count?.tagName).toBe("DD"); expect(count?.parentElement?.querySelector("dt")?.textContent).toBe(locale === "zh" ? "本次有效条目" : "Ratings supplied"); expect(count?.textContent).toContain(`${value === "na" ? 0 : 4} / 4`);
       for (const group of Array.from(dom.querySelectorAll("dl > div"))) { expect(group.querySelector("dt")).not.toBeNull(); expect(group.querySelector("dd")).not.toBeNull(); }
       const ids = Array.from(dom.querySelectorAll("[id]"), e => e.id); expect(new Set(ids).size).toBe(ids.length); expect(dom.querySelector("[data-locus-facet], [data-facet-score]")).toBeNull();
-      for (const section of quiz.profiles[0].sections) for (const paragraph of section.paragraphs) expect(dom.textContent).toContain(paragraph[locale]);
+      for (const section of prepareQuestionnaireResultReadings(quiz).profiles[0].sections) for (const paragraph of section.paragraphs) expect(dom.textContent).toContain(paragraph[locale]);
     }
   });
 
@@ -82,7 +83,7 @@ describe("T069 public-domain IPIP-VIA-R four-item social-understanding focus", (
       const path = `/${locale}/tests/explore/${slug}`, props = { params: Promise.resolve({ locale, slug }) }, html = renderToStaticMarkup(await entry.default(props)), meta = await entry.generateMetadata(props);
       expect(meta.title).toBe(quiz.seoTitle[locale]); expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(html).toContain(locale === "zh" ? "IPIP-VIA-R四条自述" : "Four IPIP-VIA-R self-reports"); expect(html).toContain(locale === "zh" ? "完整连续读法" : "Read the full continuum"); expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);
       const profile = quiz.profiles[0], publicPath = `${path}/results/${profile.id}`, guideProps = { params: Promise.resolve({ locale, slug, profile: profile.id }) }, dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(await guide.default(guideProps)); const metadata = await guide.generateMetadata(guideProps);
-      expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]); for (const section of profile.sections) for (const paragraph of section.paragraphs) expect(dom.textContent).toContain(paragraph[locale]);
+      expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]); for (const section of prepareQuestionnaireResultReadings(quiz).profiles[0].sections) for (const paragraph of section.paragraphs) expect(dom.textContent).toContain(paragraph[locale]);
       expect(metadata.title).toBe(profile.seo!.title[locale]); expect(metadata.description).toBe(profile.seo!.description[locale]); expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${publicPath}`); expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/${slug}/results/${profile.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/${slug}/results/${profile.id}` }); expect(maps.some(e => e.loc === `https://fermatmind.com${publicPath}`)).toBe(true); expect(dom.querySelector("[data-social-total]")).toBeNull(); if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);
     } } finally { vi.unstubAllEnvs(); vi.resetModules(); }
   });

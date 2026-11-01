@@ -1,3 +1,4 @@
+import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -78,22 +79,22 @@ describe("T074 owned original Dark Triad thematic preview", () => {
     console.info("273 independent facet witnesses, not all 6^18 joint answer paths or psychometric validation.");
   });
 
-  it("shows exact sum/count means and all 27 full sections, retaining partial groups and valid all-skipped attempts", () => {
+  it("shows exact sum/count means and all 33 full sections, retaining partial groups and valid all-skipped attempts", () => {
     const answers = skipped();
     const values = [["1", "2", "3", "3", "na", "na"], ["1", "1", "1", "1", "1", "5"], ["5", "5", "5", "na", "na", "na"]];
     quiz.directions.forEach((d, i) => quiz.questions.filter(q => q.options[0].directionId === d.id).forEach((q, j) => { answers[q.id] = values[i][j]; }));
     const result = scoreLikertQuestionnaire(quiz, answers); if (result.status !== "complete") throw new Error("Witness rejected");
     expect(result.facets[quiz.directions[0].id].mean).toBe(2.3);
-    const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireDarkTriadReport quiz={quiz} result={result} locale="en" />);
+    const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireDarkTriadReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale="en" />);
     const groups = dom.querySelectorAll("[data-dtt-facet]");
     expect(groups[0].querySelector("[data-dtt-mean]")?.textContent).toBe("2.25 / 5");
     expect(groups[0].querySelector("[data-dtt-sum]")?.textContent).toContain("9 / 4");
     expect(groups[1].querySelector("[data-dtt-mean]")?.textContent).toBe("1.67 / 5");
     expect(groups[2].querySelector("[data-dtt-mean]")?.textContent).toBe("Insufficient information");
-    expect(groups[2].querySelector("[data-dtt-sum]")).toBeNull(); expect(dom.querySelectorAll("h4")).toHaveLength(27);
+    expect(groups[2].querySelector("[data-dtt-sum]")).toBeNull(); expect(dom.querySelectorAll("h4")).toHaveLength(33);
     const ids = Array.from(dom.querySelectorAll("[id]"), e => e.id); expect(new Set(ids).size).toBe(ids.length);
     const allNA = scoreLikertQuestionnaire(quiz, skipped()); if (allNA.status !== "complete") throw new Error("Valid skip rejected");
-    const html = renderToStaticMarkup(<QuestionnaireDarkTriadReport quiz={quiz} result={allNA} locale="zh" />);
+    const html = renderToStaticMarkup(<QuestionnaireDarkTriadReport quiz={prepareQuestionnaireResultReadings(quiz)} result={allNA} locale="zh" />);
     expect(html).toContain("没有生成个人均分"); expect(html).not.toContain("data-dtt-sum");
     const partial = skipped(); delete partial.DTT_018;
     expect(scoreLikertQuestionnaire(quiz, partial)).toEqual({ status: "incomplete", answered: 17 });
@@ -127,7 +128,7 @@ describe("T074 owned original Dark Triad thematic preview", () => {
           const publicPath = `${path}/results/${profile.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };
           const rendered = renderToStaticMarkup(await guide.default(props)), meta = await guide.generateMetadata(props), dom = document.createElement("div"); dom.innerHTML = rendered;
           expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]);
-          for (const section of profile.sections) {
+          for (const section of prepareQuestionnaireResultReadings(quiz).profiles.find(p => p.id === profile.id)!.sections) {
             expect(dom.querySelector(`#report-${section.id} h2`)?.textContent).toBe(section.title[locale]);
             for (const paragraph of section.paragraphs) expect(dom.textContent).toContain(paragraph[locale]);
           }

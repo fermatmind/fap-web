@@ -85,8 +85,8 @@ describe("Original health worry observation categories, never a clinical score",
     for (const locale of ["en", "zh"] as const) {
       const html = renderToStaticMarkup(<HealthWorryPage quiz={quiz} locale={locale} />);
       expect((html.match(/data-health-worry-full-guide=/g) ?? [])).toHaveLength(3);
-      expect(html).not.toContain("data-health-worry-result");
       const dom = document.createElement("div"); dom.innerHTML = html;
+      expect(dom.querySelector("[data-health-worry-result]")).toBeNull();
       expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(true);
       for (const p of quiz.profiles) {
         const guide = renderToStaticMarkup(<HealthWorryGuidePage quiz={quiz} profile={p} locale={locale} />);

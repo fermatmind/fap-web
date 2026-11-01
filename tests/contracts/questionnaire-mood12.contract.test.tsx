@@ -88,8 +88,8 @@ describe("Original recent-mood context observation categories, never a clinical 
     for (const locale of ["en", "zh"] as const) {
       const html = renderToStaticMarkup(<RecentMoodPage quiz={quiz} locale={locale} />);
       expect((html.match(/data-recent-mood-full-guide=/g) ?? [])).toHaveLength(3);
-      expect(html).not.toContain("data-recent-mood-result");
       const dom = document.createElement("div"); dom.innerHTML = html;
+      expect(dom.querySelector("[data-recent-mood-result]")).toBeNull();
       expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(true);
       for (const p of quiz.profiles) {
         const guide = renderToStaticMarkup(<RecentMoodGuidePage quiz={quiz} profile={p} locale={locale} />);

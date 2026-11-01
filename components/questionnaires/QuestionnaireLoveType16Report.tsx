@@ -3,9 +3,9 @@ import type { Questionnaire } from "@/lib/questionnaires/types";
 import { LOVE_TYPE16_AXES, type LoveType16Result } from "@/lib/questionnaires/loveType16";
 import type { Locale } from "@/lib/i18n/locales";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
-export function QuestionnaireLoveType16Report({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<LoveType16Result, { status: "complete" }>; locale: Locale }) {
+export function QuestionnaireLoveType16Report({ quiz, result, locale, readingProfiles }: { quiz: Questionnaire; readingProfiles?: Questionnaire["profiles"]; result: Extract<LoveType16Result, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh";
   return <div className="my-6 space-y-8" data-love-type16-result>
     <p className="leading-8">{zh ? "四轴分别计次，两侧合为8；不合总分、不跨轴排名。次数只描述本题本的选择，不是人格占比、爱意或伴侣成功概率。4:4保留两侧，展示全部兼容组合；显示顺序不是排名。" : "Each axis is counted separately and its two sides sum to eight. There is no overall total or ranking across axes. Counts describe this bank’s choices, not a share of personality, love, or couple success probability. A 4:4 tie keeps both sides; every compatible combination is shown, without ranking."}</p>
@@ -26,9 +26,10 @@ export function QuestionnaireLoveType16Report({ quiz, result, locale }: { quiz: 
     </section>
     {result.compatibleProfileIds.map(id => {
       const profile = quiz.profiles.find(p => p.id === id)!;
+      const readingProfile = readingProfiles?.find(p => p.id === id && p.resultReading?.quizSlug === quiz.slug && p.resultReading.profileId === id) ?? profile;
       return <section key={id} id={`love-type16-${id}`} data-love-profile={id} className="scroll-mt-24 rounded-lg border border-slate-200 p-4 sm:p-6">
         <h3 className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`love-type16-${id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`love-type16-${id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "本组合的公开完整指南" : "This combination’s complete public guide"}</Link>
       </section>;
     })}

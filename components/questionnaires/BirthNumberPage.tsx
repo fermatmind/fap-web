@@ -1,3 +1,4 @@
+import { prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -18,7 +19,7 @@ export function BirthNumberPage({ quiz, locale }: { quiz: BirthNumberQuestionnai
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
     <p className="mt-5 text-lg leading-8 text-slate-700">{quiz.description[locale]}</p>
     <p className="mt-5 leading-8">{quiz.introduction[locale]}</p><p className="mt-3 text-sm leading-7 text-slate-600">{quiz.instructions![locale]}</p>
-    <BirthNumberClient quiz={quiz} locale={locale} />
+    <BirthNumberClient quiz={quiz} readingProfiles={quiz.profiles.map(profile => ({ ...profile, ...prepareResultProfile(quiz.slug, profile) }))} locale={locale} />
     <section className="my-8 space-y-5 leading-8" aria-labelledby="birth-number-method"><h2 id="birth-number-method" className="text-2xl font-semibold">{zh ? "运算、读法与隐私" : "Calculation, interpretation and privacy"}</h2>{quiz.guide.map(section => <section key={section.id}><h3 className="font-semibold">{section.title[locale]}</h3>{section.paragraphs.map((paragraph, index) => <p className="mt-2" key={index}>{paragraph[locale]}</p>)}</section>)}</section>
     <BirthNumberAttribution quiz={quiz} locale={locale} />
     <section className="my-8" aria-labelledby="birth-number-public-guides"><h2 id="birth-number-public-guides" className="text-2xl font-semibold">{zh ? "十二篇完整公开指南" : "Twelve complete public guides"}</h2><ul className="mt-5 space-y-4">{quiz.profiles.map(profile => <li key={profile.id} className="rounded-lg border border-slate-200 bg-white p-5"><Link prefetch={false} className="text-lg font-semibold underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{profile.title[locale]}</Link><p className="mt-3 leading-7">{profile.summary[locale]}</p></li>)}</ul></section>
@@ -36,7 +37,7 @@ export function BirthNumberGuidePage({ quiz, profile, locale }: { quiz: BirthNum
     <p className="text-sm font-semibold text-violet-800">{zh ? "原创符号故事 · 完整读法免费" : "Original symbolic story · Full guide, free"}</p>
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{profile.title[locale]}</h1>
     <p className="my-5 leading-8 text-slate-600">{zh ? "本篇公开指南不需要生日。运算规则说明标签怎样产生，故事、情境与问题由费马原创，不据此推断人格或未来。" : "This public guide needs no birth date. The rule explains how a label is produced; FermatMind wrote the story, scenes and questions without inferring personality or the future."}</p>
-    <BirthNumberGuideBody profile={profile} locale={locale} headingLevel={2} idPrefix={`birth-public-${profile.id}`} />
+    <BirthNumberGuideBody profile={{ ...profile, ...prepareResultProfile(quiz.slug, profile) }} locale={locale} headingLevel={2} idPrefix={`birth-public-${profile.id}`} />
     <BirthNumberAttribution quiz={quiz} locale={locale} />
     <Link prefetch={false} className="my-5 inline-block min-h-11 py-2 font-semibold underline" href={entry}>{zh ? "查看两种规则并计算" : "See both rules and calculate"}</Link>
     <nav aria-label={zh ? "其他符号指南" : "Other symbolic guides"}><ul className="space-y-3">{quiz.profiles.filter(item => item.id !== profile.id).map(item => <li key={item.id}><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, item.id)}>{item.title[locale]}</Link></li>)}</ul></nav>

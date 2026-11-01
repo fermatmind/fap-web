@@ -1,0 +1,330 @@
+{
+  "animal-flesh": [
+    {
+      "id": "animal-flesh-scenario",
+      "title": {
+        "en": "A specific contrast within the part",
+        "zh": "本部分内部的具体对照"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的岑与乔只读同一套四题：岑选1、1、5、5，乔选3、3、3、3。两组都为12÷4＝3.0，但岑对前两题与后两题的回答差异更大。记录没有问两人吃不吃肉，也没有问伦理、宗教或健康背景。把两人叫作同一种肉食者，会把未询问的事情加进结果。",
+          "en": "An additional original scene: Fictional Cen and Jo read only the same four prompts: Cen chooses 1, 1, 5, 5 and Jo chooses 3, 3, 3, 3. Both give 12 ÷ 4 = 3.0, but Cen shows a sharper difference between the first and last two responses. Neither record asks whether they eat meat or about ethical, religious or health circumstances. Calling them the same kind of meat eater adds information that was never requested."
+        }
+      ]
+    },
+    {
+      "id": "animal-flesh-action",
+      "title": {
+        "en": "An optional way to reflect",
+        "zh": "可选的回看方式"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“相同均值保留了什么，又丢掉了哪些题间差别？”可以只谈上面的虚构记录，区分题文、已选数字与尚未知的信息；允许不同理解、不回答或结束，不要求报出自己的均值、饮食方式、健康情况或他人经历。不需要拿食物来演示、接触或品尝，也不以讨论要求任何人改变饮食。",
+          "en": "An optional discussion prompt asks: “What does the shared mean retain, and which item differences does it lose?” Discuss only the fictional records above, distinguishing wording, selected numbers and unknown information. Different readings, no answer or ending are allowed, without personal means, eating practices, health details or anyone else’s experiences. No food demonstration, contact or tasting is needed, and discussion does not require anyone to change their eating."
+        }
+      ]
+    },
+    {
+      "id": "animal-flesh-source",
+      "title": {
+        "en": "Source, edition and attribution",
+        "zh": "来源、版本与署名"
+      },
+      "paragraphs": [
+        {
+          "zh": "本线上版本的边界：32题都需明确选1至6或不评分，空白尚未完成；1为完全不恶心，6为非常恶心，2至5没有额外文字标签，也没有规定回忆时段。本组4题全部为数字才显示原始和÷4、保留一位小数的均值；有不评分时仍可看到已评数字和与项数，但不对剩余题取平均，零项数字显示“—”。八组题数依次为4、5、4、4、4、4、4、3，无反向题、总体分、短版分或按最高组派型。全不评分也保留八份通用完整指南；它们不是由个人数值生成的建议。英文来自发表补充表二，本版用论文1至6端点而非西文表五点，中文为工作译文；原研究未验证这些线上改编、缺项规则、取一位小数展示和新增解释，不能据此推断跨语言等值或个人常模。回答与结果留在浏览器，可选草稿在当前标签页最多24小时，完成、退出并清除或重测会清除；复制仅含公开测试标题与入口，不含数值或答案，也不指定这八篇中的某一篇为你的类型。设备与截屏隐私仍需自行判断，可以直接退出。",
+          "en": "This online edition requires an explicit 1–6 or unscored response to all 32 prompts; blank is unfinished. One means not disgusting at all, six very disgusting, and two through five have no extra verbal labels. No recall period is prescribed. Only all 4 numeric responses in this part yield the sum divided by 4, rounded to one decimal. With unscored responses, the numeric sum and count remain visible but the remaining items are not averaged; zero numeric responses display a dash. Part lengths are 4, 5, 4, 4, 4, 4, 4, 3. There are no reversed items, overall score, short-form score or highest-part type. Even all-unscored responses retain all eight general full guides, which are not recommendations generated from personal values. English comes from published Supplementary Table 2, using the article’s 1–6 endpoints rather than the Spanish table’s five points; Chinese is a working translation. Source research does not validate these online adaptations, missingness rule, rounding display or added readings, or establish language equivalence or personal norms. Responses and results remain in the browser. Optional progress lasts up to 24 hours in this tab and clears on completion, exit-and-clear or retake. Copying includes only the public test title and entry, without values, answers or assigning one of these eight guides as your type. Device and screenshot privacy still need your own judgment; leaving is available."
+        }
+      ]
+    }
+  ],
+  "poor-hygiene": [
+    {
+      "id": "poor-hygiene-scenario",
+      "title": {
+        "en": "Not every item has to feel the same",
+        "zh": "每道题不必有同样感受"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的洛在五道卫生题中选2、3、4、5、6，显示20÷5＝4.0；岚选2、3、4、5、不评分，显示数字原始和14、4／5项，均值不计算。不能拿14除以4，或把不评分补成6来制造相同结果；五题完整性条件没有满足。两份记录都没有观察真实厨师、餐馆或个人卫生。",
+          "en": "An additional original scene: Fictional Lo chooses 2, 3, 4, 5, 6 for the five hygiene items, displaying 20 ÷ 5 = 4.0. Lan chooses 2, 3, 4, 5, unscored: numeric sum 14, coverage 4 / 5 and no mean. Dividing 14 by four or filling the unscored response with six would manufacture a result outside the complete-five-item rule. Neither record observes a real cook, restaurant or personal hygiene."
+        }
+      ]
+    },
+    {
+      "id": "poor-hygiene-action",
+      "title": {
+        "en": "Review a statement without an exposure task",
+        "zh": "回看题文，不做暴露任务"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“为什么已有数字原始和，仍不能给这组均值或评价某个人？”可以只谈上面的虚构记录，区分题文、已选数字与尚未知的信息；允许不同理解、不回答或结束，不要求报出自己的均值、饮食方式、健康情况或他人经历。不需要拿食物来演示、接触或品尝，也不以讨论要求任何人改变饮食。",
+          "en": "An optional discussion prompt asks: “Why can a numeric sum be present while the part mean and a judgment about a person remain unavailable?” Discuss only the fictional records above, distinguishing wording, selected numbers and unknown information. Different readings, no answer or ending are allowed, without personal means, eating practices, health details or anyone else’s experiences. No food demonstration, contact or tasting is needed, and discussion does not require anyone to change their eating."
+        }
+      ]
+    },
+    {
+      "id": "poor-hygiene-source",
+      "title": {
+        "en": "Source, edition and attribution",
+        "zh": "来源、版本与署名"
+      },
+      "paragraphs": [
+        {
+          "zh": "本线上版本的边界：32题都需明确选1至6或不评分，空白尚未完成；1为完全不恶心，6为非常恶心，2至5没有额外文字标签，也没有规定回忆时段。本组5题全部为数字才显示原始和÷5、保留一位小数的均值；有不评分时仍可看到已评数字和与项数，但不对剩余题取平均，零项数字显示“—”。八组题数依次为4、5、4、4、4、4、4、3，无反向题、总体分、短版分或按最高组派型。全不评分也保留八份通用完整指南；它们不是由个人数值生成的建议。英文来自发表补充表二，本版用论文1至6端点而非西文表五点，中文为工作译文；原研究未验证这些线上改编、缺项规则、取一位小数展示和新增解释，不能据此推断跨语言等值或个人常模。回答与结果留在浏览器，可选草稿在当前标签页最多24小时，完成、退出并清除或重测会清除；复制仅含公开测试标题与入口，不含数值或答案，也不指定这八篇中的某一篇为你的类型。设备与截屏隐私仍需自行判断，可以直接退出。",
+          "en": "This online edition requires an explicit 1–6 or unscored response to all 32 prompts; blank is unfinished. One means not disgusting at all, six very disgusting, and two through five have no extra verbal labels. No recall period is prescribed. Only all 5 numeric responses in this part yield the sum divided by 5, rounded to one decimal. With unscored responses, the numeric sum and count remain visible but the remaining items are not averaged; zero numeric responses display a dash. Part lengths are 4, 5, 4, 4, 4, 4, 4, 3. There are no reversed items, overall score, short-form score or highest-part type. Even all-unscored responses retain all eight general full guides, which are not recommendations generated from personal values. English comes from published Supplementary Table 2, using the article’s 1–6 endpoints rather than the Spanish table’s five points; Chinese is a working translation. Source research does not validate these online adaptations, missingness rule, rounding display or added readings, or establish language equivalence or personal norms. Responses and results remain in the browser. Optional progress lasts up to 24 hours in this tab and clears on completion, exit-and-clear or retake. Copying includes only the public test title and entry, without values, answers or assigning one of these eight guides as your type. Device and screenshot privacy still need your own judgment; leaving is available."
+        }
+      ]
+    }
+  ],
+  "human-contamination": [
+    {
+      "id": "human-contamination-scenario",
+      "title": {
+        "en": "A familiar friend and a barely known neighbor",
+        "zh": "熟悉朋友与不太熟悉的邻居"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的宁对邻居送食物、朋友咬面包、共用杯子、熟人碰食物依次选1、5、5、1，均值3.0；羽选3、3、3、3，也为3.0。宁的题间差异更明显，却不能据此推断宁不信任朋友，或羽愿意接受所有共食安排。没有一道题询问实际同意、拒绝或某次关系中的约定。",
+          "en": "An additional original scene: Fictional Ning chooses 1, 5, 5, 1 for food from a neighbor, bitten bread, a shared glass and touched food; the mean is 3.0. Yu chooses 3, 3, 3, 3, also 3.0. Ning has stronger item differences, but this does not establish distrust of friends or that Yu accepts every shared-food arrangement. No item asks about actual consent, refusal or an agreement in a particular relationship."
+        }
+      ]
+    },
+    {
+      "id": "human-contamination-action",
+      "title": {
+        "en": "Reflect without involving another person",
+        "zh": "回看不需要让他人参与"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样描述自己对题文的反应，同时不给别人贴“被污染”或“不可信”的标签？”可以只谈上面的虚构记录，区分题文、已选数字与尚未知的信息；允许不同理解、不回答或结束，不要求报出自己的均值、饮食方式、健康情况或他人经历。不需要拿食物来演示、接触或品尝，也不以讨论要求任何人改变饮食。",
+          "en": "An optional discussion prompt asks: “How can a response to the wording be described without calling another person contaminated or untrustworthy?” Discuss only the fictional records above, distinguishing wording, selected numbers and unknown information. Different readings, no answer or ending are allowed, without personal means, eating practices, health details or anyone else’s experiences. No food demonstration, contact or tasting is needed, and discussion does not require anyone to change their eating."
+        }
+      ]
+    },
+    {
+      "id": "human-contamination-source",
+      "title": {
+        "en": "Source, edition and attribution",
+        "zh": "来源、版本与署名"
+      },
+      "paragraphs": [
+        {
+          "zh": "本线上版本的边界：32题都需明确选1至6或不评分，空白尚未完成；1为完全不恶心，6为非常恶心，2至5没有额外文字标签，也没有规定回忆时段。本组4题全部为数字才显示原始和÷4、保留一位小数的均值；有不评分时仍可看到已评数字和与项数，但不对剩余题取平均，零项数字显示“—”。八组题数依次为4、5、4、4、4、4、4、3，无反向题、总体分、短版分或按最高组派型。全不评分也保留八份通用完整指南；它们不是由个人数值生成的建议。英文来自发表补充表二，本版用论文1至6端点而非西文表五点，中文为工作译文；原研究未验证这些线上改编、缺项规则、取一位小数展示和新增解释，不能据此推断跨语言等值或个人常模。回答与结果留在浏览器，可选草稿在当前标签页最多24小时，完成、退出并清除或重测会清除；复制仅含公开测试标题与入口，不含数值或答案，也不指定这八篇中的某一篇为你的类型。设备与截屏隐私仍需自行判断，可以直接退出。",
+          "en": "This online edition requires an explicit 1–6 or unscored response to all 32 prompts; blank is unfinished. One means not disgusting at all, six very disgusting, and two through five have no extra verbal labels. No recall period is prescribed. Only all 4 numeric responses in this part yield the sum divided by 4, rounded to one decimal. With unscored responses, the numeric sum and count remain visible but the remaining items are not averaged; zero numeric responses display a dash. Part lengths are 4, 5, 4, 4, 4, 4, 4, 3. There are no reversed items, overall score, short-form score or highest-part type. Even all-unscored responses retain all eight general full guides, which are not recommendations generated from personal values. English comes from published Supplementary Table 2, using the article’s 1–6 endpoints rather than the Spanish table’s five points; Chinese is a working translation. Source research does not validate these online adaptations, missingness rule, rounding display or added readings, or establish language equivalence or personal norms. Responses and results remain in the browser. Optional progress lasts up to 24 hours in this tab and clears on completion, exit-and-clear or retake. Copying includes only the public test title and entry, without values, answers or assigning one of these eight guides as your type. Device and screenshot privacy still need your own judgment; leaving is available."
+        }
+      ]
+    }
+  ],
+  "mold": [
+    {
+      "id": "mold-scenario",
+      "title": {
+        "en": "Different objects can evoke different reactions",
+        "zh": "不同对象可能引起不同反应"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的沐对番茄、面包、硬质奶酪、果酱四题选2、4、5、6，17÷4＝4.25，显示4.3；思选2、4、5、不评分，显示和11、3／4项而不给均值。页面不会用11÷3替代完整四题平均，也不判断现实中的去霉方法。4.3不是污染程度、食用许可或某次食物判断的正确率。",
+          "en": "An additional original scene: Fictional Mu chooses 2, 4, 5, 6 for the tomato, bread, hard-cheese and marmalade prompts: 17 ÷ 4 = 4.25, displayed as 4.3. Si chooses 2, 4, 5, unscored, displaying sum 11, coverage 3 / 4 and no mean. The page does not substitute 11 ÷ 3 for the complete four-item average or evaluate a real mold-removal method. The 4.3 is no contamination level, permission to eat or accuracy rate for a food judgment."
+        }
+      ]
+    },
+    {
+      "id": "mold-action",
+      "title": {
+        "en": "A reading-only comparison is enough",
+        "zh": "只读对照就足够"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“哪部分只是算术，哪部分关于真实食物的结论仍完全未知？”可以只谈上面的虚构记录，区分题文、已选数字与尚未知的信息；允许不同理解、不回答或结束，不要求报出自己的均值、饮食方式、健康情况或他人经历。不需要拿食物来演示、接触或品尝，也不以讨论要求任何人改变饮食。",
+          "en": "An optional discussion prompt asks: “Which part is arithmetic, and which conclusions about real food remain entirely unknown?” Discuss only the fictional records above, distinguishing wording, selected numbers and unknown information. Different readings, no answer or ending are allowed, without personal means, eating practices, health details or anyone else’s experiences. No food demonstration, contact or tasting is needed, and discussion does not require anyone to change their eating."
+        }
+      ]
+    },
+    {
+      "id": "mold-source",
+      "title": {
+        "en": "Source, edition and attribution",
+        "zh": "来源、版本与署名"
+      },
+      "paragraphs": [
+        {
+          "zh": "本线上版本的边界：32题都需明确选1至6或不评分，空白尚未完成；1为完全不恶心，6为非常恶心，2至5没有额外文字标签，也没有规定回忆时段。本组4题全部为数字才显示原始和÷4、保留一位小数的均值；有不评分时仍可看到已评数字和与项数，但不对剩余题取平均，零项数字显示“—”。八组题数依次为4、5、4、4、4、4、4、3，无反向题、总体分、短版分或按最高组派型。全不评分也保留八份通用完整指南；它们不是由个人数值生成的建议。英文来自发表补充表二，本版用论文1至6端点而非西文表五点，中文为工作译文；原研究未验证这些线上改编、缺项规则、取一位小数展示和新增解释，不能据此推断跨语言等值或个人常模。回答与结果留在浏览器，可选草稿在当前标签页最多24小时，完成、退出并清除或重测会清除；复制仅含公开测试标题与入口，不含数值或答案，也不指定这八篇中的某一篇为你的类型。设备与截屏隐私仍需自行判断，可以直接退出。",
+          "en": "This online edition requires an explicit 1–6 or unscored response to all 32 prompts; blank is unfinished. One means not disgusting at all, six very disgusting, and two through five have no extra verbal labels. No recall period is prescribed. Only all 4 numeric responses in this part yield the sum divided by 4, rounded to one decimal. With unscored responses, the numeric sum and count remain visible but the remaining items are not averaged; zero numeric responses display a dash. Part lengths are 4, 5, 4, 4, 4, 4, 4, 3. There are no reversed items, overall score, short-form score or highest-part type. Even all-unscored responses retain all eight general full guides, which are not recommendations generated from personal values. English comes from published Supplementary Table 2, using the article’s 1–6 endpoints rather than the Spanish table’s five points; Chinese is a working translation. Source research does not validate these online adaptations, missingness rule, rounding display or added readings, or establish language equivalence or personal norms. Responses and results remain in the browser. Optional progress lasts up to 24 hours in this tab and clears on completion, exit-and-clear or retake. Copying includes only the public test title and entry, without values, answers or assigning one of these eight guides as your type. Device and screenshot privacy still need your own judgment; leaving is available."
+        }
+      ]
+    }
+  ],
+  "decaying-fruit": [
+    {
+      "id": "decaying-fruit-scenario",
+      "title": {
+        "en": "Appearance and imagined texture may differ",
+        "zh": "外观与想象口感可以不同"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的安对过熟水果、香蕉黑斑、水果压痕、苹果片褐变依次选1、1、6、6，贝选3、3、4、4，两组均值均为3.5。第一组对题文的回答更分化，但两组都不说明水果摄入量、是否浪费或营养是否足够。源分组名称不能替实际水果作新鲜度鉴定。",
+          "en": "An additional original scene: Fictional An chooses 1, 1, 6, 6 for overripe fruit, banana spots, fruit pressure marks and browned apple slices. Bei chooses 3, 3, 4, 4; both means are 3.5. The first record differentiates the wording more sharply, but neither reports fruit intake, waste or nutritional adequacy. The source category name cannot inspect the freshness of actual fruit."
+        }
+      ]
+    },
+    {
+      "id": "decaying-fruit-action",
+      "title": {
+        "en": "Use the words for optional reflection",
+        "zh": "可自愿围绕题意回看"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“同为3.5时，为什么仍要回到具体题目，而不能推断日常饮食？”可以只谈上面的虚构记录，区分题文、已选数字与尚未知的信息；允许不同理解、不回答或结束，不要求报出自己的均值、饮食方式、健康情况或他人经历。不需要拿食物来演示、接触或品尝，也不以讨论要求任何人改变饮食。",
+          "en": "An optional discussion prompt asks: “With the same 3.5, why return to individual items instead of inferring everyday eating?” Discuss only the fictional records above, distinguishing wording, selected numbers and unknown information. Different readings, no answer or ending are allowed, without personal means, eating practices, health details or anyone else’s experiences. No food demonstration, contact or tasting is needed, and discussion does not require anyone to change their eating."
+        }
+      ]
+    },
+    {
+      "id": "decaying-fruit-source",
+      "title": {
+        "en": "Source, edition and attribution",
+        "zh": "来源、版本与署名"
+      },
+      "paragraphs": [
+        {
+          "zh": "本线上版本的边界：32题都需明确选1至6或不评分，空白尚未完成；1为完全不恶心，6为非常恶心，2至5没有额外文字标签，也没有规定回忆时段。本组4题全部为数字才显示原始和÷4、保留一位小数的均值；有不评分时仍可看到已评数字和与项数，但不对剩余题取平均，零项数字显示“—”。八组题数依次为4、5、4、4、4、4、4、3，无反向题、总体分、短版分或按最高组派型。全不评分也保留八份通用完整指南；它们不是由个人数值生成的建议。英文来自发表补充表二，本版用论文1至6端点而非西文表五点，中文为工作译文；原研究未验证这些线上改编、缺项规则、取一位小数展示和新增解释，不能据此推断跨语言等值或个人常模。回答与结果留在浏览器，可选草稿在当前标签页最多24小时，完成、退出并清除或重测会清除；复制仅含公开测试标题与入口，不含数值或答案，也不指定这八篇中的某一篇为你的类型。设备与截屏隐私仍需自行判断，可以直接退出。",
+          "en": "This online edition requires an explicit 1–6 or unscored response to all 32 prompts; blank is unfinished. One means not disgusting at all, six very disgusting, and two through five have no extra verbal labels. No recall period is prescribed. Only all 4 numeric responses in this part yield the sum divided by 4, rounded to one decimal. With unscored responses, the numeric sum and count remain visible but the remaining items are not averaged; zero numeric responses display a dash. Part lengths are 4, 5, 4, 4, 4, 4, 4, 3. There are no reversed items, overall score, short-form score or highest-part type. Even all-unscored responses retain all eight general full guides, which are not recommendations generated from personal values. English comes from published Supplementary Table 2, using the article’s 1–6 endpoints rather than the Spanish table’s five points; Chinese is a working translation. Source research does not validate these online adaptations, missingness rule, rounding display or added readings, or establish language equivalence or personal norms. Responses and results remain in the browser. Optional progress lasts up to 24 hours in this tab and clears on completion, exit-and-clear or retake. Copying includes only the public test title and entry, without values, answers or assigning one of these eight guides as your type. Device and screenshot privacy still need your own judgment; leaving is available."
+        }
+      ]
+    }
+  ],
+  "fish": [
+    {
+      "id": "fish-scenario",
+      "title": {
+        "en": "Appearance, smell and texture can diverge",
+        "zh": "外观、气味与口感可以分离"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的澄对整鱼外观、生鱼、鱼店气味、鱼肉口感依次选1、1、5、5，苏选四个3，两组均值都是3.0。澄的记录区分了前两种与后两种题文，但没有说明原因；苏的相同评分也不证明每天的感官体验一致。不能从这四项确定谁吃鱼更多、是否过敏或某种烹调是否适合。",
+          "en": "An additional original scene: Fictional Cheng chooses 1, 1, 5, 5 for a whole fish, raw fish, fish-shop smell and fish texture; Su chooses four threes. Both means are 3.0. Cheng differentiates the first two from the last two prompts without giving a reason; Su’s equal ratings do not establish identical sensory experiences every day. These four responses cannot determine who eats more fish, an allergy or the suitability of a preparation."
+        }
+      ]
+    },
+    {
+      "id": "fish-action",
+      "title": {
+        "en": "A comparison without sensory testing",
+        "zh": "无需感官尝试的对照"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“哪些视觉、气味或口感细节已写在题文里，哪些原因其实没有被询问？”可以只谈上面的虚构记录，区分题文、已选数字与尚未知的信息；允许不同理解、不回答或结束，不要求报出自己的均值、饮食方式、健康情况或他人经历。不需要拿食物来演示、接触或品尝，也不以讨论要求任何人改变饮食。",
+          "en": "An optional discussion prompt asks: “Which sight, smell or texture details are stated, and which possible reasons were never asked about?” Discuss only the fictional records above, distinguishing wording, selected numbers and unknown information. Different readings, no answer or ending are allowed, without personal means, eating practices, health details or anyone else’s experiences. No food demonstration, contact or tasting is needed, and discussion does not require anyone to change their eating."
+        }
+      ]
+    },
+    {
+      "id": "fish-source",
+      "title": {
+        "en": "Source, edition and attribution",
+        "zh": "来源、版本与署名"
+      },
+      "paragraphs": [
+        {
+          "zh": "本线上版本的边界：32题都需明确选1至6或不评分，空白尚未完成；1为完全不恶心，6为非常恶心，2至5没有额外文字标签，也没有规定回忆时段。本组4题全部为数字才显示原始和÷4、保留一位小数的均值；有不评分时仍可看到已评数字和与项数，但不对剩余题取平均，零项数字显示“—”。八组题数依次为4、5、4、4、4、4、4、3，无反向题、总体分、短版分或按最高组派型。全不评分也保留八份通用完整指南；它们不是由个人数值生成的建议。英文来自发表补充表二，本版用论文1至6端点而非西文表五点，中文为工作译文；原研究未验证这些线上改编、缺项规则、取一位小数展示和新增解释，不能据此推断跨语言等值或个人常模。回答与结果留在浏览器，可选草稿在当前标签页最多24小时，完成、退出并清除或重测会清除；复制仅含公开测试标题与入口，不含数值或答案，也不指定这八篇中的某一篇为你的类型。设备与截屏隐私仍需自行判断，可以直接退出。",
+          "en": "This online edition requires an explicit 1–6 or unscored response to all 32 prompts; blank is unfinished. One means not disgusting at all, six very disgusting, and two through five have no extra verbal labels. No recall period is prescribed. Only all 4 numeric responses in this part yield the sum divided by 4, rounded to one decimal. With unscored responses, the numeric sum and count remain visible but the remaining items are not averaged; zero numeric responses display a dash. Part lengths are 4, 5, 4, 4, 4, 4, 4, 3. There are no reversed items, overall score, short-form score or highest-part type. Even all-unscored responses retain all eight general full guides, which are not recommendations generated from personal values. English comes from published Supplementary Table 2, using the article’s 1–6 endpoints rather than the Spanish table’s five points; Chinese is a working translation. Source research does not validate these online adaptations, missingness rule, rounding display or added readings, or establish language equivalence or personal norms. Responses and results remain in the browser. Optional progress lasts up to 24 hours in this tab and clears on completion, exit-and-clear or retake. Copying includes only the public test title and entry, without values, answers or assigning one of these eight guides as your type. Device and screenshot privacy still need your own judgment; leaving is available."
+        }
+      ]
+    }
+  ],
+  "decaying-vegetables": [
+    {
+      "id": "decaying-vegetables-scenario",
+      "title": {
+        "en": "Texture changes may not feel alike",
+        "zh": "质地变化不一定感受相同"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的悦对褐色牛油果、能弯曲的黄瓜、缩皱萝卜、不爽脆沙拉选2、2、5、6，15÷4＝3.75，显示3.8；橙选2、2、5、不评分，显示和9、3／4项而不给均值。后一项不评分并不表示不喜欢蔬菜，也不应替换为0。两人是否吃得多样或需要怎样的饮食安排，仍没有被测量。",
+          "en": "An additional original scene: Fictional Yue chooses 2, 2, 5, 6 for brown avocado, a bendable cucumber, shrunken radishes and less-crisp salad: 15 ÷ 4 = 3.75, displayed as 3.8. Cheng chooses 2, 2, 5, unscored, displaying sum 9, coverage 3 / 4 and no mean. The unscored response does not establish dislike of vegetables and must not become zero. Dietary variety and any needed eating arrangement remain unmeasured for both people."
+        }
+      ]
+    },
+    {
+      "id": "decaying-vegetables-action",
+      "title": {
+        "en": "Reflect on wording without recreating scenes",
+        "zh": "围绕措辞回看，无需重现情境"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样保留未评分的信息，而不把它解释成低反应、挑食或营养问题？”可以只谈上面的虚构记录，区分题文、已选数字与尚未知的信息；允许不同理解、不回答或结束，不要求报出自己的均值、饮食方式、健康情况或他人经历。不需要拿食物来演示、接触或品尝，也不以讨论要求任何人改变饮食。",
+          "en": "An optional discussion prompt asks: “How can an unscored response remain visible without becoming low disgust, picky eating or a nutritional problem?” Discuss only the fictional records above, distinguishing wording, selected numbers and unknown information. Different readings, no answer or ending are allowed, without personal means, eating practices, health details or anyone else’s experiences. No food demonstration, contact or tasting is needed, and discussion does not require anyone to change their eating."
+        }
+      ]
+    },
+    {
+      "id": "decaying-vegetables-source",
+      "title": {
+        "en": "Source, edition and attribution",
+        "zh": "来源、版本与署名"
+      },
+      "paragraphs": [
+        {
+          "zh": "本线上版本的边界：32题都需明确选1至6或不评分，空白尚未完成；1为完全不恶心，6为非常恶心，2至5没有额外文字标签，也没有规定回忆时段。本组4题全部为数字才显示原始和÷4、保留一位小数的均值；有不评分时仍可看到已评数字和与项数，但不对剩余题取平均，零项数字显示“—”。八组题数依次为4、5、4、4、4、4、4、3，无反向题、总体分、短版分或按最高组派型。全不评分也保留八份通用完整指南；它们不是由个人数值生成的建议。英文来自发表补充表二，本版用论文1至6端点而非西文表五点，中文为工作译文；原研究未验证这些线上改编、缺项规则、取一位小数展示和新增解释，不能据此推断跨语言等值或个人常模。回答与结果留在浏览器，可选草稿在当前标签页最多24小时，完成、退出并清除或重测会清除；复制仅含公开测试标题与入口，不含数值或答案，也不指定这八篇中的某一篇为你的类型。设备与截屏隐私仍需自行判断，可以直接退出。",
+          "en": "This online edition requires an explicit 1–6 or unscored response to all 32 prompts; blank is unfinished. One means not disgusting at all, six very disgusting, and two through five have no extra verbal labels. No recall period is prescribed. Only all 4 numeric responses in this part yield the sum divided by 4, rounded to one decimal. With unscored responses, the numeric sum and count remain visible but the remaining items are not averaged; zero numeric responses display a dash. Part lengths are 4, 5, 4, 4, 4, 4, 4, 3. There are no reversed items, overall score, short-form score or highest-part type. Even all-unscored responses retain all eight general full guides, which are not recommendations generated from personal values. English comes from published Supplementary Table 2, using the article’s 1–6 endpoints rather than the Spanish table’s five points; Chinese is a working translation. Source research does not validate these online adaptations, missingness rule, rounding display or added readings, or establish language equivalence or personal norms. Responses and results remain in the browser. Optional progress lasts up to 24 hours in this tab and clears on completion, exit-and-clear or retake. Copying includes only the public test title and entry, without values, answers or assigning one of these eight guides as your type. Device and screenshot privacy still need your own judgment; leaving is available."
+        }
+      ]
+    }
+  ],
+  "living-contaminants": [
+    {
+      "id": "living-contaminants-scenario",
+      "title": {
+        "en": "The three scenes can evoke different images",
+        "zh": "三个场景可引起不同画面"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的溪对樱桃里的蛆、沙拉里的小蜗牛、苹果里的虫选1、5、6，12÷3＝4.0；本组只有三题，不能拿四个4作本组记录。另一位可选4、4、4得到同一均值。若溪最后一题改为不评分，数字和仍为6、覆盖2／3，但均值不计算。记录不说明现实虫害、亲历次数或勇敢程度。",
+          "en": "An additional original scene: Fictional Xi chooses 1, 5, 6 for the maggot in a cherry, little snail in salad and worm in an apple: 12 ÷ 3 = 4.0. Four ratings of four are impossible in this part because it contains only three prompts. Another person could choose 4, 4, 4 for the same mean. If Xi’s last response becomes unscored, numeric sum six and coverage 2 / 3 remain, but no mean is calculated. The record establishes no real infestation, frequency of experience or bravery."
+        }
+      ]
+    },
+    {
+      "id": "living-contaminants-action",
+      "title": {
+        "en": "Keep reflection at the level of the written scenes",
+        "zh": "回看停留在文字情境即可"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“三题分母和缺项条件怎样限制我们可以对外讲出的结论？”可以只谈上面的虚构记录，区分题文、已选数字与尚未知的信息；允许不同理解、不回答或结束，不要求报出自己的均值、饮食方式、健康情况或他人经历。不需要拿食物来演示、接触或品尝，也不以讨论要求任何人改变饮食。",
+          "en": "An optional discussion prompt asks: “How do the three-item denominator and missingness rule limit the conclusions someone can share?” Discuss only the fictional records above, distinguishing wording, selected numbers and unknown information. Different readings, no answer or ending are allowed, without personal means, eating practices, health details or anyone else’s experiences. No food demonstration, contact or tasting is needed, and discussion does not require anyone to change their eating."
+        }
+      ]
+    },
+    {
+      "id": "living-contaminants-source",
+      "title": {
+        "en": "Source, edition and attribution",
+        "zh": "来源、版本与署名"
+      },
+      "paragraphs": [
+        {
+          "zh": "本线上版本的边界：32题都需明确选1至6或不评分，空白尚未完成；1为完全不恶心，6为非常恶心，2至5没有额外文字标签，也没有规定回忆时段。本组3题全部为数字才显示原始和÷3、保留一位小数的均值；有不评分时仍可看到已评数字和与项数，但不对剩余题取平均，零项数字显示“—”。八组题数依次为4、5、4、4、4、4、4、3，无反向题、总体分、短版分或按最高组派型。全不评分也保留八份通用完整指南；它们不是由个人数值生成的建议。英文来自发表补充表二，本版用论文1至6端点而非西文表五点，中文为工作译文；原研究未验证这些线上改编、缺项规则、取一位小数展示和新增解释，不能据此推断跨语言等值或个人常模。回答与结果留在浏览器，可选草稿在当前标签页最多24小时，完成、退出并清除或重测会清除；复制仅含公开测试标题与入口，不含数值或答案，也不指定这八篇中的某一篇为你的类型。设备与截屏隐私仍需自行判断，可以直接退出。",
+          "en": "This online edition requires an explicit 1–6 or unscored response to all 32 prompts; blank is unfinished. One means not disgusting at all, six very disgusting, and two through five have no extra verbal labels. No recall period is prescribed. Only all 3 numeric responses in this part yield the sum divided by 3, rounded to one decimal. With unscored responses, the numeric sum and count remain visible but the remaining items are not averaged; zero numeric responses display a dash. Part lengths are 4, 5, 4, 4, 4, 4, 4, 3. There are no reversed items, overall score, short-form score or highest-part type. Even all-unscored responses retain all eight general full guides, which are not recommendations generated from personal values. English comes from published Supplementary Table 2, using the article’s 1–6 endpoints rather than the Spanish table’s five points; Chinese is a working translation. Source research does not validate these online adaptations, missingness rule, rounding display or added readings, or establish language equivalence or personal norms. Responses and results remain in the browser. Optional progress lasts up to 24 hours in this tab and clears on completion, exit-and-clear or retake. Copying includes only the public test title and entry, without values, answers or assigning one of these eight guides as your type. Device and screenshot privacy still need your own judgment; leaving is available."
+        }
+      ]
+    }
+  ]
+}

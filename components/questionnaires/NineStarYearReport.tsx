@@ -6,8 +6,16 @@ import { isNineStarReferenceValid, isNineStarYearConfigurationValid, type NineSt
 export function NineStarYearGuideBody({ profile, locale, headingLevel = 3, idPrefix = "nine-star-guide" }: {
   profile: NineStarYearProfile; locale: Locale; headingLevel?: 2 | 3 | 4; idPrefix?: string;
 }) {
+  const candidate = profile.resultReading;
+  const reading = candidate?.quizSlug === "nine-star-ki" && candidate.profileId === profile.id ? candidate : null;
   const Heading = headingLevel === 2 ? "h2" : headingLevel === 4 ? "h4" : "h3";
-  return <article data-nine-star-guide={profile.id} className="space-y-7 leading-8 [overflow-wrap:anywhere]">
+  return <article data-nine-star-guide={profile.id} data-nine-star-cultural-result-reading={reading ? profile.id : undefined} className="space-y-7 leading-8 [overflow-wrap:anywhere]">
+    {reading && <details className="mb-6 rounded-lg bg-slate-50 p-4">
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{locale === "zh" ? "跳转到解读模块" : "Jump to a reading section"}</summary>
+      <nav aria-label={locale === "zh" ? "结果解读目录" : "Result reading contents"} className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm leading-7">
+        {profile.sections.map(section => <a key={section.id} className="min-h-11 py-2 underline" href={`#${idPrefix}-${section.id}`}>{section.title[locale]}</a>)}
+      </nav>
+    </details>}
     <p>{profile.summary[locale]}</p>
     <p className="rounded-lg bg-slate-50 p-4 text-sm leading-7">{profile.scoreReading[locale]}</p>
     {profile.sections.map(section => <section id={`${idPrefix}-${section.id}`} key={section.id} className="scroll-mt-24">
@@ -26,11 +34,12 @@ export function NineStarYearAttribution({ quiz, locale }: { quiz: NineStarYearQu
   </aside>;
 }
 
-export function NineStarYearReport({ quiz, result, locale }: { quiz: NineStarYearQuestionnaire; result: NineStarReference; locale: Locale }) {
+export function NineStarYearReport({ quiz, result, locale, readingProfiles }: { quiz: NineStarYearQuestionnaire; result: NineStarReference; locale: Locale; readingProfiles?: readonly NineStarYearProfile[] }) {
   const zh = locale === "zh";
   if (!isNineStarYearConfigurationValid(quiz) || !isNineStarReferenceValid(result)) return <p role="status">{zh ? "这次节年参考暂不可用，请重新计算。" : "This year reference is unavailable. Calculate again."}</p>;
   const profiles = result.candidates.map(candidate => quiz.profiles.find(profile => profile.star === candidate.star));
   if (profiles.some(profile => !profile)) return <p role="status">{zh ? "文化指南暂不可用。" : "The cultural guide is unavailable."}</p>;
+  const projected = (profile: NineStarYearProfile) => readingProfiles?.find(item => item.id === profile.id && item.star === profile.star && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
   return <div data-nine-star-result className="mt-6 space-y-8">
     <p className="rounded-lg bg-violet-50 p-4 leading-8" data-nine-star-certainty={result.certainty}>{result.certainty === "two-possibilities"
       ? (zh ? "时刻尚不确定：保留前后两个节年标签与两篇完整指南，不分配概率或强行选一。" : "Timing remains uncertain: retain both adjacent season labels and both full guides, without probabilities or a forced choice.")
@@ -49,7 +58,7 @@ export function NineStarYearReport({ quiz, result, locale }: { quiz: NineStarYea
     })}</div>
     {profiles.map(profile => profile && <section key={profile.id} className="rounded-lg border border-violet-200 bg-white p-5 sm:p-7" aria-labelledby={`nine-star-reading-${profile.id}`}>
       <h3 id={`nine-star-reading-${profile.id}`} className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
-      <NineStarYearGuideBody profile={profile} locale={locale} headingLevel={4} idPrefix={`nine-star-result-${profile.id}`} />
+      <NineStarYearGuideBody profile={projected(profile)} locale={locale} headingLevel={4} idPrefix={`nine-star-result-${profile.id}`} />
       <Link prefetch={false} className="mt-6 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这篇完整公开指南" : "Read this complete public guide"}</Link>
     </section>)}
     <NineStarYearAttribution quiz={quiz} locale={locale} />

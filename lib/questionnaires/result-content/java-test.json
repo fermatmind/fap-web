@@ -1,0 +1,130 @@
+{
+  "values-and-expressions": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：把给出的值和存下的值分列",
+        "en": "Review yielded and stored values separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例int a=4; System.out.println(a++ + \":\" + ++a);输出4:6，之后a为6。先记录a++给出4、变量存5，再记录++a先存6并给出6；冒号让它们按文本连接。把两个表达式的值和变量状态分列，别把“自增两次”直接等同于两个地方都打印6。例子已在Temurin JDK 25.0.2、不启预览特性下编译运行，只用于复习，不计入原题正确数。",
+          "en": "In a fresh example, int a=4; System.out.println(a++ + \":\" + ++a); prints 4:6 and leaves a at 6. Record a++ yielding four and storing five, followed by ++a storing and yielding six. The colon makes text concatenation. Separate yielded values from variable state rather than assuming two increments make both printed values six. This example was compiled and run with Temurin JDK 25.0.2 without preview features. It is unscored revision."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起追踪代码，不给开发者排名",
+        "en": "Trace the code together without ranking developers"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“为什么同一个表达式里先用a++再用++a，打印值与最后储存值不能只凭“加了两次”决定？”先各自写一小段轨迹，再找第一个分歧，对照Java 25规则或在自己的可丢弃文件核验。可只看、查资料、换例子或不答，不需计时比赛、上传仓库或执行未知代码。",
+          "en": "Ask: “Why must yielded values be tracked separately from final storage when a++ is followed by ++a?” Write short traces separately, find the first divergence and compare Java 25 rules or check a disposable file of your own. Observe, consult a source, change examples or decline without racing, uploading a repository or running unknown code."
+        },
+        {
+          "zh": "可分享不含答卷与正确数的公开指南。四组是复习主题，不是开发者等级、Oracle认证或招聘结论；不要求展示项目、工作失误或个人成绩。编译和输出核对支持特定代码行为，不验证本题组的心理测量表现。",
+          "en": "Share the public guide without answers or correct counts. Four groups organise revision rather than developer levels, Oracle certification or hiring conclusions. Request no projects, workplace errors or personal scores. Compilation and output checks support specific code behaviour without validating the bank’s psychometric performance."
+        }
+      ]
+    }
+  ],
+  "branches-and-loops": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：记录跳过的位置与下一次判断",
+        "en": "Review the skipped statement and next condition"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例sum=0，for(int i=1;i<=4;i++)中先执行if(i==2)continue，再执行sum+=i。i依次访问1、2、3、4，实际加1、3、4，最终8；仅把continue换成break，最终为1。给每次访问写“判断、是否累加、下一步”，核最先分歧发生在i=2而非最后输出。这两个有界例子已用Temurin JDK 25.0.2编译运行，可只在纸上追踪。",
+          "en": "Start sum at zero and use for(int i=1;i<=4;i++) with if(i==2)continue before sum+=i. Visits are one, two, three and four; additions are one, three and four, totaling eight. Changing only continue to break gives one. For each visit, record the condition, whether addition runs and the next step. The first divergence is at i=2 rather than the final print. Both bounded examples were compiled and run with Temurin JDK 25.0.2; paper tracing is enough for revision."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起追踪代码，不给开发者排名",
+        "en": "Trace the code together without ranking developers"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“把continue换成break后，哪一次访问最先分歧？为什么最终8与1不是两个不同的加法规则？”先各自写一小段轨迹，再找第一个分歧，对照Java 25规则或在自己的可丢弃文件核验。可只看、查资料、换例子或不答，不需计时比赛、上传仓库或执行未知代码。",
+          "en": "Ask: “Which visit first diverges when continue becomes break, and why do eight and one reflect control flow rather than different addition rules?” Write short traces separately, find the first divergence and compare Java 25 rules or check a disposable file of your own. Observe, consult a source, change examples or decline without racing, uploading a repository or running unknown code."
+        },
+        {
+          "zh": "可分享不含答卷与正确数的公开指南。四组是复习主题，不是开发者等级、Oracle认证或招聘结论；不要求展示项目、工作失误或个人成绩。编译和输出核对支持特定代码行为，不验证本题组的心理测量表现。",
+          "en": "Share the public guide without answers or correct counts. Four groups organise revision rather than developer levels, Oracle certification or hiring conclusions. Request no projects, workplace errors or personal scores. Compilation and output checks support specific code behaviour without validating the bank’s psychometric performance."
+        }
+      ]
+    }
+  ],
+  "methods-and-objects": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：对象内容与形参重绑用不同箭头",
+        "en": "Review object mutation separately from parameter rebinding"
+      },
+      "paragraphs": [
+        {
+          "zh": "新助手change(int[] b)先执行b[0]=9，再执行b=new int[]{2}。调用方int[] x={5}; change(x);之后读取x[0]为9。第一个动作改双方引用的原数组，第二个动作只让形参指向新数组，没有把调用方x重绑。画出调用方变量、形参和两个数组，再标语句改变哪一个。例子已用Temurin JDK 25.0.2编译运行，两次动作都不改变Java按值传递规则。",
+          "en": "Let change(int[] b) execute b[0]=9 and then b=new int[]{2}. After int[] x={5}; change(x); the caller reads x[0] as nine. The first statement changes the original array; the second redirects only the parameter to another array without rebinding x. Draw caller variable, parameter and both arrays, marking what each statement changes. This example was compiled and run with Temurin JDK 25.0.2. Neither action changes Java’s pass-by-value rule."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起追踪代码，不给开发者排名",
+        "en": "Trace the code together without ranking developers"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“助手里先改b[0]再给b一个新数组，为什么调用方还能看到第一次修改，却不跟着第二次重绑？”先各自写一小段轨迹，再找第一个分歧，对照Java 25规则或在自己的可丢弃文件核验。可只看、查资料、换例子或不答，不需计时比赛、上传仓库或执行未知代码。",
+          "en": "Ask: “Why does the caller observe a change to b[0] without following the later reassignment of b to another array?” Write short traces separately, find the first divergence and compare Java 25 rules or check a disposable file of your own. Observe, consult a source, change examples or decline without racing, uploading a repository or running unknown code."
+        },
+        {
+          "zh": "可分享不含答卷与正确数的公开指南。四组是复习主题，不是开发者等级、Oracle认证或招聘结论；不要求展示项目、工作失误或个人成绩。编译和输出核对支持特定代码行为，不验证本题组的心理测量表现。",
+          "en": "Share the public guide without answers or correct counts. Four groups organise revision rather than developer levels, Oracle certification or hiring conclusions. Request no projects, workplace errors or personal scores. Compilation and output checks support specific code behaviour without validating the bank’s psychometric performance."
+        }
+      ]
+    }
+  ],
+  "collections-and-failures": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：先明确删除重载，再看内容和大小",
+        "en": "Review the removal overload before contents and size"
+      },
+      "paragraphs": [
+        {
+          "zh": "新建可变列表[7,4,7]。在一份副本执行remove(1)，int实参按下标删除4，得到[7,7]、大小2；在另一份相同起点的副本执行remove(Integer.valueOf(7))，按对象删除首个相等的7，得到[4,7]、大小2。两者大小相同不证明内容相同。用List<Integer>和new ArrayList<>(List.of(7,4,7))建立的两个例子，已在Temurin JDK 25.0.2编译运行；不要把可变副本与原工厂列表混用。",
+          "en": "Start two mutable lists at [7,4,7]. On one, remove(1) takes an int index, removes four and leaves [7,7] with size two. On the other, remove(Integer.valueOf(7)) removes the first equal seven, leaving [4,7], also size two. Equal sizes do not establish equal contents. Both examples use List<Integer> and new ArrayList<>(List.of(7,4,7)) and were compiled and run with Temurin JDK 25.0.2. Keep these mutable copies distinct from the factory-created list."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起追踪代码，不给开发者排名",
+        "en": "Trace the code together without ranking developers"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“两个列表删除后大小都是2，怎样根据实参类型和实际内容解释为什么结果不同？”先各自写一小段轨迹，再找第一个分歧，对照Java 25规则或在自己的可丢弃文件核验。可只看、查资料、换例子或不答，不需计时比赛、上传仓库或执行未知代码。",
+          "en": "Ask: “After two removals both sizes are two; how do argument type and actual contents explain the different results?” Write short traces separately, find the first divergence and compare Java 25 rules or check a disposable file of your own. Observe, consult a source, change examples or decline without racing, uploading a repository or running unknown code."
+        },
+        {
+          "zh": "可分享不含答卷与正确数的公开指南。四组是复习主题，不是开发者等级、Oracle认证或招聘结论；不要求展示项目、工作失误或个人成绩。编译和输出核对支持特定代码行为，不验证本题组的心理测量表现。",
+          "en": "Share the public guide without answers or correct counts. Four groups organise revision rather than developer levels, Oracle certification or hiring conclusions. Request no projects, workplace errors or personal scores. Compilation and output checks support specific code behaviour without validating the bank’s psychometric performance."
+        }
+      ]
+    }
+  ]
+}

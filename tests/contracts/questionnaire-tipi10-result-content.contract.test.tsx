@@ -1,0 +1,33 @@
+import { readFileSync } from "node:fs";
+import { renderToStaticMarkup } from "react-dom/server";
+import { fireEvent, render, screen, cleanup } from "@testing-library/react";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { Tipi10Report } from "@/components/questionnaires/Tipi10Report";
+import { QuestionnaireClient } from "@/components/questionnaires/QuestionnaireClient";
+import { scoreTipi10Questionnaire, isTipi10ConfigurationValid, tipiDomains } from "@/lib/questionnaires/tipi10";
+import { prepareQuestionnaireResultReadings, prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
+import { correctTipiMidpoint } from "@/lib/questionnaires/result-content/tipi-midpoint";
+import type { Questionnaire } from "@/lib/questionnaires/types";
+vi.mock("next/headers",()=>({headers:async()=>new Headers()}));
+const quiz=JSON.parse(readFileSync("lib/questionnaires/data/tipi-10.json","utf8"))as Questionnaire,prepared=prepareQuestionnaireResultReadings(quiz),readings=prepared.profiles;
+const all=(v="4")=>Object.fromEntries(quiz.questions.map(q=>[q.id,v]));
+const complete=(a:Record<string,string>)=>{const r=scoreTipi10Questionnaire(quiz,a);if(r.status!=="complete")throw Error(r.status);return r;};
+const dom=(html:string)=>{const d=document.createElement("div");d.innerHTML=html;return d;};
+beforeEach(()=>Object.defineProperty(HTMLElement.prototype,"scrollIntoView",{configurable:true,value:vi.fn()}));afterEach(cleanup);
+describe("five TIPI raw pair means with expanded contextual guides",()=>{
+ it("preserves source identities, items and immutable original paragraphs except the explicit neutral-anchor correction",()=>{
+  const raw=JSON.stringify(quiz);expect(isTipi10ConfigurationValid(prepared)).toBe(true);expect(prepareQuestionnaireResultReadings(prepared)).toBe(prepared);
+  for(const[i,p]of readings.entries()){expect(prepareResultProfile(quiz.slug,p)).toBe(p);expect(p.sections.flatMap(s=>s.paragraphs)).toHaveLength(11);expect([p.id,p.title,p.directionIds,p.seo]).toEqual([quiz.profiles[i].id,quiz.profiles[i].title,quiz.profiles[i].directionIds,quiz.profiles[i].seo]);for(const[j,s]of p.sections.entries())expect(s.paragraphs[0]).toEqual(correctTipiMidpoint(quiz.profiles[i]).sections[j].paragraphs[0]);}
+  expect(JSON.stringify(quiz)).toBe(raw);const unknown={...quiz.profiles[0],id:"__proto__"};expect(prepareResultProfile(quiz.slug,unknown)).toBe(unknown);
+  const corrected=correctTipiMidpoint(quiz.profiles[2]);expect(correctTipiMidpoint(corrected)).toBe(corrected);expect(corrected.sections[3].paragraphs[0].en).toContain("neither agree nor disagree");expect(corrected.sections[3].paragraphs[0].zh).toContain("既不同意也不赞同");expect(corrected.sections[3].paragraphs[0].en).not.toContain("moderate endorsement");expect(quiz.profiles[2].sections[3].paragraphs[0].en).toContain("moderate endorsement");
+ });
+ it("publishes ten full public guides, eight collapsed contents links and no private values",async()=>{
+  const{default:Guide}=await import("@/components/questionnaires/QuestionnaireGuide");for(const locale of ["en","zh"]as const)for(const p of readings){const d=dom(renderToStaticMarkup(await Guide({params:Promise.resolve({locale,slug:quiz.slug,profile:p.id})}))),reader=d.querySelector(`[data-tipi10-result-reading="${p.id}"]`)!;expect(reader).not.toBeNull();expect(reader.querySelectorAll("h2")).toHaveLength(8);expect(reader.querySelectorAll("details:not([open]) nav a")).toHaveLength(8);for(const a of reader.querySelectorAll("nav a"))expect(d.querySelector(a.getAttribute("href")!)).not.toBeNull();for(const s of p.sections)for(const t of s.paragraphs)expect(reader.textContent).toContain(t[locale]);expect(d.querySelector("input,textarea,[data-tipi10-mean],[data-tipi10-item]")).toBeNull();expect(d.querySelector('[data-tipi10-attribution]')).not.toBeNull();if(locale==="en")expect(d.textContent).not.toMatch(/\p{Script=Han}/u);}
+ });
+ it("renders all thirteen reachable half-point means per domain using the source direction and original/keyed pair",()=>{
+  let checked=0;for(const [i,d]of tipiDomains.entries())for(let sum=2;sum<=14;sum++){const a=all(),pair=quiz.questions.filter(q=>q.options[0].directionId===d);let extra=sum-2;for(const q of pair){const n=1+Math.min(extra,6);extra-=n-1;a[q.id]=String(q.reverse?8-n:n);}const r=complete(a),el=dom(renderToStaticMarkup(<Tipi10Report quiz={prepared} result={r} locale="en"/>));expect(el.querySelector(`[data-tipi10-mean="${d}"]`)?.textContent).toBe(`Two-item mean: ${(sum/2).toFixed(2)} / 7`);expect(el.querySelectorAll("[data-tipi10-result-reading]")).toHaveLength(5);for(const q of pair){const v=Number(a[q.id]),key=q.reverse?8-v:v;expect(el.querySelector(`[data-tipi10-item="${q.id}"]`)?.textContent).toContain(q.reverse?`reversed: 8 − ${v} = ${key}`:`direct keyed value ${key}`);}expect(readings[i].directionIds).toEqual([d]);checked++;}expect(checked).toBe(65);
+ });
+ it.each(["en","zh"]as const)("%s actual client requires ten responses and retains all five contextual readings after mixed or equal-mean patterns",locale=>{
+  const storage=vi.spyOn(Storage.prototype,"setItem");for(const mode of ["1","4","7","high","low","mixed"]){const a=Object.fromEntries(quiz.questions.map((q,i)=>[q.id,mode==="high"?(q.reverse?"1":"7"):mode==="low"?(q.reverse?"7":"1"):mode==="mixed"?String(i%7+1):mode]));const{container}=render(<QuestionnaireClient quiz={prepared} locale={locale}/>);fireEvent.click(screen.getByRole("button",{name:locale==="zh"?"开始测试":"Start test"}));fireEvent.click(screen.getByRole("button",{name:locale==="zh"?"下一题":"Next"}));expect(container.querySelector("[data-tipi10-result]")).toBeNull();for(let i=0;i<10;i++){fireEvent.click(container.querySelector(`input[value="${a[quiz.questions[i].id]}"]`)!);fireEvent.click(screen.getByRole("button",{name:i===9?(locale==="zh"?"查看完整结果":"See full result"):(locale==="zh"?"下一题":"Next")}));}expect(container.querySelectorAll("[data-tipi10-mean]")).toHaveLength(5);expect(container.querySelectorAll("[data-tipi10-item]")).toHaveLength(10);expect(container.querySelectorAll("[data-tipi10-result-reading]")).toHaveLength(5);const result=complete(a);for(const d of tipiDomains)expect(container.querySelector(`[data-tipi10-mean="${d}"]`)?.textContent).toContain(result.tipi10[d].mean.toFixed(2));for(const p of readings)for(const s of p.sections)for(const t of s.paragraphs)expect(container.textContent).toContain(t[locale]);expect(container.textContent).not.toContain(locale==="zh"?"后者可能是对两对都中度认同":"The second may reflect moderate endorsement");const ids=[...container.querySelectorAll("[id]")].map(n=>n.id);expect(new Set(ids).size).toBe(ids.length);cleanup();}expect(storage).not.toHaveBeenCalled();storage.mockRestore();
+ });
+});

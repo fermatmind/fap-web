@@ -1,0 +1,23 @@
+import { describe, expect, it, vi } from "vitest";
+import { renderToStaticMarkup } from "react-dom/server";
+import source from "@/lib/questionnaires/data/stupidity-test.json";
+import outcomes from "@/tests/fixtures/questionnaires/stupidity-outcomes-reference.json";
+import content from "@/lib/questionnaires/result-content/stupidity-test.json";
+import { everydayMixupsResultProfile } from "@/lib/questionnaires/result-content/stupidity-test";
+import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
+import { isArchetypeConfigurationValid, scoreArchetypeQuestionnaire } from "@/lib/questionnaires/scoring";
+import { QuestionnaireArchetypeReport } from "@/components/questionnaires/QuestionnaireArchetypeReport";
+import type { Questionnaire } from "@/lib/questionnaires/types";
+vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
+const quiz=source as Questionnaire,prepared=prepareQuestionnaireResultReadings(quiz);
+describe("Six complete everyday mix-up readings for reachable highest sets",()=>{
+ it("preserves the source and every original paragraph with three explicit additions",()=>{
+  const before=JSON.stringify(quiz);expect(Object.keys(content)).toEqual(quiz.profiles.map(p=>p.id));for(const p of quiz.profiles){const r=everydayMixupsResultProfile(p);expect({...r,sections:p.sections}).toEqual(p);expect(r.sections.map(s=>s.id)).toEqual(p.sections.map(s=>s.id));expect(r.sections.flatMap(s=>s.paragraphs)).toHaveLength(11);for(const section of p.sections)expect(r.sections.find(s=>s.id===section.id)!.paragraphs[0]).toEqual(section.paragraphs[0]);}expect(JSON.stringify(quiz)).toBe(before);expect(prepareQuestionnaireResultReadings(prepared)).toBe(prepared);expect(isArchetypeConfigurationValid(prepared)).toBe(true);const unknown={...quiz.profiles[0],id:'__proto__'};expect(everydayMixupsResultProfile(unknown)).toBe(unknown);for(const w of outcomes.witnesses)expect(scoreArchetypeQuestionnaire(prepared,w.answers)).toEqual(scoreArchetypeQuestionnaire(quiz,w.answers));
+ });
+ it.each(["zh","en"]as const)("opens every full public %s guide with no private counts",async locale=>{
+  const route=await import("@/components/questionnaires/QuestionnaireGuide");for(const p of quiz.profiles){const dom=document.createElement('div');dom.innerHTML=renderToStaticMarkup(await route.default({params:Promise.resolve({locale,slug:quiz.slug,profile:p.id})}));expect(dom.querySelector(`[data-everyday-mixups-result-reading="${p.id}"]`)).not.toBeNull();expect(dom.querySelectorAll('[data-everyday-mixups-result-reading] h2')).toHaveLength(8);expect(dom.querySelector('[data-archetype-count]')).toBeNull();for(const section of everydayMixupsResultProfile(p).sections)for(const t of section.paragraphs)expect(dom.querySelector(`#report-${section.id}`)?.textContent).toContain(t[locale]);const ids=[...dom.querySelectorAll('[id]')].map(n=>n.id);expect(new Set(ids).size).toBe(ids.length);for(const a of dom.querySelectorAll('nav a[href^="#"]'))expect(ids).toContain(a.getAttribute('href')!.slice(1));if(locale==='en')expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);}
+ });
+ it.each(["zh","en"]as const)("keeps all fifty-seven reachable highest sets and complete %s readings",locale=>{
+  expect(outcomes.witnesses).toHaveLength(57);for(const w of outcomes.witnesses){const result=scoreArchetypeQuestionnaire(prepared,w.answers);if(result.status!=='complete')throw Error('Complete result required');expect(result.counts).toEqual(w.counts);expect([...result.profileIds].sort()).toEqual([...w.winnerIds].sort());expect(Object.values(result.counts).reduce((a,b)=>a+b,0)).toBe(12);expect(result.profileIds.length).not.toBe(5);const dom=document.createElement('div');dom.innerHTML=renderToStaticMarkup(<QuestionnaireArchetypeReport quiz={prepared} result={result} locale={locale}/>);expect(dom.querySelectorAll('[data-archetype-match]')).toHaveLength(result.profileIds.length);for(const id of result.profileIds){const block=dom.querySelector(`[data-archetype-match="${id}"]`)!;expect(block.querySelectorAll('h4')).toHaveLength(8);for(const s of everydayMixupsResultProfile(quiz.profiles.find(p=>p.id===id)!).sections)for(const t of s.paragraphs)expect(block.textContent).toContain(t[locale]);}for(const id of Object.keys(w.counts))expect(dom.querySelector(`[data-archetype-count="${id}"] dd`)?.textContent).toBe(`${w.counts[id as keyof typeof w.counts]} / 8`);expect(Object.keys(result).sort()).toEqual(['answered','counts','profileIds','status']);const ids=[...dom.querySelectorAll('[id]')].map(n=>n.id);expect(new Set(ids).size).toBe(ids.length);}
+ });
+});

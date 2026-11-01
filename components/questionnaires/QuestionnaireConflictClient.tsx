@@ -3,7 +3,7 @@ import { useEntertainmentMetrics, useEntertainmentResultView } from "@/component
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Locale } from "@/lib/i18n/locales";
-import type { QuestionnaireAnswers } from "@/lib/questionnaires/types";
+import type { QuestionnaireAnswers, QuestionnaireProfile } from "@/lib/questionnaires/types";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
 import { isMiniConflictConfigurationValid, scoreMiniConflictQuestionnaire, type MiniConflictQuestionnaire } from "@/lib/questionnaires/miniConflict";
 import { QuestionnaireConflictReport } from "./QuestionnaireConflictReport";
@@ -12,12 +12,12 @@ type Complete = Extract<FacetResult, { status: "complete" }>;
 const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
 const subscribeReady = () => () => {};
 
-export function QuestionnaireConflictClient({ quiz, locale }: { quiz: unknown; locale: Locale }) {
+export function QuestionnaireConflictClient({ quiz, locale, readingProfiles }: { quiz: unknown; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
   if (!isMiniConflictConfigurationValid(quiz)) return <p role="status">{locale === "zh" ? "问卷内容暂不可用。" : "The questionnaire content is unavailable."}</p>;
-  return <ValidConflictClient key={`${locale}:${quiz.version}`} quiz={quiz} locale={locale} />;
+  return <ValidConflictClient key={`${locale}:${quiz.version}`} quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
 }
 
-function ValidConflictClient({ quiz, locale }: { quiz: MiniConflictQuestionnaire; locale: Locale }) {
+function ValidConflictClient({ quiz, locale, readingProfiles }: { quiz: MiniConflictQuestionnaire; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
   const { start: recordStart, complete: recordComplete, view: recordView, consent: activityConsent } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false), zh = locale === "zh";
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({}), [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome");
@@ -66,7 +66,7 @@ function ValidConflictClient({ quiz, locale }: { quiz: MiniConflictQuestionnaire
       </>}
       {stage === "result" && result && <>
         <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading[locale]}</h2>
-        <QuestionnaireConflictReport quiz={quiz} result={result} locale={locale} />
+        <QuestionnaireConflictReport quiz={quiz} result={result} locale={locale} readingProfiles={readingProfiles} />
         <button type="button" className={button} onClick={() => { clear(); setStage("answer"); recordStart(); }}>{zh ? "愿意时重新作答（清除本次回答）" : "Answer again if you want (empty answers)"}</button>
       </>}
       {stage !== "welcome" && <button type="button" className={button} onClick={clear}>{zh ? "退出并清除本次回答" : "Exit and clear these responses"}</button>}

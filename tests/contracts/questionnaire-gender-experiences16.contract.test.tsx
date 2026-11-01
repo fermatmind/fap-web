@@ -88,8 +88,8 @@ describe("Original gender descriptions without scores or clinical verdicts", () 
   it("makes all thirty-two paragraphs public before answers and on their own guide pages", () => {
     for (const locale of ["en", "zh"] as const) {
       const html = renderToStaticMarkup(<GenderExperiencesPage quiz={quiz} locale={locale} />);
-      expect((html.match(/data-gender-experiences-full-guide=/g) ?? [])).toHaveLength(4); expect(html).not.toContain("data-gender-experiences-result");
-      const dom = document.createElement("div"); dom.innerHTML = html;
+      expect((html.match(/data-gender-experiences-full-guide=/g) ?? [])).toHaveLength(4);
+      const dom = document.createElement("div"); dom.innerHTML = html; expect(dom.querySelector("[data-gender-experiences-result]")).toBeNull();
       expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(true);
       for (const p of quiz.profiles) {
         const guide = renderToStaticMarkup(<GenderExperiencesGuidePage quiz={quiz} profile={p} locale={locale} />);

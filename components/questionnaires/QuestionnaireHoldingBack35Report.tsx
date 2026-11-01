@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { HoldingBack35Questionnaire, HoldingBack35Result } from "@/lib/questionnaires/holdingBack35";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 export function QuestionnaireHoldingBack35Report({ quiz, result, locale }: {
   quiz: Omit<HoldingBack35Questionnaire, "kind">;
@@ -29,7 +29,7 @@ export function QuestionnaireHoldingBack35Report({ quiz, result, locale }: {
     {quiz.profiles.map(profile => <section data-holding-back35-guide={profile.id} key={profile.id}
       aria-labelledby={`holding-back35-guide-${profile.id}`}>
       <h3 id={`holding-back35-guide-${profile.id}`} className="mb-4 text-2xl font-semibold">{profile.title[locale]}</h3>
-      <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`holding-back35-${profile.id}`} />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`holding-back35-${profile.id}`} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline"
         href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这份公开完整指南" : "Read this complete public guide"}</Link>
     </section>)}

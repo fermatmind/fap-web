@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
 import type { Questionnaire } from "@/lib/questionnaires/types";
@@ -21,7 +21,7 @@ export function QuestionnaireHexacoReport({ quiz, result, locale }: { quiz: Ques
           <div className="text-sm text-slate-600"><dt className="sr-only">{zh ? "有效符合度回答" : "Valid accuracy ratings"}</dt><dd data-hexaco-rated>{zh ? `${facet.rated} / ${facet.total}条有效符合度评分` : `${facet.rated} / ${facet.total} rated accuracy items`}</dd></div>
         </dl>
         {!scored && <p data-hexaco-insufficient className="mb-5 leading-8">{zh ? "本领域资料不足，没有生成个人总分或均分；以下完整指南不能当作本次个人特质的判断。你可以保留未评分，也可以重测。" : "This domain has insufficient information, so no personal sum or mean was generated. The full guide below is not a judgement of your traits in this attempt. You can leave it unscored or retake."}</p>}
-        <div data-hexaco-guide={profile.id}><QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} /></div>
+        <div data-hexaco-guide={profile.id}><QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} /></div>
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本领域完整公开说明" : "Read this domain’s full public guide"}</Link>
       </section>;
     })}

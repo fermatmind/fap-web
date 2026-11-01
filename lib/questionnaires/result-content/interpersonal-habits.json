@@ -1,0 +1,162 @@
+{
+  "unchecked-retelling": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "让更正回到原来收到消息的人",
+        "en": "Let a correction reach the people who received the message"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的活动地点变动，先区分组织方已确认的消息、同伴的猜测和仍待核实的部分。若之前转发过旧地址，可以考虑给原接收者说明哪条消息需要更正，仅补上必要细节。暂时查不到时可以标明未知或不继续转发。复盘看信息状态是否说清、更新是否到了需要知道的人，不统计说话多少，也不要求提供聊天记录或为了证明可靠而联系不适合联系的人。",
+          "en": "For the changed activity location above, separate an organiser’s confirmation, a companion’s guess and what still needs checking. If an old address was forwarded, consider telling its original recipients which message changed, using only necessary details. If confirmation is unavailable, mark the uncertainty or stop forwarding. Review the status and route of the update without counting how much you talk, supplying chat records or contacting someone unsuitable merely to prove reliability."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "讨论一种做法，不给人下定义",
+        "en": "Discuss a practice without defining a person"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果转发过的活动地址后来变了，哪些人需要知道更正，哪些私人原因不必跟着转发？”可以使用假设情境，只交换信息、选择与条件，不拿均分判断谁有毒、谁应该负责或谁必须继续交流。",
+          "en": "Ask: “If a forwarded activity address changed, who would need the correction and which private reasons need not travel with it?” Use a hypothetical situation to discuss information, choices and conditions without using means to label toxicity, assign responsibility or require continued contact."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含答案、个人均分或缺失条数。对方可以不回答，不需讲述私人争议、提供聊天记录或再做测试；也可以另选一份说明或结束。",
+          "en": "You can share this public guide; its link contains no answers, personal means or missing counts. The other person may decline without describing a private dispute, providing messages or taking a test, and may choose another guide or stop."
+        }
+      ]
+    }
+  ],
+  "comparison-turns": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "先确认这次交流要庆祝还是比较",
+        "en": "Check whether this exchange is for celebration or comparison"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到上面的朋友完成第一个小项目，先回想对方想讲过程、庆祝一步，还是讨论不同做法。可以问一次，再决定何时分享自己的较大项目；自己的进展也有表达空间。若对方不想比较，就保留这次交流的范围，也可以约另一次再聊。复盘关注话题怎样转向，不猜嫉妒或动机，不把听得更久、少说自己或较低均分当成好朋友的证明。",
+          "en": "For the friend’s first small project above, consider whether they wanted to describe the process, celebrate a step or compare approaches. Ask once before deciding when to share your larger project; your progress can have space too. If comparison is unwelcome, retain the scope of this exchange or discuss your news another time. Review the change of focus without guessing envy or motives, or treating longer listening, less self-disclosure or a lower mean as proof of friendship."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "讨论一种做法，不给人下定义",
+        "en": "Discuss a practice without defining a person"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“朋友想庆祝一个小项目时，你会怎样确认对方想听相关经验，还是先让这件事单独被听见？”可以使用假设情境，只交换信息、选择与条件，不拿均分判断谁有毒、谁应该负责或谁必须继续交流。",
+          "en": "Ask: “When a friend celebrates a small project, how could you check whether they want related experiences or space for this event on its own?” Use a hypothetical situation to discuss information, choices and conditions without using means to label toxicity, assign responsibility or require continued contact."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含答案、个人均分或缺失条数。对方可以不回答，不需讲述私人争议、提供聊天记录或再做测试；也可以另选一份说明或结束。",
+          "en": "You can share this public guide; its link contains no answers, personal means or missing counts. The other person may decline without describing a private dispute, providing messages or taking a test, and may choose another guide or stop."
+        }
+      ]
+    }
+  ],
+  "indirect-objections": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "在可商量的安排里把希望改的部分说具体",
+        "en": "Specify the requested change in a negotiable arrangement"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的见面时间，先分开自己想晚半小时、已经说过的话，以及对方可能还不知道的请求。条件合适时，可以只补上希望改的时间，或核对对方听到了什么；不必解释全部私人原因。没有适合直接讨论的空间时，可以暂缓或结束。复盘只看这次信息缺口，不把暗示一概叫作操控，也不以直接表达、达成同意或更低均分证明品德。",
+          "en": "For the meeting time above, distinguish wanting half an hour later, what you already said and the request the other person may not know. Where workable, name the requested time or check what they understood without explaining every private reason. Postpone or stop where direct discussion is unsuitable. Review this information gap without classifying all hints as manipulation or using directness, agreement or a lower mean as moral proof."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "讨论一种做法，不给人下定义",
+        "en": "Discuss a practice without defining a person"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设你希望晚半小时见面，怎样把时间请求说清，同时保留不想解释的个人原因？”可以使用假设情境，只交换信息、选择与条件，不拿均分判断谁有毒、谁应该负责或谁必须继续交流。",
+          "en": "Ask: “If you wanted to meet half an hour later, how could you make the timing request clear while keeping personal reasons private?” Use a hypothetical situation to discuss information, choices and conditions without using means to label toxicity, assign responsibility or require continued contact."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含答案、个人均分或缺失条数。对方可以不回答，不需讲述私人争议、提供聊天记录或再做测试；也可以另选一份说明或结束。",
+          "en": "You can share this public guide; its link contains no answers, personal means or missing counts. The other person may decline without describing a private dispute, providing messages or taking a test, and may choose another guide or stop."
+        }
+      ]
+    }
+  ],
+  "explanation-first": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把核对遗漏与补充背景列成两件事",
+        "en": "Separate checking an omission from supplying background"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到上面的共享清单，先区分对方指出的具体步骤、自己已经完成的部分和暂时不清楚的事实。可以说明想先核对哪一步，再补背景，也可以先纠正一个明确事实错误；顺序要看实际需要。复盘不要求承认没有发生的错误，不由先解释就推断拒绝负责。若讨论不适合继续，可以停下。只回看一件普通小事即可，无需上传记录，也不用对方认可这份测试。",
+          "en": "For the shared checklist above, distinguish the named step, work already done and facts still unclear. State what you want to check before supplying background, or correct a clear factual error first when appropriate. Review without admitting an error that did not occur or treating explanation first as refusal of responsibility. Stop if continuing is unsuitable. One ordinary event is enough without uploading records or requiring anyone to endorse this test."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "讨论一种做法，不给人下定义",
+        "en": "Discuss a practice without defining a person"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果有人说清单漏了一步，哪些细节需要先核对，哪些背景仍值得另外说明？”可以使用假设情境，只交换信息、选择与条件，不拿均分判断谁有毒、谁应该负责或谁必须继续交流。",
+          "en": "Ask: “If someone said a checklist missed a step, which details would need checking and which background would still deserve explanation?” Use a hypothetical situation to discuss information, choices and conditions without using means to label toxicity, assign responsibility or require continued contact."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含答案、个人均分或缺失条数。对方可以不回答，不需讲述私人争议、提供聊天记录或再做测试；也可以另选一份说明或结束。",
+          "en": "You can share this public guide; its link contains no answers, personal means or missing counts. The other person may decline without describing a private dispute, providing messages or taking a test, and may choose another guide or stop."
+        }
+      ]
+    }
+  ],
+  "past-dispute-carryover": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把当前细节与未解决议题分别命名",
+        "en": "Name the current detail and an unresolved issue separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的物品归还时间，分别说清这次要核对什么、过去的分工问题是否仍未解决，以及两者有什么实际联系。可以解释联系，也可以给另一个议题留时间；不是把过去一律排除。复盘只检查议题范围，不由记得旧事判断记仇，也不要求原谅、恢复联系或放弃重要记录。对方不愿讨论时，可以保留尚未达成一致的事实，而非让均分替双方裁决。",
+          "en": "For the return time above, name the current detail, whether the earlier division of work remains unresolved and any practical connection between them. Explain the connection or reserve space for a separate issue without excluding all history. Review scope without inferring resentment or requiring forgiveness, renewed contact or abandonment of important records. If discussion is unwelcome, retain the lack of agreement instead of letting a mean decide the matter."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "讨论一种做法，不给人下定义",
+        "en": "Discuss a practice without defining a person"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“核对归还时间时又想到分工问题，怎样说明它们是否相关，并给尚未解决的议题留位置？”可以使用假设情境，只交换信息、选择与条件，不拿均分判断谁有毒、谁应该负责或谁必须继续交流。",
+          "en": "Ask: “If a question about returning an object raised an earlier work-sharing issue, how could you explain their relevance and retain space for what remains unresolved?” Use a hypothetical situation to discuss information, choices and conditions without using means to label toxicity, assign responsibility or require continued contact."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含答案、个人均分或缺失条数。对方可以不回答，不需讲述私人争议、提供聊天记录或再做测试；也可以另选一份说明或结束。",
+          "en": "You can share this public guide; its link contains no answers, personal means or missing counts. The other person may decline without describing a private dispute, providing messages or taking a test, and may choose another guide or stop."
+        }
+      ]
+    }
+  ]
+}

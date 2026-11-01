@@ -1,0 +1,226 @@
+{
+  "red": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘表达的重点与受众",
+        "en": "Review focus and audience"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的重点句，检查它说的是自己的选择，还是无意中替别人下了结论。再决定这句话留给自己、给谁看、是否需要修改。别人不赞同不等于表达失败；改变主意也不必维护原来的红色形象。",
+          "en": "After the highlighted sentence above, check whether it states your choice or unintentionally concludes something about another person. Decide whether to keep it private, who might see it and whether to revise it. Disagreement need not mean failed expression, and changing your mind needs no defence of a Red identity."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个自选标题",
+        "en": "Share a chosen heading"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设给今天的一页普通笔记取标题，你会把哪句话放大，哪些只留给自己？”只分享愿意说的部分，不要求标题足够自信或让别人认同。",
+          "en": "Ask: “For an imaginary page of ordinary notes today, which sentence would you enlarge and what would stay private?” Offer only what you want without requiring a confident heading or agreement."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不需要让朋友认证你的结果。",
+          "en": "You may share this public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline, and no friend needs to validate your result."
+        }
+      ]
+    }
+  ],
+  "orange": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘共同创作的参与方式",
+        "en": "Review participation in shared making"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的共同小创作，记下自己喜欢的是轮流添加、看见变化，还是与人一起的过程。也核对每个人是否愿意继续、保留或分享作品。参与人数和笑声不是效果分数；下一次改为独自做或只旁观也可以。",
+          "en": "After the small shared piece above, note whether you liked taking turns, seeing changes or simply making something together. Check whether participants want to continue, retain or share it. Attendance and laughter are no outcome score; working alone or watching next time remains available."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可以拒绝的续画邀请",
+        "en": "Share a drawing invitation that can be declined"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设一张纸上有个圆，你想添一笔、看看别人怎么画，还是跳过？”先同意再续画，不把不参与解读为无趣或关系疏远。",
+          "en": "Ask: “If a page had a circle, would you add a mark, watch someone else draw or skip it?” Agree before adding to another piece, without reading nonparticipation as dullness or distance."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不需要让朋友认证你的结果。",
+          "en": "You may share this public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline, and no friend needs to validate your result."
+        }
+      ]
+    }
+  ],
+  "yellow": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘问题是否得到回答",
+        "en": "Review what the question actually answered"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的提问记录，区分找到的解释、它支持的具体说法，以及仍没回答的部分。资料多不等于证据强；若没有可靠说明，可以保留“不知道”。这次复盘关注一个问题，不按搜索速度、知识量或正确次数评价自己。",
+          "en": "After the question note above, distinguish the account you found, the particular claim it supports and what remains unanswered. More material does not automatically mean stronger evidence. Keep “I don’t know” when a reliable account is unavailable. Review this question without grading search speed, knowledge or numbers of correct answers."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个普通的好奇点",
+        "en": "Share an everyday curiosity"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设看见一个有折痕的纸盒，你想问哪一点，又需要什么资料才愿意下结论？”可以只提问；不把聊天变成知识抢答或要求对方接受你的解释。",
+          "en": "Ask: “If you noticed a crease in a paper box, what would you ask, and what material would you need before concluding?” A question alone is enough without a knowledge contest or requiring acceptance of your explanation."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不需要让朋友认证你的结果。",
+          "en": "You may share this public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline, and no friend needs to validate your result."
+        }
+      ]
+    }
+  ],
+  "green": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘改动与实际使用",
+        "en": "Review the change and actual use"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的生活条件记录，分别写下改了什么、自己是否方便，以及共用者实际反馈了什么。没有反馈时保留未知；也可以恢复原样或说明无法满足的需要。一次小安排只需处理这件事，不自动变成长期照顾职责。",
+          "en": "After the note about everyday conditions above, separate what changed, whether it worked for you and any actual feedback from a co-user. Leave absent feedback unknown. Restore the arrangement or state a need you cannot meet if useful. One small arrangement need only address this matter without creating an ongoing care role."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个使用条件的问题",
+        "en": "Share a question about practical conditions"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设一起看几张明信片，你更方便平放、竖放，还是换种方式？”说明自己的需要，再共同选择，不靠颜色猜测谁需要被照顾。",
+          "en": "Ask: “For looking at imaginary postcards together, would flat placement, upright placement or another method work for you?” State your needs and choose together without a colour deciding who needs care."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不需要让朋友认证你的结果。",
+          "en": "You may share this public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline, and no friend needs to validate your result."
+        }
+      ]
+    }
+  ],
+  "blue": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘意思与收到的回应",
+        "en": "Review meaning and the response received"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的两句话，检查第一句是否表达了自己想说的事，第二句是否把范围说清。若已自愿发出，可以记录对方实际回应；没回应不等于默认同意。需要时换一种说法或结束交流，不用靠反复解释证明自己擅长沟通。",
+          "en": "After the two sentences above, check whether the first conveys what you meant and the second states its scope. If you chose to send them, note the actual response; no response is not automatic agreement. Rephrase or end the exchange if useful without repeatedly explaining to prove communication skill."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一句有范围的说明",
+        "en": "Share a statement with a clear scope"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设借出一本普通书，你想怎样说明愿意借什么、何时再确认归还？”讨论措辞是否合用，不评分谁更诚实、冷静或会处理关系。",
+          "en": "Ask: “For lending an imaginary ordinary book, how would you say what you would lend and when to confirm its return?” Discuss useful wording without grading honesty, calmness or relationship skills."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不需要让朋友认证你的结果。",
+          "en": "You may share this public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline, and no friend needs to validate your result."
+        }
+      ]
+    }
+  ],
+  "indigo": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘看见的细节与自己的猜测",
+        "en": "Review the detail and your inference"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的私人观察，把直接看见的一处细节与自己加上的解释分开。没有解释也可以结束；若后来有新信息，可以修改记录。是否分享由自己决定，不需要把安静观察包装成看透他人的能力。",
+          "en": "After the private observation above, separate one directly noticed detail from an interpretation you added. End without an explanation if preferred, and revise when new information appears. Sharing remains your choice without presenting quiet observation as an ability to see through other people."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个不急着解释的细节",
+        "en": "Share a detail without rushing to explain it"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设看一张普通物件照片，你注意到哪一处，又有哪些还不知道？”只谈画面，不猜真实人物的心事，也不用证明谁看得更深。",
+          "en": "Ask: “In an imaginary photo of ordinary objects, which detail would you notice and what would remain unknown?” Discuss the image without guessing real people’s thoughts or proving who sees more deeply."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不需要让朋友认证你的结果。",
+          "en": "You may share this public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline, and no friend needs to validate your result."
+        }
+      ]
+    }
+  ],
+  "violet": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘符号的事实与赋义",
+        "en": "Review the event and the meaning assigned"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的私人记号，写清实际发生的一件事，以及自己临时赋予它的含义。含义可以有用，却不能代替事实证据。以后更换记号、保留普通文字或不再使用都可以，不需要等待现实兑现它。",
+          "en": "After the personal sign above, state one thing that actually happened and the meaning you temporarily assigned. Meaning may be useful while still requiring separate evidence for factual claims. Change the sign, retain plain words or stop using it without waiting for reality to fulfil it."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个由本人解释的记号",
+        "en": "Share a sign interpreted by its maker"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设为整理完的一页笔记画个记号，你会选什么，它对这次经历表示什么？”允许别人有不同解释；不预测未来，也不要求共同相信某种灵性体系。",
+          "en": "Ask: “If you drew a sign for a finished page of notes, what would you choose and what would it mean for this occasion?” Allow different interpretations without predicting the future or requiring a shared spiritual framework."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不需要让朋友认证你的结果。",
+          "en": "You may share this public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline, and no friend needs to validate your result."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "social": [
+    {
+      "id": "counterexample",
+      "title": {
+        "en": "A term can hide more than one question",
+        "zh": "一个词可能隐藏多个问题"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：两位虚构读者都对“家庭这一社会单位”给出较正面的温度。一位想到互相照料的日常生活，另一位想到一种制度安排。相近温度不能确定两人采用了相同定义，也不能替他们回答具体制度应当怎样设置。原词语没有展开这些条件，本版保留原文并让不确定可以选NA；讨论例子不把2013年美国分组改成本地政治身份，也不从感受评分推断实际怎样对待家人。",
+          "en": "In an additional original scene, two fictional readers rate “the family unit” warmly. One pictures everyday mutual care; another pictures an institutional arrangement. Similar warmth establishes neither a shared definition nor agreement about particular institutions. The short term leaves those conditions unspecified. This edition preserves it and allows NA for uncertainty. The example creates no local political identity from a 2013 U.S. grouping and infers no conduct toward relatives from a feeling rating."
+        }
+      ]
+    },
+    {
+      "id": "next-step",
+      "title": {
+        "en": "Clarify one interpretation without chasing a score",
+        "zh": "澄清一个理解，不追逐分数"
+      },
+      "paragraphs": [
+        {
+          "zh": "可用原词语写一张私人卡：“评分时想到的含义”“没有表达的主张”“在本地语境中仍不清楚的部分”。讨论句是：“相同温度来自相同含义，还是只共享一个词？”可以分享这张虚构卡或公开指南，不需要透露政治身份、个人温度或家庭经历。",
+          "en": "For a source term, privately list the meaning pictured, claims not expressed and what remains unclear in your context. Ask whether matching warmth reflects matching meanings or only a shared word. Share an invented card or public guide without political identity, personal ratings or family experiences."
+        },
+        {
+          "zh": "这些新增讨论素材为费马编辑部原创，与源SECS词语区分，可只读或留作私人草稿。原十二词、七社会／五经济归属及两处100减原值的反向键保持不变。0是有效温度，不是缺答；50是回答中性点，不是人口平均。社会七项或经济五项完整才显示所属均分，NA不补50，两份全文始终开放。中文仍是试译，历史源验证不建立当前或跨文化等值；分享公开指南不含个人评分，也不派政党或政治身份。",
+          "en": "These new FermatMind Editorial prompts are separate from the source SECS terms and allow reading or a private draft. The twelve terms, seven-social/five-economic grouping and two one-hundred-minus-response keys remain intact. Zero is valid warmth, not missing; fifty is a neutral response, not a population average. Seven social or five economic ratings are required for that domain’s mean. NA receives no fifty-point filling and both full guides stay open. Chinese remains a trial translation; historical source validation establishes no current or cross-cultural equivalence. Public guides disclose no ratings or party or political identity."
+        }
+      ]
+    }
+  ],
+  "economic": [
+    {
+      "id": "counterexample",
+      "title": {
+        "en": "Support for a word is not a detailed policy",
+        "zh": "对词语的好感不是详细政策"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：两位虚构读者都对“福利补助”给出80的温度，一位想到某种具体帮助，另一位想到普遍的保障目的。两项在本键中都会转成20，但算术相同并不能确定两人赞成同样的范围、条件或执行安排。反向键只改变计分方向，不评价人的经济知识、责任或善意；若短语无法承载自己的理解，可以保留NA，而不是猜一个接近想要身份的数字。",
+          "en": "In an additional original scene, two fictional readers give welfare benefits warmth of eighty. One imagines particular assistance; another imagines a general protective aim. Both become twenty under the source key, without establishing agreement about scope, terms or implementation. Reversal changes scoring direction without judging economic knowledge, responsibility or goodwill. When the phrase cannot represent your understanding, retain NA instead of guessing toward a desired identity."
+        }
+      ]
+    },
+    {
+      "id": "next-step",
+      "title": {
+        "en": "Separate the phrase from your reason",
+        "zh": "分开看词语和自己的理由"
+      },
+      "paragraphs": [
+        {
+          "zh": "可给虚构评分写“原温度”“是否采用100减原值”“该词没有说清的条件”。再问：“我是在评价一个词的感受，还是把它当成一份详细政策？”只核对含义与算术，不用均分评判他人的经济能力、建议投票或决定谁更有资格讨论。",
+          "en": "For an invented rating, note the original warmth, whether to use one hundred minus it and conditions the term leaves open. Ask whether you rate a feeling toward a word or treat it as a detailed policy. Check meaning and arithmetic without judging economic ability, recommending votes or deciding who may discuss it."
+        },
+        {
+          "zh": "这些新增讨论素材为费马编辑部原创，与源SECS词语区分，可只读或留作私人草稿。原十二词、七社会／五经济归属及两处100减原值的反向键保持不变。0是有效温度，不是缺答；50是回答中性点，不是人口平均。社会七项或经济五项完整才显示所属均分，NA不补50，两份全文始终开放。中文仍是试译，历史源验证不建立当前或跨文化等值；分享公开指南不含个人评分，也不派政党或政治身份。",
+          "en": "These new FermatMind Editorial prompts are separate from the source SECS terms and allow reading or a private draft. The twelve terms, seven-social/five-economic grouping and two one-hundred-minus-response keys remain intact. Zero is valid warmth, not missing; fifty is a neutral response, not a population average. Seven social or five economic ratings are required for that domain’s mean. NA receives no fifty-point filling and both full guides stay open. Chinese remains a trial translation; historical source validation establishes no current or cross-cultural equivalence. Public guides disclose no ratings or party or political identity."
+        }
+      ]
+    }
+  ]
+}

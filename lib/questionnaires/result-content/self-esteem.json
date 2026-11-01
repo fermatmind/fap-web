@@ -1,0 +1,34 @@
+{
+  "score-reading": [
+    {
+      "id": "reflection",
+      "title": {
+        "en": "Choose a specific observation before a bigger conclusion",
+        "zh": "先选具体观察，再考虑更大的结论"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：两位虚构读者都把一次演示中的遗漏记在心里。一位认为需要补上一条说明，同时仍认可自己；另一位把这次遗漏联想到对整个人的不满。同一件事可以被不同地理解，但本量表没有询问这场演示，不能由总分确定遗漏是否存在、批评是否准确或哪种理解发生过。回看时可以把“当时发生了什么”“作答时想到什么”“还不知道什么”分开，允许没有合适例子，不必从十条回答推演完整人生经历。",
+          "en": "In an additional original scene, two fictional readers remember an omission in a presentation. One wants to add a clarification while still accepting themselves; the other connects the omission with dissatisfaction with themselves as a whole. The scale did not observe the presentation and its total establishes neither an actual omission nor either interpretation. Separately note what happened, what came to mind while answering and what remains unknown. Having no suitable example is acceptable; ten responses cannot reconstruct a life history."
+        },
+        {
+          "zh": "可选讨论卡：“我愿意讨论的是这件具体事情……；我还不能确认的是……；这份结果没有替我判断的是……。”可以使用虚构演示，也可以只分享公开指南，不报总分、不交答卷，不邀请别人给自己或朋友评等级。若有人不愿继续，谈话可以就此结束；这张卡只是编辑提供的谈话起点，不是提高分数的训练或治疗安排。",
+          "en": "An optional discussion card can name the specific event you are willing to discuss, what remains uncertain and what the result has not judged. Use an invented presentation or share only the public guide, without a total, answer sheet or invitation to grade anyone. A person may end the conversation. This is an editorial conversation prompt, not training to raise a score or a treatment plan."
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": {
+        "en": "Compare occasions and languages cautiously",
+        "zh": "谨慎比较不同时间与语言"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境和讨论卡为费马编辑部原创，与Morris Rosenberg的量表陈述分开。相同总数不能还原相同回答或原因，后来分数不同也不自动说明自尊已经改善或恶化。原十题、五处反向键、四个量表锚点及0—30求和保持不变；暂不回答不参与计分，任一跳过仍不给总分。中文是工作译文，来源研究与许可不证明本网站的跨语言等值；任何分数都可阅读同一份全文，是否分享由自己决定。",
+          "en": "These new scenes and cards are original FermatMind Editorial material, separate from Morris Rosenberg’s scale statements. Matching totals reconstruct neither matching responses nor causes; a later difference does not establish improvement or deterioration. The ten statements, five reverse keys, four scored anchors and zero-to-thirty sum stay intact. Optional non-response is unscored and any skip still withholds the total. Chinese remains a working translation; source research and permission establish no language equivalence for this website. The same full guide is open at every score, with sharing optional."
+        }
+      ]
+    }
+  ]
+}

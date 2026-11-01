@@ -1,0 +1,194 @@
+{
+  "entry": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：整字段、字符与纳入记录分开数",
+        "en": "Review whole fields, characters and included records separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例在完整60秒纳入三张卡，每张四字段，其中九字段完整匹配，三字段未匹配。准确率为9÷12=75%；不能把它写成九张卡正确，也不能因一张卡只填一字段就把其余三空白排除。若最终留下84字符，字符KPH为84×60=5040；单凭75%不能推出精确字段字符KPH，因为不同字段长度可能不同，需实际数完整匹配字段中的字符。再改一处前导零，重新核对整个字段是否匹配，区分修正后的最终文本与物理按键次数。无纳入记录时，准确率不可用，不等于零或满分。",
+          "en": "In a fresh full sixty-second round, include three cards with four fields each. Nine fields match completely and three do not: accuracy is nine out of twelve, or seventy-five percent. That does not mean nine correct cards, and filling only one field of an included card does not exclude its three blanks. If eighty-four final characters remain, character KPH is 84×60=5040. Accuracy alone cannot determine exact-field character KPH because field lengths differ; count characters in fully matching fields separately. Change a leading zero and inspect whole-field matching again, distinguishing final text from physical keypresses. With no included record, accuracy is unavailable rather than zero or perfect."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "共同核查一个虚构例子，保留各自条件",
+        "en": "Check a fictional example together, keeping conditions visible"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“同样75%准确率，字段长度不同为什么会有不同字符产量？空白字段何时进入分母？”先各自写过程，再按同一来源核对；可以只阅读或慢慢复算，不比赛速度。仅使用编造条目，不提供真实来电、地址、客户、工资或工作记录。比较具体字段、步骤与条件，不按数量给朋友贴记忆、注意力、判断力或岗位适合度标签。",
+          "en": "Ask: “Why can identical field accuracy accompany different character output, and when do blank fields enter the denominator?” Write your processes separately, then check against the same source. Read or recompute slowly without racing. Use invented entries, not real calls, addresses, customers, wages or workplace records. Compare particular fields, steps and conditions rather than labelling friends’ memory, attention, judgment or job suitability from counts."
+        },
+        {
+          "zh": "复制公开入口只含通用标题与链接，不含输入或数量；也可自行分享本公开指南。六模块单位与条件不同，不相加、不求总体平均，不把未尝试当零分。本站时限不是官方时限，这些原创材料没有招聘、临床或训练效果验证。重做同一材料可能只是更熟悉；换一个明示条件后能解释核对过程，才具体说明本次理解了什么，无须追求某个通过线。",
+          "en": "Copying the public entry includes only its general title and link, without input or counts; you can also share this guide yourself. Six modules use different units and conditions: do not sum or average them, or treat unattempted as zero. Site caps are not official limits, and these originals have no established hiring, clinical or training-effect validation. Repeating known material may reward familiarity. Explain a check after changing an explicit condition to describe what you understand without pursuing an invented pass threshold."
+        }
+      ]
+    }
+  ],
+  "cross-reference": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：交换列表行序，不交换代码关系",
+        "en": "Review code relationships after reordering the lists"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例第一表写LARK-8→Q7、MOSS-8→Q2，第二表按Q2→G8、Q7→G3排列。查LARK-8先得Q7，再得G3；若按两表第一行配对会误得G8。把第二表两行对调，答案仍G3；把Q7指向改为G9，答案才随该关系变成G9。每次记录目标、中间码和最终组，不把重排当规则改变。若另一个虚构例遗漏Q7，不能凭前例补G3，应明确关系缺失；原题完整单值关系不代表真实名录也一定完整。",
+          "en": "Use fresh lists: LARK-8→Q7 and MOSS-8→Q2, followed by Q2→G8 and Q7→G3. LARK-8 maps through Q7 to G3. Pairing first rows would incorrectly give G8. Swap the second list’s rows and the answer remains G3; change Q7’s destination to G9 and the answer changes to G9. Record target, intermediate code and final group, distinguishing presentation order from a relationship change. If a different example omits Q7, mark the link missing rather than importing G3 from a previous example. The bank’s complete single-valued lists do not establish that a real directory is complete."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "共同核查一个虚构例子，保留各自条件",
+        "en": "Check a fictional example together, keeping conditions visible"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“只换行序时答案为什么不变？缺一段关系时，你能区分未知与已知答案吗？”先各自写过程，再按同一来源核对；可以只阅读或慢慢复算，不比赛速度。仅使用编造条目，不提供真实来电、地址、客户、工资或工作记录。比较具体字段、步骤与条件，不按数量给朋友贴记忆、注意力、判断力或岗位适合度标签。",
+          "en": "Ask: “Why does reordering rows preserve the answer, and can you distinguish a missing link from a known destination?” Write your processes separately, then check against the same source. Read or recompute slowly without racing. Use invented entries, not real calls, addresses, customers, wages or workplace records. Compare particular fields, steps and conditions rather than labelling friends’ memory, attention, judgment or job suitability from counts."
+        },
+        {
+          "zh": "复制公开入口只含通用标题与链接，不含输入或数量；也可自行分享本公开指南。六模块单位与条件不同，不相加、不求总体平均，不把未尝试当零分。本站时限不是官方时限，这些原创材料没有招聘、临床或训练效果验证。重做同一材料可能只是更熟悉；换一个明示条件后能解释核对过程，才具体说明本次理解了什么，无须追求某个通过线。",
+          "en": "Copying the public entry includes only its general title and link, without input or counts; you can also share this guide yourself. Six modules use different units and conditions: do not sum or average them, or treat unattempted as zero. Site caps are not official limits, and these originals have no established hiring, clinical or training-effect validation. Repeating known material may reward familiarity. Explain a check after changing an explicit condition to describe what you understand without pursuing an invented pass threshold."
+        }
+      ]
+    }
+  ],
+  "memory": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：记得细节，不补写事件后续",
+        "en": "Review remembered detail without adding a later event"
+      },
+      "paragraphs": [
+        {
+          "zh": "另写虚构记录：14:20在北服务台登记棕色文件夹，请求送到ROOM A4，状态WAITING FOR REVIEW。记录支持时间、位置、物品、所请求目的地和当前状态；不支持已经送达、已完成复核或物品有危险。读后放开再复述，与原文可见时逐项核对属于不同活动，条件要明说。若只记得14点但不确定分钟，可保留不确定，不能因选中14:20就证明整条记录都记住。再换时间、颜色或一条状态，分别核对事实；这提供一次可讨论的过程，不证明一般记忆训练效果。",
+          "en": "Write a fresh fictional note: at 14:20 a brown folder was logged at the north desk, transfer to ROOM A4 was requested, and the status was WAITING FOR REVIEW. It supports those details, not completed delivery, completed review or a dangerous object. Recalling after putting the note aside differs from checking with it visible; name the condition. Remembering fourteen o’clock while remaining unsure of the minutes is uncertainty, and selecting 14:20 does not prove the entire note was remembered. Change a time, colour or status and check the facts separately. This makes one process discussable without establishing a general memory-training benefit."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "共同核查一个虚构例子，保留各自条件",
+        "en": "Check a fictional example together, keeping conditions visible"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“你记得的是原文、合理猜测，还是仍未知？可看来源与来源移除时的记录能直接比较吗？”先各自写过程，再按同一来源核对；可以只阅读或慢慢复算，不比赛速度。仅使用编造条目，不提供真实来电、地址、客户、工资或工作记录。比较具体字段、步骤与条件，不按数量给朋友贴记忆、注意力、判断力或岗位适合度标签。",
+          "en": "Ask: “Which detail is remembered, guessed or unknown, and are visible-source and source-removed records directly comparable?” Write your processes separately, then check against the same source. Read or recompute slowly without racing. Use invented entries, not real calls, addresses, customers, wages or workplace records. Compare particular fields, steps and conditions rather than labelling friends’ memory, attention, judgment or job suitability from counts."
+        },
+        {
+          "zh": "复制公开入口只含通用标题与链接，不含输入或数量；也可自行分享本公开指南。六模块单位与条件不同，不相加、不求总体平均，不把未尝试当零分。本站时限不是官方时限，这些原创材料没有招聘、临床或训练效果验证。重做同一材料可能只是更熟悉；换一个明示条件后能解释核对过程，才具体说明本次理解了什么，无须追求某个通过线。",
+          "en": "Copying the public entry includes only its general title and link, without input or counts; you can also share this guide yourself. Six modules use different units and conditions: do not sum or average them, or treat unattempted as zero. Site caps are not official limits, and these originals have no established hiring, clinical or training-effect validation. Repeating known material may reward familiarity. Explain a check after changing an explicit condition to describe what you understand without pursuing an invented pass threshold."
+        }
+      ]
+    }
+  ],
+  "priority": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：改时间与改标签，影响可能不同",
+        "en": "Review time changes separately from label changes"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例同一天四张虚构单：A为DUE 08:00，B为BLOCKED 10:00，C为BLOCKED 09:55，D为ROUTINE 07:30。按本站约定，首位是C：先取BLOCKED，再在该组比时间。只把D时间改07:00，首位仍C；若另把D标签改成BLOCKED并保留07:30，首位才变D。写出每次到底改了哪一项，避免把“最早登记”误当跨标签的总规则。若自编例在最高标签出现同一最早时间，应承认规则未分出唯一首位，而不是补一个题目没给的字母顺序。此练习标签不能替代真实应急优先级。",
+          "en": "Use four fresh fictional tickets from one day: A DUE at 08:00, B BLOCKED at 10:00, C BLOCKED at 09:55 and D ROUTINE at 07:30. The site convention selects C: choose BLOCKED first, then compare times within that group. Moving D’s time alone to 07:00 leaves C first. Instead changing D’s label to BLOCKED while retaining 07:30 makes D first. Specify which field changed rather than treating earliest time as a rule across labels. If an invented example ties for earliest within the highest label, acknowledge that the convention does not choose a unique first ticket; do not invent alphabetical precedence. These labels do not supply real emergency priorities."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "共同核查一个虚构例子，保留各自条件",
+        "en": "Check a fictional example together, keeping conditions visible"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“哪一次改动真正改变首位？遇到同标签同时间时，现有规则还足够吗？”先各自写过程，再按同一来源核对；可以只阅读或慢慢复算，不比赛速度。仅使用编造条目，不提供真实来电、地址、客户、工资或工作记录。比较具体字段、步骤与条件，不按数量给朋友贴记忆、注意力、判断力或岗位适合度标签。",
+          "en": "Ask: “Which change actually alters first place, and is the rule sufficient when label and earliest time tie?” Write your processes separately, then check against the same source. Read or recompute slowly without racing. Use invented entries, not real calls, addresses, customers, wages or workplace records. Compare particular fields, steps and conditions rather than labelling friends’ memory, attention, judgment or job suitability from counts."
+        },
+        {
+          "zh": "复制公开入口只含通用标题与链接，不含输入或数量；也可自行分享本公开指南。六模块单位与条件不同，不相加、不求总体平均，不把未尝试当零分。本站时限不是官方时限，这些原创材料没有招聘、临床或训练效果验证。重做同一材料可能只是更熟悉；换一个明示条件后能解释核对过程，才具体说明本次理解了什么，无须追求某个通过线。",
+          "en": "Copying the public entry includes only its general title and link, without input or counts; you can also share this guide yourself. Six modules use different units and conditions: do not sum or average them, or treat unattempted as zero. Site caps are not official limits, and these originals have no established hiring, clinical or training-effect validation. Repeating known material may reward familiarity. Explain a check after changing an explicit condition to describe what you understand without pursuing an invented pass threshold."
+        }
+      ]
+    }
+  ],
+  "map": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：最短距离可以唯一，最短路线可以有多条",
+        "en": "Review a unique shortest distance with multiple shortest routes"
+      },
+      "paragraphs": [
+        {
+          "zh": "另画三乘三虚构网格，A至C自西向东、1至3自北向南，横纵相邻边双向且各长一段，只关闭B1–B2，不走对角。B1到B2不能直走；经A1、A2或经C1、C2都为三段，两条路线同样短。B2仍在B1以南，不会因绕路变成西方或东方。可逐层列邻点：一段到A1或C1，两段到A2、C2等，第三段首次到B2，以核没有两段捷径。关闭边不删除端点，最短段数不等于实测行驶时间；本图不含真实路况、路权或应急路径。",
+          "en": "Draw a fresh fictional three-by-three grid: A through C west to east, rows one through three north to south, bidirectional adjacent edges of one segment each, no diagonals and only B1–B2 closed. From B1 to B2, going through A1 and A2 or through C1 and C2 takes three segments. Both routes are shortest. B2 remains south of B1 despite the detour. Inspect successive neighbour layers: A1 or C1 after one segment, A2 or C2 among the nodes after two, and B2 first after three. This checks the absence of a two-segment shortcut. Closing an edge leaves its endpoints, and shortest segment count is not observed travel time. The grid supplies no live road conditions, access rights or emergency route."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "共同核查一个虚构例子，保留各自条件",
+        "en": "Check a fictional example together, keeping conditions visible"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“两条走法都最短时，能否仍有唯一最少段数？相对方位会因封边而改变吗？”先各自写过程，再按同一来源核对；可以只阅读或慢慢复算，不比赛速度。仅使用编造条目，不提供真实来电、地址、客户、工资或工作记录。比较具体字段、步骤与条件，不按数量给朋友贴记忆、注意力、判断力或岗位适合度标签。",
+          "en": "Ask: “Can two shortest routes share one minimum count, and does closing an edge change relative position?” Write your processes separately, then check against the same source. Read or recompute slowly without racing. Use invented entries, not real calls, addresses, customers, wages or workplace records. Compare particular fields, steps and conditions rather than labelling friends’ memory, attention, judgment or job suitability from counts."
+        },
+        {
+          "zh": "复制公开入口只含通用标题与链接，不含输入或数量；也可自行分享本公开指南。六模块单位与条件不同，不相加、不求总体平均，不把未尝试当零分。本站时限不是官方时限，这些原创材料没有招聘、临床或训练效果验证。重做同一材料可能只是更熟悉；换一个明示条件后能解释核对过程，才具体说明本次理解了什么，无须追求某个通过线。",
+          "en": "Copying the public entry includes only its general title and link, without input or counts; you can also share this guide yourself. Six modules use different units and conditions: do not sum or average them, or treat unattempted as zero. Site caps are not official limits, and these originals have no established hiring, clinical or training-effect validation. Repeating known material may reward familiarity. Explain a check after changing an explicit condition to describe what you understand without pursuing an invented pass threshold."
+        }
+      ]
+    }
+  ],
+  "summary": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：未知完成状态不能改成已完成或未完成",
+        "en": "Review unknown completion without asserting either outcome"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例来源为：TL-8，13:40南服务台，封条尚未核对，已请求复核，未说明后来是否完成。忠实总结可保留这些信息；“复核已完成”增加事件，“复核后来始终未完成”也超出来源，因为未说明不等于确定没发生。“封条破损”又把未核查的状态换成确定缺陷。逐项把总结中的码、时间、位置、问题、请求和完成状态连回来源。若后来另获获准更新，标明更新时间及来源，再更新记录，不把新信息冒充原文早已确认。练习只核给定书面说明，不据流畅表达推断事实正确。",
+          "en": "Use a fresh source: TL-8, south desk at 13:40, seal not yet checked, review requested, with no later completion stated. A faithful summary retains those facts. “Review completed” adds an event, but “review never subsequently completed” also exceeds the source: an unstated outcome is not a confirmed non-event. “Seal broken” replaces an unchecked state with a definite defect. Trace reference, time, place, issue, request and completion state back to the source separately. If an authorized later update arrives, identify its time and source before updating the record; do not present new information as originally confirmed. This exercise checks supplied written facts rather than treating fluent wording as evidence of accuracy."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "共同核查一个虚构例子，保留各自条件",
+        "en": "Check a fictional example together, keeping conditions visible"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：““没有说明已完成”与“确定未完成”差在哪里？总结中哪一个词添加了原文没有的事实？”先各自写过程，再按同一来源核对；可以只阅读或慢慢复算，不比赛速度。仅使用编造条目，不提供真实来电、地址、客户、工资或工作记录。比较具体字段、步骤与条件，不按数量给朋友贴记忆、注意力、判断力或岗位适合度标签。",
+          "en": "Ask: “How does unstated completion differ from confirmed non-completion, and which word adds a fact absent from the source?” Write your processes separately, then check against the same source. Read or recompute slowly without racing. Use invented entries, not real calls, addresses, customers, wages or workplace records. Compare particular fields, steps and conditions rather than labelling friends’ memory, attention, judgment or job suitability from counts."
+        },
+        {
+          "zh": "复制公开入口只含通用标题与链接，不含输入或数量；也可自行分享本公开指南。六模块单位与条件不同，不相加、不求总体平均，不把未尝试当零分。本站时限不是官方时限，这些原创材料没有招聘、临床或训练效果验证。重做同一材料可能只是更熟悉；换一个明示条件后能解释核对过程，才具体说明本次理解了什么，无须追求某个通过线。",
+          "en": "Copying the public entry includes only its general title and link, without input or counts; you can also share this guide yourself. Six modules use different units and conditions: do not sum or average them, or treat unattempted as zero. Site caps are not official limits, and these originals have no established hiring, clinical or training-effect validation. Repeating known material may reward familiarity. Explain a check after changing an explicit condition to describe what you understand without pursuing an invented pass threshold."
+        }
+      ]
+    }
+  ]
+}

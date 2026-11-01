@@ -1,0 +1,166 @@
+{
+  "verbal-escalation-reading": [
+    {
+      "id": "conversation",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者讨论周末安排时，重复同一句话并抢先回应。之后双方平静下来，但出行安排仍未决定。语速、打断、情绪缓和和问题解决分别描述不同事情；平静不抹去先前行动，也不证明双方同意。",
+          "en": "In an additional original scene: A fictional reader repeats a point and interrupts while discussing weekend plans. Both later become calm, but the travel decision remains open. Pace, interruptions, calming down and solving a practical issue describe different things. Calmness erases no earlier action and establishes no agreement."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构互动中，发生了哪些具体行动，哪些只是对动机的猜测？”可只读或讨论虚构人物，不需要自己的争执实例、伴侣评分、承诺或任何实际联系。讨论不以取得同意、原谅或更高分为完成条件。",
+          "en": "An optional discussion card asks: “Which concrete actions occurred in the fictional exchange, and which descriptions would merely guess at motives?” Read alone or discuss the fictional reader without personal conflict accounts, partner ratings, promises or contact. Agreement, forgiveness and higher means are never completion conditions."
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原有观察可跳过。选择同一段当前恋爱关系或最近一段重要关系，回想过去四周的普通分歧；已结束取最后四周，这是编辑窗口。二十条分四组各五条直接计入，无反向；1至5为相关机会中的行为频率，3为有时，不是中立、能力或实际次数比例。无相关机会、无法判断或不愿答保留不计分，不补零、中点或从未。全部二十项均需回应，每组必须五项数值齐全才相加除以五，显示一位小数；4、4、3、2、4合17，17÷5＝3.4。一项未评分仅暂不给所属组均分，其余完整组和四篇全文保留。完整不证明可靠，小数不证明精度。四区不是必经阶段或验证独立因子，均分不相加、排名、抵销或派型；同分不证明平衡，变化不证明改善。本原创自评不复制研究观察程序，不继承关系结果预测、信效度、常模或中英等值；恢复与解决问题分开，不据此诊断、判谁对、读他人动机或认证安全。阅读无需复现分歧、披露、联系、道歉、原谅、触碰、复合或继续关系。听者保留拒绝回答和停止的选择。页面内存、自选24小时标签页草稿及完成、重测、退出清除保持不变，复制不含答案或均分。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing observations are optional. Keep one current romantic or most recent significant relationship in mind, recalling ordinary disagreements over four weeks, or its final four weeks if ended, an editorial window. Twenty direct items form four groups of five without reversals. Ratings 1–5 describe action frequency in relevant opportunities; three means sometimes, not neutrality, ability or an observed event percentage. No opportunity, uncertainty or withholding stays unscored without zero, midpoint or never replacement. All twenty items require responses. Each group needs five numeric ratings for sum divided by five, displayed to one decimal. Ratings 4, 4, 3, 2, 4 sum to 17, giving 17/5 = 3.4. One unscored answer withholds only its group’s mean; complete groups and all four guides remain available. Completeness proves no reliability and decimal display proves no precision. These areas are neither required stages nor validated independent factors. Means are never added, ranked, offset or used to assign types. Equal means establish no balance; changes establish no improvement. This original self-report reproduces no observational research protocol and inherits no outcome prediction, validity, reliability, norms or English–Chinese equivalence. Recovery differs from solving an issue; answers diagnose nobody, decide no fault, read no motives and certify no safety. Reading needs no reproduced disagreement, disclosure, contact, apology, forgiveness, touch, reconciliation or continuation. A listener may decline answers and stop. Page memory, optional 24-hour tab drafts and completion, retake or exit clearing remain unchanged; copying contains no answers or means."
+        }
+      ]
+    }
+  ],
+  "pause-reading": [
+    {
+      "id": "conversation",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者有空却不愿继续一个话题，选择暂不讨论，也无法承诺返回时间。有空、愿意和能够承受分别是不同信息。明确暂停不需要获得高均分来证明正当，未承诺再谈也不构成需要补答的失败。",
+          "en": "In an additional original scene: A fictional reader has free time but does not want to continue a topic and cannot promise a return time. Availability, willingness and capacity differ. A pause needs no high mean to justify it; declining a promise of return creates no failure to repair through further answers."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构读者目前能说明哪些限度，哪些承诺尚未愿意作出？”可只读或讨论虚构人物，不需要自己的争执实例、伴侣评分、承诺或任何实际联系。讨论不以取得同意、原谅或更高分为完成条件。",
+          "en": "An optional discussion card asks: “Which current limits can the fictional reader state, and which promises have they not chosen to make?” Read alone or discuss the fictional reader without personal conflict accounts, partner ratings, promises or contact. Agreement, forgiveness and higher means are never completion conditions."
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原有观察可跳过。选择同一段当前恋爱关系或最近一段重要关系，回想过去四周的普通分歧；已结束取最后四周，这是编辑窗口。二十条分四组各五条直接计入，无反向；1至5为相关机会中的行为频率，3为有时，不是中立、能力或实际次数比例。无相关机会、无法判断或不愿答保留不计分，不补零、中点或从未。全部二十项均需回应，每组必须五项数值齐全才相加除以五，显示一位小数；4、4、3、2、4合17，17÷5＝3.4。一项未评分仅暂不给所属组均分，其余完整组和四篇全文保留。完整不证明可靠，小数不证明精度。四区不是必经阶段或验证独立因子，均分不相加、排名、抵销或派型；同分不证明平衡，变化不证明改善。本原创自评不复制研究观察程序，不继承关系结果预测、信效度、常模或中英等值；恢复与解决问题分开，不据此诊断、判谁对、读他人动机或认证安全。阅读无需复现分歧、披露、联系、道歉、原谅、触碰、复合或继续关系。听者保留拒绝回答和停止的选择。页面内存、自选24小时标签页草稿及完成、重测、退出清除保持不变，复制不含答案或均分。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing observations are optional. Keep one current romantic or most recent significant relationship in mind, recalling ordinary disagreements over four weeks, or its final four weeks if ended, an editorial window. Twenty direct items form four groups of five without reversals. Ratings 1–5 describe action frequency in relevant opportunities; three means sometimes, not neutrality, ability or an observed event percentage. No opportunity, uncertainty or withholding stays unscored without zero, midpoint or never replacement. All twenty items require responses. Each group needs five numeric ratings for sum divided by five, displayed to one decimal. Ratings 4, 4, 3, 2, 4 sum to 17, giving 17/5 = 3.4. One unscored answer withholds only its group’s mean; complete groups and all four guides remain available. Completeness proves no reliability and decimal display proves no precision. These areas are neither required stages nor validated independent factors. Means are never added, ranked, offset or used to assign types. Equal means establish no balance; changes establish no improvement. This original self-report reproduces no observational research protocol and inherits no outcome prediction, validity, reliability, norms or English–Chinese equivalence. Recovery differs from solving an issue; answers diagnose nobody, decide no fault, read no motives and certify no safety. Reading needs no reproduced disagreement, disclosure, contact, apology, forgiveness, touch, reconciliation or continuation. A listener may decline answers and stop. Page memory, optional 24-hour tab drafts and completion, retake or exit clearing remain unchanged; copying contains no answers or means."
+        }
+      ]
+    }
+  ],
+  "return-reading": [
+    {
+      "id": "conversation",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者再次自愿讨论一项开支安排，理解对方理由后仍选择不同方案。回到话题、理解理由和达成一致各不相同；未一致不自动表示讨论失败，也不要求继续解释到双方数字相近。",
+          "en": "In an additional original scene: A fictional reader voluntarily revisits a spending arrangement, understands the other person’s reasoning and still chooses another option. Returning, understanding and agreeing differ. Disagreement does not automatically establish a failed discussion or require explanations until two people’s numbers converge."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构互动留下的实际决定是什么，哪些感受可以另行表达而不要求一致？”可只读或讨论虚构人物，不需要自己的争执实例、伴侣评分、承诺或任何实际联系。讨论不以取得同意、原谅或更高分为完成条件。",
+          "en": "An optional discussion card asks: “Which practical decision remains in the fictional exchange, and which feelings could be expressed separately without demanding agreement?” Read alone or discuss the fictional reader without personal conflict accounts, partner ratings, promises or contact. Agreement, forgiveness and higher means are never completion conditions."
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原有观察可跳过。选择同一段当前恋爱关系或最近一段重要关系，回想过去四周的普通分歧；已结束取最后四周，这是编辑窗口。二十条分四组各五条直接计入，无反向；1至5为相关机会中的行为频率，3为有时，不是中立、能力或实际次数比例。无相关机会、无法判断或不愿答保留不计分，不补零、中点或从未。全部二十项均需回应，每组必须五项数值齐全才相加除以五，显示一位小数；4、4、3、2、4合17，17÷5＝3.4。一项未评分仅暂不给所属组均分，其余完整组和四篇全文保留。完整不证明可靠，小数不证明精度。四区不是必经阶段或验证独立因子，均分不相加、排名、抵销或派型；同分不证明平衡，变化不证明改善。本原创自评不复制研究观察程序，不继承关系结果预测、信效度、常模或中英等值；恢复与解决问题分开，不据此诊断、判谁对、读他人动机或认证安全。阅读无需复现分歧、披露、联系、道歉、原谅、触碰、复合或继续关系。听者保留拒绝回答和停止的选择。页面内存、自选24小时标签页草稿及完成、重测、退出清除保持不变，复制不含答案或均分。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing observations are optional. Keep one current romantic or most recent significant relationship in mind, recalling ordinary disagreements over four weeks, or its final four weeks if ended, an editorial window. Twenty direct items form four groups of five without reversals. Ratings 1–5 describe action frequency in relevant opportunities; three means sometimes, not neutrality, ability or an observed event percentage. No opportunity, uncertainty or withholding stays unscored without zero, midpoint or never replacement. All twenty items require responses. Each group needs five numeric ratings for sum divided by five, displayed to one decimal. Ratings 4, 4, 3, 2, 4 sum to 17, giving 17/5 = 3.4. One unscored answer withholds only its group’s mean; complete groups and all four guides remain available. Completeness proves no reliability and decimal display proves no precision. These areas are neither required stages nor validated independent factors. Means are never added, ranked, offset or used to assign types. Equal means establish no balance; changes establish no improvement. This original self-report reproduces no observational research protocol and inherits no outcome prediction, validity, reliability, norms or English–Chinese equivalence. Recovery differs from solving an issue; answers diagnose nobody, decide no fault, read no motives and certify no safety. Reading needs no reproduced disagreement, disclosure, contact, apology, forgiveness, touch, reconciliation or continuation. A listener may decline answers and stop. Page memory, optional 24-hour tab drafts and completion, retake or exit clearing remain unchanged; copying contains no answers or means."
+        }
+      ]
+    }
+  ],
+  "repair-reading": [
+    {
+      "id": "conversation",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者承认打断并提出下次等对方说完，对方当下不想谈。提出改变、实际履行、被接受与后果不同；读者可自行承担改变而不催确认，拒绝不欠原谅或安慰，修复频率也不抵销先前伤害。",
+          "en": "In an additional original scene: A fictional reader acknowledges an interruption and proposes waiting next time; the other person declines discussion. An offer, follow-through, acceptance and consequences differ. The reader can change their own action without pressing for confirmation. Refusal creates no debt of forgiveness or reassurance, and repair frequency cancels no earlier harm."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构提议中，什么由读者自己负责，什么仍由另一人自由决定？”可只读或讨论虚构人物，不需要自己的争执实例、伴侣评分、承诺或任何实际联系。讨论不以取得同意、原谅或更高分为完成条件。",
+          "en": "An optional discussion card asks: “What remains the fictional reader’s responsibility, and what remains another person’s free choice?” Read alone or discuss the fictional reader without personal conflict accounts, partner ratings, promises or contact. Agreement, forgiveness and higher means are never completion conditions."
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原有观察可跳过。选择同一段当前恋爱关系或最近一段重要关系，回想过去四周的普通分歧；已结束取最后四周，这是编辑窗口。二十条分四组各五条直接计入，无反向；1至5为相关机会中的行为频率，3为有时，不是中立、能力或实际次数比例。无相关机会、无法判断或不愿答保留不计分，不补零、中点或从未。全部二十项均需回应，每组必须五项数值齐全才相加除以五，显示一位小数；4、4、3、2、4合17，17÷5＝3.4。一项未评分仅暂不给所属组均分，其余完整组和四篇全文保留。完整不证明可靠，小数不证明精度。四区不是必经阶段或验证独立因子，均分不相加、排名、抵销或派型；同分不证明平衡，变化不证明改善。本原创自评不复制研究观察程序，不继承关系结果预测、信效度、常模或中英等值；恢复与解决问题分开，不据此诊断、判谁对、读他人动机或认证安全。阅读无需复现分歧、披露、联系、道歉、原谅、触碰、复合或继续关系。听者保留拒绝回答和停止的选择。页面内存、自选24小时标签页草稿及完成、重测、退出清除保持不变，复制不含答案或均分。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing observations are optional. Keep one current romantic or most recent significant relationship in mind, recalling ordinary disagreements over four weeks, or its final four weeks if ended, an editorial window. Twenty direct items form four groups of five without reversals. Ratings 1–5 describe action frequency in relevant opportunities; three means sometimes, not neutrality, ability or an observed event percentage. No opportunity, uncertainty or withholding stays unscored without zero, midpoint or never replacement. All twenty items require responses. Each group needs five numeric ratings for sum divided by five, displayed to one decimal. Ratings 4, 4, 3, 2, 4 sum to 17, giving 17/5 = 3.4. One unscored answer withholds only its group’s mean; complete groups and all four guides remain available. Completeness proves no reliability and decimal display proves no precision. These areas are neither required stages nor validated independent factors. Means are never added, ranked, offset or used to assign types. Equal means establish no balance; changes establish no improvement. This original self-report reproduces no observational research protocol and inherits no outcome prediction, validity, reliability, norms or English–Chinese equivalence. Recovery differs from solving an issue; answers diagnose nobody, decide no fault, read no motives and certify no safety. Reading needs no reproduced disagreement, disclosure, contact, apology, forgiveness, touch, reconciliation or continuation. A listener may decline answers and stop. Page memory, optional 24-hour tab drafts and completion, retake or exit clearing remain unchanged; copying contains no answers or means."
+        }
+      ]
+    }
+  ]
+}

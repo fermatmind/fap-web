@@ -1,0 +1,166 @@
+{
+  "spring": [
+    {
+      "id": "combination",
+      "title": {
+        "zh": "试一张三色便签",
+        "en": "Try a three-colour note"
+      },
+      "paragraphs": [
+        {
+          "zh": "再做一个小比较：把象牙白#F4E9CF、珊瑚调#F08C78、嫩叶绿#A7C878先各画两个同大方格；另一张保留这三色和总六格，只改成象牙白四格、其余各一格。位置、文字与背景保持一致，分别说更愿意保留哪张。两张使用同样色号，分量却不同；喜欢第二张不能简单归因于“更喜欢春日”，更不能据此判断哪种颜色衬肤。也可以两张都不喜欢。",
+          "en": "Try another small comparison with ivory #F4E9CF, coral #F08C78 and leaf green #A7C878. Give each two equal squares. On another draft keep the same three codes and six-square total, but give ivory four squares and each accent one. Keep placement, lettering and surrounding background consistent. Describe which draft you would retain. The colour codes stay fixed while proportions differ, so preferring the second does not simply establish a stronger spring preference, much less a flattering complexion colour. Disliking both is an available outcome."
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": {
+        "zh": "题目场景为何会影响选择",
+        "en": "Why the menu context can matter"
+      },
+      "paragraphs": [
+        {
+          "zh": "这次改变的是面积比例，不是数字颜色定义。若同时换纸张、灯光和排版，就更难说明究竟喜欢了什么；但即使条件相近，也只是自我观察，不是验证季型的实验。可以把具体描述写成“我更喜欢小面积珊瑚点色”，不用写“我只能用春日色”。",
+          "en": "This changes area proportions rather than digital colour definitions. Changing paper, lighting and layout at once makes the preference harder to describe. Even similar conditions create a personal observation, not an experiment validating a seasonal type. “I prefer a small coral accent” is more specific than “I can use only spring colours.”"
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "zh": "下一步只需做一次小比较",
+        "en": "One small comparison is enough"
+      },
+      "paragraphs": [
+        {
+          "zh": "一起比较时可问：“你喜欢的是哪个色块，还是它占的面积？”各自只描述愿意放在自己草稿上的组合，不替朋友评肤色、年龄或气质。可自行分享不含私人资料的草稿，或用网站按钮复制结果名和公开指南；不用上传照片，也无需买衣服验证结果。",
+          "en": "Compare together by asking: “Is it a particular block you like, or how much space it occupies?” Describe what you would put on your own draft without judging a friend’s complexion, age or temperament. Share a nonprivate draft yourself or use the website button for result names and public guides. No photograph or clothing purchase is needed to validate a result."
+        }
+      ]
+    }
+  ],
+  "summer": [
+    {
+      "id": "combination",
+      "title": {
+        "zh": "为私人日历做个样本",
+        "en": "Make a private calendar sample"
+      },
+      "paragraphs": [
+        {
+          "zh": "若把配色用于屏幕文字，另核文字与背景，而不只看是否同组。示例柔海军蓝#657B96字叠在珍珠灰#E4DFE8上，按不透明sRGB色值计算的对比度约3.32:1，低于WCAG普通文本4.5:1的最低门槛。改用另一组的墨海军蓝#21334E，背景不变，约9.72:1。这里的跨组替换服务于这一对文字与背景，不是在纠正你的审美，也不要求放弃夏日示例。",
+          "en": "If using a palette for screen lettering, check foreground against background separately from palette membership. Opaque sRGB soft navy #657B96 on pearl grey #E4DFE8 has a calculated contrast of about 3.32:1, below the WCAG minimum of 4.5:1 for ordinary text. Replacing the foreground with ink navy #21334E from another group gives about 9.72:1 against the same background. That cross-group substitution addresses this text-background pair, not a supposedly incorrect preference, and requires abandoning none of the summer examples."
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": {
+        "zh": "分清颜色、分量与文字",
+        "en": "Separate colour, proportion and writing"
+      },
+      "paragraphs": [
+        {
+          "zh": "这些比值只针对给定的不透明数字色对，不适用于随意改变的透明度、图片背景、真实印刷或布料。大字与其他内容有不同条件，字号、字形和实际显示也需另看；超过某个对比门槛不等于已经通过整页无障碍检查。喜欢一组三色装饰与能否用其中两色排正文，是两个问题。",
+          "en": "These ratios concern the specified opaque digital pairs, not altered opacity, photographic backgrounds, print or fabric. Large text and other content have different conditions; size, letterforms and actual display still matter. Exceeding one contrast threshold is not a complete page-accessibility assessment. Liking a decorative trio and using two of its colours for body text are separate questions."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "zh": "留下一张有说明的小色卡",
+        "en": "Keep a colour card with a short explanation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可问：“我们是在比较装饰偏好，还是正文可读性？”保留一份喜欢的色卡，再单独给文字选择清楚的前景和背景。各自有看不清的部分可以直接说，也可以停止；不用据此评价谁色觉好、谁更有品位。分享公开指南不带答案或次数，不要求发自拍或私人资料。",
+          "en": "Ask: “Are we comparing decoration preferences or body-text legibility?” Keep a palette card you like and choose readable text colours separately. Say when something is hard to see, or stop; do not rank colour perception or taste. Public-guide sharing includes no answers or counts and requires no selfies or private details."
+        }
+      ]
+    }
+  ],
+  "autumn": [
+    {
+      "id": "combination",
+      "title": {
+        "zh": "画一张可撤回的封面",
+        "en": "Draw a reversible cover sample"
+      },
+      "paragraphs": [
+        {
+          "zh": "另做一张小标题卡：暖奶油#DECEAB作底，可可棕#755749既作装饰线也试作文字。两者作为装饰可以继续比较偏好，但按不透明sRGB值计算，文字对比度约4.20:1，仍低于WCAG普通文本4.5:1门槛；不能把4.20四舍五入到“差不多合格”。可以保留这条装饰线，同时另选更清楚的文字色，不必让同组颜色承担所有用途。",
+          "en": "Try another small heading card with warm cream #DECEAB behind cocoa #755749, using cocoa both as a decorative line and trial lettering. You can compare the decorative preference, but the opaque sRGB text pair has contrast about 4.20:1, still below the WCAG ordinary-text minimum of 4.5:1. Rounding does not turn it into a pass. Keep the decorative line while selecting a clearer text colour rather than requiring one palette to perform every role."
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": {
+        "zh": "区分深色与更大色块",
+        "en": "Distinguish a deeper colour from a larger area"
+      },
+      "paragraphs": [
+        {
+          "zh": "“喜欢大地色”不代表所有色对都适合正文，也不代表数字色号能预测纸张或衣物效果。这里分开色块喜好与屏幕文字对比，结论只覆盖这个给定色对。实际文字若另有透明度、背景或字号，需要按实际条件重新核；这也不是对人的外貌、专业度或成熟程度的检测。",
+          "en": "Liking earthy examples does not make every pairing suitable for body text or let digital codes predict paper or clothing. Separate block preference from screen-text contrast, keeping the calculation within this pair. Changed opacity, background or text size requires checking the actual conditions again. None of this examines a person’s appearance, professionalism or maturity."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "zh": "记录喜欢的具体关系",
+        "en": "Record a particular relationship you liked"
+      },
+      "paragraphs": [
+        {
+          "zh": "可一起问：“这张卡里哪些颜色只作装饰，哪一对承担读字？”各自标明文字用途，再说明一处喜欢的具体关系，不要求对方选同样色组。可只看公开指南，不采购、不拍皮肤照片；网站分享只带结果名称和公开链接，不带回答或次数。",
+          "en": "Ask together: “Which colours are decorative, and which pair carries readable words?” Identify the lettering role, then describe one relationship you like without asking another person to choose the same palette. Reading the public guide is enough, without purchases or skin photographs. Website sharing includes result names and public links, not answers or counts."
+        }
+      ]
+    }
+  ],
+  "winter": [
+    {
+      "id": "combination",
+      "title": {
+        "zh": "只用一小块莓果色也可以",
+        "en": "A small berry accent is enough"
+      },
+      "paragraphs": [
+        {
+          "zh": "另做一个虚构任务卡，墨海军蓝#21334E写字、粉笔白#F2F2EE作底，莓果色#B82C65只作小点。该不透明sRGB文字色对约11.35:1，但不能因此省略文字内容或其他检查。若用莓果点表示“待确认”、深云杉点表示“已完成”，还把这两个词写在点旁边，也可配不同形状；颜色相近、屏幕不同或无法辨色时，信息仍不只靠点色。",
+          "en": "Make another fictional task card with ink navy #21334E lettering, chalk white #F2F2EE background and a small berry #B82C65 accent. The opaque sRGB text pair has contrast about 11.35:1, but that does not replace meaningful wording or other checks. If berry marks “Unconfirmed” and deep spruce marks “Complete,” write those words beside the dots and optionally use different shapes. The information then does not depend only on accent colour when colours seem similar, displays differ or colour distinctions are unavailable."
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": {
+        "zh": "不同面积可能改变结果理解",
+        "en": "Different areas may change your interpretation"
+      },
+      "paragraphs": [
+        {
+          "zh": "高文字对比与喜欢高对比配色不是同一结论：前者核具体数字前景和背景，后者仍是这次菜单中的个人选择。上述比值不测面部对比度，也不保证所有人读起来都舒服。你可以保留清楚的正文，减少点色面积，或换用其他组的装饰，而不必证明自己是纯冬日。",
+          "en": "A high text-contrast ratio and a preference for contrasting palettes are different findings: one checks specified foreground and background values, while the other concerns this menu’s choices. The ratio measures no facial contrast and guarantees no universal reading comfort. Retain clear lettering while reducing the accent or borrowing decoration from another group without proving a pure winter identity."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "zh": "做一个能随时替换的点色练习",
+        "en": "Try an accent you can replace at any time"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“把所有点暂时想成同一种颜色，还看得懂状态吗？”先靠词语和形状核清信息，再各说喜欢的配色。不用看朋友的脸或照片猜季型，也不把分辨困难解释成能力差。愿意时分享自编色卡或公开指南，不需要公开私人任务记录。",
+          "en": "Ask: “If all dots looked the same colour, would the status still be clear?” Check words and shapes first, then describe palette preferences. Do not infer a friend’s season from a face or photograph, or treat difficulty distinguishing colours as a poor ability. Share an invented card or public guide if wanted, without exposing private task records."
+        }
+      ]
+    }
+  ]
+}

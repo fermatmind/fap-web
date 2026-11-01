@@ -1,0 +1,258 @@
+{
+  "new-moon": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘意图与暂时留白",
+        "en": "Review intention and what stays open"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的当前意图，看看它是否仍是自己愿意关注的事，再标出一个不必立即决定的部分。没有行动计划也可以保留这句话，或直接删掉。若涉及共同安排，另行确认实际时间；留白不需要等待真正的新月，也不自动要求别人等待。",
+          "en": "After the current intention above, check whether it still concerns something you want and mark a part that needs no immediate decision. Keep the sentence without an action plan or delete it. Separately confirm timing for shared arrangements. Leaving space requires no actual new Moon and creates no requirement that someone else wait."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可以暂不安排的问题",
+        "en": "Share a question that can remain unplanned"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设给一页普通笔记留一个空白处，你想让它服务什么，哪些以后再说？”可以没有答案，不把留白当潜力或深度的等级。",
+          "en": "Ask: “If you left blank space on an ordinary imaginary notes page, what might it serve and what could wait?” No answer is required, and space creates no ranking of potential or depth."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不需要让朋友认证你的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline, and no friend needs to validate your result."
+        }
+      ]
+    }
+  ],
+  "waxing-crescent": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘试了什么与是否还想继续",
+        "en": "Review the trial and whether to continue"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的微小尝试，分别记录实际试过的部分、想改变的条件和现在是否愿意继续。试完就结束也是一个可用结尾，不需要把它扩大成长期承诺。没做成时先看范围和条件，不按月相主题评价成长速度或毅力。",
+          "en": "After the small trial above, separate what you tried, a condition to change and whether you want to continue now. Ending after the trial is a usable outcome without making a long-term commitment. If it remained unfinished, examine scope and conditions without using a phase theme to grade growth or persistence."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个小样与停止点",
+        "en": "Share a sample and a stopping point"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设只给卡片写一句话、画一个方框，你想试哪部分，怎样算到这里就够？”不用完成量或坚持天数证明结果。",
+          "en": "Ask: “For an imaginary card with one sentence or square, which part would you try and what would make it enough for now?” No output total or streak is needed to prove the result."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不需要让朋友认证你的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline, and no friend needs to validate your result."
+        }
+      ]
+    }
+  ],
+  "first-quarter": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘这次取舍依据",
+        "en": "Review the grounds for this tradeoff"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的两种普通做法，注明选了什么、暂时放下什么，以及改变哪个条件后可能重选。结果未如预期，可以修订依据，不必把一次选择解释成决断能力。若条件不足，也可以暂不选；这个主题不要求永远立刻作决定。",
+          "en": "After the two ordinary approaches above, note what you chose, what you left aside and a condition that might change the choice. An unexpected outcome can prompt revision without grading decisiveness. Wait when conditions are insufficient; this theme requires no immediate decision on every occasion."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个普通取舍的问题",
+        "en": "Share an ordinary tradeoff question"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设一张小卡只能先放标题或图形，你今天选哪项，依据是什么？”允许不同条件带来不同答案，不比较谁更果断或更会判断。",
+          "en": "Ask: “If an imaginary small card could begin with only a heading or shape, which would you choose today and why?” Different conditions may yield different answers without a decisiveness or judgement ranking."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不需要让朋友认证你的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline, and no friend needs to validate your result."
+        }
+      ]
+    }
+  ],
+  "waxing-gibbous": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘这一处是否已经够用",
+        "en": "Review whether this adjustment is sufficient"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的局部修改，核对原来要回应的需要、实际改动及还有没有必要继续。若已够用，可以保留其他不完美之处并结束。对方是否看懂仍需实际反馈；修改次数不证明细致程度，也不必借主题名承担所有校对工作。",
+          "en": "After the local revision above, check the original need, the actual change and whether anything further is necessary. If it is sufficient, leave other imperfections and stop. Understanding still needs actual feedback; revision counts grade no attention to detail and a theme name assigns no unlimited proofreading."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个只改一处的问题",
+        "en": "Share a question about changing one detail"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设通知里的时间和地点挤在一行，你想改哪一处，又在哪里停止？”可以认为原样已合用，不要求不断优化来配合结果。",
+          "en": "Ask: “If time and place shared one crowded line in an imaginary notice, what would you change and where would you stop?” Keeping it as already usable is available without endless improvement to fit a result."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不需要让朋友认证你的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline, and no friend needs to validate your result."
+        }
+      ]
+    }
+  ],
+  "full-moon": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘呈现范围与结束方式",
+        "en": "Review visibility and the ending"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的足够小版本，确认哪些内容愿意给谁看、哪些留给自己，以及是否已经可以结束。公开和完成是两件事，可以只在私人记录里收束。若别人不回应，先保留未知；不需要再加内容换取认可或证明自己处于高峰。",
+          "en": "After the sufficient small version above, confirm who may see which parts, what stays private and whether it can end here. Publishing and finishing are separate; closure can remain private. Leave absent responses unknown without adding material for approval or proof of being at a peak."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个足够小的结尾",
+        "en": "Share a sufficiently small ending"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设读书笔记只展示一页目录，你想展示哪些条目，怎样说这次到这里？”不要求展示所有内容，也不比较谁更有影响力。",
+          "en": "Ask: “If imaginary reading notes showed only a contents page, which entries would you show and how would you end this version?” Neither complete disclosure nor a comparison of influence is required."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不需要让朋友认证你的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline, and no friend needs to validate your result."
+        }
+      ]
+    }
+  ],
+  "waning-gibbous": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘经验的条件与接收意愿",
+        "en": "Review conditions and willingness to receive"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的经验记录，标明它在哪次条件下合用、哪里可能不适用，以及对方是否想听。别人未采用，可以只是条件不同，不必继续指导。若其中有事实主张，另行核查依据；一次个人经验不自动变成通用方法或导师资格。",
+          "en": "After the experience note above, mark the conditions where it helped, where it might not fit and whether the other person wants to hear it. Non-adoption may simply reflect different conditions without further advice. Verify factual claims separately; one personal experience creates neither a universal method nor a mentoring credential."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可以不用的经验",
+        "en": "Share an experience that need not be adopted"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设用一个小盒子放书签对你方便，你想怎样说明条件，让别人自行决定？”可以只听不同体验，不要求感谢、采用或继续求助。",
+          "en": "Ask: “If a small bookmark box worked for you in an imagined setting, how would you state the conditions and leave others to decide?” Hear different experiences without requiring thanks, adoption or further requests for help."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不需要让朋友认证你的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline, and no friend needs to validate your result."
+        }
+      ]
+    }
+  ],
+  "last-quarter": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘减少的是否确实可选",
+        "en": "Review whether the reduced part is optional"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的附加要求，确认哪些是自己后来加的、哪些已有真实约定，以及是否需要沟通影响。可选部分可以减少，也可以保留；不靠减掉多少评价进步。若涉及他人的权益或不可随意中止的责任，先处理实际约定，不由标签代替判断。",
+          "en": "After the added requirement above, separate what you introduced from actual agreements and any effects needing discussion. Reduce or retain optional parts without grading progress by quantity removed. Where others’ rights or responsibilities are involved, address the actual agreement rather than letting a label decide."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个缩小范围的问题",
+        "en": "Share a question about reducing scope"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设私人笔记额外要求每条都配图，你想保留这个要求、改小一点，还是只写文字？”只谈可选小事，不建议结束关系或放弃重要职责。",
+          "en": "Ask: “If private imaginary notes added an illustration requirement for every entry, would you retain it, reduce it or use words alone?” Keep the discussion to an optional small matter without advice to end relationships or abandon important duties."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不需要让朋友认证你的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline, and no friend needs to validate your result."
+        }
+      ]
+    }
+  ],
+  "waning-crescent": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘间隔也可以不作评价",
+        "en": "An interval need not be evaluated"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的结束出口，可以只确认这段时间没有新增自己不想要的安排，不必再写感受或证明休息有效。若实际条件不允许间隔，也不说明自己不会休息。下次是否继续留空由具体需要决定，不要求安静必须带来灵感或下一个开始。",
+          "en": "After the ending above, simply confirm that no unwanted new arrangement was added, without another feelings note or proof of effective rest. If conditions did not allow an interval, that grades no ability to rest. Choose space next time according to actual needs without requiring inspiration or another beginning."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个不需要产出的间隔",
+        "en": "Share an interval without required output"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设整理完一页纸，你想直接继续、停一会儿，还是暂时不安排？”可以不解释原因，也不把答案当内向、疲劳或身体恢复的判断。",
+          "en": "Ask: “After finishing an imaginary page, would you continue, pause or leave what follows unarranged?” No explanation is required, and the answer establishes no introversion, fatigue or bodily recovery."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不需要让朋友认证你的结果。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline, and no friend needs to validate your result."
+        }
+      ]
+    }
+  ]
+}

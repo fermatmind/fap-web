@@ -1,0 +1,418 @@
+{
+  "snow-white": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘邀请是否留有选择",
+        "en": "Review choice within the invitation"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的欢迎句，看看自己愿意提供的范围与对方可以拒绝的方式是否都清楚。实际没有人加入，也不必追加招呼或把它看成不够友善。一次开放的位置只服务这件小事，不自动成为长期招待或照顾的责任。",
+          "en": "After the welcome above, check that both your offered scope and room to decline are clear. If nobody joins, you need neither repeat the invitation nor conclude that you were insufficiently friendly. An opening serves this small occasion without creating an ongoing hosting or care role."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个不必加入的开头",
+        "en": "Share an opening that needs no participation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设桌边留一张自选颜色卡，你想写、只看，还是不参加？”让不同参与方式并存，不用人数或气氛评价谁更善良。",
+          "en": "Ask: “For an imaginary colour card at a table, would you write, look or skip it?” Different ways to participate need no kindness ranking by attendance or atmosphere."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "cinderella": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘愿望是否仍由自己选择",
+        "en": "Review whether the wish remains yours"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的小可能，确认现在是否仍喜欢它，以及哪些条件还未知。可以只保留想法，也可以改掉或删除；实现与否不评价值得不值得。若涉及别人，另问对方是否愿意，不把自己的希望变成他人的承诺。",
+          "en": "After the small possibility above, check whether you still like it and which conditions remain unknown. Keep the idea, revise or delete it; fulfilment grades no deservingness. Ask separately about another person’s willingness rather than turning your hope into their promise."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可以改变的小希望",
+        "en": "Share a small hope that can change"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设收藏页留一个想遇见的蓝色，你想继续留着、换一种，还是空着？”不要求购物、寻找或等待谁来实现它。",
+          "en": "Ask: “If an imaginary collection page kept a blue you hoped to encounter, would you retain it, change it or leave space?” No shopping, search or rescuer is required."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "aurora": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘想象与实际安排的区别",
+        "en": "Review imagination and actual arrangements"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的普通场景，区分自己喜欢的画面与已经同意要做的事。画面可以完整、不完整或后来改变，不需要安排材料来证明它有价值。共同空间仍按实际许可讨论；想象本身不替他人作出决定。",
+          "en": "After the ordinary scene above, distinguish the picture you enjoy from anything actually agreed. It may remain complete, partial or changed without acquiring materials to prove its value. Discuss shared space through actual permission; imagining makes no decision for others."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可以只想不做的场景",
+        "en": "Share a scene that may stay imagined"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设窗边放一张蓝卡，你想留下哪处画面，也可以不画、不摆出来？”不比较想象力或要求把画面实现。",
+          "en": "Ask: “For an imaginary blue card by a window, which part of the scene would you keep, without drawing or arranging it?” No imagination ranking or realisation is needed."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "ariel": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘好奇的问题与已知依据",
+        "en": "Review curiosity and available grounds"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的陌生细节，分别写下想知道什么、实际找到什么，以及还没有依据的一点。兴趣可以停在阅读或提问，不必转成体验和冒险。若不再好奇，换回熟悉的内容也可以；本次选择不规定生活方式。",
+          "en": "After the unfamiliar detail above, separate your question, what you found and something still unsupported. Interest can remain reading or a question without an experience or adventure. Return to familiar material if curiosity ends; one choice prescribes no lifestyle."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可以暂不知道的问题",
+        "en": "Share a question that can remain unanswered"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设翻到一本普通册子的陌生主题，你想先了解哪一点，又可以在哪里停下？”不以知道多少或敢做什么验证角色匹配。",
+          "en": "Ask: “At an unfamiliar topic in an imaginary booklet, what would you ask first and where could you stop?” Knowledge totals and daring actions need not verify a character match."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "belle": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘理解了哪一条具体说法",
+        "en": "Review the particular claim you understood"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的阅读记录，把原句、资料实际支持的范围和自己的解释分开。若支持不足，可以缩小说法或保留未知。读得多不自动更正确，愿意改读法也不否定原来的兴趣；这次复盘只处理一个具体信息点。",
+          "en": "After the reading note above, separate the statement, what the material supports and your interpretation. Narrow an unsupported claim or keep it unknown. More reading is not automatically more correct, and revising a reading need not invalidate your interest. Review one particular information point."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个说法范围的比较",
+        "en": "Share a comparison of claim scope"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设纸张介绍写‘适合所有用途’，你想问哪些用途、哪些限制？”只讨论资料，不给人按阅读爱好排聪明程度。",
+          "en": "Ask: “If an imaginary paper description said ‘for every use’, which uses and limits would you ask about?” Discuss the material without ranking intelligence by reading preferences."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "jasmine": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘选择、拒绝与未定部分",
+        "en": "Review choices, refusal and undecided parts"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的三栏记录，核对哪些是自己的愿望、哪些已有真实约定，以及哪些仍需商量。请求未被接受时，可以调整、另找方式或停止，不必靠对抗证明独立。保留选择也包括自愿接受帮助或改变主意。",
+          "en": "After the three-part note above, distinguish your wishes, actual agreements and matters for discussion. An unaccepted request can lead to adjustment, another method or stopping without confrontation proving independence. Choice includes willingly accepting help or changing your mind."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个有范围的参加方式",
+        "en": "Share a scoped way to participate"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设参加一个小展示，你想看作品、拍照、主持，还是只选其中一项？”各自说意愿，不替朋友决定，也不评分谁更自信。",
+          "en": "Ask: “At an imaginary display, would you view work, take photos, host or choose only one part?” State wishes without deciding for friends or grading confidence."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "pocahontas": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘所见联系与自己加上的解释",
+        "en": "Review a visible connection and added interpretation"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的物件与光线记录，区分直接看见的位置关系、个人感受和仍待核查的解释。一个小观察不用说明整个环境，更不能代表某个文化或历史人物。可以只留描述，不采集材料，也不从亲近感推断血缘或特殊天赋。",
+          "en": "After the object-and-light note above, separate visible position, personal feeling and an explanation still needing checking. One observation explains no whole environment and represents no culture or historical person. Keep a description without collecting materials or inferring ancestry or a special gift from familiarity."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个普通空间里的联系",
+        "en": "Share a connection in an ordinary space"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设窗边物件换了位置，哪处影子或留白让你注意到？”只谈具体所见，不把动画故事当历史，不猜族群、信仰或神秘讯息。",
+          "en": "Ask: “If an ordinary imaginary object moved near a window, which shadow or space would you notice?” Stay with particulars without treating animation as history or guessing ethnicity, beliefs or mystical messages."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "mulan": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘调整是否回应真实条件",
+        "en": "Review whether the adjustment addresses conditions"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的条件与改动，核对变化是什么、谁愿意接受，以及是否还需要继续。调整没有奏效时，可以恢复、缩小或取消，不把结果归结为不够勇敢。灵活回应也不意味着承担所有后续工作；未同意的部分另行讨论。",
+          "en": "After the condition and proposed change above, check what changed, who accepts it and whether to continue. Restore, reduce or cancel an unsuitable adjustment without grading bravery. Flexibility assigns no responsibility for all later work; discuss unagreed parts separately."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可以缩小的调整",
+        "en": "Share an adjustment that can be smaller"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设室外卡片展示改成室内小桌，你想保留哪一小部分，哪些需要先问参与者？”不比赛谁能扛更多，也不把牺牲当答案。",
+          "en": "Ask: “If an imaginary outdoor card display moved to a small indoor table, what would you retain and what needs participants’ agreement?” No contest in carrying more or sacrifice is required."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "tiana": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘这一步与下一步的距离",
+        "en": "Review this step without committing to the next"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的小目标，记下实际做了哪部分、哪里已够用，以及现在是否还想继续。未完成不等于懒惰，完成也不产生扩大项目的义务。可以调整条件、停下或改目标；这份记录服务自己的兴趣，不是勤奋与价值的成绩单。",
+          "en": "After the small aim above, note what you did, where it is sufficient and whether you want to continue. An unfinished part proves no laziness, and completion creates no duty to expand. Adjust conditions, stop or change the aim; the note serves interest rather than grading diligence or worth."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个不扩大的小步骤",
+        "en": "Share a small step that need not expand"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设只为自己的卡片选一句话，你想先做什么，做到哪里就够？”不要求变成整套作品，也不按完成速度比较谁更努力。",
+          "en": "Ask: “For one sentence on an imaginary personal card, what would you do first and when would it be enough?” No full set or comparison of effort through speed is needed."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "rapunzel": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘形式是否贴近这次意思",
+        "en": "Review whether the form fits this meaning"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的两种表达，选出一处贴近自己体验的地方，再决定保留、修改或都不用。形式不同可以表达相近意思，也可以各有侧重。是否公开另行决定；不需要用称赞、原创程度或持续产出来认证自己有创作天赋。",
+          "en": "After the two forms above, choose a part close to your experience, then retain, revise or use neither. Different forms may convey similar or different aspects. Decide publication separately without praise, originality ratings or continuing output certifying creative talent."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个表达形式的选择",
+        "en": "Share a choice of expression form"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设给普通傍晚留个记号，你会用线条、色块、一句话，还是只记在心里？”不要求交作品或讲私人经历。",
+          "en": "Ask: “For an imaginary ordinary evening, would you keep a line, colour block, sentence or simply a memory?” No submitted work or private experience is required."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "merida": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘自选方法与共用边界",
+        "en": "Review a chosen method and shared boundaries"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的做法与限制，看看自己想保留什么，哪些地方属于共同作品、需要别人同意。最后采用惯常方法也可以是自主选择。若改了主意，记录原因即可；不必通过与别人不同或坚持原方案来证明独立。",
+          "en": "After the method and limit above, check what you want to retain and which shared parts need agreement. Choosing the customary method can also be voluntary. Record a changed mind without distinctiveness or sticking to the first plan proving independence."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可以沿用惯例的选择",
+        "en": "Share a choice that may follow convention"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设自己的小海报能选常规排版或四周短句，你今天喜欢哪种，哪些限制要顾及？”允许相同选择，不把分歧变成自由程度比赛。",
+          "en": "Ask: “For your imaginary small poster, would you prefer the usual layout or phrases around the edge, and which limits matter?” Agreement is available without differences ranking freedom."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "moana": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘在意的事与实际路径",
+        "en": "Review what matters and the practical route"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的连接记录，把想去的原因与路线、许可、同行意愿等实际条件分开。原因仍重要，也可以发现今天不适合出发。留在原地或换方式不减少归属；一条路径的意义不能代替真实导航信息或替社区作出决定。",
+          "en": "After the connection note above, separate your reason from routes, permission and companions’ wishes. A meaningful reason can coexist with not going today. Staying or using another method diminishes no belonging. A route’s meaning replaces neither actual navigation information nor a community’s own decisions."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个不必出行的连接",
+        "en": "Share a connection that needs no journey"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设某个普通展示让你想到朋友，你想看资料、问一句、改天去，还是不安排？”不要求完成旅程或承担群体使命。",
+          "en": "Ask: “If an imaginary ordinary display reminded you of a friend, would you read, ask, visit later or leave it unarranged?” No completed journey or group mission is required."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "raya": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘同意、未知与退出方式",
+        "en": "Review agreement, uncertainty and leaving"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的合作记录，核对实际已同意的范围、尚未说清的信息和各自退出的方式。没有合作也可以是完整结尾，不需要降低边界来证明信任。一次小约定是否合用与一段关系是否安全是不同问题，要分别看实际事实。",
+          "en": "After the cooperation note above, check the agreed scope, unclear information and each person’s way to leave. No cooperation can be a complete ending without lowering boundaries to prove trust. A useful small agreement and a safe relationship are different questions requiring their own facts."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可以不合作的约定",
+        "en": "Share an agreement that permits no collaboration"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设共同整理卡片，哪些能改、哪些能保留，又怎样说明不参加？”只谈普通材料，不要求交隐私、宽恕或证明相信谁。",
+          "en": "Ask: “For imaginary shared cards, what may be changed or retained, and how could someone decline?” Stay with ordinary material without private disclosure, forgiveness or proof of trust."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ]
+}

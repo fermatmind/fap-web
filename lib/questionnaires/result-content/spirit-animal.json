@@ -1,0 +1,371 @@
+{
+  "wolf": [
+    {
+      "id": "editorial-conversation",
+      "title": {
+        "zh": "把这个角度说成一句协商",
+        "en": "Turn this angle into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "“我愿意继续这个约定，也想确认我们各自能做哪一部分。如果原安排不适合了，可以一起改。”对方改变主意时，先谈变化如何影响安排，不把一次拒绝解释成关系不可靠。",
+          "en": "“I would like to keep this agreement and confirm what each of us can do. If the original plan no longer fits, we can change it together.” Discuss the effect of a change rather than treating one refusal as evidence of an unreliable relationship."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "尝试之后，怎样回看实际效果",
+        "en": "Review what happened after the experiment"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的明确请求尝试：对方是否主动确认，分工是否比之前清楚，你有没有在无人回应时又全部接下？若没有减少负担，可以缩小共同范围，而不是用加倍承担证明重视关系。",
+          "en": "After the clear-request trial above, review whether the other person confirmed voluntarily, responsibilities became clearer and you took everything back on when no one responded. If the burden stayed the same, reduce the shared scope rather than taking on more to prove your care."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "愿意分享时，可以这样说",
+        "en": "If you want to share the result"
+      },
+      "paragraphs": [
+        {
+          "zh": "“这次我的最高匹配里有狼。我想观察的是怎样把共同约定说清楚，也想知道你更需要明确分工还是保留弹性。”这只是本版比喻；不要把它改成“我比别人更忠诚”。",
+          "en": "“Wolf was among my highest matches. I want to explore making shared agreements clear, and whether you prefer defined responsibilities or flexibility.” This is the edition’s metaphor, rather than a claim of greater loyalty than others."
+        }
+      ]
+    }
+  ],
+  "owl": [
+    {
+      "id": "editorial-conversation",
+      "title": {
+        "zh": "把这个角度说成一句协商",
+        "en": "Turn this angle into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "“我想先弄清这两条信息，再决定要不要试。你已经确认过哪一条，哪一条还只是猜测？”让对方知道核对的范围，也说明信息足够时愿意进入下一步。",
+          "en": "“I would like these two pieces of information before deciding whether to try. Which have you confirmed, and which are still guesses?” State the scope of checking and your willingness to proceed once enough is known."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "尝试之后，怎样回看实际效果",
+        "en": "Review what happened after the experiment"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的限时核查：哪条资料真的改变了决定，哪条只是让你感觉准备更多？若仍不能确定，把未知写清并决定是否暂缓。不要把收集资料的数量当作观察能力的成绩。",
+          "en": "After the bounded-checking trial above, ask which information changed the decision and which merely felt like more preparation. If uncertainty remains, state it and decide whether to wait. The amount collected is not a score for observational ability."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "愿意分享时，可以这样说",
+        "en": "If you want to share the result"
+      },
+      "paragraphs": [
+        {
+          "zh": "“这次我的最高匹配里有猫头鹰。我想聊的是决定之前需要弄清什么，也欢迎你说哪些信息已经够了。”它不说明智商或谁更理性，朋友也不必先提供证据才有资格表达感受。",
+          "en": "“Owl was among my highest matches. I would like to discuss what needs clarifying before a decision, and what information you think is already enough.” This does not establish intelligence or superior rationality; a friend need not supply evidence to express a feeling."
+        }
+      ]
+    }
+  ],
+  "fox": [
+    {
+      "id": "editorial-conversation",
+      "title": {
+        "zh": "把这个角度说成一句协商",
+        "en": "Turn this angle into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "“原办法在这里卡住了，我想只改这一小步，其他约定先保留。你需要知道哪些变化才方便跟上？”先让受影响的人了解试验，而不是把灵活当成可以随意改约的理由。",
+          "en": "“The original approach is stuck here. I would like to change just this step and keep the other agreements. What changes do you need to know to follow along?” Inform affected people rather than treating flexibility as permission to change commitments freely."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "尝试之后，怎样回看实际效果",
+        "en": "Review what happened after the experiment"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的单一变更：卡点是否减少，谁增加了额外工作，原办法是否仍能退回？若新做法没有帮助，可以停止并收尾；试过但不保留，也比不断换路更能说明你学到了什么。",
+          "en": "After the single-change trial above, review whether the obstacle reduced, who gained extra work and whether the previous method remained available. You may stop and close a trial that did not help. Trying without retaining can be more informative than repeatedly changing direction."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "愿意分享时，可以这样说",
+        "en": "If you want to share the result"
+      },
+      "paragraphs": [
+        {
+          "zh": "“这次我的最高匹配里有狐狸。我想观察原路走不通时怎样小范围试另一种办法。你希望哪些约定在尝试中保持不变？”狐狸在本版不表示狡猾，也不能代替说明实际变更。",
+          "en": "“Fox was among my highest matches. I want to explore a small alternative when the original path is blocked. Which agreements would you like to keep unchanged during a trial?” Fox here does not mean cunning or replace explaining the actual change."
+        }
+      ]
+    }
+  ],
+  "lion": [
+    {
+      "id": "editorial-conversation",
+      "title": {
+        "zh": "把这个角度说成一句协商",
+        "en": "Turn this angle into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "“现在需要决定的是这一项。我可以先提一个方案，最终由谁确认？有没有人会承担我还没考虑的成本？”把主动提议与拥有决定权分开，给不赞同的人真正补充条件的机会。",
+          "en": "“This is the decision needed now. I can propose an option; who confirms it, and will anyone bear a cost I have missed?” Distinguish proposing from having authority to decide, and give disagreement a real opportunity to add conditions."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "尝试之后，怎样回看实际效果",
+        "en": "Review what happened after the experiment"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的不同意见练习：最终方案改了什么，哪些限制原来没被看见，参与者是否知道下一步？不以有没有让大家接受原提议来判断成功，也不因为有人不同意就认定自己缺少领导力。",
+          "en": "After inviting a different view above, review what changed, which constraints were previously missed and whether participants know the next step. Success need not mean acceptance of the original proposal, and disagreement does not establish a lack of leadership."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "愿意分享时，可以这样说",
+        "en": "If you want to share the result"
+      },
+      "paragraphs": [
+        {
+          "zh": "“这次我的最高匹配里有狮子。我想练习把下一步说清，同时确认别人是否同意。你希望我什么时候先提议，什么时候先听？”这不是领袖认证，也不为替别人作决定提供依据。",
+          "en": "“Lion was among my highest matches. I want to make next steps clear while checking agreement. When would you like me to propose something, and when to listen first?” This is not leadership certification or authority to decide for others."
+        }
+      ]
+    }
+  ],
+  "dolphin": [
+    {
+      "id": "editorial-conversation",
+      "title": {
+        "zh": "把这个角度说成一句协商",
+        "en": "Turn this angle into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "“你想一起聊、用文字补充，还是先旁听？我想听懂你的意思，不需要你表现得热闹。”给出不同回应方式后，也接受暂时没有回应，不把沉默立即变成需要修好的气氛。",
+          "en": "“Would you prefer speaking, adding a written note or listening first? I want to understand you; there is no need to be lively.” Offer different ways to respond and accept no response for now, without treating silence as an atmosphere to repair."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "尝试之后，怎样回看实际效果",
+        "en": "Review what happened after the experiment"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的参与方式尝试：对方是否知道可以拒绝，是否能用自己舒服的方式表达，你有没有代替他把意思说完？轻松互动仍可能有分歧，别只用笑声或发言人数判断彼此听懂了。",
+          "en": "After the participation-options trial above, check whether the person knew they could decline, could use a comfortable format and had room to finish their own point. Easy interaction may still include disagreement; laughter or the number speaking does not establish mutual understanding."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "愿意分享时，可以这样说",
+        "en": "If you want to share the result"
+      },
+      "paragraphs": [
+        {
+          "zh": "“这次我的最高匹配里有海豚。我想聊怎样让彼此更容易接上话，而不是让每次见面都热闹。你更喜欢直接说、慢慢想还是先听？”这个结果不规定外向性，也不让你负责所有人的心情。",
+          "en": "“Dolphin was among my highest matches. I want to explore making conversation easier, rather than making every meeting lively. Do you prefer speaking, thinking first or listening?” The result does not define extraversion or make you responsible for everyone’s mood."
+        }
+      ]
+    }
+  ],
+  "deer": [
+    {
+      "id": "editorial-conversation",
+      "title": {
+        "zh": "把这个角度说成一句协商",
+        "en": "Turn this angle into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "“我注意到刚才的节奏变快了，但不确定你的感受。你想继续、慢一点还是先停？我自己也想留一点思考时间。”先确认观察，再把自己的需要放进同一场协商，不替对方下结论。",
+          "en": "“I noticed the pace picked up, but I do not know how that felt for you. Shall we continue, slow down or pause? I would also like some time to think.” Check an observation and include your own need in the discussion, without deciding how the other person feels."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "尝试之后，怎样回看实际效果",
+        "en": "Review what happened after the experiment"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的需要清单：对方明确说了什么，你原先猜的哪一项需要改写，自己的限制有没有被说出来？目标是减少替人猜测，而不是准确读懂每个人；对方不愿解释时也可以保留未知。",
+          "en": "After the needs-list exercise above, review what the other person stated, which initial guesses needed changing and whether you expressed your limits. The aim is less guessing, rather than reading everyone accurately. Someone declining to explain can remain unknown."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "愿意分享时，可以这样说",
+        "en": "If you want to share the result"
+      },
+      "paragraphs": [
+        {
+          "zh": "“这次我的最高匹配里有鹿。我想观察怎样把参与感受问清楚，也记得说出自己的需要。你愿意直接告诉我什么安排更舒服吗？”鹿不代表脆弱、敏感诊断或能读心。",
+          "en": "“Deer was among my highest matches. I want to ask about how participation feels and remember to state my own needs. Would you tell me which arrangement works better for you?” Deer does not establish fragility, a sensitivity diagnosis or mind-reading."
+        }
+      ]
+    }
+  ],
+  "bear": [
+    {
+      "id": "editorial-conversation",
+      "title": {
+        "zh": "把这个角度说成一句协商",
+        "en": "Turn this angle into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "“我想先把已经开始的这一项收好，新增的部分能否另约时间？如果原步骤不再合适，我们只改一个环节试试。”保护节奏可以与调整并存，不必把自己或别人说成抗拒变化的人。",
+          "en": "“I would like to finish this part before adding another. Could we schedule the extra work separately? If the old steps no longer fit, we can change one.” Protecting pace can coexist with adjustment, without labelling anyone resistant to change."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "尝试之后，怎样回看实际效果",
+        "en": "Review what happened after the experiment"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的固定短时段：任务是否更容易收尾，有没有因守住旧步骤而增加重复劳动？若时段总被打断，可以调整范围或时间，而不是要求自己更能忍。继续与更新都可以由实际效果决定。",
+          "en": "After the protected-time trial above, review whether finishing became easier and whether keeping old steps caused repeated work. If the period keeps being interrupted, adjust scope or timing rather than demanding greater endurance. Results can guide both continuity and change."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "愿意分享时，可以这样说",
+        "en": "If you want to share the result"
+      },
+      "paragraphs": [
+        {
+          "zh": "“这次我的最高匹配里有熊。我想聊怎样安排一个能够持续的节奏，也想知道哪些步骤已经可以更新。”这不是对理想大小、体力或成熟程度的评价，朋友也不必与你使用同一种速度。",
+          "en": "“Bear was among my highest matches. I want to discuss a sustainable pace and which steps could now be updated.” This does not judge ambition, stamina or maturity, and friends need not use the same pace."
+        }
+      ]
+    }
+  ],
+  "eagle": [
+    {
+      "id": "editorial-conversation",
+      "title": {
+        "zh": "把这个角度说成一句协商",
+        "en": "Turn this angle into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "“我希望这件事最终带来这个结果，但还需要确认现实条件。你最想保留的目的是什么，哪一步现在做得到？”共同方向要经过各方表达，不因自己先讲出目标就默认大家想法相同。",
+          "en": "“This is the outcome I hope for, and we still need to check practical conditions. What matters most to you, and which step is possible now?” A shared direction needs others’ input; stating a goal first does not establish agreement."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "尝试之后，怎样回看实际效果",
+        "en": "Review what happened after the experiment"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的目标与动作尝试：本周那一步有没有完成，完成后是否更接近想要的结果，原目标是否还值得继续？缩小或改变一个不合适的目标也是可用反馈，不用把坚持目标本身当作远见。",
+          "en": "After the goal-and-action trial above, ask whether the weekly step happened, whether it moved toward the intended outcome and whether the goal still fits. Shrinking or changing an unsuitable goal is useful feedback; persistence alone does not establish vision."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "愿意分享时，可以这样说",
+        "en": "If you want to share the result"
+      },
+      "paragraphs": [
+        {
+          "zh": "“这次我的最高匹配里有鹰。我想聊眼前安排为什么重要，以及怎样落成一个实际小步骤。你看到哪些限制或不同目的？”它不说明比别人有格局，也不能让远处的目标盖过眼前他人的需要。",
+          "en": "“Eagle was among my highest matches. I want to discuss why this arrangement matters and one practical step. Which constraints or different purposes do you see?” This does not imply a broader outlook than others or let a distant goal override someone’s immediate needs."
+        }
+      ]
+    }
+  ],
+  "otter": [
+    {
+      "id": "editorial-conversation",
+      "title": {
+        "zh": "把这个角度说成一句协商",
+        "en": "Turn this angle into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "“要不要试个不用准备的小玩法？只看也行，没兴致就停；如果你想安静，我们照原来的方式待着。”邀请中明确不参加的选择，而不是先把游戏安排好，再让别人证明自己合群。",
+          "en": "“Would you like a small game needing no preparation? Watching is fine, and we can stop whenever interest fades. If you want quiet, we can stay as we were.” Make non-participation explicit rather than arranging a game and expecting people to prove sociability."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "尝试之后，怎样回看实际效果",
+        "en": "Review what happened after the experiment"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的短玩法：每个人能否拒绝或离开，自己是否享受过程，有没有人其实在勉强配合？不以玩了多久、谁最会逗笑或有没有变亲近评分；若没有合适机会，不做也符合这份解读。",
+          "en": "After the short-play trial above, review whether everyone could decline or leave, whether you enjoyed it and whether anyone seemed to join reluctantly. Duration, humour and increased closeness are not scores. Having no suitable opportunity and not trying also fits the reading."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "愿意分享时，可以这样说",
+        "en": "If you want to share the result"
+      },
+      "paragraphs": [
+        {
+          "zh": "“这次我的最高匹配里有水獭。我想保留一点自愿一起玩的空间，但不要求每次相处都有节目。你喜欢什么玩法，或者更想安静待着？”它不认证幽默能力，也不让别人承担配合玩乐的义务。",
+          "en": "“Otter was among my highest matches. I would like some room for voluntary play without making every meeting an activity. What do you enjoy, or would you prefer quiet company?” This does not certify humour or oblige anyone to join."
+        }
+      ]
+    }
+  ]
+}

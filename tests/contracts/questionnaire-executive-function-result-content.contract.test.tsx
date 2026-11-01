@@ -1,0 +1,23 @@
+import { describe, expect, it, vi } from 'vitest';
+import { renderToStaticMarkup } from 'react-dom/server';
+import source from '@/lib/questionnaires/data/executive-function.json';
+import { executiveFunctionResultProfile } from '@/lib/questionnaires/result-content/executive-function';
+import { prepareResultProfile, prepareQuestionnaireResultReadings } from '@/lib/questionnaires/result-content/readings';
+import { isAdexi14ConfigurationValid, scoreAdexi14Questionnaire, formatAdexi14Mean } from '@/lib/questionnaires/adexi14';
+import { QuestionnaireAdexi14Report } from '@/components/questionnaires/QuestionnaireAdexi14Report';
+import type { Questionnaire } from '@/lib/questionnaires/types';
+vi.mock('next/headers',()=>({headers:async()=>new Headers()}));
+const quiz=source as Questionnaire,prepared=prepareQuestionnaireResultReadings(quiz);
+describe('Three complete ADEXI readings with official words and separate sums and means',()=>{
+ it('keeps source identity, all paragraphs and incomplete admission with immutable idempotent readings',()=>{
+  const before=JSON.stringify(quiz);expect(isAdexi14ConfigurationValid(prepared)).toBe(true);for(const p of quiz.profiles){const r=executiveFunctionResultProfile(p);expect({...r,sections:p.sections}).toEqual(p);expect(r.sections.map(s=>s.id)).toEqual(p.sections.map(s=>s.id));expect(r.sections.flatMap(s=>s.paragraphs)).toHaveLength(9);for(const s of p.sections)expect(r.sections.find(t=>t.id===s.id)!.paragraphs[0]).toEqual(s.paragraphs[0]);const ready=prepareResultProfile(quiz.slug,p);expect(prepareResultProfile(quiz.slug,ready)).toBe(ready);}const all=Object.fromEntries(quiz.questions.map(q=>[q.id,'1']));for(const q of quiz.questions){const a={...all};delete a[q.id];expect(scoreAdexi14Questionnaire(prepared,a)).toEqual({status:'incomplete',answered:13});}expect(JSON.stringify(quiz)).toBe(before);const unknown={...quiz.profiles[0],id:'__proto__'};expect(executiveFunctionResultProfile(unknown)).toBe(unknown);
+ });
+ it.each(['zh','en']as const)('opens three complete public %s readings without personal values',async locale=>{
+  const route=await import('@/components/questionnaires/QuestionnaireGuide');for(const p of quiz.profiles){const dom=document.createElement('div');dom.innerHTML=renderToStaticMarkup(await route.default({params:Promise.resolve({locale,slug:quiz.slug,profile:p.id})}));expect(dom.querySelectorAll('[data-executive-function-result-reading] h2')).toHaveLength(6);expect(dom.querySelector('[data-adexi14-overall],[data-adexi14-part-score]')).toBeNull();for(const s of executiveFunctionResultProfile(p).sections)for(const t of s.paragraphs)expect(dom.querySelector(`#report-${s.id}`)?.textContent).toContain(t[locale]);if(locale==='en')expect(dom.textContent?.replaceAll('睇电视','')).not.toMatch(/\p{Script=Han}/u);}
+ });
+ it.each(['zh','en']as const)('preserves each %s raw total, exact part means and independent skips with all general readings',locale=>{
+  const patterns=Array.from({length:57},(_,extra)=>Object.fromEntries(quiz.questions.map((q,i)=>[q.id,String(1+Math.min(4,Math.max(0,extra-i*4)))])));
+  patterns.push(Object.fromEntries(quiz.questions.map(q=>[q.id,'na'])),Object.fromEntries(quiz.questions.map((q,i)=>[q.id,i===0?'na':'3'])));
+  for(const a of patterns){const r=scoreAdexi14Questionnaire(prepared,a);expect(r).toEqual(scoreAdexi14Questionnaire(quiz,a));if(r.status!=='complete')throw Error('Complete explicit answers required');const dom=document.createElement('div');dom.innerHTML=renderToStaticMarkup(<QuestionnaireAdexi14Report quiz={prepared} result={r} locale={locale}/>);expect(dom.querySelectorAll('[data-executive-function-result-reading] h4')).toHaveLength(18);expect(dom.querySelector('[data-adexi14-overall]')?.textContent).toContain(r.adexi14.overallSum===null?(locale==='zh'?'资料不足':'Insufficient information'):String(r.adexi14.overallSum));for(const[id,p]of Object.entries(r.adexi14.parts)){const text=dom.querySelector(`[data-adexi14-part="${id}"] [data-adexi14-part-score]`)?.textContent;if(p.sum===null)expect(text).toContain(locale==='zh'?'资料不足':'Insufficient information');else{expect(text).toContain(locale==='zh'?`原始合计：${p.sum}（${p.total}到${p.total*5}）`:`Raw sum: ${p.sum} (${p.total} to ${p.total*5})`);expect(text).toContain(locale==='zh'?`分项均分：${formatAdexi14Mean(p.sum,p.total)}`:`Part mean: ${formatAdexi14Mean(p.sum,p.total)}`);}}for(const p of quiz.profiles)for(const s of executiveFunctionResultProfile(p).sections)for(const t of s.paragraphs)expect(dom.querySelector(`[data-executive-function-result-reading="${p.id}"]`)?.textContent).toContain(t[locale]);const ids=[...dom.querySelectorAll('[id]')].map(n=>n.id);expect(new Set(ids).size).toBe(ids.length);}
+ });
+});

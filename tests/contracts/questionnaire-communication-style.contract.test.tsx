@@ -1,3 +1,4 @@
+import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -76,8 +77,8 @@ describe("T018 original communication response frequency reflection", () => {
   it("uses its own4pattern report, all36unique full sections, explicit NA and no social-battery interpretation", () => {
     for (const locale of ["en", "zh"] as const) for (const value of ["5", "na"]) {
       const result = scoreQuestionnaire(quiz, all(value)); if (result.status !== "complete" || !("facets" in result)) throw new Error("Rejected input");
-      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireCommunicationReport quiz={quiz} result={result} locale={locale} />);
-      expect(dom.querySelectorAll("[data-communication-facet]")).toHaveLength(4); expect(dom.querySelectorAll("h4")).toHaveLength(36); expect(dom.querySelectorAll("[data-communication-profile]")).toHaveLength(4);
+      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireCommunicationReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale={locale} />);
+      expect(dom.querySelectorAll("[data-communication-facet]")).toHaveLength(4); expect(dom.querySelectorAll("h4")).toHaveLength(48); expect(dom.querySelectorAll("[data-communication-profile]")).toHaveLength(4);
       expect(dom.querySelectorAll("[data-communication-insufficient]")).toHaveLength(value === "na" ? 1 : 0);
       const ids = Array.from(dom.querySelectorAll("[id]"), x => x.id); expect(new Set(ids).size).toBe(ids.length);
       expect(dom.textContent).not.toMatch(/battery|quiet recovery|coordination load|社交电量|安静恢复/i);

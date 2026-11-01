@@ -1,0 +1,130 @@
+{
+  "values-and-operators": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：谓词前是否真的做了转换",
+        "en": "Review whether conversion happened before the predicate"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例console.log(Number.isNaN(\"moss\") + \":\" + Number.isNaN(Number(\"moss\")));输出false:true。左边直接把字符串交给不做强制转换的Number.isNaN，故为false；右边先由Number得到NaN，再由同一谓词得到true。给每次调用标明“输入类型、是否转换、输出”，不要把false读成“moss是数字”，也不要把转换得到NaN读成抛出异常。这段独立.mjs已在Node 24.19.0核对，不加入原题正确数。",
+          "en": "In a fresh example, console.log(Number.isNaN(\"moss\") + \":\" + Number.isNaN(Number(\"moss\"))); prints false:true. The left side passes a string directly to the non-coercing Number.isNaN predicate. The right side first converts that text with Number, obtaining NaN, and then applies the same predicate. Record input type, conversion and output for each call. False does not mean that moss is numeric; conversion to NaN does not mean an exception was thrown. This independent .mjs example was checked with Node 24.19.0 and adds nothing to your original count."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起解释规则，分享公开复习指南",
+        "en": "Explain the rule together and share the public guide"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“为什么同一段文字在两个Number.isNaN调用里给出不同布尔值？哪一步改变了输入类型？”各自先写预测，再比较最早分歧；可查语言规则、只读轨迹、换例子或不参与。讨论限定在给定片段，不要求上传项目、披露生产错误或证明工作能力。",
+          "en": "Ask: “Why does the same text lead to different Boolean results in the two Number.isNaN calls, and which step changes the input type?” Predict separately, then compare the first divergence. Consult the language rules, read the trace, change the example or decline. Keep discussion within the supplied snippet, without requesting projects, production mistakes or proof of job competence."
+        },
+        {
+          "zh": "分享按钮只复制公开练习入口，不携带答案或正确数；也可自行分享这份公开指南。四组用于安排复习，不是开发者等级、招聘通过线或厂商认证。运行核对支持特定片段的行为，不验证题组的心理测量质量，也不证明所有浏览器与宿主环境表现相同。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Four groups organise revision rather than developer levels, hiring thresholds or vendor certification. Execution checks support specific snippet behaviour, without validating the bank’s psychometric quality or proving identical behaviour across every browser and host environment."
+        }
+      ]
+    }
+  ],
+  "bindings-and-functions": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：创建了几个闭包，分别调用几次",
+        "en": "Review how many closures were created and called"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例function make(){let n=10; return ()=>n+=3;} const a=make(); const b=make(); console.log(a()+\":\"+a()+\":\"+b());输出13:16:13。两次make各建一条n绑定；a的两次调用共享第一条，b访问第二条。列“创建次数、函数归属、调用后状态”，不要因变量都叫n就合成一个计数器。若把const b=make()换成const b=a，两名字将访问同一返回函数，输出变为13:16:19。这两个独立.mjs变体已在Node 24.19.0核对，都是不计分复习。",
+          "en": "Use function make(){let n=10; return ()=>n+=3;} const a=make(); const b=make(); console.log(a()+\":\"+a()+\":\"+b());. It prints 13:16:13. Each make call creates a separate n binding. Two calls through a share the first, while b reaches the second. Record creation, function identity and state after each call; identical variable names do not merge the counters. Replacing const b=make() with const b=a makes both names reach the same returned function and changes the output to 13:16:19. Both independent .mjs variants were checked with Node 24.19.0 as unscored revision."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起解释规则，分享公开复习指南",
+        "en": "Explain the rule together and share the public guide"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“把b=make()换成b=a后，最早在哪次调用出现输出差异？是新建了计数器，还是多一个名字指向已有函数？”各自先写预测，再比较最早分歧；可查语言规则、只读轨迹、换例子或不参与。讨论限定在给定片段，不要求上传项目、披露生产错误或证明工作能力。",
+          "en": "Ask: “Which call first changes its output when b=make() becomes b=a: did you create another counter, or another name for an existing function?” Predict separately, then compare the first divergence. Consult the language rules, read the trace, change the example or decline. Keep discussion within the supplied snippet, without requesting projects, production mistakes or proof of job competence."
+        },
+        {
+          "zh": "分享按钮只复制公开练习入口，不携带答案或正确数；也可自行分享这份公开指南。四组用于安排复习，不是开发者等级、招聘通过线或厂商认证。运行核对支持特定片段的行为，不验证题组的心理测量质量，也不证明所有浏览器与宿主环境表现相同。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Four groups organise revision rather than developer levels, hiring thresholds or vendor certification. Execution checks support specific snippet behaviour, without validating the bank’s psychometric quality or proving identical behaviour across every browser and host environment."
+        }
+      ]
+    }
+  ],
+  "arrays-and-objects": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：改嵌套内容与替换属性分开追踪",
+        "en": "Review nested mutation separately from property replacement"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例const source={inner:{n:1}}; const copy={...source}; copy.inner.n=3; copy.inner={n:9}; console.log(source.inner.n+\":\"+copy.inner.n+\":\"+(source===copy));输出3:9:false。先复制外层，两个inner共享一个对象；改n让源也读到3。随后给copy.inner换新对象，只改copy的属性，source.inner仍指向值为3的旧对象。先画一次共享对象，再画后来的替换，避免把“曾经共享”理解为“以后所有赋值都同步”。该独立.mjs已在Node 24.19.0核对，不计分。",
+          "en": "Use const source={inner:{n:1}}; const copy={...source}; copy.inner.n=3; copy.inner={n:9}; console.log(source.inner.n+\":\"+copy.inner.n+\":\"+(source===copy));. It prints 3:9:false. After the outer copy, both inner properties reach one object. Mutating n makes source read three too. Replacing copy.inner then changes only that outer property: source.inner still reaches the old object holding three. Draw the shared object before drawing the replacement. Earlier sharing does not make every later property assignment propagate between the outer objects. This independent .mjs trace was checked with Node 24.19.0 and is unscored."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起解释规则，分享公开复习指南",
+        "en": "Explain the rule together and share the public guide"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“为什么第一次改copy.inner.n会影响source，第二次给copy.inner赋新对象却不会？哪条箭头改变了？”各自先写预测，再比较最早分歧；可查语言规则、只读轨迹、换例子或不参与。讨论限定在给定片段，不要求上传项目、披露生产错误或证明工作能力。",
+          "en": "Ask: “Why does changing copy.inner.n affect source, while assigning a new object to copy.inner does not, and which reference changed?” Predict separately, then compare the first divergence. Consult the language rules, read the trace, change the example or decline. Keep discussion within the supplied snippet, without requesting projects, production mistakes or proof of job competence."
+        },
+        {
+          "zh": "分享按钮只复制公开练习入口，不携带答案或正确数；也可自行分享这份公开指南。四组用于安排复习，不是开发者等级、招聘通过线或厂商认证。运行核对支持特定片段的行为，不验证题组的心理测量质量，也不证明所有浏览器与宿主环境表现相同。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Four groups organise revision rather than developer levels, hiring thresholds or vendor certification. Execution checks support specific snippet behaviour, without validating the bank’s psychometric quality or proving identical behaviour across every browser and host environment."
+        }
+      ]
+    }
+  ],
+  "promises-and-errors": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：返回恢复值与再次抛出分别追踪",
+        "en": "Review returning a recovery value versus throwing again"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例建立两个链：const recovered=Promise.reject(\"retry\").catch(()=>8); const propagated=Promise.reject(\"retry\").catch(reason=>{throw reason;}).catch(reason=>\"caught:\"+reason); console.log((await Promise.all([recovered,propagated])).join(\"|\"));输出8|caught:retry。第一条catch返回普通值使后续履行；第二条先抛出，让下一Promise拒绝，再由后一个catch返回字符串恢复。Promise.all按给定输入顺序收值，这个输出不是完成速度比较。该独立.mjs在Node 24.19.0核过，无外部请求或定时器，不加入正确数。",
+          "en": "Create two chains: const recovered=Promise.reject(\"retry\").catch(()=>8); const propagated=Promise.reject(\"retry\").catch(reason=>{throw reason;}).catch(reason=>\"caught:\"+reason); console.log((await Promise.all([recovered,propagated])).join(\"|\"));. Output is 8|caught:retry. The first catch returns an ordinary value, fulfilling its next Promise. The other chain first throws, rejecting the next Promise, before a later catch returns a recovery string. Promise.all collects values in input order; this output does not compare completion speeds. The independent .mjs example was checked with Node 24.19.0, without external requests or timers, and is unscored."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起解释规则，分享公开复习指南",
+        "en": "Explain the rule together and share the public guide"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“两个catch都被调用过，为什么只有一个立刻得到履行值？第二条链在哪一步恢复，Promise.all的输出顺序又来自哪里？”各自先写预测，再比较最早分歧；可查语言规则、只读轨迹、换例子或不参与。讨论限定在给定片段，不要求上传项目、披露生产错误或证明工作能力。",
+          "en": "Ask: “Both chains enter catch; why does only one immediately produce fulfillment, where does the other recover, and what determines the Promise.all output order?” Predict separately, then compare the first divergence. Consult the language rules, read the trace, change the example or decline. Keep discussion within the supplied snippet, without requesting projects, production mistakes or proof of job competence."
+        },
+        {
+          "zh": "分享按钮只复制公开练习入口，不携带答案或正确数；也可自行分享这份公开指南。四组用于安排复习，不是开发者等级、招聘通过线或厂商认证。运行核对支持特定片段的行为，不验证题组的心理测量质量，也不证明所有浏览器与宿主环境表现相同。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Four groups organise revision rather than developer levels, hiring thresholds or vendor certification. Execution checks support specific snippet behaviour, without validating the bank’s psychometric quality or proving identical behaviour across every browser and host environment."
+        }
+      ]
+    }
+  ]
+}

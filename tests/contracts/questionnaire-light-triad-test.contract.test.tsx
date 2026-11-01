@@ -1,3 +1,4 @@
+import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -91,8 +92,8 @@ describe("T054 published LTS12 Table3 agreement reflection", () => {
   it("uses its own3facet report, all27unique full sections, explicit NA and no social-battery interpretation", () => {
     for (const locale of ["en", "zh"] as const) for (const value of ["5", "na"]) {
       const result = scoreQuestionnaire(quiz, all(value)); if (result.status !== "complete" || !("facets" in result)) throw new Error("Rejected input");
-      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireLtsReport quiz={quiz} result={result} locale={locale} />);
-      expect(dom.querySelectorAll("[data-lts-facet]")).toHaveLength(3); expect(dom.querySelectorAll("h4")).toHaveLength(27); expect(dom.querySelectorAll("[data-lts-profile]")).toHaveLength(3);
+      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireLtsReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale={locale} />);
+      expect(dom.querySelectorAll("[data-lts-facet]")).toHaveLength(3); expect(dom.querySelectorAll("h4")).toHaveLength(33); expect(dom.querySelectorAll("[data-lts-profile]")).toHaveLength(3);
       expect(dom.querySelectorAll("[data-lts-insufficient]")).toHaveLength(value === "na" ? 1 : 0);
       const ids = Array.from(dom.querySelectorAll("[id]"), x => x.id); expect(new Set(ids).size).toBe(ids.length);
       expect(dom.textContent).not.toMatch(/battery|quiet recovery|coordination load|社交电量|安静恢复|learning effectiveness|format preferences|学习效果|PPS item/);
@@ -113,7 +114,7 @@ describe("T054 published LTS12 Table3 agreement reflection", () => {
     for (const [key, witness] of states) {
       const [rated, sum] = key.split(",").map(Number), answers = Object.fromEntries(source.questions.map((q, i) => [q.id, witness[i]]));
       const result = scoreQuestionnaire(quiz, answers); if (result.status !== "complete" || !("facets" in result)) throw new Error("Rejected total witness");
-      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireLtsReport quiz={quiz} result={result} locale="en" />);
+      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireLtsReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale="en" />);
       expect(dom.querySelector("[data-lts-total]")?.textContent).toBe(rated === 12 ? String(sum) : "Insufficient information");
       expect(dom.querySelector("[data-lts-overall-mean]")?.textContent).toBe(rated === 12 ? (sum / 12).toFixed(2) : "Insufficient information");
       if (rated === 12) fullyRated++;
@@ -121,14 +122,14 @@ describe("T054 published LTS12 Table3 agreement reflection", () => {
     expect(fullyRated).toBe(49);
     const answers = all("2"); answers[source.questions[0].id] = "1";
     let result = scoreQuestionnaire(quiz, answers); if (result.status !== "complete" || !("facets" in result)) throw new Error("Rejected rounding witness");
-    let dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireLtsReport quiz={quiz} result={result} locale="en" />);
+    let dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireLtsReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale="en" />);
     expect(dom.querySelector("[data-lts-total]")?.textContent).toBe("23"); expect(dom.querySelector("[data-lts-overall-mean]")?.textContent).toBe("1.92");
     expect(dom.querySelector('[data-lts-facet="faith-in-humanity"] [data-lts-mean]')?.textContent).toBe("1.75 / 5");
     answers[source.questions[0].id] = "na"; result = scoreQuestionnaire(quiz, answers); if (result.status !== "complete" || !("facets" in result)) throw new Error("Rejected partial witness");
-    dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireLtsReport quiz={quiz} result={result} locale="en" />);
+    dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireLtsReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale="en" />);
     expect(dom.querySelector("[data-lts-total]")?.textContent).toBe("Insufficient information");
     expect(dom.querySelector('[data-lts-facet="faith-in-humanity"] [data-lts-mean]')?.textContent).toBe("Insufficient information");
-    expect(dom.querySelector('[data-lts-facet="humanism"] [data-lts-mean]')?.textContent).toBe("2.00 / 5"); expect(dom.querySelectorAll("h4")).toHaveLength(27);
+    expect(dom.querySelector('[data-lts-facet="humanism"] [data-lts-mean]')?.textContent).toBe("2.00 / 5"); expect(dom.querySelectorAll("h4")).toHaveLength(33);
     console.info("325global rated/sum states including49fullyrated totals, not6^12joint answers or psychometric validation.");
   }, 30000);
   it("publishes eight native bilingual entry/guideURLs with complete bodies and individual SEO", async () => {

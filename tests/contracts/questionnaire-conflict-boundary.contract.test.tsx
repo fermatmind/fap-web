@@ -1,3 +1,4 @@
+import { correctConflictReadingPrivacy } from "@/lib/questionnaires/result-content/conflict-boundary-privacy";
 import { readFileSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -59,7 +60,7 @@ describe("original conflict and boundary Mini form", () => {
       const parse = (a: unknown) => new DOMParser().parseFromString(renderToStaticMarkup(<QuestionnaireConflictReport quiz={quiz} result={complete(a)} locale={locale} />), "text/html");
       const full = parse(base()); expect(full.querySelectorAll("[data-conflict-part]")).toHaveLength(4);
       expect(full.body.textContent).toContain(locale === "zh" ? "过去三个月" : "past three months");
-      for (const p of profiles) for (const s of p.sections) for (const para of s.paragraphs) expect(full.querySelector(`[id="conflict-report-${p.id}-${s.id}"]`)?.textContent).toContain(para[locale]);
+      for (const original of profiles) for (const p of [correctConflictReadingPrivacy(original)]) for (const s of p.sections) for (const para of s.paragraphs) expect(full.querySelector(`[id="conflict-report-${p.id}-${s.id}"]`)?.textContent).toContain(para[locale]);
       const allNA = parse(Object.fromEntries(data.questions.map(q => [q.id, "na"])));
       expect(allNA.querySelector("[data-conflict-all-insufficient]")).not.toBeNull();
       expect(allNA.querySelectorAll("[data-conflict-part], [data-conflict-mean], [data-conflict-sum], [id^=conflict-report-]")).toHaveLength(0);

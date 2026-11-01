@@ -1,0 +1,289 @@
+{
+  "familiar": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者在同一设想午餐中选直白南瓜介绍，也选有反差的汤杯说明。前者没有揭示家庭背景，后者也不推翻熟悉方向的较多次数。把“这一对更喜欢哪条文字”与“真实会点哪道菜”分开，实际食材、价格或需要改变时，不沿用题目的等同假设。",
+          "en": "In an additional original scene, a fictional reader chooses a plain pumpkin description and a contrasting soup-mug description within one imagined lunch. Neither reveals background nor cancels a familiar lead. Preference between these texts differs from an actual order; changed ingredients, costs or needs cannot inherit the task’s equality assumptions."
+        }
+      ]
+    },
+    {
+      "id": "next-step",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“只看虚构午餐，直白菜名帮助辨认了什么？单凭选普通碗，还不知道哪些原因？”可只读，或比较公开文字，不必展示答卷、家庭经历或消费记录；听者不由餐具推断社会位置。",
+          "en": "An optional discussion card asks what a plain dish name makes recognisable in the fictional lunch, and which reasons remain unknown from choosing an ordinary bowl. Reading alone or comparing public text suffices, without sharing answers, family history or spending. Tableware supports no inference of social position."
+        }
+      ]
+    },
+    {
+      "id": "method",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创；可以只读，原有观察也可跳过。固定现在愿意选择的一种普通自愿用餐设想，每对只比较文字呈现，假设食物适合自己，食材、味道、份量、价格与可获得性相同，不需购买或试吃。十二题每题二选一且全部完成；每类出现八次、两侧各四次，每两类相遇四次，选中记一次，总计十二次。全部最高并列保留；4—4—4是完整结果，混搭类别与双向或三向并列不同。没有反向、概率、置信度、营养分、阶层或收入估计；次数较少不等于厌恶，一题改选从原类减一、给另类加一，变化不验证特质或观察效果。原论文研究特定菜单且另测社会位置，仅作主题背景，不验证本十二组原创呈现题；本版尚无已建立的信效度、常模或中英等值，不推断原因、健康、创造能力或受众反应。讨论可全用虚构文字，不要求披露、饮食变化或消费。七篇全文始终公开；原有页面内存、自选24小时标签页草稿和完成退出重测清除不变，复制只含公开标题与入口，不含私人答案与次数。",
+          "en": "FermatMind Editorial authored these added scenes and discussion cards. Reading alone suffices; existing observations are optional. Keep one ordinary voluntary meal you would choose now in mind. Compare only written presentation, assuming suitable food and equal ingredients, flavour, portion, price and availability within each pair, without purchase or tasting. All twelve two-choice prompts require answers. Each category appears eight times, four on each side; each pair of categories meets four times. Every choice contributes one count, twelve overall. All highest ties remain. A 4–4–4 is complete, while the mixed category differs from two- or three-way ties. Counts establish no probability, confidence, nutrition score, class or income. Fewer selections establish no aversion. An edit subtracts one from its original category and adds one to the other; changes validate neither a trait nor an observation’s effect. The paper studies particular menus and separately measures social position: topic background without validation of these twelve original presentation pairs. This edition has no established reliability, validity, norms or English–Chinese equivalence and infers no motives, health, creative ability or audience response. Fictional discussion requires no disclosure, dietary change or spending. All seven full guides remain public. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying includes only the public title and entry, without private answers or counts."
+        }
+      ]
+    }
+  ],
+  "formal": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者在一餐里更喜欢规整玉米介绍，却给熟悉的燕麦选日常碗。正式次数领先可以与具体例外并存。协调呈现、喜欢描述与获得来宾认可不是同一件事；没有受众观察时，不能补写别人的评价或读者寻求地位的动机。",
+          "en": "In an additional original scene, a fictional reader favours a composed corn description but an ordinary bowl for familiar oats. A formal lead can include specific exceptions. Coordination, liking a text and gaining guest approval differ; no audience observation supports a claim about approval or a status-seeking motive."
+        }
+      ]
+    },
+    {
+      "id": "next-step",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构玉米介绍中吸引人的是摆放、文字还是场合？有哪些普通替代解释？”可只读，不需布置餐桌、消费或请别人评分。形式统一不能给人的品味或价值排名。",
+          "en": "An optional discussion card asks whether arrangement, wording or occasion attracts the fictional diner to the corn description, and what ordinary alternatives remain. Reading alone suffices without table-setting, purchases or ratings from others. Coordinated presentation ranks neither taste quality nor personal worth."
+        }
+      ]
+    },
+    {
+      "id": "method",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创；可以只读，原有观察也可跳过。固定现在愿意选择的一种普通自愿用餐设想，每对只比较文字呈现，假设食物适合自己，食材、味道、份量、价格与可获得性相同，不需购买或试吃。十二题每题二选一且全部完成；每类出现八次、两侧各四次，每两类相遇四次，选中记一次，总计十二次。全部最高并列保留；4—4—4是完整结果，混搭类别与双向或三向并列不同。没有反向、概率、置信度、营养分、阶层或收入估计；次数较少不等于厌恶，一题改选从原类减一、给另类加一，变化不验证特质或观察效果。原论文研究特定菜单且另测社会位置，仅作主题背景，不验证本十二组原创呈现题；本版尚无已建立的信效度、常模或中英等值，不推断原因、健康、创造能力或受众反应。讨论可全用虚构文字，不要求披露、饮食变化或消费。七篇全文始终公开；原有页面内存、自选24小时标签页草稿和完成退出重测清除不变，复制只含公开标题与入口，不含私人答案与次数。",
+          "en": "FermatMind Editorial authored these added scenes and discussion cards. Reading alone suffices; existing observations are optional. Keep one ordinary voluntary meal you would choose now in mind. Compare only written presentation, assuming suitable food and equal ingredients, flavour, portion, price and availability within each pair, without purchase or tasting. All twelve two-choice prompts require answers. Each category appears eight times, four on each side; each pair of categories meets four times. Every choice contributes one count, twelve overall. All highest ties remain. A 4–4–4 is complete, while the mixed category differs from two- or three-way ties. Counts establish no probability, confidence, nutrition score, class or income. Fewer selections establish no aversion. An edit subtracts one from its original category and adds one to the other; changes validate neither a trait nor an observation’s effect. The paper studies particular menus and separately measures social position: topic background without validation of these twelve original presentation pairs. This edition has no established reliability, validity, norms or English–Chinese equivalence and infers no motives, health, creative ability or audience response. Fictional discussion requires no disclosure, dietary change or spending. All seven full guides remain public. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying includes only the public title and entry, without private answers or counts."
+        }
+      ]
+    }
+  ],
+  "mix": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者喜欢面饼托板旁的规整小细节，却不喜欢另一道菜的反差式名字。“混搭”只是题中明确并置元素的类别；不同细节可能产生相同计数。混搭最高、熟悉与正式次数相同，是两个不同结果，不能把它们互换成“平衡”或创意能力。",
+          "en": "In an additional original scene, a fictional reader likes a precise detail beside a flatbread board but dislikes another dish’s contrasting name. Mixed is the editorial category of explicitly juxtaposed elements; different details can yield equal totals. A mixed lead differs from a familiar–formal tie and establishes neither balance nor creative ability."
+        }
+      ]
+    },
+    {
+      "id": "next-step",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“只看虚构面饼，是日常底色、精细细节还是两者反差吸引人？如果原因不知道，可以怎样保留未知？”可只读，不要求尝试新食物或向别人证明独特；听者不把反差选择解释为财富或区隔动机。",
+          "en": "An optional discussion card distinguishes the everyday base, precise detail and their contrast in the fictional flatbread, leaving unknown reasons open. Reading alone suffices without trying unfamiliar foods or demonstrating uniqueness. A contrast choice establishes neither wealth nor a desire for distinction."
+        }
+      ]
+    },
+    {
+      "id": "method",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创；可以只读，原有观察也可跳过。固定现在愿意选择的一种普通自愿用餐设想，每对只比较文字呈现，假设食物适合自己，食材、味道、份量、价格与可获得性相同，不需购买或试吃。十二题每题二选一且全部完成；每类出现八次、两侧各四次，每两类相遇四次，选中记一次，总计十二次。全部最高并列保留；4—4—4是完整结果，混搭类别与双向或三向并列不同。没有反向、概率、置信度、营养分、阶层或收入估计；次数较少不等于厌恶，一题改选从原类减一、给另类加一，变化不验证特质或观察效果。原论文研究特定菜单且另测社会位置，仅作主题背景，不验证本十二组原创呈现题；本版尚无已建立的信效度、常模或中英等值，不推断原因、健康、创造能力或受众反应。讨论可全用虚构文字，不要求披露、饮食变化或消费。七篇全文始终公开；原有页面内存、自选24小时标签页草稿和完成退出重测清除不变，复制只含公开标题与入口，不含私人答案与次数。",
+          "en": "FermatMind Editorial authored these added scenes and discussion cards. Reading alone suffices; existing observations are optional. Keep one ordinary voluntary meal you would choose now in mind. Compare only written presentation, assuming suitable food and equal ingredients, flavour, portion, price and availability within each pair, without purchase or tasting. All twelve two-choice prompts require answers. Each category appears eight times, four on each side; each pair of categories meets four times. Every choice contributes one count, twelve overall. All highest ties remain. A 4–4–4 is complete, while the mixed category differs from two- or three-way ties. Counts establish no probability, confidence, nutrition score, class or income. Fewer selections establish no aversion. An edit subtracts one from its original category and adds one to the other; changes validate neither a trait nor an observation’s effect. The paper studies particular menus and separately measures social position: topic background without validation of these twelve original presentation pairs. This edition has no established reliability, validity, norms or English–Chinese equivalence and infers no motives, health, creative ability or audience response. Fictional discussion requires no disclosure, dietary change or spending. All seven full guides remain public. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying includes only the public title and entry, without private answers or counts."
+        }
+      ]
+    }
+  ],
+  "familiar-formal": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者在同一午餐设想里，有些题喜欢直白介绍，有些题喜欢统一摆放，最后两个计数共同最高。无需改换场合、犹豫或将两种风格放进同一餐盘，也能出现这种并列；它没有测出内在冲突、折中人格或混搭选项的最高次数。",
+          "en": "In an additional original scene, a fictional reader imagines one lunch, preferring plain introductions on some items and coordinated arrangements on others. Both counts lead without changed occasions, hesitation or combining styles on one plate. The tie establishes neither inner conflict, a compromise personality nor a lead for the mixed option category."
+        }
+      ]
+    },
+    {
+      "id": "next-step",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“给虚构的两条所选描述分别写下一个可见细节；哪些原因还不能确定？”可只读，保留双向最高，无需说服对方选一个真正类型；不把并列解读为中产、摇摆或缺少判断力。",
+          "en": "An optional discussion card names a visible detail in each of two fictional selected descriptions and leaves uncertain reasons open. Reading alone suffices while retaining both leaders, without choosing a true type. The tie establishes neither middle-class identity, indecision nor impaired judgement."
+        }
+      ]
+    },
+    {
+      "id": "method",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创；可以只读，原有观察也可跳过。固定现在愿意选择的一种普通自愿用餐设想，每对只比较文字呈现，假设食物适合自己，食材、味道、份量、价格与可获得性相同，不需购买或试吃。十二题每题二选一且全部完成；每类出现八次、两侧各四次，每两类相遇四次，选中记一次，总计十二次。全部最高并列保留；4—4—4是完整结果，混搭类别与双向或三向并列不同。没有反向、概率、置信度、营养分、阶层或收入估计；次数较少不等于厌恶，一题改选从原类减一、给另类加一，变化不验证特质或观察效果。原论文研究特定菜单且另测社会位置，仅作主题背景，不验证本十二组原创呈现题；本版尚无已建立的信效度、常模或中英等值，不推断原因、健康、创造能力或受众反应。讨论可全用虚构文字，不要求披露、饮食变化或消费。七篇全文始终公开；原有页面内存、自选24小时标签页草稿和完成退出重测清除不变，复制只含公开标题与入口，不含私人答案与次数。",
+          "en": "FermatMind Editorial authored these added scenes and discussion cards. Reading alone suffices; existing observations are optional. Keep one ordinary voluntary meal you would choose now in mind. Compare only written presentation, assuming suitable food and equal ingredients, flavour, portion, price and availability within each pair, without purchase or tasting. All twelve two-choice prompts require answers. Each category appears eight times, four on each side; each pair of categories meets four times. Every choice contributes one count, twelve overall. All highest ties remain. A 4–4–4 is complete, while the mixed category differs from two- or three-way ties. Counts establish no probability, confidence, nutrition score, class or income. Fewer selections establish no aversion. An edit subtracts one from its original category and adds one to the other; changes validate neither a trait nor an observation’s effect. The paper studies particular menus and separately measures social position: topic background without validation of these twelve original presentation pairs. This edition has no established reliability, validity, norms or English–Chinese equivalence and infers no motives, health, creative ability or audience response. Fictional discussion requires no disclosure, dietary change or spending. All seven full guides remain public. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying includes only the public title and entry, without private answers or counts."
+        }
+      ]
+    }
+  ],
+  "familiar-mix": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者喜欢直接说明茶点，也喜欢同样日常杯碟旁的一处精整细节，熟悉与混搭共同最高。共有日常底色是否为真正原因仍未知，次数并不把两者合成新类别；正式较少也不表示讨厌正式用餐，更不能解释收入或开支。",
+          "en": "In an additional original scene, a fictional reader likes a plain tea-and-snack description and a precise detail beside everyday cups. Familiar and mixed lead together. Their shared everyday base remains an unconfirmed reason; counts create no new category. Fewer formal choices establish neither dislike of formal meals nor income or spending."
+        }
+      ]
+    },
+    {
+      "id": "next-step",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构茶点中，两条描述共有和不同的可见细节是什么？它们是否足以解释选择？”可只读，不必分享家庭餐具、购买习惯或实际饮食。讨论可以保留理由未知，不给对方归类。",
+          "en": "An optional discussion card identifies shared and differing visible details in the fictional tea descriptions and asks whether those suffice to explain a choice. Reading alone suffices without disclosing household tableware, purchases or diet. Reasons can remain unknown without classifying another person."
+        }
+      ]
+    },
+    {
+      "id": "method",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创；可以只读，原有观察也可跳过。固定现在愿意选择的一种普通自愿用餐设想，每对只比较文字呈现，假设食物适合自己，食材、味道、份量、价格与可获得性相同，不需购买或试吃。十二题每题二选一且全部完成；每类出现八次、两侧各四次，每两类相遇四次，选中记一次，总计十二次。全部最高并列保留；4—4—4是完整结果，混搭类别与双向或三向并列不同。没有反向、概率、置信度、营养分、阶层或收入估计；次数较少不等于厌恶，一题改选从原类减一、给另类加一，变化不验证特质或观察效果。原论文研究特定菜单且另测社会位置，仅作主题背景，不验证本十二组原创呈现题；本版尚无已建立的信效度、常模或中英等值，不推断原因、健康、创造能力或受众反应。讨论可全用虚构文字，不要求披露、饮食变化或消费。七篇全文始终公开；原有页面内存、自选24小时标签页草稿和完成退出重测清除不变，复制只含公开标题与入口，不含私人答案与次数。",
+          "en": "FermatMind Editorial authored these added scenes and discussion cards. Reading alone suffices; existing observations are optional. Keep one ordinary voluntary meal you would choose now in mind. Compare only written presentation, assuming suitable food and equal ingredients, flavour, portion, price and availability within each pair, without purchase or tasting. All twelve two-choice prompts require answers. Each category appears eight times, four on each side; each pair of categories meets four times. Every choice contributes one count, twelve overall. All highest ties remain. A 4–4–4 is complete, while the mixed category differs from two- or three-way ties. Counts establish no probability, confidence, nutrition score, class or income. Fewer selections establish no aversion. An edit subtracts one from its original category and adds one to the other; changes validate neither a trait nor an observation’s effect. The paper studies particular menus and separately measures social position: topic background without validation of these twelve original presentation pairs. This edition has no established reliability, validity, norms or English–Chinese equivalence and infers no motives, health, creative ability or audience response. Fictional discussion requires no disclosure, dietary change or spending. All seven full guides remain public. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying includes only the public title and entry, without private answers or counts."
+        }
+      ]
+    }
+  ],
+  "formal-mix": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者在梨甜点描述中喜欢全盘协调，在水果描述中喜欢保留日常与规整的反差，两个方向共同最高。不能由“都有细节”反推同一种心理需求，也不能推断他人会欣赏。共有计数不等于共有动机，熟悉较少并非品味缺陷。",
+          "en": "In an additional original scene, a fictional reader favours full coordination for a pear dessert and visible everyday–precise contrast for fruit. Both directions lead. Having details in common establishes no shared psychological need or audience approval. Equal counts need not share motives, and fewer familiar choices establish no taste deficit."
+        }
+      ]
+    },
+    {
+      "id": "next-step",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“虚构梨和水果的统一与反差分别在哪里？若只观察到选择，哪些动机不宜补写？”可只读，无需准备菜肴、寻求认可或透露收入；不以精整细节评定阶层或文化资本。",
+          "en": "An optional discussion card locates coordination and contrast in the fictional pear and fruit descriptions and separates choices from unobserved motives. Reading alone suffices without preparing food, seeking approval or disclosing income. Precise details establish neither class nor cultural capital."
+        }
+      ]
+    },
+    {
+      "id": "method",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创；可以只读，原有观察也可跳过。固定现在愿意选择的一种普通自愿用餐设想，每对只比较文字呈现，假设食物适合自己，食材、味道、份量、价格与可获得性相同，不需购买或试吃。十二题每题二选一且全部完成；每类出现八次、两侧各四次，每两类相遇四次，选中记一次，总计十二次。全部最高并列保留；4—4—4是完整结果，混搭类别与双向或三向并列不同。没有反向、概率、置信度、营养分、阶层或收入估计；次数较少不等于厌恶，一题改选从原类减一、给另类加一，变化不验证特质或观察效果。原论文研究特定菜单且另测社会位置，仅作主题背景，不验证本十二组原创呈现题；本版尚无已建立的信效度、常模或中英等值，不推断原因、健康、创造能力或受众反应。讨论可全用虚构文字，不要求披露、饮食变化或消费。七篇全文始终公开；原有页面内存、自选24小时标签页草稿和完成退出重测清除不变，复制只含公开标题与入口，不含私人答案与次数。",
+          "en": "FermatMind Editorial authored these added scenes and discussion cards. Reading alone suffices; existing observations are optional. Keep one ordinary voluntary meal you would choose now in mind. Compare only written presentation, assuming suitable food and equal ingredients, flavour, portion, price and availability within each pair, without purchase or tasting. All twelve two-choice prompts require answers. Each category appears eight times, four on each side; each pair of categories meets four times. Every choice contributes one count, twelve overall. All highest ties remain. A 4–4–4 is complete, while the mixed category differs from two- or three-way ties. Counts establish no probability, confidence, nutrition score, class or income. Fewer selections establish no aversion. An edit subtracts one from its original category and adds one to the other; changes validate neither a trait nor an observation’s effect. The paper studies particular menus and separately measures social position: topic background without validation of these twelve original presentation pairs. This edition has no established reliability, validity, norms or English–Chinese equivalence and infers no motives, health, creative ability or audience response. Fictional discussion requires no disclosure, dietary change or spending. All seven full guides remain public. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying includes only the public title and entry, without private answers or counts."
+        }
+      ]
+    }
+  ],
+  "all-three": [
+    {
+      "id": "scene",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者始终设想同一顿普通午餐，每题都明确选较接近的一项，最终为4—4—4。相同次数可以来自明确而不同的逐题选择，不是必须修复的缺失、犹豫或第四种平衡类型。另一个相同计数的人仍可能选了完全不同的描述。",
+          "en": "In an additional original scene, a fictional reader keeps one ordinary lunch in mind and chooses decisively on every pair, ending at 4–4–4. Equal totals can contain clear, different item choices; they establish no missingness, indecision or fourth balanced type. Another reader with equal totals may have selected entirely different descriptions."
+        }
+      ]
+    },
+    {
+      "id": "next-step",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“从虚构三类各挑一条文字，只指出不同呈现，不挑真正赢家。计数之外还缺什么资料？”可只读，不要求重测到更独特的结果，也不以相同次数判断口味广度、兼容性或社会位置。",
+          "en": "An optional discussion card names one fictional description from each category without choosing a true winner, and asks what the totals leave unknown. Reading alone suffices without retaking for a distinctive result. Equal counts establish neither breadth of taste, compatibility nor social position."
+        }
+      ]
+    },
+    {
+      "id": "method",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创；可以只读，原有观察也可跳过。固定现在愿意选择的一种普通自愿用餐设想，每对只比较文字呈现，假设食物适合自己，食材、味道、份量、价格与可获得性相同，不需购买或试吃。十二题每题二选一且全部完成；每类出现八次、两侧各四次，每两类相遇四次，选中记一次，总计十二次。全部最高并列保留；4—4—4是完整结果，混搭类别与双向或三向并列不同。没有反向、概率、置信度、营养分、阶层或收入估计；次数较少不等于厌恶，一题改选从原类减一、给另类加一，变化不验证特质或观察效果。原论文研究特定菜单且另测社会位置，仅作主题背景，不验证本十二组原创呈现题；本版尚无已建立的信效度、常模或中英等值，不推断原因、健康、创造能力或受众反应。讨论可全用虚构文字，不要求披露、饮食变化或消费。七篇全文始终公开；原有页面内存、自选24小时标签页草稿和完成退出重测清除不变，复制只含公开标题与入口，不含私人答案与次数。",
+          "en": "FermatMind Editorial authored these added scenes and discussion cards. Reading alone suffices; existing observations are optional. Keep one ordinary voluntary meal you would choose now in mind. Compare only written presentation, assuming suitable food and equal ingredients, flavour, portion, price and availability within each pair, without purchase or tasting. All twelve two-choice prompts require answers. Each category appears eight times, four on each side; each pair of categories meets four times. Every choice contributes one count, twelve overall. All highest ties remain. A 4–4–4 is complete, while the mixed category differs from two- or three-way ties. Counts establish no probability, confidence, nutrition score, class or income. Fewer selections establish no aversion. An edit subtracts one from its original category and adds one to the other; changes validate neither a trait nor an observation’s effect. The paper studies particular menus and separately measures social position: topic background without validation of these twelve original presentation pairs. This edition has no established reliability, validity, norms or English–Chinese equivalence and infers no motives, health, creative ability or audience response. Fictional discussion requires no disclosure, dietary change or spending. All seven full guides remain public. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying includes only the public title and entry, without private answers or counts."
+        }
+      ]
+    }
+  ]
+}

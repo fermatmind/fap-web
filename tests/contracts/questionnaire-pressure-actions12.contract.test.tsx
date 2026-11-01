@@ -83,7 +83,7 @@ describe("Original under-pressure action observation categories, never a clinica
     for (const locale of ["en", "zh"] as const) {
       const html = renderToStaticMarkup(<PressureActionsPage quiz={quiz} locale={locale} />);
       expect((html.match(/data-pressure-actions-full-guide=/g) ?? [])).toHaveLength(4);
-      expect(html).not.toContain("data-pressure-actions-result");
+      expect(new DOMParser().parseFromString(html, "text/html").querySelector("[data-pressure-actions-result]")).toBeNull();
       const dom = document.createElement("div"); dom.innerHTML = html;
       expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(true);
       for (const p of quiz.profiles) {

@@ -1,0 +1,322 @@
+{
+  "self-direction": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "分清想自己决定与实际能决定的部分",
+        "en": "Separate desired choice from available choice"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的兴趣分享，把“我想选什么、哪些已经约定、哪里欢迎建议”分成三栏。例如，你想自己选择内容，同时接受共同的时长。若某一选择受条件限制，先说明限制，不用据此否定自己重视的目标。下次有相似安排时，可以只澄清一个选择边界：你希望保留哪项决定，又愿意一起商量哪项？接受帮助、调整方案和自主选择可以同时发生。",
+          "en": "Revisit the interest-sharing example with three columns: what you want to choose, what is already agreed and where advice is welcome. You might choose your content while accepting a shared time limit. Name a constraint without treating it as a rejection of your goal. In a similar arrangement, clarify one decision boundary: which choice would you keep and which would you discuss together? Help, adjustments and personal choice can coexist."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个选择交换看法",
+        "en": "Explore a choice together"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设一起准备兴趣分享，你最想自己选哪一部分，哪些部分愿意共同决定？”先谈各自重视的目标，再看现实条件怎样影响选择。同一行动可能服务几个目标，不需要把讨论变成谁的价值观更好。",
+          "en": "Ask: “If you prepared an interest-sharing session together, which part would you most want to choose and which would you decide jointly?” Discuss the goals that matter to each of you and how conditions affect the choice. One action may serve several goals; the conversation need not decide whose values are better."
+        },
+        {
+          "zh": "可以分享这份公开通用说明，链接不含本次答案、均分或相对值。对方可以不回答；不需要交换完整评分，也不按相对值的正负判断彼此是否合适。",
+          "en": "You can share this public general guide; its link contains no answers, means or relative values from this attempt. The other person may decline. Exchanging full ratings or judging compatibility from relative signs is unnecessary."
+        }
+      ]
+    }
+  ],
+  "stimulation": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "给想尝试的新鲜感一个具体位置",
+        "en": "Give a desired new experience a specific place"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的普通活动，指出你感兴趣的新变化，再写下它与熟悉做法相比究竟改了什么。新材料、新节奏和新主题可能是不同愿望，不必全部尝试。如果原本就想安排一次小变化，可以只选一处，并确认时间、成本和参与意愿。最后保留熟悉方案也可以。复盘比较的是这次想体验的内容，不用用变化次数证明自己有趣，或把重复喜欢的活动当成失败。",
+          "en": "Name the new element you wanted in the ordinary activity above and what it would change from the familiar version. New materials, pacing and themes may be different wishes; trying them all is unnecessary. If a small change was already wanted, choose one and confirm timing, cost and willingness. Keeping the familiar version remains possible. Compare the experience you wanted rather than count changes as proof of an interesting life or treat repetition of a favourite activity as failure."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个选择交换看法",
+        "en": "Explore a choice together"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设熟悉的活动可以改一处，你想尝试什么，又想保留什么？”先谈各自重视的目标，再看现实条件怎样影响选择。同一行动可能服务几个目标，不需要把讨论变成谁的价值观更好。",
+          "en": "Ask: “If one part of a familiar activity could change, what would you try and what would you keep?” Discuss the goals that matter to each of you and how conditions affect the choice. One action may serve several goals; the conversation need not decide whose values are better."
+        },
+        {
+          "zh": "可以分享这份公开通用说明，链接不含本次答案、均分或相对值。对方可以不回答；不需要交换完整评分，也不按相对值的正负判断彼此是否合适。",
+          "en": "You can share this public general guide; its link contains no answers, means or relative values from this attempt. The other person may decline. Exchanging full ratings or judging compatibility from relative signs is unnecessary."
+        }
+      ]
+    }
+  ],
+  "hedonism": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "说清真正喜欢的体验与可用条件",
+        "en": "Name the enjoyment and conditions that matter"
+      },
+      "paragraphs": [
+        {
+          "zh": "从上面的闲暇安排里选一个具体享受，写下喜欢的是什么、需要哪些条件，以及是否影响共同约定。例如，喜欢听一段音乐与需要购买新设备不是同一件事。可以在已有安排中保留一个喜欢的细节，也可以这次暂不安排。若与别人一起，先问他们喜欢什么、能接受什么。个人乐趣值得被说明，但一次活动是否愉快并不由重要程度评分保证。",
+          "en": "Choose a particular enjoyment from the free-time example and note what you like, the conditions it needs and any shared agreement it affects. Enjoying a piece of music differs from needing new equipment. You can retain a favourite detail within existing plans or leave it for another occasion. With others, ask what they enjoy and what arrangements they accept. Your enjoyment can be expressed without an importance rating guaranteeing that an activity will be pleasant."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个选择交换看法",
+        "en": "Explore a choice together"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设有一小段自由时间，哪个细节会让你觉得享受，又不一定需要额外花费？”先谈各自重视的目标，再看现实条件怎样影响选择。同一行动可能服务几个目标，不需要把讨论变成谁的价值观更好。",
+          "en": "Ask: “If you had a little free time, which detail would you enjoy without necessarily needing extra spending?” Discuss the goals that matter to each of you and how conditions affect the choice. One action may serve several goals; the conversation need not decide whose values are better."
+        },
+        {
+          "zh": "可以分享这份公开通用说明，链接不含本次答案、均分或相对值。对方可以不回答；不需要交换完整评分，也不按相对值的正负判断彼此是否合适。",
+          "en": "You can share this public general guide; its link contains no answers, means or relative values from this attempt. The other person may decline. Exchanging full ratings or judging compatibility from relative signs is unnecessary."
+        }
+      ]
+    }
+  ],
+  "achievement": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "核对想达到的标准与愿意投入的范围",
+        "en": "Check the standard and the effort you choose"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的展示项目，分别记下外部标准、你认同的目标和可用的时间资源。再挑出一个真正需要澄清的评价条件，例如哪些部分必须完成、怎样才算符合要求。标准可以被了解，也可以在了解后决定不追求。若继续参与，把投入范围说清楚，而不是承诺无限改进。一次认可或未获认可都不能完整解释你重视什么，也不能替代对作品的具体反馈。",
+          "en": "Revisit the display project by separating external criteria, goals you endorse and available time and resources. Identify one evaluation condition needing clarification, such as which parts must be complete and how they will be checked. You can understand a standard and still choose not to pursue it. If continuing, state the effort you choose rather than promise unlimited improvement. Receiving recognition or missing it cannot fully explain your values or replace specific feedback on the work."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个选择交换看法",
+        "en": "Explore a choice together"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设一份作品要参加小展示，你想先问清哪条标准，又愿意投入到什么范围？”先谈各自重视的目标，再看现实条件怎样影响选择。同一行动可能服务几个目标，不需要把讨论变成谁的价值观更好。",
+          "en": "Ask: “If a piece were going into a small display, which criterion would you clarify first and what effort would you choose to commit?” Discuss the goals that matter to each of you and how conditions affect the choice. One action may serve several goals; the conversation need not decide whose values are better."
+        },
+        {
+          "zh": "可以分享这份公开通用说明，链接不含本次答案、均分或相对值。对方可以不回答；不需要交换完整评分，也不按相对值的正负判断彼此是否合适。",
+          "en": "You can share this public general guide; its link contains no answers, means or relative values from this attempt. The other person may decline. Exchanging full ratings or judging compatibility from relative signs is unnecessary."
+        }
+      ]
+    }
+  ],
+  "power": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把希望有发言权与已获授权分开",
+        "en": "Separate desired influence from agreed authority"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的材料分配，把“想影响什么、已经由谁决定、哪些需要共同同意”列清。想提出意见、希望管理资源和已经拥有最终决定权是不同情况。若职责不清，可以询问某一决定由谁负责、如何听取意见；轮换分工也是可讨论的方案。复盘关注这次权限怎样约定，不把评分当作职位推荐，也不把接受分配或承担临时责任解释成固定性格。",
+          "en": "For the materials arrangement above, list what you want to influence, who currently decides and what needs shared agreement. Wanting to contribute, wanting to manage resources and holding final authority are different situations. If responsibility is unclear, ask who owns one decision and how views will be heard; rotating duties may also be discussed. Review the agreed scope rather than use a score to recommend a position or turn accepting an allocation or temporary responsibility into a fixed character description."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个选择交换看法",
+        "en": "Explore a choice together"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设几个人共同使用材料，哪些决定要一起商量，哪些可以明确交给一人负责？”先谈各自重视的目标，再看现实条件怎样影响选择。同一行动可能服务几个目标，不需要把讨论变成谁的价值观更好。",
+          "en": "Ask: “If several people shared materials, which decisions would need discussion and which could be explicitly delegated to one person?” Discuss the goals that matter to each of you and how conditions affect the choice. One action may serve several goals; the conversation need not decide whose values are better."
+        },
+        {
+          "zh": "可以分享这份公开通用说明，链接不含本次答案、均分或相对值。对方可以不回答；不需要交换完整评分，也不按相对值的正负判断彼此是否合适。",
+          "en": "You can share this public general guide; its link contains no answers, means or relative values from this attempt. The other person may decline. Exchanging full ratings or judging compatibility from relative signs is unnecessary."
+        }
+      ]
+    }
+  ],
+  "security": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "将重视稳定与已知条件分别列出",
+        "en": "Separate valued stability from known conditions"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到上面的日常安排，写下一项你希望可靠的条件，再标出它已经确认、尚未确认，还是目前无法保证。比如，重视按时开始，与已经知道开放时间是两个层面。只核对活动本来就需要的信息，不必追加无穷检查。若条件改变，可以重新讨论安排；选择新的活动也仍可重视可靠条件。评分描述目标的重要程度，现实保障则要看具体事实与适用要求。",
+          "en": "Return to the everyday arrangement and name one condition you want to rely on. Mark whether it is confirmed, unchecked or currently beyond anyone’s guarantee. Valuing a timely start differs from knowing the opening time. Check information the activity actually needs without adding endless checks. Changed conditions may lead to a revised plan; a new activity can also include dependable arrangements. Importance concerns a goal, while actual protection depends on facts and applicable requirements."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个选择交换看法",
+        "en": "Explore a choice together"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设要安排一次普通活动，你最想先确认哪一个稳定条件，哪些未知可以暂时保留？”先谈各自重视的目标，再看现实条件怎样影响选择。同一行动可能服务几个目标，不需要把讨论变成谁的价值观更好。",
+          "en": "Ask: “If you planned an ordinary activity, which dependable condition would you confirm first and which unknowns could remain open for now?” Discuss the goals that matter to each of you and how conditions affect the choice. One action may serve several goals; the conversation need not decide whose values are better."
+        },
+        {
+          "zh": "可以分享这份公开通用说明，链接不含本次答案、均分或相对值。对方可以不回答；不需要交换完整评分，也不按相对值的正负判断彼此是否合适。",
+          "en": "You can share this public general guide; its link contains no answers, means or relative values from this attempt. The other person may decline. Exchanging full ratings or judging compatibility from relative signs is unnecessary."
+        }
+      ]
+    }
+  ],
+  "conformity": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "在尊重约定时说明自己的需要",
+        "en": "State your needs alongside a shared agreement"
+      },
+      "paragraphs": [
+        {
+          "zh": "选取上面的共享空间情境，分别写出实际约定、你希望避免的打扰，以及自己的一个不同需要。例如，可以重视准时结束，同时提出下次更合适的时段。先确认约定是否仍适用，再讨论可以调整的部分。这样能把体谅落到具体行为，也给异议留下表达位置。是否接受某一要求，要看实际条件和边界，不用靠更高或更低的分数证明合作或独立。",
+          "en": "For the shared-space example, separate the actual agreement, disruption you want to avoid and one need of your own. You might value ending on time while proposing a better time next occasion. Check whether the agreement still applies and discuss adjustable details. This makes consideration concrete while leaving room for a different view. Actual conditions and boundaries inform whether a request is acceptable; neither a higher nor lower score proves cooperation or independence."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个选择交换看法",
+        "en": "Explore a choice together"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设大家约定了结束时间，但你有一个不同需要，会怎样同时说明约定和需要？”先谈各自重视的目标，再看现实条件怎样影响选择。同一行动可能服务几个目标，不需要把讨论变成谁的价值观更好。",
+          "en": "Ask: “If a group had agreed on an end time but you had a different need, how would you explain both the agreement and that need?” Discuss the goals that matter to each of you and how conditions affect the choice. One action may serve several goals; the conversation need not decide whose values are better."
+        },
+        {
+          "zh": "可以分享这份公开通用说明，链接不含本次答案、均分或相对值。对方可以不回答；不需要交换完整评分，也不按相对值的正负判断彼此是否合适。",
+          "en": "You can share this public general guide; its link contains no answers, means or relative values from this attempt. The other person may decline. Exchanging full ratings or judging compatibility from relative signs is unnecessary."
+        }
+      ]
+    }
+  ],
+  "tradition": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把想保留的意义与形式分开谈",
+        "en": "Discuss the meaning and form separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的习俗活动，挑一个自己认同且愿意讨论的部分，分别记下它的意义、目前的形式和参与者实际意愿。意义可能可以通过不同安排保留，也可能有人希望这次不参加。若本来就需要协商，可先说明最珍惜的一个细节，再听其他人的理解。无需披露信仰或证明文化归属。保留、调整或暂缓一种形式，都需要具体理由，不能仅凭评分替任何人决定。",
+          "en": "Choose one part of the custom you identify with and want to discuss. Separate its meaning, current form and participants’ wishes. A meaning may be retained through another arrangement, and someone may prefer not to join this time. If discussion is already needed, explain one detail you cherish and hear other interpretations. No faith disclosure or proof of cultural membership is needed. Keeping, adapting or postponing a form requires particular reasons rather than a score deciding for anyone."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个选择交换看法",
+        "en": "Explore a choice together"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设一次熟悉的庆祝需要调整形式，你最想保留什么意义，哪些安排可以再商量？”先谈各自重视的目标，再看现实条件怎样影响选择。同一行动可能服务几个目标，不需要把讨论变成谁的价值观更好。",
+          "en": "Ask: “If a familiar celebration needed a different format, which meaning would you most want to retain and which arrangements could be discussed?” Discuss the goals that matter to each of you and how conditions affect the choice. One action may serve several goals; the conversation need not decide whose values are better."
+        },
+        {
+          "zh": "可以分享这份公开通用说明，链接不含本次答案、均分或相对值。对方可以不回答；不需要交换完整评分，也不按相对值的正负判断彼此是否合适。",
+          "en": "You can share this public general guide; its link contains no answers, means or relative values from this attempt. The other person may decline. Exchanging full ratings or judging compatibility from relative signs is unnecessary."
+        }
+      ]
+    }
+  ],
+  "benevolence": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "让关心、能力范围与对方需要同时可见",
+        "en": "Keep care, capacity and the other person’s needs visible"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的普通求助，分开记录对方实际提出什么、你想关心什么，以及愿意且能够提供的部分。例如，可以提出帮忙整理一小段材料，同时说明剩下部分没有时间承担。再问这份帮助是否有用，允许对方拒绝或建议别的方式。一次做得多或做得少都不能单独说明目标的重要程度；复盘的重点是把双方真实需要和可用条件说清，而不是增加帮助数量。",
+          "en": "Revisit the ordinary request by separating what was actually asked, what you care about and what you willingly can offer. You might offer to organise one small part of the materials while lacking time for the rest. Ask whether that help would be useful and allow a refusal or another suggestion. Doing more or less on one occasion cannot by itself establish a goal’s importance. Clarify both people’s needs and available conditions rather than increase the amount of help."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个选择交换看法",
+        "en": "Explore a choice together"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设熟人请你帮一个小忙，你能提供哪一部分，又怎样问清这是否有用？”先谈各自重视的目标，再看现实条件怎样影响选择。同一行动可能服务几个目标，不需要把讨论变成谁的价值观更好。",
+          "en": "Ask: “If someone familiar asked for a small favour, which part could you offer and how would you check whether it would help?” Discuss the goals that matter to each of you and how conditions affect the choice. One action may serve several goals; the conversation need not decide whose values are better."
+        },
+        {
+          "zh": "可以分享这份公开通用说明，链接不含本次答案、均分或相对值。对方可以不回答；不需要交换完整评分，也不按相对值的正负判断彼此是否合适。",
+          "en": "You can share this public general guide; its link contains no answers, means or relative values from this attempt. The other person may decline. Exchanging full ratings or judging compatibility from relative signs is unnecessary."
+        }
+      ]
+    }
+  ],
+  "universalism": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把广泛关切落实到一个待了解的问题",
+        "en": "Turn wider concern into one question to explore"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的共同活动，列出一个你关心的广泛影响，再标明目前已知、未知，以及需要由相关人自己表达的部分。例如，材料怎么使用可以核对，陌生参与者需要什么则不能只靠猜测。若讨论本来就要进行，可提出一个具体问题，并允许答案尚不完整。这样把关切与事实联系起来，不要求一个人解决所有问题，也不用把别人未表达的意愿代为确定。",
+          "en": "Name one wider effect you care about in the shared activity, then distinguish known facts, unknowns and matters affected people would need to express themselves. Material use may be checkable, while unfamiliar participants’ needs cannot simply be guessed. If a discussion is already planned, raise one specific question and allow an incomplete answer. This connects concern with information without requiring one person to solve everything or decide wishes that others have not expressed."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个选择交换看法",
+        "en": "Explore a choice together"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设活动会有不熟悉的参与者，你想先了解哪个安排，又有哪些需要应由他们自愿表达？”先谈各自重视的目标，再看现实条件怎样影响选择。同一行动可能服务几个目标，不需要把讨论变成谁的价值观更好。",
+          "en": "Ask: “If an activity included unfamiliar participants, which arrangement would you ask about first and which needs would be theirs to express voluntarily?” Discuss the goals that matter to each of you and how conditions affect the choice. One action may serve several goals; the conversation need not decide whose values are better."
+        },
+        {
+          "zh": "可以分享这份公开通用说明，链接不含本次答案、均分或相对值。对方可以不回答；不需要交换完整评分，也不按相对值的正负判断彼此是否合适。",
+          "en": "You can share this public general guide; its link contains no answers, means or relative values from this attempt. The other person may decline. Exchanging full ratings or judging compatibility from relative signs is unnecessary."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,258 @@
+{
+  "linguistic-reading": [
+    {
+      "id": "evidence",
+      "title": {
+        "en": "A concrete example and a counterexample",
+        "zh": "一个可核对的例子与反例"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创场景：虚构的活动说明写“从旁门进入”，但有两个旁门。把句子改成“从带蓝色标记的门进入”，可能更便于识别，也仍需核对实际标记是否存在。写得流畅、自己有把握和接收者能准确执行是三种信息；不能因更喜欢语言活动，就推断一次说明已经成功。这里比较具体表达，不给人指定语言智能或教学方式。",
+          "en": "In an additional original scene, invented event instructions say “use the side entrance” when there are two. “Use the door with the blue marker” may be easier to identify, while the marker still needs checking. Fluent wording, personal confidence and a reader’s correct action are separate observations. Liking language activities does not establish a successful instruction. Compare the expression without assigning linguistic intelligence or a teaching method."
+        }
+      ]
+    },
+    {
+      "id": "experiment",
+      "title": {
+        "en": "Try one short communication check",
+        "zh": "尝试一次简短表达核对"
+      },
+      "paragraphs": [
+        {
+          "zh": "可用虚构说明写两种说法，再问：“哪项信息没有改变？哪项仍可能有歧义？”只核对文字本身也可以，不必找真人试验。不用把一句修改当成能力提升证明，也不要求靠少用工具来表现更聪明。",
+          "en": "Draft two versions of an invented instruction. Ask what information stayed the same and what remains ambiguous. Checking the words privately is enough, without a real-life experiment, a claim of improved ability or using fewer tools to appear smarter."
+        },
+        {
+          "zh": "以上原创案例不测智能或实际表现。八组各四题，完整数值回答才显示独立把握均分；经验、接触条件不足或不愿评价可选NA，不填低分，八份全文仍可读。可以只读或写私人草稿，分享公开指南无需发送答案、分数、健康或个人经历，也不据此指定学习风格或职业。",
+          "en": "These original examples measure neither intelligence nor performance. Each of eight groups needs four numeric ratings for a separate confidence mean. Limited experience, inaccessible activities or declining to rate allow NA, without low-score filling; all eight full guides remain readable. Reading or a private draft is enough, without sharing answers, scores, health or personal history or assigning a learning style or career."
+        }
+      ]
+    }
+  ],
+  "logical-reading": [
+    {
+      "id": "example",
+      "title": {
+        "en": "Test a plan against its stated conditions",
+        "zh": "用已知条件检查方案"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创场景：虚构活动要把六张卡分给三张桌，每桌至少一张。平均分配可以是每桌两张，但满足“至少一张”的方案不止这一种。算出一种可行解，不等于证明它是唯一解；对自己的计算有把握，也不能补上题目没说的条件。这里关注活动估计与可核对条件，不将其换算IQ、推理正确率或职业能力。",
+          "en": "In an additional original scene, six cards go to three tables with at least one at each. Two each is a possible equal allocation, but not the only allocation meeting the stated minimum. Finding a valid answer does not prove uniqueness, and confidence supplies no unstated condition. Separate the activity estimate from checkable constraints without converting it to IQ, reasoning accuracy or occupational ability."
+        }
+      ]
+    },
+    {
+      "id": "experiment",
+      "title": {
+        "en": "One small check with a known criterion",
+        "zh": "做一次有明确条件的小核对"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以给虚构问题写“已给条件”“一种答案”“另一种仍可能的答案”。若无法找到另一个，不把“暂时没想到”当作不存在。可以借助纸笔或计算工具；只比较一项具体推断，不必据此选择分析型身份。",
+          "en": "For an invented problem, list the stated conditions, one answer and another possible answer. Not finding another yet does not establish that none exists. Paper or calculation tools are welcome; compare a specific inference without selecting an analytical identity."
+        },
+        {
+          "zh": "以上原创案例不测智能或实际表现。八组各四题，完整数值回答才显示独立把握均分；经验、接触条件不足或不愿评价可选NA，不填低分，八份全文仍可读。可以只读或写私人草稿，分享公开指南无需发送答案、分数、健康或个人经历，也不据此指定学习风格或职业。",
+          "en": "These original examples measure neither intelligence nor performance. Each of eight groups needs four numeric ratings for a separate confidence mean. Limited experience, inaccessible activities or declining to rate allow NA, without low-score filling; all eight full guides remain readable. Reading or a private draft is enough, without sharing answers, scores, health or personal history or assigning a learning style or career."
+        }
+      ]
+    }
+  ],
+  "spatial-reading": [
+    {
+      "id": "example",
+      "title": {
+        "en": "Check whether something actually fits",
+        "zh": "核对物品是否真的放得下"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创场景：虚构桌面布局中，两个纸盒的底面都放得下，但其中一个盖子打开后会碰到竖板。底面尺寸、开启空间和使用顺序是不同条件；一张草图还需说明它包含了哪些条件。觉得自己善于读图，不证明这一布局可用；依赖实物或文字尺寸，也不表示空间活动把握应较低。这里不要求脑内图像或视觉学习者标签。",
+          "en": "In an additional original scene, two boxes fit on an invented desktop, but one lid would hit an upright panel when opened. Footprint, opening clearance and use order are different conditions; a sketch should identify which it includes. Confidence reading diagrams does not establish a usable layout. Objects or written dimensions imply no lower spatial confidence, and no mental imagery or visual-learner label is required."
+        }
+      ]
+    },
+    {
+      "id": "experiment",
+      "title": {
+        "en": "Try a small layout task if it is useful",
+        "zh": "按需要试一次小型布局"
+      },
+      "paragraphs": [
+        {
+          "zh": "可为虚构布局写“要放下什么”“还要保留什么操作空间”“哪些尺寸未知”。可以只用文字，不必移动物品或做心理旋转。保留未知比凭均分断定放得下更准确；这份记录只对应这个布局。",
+          "en": "For an invented layout, list what must fit, the clearance needed for use and unknown dimensions. Words are enough without moving objects or rotating them mentally. Keep unknowns rather than infer fit from a mean; the record concerns this layout alone."
+        },
+        {
+          "zh": "以上原创案例不测智能或实际表现。八组各四题，完整数值回答才显示独立把握均分；经验、接触条件不足或不愿评价可选NA，不填低分，八份全文仍可读。可以只读或写私人草稿，分享公开指南无需发送答案、分数、健康或个人经历，也不据此指定学习风格或职业。",
+          "en": "These original examples measure neither intelligence nor performance. Each of eight groups needs four numeric ratings for a separate confidence mean. Limited experience, inaccessible activities or declining to rate allow NA, without low-score filling; all eight full guides remain readable. Reading or a private draft is enough, without sharing answers, scores, health or personal history or assigning a learning style or career."
+        }
+      ]
+    }
+  ],
+  "bodily-reading": [
+    {
+      "id": "example",
+      "title": {
+        "en": "Check a making process rather than a trait",
+        "zh": "核对制作过程"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创场景：虚构纸卡制作有描线、折叠和摆放三步，一人用夹具固定纸张，另一人先标折痕。两种适合自身条件的方式都可以被描述；完成后的纸卡是否能站稳，仍要另看。使用辅助工具或协助不降低个人价值，也不让自评变成动作熟练度测验。无需实际制作，即可理解例子。",
+          "en": "In an additional original scene, an invented paper card involves marking, folding and placing. One person uses a holder; another marks creases first. Describe suitable methods separately from whether a finished card stands. Aids or assistance reduce no personal worth and turn no self-rating into a motor proficiency test. Understanding the example requires no making activity."
+        }
+      ]
+    },
+    {
+      "id": "experiment",
+      "title": {
+        "en": "Choose one safe and optional observation",
+        "zh": "选择安全且自愿的观察"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以只回看一段熟悉操作，写“当时用的方式”“观察到的结果”和“仍无法判断的部分”。不比较身体条件，不尝试陌生工具，也不把需要协助写成低智能证据。愿意时保留一项具体问题，不愿意可以结束。",
+          "en": "Review a familiar process privately, naming the method, observed result and what cannot be judged. Compare no bodies, try no unfamiliar tools and treat no assistance as evidence of low intelligence. Keep one question if wanted, or finish."
+        },
+        {
+          "zh": "以上原创案例不测智能或实际表现。八组各四题，完整数值回答才显示独立把握均分；经验、接触条件不足或不愿评价可选NA，不填低分，八份全文仍可读。可以只读或写私人草稿，分享公开指南无需发送答案、分数、健康或个人经历，也不据此指定学习风格或职业。",
+          "en": "These original examples measure neither intelligence nor performance. Each of eight groups needs four numeric ratings for a separate confidence mean. Limited experience, inaccessible activities or declining to rate allow NA, without low-score filling; all eight full guides remain readable. Reading or a private draft is enough, without sharing answers, scores, health or personal history or assigning a learning style or career."
+        }
+      ]
+    }
+  ],
+  "musical-reading": [
+    {
+      "id": "example",
+      "title": {
+        "en": "Listen for one stated difference, if accessible",
+        "zh": "按条件核对一项差别"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创场景：虚构的两段节奏片段都含四次敲击，一段均匀，另一段前两次靠近、后面留较长空隙。次数相同不表示节奏相同；觉得某版更有感染力则是另一种解释，需要说明依据。能描述这个差别不自动证明整体音乐能力，也不能推出善于感知团队气氛。例子可只阅读，不要求听辨或表演。",
+          "en": "In an additional original scene, two invented rhythm patterns each have four taps. One is evenly spaced; the other puts the first two close together before a longer gap. Equal counts do not establish equal rhythm; describing one as more moving is another interpretation needing explanation. Naming the distinction proves no general musical ability or sensitivity to team atmosphere. Reading is enough, without listening or performing."
+        }
+      ]
+    },
+    {
+      "id": "experiment",
+      "title": {
+        "en": "Try one short pattern on your own terms",
+        "zh": "按自己的条件观察一个短片段"
+      },
+      "paragraphs": [
+        {
+          "zh": "可在私人草稿把“我注意到的重复或停顿”与“我对它的感受”分成两句。只用文字描述也可以，不购买乐器、不录音上传，也不用选伴音乐学习来证明这组结果。",
+          "en": "Privately separate a noticed repetition or pause from how you feel about it. A written description is enough, without instruments, uploaded recordings or studying with music to prove a result."
+        },
+        {
+          "zh": "以上原创案例不测智能或实际表现。八组各四题，完整数值回答才显示独立把握均分；经验、接触条件不足或不愿评价可选NA，不填低分，八份全文仍可读。可以只读或写私人草稿，分享公开指南无需发送答案、分数、健康或个人经历，也不据此指定学习风格或职业。",
+          "en": "These original examples measure neither intelligence nor performance. Each of eight groups needs four numeric ratings for a separate confidence mean. Limited experience, inaccessible activities or declining to rate allow NA, without low-score filling; all eight full guides remain readable. Reading or a private draft is enough, without sharing answers, scores, health or personal history or assigning a learning style or career."
+        }
+      ]
+    }
+  ],
+  "interpersonal-reading": [
+    {
+      "id": "example",
+      "title": {
+        "en": "Check a stated need before changing the plan",
+        "zh": "调整计划前先核对需要"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创场景：虚构小组有人说“这个时间不合适”，你可以先问是开始时间、时长还是那一天的问题。对方明确说出的限制，与自己的动机猜测不同；问了一个问题，也不保证已经理解完整或达成新约定。有把握和对方实际体验仍需分开，不能从本组均分认定同理心、领导力或咨询能力。",
+          "en": "In an additional original scene, a fictional group member says the time is unsuitable. Ask whether the issue is the start, duration or day. A stated limit differs from a guessed motive, and one question guarantees neither complete understanding nor a new agreement. Separate confidence from the other person’s actual experience, without inferring empathy, leadership or counselling ability from the mean."
+        }
+      ]
+    },
+    {
+      "id": "experiment",
+      "title": {
+        "en": "Try one voluntary clarification",
+        "zh": "尝试一次自愿澄清"
+      },
+      "paragraphs": [
+        {
+          "zh": "可为虚构原话写一句澄清，再写一个允许纠正的复述：“我理解的是……，哪里不准确？”草稿可不发送。对方不同意提议不等于你没有理解，自己理解后也仍能拒绝请求，不必承担照顾他人的固定角色。",
+          "en": "Draft one clarification and a correctable summary of invented words: “My understanding is …; what is inaccurate?” Send nothing. Declining a proposal need not show misunderstanding, and understanding a request still allows you to decline it without a fixed caregiving role."
+        },
+        {
+          "zh": "以上原创案例不测智能或实际表现。八组各四题，完整数值回答才显示独立把握均分；经验、接触条件不足或不愿评价可选NA，不填低分，八份全文仍可读。可以只读或写私人草稿，分享公开指南无需发送答案、分数、健康或个人经历，也不据此指定学习风格或职业。",
+          "en": "These original examples measure neither intelligence nor performance. Each of eight groups needs four numeric ratings for a separate confidence mean. Limited experience, inaccessible activities or declining to rate allow NA, without low-score filling; all eight full guides remain readable. Reading or a private draft is enough, without sharing answers, scores, health or personal history or assigning a learning style or career."
+        }
+      ]
+    }
+  ],
+  "intrapersonal-reading": [
+    {
+      "id": "example",
+      "title": {
+        "en": "Separate a feeling from an untested explanation",
+        "zh": "把感受与未核实解释分开"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创场景：虚构的个人计划没有完成，自己想到“我很失望”和“肯定是我没有毅力”。前一句报告感受，后一句是待核对的解释；也许原时段被另一项已知安排占用。找到一个可能原因不证明唯一原因，重新安排一次也不证明人格改变。这里问对反思活动的把握，不认证自我了解或心理健康。",
+          "en": "In an additional original scene, an unfinished personal plan brings “I feel disappointed” and “I must lack persistence.” The first reports a feeling; the second is an explanation to check. The time may have overlapped with another known commitment. One possible cause is not necessarily the only cause, and rescheduling proves no personality change. This concerns confidence in reflection, without certifying self-knowledge or mental health."
+        }
+      ]
+    },
+    {
+      "id": "experiment",
+      "title": {
+        "en": "Choose a small planning review",
+        "zh": "选择一次小型计划回看"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以只写“发生什么”“我怎样感受”“还可能有什么解释”。选一个可核对的普通条件即可，不挖掘私人历史、不反复分析身份，也不把均分变化当成长或退步证明。草稿没有必须得出的结论。",
+          "en": "Privately note the event, your feeling and another possible explanation. Choose one ordinary checkable condition without personal-history excavation, repeated identity analysis or treating changed means as proof of growth or decline. No conclusion is required."
+        },
+        {
+          "zh": "以上原创案例不测智能或实际表现。八组各四题，完整数值回答才显示独立把握均分；经验、接触条件不足或不愿评价可选NA，不填低分，八份全文仍可读。可以只读或写私人草稿，分享公开指南无需发送答案、分数、健康或个人经历，也不据此指定学习风格或职业。",
+          "en": "These original examples measure neither intelligence nor performance. Each of eight groups needs four numeric ratings for a separate confidence mean. Limited experience, inaccessible activities or declining to rate allow NA, without low-score filling; all eight full guides remain readable. Reading or a private draft is enough, without sharing answers, scores, health or personal history or assigning a learning style or career."
+        }
+      ]
+    }
+  ],
+  "naturalist-reading": [
+    {
+      "id": "example",
+      "title": {
+        "en": "Compare features before making an identification",
+        "zh": "先比特征，再核对辨认"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创场景：虚构照片里的两片叶子边缘都有齿，却不能只凭这点认定是同一物种。按叶缘分到一组，是依据一项特征的分类；确定名称还可能需要其他信息与合适资料。对辨认有把握不增加证据，无法取得清晰照片也不意味着能力低。这里区分观察、分组与辨认，不要求接触或采集自然物。",
+          "en": "In an additional original scene, two photographed leaves have toothed edges, which alone does not establish the same species. Grouping by that feature differs from identification needing further information and a suitable reference. Confidence adds no evidence, and unavailable clear images establish no low ability. Distinguish observation, grouping and identification without handling or collecting natural objects."
+        }
+      ]
+    },
+    {
+      "id": "experiment",
+      "title": {
+        "en": "Make one safe observation with a stated rule",
+        "zh": "按一条明确规则做安全观察"
+      },
+      "paragraphs": [
+        {
+          "zh": "可用虚构图片写“看见的特征”“采用的分组规则”“尚未确定的名称”。不必把未知补成猜定的物种，也不品尝或处理陌生材料。只保留一条可说明的观察，不凭均分判断环保价值或职业资格。",
+          "en": "For invented images, list the visible feature, grouping rule and unidentified name. Fill no unknown with an asserted species, and taste or handle no unfamiliar material. Retain an explainable observation without inferring environmental values or professional qualifications from the mean."
+        },
+        {
+          "zh": "以上原创案例不测智能或实际表现。八组各四题，完整数值回答才显示独立把握均分；经验、接触条件不足或不愿评价可选NA，不填低分，八份全文仍可读。可以只读或写私人草稿，分享公开指南无需发送答案、分数、健康或个人经历，也不据此指定学习风格或职业。",
+          "en": "These original examples measure neither intelligence nor performance. Each of eight groups needs four numeric ratings for a separate confidence mean. Limited experience, inaccessible activities or declining to rate allow NA, without low-score filling; all eight full guides remain readable. Reading or a private draft is enough, without sharing answers, scores, health or personal history or assigning a learning style or career."
+        }
+      ]
+    }
+  ]
+}

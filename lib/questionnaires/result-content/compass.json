@@ -1,0 +1,386 @@
+{
+  "north": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "给下一步留下可回应的空间",
+        "en": "Leave room to respond to a proposed next step"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的聚餐安排，把希望推进的事、一个暂定时间和需要别人确认的部分分别写清。提出日期以后，留出修改或不参加的空间；若缺少关键事实，先核对它也可以是下一步。不必为基础北向补造一个明确邻向，也不要求每次都加快进度。复盘看的是这次提议是否说清，而不是谁最像组织者。",
+          "en": "For the meal arrangement, separate the intended next step, a provisional time and what others must confirm. A proposed date leaves room for changes or declining. Checking a missing fact can itself be the next step. The base North guide needs no invented neighbour and no constant acceleration. Review the proposal rather than decide who qualifies as an organiser."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "围绕一次安排交换起步理由",
+        "en": "Discuss starting reasons for one arrangement"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设想约一次聚餐，你会先提出哪一个暂定步骤，又需要听谁的回应？”先解释这次为什么想这样开始，再听另一种顺序的理由；不同方法也可能在同一件事里先后出现。",
+          "en": "Ask: “If you wanted to arrange a shared meal, which provisional step would you propose and whose response would you need?” Explain why you would start there and hear reasons for another order. Several approaches may occur in sequence within one activity."
+        },
+        {
+          "zh": "可以分享这份公开说明，链接不含本次答案或四向计数。对方可以不回答；不需要互相派方向、判断文化性格，或从结果决定谁应承担什么角色。",
+          "en": "You can share this public guide; its link contains no answers or direction counts from this attempt. The other person may decline. Assigning directions, cultural character or roles to each other is unnecessary."
+        }
+      ]
+    }
+  ],
+  "south": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把自己的可用范围也放进参与条件",
+        "en": "Include your own availability in participation conditions"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的轮值讨论，先列出大家自愿提供的可用时间，再写下自己的上限。空缺可以留待讨论，不自动由最愿意帮忙的人补齐。有人不想解释个人原因时，只保留其可用条件即可。复盘关注谁有机会表达、活动规模是否可行；基础南向不需要被补成照顾者身份，也不以所有人满意作为完成标准。",
+          "en": "For the rota discussion, note availability people willingly offer and include your own limit. Gaps can remain for discussion rather than fall automatically to the most willing helper. Someone may give availability without private reasons. Review opportunities to speak and the feasible activity size. Base South requires neither a caregiver identity nor universal satisfaction as its outcome."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "围绕一次安排交换起步理由",
+        "en": "Discuss starting reasons for one arrangement"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设可用时间填不满轮值表，除了自己多承担，还有哪些安排可以一起讨论？”先解释这次为什么想这样开始，再听另一种顺序的理由；不同方法也可能在同一件事里先后出现。",
+          "en": "Ask: “If availability did not fill a rota, which arrangements could be discussed besides taking on more yourself?” Explain why you would start there and hear reasons for another order. Several approaches may occur in sequence within one activity."
+        },
+        {
+          "zh": "可以分享这份公开说明，链接不含本次答案或四向计数。对方可以不回答；不需要互相派方向、判断文化性格，或从结果决定谁应承担什么角色。",
+          "en": "You can share this public guide; its link contains no answers or direction counts from this attempt. The other person may decline. Assigning directions, cultural character or roles to each other is unnecessary."
+        }
+      ]
+    }
+  ],
+  "east": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "区分必须确认与可以后补的信息",
+        "en": "Separate essential information from details that can follow"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到上面的工具借用卡，挑出这次真正需要确认的两项，例如归还时间与存放位置，再把可在使用中补充的细节放到旁边。说明可以短，也可以改用口头约定；长短不认证条理。若关键条件已清楚，不必继续增加表格。基础东向的邻向未分出，仍可以在实际事情里推进或询问参与需要。",
+          "en": "Return to the tool card and identify two conditions that need confirmation, such as return time and storage. Separate details that could follow through use. A short note or spoken agreement may suffice; length certifies no organisation. If essentials are clear, another table is unnecessary. Base East leaves its neighbour undistinguished while practical action and participation questions remain available."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "围绕一次安排交换起步理由",
+        "en": "Discuss starting reasons for one arrangement"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设给工具留两行借用说明，你认为哪两项必须先说清，哪些可以以后再补？”先解释这次为什么想这样开始，再听另一种顺序的理由；不同方法也可能在同一件事里先后出现。",
+          "en": "Ask: “If you left two lines of borrowing instructions, which conditions would need stating first and which could follow later?” Explain why you would start there and hear reasons for another order. Several approaches may occur in sequence within one activity."
+        },
+        {
+          "zh": "可以分享这份公开说明，链接不含本次答案或四向计数。对方可以不回答；不需要互相派方向、判断文化性格，或从结果决定谁应承担什么角色。",
+          "en": "You can share this public guide; its link contains no answers or direction counts from this attempt. The other person may decline. Assigning directions, cultural character or roles to each other is unnecessary."
+        }
+      ]
+    }
+  ],
+  "west": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "给一个替代做法限定试用范围",
+        "en": "Bound a trial of an alternative"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的公告板，选两条已经公开的信息试一个小布局，并说明想改善什么。先约定只试这一小处，听取使用者反馈，再决定保留、修改或返回原样。也可以发现熟悉方法更适合。复盘给点子一个目的和退出方式，不把接受新布局当开放程度测验；基础西向也不要求再硬选推进或参与作为邻向。",
+          "en": "For the noticeboard, try a small layout with two already public items and state what it should improve. Agree on a limited sample, hear users and decide whether to keep, revise or restore it. The familiar method may fit better. Give the idea a purpose and an exit without testing openness or forcing a movement or participation neighbour onto base West."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "围绕一次安排交换起步理由",
+        "en": "Discuss starting reasons for one arrangement"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设公告板可以换一小块布局，你想先试什么，又怎样决定是否恢复原样？”先解释这次为什么想这样开始，再听另一种顺序的理由；不同方法也可能在同一件事里先后出现。",
+          "en": "Ask: “If one small noticeboard area could change, what would you try and how would you decide whether to restore it?” Explain why you would start there and hear reasons for another order. Several approaches may occur in sequence within one activity."
+        },
+        {
+          "zh": "可以分享这份公开说明，链接不含本次答案或四向计数。对方可以不回答；不需要互相派方向、判断文化性格，或从结果决定谁应承担什么角色。",
+          "en": "You can share this public guide; its link contains no answers or direction counts from this attempt. The other person may decline. Assigning directions, cultural character or roles to each other is unnecessary."
+        }
+      ]
+    }
+  ],
+  "north-east": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "先说明目的，再缩到必要步骤",
+        "en": "State the purpose before the minimum steps"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的活动交接，先写这次希望继续的一件事，再把完成它所需的最少步骤列出来。接手人可以修改目的或方法；已有可行办法时，不必坚持你的版本。与东北读法相比，这里先从要推进什么起步，再澄清怎样进行。复盘不要求补更多流程，能够删掉无用步骤、暂停或重新商量目的也都有位置。",
+          "en": "Revisit the handover by naming one thing to continue, then listing the minimum steps it needs. The newcomer can question the purpose or method; an existing workable approach need not be replaced. Unlike East-North, this entrance begins with what to move forward before clarifying how. Removing unnecessary steps, pausing or discussing the purpose again remains possible."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "围绕一次安排交换起步理由",
+        "en": "Discuss starting reasons for one arrangement"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设交接一次小活动，你先想保留哪个目的，又有哪些步骤真的不可少？”先解释这次为什么想这样开始，再听另一种顺序的理由；不同方法也可能在同一件事里先后出现。",
+          "en": "Ask: “If you handed over a small activity, which purpose would you retain first and which steps would actually be necessary?” Explain why you would start there and hear reasons for another order. Several approaches may occur in sequence within one activity."
+        },
+        {
+          "zh": "可以分享这份公开说明，链接不含本次答案或四向计数。对方可以不回答；不需要互相派方向、判断文化性格，或从结果决定谁应承担什么角色。",
+          "en": "You can share this public guide; its link contains no answers or direction counts from this attempt. The other person may decline. Assigning directions, cultural character or roles to each other is unnecessary."
+        }
+      ]
+    }
+  ],
+  "north-west": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "让另一种方法服务一个小进展",
+        "en": "Let another method serve one small step"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的照片整理，先约定本次只处理哪一小部分，再提出一种可退回的呈现办法，例如十张照片配简短事件卡。材料只用大家愿意纳入的部分，不要求讲私人故事。这里先有想推进的范围，再考虑别的路线；西北则先探索路线。两种次序都不证明执行或创新能力，原方法可行时也可以保留。",
+          "en": "For the photo arrangement, agree on a small portion before proposing a reversible format, such as short event cards for ten photos. Include only material people want included without requesting private stories. Here a desired step precedes an alternative route; West-North starts with the route. Neither order proves execution or innovation, and a workable familiar method can remain."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "围绕一次安排交换起步理由",
+        "en": "Discuss starting reasons for one arrangement"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设只整理十张照片，哪一种小变化可能帮助开始，又怎样保留不用它的选择？”先解释这次为什么想这样开始，再听另一种顺序的理由；不同方法也可能在同一件事里先后出现。",
+          "en": "Ask: “If you organised just ten photos, which small variation might help you begin and how would you preserve the option not to use it?” Explain why you would start there and hear reasons for another order. Several approaches may occur in sequence within one activity."
+        },
+        {
+          "zh": "可以分享这份公开说明，链接不含本次答案或四向计数。对方可以不回答；不需要互相派方向、判断文化性格，或从结果决定谁应承担什么角色。",
+          "en": "You can share this public guide; its link contains no answers or direction counts from this attempt. The other person may decline. Assigning directions, cultural character or roles to each other is unnecessary."
+        }
+      ]
+    }
+  ],
+  "south-east": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "先听可参与条件，再整理成安排",
+        "en": "Hear participation conditions before organising them"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到上面的志愿轮值，先听每人愿意提供什么，再把已知时间与空缺整理出来。没有回应不推断原因，表格也不要求每格都填满。可以缩小活动，或改用更方便的表达方式。这里的起点是参与条件，之后才是整理；东南则从说明次序起步。复盘检查看得见的条件，不给自己增加永久协调职责。",
+          "en": "Return to the volunteer rota by hearing what each person wants to offer before organising known times and gaps. Infer no reason from silence and require no fully filled grid. Reduce the activity or use another way to contribute information if useful. Participation comes before organisation here; East-South begins with an explanation. Review visible conditions without accepting a permanent coordination role."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "围绕一次安排交换起步理由",
+        "en": "Discuss starting reasons for one arrangement"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设有人不方便填轮值表，怎样先了解他愿意提供什么，而不是要求解释私人原因？”先解释这次为什么想这样开始，再听另一种顺序的理由；不同方法也可能在同一件事里先后出现。",
+          "en": "Ask: “If someone found a rota form inconvenient, how would you first hear what they wanted to offer without requesting private reasons?” Explain why you would start there and hear reasons for another order. Several approaches may occur in sequence within one activity."
+        },
+        {
+          "zh": "可以分享这份公开说明，链接不含本次答案或四向计数。对方可以不回答；不需要互相派方向、判断文化性格，或从结果决定谁应承担什么角色。",
+          "en": "You can share this public guide; its link contains no answers or direction counts from this attempt. The other person may decline. Assigning directions, cultural character or roles to each other is unnecessary."
+        }
+      ]
+    }
+  ],
+  "south-west": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "从一个真实需要出发提供另一入口",
+        "en": "Offer another entrance from an expressed need"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的活动反馈，先说明听到了哪一种参与需要，再提出一个可选入口，例如纸条或稍后的简短交流。没有回应也可以，替代方式不该变成继续追问。这里先顾及参与，再想另一个办法；西南的起点则是新形式。复盘关注选择是否真实可拒绝，不以反馈数量或安静者是否开口判断自己是否体贴。",
+          "en": "For activity feedback, name the participation need you heard before offering an optional entrance, such as a note or a later brief exchange. No response remains valid; another channel must not become pursuit of an answer. Participation precedes an alternative here, while West-South begins with a format. Review genuine room to decline without grading consideration by response numbers or whether quiet people speak."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "围绕一次安排交换起步理由",
+        "en": "Discuss starting reasons for one arrangement"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设有人不想公开发言，除了换个反馈入口，还需要怎样保留完全不回应的选择？”先解释这次为什么想这样开始，再听另一种顺序的理由；不同方法也可能在同一件事里先后出现。",
+          "en": "Ask: “If someone did not want to speak publicly, how would another feedback entrance still preserve the choice not to respond at all?” Explain why you would start there and hear reasons for another order. Several approaches may occur in sequence within one activity."
+        },
+        {
+          "zh": "可以分享这份公开说明，链接不含本次答案或四向计数。对方可以不回答；不需要互相派方向、判断文化性格，或从结果决定谁应承担什么角色。",
+          "en": "You can share this public guide; its link contains no answers or direction counts from this attempt. The other person may decline. Assigning directions, cultural character or roles to each other is unnecessary."
+        }
+      ]
+    }
+  ],
+  "east-north": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "先分清条件，再选当前能推进的部分",
+        "en": "Clarify conditions before choosing what can proceed"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的共用厨房，把已确定的时间、设备冲突和仍不清楚的条件分开，再选一个可以先商量的小安排。涉及别人意愿的空缺需要询问，不能当作无关细节略过。这里先澄清，再找推进点；北东则从目的出发整理步骤。复盘容许部分先安排、部分等待，也容许发现现有条件不足而暂停。",
+          "en": "Revisit the shared kitchen by separating confirmed times, equipment clashes and unknown conditions before proposing a small arrangement. Missing agreement requires a response rather than dismissal as a minor detail. Clarification comes before a next step here; North-East starts with the purpose. One part may proceed while another waits, or inadequate conditions may call for a pause."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "围绕一次安排交换起步理由",
+        "en": "Discuss starting reasons for one arrangement"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设厨房还有一个时段未确认，哪些部分可以先商量，哪些必须等相关人回应？”先解释这次为什么想这样开始，再听另一种顺序的理由；不同方法也可能在同一件事里先后出现。",
+          "en": "Ask: “If one kitchen time slot remained unconfirmed, which parts could be discussed now and which would require the people concerned to respond?” Explain why you would start there and hear reasons for another order. Several approaches may occur in sequence within one activity."
+        },
+        {
+          "zh": "可以分享这份公开说明，链接不含本次答案或四向计数。对方可以不回答；不需要互相派方向、判断文化性格，或从结果决定谁应承担什么角色。",
+          "en": "You can share this public guide; its link contains no answers or direction counts from this attempt. The other person may decline. Assigning directions, cultural character or roles to each other is unnecessary."
+        }
+      ]
+    }
+  ],
+  "east-south": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "先给简短说明，再听是否方便使用",
+        "en": "Give a short explanation, then hear whether it works"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的初次入场，先给地点、时间和入口三项说明，再问哪一处仍不方便。对方需要的可能是门口见面，也可能根本不想参加；更多文字未必解决问题。这里先说明安排，再检查参与条件，南东则先从需要整理安排。复盘可以得出应当少写、换方式或明确自己只能帮助到哪里，而不是把误解归成谁的性格缺点。",
+          "en": "For a newcomer, give place, time and entry instructions before asking what remains inconvenient. They may need a meeting at the door or may not want to join; more text need not solve either. Explanation precedes a participation check here, unlike South-East. The review may suggest writing less, changing format or stating the help you can offer, without assigning a personality defect to misunderstanding."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "围绕一次安排交换起步理由",
+        "en": "Discuss starting reasons for one arrangement"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设发出三行入场说明后，对方仍觉得不方便，你会先确认哪一种实际需要？”先解释这次为什么想这样开始，再听另一种顺序的理由；不同方法也可能在同一件事里先后出现。",
+          "en": "Ask: “If three lines of entry instructions still left someone uncomfortable, which practical need would you clarify first?” Explain why you would start there and hear reasons for another order. Several approaches may occur in sequence within one activity."
+        },
+        {
+          "zh": "可以分享这份公开说明，链接不含本次答案或四向计数。对方可以不回答；不需要互相派方向、判断文化性格，或从结果决定谁应承担什么角色。",
+          "en": "You can share this public guide; its link contains no answers or direction counts from this attempt. The other person may decline. Assigning directions, cultural character or roles to each other is unnecessary."
+        }
+      ]
+    }
+  ],
+  "west-north": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "先保留一个想法，再决定是否试一小步",
+        "en": "Keep an idea before deciding whether to try a small step"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到上面的兴趣卡片，先写一个有吸引力的练习变化，再问是否真想在这周试两张。想法可以只留在讨论里，也可以试后回到熟悉练习。这里先有另一种方式，之后才选推进范围；北西的起点则是要完成的一小部分。复盘不要求每个点子都落地，更不以完成多少张证明这个结果。",
+          "en": "Return to the hobby cards by naming an appealing practice variation before deciding whether you want to try two this week. The idea can remain in conversation or lead back to familiar practice after a trial. Another method comes before the scope of action here, unlike North-West. Not every idea needs implementation, and completed-card numbers need not prove the reading."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "围绕一次安排交换起步理由",
+        "en": "Discuss starting reasons for one arrangement"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设想到一种新的练习卡片形式，怎样决定只聊聊、试两张，还是继续原来的练习？”先解释这次为什么想这样开始，再听另一种顺序的理由；不同方法也可能在同一件事里先后出现。",
+          "en": "Ask: “If you imagined another practice-card format, how would you choose between discussing it, trying two cards and keeping familiar practice?” Explain why you would start there and hear reasons for another order. Several approaches may occur in sequence within one activity."
+        },
+        {
+          "zh": "可以分享这份公开说明，链接不含本次答案或四向计数。对方可以不回答；不需要互相派方向、判断文化性格，或从结果决定谁应承担什么角色。",
+          "en": "You can share this public guide; its link contains no answers or direction counts from this attempt. The other person may decline. Assigning directions, cultural character or roles to each other is unnecessary."
+        }
+      ]
+    }
+  ],
+  "west-south": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "让新形式接受参与者的真实回应",
+        "en": "Let a new format remain open to participants’ responses"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的书籍交换，先把新形式说成一个提议，再问谁愿意尝试，并保留普通交换。回应可能让你修改、缩短或取消这个环节；不参加也不需要解释。这里先想到新办法，再看是否方便参与，南西则先从参与需要找办法。复盘观察的是提议怎样随回应改变，不把支持点子当作支持你本人，也不要求你包办活动。",
+          "en": "For the book exchange, present a new format as a proposal, ask who wants it and retain the familiar exchange. Responses may lead to revision, a shorter round or cancellation; declining needs no explanation. A new method comes before participation here, unlike South-West. Review how the proposal responds to people rather than treat acceptance as personal support or assume responsibility for running everything."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "围绕一次安排交换起步理由",
+        "en": "Discuss starting reasons for one arrangement"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设想试一次只看一句介绍的书籍交换，怎样让不喜欢这个形式的人也有合适的选择？”先解释这次为什么想这样开始，再听另一种顺序的理由；不同方法也可能在同一件事里先后出现。",
+          "en": "Ask: “If you proposed a book exchange based on one-sentence descriptions, how would you preserve a workable choice for people who disliked that format?” Explain why you would start there and hear reasons for another order. Several approaches may occur in sequence within one activity."
+        },
+        {
+          "zh": "可以分享这份公开说明，链接不含本次答案或四向计数。对方可以不回答；不需要互相派方向、判断文化性格，或从结果决定谁应承担什么角色。",
+          "en": "You can share this public guide; its link contains no answers or direction counts from this attempt. The other person may decline. Assigning directions, cultural character or roles to each other is unnecessary."
+        }
+      ]
+    }
+  ]
+}

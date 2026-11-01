@@ -1,0 +1,194 @@
+{
+  "camp-planner": [
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "复盘一次纸面故事选择",
+        "en": "Review a paper-story choice"
+      },
+      "paragraphs": [
+        {
+          "zh": "复盘时，只交换同一三幕中的两幕，分别补一句人物下一步想问什么。保留其他文字，比较顺序怎样改变期待；可喜欢紧密版、留空版或都不留。观察只关这次故事，不以安排得顺证明领导、预见或压力下镇定，也不把场面清单当现实营地建设或应急流程。",
+          "en": "For review, swap two of the same three scenes and add one question a character might ask next in each version. Keep other wording fixed and compare expectations, retaining either or neither. Review this story without a smooth sequence as leadership, foresight or calm under pressure, or a scene list as actual camp construction or emergency procedure."
+        }
+      ]
+    },
+    {
+      "id": "access",
+      "title": {
+        "zh": "自愿比较虚构故事",
+        "en": "Compare invented scenes voluntarily"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以一起问：“如果把收到旧地图放到人物挑角落之前，下一句会更想问什么，又与原顺序有什么不同？”各拟一句后续，再借另一叙事角色调整。可只想象、不写、不展示、不回答或结束，不需公开真实经历。",
+          "en": "Ask together: “If the old map arrived before characters chose a corner, which next question would that invite compared with the original order?” Suggest a next line each and revise through another narrative role. Imagine without writing, displaying work, answering or sharing personal experiences; stop whenever preferred."
+        },
+        {
+          "zh": "分享公开全文时不带答卷或计数。六组只描述本版纸面选项，不是现实求生、医疗、体力、工程或应急分工；CDC背景不验证这六类型。讨论叙事差别，不给朋友派任务、不评价缺席者，也不收集地址、病史或真实行动计划。",
+          "en": "Share the public guide without answers or counts. Six groups describe this edition’s paper options rather than actual survival, medicine, fitness, engineering or emergency roles; CDC background does not validate the six types. Discuss narrative differences without assigning friends tasks, labelling absent people or collecting addresses, medical history or real action plans."
+        }
+      ]
+    }
+  ],
+  "care-companion": [
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "复盘一次纸面故事选择",
+        "en": "Review a paper-story choice"
+      },
+      "paragraphs": [
+        {
+          "zh": "复盘时，让同一邀请分别接上“留下讲一点”和“只看后离开”，每版再写一句正常继续的故事。检查后续是否给人物选择，而非惩罚不分享的角色。可以只想象，不代入真实经历；不以结尾温暖程度评共情、照护资格或现实边界，也不要求谁接住所有人的感受。",
+          "en": "For review, follow the same invitation with staying to speak or looking and leaving, then add one ordinary continuation to each. Check for choice rather than punishing non-disclosure. Imagine without real experiences. Rate no empathy, care qualification or actual boundaries through a warm ending, and require no character to absorb everyone’s feelings."
+        }
+      ]
+    },
+    {
+      "id": "access",
+      "title": {
+        "zh": "自愿比较虚构故事",
+        "en": "Compare invented scenes voluntarily"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以一起问：“如果明信片前的人物选择只看看就离开，怎样让故事正常继续，而不是把不分享写成关系失败？”各拟一句后续，再借另一叙事角色调整。可只想象、不写、不展示、不回答或结束，不需公开真实经历。",
+          "en": "Ask together: “If a character only viewed the postcard and left, how would the story continue without making non-disclosure a relationship failure?” Suggest a next line each and revise through another narrative role. Imagine without writing, displaying work, answering or sharing personal experiences; stop whenever preferred."
+        },
+        {
+          "zh": "分享公开全文时不带答卷或计数。六组只描述本版纸面选项，不是现实求生、医疗、体力、工程或应急分工；CDC背景不验证这六类型。讨论叙事差别，不给朋友派任务、不评价缺席者，也不收集地址、病史或真实行动计划。",
+          "en": "Share the public guide without answers or counts. Six groups describe this edition’s paper options rather than actual survival, medicine, fitness, engineering or emergency roles; CDC background does not validate the six types. Discuss narrative differences without assigning friends tasks, labelling absent people or collecting addresses, medical history or real action plans."
+        }
+      ]
+    }
+  ],
+  "map-scout": [
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "复盘一次纸面故事选择",
+        "en": "Review a paper-story choice"
+      },
+      "paragraphs": [
+        {
+          "zh": "复盘时，给同一角落只换一个虚构标签，分别写读者此刻能看见什么、尚不知道什么。可把一个问题留到下章，不需找出正确路线或补齐整城。只比较字词与画面，不评注意、记忆、导航或危险判断；不使用真实地址、路线或建筑，也不让人物发现转成现实搜寻任务。",
+          "en": "For review, change one invented label in the same corner and state what readers can see and still do not know in each version. Leave a question for another chapter without a correct route or complete town. Compare words and images without attention, memory, navigation or risk judgement, using no real address, route or building and assigning no actual search."
+        }
+      ]
+    },
+    {
+      "id": "access",
+      "title": {
+        "zh": "自愿比较虚构故事",
+        "en": "Compare invented scenes voluntarily"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以一起问：“如果同一个阅读室只换了标签，两版各会留下什么问题，哪些信息可以暂时不解释？”各拟一句后续，再借另一叙事角色调整。可只想象、不写、不展示、不回答或结束，不需公开真实经历。",
+          "en": "Ask together: “If only a reading-room label changed, which question would each version leave and what could remain unexplained?” Suggest a next line each and revise through another narrative role. Imagine without writing, displaying work, answering or sharing personal experiences; stop whenever preferred."
+        },
+        {
+          "zh": "分享公开全文时不带答卷或计数。六组只描述本版纸面选项，不是现实求生、医疗、体力、工程或应急分工；CDC背景不验证这六类型。讨论叙事差别，不给朋友派任务、不评价缺席者，也不收集地址、病史或真实行动计划。",
+          "en": "Share the public guide without answers or counts. Six groups describe this edition’s paper options rather than actual survival, medicine, fitness, engineering or emergency roles; CDC background does not validate the six types. Discuss narrative differences without assigning friends tasks, labelling absent people or collecting addresses, medical history or real action plans."
+        }
+      ]
+    }
+  ],
+  "model-builder": [
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "复盘一次纸面故事选择",
+        "en": "Review a paper-story choice"
+      },
+      "paragraphs": [
+        {
+          "zh": "复盘时，保留同一模型与两张卡片，只改变一张卡的位置，再给两版各写一句人物回应。可只用文字，不画装配图、不试承重或工具。看摆放是否让场面多了可继续的关系，而非替人物解决所有问题；不据此评工程、动手、资源紧张时创造力或团队责任。",
+          "en": "For review, keep the model and two cards, move one card and add a character’s response to each version. Use text without assembly plans, load tests or tools. Review whether placement opens a relationship rather than solving every character’s problem, without assessing engineering, manual skill, creativity under scarcity or team duties."
+        }
+      ]
+    },
+    {
+      "id": "access",
+      "title": {
+        "zh": "自愿比较虚构故事",
+        "en": "Compare invented scenes voluntarily"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以一起问：“如果把并排卡片中的一张移到模型背面，人物的下一句会怎样改变，而不必真的制作东西？”各拟一句后续，再借另一叙事角色调整。可只想象、不写、不展示、不回答或结束，不需公开真实经历。",
+          "en": "Ask together: “If one side-by-side card moved behind the model, how might a character’s next line change without making anything?” Suggest a next line each and revise through another narrative role. Imagine without writing, displaying work, answering or sharing personal experiences; stop whenever preferred."
+        },
+        {
+          "zh": "分享公开全文时不带答卷或计数。六组只描述本版纸面选项，不是现实求生、医疗、体力、工程或应急分工；CDC背景不验证这六类型。讨论叙事差别，不给朋友派任务、不评价缺席者，也不收集地址、病史或真实行动计划。",
+          "en": "Share the public guide without answers or counts. Six groups describe this edition’s paper options rather than actual survival, medicine, fitness, engineering or emergency roles; CDC background does not validate the six types. Discuss narrative differences without assigning friends tasks, labelling absent people or collecting addresses, medical history or real action plans."
+        }
+      ]
+    }
+  ],
+  "message-diplomat": [
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "复盘一次纸面故事选择",
+        "en": "Review a paper-story choice"
+      },
+      "paragraphs": [
+        {
+          "zh": "复盘时，给同一虚构纸条分别接上新标题建议和暂缓决定，再各加一句后续。可把两种说法并排，不替故事立即裁出唯一正确版本。只读文字是否让人物接得上话，不测说服、谈判、诚信或应急传话能力；不借真人聊天记录、不发消息，也不要求同伴解释真实争执。",
+          "en": "For review, answer the same invented note with a title suggestion or a delayed decision, then add a continuation to each. Keep accounts side by side without forcing an immediate correct version. Review a character’s opening for response rather than persuasion, negotiation, honesty or emergency communication, using no real chats, sent messages or actual disputes."
+        }
+      ]
+    },
+    {
+      "id": "access",
+      "title": {
+        "zh": "自愿比较虚构故事",
+        "en": "Compare invented scenes voluntarily"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以一起问：“如果一条展览纸条可以收到“改标题”或“晚些决定”两种回复，哪一句后续能保留各自的不同？”各拟一句后续，再借另一叙事角色调整。可只想象、不写、不展示、不回答或结束，不需公开真实经历。",
+          "en": "Ask together: “If an exhibition note received a new-title suggestion or a delayed decision, which next line would preserve each difference?” Suggest a next line each and revise through another narrative role. Imagine without writing, displaying work, answering or sharing personal experiences; stop whenever preferred."
+        },
+        {
+          "zh": "分享公开全文时不带答卷或计数。六组只描述本版纸面选项，不是现实求生、医疗、体力、工程或应急分工；CDC背景不验证这六类型。讨论叙事差别，不给朋友派任务、不评价缺席者，也不收集地址、病史或真实行动计划。",
+          "en": "Share the public guide without answers or counts. Six groups describe this edition’s paper options rather than actual survival, medicine, fitness, engineering or emergency roles; CDC background does not validate the six types. Discuss narrative differences without assigning friends tasks, labelling absent people or collecting addresses, medical history or real action plans."
+        }
+      ]
+    }
+  ],
+  "solo-chronicler": [
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "复盘一次纸面故事选择",
+        "en": "Review a paper-story choice"
+      },
+      "paragraphs": [
+        {
+          "zh": "复盘时，让同一句完全虚构的观察分别留在书里和展览卡上，每版只补读者接下来知道的一点。人物仍可不公开，也可下章再选；不需交代真实日记。比较信息进入故事的位置，不把私人版评为更深刻或更独立，也不从公开与否推断社交需要、韧性或现实中是否需要支持。",
+          "en": "For review, put the same wholly invented observation inside a book or on an exhibition card and add one detail readers learn next. Keep non-publication or a later choice available without a real diary. Compare information placement without private writing as greater depth or independence, or sharing as social need, resilience or need for actual support."
+        }
+      ]
+    },
+    {
+      "id": "access",
+      "title": {
+        "zh": "自愿比较虚构故事",
+        "en": "Compare invented scenes voluntarily"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以一起问：“如果同一句书签观察留在书里或出现在展览卡上，读者接下来能知道什么，又有哪些仍可留给人物自己？”各拟一句后续，再借另一叙事角色调整。可只想象、不写、不展示、不回答或结束，不需公开真实经历。",
+          "en": "Ask together: “If the same bookmark observation stayed in a book or appeared on an exhibition card, what would readers learn and what could remain the character’s own?” Suggest a next line each and revise through another narrative role. Imagine without writing, displaying work, answering or sharing personal experiences; stop whenever preferred."
+        },
+        {
+          "zh": "分享公开全文时不带答卷或计数。六组只描述本版纸面选项，不是现实求生、医疗、体力、工程或应急分工；CDC背景不验证这六类型。讨论叙事差别，不给朋友派任务、不评价缺席者，也不收集地址、病史或真实行动计划。",
+          "en": "Share the public guide without answers or counts. Six groups describe this edition’s paper options rather than actual survival, medicine, fitness, engineering or emergency roles; CDC background does not validate the six types. Discuss narrative differences without assigning friends tasks, labelling absent people or collecting addresses, medical history or real action plans."
+        }
+      ]
+    }
+  ]
+}

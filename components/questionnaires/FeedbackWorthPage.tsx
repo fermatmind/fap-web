@@ -5,7 +5,8 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire, QuestionnaireProfile } from "@/lib/questionnaires/types";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
+import { prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
 import { FeedbackWorthClient } from "./FeedbackWorthClient";
 import { FeedbackWorthSupport } from "./FeedbackWorthReport";
 function Library({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
@@ -24,7 +25,7 @@ export function FeedbackWorthPage({ quiz, locale }: { quiz: Questionnaire; local
     <FeedbackWorthClient key={`${quiz.slug}:${locale}`} quiz={quiz} locale={locale} />
     {quiz.guide.map(s => <section key={s.id} className="my-8 space-y-4 leading-8" aria-labelledby={`feedback-worth-method-${s.id}`}><h2 id={`feedback-worth-method-${s.id}`} className="text-2xl font-semibold">{s.title[locale]}</h2>{s.paragraphs.map((p, i) => <p key={i}>{p[locale]}</p>)}</section>)}
     <Library quiz={quiz} locale={locale} />
-    {quiz.profiles.map(p => <section key={p.id} id={`feedback-worth-public-${p.directionIds[0]}`} data-feedback-worth-full-guide={p.id} className="my-10 scroll-mt-24 border-t border-slate-200 pt-7"><h2 className="mb-5 text-2xl font-semibold">{p.title[locale]}</h2><QuestionnaireReport profile={p} locale={locale} headingLevel={3} idPrefix={`feedback-worth-public-${p.id}`} /></section>)}
+    {quiz.profiles.map(p => <section key={p.id} id={`feedback-worth-public-${p.directionIds[0]}`} data-feedback-worth-full-guide={p.id} className="my-10 scroll-mt-24 border-t border-slate-200 pt-7"><h2 className="mb-5 text-2xl font-semibold">{p.title[locale]}</h2><QuestionnaireResultReading quizSlug={quiz.slug} profile={prepareResultProfile(quiz.slug, p)} locale={locale} headingLevel={3} idPrefix={`feedback-worth-public-${p.id}`} /></section>)}
     <section data-feedback-worth-existing-guides className="my-10 space-y-4 leading-8" aria-labelledby="feedback-worth-existing-guides"><h2 id="feedback-worth-existing-guides" className="text-2xl font-semibold">{zh ? "相邻问题已有完整读法" : "Complete existing readings for neighbouring questions"}</h2>
       <p>{zh ? "可直接阅读公开全文，不需再答问卷。SD4原七题均值、DTP四条行为的频率方法、FSCRS九条不足感来源题分别解释自己的问题，不补这里的回答，也不合成四特质画像、总分或最高型。" : "Read the public full text without taking another questionnaire. The published SD4 seven-item mean, DTP four-behaviour frequency method and FSCRS nine source statements about inadequacy answer separate questions. They do not supply missing responses here or combine into a four-trait profile, total or highest type."}</p>
       <ul className="space-y-3">
@@ -45,7 +46,7 @@ export function FeedbackWorthGuidePage({ quiz, profile, locale }: { quiz: Questi
     <Link prefetch={false} className="mb-6 inline-block min-h-11 py-2 underline" href={entry}>{quiz.title[locale]}</Link>
     <p className="font-semibold text-violet-800">{zh ? "完整公开反馈与自我价值感经历读法" : "Complete public feedback-and-self-worth reading"}</p><h1 className="mt-3 text-4xl font-semibold leading-tight">{profile.title[locale]}</h1>
     <p className="my-5 leading-8">{zh ? "这是所有人都可阅读的原创主题说明，没有任何人的回答或计数。无需先答题，也不是个人结果、风险档位或诊断。" : "This original theme explanation is available to everyone without anyone’s answers or counts. No prior answers are needed. It is not a personal result, risk band or diagnosis."}</p>
-    <FeedbackWorthSupport locale={locale} /><div data-feedback-worth-full-guide={profile.id}><QuestionnaireReport profile={profile} locale={locale} headingLevel={2} idPrefix="report" /></div><Library quiz={quiz} locale={locale} />
+    <FeedbackWorthSupport locale={locale} /><div data-feedback-worth-full-guide={profile.id}><QuestionnaireResultReading quizSlug={quiz.slug} profile={prepareResultProfile(quiz.slug, profile)} locale={locale} headingLevel={2} idPrefix="report" /></div><Library quiz={quiz} locale={locale} />
     <Link prefetch={false} className="inline-block min-h-11 py-2 font-semibold underline" href={`${entry}#take-test`}>{zh ? "返回12条原创陈述" : "Return to the 12 original statements"}</Link>
   </Container></main>;
 }

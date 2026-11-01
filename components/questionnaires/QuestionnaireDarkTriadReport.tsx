@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
 import type { Questionnaire } from "@/lib/questionnaires/types";
@@ -22,10 +22,10 @@ export function QuestionnaireDarkTriadReport({ quiz, result, locale }: { quiz: Q
       {available === 0 && <p data-dtt-insufficient className="leading-8">{zh ? "本次作答已结束，没有生成个人均分。无需补答，三份完整说明仍在下方。" : "This attempt is finished without personal means. No further answers are required; all three full guides remain below."}</p>}
       <p className="text-sm leading-7">{zh ? "1完全不符合、2比较不符合、3不确定或视情况、4比较符合、5非常符合。均分描述符合度，不是频率或强度。三组不加总、不排序、不设阈值或派最高型，也不与SD3或Dirty Dozen换算。均分不证明等距精度、可靠改变、临床人格、善恶、能力、安全或风险。" : "1 Very inaccurate, 2 Somewhat inaccurate, 3 Uncertain or depends on the situation, 4 Somewhat accurate, 5 Very accurate. Means describe accuracy, not frequency or intensity. Groups are not added, ranked, assigned thresholds or converted into a dominant type, SD3 or Dirty Dozen scores. Means establish neither interval precision, reliable change, clinical personality, morality, ability, safety nor risk."}</p>
     </section>
-    <p className="leading-8">{zh ? "三份九节全文全部保留，包括资料不足的组。它们是具体主题的说明，不是三种人格。可以读完后结束，不需另一测评解锁。" : "All three nine-section guides remain available, including for insufficient groups. They explain specific themes rather than three personalities. You may finish after reading, without another assessment unlocking anything."}</p>
+    <p className="leading-8">{zh ? "三份完整说明全部保留，包括资料不足的组。它们是具体主题的说明，不是三种人格。可以读完后结束，不需另一测评解锁。" : "All three full guides remain available, including for insufficient groups. They explain specific themes rather than three personalities. You may finish after reading, without another assessment unlocking anything."}</p>
     {quiz.profiles.map(profile => <section key={profile.id} data-dtt-profile={profile.id} aria-labelledby={`dtt-title-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
       <h3 id={`dtt-title-${profile.id}`} className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
-      <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一主题的公开说明" : "Read this theme’s public explanation"}</Link>
     </section>)}
   </div>;

@@ -1,0 +1,182 @@
+{
+  "discovery": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：把一句需求拆成可核对的两部分",
+        "en": "Practise separating two requirements in one note"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例虚构社团说：“每月要纸质出勤表，志愿者在无网时也要登记。”笔记可记录每月纸表与无网登记两项，再问“纸表必须有哪些列、无网时哪些登记动作必须完成？”没有给出的预算、设备和最终批准人仍标未知，不写成免费、所有手机兼容或已经获批。确认句可以复述两项并允许纠正；澄清句则补具体缺口。两种问题目的不同，问完也不代表产品已经满足需求。",
+          "en": "Use a fresh fictional club note: “We need a paper attendance list each month, and volunteers must register arrivals without internet.” Preserve monthly paper output and offline registration, then ask which columns the paper list needs and which registration actions must work offline. Budget, devices and final decision authority remain unknown rather than free, universally compatible or approved. A confirmation restates the two needs and invites correction; clarification fills specific gaps. The questions serve different purposes, and asking them does not establish that a product meets the requirements."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：每句结论都找对应的原话",
+        "en": "Review the buyer statement supporting each conclusion"
+      },
+      "paragraphs": [
+        {
+          "zh": "逐句标事实、问题或提议，检查有无把“需要”写成“产品已有”、把“计划日期”写成“保证日期”。如果买家尚未说明预算，下一步是保留未知或按情境询问，而不是从语气推断金额。把原话改成“仅在线登记即可”，再看原来的离线问题是否仍相关；这样练需求变化如何改变提问，不把某个固定问句当普遍话术。",
+          "en": "Label each sentence as fact, question or proposal. Check whether a need became an existing capability or a planned date became a guarantee. An unstated budget remains unknown or prompts an appropriate question; tone supplies no amount. Change the fictional note to online-only registration and reconsider whether the offline question still matters. This explores how a changed requirement changes discovery, rather than treating one fixed sentence as a universal script."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "交换判断依据，不给朋友评销售天赋",
+        "en": "Exchange reasons without rating a friend’s sales talent"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“你复述的是买家说过的需求，还是自己加的产品承诺？哪个问题补信息，哪个只是确认理解？”先各自标规则、事实和未知，再交换解释。可只读、用计算器、换情境或不答，不比赛速度，也不需要联系真实客户或展示工作记录。",
+          "en": "Ask: “Are you restating a buyer need or adding a product promise, and which question clarifies versus confirms?” Mark rules, facts and unknowns separately, then exchange explanations. Read, use a calculator, change the situation or decline without racing, contacting real customers or showing work records."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。四组是复习主题，不是人格类型、销售潜力、招聘线或认证；题库未完成心理测量验证。24题固定，重做提高可能与记忆有关。换一个明示条件并重新说明理由，比单看同题正确数更能看清你正在使用的方法。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Four groups organise revision rather than personality types, sales potential, hiring cutoffs or certification; this bank has not undergone psychometric validation. Retakes reuse twenty-four items and may reward recall. Change an explicit condition and explain the reasoning again to inspect your method beyond a familiar-item count."
+        }
+      ]
+    }
+  ],
+  "fit": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：给每条必需项标证据状态",
+        "en": "Practise marking evidence for each mandatory requirement"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例要求无网登记和打印PDF。虚构表中Elm两项已证实，Pine无网登记已证实、PDF未知，Ash已证实不能无网、PDF已证实。按“全部必需项都获证实”的本例规则，Elm匹配，Pine证据未齐，Ash有明确缺口。Pine未证实PDF不等于证实不能打印；Elm在两项上匹配也不说明费用、交付和其他未列要求都满足。画两列需求表，保留支持、否定和未知三种状态。",
+          "en": "Use fresh requirements for offline registration and PDF printing. A fictional table confirms both for Elm, confirms offline registration but leaves PDF unknown for Pine, and confirms no offline registration while confirming PDF for Ash. Under this example’s rule requiring evidence for every mandatory feature, Elm matches, Pine lacks complete evidence and Ash has a confirmed gap. Unknown PDF support does not establish inability; Elm’s two-feature match establishes no price, delivery or other unlisted requirement. Draw two requirement columns and retain supported, contradicted and unknown states."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：新证据只更新它真正覆盖的格子",
+        "en": "Review only the cells actually covered by new evidence"
+      },
+      "paragraphs": [
+        {
+          "zh": "若后来Pine桌面打印PDF通过，可更新这一项的桌面证据，不能一并写成手机、离线打印都通过。若客户还要求无网打印PDF，原先“无网登记＋可打印”的两项分开证据不足以证明组合行为，应针对该组合核查。把被测平台、网络状态和具体动作一起写下，避免把一处演示的通过扩大成全部条件。例子只比较题定证据，不推荐真实产品。",
+          "en": "If Pine later passes desktop PDF printing, update that desktop evidence without marking mobile or offline printing passed. A new requirement to print PDFs offline is not established by separate evidence of offline registration and some printing capability; check the combined behaviour. Record platform, network state and exact action together, so one demonstration does not expand into every condition. This example compares supplied evidence rather than recommending a real product."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "交换判断依据，不给朋友评销售天赋",
+        "en": "Exchange reasons without rating a friend’s sales talent"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“两个功能各自通过，为什么未必证明组合场景通过？你给未知项保留了哪一步核查？”先各自标规则、事实和未知，再交换解释。可只读、用计算器、换情境或不答，不比赛速度，也不需要联系真实客户或展示工作记录。",
+          "en": "Ask: “Why might two separately verified features fail to establish a combined scenario, and what check remains for an unknown?” Mark rules, facts and unknowns separately, then exchange explanations. Read, use a calculator, change the situation or decline without racing, contacting real customers or showing work records."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。四组是复习主题，不是人格类型、销售潜力、招聘线或认证；题库未完成心理测量验证。24题固定，重做提高可能与记忆有关。换一个明示条件并重新说明理由，比单看同题正确数更能看清你正在使用的方法。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Four groups organise revision rather than personality types, sales potential, hiring cutoffs or certification; this bank has not undergone psychometric validation. Retakes reuse twenty-four items and may reward recall. Change an explicit condition and explain the reasoning again to inspect your method beyond a familiar-item count."
+        }
+      ]
+    }
+  ],
+  "follow-up": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：按最新约定更新下一步",
+        "en": "Practise updating the next action from the latest agreement"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例先提议虚构买家周二见面，对方随后仅同意周四一封邮件，不接电话。记录应为周二会议未确认，下一步为周四一封邮件、无电话，不能把两个安排都标已确认。若之后明确要求停止推广，按本例停止规则记录并停止推广性跟进，不换渠道继续。用时间线列提议、回复与新要求，每一步只改变新证据支持的状态，不猜对方态度。",
+          "en": "Use a fresh fictional invitation to meet Tuesday. The buyer replies agreeing only to one Thursday email and no calls. Record the Tuesday meeting as unconfirmed and the next action as one Thursday email without a call; do not confirm both arrangements. If the buyer later explicitly requests no further promotion, this example’s stop rule ends promotional follow-ups rather than moving them to another channel. Put proposal, reply and later request on a timeline, updating only states supported by each message without guessing attitude."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：承诺核查，不承诺想要的答案",
+        "en": "Review a commitment to check without promising the desired answer"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构交接可以写“问题：无网打印PDF是否可用；负责人：产品专家Rae；约定：周四回复已核实状态”。这不等于周四功能必定可用；若核查仍未完成，应如实保留未核及实际进展，按约定说明后续，而非虚报通过。准备好的草稿也不等于已经发出。练习只改虚构笔记，不需要发送邮件、访问账户或改真实CRM。",
+          "en": "A fictional handoff can state: “Question: does offline PDF printing work? Owner: product specialist Rae. Agreement: report verified status Thursday.” That promises neither feature availability nor a positive answer. If checking remains incomplete, preserve the unknown and actual progress, addressing the next step under the agreement instead of reporting a pass. A prepared draft is also not a sent message. Revise fictional notes without emailing, accessing accounts or editing a real CRM."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "交换判断依据，不给朋友评销售天赋",
+        "en": "Exchange reasons without rating a friend’s sales talent"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“最新回复实际同意了什么？你承诺的是核查与回复，还是没有证据的功能和结果？”先各自标规则、事实和未知，再交换解释。可只读、用计算器、换情境或不答，不比赛速度，也不需要联系真实客户或展示工作记录。",
+          "en": "Ask: “What did the latest reply actually agree to, and are you promising a check or an unsupported capability or outcome?” Mark rules, facts and unknowns separately, then exchange explanations. Read, use a calculator, change the situation or decline without racing, contacting real customers or showing work records."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。四组是复习主题，不是人格类型、销售潜力、招聘线或认证；题库未完成心理测量验证。24题固定，重做提高可能与记忆有关。换一个明示条件并重新说明理由，比单看同题正确数更能看清你正在使用的方法。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Four groups organise revision rather than personality types, sales potential, hiring cutoffs or certification; this bank has not undergone psychometric validation. Retakes reuse twenty-four items and may reward recall. Change an explicit condition and explain the reasoning again to inspect your method beyond a familiar-item count."
+        }
+      ]
+    }
+  ],
+  "sales-maths": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：折扣作用在哪一笔费用上",
+        "en": "Practise locating the exact discount base"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例虚构报价四席每席CU30，仅席位小计享九折，一次性设置费CU12不折扣，无其他收费。席位小计120，折后108，加12总额CU120。若把总额132全部乘0.9，会得118.8，错误地折了设置费。若问折扣额，答案是CU12而非总价120。先列席位小计、折扣基数、一次性费和最终所求，再按原式加回核对；不能自行引入税、阶梯或真实报价条款。",
+          "en": "Use a fresh fictional quote: four seats at CU30, a ten-percent reduction on the seat subtotal only, and one undiscounted CU12 setup fee, with no other charges. The subtotal is 120, discounted seats 108 and total CU120. Applying 0.9 to the full 132 gives 118.8 and wrongly discounts setup. If asked for the discount amount, it is CU12 rather than total price 120. Separate seat subtotal, discount base, one-time fee and requested output, then reconcile the arithmetic without adding tax, tiers or real contractual terms."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：分母一变，指标含义也变",
+        "en": "Review how changing a denominator changes the metric"
+      },
+      "paragraphs": [
+        {
+          "zh": "另设虚构同组机会已赢6、已输9、开放5。本例若定义已结束赢单率，分母为6+9=15，比例40%；若另问已赢占全部已列机会，则6/20=30%，两者所求不同。不能用开放5假定将来全部赢或输。另一个假设计划按目标8次购买除以0.25次购买/演示，返回32次演示；它是条件算术，不保证做到32次就有8次购买，也不构成同行基准或收入预测。",
+          "en": "Use a separate fictional cohort with six won, nine lost and five open opportunities. A closed-opportunity win-rate definition gives 6/15=40 percent; won as a share of all listed opportunities gives 6/20=30 percent. These answer different questions. Treat the five open outcomes as unknown rather than future wins or losses. Another hypothetical planning rule divides a target of eight purchases by 0.25 purchases per demo, returning thirty-two demos. This conditional arithmetic guarantees neither eight purchases after thirty-two demos nor a professional benchmark or revenue forecast."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "交换判断依据，不给朋友评销售天赋",
+        "en": "Exchange reasons without rating a friend’s sales talent"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“你的分子和分母数的是什么？算出40%与30%的人是否可能都算对，却回答了不同问题？”先各自标规则、事实和未知，再交换解释。可只读、用计算器、换情境或不答，不比赛速度，也不需要联系真实客户或展示工作记录。",
+          "en": "Ask: “What do your numerator and denominator count, and can forty and thirty percent both be correct for different questions?” Mark rules, facts and unknowns separately, then exchange explanations. Read, use a calculator, change the situation or decline without racing, contacting real customers or showing work records."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。四组是复习主题，不是人格类型、销售潜力、招聘线或认证；题库未完成心理测量验证。24题固定，重做提高可能与记忆有关。换一个明示条件并重新说明理由，比单看同题正确数更能看清你正在使用的方法。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Four groups organise revision rather than personality types, sales potential, hiring cutoffs or certification; this bank has not undergone psychometric validation. Retakes reuse twenty-four items and may reward recall. Change an explicit condition and explain the reasoning again to inspect your method beyond a familiar-item count."
+        }
+      ]
+    }
+  ]
+}

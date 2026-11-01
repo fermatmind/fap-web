@@ -1,0 +1,125 @@
+{
+  "whole": [
+    {
+      "id": "reading-2",
+      "title": {
+        "zh": "补充算例",
+        "en": "Additional example"
+      },
+      "paragraphs": [
+        {
+          "zh": "例子：整条正确与逐位相同分别核对。假设完整一分钟的两个源串是2854、389，确认输入2854、398。两条中一条完全正确；七个字符位置中五个相同。确认字符7加分隔符2，确认等价KPH为540；完全正确条目含分隔符为5，完全正确条目KPH为300。条目错误率50%，逐位准确率约71.4%。这是另外构造的算例，不加入本轮成绩。",
+          "en": "Check whole-entry and positional matches separately. In an invented full minute, sources 2854 and 389 receive confirmed entries 2854 and 398. One of two entries is exact, while five of seven positions match. Seven confirmed characters plus two separators give 540 confirmed-equivalent KPH; the exact entry contributes five equivalents, giving 300 exact-entry KPH. Entry error is 50% and positional accuracy about 71.4%. This constructed example adds nothing to your round."
+        }
+      ]
+    },
+    {
+      "id": "reading-5",
+      "title": {
+        "zh": "复盘一个步骤",
+        "en": "Review one step"
+      },
+      "paragraphs": [
+        {
+          "zh": "复盘时先选一条，逐位对照源串与最终确认文本，再用括线标出自己读取的数字组。下一次可尝试不同分组，也可保留原方法；不把某一种分组当作人人适用的训练法。记录见过列表、是否使用辅助与输入方式；仅一个汇总数字变化不足以分清熟悉度、方法和当时状态。",
+          "en": "For review, compare one source with its final confirmed entry position by position, then mark the digit groups you read. Try another grouping later or retain your method; no grouping is a universal training method. Note prior exposure, assistance and input method. A change in one summary number alone cannot separate familiarity, method and circumstances."
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "zh": "一起核对",
+        "en": "Check together"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以只分享这份公开指南，用自拟的2854与2854、389与398问同伴：“哪一条整条正确？又有几个位置相同？”各说依据后核对，可只看或不答。交流不同分母，不展示自己的成绩来排名，也无需拿真实工作数据练习。",
+          "en": "Share this public guide and ask about the invented pairs 2854 versus 2854 and 389 versus 398: “Which entry is entirely correct, and how many positions match?” Explain the counts together, observe or decline. Compare denominators without ranking personal scores or using real work records."
+        }
+      ]
+    }
+  ],
+  "decimals": [
+    {
+      "id": "reading-2",
+      "title": {
+        "zh": "补充算例",
+        "en": "Additional example"
+      },
+      "paragraphs": [
+        {
+          "zh": "例子：缺最后一个零也会改变抄录结果。假设完整一分钟的源串6.20、14.08被确认为6.2、14.08。前者前三位相同但整条不一致；后者五位全同。输入字符8加两个分隔符，确认等价KPH为600；整条正确的第二条含分隔符贡献6个等价值，完全正确条目KPH为360。条目错误率50%，逐位准确率8/9，约88.9%。这是构造例子，不是新的作答记录。",
+          "en": "Omitting a final zero changes transcription. In an invented full minute, sources 6.20 and 14.08 receive entries 6.2 and 14.08. The first has three matching positions but is not exact; the second has five. Eight entered characters and two separators give 600 confirmed-equivalent KPH. The exact second entry contributes six equivalents, giving 360 exact-entry KPH. Entry error is 50% and positional accuracy is 8/9, about 88.9%. These are constructed entries, not new attempt records."
+        }
+      ]
+    },
+    {
+      "id": "reading-5",
+      "title": {
+        "zh": "复盘一个步骤",
+        "en": "Review one step"
+      },
+      "paragraphs": [
+        {
+          "zh": "复盘时把整数部分、小数点、两位小数分别圈出，再对照最终确认文本。即使两个写法数值相等，本题仍核字符串；补零、改逗号或省点会改变核对结果。若再练，只选一个想观察的步骤，并记得固定列表已熟悉；不要求为了速度牺牲舒适，也不从一次变化推断训练有效。",
+          "en": "For review, mark the integer part, period and two decimal places before comparing the final entry. Numerically equivalent notation can still differ as strings; adding a zero, replacing the period with a comma or omitting it changes the comparison. For another round, choose one step to observe and note familiarity with the fixed list. Keep a comfortable pace without inferring training effectiveness from one change."
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "zh": "一起核对",
+        "en": "Check together"
+      },
+      "paragraphs": [
+        {
+          "zh": "可用自拟的6.20与6.2问：“数值可以相等，为什么抄录仍不是整条正确？”先说清本任务核写法，再对照每个位置。可分享公开指南、观察或退出，不用真实金额、账单、成绩或同伴的错误作谈资。",
+          "en": "Ask about the invented strings 6.20 and 6.2: “Why can numerically equal values still fail an exact transcription check?” State that this task checks notation before comparing positions. Share the public guide, observe or stop without using real amounts, bills, scores or another person’s mistakes."
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": "reading-2",
+      "title": {
+        "zh": "补充算例",
+        "en": "Additional example"
+      },
+      "paragraphs": [
+        {
+          "zh": "例子：保留长度不等于顺序全对。假设完整一分钟的源串001527、004890被确认为001572、004890。第一条末两位换位，四个位置相同；第二条六位全同。输入12字符加两个分隔符，确认等价KPH为840；整条正确的第二条含分隔符贡献7个等价值，完全正确条目KPH为420。条目错误率50%，逐位准确率10/12，约83.3%。这些编号仅为新构造的算例。",
+          "en": "Keeping the length does not guarantee the order. In an invented full minute, sources 001527 and 004890 receive entries 001572 and 004890. The first swaps the final two digits and matches four positions; the second matches six. Twelve entered characters plus two separators give 840 confirmed-equivalent KPH. The exact second entry contributes seven equivalents, giving 420 exact-entry KPH. Entry error is 50% and positional accuracy is 10/12, about 83.3%. These codes are newly constructed examples."
+        }
+      ]
+    },
+    {
+      "id": "reading-5",
+      "title": {
+        "zh": "复盘一个步骤",
+        "en": "Review one step"
+      },
+      "paragraphs": [
+        {
+          "zh": "复盘时分开核前导零、总长度和余下各位顺序。可以用眼睛逐位指认，不必强记整串；长度正确仍可能数字换位。若再练，选择一个核查步骤，保留自愿停止的空间，并记录设备与是否见过源串。更高的速度不直接证明处理真实标识或敏感记录更可靠。",
+          "en": "For review, check leading zeros, total length and remaining digit order separately. Point through positions rather than memorising the whole string; correct length can still conceal a transposition. For another round, choose one check, remain free to stop and note device and prior exposure. Higher speed does not directly establish more reliable handling of real identifiers or sensitive records."
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "zh": "一起核对",
+        "en": "Check together"
+      },
+      "paragraphs": [
+        {
+          "zh": "可用虚构的001527与001572问：“长度与开头都一样，还需检查哪里？”各标出相同与不同位置，再对照指南。分享公开链接即可，不需要发送本轮输入，更不要提交真实账号、客户编号或工作表；不据此评价同伴的注意力或职业能力。",
+          "en": "Ask about invented codes 001527 and 001572: “If length and prefix match, what remains to check?” Mark matching and differing positions together, then consult the guide. Share the public link without round entries or real account numbers, customer codes or worksheets. Infer no attention trait or occupational ability from the comparison."
+        }
+      ]
+    }
+  ]
+}

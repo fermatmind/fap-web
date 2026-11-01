@@ -1,3 +1,4 @@
+import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync, readdirSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -99,9 +100,9 @@ describe("T058 original compass choices and explicit perpendicular-neighbour rea
       const reversed = structuredClone(quiz); reversed.profiles.reverse();
       const reordered = scoreCompassQuestionnaire(reversed, witness(item.counts)); if (reordered.status !== "complete") throw new Error("Order changed validity");
       expect(new Set(reordered.compassProfileIds)).toEqual(new Set(item.ids));
-      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireCompassReport quiz={quiz} result={result} locale="en" />);
+      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireCompassReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale="en" />);
       expect(dom.querySelectorAll("[data-compass-match]")).toHaveLength(item.ids.length);
-      expect(dom.querySelectorAll("h4")).toHaveLength(item.ids.length * 9);
+      expect(dom.querySelectorAll("h4")).toHaveLength(item.ids.length * 11);
       const ids = Array.from(dom.querySelectorAll("[id]"), e => e.id); expect(new Set(ids).size).toBe(ids.length);
     }
     const flat = scoreQuestionnaire(quiz, allA()); expect(flat.status).toBe("complete");

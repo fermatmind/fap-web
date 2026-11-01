@@ -3,21 +3,21 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Locale } from "@/lib/i18n/locales";
-import type { QuestionnaireAnswers } from "@/lib/questionnaires/types";
+import type { QuestionnaireAnswers, QuestionnaireProfile } from "@/lib/questionnaires/types";
 import { REASONING18_LIMITS, isReasoning18ConfigurationValid, readReasoning18Clock, scoreReasoning18, type Reasoning18Closure, type Reasoning18Mode, type Reasoning18Questionnaire, type Reasoning18Result } from "@/lib/questionnaires/reasoning18";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
 const subscribeReady = () => () => {};
 const now = () => ({ wall: Date.now(), monotonic: performance.now() });
 const time = (seconds: number) => `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
-export function Reasoning18Client({ quiz, locale }: { quiz: unknown; locale: Locale }) {
+export function Reasoning18Client({ quiz, locale, readingProfiles }: { quiz: unknown; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
   if (!isReasoning18ConfigurationValid(quiz)) return <p role="status">{locale === "zh" ? "练习内容暂不可用。" : "Practice content is unavailable."}</p>;
-  return <ValidReasoning18Client key={`${locale}:${quiz.version}`} quiz={quiz} locale={locale} />;
+  return <ValidReasoning18Client key={`${locale}:${quiz.version}`} quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
 }
-function ValidReasoning18Client({ quiz, locale }: { quiz: Reasoning18Questionnaire; locale: Locale }) {
+function ValidReasoning18Client({ quiz, locale, readingProfiles }: { quiz: Reasoning18Questionnaire; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
   const zh = locale === "zh", ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const { start: recordStart, complete: recordComplete, view: recordView, share: recordShare, consent: activityConsent } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const [stage, setStage] = useState<"welcome" | "ready" | "answer" | "result">("welcome");
@@ -124,6 +124,7 @@ function ValidReasoning18Client({ quiz, locale }: { quiz: Reasoning18Questionnai
         <p className="leading-8">{zh ? "以上仅为本题本原始记录，不换算提供方成绩、百分位、通过或资格判定。各部分难度未等值，不按最低正确数判定弱项。全部题目与解析如下免费可读。" : "These are raw records on this bank, not a provider score, percentile, pass or qualification decision. Parts are not equated; the lowest count does not diagnose a weakness. Every question and explanation is free below."}</p>
         <div data-reasoning18-result className="space-y-6">{result.parts.map((part, i) => {
           const profile = quiz.profiles[i];
+          const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === 1 && item.directionIds[0] === part.id && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
           return <section key={part.id} data-reasoning18-part={part.id} className="rounded-lg border border-slate-200 p-4 sm:p-6">
             <h3 className="scroll-mt-24 text-xl font-semibold">{quiz.reasoning18.sections[i].title[locale]}</h3>
             <p data-reasoning18-count className="my-3 leading-8">{counts(part)}</p><p data-reasoning18-closure className="my-3 leading-7">{part.reason === "expired" ? (zh ? "到时结束；空白仍为未答。" : "Closed at the deadline; blanks remain unanswered.") : (zh ? "主动结束本部分。" : "You finished this part.")}</p>
@@ -131,7 +132,7 @@ function ValidReasoning18Client({ quiz, locale }: { quiz: Reasoning18Questionnai
               const item = result.items.find(x => x.id === q.id)!, selected = q.options.find(o => o.id === item.selectedOptionId), key = q.options.find(o => o.id === item.correctOptionId)!;
               return <li key={q.id} data-reasoning18-review-item={q.id} className="rounded-lg bg-slate-50 p-3 leading-8"><p lang="en" className="whitespace-pre-line">{q.prompt.en}</p><p className="mt-3">{zh ? "你的选择：" : "Your choice: "}{selected ? <span lang="en">{selected.id} — {selected.label.en}</span> : (zh ? "未答" : "Unanswered")}</p><p>{zh ? "正确答案：" : "Correct answer: "}<span lang="en">{key.id} — {key.label.en}</span></p><p className="mt-3">{q.explanation![locale]}</p></li>;
             })}</ol></details>
-            <details data-reasoning18-full className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开完整学习指南" : "Expand the full study guide"}</summary><div className="mt-5"><QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`reasoning18-${part.id}`} /></div></details>
+            <details data-reasoning18-full className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开完整学习指南" : "Expand the full study guide"}</summary><div className="mt-5"><QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`reasoning18-${part.id}`} /></div></details>
             <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, part.id)}>{zh ? "阅读完整公开指南" : "Read the complete public guide"}</Link>
           </section>;
         })}</div>

@@ -1,3 +1,4 @@
+import { correctConflictReadingPrivacy } from "@/lib/questionnaires/result-content/conflict-boundary-privacy";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -39,7 +40,7 @@ describe("Original conflict/boundary actual registered callers and public identi
           expect(dom.querySelector("h1")?.textContent).toBe(p.title[locale]); expect(gmeta.title).toBe(p.seo!.title[locale]); expect(gmeta.description).toBe(p.seo!.description[locale]);
           expect(gmeta.alternates?.canonical).toBe(`https://fermatmind.com${publicPath}`);
           expect(gmeta.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/conflict-boundary-behaviors-test/results/${p.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/conflict-boundary-behaviors-test/results/${p.id}` });
-          for (const s of p.sections) for (const text of s.paragraphs) expect(dom.textContent).toContain(text[locale]);
+          for (const s of correctConflictReadingPrivacy(p).sections) for (const text of s.paragraphs) expect(dom.textContent).toContain(text[locale]);
           expect(dom.querySelector("[data-conflict-mean]")).toBeNull();
           expect(dom.querySelector(`a[href='${path}#take-test']`)).not.toBeNull();
           expect(maps.filter(e => e.loc === `https://fermatmind.com${publicPath}`)).toHaveLength(1);

@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
+import type { QuestionnaireProfile } from "@/lib/questionnaires/types";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { MiniIntimacyQuestionnaire } from "@/lib/questionnaires/miniIntimacy";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
@@ -7,8 +8,8 @@ import type { Locale } from "@/lib/i18n/locales";
 
 type Complete = Extract<FacetResult, { status: "complete" }>;
 
-export function QuestionnaireIntimacyReport({ quiz, result, locale }: {
-  quiz: MiniIntimacyQuestionnaire; result: Complete; locale: Locale;
+export function QuestionnaireIntimacyReport({ quiz, result, locale, readingProfiles }: {
+  quiz: MiniIntimacyQuestionnaire; result: Complete; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[];
 }) {
   const zh = locale === "zh";
   return <div data-intimacy-result className="my-6 space-y-8">
@@ -21,6 +22,7 @@ export function QuestionnaireIntimacyReport({ quiz, result, locale }: {
     {quiz.directions.map(direction => {
       const score = result.facets[direction.id];
       const profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
+      const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds[0] === direction.id && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
       return <section key={direction.id} data-intimacy-part={direction.id}
         className="rounded-lg border border-slate-200 p-4 sm:p-6" aria-labelledby={`intimacy-${direction.id}`}>
         <h3 id={`intimacy-${direction.id}`} className="text-2xl font-semibold">{direction.title[locale]}</h3>
@@ -33,7 +35,7 @@ export function QuestionnaireIntimacyReport({ quiz, result, locale }: {
           : <p className="mb-4 leading-8 text-slate-600">{zh
             ? "本组暂不给个人数值，不以零或中点代答；其他完整组保留。以下完整通用指南始终可读，也不表示你被分配到这一类型。"
             : "This group has no personal value, without zero or midpoint imputation. Other complete groups remain available. Its complete general guide stays readable without assigning you a type."}</p>}
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`intimacy-report-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`intimacy-report-${profile.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline"
           href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本部分完整公开指南" : "Read this part’s complete public guide"}</Link>
       </section>;

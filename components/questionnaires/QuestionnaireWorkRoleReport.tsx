@@ -1,14 +1,15 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { workRoleLabels, workRoleStates, type WorkRoleResult } from "@/lib/questionnaires/workRole12";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { Locale } from "@/lib/i18n/locales";
 
-export function QuestionnaireWorkRoleReport({ quiz, result, locale }: {
+export function QuestionnaireWorkRoleReport({ quiz, result, locale, readingProfiles }: {
   quiz: Questionnaire;
   result: Extract<WorkRoleResult, { status: "complete" }>;
   locale: Locale;
+  readingProfiles?: Questionnaire["profiles"];
 }) {
   const zh = locale === "zh";
   return <div className="my-6 space-y-8" data-work-role-result>
@@ -17,6 +18,7 @@ export function QuestionnaireWorkRoleReport({ quiz, result, locale }: {
       : "These records show the participation context you selected for concrete instances in one role during the past twelve weeks, without verifying performance quality. Step-by-step guidance, task ownership and supporting another person are different contexts, not beginner, intermediate or expert levels. A person supporting others may need guidance on other tasks."}</p>
     {result.workRole.map(part => {
       const direction = quiz.directions.find(item => item.id === part.id)!, profile = quiz.profiles.find(item => item.id === part.profileId)!;
+      const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
       return <section key={part.id} data-work-role-part={part.id} aria-labelledby={`work-role-${part.id}`}
         className="rounded-lg border border-slate-200 p-4 sm:p-6">
         <h3 id={`work-role-${part.id}`} className="text-xl font-semibold">{direction.title[locale]}</h3>
@@ -35,7 +37,7 @@ export function QuestionnaireWorkRoleReport({ quiz, result, locale }: {
             <p className="text-sm font-semibold text-slate-600" data-work-role-state={row.questionId}>{workRoleLabels[row.stateId][locale]}</p>
           </li>)}
         </ul>
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`work-role-reading-${part.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`work-role-reading-${part.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline"
           href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本组完整公开指南" : "Read this group’s full public guide"}</Link>
       </section>;

@@ -1,0 +1,194 @@
+{
+  "izuku-midoriya": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：一个线索是否比完整解法更合适",
+        "en": "Review whether one clue fits better than a full solution"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到解谜的例子，分别想象对方想要一个线索、想听一个例子、想继续独自尝试。为每种情况留一句可用回应，再检查你的观察是否还有不确定之处。可以只在纸上比较，不必找人测试。复盘看帮助有没有对应实际请求，而非讲了多少、替别人省了多少步骤；发现原先观察不对时，修改线索也算一次有用收获。",
+          "en": "Return to the puzzle and imagine someone wanting a clue, an example or more time alone. Give each request a possible response, then note uncertainty in your observation. Compare on paper without testing another person. Review the fit between help and the actual request rather than how much you explained or completed for them. Revising an incorrect clue can be a useful outcome."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个日常场景交换想法",
+        "en": "Exchange ideas through an everyday scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果朋友卡在一个谜题上，你会先问什么，怎样让一个小提示既有用又不直接揭晓答案？”各说一种做法，再借另一位角色的角度换个方案；讨论选择，不比赛谁更像角色或更有英雄气概。",
+          "en": "Ask: “If a friend were stuck on a puzzle, what would you ask first and how could a small clue help without revealing the answer?” Suggest an action, then borrow another character angle to try a different plan. Discuss choices without competing over resemblance or heroism."
+        },
+        {
+          "zh": "可分享公开通用说明，链接不含答案或计数。角色不代表能力、道德、性别标准或私人经历；对方可以不看作品、不回答、换个话题或结束，无需用真实冲突证明匹配。",
+          "en": "Share the public general guide without answers or counts in the link. Characters establish no ability, morality, gender standard or personal history. The other person may be unfamiliar with the story, decline, change topics or stop without using a real conflict to prove a match."
+        }
+      ]
+    }
+  ],
+  "katsuki-bakugo": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：目标服务这次尝试了吗",
+        "en": "Review whether the target served this attempt"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用模型平台的例子，区分想改善的一处、材料允许的范围和原定停止点。可以只画下一版，不必多做两次来证明坚持。若平台仍不稳，记录一次具体变化，再决定换材料、改目标或停下。复盘看目标是否让尝试更清楚，不用另一位制作者的外观目标作输赢标准，也不把一次改进当成能力或毅力的认证。",
+          "en": "For the model platform, distinguish the feature you want to improve, what the materials allow and your stopping point. Sketch a revision without making extra attempts to prove persistence. If it remains uneven, record one change and decide whether to change materials, revise the target or stop. Review a clearer attempt without competing against a maker pursuing appearance or certifying ability and grit from one improvement."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个日常场景交换想法",
+        "en": "Exchange ideas through an everyday scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果用手边材料做一个小模型，你想挑战哪一个具体细节，什么时候愿意调整目标或先停？”各说一种做法，再借另一位角色的角度换个方案；讨论选择，不比赛谁更像角色或更有英雄气概。",
+          "en": "Ask: “With materials already at hand, which feature of a small model would you challenge yourself on, and when would you revise the target or stop?” Suggest an action, then borrow another character angle to try a different plan. Discuss choices without competing over resemblance or heroism."
+        },
+        {
+          "zh": "可分享公开通用说明，链接不含答案或计数。角色不代表能力、道德、性别标准或私人经历；对方可以不看作品、不回答、换个话题或结束，无需用真实冲突证明匹配。",
+          "en": "Share the public general guide without answers or counts in the link. Characters establish no ability, morality, gender standard or personal history. The other person may be unfamiliar with the story, decline, change topics or stop without using a real conflict to prove a match."
+        }
+      ]
+    }
+  ],
+  "shoto-todoroki": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：换路径时怎样接住共同安排",
+        "en": "Review shared arrangements when changing your route"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到大家默认你继续展示的例子，分别写“这次想换什么”和“已经约好的哪部分仍需交接”。再设想两个版本：自愿沿用旧方法，或商量一个新方法。两种都可能是自己的选择。可以只起草一句说明，不必解释家庭背景或证明独立。复盘关注意愿和实际依赖是否说清，不把变化越大当成越真实，也不把合作等同于失去选择。",
+          "en": "For the expected demonstration, note what you want to change and what agreed work still needs a handover. Imagine choosing the old method willingly or negotiating a new one. Either can be your choice. Draft a sentence without explaining family history or proving independence. Review clear preferences and actual dependencies without treating a larger change as greater authenticity or cooperation as loss of choice."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个日常场景交换想法",
+        "en": "Exchange ideas through an everyday scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果别人默认你继续上次的角色，你想保留或更换哪一部分，又怎样照顾已经约好的交接？”各说一种做法，再借另一位角色的角度换个方案；讨论选择，不比赛谁更像角色或更有英雄气概。",
+          "en": "Ask: “If others expected your previous role again, what would you keep or change and how would you address an agreed handover?” Suggest an action, then borrow another character angle to try a different plan. Discuss choices without competing over resemblance or heroism."
+        },
+        {
+          "zh": "可分享公开通用说明，链接不含答案或计数。角色不代表能力、道德、性别标准或私人经历；对方可以不看作品、不回答、换个话题或结束，无需用真实冲突证明匹配。",
+          "en": "Share the public general guide without answers or counts in the link. Characters establish no ability, morality, gender standard or personal history. The other person may be unfamiliar with the story, decline, change topics or stop without using a real conflict to prove a match."
+        }
+      ]
+    }
+  ],
+  "ochaco-uraraka": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：减了要求，还是换你多做",
+        "en": "Review whether the requirement shrank or moved to you"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到材料清单，比较“大家少带两样”和“你替大家买齐”的不同。先保留活动最需要的一点，再看看能否共享、换现成材料或做小版本。可以只改清单，不必采购或承诺帮忙。复盘关注总负担和自己的余力，不只看现场是否顺利；若有人需要的支持不同，先听具体回答，不用一次帮忙决定谁更体贴。",
+          "en": "For the supplies list, compare asking everyone for fewer items with buying everything for them. Retain the activity’s essential part and consider sharing, available materials or a smaller version. Revise the list without shopping or promising help. Review the whole burden and your own capacity rather than only a smooth event. Ask about different needs without using one favour to rank thoughtfulness."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个日常场景交换想法",
+        "en": "Exchange ideas through an everyday scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果一次轻松活动要准备太多材料，你会先删减哪个要求，怎样避免简化最后变成某个人包办？”各说一种做法，再借另一位角色的角度换个方案；讨论选择，不比赛谁更像角色或更有英雄气概。",
+          "en": "Ask: “If a casual activity required too many supplies, which requirement would you remove first and how would you avoid leaving one person to provide everything?” Suggest an action, then borrow another character angle to try a different plan. Discuss choices without competing over resemblance or heroism."
+        },
+        {
+          "zh": "可分享公开通用说明，链接不含答案或计数。角色不代表能力、道德、性别标准或私人经历；对方可以不看作品、不回答、换个话题或结束，无需用真实冲突证明匹配。",
+          "en": "Share the public general guide without answers or counts in the link. Characters establish no ability, morality, gender standard or personal history. The other person may be unfamiliar with the story, decline, change topics or stop without using a real conflict to prove a match."
+        }
+      ]
+    }
+  ],
+  "tenya-iida": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：相同条件是否回答了原问题",
+        "en": "Review whether equal conditions answer the intended question"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用两版游戏规则，把想比较的事情先写一句，再看解释时间、试玩时间和材料是否需要分别处理。相同不必然等于适合，调整也不必然是不公平。可以只讨论虚构试玩，不用真的组织。复盘关注参与者是否理解安排、能否提出修改，以及比较结果还留下什么未知；无需让所有小活动都有一套严密程序。",
+          "en": "For the two game-rule versions, state what the comparison should show. Consider explanation time, play time and materials separately. Identical conditions need not fit the purpose, and an adjustment need not be unfair. Discuss a fictional trial without organising one. Review shared understanding, room for revision and remaining uncertainty without requiring a detailed procedure for every small activity."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个日常场景交换想法",
+        "en": "Exchange ideas through an everyday scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果要比较两版小游戏规则，你想比较什么，哪些条件应该一样，哪些差异需要先说明？”各说一种做法，再借另一位角色的角度换个方案；讨论选择，不比赛谁更像角色或更有英雄气概。",
+          "en": "Ask: “When comparing two sets of game rules, what would you compare, which conditions should match and which differences would need explanation?” Suggest an action, then borrow another character angle to try a different plan. Discuss choices without competing over resemblance or heroism."
+        },
+        {
+          "zh": "可分享公开通用说明，链接不含答案或计数。角色不代表能力、道德、性别标准或私人经历；对方可以不看作品、不回答、换个话题或结束，无需用真实冲突证明匹配。",
+          "en": "Share the public general guide without answers or counts in the link. Characters establish no ability, morality, gender standard or personal history. The other person may be unfamiliar with the story, decline, change topics or stop without using a real conflict to prove a match."
+        }
+      ]
+    }
+  ],
+  "eijiro-kirishima": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：跟进的是原约定还是新增要求",
+        "en": "Review the original agreement beside a new request"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到陪入门伙伴试一轮的例子，分别写原本答应的部分、已经完成的部分和后来增加的请求。可以喜欢一起参与，也在原定时间结束。若条件变化，想一句能提前说明的话；不必真的联系别人或作承诺。复盘关注彼此是否知道下一步有人做什么，不以陪了多久、答应多少证明忠诚，也不把拒绝续场当成否定伙伴。",
+          "en": "For joining a beginner for one round, distinguish what was agreed, what was completed and a later request. Enjoying company can coexist with leaving at the agreed time. Imagine wording for an advance notice if circumstances change, without contacting anyone or promising help. Review who understands the next step rather than proving loyalty through time or promises. Declining another round need not reject the person."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用一个日常场景交换想法",
+        "en": "Exchange ideas through an everyday scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果你答应陪朋友试第一轮，对方想继续而你要走了，你会怎样确认已完成的约定并说清下一步？”各说一种做法，再借另一位角色的角度换个方案；讨论选择，不比赛谁更像角色或更有英雄气概。",
+          "en": "Ask: “If you joined a friend for one round but needed to leave when they wanted more, how would you acknowledge the completed agreement and clarify what happens next?” Suggest an action, then borrow another character angle to try a different plan. Discuss choices without competing over resemblance or heroism."
+        },
+        {
+          "zh": "可分享公开通用说明，链接不含答案或计数。角色不代表能力、道德、性别标准或私人经历；对方可以不看作品、不回答、换个话题或结束，无需用真实冲突证明匹配。",
+          "en": "Share the public general guide without answers or counts in the link. Characters establish no ability, morality, gender standard or personal history. The other person may be unfamiliar with the story, decline, change topics or stop without using a real conflict to prove a match."
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import { wetonWeekdays, wetonPasaran, type WetonStoryResult } from "@/lib/questionnaires/wetonStory35";
 import type { Questionnaire } from "@/lib/questionnaires/types";
@@ -18,7 +18,7 @@ export function WetonStory35Report({ quiz, result, locale }: { quiz: Questionnai
     </section>
     {quiz.profiles.filter(profile => result.profileIds.includes(profile.id)).map(profile => <section key={profile.id} data-weton-profile={profile.id} aria-labelledby={`weton-title-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
       <h3 id={`weton-title-${profile.id}`} className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
-      <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一原创组合的公开说明" : "Read this original pairing’s public guide"}</Link>
     </section>)}
     <section aria-labelledby="weton-all-guides"><h3 id="weton-all-guides" className="mb-4 text-xl font-semibold">{zh ? "全部35篇公开全文" : "All 35 full public guides"}</h3><ul className="space-y-2">{quiz.profiles.map(profile => <li key={profile.id}><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{profile.title[locale]}</Link></li>)}</ul></section>

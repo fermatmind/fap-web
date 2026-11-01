@@ -3,7 +3,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 export function RelationshipWorryHabitsReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh";
@@ -18,7 +18,7 @@ export function RelationshipWorryHabitsReport({ quiz, result, locale }: { quiz: 
           : (zh ? `原始和 ${part.sum}，${part.rated}/4条有效，频率均值 ${part.mean.toFixed(1)} / 5` : `Raw sum ${part.sum}; ${part.rated}/4 rated; frequency mean ${part.mean.toFixed(1)} / 5`)}</p>
         {part.mean !== null && <div className="mb-5"><div role="meter" aria-labelledby={`relationship-worry-habits-${direction.id}`} aria-valuemin={1} aria-valuemax={5} aria-valuenow={part.mean} aria-valuetext={zh ? `原始自报频率${part.mean.toFixed(1)}，范围1从不至5几乎每次` : `Raw self-reported frequency ${part.mean.toFixed(1)}, from 1 never to 5 almost always`} className="h-3 overflow-hidden rounded-full bg-slate-100"><div className="h-full rounded-full bg-violet-600" style={{ width: `${(part.mean - 1) / 4 * 100}%` }} /></div><p className="mt-2 flex justify-between gap-4 text-xs leading-6 text-slate-600"><span>{zh ? "1 从不" : "1 Never"}</span><span>{zh ? "5 几乎每次" : "5 Almost always"}</span></p></div>}
         <p className="mb-4 leading-7">{part.mean === null ? (zh ? "以下完整正文是通用读法，不是本次个人反应的结论。" : "The complete text below is a general guide, not a conclusion about your responses in this attempt.") : (zh ? "较高只记录更常认同题中的行动和明说的意图，不从普通暂停或帮忙推断动机，也不确定别人怎样想。请结合实际句子和场合阅读。" : "A higher mean records more frequent endorsement of the action and intention stated in each prompt. It does not infer motives from an ordinary pause or offer of help, or establish what someone else thinks. Read the actual statements in context.")}</p>
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`relationship-worry-habits-reading-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`relationship-worry-habits-reading-${profile.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一反应的完整公开指南" : "Read this response’s full public guide"}</Link>
       </section>;
     })}

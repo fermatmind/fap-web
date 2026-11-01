@@ -1,0 +1,226 @@
+{
+  "overall-mean": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充情境",
+        "en": "An additional scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：两位虚构读者准备修改同一份活动说明。一位说话温和，却觉得只有自己会犯错；另一位能想到别人也有疏漏，却仍对自己缺少耐心。整体均分可以把不同部分汇在一起，却不能还原每句话、每种感受和它们的原因。先分别描述发生了什么、怎样对待自己和哪些还未知，比从总数猜一个完整人格更具体；也不必让六部分同时变成同一个数。",
+          "en": "In an additional original scene, two readers revise an activity note. One speaks gently to themselves while feeling alone in making a mistake; the other remembers that others make mistakes while remaining impatient with themselves. An overall mean cannot reconstruct those different words, feelings or causes. Describe the event, your response and unknowns separately without guessing a whole personality or requiring all six parts to match."
+        }
+      ]
+    },
+    {
+      "id": "action",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "讨论卡可只选一项：“我注意到的自我回应……；它没有说明的事情……；我愿意讨论或保留私人的部分……。”用虚构活动说明即可，无需报整体或六部分数字，也不让别人评谁更慈悲。",
+          "en": "Choose one response, what it does not establish and what you would discuss or keep private. Use an invented activity note without overall or part scores, and without grading who is more compassionate."
+        },
+        {
+          "zh": "本轮新增情境和讨论卡为费马编辑部原创，与Neff的量表陈述区分，可只读或私下使用，不是治疗方案或改善承诺。原26题、六部分归属及13处6减原值反向键保持不变，整体仍平均六个未取舍的计分后均值。跳题只使所在部分与整体不足，不补值，其他完整部分保留；七份全文始终开放。工作中译未建立本地效度与跨语言等值，公开指南和分享不含个人答案或均分。",
+          "en": "These additional scenes and cards are original FermatMind Editorial material, separate from Neff’s scale statements. Reading or private use is optional, without treatment or improvement claims. The twenty-six items, six groups and thirteen six-minus-response keys stay intact; the overall remains an average of six unrounded keyed means. A skip withholds its part and the overall without imputation, retaining other complete parts and all seven full guides. Working Chinese lacks established local validity or language equivalence. Public guides and sharing contain no personal responses or means."
+        }
+      ]
+    }
+  ],
+  "self-kindness-reading": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充情境",
+        "en": "An additional scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者第一次装订一本小册子时顺序弄错，想对自己说“这一叠需要重排，我可以先弄清页码”。这句话既没有否认错误，也没有要求喜欢这次结果。换一种说法后是否更容易继续，仍需看当时情况，量表不能保证。一次温和回应也不证明平时总能如此，或表示面对不公时只能温和接受。",
+          "en": "In an additional original scene, a reader binds a booklet in the wrong order and says that the pages need rearranging, beginning with the numbering. The sentence denies neither the mistake nor disappointment. Whether it helps them continue remains unknown. One gentle response establishes no usual pattern and creates no obligation to accept unfair treatment gently."
+        }
+      ]
+    },
+    {
+      "id": "action",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "讨论卡可以写“需要修正的具体部分”“不必加在自己身上的整体评语”“自己能接受的一句回应”。先用虚构小册子，不强迫赞美，也不把做完卡片当成某种训练达标。",
+          "en": "For an invented booklet, separate the correction needed, a global judgement you need not add and a response you can accept. Praise is optional, and completing the card is no training qualification."
+        },
+        {
+          "zh": "本轮新增情境和讨论卡为费马编辑部原创，与Neff的量表陈述区分，可只读或私下使用，不是治疗方案或改善承诺。原26题、六部分归属及13处6减原值反向键保持不变，整体仍平均六个未取舍的计分后均值。跳题只使所在部分与整体不足，不补值，其他完整部分保留；七份全文始终开放。工作中译未建立本地效度与跨语言等值，公开指南和分享不含个人答案或均分。",
+          "en": "These additional scenes and cards are original FermatMind Editorial material, separate from Neff’s scale statements. Reading or private use is optional, without treatment or improvement claims. The twenty-six items, six groups and thirteen six-minus-response keys stay intact; the overall remains an average of six unrounded keyed means. A skip withholds its part and the overall without imputation, retaining other complete parts and all seven full guides. Working Chinese lacks established local validity or language equivalence. Public guides and sharing contain no personal responses or means."
+        }
+      ]
+    }
+  ],
+  "self-judgment-reading": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充情境",
+        "en": "An additional scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者发现自己把会议地点记错，想到“我需要确认通知”与“我这个人总是不行”。前一句指向具体信息，后一句扩大到整个人；两句都可能伴随懊恼。自我批评原始均分与反向均分方向相反，但无论哪个数字，都不能裁定记错的原因、别人是否公平，或要求用自责换取承担责任的资格。",
+          "en": "In an additional original scene, a reader misremembers a meeting place. Checking the notice concerns a particular detail; concluding that they always fail concerns the whole person. Either can accompany disappointment. Raw and reversed self-judgment means run in opposite directions, but neither determines the cause, another person’s fairness or a requirement for self-blame before taking responsibility."
+        }
+      ]
+    },
+    {
+      "id": "action",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "讨论卡可把“我能核对的一项事实”和“我给自己的整体判语”分开，再保留需要完成的修正。用虚构会议即可，不必报反向均分，也不让朋友替你判断这次自责应不应该。",
+          "en": "Separate a checkable fact from a whole-person judgement, retaining any needed correction. Use an invented meeting without a reversed score or asking a friend to decide whether self-blame was deserved."
+        },
+        {
+          "zh": "本轮新增情境和讨论卡为费马编辑部原创，与Neff的量表陈述区分，可只读或私下使用，不是治疗方案或改善承诺。原26题、六部分归属及13处6减原值反向键保持不变，整体仍平均六个未取舍的计分后均值。跳题只使所在部分与整体不足，不补值，其他完整部分保留；七份全文始终开放。工作中译未建立本地效度与跨语言等值，公开指南和分享不含个人答案或均分。",
+          "en": "These additional scenes and cards are original FermatMind Editorial material, separate from Neff’s scale statements. Reading or private use is optional, without treatment or improvement claims. The twenty-six items, six groups and thirteen six-minus-response keys stay intact; the overall remains an average of six unrounded keyed means. A skip withholds its part and the overall without imputation, retaining other complete parts and all seven full guides. Working Chinese lacks established local validity or language equivalence. Public guides and sharing contain no personal responses or means."
+        }
+      ]
+    }
+  ],
+  "common-humanity-reading": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充情境",
+        "en": "An additional scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者的一次手工作品没有完成，听到“别人也会遇到卡住”。这句话可以为讨论留下联结，也可能在没有询问具体困难时显得敷衍。是否有人真正理解、资源是否相同，需要另外了解。四题报告的是自己怎样理解困难，不认证说这句话的人会提供帮助，也不要求把独有的限制从故事里删掉。",
+          "en": "In an additional original scene, a reader cannot finish a craft project and hears that others get stuck too. The sentence might open a connection or feel dismissive when no one asks about the actual difficulty. Understanding and resources remain separate questions. These four items describe a response to difficulty without certifying available help or requiring unique constraints to disappear from the story."
+        }
+      ]
+    },
+    {
+      "id": "action",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "讨论卡可同时保留“别人也可能经历的感受”和“我这次具体不同的条件”。用虚构手作，不比较谁更辛苦，不把共同经历当成停止求助或不许难过的理由。",
+          "en": "Keep both a feeling others might share and conditions specific to this invented craft project. Compare neither whose hardship is greater nor use shared difficulty to forbid feelings or requests for support."
+        },
+        {
+          "zh": "本轮新增情境和讨论卡为费马编辑部原创，与Neff的量表陈述区分，可只读或私下使用，不是治疗方案或改善承诺。原26题、六部分归属及13处6减原值反向键保持不变，整体仍平均六个未取舍的计分后均值。跳题只使所在部分与整体不足，不补值，其他完整部分保留；七份全文始终开放。工作中译未建立本地效度与跨语言等值，公开指南和分享不含个人答案或均分。",
+          "en": "These additional scenes and cards are original FermatMind Editorial material, separate from Neff’s scale statements. Reading or private use is optional, without treatment or improvement claims. The twenty-six items, six groups and thirteen six-minus-response keys stay intact; the overall remains an average of six unrounded keyed means. A skip withholds its part and the overall without imputation, retaining other complete parts and all seven full guides. Working Chinese lacks established local validity or language equivalence. Public guides and sharing contain no personal responses or means."
+        }
+      ]
+    }
+  ],
+  "isolation-reading": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充情境",
+        "en": "An additional scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者看到群里几个人完成了拼图，自己却还没完成，想到“只有我做不好”。已知的是几条完成消息，不知道的是所有人的过程与条件。也可能确实没有人能提供当前需要的帮助，不能靠改一句想法就认定现实支持充足。原始孤立感较多与反向值较大不是同一方向，两个数字都不能替你统计安全联系人。",
+          "en": "In an additional original scene, a reader sees several completed puzzles in a group and thinks they alone cannot manage. The posts are known; everyone’s process and conditions are not. Useful support may genuinely be unavailable, which changing a sentence cannot disprove. More raw isolation and a larger reversed value run in opposite directions; neither counts safe contacts for you."
+        }
+      ]
+    },
+    {
+      "id": "action",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "讨论卡可列“看到的消息”“额外作出的推断”“仍需的实际支持”。可以只谈虚构拼图，不披露群聊或私人关系；不愿联系任何人时，也不需要为了符合结果而联系。",
+          "en": "Separate observed posts, added inferences and practical support still needed. Use an invented puzzle without private chats or relationships. No contact is required to fit a result."
+        },
+        {
+          "zh": "本轮新增情境和讨论卡为费马编辑部原创，与Neff的量表陈述区分，可只读或私下使用，不是治疗方案或改善承诺。原26题、六部分归属及13处6减原值反向键保持不变，整体仍平均六个未取舍的计分后均值。跳题只使所在部分与整体不足，不补值，其他完整部分保留；七份全文始终开放。工作中译未建立本地效度与跨语言等值，公开指南和分享不含个人答案或均分。",
+          "en": "These additional scenes and cards are original FermatMind Editorial material, separate from Neff’s scale statements. Reading or private use is optional, without treatment or improvement claims. The twenty-six items, six groups and thirteen six-minus-response keys stay intact; the overall remains an average of six unrounded keyed means. A skip withholds its part and the overall without imputation, retaining other complete parts and all seven full guides. Working Chinese lacks established local validity or language equivalence. Public guides and sharing contain no personal responses or means."
+        }
+      ]
+    }
+  ],
+  "mindfulness-reading": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充情境",
+        "en": "An additional scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者发现做好的图稿被水打湿，既失望，也暂时不知道哪些部分可恢复。“我现在很难受”和“这张图有几处受损”可以同时成立；是否要先处理材料，取决于当时情况。这只是区分感受、事实与未知的例子，不要求先平静、闭眼或完成冥想，分数也不能评定采取行动是否及时。",
+          "en": "In an additional original scene, water damages a finished drawing. A reader is upset and does not yet know what can be restored. Distress and observable damage can both be acknowledged; practical action depends on the situation. This separates feelings, facts and unknowns without requiring calm, closed eyes or meditation, and without scoring the timeliness of action."
+        }
+      ]
+    },
+    {
+      "id": "action",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "讨论卡可用“感受”“可观察事实”“还不知道”三栏记录虚构图稿。写一项就够，也可以不写；若此刻需要行动或不想继续观察，卡片不要求先完成。",
+          "en": "Use feelings, observable facts and unknowns as three columns for an invented drawing. One entry is enough or none is needed. Practical action or choosing to stop need not wait for a completed card."
+        },
+        {
+          "zh": "本轮新增情境和讨论卡为费马编辑部原创，与Neff的量表陈述区分，可只读或私下使用，不是治疗方案或改善承诺。原26题、六部分归属及13处6减原值反向键保持不变，整体仍平均六个未取舍的计分后均值。跳题只使所在部分与整体不足，不补值，其他完整部分保留；七份全文始终开放。工作中译未建立本地效度与跨语言等值，公开指南和分享不含个人答案或均分。",
+          "en": "These additional scenes and cards are original FermatMind Editorial material, separate from Neff’s scale statements. Reading or private use is optional, without treatment or improvement claims. The twenty-six items, six groups and thirteen six-minus-response keys stay intact; the overall remains an average of six unrounded keyed means. A skip withholds its part and the overall without imputation, retaining other complete parts and all seven full guides. Working Chinese lacks established local validity or language equivalence. Public guides and sharing contain no personal responses or means."
+        }
+      ]
+    }
+  ],
+  "over-identification-reading": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充情境",
+        "en": "An additional scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者在一次排练里忘了顺序，脑中反复出现“以后每次都会失败”。这句话包含对未来的预测，排练中的疏漏则是当前需要了解的事情。现实影响可能很重要，不能仅凭这一区分就说担心是夸大。四题不观察排练，也不能给人规定走出来的期限；原始与反向标签应分别读，而非把数字当成对感受的裁决。",
+          "en": "In an additional original scene, a reader forgets a rehearsal sequence and repeatedly predicts failure every time. The prediction extends beyond the event, whose real effects may still matter. Distinguishing them does not establish that concern is exaggerated. Four items observe no rehearsal and set no deadline for moving on. Raw and reversed labels describe different directions, not a verdict on feelings."
+        }
+      ]
+    },
+    {
+      "id": "action",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "讨论卡可写“这次排练中发生的事”和“我对以后作出的预测”，再留一处给未知。使用虚构排练，不要求痛苦马上减轻，也不把能否停止反复思考变成新的自责理由。",
+          "en": "Separate the rehearsal event, a prediction about later attempts and an unknown. Use an invented rehearsal without demanding immediate relief or making repeated thoughts another reason for self-blame."
+        },
+        {
+          "zh": "本轮新增情境和讨论卡为费马编辑部原创，与Neff的量表陈述区分，可只读或私下使用，不是治疗方案或改善承诺。原26题、六部分归属及13处6减原值反向键保持不变，整体仍平均六个未取舍的计分后均值。跳题只使所在部分与整体不足，不补值，其他完整部分保留；七份全文始终开放。工作中译未建立本地效度与跨语言等值，公开指南和分享不含个人答案或均分。",
+          "en": "These additional scenes and cards are original FermatMind Editorial material, separate from Neff’s scale statements. Reading or private use is optional, without treatment or improvement claims. The twenty-six items, six groups and thirteen six-minus-response keys stay intact; the overall remains an average of six unrounded keyed means. A skip withholds its part and the overall without imputation, retaining other complete parts and all seven full guides. Working Chinese lacks established local validity or language equivalence. Public guides and sharing contain no personal responses or means."
+        }
+      ]
+    }
+  ]
+}

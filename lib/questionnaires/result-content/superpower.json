@@ -1,0 +1,207 @@
+{
+  "telepathy": [
+    {
+      "id": "editorial-conversation",
+      "title": {
+        "zh": "把超能力比喻变成一句协商",
+        "en": "Turn the power metaphor into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "“我听到你最在意的是这件事的安排方式，对吗？也可能是我理解偏了，你可以改正，或者现在先不聊。”把心灵感应这个虚构名称落到一次可修正的询问，不靠反复猜测来证明理解，也不要求对方解释全部私人背景。",
+          "en": "“I heard that the arrangement itself matters most to you. Is that right? I may have misunderstood; you can correct me or leave it for now.” Turn the fictional name into one correctable question, without repeated guessing or requiring a complete private explanation."
+        }
+      ]
+    },
+    {
+      "id": "editorial-tied-readings",
+      "title": {
+        "zh": "几个角度怎样用于同一件小事",
+        "en": "Using several angles for one small situation"
+      },
+      "paragraphs": [
+        {
+          "zh": "同一次见面改期，可以先确认对方的实际需要，再商量方便的时段；这是心灵感应与时间控制两个角度的接续。若还想先私下想清楚，也可以说明稍后回应。多个最高匹配并不决定先后，也不能证明你已经准确理解别人。",
+          "en": "For a rescheduled meeting, you can clarify needs before discussing an available time: Telepathy and Time Control provide two separate angles. You may also ask for private thinking time. Several highest matches determine no order and do not establish accurate understanding."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "和朋友比较时，可以问什么",
+        "en": "A question to compare with a friend"
+      },
+      "paragraphs": [
+        {
+          "zh": "“这次我的最高超能力比喻里有心灵感应：把猜测变成一个问题。你最近有没有一句希望别人先问清、不要替你解释的话？”可以只谈一般偏好，不公开私事；结果不表示真的读心，朋友也可以选择不回答。",
+          "en": "“Telepathy was among my highest power metaphors: turn a guess into a question. Is there something you would like people to ask about rather than explain for you?” Stay with general preferences instead of private matters. The result establishes no mind-reading, and answering is optional."
+        }
+      ]
+    }
+  ],
+  "flight": [
+    {
+      "id": "editorial-conversation",
+      "title": {
+        "zh": "把超能力比喻变成一句协商",
+        "en": "Turn the power metaphor into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "“原来这一种安排不方便，我们可以换地点、缩短范围，或者保留原计划改天再做。你最想保留的条件是什么？”给飞行这个比喻一个有限的第二方案，不把每次想换路都变成必须追求新鲜的任务。",
+          "en": "“If this arrangement does not work, we could change the place, reduce the scope or keep the plan for another day. Which condition matters most to you?” Give the Flight metaphor a bounded alternative rather than making novelty a requirement."
+        }
+      ]
+    },
+    {
+      "id": "editorial-tied-readings",
+      "title": {
+        "zh": "几个角度怎样用于同一件小事",
+        "en": "Using several angles for one small situation"
+      },
+      "paragraphs": [
+        {
+          "zh": "同一次小出行，飞行角度可以问有没有另一条可行路线，时间控制角度可以问需要多少路程和过渡，超强力量角度可以问谁愿意做一项小准备。三项分别处理不同问题，不由计数来决定谁出主意、谁负责执行。",
+          "en": "For a small outing, Flight can ask about another feasible route, Time Control about travel and transition time, and Super Strength about a willing practical contribution. These address different questions; counts assign neither idea generation nor execution roles."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "和朋友比较时，可以问什么",
+        "en": "A question to compare with a friend"
+      },
+      "paragraphs": [
+        {
+          "zh": "“这次我的最高超能力比喻里有飞行：为小安排留一个不同视角。要是同一段空闲有第二种过法，你会换路线、换形式，还是保留原样？”不必真的远行或做任何改变，也不比较谁更自由或更有勇气。",
+          "en": "“Flight was among my highest power metaphors: leave another perspective on a small plan. With a second way to use the same free time, would you change the route, the format or nothing?” No trip or change is required, and this does not rank freedom or courage."
+        }
+      ]
+    }
+  ],
+  "time-control": [
+    {
+      "id": "editorial-conversation",
+      "title": {
+        "zh": "把超能力比喻变成一句协商",
+        "en": "Turn the power metaphor into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "“我方便从这个时间开始，需要到这里结束，中间想留一段不用赶的空隙。你有哪些固定条件，哪些可以调整？”时间控制的日常入口是让时段容易协商，也可以主动留白；不是要求双方把每一分钟都交给日程表。",
+          "en": "“I can start at this time and need to finish by then, with a little unhurried space between. What is fixed for you, and what can change?” Time Control here makes timing discussable and may include deliberate open space, without scheduling every minute."
+        }
+      ]
+    },
+    {
+      "id": "editorial-tied-readings",
+      "title": {
+        "zh": "几个角度怎样用于同一件小事",
+        "en": "Using several angles for one small situation"
+      },
+      "paragraphs": [
+        {
+          "zh": "同一份活动计划，可以先用时间控制角度确认时段，再用飞行角度讨论内容是否可换；隐身角度则可以保留一段先看材料再回应的时间。多个最高匹配不等于更高效率，活动少一点也不意味着安排能力差。",
+          "en": "For one activity plan, Time Control can clarify available time, Flight can consider changing the activity and Invisibility can leave time to read before responding. Several highest matches do not establish greater efficiency, and fewer activities do not establish poor planning ability."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "和朋友比较时，可以问什么",
+        "en": "A question to compare with a friend"
+      },
+      "paragraphs": [
+        {
+          "zh": "“这次我的最高超能力比喻里有时间控制：我想给过渡留一点空间。下次见面，你最希望我们说清开始、结束，还是准备多久？”这个比喻不认证自律或守时；如果时间改变，仍需要说明实际影响并重新确认。",
+          "en": "“Time Control was among my highest power metaphors: leave room for transitions. For our next meeting, would you most like the start, finish or preparation time clarified?” This does not certify discipline or punctuality. Changed timing still needs discussion of its actual effect."
+        }
+      ]
+    }
+  ],
+  "invisibility": [
+    {
+      "id": "editorial-conversation",
+      "title": {
+        "zh": "把超能力比喻变成一句协商",
+        "en": "Turn the power metaphor into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "“我想先看公开说明，整理一个问题，之后再决定要不要展示。现在只想分享这一段，其他部分先自己保留。”让隐身这个比喻成为清楚的参与方式，而不是悄悄获取信息；别人也可以同样选择不展示私人内容。",
+          "en": "“I would like to read the public instructions and organise one question before deciding whether to demonstrate anything. I want to share this part only and keep the rest private for now.” Make the Invisibility metaphor an explicit way to participate, rather than covert information gathering. Others have the same choice over private material."
+        }
+      ]
+    },
+    {
+      "id": "editorial-tied-readings",
+      "title": {
+        "zh": "几个角度怎样用于同一件小事",
+        "en": "Using several angles for one small situation"
+      },
+      "paragraphs": [
+        {
+          "zh": "参加一个陌生活动时，可以先用隐身角度区分已知与待问，再用心灵感应角度向当事人确认，或用飞行角度想另一种参与方式。观察不能代替询问，也不因与其他结果并列就变成更敏锐的能力证明。",
+          "en": "At an unfamiliar activity, Invisibility can separate known details from open questions, Telepathy can check with the relevant person and Flight can consider another participation format. Observation cannot replace asking or become proof of perceptiveness because other matches are tied."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "和朋友比较时，可以问什么",
+        "en": "A question to compare with a friend"
+      },
+      "paragraphs": [
+        {
+          "zh": "“这次我的最高超能力比喻里有隐身：先了解，再选择分享多少。遇到新活动，你喜欢先看一轮、先问一个问题，还是直接试？”只谈自己的参与偏好，不替他人的沉默推断动机，也不据此判断内外向或社交能力。",
+          "en": "“Invisibility was among my highest power metaphors: understand first and choose what to share. For a new activity, do you prefer watching once, asking a question or trying directly?” Discuss participation preferences without inferring motives from someone’s silence or judging extraversion or social skill."
+        }
+      ]
+    }
+  ],
+  "super-strength": [
+    {
+      "id": "editorial-conversation",
+      "title": {
+        "zh": "把超能力比喻变成一句协商",
+        "en": "Turn the power metaphor into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "“你需要我把这几份公开资料整理成一页吗？我最多能花半小时，之后把完成与没完成的部分说清楚。”超强力量的入口是一项自愿、有限的小协助。先确认对方需要，也允许对方选择自己做，不用把帮助扩大成替所有人负责。",
+          "en": "“Would it help if I put these public notes on one page? I can spend up to half an hour, then explain what is and is not finished.” Super Strength here begins with one voluntary, limited contribution. Check the need and allow the person to do it themselves, rather than taking responsibility for everyone."
+        }
+      ]
+    },
+    {
+      "id": "editorial-tied-readings",
+      "title": {
+        "zh": "几个角度怎样用于同一件小事",
+        "en": "Using several angles for one small situation"
+      },
+      "paragraphs": [
+        {
+          "zh": "同一份小准备，可以先用心灵感应角度问清需要，再用时间控制角度约定可投入多久，最后用超强力量角度认领一项实际动作。这是可选择的讨论顺序，不是测试分配的职责，也不说明得到某个结果的人就该多做。",
+          "en": "For a small preparation, Telepathy can clarify the need, Time Control the available time and Super Strength one practical contribution. This is an optional discussion sequence, rather than assigned duties or a reason someone with a particular result should do more."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "和朋友比较时，可以问什么",
+        "en": "A question to compare with a friend"
+      },
+      "paragraphs": [
+        {
+          "zh": "“这次我的最高超能力比喻里有超强力量：把善意缩成一项做得到的小帮助。你更希望别人先问需要什么，还是提出一个具体选项？”它不表示体力或技能更强，也不把一次帮忙变成持续义务或需要回报的人情。",
+          "en": "“Super Strength was among my highest power metaphors: turn goodwill into one manageable contribution. Would you prefer someone to ask what you need or offer a specific option?” This does not establish strength or skill or make one contribution an ongoing obligation or a debt."
+        }
+      ]
+    }
+  ]
+}

@@ -3,7 +3,7 @@ import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { PairedDimensionsResult } from "@/lib/questionnaires/pairedDimensions";
 import type { Locale } from "@/lib/i18n/locales";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 export function QuestionnairePairedDimensionsReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<PairedDimensionsResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh";
@@ -23,7 +23,7 @@ export function QuestionnairePairedDimensionsReport({ quiz, result, locale }: { 
         <dl className="my-4 space-y-3" aria-label={zh ? "本维度原始选择次数" : "Raw choice counts for this dimension"}>{dimension.poleIds.map(id => <div key={id} data-paired-pole={id}><dt>{quiz.directions.find(d => d.id === id)!.title[locale]}</dt><dd className="font-semibold">{axis.counts[id]} / 12</dd></div>)}</dl>
         <p className="mb-5 leading-8">{axis.leaders.length === 2 ? (zh ? "两侧各6次，保留并列；次数不能确定原因或现实中的优先安排。" : "Six choices on each side: the tie remains. Counts cannot establish its cause or a real-life priority.") : (zh ? "下面说明本维度次数较多的一侧；这是本题组内比较，不是固定身份或另一侧的缺陷。" : "The explanation below concerns the side selected more often on this dimension, a comparison within this bank rather than a fixed identity or deficit in the other side.")}</p>
         <h3 className="mb-4 text-2xl font-semibold">{profile.title[locale]}</h3>
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`paired-report-${axis.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`paired-report-${axis.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本维度的公开说明" : "Read this dimension’s public explanation"}</Link>
       </section>;
     })}

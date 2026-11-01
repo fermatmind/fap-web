@@ -1,0 +1,98 @@
+{
+  "self-pressure-reading": [
+    {
+      "id": "example",
+      "title": {
+        "en": "A disappointment can coexist with a useful plan",
+        "zh": "失望和可行计划可以同时存在"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的一次活动因场地临时关闭而取消。你一边想到“至少没花路费”，一边仍对期待落空感到失望。这两句话可以同时成立；有没有找到好处，也不改变场地关闭这一外部条件。若愿意，可另问能否退款或改期，而不先要求自己开心起来。这个例子区分感受、解释与可行行动，不证明哪种感受正确，也不能从六题均分确定一次不快的原因。",
+          "en": "In an additional original scene, an invented event is cancelled because its venue closes unexpectedly. You notice saved travel costs and disappointment at a lost plan. Both can be true; finding a benefit changes no external closure. You might ask about a refund or new date without first requiring yourself to feel happy. The example separates a feeling, an interpretation and an available action. It certifies no correct emotion and derives no cause of distress from six items."
+        }
+      ]
+    },
+    {
+      "id": "action",
+      "title": {
+        "en": "Try one observation without scoring yourself again",
+        "zh": "尝试一项观察，不急着再评分"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以给虚构活动写两句话：“这件事让我在意的是……”与“目前已知或可以询问的是……”。想补一句好处也可以，但不让它成为承认失望的条件。与朋友讨论时，只分享这个例子，问“哪句话在描述感受，哪句话在讨论安排？”无需公布私人经历或结果。",
+          "en": "For an invented event, draft what mattered and what is known or could be asked. A possible benefit can be added without making it a prerequisite for disappointment. Share the example alone and ask which sentence describes a feeling and which discusses arrangements, without disclosing a personal experience or result."
+        },
+        {
+          "zh": "以上原创素材可只读或写私人草稿，不要求披露感受、联系某个人或完成对话。三组各六题，按过去两周自己的做法回答，两道反向题按6减原值处理；每组六题完整数字回答才有独立均分，不相加、不派类型。没有相关机会或暂不回答可选NA，不填低分，三份全文仍开放。分享公开指南不含答案或均分，也不能用结果裁决谁伤害了谁。",
+          "en": "Read these original prompts or keep a private draft, without disclosing feelings, contacting anyone or completing a conversation. Each of three six-item groups concerns your own actions over two weeks, with two responses reversed as six minus the value. Six numeric answers are needed for each separate mean, without an aggregate or type. NA allows no opportunity or declining to answer, without low-score filling; all three guides stay open. Public guides contain no answers or means and settle no question of who harmed whom."
+        }
+      ]
+    }
+  ],
+  "conversations-reading": [
+    {
+      "id": "example",
+      "title": {
+        "en": "Check what a disappointed colleague is asking for",
+        "zh": "确认失望的同事在寻求什么"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构对话中，一位熟人说准备很久的展示没有如期完成。你想到“这也能积累经验”，但可以先确认对方是想讲遗憾、梳理任务，还是暂时不谈。对方想要建议，也不表示同意每一种积极解释；说了愿意倾听，仍可以说明自己只有几分钟。问卷记录自己的回忆，不能证明对方已经感到被理解；一次合适的回应也不能替整段互动下结论。",
+          "en": "In an additional original scene, an acquaintance says a long-prepared presentation did not happen as planned. Before offering a lesson about experience, check whether they want to discuss disappointment, sort out the task or stop for now. Wanting advice leaves room to decline a positive interpretation. Offering to listen still allows an honest time limit. The questionnaire records your recollection, not whether the person felt understood, and one suitable reply establishes no conclusion about the whole interaction."
+        }
+      ]
+    },
+    {
+      "id": "action",
+      "title": {
+        "en": "Use one permission check, then listen to the answer",
+        "zh": "先确认一次，再听对方的回答"
+      },
+      "paragraphs": [
+        {
+          "zh": "可把同一句虚构开场写成三个可选择的后续：倾听、核对实际任务、暂时结束，再标出每个后续需要先问什么。一句讨论素材是：“如果对方选了第三项，我的下一步会怎样改变？”重点在尊重回答，不在背出句式；不用真人作回应试验。",
+          "en": "Draft three possible responses to an invented opening: listening, checking a task and ending for now. Mark what each needs to ask first. Discuss how choosing the third would change the next step. Respecting the answer matters more than memorising a phrase; use no real person as a response experiment."
+        },
+        {
+          "zh": "以上原创素材可只读或写私人草稿，不要求披露感受、联系某个人或完成对话。三组各六题，按过去两周自己的做法回答，两道反向题按6减原值处理；每组六题完整数字回答才有独立均分，不相加、不派类型。没有相关机会或暂不回答可选NA，不填低分，三份全文仍开放。分享公开指南不含答案或均分，也不能用结果裁决谁伤害了谁。",
+          "en": "Read these original prompts or keep a private draft, without disclosing feelings, contacting anyone or completing a conversation. Each of three six-item groups concerns your own actions over two weeks, with two responses reversed as six minus the value. Six numeric answers are needed for each separate mean, without an aggregate or type. NA allows no opportunity or declining to answer, without low-score filling; all three guides stay open. Public guides contain no answers or means and settle no question of who harmed whom."
+        }
+      ]
+    }
+  ],
+  "uncertainty-reading": [
+    {
+      "id": "example",
+      "title": {
+        "en": "Waiting for a decision without inventing its ending",
+        "zh": "等待决定时，不替未知编结局"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的一次快递延误让朋友担心活动用品赶不上。你可以说“我希望能到”，同时说明目前只知道配送页面的预计时间；不知道的部分继续保留。若对方愿意，再核对替代用品或是否需要联系商家。“一定赶得上”是另一项需要依据的主张，不能由鼓励的好意补足。没有可做的事时也不必编一个行动；六题均分不测预测能力，更不能保证结局。",
+          "en": "In an additional original scene, a delayed parcel leaves someone unsure whether supplies will arrive for an event. Express hope while identifying that only an estimated delivery time is known. Keep the rest uncertain. If wanted, check alternatives or whether contacting the seller would help. A guaranteed arrival is another claim; good intentions supply no evidence for it. Invent no action when none is available. Six items measure no forecasting ability and guarantee no outcome."
+        }
+      ]
+    },
+    {
+      "id": "action",
+      "title": {
+        "en": "Check one reassuring claim",
+        "zh": "核对一句安慰里的主张"
+      },
+      "paragraphs": [
+        {
+          "zh": "可把虚构安慰拆成“愿望”“已有信息”“未知”“可提供的帮助”。讨论时问：“如果预计时间改了，哪一句需要更新，哪一句仍只是祝愿？”这张卡可以独立分享；不必审查每句温暖的话，也不因练习而承诺控制不了的结果。",
+          "en": "Split an invented reassurance into hope, available information, unknowns and possible help. Ask which sentence needs updating if the estimate changes and which remains a wish. Share the card on its own, without inspecting every warm remark or promising an outcome beyond your control."
+        },
+        {
+          "zh": "以上原创素材可只读或写私人草稿，不要求披露感受、联系某个人或完成对话。三组各六题，按过去两周自己的做法回答，两道反向题按6减原值处理；每组六题完整数字回答才有独立均分，不相加、不派类型。没有相关机会或暂不回答可选NA，不填低分，三份全文仍开放。分享公开指南不含答案或均分，也不能用结果裁决谁伤害了谁。",
+          "en": "Read these original prompts or keep a private draft, without disclosing feelings, contacting anyone or completing a conversation. Each of three six-item groups concerns your own actions over two weeks, with two responses reversed as six minus the value. Six numeric answers are needed for each separate mean, without an aggregate or type. NA allows no opportunity or declining to answer, without low-score filling; all three guides stay open. Public guides contain no answers or means and settle no question of who harmed whom."
+        }
+      ]
+    }
+  ]
+}

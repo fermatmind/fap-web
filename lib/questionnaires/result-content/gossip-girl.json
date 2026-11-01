@@ -1,0 +1,194 @@
+{
+  "serena": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：邀请卡能否回答加入前的问题",
+        "en": "Review an invitation that explains the first step"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用手作刊桌边的邀请，写清可做的小任务、所需材料与大致时间，也列出只看和离开的方式。请愿意的伙伴指出一个仍不清楚的地方，再改一句。邀请可以无人接受，复盘仍有用：看信息有没有帮助选择，不以到场、停留或回应热情判断人气、魅力与关系亲疏。",
+          "en": "For the zine-table invitation, state a small task, its materials and approximate time, alongside watching and leaving. Ask a willing partner what remains unclear and revise one sentence. An invitation can receive no takers and still yield useful feedback. Review whether the information supports a choice, without attendance, duration or enthusiasm as measures of popularity, charm or closeness."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "借一份手作刊聊不同贡献",
+        "en": "Compare contributions through a handmade zine"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果朋友第一次来到手作刊桌边，你会先说明哪三件小事，让对方能选加入、旁观或离开？”各提一种办法，再试着从另一位角色角度补充。可只用虚构例子讨论，不必制作、参加聚会或公开生活经历。",
+          "en": "Ask: “If a friend arrived at the zine table for the first time, which three practical details would help them choose joining, watching or leaving?” Offer an approach each, then add another character’s angle. Use invented examples without making a zine, attending a gathering or sharing personal experiences."
+        },
+        {
+          "zh": "可分享不含答案与计数的公开说明链接。六名称仅对应本版选项，不衡量财富、社交地位、人气、道德、心理健康或恋爱适配，也不赞同人物伤害行为。对方可换角色、不同意、不回答或结束；不传真人八卦、不推断隐私，也不评价缺席者。",
+          "en": "Share the public guide without answers or counts in the link. These six names concern this edition’s options, not wealth, social standing, popularity, morality, mental health or romantic compatibility. A match endorses no harmful conduct. Others may change characters, disagree, decline or stop. Share no real gossip, infer no private history and assign no label to an absent person."
+        }
+      ]
+    }
+  ],
+  "blair": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：共同结构是否还有修改空间",
+        "en": "Review a shared structure that stays editable"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用开篇、主体、结尾的三段计划，请创作者各选一页放入，再问有没有内容被框架挤掉。可保留不同页序的小样，或一起删去不必要的步骤。复盘记录一次协商带来的修改，不把采纳计划当服从、忠诚或品位认证；你也不必替全部作品收尾，结构仍需大家愿意使用。",
+          "en": "For the opening, main section and closing plan, invite contributors to place a page and ask whether the structure excludes anything they want to keep. Retain alternate mock-ups or remove an unnecessary step together. Record one negotiated revision without treating acceptance as obedience, loyalty or approval of taste. Finishing every contribution is no individual duty; the structure remains one people choose to use."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "借一份手作刊聊不同贡献",
+        "en": "Compare contributions through a handmade zine"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果三段式页序让一件作品放不下，你会怎样修改框架，而不是要求创作者改掉想保留的部分？”各提一种办法，再试着从另一位角色角度补充。可只用虚构例子讨论，不必制作、参加聚会或公开生活经历。",
+          "en": "Ask: “If a piece did not fit the three-part page order, how would you revise the structure while preserving what its maker wanted to keep?” Offer an approach each, then add another character’s angle. Use invented examples without making a zine, attending a gathering or sharing personal experiences."
+        },
+        {
+          "zh": "可分享不含答案与计数的公开说明链接。六名称仅对应本版选项，不衡量财富、社交地位、人气、道德、心理健康或恋爱适配，也不赞同人物伤害行为。对方可换角色、不同意、不回答或结束；不传真人八卦、不推断隐私，也不评价缺席者。",
+          "en": "Share the public guide without answers or counts in the link. These six names concern this edition’s options, not wealth, social standing, popularity, morality, mental health or romantic compatibility. A match endorses no harmful conduct. Others may change characters, disagree, decline or stop. Share no real gossip, infer no private history and assign no label to an absent person."
+        }
+      ]
+    }
+  ],
+  "dan": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：让虚构视角变化，不借用真人秘密",
+        "en": "Review a fictional viewpoint without private material"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用虚构物件和叙述者，只改一条可见线索，写出两种可能理解。请自愿读者说文字中哪处支持了各自解释，再选保留、修改或不发表。不要借真实争执增加戏剧性，也不追问读者私人经历。复盘比较文本的线索与不确定处，不据此评洞察、诚实、文学天赋或心理状态。",
+          "en": "For the invented object and narrator, change one visible clue and write two possible interpretations. Ask a willing reader which words support each, then keep, revise or withhold the piece. Add no real dispute for drama and request no private experiences from readers. Compare textual clues and uncertainties without grading insight, honesty, literary talent or mental state."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "借一份手作刊聊不同贡献",
+        "en": "Compare contributions through a handmade zine"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果同一个虚构纸物能有两种解释，你会怎样只改一条线索，让读者比较，而不带入真人秘密？”各提一种办法，再试着从另一位角色角度补充。可只用虚构例子讨论，不必制作、参加聚会或公开生活经历。",
+          "en": "Ask: “If an invented paper object allowed two interpretations, how would changing one clue invite comparison without using anyone’s private life?” Offer an approach each, then add another character’s angle. Use invented examples without making a zine, attending a gathering or sharing personal experiences."
+        },
+        {
+          "zh": "可分享不含答案与计数的公开说明链接。六名称仅对应本版选项，不衡量财富、社交地位、人气、道德、心理健康或恋爱适配，也不赞同人物伤害行为。对方可换角色、不同意、不回答或结束；不传真人八卦、不推断隐私，也不评价缺席者。",
+          "en": "Share the public guide without answers or counts in the link. These six names concern this edition’s options, not wealth, social standing, popularity, morality, mental health or romantic compatibility. A match endorses no harmful conduct. Others may change characters, disagree, decline or stop. Share no real gossip, infer no private history and assign no label to an absent person."
+        }
+      ]
+    }
+  ],
+  "nate": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：听清差异后，也能保留自己的选择",
+        "en": "Review differences while keeping your own preference"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用两种封面，先请自愿伙伴各说一项看重的特征，复述后让其纠正，再说明你自己的偏好。明确下一步用什么已约好的方式选版，也可保留两个小样。复盘看差异有没有被准确表达，不要求最后一致；次数不派你当永久调解人，别人不同意也不证明你倾听失败或缺乏同理心。",
+          "en": "For the two covers, ask willing partners to name a valued feature, reflect it back for correction and state your own preference. Clarify the agreed next decision or retain both samples. Review whether differences were expressed accurately without requiring agreement. Counts assign no permanent mediator, and disagreement does not establish failed listening or poor empathy."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "借一份手作刊聊不同贡献",
+        "en": "Compare contributions through a handmade zine"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果两人都解释清楚仍喜欢不同封面，你会怎样表达自己的偏好，再按共同约定结束这次选择？”各提一种办法，再试着从另一位角色角度补充。可只用虚构例子讨论，不必制作、参加聚会或公开生活经历。",
+          "en": "Ask: “If two people understood each other and still preferred different covers, how would you state your own preference and finish the choice by agreement?” Offer an approach each, then add another character’s angle. Use invented examples without making a zine, attending a gathering or sharing personal experiences."
+        },
+        {
+          "zh": "可分享不含答案与计数的公开说明链接。六名称仅对应本版选项，不衡量财富、社交地位、人气、道德、心理健康或恋爱适配，也不赞同人物伤害行为。对方可换角色、不同意、不回答或结束；不传真人八卦、不推断隐私，也不评价缺席者。",
+          "en": "Share the public guide without answers or counts in the link. These six names concern this edition’s options, not wealth, social standing, popularity, morality, mental health or romantic compatibility. A match endorses no harmful conduct. Others may change characters, disagree, decline or stop. Share no real gossip, infer no private history and assign no label to an absent person."
+        }
+      ]
+    }
+  ],
+  "chuck": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：资源表只写自愿提供的部分",
+        "en": "Review resources that were freely offered"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用复杂一本与简单几本的比较，把时间、纸张与参与者明确愿意提供的部分分别列出。未知的先留空，不把可能帮忙写成已承诺；少一个资源时，重新比两种缩小版。复盘看范围是否仍舒适、可撤回未承诺部分，不问个人收入，不以付出多少评责任、阶层、经商能力或个人价值。",
+          "en": "For one elaborate copy versus several simple ones, list time, paper and what contributors explicitly offered. Leave unknowns blank rather than turning possible help into a commitment. If a resource is unavailable, compare two smaller versions. Review a comfortable scope with room to withdraw uncommitted offers, without asking income or grading responsibility, class, business ability or worth through contributions."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "借一份手作刊聊不同贡献",
+        "en": "Compare contributions through a handmade zine"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果资源表里有一项还没得到确认，你会怎样留空、缩小版本，并避免替别人承诺时间或材料？”各提一种办法，再试着从另一位角色角度补充。可只用虚构例子讨论，不必制作、参加聚会或公开生活经历。",
+          "en": "Ask: “If one resource was unconfirmed, how would you leave it open and reduce the version without promising someone else’s time or materials?” Offer an approach each, then add another character’s angle. Use invented examples without making a zine, attending a gathering or sharing personal experiences."
+        },
+        {
+          "zh": "可分享不含答案与计数的公开说明链接。六名称仅对应本版选项，不衡量财富、社交地位、人气、道德、心理健康或恋爱适配，也不赞同人物伤害行为。对方可换角色、不同意、不回答或结束；不传真人八卦、不推断隐私，也不评价缺席者。",
+          "en": "Share the public guide without answers or counts in the link. These six names concern this edition’s options, not wealth, social standing, popularity, morality, mental health or romantic compatibility. A match endorses no harmful conduct. Others may change characters, disagree, decline or stop. Share no real gossip, infer no private history and assign no label to an absent person."
+        }
+      ]
+    }
+  ],
+  "jenny": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：一次只改一种纸面细节",
+        "en": "Review one paper detail at a time"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用可改回的小样，保持纸张和图形不变，只换折法或叠层中的一个，再写下可见差别。可请愿意的伙伴描述变化，不必选谁更漂亮；都不喜欢就保留原版或结束。复盘看这次材料尝试有什么作用，不把作品当身体、性别、阶层或天赋的证据，也不为符合角色购买衣物或改变外貌。",
+          "en": "For a reversible sample, keep paper and drawn shape constant and change either a fold or a layer. Note the visible difference. A willing partner can describe it without ranking beauty; keep the original or stop if neither appeals. Review the material experiment without work as evidence about bodies, gender, class or talent, and without buying clothes or changing appearance to fit a character."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "借一份手作刊聊不同贡献",
+        "en": "Compare contributions through a handmade zine"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果纸样只准改一处，你会选折法还是叠层，又怎样比较作用，而不把讨论变成外貌或品位排名？”各提一种办法，再试着从另一位角色角度补充。可只用虚构例子讨论，不必制作、参加聚会或公开生活经历。",
+          "en": "Ask: “If a paper sample allowed one change, would you choose a fold or a layer, and how would you compare its effect without ranking appearance or taste?” Offer an approach each, then add another character’s angle. Use invented examples without making a zine, attending a gathering or sharing personal experiences."
+        },
+        {
+          "zh": "可分享不含答案与计数的公开说明链接。六名称仅对应本版选项，不衡量财富、社交地位、人气、道德、心理健康或恋爱适配，也不赞同人物伤害行为。对方可换角色、不同意、不回答或结束；不传真人八卦、不推断隐私，也不评价缺席者。",
+          "en": "Share the public guide without answers or counts in the link. These six names concern this edition’s options, not wealth, social standing, popularity, morality, mental health or romantic compatibility. A match endorses no harmful conduct. Others may change characters, disagree, decline or stop. Share no real gossip, infer no private history and assign no label to an absent person."
+        }
+      ]
+    }
+  ]
+}

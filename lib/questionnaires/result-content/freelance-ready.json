@@ -1,0 +1,207 @@
+{
+  "service-and-enquiries-reading": [
+    {
+      "id": "scenario",
+      "title": {
+        "en": "A sample can miss the brief in two ways",
+        "zh": "样例与客户问题怎样错开"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者想为社区活动设计一张信息卡，先用虚构内容写出样例，再请愿意协助的人复述卡片给谁看、包含什么。对方以为还包括报名表，于是读者修改服务说明，注明尚未讨论的部分。完成这次演练可以支持某项阶段回顾，却没有验证需求、作品质量或真实客户的购买意愿。",
+          "en": "An additional original scene: A fictional reader wants to design an information card for a community event. They make a sample with invented content and ask a willing peer to explain its audience and contents. The peer assumes it includes a registration form, so the reader revises the offer and identifies what remains undiscussed. This rehearsal can inform an action-stage response without validating demand, work quality or a real client’s willingness to buy."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "en": "Rehearse one enquiry before expanding the offer",
+        "zh": "先演练一次服务说明"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“对方复述出的交付物，与说明中承诺的是同一件事吗，还有什么需要另问？”可以只讨论虚构项目，让愿意协助的人复述已知事实、待核查事项与尚未作出的承诺。双方可以保留不同理解或结束讨论；不需要交换数值，也不以演练要求任何真实行动。",
+          "en": "An optional discussion prompt asks: “Does the deliverable the other person describes match the offer, and what still needs a separate question?” Discuss only the fictional project, inviting a willing peer to restate known facts, open checks and commitments not made. Different interpretations can remain or discussion can stop. No values need exchanging and the rehearsal requires no real action."
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "en": "Use the stage to choose a question to test",
+        "zh": "用阶段记录找下一件可核对的事"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境与讨论由费马测试编辑部原创，可只用虚构材料，也可略过；不要求真实客户、作品文件、财务数字或实际承诺。以一项正在考虑或安排的自由职业项目为参照，回看截至今天仍适用的准备，没有固定回顾天数。二十项按连续五组各四项直接记录：0针对当前安排尚未开始，1已写出草案但尚未试跑，2已在真实或模拟任务试跑，3试跑后已复盘并调整；不适用／无法判断／不愿回答是独立非数值项，不是零。零是有效阶段，不是能力缺失；3也不是能力认证。二十项均有明确选择才完成，空白不等于非数值。每组四项都为数值才显示和0—12及和除以四的一位小数均值；例如1÷4显示0.3，数值间隔不代表相同能力增量。一项非数值只撤下所属组的和与均值，其他完整组保留，不补零、不换中点、不缩分母；五种阶段计数与四项原选择仍保留。全部非数值也可完成并读全部五篇指南。3、3、0、0与2、2、1、1均为1.5，却对应不同未完成行动；先看逐项记录，不用均值抵消必要条件、跨组排名或合总分、准备率、主导类型。五组与四阶段均为原创，不是EntreComp十五项能力、八级进程的缩写或官方测评；题本及英文尚未建立信效度、常模、语言等价或有意义变化阈值。它不验证技能、资源、市场需求、法律效力或收入，也不决定辞职、承接、雇用或财务承诺。讨论可以不同意或停止，无需展示私人记录。只有自愿开启且会话存储可用时，本标签页保留24小时草稿，完成、重测或退出并清除时删除；没有新增最终结果缓存。复制只包含五份公开指南标题与链接，不含阶段、次数、数值、逐题选择或作答标识。",
+          "en": "FermatMind Editorial authored the additional scenes and discussion prompts. Use fictional materials only or decline, without real clients, work files, financial figures or commitments. Refer to one freelance project being considered or arranged and preparation still applicable today, with no fixed recall period. Five consecutive four-action groups directly record 0 Not started for this arrangement; 1 Drafted a plan, not yet tried it; 2 Tried it in a real or simulated task; and 3 Reviewed the trial and adjusted the plan. Not applicable / cannot assess / prefer not to answer is a separate nonnumeric choice, never zero. Zero is a valid stage rather than absent ability; three certifies no competence. All 20 require an explicit choice to finish; blank differs from non-rating. Four numeric answers are required per group for a sum of 0–12 and the sum divided by four to one decimal; 1 ÷ 4 displays 0.3. Numeric intervals establish no equal increments in ability. One non-rating choice withholds only its group sum and mean, retaining other complete groups without zero, midpoint or smaller-denominator substitution. Counts of all five response states and the four individual choices remain. An all-non-rating attempt finishes and retains all five full guides. Stages 3, 3, 0, 0 and 2, 2, 1, 1 both yield 1.5 with different unfinished actions. Inspect rows rather than compensating for required conditions, ranking groups or forming an overall score, readiness percentage or dominant type. The five groups and four stages are original, rather than a shortened official assessment of EntreComp’s 15 competences and eight progression levels. Reliability, validity, norms, language equivalence and meaningful-change thresholds remain unestablished for the bank and English wording. It verifies no skills, resources, demand, legal validity or income and decides no resignation, contract acceptance, hiring or financial commitment. Discussion can end or contain disagreement without sharing private records. Only voluntary draft saving with available session storage retains a 24-hour tab draft, cleared on completion, retake or exit-and-clear. No final-result cache is added. Copying includes only five public guide titles and links, without stages, counts, numbers, item choices or attempt identifiers."
+        }
+      ]
+    }
+  ],
+  "project-agreement-reading": [
+    {
+      "id": "scenario",
+      "title": {
+        "en": "The extra page that changes the job",
+        "zh": "一项追加要求怎样改变项目"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者为一个模拟小项目准备交接包，协助者却以为还承诺持续更新。他们可以在草稿中分开一次性交付、仍待讨论的维护及决定人，再演练一次复述。修改记录只能说明这次准备做到了哪一步，不代表已订立合同、条款有效或获得新增工作的权限。",
+          "en": "An additional original scene: A fictional reader prepares a handover package for a simulated small project, but a peer assumes ongoing updates are included. They can separate the one-time delivery, undiscussed maintenance and decision-maker in the draft, then rehearse an explanation again. The revision records preparation in this exercise without establishing a contract, enforceable terms or authority for extra work."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "en": "Rehearse one change request",
+        "zh": "试演一次变更沟通"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“哪些已经明确约定，哪些只是默认理解，条件变化后由谁重新确认？”可以只讨论虚构项目，让愿意协助的人复述已知事实、待核查事项与尚未作出的承诺。双方可以保留不同理解或结束讨论；不需要交换数值，也不以演练要求任何真实行动。",
+          "en": "An optional discussion prompt asks: “Which points are explicitly agreed, which are assumptions, and who would reconfirm a change?” Discuss only the fictional project, inviting a willing peer to restate known facts, open checks and commitments not made. Different interpretations can remain or discussion can stop. No values need exchanging and the rehearsal requires no real action."
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "en": "Read all four answers together",
+        "zh": "把四项记录放在一起读"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境与讨论由费马测试编辑部原创，可只用虚构材料，也可略过；不要求真实客户、作品文件、财务数字或实际承诺。以一项正在考虑或安排的自由职业项目为参照，回看截至今天仍适用的准备，没有固定回顾天数。二十项按连续五组各四项直接记录：0针对当前安排尚未开始，1已写出草案但尚未试跑，2已在真实或模拟任务试跑，3试跑后已复盘并调整；不适用／无法判断／不愿回答是独立非数值项，不是零。零是有效阶段，不是能力缺失；3也不是能力认证。二十项均有明确选择才完成，空白不等于非数值。每组四项都为数值才显示和0—12及和除以四的一位小数均值；例如1÷4显示0.3，数值间隔不代表相同能力增量。一项非数值只撤下所属组的和与均值，其他完整组保留，不补零、不换中点、不缩分母；五种阶段计数与四项原选择仍保留。全部非数值也可完成并读全部五篇指南。3、3、0、0与2、2、1、1均为1.5，却对应不同未完成行动；先看逐项记录，不用均值抵消必要条件、跨组排名或合总分、准备率、主导类型。五组与四阶段均为原创，不是EntreComp十五项能力、八级进程的缩写或官方测评；题本及英文尚未建立信效度、常模、语言等价或有意义变化阈值。它不验证技能、资源、市场需求、法律效力或收入，也不决定辞职、承接、雇用或财务承诺。讨论可以不同意或停止，无需展示私人记录。只有自愿开启且会话存储可用时，本标签页保留24小时草稿，完成、重测或退出并清除时删除；没有新增最终结果缓存。复制只包含五份公开指南标题与链接，不含阶段、次数、数值、逐题选择或作答标识。",
+          "en": "FermatMind Editorial authored the additional scenes and discussion prompts. Use fictional materials only or decline, without real clients, work files, financial figures or commitments. Refer to one freelance project being considered or arranged and preparation still applicable today, with no fixed recall period. Five consecutive four-action groups directly record 0 Not started for this arrangement; 1 Drafted a plan, not yet tried it; 2 Tried it in a real or simulated task; and 3 Reviewed the trial and adjusted the plan. Not applicable / cannot assess / prefer not to answer is a separate nonnumeric choice, never zero. Zero is a valid stage rather than absent ability; three certifies no competence. All 20 require an explicit choice to finish; blank differs from non-rating. Four numeric answers are required per group for a sum of 0–12 and the sum divided by four to one decimal; 1 ÷ 4 displays 0.3. Numeric intervals establish no equal increments in ability. One non-rating choice withholds only its group sum and mean, retaining other complete groups without zero, midpoint or smaller-denominator substitution. Counts of all five response states and the four individual choices remain. An all-non-rating attempt finishes and retains all five full guides. Stages 3, 3, 0, 0 and 2, 2, 1, 1 both yield 1.5 with different unfinished actions. Inspect rows rather than compensating for required conditions, ranking groups or forming an overall score, readiness percentage or dominant type. The five groups and four stages are original, rather than a shortened official assessment of EntreComp’s 15 competences and eight progression levels. Reliability, validity, norms, language equivalence and meaningful-change thresholds remain unestablished for the bank and English wording. It verifies no skills, resources, demand, legal validity or income and decides no resignation, contract acceptance, hiring or financial commitment. Discussion can end or contain disagreement without sharing private records. Only voluntary draft saving with available session storage retains a 24-hour tab draft, cleared on completion, retake or exit-and-clear. No final-result cache is added. Copying includes only five public guide titles and links, without stages, counts, numbers, item choices or attempt identifiers."
+        }
+      ]
+    }
+  ],
+  "operating-plan-reading": [
+    {
+      "id": "scenario",
+      "title": {
+        "en": "A late payment changes a plausible plan",
+        "zh": "一笔延迟怎样暴露计划假设"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者用假设时间制作项目安排，把“设备一直可用”改成“某天无法使用”，发现备用工具尚未获得许可。接下来可以只列待核查问题、保留不确定，或暂停演练；不必购买、借贷或提供真实金额。纸面后备方案与已确认可用的资源应分开，不由阶段均分填补。",
+          "en": "An additional original scene: A fictional reader uses invented timings for a project plan and changes “equipment always available” to “unavailable for one day.” The backup tool turns out to lack confirmed permission. They can list questions, retain uncertainty or stop the rehearsal without purchases, borrowing or real amounts. A paper fallback differs from a confirmed available resource, and no stage mean fills that gap."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "en": "Change one assumption on paper",
+        "zh": "先在纸面改变一个条件"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“哪项资源已确认可用，哪项仍是假设，核查需要谁参与？”可以只讨论虚构项目，让愿意协助的人复述已知事实、待核查事项与尚未作出的承诺。双方可以保留不同理解或结束讨论；不需要交换数值，也不以演练要求任何真实行动。",
+          "en": "An optional discussion prompt asks: “Which resource is confirmed, which remains an assumption, and whose help is needed to check?” Discuss only the fictional project, inviting a willing peer to restate known facts, open checks and commitments not made. Different interpretations can remain or discussion can stop. No values need exchanging and the rehearsal requires no real action."
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "en": "Read the process, not a financial verdict",
+        "zh": "读准备过程，不读财务结论"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境与讨论由费马测试编辑部原创，可只用虚构材料，也可略过；不要求真实客户、作品文件、财务数字或实际承诺。以一项正在考虑或安排的自由职业项目为参照，回看截至今天仍适用的准备，没有固定回顾天数。二十项按连续五组各四项直接记录：0针对当前安排尚未开始，1已写出草案但尚未试跑，2已在真实或模拟任务试跑，3试跑后已复盘并调整；不适用／无法判断／不愿回答是独立非数值项，不是零。零是有效阶段，不是能力缺失；3也不是能力认证。二十项均有明确选择才完成，空白不等于非数值。每组四项都为数值才显示和0—12及和除以四的一位小数均值；例如1÷4显示0.3，数值间隔不代表相同能力增量。一项非数值只撤下所属组的和与均值，其他完整组保留，不补零、不换中点、不缩分母；五种阶段计数与四项原选择仍保留。全部非数值也可完成并读全部五篇指南。3、3、0、0与2、2、1、1均为1.5，却对应不同未完成行动；先看逐项记录，不用均值抵消必要条件、跨组排名或合总分、准备率、主导类型。五组与四阶段均为原创，不是EntreComp十五项能力、八级进程的缩写或官方测评；题本及英文尚未建立信效度、常模、语言等价或有意义变化阈值。它不验证技能、资源、市场需求、法律效力或收入，也不决定辞职、承接、雇用或财务承诺。讨论可以不同意或停止，无需展示私人记录。只有自愿开启且会话存储可用时，本标签页保留24小时草稿，完成、重测或退出并清除时删除；没有新增最终结果缓存。复制只包含五份公开指南标题与链接，不含阶段、次数、数值、逐题选择或作答标识。",
+          "en": "FermatMind Editorial authored the additional scenes and discussion prompts. Use fictional materials only or decline, without real clients, work files, financial figures or commitments. Refer to one freelance project being considered or arranged and preparation still applicable today, with no fixed recall period. Five consecutive four-action groups directly record 0 Not started for this arrangement; 1 Drafted a plan, not yet tried it; 2 Tried it in a real or simulated task; and 3 Reviewed the trial and adjusted the plan. Not applicable / cannot assess / prefer not to answer is a separate nonnumeric choice, never zero. Zero is a valid stage rather than absent ability; three certifies no competence. All 20 require an explicit choice to finish; blank differs from non-rating. Four numeric answers are required per group for a sum of 0–12 and the sum divided by four to one decimal; 1 ÷ 4 displays 0.3. Numeric intervals establish no equal increments in ability. One non-rating choice withholds only its group sum and mean, retaining other complete groups without zero, midpoint or smaller-denominator substitution. Counts of all five response states and the four individual choices remain. An all-non-rating attempt finishes and retains all five full guides. Stages 3, 3, 0, 0 and 2, 2, 1, 1 both yield 1.5 with different unfinished actions. Inspect rows rather than compensating for required conditions, ranking groups or forming an overall score, readiness percentage or dominant type. The five groups and four stages are original, rather than a shortened official assessment of EntreComp’s 15 competences and eight progression levels. Reliability, validity, norms, language equivalence and meaningful-change thresholds remain unestablished for the bank and English wording. It verifies no skills, resources, demand, legal validity or income and decides no resignation, contract acceptance, hiring or financial commitment. Discussion can end or contain disagreement without sharing private records. Only voluntary draft saving with available session storage retains a 24-hour tab draft, cleared on completion, retake or exit-and-clear. No final-result cache is added. Copying includes only five public guide titles and links, without stages, counts, numbers, item choices or attempt identifiers."
+        }
+      ]
+    }
+  ],
+  "delivery-routine-reading": [
+    {
+      "id": "scenario",
+      "title": {
+        "en": "The files exist, but the handover does not",
+        "zh": "文件做完了，交接却没有完成"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者完成一份模拟活动清单，请协助者只凭交接说明找到可用文件。对方打开了旧版，读者随后澄清文件位置和待确认事项，并记录这次修改。可以只核对这个步骤；一次成功交接不证明整个流程稳定，也不要求上传清单或持续增加产出。",
+          "en": "An additional original scene: A fictional reader completes a simulated event checklist and asks a willing peer to find the usable file using only the handover note. The peer opens an old version, so the reader clarifies the file location and pending questions and records that revision. Review just this step: one successful handover establishes no stable overall process and requires neither uploading the checklist nor increasing output continuously."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "en": "Run one small delivery loop",
+        "zh": "跑完一个小交付回路"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“接收方能否找到当前可用材料，哪里仍需追问，下一次准备改什么？”可以只讨论虚构项目，让愿意协助的人复述已知事实、待核查事项与尚未作出的承诺。双方可以保留不同理解或结束讨论；不需要交换数值，也不以演练要求任何真实行动。",
+          "en": "An optional discussion prompt asks: “Can the recipient find the currently usable material, where is clarification needed, and what would change next time?” Discuss only the fictional project, inviting a willing peer to restate known facts, open checks and commitments not made. Different interpretations can remain or discussion can stop. No values need exchanging and the rehearsal requires no real action."
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "en": "Use the record to improve one repeatable step",
+        "zh": "从记录中选择一个可重复改进的步骤"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境与讨论由费马测试编辑部原创，可只用虚构材料，也可略过；不要求真实客户、作品文件、财务数字或实际承诺。以一项正在考虑或安排的自由职业项目为参照，回看截至今天仍适用的准备，没有固定回顾天数。二十项按连续五组各四项直接记录：0针对当前安排尚未开始，1已写出草案但尚未试跑，2已在真实或模拟任务试跑，3试跑后已复盘并调整；不适用／无法判断／不愿回答是独立非数值项，不是零。零是有效阶段，不是能力缺失；3也不是能力认证。二十项均有明确选择才完成，空白不等于非数值。每组四项都为数值才显示和0—12及和除以四的一位小数均值；例如1÷4显示0.3，数值间隔不代表相同能力增量。一项非数值只撤下所属组的和与均值，其他完整组保留，不补零、不换中点、不缩分母；五种阶段计数与四项原选择仍保留。全部非数值也可完成并读全部五篇指南。3、3、0、0与2、2、1、1均为1.5，却对应不同未完成行动；先看逐项记录，不用均值抵消必要条件、跨组排名或合总分、准备率、主导类型。五组与四阶段均为原创，不是EntreComp十五项能力、八级进程的缩写或官方测评；题本及英文尚未建立信效度、常模、语言等价或有意义变化阈值。它不验证技能、资源、市场需求、法律效力或收入，也不决定辞职、承接、雇用或财务承诺。讨论可以不同意或停止，无需展示私人记录。只有自愿开启且会话存储可用时，本标签页保留24小时草稿，完成、重测或退出并清除时删除；没有新增最终结果缓存。复制只包含五份公开指南标题与链接，不含阶段、次数、数值、逐题选择或作答标识。",
+          "en": "FermatMind Editorial authored the additional scenes and discussion prompts. Use fictional materials only or decline, without real clients, work files, financial figures or commitments. Refer to one freelance project being considered or arranged and preparation still applicable today, with no fixed recall period. Five consecutive four-action groups directly record 0 Not started for this arrangement; 1 Drafted a plan, not yet tried it; 2 Tried it in a real or simulated task; and 3 Reviewed the trial and adjusted the plan. Not applicable / cannot assess / prefer not to answer is a separate nonnumeric choice, never zero. Zero is a valid stage rather than absent ability; three certifies no competence. All 20 require an explicit choice to finish; blank differs from non-rating. Four numeric answers are required per group for a sum of 0–12 and the sum divided by four to one decimal; 1 ÷ 4 displays 0.3. Numeric intervals establish no equal increments in ability. One non-rating choice withholds only its group sum and mean, retaining other complete groups without zero, midpoint or smaller-denominator substitution. Counts of all five response states and the four individual choices remain. An all-non-rating attempt finishes and retains all five full guides. Stages 3, 3, 0, 0 and 2, 2, 1, 1 both yield 1.5 with different unfinished actions. Inspect rows rather than compensating for required conditions, ranking groups or forming an overall score, readiness percentage or dominant type. The five groups and four stages are original, rather than a shortened official assessment of EntreComp’s 15 competences and eight progression levels. Reliability, validity, norms, language equivalence and meaningful-change thresholds remain unestablished for the bank and English wording. It verifies no skills, resources, demand, legal validity or income and decides no resignation, contract acceptance, hiring or financial commitment. Discussion can end or contain disagreement without sharing private records. Only voluntary draft saving with available session storage retains a 24-hour tab draft, cleared on completion, retake or exit-and-clear. No final-result cache is added. Copying includes only five public guide titles and links, without stages, counts, numbers, item choices or attempt identifiers."
+        }
+      ]
+    }
+  ],
+  "boundaries-and-review-reading": [
+    {
+      "id": "scenario",
+      "title": {
+        "en": "An evening request reveals an unstated expectation",
+        "zh": "一条晚间消息怎样暴露默认预期"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者练习回应一项超出现有知识的要求，先说目前不能承诺，再列出需要合适人员核查的问题。协助者复述后发现“会看看”容易被听成已接下任务，于是双方修改措辞。一次表达练习不保证真实对方尊重边界，也不把需要支持解释为不独立或不适合自由职业。",
+          "en": "An additional original scene: A fictional reader rehearses a response to a request outside their knowledge: they cannot promise it now and identify questions for an appropriate person. A peer’s recap shows that “I will look at it” sounds like accepting the task, so they revise the wording. Rehearsal guarantees no real recipient’s respect for a boundary and makes needing support no lack of independence or suitability for freelancing."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "en": "Practise a pause and a follow-up",
+        "zh": "练习一次暂缓与后续跟进"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“回应里真正承诺了什么，哪些没有承诺，下一步是否在现有权限与条件内？”可以只讨论虚构项目，让愿意协助的人复述已知事实、待核查事项与尚未作出的承诺。双方可以保留不同理解或结束讨论；不需要交换数值，也不以演练要求任何真实行动。",
+          "en": "An optional discussion prompt asks: “What does the reply actually promise, what remains unpromised, and is the next step within available authority and conditions?” Discuss only the fictional project, inviting a willing peer to restate known facts, open checks and commitments not made. Different interpretations can remain or discussion can stop. No values need exchanging and the rehearsal requires no real action."
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "en": "Review the arrangement when conditions change",
+        "zh": "条件改变时，重新回看安排"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境与讨论由费马测试编辑部原创，可只用虚构材料，也可略过；不要求真实客户、作品文件、财务数字或实际承诺。以一项正在考虑或安排的自由职业项目为参照，回看截至今天仍适用的准备，没有固定回顾天数。二十项按连续五组各四项直接记录：0针对当前安排尚未开始，1已写出草案但尚未试跑，2已在真实或模拟任务试跑，3试跑后已复盘并调整；不适用／无法判断／不愿回答是独立非数值项，不是零。零是有效阶段，不是能力缺失；3也不是能力认证。二十项均有明确选择才完成，空白不等于非数值。每组四项都为数值才显示和0—12及和除以四的一位小数均值；例如1÷4显示0.3，数值间隔不代表相同能力增量。一项非数值只撤下所属组的和与均值，其他完整组保留，不补零、不换中点、不缩分母；五种阶段计数与四项原选择仍保留。全部非数值也可完成并读全部五篇指南。3、3、0、0与2、2、1、1均为1.5，却对应不同未完成行动；先看逐项记录，不用均值抵消必要条件、跨组排名或合总分、准备率、主导类型。五组与四阶段均为原创，不是EntreComp十五项能力、八级进程的缩写或官方测评；题本及英文尚未建立信效度、常模、语言等价或有意义变化阈值。它不验证技能、资源、市场需求、法律效力或收入，也不决定辞职、承接、雇用或财务承诺。讨论可以不同意或停止，无需展示私人记录。只有自愿开启且会话存储可用时，本标签页保留24小时草稿，完成、重测或退出并清除时删除；没有新增最终结果缓存。复制只包含五份公开指南标题与链接，不含阶段、次数、数值、逐题选择或作答标识。",
+          "en": "FermatMind Editorial authored the additional scenes and discussion prompts. Use fictional materials only or decline, without real clients, work files, financial figures or commitments. Refer to one freelance project being considered or arranged and preparation still applicable today, with no fixed recall period. Five consecutive four-action groups directly record 0 Not started for this arrangement; 1 Drafted a plan, not yet tried it; 2 Tried it in a real or simulated task; and 3 Reviewed the trial and adjusted the plan. Not applicable / cannot assess / prefer not to answer is a separate nonnumeric choice, never zero. Zero is a valid stage rather than absent ability; three certifies no competence. All 20 require an explicit choice to finish; blank differs from non-rating. Four numeric answers are required per group for a sum of 0–12 and the sum divided by four to one decimal; 1 ÷ 4 displays 0.3. Numeric intervals establish no equal increments in ability. One non-rating choice withholds only its group sum and mean, retaining other complete groups without zero, midpoint or smaller-denominator substitution. Counts of all five response states and the four individual choices remain. An all-non-rating attempt finishes and retains all five full guides. Stages 3, 3, 0, 0 and 2, 2, 1, 1 both yield 1.5 with different unfinished actions. Inspect rows rather than compensating for required conditions, ranking groups or forming an overall score, readiness percentage or dominant type. The five groups and four stages are original, rather than a shortened official assessment of EntreComp’s 15 competences and eight progression levels. Reliability, validity, norms, language equivalence and meaningful-change thresholds remain unestablished for the bank and English wording. It verifies no skills, resources, demand, legal validity or income and decides no resignation, contract acceptance, hiring or financial commitment. Discussion can end or contain disagreement without sharing private records. Only voluntary draft saving with available session storage retains a 24-hour tab draft, cleared on completion, retake or exit-and-clear. No final-result cache is added. Copying includes only five public guide titles and links, without stages, counts, numbers, item choices or attempt identifiers."
+        }
+      ]
+    }
+  ]
+}

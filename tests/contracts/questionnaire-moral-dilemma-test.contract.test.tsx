@@ -1,3 +1,4 @@
+import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -109,8 +110,8 @@ describe("T071 original five ethical questions", () => {
     const draft = { version: quiz.version, savedAt: 123456, answers: { ETHICS_01: "B" } };
     expect(readQuestionnaireDraft(quiz, JSON.stringify(draft), 123457)).toEqual(draft.answers);
     expect(readQuestionnaireDraft(quiz, JSON.stringify(draft), 123456 + 86400000)).toBeNull();
-    const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireArchetypeReport quiz={quiz} result={tie} locale="en" />);
-    expect(dom.querySelectorAll("[data-archetype-match]")).toHaveLength(5); expect(dom.querySelectorAll("h4")).toHaveLength(45);
+    const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireArchetypeReport quiz={prepareQuestionnaireResultReadings(quiz)} result={tie} locale="en" />);
+    expect(dom.querySelectorAll("[data-archetype-match]")).toHaveLength(5); expect(dom.querySelectorAll("h4")).toHaveLength(55);
     const ids = Array.from(dom.querySelectorAll("[id]"), e => e.id); expect(new Set(ids).size).toBe(ids.length);
   });
 
@@ -133,7 +134,7 @@ describe("T071 original five ethical questions", () => {
           const publicPath = `${path}/results/${profile.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };
           const rendered = renderToStaticMarkup(await guide.default(props)), meta = await guide.generateMetadata(props), dom = document.createElement("div"); dom.innerHTML = rendered;
           expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]);
-          for (const section of profile.sections) {
+          for (const section of prepareQuestionnaireResultReadings(quiz).profiles.find(p => p.id === profile.id)!.sections) {
             expect(dom.querySelector(`#report-${section.id} h2`)?.textContent).toBe(section.title[locale]);
             for (const paragraph of section.paragraphs) expect(dom.textContent).toContain(paragraph[locale]);
           }

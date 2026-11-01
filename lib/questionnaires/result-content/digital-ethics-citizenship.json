@@ -1,0 +1,162 @@
+{
+  "privacy": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：分享什么、给谁看和允许做什么分开核",
+        "en": "Review content, audience and permitted actions separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例虚构小组规定：三位具名同伴可编辑活动表，支持人员只可看错误标签。文件虽叫“仅组内”，实际却是持链接者均可编辑，改名或缩短链接不能补成具名范围。应按这项约定核实际编辑者及链接设置，再核支持截图是否只含错误；给支持人员错误图，不等于让其编辑整表。若裁图还留有无关聊天，仍未满足仅分享错误的条件。逐项写内容、受众、动作及最终可见状态，能避免把一个“私密”标签当成所有范围都已核对；本例只练这份虚构约定。",
+          "en": "Use a fresh fictional agreement: three named teammates may edit an event sheet, while support may view only an error label. A file titled team-only still allows anyone with its link to edit; renaming or shortening its link does not establish named access. Check actual editors and link settings against the agreement, then inspect the support image for error-only content. Supplying an error image does not grant sheet editing. A crop retaining unrelated chat still fails the content condition. Record content, audience, action and final visible state separately instead of treating a private-looking label as proof that every boundary was checked. This example concerns its stated fictional agreement."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起对照条件，解释判断依据",
+        "en": "Compare conditions together and explain the evidence for a choice"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“你核的是文件名称，还是实际访问和最终图片？给某人一项资料是否就给了另一项操作权限？”先各自标事实、局部规则和仍未知项，再交换理由，找第一处分歧。可只读、画关系图、换虚构条件或不答，不比赛速度，不用展示真实私聊、账户、密码或他人个人资料。",
+          "en": "Ask: “Are you checking a filename or actual access and final image, and does receiving one item establish another permission?” Mark facts, the local rule and remaining unknowns separately, then exchange reasons and locate the first difference. Read, sketch relationships, change fictional conditions or decline without racing or showing real chats, accounts, credentials or another person’s information."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组是复习主题，不是道德档位、守法程度、安全概率或专业认证；答案按本题事实与规则作作者核对，不等于独立专家共识或心理测量验证。30题固定，重做提高可能来自记忆；换一项条件并说明结论如何变化，有助于看清自己的推理。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups organise revision rather than moral tiers, legal compliance, safety probabilities or professional certification. Author-reviewed keys apply stated facts and rules rather than independent expert consensus or psychometric validation. Retakes reuse thirty items and may reward recall; change a condition and explain its effect to inspect your reasoning."
+        }
+      ]
+    }
+  ],
+  "security": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：从独立入口核主张，不用可疑消息给自己作证",
+        "en": "Review a claim through an independent route"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例意外消息称虚构账户即将停用，附“安全核验”按钮；另有你事先保存并核实的服务入口。先分开两问：是否确有账户通知、消息所给入口是否可信。通过已知入口核通知，避免把消息附的链接或联系电话再当它自己的身份证明；标志、紧迫语气和按钮字样不够。没有相关通知时，应准确记录本次核查未找到，不能据此声称所有服务从不发通知；若确有通知，也不自动证明原消息中的链接安全。纸上标两条路线即可，不需点击真实可疑链接或输入凭据。",
+          "en": "Use an unexpected fictional account-closure message with a secure-check button, alongside a service route you had independently saved and verified. Separate whether an account notice exists from whether the message’s route is trustworthy. Check notices through the known route rather than using the message’s own link or phone number to authenticate it. Logos, urgency and button wording are insufficient. Finding no relevant notice records that check, not a claim that services never send notifications. Finding a real notice also does not automatically authenticate the original link. Sketch both routes on paper without visiting a real suspicious destination or entering credentials."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起对照条件，解释判断依据",
+        "en": "Compare conditions together and explain the evidence for a choice"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“两条路线的可信依据分别来自哪里？真实通知存在，为什么仍不证明附带链接就可信？”先各自标事实、局部规则和仍未知项，再交换理由，找第一处分歧。可只读、画关系图、换虚构条件或不答，不比赛速度，不用展示真实私聊、账户、密码或他人个人资料。",
+          "en": "Ask: “Where does each route get its authority, and why does a real notice not automatically authenticate the supplied link?” Mark facts, the local rule and remaining unknowns separately, then exchange reasons and locate the first difference. Read, sketch relationships, change fictional conditions or decline without racing or showing real chats, accounts, credentials or another person’s information."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组是复习主题，不是道德档位、守法程度、安全概率或专业认证；答案按本题事实与规则作作者核对，不等于独立专家共识或心理测量验证。30题固定，重做提高可能来自记忆；换一项条件并说明结论如何变化，有助于看清自己的推理。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups organise revision rather than moral tiers, legal compliance, safety probabilities or professional certification. Author-reviewed keys apply stated facts and rules rather than independent expert consensus or psychometric validation. Retakes reuse thirty items and may reward recall; change a condition and explain its effect to inspect your reasoning."
+        }
+      ]
+    }
+  ],
+  "information": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：转述数量、原始证据和当前适用性分别记",
+        "en": "Review repetition, original evidence and current relevance separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例四帖都称虚构讲座改到周六，其中三帖引同一张旧图，第四帖复制第三帖。追到的底层材料仍只有那张旧图，不是四份独立确认。即使旧图真实，若它描述上月另一场活动，也不能确认本次讲座。应核本次主办方当前原通知，保留活动、日期和变更字段；没找到现行通知时，写本次改期尚未核实，不把“没核实”替换成“已证假”。再加十份相同截图也不补出独立观察。画引用箭头，并问哪一条新证据才与当前问题相关。",
+          "en": "Use four fresh fictional posts claiming a lecture moved to Saturday. Three cite one old image and the fourth copies the third. Their underlying material is still one image, not four independent confirmations. Even an authentic image concerning another event last month cannot confirm this lecture. Check the current original notice for this event, retaining event identity, date and changed fields. Without a current notice, record the rescheduling claim as unverified rather than disproved. Ten further copies add no independent observation. Draw citation arrows and identify what new evidence would actually address the current question."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起对照条件，解释判断依据",
+        "en": "Compare conditions together and explain the evidence for a choice"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“你数的是帖子，还是独立证据？来源真实但活动、日期不匹配时，能支持当前哪条主张？”先各自标事实、局部规则和仍未知项，再交换理由，找第一处分歧。可只读、画关系图、换虚构条件或不答，不比赛速度，不用展示真实私聊、账户、密码或他人个人资料。",
+          "en": "Ask: “Are you counting posts or independent evidence, and what current claim does an authentic but mismatched source support?” Mark facts, the local rule and remaining unknowns separately, then exchange reasons and locate the first difference. Read, sketch relationships, change fictional conditions or decline without racing or showing real chats, accounts, credentials or another person’s information."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组是复习主题，不是道德档位、守法程度、安全概率或专业认证；答案按本题事实与规则作作者核对，不等于独立专家共识或心理测量验证。30题固定，重做提高可能来自记忆；换一项条件并说明结论如何变化，有助于看清自己的推理。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups organise revision rather than moral tiers, legal compliance, safety probabilities or professional certification. Author-reviewed keys apply stated facts and rules rather than independent expert consensus or psychometric validation. Retakes reuse thirty items and may reward recall; change a condition and explain its effect to inspect your reasoning."
+        }
+      ]
+    }
+  ],
+  "communication": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：更正事实与评价个人是两件事",
+        "en": "Review a factual correction separately from a judgment about a person"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例虚构社区原帖把活动写成周二，已核现行通知是周四，社区规则要求纠正让原受众看见。可在原处清楚标明日期更正为周四，并附支持的当前来源；只改另一条无人见到的旧帖，没有回应原受众。讨论对方证据时，可指出日期不符，却不由此断言其有意欺骗，或公开其私人联系方式。若手上只有一句裁剪截图，相关上下文仍缺，应把可见文字与动机推测分开。按本例规则表达分歧、纠正和未知，不要求赞同所有观点，也不把一错变成人格判决。",
+          "en": "Use a fresh fictional community post naming Tuesday when the verified current notice says Thursday. Its rule requires corrections visible to the original audience. Clearly correct the original date and attach the supporting current source; changing another unseen old post does not address that audience. You may identify the date mismatch without inferring intentional deception or publishing private contact details. If only a cropped sentence is available, separate visible words from a motive claim while relevant context is missing. Apply this example’s rule to disagreement, correction and uncertainty, without agreeing with every viewpoint or turning one error into a character verdict."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起对照条件，解释判断依据",
+        "en": "Compare conditions together and explain the evidence for a choice"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“原受众在哪里能找到更正及依据？指出事实错误，是否足以证明作者的动机？”先各自标事实、局部规则和仍未知项，再交换理由，找第一处分歧。可只读、画关系图、换虚构条件或不答，不比赛速度，不用展示真实私聊、账户、密码或他人个人资料。",
+          "en": "Ask: “Where can the original audience find the correction and evidence, and does a factual error establish the author’s motive?” Mark facts, the local rule and remaining unknowns separately, then exchange reasons and locate the first difference. Read, sketch relationships, change fictional conditions or decline without racing or showing real chats, accounts, credentials or another person’s information."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组是复习主题，不是道德档位、守法程度、安全概率或专业认证；答案按本题事实与规则作作者核对，不等于独立专家共识或心理测量验证。30题固定，重做提高可能来自记忆；换一项条件并说明结论如何变化，有助于看清自己的推理。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups organise revision rather than moral tiers, legal compliance, safety probabilities or professional certification. Author-reviewed keys apply stated facts and rules rather than independent expert consensus or psychometric validation. Retakes reuse thirty items and may reward recall; change a condition and explain its effect to inspect your reasoning."
+        }
+      ]
+    }
+  ],
+  "access": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：同一张图换了用途，替代文字也要重判",
+        "en": "Review an image again when its purpose changes"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例一个时钟图标放在已有完整文字的“周五18点开放”标题旁，纯装饰、不提供动作或额外信息；对这张HTML图可用空alt。若把同一图标改成下载时刻表链接的唯一内容，应让文字替代表达“下载时刻表”，不能沿用纯装饰结论。若完整开放时间仅在海报图中、旁边未有文字，则需要提供该关键信息，而非只写“时钟”或“海报”。先问图在这里传什么信息、做什么动作、附近是否已有同样内容，再选处理。这个局部判断不证明整页已经满足全部可访问性要求。",
+          "en": "Use a fresh clock icon beside a complete text heading saying open Friday at eighteen hundred. If purely decorative with no action or additional information, this HTML image can use empty alt. Reuse the icon as the sole content of a timetable-download link and its alternative should communicate download timetable; the decorative conclusion no longer applies. If complete opening times appear only inside a poster without nearby text, supply that essential information rather than merely clock or poster. Ask what the image conveys, what action it performs and whether equivalent nearby text already exists. This local decision does not certify every accessibility requirement of the whole page."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起对照条件，解释判断依据",
+        "en": "Compare conditions together and explain the evidence for a choice"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“图片外观相同，为什么答案可能不同？你依据的是装饰、信息、功能，还是只看文件名？”先各自标事实、局部规则和仍未知项，再交换理由，找第一处分歧。可只读、画关系图、换虚构条件或不答，不比赛速度，不用展示真实私聊、账户、密码或他人个人资料。",
+          "en": "Ask: “Why can the same-looking image need different treatment, and are you checking decoration, information and function rather than its filename?” Mark facts, the local rule and remaining unknowns separately, then exchange reasons and locate the first difference. Read, sketch relationships, change fictional conditions or decline without racing or showing real chats, accounts, credentials or another person’s information."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组是复习主题，不是道德档位、守法程度、安全概率或专业认证；答案按本题事实与规则作作者核对，不等于独立专家共识或心理测量验证。30题固定，重做提高可能来自记忆；换一项条件并说明结论如何变化，有助于看清自己的推理。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups organise revision rather than moral tiers, legal compliance, safety probabilities or professional certification. Author-reviewed keys apply stated facts and rules rather than independent expert consensus or psychometric validation. Retakes reuse thirty items and may reward recall; change a condition and explain its effect to inspect your reasoning."
+        }
+      ]
+    }
+  ]
+}

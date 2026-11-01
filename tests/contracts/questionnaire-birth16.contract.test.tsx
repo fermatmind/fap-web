@@ -88,7 +88,7 @@ describe("Original birth-context context observation categories, never a clinica
     for (const locale of ["en", "zh"] as const) {
       const html = renderToStaticMarkup(<BirthContextPage quiz={quiz} locale={locale} />);
       expect((html.match(/data-birth-context-full-guide=/g) ?? [])).toHaveLength(4);
-      expect(html).not.toContain("data-birth-context-result");
+      const absent = document.createElement("div"); absent.innerHTML = html; expect(absent.querySelector("[data-birth-context-result]")).toBeNull();
       const dom = document.createElement("div"); dom.innerHTML = html;
       expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(true);
       for (const p of quiz.profiles) {

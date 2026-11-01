@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
 import type { Questionnaire } from "@/lib/questionnaires/types";
@@ -21,7 +21,7 @@ export function QuestionnaireHumorReport({ quiz, result, locale }: { quiz: Quest
     <p className="leading-8">{zh ? "以下六份完整说明都有原创例子、条件、取舍、日常应用、相近比较、反例和小尝试。均分或资料不足均不隐藏正文；听众是否愿意接玩笑要看其实际回应，任何标签都不能取消停止或拒绝的选择。" : "All six full guides include original examples, conditions, tradeoffs, everyday use, comparisons, counterexamples and small experiments. Means or insufficient information never hide the text. Whether humor is welcome depends on the audience’s actual response; no label overrides a choice to stop or decline."}</p>
     {quiz.profiles.map(profile => <section key={profile.id} data-humor-profile={profile.id} aria-labelledby={`humor-title-${profile.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
       <h3 id={`humor-title-${profile.id}`} className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
-      <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这种表达的公开说明" : "Read this expression’s public guide"}</Link>
     </section>)}
   </div>;

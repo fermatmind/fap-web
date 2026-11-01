@@ -5,7 +5,7 @@ import type { NatalChartReadout } from "@/lib/questionnaires/natalChartCalculati
 import type { NatalBody, NatalCoordinate } from "@/lib/questionnaires/natalChartCoordinates";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import { calculateNatalAspects } from "@/lib/questionnaires/natalChartAspects";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 function coordinateLabel(quiz: NatalChartQuestionnaire, coordinate: NatalCoordinate, locale: Locale) {
   return `${quiz.profiles[coordinate.signIndex].signName[locale]} ${coordinate.displayDegrees.toFixed(1)}°`;
@@ -57,7 +57,7 @@ export function NatalChartAttribution({ quiz, locale }: { quiz: NatalChartQuesti
 }
 
 export function NatalSignGuideBody({ profile, locale, idPrefix = "natal-sign" }: { profile: NatalSignProfile; locale: Locale; idPrefix?: string }) {
-  return <QuestionnaireReport profile={profile} locale={locale} headingLevel={2} idPrefix={idPrefix} />;
+  return <QuestionnaireResultReading quizSlug="natal-chart" profile={profile} locale={locale} headingLevel={2} idPrefix={idPrefix} />;
 }
 
 export function NatalAspectGuide({ quiz, locale }: { quiz: NatalChartQuestionnaire; locale: Locale }) {
@@ -103,7 +103,7 @@ export function NatalPointsGuide({ quiz, locale }: { quiz: NatalChartQuestionnai
   </section>;
 }
 
-export function NatalChartReport({ quiz, chart, locale }: { quiz: NatalChartQuestionnaire; chart: NatalChartReadout; locale: Locale }) {
+export function NatalChartReport({ quiz, chart, locale, readingProfiles }: { quiz: NatalChartQuestionnaire; chart: NatalChartReadout; locale: Locale; readingProfiles?: readonly NatalSignProfile[] }) {
   const zh = locale === "zh", c = quiz.natalChart;
   const aspects = calculateNatalAspects(chart.placements);
   const degrees = (value: number) => `${(Math.floor(value * 10) / 10).toFixed(1)}°`;
@@ -113,7 +113,8 @@ export function NatalChartReport({ quiz, chart, locale }: { quiz: NatalChartQues
     const labels = { direct: zh ? "顺行" : "Direct", retrograde: zh ? "Rx · 视逆行" : "Rx · Apparent retrograde", "near-stationary": zh ? "接近停滞" : "Near-stationary", unavailable: zh ? "不可用" : "Unavailable" };
     return <td data-natal-motion={body} data-natal-motion-state={state} className="border-b border-slate-200 p-3">{labels[state]}</td>;
   };
-  const signContext = (coordinate: NatalCoordinate, role: string) => quiz.profiles[coordinate.signIndex].sections.find(section => section.id === role)!;
+  const projected = (profile: NatalSignProfile) => readingProfiles?.find(item => item.id === profile.id && item.element === profile.element && item.modality === profile.modality && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
+  const signContext = (coordinate: NatalCoordinate, role: string) => projected(quiz.profiles[coordinate.signIndex]).sections.find(section => section.id === role)!;
   const roleCard = (placement: NatalChartReadout["placements"][number], primary: boolean) => {
     const role = c.bodyRoles.find(item => item.id === placement.body)!, profile = quiz.profiles[placement.coordinate.signIndex];
     const context = signContext(placement.coordinate, primary ? placement.body : "symbol");
@@ -178,7 +179,7 @@ export function NatalChartReport({ quiz, chart, locale }: { quiz: NatalChartQues
       {!Object.values(chart.angles).some(angle => angle.status === "computed") && <p data-natal-no-angles>{zh ? "本次没有可用的额外角点，请参照上表状态；公开角点说明仍可阅读。" : "No additional angle is available for this calculation. Use the table’s states; the public angle reference remains available."}</p>}
       {c.angles.roles.map(role => {
         const angle = chart.angles[role.id]; if (angle.status !== "computed") return null;
-        const profile = quiz.profiles[angle.coordinate.signIndex], context = profile.sections.find(section => section.id === "symbol")!;
+        const profile = quiz.profiles[angle.coordinate.signIndex], context = projected(profile).sections.find(section => section.id === "symbol")!;
         const house = angle.house === null ? null : c.houseContexts[angle.house - 1];
         return <section key={role.id} data-natal-angle-reading={role.id} className="scroll-mt-24 rounded-lg border border-slate-200 bg-white p-5">
           <h4 className="text-xl font-semibold">{role.name[locale]} · {coordinateLabel(quiz, angle.coordinate, locale)}</h4><p className="mt-3 font-semibold">{role.topic[locale]}</p>
@@ -193,7 +194,7 @@ export function NatalChartReport({ quiz, chart, locale }: { quiz: NatalChartQues
       {Object.values(chart.points).some(point => point.status === "unavailable") && <p data-natal-point-unavailable role="status">{zh ? "不可用的数学点不生成个人读法，也不补造坐标。公开模型与角色参考仍可阅读。" : "Unavailable mathematical points do not receive a personal reading or substituted coordinate. The public model and role references remain available."}</p>}
       {c.points.roles.map(role => {
         const point = chart.points[role.id]; if (point.status !== "computed") return null;
-        const profile = quiz.profiles[point.coordinate.signIndex], context = profile.sections.find(section => section.id === "symbol")!;
+        const profile = quiz.profiles[point.coordinate.signIndex], context = projected(profile).sections.find(section => section.id === "symbol")!;
         const house = point.house === null ? null : c.houseContexts[point.house - 1];
         return <section key={role.id} data-natal-point-reading={role.id} className="scroll-mt-24 rounded-lg border border-slate-200 bg-white p-5">
           <h4 className="text-xl font-semibold">{role.name[locale]} · {coordinateLabel(quiz, point.coordinate, locale)}</h4><p className="mt-3 font-semibold">{role.topic[locale]}</p>

@@ -1,0 +1,125 @@
+{
+  "rounded-outlines": [
+    {
+      "id": "reading-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者记得熟悉短袖下肩部边缘有圆润印象，另一个部位则没有清楚记忆。可以保留局部印象与空缺，不把一处线条推广到全身，也不由衣物下的视角解释组织或骨骼。例子不要求再看、换姿势、找照片或让别人确认，未评分不代表某种身体特点缺失。",
+          "en": "In an additional original scene, a reader recalls a rounded shoulder edge in a familiar short-sleeved view but has no clear memory of another area. A local impression and a gap stay separate without a whole-body conclusion or tissue or bone explanation from a clothed view. The scene requires no new look, changed pose, photograph search or confirmation by another person. Unscored does not mean an absent body feature."
+        }
+      ]
+    },
+    {
+      "id": "reading-5",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“我只想比较熟悉袖形的视觉构思，不想讨论身体属于哪一型。”可以全谈虚构衣物，不展示自己照片。听者不把圆润评价为好坏，也不从均值规定领口或材质；可以把服装喜好与轮廓印象分开，或只读到这里结束。",
+          "en": "An optional conversation card compares familiar sleeve ideas without discussing a person’s body type. Use only fictional clothing, without personal photos. A listener rates no roundness as good or bad and prescribes no neckline or material from a mean. Clothing taste can stay separate from outline impressions, or reading can simply end here."
+        }
+      ]
+    },
+    {
+      "id": "reading-8",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，针对已熟悉且舒服的普通视角，不是协会的Straight、Wave、Natural分类、骨骼测量、身体评价或医疗评估。12条仍为三组各四条直接符合程度评分；3是部分符合，未评分与中间项分开。至少三条数值有效才显示有效和除以有效条数的一位小数均值，两条资料不足，不补零或3。三项可同时符合，不加总、不排名、不选主导或混合身体类型。原创观察尚无独立验证、常模或中英文测量等值，协会的造型或重心约定不构成本题本证据。无需新照片、照镜检查、脱衣、触摸、测量、比较他人或反复监测。印象不判断组织构成、骨密度、疼痛原因、服装适合度或吸引力。三篇全文在任何组合下均可读；服装线条等独立题本保留各自契约，不转移回答或合并均值。原有页面内存作答、不保存草稿及不分享个人结果的行为保持不变。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading about comfortable ordinary views already known, not an association’s Straight, Wave or Natural classification, skeletal measurement, body rating or medical assessment. Twelve prompts retain three groups of four direct descriptive ratings. Three means Somewhat; unscored remains separate from the middle response. At least three numeric ratings are needed for a rated sum divided by rated count, displayed to one decimal. Two ratings are insufficient, without zero or three imputed. Three groups may coexist without a total, rank, dominant or blended body type. The original observations lack independent validation, norms or established English–Chinese measurement equivalence. Association styling claims or centre-of-gravity conventions are not evidence for this form. No new photo, mirror check, undressing, touching, measurement, comparison with others or repeated monitoring is needed. Impressions determine no tissue composition, bone density, cause of pain, clothing suitability or attractiveness. All three full guides remain readable for every pattern. Separate forms such as Outfit Line Preferences retain their own contracts without transferred answers or combined means. Existing page-memory answers, no saved draft and no personal-result sharing remain unchanged."
+        }
+      ]
+    }
+  ],
+  "gradual-transitions": [
+    {
+      "id": "reading-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者记得一件熟悉衣物袖口附近的线条过渡较平缓，却不清楚是视角还是衣物边缘影响；另一处记忆不够清楚。视觉转向、背景与未知可以分别保留，不补成皮肤质地或身体柔软度。例子不要求触摸、露出部位、测角度或寻找标准身体图。",
+          "en": "In an additional original scene, a reader recalls a gradual line near a familiar cuff without knowing the influence of viewpoint or clothing edge. Another area is unclear. Visual transition, context and unknowns stay separate without becoming skin texture or bodily softness. The scene requires no touching, exposed area, measured angle or standard body image."
+        }
+      ]
+    },
+    {
+      "id": "reading-5",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“我想比较两种想象袖边，不用它们解释身体。”可以与圆润轮廓的局部弧度例子分开阅读。听者不把过渡平缓等同Wave类别，不要求分清所有部位才可以停止，也不因资料不足追问照片或身体细节。",
+          "en": "An optional conversation card compares two imagined cuff edges without using them to explain a body. Keep it separate from Rounded Outlines’ local-curve example. A listener equates no gradual transition with Wave, requires no resolved account of every area before stopping and seeks no photos or body details to fill insufficient information."
+        }
+      ]
+    },
+    {
+      "id": "reading-8",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，针对已熟悉且舒服的普通视角，不是协会的Straight、Wave、Natural分类、骨骼测量、身体评价或医疗评估。12条仍为三组各四条直接符合程度评分；3是部分符合，未评分与中间项分开。至少三条数值有效才显示有效和除以有效条数的一位小数均值，两条资料不足，不补零或3。三项可同时符合，不加总、不排名、不选主导或混合身体类型。原创观察尚无独立验证、常模或中英文测量等值，协会的造型或重心约定不构成本题本证据。无需新照片、照镜检查、脱衣、触摸、测量、比较他人或反复监测。印象不判断组织构成、骨密度、疼痛原因、服装适合度或吸引力。三篇全文在任何组合下均可读；服装线条等独立题本保留各自契约，不转移回答或合并均值。原有页面内存作答、不保存草稿及不分享个人结果的行为保持不变。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading about comfortable ordinary views already known, not an association’s Straight, Wave or Natural classification, skeletal measurement, body rating or medical assessment. Twelve prompts retain three groups of four direct descriptive ratings. Three means Somewhat; unscored remains separate from the middle response. At least three numeric ratings are needed for a rated sum divided by rated count, displayed to one decimal. Two ratings are insufficient, without zero or three imputed. Three groups may coexist without a total, rank, dominant or blended body type. The original observations lack independent validation, norms or established English–Chinese measurement equivalence. Association styling claims or centre-of-gravity conventions are not evidence for this form. No new photo, mirror check, undressing, touching, measurement, comparison with others or repeated monitoring is needed. Impressions determine no tissue composition, bone density, cause of pain, clothing suitability or attractiveness. All three full guides remain readable for every pattern. Separate forms such as Outfit Line Preferences retain their own contracts without transferred answers or combined means. Existing page-memory answers, no saved draft and no personal-result sharing remain unchanged."
+        }
+      ]
+    }
+  ],
+  "joint-landmarks": [
+    {
+      "id": "reading-2",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者记得拿熟悉物品时手部某条线较易辨认，却不清楚肘部的普通视角。可辨认与未知分别保留，不从一个部位推出骨骼大小、强度或健康，也不把记不清当作线条不存在。例子不要求按压、比宽度、使用卷尺或寻找更清楚的视角。",
+          "en": "In an additional original scene, a reader recalls one recognisable hand line while holding a familiar object but has no clear ordinary elbow view. Visibility and unknowns stay separate without one area establishing bone size, strength or health, or unclear recall becoming an absent line. The scene requires no pressing, width comparison, tape measure or clearer view."
+        }
+      ]
+    },
+    {
+      "id": "reading-5",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“我只想谈熟悉配饰与袖口怎样安排，不需要判断某条身体线是否足够明显。”可以只读虚构卡。听者不以均值认证Natural或医疗安心，不要求隐藏或强调特点，也不把其他两项的回答拿来补缺。疼痛或功能方面的问题保持独立，不由本页解释或排除。",
+          "en": "An optional conversation card discusses familiar accessory and cuff arrangements without deciding whether a body line is sufficiently visible. Read only the fictional card. A listener certifies neither Natural nor medical reassurance from a mean, requires no hidden or emphasised feature and borrows no answers from the other groups. Pain or function questions remain separate, neither explained nor ruled out here."
+        }
+      ]
+    },
+    {
+      "id": "reading-8",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，针对已熟悉且舒服的普通视角，不是协会的Straight、Wave、Natural分类、骨骼测量、身体评价或医疗评估。12条仍为三组各四条直接符合程度评分；3是部分符合，未评分与中间项分开。至少三条数值有效才显示有效和除以有效条数的一位小数均值，两条资料不足，不补零或3。三项可同时符合，不加总、不排名、不选主导或混合身体类型。原创观察尚无独立验证、常模或中英文测量等值，协会的造型或重心约定不构成本题本证据。无需新照片、照镜检查、脱衣、触摸、测量、比较他人或反复监测。印象不判断组织构成、骨密度、疼痛原因、服装适合度或吸引力。三篇全文在任何组合下均可读；服装线条等独立题本保留各自契约，不转移回答或合并均值。原有页面内存作答、不保存草稿及不分享个人结果的行为保持不变。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading about comfortable ordinary views already known, not an association’s Straight, Wave or Natural classification, skeletal measurement, body rating or medical assessment. Twelve prompts retain three groups of four direct descriptive ratings. Three means Somewhat; unscored remains separate from the middle response. At least three numeric ratings are needed for a rated sum divided by rated count, displayed to one decimal. Two ratings are insufficient, without zero or three imputed. Three groups may coexist without a total, rank, dominant or blended body type. The original observations lack independent validation, norms or established English–Chinese measurement equivalence. Association styling claims or centre-of-gravity conventions are not evidence for this form. No new photo, mirror check, undressing, touching, measurement, comparison with others or repeated monitoring is needed. Impressions determine no tissue composition, bone density, cause of pain, clothing suitability or attractiveness. All three full guides remain readable for every pattern. Separate forms such as Outfit Line Preferences retain their own contracts without transferred answers or combined means. Existing page-memory answers, no saved draft and no personal-result sharing remain unchanged."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,289 @@
+{
+  "recognition-reading": [
+    {
+      "id": "context",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境：虚构读者会前整理了资料，会上没有被提及，后来得知同事确实使用过。完成、被使用与获得明确认可可以分别核实，沉默本身不确定他人的意图。想要反馈也不等于必须反复争取赞美，四题均值不能决定这次贡献的价值。",
+          "en": "In an additional scene, a fictional reader’s meeting notes go unmentioned but are later confirmed as useful to a colleague. Completion, use and explicit recognition are separate facts; silence supplies no certain intention. Wanting feedback requires no repeated pursuit of praise, and the four-item mean cannot value the contribution."
+        }
+      ]
+    },
+    {
+      "id": "choice",
+      "title": {
+        "zh": "可选讨论提示",
+        "en": "An optional discussion prompt"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“完成了什么、哪些用途已知、哪些反馈仍未知？”可以只读或讨论虚构人物，先区分事实、解释与未知。不要求交换答案、争取美德评价、披露资源或证明边界；任何人都可以不参与，讨论也不必达成同一理解。",
+          "en": "An optional discussion prompt asks: “What was completed, which uses are known, and which feedback remains unknown?” Read alone or discuss the fictional reader, separating facts, interpretations and unknowns. No exchange of answers, pursuit of a virtue rating, disclosure of resources or proof of boundaries is required. Participation and agreement remain optional."
+        }
+      ]
+    },
+    {
+      "id": "edition",
+      "title": {
+        "zh": "补充读法与来源边界",
+        "en": "Additional method and source limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境和讨论提示由费马测试编辑部原创。保留小程序28条中文陈述及新工作英译；按目前可确认的符合程度选择1至5，3“不确定或视情况”仍为数字，不是有时、中立或缺答，不新增回顾期限。七组各四题直接计入，无反向、无NA；28项全部有效才显示任何个人和、均值与解释，缺答不补零或中点。每组原始和4—20除以四，显示两位小数，保留1.25等四分之一步长。1、1、5、5与3、3、3、3同得3.00，却不表示同样的逐题反应；均值不能恢复答案、确定原因或成为单一强度。各组不相加、不抵扣、不排名、不派首要罪或美德，相同数字只说明算术相同。文化名称仅是隐喻，四枢德与三神学美德等传统不等于本七组计分，不提供科学验证或宗教背书。未建立常模、信效度、公平性、预测或中英等值。七篇公开全文无需作答即可读；复制只含公开标题及入口。现有页面内存、自选24小时标签页草稿及完成、重测、退出清除保持不变。",
+          "en": "FermatMind Editorial authored these additions. The original 28 Chinese statements and new working English remain. Rate currently confirmable endorsement 1–5; three, uncertain or depends on the situation, remains numeric rather than Sometimes, neutrality or missingness. No recall window is added. Seven groups of four are direct-scored without reversal or NA. All 28 must be valid before any personal sum, mean or interpretation; missingness supplies no zero or midpoint. Divide each sum, 4–20, by four and show two decimals, retaining quarter steps such as 1.25. Responses 1, 1, 5, 5 and 3, 3, 3, 3 both give 3.00 without equal item responses. Means reconstruct neither answers nor causes nor one underlying intensity. Groups are never totalled, offset, ranked or assigned as leading sins or virtues; equal numbers establish arithmetic equality only. Cultural metaphors, including traditions of four cardinal and three theological virtues, neither define these seven scoring groups nor supply scientific validation or religious endorsement. Norms, reliability, validity, fairness, prediction and language equivalence are unestablished. All seven full public readings need no answers; copying includes only the public title and entry. Existing page memory, optional 24-hour tab drafts and completion, retake and exit clearing remain unchanged."
+        }
+      ]
+    }
+  ],
+  "resources-reading": [
+    {
+      "id": "context",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境：虚构读者愿意借相机，但自己近期也要使用，正在确认归还日期。实际余量、对方需要与自愿同意是不同信息；核对期限不证明吝啬，答应也不证明基本需要得到保护。拒绝或重新商定条件，不需要用一个均值辩护。",
+          "en": "In an additional scene, a fictional reader considers lending a camera needed soon for their own project and checks the return date. Available margin, the request and voluntary agreement differ. A deadline check proves no stinginess; agreement proves no protection of basic needs. Refusal or renegotiation needs no defence through a mean."
+        }
+      ]
+    },
+    {
+      "id": "choice",
+      "title": {
+        "zh": "可选讨论提示",
+        "en": "An optional discussion prompt"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“谁需要什么、实际可借多久，哪些条件尚未达成一致？”可以只读或讨论虚构人物，先区分事实、解释与未知。不要求交换答案、争取美德评价、披露资源或证明边界；任何人都可以不参与，讨论也不必达成同一理解。",
+          "en": "An optional discussion prompt asks: “Who needs what, how long is lending feasible, and which conditions remain unagreed?” Read alone or discuss the fictional reader, separating facts, interpretations and unknowns. No exchange of answers, pursuit of a virtue rating, disclosure of resources or proof of boundaries is required. Participation and agreement remain optional."
+        }
+      ]
+    },
+    {
+      "id": "edition",
+      "title": {
+        "zh": "补充读法与来源边界",
+        "en": "Additional method and source limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境和讨论提示由费马测试编辑部原创。保留小程序28条中文陈述及新工作英译；按目前可确认的符合程度选择1至5，3“不确定或视情况”仍为数字，不是有时、中立或缺答，不新增回顾期限。七组各四题直接计入，无反向、无NA；28项全部有效才显示任何个人和、均值与解释，缺答不补零或中点。每组原始和4—20除以四，显示两位小数，保留1.25等四分之一步长。1、1、5、5与3、3、3、3同得3.00，却不表示同样的逐题反应；均值不能恢复答案、确定原因或成为单一强度。各组不相加、不抵扣、不排名、不派首要罪或美德，相同数字只说明算术相同。文化名称仅是隐喻，四枢德与三神学美德等传统不等于本七组计分，不提供科学验证或宗教背书。未建立常模、信效度、公平性、预测或中英等值。七篇公开全文无需作答即可读；复制只含公开标题及入口。现有页面内存、自选24小时标签页草稿及完成、重测、退出清除保持不变。",
+          "en": "FermatMind Editorial authored these additions. The original 28 Chinese statements and new working English remain. Rate currently confirmable endorsement 1–5; three, uncertain or depends on the situation, remains numeric rather than Sometimes, neutrality or missingness. No recall window is added. Seven groups of four are direct-scored without reversal or NA. All 28 must be valid before any personal sum, mean or interpretation; missingness supplies no zero or midpoint. Divide each sum, 4–20, by four and show two decimals, retaining quarter steps such as 1.25. Responses 1, 1, 5, 5 and 3, 3, 3, 3 both give 3.00 without equal item responses. Means reconstruct neither answers nor causes nor one underlying intensity. Groups are never totalled, offset, ranked or assigned as leading sins or virtues; equal numbers establish arithmetic equality only. Cultural metaphors, including traditions of four cardinal and three theological virtues, neither define these seven scoring groups nor supply scientific validation or religious endorsement. Norms, reliability, validity, fairness, prediction and language equivalence are unestablished. All seven full public readings need no answers; copying includes only the public title and entry. Existing page memory, optional 24-hour tab drafts and completion, retake and exit clearing remain unchanged."
+        }
+      ]
+    }
+  ],
+  "desire-boundaries-reading": [
+    {
+      "id": "context",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境：虚构读者被一项创作合作吸引，但尚未同意公开草稿。兴趣、参与意愿和具体发布许可不能互相替代；后来改变安排，也需要重新确认。即使同组均值较大，也不能从中读出某个人的同意或边界安全程度。",
+          "en": "In an additional scene, a fictional reader likes a collaboration but has not agreed to publish drafts. Interest, willingness to participate and permission to publish are not interchangeable. Changed arrangements need renewed agreement. Even a larger group mean supplies neither anyone’s consent nor a certificate of safe boundaries."
+        }
+      ]
+    },
+    {
+      "id": "choice",
+      "title": {
+        "zh": "可选讨论提示",
+        "en": "An optional discussion prompt"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“哪些只是兴趣，哪些安排已有明确许可，哪些还未确认？”可以只读或讨论虚构人物，先区分事实、解释与未知。不要求交换答案、争取美德评价、披露资源或证明边界；任何人都可以不参与，讨论也不必达成同一理解。",
+          "en": "An optional discussion prompt asks: “Which details show interest, which arrangements have explicit permission, and what remains unconfirmed?” Read alone or discuss the fictional reader, separating facts, interpretations and unknowns. No exchange of answers, pursuit of a virtue rating, disclosure of resources or proof of boundaries is required. Participation and agreement remain optional."
+        }
+      ]
+    },
+    {
+      "id": "edition",
+      "title": {
+        "zh": "补充读法与来源边界",
+        "en": "Additional method and source limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境和讨论提示由费马测试编辑部原创。保留小程序28条中文陈述及新工作英译；按目前可确认的符合程度选择1至5，3“不确定或视情况”仍为数字，不是有时、中立或缺答，不新增回顾期限。七组各四题直接计入，无反向、无NA；28项全部有效才显示任何个人和、均值与解释，缺答不补零或中点。每组原始和4—20除以四，显示两位小数，保留1.25等四分之一步长。1、1、5、5与3、3、3、3同得3.00，却不表示同样的逐题反应；均值不能恢复答案、确定原因或成为单一强度。各组不相加、不抵扣、不排名、不派首要罪或美德，相同数字只说明算术相同。文化名称仅是隐喻，四枢德与三神学美德等传统不等于本七组计分，不提供科学验证或宗教背书。未建立常模、信效度、公平性、预测或中英等值。七篇公开全文无需作答即可读；复制只含公开标题及入口。现有页面内存、自选24小时标签页草稿及完成、重测、退出清除保持不变。",
+          "en": "FermatMind Editorial authored these additions. The original 28 Chinese statements and new working English remain. Rate currently confirmable endorsement 1–5; three, uncertain or depends on the situation, remains numeric rather than Sometimes, neutrality or missingness. No recall window is added. Seven groups of four are direct-scored without reversal or NA. All 28 must be valid before any personal sum, mean or interpretation; missingness supplies no zero or midpoint. Divide each sum, 4–20, by four and show two decimals, retaining quarter steps such as 1.25. Responses 1, 1, 5, 5 and 3, 3, 3, 3 both give 3.00 without equal item responses. Means reconstruct neither answers nor causes nor one underlying intensity. Groups are never totalled, offset, ranked or assigned as leading sins or virtues; equal numbers establish arithmetic equality only. Cultural metaphors, including traditions of four cardinal and three theological virtues, neither define these seven scoring groups nor supply scientific validation or religious endorsement. Norms, reliability, validity, fairness, prediction and language equivalence are unestablished. All seven full public readings need no answers; copying includes only the public title and entry. Existing page memory, optional 24-hour tab drafts and completion, retake and exit clearing remain unchanged."
+        }
+      ]
+    }
+  ],
+  "comparison-reading": [
+    {
+      "id": "context",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境：虚构读者欣赏同伴的作品，同时因自己未获得同一机会而失落。欣赏、失落和机会标准可以分别讨论，不要求一种感受取消另一种。均值不能证明祝贺真伪、机会不公或嫉妒人格；不了解的选择过程可以保留未知。",
+          "en": "In an additional scene, a fictional reader appreciates a peer’s work while feeling disappointed about missing an opportunity. Appreciation, disappointment and selection criteria can be discussed separately without one feeling cancelling another. The mean establishes no sincere or insincere congratulations, unfair process or envious identity; unknown selection details may stay unknown."
+        }
+      ]
+    },
+    {
+      "id": "choice",
+      "title": {
+        "zh": "可选讨论提示",
+        "en": "An optional discussion prompt"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“欣赏的具体部分是什么，失落涉及哪个机会，标准有哪些已知和未知？”可以只读或讨论虚构人物，先区分事实、解释与未知。不要求交换答案、争取美德评价、披露资源或证明边界；任何人都可以不参与，讨论也不必达成同一理解。",
+          "en": "An optional discussion prompt asks: “What specifically is appreciated, which opportunity matters, and what is known or unknown about its criteria?” Read alone or discuss the fictional reader, separating facts, interpretations and unknowns. No exchange of answers, pursuit of a virtue rating, disclosure of resources or proof of boundaries is required. Participation and agreement remain optional."
+        }
+      ]
+    },
+    {
+      "id": "edition",
+      "title": {
+        "zh": "补充读法与来源边界",
+        "en": "Additional method and source limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境和讨论提示由费马测试编辑部原创。保留小程序28条中文陈述及新工作英译；按目前可确认的符合程度选择1至5，3“不确定或视情况”仍为数字，不是有时、中立或缺答，不新增回顾期限。七组各四题直接计入，无反向、无NA；28项全部有效才显示任何个人和、均值与解释，缺答不补零或中点。每组原始和4—20除以四，显示两位小数，保留1.25等四分之一步长。1、1、5、5与3、3、3、3同得3.00，却不表示同样的逐题反应；均值不能恢复答案、确定原因或成为单一强度。各组不相加、不抵扣、不排名、不派首要罪或美德，相同数字只说明算术相同。文化名称仅是隐喻，四枢德与三神学美德等传统不等于本七组计分，不提供科学验证或宗教背书。未建立常模、信效度、公平性、预测或中英等值。七篇公开全文无需作答即可读；复制只含公开标题及入口。现有页面内存、自选24小时标签页草稿及完成、重测、退出清除保持不变。",
+          "en": "FermatMind Editorial authored these additions. The original 28 Chinese statements and new working English remain. Rate currently confirmable endorsement 1–5; three, uncertain or depends on the situation, remains numeric rather than Sometimes, neutrality or missingness. No recall window is added. Seven groups of four are direct-scored without reversal or NA. All 28 must be valid before any personal sum, mean or interpretation; missingness supplies no zero or midpoint. Divide each sum, 4–20, by four and show two decimals, retaining quarter steps such as 1.25. Responses 1, 1, 5, 5 and 3, 3, 3, 3 both give 3.00 without equal item responses. Means reconstruct neither answers nor causes nor one underlying intensity. Groups are never totalled, offset, ranked or assigned as leading sins or virtues; equal numbers establish arithmetic equality only. Cultural metaphors, including traditions of four cardinal and three theological virtues, neither define these seven scoring groups nor supply scientific validation or religious endorsement. Norms, reliability, validity, fairness, prediction and language equivalence are unestablished. All seven full public readings need no answers; copying includes only the public title and entry. Existing page memory, optional 24-hour tab drafts and completion, retake and exit clearing remain unchanged."
+        }
+      ]
+    }
+  ],
+  "rewards-reading": [
+    {
+      "id": "context",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境：虚构读者完成普通任务后看短视频休息，既觉得轻松，也在考虑是否暂停。回报吸引力与暂停选择可以同时存在，不能由均值倒推意志力。也可以继续休息，不必把普通体验变成训练；这个例子不用于危险行为或成瘾处理。",
+          "en": "In an additional scene, a fictional reader enjoys short videos after an ordinary task and considers a pause. Reward appeal and a pause decision can coexist; the mean cannot reconstruct willpower. Continuing to rest remains an option without turning an ordinary experience into training. This example does not address dangerous behaviour or addiction management."
+        }
+      ]
+    },
+    {
+      "id": "choice",
+      "title": {
+        "zh": "可选讨论提示",
+        "en": "An optional discussion prompt"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“这段休息想回应什么需要，眼前有哪些可选安排？”可以只读或讨论虚构人物，先区分事实、解释与未知。不要求交换答案、争取美德评价、披露资源或证明边界；任何人都可以不参与，讨论也不必达成同一理解。",
+          "en": "An optional discussion prompt asks: “What need was the break intended to meet, and which choices are available now?” Read alone or discuss the fictional reader, separating facts, interpretations and unknowns. No exchange of answers, pursuit of a virtue rating, disclosure of resources or proof of boundaries is required. Participation and agreement remain optional."
+        }
+      ]
+    },
+    {
+      "id": "edition",
+      "title": {
+        "zh": "补充读法与来源边界",
+        "en": "Additional method and source limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境和讨论提示由费马测试编辑部原创。保留小程序28条中文陈述及新工作英译；按目前可确认的符合程度选择1至5，3“不确定或视情况”仍为数字，不是有时、中立或缺答，不新增回顾期限。七组各四题直接计入，无反向、无NA；28项全部有效才显示任何个人和、均值与解释，缺答不补零或中点。每组原始和4—20除以四，显示两位小数，保留1.25等四分之一步长。1、1、5、5与3、3、3、3同得3.00，却不表示同样的逐题反应；均值不能恢复答案、确定原因或成为单一强度。各组不相加、不抵扣、不排名、不派首要罪或美德，相同数字只说明算术相同。文化名称仅是隐喻，四枢德与三神学美德等传统不等于本七组计分，不提供科学验证或宗教背书。未建立常模、信效度、公平性、预测或中英等值。七篇公开全文无需作答即可读；复制只含公开标题及入口。现有页面内存、自选24小时标签页草稿及完成、重测、退出清除保持不变。",
+          "en": "FermatMind Editorial authored these additions. The original 28 Chinese statements and new working English remain. Rate currently confirmable endorsement 1–5; three, uncertain or depends on the situation, remains numeric rather than Sometimes, neutrality or missingness. No recall window is added. Seven groups of four are direct-scored without reversal or NA. All 28 must be valid before any personal sum, mean or interpretation; missingness supplies no zero or midpoint. Divide each sum, 4–20, by four and show two decimals, retaining quarter steps such as 1.25. Responses 1, 1, 5, 5 and 3, 3, 3, 3 both give 3.00 without equal item responses. Means reconstruct neither answers nor causes nor one underlying intensity. Groups are never totalled, offset, ranked or assigned as leading sins or virtues; equal numbers establish arithmetic equality only. Cultural metaphors, including traditions of four cardinal and three theological virtues, neither define these seven scoring groups nor supply scientific validation or religious endorsement. Norms, reliability, validity, fairness, prediction and language equivalence are unestablished. All seven full public readings need no answers; copying includes only the public title and entry. Existing page memory, optional 24-hour tab drafts and completion, retake and exit clearing remain unchanged."
+        }
+      ]
+    }
+  ],
+  "anger-reading": [
+    {
+      "id": "context",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境：虚构读者解释计划时被打断，注意到紧绷，也决定稍后再说。情绪信号、打断经过和回应选择各有信息，合在一起不成为脾气或暴力读数。暂停并不要求继续谈话，涉及真实伤害时也无需为表现耐心而留下。",
+          "en": "In an additional scene, a fictional reader notices tension after an interruption and decides to speak later. The signal, interruption and response choice each contain different information; their aggregate is no temper or violence readout. Pausing creates no requirement to resume, and actual harm needs no endurance in the name of patience."
+        }
+      ]
+    },
+    {
+      "id": "choice",
+      "title": {
+        "zh": "可选讨论提示",
+        "en": "An optional discussion prompt"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“发生了什么、读者留意到什么信号，暂停和继续是否都是自愿选择？”可以只读或讨论虚构人物，先区分事实、解释与未知。不要求交换答案、争取美德评价、披露资源或证明边界；任何人都可以不参与，讨论也不必达成同一理解。",
+          "en": "An optional discussion prompt asks: “What happened, what signal did the reader notice, and are pausing and continuing both voluntary choices?” Read alone or discuss the fictional reader, separating facts, interpretations and unknowns. No exchange of answers, pursuit of a virtue rating, disclosure of resources or proof of boundaries is required. Participation and agreement remain optional."
+        }
+      ]
+    },
+    {
+      "id": "edition",
+      "title": {
+        "zh": "补充读法与来源边界",
+        "en": "Additional method and source limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境和讨论提示由费马测试编辑部原创。保留小程序28条中文陈述及新工作英译；按目前可确认的符合程度选择1至5，3“不确定或视情况”仍为数字，不是有时、中立或缺答，不新增回顾期限。七组各四题直接计入，无反向、无NA；28项全部有效才显示任何个人和、均值与解释，缺答不补零或中点。每组原始和4—20除以四，显示两位小数，保留1.25等四分之一步长。1、1、5、5与3、3、3、3同得3.00，却不表示同样的逐题反应；均值不能恢复答案、确定原因或成为单一强度。各组不相加、不抵扣、不排名、不派首要罪或美德，相同数字只说明算术相同。文化名称仅是隐喻，四枢德与三神学美德等传统不等于本七组计分，不提供科学验证或宗教背书。未建立常模、信效度、公平性、预测或中英等值。七篇公开全文无需作答即可读；复制只含公开标题及入口。现有页面内存、自选24小时标签页草稿及完成、重测、退出清除保持不变。",
+          "en": "FermatMind Editorial authored these additions. The original 28 Chinese statements and new working English remain. Rate currently confirmable endorsement 1–5; three, uncertain or depends on the situation, remains numeric rather than Sometimes, neutrality or missingness. No recall window is added. Seven groups of four are direct-scored without reversal or NA. All 28 must be valid before any personal sum, mean or interpretation; missingness supplies no zero or midpoint. Divide each sum, 4–20, by four and show two decimals, retaining quarter steps such as 1.25. Responses 1, 1, 5, 5 and 3, 3, 3, 3 both give 3.00 without equal item responses. Means reconstruct neither answers nor causes nor one underlying intensity. Groups are never totalled, offset, ranked or assigned as leading sins or virtues; equal numbers establish arithmetic equality only. Cultural metaphors, including traditions of four cardinal and three theological virtues, neither define these seven scoring groups nor supply scientific validation or religious endorsement. Norms, reliability, validity, fairness, prediction and language equivalence are unestablished. All seven full public readings need no answers; copying includes only the public title and entry. Existing page memory, optional 24-hour tab drafts and completion, retake and exit clearing remain unchanged."
+        }
+      ]
+    }
+  ],
+  "starting-rest-reading": [
+    {
+      "id": "context",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境：虚构读者疲惫时面对“整理全部文件”的任务，想先问清用途，再决定处理第一份文件或休息。任务清楚程度、恢复需要和降低门槛是不同信息，都可能进入四题均值。数字不能裁定谁懒惰，也不能确定休息够不够或延后的原因。",
+          "en": "In an additional scene, a tired fictional reader faces “organise every file,” considers clarifying the purpose, and may handle one document or rest. Task clarity, recovery needs and making a first step easier differ, yet can all enter the mean. A number determines neither laziness, sufficient rest nor the cause of delay."
+        }
+      ]
+    },
+    {
+      "id": "choice",
+      "title": {
+        "zh": "可选讨论提示",
+        "en": "An optional discussion prompt"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“任务用途和第一步是否清楚，哪些条件可改变，是否仍需要休息？”可以只读或讨论虚构人物，先区分事实、解释与未知。不要求交换答案、争取美德评价、披露资源或证明边界；任何人都可以不参与，讨论也不必达成同一理解。",
+          "en": "An optional discussion prompt asks: “Are the task’s purpose and first step clear, which conditions can change, and is rest still needed?” Read alone or discuss the fictional reader, separating facts, interpretations and unknowns. No exchange of answers, pursuit of a virtue rating, disclosure of resources or proof of boundaries is required. Participation and agreement remain optional."
+        }
+      ]
+    },
+    {
+      "id": "edition",
+      "title": {
+        "zh": "补充读法与来源边界",
+        "en": "Additional method and source limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境和讨论提示由费马测试编辑部原创。保留小程序28条中文陈述及新工作英译；按目前可确认的符合程度选择1至5，3“不确定或视情况”仍为数字，不是有时、中立或缺答，不新增回顾期限。七组各四题直接计入，无反向、无NA；28项全部有效才显示任何个人和、均值与解释，缺答不补零或中点。每组原始和4—20除以四，显示两位小数，保留1.25等四分之一步长。1、1、5、5与3、3、3、3同得3.00，却不表示同样的逐题反应；均值不能恢复答案、确定原因或成为单一强度。各组不相加、不抵扣、不排名、不派首要罪或美德，相同数字只说明算术相同。文化名称仅是隐喻，四枢德与三神学美德等传统不等于本七组计分，不提供科学验证或宗教背书。未建立常模、信效度、公平性、预测或中英等值。七篇公开全文无需作答即可读；复制只含公开标题及入口。现有页面内存、自选24小时标签页草稿及完成、重测、退出清除保持不变。",
+          "en": "FermatMind Editorial authored these additions. The original 28 Chinese statements and new working English remain. Rate currently confirmable endorsement 1–5; three, uncertain or depends on the situation, remains numeric rather than Sometimes, neutrality or missingness. No recall window is added. Seven groups of four are direct-scored without reversal or NA. All 28 must be valid before any personal sum, mean or interpretation; missingness supplies no zero or midpoint. Divide each sum, 4–20, by four and show two decimals, retaining quarter steps such as 1.25. Responses 1, 1, 5, 5 and 3, 3, 3, 3 both give 3.00 without equal item responses. Means reconstruct neither answers nor causes nor one underlying intensity. Groups are never totalled, offset, ranked or assigned as leading sins or virtues; equal numbers establish arithmetic equality only. Cultural metaphors, including traditions of four cardinal and three theological virtues, neither define these seven scoring groups nor supply scientific validation or religious endorsement. Norms, reliability, validity, fairness, prediction and language equivalence are unestablished. All seven full public readings need no answers; copying includes only the public title and entry. Existing page memory, optional 24-hour tab drafts and completion, retake and exit clearing remain unchanged."
+        }
+      ]
+    }
+  ]
+}

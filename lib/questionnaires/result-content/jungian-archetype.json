@@ -1,0 +1,494 @@
+{
+  "innocent": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同一个场景，可能有不同动机",
+        "en": "Different motives in the same situation"
+      },
+      "paragraphs": [
+        {
+          "zh": "一起设一个周末旧书角，你可能先问：“能否只保留选一本书、留一句话这两个简单入口？”若另一位伙伴更在意所有水平都能加入，那更接近平凡者线索；若更在意某个人需要怎样协助，则接近照顾者。相同的友善安排，可以来自不同关注。",
+          "en": "For a weekend book corner, you might ask: “Could we keep two simple ways to join: choose a book or leave a sentence?” A companion focusing on participation at every experience level may fit the Everyperson angle; one focusing on a specific support need may fit Caregiver. Similar friendly arrangements can have different motives."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "小练习之后怎样回看",
+        "en": "Reviewing the small experiment"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的简化尝试：真正减少了哪个多余要求，仍需说明的信息有没有保留，参与者是否觉得更容易开始？若有人仍有顾虑，先了解它指向的条件，不用把疑问当成不信任。简单可信要靠具体安排，不靠大家表现得乐观。",
+          "en": "After the simplification trial above, review which unnecessary demand was reduced, whether essential information remained and whether starting felt easier. Ask about remaining concerns rather than interpreting questions as distrust. Simple, trustworthy arrangements need practical support rather than visible optimism."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "把原型线索变成一次交流",
+        "en": "Turn an archetype cue into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以说：“这次纯真者是我的最高线索之一。我想保留事情简单可信的部分，也想知道哪些说明不能省。你觉得怎样的起点比较安心？”这是本版选择线索，不是纯洁、天真程度或是否值得信任的认证。",
+          "en": "Try: “Innocent was among my highest cues. I want to retain what is simple and trustworthy while clarifying what cannot be omitted. What makes a start feel reassuring for you?” This is an edition-specific choice cue, without certifying purity, naivety or trustworthiness."
+        }
+      ]
+    }
+  ],
+  "sage": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同一个场景，可能有不同动机",
+        "en": "Different motives in the same situation"
+      },
+      "paragraphs": [
+        {
+          "zh": "同一个旧书角，智者线索可以先问书目介绍的依据是什么、哪些评价只是个人感受；统治者线索更先问怎样安排借还；魔法师线索则想把分开的内容接成新体验。不是哪一种更会思考，而是这一刻把哪个问题放前面。",
+          "en": "At the same book corner, Sage can ask what supports a book description and which comments are personal impressions; Ruler can ask about borrowing arrangements; Magician can connect separate material into another experience. These differ in the question prioritised, rather than who thinks better."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "小练习之后怎样回看",
+        "en": "Reviewing the small experiment"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的已知、推测与待确认三栏：找到的信息是否改变当前选择，你能否用普通语言说明仍不确定的部分？若资料暂时得不到，可以保留问题并约定回看，不用把所有空白都填成一个听起来完整的解释。",
+          "en": "Review the known, assumed and open-question columns above: did new information affect the choice, and can you explain remaining uncertainty plainly? If information is unavailable, keep the question and a review point instead of filling every gap with a complete-sounding explanation."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "把原型线索变成一次交流",
+        "en": "Turn an archetype cue into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以说：“这次智者是我的最高线索之一。我想把已知和猜测分开，但也想知道你现在更需要资料还是先被听见。”朋友不必把每段经历都变成证据讨论，你也不需要凭结果证明自己比别人更客观。",
+          "en": "Try: “Sage was among my highest cues. I want to separate knowledge from guesses, and also ask whether you need information or listening first.” A friend need not turn every experience into an evidence discussion, and the result does not establish greater objectivity."
+        }
+      ]
+    }
+  ],
+  "explorer": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同一个场景，可能有不同动机",
+        "en": "Different motives in the same situation"
+      },
+      "paragraphs": [
+        {
+          "zh": "在旧书角，你可能想先翻一类从未读过的主题；创造者可能更想做一张自己的书签，反叛者可能更想讨论为什么只能按某种方式参加。走向未知、做出表达与质疑要求是不同入口，可以在同一次活动中先后出现。",
+          "en": "At the book corner, you might browse an unfamiliar subject; Creator might make a personal bookmark; Rebel might question a required way to participate. Approaching the unknown, making an expression and questioning a requirement are separate entry points that can occur in one activity."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "小练习之后怎样回看",
+        "en": "Reviewing the small experiment"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的短时探索：原先想知道的问题有没有更清楚，新线索是否还值得继续，已经答应的部分是否得到回应？发现不感兴趣也有信息价值。可以回到原计划，不必不断换新方向来维持探索者形象。",
+          "en": "After the bounded exploration above, ask whether your initial question became clearer, the new lead warrants more time and existing commitments were addressed. Losing interest is informative too. You may return to the original plan without maintaining an image through constant novelty."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "把原型线索变成一次交流",
+        "en": "Turn an archetype cue into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以说：“这次探索者是我的最高线索之一。我想给一个陌生问题留一点空间，也把共同安排说清。你更喜欢先亲自看看，还是先听别人介绍？”选择哪一种都不决定勇气、开放程度或生活是否精彩。",
+          "en": "Try: “Explorer was among my highest cues. I want room for an unfamiliar question while keeping shared plans clear. Would you rather look directly or hear an introduction first?” Neither choice ranks courage, openness or an interesting life."
+        }
+      ]
+    }
+  ],
+  "rebel": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同一个场景，可能有不同动机",
+        "en": "Different motives in the same situation"
+      },
+      "paragraphs": [
+        {
+          "zh": "旧书角原本要求每个人当众讲一段，你想问是否可以写下来或只旁听。这里是在重新讨论一项默认要求；探索者可能只是想换个主题，创造者可能想做出另一种材料。先说清希望改什么，比把不同意见都叫反叛更具体。",
+          "en": "If the book corner expects everyone to speak publicly, you might ask about writing or listening instead. This questions a default requirement; Explorer might simply seek another subject, and Creator another material to make. State the change rather than labelling every different opinion rebellion."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "小练习之后怎样回看",
+        "en": "Reviewing the small experiment"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的惯例替代尝试：旧要求原来在解决什么问题，新方案有没有回应它，受影响的人是否愿意？若试行不合适，可以修改或保留部分旧办法。练习不要求反对得更彻底，也不把接受反馈看成失去原则。",
+          "en": "After the alternative-to-a-routine trial above, review the original purpose, whether the alternative addresses it and whether affected people want it. You may revise or retain part of the old approach. The exercise requires neither stronger opposition nor treating feedback as lost principles."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "把原型线索变成一次交流",
+        "en": "Turn an archetype cue into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以说：“这次反叛者是我的最高线索之一。我想重新问一项默认要求是否还需要，也说明自己愿意继续承担什么。”这不是反叛能力或政治立场判断，更不能让不同意见自动免于说明实际影响。",
+          "en": "Try: “Rebel was among my highest cues. I want to ask whether a default requirement is still needed and state what I will keep taking on.” This judges neither rebellious ability nor political views, and does not remove the need to explain actual effects."
+        }
+      ]
+    }
+  ],
+  "magician": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同一个场景，可能有不同动机",
+        "en": "Different motives in the same situation"
+      },
+      "paragraphs": [
+        {
+          "zh": "旧书角有读者留言与街区地图，你想试着把两者接起来，让每段推荐多一个可理解的地点线索。创造者可能更在意卡片本身怎样表达，智者可能先核对关联是否成立。这里的魔法是叙事名称，实际只是在提出可检查的连接。",
+          "en": "At the book corner, reader notes and a neighbourhood map might be connected so each recommendation gains a location cue. Creator might focus on the card’s expression; Sage on whether the connection is supported. Magician is a narrative name for a proposed, checkable connection."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "小练习之后怎样回看",
+        "en": "Reviewing the small experiment"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的重组小试行：你预计改变什么，实际出现什么，有没有不符合假设的反馈？可以保留不成功的发现，不用靠更宏大的解释救回原设想。参与者不愿采用，也不代表他们缺少洞察。",
+          "en": "After the small recombination trial above, compare the expected change with what happened and feedback that did not fit. Keep an unsuccessful finding without rescuing the idea through a grander explanation. Declining the approach does not establish a lack of insight."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "把原型线索变成一次交流",
+        "en": "Turn an archetype cue into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以说：“这次魔法师是我的最高线索之一。我想试着连接两个原本分开的部分，再看是否真的有帮助。你愿意帮我指出哪里说不通吗？”这是可修改的设想，不是预言、治愈或特殊觉醒的证明。",
+          "en": "Try: “Magician was among my highest cues. I want to connect two separate parts and see whether it helps. Would you point out what does not make sense?” This is a revisable idea, without proving prophecy, healing or special awakening."
+        }
+      ]
+    }
+  ],
+  "hero": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同一个场景，可能有不同动机",
+        "en": "Different motives in the same situation"
+      },
+      "paragraphs": [
+        {
+          "zh": "在旧书角，你可能想练会一个暂时不熟的装订步骤；照顾者可能先问谁需要协助，统治者可能先安排材料与交接。挑战、支持和协调可以共同出现，不由原型来指定谁最能干或谁必须处理最难的一项。",
+          "en": "At the book corner, you might practise an unfamiliar binding step; Caregiver might ask who needs help; Ruler might arrange materials and handovers. Challenge, support and coordination can coexist, without an archetype assigning ability or the hardest task."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "小练习之后怎样回看",
+        "en": "Reviewing the small experiment"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的小难点练习：哪个步骤更熟悉，哪里仍需要示范，停止时间到了有没有停下？也记录是否仍想继续。没有突破不等于投入无价值，寻求帮助也不与认真练习矛盾；无需把同伴变成必须被你救场的人。",
+          "en": "After the small-difficulty practice above, note which step became familiar, where demonstration is still needed and whether you stopped as planned. Include whether you want to continue. No breakthrough does not negate effort; help can support practice without making companions people to rescue."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "把原型线索变成一次交流",
+        "en": "Turn an archetype cue into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以说：“这次英雄是我的最高线索之一。我想认真练一个自己愿意投入的小难点，也会说明需要什么支持。你这次想练习，还是只轻松参与？”它不认证勇敢、抗压或比别人更值得肯定。",
+          "en": "Try: “Hero was among my highest cues. I want to practise a small difficulty I choose and state the support I need. Would you like practice or casual participation this time?” This certifies neither courage, stress tolerance nor greater worth."
+        }
+      ]
+    }
+  ],
+  "lover": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同一个场景，可能有不同动机",
+        "en": "Different motives in the same situation"
+      },
+      "paragraphs": [
+        {
+          "zh": "在旧书角，你想为一位愿意的朋友挑一句贴合共同记忆的推荐。照顾者可能更关注他需要怎样的实际帮助，平凡者可能更关注大家都能自在加入。专注一段联系不必排斥平等参与，也不要求对象一定是伴侣。",
+          "en": "At the book corner, you might choose a recommendation linked to a shared memory with a willing friend. Caregiver might focus on practical support; Everyperson on participation for everyone. Attention to one connection need not exclude equal participation or require a romantic partner."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "小练习之后怎样回看",
+        "en": "Reviewing the small experiment"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的专注时间：你原本在意哪个细节，对方认为有用或不需要的是什么，自己是否仍有余力？不要把没有立即回应等同于不被珍惜。个人化表达可以调整形式，不用靠投入更多来证明联系特别。",
+          "en": "After the focused time above, review the detail you valued, what the other person found useful or unnecessary and your remaining capacity. A delayed response does not establish lack of appreciation. Personal expression can change form without escalating effort to prove a special connection."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "把原型线索变成一次交流",
+        "en": "Turn an archetype cue into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以说：“这次恋人是我的最高线索之一，我想把对人或兴趣的在意表达得具体一点。你希望别人记住什么小细节？”可以只谈书、地方或爱好，不必披露关系状态；结果也不评价谁更会爱人。",
+          "en": "Try: “Lover was among my highest cues. I want to express care for a person or interest specifically. Which small detail would you like remembered?” You can discuss books, places or hobbies without relationship disclosure or ranking who loves better."
+        }
+      ]
+    }
+  ],
+  "jester": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同一个场景，可能有不同动机",
+        "en": "Different motives in the same situation"
+      },
+      "paragraphs": [
+        {
+          "zh": "在旧书角，你想加一个自愿的书名接龙，允许只看也允许随时停。创造者可能更想留下一个作品，纯真者可能更想把参与入口保持简单。玩趣不等于表演才能，别人更想认真谈书时也可以保留不同节奏。",
+          "en": "At the book corner, you might offer a voluntary title-chain game, allowing watching or stopping. Creator might want an artefact; Innocent a simple entry point. Playfulness is not performance ability, and someone wanting a serious book discussion can keep a different pace."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "小练习之后怎样回看",
+        "en": "Reviewing the small experiment"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的自由试验：大家是否真的能拒绝，哪些部分有趣，是否有认真需求被带过去？直接听不喜欢的意见，不要求对方证明自己有幽默感。没让所有人笑也不代表失败；本来就不需要为全场开心负责。",
+          "en": "After the open-play trial above, check whether declining was real, what was enjoyable and whether a serious need was overlooked. Hear negative feedback without demanding humour. Not making everyone laugh is not failure; universal enjoyment is not your responsibility."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "把原型线索变成一次交流",
+        "en": "Turn an archetype cue into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以说：“这次弄臣是我的最高线索之一。我想给合适的玩趣留一点空间，但不拿任何人当笑点。你现在想轻松一下，还是继续认真说？”这个问题允许两种回答，也不把安静或难过当作需要马上纠正。",
+          "en": "Try: “Jester was among my highest cues. I want room for appropriate play without making anyone the joke. Would you prefer levity or continuing seriously?” Both answers are welcome, without treating quietness or sadness as something to correct immediately."
+        }
+      ]
+    }
+  ],
+  "everyperson": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同一个场景，可能有不同动机",
+        "en": "Different motives in the same situation"
+      },
+      "paragraphs": [
+        {
+          "zh": "在旧书角，你可能想和新来的人并肩整理一小摞书，让不熟悉的人也能以普通方式加入。照顾者可能先提供一项被需要的帮助，恋人可能先留意某段具体联系。归属不是强迫合群，也不要求参与者隐藏差异。",
+          "en": "At the book corner, you might sort a small stack alongside someone new so beginners can join ordinarily. Caregiver might offer requested help; Lover might attend to a particular connection. Belonging requires neither compulsory sociability nor hiding differences."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "小练习之后怎样回看",
+        "en": "Reviewing the small experiment"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的普通贡献与真实偏好尝试：自己有没有既参与又说出不同需要，别人是否理解，哪些条件还要调整？若不想加入全部环节，可以明确范围。是否被邀请上台、是否表现突出，都不决定归属的价值。",
+          "en": "After offering an ordinary contribution and a real preference above, ask whether you joined while expressing a difference, were understood and need an adjustment. You may limit participation. Visibility or standout performance does not determine the value of belonging."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "把原型线索变成一次交流",
+        "en": "Turn an archetype cue into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以说：“这次平凡者是我的最高线索之一。我想让普通参与也有位置，同时保留每个人不同的偏好。你更喜欢怎样加入一个新活动？”平凡不评价能力、成就或个性，也不意味着谁应当随大流。",
+          "en": "Try: “Everyperson was among my highest cues. I want room for ordinary participation and different preferences. How do you like joining a new activity?” Everyperson judges neither ability, achievement nor individuality, and requires no conformity."
+        }
+      ]
+    }
+  ],
+  "caregiver": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同一个场景，可能有不同动机",
+        "en": "Different motives in the same situation"
+      },
+      "paragraphs": [
+        {
+          "zh": "旧书角有人提出需要一种更方便查看介绍的方式，你可以先问具体困难，再说自己愿意改哪一页。英雄可能更先关注难点怎样练会，恋人可能更先关注对方特别在意的细节。同一项帮助可能有多种理由，先询问比用原型猜需要更清楚。",
+          "en": "If someone at the book corner requests an easier way to view descriptions, ask about the difficulty and offer a page you can adapt. Hero might focus on learning a difficult step; Lover on a meaningful detail. Help can have several motives, so asking is clearer than inferring needs from a label."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "小练习之后怎样回看",
+        "en": "Reviewing the small experiment"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的有限帮助：对方是否愿意接受，实际需要有没有被回应，完成后自己是否仍舒服？若形式不合适，可以重新商量，不能只靠帮助者的好意判断有用。也允许说这部分超出余力，而不另找更多工作证明关心。",
+          "en": "After the limited help above, review acceptance, the actual need and your comfort afterwards. If the format did not fit, discuss it again rather than judging usefulness from goodwill alone. You may state insufficient capacity without finding more work to prove care."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "把原型线索变成一次交流",
+        "en": "Turn an archetype cue into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以说：“这次照顾者是我的最高线索之一。我想先问需要什么，再说清自己能做多少。你希望我示范、一起做，还是先不帮？”这不代表专业照护资格，也不让任何一方承担接受帮助或持续照顾的义务。",
+          "en": "Try: “Caregiver was among my highest cues. I want to ask what is needed and state my capacity. Would you prefer a demonstration, doing it together or no help for now?” This establishes no professional care qualification or obligation to accept help or keep providing it."
+        }
+      ]
+    }
+  ],
+  "ruler": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同一个场景，可能有不同动机",
+        "en": "Different motives in the same situation"
+      },
+      "paragraphs": [
+        {
+          "zh": "在旧书角，你可能想把借还、材料与交接写成一张可修改的小表；英雄可能想接下一个具体难点，智者可能想先理解资料依据。组织与理解都可以由普通参与者提出，不由统治者名称分配高低位置或最后决定权。",
+          "en": "At the book corner, you might draft an editable note on borrowing, materials and handovers. Hero might take a specific difficulty; Sage might check evidence. Ordinary participants can suggest organisation or understanding, without Ruler assigning rank or final authority."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "小练习之后怎样回看",
+        "en": "Reviewing the small experiment"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的共同安排草案：相关的人是否真正确认，谁知道怎样提出变更，哪些步骤没有帮助？删掉无用部分，也听自己没预料到的限制。顺利不只等于按原计划完成；必要时可修改同样是安排的一部分。",
+          "en": "After the shared-plan draft above, review actual agreement, how changes could be raised and steps that did not help. Remove unnecessary parts and hear missed constraints. Working well need not mean following the first plan; necessary revision belongs in the arrangement too."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "把原型线索变成一次交流",
+        "en": "Turn an archetype cue into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以说：“这次统治者是我的最高线索之一。我想让资源和责任容易衔接，也让改变有说法。哪些需要一起确认，哪些可以各自决定？”这不是领导资格，也不意味着得到这一结果的人应当管理别人。",
+          "en": "Try: “Ruler was among my highest cues. I want resources and responsibilities to connect clearly, with a way to change them. What needs agreement and what can each person decide?” This establishes no leadership qualification or right to manage others."
+        }
+      ]
+    }
+  ],
+  "creator": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同一个场景，可能有不同动机",
+        "en": "Different motives in the same situation"
+      },
+      "paragraphs": [
+        {
+          "zh": "在旧书角，你可能想做一张有自己构想的介绍卡；探索者可能先接触新主题，魔法师可能把卡片与别的活动连接，弄臣可能只享受尝试的过程。成品可以同时包含这些动机，是否漂亮不决定是哪一个。",
+          "en": "At the book corner, you might make a card expressing your idea. Explorer might approach a new subject, Magician connect it to another activity and Jester enjoy trying. An artefact can involve several motives; attractiveness does not identify one."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "小练习之后怎样回看",
+        "en": "Reviewing the small experiment"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的粗样：它回应的那个目的是否清楚，使用者哪里困惑，你愿意只改哪一项？保留第一版也可以，不必为了每条意见重新制作。反馈可以帮助表达接上使用情境，而不把作品评价等同于个人价值。",
+          "en": "After the rough version above, review whether its purpose was clear, where users were confused and one change you want to make. Keeping the first version is an option; every comment need not trigger a remake. Feedback connects expression to use without equating an artefact’s rating with personal worth."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "把原型线索变成一次交流",
+        "en": "Turn an archetype cue into a conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以说：“这次创造者是我的最高线索之一。我想把一个小构想做成看得见的版本，再听哪里清楚、哪里困惑。你愿意先看粗样吗？”可以不发布、不求点赞；这个线索不认证艺术天赋、创新能力或作品质量。",
+          "en": "Try: “Creator was among my highest cues. I want to make a small idea visible and hear what is clear or confusing. Would you look at a rough version?” Publishing and likes are optional; the cue certifies neither artistic talent, innovation nor quality."
+        }
+      ]
+    }
+  ]
+}

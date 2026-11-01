@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import type { MentalAgeResult } from "@/lib/questionnaires/mentalAge";
 import type { Locale } from "@/lib/i18n/locales";
 
-export function QuestionnaireMentalAgeReport({ quiz, result, answers, locale }: {
-  quiz: Questionnaire; result: Extract<MentalAgeResult, { status: "complete" }>; answers: QuestionnaireAnswers; locale: Locale;
+export function QuestionnaireMentalAgeReport({ quiz, result, answers, locale, readingProfile }: {
+  quiz: Questionnaire; result: Extract<MentalAgeResult, { status: "complete" }>; answers: QuestionnaireAnswers; locale: Locale; readingProfile?: Questionnaire["profiles"][number];
 }) {
   const zh = locale === "zh", { sum, playfulAge, points } = result.mentalAge, profile = quiz.profiles[0];
   return <div className="mt-6 space-y-8" data-mental-age-report="">
@@ -19,7 +19,7 @@ export function QuestionnaireMentalAgeReport({ quiz, result, answers, locale }: 
       <ol className="mt-4 list-decimal space-y-4 pl-5">{quiz.questions.map(q => <li key={q.id} data-mental-age-answer={q.id}><p>{q.prompt[locale]}</p><p className="font-semibold">{q.options.find(o => o.id === answers[q.id])?.label[locale]} — {points[q.id]}{zh ? "点" : " points"}</p></li>)}</ol>
     </details>
     <section aria-labelledby="mental-age-full-guide" className="rounded-lg border border-slate-200 p-4 sm:p-6"><h3 id="mental-age-full-guide" className="text-2xl font-semibold">{profile.title[locale]}</h3>
-      <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix="report" />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile?.id === profile.id && readingProfile.resultReading?.quizSlug === quiz.slug && readingProfile.resultReading.profileId === profile.id ? readingProfile : profile} locale={locale} headingLevel={4} idPrefix="report" />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读不含个人年龄的公开完整指南" : "Read the complete public guide without your personal age"}</Link>
     </section>
   </div>;

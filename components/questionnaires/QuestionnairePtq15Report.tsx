@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { Ptq15Result } from "@/lib/questionnaires/ptq15";
@@ -27,7 +27,7 @@ export function QuestionnairePtq15Report({ quiz, result, locale }: {
         {row.sum === null && <p className="mb-4 text-sm leading-7 text-slate-600">{zh
           ? "不计分不补零、不按比例估算，也不表示症状缺乏或严重；其他完整部分分别保留。以下指南为通用读法。"
           : "Unscored answers are not zero-filled, prorated or interpreted as absence or severity. Other complete parts remain separate. The guide below is general reading."}</p>}
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`ptq15-report-${row.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`ptq15-report-${row.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline"
           href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本项完整公开指南" : "Read this part’s full public guide"}</Link>
       </section>;

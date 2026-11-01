@@ -1,0 +1,182 @@
+{
+  "grammar": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：改变数量，核对整个名词短语",
+        "en": "Practise a number change across a noun phrase"
+      },
+      "paragraphs": [
+        {
+          "zh": "比较自拟短语la tarjeta pequeña与las tarjetas pequeñas。一个变多个时，限定词、名词和这个形容词都要检查，不能只改最末尾。另可用已核动词表比较Yo preparo un mapa与Nosotros preparamos un mapa。两组只分别改变一个条件，不新增计分，也不概括所有形容词和动词的变化规则。",
+          "en": "Compare the original phrases la tarjeta pequeña and las tarjetas pequeñas. Changing one to several requires checking determiner, noun and this adjective rather than only the last ending. Separately, a checked verb table supports Yo preparo un mapa and Nosotros preparamos un mapa. Each contrast changes one condition. These examples are unscored and are not rules for every adjective or verb."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：数、指代与所要求的形式分别写清",
+        "en": "Review number, reference and the requested form separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "把一处错题的明确要求抄成短注，如“这个主语的直陈式现在时”或“这个名词的阴性复数”。再对照自己所选形式，指出具体不同，而不只记没背熟。可查参考、只看或换例子。看答案后重做可能是记忆，不以一次改写评总体语言水平、智力或地区用法高低。",
+          "en": "Write a brief note of one item’s explicit requirement, such as present indicative for its subject or feminine plural for its noun. Compare your chosen form and identify the difference rather than only recording poor recall. Consult a reference, observe or change examples. Repetition after an answer may reflect memory; one rewrite ranks neither overall proficiency, intelligence nor regional usage."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起核依据，自愿展示练习",
+        "en": "Check evidence together with optional practice sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果把一张小卡片改成多张，怎样逐项检查la tarjeta pequeña的三个部分，而不是只改最后一个词？”各拟一个解释，再对照自写句和参考。可只看、查资料、换例子或不回答，无需比赛、计时或现场口语表现。",
+          "en": "Ask: “If one small card became several, how would you check all three parts of la tarjeta pequeña rather than only the final word?” Suggest an explanation each and check the original examples and reference. Observe, consult a source, change examples or decline without competition, timing or live speaking."
+        },
+        {
+          "zh": "可分享不含答卷与正确数的公开指南。四组是本版复习主题，不是人格类型、语言等级或招聘资格；不要要求展示错题、成绩、学习困难、私人邮件或病史，也不据此给同学同事贴标签。核对形式和词义不等于心理测量验证。",
+          "en": "Share the public guide without answers or correct counts. Four groups organise revision rather than personality types, language levels or hiring qualifications. Request no errors, grades, learning difficulties, private emails or medical history, and label no classmates or colleagues. Checking forms and meanings is separate from psychometric validation."
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：可选参加不等于取消活动",
+        "en": "Practise optional participation without cancelling an event"
+      },
+      "paragraphs": [
+        {
+          "zh": "自拟通知El paseo es opcional。可说明每人决定是否参加，不能改成无人能参加、人人必须参加或活动取消。再写一句还不知道的信息，例如通知没有说明路线。这个词只解决参与是否必需，不替你补全其他安排，也不规定真实预约的权利。",
+          "en": "Use the original notice El paseo es opcional. It leaves participation to each person without forbidding attendance, requiring everyone or cancelling the event. Name another unresolved detail, such as the route not being supplied. The word addresses whether participation is required; it fills no other arrangements and establishes no rights for a real booking."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：本句义项与没有给出的事实分开",
+        "en": "Review the contextual sense separately from missing facts"
+      },
+      "paragraphs": [
+        {
+          "zh": "选一个目标词，先用自己的话解释本句意思，再写一项它没有证明的事。查词典时核相关义项，不把人疲惫与票用尽等不同语境混同。可用新自拟句再试，不搬词典例句；认出这六个词不证明完整词汇量、即时会话或DELE、SIELE、CEFR等级。",
+          "en": "For a target word, explain its contextual meaning and name a fact it does not establish. Check the relevant dictionary sense rather than mixing a person’s exhaustion with exhausted ticket supply. Try a fresh original sentence without copying dictionary examples. Recognising six words establishes neither vocabulary size, spontaneous conversation nor a DELE, SIELE or CEFR level."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起核依据，自愿展示练习",
+        "en": "Check evidence together with optional practice sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果通知只说opcional，你能确定参与的哪一点，又不能替它补出哪些安排？”各拟一个解释，再对照自写句和参考。可只看、查资料、换例子或不回答，无需比赛、计时或现场口语表现。",
+          "en": "Ask: “If a notice said only opcional, what could you establish about participation and which arrangements would remain unknown?” Suggest an explanation each and check the original examples and reference. Observe, consult a source, change examples or decline without competition, timing or live speaking."
+        },
+        {
+          "zh": "可分享不含答卷与正确数的公开指南。四组是本版复习主题，不是人格类型、语言等级或招聘资格；不要要求展示错题、成绩、学习困难、私人邮件或病史，也不据此给同学同事贴标签。核对形式和词义不等于心理测量验证。",
+          "en": "Share the public guide without answers or correct counts. Four groups organise revision rather than personality types, language levels or hiring qualifications. Request no errors, grades, learning difficulties, private emails or medical history, and label no classmates or colleagues. Checking forms and meanings is separate from psychometric validation."
+        }
+      ]
+    }
+  ],
+  "reading": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：开始时间与结束时间分别核",
+        "en": "Practise separating the start from the ending"
+      },
+      "paragraphs": [
+        {
+          "zh": "自拟通知La reunión empieza a las once en la sala 6. El aviso no indica cuándo termina。能记录11点、6号房间，却不能推出12点结束或持续一小时。先列原文支持的两项，再把结束时间记未知。例子是语言练习，不是实际日程，不要求参会或猜某地通常习惯。",
+          "en": "Use the original notice La reunión empieza a las once en la sala 6. El aviso no indica cuándo termina. It supplies eleven o’clock and room 6, not a noon ending or a one-hour duration. List the two supported details and mark the ending unknown. This is language practice rather than an actual schedule, with no attendance or assumptions about local customs required."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：每个结论都带着原文范围",
+        "en": "Review each conclusion within the passage’s scope"
+      },
+      "paragraphs": [
+        {
+          "zh": "给自己的概括逐项标出依据，分开已陈述、被否定与尚未回答。顺序题保留每一步前后依赖，小试验结论保留人数和未测项目。可只检查一小段，不计时。读熟原文后换新通知，避免把背答案当阅读迁移，也不把缺乏因果证据写成绝无作用。",
+          "en": "Mark the support for each part of your summary, separating stated, contradicted and unanswered claims. Keep every ordering dependency and a trial’s participant count and unmeasured outcomes. Check a short passage without timing. Use a fresh notice after familiar material, without recall as demonstrated transfer or missing causal evidence as proof of no effect."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起核依据，自愿展示练习",
+        "en": "Check evidence together with optional practice sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果西语通知只给开始时间和房间，怎样报告已知内容，再明确说结束时间还不知道？”各拟一个解释，再对照自写句和参考。可只看、查资料、换例子或不回答，无需比赛、计时或现场口语表现。",
+          "en": "Ask: “If a Spanish notice gave only the start and room, how would you report those facts and explicitly retain an unknown ending?” Suggest an explanation each and check the original examples and reference. Observe, consult a source, change examples or decline without competition, timing or live speaking."
+        },
+        {
+          "zh": "可分享不含答卷与正确数的公开指南。四组是本版复习主题，不是人格类型、语言等级或招聘资格；不要要求展示错题、成绩、学习困难、私人邮件或病史，也不据此给同学同事贴标签。核对形式和词义不等于心理测量验证。",
+          "en": "Share the public guide without answers or correct counts. Four groups organise revision rather than personality types, language levels or hiring qualifications. Request no errors, grades, learning difficulties, private emails or medical history, and label no classmates or colleagues. Checking forms and meanings is separate from psychometric validation."
+        }
+      ]
+    }
+  ],
+  "functional": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：一条条件消息保留两条路径",
+        "en": "Practise both paths in a conditional message"
+      },
+      "paragraphs": [
+        {
+          "zh": "自拟Si llega la confirmación antes de las 12:00, enviamos la ficha. Si no llega, esperamos y pedimos otra fecha。分别核对及时确认才发送、否则等待并询问新日期；不能省掉未确认分支或编已批准。可只画两列，不发送消息。这是虚构任务，不代表真实组织流程。",
+          "en": "Use the original brief Si llega la confirmación antes de las 12:00, enviamos la ficha. Si no llega, esperamos y pedimos otra fecha. Preserve sending after timely confirmation and otherwise waiting while requesting another date. Omit no unconfirmed branch and invent no approval. Draw two columns without sending a message; the task prescribes no real organisational process."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：对象、数字、状态和条件逐项对照",
+        "en": "Review object, numbers, status and conditions separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "把回复与任务的文件、版本、收件人、时间和未决信息逐项比，找新增承诺或丢失条件。先核意思，再看长度和语气；未知日期应保留或问清，不为显得安心编答案。可只比较草稿，不用六次选项成绩判岗位准备、礼貌人格、听说能力或完整交际水平。",
+          "en": "Compare the reply with the brief’s file, version, recipient, time and unresolved detail, looking for added promises and omitted conditions. Check meaning before length and tone. Preserve or clarify an unknown date rather than inventing reassurance. Compare drafts without six selections as job readiness, personal politeness, listening and speaking or complete communicative ability."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起核依据，自愿展示练习",
+        "en": "Check evidence together with optional practice sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果确认没在截止前到来，怎样用一句概括保留等待与询问新日期，而不把状态改成已批准？”各拟一个解释，再对照自写句和参考。可只看、查资料、换例子或不回答，无需比赛、计时或现场口语表现。",
+          "en": "Ask: “If confirmation missed the deadline, how would one summary retain waiting and requesting another date without reporting approval?” Suggest an explanation each and check the original examples and reference. Observe, consult a source, change examples or decline without competition, timing or live speaking."
+        },
+        {
+          "zh": "可分享不含答卷与正确数的公开指南。四组是本版复习主题，不是人格类型、语言等级或招聘资格；不要要求展示错题、成绩、学习困难、私人邮件或病史，也不据此给同学同事贴标签。核对形式和词义不等于心理测量验证。",
+          "en": "Share the public guide without answers or correct counts. Four groups organise revision rather than personality types, language levels or hiring qualifications. Request no errors, grades, learning difficulties, private emails or medical history, and label no classmates or colleagues. Checking forms and meanings is separate from psychometric validation."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "secure": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同样是暂时没有联系",
+        "en": "The same interval without contact"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：两人约好晚上联系。白天各做各的事，晚上仍可以询问安排，适合用安全原型的角度讨论；一直想确认是否仍被重视，突出担心；本来想交流却转开话题，突出退缩。这里只比较情境里的两个方向，不把一次等待变成人的固定类别。",
+          "en": "In a fictional example, two people plan an evening conversation. Continuing separate activities while keeping the option to ask about arrangements illustrates the secure angle; repeatedly checking whether one still matters foregrounds worry; wanting to talk but turning away foregrounds distance. Compare two experiences in this situation rather than classify a person from one interval."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "安排之后，保留哪些调整",
+        "en": "What remains open after an arrangement?"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的小安排尝试，回看你是否真的说出了需要，对方是否也有提出不同方案的空间。一次顺利的交流不认证安全型；如果后来失约，仍应讨论那件事。可以同时保留自我安排与支持请求，不必为了符合“安全”而永远不担心或独自处理。",
+          "en": "After the small arrangement above, review whether you named your need and whether the other person could propose something different. One smooth exchange certifies no secure type. A later missed agreement still warrants discussion. Personal plans and requests for support can coexist without performing constant calm or handling everything alone."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个安排问题",
+        "en": "Share an arrangement question"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“各忙各的时，怎样约下一次联系会让双方都方便？计划变了，希望怎样告知？”这是关于具体安排的话题，不需要说“我是安全型”，也不要求对方公布分数。转发通用读法后，允许对方有不同体验，而不是用标签评判谁更成熟。",
+          "en": "Ask: “When we are both busy, what arrangement for reconnecting works for each of us, and how would we like changes communicated?” No secure-type declaration or score disclosure is needed. Someone reading this public guide may have a different experience; the label need not judge maturity."
+        }
+      ]
+    }
+  ],
+  "anxious": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "把发生、猜测与请求分开",
+        "en": "Separate events, interpretations and requests"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：约好的通话推迟。事实是时间变了；“是不是不在意我”是一个尚待核实的解释；希望确定新时间是可讨论的请求。焦虑原型突出反复担心这部分，恐惧回避还讨论想靠近又退后的体验。两者都不告诉你对方真正怎么想，也不能把真实失约解释掉。",
+          "en": "In a fictional example, an agreed call is postponed. The changed time is an event; wondering whether you no longer matter is an unverified interpretation; asking for another time is a request to discuss. The anxious angle foregrounds repeated worry, while fearful-avoidant also considers moving away from desired closeness. Neither reveals someone else’s thoughts or dismisses an actual broken agreement."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "一次请求之后，怎样回看",
+        "en": "Reviewing one request"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的具体请求尝试：你问的是可商量的安排，还是希望对方给出无法保证的永久承诺？对方的回复解决了哪一件事，还有哪些不知道？可以保留未知，也可以发现这次安排不合适。目标是把信息和选择说清，不是保证担心立刻消失。",
+          "en": "After the specific-request trial above, ask whether you proposed an arrangement or sought a permanent promise no one can guarantee. What did the reply clarify, and what remains unknown? Uncertainty can remain, and an arrangement may not fit. The aim is clearer information and choices, without a guarantee that worry immediately disappears."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "用需要打开话题，不用标签要求回应",
+        "en": "Open with a need rather than a label demanding a response"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以说：“计划临时变动时，我有时会反复猜。我想问清下一步，也想知道你能提供怎样的联系安排。”可以只谈这句话，不分享均分或私人消息。对方可以提出自己的范围；这份说明不是要求随时回复的依据，也不替任何人判成焦虑型。",
+          "en": "Try: “When plans change suddenly, I sometimes keep guessing. I would like to clarify the next step and hear what contact arrangement works for you.” Discuss this without means or private messages. The other person may state their own limits. This guide supplies neither a demand for constant replies nor an anxious label for anyone."
+        }
+      ]
+    }
+  ],
+  "avoidant": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同样不分享，可能是不同选择",
+        "en": "Not sharing can reflect different choices"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：朋友问起一件烦恼。场合不合适所以不谈，可以是边界；本来想得到倾听，在双方愿意、范围也明确时仍退回“没什么”，才更贴近本页讨论的体验。问卷不能只凭沉默分清原因，也不能从退缩推断不在乎或不爱。",
+          "en": "In a fictional example, a friend asks about a concern. Not discussing it in an unsuitable setting can be a boundary. Wanting to be heard but withdrawing into “it is nothing” despite mutual willingness and clear scope fits the experience discussed here more closely. Silence alone cannot reveal the reason, and distance establishes no lack of care or love."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "小范围交流之后，检查自己的选择",
+        "en": "Review your choices after a limited exchange"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看上面的可停止交流尝试：你有保留不想说的部分吗？对方是在倾听，还是替你做决定？如果仍想退出，可以结束，并记录哪种范围不适合。没有更多披露也可以获得有用信息；不把说得多当作进步，更不以降低退缩均分为目标。",
+          "en": "After the limited exchange above, consider whether you kept what you wanted private and whether the other person listened or took decisions over. You can end an exchange that does not fit and note its scope. Useful information needs no greater disclosure. More talking need not count as progress or a lower distance mean as the goal."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "只分享希望怎样被听见",
+        "en": "Share how you would like to be heard"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以说：“我想讲其中一小段，希望你先听，不急着建议。其他部分我暂时想保留。”也可以直接说这次不想谈。转发这份公开说明不代表邀请别人追问隐私，更不需要朋友证明“你其实是回避型”。谈具体方式，比给彼此解释动机更容易核实。",
+          "en": "Try: “I would like to share one small part and have you listen before suggesting anything. I want to keep the rest private for now.” You can also decline to discuss it. Sharing this guide invites no probing for private details or proof of an avoidant identity. Specific arrangements are easier to check than assigned motives."
+        }
+      ]
+    }
+  ],
+  "fearful": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "想联系与想退后，可以分别描述",
+        "en": "Describe wanting contact and wanting distance separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构例子：想知道下一次什么时候见面，却不愿现在解释全部感受。前一个需要涉及回应，后一个涉及分享范围，不必先宣布“我很矛盾”。如果两组题均分都较高，也只说明各自键向说法较常被选，不证明两种体验同时发生，更不确定原因。",
+          "en": "In a fictional example, someone wants to know when to meet again without explaining all their feelings now. One need concerns a response, the other the scope of sharing; no declaration of contradiction is required. Even two higher means only describe more frequent keyed responses in each set. They establish neither simultaneous experiences nor their causes."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "分别回看靠近与保留的部分",
+        "en": "Review connection and privacy separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面写两句话的尝试，回看“想确认安排”和“暂时保留感受”是否被分别表达。哪一件小事能讨论，哪一部分现在不谈？可以不采取后续行动。问卷没有检查交流环境是否安全，不要因为读到这份原型，就逼自己联系不想联系的人或挖掘过去。",
+          "en": "After writing two sentences in the trial above, consider whether confirming an arrangement and keeping feelings private were stated separately. What small matter is discussable, and what is not for now? You can take no further action. This questionnaire has assessed no safe environment; a prototype reading requires neither unwanted contact nor investigation of the past."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享通用问题，也能保留个人经历",
+        "en": "Share a general question while keeping your history private"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“一边想确认一件安排，一边还没准备好解释全部感受时，怎样说会比较清楚？”无需说自己属于恐惧回避，也不必公开均分或经历。别人可以只讨论问法，不对你追溯童年、创伤或关系结局；分享内容由你选择。",
+          "en": "Ask: “How could someone clearly confirm an arrangement while not being ready to explain every feeling?” You need no fearful-avoidant identity, means or history. Others may discuss the wording without tracing your childhood, trauma or relationship outcome. You choose what to share."
+        }
+      ]
+    }
+  ]
+}

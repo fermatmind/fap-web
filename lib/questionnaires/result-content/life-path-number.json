@@ -1,0 +1,494 @@
+{
+  "one": [
+    {
+      "id": "concrete-example",
+      "title": {
+        "en": "Make one first step inspectable",
+        "zh": "让第一步可以被共同检查"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：聚会安排迟迟未定，一位虚构读者先写下一个可撤回的时间提案，而不是替所有人作决定。其他人可以改动或拒绝；开始一件事也可以是询问谁愿意参与，而不是承担领导身份。",
+          "en": "An additional original scene: Plans for a gathering remain undecided. A fictional reader offers one revisable time rather than deciding for everyone. Others can change or decline it. Starting can mean asking who wants to participate, without adopting a leadership identity."
+        }
+      ]
+    },
+    {
+      "id": "optional-experiment",
+      "title": {
+        "en": "An optional small experiment",
+        "zh": "一个可以不做的小尝试"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“哪一步只是提出选择，哪一步才需要其他人同意？”可以只讨论虚构人物。愿意参与的人可不同意或结束；无需解释私人经历，也不用通过实践证明符号适合自己。",
+          "en": "An optional discussion prompt asks: “Which step merely offers a choice, and which needs others’ agreement?” Discuss only fictional people. Willing participants may disagree or stop without explaining private experiences or proving the symbol fits through action."
+        }
+      ]
+    },
+    {
+      "id": "source-and-limits",
+      "title": {
+        "en": "Sources, privacy and a useful stopping point",
+        "zh": "来源、隐私和可以结束的地方"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境与讨论提示由费马测试编辑部原创。公历日期先按所选规则运算，再查找共用的十二篇故事；它不是人格测量、分数、成熟度、能力或未来预测。分开化简法分别化简月、日、年再相加；整日数字法先加八个日期数字。每次化简遇到一位数或11、22、33就停止，44仍化简为8。两法可能不同：1980-01-01分别为11与2，2009-11-11分别为33与6，1990-09-23分别为6与33。不同来自停止规则，不是双重人格、精度高低或哪个结果更真实；11、22、33不比2、4、6高级。算式可复算不构成故事的科学效度。两条公开来源用于说明各自计算约定，不验证本站原创叙事、双语等价或个人适配。标签相同共用一篇指南，标签不同可分别阅读，不合成新类型或配对建议。故事可觉得不适用，也可只看虚构人物；讨论不需生日、姓名、个人答案或认同任何标签。当前输入与详细算式只在本页内存，修改日期或方法会清除结果；清除、刷新或切换语言后需重新输入。复制只含所选标签与方法，不含生日、算式或个人链接；如希望分享故事，可单独使用无需生日的公开指南。不要发送日期或运算截图来证明讨论结论。",
+          "en": "FermatMind Editorial authored these additional scenes and prompts. A Gregorian date is processed by the chosen rule, then linked to twelve shared stories. This measures no personality, score, maturity, ability or future. The parts rule reduces month, day and year separately before combining them; the digit rule first adds all eight date digits. Each reduction stops at one digit or 11, 22 or 33; 44 still reduces to 8. Rules can differ: 1980-01-01 gives 11 and 2, 2009-11-11 gives 33 and 6, and 1990-09-23 gives 6 and 33, respectively. Differences follow stopping rules, without two personalities, superior accuracy or a truer result. Eleven, twenty-two and thirty-three rank no higher than two, four and six. Reproducible arithmetic establishes no scientific validity for a story. The two public sources explain calculation conventions, without validating these original narratives, bilingual equivalence or personal fit. Equal labels share a guide; different labels can be read separately without creating another type or compatibility advice. Stories may feel inapplicable. Discuss fictional people without dates, names, personal answers or identifying with a label. Current input and detailed operations stay in page memory; editing the date or method clears results. Clearing, reloading or changing language requires fresh input. Copying includes only the selected label and method, without a date, operations or personal link. A birth-date-free public guide can separately share the story. Do not send dates or calculation screenshots to substantiate a discussion."
+        }
+      ]
+    }
+  ],
+  "two": [
+    {
+      "id": "concrete-example",
+      "title": {
+        "en": "A shared plan with two different needs",
+        "zh": "把共同安排中的两种需要说清楚"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：两位虚构室友讨论公共空间。一人复述对方想法后，仍说出自己需要安静的时段。倾听与保留不同意见可以同时存在；暂未达成共识，不说明谁不够体贴。",
+          "en": "An additional original scene: Two fictional housemates discuss shared space. One restates the other’s suggestion while retaining a personal need for quiet hours. Listening can coexist with disagreement. An unresolved agreement proves neither person inconsiderate."
+        }
+      ]
+    },
+    {
+      "id": "optional-experiment",
+      "title": {
+        "en": "Try asking one clarifying question",
+        "zh": "可选尝试：先问清一个问题"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“哪些需要可以协商，哪些边界不因照顾关系而消失？”可以只讨论虚构人物。愿意参与的人可不同意或结束；无需解释私人经历，也不用通过实践证明符号适合自己。",
+          "en": "An optional discussion prompt asks: “Which needs are negotiable, and which boundaries remain while caring about the relationship?” Discuss only fictional people. Willing participants may disagree or stop without explaining private experiences or proving the symbol fits through action."
+        }
+      ]
+    },
+    {
+      "id": "source-and-limits",
+      "title": {
+        "en": "Keep the story separate from decisions about people",
+        "zh": "把故事与对人的判断分开"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境与讨论提示由费马测试编辑部原创。公历日期先按所选规则运算，再查找共用的十二篇故事；它不是人格测量、分数、成熟度、能力或未来预测。分开化简法分别化简月、日、年再相加；整日数字法先加八个日期数字。每次化简遇到一位数或11、22、33就停止，44仍化简为8。两法可能不同：1980-01-01分别为11与2，2009-11-11分别为33与6，1990-09-23分别为6与33。不同来自停止规则，不是双重人格、精度高低或哪个结果更真实；11、22、33不比2、4、6高级。算式可复算不构成故事的科学效度。两条公开来源用于说明各自计算约定，不验证本站原创叙事、双语等价或个人适配。标签相同共用一篇指南，标签不同可分别阅读，不合成新类型或配对建议。故事可觉得不适用，也可只看虚构人物；讨论不需生日、姓名、个人答案或认同任何标签。当前输入与详细算式只在本页内存，修改日期或方法会清除结果；清除、刷新或切换语言后需重新输入。复制只含所选标签与方法，不含生日、算式或个人链接；如希望分享故事，可单独使用无需生日的公开指南。不要发送日期或运算截图来证明讨论结论。",
+          "en": "FermatMind Editorial authored these additional scenes and prompts. A Gregorian date is processed by the chosen rule, then linked to twelve shared stories. This measures no personality, score, maturity, ability or future. The parts rule reduces month, day and year separately before combining them; the digit rule first adds all eight date digits. Each reduction stops at one digit or 11, 22 or 33; 44 still reduces to 8. Rules can differ: 1980-01-01 gives 11 and 2, 2009-11-11 gives 33 and 6, and 1990-09-23 gives 6 and 33, respectively. Differences follow stopping rules, without two personalities, superior accuracy or a truer result. Eleven, twenty-two and thirty-three rank no higher than two, four and six. Reproducible arithmetic establishes no scientific validity for a story. The two public sources explain calculation conventions, without validating these original narratives, bilingual equivalence or personal fit. Equal labels share a guide; different labels can be read separately without creating another type or compatibility advice. Stories may feel inapplicable. Discuss fictional people without dates, names, personal answers or identifying with a label. Current input and detailed operations stay in page memory; editing the date or method clears results. Clearing, reloading or changing language requires fresh input. Copying includes only the selected label and method, without a date, operations or personal link. A birth-date-free public guide can separately share the story. Do not send dates or calculation screenshots to substantiate a discussion."
+        }
+      ]
+    }
+  ],
+  "three": [
+    {
+      "id": "concrete-example",
+      "title": {
+        "en": "Give a shared memory a small form",
+        "zh": "给共同回忆一个小小的载体"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者把活动想法写成三句话，先问朋友是否愿意看。朋友更喜欢一张示意图，读者便换一种呈现方式。一次表达的形式与反馈，不衡量创造力，也不要求把个人经历变成可展示的作品。",
+          "en": "An additional original scene: A fictional reader writes an activity idea in three sentences and asks whether a friend wants to see it. The friend prefers a sketch, so the format changes. One presentation and its feedback measure no creativity and require no personal story to become a performance."
+        }
+      ]
+    },
+    {
+      "id": "optional-experiment",
+      "title": {
+        "en": "Make one low-pressure version",
+        "zh": "试做一个低压力版本"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“想表达的内容、受众是否愿意参与、呈现形式能否分别讨论？”可以只讨论虚构人物。愿意参与的人可不同意或结束；无需解释私人经历，也不用通过实践证明符号适合自己。",
+          "en": "An optional discussion prompt asks: “Can the idea, the audience’s willingness and the presentation format be discussed separately?” Discuss only fictional people. Willing participants may disagree or stop without explaining private experiences or proving the symbol fits through action."
+        }
+      ]
+    },
+    {
+      "id": "source-and-limits",
+      "title": {
+        "en": "Sources and a choice about sharing",
+        "zh": "来源，以及由你决定的分享"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境与讨论提示由费马测试编辑部原创。公历日期先按所选规则运算，再查找共用的十二篇故事；它不是人格测量、分数、成熟度、能力或未来预测。分开化简法分别化简月、日、年再相加；整日数字法先加八个日期数字。每次化简遇到一位数或11、22、33就停止，44仍化简为8。两法可能不同：1980-01-01分别为11与2，2009-11-11分别为33与6，1990-09-23分别为6与33。不同来自停止规则，不是双重人格、精度高低或哪个结果更真实；11、22、33不比2、4、6高级。算式可复算不构成故事的科学效度。两条公开来源用于说明各自计算约定，不验证本站原创叙事、双语等价或个人适配。标签相同共用一篇指南，标签不同可分别阅读，不合成新类型或配对建议。故事可觉得不适用，也可只看虚构人物；讨论不需生日、姓名、个人答案或认同任何标签。当前输入与详细算式只在本页内存，修改日期或方法会清除结果；清除、刷新或切换语言后需重新输入。复制只含所选标签与方法，不含生日、算式或个人链接；如希望分享故事，可单独使用无需生日的公开指南。不要发送日期或运算截图来证明讨论结论。",
+          "en": "FermatMind Editorial authored these additional scenes and prompts. A Gregorian date is processed by the chosen rule, then linked to twelve shared stories. This measures no personality, score, maturity, ability or future. The parts rule reduces month, day and year separately before combining them; the digit rule first adds all eight date digits. Each reduction stops at one digit or 11, 22 or 33; 44 still reduces to 8. Rules can differ: 1980-01-01 gives 11 and 2, 2009-11-11 gives 33 and 6, and 1990-09-23 gives 6 and 33, respectively. Differences follow stopping rules, without two personalities, superior accuracy or a truer result. Eleven, twenty-two and thirty-three rank no higher than two, four and six. Reproducible arithmetic establishes no scientific validity for a story. The two public sources explain calculation conventions, without validating these original narratives, bilingual equivalence or personal fit. Equal labels share a guide; different labels can be read separately without creating another type or compatibility advice. Stories may feel inapplicable. Discuss fictional people without dates, names, personal answers or identifying with a label. Current input and detailed operations stay in page memory; editing the date or method clears results. Clearing, reloading or changing language requires fresh input. Copying includes only the selected label and method, without a date, operations or personal link. A birth-date-free public guide can separately share the story. Do not send dates or calculation screenshots to substantiate a discussion."
+        }
+      ]
+    }
+  ],
+  "four": [
+    {
+      "id": "concrete-example",
+      "title": {
+        "en": "A small exchange that needs a few clear labels",
+        "zh": "小型交换活动中的几个清楚标签"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者为周末采购列出短清单，后来发现店铺临时关闭，便调整顺序并删去不必要的项目。框架的用途是减少当下负担；修改计划并不证明不够自律，没按清单行动也不等于失败。",
+          "en": "An additional original scene: A fictional reader makes a short shopping list, then changes its order and removes an unnecessary item when a shop closes. A framework can reduce a present burden. Revising a plan proves no lack of discipline, and departing from a list need not mean failure."
+        }
+      ]
+    },
+    {
+      "id": "optional-experiment",
+      "title": {
+        "en": "Try a frame with one deliberate open space",
+        "zh": "尝试留有一处空白的框架"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“这个框架解决什么具体问题，何时值得修改或停用？”可以只讨论虚构人物。愿意参与的人可不同意或结束；无需解释私人经历，也不用通过实践证明符号适合自己。",
+          "en": "An optional discussion prompt asks: “What specific problem does the framework solve, and when should it change or stop?” Discuss only fictional people. Willing participants may disagree or stop without explaining private experiences or proving the symbol fits through action."
+        }
+      ]
+    },
+    {
+      "id": "source-and-limits",
+      "title": {
+        "en": "A convention and a story serve different purposes",
+        "zh": "运算约定与故事，各有自己的作用"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境与讨论提示由费马测试编辑部原创。公历日期先按所选规则运算，再查找共用的十二篇故事；它不是人格测量、分数、成熟度、能力或未来预测。分开化简法分别化简月、日、年再相加；整日数字法先加八个日期数字。每次化简遇到一位数或11、22、33就停止，44仍化简为8。两法可能不同：1980-01-01分别为11与2，2009-11-11分别为33与6，1990-09-23分别为6与33。不同来自停止规则，不是双重人格、精度高低或哪个结果更真实；11、22、33不比2、4、6高级。算式可复算不构成故事的科学效度。两条公开来源用于说明各自计算约定，不验证本站原创叙事、双语等价或个人适配。标签相同共用一篇指南，标签不同可分别阅读，不合成新类型或配对建议。故事可觉得不适用，也可只看虚构人物；讨论不需生日、姓名、个人答案或认同任何标签。当前输入与详细算式只在本页内存，修改日期或方法会清除结果；清除、刷新或切换语言后需重新输入。复制只含所选标签与方法，不含生日、算式或个人链接；如希望分享故事，可单独使用无需生日的公开指南。不要发送日期或运算截图来证明讨论结论。",
+          "en": "FermatMind Editorial authored these additional scenes and prompts. A Gregorian date is processed by the chosen rule, then linked to twelve shared stories. This measures no personality, score, maturity, ability or future. The parts rule reduces month, day and year separately before combining them; the digit rule first adds all eight date digits. Each reduction stops at one digit or 11, 22 or 33; 44 still reduces to 8. Rules can differ: 1980-01-01 gives 11 and 2, 2009-11-11 gives 33 and 6, and 1990-09-23 gives 6 and 33, respectively. Differences follow stopping rules, without two personalities, superior accuracy or a truer result. Eleven, twenty-two and thirty-three rank no higher than two, four and six. Reproducible arithmetic establishes no scientific validity for a story. The two public sources explain calculation conventions, without validating these original narratives, bilingual equivalence or personal fit. Equal labels share a guide; different labels can be read separately without creating another type or compatibility advice. Stories may feel inapplicable. Discuss fictional people without dates, names, personal answers or identifying with a label. Current input and detailed operations stay in page memory; editing the date or method clears results. Clearing, reloading or changing language requires fresh input. Copying includes only the selected label and method, without a date, operations or personal link. A birth-date-free public guide can separately share the story. Do not send dates or calculation screenshots to substantiate a discussion."
+        }
+      ]
+    }
+  ],
+  "five": [
+    {
+      "id": "concrete-example",
+      "title": {
+        "en": "Try another format without replacing the whole activity",
+        "zh": "试一种形式，无需替换整个活动"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者在熟悉的公园里考虑一条新路线，先查看出口和体力需求，也保留原路返回的选择。探索可以很小，也可以不发生；选择熟悉路线不表示不够开放，更不需要冒险来证明某个标签。",
+          "en": "An additional original scene: A fictional reader considers a new route in a familiar park, checking exits and effort while retaining a way back. Exploration may be small or declined. Taking the familiar route proves no lack of openness and requires no risk to demonstrate a label."
+        }
+      ]
+    },
+    {
+      "id": "optional-experiment",
+      "title": {
+        "en": "Compare one small alternative",
+        "zh": "比较一个小的替代选项"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“尝试是否自愿，怎样返回，选择不尝试是否同样被尊重？”可以只讨论虚构人物。愿意参与的人可不同意或结束；无需解释私人经历，也不用通过实践证明符号适合自己。",
+          "en": "An optional discussion prompt asks: “Is trying voluntary, how can the person return, and is declining equally respected?” Discuss only fictional people. Willing participants may disagree or stop without explaining private experiences or proving the symbol fits through action."
+        }
+      ]
+    },
+    {
+      "id": "source-and-limits",
+      "title": {
+        "en": "Keep options separate from predictions",
+        "zh": "把选项与预测分开"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境与讨论提示由费马测试编辑部原创。公历日期先按所选规则运算，再查找共用的十二篇故事；它不是人格测量、分数、成熟度、能力或未来预测。分开化简法分别化简月、日、年再相加；整日数字法先加八个日期数字。每次化简遇到一位数或11、22、33就停止，44仍化简为8。两法可能不同：1980-01-01分别为11与2，2009-11-11分别为33与6，1990-09-23分别为6与33。不同来自停止规则，不是双重人格、精度高低或哪个结果更真实；11、22、33不比2、4、6高级。算式可复算不构成故事的科学效度。两条公开来源用于说明各自计算约定，不验证本站原创叙事、双语等价或个人适配。标签相同共用一篇指南，标签不同可分别阅读，不合成新类型或配对建议。故事可觉得不适用，也可只看虚构人物；讨论不需生日、姓名、个人答案或认同任何标签。当前输入与详细算式只在本页内存，修改日期或方法会清除结果；清除、刷新或切换语言后需重新输入。复制只含所选标签与方法，不含生日、算式或个人链接；如希望分享故事，可单独使用无需生日的公开指南。不要发送日期或运算截图来证明讨论结论。",
+          "en": "FermatMind Editorial authored these additional scenes and prompts. A Gregorian date is processed by the chosen rule, then linked to twelve shared stories. This measures no personality, score, maturity, ability or future. The parts rule reduces month, day and year separately before combining them; the digit rule first adds all eight date digits. Each reduction stops at one digit or 11, 22 or 33; 44 still reduces to 8. Rules can differ: 1980-01-01 gives 11 and 2, 2009-11-11 gives 33 and 6, and 1990-09-23 gives 6 and 33, respectively. Differences follow stopping rules, without two personalities, superior accuracy or a truer result. Eleven, twenty-two and thirty-three rank no higher than two, four and six. Reproducible arithmetic establishes no scientific validity for a story. The two public sources explain calculation conventions, without validating these original narratives, bilingual equivalence or personal fit. Equal labels share a guide; different labels can be read separately without creating another type or compatibility advice. Stories may feel inapplicable. Discuss fictional people without dates, names, personal answers or identifying with a label. Current input and detailed operations stay in page memory; editing the date or method clears results. Clearing, reloading or changing language requires fresh input. Copying includes only the selected label and method, without a date, operations or personal link. A birth-date-free public guide can separately share the story. Do not send dates or calculation screenshots to substantiate a discussion."
+        }
+      ]
+    }
+  ],
+  "six": [
+    {
+      "id": "concrete-example",
+      "title": {
+        "en": "A shared meal needs more than one kind of help",
+        "zh": "共同聚餐需要不同形式的帮忙"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者收到朋友请托，先确认对方需要陪伴还是实际帮忙，再说自己只能留十分钟。双方另找后续安排。关心可以有清楚限度，拒绝一项任务也不说明关心更少；帮助者不因此成为长期负责人。",
+          "en": "An additional original scene: A fictional reader receives a friend’s request, checks whether company or practical help is wanted, and states a ten-minute limit. They seek another arrangement for later. Care can have limits. Declining a task proves no lesser care and creates no permanent responsibility."
+        }
+      ]
+    },
+    {
+      "id": "optional-experiment",
+      "title": {
+        "en": "Make one ordinary responsibility visible",
+        "zh": "让一项普通责任被看见"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“谁提出了什么请求，谁愿意承担哪一部分，何时结束？”可以只讨论虚构人物。愿意参与的人可不同意或结束；无需解释私人经历，也不用通过实践证明符号适合自己。",
+          "en": "An optional discussion prompt asks: “Who requested what, who freely accepts which part, and when does it end?” Discuss only fictional people. Willing participants may disagree or stop without explaining private experiences or proving the symbol fits through action."
+        }
+      ]
+    },
+    {
+      "id": "source-and-limits",
+      "title": {
+        "en": "Keep a symbolic story separate from a duty",
+        "zh": "把符号故事与必须履行的义务分开"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境与讨论提示由费马测试编辑部原创。公历日期先按所选规则运算，再查找共用的十二篇故事；它不是人格测量、分数、成熟度、能力或未来预测。分开化简法分别化简月、日、年再相加；整日数字法先加八个日期数字。每次化简遇到一位数或11、22、33就停止，44仍化简为8。两法可能不同：1980-01-01分别为11与2，2009-11-11分别为33与6，1990-09-23分别为6与33。不同来自停止规则，不是双重人格、精度高低或哪个结果更真实；11、22、33不比2、4、6高级。算式可复算不构成故事的科学效度。两条公开来源用于说明各自计算约定，不验证本站原创叙事、双语等价或个人适配。标签相同共用一篇指南，标签不同可分别阅读，不合成新类型或配对建议。故事可觉得不适用，也可只看虚构人物；讨论不需生日、姓名、个人答案或认同任何标签。当前输入与详细算式只在本页内存，修改日期或方法会清除结果；清除、刷新或切换语言后需重新输入。复制只含所选标签与方法，不含生日、算式或个人链接；如希望分享故事，可单独使用无需生日的公开指南。不要发送日期或运算截图来证明讨论结论。",
+          "en": "FermatMind Editorial authored these additional scenes and prompts. A Gregorian date is processed by the chosen rule, then linked to twelve shared stories. This measures no personality, score, maturity, ability or future. The parts rule reduces month, day and year separately before combining them; the digit rule first adds all eight date digits. Each reduction stops at one digit or 11, 22 or 33; 44 still reduces to 8. Rules can differ: 1980-01-01 gives 11 and 2, 2009-11-11 gives 33 and 6, and 1990-09-23 gives 6 and 33, respectively. Differences follow stopping rules, without two personalities, superior accuracy or a truer result. Eleven, twenty-two and thirty-three rank no higher than two, four and six. Reproducible arithmetic establishes no scientific validity for a story. The two public sources explain calculation conventions, without validating these original narratives, bilingual equivalence or personal fit. Equal labels share a guide; different labels can be read separately without creating another type or compatibility advice. Stories may feel inapplicable. Discuss fictional people without dates, names, personal answers or identifying with a label. Current input and detailed operations stay in page memory; editing the date or method clears results. Clearing, reloading or changing language requires fresh input. Copying includes only the selected label and method, without a date, operations or personal link. A birth-date-free public guide can separately share the story. Do not send dates or calculation screenshots to substantiate a discussion."
+        }
+      ]
+    }
+  ],
+  "seven": [
+    {
+      "id": "concrete-example",
+      "title": {
+        "en": "An old picture with an uncertain date",
+        "zh": "一张日期不确定的旧照片"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者听见一次会议时间变动，先记下已知通知，再把原因留作未知，只核对是否影响出席。提出一个有用问题不需要怀疑所有人，也不表明智力高低；并非每个未知都必须立即解开。",
+          "en": "An additional original scene: A fictional reader hears that a meeting time changed, records the notice, leaves its cause unknown and checks only whether attendance is affected. A useful question requires no suspicion of everyone and measures no intelligence. Not every unknown needs immediate resolution."
+        }
+      ]
+    },
+    {
+      "id": "optional-experiment",
+      "title": {
+        "en": "Separate one observation from one inference",
+        "zh": "分开写下一条观察与一条推断"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“已知事实、推测原因和实际需要核对的问题分别是什么？”可以只讨论虚构人物。愿意参与的人可不同意或结束；无需解释私人经历，也不用通过实践证明符号适合自己。",
+          "en": "An optional discussion prompt asks: “What is known, what cause is inferred, and what question actually needs checking?” Discuss only fictional people. Willing participants may disagree or stop without explaining private experiences or proving the symbol fits through action."
+        }
+      ]
+    },
+    {
+      "id": "source-and-limits",
+      "title": {
+        "en": "A public explanation without a private record",
+        "zh": "公开解释，不需要私人记录"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境与讨论提示由费马测试编辑部原创。公历日期先按所选规则运算，再查找共用的十二篇故事；它不是人格测量、分数、成熟度、能力或未来预测。分开化简法分别化简月、日、年再相加；整日数字法先加八个日期数字。每次化简遇到一位数或11、22、33就停止，44仍化简为8。两法可能不同：1980-01-01分别为11与2，2009-11-11分别为33与6，1990-09-23分别为6与33。不同来自停止规则，不是双重人格、精度高低或哪个结果更真实；11、22、33不比2、4、6高级。算式可复算不构成故事的科学效度。两条公开来源用于说明各自计算约定，不验证本站原创叙事、双语等价或个人适配。标签相同共用一篇指南，标签不同可分别阅读，不合成新类型或配对建议。故事可觉得不适用，也可只看虚构人物；讨论不需生日、姓名、个人答案或认同任何标签。当前输入与详细算式只在本页内存，修改日期或方法会清除结果；清除、刷新或切换语言后需重新输入。复制只含所选标签与方法，不含生日、算式或个人链接；如希望分享故事，可单独使用无需生日的公开指南。不要发送日期或运算截图来证明讨论结论。",
+          "en": "FermatMind Editorial authored these additional scenes and prompts. A Gregorian date is processed by the chosen rule, then linked to twelve shared stories. This measures no personality, score, maturity, ability or future. The parts rule reduces month, day and year separately before combining them; the digit rule first adds all eight date digits. Each reduction stops at one digit or 11, 22 or 33; 44 still reduces to 8. Rules can differ: 1980-01-01 gives 11 and 2, 2009-11-11 gives 33 and 6, and 1990-09-23 gives 6 and 33, respectively. Differences follow stopping rules, without two personalities, superior accuracy or a truer result. Eleven, twenty-two and thirty-three rank no higher than two, four and six. Reproducible arithmetic establishes no scientific validity for a story. The two public sources explain calculation conventions, without validating these original narratives, bilingual equivalence or personal fit. Equal labels share a guide; different labels can be read separately without creating another type or compatibility advice. Stories may feel inapplicable. Discuss fictional people without dates, names, personal answers or identifying with a label. Current input and detailed operations stay in page memory; editing the date or method clears results. Clearing, reloading or changing language requires fresh input. Copying includes only the selected label and method, without a date, operations or personal link. A birth-date-free public guide can separately share the story. Do not send dates or calculation screenshots to substantiate a discussion."
+        }
+      ]
+    }
+  ],
+  "eight": [
+    {
+      "id": "concrete-example",
+      "title": {
+        "en": "A small display and the work behind it",
+        "zh": "一次小展示，以及背后的工作"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者协助社区活动，把预算、借来的桌椅与志愿者可用时间分别列明，并请相关人员确认。资金只是资源之一，未获报酬的时间也有边界；分配资源不使任何人价值更高，也不能保证收益。",
+          "en": "An additional original scene: A fictional reader helps with a community activity by listing the budget, borrowed furniture and volunteers’ available time for confirmation. Money is one resource; unpaid time also has limits. Allocating resources establishes no greater human worth and guarantees no return."
+        }
+      ]
+    },
+    {
+      "id": "optional-experiment",
+      "title": {
+        "en": "Name one resource and its conditions",
+        "zh": "说清一项资源及其条件"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“资源来自谁，使用需要谁同意，成本与责任由谁承担？”可以只讨论虚构人物。愿意参与的人可不同意或结束；无需解释私人经历，也不用通过实践证明符号适合自己。",
+          "en": "An optional discussion prompt asks: “Whose resources are involved, whose agreement is needed, and who bears costs and responsibilities?” Discuss only fictional people. Willing participants may disagree or stop without explaining private experiences or proving the symbol fits through action."
+        }
+      ]
+    },
+    {
+      "id": "source-and-limits",
+      "title": {
+        "en": "Use the motif without making a prediction",
+        "zh": "借用主题，无需把它当作预测"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境与讨论提示由费马测试编辑部原创。公历日期先按所选规则运算，再查找共用的十二篇故事；它不是人格测量、分数、成熟度、能力或未来预测。分开化简法分别化简月、日、年再相加；整日数字法先加八个日期数字。每次化简遇到一位数或11、22、33就停止，44仍化简为8。两法可能不同：1980-01-01分别为11与2，2009-11-11分别为33与6，1990-09-23分别为6与33。不同来自停止规则，不是双重人格、精度高低或哪个结果更真实；11、22、33不比2、4、6高级。算式可复算不构成故事的科学效度。两条公开来源用于说明各自计算约定，不验证本站原创叙事、双语等价或个人适配。标签相同共用一篇指南，标签不同可分别阅读，不合成新类型或配对建议。故事可觉得不适用，也可只看虚构人物；讨论不需生日、姓名、个人答案或认同任何标签。当前输入与详细算式只在本页内存，修改日期或方法会清除结果；清除、刷新或切换语言后需重新输入。复制只含所选标签与方法，不含生日、算式或个人链接；如希望分享故事，可单独使用无需生日的公开指南。不要发送日期或运算截图来证明讨论结论。",
+          "en": "FermatMind Editorial authored these additional scenes and prompts. A Gregorian date is processed by the chosen rule, then linked to twelve shared stories. This measures no personality, score, maturity, ability or future. The parts rule reduces month, day and year separately before combining them; the digit rule first adds all eight date digits. Each reduction stops at one digit or 11, 22 or 33; 44 still reduces to 8. Rules can differ: 1980-01-01 gives 11 and 2, 2009-11-11 gives 33 and 6, and 1990-09-23 gives 6 and 33, respectively. Differences follow stopping rules, without two personalities, superior accuracy or a truer result. Eleven, twenty-two and thirty-three rank no higher than two, four and six. Reproducible arithmetic establishes no scientific validity for a story. The two public sources explain calculation conventions, without validating these original narratives, bilingual equivalence or personal fit. Equal labels share a guide; different labels can be read separately without creating another type or compatibility advice. Stories may feel inapplicable. Discuss fictional people without dates, names, personal answers or identifying with a label. Current input and detailed operations stay in page memory; editing the date or method clears results. Clearing, reloading or changing language requires fresh input. Copying includes only the selected label and method, without a date, operations or personal link. A birth-date-free public guide can separately share the story. Do not send dates or calculation screenshots to substantiate a discussion."
+        }
+      ]
+    }
+  ],
+  "nine": [
+    {
+      "id": "concrete-example",
+      "title": {
+        "en": "Finish a shared playlist without losing the useful parts",
+        "zh": "收好共同歌单，也留下有用的部分"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者结束一个兴趣小组项目，保存大家同意保留的资料，列出未完成事项并说明后续无人承诺接手。结束可以留有遗憾，也可以以后再谈；这段故事不为失落、哀伤或任何关系设置期限。",
+          "en": "An additional original scene: A fictional reader closes a hobby-group project, keeps agreed materials and lists unfinished tasks without promising a successor. An ending may retain regret or be revisited. This story sets no deadline for loss, grief or a relationship."
+        }
+      ]
+    },
+    {
+      "id": "optional-experiment",
+      "title": {
+        "en": "Name what is finished and what is still open",
+        "zh": "说清已完成什么，还有什么开放"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“哪些已经结束，哪些可以保持未定，哪些事情并没有继续承担的承诺？”可以只讨论虚构人物。愿意参与的人可不同意或结束；无需解释私人经历，也不用通过实践证明符号适合自己。",
+          "en": "An optional discussion prompt asks: “What has ended, what can remain unsettled, and what carries no promise of continued responsibility?” Discuss only fictional people. Willing participants may disagree or stop without explaining private experiences or proving the symbol fits through action."
+        }
+      ]
+    },
+    {
+      "id": "source-and-limits",
+      "title": {
+        "en": "A story can end without becoming a prediction",
+        "zh": "故事可以结束，无需变成预测"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境与讨论提示由费马测试编辑部原创。公历日期先按所选规则运算，再查找共用的十二篇故事；它不是人格测量、分数、成熟度、能力或未来预测。分开化简法分别化简月、日、年再相加；整日数字法先加八个日期数字。每次化简遇到一位数或11、22、33就停止，44仍化简为8。两法可能不同：1980-01-01分别为11与2，2009-11-11分别为33与6，1990-09-23分别为6与33。不同来自停止规则，不是双重人格、精度高低或哪个结果更真实；11、22、33不比2、4、6高级。算式可复算不构成故事的科学效度。两条公开来源用于说明各自计算约定，不验证本站原创叙事、双语等价或个人适配。标签相同共用一篇指南，标签不同可分别阅读，不合成新类型或配对建议。故事可觉得不适用，也可只看虚构人物；讨论不需生日、姓名、个人答案或认同任何标签。当前输入与详细算式只在本页内存，修改日期或方法会清除结果；清除、刷新或切换语言后需重新输入。复制只含所选标签与方法，不含生日、算式或个人链接；如希望分享故事，可单独使用无需生日的公开指南。不要发送日期或运算截图来证明讨论结论。",
+          "en": "FermatMind Editorial authored these additional scenes and prompts. A Gregorian date is processed by the chosen rule, then linked to twelve shared stories. This measures no personality, score, maturity, ability or future. The parts rule reduces month, day and year separately before combining them; the digit rule first adds all eight date digits. Each reduction stops at one digit or 11, 22 or 33; 44 still reduces to 8. Rules can differ: 1980-01-01 gives 11 and 2, 2009-11-11 gives 33 and 6, and 1990-09-23 gives 6 and 33, respectively. Differences follow stopping rules, without two personalities, superior accuracy or a truer result. Eleven, twenty-two and thirty-three rank no higher than two, four and six. Reproducible arithmetic establishes no scientific validity for a story. The two public sources explain calculation conventions, without validating these original narratives, bilingual equivalence or personal fit. Equal labels share a guide; different labels can be read separately without creating another type or compatibility advice. Stories may feel inapplicable. Discuss fictional people without dates, names, personal answers or identifying with a label. Current input and detailed operations stay in page memory; editing the date or method clears results. Clearing, reloading or changing language requires fresh input. Copying includes only the selected label and method, without a date, operations or personal link. A birth-date-free public guide can separately share the story. Do not send dates or calculation screenshots to substantiate a discussion."
+        }
+      ]
+    }
+  ],
+  "eleven": [
+    {
+      "id": "concrete-example",
+      "title": {
+        "en": "Read the message before supplying its meaning",
+        "zh": "先看消息原文，再补充自己的解释"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者觉得朋友回复变短，却先把这看作印象而非事实解释。朋友愿意时才询问是否需要换个时间聊，也接受没有解释。11在此只是停止化简的标签，不让印象成为洞察他人或替他人作决定的资格。",
+          "en": "An additional original scene: A fictional reader notices a shorter reply but treats its meaning as an impression. If the friend welcomes it, the reader asks whether another time would suit and accepts no explanation. Eleven is a stopping label here, granting no insight into another person or right to decide for them."
+        }
+      ]
+    },
+    {
+      "id": "optional-experiment",
+      "title": {
+        "en": "Try one low-stakes clarification",
+        "zh": "试着澄清一件小事"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“观察到了什么，解释仍有哪些可能，进一步询问是否受欢迎？”可以只讨论虚构人物。愿意参与的人可不同意或结束；无需解释私人经历，也不用通过实践证明符号适合自己。",
+          "en": "An optional discussion prompt asks: “What was observed, which explanations remain possible, and is a further question welcome?” Discuss only fictional people. Willing participants may disagree or stop without explaining private experiences or proving the symbol fits through action."
+        }
+      ]
+    },
+    {
+      "id": "source-and-limits",
+      "title": {
+        "en": "The motif belongs to this guide",
+        "zh": "主题属于本篇指南"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境与讨论提示由费马测试编辑部原创。公历日期先按所选规则运算，再查找共用的十二篇故事；它不是人格测量、分数、成熟度、能力或未来预测。分开化简法分别化简月、日、年再相加；整日数字法先加八个日期数字。每次化简遇到一位数或11、22、33就停止，44仍化简为8。两法可能不同：1980-01-01分别为11与2，2009-11-11分别为33与6，1990-09-23分别为6与33。不同来自停止规则，不是双重人格、精度高低或哪个结果更真实；11、22、33不比2、4、6高级。算式可复算不构成故事的科学效度。两条公开来源用于说明各自计算约定，不验证本站原创叙事、双语等价或个人适配。标签相同共用一篇指南，标签不同可分别阅读，不合成新类型或配对建议。故事可觉得不适用，也可只看虚构人物；讨论不需生日、姓名、个人答案或认同任何标签。当前输入与详细算式只在本页内存，修改日期或方法会清除结果；清除、刷新或切换语言后需重新输入。复制只含所选标签与方法，不含生日、算式或个人链接；如希望分享故事，可单独使用无需生日的公开指南。不要发送日期或运算截图来证明讨论结论。",
+          "en": "FermatMind Editorial authored these additional scenes and prompts. A Gregorian date is processed by the chosen rule, then linked to twelve shared stories. This measures no personality, score, maturity, ability or future. The parts rule reduces month, day and year separately before combining them; the digit rule first adds all eight date digits. Each reduction stops at one digit or 11, 22 or 33; 44 still reduces to 8. Rules can differ: 1980-01-01 gives 11 and 2, 2009-11-11 gives 33 and 6, and 1990-09-23 gives 6 and 33, respectively. Differences follow stopping rules, without two personalities, superior accuracy or a truer result. Eleven, twenty-two and thirty-three rank no higher than two, four and six. Reproducible arithmetic establishes no scientific validity for a story. The two public sources explain calculation conventions, without validating these original narratives, bilingual equivalence or personal fit. Equal labels share a guide; different labels can be read separately without creating another type or compatibility advice. Stories may feel inapplicable. Discuss fictional people without dates, names, personal answers or identifying with a label. Current input and detailed operations stay in page memory; editing the date or method clears results. Clearing, reloading or changing language requires fresh input. Copying includes only the selected label and method, without a date, operations or personal link. A birth-date-free public guide can separately share the story. Do not send dates or calculation screenshots to substantiate a discussion."
+        }
+      ]
+    }
+  ],
+  "twenty-two": [
+    {
+      "id": "concrete-example",
+      "title": {
+        "en": "Make a shared watering plan someone can follow",
+        "zh": "做一份别人能够接手的浇水安排"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者把一次共同出游的草案写在共享纸张上，标出待确认的预算、交通与可退出的环节。同行者可改动、拒绝或另提方案。22只标记规则的停止点，不授予宏大使命，也不要求计划一定实现。",
+          "en": "An additional original scene: A fictional reader puts a shared outing draft on paper, marking unconfirmed costs, transport and optional stages. Others may revise, decline or offer an alternative. Twenty-two marks a rule’s stopping point, conferring no grand mission or duty to make the plan succeed."
+        }
+      ]
+    },
+    {
+      "id": "optional-experiment",
+      "title": {
+        "en": "Test one instruction with a willing reader",
+        "zh": "请愿意参与的人试读一条说明"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“哪些只是草案，谁可以修改，参与者怎样退出而不受责备？”可以只讨论虚构人物。愿意参与的人可不同意或结束；无需解释私人经历，也不用通过实践证明符号适合自己。",
+          "en": "An optional discussion prompt asks: “What is only a draft, who can revise it, and how can participants leave without blame?” Discuss only fictional people. Willing participants may disagree or stop without explaining private experiences or proving the symbol fits through action."
+        }
+      ]
+    },
+    {
+      "id": "source-and-limits",
+      "title": {
+        "en": "A practical story with an arithmetic boundary",
+        "zh": "实用故事，也保留算术边界"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境与讨论提示由费马测试编辑部原创。公历日期先按所选规则运算，再查找共用的十二篇故事；它不是人格测量、分数、成熟度、能力或未来预测。分开化简法分别化简月、日、年再相加；整日数字法先加八个日期数字。每次化简遇到一位数或11、22、33就停止，44仍化简为8。两法可能不同：1980-01-01分别为11与2，2009-11-11分别为33与6，1990-09-23分别为6与33。不同来自停止规则，不是双重人格、精度高低或哪个结果更真实；11、22、33不比2、4、6高级。算式可复算不构成故事的科学效度。两条公开来源用于说明各自计算约定，不验证本站原创叙事、双语等价或个人适配。标签相同共用一篇指南，标签不同可分别阅读，不合成新类型或配对建议。故事可觉得不适用，也可只看虚构人物；讨论不需生日、姓名、个人答案或认同任何标签。当前输入与详细算式只在本页内存，修改日期或方法会清除结果；清除、刷新或切换语言后需重新输入。复制只含所选标签与方法，不含生日、算式或个人链接；如希望分享故事，可单独使用无需生日的公开指南。不要发送日期或运算截图来证明讨论结论。",
+          "en": "FermatMind Editorial authored these additional scenes and prompts. A Gregorian date is processed by the chosen rule, then linked to twelve shared stories. This measures no personality, score, maturity, ability or future. The parts rule reduces month, day and year separately before combining them; the digit rule first adds all eight date digits. Each reduction stops at one digit or 11, 22 or 33; 44 still reduces to 8. Rules can differ: 1980-01-01 gives 11 and 2, 2009-11-11 gives 33 and 6, and 1990-09-23 gives 6 and 33, respectively. Differences follow stopping rules, without two personalities, superior accuracy or a truer result. Eleven, twenty-two and thirty-three rank no higher than two, four and six. Reproducible arithmetic establishes no scientific validity for a story. The two public sources explain calculation conventions, without validating these original narratives, bilingual equivalence or personal fit. Equal labels share a guide; different labels can be read separately without creating another type or compatibility advice. Stories may feel inapplicable. Discuss fictional people without dates, names, personal answers or identifying with a label. Current input and detailed operations stay in page memory; editing the date or method clears results. Clearing, reloading or changing language requires fresh input. Copying includes only the selected label and method, without a date, operations or personal link. A birth-date-free public guide can separately share the story. Do not send dates or calculation screenshots to substantiate a discussion."
+        }
+      ]
+    }
+  ],
+  "thirty-three": [
+    {
+      "id": "concrete-example",
+      "title": {
+        "en": "Explain one round of a game",
+        "zh": "把一轮游戏讲清楚"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者被邀请介绍一次自己熟悉的手工步骤，先说明经验范围，再演示一个小环节，并让参与者自由选择是否继续。之后读者也向别人请教。33不使分享者成为疗愈者、导师或必须照顾所有人的人。",
+          "en": "An additional original scene: A fictional reader is invited to explain a familiar craft step, states the limits of that experience and demonstrates one small part, leaving continuation optional. Later the reader learns from someone else. Thirty-three makes no healer, mentor or person responsible for everyone."
+        }
+      ]
+    },
+    {
+      "id": "optional-experiment",
+      "title": {
+        "en": "Offer one small explanation with permission",
+        "zh": "征得意愿，再分享一个小方法"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“分享是否被邀请，经验边界在哪里，何时也可以做学习者？”可以只讨论虚构人物。愿意参与的人可不同意或结束；无需解释私人经历，也不用通过实践证明符号适合自己。",
+          "en": "An optional discussion prompt asks: “Was sharing invited, where does the experience end, and when can the person be a learner too?” Discuss only fictional people. Willing participants may disagree or stop without explaining private experiences or proving the symbol fits through action."
+        }
+      ]
+    },
+    {
+      "id": "source-and-limits",
+      "title": {
+        "en": "An optional story about sharing experience",
+        "zh": "一个关于分享经验的可选故事"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充情境与讨论提示由费马测试编辑部原创。公历日期先按所选规则运算，再查找共用的十二篇故事；它不是人格测量、分数、成熟度、能力或未来预测。分开化简法分别化简月、日、年再相加；整日数字法先加八个日期数字。每次化简遇到一位数或11、22、33就停止，44仍化简为8。两法可能不同：1980-01-01分别为11与2，2009-11-11分别为33与6，1990-09-23分别为6与33。不同来自停止规则，不是双重人格、精度高低或哪个结果更真实；11、22、33不比2、4、6高级。算式可复算不构成故事的科学效度。两条公开来源用于说明各自计算约定，不验证本站原创叙事、双语等价或个人适配。标签相同共用一篇指南，标签不同可分别阅读，不合成新类型或配对建议。故事可觉得不适用，也可只看虚构人物；讨论不需生日、姓名、个人答案或认同任何标签。当前输入与详细算式只在本页内存，修改日期或方法会清除结果；清除、刷新或切换语言后需重新输入。复制只含所选标签与方法，不含生日、算式或个人链接；如希望分享故事，可单独使用无需生日的公开指南。不要发送日期或运算截图来证明讨论结论。",
+          "en": "FermatMind Editorial authored these additional scenes and prompts. A Gregorian date is processed by the chosen rule, then linked to twelve shared stories. This measures no personality, score, maturity, ability or future. The parts rule reduces month, day and year separately before combining them; the digit rule first adds all eight date digits. Each reduction stops at one digit or 11, 22 or 33; 44 still reduces to 8. Rules can differ: 1980-01-01 gives 11 and 2, 2009-11-11 gives 33 and 6, and 1990-09-23 gives 6 and 33, respectively. Differences follow stopping rules, without two personalities, superior accuracy or a truer result. Eleven, twenty-two and thirty-three rank no higher than two, four and six. Reproducible arithmetic establishes no scientific validity for a story. The two public sources explain calculation conventions, without validating these original narratives, bilingual equivalence or personal fit. Equal labels share a guide; different labels can be read separately without creating another type or compatibility advice. Stories may feel inapplicable. Discuss fictional people without dates, names, personal answers or identifying with a label. Current input and detailed operations stay in page memory; editing the date or method clears results. Clearing, reloading or changing language requires fresh input. Copying includes only the selected label and method, without a date, operations or personal link. A birth-date-free public guide can separately share the story. Do not send dates or calculation screenshots to substantiate a discussion."
+        }
+      ]
+    }
+  ]
+}

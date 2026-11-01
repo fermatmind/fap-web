@@ -1,3 +1,4 @@
+import { prepareQuestionnaireResultReadings, prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -71,8 +72,8 @@ describe("T075 original Delulu playful-anticipation edition", () => {
     const tie = scoreArchetypeQuestionnaire(quiz, allA()); if (tie.status !== "complete") throw Error("Missing tie");
     expect(Object.values(tie.counts)).toEqual(Array(6).fill(3)); expect(new Set(tie.profileIds)).toEqual(new Set(quiz.profiles.map(p => p.id)));
     for (const locale of ["en", "zh"] as const) {
-      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireArchetypeReport quiz={quiz} result={tie} locale={locale} />);
-      expect(dom.querySelectorAll("[data-archetype-match]")).toHaveLength(6); expect(dom.querySelectorAll("h4")).toHaveLength(54);
+      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireArchetypeReport quiz={prepareQuestionnaireResultReadings(quiz)} result={tie} locale={locale} />);
+      expect(dom.querySelectorAll("[data-archetype-match]")).toHaveLength(6); expect(dom.querySelectorAll("h4")).toHaveLength(66);
       const ids = Array.from(dom.querySelectorAll("[id]"), e => e.id); expect(new Set(ids).size).toBe(ids.length);
     }
     const partial = allA(); delete partial.DELULU_18; expect(scoreArchetypeQuestionnaire(quiz, partial)).toEqual({ status: "incomplete", answered: 17 });
@@ -92,14 +93,14 @@ describe("T075 original Delulu playful-anticipation edition", () => {
         const props = { params: Promise.resolve({ locale, slug: quiz.slug }) }, path = `/${locale}/tests/explore/delulu-test`;
         const html = renderToStaticMarkup(await entry.default(props)), metadata = await entry.generateMetadata(props);
         expect(metadata.title).toBe(quiz.seoTitle[locale]); expect(metadata.description).toBe(quiz.description[locale]); expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
-        expect(html).toContain(quiz.instructions![locale]); for (const section of quiz.guide.slice(0, 3)) expect(html).toContain(section.paragraphs[0][locale]);
+        expect(html).toContain(quiz.instructions![locale]); for (const section of prepareQuestionnaireResultReadings(quiz).guide.slice(0, 3)) expect(html).toContain(section.paragraphs[0][locale]);
         expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);
         expect(maps.some(e => e.loc === `https://fermatmind.com${path}`)).toBe(true); expect(isMissingFunRoute(path)).toBe(false);
         for (const profile of quiz.profiles) {
           const publicPath = `${path}/results/${profile.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };
           const rendered = renderToStaticMarkup(await guide.default(props)), meta = await guide.generateMetadata(props), dom = document.createElement("div"); dom.innerHTML = rendered;
           expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]);
-          for (const section of profile.sections) { expect(dom.querySelector(`#report-${section.id} h2`)?.textContent).toBe(section.title[locale]); for (const paragraph of section.paragraphs) expect(dom.textContent).toContain(paragraph[locale]); }
+          for (const section of prepareResultProfile(quiz.slug, profile).sections) { expect(dom.querySelector(`#report-${section.id} h2`)?.textContent).toBe(section.title[locale]); for (const paragraph of section.paragraphs) expect(dom.textContent).toContain(paragraph[locale]); }
           expect(meta.title).toBe(profile.seo!.title[locale]); expect(meta.description).toBe(profile.seo!.description[locale]); expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${publicPath}`);
           expect(meta.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/delulu-test/results/${profile.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/delulu-test/results/${profile.id}` });
           expect(maps.some(e => e.loc === `https://fermatmind.com${publicPath}`)).toBe(true); expect(isMissingFunRoute(publicPath)).toBe(false);

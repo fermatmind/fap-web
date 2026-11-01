@@ -1,0 +1,66 @@
+{
+  "english": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：准确率、覆盖率与WPM各有分母",
+        "en": "Review accuracy, coverage and WPM with their own denominators"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例固定60秒、原文800字符，最终提交200字符，其中180与原文同位置一致：总WPM为200÷5=40，同位置正确WPM为180÷5=36，准确率90%，覆盖率200÷800=25%。25%不是准确率，未输入的600字符也不当成600个错误。另用短句“red fox”核错位：输入“redfox”只有前三位置相符，结果3÷6=50%，不是仅错一个空格就按6÷7算；补回空格后七位置都相符。这个短例说明算法，不是60秒水平基准。按首次错位定位，再核最终文本与原文；不要由不匹配位置数反推独立手误次数，也不要把一次熟悉原文的提高当作一般技能变化。",
+          "en": "Use a fresh fixed sixty-second example with an eight-hundred-character source, two hundred final committed characters and 180 positional matches. Gross WPM is forty, position-correct WPM thirty-six, accuracy ninety percent and coverage twenty-five percent. Coverage is not accuracy, and the six hundred untyped source characters are not six hundred errors. For alignment, compare “red fox” with “redfox”: only the first three positions match, giving three out of six, or fifty percent. Do not substitute six out of seven because one space could repair the text. Restoring the space makes all seven positions match. This short illustration explains the algorithm, not a speed benchmark. Locate the first shift and check final text against source; mismatched positions do not count independent slips, and familiarity with one passage does not establish a general skill change."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用新短句共同复核，不比快慢标签",
+        "en": "Check a fresh short sentence together without speed labels"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“为什么90%准确率可以和25%覆盖率同时成立？漏一个空格为何可能出现多个不匹配位置？”先分别标出字符位置，再交换核对公式、单位、时段及所用文本。可以只阅读或慢慢检查，不必开启计时竞赛。只用原创虚构句子，不输入密码、真实地址、客户或机密工作资料；讨论一项具体差异，不用速度与准确率评价朋友的智力、注意力、语言水平或岗位资格。",
+          "en": "Ask: “How can ninety-percent accuracy coexist with twenty-five-percent coverage, and why can one omitted space create several mismatched positions?” Mark character positions separately, then compare formulas, units, duration and the actual text used. Read or inspect slowly without starting a timed race. Use invented sentences rather than passwords, real addresses, customer details or confidential work. Discuss one concrete difference without using speed or accuracy to label friends’ intelligence, attention, language proficiency or job qualification."
+        },
+        {
+          "zh": "分享按钮复制通用标题与公开入口，不包含输入、速度或准确率；也可自行分享本公开指南。两份指南在空输入、部分与完整抄录时都开放，空输入准确率不适用。若想复习，另换一个短句或标点，解释首次错位与最终计数，再决定是否重新计时。固定原文重做会增加熟悉度，本练习没有常模、雇主通过线或训练迁移证据，不需要追求一个“合格”数字。",
+          "en": "Sharing copies the general title and public entry without input, speed or accuracy; you can also share this guide yourself. Both readings remain open after empty, partial or complete copying, with accuracy unavailable for no input. For revision, change a short sentence or punctuation mark, explain the first alignment change and final count, then decide whether to time another round. Repeating a fixed source increases familiarity. This exercise has no norms, employer cutoff or established training-transfer evidence, so no invented qualifying number is required."
+        }
+      ]
+    }
+  ],
+  "chinese": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：标点差异与漏字错位分别核对",
+        "en": "Review punctuation substitution separately from omission shifts"
+      },
+      "paragraphs": [
+        {
+          "zh": "新短例“春风，慢行。”为六个字素字符，包含逗号和句号。输入“春风,慢行。”也为六字符，但ASCII逗号与原全角逗号不同，五位置匹配，准确率5÷6约83.3%；输入“春风慢行。”只有五字符，前两位置匹配，后续因漏标点错位，准确率2÷5=40%。它们不是同一种错误计法，也不是中文能力评级。屏幕折行不需另打换行，标点则要按原文保留。计时结束还在组字的候选不进入最终已提交文本；若此前提交六字，不能把可见拼音字母另加成产量。中文结果读CPM与同位置正确CPM，不除以5换成英文WPM；比较重做时还应保留输入法、设备与原文熟悉度。",
+          "en": "The fresh short source “春风，慢行。” has six grapheme characters, including both punctuation marks. Input “春风,慢行。” also has six, but its ASCII comma differs from the fullwidth source comma. Five positions match: five out of six, about 83.3 percent. Omitting the comma entirely gives “春风慢行。” with five characters and only two positional matches, or forty percent. Substitution and alignment shift therefore produce different records, not Chinese-proficiency ratings. Copy punctuation while treating visual wrapping as layout rather than an extra newline. An unfinished IME candidate at expiry is excluded from the committed buffer; visible pinyin letters are not extra output on top of six previously committed characters. Read Chinese CPM and position-correct CPM without dividing by five into English WPM. Keep input method, device and passage familiarity visible when reviewing retakes."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用新短句共同复核，不比快慢标签",
+        "en": "Check a fresh short sentence together without speed labels"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“换成英文逗号与直接漏逗号，为什么匹配数不同？可见候选字和已提交文字又差在哪里？”先分别标出字符位置，再交换核对公式、单位、时段及所用文本。可以只阅读或慢慢检查，不必开启计时竞赛。只用原创虚构句子，不输入密码、真实地址、客户或机密工作资料；讨论一项具体差异，不用速度与准确率评价朋友的智力、注意力、语言水平或岗位资格。",
+          "en": "Ask: “Why do replacing and omitting the comma yield different match counts, and how does a visible candidate differ from committed text?” Mark character positions separately, then compare formulas, units, duration and the actual text used. Read or inspect slowly without starting a timed race. Use invented sentences rather than passwords, real addresses, customer details or confidential work. Discuss one concrete difference without using speed or accuracy to label friends’ intelligence, attention, language proficiency or job qualification."
+        },
+        {
+          "zh": "分享按钮复制通用标题与公开入口，不包含输入、速度或准确率；也可自行分享本公开指南。两份指南在空输入、部分与完整抄录时都开放，空输入准确率不适用。若想复习，另换一个短句或标点，解释首次错位与最终计数，再决定是否重新计时。固定原文重做会增加熟悉度，本练习没有常模、雇主通过线或训练迁移证据，不需要追求一个“合格”数字。",
+          "en": "Sharing copies the general title and public entry without input, speed or accuracy; you can also share this guide yourself. Both readings remain open after empty, partial or complete copying, with accuracy unavailable for no input. For revision, change a short sentence or punctuation mark, explain the first alignment change and final count, then decide whether to time another round. Repeating a fixed source increases familiarity. This exercise has no norms, employer cutoff or established training-transfer evidence, so no invented qualifying number is required."
+        }
+      ]
+    }
+  ]
+}

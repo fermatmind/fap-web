@@ -1,0 +1,162 @@
+{
+  "critical-parent": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "给“完成”标明约定来源",
+        "en": "Name the agreement behind “finished”"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的活动清单，挑一个被写成“完成”的项目，区分既有共同约定、个人偏好和仍待讨论的标准。可以说明自己想保留哪条要求，再听实际条件或替代办法；没有需要时不必增加纠正。复盘关注标准是否说清、依据是否仍适合，不用高CP证明正确、权威或原则强，也不由低频率推断没有规范。另一人先关心感受或材料，同样可能给安排提供信息。",
+          "en": "For the activity checklist above, choose one item marked “finished” and distinguish an existing agreement, a personal preference and a standard still open for discussion. State a requirement you want retained and hear conditions or alternatives; no correction is needed without a real question. Review clarity and grounds rather than using CP to certify correctness, authority or strong principles, or treating low frequency as absent standards. Feelings or materials may provide useful information too."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "围绕具体做法交流，不评判哪种状态更好",
+        "en": "Discuss a specific practice without ranking states"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果清单上的“完成”理解不同，哪条是已经约定的，哪条只是个人习惯，哪些仍需一起确认？”用普通假设情境交换理解即可，不把父母、成人或儿童当年龄、成熟度或关系地位，也不按图形替彼此解释内心。",
+          "en": "Ask: “If “finished” meant different things on a checklist, what would already be agreed, what would be a personal habit and what would still need confirmation?” Use an ordinary hypothetical situation to compare understandings without treating Parent, Adult or Child as age, maturity or relationship rank, or using a chart to explain another person’s inner life."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含答案、五组分数或图形数据。对方可以不回答、另选一份说明或结束；无需讲述童年、提供私人对话或再做测试。",
+          "en": "You can share this public guide; its link contains no answers, five scores or chart data. The other person may decline, choose another guide or stop without describing childhood, supplying private conversations or taking another test."
+        }
+      ]
+    }
+  ],
+  "nurturing-parent": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把支持范围与是否需要分别问清",
+        "en": "Distinguish the scope of support from whether it is wanted"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到上面的活动准备，朋友说时间紧时，可以只提出自己能承担的一小部分，询问是否需要。对方说不需要就保留这个答复，不加码帮助来证明关心；自己的时间不足也可以说明。复盘看请求、可用资源和接受范围，不由支持次数推实际帮助效果或善良，也不把未被接受归因于自己NP不够。可靠交接、尊重拒绝或安静陪伴未必落在本版四条里。",
+          "en": "For the activity preparation above, a companion’s limited time could prompt one bounded offer and a question about whether it is wanted. Retain a refusal without escalating help as proof of care, and state your own limits. Review requests, resources and accepted scope without inferring effective help or kindness from frequency, or blaming a declined offer on insufficient NP. Reliable handovers, respected refusals or quiet company need not appear in these four items."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "围绕具体做法交流，不评判哪种状态更好",
+        "en": "Discuss a specific practice without ranking states"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“朋友说时间紧时，你能提供哪一小部分，怎样让“不需要”也成为完整答复？”用普通假设情境交换理解即可，不把父母、成人或儿童当年龄、成熟度或关系地位，也不按图形替彼此解释内心。",
+          "en": "Ask: “If a companion were short of time, what small part could you offer and how could “not needed” remain a complete answer?” Use an ordinary hypothetical situation to compare understandings without treating Parent, Adult or Child as age, maturity or relationship rank, or using a chart to explain another person’s inner life."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含答案、五组分数或图形数据。对方可以不回答、另选一份说明或结束；无需讲述童年、提供私人对话或再做测试。",
+          "en": "You can share this public guide; its link contains no answers, five scores or chart data. The other person may decline, choose another guide or stop without describing childhood, supplying private conversations or taking another test."
+        }
+      ]
+    }
+  ],
+  "adult": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "让已确认和待确认各有位置",
+        "en": "Keep confirmed and unconfirmed information distinct"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的集合地点变动，分别列出已确认的新地点、尚未确认的时间，以及哪份通知或哪位负责人能补充信息。可以查已有说明、问一个问题或等待；没有未知时也可以结束核对。复盘看信息来源与缺口，不以反复查问、情绪少或较高A证明理性。自己的感受可以同时存在，别人的担忧也不因图中另一根柱较低而失去讨论资格。",
+          "en": "For the changed meeting point above, separate the confirmed location, unconfirmed time and notice or coordinator able to supply information. Consult instructions, ask once or wait; stop checking when no question remains. Review sources and gaps without proving rationality through repeated questions, less emotion or a higher A. Your feelings can coexist with checking, and another person’s concern retains room for discussion regardless of a lower bar."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "围绕具体做法交流，不评判哪种状态更好",
+        "en": "Discuss a specific practice without ranking states"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“集合地点改变后，什么已经确认，什么仍待问，怎样避免把已经清楚的部分反复当成未知？”用普通假设情境交换理解即可，不把父母、成人或儿童当年龄、成熟度或关系地位，也不按图形替彼此解释内心。",
+          "en": "Ask: “After a meeting point changed, what would be confirmed, what would still need asking and how could already clear information stay clear?” Use an ordinary hypothetical situation to compare understandings without treating Parent, Adult or Child as age, maturity or relationship rank, or using a chart to explain another person’s inner life."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含答案、五组分数或图形数据。对方可以不回答、另选一份说明或结束；无需讲述童年、提供私人对话或再做测试。",
+          "en": "You can share this public guide; its link contains no answers, five scores or chart data. The other person may decline, choose another guide or stop without describing childhood, supplying private conversations or taking another test."
+        }
+      ]
+    }
+  ],
+  "free-child": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "在自己的空档决定要不要换一种玩法",
+        "en": "Choose whether to vary play in a moment of your own"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到上面的积木休闲活动，可以只想一种小布局变化，也可以保留熟悉的设计。先看是否确实由自己选择，是否影响共同约定；别人不需要跟着试。复盘关注当时是否想尝试、条件是否允许，不以作品新奇、情绪外露或较高FC证明快乐和真实自我。没有兴趣、时间或材料时可以结束，低频率不能还原童年经历，也不产生必须释放某个自我状态的任务。",
+          "en": "For the building-block activity above, imagine one layout change or retain the familiar design. Check that the choice is yours and fits shared agreements; nobody else needs to join. Review interest and available conditions without using novelty, emotional display or higher FC to certify happiness or authenticity. Stop without interest, time or materials. Low frequency reconstructs no childhood history and creates no assignment to release an ego state."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "围绕具体做法交流，不评判哪种状态更好",
+        "en": "Discuss a specific practice without ranking states"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果空档里想换一种积木布局，怎样保留尝试和不尝试的选择，同时不改动别人的约定？”用普通假设情境交换理解即可，不把父母、成人或儿童当年龄、成熟度或关系地位，也不按图形替彼此解释内心。",
+          "en": "Ask: “If you considered another block layout in a free moment, how could trying and not trying both remain possible without changing someone else’s agreement?” Use an ordinary hypothetical situation to compare understandings without treating Parent, Adult or Child as age, maturity or relationship rank, or using a chart to explain another person’s inner life."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含答案、五组分数或图形数据。对方可以不回答、另选一份说明或结束；无需讲述童年、提供私人对话或再做测试。",
+          "en": "You can share this public guide; its link contains no answers, five scores or chart data. The other person may decline, choose another guide or stop without describing childhood, supplying private conversations or taking another test."
+        }
+      ]
+    }
+  ],
+  "adapted-child": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把场合约定与自己尚未同意的部分分开",
+        "en": "Separate situational agreements from what you have not accepted"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的新活动群体，先区分已说明的发言或分工次序、自己愿意参与的部分，以及仍想问清的问题。可以观察、询问或暂缓决定；配合一个步骤不等于同意额外要求。复盘只看实际约定与选择空间，不由高AC推讨好或压抑，不由低AC推反抗、独立或不合群。是否愿意、能否拒绝以及为什么调整，都需要当时的信息，不能由其他柱的高度补出来。",
+          "en": "For the new activity group above, distinguish stated speaking or task arrangements, the part you want to join and questions still open. Observe, ask or postpone a decision; coordinating one step accepts no extra request. Review agreements and room to choose without inferring people-pleasing or suppression from high AC, or rebellion, independence or exclusion from low AC. Willingness, refusal and reasons for adjustment need actual information rather than another bar’s height."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "围绕具体做法交流，不评判哪种状态更好",
+        "en": "Discuss a specific practice without ranking states"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“加入新活动时，哪些次序已经约定，哪些参与仍由你选择，哪些额外要求尚未同意？”用普通假设情境交换理解即可，不把父母、成人或儿童当年龄、成熟度或关系地位，也不按图形替彼此解释内心。",
+          "en": "Ask: “When joining an activity, what sequence would be agreed, what participation would remain your choice and what extra request would you not yet have accepted?” Use an ordinary hypothetical situation to compare understandings without treating Parent, Adult or Child as age, maturity or relationship rank, or using a chart to explain another person’s inner life."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含答案、五组分数或图形数据。对方可以不回答、另选一份说明或结束；无需讲述童年、提供私人对话或再做测试。",
+          "en": "You can share this public guide; its link contains no answers, five scores or chart data. The other person may decline, choose another guide or stop without describing childhood, supplying private conversations or taking another test."
+        }
+      ]
+    }
+  ]
+}

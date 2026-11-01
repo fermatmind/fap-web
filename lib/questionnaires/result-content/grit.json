@@ -1,0 +1,66 @@
+{
+  "goal-continuity": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把目标、方法和下一阶段分别说明",
+        "en": "Distinguish the aim, method and next stage"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的植物季节变化记录，分别想想：你仍想了解什么、照片或画图分别服务哪个问题、下一阶段是否还有值得投入的部分。换工具不必等于换目标；发现目标不再合适，也可以缩小、改变或停止。复盘看两个阶段之间实际有什么联系，不以连续多少天、拒绝多少新兴趣或下次均分更高证明毅力。无需记录地点、上传作品或公开目标；没有合适参照时，可以只阅读说明。",
+          "en": "For documenting seasonal plant changes above, distinguish what you still want to understand, which question photographs or drawings serve and whether another stage remains worth pursuing. A new tool need not mean a new aim; an unsuitable aim can also be narrowed, changed or stopped. Review the actual connection between stages without proving grit through uninterrupted days, rejected interests or a higher mean next time. No location, work sample or public aim is needed; read without an exercise if no suitable reference exists."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "交换目标与条件，不比较谁更能坚持",
+        "en": "Discuss aims and conditions without ranking persistence"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果从拍照改成画图记录季节变化，哪些目标仍延续，哪些部分已经值得重新考虑？”用假设的小事谈选择即可，不要求对方披露长期计划、解释暂停原因或承诺继续。两项均分没有高低人格之分，也不需要比较差值来决定谁更有毅力。",
+          "en": "Ask: “If you changed from photographs to drawings of seasonal changes, what aim might continue and what might deserve reconsideration?” Discuss choices through an ordinary hypothetical example without requesting long-term plans, reasons for pausing or a commitment to continue. The two means assign no ranked identities, and their difference need not decide who has more grit."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含目标名称、答案、均分或缺失条数。对方可以不回答、另选一份说明或结束，不需要展示成果或再做测试才能参与交流。",
+          "en": "You can share this public guide; its link contains no aim name, answers, means or missing counts. The other person may decline, choose another guide or stop without demonstrating achievement or taking a test to join."
+        }
+      ]
+    }
+  ],
+  "effort-return": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "先核对条件，再决定是否有可续接的一步",
+        "en": "Check conditions before deciding whether a next step is feasible"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到上面的物品归类，先分开原方法哪里不合适、现在可用的时间与信息，以及是否仍愿意继续。可以用少量物品试另一种归组，也可以先问一个问题、暂停或结束。若没有可行条件，不必为了证明愿意努力而制造任务。复盘只看阻碍与后续选择怎样衔接，不用工作时长、忍耐不适或一次成功来证明毅力，更不从较低均分反推当时本应坚持。",
+          "en": "For grouping household objects above, distinguish what failed to fit, available time and information, and whether continuing still appeals. Try another grouping with a few objects, ask one question, pause or stop. If conditions do not permit a step, no task needs to be manufactured as proof of effort. Review how the obstacle and later choice connect without using hours worked, discomfort endured or one success to certify grit, or inferring from a lower mean that you should have persisted."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "交换目标与条件，不比较谁更能坚持",
+        "en": "Discuss aims and conditions without ranking persistence"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果原先的物品归组方法不适合，哪些信息或条件会影响你选择小试一次、暂停或结束？”用假设的小事谈选择即可，不要求对方披露长期计划、解释暂停原因或承诺继续。两项均分没有高低人格之分，也不需要比较差值来决定谁更有毅力。",
+          "en": "Ask: “If the original grouping method did not fit, what information or conditions would shape a small trial, pause or decision to stop?” Discuss choices through an ordinary hypothetical example without requesting long-term plans, reasons for pausing or a commitment to continue. The two means assign no ranked identities, and their difference need not decide who has more grit."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含目标名称、答案、均分或缺失条数。对方可以不回答、另选一份说明或结束，不需要展示成果或再做测试才能参与交流。",
+          "en": "You can share this public guide; its link contains no aim name, answers, means or missing counts. The other person may decline, choose another guide or stop without demonstrating achievement or taking a test to join."
+        }
+      ]
+    }
+  ]
+}

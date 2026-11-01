@@ -1,0 +1,130 @@
+{
+  "fire": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘这一次的投入边界",
+        "en": "Review the boundary of this attempt"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的小尝试，记下原来想试的一个点、实际做过的部分，以及停下后是否还想继续。没有完成也能留下有用线索：范围是否太大，条件是否合适，还是今天已不想做？下次可以缩小或换题，不必延长投入来符合“火”的形象。",
+          "en": "After the small attempt above, note the point you wanted to try, what you actually did and whether you still want to continue after stopping. An unfinished attempt can leave useful questions: was the scope too large, did the conditions fit, or did you no longer want to do it today? Reduce or change the task next time without extending effort to fit a Fire image."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个开始与结束的问题",
+        "en": "Share a question about starting and ending"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设给一张空白书签添一点内容，你想先试哪一笔，又在哪里收住？”比较各自选的范围即可，不用比赛谁更有行动力，也不把愿意停下解释成缺乏热情。",
+          "en": "Ask: “If you added something to a blank bookmark, which mark would you try first, and where would you stop?” Compare chosen scopes without a contest in initiative or treating a wish to stop as missing enthusiasm."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不需要让朋友认证你的结果。",
+          "en": "You may share this public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline, and no friend needs to validate your result."
+        }
+      ]
+    }
+  ],
+  "water": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘调整是否仍适合自己",
+        "en": "Review whether the adjustment still fits you"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的小观察，分别写下原安排、双方明确说出的条件，以及最后同意或没有同意的改动。若结果不方便，先检查具体条件，不把它归结为自己不够体贴。改变、维持或另约时间都可以；别人的沉默也可以暂记为未知。",
+          "en": "After the observation above, separate the original arrangement, each person’s stated conditions and the change agreed or left unagreed. If it proves inconvenient, examine those conditions before judging your consideration. Changing, keeping or rescheduling are available; another person’s silence can remain unknown."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可调整的安排",
+        "en": "Share an adjustable arrangement"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设只交流一张明信片，你今天更想看图、读字、改天再聊，还是另有方式？”也说出自己的范围。不同答案留作选择，不拿它检验谁更会照顾感受。",
+          "en": "Ask: “For an imaginary exchange about one postcard, would you rather look at the image, read the words, talk another day or do something else?” State your own scope too. Leave different answers as choices rather than a test of who attends to feelings better."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不需要让朋友认证你的结果。",
+          "en": "You may share this public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline, and no friend needs to validate your result."
+        }
+      ]
+    }
+  ],
+  "earth": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘哪些基础值得留下",
+        "en": "Review which basics to retain"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的材料和续接记录，找出下一次真正用得上的一项，再看有没有已失效的步骤。保留基础可以与改方法同时发生；不需要留下所有东西或承担下一次组织。若没有下一次，这次清楚结束也足够，不影响本次选择的意义。",
+          "en": "After the materials and continuation note above, choose one thing that would actually help next time and check for an obsolete step. Retaining a base can accompany changing the method. You need neither keep everything nor organise the next occasion. If there is no next time, a clear ending is enough for this choice."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个容易接上的办法",
+        "en": "Share a way to pick something up again"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设拼贴只做到一半，留一行说明、把纸片分组，还是换个办法，怎样方便你下次接上？”讨论实际使用，不比较谁更可靠，也不默认由某人一直收拾。",
+          "en": "Ask: “If a collage were half finished, would a line of notes, grouped paper pieces or something else help you return to it?” Discuss practical use without reliability rankings or assigning someone permanent tidying duties."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不需要让朋友认证你的结果。",
+          "en": "You may share this public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline, and no friend needs to validate your result."
+        }
+      ]
+    }
+  ],
+  "air": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘联系与仍未知的部分",
+        "en": "Review connections and what remains unknown"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的不同想法，挑一条自己想保留的联系，并注明它来自观察、个人联想还是尚待核查的说法。有意思的联想不必变成事实结论，也不一定要做成作品。可以暂选一种做法或继续留白；收束想法并不违背这个主题。",
+          "en": "After the ideas above, choose a connection to keep and mark whether it comes from observation, personal association or a claim still needing verification. An interesting association need not become a factual conclusion or a finished piece. Choose a method for now or leave it open; bringing ideas to a close still fits this theme."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个不同联系的问题",
+        "en": "Share a question about different connections"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设同一扇窗要写进一行字或画成一个形状，你会留下什么联系？”各自解释自己的联想，也允许没有联想；不推断对方思维深浅或原创能力。",
+          "en": "Ask: “If the same imaginary window became a line of words or a shape, what connection would you keep?” Explain your own association and allow none, without inferring depth of thought or originality."
+        },
+        {
+          "zh": "可以只分享这份公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不需要让朋友认证你的结果。",
+          "en": "You may share this public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline, and no friend needs to validate your result."
+        }
+      ]
+    }
+  ]
+}

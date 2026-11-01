@@ -1,0 +1,130 @@
+{
+  "formulas-and-references": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：先写位移，再逐个坐标核对",
+        "en": "Review displacement before each reference"
+      },
+      "paragraphs": [
+        {
+          "zh": "用新例子：D7中的=C$3+$B7复制到E9，位移为右一列、下两行。C$3变D$3，$B7变$B9，合起来为=D$3+$B9。先把每个美元符号锁定的坐标圈出，再看公式栏，不只看算出的数字。可在纸上推演；移动单元格或插行是另一项操作。把自己漏掉的是行、列还是复制方向记成一句复盘，不把看过键后的熟悉感当成总体技能进步。",
+          "en": "Use a fresh example: copying =C$3+$B7 from D7 to E9 moves one column right and two rows down. C$3 becomes D$3 and $B7 becomes $B9, producing =D$3+$B9. Mark the coordinate locked by each dollar sign before checking the formula bar rather than results alone. Work on paper if preferred; moving cells or inserting rows is another operation. Record whether row, column or displacement was missed without treating familiarity after reading the keys as general skill growth."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起讲清规则，不比赛熟练等级",
+        "en": "Explain the rule together without ranking proficiency"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“从D7到E9复制时，C$3和$B7各锁住了什么，哪一部分仍要随位移改变？”先各自预测，说明条件与依据，再对照小例子和官方帮助。可只看、查资料、换例子或不答，不需上传表格、操作真实业务文件或计时比赛。",
+          "en": "Ask: “When copying from D7 to E9, what does each of C$3 and $B7 lock, and what must still follow the displacement?” Predict separately, explain conditions and reasoning, then compare the small example with official help. Observe, consult a source, change examples or decline without uploading workbooks, editing business files or racing."
+        },
+        {
+          "zh": "可分享不含个人答卷与正确数的公开指南。四组是复习主题，不派初级、高级、专家或招聘资格；不要要求展示真实数据、错题或工作成绩。微软说明支持选定功能规则，不等于验证本原创题组的心理测量表现。",
+          "en": "Share the public guide without personal answers or correct counts. The four groups organise revision without beginner, advanced, expert or hiring classifications. Request no real data, errors or workplace scores. Microsoft documents selected feature rules rather than validating this original bank’s psychometric performance."
+        }
+      ]
+    }
+  ],
+  "conditions-and-lookup": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：先写所求单位与条件边界",
+        "en": "Review the requested unit and condition boundary"
+      },
+      "paragraphs": [
+        {
+          "zh": "新虚构表只有Rowan/3、Cedar/8、Rowan/4三条记录。问Rowan有几条，答案是2；问其数量总和，答案是7。先写“条”或“数量单位”，再选计数或求和。另列6、7、8，核>7分别为假、假、真，>=7为假、真、真。把条件成立与返回值分开，并说明查找区域内的位置；可只用纸表，不把返回零、空文本与查找缺失混为一类。",
+          "en": "Use three invented records: Rowan/3, Cedar/8 and Rowan/4. Rowan has two records and a quantity total of seven. Write records or quantity units before choosing counting or summing. Separately test 6, 7 and 8: >7 gives false, false, true; >=7 gives false, true, true. Separate a condition from its returned value and state a lookup’s position within its range. Use a paper table, keeping stored zero, empty text and a missing lookup distinct."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起讲清规则，不比赛熟练等级",
+        "en": "Explain the rule together without ranking proficiency"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“Rowan有两条、数量共七个，为什么这两个答案都能正确，却不能互相替代？”先各自预测，说明条件与依据，再对照小例子和官方帮助。可只看、查资料、换例子或不答，不需上传表格、操作真实业务文件或计时比赛。",
+          "en": "Ask: “Rowan has two records and seven quantity units; why can both answers be correct without being interchangeable?” Predict separately, explain conditions and reasoning, then compare the small example with official help. Observe, consult a source, change examples or decline without uploading workbooks, editing business files or racing."
+        },
+        {
+          "zh": "可分享不含个人答卷与正确数的公开指南。四组是复习主题，不派初级、高级、专家或招聘资格；不要要求展示真实数据、错题或工作成绩。微软说明支持选定功能规则，不等于验证本原创题组的心理测量表现。",
+          "en": "Share the public guide without personal answers or correct counts. The four groups organise revision without beginner, advanced, expert or hiring classifications. Request no real data, errors or workplace scores. Microsoft documents selected feature rules rather than validating this original bank’s psychometric performance."
+        }
+      ]
+    }
+  ],
+  "data-handling": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：先声明比较列，再预测保留条数",
+        "en": "Review comparison columns before predicting retained rows"
+      },
+      "paragraphs": [
+        {
+          "zh": "新虚构行(Q4,2)、(Q4,2)、(Q4,6)、(R8,1)，同时比较编号与数量时只有一对完全重复，保留3条；只比编号则只有2种编号，会失去区分Q4两个数量的记录。先在纸上列两种目标，不在同一唯一副本连续删除。排序还需保留原配对，筛选则另核可见行；行数变少并不自动说明清理正确。",
+          "en": "Use new fictional rows (Q4,2), (Q4,2), (Q4,6) and (R8,1). Comparing code and quantity leaves three distinct pairs. Comparing code alone leaves two codes and loses a separate Q4 quantity record. State the two goals on paper rather than applying successive deletions to the only copy. Sorting must preserve pairs, while filtering requires a separate visibility check. Fewer rows do not automatically establish correct cleaning."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起讲清规则，不比赛熟练等级",
+        "en": "Explain the rule together without ranking proficiency"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“同样四行，为什么按两列去重保留三条，而只按编号会保留两种编号？后者丢掉了哪种区分？”先各自预测，说明条件与依据，再对照小例子和官方帮助。可只看、查资料、换例子或不答，不需上传表格、操作真实业务文件或计时比赛。",
+          "en": "Ask: “For the same four rows, why do two-column comparisons retain three pairs while code-only comparisons retain two codes, and what distinction does the latter lose?” Predict separately, explain conditions and reasoning, then compare the small example with official help. Observe, consult a source, change examples or decline without uploading workbooks, editing business files or racing."
+        },
+        {
+          "zh": "可分享不含个人答卷与正确数的公开指南。四组是复习主题，不派初级、高级、专家或招聘资格；不要要求展示真实数据、错题或工作成绩。微软说明支持选定功能规则，不等于验证本原创题组的心理测量表现。",
+          "en": "Share the public guide without personal answers or correct counts. The four groups organise revision without beginner, advanced, expert or hiring classifications. Request no real data, errors or workplace scores. Microsoft documents selected feature rules rather than validating this original bank’s psychometric performance."
+        }
+      ]
+    }
+  ],
+  "presentation-and-summaries": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：分别写储存值、显示和所求摘要",
+        "en": "Review stored value, display and requested summary separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "用已经储存的数值0.032，在一位小数百分比格式下显示3.2%；它不因此变成底层数值3.2，也不是输入到预设百分比空格的例子。另将虚构行Elm/2、Elm/5、Ash/4分别做求和与计数：Elm数量为7、记录为2条。先把摘要单位写在结果旁，再核选中的汇总方式。可在纸上完成，不用熟悉的图表外观代替对源值与条件的核查。",
+          "en": "An already stored numeric 0.032 displays as 3.2% with one percentage decimal place; its stored value does not become 3.2. This differs from typing into a preformatted empty cell. Separately sum and count invented Elm/2, Elm/5 and Ash/4 records: Elm has seven quantity units and two records. Write the requested summary unit beside the result before checking aggregation. Work on paper without using a familiar chart appearance in place of source and condition checks."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起讲清规则，不比赛熟练等级",
+        "en": "Explain the rule together without ranking proficiency"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“同一个0.032显示成3.2%时什么变了、什么没变？同一组Elm记录的七个与两条又分别回答什么问题？”先各自预测，说明条件与依据，再对照小例子和官方帮助。可只看、查资料、换例子或不答，不需上传表格、操作真实业务文件或计时比赛。",
+          "en": "Ask: “When 0.032 displays as 3.2%, what changes and what stays stored, and which questions do seven units and two Elm records answer?” Predict separately, explain conditions and reasoning, then compare the small example with official help. Observe, consult a source, change examples or decline without uploading workbooks, editing business files or racing."
+        },
+        {
+          "zh": "可分享不含个人答卷与正确数的公开指南。四组是复习主题，不派初级、高级、专家或招聘资格；不要要求展示真实数据、错题或工作成绩。微软说明支持选定功能规则，不等于验证本原创题组的心理测量表现。",
+          "en": "Share the public guide without personal answers or correct counts. The four groups organise revision without beginner, advanced, expert or hiring classifications. Request no real data, errors or workplace scores. Microsoft documents selected feature rules rather than validating this original bank’s psychometric performance."
+        }
+      ]
+    }
+  ]
+}

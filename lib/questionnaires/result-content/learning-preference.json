@@ -1,0 +1,166 @@
+{
+  "visual": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "同一张概览里，布局承担什么",
+        "en": "What layout contributes to an overview"
+      },
+      "paragraphs": [
+        {
+          "zh": "原创小例子：虚构图书角有“新到、在读、待归还”三种状态。把状态写在三个框中，再用箭头表示允许的转移，图示突出的是关系；在旁边写出转移条件，文字承担另一部分信息。喜欢看框和箭头，不等于已经核对每条条件，也不排除需要听解释。",
+          "en": "Original small example: an imaginary reading corner has “new,” “in use” and “to return” states. Three boxes and arrows show allowed transitions; written conditions add other information. Wanting the boxes and arrows does not establish that each condition was checked or rule out a spoken explanation."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "复盘看见关系与弄清内容的区别",
+        "en": "Review seeing relationships separately from clarity"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的箭头草图，找出一条自己仍想确认的连线，再写一句它表示什么。你可以发现喜欢布局但某个条件仍不明白，也可以发现今天更想读短句。分别保留这些记录，不以画得整齐、用色多少或一次顺利说明来认证视觉能力或教学效果。",
+          "en": "Following the arrow sketch above, choose one connection you still want to check and write what it means. You might enjoy the layout while a condition remains unclear, or prefer sentences today. Keep those observations separate. Neat drawing, colour use or one fluent explanation certifies neither visual ability nor instructional effectiveness."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个呈现选择的问题",
+        "en": "Share a question about presentation choices"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设介绍图书角的三种状态，你想先看关系图，还是先读条件？也可以两者都要。”只分享公开通用读法，不含本次均分或答案。无需展示笔记或互评理解力，不能访问某种材料也可以直接说明，不必用测试证明需求。",
+          "en": "Ask: “For three imaginary reading-corner states, would you want a relationship diagram or the conditions first? Both is an option.” Share the public general guide without attempt means or answers. No notes or ratings of understanding are needed. Access needs can be stated directly without proof from a test."
+        }
+      ]
+    }
+  ],
+  "auditory": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "听概览、轮流说与保留文字不同",
+        "en": "Distinguish hearing, discussion and written detail"
+      },
+      "paragraphs": [
+        {
+          "zh": "同一个虚构图书角，可以口头说：“书先进入新到区，借出后标为在读，还回前放在待归还区。”这只是一个说法。若想知道何时转区，可以提一个问题，也可以要求保留文字条件；愿意听概览与愿意参加讨论可以不同，不用把两者合成听觉型身份。",
+          "en": "For the same imaginary reading corner, someone could say, “Books enter as new, are marked in use when borrowed, and await return afterward.” That is one presentation. You can ask about transitions or retain written conditions. Wanting an overview and wanting discussion can differ without becoming an auditory identity."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "复盘说了什么与还想问什么",
+        "en": "Review what was said and what remains to ask"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的自述小观察，分开记自己愿不愿说、实际说清了哪一点、还有哪个问题。可以只对自己说，也可以改用文字；熟悉的语气和顺畅感无需当作理解证据。若邀请伙伴讨论，先确认意愿和时间，保留暂停与结束，不需要录下任何人的声音。",
+          "en": "Following the self-spoken observation above, separate willingness to speak, the point you expressed and a remaining question. Speak privately or switch to text. Familiar tone and fluency need not count as evidence of understanding. If inviting a partner, agree willingness and time, retaining pauses and an ending without recording anyone."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个讨论安排的问题",
+        "en": "Share a question about discussion arrangements"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“虚构一个简短流程，你想先听概览再提问，还是先看文字再决定要不要聊？”公开说明不含个人均分或答案。对方可以只读不说，不用开麦、录音或证明听力与表达能力；偏好不代替实际字幕、文字与语言支持。",
+          "en": "Ask: “For an imaginary short process, would you want a spoken overview and questions, or text before deciding whether to talk?” The public guide carries no personal means or answers. Reading without speaking is available. No microphone, recording or proof of hearing or speaking skill is needed; access support remains separate."
+        }
+      ]
+    }
+  ],
+  "reading-writing": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "短句保留规则，提纲留下疑问",
+        "en": "Sentences preserve rules; an outline can retain questions"
+      },
+      "paragraphs": [
+        {
+          "zh": "同一个虚构图书角，可以写：“收到书→登记新到；有人借用→标在读；准备归还→列待归还。”再留一句“谁负责更新状态？”前面是示例规则，后面是待查问题；它们可以共存。想保留文字，不代表写得越多越好，也不代表已经能独立应用规则。",
+          "en": "For the same imaginary reading corner, write, “Received: record as new; borrowed: mark in use; ready to return: list for return.” Add, “Who updates the status?” Example rules and an open question can coexist. Wanting text implies neither that more writing is better nor that the rules can already be applied independently."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "复盘笔记记录了什么",
+        "en": "Review what the note actually contains"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的三行文字，标出一处自己的表述和一处仍待核对的内容。可以发现短句够用，也可以需要图示或实例补充，不必继续扩写来保持某种类型。将“想用文字”与“内容已弄清”分开，字数、整洁度和一次回看都不是这份问卷测出的学习成绩。",
+          "en": "Following the three-line note above, mark one point in your own wording and one still to check. Short sentences may suffice, or a diagram or example may help you explore further. No extra writing is needed to maintain a type. Keep wanting text separate from clarity; length, neatness and one revisit are not learning results measured here."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个文字范围的问题",
+        "en": "Share a question about written scope"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设只留三行图书角说明，你会保留哪条规则、哪处疑问？也可以换成图或口头说。”分享通用读法不含个人均分或答案，不要求上传真实笔记、评作文或给同伴派读写型。实际可访问格式可以另行提出。",
+          "en": "Ask: “For three lines about an imaginary reading corner, which rule and question would you keep? A diagram or speech is available too.” This general guide includes no personal means or answers and asks for no real notes, writing assessment or read–write assignment. Accessible formats can be requested separately."
+        }
+      ]
+    }
+  ],
+  "kinesthetic": [
+    {
+      "id": "editorial-comparison-scene",
+      "title": {
+        "zh": "纸卡里的实例保留哪些条件",
+        "en": "What conditions a card example retains"
+      },
+      "paragraphs": [
+        {
+          "zh": "同一个虚构图书角，用三张自有纸卡标“新到、在读、待归还”，再拿一张空白卡代表一本书，按示例规则移动。卡片把一个使用情境摆出来；若规则不清，先读说明或提问仍然合适。移对一遍不证明熟练，想看实例也不等于想亲手操作。",
+          "en": "For the same imaginary reading corner, label three cards “new,” “in use” and “to return,” with a blank card for a book. Move it under the example rules. Cards present one use context. Read or ask when a rule is unclear. One correct move establishes no proficiency, and wanting an example need not mean wanting to act."
+        }
+      ]
+    },
+    {
+      "id": "editorial-follow-up",
+      "title": {
+        "zh": "复盘哪一步仍需了解",
+        "en": "Review which step still needs explanation"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的自有纸卡观察，记一处自己愿意尝试的动作和一处仍不清楚的条件；也可以只看不动。若换成文字或图示后更愿意继续，就按今天的选择记录。一次体验不决定适合什么课程或职业，不需要换成真实系统、设备或危险活动来验证结果。",
+          "en": "Following the card observation above, note one action you want to try and one unclear condition, or simply watch. If text or a diagram is more inviting today, record that choice. One experience determines no course or career and calls for no real system, equipment or hazardous activity to verify a result."
+        }
+      ]
+    },
+    {
+      "id": "editorial-share",
+      "title": {
+        "zh": "分享一个示例选择的问题",
+        "en": "Share a question about examples"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“想象图书角状态变化，你想看纸卡示例、自己试一步，还是先读规则？”公开读法不含个人均分或答案。双方可以不操作，不借用他人器材、不公开真实学习表现，也不用把选择解释成动手能力或身体类型。",
+          "en": "Ask: “For an imaginary reading-corner transition, would you want a card example, one trial or the rules first?” The public guide carries no personal means or answers. Either person can take no action, without borrowing equipment, disclosing real performance or interpreting the choice as practical ability or a bodily type."
+        }
+      ]
+    }
+  ]
+}

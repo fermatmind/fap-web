@@ -1,0 +1,182 @@
+{
+  "grammar": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：先看第一个动词，再选后续形式",
+        "en": "Practise the pattern after the first verb"
+      },
+      "paragraphs": [
+        {
+          "zh": "比较自拟句I enjoy sketching maps和I want to sketch a map。前句enjoy后用sketching，后句want后用to sketch。先遮住后半句，指出决定搭配的动词，再补全并查参考。例子不计分，也不把一种搭配推广给所有动词；这里比较书面结构，不评价口音或表达者。",
+          "en": "Compare the original examples I enjoy sketching maps and I want to sketch a map. Enjoy takes sketching here, while want takes to sketch. Cover the second part, identify the verb governing the pattern, complete it and check the reference. These examples are unscored. One pattern does not apply to every verb, and this written-form comparison grades neither accents nor speakers."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：把选对与能说明原因分开",
+        "en": "Review the choice and its explanation separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "选一项结构，分别记下你选了什么、句中哪部分决定形式、换什么条件时需要重新检查。选对却暂时说不清也可以查参考；看过答案再写就标为对照练习。一次改写不证明总体语法或写作水平，也不设固定练几遍就掌握的承诺。",
+          "en": "For one construction, record your choice, the words governing its form and a changed condition that would require another check. Consult a reference even after a correct choice if the reason is unclear. Mark writing after seeing the answer as comparison practice. One rewrite establishes neither overall grammar nor writing proficiency, and no fixed number of attempts guarantees mastery."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起讨论依据，自愿展示练习",
+        "en": "Discuss the evidence with optional practice sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果只把enjoy换成want，你会怎样说明后面的动词为什么也要重新检查？”各写一种解释，再核对虚构文本或参考。可只看、查资料、换例子或不回答；不计时、不比赛。",
+          "en": "Ask: “If only enjoy changed to want, how would you explain why the following verb needs another check?” Write an explanation each and check the invented text or reference. Observe, consult a source, change examples or decline without timing or competition."
+        },
+        {
+          "zh": "可分享不含答卷与正确数的公开指南。四组是复习主题，不是人格类型或语言等级；不要要求同伴展示错题、分数、学习困难或私人邮件，也不据此评价同学同事。题目答案核对与心理测量验证是两回事。",
+          "en": "Share the public guide without answers or correct counts in the link. Four groups organise revision rather than personality types or language levels. Request no errors, scores, learning difficulties or private emails, and assign no labels to classmates or colleagues. Checking answer keys is separate from psychometric validation."
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：暂定安排保留待确认信息",
+        "en": "Practise a provisional arrangement without a promise"
+      },
+      "paragraphs": [
+        {
+          "zh": "自拟便条写A tentative visit is planned for Tuesday; the room is not confirmed。可概括为周二有提议中的参观，房间尚未确认；不能改成周二一定成行，也不能据未确认说已经取消。试着改写一句，同时保留暂定状态。这是本语境词义练习，不预测真实安排。",
+          "en": "Use an original note: A tentative visit is planned for Tuesday; the room is not confirmed. It proposes a Tuesday visit with the room unresolved. It establishes neither a guaranteed visit nor a cancellation. Try one paraphrase that retains the provisional status. This explores meaning in the supplied context without predicting a real arrangement."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：核对句中义项和新增信息",
+        "en": "Review the contextual sense and any added information"
+      },
+      "paragraphs": [
+        {
+          "zh": "给一个目标词写下当前句子的意思，再列一条原句没告诉你的信息。对照词典时看义项是否合语境，不只看中文对应词。若第二次认出同一选项，区分记住答案与能在新句里用词；六词正确数不能推算词汇量或CEFR等级。",
+          "en": "For a target word, state its meaning in the sentence and one detail the sentence leaves unknown. Check the relevant dictionary sense rather than only a translation. Distinguish recalling a familiar answer from using the word in a new sentence. A count for six words cannot estimate vocabulary size or a CEFR level."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起讨论依据，自愿展示练习",
+        "en": "Discuss the evidence with optional practice sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果便条写tentative，怎样简短转述，既不承诺一定举行，也不误说已经取消？”各写一种解释，再核对虚构文本或参考。可只看、查资料、换例子或不回答；不计时、不比赛。",
+          "en": "Ask: “If a note used tentative, how would you paraphrase it without promising the event or announcing its cancellation?” Write an explanation each and check the invented text or reference. Observe, consult a source, change examples or decline without timing or competition."
+        },
+        {
+          "zh": "可分享不含答卷与正确数的公开指南。四组是复习主题，不是人格类型或语言等级；不要要求同伴展示错题、分数、学习困难或私人邮件，也不据此评价同学同事。题目答案核对与心理测量验证是两回事。",
+          "en": "Share the public guide without answers or correct counts in the link. Four groups organise revision rather than personality types or language levels. Request no errors, scores, learning difficulties or private emails, and assign no labels to classmates or colleagues. Checking answer keys is separate from psychometric validation."
+        }
+      ]
+    }
+  ],
+  "reading": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：把通知中的事实与缺口分列",
+        "en": "Practise separating a notice’s facts and gaps"
+      },
+      "paragraphs": [
+        {
+          "zh": "自拟通知：The print club meets in Room 7 at 18:30 on Tuesday. Register by 17:00 on Monday。地点、活动时间与报名截止都有明文；费用没有说明。可问是否收费，不能据空白说免费或必须付费。把三项明确资料和一项未知分别记下，不添加场馆规则。",
+          "en": "Use an original notice: The print club meets in Room 7 at 18:30 on Tuesday. Register by 17:00 on Monday. Place, meeting time and registration deadline are stated; cost is not. Ask about cost without calling the event free or paid. Record the three stated details and the gap separately without adding venue rules."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：每个结论能否指回具体文字",
+        "en": "Review the words supporting each conclusion"
+      },
+      "paragraphs": [
+        {
+          "zh": "把自己的概括分成短主张，每条旁边写原文依据；与原文冲突和原文未回答的分开。无法回答也可作为准确结论，缺少原因证据不等于证明没有影响。重读熟悉短文后，另找自写新通知练，不以同篇正确率证明阅读迁移或速度。",
+          "en": "Split your summary into short claims and put supporting words beside each. Separate contradiction from an unanswered question. An unresolved question can be an accurate conclusion; missing causal evidence does not prove no effect. After reviewing a familiar passage, use a fresh self-written notice without treating repeated accuracy as demonstrated transfer or reading speed."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起讨论依据，自愿展示练习",
+        "en": "Discuss the evidence with optional practice sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“通知给了地点、活动时间和报名截止，却没写价格时，你会怎样概括已知内容并提出一个澄清问题？”各写一种解释，再核对虚构文本或参考。可只看、查资料、换例子或不回答；不计时、不比赛。",
+          "en": "Ask: “If a notice gave place, meeting time and registration deadline but no price, how would you summarise the facts and ask one clarification?” Write an explanation each and check the invented text or reference. Observe, consult a source, change examples or decline without timing or competition."
+        },
+        {
+          "zh": "可分享不含答卷与正确数的公开指南。四组是复习主题，不是人格类型或语言等级；不要要求同伴展示错题、分数、学习困难或私人邮件，也不据此评价同学同事。题目答案核对与心理测量验证是两回事。",
+          "en": "Share the public guide without answers or correct counts in the link. Four groups organise revision rather than personality types or language levels. Request no errors, scores, learning difficulties or private emails, and assign no labels to classmates or colleagues. Checking answer keys is separate from psychometric validation."
+        }
+      ]
+    }
+  ],
+  "functional": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：把条件消息写成两个明确分支",
+        "en": "Practise both branches of a conditional message"
+      },
+      "paragraphs": [
+        {
+          "zh": "自拟任务：If the organiser confirms the image by 14:00, add it to the leaflet. Otherwise, leave the image space blank and ask for a new deadline。核对及时确认时加图、未及时确认时留白并询问新截止两个分支，不能把未确认写成已批准。这是纸面虚构练习，不需发送真实消息或代表实际组织规则。",
+          "en": "Use an original brief: If the organiser confirms the image by 14:00, add it to the leaflet. Otherwise, leave the image space blank and ask for a new deadline. Preserve adding the image after timely confirmation and leaving the space blank while requesting a new deadline otherwise. Do not invent approval. Practise on paper without sending a real message or prescribing an organisation’s policy."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：先核意思，再调整受众与措辞",
+        "en": "Review meaning before adapting the wording"
+      },
+      "paragraphs": [
+        {
+          "zh": "列出对象、版本、数字、时间、已知状态和条件分支，再逐项对照回复。礼貌措辞不能弥补改错文件或多作承诺；意思核对后，再按虚构受众调整长度和语气。可以只比较两句草稿，不以选项成绩判断真实工作胜任、礼貌人格或听说能力。",
+          "en": "List the object, version, numbers, time, known status and conditional branches, then compare the reply field by field. Courteous wording cannot repair a changed file or an added promise. Once meaning matches, adjust length and tone for the fictional audience. Compare drafts without using selection counts to judge job readiness, personal politeness or listening and speaking."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起讨论依据，自愿展示练习",
+        "en": "Discuss the evidence with optional practice sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果确认没有在截止前到来，你会怎样保留另一分支，并避免把未知状态写成完成或批准？”各写一种解释，再核对虚构文本或参考。可只看、查资料、换例子或不回答；不计时、不比赛。",
+          "en": "Ask: “If confirmation missed the deadline, how would you retain the alternative branch without reporting an unknown status as completed or approved?” Write an explanation each and check the invented text or reference. Observe, consult a source, change examples or decline without timing or competition."
+        },
+        {
+          "zh": "可分享不含答卷与正确数的公开指南。四组是复习主题，不是人格类型或语言等级；不要要求同伴展示错题、分数、学习困难或私人邮件，也不据此评价同学同事。题目答案核对与心理测量验证是两回事。",
+          "en": "Share the public guide without answers or correct counts in the link. Four groups organise revision rather than personality types or language levels. Request no errors, scores, learning difficulties or private emails, and assign no labels to classmates or colleagues. Checking answer keys is separate from psychometric validation."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "experience-of-self-reading": [
+    {
+      "id": "section-3",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构读者想向专业人士表达一次普通事务变得难以继续，但暂时不愿描述身体感受。他可以只说当前困难与希望得到的帮助，不必先给体验命名。同样的类别记录不能告诉旁人他经历了什么，也不能说明身份或原因。这个例子不安排身体检查、重做动作或验证自己。",
+          "en": "A fictional reader wants to tell a healthcare professional that an ordinary task became hard to continue, without describing bodily sensations. They can name the current difficulty and help wanted without first naming the experience. The same category record cannot tell others what happened or establish an identity or cause. This example assigns no body check, repeated action or self-verification."
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "title": {
+        "zh": "可选说明卡",
+        "en": "An optional explanation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以只说明：“我想谈日常事务受到的影响；体验细节暂不展开；原因我还不知道。”愿意听的人无需替你作身份解释或用计数作结论。",
+          "en": "An optional explanation can name the effect on an ordinary task, leave experience details private and keep the cause unknown. A listener need not supply an identity explanation or a conclusion from counts."
+        },
+        {
+          "zh": "新增情境和说明卡为费马编辑部原创，可只读，不要求披露或练习。原二十条、四个主题及每主题五条的六类记录保持不变，类别不作点数，未计分不等于没有注意到。不合分、不诊断、不推断身份或历史；新增内容不建立信效度或跨语言等价。实际担忧与支持无需计数门槛，公开分享只含标题与入口，不含回答或私人历史。",
+          "en": "These additional scenes and explanation cards are original FermatMind Editorial material for optional reading, without disclosure or practice. The twenty descriptions, four themes and six-category records for five descriptions per theme stay intact. Categories are not points; unscored is not did not notice. Nothing is combined, diagnosed or used to infer identity or history. New content establishes no reliability, validity or language equivalence. Practical concerns and support need no count threshold. Public sharing contains only the title and entry, without answers or personal history."
+        }
+      ]
+    }
+  ],
+  "experience-of-surroundings-reading": [
+    {
+      "id": "section-3",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构读者在指南中看到“环境的体验”这个主题，想讨论的是自己当时难以继续整理物品，而不是请别人判断房间有没有变化。他可以保留对具体感受的不确定。指南没有观察那个场景，也不能裁定物品、地点或他人的状态；无需返回现场、比较照片或请朋友验证。",
+          "en": "A fictional reader finds the topic of experiencing surroundings and wants to discuss difficulty continuing to sort belongings, rather than ask someone to decide whether a room changed. Details of the feeling can stay uncertain. The guide observed no scene and cannot adjudicate objects, places or other people. No return to the setting, photo comparison or verification by friends is required."
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "title": {
+        "zh": "可选说明卡",
+        "en": "An optional explanation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选说明可区分“我的体验描述”和“我希望得到的实际帮助”。可以不讲环境细节，也不邀请听者判断什么才真实；分享公开指南不等于分享自己的经历。",
+          "en": "An optional explanation can separate a description of experience from practical help wanted. Environmental details can stay private, without asking a listener to decide what is real. Sharing the public guide does not disclose your own experiences."
+        },
+        {
+          "zh": "新增情境和说明卡为费马编辑部原创，可只读，不要求披露或练习。原二十条、四个主题及每主题五条的六类记录保持不变，类别不作点数，未计分不等于没有注意到。不合分、不诊断、不推断身份或历史；新增内容不建立信效度或跨语言等价。实际担忧与支持无需计数门槛，公开分享只含标题与入口，不含回答或私人历史。",
+          "en": "These additional scenes and explanation cards are original FermatMind Editorial material for optional reading, without disclosure or practice. The twenty descriptions, four themes and six-category records for five descriptions per theme stay intact. Categories are not points; unscored is not did not notice. Nothing is combined, diagnosed or used to infer identity or history. New content establishes no reliability, validity or language equivalence. Practical concerns and support need no count threshold. Public sharing contains only the title and entry, without answers or personal history."
+        }
+      ]
+    }
+  ],
+  "absorption-and-attention-reading": [
+    {
+      "id": "section-3",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构读者回忆读一本小说时没有留意经过多久，同时也记得一次普通任务中走神。投入的乐趣与不便可以分别保留，不必合成一个好坏结论。记录既不测阅读表现，也不能确定心流、注意障碍或记忆缺失；不用刻意延长阅读、制造干扰或测试专注来补证。",
+          "en": "A fictional reader recalls not noticing elapsed time while reading a novel and also recalls mind-wandering during an ordinary task. Enjoyment and inconvenience can remain separate without one good-or-bad conclusion. The record tests no reading performance and establishes no flow state, attention disorder or memory loss. No prolonged reading, manufactured distraction or focus test is needed as proof."
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "title": {
+        "zh": "可选说明卡",
+        "en": "An optional explanation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "交流时可只区分“我愿意投入的活动”和“我当时另有事情想完成”，不比较谁更能专注。听者可以询问想要什么实际帮助，无需把投入命名为天赋或问题。",
+          "en": "A conversation can distinguish a chosen absorbing activity from another task intended at the time, without comparing who focuses better. A listener can ask what practical help is wanted without labelling absorption a talent or a problem."
+        },
+        {
+          "zh": "新增情境和说明卡为费马编辑部原创，可只读，不要求披露或练习。原二十条、四个主题及每主题五条的六类记录保持不变，类别不作点数，未计分不等于没有注意到。不合分、不诊断、不推断身份或历史；新增内容不建立信效度或跨语言等价。实际担忧与支持无需计数门槛，公开分享只含标题与入口，不含回答或私人历史。",
+          "en": "These additional scenes and explanation cards are original FermatMind Editorial material for optional reading, without disclosure or practice. The twenty descriptions, four themes and six-category records for five descriptions per theme stay intact. Categories are not points; unscored is not did not notice. Nothing is combined, diagnosed or used to infer identity or history. New content establishes no reliability, validity or language equivalence. Practical concerns and support need no count threshold. Public sharing contains only the title and entry, without answers or personal history."
+        }
+      ]
+    }
+  ],
+  "everyday-recall-uncertainty-reading": [
+    {
+      "id": "section-3",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "虚构读者说不清一次普通谈话里某个细节，读指南时仍然不确定。他可以停在“不确定”，不补出情节，也不把这个空白解释成隐藏事件。想讨论日常困难时，无需先证明缺失了什么；本例不要求翻消息、查文件、反复回想或请当事人确认故事。",
+          "en": "A fictional reader is unclear about a detail in an ordinary conversation and remains uncertain while reading the guide. The uncertainty can stand without filling in a story or treating a blank as a hidden event. Discussing a daily difficulty requires no proof of what is missing. This example calls for no message search, document check, repeated recollection or confirmation of a story by others."
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "title": {
+        "zh": "可选说明卡",
+        "en": "An optional explanation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选说明可写成：“我不确定细节，不想补出解释；我想讨论的是目前这件困难。”也可以只读这句虚构示例，不写自己的回忆。听者不应替你补故事，计数不确定事实。",
+          "en": "An optional explanation can leave details and explanations uncertain while naming the current difficulty to discuss. Reading the fictional example needs no written personal recollection. A listener need not fill in a story; counts establish no facts."
+        },
+        {
+          "zh": "新增情境和说明卡为费马编辑部原创，可只读，不要求披露或练习。原二十条、四个主题及每主题五条的六类记录保持不变，类别不作点数，未计分不等于没有注意到。不合分、不诊断、不推断身份或历史；新增内容不建立信效度或跨语言等价。实际担忧与支持无需计数门槛，公开分享只含标题与入口，不含回答或私人历史。",
+          "en": "These additional scenes and explanation cards are original FermatMind Editorial material for optional reading, without disclosure or practice. The twenty descriptions, four themes and six-category records for five descriptions per theme stay intact. Categories are not points; unscored is not did not notice. Nothing is combined, diagnosed or used to infer identity or history. New content establishes no reliability, validity or language equivalence. Practical concerns and support need no count threshold. Public sharing contains only the title and entry, without answers or personal history."
+        }
+      ]
+    }
+  ]
+}

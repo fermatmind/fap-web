@@ -1,0 +1,130 @@
+{
+  "listening-and-clarifying": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：已发送、已收到和想完成的任务分开",
+        "en": "Review sending, receipt and the customer’s intended task separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "新虚构情景：系统记录重置邮件已发送，客户说收件箱尚未看到，想恢复登录。可以复述“系统显示已发送，您目前没看到邮件，希望继续完成登录，我理解得对吗？”再核仍缺的接收现象或流程信息。已发送不等于已送达、客户已读或登录恢复；客户未看到也不能单独证明系统根本没发。把各陈述注明来源，留出客户纠正空间，再按题设流程处理。此例不要求索取密码、验证码或真实邮箱，也不代表网站已检查或恢复任何账户。",
+          "en": "In a fresh fictional case, a system record says a reset email was sent, while the customer has not seen it and wants to regain access. Check the summary: “The record shows sending, you have not seen the message, and you want to continue signing in; have I understood?” Then clarify the remaining relevant reception or process detail. Sent does not establish delivered, read or restored access; not seeing it does not alone establish that nothing was sent. Attribute each report and leave room for correction before following the supplied process. This example requests no passwords, verification codes or real email addresses and performs no account check or recovery."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用虚构案件讨论依据，不给客服贴标签",
+        "en": "Discuss evidence in a fictional case without rating a handler"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“系统记录和客户陈述是否一定冲突？还差哪项信息，才能知道下一步该查发送、接收还是登录环节？”先各自写一条简短回应或记录，再指出每句依据和一个尚未解决的疑问。可只读、换情景或不参与，不要求扮演愤怒客户、披露雇主政策或展示真实工单。讨论给定条件下的选择，不以本次正确数推断共情、人格或职业适合度。",
+          "en": "Ask: “Do the record and customer report necessarily conflict, and which missing detail would help locate the next relevant check?” Write a short reply or note separately, then identify each sentence’s evidence and one remaining question. Read, change the case or decline, without acting out an angry customer, disclosing employer policies or showing real tickets. Discuss choices under the supplied conditions without inferring empathy, personality or job suitability from the count."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。四组用于复习明确情景，不是客服能力等级、绩效预测、法律建议或招聘认证。全部24道原题重测不变，看解析后提高可能来自记忆；想看能否运用，宜另换虚构案件并说明依据与权限。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Four groups organise scenario revision rather than service ability levels, performance predictions, legal advice or recruitment certification. Retakes reuse the same 24 items, so improvement after reading explanations may reflect memory. Try a fresh fictional case and explain the evidence and authority to explore application."
+        }
+      ]
+    }
+  ],
+  "rules-and-resolution": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：资格未知与权限不足是不同问题",
+        "en": "Review unknown eligibility separately from insufficient authority"
+      },
+      "paragraphs": [
+        {
+          "zh": "新虚构规则：未使用、八个自然日内、凭证已核才符合；本人最多批准12单位，16单位由指定负责人处理。已知第七天、凭证已核，但是否用过未知时，应先核该条件，不能直接批准，也不能仅因未知就当作已使用。若随后确认未用且处理金额16，资格满足仍不等于本人有权批准，应交给题设有权角色。逐列标“已满足、已不满足、待核”，再另核权限。数字和流程只属于此不计分练习，不陈述真实退货权利、法律或公司通用规则。",
+          "en": "Use a fresh fictional rule: unused, within eight calendar days and verified proof are all required. Your approval limit is twelve units; a designated role handles sixteen. Day seven and proof are known, but use status is unknown. Clarify that condition instead of approving or treating unknown as used. If unused status is later confirmed and the remedy is sixteen, eligibility still does not give you authority to approve it yourself. Follow the stated authorized route. Mark met, unmet and unknown conditions before checking authority separately. These unscored numbers and procedures describe no real return right, law or universal company policy."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用虚构案件讨论依据，不给客服贴标签",
+        "en": "Discuss evidence in a fictional case without rating a handler"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“七天小于八天，为什么仍未必能批准？补齐未使用条件后，16单位又为何要另核权限？”先各自写一条简短回应或记录，再指出每句依据和一个尚未解决的疑问。可只读、换情景或不参与，不要求扮演愤怒客户、披露雇主政策或展示真实工单。讨论给定条件下的选择，不以本次正确数推断共情、人格或职业适合度。",
+          "en": "Ask: “Why is seven being less than eight insufficient for approval, and why does a sixteen-unit remedy still require a separate authority check?” Write a short reply or note separately, then identify each sentence’s evidence and one remaining question. Read, change the case or decline, without acting out an angry customer, disclosing employer policies or showing real tickets. Discuss choices under the supplied conditions without inferring empathy, personality or job suitability from the count."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。四组用于复习明确情景，不是客服能力等级、绩效预测、法律建议或招聘认证。全部24道原题重测不变，看解析后提高可能来自记忆；想看能否运用，宜另换虚构案件并说明依据与权限。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Four groups organise scenario revision rather than service ability levels, performance predictions, legal advice or recruitment certification. Retakes reuse the same 24 items, so improvement after reading explanations may reflect memory. Try a fresh fictional case and explain the evidence and authority to explore application."
+        }
+      ]
+    }
+  ],
+  "clear-service-messages": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：每句承诺对应一种可证实状态",
+        "en": "Review what evidence supports each commitment"
+      },
+      "paragraphs": [
+        {
+          "zh": "新虚构记录写明：负责人已接手，修复时间未知，并确认可在明天10:30前给下一次进展。回应可写“目前还不能确认修复时间；负责同事会在明天10:30前更新调查进展，即使仍未解决也会说明。”这承诺的是更新，不是到点修好。若尚未真正交接，就不能套用“已接手”；若更新时间没有依据，也不能照抄本例数字。逐句给已发生动作、未来承诺和未知结果标注依据，再看读者是否能分清下一步。网站不代发消息或执行交接。",
+          "en": "In a fresh fictional record, an owner has received the case, the fix time is unknown, and a progress update by 10:30 tomorrow is confirmed as feasible. Say: “The fix time is not confirmed. The owner will update you by 10:30 tomorrow, including if investigation is still ongoing.” This commits to an update rather than a completed fix. If handover has not occurred, received is unsupported; if update timing is unknown, copying this example’s time is unsupported too. Label completed actions, future commitments and unknown outcomes against their evidence, then check whether the next step is understandable. The website sends no message and performs no handover."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用虚构案件讨论依据，不给客服贴标签",
+        "en": "Discuss evidence in a fictional case without rating a handler"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：““明天10:30前更新”与“明天10:30前修好”各需要什么依据？消息中哪里应保留未知？”先各自写一条简短回应或记录，再指出每句依据和一个尚未解决的疑问。可只读、换情景或不参与，不要求扮演愤怒客户、披露雇主政策或展示真实工单。讨论给定条件下的选择，不以本次正确数推断共情、人格或职业适合度。",
+          "en": "Ask: “What different evidence would support an update by 10:30 versus a fix by 10:30, and which outcome should remain unknown?” Write a short reply or note separately, then identify each sentence’s evidence and one remaining question. Read, change the case or decline, without acting out an angry customer, disclosing employer policies or showing real tickets. Discuss choices under the supplied conditions without inferring empathy, personality or job suitability from the count."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。四组用于复习明确情景，不是客服能力等级、绩效预测、法律建议或招聘认证。全部24道原题重测不变，看解析后提高可能来自记忆；想看能否运用，宜另换虚构案件并说明依据与权限。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Four groups organise scenario revision rather than service ability levels, performance predictions, legal advice or recruitment certification. Retakes reuse the same 24 items, so improvement after reading explanations may reflect memory. Try a fresh fictional case and explain the evidence and authority to explore application."
+        }
+      ]
+    }
+  ],
+  "records-and-follow-through": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：保留差异、当前状态和接续动作",
+        "en": "Review the discrepancy, current status and next action"
+      },
+      "paragraphs": [
+        {
+          "zh": "新虚构案件中，客户称等待18分钟，已查队列记录显示15分钟；同事发出重试建议，但还无恢复确认。可以记“客户报18分钟；队列记录15分钟，三分钟差异待核计时起点。已发送重试步骤；按本例要求确认后关单的规则，目前待确认，下一位负责人继续跟进。”差异不证明谁说谎，建议已发也不证明已修好。只将案件所需信息交给题设接手人，不加入无关私事。这个不计分练习只示范记录逻辑，不代表已读真实工单或规定实际关单政策。",
+          "en": "In a fresh fictional case, the customer reports eighteen minutes of waiting, while a checked queue record shows fifteen. A colleague sent retry steps, but recovery is unconfirmed. Record both sources and the three-minute discrepancy, leaving timing boundaries to clarify. State that retry instructions were sent and confirmation is pending under this example’s confirmation-before-closure rule, with a next owner assigned. The discrepancy proves no dishonesty, and sending advice proves no repair. Share only relevant information with the stated receiving role. This unscored exercise illustrates record logic without inspecting a real ticket or defining an actual closure policy."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用虚构案件讨论依据，不给客服贴标签",
+        "en": "Discuss evidence in a fictional case without rating a handler"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这条记录里哪项是客户陈述、哪项有日志依据、哪项仍待确认？接手人还需知道什么才能继续？”先各自写一条简短回应或记录，再指出每句依据和一个尚未解决的疑问。可只读、换情景或不参与，不要求扮演愤怒客户、披露雇主政策或展示真实工单。讨论给定条件下的选择，不以本次正确数推断共情、人格或职业适合度。",
+          "en": "Ask: “Which detail is reported, which has a checked-record source, which remains unconfirmed, and what does the next owner need to continue?” Write a short reply or note separately, then identify each sentence’s evidence and one remaining question. Read, change the case or decline, without acting out an angry customer, disclosing employer policies or showing real tickets. Discuss choices under the supplied conditions without inferring empathy, personality or job suitability from the count."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。四组用于复习明确情景，不是客服能力等级、绩效预测、法律建议或招聘认证。全部24道原题重测不变，看解析后提高可能来自记忆；想看能否运用，宜另换虚构案件并说明依据与权限。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Four groups organise scenario revision rather than service ability levels, performance predictions, legal advice or recruitment certification. Retakes reuse the same 24 items, so improvement after reading explanations may reflect memory. Try a fresh fictional case and explain the evidence and authority to explore application."
+        }
+      ]
+    }
+  ]
+}

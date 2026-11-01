@@ -89,8 +89,8 @@ describe("Original social-context context observation categories, never a clinic
     for (const locale of ["en", "zh"] as const) {
       const html = renderToStaticMarkup(<SocialContextPage quiz={quiz} locale={locale} />);
       expect((html.match(/data-social-context-full-guide=/g) ?? [])).toHaveLength(4);
-      expect(html).not.toContain("data-social-context-result");
       const dom = document.createElement("div"); dom.innerHTML = html;
+      expect(dom.querySelector("[data-social-context-result]")).toBeNull();
       expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(true);
       for (const p of quiz.profiles) {
         const guide = renderToStaticMarkup(<SocialContextGuidePage quiz={quiz} profile={p} locale={locale} />);

@@ -3,7 +3,7 @@ import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Spq92Result } from "@/lib/questionnaires/spq92";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 export function QuestionnaireSpq92Report({ quiz, result, locale }: {
   quiz: Questionnaire; result: Extract<Spq92Result, { status: "complete" }>; locale: Locale;
@@ -27,7 +27,7 @@ export function QuestionnaireSpq92Report({ quiz, result, locale }: {
     </section>
     {quiz.profiles.map(profile => <section key={profile.id} aria-labelledby={`spq92-guide-${profile.id}`}>
       <h3 id={`spq92-guide-${profile.id}`} className="mb-4 text-2xl font-semibold">{profile.title[locale]}</h3>
-      <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`spq92-${profile.id}`} />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`spq92-${profile.id}`} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这份公开完整指南" : "Read this complete public guide"}</Link>
     </section>)}
     <aside data-spq92-source className="space-y-3 text-sm leading-7">{quiz.guide.find(section => section.id === "source")?.paragraphs.map((paragraph, i) => <p key={i}>{paragraph[locale]}</p>)}{quiz.references?.map(reference => <p key={reference.url}><a className="underline" href={reference.url}>{reference.title[locale]}</a></p>)}</aside>

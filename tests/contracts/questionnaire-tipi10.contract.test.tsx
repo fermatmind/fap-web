@@ -1,3 +1,4 @@
+import { correctTipiMidpoint } from "@/lib/questionnaires/result-content/tipi-midpoint";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -79,7 +80,7 @@ describe("TIPI-10 original source key, separate Big Five version", () => {
     for (const locale of ["en", "zh"] as const) for (const value of ["1", "4", "7"]) {
       const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<><Tipi10Report quiz={quiz} result={complete(all(value))} locale={locale} /><Tipi10NextSteps locale={locale} /></>);
       expect(dom.querySelectorAll("[data-tipi10-mean]")).toHaveLength(5); expect(dom.querySelectorAll("[data-tipi10-item]")).toHaveLength(10); expect(dom.querySelectorAll("h4")).toHaveLength(40);
-      for (const p of quiz.profiles) for (const s of p.sections) for (const t of s.paragraphs) expect(dom.textContent).toContain(t[locale]);
+      for (const p of quiz.profiles) for (const s of correctTipiMidpoint(p).sections) for (const t of s.paragraphs) expect(dom.textContent).toContain(t[locale]);
       expect(dom.querySelector("[data-tipi10-next-steps] a")?.getAttribute("href")).toBe(`/${locale}/tests/big-five-personality-test-ocean-model`);
       const ids = Array.from(dom.querySelectorAll("[id]"), e => e.id); expect(new Set(ids).size).toBe(ids.length);
       expect(dom.textContent).not.toMatch(/battery|电量|剩余能量/);
@@ -103,7 +104,7 @@ describe("TIPI-10 original source key, separate Big Five version", () => {
           expect(metadata.title).toBe(p.seo!.title[locale]);
           expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${url}`);
           expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/${quiz.slug}/results/${p.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/${quiz.slug}/results/${p.id}` });
-          for (const s of p.sections) for (const text of s.paragraphs) expect(dom.textContent).toContain(text[locale]);
+          for (const s of correctTipiMidpoint(p).sections) for (const text of s.paragraphs) expect(dom.textContent).toContain(text[locale]);
           expect(dom.querySelector("[data-tipi10-mean]")).toBeNull();
           expect(maps.filter(x => x.loc === `https://fermatmind.com${url}`)).toHaveLength(1);
         }

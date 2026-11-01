@@ -1,0 +1,290 @@
+{
+  "equality": [
+    {
+      "id": "equality-2",
+      "title": {
+        "en": "A concrete comparison",
+        "zh": "一个具体对照"
+      },
+      "paragraphs": [
+        {
+          "zh": "独立算例，非推荐答案：假定70题均作有效回应，除第6题选“同意”（乘0.5）外，其余69题全选中立。第6题经济权重5，贡献2.5；以195归一后，平等显示50.6%，市场49.4%。同一题公民权重为负10，还使公民自由显示49.2%、权威50.8%。因此经济端的微小偏移并不等于只动了经济轴，更不等于多了0.6%同情心。",
+          "en": "For an independently checked illustration, not a recommended answer, give all seventy items valid responses: Agree on item six, with multiplier 0.5, and Neutral on the other sixty-nine. Its economic weight of five contributes 2.5; normalization with 195 displays Equality 50.6% and Markets 49.4%. The same item has a civil weight of minus ten, producing Liberty 49.2% and Authority 50.8%. A small economic shift can therefore accompany a civil shift; it is not an extra 0.6% of compassion."
+        },
+        {
+          "zh": "原创讨论场景：两张虚构记录都写“支持某项公共服务”，一张补充了税收条件，另一张没有说明。可以指出信息范围不同，不凭同一句概括认定两人经济观点相同；也不把缺少说明当反对。",
+          "en": "In an original discussion scene, two invented notes support a public service, but only one states a taxation condition. Identify the difference in available information without declaring identical economic views or treating an unstated condition as opposition."
+        }
+      ]
+    },
+    {
+      "id": "equality-5",
+      "title": {
+        "en": "Check a response before drawing a conclusion",
+        "zh": "下结论前核一个回应"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“我们说的是同一种平等，还是某条具体陈述的不同理解？”可只讨论编造记录，不公开分数或私人政治回答。平等标签不决定善良、收入、选票或谁更值得被听见。",
+          "en": "Ask: “Are we using equality in the same sense, or interpreting one statement differently?” Discuss invented notes without disclosing scores or private political answers. The label determines neither kindness, income, voting nor whose voice matters."
+        },
+        {
+          "zh": "八份端点指南始终完整开放，结果不从四轴选一个最高价值或最近意识形态，也不能换算MBTI。界面中的一对百分数互补至100，不是两个独立特质；同为50可来自中立或相反贡献抵消，不能据此定为中间派。所有示例均为解释或虚构讨论素材，不替你核实陈述的事实，也不推荐政策、候选人或政治组织。分享可只用公开指南；本次复制只含测试标题、通用自我观察标签与入口链接，不含答案、百分数或轴值。无需公开政治观点、要求朋友作答或继续讨论。",
+          "en": "All eight pole guides remain complete and open. The result selects neither a highest value nor a nearest ideology and cannot be converted to MBTI. Paired percentages complement to 100 rather than measure independent traits. A midpoint can result from neutral responses or offsetting contributions and establishes no centrist identity. These illustrative or invented discussions neither verify statements as facts nor recommend policies, candidates or organisations. Share a public guide if wanted; website copying contains the test title, a general self-reflection label and entry link, without answers, percentages or axis values. Political disclosure, a friend’s test and continued discussion are unnecessary."
+        }
+      ]
+    }
+  ],
+  "markets": [
+    {
+      "id": "markets-2",
+      "title": {
+        "en": "A concrete comparison",
+        "zh": "一个具体对照"
+      },
+      "paragraphs": [
+        {
+          "zh": "独立算例：70题有效回应中，仅第3题选“同意”（乘0.5），其余69题中立。其经济权重为负10，加权和为负5；平等归一后显示48.7%，市场取100减48.7，显示51.3%。市场不是另算一个独立“能力分”，也不是70题中51.3%都选择了市场。这里只有一题非中立，其他三轴仍各为50.0／50.0。",
+          "en": "In an independently checked example, only item three receives Agree, multiplier 0.5, while the other sixty-nine valid responses are Neutral. Its economic weight of minus ten gives a sum of minus five. Equality displays 48.7%; Markets is 100 minus 48.7, or 51.3%. This is neither another independent ability score nor 51.3% of seventy items choosing markets. Only one response is non-neutral, and the other three axes each remain 50.0/50.0."
+        },
+        {
+          "zh": "原创讨论场景：虚构服务方案把“由谁运营”和“由谁付费”写在同一句里。先分开这两个问题，再看一段陈述究竟回应哪件事；不从一个市场数补出其对所有服务的主张，也不在此推荐运营或付费方式。",
+          "en": "In an original discussion scene, an invented service proposal puts operation and funding in one sentence. Separate the questions before interpreting a response. A market percentage cannot fill in a position on every service, and this example recommends neither operator nor funding method."
+        }
+      ]
+    },
+    {
+      "id": "markets-5",
+      "title": {
+        "en": "An optional interpretation check",
+        "zh": "一个可选解释核对"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“你回应的是配置方式、付费方式，还是文字里未写明的条件？”允许只看虚构例子、不透露立场。不把市场端解释成自私、经济常识高低或商业能力，更不据结果推荐交易、投资或政党。",
+          "en": "Ask: “Does the response concern allocation, funding or an unstated condition?” Use fiction without revealing a position. Markets implies neither selfishness, economic knowledge nor business skill and supplies no transaction, investment or party recommendation."
+        },
+        {
+          "zh": "八份端点指南始终完整开放，结果不从四轴选一个最高价值或最近意识形态，也不能换算MBTI。界面中的一对百分数互补至100，不是两个独立特质；同为50可来自中立或相反贡献抵消，不能据此定为中间派。所有示例均为解释或虚构讨论素材，不替你核实陈述的事实，也不推荐政策、候选人或政治组织。分享可只用公开指南；本次复制只含测试标题、通用自我观察标签与入口链接，不含答案、百分数或轴值。无需公开政治观点、要求朋友作答或继续讨论。",
+          "en": "All eight pole guides remain complete and open. The result selects neither a highest value nor a nearest ideology and cannot be converted to MBTI. Paired percentages complement to 100 rather than measure independent traits. A midpoint can result from neutral responses or offsetting contributions and establishes no centrist identity. These illustrative or invented discussions neither verify statements as facts nor recommend policies, candidates or organisations. Share a public guide if wanted; website copying contains the test title, a general self-reflection label and entry link, without answers, percentages or axis values. Political disclosure, a friend’s test and continued discussion are unnecessary."
+        }
+      ]
+    }
+  ],
+  "nation": [
+    {
+      "id": "nation-2",
+      "title": {
+        "en": "A concrete comparison",
+        "zh": "一个具体对照"
+      },
+      "paragraphs": [
+        {
+          "zh": "独立算例：其余69题均中立，仅第19题选“非常同意”（乘1）。外交加权和为负10，以225归一，全球显示47.8%，国家显示52.2%；该题另有公民权重负5，使公民自由49.2%、权威50.8%。国家52.2%不是忠诚度、国籍概率或支持所有国家行为的程度，这一合成也未询问答题者的理由。",
+          "en": "In an independently checked example, all but item nineteen are Neutral; that item receives Strongly Agree, multiplier one. The diplomatic sum is minus ten. Normalization with 225 displays Globe 47.8% and Nation 52.2%. A civil weight of minus five also produces Liberty 49.2% and Authority 50.8%. Nation 52.2% is neither loyalty, nationality probability nor support for every national action, and the arithmetic does not collect the reason behind the response."
+        },
+        {
+          "zh": "原创讨论场景：一份虚构合作备忘只写“保留本地决定权限”，没有说明研究资料如何共享。保留权限与是否参与某项共享是两件可继续询问的事；未写共享不等于已拒绝一切合作。",
+          "en": "In an original discussion scene, an invented cooperation note retains local decision authority without specifying research-data sharing. Authority and participation in a particular exchange are separate questions; an omitted sharing term does not establish rejection of all cooperation."
+        }
+      ]
+    },
+    {
+      "id": "nation-5",
+      "title": {
+        "en": "An optional context check",
+        "zh": "一个可选情境核对"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这段文字确定了什么，还没说哪种合作？”不让任何人凭数证明爱国、身份或忠诚；可以只比较虚构条款，也可结束讨论。这里不评价国家、人民或任何真实争端的正当性。",
+          "en": "Ask: “What does this wording establish, and what cooperation remains unspecified?” Nobody needs to prove patriotism, identity or loyalty through a score. Compare invented clauses or stop; this discussion judges no country, people or real dispute."
+        },
+        {
+          "zh": "八份端点指南始终完整开放，结果不从四轴选一个最高价值或最近意识形态，也不能换算MBTI。界面中的一对百分数互补至100，不是两个独立特质；同为50可来自中立或相反贡献抵消，不能据此定为中间派。所有示例均为解释或虚构讨论素材，不替你核实陈述的事实，也不推荐政策、候选人或政治组织。分享可只用公开指南；本次复制只含测试标题、通用自我观察标签与入口链接，不含答案、百分数或轴值。无需公开政治观点、要求朋友作答或继续讨论。",
+          "en": "All eight pole guides remain complete and open. The result selects neither a highest value nor a nearest ideology and cannot be converted to MBTI. Paired percentages complement to 100 rather than measure independent traits. A midpoint can result from neutral responses or offsetting contributions and establishes no centrist identity. These illustrative or invented discussions neither verify statements as facts nor recommend policies, candidates or organisations. Share a public guide if wanted; website copying contains the test title, a general self-reflection label and entry link, without answers, percentages or axis values. Political disclosure, a friend’s test and continued discussion are unnecessary."
+        }
+      ]
+    }
+  ],
+  "globe": [
+    {
+      "id": "globe-2",
+      "title": {
+        "en": "A concrete comparison",
+        "zh": "一个具体对照"
+      },
+      "paragraphs": [
+        {
+          "zh": "独立算例：70题中只有第26题选“同意”（乘0.5），其余69题均中立。外交贡献5，以225归一显示全球51.1%、国家48.9%；该题也给社会轴贡献5，以292归一显示进步50.9%、传统49.1%。同一回应在不同轴产生的百分数变化并不相同，因为分母不同；不是一条国际研究回答自动测出两种人格。",
+          "en": "In an independently checked example, only item twenty-six receives Agree, multiplier 0.5, while the other sixty-nine responses are Neutral. Its diplomatic contribution of five displays Globe 51.1% and Nation 48.9% using 225. Its societal contribution of five displays Progress 50.9% and Tradition 49.1% using 292. One response produces different percentage shifts because axis denominators differ, not because an international-research response reveals two personalities."
+        },
+        {
+          "zh": "原创讨论场景：两份虚构研究计划都提跨地合作，一份只共享已公开资料，另一份提共同管理。先说清合作范围，不能由同一个“合作”词推两份计划对所有机构都同意。",
+          "en": "In an original discussion scene, two invented research plans mention cooperation: one shares published material and another proposes joint management. Clarify scope rather than infer support for every institution from the same broad word."
+        }
+      ]
+    },
+    {
+      "id": "globe-5",
+      "title": {
+        "en": "An optional reading check",
+        "zh": "一个可选读法核对"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“我们说的合作具体包括什么，哪些尚未同意？”只讨论自编方案，不按全球分猜学历、文化开放、国籍或道德。可以支持某项合作而不接受另一项，指南不指定应选哪一边。",
+          "en": "Ask: “What does cooperation include, and what remains unagreed?” Use invented plans without inferring education, openness, nationality or morality. Support for one arrangement need not extend to another; the guide prescribes neither side."
+        },
+        {
+          "zh": "八份端点指南始终完整开放，结果不从四轴选一个最高价值或最近意识形态，也不能换算MBTI。界面中的一对百分数互补至100，不是两个独立特质；同为50可来自中立或相反贡献抵消，不能据此定为中间派。所有示例均为解释或虚构讨论素材，不替你核实陈述的事实，也不推荐政策、候选人或政治组织。分享可只用公开指南；本次复制只含测试标题、通用自我观察标签与入口链接，不含答案、百分数或轴值。无需公开政治观点、要求朋友作答或继续讨论。",
+          "en": "All eight pole guides remain complete and open. The result selects neither a highest value nor a nearest ideology and cannot be converted to MBTI. Paired percentages complement to 100 rather than measure independent traits. A midpoint can result from neutral responses or offsetting contributions and establishes no centrist identity. These illustrative or invented discussions neither verify statements as facts nor recommend policies, candidates or organisations. Share a public guide if wanted; website copying contains the test title, a general self-reflection label and entry link, without answers, percentages or axis values. Political disclosure, a friend’s test and continued discussion are unnecessary."
+        }
+      ]
+    }
+  ],
+  "liberty": [
+    {
+      "id": "liberty-2",
+      "title": {
+        "en": "A concrete comparison",
+        "zh": "一个具体对照"
+      },
+      "paragraphs": [
+        {
+          "zh": "独立算例：仅第38题选“同意”（乘0.5），其余69题中立。公民权重10贡献5，以320归一显示公民自由50.8%、权威49.2%；社会权重5贡献2.5，以292归一显示进步50.4%、传统49.6%。50.8%不是自由程度的行为刻度，也不是认识论、勇气或法律权利测量；它只是固定权重下的显示数。",
+          "en": "In an independently checked example, only item thirty-eight receives Agree, multiplier 0.5; the other sixty-nine are Neutral. A civil weight of ten contributes five, displaying Liberty 50.8% and Authority 49.2% using 320. A societal weight of five contributes 2.5, displaying Progress 50.4% and Tradition 49.6% using 292. Liberty 50.8% is no behavioural ruler, courage grade, assessment of knowledge or measurement of legal rights; it is this fixed arithmetic’s display."
+        },
+        {
+          "zh": "原创讨论场景：虚构讨论稿写“所有规则都可提问”，未说明每条规则是否应该取消。提出问题与接受或取消规则不同；可以核文字含义，不凭自由端补出对每个机构的态度。",
+          "en": "In an original discussion scene, an invented note says any rule may be questioned without saying it must be abolished. Questioning, accepting and removing a rule are different positions. Clarify wording without deriving views on every institution from the Liberty pole."
+        }
+      ]
+    },
+    {
+      "id": "liberty-5",
+      "title": {
+        "en": "An optional interpretation check",
+        "zh": "一个可选解释核对"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这里的提问、反对和取消是否被混在一起？”使用编造文字，不要求私人政治宣言，也不替真实法律作解释。自由端不赋予谁更有勇气、理性或公民价值的等级。",
+          "en": "Ask: “Have questioning, opposing and removing been treated as the same?” Use invented text without political declarations or legal interpretation. This pole creates no ranking of courage, reason or civic worth."
+        },
+        {
+          "zh": "八份端点指南始终完整开放，结果不从四轴选一个最高价值或最近意识形态，也不能换算MBTI。界面中的一对百分数互补至100，不是两个独立特质；同为50可来自中立或相反贡献抵消，不能据此定为中间派。所有示例均为解释或虚构讨论素材，不替你核实陈述的事实，也不推荐政策、候选人或政治组织。分享可只用公开指南；本次复制只含测试标题、通用自我观察标签与入口链接，不含答案、百分数或轴值。无需公开政治观点、要求朋友作答或继续讨论。",
+          "en": "All eight pole guides remain complete and open. The result selects neither a highest value nor a nearest ideology and cannot be converted to MBTI. Paired percentages complement to 100 rather than measure independent traits. A midpoint can result from neutral responses or offsetting contributions and establishes no centrist identity. These illustrative or invented discussions neither verify statements as facts nor recommend policies, candidates or organisations. Share a public guide if wanted; website copying contains the test title, a general self-reflection label and entry link, without answers, percentages or axis values. Political disclosure, a friend’s test and continued discussion are unnecessary."
+        }
+      ]
+    }
+  ],
+  "authority": [
+    {
+      "id": "authority-2",
+      "title": {
+        "en": "A concrete comparison",
+        "zh": "一个具体对照"
+      },
+      "paragraphs": [
+        {
+          "zh": "独立算例：其余69题中立，只在第35题选“同意”（乘0.5）。该题公民权重负10，贡献负5；按320归一，公民自由显示49.2%，权威由100减49.2得50.8%，其他轴均50.0／50.0。一条非中立回应已能让显示略偏一端，不等于答题者支持所有限制，亦不证明其服从、控制欲或领导能力。",
+          "en": "In an independently checked example, only item thirty-five receives Agree, multiplier 0.5, with the other sixty-nine Neutral. Its civil weight of minus ten contributes minus five. Normalization with 320 displays Liberty 49.2% and Authority 50.8%; all other axes remain 50.0/50.0. One non-neutral response can move a displayed pair slightly without establishing support for every restriction, obedience, a wish to control or leadership ability."
+        },
+        {
+          "zh": "原创讨论场景：一段虚构说明支持“某活动有明确规则”，却没有说明由谁制定、怎样修改或如何监督。规则存在、权力范围与监督机制不能合成一个未问过的答案。指出未知即可，不需为他人补写动机。",
+          "en": "In an original discussion scene, an invented note supports explicit rules for an activity without naming who writes, revises or oversees them. The existence of rules, scope of power and oversight cannot be collapsed into an unasked answer. Identify unknowns without inventing motives."
+        }
+      ]
+    },
+    {
+      "id": "authority-5",
+      "title": {
+        "en": "An optional context check",
+        "zh": "一个可选情境核对"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“已说明的是规则、制定者还是监督方式，哪些仍未知？”可以比较自编说明而不公开分数。不以权威端验忠诚、分派组织职责或判断谁更可靠；实际规则需要另有真实依据。",
+          "en": "Ask: “Does this specify a rule, its author or oversight, and what remains unknown?” Compare invented notes privately. Authority supplies neither loyalty tests, organisational appointments nor reliability judgments; actual rules need their own evidence."
+        },
+        {
+          "zh": "八份端点指南始终完整开放，结果不从四轴选一个最高价值或最近意识形态，也不能换算MBTI。界面中的一对百分数互补至100，不是两个独立特质；同为50可来自中立或相反贡献抵消，不能据此定为中间派。所有示例均为解释或虚构讨论素材，不替你核实陈述的事实，也不推荐政策、候选人或政治组织。分享可只用公开指南；本次复制只含测试标题、通用自我观察标签与入口链接，不含答案、百分数或轴值。无需公开政治观点、要求朋友作答或继续讨论。",
+          "en": "All eight pole guides remain complete and open. The result selects neither a highest value nor a nearest ideology and cannot be converted to MBTI. Paired percentages complement to 100 rather than measure independent traits. A midpoint can result from neutral responses or offsetting contributions and establishes no centrist identity. These illustrative or invented discussions neither verify statements as facts nor recommend policies, candidates or organisations. Share a public guide if wanted; website copying contains the test title, a general self-reflection label and entry link, without answers, percentages or axis values. Political disclosure, a friend’s test and continued discussion are unnecessary."
+        }
+      ]
+    }
+  ],
+  "progress": [
+    {
+      "id": "progress-2",
+      "title": {
+        "en": "A concrete comparison",
+        "zh": "一个具体对照"
+      },
+      "paragraphs": [
+        {
+          "zh": "独立算例：只有第55题选“非常同意”（乘1），其余69题中立。此题社会权重确为2，社会和2以292归一，进步显示50.3%、传统49.7%；公民权重10同时产生公民自由51.6%、权威48.4%。不能为了让题目“看起来一样重要”把2换成5或10，也不能把社会轴小变化解释成科学素养或道德提升。",
+          "en": "In an independently checked example, only item fifty-five receives Strongly Agree, multiplier one, with the other sixty-nine Neutral. Its societal weight is two: a sum of two normalized with 292 displays Progress 50.3% and Tradition 49.7%. Its civil weight of ten also produces Liberty 51.6% and Authority 48.4%. Replacing two with five or ten would change the edition. The societal shift measures neither scientific literacy nor moral improvement."
+        },
+        {
+          "zh": "原创讨论场景：虚构展览提案同时写“采用新展示方式”和“保留旧展品”。这两句话可共存。先辨是哪部分要变、哪部分保留，不用进步标签把新的一律评好或把保留一律评坏。",
+          "en": "In an original discussion scene, an invented exhibition proposes a new display method while retaining older exhibits. The statements can coexist. Identify what changes and what remains rather than using Progress to rank everything new above everything retained."
+        }
+      ]
+    },
+    {
+      "id": "progress-5",
+      "title": {
+        "en": "An optional wording check",
+        "zh": "一个可选措辞核对"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“改变的是工具、内容还是安排，判断所需信息够吗？”用虚构提案，不推真实技术、政党或信仰。数值不判断谁更现代、聪明或善良，也不要求向任一端改答。",
+          "en": "Ask: “Is the change to a tool, content or arrangement, and is enough information available?” Use invented proposals without promoting technology, parties or beliefs. The number ranks no modernity, intelligence or kindness and requires no answer change."
+        },
+        {
+          "zh": "八份端点指南始终完整开放，结果不从四轴选一个最高价值或最近意识形态，也不能换算MBTI。界面中的一对百分数互补至100，不是两个独立特质；同为50可来自中立或相反贡献抵消，不能据此定为中间派。所有示例均为解释或虚构讨论素材，不替你核实陈述的事实，也不推荐政策、候选人或政治组织。分享可只用公开指南；本次复制只含测试标题、通用自我观察标签与入口链接，不含答案、百分数或轴值。无需公开政治观点、要求朋友作答或继续讨论。",
+          "en": "All eight pole guides remain complete and open. The result selects neither a highest value nor a nearest ideology and cannot be converted to MBTI. Paired percentages complement to 100 rather than measure independent traits. A midpoint can result from neutral responses or offsetting contributions and establishes no centrist identity. These illustrative or invented discussions neither verify statements as facts nor recommend policies, candidates or organisations. Share a public guide if wanted; website copying contains the test title, a general self-reflection label and entry link, without answers, percentages or axis values. Political disclosure, a friend’s test and continued discussion are unnecessary."
+        }
+      ]
+    }
+  ],
+  "tradition": [
+    {
+      "id": "tradition-2",
+      "title": {
+        "en": "A concrete comparison",
+        "zh": "一个具体对照"
+      },
+      "paragraphs": [
+        {
+          "zh": "独立算例：其余69题中立，第55题选“不同意”（乘负0.5）。社会权重2贡献负1，以292归一后进步显示49.8%、传统50.2%；公民权重10贡献负5，公民自由49.2%、权威50.8%。传统50.2%不是所有回答有50.2%反对改变，也不是年龄、宗教或家庭承诺。这里展示一次固定算术，不建议怎样回答该题。",
+          "en": "In an independently checked example, item fifty-five receives Disagree, multiplier minus 0.5, and the other sixty-nine are Neutral. Its societal weight of two contributes minus one. Using 292 displays Progress 49.8% and Tradition 50.2%; a civil contribution of minus five displays Liberty 49.2% and Authority 50.8%. Tradition 50.2% is neither the fraction of answers opposing change nor age, faith or family commitment. The example illustrates arithmetic without recommending an answer."
+        },
+        {
+          "zh": "原创讨论场景：一份虚构活动说明保留旧名称，却另提新的开放时间。保留名称与是否接受时间变化不是同一问题；可以分别说明，不从“保留”二字推出整套文化立场或对新事物的态度。",
+          "en": "In an original discussion scene, an invented activity keeps its old name while proposing new opening hours. Retaining a name and accepting a schedule change are separate questions. Neither word supplies an entire cultural position or a general attitude toward novelty."
+        }
+      ]
+    },
+    {
+      "id": "tradition-5",
+      "title": {
+        "en": "An optional context and wording check",
+        "zh": "一个可选情境措辞核对"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“要保留的具体是什么，哪些变化尚未讨论？”用编造材料，不征集家庭、宗教或投票资料。传统数不说明智慧、落后或虔诚，更不替任何人决定应维护或放弃的实践。",
+          "en": "Ask: “What exactly is retained, and which changes are undiscussed?” Use invented material without family, religious or voting information. Tradition measures neither wisdom, backwardness nor devotion and decides no practice to preserve or abandon."
+        },
+        {
+          "zh": "八份端点指南始终完整开放，结果不从四轴选一个最高价值或最近意识形态，也不能换算MBTI。界面中的一对百分数互补至100，不是两个独立特质；同为50可来自中立或相反贡献抵消，不能据此定为中间派。所有示例均为解释或虚构讨论素材，不替你核实陈述的事实，也不推荐政策、候选人或政治组织。分享可只用公开指南；本次复制只含测试标题、通用自我观察标签与入口链接，不含答案、百分数或轴值。无需公开政治观点、要求朋友作答或继续讨论。",
+          "en": "All eight pole guides remain complete and open. The result selects neither a highest value nor a nearest ideology and cannot be converted to MBTI. Paired percentages complement to 100 rather than measure independent traits. A midpoint can result from neutral responses or offsetting contributions and establishes no centrist identity. These illustrative or invented discussions neither verify statements as facts nor recommend policies, candidates or organisations. Share a public guide if wanted; website copying contains the test title, a general self-reflection label and entry link, without answers, percentages or axis values. Political disclosure, a friend’s test and continued discussion are unnecessary."
+        }
+      ]
+    }
+  ]
+}

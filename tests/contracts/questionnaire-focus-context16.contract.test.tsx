@@ -85,8 +85,8 @@ describe("Original daily context observation categories, never a clinical score"
     for (const locale of ["en", "zh"] as const) {
       const html = renderToStaticMarkup(<FocusContextPage quiz={quiz} locale={locale} />);
       expect((html.match(/data-focus-context-full-guide=/g) ?? [])).toHaveLength(4);
-      expect(html).not.toContain("data-focus-context-result");
       const dom = document.createElement("div"); dom.innerHTML = html;
+      expect(dom.querySelector("[data-focus-context-result]")).toBeNull();
       expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(true);
       for (const p of quiz.profiles) {
         const guide = renderToStaticMarkup(<FocusContextGuidePage quiz={quiz} profile={p} locale={locale} />);
@@ -137,6 +137,7 @@ describe("Original daily context observation categories, never a clinical score"
       renderToStaticMarkup(<FocusContextGuidePage quiz={quiz} profile={quiz.profiles[0]} locale={locale} />),
     ]) {
       const dom = document.createElement("div"); dom.innerHTML = html;
+      expect(dom.querySelector("[data-focus-context-result]")).toBeNull();
       const primaryLinks = dom.querySelectorAll("[data-focus-context-existing-primary] a");
       expect(Array.from(primaryLinks, a => a.getAttribute("href"))).toEqual([
         `/${locale}/tests/explore/executive-function`,

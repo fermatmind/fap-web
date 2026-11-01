@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
@@ -33,7 +33,7 @@ export function QuestionnaireMotivationThemesReport({ quiz, result, locale }: {
         {!available && <p className="mb-4 leading-8 text-slate-600">{zh
           ? "不确定可选原数值中点；不计分则保留暂缺，不补中点或零。下面仍可读完整通用指南，不能当本次个人结果。其他完整主题分别保留。"
           : "Uncertainty can use the original numeric midpoint. Unscored remains missing, without midpoint or zero imputation. The full general guide below remains readable without assigning a personal result. Other complete themes remain separate."}</p>}
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`deep-motivation-report-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`deep-motivation-report-${profile.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline"
           href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本主题完整公开指南" : "Read this theme’s complete public guide"}</Link>
       </section>;

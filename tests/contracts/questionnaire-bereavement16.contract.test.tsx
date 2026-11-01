@@ -109,7 +109,7 @@ describe("Original bereavement observation categories, never a clinical score", 
     for (const locale of ["en", "zh"] as const) {
       const html = renderToStaticMarkup(<BereavementPage quiz={quiz} locale={locale} />);
       expect((html.match(/data-bereavement-full-guide=/g) ?? [])).toHaveLength(5);
-      expect(html).not.toContain("data-bereavement-result");
+      expect(html).not.toContain("data-bereavement-result=");
       const dom = document.createElement("div"); dom.innerHTML = html;
       expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(true);
       expect(dom.querySelector("#take-test select")?.hasAttribute("disabled")).toBe(true);

@@ -3,7 +3,7 @@ import { useEntertainmentMetrics, useEntertainmentResultView } from "@/component
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Locale } from "@/lib/i18n/locales";
-import type { QuestionnaireAnswers } from "@/lib/questionnaires/types";
+import type { QuestionnaireAnswers, QuestionnaireProfile } from "@/lib/questionnaires/types";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
 import { isMiniIntimacyConfigurationValid, scoreMiniIntimacyQuestionnaire, type MiniIntimacyQuestionnaire } from "@/lib/questionnaires/miniIntimacy";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -13,12 +13,12 @@ type Complete = Extract<FacetResult, { status: "complete" }>;
 const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
 const subscribeReady = () => () => {};
 
-export function QuestionnaireIntimacyClient({ quiz, locale }: { quiz: unknown; locale: Locale }) {
+export function QuestionnaireIntimacyClient({ quiz, locale, readingProfiles }: { quiz: unknown; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
   if (!isMiniIntimacyConfigurationValid(quiz)) return <p role="status">{locale === "zh" ? "问卷内容暂不可用。" : "The questionnaire content is unavailable."}</p>;
-  return <ValidIntimacyClient key={`${locale}:${quiz.version}`} quiz={quiz} locale={locale} />;
+  return <ValidIntimacyClient key={`${locale}:${quiz.version}`} quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
 }
 
-function ValidIntimacyClient({ quiz, locale }: { quiz: MiniIntimacyQuestionnaire; locale: Locale }) {
+function ValidIntimacyClient({ quiz, locale, readingProfiles }: { quiz: MiniIntimacyQuestionnaire; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
   const { start: recordStart, complete: recordComplete, view: recordView, consent: activityConsent, share: recordShare } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false), zh = locale === "zh";
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({}), [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome");
@@ -73,7 +73,7 @@ function ValidIntimacyClient({ quiz, locale }: { quiz: MiniIntimacyQuestionnaire
       </>}
       {stage === "result" && result && <>
         <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading[locale]}</h2>
-        <QuestionnaireIntimacyReport quiz={quiz} result={result} locale={locale} />
+        <QuestionnaireIntimacyReport quiz={quiz} result={result} locale={locale} readingProfiles={readingProfiles} />
         <button type="button" className={button} onClick={copyPublicLinks}>{zh ? "复制公开解释链接" : "Copy public explanation links"}</button>
         {manual && <label className="block leading-7">{zh ? "手动复制公开链接" : "Public links for manual copying"}<textarea readOnly value={manual} className="mt-2 min-h-40 w-full rounded-lg border border-slate-300 p-3" /></label>}
         <button type="button" className={button} onClick={() => { clear(); setStage("answer"); recordStart(); }}>{zh ? "重新测试（清除本次回答）" : "Retake with empty answers"}</button>

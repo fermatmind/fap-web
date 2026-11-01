@@ -3,19 +3,19 @@ import { useEntertainmentMetrics, useEntertainmentResultView } from "@/component
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore, type FormEvent } from "react";
 import type { Locale } from "@/lib/i18n/locales";
-import { BIRTH_NUMBER_METHODS, calculateBirthDateNumber, deviceCalendarDate, isBirthNumberConfigurationValid, joinBirthDateFields, type BirthNumberMethod, type BirthNumberQuestionnaire, type BirthNumberResult } from "@/lib/questionnaires/birthNumber";
+import { BIRTH_NUMBER_METHODS, calculateBirthDateNumber, deviceCalendarDate, isBirthNumberConfigurationValid, joinBirthDateFields, type BirthNumberProfile, type BirthNumberMethod, type BirthNumberQuestionnaire, type BirthNumberResult } from "@/lib/questionnaires/birthNumber";
 import { BirthNumberReport } from "./BirthNumberReport";
 
 type Complete = Extract<BirthNumberResult, { status: "complete" }>;
 const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
 const subscribeReady = () => () => {};
 
-export function BirthNumberClient({ quiz, locale }: { quiz: unknown; locale: Locale }) {
+export function BirthNumberClient({ quiz, locale, readingProfiles }: { quiz: unknown; locale: Locale; readingProfiles?: readonly BirthNumberProfile[] }) {
   if (!isBirthNumberConfigurationValid(quiz)) return <p role="status">{locale === "zh" ? "计算器内容暂不可用。" : "The calculator content is unavailable."}</p>;
-  return <ValidBirthNumberClient key={locale} quiz={quiz} locale={locale} />;
+  return <ValidBirthNumberClient key={locale} quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
 }
 
-function ValidBirthNumberClient({ quiz, locale }: { quiz: BirthNumberQuestionnaire; locale: Locale }) {
+function ValidBirthNumberClient({ quiz, locale, readingProfiles }: { quiz: BirthNumberQuestionnaire; locale: Locale; readingProfiles?: readonly BirthNumberProfile[] }) {
   const { start: recordStart, complete: recordComplete, view: recordView, consent: activityConsent, share: recordShare } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const zh = locale === "zh", [year, setYear] = useState(""), [month, setMonth] = useState(""), [day, setDay] = useState("");
@@ -93,7 +93,7 @@ function ValidBirthNumberClient({ quiz, locale }: { quiz: BirthNumberQuestionnai
       <h2 id="birth-number-result-title" ref={resultHeading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading![locale]}</h2>
       <div className="my-4 flex flex-wrap gap-3">{finished.results.length === 1 && <button type="button" className={button} onClick={compare}>{zh ? "比较另一种规则" : "Compare the other rule"}</button>}<button type="button" className={button} onClick={copy}>{zh ? "复制标签与方法" : "Copy label and method"}</button></div>
       {manual && <label className="my-4 block">{zh ? "手动复制文字" : "Text for manual copying"}<textarea readOnly value={manual} className="mt-2 min-h-28 w-full rounded-lg border border-slate-300 p-3" /></label>}
-      <BirthNumberReport quiz={quiz} results={finished.results} locale={locale} />
+      <BirthNumberReport quiz={quiz} results={finished.results} locale={locale} readingProfiles={readingProfiles} />
     </section>}
     <noscript><p>{zh ? "计算需要浏览器启用JavaScript；下方公开方法与指南仍可阅读。" : "Calculation requires JavaScript; the public methods and guides below remain readable."}</p></noscript>
   </section>;

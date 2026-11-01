@@ -1,0 +1,166 @@
+{
+  "total-reading": [
+    {
+      "id": "example",
+      "title": {
+        "en": "A repeated question can differ from a useful review",
+        "zh": "重复提问可以不同于有用回顾"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者反复回想一次会议：有时找到一条待核对的信息，有时只是重放同一句话。总分不能区分每次回想，也不知道会议中的问题是否解决。可以只记录是否出现新信息、是否难以转开及是否打断活动；这些观察不必公开，也不要求联系任何人或把总分降到某个目标。",
+          "en": "An additional original scene: A fictional reader repeatedly recalls a meeting, sometimes identifying information to check and sometimes replaying the same sentence. A total distinguishes no individual episode and knows no resolution of the meeting’s issues. Note only whether new information appeared, shifting away felt difficult or an activity was interrupted. These observations need no public record, contact with anyone or target total."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "Bring context to a conversation about support",
+        "zh": "讨论支持时把情境带上"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“有哪些新的可核对信息，哪些只是重复，实际活动是否受到影响？”可以只讨论虚构读者，将可观察的事、自己的解释和未知分开。无需公开私密想法或个人数值，也不要求向别人证明自己想得少；不愿讨论或观察加重困扰时，可以在此结束。",
+          "en": "An optional discussion prompt asks: “What new information can be checked, what is repeating, and was an actual activity affected?” Discuss only the fictional reader, separating observations, interpretations and unknowns. No private thoughts or personal values need disclosure, and nobody needs to prove they think less. Decline discussion or stop if observation increases distress."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Separate the original study from this web edition",
+        "zh": "区分原研究与本网页版本"
+      },
+      "paragraphs": [
+        {
+          "zh": "本页补充情境和讨论提示由费马测试编辑部原创，不属于原附录题文。保留2011年已发表PTQ十五条英文、原题序、0从不／1很少／2有时／3经常／4几乎总是及工作中译，不另加一周、一月或单次事件时间窗。每题直接计分、无反向：核心第1、2、3、6、7、8、11、12、13题合0—36；自觉无益第4、9、14题合0—12；注意占用第5、10、15题合0—12。十五题数值齐全才有0—60总分，不转均值、百分比、诊断档或最突出类型。核心九个2、自觉无益三个1、注意占用三个3，总分18+3+9=30；十五个2也得30，逐题与分量表却不同。题量不等，不按原始和排名。0是从不，尚未选择与明确不计分都不等于0；网页十五项都选数字或不计分才完成，一项不计分暂缺所属分量表与总分，其他完整和保留，全部不计分也可完成并阅读四篇全文。不计分和严格齐全为网页改编，不是原研究缺失常模，不补零、中点或按比例放大。新中文与网页解释未建立本地信效度、语言等价或有意义变化阈值；原研究群体差异不提供本页个人诊断线。许可署名、原材料链接和改编说明保持可读。可只读虚构情境，不需披露想法内容、身份或聊天记录；讨论可停止。现有可选24小时标签页草稿及完成、重测、退出清除保持不变；复制只保留公开标题与入口，不带个人和或选项，不增加最终结果缓存或逐题上传。",
+          "en": "FermatMind Editorial authored these additional scenes and prompts; they are not appendix items. The published 2011 PTQ English, original fifteen-item order, anchors 0 Never, 1 Rarely, 2 Sometimes, 3 Often and 4 Almost always, and working Chinese remain. No week, month or single-event window is added. Items are direct-scored without reversal. Core items 1, 2, 3, 6, 7, 8, 11, 12, 13 sum to 0–36; unproductiveness items 4, 9, 14 and occupied-attention items 5, 10, 15 each sum to 0–12. All fifteen numeric answers are needed for the 0–60 total, without means, percentages, diagnostic bands or a leading type. Nine core twos, three unproductiveness ones and three attention threes give 18+3+9=30; fifteen twos also give 30 with different item and subscale answers. Unequal item counts prohibit raw-sum ranking. Zero means Never. Neither an unanswered item nor an explicit unscored choice equals zero. All fifteen need a number or unscored choice to finish on the website. One unscored item withholds its part and the total, preserving other complete sums; an all-unscored attempt can finish and read all four guides. Unscored handling and strict completeness are web adaptations, not published missing-data norms, without zero, midpoint or prorating. Local reliability, validity, language equivalence and meaningful-change thresholds are unestablished for the new Chinese and web interpretations. Source group differences supply no individual diagnostic threshold here. Attribution, material links and identified changes remain readable. Read fictional scenes without disclosing thought content, identities or messages; discussion can stop. Existing opt-in 24-hour tab drafts and completion, retake and exit clearing remain. Copying retains only the public title and entry, without personal sums or choices, added final-result caches or item uploads."
+        }
+      ]
+    }
+  ],
+  "core-reading": [
+    {
+      "id": "example",
+      "title": {
+        "en": "Reopening a message can serve different purposes",
+        "zh": "重新打开消息可能有不同目的"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者多次打开同一封草稿：一次是补进刚收到的日期，另一次只是反复读同样的字句。相同动作可能有不同背景，问卷并未观察过程。难以转开不证明意志薄弱，不想要的想法也不等于行动意图；无需提供草稿内容或强迫自己停止思考来验证数字。",
+          "en": "An additional original scene: A fictional reader reopens a draft repeatedly, once to add a newly received date and another time simply to reread the same words. Similar actions can have different contexts; the questionnaire observes neither process. Difficulty disengaging proves no weakness of will, and an unwanted thought is not an intention to act. No draft content or forced stopping of thought is needed to verify a number."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "Choose whether an observation would be useful",
+        "zh": "自行决定观察是否有用"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“是否出现新信息，重读时有什么可观察变化，哪些内心原因仍未知？”可以只讨论虚构读者，将可观察的事、自己的解释和未知分开。无需公开私密想法或个人数值，也不要求向别人证明自己想得少；不愿讨论或观察加重困扰时，可以在此结束。",
+          "en": "An optional discussion prompt asks: “Did new information appear, what observable change accompanied rereading, and which inner causes remain unknown?” Discuss only the fictional reader, separating observations, interpretations and unknowns. No private thoughts or personal values need disclosure, and nobody needs to prove they think less. Decline discussion or stop if observation increases distress."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Keep the subscale tied to its actual evidence",
+        "zh": "把分量表与真实证据绑定"
+      },
+      "paragraphs": [
+        {
+          "zh": "本页补充情境和讨论提示由费马测试编辑部原创，不属于原附录题文。保留2011年已发表PTQ十五条英文、原题序、0从不／1很少／2有时／3经常／4几乎总是及工作中译，不另加一周、一月或单次事件时间窗。每题直接计分、无反向：核心第1、2、3、6、7、8、11、12、13题合0—36；自觉无益第4、9、14题合0—12；注意占用第5、10、15题合0—12。十五题数值齐全才有0—60总分，不转均值、百分比、诊断档或最突出类型。核心九个2、自觉无益三个1、注意占用三个3，总分18+3+9=30；十五个2也得30，逐题与分量表却不同。题量不等，不按原始和排名。0是从不，尚未选择与明确不计分都不等于0；网页十五项都选数字或不计分才完成，一项不计分暂缺所属分量表与总分，其他完整和保留，全部不计分也可完成并阅读四篇全文。不计分和严格齐全为网页改编，不是原研究缺失常模，不补零、中点或按比例放大。新中文与网页解释未建立本地信效度、语言等价或有意义变化阈值；原研究群体差异不提供本页个人诊断线。许可署名、原材料链接和改编说明保持可读。可只读虚构情境，不需披露想法内容、身份或聊天记录；讨论可停止。现有可选24小时标签页草稿及完成、重测、退出清除保持不变；复制只保留公开标题与入口，不带个人和或选项，不增加最终结果缓存或逐题上传。",
+          "en": "FermatMind Editorial authored these additional scenes and prompts; they are not appendix items. The published 2011 PTQ English, original fifteen-item order, anchors 0 Never, 1 Rarely, 2 Sometimes, 3 Often and 4 Almost always, and working Chinese remain. No week, month or single-event window is added. Items are direct-scored without reversal. Core items 1, 2, 3, 6, 7, 8, 11, 12, 13 sum to 0–36; unproductiveness items 4, 9, 14 and occupied-attention items 5, 10, 15 each sum to 0–12. All fifteen numeric answers are needed for the 0–60 total, without means, percentages, diagnostic bands or a leading type. Nine core twos, three unproductiveness ones and three attention threes give 18+3+9=30; fifteen twos also give 30 with different item and subscale answers. Unequal item counts prohibit raw-sum ranking. Zero means Never. Neither an unanswered item nor an explicit unscored choice equals zero. All fifteen need a number or unscored choice to finish on the website. One unscored item withholds its part and the total, preserving other complete sums; an all-unscored attempt can finish and read all four guides. Unscored handling and strict completeness are web adaptations, not published missing-data norms, without zero, midpoint or prorating. Local reliability, validity, language equivalence and meaningful-change thresholds are unestablished for the new Chinese and web interpretations. Source group differences supply no individual diagnostic threshold here. Attribution, material links and identified changes remain readable. Read fictional scenes without disclosing thought content, identities or messages; discussion can stop. Existing opt-in 24-hour tab drafts and completion, retake and exit clearing remain. Copying retains only the public title and entry, without personal sums or choices, added final-result caches or item uploads."
+        }
+      ]
+    }
+  ],
+  "unproductive-reading": [
+    {
+      "id": "example",
+      "title": {
+        "en": "An unanswered question may need information, not more replay",
+        "zh": "没有答案的问题可能需要信息，而非更多重放"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者一直猜一项报名为何没有确认，但手上没有新增信息。能否使用获准的查询渠道、是否只能等待与已经想到的解释，可以分开。没有马上解决不证明能力差；总和也不能决定继续追问是否合适，允许保留不知道而不再制造答案。",
+          "en": "An additional original scene: A fictional reader keeps guessing why a registration is unconfirmed without receiving new information. An available authorised inquiry, a situation requiring waiting and explanations already considered differ. No immediate resolution proves no lack of ability. A sum decides no appropriateness of further inquiry; uncertainty can remain without generating another answer."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "Separate a question you can check from one still open",
+        "zh": "区分可核对的问题与仍开放的问题"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“哪些问题可以安全核对，哪些目前缺信息，是否愿意暂时保留未知？”可以只讨论虚构读者，将可观察的事、自己的解释和未知分开。无需公开私密想法或个人数值，也不要求向别人证明自己想得少；不愿讨论或观察加重困扰时，可以在此结束。",
+          "en": "An optional discussion prompt asks: “Which questions can be checked safely, which lack information now, and is leaving an unknown open preferable?” Discuss only the fictional reader, separating observations, interpretations and unknowns. No private thoughts or personal values need disclosure, and nobody needs to prove they think less. Decline discussion or stop if observation increases distress."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Read the three-item evidence with its limits",
+        "zh": "带着限制阅读三题证据"
+      },
+      "paragraphs": [
+        {
+          "zh": "本页补充情境和讨论提示由费马测试编辑部原创，不属于原附录题文。保留2011年已发表PTQ十五条英文、原题序、0从不／1很少／2有时／3经常／4几乎总是及工作中译，不另加一周、一月或单次事件时间窗。每题直接计分、无反向：核心第1、2、3、6、7、8、11、12、13题合0—36；自觉无益第4、9、14题合0—12；注意占用第5、10、15题合0—12。十五题数值齐全才有0—60总分，不转均值、百分比、诊断档或最突出类型。核心九个2、自觉无益三个1、注意占用三个3，总分18+3+9=30；十五个2也得30，逐题与分量表却不同。题量不等，不按原始和排名。0是从不，尚未选择与明确不计分都不等于0；网页十五项都选数字或不计分才完成，一项不计分暂缺所属分量表与总分，其他完整和保留，全部不计分也可完成并阅读四篇全文。不计分和严格齐全为网页改编，不是原研究缺失常模，不补零、中点或按比例放大。新中文与网页解释未建立本地信效度、语言等价或有意义变化阈值；原研究群体差异不提供本页个人诊断线。许可署名、原材料链接和改编说明保持可读。可只读虚构情境，不需披露想法内容、身份或聊天记录；讨论可停止。现有可选24小时标签页草稿及完成、重测、退出清除保持不变；复制只保留公开标题与入口，不带个人和或选项，不增加最终结果缓存或逐题上传。",
+          "en": "FermatMind Editorial authored these additional scenes and prompts; they are not appendix items. The published 2011 PTQ English, original fifteen-item order, anchors 0 Never, 1 Rarely, 2 Sometimes, 3 Often and 4 Almost always, and working Chinese remain. No week, month or single-event window is added. Items are direct-scored without reversal. Core items 1, 2, 3, 6, 7, 8, 11, 12, 13 sum to 0–36; unproductiveness items 4, 9, 14 and occupied-attention items 5, 10, 15 each sum to 0–12. All fifteen numeric answers are needed for the 0–60 total, without means, percentages, diagnostic bands or a leading type. Nine core twos, three unproductiveness ones and three attention threes give 18+3+9=30; fifteen twos also give 30 with different item and subscale answers. Unequal item counts prohibit raw-sum ranking. Zero means Never. Neither an unanswered item nor an explicit unscored choice equals zero. All fifteen need a number or unscored choice to finish on the website. One unscored item withholds its part and the total, preserving other complete sums; an all-unscored attempt can finish and read all four guides. Unscored handling and strict completeness are web adaptations, not published missing-data norms, without zero, midpoint or prorating. Local reliability, validity, language equivalence and meaningful-change thresholds are unestablished for the new Chinese and web interpretations. Source group differences supply no individual diagnostic threshold here. Attribution, material links and identified changes remain readable. Read fictional scenes without disclosing thought content, identities or messages; discussion can stop. Existing opt-in 24-hour tab drafts and completion, retake and exit clearing remain. Copying retains only the public title and entry, without personal sums or choices, added final-result caches or item uploads."
+        }
+      ]
+    }
+  ],
+  "mental-capacity-reading": [
+    {
+      "id": "example",
+      "title": {
+        "en": "A page can remain open while attention is elsewhere",
+        "zh": "页面仍打开，注意却可能在别处"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者看一份通知时想到另一个未决问题，后来发现遗漏了通知的一段。遗漏、当时的环境与自觉被思考带走注意可以分别记录，但先后出现不证明因果。三题和不测记忆、智力或固定注意容量，也不要求公开担忧内容、压制想法或自行调整药物。",
+          "en": "An additional original scene: A fictional reader thinks of an unresolved issue while reading a notice and later finds a paragraph was missed. The omission, environment and feeling of attention being occupied can be recorded separately, without inferring causation from their order. Three items measure no memory, intelligence or fixed attention capacity and require no disclosure of concerns, thought suppression or self-directed medication change."
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "Describe what interferes and what support is needed",
+        "zh": "说明受到什么干扰、需要什么支持"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“正在做什么，实际注意到哪种中断，哪些可能影响尚未确认？”可以只讨论虚构读者，将可观察的事、自己的解释和未知分开。无需公开私密想法或个人数值，也不要求向别人证明自己想得少；不愿讨论或观察加重困扰时，可以在此结束。",
+          "en": "An optional discussion prompt asks: “What activity was underway, which interruption was actually noticed, and which possible influences remain unconfirmed?” Discuss only the fictional reader, separating observations, interpretations and unknowns. No private thoughts or personal values need disclosure, and nobody needs to prove they think less. Decline discussion or stop if observation increases distress."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Keep an attention report distinct from an objective test",
+        "zh": "区分注意自报与客观测试"
+      },
+      "paragraphs": [
+        {
+          "zh": "本页补充情境和讨论提示由费马测试编辑部原创，不属于原附录题文。保留2011年已发表PTQ十五条英文、原题序、0从不／1很少／2有时／3经常／4几乎总是及工作中译，不另加一周、一月或单次事件时间窗。每题直接计分、无反向：核心第1、2、3、6、7、8、11、12、13题合0—36；自觉无益第4、9、14题合0—12；注意占用第5、10、15题合0—12。十五题数值齐全才有0—60总分，不转均值、百分比、诊断档或最突出类型。核心九个2、自觉无益三个1、注意占用三个3，总分18+3+9=30；十五个2也得30，逐题与分量表却不同。题量不等，不按原始和排名。0是从不，尚未选择与明确不计分都不等于0；网页十五项都选数字或不计分才完成，一项不计分暂缺所属分量表与总分，其他完整和保留，全部不计分也可完成并阅读四篇全文。不计分和严格齐全为网页改编，不是原研究缺失常模，不补零、中点或按比例放大。新中文与网页解释未建立本地信效度、语言等价或有意义变化阈值；原研究群体差异不提供本页个人诊断线。许可署名、原材料链接和改编说明保持可读。可只读虚构情境，不需披露想法内容、身份或聊天记录；讨论可停止。现有可选24小时标签页草稿及完成、重测、退出清除保持不变；复制只保留公开标题与入口，不带个人和或选项，不增加最终结果缓存或逐题上传。",
+          "en": "FermatMind Editorial authored these additional scenes and prompts; they are not appendix items. The published 2011 PTQ English, original fifteen-item order, anchors 0 Never, 1 Rarely, 2 Sometimes, 3 Often and 4 Almost always, and working Chinese remain. No week, month or single-event window is added. Items are direct-scored without reversal. Core items 1, 2, 3, 6, 7, 8, 11, 12, 13 sum to 0–36; unproductiveness items 4, 9, 14 and occupied-attention items 5, 10, 15 each sum to 0–12. All fifteen numeric answers are needed for the 0–60 total, without means, percentages, diagnostic bands or a leading type. Nine core twos, three unproductiveness ones and three attention threes give 18+3+9=30; fifteen twos also give 30 with different item and subscale answers. Unequal item counts prohibit raw-sum ranking. Zero means Never. Neither an unanswered item nor an explicit unscored choice equals zero. All fifteen need a number or unscored choice to finish on the website. One unscored item withholds its part and the total, preserving other complete sums; an all-unscored attempt can finish and read all four guides. Unscored handling and strict completeness are web adaptations, not published missing-data norms, without zero, midpoint or prorating. Local reliability, validity, language equivalence and meaningful-change thresholds are unestablished for the new Chinese and web interpretations. Source group differences supply no individual diagnostic threshold here. Attribution, material links and identified changes remain readable. Read fictional scenes without disclosing thought content, identities or messages; discussion can stop. Existing opt-in 24-hour tab drafts and completion, retake and exit clearing remain. Copying retains only the public title and entry, without personal sums or choices, added final-result caches or item uploads."
+        }
+      ]
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+import { discResultProfile } from "@/lib/questionnaires/result-content/disc";
 import { describe, expect, it, vi } from "vitest";
 import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
@@ -119,7 +120,7 @@ describe("T001 DISC complete source questionnaire", () => {
           const props = { params: Promise.resolve({ locale, slug: "disc", profile: profile.id }) };
           const rendered = renderToStaticMarkup(await guide.default(props)), metadata = await guide.generateMetadata(props);
           const root = document.createElement("div"); root.innerHTML = rendered;
-          for (const section of profile.sections) for (const paragraph of section.paragraphs) expect(root.textContent).toContain(paragraph[locale]);
+          for (const section of discResultProfile(profile).sections) for (const paragraph of section.paragraphs) expect(root.textContent).toContain(paragraph[locale]);
           if (locale === "en") expect(root.textContent).not.toMatch(/\p{Script=Han}/u);
           expect(String(metadata.alternates?.canonical)).toBe(`https://fermatmind.com${path}`);
           expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com${questionnaireGuidePath("en", "disc", profile.id)}`, "zh-CN": `https://fermatmind.com${questionnaireGuidePath("zh", "disc", profile.id)}` });

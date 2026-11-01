@@ -3,20 +3,20 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Locale } from "@/lib/i18n/locales";
-import type { QuestionnaireAnswers } from "@/lib/questionnaires/types";
+import type { QuestionnaireAnswers, QuestionnaireProfile } from "@/lib/questionnaires/types";
 import { IMAGERY12_TOPICS, isImagery12ConfigurationValid, scoreImagery12, type Imagery12Questionnaire, type Imagery12Result } from "@/lib/questionnaires/imagery12";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
 const subscribeReady = () => () => {};
 
-export function Imagery12Client({ quiz, locale }: { quiz: unknown; locale: Locale }) {
+export function Imagery12Client({ quiz, locale, readingProfiles }: { quiz: unknown; locale: Locale; readingProfiles?: QuestionnaireProfile[] }) {
   if (!isImagery12ConfigurationValid(quiz)) return <p role="status">{locale === "zh" ? "问卷内容暂不可用。" : "The questionnaire content is unavailable."}</p>;
-  return <ValidImagery12Client key={`${locale}:${quiz.version}`} quiz={quiz} locale={locale} />;
+  return <ValidImagery12Client key={`${locale}:${quiz.version}`} quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
 }
-function ValidImagery12Client({ quiz, locale }: { quiz: Imagery12Questionnaire; locale: Locale }) {
+function ValidImagery12Client({ quiz, locale, readingProfiles }: { quiz: Imagery12Questionnaire; locale: Locale; readingProfiles?: QuestionnaireProfile[] }) {
   const zh = locale === "zh", ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const { start: recordStart, complete: recordComplete, view: recordView, share: recordShare, consent: activityConsent } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({}), [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome");
@@ -84,7 +84,7 @@ function ValidImagery12Client({ quiz, locale }: { quiz: Imagery12Questionnaire; 
               <p data-imagery12-sum className="text-xl font-semibold">{zh ? `已答数字合计：${score.sum}（范围 0—${score.numericCount * 4}）` : `Rated sum: ${score.sum} (range 0–${score.numericCount * 4})`}</p>
               <p data-imagery12-mean>{zh ? `均分：${score.mean.toFixed(2)}（范围0—4）；合计除以${score.numericCount}，不是百分比或百分位。` : `Mean: ${score.mean.toFixed(2)} (range 0–4); sum divided by ${score.numericCount}, not a percentage or percentile.`}</p>
             </div>}
-            <details className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开此部分完整读法" : "Expand this full reading"}</summary><div className="mt-5"><QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`imagery12-${id}`} /></div></details>
+            <details className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开此部分完整读法" : "Expand this full reading"}</summary><div className="mt-5"><Imagery12FullReading profile={profile} locale={locale} readingProfiles={readingProfiles} /></div></details>
             <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "阅读完整公开指南" : "Read the complete public guide"}</Link>
           </section>;
         })}</div>
@@ -97,4 +97,9 @@ function ValidImagery12Client({ quiz, locale }: { quiz: Imagery12Questionnaire; 
     <p role="status" aria-live="polite" className="my-4 text-sm leading-7">{ready ? message : (zh ? "正在准备问卷，请稍候。" : "Preparing the questionnaire. Please wait.")}</p>
     <noscript><p>{zh ? "作答需启用JavaScript；全部公开指南仍可直接阅读。" : "Answering requires JavaScript; all public guides remain readable."}</p></noscript>
   </section>;
+}
+
+export function Imagery12FullReading({ profile, locale, readingProfiles }: { profile: QuestionnaireProfile; locale: Locale; readingProfiles?: QuestionnaireProfile[] }) {
+  const reading = readingProfiles?.find(p => p.id === profile.id && p.resultReading?.quizSlug === "aphantasia-test" && p.resultReading.profileId === profile.id) ?? profile;
+  return <QuestionnaireResultReading quizSlug="aphantasia-test" profile={reading} locale={locale} headingLevel={4} idPrefix={`imagery12-${profile.id}`} />;
 }

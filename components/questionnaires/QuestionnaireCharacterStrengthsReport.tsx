@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { QuestionnaireCharacterSource } from "./QuestionnaireCharacterSource";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
 import { trackEvent } from "@/lib/analytics";
@@ -28,7 +28,7 @@ export function QuestionnaireCharacterStrengthsReport({ quiz, result, locale }: 
     <QuestionnaireCharacterSource locale={locale} />
     {quiz.profiles.map(profile => <section key={profile.id} data-character-profile={profile.id} aria-labelledby={`character-title-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
       <h3 id={`character-title-${profile.id}`} className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
-      <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一项的公开说明" : "Read this part’s public guide"}</Link>
     </section>)}
     <section className="space-y-3 leading-8" data-character-career-next>

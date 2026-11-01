@@ -88,8 +88,8 @@ describe("Original mood-activity context observation categories, never a clinica
     for (const locale of ["en", "zh"] as const) {
       const html = renderToStaticMarkup(<MoodActivityPage quiz={quiz} locale={locale} />);
       expect((html.match(/data-mood-activity-full-guide=/g) ?? [])).toHaveLength(4);
-      expect(html).not.toContain("data-mood-activity-result");
       const dom = document.createElement("div"); dom.innerHTML = html;
+      expect(dom.querySelector("[data-mood-activity-result]")).toBeNull();
       expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(true);
       for (const p of quiz.profiles) {
         const guide = renderToStaticMarkup(<MoodActivityGuidePage quiz={quiz} profile={p} locale={locale} />);

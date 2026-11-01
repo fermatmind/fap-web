@@ -1,0 +1,98 @@
+{
+  "status-recognition": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把贡献、署名与尚未确认的信息分开",
+        "en": "Separate contributions, credit and unconfirmed information"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的活动总结，分别想想已经确认的个人贡献、他人的工作和仍不清楚的结果。可以考虑是否需要补上一条事实，也可以保留暂未确认的部分；不必删去适当署名来证明谦逊。复盘只核对这份说明遗漏了什么，不从一个均分推全部动机，也不把公开表达或希望努力被看见自动叫作自恋。无需实际发布总结、联系别人或提供记录。",
+          "en": "For the activity summary above, distinguish confirmed personal contributions, others’ work and results still unclear. Consider adding a fact or retaining uncertainty without removing appropriate credit as proof of humility. Review what the account omits rather than infer every motive from a mean or classify public expression and wanting effort noticed as narcissism. No published account, contact with anyone or records are required."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用通用假设讨论，不转发个人结果",
+        "en": "Discuss a general hypothetical without sharing a personal result"
+      },
+      "paragraphs": [
+        {
+          "zh": "如果愿意讨论，可以只用这份公开通用说明里的假设：“假设一份活动总结漏掉了其他人的贡献，又有些结果还没确认，怎样让这两类信息分别出现？”不需要提及是否作答、选择过什么或得到怎样的均分，也不把问题拿去评判某个不在场的人。",
+          "en": "If discussion appeals, use only the public guide’s hypothetical: “If an activity summary omitted others’ contributions and left results unconfirmed, how could those two kinds of information appear separately?” There is no need to mention whether you answered, your selections or means, or use the question to evaluate an absent person."
+        },
+        {
+          "zh": "本页不提供个人结果分享。公开说明不含私人答卷，可作为一个自选的阅读入口；对方可以不回答或结束，不必提供真实冲突、姓名、聊天记录，也不需要做测试。",
+          "en": "This page provides no personal-result sharing. The public guide contains no private attempt and can remain an optional reading prompt. The other person may decline or stop without supplying a real conflict, names or messages, or taking a test."
+        }
+      ]
+    }
+  ],
+  "instrumental-influence": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "让请求包含选择前需要知道的条件",
+        "en": "Keep decision-relevant conditions in the request"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到上面的整理活动材料，区分希望完成的工作、预计时间、尚不确定的条件，以及对方是否仍有拒绝或改提方案的空间。可以只在心里检查一项未说明的信息，不必发出请求来做练习。复盘关注信息何时可得与选择范围，不以获得同意证明沟通有效，也不由低均分认证完全自愿。明确目标、维持关系或被拒绝都不能单独说明操控。",
+          "en": "For organising activity materials above, distinguish the work, expected time, uncertain conditions and room to decline or propose an alternative. Privately check one unexplained condition without issuing a request for an exercise. Review information timing and choices without treating agreement as effective communication or a lower mean as proof of complete voluntariness. An explicit aim, maintained relationship or refusal alone establishes no manipulation."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用通用假设讨论，不转发个人结果",
+        "en": "Discuss a general hypothetical without sharing a personal result"
+      },
+      "paragraphs": [
+        {
+          "zh": "如果愿意讨论，可以只用这份公开通用说明里的假设：“假设邀请别人整理材料，哪些工作与时间条件应在决定前说清，怎样保留拒绝或调整的选择？”不需要提及是否作答、选择过什么或得到怎样的均分，也不把问题拿去评判某个不在场的人。",
+          "en": "If discussion appeals, use only the public guide’s hypothetical: “If someone were invited to organise materials, what work and timing conditions would need explaining before a decision, with room to decline or adjust?” There is no need to mention whether you answered, your selections or means, or use the question to evaluate an absent person."
+        },
+        {
+          "zh": "本页不提供个人结果分享。公开说明不含私人答卷，可作为一个自选的阅读入口；对方可以不回答或结束，不必提供真实冲突、姓名、聊天记录，也不需要做测试。",
+          "en": "This page provides no personal-result sharing. The public guide contains no private attempt and can remain an optional reading prompt. The other person may decline or stop without supplying a real conflict, names or messages, or taking a test."
+        }
+      ]
+    }
+  ],
+  "impact-distance": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把已表达的影响与猜测的动机分开",
+        "en": "Separate an expressed effect from a guessed motive"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的活动临时变动，先区分对方已经说出的时间影响、自己猜测的情绪或动机，以及后来安排是否考虑了这条信息。可以只标出记不清的部分，不需要重启交流。复盘不由表情平静推冷漠，不由立即道歉推影响已经解决，也不让高低均分替任何人定责、证明安全或预测伤害。是否调整、暂停或结束仍需要实际条件；本说明不要求继续不合适的讨论。",
+          "en": "For the changed activity above, distinguish the stated effect on someone’s time, feelings or motives you guessed and whether later arrangements considered the information. Retain a memory gap without reopening contact. Review without inferring indifference from calm expression, resolved effects from an immediate apology, or responsibility, safety or future harm from a mean. Adjustment, pausing and stopping still depend on actual circumstances; no unsuitable discussion must continue."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用通用假设讨论，不转发个人结果",
+        "en": "Discuss a general hypothetical without sharing a personal result"
+      },
+      "paragraphs": [
+        {
+          "zh": "如果愿意讨论，可以只用这份公开通用说明里的假设：“假设活动变动影响了某人的时间，哪些影响已明确表达，哪些仍是猜测，后续安排还缺哪条信息？”不需要提及是否作答、选择过什么或得到怎样的均分，也不把问题拿去评判某个不在场的人。",
+          "en": "If discussion appeals, use only the public guide’s hypothetical: “If a changed activity affected someone’s time, which effects would be stated, what would remain a guess and what information would later arrangements still need?” There is no need to mention whether you answered, your selections or means, or use the question to evaluate an absent person."
+        },
+        {
+          "zh": "本页不提供个人结果分享。公开说明不含私人答卷，可作为一个自选的阅读入口；对方可以不回答或结束，不必提供真实冲突、姓名、聊天记录，也不需要做测试。",
+          "en": "This page provides no personal-result sharing. The public guide contains no private attempt and can remain an optional reading prompt. The other person may decline or stop without supplying a real conflict, names or messages, or taking a test."
+        }
+      ]
+    }
+  ]
+}

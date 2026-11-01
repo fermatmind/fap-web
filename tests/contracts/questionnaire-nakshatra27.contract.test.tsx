@@ -1,3 +1,4 @@
+import { prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -88,7 +89,7 @@ describe("Known-time Nakshatra reference tool and27original full cultural readin
           const page = domOf(renderToStaticMarkup(await guide.default(gp))), metadata = await guide.generateMetadata(gp);
           expect(page.querySelector("h1")?.textContent).toBe(p.title[locale]); expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${pp}`);
           expect(maps.filter(e => e.loc === `https://fermatmind.com${pp}`)).toHaveLength(1);
-          for (const s of p.sections) for (const t of s.paragraphs) expect(page.textContent).toContain(t[locale]);
+          for (const s of prepareResultProfile(quiz.slug, p).sections) for (const t of s.paragraphs) expect(page.textContent).toContain(t[locale]);
           expect(page.querySelector("input,[data-nakshatra-report]")).toBeNull();
           const schemas = [...page.querySelectorAll('script[type="application/ld+json"]')].map(x => JSON.parse(x.textContent!));
           expect(schemas.some(s => s["@type"] === "WebPage")).toBe(true); expect(schemas.some(s => s["@type"] === "Article")).toBe(false);

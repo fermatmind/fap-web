@@ -3,20 +3,20 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Locale } from "@/lib/i18n/locales";
-import type { QuestionnaireAnswers } from "@/lib/questionnaires/types";
+import type { QuestionnaireAnswers, QuestionnaireProfile } from "@/lib/questionnaires/types";
 import { ANGER20_TOPICS, isAnger20ConfigurationValid, scoreAnger20, type Anger20Questionnaire, type Anger20Result } from "@/lib/questionnaires/anger20";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
 const subscribeReady = () => () => {};
 
-export function Anger20Client({ quiz, locale }: { quiz: unknown; locale: Locale }) {
+export function Anger20Client({ quiz, locale, readingProfiles }: { quiz: unknown; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
   if (!isAnger20ConfigurationValid(quiz)) return <p role="status">{locale === "zh" ? "问卷内容暂不可用。" : "The questionnaire content is unavailable."}</p>;
-  return <ValidAnger20Client key={`${locale}:${quiz.version}`} quiz={quiz} locale={locale} />;
+  return <ValidAnger20Client key={`${locale}:${quiz.version}`} quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
 }
-function ValidAnger20Client({ quiz, locale }: { quiz: Anger20Questionnaire; locale: Locale }) {
+function ValidAnger20Client({ quiz, locale, readingProfiles }: { quiz: Anger20Questionnaire; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
   const zh = locale === "zh", ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const { start: recordStart, complete: recordComplete, view: recordView, share: recordShare, consent: activityConsent } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({}), [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome");
@@ -78,6 +78,7 @@ function ValidAnger20Client({ quiz, locale }: { quiz: Anger20Questionnaire; loca
         <p className="leading-8">{zh ? "20项均已作明确选择，包括不计分项。四组分开显示，无总分、赢家、风险分段或诊断。外显不自动等于失控，保留不自动等于不健康，选择感不是已展示能力或安全证明。均分只是所选频率描述的摘要。" : "All 20 prompts have an explicit choice, including unscored responses. Four topics are separate, without a total, winner, risk band or diagnosis. Expression is not automatically failed control; privacy is not automatically unhealthy; perceived choice is not demonstrated skill or safety. Means summarize selected frequency descriptions only."}</p>
         <div data-anger20-result className="space-y-6">{ANGER20_TOPICS.map(id => {
           const score = result[id], profile = quiz.profiles.find(p => p.id === id)!;
+          const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === 1 && item.directionIds[0] === id && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
           return <section key={id} data-anger20-part={id} aria-labelledby={`anger20-${id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
             <h3 id={`anger20-${id}`} className="scroll-mt-24 text-xl font-semibold">{profile.title[locale]}</h3>
             <p data-anger20-count className="my-3 leading-7">{zh ? `数字答案 ${score.numericCount}/${score.requiredCount}；跳过 ${score.skippedCount} 条。` : `Numeric responses ${score.numericCount}/${score.requiredCount}; ${score.skippedCount} skipped.`}</p>
@@ -86,7 +87,7 @@ function ValidAnger20Client({ quiz, locale }: { quiz: Anger20Questionnaire; loca
               <p data-anger20-mean>{zh ? `均分：${score.mean.toFixed(2)}（范围0—4）；合计除以${score.numericCount}，不是百分比或百分位。` : `Mean: ${score.mean.toFixed(2)} (range 0–4); sum divided by ${score.numericCount}, not a percentage or percentile.`}</p>
             </div>}
             <details data-anger20-response-review className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "查看这五条私人回答" : "Review these five private responses"}</summary><ol className="my-4 space-y-4">{quiz.questions.filter(q => q.options[0].directionId === id).map(q => <li key={q.id} className="rounded-lg bg-slate-50 p-3 leading-7"><p>{q.prompt[locale]}</p><p className="mt-2 font-semibold">{q.options.find(o => o.id === answers[q.id])!.label[locale]}</p></li>)}</ol></details>
-            <details className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开此部分完整读法" : "Expand this full reading"}</summary><div className="mt-5"><QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`anger20-${id}`} /></div></details>
+            <details className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开此部分完整读法" : "Expand this full reading"}</summary><div className="mt-5"><QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`anger20-${id}`} /></div></details>
             <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "阅读完整公开指南" : "Read the complete public guide"}</Link>
           </section>;
         })}</div>

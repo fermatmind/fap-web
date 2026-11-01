@@ -1,3 +1,4 @@
+import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -85,8 +86,8 @@ describe("T053 original classic ten-value importance reflection", () => {
   it("uses its own10part report, all90unique full sections, explicit NA and no social-battery interpretation", () => {
     for (const locale of ["en", "zh"] as const) for (const value of ["5", "na"]) {
       const result = scoreQuestionnaire(quiz, all(value)); if (result.status !== "complete" || !("facets" in result)) throw new Error("Rejected input");
-      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireValuesReport quiz={quiz} result={result} locale={locale} />);
-      expect(dom.querySelectorAll("[data-values-facet]")).toHaveLength(10); expect(dom.querySelectorAll("h4")).toHaveLength(90); expect(dom.querySelectorAll("[data-values-profile]")).toHaveLength(10);
+      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireValuesReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale={locale} />);
+      expect(dom.querySelectorAll("[data-values-facet]")).toHaveLength(10); expect(dom.querySelectorAll("h4")).toHaveLength(110); expect(dom.querySelectorAll("[data-values-profile]")).toHaveLength(10);
       expect(dom.querySelectorAll("[data-values-insufficient]")).toHaveLength(value === "na" ? 1 : 0);
       const ids = Array.from(dom.querySelectorAll("[id]"), x => x.id); expect(new Set(ids).size).toBe(ids.length);
       expect(dom.textContent).not.toMatch(/battery|quiet recovery|coordination load|社交电量|安静恢复|learning effectiveness|format preferences|学习效果|PPS item/);
@@ -96,7 +97,7 @@ describe("T053 original classic ten-value importance reflection", () => {
   it("checks joint relative-score witnesses, identical ratings, unrounded arithmetic and missing baseline", () => {
     const render = (answers: QuestionnaireAnswers) => {
       const result = scoreQuestionnaire(quiz, answers); if (result.status !== "complete" || !("facets" in result)) throw new Error("Rejected joint witness");
-      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireValuesReport quiz={quiz} result={result} locale="en" />); return dom;
+      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireValuesReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale="en" />); return dom;
     };
     for (const value of ["1", "3", "5"]) {
       const dom = render(all(value)); expect(dom.querySelector("[data-values-baseline]")?.textContent).toBe(`${value}.00`);
@@ -114,7 +115,7 @@ describe("T053 original classic ten-value importance reflection", () => {
     answers[qs[0].id] = "na"; dom = render(answers); expect(dom.querySelector("[data-values-baseline]")?.textContent).toBe("Insufficient information");
     for (const e of dom.querySelectorAll("[data-values-relative]")) expect(e.textContent).toBe("Insufficient information");
     expect(dom.querySelector('[data-values-facet="self-direction"] [data-values-mean]')?.textContent).toBe("Insufficient information");
-    expect(dom.querySelector('[data-values-facet="stimulation"] [data-values-mean]')?.textContent).toBe("2.00 / 5"); expect(dom.querySelectorAll("h4")).toHaveLength(90);
+    expect(dom.querySelector('[data-values-facet="stimulation"] [data-values-mean]')?.textContent).toBe("2.00 / 5"); expect(dom.querySelectorAll("h4")).toHaveLength(110);
   });
   it("publishes twenty-two native bilingual entry/guideURLs with complete bodies and individual SEO", async () => {
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com"); vi.resetModules();

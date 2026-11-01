@@ -1,0 +1,34 @@
+{
+  "control-continuum": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "在报名这件小事里区分行动、信息与外部决定",
+        "en": "Separate action, information and outside decisions in an application"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面限额活动报名的例子，先看自己是否愿意参加，再区分可检查的材料、需要询问的规则，以及目前不能决定的名额或抽签。可以选择提交、补问一次或不参加；哪种合适要看实际条件。若未获名额，先核对已知原因和仍未知的部分，不从总分补出准备不足、运气不好或应该负责的结论。反过来，获名额也不证明能够处处掌控。复盘关注具体可行性，不把想办法的数量或下次总分当成绩。",
+          "en": "For the limited-capacity activity above, first consider whether you want to join, then distinguish documents you can check, rules you need to ask about and places or draws you cannot decide. Applying, asking once or not joining may each fit different conditions. If no place is offered, separate known reasons from what remains unknown instead of using the total to infer poor preparation, bad luck or responsibility. Getting a place likewise proves no general control. Review feasibility without counting proposed solutions or targeting a higher total."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "讨论可做的一步，也允许保留未知",
+        "en": "Discuss an available step while leaving room for uncertainty"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设一个活动名额有限，你会先确认哪条规则，哪些安排需要等组织方回答，什么情况下会选择不报名？”交换各自看到的行动与条件，不用比较谁更内控、更积极或更值得成功。对方可以指出你没看到的限制，也可以不解释自己的现实处境。",
+          "en": "Ask: “If an activity had limited places, which rule would you check, what would need an organiser’s answer and when might you decide not to apply?” Compare available actions and conditions without ranking internal control, positivity or deservingness. The other person may identify a constraint you missed or leave their own circumstances unexplained."
+        },
+        {
+          "zh": "可以只分享这份公开说明；链接不含答案、总分、均分或资料完整度。它提供同一版本的阅读背景，不是内部／外部类型认证。对方不必测完、交出分数或讲述挫折才能参与，也可以到此结束。",
+          "en": "You can share this public guide; its link contains no answers, total, mean or completeness information. It gives background for the same edition rather than an internal or external type certificate. The other person need not complete the test, provide a score or describe a setback to join, and may stop here."
+        }
+      ]
+    }
+  ]
+}

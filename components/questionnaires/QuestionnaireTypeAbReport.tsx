@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
 import type { Questionnaire } from "@/lib/questionnaires/types";
@@ -21,7 +21,7 @@ export function QuestionnaireTypeAbReport({ quiz, result, locale }: { quiz: Ques
     <p className="leading-8">{zh ? "全部四份完整说明保留高低、混合与资料不足读法、普通例子、表达、相近比较、反例和可选观察。A/B是历史讨论背景，四项是本版原创编辑观察框架；真实职责、资源、时间和选择余地仍要另看，不用均分给自己或别人贴标签。均分与NA都不隐藏正文，也不决定聘用、职业或健康安排。" : "All four full guides retain higher, lower, mixed and insufficient readings, ordinary examples, wording, comparisons, counterexamples and optional observations. A/B is historical context; these four parts are original editorial observation categories. Actual duties, resources, time and choice still matter. Means label neither you nor others. Scores and NA never hide the body or determine hiring, careers or health arrangements."}</p>
     {quiz.profiles.map(profile => <section key={profile.id} data-type-ab-profile={profile.id} aria-labelledby={`type-ab-title-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
       <h3 id={`type-ab-title-${profile.id}`} className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
-      <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一部分的公开说明" : "Read this part’s public guide"}</Link>
     </section>)}
   </div>;

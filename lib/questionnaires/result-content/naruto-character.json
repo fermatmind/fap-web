@@ -1,0 +1,226 @@
+{
+  "naruto": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘共同开头与持续意愿",
+        "en": "Review a shared beginning and willingness to continue"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的邀请，区分自己想要的是陪伴、共同试一小段，还是听一个意见。若已发出，只记录实际回应，不把沉默当同意。一次参与不承诺以后每周继续；可以独自看、改天或停下，不以回复人数评价热情。",
+          "en": "After the invitation above, distinguish company, a shared trial and an opinion. If sent, record the actual response without taking silence as agreement. One occasion promises no weekly continuation. Look alone, reschedule or stop without response totals grading enthusiasm."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个只约一次的小尝试",
+        "en": "Share an invitation for one small attempt"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设一起看十分钟旧笔记，你想加入、只提个意见，还是今天不看？”接受具体回答，不把拒绝变成需要靠坚持改变的对象。",
+          "en": "Ask: “For an imaginary ten-minute look at old notes, would you join, offer an opinion or skip today?” Accept the answer without making refusal something persistence must change."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "sasuke": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘重点是否仍是自己想要的",
+        "en": "Review whether the focus is still chosen"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的重点与停止点，核对自己是否仍想了解这件事、哪些分支暂时放下。投入过时间不要求继续；换一个问题也可以。专注的范围可以包含帮助或共同讨论，不需要排除别人来证明这份兴趣足够真实。",
+          "en": "After the focus and stopping point above, check whether the topic still interests you and which branches can wait. Time already spent requires no continuation. Change the question, seek help or discuss it together without excluding others to prove authenticity."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可以改变的重点",
+        "en": "Share a focus that can change"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设收藏笔记今天只记纸张纹理，你想留哪个问题，什么时候可以换成颜色？”不比较谁更深入、能忍或适合独处。",
+          "en": "Ask: “If imaginary collection notes covered texture today, which question would you retain and when could you switch to colour?” No comparison of depth, endurance or suitability for solitude is needed."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "sakura": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘试做、参照与停止点",
+        "en": "Review the trial, reference and stopping point"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的小练习，分别写下试了什么、参照的资料和能确定的一处差异。没有适当参照时保留未知，不靠多练几次代替证据。修正或停止都可以；一处错误不定义能力，也不要求反复重做到完全无误。",
+          "en": "After the small practice above, separate what you tried, the reference and one difference you can establish. Leave uncertainty when a suitable reference is unavailable rather than replacing evidence with repetition. Revise or stop; one error defines no ability and requires no endless error-free remake."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个只核对一处的问题",
+        "en": "Share a question about checking one detail"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设写一个新词的例句，你想查哪种用法，又在哪里结束？”只比较具体依据，不按错误数或记忆速度评价聪明程度。",
+          "en": "Ask: “For an imaginary sentence using a new word, which usage would you check and where would you stop?” Compare grounds without intelligence ratings by errors or recall speed."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "kakashi": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘衔接是否真的需要分工",
+        "en": "Review whether handovers need divided roles"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的合作位置，确认谁愿意做哪部分、怎样交接，以及是否其实各自看就够了。未分配的部分可以保持未定，不自动落到自己身上。若条件变了，重新商量即可；角色名字不要求你成为长期组织者或老师。",
+          "en": "After the cooperation note above, confirm willing parts, handovers and whether separate looking would be enough. Leave unassigned work open without taking it automatically. Revisit changed conditions; a character name requires no permanent organiser or teacher."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个简单的交接问题",
+        "en": "Share a simple handover question"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设轮流看一本册子，你想看哪段，需要笔记吗，怎样交给下一位？”不为分工而加任务，也不按角色指定谁领导。",
+          "en": "Ask: “For an imaginary booklet passed around, which section would you read, are notes needed, and how would it pass on?” Add no work merely to divide roles or assign leadership by character."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "shikamaru": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘删去一步会影响什么",
+        "en": "Review what removing a step would affect"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的必要条件和可选步骤，核对被省略的部分是否服务许可、实际需要或已同意的范围。若有人指出遗漏，可以恢复；不必捍卫简单以证明聪明。少一步、多一步都放回用途比较，不用耗时或步骤数量当效率成绩。",
+          "en": "After the necessary condition and optional step above, check whether the omitted part serves permission, a real need or agreed scope. Restore it when a missed need appears without defending simplicity to prove intelligence. Compare usefulness rather than treating time or step totals as efficiency scores."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可以恢复的简化",
+        "en": "Share a simplification that can be reversed"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设活动从三十分钟变成十分钟，哪一项可选演示可以以后再做，哪些说明仍需保留？”不把安全、可达性或他人需要叫作多余。",
+          "en": "Ask: “If an imaginary activity shrank from thirty minutes to ten, which optional demonstration could wait and which information must remain?” Safety, access and others’ needs need not be dismissed as clutter."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "hinata": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘愿意说的内容与结束方式",
+        "en": "Review chosen content and the ending"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的私人句子，看看自己想说哪一点、想准备多久，以及怎样表示这次到这里。说得多、少或不说都可以具体确认，不需要猜测隐藏意愿。若实际安排不适合，可以换时机；这次记录不把紧张减少当进步指标。",
+          "en": "After the private sentence above, check your chosen point, preparation time and way to end. More words, fewer words and no contribution can be stated without guessing hidden wishes. Choose another occasion if conditions do not fit; reduced nervousness is no progress score here."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个不要求多说的参与方式",
+        "en": "Share participation that requires no extra words"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设普通分享会里只想听或只补充一句，你会怎样说明？”按本人说法理解，不把沉默当默认加入，也不要求温柔或勇敢的表演。",
+          "en": "Ask: “At an imaginary sharing session, how would you state that you want only to listen or add one sentence?” Follow the stated wish without silent consent or a performance of gentleness or courage."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "gaara": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘责任的起点与终点",
+        "en": "Review where responsibility begins and ends"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的责任范围，核对自己实际接受了什么、到何时结束，以及哪些事项仍要另行同意。若原范围不清，可以先提问，不立即补齐空缺。交还、暂停或拒绝新增部分都需要按实际约定处理，不靠承担多少证明成熟或可靠。",
+          "en": "After the responsibility note above, check what you accepted, its endpoint and what needs separate agreement. Ask about unclear scope without immediately filling gaps. Handle return, pause or refusal of extra work through actual agreements without the amount carried proving maturity or reliability."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个有终点的借用安排",
+        "en": "Share a borrowing arrangement with an endpoint"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设共同借一份普通材料，你能保管到哪天，谁联系归还，未定部分怎样提出？”不默认由最先解释的人承担，也不把角色匹配当承诺。",
+          "en": "Ask: “For imaginary shared borrowed material, how long could you keep it, who contacts the lender and how would you raise an unassigned part?” The first explainer need not take it, and a character match makes no promise."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ]
+}

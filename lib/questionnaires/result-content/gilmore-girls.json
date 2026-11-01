@@ -1,0 +1,194 @@
+{
+  "lorelai-gilmore": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：轻松交谈也容得下停顿",
+        "en": "Review pauses within a lively exchange"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用咖啡馆的奇怪桌饰，想一句轻快观察，再想一个让对方决定是否继续的问题。没有接话，可以换话题、安静读书或结束，不必补笑话救场。只起草开头也可以。复盘看交流是否给双方留了位置，以及自己是否乐在其中；不以反应速度、笑声或发言多少证明机智、外向或亲密。",
+          "en": "For the café’s odd table decoration, imagine one light observation and a question that lets the other person choose whether to continue. An unanswered opening can lead to another topic, quiet reading or an ending without another joke to rescue it. Draft only an opening. Review room for both people and your enjoyment without treating speed, laughter or talk time as wit, extraversion or intimacy."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "借一次虚构相聚聊选择",
+        "en": "Discuss choices through an imagined gathering"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果咖啡馆的一件奇怪桌饰成了开场，你会说什么，又怎样让对方可以接话、换话题或继续看书？”各说一种做法，再借另一位角色的角度修改。可以只想象，不必参加活动、公开经历或模仿剧情。",
+          "en": "Ask: “If an odd café table decoration offered an opening, what would you say while leaving room to respond, change topics or keep reading?” Suggest an action each, then revise through another character angle. Imagine without attending, disclosing experiences or imitating the story."
+        },
+        {
+          "zh": "可分享公开说明，链接不带答案或计数。六个角色只对应本版选项，不评智力、健康、阶层、亲子关系或人生选择。对方可不了解作品、换角色、不回答或结束；不拿匹配给真人贴标签，也不替缺席者判断性格。",
+          "en": "Share the public guide without answers or counts in its link. Six characters concern this edition’s options, assessing no intelligence, health, class, parent–child relationship or life decisions. The other person may be unfamiliar with the story, change characters, decline or stop. Do not label real people or assess absent people through a match."
+        }
+      ]
+    }
+  ],
+  "rory-gilmore": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：一个好问题，不必读完所有资料",
+        "en": "Review one useful question without reading everything"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用读书聚会，先选一个真想弄明白的问题，再给查阅一小段资料设个停止点。可以带着“我还不知道”去交流，也可以只写下问题，不参加讨论。复盘看查阅是否让问题更具体、是否符合这次聚会的需要；不以知道最多、书单长度或准备时间证明智力、学业水平和认真程度。",
+          "en": "For the reading gathering, choose one question you actually want to explore and a stopping point for a small amount of background reading. Join with something still unknown or simply write the question without attending. Review a clearer question and preparation suited to this occasion, without using extensive knowledge, book lists or time spent as intelligence, academic ability or seriousness."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "借一次虚构相聚聊选择",
+        "en": "Discuss choices through an imagined gathering"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果读书聚会前只想查一小段资料，你会带着什么问题查，到什么程度就愿意停下来交流？”各说一种做法，再借另一位角色的角度修改。可以只想象，不必参加活动、公开经历或模仿剧情。",
+          "en": "Ask: “With only a little background reading before a book gathering, what question would you explore and where would you stop preparing?” Suggest an action each, then revise through another character angle. Imagine without attending, disclosing experiences or imitating the story."
+        },
+        {
+          "zh": "可分享公开说明，链接不带答案或计数。六个角色只对应本版选项，不评智力、健康、阶层、亲子关系或人生选择。对方可不了解作品、换角色、不回答或结束；不拿匹配给真人贴标签，也不替缺席者判断性格。",
+          "en": "Share the public guide without answers or counts in its link. Six characters concern this edition’s options, assessing no intelligence, health, class, parent–child relationship or life decisions. The other person may be unfamiliar with the story, change characters, decline or stop. Do not label real people or assess absent people through a match."
+        }
+      ]
+    }
+  ],
+  "emily-gilmore": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：周到的安排是否让人更方便",
+        "en": "Review whether thoughtful arrangements help people"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用普通材料布置的集市小桌，选一个确实方便来客的细节，再想一个有人不喜欢安排时也能用的替代。先问需要，不必增加花费或替别人决定品味。可以只画示意。复盘看欢迎是否清楚、物品是否好找、自己准备是否有余力；不把精致、礼仪或接受安排当成阶层、教养与关系质量的评分。",
+          "en": "For the fair’s table made with ordinary materials, choose one detail that helps visitors and an alternative for someone preferring another arrangement. Ask about needs without extra spending or deciding another person’s taste. Sketch only. Review a clear welcome, findable items and manageable preparation without grading class, refinement or relationship quality through polish, etiquette or compliance."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "借一次虚构相聚聊选择",
+        "en": "Discuss choices through an imagined gathering"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果用普通材料布置一张欢迎小桌，你会保留哪个有用细节，又给不喜欢这种安排的人什么选择？”各说一种做法，再借另一位角色的角度修改。可以只想象，不必参加活动、公开经历或模仿剧情。",
+          "en": "Ask: “For a welcoming table made with ordinary materials, which useful detail would you keep and what alternative would you offer?” Suggest an action each, then revise through another character angle. Imagine without attending, disclosing experiences or imitating the story."
+        },
+        {
+          "zh": "可分享公开说明，链接不带答案或计数。六个角色只对应本版选项，不评智力、健康、阶层、亲子关系或人生选择。对方可不了解作品、换角色、不回答或结束；不拿匹配给真人贴标签，也不替缺席者判断性格。",
+          "en": "Share the public guide without answers or counts in its link. Six characters concern this edition’s options, assessing no intelligence, health, class, parent–child relationship or life decisions. The other person may be unfamiliar with the story, change characters, decline or stop. Do not label real people or assess absent people through a match."
+        }
+      ]
+    }
+  ],
+  "lane-kim": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：分享一个喜欢的部分就够了",
+        "en": "Review sharing one enjoyed detail"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用可选的听歌夜，选一个你喜欢的小片段和一句喜欢的理由，再留出别人不听或推荐另一首的空间。不必公开私密经历，也不用证明这首歌罕见或更好；只想象推荐也可以。复盘看兴趣是否表达清楚、听与不听是否都自在；不据音乐判断文化身份、家庭关系、叛逆程度或谁才是真乐迷。",
+          "en": "For the optional listening evening, choose a small passage and one reason you enjoy it, leaving room to decline or recommend another song. Share no private history and prove neither rarity nor superiority; imagine the recommendation only if preferred. Review clear expression and comfortable participation without inferring cultural identity, family relationships, rebellion or authentic fandom from musical taste."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "借一次虚构相聚聊选择",
+        "en": "Discuss choices through an imagined gathering"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果只能推荐一首歌里的一个片段，你想分享哪一点，又怎样让对方可以不听或另荐一首？”各说一种做法，再借另一位角色的角度修改。可以只想象，不必参加活动、公开经历或模仿剧情。",
+          "en": "Ask: “If you recommended one passage of a song, what would you share and how would you leave room to decline or suggest another?” Suggest an action each, then revise through another character angle. Imagine without attending, disclosing experiences or imitating the story."
+        },
+        {
+          "zh": "可分享公开说明，链接不带答案或计数。六个角色只对应本版选项，不评智力、健康、阶层、亲子关系或人生选择。对方可不了解作品、换角色、不回答或结束；不拿匹配给真人贴标签，也不替缺席者判断性格。",
+          "en": "Share the public guide without answers or counts in its link. Six characters concern this edition’s options, assessing no intelligence, health, class, parent–child relationship or life decisions. The other person may be unfamiliar with the story, change characters, decline or stop. Do not label real people or assess absent people through a match."
+        }
+      ]
+    }
+  ],
+  "paris-geller": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：完成条件清楚，也能及时收尾",
+        "en": "Review a clear finish and a usable stopping point"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用社区通知，写下必须传达的一件事、谁核对和何时需要，再把可有可无的润色移到旁边。若信息还缺，标明待确认，不以赶完为由假定答案。只改一张虚构任务卡即可。复盘看必要内容是否完成、范围是否共同同意、时间是否现实；不把额外用力或零失误当成能力、价值或职业适配的证明。",
+          "en": "For the community notice, name its essential message, a checker and when it is needed, setting optional polish aside. Mark missing information instead of assuming an answer to finish quickly. Revise a fictional task card. Review completion, an agreed scope and realistic timing without treating extra effort or zero mistakes as ability, worth or career suitability."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "借一次虚构相聚聊选择",
+        "en": "Discuss choices through an imagined gathering"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果社区通知只剩一小段时间准备，你会先约清哪三件事，又把什么留作可选？”各说一种做法，再借另一位角色的角度修改。可以只想象，不必参加活动、公开经历或模仿剧情。",
+          "en": "Ask: “With little preparation time for a community notice, which three things would you clarify and what would remain optional?” Suggest an action each, then revise through another character angle. Imagine without attending, disclosing experiences or imitating the story."
+        },
+        {
+          "zh": "可分享公开说明，链接不带答案或计数。六个角色只对应本版选项，不评智力、健康、阶层、亲子关系或人生选择。对方可不了解作品、换角色、不回答或结束；不拿匹配给真人贴标签，也不替缺席者判断性格。",
+          "en": "Share the public guide without answers or counts in its link. Six characters concern this edition’s options, assessing no intelligence, health, class, parent–child relationship or life decisions. The other person may be unfamiliar with the story, change characters, decline or stop. Do not label real people or assess absent people through a match."
+        }
+      ]
+    }
+  ],
+  "sookie-st-james": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：小小心意也需要意愿和余力",
+        "en": "Review willingness and capacity for a small contribution"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用聚会的一件手作小物，先问是否需要、有没有材料限制，再选自己也愿意完成的一小份。若做食物，先确认对方愿意接受及所需限制，也可以换成纸质座位卡；不要求试吃。可以只构思，不真正制作。复盘看它是否有用、过程是否愉快、时间是否守得住；不把照顾别人当义务，也不据此评厨艺、感情或照护职业。",
+          "en": "For a handmade gathering detail, ask whether it is wanted and about material limits, then choose an amount you want to make. For food, confirm willingness and relevant restrictions, or use a paper place card; tasting is optional. Imagine without making. Review usefulness, enjoyment and manageable time without making care a duty or assessing cooking, affection or a caring profession."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "借一次虚构相聚聊选择",
+        "en": "Discuss choices through an imagined gathering"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果想为聚会做一件小东西，你会先问什么，再怎样选一个自己也做得开心、可以停下的版本？”各说一种做法，再借另一位角色的角度修改。可以只想象，不必参加活动、公开经历或模仿剧情。",
+          "en": "Ask: “Before making a small gathering contribution, what would you ask and how would you choose an enjoyable, bounded version?” Suggest an action each, then revise through another character angle. Imagine without attending, disclosing experiences or imitating the story."
+        },
+        {
+          "zh": "可分享公开说明，链接不带答案或计数。六个角色只对应本版选项，不评智力、健康、阶层、亲子关系或人生选择。对方可不了解作品、换角色、不回答或结束；不拿匹配给真人贴标签，也不替缺席者判断性格。",
+          "en": "Share the public guide without answers or counts in its link. Six characters concern this edition’s options, assessing no intelligence, health, class, parent–child relationship or life decisions. The other person may be unfamiliar with the story, change characters, decline or stop. Do not label real people or assess absent people through a match."
+        }
+      ]
+    }
+  ]
+}

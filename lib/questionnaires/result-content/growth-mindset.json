@@ -1,0 +1,34 @@
+{
+  "belief-continuum": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把“可能学会”与眼前条件分别列出",
+        "en": "Separate possible learning from present conditions"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的电子表格分类，挑一个具体操作，分别考虑：现在会不会、相信以后能否学会、还缺什么说明或支持。这三项可以有不同答案。若愿意，可以看一段针对该操作的说明，再决定是否尝试；没有时间、工具或意愿时也可以停下。回顾新信息改变了哪一个判断，而不是用一次成功证明整个人是成长型，或用一次失败认定能力固定。均分相同也可能有不同答案组合，可以回想哪类表述更贴近当时条件，无需追求更高分。",
+          "en": "For sorting the spreadsheet above, choose one operation and separate whether you can do it now, whether you believe you could learn it later and what instruction or support is missing. These can have different answers. If useful, consult an explanation for that operation before deciding whether to try; time, tools or willingness may also lead you to stop. Consider which judgment new information changed rather than using one success to certify a growth personality or one failure to fix ability. Equal means can reflect different answers; recall which statements fitted the conditions without targeting a higher score."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "交换一种学习条件，不给彼此贴心态标签",
+        "en": "Discuss a learning condition without assigning mindset labels"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设要学会一种表格分类操作，哪些说明、练习机会或帮助会让你觉得还有改变空间？哪些现实条件会让你暂时不投入？”分别谈可能性与当前安排即可，不必要求对方坚持、变乐观或证明自己有成长型思维。也可以比较换一项技能后，想到的条件为什么不同。",
+          "en": "Ask: “If you wanted to learn a spreadsheet sorting operation, what instruction, opportunities or help would leave room for change, and what circumstances might lead you to postpone it?” Discuss possibility and current plans separately without demanding persistence, optimism or proof of a growth mindset. You could also compare why a different skill brings different conditions to mind."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含所选技能、答案、均分或资料完整度。对方可以不回答，不需要提供学习记录，也不用再做一项测试才能加入交流。分享的是讨论入口，不是能力证明或成长型／固定型身份认证。",
+          "en": "You can share this public guide; the link contains no selected skill, answers, mean or completeness information. The other person may decline without providing learning records or taking another test. The guide opens a discussion rather than certifying ability or a growth or fixed identity."
+        }
+      ]
+    }
+  ]
+}

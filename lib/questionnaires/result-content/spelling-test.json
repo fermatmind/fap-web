@@ -1,0 +1,182 @@
+{
+  "double-consonants": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：把两组重复字母分别标出",
+        "en": "Practise marking two separate repeated pairs"
+      },
+      "paragraphs": [
+        {
+          "zh": "把possess写成七格：p｜o｜s｜s｜e｜s｜s。第三、四格和第六、七格分别相同，不能只检查其中一组。遮住后按记忆写一遍，再逐格对照；不愿默写也可只观察。格子是本次检查工具，不是该词的音节划分，也不是给所有双写词的通用生成规则。",
+          "en": "Put possess into seven boxes: p | o | s | s | e | s | s. Positions three and four match, as do six and seven; checking one pair is not enough. Cover, write and compare each position, or simply observe without writing. Boxes support this check rather than syllable division or a universal rule for forming doubled letters."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：少字母与错位置分别记",
+        "en": "Review missing letters separately from position errors"
+      },
+      "paragraphs": [
+        {
+          "zh": "对照自己写的版本，标出少了、多了或换了位置，不只记“没记住”。若用着正确答案抄写，就把它记为对照练习，不与闭卷识别或书写混算。可只练一个词再结束；不以一次重写判断记忆力，也不保证几次就能熟练。",
+          "en": "Mark missing, extra or displaced letters in your version rather than only “forgot it.” Copying from the visible answer is comparison practice and should not be counted as unaided recognition or writing. Practise one word and stop without grading memory through one rewrite or guaranteeing mastery after a set number of attempts."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起比较词形，自愿展示练习",
+        "en": "Compare written forms with optional practice sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果possess只写对了一组ss，你会怎样用位置标记找到另一组？”各提一种检查办法，再一起对照正确词形。不计时、不比赛；对方可只看、用查词工具、换词或不回答。",
+          "en": "Ask: “If only one ss pair in possess was correct, how would position marks help find the other?” Suggest a checking method each and compare with the correct form. Use no timer or competition; the other person may observe, use a dictionary, change words or decline."
+        },
+        {
+          "zh": "可分享公开指南，链接不含答卷和正确数。四组是本版复习类别，不是人格或语言等级；不要要求展示错题、成绩、学习困难或私人文字，也不据此给同学同事贴标签。查词确认写法与心理测量验证是两回事。",
+          "en": "Share the public guide without answers or correct counts in the link. Four groups organise revision rather than personality or language levels. Request no errors, grades, learning difficulties or private writing, and label no classmates or colleagues. Dictionary confirmation of a form is separate from psychometric validation."
+        }
+      ]
+    }
+  ],
+  "vowel-choices": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：检查fluorescent的两个位置",
+        "en": "Practise two locations in fluorescent"
+      },
+      "paragraphs": [
+        {
+          "zh": "把fluorescent分字写为f l u o r e s c e n t，先指出u在o前，再检查后面的s c e。这两处都要保留，但检查完仍要读过完整字符串。可以不发音、不计时地比较两次手写；这不是音节拆分，也不由读音推出所有字母。",
+          "en": "Write fluorescent as f l u o r e s c e n t. Locate u before o, then s c e later in the word. Retain both locations and still inspect the full string. Compare two handwritten versions without speaking or timing. These are letter positions, not syllables or a way to derive every letter from pronunciation."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：把看着陌生换成可指出的差异",
+        "en": "Review a specific difference instead of unfamiliarity"
+      },
+      "paragraphs": [
+        {
+          "zh": "把所选与正确词形上下对齐，逐位指出第一个不同，再继续核余下字母。若选对但说不出原因，可只做对照，不必把正确选项当已会独立拼写。换一个本组词时重新检查，别把fluor的顺序推广到别的词。",
+          "en": "Align the selected and correct forms, identify the first different position and continue through the rest. A correct choice without an explanation can still lead to comparison practice without claiming independent spelling. Check each next word anew rather than applying fluor’s order to unrelated words."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起比较词形，自愿展示练习",
+        "en": "Compare written forms with optional practice sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果一个词只是“看起来不对”，你会怎样在fluorescent中指出具体字母差异？”各提一种检查办法，再一起对照正确词形。不计时、不比赛；对方可只看、用查词工具、换词或不回答。",
+          "en": "Ask: “If a form merely looked wrong, how would you point to a specific letter difference in fluorescent?” Suggest a checking method each and compare with the correct form. Use no timer or competition; the other person may observe, use a dictionary, change words or decline."
+        },
+        {
+          "zh": "可分享公开指南，链接不含答卷和正确数。四组是本版复习类别，不是人格或语言等级；不要要求展示错题、成绩、学习困难或私人文字，也不据此给同学同事贴标签。查词确认写法与心理测量验证是两回事。",
+          "en": "Share the public guide without answers or correct counts in the link. Four groups organise revision rather than personality or language levels. Request no errors, grades, learning difficulties or private writing, and label no classmates or colleagues. Dictionary confirmation of a form is separate from psychometric validation."
+        }
+      ]
+    }
+  ],
+  "letter-order": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：顺序之外也检查完整词形",
+        "en": "Practise the full form beyond a vowel pair"
+      },
+      "paragraphs": [
+        {
+          "zh": "把receipt写成r e c e i p t，给c后的e i和末尾p t分别画线。只记ei仍可能漏掉p，字母集合齐全也可能顺序错。先遮住再写或只并排看都可；这次没有听写和发音任务，不用通过念得怎样证明拼写正确。",
+          "en": "Write receipt as r e c e i p t, marking e i after c and p t at the end. Remembering ei alone can still omit p, and having every letter does not guarantee its order. Cover and write or compare side by side without dictation or pronunciation; spoken performance does not establish this written sequence."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：颠倒与遗漏需要不同提示",
+        "en": "Review reversals separately from omissions"
+      },
+      "paragraphs": [
+        {
+          "zh": "若把ei写反，标两字母顺序；若漏p，标完整词形中它的位置。保留错因的具体描述，不贴“粗心”或“语言差”标签。读过解析后可另写一句含该词的自创短句，再核拼写；这仍不认证阅读、听力或日常写作迁移。",
+          "en": "Mark the order for an ei reversal and the location for a missing p. Describe the error instead of labelling carelessness or poor language ability. Write an original sentence containing the word after reviewing, then check its spelling without certifying reading, listening or transfer to everyday writing."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起比较词形，自愿展示练习",
+        "en": "Compare written forms with optional practice sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果receipt的ei顺序对了却漏了p，你会给下一次检查留下什么具体提示？”各提一种检查办法，再一起对照正确词形。不计时、不比赛；对方可只看、用查词工具、换词或不回答。",
+          "en": "Ask: “If receipt had the right ei order but lacked p, what specific reminder would you leave for the next check?” Suggest a checking method each and compare with the correct form. Use no timer or competition; the other person may observe, use a dictionary, change words or decline."
+        },
+        {
+          "zh": "可分享公开指南，链接不含答卷和正确数。四组是本版复习类别，不是人格或语言等级；不要要求展示错题、成绩、学习困难或私人文字，也不据此给同学同事贴标签。查词确认写法与心理测量验证是两回事。",
+          "en": "Share the public guide without answers or correct counts in the link. Four groups organise revision rather than personality or language levels. Request no errors, grades, learning difficulties or private writing, and label no classmates or colleagues. Dictionary confirmation of a form is separate from psychometric validation."
+        }
+      ]
+    }
+  ],
+  "word-endings": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：核查achievable的完整目标词",
+        "en": "Practise the complete target achievable"
+      },
+      "paragraphs": [
+        {
+          "zh": "将achievable写为a c h i e v a b l e，标出靠前的i e和v后的a b l e。题目要这个完整结果词，不能只因词尾看着正确就选。可以拿一张自写卡片盖住后半段，再盖住前半段分别检查；遮挡是练习办法，不是把两半定义成语素或音节。",
+          "en": "Write achievable as a c h i e v a b l e, marking the earlier i e and a b l e after v. The task needs this complete target, not just an apparently correct ending. Cover the latter half of a handwritten card, then the first half to inspect both. These covers are a practice device, not a division into morphemes or syllables."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：这一个词的变化，不是万能词尾规则",
+        "en": "Review one word rather than a universal ending rule"
+      },
+      "paragraphs": [
+        {
+          "zh": "先确认完整目标词，再说明本次具体保留了哪些字母。若换成另一个词，就查那个词的完整写法，不机械照搬删e或留e。可只比较，不必提交新的答案；一次词尾选择不能说明语法等级、词汇量或是否适合某项学习工作。",
+          "en": "Confirm the full target and describe the letters retained in this instance. For another word, check that full form rather than mechanically keeping or dropping e. Compare without submitting new answers if preferred. One ending choice establishes no grammar level, vocabulary size or suitability for study or work."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起比较词形，自愿展示练习",
+        "en": "Compare written forms with optional practice sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果achievable的结尾写对了，为什么还要核查前面的ie？你会怎样设计一张完整词形检查卡？”各提一种检查办法，再一起对照正确词形。不计时、不比赛；对方可只看、用查词工具、换词或不回答。",
+          "en": "Ask: “If the ending of achievable was right, why check the earlier ie too, and how would you make a full-form checking card?” Suggest a checking method each and compare with the correct form. Use no timer or competition; the other person may observe, use a dictionary, change words or decline."
+        },
+        {
+          "zh": "可分享公开指南，链接不含答卷和正确数。四组是本版复习类别，不是人格或语言等级；不要要求展示错题、成绩、学习困难或私人文字，也不据此给同学同事贴标签。查词确认写法与心理测量验证是两回事。",
+          "en": "Share the public guide without answers or correct counts in the link. Four groups organise revision rather than personality or language levels. Request no errors, grades, learning difficulties or private writing, and label no classmates or colleagues. Dictionary confirmation of a form is separate from psychometric validation."
+        }
+      ]
+    }
+  ]
+}

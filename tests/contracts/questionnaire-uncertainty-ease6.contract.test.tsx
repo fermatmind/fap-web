@@ -85,8 +85,9 @@ describe("Original uncertainty and ease descriptions without scores or clinical 
   it("makes all eight paragraphs public before answers and on their own guide pages", () => {
     for (const locale of ["en", "zh"] as const) {
       const html = renderToStaticMarkup(<UncertaintyEasePage quiz={quiz} locale={locale} />);
-      expect((html.match(/data-uncertainty-ease-full-guide=/g) ?? [])).toHaveLength(1); expect(html).not.toContain("data-uncertainty-ease-result");
+      expect((html.match(/data-uncertainty-ease-full-guide=/g) ?? [])).toHaveLength(1);
       const dom = document.createElement("div"); dom.innerHTML = html;
+      expect(dom.querySelector("[data-uncertainty-ease-result]")).toBeNull();
       expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(true);
       for (const p of quiz.profiles) {
         const guide = renderToStaticMarkup(<UncertaintyEaseGuidePage quiz={quiz} profile={p} locale={locale} />);

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { OptimismResult } from "@/lib/questionnaires/optimism";
 import type { Questionnaire } from "@/lib/questionnaires/types";
@@ -23,7 +23,7 @@ export function QuestionnaireOptimismReport({ quiz, result, locale }: { quiz: Qu
       const profile = quiz.profiles.find(p => p.id === id)!;
       return <section key={id} aria-labelledby={`optimism-title-${id}`} data-optimism-match={id} className="rounded-lg border border-slate-200 p-4 sm:p-6">
         <h3 id={`optimism-title-${id}`} className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "阅读这项结果的公开说明" : "Read this result’s public guide"}</Link>
       </section>;
     })}

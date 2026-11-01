@@ -3,7 +3,7 @@ import { useEntertainmentMetrics, useEntertainmentResultView } from "@/component
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Locale } from "@/lib/i18n/locales";
-import { isNatalChartConfigurationValid, natalPublicLinks, type NatalChartQuestionnaire } from "@/lib/questionnaires/natalChart";
+import { isNatalChartConfigurationValid, natalPublicLinks, type NatalChartQuestionnaire, type NatalSignProfile } from "@/lib/questionnaires/natalChart";
 import type { NatalChartInput, NatalChartReadout, NatalChartResult } from "@/lib/questionnaires/natalChartCalculation";
 import type { NatalTimeChoice } from "@/lib/questionnaires/natalChartTime";
 import { NatalChartReport } from "./NatalChartReport";
@@ -12,12 +12,12 @@ const subscribeReady = () => () => {};
 const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
 const inputClass = "mt-2 min-h-12 w-full min-w-0 rounded-lg border border-slate-300 bg-white p-3";
 
-export function NatalChartClient({ quiz, locale }: { quiz: unknown; locale: Locale }) {
+export function NatalChartClient({ quiz, locale, readingProfiles }: { quiz: unknown; locale: Locale; readingProfiles?: readonly NatalSignProfile[] }) {
   if (!isNatalChartConfigurationValid(quiz)) return <p role="status">{locale === "zh" ? "星盘内容暂不可用。" : "The chart content is unavailable."}</p>;
-  return <ValidNatalChartClient key={`${locale}:${quiz.version}`} quiz={quiz} locale={locale} />;
+  return <ValidNatalChartClient key={`${locale}:${quiz.version}`} quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
 }
 
-function ValidNatalChartClient({ quiz, locale }: { quiz: NatalChartQuestionnaire; locale: Locale }) {
+function ValidNatalChartClient({ quiz, locale, readingProfiles }: { quiz: NatalChartQuestionnaire; locale: Locale; readingProfiles?: readonly NatalSignProfile[] }) {
   const { start: recordStart, complete: recordComplete, view: recordView, consent: activityConsent, share: recordShare } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const zh = locale === "zh", ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const [date, setDate] = useState(""), [time, setTime] = useState(""), [unknownTime, setUnknownTime] = useState(false);
@@ -119,7 +119,7 @@ function ValidNatalChartClient({ quiz, locale }: { quiz: NatalChartQuestionnaire
       <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={unknownTime || busy} onClick={calculate}>{zh ? "计算本次星盘" : "Calculate this chart"}</button><button type="button" className={button} onClick={clear}>{zh ? "清除输入与结果" : "Clear input and result"}</button></div>
     </fieldset>
     <p role="status" aria-live="polite" className="my-4 text-sm leading-7">{!ready ? (zh ? "正在准备计算器，请稍候。" : "Preparing the calculator. Please wait.") : busy ? (zh ? "正在本页计算，出生资料不会上传。" : "Calculating on this page; birth information is not uploaded.") : message}</p>
-    {chart && <section aria-labelledby="natal-result-title" className="mt-6"><h2 id="natal-result-title" ref={resultHeading} tabIndex={-1} className="mb-5 scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading[locale]}</h2><NatalChartReport quiz={quiz} chart={chart} locale={locale} /></section>}
+    {chart && <section aria-labelledby="natal-result-title" className="mt-6"><h2 id="natal-result-title" ref={resultHeading} tabIndex={-1} className="mb-5 scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading[locale]}</h2><NatalChartReport quiz={quiz} chart={chart} locale={locale} readingProfiles={readingProfiles} /></section>}
     <div className="my-5"><button type="button" disabled={!ready} className={button} onClick={copyPublicLinks}>{zh ? "复制公开入口和指南网址" : "Copy public calculator and guide URLs"}</button>{manual && <label className="mt-4 block leading-7">{zh ? "手动复制公开网址" : "Public URLs for manual copying"}<textarea readOnly value={manual} className="mt-2 min-h-40 w-full rounded-lg border border-slate-300 p-3" /></label>}</div>
     <noscript><p>{zh ? "计算器需要启用JavaScript。如果页面停在加载画面，请启用JavaScript后计算和浏览公开指南。" : "The calculator requires JavaScript. If the page remains on its loading screen, enable JavaScript to calculate and browse the public guides."}</p></noscript>
   </section>;

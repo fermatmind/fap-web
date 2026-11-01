@@ -1,0 +1,43 @@
+{
+  "understanding-your-playful-age": [
+    {
+      "id": "situations",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者想听没接触过的音乐，却愿意走熟悉的散步路线，好把注意力留给聊天。另一人喜欢旧歌、探索新路线。两套选择可以合出同一个娱乐年龄，也可能合出不同数字；它们都不能判断谁更年轻、更成熟或更会应对现实风险。",
+          "en": "In an additional original scene, a fictional reader chooses unfamiliar music but a familiar walking route to leave attention for conversation. Another prefers familiar music and a new route. Their choices may yield the same playful age or different numbers. Neither pattern establishes who is younger, more mature or better able to handle real risks."
+        }
+      ]
+    },
+    {
+      "id": "action",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“这两位虚构读者分别想保留什么、改变什么，哪些实际条件还不知道？”可以只读或谈情境，不需透露真实年龄、娱乐数字或私人答卷。讨论无需让选择一致，也不以变年轻、增加点数或重测得到特定数字为目标。",
+          "en": "An optional discussion card asks: “What would each fictional reader keep or change, and which practical conditions remain unknown?” Read alone or discuss the scene without disclosing real age, playful numbers or answers. Agreement, becoming younger, adding points or retaking for a target number is never a goal."
+        }
+      ]
+    },
+    {
+      "id": "method",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡由费马编辑部原创，可只读，原尝试可以跳过。按目前对轻松假设情境的偏好选择，不增加回忆期限，不收集生日或真实年龄。十二题各四选一，0、1、2、3只是编辑指定的熟悉偏好点数，位置按题轮换；同一选项字母不代表固定点数。每题各有一个有效选择才计算，缺答不填零、不平均、不按已答外推；没有不适用评分，都不贴切可停止直接读全文。十二点相加为S，范围0至36，展示数字18＋2×S，得到18至90共37个偶数，无随机、取整、生日调整或年龄常模。0、1、2、3重复三组与六个0加六个3都为S＝18，显示54；同数不表示同样回答、心理特征或正常基准。单题从0改3会让数字加六，只是算式，不是成长六年或变老。所有数值共用完整八模块，不派年龄人格；高低都不表示优劣。框架没有已建立信效度、年龄校准、预测或中英等值，不测脑龄、智力、健康、成熟、发展及认知变化，也不能用于评价儿童、伴侣、录用或职业。虚构讨论不要求联系、披露、共同作答或改变真实安排，任何人可停止或保留不同偏好。页面内存、自选24小时标签页草稿及完成、退出、重测清除保持不变，复制只有公开标题与入口，不含年龄数字、点数或答案，公开链接不恢复私人答卷。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing experiments are optional. Choose current preferences in light hypothetical situations without adding a recall period or collecting birthdays or real age. Twelve questions each offer four choices. Values 0, 1, 2, 3 are editorial familiarity points, rotating between positions; an option letter has no fixed value. All twelve questions require one valid answer. Missingness becomes neither zero, a reduced average nor an extrapolated result. There is no not-applicable score; if none fits, stop and read the full guide. Add twelve values as S from 0 to 36. The display is 18 + 2 × S, yielding 37 even numbers from 18 to 90 without randomness, rounding, birthday adjustment or age norms. Repeating 0, 1, 2, 3 three times and choosing six zeros plus six threes both give S = 18 and display 54. Equal numbers establish neither identical answers, psychological qualities nor a normal benchmark. Changing one item from zero to three adds six displayed years through arithmetic alone, not six years of growth or ageing. Every value shares all eight modules without an age-personality assignment; higher and lower imply no superiority. The framework has no established reliability, validity, age calibration, prediction or English–Chinese equivalence and measures neither brain age, intelligence, health, maturity, development nor cognitive change. It cannot evaluate children, partners, hiring or careers. Fictional discussion needs no contact, disclosure, joint answers or changes to real arrangements. Anyone may stop or retain another preference. Page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying contains only a public title and entry link without age values, points or answers; public links restore no private attempt."
+        }
+      ]
+    }
+  ]
+}

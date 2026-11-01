@@ -3,7 +3,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { SapsDomain, SapsResult } from "@/lib/questionnaires/saps";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
-import { QuestionnaireReport } from "@/components/questionnaires/QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 export function QuestionnaireSapsReport({ quiz, result, locale }: {
   quiz: Questionnaire; result: Extract<SapsResult, { status: "complete" }>; locale: Locale;
@@ -27,7 +27,7 @@ export function QuestionnaireSapsReport({ quiz, result, locale }: {
         <p data-saps-sum={direction.id} className="mb-4 leading-7 text-slate-600">{zh
           ? `四题原始总和：${score.sum}（范围 4—28）。均值是总和除以4，不是人群百分位。`
           : `Four-item raw sum: ${score.sum} (range 4–28). The mean is the sum divided by four, not a population percentile.`}</p>
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`saps-reading-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`saps-reading-${profile.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh
           ? "阅读这一维度的完整公开指南" : "Read this dimension’s complete public guide"}</Link>
       </section>;

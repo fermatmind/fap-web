@@ -1,0 +1,962 @@
+{
+  "aries": [
+    {
+      "id": "symbol",
+      "title": {
+        "en": "What the ram represents",
+        "zh": "公羊符号在说什么"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者为共享物品架提出一张临时借用卡，先请参与者检查是否方便，再试用一天。有人希望先讨论，方案就可以暂停或修改。开始的意象只用来提出一个可撤回的选择，不证明谁天生更勇敢或应该带领大家。",
+          "en": "An additional original scene: A fictional reader proposes a temporary borrowing card for a shared shelf, asks participants whether it is convenient and suggests a one-day trial. Someone prefers discussion first, so the proposal can pause or change. Beginning offers a revisable choice without proving courage or a right to lead."
+        }
+      ]
+    },
+    {
+      "id": "sun",
+      "title": {
+        "en": "Sun in Aries: the theme of choosing a start",
+        "zh": "太阳白羊：选择怎样开始"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“共用架借用卡提案”为虚构例子，太阳角色可问：“愿意让这个提案表达什么，能否保留他人不参与的选择？”这是选择与表达的问题，不是从落点观察到的天生特质。",
+          "en": "For a fictional shared-shelf borrowing-card proposal, the Sun-role question asks: “What should this proposal express, while preserving others’ choice not to participate?” It concerns choice and expression, without observing an inborn trait from a placement."
+        }
+      ]
+    },
+    {
+      "id": "moon",
+      "title": {
+        "en": "Moon in Aries: movement as a reflection prompt",
+        "zh": "月亮白羊：用行动主题观察感受"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“共用架借用卡提案”为虚构例子，月亮角色可问：“等候回应时，说明下一步与先休息一会儿，哪种在当时更可承受？”答案来自当时体验与表达，不从星盘推定，也不把回答当作诊断。",
+          "en": "For a fictional shared-shelf borrowing-card proposal, the Moon-role question asks: “While awaiting replies, would clarifying a next step or taking a break feel more manageable then?” Look to the experience and the person’s account, rather than deriving an answer from the chart or making a diagnosis."
+        }
+      ]
+    },
+    {
+      "id": "ascendant",
+      "title": {
+        "en": "Aries rising: an opening move",
+        "zh": "白羊上升：怎样走出开场的一步"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“共用架借用卡提案”为虚构例子，上升角色可问：“进入讨论时，先询问现有约定，还是先说明建议，哪种更适合这个场合？”这是进入情境的可选例子，不是对外貌或陌生人印象的测量。",
+          "en": "For a fictional shared-shelf borrowing-card proposal, the rising-role question asks: “On entering the discussion, would asking about current arrangements or stating a suggestion suit this setting?” This is an optional example of entering a setting, without measuring appearance or strangers’ impressions."
+        }
+      ]
+    },
+    {
+      "id": "otherPlacements",
+      "title": {
+        "en": "Keep the planet's question",
+        "zh": "换了天体，也要保留它的问题"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充天体角色对照：若读水星主题，可以核对借用卡是否表达清楚；若读火星主题，则问提出试用是否尊重参与者的拒绝。两者不测量说服力或行动力，宫位另给讨论情境，不证明事件发生。",
+          "en": "An additional body-role contrast: With Mercury’s topic, check whether the borrowing card communicates clearly. With Mars’s topic, ask whether proposing a trial respects refusal. Neither measures persuasion or drive; a house adds context without proving that an event occurred."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "en": "One start, with a stopping point",
+        "zh": "试一个有停止点的开始"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“提出第一步与替别人作决定，界限在哪里？”可只讨论虚构读者，不用公开出生信息、个人结果或私事；参与者可不同意、拒绝实践或结束，不以故事给别人分派角色或责任。补充场景、角色问题和讨论提示由费马测试编辑部原创，任何星座的读者均可使用或略过。太阳问题侧重主动表达，月亮问题侧重具体情境的自在与反应，上升问题侧重进入情境；它们不是三种人格、隐藏自我或更真实的身份。星座是回归黄道的30度区段，符号角色不测量能力、需要、依恋、外貌、关系或命运。天体主题、星座意象与整宫制情境需分别阅读，重复落点和计数不增加独立的人格证据。计算位置、显示分辨率和符号解释有不同依据，精确样式不修补未知出生记录。比较计算器先对齐时刻、历史时区、坐标、黄道、宫制、模型与显示规则，不改生日来迎合偏好。本版保持已知时刻要求、错误或不可用状态及内存隐私规则；复制仅公开入口与十二份指南网址，不带出生资料或计算落点。",
+          "en": "An optional discussion prompt asks: “Where is the boundary between offering a first step and deciding for others?” Discuss only the fictional reader, without birth details, personal results or private affairs. Participants may disagree, decline an exercise or stop; stories assign no roles or responsibilities to others. FermatMind Editorial authored these additional scenes, role questions and discussion prompts for any reader to use or decline. Sun questions concern chosen expression, Moon questions comfort and response in a situation, and rising questions entering a setting. These are neither three personalities, a hidden self nor a truer identity. Signs are 30-degree tropical sectors; symbolic roles measure no ability, need, attachment, appearance, relationship or destiny. Read body topic, sign image and whole-sign context separately. Repeated placements and counts add no independent personality evidence. Computation, display resolution and symbolic interpretation have different support; precise formatting repairs no unknown birth record. Before comparing calculators, align the instant, historical zone, coordinates, zodiac, houses, model and display rules without altering birth details to suit a preference. This edition retains known-time requirements, error and unavailable states and memory-only privacy. Copying includes only the public entry and twelve guide URLs, without birth information or calculated placements."
+        }
+      ]
+    }
+  ],
+  "taurus": [
+    {
+      "id": "symbol",
+      "title": {
+        "en": "The bull and tangible continuity",
+        "zh": "公牛与具体的持续"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者常用一只旧杯子，发现把手不再方便，便比较继续使用、换杯或保留作摆设。珍惜熟悉物品不要求一直沿用；改变也不证明缺乏耐心。公牛意象在这里帮助讨论实际使用与喜欢的部分，不评估财富、忠诚或品位。",
+          "en": "An additional original scene: A fictional reader enjoys an old cup but finds its handle inconvenient, comparing continued use, replacement or keeping it as decoration. Valuing familiarity requires no permanent use, and changing proves no lack of patience. The bull image frames usefulness and enjoyment without assessing wealth, loyalty or taste."
+        }
+      ]
+    },
+    {
+      "id": "sun",
+      "title": {
+        "en": "Sun in Taurus: choosing what to cultivate",
+        "zh": "太阳金牛：选择想持续培育的事"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“旧杯子的使用与保留”为虚构例子，太阳角色可问：“想在使用与保留之间表达怎样的珍视，选择是否仍出于自愿？”这是选择与表达的问题，不是从落点观察到的天生特质。",
+          "en": "For a fictional decision about using or keeping an old cup, the Sun-role question asks: “What kind of appreciation should using or keeping it express, and is the choice still voluntary?” It concerns choice and expression, without observing an inborn trait from a placement."
+        }
+      ]
+    },
+    {
+      "id": "moon",
+      "title": {
+        "en": "Moon in Taurus: noticing familiar comforts",
+        "zh": "月亮金牛：观察熟悉的舒适感"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“旧杯子的使用与保留”为虚构例子，月亮角色可问：“熟悉感在今天是安慰还是额外麻烦，具体什么让体验不同？”答案来自当时体验与表达，不从星盘推定，也不把回答当作诊断。",
+          "en": "For a fictional decision about using or keeping an old cup, the Moon-role question asks: “Is familiarity comforting or inconvenient today, and what specifically makes the experience different?” Look to the experience and the person’s account, rather than deriving an answer from the chart or making a diagnosis."
+        }
+      ]
+    },
+    {
+      "id": "ascendant",
+      "title": {
+        "en": "Taurus rising: finding a workable pace",
+        "zh": "金牛上升：找到可行的进入节奏"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“旧杯子的使用与保留”为虚构例子，上升角色可问：“进入一项新活动时，先熟悉材料或先看示范，哪个条件值得询问？”这是进入情境的可选例子，不是对外貌或陌生人印象的测量。",
+          "en": "For a fictional decision about using or keeping an old cup, the rising-role question asks: “On entering a new activity, is familiarity with materials or seeing a demonstration worth asking about?” This is an optional example of entering a setting, without measuring appearance or strangers’ impressions."
+        }
+      ]
+    },
+    {
+      "id": "otherPlacements",
+      "title": {
+        "en": "Stability is a theme, not a verdict",
+        "zh": "稳定是主题，不是判词"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充天体角色对照：金星主题可以问杯子的哪些细节令人喜欢；土星主题可以问维护需要多少时间、何时停止。喜欢与承担维护是不同问题，不由同一个星座推导出永久保留的义务。",
+          "en": "An additional body-role contrast: Venus’s topic can ask which details of the cup are enjoyable. Saturn’s topic can ask how much upkeep is manageable and when to stop. Enjoyment and maintaining something differ; a shared sign creates no duty to keep it forever."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "en": "Keep one thing, adjust another",
+        "zh": "保留一件事，调整另一件事"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“保留什么是喜欢，继续做什么又需要重新同意？”可只讨论虚构读者，不用公开出生信息、个人结果或私事；参与者可不同意、拒绝实践或结束，不以故事给别人分派角色或责任。补充场景、角色问题和讨论提示由费马测试编辑部原创，任何星座的读者均可使用或略过。太阳问题侧重主动表达，月亮问题侧重具体情境的自在与反应，上升问题侧重进入情境；它们不是三种人格、隐藏自我或更真实的身份。星座是回归黄道的30度区段，符号角色不测量能力、需要、依恋、外貌、关系或命运。天体主题、星座意象与整宫制情境需分别阅读，重复落点和计数不增加独立的人格证据。计算位置、显示分辨率和符号解释有不同依据，精确样式不修补未知出生记录。比较计算器先对齐时刻、历史时区、坐标、黄道、宫制、模型与显示规则，不改生日来迎合偏好。本版保持已知时刻要求、错误或不可用状态及内存隐私规则；复制仅公开入口与十二份指南网址，不带出生资料或计算落点。",
+          "en": "An optional discussion prompt asks: “What is kept from enjoyment, and what continuing effort needs renewed agreement?” Discuss only the fictional reader, without birth details, personal results or private affairs. Participants may disagree, decline an exercise or stop; stories assign no roles or responsibilities to others. FermatMind Editorial authored these additional scenes, role questions and discussion prompts for any reader to use or decline. Sun questions concern chosen expression, Moon questions comfort and response in a situation, and rising questions entering a setting. These are neither three personalities, a hidden self nor a truer identity. Signs are 30-degree tropical sectors; symbolic roles measure no ability, need, attachment, appearance, relationship or destiny. Read body topic, sign image and whole-sign context separately. Repeated placements and counts add no independent personality evidence. Computation, display resolution and symbolic interpretation have different support; precise formatting repairs no unknown birth record. Before comparing calculators, align the instant, historical zone, coordinates, zodiac, houses, model and display rules without altering birth details to suit a preference. This edition retains known-time requirements, error and unavailable states and memory-only privacy. Copying includes only the public entry and twelve guide URLs, without birth information or calculated placements."
+        }
+      ]
+    }
+  ],
+  "gemini": [
+    {
+      "id": "symbol",
+      "title": {
+        "en": "The twins and multiple perspectives",
+        "zh": "双子符号与多种视角"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者看到两份活动说明给出不同的结束时间，先把差异列出，询问组织者哪一版有效。没有答案时便保留未知，不继续猜测。双子意象可帮助比较信息来源，不证明更聪明、心思多变或必须保持谈话。",
+          "en": "An additional original scene: A fictional reader sees two event notices with different ending times, lists the discrepancy and asks which version applies. Without an answer, the uncertainty remains rather than becoming speculation. The twins image helps compare sources without proving intelligence, changeability or a need to keep talking."
+        }
+      ]
+    },
+    {
+      "id": "sun",
+      "title": {
+        "en": "Sun in Gemini: what you choose to explore",
+        "zh": "太阳双子：选择探索什么"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“两份结束时间不同的活动通知”为虚构例子，太阳角色可问：“希望自己的说明帮助谁理解什么，而不是只增加更多说法？”这是选择与表达的问题，不是从落点观察到的天生特质。",
+          "en": "For a fictional comparison of event notices with different ending times, the Sun-role question asks: “Who should this explanation help, and what should become clearer rather than merely more numerous?” It concerns choice and expression, without observing an inborn trait from a placement."
+        }
+      ]
+    },
+    {
+      "id": "moon",
+      "title": {
+        "en": "Moon in Gemini: words and feelings are different",
+        "zh": "月亮双子：说出想法与感受并不相同"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“两份结束时间不同的活动通知”为虚构例子，月亮角色可问：“核对信息与先承认困惑各有什么作用，是否需要继续谈？”答案来自当时体验与表达，不从星盘推定，也不把回答当作诊断。",
+          "en": "For a fictional comparison of event notices with different ending times, the Moon-role question asks: “What do checking information and acknowledging confusion each offer, and is more conversation wanted?” Look to the experience and the person’s account, rather than deriving an answer from the chart or making a diagnosis."
+        }
+      ]
+    },
+    {
+      "id": "ascendant",
+      "title": {
+        "en": "Gemini rising: opening with a question",
+        "zh": "双子上升：用一个问题打开情境"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“两份结束时间不同的活动通知”为虚构例子，上升角色可问：“初次参加活动时，哪个实际问题值得先问，哪些可以稍后再了解？”这是进入情境的可选例子，不是对外貌或陌生人印象的测量。",
+          "en": "For a fictional comparison of event notices with different ending times, the rising-role question asks: “When joining the activity, which practical question comes first and which can wait?” This is an optional example of entering a setting, without measuring appearance or strangers’ impressions."
+        }
+      ]
+    },
+    {
+      "id": "otherPlacements",
+      "title": {
+        "en": "A message differs from a principle",
+        "zh": "信息与原则是不同的问题"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充天体角色对照：水星主题可以问两份通知的措辞和有效版本；木星主题可以问据此作出的宽泛结论是否有足够依据。比较信息与解释更大意义不相同，多个双子落点也不增加结论的可信度。",
+          "en": "An additional body-role contrast: Mercury’s topic can examine wording and which notice applies. Jupiter’s topic can examine whether a broader conclusion has sufficient support. Comparing information differs from interpreting meaning; repeated Gemini placements add no credibility to a conclusion."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "en": "Finish the question you began",
+        "zh": "把开始追问的问题收回来"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“哪些信息已经核实，哪些只是另一种说法？”可只讨论虚构读者，不用公开出生信息、个人结果或私事；参与者可不同意、拒绝实践或结束，不以故事给别人分派角色或责任。补充场景、角色问题和讨论提示由费马测试编辑部原创，任何星座的读者均可使用或略过。太阳问题侧重主动表达，月亮问题侧重具体情境的自在与反应，上升问题侧重进入情境；它们不是三种人格、隐藏自我或更真实的身份。星座是回归黄道的30度区段，符号角色不测量能力、需要、依恋、外貌、关系或命运。天体主题、星座意象与整宫制情境需分别阅读，重复落点和计数不增加独立的人格证据。计算位置、显示分辨率和符号解释有不同依据，精确样式不修补未知出生记录。比较计算器先对齐时刻、历史时区、坐标、黄道、宫制、模型与显示规则，不改生日来迎合偏好。本版保持已知时刻要求、错误或不可用状态及内存隐私规则；复制仅公开入口与十二份指南网址，不带出生资料或计算落点。",
+          "en": "An optional discussion prompt asks: “Which information is verified, and which is merely another account?” Discuss only the fictional reader, without birth details, personal results or private affairs. Participants may disagree, decline an exercise or stop; stories assign no roles or responsibilities to others. FermatMind Editorial authored these additional scenes, role questions and discussion prompts for any reader to use or decline. Sun questions concern chosen expression, Moon questions comfort and response in a situation, and rising questions entering a setting. These are neither three personalities, a hidden self nor a truer identity. Signs are 30-degree tropical sectors; symbolic roles measure no ability, need, attachment, appearance, relationship or destiny. Read body topic, sign image and whole-sign context separately. Repeated placements and counts add no independent personality evidence. Computation, display resolution and symbolic interpretation have different support; precise formatting repairs no unknown birth record. Before comparing calculators, align the instant, historical zone, coordinates, zodiac, houses, model and display rules without altering birth details to suit a preference. This edition retains known-time requirements, error and unavailable states and memory-only privacy. Copying includes only the public entry and twelve guide URLs, without birth information or calculated placements."
+        }
+      ]
+    }
+  ],
+  "cancer": [
+    {
+      "id": "symbol",
+      "title": {
+        "en": "The crab's shelter",
+        "zh": "螃蟹与庇护的意象"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者为一次小型聚会准备安静角落，但先问参与者是否需要，也说明自己何时会离开。对方可以选别的位置或不解释。蟹壳意象帮助讨论空间与边界，不要求读者照顾所有人，也不推断任何家庭经历。",
+          "en": "An additional original scene: A fictional reader prepares a quiet corner for a small gathering, first asking whether it is wanted and stating when they will leave. Others may choose elsewhere without explanation. The shell image frames space and limits, assigning no duty to care for everyone and inferring no family history."
+        }
+      ]
+    },
+    {
+      "id": "sun",
+      "title": {
+        "en": "Sun in Cancer: what you choose to care for",
+        "zh": "太阳巨蟹：主动照料什么"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“先询问意愿的聚会空间准备”为虚构例子，太阳角色可问：“这份准备表达了主动选择的珍视，还是回应了未经同意的照料期待？”这是选择与表达的问题，不是从落点观察到的天生特质。",
+          "en": "For a fictional preparation of gathering space with permission, the Sun-role question asks: “Does this preparation express freely chosen care or an unagreed expectation to provide it?” It concerns choice and expression, without observing an inborn trait from a placement."
+        }
+      ]
+    },
+    {
+      "id": "moon",
+      "title": {
+        "en": "Moon in Cancer: defining belonging for yourself",
+        "zh": "月亮巨蟹：自己定义归属感"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“先询问意愿的聚会空间准备”为虚构例子，月亮角色可问：“自己或参与者实际需要安静、陪伴还是独处，哪些仍需询问？”答案来自当时体验与表达，不从星盘推定，也不把回答当作诊断。",
+          "en": "For a fictional preparation of gathering space with permission, the Moon-role question asks: “Is quiet, company or solitude actually wanted, and which preferences still need asking about?” Look to the experience and the person’s account, rather than deriving an answer from the chart or making a diagnosis."
+        }
+      ]
+    },
+    {
+      "id": "ascendant",
+      "title": {
+        "en": "Cancer rising: making an entrance feel workable",
+        "zh": "巨蟹上升：让进入情境变得可行"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“先询问意愿的聚会空间准备”为虚构例子，上升角色可问：“进入新聚会时，有哪些空间与交谈边界可以先确认，而不预设谁害羞？”这是进入情境的可选例子，不是对外貌或陌生人印象的测量。",
+          "en": "For a fictional preparation of gathering space with permission, the rising-role question asks: “Which space and conversation boundaries could be checked on arrival without assuming anyone is shy?” This is an optional example of entering a setting, without measuring appearance or strangers’ impressions."
+        }
+      ]
+    },
+    {
+      "id": "otherPlacements",
+      "title": {
+        "en": "Care is not every planet's job",
+        "zh": "并非每个天体都在讨论照料"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充天体角色对照：金星主题可以问空间中哪些安排令人喜欢；火星主题可以问怎样说清离开的时间。欣赏与表达限度不相同，也不因巨蟹符号而让某个人成为默认照料者。",
+          "en": "An additional body-role contrast: Venus’s topic can ask which arrangements are enjoyable. Mars’s topic can ask how to state a leaving time. Appreciation and asserting a limit differ; Cancer symbolism makes nobody the default caregiver."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "en": "Make the offer specific",
+        "zh": "把愿意提供的帮助说具体"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“帮助是谁提出的，是否被需要，提供者有什么限度？”可只讨论虚构读者，不用公开出生信息、个人结果或私事；参与者可不同意、拒绝实践或结束，不以故事给别人分派角色或责任。补充场景、角色问题和讨论提示由费马测试编辑部原创，任何星座的读者均可使用或略过。太阳问题侧重主动表达，月亮问题侧重具体情境的自在与反应，上升问题侧重进入情境；它们不是三种人格、隐藏自我或更真实的身份。星座是回归黄道的30度区段，符号角色不测量能力、需要、依恋、外貌、关系或命运。天体主题、星座意象与整宫制情境需分别阅读，重复落点和计数不增加独立的人格证据。计算位置、显示分辨率和符号解释有不同依据，精确样式不修补未知出生记录。比较计算器先对齐时刻、历史时区、坐标、黄道、宫制、模型与显示规则，不改生日来迎合偏好。本版保持已知时刻要求、错误或不可用状态及内存隐私规则；复制仅公开入口与十二份指南网址，不带出生资料或计算落点。",
+          "en": "An optional discussion prompt asks: “Who proposed the help, is it wanted, and what limits does the person offering it have?” Discuss only the fictional reader, without birth details, personal results or private affairs. Participants may disagree, decline an exercise or stop; stories assign no roles or responsibilities to others. FermatMind Editorial authored these additional scenes, role questions and discussion prompts for any reader to use or decline. Sun questions concern chosen expression, Moon questions comfort and response in a situation, and rising questions entering a setting. These are neither three personalities, a hidden self nor a truer identity. Signs are 30-degree tropical sectors; symbolic roles measure no ability, need, attachment, appearance, relationship or destiny. Read body topic, sign image and whole-sign context separately. Repeated placements and counts add no independent personality evidence. Computation, display resolution and symbolic interpretation have different support; precise formatting repairs no unknown birth record. Before comparing calculators, align the instant, historical zone, coordinates, zodiac, houses, model and display rules without altering birth details to suit a preference. This edition retains known-time requirements, error and unavailable states and memory-only privacy. Copying includes only the public entry and twelve guide URLs, without birth information or calculated placements."
+        }
+      ]
+    }
+  ],
+  "leo": [
+    {
+      "id": "symbol",
+      "title": {
+        "en": "The lion as an expressive image",
+        "zh": "狮子作为表达的意象"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者完成一张手工作品，先说明自己喜欢的细节，再决定只给一位愿意看的朋友看。朋友可能只问材料，也可能不评价。狮子意象可以帮助区分表达与回应，不要求公开表演，更不把关注多少当作作品或人的价值。",
+          "en": "An additional original scene: A fictional reader finishes a craft piece, names a detail they like and chooses to show it to one willing friend. The friend may ask about materials or offer no evaluation. The lion image separates expression from response without requiring performance or measuring worth through attention."
+        }
+      ]
+    },
+    {
+      "id": "sun",
+      "title": {
+        "en": "Sun in Leo: deciding what to put your name to",
+        "zh": "太阳狮子：决定为怎样的表达署名"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“向愿意观看的朋友介绍手工作品”为虚构例子，太阳角色可问：“即使没有反馈，仍愿意认领的表达是什么，哪些内容想保持私人？”这是选择与表达的问题，不是从落点观察到的天生特质。",
+          "en": "For a fictional introduction of a craft piece to a willing friend, the Sun-role question asks: “What expression remains worth claiming without feedback, and what should stay private?” It concerns choice and expression, without observing an inborn trait from a placement."
+        }
+      ]
+    },
+    {
+      "id": "moon",
+      "title": {
+        "en": "Moon in Leo: what kind of recognition feels comfortable",
+        "zh": "月亮狮子：什么样的认可让人自在"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“向愿意观看的朋友介绍手工作品”为虚构例子，月亮角色可问：“私下询问与公开称赞的体验是否不同，哪一种真的受欢迎？”答案来自当时体验与表达，不从星盘推定，也不把回答当作诊断。",
+          "en": "For a fictional introduction of a craft piece to a willing friend, the Moon-role question asks: “Do a private question and public praise feel different, and which is actually welcome?” Look to the experience and the person’s account, rather than deriving an answer from the chart or making a diagnosis."
+        }
+      ]
+    },
+    {
+      "id": "ascendant",
+      "title": {
+        "en": "Leo rising: choosing how to introduce an offering",
+        "zh": "狮子上升：怎样呈现一个开场"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“向愿意观看的朋友介绍手工作品”为虚构例子，上升角色可问：“怎样介绍作品，也明确对方可以不看、不评价或稍后回应？”这是进入情境的可选例子，不是对外貌或陌生人印象的测量。",
+          "en": "For a fictional introduction of a craft piece to a willing friend, the rising-role question asks: “How could the piece be introduced while allowing someone to decline, withhold evaluation or respond later?” This is an optional example of entering a setting, without measuring appearance or strangers’ impressions."
+        }
+      ]
+    },
+    {
+      "id": "otherPlacements",
+      "title": {
+        "en": "Expression meets different topics",
+        "zh": "同一个表达主题，遇到不同的问题"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充天体角色对照：水星主题可以问介绍是否让内容清楚；金星主题可以问具体喜欢哪些形式或质地。说明与欣赏不相同，两者都不判断表演天赋、受欢迎程度或他人理应给多少肯定。",
+          "en": "An additional body-role contrast: Mercury’s topic can ask whether an introduction is clear. Venus’s topic can ask which forms or textures are enjoyable. Explanation and appreciation differ, measuring neither performance talent nor popularity and creating no entitlement to affirmation."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "en": "Name the value before the audience",
+        "zh": "先说价值，再考虑观众"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“想表达的价值与期待收到的回应，能否分别说明？”可只讨论虚构读者，不用公开出生信息、个人结果或私事；参与者可不同意、拒绝实践或结束，不以故事给别人分派角色或责任。补充场景、角色问题和讨论提示由费马测试编辑部原创，任何星座的读者均可使用或略过。太阳问题侧重主动表达，月亮问题侧重具体情境的自在与反应，上升问题侧重进入情境；它们不是三种人格、隐藏自我或更真实的身份。星座是回归黄道的30度区段，符号角色不测量能力、需要、依恋、外貌、关系或命运。天体主题、星座意象与整宫制情境需分别阅读，重复落点和计数不增加独立的人格证据。计算位置、显示分辨率和符号解释有不同依据，精确样式不修补未知出生记录。比较计算器先对齐时刻、历史时区、坐标、黄道、宫制、模型与显示规则，不改生日来迎合偏好。本版保持已知时刻要求、错误或不可用状态及内存隐私规则；复制仅公开入口与十二份指南网址，不带出生资料或计算落点。",
+          "en": "An optional discussion prompt asks: “Can the value of the expression and the hoped-for response be stated separately?” Discuss only the fictional reader, without birth details, personal results or private affairs. Participants may disagree, decline an exercise or stop; stories assign no roles or responsibilities to others. FermatMind Editorial authored these additional scenes, role questions and discussion prompts for any reader to use or decline. Sun questions concern chosen expression, Moon questions comfort and response in a situation, and rising questions entering a setting. These are neither three personalities, a hidden self nor a truer identity. Signs are 30-degree tropical sectors; symbolic roles measure no ability, need, attachment, appearance, relationship or destiny. Read body topic, sign image and whole-sign context separately. Repeated placements and counts add no independent personality evidence. Computation, display resolution and symbolic interpretation have different support; precise formatting repairs no unknown birth record. Before comparing calculators, align the instant, historical zone, coordinates, zodiac, houses, model and display rules without altering birth details to suit a preference. This edition retains known-time requirements, error and unavailable states and memory-only privacy. Copying includes only the public entry and twelve guide URLs, without birth information or calculated placements."
+        }
+      ]
+    }
+  ],
+  "virgo": [
+    {
+      "id": "symbol",
+      "title": {
+        "en": "A symbol of discernment",
+        "zh": "辨别与整理的符号"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者为共用器材画一张归还说明，发现一个箭头会让人放错位置，只改清这个步骤后便停下。使用者的反馈可以支持再改，也可以说明已经够用。辨别意象帮助服务实际需要，不要求排除一切瑕疵，也不证明分析或健康状况。",
+          "en": "An additional original scene: A fictional reader makes return instructions for shared equipment, corrects one misleading arrow and stops. A user’s feedback may support another revision or show it is sufficient. Discernment serves a practical need without requiring every imperfection to vanish or establishing analytical ability or health."
+        }
+      ]
+    },
+    {
+      "id": "sun",
+      "title": {
+        "en": "Sun in Virgo: choosing a useful standard",
+        "zh": "太阳处女：选择有用的标准"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“修改共用器材的归还说明”为虚构例子，太阳角色可问：“愿意让说明体现怎样的用心，完成条件是否服务实际使用者？”这是选择与表达的问题，不是从落点观察到的天生特质。",
+          "en": "For a fictional revision of shared-equipment return instructions, the Sun-role question asks: “What care should the instructions express, and does the finish condition serve the actual user?” It concerns choice and expression, without observing an inborn trait from a placement."
+        }
+      ]
+    },
+    {
+      "id": "moon",
+      "title": {
+        "en": "Moon in Virgo: useful order or another demand",
+        "zh": "月亮处女：有用的秩序，还是又一个要求"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“修改共用器材的归还说明”为虚构例子，月亮角色可问：“短说明让任务更轻松，还是又增加检查负担，怎样才知道？”答案来自当时体验与表达，不从星盘推定，也不把回答当作诊断。",
+          "en": "For a fictional revision of shared-equipment return instructions, the Moon-role question asks: “Do short instructions ease the task or add another checking burden, and how could that be known?” Look to the experience and the person’s account, rather than deriving an answer from the chart or making a diagnosis."
+        }
+      ]
+    },
+    {
+      "id": "ascendant",
+      "title": {
+        "en": "Virgo rising: understanding what is needed first",
+        "zh": "处女上升：先理解情境需要什么"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“修改共用器材的归还说明”为虚构例子，上升角色可问：“初次使用器材时，哪个细节需要澄清，哪些可以边做边了解？”这是进入情境的可选例子，不是对外貌或陌生人印象的测量。",
+          "en": "For a fictional revision of shared-equipment return instructions, the rising-role question asks: “On first using the equipment, which detail needs clarification and which can be learned along the way?” This is an optional example of entering a setting, without measuring appearance or strangers’ impressions."
+        }
+      ]
+    },
+    {
+      "id": "otherPlacements",
+      "title": {
+        "en": "Refining a message differs from setting a limit",
+        "zh": "改进信息与设定限度并不一样"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充天体角色对照：水星主题可以问箭头是否传达清楚；土星主题可以问本次修改的范围和停止点。改善沟通与设定工作限度不同，不把任何处女落点当作必须不断修正的命令。",
+          "en": "An additional body-role contrast: Mercury’s topic can ask whether the arrow communicates clearly. Saturn’s topic can ask about scope and a stopping point. Improving communication differs from limiting work; no Virgo placement commands endless correction."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "en": "Choose one improvement and a finish condition",
+        "zh": "选一处改进，也定一个完成条件"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“这个细节解决谁的问题，什么时候已经足够好用？”可只讨论虚构读者，不用公开出生信息、个人结果或私事；参与者可不同意、拒绝实践或结束，不以故事给别人分派角色或责任。补充场景、角色问题和讨论提示由费马测试编辑部原创，任何星座的读者均可使用或略过。太阳问题侧重主动表达，月亮问题侧重具体情境的自在与反应，上升问题侧重进入情境；它们不是三种人格、隐藏自我或更真实的身份。星座是回归黄道的30度区段，符号角色不测量能力、需要、依恋、外貌、关系或命运。天体主题、星座意象与整宫制情境需分别阅读，重复落点和计数不增加独立的人格证据。计算位置、显示分辨率和符号解释有不同依据，精确样式不修补未知出生记录。比较计算器先对齐时刻、历史时区、坐标、黄道、宫制、模型与显示规则，不改生日来迎合偏好。本版保持已知时刻要求、错误或不可用状态及内存隐私规则；复制仅公开入口与十二份指南网址，不带出生资料或计算落点。",
+          "en": "An optional discussion prompt asks: “Whose problem does this detail solve, and when is it sufficiently usable?” Discuss only the fictional reader, without birth details, personal results or private affairs. Participants may disagree, decline an exercise or stop; stories assign no roles or responsibilities to others. FermatMind Editorial authored these additional scenes, role questions and discussion prompts for any reader to use or decline. Sun questions concern chosen expression, Moon questions comfort and response in a situation, and rising questions entering a setting. These are neither three personalities, a hidden self nor a truer identity. Signs are 30-degree tropical sectors; symbolic roles measure no ability, need, attachment, appearance, relationship or destiny. Read body topic, sign image and whole-sign context separately. Repeated placements and counts add no independent personality evidence. Computation, display resolution and symbolic interpretation have different support; precise formatting repairs no unknown birth record. Before comparing calculators, align the instant, historical zone, coordinates, zodiac, houses, model and display rules without altering birth details to suit a preference. This edition retains known-time requirements, error and unavailable states and memory-only privacy. Copying includes only the public entry and twelve guide URLs, without birth information or calculated placements."
+        }
+      ]
+    }
+  ],
+  "libra": [
+    {
+      "id": "symbol",
+      "title": {
+        "en": "The scales and comparison",
+        "zh": "天平与比较的意象"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者和朋友选择短途活动，一人重视安静，一人重视交通方便。先把标准摆出来后，可能选折中方案，也可能各自安排。天平意象让差别可讨论，不把意见一致当作公平，也不要求某一方总是迁就。",
+          "en": "An additional original scene: A fictional reader and friend choose a short outing: one values quiet, the other convenient transport. Naming criteria may lead to a compromise or separate plans. The scales make differences discussable without equating agreement with fairness or requiring one person always to accommodate."
+        }
+      ]
+    },
+    {
+      "id": "sun",
+      "title": {
+        "en": "Sun in Libra: choosing a position among perspectives",
+        "zh": "太阳天秤：在多种视角中选择立场"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“按各自标准协商一次短途活动”为虚构例子，太阳角色可问：“比较其他视角后，自己仍愿意支持什么，能否诚实说出？”这是选择与表达的问题，不是从落点观察到的天生特质。",
+          "en": "For a fictional discussion of a short outing using each person’s criteria, the Sun-role question asks: “After considering another perspective, what position remains worth supporting and can it be stated honestly?” It concerns choice and expression, without observing an inborn trait from a placement."
+        }
+      ]
+    },
+    {
+      "id": "moon",
+      "title": {
+        "en": "Moon in Libra: comfort and agreement are different",
+        "zh": "月亮天秤：自在与意见一致不是一回事"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“按各自标准协商一次短途活动”为虚构例子，月亮角色可问：“尊重式分歧与表面一致各让人有什么感受，不应由星盘预设哪种更自在。”答案来自当时体验与表达，不从星盘推定，也不把回答当作诊断。",
+          "en": "For a fictional discussion of a short outing using each person’s criteria, the Moon-role question asks: “How do respectful disagreement and outward agreement feel? The chart supplies no predetermined comfort.” Look to the experience and the person’s account, rather than deriving an answer from the chart or making a diagnosis."
+        }
+      ]
+    },
+    {
+      "id": "ascendant",
+      "title": {
+        "en": "Libra rising: setting terms for an exchange",
+        "zh": "天秤上升：为交流打开清楚的条件"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“按各自标准协商一次短途活动”为虚构例子，上升角色可问：“进入共同讨论时，先说明要决定什么，怎样让不参与也成为选项？”这是进入情境的可选例子，不是对外貌或陌生人印象的测量。",
+          "en": "For a fictional discussion of a short outing using each person’s criteria, the rising-role question asks: “On entering a shared discussion, what decision needs defining and how can non-participation remain an option?” This is an optional example of entering a setting, without measuring appearance or strangers’ impressions."
+        }
+      ]
+    },
+    {
+      "id": "otherPlacements",
+      "title": {
+        "en": "Different bodies compare different things",
+        "zh": "不同天体在比较不同的事"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充天体角色对照：金星主题可以问活动中哪种安排令人喜欢；火星主题可以问如何表达不同意。偏好与主张不同，不由天秤落点评判谁更公正，也不以配对结论替代当事人同意。",
+          "en": "An additional body-role contrast: Venus’s topic can ask which arrangement is enjoyable. Mars’s topic can ask how to express disagreement. Preference and assertion differ; Libra placements judge neither fairness nor compatibility and replace no participant’s agreement."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "en": "State the criteria before choosing",
+        "zh": "选择之前，先说标准"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“哪些标准一致，哪些有差别，是否必须今天作决定？”可只讨论虚构读者，不用公开出生信息、个人结果或私事；参与者可不同意、拒绝实践或结束，不以故事给别人分派角色或责任。补充场景、角色问题和讨论提示由费马测试编辑部原创，任何星座的读者均可使用或略过。太阳问题侧重主动表达，月亮问题侧重具体情境的自在与反应，上升问题侧重进入情境；它们不是三种人格、隐藏自我或更真实的身份。星座是回归黄道的30度区段，符号角色不测量能力、需要、依恋、外貌、关系或命运。天体主题、星座意象与整宫制情境需分别阅读，重复落点和计数不增加独立的人格证据。计算位置、显示分辨率和符号解释有不同依据，精确样式不修补未知出生记录。比较计算器先对齐时刻、历史时区、坐标、黄道、宫制、模型与显示规则，不改生日来迎合偏好。本版保持已知时刻要求、错误或不可用状态及内存隐私规则；复制仅公开入口与十二份指南网址，不带出生资料或计算落点。",
+          "en": "An optional discussion prompt asks: “Which criteria align, which differ, and is a decision needed today?” Discuss only the fictional reader, without birth details, personal results or private affairs. Participants may disagree, decline an exercise or stop; stories assign no roles or responsibilities to others. FermatMind Editorial authored these additional scenes, role questions and discussion prompts for any reader to use or decline. Sun questions concern chosen expression, Moon questions comfort and response in a situation, and rising questions entering a setting. These are neither three personalities, a hidden self nor a truer identity. Signs are 30-degree tropical sectors; symbolic roles measure no ability, need, attachment, appearance, relationship or destiny. Read body topic, sign image and whole-sign context separately. Repeated placements and counts add no independent personality evidence. Computation, display resolution and symbolic interpretation have different support; precise formatting repairs no unknown birth record. Before comparing calculators, align the instant, historical zone, coordinates, zodiac, houses, model and display rules without altering birth details to suit a preference. This edition retains known-time requirements, error and unavailable states and memory-only privacy. Copying includes only the public entry and twelve guide URLs, without birth information or calculated placements."
+        }
+      ]
+    }
+  ],
+  "scorpio": [
+    {
+      "id": "symbol",
+      "title": {
+        "en": "The scorpion and sustained attention",
+        "zh": "蝎子与持续关注的意象"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者整理自己的旧相机，想了解一个零件的年代，找到公开说明后便停止搜索。资料没有回答的部分仍然未知，不因此调查前任使用者私事。深入意象可帮助明确问题与证据，不赋予洞察秘密的能力，也不要求挖出痛苦经历。",
+          "en": "An additional original scene: A fictional reader researches the age of a part in their own old camera and stops after finding a public explanation. Unanswered details remain unknown rather than prompting investigation of a former owner’s private affairs. Depth clarifies a question and its evidence, granting no insight into secrets or duty to uncover pain."
+        }
+      ]
+    },
+    {
+      "id": "sun",
+      "title": {
+        "en": "Sun in Scorpio: choosing what deserves depth",
+        "zh": "太阳天蝎：选择什么值得深入"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“研究自有旧相机零件的年代”为虚构例子，太阳角色可问：“这次投入出于什么选择，哪条问题值得追、查到哪里足够？”这是选择与表达的问题，不是从落点观察到的天生特质。",
+          "en": "For a fictional inquiry into a part in one’s own old camera, the Sun-role question asks: “What choice motivates this attention, which question is useful and what answer would be enough?” It concerns choice and expression, without observing an inborn trait from a placement."
+        }
+      ]
+    },
+    {
+      "id": "moon",
+      "title": {
+        "en": "Moon in Scorpio: privacy is yours to define",
+        "zh": "月亮天蝎：隐私由自己定义"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“研究自有旧相机零件的年代”为虚构例子，月亮角色可问：“查证过程中，分享多少细节才自在，能否保留不解释的选择？”答案来自当时体验与表达，不从星盘推定，也不把回答当作诊断。",
+          "en": "For a fictional inquiry into a part in one’s own old camera, the Moon-role question asks: “During the inquiry, how much sharing feels comfortable and can withholding explanation remain an option?” Look to the experience and the person’s account, rather than deriving an answer from the chart or making a diagnosis."
+        }
+      ]
+    },
+    {
+      "id": "ascendant",
+      "title": {
+        "en": "Scorpio rising: choosing a boundary at the beginning",
+        "zh": "天蝎上升：在开场时选择边界"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“研究自有旧相机零件的年代”为虚构例子，上升角色可问：“进入新讨论时，哪些兴趣愿意介绍，哪些个人细节与讨论无关？”这是进入情境的可选例子，不是对外貌或陌生人印象的测量。",
+          "en": "For a fictional inquiry into a part in one’s own old camera, the rising-role question asks: “On joining a new discussion, which interests are welcome to share and which personal details are irrelevant?” This is an optional example of entering a setting, without measuring appearance or strangers’ impressions."
+        }
+      ]
+    },
+    {
+      "id": "otherPlacements",
+      "title": {
+        "en": "Inquiry differs from control",
+        "zh": "追问与控制是不同的事"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充天体角色对照：水星主题可以问零件信息的来源是否可靠；冥王星主题可以问谁有权决定物品怎样使用。核对证据与讨论决定权不同，落点不授权追问他人秘密或判断隐秘创伤。",
+          "en": "An additional body-role contrast: Mercury’s topic can ask whether the part’s information is reliable. Pluto’s topic can ask who decides how the object is used. Checking evidence differs from discussing decision rights; placements authorise no inquiry into secrets or inference of hidden trauma."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "en": "Choose a question you are entitled to ask",
+        "zh": "选一个有权了解的问题"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“已知、推测与无须了解的部分，分别是什么？”可只讨论虚构读者，不用公开出生信息、个人结果或私事；参与者可不同意、拒绝实践或结束，不以故事给别人分派角色或责任。补充场景、角色问题和讨论提示由费马测试编辑部原创，任何星座的读者均可使用或略过。太阳问题侧重主动表达，月亮问题侧重具体情境的自在与反应，上升问题侧重进入情境；它们不是三种人格、隐藏自我或更真实的身份。星座是回归黄道的30度区段，符号角色不测量能力、需要、依恋、外貌、关系或命运。天体主题、星座意象与整宫制情境需分别阅读，重复落点和计数不增加独立的人格证据。计算位置、显示分辨率和符号解释有不同依据，精确样式不修补未知出生记录。比较计算器先对齐时刻、历史时区、坐标、黄道、宫制、模型与显示规则，不改生日来迎合偏好。本版保持已知时刻要求、错误或不可用状态及内存隐私规则；复制仅公开入口与十二份指南网址，不带出生资料或计算落点。",
+          "en": "An optional discussion prompt asks: “What is known, what is inferred and what does not need to be known?” Discuss only the fictional reader, without birth details, personal results or private affairs. Participants may disagree, decline an exercise or stop; stories assign no roles or responsibilities to others. FermatMind Editorial authored these additional scenes, role questions and discussion prompts for any reader to use or decline. Sun questions concern chosen expression, Moon questions comfort and response in a situation, and rising questions entering a setting. These are neither three personalities, a hidden self nor a truer identity. Signs are 30-degree tropical sectors; symbolic roles measure no ability, need, attachment, appearance, relationship or destiny. Read body topic, sign image and whole-sign context separately. Repeated placements and counts add no independent personality evidence. Computation, display resolution and symbolic interpretation have different support; precise formatting repairs no unknown birth record. Before comparing calculators, align the instant, historical zone, coordinates, zodiac, houses, model and display rules without altering birth details to suit a preference. This edition retains known-time requirements, error and unavailable states and memory-only privacy. Copying includes only the public entry and twelve guide URLs, without birth information or calculated placements."
+        }
+      ]
+    }
+  ],
+  "sagittarius": [
+    {
+      "id": "symbol",
+      "title": {
+        "en": "The archer's direction",
+        "zh": "弓箭手的方向"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者为了解一道食物的来历，比较两份不同地区的介绍，发现各自只覆盖部分传统。可以继续问来源，也可以暂缓结论。弓箭手意象给探索一个问题，不把旅行、知识或信念排名，也不让吸引人的叙述自动成为事实。",
+          "en": "An additional original scene: A fictional reader compares two regional accounts of a food’s origins and finds that each covers only part of the tradition. Further source questions or suspended judgment are possible. The archer gives exploration a question without ranking travel, knowledge or belief or turning an appealing account into fact."
+        }
+      ]
+    },
+    {
+      "id": "sun",
+      "title": {
+        "en": "Sun in Sagittarius: deciding why the question matters",
+        "zh": "太阳射手：决定问题为何重要"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“比较两份食物来历的介绍”为虚构例子，太阳角色可问：“为什么想了解这个问题，哪种表达真正代表目前的理解？”这是选择与表达的问题，不是从落点观察到的天生特质。",
+          "en": "For a fictional comparison of two accounts of a food’s origins, the Sun-role question asks: “Why explore this question, and which expression represents the current understanding?” It concerns choice and expression, without observing an inborn trait from a placement."
+        }
+      ]
+    },
+    {
+      "id": "moon",
+      "title": {
+        "en": "Moon in Sagittarius: room for another view",
+        "zh": "月亮射手：给另一种看法留出空间"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“比较两份食物来历的介绍”为虚构例子，月亮角色可问：“发现原有说法不完整时，需要先承认失望，还是愿意比较新解释？”答案来自当时体验与表达，不从星盘推定，也不把回答当作诊断。",
+          "en": "For a fictional comparison of two accounts of a food’s origins, the Moon-role question asks: “When an earlier account proves incomplete, is acknowledging disappointment or considering another account wanted first?” Look to the experience and the person’s account, rather than deriving an answer from the chart or making a diagnosis."
+        }
+      ]
+    },
+    {
+      "id": "ascendant",
+      "title": {
+        "en": "Sagittarius rising: entering with a direction to explore",
+        "zh": "射手上升：带着想探索的方向进入"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“比较两份食物来历的介绍”为虚构例子，上升角色可问：“进入陌生主题时，怎样说明兴趣，同时询问材料实际能够回答什么？”这是进入情境的可选例子，不是对外貌或陌生人印象的测量。",
+          "en": "For a fictional comparison of two accounts of a food’s origins, the rising-role question asks: “On entering an unfamiliar subject, how could interest be stated while asking what the material can actually answer?” This is an optional example of entering a setting, without measuring appearance or strangers’ impressions."
+        }
+      ]
+    },
+    {
+      "id": "otherPlacements",
+      "title": {
+        "en": "A larger picture still needs evidence",
+        "zh": "更大的图景仍需要证据"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充天体角色对照：木星主题可以问较大叙述包含什么假设；水星主题可以问怎样准确说明两份材料的差异。意义与表达不能互换，也不由射手落点证明乐观、诚实或必须追求宏大目的。",
+          "en": "An additional body-role contrast: Jupiter’s topic can ask which assumptions a larger account contains. Mercury’s topic can ask how to explain the sources’ differences accurately. Meaning and expression differ; Sagittarius placements establish no optimism, honesty or obligation to pursue a grand purpose."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "en": "Explore one unfamiliar explanation",
+        "zh": "探索一种不熟悉的解释"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“扩大视角增加了哪条信息，还有什么不能据此下结论？”可只讨论虚构读者，不用公开出生信息、个人结果或私事；参与者可不同意、拒绝实践或结束，不以故事给别人分派角色或责任。补充场景、角色问题和讨论提示由费马测试编辑部原创，任何星座的读者均可使用或略过。太阳问题侧重主动表达，月亮问题侧重具体情境的自在与反应，上升问题侧重进入情境；它们不是三种人格、隐藏自我或更真实的身份。星座是回归黄道的30度区段，符号角色不测量能力、需要、依恋、外貌、关系或命运。天体主题、星座意象与整宫制情境需分别阅读，重复落点和计数不增加独立的人格证据。计算位置、显示分辨率和符号解释有不同依据，精确样式不修补未知出生记录。比较计算器先对齐时刻、历史时区、坐标、黄道、宫制、模型与显示规则，不改生日来迎合偏好。本版保持已知时刻要求、错误或不可用状态及内存隐私规则；复制仅公开入口与十二份指南网址，不带出生资料或计算落点。",
+          "en": "An optional discussion prompt asks: “Which information did a wider view add, and what still cannot be concluded?” Discuss only the fictional reader, without birth details, personal results or private affairs. Participants may disagree, decline an exercise or stop; stories assign no roles or responsibilities to others. FermatMind Editorial authored these additional scenes, role questions and discussion prompts for any reader to use or decline. Sun questions concern chosen expression, Moon questions comfort and response in a situation, and rising questions entering a setting. These are neither three personalities, a hidden self nor a truer identity. Signs are 30-degree tropical sectors; symbolic roles measure no ability, need, attachment, appearance, relationship or destiny. Read body topic, sign image and whole-sign context separately. Repeated placements and counts add no independent personality evidence. Computation, display resolution and symbolic interpretation have different support; precise formatting repairs no unknown birth record. Before comparing calculators, align the instant, historical zone, coordinates, zodiac, houses, model and display rules without altering birth details to suit a preference. This edition retains known-time requirements, error and unavailable states and memory-only privacy. Copying includes only the public entry and twelve guide URLs, without birth information or calculated placements."
+        }
+      ]
+    }
+  ],
+  "capricorn": [
+    {
+      "id": "symbol",
+      "title": {
+        "en": "The sea-goat and a considered route",
+        "zh": "海山羊与经过考虑的路径"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者想整理一小格书架，预留二十分钟，只决定这一格的范围，并允许当天停止。后来发现材料不够，便改天再做。海山羊意象可以帮助考虑路径与资源，不把坚持当作义务，也不让休息或支持必须等完成后才配得到。",
+          "en": "An additional original scene: A fictional reader sets aside twenty minutes for one shelf, defines that limited scope and allows stopping. Missing materials later lead to postponement. The sea-goat frames routes and resources without making persistence a duty or requiring completion before rest or support is deserved."
+        }
+      ]
+    },
+    {
+      "id": "sun",
+      "title": {
+        "en": "Sun in Capricorn: choosing a commitment",
+        "zh": "太阳摩羯：选择一项投入"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“限定时间与范围的书架整理”为虚构例子，太阳角色可问：“这项投入表达什么主动选择，调整或放弃是否也能服务原意？”这是选择与表达的问题，不是从落点观察到的天生特质。",
+          "en": "For a fictional shelf-organising task with a defined time and scope, the Sun-role question asks: “What freely chosen purpose does the commitment express, and could changing or stopping serve it too?” It concerns choice and expression, without observing an inborn trait from a placement."
+        }
+      ]
+    },
+    {
+      "id": "moon",
+      "title": {
+        "en": "Moon in Capricorn: support does not need to be earned",
+        "zh": "月亮摩羯：支持不必靠完成任务换取"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“限定时间与范围的书架整理”为虚构例子，月亮角色可问：“计划让今天更可承受，还是挤走了休息，需要依据什么体验判断？”答案来自当时体验与表达，不从星盘推定，也不把回答当作诊断。",
+          "en": "For a fictional shelf-organising task with a defined time and scope, the Moon-role question asks: “Does the plan make today more manageable or displace rest, and which experience would help judge that?” Look to the experience and the person’s account, rather than deriving an answer from the chart or making a diagnosis."
+        }
+      ]
+    },
+    {
+      "id": "ascendant",
+      "title": {
+        "en": "Capricorn rising: clarifying the arrangement",
+        "zh": "摩羯上升：先说清安排"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“限定时间与范围的书架整理”为虚构例子，上升角色可问：“进入共同任务时，先问时间、范围还是可退出的条件，哪项最需要说明？”这是进入情境的可选例子，不是对外貌或陌生人印象的测量。",
+          "en": "For a fictional shelf-organising task with a defined time and scope, the rising-role question asks: “On entering a shared task, which needs clarification first: time, scope or conditions for leaving?” This is an optional example of entering a setting, without measuring appearance or strangers’ impressions."
+        }
+      ]
+    },
+    {
+      "id": "otherPlacements",
+      "title": {
+        "en": "Responsibility is not a forecast",
+        "zh": "责任主题不是成就预告"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充天体角色对照：土星主题可以问工作限度是否可承担；金星主题可以问书架中哪些物品值得保留。责任与欣赏不同，不由摩羯落点推断成就、经济条件或必须承诺多久。",
+          "en": "An additional body-role contrast: Saturn’s topic can ask whether the scope is manageable. Venus’s topic can ask which objects are worth keeping. Responsibility and appreciation differ; Capricorn placements infer neither achievement nor finances nor how long a commitment must last."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "en": "Set scope and an exit condition",
+        "zh": "定范围，也定退出条件"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“哪些是已经同意的投入，哪些只是对自己的额外要求？”可只讨论虚构读者，不用公开出生信息、个人结果或私事；参与者可不同意、拒绝实践或结束，不以故事给别人分派角色或责任。补充场景、角色问题和讨论提示由费马测试编辑部原创，任何星座的读者均可使用或略过。太阳问题侧重主动表达，月亮问题侧重具体情境的自在与反应，上升问题侧重进入情境；它们不是三种人格、隐藏自我或更真实的身份。星座是回归黄道的30度区段，符号角色不测量能力、需要、依恋、外貌、关系或命运。天体主题、星座意象与整宫制情境需分别阅读，重复落点和计数不增加独立的人格证据。计算位置、显示分辨率和符号解释有不同依据，精确样式不修补未知出生记录。比较计算器先对齐时刻、历史时区、坐标、黄道、宫制、模型与显示规则，不改生日来迎合偏好。本版保持已知时刻要求、错误或不可用状态及内存隐私规则；复制仅公开入口与十二份指南网址，不带出生资料或计算落点。",
+          "en": "An optional discussion prompt asks: “Which commitments were actually agreed and which are additional demands placed on oneself?” Discuss only the fictional reader, without birth details, personal results or private affairs. Participants may disagree, decline an exercise or stop; stories assign no roles or responsibilities to others. FermatMind Editorial authored these additional scenes, role questions and discussion prompts for any reader to use or decline. Sun questions concern chosen expression, Moon questions comfort and response in a situation, and rising questions entering a setting. These are neither three personalities, a hidden self nor a truer identity. Signs are 30-degree tropical sectors; symbolic roles measure no ability, need, attachment, appearance, relationship or destiny. Read body topic, sign image and whole-sign context separately. Repeated placements and counts add no independent personality evidence. Computation, display resolution and symbolic interpretation have different support; precise formatting repairs no unknown birth record. Before comparing calculators, align the instant, historical zone, coordinates, zodiac, houses, model and display rules without altering birth details to suit a preference. This edition retains known-time requirements, error and unavailable states and memory-only privacy. Copying includes only the public entry and twelve guide URLs, without birth information or calculated placements."
+        }
+      ]
+    }
+  ],
+  "aquarius": [
+    {
+      "id": "symbol",
+      "title": {
+        "en": "The water bearer is an air sign",
+        "zh": "水瓶的符号属于风象"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者参与共用书柜，画出借还流程后询问使用者，发现其中一步不方便轮椅通行，便与大家商量改放位置。系统图只是一种初步理解，参与者的实际反馈可以修改它。持水者意象属于风象，不证明智力、政治立场或比别人更先进。",
+          "en": "An additional original scene: A fictional reader maps borrowing from a shared bookcase, asks users and learns that one step is inconvenient for wheelchair access. They discuss moving it. A system map is provisional and can change with participants’ feedback. The water bearer belongs to Air without proving intelligence, politics or superiority."
+        }
+      ]
+    },
+    {
+      "id": "sun",
+      "title": {
+        "en": "Sun in Aquarius: choosing a principle to examine",
+        "zh": "太阳水瓶：选择想检视的原则"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“根据参与者反馈修改共用书柜规则”为虚构例子，太阳角色可问：“想通过安排表达什么原则，能否让受影响的人质疑并改动？”这是选择与表达的问题，不是从落点观察到的天生特质。",
+          "en": "For a fictional revision of bookcase rules after participants’ feedback, the Sun-role question asks: “What principle should the arrangement express, and can affected people question and change it?” It concerns choice and expression, without observing an inborn trait from a placement."
+        }
+      ]
+    },
+    {
+      "id": "moon",
+      "title": {
+        "en": "Moon in Aquarius: perspective is one option",
+        "zh": "月亮水瓶：拉开距离只是一个选项"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“根据参与者反馈修改共用书柜规则”为虚构例子，月亮角色可问：“分析流程之外，参与者的感受与偏好有哪些仍需听取？”答案来自当时体验与表达，不从星盘推定，也不把回答当作诊断。",
+          "en": "For a fictional revision of bookcase rules after participants’ feedback, the Moon-role question asks: “Beyond analysing the process, which feelings and preferences still need listening to?” Look to the experience and the person’s account, rather than deriving an answer from the chart or making a diagnosis."
+        }
+      ]
+    },
+    {
+      "id": "ascendant",
+      "title": {
+        "en": "Aquarius rising: asking how participation works",
+        "zh": "水瓶上升：问清参与怎样运作"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“根据参与者反馈修改共用书柜规则”为虚构例子，上升角色可问：“初次进入群体时，可以怎样问清参与、决定与退出的方式？”这是进入情境的可选例子，不是对外貌或陌生人印象的测量。",
+          "en": "For a fictional revision of bookcase rules after participants’ feedback, the rising-role question asks: “On joining a group, how could participation, decisions and leaving arrangements be clarified?” This is an optional example of entering a setting, without measuring appearance or strangers’ impressions."
+        }
+      ]
+    },
+    {
+      "id": "otherPlacements",
+      "title": {
+        "en": "Different traditions still need clear labels",
+        "zh": "采用什么传统，都要说清标签"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充天体角色对照：天王星主题可以问尝试另一流程是否可撤回；土星主题可以问哪些约定需要保持清楚。试验与限度不同，不因水瓶符号而赞美一切改变，也不要求情感疏离。",
+          "en": "An additional body-role contrast: Uranus’s topic can ask whether a trial process is reversible. Saturn’s topic can ask which agreements need clarity. Experiment and limits differ; Aquarius symbolism praises no change automatically and requires no emotional distance."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "en": "Describe a rule and ask who it serves",
+        "zh": "描述一条规则，问它服务谁"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“规则描述与使用者体验哪里不同，谁应参与修改？”可只讨论虚构读者，不用公开出生信息、个人结果或私事；参与者可不同意、拒绝实践或结束，不以故事给别人分派角色或责任。补充场景、角色问题和讨论提示由费马测试编辑部原创，任何星座的读者均可使用或略过。太阳问题侧重主动表达，月亮问题侧重具体情境的自在与反应，上升问题侧重进入情境；它们不是三种人格、隐藏自我或更真实的身份。星座是回归黄道的30度区段，符号角色不测量能力、需要、依恋、外貌、关系或命运。天体主题、星座意象与整宫制情境需分别阅读，重复落点和计数不增加独立的人格证据。计算位置、显示分辨率和符号解释有不同依据，精确样式不修补未知出生记录。比较计算器先对齐时刻、历史时区、坐标、黄道、宫制、模型与显示规则，不改生日来迎合偏好。本版保持已知时刻要求、错误或不可用状态及内存隐私规则；复制仅公开入口与十二份指南网址，不带出生资料或计算落点。",
+          "en": "An optional discussion prompt asks: “Where does the rule’s description differ from users’ experience, and who should participate in revisions?” Discuss only the fictional reader, without birth details, personal results or private affairs. Participants may disagree, decline an exercise or stop; stories assign no roles or responsibilities to others. FermatMind Editorial authored these additional scenes, role questions and discussion prompts for any reader to use or decline. Sun questions concern chosen expression, Moon questions comfort and response in a situation, and rising questions entering a setting. These are neither three personalities, a hidden self nor a truer identity. Signs are 30-degree tropical sectors; symbolic roles measure no ability, need, attachment, appearance, relationship or destiny. Read body topic, sign image and whole-sign context separately. Repeated placements and counts add no independent personality evidence. Computation, display resolution and symbolic interpretation have different support; precise formatting repairs no unknown birth record. Before comparing calculators, align the instant, historical zone, coordinates, zodiac, houses, model and display rules without altering birth details to suit a preference. This edition retains known-time requirements, error and unavailable states and memory-only privacy. Copying includes only the public entry and twelve guide URLs, without birth information or calculated placements."
+        }
+      ]
+    }
+  ],
+  "pisces": [
+    {
+      "id": "symbol",
+      "title": {
+        "en": "Two fish and a changing current",
+        "zh": "两条鱼与变化的水流"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者把一段音乐描述为淡蓝色的房间，同时另写一句：音乐中有缓慢重复的声音。这是想象表达与可观察内容的两层描述，可以并存，也可以修改。两条鱼的意象不证明共情、艺术或灵性能力，更不让自己的印象替别人回答感受。",
+          "en": "An additional original scene: A fictional reader describes music as a pale-blue room and separately notes a slowly repeating sound. Imaginative expression and observable detail can coexist or be revised. The two-fish image establishes no empathy, artistic or spiritual ability and lets no personal impression speak for someone else’s feelings."
+        }
+      ]
+    },
+    {
+      "id": "sun",
+      "title": {
+        "en": "Sun in Pisces: choosing a form for an impression",
+        "zh": "太阳双鱼：给印象选择一种形式"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“并列记录音乐印象与可观察声音”为虚构例子，太阳角色可问：“愿意采用什么形式表达这次印象，是否也可以只保留朴素描述？”这是选择与表达的问题，不是从落点观察到的天生特质。",
+          "en": "For a fictional description of musical impressions alongside observable sounds, the Sun-role question asks: “Which form should express this impression, and could a plain description be enough?” It concerns choice and expression, without observing an inborn trait from a placement."
+        }
+      ]
+    },
+    {
+      "id": "moon",
+      "title": {
+        "en": "Moon in Pisces: distinguish an impression from a need",
+        "zh": "月亮双鱼：分清印象与需要"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“并列记录音乐印象与可观察声音”为虚构例子，月亮角色可问：“听后真正想要安静、交谈还是做别的事，哪些需要由自己确认？”答案来自当时体验与表达，不从星盘推定，也不把回答当作诊断。",
+          "en": "For a fictional description of musical impressions alongside observable sounds, the Moon-role question asks: “After listening, is quiet, conversation or another activity wanted, and what needs personal confirmation?” Look to the experience and the person’s account, rather than deriving an answer from the chart or making a diagnosis."
+        }
+      ]
+    },
+    {
+      "id": "ascendant",
+      "title": {
+        "en": "Pisces rising: entering with room to observe",
+        "zh": "双鱼上升：给观察留出空间"
+      },
+      "paragraphs": [
+        {
+          "zh": "以“并列记录音乐印象与可观察声音”为虚构例子，上升角色可问：“走入新场合时，整体印象与实际安排需要分别问清哪些部分？”这是进入情境的可选例子，不是对外貌或陌生人印象的测量。",
+          "en": "For a fictional description of musical impressions alongside observable sounds, the rising-role question asks: “On entering a new setting, which overall impressions and practical arrangements need separate clarification?” This is an optional example of entering a setting, without measuring appearance or strangers’ impressions."
+        }
+      ]
+    },
+    {
+      "id": "otherPlacements",
+      "title": {
+        "en": "An image is not an observation",
+        "zh": "意象不是观察事实"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充天体角色对照：海王星主题可以问想象与观察的界线；水星主题可以问这层区别怎样向读者说明。隐喻与信息表达不同，不把双鱼落点写成读心能力，也不把不喜欢比喻解释为压抑真实自我。",
+          "en": "An additional body-role contrast: Neptune’s topic can ask where imagination ends and observation begins. Mercury’s topic can ask how to explain that distinction. Metaphor and communication differ; Pisces placements imply no mind-reading and interpret no dislike of metaphor as repression of a true self."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "en": "Give an impression a small container",
+        "zh": "给印象一个小容器"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“哪些内容实际听见或看见，哪些属于自己的想象？”可只讨论虚构读者，不用公开出生信息、个人结果或私事；参与者可不同意、拒绝实践或结束，不以故事给别人分派角色或责任。补充场景、角色问题和讨论提示由费马测试编辑部原创，任何星座的读者均可使用或略过。太阳问题侧重主动表达，月亮问题侧重具体情境的自在与反应，上升问题侧重进入情境；它们不是三种人格、隐藏自我或更真实的身份。星座是回归黄道的30度区段，符号角色不测量能力、需要、依恋、外貌、关系或命运。天体主题、星座意象与整宫制情境需分别阅读，重复落点和计数不增加独立的人格证据。计算位置、显示分辨率和符号解释有不同依据，精确样式不修补未知出生记录。比较计算器先对齐时刻、历史时区、坐标、黄道、宫制、模型与显示规则，不改生日来迎合偏好。本版保持已知时刻要求、错误或不可用状态及内存隐私规则；复制仅公开入口与十二份指南网址，不带出生资料或计算落点。",
+          "en": "An optional discussion prompt asks: “What was actually heard or seen, and what belongs to personal imagination?” Discuss only the fictional reader, without birth details, personal results or private affairs. Participants may disagree, decline an exercise or stop; stories assign no roles or responsibilities to others. FermatMind Editorial authored these additional scenes, role questions and discussion prompts for any reader to use or decline. Sun questions concern chosen expression, Moon questions comfort and response in a situation, and rising questions entering a setting. These are neither three personalities, a hidden self nor a truer identity. Signs are 30-degree tropical sectors; symbolic roles measure no ability, need, attachment, appearance, relationship or destiny. Read body topic, sign image and whole-sign context separately. Repeated placements and counts add no independent personality evidence. Computation, display resolution and symbolic interpretation have different support; precise formatting repairs no unknown birth record. Before comparing calculators, align the instant, historical zone, coordinates, zodiac, houses, model and display rules without altering birth details to suit a preference. This edition retains known-time requirements, error and unavailable states and memory-only privacy. Copying includes only the public entry and twelve guide URLs, without birth information or calculated placements."
+        }
+      ]
+    }
+  ]
+}

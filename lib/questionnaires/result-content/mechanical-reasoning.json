@@ -1,0 +1,162 @@
+{
+  "levers": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：力臂和方向要同时保留",
+        "en": "Review the arm and force direction together"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例为无重水平梁，支点左0.40米向下18牛，右1.20米向下6牛。两力矩大小均为7.2牛米、转向相反，可以旋转平衡。若只把6牛移到左1.20米且仍向下，两力矩同向，不能再沿用平衡结论；将左侧6牛改为向上，才重新得到相反的7.2牛米。每次先画力线和支点，再给转向标号。这里所有距离均为垂直力臂，支点反力对该支点力矩为零；仅在纸上核这个理想模型，不判断真实梁的强度或承载。",
+          "en": "Use a fresh massless horizontal beam: eighteen newtons act downward 0.40 m left of the pivot, and six act downward 1.20 m right. Each moment has magnitude 7.2 N m, with opposite turning senses. Move only the six-newton force to the left while keeping it downward: the moments now reinforce, so the previous balance no longer follows. Reversing that left-side force upward restores opposing moments of 7.2 N m. Draw force lines and pivot before assigning signs. All stated distances are perpendicular arms, and pivot reaction has zero moment about that pivot. This paper model establishes no real beam strength or capacity."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起画图核算，比较假设与推理",
+        "en": "Sketch and calculate together, comparing assumptions and reasoning"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“只移动施力位置或只反转方向，为什么会改变平衡？两次力乘距离算对以后，还少核了哪件事？”先各自画纸上草图、标单位并写预测，再找第一处分歧。可以只读、使用计算器、查规则或换数值，不比赛速度、不搬动负载或操作机器。比较题述模型下的过程，不用正确数评价个人机械天赋或岗位适合度。",
+          "en": "Ask: “Why can moving a force or reversing it change balance, and what remains to check after both force–arm products are correct?” Sketch, label units and predict separately before locating the first divergence. Read, use a calculator, consult the rule or change the numbers without racing, moving loads or operating machinery. Compare reasoning under the stated model rather than rating mechanical talent or job suitability from a count."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组用于理想模型复习，不是智商、设备操作资格或招聘认证。30题固定不变，读过解析后的提高可能来自记忆；想检查理解，可换一项明示条件，核算结果及适用边界。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups organise ideal-model revision rather than IQ, equipment qualifications or hiring certification. Retakes reuse the same thirty items and may reward recall. Change one explicit condition, then check the calculation and its limits to explore understanding."
+        }
+      ]
+    }
+  ],
+  "gears": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：大小比、方向和功率分开核",
+        "en": "Review magnitude ratios, direction and power separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例采用无滑动、无损的两个外齿轮，同一侧观察：24齿主动轮120转/分、扭矩2牛米，48齿从动轮为60转/分、4牛米，方向相反。转速乘齿数分别为2880，转速乘扭矩分别为240；换成角速度时两边乘同一系数，理想功率相等。若中间再加入独立轴36齿中间轮，输出转速大小仍60，但两次外啮合使输出与主动同向。中间轮约去的是首尾速度比中的齿数，不是它自己的转速或方向作用。此纸上模型不规定设备设置。",
+          "en": "Use two ideal external gears without slip or losses, viewed from the same side. A 24-tooth driver at 120 rpm and 2 N m drives a 48-tooth gear at 60 rpm and 4 N m in the opposite direction. Speed times teeth equals 2880 on both sides; speed times torque equals 240 on both sides. Converting rpm to angular speed applies the same factor, preserving ideal power. Adding a 36-tooth idler on a separate shaft leaves output speed magnitude at sixty, while two external meshes make output turn in the driver’s sense. The idler cancels from the end-to-end speed magnitude ratio, not from its own motion or directional effect. This paper model supplies no machine setting."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起画图核算，比较假设与推理",
+        "en": "Sketch and calculate together, comparing assumptions and reasoning"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“中间轮的齿数在什么计算里约掉？为什么转速大小相同，不代表最终方向也与没有中间轮时相同？”先各自画纸上草图、标单位并写预测，再找第一处分歧。可以只读、使用计算器、查规则或换数值，不比赛速度、不搬动负载或操作机器。比较题述模型下的过程，不用正确数评价个人机械天赋或岗位适合度。",
+          "en": "Ask: “Where does the idler tooth count cancel, and why can equal output speed magnitudes still have different directions?” Sketch, label units and predict separately before locating the first divergence. Read, use a calculator, consult the rule or change the numbers without racing, moving loads or operating machinery. Compare reasoning under the stated model rather than rating mechanical talent or job suitability from a count."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组用于理想模型复习，不是智商、设备操作资格或招聘认证。30题固定不变，读过解析后的提高可能来自记忆；想检查理解，可换一项明示条件，核算结果及适用边界。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups organise ideal-model revision rather than IQ, equipment qualifications or hiring certification. Retakes reuse the same thirty items and may reward recall. Change one explicit condition, then check the calculation and its limits to explore understanding."
+        }
+      ]
+    }
+  ],
+  "pulleys": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：省力与拉绳行程一起核对",
+        "en": "Review reduced effort together with rope travel"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例中同一理想连续绳的四股竖直段支持总重280牛，已含动块，匀速上升。4T=280，张力及自由端拉力为70牛。动块升0.30米，各支持段都短0.30米，自由端需拉1.20米；输入功70×1.20=84焦，负载功280×0.30也为84焦。若把拉力和拉绳距离都除四，就不能满足这两个约束。先圈总负载、支持段及其长度变化，再算，不额外加未给的块重。此例只作纸上理想推演，不搭起吊装置或推断实际额定载荷。",
+          "en": "In a fresh ideal system, four vertical segments of one continuous rope support 280 N total weight, including the moving block, at constant upward speed. From 4T=280, tension and free-end effort are seventy newtons. Raising the block 0.30 m shortens each support segment by that amount, requiring 1.20 m of free-rope travel. Input work is 70×1.20=84 J, matching 280×0.30 at the load. Dividing both effort and travel by four would fail these constraints. Identify total load, supporting segments and their length changes before calculating; add no unspecified block weight. This paper exercise builds no hoist and determines no real rated load."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起画图核算，比较假设与推理",
+        "en": "Sketch and calculate together, comparing assumptions and reasoning"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“拉力变小后，为什么拉绳距离反而增大？输入与输出功怎样帮助发现把比例写反的错误？”先各自画纸上草图、标单位并写预测，再找第一处分歧。可以只读、使用计算器、查规则或换数值，不比赛速度、不搬动负载或操作机器。比较题述模型下的过程，不用正确数评价个人机械天赋或岗位适合度。",
+          "en": "Ask: “Why does smaller effort require longer rope travel, and how do input and output work expose an inverted ratio?” Sketch, label units and predict separately before locating the first divergence. Read, use a calculator, consult the rule or change the numbers without racing, moving loads or operating machinery. Compare reasoning under the stated model rather than rating mechanical talent or job suitability from a count."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组用于理想模型复习，不是智商、设备操作资格或招聘认证。30题固定不变，读过解析后的提高可能来自记忆；想检查理解，可换一项明示条件，核算结果及适用边界。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups organise ideal-model revision rather than IQ, equipment qualifications or hiring certification. Retakes reuse the same thirty items and may reward recall. Change one explicit condition, then check the calculation and its limits to explore understanding."
+        }
+      ]
+    }
+  ],
+  "springs": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：最终长度先减原长，再换单位",
+        "en": "Review extension by subtracting natural length first"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例为理想线性弹簧：原长12厘米，稳态拉至15厘米，劲度400牛/米。形变量是3厘米，即0.03米，弹力大小400×0.03=12牛；用最终全长0.15米会误得60牛。若在同一线性关系下稳态外力改为24牛，伸长为0.06米、最终长18厘米，不能说最终长也加倍。每次分别列原长、形变量和最终长，再用F=kx乘回检查。例子只使用明示线性范围，不说明真实弹簧能否承受该变形或如何选零件。",
+          "en": "Take a fresh ideal linear spring with natural length twelve centimetres, final steady length fifteen centimetres and stiffness 400 N/m. Extension is three centimetres, or 0.03 m, so force magnitude is twelve newtons. Using the final length of 0.15 m would incorrectly give sixty. Under the same linear relation, a steady force of twenty-four newtons gives extension 0.06 m and final length eighteen centimetres; final length does not double. Keep natural length, extension and final length separate, then substitute into F=kx. The example assumes the stated linear range without establishing whether a real spring tolerates that deformation or which component to choose."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起画图核算，比较假设与推理",
+        "en": "Sketch and calculate together, comparing assumptions and reasoning"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“外力加倍时，哪个长度量加倍，哪个没有？为什么给劲度配上厘米时必须先换成米？”先各自画纸上草图、标单位并写预测，再找第一处分歧。可以只读、使用计算器、查规则或换数值，不比赛速度、不搬动负载或操作机器。比较题述模型下的过程，不用正确数评价个人机械天赋或岗位适合度。",
+          "en": "Ask: “Which length doubles when force doubles, which does not, and why must centimetres become metres for the stated stiffness?” Sketch, label units and predict separately before locating the first divergence. Read, use a calculator, consult the rule or change the numbers without racing, moving loads or operating machinery. Compare reasoning under the stated model rather than rating mechanical talent or job suitability from a count."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组用于理想模型复习，不是智商、设备操作资格或招聘认证。30题固定不变，读过解析后的提高可能来自记忆；想检查理解，可换一项明示条件，核算结果及适用边界。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups organise ideal-model revision rather than IQ, equipment qualifications or hiring certification. Retakes reuse the same thirty items and may reward recall. Change one explicit condition, then check the calculation and its limits to explore understanding."
+        }
+      ]
+    }
+  ],
+  "fluids": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：力、面积、压强和位移各用自己的单位",
+        "en": "Review force, area, pressure and displacement with their units"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例为理想不可压、无漏液压系统，两活塞同高，忽略摩擦及活塞重量。小面积0.002平方米、附加力50牛，附加压强为25000帕；大面积0.010平方米，附加力为250牛。小活塞推0.040米，体积0.002×0.040=0.000080立方米，大活塞移0.008米。两端功50×0.040与250×0.008均为2焦。放大的是附加力，不是两边的压强变化；增力对应较短行程。先看求增量还是总量，再配面积与本活塞位移。此例不提供真实液压设备的压力或行程设置。",
+          "en": "Use a fresh ideal incompressible, leak-free hydraulic system with pistons at equal height and friction and piston weight neglected. Fifty newtons added to area 0.002 m² gives an added pressure of 25000 Pa. At area 0.010 m², the added force is 250 N. Moving the small piston 0.040 m displaces 0.000080 m³, giving large-piston travel 0.008 m. Both work products, 50×0.040 and 250×0.008, equal two joules. Added force increases while the pressure change is shared; larger force trades for shorter travel. Identify increments versus totals and pair each area with its own displacement. This example supplies no real hydraulic pressure or travel setting."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起画图核算，比较假设与推理",
+        "en": "Sketch and calculate together, comparing assumptions and reasoning"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“哪个量在两边相同，哪个随面积改变？把大面积配错到小活塞位移时，体积与功会怎样暴露问题？”先各自画纸上草图、标单位并写预测，再找第一处分歧。可以只读、使用计算器、查规则或换数值，不比赛速度、不搬动负载或操作机器。比较题述模型下的过程，不用正确数评价个人机械天赋或岗位适合度。",
+          "en": "Ask: “Which quantity is shared, which changes with area, and how can volume and work reveal mismatched piston displacements?” Sketch, label units and predict separately before locating the first divergence. Read, use a calculator, consult the rule or change the numbers without racing, moving loads or operating machinery. Compare reasoning under the stated model rather than rating mechanical talent or job suitability from a count."
+        },
+        {
+          "zh": "分享按钮复制不含答案及正确数的公开练习入口，也可自行分享本公开指南。五组用于理想模型复习，不是智商、设备操作资格或招聘认证。30题固定不变，读过解析后的提高可能来自记忆；想检查理解，可换一项明示条件，核算结果及适用边界。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Five groups organise ideal-model revision rather than IQ, equipment qualifications or hiring certification. Retakes reuse the same thirty items and may reward recall. Change one explicit condition, then check the calculation and its limits to explore understanding."
+        }
+      ]
+    }
+  ]
+}

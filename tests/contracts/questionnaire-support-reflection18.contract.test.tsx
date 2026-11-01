@@ -88,7 +88,7 @@ describe("Original support consideration categories without a readiness or clini
   it("makes all fifty-six paragraphs public before answers and on their own guide pages", () => {
     for (const locale of ["en", "zh"] as const) {
       const html = renderToStaticMarkup(<SupportReflectionPage quiz={quiz} locale={locale} />);
-      expect((html.match(/data-support-reflection-full-guide=/g) ?? [])).toHaveLength(4); expect(html).not.toContain("data-support-reflection-result");
+      expect((html.match(/data-support-reflection-full-guide=/g) ?? [])).toHaveLength(4); expect(html).not.toContain("data-support-reflection-result=");
       const dom = document.createElement("div"); dom.innerHTML = html;
       expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(true);
       for (const p of quiz.profiles) {

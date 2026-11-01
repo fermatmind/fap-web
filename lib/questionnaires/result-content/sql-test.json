@@ -1,0 +1,130 @@
+{
+  "filters-and-nulls": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：替换显示值会不会改变筛选集合",
+        "en": "Review how a fallback changes the filtering expression"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例sample(v INTEGER)有三行0、NULL、6。SELECT COUNT(*) FROM sample WHERE v=0;返回1；只把条件换成COALESCE(v,0)=0，返回2。第二条在表达式里把NULL取成后备零，所以原本缺失的行也满足条件；并未把表内NULL更新为零。分别列原值、表达式值和是否保留，再决定是否符合业务想问的“真正为零”或“零以及缺失”。两条在新建SQLite 3.53.4内存库核过，不计分，不声称两种需求可以互换。",
+          "en": "Let sample(v INTEGER) contain zero, NULL and six. SELECT COUNT(*) FROM sample WHERE v=0; returns one. Changing only the predicate to COALESCE(v,0)=0 returns two. The second expression supplies zero for NULL, allowing the missing-value row to qualify without updating stored data. List original value, expression value and inclusion separately. Decide whether the intended question asks for actual zero values or for zero plus missing values before choosing a predicate. Both queries were checked in a fresh SQLite 3.53.4 in-memory database as unscored revision; they answer different requests."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "先说明查询要回答什么，再一起核结果",
+        "en": "State the query’s question before comparing results"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“为什么加COALESCE以后多留了一行？这行原来存的是什么，查询有没有写回表，需求是否真的要把缺失当零？”先各自画小表与中间结果，再比较第一个分歧。可只读、不运行、查SQLite文档或换数据，无需连接真实数据库、披露报表或参加速度排名；讨论明确的数据和条件，允许指出题外问题尚未被评估。",
+          "en": "Ask: “Why does COALESCE retain another row, what was stored there, and does the request actually intend to treat missing values as zero?” Draw the tiny input and intermediate result separately, then compare the first divergence. Read without running, consult SQLite documentation or change the data, without connecting a real database, disclosing reports or competing for speed. Discuss the stated rows and conditions, leaving questions outside the example open."
+        },
+        {
+          "zh": "分享按钮只复制公开练习入口，不带个人答案或正确数；也可自行发送这份公开指南。四组是复习主题，不是数据库专业等级、招聘通过线或厂商认证。实际运行支持给定SQLite版本下这些语句的结果，不证明所有SQL方言相同、真实报表正确或题组心理测量质量。",
+          "en": "The share button copies the public practice entry without personal answers or correct counts; you can also send this public guide yourself. Four groups organise revision rather than database proficiency levels, hiring thresholds or vendor certification. Execution supports these statements’ outcomes in the stated SQLite version, without establishing identical SQL dialects, correct real reports or psychometric quality of the bank."
+        }
+      ]
+    }
+  ],
+  "joins-and-matches": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：可空业务字段不能单独证明未匹配",
+        "en": "Review whether a nullable field proves a missing match"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例左表l(id INTEGER PRIMARY KEY)含1、2；右表r(rid INTEGER PRIMARY KEY,lid INTEGER,score INTEGER)仅含(81,1,NULL)。按r.lid=l.id左联接，WHERE r.score IS NULL会同时保留左1与左2：前者有真实匹配但score缺失，后者是补NULL行。把条件改为r.rid IS NULL才只保留左2，因为真实匹配行的rid是非NULL主键。先标真实行对再标补行，别把“某业务值缺失”直接当“没有匹配”。两条查询已在SQLite 3.53.4内存库核对，是不计分新例。",
+          "en": "Let left table l(id INTEGER PRIMARY KEY) contain one and two. Right table r(rid INTEGER PRIMARY KEY,lid INTEGER,score INTEGER) contains only (81,1,NULL). Left join on r.lid=l.id. WHERE r.score IS NULL retains both left ids: one has a real match with a missing score, while two has a padded row. Changing the predicate to r.rid IS NULL retains only two, because a real matched row has a non-NULL primary key here. Mark real pairs before padded rows; a missing business value alone does not prove absence of a match. Both unscored queries were checked in SQLite 3.53.4 in-memory databases."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "先说明查询要回答什么，再一起核结果",
+        "en": "State the query’s question before comparing results"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“左1明明有匹配，为什么仍通过score IS NULL？换成rid测试依据什么声明，若换回可空列还成立吗？”先各自画小表与中间结果，再比较第一个分歧。可只读、不运行、查SQLite文档或换数据，无需连接真实数据库、披露报表或参加速度排名；讨论明确的数据和条件，允许指出题外问题尚未被评估。",
+          "en": "Ask: “Why does matched left id one pass score IS NULL, and which declared property makes rid a suitable test in this example?” Draw the tiny input and intermediate result separately, then compare the first divergence. Read without running, consult SQLite documentation or change the data, without connecting a real database, disclosing reports or competing for speed. Discuss the stated rows and conditions, leaving questions outside the example open."
+        },
+        {
+          "zh": "分享按钮只复制公开练习入口，不带个人答案或正确数；也可自行发送这份公开指南。四组是复习主题，不是数据库专业等级、招聘通过线或厂商认证。实际运行支持给定SQLite版本下这些语句的结果，不证明所有SQL方言相同、真实报表正确或题组心理测量质量。",
+          "en": "The share button copies the public practice entry without personal answers or correct counts; you can also send this public guide yourself. Four groups organise revision rather than database proficiency levels, hiring thresholds or vendor certification. Execution supports these statements’ outcomes in the stated SQLite version, without establishing identical SQL dialects, correct real reports or psychometric quality of the bank."
+        }
+      ]
+    }
+  ],
+  "groups-and-aggregates": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：同一个阈值在筛行与筛组时不同",
+        "en": "Review the same threshold before and after grouping"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例tickets(dept TEXT,v INTEGER)含(Elm,4)、(Elm,6)、(Pine,9)。SELECT dept,SUM(v) FROM tickets GROUP BY dept HAVING SUM(v)>8 ORDER BY dept;返回Elm|10; Pine|9。改为WHERE v>8后再GROUP BY dept，只剩Pine|9：Elm两行各自都未过8，但合计10可使原HAVING成立。先列筛行后的输入，再列各组总额，不把两条查询当作等价优化。原表未改变，变化来自语句表达的请求。两条已在SQLite 3.53.4内存库核对，不计分。",
+          "en": "Let tickets(dept TEXT,v INTEGER) contain (Elm,4), (Elm,6) and (Pine,9). SELECT dept,SUM(v) FROM tickets GROUP BY dept HAVING SUM(v)>8 ORDER BY dept; returns Elm|10; Pine|9. Using WHERE v>8 before grouping instead leaves only Pine|9. Each Elm row fails the individual threshold, although their sum of ten satisfies the original HAVING. Write retained input rows before grouped totals. Treating the queries as equivalent optimisations would change the request; the stored table itself has not changed. Both unscored queries were checked in fresh SQLite 3.53.4 in-memory databases."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "先说明查询要回答什么，再一起核结果",
+        "en": "State the query’s question before comparing results"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“没有一条Elm单行超过8，为什么Elm组仍能通过HAVING？移动条件时改变了输入还是只改变显示？”先各自画小表与中间结果，再比较第一个分歧。可只读、不运行、查SQLite文档或换数据，无需连接真实数据库、披露报表或参加速度排名；讨论明确的数据和条件，允许指出题外问题尚未被评估。",
+          "en": "Ask: “Why can Elm pass HAVING when neither individual Elm value exceeds eight, and does moving the condition change input rows or only display?” Draw the tiny input and intermediate result separately, then compare the first divergence. Read without running, consult SQLite documentation or change the data, without connecting a real database, disclosing reports or competing for speed. Discuss the stated rows and conditions, leaving questions outside the example open."
+        },
+        {
+          "zh": "分享按钮只复制公开练习入口，不带个人答案或正确数；也可自行发送这份公开指南。四组是复习主题，不是数据库专业等级、招聘通过线或厂商认证。实际运行支持给定SQLite版本下这些语句的结果，不证明所有SQL方言相同、真实报表正确或题组心理测量质量。",
+          "en": "The share button copies the public practice entry without personal answers or correct counts; you can also send this public guide yourself. Four groups organise revision rather than database proficiency levels, hiring thresholds or vendor certification. Execution supports these statements’ outcomes in the stated SQLite version, without establishing identical SQL dialects, correct real reports or psychometric quality of the bank."
+        }
+      ]
+    }
+  ],
+  "windows-and-constraints": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：显示顺序改变不等于重算窗口序号",
+        "en": "Review display order without changing window numbers"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例marks(id INTEGER PRIMARY KEY,score INTEGER)含(10,7)、(20,9)、(30,9)。SELECT id,ROW_NUMBER() OVER(ORDER BY score DESC,id) AS n FROM marks ORDER BY id;返回10|3; 20|1; 30|2。窗口按分数降序再按id排，先给20序号1、30序号2、10序号3。只将最终排序改成ORDER BY id DESC，显示为30|2; 20|1; 10|3，各行原序号保持。这里id打破并列；不把这个ROW_NUMBER结果当RANK的并列规则。两条已在SQLite 3.53.4内存库核过，不计分。",
+          "en": "Let marks(id INTEGER PRIMARY KEY,score INTEGER) contain (10,7), (20,9) and (30,9). SELECT id,ROW_NUMBER() OVER(ORDER BY score DESC,id) AS n FROM marks ORDER BY id; returns 10|3; 20|1; 30|2. The window gives id twenty number one, thirty number two and ten number three, using id to break the score tie. Changing only the final clause to ORDER BY id DESC displays 30|2; 20|1; 10|3 without changing those numbers. This ROW_NUMBER trace does not describe RANK peer behaviour. Both unscored queries were checked in fresh SQLite 3.53.4 in-memory databases."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "先说明查询要回答什么，再一起核结果",
+        "en": "State the query’s question before comparing results"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“为什么最终第一行显示的序号可以是3？改变外层排序后，哪一套顺序变了，窗口定义有没有改变？”先各自画小表与中间结果，再比较第一个分歧。可只读、不运行、查SQLite文档或换数据，无需连接真实数据库、披露报表或参加速度排名；讨论明确的数据和条件，允许指出题外问题尚未被评估。",
+          "en": "Ask: “Why can the first displayed row have number three, and which ordering changes when only the final ORDER BY is reversed?” Draw the tiny input and intermediate result separately, then compare the first divergence. Read without running, consult SQLite documentation or change the data, without connecting a real database, disclosing reports or competing for speed. Discuss the stated rows and conditions, leaving questions outside the example open."
+        },
+        {
+          "zh": "分享按钮只复制公开练习入口，不带个人答案或正确数；也可自行发送这份公开指南。四组是复习主题，不是数据库专业等级、招聘通过线或厂商认证。实际运行支持给定SQLite版本下这些语句的结果，不证明所有SQL方言相同、真实报表正确或题组心理测量质量。",
+          "en": "The share button copies the public practice entry without personal answers or correct counts; you can also send this public guide yourself. Four groups organise revision rather than database proficiency levels, hiring thresholds or vendor certification. Execution supports these statements’ outcomes in the stated SQLite version, without establishing identical SQL dialects, correct real reports or psychometric quality of the bank."
+        }
+      ]
+    }
+  ]
+}

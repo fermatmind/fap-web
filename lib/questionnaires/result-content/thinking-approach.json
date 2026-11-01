@@ -1,0 +1,194 @@
+{
+  "verbal-framing": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "让一句说明暴露一个待确认的词",
+        "en": "Use one sentence to expose a word needing clarification"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的物品归还角，先写一句说明，再挑一个可能有不同理解的词，例如“对应”或“共享”。可以补一个例子，也可以改用摆放示意；一段话不必包办整个安排。复盘看这次措辞留下了什么问题，以及需要哪类实际信息，不以句子漂亮、别人立刻听懂或自己的计数更高为目标。对方若提出另一种理解，可以先保留差异，而不是把不同读法当成表达能力高低。",
+          "en": "For the return corner above, write one instruction and identify a word that could mean different things, such as “matching” or “shared.” Add an example or use a placement sketch instead; a sentence need not settle the whole arrangement. Review the question left by the wording and the information needed without targeting elegant prose, immediate understanding or a higher count. Another interpretation can remain a difference to examine rather than a verdict on anyone’s verbal ability."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "围绕一个任务比较起点",
+        "en": "Compare starting points for one task"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设说明写着“放回对应盒子”，你会先确认哪个词，怎样让另一个人指出不同理解？”交换想先弄清的问题即可，不比较谁更聪明，也不替对方指定学习媒介、工作或固定类型。",
+          "en": "Ask: “If an instruction said “return it to the matching box,” which word would you clarify and how could someone point out a different reading?” Compare the question each person would start with without ranking intelligence or prescribing learning media, work or a fixed type."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含本次答案或计数。对方可以选另一个起点、不回答或结束；不需要实际表现某种能力，也不用补做测试来参与交流。",
+          "en": "You can share this public guide; its link contains no answers or counts from this attempt. The other person may choose another start, decline or stop without demonstrating an ability or taking the test to join the conversation."
+        }
+      ]
+    }
+  ],
+  "rule-mapping": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "给临时归组规则留一个例外的位置",
+        "en": "Leave room for an exception to a provisional grouping rule"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到上面的混合材质物品目录，先说分组为谁服务，再挑一件同时符合两组的物品。可以保留多重归属、改用用途或暂不归组；不必为了整齐增加一串规则。复盘看标准是否仍符合使用目的，以及哪条信息需要实物或使用者补充。这里比较的是一种整理办法的适用范围，不测谁逻辑更强，也不由计数决定谁有权替大家制定规则。",
+          "en": "For the mixed-material catalogue above, state whom the grouping serves and choose an object fitting two groups. Retain multiple memberships, use purpose or leave it ungrouped rather than add rules merely for neatness. Review whether the criterion still fits the intended use and which information needs an object or user’s account. Compare the scope of an organising method without judging logical strength or letting a count decide who sets rules for everyone."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "围绕一个任务比较起点",
+        "en": "Compare starting points for one task"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设一件物品同时含木、金属与布，目录应保留哪些归属，为什么这种标准适合这次使用？”交换想先弄清的问题即可，不比较谁更聪明，也不替对方指定学习媒介、工作或固定类型。",
+          "en": "Ask: “If an object contained wood, metal and fabric, which memberships would you retain and why would that criterion fit this use?” Compare the question each person would start with without ranking intelligence or prescribing learning media, work or a fixed type."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含本次答案或计数。对方可以选另一个起点、不回答或结束；不需要实际表现某种能力，也不用补做测试来参与交流。",
+          "en": "You can share this public guide; its link contains no answers or counts from this attempt. The other person may choose another start, decline or stop without demonstrating an ability or taking the test to join the conversation."
+        }
+      ]
+    }
+  ],
+  "sound-sequencing": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "把想象的停顿与实际听懂分开",
+        "en": "Separate an imagined pause from actual understanding"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的故事接力，分别想象一句交接话中的停顿，以及一张提示卡怎样表示同一顺序。可以只在脑中比较，不必发声、录音或找人测试。看看两种表示各遗漏了什么，别由自己的偏好推断别人也会听懂。真正使用时还要顾及参与者愿望与环境，安静的提示也可以。复盘不测节奏、听力或记忆，更不把这次选择变成只能用声音学习的要求。",
+          "en": "For the story handover above, imagine a pause in a handover phrase and a card representing the same sequence. Compare mentally without performing, recording or testing anyone. Consider what each leaves out instead of assuming others will understand a cue you prefer. Actual use still depends on participants and the setting; a quiet visible cue remains possible. The review assesses neither rhythm, hearing nor memory and creates no requirement to learn through sound."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "围绕一个任务比较起点",
+        "en": "Compare starting points for one task"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设用停顿或提示卡表示故事交接，它们分别让哪个步骤清楚，哪个步骤仍需说明？”交换想先弄清的问题即可，不比较谁更聪明，也不替对方指定学习媒介、工作或固定类型。",
+          "en": "Ask: “If a pause or card marked a story handover, which step would each clarify and what would still need explanation?” Compare the question each person would start with without ranking intelligence or prescribing learning media, work or a fixed type."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含本次答案或计数。对方可以选另一个起点、不回答或结束；不需要实际表现某种能力，也不用补做测试来参与交流。",
+          "en": "You can share this public guide; its link contains no answers or counts from this attempt. The other person may choose another start, decline or stop without demonstrating an ability or taking the test to join the conversation."
+        }
+      ]
+    }
+  ],
+  "hands-on-trial": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "给小样写明一个没能代表的条件",
+        "en": "Name a condition the small model does not represent"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到上面的共享桌面，用纸片或想象里的替代物摆一个可撤回的布局，再指出一项它没代表的条件，例如高度、反光或真实取物。可以先记问题，不必继续制作。若愿意讨论，把小样当作待检查的想法，允许使用者提出不同需求。复盘关注小样覆盖与遗漏的范围，不用做得快、看起来好或实际动手来证明结果，也不能据此省略真实任务的说明和判断。",
+          "en": "For the shared desk above, use paper or imagined stand-ins for a reversible layout and name a condition they omit, such as height, reflections or real retrieval. Keep the question without making anything further. If discussing it, present the model as an idea to inspect and allow users different needs. Review its coverage and omissions without proving the result through speed, appearance or physical activity, and retain the instructions and judgment an actual task requires."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "围绕一个任务比较起点",
+        "en": "Compare starting points for one task"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设纸片代表桌面物品，它们能说明什么，哪些真实条件还不能从这张小样判断？”交换想先弄清的问题即可，不比较谁更聪明，也不替对方指定学习媒介、工作或固定类型。",
+          "en": "Ask: “If paper represented the objects on a desk, what could it show and which real conditions would remain untested?” Compare the question each person would start with without ranking intelligence or prescribing learning media, work or a fixed type."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含本次答案或计数。对方可以选另一个起点、不回答或结束；不需要实际表现某种能力，也不用补做测试来参与交流。",
+          "en": "You can share this public guide; its link contains no answers or counts from this attempt. The other person may choose another start, decline or stop without demonstrating an ability or taking the test to join the conversation."
+        }
+      ]
+    }
+  ],
+  "dialogue-testing": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "在两种任务理解之间保留差异",
+        "en": "Keep differences between two understandings visible"
+      },
+      "paragraphs": [
+        {
+          "zh": "沿用上面的短途散步，先说自己想到的目的，再邀请对方选择是否补充。可以把“想走一段”和“想找地方坐下”并列保留，接着看时间与场地是否允许；不必立刻协调成一个方案。没有回答就保留未知，不从沉默补出同意或需要引导。复盘看哪些内容已经明说、哪些仍是猜测，不以问了多少、关系是否更近或别人是否满意来证明社交能力。",
+          "en": "For the short walk above, state your aim and invite an optional addition. Retain “walking for a while” and “finding somewhere to sit” as different aims before checking time and place; immediate agreement is unnecessary. No answer can stay unknown instead of becoming consent or a need for guidance. Review what was stated and what remains a guess without using question counts, closeness or approval as proof of social ability."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "围绕一个任务比较起点",
+        "en": "Compare starting points for one task"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设一人想走走，另一人想找地方坐下，哪些理解可以先并列，哪些条件还需另查？”交换想先弄清的问题即可，不比较谁更聪明，也不替对方指定学习媒介、工作或固定类型。",
+          "en": "Ask: “If one person wanted to walk and another to sit somewhere, which aims could stay side by side and which conditions would need checking?” Compare the question each person would start with without ranking intelligence or prescribing learning media, work or a fixed type."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含本次答案或计数。对方可以选另一个起点、不回答或结束；不需要实际表现某种能力，也不用补做测试来参与交流。",
+          "en": "You can share this public guide; its link contains no answers or counts from this attempt. The other person may choose another start, decline or stop without demonstrating an ability or taking the test to join the conversation."
+        }
+      ]
+    }
+  ],
+  "environmental-noticing": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "给观察到的条件保留时间与角度",
+        "en": "Keep the time and viewpoint attached to an observation"
+      },
+      "paragraphs": [
+        {
+          "zh": "回到上面的归还角，选一处光照、遮挡或表面条件，说明你是在什么角度、什么时段看到它。再问这个条件可能影响哪个步骤，以及还有什么不能确定。可以只用文字或想象，不必拍照或分享位置。一次观察不代表所有使用情形，痕迹也不自动说明原因。复盘关注已有信息和缺口，不用找到更多细节来证明观察力，也不由此判断自然知识或生活方式。",
+          "en": "For the return corner above, choose light, obstruction or a surface condition and retain the time and viewpoint of the observation. Ask which step it might affect and what remains uncertain. Use words or imagination without taking photographs or sharing a location. One observation need not represent every use, and a trace does not establish a cause. Review information and gaps without proving attentiveness by finding more details or inferring natural knowledge or a lifestyle."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "围绕一个任务比较起点",
+        "en": "Compare starting points for one task"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设某个角度有反光，哪一步可能受影响，换时段或位置后还需要确认什么？”交换想先弄清的问题即可，不比较谁更聪明，也不替对方指定学习媒介、工作或固定类型。",
+          "en": "Ask: “If a reflection appeared from one angle, which step might it affect and what would need checking at another time or position?” Compare the question each person would start with without ranking intelligence or prescribing learning media, work or a fixed type."
+        },
+        {
+          "zh": "可以只分享这份公开说明，链接不含本次答案或计数。对方可以选另一个起点、不回答或结束；不需要实际表现某种能力，也不用补做测试来参与交流。",
+          "en": "You can share this public guide; its link contains no answers or counts from this attempt. The other person may choose another start, decline or stop without demonstrating an ability or taking the test to join the conversation."
+        }
+      ]
+    }
+  ]
+}

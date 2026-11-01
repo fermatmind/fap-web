@@ -1,0 +1,162 @@
+{
+  "bojack-horseman": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘玩笑里真正想说的事",
+        "en": "Review what you meant beneath the joke"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的两句介绍，分别看哪部分是自己喜欢的语气，哪部分说明了这件小作品为什么在意。可以保留幽默，也可以直接说出重点。若实际表达让人不舒服，就听取具体影响并调整；不要求对方从玩笑里猜出需要，也不把一次回应上升为对整个人的评价。",
+          "en": "After the two introductory sentences above, distinguish the tone you enjoy from the detail explaining why the piece matters. Keep the humour or state the point directly. If the actual expression caused discomfort, hear its specific impact and adjust. No one needs to decode a need from a joke, and one response need not become a verdict on your whole self."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个介绍方式的问题",
+        "en": "Share a question about introductions"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设介绍自己做的小卡片，你会先讲一个轻微自嘲，还是直接讲最想保留的细节？也可以有别的方式。”只谈表达选择，不用角色名给朋友贴心理标签。",
+          "en": "Ask: “For an imaginary handmade card, would you begin with mild self-directed humour, the detail you most want to keep, or something else?” Discuss expression choices without using a character name as a psychological label for friends."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "diane-nguyen": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘已知、推测与想表达的意思",
+        "en": "Review knowledge, inference and intended meaning"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的句子，把能核对的一点、自己的推测和仍没回答的问题分开。若资料不足，可以缩小说法，不需要把每个疑问都当场解决。改写是否更合意与别人是否赞同是两件事；可以结束讨论，不必持续追问来符合角色。",
+          "en": "After the sentence above, separate one checkable detail, an inference and an unanswered question. Narrow the claim when information is insufficient instead of resolving every question immediately. Wording that fits your meaning and agreement from others are separate matters. End the discussion without continual questioning to fit the character."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个措辞比较",
+        "en": "Share a wording comparison"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设自制小刊写着‘大家都喜欢’，改成‘我们喜欢这次制作’改变了什么？”可以讨论说法的范围，不把聊天变成谁更理性或有原则的比赛。",
+          "en": "Ask: “If an imaginary homemade zine changed ‘everyone likes it’ to ‘we enjoyed making it’, what would change?” Discuss the claim’s scope without a contest in rationality or principles."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "princess-carolyn": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘承诺与尚未分配的部分",
+        "en": "Review commitments and unassigned parts"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的职责记录，核对谁实际同意了什么、需要哪些条件，以及哪部分仍无人承担。空缺可以继续讨论或缩小范围，不默认由自己补上。若计划变化，重新确认即可；清楚交接不要求随时在线，也不以完成多少证明自己的价值。",
+          "en": "After the responsibility note above, check what each person actually accepted, its conditions and what remains unassigned. Discuss the gap or reduce scope without silently taking it yourself. Reconfirm changed plans. A clear handover requires neither constant availability nor output as proof of personal worth."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可以缩小的协作安排",
+        "en": "Share a collaboration that can become smaller"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设合作一页小刊，哪些部分已有人愿意负责，还有哪些可以暂时不做？”让参与者自己确认，不按角色配对派任务或评价管理能力。",
+          "en": "Ask: “For one imaginary shared zine page, what has a willing owner and what could be left out?” Let participants confirm for themselves without assigning tasks by character or grading management skill."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "todd-chavez": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘新组合与原有约定",
+        "en": "Review the new combination and existing agreements"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的可逆小实验，记下新组合让自己注意到了什么，以及是否仍想保留。没有用途也可以结束；若不方便，就恢复原样。区分自己的材料与共同约定，喜欢变化不代表有权改动别人的东西，也不需要持续创新来维持这个结果。",
+          "en": "After the reversible experiment above, note what the combination drew your attention to and whether you want to keep it. End without a use, or restore the original if it is inconvenient. Separate your own materials from shared agreements. Enjoying variation permits no changes to others’ belongings and requires no continuing innovation to maintain the result."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个可恢复的小实验",
+        "en": "Share a reversible little experiment"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设只在自己的收藏目录试一页，按声音联想而不是年份分组，你想怎样试，又怎样改回？”也可以选原分类，不用新奇程度证明创造力。",
+          "en": "Ask: “For one imaginary page in your own collection list, how might you group by a sound association instead of year, and how would you restore it?” Keeping the original is available without novelty proving creativity."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ],
+  "mr-peanutbutter": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘邀请与实际参与意愿",
+        "en": "Review the invitation and willingness to join"
+      },
+      "paragraphs": [
+        {
+          "zh": "接着上面的邀请，看看自己想共享哪部分，以及是否给了安静参与、改天或不参加的空间。别人没回应时，保留未知；不需要追加热闹来证明诚意。也可以发现今天自己不想组织，直接收住；一次邀请不负责维持所有人的快乐。",
+          "en": "After the invitation above, check what you want to share and whether quiet participation, another time or declining remain available. When there is no response, leave the reason unknown rather than adding excitement to prove sincerity. If you do not want to organise today, stop. One invitation carries no responsibility for everyone’s happiness."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "分享一个不同方式都可以的邀请",
+        "en": "Share an invitation with different ways to join"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“假设小刊做完了，你想一起翻一页、各自看看，还是先不参与？”讨论实际意愿，不把拒绝理解成友谊好坏或谁不够热情。",
+          "en": "Ask: “If an imaginary zine were finished, would you look at a page together, read separately or skip it for now?” Discuss actual wishes without taking refusal as a verdict on friendship or enthusiasm."
+        },
+        {
+          "zh": "可以只分享公开通用说明，也可以不分享。链接不带本次答案或计数，对方可以不回答；不用角色名替朋友下结论。",
+          "en": "You may share the public general guide or keep it private. Its link carries no attempt answers or counts. The other person may decline; a character name need not become a judgement about a friend."
+        }
+      ]
+    }
+  ]
+}

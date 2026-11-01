@@ -1,0 +1,98 @@
+{
+  "budget-and-spending": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：有结余，也可能在付款日出现缺口",
+        "en": "Review payment timing as well as the period’s surplus"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例期初可用10单位，第2天应付35，第5天才收到50，期间没有其他流动。全期计算10+50−35=25，却不能据此认定第2天付得起：付款时还差25。这是给定安排的资金缺口，不是假定账户允许透支，也不自动决定借款或削减哪项支出。分别列日期、期初余额、流入与流出，再检查每个付款时点，不能只看月底合计。另例已到手100、支出45与20，剩35；若随后转30到自己的储蓄账户，当前支付账户剩5，但这次内部转账本身没有让自己所有账户合计再减少30。先明确账户范围，避免把同一笔转账同时记成消费和资产消失。",
+          "en": "Use a fresh fictional schedule: ten units available initially, a bill of thirty-five due on day two, and fifty received only on day five, with no other flows. The period ends at twenty-five, but the payment date has a twenty-five-unit funding gap. This does not assume an overdraft is available or decide whether to borrow or cut a particular expense. List dates and balances, not just month-end totals. Separately, take-home income of one hundred less expenses of forty-five and twenty leaves thirty-five. Transferring thirty to your own savings leaves five in the payment account, but that internal transfer does not itself remove thirty from your combined accounts. Define which accounts the record covers before treating a transfer as spending or lost assets."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用虚构账本交流，比较计算条件",
+        "en": "Compare assumptions using a fictional ledger"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“全期合计够用，是否代表每次到期都够用？转账改变的是哪个账户的余额？”各自先写金额、期间、账户范围与计算，再交换核对条件是否一致。用题设或自编数字即可，不要求提供真实工资、余额、负债、账户截图或身份资料；也可以只阅读。比较算式与概念，不用正确数评价朋友是否节俭、富有、可信或适合投资。",
+          "en": "Ask: “Does a positive period total cover every due date, and which account balance does an internal transfer change?” Each person writes amounts, periods, account boundaries and calculations before checking whether assumptions match. Use supplied or invented figures without requesting real wages, balances, debts, account screenshots or identity details; reading alone is fine. Compare reasoning rather than judging friends’ thrift, wealth, trustworthiness or suitability to invest from correct counts."
+        },
+        {
+          "zh": "分享按钮复制不含答案与正确数的公开练习入口，也可自行分享本公开指南。三组分别为7、8、8题，应连分母阅读，不把原始正确数当相同尺度或人群排名。这是固定23题的知识复习，未完成心理测量验证，不是财务健康诊断、投资风险测评、职业资格或个别理财建议。重做可能记住答案；另换一个金额或时点，写出可核算过程，比只追更高正确数更能说明本次理解。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Group sizes are seven, eight and eight, so retain denominators rather than treating raw counts as equal scales or population rankings. This fixed twenty-three-item knowledge practice has not undergone psychometric validation. It is not a financial-health diagnosis, investment-risk assessment, professional credential or personal financial advice. Retakes may reward recall. Change an amount or date and show a checkable calculation to explain your understanding."
+        }
+      ]
+    }
+  ],
+  "saving-and-risk": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：利息、净增额和购买力不是同一个数",
+        "en": "Review interest, net growth and purchasing power separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例本金400单位，虚构年利率3%，每年末复利一次，两年无其他存取；仅在第二年计息完成后收4单位费用。首年412，次年计费前424.36，利息合计24.36，扣费后420.36，净增20.36。费用若在别的时点收取，需要按那个时点重算，不能照搬本答案。再假设同一商品篮从20涨至22：最初400可买20篮，最后420.36只能买19整篮并有余款；余额增长不保证能买更多相同商品。这只比较给定篮子、价格和现金流，不是某地通胀数据或产品回报预测。复核时写清利率期间、复利频率、费用时点与所问量；分散配置和取用方便也各有含义，不能从本算例推出任何投资保证。",
+          "en": "Use a fresh fictional principal of four hundred, a fixed three-percent annual rate and compounding at each year end for two years without other flows. Charge four units only after the second interest credit. Year one ends at 412; year two reaches 424.36 before the fee. Interest totals 24.36, the final balance is 420.36 and net growth is 20.36. A differently timed fee requires recalculation. Now let the same basket rise from twenty to twenty-two: the original balance buys twenty baskets, while the final balance buys nineteen whole baskets with money left. A growing balance need not buy more identical goods. These are assumed prices and flows, not measured inflation or a product forecast. State rate period, compounding frequency, fee timing and requested quantity before calculating; neither diversification nor ready access implies a guaranteed return."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用虚构账本交流，比较计算条件",
+        "en": "Compare assumptions using a fictional ledger"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“题目问利息、扣费后余额，还是可买数量？费用提前收取后，哪一步必须重算？”各自先写金额、期间、账户范围与计算，再交换核对条件是否一致。用题设或自编数字即可，不要求提供真实工资、余额、负债、账户截图或身份资料；也可以只阅读。比较算式与概念，不用正确数评价朋友是否节俭、富有、可信或适合投资。",
+          "en": "Ask: “Are you finding interest, the balance after fees or purchasing quantity, and what changes if the fee is charged earlier?” Each person writes amounts, periods, account boundaries and calculations before checking whether assumptions match. Use supplied or invented figures without requesting real wages, balances, debts, account screenshots or identity details; reading alone is fine. Compare reasoning rather than judging friends’ thrift, wealth, trustworthiness or suitability to invest from correct counts."
+        },
+        {
+          "zh": "分享按钮复制不含答案与正确数的公开练习入口，也可自行分享本公开指南。三组分别为7、8、8题，应连分母阅读，不把原始正确数当相同尺度或人群排名。这是固定23题的知识复习，未完成心理测量验证，不是财务健康诊断、投资风险测评、职业资格或个别理财建议。重做可能记住答案；另换一个金额或时点，写出可核算过程，比只追更高正确数更能说明本次理解。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Group sizes are seven, eight and eight, so retain denominators rather than treating raw counts as equal scales or population rankings. This fixed twenty-three-item knowledge practice has not undergone psychometric validation. It is not a financial-health diagnosis, investment-risk assessment, professional credential or personal financial advice. Retakes may reward recall. Change an amount or date and show a checkable calculation to explain your understanding."
+        }
+      ]
+    }
+  ],
+  "pay-and-benefits": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：上限、实际费用与付款频率一起核对",
+        "en": "Review caps, actual costs and payment frequency together"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例已符合资格的员工缴70单位，雇主配比50%但本期雇主上限25：配比为min(35,25)=25，合计缴入95，不能把95叫到手工资。另有获批课程实际120、报销上限180，无其他条件或报销，报销仅120，不会因上限较高多得60。再比较相同三个月的虚构扣款前现金：A每月800加每月保证津贴60；B每月830，且只在首月付一次保证奖金90。A三个月2580，B也2580；B首月920不代表以后每月920。以上只核所列金额，不能决定真实工作优劣、纳税方式、福利归属或法律权利。先分别标记员工与雇主、工资与福利、经常与一次性、应发与实发，再合计同一期间。",
+          "en": "Use a fresh eligible employee contribution of seventy units, a fifty-percent employer match and a twenty-five-unit employer cap. The match is min(35,25)=25, giving ninety-five contributed in total, not ninety-five in take-home pay. Separately, an approved course costing 120 with a reimbursement cap of 180 and no other conditions or reimbursements returns only 120, not an extra sixty. Compare three equal months of fictional cash before deductions: A pays eight hundred plus sixty guaranteed each month; B pays 830 monthly plus one guaranteed ninety-unit bonus in the first month only. Both total 2580 over three months. B’s first-month 920 does not recur monthly. These figures cannot decide job quality, tax treatment, ownership of benefits or legal entitlement. Label payer, wage or benefit, payment frequency, and gross or net before adding comparable amounts."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "用虚构账本交流，比较计算条件",
+        "en": "Compare assumptions using a fictional ledger"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“上限是必得金额吗？如果把一次性奖金当月月都有，哪一项比较会失真？”各自先写金额、期间、账户范围与计算，再交换核对条件是否一致。用题设或自编数字即可，不要求提供真实工资、余额、负债、账户截图或身份资料；也可以只阅读。比较算式与概念，不用正确数评价朋友是否节俭、富有、可信或适合投资。",
+          "en": "Ask: “Is a cap an amount always received, and which comparison changes if a one-time bonus is treated as monthly?” Each person writes amounts, periods, account boundaries and calculations before checking whether assumptions match. Use supplied or invented figures without requesting real wages, balances, debts, account screenshots or identity details; reading alone is fine. Compare reasoning rather than judging friends’ thrift, wealth, trustworthiness or suitability to invest from correct counts."
+        },
+        {
+          "zh": "分享按钮复制不含答案与正确数的公开练习入口，也可自行分享本公开指南。三组分别为7、8、8题，应连分母阅读，不把原始正确数当相同尺度或人群排名。这是固定23题的知识复习，未完成心理测量验证，不是财务健康诊断、投资风险测评、职业资格或个别理财建议。重做可能记住答案；另换一个金额或时点，写出可核算过程，比只追更高正确数更能说明本次理解。",
+          "en": "The share button copies the public practice entry without answers or correct counts; you can also share this public guide yourself. Group sizes are seven, eight and eight, so retain denominators rather than treating raw counts as equal scales or population rankings. This fixed twenty-three-item knowledge practice has not undergone psychometric validation. It is not a financial-health diagnosis, investment-risk assessment, professional credential or personal financial advice. Retakes may reward recall. Change an amount or date and show a checkable calculation to explain your understanding."
+        }
+      ]
+    }
+  ]
+}

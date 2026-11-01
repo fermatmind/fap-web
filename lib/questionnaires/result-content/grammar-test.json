@@ -1,0 +1,182 @@
+{
+  "tense-forms": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：只改主语，保留正在进行的意思",
+        "en": "Practise a subject change within an ongoing action"
+      },
+      "paragraphs": [
+        {
+          "zh": "自拟两句The designer is painting a sign和The designers are painting a sign，都指定为说话时正在进行的动作。主语变复数，is改are，painting保留。标出主语、be形式和-ing三个部分，再核对参考。这组对照不新增计分，也不说所有包含现在时间的句子都必须用进行时。",
+          "en": "Use the original examples The designer is painting a sign and The designers are painting a sign, both specified as ongoing at the moment of speaking. The plural subject changes is to are while painting remains. Mark subject, be form and -ing form, then check the reference. These unscored examples do not imply that every present-time sentence requires the continuous."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：形式、时间关系和语态分别核",
+        "en": "Review form, time relationship and voice separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "选一处错题，先写题目要求的结构，再分别核助动词、主语和实义动词。对新句先说明想表达什么，不能只见一个时间词就自动套形式。看过答案后能复写，记录为复习，不当作即时运用的证明；可以只练一例，不设保证掌握的次数或时限。",
+          "en": "For one missed item, name the requested construction and check auxiliary, subject and main verb separately. State a new sentence’s intended meaning rather than selecting a form from one time word alone. Record reproduction after seeing an answer as review rather than proof of spontaneous use. Practise one example without guaranteed mastery after a set number of attempts or time."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起核对结构，不给使用者排名",
+        "en": "Check structures together without ranking speakers"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果把一个设计者改成两个，但仍描述正在画招牌，句中哪些部分必须变，哪些可以保持？”各提一个解释，再对照自拟句和参考。可只看、查资料、换例子或不回答；无需计时、比赛或现场口语表现。",
+          "en": "Ask: “If one designer became two while the action remained painting a sign now, which parts would change and which would remain?” Suggest an explanation each, then check the original examples and reference. Observe, consult a source, change examples or decline without timing, competition or live speaking."
+        },
+        {
+          "zh": "可分享不含答卷和正确数的公开指南。四组是本版复习主题，不是人格、语言等级或招聘资格；不要要求展示错题、学习困难、私人文字或成绩，也不据此给同学同事贴标签。核对书面规则不等于完成心理测量验证。",
+          "en": "Share the public guide without answers or correct counts. Four groups organise revision rather than personality, language level or hiring qualifications. Request no errors, learning difficulties, private writing or grades, and label no classmates or colleagues. Checking written conventions is separate from psychometric validation."
+        }
+      ]
+    }
+  ],
+  "agreement-reference": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：把中心词与旁边的复数名词分开",
+        "en": "Practise separating the head from a nearby plural noun"
+      },
+      "paragraphs": [
+        {
+          "zh": "自拟句The tray of buttons needs a label。先圈tray，暂时遮住of buttons，读The tray needs a label；再对照The buttons need labels。两句改变了主语中心词，不能只因buttons靠近动词就选复数。遮住短语只为看结构，不要求最终文字删除信息。这些例子不计分。",
+          "en": "Use the original sentence The tray of buttons needs a label. Mark tray, cover of buttons temporarily and read The tray needs a label. Compare The buttons need labels. The subject head has changed; proximity of buttons alone does not determine the verb. Covering a phrase helps inspect structure without deleting information from the final text. These examples are unscored."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：先说指谁，再核句法位置",
+        "en": "Review the referent and grammatical role"
+      },
+      "paragraphs": [
+        {
+          "zh": "遇到代词，先用完整名词说清指代，再核它在句中作主语、宾语还是表示所属。遇到一致题，写出中心词与数，别把最近名词当自动答案。可查资料或只观察对照；六题的正确数不诊断注意力、智力或总体编辑能力，也不评价方言和说话者。",
+          "en": "For a pronoun, state the referent as a full noun phrase and check whether its role is subject, object or possessive. For agreement, identify the head and number rather than choosing the nearest noun. Consult a reference or observe only. Six correct counts diagnose neither attention, intelligence nor overall editing skill and do not rank dialects or speakers."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起核对结构，不给使用者排名",
+        "en": "Check structures together without ranking speakers"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果一句话的中心词是tray，旁边却有buttons，怎样说明needs由谁决定，而不是凭最近的名词猜？”各提一个解释，再对照自拟句和参考。可只看、查资料、换例子或不回答；无需计时、比赛或现场口语表现。",
+          "en": "Ask: “If tray were the head with buttons nearby, how would you explain what governs needs rather than guessing from the nearest noun?” Suggest an explanation each, then check the original examples and reference. Observe, consult a source, change examples or decline without timing, competition or live speaking."
+        },
+        {
+          "zh": "可分享不含答卷和正确数的公开指南。四组是本版复习主题，不是人格、语言等级或招聘资格；不要要求展示错题、学习困难、私人文字或成绩，也不据此给同学同事贴标签。核对书面规则不等于完成心理测量验证。",
+          "en": "Share the public guide without answers or correct counts. Four groups organise revision rather than personality, language level or hiring qualifications. Request no errors, learning difficulties, private writing or grades, and label no classmates or colleagues. Checking written conventions is separate from psychometric validation."
+        }
+      ]
+    }
+  ],
+  "function-words": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：冠词看紧接词的起始发音",
+        "en": "Practise the sound immediately after the article"
+      },
+      "paragraphs": [
+        {
+          "zh": "比较自拟短语an honest reply与a one-page note。Honest的h在这里不发音，起始为元音；one起始为辅音/w/。名词前有修饰词时，先看紧接冠词的词，而不是只看reply或note。可用发音资料核对，不需朗读给人评分；这不增加题分，也不是只凭字母表选冠词的规则。",
+          "en": "Compare the original phrases an honest reply and a one-page note. Honest has a silent h here and begins with a vowel sound; one begins with /w/. With a modifier, inspect the word immediately after the article rather than reply or note alone. Check pronunciation without reading aloud for a grade. These unscored phrases are not an alphabet-based article rule."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：先判断是哪一种小词任务",
+        "en": "Review which small-word task is being asked"
+      },
+      "paragraphs": [
+        {
+          "zh": "把题目要求分清：冠词要核不定首次提及和发音，时间介词要核钟点、星期或月份，can后要核所接动词。每次只挑一组新句对照，保留题定语境，不把小表格推广到全部例外。选对不证明即时写作中总会用对，也不能换算词汇量或语言等级。",
+          "en": "Distinguish the task: indefinite first mention and sound for an article, clock time, day or month for a time preposition, and the following verb for can. Compare one fresh set at a time with its context intact rather than extending a short table to every exception. A correct choice establishes neither consistent spontaneous use nor vocabulary size or language level."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起核对结构，不给使用者排名",
+        "en": "Check structures together without ranking speakers"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“两个短语都先看紧接冠词的词，为什么honest reply和one-page note会用不同冠词？”各提一个解释，再对照自拟句和参考。可只看、查资料、换例子或不回答；无需计时、比赛或现场口语表现。",
+          "en": "Ask: “Looking at the word immediately after the article, why would honest reply and one-page note take different articles?” Suggest an explanation each, then check the original examples and reference. Observe, consult a source, change examples or decline without timing, competition or live speaking."
+        },
+        {
+          "zh": "可分享不含答卷和正确数的公开指南。四组是本版复习主题，不是人格、语言等级或招聘资格；不要要求展示错题、学习困难、私人文字或成绩，也不据此给同学同事贴标签。核对书面规则不等于完成心理测量验证。",
+          "en": "Share the public guide without answers or correct counts. Four groups organise revision rather than personality, language level or hiring qualifications. Request no errors, learning difficulties, private writing or grades, and label no classmates or colleagues. Checking written conventions is separate from psychometric validation."
+        }
+      ]
+    }
+  ],
+  "sentence-editing": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：同样两个分句，先选改写目标",
+        "en": "Practise choosing the editing goal before punctuation"
+      },
+      "paragraphs": [
+        {
+          "zh": "自拟The folders are ready与the labels are missing。若要求不加连词、保留一个句子，可写The folders are ready; the labels are missing。若允许两句，可写The folders are ready. The labels are missing。说明目标后再选标点；两版都不说标签缺失的原因。这是练习例句，不计分。",
+          "en": "Use the original clauses The folders are ready and the labels are missing. To retain one sentence without a conjunction, write The folders are ready; the labels are missing. If two sentences are allowed, write The folders are ready. The labels are missing. Set the goal before choosing punctuation. Neither version states why labels are missing. These examples are unscored."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：指出改了哪里，也保留原来意思",
+        "en": "Review the edit while preserving the intended meaning"
+      },
+      "paragraphs": [
+        {
+          "zh": "标点题先标两个独立分句与连接词；所属题先数拥有者；缩约题先展开it is或it has再读整句。把修改前后的意思与题目条件并排检查。其他目标可有别的合法改法，但不能忽略当前约束。一次正确改写不认证专业编辑能力，也不把错项当粗心或语言差的标签。",
+          "en": "For punctuation, mark independent clauses and connectors; for possession, count owners; for a contraction, expand it is or it has before reading the sentence. Compare meaning and task constraints before and after the edit. Other goals may allow other valid edits without removing the current constraint. One correct edit certifies no professional skill, and an error labels no one careless or poor at language."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起核对结构，不给使用者排名",
+        "en": "Check structures together without ranking speakers"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“如果同两段意思可以写成一句或两句，怎样先说明目标，再解释为什么这次选分号或句号？”各提一个解释，再对照自拟句和参考。可只看、查资料、换例子或不回答；无需计时、比赛或现场口语表现。",
+          "en": "Ask: “If the same two ideas could form one sentence or two, how would you state the goal before explaining a semicolon or full stop?” Suggest an explanation each, then check the original examples and reference. Observe, consult a source, change examples or decline without timing, competition or live speaking."
+        },
+        {
+          "zh": "可分享不含答卷和正确数的公开指南。四组是本版复习主题，不是人格、语言等级或招聘资格；不要要求展示错题、学习困难、私人文字或成绩，也不据此给同学同事贴标签。核对书面规则不等于完成心理测量验证。",
+          "en": "Share the public guide without answers or correct counts. Four groups organise revision rather than personality, language level or hiring qualifications. Request no errors, learning difficulties, private writing or grades, and label no classmates or colleagues. Checking written conventions is separate from psychometric validation."
+        }
+      ]
+    }
+  ]
+}

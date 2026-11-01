@@ -1,0 +1,923 @@
+{
+  "red": {
+    "headline": {
+      "zh": "先给一件事一个开始",
+      "en": "Giving something a start"
+    },
+    "summary": {
+      "zh": "在本次24道二选一题里，行动回应的选项被选得最多。这里的“红”只标记先试、先回应或先处理的选择入口，不是冲动程度、领导气质或精力评分。",
+      "en": "Across this attempt’s 24 paired choices, action-response options received the highest count. Here red marks an entry point of trying, replying or dealing with something first, without measuring impulsiveness, leadership or energy."
+    },
+    "sections": [
+      {
+        "id": "editorial-contribution",
+        "title": {
+          "zh": "这种入口可能帮上什么忙",
+          "en": "Where this entry point may help"
+        },
+        "paragraphs": [
+          {
+            "zh": "遇到一件已经有明确条件的小事，先做一个可撤回的动作，可能帮你获得比继续想更具体的反馈。例如整理桌面时，先清出写字区域，再决定其余物品放哪里。",
+            "en": "For a small task with clear conditions, a reversible action may provide more concrete feedback than further deliberation. For instance, clear a writing space on a desk before deciding where every remaining object belongs."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "用得过头时有什么代价",
+          "en": "Possible costs when overused"
+        },
+        "paragraphs": [
+          {
+            "zh": "若在条件还没确认时就出发、购买或替别人答应，及时回应可能变成后续返工。这个代价要看具体后果；并不是每次快速反应都好，也不是每次停下来都拖延。",
+            "en": "Leaving, buying or agreeing for others before checking conditions can turn promptness into rework. The cost depends on actual consequences: a quick response is not always helpful, and pausing is not always procrastination."
+          }
+        ]
+      },
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "在日常情境里怎样理解",
+          "en": "Understanding it in everyday life"
+        },
+        "paragraphs": [
+          {
+            "zh": "朋友临时提议换一家咖啡馆，你可以先查是否营业、问同行者能否走到，再决定出发。这里的观察点是“怎样让行动得到必要信息”，而不是要求你变成慢性子。",
+            "en": "If a friend proposes another café, check whether it is open and whether companions can reach it before leaving. The observation concerns getting action the information it needs, rather than becoming a slower person."
+          }
+        ]
+      },
+      {
+        "id": "editorial-conversation",
+        "title": {
+          "zh": "可以这样与人商量",
+          "en": "Words for discussing it"
+        },
+        "paragraphs": [
+          {
+            "zh": "可以说：“我想先试这一步，十分钟后看看是否合适。你现在需要我立即回应，还是先把条件听完？”收到一段复杂信息时，简短确认已收到，也可以与稍后认真回复并存。",
+            "en": "Try: “I would like to test this step and review it in ten minutes. Do you need an immediate response, or should I hear all the conditions first?” A brief acknowledgement of a complex message can coexist with a fuller reply later."
+          }
+        ]
+      },
+      {
+        "id": "editorial-experiment",
+        "title": {
+          "zh": "做一次可撤回的小尝试",
+          "en": "A small reversible experiment"
+        },
+        "paragraphs": [
+          {
+            "zh": "选一次低风险小事，在行动前写下一个必须确认的条件和一个停止条件。做完后记录：多花的核对时间是否减少了折返或误解？只评这件事，不据此给自己贴上快或慢的标签。",
+            "en": "For one low-risk task, write a condition to confirm and a condition for stopping before acting. Afterwards, note whether checking reduced backtracking or misunderstanding. Evaluate the event rather than labelling yourself fast or slow."
+          }
+        ]
+      },
+      {
+        "id": "editorial-comparison",
+        "title": {
+          "zh": "与相近颜色的区别",
+          "en": "Distinguishing related colours"
+        },
+        "paragraphs": [
+          {
+            "zh": "红与黄都可能快速接住新点子；本版红偏向先试一个动作，黄偏向继续扩展可能。红与蓝也都能处理事情，蓝偏向先整理条件。动作速度本身不足以区分这些入口。",
+            "en": "Red and yellow may both respond quickly to ideas; here red favours trying an action, while yellow favours expanding possibilities. Blue also addresses tasks but begins with organising conditions. Speed alone cannot distinguish these entry points."
+          }
+        ]
+      }
+    ]
+  },
+  "yellow": {
+    "headline": {
+      "zh": "先给可能性一点空间",
+      "en": "Giving possibilities some room"
+    },
+    "summary": {
+      "zh": "本次比较里，开放联想的选项被选得最多。这里的“黄”表示先想其他过法、连接经历或延伸话题的选择，不是创造力、聪明程度、外向性或快乐程度的测量。",
+      "en": "Exploring-connections options received the highest count. Yellow here denotes considering alternatives, connecting experiences or extending a topic, without measuring creativity, intelligence, extraversion or happiness."
+    },
+    "sections": [
+      {
+        "id": "editorial-contribution",
+        "title": {
+          "zh": "这种入口可能帮上什么忙",
+          "en": "Where this entry point may help"
+        },
+        "paragraphs": [
+          {
+            "zh": "当目标还在形成、现有选择不合适时，提出几个不同方向可能让问题有新的入口。例如周末突然空出半天，你可以先想散步、看展或在家做饭，再比较实际条件。",
+            "en": "When a goal is still forming or existing options do not fit, alternatives may open another route. With an unexpectedly free afternoon, consider a walk, an exhibition or cooking at home before comparing practical conditions."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "用得过头时有什么代价",
+          "en": "Possible costs when overused"
+        },
+        "paragraphs": [
+          {
+            "zh": "若每个新选项都值得继续聊，决定可能不断向后移动。留意展开的可能性是否真正改变选择，以及别人是否还跟得上话题；想法多不自动等于可执行的安排。",
+            "en": "If every new option needs further discussion, decisions may keep moving away. Notice whether another possibility changes the choice and whether others can follow the conversation. Many ideas do not automatically form a workable plan."
+          }
+        ]
+      },
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "在日常情境里怎样理解",
+          "en": "Understanding it in everyday life"
+        },
+        "paragraphs": [
+          {
+            "zh": "几个人商量小聚时，你可以先列三个不同方案，再问每人最想保留的一项条件。到了约好的决定时间，允许暂时选一个，而不用证明它比所有尚未想到的选项都好。",
+            "en": "For a gathering, list three distinct plans and ask each person for one condition they want to retain. At the agreed decision time, choose provisionally without having to prove the plan better than every option not yet imagined."
+          }
+        ]
+      },
+      {
+        "id": "editorial-conversation",
+        "title": {
+          "zh": "可以这样与人商量",
+          "en": "Words for discussing it"
+        },
+        "paragraphs": [
+          {
+            "zh": "可以说：“我现在是在展开想法，还没有答应每项都做。你希望我们继续想，还是先从这几个里选一个？”把讨论可能与承诺执行分开，能减少对方误以为安排已定。",
+            "en": "Try: “I am exploring ideas, rather than committing to all of them. Shall we keep exploring or choose from these?” Distinguish possibilities from commitments so the other person knows whether a plan has actually been agreed."
+          }
+        ]
+      },
+      {
+        "id": "editorial-experiment",
+        "title": {
+          "zh": "做一次可撤回的小尝试",
+          "en": "A small reversible experiment"
+        },
+        "paragraphs": [
+          {
+            "zh": "本周选一次日常安排，用五分钟列出选项，再用一个实际条件收敛到一个试行方案。回看哪一个联想真的帮助了选择，哪些只是有趣；后者也可以保留为以后再聊的话题。",
+            "en": "For one everyday arrangement this week, spend five minutes listing options, then use a practical condition to choose a trial plan. Review which connection helped the choice and which was simply interesting; the latter can remain a future topic."
+          }
+        ]
+      },
+      {
+        "id": "editorial-comparison",
+        "title": {
+          "zh": "与相近颜色的区别",
+          "en": "Distinguishing related colours"
+        },
+        "paragraphs": [
+          {
+            "zh": "黄与红的差别在于先展开可能还是先做一个动作；黄与绿都可能让话题继续，绿更偏向熟悉、舒服的衔接。一个有趣的点子不能证明你有固定的“黄色人格”。",
+            "en": "Yellow contrasts with red in exploring possibilities before trying an action. Yellow and green may both sustain a conversation, while green favours familiar, comfortable continuity. An interesting idea does not establish a fixed yellow personality."
+          }
+        ]
+      }
+    ]
+  },
+  "blue": {
+    "headline": {
+      "zh": "先把信息理成可判断的样子",
+      "en": "Making information easier to evaluate"
+    },
+    "summary": {
+      "zh": "本次比较里，审慎整理的选项被选得最多。这里的“蓝”表示先理条件、顺序或依据的选择入口；它不测逻辑能力、智力、谨慎程度，也不证明你作出的判断一定正确。",
+      "en": "Careful-organisation options received the highest count. Blue here denotes beginning with conditions, sequence or evidence, without measuring reasoning ability, intelligence or caution, or establishing that your judgments are correct."
+    },
+    "sections": [
+      {
+        "id": "editorial-contribution",
+        "title": {
+          "zh": "这种入口可能帮上什么忙",
+          "en": "Where this entry point may help"
+        },
+        "paragraphs": [
+          {
+            "zh": "信息混在一起时，先拆成已知、待确认与可选择的部分，可能让下一步更清楚。例如准备一次出行，可以先区分到达时间、必须携带的物品和可以临时决定的活动。",
+            "en": "When information is tangled, separating known facts, open questions and optional choices may clarify a next step. For a trip, distinguish arrival time, essential items and activities that can be decided later."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "用得过头时有什么代价",
+          "en": "Possible costs when overused"
+        },
+        "paragraphs": [
+          {
+            "zh": "若不断收集不会改变选择的细节，整理可能占用实际体验的时间。观察自己有没有预先说明什么算信息足够，也留意对方此刻想被听见，还是确实希望你帮他拆解问题。",
+            "en": "Collecting details that cannot affect the choice can consume time for the activity itself. Notice whether you defined enough information in advance and whether the other person wants listening or help analysing a problem."
+          }
+        ]
+      },
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "在日常情境里怎样理解",
+          "en": "Understanding it in everyday life"
+        },
+        "paragraphs": [
+          {
+            "zh": "朋友转来一个可疑说法时，可以先确认原出处、日期和说话语境，再决定是否值得继续查。若暂时查不到，就保留不确定，不必为了给出结论而把整理过的猜测当事实。",
+            "en": "For a doubtful claim from a friend, check the original source, date and context before deciding whether further checking is useful. If the answer remains unavailable, retain uncertainty rather than presenting an organised guess as fact."
+          }
+        ]
+      },
+      {
+        "id": "editorial-conversation",
+        "title": {
+          "zh": "可以这样与人商量",
+          "en": "Words for discussing it"
+        },
+        "paragraphs": [
+          {
+            "zh": "可以说：“我需要先弄清这两个条件，其他细节可以以后补。你希望我帮你核对信息，还是先听你讲经历？”让提问有明确范围，能减少被误读为挑剔或盘问。",
+            "en": "Try: “I need these two conditions clarified; other details can wait. Would you like help checking information, or should I first listen to your experience?” Bounded questions can reduce the chance of being heard as criticism or interrogation."
+          }
+        ]
+      },
+      {
+        "id": "editorial-experiment",
+        "title": {
+          "zh": "做一次可撤回的小尝试",
+          "en": "A small reversible experiment"
+        },
+        "paragraphs": [
+          {
+            "zh": "为一件小事预先写下“足够开始”的两条信息。核对后就做一个可撤回的尝试，再记录有没有遗漏真正重要的条件。若出现新风险，仍可以停下来补查。",
+            "en": "For one small task, write two pieces of information that would be enough to begin. Check them, try a reversible step and record whether anything important was missing. New risks can still justify pausing for another check."
+          }
+        ]
+      },
+      {
+        "id": "editorial-comparison",
+        "title": {
+          "zh": "与相近颜色的区别",
+          "en": "Distinguishing related colours"
+        },
+        "paragraphs": [
+          {
+            "zh": "蓝与绿都可能保持有序，但本版蓝侧重信息与步骤，绿侧重节奏与相处舒适；蓝与红都可能解决具体问题，红更偏向先行动。整齐的房间或安静的语气不能单独识别颜色。",
+            "en": "Blue and green can both maintain order; here blue focuses on information and steps, green on pace and interpersonal comfort. Blue and red may both solve a problem, while red starts with action. A tidy room or quiet voice cannot identify a colour."
+          }
+        ]
+      }
+    ]
+  },
+  "green": {
+    "headline": {
+      "zh": "先找一个能够接着走的节奏",
+      "en": "Finding a pace you can continue"
+    },
+    "summary": {
+      "zh": "本次比较里，稳定协调的选项被选得最多。这里的“绿”标记维持连续性、舒服相处或留适应空间的选择，不代表你抗拒变化、缺少主见，也不要求你承担维持所有人情绪的责任。",
+      "en": "Steady-coordination options received the highest count. Green here denotes continuity, comfortable interaction or room to adjust. It does not establish resistance to change or lack of opinions, or make you responsible for everyone’s feelings."
+    },
+    "sections": [
+      {
+        "id": "editorial-contribution",
+        "title": {
+          "zh": "这种入口可能帮上什么忙",
+          "en": "Where this entry point may help"
+        },
+        "paragraphs": [
+          {
+            "zh": "一天被打乱时，先恢复吃饭、休息或常用区域的一点秩序，可能让余下安排更容易衔接。与别人相处时，熟悉的问候和不被催促的回应也可以提供一个重新接上话题的入口。",
+            "en": "After a disrupted day, restoring a little order around meals, rest or a frequently used space may help the remaining plans connect. A familiar greeting and an unhurried response can also offer a way back into conversation."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "用得过头时有什么代价",
+          "en": "Possible costs when overused"
+        },
+        "paragraphs": [
+          {
+            "zh": "若舒服被理解为完全没有不同意见，真实需求可能迟迟没有表达。观察自己是否为了维持安排而勉强参加，或把熟悉方式当成唯一可接受的方式；持续性也需要允许休息和调整。",
+            "en": "If comfort is taken to mean no disagreement, real needs may remain unspoken. Notice whether you join an activity reluctantly to preserve the arrangement or treat a familiar method as the only acceptable one. Continuity also needs room for rest and adjustment."
+          }
+        ]
+      },
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "在日常情境里怎样理解",
+          "en": "Understanding it in everyday life"
+        },
+        "paragraphs": [
+          {
+            "zh": "朋友临时加入你的晚间安排时，可以说清现在能一起待多久，再商量是否沿用原计划。照顾相处的舒适，也包括让对方知道你想休息，而不必一直表现得随和。",
+            "en": "If a friend joins your evening plans unexpectedly, state how long you can spend together and discuss whether to keep the original plan. Comfortable interaction includes letting someone know you need rest, rather than appearing endlessly agreeable."
+          }
+        ]
+      },
+      {
+        "id": "editorial-conversation",
+        "title": {
+          "zh": "可以这样与人商量",
+          "en": "Words for discussing it"
+        },
+        "paragraphs": [
+          {
+            "zh": "可以说：“我想保留原来的这个环节，另一个部分可以换。我们怎样安排，彼此都能轻松一点？”也可以直接说自己需要暂停；不必先证明对方的要求不合理，才有资格提出限制。",
+            "en": "Try: “I would like to keep this part of the plan, and can change the other part. What arrangement would feel easier for both of us?” You can also request a pause without first proving the other person’s request unreasonable."
+          }
+        ]
+      },
+      {
+        "id": "editorial-experiment",
+        "title": {
+          "zh": "做一次可撤回的小尝试",
+          "en": "A small reversible experiment"
+        },
+        "paragraphs": [
+          {
+            "zh": "在一次低风险安排里，保留一个让你舒服的环节，同时试一个很小的变化。记录哪些连续性确实有帮助、哪些变化并未增加负担；若不合适，也可以恢复原做法。",
+            "en": "In one low-risk arrangement, keep one comfortable element and try one small change. Note which continuity helped and which change added no burden. If it does not fit, returning to the previous approach remains an option."
+          }
+        ]
+      },
+      {
+        "id": "editorial-comparison",
+        "title": {
+          "zh": "与相近颜色的区别",
+          "en": "Distinguishing related colours"
+        },
+        "paragraphs": [
+          {
+            "zh": "绿与蓝都可能喜欢有序，绿更关心节奏能否持续，蓝更关心信息是否清楚；绿与黄都可能让互动继续，黄更偏向新联想。善待别人或喜欢独处都不足以推定一种颜色。",
+            "en": "Green and blue may both prefer order; green attends more to sustainable pace and blue to clarity of information. Green and yellow may both sustain interaction, while yellow favours new connections. Kindness or enjoying solitude cannot establish a colour."
+          }
+        ]
+      }
+    ]
+  },
+  "tied-red-yellow": {
+    "headline": {
+      "zh": "在先试与继续想之间留一个接口",
+      "en": "Linking a first trial with further possibilities"
+    },
+    "summary": {
+      "zh": "本次这些颜色的选择次数共同最高。分别读懂每个入口，再看同一件事里如何取舍；这里没有主色、副色或新合成的人格。",
+      "en": "These colours share the highest choice count in this attempt. Read each entry point separately and consider the choices within one event; there is no primary colour, secondary colour or newly combined personality."
+    },
+    "sections": [
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "放进一件具体小事",
+          "en": "A specific everyday situation"
+        },
+        "paragraphs": [
+          {
+            "zh": "周末多出一段空闲，先列三个想做的事，再试其中一件的最小版本。",
+            "en": "For unexpected free time, list three activities, then try the smallest version of one."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "并列不能替你回答什么",
+          "en": "What the tie cannot establish"
+        },
+        "paragraphs": [
+          {
+            "zh": "行动与扩展可能同为最高，不代表你总能兼顾效率与创造；也可能在不同题目里分别选择。",
+            "en": "A tie between action and exploration does not establish efficiency plus creativity; they may simply have been chosen in different items."
+          }
+        ]
+      },
+      {
+        "id": "editorial-conversation",
+        "title": {
+          "zh": "一句话与一次小尝试",
+          "en": "A conversation and a small trial"
+        },
+        "paragraphs": [
+          {
+            "zh": "可以说：“我们先试十分钟，其他点子先记下来。”记录试过后有没有出现值得保留的新选择。",
+            "en": "Try: “Let us test this for ten minutes and note the other ideas for later.” Record any useful new choice that emerges."
+          }
+        ]
+      }
+    ]
+  },
+  "tied-red-blue": {
+    "headline": {
+      "zh": "让先试与先查互相有边界",
+      "en": "Giving trying and checking clear boundaries"
+    },
+    "summary": {
+      "zh": "本次这些颜色的选择次数共同最高。分别读懂每个入口，再看同一件事里如何取舍；这里没有主色、副色或新合成的人格。",
+      "en": "These colours share the highest choice count in this attempt. Read each entry point separately and consider the choices within one event; there is no primary colour, secondary colour or newly combined personality."
+    },
+    "sections": [
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "放进一件具体小事",
+          "en": "A specific everyday situation"
+        },
+        "paragraphs": [
+          {
+            "zh": "准备带物品出门，先核对真正不能遗漏的两件，再处理可以路上补上的小事。",
+            "en": "Before leaving, check two essential items and separate minor things that can be obtained on the way."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "并列不能替你回答什么",
+          "en": "What the tie cannot establish"
+        },
+        "paragraphs": [
+          {
+            "zh": "并列不证明又快又准；需要核查的条件与可直接尝试的部分，仍要逐件区分。",
+            "en": "The tie does not establish speed plus accuracy; distinguish conditions needing checks from parts that can be tried directly."
+          }
+        ]
+      },
+      {
+        "id": "editorial-conversation",
+        "title": {
+          "zh": "一句话与一次小尝试",
+          "en": "A conversation and a small trial"
+        },
+        "paragraphs": [
+          {
+            "zh": "可以说：“这条信息确认后就出发，其他部分到了再决定。”回看是否减少了折返，也是否查了无关细节。",
+            "en": "Try: “Once this is confirmed, let us leave and decide the rest there.” Review both backtracking and unnecessary checking."
+          }
+        ]
+      }
+    ]
+  },
+  "tied-red-green": {
+    "headline": {
+      "zh": "回应变化时保留一点熟悉",
+      "en": "Keeping some continuity when responding to change"
+    },
+    "summary": {
+      "zh": "本次这些颜色的选择次数共同最高。分别读懂每个入口，再看同一件事里如何取舍；这里没有主色、副色或新合成的人格。",
+      "en": "These colours share the highest choice count in this attempt. Read each entry point separately and consider the choices within one event; there is no primary colour, secondary colour or newly combined personality."
+    },
+    "sections": [
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "放进一件具体小事",
+          "en": "A specific everyday situation"
+        },
+        "paragraphs": [
+          {
+            "zh": "原定散步路线临时关闭时，选一个可行替代，同时保留原本约好的相处时长。",
+            "en": "If a walking route closes, choose an alternative while retaining the agreed time together."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "并列不能替你回答什么",
+          "en": "What the tie cannot establish"
+        },
+        "paragraphs": [
+          {
+            "zh": "快一点处理和维持舒服节奏可能指向不同做法；并列不保证变化对所有人都轻松。",
+            "en": "Prompt action and a comfortable pace may favour different responses; a tie does not make change easy for everyone."
+          }
+        ]
+      },
+      {
+        "id": "editorial-conversation",
+        "title": {
+          "zh": "一句话与一次小尝试",
+          "en": "A conversation and a small trial"
+        },
+        "paragraphs": [
+          {
+            "zh": "可以说：“地点可以换，但我想保留这一小时的节奏。”询问同行者是否也能接受。",
+            "en": "Try: “We can change the place, and I would like to keep this hour unhurried.” Ask whether that also works for your companion."
+          }
+        ]
+      }
+    ]
+  },
+  "tied-yellow-blue": {
+    "headline": {
+      "zh": "把发散的想法整理成可选项",
+      "en": "Organising possibilities into choices"
+    },
+    "summary": {
+      "zh": "本次这些颜色的选择次数共同最高。分别读懂每个入口，再看同一件事里如何取舍；这里没有主色、副色或新合成的人格。",
+      "en": "These colours share the highest choice count in this attempt. Read each entry point separately and consider the choices within one event; there is no primary colour, secondary colour or newly combined personality."
+    },
+    "sections": [
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "放进一件具体小事",
+          "en": "A specific everyday situation"
+        },
+        "paragraphs": [
+          {
+            "zh": "计划一顿饭，先想几种菜单，再按现有食材与准备时间收敛。",
+            "en": "For a meal, imagine several menus and narrow them using available ingredients and preparation time."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "并列不能替你回答什么",
+          "en": "What the tie cannot establish"
+        },
+        "paragraphs": [
+          {
+            "zh": "不断增加点子又不断补充条件，可能让选择更难；不是信息越多越容易决定。",
+            "en": "Adding ideas while adding conditions can make choosing harder; more information does not always simplify a decision."
+          }
+        ]
+      },
+      {
+        "id": "editorial-conversation",
+        "title": {
+          "zh": "一句话与一次小尝试",
+          "en": "A conversation and a small trial"
+        },
+        "paragraphs": [
+          {
+            "zh": "可以说：“先保留三个方案，用这一个条件比较。”记下哪条信息真正改变了选择。",
+            "en": "Try: “Let us keep three options and compare them using this condition.” Note which information actually changes the choice."
+          }
+        ]
+      }
+    ]
+  },
+  "tied-yellow-green": {
+    "headline": {
+      "zh": "新鲜与舒服可以分别商量",
+      "en": "Discussing novelty and comfort separately"
+    },
+    "summary": {
+      "zh": "本次这些颜色的选择次数共同最高。分别读懂每个入口，再看同一件事里如何取舍；这里没有主色、副色或新合成的人格。",
+      "en": "These colours share the highest choice count in this attempt. Read each entry point separately and consider the choices within one event; there is no primary colour, secondary colour or newly combined personality."
+    },
+    "sections": [
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "放进一件具体小事",
+          "en": "A specific everyday situation"
+        },
+        "paragraphs": [
+          {
+            "zh": "朋友想尝试新活动，可以选熟悉的见面地点，只把中间一小段换成新体验。",
+            "en": "For a new activity with a friend, use a familiar meeting place and change just one small part of the time together."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "并列不能替你回答什么",
+          "en": "What the tie cannot establish"
+        },
+        "paragraphs": [
+          {
+            "zh": "想展开可能与想维持熟悉都被较多选择，不能说明你在所有变化中都适应良好。",
+            "en": "Frequent choices for possibilities and familiarity do not demonstrate good adjustment to every change."
+          }
+        ]
+      },
+      {
+        "id": "editorial-conversation",
+        "title": {
+          "zh": "一句话与一次小尝试",
+          "en": "A conversation and a small trial"
+        },
+        "paragraphs": [
+          {
+            "zh": "可以说：“我愿意试这一个新环节，其他安排先照旧。”之后比较新鲜感与实际负担。",
+            "en": "Try: “I would like to try this new part and keep the rest familiar.” Compare novelty with the actual effort afterwards."
+          }
+        ]
+      }
+    ]
+  },
+  "tied-blue-green": {
+    "headline": {
+      "zh": "清楚的安排，也可以留有余地",
+      "en": "Making plans clear without removing flexibility"
+    },
+    "summary": {
+      "zh": "本次这些颜色的选择次数共同最高。分别读懂每个入口，再看同一件事里如何取舍；这里没有主色、副色或新合成的人格。",
+      "en": "These colours share the highest choice count in this attempt. Read each entry point separately and consider the choices within one event; there is no primary colour, secondary colour or newly combined personality."
+    },
+    "sections": [
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "放进一件具体小事",
+          "en": "A specific everyday situation"
+        },
+        "paragraphs": [
+          {
+            "zh": "准备第二天的安排，写清必须带的物品，也留出一段不被挤满的时间。",
+            "en": "For tomorrow’s plans, list essential items and leave some time unfilled."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "并列不能替你回答什么",
+          "en": "What the tie cannot establish"
+        },
+        "paragraphs": [
+          {
+            "zh": "整理条件与保护节奏可能彼此支持，也可能在临时变化时发生冲突；并列没有说明是哪一种。",
+            "en": "Organising conditions and protecting pace may support each other or conflict during changes; the tie does not tell which occurred."
+          }
+        ]
+      },
+      {
+        "id": "editorial-conversation",
+        "title": {
+          "zh": "一句话与一次小尝试",
+          "en": "A conversation and a small trial"
+        },
+        "paragraphs": [
+          {
+            "zh": "可以说：“时间与地点先确认，具体怎么过可以到时再商量。”看看哪些确定性确实让自己更轻松。",
+            "en": "Try: “Let us confirm the time and place, and discuss the details when we meet.” Notice which certainty actually makes things easier."
+          }
+        ]
+      }
+    ]
+  },
+  "tied-red-yellow-blue": {
+    "headline": {
+      "zh": "让可能、核对与尝试有先后",
+      "en": "Sequencing possibilities, checking and trying"
+    },
+    "summary": {
+      "zh": "本次这些颜色的选择次数共同最高。分别读懂每个入口，再看同一件事里如何取舍；这里没有主色、副色或新合成的人格。",
+      "en": "These colours share the highest choice count in this attempt. Read each entry point separately and consider the choices within one event; there is no primary colour, secondary colour or newly combined personality."
+    },
+    "sections": [
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "放进一件具体小事",
+          "en": "A specific everyday situation"
+        },
+        "paragraphs": [
+          {
+            "zh": "学一个新工具时，先想一个用途，核对基本操作，再试一个小任务。",
+            "en": "For a new tool, choose a possible use, check basic instructions and try a small task."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "并列不能替你回答什么",
+          "en": "What the tie cannot establish"
+        },
+        "paragraphs": [
+          {
+            "zh": "三项并列不代表综合能力强；展开、整理与行动仍可能争夺同一段时间。",
+            "en": "A three-way tie does not establish broad ability; exploring, organising and acting can still compete for the same time."
+          }
+        ]
+      },
+      {
+        "id": "editorial-conversation",
+        "title": {
+          "zh": "一句话与一次小尝试",
+          "en": "A conversation and a small trial"
+        },
+        "paragraphs": [
+          {
+            "zh": "可以说：“先解决这一个用途，再决定要不要继续探索。”记录哪个环节提供了有效信息。",
+            "en": "Try: “Let us address this one use first, then decide whether to explore more.” Note which stage provides useful information."
+          }
+        ]
+      }
+    ]
+  },
+  "tied-red-yellow-green": {
+    "headline": {
+      "zh": "小步尝试，也尊重相处节奏",
+      "en": "Trying something small at a workable social pace"
+    },
+    "summary": {
+      "zh": "本次这些颜色的选择次数共同最高。分别读懂每个入口，再看同一件事里如何取舍；这里没有主色、副色或新合成的人格。",
+      "en": "These colours share the highest choice count in this attempt. Read each entry point separately and consider the choices within one event; there is no primary colour, secondary colour or newly combined personality."
+    },
+    "sections": [
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "放进一件具体小事",
+          "en": "A specific everyday situation"
+        },
+        "paragraphs": [
+          {
+            "zh": "朋友小聚时，提一个新游戏，先自愿试一轮，再决定是否继续。",
+            "en": "At a gathering, suggest a new game, offer a voluntary trial round and then decide whether to continue."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "并列不能替你回答什么",
+          "en": "What the tie cannot establish"
+        },
+        "paragraphs": [
+          {
+            "zh": "想让活动开始、变得有趣和保持舒服，并不一定同时满足；有人不参加也应有空间。",
+            "en": "Starting an activity, making it interesting and keeping it comfortable may not coincide; leave room for someone not to join."
+          }
+        ]
+      },
+      {
+        "id": "editorial-conversation",
+        "title": {
+          "zh": "一句话与一次小尝试",
+          "en": "A conversation and a small trial"
+        },
+        "paragraphs": [
+          {
+            "zh": "可以说：“先试一轮，不想玩也可以继续聊天。”之后问一次实际体验，而不是只看表面热闹。",
+            "en": "Try: “We can try one round, and anyone can keep chatting instead.” Afterwards, ask about the experience rather than judging from liveliness."
+          }
+        ]
+      }
+    ]
+  },
+  "tied-red-blue-green": {
+    "headline": {
+      "zh": "把必要检查放进可持续的小步",
+      "en": "Fitting essential checks into a manageable step"
+    },
+    "summary": {
+      "zh": "本次这些颜色的选择次数共同最高。分别读懂每个入口，再看同一件事里如何取舍；这里没有主色、副色或新合成的人格。",
+      "en": "These colours share the highest choice count in this attempt. Read each entry point separately and consider the choices within one event; there is no primary colour, secondary colour or newly combined personality."
+    },
+    "sections": [
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "放进一件具体小事",
+          "en": "A specific everyday situation"
+        },
+        "paragraphs": [
+          {
+            "zh": "整理常用物品时，先确认必须保留的东西，再只处理一个抽屉，避免打乱整晚。",
+            "en": "When sorting belongings, identify essentials and handle just one drawer rather than disrupting the whole evening."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "并列不能替你回答什么",
+          "en": "What the tie cannot establish"
+        },
+        "paragraphs": [
+          {
+            "zh": "想快点处理、先理清楚和保持节奏可能拉向不同范围；并列不自动给出最佳顺序。",
+            "en": "Prompt action, clarity and continuity may favour different scopes; a tie does not determine the best sequence."
+          }
+        ]
+      },
+      {
+        "id": "editorial-conversation",
+        "title": {
+          "zh": "一句话与一次小尝试",
+          "en": "A conversation and a small trial"
+        },
+        "paragraphs": [
+          {
+            "zh": "可以说：“先做这一小格，做到这个标准就停。”回看范围是否真实可承担。",
+            "en": "Try: “Let us handle this small section and stop when it meets this criterion.” Review whether the scope was actually manageable."
+          }
+        ]
+      }
+    ]
+  },
+  "tied-yellow-blue-green": {
+    "headline": {
+      "zh": "把多个想法整理成轻松的选择",
+      "en": "Making several possibilities easier to choose among"
+    },
+    "summary": {
+      "zh": "本次这些颜色的选择次数共同最高。分别读懂每个入口，再看同一件事里如何取舍；这里没有主色、副色或新合成的人格。",
+      "en": "These colours share the highest choice count in this attempt. Read each entry point separately and consider the choices within one event; there is no primary colour, secondary colour or newly combined personality."
+    },
+    "sections": [
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "放进一件具体小事",
+          "en": "A specific everyday situation"
+        },
+        "paragraphs": [
+          {
+            "zh": "计划一次轻松见面时，先列几个去处，核对营业与路程，再问彼此希望多安静或多热闹。",
+            "en": "For a casual meeting, list a few places, check opening times and travel, then ask how quiet or lively each person wants it to be."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "并列不能替你回答什么",
+          "en": "What the tie cannot establish"
+        },
+        "paragraphs": [
+          {
+            "zh": "想法、信息与舒适感都值得考虑，但不需要为了一次小聚做无限准备。",
+            "en": "Ideas, information and comfort all matter, but a small gathering does not need unlimited preparation."
+          }
+        ]
+      },
+      {
+        "id": "editorial-conversation",
+        "title": {
+          "zh": "一句话与一次小尝试",
+          "en": "A conversation and a small trial"
+        },
+        "paragraphs": [
+          {
+            "zh": "可以说：“这些信息已经够了，我们先选这个；不合适再换。”记录哪些准备真的改善了体验。",
+            "en": "Try: “We have enough information to choose this for now and can change if needed.” Note which preparation actually improved the experience."
+          }
+        ]
+      }
+    ]
+  },
+  "tied-red-yellow-blue-green": {
+    "headline": {
+      "zh": "计数相同，把镜头拉回一件事",
+      "en": "With equal counts, focus on one event"
+    },
+    "summary": {
+      "zh": "本次这些颜色的选择次数共同最高。分别读懂每个入口，再看同一件事里如何取舍；这里没有主色、副色或新合成的人格。",
+      "en": "These colours share the highest choice count in this attempt. Read each entry point separately and consider the choices within one event; there is no primary colour, secondary colour or newly combined personality."
+    },
+    "sections": [
+      {
+        "id": "editorial-scene",
+        "title": {
+          "zh": "放进一件具体小事",
+          "en": "A specific everyday situation"
+        },
+        "paragraphs": [
+          {
+            "zh": "回想一天里的一件小事：你是先行动、先联想、先整理，还是先找舒服的节奏？允许当时采用了多种方式。",
+            "en": "Recall one small event: did you begin with action, possibilities, organising information or a comfortable pace? You may have used several approaches."
+          }
+        ]
+      },
+      {
+        "id": "editorial-cost",
+        "title": {
+          "zh": "并列不能替你回答什么",
+          "en": "What the tie cannot establish"
+        },
+        "paragraphs": [
+          {
+            "zh": "四项均为6，只能说明本次计数相同。它不证明完美平衡、全面发展、没有特点或答错了题。",
+            "en": "Four counts of 6 establish equal counts only, without proving perfect balance, broad development, lack of individuality or incorrect answers."
+          }
+        ]
+      },
+      {
+        "id": "editorial-conversation",
+        "title": {
+          "zh": "一句话与一次小尝试",
+          "en": "A conversation and a small trial"
+        },
+        "paragraphs": [
+          {
+            "zh": "可以说：“我这次没有单一最高颜色，想聊一件具体事情。”找一个符合与一个不符合解读的例子，无需重测追求单色。",
+            "en": "Try: “I did not have a single leading colour and would like to discuss a specific event.” Find a fitting and a non-fitting example without retaking to chase one colour."
+          }
+        ]
+      }
+    ]
+  }
+}

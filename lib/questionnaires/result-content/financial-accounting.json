@@ -1,0 +1,272 @@
+{
+  "entries": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：同样收到现金，另一侧为何不同",
+        "en": "Practise two different sources of cash"
+      },
+      "paragraphs": [
+        {
+          "zh": "新虚构工坊收到500单位。版本一明确是须偿还的借款，收款时无费用或利息：借现金500、贷借款负债500。版本二明确是业主投入资本：借现金500、贷业主资本500。两个版本都增加现金，却不是同一类来源，也都不因收款本身产生服务收入。这里只比较题定交易，不附加销售、税费或其他事件。",
+          "en": "A new fictional workshop receives CU500. In one version this is a repayable loan with no fee or interest at receipt: debit Cash CU500 and credit Loan payable CU500. In another it is an owner capital contribution: debit Cash CU500 and credit Owner capital CU500. Both increase cash without becoming the same source or creating service revenue merely on receipt. Compare only the stated transactions without adding sales, taxes or other events."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：分别核事实、科目、方向、金额",
+        "en": "Review facts, accounts, sides and amounts separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "先写题目说明款项从哪里来、是否须偿还、是否已赚得收入，再分别核账户增减和借贷方向，最后核两边金额相等。若只是已有负债的结清，还要核原交易是否已入账，避免重复。平衡是必要核对之一，不代替对事实、期间和科目的检查。可用纸面虚构交易练习，不改真实账簿。",
+          "en": "State the source, repayment obligation and whether revenue was earned before checking account changes and debit or credit sides. Then reconcile both amounts. For settlement of an existing liability, check whether the original event was already recorded. Balance is one necessary check, not a substitute for facts, period and accounts. Use fictional paper entries rather than a live ledger."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起核假设，不给会计能力分级",
+        "en": "Check assumptions together without grading accounting ability"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“同样现金增加500，为什么须偿还借款与业主投入要用不同的贷方科目？”各自列条件、单位与计算，再对照这个虚构模型。可只看、查资料、换例子或不答，不需展示账簿、公司余额或个人成绩。",
+          "en": "Ask: “Why do a repayable loan and owner capital use different credit accounts even when both increase cash by CU500?” List assumptions, units and calculations before comparing the fictional model. Observe, consult a source, change examples or decline without showing ledgers, company balances or personal scores."
+        },
+        {
+          "zh": "可分享不含答卷和正确数的公开指南。六组是复习主题，不是执照、招聘等级或税务、审计与投资结论。算术和编码核对不等于独立会计师审阅；真实事项仍需相应记录、规则和专业判断。",
+          "en": "Share the public guide without answers or correct counts. Six groups organise revision rather than licences, hiring levels or tax, audit or investment conclusions. Arithmetic and encoding checks are separate from independent accountant review; actual matters need their records, rules and professional judgement."
+        }
+      ]
+    }
+  ],
+  "income": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：先说毛利还是净利润",
+        "en": "Practise naming the requested subtotal"
+      },
+      "paragraphs": [
+        {
+          "zh": "新虚构期间销售收入1,800、销货成本700、其他费用合计300单位，无其他损益、利息或税。按本例定义，毛利为1,100，净利润为800。若业主另外投入500单位资本，该投入不加入收入费用计算。先写所求合计，再扣相应项目；现金流入与本例利润不是一个标签。",
+          "en": "A fictional period has CU1,800 sales, CU700 cost of goods sold and CU300 total other expenses, with no other income, expenses, interest or tax. Under this example’s definitions, gross profit is CU1,100 and net income CU800. A separate CU500 owner contribution does not enter the revenue-and-expense calculation. Name the subtotal before deducting its items; cash inflow and profit are not interchangeable labels."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：每一项只扣一次，并保留期间",
+        "en": "Review each deduction once within the stated period"
+      },
+      "paragraphs": [
+        {
+          "zh": "把收入、销货成本、其他费用和业主投入分列，再核题目所问的小计。遇漏记费用，先核它属于本期且确实尚未记入，再按题定唯一调整重算。不要仅凭现金收付决定本期损益，也不把某项费用从所给完整列表漏掉。可以用一组新数复算，不用结果给真实经营表现下结论。",
+          "en": "Separate revenue, cost of goods sold, other expenses and owner contributions before checking the requested subtotal. For an omitted expense, first establish that it belongs to this period and was not already included, then apply the stated correction. Do not use cash timing alone or omit an item from the supplied complete list. Recompute fresh amounts without judging a real business."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起核假设，不给会计能力分级",
+        "en": "Check assumptions together without grading accounting ability"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“毛利1,100与净利润800分别扣了什么？为什么另外收到的资本500不把净利润改成1,300？”各自列条件、单位与计算，再对照这个虚构模型。可只看、查资料、换例子或不答，不需展示账簿、公司余额或个人成绩。",
+          "en": "Ask: “What deductions distinguish gross profit of CU1,100 from net income of CU800, and why does a CU500 capital receipt not make profit CU1,300?” List assumptions, units and calculations before comparing the fictional model. Observe, consult a source, change examples or decline without showing ledgers, company balances or personal scores."
+        },
+        {
+          "zh": "可分享不含答卷和正确数的公开指南。六组是复习主题，不是执照、招聘等级或税务、审计与投资结论。算术和编码核对不等于独立会计师审阅；真实事项仍需相应记录、规则和专业判断。",
+          "en": "Share the public guide without answers or correct counts. Six groups organise revision rather than licences, hiring levels or tax, audit or investment conclusions. Arithmetic and encoding checks are separate from independent accountant review; actual matters need their records, rules and professional judgement."
+        }
+      ]
+    }
+  ],
+  "balance": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：总额与构成分别记录",
+        "en": "Practise separating total from composition"
+      },
+      "paragraphs": [
+        {
+          "zh": "新虚构时点资产9,000、负债3,500单位，按资产＝负债＋权益，权益为5,500。随后现金800换取按同额入账的设备，现金充足，此刻无费用、折旧、损益或其他调整；资产总额仍9,000，但现金与设备的构成改变。权益是题定余额，不是现金余额或出售价格。",
+          "en": "At a fictional date, assets of CU9,000 and liabilities of CU3,500 imply equity of CU5,500 under Assets = Liabilities + Equity. With sufficient cash, CU800 is then exchanged for equipment recorded at the same amount, without fees, depreciation, gains, losses or other adjustments at that moment. Total assets remain CU9,000 while cash and equipment change. Equity is the stated residual, not cash or a sale price."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：等式差额与错误原因分开",
+        "en": "Review an equation difference separately from its cause"
+      },
+      "paragraphs": [
+        {
+          "zh": "分别列交换前后资产明细与总额，再核负债、权益是否有题定变动。若草稿不平，只能先算出差额；列出还需要哪些原始记录，不能猜某人拿走钱或直接指定要改的账户。平衡的表也可能有错误，所以金额相等与记录准确仍需分别判断。",
+          "en": "List asset components and totals before and after, then check any stated liability or equity changes. If a draft does not balance, calculate the difference and identify needed source records rather than guessing misconduct or an account to alter. A balanced statement can still contain errors, so equality and record accuracy require separate checks."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起核假设，不给会计能力分级",
+        "en": "Check assumptions together without grading accounting ability"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“资产总额没变时，为什么不能说“什么都没有改变”？还需要看哪些构成？”各自列条件、单位与计算，再对照这个虚构模型。可只看、查资料、换例子或不答，不需展示账簿、公司余额或个人成绩。",
+          "en": "Ask: “Why does an unchanged asset total not mean nothing changed, and which components still need checking?” List assumptions, units and calculations before comparing the fictional model. Observe, consult a source, change examples or decline without showing ledgers, company balances or personal scores."
+        },
+        {
+          "zh": "可分享不含答卷和正确数的公开指南。六组是复习主题，不是执照、招聘等级或税务、审计与投资结论。算术和编码核对不等于独立会计师审阅；真实事项仍需相应记录、规则和专业判断。",
+          "en": "Share the public guide without answers or correct counts. Six groups organise revision rather than licences, hiring levels or tax, audit or investment conclusions. Arithmetic and encoding checks are separate from independent accountant review; actual matters need their records, rules and professional judgement."
+        }
+      ]
+    }
+  ],
+  "accrual": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：收款与完成进度分两条线",
+        "en": "Practise separate cash and completion timelines"
+      },
+      "paragraphs": [
+        {
+          "zh": "新虚构安排预收1,200单位，覆盖四次等价工作坊。明确规定每完成一次确认四分之一，无其他履约条件或调整。本期完成两次，则本期确认600，未完成部分600仍留作本模型的预收负债。先收到全部现金不表示已经完成四次；这个分配仅采用本例明确规则。",
+          "en": "A fictional CU1,200 advance covers four equal workshops. The explicit rule recognises one quarter for each completed workshop, with no other performance conditions or adjustments. Completing two this period recognises CU600 and leaves CU600 as an advance liability under this model. Receiving all the cash does not complete all four workshops. The allocation follows only this example’s stated rule."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：先写确认条件，再放现金日期",
+        "en": "Review recognition conditions before the cash date"
+      },
+      "paragraphs": [
+        {
+          "zh": "分列收款日、服务完成日与报告日，先用题定规则分配已完成和未完成部分。若改动的只有收款日，说明同一规则下完成进度是否仍不变。收以前已正确确认的应收，不再产生第二笔相同收入。用于练习的简化规则不决定真实合同、税务或多项履约条件的处理。",
+          "en": "Separate cash receipt, service completion and reporting dates before allocating completed and unfinished portions under the stated rule. If only cash timing changes, check whether completion remains the same. Collecting a correctly recorded earlier receivable does not recognise the same revenue twice. This simplified exercise does not settle real contracts, taxes or multiple performance conditions."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起核假设，不给会计能力分级",
+        "en": "Check assumptions together without grading accounting ability"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“四次等价服务只完成两次时，怎样说明现金已收1,200与本期收入600可以同时成立？”各自列条件、单位与计算，再对照这个虚构模型。可只看、查资料、换例子或不答，不需展示账簿、公司余额或个人成绩。",
+          "en": "Ask: “How can CU1,200 cash already received coexist with CU600 period revenue when only two of four equal services are complete?” List assumptions, units and calculations before comparing the fictional model. Observe, consult a source, change examples or decline without showing ledgers, company balances or personal scores."
+        },
+        {
+          "zh": "可分享不含答卷和正确数的公开指南。六组是复习主题，不是执照、招聘等级或税务、审计与投资结论。算术和编码核对不等于独立会计师审阅；真实事项仍需相应记录、规则和专业判断。",
+          "en": "Share the public guide without answers or correct counts. Six groups organise revision rather than licences, hiring levels or tax, audit or investment conclusions. Arithmetic and encoding checks are separate from independent accountant review; actual matters need their records, rules and professional judgement."
+        }
+      ]
+    }
+  ],
+  "depreciation": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：年费用、累计额和账面额分列",
+        "en": "Practise annual, accumulated and carrying amounts"
+      },
+      "paragraphs": [
+        {
+          "zh": "新虚构设备成本5,200、残值400单位，寿命四年，估计不变，按直线法计完整年度且无减值、处置或其他调整。应折旧额4,800，每整年费用1,200；两整年累计2,400，账面额为2,800。不要把累计额再从已扣过的账面额扣一次；这些数也不是当年现金付款或转售价。",
+          "en": "Fictional equipment costs CU5,200, has CU400 residual value and a four-year life. Estimates stay unchanged; straight-line depreciation covers full years without impairment, disposal or other adjustments. The depreciable amount is CU4,800 and annual expense CU1,200. After two full years, accumulated depreciation is CU2,400 and carrying amount CU2,800. Do not deduct the accumulated amount twice; these figures are neither current cash payments nor resale estimates."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：先扣残值，再按完整期间分配",
+        "en": "Review residual value before allocating complete periods"
+      },
+      "paragraphs": [
+        {
+          "zh": "先核所问是年费用、累计折旧还是账面额，再分列成本、残值、寿命和已过完整年数。按本模型核成本＝累计折旧＋账面额，并把现金事件另列。只改变一个假设就从头重算，不沿用旧累计数；真实估计变更或非整年处理需要另给规则，不由这组简单例子推定。",
+          "en": "Name annual expense, accumulated depreciation or carrying amount before listing cost, residual, life and completed years. Under this model, check cost against accumulated depreciation plus carrying amount, with cash events separate. Recompute a fresh example after changing an assumption rather than reusing an old accumulated figure. Actual estimate changes or partial years need separate rules."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起核假设，不给会计能力分级",
+        "en": "Check assumptions together without grading accounting ability"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“两年后的1,200、2,400和2,800各是什么金额？哪一个都不能直接当作设备售价？”各自列条件、单位与计算，再对照这个虚构模型。可只看、查资料、换例子或不答，不需展示账簿、公司余额或个人成绩。",
+          "en": "Ask: “What do CU1,200, CU2,400 and CU2,800 each describe after two years, and why is none automatically a sale price?” List assumptions, units and calculations before comparing the fictional model. Observe, consult a source, change examples or decline without showing ledgers, company balances or personal scores."
+        },
+        {
+          "zh": "可分享不含答卷和正确数的公开指南。六组是复习主题，不是执照、招聘等级或税务、审计与投资结论。算术和编码核对不等于独立会计师审阅；真实事项仍需相应记录、规则和专业判断。",
+          "en": "Share the public guide without answers or correct counts. Six groups organise revision rather than licences, hiring levels or tax, audit or investment conclusions. Arithmetic and encoding checks are separate from independent accountant review; actual matters need their records, rules and professional judgement."
+        }
+      ]
+    }
+  ],
+  "working-capital": [
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "练习：差额不变，比率仍可改变",
+        "en": "Practise an unchanged difference with a changed ratio"
+      },
+      "paragraphs": [
+        {
+          "zh": "新虚构表已明确流动资产9,000、流动负债6,000单位，且有足够流动现金。用其中1,000现金结清同额流动应付，无费用或其他事件，二者变为8,000与5,000。营运资本前后都为3,000单位，流动比率却从1.5倍变为1.6倍。先标金额或倍数，再解释同减为何保差额、不一定保比率。",
+          "en": "A fictional table explicitly classifies CU9,000 current assets and CU6,000 current liabilities, including sufficient current cash. Paying CU1,000 cash against an equal current payable, without fees or other events, leaves CU8,000 and CU5,000. Working capital remains CU3,000, while the current ratio changes from 1.5 to 1.6 times. Label currency amounts and multiples before explaining why equal reductions preserve a difference without necessarily preserving a ratio."
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：保留两侧变化，独算两个指标",
+        "en": "Review both sides and recompute each measure"
+      },
+      "paragraphs": [
+        {
+          "zh": "先写交易前流动资产与流动负债，再写各自变动，最后分别重算差额和比率。核分母为正、分类已给定，不把金额写成倍数，也不因比率上升就判断实际流动性改善。现金、应收到账时间与其他义务仍是不同信息，本例只核明示数字，不评价真实公司信用或投资质量。",
+          "en": "Write both current balances before the event, apply each change and recompute the difference and ratio separately. Check a positive denominator and supplied classifications; do not label currency as a multiple or infer improved real liquidity from a higher ratio. Cash, collection timing and other obligations remain separate information. This exercise checks stated figures rather than a company’s credit or investment quality."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起核假设，不给会计能力分级",
+        "en": "Check assumptions together without grading accounting ability"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“两侧都减1,000后，为什么营运资本还为3,000，流动比率却不再是1.5？”各自列条件、单位与计算，再对照这个虚构模型。可只看、查资料、换例子或不答，不需展示账簿、公司余额或个人成绩。",
+          "en": "Ask: “Why does reducing both sides by CU1,000 leave CU3,000 working capital but change the ratio from 1.5?” List assumptions, units and calculations before comparing the fictional model. Observe, consult a source, change examples or decline without showing ledgers, company balances or personal scores."
+        },
+        {
+          "zh": "可分享不含答卷和正确数的公开指南。六组是复习主题，不是执照、招聘等级或税务、审计与投资结论。算术和编码核对不等于独立会计师审阅；真实事项仍需相应记录、规则和专业判断。",
+          "en": "Share the public guide without answers or correct counts. Six groups organise revision rather than licences, hiring levels or tax, audit or investment conclusions. Arithmetic and encoding checks are separate from independent accountant review; actual matters need their records, rules and professional judgement."
+        }
+      ]
+    }
+  ]
+}

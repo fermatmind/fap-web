@@ -1,0 +1,226 @@
+{
+  "older-adult-context": [
+    {
+      "id": "fictional-example",
+      "title": {
+        "zh": "虚构情境、反例与私人练习",
+        "en": "A fictional example, counterexample and private exercise"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：两位成年人准备第一次共同举办聚会，年长的一方办过类似活动，提出先确认人数。另一方愿意听取经验，同时希望自己选择菜单。接收一条建议、接受整套安排与让出决定权是不同的动作。即使本次年长情境次数较多，也不知道你看重的是熟悉流程、减少摸索，还是年龄本身；当菜单建议不合适时，仍可以另选。",
+          "en": "In an additional original scene, two adults plan their first shared gathering. The older partner has hosted before and suggests confirming attendance first. The other welcomes that experience while wanting to choose the menu. Receiving a suggestion, adopting a whole plan and giving up a decision are different actions. More older-context choices establish neither which detail mattered nor a requirement to accept an unsuitable suggestion."
+        }
+      ]
+    },
+    {
+      "id": "optional-step",
+      "title": {
+        "zh": "可以选择的小步骤",
+        "en": "An optional next step"
+      },
+      "paragraphs": [
+        {
+          "zh": "讨论卡可以写：“我欢迎的具体经验是……；这项经验不替我决定……；换成年龄相近但同样熟悉流程的人，哪些条件仍重要？”可用虚构聚会回答，不必公布自己的伴侣或选择次数。",
+          "en": "A discussion card can name the experience welcomed, what it does not decide for you and what would still matter with a similarly experienced adult of a similar age. Use an invented gathering without disclosing a partner or personal counts."
+        },
+        {
+          "zh": "本轮新增情境和讨论卡为费马编辑部原创，可只读、私下思考或分享虚构例子。原18题、三方向各12次比较、固定总和18及全部最高并列保持不变；次数不是偏好强度或人口排名，题本尚未完成心理测量验证。所有对象始终为成年人，具体关系的同意、平等与决定不能由结果代替；分享公开说明不含个人答卷或次数。",
+          "en": "These additional scenes and discussion cards are original FermatMind Editorial material. Read, reflect privately or share an invented example. The eighteen items, twelve comparisons per direction, fixed total of eighteen and every highest tie stay intact. Counts are neither intensity nor population rank, and psychometric validation is incomplete. Every person described is an adult; results cannot supply consent, equality or decisions in an actual relationship. Public guides contain no personal answers or counts."
+        }
+      ]
+    }
+  ],
+  "similar-age-context": [
+    {
+      "id": "fictional-example",
+      "title": {
+        "zh": "虚构情境、反例与私人练习",
+        "en": "A fictional example, counterexample and private exercise"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：两位处在相近生活阶段的成年人一起学做一道新菜。一人喜欢双方都从不会开始，另一人更看重轮流决定和各有空闲。两种理由都可能让“共同摸索”显得更接近自己，却不是同一条件。如果其中一人已有烹饪经验，仍可能共同协商；年龄相近或知识相同都不能代替这次讨论的实际过程。",
+          "en": "In an additional original scene, two adults at similar life stages learn a recipe. One likes starting with neither knowing how; the other values taking turns to decide and having time available. Either reason could favour exploring together without being the same condition. If one already knows how to cook, they could still negotiate together. Similar age or knowledge cannot describe how that conversation actually proceeds."
+        }
+      ]
+    },
+    {
+      "id": "optional-step",
+      "title": {
+        "zh": "可以选择的小步骤",
+        "en": "An optional next step"
+      },
+      "paragraphs": [
+        {
+          "zh": "讨论卡可以分成“想一起学习的部分”“希望共同决定的部分”“可以存在差异的部分”。请对同一个虚构做饭场景回答，看看自己说的“相近”具体指什么；不把相同次数当作两人合拍的证明。",
+          "en": "For the same invented cooking scene, distinguish what you want to learn together, decide together and allow to differ. Clarify what similar means in your example without treating a count as evidence of compatibility."
+        },
+        {
+          "zh": "本轮新增情境和讨论卡为费马编辑部原创，可只读、私下思考或分享虚构例子。原18题、三方向各12次比较、固定总和18及全部最高并列保持不变；次数不是偏好强度或人口排名，题本尚未完成心理测量验证。所有对象始终为成年人，具体关系的同意、平等与决定不能由结果代替；分享公开说明不含个人答卷或次数。",
+          "en": "These additional scenes and discussion cards are original FermatMind Editorial material. Read, reflect privately or share an invented example. The eighteen items, twelve comparisons per direction, fixed total of eighteen and every highest tie stay intact. Counts are neither intensity nor population rank, and psychometric validation is incomplete. Every person described is an adult; results cannot supply consent, equality or decisions in an actual relationship. Public guides contain no personal answers or counts."
+        }
+      ]
+    }
+  ],
+  "younger-adult-context": [
+    {
+      "id": "fictional-example",
+      "title": {
+        "zh": "虚构情境、反例与私人练习",
+        "en": "A fictional example, counterexample and private exercise"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：一位成年人向较年轻的成年伴侣介绍自己熟悉的园艺方法，对方想尝试另一种种植方式。愿意分享经验，可以与接受对方不用这条建议同时存在。若你在本次题组中较常选择提供经验的情境，仍不能推断你实际会怎样回应拒绝，也不知道对方在其他领域是否比你更熟悉；例子不为任一方分配固定的指导角色。",
+          "en": "In an additional original scene, an adult explains a familiar gardening method to a younger adult partner, who wants to try another approach. Offering experience can coexist with accepting that it is unused. More choices toward offering experience establish neither your response to a refusal nor who knows more in another area. The example assigns neither adult a permanent instructor role."
+        }
+      ]
+    },
+    {
+      "id": "optional-step",
+      "title": {
+        "zh": "可以选择的小步骤",
+        "en": "An optional next step"
+      },
+      "paragraphs": [
+        {
+          "zh": "讨论卡可写：“我提供的是信息、建议还是决定？对方另选时，这件事接下来怎样安排？”只讨论一盆虚构植物，也可以选择跳过；不需要找较年轻的对象试验自己是否符合结果。",
+          "en": "Ask whether you are offering information, a suggestion or a decision, and what happens if the other adult chooses differently. Discuss an invented plant or skip the exercise; no younger partner is needed to test the result."
+        },
+        {
+          "zh": "本轮新增情境和讨论卡为费马编辑部原创，可只读、私下思考或分享虚构例子。原18题、三方向各12次比较、固定总和18及全部最高并列保持不变；次数不是偏好强度或人口排名，题本尚未完成心理测量验证。所有对象始终为成年人，具体关系的同意、平等与决定不能由结果代替；分享公开说明不含个人答卷或次数。",
+          "en": "These additional scenes and discussion cards are original FermatMind Editorial material. Read, reflect privately or share an invented example. The eighteen items, twelve comparisons per direction, fixed total of eighteen and every highest tie stay intact. Counts are neither intensity nor population rank, and psychometric validation is incomplete. Every person described is an adult; results cannot supply consent, equality or decisions in an actual relationship. Public guides contain no personal answers or counts."
+        }
+      ]
+    }
+  ],
+  "older-similar-tie": [
+    {
+      "id": "fictional-example",
+      "title": {
+        "zh": "虚构情境、反例与私人练习",
+        "en": "A fictional example, counterexample and private exercise"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的一天里，两位成年人先处理一项陌生手续，再一起挑选休息日活动。你在第一件事上愿意听取既有经验，在第二件事上希望双方从相近起点探索。两种条件可以分属不同任务，也可以来自同一个人。年长与相近两方向共同最高，并不说明你必须在两种对象之间选择，次数也无法还原每道题的理由。",
+          "en": "In an additional original scene, two adults handle an unfamiliar form and later choose a day-off activity. You welcome prior experience for the form and prefer exploring from similar starting points for the activity. Both conditions might occur with one person. An older–similar highest-count tie requires no choice between two kinds of partner and cannot reconstruct each item’s reason."
+        }
+      ]
+    },
+    {
+      "id": "optional-step",
+      "title": {
+        "zh": "可以选择的小步骤",
+        "en": "An optional next step"
+      },
+      "paragraphs": [
+        {
+          "zh": "讨论卡可画两格：“这件事我希望接收什么经验”“这件事我希望一起摸索什么”。先标任务，再标是否与年龄有关；允许两格都留空，不用把并列打破，也不按次数为现实中的人排序。",
+          "en": "Draw two boxes for experience welcomed in one task and what you would explore together in another. Name the task before considering age. Either box may stay empty; keep the tie without ranking actual people."
+        },
+        {
+          "zh": "本轮新增情境和讨论卡为费马编辑部原创，可只读、私下思考或分享虚构例子。原18题、三方向各12次比较、固定总和18及全部最高并列保持不变；次数不是偏好强度或人口排名，题本尚未完成心理测量验证。所有对象始终为成年人，具体关系的同意、平等与决定不能由结果代替；分享公开说明不含个人答卷或次数。",
+          "en": "These additional scenes and discussion cards are original FermatMind Editorial material. Read, reflect privately or share an invented example. The eighteen items, twelve comparisons per direction, fixed total of eighteen and every highest tie stay intact. Counts are neither intensity nor population rank, and psychometric validation is incomplete. Every person described is an adult; results cannot supply consent, equality or decisions in an actual relationship. Public guides contain no personal answers or counts."
+        }
+      ]
+    }
+  ],
+  "older-younger-tie": [
+    {
+      "id": "fictional-example",
+      "title": {
+        "zh": "虚构情境、反例与私人练习",
+        "en": "A fictional example, counterexample and private exercise"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：两位成年人分别熟悉摄影与整理照片。拍摄时一方分享经验，整理时另一方介绍方法，建议都可以不用。同一个人可以在不同事情上接收或提供经验，而原题本同时放入年龄与生活阶段。年长和较年轻两方向并列，只保留本次最高次数相同的事实；不能把角色轮换换算成对任意年龄差的接受。",
+          "en": "In an additional original scene, two adults know different things about photography and organising pictures. Each offers experience in a familiar task, and either suggestion can go unused. One person can receive and offer experience across tasks, while this bank also includes age and life stage. An older–younger tie records equal highest counts without turning these changing roles into acceptance of every age difference."
+        }
+      ]
+    },
+    {
+      "id": "optional-step",
+      "title": {
+        "zh": "可以选择的小步骤",
+        "en": "An optional next step"
+      },
+      "paragraphs": [
+        {
+          "zh": "讨论卡可问：“同一件事中，我愿意提供什么、接收什么、保留什么决定？”用虚构照片整理说明，不需要给任何年龄的人分配照顾或被照顾角色，也无需把两方向解释成两半人格。",
+          "en": "For an invented photo-organising task, ask what you would offer, receive and decide for yourself. Assign no age group a caring or cared-for role and do not divide yourself into two personalities."
+        },
+        {
+          "zh": "本轮新增情境和讨论卡为费马编辑部原创，可只读、私下思考或分享虚构例子。原18题、三方向各12次比较、固定总和18及全部最高并列保持不变；次数不是偏好强度或人口排名，题本尚未完成心理测量验证。所有对象始终为成年人，具体关系的同意、平等与决定不能由结果代替；分享公开说明不含个人答卷或次数。",
+          "en": "These additional scenes and discussion cards are original FermatMind Editorial material. Read, reflect privately or share an invented example. The eighteen items, twelve comparisons per direction, fixed total of eighteen and every highest tie stay intact. Counts are neither intensity nor population rank, and psychometric validation is incomplete. Every person described is an adult; results cannot supply consent, equality or decisions in an actual relationship. Public guides contain no personal answers or counts."
+        }
+      ]
+    }
+  ],
+  "similar-younger-tie": [
+    {
+      "id": "fictional-example",
+      "title": {
+        "zh": "虚构情境、反例与私人练习",
+        "en": "A fictional example, counterexample and private exercise"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：两位成年人一起布置一处阅读角，一人希望从空白共同设计，也愿意提供自己熟悉的收纳方法。另一人可以同意设计过程，却选不同的收纳方案。共同开始与分享经验并不互斥，也未必对应固定年龄顺序。相近与较年轻两方向并列，不足以确定具体哪种条件影响了作答，更不能判断谁更容易相处。",
+          "en": "In an additional original scene, two adults arrange a reading corner. One wants to design it together from scratch and offers familiar storage ideas. The other can agree to the shared design process while choosing another storage method. Starting together and offering experience can coexist without a fixed age order. A similar–younger tie establishes neither which condition drove the choices nor who is easier to live with."
+        }
+      ]
+    },
+    {
+      "id": "optional-step",
+      "title": {
+        "zh": "可以选择的小步骤",
+        "en": "An optional next step"
+      },
+      "paragraphs": [
+        {
+          "zh": "讨论卡可分别完成“我想共同开始……”和“我可以提供……，但不替对方决定……”。只用虚构阅读角，两项无需排序；也可另写一个与年龄无关、但真正影响安排的条件。",
+          "en": "Using an invented reading corner, finish “I want to begin together…” and “I can offer…, while leaving…to the other person.” Keep both without ranking them; optionally name an age-independent condition that affects the arrangement."
+        },
+        {
+          "zh": "本轮新增情境和讨论卡为费马编辑部原创，可只读、私下思考或分享虚构例子。原18题、三方向各12次比较、固定总和18及全部最高并列保持不变；次数不是偏好强度或人口排名，题本尚未完成心理测量验证。所有对象始终为成年人，具体关系的同意、平等与决定不能由结果代替；分享公开说明不含个人答卷或次数。",
+          "en": "These additional scenes and discussion cards are original FermatMind Editorial material. Read, reflect privately or share an invented example. The eighteen items, twelve comparisons per direction, fixed total of eighteen and every highest tie stay intact. Counts are neither intensity nor population rank, and psychometric validation is incomplete. Every person described is an adult; results cannot supply consent, equality or decisions in an actual relationship. Public guides contain no personal answers or counts."
+        }
+      ]
+    }
+  ],
+  "all-three-tied": [
+    {
+      "id": "fictional-example",
+      "title": {
+        "zh": "虚构情境、反例与私人练习",
+        "en": "A fictional example, counterexample and private exercise"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：两位虚构读者都得到6／6／6。一位在不同任务中分别选择接收经验、共同摸索和分享经验；另一位觉得选项都不完全贴切，只能每次选相对近的一项。相同总数容纳不同作答过程。系统没有理由替任何一位补出唯一方向、兼容所有人的身份或平均分配的关系需求；读者也可以保留“不知道为什么”。",
+          "en": "In an additional original scene, two fictional readers obtain 6/6/6. One chooses receiving experience, exploring together and offering experience across different tasks. The other finds every pair imperfect and selects the relatively closer option. Identical totals can contain different answering processes. Neither supports inventing a sole leader, an identity compatible with everyone or equally divided relationship needs. Not knowing why remains an available answer."
+        }
+      ]
+    },
+    {
+      "id": "optional-step",
+      "title": {
+        "zh": "可以选择的小步骤",
+        "en": "An optional next step"
+      },
+      "paragraphs": [
+        {
+          "zh": "讨论卡可只写一个“这道题我实际比较了什么”的例子，再分开标注年龄、阶段、经验与协商方式中哪些能确认、哪些不能确认。无需请朋友猜你的类型，也不用反复作答来制造唯一结果；公开指南足以作为讨论起点。",
+          "en": "Choose one remembered comparison and distinguish what you can identify about age, stage, experience and negotiation from what remains uncertain. Friends need not guess a type, and retaking to manufacture one leader is unnecessary. The public guide can start the discussion."
+        },
+        {
+          "zh": "本轮新增情境和讨论卡为费马编辑部原创，可只读、私下思考或分享虚构例子。原18题、三方向各12次比较、固定总和18及全部最高并列保持不变；次数不是偏好强度或人口排名，题本尚未完成心理测量验证。所有对象始终为成年人，具体关系的同意、平等与决定不能由结果代替；分享公开说明不含个人答卷或次数。",
+          "en": "These additional scenes and discussion cards are original FermatMind Editorial material. Read, reflect privately or share an invented example. The eighteen items, twelve comparisons per direction, fixed total of eighteen and every highest tie stay intact. Counts are neither intensity nor population rank, and psychometric validation is incomplete. Every person described is an adult; results cannot supply consent, equality or decisions in an actual relationship. Public guides contain no personal answers or counts."
+        }
+      ]
+    }
+  ]
+}

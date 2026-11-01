@@ -4,7 +4,8 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { Tipi10Result, TipiDomain } from "@/lib/questionnaires/tipi10";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
+import { correctTipiMidpoint } from "@/lib/questionnaires/result-content/tipi-midpoint";
 import { Tipi10Attribution } from "./Tipi10Attribution";
 
 export function Tipi10Report({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<Tipi10Result, { status: "complete" }>; locale: Locale }) {
@@ -21,7 +22,7 @@ export function Tipi10Report({ quiz, result, locale }: { quiz: Questionnaire; re
           return <li key={item.id} data-tipi10-item={item.id}><span className="font-medium">{q.prompt[locale]}</span><br />{zh ? `原回答${item.response}；${item.reverse ? `反向：8 − ${item.response} = ${item.keyed}` : `正向计分${item.keyed}`}` : `Original response ${item.response}; ${item.reverse ? `reversed: 8 − ${item.response} = ${item.keyed}` : `direct keyed value ${item.keyed}`}`}</li>;
         })}</ul>
         <p className="mb-5 leading-7">{zh ? "本对计算" : "Pair calculation"}: ({score.items[0].keyed} + {score.items[1].keyed}) / 2 = {score.mean.toFixed(2)}</p>
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`tipi-reading-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={correctTipiMidpoint(profile)} locale={locale} headingLevel={4} idPrefix={`tipi-reading-${profile.id}`} />
         <Link prefetch={false} className="mt-4 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一维度的完整公开指南" : "Read this domain’s full public guide"}</Link>
       </section>;
     })}

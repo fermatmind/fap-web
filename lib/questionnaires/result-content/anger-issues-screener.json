@@ -1,0 +1,166 @@
+{
+  "anger-occurrence": [
+    {
+      "id": "score",
+      "title": {
+        "en": "Read the answers and arithmetic",
+        "zh": "读懂回答与计算"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的宁对出现组五条都选0，只表示在题述相关机会中未有这些反应；宁仍可能在清单未列的场合生过气，后十五条需独立回顾。乔也在前五条选0，且确认四周没有生气场合，后十五条明确选不计分。两份出现组都是合计0、均分0.00，但后续记录不应由第一组代填。第一组未覆盖全部生气原因，也不证明两人的生活或回应相同。",
+          "en": "An additional original scene: Fictional Ning chooses zero on all five occurrence prompts, reporting no such response on the specified relevant occasions. Ning may still have felt angry in an unlisted setting; the last fifteen prompts need separate reflection. Jo also selects five zeros but recalls no angry occasions in four weeks and explicitly leaves the last fifteen unscored. Both occurrence sums are zero with mean 0.00. The first part cannot fill their later choices: it covers neither every cause of anger nor their whole lives or responses."
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": {
+        "en": "Make one useful observation",
+        "zh": "作一次有用的观察"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样把题目覆盖的普通情境与人物全部经历分开，避免由一个零均分替后续作答？”可以只谈上述虚构人物，区分原回答、可观察行动与未知背景。允许不同意、拒答或结束，不需提供自己或他人的分数、私人对话、诊断或受伤经历；不要求对峙、坦白或同意某种情绪判断，也不把讨论作为安全评估。",
+          "en": "An optional discussion prompt asks: “How can the listed ordinary situations stay separate from a person’s whole experience, without using a zero mean to answer later prompts?” Discuss only the fictional readers above, distinguishing responses, observable actions and unknown context. Participants may disagree, decline or end without personal or others’ scores, private conversations, diagnoses or experiences of harm. No confrontation, disclosure or agreement with an emotional judgment is required, and discussion serves no safety assessment."
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "en": "Keep the limits visible",
+        "zh": "保留必要边界"
+      },
+      "paragraphs": [
+        {
+          "zh": "本原创版本只供18岁及以上成年人回顾本人过去四周普通情境。二十条连续分四组各五条：前五条问题述日常情境发生时的怒意，后十五条问已经生气场合的外显、保留和选择感。前组没有覆盖全部怒意来源，零均分不自动代答后组；确无生气机会时，后十五条需逐条明确不计分，不填零。所有展示条目都须明确选择，空白尚未完成。0—4是从有相关机会时从未到几乎总如此的直接频率类别，2为有时，不是中立；无相关机会、不确定或不愿回答合并为一个不计分选项，无法辨认各自原因。每组五条均为数字才给合计0—20及合计除以5的均分0—4、显示两位小数；任一不计分则两个数字都不给，不显示残缺合计、不取其余均值、不补值，其他完整组保留。逐项回看与四份相同通用指南始终可读，包括全不计分完成时。没有跨组总分、排名、主导类型、风险等级、严重分段、常模、状态特质分类或专业STAXI换算；选择感不从怒意扣除，外显和保留也不互为反向。主题、四周范围、题目及完整组规则由编辑选定，未确立心理测量效度、语言等值、变化阈值或疗效。专业工具与一般支持来源仅供概念背景，不给新题授权、验证或背书。不评他人、关系安全、攻击危险、道德或求职适任；具体伤害也不能被小均分否定。无需诱发怒意、重开争执、联系别人、录音或披露私人事件。持续难以应对可按实际需要寻求合适支持，不等数字越线。答案与数字只留页面内存，无草稿或账户历史，按现有刷新、换语言、离开、历史恢复、清空或重测流程清除；复制仅含全部四篇公开指南标题与链接。常规页面分析关闭，可选匿名动作计数需本页许可与全站分析同意；清除不抹掉浏览器历史、截屏或旁人看屏。可只读、不讨论或退出，不用证明某种情绪人格。",
+          "en": "This original edition is for adults aged 18 and over reflecting on their own ordinary situations in the past four weeks. Twenty consecutive prompts form four groups of five. The first five concern anger when specified everyday situations occurred; the last fifteen concern expression, privacy and perceived choice on occasions already feeling angry. The first part does not cover every source of anger. A zero mean does not fill later answers. With no angry occasions, explicitly leave each of the last fifteen unscored, not zero. Every displayed prompt requires a choice; blank is incomplete. Direct categories zero to four run from never to almost always on relevant occasions; two is sometimes, not neutral. No relevant occasion, uncertainty and declining share one unscored option that separates none of those reasons. All five numeric responses are needed for a part’s sum 0–20 and mean 0–4, the sum divided by five and displayed to two decimals. Any unscored response withholds both values, without a partial sum, mean of remaining responses or imputation. Other complete parts remain. Item readback and the same four general guides remain available, including completion with all unscored choices. There is no cross-part total, ranking, dominant type, risk tier, severity band, norm, state-trait classification or professional STAXI conversion. Perceived choice is not subtracted from anger, and expression and privacy are not reverse scores. Topics, four weeks, items and complete-part policy are editorial choices without established psychometric validity, language equivalence, change thresholds or treatment effects. Professional instruments and general support sources supply conceptual background, not permission, validation or endorsement of these new items. The record evaluates no other person, relationship safety, dangerousness, morality or job suitability; a low mean cannot dismiss actual harm. No anger induction, reopened argument, contact, recording or private event disclosure is required. Persistent difficulty can warrant appropriate support based on actual needs without crossing a numeric threshold. Answers and values stay in page memory without drafts or account history, following existing clearing on refresh, language change, leaving, history restoration, clearing or retaking. Copying includes all four public guide titles and links only. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation. Reading alone, declining discussion or leaving requires no proof of an emotional identity."
+        }
+      ]
+    }
+  ],
+  "outward-expression": [
+    {
+      "id": "score",
+      "title": {
+        "en": "Read the answers and arithmetic",
+        "zh": "读懂回答与计算"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的沐在外显表达组依次选4、0、2、2、2；思选0、4、2、2、2。两者合计10、均分2.00，但一条涉及尖锐语气，另一条涉及直接说出不快，逐项含义不同。相同摘要不说明同样的交流影响，更不能认证其中任何人安全、危险或更该隐藏感受。假如任意一条改成不计分，本组两个数字都暂不给，原选择仍可回看，不把其余四条扩成完整合计。",
+          "en": "An additional original scene: Fictional Mu selects 4, 0, 2, 2, 2 on outward expression; Si selects 0, 4, 2, 2, 2. Both sums are ten and means 2.00, but one prompt concerns a sharper tone and another directly saying one is upset. The shared summary establishes neither equal communication effects nor anyone’s safety, dangerousness or need to hide feelings. Changing any one response to unscored withholds both values while retaining item readback; four remaining responses are not expanded into a complete sum."
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": {
+        "en": "Make one useful observation",
+        "zh": "作一次有用的观察"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样保留清楚表达与尖锐语气的区别，同时不凭均分给人物贴攻击性或好坏标签？”可以只谈上述虚构人物，区分原回答、可观察行动与未知背景。允许不同意、拒答或结束，不需提供自己或他人的分数、私人对话、诊断或受伤经历；不要求对峙、坦白或同意某种情绪判断，也不把讨论作为安全评估。",
+          "en": "An optional discussion prompt asks: “How can direct expression and a sharper tone remain distinct without labeling someone aggressive or good or bad from a mean?” Discuss only the fictional readers above, distinguishing responses, observable actions and unknown context. Participants may disagree, decline or end without personal or others’ scores, private conversations, diagnoses or experiences of harm. No confrontation, disclosure or agreement with an emotional judgment is required, and discussion serves no safety assessment."
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "en": "Keep the limits visible",
+        "zh": "保留必要边界"
+      },
+      "paragraphs": [
+        {
+          "zh": "本原创版本只供18岁及以上成年人回顾本人过去四周普通情境。二十条连续分四组各五条：前五条问题述日常情境发生时的怒意，后十五条问已经生气场合的外显、保留和选择感。前组没有覆盖全部怒意来源，零均分不自动代答后组；确无生气机会时，后十五条需逐条明确不计分，不填零。所有展示条目都须明确选择，空白尚未完成。0—4是从有相关机会时从未到几乎总如此的直接频率类别，2为有时，不是中立；无相关机会、不确定或不愿回答合并为一个不计分选项，无法辨认各自原因。每组五条均为数字才给合计0—20及合计除以5的均分0—4、显示两位小数；任一不计分则两个数字都不给，不显示残缺合计、不取其余均值、不补值，其他完整组保留。逐项回看与四份相同通用指南始终可读，包括全不计分完成时。没有跨组总分、排名、主导类型、风险等级、严重分段、常模、状态特质分类或专业STAXI换算；选择感不从怒意扣除，外显和保留也不互为反向。主题、四周范围、题目及完整组规则由编辑选定，未确立心理测量效度、语言等值、变化阈值或疗效。专业工具与一般支持来源仅供概念背景，不给新题授权、验证或背书。不评他人、关系安全、攻击危险、道德或求职适任；具体伤害也不能被小均分否定。无需诱发怒意、重开争执、联系别人、录音或披露私人事件。持续难以应对可按实际需要寻求合适支持，不等数字越线。答案与数字只留页面内存，无草稿或账户历史，按现有刷新、换语言、离开、历史恢复、清空或重测流程清除；复制仅含全部四篇公开指南标题与链接。常规页面分析关闭，可选匿名动作计数需本页许可与全站分析同意；清除不抹掉浏览器历史、截屏或旁人看屏。可只读、不讨论或退出，不用证明某种情绪人格。",
+          "en": "This original edition is for adults aged 18 and over reflecting on their own ordinary situations in the past four weeks. Twenty consecutive prompts form four groups of five. The first five concern anger when specified everyday situations occurred; the last fifteen concern expression, privacy and perceived choice on occasions already feeling angry. The first part does not cover every source of anger. A zero mean does not fill later answers. With no angry occasions, explicitly leave each of the last fifteen unscored, not zero. Every displayed prompt requires a choice; blank is incomplete. Direct categories zero to four run from never to almost always on relevant occasions; two is sometimes, not neutral. No relevant occasion, uncertainty and declining share one unscored option that separates none of those reasons. All five numeric responses are needed for a part’s sum 0–20 and mean 0–4, the sum divided by five and displayed to two decimals. Any unscored response withholds both values, without a partial sum, mean of remaining responses or imputation. Other complete parts remain. Item readback and the same four general guides remain available, including completion with all unscored choices. There is no cross-part total, ranking, dominant type, risk tier, severity band, norm, state-trait classification or professional STAXI conversion. Perceived choice is not subtracted from anger, and expression and privacy are not reverse scores. Topics, four weeks, items and complete-part policy are editorial choices without established psychometric validity, language equivalence, change thresholds or treatment effects. Professional instruments and general support sources supply conceptual background, not permission, validation or endorsement of these new items. The record evaluates no other person, relationship safety, dangerousness, morality or job suitability; a low mean cannot dismiss actual harm. No anger induction, reopened argument, contact, recording or private event disclosure is required. Persistent difficulty can warrant appropriate support based on actual needs without crossing a numeric threshold. Answers and values stay in page memory without drafts or account history, following existing clearing on refresh, language change, leaving, history restoration, clearing or retaking. Copying includes all four public guide titles and links only. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation. Reading alone, declining discussion or leaving requires no proof of an emotional identity."
+        }
+      ]
+    }
+  ],
+  "kept-inside": [
+    {
+      "id": "score",
+      "title": {
+        "en": "Read the answers and arithmetic",
+        "zh": "读懂回答与计算"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的羽在普通活动中主动保留感受，想以后再决定是否谈；安外表同样平稳，却觉得不方便表达。即使两人在保留组都选五个2，得到10与2.00，五条频率仍不能区分原因、真实选项或关系是否安全。不能要求安为了降分披露，也不能假定羽一定在压抑或会爆发。讨论可停在“原因未知”，无需让人物重开对话或由旁人代答。",
+          "en": "An additional original scene: Fictional Yu keeps a feeling private during an ordinary activity and wants to decide later whether to discuss it. An looks equally composed but feels unable to speak freely. Even if both select five twos on keeping feelings private, giving ten and 2.00, frequencies establish neither reasons, actual options nor relationship safety. An need not disclose to lower a score; Yu is not established to be suppressing feelings or heading toward an outburst. Discussion can retain unknown reasons without reopening an exchange or answering for either reader."
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": {
+        "en": "Make one useful observation",
+        "zh": "作一次有用的观察"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样尊重暂不表达的选择，同时为可能受限的情境保留未知，而不规定谁必须坦白？”可以只谈上述虚构人物，区分原回答、可观察行动与未知背景。允许不同意、拒答或结束，不需提供自己或他人的分数、私人对话、诊断或受伤经历；不要求对峙、坦白或同意某种情绪判断，也不把讨论作为安全评估。",
+          "en": "An optional discussion prompt asks: “How can a choice to remain private be respected while retaining uncertainty about possible constraints, without deciding who must disclose?” Discuss only the fictional readers above, distinguishing responses, observable actions and unknown context. Participants may disagree, decline or end without personal or others’ scores, private conversations, diagnoses or experiences of harm. No confrontation, disclosure or agreement with an emotional judgment is required, and discussion serves no safety assessment."
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "en": "Keep the limits visible",
+        "zh": "保留必要边界"
+      },
+      "paragraphs": [
+        {
+          "zh": "本原创版本只供18岁及以上成年人回顾本人过去四周普通情境。二十条连续分四组各五条：前五条问题述日常情境发生时的怒意，后十五条问已经生气场合的外显、保留和选择感。前组没有覆盖全部怒意来源，零均分不自动代答后组；确无生气机会时，后十五条需逐条明确不计分，不填零。所有展示条目都须明确选择，空白尚未完成。0—4是从有相关机会时从未到几乎总如此的直接频率类别，2为有时，不是中立；无相关机会、不确定或不愿回答合并为一个不计分选项，无法辨认各自原因。每组五条均为数字才给合计0—20及合计除以5的均分0—4、显示两位小数；任一不计分则两个数字都不给，不显示残缺合计、不取其余均值、不补值，其他完整组保留。逐项回看与四份相同通用指南始终可读，包括全不计分完成时。没有跨组总分、排名、主导类型、风险等级、严重分段、常模、状态特质分类或专业STAXI换算；选择感不从怒意扣除，外显和保留也不互为反向。主题、四周范围、题目及完整组规则由编辑选定，未确立心理测量效度、语言等值、变化阈值或疗效。专业工具与一般支持来源仅供概念背景，不给新题授权、验证或背书。不评他人、关系安全、攻击危险、道德或求职适任；具体伤害也不能被小均分否定。无需诱发怒意、重开争执、联系别人、录音或披露私人事件。持续难以应对可按实际需要寻求合适支持，不等数字越线。答案与数字只留页面内存，无草稿或账户历史，按现有刷新、换语言、离开、历史恢复、清空或重测流程清除；复制仅含全部四篇公开指南标题与链接。常规页面分析关闭，可选匿名动作计数需本页许可与全站分析同意；清除不抹掉浏览器历史、截屏或旁人看屏。可只读、不讨论或退出，不用证明某种情绪人格。",
+          "en": "This original edition is for adults aged 18 and over reflecting on their own ordinary situations in the past four weeks. Twenty consecutive prompts form four groups of five. The first five concern anger when specified everyday situations occurred; the last fifteen concern expression, privacy and perceived choice on occasions already feeling angry. The first part does not cover every source of anger. A zero mean does not fill later answers. With no angry occasions, explicitly leave each of the last fifteen unscored, not zero. Every displayed prompt requires a choice; blank is incomplete. Direct categories zero to four run from never to almost always on relevant occasions; two is sometimes, not neutral. No relevant occasion, uncertainty and declining share one unscored option that separates none of those reasons. All five numeric responses are needed for a part’s sum 0–20 and mean 0–4, the sum divided by five and displayed to two decimals. Any unscored response withholds both values, without a partial sum, mean of remaining responses or imputation. Other complete parts remain. Item readback and the same four general guides remain available, including completion with all unscored choices. There is no cross-part total, ranking, dominant type, risk tier, severity band, norm, state-trait classification or professional STAXI conversion. Perceived choice is not subtracted from anger, and expression and privacy are not reverse scores. Topics, four weeks, items and complete-part policy are editorial choices without established psychometric validity, language equivalence, change thresholds or treatment effects. Professional instruments and general support sources supply conceptual background, not permission, validation or endorsement of these new items. The record evaluates no other person, relationship safety, dangerousness, morality or job suitability; a low mean cannot dismiss actual harm. No anger induction, reopened argument, contact, recording or private event disclosure is required. Persistent difficulty can warrant appropriate support based on actual needs without crossing a numeric threshold. Answers and values stay in page memory without drafts or account history, following existing clearing on refresh, language change, leaving, history restoration, clearing or retaking. Copying includes all four public guide titles and links only. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation. Reading alone, declining discussion or leaving requires no proof of an emotional identity."
+        }
+      ]
+    }
+  ],
+  "perceived-choice": [
+    {
+      "id": "score",
+      "title": {
+        "en": "Read the answers and arithmetic",
+        "zh": "读懂回答与计算"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构的悦在非紧急信息中感到可以等一等回复，但网页不知道是否真的等了、回复是否合适；橙当时面对必须及时执行的安全程序，未必有题述选项。前者选五个4可得20与4.00，却不是能力考试满分或安全保证；后者若无法套用相关机会，可明确不计分，不是能力0。暂停、表达或保留都应看实际情境，不能为了产生更好读数而改变必要程序。",
+          "en": "An additional original scene: Fictional Yue feels able to wait before replying to a nonessential message, but the page knows neither whether Yue waited nor whether the reply was appropriate. Cheng faces a safety procedure requiring timely action and may lack the options described. Five fours would give Yue twenty and 4.00, not a perfect ability-test result or safety guarantee. If the relevant situations do not apply to Cheng, unscored retains that limitation rather than assigning zero ability. Pausing, expression and privacy depend on actual circumstances; no necessary procedure changes to produce a better number."
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": {
+        "en": "Make one useful observation",
+        "zh": "作一次有用的观察"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论提示：“怎样区分自感有选择、实际采取的行动与环境提供的选项，而不把记录变成表现考试？”可以只谈上述虚构人物，区分原回答、可观察行动与未知背景。允许不同意、拒答或结束，不需提供自己或他人的分数、私人对话、诊断或受伤经历；不要求对峙、坦白或同意某种情绪判断，也不把讨论作为安全评估。",
+          "en": "An optional discussion prompt asks: “How can perceived choice, actual action and available options stay separate without turning the record into a performance test?” Discuss only the fictional readers above, distinguishing responses, observable actions and unknown context. Participants may disagree, decline or end without personal or others’ scores, private conversations, diagnoses or experiences of harm. No confrontation, disclosure or agreement with an emotional judgment is required, and discussion serves no safety assessment."
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "en": "Keep the limits visible",
+        "zh": "保留必要边界"
+      },
+      "paragraphs": [
+        {
+          "zh": "本原创版本只供18岁及以上成年人回顾本人过去四周普通情境。二十条连续分四组各五条：前五条问题述日常情境发生时的怒意，后十五条问已经生气场合的外显、保留和选择感。前组没有覆盖全部怒意来源，零均分不自动代答后组；确无生气机会时，后十五条需逐条明确不计分，不填零。所有展示条目都须明确选择，空白尚未完成。0—4是从有相关机会时从未到几乎总如此的直接频率类别，2为有时，不是中立；无相关机会、不确定或不愿回答合并为一个不计分选项，无法辨认各自原因。每组五条均为数字才给合计0—20及合计除以5的均分0—4、显示两位小数；任一不计分则两个数字都不给，不显示残缺合计、不取其余均值、不补值，其他完整组保留。逐项回看与四份相同通用指南始终可读，包括全不计分完成时。没有跨组总分、排名、主导类型、风险等级、严重分段、常模、状态特质分类或专业STAXI换算；选择感不从怒意扣除，外显和保留也不互为反向。主题、四周范围、题目及完整组规则由编辑选定，未确立心理测量效度、语言等值、变化阈值或疗效。专业工具与一般支持来源仅供概念背景，不给新题授权、验证或背书。不评他人、关系安全、攻击危险、道德或求职适任；具体伤害也不能被小均分否定。无需诱发怒意、重开争执、联系别人、录音或披露私人事件。持续难以应对可按实际需要寻求合适支持，不等数字越线。答案与数字只留页面内存，无草稿或账户历史，按现有刷新、换语言、离开、历史恢复、清空或重测流程清除；复制仅含全部四篇公开指南标题与链接。常规页面分析关闭，可选匿名动作计数需本页许可与全站分析同意；清除不抹掉浏览器历史、截屏或旁人看屏。可只读、不讨论或退出，不用证明某种情绪人格。",
+          "en": "This original edition is for adults aged 18 and over reflecting on their own ordinary situations in the past four weeks. Twenty consecutive prompts form four groups of five. The first five concern anger when specified everyday situations occurred; the last fifteen concern expression, privacy and perceived choice on occasions already feeling angry. The first part does not cover every source of anger. A zero mean does not fill later answers. With no angry occasions, explicitly leave each of the last fifteen unscored, not zero. Every displayed prompt requires a choice; blank is incomplete. Direct categories zero to four run from never to almost always on relevant occasions; two is sometimes, not neutral. No relevant occasion, uncertainty and declining share one unscored option that separates none of those reasons. All five numeric responses are needed for a part’s sum 0–20 and mean 0–4, the sum divided by five and displayed to two decimals. Any unscored response withholds both values, without a partial sum, mean of remaining responses or imputation. Other complete parts remain. Item readback and the same four general guides remain available, including completion with all unscored choices. There is no cross-part total, ranking, dominant type, risk tier, severity band, norm, state-trait classification or professional STAXI conversion. Perceived choice is not subtracted from anger, and expression and privacy are not reverse scores. Topics, four weeks, items and complete-part policy are editorial choices without established psychometric validity, language equivalence, change thresholds or treatment effects. Professional instruments and general support sources supply conceptual background, not permission, validation or endorsement of these new items. The record evaluates no other person, relationship safety, dangerousness, morality or job suitability; a low mean cannot dismiss actual harm. No anger induction, reopened argument, contact, recording or private event disclosure is required. Persistent difficulty can warrant appropriate support based on actual needs without crossing a numeric threshold. Answers and values stay in page memory without drafts or account history, following existing clearing on refresh, language change, leaving, history restoration, clearing or retaking. Copying includes all four public guide titles and links only. Ordinary page analytics is disabled; optional anonymous action counts require page permission and site analytics consent. Clearing erases no browser history, screenshots or screen observation. Reading alone, declining discussion or leaving requires no proof of an emotional identity."
+        }
+      ]
+    }
+  ]
+}

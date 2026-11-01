@@ -1,3 +1,4 @@
+import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync, readdirSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -69,7 +70,7 @@ describe("T065 original target-bound long-goal frequency reflection", () => {
     ["1", "1", "2", "2", "2", "2", "na", "na"].forEach((v, i) => { answers[qs[i].id] = v === "na" ? v : qs[i].reverse ? String(6 - Number(v)) : v; });
     const result = scoreQuestionnaire(quiz, answers); if (result.status !== "complete" || !("facets" in result)) throw new Error("Rejected exact witness");
     expect(result.facets["goal-continuity"]).toMatchObject({ rated: 6, sum: 10, mean: 1.7 });
-    const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireGritReport quiz={quiz} result={result} locale="en" />);
+    const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireGritReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale="en" />);
     expect(dom.querySelector('[data-grit-facet="goal-continuity"] [data-grit-mean]')?.textContent).toBe("1.67 / 5");
     expect(dom.querySelector('[data-grit-facet="effort-return"] [data-grit-mean]')?.textContent).toBe("3.00 / 5");
     console.info("306individual-part source-DP witnesses,153rated/sum states per part; not6^16jointanswers,Cartesiancoverage or psychometricvalidation.");
@@ -87,11 +88,11 @@ describe("T065 original target-bound long-goal frequency reflection", () => {
     const now = 1000000000, draft = (version = quiz.version, savedAt = now) => JSON.stringify({ version, savedAt, answers: all() });
     expect(readQuestionnaireDraft(quiz, draft(), now)).toEqual(all()); expect(readQuestionnaireDraft(quiz, draft("other"), now)).toBeNull(); expect(readQuestionnaireDraft(quiz, draft(quiz.version, now - 86400000), now)).toBeNull();
   });
-  it("retains both full9section guides, semantic labelledmeans and explicit NA without generic battery copy", () => {
+  it("retains both full11section guides, semantic labelledmeans and explicit NA without generic battery copy", () => {
     for (const locale of ["en", "zh"] as const) for (const value of ["5", "na"]) {
       const result = scoreQuestionnaire(quiz, all(value)); if (result.status !== "complete" || !("facets" in result)) throw new Error("Rejected input");
-      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireGritReport quiz={quiz} result={result} locale={locale} />);
-      expect(dom.querySelectorAll("[data-grit-facet]")).toHaveLength(2); expect(dom.querySelectorAll("h4")).toHaveLength(18); expect(dom.querySelectorAll("[data-grit-profile]")).toHaveLength(2);
+      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireGritReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale={locale} />);
+      expect(dom.querySelectorAll("[data-grit-facet]")).toHaveLength(2); expect(dom.querySelectorAll("h4")).toHaveLength(22); expect(dom.querySelectorAll("[data-grit-profile]")).toHaveLength(2);
       expect(dom.querySelectorAll("[data-grit-insufficient]")).toHaveLength(value === "na" ? 1 : 0);
       const ids = Array.from(dom.querySelectorAll("[id]"), x => x.id); expect(new Set(ids).size).toBe(ids.length);
       for (const group of dom.querySelectorAll("dl > div")) { expect(group.querySelector("dt")).not.toBeNull(); expect(group.querySelector("dd")).not.toBeNull(); }

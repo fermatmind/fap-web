@@ -6,7 +6,7 @@ import Link from "next/link";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { Locale } from "@/lib/i18n/locales";
 import { DATA_ENTRY_DURATION_MS, dataEntryCharacters, isDataEntryConfigurationValid, normalizeDataEntryText, scoreDataEntryRound, type DataEntryConfiguration, type DataEntryResult, type DataEntryError } from "@/lib/questionnaires/dataEntry";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
 const subscribeReady = () => () => {};
@@ -127,7 +127,7 @@ function ValidDataEntryClient({ quiz, locale }: { quiz: Questionnaire; locale: L
       <div className="my-5 flex flex-wrap gap-3"><button type="button" className={button} onClick={() => reset()}>{zh ? "重新选择并练习" : "Choose again and practise"}</button><button type="button" className={button} onClick={share}>{zh ? "复制公开练习链接" : "Copy public practice link"}</button></div>
       {manual && <label className="block">{zh ? "可手动复制的公开链接" : "Public link for manual copying"}<textarea readOnly rows={3} value={manual} className="mt-2 w-full rounded border p-3" /></label>}
       <h3 className="my-5 text-xl font-semibold">{zh ? "两份完整复习指南" : "Both complete revision guides"}</h3>
-      {quiz.profiles.map(profile => <article key={profile.id} data-data-entry-guide={profile.id} className="my-5 border-t border-slate-200 pt-5"><h3 className="mb-4 text-xl font-semibold">{profile.title[locale]}</h3><QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`data-entry-${profile.id}`} /><Link prefetch={false} className="my-4 inline-block underline" href={`/${locale}/tests/explore/${quiz.slug}/results/${profile.id}`}>{zh ? "打开公开专题页" : "Open the public topic page"}</Link></article>)}
+      {quiz.profiles.map(profile => <article key={profile.id} data-data-entry-guide={profile.id} className="my-5 border-t border-slate-200 pt-5"><h3 className="mb-4 text-xl font-semibold">{profile.title[locale]}</h3><QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`data-entry-${profile.id}`} /><Link prefetch={false} className="my-4 inline-block underline" href={`/${locale}/tests/explore/${quiz.slug}/results/${profile.id}`}>{zh ? "打开公开专题页" : "Open the public topic page"}</Link></article>)}
     </div>}
     <p role="status" aria-live="polite" className="mt-4 leading-7 text-violet-800">{message}</p>
   </section>;

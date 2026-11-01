@@ -1,0 +1,170 @@
+{
+  "fresh-attention": [
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "复盘卡",
+        "en": "Review card"
+      },
+      "paragraphs": [
+        {
+          "zh": "复盘卡可以把一句话拆成“看见的细节”和“对它的解释”。例如虚构桌角的书挪到了另一侧，是记录中的变化；“这里需要重新设计”则是另一项判断。先保留前者，再决定是否还想问一个基础问题，也可以没有新发现。纸上想象不会补进过去四周的频率答案；这次观察也不必带来实际改造。",
+          "en": "Split a review card into the detail observed and its interpretation. In a fictional desk scene, a book moving to the other side is a noted change; deciding the space needs redesign is another judgment. Retain the observation before deciding whether to ask a basic question, or record nothing new. An imagined card does not enter the four-week frequency answers or require an actual redesign."
+        }
+      ]
+    },
+    {
+      "id": "access",
+      "title": {
+        "zh": "一起核对当前做法",
+        "en": "Discuss the present practice"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这句话里哪一处是具体留意到的，哪一处已经是在解释原因或提议改变？”各标出一处，再比较，不猜彼此人生背景。可只用虚构桌角、只看或不答；不用观察多少或个人均分评价好奇心，也不要求当场发现新东西。",
+          "en": "Ask: “Which part of this sentence names an observed detail, and which already explains a cause or proposes a change?” Mark one each and compare without guessing life histories. Use a fictional desk, observe or decline without ranking curiosity by observations or means, or requiring a new discovery."
+        }
+      ]
+    }
+  ],
+  "trying-options": [
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "复盘卡",
+        "en": "Review card"
+      },
+      "paragraphs": [
+        {
+          "zh": "复盘卡保留同一小版本的两种结尾：“试完想保留这一处”与“试完不采用”。两版都写清试的是哪一小段、到哪里结束，别把长期承诺写进短试用。比较自己这次想了解的问题有没有更清楚，不能仅凭最后是否采用判断试用成败。没有实际试过的内容仍是设想，不用补写成四周内已发生的经历。",
+          "en": "Keep two endings for the same little trial: retaining one part and adopting none of it. Name the part sampled and its endpoint in both, without inserting a long-term commitment. Check whether the question you wanted to explore became clearer rather than judging the trial solely by adoption. Something not actually tried remains an idea, not an experience to add to the four-week record."
+        }
+      ]
+    },
+    {
+      "id": "access",
+      "title": {
+        "zh": "一起核对当前做法",
+        "en": "Discuss the present practice"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“若试过后决定不采用，这张小试用卡还说明了什么？哪一句会不小心把试一次变成长期答应？”各写一种结尾，再交换核范围。可只看或不答，不要求实际执行、连续打卡或比较谁更敢尝新。",
+          "en": "Ask: “What can this trial card show when nothing is adopted, and which wording accidentally turns trying once into a long-term promise?” Write endings and check each other’s scope. Observe or decline without executing the trial, maintaining check-ins or ranking willingness to try new things."
+        }
+      ]
+    }
+  ],
+  "keeping-rhythm": [
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "复盘卡",
+        "en": "Review card"
+      },
+      "paragraphs": [
+        {
+          "zh": "复盘卡分列“只继续哪一小部分”“什么时候有机会”“什么时候暂停”。例如只把两件小物放回自己选的位置，不顺带认领整张桌面。给“有机会但这次没做”与“没有合适机会”留不同记录，避免都写成最低频率。这个虚构范围卡帮助看清做法，不建立自律目标，也不要求把休息变成重复任务。",
+          "en": "List the part to continue, conditions providing an opportunity and a possible pause. For example, return two items to chosen places without taking on the whole table. Distinguish having an opportunity but not doing it from lacking a fitting opportunity, rather than assigning both the lowest frequency. This fictional scope card clarifies an action without setting a discipline target or making rest another repetition task."
+        }
+      ]
+    },
+    {
+      "id": "access",
+      "title": {
+        "zh": "一起核对当前做法",
+        "en": "Discuss the present practice"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这句话答应继续哪一小块，哪里可以暂停？有没有把原来的范围越加越大？”各圈一个范围词，再检查对方是否能复述。可只看或不答，不用打卡次数或个人均分证明可靠、成熟或比别人进度快。",
+          "en": "Ask: “Which little part does this sentence continue, where can it pause and has its original scope expanded?” Mark a scope word and check whether it can be restated. Observe or decline without using check-in counts or means to prove reliability, maturity or faster progress."
+        }
+      ]
+    }
+  ],
+  "changing-arrangement": [
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "复盘卡",
+        "en": "Review card"
+      },
+      "paragraphs": [
+        {
+          "zh": "复盘卡先写原来不合用的一处，再写一个改法与仍想保留的部分。若虚构桌角的通行空间变小，只调整挡路的小物位置，其他顺手安排可以保持。核清改变回应的是哪项已给条件；若还不清楚，也可以先问或暂不改。不把这张卡当作实际改变有效的证据，更不把纸上改法填成过去四周已发生的动作。",
+          "en": "Name one part that no longer fits, one adjustment and what would remain. If passage space shrinks in a fictional desk scene, move the obstructing item while retaining useful arrangements. Identify the supplied condition the change addresses, or ask first and leave it unchanged. The card neither demonstrates real effectiveness nor turns an imagined adjustment into an action already performed in the past four weeks."
+        }
+      ]
+    },
+    {
+      "id": "access",
+      "title": {
+        "zh": "一起核对当前做法",
+        "en": "Discuss the present practice"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“你改的是哪一处，哪些内容仍然适用？这次是回应已有不便，还是先试一个新版本？”各复述一个起点和一个保留项，可改变答案、只看或不答。不需要重大事件、真实关系或人生重启故事。",
+          "en": "Ask: “What changes, what still fits and is this responding to an existing inconvenience or sampling another version?” Restate a starting point and a retained part each. Revise, observe or decline without major events, real relationships or a life-restart story."
+        }
+      ]
+    }
+  ],
+  "reviewing-notes": [
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "复盘卡",
+        "en": "Review card"
+      },
+      "paragraphs": [
+        {
+          "zh": "复盘卡用四格保留“记录原话”“当时设想”“已知发生”“仍不确定”。只用虚构的普通爱好计划，不为让故事连贯就把设想改成事实，或把现在的理解说成当时已知道。四格可以有空白，不必得出总解释。它帮助区分材料层次，不证明记忆准确，也不把回看次数当作洞察或成长。",
+          "en": "Use four boxes for the recorded words, earlier idea, known event and remaining uncertainty. Use a fictional hobby plan without turning an idea into an event for a coherent story, or making a present interpretation something known earlier. Boxes may stay empty without an overall explanation. The card distinguishes layers of material without proving accurate memory or making review frequency evidence of insight or growth."
+        }
+      ]
+    },
+    {
+      "id": "access",
+      "title": {
+        "zh": "一起核对当前做法",
+        "en": "Discuss the present practice"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这句话在讲当时写过什么，还是后来实际发生什么？哪一处仍需要留白？”各标一处依据与不确定，再比较。不必调用真实日记、关系或健康经历；可以只看或不答，也不评价谁想得更深。",
+          "en": "Ask: “Does this sentence describe what was written then or what later happened, and what still needs an empty space?” Mark evidence and uncertainty each, then compare. Use no real diary, relationship or health history. Observe or decline without ranking depth of thought."
+        }
+      ]
+    }
+  ],
+  "passing-notes": [
+    {
+      "id": "experiment",
+      "title": {
+        "zh": "复盘卡",
+        "en": "Review card"
+      },
+      "paragraphs": [
+        {
+          "zh": "复盘卡在一个虚构收纳步骤后补两句：“这是这次的用法”“后来可以改或不用”。再核说明是否有足够背景，是否把个人偏好写成普遍命令。可只写给未来的自己，也可以不留下。这个新卡片不补入四周频率记录，不以接收者照做、感谢或效果证明自己的经验值得保留。",
+          "en": "Add two lines to a fictional sorting step: this is the approach used this time, and a later reader may revise or leave it. Check context and whether a preference became a universal command. Write for a future self or leave no note. This new card does not enter the four-week frequencies or require compliance, thanks or outcomes as proof that the experience deserves retaining."
+        }
+      ]
+    },
+    {
+      "id": "access",
+      "title": {
+        "zh": "一起核对当前做法",
+        "en": "Discuss the present practice"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“这份说明哪里是已试过的步骤，哪里只是个人选择？怎样让后来的人有改写或不用的余地？”各改一句命令式措辞，再核背景是否仍清楚。可只看或不答，不找真实接收者，也不把说明数量当权威、资历或影响力。",
+          "en": "Ask: “Which part describes a tried step, which is a personal choice and where can a later reader revise or decline it?” Edit one command each while preserving context. Observe or decline without a real recipient or treating note counts as authority, seniority or influence."
+        }
+      ]
+    }
+  ]
+}

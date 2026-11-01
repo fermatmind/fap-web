@@ -1,0 +1,130 @@
+{
+  "left-communitarian": [
+    {
+      "id": "counterexample",
+      "title": {
+        "zh": "补充情境比较",
+        "en": "An additional comparison"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构讨论中，两位读者都选择公共筹资的交通方案，也都愿意保留共同节庆的有界限例外。一位想到日常通行费用与地方记忆，另一位想到统一安排的便利。相同两次选择并不能证明理由相同，更不能证明方案实际降低费用或让所有居民都感到归属。可以先分别列出筹资、通行与异议程序还缺哪些信息，再回到题目，而不把“共同”当成无需说明的答案。",
+          "en": "In an additional original scene, two fictional readers choose tax-financed transport and bounded exceptions for a shared festival. One thinks about fares and local memory; the other thinks about the convenience of coordinated arrangements. Matching choices establish neither matching reasons nor actual effects on costs or belonging. Separately identify missing information about financing, access and objections before treating a shared purpose as an explanation."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "核对自己的理解",
+        "en": "Check your own understanding"
+      },
+      "paragraphs": [
+        {
+          "zh": "讨论卡可分成“想保留的公共服务”“想延续的共同实践”“需要另行核对的参与条件”。只填虚构交通与节庆例子；不同读者可以比较各自遗漏的信息，不必公开坐标或让对方接受同一组合。",
+          "en": "For invented transport and festival proposals, distinguish the public service you would retain, the shared practice you would continue and participation conditions needing further information. Compare omissions without disclosing coordinates or asking another reader to adopt this combination."
+        },
+        {
+          "zh": "本轮新增情境与讨论卡为费马编辑部原创，供比较方案与核对理解，可只读或保留私人笔记。原三十六题、两轴各十八项及正向次数减负向次数的算法保持不变；零轴保留相邻比较，任一NA只使所属轴不足，四份全文不按坐标解锁。次数不测强度、人口位置或政策成效，理论来源也不建立本版信效度与跨语言等价。分享公开说明不包含个人答卷或坐标，不提供政党、投票或政治说服建议。",
+          "en": "These additional scenes and discussion cards are original FermatMind Editorial material for comparing proposals and checking understanding. Reading or private notes are optional. The thirty-six items, eighteen per axis and positive-minus-negative count rule stay intact. Zero retains adjacent comparisons, any NA withholds only its own axis and all four full guides remain open. Counts measure neither intensity, population position nor policy effects; theory references establish no validity, reliability or language equivalence for this edition. Public guides contain no personal answers or coordinates and offer no party, voting or political-persuasion advice."
+        }
+      ]
+    }
+  ],
+  "left-liberal": [
+    {
+      "id": "counterexample",
+      "title": {
+        "zh": "补充情境比较",
+        "en": "An additional comparison"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构讨论中，一位读者希望公共资金支持社区中心，同时希望场地按中立行为规则开放。另一位同样选择这两个方案，却对公共资金的资格条件有不同理解。公共筹资回答“怎样支持”，开放规则回答“怎样参与”，两个答案不自动解决所有条件。比较同一组选择时，可以问哪些费用、资格或申诉信息还没有提供；不要仅凭组合认定任何真实机构已经公平或可用。",
+          "en": "In an additional original scene, two readers favour public funding for a community centre and access under neutral conduct rules, yet interpret funding eligibility differently. Financing addresses support; access rules address participation. Neither settles every condition. Compare missing information about costs, eligibility and appeals without certifying any actual institution as fair or accessible from these two choices."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "核对自己的理解",
+        "en": "Check your own understanding"
+      },
+      "paragraphs": [
+        {
+          "zh": "讨论卡可用“筹资安排”“参与规则”“仍未知的执行条件”三栏，分别放入同一个虚构社区中心。若一栏的信息变化，另外两栏是否真的也变了？只比较自己的推理，不据此推测朋友的政党、收入或价值高低。",
+          "en": "Use financing, participation rules and unknown implementation conditions as three columns for one invented centre. If information changes in one, did it change the others? Compare your reasoning without guessing a friend’s party, income or worth."
+        },
+        {
+          "zh": "本轮新增情境与讨论卡为费马编辑部原创，供比较方案与核对理解，可只读或保留私人笔记。原三十六题、两轴各十八项及正向次数减负向次数的算法保持不变；零轴保留相邻比较，任一NA只使所属轴不足，四份全文不按坐标解锁。次数不测强度、人口位置或政策成效，理论来源也不建立本版信效度与跨语言等价。分享公开说明不包含个人答卷或坐标，不提供政党、投票或政治说服建议。",
+          "en": "These additional scenes and discussion cards are original FermatMind Editorial material for comparing proposals and checking understanding. Reading or private notes are optional. The thirty-six items, eighteen per axis and positive-minus-negative count rule stay intact. Zero retains adjacent comparisons, any NA withholds only its own axis and all four full guides remain open. Counts measure neither intensity, population position nor policy effects; theory references establish no validity, reliability or language equivalence for this edition. Public guides contain no personal answers or coordinates and offer no party, voting or political-persuasion advice."
+        }
+      ]
+    }
+  ],
+  "right-communitarian": [
+    {
+      "id": "counterexample",
+      "title": {
+        "zh": "补充情境比较",
+        "en": "An additional comparison"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构讨论中，一位读者选择私人经营的供水方案，也希望长期使用社区中心的团体说明共同公民目的。两项选择把不同事务中的决定交给不同程序，并没有说明两套程序如何衔接。若另一个人选择同样选项，可以分别问合同中的服务条件、共同目的的形成过程和不认同者的使用安排。相近次数不证明这些问题已经有相同答案，也不证明私人经营或共同目的本身能解决问责。",
+          "en": "In an additional original scene, a reader chooses privately operated water service and a shared-purpose condition for regular community-centre use. Different decisions are assigned to different procedures without explaining how those procedures connect. Readers choosing the same alternatives can separately ask about service terms, how the shared purpose was formed and access for dissenters. Matching counts establish neither matching answers nor adequate accountability."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "核对自己的理解",
+        "en": "Check your own understanding"
+      },
+      "paragraphs": [
+        {
+          "zh": "讨论卡可先写“谁决定服务条件”“谁说明共同目的”“哪些问题尚未回答”。用虚构供水与场地例子，把决定权与核对信息分开；不需要为现实组织背书，也不按坐标判断谁更有资格发言。",
+          "en": "For invented water and room-use proposals, ask who sets service terms, who explains the shared purpose and which questions remain unanswered. Separate authority from information needed, without endorsing an actual organization or assigning speaking rights by coordinates."
+        },
+        {
+          "zh": "本轮新增情境与讨论卡为费马编辑部原创，供比较方案与核对理解，可只读或保留私人笔记。原三十六题、两轴各十八项及正向次数减负向次数的算法保持不变；零轴保留相邻比较，任一NA只使所属轴不足，四份全文不按坐标解锁。次数不测强度、人口位置或政策成效，理论来源也不建立本版信效度与跨语言等价。分享公开说明不包含个人答卷或坐标，不提供政党、投票或政治说服建议。",
+          "en": "These additional scenes and discussion cards are original FermatMind Editorial material for comparing proposals and checking understanding. Reading or private notes are optional. The thirty-six items, eighteen per axis and positive-minus-negative count rule stay intact. Zero retains adjacent comparisons, any NA withholds only its own axis and all four full guides remain open. Counts measure neither intensity, population position nor policy effects; theory references establish no validity, reliability or language equivalence for this edition. Public guides contain no personal answers or coordinates and offer no party, voting or political-persuasion advice."
+        }
+      ]
+    }
+  ],
+  "right-liberal": [
+    {
+      "id": "counterexample",
+      "title": {
+        "zh": "补充情境比较",
+        "en": "An additional comparison"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构讨论中，两位读者都选择交通更多由使用者付费，也选择纪念活动参与自愿。一位关注筹资分担，另一位关注能否另作选择。相同答案不说明两种选择具有相同的现实条件：一种涉及服务费用，另一种涉及参与规则。没有费用、可用替代与执行信息时，不能从“自由选择”四字推出方案对每个人同样可用，更不能把一个原始坐标当成实际制度效果。",
+          "en": "In an additional original scene, two readers choose greater user financing for transport and optional participation in a commemoration. One focuses on financing; another focuses on alternatives. Matching answers do not make the conditions identical: one concerns service costs, the other participation rules. Without cost, alternative-access and implementation information, the phrase free choice establishes neither equal usability nor actual institutional outcomes."
+        }
+      ]
+    },
+    {
+      "id": "reflection",
+      "title": {
+        "zh": "核对自己的理解",
+        "en": "Check your own understanding"
+      },
+      "paragraphs": [
+        {
+          "zh": "讨论卡可问：“我说的选择，是支付方式、参与权，还是实际可用的替代？”把同一个虚构交通与纪念活动分开说明；也可以留下未知，不将朋友的答案整理成政治画像或针对他们设计说服内容。",
+          "en": "Ask whether choice means a payment method, a participation right or an accessible alternative. Explain invented transport and commemoration proposals separately, leaving unknowns visible rather than profiling friends or designing messages to persuade them."
+        },
+        {
+          "zh": "本轮新增情境与讨论卡为费马编辑部原创，供比较方案与核对理解，可只读或保留私人笔记。原三十六题、两轴各十八项及正向次数减负向次数的算法保持不变；零轴保留相邻比较，任一NA只使所属轴不足，四份全文不按坐标解锁。次数不测强度、人口位置或政策成效，理论来源也不建立本版信效度与跨语言等价。分享公开说明不包含个人答卷或坐标，不提供政党、投票或政治说服建议。",
+          "en": "These additional scenes and discussion cards are original FermatMind Editorial material for comparing proposals and checking understanding. Reading or private notes are optional. The thirty-six items, eighteen per axis and positive-minus-negative count rule stay intact. Zero retains adjacent comparisons, any NA withholds only its own axis and all four full guides remain open. Counts measure neither intensity, population position nor policy effects; theory references establish no validity, reliability or language equivalence for this edition. Public guides contain no personal answers or coordinates and offer no party, voting or political-persuasion advice."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "reading-your-confidence": [
+    {
+      "id": "comparison",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者对重复演示很有把握，却对说明卡点较犹豫；另一位有同样均值，却刚好相反。两人都未实际操作，不能据此选谁来处理重要账户。若一次示例成功，也只提供那项任务的输出证据，不证明自评准确、一般能力提高或其他工具安全。",
+          "en": "In an additional original scene, a fictional reader feels confident repeating a demonstration but hesitant explaining a sticking point; another has the same mean with the opposite pattern. Neither has performed a task, so the ratings cannot select who handles an important account. A successful example supplies evidence about that task’s output alone, without validating the ratings, general improvement or another tool’s safety."
+        }
+      ]
+    },
+    {
+      "id": "try",
+      "title": {
+        "zh": "可选讨论卡",
+        "en": "An optional discussion card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选讨论卡：“只看示例日历中的三个虚构事项，预期结果是什么？若输出不同，先核对哪一步，又怎样用虚构材料说明卡点？”可只读，不需安装应用或执行操作。听者不索要文件、账户、密码或答卷，也不按信心均值给出专家或新手标签；不愿练习时就结束。",
+          "en": "An optional discussion card uses three invented calendar entries: what output is intended, which step would be checked if it differs, and how could the sticking point be described with dummy material? Reading alone suffices without installation or action. A listener requests no files, accounts, passwords or answers, assigns no expert or beginner label from a mean, and respects choosing to stop."
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与讨论卡为费马编辑部原创；可只读，原有观察也可跳过。仅回想过去一个月六种小型工具任务的主观信心，1至5，3为有一定把握，不是中立、频率或正确答案。六题都需回应，无反向；近期没有机会或不想评价不评分，不补零或中点。至少四项数字，用和除以数字项数并显示一位小数：2、3、4、4、5与未评分为18÷5＝3.6；三项数字不给均值，完整通用读法仍可读。四项规则只是编辑完整度约定，小数不证明精度。相同均值可能有不同覆盖和题目模式，较高不验证技能，较低或缺少机会不证明无能，变化不认证进步。题本尚无已建立的信效度、常模或中英等值；不评数字能力、招聘、收入或工具安全。无需私人资料、消费或真实账户变更。原有页面内存、自选24小时标签页草稿及完成退出重测清除不变；复制只含标题、通用读法名称和公开链接，不含回答、和或均值。",
+          "en": "FermatMind Editorial authored these additions. Reading alone suffices and existing observations are optional. Reflect on confidence in six small tool tasks over the past month, rated 1–5. Three means somewhat confident, not neutrality, frequency or a correct answer. All six need responses without reversals. No recent opportunity or withholding remains unscored, with no zero or midpoint replacement. At least four numeric answers allow sum divided by numeric count, displayed to one decimal: 2, 3, 4, 4, 5 and unscored give 18/5 = 3.6. Three numeric answers yield no mean; the full general guide remains available. Four is an editorial completeness rule and decimal display establishes no precision. Equal means can have different coverage and item patterns. Higher confidence validates no skill; lower or absent ratings establish no inability, and changes certify no progress. This original bank has no established reliability, validity, norms or English–Chinese equivalence. It assesses neither digital competence, recruitment, income nor tool safety. No private material, purchases or real account changes are required. Existing page memory, optional 24-hour tab drafts and completion, exit or retake clearing remain unchanged. Copying includes only the title, general reading label and public link, without answers, sum or mean."
+        }
+      ]
+    }
+  ]
+}

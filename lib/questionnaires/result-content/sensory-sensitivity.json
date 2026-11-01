@@ -1,0 +1,166 @@
+{
+  "late-noticing": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者忙于熟悉任务，直到别人提起背景声已停才意识到变化；另一次关于光线的情境却记不清。明确提示后的察觉与缺少适用回忆分别保留，不把后者填成从未，也不从前者推断听力或神经阈值。例子只供阅读，不重放声音、测试警报或请别人秘密制造变化。",
+          "en": "In an additional original scene, a reader engaged in a familiar task notices that a background sound stopped only after someone mentions it. A lighting example remains unclear. Noticing after an explicit cue and lacking applicable recall stay separate; the latter becomes no Never, and the former establishes no hearing ability or neurological threshold. The scene requires no replayed sound, alarm test or secretly created change."
+        }
+      ]
+    },
+    {
+      "id": "work",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只看虚构情境，什么发生了变化、何时得到提示、还有什么原因未知？”可以只读问题。听者不把晚察觉称为不认真或不可靠，不由均分提高提示强度，也不撤去既有无障碍安排；无需采集真实感官记录。",
+          "en": "An optional conversation card separates a fictional change, an explicit cue and unknown causes. Read only the question if preferred. A listener labels no later noticing inattentive or unreliable, uses no mean to intensify cues and removes no existing accessibility arrangement. No actual sensory record is needed."
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，回顾过去四周有相关机会时的反应，不布置感官实验。16题仍分四组各四条直接计0至4：0从未、1很少、2有时、3经常、4几乎总如此，均以相关机会为前提；无机会、不确定或保留回答选不计分，不换成0或2。四条全部数字才显示本组合计0至16及除以四的0至4均分、两位小数，例如1、2、2、2得合计7、均分1.75。任何一条不计分都不提供本组合计与均分，保留数字及跳过数量，其他完整组照常显示。四组不合总分、相减成阈值轴、选最高或划常模；频率不是等距感官测量、事件次数、时间比例或症状概率。原创双语题本尚无已建立的信效度、常模、语言等值或变化阈值，不继承官方60题工具的验证，不诊断或评价他人。无需制造声音、闪光、气味、触碰或活动，不能由均分调整警报、防护、通风、处方设备或既有支持。四篇公开全文和结果内完整读法保持可读；答案仅在页面内存，原有离页、刷新、换语言与重测清除保持不变。复制只含四篇公开指南标题与链接，不含选择、数量、合计或均分；可选动作统计沿用原有双方同意条件。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading about relevant occasions over the past four weeks, not sensory experiments. Sixteen prompts retain four groups of four direct 0–4 ratings: 0 never, 1 rarely, 2 sometimes, 3 often and 4 almost always, each on relevant occasions. No opportunity, uncertainty and withheld answers stay unscored, never replaced by zero or two. All four numeric responses are needed for a part’s sum from 0 to 16 and mean from 0 to 4, divided by four and displayed to two decimals. For example, 1, 2, 2 and 2 give sum 7 and mean 1.75. Any unscored response withholds that part’s sum and mean while retaining numeric and skipped counts; other complete parts remain available. Parts form no total, subtracted threshold axis, highest pattern or normative band. Frequency is neither calibrated interval sensory measurement, event count, time proportion nor symptom probability. The original bilingual form lacks established reliability, validity, norms, language equivalence or change thresholds and inherits no validation from the official sixty-item instrument. It diagnoses nobody and assesses no other person. No sound, flashing light, smell, touch or movement needs creating; a mean changes no alarm, protective equipment, ventilation, prescribed equipment or existing support. All four public guides and full result readings remain available. Answers stay in page memory, retaining existing leaving, reload, language-change and retake clearing. Copying includes only four public guide titles and links, without choices, counts, sums or means. Optional action metrics retain existing page permission and global analytics consent requirements."
+        }
+      ]
+    }
+  ],
+  "input-seeking": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者因想增加输入而选择熟悉材料的质感，另一次播放声音只是为了完成工作。外表相似的动作不一定具有题中原因，只有情境与明说原因都符合时才评价。选择输入也不证明需要更强刺激；例子不安排试听、触摸、活动试验或购买。",
+          "en": "In an additional original scene, a reader chooses a familiar texture for added input but plays a recording on another occasion only to complete work. Similar outward actions need not have the stated reason; rate only an applicable situation and reason together. An input choice establishes no need for stronger stimulation. The scene assigns no listening, touching, movement trial or purchase."
+        }
+      ]
+    },
+    {
+      "id": "work",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只用虚构选择，分开输入本身、选择原因和当时的任务。”不需要试两种环境。听者不把增加输入等同外向、冒险或更高效率，也不把另一组减少输入拿来相减；共享环境仍需保留各人的选择和既有支持。",
+          "en": "An optional conversation card separates a fictional input, reason and task without trying two environments. A listener equates added input with neither extraversion, risk nor greater efficiency and subtracts no reducing-input score from it. Shared surroundings retain each person’s choices and existing support."
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，回顾过去四周有相关机会时的反应，不布置感官实验。16题仍分四组各四条直接计0至4：0从未、1很少、2有时、3经常、4几乎总如此，均以相关机会为前提；无机会、不确定或保留回答选不计分，不换成0或2。四条全部数字才显示本组合计0至16及除以四的0至4均分、两位小数，例如1、2、2、2得合计7、均分1.75。任何一条不计分都不提供本组合计与均分，保留数字及跳过数量，其他完整组照常显示。四组不合总分、相减成阈值轴、选最高或划常模；频率不是等距感官测量、事件次数、时间比例或症状概率。原创双语题本尚无已建立的信效度、常模、语言等值或变化阈值，不继承官方60题工具的验证，不诊断或评价他人。无需制造声音、闪光、气味、触碰或活动，不能由均分调整警报、防护、通风、处方设备或既有支持。四篇公开全文和结果内完整读法保持可读；答案仅在页面内存，原有离页、刷新、换语言与重测清除保持不变。复制只含四篇公开指南标题与链接，不含选择、数量、合计或均分；可选动作统计沿用原有双方同意条件。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading about relevant occasions over the past four weeks, not sensory experiments. Sixteen prompts retain four groups of four direct 0–4 ratings: 0 never, 1 rarely, 2 sometimes, 3 often and 4 almost always, each on relevant occasions. No opportunity, uncertainty and withheld answers stay unscored, never replaced by zero or two. All four numeric responses are needed for a part’s sum from 0 to 16 and mean from 0 to 4, divided by four and displayed to two decimals. For example, 1, 2, 2 and 2 give sum 7 and mean 1.75. Any unscored response withholds that part’s sum and mean while retaining numeric and skipped counts; other complete parts remain available. Parts form no total, subtracted threshold axis, highest pattern or normative band. Frequency is neither calibrated interval sensory measurement, event count, time proportion nor symptom probability. The original bilingual form lacks established reliability, validity, norms, language equivalence or change thresholds and inherits no validation from the official sixty-item instrument. It diagnoses nobody and assesses no other person. No sound, flashing light, smell, touch or movement needs creating; a mean changes no alarm, protective equipment, ventilation, prescribed equipment or existing support. All four public guides and full result readings remain available. Answers stay in page memory, retaining existing leaving, reload, language-change and retake clearing. Copying includes only four public guide titles and links, without choices, counts, sums or means. Optional action metrics retain existing page permission and global analytics consent requirements."
+        }
+      ]
+    }
+  ],
+  "input-distraction": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者阅读时注意反复被背景声拉走，但因座位不可调整而留在原处；另一次只是听见声音，并没有中断任务。实际打断、单纯察觉与可选做法不同，不从留下推断愿意忍受。例子不要求重访环境、增大声音、延长接触或测试耐受。",
+          "en": "In an additional original scene, recurring background sound interrupts reading while an unavailable seat change leaves the person in place. On another occasion, sound is noticed without interrupting the task. Interruption, noticing and available choices differ; remaining establishes no wish to endure. The scene requires no revisited setting, louder sound, prolonged exposure or tolerance test."
+        }
+      ]
+    },
+    {
+      "id": "work",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只读虚构过程，输入、注意被拉走和当时可选的调整分别是什么？”可以让不可判断的部分保留。听者不把频率变成敏锐度或自控分，不要求更多调整才承认不适，也不据结果移除安全信号、通风或他人的支持。",
+          "en": "An optional conversation card distinguishes a fictional input, interrupted attention and available adjustments, leaving unclear details unresolved. A listener turns no frequency into acuity or self-control, requires no further adjustments before acknowledging discomfort and removes neither safety signals, ventilation nor someone else’s support."
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，回顾过去四周有相关机会时的反应，不布置感官实验。16题仍分四组各四条直接计0至4：0从未、1很少、2有时、3经常、4几乎总如此，均以相关机会为前提；无机会、不确定或保留回答选不计分，不换成0或2。四条全部数字才显示本组合计0至16及除以四的0至4均分、两位小数，例如1、2、2、2得合计7、均分1.75。任何一条不计分都不提供本组合计与均分，保留数字及跳过数量，其他完整组照常显示。四组不合总分、相减成阈值轴、选最高或划常模；频率不是等距感官测量、事件次数、时间比例或症状概率。原创双语题本尚无已建立的信效度、常模、语言等值或变化阈值，不继承官方60题工具的验证，不诊断或评价他人。无需制造声音、闪光、气味、触碰或活动，不能由均分调整警报、防护、通风、处方设备或既有支持。四篇公开全文和结果内完整读法保持可读；答案仅在页面内存，原有离页、刷新、换语言与重测清除保持不变。复制只含四篇公开指南标题与链接，不含选择、数量、合计或均分；可选动作统计沿用原有双方同意条件。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading about relevant occasions over the past four weeks, not sensory experiments. Sixteen prompts retain four groups of four direct 0–4 ratings: 0 never, 1 rarely, 2 sometimes, 3 often and 4 almost always, each on relevant occasions. No opportunity, uncertainty and withheld answers stay unscored, never replaced by zero or two. All four numeric responses are needed for a part’s sum from 0 to 16 and mean from 0 to 4, divided by four and displayed to two decimals. For example, 1, 2, 2 and 2 give sum 7 and mean 1.75. Any unscored response withholds that part’s sum and mean while retaining numeric and skipped counts; other complete parts remain available. Parts form no total, subtracted threshold axis, highest pattern or normative band. Frequency is neither calibrated interval sensory measurement, event count, time proportion nor symptom probability. The original bilingual form lacks established reliability, validity, norms, language equivalence or change thresholds and inherits no validation from the official sixty-item instrument. It diagnoses nobody and assesses no other person. No sound, flashing light, smell, touch or movement needs creating; a mean changes no alarm, protective equipment, ventilation, prescribed equipment or existing support. All four public guides and full result readings remain available. Answers stay in page memory, retaining existing leaving, reload, language-change and retake clearing. Copying includes only four public guide titles and links, without choices, counts, sums or means. Optional action metrics retain existing page permission and global analytics consent requirements."
+        }
+      ]
+    }
+  ],
+  "input-reducing": [
+    {
+      "id": "example",
+      "title": {
+        "zh": "补充原创情境",
+        "en": "An additional original scene"
+      },
+      "paragraphs": [
+        {
+          "zh": "补充原创情境：虚构读者有两个同样可用的座位，因想少一些视觉变化而选其一；另一次选相同位置只是想坐朋友旁边。动作相同，题述原因不同，没得选时也不能假想选择。频率不说明调整有效或减少得够不够，例子不要求换座、改变设备或返回不舒服的环境。",
+          "en": "In an additional original scene, a reader selects one of two available seats for less visual movement. On another occasion, the same seat is chosen to sit near a friend. The action matches but the stated reason differs; unavailable choices require no imagined answer. Frequency establishes neither effectiveness nor sufficient reduction. No seat change, altered equipment or return to discomfort is needed."
+        }
+      ]
+    },
+    {
+      "id": "work",
+      "title": {
+        "zh": "可选交流卡",
+        "en": "An optional conversation card"
+      },
+      "paragraphs": [
+        {
+          "zh": "可选交流卡：“只用虚构座位，分开可以选择、实际选择和为什么选择，哪个仍未知？”无需说明真实场所。听者不把减少输入称为回避人格，也不从均分要求消除所有刺激或取消他人的安排；安全与既有支持保持独立，阅读可到此结束。",
+          "en": "An optional conversation card separates a fictional available choice, selected seat and reason, with unknowns left open. No actual setting needs an account. A listener assigns no avoiding personality and uses no mean to eliminate all input or cancel another person’s arrangements. Safety and existing support remain separate; reading can end here."
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "zh": "补充使用边界",
+        "en": "Additional reading limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "新增情境与交流卡为费马编辑部原创，可只读，回顾过去四周有相关机会时的反应，不布置感官实验。16题仍分四组各四条直接计0至4：0从未、1很少、2有时、3经常、4几乎总如此，均以相关机会为前提；无机会、不确定或保留回答选不计分，不换成0或2。四条全部数字才显示本组合计0至16及除以四的0至4均分、两位小数，例如1、2、2、2得合计7、均分1.75。任何一条不计分都不提供本组合计与均分，保留数字及跳过数量，其他完整组照常显示。四组不合总分、相减成阈值轴、选最高或划常模；频率不是等距感官测量、事件次数、时间比例或症状概率。原创双语题本尚无已建立的信效度、常模、语言等值或变化阈值，不继承官方60题工具的验证，不诊断或评价他人。无需制造声音、闪光、气味、触碰或活动，不能由均分调整警报、防护、通风、处方设备或既有支持。四篇公开全文和结果内完整读法保持可读；答案仅在页面内存，原有离页、刷新、换语言与重测清除保持不变。复制只含四篇公开指南标题与链接，不含选择、数量、合计或均分；可选动作统计沿用原有双方同意条件。",
+          "en": "These additional scenes and conversation cards are original FermatMind Editorial material for optional reading about relevant occasions over the past four weeks, not sensory experiments. Sixteen prompts retain four groups of four direct 0–4 ratings: 0 never, 1 rarely, 2 sometimes, 3 often and 4 almost always, each on relevant occasions. No opportunity, uncertainty and withheld answers stay unscored, never replaced by zero or two. All four numeric responses are needed for a part’s sum from 0 to 16 and mean from 0 to 4, divided by four and displayed to two decimals. For example, 1, 2, 2 and 2 give sum 7 and mean 1.75. Any unscored response withholds that part’s sum and mean while retaining numeric and skipped counts; other complete parts remain available. Parts form no total, subtracted threshold axis, highest pattern or normative band. Frequency is neither calibrated interval sensory measurement, event count, time proportion nor symptom probability. The original bilingual form lacks established reliability, validity, norms, language equivalence or change thresholds and inherits no validation from the official sixty-item instrument. It diagnoses nobody and assesses no other person. No sound, flashing light, smell, touch or movement needs creating; a mean changes no alarm, protective equipment, ventilation, prescribed equipment or existing support. All four public guides and full result readings remain available. Answers stay in page memory, retaining existing leaving, reload, language-change and retake clearing. Copying includes only four public guide titles and links, without choices, counts, sums or means. Optional action metrics retain existing page permission and global analytics consent requirements."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "articles-and-cases": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：相同冠词形式不代表相同句法功能",
+        "en": "Review identical article forms in different grammatical functions"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例Die Frau wartet.与Ich sehe die Frau.中，die Frau都保持同一写法；前者是第一格主语，后者是第四格直接宾语。阴性单数定冠词在这两个格位同形，不代表句法功能没变。先找谁在等、谁被看见，再按性数格说明形式。与阳性der/den对照时，改变的是可见冠词，不是“只有变词尾才有格”的规则。这个不计分新例不增加原题正确数，也不把记住一个冠词表等同于能独立写完整德语文章。",
+          "en": "Compare Die Frau wartet. with Ich sehe die Frau. The phrase die Frau looks identical, but it is a nominative subject in the first sentence and an accusative direct object in the second. Feminine singular definite articles share this form across those two cases; unchanged spelling does not imply unchanged function. Identify who waits and who is seen before explaining gender, number and case. A masculine der/den contrast makes the article change visible, but case does not exist only when an ending visibly changes. This fresh example is unscored; remembering one article pattern does not demonstrate independent German composition."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起解释德文依据，不用正确数给人分级",
+        "en": "Compare the German evidence without assigning a proficiency level"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“两处都写die，为什么仍能分别是第一格与第四格？哪条句子信息比孤立冠词更有帮助？”先各自指出德文依据，再比较推理第一处分歧。可用英中文说明、查词典、只读或换句，不要求口头表演、披露学习经历或比赛速度。共同复习的是这句文字，不据此推断对方整体语言能力。",
+          "en": "Ask: “Why can the same die mark nominative in one sentence and accusative in another, and which sentence information helps more than the isolated article?” Identify the German evidence separately, then compare the first reasoning difference. Explain in English or Chinese, consult a dictionary, read or choose another sentence without performing aloud, disclosing a learning history or racing. Review this text together without inferring someone’s overall language ability."
+        },
+        {
+          "zh": "分享按钮复制不含个人答案及正确数的公开练习入口，也可自行分享本指南。四组是复习方向，不提供CEFR等级、词汇量、留学或工作资格。德文原题在两界面一致，说明双语不等于已证明跨语言心理测量等价；重测同一固定题本的提高也可能来自记忆。",
+          "en": "The share button copies the public practice entry without personal answers or correct counts; you can also share this guide yourself. Four groups organise revision rather than CEFR levels, vocabulary estimates or study and work qualifications. German tasks stay identical across interfaces; bilingual explanations do not establish cross-language psychometric equivalence. Improvement on the same fixed bank may reflect recall."
+        }
+      ]
+    }
+  ],
+  "german-verb-forms": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：同形动词也要回到主语和句框",
+        "en": "Review the subject and construction even when verb forms match"
+      },
+      "paragraphs": [
+        {
+          "zh": "新例Du liest den Plan.与Mara liest den Plan.都用liest，但主语分别是第二人称单数与第三人称单数。同形不意味着人称相同，应同时记录主语及具体动词形式。再看Wir haben den Plan gelesen.：haben是与wir一致的限定助动词，gelesen为第二分词，不能把刚见过的liest塞进该完成时空位。把“主语、时态结构、限定形式、其他动词部分”分列，比只选熟悉字串更容易解释错因。这是新书面复习例，不评口语流利度或现实交流效果。",
+          "en": "Compare Du liest den Plan. with Mara liest den Plan. Both use liest, although their subjects are second-person singular and third-person singular. Matching spelling does not make the persons identical: record the subject alongside the specific form. Then inspect Wir haben den Plan gelesen. Here haben is the finite auxiliary agreeing with wir, and gelesen is a past participle; the familiar liest cannot fill that participle position. Separate subject, tense construction, finite form and other verb parts to explain an error rather than selecting a familiar string. This fresh written example does not assess spoken fluency or real conversational effectiveness."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起解释德文依据，不用正确数给人分级",
+        "en": "Compare the German evidence without assigning a proficiency level"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“liest为什么能配两个不同主语？到了haben后的完成时位置，为什么不再选liest？”先各自指出德文依据，再比较推理第一处分歧。可用英中文说明、查词典、只读或换句，不要求口头表演、披露学习经历或比赛速度。共同复习的是这句文字，不据此推断对方整体语言能力。",
+          "en": "Ask: “Why can liest match two different subjects, and why is it unsuitable for the participle position after haben?” Identify the German evidence separately, then compare the first reasoning difference. Explain in English or Chinese, consult a dictionary, read or choose another sentence without performing aloud, disclosing a learning history or racing. Review this text together without inferring someone’s overall language ability."
+        },
+        {
+          "zh": "分享按钮复制不含个人答案及正确数的公开练习入口，也可自行分享本指南。四组是复习方向，不提供CEFR等级、词汇量、留学或工作资格。德文原题在两界面一致，说明双语不等于已证明跨语言心理测量等价；重测同一固定题本的提高也可能来自记忆。",
+          "en": "The share button copies the public practice entry without personal answers or correct counts; you can also share this guide yourself. Four groups organise revision rather than CEFR levels, vocabulary estimates or study and work qualifications. German tasks stay identical across interfaces; bilingual explanations do not establish cross-language psychometric equivalence. Improvement on the same fixed bank may reflect recall."
+        }
+      ]
+    }
+  ],
+  "sentence-structure": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：时间短语占一个前场单位",
+        "en": "Review a multiword time phrase as one fronted constituent"
+      },
+      "paragraphs": [
+        {
+          "zh": "新陈述句Am frühen Dienstagmorgen liest Mara den Plan.中，Am frühen Dienstagmorgen三个书写词共同占前场，限定动词liest是第四个书写词，仍在第二成分位置。换为Mara liest am frühen Dienstagmorgen den Plan.时，Mara占前场，动词形式及读计划这一事件保持。先给成分划界，再标限定动词，不靠数到第二个单词猜答案。这里只对照这种普通陈述句；一般疑问、正式引导从句及复杂动词组合须另外按自己的句框分析。两句均为不计分新例。",
+          "en": "In the fresh declarative Am frühen Dienstagmorgen liest Mara den Plan., three written words form one fronted time phrase. Liest is the fourth written word but occupies the second constituent position. In Mara liest am frühen Dienstagmorgen den Plan., Mara occupies the front instead; the verb form and the plan-reading event remain. Mark constituent boundaries before locating the finite verb, rather than counting to the second written word. This comparison concerns the ordinary declarative pattern. Yes/no questions, formal introduced clauses and complex verb combinations require their own construction analysis. Both sentences are unscored examples."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起解释德文依据，不用正确数给人分级",
+        "en": "Compare the German evidence without assigning a proficiency level"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“liest明明是第四个词，为什么不违背这里的动词第二位？换前场后哪些内容不需要改变？”先各自指出德文依据，再比较推理第一处分歧。可用英中文说明、查词典、只读或换句，不要求口头表演、披露学习经历或比赛速度。共同复习的是这句文字，不据此推断对方整体语言能力。",
+          "en": "Ask: “Why does the fourth written word liest fit verb-second order here, and what can remain unchanged when the fronted constituent changes?” Identify the German evidence separately, then compare the first reasoning difference. Explain in English or Chinese, consult a dictionary, read or choose another sentence without performing aloud, disclosing a learning history or racing. Review this text together without inferring someone’s overall language ability."
+        },
+        {
+          "zh": "分享按钮复制不含个人答案及正确数的公开练习入口，也可自行分享本指南。四组是复习方向，不提供CEFR等级、词汇量、留学或工作资格。德文原题在两界面一致，说明双语不等于已证明跨语言心理测量等价；重测同一固定题本的提高也可能来自记忆。",
+          "en": "The share button copies the public practice entry without personal answers or correct counts; you can also share this guide yourself. Four groups organise revision rather than CEFR levels, vocabulary estimates or study and work qualifications. German tasks stay identical across interfaces; bilingual explanations do not establish cross-language psychometric equivalence. Improvement on the same fixed bank may reflect recall."
+        }
+      ]
+    }
+  ],
+  "short-german-texts": [
+    {
+      "id": "practice-review",
+      "title": {
+        "zh": "复盘：将日期、时间、新地点和未知项分列",
+        "en": "Review day, time, changed location and unknown details separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "新虚构通知：Die Probe beginnt am Donnerstag um 15 Uhr. Treffpunkt ist jetzt Raum 8 statt Raum 3. Bitte bringt einen Stift mit.可明确提取周四、15点、现在8号室、请带笔；3号室是被替换的地点，不是结束时刻。原文没给结束时间、排练时长或房间容量，应留为未知，不用常识补齐。给每项提取信息标出对应的德文片段，再检查总结是否加入原文没有的条件。这个新阅读例不涉及真实安排，不增加28道原题的正确数。",
+          "en": "Read this fresh fictional notice: Die Probe beginnt am Donnerstag um 15 Uhr. Treffpunkt ist jetzt Raum 8 statt Raum 3. Bitte bringt einen Stift mit. It supports Thursday, a 15:00 start, room eight as the current meeting point and a request to bring something to write with. Room three is the replaced location, not an ending time. End time, rehearsal duration and room capacity remain unknown. Attach each extracted detail to its German wording, then check whether a summary adds unsupported conditions. This new passage describes no real schedule and contributes nothing to the original 28-item count."
+        }
+      ]
+    },
+    {
+      "id": "share-conversation",
+      "title": {
+        "zh": "一起解释德文依据，不用正确数给人分级",
+        "en": "Compare the German evidence without assigning a proficiency level"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问：“哪个数字是房号，哪个是时间？哪些细节可以直接指出依据，哪些即使合理也仍未知？”先各自指出德文依据，再比较推理第一处分歧。可用英中文说明、查词典、只读或换句，不要求口头表演、披露学习经历或比赛速度。共同复习的是这句文字，不据此推断对方整体语言能力。",
+          "en": "Ask: “Which number identifies a room and which a time, and which plausible details remain unknown because the notice does not supply them?” Identify the German evidence separately, then compare the first reasoning difference. Explain in English or Chinese, consult a dictionary, read or choose another sentence without performing aloud, disclosing a learning history or racing. Review this text together without inferring someone’s overall language ability."
+        },
+        {
+          "zh": "分享按钮复制不含个人答案及正确数的公开练习入口，也可自行分享本指南。四组是复习方向，不提供CEFR等级、词汇量、留学或工作资格。德文原题在两界面一致，说明双语不等于已证明跨语言心理测量等价；重测同一固定题本的提高也可能来自记忆。",
+          "en": "The share button copies the public practice entry without personal answers or correct counts; you can also share this guide yourself. Four groups organise revision rather than CEFR levels, vocabulary estimates or study and work qualifications. German tasks stay identical across interfaces; bilingual explanations do not establish cross-language psychometric equivalence. Improvement on the same fixed bank may reflect recall."
+        }
+      ]
+    }
+  ]
+}

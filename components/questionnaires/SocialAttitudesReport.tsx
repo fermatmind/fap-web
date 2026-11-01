@@ -3,7 +3,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 export function SocialAttitudesReport({ quiz, result, locale }: {
   quiz: Questionnaire;
@@ -26,7 +26,7 @@ export function SocialAttitudesReport({ quiz, result, locale }: {
         <p className="mb-4 leading-7">{facet.mean === null
           ? (zh ? "以下完整正文是通用读法，不是本次个人看法的结论。" : "The complete text below is a general guide, not a conclusion about your views in this attempt.")
           : (zh ? "均分较高只表示更认同本组陈述；较低不确定反对理由，任何数字都不证明真实行为或他人体验。" : "A higher mean records more agreement with this set. A lower mean does not establish a reason for disagreement; no number proves actual conduct or another person’s experience.")}</p>
-        <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`social-attitudes-report-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`social-attitudes-report-${profile.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一主题的公开指南" : "Read this topic’s public guide"}</Link>
       </section>;
     })}

@@ -6,7 +6,7 @@ import Link from "next/link";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { Locale } from "@/lib/i18n/locales";
 import { TYPING_DURATION_MS, isTypingConfigurationValid, normalizeTypingText, scoreTypingRound, typingCharacters, type TypingConfiguration, type TypingResult } from "@/lib/questionnaires/typing";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
 const subscribeReady = () => () => {};
@@ -138,7 +138,7 @@ function ValidTypingClient({ quiz, locale }: { quiz: Questionnaire; locale: Loca
       <div className="flex flex-wrap gap-3"><button className={button} onClick={() => reset()}>{zh ? "重新选择并练习" : "Choose again and practise"}</button><button className={button} onClick={share}>{zh ? "复制公开练习链接" : "Copy public practice link"}</button></div>
       {manual && <label className="block">{zh ? "手动复制公开链接" : "Public link for manual copying"}<textarea className="mt-2 min-h-24 w-full rounded-lg border p-3" readOnly value={manual} /></label>}
       <h3 className="text-xl font-semibold">{zh ? "两份完整复习指南，均免费" : "Both complete revision guides, free"}</h3>
-      {quiz.profiles.map(profile => <section key={profile.id} data-typing-guide={profile.id}><h3 className="text-xl font-semibold">{profile.title[locale]}</h3><QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`typing-guide-${profile.id}`} /></section>)}
+      {quiz.profiles.map(profile => <section key={profile.id} data-typing-guide={profile.id}><h3 className="text-xl font-semibold">{profile.title[locale]}</h3><QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`typing-guide-${profile.id}`} /></section>)}
       <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试与练习" : "Back to all tests and practice"}</Link>
     </div>}
     <p role="status" className="mt-4 leading-7">{message}</p>

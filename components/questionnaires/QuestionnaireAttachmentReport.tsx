@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { AttachmentResult } from "@/lib/questionnaires/attachment";
 import type { Questionnaire } from "@/lib/questionnaires/types";
@@ -30,7 +30,7 @@ export function QuestionnaireAttachmentReport({ quiz, result, locale }: { quiz: 
     <p className="leading-8">{zh ? "以下四份成人风格原型说明全部完整呈现，帮助比较两维的不同组合。它们不是本次获派的个人类型；中间回答、接近的体验或资料不足不需要硬选一个标签。" : "All four full adult prototype guides follow to help compare combinations of the dimensions. They are not personal types assigned to this attempt. Middle-range responses, similar experiences or insufficient information need no forced label."}</p>
     {quiz.profiles.map(profile => <section key={profile.id} data-attachment-profile={profile.id} aria-labelledby={`attachment-title-${profile.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
       <h3 id={`attachment-title-${profile.id}`} className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
-      <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这种原型的公开说明" : "Read this prototype’s public guide"}</Link>
     </section>)}
   </div>;

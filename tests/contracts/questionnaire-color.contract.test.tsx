@@ -1,3 +1,4 @@
+import { responseColorResultProfile } from "@/lib/questionnaires/result-content/response-color";
 import { describe, expect, it, vi } from "vitest";
 import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
@@ -125,7 +126,7 @@ describe("T002 Color complete source questionnaire", () => {
           const props = { params: Promise.resolve({ locale, slug: "response-color", portrait: profile.id }) };
           const rendered = renderToStaticMarkup(await guide.default(props)), metadata = await guide.generateMetadata(props);
           const root = document.createElement("div"); root.innerHTML = rendered;
-          for (const section of profile.sections) for (const paragraph of section.paragraphs) expect(root.textContent).toContain(paragraph[locale]);
+          for (const section of responseColorResultProfile(profile).sections) for (const paragraph of section.paragraphs) expect(root.textContent).toContain(paragraph[locale]);
           if (locale === "en") expect(root.textContent).not.toMatch(/\p{Script=Han}/u);
           expect(String(metadata.alternates?.canonical)).toBe(`https://fermatmind.com${path}`);
           expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com${questionnaireGuidePath("en", "response-color", profile.id)}`, "zh-CN": `https://fermatmind.com${questionnaireGuidePath("zh", "response-color", profile.id)}` });

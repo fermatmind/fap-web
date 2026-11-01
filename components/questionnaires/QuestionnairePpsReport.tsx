@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { QuestionnaireReport } from "./QuestionnaireReport";
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { QuestionnairePpsAttribution } from "./QuestionnairePpsAttribution";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
@@ -22,7 +22,7 @@ export function QuestionnairePpsReport({ quiz, result, locale }: { quiz: Questio
     <p className="leading-8">{zh ? "三份完整解释均包括高低与混合读法、原创对话、反例、相近比较、实际限制和可选小观察。均分或资料不足都不隐藏正文；只用于本人日常自我观察，不给伴侣、家人或同事诊断，不预测关系命运，也不要求马上对抗或改变必要照顾。" : "All three full guides include higher, lower and mixed readings, original dialogue, counterexamples, comparisons, real constraints and optional small observations. Means or insufficient information never hide the text. Use them for your own everyday reflection, not diagnosis of a partner, relative or colleague, relationship predictions, immediate confrontation or changing necessary care."}</p>
     {quiz.profiles.map(profile => <section key={profile.id} data-pps-profile={profile.id} aria-labelledby={`pps-title-${profile.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
       <h3 id={`pps-title-${profile.id}`} className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
-      <QuestionnaireReport profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一部分的公开说明" : "Read this part’s public guide"}</Link>
     </section>)}
     <QuestionnairePpsAttribution locale={locale} />
