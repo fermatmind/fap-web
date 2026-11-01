@@ -38,6 +38,7 @@ describe("Result-specific bilingual search assets for the four early complete qu
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com"); vi.resetModules();
     const play = await import("@/app/(localized)/[locale]/tests/play/[slug]/results/[portrait]/page");
     const explore = await import("@/app/(localized)/[locale]/tests/explore/[slug]/results/[profile]/page");
+    const { prepareResultProfile } = await import("@/lib/questionnaires/result-content/readings");
     const maps = appendFunSitemapEntries([]);
     try {
       for (const slug of slugs) {
@@ -53,7 +54,14 @@ describe("Result-specific bilingual search assets for the four early complete qu
           expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com${questionnaireGuidePath("en", slug, profile.id)}`, "zh-CN": `https://fermatmind.com${questionnaireGuidePath("zh", slug, profile.id)}` });
           expect(maps.some(e => e.loc === `https://fermatmind.com${path}`)).toBe(true);
           expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]);
-          for (const section of profile.sections) for (const paragraph of section.paragraphs) expect(dom.textContent).toContain(paragraph[locale]);
+          const reading = prepareResultProfile(slug, profile);
+          expect(reading.id).toBe(profile.id); expect(reading.directionIds).toEqual(profile.directionIds);
+          const body = dom.querySelector(`[data-${reading.resultReading!.attribute}-result-reading="${profile.id}"]`);
+          expect(body).not.toBeNull();
+          expect(body!.textContent).toContain(reading.headline[locale]);
+          expect(body!.textContent).toContain(reading.summary[locale]);
+          expect(body!.textContent).toContain(reading.scoreReading[locale]);
+          for (const section of reading.sections) for (const paragraph of section.paragraphs) expect(body!.textContent).toContain(paragraph[locale]);
           const links = Array.from(dom.querySelectorAll("a"), a => a.getAttribute("href"));
           expect(links).toContain(`${questionnairePath(locale, slug)}#take-test`);
           for (const other of quiz.profiles.filter(p => p.id !== profile.id)) expect(links).toContain(questionnaireGuidePath(locale, slug, other.id));
