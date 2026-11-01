@@ -166,3 +166,43 @@ test('Nightly push classification executes the real exact-SHA diff and rejects a
     assert.notEqual(invalid.status, 0); assert.match(invalid.stderr, /Invalid scan baseline/);
   } finally { rmSync(root, {recursive: true, force: true}); }
 });
+
+test('exact-SHA receipt preserves large classification artifacts without process-sized environment values', async () => {
+  const { rmSync } = await import('node:fs');
+  const ci = readFileSync(new URL('../workflows/ci.yml', import.meta.url), 'utf8');
+  const receipt = ci.split('  validation-receipt:\n')[1];
+  assert.match(receipt, /actions\/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131/);
+  assert.match(receipt, /name: trunk-classification-\$\{\{ github\.sha \}\}/);
+  assert.doesNotMatch(receipt, /toJSON\(needs\)|CLASSIFICATION:/);
+  const resultTemplate = receipt.match(/RESULTS: >-\n            ([^\n]+)/)[1];
+  const statuses = {classify: 'success', build: 'success', contracts: 'success', 'browser-tests': 'skipped'};
+  const results = resultTemplate.replace(/\$\{\{ needs\.([\w-]+)\.result \}\}/g, (_, job) => statuses[job]);
+  assert.ok(Buffer.byteLength(results) < 1024);
+  assert.deepEqual(JSON.parse(results), Object.fromEntries(Object.entries(statuses).map(([job, result]) => [job, {result}])));
+  const script = receipt.match(/        run: \|\n([\s\S]*?)\n      - uses:/)[1].replace(/^          /gm, '');
+  const root = mkdtempSync(join(tmpdir(), 'trunk-large-classification-'));
+  const sha = 'a'.repeat(40);
+  const classification = {
+    schema_version: 'fermatmind.trunk-path-classification.v1', candidate_sha: sha,
+    paths: Array.from({length: 2500}, (_, i) => `lib/questionnaires/result-content/${'x'.repeat(64)}-${i}.json`),
+    test_selection: {files: Array.from({length: 1500}, (_, i) => `tests/contracts/${'y'.repeat(64)}-${i}.test.ts`)},
+  };
+  assert.ok(Buffer.byteLength(JSON.stringify(classification)) > 128 * 1024);
+  const file = join(root, 'trunk-path-classification.json');
+  const run = () => spawnSync('bash', ['-c', script], {
+    cwd: root, encoding: 'utf8',
+    env: {...process.env, RESULTS: results, BROWSER_TESTS_REQUIRED: 'false', GITHUB_SHA: sha, GITHUB_RUN_ID: '12345'},
+  });
+  try {
+    writeFileSync(file, JSON.stringify(classification));
+    const valid = run(); assert.equal(valid.status, 0, valid.stderr);
+    const output = JSON.parse(readFileSync(join(root, 'trunk-validation.json'), 'utf8'));
+    assert.equal(output.sha, sha); assert.equal(output.ci_run_id, '12345'); assert.equal(output.result, 'success');
+    assert.deepEqual(output.classification, classification);
+    for (const bad of [{...classification, candidate_sha: 'b'.repeat(40)}, {...classification, schema_version: 'other'}]) {
+      rmSync(join(root, 'trunk-validation.json'), {force: true});
+      writeFileSync(file, JSON.stringify(bad)); assert.notEqual(run().status, 0);
+    }
+    rmSync(file); assert.notEqual(run().status, 0);
+  } finally { rmSync(root, {recursive: true, force: true}); }
+});
