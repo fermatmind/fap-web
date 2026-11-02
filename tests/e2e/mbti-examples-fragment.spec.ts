@@ -9,12 +9,19 @@ test("existing MBTI examples remain the fragment destination after direct load a
   await page.goto("/en/tests/mbti-personality-test-16-personality-types#result-examples");
   const examples = page.getByTestId("mbti-result-examples");
   const top = () => examples.evaluate((node) => node.getBoundingClientRect().top);
-  await page.waitForLoadState("networkidle");
+  const waitForExampleLayout = async () => {
+    await expect(examples).toBeVisible();
+    await page.evaluate(async () => {
+      await document.fonts.ready;
+      await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+    });
+  };
+  await waitForExampleLayout();
   await expect(examples).toContainText("two synthetic examples");
   await expect.poll(top).toBeGreaterThanOrEqual(70);
   await expect.poll(top).toBeLessThan(120);
   await page.reload();
-  await page.waitForLoadState("networkidle");
+  await waitForExampleLayout();
   await expect.poll(top).toBeGreaterThanOrEqual(70);
   await expect.poll(top).toBeLessThan(120);
   await expect(examples.getByRole("article")).toHaveCount(2);
