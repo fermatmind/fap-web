@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { useRef } from "react";
+import { useFragmentNavigation } from "@/hooks/useFragmentNavigation";
 
 const EXAMPLES = [
   {
@@ -18,8 +22,10 @@ const EXAMPLES = [
 ] as const;
 
 export function MbtiResultExamples() {
+  const section = useRef<HTMLElement>(null);
+  useFragmentNavigation(section);
   return (
-    <section id="result-examples" aria-labelledby="mbti-examples-title" data-testid="mbti-result-examples" className="space-y-6">
+    <section ref={section} id="result-examples" aria-labelledby="mbti-examples-title" data-testid="mbti-result-examples" className="space-y-6">
       <h2 id="mbti-examples-title">See a result before you start</h2>
       <p className="m-0 text-sm text-slate-600">
         These two synthetic examples illustrate how to read preference percentages. They are not scored attempts, real user reports, or your result. Both the 93- and 144-question forms use four core preference pairs; the figures below do not demonstrate a difference between the forms or establish that their scores are interchangeable.
