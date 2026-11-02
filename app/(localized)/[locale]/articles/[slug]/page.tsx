@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ArticleByline } from "@/components/articles/ArticleByline";
+import { ArticleFragmentNavigation } from "@/components/articles/ArticleFragmentNavigation";
 import { articleByline } from "@/lib/content/articleByline";
 import { BlogFeedLink } from "@/components/articles/BlogFeedLink";
 import { articleFeedAlternate } from "@/lib/cms/articleFeed";
@@ -465,7 +466,7 @@ export default async function ArticleDetailPage({
       </nav> : null}
 
 
-      <div className="w-full max-w-4xl [&_h2]:scroll-mt-24 [&_h3]:scroll-mt-24 [&_h4]:scroll-mt-24">
+      <ArticleFragmentNavigation key={canonicalPath} className="w-full max-w-4xl [&_h2]:scroll-mt-24 [&_h3]:scroll-mt-24 [&_h4]:scroll-mt-24">
         <article
           id="how-it-works"
           data-testid="article-detail-content"
@@ -485,7 +486,7 @@ export default async function ArticleDetailPage({
             />
           ) : null}
         </article>
-      </div>
+      </ArticleFragmentNavigation>
 
       <AnswerSurfaceSection
         surface={visibleAnswerSurface}

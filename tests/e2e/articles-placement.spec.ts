@@ -61,6 +61,7 @@ type ArticleFixture = {
 };
 
 let mockApiServer: ReturnType<typeof createServer> | null = null;
+let delayFragmentArticle = false;
 
 function articleFixtures(locale: "en" | "zh-CN"): ArticleFixture[] {
   return Object.entries(EXPECTED_PLACEMENT).flatMap(([testSlug, slugs], groupIndex) =>
@@ -153,6 +154,15 @@ function handleMockApiRequest(req: IncomingMessage, res: ServerResponse) {
       return;
     }
 
+    if (delayFragmentArticle && slug === "iq-test-tool-guide") {
+      setTimeout(() => writeJson(res, 200, {
+        ok: true,
+        article: { ...article, content_md: `## Start\n\n${"Read the complete teaching explanation. ".repeat(350)}\n\n## Fragment target\n\nThis is the requested exercise.` },
+        landing_surface_v1: null,
+        answer_surface_v1: null,
+      }), 300);
+      return;
+    }
     writeJson(res, 200, {
       ok: true,
       article,
@@ -208,5 +218,25 @@ test("article detail page renders full mdx body instead of placeholder", async (
     await expect(body.locator("h2").first()).toBeVisible();
 
     await expect(page.getByText("Full markdown rendering is intentionally out of scope")).toHaveCount(0);
+  }
+});
+
+test("delayed article fragments land on the exercise after direct load and refresh", async ({ page }) => {
+  delayFragmentArticle = true;
+  try {
+    for (const locale of ["en", "zh"] as const) {
+      await page.goto(`/${locale}/articles/iq-test-tool-guide#article-body-markdown-block-2`);
+      const target = page.getByRole("heading", { name: "Fragment target", exact: true });
+      const targetTop = () => target.evaluate((node) => node.getBoundingClientRect().top);
+      await expect(target).toBeVisible();
+      await expect.poll(targetTop).toBeGreaterThanOrEqual(0);
+      await expect.poll(targetTop).toBeLessThan(150);
+      await page.reload();
+      await expect(target).toBeVisible();
+      await expect.poll(targetTop).toBeGreaterThanOrEqual(0);
+      await expect.poll(targetTop).toBeLessThan(150);
+    }
+  } finally {
+    delayFragmentArticle = false;
   }
 });
