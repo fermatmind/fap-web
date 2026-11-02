@@ -311,8 +311,12 @@ export function appendSeoCtaContextParamsToHref(href: string, params: SeoCtaCont
     return href;
   }
 
-  const [pathname, rawQuery = ""] = href.split("?");
-  const searchParams = new URLSearchParams(rawQuery);
+  const fragmentIndex = href.indexOf("#");
+  const fragment = fragmentIndex < 0 ? "" : href.slice(fragmentIndex);
+  const hrefWithoutFragment = fragmentIndex < 0 ? href : href.slice(0, fragmentIndex);
+  const queryIndex = hrefWithoutFragment.indexOf("?");
+  const pathname = queryIndex < 0 ? hrefWithoutFragment : hrefWithoutFragment.slice(0, queryIndex);
+  const searchParams = new URLSearchParams(queryIndex < 0 ? "" : hrefWithoutFragment.slice(queryIndex + 1));
 
   for (const key of SEO_CTA_CONTEXT_QUERY_KEYS) {
     const value = normalizedParams[key];
@@ -322,7 +326,7 @@ export function appendSeoCtaContextParamsToHref(href: string, params: SeoCtaCont
   }
 
   const serialized = searchParams.toString();
-  return serialized ? `${pathname}?${serialized}` : pathname;
+  return `${pathname}${serialized ? `?${serialized}` : ""}${fragment}`;
 }
 
 export function buildSeoCtaContextParams({

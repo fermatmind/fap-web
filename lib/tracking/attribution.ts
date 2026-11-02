@@ -452,8 +452,12 @@ export function hasAttributionParams(params: AttributionParams): boolean {
 export function appendAttributionParamsToHref(href: string, params: AttributionParams): string {
   if (!hasAttributionParams(params)) return href;
 
-  const [pathname, rawQuery = ""] = href.split("?");
-  const searchParams = new URLSearchParams(rawQuery);
+  const fragmentIndex = href.indexOf("#");
+  const fragment = fragmentIndex < 0 ? "" : href.slice(fragmentIndex);
+  const hrefWithoutFragment = fragmentIndex < 0 ? href : href.slice(0, fragmentIndex);
+  const queryIndex = hrefWithoutFragment.indexOf("?");
+  const pathname = queryIndex < 0 ? hrefWithoutFragment : hrefWithoutFragment.slice(0, queryIndex);
+  const searchParams = new URLSearchParams(queryIndex < 0 ? "" : hrefWithoutFragment.slice(queryIndex + 1));
 
   for (const key of ATTRIBUTION_QUERY_KEYS) {
     const value = params[key];
@@ -463,7 +467,7 @@ export function appendAttributionParamsToHref(href: string, params: AttributionP
   }
 
   const serialized = searchParams.toString();
-  return serialized ? `${pathname}?${serialized}` : pathname;
+  return `${pathname}${serialized ? `?${serialized}` : ""}${fragment}`;
 }
 
 export function buildTrackingAttributionPayload(

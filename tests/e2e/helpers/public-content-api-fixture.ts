@@ -3,8 +3,8 @@ import fixtures from "../../fixtures/public-content/marketing-public.json";
 
 // Published public API responses captured on 2026-10-11. This fixture never
 // supplies authentication, attempts, orders, or payment success responses.
-export async function startPublicContentApiFixture(): Promise<() => Promise<void>> {
-  const responses = fixtures as Record<string, unknown>;
+export async function startPublicContentApiFixture(overrides: Record<string, unknown> = {}): Promise<() => Promise<void>> {
+  const responses: Record<string, unknown> = { ...fixtures, ...overrides };
   const server = createServer((req, res) => {
     const url = new URL(req.url ?? "/", "http://127.0.0.1:8000");
     const pathname = url.pathname.replace(/^\/api(?=\/)/, "");
@@ -20,7 +20,7 @@ export async function startPublicContentApiFixture(): Promise<() => Promise<void
       }
     }
     const key = pathname === "/v0.5/seo/sitemap-source" ? pathname : `${pathname}?${query}`;
-    const body = req.method === "GET" ? responses[key] : undefined;
+    const body = req.method === "GET" || req.method === "HEAD" ? responses[key] : undefined;
     res.setHeader("content-type", "application/json; charset=utf-8");
     res.setHeader("cache-control", "no-store");
     res.statusCode = body ? 200 : 404;

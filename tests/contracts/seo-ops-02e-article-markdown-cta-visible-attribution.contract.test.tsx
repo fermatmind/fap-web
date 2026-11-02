@@ -66,6 +66,31 @@ describe("SEO-OPS-02E article Markdown CTA visible attribution contract", () => 
     expect(cta.getAttribute("data-seo-original-href")).toBe(testDetailPath);
   });
 
+  it.each(["", "?form=mbti_93"])("preserves the example fragment after CMS attribution with existing query %s", async (query) => {
+    const originalHref = `/en/tests/mbti-personality-test-16-personality-types${query}#result-examples`;
+    render(
+      <AttributedCmsLinkHydrator
+        locale="en"
+        sourceRouteFamily="article_detail"
+        sourceSlug="free-personality-tests-results-compared"
+        sourcePath="/en/articles/free-personality-tests-results-compared"
+        contentId={283}
+      >
+        {renderSimpleMarkdown(`[two synthetic preference examples](${originalHref})`)}
+      </AttributedCmsLinkHydrator>
+    );
+    const link = screen.getByRole("link", { name: "two synthetic preference examples" });
+    await waitFor(() => expect(link.getAttribute("data-seo-cta-attributed")).toBe("true"));
+    const url = new URL(link.getAttribute("href")!, "https://fermatmind.com");
+    expect(url.hash).toBe("#result-examples");
+    expect(url.searchParams.get("utm_source")).toBe("codex_qa");
+    expect(url.searchParams.get("content_id")).toBe("283");
+    expect(url.searchParams.get("source_slug")).toBe("free-personality-tests-results-compared");
+    expect(url.searchParams.get("email")).toBeNull();
+    if (query) expect(url.searchParams.get("form")).toBe("mbti_93");
+    expect(link.getAttribute("data-seo-original-href")).toBe(originalHref);
+  });
+
   it("keeps Markdown non-test links unmodified", async () => {
     render(
       <AttributedCmsLinkHydrator
