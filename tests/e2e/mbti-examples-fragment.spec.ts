@@ -1,10 +1,12 @@
 import { expect, test } from "@playwright/test";
-import { startPublicContentApiFixture } from "./helpers/public-content-api-fixture";
+import { createServer } from "node:http";
+import publicFixtures from "../fixtures/public-content/marketing-public.json";
 
 let stopFixture: (() => Promise<void>) | undefined;
 test.beforeAll(async () => {
   const slug = "free-personality-tests-results-compared";
-  stopFixture = await startPublicContentApiFixture({
+  const responses: Record<string, unknown> = {
+    ...publicFixtures,
     [`/v0.5/articles/${slug}?locale=en`]: {
       ok: true,
       article: {
@@ -14,6 +16,28 @@ test.beforeAll(async () => {
       },
       landing_surface_v1: null, answer_surface_v1: null,
     },
+  };
+  const server = createServer((req, res) => {
+    const url = new URL(req.url ?? "/", "http://127.0.0.1:8000");
+    const pathname = url.pathname.replace(/^\/api(?=\/)/, "");
+    const locale = url.searchParams.get("locale")?.startsWith("zh") ? "zh-CN" : "en";
+    const query = new URLSearchParams();
+    if (pathname.endsWith("/lookup")) query.set("slug", url.searchParams.get("slug") ?? "");
+    query.set("locale", locale);
+    if (pathname.includes("/landing-surfaces/")) query.set("org_id", "0");
+    const body = req.method === "GET" || req.method === "HEAD" ? responses[`${pathname}?${query}`] : undefined;
+    res.setHeader("content-type", "application/json; charset=utf-8");
+    res.setHeader("cache-control", "no-store");
+    res.statusCode = body ? 200 : 404;
+    res.end(JSON.stringify(body ?? { ok: false, error_code: "UNMOCKED_PUBLIC_REQUEST" }));
+  });
+  await new Promise<void>((resolve, reject) => {
+    server.once("error", reject);
+    server.listen(8000, "127.0.0.1", () => { server.off("error", reject); resolve(); });
+  });
+  stopFixture = () => new Promise<void>((resolve, reject) => {
+    server.close((error) => error ? reject(error) : resolve());
+    server.closeIdleConnections();
   });
 });
 test.afterAll(async () => { await stopFixture?.(); });
