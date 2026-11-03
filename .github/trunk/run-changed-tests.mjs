@@ -49,7 +49,12 @@ export function changedTestPlan(changes, {vitest=false,root=process.cwd()}={}) {
  if(plan.unsupported.length)throw new Error(`Unsupported changed tests: ${plan.unsupported.join(',')}`);
  return plan;
 }
-export function runChangedTests(plan,{mode='legacy',root='.',run=(cmd,args,options)=>spawnSync(cmd,args,options)}={}){
+// Keep small browser changes on one runner; bound large selections to eight
+// native Playwright case shards in each existing server-mode matrix.
+export function browserShardNumbers(files) {
+ return Array.from({length:Math.min(8,Math.max(1,Math.ceil(files.length/12)))},(_,i)=>i+1);
+}
+export function runChangedTests(plan,{mode='legacy',root='.',browserShard=process.env.PLAYWRIGHT_SHARD,run=(cmd,args,options)=>spawnSync(cmd,args,options)}={}){
  const calls=[];const execute=(cmd,args,cwd)=>{
   const env={...process.env}; delete env.NODE_TEST_CONTEXT;
   const result=run(cmd,args,{cwd:root==='.'?cwd:`${root}/${cwd}`,env,stdio:'inherit',shell:false});calls.push({command:cmd,args,status:result.status});
@@ -69,7 +74,14 @@ sys.exit(0 if unittest.TextTestRunner().run(suite).wasSuccessful() else 1)`,path
  if(mode==='e2e'||mode==='e2e-release'){
   // The changed-file plan is already bounded. Every selected scenario must
   // execute against production too, including files without an @release tag.
-  if(plan.e2e.length)execute('pnpm',['exec','playwright','test',...plan.e2e],'.');
+  const args=['exec','playwright','test',...plan.e2e];
+  if(browserShard!==undefined){
+   const match=/^([1-8])\/([1-8])$/.exec(browserShard);
+   if(!match || +match[1]>+match[2] || +match[2]!==browserShardNumbers(plan.e2e).length)throw new Error('CHANGED_BROWSER_SHARD_BINDING_HOLD');
+   args.push(`--shard=${browserShard}`);
+   if(+match[2]>1)args.push('--fully-parallel','--workers=2');
+  }
+  if(plan.e2e.length)execute('pnpm',args,'.');
  }else if(mode!=='legacy')throw new Error('UNKNOWN_CHANGED_TEST_MODE');
  if(mode==='legacy'&&plan.php.length)execute('php',['artisan','test',...plan.php.map(p=>p.replace(/^backend\//,'')),'--no-ansi'],'backend');
  return calls;

@@ -29,6 +29,8 @@ jobs:
       classification: ${{ steps.classify.outputs.classification }}
       contracts_required: ${{ steps.classify.outputs.contracts_required }}
       shards: ${{ steps.classify.outputs.shards }}
+      browser_shards: ${{ steps.classify.outputs.browser_shards }}
+      browser_shard_count: ${{ steps.classify.outputs.browser_shard_count }}
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
         with:
@@ -53,6 +55,13 @@ jobs:
           node .github/trunk/classify-release.mjs > trunk-path-classification.json
           base_sha="$(jq -r .scope.validation_base_sha trunk-path-classification.json)"
           compact="$(jq -c . trunk-path-classification.json)"
+          browser_shards="$(node --input-type=module -e '
+            import {readFileSync,existsSync} from "node:fs";
+            import {changedTestPlan,browserShardNumbers} from "./.github/trunk/run-changed-tests.mjs";
+            const classification=JSON.parse(readFileSync("trunk-path-classification.json","utf8"));
+            const plan=changedTestPlan(classification.paths.map(path=>({status:existsSync(path)?"M":"D",path})),{vitest:true});
+            process.stdout.write(JSON.stringify(browserShardNumbers(plan.e2e)));
+          ')"
           {
             echo "base_sha=$base_sha"
             echo "deploy=$(jq -r .deploy trunk-path-classification.json)"
@@ -63,6 +72,8 @@ jobs:
             echo "tests_changed=$(jq -r .tests_changed trunk-path-classification.json)"
             echo "contracts_required=$(jq -r .test_selection.contracts_required trunk-path-classification.json)"
             echo "shards=$(jq -c .test_selection.shards trunk-path-classification.json)"
+            echo "browser_shards=$browser_shards"
+            echo "browser_shard_count=$(jq length <<< "$browser_shards")"
             echo "classification=$compact"
           } >> "$GITHUB_OUTPUT"
       - run: node --test .github/trunk/*.test.mjs
@@ -271,7 +282,7 @@ jobs:
   # Fixture browsers run in separate workspaces after fast contract/package checks.
   # Their local API does not hold the serialized production API build lane.
   browser-tests:
-    name: browser-${{ matrix.server_mode }}
+    name: browser-${{ matrix.server_mode }}-${{ matrix.shard }}
     needs: [classify, build, contracts]
     if: ${{ !cancelled() && needs.classify.result == 'success' && needs.build.result == 'success' && needs.contracts.result == 'success' && contains(needs.classify.outputs.classification, 'tests/e2e/') }}
     runs-on: ubuntu-24.04
@@ -280,9 +291,11 @@ jobs:
       fail-fast: true
       matrix:
         server_mode: [default, production]
+        shard: ${{ fromJSON(needs.classify.outputs.browser_shards) }}
     env:
       NEXT_PUBLIC_API_URL: http://127.0.0.1:8000
       PLAYWRIGHT_SERVER_MODE: ${{ matrix.server_mode }}
+      PLAYWRIGHT_SHARD: ${{ matrix.shard }}/${{ needs.classify.outputs.browser_shard_count }}
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
         with:

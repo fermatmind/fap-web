@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {changedTestPlan,runChangedTests} from './run-changed-tests.mjs';
+import {changedTestPlan,runChangedTests,browserShardNumbers} from './run-changed-tests.mjs';
 test('localized assessment modules are product routes while named and nested tests remain selected',()=>{
  const route='app/(localized)/[locale]/tests/[slug]/take/';
  const contract='tests/contracts/big5-take-attempt-priming.contract.test.tsx';
@@ -126,4 +126,18 @@ test('assessment CSS assets are product code while named and nested CSS tests re
  for(const path of ['components/tests/explore.test.css','components/tests/__tests__/explore.css','components/tests/tests/explore.css']){
   assert.throws(()=>changedTestPlan([{status:'A',path}],{vitest:true}),/Unsupported changed tests/);
  }
+});
+
+test('large browser selections preserve all files in bounded native case shards and reject incomplete matrices',()=>{
+ const files=Array.from({length:87},(_,i)=>`tests/e2e/product-${i}.spec.ts`);
+ const plan=changedTestPlan([],{vitest:true});plan.e2e=files;
+ assert.deepEqual(browserShardNumbers(files),[1,2,3,4,5,6,7,8]);
+ assert.deepEqual(browserShardNumbers(files.slice(0,1)),[1]);
+ for(const mode of ['e2e','e2e-release'])for(let shard=1;shard<=8;shard++){
+  const calls=runChangedTests(plan,{mode,browserShard:`${shard}/8`,run:()=>({status:0})});
+  assert.deepEqual(calls[0].args,['exec','playwright','test',...files,`--shard=${shard}/8`,'--fully-parallel','--workers=2']);
+ }
+ for(const browserShard of ['0/8','9/8','1/4','1/9','../8',''])assert.throws(()=>runChangedTests(plan,{mode:'e2e',browserShard,run:()=>{throw Error('must not run');}}),/CHANGED_BROWSER_SHARD_BINDING_HOLD/);
+ const small={...plan,e2e:files.slice(0,1)};
+ assert.deepEqual(runChangedTests(small,{mode:'e2e',browserShard:'1/1',run:()=>({status:0})})[0].args,['exec','playwright','test',files[0],'--shard=1/1']);
 });
