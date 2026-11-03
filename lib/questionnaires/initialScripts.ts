@@ -5,6 +5,7 @@ type Tool = "disc" | "cognitive-functions-test";
 
 /** Read the installed build, never a saved list of hashed asset names. */
 export function initialQuestionnaireScripts(tool: Tool, root = process.cwd()): string[] {
+  if (process.env.NODE_ENV !== "production") return [];
   try {
     if (tool !== "disc" && tool !== "cognitive-functions-test") return [];
     const build = JSON.parse(readFileSync(join(root, ".next/build-manifest.json"), "utf8"));

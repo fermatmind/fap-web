@@ -1,11 +1,12 @@
 import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { initialQuestionnaireScripts } from "@/lib/questionnaires/initialScripts";
 
 const roots: string[] = [];
-afterEach(() => { for (const root of roots.splice(0)) rmSync(root, { recursive: true }); });
+beforeEach(() => { vi.stubEnv("NODE_ENV", "production"); });
+afterEach(() => { vi.unstubAllEnvs(); for (const root of roots.splice(0)) rmSync(root, { recursive: true }); });
 
 function build(chunks: unknown[] = ["/_next/static/chunks/current-tool.js"]) {
   const root = mkdtempSync(join(tmpdir(), "questionnaire-entry-scripts-")); roots.push(root);
@@ -22,6 +23,11 @@ function build(chunks: unknown[] = ["/_next/static/chunks/current-tool.js"]) {
 }
 
 describe("Initial questionnaire script hints", () => {
+  it.each(["development", "test"])("never uses a stale production manifest in %s", mode => {
+    const root = build();
+    vi.stubEnv("NODE_ENV", mode);
+    expect(initialQuestionnaireScripts("disc", root)).toEqual([]);
+  });
   it("keeps every SSR dependency, including the global error bootstrap, and deduplicates chunks", () => {
     expect(initialQuestionnaireScripts("disc", build(["/_next/static/chunks/current-tool.js", "/_next/static/chunks/bootstrap.js"]))).toEqual(["/_next/static/chunks/bootstrap.js", "/_next/static/chunks/current-tool.js", "/_next/static/chunks/error-document.js"]);
   });
