@@ -29,7 +29,8 @@ describe("private result print chrome contract", () => {
     expect(localizedLayout).toContain('data-pdf-snapshot-shell={useResultPrintSnapshotShell ? "true" : undefined}');
     expect(localizedLayout).toContain("{useResultPrintSnapshotShell ? (");
     expect(localizedLayout).toContain("<SiteChrome locale={resolvedLocale} productPriority={productPriority}>{children}</SiteChrome>");
-    expect(localizedLayout).toContain("<CookieBanner />");
+    expect(localizedLayout).toContain("<DeferredCookieBanner locale={resolvedLocale} />");
+    expect(read("components/legal/DeferredCookieBanner.tsx")).toContain('import("./CookieBanner")');
     expect(globals).toContain("@media print");
     expect(globals).toContain('body:has([data-private-result-print-root="true"]) [data-private-result-print-hidden="true"]');
     expect(globals).toContain('body:has([data-private-result-print-root="true"]) :is(');
