@@ -23,11 +23,16 @@ function jobBlock(start: string, end?: string): string {
 }
 
 describe("CI contract timeout budget", () => {
-  it("gives each contract matrix child enough time while keeping the aggregate small", () => {
+  it("reserves setup time outside the unchanged contract execution limit", () => {
     const shards = jobBlock("contract-shards", "contracts");
     const contracts = jobBlock("contracts", "validation-receipt");
 
-    expect(shards).toContain("timeout-minutes: 10");
+    expect(shards).toContain("timeout-minutes: 20");
+    const executionLimit = execFileSync(process.execPath, [
+      "--input-type=module", "-e",
+      "import {parseArgs} from './scripts/testing/run-contract-shards.mjs'; console.log(parseArgs([]).timeoutMs);",
+    ], { encoding: "utf8", env: { ...process.env, CONTRACT_SHARD_TIMEOUT_MS: "" } });
+    expect(Number(executionLimit.trim())).toBe(600_000);
     expect(shards).toContain("pnpm test:contract -- --shards=4 --only-shard=${{ matrix.shard }}");
     expect(contracts).toContain("timeout-minutes: 2");
   });
@@ -35,7 +40,7 @@ describe("CI contract timeout budget", () => {
   it("keeps builds and consolidated consumer installs bounded", () => {
     expect(jobBlock("build", "contract-shards")).toContain("timeout-minutes: 20");
     const shards = jobBlock("contract-shards", "contracts");
-    expect(shards).toContain("timeout-minutes: 10");
+    expect(shards).toContain("timeout-minutes: 20");
     expect(shards).toContain(".github/trunk/install-dependencies.sh && pnpm test:contract");
     expect(shards).toContain("--selection-input=trunk-path-classification.json");
   });
