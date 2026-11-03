@@ -31,8 +31,8 @@ export function changedTestPlan(changes, {vitest=false,root=process.cwd()}={}) {
  for(const {status,path} of changes){
   // Assessment routes, components, and helpers are product code; named/nested tests remain fail-closed.
   const productRoot=['app/(localized)/[locale]/tests/','app/(localized)/[locale]/career/tests/','components/tests/','components/marketing/tests/','lib/tests/'].find(root=>path.startsWith(root));
-  if(productRoot && /\.[jt]sx?$/.test(path)
-    && !/(?:^|\/)(?:tests?|__tests__)\/|\.test\.[cm]?[jt]sx?$/.test(path.slice(productRoot.length)))continue;
+  if(productRoot && /\.(?:[jt]sx?|css)$/.test(path)
+    && !/(?:^|\/)(?:tests?|__tests__)\/|\.test\.(?:[cm]?[jt]sx?|css)$/.test(path.slice(productRoot.length)))continue;
   if(!/(?:^|\/)(?:tests?|__tests__)\/|(?:Test\.php|\.test\.[cm]?[jt]sx?|(?:test_[^/]+|[^/]+_test)\.(?:py|sh))$/.test(path))continue;
   if(/(?:fixtures|snapshots)\//.test(path)||/\.(?:json|md|xml|yaml|yml|snap|csv|png)$/.test(path))continue;
   if(status==='D'){plan.removed.push(path);continue;}

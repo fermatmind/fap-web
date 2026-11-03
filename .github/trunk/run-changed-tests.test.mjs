@@ -117,3 +117,13 @@ test('filenames stay individual argv and never execute shell metacharacters',()=
   assert.throws(()=>runChangedTests(plan,{root}),/execution failed/);
  }finally{rmSync(root,{recursive:true,force:true});}
 });
+
+
+test('assessment CSS assets are product code while named and nested CSS tests remain fail-closed',()=>{
+ const assets=['components/tests/explore-hero.css','components/tests/explore-landing.css','components/tests/tests-catalog.css','components/tests/tests-design.css'];
+ const plan=changedTestPlan(assets.map(path=>({status:'M',path})),{vitest:true});
+ for(const paths of Object.values(plan))assert.deepEqual(paths,[]);
+ for(const path of ['components/tests/explore.test.css','components/tests/__tests__/explore.css','components/tests/tests/explore.css']){
+  assert.throws(()=>changedTestPlan([{status:'A',path}],{vitest:true}),/Unsupported changed tests/);
+ }
+});
