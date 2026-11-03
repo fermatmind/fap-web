@@ -1022,7 +1022,7 @@ if (quiz.slug === "outfit-line-preferences") return <OutfitLinePreferencesClient
 if (quiz.slug === "attraction-experiences") return <AttractionExperiencesClient key={`${slug}:${locale}`} quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
 if (quiz.slug === "dark-tetrad-sd4") return <QuestionnaireSd4Client key={`${slug}:${locale}`} quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
 if (quiz.slug === "dark-triad") return <QuestionnaireDarkTriadClient key={`${slug}:${locale}`} quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
-return <QuestionnaireClient quiz={quiz} locale={locale} {...resultReadingProps} />;
+return <QuestionnaireClient quiz={Object.keys(resultReadingProps).length ? quiz : prepareQuestionnaireResultReadings(quiz)} locale={locale} {...resultReadingProps} />;
 })()}
     </ExploreTestIntro>
     {quiz.kind === "fscrs22" && <QuestionnaireFscrs22Attribution quiz={quiz} locale={locale} />}

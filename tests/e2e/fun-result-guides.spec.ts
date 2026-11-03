@@ -1,11 +1,41 @@
 import { test, expect } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import path from "node:path";
+import type { Questionnaire } from "../../lib/questionnaires/types";
 import type { FunQuiz } from "../../lib/entertainment/types";
 import { resultSlug } from "../../lib/entertainment/guides";
 
 for (const locale of ["en", "zh"] as const) for (const slug of ["date-plan-detour", "desert-oasis", "desk-reset", "dinner-host", "dragon-housemate", "dream-train", "enchanted-library", "escape-room-role", "fantasy-party-role", "festival-companion", "fictional-cafe", "firefly-evening", "floating-house", "festival-mask", "forest-soundtrack", "friendship-invitation", "game-night-reset", "garden-season", "gift-note", "group-chat-role", "harbor-light", "creative-spark", "cozy-object", "compliment-style", "community-fair", "comfort-offer", "coffee-break", "cloud-drift", "city-wanderer", "choosing-together", "celebration-planner", "celebrating-a-friend", "campfire-storyteller", "camera-roll", "browser-tabs", "borrowed-book", "board-game-table", "birdwatching-companion", "beachcomber", "woodland-animal", "house-of-doors", "relationship-values"]) {
   test(`@release public guide ${locale}/${slug}: full asset, rules, peer, quiz and result return`, async ({ page }) => {
+    // This identity now uses the native 24-item paired questionnaire at its
+    // existing play URL. Check that authority rather than the retired story.
+    if (slug === "relationship-values") {
+      const native = JSON.parse(readFileSync("lib/questionnaires/data/relationship-values.json", "utf8")) as Questionnaire;
+      const profile = native.profiles[0], peer = native.profiles[1];
+      const entry = `/${locale}/tests/play/${slug}`, route = `${entry}/results/${profile.id}`;
+      await page.setViewportSize({ width: 390, height: 844 });
+      expect((await page.goto(route))?.status()).toBe(200);
+      await expect(page.getByRole("heading", { level: 1 })).toHaveText(profile.title[locale]);
+      await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${route}`);
+      await expect(page.locator('link[rel="alternate"][hreflang="zh-CN"]')).toHaveAttribute("href", `https://fermatmind.com/zh/tests/play/${slug}/results/${profile.id}`);
+      await expect(page.getByRole("main")).toHaveCount(1);
+      for (const section of profile.sections) for (const paragraph of section.paragraphs)
+        await expect(page.locator(`#report-${section.id}`)).toContainText(paragraph[locale]);
+      await page.locator(`a[href="${entry}/results/${peer.id}"]`).click();
+      await expect(page.getByRole("heading", { level: 1 })).toHaveText(peer.title[locale]);
+      await page.locator(`a[href="${entry}#take-test"]`).last().click();
+      await page.locator("[data-explore-start]").click();
+      for (const [i, q] of native.questions.entries()) {
+        const option = q.options.find(o => o.directionId === profile.directionIds[0]) ?? q.options[0];
+        await page.locator(`input[name="${q.id}"][value="${option.id}"]`).check();
+        await page.getByRole("button", {name:i === native.questions.length-1 ? (locale === "zh" ? "查看完整结果" : "See full result") : (locale === "zh" ? "下一题" : "Next"),exact:true}).click();
+      }
+      await expect(page.getByRole("heading",{level:2,name:profile.title[locale],exact:true})).toBeVisible();
+      await page.getByRole("link",{name:locale === "zh" ? "阅读这项结果的公开说明" : "Read the public explanation of this result",exact:true}).click();
+      await expect(page).toHaveURL(new RegExp(`/results/${profile.id}$`));
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+      return;
+    }
     const quiz = JSON.parse(readFileSync(path.join(process.cwd(), "lib/entertainment/data", `${slug}.json`), "utf8")) as FunQuiz;
     const result = quiz.results[0], zh = locale === "zh";
     await page.setViewportSize({ width: 390, height: 844 });

@@ -1,7 +1,9 @@
 import { expect, test, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
+import { tipiResultProfile } from "../../lib/questionnaires/result-content/tipi-10";
 import type { Questionnaire } from "../../lib/questionnaires/types";
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/tipi-10.json", "utf8")) as Questionnaire;
+const profiles = quiz.profiles.map(tipiResultProfile);
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem("fm_consent_v1", JSON.stringify({ analytics: "denied", updatedAt: new Date().toISOString() })));
 });
@@ -17,7 +19,7 @@ async function finish(page: Page, zh: boolean, keyed: 4 | 7) {
   await expect(page.locator("[data-tipi10-item]")).toHaveCount(10);
   await expect(page.locator("[data-tipi10-result] h4")).toHaveCount(40);
   for (const mean of await page.locator("[data-tipi10-mean]").all()) await expect(mean).toContainText(`${keyed}.00 / 7`);
-  for (const p of quiz.profiles) for (const s of p.sections) for (const text of s.paragraphs) await expect(page.locator("[data-tipi10-result]")).toContainText(text[zh ? "zh" : "en"]);
+  for (const p of profiles) for (const s of p.sections) for (const text of s.paragraphs) await expect(page.locator("[data-tipi10-result]")).toContainText(text[zh ? "zh" : "en"]);
   expect(new URL(page.url()).search).toBe("");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:tipi-10"))).toBeNull();
@@ -59,7 +61,7 @@ for (const locale of ["en", "zh"] as const) {
   });
 }
 test("@release tipi-10: all12 native pages, full bodies, canonical pairs, private-free OG and invalid identities", async ({ page, request }) => {
-  for (const locale of ["en", "zh"] as const) for (const profile of [null, ...quiz.profiles]) {
+  for (const locale of ["en", "zh"] as const) for (const profile of [null, ...profiles]) {
     const path = `/${locale}/tests/explore/${quiz.slug}${profile ? `/results/${profile.id}` : ""}`;
     expect((await page.goto(path))?.status()).toBe(200);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText((profile?.title ?? quiz.title)[locale]);

@@ -1,7 +1,6 @@
 import { test, expect, type Page } from "@playwright/test";
 import nativeCatalog from "../../lib/questionnaires/catalog.json";
 import catalog from "../../lib/entertainment/catalog.json";
-import { isDirectoryQuiz } from "../../lib/entertainment/directory";
 
 // Complete native replacements are exercised by their source-specific questionnaire suites.
 const samples = ["date-plan-detour", "desert-oasis", "desk-reset", "dinner-host", "dragon-housemate", "creative-spark", "cozy-object", "compliment-style", "community-fair", "coffee-break", "cloud-drift", "city-wanderer", "celebration-planner", "celebrating-a-friend", "campfire-storyteller", "camera-roll", "browser-tabs", "borrowed-book", "birdwatching-companion", "beachcomber", "woodland-animal", "group-chat-role", "fantasy-party-role", "festival-companion", "lost-letter-adventure", "portal-choice", "spell-school-elective", "island-day", "snow-day", "response-color", "dream-train", "enchanted-library", "board-game-table", "escape-room-role", "photo-group-role", "game-night-reset", "garden-season", "gift-note", "comfort-offer", "relationship-values", "choosing-together", "note-taking-doodles", "fictional-cafe", "firefly-evening", "floating-house", "festival-mask", "forest-soundtrack", "friendship-invitation", "house-of-doors", "harbor-light", "pocket-map", "story-ending"].filter(slug => !nativeCatalog.some(native => native.slug === slug));
@@ -106,8 +105,7 @@ test("@release public hub initial HTML links, failure state and invalid identity
     const html = await response.text();
     for (const card of catalog) {
       const link = `href="/${locale}/tests/play/${card.slug}"`;
-      if (isDirectoryQuiz(card.slug)) expect(html).toContain(link);
-      else expect(html).not.toContain(link);
+      expect(html.includes(link), link).toBe(true);
     }
   }
   const response = await page.goto("/en/tests/play/not-a-real-quiz");
