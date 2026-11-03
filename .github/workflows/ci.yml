@@ -315,7 +315,8 @@ jobs:
     needs: classify
     if: needs.classify.outputs.contracts_required == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # Include checkout/toolchain setup before the runner's unchanged 10-minute test limit.
+    timeout-minutes: 20
     strategy:
       fail-fast: false
       matrix:
