@@ -21,6 +21,8 @@ describe("Focused questionnaire document priority", () => {
     { path: "/en/tests/explore/disc", method: "GET", headers: { accept: "application/json" } },
     { path: "/en/tests/explore/disc/results/single-d", method: "GET", headers: { accept: "text/html" } },
     { path: "/en/tests/explore/career-match", method: "GET", headers: { accept: "text/html" } },
+    { path: "/en/result/00000000-0000-4000-8000-000000000001?surface=mbti.result_page_snapshot.v4", method: "GET", headers: { accept: "text/html" } },
+    { path: "/zh/result/00000000-0000-4000-8000-000000000001?surface=mbti.result_page_snapshot.v4", method: "GET", headers: { accept: "text/html" } },
   ];
   it.each(excludedRequests)("leaves non-target requests on their existing loader: $path $method", async ({ path, method, headers }) => {
     const response = await proxy(new NextRequest(`https://fermatmind.com${path}`, { method, headers }));
