@@ -111,7 +111,7 @@ describe("T184 CBI two complete source modules with working Chinese, source mini
 
   it("offerssourcehealth/worksupportandstopwithoutagenericMBTIrecommendation", () => {
     for (const locale of ["en", "zh"] as const) { const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireCbiNextSteps locale={locale} />); expect(dom.querySelector("[data-cbi-next-steps]")).not.toBeNull(); expect(dom.querySelector('a[href="https://www.nhs.uk/symptoms/tiredness-and-fatigue/"]')).not.toBeNull(); expect(dom.querySelector('a[href="https://www.who.int/news-room/fact-sheets/detail/mental-health-at-work"]')).not.toBeNull(); expect(dom.querySelector(`a[href="/${locale}/tests#more-tests"]`)).not.toBeNull(); expect(dom.textContent).not.toMatch(/MBTI/); }
-    const client = readFileSync("components/questionnaires/QuestionnaireRunner.tsx", "utf8"); expect(client).toContain("QuestionnaireCbiNextSteps");
+    const client = readFileSync("components/questionnaires/QuestionnaireReports.tsx", "utf8"); expect(client).toContain("QuestionnaireCbiNextSteps");
   });
 
   it("publishes6completenativepageswithvisibleattribution,sourceformatmethod,canonicalpairsandpubliconlyguides", async () => {

@@ -2,10 +2,6 @@
   "native": [
     {
       "slug": "disc",
-      "title": {
-        "zh": "DISC测试",
-        "en": "DISC Personality Test"
-      },
       "collection": "explore",
       "code": "DISC_BEHAVIOR",
       "formCode": "disc_behavior_forced_choice_24",
@@ -29,10 +25,6 @@
     },
     {
       "slug": "response-color",
-      "title": {
-        "zh": "色彩性格测试",
-        "en": "Color Personality Test"
-      },
       "collection": "play",
       "code": "PERSONALITY_COLOR",
       "formCode": "personality_color_forced_choice_24",
@@ -56,10 +48,6 @@
     },
     {
       "slug": "social-battery-test",
-      "title": {
-        "zh": "社交电量测试",
-        "en": "Social Battery Test"
-      },
       "collection": "explore",
       "code": "SOCIAL_BATTERY",
       "formCode": "fm_social_battery_context_20",
@@ -72,10 +60,6 @@
     },
     {
       "slug": "spirit-animal",
-      "title": {
-        "zh": "精神动物测试",
-        "en": "Spirit Animal Test"
-      },
       "collection": "explore",
       "code": "SPIRIT_ANIMAL",
       "formCode": "fm_spirit_animal_choices_16",
@@ -93,10 +77,6 @@
     },
     {
       "slug": "flower",
-      "title": {
-        "zh": "花朵人格测试",
-        "en": "What Flower Am I?"
-      },
       "collection": "explore",
       "code": "FLOWER_PERSONALITY",
       "formCode": "fm_flower_expression_18",
@@ -111,10 +91,6 @@
     },
     {
       "slug": "what-dog-breed-am-i",
-      "title": {
-        "zh": "犬系人格测试",
-        "en": "What Dog Breed Am I?"
-      },
       "collection": "explore",
       "code": "DOG_BREED_PERSONALITY",
       "formCode": "fm_dog_companion_choices_12",
@@ -129,10 +105,6 @@
     },
     {
       "slug": "mythical-creature",
-      "title": {
-        "zh": "神话生物测试",
-        "en": "What Mythical Creature Are You?"
-      },
       "collection": "explore",
       "code": "MYTHICAL_CREATURE",
       "formCode": "fm_mythical_creative_choices_18",
@@ -147,10 +119,6 @@
     },
     {
       "slug": "superpower-test",
-      "title": {
-        "zh": "超能力测试",
-        "en": "Superpower Test"
-      },
       "collection": "explore",
       "code": "SUPERPOWER",
       "formCode": "fm_superpower_choices_20",
@@ -164,10 +132,6 @@
     },
     {
       "slug": "moral-alignment",
-      "title": {
-        "zh": "道德阵营测试",
-        "en": "Moral Alignment Test"
-      },
       "collection": "explore",
       "code": "MORAL_ALIGNMENT",
       "formCode": "fm_moral_alignment_choices_24",
@@ -185,10 +149,6 @@
     },
     {
       "slug": "jungian-archetype",
-      "title": {
-        "zh": "荣格原型测试",
-        "en": "Jungian Archetype Test"
-      },
       "collection": "explore",
       "code": "JUNGIAN_ARCHETYPE",
       "formCode": "fm_archetypal_motivation_choices_36",
@@ -209,10 +169,6 @@
     },
     {
       "slug": "introvert-extrovert",
-      "title": {
-        "zh": "内向还是外向测试",
-        "en": "Introvert or Extrovert Test"
-      },
       "collection": "explore",
       "code": "IPIP_EXTRAVERSION_10",
       "formCode": "ipip_bfm_extraversion_10_web",
@@ -225,10 +181,6 @@
     },
     {
       "slug": "temperament",
-      "title": {
-        "zh": "气质测试",
-        "en": "Temperament Test"
-      },
       "collection": "explore",
       "code": "CLASSICAL_TEMPERAMENT",
       "formCode": "fm_classical_temperament_choices_24",
@@ -241,10 +193,6 @@
     },
     {
       "slug": "love-languages",
-      "title": {
-        "zh": "五种爱的语言测试",
-        "en": "Love Language Test"
-      },
       "collection": "explore",
       "code": "LOVE_LANGUAGE_REFLECTION_50",
       "formCode": "fm_love_languages_bidirectional_mean_50",
@@ -258,10 +206,6 @@
     },
     {
       "slug": "attachment-styles",
-      "title": {
-        "zh": "依恋风格测试",
-        "en": "Attachment Style Quiz"
-      },
       "collection": "explore",
       "code": "ATTACHMENT_REFLECTION_24",
       "formCode": "fm_attachment_context_frequency_24",
@@ -274,10 +218,6 @@
     },
     {
       "slug": "communication-style",
-      "title": {
-        "zh": "沟通风格测试",
-        "en": "Communication Style Test"
-      },
       "collection": "explore",
       "code": "COMMUNICATION_STYLES",
       "formCode": "fm_communication_patterns_frequency_24",
@@ -290,10 +230,6 @@
     },
     {
       "slug": "leadership-style",
-      "title": {
-        "zh": "领导风格测试",
-        "en": "Leadership Style Test"
-      },
       "collection": "explore",
       "code": "LEADERSHIP_APPROACHES",
       "formCode": "fm_leadership_approach_choices_24",
@@ -306,10 +242,6 @@
     },
     {
       "slug": "humor-style-test",
-      "title": {
-        "zh": "幽默风格测试",
-        "en": "Humor Style Test"
-      },
       "collection": "explore",
       "code": "HUMOR_EXPRESSIONS",
       "formCode": "fm_humor_expressions_frequency_24",
@@ -324,10 +256,6 @@
     },
     {
       "slug": "travel-personality-test",
-      "title": {
-        "zh": "旅行性格类型测试",
-        "en": "Travel Personality Type Test"
-      },
       "collection": "explore",
       "code": "TRAVEL_PREFERENCES",
       "formCode": "fm_travel_preference_choices_18",
@@ -342,10 +270,6 @@
     },
     {
       "slug": "aesthetic-core-test",
-      "title": {
-        "zh": "美学核心测试",
-        "en": "What Is My Aesthetic?"
-      },
       "collection": "explore",
       "code": "AESTHETIC_VISUAL_PREFERENCES",
       "formCode": "fm_aesthetic_visual_choices_18",
@@ -360,10 +284,6 @@
     },
     {
       "slug": "music-taste-test",
-      "title": {
-        "zh": "音乐品味测试",
-        "en": "Music Taste Test"
-      },
       "collection": "explore",
       "code": "MUSIC_PREFERENCES",
       "formCode": "fm_music_preferences_liking_24",
@@ -380,10 +300,6 @@
     },
     {
       "slug": "people-pleaser",
-      "title": {
-        "zh": "讨好型人格测试",
-        "en": "People Pleaser Test"
-      },
       "collection": "explore",
       "code": "PPS_PEOPLE_PLEASING",
       "formCode": "fm_pps_2026_en_zh_10",
@@ -395,10 +311,6 @@
     },
     {
       "slug": "difficult-person-test",
-      "title": {
-        "zh": "难相处人格测试",
-        "en": "Difficult Person Test"
-      },
       "collection": "explore",
       "code": "INTERPERSONAL_FRICTION",
       "formCode": "fm_interpersonal_friction_frequency_28",
@@ -414,10 +326,6 @@
     },
     {
       "slug": "likable-person-test",
-      "title": {
-        "zh": "讨人喜欢测试：互动贡献线索",
-        "en": "Likable Person Test: Interaction Choices"
-      },
       "collection": "explore",
       "code": "LIKED_REASON",
       "formCode": "liked_reason_forced_choice_20",
@@ -457,10 +365,6 @@
     },
     {
       "slug": "procrastinator-type-test",
-      "title": {
-        "zh": "拖延者类型测试",
-        "en": "Procrastination Patterns Test"
-      },
       "collection": "explore",
       "code": "PROCRASTINATION_PATTERNS",
       "formCode": "fm_procrastination_patterns_frequency_24",
@@ -475,10 +379,6 @@
     },
     {
       "slug": "learning-style",
-      "title": {
-        "zh": "学习风格测试",
-        "en": "Learning Style Test"
-      },
       "collection": "explore",
       "code": "LEARNING_FORMAT_PREFERENCES",
       "formCode": "fm_learning_format_preferences_20",
@@ -491,10 +391,6 @@
     },
     {
       "slug": "character-strengths",
-      "title": {
-        "zh": "性格优势测试",
-        "en": "Character Strengths Test"
-      },
       "collection": "explore",
       "code": "IPIP_VIA_R_96",
       "formCode": "ipip_via_r_96_fm_zh_trial_1",
@@ -527,10 +423,6 @@
     },
     {
       "slug": "tsundere-dere-type",
-      "title": {
-        "zh": "傲娇类型测试",
-        "en": "Dere Type Quiz"
-      },
       "collection": "explore",
       "code": "DERE_STYLE_PLAY",
       "formCode": "fm_dere_style_scenarios_16",
@@ -543,10 +435,6 @@
     },
     {
       "slug": "hogwarts-house-quiz",
-      "title": {
-        "zh": "霍格沃茨分院测试",
-        "en": "Hogwarts House Quiz"
-      },
       "collection": "explore",
       "code": "HOGWARTS_HOUSE_FAN",
       "formCode": "fm_hogwarts_house_values_24",
@@ -559,10 +447,6 @@
     },
     {
       "slug": "greek-god",
-      "title": {
-        "zh": "希腊神测试",
-        "en": "Which Greek God Are You?"
-      },
       "collection": "explore",
       "code": "GREEK_GOD_THEMES",
       "formCode": "fm_greek_god_preferences_18",
@@ -577,10 +461,6 @@
     },
     {
       "slug": "which-tarot-card-are-you",
-      "title": {
-        "zh": "你是哪张塔罗牌测试",
-        "en": "Which Tarot Card Are You?"
-      },
       "collection": "explore",
       "code": "TAROT_ARCANA_REFLECTION",
       "formCode": "fm_tarot_arcana_preferences_22",
@@ -611,10 +491,6 @@
     },
     {
       "slug": "what-element-am-i",
-      "title": {
-        "zh": "四元素测试",
-        "en": "What Element Am I?"
-      },
       "collection": "explore",
       "code": "FOUR_ELEMENT_PREFERENCES",
       "formCode": "fm_four_element_preferences_20",
@@ -627,10 +503,6 @@
     },
     {
       "slug": "aura-color",
-      "title": {
-        "zh": "光环颜色测试",
-        "en": "Aura Color Test"
-      },
       "collection": "explore",
       "code": "AURA_COLOR_SYMBOLIC_EXPRESSION",
       "formCode": "fm_aura_color_expression_21",
@@ -646,10 +518,6 @@
     },
     {
       "slug": "past-life",
-      "title": {
-        "zh": "前世测试",
-        "en": "Past Life Quiz"
-      },
       "collection": "explore",
       "code": "PAST_LIFE_HISTORICAL_ACTIVITY_IMAGES",
       "formCode": "fm_past_life_activity_preferences_24",
@@ -666,10 +534,6 @@
     },
     {
       "slug": "moon-phase",
-      "title": {
-        "zh": "月相测试",
-        "en": "Moon Phase Personality Test"
-      },
       "collection": "explore",
       "code": "MOON_PHASE_ORDINARY_PACE_IMAGES",
       "formCode": "fm_moon_phase_pace_choices_24",
@@ -686,10 +550,6 @@
     },
     {
       "slug": "bojack-horseman-character-quiz",
-      "title": {
-        "zh": "马男波杰克（BoJack Horseman）角色测试",
-        "en": "BoJack Horseman Character Quiz"
-      },
       "collection": "explore",
       "code": "BOJACK_FAN_EVERYDAY_RESPONSES",
       "formCode": "fm_bojack_fan_choices_20",
@@ -703,10 +563,6 @@
     },
     {
       "slug": "chiikawa",
-      "title": {
-        "zh": "吉伊卡哇角色测试",
-        "en": "Chiikawa Test"
-      },
       "collection": "explore",
       "code": "CHIIKAWA_FAN_ORDINARY_CHOICES",
       "formCode": "fm_chiikawa_fan_choices_18",
@@ -721,10 +577,6 @@
     },
     {
       "slug": "disney-princess",
-      "title": {
-        "zh": "迪士尼公主测试",
-        "en": "Disney Princess Test"
-      },
       "collection": "explore",
       "code": "DISNEY_PRINCESS_FAN_ORDINARY_CHOICES",
       "formCode": "fm_disney_princess_fan_choices_26",
@@ -746,10 +598,6 @@
     },
     {
       "slug": "naruto-character",
-      "title": {
-        "zh": "《火影忍者》角色测试",
-        "en": "Naruto Character Test"
-      },
       "collection": "explore",
       "code": "NARUTO_FAN_ORDINARY_CHOICES",
       "formCode": "fm_naruto_fan_choices_21",
@@ -765,10 +613,6 @@
     },
     {
       "slug": "death-note",
-      "title": {
-        "zh": "《死亡笔记》角色测试",
-        "en": "Death Note Test"
-      },
       "collection": "explore",
       "code": "DEATH_NOTE_FAN_ORDINARY_CHOICES",
       "formCode": "fm_death_note_fan_choices_24",
@@ -785,10 +629,6 @@
     },
     {
       "slug": "bleach",
-      "title": {
-        "zh": "《死神》角色测试",
-        "en": "BLEACH Character Test"
-      },
       "collection": "explore",
       "code": "BLEACH_FAN_ORDINARY_CHOICES",
       "formCode": "fm_bleach_fan_choices_21",
@@ -804,10 +644,6 @@
     },
     {
       "slug": "star-wars-character",
-      "title": {
-        "zh": "《星球大战》角色测试",
-        "en": "Star Wars Character Test"
-      },
       "collection": "explore",
       "code": "STAR_WARS_FAN_ORDINARY_CHOICES",
       "formCode": "fm_star_wars_fan_choices_21",
@@ -823,10 +659,6 @@
     },
     {
       "slug": "hello-kitty",
-      "title": {
-        "zh": "Hello Kitty 角色测试",
-        "en": "Hello Kitty Test"
-      },
       "collection": "explore",
       "code": "HELLO_KITTY_FAN_ORDINARY_CHOICES",
       "formCode": "fm_hello_kitty_fan_choices_21",
@@ -842,10 +674,6 @@
     },
     {
       "slug": "dungeons-dragons-class",
-      "title": {
-        "zh": "D&D 职业测试",
-        "en": "D&D Class Test"
-      },
       "collection": "explore",
       "code": "DND_SRD_CLASS_PLAY_PREFERENCES",
       "formCode": "fm_dnd_srd_class_play_preferences_24",
@@ -866,10 +694,6 @@
     },
     {
       "slug": "type-ab",
-      "title": {
-        "zh": "A型/B型人格测试",
-        "en": "Type A / Type B Personality Test"
-      },
       "collection": "explore",
       "code": "TYPE_AB_ORIGINAL_BEHAVIOUR_REFLECTION",
       "formCode": "fm_type_ab_four_behaviours_20",
@@ -882,10 +706,6 @@
     },
     {
       "slug": "sdt-motivation",
-      "title": {
-        "zh": "SDT动机档案测试",
-        "en": "SDT Motivation Test"
-      },
       "collection": "explore",
       "code": "SDT_ORIGINAL_NEED_EXPERIENCES",
       "formCode": "fm_sdt_need_experiences_24",
@@ -900,10 +720,6 @@
     },
     {
       "slug": "socionics",
-      "title": {
-        "zh": "Socionics 测试（社会人格学）",
-        "en": "Socionics Test"
-      },
       "collection": "explore",
       "code": "SOCIONICS_ORIGINAL_QUADRA_VALUES",
       "formCode": "fm_socionics_quadra_pairs_24",
@@ -916,10 +732,6 @@
     },
     {
       "slug": "optimism-pessimism",
-      "title": {
-        "zh": "乐观与悲观性测试",
-        "en": "Optimism & Pessimism Test"
-      },
       "collection": "explore",
       "code": "IPIP_OPTIMISM_10",
       "formCode": "ipip_single_construct_optimism_10_web",
@@ -933,10 +745,6 @@
     },
     {
       "slug": "values",
-      "title": {
-        "zh": "价值观测试（Schwartz 十类）",
-        "en": "Schwartz Values Test"
-      },
       "collection": "explore",
       "code": "SCHWARTZ_ORIGINAL_VALUE_IMPORTANCE",
       "formCode": "fm_schwartz_value_importance_30",
@@ -955,10 +763,6 @@
     },
     {
       "slug": "light-triad-test",
-      "title": {
-        "zh": "光明三元素测试",
-        "en": "Light Triad Test"
-      },
       "collection": "explore",
       "code": "LIGHT_TRIAD_LTS_12",
       "formCode": "lts12_table3_agreement_web",
@@ -970,10 +774,6 @@
     },
     {
       "slug": "inner-child-personality-test",
-      "title": {
-        "zh": "内在童年性格测试",
-        "en": "Inner Child Personality Test"
-      },
       "collection": "explore",
       "code": "INNER_CHILD_PLAY_REFLECTION",
       "formCode": "fm_inner_child_play_choices_18",
@@ -988,10 +788,6 @@
     },
     {
       "slug": "philosopher-personality-test",
-      "title": {
-        "zh": "哲学家性格测试",
-        "en": "Which Philosopher Are You?"
-      },
       "collection": "explore",
       "code": "PHILOSOPHER_READING_REFLECTION",
       "formCode": "fm_philosopher_reading_choices_18",
@@ -1009,10 +805,6 @@
     },
     {
       "slug": "inkblot-personality-quiz",
-      "title": {
-        "zh": "墨迹人格测验",
-        "en": "Rorschach-Style Inkblot Test"
-      },
       "collection": "explore",
       "code": "ORIGINAL_INKBLOT_READING",
       "formCode": "fm_original_inkblot_reading_10",
@@ -1026,10 +818,6 @@
     },
     {
       "slug": "arabic-personality-compass",
-      "title": {
-        "zh": "性格罗盘测试",
-        "en": "Arabic Personality Compass Test"
-      },
       "collection": "explore",
       "code": "COMPASS_ORIGINAL_CROSS_AXIS",
       "formCode": "fm_compass_original_choices_36",
@@ -1050,10 +838,6 @@
     },
     {
       "slug": "maturity-test",
-      "title": {
-        "zh": "成熟度测试",
-        "en": "Maturity Test"
-      },
       "collection": "explore",
       "code": "MATURITY_CONTEXT_REFLECTION_24",
       "formCode": "fm_maturity_context_frequency_24",
@@ -1066,10 +850,6 @@
     },
     {
       "slug": "growth-mindset-fixed-mindset",
-      "title": {
-        "zh": "成长型与固定型思维测试",
-        "en": "Growth Mindset Test"
-      },
       "collection": "explore",
       "code": "GROWTH_CONTEXT_BELIEF_12",
       "formCode": "fm_growth_context_agreement_12",
@@ -1079,10 +859,6 @@
     },
     {
       "slug": "locus-of-control",
-      "title": {
-        "zh": "控制点测试",
-        "en": "Locus of Control Test"
-      },
       "collection": "explore",
       "code": "IPIP_LOC_TOTAL_20",
       "formCode": "fm_ipip_loc_total_accuracy_20",
@@ -1092,10 +868,6 @@
     },
     {
       "slug": "intelligence-type-test",
-      "title": {
-        "zh": "智能类型测试",
-        "en": "Intelligence Type Test"
-      },
       "collection": "explore",
       "code": "THINKING_APPROACH_ORIGINAL_CHOICES",
       "formCode": "fm_thinking_approach_choices_18",
@@ -1110,10 +882,6 @@
     },
     {
       "slug": "toxic-trait",
-      "title": {
-        "zh": "有毒特征测试",
-        "en": "Toxic Trait Test"
-      },
       "collection": "explore",
       "code": "INTERPERSONAL_HABITS_ORIGINAL_20",
       "formCode": "fm_interpersonal_habits_accuracy_20",
@@ -1127,10 +895,6 @@
     },
     {
       "slug": "grit-test",
-      "title": {
-        "zh": "毅力测试",
-        "en": "Grit Test"
-      },
       "collection": "explore",
       "code": "LONG_GOAL_REFLECTION_ORIGINAL_16",
       "formCode": "fm_long_goal_frequency_16",
@@ -1141,10 +905,6 @@
     },
     {
       "slug": "ikigai",
-      "title": {
-        "zh": "生之目的测试",
-        "en": "Ikigai Test"
-      },
       "collection": "explore",
       "code": "IKIGAI_OVERLAP_ORIGINAL_CHOICES_16",
       "formCode": "fm_ikigai_overlap_choices_16",
@@ -1157,10 +917,6 @@
     },
     {
       "slug": "male-archetype-test",
-      "title": {
-        "zh": "男性原型测试",
-        "en": "Male Archetype Test"
-      },
       "collection": "explore",
       "code": "FOUR_ROLE_METAPHOR_FOCUS_20",
       "formCode": "fm_four_role_metaphor_focus_20",
@@ -1173,10 +929,6 @@
     },
     {
       "slug": "social-intelligence-test",
-      "title": {
-        "zh": "社交智能测试",
-        "en": "Social Intelligence Test"
-      },
       "collection": "explore",
       "code": "IPIP_VIAR_SOC_FOCUS_4",
       "formCode": "fm_ipip_viar_social_accuracy_4",
@@ -1186,10 +938,6 @@
     },
     {
       "slug": "egogram",
-      "title": {
-        "zh": "自我状态图测试",
-        "en": "Egogram Test"
-      },
       "collection": "explore",
       "code": "EGOGRAM_FUNCTIONAL_OBSERVATION_ORIGINAL_20",
       "formCode": "fm_egogram_stance_frequency_20",
@@ -1203,10 +951,6 @@
     },
     {
       "slug": "moral-dilemma-test",
-      "title": {
-        "zh": "道德困境测试",
-        "en": "Moral Dilemma Test"
-      },
       "collection": "explore",
       "code": "FIVE_ETHICAL_QUESTIONS_ORIGINAL_20",
       "formCode": "fm_ethical_questions_choices_20",
@@ -1220,10 +964,6 @@
     },
     {
       "slug": "dark-triad",
-      "title": {
-        "zh": "黑暗三角测试",
-        "en": "Dark Triad Test"
-      },
       "collection": "explore",
       "code": "DARK_TRIAD",
       "formCode": "dark_triad_theme_likert_18",
@@ -1235,10 +975,6 @@
     },
     {
       "slug": "next-life",
-      "title": {
-        "en": "Next Life Quiz",
-        "zh": "来世之路测试"
-      },
       "collection": "explore",
       "code": "FM_NEXT_LIFE",
       "formCode": "fm_next_life_priorities_18_v1",
@@ -1253,10 +989,6 @@
     },
     {
       "slug": "ginny-and-georgia-character-quiz",
-      "title": {
-        "en": "Ginny & Georgia Character Quiz",
-        "zh": "金妮与乔治娅（Ginny & Georgia）角色测试"
-      },
       "collection": "explore",
       "code": "GINNY_GEORGIA_FAN",
       "formCode": "fermatmind_ginny_georgia_original_20_v1",
@@ -1270,10 +1002,6 @@
     },
     {
       "slug": "hazbin-hotel-character-quiz",
-      "title": {
-        "en": "Hazbin Hotel Character Quiz",
-        "zh": "地狱客栈（Hazbin Hotel）角色测试"
-      },
       "collection": "explore",
       "code": "HAZBIN_HOTEL_FAN",
       "formCode": "fermatmind_hazbin_original_18_v1",
@@ -1288,10 +1016,6 @@
     },
     {
       "slug": "chakra",
-      "title": {
-        "en": "Chakra Balance Test",
-        "zh": "脉轮平衡测试"
-      },
       "collection": "explore",
       "code": "FM_CHAKRA_REFLECTION",
       "formCode": "fm_chakra_daily_reflection_28_v1",
@@ -1307,10 +1031,6 @@
     },
     {
       "slug": "my-hero-academia-character-quiz",
-      "title": {
-        "en": "My Hero Academia Character Quiz",
-        "zh": "我的英雄学院（My Hero Academia）角色测试"
-      },
       "collection": "explore",
       "code": "MY_HERO_ACADEMIA_FAN",
       "formCode": "fermatmind_mha_original_24_v1",
@@ -1325,10 +1045,6 @@
     },
     {
       "slug": "my-little-pony-character-quiz",
-      "title": {
-        "en": "My Little Pony Character Quiz",
-        "zh": "小马宝莉（My Little Pony）角色测试"
-      },
       "collection": "explore",
       "code": "MY_LITTLE_PONY_FAN",
       "formCode": "fermatmind_mlp_original_18_v1",
@@ -1343,10 +1059,6 @@
     },
     {
       "slug": "attention-to-detail",
-      "title": {
-        "en": "Attention to Detail Test",
-        "zh": "细节注意力测试"
-      },
       "collection": "explore",
       "code": "FM_ATTENTION_DETAIL",
       "formCode": "fm_attention_detail_24_v1",
@@ -1359,10 +1071,6 @@
     },
     {
       "slug": "wojak",
-      "title": {
-        "en": "Wojak Test",
-        "zh": "Wojak 角色测试"
-      },
       "collection": "explore",
       "code": "WOJAK_MEME_LENSES",
       "formCode": "fermatmind_wojak_original_18_v1",
@@ -1377,10 +1085,6 @@
     },
     {
       "slug": "cybersecurity-awareness",
-      "title": {
-        "en": "Cyber Security Test",
-        "zh": "网络安全意识测试"
-      },
       "collection": "explore",
       "code": "FM_CYBERSECURITY_AWARENESS",
       "formCode": "fm_cybersecurity_daily_scenarios_20_v1",
@@ -1394,10 +1098,6 @@
     },
     {
       "slug": "delulu-test",
-      "title": {
-        "zh": "Delulu测试",
-        "en": "Delulu Test"
-      },
       "collection": "explore",
       "code": "PLAYFUL_HOPE_NARRATIVES_ORIGINAL_18",
       "formCode": "fm_playful_hope_narratives_18",
@@ -1412,10 +1112,6 @@
     },
     {
       "slug": "nana-character",
-      "title": {
-        "en": "Nana Character Test",
-        "zh": "《NANA》角色测试"
-      },
       "collection": "explore",
       "code": "NANA_FAN",
       "formCode": "fermatmind_nana_original_21_v1",
@@ -1431,10 +1127,6 @@
     },
     {
       "slug": "workplace-technology",
-      "title": {
-        "en": "Workplace Tech & Collaboration Test",
-        "zh": "职场技术与协作测试"
-      },
       "collection": "explore",
       "code": "FM_WORKPLACE_TECH",
       "formCode": "fm_workplace_tech_tasks_16_v1",
@@ -1447,10 +1139,6 @@
     },
     {
       "slug": "south-park",
-      "title": {
-        "en": "South Park Test",
-        "zh": "《南方公园》角色测试"
-      },
       "collection": "explore",
       "code": "SOUTH_PARK_FAN",
       "formCode": "fermatmind_southpark_original_21_v1",
@@ -1466,10 +1154,6 @@
     },
     {
       "slug": "gilmore-girls",
-      "title": {
-        "en": "Gilmore Girls Test",
-        "zh": "《吉尔莫女孩》角色测试"
-      },
       "collection": "explore",
       "code": "GILMORE_GIRLS_FAN",
       "formCode": "fermatmind_gilmoregirls_original_18_v1",
@@ -1484,10 +1168,6 @@
     },
     {
       "slug": "aptitude-test",
-      "title": {
-        "en": "Aptitude & Cognitive Ability Test",
-        "zh": "能力倾向与认知能力测试"
-      },
       "collection": "explore",
       "code": "FM_APTITUDE_PRACTICE",
       "formCode": "fm_mixed_reasoning_tasks_30_v2",
@@ -1501,10 +1181,6 @@
     },
     {
       "slug": "jujutsu-kaisen-character",
-      "title": {
-        "en": "Jujutsu Kaisen Character Test",
-        "zh": "《咒术回战》角色测试"
-      },
       "collection": "explore",
       "code": "JJK_FAN",
       "formCode": "fermatmind_jjk_original_24_v1",
@@ -1519,10 +1195,6 @@
     },
     {
       "slug": "egen-teto",
-      "title": {
-        "zh": "Egen-Teto测试",
-        "en": "Egen-Teto Test"
-      },
       "collection": "explore",
       "code": "EGEN_TETO_FIRST_MOVE_ORIGINAL_18",
       "formCode": "fm_egen_teto_first_moves_18",
@@ -1534,10 +1206,6 @@
     },
     {
       "slug": "harry-potter-character",
-      "title": {
-        "en": "Harry Potter Character Test",
-        "zh": "《哈利·波特》角色测试"
-      },
       "collection": "explore",
       "code": "HARRY_POTTER_FAN",
       "formCode": "fermatmind_harrypotter_original_21_v1",
@@ -1553,10 +1221,6 @@
     },
     {
       "slug": "spelling-test",
-      "title": {
-        "en": "Spelling Test",
-        "zh": "英语拼写测试"
-      },
       "collection": "explore",
       "code": "FM_ENGLISH_SPELLING_PRACTICE",
       "formCode": "fm_english_spelling_recognition_24_v1",
@@ -1569,10 +1233,6 @@
     },
     {
       "slug": "dexter",
-      "title": {
-        "en": "Dexter Test",
-        "zh": "《嗜血法医》角色测试"
-      },
       "collection": "explore",
       "code": "DEXTER_FAN",
       "formCode": "fermatmind_dexter_original_24_v1",
@@ -1587,10 +1247,6 @@
     },
     {
       "slug": "avengers-character",
-      "title": {
-        "en": "Avengers Character Test",
-        "zh": "《复仇者联盟》角色测试"
-      },
       "collection": "explore",
       "code": "AVENGERS_FAN",
       "formCode": "fermatmind_avengers_original_18_v1",
@@ -1605,10 +1261,6 @@
     },
     {
       "slug": "stranger-things",
-      "title": {
-        "en": "Stranger Things Test",
-        "zh": "《怪奇物语》角色测试"
-      },
       "collection": "explore",
       "code": "STRANGER_THINGS_FAN",
       "formCode": "fermatmind_stranger_things_original_18_v1",
@@ -1623,10 +1275,6 @@
     },
     {
       "slug": "wednesday-addams-character",
-      "title": {
-        "en": "Wednesday Addams Character Test",
-        "zh": "《星期三》角色测试"
-      },
       "collection": "explore",
       "code": "WEDNESDAY_FAN",
       "formCode": "fermatmind_wednesday_original_18_v1",
@@ -1641,10 +1289,6 @@
     },
     {
       "slug": "twilight-character",
-      "title": {
-        "en": "Twilight Character Test",
-        "zh": "《暮光之城》角色测试"
-      },
       "collection": "explore",
       "code": "TWILIGHT_FAN",
       "formCode": "fermatmind_twilight_original_21_v1",
@@ -1660,10 +1304,6 @@
     },
     {
       "slug": "decade-aesthetic-test",
-      "title": {
-        "zh": "十年美学测试",
-        "en": "Decade Aesthetic Test"
-      },
       "collection": "explore",
       "code": "DECADE_VISUAL_CUES_ORIGINAL_18",
       "formCode": "fm_decade_visual_projects_18",
@@ -1678,10 +1318,6 @@
     },
     {
       "slug": "game-of-thrones",
-      "title": {
-        "en": "Game of Thrones Character Test",
-        "zh": "《权力的游戏》角色测试"
-      },
       "collection": "explore",
       "code": "GAME_OF_THRONES_FAN",
       "formCode": "fermatmind_game_of_thrones_original_18_v1",
@@ -1696,10 +1332,6 @@
     },
     {
       "slug": "amazing-digital-circus",
-      "title": {
-        "en": "The Amazing Digital Circus Test",
-        "zh": "《神奇数字马戏团》角色测试"
-      },
       "collection": "explore",
       "code": "DIGITAL_CIRCUS_FAN",
       "formCode": "fermatmind_digital_circus_original_18_v1",
@@ -1714,10 +1346,6 @@
     },
     {
       "slug": "gossip-girl",
-      "title": {
-        "en": "Gossip Girl Test",
-        "zh": "《绯闻女孩》角色测试"
-      },
       "collection": "explore",
       "code": "GOSSIP_GIRL_FAN",
       "formCode": "fermatmind_gossip_girl_original_18_v1",
@@ -1732,10 +1360,6 @@
     },
     {
       "slug": "english-proficiency",
-      "title": {
-        "en": "English Proficiency Practice Test",
-        "zh": "英语水平测试"
-      },
       "collection": "explore",
       "code": "FM_WRITTEN_ENGLISH_PRACTICE",
       "formCode": "fm_written_english_practice_24_v1",
@@ -1748,10 +1372,6 @@
     },
     {
       "slug": "villain-era-archetype-test",
-      "title": {
-        "zh": "反派时代原型测试",
-        "en": "Villain Era Archetype Test"
-      },
       "collection": "explore",
       "code": "VILLAIN_BOUNDARY_OPENERS_ORIGINAL_18",
       "formCode": "fm_villain_boundary_openers_18",
@@ -1766,10 +1386,6 @@
     },
     {
       "slug": "blue-lock",
-      "title": {
-        "en": "Blue Lock Character Quiz",
-        "zh": "《蓝色监狱》角色测试"
-      },
       "collection": "explore",
       "code": "BLUE_LOCK_FAN",
       "formCode": "fermatmind_blue_lock_original_21_v1",
@@ -1785,10 +1401,6 @@
     },
     {
       "slug": "anime-character-archetype-test",
-      "title": {
-        "en": "Which Anime Story Role Would You Play?",
-        "zh": "你是哪个动漫角色测试"
-      },
       "collection": "explore",
       "code": "ANIME_STORY_ROLES",
       "formCode": "fermatmind_anime_story_roles_original_18_v1",
@@ -1803,10 +1415,6 @@
     },
     {
       "slug": "grammar-test",
-      "title": {
-        "en": "English Grammar Test",
-        "zh": "英语语法测试"
-      },
       "collection": "explore",
       "code": "FM_ENGLISH_GRAMMAR_PRACTICE",
       "formCode": "fm_english_grammar_practice_24_v1",
@@ -1819,10 +1427,6 @@
     },
     {
       "slug": "hundred-acre-wood-friend-quiz",
-      "title": {
-        "en": "Which Winnie the Pooh Character Are You?",
-        "zh": "故事书朋友测验"
-      },
       "collection": "explore",
       "code": "STORYBOOK_FRIENDS_FAN",
       "formCode": "fermatmind_storybook_friends_original_18_v1",
@@ -1837,10 +1441,6 @@
     },
     {
       "slug": "space-marine-chapter",
-      "title": {
-        "en": "Space Marine Chapter Test",
-        "zh": "星际战士战团测试"
-      },
       "collection": "explore",
       "code": "SPACE_MARINE_CHAPTERS_FAN",
       "formCode": "fermatmind_space_marine_chapters_original_18_v1",
@@ -1855,10 +1455,6 @@
     },
     {
       "slug": "spanish-proficiency",
-      "title": {
-        "en": "Spanish Proficiency Practice Test",
-        "zh": "西班牙语水平测试"
-      },
       "collection": "explore",
       "code": "FM_WRITTEN_SPANISH_PRACTICE",
       "formCode": "fm_written_spanish_practice_24_v1",
@@ -1871,10 +1467,6 @@
     },
     {
       "slug": "apocalypse-survival-type-test",
-      "title": {
-        "zh": "启示录生存类型测试",
-        "en": "Apocalypse Survival Type Test"
-      },
       "collection": "explore",
       "code": "APOCALYPSE_CAMP_ROLES_ORIGINAL_24",
       "formCode": "fm_apocalypse_camp_story_24",
@@ -1889,10 +1481,6 @@
     },
     {
       "slug": "barbie-character",
-      "title": {
-        "en": "Barbie Character Test",
-        "zh": "芭比角色测试"
-      },
       "collection": "explore",
       "code": "BARBIE_FILM_CHARACTERS_FAN",
       "formCode": "fermatmind_barbie_film_original_18_v1",
@@ -1907,10 +1495,6 @@
     },
     {
       "slug": "big-fish-energy-test",
-      "title": {
-        "zh": "大鱼能量测试",
-        "en": "Big Fish Energy Test"
-      },
       "collection": "explore",
       "code": "OCEAN_MOOD_METAPHORS_ORIGINAL_18",
       "formCode": "fm_ocean_mood_metaphors_18",
@@ -1925,10 +1509,6 @@
     },
     {
       "slug": "verbal-reasoning",
-      "title": {
-        "en": "Verbal Reasoning Test",
-        "zh": "言语推理测试"
-      },
       "collection": "explore",
       "code": "FM_VERBAL_REASONING_PRACTICE",
       "formCode": "fm_verbal_reasoning_practice_24_v1",
@@ -1941,10 +1521,6 @@
     },
     {
       "slug": "ten-key-test",
-      "title": {
-        "en": "10-Key Test",
-        "zh": "10-Key 测试"
-      },
       "collection": "explore",
       "code": "FERMATMIND_TEN_KEY_PRACTICE",
       "formCode": "fermatmind_ten_key_original_60s_v1",
@@ -1956,10 +1532,6 @@
     },
     {
       "slug": "computer-literacy",
-      "title": {
-        "en": "Computer Literacy Test",
-        "zh": "计算机素养"
-      },
       "collection": "explore",
       "code": "FM_COMPUTER_LITERACY_PRACTICE",
       "formCode": "fm_computer_literacy_practice_24_v1",
@@ -1972,10 +1544,6 @@
     },
     {
       "slug": "feminine-energy",
-      "title": {
-        "zh": "女性气质能量测试",
-        "en": "Feminine Energy Test"
-      },
       "collection": "explore",
       "code": "FEMININE_EXPRESSION_OBSERVATIONS_ORIGINAL_20",
       "formCode": "fm_feminine_expression_observations_20",
@@ -1988,10 +1556,6 @@
     },
     {
       "slug": "excel-skills",
-      "title": {
-        "en": "Excel Skills Test",
-        "zh": "Excel技能测试"
-      },
       "collection": "explore",
       "code": "FM_EXCEL_KNOWLEDGE_PRACTICE",
       "formCode": "fermatmind_excel_original_24_v1",
@@ -2004,10 +1568,6 @@
     },
     {
       "slug": "found-family-role-test",
-      "title": {
-        "zh": "找到家庭角色测试",
-        "en": "Found Family Role Test"
-      },
       "collection": "explore",
       "code": "FOUND_FAMILY_CONTRIBUTIONS_ORIGINAL_18",
       "formCode": "fm_found_family_contributions_18",
@@ -2022,10 +1582,6 @@
     },
     {
       "slug": "java-test",
-      "title": {
-        "en": "Java Test",
-        "zh": "Java测试"
-      },
       "collection": "explore",
       "code": "FM_JAVA25_CODE_PRACTICE",
       "formCode": "fermatmind_java25_original_24_v1",
@@ -2038,10 +1594,6 @@
     },
     {
       "slug": "financial-accounting",
-      "title": {
-        "en": "Financial Accounting Test",
-        "zh": "财务会计测试"
-      },
       "collection": "explore",
       "code": "FM_FINANCIAL_ACCOUNTING_PRACTICE",
       "formCode": "fm_financial_accounting_practice_24_v1",
@@ -2056,10 +1608,6 @@
     },
     {
       "slug": "eras-of-you-test",
-      "title": {
-        "zh": "时代的你测试",
-        "en": "Eras of You Test"
-      },
       "collection": "explore",
       "code": "CURRENT_CHAPTER_OBSERVATIONS_ORIGINAL_24",
       "formCode": "fm_current_chapter_observations_24",
@@ -2074,10 +1622,6 @@
     },
     {
       "slug": "logical-reasoning",
-      "title": {
-        "en": "Logical & Deductive Reasoning Test",
-        "zh": "逻辑与演绎推理测试"
-      },
       "collection": "explore",
       "code": "FM_LOGICAL_REASONING_PRACTICE",
       "formCode": "fm_logical_reasoning_practice_24_v1",
@@ -2090,10 +1634,6 @@
     },
     {
       "slug": "javascript-test",
-      "title": {
-        "en": "JavaScript Test",
-        "zh": "JavaScript测试"
-      },
       "collection": "explore",
       "code": "FM_JAVASCRIPT_NODE24_PRACTICE",
       "formCode": "fermatmind_javascript_node24_esm_original_24_v1",
@@ -2106,10 +1646,6 @@
     },
     {
       "slug": "python-test",
-      "title": {
-        "en": "Python Test",
-        "zh": "Python测试"
-      },
       "collection": "explore",
       "code": "FM_PYTHON314_PRACTICE",
       "formCode": "fermatmind_python314_original_24_v1",
@@ -2122,10 +1658,6 @@
     },
     {
       "slug": "sales-aptitude",
-      "title": {
-        "en": "Sales Aptitude Test",
-        "zh": "销售能力测试"
-      },
       "collection": "explore",
       "code": "FM_SALES_DECISION_PRACTICE",
       "formCode": "fm_sales_decision_practice_24_v1",
@@ -2138,10 +1670,6 @@
     },
     {
       "slug": "color-season",
-      "title": {
-        "zh": "色彩季节测试",
-        "en": "Color Analysis Quiz"
-      },
       "collection": "explore",
       "code": "SEASONAL_PALETTE_PREFERENCES_ORIGINAL_16",
       "formCode": "fm_seasonal_palette_preferences_16",
@@ -2154,10 +1682,6 @@
     },
     {
       "slug": "sql-test",
-      "title": {
-        "en": "SQL Test",
-        "zh": "SQL测试"
-      },
       "collection": "explore",
       "code": "FM_SQLITE353_PRACTICE",
       "formCode": "fermatmind_sqlite353_original_24_v1",
@@ -2170,10 +1694,6 @@
     },
     {
       "slug": "problem-solving-critical-thinking",
-      "title": {
-        "en": "Problem-Solving & Critical Thinking Test",
-        "zh": "问题解决与批判性思维测试"
-      },
       "collection": "explore",
       "code": "FM_PROBLEM_SOLVING_PRACTICE",
       "formCode": "fm_problem_solving_practice_30_v1",
@@ -2185,10 +1705,6 @@
     },
     {
       "slug": "word-skills",
-      "title": {
-        "en": "Microsoft Word Skills Practice Test",
-        "zh": "Word技能测试"
-      },
       "collection": "explore",
       "code": "FM_WORD_WINDOWS_PRACTICE",
       "formCode": "fermatmind_word_windows_original_25_v1",
@@ -2202,10 +1718,6 @@
     },
     {
       "slug": "project-management",
-      "title": {
-        "en": "Project Management Test",
-        "zh": "项目管理测试"
-      },
       "collection": "explore",
       "code": "FM_PROJECT_CASE_PRACTICE",
       "formCode": "fm_project_case_practice_30_v1",
@@ -2219,10 +1731,6 @@
     },
     {
       "slug": "rizz-test",
-      "title": {
-        "zh": "Rizz 测试",
-        "en": "Rizz Test"
-      },
       "collection": "explore",
       "code": "RIZZ_CONVERSATION_PRACTICES_ORIGINAL_20",
       "formCode": "fm_rizz_conversation_practices_20",
@@ -2235,10 +1743,6 @@
     },
     {
       "slug": "personal-finance-literacy",
-      "title": {
-        "en": "Personal Finance Literacy Test",
-        "zh": "个人理财素养测试"
-      },
       "collection": "explore",
       "code": "FM_PERSONAL_FINANCE_PRACTICE",
       "formCode": "fermatmind_personal_finance_original_23_v1",
@@ -2250,10 +1754,6 @@
     },
     {
       "slug": "ai-literacy",
-      "title": {
-        "en": "AI Literacy Test",
-        "zh": "人工智能素养测试"
-      },
       "collection": "explore",
       "code": "FM_AI_LITERACY_PRACTICE",
       "formCode": "fermatmind_ai_literacy_original_20_v1",
@@ -2266,10 +1766,6 @@
     },
     {
       "slug": "chinese-zodiac",
-      "title": {
-        "en": "Chinese Zodiac",
-        "zh": "中国十二生肖测试"
-      },
       "collection": "explore",
       "code": "FM_CHINESE_ZODIAC_STORY",
       "formCode": "fm_chinese_zodiac_story_choices_12_v1",
@@ -2290,10 +1786,6 @@
     },
     {
       "slug": "customer-service-aptitude",
-      "title": {
-        "en": "Customer Service Aptitude Test",
-        "zh": "客户服务情景测试"
-      },
       "collection": "explore",
       "code": "FM_CUSTOMER_SERVICE_PRACTICE",
       "formCode": "fermatmind_customer_service_original_24_v1",
@@ -2306,10 +1798,6 @@
     },
     {
       "slug": "german-proficiency",
-      "title": {
-        "en": "German Proficiency Test",
-        "zh": "德语水平测试"
-      },
       "collection": "explore",
       "code": "FM_GERMAN_WRITTEN_PRACTICE",
       "formCode": "fermatmind_german_written_original_28_v1",
@@ -2322,10 +1810,6 @@
     },
     {
       "slug": "zodiac-sign-quiz",
-      "title": {
-        "en": "Zodiac Sign Story Quiz",
-        "zh": "星座测试"
-      },
       "collection": "explore",
       "code": "FM_ZODIAC_SIGN_STORY",
       "formCode": "fm_zodiac_sign_story_lenses_12_v1",
@@ -2346,10 +1830,6 @@
     },
     {
       "slug": "love-personality",
-      "title": {
-        "en": "Love Personality Test",
-        "zh": "恋爱人格测试"
-      },
       "collection": "explore",
       "code": "LOVE_PERSONALITY",
       "formCode": "love_personality_forced_choice_24",
@@ -2373,10 +1853,6 @@
     },
     {
       "slug": "situational-judgement",
-      "title": {
-        "en": "Situational Judgement Test",
-        "zh": "情境判断测试"
-      },
       "collection": "explore",
       "code": "FM_SITUATIONAL_RULE_PRACTICE",
       "formCode": "fermatmind_situational_rules_original_25_v1",
@@ -2390,10 +1866,6 @@
     },
     {
       "slug": "8-values-political",
-      "title": {
-        "en": "8 Values Political Test",
-        "zh": "8 Values 政治价值观测试"
-      },
       "collection": "explore",
       "code": "FM_EIGHT_VALUES_MIT_70",
       "formCode": "fm_8values_upstream3971_70_enzh_v1",
@@ -2410,10 +1882,6 @@
     },
     {
       "slug": "relationship-values",
-      "title": {
-        "en": "Relationship Values Test",
-        "zh": "爱情阵营测试"
-      },
       "collection": "play",
       "code": "LOVE_ROLE",
       "formCode": "love_role_forced_choice_24",
@@ -2437,10 +1905,6 @@
     },
     {
       "slug": "typing-speed",
-      "title": {
-        "en": "Typing Speed Test",
-        "zh": "打字速度测试"
-      },
       "collection": "explore",
       "code": "FM_TYPING_PRACTICE",
       "formCode": "fermatmind_original_typing_en_zh_60s_v1",
@@ -2451,10 +1915,6 @@
     },
     {
       "slug": "hexaco",
-      "title": {
-        "en": "HEXACO Personality Test",
-        "zh": "HEXACO人格测试"
-      },
       "collection": "explore",
       "code": "IPIP_HEXACO_PRELIMINARY_240",
       "formCode": "fm_ipip_hexaco_preliminary240_accuracy_v1",
@@ -2469,10 +1929,6 @@
     },
     {
       "slug": "relationship-preferences",
-      "title": {
-        "en": "Relationship Preferences Test",
-        "zh": "恋爱安排偏好测试"
-      },
       "collection": "explore",
       "code": "LOVE_TYPE",
       "formCode": "love_type_paired_choice_24",
@@ -2487,10 +1943,6 @@
     },
     {
       "slug": "abstract-reasoning",
-      "title": {
-        "en": "Abstract Reasoning Test",
-        "zh": "抽象推理测试"
-      },
       "collection": "explore",
       "formCode": "fermatmind_abstract_finite_rules_24_v1",
       "resultSlugs": [
@@ -2502,10 +1954,6 @@
     },
     {
       "slug": "conservatism",
-      "title": {
-        "en": "Conservatism Test: SECS 2013 U.S. Edition",
-        "zh": "保守主义测试：SECS2013美国议题版"
-      },
       "collection": "explore",
       "code": "SECS_2013_US_12",
       "formCode": "fm_secs_2013_us_warmth_12",
@@ -2516,10 +1964,6 @@
     },
     {
       "slug": "numerical-reasoning",
-      "title": {
-        "en": "Numerical Reasoning Test",
-        "zh": "数值推理测试"
-      },
       "collection": "explore",
       "code": "FM_NUMERICAL_PRACTICE",
       "formCode": "fermatmind_original_numerical_five_tasks_30_v1",
@@ -2533,10 +1977,6 @@
     },
     {
       "slug": "digital-ethics-citizenship",
-      "title": {
-        "en": "Digital Ethics & Citizenship Test",
-        "zh": "数字伦理与公民意识测试"
-      },
       "collection": "explore",
       "code": "FM_DIGITAL_CITIZENSHIP_PRACTICE",
       "formCode": "fermatmind_original_digital_citizenship_30_v1",
@@ -2550,10 +1990,6 @@
     },
     {
       "slug": "number-series",
-      "title": {
-        "en": "Number Series Test",
-        "zh": "数列推理测试"
-      },
       "collection": "explore",
       "code": "FM_NUMBER_SERIES_PRACTICE",
       "formCode": "fermatmind_original_bounded_number_series_30_v1",
@@ -2567,10 +2003,6 @@
     },
     {
       "slug": "adult-age-preferences",
-      "title": {
-        "en": "Adult Age Preference Test",
-        "zh": "年上年下情境偏好测试"
-      },
       "collection": "explore",
       "code": "AGE_PREFERENCE",
       "formCode": "age_preference_forced_choice_18",
@@ -2586,10 +2018,6 @@
     },
     {
       "slug": "data-entry",
-      "title": {
-        "en": "Data Entry Test",
-        "zh": "数据录入测试"
-      },
       "collection": "explore",
       "code": "FM_DATA_ENTRY_PRACTICE",
       "formCode": "fermatmind_original_structured_entry_64_records_v1",
@@ -2600,10 +2028,6 @@
     },
     {
       "slug": "freudian-personality",
-      "title": {
-        "en": "Freudian Personality Test: Original Historical Reflection",
-        "zh": "弗洛伊德人格测试：原创历史词汇反思版"
-      },
       "collection": "explore",
       "code": "FM_FREUDIAN_HISTORICAL_REFLECTION",
       "formCode": "fm_freudian_historical_themes_48_v1",
@@ -2620,10 +2044,6 @@
     },
     {
       "slug": "relationship-commitment",
-      "title": {
-        "zh": "亲密关系承诺度测试",
-        "en": "Relationship Commitment Test"
-      },
       "collection": "explore",
       "code": "FM_RELATIONSHIP_COMMITMENT_REFLECTION",
       "formCode": "fm_relationship_commitment_reflection_24_v1",
@@ -2636,10 +2056,6 @@
     },
     {
       "slug": "political-coordinates",
-      "title": {
-        "en": "Political Coordinates Test: Original Policy-Choice Edition",
-        "zh": "政治坐标测试：原创公共政策取舍版"
-      },
       "collection": "explore",
       "code": "FM_ORIGINAL_POLICY_COORDINATES",
       "formCode": "fm_original_policy_coordinates_36_v1",
@@ -2652,10 +2068,6 @@
     },
     {
       "slug": "mechanical-reasoning",
-      "title": {
-        "en": "Mechanical Reasoning Test",
-        "zh": "机械推理测试"
-      },
       "collection": "explore",
       "code": "FM_MECHANICAL_PRACTICE",
       "formCode": "fermatmind_original_ideal_mechanics_30_v1",
@@ -2669,10 +2081,6 @@
     },
     {
       "slug": "spatial-reasoning",
-      "title": {
-        "en": "Spatial Reasoning Test",
-        "zh": "空间推理测试"
-      },
       "collection": "explore",
       "code": "FM_SPATIAL_PRACTICE",
       "formCode": "fermatmind_original_text_spatial_30_v1",
@@ -2686,10 +2094,6 @@
     },
     {
       "slug": "libertarian",
-      "title": {
-        "en": "Libertarian Test: Original Principles Reflection",
-        "zh": "自由意志主义测试：原创原则反思版"
-      },
       "collection": "explore",
       "code": "FM_LIBERTY_PRINCIPLES_REFLECTION",
       "formCode": "fm_liberty_principles_original_32_v1",
@@ -2702,10 +2106,6 @@
     },
     {
       "slug": "trust-issues-test",
-      "title": {
-        "zh": "信任问题测试：日常相处自我观察",
-        "en": "Trust Issues Test: Everyday Trust Reflection"
-      },
       "collection": "explore",
       "code": "FM_EVERYDAY_TRUST_ORIGINAL",
       "formCode": "fm_original_everyday_trust_24_v1",
@@ -2718,10 +2118,6 @@
     },
     {
       "slug": "morality-6",
-      "title": {
-        "en": "Moral Foundations Test (MFQ-2)",
-        "zh": "道德基础测试（MFQ-2工作中译）"
-      },
       "collection": "explore",
       "code": "FM_MFQ2_36_WORKING",
       "formCode": "mfq2_osf_docx_36_zh_working_v1",
@@ -2736,10 +2132,6 @@
     },
     {
       "slug": "self-esteem",
-      "title": {
-        "en": "Self-Esteem Test",
-        "zh": "自尊测试"
-      },
       "collection": "explore",
       "code": "RSES_UMD_ORIGINAL10",
       "formCode": "rses_umd_original_order_10_fm_zh_working_v1",
@@ -2749,10 +2141,6 @@
     },
     {
       "slug": "time-management",
-      "title": {
-        "en": "Time Management Test",
-        "zh": "时间管理测试"
-      },
       "collection": "explore",
       "code": "FM_TIME_MANAGEMENT_HABITS24",
       "formCode": "fm_time_management_habits24_v1",
@@ -2765,10 +2153,6 @@
     },
     {
       "slug": "burnout-risk",
-      "title": {
-        "en": "Burnout Test: CBI Personal and Work Modules",
-        "zh": "倦怠测试：CBI个人与工作模块"
-      },
       "collection": "explore",
       "code": "FM_CBI_PERSONAL_WORK_13",
       "formCode": "cbi_personal_work_13_zh_working_v1",
@@ -2779,10 +2163,6 @@
     },
     {
       "slug": "wholesome-partner",
-      "title": {
-        "zh": "健康伴侣相处测试",
-        "en": "Wholesome Partner Test"
-      },
       "collection": "explore",
       "code": "FM_WHOLESOME_PARTNER_PRACTICES_ORIGINAL32",
       "formCode": "fm_original_wholesome_partner_32_v1",
@@ -2799,10 +2179,6 @@
     },
     {
       "slug": "self-compassion",
-      "title": {
-        "en": "Self-Compassion Test",
-        "zh": "自我慈悲测试"
-      },
       "collection": "explore",
       "code": "SCS26_NEFF_2003",
       "formCode": "scs26_neff2003_official_en_fm_zh_working_v1",
@@ -2818,10 +2194,6 @@
     },
     {
       "slug": "communication-adaptability",
-      "title": {
-        "en": "Communication Adaptability Test",
-        "zh": "沟通适应性测试"
-      },
       "collection": "explore",
       "code": "FM_COMM_ADAPT_CONTEXT30",
       "formCode": "fm_comm_adapt_context30_v1",
@@ -2835,10 +2207,6 @@
     },
     {
       "slug": "conflict-styles",
-      "title": {
-        "en": "Conflict Style Test",
-        "zh": "冲突风格测试"
-      },
       "collection": "explore",
       "code": "FM_CONFLICT_HANDLING_ORIGINAL20",
       "formCode": "fm_original_conflict_handling_20_v1",
@@ -2852,10 +2220,6 @@
     },
     {
       "slug": "toxic-positivity-test",
-      "title": {
-        "en": "Toxic Positivity Test",
-        "zh": "有毒积极心态测试"
-      },
       "collection": "explore",
       "code": "FM_POSITIVE_PRESSURE_REFLECTION18",
       "formCode": "fm_positive_pressure_reflection18_v1",
@@ -2867,10 +2231,6 @@
     },
     {
       "slug": "friendship-compatibility",
-      "title": {
-        "en": "Friendship Compatibility Test",
-        "zh": "友谊契合度测试"
-      },
       "collection": "explore",
       "code": "FM_FRIENDSHIP_FIT_ORIGINAL20",
       "formCode": "fm_original_friendship_fit_20_v1",
@@ -2884,10 +2244,6 @@
     },
     {
       "slug": "perfectionism",
-      "title": {
-        "en": "Perfectionism Test: Standards and Discrepancy",
-        "zh": "完美主义测试：标准与期待差距"
-      },
       "collection": "explore",
       "code": "SAPS8_RICE_2014",
       "formCode": "saps8_rice2014_official_en_fm_zh_working_v1",
@@ -2898,10 +2254,6 @@
     },
     {
       "slug": "apology-language",
-      "title": {
-        "en": "Apology Language Test",
-        "zh": "道歉语言测试"
-      },
       "collection": "explore",
       "code": "FM_APOLOGY_RECEIVING_PREF20",
       "formCode": "fm_apology_receiving_importance20_v1",
@@ -2915,10 +2267,6 @@
     },
     {
       "slug": "multiple-intelligences",
-      "title": {
-        "en": "Multiple Intelligences Test: Activity Reflection",
-        "zh": "多元智能测试：活动自我回看"
-      },
       "collection": "explore",
       "code": "FM_MI_ACTIVITY_CONFIDENCE32",
       "formCode": "fm_mi_eight_activity_confidence32_v1",
@@ -2935,10 +2283,6 @@
     },
     {
       "slug": "work-ethics",
-      "title": {
-        "en": "Work Ethics & Reliability Test: Everyday Work Habits",
-        "zh": "工作伦理和可靠性测试：日常任务习惯"
-      },
       "collection": "explore",
       "code": "FM_WORK_COMMITMENT_HABITS24",
       "formCode": "fm_work_commitment_habits24_v1",
@@ -2951,10 +2295,6 @@
     },
     {
       "slug": "empathy",
-      "title": {
-        "en": "Empathy Test: IPIP Compassion-10",
-        "zh": "同理心测试：IPIP关怀倾向十题"
-      },
       "collection": "explore",
       "code": "IPIP_BFAS_COMPASSION10",
       "formCode": "ipip_bfas_compassion10_en_fm_zh_working_v1",
@@ -2964,10 +2304,6 @@
     },
     {
       "slug": "culture-fit",
-      "title": {
-        "en": "Culture Fit Assessment: Work Arrangement Preferences",
-        "zh": "职场文化契合度测评：工作安排偏好"
-      },
       "collection": "explore",
       "code": "FM_WORK_ARRANGEMENT_PREFERENCES24",
       "formCode": "fm_work_arrangement_four_pairs24_v1",
@@ -2980,10 +2316,6 @@
     },
     {
       "slug": "mote-type",
-      "title": {
-        "en": "Mote Type Test: Interaction Choices",
-        "zh": "魅力类型测试：互动呈现方式"
-      },
       "collection": "explore",
       "code": "PERSONALITY_ATTRACTION",
       "formCode": "personality_attraction_paired_choice_24",
@@ -2996,10 +2328,6 @@
     },
     {
       "slug": "skills-audit",
-      "title": {
-        "en": "Skills Audit Test: Example Inventory",
-        "zh": "技能审计测试：任务实例盘点"
-      },
       "collection": "explore",
       "code": "FM_SKILL_EXAMPLE_INVENTORY20",
       "formCode": "fm_skills_example_inventory20_v1",
@@ -3012,10 +2340,6 @@
     },
     {
       "slug": "jealousy-scale",
-      "title": {
-        "en": "Jealousy Scale: Original Three-Part Reflection",
-        "zh": "嫉妒量表：费马原创三组反思"
-      },
       "collection": "explore",
       "code": "FM_JEALOUSY_REFLECTION18",
       "formCode": "fm_jealousy_original18_v1",
@@ -3027,10 +2351,6 @@
     },
     {
       "slug": "sternberg-love",
-      "title": {
-        "en": "Sternberg Love Triangle Test: Original Reflection",
-        "zh": "斯特恩伯格爱的三角测试：费马原创反思版"
-      },
       "collection": "explore",
       "code": "FM_TRIANGLE_REFLECTION15",
       "formCode": "fm_triangle_original15_v1",
@@ -3042,10 +2362,6 @@
     },
     {
       "slug": "overthinking-screener",
-      "title": {
-        "en": "Overthinking Check-In: The 15-Item PTQ",
-        "zh": "过度思考检查：15项PTQ"
-      },
       "collection": "explore",
       "code": "PTQ15_EHRING2011_CC_BY",
       "formCode": "ptq15_ehring2011_appendix_fmzh_working_v1",
@@ -3058,10 +2374,6 @@
     },
     {
       "slug": "life-path-number",
-      "title": {
-        "en": "Life Path & Birthday Soul Number Calculator",
-        "zh": "生命灵数与生日灵数计算器"
-      },
       "collection": "explore",
       "code": "FM_BIRTH_NUMBER_RULES",
       "formCode": "fm_birth_number_two_methods_input_rules_v1",
@@ -3082,10 +2394,6 @@
     },
     {
       "slug": "deep-desire",
-      "title": {
-        "en": "Deep Desires Test: Current Motivation Themes",
-        "zh": "深层欲望测试：当下动机主题"
-      },
       "collection": "explore",
       "code": "DEEP_DESIRE",
       "formCode": "deep_desire_likert_24",
@@ -3100,10 +2408,6 @@
     },
     {
       "slug": "annoying-person-test",
-      "title": {
-        "en": "Annoying Person Test: Interaction Reflection",
-        "zh": "烦人性格测试：互动线索自评"
-      },
       "collection": "explore",
       "code": "DISLIKED_REASON",
       "formCode": "disliked_reason_likert_20",
@@ -3117,10 +2421,6 @@
     },
     {
       "slug": "love-fight-style",
-      "title": {
-        "en": "Love Fight Style Test: Original Process Reflection",
-        "zh": "爱情吵架风格测试：原创过程反思"
-      },
       "collection": "explore",
       "code": "FM_LOVE_CONFLICT_PROCESS20",
       "formCode": "fm_love_conflict_original20_v1",
@@ -3133,10 +2433,6 @@
     },
     {
       "slug": "capacity-to-love-test",
-      "title": {
-        "en": "Capacity to Love Test: CTL-I 2018 Working Edition",
-        "zh": "爱的能力测试：CTL-I 2018工作译版"
-      },
       "collection": "explore",
       "code": "CTL_I_2018_WORKING41",
       "formCode": "ctl2018_41_working_v1",
@@ -3151,10 +2447,6 @@
     },
     {
       "slug": "executive-function",
-      "title": {
-        "en": "Executive Function Check-In",
-        "zh": "执行功能测试"
-      },
       "collection": "explore",
       "code": "ADEXI14_OFFICIAL_SELFREPORT",
       "formCode": "adexi14_current_official_en_angela_siu_simplified_zh_v1",
@@ -3166,10 +2458,6 @@
     },
     {
       "slug": "hsp-sensitivity-quiz",
-      "title": {
-        "en": "HSP Sensitivity Reflection: 24 Recent Experiences",
-        "zh": "高敏感体验反思：24项近期经历"
-      },
       "collection": "explore",
       "code": "FM_SENSITIVITY_EXPERIENCE24",
       "formCode": "fm_sensitivity_experiences_four_topics24_v1",
@@ -3182,10 +2470,6 @@
     },
     {
       "slug": "competency-test",
-      "title": {
-        "en": "Competency Check-In: 36 Recent Work Behaviors",
-        "zh": "职业胜任力反思：36项近期工作行为"
-      },
       "collection": "explore",
       "code": "FM_WORK_BEHAVIOR_REFLECTION36",
       "formCode": "fm_work_behaviors_six_themes36_v1",
@@ -3200,10 +2484,6 @@
     },
     {
       "slug": "sensory-processing-test",
-      "title": {
-        "en": "Sensory Perception Quotient: Full 92-Item SPQ",
-        "zh": "感觉加工问卷：完整92项SPQ"
-      },
       "collection": "explore",
       "code": "SPQ92_TAVASSOLI2014_CC_BY",
       "formCode": "spq92_table4_2014_arc92key2024_fmzh_working_v1",
@@ -3213,10 +2493,6 @@
     },
     {
       "slug": "parenting-style",
-      "title": {
-        "en": "Parenting Style Test: Warm Responses and Everyday Boundaries",
-        "zh": "育儿风格测试：温暖回应与日常边界"
-      },
       "collection": "explore",
       "code": "FM_PARENTING_RESPONSES12",
       "formCode": "fm_parenting_warmth_boundaries12_v1",
@@ -3229,10 +2505,6 @@
     },
     {
       "slug": "inner-critic-voice-test",
-      "title": {
-        "en": "Inner Critic Voice Test",
-        "zh": "内心批评家声音测试"
-      },
       "collection": "explore",
       "code": "FSCRS22_HALAMOVA_2019",
       "formCode": "fscrs22_2019_1to5_fm_zh_working_v1",
@@ -3244,10 +2516,6 @@
     },
     {
       "slug": "holding-yourself-back",
-      "title": {
-        "en": "Holding Yourself Back Test",
-        "zh": "自我设限测试"
-      },
       "collection": "explore",
       "code": "FM_HOLDING_BACK_ORIGINAL35",
       "formCode": "fm_holding_back_original35_fourweeks_v1",
@@ -3263,10 +2531,6 @@
     },
     {
       "slug": "breakup-reflection-test",
-      "title": {
-        "en": "Breakup Reflection Test",
-        "zh": "分手复盘测试"
-      },
       "collection": "explore",
       "code": "BREAKUP_REASON",
       "formCode": "breakup_reason_likert_24",
@@ -3279,10 +2543,6 @@
     },
     {
       "slug": "nine-star-ki",
-      "title": {
-        "en": "Nine Star Ki Year Reference",
-        "zh": "九星气学节年参考"
-      },
       "collection": "explore",
       "code": "FM_NINE_STAR_YEAR_REFERENCE",
       "formCode": "fm_nine_star_year_and_boundary_side_v1",
@@ -3300,10 +2560,6 @@
     },
     {
       "slug": "natal-chart",
-      "title": {
-        "en": "Birth chart calculator: Sun, Moon, rising and ten body placements",
-        "zh": "出生星盘计算：太阳、月亮、上升与十天体落点"
-      },
       "collection": "explore",
       "code": "FM_NATAL_CHART_CORE",
       "formCode": "fm_natal_known_time_core_v1",
@@ -3324,10 +2580,6 @@
     },
     {
       "slug": "intimacy-preference-test",
-      "title": {
-        "zh": "亲密偏好测试",
-        "en": "Intimacy Preferences Test"
-      },
       "collection": "explore",
       "code": "INTIMACY_PREFERENCE",
       "formCode": "intimacy_preference_likert_24",
@@ -3340,10 +2592,6 @@
     },
     {
       "slug": "habit-patterns-test",
-      "title": {
-        "en": "Habit Patterns Test",
-        "zh": "习惯模式测试"
-      },
       "collection": "explore",
       "code": "ADDICTION_TENDENCY",
       "formCode": "habit_tendency_likert_20",
@@ -3357,10 +2605,6 @@
     },
     {
       "slug": "coping-rhythm-test",
-      "title": {
-        "en": "Coping Rhythm Test",
-        "zh": "应对节奏测试"
-      },
       "collection": "explore",
       "code": "PSYCHOLOGICAL_AGE",
       "formCode": "psychological_age_paired_choice_24",
@@ -3373,10 +2617,6 @@
     },
     {
       "slug": "freelance-ready",
-      "title": {
-        "en": "Freelance Readiness Test",
-        "zh": "自由职业者准备程度测试"
-      },
       "collection": "explore",
       "code": "FM_FREELANCE_PREPARATION_ACTIONS20",
       "formCode": "fm_freelance_ready20_preparation_v1",
@@ -3390,10 +2630,6 @@
     },
     {
       "slug": "remote-work",
-      "title": {
-        "en": "Remote Work Readiness Test",
-        "zh": "远程工作准备程度测试"
-      },
       "collection": "explore",
       "code": "FM_REMOTE_PREPARATION_ACTIONS20",
       "formCode": "fm_remote_work20_preparation_v1",
@@ -3407,10 +2643,6 @@
     },
     {
       "slug": "stress-response-patterns-test",
-      "title": {
-        "en": "Stress Response Patterns Test",
-        "zh": "压力反应观察测试"
-      },
       "collection": "explore",
       "code": "PERSONALITY_SHADOW",
       "formCode": "personality_shadow_likert_20",
@@ -3424,10 +2656,6 @@
     },
     {
       "slug": "euphoria-character-quiz",
-      "title": {
-        "en": "Euphoria character quiz",
-        "zh": "《亢奋》角色测试"
-      },
       "collection": "explore",
       "code": "FM_EUPHORIA_EVERYDAY20",
       "formCode": "fm_euphoria_everyday20_v1",
@@ -3444,10 +2672,6 @@
     },
     {
       "slug": "seven-sins-virtues-test",
-      "title": {
-        "en": "Seven Sins and Virtues Test: Everyday Reflections",
-        "zh": "七宗罪与七美德测试：日常张力观察"
-      },
       "collection": "explore",
       "code": "VIRTUES_EXPLORATION",
       "formCode": "virtues_exploration_likert_28",
@@ -3463,10 +2687,6 @@
     },
     {
       "slug": "four-axes-test",
-      "title": {
-        "en": "Four Axes Self-Portrait Test",
-        "zh": "四轴自我画像测试"
-      },
       "collection": "explore",
       "code": "FM_FOUR_AXES_REFLECTION60",
       "formCode": "fm_four_axes_original60_v1",
@@ -3479,10 +2699,6 @@
     },
     {
       "slug": "conflict-boundary-behaviors-test",
-      "title": {
-        "en": "Conflict and Boundary Behaviors Test",
-        "zh": "冲突与边界行为观察测试"
-      },
       "collection": "explore",
       "code": "RISKY_PERSONALITY",
       "formCode": "conflict_boundary_signals_likert_24",
@@ -3495,10 +2711,6 @@
     },
     {
       "slug": "stress-check-in-test",
-      "title": {
-        "en": "One-Month Stress Check-In",
-        "zh": "近一个月压力自评"
-      },
       "collection": "explore",
       "code": "FM_MONTHLY_STRESS_REFLECTION4",
       "formCode": "fm_original_monthly_stress4_v1",
@@ -3508,10 +2720,6 @@
     },
     {
       "slug": "sake-type",
-      "title": {
-        "en": "Sake Type Test",
-        "zh": "酒水类型测试"
-      },
       "collection": "explore",
       "code": "FM_SAKE_METAPHOR16",
       "formCode": "fm_sake_fourchoice16_v1",
@@ -3524,10 +2732,6 @@
     },
     {
       "slug": "orientation-exploration-test",
-      "title": {
-        "en": "Orientation Exploration Test",
-        "zh": "取向探索测试"
-      },
       "collection": "explore",
       "code": "ORIENTATION_EXPLORATION",
       "formCode": "orientation_exploration_reflection_20",
@@ -3541,10 +2745,6 @@
     },
     {
       "slug": "tech-savvy",
-      "title": {
-        "en": "Tech Savvy Test",
-        "zh": "技术素养自评测试"
-      },
       "collection": "explore",
       "code": "FM_TECH_CONFIDENCE6",
       "formCode": "fm_tech_confidence6_v1",
@@ -3554,10 +2754,6 @@
     },
     {
       "slug": "stupidity-test",
-      "title": {
-        "en": "Stupidity Test: Everyday Mix-ups",
-        "zh": "犯蠢测试：日常乌龙方式"
-      },
       "collection": "explore",
       "code": "FM_EVERYDAY_MIXUPS12",
       "formCode": "fm_everyday_mixups_choice12_v1",
@@ -3572,10 +2768,6 @@
     },
     {
       "slug": "mental-age",
-      "title": {
-        "en": "Mental Age Test",
-        "zh": "心理年龄测试"
-      },
       "collection": "explore",
       "code": "FM_MENTAL_AGE12",
       "formCode": "fm_mental_age12_v1",
@@ -3585,10 +2777,6 @@
     },
     {
       "slug": "energy-flow",
-      "title": {
-        "en": "Energy & Flow Profile",
-        "zh": "精力与专注节奏自评"
-      },
       "collection": "explore",
       "code": "FM_ENERGY_FLOW20",
       "formCode": "fm_energy_flow20_v1",
@@ -3601,10 +2789,6 @@
     },
     {
       "slug": "food-disgust",
-      "title": {
-        "en": "Food Disgust Test (FDS)",
-        "zh": "食物厌恶测试（FDS）"
-      },
       "collection": "explore",
       "code": "FDS32_CC_EN_WORKING_ZH",
       "formCode": "fds32_table2_en_working_zh_v1",
@@ -3621,10 +2805,6 @@
     },
     {
       "slug": "cognitive-functions-test",
-      "title": {
-        "en": "Cognitive Functions Test",
-        "zh": "认知功能测试"
-      },
       "collection": "explore",
       "code": "FM_COGNITIVE_FUNCTIONS32",
       "formCode": "fm_cognitive_functions32_v1",
@@ -3641,10 +2821,6 @@
     },
     {
       "slug": "love-type-16",
-      "title": {
-        "en": "Love Type Test",
-        "zh": "爱情类型测试"
-      },
       "collection": "explore",
       "code": "FM_LOVE_TYPE16_32",
       "formCode": "fm_love_type16_original32_v1",
@@ -3669,10 +2845,6 @@
     },
     {
       "slug": "cultural-dimensions",
-      "title": {
-        "en": "Cultural Dimensions Test",
-        "zh": "文化维度测试"
-      },
       "collection": "explore",
       "code": "FM_CULTURAL_DIMENSIONS36",
       "formCode": "fm_cultural_dimensions_original36_v1",
@@ -3687,10 +2859,6 @@
     },
     {
       "slug": "food-choice",
-      "title": {
-        "en": "Food Choice Test",
-        "zh": "食物选择测试"
-      },
       "collection": "explore",
       "code": "FM_FOOD_CHOICE12",
       "formCode": "fm_food_choice_original12_v1",
@@ -3706,10 +2874,6 @@
     },
     {
       "slug": "values-assessment",
-      "title": {
-        "en": "Values Assessment",
-        "zh": "工作价值观测试"
-      },
       "collection": "explore",
       "code": "FM_WORK_VALUES30",
       "formCode": "fm_work_values_original30_v1",
@@ -3728,10 +2892,6 @@
     },
     {
       "slug": "eq-dashboard",
-      "title": {
-        "en": "EQ Dashboard: Eight Emotions",
-        "zh": "情绪仪表盘：八种感受"
-      },
       "collection": "explore",
       "code": "FM_EMOTION_DASHBOARD40",
       "formCode": "fm_emotion_dashboard_original40_v1",
@@ -3748,10 +2908,6 @@
     },
     {
       "slug": "career-match",
-      "title": {
-        "en": "Career Match: Compare Interests and Roles",
-        "zh": "职业匹配测试：比较兴趣与真实职业"
-      },
       "collection": "explore",
       "code": "FM_CAREER_THEME_COMPARE",
       "formCode": "fm_career_theme_comparison_v1",
@@ -3759,10 +2915,6 @@
     },
     {
       "slug": "cyberpunk-edgerunners",
-      "title": {
-        "en": "Cyberpunk: Edgerunners Test",
-        "zh": "《赛博朋克：边缘行者》角色测试"
-      },
       "collection": "explore",
       "code": "FM_EDGERUNNERS_CHARACTER21",
       "formCode": "fm_edgerunners_original_21_v1",
@@ -3778,10 +2930,6 @@
     },
     {
       "slug": "caliper-style-assessment-test",
-      "title": {
-        "en": "Caliper-Style Assessment: Most/Least Practice",
-        "zh": "Caliper风格评估：最符合／最不符合练习"
-      },
       "collection": "explore",
       "code": "FM_MOST_LEAST_PRACTICE",
       "formCode": "fm_most_least_blocks16_v1",
@@ -3798,10 +2946,6 @@
     },
     {
       "slug": "masking-test",
-      "title": {
-        "en": "Masking Test (CAT-Q)",
-        "zh": "社交伪装测试（CAT-Q）"
-      },
       "collection": "explore",
       "code": "CATQ25_HULL2019",
       "formCode": "catq25_hull2019_appendix1_fm_zh_working_v1",
@@ -3814,10 +2958,6 @@
     },
     {
       "slug": "imposter-syndrome",
-      "title": {
-        "en": "Imposter Syndrome Test",
-        "zh": "冒名顶替综合征测试"
-      },
       "collection": "explore",
       "code": "FM_IMPOSTER20",
       "formCode": "fm_imposter20_original_v1",
@@ -3831,10 +2971,6 @@
     },
     {
       "slug": "aphantasia-test",
-      "title": {
-        "en": "Aphantasia Test",
-        "zh": "心盲症测试"
-      },
       "collection": "explore",
       "code": "FM_IMAGERY12",
       "formCode": "fm_imagery12_original_v1",
@@ -3847,10 +2983,6 @@
     },
     {
       "slug": "synesthesia-test",
-      "title": {
-        "en": "Synesthesia Test",
-        "zh": "联觉测试"
-      },
       "collection": "explore",
       "code": "FM_SYNES15",
       "formCode": "fm_synes15_original_v1",
@@ -3864,10 +2996,6 @@
     },
     {
       "slug": "misophonia-screener",
-      "title": {
-        "en": "Sound Sensitivity Check-In",
-        "zh": "声音敏感自评"
-      },
       "collection": "explore",
       "code": "DVMSQ18_WILLIAMS2022_CC_BY_SA",
       "formCode": "dvmsq_v15_18plusgate_fmzh_web_v1",
@@ -3879,10 +3007,6 @@
     },
     {
       "slug": "sensory-sensitivity",
-      "title": {
-        "en": "Sensory Sensitivity Test",
-        "zh": "感官敏感测试"
-      },
       "collection": "explore",
       "code": "FM_SENS16",
       "formCode": "fm_sens16_original_v1",
@@ -3895,10 +3019,6 @@
     },
     {
       "slug": "anger-issues-screener",
-      "title": {
-        "en": "Anger & Frustration Check-In",
-        "zh": "愤怒与挫败自评"
-      },
       "collection": "explore",
       "code": "FM_ANGER20",
       "formCode": "fm_anger20_original_v1",
@@ -3911,10 +3031,6 @@
     },
     {
       "slug": "asvab-practice-test",
-      "title": {
-        "en": "ASVAB-Style Practice: Four AFQT Areas",
-        "zh": "ASVAB四领域英文练习"
-      },
       "collection": "explore",
       "code": "FM_AFQT32",
       "formCode": "fm_afqt32_english_original_v1",
@@ -3927,10 +3043,6 @@
     },
     {
       "slug": "everyday-control-style",
-      "title": {
-        "en": "Everyday Control Style Test",
-        "zh": "日常掌控方式测试"
-      },
       "collection": "explore",
       "code": "FM_EVERYDAY_CONTROL24",
       "formCode": "fm_everyday_control24_v1",
@@ -3945,10 +3057,6 @@
     },
     {
       "slug": "asvab-science-mechanical-practice-test",
-      "title": {
-        "en": "ASVAB-Style Science & Technical Practice",
-        "zh": "ASVAB风格科学与技术练习"
-      },
       "collection": "explore",
       "code": "FM_TECHNICAL30",
       "formCode": "fm_technical30_original_english_v1",
@@ -3962,10 +3070,6 @@
     },
     {
       "slug": "interpersonal-preferences",
-      "title": {
-        "en": "Interpersonal Preferences Reflection Test",
-        "zh": "人际偏好反思测试"
-      },
       "collection": "explore",
       "code": "FM_INTERPERSONAL_PREFERENCES24",
       "formCode": "fm_interpersonal_preferences24_v1",
@@ -3980,10 +3084,6 @@
     },
     {
       "slug": "mattering",
-      "title": {
-        "en": "Mattering Test (GMS/AMS)",
-        "zh": "被重视感测试（GMS/AMS）"
-      },
       "collection": "explore",
       "code": "GMS5_AMS5_WORKING_EDITION",
       "formCode": "gms5_ams5_flett2022_table2",
@@ -3994,10 +3094,6 @@
     },
     {
       "slug": "employer-reasoning-practice-test",
-      "title": {
-        "en": "SHL-Style & Korn Ferry-Style Reasoning Practice",
-        "zh": "SHL／Korn Ferry风格推理练习"
-      },
       "collection": "explore",
       "code": "FM_REASONING18",
       "formCode": "fm_reasoning18_original_english_v1",
@@ -4009,10 +3105,6 @@
     },
     {
       "slug": "social-attitudes-reflection",
-      "title": {
-        "en": "Social Attitudes Reflection Test",
-        "zh": "社会态度反思测试"
-      },
       "collection": "explore",
       "code": "FM_SOCIAL_ATTITUDES24",
       "formCode": "fm_social_attitudes24_v1",
@@ -4025,10 +3117,6 @@
     },
     {
       "slug": "watson-glaser-practice-test",
-      "title": {
-        "en": "Watson–Glaser-Style Critical Thinking Practice",
-        "zh": "Watson–Glaser风格批判性思维练习"
-      },
       "collection": "explore",
       "code": "FM_CRITICAL30",
       "formCode": "fm_critical30_original_english_v1",
@@ -4042,10 +3130,6 @@
     },
     {
       "slug": "tipi-10",
-      "title": {
-        "en": "TIPI-10 Personality Test",
-        "zh": "TIPI-10极短大五人格测试"
-      },
       "collection": "explore",
       "code": "TIPI10_GOSLING_2003",
       "formCode": "tipi10_gosling2003_en_fm_zh_working_v1",
@@ -4059,10 +3143,6 @@
     },
     {
       "slug": "sbti-test",
-      "title": {
-        "zh": "SBTI 娱乐人格测试：小程序原31题",
-        "en": "SBTI Test: Original 31 Questions"
-      },
       "collection": "explore",
       "code": "SBTI",
       "formCode": "sbti_entertainment_31",
@@ -4096,10 +3176,6 @@
     },
     {
       "slug": "work-activity-interests",
-      "title": {
-        "en": "Work Activity Interests: 60 Original Tasks",
-        "zh": "工作活动兴趣盘点：60项原创任务"
-      },
       "collection": "explore",
       "code": "FM_WORK_ACTIVITY_INTERESTS60",
       "formCode": "fm_work_activity_interests60_v1",
@@ -4114,10 +3190,6 @@
     },
     {
       "slug": "intimacy-values",
-      "title": {
-        "en": "Intimacy Values Test",
-        "zh": "亲密关系价值观测试"
-      },
       "collection": "explore",
       "code": "FM_INTIMACY_VALUES25",
       "formCode": "fm_intimacy_values25_v1",
@@ -4131,10 +3203,6 @@
     },
     {
       "slug": "relationship-habits",
-      "title": {
-        "en": "Relationship Habits Test",
-        "zh": "关系相处习惯测试"
-      },
       "collection": "explore",
       "code": "FM_RELATIONSHIP_HABITS16",
       "formCode": "fm_relationship_habits16_v1",
@@ -4147,10 +3215,6 @@
     },
     {
       "slug": "dating-outlook",
-      "title": {
-        "en": "Dating Outlook Test",
-        "zh": "恋爱心态测试"
-      },
       "collection": "explore",
       "code": "FM_DATING_OUTLOOK16",
       "formCode": "fm_dating_outlook16_v1",
@@ -4163,10 +3227,6 @@
     },
     {
       "slug": "work-role-reflection",
-      "title": {
-        "en": "Work Role and Support Reflection",
-        "zh": "工作角色与支持方式回顾"
-      },
       "collection": "explore",
       "code": "FM_WORK_ROLE_CONTEXT12",
       "formCode": "fm_work_role_context12_v1",
@@ -4178,10 +3238,6 @@
     },
     {
       "slug": "face-self-image",
-      "title": {
-        "en": "Face Self-Image Test",
-        "zh": "面部自我形象观察"
-      },
       "collection": "explore",
       "code": "FM_FACE_SELF_IMAGE16",
       "formCode": "fm_face_self_image16_v1",
@@ -4194,10 +3250,6 @@
     },
     {
       "slug": "relationship-worry-habits",
-      "title": {
-        "en": "Relationship Worry Habits Test",
-        "zh": "关系担心反应观察"
-      },
       "collection": "explore",
       "code": "FM_RELATIONSHIP_WORRY16",
       "formCode": "fm_relationship_worry16_v1",
@@ -4210,10 +3262,6 @@
     },
     {
       "slug": "work-traits-reflection",
-      "title": {
-        "en": "Seven Work Themes Reflection",
-        "zh": "七类工作主题回顾"
-      },
       "collection": "explore",
       "code": "FM_WORK_THEMES42",
       "formCode": "fm_work_themes42_v1",
@@ -4229,10 +3277,6 @@
     },
     {
       "slug": "dark-tetrad-sd4",
-      "title": {
-        "en": "Short Dark Tetrad (SD4)",
-        "zh": "黑暗四特质 SD4"
-      },
       "collection": "explore",
       "code": "SD4_28",
       "formCode": "sd4_28_published_english",
@@ -4245,10 +3289,6 @@
     },
     {
       "slug": "attraction-experiences",
-      "title": {
-        "en": "Attraction Experiences Reflection",
-        "zh": "吸引体验观察"
-      },
       "collection": "explore",
       "code": "FM_ATTRACTION_EXPERIENCES15",
       "formCode": "fermatmind_attraction_experiences15",
@@ -4262,10 +3302,6 @@
     },
     {
       "slug": "written-coordination-practice",
-      "title": {
-        "en": "Written Coordination Skills Practice",
-        "zh": "书面协调技能练习"
-      },
       "collection": "explore",
       "code": "FM_WRITTEN_COORDINATION32_30",
       "formCode": "fm_written_coordination32_30_v1",
@@ -4280,10 +3316,6 @@
     },
     {
       "slug": "distributed-work-choices",
-      "title": {
-        "en": "Distributed Work Choices Reflection",
-        "zh": "分布式协作选择回顾"
-      },
       "collection": "explore",
       "code": "FM_DISTRIBUTED_WORK_CHOICES24",
       "formCode": "fm_distributed_work24_choices_v1",
@@ -4296,10 +3328,6 @@
     },
     {
       "slug": "outfit-line-preferences",
-      "title": {
-        "en": "Outfit Line Preferences",
-        "zh": "服装线条偏好"
-      },
       "collection": "explore",
       "code": "FM_OUTFIT_LINES15",
       "formCode": "fermatmind_outfit_lines15",
@@ -4313,10 +3341,6 @@
     },
     {
       "slug": "trauma-response-reflection",
-      "title": {
-        "en": "Reactions After a Difficult Experience",
-        "zh": "困难经历后的反应回顾"
-      },
       "collection": "explore",
       "code": "FM_TRAUMA_RESPONSE20_OBSERVATIONS",
       "formCode": "fm_trauma_response20_observations_v1",
@@ -4329,10 +3353,6 @@
     },
     {
       "slug": "style-impression-preferences",
-      "title": {
-        "en": "Whole-Look Style Preferences",
-        "zh": "整体造型氛围偏好"
-      },
       "collection": "explore",
       "code": "FM_STYLE_IMPRESSIONS16",
       "formCode": "fermatmind_style_impressions16",
@@ -4349,10 +3369,6 @@
     },
     {
       "slug": "activity-engagement-patterns",
-      "title": {
-        "en": "Activity Engagement Patterns",
-        "zh": "活动参与方式观察"
-      },
       "collection": "explore",
       "code": "FM_ACTIVITY_ENGAGEMENT20",
       "formCode": "fermatmind_activity_engagement20",
@@ -4366,10 +3382,6 @@
     },
     {
       "slug": "pressure-response-actions",
-      "title": {
-        "en": "Actions Under Pressure",
-        "zh": "压力下的行动观察"
-      },
       "collection": "explore",
       "code": "FM_PRESSURE_ACTIONS12_OBSERVATIONS",
       "formCode": "fm_pressure_actions12_observations_v1",
@@ -4382,10 +3394,6 @@
     },
     {
       "slug": "connection-ideals",
-      "title": {
-        "en": "Soulmate Quiz: Connection Ideals",
-        "zh": "灵魂伴侣测试：连接偏好"
-      },
       "collection": "explore",
       "code": "FM_CONNECTION_IDEALS12",
       "formCode": "fermatmind_connection_ideals12",
@@ -4400,10 +3408,6 @@
     },
     {
       "slug": "connection-belonging-check-in",
-      "title": {
-        "en": "Connection and Belonging Check-In",
-        "zh": "联系与归属回顾"
-      },
       "collection": "explore",
       "code": "FM_CONNECTION_CHECKIN21_OBSERVATIONS",
       "formCode": "fm_connection_checkin21_observations_v1",
@@ -4415,10 +3419,6 @@
     },
     {
       "slug": "body-frame-observations",
-      "title": {
-        "en": "Body-Frame Observations",
-        "zh": "体表轮廓自我观察"
-      },
       "collection": "explore",
       "code": "FM_BODY_FRAME_OBSERVATIONS12",
       "formCode": "fermatmind_body_frame_observations12",
@@ -4430,10 +3430,6 @@
     },
     {
       "slug": "considering-support-reflection",
-      "title": {
-        "en": "Considering Support: Personal Reflection",
-        "zh": "考虑支持：个人回顾"
-      },
       "collection": "explore",
       "code": "FM_SUPPORT_REFLECTION18_CURRENT_CATEGORIES",
       "formCode": "fm_support_reflection18_current_v1",
@@ -4446,10 +3442,6 @@
     },
     {
       "slug": "connection-meaning-reflection",
-      "title": {
-        "en": "Twin Flame Reflection",
-        "zh": "双生火焰话题反思"
-      },
       "collection": "explore",
       "code": "FM_CONNECTION_MEANING15",
       "formCode": "fermatmind_connection_meaning15",
@@ -4463,10 +3455,6 @@
     },
     {
       "slug": "after-bereavement-reflection",
-      "title": {
-        "en": "After a Bereavement: Personal Reflection",
-        "zh": "重要的人去世之后：个人回顾"
-      },
       "collection": "explore",
       "code": "FM_BEREAVEMENT16_OBSERVATIONS",
       "formCode": "fm_bereavement16_observations_v1",
@@ -4480,10 +3468,6 @@
     },
     {
       "slug": "prakriti-inventory21",
-      "title": {
-        "en": "Dosha Reflection: BPI-21",
-        "zh": "Dosha话题自评：BPI-21"
-      },
       "collection": "explore",
       "code": "BPI21_NOMINAL_WORKING_ZH",
       "formCode": "bpi21_en_working_zh_na_v1",
@@ -4495,10 +3479,6 @@
     },
     {
       "slug": "sleep-experiences-reflection",
-      "title": {
-        "en": "Sleep Experiences: Personal Reflection",
-        "zh": "睡眠经历：个人回顾"
-      },
       "collection": "explore",
       "code": "FM_SLEEP20_OBSERVATIONS",
       "formCode": "fm_sleep20_observations_v1",
@@ -4512,10 +3492,6 @@
     },
     {
       "slug": "health-worries-reflection",
-      "title": {
-        "en": "Health Worries: Personal Reflection",
-        "zh": "健康担忧：个人回顾"
-      },
       "collection": "explore",
       "code": "FM_HEALTH_WORRIES21_OBSERVATIONS",
       "formCode": "fm_health_worries21_observations_v1",
@@ -4527,10 +3503,6 @@
     },
     {
       "slug": "weton-story-preferences",
-      "title": {
-        "en": "Weton Story Preferences & Calendar Reference",
-        "zh": "Weton故事偏好与历法参考"
-      },
       "collection": "explore",
       "code": "FM_WETON_STORY35",
       "formCode": "fm_weton_story35_v1",
@@ -4574,10 +3546,6 @@
     },
     {
       "slug": "sudden-fear-reflection",
-      "title": {
-        "en": "Sudden Fear: Personal Reflection",
-        "zh": "突然强烈恐惧：个人回顾"
-      },
       "collection": "explore",
       "code": "FM_SUDDEN_FEAR20_OBSERVATIONS",
       "formCode": "fm_sudden_fear20_observations_v1",
@@ -4590,10 +3558,6 @@
     },
     {
       "slug": "unwanted-thoughts-actions-reflection",
-      "title": {
-        "en": "Unwanted Thoughts & Repeated Actions: Personal Reflection",
-        "zh": "不想要的想法与重复动作：个人回顾"
-      },
       "collection": "explore",
       "code": "FM_UNWANTED_ACTIONS20_OBSERVATIONS",
       "formCode": "fm_unwanted_actions20_observations_v1",
@@ -4607,10 +3571,6 @@
     },
     {
       "slug": "focus-energy-context-reflection",
-      "title": {
-        "en": "Attention & Energy: Daily Context",
-        "zh": "注意力与能量：日常情境回顾"
-      },
       "collection": "explore",
       "code": "FM_FOCUS_CONTEXT16_OBSERVATIONS",
       "formCode": "fm_focus_context16_observations_v1",
@@ -4623,10 +3583,6 @@
     },
     {
       "slug": "nakshatra-spica-reference",
-      "title": {
-        "en": "Nakshatra Birth-Star Calculator: Spica Reference",
-        "zh": "Nakshatra出生宿计算器：Spica参考口径"
-      },
       "collection": "explore",
       "code": "FM_NAKSHATRA_SPICA27",
       "formCode": "fm_nakshatra_spica27_v1",
@@ -4662,10 +3618,6 @@
     },
     {
       "slug": "written-language-context-reflection",
-      "title": {
-        "en": "Reading & Writing: Everyday Context",
-        "zh": "阅读与书写：日常情境回顾"
-      },
       "collection": "explore",
       "code": "FM_WRITTEN_LANGUAGE20_OBSERVATIONS",
       "formCode": "fm_written_language20_observations_v1",
@@ -4678,10 +3630,6 @@
     },
     {
       "slug": "number-context-reflection",
-      "title": {
-        "en": "Numbers in Daily Life: Personal Reflection",
-        "zh": "日常数字：个人回顾"
-      },
       "collection": "explore",
       "code": "FM_NUMBER_CONTEXT20_OBSERVATIONS",
       "formCode": "fm_number_context20_observations_v1",
@@ -4694,10 +3642,6 @@
     },
     {
       "slug": "social-context-reflection",
-      "title": {
-        "en": "Social Situations: Personal Reflection",
-        "zh": "社交场景：个人回顾"
-      },
       "collection": "explore",
       "code": "FM_SOCIAL_CONTEXT20_OBSERVATIONS",
       "formCode": "fm_social_context20_observations_v1",
@@ -4710,10 +3654,6 @@
     },
     {
       "slug": "care-feelings-reflection",
-      "title": {
-        "en": "Care & Feelings: Recollections and Today",
-        "zh": "照护与感受：回忆与当下"
-      },
       "collection": "explore",
       "code": "FM_CARE_FEELINGS20_OBSERVATIONS",
       "formCode": "fm_care_feelings20_mixed_recall_v1",
@@ -4726,10 +3666,6 @@
     },
     {
       "slug": "drinking-experiences-reflection",
-      "title": {
-        "en": "Drinking Experiences Reflection",
-        "zh": "饮酒经历回顾"
-      },
       "collection": "explore",
       "code": "FM_DRINKING_EXPERIENCES20_CATEGORIES",
       "formCode": "fm_drinking20_four_weeks_v1",
@@ -4742,10 +3678,6 @@
     },
     {
       "slug": "everyday-worry-reflection",
-      "title": {
-        "en": "Everyday Worry: Personal Reflection",
-        "zh": "日常担心：个人回顾"
-      },
       "collection": "explore",
       "code": "FM_EVERYDAY_WORRY12_OBSERVATIONS",
       "formCode": "fm_everyday_worry12_observations_v1",
@@ -4757,10 +3689,6 @@
     },
     {
       "slug": "child-focus-activity-observations",
-      "title": {
-        "en": "Child Focus & Activity: Caregiver Observations",
-        "zh": "儿童专注与活动：照顾者观察"
-      },
       "collection": "explore",
       "code": "FM_CAREGIVER_CONTEXT20_OBSERVATIONS",
       "formCode": "fm_caregiver_context20_observations_v1",
@@ -4773,10 +3701,6 @@
     },
     {
       "slug": "recent-mood-reflection",
-      "title": {
-        "en": "Recent Mood: Personal Reflection",
-        "zh": "近期心情：个人回顾"
-      },
       "collection": "explore",
       "code": "FM_RECENT_MOOD12_OBSERVATIONS",
       "formCode": "fm_recent_mood12_observations_v1",
@@ -4788,10 +3712,6 @@
     },
     {
       "slug": "eating-experiences-reflection",
-      "title": {
-        "en": "Eating and Body Experiences Reflection",
-        "zh": "进食与身体经历回顾"
-      },
       "collection": "explore",
       "code": "FM_EATING_EXPERIENCES20_CATEGORIES",
       "formCode": "fm_eating20_four_weeks_v1",
@@ -4805,10 +3725,6 @@
     },
     {
       "slug": "communication-routines-context",
-      "title": {
-        "en": "Communication, Routines & Ways of Working",
-        "zh": "沟通、日常安排与做事方式"
-      },
       "collection": "explore",
       "code": "FM_COMMUNICATION_ROUTINES20_OBSERVATIONS",
       "formCode": "fm_communication_routines20_observations_v1",
@@ -4822,10 +3738,6 @@
     },
     {
       "slug": "gender-experiences-reflection",
-      "title": {
-        "en": "Gender Experiences Reflection",
-        "zh": "性别经历回顾"
-      },
       "collection": "explore",
       "code": "FM_GENDER_EXPERIENCES16_CATEGORIES",
       "formCode": "fm_gender16_four_weeks_v1",
@@ -4838,10 +3750,6 @@
     },
     {
       "slug": "mood-activity-changes-reflection",
-      "title": {
-        "en": "Changes in Mood and Activity: Personal Reflection",
-        "zh": "心情与活动变化：个人回顾"
-      },
       "collection": "explore",
       "code": "FM_MOOD_ACTIVITY16_RECOLLECTIONS",
       "formCode": "fm_mood_activity16_recollections_v1",
@@ -4854,10 +3762,6 @@
     },
     {
       "slug": "feelings-connection-reflection",
-      "title": {
-        "en": "After Difficult Times: Feelings & Connection",
-        "zh": "困难时期之后：感受与联系"
-      },
       "collection": "explore",
       "code": "FM_FEELINGS_CONNECTION8_OBSERVATIONS",
       "formCode": "fm_feelings_connection8_observations_v1",
@@ -4868,10 +3772,6 @@
     },
     {
       "slug": "emotions-connections-reflection",
-      "title": {
-        "en": "Emotions, Self and Connections Reflection",
-        "zh": "情绪、自我与联结回顾"
-      },
       "collection": "explore",
       "code": "FM_EMOTIONS_CONNECTIONS21_CATEGORIES",
       "formCode": "fm_emotions21_four_weeks_v1",
@@ -4887,10 +3787,6 @@
     },
     {
       "slug": "spatial-thinking-reflection",
-      "title": {
-        "en": "Spatial Relationships in Everyday Thinking",
-        "zh": "日常思考中的空间关系"
-      },
       "collection": "explore",
       "code": "FM_SPATIAL_CONTEXT4_OBSERVATIONS",
       "formCode": "fm_spatial_context4_observations_v1",
@@ -4900,10 +3796,6 @@
     },
     {
       "slug": "feedback-self-worth-reflection",
-      "title": {
-        "en": "Feedback and Self-Worth Reflection",
-        "zh": "反馈与自我价值感回顾"
-      },
       "collection": "explore",
       "code": "FM_FEEDBACK_WORTH12_CATEGORIES",
       "formCode": "fm_feedback12_four_weeks_v1",
@@ -4915,10 +3807,6 @@
     },
     {
       "slug": "menstrual-cycle-context-reflection",
-      "title": {
-        "en": "Menstrual Cycle and Recent Experiences: Personal Reflection",
-        "zh": "月经周期与近期经历：个人回顾"
-      },
       "collection": "explore",
       "code": "FM_CYCLE_CONTEXT16_RECOLLECTIONS",
       "formCode": "fm_cycle_context16_recollections_v1",
@@ -4931,10 +3819,6 @@
     },
     {
       "slug": "disconnection-experiences-reflection",
-      "title": {
-        "en": "Detachment, Absorption & Everyday Recall",
-        "zh": "距离感、投入与日常回忆"
-      },
       "collection": "explore",
       "code": "FM_DISCONNECTION20_OBSERVATIONS",
       "formCode": "fm_disconnection20_observations_v1",
@@ -4947,10 +3831,6 @@
     },
     {
       "slug": "uncertainty-ease-reflection",
-      "title": {
-        "en": "Feeling at Ease with Uncertainty",
-        "zh": "面对未知的自在感回顾"
-      },
       "collection": "explore",
       "code": "FM_UNCERTAINTY_EASE6_CATEGORIES",
       "formCode": "fm_uncertainty6_four_weeks_v1",
@@ -4960,10 +3840,6 @@
     },
     {
       "slug": "after-childbirth-context-reflection",
-      "title": {
-        "en": "After Childbirth: Personal Reflection",
-        "zh": "分娩之后：个人回顾"
-      },
       "collection": "explore",
       "code": "FM_BIRTH_CONTEXT16_RECOLLECTIONS",
       "formCode": "fm_birth_context16_recollections_v1",
@@ -4976,10 +3852,6 @@
     },
     {
       "slug": "unfamiliar-experiences-reflection",
-      "title": {
-        "en": "Unfamiliar Experiences & Everyday Participation",
-        "zh": "陌生体验与日常参与"
-      },
       "collection": "explore",
       "code": "FM_UNFAMILIAR20_OBSERVATIONS",
       "formCode": "fm_unfamiliar20_observations_v1",
@@ -4993,10 +3865,6 @@
     },
     {
       "slug": "time-of-year-context-reflection",
-      "title": {
-        "en": "Time of Year and Personal Experiences: Reflection",
-        "zh": "一年中的时间与个人经历：回顾"
-      },
       "collection": "explore",
       "code": "FM_SEASON_CONTEXT16_RECOLLECTIONS",
       "formCode": "fm_season_context16_recollections_v1",
@@ -5009,10 +3877,6 @@
     },
     {
       "slug": "perceived-stress-scale-4",
-      "title": {
-        "en": "Perceived Stress Scale — 4 Items (PSS-4)",
-        "zh": "四项感知压力量表（PSS-4）"
-      },
       "collection": "explore",
       "code": "FM_PSS4_CMU_REFERENCE",
       "formCode": "cmu_pss4_en_fm_zh_translation_v1",
@@ -5023,711 +3887,307 @@
   ],
   "legacy": [
     {
-      "slug": "beachcomber",
-      "title": {
-        "en": "Beachcomber Quiz: What Catches Your Eye?",
-        "zh": "海边拾趣：什么会吸引你停下？"
-      }
+      "slug": "beachcomber"
     },
     {
-      "slug": "birdwatching-companion",
-      "title": {
-        "en": "What Kind of Birdwatching Companion Are You?",
-        "zh": "观鸟同行：你会怎样分享一次发现？"
-      }
+      "slug": "birdwatching-companion"
     },
     {
-      "slug": "board-game-table",
-      "title": {
-        "en": "Who Are You at the Board-Game Table?",
-        "zh": "桌游一桌人：你会带来哪种玩法？"
-      }
+      "slug": "board-game-table"
     },
     {
-      "slug": "borrowed-book",
-      "title": {
-        "en": "Your Borrowed-Book Agreement Style",
-        "zh": "借一本书：你会怎样把约定说好？"
-      }
+      "slug": "borrowed-book"
     },
     {
-      "slug": "browser-tabs",
-      "title": {
-        "en": "What Is Your Casual-Tab Keeping Style?",
-        "zh": "随手打开的标签页：你会怎么留？"
-      }
+      "slug": "browser-tabs"
     },
     {
-      "slug": "camera-roll",
-      "title": {
-        "en": "Your Camera-Roll Curator Style",
-        "zh": "相册里的这些照片：你会怎样挑？"
-      }
+      "slug": "camera-roll"
     },
     {
-      "slug": "campfire-storyteller",
-      "title": {
-        "en": "Your Role in a Circle of Storytellers",
-        "zh": "围坐讲故事：你会怎样接住这一圈？"
-      }
+      "slug": "campfire-storyteller"
     },
     {
-      "slug": "celebrating-a-friend",
-      "title": {
-        "en": "How Would You Meet a Friend’s Good News?",
-        "zh": "朋友分享好消息：你会怎样接住？"
-      }
+      "slug": "celebrating-a-friend"
     },
     {
-      "slug": "celebration-planner",
-      "title": {
-        "en": "Your Small-Celebration Planning Style",
-        "zh": "小庆祝策划：你会把重点放在哪？"
-      }
+      "slug": "celebration-planner"
     },
     {
-      "slug": "choosing-together",
-      "title": {
-        "en": "How Do You Make a Small Choice Together?",
-        "zh": "一起选件小事：你会用哪种办法？"
-      }
+      "slug": "choosing-together"
     },
     {
-      "slug": "city-wanderer",
-      "title": {
-        "en": "What Kind of City Wanderer Are You?",
-        "zh": "在城市里闲逛，你会沿什么线索走？"
-      }
+      "slug": "city-wanderer"
     },
     {
-      "slug": "cloud-drift",
-      "title": {
-        "en": "What Do You See in the Drifting Clouds?",
-        "zh": "看云小游戏：你会看见什么？"
-      }
+      "slug": "cloud-drift"
     },
     {
-      "slug": "coffee-break",
-      "title": {
-        "en": "What Kind of Coffee Break Do You Actually Want?",
-        "zh": "你真正想要哪种小憩？"
-      }
+      "slug": "coffee-break"
     },
     {
-      "slug": "comfort-offer",
-      "title": {
-        "en": "What Kind of Company Would You Offer After a Tiring Day?",
-        "zh": "普通累了一天：你会怎样提供陪伴？"
-      }
+      "slug": "comfort-offer"
     },
     {
-      "slug": "community-fair",
-      "title": {
-        "en": "Your Small-Help Role at a Community Fair",
-        "zh": "社区小市集：你会怎样搭把手？"
-      }
+      "slug": "community-fair"
     },
     {
-      "slug": "compliment-style",
-      "title": {
-        "en": "What Do Your Compliments Notice?",
-        "zh": "一句欣赏：你会先看见什么？"
-      }
+      "slug": "compliment-style"
     },
     {
-      "slug": "cozy-object",
-      "title": {
-        "en": "Which Ordinary Object Holds Your Cozy Scene?",
-        "zh": "你的温暖小场景，会由哪件普通物陪着？"
-      }
+      "slug": "cozy-object"
     },
     {
-      "slug": "creative-spark",
-      "title": {
-        "en": "How Does Your Small Creative Idea Catch Fire?",
-        "zh": "一个小创意来了，你会先怎么接？"
-      }
+      "slug": "creative-spark"
     },
     {
-      "slug": "date-plan-detour",
-      "title": {
-        "en": "Your Shared-Outing Detour Style",
-        "zh": "约好的一程变了：你会怎样一起转弯？"
-      }
+      "slug": "date-plan-detour"
     },
     {
-      "slug": "desert-oasis",
-      "title": {
-        "en": "Design an Imaginary Oasis Rest Stop",
-        "zh": "设计你的想象绿洲歇脚站"
-      }
+      "slug": "desert-oasis"
     },
     {
-      "slug": "desk-reset",
-      "title": {
-        "en": "What Kind of Desk Reset Fits You?",
-        "zh": "你的桌面想怎样重新开始？"
-      }
+      "slug": "desk-reset"
     },
     {
-      "slug": "dinner-host",
-      "title": {
-        "en": "What Kind of Casual Dinner Host Are You?",
-        "zh": "轻松请吃饭：你会怎样安排这一桌？"
-      }
+      "slug": "dinner-host"
     },
     {
-      "slug": "dragon-housemate",
-      "title": {
-        "en": "What Kind of Dragon Housemate Would You Be?",
-        "zh": "和一条龙合住，你会怎么相处？"
-      }
+      "slug": "dragon-housemate"
     },
     {
-      "slug": "dream-train",
-      "title": {
-        "en": "The Dream Train’s Changing Ticket",
-        "zh": "梦境列车：会改字的车票"
-      }
+      "slug": "dream-train"
     },
     {
-      "slug": "enchanted-library",
-      "title": {
-        "en": "The Enchanted Library: Which Clue Will You Trust?",
-        "zh": "会改写的图书馆：你会相信哪条线索？"
-      }
+      "slug": "enchanted-library"
     },
     {
-      "slug": "escape-room-role",
-      "title": {
-        "en": "Your Escape-Room Team Role",
-        "zh": "密室小队：你会怎样推进线索？"
-      }
+      "slug": "escape-room-role"
     },
     {
-      "slug": "fantasy-party-role",
-      "title": {
-        "en": "What Is Your Fantasy Adventure Party Role?",
-        "zh": "奇幻冒险队里，你负责什么？"
-      }
+      "slug": "fantasy-party-role"
     },
     {
-      "slug": "festival-companion",
-      "title": {
-        "en": "Your Festival Companion Style",
-        "zh": "逛节庆同行：你会怎样约好这一程？"
-      }
+      "slug": "festival-companion"
     },
     {
-      "slug": "festival-mask",
-      "title": {
-        "en": "Which Original Festival Mask Would You Design?",
-        "zh": "虚构节庆之夜：你会设计哪张面具？"
-      }
+      "slug": "festival-mask"
     },
     {
-      "slug": "fictional-cafe",
-      "title": {
-        "en": "What Kind of Impossible Café Would You Open?",
-        "zh": "你会开一家怎样的不可能咖啡馆？"
-      }
+      "slug": "fictional-cafe"
     },
     {
-      "slug": "firefly-evening",
-      "title": {
-        "en": "The Paper-Firefly Evening",
-        "zh": "纸萤火的傍晚"
-      }
+      "slug": "firefly-evening"
     },
     {
-      "slug": "floating-house",
-      "title": {
-        "en": "Where Would Your Floating House Belong?",
-        "zh": "漂浮小屋：你会怎样与地面相连？"
-      }
+      "slug": "floating-house"
     },
     {
-      "slug": "forest-soundtrack",
-      "title": {
-        "en": "The Forest’s Missing Last Note",
-        "zh": "森林乐曲失去的最后一音"
-      }
+      "slug": "forest-soundtrack"
     },
     {
-      "slug": "friendship-invitation",
-      "title": {
-        "en": "Your Friendship Invitation Style",
-        "zh": "发个一起玩的邀请：你会怎样开口？"
-      }
+      "slug": "friendship-invitation"
     },
     {
-      "slug": "game-night-reset",
-      "title": {
-        "en": "When Game Night Stops Being Fun, What Is Your Reset?",
-        "zh": "游戏没那么好玩了：你会怎样重新安排？"
-      }
+      "slug": "game-night-reset"
     },
     {
-      "slug": "garden-season",
-      "title": {
-        "en": "Which Season Is Your Imaginary Garden In?",
-        "zh": "你的想象花园正在哪个季节？"
-      }
+      "slug": "garden-season"
     },
     {
-      "slug": "gift-note",
-      "title": {
-        "en": "What Would Your Gift Note Say?",
-        "zh": "礼物旁的小纸条：你会写什么？"
-      }
+      "slug": "gift-note"
     },
     {
-      "slug": "group-chat-role",
-      "title": {
-        "en": "What Is Your Group Chat Role?",
-        "zh": "你在群聊里是什么角色？"
-      }
+      "slug": "group-chat-role"
     },
     {
-      "slug": "group-project-finale",
-      "title": {
-        "en": "How Do You Close a Shared Hobby Project?",
-        "zh": "共同小作品完成了：你会怎样收尾？"
-      }
+      "slug": "group-project-finale"
     },
     {
-      "slug": "group-trip-seatmate",
-      "title": {
-        "en": "What Kind of Seatmate Are You on a Group Trip?",
-        "zh": "同行一段路：你是哪种邻座？"
-      }
+      "slug": "group-trip-seatmate"
     },
     {
-      "slug": "harbor-light",
-      "title": {
-        "en": "What Signal Would Your Fictional Harbor Light Send?",
-        "zh": "虚构港口里，你会设计怎样的灯语？"
-      }
+      "slug": "harbor-light"
     },
     {
-      "slug": "hosting-a-guest",
-      "title": {
-        "en": "How Would You Welcome an Overnight Guest?",
-        "zh": "朋友住一晚：你会怎样介绍这个家？"
-      }
+      "slug": "hosting-a-guest"
     },
     {
-      "slug": "house-of-doors",
-      "title": {
-        "en": "Which Room Will Your House of Doors Reveal?",
-        "zh": "门中小屋：这趟会发现哪一间？"
-      }
+      "slug": "house-of-doors"
     },
     {
-      "slug": "inside-joke",
-      "title": {
-        "en": "How Do You Keep an Inside Joke Welcoming?",
-        "zh": "共同笑点：你会怎样让它好接？"
-      }
+      "slug": "inside-joke"
     },
     {
-      "slug": "island-day",
-      "title": {
-        "en": "One Day on Postcard Island",
-        "zh": "明信片岛的一天"
-      }
+      "slug": "island-day"
     },
     {
-      "slug": "kitchen-improviser",
-      "title": {
-        "en": "What Kind of Kitchen Improviser Are You?",
-        "zh": "厨房临场发挥时，你是哪一派？"
-      }
+      "slug": "kitchen-improviser"
     },
     {
-      "slug": "long-distance-postcard",
-      "title": {
-        "en": "Your Long-Distance Postcard Style",
-        "zh": "隔着一段距离：你会寄来怎样的明信片？"
-      }
+      "slug": "long-distance-postcard"
     },
     {
-      "slug": "lost-key-search",
-      "title": {
-        "en": "What Is Your Missing-Keys Search Style?",
-        "zh": "钥匙一时找不到，你会怎么找？"
-      }
+      "slug": "lost-key-search"
     },
     {
-      "slug": "lost-letter-adventure",
-      "title": {
-        "en": "The Lost Letter: Which Story Ending Will You Choose?",
-        "zh": "失落的信：你会走向哪种故事结局？"
-      }
+      "slug": "lost-letter-adventure"
     },
     {
-      "slug": "magic-shopkeeper",
-      "title": {
-        "en": "What Kind of Magic Shopkeeper Would You Be?",
-        "zh": "如果开一家魔法小店，你是哪种店主？"
-      }
+      "slug": "magic-shopkeeper"
     },
     {
-      "slug": "message-tone",
-      "title": {
-        "en": "Your First Move with an Ambiguous Message",
-        "zh": "一句话看不准语气：你会先怎么接？"
-      }
+      "slug": "message-tone"
     },
     {
-      "slug": "moon-market",
-      "title": {
-        "en": "The Moon Market: What Will You Bring Home?",
-        "zh": "月亮集市：你会带什么回家？"
-      }
+      "slug": "moon-market"
     },
     {
-      "slug": "mountain-cabin",
-      "title": {
-        "en": "Your Role in a Shared Mountain Cabin",
-        "zh": "山间小屋：你会怎样安顿这一晚？"
-      }
+      "slug": "mountain-cabin"
     },
     {
-      "slug": "museum-of-tomorrow",
-      "title": {
-        "en": "What Would You Label in the Museum of Tomorrow?",
-        "zh": "明日博物馆：你会怎样写展签？"
-      }
+      "slug": "museum-of-tomorrow"
     },
     {
-      "slug": "museum-visitor",
-      "title": {
-        "en": "What Kind of Museum Visitor Are You?",
-        "zh": "逛博物馆时，你会怎样看？"
-      }
+      "slug": "museum-visitor"
     },
     {
-      "slug": "new-club-member",
-      "title": {
-        "en": "Your First-Visit Hobby Club Toolkit",
-        "zh": "兴趣小组第一次：你会带哪套入门办法？"
-      }
+      "slug": "new-club-member"
     },
     {
-      "slug": "night-garden",
-      "title": {
-        "en": "What Would You Notice in the Night Garden?",
-        "zh": "夜色花园：你先留意什么？"
-      }
+      "slug": "night-garden"
     },
     {
-      "slug": "note-taking-doodles",
-      "title": {
-        "en": "How Do Your Notes Catch an Idea?",
-        "zh": "想法刚来时：你的笔记会怎么接？"
-      }
+      "slug": "note-taking-doodles"
     },
     {
-      "slug": "paper-creature-language",
-      "title": {
-        "en": "How Would You Talk with a Paper Creature?",
-        "zh": "纸小兽不会说话，你会怎样交流？"
-      }
+      "slug": "paper-creature-language"
     },
     {
-      "slug": "paper-world",
-      "title": {
-        "en": "How Would You Build a World from Paper?",
-        "zh": "只用一张纸，你会怎样造一个世界？"
-      }
+      "slug": "paper-world"
     },
     {
-      "slug": "party-arrival",
-      "title": {
-        "en": "How Do You Find Your Place at a Party?",
-        "zh": "聚会刚到场：你会怎样找到位置？"
-      }
+      "slug": "party-arrival"
     },
     {
-      "slug": "personal-museum",
-      "title": {
-        "en": "What Would Your Museum of Ordinary Moments Collect?",
-        "zh": "你的普通时刻博物馆，会收藏什么？"
-      }
+      "slug": "personal-museum"
     },
     {
-      "slug": "photo-group-role",
-      "title": {
-        "en": "Your Role in the Group Photo",
-        "zh": "大家合影：你会怎样凑好这一张？"
-      }
+      "slug": "photo-group-role"
     },
     {
-      "slug": "playlist-maker",
-      "title": {
-        "en": "What Kind of Playlist Maker Are You?",
-        "zh": "你的歌单会怎样照顾一段时间？"
-      }
+      "slug": "playlist-maker"
     },
     {
-      "slug": "pocket-map",
-      "title": {
-        "en": "What Would Your Pocket Map Remember?",
-        "zh": "你的口袋小地图，会记住什么？"
-      }
+      "slug": "pocket-map"
     },
     {
-      "slug": "portal-choice",
-      "title": {
-        "en": "The Pocket Portal: Where Will Your Choices Lead?",
-        "zh": "口袋传送门：你的选择会通往哪里？"
-      }
+      "slug": "portal-choice"
     },
     {
-      "slug": "potluck-contribution",
-      "title": {
-        "en": "What Is Your Potluck Contribution Style?",
-        "zh": "聚餐带一道菜：你会怎样接上这一桌？"
-      }
+      "slug": "potluck-contribution"
     },
     {
-      "slug": "quest-reward",
-      "title": {
-        "en": "Which Reward Would You Choose After a Tiny Quest?",
-        "zh": "完成一场小冒险后，你最想带走什么奖励？"
-      }
+      "slug": "quest-reward"
     },
     {
-      "slug": "quiet-company",
-      "title": {
-        "en": "Your Quiet-Company Scene",
-        "zh": "不用一直说话：你的安静作伴画面"
-      }
+      "slug": "quiet-company"
     },
     {
-      "slug": "rainy-window",
-      "title": {
-        "en": "Your Rainy-Window Sketchbook",
-        "zh": "雨窗速写本：你会画下哪一层？"
-      }
+      "slug": "rainy-window"
     },
     {
-      "slug": "reading-ritual",
-      "title": {
-        "en": "What Is Your Reading Ritual?",
-        "zh": "你会用什么方式走进一本书？"
-      }
+      "slug": "reading-ritual"
     },
     {
-      "slug": "relationship-values",
-      "title": {
-        "en": "Which Relationship Values Lead Your Choices?",
-        "zh": "关系价值侧重：这些选择里你更看重什么？"
-      }
+      "slug": "relationship-values"
     },
     {
-      "slug": "response-color",
-      "title": {
-        "en": "Which Response Color Leads Your Choices?",
-        "zh": "回应颜色：哪种方式在你的选择里更常出现？"
-      }
+      "slug": "response-color"
     },
     {
-      "slug": "reunion-style",
-      "title": {
-        "en": "How Would You Reconnect After a Long Gap?",
-        "zh": "隔了一段时间再见：你会怎样重新接上？"
-      }
+      "slug": "reunion-style"
     },
     {
-      "slug": "river-crossing",
-      "title": {
-        "en": "The Paper River: How Will You Cross?",
-        "zh": "纸上河流：你会怎么过河？"
-      }
+      "slug": "river-crossing"
     },
     {
-      "slug": "road-trip-dj",
-      "title": {
-        "en": "Your Shared-Queue Road-Trip DJ Style",
-        "zh": "同行点歌：你会怎样照顾这一条队列？"
-      }
+      "slug": "road-trip-dj"
     },
     {
-      "slug": "room-atmosphere",
-      "title": {
-        "en": "What Atmosphere Would Your Imaginary Room Hold?",
-        "zh": "想象一间房：你会留下什么氛围？"
-      }
+      "slug": "room-atmosphere"
     },
     {
-      "slug": "saying-goodbye",
-      "title": {
-        "en": "Your Gentle Goodbye Style",
-        "zh": "愉快见面快结束：你会怎样告别？"
-      }
+      "slug": "saying-goodbye"
     },
     {
-      "slug": "seasonal-table",
-      "title": {
-        "en": "How Would Your Imaginary Table Mark a New Season?",
-        "zh": "换一个季节，想象桌面会添什么？"
-      }
+      "slug": "seasonal-table"
     },
     {
-      "slug": "secret-door",
-      "title": {
-        "en": "The Secret Door: What Will You Do with the Key?",
-        "zh": "秘密门：你会怎么使用这把钥匙？"
-      }
+      "slug": "secret-door"
     },
     {
-      "slug": "secret-garden-gate",
-      "title": {
-        "en": "How Would You Open the Gate to a Small Creative Work?",
-        "zh": "小作品想分享：你的花园门会怎样打开？"
-      }
+      "slug": "secret-garden-gate"
     },
     {
-      "slug": "shared-hobby",
-      "title": {
-        "en": "How Would You Share a Hobby Hour?",
-        "zh": "一起玩一小时：你会怎样分享爱好？"
-      }
+      "slug": "shared-hobby"
     },
     {
-      "slug": "shared-ritual",
-      "title": {
-        "en": "What Kind of Small Ritual Would You Share?",
-        "zh": "两人的小仪式：你会怎样约？"
-      }
+      "slug": "shared-ritual"
     },
     {
-      "slug": "shared-workspace",
-      "title": {
-        "en": "Your Role at a Shared Creative Table",
-        "zh": "共用创作桌：你会怎样交接这一页？"
-      }
+      "slug": "shared-workspace"
     },
     {
-      "slug": "small-apology",
-      "title": {
-        "en": "Your First Step After a Small Mix-Up",
-        "zh": "一件小误会之后：你会先怎样补上？"
-      }
+      "slug": "small-apology"
     },
     {
-      "slug": "snow-day",
-      "title": {
-        "en": "Build a Snow-Day Sculpture in Your Imagination",
-        "zh": "雪日造型师：你会堆出什么？"
-      }
+      "slug": "snow-day"
     },
     {
-      "slug": "souvenir-story",
-      "title": {
-        "en": "What Kind of Souvenir Story Do You Keep?",
-        "zh": "你会留下怎样的纪念？"
-      }
+      "slug": "souvenir-story"
     },
     {
-      "slug": "spell-school-elective",
-      "title": {
-        "en": "Which Original Spell-School Elective Would You Choose?",
-        "zh": "原创魔法学校里，你会选哪门课？"
-      }
+      "slug": "spell-school-elective"
     },
     {
-      "slug": "stargazing-role",
-      "title": {
-        "en": "Your Role at an Imaginary Stargazing Night",
-        "zh": "想象观星夜：你会带来什么？"
-      }
+      "slug": "stargazing-role"
     },
     {
-      "slug": "story-ending",
-      "title": {
-        "en": "How Will the Last Page of the Paper Parade End?",
-        "zh": "纸游行最后一页，会怎样写完？"
-      }
+      "slug": "story-ending"
     },
     {
-      "slug": "storybook-narrator",
-      "title": {
-        "en": "Which Original Storybook Narrator Is Yours?",
-        "zh": "你的原创故事书，会由谁来讲？"
-      }
+      "slug": "storybook-narrator"
     },
     {
-      "slug": "team-name-maker",
-      "title": {
-        "en": "How Does Your Team Name Take Shape?",
-        "zh": "小队起名：你会怎么凑出这个名字？"
-      }
+      "slug": "team-name-maker"
     },
     {
-      "slug": "thrift-shop-find",
-      "title": {
-        "en": "Your Imaginary Secondhand-Shelf Find",
-        "zh": "想象二手架：你会为哪件小物停下？"
-      }
+      "slug": "thrift-shop-find"
     },
     {
-      "slug": "tide-pool-creature",
-      "title": {
-        "en": "Which Tide-Pool Neighbor Would You Be?",
-        "zh": "潮池邻居：你会是哪种小生物？"
-      }
+      "slug": "tide-pool-creature"
     },
     {
-      "slug": "time-capsule",
-      "title": {
-        "en": "What Would Your Ordinary-Day Time Capsule Keep?",
-        "zh": "普通一天时间胶囊，你会放进什么？"
-      }
+      "slug": "time-capsule"
     },
     {
-      "slug": "tiny-kingdom",
-      "title": {
-        "en": "Which Tiny Kingdom Would You Build?",
-        "zh": "如果王国只有一个鞋盒大，你会建成什么样？"
-      }
+      "slug": "tiny-kingdom"
     },
     {
-      "slug": "tiny-superpower",
-      "title": {
-        "en": "Which Tiny Original Superpower Would You Pick?",
-        "zh": "只在小事里有用：你会选哪种原创微能力？"
-      }
+      "slug": "tiny-superpower"
     },
     {
-      "slug": "tiny-treat",
-      "title": {
-        "en": "What Is Your Tiny Finish-Line Treat?",
-        "zh": "小事告一段落：你想怎样庆祝一下？"
-      }
+      "slug": "tiny-treat"
     },
     {
-      "slug": "weather-in-a-bottle",
-      "title": {
-        "en": "What Weather Would Your Story Bottle Hold?",
-        "zh": "故事小瓶里，你会装哪种天气？"
-      }
+      "slug": "weather-in-a-bottle"
     },
     {
-      "slug": "weekend-pace",
-      "title": {
-        "en": "What Is Your Weekend Pace?",
-        "zh": "你的周末节奏是什么？"
-      }
+      "slug": "weekend-pace"
     },
     {
-      "slug": "woodland-animal",
-      "title": {
-        "en": "Which Woodland Animal Matches Your Trail Style?",
-        "zh": "你的林间同行动物是什么？"
-      }
+      "slug": "woodland-animal"
     }
   ]
 }

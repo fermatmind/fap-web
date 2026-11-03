@@ -1,6 +1,6 @@
 "use client";
 
-import { entertainmentActivityCatalog as catalog } from "./activityCatalog";
+import { entertainmentActivityDefinitions as catalog } from "./activityDefinitions";
 import { hasAnalyticsConsent } from "@/lib/consent/store";
 import { getAnalyticsDeploymentEnvironment, shouldAllowFirstPartyAnalyticsRuntime } from "@/lib/tracking/internalTraffic";
 
