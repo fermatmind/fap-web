@@ -20,7 +20,7 @@ const samples = Object.fromEntries((["mixed", "unscored", "high"] as const).map(
   return [mode, { values, scores }];
 }));
 async function consent(page: Page, l: Locale) { const b = page.getByRole("button", { name: label(l, "Decline", "拒绝"), exact: true }); if (await b.isVisible()) await b.click(); }
-async function button(page: Page, l: Locale, en: string, zh: string) { await page.getByRole("button", { name: label(l, en, zh), exact: true }).click(); }
+async function button(page: Page, l: Locale, en: string, zh: string) { if (en === "Start test") { await page.locator("[data-explore-start]").click(); return; } await page.getByRole("button", { name: label(l, en, zh), exact: true }).click(); }
 async function finish(page: Page, l: Locale, mode: Mode) {
   const sample = samples[mode];
   for (let i = 0; i < 40; i++) {

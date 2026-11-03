@@ -14,21 +14,21 @@
     "en": "Your six-theme choices and every highest tie"
   },
   "description": {
-    "zh": "免费希腊神测试：18道原创选择比较宙斯、雅典娜、阿波罗、阿芙罗狄蒂、阿瑞斯和阿尔忒弥斯。无需注册，全部最高并列与完整说明直接读；神话趣味，不鉴定能力、天命或职业。",
-    "en": "Which Greek god are you? Compare six myth themes through 18 original choices. Read full results and highest ties free, without signup or ability claims."
+    "zh": "18道原创情境题，探索宙斯、雅典娜、阿波罗、阿芙罗狄蒂、阿瑞斯与阿尔忒弥斯六种神话主题。约6分钟，免费查看原始计数、全部最高并列与完整解读；无需注册。",
+    "en": "Explore six Greek myth themes through 18 original scenarios: Zeus, Athena, Apollo, Aphrodite, Ares and Artemis. About six minutes; free raw counts, every highest tie and complete guides, without signup."
   },
   "seoTitle": {
-    "zh": "希腊神测试：18题、六位神祇与完整结果",
-    "en": "Which Greek God Are You? Free Quiz and Full Results"
+    "zh": "希腊神测试：18题探索六位神祇与完整并列结果",
+    "en": "Which Greek God Are You? 18 Questions, Six Myth Themes and Complete Results"
   },
   "minutes": 6,
   "introduction": {
-    "zh": "你更想明确共同约定、比较路线、创作表达、体验美感交流、试一个小挑战，还是自主观察？本版从六位希腊神话人物中选取当代偏好联想，提供18道普通、低风险的原创四选一。全部完成后看六主题原始次数，最高并列都保留完整报告。名字只是娱乐标签，不是古代完整人格分类，更不说明谁更聪明、勇敢、有魅力或适合某种职业；神话性别不限制匹配。六份完整结果也可以先读。",
-    "en": "Would you rather clarify shared agreements, compare routes, make an expression, enjoy aesthetic connection, try a bounded challenge or observe at your own pace? This edition uses six selected Greek myth figures for contemporary preference associations in 18 original, low-stakes choices. After completion, compare raw counts and read every highest-tied report in full. Names are entertainment labels, not a complete ancient personality system or evidence of intelligence, courage, charm or career fit. Mythological genders restrict no one’s matches. All six full guides are also available before answering."
+    "zh": "希腊神测试以六位神话人物为线索，比较你对共同安排、路线计划、创作表达、美感交流、适度挑战与自主观察的当前偏好。18道原创情境围绕小展览、笔记、休息与自选活动展开，每题四选一。结果呈现六主题的原始选择次数，并保留所有最高并列；这些主题是费马的当代文化联想，不是古代六型人格学说。",
+    "en": "This Greek god quiz uses six mythological figures to compare current preferences for shared arrangements, planning, creative expression, aesthetic connection, bounded challenges and autonomous observation. Eighteen original scenarios concern small exhibitions, notes, breaks and activities you choose; each offers four options. Results show six raw choice counts and retain every highest tie. These themes are FermatMind’s contemporary cultural associations, not an ancient six-type personality doctrine."
   },
   "instructions": {
-    "zh": "本版选取六位希腊神话人物作娱乐主题标签，不是古代完整人格分类，也不测神话知识。按你目前更想选择的做法回答18题；每题只提供其中四种选择，每个主题在全卷出现12次，在四个位置各3次。所有情境都是普通、自愿、可退出的安排；没有道德上唯一正确或证明勇气的选项。全部选择后看本题组相对计数，保留全部最高并列。名字和性别不限制谁可以匹配；结果不判断真实能力、信仰身份、天命、精神状态或职业适配。",
-    "en": "This edition uses six selected Greek myth figures as entertainment labels, not a complete ancient personality system or a mythology knowledge test. Answer 18 questions with the approach you currently prefer. Each offers four themes; every theme appears 12 times and three times in each position. Situations are ordinary, voluntary and open to withdrawal, without morally superior answers or proof of courage. After completion, compare counts within this set and retain every highest tie. Names and genders restrict no one’s matches. Results establish no ability, religious identity, destiny, mental state or career fit."
+    "zh": "按目前更想采用的做法回答，每题四选一；没有知识考试或道德上唯一正确的答案。每题只出现六主题中的四个，未出现的主题不算被拒绝。全程尽量使用同一参照情境，所有安排均以自愿、低风险和可以退出为前提。完成18题后查看六项计数与所有最高并列的完整报告，也可以退出清除。名字与神话性别不限制匹配，结果不鉴定信仰、神性、天命或现实能力。",
+    "en": "Choose the approach you currently prefer, one of four per question. This is neither a knowledge examination nor a test with morally correct answers. Each question offers four of the six themes; absent themes are not counted as rejected. Keep a consistent reference context; all activities assume voluntary, low-stakes participation and room to stop. Complete 18 questions for six counts and every highest-tied full report, or exit and clear. Names and mythological genders restrict no match; results establish no religion, divinity, destiny or real ability."
   },
   "source": {
     "kind": "FermatMindoriginalGreekmythpreferences18/sixselectedfigures/notancientpersonalitydoctrineorpsychometricinstrument",
@@ -1742,65 +1742,187 @@
     {
       "id": "archetype-counts",
       "title": {
-        "zh": "18题怎样形成六主题计数",
-        "en": "How 18 choices produce six-theme counts"
+        "zh": "18题怎样计分：六主题、四选一与固定总数",
+        "en": "Scoring 18 questions: six themes, four options and a fixed total"
       },
       "paragraphs": [
         {
-          "zh": "18题全部各选一项，对应主题加1，总数固定18。每题从六主题中提供四个，每个主题在全卷出现12次、每位置3次；没有选上的另外两项不记为拒绝。原始次数只是这组可选项中的相对分布，不是独立品质、神祇相似度百分比或人口排名。所有最高计数都保留完整报告；全选第一项会六项各3，全都显示。名单顺序不设主次，相差一次只是一项选择，不证明显著差异、固定主副型或某个特质消失。近分可以一起比较，但不补造未并列的混合类型。换情境或时间可能改变回答，没有常模、稀有度或科学分界。",
-          "en": "Choose one option for all 18 questions; each adds one to its theme, and counts always sum to 18. Each question offers four of the six themes. Every theme appears 12 times and three times in each position; the two absent themes are not counted as rejected. Raw counts describe relative choices among these options, not independent qualities, god-match percentages or population ranks. Every highest count retains its full guide: choosing the first option throughout gives three each and displays all six. List order establishes no priority. A one-choice gap proves neither significance, fixed primary–secondary types nor the absence of a quality. Compare close results without inventing an untied hybrid type. Context or time may change responses. There are no norms, rarity estimates or scientific cutoffs."
+          "zh": "每题从六主题中提供四个不同选项，选择一个只给对应主题加1次。每个主题在全卷出现12次，并在四个位置各出现3次。因此单项范围是0—12，六项计数合计恒为18。题目未出现的另外两个主题不记为拒绝，也不会补分或扣分。",
+          "en": "Each question offers four different themes from the six. Selecting one adds one count to that theme only. Every theme appears 12 times across the questionnaire and three times in each position. Each count therefore ranges from 0 to 12, and all six counts always total 18. The two absent themes are not rejected and gain or lose no points."
+        },
+        {
+          "zh": "例如按宙斯、雅典娜、阿波罗、阿芙罗狄蒂、阿瑞斯、阿尔忒弥斯顺序得到6、6、2、2、1、1时，总数为18，前两项同为最高。分母12表示本题组中的出现机会，不是神祇相似度或人格百分比；一项被选中，其他可选项就不会得到本题计数。",
+          "en": "For example, 6, 6, 2, 2, 1, 1 in Zeus, Athena, Apollo, Aphrodite, Ares, Artemis order total 18 and leave the first two tied highest. Twelve denotes opportunities in this questionnaire, not a god-match or personality percentage. Choosing one theme means the other offered themes gain no count on that question."
         }
       ]
     },
     {
       "id": "archetype-ties",
       "title": {
-        "zh": "并列、近分与完整结果",
-        "en": "Ties, close counts and full guides"
+        "zh": "所有最高并列：为什么保留一、二、三、四或六项",
+        "en": "Every highest tie: why one, two, three, four or six can appear"
       },
       "paragraphs": [
         {
-          "zh": "六份结果各自说明神话背景、本站偏好读法、具体日常例子、可用表达、五主题比较、反例、小观察、计分和来源。所有最高并列都完整显示，不把名单第一位当主型。计数相差一次不证明显著差异；可以读接近的说明，但不由此造混合类型。重新作答反映当前选择，不证明人格变化。",
-          "en": "Each of the six guides includes mythological context, this edition’s interpretation, an everyday example, possible wording, comparisons, counterexamples, an optional observation, scoring and sources. Every highest tie appears in full without treating the first as a primary type. A one-choice gap establishes no significant difference. Read nearby guides without inventing hybrid types. Retaking reflects current responses, not proven personality change."
+          "zh": "8、4、3、1、1、1只有一项最高；6、6、2、2、1、1保留两项；5、5、5、1、1、1保留三项；4、4、4、4、1、1保留四项；3、3、3、3、3、3保留六项。所有例子总和都是18。五项单独并列最高在这个固定总数下不可能出现；这是计数约束，不是某种神话禁忌。",
+          "en": "Counts of 8, 4, 3, 1, 1, 1 have one highest; 6, 6, 2, 2, 1, 1 retain two; 5, 5, 5, 1, 1, 1 retain three; 4, 4, 4, 4, 1, 1 retain four; and 3, 3, 3, 3, 3, 3 retain six. Every example totals 18. Exactly five highest ties cannot occur with this fixed total; that is arithmetic, not a mythological restriction."
+        },
+        {
+          "zh": "每个最高主题都显示完整报告，不按字母、题号、选项位置或名单顺序强分主次。相差一次只是一次选择差异，不证明稳定主型、副型或显著心理差别；较少选到也不代表缺少相应品质。可以比较其他指南，但不补造近分混合类型。",
+          "en": "Every highest theme displays its complete report without priority from letters, question numbers, option positions or list order. A one-choice difference establishes no stable primary or secondary type or significant psychological difference. Fewer choices imply no absence of a quality. You can compare other guides without inventing close-score hybrid types."
         }
       ]
     },
     {
       "id": "archetype-metaphor",
       "title": {
-        "zh": "神话联想不等于现实鉴定",
-        "en": "Myth associations are not personal verdicts"
+        "zh": "神话人物与当代偏好：本版怎样借用名称",
+        "en": "Mythological figures and contemporary preferences: how names are used"
       },
       "paragraphs": [
         {
-          "zh": "宙斯不认证领导力，雅典娜不测智商，阿波罗不测天赋，阿芙罗狄蒂不判吸引力，阿瑞斯不要求争斗，阿尔忒弥斯不要求独处或户外活动。六位是本版选取，不声称涵盖全部神祇、完整十二主神或统一心理学原型；现代小说和游戏中的同名人物也不等同本版背景。",
-          "en": "Zeus certifies no leadership, Athena no IQ, Apollo no talent and Aphrodite no attractiveness. Ares requires no fighting, and Artemis requires neither solitude nor outdoor activity. These six are an editorial selection, not all Greek gods, the complete twelve Olympians or a unified psychological archetype system. Characters in modern novels and games with the same names are not this edition’s source."
+          "zh": "本版选取六位人物，不代表完整希腊神谱、十二奥林匹斯主神名单或统一心理学分类。将宙斯联系共同责任、雅典娜联系路线计划、阿瑞斯联系可暂停的小挑战，是本站题目与解释的编辑设计；它们不等于对古代神祇全部职能的定义。",
+          "en": "This edition selects six figures, not the complete Greek pantheon, all twelve Olympians or a unified psychological classification. Linking Zeus with shared responsibility, Athena with planning and Ares with pausable challenges is an editorial design of these questions and readings, not a definition of every ancient divine function."
+        },
+        {
+          "zh": "名字不限制性别、信仰或关系状态，也不认定守护神、神裔或宗教身份。神话中的权力、冲突与欲望不是现实相处要求；完成测试不需要冒险、支配别人、证明吸引力或参加任何信仰活动。",
+          "en": "Names restrict no gender, belief or relationship status and identify neither patron deity, divine ancestry nor religion. Mythological power, conflict and desire create no requirement for real relationships. Completing the quiz needs no risk, dominance, proof of attractiveness or religious participation."
         }
       ]
     },
     {
-      "id": "source",
+      "id": "classical-context",
       "title": {
-        "zh": "原创题目与背景来源",
-        "en": "Original choices and background sources"
+        "zh": "六位神祇的背景：历史领域与本版联想",
+        "en": "Six divine figures: historical domains and this edition’s associations"
       },
       "paragraphs": [
         {
-          "zh": "这是费马独立创作的希腊神话主题偏好测验，选择宙斯、雅典娜、阿波罗、阿芙罗狄蒂、阿瑞斯和阿尔忒弥斯六位人物，不代表完整神谱或古代六型人格学说。Met博物馆背景文仅核对神话领域，不为本站选择映射、计分或效度提供验证。18题、选项、解释、情境、示例和配套计数规则为原创，没有采用JobCannon12题、IDRlabs35题、竞品结果正文／代码／算法、现代小说／游戏角色设定或受保护图片。神话中的行为不是现实相处标准；任何性别与信仰者都可把它当娱乐，也可选择不参与。没有本站心理测量验证，不鉴定神性、信仰、天命、智力、勇气、魅力、道德、健康、关系或职业适配。",
-          "en": "This independently authored FermatMind preference quiz selects Zeus, Athena, Apollo, Aphrodite, Ares and Artemis. It represents neither the complete Greek pantheon nor an ancient six-type personality doctrine. The Met museum essay checks mythological domains without validating this choice mapping, scoring or interpretation. All 18 items, options, explanations, scenes, examples and counting rules are original. No JobCannon 12-item or IDRlabs 35-item bank, competitor result text, code, algorithm, modern novel or game character setting, or protected image is used. Mythological conduct is not a standard for relationships. People of any gender or belief may treat it as entertainment or decline. This edition has no psychometric validation and certifies no divinity, religion, destiny, intelligence, courage, charm, morality, health, relationship or career fit."
+          "zh": "Met博物馆的背景文介绍：宙斯与天空和诸神之王有关；雅典娜与雅典、智慧及工艺有关；阿波罗与音乐和预言有关；阿芙罗狄蒂与爱有关；阿瑞斯与战争有关；阿尔忒弥斯与狩猎有关。这些是神话与宗教史背景，不是本版计分或心理测量依据。[1]",
+          "en": "The Met’s background essay connects Zeus with the sky and kingship, Athena with Athens, wisdom and crafts, Apollo with music and prophecy, Aphrodite with love, Ares with war, and Artemis with hunting. These are mythological and religious-historical domains, not evidence validating this scoring or a psychological measure. [1]"
+        },
+        {
+          "zh": "本版保留文化名称，另行创作普通、自愿的选择情境。阿波罗在这里可以是写几行文字，阿尔忒弥斯可以是在室内观察光影；不要求重演神话行为，也不把现代小说、游戏或影视的同名角色设定当作本题本的背景。",
+          "en": "This edition retains cultural names while independently creating ordinary, voluntary choices. Apollo can mean writing a few lines here; Artemis can mean observing indoor light and shadow. No mythological reenactment is required, and same-named characters in modern novels, games or films are not this questionnaire’s source."
+        }
+      ]
+    },
+    {
+      "id": "six-operational-themes",
+      "title": {
+        "zh": "六主题具体比较什么：从安排到自主观察",
+        "en": "What the six themes compare: arrangements through autonomous observation"
+      },
+      "paragraphs": [
+        {
+          "zh": "宙斯：明确已经共同同意的范围、责任与交接。雅典娜：比较可行路线、条件与取舍。阿波罗：用声音、文字或小作品形成自己的表达。前两者区别在于共同约定与方案比较；创作也可以包含协调和计划，题目只问当下更想先选择哪一种。",
+          "en": "Zeus: clarifying mutually agreed scope, responsibilities and handovers. Athena: comparing routes, conditions and tradeoffs. Apollo: forming an expression through sound, words or small creations. Shared agreements and route comparison differ as priorities; creativity can include both coordination and planning. A question asks which offered approach you currently prefer."
+        },
+        {
+          "zh": "阿芙罗狄蒂：关注自己喜欢的美感细节与自愿交流的舒适感。阿瑞斯：尝试一段有边界、可停止的练习。阿尔忒弥斯：保留自选角度与节奏，观察自然或日常细节。美感、练习与自主都可出现在同一件事里，六主题不是互相排斥的身份。",
+          "en": "Aphrodite: enjoying aesthetic details and comfortable, voluntary connection. Ares: attempting a bounded practice that can stop. Artemis: keeping a chosen focus and pace while observing natural or everyday details. Aesthetics, practice and autonomy can coexist in one activity; the six themes are not mutually exclusive identities."
+        }
+      ]
+    },
+    {
+      "id": "text-and-interpretation",
+      "title": {
+        "zh": "古典文本怎样支持背景，又不能证明什么",
+        "en": "What classical texts support, and what they cannot establish"
+      },
+      "paragraphs": [
+        {
+          "zh": "《荷马颂诗》第八首在赞颂阿瑞斯力量的同时，也祈求约束愤怒、避免争斗。这提醒读者，单一的“好斗性格”概括无法代替具体文本阅读。本页据此说明神话解释需要语境，不把颂诗当作现代行为治疗建议。[2]",
+          "en": "Homeric Hymn 8 praises Ares’s strength while also asking for restraint of anger and avoidance of strife. It illustrates why a single aggressive-personality stereotype cannot replace reading a specific text. Here it provides interpretive context, not modern behavioural treatment advice. [2]"
+        },
+        {
+          "zh": "博物馆背景、古典作品与本站测量证据回答不同问题：前两者可以核对文化领域和叙事，不能验证18道原创选项怎样测量人。本版尚无自己的信度、效度、常模或重测误差研究；计数透明使计算可复查，不自动使人格推断成立。",
+          "en": "Museum background, classical texts and measurement evidence answer different questions. The first two clarify cultural domains and narratives, not whether 18 original options measure people. This edition has no studies establishing its own reliability, validity, norms or retest error. Transparent counts make calculation inspectable without automatically justifying personality inferences."
+        }
+      ]
+    },
+    {
+      "id": "same-exhibition",
+      "title": {
+        "zh": "同一个小展览，怎样比较六种贡献",
+        "en": "One small exhibition: comparing six possible contributions"
+      },
+      "paragraphs": [
+        {
+          "zh": "想象大家自愿准备一个小展览：明确范围和交接呼应宙斯；比较布置路线呼应雅典娜；写一段声音或文字呼应阿波罗；调整入口的色彩与欢迎语呼应阿芙罗狄蒂。可选的小练习呼应阿瑞斯，留出自选观察节奏呼应阿尔忒弥斯。这是帮助理解的场景，不是一道同时提供六项的实际题目。",
+          "en": "Imagine a voluntary small exhibition. Agreed scope and handover echo Zeus; layout comparisons Athena; a short sound or text piece Apollo; entrance colours and welcome wording Aphrodite. An optional bounded practice echoes Ares, and room for self-paced observation Artemis. This is an explanatory scene, not an actual question offering all six options."
+        },
+        {
+          "zh": "可以说“我愿意负责这一部分，其他部分需要再协商”，或“我想先比较两条路线，再决定试哪一步”。观察你的具体选择、可用条件与他人的意愿，不要求一个人兼顾所有主题，也不以是否完成展览证明任何神祇身份。",
+          "en": "You might say, “I can own this part; the other parts need agreement,” or, “I want to compare two routes before choosing a step.” Observe the choice, available conditions and others’ willingness. Nobody must cover every theme or finish an exhibition to prove a divine identity."
+        }
+      ]
+    },
+    {
+      "id": "comparisons-and-counterexamples",
+      "title": {
+        "zh": "相邻主题与反例：避免把名称读成能力",
+        "en": "Neighbouring themes and counterexamples: names are not abilities"
+      },
+      "paragraphs": [
+        {
+          "zh": "宙斯主题的协调以约定为前提，不是命令他人的资格；雅典娜主题的计划可以包含情绪、访问需要与休息，不表示忽略感受更理性。阿波罗主题偏创作表达，阿芙罗狄蒂主题偏美感与交流体验，两者都不测天赋、外貌或他人好感。",
+          "en": "Zeus coordination assumes agreement, not permission to command. Athena planning can include feelings, access needs and rest; ignoring feelings is not more rational. Apollo emphasises creative expression, Aphrodite aesthetic and interpersonal experience. Neither measures talent, appearance or others’ liking."
+        },
+        {
+          "zh": "阿瑞斯主题可以是一次纸上折叠练习，不评价体能、竞争或忍耐疼痛。阿尔忒弥斯主题可以在室内完成，接受帮助与自主并不冲突。少选某主题也可能因为安排已经确定、没有相应材料或当下更想休息，要结合具体条件理解。",
+          "en": "An Ares theme can be a paper-folding practice, without judging fitness, competitiveness or endurance of pain. An Artemis theme can take place indoors; receiving help and autonomy can coexist. Fewer selections may reflect an arrangement already settled, unavailable materials or wanting rest. Interpret choices alongside actual conditions."
+        }
+      ]
+    },
+    {
+      "id": "identity-context-language",
+      "title": {
+        "zh": "喜欢的神祇、作答情境与中英文结果",
+        "en": "Favourite figures, reference contexts and bilingual results"
+      },
+      "paragraphs": [
+        {
+          "zh": "喜欢某位神祇可以来自作品、艺术、个人兴趣或信仰；本测验仅记录指定选项中的偏好。最高计数与喜欢的人物不同，不需要更改个人认同。作答时尽量保持同一参照，不在有的题按现实、有的题按理想角色随意切换。",
+          "en": "A favourite figure may reflect literature, art, personal interests or belief. This quiz records preferences among specified options only. A highest count differing from a favourite requires no change of identity. Keep one reference frame rather than switching arbitrarily between everyday choices and an ideal fictional role."
+        },
+        {
+          "zh": "重测先比较哪些题的选择、情境或可用条件变了，再看次数和最高组合。中英文使用同一主题与规则，但本版没有跨语言等值研究；结果变化、描述有共鸣或多次匹配同一人物，都不能单独证明测量准确或人格改变。",
+          "en": "When retaking, compare changed choices, contexts and conditions before counts and highest sets. Chinese and English use the same themes and rules without cross-language equivalence research. Changed results, a resonant description or repeated matches alone establish neither measurement accuracy nor personality change."
+        }
+      ]
+    },
+    {
+      "id": "full-guides-and-use",
+      "title": {
+        "zh": "完整结果怎样读：六份指南与可选小观察",
+        "en": "Reading the full results: six guides and optional observations"
+      },
+      "paragraphs": [
+        {
+          "zh": "每份公开指南包括背景含义、结果读法、日常例子、可用对话、其他五主题比较、反例、观察方法、计分与来源范围。可以先读全部六份；它们不关联任何人的私人答卷，完成后所有最高主题都显示完整报告，不把列表第一位当主型。",
+          "en": "Each public guide includes background, interpretation, an everyday example, dialogue, comparisons with the other five themes, a counterexample, observation, scoring and source scope. All six can be read first. They contain no private attempts, and every highest theme receives its full report without treating list order as priority."
+        },
+        {
+          "zh": "可以从自己愿意做的小事里挑一项，写下想采用的做法、一个相反例子和实际条件，再尝试一次可撤回的调整。记录“这次这样做是否合适”，比追问“我究竟是哪位神”更容易得到具体线索；不要求花钱、持续产出或披露私人经历。",
+          "en": "Choose a small activity you already want to consider. Note a preferred approach, a counterexample and actual conditions, then optionally try a reversible adjustment. Asking whether an approach suited this occasion can yield more specific observations than asking which god you truly are. No spending, sustained output or private disclosure is required."
         }
       ]
     },
     {
       "id": "privacy",
       "title": {
-        "zh": "草稿、分享与可选下一步",
-        "en": "Drafts, sharing and optional next steps"
+        "zh": "直接开始、浏览器计分与可选草稿",
+        "en": "Direct start, browser scoring and optional drafts"
       },
       "paragraphs": [
         {
-          "zh": "答案在浏览器内计分，不上传、不进网址或分析。草稿需主动开启，只在本标签页恢复，24小时失效，完成、重测、退出清除即删除。可选分享只含公开主题说明和链接，不含答案或次数。完整结果免费，不收邮箱、不先做其他测试；后续MBTI等属于另一个框架，需要重新作答，不能由神祇换算人格或职业，也可以到此结束。",
-          "en": "Answers are scored in your browser without uploading them or placing them in URLs or analytics. Drafts require opt-in, restore only in this tab, expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains public theme guides and links without answers or counts. Full results are free without email or another test first. Later assessments are separate frameworks requiring new responses; no god converts into personality or career fit. You can stop here."
+          "zh": "点击“开始测试”直接进入题目，无需注册或再次勾选同意。答案在浏览器内计分，不把答案放进网址或分析事件。网站可能记录不含答案的开始、完成等使用事件，具体以隐私与Cookie设置为准。",
+          "en": "Start test opens questions directly, without registration or another agreement checkbox. Answers are scored in your browser and enter neither URLs nor analytics events. The site may record answer-free usage events such as starts and completions, subject to privacy and Cookie settings."
+        },
+        {
+          "zh": "默认不保存答案；主动保存的草稿只在当前标签页恢复，最多24小时，完成、重测或退出清除即删除。分享自愿，公开链接没有个人答案或次数；其他测评需要另行作答，神祇结果不换算MBTI、大五人格、健康或职业结论。",
+          "en": "Answers are not saved by default. An explicitly saved draft can resume only in this tab for up to 24 hours and clears on completion, retake or exit-and-clear. Sharing is optional, and public links contain no personal answers or counts. Other assessments need new responses; gods do not convert to MBTI, Big Five, health or career conclusions."
         }
       ]
     }
@@ -1808,52 +1930,142 @@
   "faq": [
     {
       "question": {
-        "zh": "希腊神测试比较哪六位？",
-        "en": "Which six Greek gods are included?"
+        "zh": "希腊神测试是什么？",
+        "en": "What is a Greek god quiz?"
       },
       "answer": {
-        "zh": "本版选取宙斯、雅典娜、阿波罗、阿芙罗狄蒂、阿瑞斯和阿尔忒弥斯，对应六种原创日常偏好联想。它不是完整神谱，也不是十二主神知识测试。其他网站可能选不同人物和方法；同名不表示题本、算法或验证相同。",
-        "en": "This edition selects Zeus, Athena, Apollo, Aphrodite, Ares and Artemis for six original everyday preference associations. It is neither the complete pantheon nor a twelve-Olympian knowledge test. Other websites may choose different figures and methods; a shared name does not establish equivalent items, algorithms or validation."
+        "zh": "这是费马原创18题神话主题偏好测验，以六位人物作当代文化联想，比较普通、自愿活动中的选择。结果提供原始计数和所有最高并列的完整解释，不认定神性、天命或真实身份。",
+        "en": "This is FermatMind’s original 18-question myth-themed preference quiz. Six figures provide contemporary cultural associations for choices in ordinary voluntary activities. Results give raw counts and complete explanations for every highest tie, without determining divinity, destiny or true identity."
       }
     },
     {
       "question": {
-        "zh": "这是科学人格或天命测试吗？",
-        "en": "Is this a scientific personality or destiny test?"
+        "zh": "包含哪六位，为什么不是十二主神？",
+        "en": "Which six figures are included, and why not all twelve Olympians?"
       },
       "answer": {
-        "zh": "这是费马独立创作的希腊神话主题偏好测验，选择宙斯、雅典娜、阿波罗、阿芙罗狄蒂、阿瑞斯和阿尔忒弥斯六位人物，不代表完整神谱或古代六型人格学说。Met博物馆背景文仅核对神话领域，不为本站选择映射、计分或效度提供验证。18题、选项、解释、情境、示例和配套计数规则为原创，没有采用JobCannon12题、IDRlabs35题、竞品结果正文／代码／算法、现代小说／游戏角色设定或受保护图片。神话中的行为不是现实相处标准；任何性别与信仰者都可把它当娱乐，也可选择不参与。没有本站心理测量验证，不鉴定神性、信仰、天命、智力、勇气、魅力、道德、健康、关系或职业适配。",
-        "en": "This independently authored FermatMind preference quiz selects Zeus, Athena, Apollo, Aphrodite, Ares and Artemis. It represents neither the complete Greek pantheon nor an ancient six-type personality doctrine. The Met museum essay checks mythological domains without validating this choice mapping, scoring or interpretation. All 18 items, options, explanations, scenes, examples and counting rules are original. No JobCannon 12-item or IDRlabs 35-item bank, competitor result text, code, algorithm, modern novel or game character setting, or protected image is used. Mythological conduct is not a standard for relationships. People of any gender or belief may treat it as entertainment or decline. This edition has no psychometric validation and certifies no divinity, religion, destiny, intelligence, courage, charm, morality, health, relationship or career fit."
+        "zh": "本版选择宙斯、雅典娜、阿波罗、阿芙罗狄蒂、阿瑞斯和阿尔忒弥斯。六位是本题本的编辑范围，不代表完整神谱或古代六型分类；其他网站选取的人物和计分方法也可能不同。",
+        "en": "This edition selects Zeus, Athena, Apollo, Aphrodite, Ares and Artemis. Six is the scope of this questionnaire, not a complete pantheon or ancient six-type classification. Other sites may select different figures and scoring methods."
       }
     },
     {
       "question": {
-        "zh": "怎样计分、处理并列和近分？",
-        "en": "How are counts, ties and close results handled?"
+        "zh": "六个主题各指什么？",
+        "en": "What do the six themes mean here?"
       },
       "answer": {
-        "zh": "18题全部各选一项，对应主题加1，总数固定18。每题从六主题中提供四个，每个主题在全卷出现12次、每位置3次；没有选上的另外两项不记为拒绝。原始次数只是这组可选项中的相对分布，不是独立品质、神祇相似度百分比或人口排名。所有最高计数都保留完整报告；全选第一项会六项各3，全都显示。名单顺序不设主次，相差一次只是一项选择，不证明显著差异、固定主副型或某个特质消失。近分可以一起比较，但不补造未并列的混合类型。换情境或时间可能改变回答，没有常模、稀有度或科学分界。",
-        "en": "Choose one option for all 18 questions; each adds one to its theme, and counts always sum to 18. Each question offers four of the six themes. Every theme appears 12 times and three times in each position; the two absent themes are not counted as rejected. Raw counts describe relative choices among these options, not independent qualities, god-match percentages or population ranks. Every highest count retains its full guide: choosing the first option throughout gives three each and displays all six. List order establishes no priority. A one-choice gap proves neither significance, fixed primary–secondary types nor the absence of a quality. Compare close results without inventing an untied hybrid type. Context or time may change responses. There are no norms, rarity estimates or scientific cutoffs."
+        "zh": "依次是共同安排与责任、比较路线与计划、节奏与创作表达、美感与交流、有边界的挑战、自主与自然观察。它们是本站原创选项的阅读主题，不能代替神话人物全部职能或真实能力测量。",
+        "en": "They are shared arrangements and responsibility, routes and planning, rhythm and creative expression, aesthetics and connection, bounded challenges, and autonomy and nature observation. These reading themes describe original options, not every divine function or a measure of real ability."
       }
     },
     {
       "question": {
-        "zh": "性别、信仰或是否喜欢神话会影响资格吗？",
-        "en": "Do gender, belief or liking mythology determine eligibility?"
+        "zh": "有多少题、需要多久、是否免费？",
+        "en": "How many questions, how long, and is it free?"
       },
       "answer": {
-        "zh": "名字和神话性别不限制谁匹配哪位；题目不要求信仰认同或熟悉神话，选择不参加也可以。所有题目是当代普通偏好，不鉴定宗教、身份、神性或道德。结果中战争等背景不是现实行为要求，不应为符合标签而争斗、冒险或忽视需要。",
-        "en": "Names and mythological genders restrict no match. The questions require neither belief nor mythological knowledge, and participation is optional. They concern contemporary preferences rather than religion, identity, divinity or morality. Mythological warfare is not a behavioural requirement; no label asks you to fight, take risks or ignore needs."
+        "zh": "共18题，每题四选一，约6分钟，实际用时因阅读和思考而异。六项计数、全部最高并列及完整报告免费，不需要注册、邮箱或先做MBTI；点击开始直接进入题目。",
+        "en": "There are 18 four-option questions, taking about six minutes depending on reading and reflection. Six counts, every highest tie and full reports are free without signup, email or prerequisite MBTI. Start opens questions directly."
       }
     },
     {
       "question": {
-        "zh": "可以免费读全结果、重测和分享吗？",
-        "en": "Can I read full results, retake and share for free?"
+        "zh": "需要懂神话，或符合某个性别与信仰吗？",
+        "en": "Do I need mythology knowledge, a particular gender or belief?"
       },
       "answer": {
-        "zh": "可以先读全部六份完整说明，完成18题后所有最高匹配完整显示，无需注册或邮箱。重测会清除本次答案，分享只含公开结果和链接，不含计数或答卷。后续测评自选，不把神话标签转换成MBTI、健康或职业结论。",
-        "en": "Yes. All six full guides can be read first, and every highest match appears after all 18 choices without signup or email. Retaking clears this attempt. Optional sharing contains public guides and links without counts or answers. Further assessments are your choice and do not convert myth labels into MBTI, health or career verdicts."
+        "zh": "不需要。题目讨论当代普通选择，不考神话知识，也不收集信仰身份。名字和神话性别不限制匹配；你可以将它当文化娱乐，也可以选择不参与。",
+        "en": "No. Questions concern contemporary everyday choices rather than mythology knowledge, and collect no religious identity. Names and mythological genders restrict no match. You can treat it as cultural entertainment or choose not to participate."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么每题只有四个选项，却有六种结果？",
+        "en": "Why are there four options but six result themes?"
+      },
+      "answer": {
+        "zh": "每题只提供六主题中的四个，每主题在全卷出现12次、每位置各3次。未出现的两个主题没有被拒绝。计数应结合这组给定选项理解，不能说每题都比较了全部六种做法。",
+        "en": "Each question offers four of the six themes. Each theme appears 12 times overall and three times in each position. The two absent themes are not rejected. Interpret counts within the options actually offered; not every question compares all six approaches."
+      }
+    },
+    {
+      "question": {
+        "zh": "计分公式、范围和总数是什么？",
+        "en": "What are the scoring rule, range and total?"
+      },
+      "answer": {
+        "zh": "选择一次只给对应主题加1。单项0—12次，完成后六项合计18；分母12是出现机会，不是相似度、准确率或人群百分位。固定总数也使六项相互制约，不能按六个独立品质分数解释。",
+        "en": "Each selection adds one count to its theme only. Each count is 0–12; all six sum to 18. Twelve is an opportunity count, not similarity, accuracy or a population percentile. The fixed total makes counts interdependent rather than six independent quality scores."
+      }
+    },
+    {
+      "question": {
+        "zh": "最高并列怎样处理，能出现五个吗？",
+        "en": "How are highest ties handled, and can five occur?"
+      },
+      "answer": {
+        "zh": "全部最高方向保留完整报告，可出现1、2、3、4或6项最高。4、4、4、4、1、1保留四项；3、3、3、3、3、3保留六项。固定总数18时无法只有五项并列最高，不按名单顺序破同分。",
+        "en": "Every highest direction retains its complete report. One, two, three, four or six can be highest: 4, 4, 4, 4, 1, 1 retain four; 3, 3, 3, 3, 3, 3 retain six. Exactly five cannot share the highest with a total of 18. List order does not break ties."
+      }
+    },
+    {
+      "question": {
+        "zh": "相差一次或某项为零说明什么？",
+        "en": "What does a one-choice gap or zero mean?"
+      },
+      "answer": {
+        "zh": "相差一次只是一项选择差异，没有稳定主副型或显著差异的证据。零次只是这轮没有选到相应选项，不证明没有关心、创造力或自主性；可以比较公开指南，但不新增近分混合类型。",
+        "en": "A one-choice gap is one selection apart, without evidence for stable primary–secondary types or significance. Zero means that theme was not selected in this attempt, not absence of care, creativity or autonomy. Compare public guides without inventing close-score hybrids."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是经过科学验证的人格或原型测试吗？",
+        "en": "Is this a scientifically validated personality or archetype test?"
+      },
+      "answer": {
+        "zh": "本版尚无自己的信度、效度、常模或重测误差研究。古典文本和博物馆资料可以核对文化背景，不能验证18道原创题目。透明计数让计算可复查，定位仍是神话主题娱乐与选择反思。",
+        "en": "This edition has no studies establishing its own reliability, validity, norms or retest error. Classical texts and museum material clarify cultural background, not validity of 18 original items. Transparent counts make calculation inspectable; the purpose remains myth-themed entertainment and choice reflection."
+      }
+    },
+    {
+      "question": {
+        "zh": "雅典娜更聪明，阿芙罗狄蒂更有魅力吗？",
+        "en": "Does Athena mean smarter or Aphrodite more attractive?"
+      },
+      "answer": {
+        "zh": "不能这样判断。本版没有智力、外貌或他人评价任务。雅典娜主题看路线比较，阿芙罗狄蒂主题看美感与自愿交流；选择次数不评能力、真诚、受欢迎程度或关系适配。",
+        "en": "No. This quiz has no intelligence, appearance or observer-rating tasks. Athena concerns route comparison, Aphrodite aesthetics and voluntary connection. Counts assess neither ability, sincerity, popularity nor relationship compatibility."
+      }
+    },
+    {
+      "question": {
+        "zh": "阿瑞斯要求争斗，阿尔忒弥斯要求独处吗？",
+        "en": "Does Ares require fighting or Artemis solitude?"
+      },
+      "answer": {
+        "zh": "都不要求。阿瑞斯在这里是可暂停、可退出的小练习；阿尔忒弥斯是自选角度和节奏的观察，可以在室内并接受帮助。神话背景不规定现实行为，也不奖励冒险或忍耐疼痛。",
+        "en": "Neither is required. Ares here means a small practice that can pause or stop; Artemis means choosing an observation focus and pace, including indoors and with help. Mythology prescribes no real behaviour or reward for risk or endurance of pain."
+      }
+    },
+    {
+      "question": {
+        "zh": "重测、换语言或喜欢另一位神祇时怎样理解？",
+        "en": "How should I read retests, language changes or another favourite figure?"
+      },
+      "answer": {
+        "zh": "先比较具体选项和参照情境。喜欢的神祇与本轮计数不同不必改变认同；本版没有重测误差或跨语言等值数据，结果变化也不能单独证明人格改变。神祇不换算MBTI、大五分数或职业。",
+        "en": "Compare options and reference contexts first. A favourite differing from this attempt requires no change of identity. Without retest-error or cross-language equivalence data, changed results alone establish no personality change. Figures do not convert to MBTI, Big Five or careers."
+      }
+    },
+    {
+      "question": {
+        "zh": "答案在哪里计算，会保存或分享吗？",
+        "en": "Where are answers scored, saved or shared?"
+      },
+      "answer": {
+        "zh": "浏览器内计分，答案不写进网址或分析事件，默认不保存。主动保存的草稿仅本标签页可恢复、最多24小时，完成、重测或退出清除即删除。分享自愿，公开指南没有个人答案或次数。",
+        "en": "Scoring happens in your browser; answers enter neither URLs nor analytics and are not saved by default. Opt-in drafts resume only in this tab for up to 24 hours and clear on completion, retake or exit-and-clear. Sharing is optional; public guides contain no personal answers or counts."
       }
     }
   ],
@@ -1864,6 +2076,13 @@
         "en": "The Met: Greek Gods and Religious Practices (mythological background, not scoring validation)"
       },
       "url": "https://www.metmuseum.org/essays/greek-gods-and-religious-practices"
+    },
+    {
+      "title": {
+        "zh": "《荷马颂诗》第八首：致阿瑞斯（Evelyn-White英译，Theoi）",
+        "en": "Homeric Hymn 8 to Ares, Evelyn-White translation via Theoi"
+      },
+      "url": "https://www.theoi.com/Text/HomericHymns3.html#8"
     }
   ]
 }

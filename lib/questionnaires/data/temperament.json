@@ -2,7 +2,7 @@
   "slug": "temperament",
   "code": "CLASSICAL_TEMPERAMENT",
   "version": "1.0.0",
-  "updated": "2026-10-25",
+  "updated": "2026-10-31",
   "category": "framework",
   "kind": "archetype",
   "minutes": 6,
@@ -15,20 +15,20 @@
     "en": "Your classical temperament reflection"
   },
   "seoTitle": {
-    "zh": "气质测试：24题与四种古典气质完整结果",
-    "en": "Temperament Test: 24 Questions, Four Full Result Guides"
+    "zh": "气质测试：24题四气质自评、计分与完整解读",
+    "en": "Four Temperaments Test: 24 Questions, Scoring and Full Guides"
   },
   "description": {
-    "zh": "完成24道原创日常情境题，比较多血质、胆汁质、抑郁质与黏液质的本次选择次数。四种完整结果免费可读，保留全部最高并列，无需注册；古典标签不等于医学、能力或职业判断。",
-    "en": "Take 24 original everyday questions. Compare Sanguine, Choleric, Melancholic and Phlegmatic choices, with every tied full report. Free, no signup; a classical-style reflection."
+    "zh": "通过24道日常情境四选一，比较多血质、胆汁质、抑郁质与黏液质四类选择。约6分钟，免费查看原始次数、全部最高并列和完整解读，无需注册。",
+    "en": "Compare Sanguine, Choleric, Melancholic and Phlegmatic choices in 24 everyday scenarios. About 6 minutes; raw counts, every highest tie and full guides, free without signup."
   },
   "introduction": {
-    "zh": "面对变化、空闲、兴趣和共同安排，你更愿意从新鲜参与、明确推进、细致思量，还是平稳节奏进入？本气质测试借用多血质、胆汁质、抑郁质、黏液质四个古典名称，独立编写24道日常情境题和全部解释。它不测体液、遗传或天生情绪接线，也不等于现代心理学的气质量表。可以先阅读全部结果，完成后再看本次原始次数和所有最高并列报告；无需先注册、付费或完成别的测试。",
-    "en": "When plans change or ordinary interests and shared activities leave room to choose, do you favour fresh engagement, directed action, considered reflection or a steady pace? This Temperament Test uses the classical names Sanguine, Choleric, Melancholic and Phlegmatic with 24 independently authored everyday situations and full explanations. It measures no bodily fluids, genetics or inborn emotional wiring, and is not a modern temperament instrument. Read every guide before answering, then see your raw counts and every highest-count full report without signup, payment or a preceding assessment."
+    "zh": "四种古典气质通常称为多血质、胆汁质、抑郁质与黏液质。名称源自古代体液学说；体液决定性格的解释已被现代医学淘汰。[1] 本站保留这组文化名称，原创编写24道日常情境四选一，分别观察活跃参与、目标推进、细致思量与稳定节奏的相对选择。完成后同时呈现四项原始次数，保留全部最高并列，并提供四份完整结果指南。这里的气质是帮助讨论行为方式的风格称呼，与现代研究中的反应性、自我调节等气质维度应分别理解；本问卷没有施测那些维度，也没有建立相应的信度、效度或常模。[2]",
+    "en": "The four classical temperaments are Sanguine, Choleric, Melancholic and Phlegmatic. Their names come from ancient humoral theory, whose explanation of character through bodily fluids has been discarded by modern medicine.[1] FermatMind uses these cultural labels for 24 original everyday scenarios, comparing open engagement, directed action, considered reflection and a steady pace. A completed attempt shows four raw counts, every highest-count tie and four full reading guides. Here, temperament names describe styles for discussing choices. They should be distinguished from dimensions such as reactivity and self-regulation in modern temperament research: this questionnaire does not administer those dimensions or establish their reliability, validity or norms.[2]"
   },
   "instructions": {
-    "zh": "每题选出近期普通生活里更自然、或自己更愿意先采取的一种做法，不按希望成为的样子回答。四种选项没有高低或正确之分；同一人可在不同情境选不同方向。全部24题选完才显示次数与完整结果，未完成不解释。若几种都像，按这一题的具体场景选择，不需要证明自己属于哪一种气质。",
-    "en": "For each situation, choose the approach that feels more natural in ordinary recent life or the one you would prefer to try first, rather than an ideal image. No option is better or correct, and one person can favour different approaches in different settings. Counts and full reports appear only after all 24 selections. If several fit, use the particular situation instead of trying to prove membership of a temperament."
+    "zh": "以近期普通生活中的自己为参照，每题从四种做法中选择更自然或更愿意先采取的一项。几项都像时，结合题目的具体条件选择；几项都不完全像时，选相对接近的一项。不按理想形象作答，也不用把所有回答统一成某种气质。没有正确答案，完成全部24题后显示四项计数与所有最高并列结果。",
+    "en": "Use your ordinary recent life as the reference. For each situation, choose the approach that feels more natural or that you would prefer to try first. If several fit, use the particular conditions in the question; if none fits completely, choose the closest. Avoid answering as an ideal self or making every choice fit one temperament. There are no correct answers. All 24 selections are required before four counts and every highest-count result appear."
   },
   "source": {
     "kind": "FermatMind original classical-style reflection;historicalnamesnotvalidatedEysenck/Keirsey/developmental/clinicalinstrument",
@@ -1673,71 +1673,174 @@
         "en": "National Library of Medicine: Shakespeare and the historical four humors"
       },
       "url": "https://www.nlm.nih.gov/exhibition/shakespeare-and-the-four-humors/index.html"
+    },
+    {
+      "title": {
+        "zh": "Rothbart（2011）：现代气质的定义、反应性与自我调节",
+        "en": "Rothbart (2011): defining temperament, reactivity and self-regulation"
+      },
+      "url": "https://www.guilford.com/excerpts/rothbart.pdf?t=1"
     }
   ],
   "guide": [
     {
       "id": "archetype-counts",
       "title": {
-        "zh": "次数来自具体选项",
-        "en": "Counts come from the selected options"
+        "zh": "24次选择怎样计分：固定总数与相对侧重",
+        "en": "Scoring 24 choices: a fixed total and relative priorities"
       },
       "paragraphs": [
         {
-          "zh": "每题给一个对应方向加1，共24次选择。四种方向各出现24次，每个选项位置各6次，避免单靠位置偏向某个名称。完成后同时显示四项原始次数；这些次数只能比较本题组中的选择，不是人格含量、能力得分或人群排名。",
-          "en": "Each item adds one to its selected direction, across 24 choices. Every direction appears 24 times and six times in each option position. A complete attempt shows all four raw tallies. These compare choices within this set, not personality content, ability or population rank."
+          "zh": "每题包含四种方向各一个选项，选中的方向加1，其他方向不加分。四项次数各在0—24之间，合计始终为24；每个方向都出现24次，并在四个选项位置各出现6次。这让选择机会和位置分布一致，但结构均衡本身不能证明问卷有效。",
+          "en": "Each item offers one option for each direction. The selected direction gains one count and the others gain none. Each tally ranges from 0 to 24, and the four always total 24. Each direction appears in all 24 items, six times in each option position. Equal opportunities and position balance do not themselves establish validity."
+        },
+        {
+          "zh": "这种固定总数的计数描述同一次作答里的相对侧重：多选一种就少一次选择其他方向的机会。因此，较低次数不说明缺少相应能力或行为。本站展示原始次数，不将其解释为人格含量、气质浓度或人群百分位；即使把8次写成24次的三分之一，也只是在描述选项份额。",
+          "en": "These fixed-total counts describe relative priorities within one attempt: selecting one approach uses an opportunity that could have gone to another. A lower tally therefore does not establish an absence of that ability or behaviour. Results use raw counts, not personality composition, temperament intensity or population percentiles. Even expressing eight as one third of 24 would describe only a share of selected options."
         }
       ]
     },
     {
       "id": "archetype-ties",
       "title": {
-        "zh": "最高并列全部保留",
-        "en": "Every highest-count tie stays"
+        "zh": "并列与接近分数：看次数，不强分主副型",
+        "en": "Ties and nearby counts: no forced primary or secondary type"
       },
       "paragraphs": [
         {
-          "zh": "最高次数相同的方向全部呈现完整报告；四项都相同时保留四份，不指定主型。未并列时也不强派一个副型，不使用隐藏加权、随机结果、加题或付费解除并列。次数相近不代表已验证的近分群体或误差范围。",
-          "en": "All directions sharing the highest count receive their full reports. Four equal tallies keep all four, without a primary type. A secondary type is never forced from an untied count. There are no hidden weights, random results or paid tie breakers, and nearby counts establish no validated close-score group or error range."
+          "zh": "按多血质、胆汁质、抑郁质、黏液质的顺序，8、8、5、3共24次，前两个方向同为最高，会同时显示两份完整报告；6、6、6、6会显示全部四份。两项、三项、四项最高并列均可保留。本站不按字母、选项位置或随机数挑出一个主型，也不把第二名自动命名为副型。",
+          "en": "In Sanguine, Choleric, Melancholic, Phlegmatic order, counts of 8, 8, 5, 3 total 24 and produce two highest-count reports. Counts of 6, 6, 6, 6 produce all four. Two-, three- and four-way highest ties are retained. No letter order, option position or random choice selects a primary type, and the runner-up is not automatically named a secondary type."
+        },
+        {
+          "zh": "相差1次仍是不同次数，可以同时阅读相邻方向，寻找各自适用的具体场景，但不会自动合并为并列。本站没有测量误差或显著差异阈值，不能把1次差距说成稳定的性格分界。四项一样只说明本次选择均分，也不证明四类能力均衡或处于某个“最佳气质”。",
+          "en": "A one-count difference remains a difference, although reading nearby directions may help identify where each fits. They are not automatically merged into a tie. No measurement-error estimate or significance threshold has been established here, so one count cannot be treated as a stable personality boundary. Equal counts describe an even allocation in this attempt, not balanced abilities or an ideal temperament."
         }
       ]
     },
     {
       "id": "archetype-metaphor",
       "title": {
-        "zh": "古典名称不测天生生理",
-        "en": "Classical labels do not measure biology"
+        "zh": "古典四气质与现代研究：同一个词，不同的测量对象",
+        "en": "Classical labels and modern research: different measurement targets"
       },
       "paragraphs": [
         {
-          "zh": "四种古典名称在本版只组织日常应对方式的比喻；古代体液理论的生物学解释早已被弃用。名字古老不验证本站问卷，也不让它等同艾森克、Keirsey或现代发展气质研究。抑郁质不等于抑郁症筛查，其他名称同样不能判断情绪健康、遗传或神经系统。",
-          "en": "Here the classical names organise descriptive metaphors for everyday approaches. The biology of ancient humoral theory is discarded. Old names validate neither this website nor equivalence with Eysenck, Keirsey or modern developmental temperament research. Melancholic is not a depression-screening result, and none of the labels assesses emotional health, genetics or nervous-system functioning."
+          "zh": "古典四气质的历史与血液、黄胆汁、黑胆汁和黏液等体液观念有关。美国国立医学图书馆将这一学说作为医学与文化史展示，不能把历史延续时间当成现代科学验证。[1] 本站没有测体液、神经系统类型、遗传成分或先天生理特征，古典名称在这里用于组织原创行为情境。",
+          "en": "The history of the four temperaments involves the humors blood, yellow bile, black bile and phlegm. The National Library of Medicine presents this as medical and cultural history; a tradition’s longevity does not establish modern scientific validity.[1] This questionnaire measures no fluids, nervous-system types, genetic components or innate physiology. The classical names organise original behavioural scenarios."
+        },
+        {
+          "zh": "现代气质研究有不同理论与测量路径。例如Rothbart将气质描述为反应性和自我调节方面的个体差异，涉及情绪、活动与注意等过程。[2] 这并不等于用四个古典名称就测到了这些过程。本站的四项选择计数不能换算该研究体系的维度，也不能直接套用其他量表的信度、效度或发展结论。",
+          "en": "Modern temperament research includes different theories and measurement approaches. Rothbart, for example, describes individual differences in reactivity and self-regulation, involving processes such as emotion, activity and attention.[2] Applying four classical names does not measure those processes. These four choice counts cannot be converted into that framework’s dimensions or inherit another instrument’s reliability, validity or developmental findings."
+        }
+      ]
+    },
+    {
+      "id": "temperament-directions",
+      "title": {
+        "zh": "四种气质在本题组中的具体含义",
+        "en": "What the four names mean in these scenarios"
+      },
+      "paragraphs": [
+        {
+          "zh": "多血质（Sanguine）· 活跃参与：较常选尝试新活动、与人交流或让现场活跃起来的做法。观察的是参与入口，不是受欢迎程度、社交能力或永远乐观；一个愿意加入活动的人，也可能需要安静整理和休息。",
+          "en": "Sanguine — open engagement: choices favour trying activities, exchanging ideas or enlivening a shared moment. This concerns an entry into participation, not popularity, social skill or constant optimism. Someone who enjoys joining in may still need quiet preparation and rest."
+        },
+        {
+          "zh": "胆汁质（Choleric）· 目标推进：较常选明确下一步、作出决定并让事情向前的做法。观察的是行动优先，不是领导资格、控制他人的权利或易怒程度；推进得快也需要核对目标与他人的实际条件。",
+          "en": "Choleric — directed action: choices favour identifying a next step, deciding and moving an activity forward. This concerns action priority, not leadership credentials, a right to control others or a tendency to anger. Moving quickly still calls for checking the goal and others’ circumstances."
+        },
+        {
+          "zh": "抑郁质（Melancholic）· 细致思量：较常选先观察、比较、整理细节与意义的做法。这里的传统译名不表示抑郁症或负面情绪严重程度，也不证明更聪明、更深刻或一定追求完美；应回看具体准备与思考方式。",
+          "en": "Melancholic — considered reflection: choices favour observing, comparing and working through details and meaning. The traditional label does not indicate depression or severity of negative emotion, nor greater intelligence, depth or inevitable perfectionism. Check the particular ways you prepare and reflect."
+        },
+        {
+          "zh": "黏液质（Phlegmatic）· 稳定节奏：较常选维持熟悉节奏、渐进投入或为共同安排留出缓冲的做法。观察的是节奏偏好，不是懒惰、缺乏主见或经证实的情绪稳定；平稳推进也可能包含明确决定与主动表达。",
+          "en": "Phlegmatic — steady pace: choices favour familiar rhythms, gradual involvement or room to adjust shared plans. This concerns pace preference, not laziness, lack of opinions or demonstrated emotional stability. A steady approach can include firm decisions and active expression."
+        }
+      ]
+    },
+    {
+      "id": "temperament-context",
+      "title": {
+        "zh": "同一个场景，四种不同的优先顺序",
+        "en": "One situation, four different priorities"
+      },
+      "paragraphs": [
+        {
+          "zh": "假设原定的周末活动取消了。你可能先约朋友另找一项活动，先完成一个搁置的小目标，先想清楚自己原本期待什么，或照常保留一个轻松的下午。四种反应分别帮助理解活跃参与、目标推进、细致思量与稳定节奏。这是解释情境的例子，不是每个人遇事都会遵循的行为规则。",
+          "en": "Suppose a weekend activity is cancelled. You might arrange something else with friends, finish a postponed small goal, consider what you had looked forward to, or keep a relaxed afternoon. These responses illustrate engagement, action, reflection and steady pace. This is an interpretive example, not a rule for how someone always behaves."
+        },
+        {
+          "zh": "同一人可能在工作安排中偏向推进，在熟悉朋友之间偏向参与，在陌生任务前偏向思量。选择还受时间、精力、责任和机会影响。阅读结果时，找一件符合说明、另一件不符合的近期经历，区分“我喜欢先这样做”与“当时只能这样做”。",
+          "en": "The same person may prioritise action at work, engagement among friends and reflection before an unfamiliar task. Time, energy, responsibilities and opportunities also affect choices. Find one recent example that fits and another that does not, distinguishing a preferred first response from something circumstances required."
         }
       ]
     },
     {
       "id": "other-frameworks",
       "title": {
-        "zh": "与其他测试分别理解",
-        "en": "Keep other assessments separate"
+        "zh": "与艾森克、Keirsey、MBTI及大五分别理解",
+        "en": "Distinguishing Eysenck, Keirsey, MBTI and Big Five tools"
       },
       "paragraphs": [
         {
-          "zh": "DISC是另一个行为风格框架，大五使用独立题本探索五个连续维度，MBTI另有偏好与计分；这里没有直接换算关系。需要完整大五或MBTI时，要另外完成对应题本，不用四气质计数补出其他分数、字母或职业匹配。",
-          "en": "DISC is another behavioural-style framework; Big Five forms explore five continuous traits and MBTI has its own preference questions and scoring. None is converted from these counts. A full Big Five or MBTI result requires a separate complete attempt, without filling in traits, letters or career matches from a classical label."
+          "zh": "“气质测试”并非一个统一题本的名称。网上工具可能采用古典四气质、艾森克外向性与神经质维度，或Keirsey等其他分类体系；即使结果都分四组，问题、计分和解释也可能完全不同。本版是费马原创24题四选一，不是这些工具的短版、授权版或换算版。",
+          "en": "“Temperament test” does not identify one standard instrument. Online tools may use the classical four, Eysenck’s extraversion and neuroticism dimensions, or other classifications such as Keirsey. Even four-group results can involve different questions, scoring and interpretations. This is FermatMind’s original 24-item choice questionnaire, not a short, licensed or converted edition of those tools."
+        },
+        {
+          "zh": "本站没有测出MBTI四字母或大五五维分数的转换公式，也没有用四气质推算职业成功、伴侣适配或“最稀有气质”。比较测试时，先核对测什么、用了哪份题本、原始分怎样得出和验证适用于谁，而不是只比较标签或题目多少。",
+          "en": "This questionnaire provides no conversion into MBTI letters or five Big Five scores, and no estimate of career success, partner compatibility or the rarest temperament. Compare what tools measure, their specific items, how raw scores are obtained and the people and purposes covered by validation, rather than labels or item counts alone."
+        }
+      ]
+    },
+    {
+      "id": "temperament-evidence",
+      "title": {
+        "zh": "怎样判断科学性：题本证据与计分透明分别核对",
+        "en": "Evaluating evidence separately from transparent scoring"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版可以核对选项怎样累加、为何出现并列，以及结果文字对应哪些日常选择；这些属于计分与内容透明。尚未建立的证据包括目标人群的信度、结构效度、重测表现、跨语言可比性和常模。不能因为公式可复算、描述像自己或引用了研究，就称本站已完成心理测量学验证。",
+          "en": "You can check how options accumulate, why ties appear and which everyday choices a reading discusses. That is scoring and content transparency. Evidence has not been established here for reliability, structural validity, retest performance, cross-language comparability or norms in a target population. Reproducible arithmetic, a recognisable description or a research citation does not establish psychometric validation."
+        },
+        {
+          "zh": "中文和英文提供对应的题目与解释，但双语齐全不等于已经证明测量等值。历史来源说明名称从何而来，现代研究用于区分概念；两者都不是对本站原创24题的验证报告。结果适合低风险的娱乐、自我观察与沟通讨论，不用于临床判断、人员筛选或能力排名。",
+          "en": "Chinese and English provide corresponding items and explanations, but bilingual coverage does not demonstrate measurement equivalence. Historical sources explain the names, while modern research distinguishes concepts; neither validates these original 24 items. Results suit low-stakes entertainment, self-observation and conversation, not clinical decisions, personnel selection or ability ranking."
+        }
+      ]
+    },
+    {
+      "id": "temperament-use",
+      "title": {
+        "zh": "把结果用于沟通：从标签回到可观察的安排",
+        "en": "Using a result in conversation: observable arrangements"
+      },
+      "paragraphs": [
+        {
+          "zh": "选择一个正在协作的具体小任务，讨论各自想先确认什么。例如：“我想先定下一步，你想先核对细节，我们能否先列出目标，再留十分钟检查？”表达实际需要，再约定行动与检查时间，比说“你就是某种气质”更容易核对。对方无需做测试，也可以直接说明自己的偏好。",
+          "en": "Choose a small shared task and discuss what each person wants to clarify first. For example: “I want a next step and you want to check the details. Could we outline the goal, then allow ten minutes for checking?” State actual needs and agree on an action and review time. This is easier to verify than assigning someone a temperament; the other person can describe a preference without taking a test."
+        },
+        {
+          "zh": "之后看安排是否更清楚、是否减少遗漏或冲突。结果提供尝试的线索，效果要由实际行为与反馈判断。不要根据某个名称规定谁必须领导、谁只能配合，也不要用一次测试代替对另一人的了解。",
+          "en": "Afterwards, check whether the arrangement became clearer or reduced omissions or friction. A result suggests something to try; behaviour and feedback determine its effect. No label assigns who must lead or follow, and a single attempt does not replace learning about another person."
         }
       ]
     },
     {
       "id": "free-and-private",
       "title": {
-        "zh": "完整免费与草稿、分享",
-        "en": "Full free access, drafts and sharing"
+        "zh": "作答时间、完整免费、保存与重测",
+        "en": "Timing, full free access, saving and retaking"
       },
       "paragraphs": [
         {
-          "zh": "全部24题、四项计数、四份公开完整说明与最高并列报告免费，不收邮箱或要求前置测评。个人回答在浏览器计分；只有主动保存才有本标签页24小时草稿，完成、清除或重测即删。分享只含结果名称与公开链接，不带答案、次数或内部ID。",
-          "en": "All 24 items, four tallies, four full public guides and every highest-count report are free without email or another assessment. Answers are scored in the browser. Only opting in saves a 24-hour tab draft, cleared on completion, exit-and-clear or retake. Sharing includes names and public links without answers, counts or internal IDs."
+          "zh": "24题预计约6分钟，实际时间随阅读与思考而异，不设置计时排名。点击开始后直接进入题目。全部题目、四项计数、所有最高并列和四份完整指南免费，无需注册或先完成其他测评；未答完24题时不生成完整结果。",
+          "en": "The 24 items take an estimated six minutes, depending on reading and reflection; there is no timed ranking. Start opens the questions directly. All items, four counts, every highest tie and four complete guides are free, without signup or another assessment. A complete result is withheld until all 24 items are answered."
+        },
+        {
+          "zh": "答案在当前浏览器内计分，不通过计分请求上传服务器，也不写入网址或分析事件。默认不保存；主动选择临时保存后，可在本标签页24小时内恢复。完成、退出清除或重测会删除草稿。重测比较应先核对当时的生活情境和具体选项；本站没有据此判断性格改变的阈值，也不建立私人作答历史。",
+          "en": "Answers are scored in the current browser, without uploading them through a scoring request or including them in URLs or analytics events. Saving is off by default. Optional temporary saving permits restoration in this tab for 24 hours; completion, clearing on exit or retaking deletes the draft. Compare the circumstances and specific choices when retaking. There is no threshold for concluding personality change and no private attempt history."
         }
       ]
     }
@@ -1745,62 +1848,122 @@
   "faq": [
     {
       "question": {
-        "zh": "四种古典气质在这里各指什么？",
-        "en": "What do the four classical temperaments mean here?"
+        "zh": "四种气质分别是什么？",
+        "en": "What are the four temperaments?"
       },
       "answer": {
-        "zh": "本版把新鲜参与、目标推进、细致思量与稳定节奏分别组织为多血质、胆汁质、抑郁质、黏液质四个风格名称。它们描述题组里的具体选择，不认证固定人格、生理成分、天生情绪或能力；四份完整说明都可以直接阅读。",
-        "en": "This edition organises fresh engagement, directed action, considered reflection and a steady pace under Sanguine, Choleric, Melancholic and Phlegmatic. They describe choices within the items, without certifying a fixed personality, bodily composition, inborn emotion or ability. Every full guide is available before answering."
+        "zh": "本版使用多血质（Sanguine）、胆汁质（Choleric）、抑郁质（Melancholic）、黏液质（Phlegmatic）四个古典名称，分别组织活跃参与、目标推进、细致思量与稳定节奏的情境选择。它们是本题组的阅读方向，不是医学诊断或人格等级。历史体液学说与本站行为选项应分开理解。[1]",
+        "en": "This edition uses Sanguine, Choleric, Melancholic and Phlegmatic for choices about open engagement, directed action, considered reflection and steady pace. They are reading directions within these scenarios, not diagnoses or personality rankings. Historical humoral theory should be distinguished from these behavioural options.[1]"
       }
     },
     {
       "question": {
-        "zh": "怎样计分，会不会随机选主型和副型？",
-        "en": "How is this scored, and are primary or secondary types chosen?"
+        "zh": "气质测试科学吗？与现代气质研究有什么区别？",
+        "en": "Is this test scientific, and how does it differ from modern temperament research?"
       },
       "answer": {
-        "zh": "每题所选项给对应方向加1，24题全部选择后显示四项次数和所有最高并列报告。不随机定型、不按顺序打破并列，也不在次数没有并列时硬派副型。原始次数不是人格比例、百分位、常模或统计置信区间。",
-        "en": "Each choice adds one to its direction. All 24 selections are required for the four tallies and every highest-count full report. No random assignment or ordering breaks a tie, and no secondary type is forced from an untied tally. Counts are not personality proportions, percentiles, norms or confidence intervals."
+        "zh": "古典四气质属于历史分类，体液决定性格的解释已被淘汰。[1] 现代气质研究包括反应性、自我调节等不同概念与测量方法。[2] 本站原创24题没有建立信度、效度和常模；透明计分便于理解本次选择，但不能代替对这份题本的测量研究。",
+        "en": "The classical four are historical categories, and their bodily-fluid explanation has been discarded.[1] Modern temperament research includes different concepts and methods, such as reactivity and self-regulation.[2] These original 24 items have no established reliability, validity or norms. Transparent scoring explains this attempt; it does not substitute for measurement research on the instrument."
       }
     },
     {
       "question": {
-        "zh": "这是经过验证的标准气质量表吗？",
-        "en": "Is this a validated standard temperament instrument?"
+        "zh": "24题怎样计分？分数加起来是多少？",
+        "en": "How are the 24 items scored, and what do the counts total?"
       },
       "answer": {
-        "zh": "不是。本题本、计数读法和解释由本站独立编写，没有本站信效度或常模验证。历史来源说明古典名称与已经弃用的体液理论，不验证这些题目；本测试不等同艾森克、Keirsey或现代发展心理学的气质量表。",
-        "en": "No. These items, counting rules and explanations are independently authored and have no established website validity or local norms. The historical source explains classical names and discarded humoral theory, not validation of the items. This is not an Eysenck, Keirsey or modern developmental temperament instrument."
+        "zh": "每题选一项，对应方向加1。四个方向各在0—24次之间，总数固定为24。计数反映同一题组内的相对选择，不能与人口常模比较，也不是四种气质在一个人身上的含量。",
+        "en": "Each selection adds one to its direction. Each tally ranges from 0 to 24 and the four always total 24. Counts reflect relative choices within this item set, not comparison with population norms or the composition of a person’s temperament."
       }
     },
     {
       "question": {
-        "zh": "抑郁质代表抑郁症，胆汁质代表易怒吗？",
-        "en": "Does Melancholic mean depression, or Choleric mean anger?"
+        "zh": "能同时有两种、三种或四种气质结果吗？",
+        "en": "Can two, three or four results appear together?"
       },
       "answer": {
-        "zh": "不能这样解释。两者在这里是古典风格标签，分别对应细致思量与目标推进的选项。本题没有评估抑郁症、易怒、攻击、神经系统、遗传或情绪健康，不能由结果反推这些情况。",
-        "en": "That interpretation is unsupported. Here they are classical style labels for considered reflection and directed-action choices. Items do not assess depression, anger, aggression, nervous-system functioning, genetics or emotional health, so results cannot establish those conditions."
+        "zh": "可以。最高次数相同的方向全部保留，例如8、8、5、3显示前两项，6、6、6、6显示四项。本站不会随机选主型或按顺序强分并列，也不把第二名自动定义为副型。这里描述本次计数，不判定固定的混合人格。",
+        "en": "Yes. Every direction sharing the highest tally is retained: 8, 8, 5, 3 gives the first two, while 6, 6, 6, 6 gives all four. No random primary type or ordering breaks a tie, and second place is not automatically a secondary type. This describes the attempt’s counts, not a fixed blended personality."
       }
     },
     {
       "question": {
-        "zh": "这能换算MBTI、大五、职业或关系匹配吗？",
-        "en": "Can the result supply MBTI, Big Five, career or relationship matches?"
+        "zh": "两个方向只差1次，应该怎样读？",
+        "en": "How should I read a one-count difference?"
       },
       "answer": {
-        "zh": "不能。其他框架有各自题目与计分，需要另做完整测评；本页不补出字母、五维、能力或职业适配。相处建议围绕具体安排和双方意愿，不给不同气质排配对、价值或成熟度。",
-        "en": "No. Other frameworks have their own questions and scoring and require separate complete attempts. This page supplies no letters, five-trait profile, ability or career fit. Relationship suggestions concern specific arrangements and mutual wishes, not compatibility, worth or maturity rankings."
+        "zh": "先保留实际次数，再比较两个方向各自适用的场景。本站不把接近次数自动合并，也没有测量误差或显著性阈值；不能仅凭1次差距就说一种气质稳定强于另一种。",
+        "en": "Keep the actual counts and compare situations where each reading fits. Nearby counts are not automatically combined, and no measurement-error or significance threshold is established. One count alone does not show a stable difference in temperament."
       }
     },
     {
       "question": {
-        "zh": "完整结果免费吗，保存和分享包含什么？",
-        "en": "Are full results free, and what do saving and sharing include?"
+        "zh": "抑郁质是抑郁症吗？胆汁质一定容易发怒吗？",
+        "en": "Does Melancholic mean depression, or Choleric mean being quick to anger?"
       },
       "answer": {
-        "zh": "全部题目、四项次数和完整结果免费，无需注册或前置测试。保存是可选的本标签页24小时草稿，完成、重测或清除即删。分享只有名称和公开说明链接，不含答卷、计数或内部ID；存储或复制受限时仍可继续与手动分享。",
-        "en": "All questions, four tallies and full results are free without signup or a preceding assessment. Saving is an optional 24-hour tab draft, deleted on completion, retake or clearing. Sharing contains names and public guide links without answers, counts or internal IDs. Blocked storage or copying still allows continuation and manual sharing."
+        "zh": "这些是古典名称，本版分别围绕细致思量与目标推进编写选项，没有评估抑郁症状或愤怒程度。不能据次数判断心理健康、生理成分或诊断类别；具体含义应以本页四方向定义和题目情境为准。",
+        "en": "These are classical labels. The options here concern considered reflection and directed action, without assessing depressive symptoms or anger severity. Counts cannot determine mental health, bodily composition or diagnostic categories. Use the four definitions and the scenarios on this page for their specific meaning."
+      }
+    },
+    {
+      "question": {
+        "zh": "这与艾森克或Keirsey气质测试是同一个测试吗？",
+        "en": "Is this the same as an Eysenck or Keirsey temperament test?"
+      },
+      "answer": {
+        "zh": "不是。本站是原创24题四选一，按四项原始次数阅读。其他工具可能使用不同维度、题目和主副型规则，不能仅凭都叫气质测试或都分四组就视为同一测量，也不能将它们的分数与本站直接换算。",
+        "en": "No. This is an original 24-item choice questionnaire interpreted through four raw counts. Other tools may use different dimensions, questions and primary/secondary rules. Sharing a name or four groups does not make them the same measurement, and their scores cannot be directly converted into these counts."
+      }
+    },
+    {
+      "question": {
+        "zh": "能用气质结果选择职业、伴侣或判断能力吗？",
+        "en": "Can these results choose a career or partner, or assess ability?"
+      },
+      "answer": {
+        "zh": "本版没有职业表现、关系适配或能力的预测证据。可以借结果讨论更愿意先参与、推进、思量还是稳定节奏，再结合真实任务、技能、需要与反馈作判断；不用气质名称替人作决定或分配资格。",
+        "en": "This edition has no evidence for predicting job performance, relationship compatibility or ability. Use a reading to discuss priorities for engagement, action, reflection or pace, then consider real tasks, skills, needs and feedback. Temperament labels do not make decisions for people or assign qualifications."
+      }
+    },
+    {
+      "question": {
+        "zh": "哪种气质最好、最稀有？",
+        "en": "Which temperament is best or rarest?"
+      },
+      "answer": {
+        "zh": "本题组不设优劣等级，也没有人群常模来估计哪种最少。四项相等、单项最高和多个并列都是可能的计数结果，不能据此推算个人价值、稀有程度或成功机会。",
+        "en": "There is no best-to-worst ranking and no population norm to estimate rarity. Equal counts, a sole highest direction and ties are possible scoring outcomes, not estimates of personal worth, rarity or chances of success."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样让结果对沟通有帮助？",
+        "en": "How can the result help a conversation?"
+      },
+      "answer": {
+        "zh": "先选一件具体的共同安排，说清自己希望先确认什么，再听对方的需要。例如先约定目标，再安排核对细节的时间。之后用实际效果检验，不以“你就是某种气质”代替询问；对方不需要做同一个测试。",
+        "en": "Choose a specific shared arrangement, explain what you want to clarify first and ask about the other person’s needs. For example, agree on a goal, then allow time for checking details. Evaluate the effect afterwards rather than substituting a label for a question. The other person need not take the same test."
+      }
+    },
+    {
+      "question": {
+        "zh": "要多久、是否免费，点击开始后还要确认吗？",
+        "en": "How long does it take, is it free, and is another confirmation required?"
+      },
+      "answer": {
+        "zh": "共24题，预计约6分钟，不限时。点击开始直接进入题目，不需要额外同意步骤、注册或先做别的测试。全部计数、所有最高并列与四份完整指南免费；答完24题再生成结果。",
+        "en": "There are 24 items, taking an estimated six minutes without a time limit. Start opens the questions directly, without an additional agreement step, signup or another test. All counts, every highest tie and four full guides are free. Results follow completion of all 24 items."
+      }
+    },
+    {
+      "question": {
+        "zh": "答案会保存吗？重测结果不同说明什么？",
+        "en": "Are answers saved, and what does a different retest result mean?"
+      },
+      "answer": {
+        "zh": "默认不保存，答案仅在浏览器内计分。主动临时保存可在本标签页24小时内恢复，完成、退出清除或重测会删除。重测差异可能涉及情境、理解与具体选项变化；没有重测误差资料，不能据一次标签变化断言气质已经改变。",
+        "en": "Saving is off by default and answers are scored in the browser. Optional temporary saving permits restoration in this tab for 24 hours; completion, clearing on exit or retaking deletes the draft. Retest differences may involve circumstances, interpretation or specific choices. Without retest-error evidence, a changed label alone does not establish changed temperament."
       }
     }
   ]

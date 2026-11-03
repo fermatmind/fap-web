@@ -14,8 +14,8 @@
     "zh": "心理年龄测试：免费娱乐年龄与完整结果"
   },
   "description": {
-    "en": "Answer 12 daily-preference questions for a playful mental age. See the exact formula and full guide free. No signup, brain-age or IQ claims.",
-    "zh": "回答12道日常偏好题，得到娱乐心理年龄，免费查看明确公式、逐题点数和完整指南。无需注册，不测脑龄、智商或成熟度。"
+    "en": "Explore novelty and familiarity in 12 daily choices. Get a playful age, check every point and read the full guide free. No signup, real-age or IQ assessment.",
+    "zh": "用12道日常选择探索新鲜与熟悉偏好，得到娱乐年龄，核对逐题点数并免费阅读完整指南。无需注册，不测真实心智年龄或智商。"
   },
   "minutes": 3,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "按当前偏好，在每个轻松情境中选最接近自己想法的一项。每题需一个回答，没有正确答案；没有合适项可以停止，直接读完整公开指南。点数只概括新鲜与熟悉偏好，娱乐年龄是任意数字，不是真实心智年龄。三分钟为编辑估计。"
   },
   "introduction": {
-    "en": "How old does your mind feel? This original entertainment quiz turns twelve daily preferences into a playful age using a public formula. Get the exact sum, a response-by-response calculation and the complete guide at every value. It does not estimate brain age, intelligence, maturity or development. No birthday, account or email is required.",
-    "zh": "感觉自己的心态像几岁？本原创娱乐测试用公开公式，把十二种日常偏好换成娱乐年龄。任何数值都能查看原始总和、逐题计算和完整指南，不估计脑龄、智力、成熟度或发展阶段；无需填写生日、注册或邮箱。"
+    "en": "This original Mental Age Test turns twelve low-stakes preferences into a playful age. Choose what appeals in free time, music, reading, walks and other relaxed scenes. Options carry 0–3 points for novelty versus familiarity; their sum S becomes 18 + 2 × S, producing one of 37 even numbers from 18 to 90. The result includes all choices, points, arithmetic and the same complete eight-section guide. The age is an arbitrary entertainment convention, without a real-age comparison, developmental norm or maturity rating.",
+    "zh": "这份原创心理年龄测试把十二项轻松偏好转成娱乐年龄，询问空闲时间、音乐、阅读、散步等情境中什么更吸引你。选项按新鲜与熟悉计0至3点，相加为S，再用18＋2×S得到18至90的37个偶数之一。结果包含全部选择、点数、算式及同一篇完整八节指南。年龄是任意娱乐约定，不与实际年龄比较，也不提供发展常模或成熟度评分。"
   },
   "resultHeading": {
     "en": "Your playful mental age and complete reading",

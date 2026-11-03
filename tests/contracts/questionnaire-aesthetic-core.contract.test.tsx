@@ -127,7 +127,9 @@ describe("T022 original word-based visual aesthetic reflection", () => {
         expect(html).toContain(quiz.instructions![locale]);
         expect(html).toContain(locale === "zh" ? "原创视觉偏好自评" : "Original aesthetic reflection");
         expect(quiz.resultHeading?.[locale]).toBeTruthy();
-        for (const section of quiz.guide.slice(0, 3)) expect(html).toContain(section.paragraphs[0][locale]);
+        const entryDom = document.createElement("div"); entryDom.innerHTML = html;
+        const normalize = (text: string) => text.replace(/\[\d+\]/g, "").replace(/\s+/g, " ").trim();
+        for (const section of quiz.guide.slice(0, 3)) for (const paragraph of section.paragraphs) expect(normalize(entryDom.textContent ?? "")).toContain(normalize(paragraph[locale]));
         const hub = renderToStaticMarkup(<MoreTests locale={locale} />); expect(hub).toContain(`href="${path}"`); expect(hub).not.toContain("/tests/play/aesthetic-core-test");
         for (const profile of quiz.profiles) {
           const publicPath = `${path}/results/${profile.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };

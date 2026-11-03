@@ -11,7 +11,7 @@ test.beforeEach(async ({ page }) => {
 async function openModule(page: Page, locale: string, id: string, mode: "timed" | "study" = "study") {
   await page.locator(`input[name="written-practice-mode"][value="${mode}"]`).check();
   await page.locator(`[data-written-start="${id}"]`).click();
-  await page.getByRole("button", { name: label(locale, mode === "study" ? "Start untimed study" : "Start timed section", mode === "study" ? "开始不计时学习" : "开始计时部分"), exact: true }).click();
+  await expect(page.locator("[data-written-question-module]")).not.toHaveAttribute("data-written-phase", "ready");
 }
 async function clear(page: Page, locale: string) {
   await page.getByRole("button", { name: label(locale, "Exit and clear all exercise records", "退出并清除全部练习记录"), exact: true }).click();
@@ -65,7 +65,7 @@ for (const locale of ["en", "zh"] as const) {
     test.setTimeout(120000);
     await page.setViewportSize({ width: 390, height: 844 }); await page.goto(path(locale));
     await page.locator('[data-written-start="entry"]').click();
-    await page.getByRole("button", { name: label(locale, "Start 60-second entry", "开始60秒录入"), exact: true }).click();
+    await expect(page.locator("#written-entry-card")).toBeEnabled();
     const started = Date.now();
     for (const [i, f] of quiz.coordination.entry.fields.entries()) await page.locator(`#written-entry-${f.id}`).fill(quiz.coordination.entry.records[0].values[i]);
     await page.getByRole("button", { name: label(locale, "Next card (include blank fields)", "下一卡（空字段也计入）"), exact: true }).click();
@@ -80,7 +80,7 @@ for (const locale of ["en", "zh"] as const) {
     const count = quiz.coordination.entry.records[0].values.join("").length + 1; await expect(page.locator("[data-written-entry-output]")).toContainText(`${count} / ${(count * 60).toFixed(1)}`);
     await expect(page.locator("[data-written-entry] input")).toHaveCount(0);
     await page.locator('[data-written-start="entry"]').click(); await expect(page.locator("[data-written-entry-result]")).toHaveCount(0);
-    await page.getByRole("button", { name: label(locale, "Start 60-second entry", "开始60秒录入"), exact: true }).click(); await page.locator("#written-entry-card").fill("SYNTHETIC_NOT_STORED");
+    await expect(page.locator("#written-entry-card")).toBeEnabled(); await page.locator("#written-entry-card").fill("SYNTHETIC_NOT_STORED");
     await page.evaluate(() => {
       const own = Object.getOwnPropertyDescriptor(document, "visibilityState"); Object.defineProperty(document, "visibilityState", { configurable: true, value: "hidden" });
       try { document.dispatchEvent(new Event("visibilitychange")); } finally { if (own) Object.defineProperty(document, "visibilityState", own); else Reflect.deleteProperty(document, "visibilityState"); }
@@ -105,7 +105,8 @@ for (const locale of ["en", "zh"] as const) {
       try { document.querySelector<HTMLInputElement>('input[name="WC_PRI_01"][value="A"]')!.click(); } finally { Date.now = wall; if (own) Object.defineProperty(performance, "now", own); else Reflect.deleteProperty(performance, "now"); }
     });
     await expect(page.locator('[data-written-counts="priority"]')).toHaveText(label(locale, "Correct 0; wrong 0; unanswered 6; total 6.", "正确 0；错误 0；未答 6；共6题。"));
-    await page.locator('[data-written-start="entry"]').click(); await page.getByRole("button", { name: label(locale, "Start 60-second entry", "开始60秒录入"), exact: true }).click();
+    await page.locator('[data-written-start="entry"]').click();
+    await expect(page.locator("#written-entry-card")).toBeEnabled();
     await page.evaluate(() => {
       const wall = Date.now, mono = performance.now.bind(performance), own = Object.getOwnPropertyDescriptor(performance, "now");
       Date.now = () => wall() + 60000; Object.defineProperty(performance, "now", { configurable: true, value: () => mono() + 60000 });

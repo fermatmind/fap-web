@@ -1,3 +1,4 @@
+import { additionalStoryEditorials } from "@/components/entertainment/AdditionalStoryEditorials";
 import { describe, expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import FunQuizPage, { generateMetadata } from "@/app/(localized)/[locale]/tests/play/[slug]/page";
@@ -30,7 +31,8 @@ describe("complete bilingual entertainment entry rendering", () => {
           for (const faq of authored.faq) { expect(dom.textContent).toContain(faq.question[locale]); expect(dom.textContent).toContain(faq.answer[locale]); }
           for (const profile of authored.profiles) {
             expect(dom.querySelector(`a[href="/${locale}/tests/play/${quiz.slug}/results/${profile.id}"]`)).not.toBeNull();
-            expect(dom.textContent).toContain(profile.summary[locale]);
+            // Bespoke entries may author a new guide-card synopsis. Full source
+            // reports are verified on their public result route, not as entry copy.
           }
           expect(dom.querySelector("#take-test")?.textContent).toContain(locale === "zh" ? "开始测试" : "Start test");
           expect(dom.querySelector("#take-test a[href*='mbti']")).toBeNull();
@@ -48,7 +50,14 @@ describe("complete bilingual entertainment entry rendering", () => {
         const publicPortraits = dom.querySelector("#possible-results")!.parentElement!;
         expect([...publicPortraits.querySelectorAll("article h3")].map(node => node.textContent)).toEqual(authored.results.map(result => result.title[locale]));
         for (const result of authored.results) expect(publicPortraits.textContent).toContain(result.summary[locale]);
-        expect(dom.textContent).toContain(quiz.version);
+        if (["beachcomber", "birdwatching-companion", "board-game-table", "borrowed-book", "browser-tabs", "camera-roll", "campfire-storyteller", "celebrating-a-friend", "celebration-planner", "choosing-together", "city-wanderer", "cloud-drift", "coffee-break", "comfort-offer", "community-fair", "date-plan-detour", "desert-oasis", "desk-reset", "dinner-host", "dragon-housemate", "dream-train", "enchanted-library", "escape-room-role", "fantasy-party-role", "festival-companion", "fictional-cafe", "firefly-evening", "floating-house", "festival-mask", "forest-soundtrack", "friendship-invitation", "game-night-reset", "garden-season", "gift-note", "group-chat-role", "harbor-light", "creative-spark", "cozy-object", "compliment-style"].includes(quiz.slug)) {
+          expect(dom.querySelectorAll('[aria-labelledby="quiz-faq"] h3')).toHaveLength(12);
+          expect(dom.querySelector("[data-explore-start]")).not.toBeNull();
+          expect(dom.querySelector("nav[aria-label=Breadcrumb]")).toBeNull();
+        } else if (additionalStoryEditorials[quiz.slug]) {
+          expect(dom.querySelectorAll('[aria-labelledby="quiz-faq"] h3')).toHaveLength(1 + additionalStoryEditorials[quiz.slug]!.faq.length);
+          expect(dom.querySelector("[data-explore-start]")).not.toBeNull();
+        } else expect(dom.textContent).toContain(quiz.version);
         expect(dom.querySelector("#play")?.textContent).toContain(locale === "zh" ? "开始测试" : "Start quiz");
         expect(dom.querySelector("#play a[href*='mbti']")).toBeNull();
         expect(dom.querySelectorAll("#play input")).toHaveLength(0);

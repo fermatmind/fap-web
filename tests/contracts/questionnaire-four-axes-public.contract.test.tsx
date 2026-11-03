@@ -1,3 +1,4 @@
+import { fourAxesLandingDescription } from "@/components/questionnaires/FourAxesLandingEditorial";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -27,7 +28,7 @@ describe("Original four axes actual registered callers and public identities", (
       for (const locale of ["en", "zh"] as const) {
         const path = `/${locale}/tests/explore/four-axes-test`, args = { params: Promise.resolve({ locale, slug: quiz.slug }) };
         const m = await entry.generateMetadata(args), dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(await entry.default(args));
-        expect(dom.querySelector("h1")?.textContent).toBe(quiz.title[locale]); expect(dom.querySelector("#questionnaire-results")?.parentElement?.textContent).not.toMatch(/tied combination|并列组合/); expect(m.title).toBe(quiz.seoTitle[locale]); expect(m.description).toBe(quiz.description[locale]);
+        expect(dom.querySelector("h1")?.textContent).toBe(quiz.title[locale]); expect(dom.querySelector("#questionnaire-results")?.parentElement?.textContent).not.toMatch(/tied combination|并列组合/); expect(m.title).toBe(quiz.seoTitle[locale]); expect(m.description).toBe(fourAxesLandingDescription[locale]);
         expect(m.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(dom.textContent).toContain(quiz.instructions![locale]);
         const method = dom.querySelector('section[aria-labelledby="questionnaire-method"]'); expect(method?.querySelectorAll("p")).toHaveLength(8);
         for (const s of quiz.guide) for (const p of s.paragraphs) expect(method?.textContent).toContain(p[locale]);

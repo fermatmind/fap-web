@@ -1,8 +1,8 @@
 {
   "slug": "ai-literacy",
   "code": "FM_AI_LITERACY_PRACTICE",
-  "version": "1.0.0",
-  "updated": "2026-10-27",
+  "version": "1.0.1",
+  "updated": "2026-11-03",
   "category": "everyday",
   "kind": "practice",
   "title": {
@@ -10,17 +10,17 @@
     "zh": "人工智能素养测试"
   },
   "seoTitle": {
-    "en": "AI Literacy Test: 20 Free Questions & Worked Answers",
-    "zh": "人工智能素养测试：20道免费情境题、答案与解析"
+    "zh": "人工智能素养测试：20题、四项结果与完整解析",
+    "en": "AI Literacy Test: 20 Questions, Answers & Full Guides"
   },
   "description": {
-    "en": "Try 20 original AI literacy scenarios on models, tools, verification, privacy and judgement. Free worked answers and four full guides. Untimed; no signup.",
-    "zh": "用20道原创情境题练模型、提示工具、输出核查、隐私与判断。免费给逐题答案、四项正确数及四份完整指南。不计时，不需注册或AI账户。"
+    "zh": "免费完成20道AI素养情境题，练习模型数据、提示工具、输出核查及隐私判断。查看四组答对数、全部解析与完整指南；不计时，无需注册。",
+    "en": "Practise AI concepts, prompts, tools, verification and privacy in 20 free scenarios. See four topic counts, every answer and full guides. No signup or timer."
   },
   "minutes": 10,
   "introduction": {
-    "en": "What evidence supports an AI-generated claim, and what does a tool actually have permission to do? Choose answers to 20 original scenarios across models and data, prompts and tools, checking outputs, and privacy and judgement. Each item has a keyed answer and worked explanation reviewed against selected primary sources and its explicit conditions. Small arithmetic and JSON examples were checked separately. All four full guides are free. The outputs and situations are invented; this website runs no AI model or connected action and asks for no private text.",
-    "zh": "生成式AI的主张由什么证据支持，工具究竟获准做什么？20道原创情境覆盖模型数据、提示工具、输出核查、隐私判断，每题有按选定一手来源及明确条件核对的答案解析，小型算术、JSON算例另行核过。四份完整指南均免费。输出、情境均为虚构，网站不运行AI模型或所连动作，不要求私密文字。"
+    "zh": "通过20道原创知识情境题，区分模型与数据、提示与工具、输出核查、隐私与判断中的关键概念。约10分钟，免费查看四组答对数、每题答案解析与四份完整指南。所有情境与输出均为虚构，不需要AI账户、编程或私密文件；本页不调用AI模型或连接外部动作。",
+    "en": "Explore Models and Data, Prompts and Tools, Checking Outputs, and Privacy and Judgement in twenty original knowledge scenarios. Allow roughly ten minutes for four topic counts, every worked answer and four full guides, all free. All situations and outputs are invented. This website runs no AI model or connected action and requires no AI account, coding or private document."
   },
   "instructions": {
     "en": "Read the declared source, tool capability and permission in each scenario, then choose one answer. All examples are invented, not recordings from a named model. There is no timer or speed bonus; around ten minutes is an editorial estimate. All 20 valid choices are required before counts appear, with five items per section. This is a finite knowledge exercise, not a live prompting benchmark, an employment-readiness score or an official AI certification. Interpret any calculator or reference use as part of your practice conditions.",
@@ -337,8 +337,8 @@
       ],
       "correctOptionId": "B",
       "explanation": {
-        "en": "The first request makes the intended output and constraints inspectable. A clear prompt can guide an output but does not guarantee compliance or truth. Check the resulting notice against the notes and length instead of treating the prompt itself as proof that the result meets every condition.",
-        "zh": "首项使目标和约束便于检查。清楚提示可引导输出，但不保证遵守或真实。仍应按笔记及字数核结果，不能把写过提示当成已满足条件的证据。"
+        "en": "Request B states the notice, new-member audience, supplied-notes boundary and 100-word length. It also asks that missing details be flagged. A clear prompt does not guarantee compliance or truth: check the notice against the notes and length.",
+        "zh": "B项明确通知任务、新成员读者、仅用所给笔记的资料边界和100词长度，并要求指出缺失信息。清楚提示不保证遵守或真实，仍须按笔记和字数核查通知。"
       }
     },
     {
@@ -1491,10 +1491,10 @@
   "source": {
     "kind": "fermatmind_original_ai_literacy_practice",
     "formCode": "fermatmind_ai_literacy_original_20_v1",
-    "itemBankVersion": "fermatmind_ai_literacy_original_20_v1",
+    "itemBankVersion": "fermatmind_ai_literacy_original_20_v1-explanation-r1",
     "scoringVersion": "practice_equal_correct_counts_v1",
     "resultContentVersion": "fm_ai_literacy_four_full_revision_guides_v1",
-    "itemBankSha256": "40498137c5b695eee3451562022fd6c86c048d9ecedb0495eb5af0fb95d5cd7d",
+    "itemBankSha256": "ed6e74a5f2e53359c54a6ab1f607099558cbf5f04b64984b3ee0adbc338ab6fc",
     "resultContentSha256": "f1a2e1ed644ca388756fe11db8d5e2e89109d333ddd9d5df14ba0a1baec8865d",
     "psychometricValidationCompleted": false
   },

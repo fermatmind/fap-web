@@ -15,8 +15,8 @@
     "zh": "技术素养自评测试：6项工具信心与免费完整读法"
   },
   "description": {
-    "en": "Rate confidence with six tool-learning tasks. See your sum, rated count and continuous mean, plus the full guide free. No skill level or job ranking.",
-    "zh": "自评六种日常工具学习情境的信心，查看原始和、数字项数与连续均值，免费读完整说明；不判技能等级，不作职场排名。"
+    "en": "Rate six tool-learning confidence tasks. See your sum, rated count, mean and full free guide with worked examples. No signup or proficiency classification.",
+    "zh": "自评六种日常工具学习任务的信心，查看原始和、数字项数、连续均值与免费完整指南，包含计算实例和可选观察，无需注册。"
   },
   "minutes": 3,
   "instructions": {
@@ -24,8 +24,8 @@
     "zh": "回想过去一个月，对六种小型数字工具任务的信心分别评价：1为完全没把握，5为很有把握；适当时可选不计分的“近期没有机会／不想评价”。六题都回应后才显示结果，至少四项数字才计算均值。这是你的信心自评，不是技能演示；不要输入密码、文件或真实账户信息。可以停止，或不答题直接读完整公开指南。三分钟为编辑估计。"
   },
   "introduction": {
-    "en": "Explore how confident you feel about getting started, checking a step, choosing features, repeating a demonstration, explaining a sticking point and trying a reversible example. Six original prompts produce one continuous self-rating, with no right answers or proficiency types. The full guide explains arithmetic, missing responses, contrasting examples and one optional harmless task. It records perceived confidence, without a skills audit, computer-literacy examination, workplace benchmark or hiring decision. Psychometric validation, population norms and cross-language equivalence have not been established.",
-    "zh": "探索你对开始操作、核对步骤、选择功能、重复演示、说明卡点和尝试可撤销示例有多大把握。六道原创题形成一个连续自评，没有正确答案，也不派熟练度类型。完整指南解释算式、未评分回答、对照例子和可选的小任务。本版记录主观信心，不实施技能审计、计算机知识考试、职场基准比较或招聘决策；尚未建立心理测量验证、人群常模和跨语言等值。"
+    "en": "The Tech Savvy Test is an original six-item self-report about confidence with small digital-tool tasks in the past month. It covers starting, checking a step, choosing features, repeating a demonstration, explaining a sticking point and trying a reversible example. All six prompts need a numeric or explicit unscored response; at least four ratings produce a one-decimal mean alongside their sum and count. The complete guide explains task differences, coverage, worked examples and optional observations. It describes perceived confidence rather than demonstrated proficiency.",
+    "zh": "技术素养自评测试是一份原创六题自报问卷，回顾过去一个月对小型数字工具任务的信心，涉及开始操作、核对步骤、选择功能、重复演示、说明卡点和尝试可撤销示例。六题都需选择数字或明确不计分回答；至少四项数字时显示一位小数均值，并列出原始和与数字项数。完整指南解释任务区别、覆盖范围、计算实例和可选观察，描述主观信心，不将其解释为经过演示验证的熟练程度。"
   },
   "resultHeading": {
     "en": "Your six tool-confidence ratings and full reading",

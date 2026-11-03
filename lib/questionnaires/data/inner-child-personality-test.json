@@ -14,21 +14,21 @@
     "en": "Six present-day playful approaches and every highest tie"
   },
   "description": {
-    "zh": "免费内在童年性格测试：18道原创日常选择，探索六种当下童心玩法，直接读完整结果与最高并列。无需回忆受伤经历，不推断真实童年、创伤或职业。",
-    "en": "Take the Inner Child Personality Test: 18 original choices, six playful approaches and full free guides. An adult metaphor, without reconstructing childhood."
+    "zh": "用18道原创日常选择探索六种当下童心玩法，免费查看全部计数、最高并列与完整指南。了解好奇、自主、准备、表达、想象和同玩；无需回忆童年，无需注册。",
+    "en": "Explore six present-day playful approaches through 18 original choices. Get every count, highest tie and complete guide free. No childhood recall or signup required; an adult reflection, not a trauma assessment."
   },
   "seoTitle": {
-    "zh": "内在童年性格测试：18题与六份完整结果",
-    "en": "Inner Child Personality Test: Free Quiz & Full Results"
+    "zh": "内在童年性格测试：18题、六种童心玩法与完整解读",
+    "en": "Inner Child Personality Test: 18 Choices, Six Playful Approaches and Full Guides"
   },
   "minutes": 6,
   "introduction": {
-    "zh": "你更想问一个为什么、自己试一种做法、先看示范、生动表达、安静想象，还是和愿意的人共同玩？本版把内在小孩当作成人当下童心的隐喻，以18道普通、低风险的原创四选一比较六种玩法。它不找回真实的童年人格，不询问家庭伤害或诊断问题；无需回忆过去，按目前更想选择的活动作答即可。全部完成后保留所有最高并列，各份说明含具体例子、五种对照、表达、反例和可选回顾。六份完整正文也可先读，不用另一项测试解锁。",
-    "en": "Would you rather ask why, try your own method, watch a demonstration, express something vividly, imagine quietly or play with willing company? This edition uses inner child as an adult metaphor for present-day childlike play. Eighteen original, ordinary, low-stakes choices compare six approaches without recovering a true childhood personality or asking about family harm or diagnostic concerns. No recall is required: choose what currently appeals. Complete the set to retain every highest tie and read examples, five comparisons, wording, counterexamples and optional observations. All six full guides can also be read first without another test to unlock them."
+    "zh": "这份内在童年性格测试把“内在小孩”作为成人当下童心的比喻，关注你现在更想怎样参与手作、画画、故事与游戏。18道原创四选一题比较好奇发问、自主试手、准备入场、生动表达、安静想象和友善同玩六种玩法。完成后查看全部原始计数和每一个最高并列，阅读各自的具体例子、相近玩法比较与可选尝试。题目不要求回忆童年，也不从现在的选择推断过去发生过什么。",
+    "en": "This Inner Child Personality Test uses inner child as a metaphor for an adult’s present-day playful interests: how you would like to join crafts, drawing, stories and games now. Eighteen original four-option choices compare Curious Explorer, Independent Maker, Prepared Player, Expressive Player, Quiet Imaginer and Welcoming Companion. View all raw counts and every highest tie, with concrete examples, comparisons and optional activities. No childhood recall is requested, and present choices are not used to reconstruct past events."
   },
   "instructions": {
-    "zh": "这是给成人的18道原创童心偏好选择，用内在小孩作隐喻，不测量真实童年、创伤或儿童发展。按你目前更想尝试的日常低风险玩法选一项；无需回忆、描述或想象受伤经历。六种编辑标签各出现12次，在四个位置各3次。每选一项相应标签加1，无反向题；完整作答后保留全部最高并列，不硬派主副型。可以随时退出，六份公开说明始终免费。",
-    "en": "These 18 original adult choices use inner child as a metaphor for present-day childlike play, without measuring childhood history, trauma or child development. Choose the ordinary, low-stakes approach you currently prefer. No recall, description or imagining of painful events is required. Six editorial labels each appear twelve times and three times in each position. Each choice adds one count, with no reverse keys. Complete the set to retain every highest tie without a forced primary or secondary type. You may exit at any time, and all six public guides remain free."
+    "zh": "按你目前更想尝试的玩法，每题选择一项。多个选项都喜欢时，选此刻更想先做的；没有特别喜欢的，选相对愿意尝试的即可，不按小时候的自己或理想形象作答。18题全部完成后显示计数与所有最高并列。可以随时退出，未完成不生成个人结果，六份公开指南仍可直接阅读。开始按钮直接进入题目，无需额外同意。",
+    "en": "Choose the approach you would most like to try now. If several appeal, pick what you would do first; if none especially appeals, choose the one you are relatively willing to try. Do not answer as your childhood self or an ideal image. All eighteen choices are needed for counts and every highest tie. You may leave at any time; incomplete attempts produce no personal result, while all six public guides remain readable. Start opens questions directly without another agreement."
   },
   "source": {
     "kind": "FermatMindoriginalpresentdaychildlikeplaymetaphor18/notvalidatedchildhoodreconstructionorclinicaltaxonomy",
@@ -1742,65 +1742,187 @@
     {
       "id": "archetype-counts",
       "title": {
-        "zh": "六种玩法怎样形成计数",
-        "en": "How six approaches produce counts"
+        "zh": "18道选择怎样形成六项计数",
+        "en": "How eighteen choices produce six counts"
       },
       "paragraphs": [
         {
-          "zh": "18题各选一项，对应标签加1，原始次数合计18。每题提供六种玩法中的四种；六类各出现12次，在四个位置各3次，未出现的两类不记为被拒绝。分母12是选项出现次数，不是你有多少童心、性格百分比或人群排名。所有最高计数保留完整说明；全选同一位置会六类各3，六份全部呈现，不把名单第一位当主型。差一次只是一项选择，不证明显著差异、稀有度或固定主副型，近分也不补造混合类型。计数是相对分布，一项多选必然挤掉当题其他选项，不是六项独立能力或心理特质的强度。换时间、材料、场地或同伴可能改变回答。",
-          "en": "Choose one option in each of 18 questions; each adds one count and the total is 18. Each question offers four of six approaches. Every approach appears twelve times and three times in each position; absent approaches are not counted as rejected. Twelve is an exposure denominator, not an amount of childlike spirit, personality percentage or population rank. Every highest count retains its full guide. Choosing the same position throughout gives three each and displays all six without prioritising the first. A one-choice gap establishes no significant difference, rarity or fixed primary and secondary type; close counts create no invented hybrid. Counts are relative: selecting an option displaces others in that question rather than measuring six independent abilities or psychological intensities. Time, materials, setting and company can change responses."
+          "zh": "每道题提供六种玩法中的四种，选中一项就为对应方向加1，18题原始计数合计18。每种玩法各出现12次，并在四个选项位置各出现3次，单项次数范围0—12。某题未出现的两个方向没有被你比较，因此不能把它们记作被拒绝；也没有反向题、额外权重或随机抽取。",
+          "en": "Each question offers four of the six approaches. Choosing one adds one count to its direction, for a total of eighteen. Each approach appears twelve times, three times in each option position, giving a possible individual range of 0–12. The two absent approaches were not compared and cannot be counted as rejected. There are no reverse keys, extra weights or random result selection."
+        },
+        {
+          "zh": "例如，按目录顺序得到5、5、2、2、3、1，好奇发问与自主试手同为最高，便同时呈现两份完整结果。5/12表示在该方向出现的12次里选了5次，不是41.7%的性格、准确率或人群位置。计数总和固定，一项多选会挤掉当题其他选项，不能当作六种独立心理特质的强度。",
+          "en": "For example, counts of 5, 5, 2, 2, 3, 1 in the listed order give Curious Explorer and Independent Maker the joint maximum, so both complete results appear. Five out of twelve means five selections across twelve opportunities, not 41.7% of a personality, accuracy or a population rank. With a fixed total, selecting one displaces others in that question; these are not six independent trait intensities."
         }
       ]
     },
     {
       "id": "archetype-ties",
       "title": {
-        "zh": "完整并列与其余公开说明",
-        "en": "Full ties and other public guides"
+        "zh": "最高并列、近分与未完成结果",
+        "en": "Highest ties, close counts and incomplete attempts"
       },
       "paragraphs": [
         {
-          "zh": "六个标签是好奇发问、自主试手、准备入场、生动表达、安静想象和友善同玩。全部最高并列各自显示九模块全文，其他说明始终可公开阅读。它们不构成从成熟到幼稚、从健康到受伤的次序；不按名单第一位、一个回答差距或所谓主副型替你决定身份。重新作答反映当前选择，不证明人格成长或退步。",
-          "en": "The six labels are Curious Explorer, Independent Maker, Prepared Player, Expressive Player, Quiet Imaginer and Welcoming Companion. Every highest tie displays a full nine-section guide, and other guides remain public. They form no mature-to-childish or healthy-to-wounded sequence. Neither list order nor a one-choice gap assigns an identity or fixed secondary type. Retaking reflects current choices rather than proven personality growth or decline."
+          "zh": "所有同为最高的方向都保留，不按字母、题号、名单顺序或所谓主副型强分先后。一直选择同一位置时，六项会各得3次，六份结果全部呈现。这个例子说明并列是规则允许的结果，不是系统出错，也不能据此判断一个人“什么都会”或完全没有偏好。",
+          "en": "Every direction sharing the maximum is retained, without alphabetic, question-order, list-order or primary/secondary priority. Choosing one option position throughout gives three counts to each and displays all six results. This is an allowed tie, not a system failure, proof of being good at everything or evidence of having no preferences."
+        },
+        {
+          "zh": "最高5次、另一项4次时仍按原始次数显示，不自动改成并列，也不宣称一票差距具有统计意义。可以把近分的两份说明一起读，但它们不会生成第七种混合类型。未完成18题只保留进度，不提前给个人结论；公开指南可随时先读。",
+          "en": "If the highest count is five and another is four, both retain their actual counts. They are not merged into a tie or treated as a statistically meaningful difference. You may read nearby guides together, but no seventh hybrid type is created. Before all eighteen choices, only progress is available, not a personal conclusion; public guides remain open."
         }
       ]
     },
     {
       "id": "archetype-metaphor",
       "title": {
-        "zh": "隐喻不等于童年重建",
-        "en": "A metaphor is not childhood reconstruction"
+        "zh": "内在小孩的概念与本站原创题本",
+        "en": "The inner-child concept and this original questionnaire"
       },
       "paragraphs": [
         {
-          "zh": "这是费马为成人独立编写的童心玩法反思：18道原创当下情境、72个原创选项和六个编辑阅读标签，不声称统一的六种内在儿童、临床分类或经过验证的量表。内在小孩在这里是隐喻，不是可由计数还原的真实童年。背景健康资料只说明这个概念也在专业语境使用，不为本题的映射、算法或解释提供验证。没有采用竞品十题、正文、人设或任何标准临床题本；不要求回忆伤害或解释家庭。结果不判断创伤、亲职化、神经类型、依恋、共情、健康、童年因果或职业，也不是IFS、模式疗法、自我状态图、儿童评估或治疗练习。可以不完成、不分享、不探究过去；若不愿继续就退出，无须为名字寻找个人证据。",
-          "en": "This independently authored FermatMind reflection is for adults and uses eighteen original present-day situations, seventy-two original options and six editorial reading labels. It claims no universal six inner children, clinical classification or validated scale. Inner child is a metaphor here, not actual childhood reconstructed from counts. Background health material shows that the concept also appears in professional contexts without validating this mapping, algorithm or interpretation. No competitor ten-item bank, prose, persona or standard clinical instrument is adopted, and recalling harm or explaining family history is unnecessary. Results establish no trauma, parentification, neurotype, attachment, empathy, health, childhood cause or career. This is neither IFS, schema therapy, an egogram, a child assessment nor a therapy exercise. You may decline completion, sharing or exploration of the past, and can leave without finding personal evidence for the name."
+          "zh": "“内在小孩”在健康教育中可以指童年经验及其影响的一种表述。 本页采用更窄的娱乐用法：只比较成人现在愿意选择的低风险玩法。18道情境、72个选项和六个阅读标签均由费马原创，不是六种已获临床承认的儿童人格，也不把标签对应为某段年龄或家庭角色。",
+          "en": "Health education uses inner child as a way to describe childhood experiences and their influence. This page takes a narrower entertainment use: comparing low-stakes play an adult would choose now. Its eighteen situations, seventy-two options and six reading labels are original FermatMind content, not six clinically recognized child personalities, age periods or family roles."
+        },
+        {
+          "zh": "因此，喜欢先看示范，只能在本题组里支持“准备入场”这一读法，不能倒推出童年缺乏安全感；喜欢同玩，也不能倒推出小时候照顾大人。请先核对问题实际问了什么，再判断结果能说明什么。专业概念的名称、背景资料或详细报告，都不能单独验证这份原创题本。[1]",
+          "en": "Preferring a demonstration can support a Prepared Player reading within this set; it cannot establish childhood insecurity. Enjoying shared play cannot establish caring for adults as a child. Check what the questions actually ask before deciding what a result supports. Professional terminology, background sources and detailed reports do not by themselves validate this original form.[1]"
+        }
+      ]
+    },
+    {
+      "id": "explore-and-make",
+      "title": {
+        "zh": "好奇发问与自主试手：理解材料，还是试出版本",
+        "en": "Curious Explorer and Independent Maker: understanding or making"
+      },
+      "paragraphs": [
+        {
+          "zh": "好奇发问侧重观察差异、追问原因：同一张纸折成不同形状，为什么站立方式不一样？自主试手侧重自己调整做法：不急着得到解释，先改一下折痕试出另一个版本。两者可以同在一次活动里，但前者的兴趣落在问题与线索，后者落在操作与改动。",
+          "en": "Curious Explorer emphasizes noticing differences and asking why: why do folds in the same paper stand differently? Independent Maker emphasizes adjusting a method: before needing an explanation, change a crease and try another version. Both can occur in one activity, but one foregrounds questions and clues, the other manipulation and revision."
+        },
+        {
+          "zh": "这里比较的是更想先做哪一步，不是科学能力、手工熟练度或胆量。第一次接触材料时，有人很想试手却做得不熟；熟悉技术的人也可能更想研究一个小问题。可以说“我先看看它为什么这样”，或“我想自己试个版本”；这些话表达参与偏好，不是要求别人配合的理由。",
+          "en": "The comparison concerns what you want to do first, not scientific ability, craft skill or bravery. A beginner may want to build without being skilled; an experienced maker may prefer investigating a small question. “I want to see why it works” and “I would like to try my version” state preferences, not reasons others must accommodate them."
+        }
+      ]
+    },
+    {
+      "id": "prepare-and-express",
+      "title": {
+        "zh": "准备入场与生动表达：安排条件，还是呈现点子",
+        "en": "Prepared Player and Expressive Player: conditions or expression"
+      },
+      "paragraphs": [
+        {
+          "zh": "准备入场侧重先知道材料、规则和参与步骤，再选择怎样加入。生动表达侧重颜色、动作、台词或造型带来的鲜明呈现。以纸偶小舞台为例，先看怎样固定纸偶，与给角色编一句夸张台词，是不同的兴趣入口，并不彼此排斥。",
+          "en": "Prepared Player emphasizes understanding materials, rules and participation steps before joining. Expressive Player emphasizes vivid presentation through color, movement, lines or shapes. At a paper-puppet stage, checking how a puppet is mounted and inventing an exaggerated line are different entry points, without excluding one another."
+        },
+        {
+          "zh": "先问规则不等于焦虑或风险识别能力高；喜欢夸张表达不等于情绪失控、外向或需要观众赞赏。若你今天只想安静地做鲜明图案，也可以符合生动表达的部分内容。用一次具体选择和一次不适用的反例核对，比把标签当成永远的性格更清楚。",
+          "en": "Asking about rules does not establish anxiety or superior risk judgment. Enjoying exaggerated expression does not establish emotional dysregulation, extraversion or a need for applause. Quietly making a vivid pattern may still fit an expressive preference. Compare a fitting choice with a counterexample rather than treating the label as a permanent personality."
+        }
+      ]
+    },
+    {
+      "id": "imagine-and-share",
+      "title": {
+        "zh": "安静想象与友善同玩：私下构思，还是共同展开",
+        "en": "Quiet Imaginer and Welcoming Companion: private or shared play"
+      },
+      "paragraphs": [
+        {
+          "zh": "安静想象侧重慢慢构思角色、细节与小世界，活动可以不需要观众。友善同玩侧重邀请愿意的人、轮流与一起决定，让玩法在互动中展开。同样是设计纸上小镇，一个人画房间的故事，与和伙伴各画一条街，都可能让人投入。",
+          "en": "Quiet Imaginer emphasizes taking time with characters, details and little worlds, without needing an audience. Welcoming Companion emphasizes invitations, turns and shared decisions that let play unfold through interaction. In a paper town, inventing a room’s story alone and drawing separate streets with a partner can both be absorbing."
+        },
+        {
+          "zh": "选择安静不证明孤独、社交困难或内向；选择同玩不证明共情能力，也不意味着要负责让所有人开心。邀请需要对方愿意，拒绝加入也应被尊重。可以说明“我想先自己画一会儿”，或“你想一起加一个小地方吗？”；两种方式都保留各自的选择空间。",
+          "en": "Choosing quiet play does not establish loneliness, social difficulty or introversion. Choosing company does not certify empathy or a duty to keep everyone happy. An invitation depends on willingness, and declining it deserves respect. “I would like to draw alone first” and “Would you like to add a little place?” both leave room for choice."
+        }
+      ]
+    },
+    {
+      "id": "one-activity",
+      "title": {
+        "zh": "一张废纸的六种玩法：把解释变成可观察的选择",
+        "en": "Six approaches to scrap paper: making the reading observable"
+      },
+      "paragraphs": [
+        {
+          "zh": "如果手边已有一张可用废纸，可以自愿选一种玩法：观察不同折痕的效果；自行搭一个支架；先看一个简单示范；做夸张的图案或角色；画一个不必展示的小场景；邀请愿意的人各添一部分。不需要购买材料、邀请儿童、录制作品或完成某个标准。",
+          "en": "If scrap paper is already available, optionally choose one approach: observe different creases, build a support your own way, watch a simple demonstration, make a vivid pattern or character, draw a private little scene, or invite a willing person to add a part. No purchase, child participation, recording or performance standard is needed."
+        },
+        {
+          "zh": "这不是第19道计分题，也不是治疗或提高分数的训练。可以记下你实际先做什么、过程中改了什么、是否想继续；没有兴趣也可结束。活动选择和测试标签不一致时，保留这个反例，不必为了符合报告而改变玩法。",
+          "en": "This is no nineteenth scored item, therapy exercise or training to improve a score. You may note what you did first, changed along the way and wanted to continue; stop if it does not appeal. If your activity differs from the label, keep that counterexample rather than changing how you play to fit the report."
+        }
+      ]
+    },
+    {
+      "id": "playfulness-research",
+      "title": {
+        "zh": "成人玩心研究与六种编辑标签有什么不同",
+        "en": "Adult playfulness research versus six editorial labels"
+      },
+      "paragraphs": [
+        {
+          "zh": "成人玩心已有专门研究，例如OLIW模型区分面向他人、轻松随兴、智性和奇趣四个侧面；研究综述也指出定义与结构仍有多种方案。[2] 这不等于六种内在儿童的分类。本页没有施测OLIW条目，也不能把六项次数换成它的分数。",
+          "en": "Adult playfulness has dedicated research: the OLIW model distinguishes Other-directed, Lighthearted, Intellectual and Whimsical facets, while a review notes differing definitions and structures.[2] This is not a taxonomy of six inner children. This page does not administer OLIW items or convert six counts into its scores."
+        },
+        {
+          "zh": "日常语言相似不代表测量相同。“想自己做”“喜欢共同玩”在这里是选项含义，不是已经验证的独立特质。本站尚未建立该题本的信度、效度、跨语言等价与常模；计分可复算说明规则透明，不说明结果能揭示潜意识、童年成因或预测生活表现。",
+          "en": "Similar everyday language does not establish equivalent measurement. Wanting to make something yourself or share play describes choices here, not validated independent traits. Reliability, validity, language equivalence and norms are not established for this form. Reproducible scoring makes its rules transparent without revealing a subconscious, childhood causes or future performance."
+        }
+      ]
+    },
+    {
+      "id": "context-and-retest",
+      "title": {
+        "zh": "偏好会受条件影响，重测怎样理解",
+        "en": "Context-sensitive preferences and interpreting a retake"
+      },
+      "paragraphs": [
+        {
+          "zh": "同一人面对熟悉材料、陌生规则、充足时间或嘈杂场地，可能选择不同方式。一次想先看示范，另一次想直接动手，可以反映任务与条件变化。问自己“现在什么更吸引我”，比试图猜测一个永恒不变的童年标签更符合本页题意。",
+          "en": "Familiar materials, unfamiliar rules, available time or a noisy setting may change a person’s choices. Watching a demonstration once and building immediately another time can reflect different tasks and conditions. Asking what appeals now fits these questions better than guessing an unchanging childhood identity."
+        },
+        {
+          "zh": "若重测计数改变，先比较哪些题变了、当时环境和同伴是否相同。一票变化可能改变最高方向，但没有可靠改变阈值，不能据此认定成熟、退步、疗愈或创伤消失。你可以记录有用的活动条件，也可以只把结果当作一次轻松阅读。",
+          "en": "If counts change on a retake, compare the changed items, setting and company first. One changed choice may alter the leading direction, but no reliable-change threshold establishes maturity, deterioration, healing or resolved trauma. You may record useful activity conditions or simply enjoy the result as a light reading."
         }
       ]
     },
     {
       "id": "choice",
       "title": {
-        "zh": "可不回忆、可退出",
-        "en": "No recall required; leaving is allowed"
+        "zh": "适用对象、回忆选择与结果使用",
+        "en": "Audience, freedom from recall and appropriate use"
       },
       "paragraphs": [
         {
-          "zh": "情境只涉及手作、纸偶、书架、图画、桌游等可选择的日常玩法，没有要求重演伤害、填写家庭评价或挖掘私人记忆。不必完成才能阅读；若不喜欢某些情境，可以退出，不能把未完成解释成压抑、回避或隐藏创伤。结果也不要求分享、和解、接受他人参与或承担照顾责任。",
-          "en": "Situations concern optional crafts, puppets, bookshelves, drawing and games without reenacting harm, rating family members or searching private memories. Completion is unnecessary for reading. You may leave when a situation does not appeal; an unfinished attempt establishes no repression, avoidance or hidden trauma. Results require no sharing, reconciliation, acceptance of another person’s involvement or caregiving duty."
+          "zh": "本页为成人的当下娱乐探索设计，不用于评估儿童发展、家庭关系、心理健康、依恋、亲职化或职业。题目只涉及普通低风险玩法，不要求回忆、描述或想象受伤经历，也没有隐藏的家庭评判题。若你想了解过去的真实事件，本页选择不能提供事实证据。",
+          "en": "This is present-day entertainment reflection for adults, not assessment of child development, family relationships, mental health, attachment, parentification or careers. Items concern ordinary low-stakes play, without recalling, describing or imagining hurtful experiences or hidden questions judging family members. These choices cannot supply factual evidence about past events."
+        },
+        {
+          "zh": "可以不完成、不分享、不探究过去，也不用为结果寻找符合的记忆。退出不被解释成回避或压抑。指南中的表达和活动只是可选建议，不要求和解、邀请某个人参与或接受别人给你的标签；其他测评仍需独立完整作答。",
+          "en": "You may decline completion, sharing and exploring the past without searching for matching memories. Leaving is not interpreted as avoidance or repression. Guide wording and activities are optional, with no requirement to reconcile, involve a particular person or accept someone else’s label. Other assessments still require their own complete responses."
         }
       ]
     },
     {
       "id": "privacy",
       "title": {
-        "zh": "完整免费、草稿和分享",
-        "en": "Full free access, drafts and sharing"
+        "zh": "免费完整结果、直接开始与隐私",
+        "en": "Free complete results, direct start and privacy"
       },
       "paragraphs": [
         {
-          "zh": "完整18题和六份正文免费，无需注册、邮箱或其他测评解锁。答案只在浏览器计分，不上传、不进入网址或分析，不要求记录童年事件或他人隐私。草稿主动开启后仅本标签页保留24小时，完成、重测或退出清除即删。可选分享只含公开标签和链接，不含答案、次数或私人故事。其他测评需要另行完整作答，不由本题换算MBTI、大五、依恋、健康或职业；也可在这里结束。",
-          "en": "All eighteen questions and six full guides are free without signup, email or another assessment. Answers are scored in the browser without uploading or entering URLs or analytics, and no childhood account or private information about others is requested. Opted-in drafts remain in this tab for 24 hours and clear on completion, retake or exit-and-clear. Optional sharing includes public labels and links without answers, counts or private stories. Other assessments require a new complete attempt rather than conversion into MBTI, Big Five, attachment, health or career. You can stop here."
+          "zh": "完整18题、全部原始次数、所有最高并列与六份完整公开指南均免费，无需注册、邮箱或前置测评。约6分钟是阅读与思考的估计，不是计时限制；开始按钮直接进入第一题，没有再次同意或付费解锁步骤。",
+          "en": "All eighteen items, raw counts, every highest tie and six full public guides are free, without signup, email or a prerequisite test. About six minutes estimates reading and reflection, not a time limit. Start opens the first question directly without another agreement or payment to unlock results."
+        },
+        {
+          "zh": "答案在浏览器内计分，不随计分请求上传，也不写入网址或分析事件。只有主动保存才会在本标签页保留最多24小时的草稿，完成、重测或退出清除即删除。可选分享包含公开标签与指南链接，不含私人答案、次数或故事；其他不含答案的使用事件依隐私与Cookie设置。",
+          "en": "Answers are scored in your browser, without a scoring upload or answer-bearing URLs or analytics events. Only opted-in drafts remain in this tab for up to 24 hours, clearing on completion, retake or exit-and-clear. Optional sharing includes public labels and guide links, not private answers, counts or stories; other usage events without answers follow privacy and cookie settings."
         }
       ]
     }
@@ -1808,52 +1930,142 @@
   "faq": [
     {
       "question": {
-        "zh": "内在童年性格测试测什么？",
-        "en": "What does this Inner Child Personality Test explore?"
+        "zh": "内在童年性格测试到底测什么？",
+        "en": "What does this Inner Child Personality Test actually explore?"
       },
       "answer": {
-        "zh": "本版给成人提供18道当下童心玩法选择，用六个原创编辑标签帮助描述更想怎样玩。它不是儿童性格测验，也不重建童年自我、识别创伤或提供疗法；同名网站可能用不同题本与标签，结果不能直接互认。",
-        "en": "This edition offers adults eighteen choices about present-day childlike play, with six original editorial labels for preferred approaches. It is neither a child assessment nor reconstruction of a childhood self, trauma identification or therapy. Websites sharing the name may use different items and labels, so their results are not interchangeable."
+        "zh": "本页比较你现在愿意选择的六种玩法，是给成人的原创娱乐反思。不还原小时候的性格，不评创伤、儿童发展或真实家庭经历。",
+        "en": "It compares six approaches to play you would choose now, as an original adult entertainment reflection. It reconstructs no childhood personality and assesses no trauma, child development or actual family history."
       }
     },
     {
       "question": {
-        "zh": "怎样计分和处理并列？",
-        "en": "How are counts and ties handled?"
+        "zh": "六种玩法分别是什么？",
+        "en": "What are the six approaches?"
       },
       "answer": {
-        "zh": "18题各选一项，对应标签加1，原始次数合计18。每题提供六种玩法中的四种；六类各出现12次，在四个位置各3次，未出现的两类不记为被拒绝。分母12是选项出现次数，不是你有多少童心、性格百分比或人群排名。所有最高计数保留完整说明；全选同一位置会六类各3，六份全部呈现，不把名单第一位当主型。差一次只是一项选择，不证明显著差异、稀有度或固定主副型，近分也不补造混合类型。计数是相对分布，一项多选必然挤掉当题其他选项，不是六项独立能力或心理特质的强度。换时间、材料、场地或同伴可能改变回答。",
-        "en": "Choose one option in each of 18 questions; each adds one count and the total is 18. Each question offers four of six approaches. Every approach appears twelve times and three times in each position; absent approaches are not counted as rejected. Twelve is an exposure denominator, not an amount of childlike spirit, personality percentage or population rank. Every highest count retains its full guide. Choosing the same position throughout gives three each and displays all six without prioritising the first. A one-choice gap establishes no significant difference, rarity or fixed primary and secondary type; close counts create no invented hybrid. Counts are relative: selecting an option displaces others in that question rather than measuring six independent abilities or psychological intensities. Time, materials, setting and company can change responses."
+        "zh": "好奇发问、自主试手、准备入场、生动表达、安静想象和友善同玩。它们分别关注问题、改动、条件、呈现、构思和共同参与，可以在同一活动里出现。",
+        "en": "Curious Explorer, Independent Maker, Prepared Player, Expressive Player, Quiet Imaginer and Welcoming Companion emphasize questions, revision, conditions, presentation, imagination and shared participation. They can occur in the same activity."
       }
     },
     {
       "question": {
-        "zh": "一定要回忆童年吗？",
-        "en": "Must I remember my childhood?"
+        "zh": "这些是学术公认的六种内在儿童吗？",
+        "en": "Are these six academically established inner-child types?"
       },
       "answer": {
-        "zh": "不需要。按目前对普通玩法的偏好选择，不记录受伤经历、家庭评价或他人隐私。可以不作答并直接阅读全部公开说明，随时退出也不会被解释成隐藏问题；题目不用于找回记忆或推断童年原因。",
-        "en": "No. Choose current preferences for ordinary play without recording harm, family judgments or other people’s private information. You may read every public guide without answering and leave without that being interpreted as a hidden problem. Items neither recover memories nor infer childhood causes."
+        "zh": "不是。它们是本站编辑阅读标签。专业概念或成人玩心研究不验证本页六分类，也不把它们对应为年龄、家庭角色或治疗阶段。",
+        "en": "No. They are this website’s editorial reading labels. Professional concepts and adult playfulness research do not validate this six-way classification or map it to ages, family roles or therapy stages."
       }
     },
     {
       "question": {
-        "zh": "六种结果是临床类型或科学量表吗？",
-        "en": "Are the six results clinical types or a scientific scale?"
+        "zh": "需要想起童年或受伤经历吗？",
+        "en": "Do I need to recall childhood or painful experiences?"
       },
       "answer": {
-        "zh": "这是费马为成人独立编写的童心玩法反思：18道原创当下情境、72个原创选项和六个编辑阅读标签，不声称统一的六种内在儿童、临床分类或经过验证的量表。内在小孩在这里是隐喻，不是可由计数还原的真实童年。背景健康资料只说明这个概念也在专业语境使用，不为本题的映射、算法或解释提供验证。没有采用竞品十题、正文、人设或任何标准临床题本；不要求回忆伤害或解释家庭。结果不判断创伤、亲职化、神经类型、依恋、共情、健康、童年因果或职业，也不是IFS、模式疗法、自我状态图、儿童评估或治疗练习。可以不完成、不分享、不探究过去；若不愿继续就退出，无须为名字寻找个人证据。",
-        "en": "This independently authored FermatMind reflection is for adults and uses eighteen original present-day situations, seventy-two original options and six editorial reading labels. It claims no universal six inner children, clinical classification or validated scale. Inner child is a metaphor here, not actual childhood reconstructed from counts. Background health material shows that the concept also appears in professional contexts without validating this mapping, algorithm or interpretation. No competitor ten-item bank, prose, persona or standard clinical instrument is adopted, and recalling harm or explaining family history is unnecessary. Results establish no trauma, parentification, neurotype, attachment, empathy, health, childhood cause or career. This is neither IFS, schema therapy, an egogram, a child assessment nor a therapy exercise. You may decline completion, sharing or exploration of the past, and can leave without finding personal evidence for the name."
+        "zh": "不需要。按当下更想尝试的普通活动作答，不要求描述家庭、重演伤害或寻找被遗忘的记忆。可以不完成或退出。",
+        "en": "No. Answer for ordinary activities you would like to try now. There is no family account, reenactment of harm or search for forgotten memories. You may leave or decline completion."
       }
     },
     {
       "question": {
-        "zh": "完整结果、重测和分享免费吗？",
-        "en": "Are full results, retaking and sharing free?"
+        "zh": "每题怎么选，多个都喜欢怎么办？",
+        "en": "How do I choose if several options appeal?"
       },
       "answer": {
-        "zh": "完整18题和六份正文免费，无需注册、邮箱或其他测评解锁。答案只在浏览器计分，不上传、不进入网址或分析，不要求记录童年事件或他人隐私。草稿主动开启后仅本标签页保留24小时，完成、重测或退出清除即删。可选分享只含公开标签和链接，不含答案、次数或私人故事。其他测评需要另行完整作答，不由本题换算MBTI、大五、依恋、健康或职业；也可在这里结束。",
-        "en": "All eighteen questions and six full guides are free without signup, email or another assessment. Answers are scored in the browser without uploading or entering URLs or analytics, and no childhood account or private information about others is requested. Opted-in drafts remain in this tab for 24 hours and clear on completion, retake or exit-and-clear. Optional sharing includes public labels and links without answers, counts or private stories. Other assessments require a new complete attempt rather than conversion into MBTI, Big Five, attachment, health or career. You can stop here."
+        "zh": "选目前更想先做的一项；都不特别喜欢时，选相对愿意尝试的。不按童年的自己、理想身份或看起来更好的标签作答。",
+        "en": "Choose what you would do first now; if none especially appeals, pick what you are relatively willing to try. Do not answer for your childhood self, an ideal identity or a supposedly better label."
+      }
+    },
+    {
+      "question": {
+        "zh": "18题怎样计分，12这个分母是什么？",
+        "en": "How are eighteen choices scored, and what does twelve mean?"
+      },
+      "answer": {
+        "zh": "每选一项，对应方向加1，合计18。六方向各出现12次，次数0—12；12是出现机会，不是相似度、人群排名或童心百分比。",
+        "en": "Each choice adds one to its direction, for a total of eighteen. Each direction appears twelve times, giving counts from 0–12. Twelve represents opportunities, not similarity, population rank or a childlike percentage."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么会有两个或六个结果？",
+        "en": "Why might I receive two or six results?"
+      },
+      "answer": {
+        "zh": "所有最高计数均保留。5、5、2、2、3、1有两项最高；一直选同一位置会六项各3，六份都显示。并列不会随机只取一个。",
+        "en": "Every maximum is retained. Counts of 5,5,2,2,3,1 have two maxima; choosing the same position throughout gives three each and displays all six. Ties are not reduced to a randomly selected result."
+      }
+    },
+    {
+      "question": {
+        "zh": "差一次能说明哪个更像我吗？",
+        "en": "Does one additional choice establish which fits me better?"
+      },
+      "answer": {
+        "zh": "它只说明本次多选一次，不证明显著差异或固定主次型。近分可以一起阅读，但本页不强行合并计数或新增混合类型。",
+        "en": "It records one extra choice in this attempt, not a significant difference or fixed primary/secondary type. Read close guides together if useful; no counts are merged and no hybrid identity is added."
+      }
+    },
+    {
+      "question": {
+        "zh": "选择准备入场代表焦虑吗？",
+        "en": "Does Prepared Player mean anxiety?"
+      },
+      "answer": {
+        "zh": "不代表。它表示在这些情境里较常选择先看示范、了解安排，不测情绪症状、风险识别能力或童年原因。",
+        "en": "No. It records more choices to see demonstrations and understand arrangements in these situations, not emotional symptoms, risk-detection ability or childhood causes."
+      }
+    },
+    {
+      "question": {
+        "zh": "安静想象与友善同玩能判断内外向、共情吗？",
+        "en": "Can Quiet Imaginer or Welcoming Companion establish introversion or empathy?"
+      },
+      "answer": {
+        "zh": "不能。私下构思与共同参与是活动偏好，不能换算内外向或共情，也不说明孤独、照顾者身份或亲职化。",
+        "en": "No. Private imagining and shared participation are activity preferences. They do not convert into introversion or empathy or establish loneliness, caregiving identity or parentification."
+      }
+    },
+    {
+      "question": {
+        "zh": "这和OLIW、IFS或模式疗法一样吗？",
+        "en": "Is this OLIW, IFS or schema therapy?"
+      },
+      "answer": {
+        "zh": "不同。本页没有施测OLIW，也不是心理治疗、自我状态图或儿童评估。六个编辑标签不能换算其他模型结果。",
+        "en": "No. It does not administer OLIW and is not psychotherapy, an egogram or child assessment. Six editorial labels cannot be converted into another model’s results."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎么把结果用于日常而不贴标签？",
+        "en": "How can I use the result without labeling myself?"
+      },
+      "answer": {
+        "zh": "选一个自愿小活动，观察自己先做什么，再找一次不符合报告的反例。可尝试说明参与方式，不需模仿标签或追求某项更高。",
+        "en": "Choose an optional activity, observe what you do first and find a counterexample to the report. State how you would like to join without imitating a label or trying to raise a count."
+      }
+    },
+    {
+      "question": {
+        "zh": "重测变了是不是成长或疗愈？",
+        "en": "Does a different retest mean growth or healing?"
+      },
+      "answer": {
+        "zh": "不能据此判断。材料、时间、规则和同伴都可能改变选择。本站没有可靠改变阈值，也不测成熟度或治疗效果。",
+        "en": "Not from this alone. Materials, time, rules and company may change choices. No reliable-change threshold, maturity score or treatment outcome is measured."
+      }
+    },
+    {
+      "question": {
+        "zh": "是否免费，开始后要同意或保存答案吗？",
+        "en": "Is it free, with an agreement or saved answers after Start?"
+      },
+      "answer": {
+        "zh": "题目、计数、并列与六份全文全部免费，开始直接进入题目。保存需主动选择，答案仅浏览器计分；可选分享不含私人答案或次数。",
+        "en": "All items, counts, ties and six full guides are free, and Start opens questions directly. Saving is opt-in and scoring stays in the browser; optional sharing contains no private answers or counts."
       }
     }
   ],
@@ -1864,6 +2076,13 @@
         "en": "Cleveland Clinic: inner-child concept background (not scoring or validation of this quiz)"
       },
       "url": "https://health.clevelandclinic.org/inner-child"
+    },
+    {
+      "title": {
+        "zh": "Brauer、Proyer与Chick（2021）：成人玩心研究综述（非本站六标签验证）",
+        "en": "Brauer, Proyer and Chick (2021): adult playfulness review (not validation of these six labels)"
+      },
+      "url": "https://doi.org/10.1111/spc3.12589"
     }
   ]
 }

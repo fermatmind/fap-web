@@ -10,12 +10,12 @@
     "zh": "销售能力测试"
   },
   "seoTitle": {
-    "en": "Sales Aptitude Test: 24 Cases & Worked Answers",
-    "zh": "销售能力测试：24道原创情境、逐题解析与完整练习指南"
+    "zh": "销售能力测试：24道情境判断、销售算术与完整解析",
+    "en": "Sales Aptitude Test: 24 Scenarios, Maths & Worked Answers"
   },
   "description": {
-    "en": "Try 24 original cases on needs, documented fit, follow-up and sales maths. Every answer and four full guides are free. Not hiring certification.",
-    "zh": "24道原创情境与算术题，需求澄清、方案匹配、跟进记录、销售算术各六题。免费查看全部答案、逐题解析和四篇完整指南，按题内规则记正确数，不作销售天赋、业绩预测或招聘认证。"
+    "zh": "免费练习24道原创销售情境与算术题，涵盖需求澄清、方案匹配、跟进记录和销售计算。查看四项正确数、全部答案解析及四篇完整指南，无需注册，不限时。",
+    "en": "Practise 24 original sales scenarios and maths tasks. Review four section counts, every worked answer and four complete guides, free without signup or a timer."
   },
   "minutes": 12,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "每题单选，依据题给虚构客户事实、产品证据、政策或计算。CU为虚构货币单位，四组各六题。完成24题可看所选、全部答案、解析与完整指南。不计时，12分钟仅为粗略安排参考，非实测表现。若练无辅助作答，可完成后再用计算器和资料。无需输入真实客户记录、发送消息或修改CRM。"
   },
   "introduction": {
-    "en": "Practise 24 independently written fictional cases: discovery, documented fit, follow-up and sales maths, six each. The first 18 apply explicitly stated goals or checklists; the last six calculate quoted amounts or defined ratios. A correct choice meets that case’s written criteria, rather than a universal best-sales rule. This edition is a case-based knowledge practice, not a self-rating of drive, resilience, rapport or influence. Every count opens all 24 explanations and four complete guides. It has no population norms, validated selling-ability tier, hiring cutoff, vendor certification or revenue prediction.",
-    "zh": "24道独立编写的虚构练习，需求澄清、文档证据下的匹配、跟进和销售算术各六题。前18题按明示目标或清单判断，后六题算报价或题定比率；答对表示符合本题规则，不表示通用最佳销售标准。本版是情境知识练习，不自评驱动力、韧性、亲和力或影响力。任何正确数均开放24题解析与四篇完整指南，无人群常模、经验证能力档位、招聘线、供应商认证或收入预测。"
+    "zh": "销售能力测试在这里是一份可逐题复核的任务练习。24道原创四选一题分为需求澄清、方案匹配、跟进记录与销售算术四组，每组六题：前18题依据明示目标、资料或政策判断，后六题按给定数量计算。完成后可查看0–24总正确数、各组0–6正确数、全部题解和四篇完整复习指南。题目适合练习保留未知、核对证据、准确记录下一步和解释计算口径；不生成销售人格、天赋排名或录用建议。",
+    "en": "This Sales Aptitude Test is a checkable task-based exercise. Twenty-four original four-option items cover discovery, documented fit, follow-up and sales maths, with six per group. The first 18 apply explicit goals, evidence or policies; the final six calculate supplied quantities. Completion opens a 0–24 total, four 0–6 counts, every worked answer and four complete revision guides. Practise retaining unknowns, checking evidence, recording next steps and explaining numerical definitions, without a sales personality, talent ranking or hiring recommendation."
   },
   "resultHeading": {
     "en": "Your sales practice results and every explanation",

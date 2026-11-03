@@ -1,3 +1,6 @@
+import { Fragment } from "react";
+import { pressureLandingSections, pressureLandingFaq, pressureLandingReferences } from "./PressureActionsLandingEditorial";
+import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -9,26 +12,27 @@ import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
 import { PressureActionsClient } from "./PressureActionsClient";
 import { PressureActionsSupport } from "./PressureActionsReport";
+function Copy({ text }: { text: string }) { return <>{text.split(/(\[\d+\])/g).map((part,i)=>/^\[\d+\]$/.test(part)?<sup key={i}><a className="ml-1 underline" href={`#pressure-reference-${part.slice(1,-1)}`}>{part}</a></sup>:<Fragment key={i}>{part}</Fragment>)}</>; }
 function Library({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
-  return <section className="my-8" aria-labelledby="pressure-actions-library"><h2 id="pressure-actions-library" className="text-2xl font-semibold">{locale === "zh" ? "四篇完整公开指南" : "Four complete public guides"}</h2><p className="my-4 leading-7">{locale === "zh" ? "无需答题即可阅读全文。全部未计分、中途退出或完成后，都可阅读同一份主题说明。" : "Read the full text without answering. The same theme explanations remain available for an entirely unscored record, after leaving midway and after completion."}</p><ul className="space-y-3">{quiz.profiles.map(p => <li key={p.id}><Link prefetch={false} className="inline-block min-h-11 py-2 font-semibold underline" href={questionnaireGuidePath(locale, quiz.slug, p.id)}>{p.title[locale]}</Link></li>)}</ul></section>;
+  return <section className="my-8" aria-labelledby="pressure-actions-library"><h2 id="pressure-actions-library" className="text-2xl font-semibold">{locale === "zh" ? "四篇完整公开指南" : "Four complete public guides"}</h2><p className="my-4 leading-7">{locale === "zh" ? "无需答题即可阅读全文。全部未计分、中途退出或完成后，都可阅读同一份主题说明。" : "Read the full text without answering. The same theme explanations remain available for an entirely unscored record, after leaving midway and after completion."}</p><ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">{quiz.profiles.map(p => <li key={p.id} className="rounded-lg border bg-white p-4"><Link prefetch={false} className="inline-block min-h-11 py-2 font-semibold underline" href={questionnaireGuidePath(locale, quiz.slug, p.id)}>{p.title[locale]}</Link><p className="mt-2 leading-7">{p.summary[locale]}</p></li>)}</ul></section>;
 }
 export function PressureActionsPage({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
   const zh = locale === "zh", path = questionnairePath(locale, quiz.slug);
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="questionnaire-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
-    <Link prefetch={false} className="mb-6 inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "全部测试与练习" : "All tests and practice"}</Link>
-    <p className="font-semibold text-violet-800">{zh ? "12条原创观察 · 四篇全文免费" : "12 original observations · Four full guides, free"}</p>
-    <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.description[locale]}</p><p className="mt-4 leading-8">{quiz.introduction[locale]}</p>
+    <ExploreTestIntro slug={quiz.slug} locale={locale}>
+      <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.description[locale]}</p>
+      <p className="explore-intro-meta">{zh ? "12条观察 · 约3分钟 · 成人自愿回顾 · 完整指南免费" : "12 observations · about 3 minutes · optional adult reflection · full guides free"}</p>
+      <PressureActionsClient key={`${quiz.slug}:${locale}`} quiz={quiz} locale={locale} />
+    </ExploreTestIntro>
     <PressureActionsSupport locale={locale} />
-    <p className="my-5 leading-8">{quiz.instructions![locale]}</p>
-    <PressureActionsClient key={`${quiz.slug}:${locale}`} quiz={quiz} locale={locale} />
-    {quiz.guide.map(s => <section key={s.id} className="my-8 space-y-4 leading-8" aria-labelledby={`pressure-actions-method-${s.id}`}><h2 id={`pressure-actions-method-${s.id}`} className="text-2xl font-semibold">{s.title[locale]}</h2>{s.paragraphs.map((p, i) => <p key={i}>{p[locale]}</p>)}</section>)}
+    <section className="my-8 space-y-4 leading-8" aria-labelledby="pressure-purpose"><h2 id="pressure-purpose">{pressureLandingSections[0].title[locale]}</h2>{pressureLandingSections[0].paragraphs.map((p,i)=><p key={i}><Copy text={p[locale]} /></p>)}<p>{quiz.introduction[locale]}</p></section>
+    <section className="explore-reading-library" aria-labelledby="pressure-methods"><h2 id="pressure-methods">{zh ? "压力下行动的读法：类别、情境与证据范围" : "Reading actions under pressure: categories, context and evidence"}</h2><div className="explore-reading-sections">{[...pressureLandingSections.slice(1),...quiz.guide].map(s=><section key={s.id} className="explore-reading-section" aria-labelledby={`pressure-method-${s.id}`}><h3 id={`pressure-method-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p,i)=><p key={i}><Copy text={p[locale]} /></p>)}</div></section>)}</div></section>
     <Library quiz={quiz} locale={locale} />
     {quiz.profiles.map(p => <section key={p.id} id={`pressure-actions-public-${p.directionIds[0]}`} data-pressure-actions-full-guide={p.id} className="my-10 scroll-mt-24 border-t border-slate-200 pt-7"><h2 className="mb-5 text-2xl font-semibold">{p.title[locale]}</h2><QuestionnaireResultReading quizSlug={quiz.slug} profile={prepareResultProfile(quiz.slug, p)} locale={locale} headingLevel={3} idPrefix={`pressure-actions-public-${p.id}`} /></section>)}
-    <section className="my-10 space-y-5 leading-8" aria-labelledby="pressure-actions-faq"><h2 id="pressure-actions-faq" className="text-2xl font-semibold">{zh ? "常见问题" : "Frequently asked questions"}</h2>{quiz.faq.map((f, i) => <div key={i}><h3 className="font-semibold">{f.question[locale]}</h3><p className="mt-2">{f.answer[locale]}</p></div>)}</section>
-    <section className="my-8" aria-labelledby="pressure-actions-references"><h2 id="pressure-actions-references" className="text-xl font-semibold">{zh ? "公开框架背景资料" : "Public framework background"}</h2><ul className="mt-4 space-y-3">{quiz.references!.map(r => <li key={r.url}><a className="underline" href={r.url} rel="noopener noreferrer">{r.title[locale]}</a></li>)}</ul><p className="mt-4 leading-7">{zh ? "资料用于识别独立解释框架与支持背景，不为本原创行动盘点提供题目、计分键、验证、成因判断或背书。" : "These sources identify separate explanatory and support background. They supply no items, scoring key, validation, causal findings or endorsement for this original action inventory."}</p></section>
-    <p className="mt-8 text-sm text-slate-600">{zh ? "原创内容版本" : "Original content edition"} {quiz.version} · <time dateTime={quiz.updated}>{quiz.updated}</time></p>
+    <section className="my-10 space-y-5 leading-8" aria-labelledby="pressure-actions-faq"><h2 id="pressure-actions-faq" className="text-2xl font-semibold">{zh ? "常见问题" : "Frequently asked questions"}</h2>{[...quiz.faq,...pressureLandingFaq].map((f, i) => <div key={i}><h3 className="font-semibold">{f.question[locale]}</h3><p className="mt-2"><Copy text={f.answer[locale]} /></p></div>)}</section>
+    <section className="my-8" aria-labelledby="pressure-actions-references"><h2 id="pressure-actions-references" className="text-xl font-semibold">{zh ? "公开框架背景资料" : "Public framework background"}</h2><ul className="mt-4 space-y-3">{[...quiz.references!,...pressureLandingReferences].map((r,i) => <li key={r.url} id={`pressure-reference-${i+1}`}><a className="underline" href={r.url} rel="noopener noreferrer">{r.title[locale]}</a></li>)}</ul></section>
   </Container></main>;
 }
 export function PressureActionsGuidePage({ quiz, profile, locale }: { quiz: Questionnaire; profile: QuestionnaireProfile; locale: Locale }) {

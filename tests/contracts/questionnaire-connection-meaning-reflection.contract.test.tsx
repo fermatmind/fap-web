@@ -99,7 +99,7 @@ describe("Original connection-meaning reflection without soul-bond assignment", 
       for (const locale of ["en", "zh"] as const) {
         const path = `/${locale}/tests/explore/${quiz.slug}`, props = { params: Promise.resolve({ locale, slug: quiz.slug }) };
         const html = renderToStaticMarkup(await entry.default(props)), meta = await entry.generateMetadata(props), dom = document.createElement("div"); dom.innerHTML = html;
-        expect(dom.querySelector("h1")?.textContent).toBe(quiz.title[locale]); expect(dom.textContent).toContain(quiz.instructions![locale]); expect(dom.textContent).toContain(locale === "zh" ? "原创连接反思 · 五篇全文免费" : "Original connection reflection · Five full guides free"); expect(html).not.toContain('type="checkbox"');
+        expect(dom.querySelector("h1")?.textContent).toBe(quiz.title[locale]); expect(dom.textContent).toContain(quiz.instructions![locale]); expect(dom.textContent).toContain(locale === "zh" ? "15条陈述 · 约4分钟 · 无需注册 · 完整指南免费" : "15 statements · about 4 minutes · no signup · full guides free"); expect(html).not.toContain('type="checkbox"');
         expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
         const directory = document.createElement("div"); directory.innerHTML = renderToStaticMarkup(<MoreTests locale={locale} />); expect(directory.querySelector(`a[href="${path}"]`)).not.toBeNull();
         for (const profile of quiz.profiles) {

@@ -14,8 +14,8 @@
     "zh": "TIPI-10极短大五人格测试"
   },
   "description": {
-    "en": "Try the original 10-item TIPI with seven-point answers, five raw Big Five means and full guides. English source items; working Chinese translation.",
-    "zh": "按原TIPI十题、七级选项，查看五个大五维度的原始均值及完整指南。保留英文原题，中文为未独立验证的费马工作译文。"
+    "en": "Complete the original ten English TIPI trait pairs with seven-point ratings. View five independent raw Big Five means and full free guides; Chinese is a declared working translation.",
+    "zh": "用七级认同评价TIPI十组英文原特质，免费查看五项独立大五原始均值与完整指南；中文为明确标注的工作译文。"
   },
   "seoTitle": {
     "en": "TIPI-10 Personality Test: Five Big Five Scores",
@@ -23,8 +23,8 @@
   },
   "minutes": 2,
   "introduction": {
-    "en": "TIPI is a very brief Big Five inventory by Gosling, Rentfrow and Swann (2003). This edition preserves its ten English trait pairs and scoring, with an independent FermatMind working Chinese translation. Shortness limits detail: it does not measure thirty facets or replace a longer Big Five assessment. Every full domain guide is free to read.",
-    "zh": "TIPI是Gosling、Rentfrow与Swann于2003年提出的极短大五量表。本版保留十组英文原特质及计分，配费马独立工作中译。极短版细节有限，不测三十面向，也不替代较长大五测评。五维完整指南均可免费阅读。"
+    "en": "TIPI offers a brief overview of Extraversion, Agreeableness, Conscientiousness, Emotional Stability and Openness through two items per domain. This edition preserves the original English and scoring, with working Chinese wording and full website-authored reading guides. Interpret the pair means alongside the individual responses and concrete experiences.",
+    "zh": "TIPI以每领域两题概括外向性、宜人性、尽责性、情绪稳定性与开放性。本版保留英文原题与计分，配中文工作译文及本站撰写的完整阅读指南。阅读配对均值时，也应结合单题回答与具体经历。"
   },
   "resultHeading": {
     "en": "Your five TIPI-10 pair means",

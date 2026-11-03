@@ -14,8 +14,8 @@
     "zh": "空间推理测试：30道原创题、坐标推演与完整题解"
   },
   "description": {
-    "en": "Practise 30 original rotations, mirrors, folds, cube turns and layouts. Worked answers and five full guides, free. Untimed text-and-coordinate tasks.",
-    "zh": "免费练习30道原创旋转、镜像、折纸、立方体转向与布局题，查看逐题解析及五份完整指南。不计时文字与坐标任务，不给智商或人群等级。"
+    "zh": "用30道原创文字坐标题练习旋转、镜像、折纸、立方体与视图，免费查看全部题解、五项正确数及五份完整指南。约18分钟，不计时，无需注册。",
+    "en": "Practise 30 original written coordinate tasks: rotations, mirrors, folds, cubes and views. All worked answers and five full guides, free and untimed."
   },
   "minutes": 18,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "完成30道原创四选一题，每主题六题。各题明确固定坐标轴、折叠区域、立方体转向及所问数量。选对记一道，其他有效选择记零；不计时、不倒扣、无部分分或速度加权。允许纸笔画草图与计算器。全部作答后给每题解析及五份完整指南。十八分钟为编辑估计，不是实测完成时间。"
   },
   "introduction": {
-    "en": "This original edition practises spatial transformations through written directions and exact coordinates: planar rotations, reflections, ideal paper folds, labelled cube turns, projections and short routes. Read the coordinate convention before transforming an object. The tasks and all prose are independently written; no commercial figures, instrument items or competitor answers are reproduced. Exact integer geometry and a separate matrix, inverse-fold and voxel implementation check the stated cases. Reading and arithmetic familiarity are part of these written tasks. There is no nonverbal-instrument equivalence, norm, percentile, intelligence estimate, hiring threshold or evidence of training transfer. All five revision guides remain available together at every complete score.",
-    "zh": "本原创版本用文字指令与精确坐标练习平面旋转、镜像、理想折纸、标记立方体转向、投影及短路径，变换前先读坐标约定。题目与全部文字独立编写，不复用商业图形、测验题或竞品答案。精确整数几何与另一套矩阵、折叠逆像、体素实现核对题定情况。文字阅读与算术熟悉度属于任务条件，不声称等同非言语工具，不给常模、百分位、智商估计或招聘线，也不以此证明训练迁移。每个完整成绩都同时开放五份复习指南。"
+    "zh": "本版以固定坐标、明确折线、面标记与移动规则组织30道原创四选一，五主题各六题。先分清参照系、操作顺序与所问位置、孔位或投影数量，再逐步推演。完整作答后给总正确数/30、五项各/6、全部题解和五份七节指南。",
+    "en": "This edition organises thirty original four-option tasks around fixed coordinates, explicit creases, face labels and movement rules, six per topic. Identify the reference frame, operation order and requested position, hole location or projected count before proceeding. Complete responses yield total correct out of thirty, five counts out of six, every rationale and five seven-section guides."
   },
   "resultHeading": {
     "en": "Your five topic counts and every worked answer",

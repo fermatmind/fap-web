@@ -10,21 +10,21 @@
     "zh": "来世之路测试"
   },
   "description": {
-    "en": "Take an original 18-question next life quiz. Explore six imagined paths, keep every tied result and read full explanations for free. No birth date, account or prediction.",
-    "zh": "免费完成18道原创未来生活选择题，比较跨海旅人、四季园丁等六条想象路径，阅读全部最高并列的完整结果。无需生日或注册，不作来世预测。"
+    "zh": "假想重新开始，你想给什么日常留空间？18道原创选择比较发现、照看、相聚、制作、表达与理解，免费查看六项计数、全部最高并列与完整指南；无需生日、照片或注册。",
+    "en": "If you could start again, what would you make room for? Eighteen original choices explore discovery, care, gathering, making, expression and understanding. All counts and highest-tied guides are free; no birth date, photo or signup."
   },
   "seoTitle": {
-    "en": "Next Life Quiz: 18 Questions & Six Full Results",
-    "zh": "来世之路测试：18题与六条完整想象路径"
+    "zh": "来世之路测试：18题、六种生活想象与完整解读",
+    "en": "Next Life Quiz: 18 Choices, Six Imagined Paths and Full Guides"
   },
   "minutes": 5,
   "introduction": {
-    "en": "If you could begin a life again, what would you make room for in an ordinary week? These original situations explore first-hand discovery, continuity, belonging, useful making, expression and understanding. They turn future-life imagination into a conversation about present wishes. This is a choice quiz, not a date calculator, religious teaching or evidence about reincarnation. No scientific validation or prediction is claimed.",
-    "zh": "如果可以重新开始，你想给普通的一周留下什么？18个原创情境比较亲身发现、持续照看、共同生活、实用制作、表达和理解六种侧重。用下一生的想象，聊聊眼下想给什么留空间。这是选择问卷，不是生日计算器、宗教教义或转世证据；没有本站科学验证，也不作预测。"
+    "zh": "如果可以重新开始一生，你最想保留的，或许是一段探索陌生地方的时间、一小块慢慢照看的绿地，或一张总能相聚的餐桌。这份来世之路测试用18个原创假想情境，比较亲身发现、持续照看、共同生活、实用制作、表达记录和追问理解六种侧重，也让你考虑愿意承担的麻烦和现实限制。完成后查看全部原始计数，阅读所有最高并列路径的完整指南；六种路径都是故事比喻，不是死亡之后的预告。",
+    "en": "If you could begin a lifetime again, you might protect time to explore unfamiliar places, a patch of ground to tend or a table where people can gather. This Next Life Quiz uses eighteen original hypothetical situations to compare discovery, continuity of care, shared life, useful making, expression and inquiry, including the difficulties and practical limits you would accept. View every raw count and full guides for all highest-tied paths. The six paths are story metaphors rather than forecasts of life after death."
   },
   "instructions": {
-    "en": "Choose what you would most want in an imagined new lifetime, while remembering that it would still have everyday limits. Pick one of four options in each situation. There are no right answers and no timer. All 18 choices are required; every highest-count path receives its full report.",
-    "zh": "设想可以重新开始一生，但日常仍有条件和限制。每个情境选一个最想保留的选项，没有标准答案，也不限时。18题全部选择后，呈现所有最高计数路径的完整说明。"
+    "zh": "设想重新开始一生，但时间、资源和他人意愿仍有限。每题四个选项中，选此刻最想保留的一项；不是选最体面的话，也不是承诺真实会做到。18题全部选择后，每个选中方向加1次，保留全部最高并列，没有标准答案或倒计时。不需要生日、名字、照片或信仰信息；点击开始直接进入题目，无需额外同意、注册或先做其他测评。若选项都不合适可以退出，六份公开指南仍可先读。",
+    "en": "Imagine beginning a lifetime again with limited time and resources and respect for others’ wishes. Choose the one of four options you most want to preserve now, rather than the most impressive wording or a promise of actual behaviour. Complete all eighteen choices; each adds one count to its selected direction and every highest tie is retained. There are no correct answers or countdown. No birth date, name, photo or spiritual information is needed. Start opens the questions directly without another agreement, signup or prerequisite test. You can exit if nothing fits and read all six public guides first."
   },
   "resultHeading": {
     "en": "Your imagined fresh-start paths",
@@ -1586,5 +1586,21 @@
     "itemBankSha256": "460ca3203fc4a5501b5ee1b206db8b18d441507e03b8a22a1d1d1e14c7e489a4",
     "resultContentSha256": "69de97f702e9e85b2b520470e4696fdb48fd238b51b15d13465bd1528832042d",
     "psychometricValidationCompleted": false
-  }
+  },
+  "references": [
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17126370/",
+      "title": {
+        "zh": "Addis等（2007）：回忆与未来事件想象的实验研究摘要",
+        "en": "Addis et al. (2007): abstract of research on remembering and imagining events"
+      }
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10821192/",
+      "title": {
+        "zh": "Wilson等（2000）：情感预测中的焦点偏差研究摘要",
+        "en": "Wilson et al. (2000): abstract on focalism in affective forecasting"
+      }
+    }
+  ]
 }

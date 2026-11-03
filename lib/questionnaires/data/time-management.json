@@ -15,8 +15,8 @@
     "zh": "时间管理测试：四项习惯读法与完整免费指南"
   },
   "description": {
-    "en": "Reflect on 24 time-management habits from the past two weeks. Read four separate means, examples and small actions, including skipped answers. Full results free.",
-    "zh": "回看过去两周的24项时间管理行为，分别阅读优先容量、步骤估时、专注返回和回看重订的均分、例子与小行动。跳题说明和全部结果免费。"
+    "en": "Reflect on 24 habits from the past two weeks: priorities, planning, attention and review. Four separate means, exact reverse scoring and all full guides, free.",
+    "zh": "用24条陈述回看过去两周的优先安排、步骤估时、专注返回与计划回顾。四项独立均分、反向计分及全部完整指南免费可读，无需注册。"
   },
   "minutes": 6,
   "instructions": {
@@ -24,8 +24,8 @@
     "zh": "回想过去两周：在有相关机会时，你有多常做出陈述中的行为？可选从不、很少、有时、经常、几乎总是。没有相关机会或暂不想回答时，选不计分选项。四部分各自需要六题完整频率回答才给均分，跳题仅暂不给所在部分的均分。约六分钟是编辑估计，不计时。可参考自己的工作、学习或日常责任，不假定每次打断或期限都由你控制。"
   },
   "introduction": {
-    "en": "This original FermatMind reflection separates priorities and capacity, workable steps and estimates, attention and returning after interruptions, and reviewing or renegotiating plans. It describes reported behavior rather than tested time-management skill. There is no overall productivity score, personality type, normal range, career-fit percentage or hiring recommendation. Four public guides remain complete at every mean and when information is insufficient.",
-    "zh": "这份费马原创自报反思分为优先与容量、步骤与估时、专注与返回、回看与重订四部分。描述的是报告出来的行为，不是实测时间管理技能；不设整体生产力分、人格类型、正常区间、职业适配率或录用建议。无论均分是多少或资料是否充分，四份公开指南都完整可读。"
+    "en": "This original FermatMind Time Management Test describes twenty-four self-reported habits over the past two weeks. Six items each explore priorities and capacity, workable steps and estimates, attention and returning after interruptions, and reviewing or renegotiating plans. Five frequency choices and a separate unscored option preserve the difference between behavior and missing information. There is no overall productivity score, ability grade or winning style. The four complete guides, explanations below and research context help you examine one concrete situation alongside workload, opportunity and control.",
+    "zh": "这份费马原创时间管理测试，描述过去两周24项自报习惯。优先与容量、步骤与估时、专注与打断后返回、回看与重订各六题。五档频率与单独未评分项，保留行为回答与缺少信息的区别，不生成整体生产力分、能力等级或获胜风格。四份完整指南、下方说明与研究背景，帮助你结合负担、机会和可控条件回看一个具体情境。"
   },
   "resultHeading": {
     "en": "Your four habit readings",

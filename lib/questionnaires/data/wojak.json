@@ -10,12 +10,12 @@
     "zh": "Wojak 角色测试"
   },
   "description": {
-    "en": "Which Wojak are you? Explore six meme lenses with 18 original everyday questions. Read all highest ties and complete guides free, without an account.",
-    "zh": "你更偏向哪一种Wojak梗图表达？用18道原创日常题探索共鸣、小步尝试、冷调质疑、熟悉喜好、新格式和日常流程。最高并列及六份完整说明免费可读，无需账号。"
+    "zh": "用18道原创日常兴趣题，比较Feels Guy、Bloomer、Doomer、Boomer、Zoomer与NPC六种表达角度。免费查看全部计数、最高并列和七节完整指南。纯文字非官方同人版，无需注册。",
+    "en": "Explore Feels Guy, Bloomer, Doomer, Boomer, Zoomer and NPC through 18 original everyday hobby questions. All raw counts, highest ties and complete seven-section guides are free. Unofficial text-only fan edition; no signup."
   },
   "seoTitle": {
-    "en": "Wojak Test: Six Meme Results and Full Guides",
-    "zh": "Wojak测试：18道题与六种梗图结果"
+    "zh": "Wojak角色测试：18题、六种梗图角度与完整解读",
+    "en": "Wojak Test: 18 Choices, Six Meme Lenses and Full Guides"
   },
   "resultHeading": {
     "en": "Your Wojak meme-lens readings",
@@ -23,12 +23,12 @@
   },
   "minutes": 5,
   "introduction": {
-    "en": "Which Wojak meme lens do your choices bring to mind? This original text-only edition compares Feels Guy, Bloomer, Doomer, Boomer, Zoomer and NPC through ordinary hobby posts, familiar references, new formats and repeatable routines. The six are limited editorial remixes, not a complete meme cast or a reproduction of another test. Some historical uses carry stereotypes or insults; this quiz uses neither images nor those judgements to classify real people. Read every complete guide before answering, and keep every highest tie afterwards.",
-    "zh": "你的选择让人想起哪种Wojak梗图角度？本原创纯文字版通过普通兴趣分享、熟悉参考、新格式和可重复流程，比较Feels Guy、Bloomer、Doomer、Boomer、Zoomer与NPC。六者是有限编辑改写，不是全部梗图角色，也不复刻另一测试。历史用法中有刻板印象和侮辱，本版不拿图片或这些判断给真人分类。开测前可读全部全文，完成后保留最高并列。"
+    "zh": "分享一件不完美的手工、重访老游戏、给兴趣小组换个开头，你更想先说出共鸣、找一点能试的小可能、给夸大宣传降调，还是保留熟悉喜好、尝试新形式或沿用清楚流程？这份Wojak角色测试，用18道原创日常题比较六种有限的梗图表达角度。免费查看全部原始计数、所有最高并列和七节完整指南。纯文字非官方同人版，不考梗知识，也不按角色给真人定性。",
+    "en": "When sharing an imperfect craft, revisiting a game or changing a hobby group’s opening, would you first recognise a feeling, find a small possibility, temper inflated claims, keep a familiar favourite, try a new format or use a clear routine? This Wojak Test compares six limited meme-expression lenses through eighteen original everyday situations. View every raw count, every highest tie and complete seven-section guides free. An unofficial text-only fan edition, without meme trivia or a verdict on who someone is."
   },
   "instructions": {
-    "en": "For each of 18 ordinary hobby situations, choose one of four responses you would prefer now. No answer is correct or morally better. A lens absent from an item is not rejected. Complete all choices before counts or matches appear. Read names as this edition’s expressive angles, without assigning the label to anyone else or inferring private traits.",
-    "zh": "18道普通兴趣情境，每题从四种回应选现在较愿意的一项。没有正确或道德上更好的答案；当题没提供某角度不算被你拒绝。全部选择后才显示计数和匹配。名称只按本版表达角度阅读，不给别人贴标签，也不推断私人特征。"
+    "zh": "以当前愿意参加的普通兴趣交流为参照，每题选现在较想采用的一种回应，不必模仿梗图人物或选看起来更聪明、积极的答案。每题只提供六个角度中的四个，缺席不算拒绝。选中加1，没有正确、道德或反向分；完成18题后显示全部计数和最高并列。开始直接进入题目，无需额外同意、邮箱、注册或前置测试。",
+    "en": "Think about ordinary hobby exchanges you would willingly join now. Choose the response you currently prefer without imitating a meme character or selecting what seems smarter or more positive. Four of six lenses appear per item; absence is not rejection. A choice adds one count, with no correctness, moral or reversal points. Complete eighteen items to see all counts and highest ties. Start opens questions directly without another agreement, email, signup or prerequisite test."
   },
   "references": [
     {

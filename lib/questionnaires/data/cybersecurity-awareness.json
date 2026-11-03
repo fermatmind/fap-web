@@ -10,21 +10,21 @@
     "zh": "网络安全意识测试"
   },
   "seoTitle": {
-    "en": "Cyber Security Test: Free Practice, Answers & Explanations",
-    "zh": "网络安全意识测试：20题在线练习、答案与解析"
+    "zh": "网络安全意识测试：20道情境题、答案与五项复习",
+    "en": "Cyber Security Test: 20 Scenarios, Answers and Five Revision Guides"
   },
   "description": {
-    "en": "Try 20 original cyber security scenarios. Get correct counts, every answer and five complete revision guides for free. No timer, signup or certification.",
-    "zh": "用20道原创情境练习识别钓鱼、保护账户、维护设备、分享资料及事件响应，免费查看五分项答对数、全部答案和解析。无需注册，不限时，不提供认证或招聘通过线。"
+    "zh": "免费完成20道网络安全情境题，练习钓鱼核实、账户保护、设备维护、信息分享与事件响应。查看总答对数、五项各4题成绩、全部答案解析与完整复习指南。不限时，无需注册。",
+    "en": "Practise phishing verification, account protection, device care, information sharing and incident response with 20 original cyber security scenarios. Get total correct, five four-item subtotals, every worked answer and full revision guides free. Untimed, no signup."
   },
   "minutes": 7,
   "instructions": {
-    "en": "Choose one of four actions for each of 20 scenarios. Each item has one supported answer. Read any fictional team rule supplied in the question. There is no timer. Finish every item to see all selected answers, keys, explanations and five complete guides. Do not enter real passwords, codes or personal information. This is knowledge practice, not a security audit or professional certification.",
-    "zh": "20道情境题，每题从四种行动中选一个有依据的答案。涉及虚构团队规则时，以题面明示条件为准。不计时，全部作答后显示所选、答案、解析和五份完整复习说明。不要输入真实密码、验证码或个人资料。这是知识练习，不是安全审计或专业认证。"
+    "zh": "每题阅读一个情境，从四项行动中选一个有依据的答案。遇到虚构团队的分享、表单或报告规则，以题面明确条件为准，不自行假设其他制度。不限时，完成20题后显示全部成绩与解析；不要输入真实密码、验证码或个人资料。点击开始直接进入题目，无需额外同意、邮箱、注册或前置测评。",
+    "en": "Read each scenario and choose one supported action from four options. Follow explicit fictional team rules about sharing, forms or reporting without assuming another policy. There is no timer; complete all twenty items to see results and explanations. Do not enter real passwords, verification codes or personal information. Start opens questions directly without another agreement, email, signup or prerequisite assessment."
   },
   "introduction": {
-    "en": "Practise everyday decisions about unexpected messages, passwords and MFA, device maintenance, information sharing and responding to possible exposure. These are 20 independently written scenarios with public-source reasoning and explicit fictional policies where context matters. The result counts correct choices in this edition. It does not inspect your devices, certify workplace readiness or predict whether an account will be attacked. All answers and five full revision guides are free.",
-    "zh": "把网络安全知识放进日常决定：收到意外消息怎样核实，密码和MFA如何区分，设备怎样维护，资料怎样分享，以及可能暴露信息后如何响应。20题独立编写，事实参考公开来源；依赖制度的情境在题面明示虚构规则。成绩只计本版答对数，不检查你的设备，不认证上岗能力，也不预测账户是否遇袭。全部题解和五份完整复习说明免费开放。"
+    "zh": "意外消息该怎样核实？验证码、文件权限和账户恢复分别要注意什么？通过20道原创网络安全情境题，练习钓鱼识别、密码与身份核验、设备更新备份、信息分享和事件响应。免费查看总答对数、五项各4题的成绩、逐题答案与解析，以及五份完整复习指南。约7分钟，不限时；不需要输入真实凭据、扫描设备或连接账户。",
+    "en": "How should you verify an unexpected message? What differs between verification codes, file permissions and account recovery? Practise phishing recognition, passwords and authentication, device updates and backups, information sharing, and incident response through twenty original cyber security scenarios. See total correct, five four-item subtotals, every answer and explanation, and five complete revision guides for free. About seven minutes, untimed; no real credentials, device scan or account connection is needed."
   },
   "resultHeading": {
     "en": "Your scenario results and every explanation",

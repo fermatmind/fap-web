@@ -14,8 +14,8 @@
     "zh": "数列推理测试：30道免费找规律练习与完整题解"
   },
   "description": {
-    "en": "Solve 30 original number-series tasks with stated rule families. Get every worked answer and five free guides. Untimed, no signup, IQ or hiring score.",
-    "zh": "完成30道限定规则族的原创数列题，免费读全部推导与五份完整指南。不计时、无需注册，不换算智商或招聘分数。"
+    "en": "Practise 30 original number-series questions across five stated rule families. Review every selected and correct answer, worked explanation and complete topic guide. Untimed, calculator allowed, free with no signup.",
+    "zh": "免费练习30道原创数列题，覆盖五类明示规则。完成后查看逐题所选、正确答案、完整推导与五份专题指南。不计时，可用计算器，无需注册。"
   },
   "minutes": 18,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "完成30道四选一题，每组六题，按每题明示规则族补末项或中间项；递推题遵守给定整数系数范围。只有一个提供值满足条件，但可能有等价规则表达。选对记一道，其余有效选择记零，不倒扣、不计部分分、不按速度调整。可用纸笔和计算器，保留正负与精确小数，不要求舍入。全部有效作答后显示完整报告。十八分钟为编辑估计，不是实测完成时间。"
   },
   "introduction": {
-    "en": "Practise constant differences, constant ratios, changing gaps, interleaved arithmetic branches and bounded two-term recurrences. FermatMind independently wrote 30 tasks, 120 alternatives, every rationale and five complete revision guides. Exact-fraction checks test every offered value against its prompt-defined rule family, including all 252 allowed coefficient triples in recurrence items. This verifies conditional answer keys, not psychometric validity or a unique continuation among every possible formula. The public guides are five topics, not ranked ability types. The bank uses no licensed employer, IQ or JobCannon questions, scores or norms. Counts do not establish speed, intelligence, percentile, job readiness, certification, cross-language calibration or training gains. This edition is specifically about sequences rather than the broader arithmetic, ratio, data and rate tasks in numerical reasoning.",
-    "zh": "练习固定差值、固定比值、变化差值、交错等差支和有界二项递推。费马独立编写30题、120个选项、全部理由与五份完整复习指南。精确分数核查逐个选项是否符合明示题族，递推题枚举全部252组允许系数。这核对条件性答案，不代表心理测量验证，也不声称所有可想象公式中只有一种续法。五份公开指南是专题，不是高低能力类型。本版不使用授权雇主、IQ或JobCannon题库、成绩或常模；正确数不建立速度、智力、百分位、岗位准备、认证、跨语言校准或训练收益。本版只练数列，与覆盖算术、比例、数据和速率的数值推理范围不同。"
+    "en": "Work through fixed differences, fixed ratios, changing gaps, interleaved arithmetic branches and bounded recurrences. Each topic has six questions with one valid offered answer under its stated conditions. Use the complete explanations to inspect the model, position, sign and calculation; these are constructed practice sequences rather than a normed intelligence or hiring assessment.",
+    "zh": "依次练习固定差值、固定比值、变化差值、交错等差支与有界递推，每类六题，在明示条件下只有一个提供值成立。完整解析用于核查模型、位置、符号和运算；这些是构造的练习数列，不是常模化智力或招聘测评。"
   },
   "resultHeading": {
     "en": "Your five practice counts and every worked answer",

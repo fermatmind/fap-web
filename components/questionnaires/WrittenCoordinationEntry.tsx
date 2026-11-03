@@ -3,23 +3,23 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Locale } from "@/lib/i18n/locales";
 import { dataEntryCharacters, normalizeDataEntryText, scoreDataEntryRound, type DataEntryRound, type DataEntryResult } from "@/lib/questionnaires/dataEntry";
-import { readWrittenCoordinationClock, type WrittenCoordinationPart } from "@/lib/questionnaires/writtenCoordination";
+import { readWrittenCoordinationClock } from "@/lib/questionnaires/writtenCoordination";
 
 export type WrittenEntryRecord = Extract<DataEntryResult, { status: "complete" }>;
 const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-medium disabled:opacity-50";
 const now = () => ({ wall: Date.now(), monotonic: performance.now() });
 
-export function WrittenCoordinationEntry({ round, locale, onStart, onComplete, onCancel }: {
+export function WrittenCoordinationEntry({ round, locale, onComplete, onCancel }: {
   round: DataEntryRound;
   locale: Locale;
-  onStart: (id: WrittenCoordinationPart) => void;
   onComplete: (record: WrittenEntryRecord) => void;
   onCancel: (message: string) => void;
 }) {
-  const zh = locale === "zh", [running, setRunning] = useState(false), [position, setPosition] = useState(0);
+  const zh = locale === "zh", [running, setRunning] = useState(true), [position, setPosition] = useState(0);
   const [values, setValues] = useState(["", "", "", ""]), [remaining, setRemaining] = useState(60), [composing, setComposing] = useState(false), [message, setMessage] = useState("");
   const active = useRef<{ started: ReturnType<typeof now>; rows: Map<string, string[]> } | null>(null);
   const composition = useRef<number | null>(null), fields = useRef<(HTMLInputElement | null)[]>([]), heading = useRef<HTMLHeadingElement>(null);
+  const [started] = useState(now);
   const record = round.records[position];
   const cancel = useCallback((notice: string) => {
     active.current = null; composition.current = null; setValues(["", "", "", ""]); setRunning(false); setComposing(false); onCancel(notice);
@@ -48,17 +48,14 @@ export function WrittenCoordinationEntry({ round, locale, onStart, onComplete, o
     return () => { window.clearInterval(timer); document.removeEventListener("visibilitychange", hidden); };
   }, [running, current, cancel, zh]);
   useEffect(() => {
+    active.current = { started, rows: new Map() };
     const leave = () => { if (active.current) cancel(""); };
     window.addEventListener("pagehide", leave);
     return () => { active.current?.rows.clear(); active.current = null; window.removeEventListener("pagehide", leave); };
-  }, [cancel]);
+  }, [cancel, started]);
   useEffect(() => {
     if (running) { heading.current?.scrollIntoView({ block: "start" }); fields.current[0]?.focus({ preventScroll: true }); }
   }, [running, position]);
-  function start() {
-    if (active.current) return;
-    onStart("entry"); active.current = { started: now(), rows: new Map() }; setPosition(0); setValues(["", "", "", ""]); setRemaining(60); setMessage(""); setRunning(true);
-  }
   function change(index: number, value: string, isComposing: boolean) {
     const attempt = current(); if (!attempt) return;
     const normalized = dataEntryCharacters(normalizeDataEntryText(value).replace(/[\u0000-\u001f\u007f]/g, "")).slice(0, 64).join("");
@@ -75,7 +72,6 @@ export function WrittenCoordinationEntry({ round, locale, onStart, onComplete, o
     <h3 ref={heading} tabIndex={-1} className="scroll-mt-24 text-xl font-semibold outline-none">{round.title[locale]}</h3>
     <p className="leading-7">{zh ? "32张虚构卡，每张四字段。大小写、空格、标点和前导零须原样相同。任一字段提交改动或点下一卡，会将整卡四字段含空白纳入；未触及卡排除。完整60秒后才算字符KPH，不使用真实个人或工作资料。" : "32 fictional cards, four fields each. Match case, spaces, punctuation and leading zeros. Committing any edit or choosing Next includes all four fields of that card, including blanks; untouched cards are excluded. Character KPH requires the full 60 seconds. Do not use personal or real work details."}</p>
     <p role="timer" data-written-entry-time className="font-semibold">{zh ? `剩余 ${remaining} 秒` : `${remaining} seconds remaining`}</p>
-    {!running && <button type="button" className={button} onClick={start}>{zh ? "开始60秒录入" : "Start 60-second entry"}</button>}
     <form onSubmit={event => { event.preventDefault(); move(position + 1, true); }} className="space-y-5">
       <p data-written-entry-card className="font-semibold">{zh ? `卡片 ${position + 1} / 32` : `Card ${position + 1} / 32`}</p>
       {round.fields.map((field, index) => <div key={field.id}>

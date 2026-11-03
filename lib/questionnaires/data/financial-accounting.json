@@ -10,12 +10,12 @@
     "zh": "财务会计测试"
   },
   "seoTitle": {
-    "en": "Financial Accounting Test: 24 Questions & Worked Answers",
-    "zh": "财务会计测试：24道原创练习、答案与六份完整指南"
+    "zh": "财务会计测试：24题、逐题解析与六类复习指南",
+    "en": "Financial Accounting Test: 24 Questions, Answers & Six Guides"
   },
   "description": {
-    "en": "Practise entries, statements, accruals, depreciation and working capital with 24 original tasks. Free answers and six full guides. No certification.",
-    "zh": "24道原创题练借贷分录、利润表、资产负债表、权责时间、折旧和营运资本，六组各四题。免费查看全部答案、逐题解析、分项正确数与六份完整指南，不作财务建议、准则合规或招聘认证。"
+    "zh": "完成24道原创财务会计题，练习借贷分录、利润表、资产负债表、权责时间、折旧与营运资本。免费查看每题答案、六项正确数和完整复习指南；无需注册，不限时。",
+    "en": "Practise 24 original financial accounting questions on entries, statements, accrual timing, depreciation and working capital. See every answer, six topic counts and full revision guides free, without registration or a timer."
   },
   "minutes": 12,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "每题单选，依据题定金额、期间、模型及排除项。CU表示虚构货币单位，六组各四题。完成24题可看所选、答案、解析和六份完整指南。不计时，12分钟标签只是粗略安排参考，不是实测表现。若练无辅助作答，可完成后再用计算器和资料；不需输入或更改真实财务记录。"
   },
   "introduction": {
-    "en": "Work through 24 independently written bookkeeping and calculation tasks: debits and credits, income statement, balance sheet, accrual timing, depreciation and working capital, four each. The original contexts use fictional amounts and explicit simplified assumptions. Selected OpenStax accounting facts and formulae support author review; no textbook exercises, figures, answer bank or copied definitions supply the questions. Every count opens every explanation and all six complete guides. This fixed practice bank is not a CPA qualification, hiring screen, population comparison, financial advice or GAAP/IFRS/tax compliance assessment.",
-    "zh": "24道独立编写的记账与计算任务，借贷、利润表、资产负债表、权责时间、折旧、营运资本各四题。原创语境用虚构金额并明确简化假设，参考OpenStax选定会计事实和公式由作者复核，不以教材例题、图表、答案库或复制释义提供题目。任何正确数都开放全部解析和六份完整指南。本固定练习题组不是会计执照、招聘筛查、人群比较、财务建议或准则、税务合规评估。"
+    "zh": "财务会计测试通过24道原创情境与计算题，练习交易记录、期间归属和基础报表阅读。六组各四题，完成后查看总正确数、各组正确数、全部答案与解析，以及六篇公开完整指南。题目明确给出虚构金额、简化模型与排除项，便于逐步复算；约12分钟，不计时。",
+    "en": "This Financial Accounting Test uses twenty-four original scenarios and calculations to practise transaction recording, period assignment and basic statement reading. Six groups of four produce a total count and six topic counts, with every key, explanation and six complete public guides. Fictional amounts, simplified models and exclusions are explicit so you can reproduce each step. Allow about twelve minutes, without a timer."
   },
   "resultHeading": {
     "en": "Your accounting practice results and every explanation",

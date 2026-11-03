@@ -101,7 +101,9 @@ describe("T024 licensed PPS items with identified website adaptations", () => {
         expect(html).toContain("data-pps-attribution"); expect(html).not.toContain("Original self-reflection questionnaire");
         expect(metadata.title).toBe(quiz.seoTitle[locale]); expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
         expect(quiz.guide.some(s => s.id === "source-credit")).toBe(true);
-        for (const section of quiz.guide) expect(html).toContain(section.paragraphs[0][locale]);
+        const entryDom = document.createElement("div"); entryDom.innerHTML = html;
+        const normalize = (text: string) => text.replace(/\[\d+\]/g, "").replace(/\s+/g, " ").trim();
+        for (const section of quiz.guide) for (const paragraph of section.paragraphs) expect(normalize(entryDom.textContent ?? "")).toContain(normalize(paragraph[locale]));
         expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);
         for (const profile of quiz.profiles) {
           const publicPath = `${path}/results/${profile.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };

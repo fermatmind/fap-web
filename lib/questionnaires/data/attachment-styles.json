@@ -2,7 +2,7 @@
   "slug": "attachment-styles",
   "code": "ATTACHMENT_REFLECTION_24",
   "version": "1.0.0",
-  "updated": "2026-10-25",
+  "updated": "2026-10-31",
   "category": "relationships",
   "kind": "attachment",
   "minimumRatedItems": 8,
@@ -11,12 +11,12 @@
     "en": "Attachment Style Quiz"
   },
   "description": {
-    "zh": "用24道原创情境频率题，分别观察关系中的反复担心与亲近退缩。两维均分和安全、焦虑、回避、恐惧回避四份完整解读免费，无需注册；不强派固定类型。",
-    "en": "Take 24 original situation ratings to explore relationship worry and distance from closeness. See two means and all four full attachment-style guides, free without signup or a fixed label."
+    "zh": "用24道原创情境频率题，回看近三个月同一段成年亲密关系中的反复担心与亲近退缩。约6分钟，免费查看两维均分及四种依恋风格完整指南，无需注册。",
+    "en": "Reflect on worry and distance in one adult close relationship over the past three months. 24 original ratings, about 6 minutes; two means and four full style guides, free without signup."
   },
   "seoTitle": {
-    "zh": "依恋风格测试：焦虑与回避两维，完整结果免费",
-    "en": "Attachment Style Quiz: Two Dimensions and Free Full Results"
+    "zh": "依恋风格测试：24题、焦虑回避两维与完整解读",
+    "en": "Attachment Style Quiz: 24 Questions, Two Dimensions and Full Guides"
   },
   "minutes": 6,
   "resultHeading": {
@@ -24,12 +24,12 @@
     "en": "Your two-dimensional reflection and four full style guides"
   },
   "instructions": {
-    "zh": "选择一段你愿意回顾的成年亲密关系，围绕同一段关系考虑近三个月通常出现的情境。按出现频率选择1从不到5几乎总是；没有适用经历、无法判断或不愿回答请选择不计分项。无需填写对方名字或私人文字，也不要替对方作答。",
-    "en": "Choose one adult close relationship you are willing to reflect on, and consider typical situations in that same relationship over the past three months. Rate frequency from 1, never, to 5, almost always. Use the unscored option when no experience applies, you are unsure or you prefer not to answer. No name or private text is needed; do not answer for the other person."
+    "zh": "选择一段你愿意回顾的成年亲密关系，始终以同一个人为参照，考虑近三个月通常出现的情境。按频率从1“从不”到5“几乎总是”选择，不按理想状态或替对方作答。没有适用经历、无法判断或不愿回答时，选不计分项，无需编造经历。全部24题作出选择后显示汇总；每轴12题中至少8条有效评分才显示均分。不需要填写姓名、对方信息或私人文字。",
+    "en": "Choose one adult close relationship you are willing to reflect on. Keep the same person in mind and consider typical situations over the past three months. Select frequency from 1, never, to 5, almost always, rather than an ideal response or someone else’s answers. Use the unscored option when no experience applies, you cannot judge or you prefer not to answer; do not invent an experience. Summaries follow a selection for all 24 items. Each 12-item axis needs at least eight numeric ratings for a mean. No names, information about the other person or private text are required."
   },
   "introduction": {
-    "zh": "想了解自己是安全型、焦虑型还是回避型，可以先把“关系是否会持续的担心”和“对亲近与依靠的退缩”分开看。恐惧回避原型则讨论两者都较多的组合。本版使用独立题目，先呈现两项连续均分，再完整解释四个概念与具体情境；不把自己或伴侣塞进一个固定盒子。",
-    "en": "What is my attachment style? A useful starting point is to separate worry about a connection from distance from closeness and reliance. Secure, anxious, avoidant and fearful-avoidant prototypes describe combinations of those two experiences. This original edition shows two continuous means and all four full guides, with everyday examples and comparisons rather than a fixed box for you or a partner."
+    "zh": "成人依恋研究常用依恋相关焦虑与回避两个维度，讨论对关系回应的担心，以及对亲近和依靠他人的不适。[1] 本站原创24题围绕近期具体情境，分别整理“关系中的反复担心”和“亲近时的退缩与距离”，先显示两项连续均分与有效题数，再提供安全、焦虑、回避、恐惧回避四种概念原型的完整指南。四份指南全部可读，不是系统替你选出的四项人格成分。本版不施测ECR系列量表，没有验证过的类型分界，不根据一次自评给你或伴侣确定身份。",
+    "en": "Adult attachment research commonly uses anxiety and avoidance dimensions to discuss concerns about responsiveness and discomfort with closeness and reliance.[1] These 24 original items focus on recent situations, summarising attachment-related worry and distance from closeness separately. Results show two continuous means and rated-item counts, followed by complete guides to secure, anxious, avoidant and fearful-avoidant prototypes. All four guides are available; they are not four personality components assigned by the system. This edition does not administer an ECR-family instrument or use validated type boundaries to identify you or a partner from one self-report."
   },
   "source": {
     "kind": "fermatmind-original-adult-attachment-reflection",
@@ -2221,58 +2221,198 @@
         "en": "Fraley’s methods FAQ: continuous dimensions, category limits and instrument terms"
       },
       "url": "https://labs.psychology.illinois.edu/~rcfraley/measures/ecrr.htm"
+    },
+    {
+      "title": {
+        "zh": "Fraley等（2015）：一般与具体关系中的类别和维度模型",
+        "en": "Fraley et al. (2015): categorical and dimensional models across relationship contexts"
+      },
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25559192/"
+    },
+    {
+      "title": {
+        "zh": "Fraley与Shaver（2000）：成人浪漫依恋的理论发展与争议",
+        "en": "Fraley & Shaver (2000): adult romantic attachment, theoretical developments and controversies"
+      },
+      "url": "https://adultattachment.faculty.ucdavis.edu/wp-content/uploads/sites/66/2015/09/Fraley_2000_Adult-romantic-attachment.pdf"
     }
   ],
   "guide": [
     {
       "id": "attachment-context",
       "title": {
-        "zh": "同一段成年关系与具体时间",
-        "en": "One adult relationship and a defined period"
+        "zh": "同一段关系、近三个月：让回答有一致参照",
+        "en": "One relationship over three months: keeping a consistent reference"
       },
       "paragraphs": [
         {
-          "zh": "围绕一段你愿意回顾的成年亲密关系，按近三个月出现频率回答，不替别人判型，也不把不同关系的经历混成对所有人的固定判断。没有适用经历、无法判断或不愿作答可以不计分，无需提供对方姓名或私人文字。",
-          "en": "Use one adult close relationship you want to reflect on and frequencies over the past three months. Do not answer for someone else or merge different relationships into a fixed judgment about everyone. No applicable experience, uncertainty or a wish not to answer can be unscored. No other person’s name or private text is required."
+          "zh": "先在心里确定一段成年亲密关系，再围绕近三个月作答。这个参照帮助你区分反复出现的体验与偶发的一次事件；它是本版的作答范围，不是回忆越久越准确或三个月能代表一生。不要在题目之间交替想不同的人，否则同一均分可能混入不同关系的情境。",
+          "en": "Select one adult close relationship privately, then consider the past three months. This reference helps distinguish recurring experiences from a single event. It defines this edition’s scope, not a claim that longer recall is more accurate or three months represents a lifetime. Switching between people across items can mix different relationship contexts in one mean."
+        },
+        {
+          "zh": "单身并不自动意味着无法作答，但需要有符合题目时间与关系范围的实际经历。没有这样的经历时可选不计分项，也可以直接阅读公开指南。不把想象中的伴侣反应当作事实，不为了得到一个类型而补写过去。",
+          "en": "Being single does not automatically prevent answering, but applicable experience should fit the stated relationship and time frame. Use unscored responses where it does not, or read the public guides directly. Do not treat an imagined partner’s reactions as facts or invent a past to obtain a type."
         }
       ]
     },
     {
       "id": "attachment-scoring",
       "title": {
-        "zh": "两项均分怎样复算",
-        "en": "How to reproduce the two means"
+        "zh": "两项均分怎样算：正向、反向与资料不足",
+        "en": "Calculating two means: direct keys, reverse keys and insufficient information"
       },
       "paragraphs": [
         {
-          "zh": "每轴12题，前8条按1—5原值，后4条反向题按6减原回答。全部24题选择后，各轴至少8条有效评分时按计分总和除以有效题数，四舍五入到一位小数；不足时明确显示。暂不作答不补0或中间值。8条最低数是本站信息完整度规则，不是研究或临床阈值。",
-          "en": "Each axis has 12 items: eight use the selected 1–5 value and four use six minus the response. After all 24 selections, an axis with at least eight ratings uses keyed sum divided by rated count, rounded to one decimal. Otherwise it shows insufficient information. Unscored items are neither zero nor midpoints. The eight-rating minimum is a website information-completeness rule, not a research or clinical cutoff."
+          "zh": "每轴12题：前8条按1—5所选值计分，后4条反向计分为6减原回答，例如原回答4转为2、原回答1转为5。反向题只是让不同措辞朝同一方向累计，不是测谎或检验你是否真诚。两轴分别计算，不相减、不合成为“安全总分”。",
+          "en": "Each axis has 12 items: eight use the selected 1–5 value and four use six minus the response. For example, 4 becomes 2 and 1 becomes 5. Reversal aligns differently worded items; it is not a lie detector or sincerity check. The axes are calculated separately, without subtraction or a combined security total."
+        },
+        {
+          "zh": "全部24题作出选择后，每轴至少8条有效评分，均分＝定向计分总和÷有效题数，四舍五入到一位小数。例如一轴8条正向题都选3、4条反向题都选4，得到24＋8＝32，32÷12后显示2.7。不计分项不进分子或分母；不足8条时显示资料不足。最低8条是信息完整度规则，不是研究或临床阈值。",
+          "en": "After all 24 selections, an axis with at least eight numeric ratings uses the keyed sum divided by rated-item count, rounded to one decimal. If its eight direct items are rated 3 and its four reverse items 4, the keyed sum is 24 + 8 = 32, giving 2.7 after rounding. Unscored responses enter neither numerator nor denominator; fewer than eight ratings produce insufficient information. Eight is a completeness rule, not a research or clinical threshold."
         }
       ]
     },
     {
       "id": "attachment-reading",
       "title": {
-        "zh": "先看连续维度，再比较原型",
-        "en": "Read dimensions before comparing prototypes"
+        "zh": "怎样读坐标和均分：程度、题数与情境一起看",
+        "en": "Reading means and coordinates: degree, item counts and context"
       },
       "paragraphs": [
         {
-          "zh": "不设高低分类线、不用常模或百分位，不把两个均分合成安全总分。四种成人原型都完整呈现：安全讨论两种体验较少，焦虑突出担心，回避突出退缩，恐惧回避讨论两者较多。它们帮助读懂概念，不认证本次个人类型；资料不足或中间回答不强行定型。",
-          "en": "There are no high/low category cutoffs, norms, percentiles or combined security total. All four adult prototypes appear in full: security describes less of both experiences, anxious emphasises worry, avoidant emphasises distance and fearful-avoidant combines more of both. They explain concepts without certifying a personal type. Insufficient information or middle-range responses need no forced label."
+          "zh": "结果中的1.0—5.0是本题组定向后的回答范围。相对较高表示在本轴题目上报告了较多担心或退缩相关体验，不是超过多少人，也不说明担心一定没有现实理由。中点3不是人群平均、健康线或安全与不安全的界线。",
+          "en": "The 1.0–5.0 result is this item set’s keyed response range. A relatively higher mean represents more reported worry- or distance-related experiences in these items, not a population rank or proof that a concern is unfounded. Three is not a population average, health standard or secure/insecure boundary."
+        },
+        {
+          "zh": "两维均有资料时，坐标点同时显示本次均分，不画四象限分类线。仅一维资料足够时，保留该维均分并明确另一维资料不足；不要把缺答理解成0或平静。均分接近或相同，不需要硬选类型；本版没有最小重要差异或测量误差资料，不能把0.1差距解释成稳定的人格区别。",
+          "en": "When both dimensions have enough ratings, the point displays the two means without quadrant boundaries. If only one has enough, its mean remains while the other is explicitly insufficient; missing responses do not mean zero or calmness. Equal or nearby means need no forced type. With no established minimum-important-difference or measurement-error estimate, a 0.1 gap cannot establish a stable personality difference."
+        }
+      ]
+    },
+    {
+      "id": "attachment-prototypes",
+      "title": {
+        "zh": "四种依恋风格怎样比较：两维组合的概念原型",
+        "en": "Comparing four attachment styles as conceptual combinations"
+      },
+      "paragraphs": [
+        {
+          "zh": "安全型（Secure）：用来理解关系担心与亲近退缩都较少时，亲近、求助与自主可以怎样并存。它不表示从无争执、永远安心，或一个较低均分已经证明关系健康。",
+          "en": "Secure: a guide to how closeness, support-seeking and autonomy can coexist when worry and distance are both less prominent. It does not imply no disagreements, constant reassurance or that a lower mean proves a healthy relationship."
+        },
+        {
+          "zh": "焦虑型（Anxious／Preoccupied）：帮助理解担心失去回应、反复确认关系等体验较突出、而退缩未必同样突出时的情境。它不是焦虑症诊断，也不能据此判断对方确实会离开。",
+          "en": "Anxious / Preoccupied: a guide for prominent concerns about responsiveness or repeated reassurance-seeking when distance is not equally prominent. It is not an anxiety-disorder diagnosis or evidence that the other person will leave."
+        },
+        {
+          "zh": "回避型（Avoidant／Dismissing）：帮助理解对亲近、依靠或情感表达保留距离，而关系担心未必同样突出时的情境。需要独处、拒绝不舒服的接触或设定边界，本身不能据此判为回避型。",
+          "en": "Avoidant / Dismissing: a guide for distancing from closeness, reliance or emotional disclosure when worry is not equally prominent. Wanting solitude, declining uncomfortable contact or setting boundaries does not by itself establish this style."
+        },
+        {
+          "zh": "恐惧回避型（Fearful-Avoidant）：帮助比较关系担心与亲近退缩同时较多的体验。两维较高并不表示在两个人格之间切换，也不能由此追溯创伤或套用婴幼儿的混乱型分类。四个名称作为成人原型有各自理论背景；这里的说明用于概念比较，不是本次类型判定。[4]",
+          "en": "Fearful-Avoidant: a guide for experiences involving both worry and distance. Higher levels of both do not mean switching between personalities, establish trauma or assign an infant disorganised classification. These names have theoretical histories as adult prototypes. Here they support conceptual comparison, not classification of this attempt.[4]"
+        }
+      ]
+    },
+    {
+      "id": "attachment-examples",
+      "title": {
+        "zh": "同一次互动：先区分事实、解释与行动",
+        "en": "One interaction: separating facts, interpretations and actions"
+      },
+      "paragraphs": [
+        {
+          "zh": "例如对方临时改变了见面时间。可以分别记录：事实是改期以及给出的理由；解释可能是“我对这段关系不重要”；行动可能是反复询问，也可能是减少表达和联系。相似的行为可能有不同背景，先核对实际约定与近期互动，不仅凭一个名称解释整件事。",
+          "en": "Suppose a meeting time changes. Separate the fact and stated reason from an interpretation such as “I do not matter in this relationship,” and from actions such as repeatedly asking or reducing contact. Similar actions can have different backgrounds. Check agreements and recent interactions rather than using one label to explain the whole event."
+        },
+        {
+          "zh": "本站记录你报告这些情境出现的频率，没有观察对方行为或核实事实。担心较多不自动说明想多了；距离较多也不自动说明无爱或故意伤害。一次回答不能决定谁对谁错，应把具体行为、个人感受和可确认的信息继续分开。",
+          "en": "This quiz records reported frequency without observing the other person or verifying events. More worry does not automatically mean overthinking, and more distance does not automatically mean lack of love or deliberate harm. An answer cannot decide who is right; keep observable actions, personal feelings and information that can be checked distinct."
         }
       ]
     },
     {
       "id": "source-scope",
       "title": {
-        "zh": "概念来源不等于本题验证",
-        "en": "Concept sources do not validate these items"
+        "zh": "研究与题本的关系：两维理论不等于本站已验证",
+        "en": "Research and this questionnaire: theory is not instrument validation"
       },
       "paragraphs": [
         {
-          "zh": "本版题目与解释为独立创作，不施测ECR系列量表，也不借用其信效度、常模、授权或分数解释。研究来源说明成人依恋两维和类别局限；不能从本问卷推断儿童分类、童年、创伤、临床状况、伴侣真实意愿、关系安全或职业胜任。",
-          "en": "These independently authored items and explanations do not administer ECR-family instruments or borrow their validity, norms, permission or score interpretations. Sources discuss adult attachment dimensions and category limits. This quiz cannot establish infant classifications, childhood, trauma, clinical conditions, a partner’s actual wishes, relationship safety or job suitability."
+          "zh": "Fraley等人2015年的研究用两组样本比较成人依恋的类别与维度模型，结果更符合连续维度的解释，涵盖一般与具体关系的依恋取向。[3] 这为谨慎使用类型标签提供研究背景，不是给本站均分设分界线，也不意味着所有依恋研究都使用同一种工具。",
+          "en": "Fraley and colleagues’ 2015 study compared categorical and dimensional models in two samples. Results favoured dimensions for general and relationship-specific attachment orientations.[3] This informs caution with labels; it neither sets cutoffs for these means nor makes all attachment research use one instrument."
+        },
+        {
+          "zh": "本版24题、题目方向与解释为费马原创，不是ECR、ECR-R、ECR-S、ECR-RS或其授权译本。ECR-R有自己的题本、作答尺度和计分说明；不能因本站也使用均分或反向题，就借用它的信度、常模或分数含义。[2]",
+          "en": "These 24 items, their keying and explanations are original to FermatMind, not the ECR, ECR-R, ECR-S, ECR-RS or an authorised translation. The ECR-R has its own items, response scale and scoring instructions. Using means or reversed items here does not transfer its reliability, norms or score interpretations.[2]"
+        }
+      ]
+    },
+    {
+      "id": "attachment-evidence",
+      "title": {
+        "zh": "本版证据与用途：自评摘要、原型说明和临床评估分开",
+        "en": "Evidence and use: summaries, prototype guides and clinical assessment"
+      },
+      "paragraphs": [
+        {
+          "zh": "本站尚未建立本题本的信度、效度、重测误差、常模或中英文测量等值。相同计分公式与双语内容对应，说明算法透明和内容覆盖，不能证明测量质量。每轴有效题数同时显示，供你判断本次用了多少资料，而不是统计置信度。",
+          "en": "Reliability, validity, retest error, norms and Chinese–English measurement equivalence have not been established for these items. A common formula and corresponding bilingual content provide transparency and coverage, not evidence of measurement quality. Rated-item counts indicate how much information this attempt uses, not statistical confidence."
+        },
+        {
+          "zh": "本页适合低风险的自我回顾与自愿沟通，不调查童年经历、做临床访谈或评估关系安全。不能凭结果诊断焦虑障碍、人格障碍，判断经历了创伤，或证明伴侣不可信。若你需要解决的是具体伤害或持续困扰，应围绕现实情况寻找合适支持，不用测验标签代替对实际问题的判断。",
+          "en": "This page supports low-stakes reflection and voluntary conversation, without investigating childhood, conducting a clinical interview or assessing relationship safety. It cannot diagnose disorders, establish trauma or prove a partner untrustworthy. For actual harm or ongoing distress, seek support appropriate to the circumstances rather than substituting a quiz label for assessment of the real problem."
+        }
+      ]
+    },
+    {
+      "id": "attachment-conversation",
+      "title": {
+        "zh": "从结果到沟通：提出一个可核对的安排",
+        "en": "From a result to conversation: one checkable arrangement"
+      },
+      "paragraphs": [
+        {
+          "zh": "选择近期一件双方愿意讨论的小事。例如：“临时没有消息时，我会担心。忙的时候，能否告诉我大概什么时候方便再联系？”或“谈到这里我想暂停一下，今晚八点再继续，可以吗？”把具体情境、自己的体验和可调整的请求说清楚，不先断言对方是什么类型。",
+          "en": "Choose a small recent situation both people are willing to discuss. For example: “I worry when contact unexpectedly stops. When you are busy, could you let me know roughly when we can reconnect?” Or: “I would like a pause here. Could we return to this at eight tonight?” Name the context, your experience and an adjustable request without first diagnosing the other person’s style."
+        },
+        {
+          "zh": "接着确认对方是否愿意、安排是否可行，之后回看是否兑现及需要怎样调整。任何人都可以拒绝接触、保留独处或改变主意；这不是“修复回避”时可以绕过的障碍。这个小尝试帮助观察沟通过程，不承诺把一种依恋类型治成另一种。",
+          "en": "Ask whether the other person is willing and the arrangement feasible, then check follow-through and what needs adjusting. Anyone may decline contact, have time alone or change their mind; these are not obstacles to bypass when “fixing avoidance.” The experiment helps observe communication, without promising to turn one attachment type into another."
+        }
+      ]
+    },
+    {
+      "id": "attachment-retest",
+      "title": {
+        "zh": "不同关系与重测：先核对参照，不急于解释改变",
+        "en": "Different relationships and retesting: check the reference first"
+      },
+      "paragraphs": [
+        {
+          "zh": "换了关系、处于不同阶段或对题目的理解改变，都可能让回答所指的情境不同。若想比较两次结果，先记下参照关系、时间段、哪些题目有评分，再看两维均分与具体回答；不要只比较原型名称。本站不建立跨关系或跨时间的私人记录。",
+          "en": "A different relationship, stage or interpretation can change the situations being rated. To compare attempts, first note the relationship, reference period and which items received numeric ratings, then examine the two means and specific answers. Do not compare prototype names alone. This site creates no private record across relationships or time."
+        },
+        {
+          "zh": "均分变了不自动证明依恋已经改变或某种训练起效，本站也没有判断变化是否超过测量误差的标准。相反，名称没变也不能否认实际沟通已有改善；应看现实中的约定、回应与相处体验，不用一次图上的位置替代这些证据。",
+          "en": "A changed mean does not automatically establish changed attachment or a training effect; this edition has no criterion for change beyond measurement error. Conversely, an unchanged label would not disprove better communication. Examine actual agreements, responses and experiences rather than substituting one plotted position for those observations."
+        }
+      ]
+    },
+    {
+      "id": "attachment-free",
+      "title": {
+        "zh": "完整免费、临时保存与分享范围",
+        "en": "Full free access, temporary saving and sharing scope"
+      },
+      "paragraphs": [
+        {
+          "zh": "24题预计约6分钟，不限时。点击开始直接进入题目，不增加同意、注册或其他测试步骤。全部两维汇总及四份完整原型指南免费，资料不足也能阅读全部公开说明。每题可选不计分项；所有题目作出选择后，才显示个人汇总。",
+          "en": "Allow about six minutes for 24 items, without a time limit. Start opens the questions directly, without another agreement, signup or test. Both summaries and all four full prototype guides are free; insufficient information does not hide public explanations. Every item offers an unscored response. Personal summaries appear after a selection for every item."
+        },
+        {
+          "zh": "答案在浏览器内计分，不通过计分请求上传，不写入网址或分析事件。默认不保存；主动选择临时保存后，可在本标签页24小时内恢复，完成、重测或清除时删除草稿。分享只带测试名称与公开入口，不包含答卷、均分、对方姓名或私人结果。",
+          "en": "Answers are scored in the browser, without uploading them through a scoring request or including them in URLs or analytics events. Saving is off by default. Optional temporary saving allows restoration in this tab for 24 hours; completion, retaking or clearing deletes the draft. Sharing contains only the test name and public entry, not answers, means, another person’s name or private results."
         }
       ]
     }
@@ -2280,62 +2420,122 @@
   "faq": [
     {
       "question": {
-        "zh": "怎样知道自己的依恋风格？",
-        "en": "Can I take this attachment quiz if I'm single?"
+        "zh": "怎样了解自己的依恋风格？",
+        "en": "How can I explore my attachment style?"
       },
       "answer": {
-        "zh": "本版用24条原创情境频率题分别观察关系担心与亲近退缩，完成后呈现两维均分或资料不足，并完整展示四种成人原型。它是自我回顾的起点，不认证固定类型，也不替伴侣判型。",
-        "en": "A current romantic partner is not required. Choose one adult close relationship you are willing to reflect on, and keep that same relationship in mind for typical situations over the past three months. Do not combine several people. Use the unscored option when an item does not apply, you are unsure or you prefer not to answer. This original 24-item reflection shows two means or insufficient-information states and all four adult prototypes in full, rather than certifying a fixed type or classifying someone else."
+        "zh": "先围绕近三个月同一段成年亲密关系，分别回看反复担心与亲近退缩的出现频率。本版24题完成后显示两维均分或资料不足，并提供四种完整概念指南，不给一个固定个人类型。",
+        "en": "Reflect on the frequency of worry and distance in one adult close relationship over the past three months. After all 24 selections, this edition shows two means or insufficient information and four full conceptual guides, without assigning one permanent personal type."
       }
     },
     {
       "question": {
-        "zh": "安全、焦虑、回避和恐惧回避怎样比较？",
-        "en": "How do secure, anxious, avoidant and fearful-avoidant compare?"
+        "zh": "单身、没有适用关系或经历不足，可以做吗？",
+        "en": "Can I answer when single or without applicable relationship experience?"
       },
       "answer": {
-        "zh": "在成人两维概念中，安全讨论担心与退缩都较少；焦虑更突出担心；回避更突出退缩；恐惧回避讨论两者较多。不是四项独立能力，不要求加起来100%，也不代表本测试找到了天然分类线。",
-        "en": "In an adult two-dimensional framework, security describes less worry and distance, anxious emphasises worry, avoidant emphasises distance and fearful-avoidant combines more of both. They are not four separate abilities or percentages adding to one hundred, and the quiz establishes no natural category border."
+        "zh": "单身者若有符合本页范围的实际成年亲密关系经历，可以围绕同一段关系作答。没有适用经历、无法判断或不愿回答时选不计分项，不编造或混合多个人的经历；四份公开指南无需作答也可阅读。",
+        "en": "If you are single but have adult close-relationship experience fitting this page’s scope, use that same relationship. Choose unscored responses when experience is absent, judgment is difficult or you prefer not to answer. Do not invent experiences or mix people; the four public guides can be read without answering."
       }
     },
     {
       "question": {
-        "zh": "这是ECR-R或经过验证的依恋量表吗？",
-        "en": "Is this the ECR-R or a validated attachment instrument?"
+        "zh": "安全、焦虑、回避和恐惧回避有什么区别？",
+        "en": "How do secure, anxious, avoidant and fearful-avoidant differ?"
       },
       "answer": {
-        "zh": "不是。本题本、键向与说明均为费马独立编写，不是ECR、ECR-R、ECR-S、ECR-RS或授权译本，也没有本站信效度或常模验证。来源介绍理论与方法边界，不验证这些题目。",
-        "en": "No. FermatMind independently authored these items, keying and explanations. This is neither the ECR, ECR-R, ECR-S, ECR-RS nor an authorised translation, with no established website validity or norms. Sources explain theory and method limits, not validation of these items."
+        "zh": "本页把它们作为两维组合的阅读原型：安全讨论担心与退缩都较少；焦虑突出担心；回避突出退缩；恐惧回避讨论两者同时较多。它们不是四项能力或加起来100%的成分，也不是本次自动判定的类型。",
+        "en": "Here they are reading prototypes for combinations of two dimensions: less worry and distance for security, prominent worry for anxious, prominent distance for avoidant, and more of both for fearful-avoidant. They are not four abilities, percentages totalling 100 or types automatically assigned to this attempt."
       }
     },
     {
       "question": {
-        "zh": "为什么不直接派一个类型？",
-        "en": "Why is no fixed type assigned?"
+        "zh": "每轴12题怎样计分，反向题是什么？",
+        "en": "How are the 12 items per axis scored, including reverse keys?"
       },
       "answer": {
-        "zh": "两维是连续的，把分数硬切成一个类型会丢掉信息。本版没有已验证分类阈值，所以保留两项均分、有效题数与四份完整概念说明。不把中点3当人群平均、健康线或配对标准。",
-        "en": "Dimensions are continuous, and cutting scores into one type discards information. This edition has no validated category cutoff, so it retains two means, rated counts and four complete conceptual guides. A response-scale midpoint of three is neither a population average, health boundary nor compatibility rule."
+        "zh": "每轴8条直接按所选1—5计分，4条反向题按6减回答。全部24题选择后，一轴至少8条有效评分才用定向总和除以有效题数，保留一位小数。反向题对齐措辞方向，不是测谎题。",
+        "en": "Each axis has eight direct 1–5 items and four reversed as six minus the response. After all 24 selections, an axis with at least eight numeric ratings uses its keyed sum divided by rated-item count, rounded to one decimal. Reverse keys align wording, not detect lies."
       }
     },
     {
       "question": {
-        "zh": "结果能解释童年、创伤或伴侣吗？",
-        "en": "Can the result explain childhood, trauma or a partner?"
+        "zh": "低分、中点3和资料不足分别说明什么？",
+        "en": "How do a lower mean, three and insufficient information differ?"
       },
       "answer": {
-        "zh": "不能。本次自评没有调查过去、观察双方互动或做临床访谈，也不评估关系安全。它不等同婴幼儿混乱型分类、不诊断焦虑症或其他状况，不预测配对、关系结局或工作表现。",
-        "en": "No. This reflection investigates no past, observes no interaction, conducts no clinical interview and assesses no relationship safety. It is not an infant disorganised classification or diagnosis of anxiety or another condition, and predicts neither compatibility, relationship outcomes nor work performance."
+        "zh": "较低均分概括本轴题目中较少担心或退缩的自报体验；3仅是回答范围中点；资料不足表示有效评分少于8条。三者不能互换，缺答不补成0或3，也不把3当人群平均或健康线。",
+        "en": "A lower mean summarises fewer reported worry- or distance-related experiences in these items. Three is the response-range midpoint. Insufficient information means fewer than eight numeric ratings. These are distinct: missing values are not replaced by zero or three, and three is not a population average or health boundary."
       }
     },
     {
       "question": {
-        "zh": "全部结果免费吗，草稿和分享包含什么？",
-        "en": "Are full results free, and what do drafts and sharing contain?"
+        "zh": "为什么不直接告诉我是哪个类型？",
+        "en": "Why does the quiz not assign me a type?"
       },
       "answer": {
-        "zh": "全部24题、两维汇总和四份完整说明免费，无需注册。可选草稿只在本标签页保存24小时，完成、重测或清除即删除。分享仅有名称与公开测试入口，不带答案、均分、对方姓名或内部ID；存储或复制受限仍可继续。",
-        "en": "All 24 items, two summaries and four full guides are free without signup. Optional drafts last 24 hours in this tab and clear on completion, retake or clearing. Sharing contains names and the public entry only, without answers, means, another person’s name or internal IDs. Blocked storage or copying still permits an attempt."
+        "zh": "本版没有验证过的分类阈值。保留两项连续均分和有效题数，能避免凭某个中点强行划分；四份原型指南用于比较概念，不证明本次找到了天然的人格分界。",
+        "en": "This edition has no validated category thresholds. Keeping two continuous means and rated-item counts avoids classifying someone at an arbitrary midpoint. The four prototype guides compare concepts; they do not establish natural personality boundaries in this attempt."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是ECR-R、ECR-S或经过验证的依恋量表吗？",
+        "en": "Is this the ECR-R, ECR-S or a validated attachment instrument?"
+      },
+      "answer": {
+        "zh": "不是。本版24题、键向与解释由费马独立编写，不施测ECR系列题本，也不是其授权翻译。尚未建立本站信度、效度、常模或跨语言测量等值，外部研究不能直接套用到本题。[2]",
+        "en": "No. FermatMind independently authored these 24 items, keying and explanations; this neither administers an ECR-family form nor constitutes an authorised translation. Reliability, validity, norms and cross-language equivalence have not been established here. External research does not transfer directly to these items.[2]"
+      }
+    },
+    {
+      "question": {
+        "zh": "恐惧回避就是混乱型，能说明童年创伤吗？",
+        "en": "Does fearful-avoidant mean disorganised attachment or establish childhood trauma?"
+      },
+      "answer": {
+        "zh": "本版讨论成人自评中的担心与退缩组合，没有做婴幼儿观察、成人依恋访谈或童年调查。不能直接替换不同方法的分类，更不能凭当前两维均分断定创伤、诊断或成因。",
+        "en": "This edition discusses adult self-reported worry and distance, without infant observation, an Adult Attachment Interview or a childhood investigation. Categories from different methods are not interchangeable here. Current means cannot establish trauma, a diagnosis or a cause."
+      }
+    },
+    {
+      "question": {
+        "zh": "可以替伴侣测试，或者判断谁更适合我吗？",
+        "en": "Can I answer for a partner or identify who suits me?"
+      },
+      "answer": {
+        "zh": "请只回答自己的体验，不代替别人判型。本页没有伴侣观察、双人评估或匹配分，不能从均分判断对方意愿、是否爱你、是否可信或关系会不会持续。可以围绕一个具体安排沟通，再看实际反馈。",
+        "en": "Answer only for your own experience, without classifying someone else. This page includes no partner observation, dyadic assessment or matching score. Means cannot determine another person’s wishes, love, trustworthiness or whether a relationship will last. Discuss a concrete arrangement and check actual feedback."
+      }
+    },
+    {
+      "question": {
+        "zh": "想独处或拒绝亲近，就一定是回避型吗？",
+        "en": "Does wanting time alone or declining closeness make me avoidant?"
+      },
+      "answer": {
+        "zh": "不能凭一个行为判型。先看情境、个人边界和实际需要，所有人都可以拒绝不舒服的接触或保留独处。结果不能用来要求别人持续回应、放弃空间，或把合理拒绝说成需要修复的缺陷。",
+        "en": "One action cannot establish a style. Consider context, boundaries and actual needs; anyone may decline uncomfortable contact or have time alone. A result cannot require constant responses, remove personal space or recast a reasonable refusal as a defect needing repair."
+      }
+    },
+    {
+      "question": {
+        "zh": "重测分数不同，是依恋改变了吗？",
+        "en": "Does a different retest score mean changed attachment?"
+      },
+      "answer": {
+        "zh": "先核对参照关系、近三个月的情境、有效题数和具体选项。本站没有重测误差与变化阈值，不能仅凭均分或图点移动判断稳定改变，也不能据此证明某项练习有效。",
+        "en": "First check the relationship, reference period, rated-item counts and specific answers. Without retest-error estimates or a change threshold, moved means or coordinates alone cannot establish a lasting change or demonstrate that an exercise worked."
+      }
+    },
+    {
+      "question": {
+        "zh": "免费吗？开始前需要同意、注册或保存资料吗？",
+        "en": "Is it free, and must I agree, register or save information before starting?"
+      },
+      "answer": {
+        "zh": "全部24题、两维汇总与四份完整指南免费，无需注册，约6分钟。点击开始直接进入题目。默认不保存，只有主动临时保存才保留本标签页24小时草稿，完成、重测或清除即删除；分享不含答案或均分。",
+        "en": "All 24 items, both summaries and four full guides are free without signup, taking about six minutes. Start opens the questions directly. Saving is off by default; optional saving creates a 24-hour tab draft deleted on completion, retaking or clearing. Sharing includes no answers or means."
       }
     }
   ]

@@ -1,3 +1,4 @@
+import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Dvmsq18Questionnaire } from "@/lib/questionnaires/dvmsq18";
@@ -6,6 +7,7 @@ import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
+import { dvmsq18LandingFaq, dvmsq18LandingSections } from "./Dvmsq18LandingEditorial";
 import { Dvmsq18Client } from "./Dvmsq18Client";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
@@ -18,16 +20,18 @@ export function Dvmsq18Page({ quiz, locale }: { quiz: Dvmsq18Questionnaire; loca
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="dvmsq18-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="dvmsq18-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
-    <nav aria-label={zh ? "面包屑" : "Breadcrumb"} className="mb-6 text-sm"><Link prefetch={false} className="underline" href={`/${locale}/tests#more-tests`}>{zh ? "全部测试 · 更多测试" : "All tests · More Tests"}</Link></nav>
-    <p className="text-sm font-semibold text-violet-800">{zh ? "源表自评 · 三篇完整读法免费" : "Published source form · Three full guides free"}</p>
+    <ExploreTestIntro slug={quiz.slug} locale={locale}>
+
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
     <p className="mt-5 text-lg leading-8 text-slate-700">{quiz.description[locale]}</p>
-    <p className="mt-3 text-sm text-slate-600">{zh ? "1个前置问题＋最多18条源题 · 约5分钟 · 不计时 · 18岁及以上 · 无需注册" : "1 screening question + up to 18 source prompts · About 5 minutes · Untimed · Ages 18+ · No signup"}</p>
-    <p className="mt-5 leading-8">{quiz.introduction[locale]}</p>
+    <div className="explore-intro-meta"><span>{zh ? "1个前置问题＋最多18条源题 · 约5分钟 · 不计时 · 18岁及以上 · 无需注册" : "1 screening question + up to 18 source prompts · About 5 minutes · Untimed · Ages 18+ · No signup"}</span><span>{zh ? "源表自评 · 三篇完整读法免费" : "Published source form · Three full guides free"}</span></div>
     <Dvmsq18Client quiz={quiz} locale={locale} readingProfiles={quiz.profiles.map(profile => prepareResultProfile(quiz.slug, profile))} />
+    </ExploreTestIntro>
+    <section className="my-8 space-y-4"><h2 className="text-2xl font-semibold">{dvmsq18LandingSections[0].title[locale]}</h2><p className="leading-8">{quiz.introduction[locale]}</p>{dvmsq18LandingSections[0].paragraphs.map((p,i)=><p className="leading-8" key={i}>{p[locale]}</p>)}</section>
     <section aria-labelledby="dvmsq18-method" className="my-10 space-y-8"><h2 id="dvmsq18-method" className="text-2xl font-semibold">{zh ? "来源、计分与使用边界" : "Source, scoring and use"}</h2>{quiz.guide.map(s => <section key={s.id}><h3 className="text-xl font-semibold">{s.title[locale]}</h3>{s.paragraphs.map((p, i) => <p key={i} className="mt-3 leading-8">{p[locale]}</p>)}</section>)}</section>
-    <section aria-labelledby="dvmsq18-public-guides" className="my-10"><h2 id="dvmsq18-public-guides" className="text-2xl font-semibold">{zh ? "三个分数主题的完整公开读法" : "Full public guides: three score topics"}</h2><p className="my-4 leading-8">{zh ? "不作答也可阅读。以下对所有人相同，不含个人答案或分数。" : "Read without answering. These pages are identical for everyone, without personal responses or scores."}</p><ul className="space-y-2">{quiz.profiles.map(p => <li key={p.id}><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, p.id)}>{p.title[locale]}</Link></li>)}</ul></section>
-    <section aria-labelledby="dvmsq18-faq" className="my-10 space-y-6"><h2 id="dvmsq18-faq" className="text-2xl font-semibold">{zh ? "常见问题" : "Frequently asked questions"}</h2>{quiz.faq.map((f, i) => <section key={i}><h3 className="text-lg font-semibold">{f.question[locale]}</h3><p className="mt-2 leading-8">{f.answer[locale]}</p></section>)}</section>
+    <section aria-labelledby="dvmsq18-public-guides" className="my-10"><h2 id="dvmsq18-public-guides" className="text-2xl font-semibold">{zh ? "三个分数主题的完整公开读法" : "Full public guides: three score topics"}</h2><p className="my-4 leading-8">{zh ? "不作答也可阅读。以下对所有人相同，不含个人答案或分数。" : "Read without answering. These pages are identical for everyone, without personal responses or scores."}</p><ul className="dvmsq18-public-grid">{quiz.profiles.map(p => <li key={p.id}><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, p.id)}>{p.title[locale]}</Link><p className="text-sm leading-7">{p.summary[locale]}</p></li>)}</ul></section>
+    <section aria-labelledby="dvmsq18-faq" className="my-10 space-y-6"><h2 id="dvmsq18-faq" className="text-2xl font-semibold">{zh ? "常见问题" : "Frequently asked questions"}</h2>{[...quiz.faq, ...dvmsq18LandingFaq].map((f, i) => <section key={i}><h3 className="text-lg font-semibold">{f.question[locale]}</h3><p className="mt-2 leading-8">{f.answer[locale]}</p></section>)}</section>
+    <section className="explore-reading-library"><h2>{zh ? "深入阅读：前置分支、计分与研究证据" : "Reading in depth: branching, scoring and research evidence"}</h2>{dvmsq18LandingSections.slice(1).map(g=><section key={g.id}><h3>{g.title[locale]}</h3><div>{g.paragraphs.map((p,i)=><p key={i}>{p[locale]}</p>)}</div></section>)}</section>
     <Source quiz={quiz} locale={locale} />
     <section className="my-8"><h2 className="text-xl font-semibold">{zh ? "可选的下一步" : "Optional next step"}</h2><p className="my-3 leading-8">{zh ? "若想另读更广泛的感觉自述，可查看完整92项SPQ。它采用不同题本与计分，不验证声音敏感自评、不解释原因，也不传递这里的答案或分数；预计用时见入口。" : "For broader sensory self-reports, separately view the full 92-item SPQ. It uses a different bank and scoring method, does not validate this check-in or explain its cause, and receives no responses or scores from here. The entry shows the estimated time."}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnairePath(locale, "sensory-processing-test")}>{zh ? "查看92项SPQ入口" : "View the 92-item SPQ entry"}</Link></section>
 

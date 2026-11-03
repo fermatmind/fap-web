@@ -99,7 +99,9 @@ describe("T020 original humor expression frequency reflection", () => {
         const path = `/${locale}/tests/explore/humor-style-test`, props = { params: Promise.resolve({ locale, slug: quiz.slug }) };
         const html = renderToStaticMarkup(await entry.default(props)), metadata = await entry.generateMetadata(props);
         expect(metadata.title).toBe(quiz.seoTitle[locale]); expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
-        for (const section of quiz.guide.slice(0, 3)) expect(html).toContain(section.paragraphs[0][locale]);
+        const entryDom = document.createElement("div"); entryDom.innerHTML = html;
+        const normalize = (text: string) => text.replace(/\[\d+\]/g, "").replace(/\s+/g, " ").trim();
+        for (const section of quiz.guide.slice(0, 3)) for (const paragraph of section.paragraphs) expect(normalize(entryDom.textContent ?? "")).toContain(normalize(paragraph[locale]));
         expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);
         for (const profile of quiz.profiles) {
           const publicPath = `${path}/results/${profile.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };

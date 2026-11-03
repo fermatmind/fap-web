@@ -10,12 +10,12 @@
     "zh": "地狱客栈（Hazbin Hotel）角色测试"
   },
   "description": {
-    "en": "Choose your responses to 18 original everyday situations. Compare Charlie, Vaggie, Alastor, Angel Dust, Husk and Niffty, keep every highest tie and read all six complete guides. Free, with no registration.",
-    "zh": "完成18道原创日常情境题，比较夏莉、薇姬、阿拉斯托、安吉尔、哈斯克与妮芙蒂六个角度。全部最高并列保留，六份完整说明免费可读，无需注册。"
+    "zh": "用18道原创日常活动题，比较夏莉、薇姬、阿拉斯托、安吉尔、哈斯克与妮芙蒂六种参与角度。原始计数、全部最高并列和七节完整指南免费；无需注册，不考剧情。非官方同人版。",
+    "en": "Compare six participation angles inspired by Charlie, Vaggie, Alastor, Angel Dust, Husk and Niffty in eighteen original everyday situations. All counts, highest ties and seven-section guides are free. Unofficial fan edition; no signup or plot trivia."
   },
   "seoTitle": {
-    "en": "Hazbin Hotel Character Quiz: Free Test & All 6 Results",
-    "zh": "地狱客栈角色测试：免费作答与6种完整结果"
+    "zh": "地狱客栈角色测试：18题、六位角色与完整解读",
+    "en": "Hazbin Hotel Character Quiz: 18 Choices and Six Full Guides"
   },
   "resultHeading": {
     "en": "Your Hazbin Hotel character readings",
@@ -23,12 +23,12 @@
   },
   "minutes": 4,
   "introduction": {
-    "en": "Which Hazbin Hotel character do your everyday choices bring to mind? This independent fan edition uses six limited reading angles: a hopeful invitation, agreed boundaries, deliberate presentation, playful flexibility, plain speaking and small finishing tasks. The questions concern ordinary shared activities, without episode trivia, show dialogue or adult scenes. The underlying series is an adult animated musical; these six guides are selected fan interpretations rather than its complete cast, religious teaching or a validated personality assessment. You can read them all before choosing to answer.",
-    "zh": "日常选择让你想起《地狱客栈》的哪位角色？这份独立同人版提供六个有限角度：让人能开始的邀请、说清约定边界、设计呈现、俏皮变化、直白表达和具体收尾。题目围绕普通共同活动，不考剧情，不采用台词或成人情节。原作是一部成人音乐动画；六份说明是选定的同人读法，不是全阵容、宗教教义或经过验证的人格测量，开测前即可全部阅读。"
+    "zh": "准备一场小型活动，你更想让新人容易开始、把约定说清、设计有辨识度的呈现、加入自愿的小趣味、坦白实际条件，还是把零碎收尾做好？这份《地狱客栈》角色测试用18道原创情境，将这些选择联系夏莉、薇姬、阿拉斯托、安吉尔、哈斯克与妮芙蒂六个有限的同人阅读角度。约4分钟，查看六项原始计数与所有最高并列的七节完整指南。题目不考剧情、不采用成人情节；原作属于成人音乐动画，人物名称不用于判断你的心理状态、道德或宗教身份。",
+    "en": "When preparing a small event, would you first make joining easier, clarify agreements, shape a distinctive presentation, offer optional playfulness, state practical conditions or finish small loose ends? This Hazbin Hotel Character Quiz connects eighteen original situations with six limited fan-reading angles: Charlie, Vaggie, Alastor, Angel Dust, Husk and Niffty. In about four minutes, view six raw counts and complete seven-section guides for every highest tie. The questions contain neither plot trivia nor adult scenes. The source is an adult animated musical; names make no judgement about your mental state, morality or religious identity."
   },
   "instructions": {
-    "en": "Think about ordinary, optional activities with other people. Select one of the four offered responses for every question, even when none fits perfectly. Some characters are absent from an item; that is not a rejection by you. There are no right answers or reverse-keyed questions. All 18 choices are required before counts or matches appear, and every highest tie keeps its complete explanation.",
-    "zh": "想想自己与别人参加的普通、可选活动，每题从四种回应中选最接近的一项，即使没有完全贴切的选择。当题未提供某位角色不算你拒绝他。没有正确答案或反向题；18题全部选择后才呈现计数与匹配，最高并列均保留完整解释。"
+    "zh": "以当前愿意参与的普通共同活动为参照，每题从四种做法中选最想先做的一项，不按喜爱的角色、演员或理想形象作答。六位角色每题只出现四位，缺席不算你拒绝；选中加1，没有对错或反向分。完成18题才生成全部计数与最高并列。没有贴切选项时可以退出，六份公开指南仍可阅读。开始直接进入题目，无需另行同意、邮箱、注册或前置测评，也不输入私人经历。",
+    "en": "Think about ordinary shared activities you would willingly join now. Choose the one of four approaches you most want to take first, rather than a favourite character, actor or idealised self. Only four of six characters appear in an item; absence is not rejection. A selection adds one count without correctness or reversal points. Complete eighteen items to see all counts and highest ties. Exit if the options do not fit; all six public guides remain readable. Start opens questions directly without another agreement, email, signup or prerequisite assessment. No private history is entered."
   },
   "references": [
     {

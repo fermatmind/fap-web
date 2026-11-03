@@ -14,8 +14,8 @@
     "zh": "执行功能测试：ADEXI14题与完整免费读法"
   },
   "description": {
-    "en": "Answer the official ADEXI-14 self-report. Read the raw total, two part sums and means, with all three full guides free. No diagnostic cutoffs or signup.",
-    "zh": "完成官方ADEXI14题自评，阅读原始合计、两个部分的合计与均分，三篇完整指南免费，无需注册。不套诊断阈值，不据此判神经类型。"
+    "en": "Complete the 14-item ADEXI adult self-report to explore working memory and inhibition. Read clearly labelled sums, means and all three full guides free; no signup required.",
+    "zh": "完成14项ADEXI成人自评，分别观察工作记忆与抑制控制，免费阅读标注明确的原始和、均分与三篇完整指南，无需注册。"
   },
   "minutes": 4,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "按陈述对你本人的贴切程度，选择1—完全不正确至5—完全正确。来源要求自己的看法，即使认识你的人可能看法不同；不另加固定近期回忆期限。英文及官网所提供的简体中文措辞和选项锚点保留。独立的暂不回答不计分，会使该部分及整体合计暂不可用，另一部分完整时仍保留。约四分钟为编辑估计，不计时。"
   },
   "introduction": {
-    "en": "This check-in uses the current official 14-item Adult Executive Functioning Inventory self-report, with English supplied by Lisa B. Thorell and simplified Chinese supplied by Angela Siu on the authors’ website. Its official key contains working memory and inhibition, rather than the competitor’s four-domain original questionnaire. The adopted colour-coded form specifies raw part sums and a fourteen-item total; a separate official key also supplies part means, shown with clear labels. All three complete readings are free. This website has not established its own validation or cross-language equivalence and applies no clinical cutoffs, neurotype mapping or ability rankings.",
-    "zh": "本检查采用当前官方14题成人执行功能量表自评：作者官网提供Lisa B. Thorell英文及Angela Siu简体中文。官方计分键是工作记忆与抑制控制两部分，不是竞品原创四领域问卷。采用的彩色题本要求原始分项及14题合计，另份官方键也给分项均分，本版明确标注两种展示。三篇完整读法免费。网站未建立自己的验证或跨语言等值证据，不套临床阈值、不映射神经类型、不排名能力。"
+    "en": "This adult self-report records your judgments of fourteen statements about working memory and inhibition, with the adopted official English and Angela Siu simplified-Chinese forms. Three complete guides explain the raw sums, part means, examples and research scope. The colour-coded form and separate subscale key are distinguished explicitly; the website applies no diagnostic cutoffs or ability rankings.",
+    "zh": "本成人自评采用官方提供的英文及Angela Siu简体中文题本，记录对工作记忆与抑制控制相关14项陈述的自身判断。三篇完整指南解释原始和、分项均分、具体例子与研究范围，明确区分彩色题本与独立分量表计分键；网站不套诊断切点或能力排名。"
   },
   "resultHeading": {
     "en": "Your ADEXI raw sums and complete readings",

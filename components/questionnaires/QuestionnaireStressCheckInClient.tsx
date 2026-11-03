@@ -51,17 +51,13 @@ function ValidStressCheckInClient({ quiz, locale, resultProfile }: { quiz: Stres
     catch { if (revision.current !== copiedRevision) return; setManual(text); setMessage(zh ? "无法自动复制，可从下方手动复制公开链接。" : "Automatic copying is unavailable. Copy the public links below manually."); }
   }
   useEntertainmentResultView(recordView, stage === "result");
-  return <section id="take-test" data-questionnaire-kind={quiz.kind} data-stress-check-in-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
-    {activityConsent}
-    <p className="mb-4 text-sm leading-7 text-slate-600">{zh ? "只使用当前页面内存；不保存草稿或结果，不上传逐题选择。刷新、换语或离开会清除。" : "Current-page memory only: no draft or result is saved and choices are not uploaded. Reloading, changing language or leaving clears answers."}</p>
+  return <section id="take-test" data-stage={stage} data-questionnaire-kind={quiz.kind} data-stress-check-in-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
     <fieldset disabled={!ready} className="min-w-0 space-y-5 p-0">
       <legend className="sr-only">{quiz.title[locale]}</legend>
       {stage === "welcome" && <>
+        <button data-explore-start type="button" className={`${button} bg-violet-700 text-white`} onClick={() => { revision.current += 1; setStage("answer"); setPosition(0); setMessage(""); recordStart(); }}>{zh ? "开始测试" : "Start test"}</button>
         <h2 className="text-2xl font-semibold">{zh ? "回看过去一个月" : "Look back over the past month"}</h2>
-        <p className="leading-8">{quiz.introduction[locale]}</p>
         <p className="leading-8">{quiz.instructions[locale]}</p>
-        <p className="rounded-lg border border-slate-300 p-4 leading-8">{quiz.guide.find(section => section.id === "arithmetic")!.paragraphs[0][locale]}</p>
-        <button type="button" className={button} onClick={() => { revision.current += 1; setStage("answer"); setPosition(0); setMessage(""); recordStart(); }}>{zh ? "开始测试" : "Start test"}</button>
       </>}
       {stage === "answer" && <>
         <p ref={progress} data-stress-check-in-progress className="scroll-mt-24 text-sm text-slate-600">{zh ? `第 ${position + 1} / 4 题` : `Choice ${position + 1} of 4`}</p>
@@ -82,6 +78,8 @@ function ValidStressCheckInClient({ quiz, locale, resultProfile }: { quiz: Stres
       </>}
       {stage !== "welcome" && <button type="button" className={button} onClick={clear}>{zh ? "退出并清除本次回答" : "Exit and clear these responses"}</button>}
     </fieldset>
+    {activityConsent}
+    <p className="mb-4 text-sm leading-7 text-slate-600">{zh ? "只使用当前页面内存；不保存草稿或结果，不上传逐题选择。刷新、换语或离开会清除。" : "Current-page memory only: no draft or result is saved and choices are not uploaded. Reloading, changing language or leaving clears answers."}</p>
     <p role="status" aria-live="polite" className="my-4 text-sm leading-7">{ready ? message : (zh ? "正在准备问卷，请稍候。" : "Preparing the questionnaire. Please wait.")}</p>
     <noscript><p>{zh ? "互动答题需要JavaScript；禁用时本网站部分页面可能停在加载画面。" : "Interactive answering requires JavaScript. Some pages on this website may remain at a loading screen when it is disabled."}</p></noscript>
   </section>;

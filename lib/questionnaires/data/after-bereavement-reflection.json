@@ -1021,12 +1021,12 @@
     "zh": "重要的人去世之后：哀伤回顾与五篇完整指南｜费马测试"
   },
   "description": {
-    "en": "Reflect on 16 original observations after a bereavement, with optional unscored timing and five full public guides. Private category records, without a grief score, diagnosis or timetable for support.",
-    "zh": "用16条原创观察回顾重要的人去世之后的经历，可选时间仅作背景，五篇完整指南公开。类别记录留在本页，不生成哀伤分数、诊断或求助时间表。"
+    "en": "Use 16 original observations to review missing someone, changed roles, reminders, plans and support after a death. Read five private category records and five complete public guides free, with optional timing.",
+    "zh": "通过16条原创观察，回顾重要的人去世之后的想念、角色变化、提醒、计划与支持。免费查看五个主题的私人类别记录及完整公开指南，时间背景可不提供。"
   },
   "introduction": {
-    "en": "This adult reflection keeps missing the person, changed roles, distance from reminders, future activities and receiving support separate. It does not measure love, assign a stage or identify prolonged grief. You can read all five guides without answering or describing the death.",
-    "zh": "这份成年人回顾分别呈现想念、角色变化、与提醒保持距离、之后活动及接受支持，不衡量爱、不分阶段，也不识别延长哀伤。不答题、不描述离世经过，也能阅读五篇全文。"
+    "en": "This adult reflection organises recent observations without a grief score or stage. Recall the past four weeks after the death, or only the days since it if more recent. Five topics retain your selected labels separately; optional elapsed time supplies context without changing counts or access to support.",
+    "zh": "本成人回顾整理近期观察，不生成哀伤分数或阶段。请回顾过去四周中离世之后的日子；若离世更近，只看发生之后的时间。五个主题分别保留所选标签，可选经过时间只提供背景，不改变计数或获取支持的条件。"
   },
   "instructions": {
     "en": "Recall the past four weeks after the death. If the death was more recent, consider only the days since it happened. If several losses are relevant, you may choose one privately without naming the person. Choose how often you noticed each description; no relevant experience, unclear recall or withholding an answer can remain unscored. Categories are labels, not points or event counts. Timing is optional and never changes support access. You may pause or leave at any time.",

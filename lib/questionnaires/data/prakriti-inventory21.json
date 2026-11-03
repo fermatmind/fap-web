@@ -10,8 +10,8 @@
     "zh": "Dosha话题自评：BPI-21"
   },
   "description": {
-    "en": "Read the 21 published English BPI items with working Chinese. Three raw counts, choice percentages and complete cultural guides, without a medical verdict or constitution assignment.",
-    "zh": "阅读BPI发表版21项英文及工作中译。三个原始计数、选择占比与完整文化指南，不作医疗结论、不派体质身份。"
+    "en": "Read all 21 published BPI items with working Chinese, then view three mapped-choice counts and percentages when every item is scored. Explore Vata, Pitta and Kapha through three complete cultural guides, free without signup.",
+    "zh": "阅读完整21项发表BPI题文及工作中译；每题都计分时，查看三个关联选择计数与占比。通过Vata、Pitta、Kapha三篇完整文化指南认识传统词语，全部免费，无需注册。"
   },
   "seoTitle": {
     "en": "Dosha Reflection: Full BPI-21, Three Free Cultural Guides",
@@ -27,8 +27,8 @@
     "zh": "面向成年人，只为自己作答，使用已熟悉的通常模式与体验。每题三个发表描述打乱顺序，选择整体较接近的一项，即使部分措辞不太符合；不需要医学检查、新的身体检查或改变日常习惯。不清楚、不适用或不愿回答就未评分。二十一项均选择即可完成；个人计数和百分比要求每题都计分，任一未评分就不显示所有个人数值，不补零、不改分母。无需答案或注册，三份全文均开放。本数字工作版本记录文化研究问卷中的选择，不识别医疗体质。"
   },
   "introduction": {
-    "en": "This edition presents the published twenty-one-item Brief Prakriti Inventory in its Ayurvedic research context. English items retain Table 2 wording; Chinese is FermatMind’s working translation. Vata, Pitta and Kapha are nominal option keys, with separate count shares rather than a highest assigned type. The unscored response, private browser interface and full cultural guides are website additions.",
-    "zh": "本版在阿育吠陀研究背景下呈现发表版二十一项简明Prakriti问卷，英文保留表2措辞，中文为费马工作译文。Vata、Pitta、Kapha是类别选项键，分别显示计数占比，不按最高值派型。未评分、浏览器私有交互与完整文化指南是网站新增。"
+    "en": "This digital working edition keeps the published English bank and its three nominal option keys. Answer from familiar usual experiences; unclear or declined items may remain unscored. The website’s choice record, full cultural guides and unscored extension do not assign a constitution or a health verdict.",
+    "zh": "本数字工作版本保留发表英文题本与三个类别选项键。按熟悉的通常体验回答，不清楚或不愿回答可未评分。网站的选择记录、完整文化指南与未评分扩展，不分配体质或健康结论。"
   },
   "source": {
     "kind": "licensed-bpi21-nominal-working-zh-with-unscored-extension",

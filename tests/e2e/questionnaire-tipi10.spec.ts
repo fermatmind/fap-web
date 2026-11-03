@@ -32,7 +32,7 @@ for (const locale of ["en", "zh"] as const) {
     await page.goto(`/${locale}/tests`);
     await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.locator("[data-explore-start]").click();
     await expect(page.getByText(zh ? "总体上，我认为自己：请评价这对特质整体符合的程度，即使其中一项更符合。" : "I see myself as: rate the pair overall, even if one trait applies more strongly than the other.", { exact: true })).toBeVisible();
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
@@ -46,7 +46,7 @@ for (const locale of ["en", "zh"] as const) {
     expect(leaks).toEqual([]);
   });
   test(`@release tipi-10 ${locale}: opt-in draft reload, back edit and exit clearing`, async ({ page }) => {
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.goto(entry); await page.locator("[data-explore-start]").click();
     await page.locator('input[name="tipi-01"][value="2"]').check(); await page.getByRole("checkbox").check();
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await page.reload();
     await page.getByRole("button", { name: zh ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();

@@ -1,0 +1,3137 @@
+{
+  "friendship-quiz": {
+    "subtitle": {
+      "zh": "朋友出题与默契对照",
+      "en": "Shared questions and friendship"
+    },
+    "art": {
+      "primary": "dialogue",
+      "secondary": "cards",
+      "layout": "paired"
+    }
+  },
+  "disc": {
+    "subtitle": {
+      "zh": "任务推进与协作方式",
+      "en": "Task approach and collaboration"
+    },
+    "art": {
+      "primary": "quadrants",
+      "secondary": "team",
+      "layout": "workspace"
+    }
+  },
+  "response-color": {
+    "subtitle": {
+      "zh": "红黄蓝绿四向选择",
+      "en": "Four color-based preferences"
+    },
+    "art": {
+      "primary": "swatches",
+      "secondary": "dialogue",
+      "layout": "fan"
+    }
+  },
+  "social-battery-test": {
+    "subtitle": {
+      "zh": "交流负担与独处恢复",
+      "en": "Social load and quiet time"
+    },
+    "art": {
+      "primary": "battery",
+      "secondary": "focus",
+      "layout": "paired"
+    }
+  },
+  "spirit-animal": {
+    "subtitle": {
+      "zh": "九种动物的行为意象",
+      "en": "Nine animal metaphors"
+    },
+    "art": {
+      "primary": "animal",
+      "secondary": "compass",
+      "layout": "orbit"
+    }
+  },
+  "flower": {
+    "subtitle": {
+      "zh": "六种花朵的表达意象",
+      "en": "Six floral expressions"
+    },
+    "art": {
+      "primary": "flower",
+      "secondary": "dialogue",
+      "layout": "portrait"
+    }
+  },
+  "what-dog-breed-am-i": {
+    "subtitle": {
+      "zh": "六种犬系的相处比喻",
+      "en": "Six canine social metaphors"
+    },
+    "art": {
+      "primary": "animal",
+      "secondary": "connection",
+      "layout": "portrait"
+    }
+  },
+  "mythical-creature": {
+    "subtitle": {
+      "zh": "幻想生物与创作偏好",
+      "en": "Mythical creatures and creativity"
+    },
+    "art": {
+      "primary": "dragon",
+      "secondary": "book",
+      "layout": "story"
+    }
+  },
+  "superpower-test": {
+    "subtitle": {
+      "zh": "五种超能力的趣味比喻",
+      "en": "Five imaginary superpowers"
+    },
+    "art": {
+      "primary": "orbit",
+      "secondary": "clock",
+      "layout": "orbit"
+    }
+  },
+  "moral-alignment": {
+    "subtitle": {
+      "zh": "秩序与善恶的角色坐标",
+      "en": "Order and morality in fiction"
+    },
+    "art": {
+      "primary": "balance",
+      "secondary": "puzzle",
+      "layout": "grid"
+    }
+  },
+  "jungian-archetype": {
+    "subtitle": {
+      "zh": "十二原型的动机叙事",
+      "en": "Twelve archetypal motives"
+    },
+    "art": {
+      "primary": "mirror",
+      "secondary": "book",
+      "layout": "story"
+    }
+  },
+  "introvert-extrovert": {
+    "subtitle": {
+      "zh": "社交参与与外向倾向",
+      "en": "Social engagement and extraversion"
+    },
+    "art": {
+      "primary": "focus",
+      "secondary": "dialogue",
+      "layout": "paired"
+    }
+  },
+  "temperament": {
+    "subtitle": {
+      "zh": "四种古典气质的日常选择",
+      "en": "Four classical temperaments"
+    },
+    "art": {
+      "primary": "waves",
+      "secondary": "quadrants",
+      "layout": "grid"
+    }
+  },
+  "love-languages": {
+    "subtitle": {
+      "zh": "表达与接收关心的方式",
+      "en": "Giving and receiving care"
+    },
+    "art": {
+      "primary": "connection",
+      "secondary": "cards",
+      "layout": "fan"
+    }
+  },
+  "attachment-styles": {
+    "subtitle": {
+      "zh": "亲近与退缩的关系体验",
+      "en": "Closeness and distance"
+    },
+    "art": {
+      "primary": "connection",
+      "secondary": "focus",
+      "layout": "paired"
+    }
+  },
+  "communication-style": {
+    "subtitle": {
+      "zh": "互动中的表达习惯",
+      "en": "Patterns of expression"
+    },
+    "art": {
+      "primary": "dialogue",
+      "secondary": "quadrants",
+      "layout": "workspace"
+    }
+  },
+  "leadership-style": {
+    "subtitle": {
+      "zh": "团队决策与带动方式",
+      "en": "Decisions and team leadership"
+    },
+    "art": {
+      "primary": "team",
+      "secondary": "compass",
+      "layout": "workspace"
+    }
+  },
+  "humor-style-test": {
+    "subtitle": {
+      "zh": "六种幽默的表达线索",
+      "en": "Six forms of humor"
+    },
+    "art": {
+      "primary": "dialogue",
+      "secondary": "stage",
+      "layout": "story"
+    }
+  },
+  "travel-personality-test": {
+    "subtitle": {
+      "zh": "出游安排与体验取向",
+      "en": "Travel plans and experiences"
+    },
+    "art": {
+      "primary": "compass",
+      "secondary": "cup",
+      "layout": "story"
+    }
+  },
+  "aesthetic-core-test": {
+    "subtitle": {
+      "zh": "色彩材质与生活美学",
+      "en": "Color, materials and aesthetics"
+    },
+    "art": {
+      "primary": "palette",
+      "secondary": "flower",
+      "layout": "fan"
+    }
+  },
+  "music-taste-test": {
+    "subtitle": {
+      "zh": "八类曲风与听歌场景",
+      "en": "Eight genres and listening contexts"
+    },
+    "art": {
+      "primary": "music",
+      "secondary": "waves",
+      "layout": "workspace"
+    }
+  },
+  "people-pleaser": {
+    "subtitle": {
+      "zh": "自身需要与他人期待",
+      "en": "Personal needs and expectations"
+    },
+    "art": {
+      "primary": "dialogue",
+      "secondary": "balance",
+      "layout": "paired"
+    }
+  },
+  "difficult-person-test": {
+    "subtitle": {
+      "zh": "七组互动行为的自我观察",
+      "en": "Seven interaction patterns"
+    },
+    "art": {
+      "primary": "mirror",
+      "secondary": "dialogue",
+      "layout": "portrait"
+    }
+  },
+  "likable-person-test": {
+    "subtitle": {
+      "zh": "温暖兑现与互动贡献",
+      "en": "Warmth and social contribution"
+    },
+    "art": {
+      "primary": "team",
+      "secondary": "growth",
+      "layout": "orbit"
+    }
+  },
+  "procrastinator-type-test": {
+    "subtitle": {
+      "zh": "任务启动与延后习惯",
+      "en": "Starting and postponing tasks"
+    },
+    "art": {
+      "primary": "clock",
+      "secondary": "notebook",
+      "layout": "workspace"
+    }
+  },
+  "learning-style": {
+    "subtitle": {
+      "zh": "图示读写与实践意愿",
+      "en": "Preferences for learning activities"
+    },
+    "art": {
+      "primary": "book",
+      "secondary": "puzzle",
+      "layout": "workspace"
+    }
+  },
+  "character-strengths": {
+    "subtitle": {
+      "zh": "二十四项性格优势自评",
+      "en": "Twenty-four character strengths"
+    },
+    "art": {
+      "primary": "growth",
+      "secondary": "cards",
+      "layout": "fan"
+    }
+  },
+  "tsundere-dere-type": {
+    "subtitle": {
+      "zh": "四种文化表达原型",
+      "en": "Four fictional expression styles"
+    },
+    "art": {
+      "primary": "mirror",
+      "secondary": "connection",
+      "layout": "portrait"
+    }
+  },
+  "hogwarts-house-quiz": {
+    "subtitle": {
+      "zh": "四学院的同人选择",
+      "en": "Four-house fan exploration"
+    },
+    "art": {
+      "primary": "castle",
+      "secondary": "quadrants",
+      "layout": "story"
+    }
+  },
+  "greek-god": {
+    "subtitle": {
+      "zh": "六位希腊神的神话意象",
+      "en": "Six Greek mythological figures"
+    },
+    "art": {
+      "primary": "castle",
+      "secondary": "balance",
+      "layout": "portrait"
+    }
+  },
+  "which-tarot-card-are-you": {
+    "subtitle": {
+      "zh": "二十二张牌的偏好意象",
+      "en": "Twenty-two symbolic card themes"
+    },
+    "art": {
+      "primary": "cards",
+      "secondary": "cosmos",
+      "layout": "fan"
+    }
+  },
+  "what-element-am-i": {
+    "subtitle": {
+      "zh": "火水土风的偏好意象",
+      "en": "Four elemental metaphors"
+    },
+    "art": {
+      "primary": "waves",
+      "secondary": "growth",
+      "layout": "paired"
+    }
+  },
+  "aura-color": {
+    "subtitle": {
+      "zh": "七种颜色的表达意象",
+      "en": "Seven color-based expressions"
+    },
+    "art": {
+      "primary": "palette",
+      "secondary": "cosmos",
+      "layout": "orbit"
+    }
+  },
+  "past-life": {
+    "subtitle": {
+      "zh": "八种历史活动的想象角色",
+      "en": "Eight imagined historical roles"
+    },
+    "art": {
+      "primary": "cards",
+      "secondary": "clock",
+      "layout": "story"
+    }
+  },
+  "moon-phase": {
+    "subtitle": {
+      "zh": "八种活动节奏的月相比喻",
+      "en": "Eight lunar rhythm metaphors"
+    },
+    "art": {
+      "primary": "moon",
+      "secondary": "clock",
+      "layout": "orbit"
+    }
+  },
+  "bojack-horseman-character-quiz": {
+    "subtitle": {
+      "zh": "五位角色的日常选择",
+      "en": "Five characters in everyday scenes"
+    },
+    "art": {
+      "primary": "stage",
+      "secondary": "animal",
+      "layout": "story"
+    }
+  },
+  "chiikawa": {
+    "subtitle": {
+      "zh": "六位角色的相处线索",
+      "en": "Six character perspectives"
+    },
+    "art": {
+      "primary": "animal",
+      "secondary": "cup",
+      "layout": "story"
+    }
+  },
+  "disney-princess": {
+    "subtitle": {
+      "zh": "十三位公主的故事视角",
+      "en": "Thirteen princess perspectives"
+    },
+    "art": {
+      "primary": "castle",
+      "secondary": "flower",
+      "layout": "story"
+    }
+  },
+  "naruto-character": {
+    "subtitle": {
+      "zh": "七位忍者的日常视角",
+      "en": "Seven ninja character perspectives"
+    },
+    "art": {
+      "primary": "stage",
+      "secondary": "compass",
+      "layout": "workspace"
+    }
+  },
+  "death-note": {
+    "subtitle": {
+      "zh": "八位角色的选择思路",
+      "en": "Eight character perspectives"
+    },
+    "art": {
+      "primary": "notebook",
+      "secondary": "balance",
+      "layout": "story"
+    }
+  },
+  "bleach": {
+    "subtitle": {
+      "zh": "七位角色的同人探索",
+      "en": "Seven fan character perspectives"
+    },
+    "art": {
+      "primary": "stage",
+      "secondary": "moon",
+      "layout": "portrait"
+    }
+  },
+  "star-wars-character": {
+    "subtitle": {
+      "zh": "七位角色的星际故事",
+      "en": "Seven galactic character perspectives"
+    },
+    "art": {
+      "primary": "orbit",
+      "secondary": "compass",
+      "layout": "story"
+    }
+  },
+  "hello-kitty": {
+    "subtitle": {
+      "zh": "七位角色的相处选择",
+      "en": "Seven friendly character perspectives"
+    },
+    "art": {
+      "primary": "animal",
+      "secondary": "flower",
+      "layout": "fan"
+    }
+  },
+  "dungeons-dragons-class": {
+    "subtitle": {
+      "zh": "十二职业的奇幻冒险偏好",
+      "en": "Twelve fantasy adventuring roles"
+    },
+    "art": {
+      "primary": "dragon",
+      "secondary": "compass",
+      "layout": "story"
+    }
+  },
+  "type-ab": {
+    "subtitle": {
+      "zh": "时间催促与竞争体验",
+      "en": "Time pressure and competition"
+    },
+    "art": {
+      "primary": "clock",
+      "secondary": "balance",
+      "layout": "paired"
+    }
+  },
+  "sdt-motivation": {
+    "subtitle": {
+      "zh": "自主胜任与联结体验",
+      "en": "Autonomy, competence and relatedness"
+    },
+    "art": {
+      "primary": "growth",
+      "secondary": "connection",
+      "layout": "grid"
+    }
+  },
+  "socionics": {
+    "subtitle": {
+      "zh": "四组信息偏好的探索",
+      "en": "Four information-preference groups"
+    },
+    "art": {
+      "primary": "dimensions",
+      "secondary": "dialogue",
+      "layout": "grid"
+    }
+  },
+  "optimism-pessimism": {
+    "subtitle": {
+      "zh": "对未来的期待与看法",
+      "en": "Expectations about the future"
+    },
+    "art": {
+      "primary": "growth",
+      "secondary": "moon",
+      "layout": "paired"
+    }
+  },
+  "values": {
+    "subtitle": {
+      "zh": "十类价值的相对优先级",
+      "en": "Ten value priorities"
+    },
+    "art": {
+      "primary": "balance",
+      "secondary": "compass",
+      "layout": "orbit"
+    }
+  },
+  "light-triad-test": {
+    "subtitle": {
+      "zh": "三组待人看法的自评",
+      "en": "Three perspectives on others"
+    },
+    "art": {
+      "primary": "growth",
+      "secondary": "team",
+      "layout": "portrait"
+    }
+  },
+  "inner-child-personality-test": {
+    "subtitle": {
+      "zh": "六种当下童心玩法",
+      "en": "Six playful everyday approaches"
+    },
+    "art": {
+      "primary": "cards",
+      "secondary": "flower",
+      "layout": "story"
+    }
+  },
+  "philosopher-personality-test": {
+    "subtitle": {
+      "zh": "六个哲学原典阅读入口",
+      "en": "Six philosophical reading paths"
+    },
+    "art": {
+      "primary": "book",
+      "secondary": "balance",
+      "layout": "portrait"
+    }
+  },
+  "inkblot-personality-quiz": {
+    "subtitle": {
+      "zh": "十张原创图的观看联想",
+      "en": "Ten original visual associations"
+    },
+    "art": {
+      "primary": "mirror",
+      "secondary": "swatches",
+      "layout": "fan"
+    }
+  },
+  "arabic-personality-compass": {
+    "subtitle": {
+      "zh": "东南西北的情境取向",
+      "en": "Four directional perspectives"
+    },
+    "art": {
+      "primary": "compass",
+      "secondary": "quadrants",
+      "layout": "grid"
+    }
+  },
+  "maturity-test": {
+    "subtitle": {
+      "zh": "回应承诺与自主选择",
+      "en": "Responses, commitments and autonomy"
+    },
+    "art": {
+      "primary": "growth",
+      "secondary": "notebook",
+      "layout": "workspace"
+    }
+  },
+  "growth-mindset-fixed-mindset": {
+    "subtitle": {
+      "zh": "面对学习变化的看法",
+      "en": "Beliefs about learning and change"
+    },
+    "art": {
+      "primary": "growth",
+      "secondary": "book",
+      "layout": "portrait"
+    }
+  },
+  "locus-of-control": {
+    "subtitle": {
+      "zh": "结果与影响来源的看法",
+      "en": "Beliefs about sources of influence"
+    },
+    "art": {
+      "primary": "compass",
+      "secondary": "focus",
+      "layout": "paired"
+    }
+  },
+  "intelligence-type-test": {
+    "subtitle": {
+      "zh": "六种日常思考入口",
+      "en": "Six approaches to thinking"
+    },
+    "art": {
+      "primary": "puzzle",
+      "secondary": "dialogue",
+      "layout": "grid"
+    }
+  },
+  "toxic-trait": {
+    "subtitle": {
+      "zh": "五组日常互动习惯",
+      "en": "Five everyday interaction habits"
+    },
+    "art": {
+      "primary": "mirror",
+      "secondary": "cards",
+      "layout": "paired"
+    }
+  },
+  "grit-test": {
+    "subtitle": {
+      "zh": "长期目标与努力续接",
+      "en": "Long-term goals and continued effort"
+    },
+    "art": {
+      "primary": "growth",
+      "secondary": "clock",
+      "layout": "workspace"
+    }
+  },
+  "ikigai": {
+    "subtitle": {
+      "zh": "喜欢练习需要与报酬",
+      "en": "Interests, practice, needs and reward"
+    },
+    "art": {
+      "primary": "flower",
+      "secondary": "coins",
+      "layout": "grid"
+    }
+  },
+  "male-archetype-test": {
+    "subtitle": {
+      "zh": "四种象征角色的行动视角",
+      "en": "Four symbolic role perspectives"
+    },
+    "art": {
+      "primary": "castle",
+      "secondary": "mirror",
+      "layout": "portrait"
+    }
+  },
+  "social-intelligence-test": {
+    "subtitle": {
+      "zh": "自述中的关怀与沟通",
+      "en": "Self-reported care and communication"
+    },
+    "art": {
+      "primary": "team",
+      "secondary": "dialogue",
+      "layout": "paired"
+    }
+  },
+  "egogram": {
+    "subtitle": {
+      "zh": "五组互动做法的频率",
+      "en": "Five sets of interaction habits"
+    },
+    "art": {
+      "primary": "dimensions",
+      "secondary": "team",
+      "layout": "workspace"
+    }
+  },
+  "moral-dilemma-test": {
+    "subtitle": {
+      "zh": "五种价值提问与取舍",
+      "en": "Five ethical perspectives"
+    },
+    "art": {
+      "primary": "balance",
+      "secondary": "dialogue",
+      "layout": "story"
+    }
+  },
+  "dark-triad": {
+    "subtitle": {
+      "zh": "形象影响与互动距离",
+      "en": "Image, influence and distance"
+    },
+    "art": {
+      "primary": "mirror",
+      "secondary": "focus",
+      "layout": "paired"
+    }
+  },
+  "next-life": {
+    "subtitle": {
+      "zh": "六条想象生活的路径",
+      "en": "Six imagined life paths"
+    },
+    "art": {
+      "primary": "compass",
+      "secondary": "growth",
+      "layout": "story"
+    }
+  },
+  "ginny-and-georgia-character-quiz": {
+    "subtitle": {
+      "zh": "创作表达与家庭群像",
+      "en": "Creative expression and family stories"
+    },
+    "art": {
+      "primary": "stage",
+      "secondary": "team",
+      "layout": "story"
+    }
+  },
+  "hazbin-hotel-character-quiz": {
+    "subtitle": {
+      "zh": "六位角色的客栈舞台",
+      "en": "Six characters in a fictional hotel"
+    },
+    "art": {
+      "primary": "castle",
+      "secondary": "stage",
+      "layout": "story"
+    }
+  },
+  "chakra": {
+    "subtitle": {
+      "zh": "七组日常主题的文化意象",
+      "en": "Seven symbolic everyday themes"
+    },
+    "art": {
+      "primary": "cosmos",
+      "secondary": "growth",
+      "layout": "portrait"
+    }
+  },
+  "my-hero-academia-character-quiz": {
+    "subtitle": {
+      "zh": "学习与共同挑战的六个角度",
+      "en": "Six perspectives on shared challenges"
+    },
+    "art": {
+      "primary": "orbit",
+      "secondary": "team",
+      "layout": "workspace"
+    }
+  },
+  "my-little-pony-character-quiz": {
+    "subtitle": {
+      "zh": "友谊与共同活动的六种视角",
+      "en": "Six perspectives on friendship"
+    },
+    "art": {
+      "primary": "animal",
+      "secondary": "team",
+      "layout": "orbit"
+    }
+  },
+  "attention-to-detail": {
+    "subtitle": {
+      "zh": "编号规则与格式核对",
+      "en": "Checking codes, rules and formats"
+    },
+    "art": {
+      "primary": "notebook",
+      "secondary": "puzzle",
+      "layout": "workspace"
+    }
+  },
+  "wojak": {
+    "subtitle": {
+      "zh": "六种梗图的日常角度",
+      "en": "Six meme-based perspectives"
+    },
+    "art": {
+      "primary": "mirror",
+      "secondary": "stage",
+      "layout": "grid"
+    }
+  },
+  "cybersecurity-awareness": {
+    "subtitle": {
+      "zh": "账户信息与设备保护练习",
+      "en": "Account and device safety practice"
+    },
+    "art": {
+      "primary": "computer",
+      "secondary": "quadrants",
+      "layout": "workspace"
+    }
+  },
+  "delulu-test": {
+    "subtitle": {
+      "zh": "日常脑补与玩笑期待",
+      "en": "Imagined scenes and playful expectations"
+    },
+    "art": {
+      "primary": "stage",
+      "secondary": "cards",
+      "layout": "fan"
+    }
+  },
+  "nana-character": {
+    "subtitle": {
+      "zh": "音乐创作与七位角色",
+      "en": "Music, creativity and seven characters"
+    },
+    "art": {
+      "primary": "music",
+      "secondary": "stage",
+      "layout": "story"
+    }
+  },
+  "workplace-technology": {
+    "subtitle": {
+      "zh": "任务交接与工具协作",
+      "en": "Handoffs and workplace tools"
+    },
+    "art": {
+      "primary": "computer",
+      "secondary": "team",
+      "layout": "workspace"
+    }
+  },
+  "south-park": {
+    "subtitle": {
+      "zh": "小组活动中的七个角度",
+      "en": "Seven group-activity perspectives"
+    },
+    "art": {
+      "primary": "stage",
+      "secondary": "dialogue",
+      "layout": "paired"
+    }
+  },
+  "gilmore-girls": {
+    "subtitle": {
+      "zh": "咖啡阅读与相聚情境",
+      "en": "Coffee, reading and shared moments"
+    },
+    "art": {
+      "primary": "cup",
+      "secondary": "book",
+      "layout": "story"
+    }
+  },
+  "aptitude-test": {
+    "subtitle": {
+      "zh": "数量阅读与符号练习",
+      "en": "Numerical, verbal and symbolic practice"
+    },
+    "art": {
+      "primary": "puzzle",
+      "secondary": "notebook",
+      "layout": "grid"
+    }
+  },
+  "jujutsu-kaisen-character": {
+    "subtitle": {
+      "zh": "学习创作中的六位角色",
+      "en": "Six learning and creativity perspectives"
+    },
+    "art": {
+      "primary": "stage",
+      "secondary": "puzzle",
+      "layout": "workspace"
+    }
+  },
+  "egen-teto": {
+    "subtitle": {
+      "zh": "感受回应与行动选择",
+      "en": "Responding to feelings and taking action"
+    },
+    "art": {
+      "primary": "connection",
+      "secondary": "compass",
+      "layout": "paired"
+    }
+  },
+  "harry-potter-character": {
+    "subtitle": {
+      "zh": "阅读游戏与七位角色",
+      "en": "Seven reading and game perspectives"
+    },
+    "art": {
+      "primary": "castle",
+      "secondary": "book",
+      "layout": "story"
+    }
+  },
+  "spelling-test": {
+    "subtitle": {
+      "zh": "英文语境中的拼写练习",
+      "en": "Spelling in English contexts"
+    },
+    "art": {
+      "primary": "book",
+      "secondary": "keyboard",
+      "layout": "workspace"
+    }
+  },
+  "dexter": {
+    "subtitle": {
+      "zh": "纸上谜案与六位角色",
+      "en": "Six perspectives on fictional mysteries"
+    },
+    "art": {
+      "primary": "notebook",
+      "secondary": "puzzle",
+      "layout": "story"
+    }
+  },
+  "avengers-character": {
+    "subtitle": {
+      "zh": "初代团队的六种爱好视角",
+      "en": "Six original-team hobby perspectives"
+    },
+    "art": {
+      "primary": "orbit",
+      "secondary": "gear",
+      "layout": "portrait"
+    }
+  },
+  "stranger-things": {
+    "subtitle": {
+      "zh": "朋友群像与桌面故事",
+      "en": "Friendship and tabletop stories"
+    },
+    "art": {
+      "primary": "stage",
+      "secondary": "cards",
+      "layout": "workspace"
+    }
+  },
+  "wednesday-addams-character": {
+    "subtitle": {
+      "zh": "趣物柜与手作情境",
+      "en": "Curiosity cabinets and crafts"
+    },
+    "art": {
+      "primary": "notebook",
+      "secondary": "flower",
+      "layout": "portrait"
+    }
+  },
+  "twilight-character": {
+    "subtitle": {
+      "zh": "雨天爱好与七位角色",
+      "en": "Rainy-day hobbies and seven characters"
+    },
+    "art": {
+      "primary": "moon",
+      "secondary": "book",
+      "layout": "story"
+    }
+  },
+  "decade-aesthetic-test": {
+    "subtitle": {
+      "zh": "六个年代的视觉语言",
+      "en": "Six decades of visual expression"
+    },
+    "art": {
+      "primary": "palette",
+      "secondary": "clock",
+      "layout": "fan"
+    }
+  },
+  "game-of-thrones": {
+    "subtitle": {
+      "zh": "模型村落与六位角色",
+      "en": "Six model-village perspectives"
+    },
+    "art": {
+      "primary": "castle",
+      "secondary": "compass",
+      "layout": "workspace"
+    }
+  },
+  "amazing-digital-circus": {
+    "subtitle": {
+      "zh": "玩具舞台与六位角色",
+      "en": "Six toy-stage character perspectives"
+    },
+    "art": {
+      "primary": "stage",
+      "secondary": "swatches",
+      "layout": "fan"
+    }
+  },
+  "gossip-girl": {
+    "subtitle": {
+      "zh": "穿搭创作与朋友群像",
+      "en": "Fashion projects and friendship"
+    },
+    "art": {
+      "primary": "palette",
+      "secondary": "stage",
+      "layout": "portrait"
+    }
+  },
+  "english-proficiency": {
+    "subtitle": {
+      "zh": "语法词义与阅读练习",
+      "en": "Grammar, vocabulary and reading"
+    },
+    "art": {
+      "primary": "book",
+      "secondary": "dialogue",
+      "layout": "grid"
+    }
+  },
+  "villain-era-archetype-test": {
+    "subtitle": {
+      "zh": "六种戏剧式的日常开场",
+      "en": "Six theatrical everyday openings"
+    },
+    "art": {
+      "primary": "stage",
+      "secondary": "mirror",
+      "layout": "portrait"
+    }
+  },
+  "blue-lock": {
+    "subtitle": {
+      "zh": "桌面足球与七位角色",
+      "en": "Tabletop football and seven characters"
+    },
+    "art": {
+      "primary": "puzzle",
+      "secondary": "team",
+      "layout": "workspace"
+    }
+  },
+  "anime-character-archetype-test": {
+    "subtitle": {
+      "zh": "六种原创故事角色",
+      "en": "Six original anime-inspired roles"
+    },
+    "art": {
+      "primary": "stage",
+      "secondary": "growth",
+      "layout": "story"
+    }
+  },
+  "grammar-test": {
+    "subtitle": {
+      "zh": "句式一致与标点练习",
+      "en": "Sentence structure and punctuation"
+    },
+    "art": {
+      "primary": "book",
+      "secondary": "notebook",
+      "layout": "workspace"
+    }
+  },
+  "hundred-acre-wood-friend-quiz": {
+    "subtitle": {
+      "zh": "纸上野餐与故事书伙伴",
+      "en": "Picnics and storybook friends"
+    },
+    "art": {
+      "primary": "animal",
+      "secondary": "book",
+      "layout": "story"
+    }
+  },
+  "space-marine-chapter": {
+    "subtitle": {
+      "zh": "和平模型展示的六种视角",
+      "en": "Six miniature-display perspectives"
+    },
+    "art": {
+      "primary": "orbit",
+      "secondary": "castle",
+      "layout": "workspace"
+    }
+  },
+  "spanish-proficiency": {
+    "subtitle": {
+      "zh": "西语词句与阅读任务",
+      "en": "Spanish language and reading tasks"
+    },
+    "art": {
+      "primary": "book",
+      "secondary": "cards",
+      "layout": "fan"
+    }
+  },
+  "apocalypse-survival-type-test": {
+    "subtitle": {
+      "zh": "虚构营地的六种角色",
+      "en": "Six fictional campsite roles"
+    },
+    "art": {
+      "primary": "compass",
+      "secondary": "team",
+      "layout": "story"
+    }
+  },
+  "barbie-character": {
+    "subtitle": {
+      "zh": "艺术下午的六位角色",
+      "en": "Six art-afternoon character perspectives"
+    },
+    "art": {
+      "primary": "palette",
+      "secondary": "castle",
+      "layout": "portrait"
+    }
+  },
+  "big-fish-energy-test": {
+    "subtitle": {
+      "zh": "六种海洋心情的比喻",
+      "en": "Six ocean-mood metaphors"
+    },
+    "art": {
+      "primary": "animal",
+      "secondary": "waves",
+      "layout": "orbit"
+    }
+  },
+  "verbal-reasoning": {
+    "subtitle": {
+      "zh": "词义类比与阅读依据",
+      "en": "Word meanings, analogies and evidence"
+    },
+    "art": {
+      "primary": "book",
+      "secondary": "compass",
+      "layout": "paired"
+    }
+  },
+  "ten-key-test": {
+    "subtitle": {
+      "zh": "数字小键盘的计时录入",
+      "en": "Timed number-entry practice"
+    },
+    "art": {
+      "primary": "keyboard",
+      "secondary": "clock",
+      "layout": "workspace"
+    }
+  },
+  "computer-literacy": {
+    "subtitle": {
+      "zh": "文件浏览器与办公基础",
+      "en": "Files, browsers and office basics"
+    },
+    "art": {
+      "primary": "computer",
+      "secondary": "notebook",
+      "layout": "workspace"
+    }
+  },
+  "feminine-energy": {
+    "subtitle": {
+      "zh": "四种表达氛围的自我观察",
+      "en": "Four expressive atmosphere themes"
+    },
+    "art": {
+      "primary": "flower",
+      "secondary": "mirror",
+      "layout": "portrait"
+    }
+  },
+  "excel-skills": {
+    "subtitle": {
+      "zh": "公式引用与表格处理",
+      "en": "Spreadsheet formulas and data"
+    },
+    "art": {
+      "primary": "spreadsheet",
+      "secondary": "column-chart",
+      "layout": "grid"
+    }
+  },
+  "found-family-role-test": {
+    "subtitle": {
+      "zh": "朋友圈里的六种贡献",
+      "en": "Six contributions to a friend group"
+    },
+    "art": {
+      "primary": "gathering-table",
+      "secondary": "notebook",
+      "layout": "story"
+    }
+  },
+  "java-test": {
+    "subtitle": {
+      "zh": "Java程序阅读与输出预测",
+      "en": "Reading Java programs"
+    },
+    "art": {
+      "primary": "java-trace",
+      "secondary": "object-reference",
+      "layout": "workspace"
+    }
+  },
+  "financial-accounting": {
+    "subtitle": {
+      "zh": "分录、期间与六类报表练习",
+      "en": "Entries, periods and six accounting topics"
+    },
+    "art": {
+      "primary": "journal-ledger",
+      "secondary": "accounting-equation",
+      "layout": "workspace"
+    }
+  },
+  "eras-of-you-test": {
+    "subtitle": {
+      "zh": "六类当前章节与四周观察",
+      "en": "Six current chapters, four-week observations"
+    },
+    "art": {
+      "primary": "chapter-tabs",
+      "secondary": "parallel-threads",
+      "layout": "workspace"
+    }
+  },
+  "logical-reasoning": {
+    "subtitle": {
+      "zh": "前提、必然结论与约束推演",
+      "en": "Premises, necessary conclusions and constraints"
+    },
+    "art": {
+      "primary": "premise-network",
+      "secondary": "countermodel",
+      "layout": "workspace"
+    }
+  },
+  "javascript-test": {
+    "subtitle": {
+      "zh": "语言语义、对象变化与异步轨迹",
+      "en": "Language semantics, object changes and async traces"
+    },
+    "art": {
+      "primary": "js-bindings",
+      "secondary": "promise-jobs",
+      "layout": "workspace"
+    }
+  },
+  "python-test": {
+    "subtitle": {
+      "zh": "缩进、对象关系与程序路径",
+      "en": "Indentation, object relationships and program paths"
+    },
+    "art": {
+      "primary": "python-blocks",
+      "secondary": "alias-links",
+      "layout": "workspace"
+    }
+  },
+  "sales-aptitude": {
+    "subtitle": {
+      "zh": "需求、证据与销售算术",
+      "en": "Discovery, evidence and sales maths"
+    },
+    "art": {
+      "primary": "sales-evidence",
+      "secondary": "sales-denominator",
+      "layout": "workspace"
+    }
+  },
+  "color-season": {
+    "subtitle": {
+      "zh": "可见三色组合与配色偏好",
+      "en": "Visible triples and palette preferences"
+    },
+    "art": {
+      "primary": "season-swatches",
+      "secondary": "palette-layout",
+      "layout": "workspace"
+    }
+  },
+  "sql-test": {
+    "subtitle": {
+      "zh": "表数据、查询阶段与结果推导",
+      "en": "Tables, query stages and result inference"
+    },
+    "art": {
+      "primary": "sql-row-join",
+      "secondary": "sql-window-rows",
+      "layout": "workspace"
+    }
+  },
+  "problem-solving-critical-thinking": {
+    "subtitle": {
+      "zh": "问题界定、方案比较与证据核查",
+      "en": "Problem definition, plan comparison and evidence"
+    },
+    "art": {
+      "primary": "critical-branches",
+      "secondary": "critical-evidence",
+      "layout": "workspace"
+    }
+  },
+  "word-skills": {
+    "subtitle": {
+      "zh": "文档结构、排版与审阅操作",
+      "en": "Document structure, layout and review"
+    },
+    "art": {
+      "primary": "word-outline",
+      "secondary": "word-revision-layers",
+      "layout": "workspace"
+    }
+  },
+  "project-management": {
+    "subtitle": {
+      "zh": "项目范围、依赖关系与决策依据",
+      "en": "Project scope, dependencies and decision evidence"
+    },
+    "art": {
+      "primary": "project-network",
+      "secondary": "project-response-record",
+      "layout": "workspace"
+    }
+  },
+  "rizz-test": {
+    "subtitle": {
+      "zh": "兴趣表达、对话回应与具体邀约",
+      "en": "Expressing interest, following replies and checking invitations"
+    },
+    "art": {
+      "primary": "rizz-dialogue-thread",
+      "secondary": "rizz-invitation-choice",
+      "layout": "workspace"
+    }
+  },
+  "personal-finance-literacy": {
+    "subtitle": {
+      "zh": "预算记录、利息计算与工资福利",
+      "en": "Budget records, interest calculations and pay statements"
+    },
+    "art": {
+      "primary": "finance-cash-ledger",
+      "secondary": "finance-compound-steps",
+      "layout": "workspace"
+    }
+  },
+  "ai-literacy": {
+    "subtitle": {
+      "zh": "模型、工具、证据核查与负责判断",
+      "en": "Models, tools, evidence checks and responsible judgement"
+    },
+    "art": {
+      "primary": "ai-evidence-flow",
+      "secondary": "ai-schema-check",
+      "layout": "workspace"
+    }
+  },
+  "chinese-zodiac": {
+    "subtitle": {
+      "zh": "十二生肖意象与原创故事角色",
+      "en": "Twelve animal symbols and original story roles"
+    },
+    "art": {
+      "primary": "zodiac-twelve-seals",
+      "secondary": "zodiac-story-pages",
+      "layout": "workspace"
+    }
+  },
+  "customer-service-aptitude": {
+    "subtitle": {
+      "zh": "诉求澄清、规则判断与服务跟进",
+      "en": "Request clarification, policy decisions and follow-through"
+    },
+    "art": {
+      "primary": "service-listening-desk",
+      "secondary": "service-ticket-states",
+      "layout": "workspace"
+    }
+  },
+  "german-proficiency": {
+    "subtitle": {
+      "zh": "德语格位、句框与短文证据",
+      "en": "German cases, clause frames and reading evidence"
+    },
+    "art": {
+      "primary": "german-case-tabs",
+      "secondary": "german-clause-brackets",
+      "layout": "workspace"
+    }
+  },
+  "zodiac-sign-quiz": {
+    "subtitle": {
+      "zh": "十二星座意象与原创叙事视角",
+      "en": "Twelve sign symbols and original narrative lenses"
+    },
+    "art": {
+      "primary": "star-story-panels",
+      "secondary": "star-open-ending",
+      "layout": "workspace"
+    }
+  },
+  "love-personality": {
+    "subtitle": {
+      "zh": "表达、回应、空间与修复的相对选择",
+      "en": "Relative choices in expression, response, space and repair"
+    },
+    "art": {
+      "primary": "love-four-entries",
+      "secondary": "love-dialogue-check",
+      "layout": "workspace"
+    }
+  },
+  "situational-judgement": {
+    "subtitle": {
+      "zh": "读懂情境条件，核对行动依据",
+      "en": "Read scenario conditions and check the action"
+    },
+    "art": {
+      "primary": "scenario-rule-cards",
+      "secondary": "scenario-option-check",
+      "layout": "workspace"
+    }
+  },
+  "8-values-political": {
+    "subtitle": {
+      "zh": "四条价值轴，八个互补视角",
+      "en": "Four value axes, eight complementary perspectives"
+    },
+    "art": {
+      "primary": "values-paired-rails",
+      "secondary": "values-linked-statements",
+      "layout": "workspace"
+    }
+  },
+  "relationship-values": {
+    "subtitle": {
+      "zh": "仪式、协作、陪伴与成长自主",
+      "en": "Rituals, cooperation, companionship and autonomy"
+    },
+    "art": {
+      "primary": "relationship-shared-table",
+      "secondary": "relationship-personal-paths",
+      "layout": "workspace"
+    }
+  },
+  "typing-speed": {
+    "subtitle": {
+      "zh": "一分钟抄录，核对输出与准确率",
+      "en": "One-minute copying, output and accuracy"
+    },
+    "art": {
+      "primary": "typing-final-buffer",
+      "secondary": "typing-minute-dial",
+      "layout": "workspace"
+    }
+  },
+  "hexaco": {
+    "subtitle": {
+      "zh": "六个连续领域，完整240条IPIP自评",
+      "en": "Six continuous domains, all 240 IPIP items"
+    },
+    "art": {
+      "primary": "hexaco-six-lenses",
+      "secondary": "hexaco-facet-folds",
+      "layout": "workspace"
+    }
+  },
+  "relationship-preferences": {
+    "subtitle": {
+      "zh": "联系与空间，确定与弹性",
+      "en": "Contact, space, certainty and flexibility"
+    },
+    "art": {
+      "primary": "arrangements-shared-calendar",
+      "secondary": "arrangements-open-window",
+      "layout": "workspace"
+    }
+  },
+  "abstract-reasoning": {
+    "subtitle": {
+      "zh": "核对关系，逐步验证规则",
+      "en": "Check relations and verify each rule"
+    },
+    "art": {
+      "primary": "abstract-position-map",
+      "secondary": "abstract-counterexample",
+      "layout": "workspace"
+    }
+  },
+  "conservatism": {
+    "subtitle": {
+      "zh": "历史议题温度，两组分别阅读",
+      "en": "Historical issue warmth, two separate readings"
+    },
+    "art": {
+      "primary": "secs-two-thermometers",
+      "secondary": "secs-historical-page",
+      "layout": "workspace"
+    }
+  },
+  "numerical-reasoning": {
+    "subtitle": {
+      "zh": "看清基数、权重与单位",
+      "en": "Read bases, weights and units"
+    },
+    "art": {
+      "primary": "numerical-weighted-table",
+      "secondary": "numerical-denominator",
+      "layout": "workspace"
+    }
+  },
+  "digital-ethics-citizenship": {
+    "subtitle": {
+      "zh": "核事实、规则与信息边界",
+      "en": "Check evidence, rules and boundaries"
+    },
+    "art": {
+      "primary": "digital-audience-boundary",
+      "secondary": "digital-source-path",
+      "layout": "workspace"
+    }
+  },
+  "number-series": {
+    "subtitle": {
+      "zh": "数列规则与推导练习",
+      "en": "Number patterns and derivations"
+    },
+    "art": {
+      "primary": "puzzle",
+      "secondary": "clock",
+      "layout": "sequence"
+    }
+  },
+  "adult-age-preferences": {
+    "subtitle": {
+      "zh": "成年伴侣情境与相处期待",
+      "en": "Adult-partner contexts and expectations"
+    },
+    "art": {
+      "primary": "age-context-paths",
+      "secondary": "age-shared-decision",
+      "layout": "workspace"
+    }
+  },
+  "data-entry": {
+    "subtitle": {
+      "zh": "四字段抄录与精确核对",
+      "en": "Four-field transcription and exact checking"
+    },
+    "art": {
+      "primary": "entry-source-fields",
+      "secondary": "entry-match-clock",
+      "layout": "workspace"
+    }
+  },
+  "freudian-personality": {
+    "subtitle": {
+      "zh": "历史词汇与八主题近期反思",
+      "en": "Historical vocabulary, eight recent-action themes"
+    },
+    "art": {
+      "primary": "freud-theme-notes",
+      "secondary": "freud-context-window",
+      "layout": "workspace"
+    }
+  },
+  "relationship-commitment": {
+    "subtitle": {
+      "zh": "继续意愿与关系中的四部分",
+      "en": "Intention and four parts of a relationship"
+    },
+    "art": {
+      "primary": "commitment-four-notes",
+      "secondary": "commitment-own-choice",
+      "layout": "workspace"
+    }
+  },
+  "political-coordinates": {
+    "subtitle": {
+      "zh": "公共政策取舍与两轴原始计数",
+      "en": "Policy tradeoffs and two raw-count axes"
+    },
+    "art": {
+      "primary": "policy-two-axes",
+      "secondary": "policy-proposal-pair",
+      "layout": "workspace"
+    }
+  },
+  "mechanical-reasoning": {
+    "subtitle": {
+      "zh": "理想力学模型与五类推理练习",
+      "en": "Ideal mechanics models and five practice topics"
+    },
+    "art": {
+      "primary": "mechanics-balance-ratio",
+      "secondary": "mechanics-spring-pressure",
+      "layout": "workspace"
+    }
+  },
+  "spatial-reasoning": {
+    "subtitle": {
+      "zh": "坐标变换、折叠与三维位置推演",
+      "en": "Coordinate transforms, folds and three-dimensional positions"
+    },
+    "art": {
+      "primary": "spatial-turn-frame",
+      "secondary": "spatial-fold-partners",
+      "layout": "workspace"
+    }
+  },
+  "libertarian": {
+    "subtitle": {
+      "en": "Four principles, separate readings",
+      "zh": "四类原则，分别阅读"
+    },
+    "art": {
+      "primary": "liberty-four-pages",
+      "secondary": "liberty-reverse-codes",
+      "layout": "workspace"
+    }
+  },
+  "trust-issues-test": {
+    "subtitle": {
+      "en": "Four everyday actions, separate readings",
+      "zh": "四组日常行动，分别阅读"
+    },
+    "art": {
+      "primary": "trust-bounded-opening",
+      "secondary": "trust-agreed-review",
+      "layout": "workspace"
+    }
+  },
+  "morality-6": {
+    "subtitle": {
+      "en": "Six moral concerns, separately explained",
+      "zh": "六类道德关切，独立解读"
+    },
+    "art": {
+      "primary": "mfq2-six-readings",
+      "secondary": "mfq2-two-distributions",
+      "layout": "workspace"
+    }
+  },
+  "self-esteem": {
+    "subtitle": {
+      "en": "Global self-regard, ten statements and one raw total",
+      "zh": "总体自我评价，十条陈述与一个原始总分"
+    },
+    "art": {
+      "primary": "rses-ten-contributions",
+      "secondary": "rses-one-total",
+      "layout": "workspace"
+    }
+  },
+  "time-management": {
+    "subtitle": {
+      "en": "Priorities, estimates, return cues and plan review",
+      "zh": "优先取舍、估时、返回线索与计划回看"
+    },
+    "art": {
+      "primary": "time-capacity-blocks",
+      "secondary": "time-return-cue",
+      "layout": "workspace"
+    }
+  },
+  "burnout-risk": {
+    "subtitle": {
+      "en": "Two exhaustion modules, separate means and full reading",
+      "zh": "两类耗竭分别计分，完整理解自身回答"
+    },
+    "art": {
+      "primary": "cbi-six-seven-modules",
+      "secondary": "cbi-independent-readings",
+      "layout": "workspace"
+    }
+  },
+  "wholesome-partner": {
+    "subtitle": {
+      "en": "Clear agreements, personal choices and responsive conversations",
+      "zh": "清楚约定、个人选择与回应式交流"
+    },
+    "art": {
+      "primary": "partner-shared-arrangement",
+      "secondary": "partner-open-response",
+      "layout": "workspace"
+    }
+  },
+  "self-compassion": {
+    "subtitle": {
+      "en": "Six SCS components, raw directions and an equal-part overall mean",
+      "zh": "SCS六部分、原始方向与等权整体均分"
+    },
+    "art": {
+      "primary": "scs-six-balanced-parts",
+      "secondary": "scs-reflection-note",
+      "layout": "workspace"
+    }
+  },
+  "communication-adaptability": {
+    "subtitle": {
+      "en": "Audience, meaning and a clear next step",
+      "zh": "面向受众，核对理解与下一步"
+    },
+    "art": {
+      "primary": "comm-audience-message",
+      "secondary": "comm-channel-record",
+      "layout": "workspace"
+    }
+  },
+  "conflict-styles": {
+    "subtitle": {
+      "en": "Five actions, one disagreement in context",
+      "zh": "五类行动，在具体分歧中理解"
+    },
+    "art": {
+      "primary": "conflict-two-proposals",
+      "secondary": "conflict-open-option",
+      "layout": "grid"
+    }
+  },
+  "toxic-positivity-test": {
+    "subtitle": {
+      "en": "Hope, feelings and what is actually known",
+      "zh": "希望、感受与实际已知的事实"
+    },
+    "art": {
+      "primary": "positive-room-for-feelings",
+      "secondary": "positive-hope-facts",
+      "layout": "paired"
+    }
+  },
+  "friendship-compatibility": {
+    "subtitle": {
+      "en": "One friendship, five views of recent interaction",
+      "zh": "一段友谊，五组近期互动观察"
+    },
+    "art": {
+      "primary": "friendfit-two-invitations",
+      "secondary": "friendfit-shared-plan",
+      "layout": "paired"
+    }
+  },
+  "perfectionism": {
+    "subtitle": {
+      "en": "High expectations and perceived shortfall, separately",
+      "zh": "高期待与自觉未达期待，分开理解"
+    },
+    "art": {
+      "primary": "saps-required-refined",
+      "secondary": "saps-observed-reviewed",
+      "layout": "paired"
+    }
+  },
+  "apology-language": {
+    "subtitle": {
+      "en": "Five themes in receiving an apology",
+      "zh": "接收道歉时的五种期待"
+    },
+    "art": {
+      "primary": "apology-impact-note",
+      "secondary": "apology-repair-plan",
+      "layout": "fan"
+    }
+  },
+  "multiple-intelligences": {
+    "subtitle": {
+      "zh": "八类日常活动的自我回看",
+      "en": "Eight themes of everyday activities"
+    },
+    "art": {
+      "primary": "book",
+      "secondary": "team",
+      "layout": "grid"
+    }
+  },
+  "work-ethics": {
+    "subtitle": {
+      "zh": "守约核对与任务修正",
+      "en": "Commitments, checking and revision"
+    },
+    "art": {
+      "primary": "notebook",
+      "secondary": "compass",
+      "layout": "sequence"
+    }
+  },
+  "empathy": {
+    "subtitle": {
+      "zh": "日常关怀倾向的自评",
+      "en": "Self-reported everyday concern"
+    },
+    "art": {
+      "primary": "connection",
+      "secondary": "dialogue",
+      "layout": "portrait"
+    }
+  },
+  "culture-fit": {
+    "subtitle": {
+      "zh": "工作安排的两端偏好",
+      "en": "Preferences for workplace arrangements"
+    },
+    "art": {
+      "primary": "computer",
+      "secondary": "focus",
+      "layout": "paired"
+    }
+  },
+  "mote-type": {
+    "subtitle": {
+      "en": "Four comparisons of everyday interaction",
+      "zh": "日常互动的四组选择"
+    },
+    "art": {
+      "primary": "mote-four-dialogues",
+      "secondary": "mote-disclosure-window",
+      "layout": "orbit"
+    }
+  },
+  "skills-audit": {
+    "subtitle": {
+      "zh": "方法工具与任务实例",
+      "en": "Methods, tools and task examples"
+    },
+    "art": {
+      "primary": "gear",
+      "secondary": "notebook",
+      "layout": "workspace"
+    }
+  },
+  "jealousy-scale": {
+    "subtitle": {
+      "en": "Thoughts, discomfort and actions read separately",
+      "zh": "思维、不适与行动分别阅读"
+    },
+    "art": {
+      "primary": "jealousy-thought-loop",
+      "secondary": "jealousy-three-records",
+      "layout": "paired"
+    }
+  },
+  "sternberg-love": {
+    "subtitle": {
+      "en": "Closeness, attraction and chosen continuation",
+      "zh": "亲密联结、吸引与自愿延续"
+    },
+    "art": {
+      "primary": "triangle-three-components",
+      "secondary": "triangle-separate-records",
+      "layout": "grid"
+    }
+  },
+  "overthinking-screener": {
+    "subtitle": {
+      "zh": "反复思维的近期回顾",
+      "en": "Recent repetitive thinking"
+    },
+    "art": {
+      "primary": "waves",
+      "secondary": "clock",
+      "layout": "orbit"
+    }
+  },
+  "life-path-number": {
+    "subtitle": {
+      "zh": "两种生日数字的运算",
+      "en": "Two birth-date calculation rules"
+    },
+    "art": {
+      "primary": "cards",
+      "secondary": "puzzle",
+      "layout": "sequence"
+    }
+  },
+  "deep-desire": {
+    "subtitle": {
+      "zh": "六组当下动机主题",
+      "en": "Six current motivational themes"
+    },
+    "art": {
+      "primary": "compass",
+      "secondary": "mirror",
+      "layout": "portrait"
+    }
+  },
+  "annoying-person-test": {
+    "subtitle": {
+      "en": "Expression, expectations and personal boundaries",
+      "zh": "表达、期待与个人边界"
+    },
+    "art": {
+      "primary": "friction-context-cards",
+      "secondary": "friction-personal-boundary",
+      "layout": "workspace"
+    }
+  },
+  "love-fight-style": {
+    "subtitle": {
+      "en": "Escalation, pauses and voluntary repair",
+      "zh": "言语升温、暂停与自愿修复"
+    },
+    "art": {
+      "primary": "lovefight-pause-choice",
+      "secondary": "lovefight-repair-record",
+      "layout": "sequence"
+    }
+  },
+  "capacity-to-love-test": {
+    "subtitle": {
+      "en": "Six domains, source items and separate readings",
+      "zh": "六个领域、来源题文与独立读法"
+    },
+    "art": {
+      "primary": "ctl-six-source-cards",
+      "secondary": "ctl-reverse-key",
+      "layout": "grid"
+    }
+  },
+  "executive-function": {
+    "subtitle": {
+      "en": "Adult self-report: working memory and inhibition",
+      "zh": "成人自评：工作记忆与抑制控制"
+    },
+    "art": {
+      "primary": "adexi-two-keyed-records",
+      "secondary": "adexi-action-cue",
+      "layout": "grid"
+    }
+  },
+  "hsp-sensitivity-quiz": {
+    "subtitle": {
+      "en": "Recent experiences, four separate perspectives",
+      "zh": "近期体验，四种独立观察视角"
+    },
+    "art": {
+      "primary": "hsp-four-context-notes",
+      "secondary": "hsp-open-interpretation",
+      "layout": "portrait"
+    }
+  },
+  "competency-test": {
+    "subtitle": {
+      "en": "Six work themes, grounded in actual occasions",
+      "zh": "六个工作主题，回到实际情境"
+    },
+    "art": {
+      "primary": "competency-six-work-records",
+      "secondary": "competency-shared-output",
+      "layout": "grid"
+    }
+  },
+  "sensory-processing-test": {
+    "subtitle": {
+      "en": "Full SPQ: reported perception, one transparent total",
+      "zh": "完整SPQ：自报知觉与透明总分"
+    },
+    "art": {
+      "primary": "spq-perception-record",
+      "secondary": "spq-response-key",
+      "layout": "grid"
+    }
+  },
+  "parenting-style": {
+    "subtitle": {
+      "en": "Warm responses and workable everyday boundaries",
+      "zh": "温暖回应与可实行的日常边界"
+    },
+    "art": {
+      "primary": "parenting-listening-pair",
+      "secondary": "parenting-routine-steps",
+      "layout": "grid"
+    }
+  },
+  "inner-critic-voice-test": {
+    "subtitle": {
+      "en": "Three separate responses to setbacks",
+      "zh": "面对挫折的三类独立自我回应"
+    },
+    "art": {
+      "primary": "fscrs-three-response-notes",
+      "secondary": "fscrs-support-message",
+      "layout": "grid"
+    }
+  },
+  "holding-yourself-back": {
+    "subtitle": {
+      "en": "Seven everyday topics, with context kept in view",
+      "zh": "七类日常困难，结合真实情境阅读"
+    },
+    "art": {
+      "primary": "holding-seven-checkins",
+      "secondary": "holding-next-action",
+      "layout": "grid"
+    }
+  },
+  "breakup-reflection-test": {
+    "subtitle": {
+      "en": "Four perspectives on one relationship that ended",
+      "zh": "四个角度，回顾一段已结束的关系"
+    },
+    "art": {
+      "primary": "breakup-four-review-notes",
+      "secondary": "breakup-private-notebook",
+      "layout": "grid"
+    }
+  },
+  "nine-star-ki": {
+    "subtitle": {
+      "en": "A year, a seasonal boundary and nine cultural guides",
+      "zh": "一个年份，一道节气界点，九篇文化指南"
+    },
+    "art": {
+      "primary": "nine-star-calendar-cycle",
+      "secondary": "nine-star-boundary-notes",
+      "layout": "grid"
+    }
+  },
+  "natal-chart": {
+    "subtitle": {
+      "en": "Celestial positions, houses and symbolic roles",
+      "zh": "天体落点、宫位与符号角色"
+    },
+    "art": {
+      "primary": "natal-position-wheel",
+      "secondary": "natal-time-location-card",
+      "layout": "orbit"
+    }
+  },
+  "intimacy-preference-test": {
+    "subtitle": {
+      "en": "Four perspectives on closeness, space and choice",
+      "zh": "分享、靠近、时间与隐私，分别读懂"
+    },
+    "art": {
+      "primary": "intimacy-four-windows",
+      "secondary": "intimacy-open-boundary",
+      "layout": "portrait"
+    }
+  },
+  "habit-patterns-test": {
+    "subtitle": {
+      "en": "One everyday habit, five perspectives, room to skip",
+      "zh": "同一日常习惯，五个角度，保留跳过空间"
+    },
+    "art": {
+      "primary": "habit-five-observation-cards",
+      "secondary": "habit-cue-notebook",
+      "layout": "orbit"
+    }
+  },
+  "coping-rhythm-test": {
+    "subtitle": {
+      "en": "Four pairs of first moves, with both sides in view",
+      "zh": "四组先行选择，把两种做法一起读懂"
+    },
+    "art": {
+      "primary": "coping-four-paired-routes",
+      "secondary": "coping-scene-review",
+      "layout": "sequence"
+    }
+  },
+  "freelance-ready": {
+    "subtitle": {
+      "en": "Project preparation and action-stage review",
+      "zh": "项目准备与行动阶段回顾"
+    },
+    "art": {
+      "primary": "freelance-scope-deliverable",
+      "secondary": "freelance-trial-review",
+      "layout": "workspace"
+    }
+  },
+  "remote-work": {
+    "subtitle": {
+      "en": "Access, handovers and agreed contact windows",
+      "zh": "接入、交接与约定联系时段"
+    },
+    "art": {
+      "primary": "remote-shared-handover",
+      "secondary": "remote-contact-window",
+      "layout": "workspace"
+    }
+  },
+  "stress-response-patterns-test": {
+    "subtitle": {
+      "en": "Five response themes over three months",
+      "zh": "近三个月的五类反应观察"
+    },
+    "art": {
+      "primary": "stress-five-observation-notes",
+      "secondary": "stress-context-sequence",
+      "layout": "grid"
+    }
+  },
+  "euphoria-character-quiz": {
+    "subtitle": {
+      "zh": "八位角色的日常路线",
+      "en": "Eight everyday character perspectives"
+    },
+    "art": {
+      "primary": "stage",
+      "secondary": "palette",
+      "layout": "story"
+    }
+  },
+  "seven-sins-virtues-test": {
+    "subtitle": {
+      "zh": "七组日常张力的观察",
+      "en": "Seven everyday tension themes"
+    },
+    "art": {
+      "primary": "balance",
+      "secondary": "mirror",
+      "layout": "portrait"
+    }
+  },
+  "four-axes-test": {
+    "subtitle": {
+      "zh": "表达思维与生活态度",
+      "en": "Expression, thought and everyday outlook"
+    },
+    "art": {
+      "primary": "quadrants",
+      "secondary": "mirror",
+      "layout": "grid"
+    }
+  },
+  "conflict-boundary-behaviors-test": {
+    "subtitle": {
+      "zh": "分歧边界与修复跟进",
+      "en": "Disagreement, boundaries and repair"
+    },
+    "art": {
+      "primary": "dialogue",
+      "secondary": "notebook",
+      "layout": "sequence"
+    }
+  },
+  "stress-check-in-test": {
+    "subtitle": {
+      "zh": "近一个月的压力回顾",
+      "en": "A month of perceived pressure"
+    },
+    "art": {
+      "primary": "waves",
+      "secondary": "notebook",
+      "layout": "workspace"
+    }
+  },
+  "orientation-exploration-test": {
+    "subtitle": {
+      "zh": "吸引模式与标签选择",
+      "en": "Attraction, patterns and personal labels"
+    },
+    "art": {
+      "primary": "connection",
+      "secondary": "palette",
+      "layout": "portrait"
+    }
+  },
+  "tech-savvy": {
+    "subtitle": {
+      "zh": "日常工具学习的信心",
+      "en": "Confidence in learning everyday tools"
+    },
+    "art": {
+      "primary": "computer",
+      "secondary": "growth",
+      "layout": "portrait"
+    }
+  },
+  "stupidity-test": {
+    "subtitle": {
+      "zh": "六类日常乌龙的趣味选择",
+      "en": "Six playful everyday mishap themes"
+    },
+    "art": {
+      "primary": "puzzle",
+      "secondary": "cup",
+      "layout": "story"
+    }
+  },
+  "mental-age": {
+    "subtitle": {
+      "zh": "十二道日常偏好的趣味记录",
+      "en": "Twelve playful everyday preferences"
+    },
+    "art": {
+      "primary": "clock",
+      "secondary": "mirror",
+      "layout": "portrait"
+    }
+  },
+  "energy-flow": {
+    "subtitle": {
+      "zh": "精力投入与专注条件",
+      "en": "Energy, engagement and focus contexts"
+    },
+    "art": {
+      "primary": "battery",
+      "secondary": "clock",
+      "layout": "sequence"
+    }
+  },
+  "food-disgust": {
+    "subtitle": {
+      "zh": "八组食物情境的感受",
+      "en": "Eight groups of food-related situations"
+    },
+    "art": {
+      "primary": "cup",
+      "secondary": "waves",
+      "layout": "paired"
+    }
+  },
+  "cognitive-functions-test": {
+    "subtitle": {
+      "zh": "八组信息偏好的探索",
+      "en": "Eight information-preference themes"
+    },
+    "art": {
+      "primary": "dimensions",
+      "secondary": "book",
+      "layout": "grid"
+    }
+  },
+  "love-type-16": {
+    "subtitle": {
+      "zh": "四轴关系偏好的组合",
+      "en": "Four axes of relationship preferences"
+    },
+    "art": {
+      "primary": "connection",
+      "secondary": "quadrants",
+      "layout": "grid"
+    }
+  },
+  "cultural-dimensions": {
+    "subtitle": {
+      "zh": "六组文化话题的反思",
+      "en": "Six cultural reflection themes"
+    },
+    "art": {
+      "primary": "book",
+      "secondary": "team",
+      "layout": "paired"
+    }
+  },
+  "food-choice": {
+    "subtitle": {
+      "zh": "菜单呈现与选择偏好",
+      "en": "Menu presentation and choice preferences"
+    },
+    "art": {
+      "primary": "cup",
+      "secondary": "cards",
+      "layout": "fan"
+    }
+  },
+  "values-assessment": {
+    "subtitle": {
+      "zh": "十项工作优先事项",
+      "en": "Ten workplace priorities"
+    },
+    "art": {
+      "primary": "balance",
+      "secondary": "notebook",
+      "layout": "grid"
+    }
+  },
+  "eq-dashboard": {
+    "subtitle": {
+      "zh": "八类近期情绪的回顾",
+      "en": "Eight recent emotional themes"
+    },
+    "art": {
+      "primary": "waves",
+      "secondary": "palette",
+      "layout": "grid"
+    }
+  },
+  "career-match": {
+    "subtitle": {
+      "zh": "兴趣主题与真实职业比较",
+      "en": "Interest themes and real occupations"
+    },
+    "art": {
+      "primary": "compass",
+      "secondary": "notebook",
+      "layout": "paired"
+    }
+  },
+  "cyberpunk-edgerunners": {
+    "subtitle": {
+      "zh": "七位角色的都市故事",
+      "en": "Seven futuristic-city perspectives"
+    },
+    "art": {
+      "primary": "orbit",
+      "secondary": "computer",
+      "layout": "story"
+    }
+  },
+  "caliper-style-assessment-test": {
+    "subtitle": {
+      "zh": "最符合与最不符合的练习",
+      "en": "Most-and-least-descriptive practice"
+    },
+    "art": {
+      "primary": "cards",
+      "secondary": "quadrants",
+      "layout": "paired"
+    }
+  },
+  "masking-test": {
+    "subtitle": {
+      "zh": "社交情境中的伪装自评",
+      "en": "Self-reported social camouflaging"
+    },
+    "art": {
+      "primary": "mirror",
+      "secondary": "team",
+      "layout": "paired"
+    }
+  },
+  "imposter-syndrome": {
+    "subtitle": {
+      "zh": "成就相关的自我怀疑",
+      "en": "Achievement-related self-doubt"
+    },
+    "art": {
+      "primary": "mirror",
+      "secondary": "notebook",
+      "layout": "workspace"
+    }
+  },
+  "aphantasia-test": {
+    "subtitle": {
+      "zh": "物体面孔地点与运动意象",
+      "en": "Objects, faces, places and imagined motion"
+    },
+    "art": {
+      "primary": "mirror",
+      "secondary": "puzzle",
+      "layout": "story"
+    }
+  },
+  "synesthesia-test": {
+    "subtitle": {
+      "zh": "颜色声音与联觉样体验",
+      "en": "Color, sound and synesthesia-like experiences"
+    },
+    "art": {
+      "primary": "music",
+      "secondary": "swatches",
+      "layout": "paired"
+    }
+  },
+  "misophonia-screener": {
+    "subtitle": {
+      "zh": "声音反应与日常影响",
+      "en": "Sound-related responses and daily impact"
+    },
+    "art": {
+      "primary": "music",
+      "secondary": "dialogue",
+      "layout": "paired"
+    }
+  },
+  "sensory-sensitivity": {
+    "subtitle": {
+      "zh": "察觉输入与感官打断",
+      "en": "Noticing and managing sensory input"
+    },
+    "art": {
+      "primary": "waves",
+      "secondary": "focus",
+      "layout": "paired"
+    }
+  },
+  "anger-issues-screener": {
+    "subtitle": {
+      "zh": "生气表达与回应选择",
+      "en": "Anger, expression and response choices"
+    },
+    "art": {
+      "primary": "waves",
+      "secondary": "balance",
+      "layout": "paired"
+    }
+  },
+  "asvab-practice-test": {
+    "subtitle": {
+      "zh": "算术词汇与英文阅读",
+      "en": "Arithmetic, vocabulary and English reading"
+    },
+    "art": {
+      "primary": "book",
+      "secondary": "coins",
+      "layout": "grid"
+    }
+  },
+  "everyday-control-style": {
+    "subtitle": {
+      "zh": "共同规则与职责内决定",
+      "en": "Shared rules and responsibilities"
+    },
+    "art": {
+      "primary": "compass",
+      "secondary": "team",
+      "layout": "grid"
+    }
+  },
+  "asvab-science-mechanical-practice-test": {
+    "subtitle": {
+      "zh": "科学机械与技术练习",
+      "en": "Science, mechanics and technical practice"
+    },
+    "art": {
+      "primary": "gear",
+      "secondary": "computer",
+      "layout": "workspace"
+    }
+  },
+  "interpersonal-preferences": {
+    "subtitle": {
+      "zh": "参与协调与个人关心",
+      "en": "Participation, coordination and personal care"
+    },
+    "art": {
+      "primary": "team",
+      "secondary": "dimensions",
+      "layout": "grid"
+    }
+  },
+  "mattering": {
+    "subtitle": {
+      "zh": "被重视与被忽略的感受",
+      "en": "Experiences of mattering and being overlooked"
+    },
+    "art": {
+      "primary": "connection",
+      "secondary": "mirror",
+      "layout": "paired"
+    }
+  },
+  "employer-reasoning-practice-test": {
+    "subtitle": {
+      "zh": "阅读数量与逻辑练习",
+      "en": "Verbal, numerical and logical practice"
+    },
+    "art": {
+      "primary": "puzzle",
+      "secondary": "book",
+      "layout": "sequence"
+    }
+  },
+  "social-attitudes-reflection": {
+    "subtitle": {
+      "zh": "社会议题中的个人看法",
+      "en": "Personal views on social issues"
+    },
+    "art": {
+      "primary": "team",
+      "secondary": "balance",
+      "layout": "paired"
+    }
+  },
+  "watson-glaser-practice-test": {
+    "subtitle": {
+      "zh": "论据推断与批判性思考",
+      "en": "Arguments, inference and critical thinking"
+    },
+    "art": {
+      "primary": "book",
+      "secondary": "balance",
+      "layout": "workspace"
+    }
+  },
+  "tipi-10": {
+    "subtitle": {
+      "zh": "十项极短人格自评",
+      "en": "A brief ten-item personality self-report"
+    },
+    "art": {
+      "primary": "dimensions",
+      "secondary": "notebook",
+      "layout": "portrait"
+    }
+  },
+  "sbti-test": {
+    "subtitle": {
+      "zh": "原三十一题的趣味人格选择",
+      "en": "Thirty-one playful personality questions"
+    },
+    "art": {
+      "primary": "quadrants",
+      "secondary": "cards",
+      "layout": "fan"
+    }
+  },
+  "work-activity-interests": {
+    "subtitle": {
+      "zh": "六十项工作任务的兴趣盘点",
+      "en": "Interests across sixty work activities"
+    },
+    "art": {
+      "primary": "compass",
+      "secondary": "gear",
+      "layout": "workspace"
+    }
+  },
+  "intimacy-values": {
+    "subtitle": {
+      "zh": "隐私稳定与情感靠近",
+      "en": "Privacy, stability and emotional closeness"
+    },
+    "art": {
+      "primary": "connection",
+      "secondary": "castle",
+      "layout": "portrait"
+    }
+  },
+  "relationship-habits": {
+    "subtitle": {
+      "zh": "空间暂停与付出余量",
+      "en": "Space, pauses and available effort"
+    },
+    "art": {
+      "primary": "connection",
+      "secondary": "battery",
+      "layout": "paired"
+    }
+  },
+  "dating-outlook": {
+    "subtitle": {
+      "zh": "联结期待与学习看法",
+      "en": "Connection, expectations and learning"
+    },
+    "art": {
+      "primary": "connection",
+      "secondary": "book",
+      "layout": "portrait"
+    }
+  },
+  "work-role-reflection": {
+    "subtitle": {
+      "zh": "澄清核对与共同贡献",
+      "en": "Clarification, checking and shared contribution"
+    },
+    "art": {
+      "primary": "team",
+      "secondary": "puzzle",
+      "layout": "workspace"
+    }
+  },
+  "face-self-image": {
+    "subtitle": {
+      "zh": "面部看法与照片自在感",
+      "en": "Facial self-image and comfort in photos"
+    },
+    "art": {
+      "primary": "mirror",
+      "secondary": "palette",
+      "layout": "portrait"
+    }
+  },
+  "relationship-worry-habits": {
+    "subtitle": {
+      "zh": "安心比较与间接试探",
+      "en": "Reassurance, comparison and indirect checking"
+    },
+    "art": {
+      "primary": "connection",
+      "secondary": "cards",
+      "layout": "sequence"
+    }
+  },
+  "work-traits-reflection": {
+    "subtitle": {
+      "zh": "七类近期工作主题",
+      "en": "Seven recent work-behavior themes"
+    },
+    "art": {
+      "primary": "notebook",
+      "secondary": "team",
+      "layout": "grid"
+    }
+  },
+  "dark-tetrad-sd4": {
+    "subtitle": {
+      "zh": "四组特质的完整自评",
+      "en": "Four self-reported trait dimensions"
+    },
+    "art": {
+      "primary": "dimensions",
+      "secondary": "mirror",
+      "layout": "grid"
+    }
+  },
+  "attraction-experiences": {
+    "subtitle": {
+      "zh": "吸引的情境先后与延续",
+      "en": "Attraction, context and continuity"
+    },
+    "art": {
+      "primary": "connection",
+      "secondary": "clock",
+      "layout": "orbit"
+    }
+  },
+  "written-coordination-practice": {
+    "subtitle": {
+      "zh": "书面消息与协调依据",
+      "en": "Written messages and coordination"
+    },
+    "art": {
+      "primary": "notebook",
+      "secondary": "dialogue",
+      "layout": "workspace"
+    }
+  },
+  "distributed-work-choices": {
+    "subtitle": {
+      "zh": "分布式任务的协作安排",
+      "en": "Distributed tasks and collaboration"
+    },
+    "art": {
+      "primary": "computer",
+      "secondary": "team",
+      "layout": "grid"
+    }
+  },
+  "outfit-line-preferences": {
+    "subtitle": {
+      "zh": "五组服装线条偏好",
+      "en": "Five clothing-line preferences"
+    },
+    "art": {
+      "primary": "palette",
+      "secondary": "notebook",
+      "layout": "portrait"
+    }
+  },
+  "trauma-response-reflection": {
+    "subtitle": {
+      "zh": "困难经历之后的个人回顾",
+      "en": "Personal reflection after difficult experiences"
+    },
+    "art": {
+      "primary": "notebook",
+      "secondary": "waves",
+      "layout": "portrait"
+    }
+  },
+  "style-impression-preferences": {
+    "subtitle": {
+      "zh": "八种整体造型的视觉选择",
+      "en": "Eight visual style impressions"
+    },
+    "art": {
+      "primary": "palette",
+      "secondary": "mirror",
+      "layout": "fan"
+    }
+  },
+  "activity-engagement-patterns": {
+    "subtitle": {
+      "zh": "发起回应与参与方式",
+      "en": "Initiating, responding and participating"
+    },
+    "art": {
+      "primary": "compass",
+      "secondary": "dialogue",
+      "layout": "orbit"
+    }
+  },
+  "pressure-response-actions": {
+    "subtitle": {
+      "zh": "压力下的四类行动观察",
+      "en": "Four action themes under pressure"
+    },
+    "art": {
+      "primary": "waves",
+      "secondary": "quadrants",
+      "layout": "paired"
+    }
+  },
+  "connection-ideals": {
+    "subtitle": {
+      "zh": "六种想象连接的偏好",
+      "en": "Six imagined connection preferences"
+    },
+    "art": {
+      "primary": "connection",
+      "secondary": "compass",
+      "layout": "fan"
+    }
+  },
+  "connection-belonging-check-in": {
+    "subtitle": {
+      "zh": "倾听疏远与归属回顾",
+      "en": "Listening, distance and belonging"
+    },
+    "art": {
+      "primary": "team",
+      "secondary": "focus",
+      "layout": "paired"
+    }
+  },
+  "body-frame-observations": {
+    "subtitle": {
+      "zh": "轮廓与关节线条的自我观察",
+      "en": "Personal observations of contours and lines"
+    },
+    "art": {
+      "primary": "mirror",
+      "secondary": "notebook",
+      "layout": "portrait"
+    }
+  },
+  "considering-support-reflection": {
+    "subtitle": {
+      "zh": "日常影响与支持条件",
+      "en": "Daily impact and support conditions"
+    },
+    "art": {
+      "primary": "dialogue",
+      "secondary": "growth",
+      "layout": "portrait"
+    }
+  },
+  "connection-meaning-reflection": {
+    "subtitle": {
+      "zh": "熟悉相似与连接意义",
+      "en": "Familiarity, similarity and personal meaning"
+    },
+    "art": {
+      "primary": "connection",
+      "secondary": "cosmos",
+      "layout": "orbit"
+    }
+  },
+  "after-bereavement-reflection": {
+    "subtitle": {
+      "zh": "重要的人去世之后的经历",
+      "en": "Experiences after a significant loss"
+    },
+    "art": {
+      "primary": "flower",
+      "secondary": "notebook",
+      "layout": "portrait"
+    }
+  },
+  "prakriti-inventory21": {
+    "subtitle": {
+      "zh": "三组文化话题的原始记录",
+      "en": "Three cultural-theme response records"
+    },
+    "art": {
+      "primary": "growth",
+      "secondary": "waves",
+      "layout": "grid"
+    }
+  },
+  "sleep-experiences-reflection": {
+    "subtitle": {
+      "zh": "入睡中断与白天经历",
+      "en": "Falling asleep, interruptions and daytime life"
+    },
+    "art": {
+      "primary": "moon",
+      "secondary": "notebook",
+      "layout": "workspace"
+    }
+  },
+  "health-worries-reflection": {
+    "subtitle": {
+      "zh": "身体注意与照护决定",
+      "en": "Bodily attention and care decisions"
+    },
+    "art": {
+      "primary": "mirror",
+      "secondary": "compass",
+      "layout": "workspace"
+    }
+  },
+  "weton-story-preferences": {
+    "subtitle": {
+      "zh": "虚构故事与爪哇历法参考",
+      "en": "Fictional stories and Javanese calendar context"
+    },
+    "art": {
+      "primary": "cards",
+      "secondary": "clock",
+      "layout": "fan"
+    }
+  },
+  "sudden-fear-reflection": {
+    "subtitle": {
+      "zh": "突然恐惧与计划变化",
+      "en": "Sudden fear and changes to plans"
+    },
+    "art": {
+      "primary": "waves",
+      "secondary": "compass",
+      "layout": "portrait"
+    }
+  },
+  "unwanted-thoughts-actions-reflection": {
+    "subtitle": {
+      "zh": "不想要的想法与重复做法",
+      "en": "Unwanted thoughts and repeated actions"
+    },
+    "art": {
+      "primary": "notebook",
+      "secondary": "clock",
+      "layout": "orbit"
+    }
+  },
+  "focus-energy-context-reflection": {
+    "subtitle": {
+      "zh": "注意精力与日常情境",
+      "en": "Attention, energy and everyday context"
+    },
+    "art": {
+      "primary": "focus",
+      "secondary": "battery",
+      "layout": "workspace"
+    }
+  },
+  "nakshatra-spica-reference": {
+    "subtitle": {
+      "zh": "月球区段与出生宿文化",
+      "en": "Lunar segments and birth-star symbolism"
+    },
+    "art": {
+      "primary": "moon",
+      "secondary": "cosmos",
+      "layout": "orbit"
+    }
+  },
+  "written-language-context-reflection": {
+    "subtitle": {
+      "zh": "阅读书写与信息接触",
+      "en": "Reading, writing and accessing information"
+    },
+    "art": {
+      "primary": "book",
+      "secondary": "notebook",
+      "layout": "paired"
+    }
+  },
+  "number-context-reflection": {
+    "subtitle": {
+      "zh": "数量步骤与日常价格",
+      "en": "Quantities, steps and everyday prices"
+    },
+    "art": {
+      "primary": "coins",
+      "secondary": "puzzle",
+      "layout": "paired"
+    }
+  },
+  "social-context-reflection": {
+    "subtitle": {
+      "zh": "谈话联系与社交背景",
+      "en": "Conversation and social contexts"
+    },
+    "art": {
+      "primary": "dialogue",
+      "secondary": "focus",
+      "layout": "portrait"
+    }
+  },
+  "care-feelings-reflection": {
+    "subtitle": {
+      "zh": "情绪关注与当下支持",
+      "en": "Emotional attention and present support"
+    },
+    "art": {
+      "primary": "team",
+      "secondary": "flower",
+      "layout": "portrait"
+    }
+  },
+  "drinking-experiences-reflection": {
+    "subtitle": {
+      "zh": "成年人的饮酒经历回顾",
+      "en": "Adult drinking experiences"
+    },
+    "art": {
+      "primary": "cup",
+      "secondary": "notebook",
+      "layout": "workspace"
+    }
+  },
+  "everyday-worry-reflection": {
+    "subtitle": {
+      "zh": "反复担心与日常活动",
+      "en": "Recurring worry and everyday activities"
+    },
+    "art": {
+      "primary": "waves",
+      "secondary": "clock",
+      "layout": "portrait"
+    }
+  },
+  "child-focus-activity-observations": {
+    "subtitle": {
+      "zh": "照顾者观察的专注与活动",
+      "en": "Caregiver observations of focus and activity"
+    },
+    "art": {
+      "primary": "focus",
+      "secondary": "team",
+      "layout": "workspace"
+    }
+  },
+  "recent-mood-reflection": {
+    "subtitle": {
+      "zh": "近期心情兴趣与精力",
+      "en": "Recent mood, interests and energy"
+    },
+    "art": {
+      "primary": "waves",
+      "secondary": "battery",
+      "layout": "paired"
+    }
+  },
+  "eating-experiences-reflection": {
+    "subtitle": {
+      "zh": "食物顾虑与身体经历",
+      "en": "Food concerns and bodily experiences"
+    },
+    "art": {
+      "primary": "cup",
+      "secondary": "mirror",
+      "layout": "portrait"
+    }
+  },
+  "communication-routines-context": {
+    "subtitle": {
+      "zh": "交流熟悉安排与细节",
+      "en": "Communication, routines and details"
+    },
+    "art": {
+      "primary": "dialogue",
+      "secondary": "notebook",
+      "layout": "grid"
+    }
+  },
+  "gender-experiences-reflection": {
+    "subtitle": {
+      "zh": "词语称呼与日常体验",
+      "en": "Words, forms of address and daily experiences"
+    },
+    "art": {
+      "primary": "mirror",
+      "secondary": "cards",
+      "layout": "portrait"
+    }
+  },
+  "mood-activity-changes-reflection": {
+    "subtitle": {
+      "zh": "同一时段的心情与活动变化",
+      "en": "Mood and activity changes in one period"
+    },
+    "art": {
+      "primary": "waves",
+      "secondary": "clock",
+      "layout": "sequence"
+    }
+  },
+  "feelings-connection-reflection": {
+    "subtitle": {
+      "zh": "近期感受与亲近边界",
+      "en": "Recent feelings, closeness and boundaries"
+    },
+    "art": {
+      "primary": "waves",
+      "secondary": "connection",
+      "layout": "paired"
+    }
+  },
+  "emotions-connections-reflection": {
+    "subtitle": {
+      "zh": "情绪自我与联结的回顾",
+      "en": "Emotions, self-understanding and connection"
+    },
+    "art": {
+      "primary": "mirror",
+      "secondary": "connection",
+      "layout": "orbit"
+    }
+  },
+  "spatial-thinking-reflection": {
+    "subtitle": {
+      "zh": "转动推想与相对位置",
+      "en": "Imagined rotation and relative positions"
+    },
+    "art": {
+      "primary": "puzzle",
+      "secondary": "compass",
+      "layout": "orbit"
+    }
+  },
+  "feedback-self-worth-reflection": {
+    "subtitle": {
+      "zh": "反馈之后的自我看法",
+      "en": "Self-perceptions after feedback"
+    },
+    "art": {
+      "primary": "mirror",
+      "secondary": "dialogue",
+      "layout": "story"
+    }
+  },
+  "menstrual-cycle-context-reflection": {
+    "subtitle": {
+      "zh": "经期前后与近期经历",
+      "en": "Recent experiences around menstrual timing"
+    },
+    "art": {
+      "primary": "clock",
+      "secondary": "waves",
+      "layout": "portrait"
+    }
+  },
+  "disconnection-experiences-reflection": {
+    "subtitle": {
+      "zh": "投入环境与日常回忆",
+      "en": "Engagement, surroundings and everyday memory"
+    },
+    "art": {
+      "primary": "mirror",
+      "secondary": "focus",
+      "layout": "portrait"
+    }
+  },
+  "uncertainty-ease-reflection": {
+    "subtitle": {
+      "zh": "普通未知情境中的自在感",
+      "en": "Comfort in everyday uncertainty"
+    },
+    "art": {
+      "primary": "compass",
+      "secondary": "waves",
+      "layout": "orbit"
+    }
+  },
+  "after-childbirth-context-reflection": {
+    "subtitle": {
+      "zh": "分娩后的休息感受与需要",
+      "en": "Rest, feelings and needs after childbirth"
+    },
+    "art": {
+      "primary": "team",
+      "secondary": "moon",
+      "layout": "portrait"
+    }
+  },
+  "unfamiliar-experiences-reflection": {
+    "subtitle": {
+      "zh": "陌生印象与日常参与",
+      "en": "Unfamiliar impressions and daily participation"
+    },
+    "art": {
+      "primary": "mirror",
+      "secondary": "cosmos",
+      "layout": "portrait"
+    }
+  },
+  "time-of-year-context-reflection": {
+    "subtitle": {
+      "zh": "一年中不同时间的个人经历",
+      "en": "Personal experiences across the year"
+    },
+    "art": {
+      "primary": "clock",
+      "secondary": "moon",
+      "layout": "orbit"
+    }
+  },
+  "perceived-stress-scale-4": {
+    "subtitle": {
+      "zh": "四项感知压力的月度回顾",
+      "en": "Four-item monthly perceived-stress reflection"
+    },
+    "art": {
+      "primary": "waves",
+      "secondary": "notebook",
+      "layout": "grid"
+    }
+  },
+  "sake-type": {
+    "subtitle": {
+      "zh": "四种饮品的想象场面",
+      "en": "Four imagined drink metaphors"
+    },
+    "art": {
+      "primary": "cup",
+      "secondary": "cards",
+      "layout": "story"
+    }
+  }
+}

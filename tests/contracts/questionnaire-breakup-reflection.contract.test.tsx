@@ -33,7 +33,8 @@ describe("original BREAKUP_REASON migration", () => {
       expect(question.options.slice(0, 5).map(o => o.label)).toEqual(Object.values(source.numeric_labels));
       expect(question.options.at(-1)).toMatchObject({ id: "na", label: source.NA_addition, score: null });
     }
-    expect(data.description.en.length).toBe(158);
+    expect(data.description.en).toContain("24 original statements");
+    expect(data.description.en).not.toMatch(/predict|probability|diagnos/i);
     expect(data.guide.flatMap(s => s.paragraphs).map(p => p.en).join(" ")).toContain("original miniature-program scorer suppresses personal interpretation");
   });
 

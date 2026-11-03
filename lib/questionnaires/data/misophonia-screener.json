@@ -14,13 +14,13 @@
     "zh": "厌声症测试（DVMSQ）｜声音敏感自评与免费完整读法"
   },
   "description": {
-    "en": "Explore sound-linked reactions and everyday impact with the DVMSQ v1.5: one screening question and up to 18 source prompts. Raw sums and three full guides are free, without a diagnosis or signup.",
-    "zh": "按DVMSQ v1.5回顾声音相关反应与日常影响：一个前置问题，最多再答18条源题。原始合计和三篇完整读法免费，不作诊断，无需注册。"
+    "en": "Describe sound-linked reactions and everyday impact using the DVMSQ v1.5: one screening question and up to eighteen source prompts. Free raw sums, response records and three complete guides, without signup.",
+    "zh": "通过DVMSQ v1.5回顾声音相关反应与日常影响：一个前置问题，最多十八条后续源题。免费查看原始合计、回答记录与三篇完整指南，无需注册。"
   },
   "minutes": 5,
   "introduction": {
-    "en": "When particular sounds are extremely bothersome even at a low volume, describing reactions and their effects can be useful. This sound sensitivity check-in uses a clearly identified published source form, with a new Chinese working translation and disclosed website adaptations. It does not classify misophonia, measure hearing or reproduce an audio experiment.",
-    "zh": "某些声音即使不响也极其困扰时，可以描述自己的反应及其影响。本声音敏感自评使用明确标识的已发表源表，另有新中文工作译文及披露的网页改编。不分类厌声症，不测听力，也不复现声音实验。"
+    "en": "An adult self-report about particular bothersome sounds, their associated reactions and their effects on everyday life. This entry identifies the published English edition, its Chinese working translation and web adaptations. It reports source-based arithmetic and individual responses without assigning a diagnosis, severity category or hearing assessment.",
+    "zh": "这份成年人自评围绕特定困扰声音、相关反应及日常生活影响展开。本页明确标识已发表英文版本、中文工作译文与网页改编，展示来源规则下的原始合计及逐条回答，不分配诊断或严重程度类别，也不进行听力评估。"
   },
   "instructions": {
     "en": "For adults aged 18 and over. Answer the initial question first; a no ends the source form, while yes opens 18 prompts. Added unsure or decline choices can end without a score. Reflect on existing experience only: no sound exposure, recording or physical task is needed. The source frequency questions do not specify a recent window; items 12–15 ask about the past seven days, and items 16–18 use general impact wording without a stated window. Every presented item needs a choice, including added unscored options.",

@@ -2,7 +2,7 @@
   "slug": "love-languages",
   "code": "LOVE_LANGUAGE_REFLECTION_50",
   "version": "1.0.0",
-  "updated": "2026-10-25",
+  "updated": "2026-10-31",
   "category": "relationships",
   "kind": "affection",
   "minimumRatedItems": 3,
@@ -11,12 +11,12 @@
     "en": "Love Language Test"
   },
   "description": {
-    "zh": "用50条原创自评，分别探索肯定言语、行动支持、心意礼物、专注陪伴与自愿身体接触在表达和接收关心时的意义。十项均分、五份完整解读免费，无需注册。",
-    "en": "Explore what five ways of caring mean to you when giving and receiving. Take 50 original ratings for ten separate means and five full free guides, with no signup."
+    "zh": "用50条原创自评，分别了解五种关心方式在表达和接收时对你的意义。约10分钟，免费查看十项独立均分、缺答说明与五份完整解读，无需注册。",
+    "en": "Rate 50 original caring situations for giving and receiving separately. About 10 minutes; ten independent means, missing-response guidance and five full guides, free without signup."
   },
   "seoTitle": {
-    "zh": "五种爱的语言测试：表达与接收，完整结果免费",
-    "en": "Love Language Test: Giving, Receiving and Full Free Results"
+    "zh": "五种爱的语言测试：50题双向自评与完整解读",
+    "en": "Love Language Test: 50 Giving and Receiving Ratings, Full Guides"
   },
   "minutes": 10,
   "resultHeading": {
@@ -24,12 +24,12 @@
     "en": "Your giving and receiving reflection and five full guides"
   },
   "instructions": {
-    "zh": "想想目前对你有意义的关心情境，分别评价表达侧和接收侧的说法。1为完全没有意义，5为非常有意义；暂不作答或无法判断不计分。可以同时重视多种方式，不必刻意分出高低。50题都选择后显示结果，单侧至少3条有效评分才显示均分。本题不询问实际次数或替伴侣作答。",
-    "en": "Think about caring situations that feel meaningful to you now. Rate giving and receiving statements separately from 1, not meaningful, to 5, very meaningful. Choose the unscored option when unsure. Several ways can matter equally; do not force a ranking. Results appear after all 50 selections; each side needs at least three ratings for a mean. Do not report actual frequency or answer for a partner."
+    "zh": "想想目前对自己有意义的关心情境，按每题所写的表达或接收角色，评价其意义感：1为完全没有意义，5为非常有意义。不要改答成实际发生次数、自己是否擅长，或对方应该做多少。无法判断或不想回答时可选不计分项，不必强排五种方式。50题都作出选择后显示结果；每侧5题至少3条有效评分才显示均分。只回答自己，不代替伴侣或其他人作答。",
+    "en": "Consider caring situations that matter to you now. In the giving or receiving role specified by each item, rate meaningfulness from 1, not meaningful, to 5, very meaningful. Do not substitute frequency, skill or how much someone ought to do. Use the unscored option if you cannot judge or prefer not to answer; no forced ranking is needed. Results follow a selection for all 50 items. Each five-item side needs at least three numeric ratings for a mean. Answer for yourself, not a partner or anyone else."
   },
   "introduction": {
-    "zh": "爱的语言可以是讨论关心方式的起点，但不必把一个人塞进唯一类型。本版将五种方式各分成表达与接收两组独立自评，保留不同情境中的差异。完整结果直接呈现十项评分情况和五份双向说明，包含具体例子、取舍、边界和小尝试。",
-    "en": "What is my love language? A useful starting point is to consider specific ways of caring without assuming one permanent type. This edition rates giving and receiving separately for each of five categories. Your complete result shows ten rating summaries and all five full guides, with everyday examples, comparisons, boundaries and small experiments."
+    "zh": "五种爱的语言是Gary Chapman推广的关心方式框架，通常包括肯定言语、行动支持、心意礼物、专注陪伴与身体接触。[1] 本站将五种方式分别设为表达侧和接收侧，每侧5题，共50条原创自评，询问这些情境“对我有多大意义”。你可以同时重视几种甚至全部方式，也可以在表达与接收时有不同偏好。完整结果提供十项独立评分情况和五份双向指南，用于整理需要与讨论具体行动，不给唯一爱语身份或情侣匹配分。本站题目、计分与解释独立编写，不是官方测验或Love Language Personal Profile（LLPP）。",
+    "en": "The love languages are a framework popularised by Gary Chapman for discussing care through words of affirmation, acts of service, gifts, quality time and physical touch.[1] This edition separates giving from receiving in each category: five original items per side, 50 in total. Each asks how meaningful a situation would feel to you. Several or all ways may matter, and preferences for giving and receiving may differ. Results show ten independent rating summaries and five two-way guides for discussing needs and concrete actions, without assigning one love-language identity or a couple-matching score. The items, scoring and explanations are independently authored, not the official quiz or Love Language Personal Profile (LLPP)."
   },
   "source": {
     "kind": "fermatmind-original-love-language-reflection",
@@ -4090,10 +4090,10 @@
   "references": [
     {
       "title": {
-        "zh": "五种关心方式的概念来源：The 5 Love Languages",
-        "en": "Concept source: The 5 Love Languages"
+        "zh": "概念提出者的说明与常见问题：The 5 Love Languages",
+        "en": "Concept originator’s explanations and FAQ: The 5 Love Languages"
       },
-      "url": "https://5lovelanguages.com/learn"
+      "url": "https://5lovelanguages.com/help/love-language"
     },
     {
       "title": {
@@ -4114,52 +4114,186 @@
     {
       "id": "affection-roles",
       "title": {
-        "zh": "表达与接收分别看",
-        "en": "Giving and receiving are separate"
+        "zh": "表达与接收：同一种关心方式的两个问题",
+        "en": "Giving and receiving: two questions about the same way of caring"
       },
       "paragraphs": [
         {
-          "zh": "同一种关心方式，表达时有意义和接收时有意义可能不同。50条原创题目按五种方式、两种角色各5条组织。它们评的是情境的意义感，不是观察到的频率、付出量、能力或伴侣实际需要。",
-          "en": "A way of caring may feel meaningful to offer, to receive or both. Fifty original items cover five categories and two roles, with five items per side. They rate the meaning attached to situations rather than observed frequency, effort, skill or a partner’s actual needs."
+          "zh": "表达侧问“我用这种方式关心别人，对我有多大意义”；接收侧问“别人这样关心我，对我有多大意义”。十个部分分别计分，不合并成五个混合分数。一个人可能很重视用具体行动帮忙，也很重视被认真倾听；这两种取向可以同时存在。",
+          "en": "Giving asks how meaningful it feels to offer care in a particular way; receiving asks how meaningful it feels to receive it. The ten parts are scored separately, not merged into five combined scores. A person can value helping through practical action while also valuing being listened to attentively."
+        },
+        {
+          "zh": "意义感不等于行为频率、关系中的实际付出或他人的体验。即使表达侧评分很高，也不能据此判断已经经常这样做，或对方一定欢迎。理解这份结果，应把个人意向、实际行动和对方反馈分开核对。",
+          "en": "Meaningfulness is not behaviour frequency, actual effort in a relationship or another person’s experience. A high giving rating does not show that an action happens often or is welcome to its recipient. Check personal intentions, actions and the other person’s feedback separately."
         }
       ]
     },
     {
       "id": "affection-scoring",
       "title": {
-        "zh": "十项均分怎样计算",
-        "en": "How the ten means are calculated"
+        "zh": "十项均分怎样计算：有效评分、缺答与算例",
+        "en": "Calculating ten means: numeric ratings, unscored responses and examples"
       },
       "paragraphs": [
         {
-          "zh": "1—5直接按所选值计分，没有反向题。50题都选完后，单侧5题至少3题有效评分时，按总和除以有效题数，四舍五入到一位小数。暂不作答不补成0或中间值；不足3题显示资料不足。这是本站信息完整度规则，不是心理测量阈值。",
-          "en": "Responses 1–5 use their selected values; there are no reversed items. After all 50 selections, each side with at least three ratings uses sum divided by rated count, rounded to one decimal. Unscored items are neither zero nor midpoints. Fewer than three ratings means insufficient information. This is a website information-completeness rule, not a psychometric cutoff."
+          "zh": "每种方式的表达侧和接收侧各有5题，1—5按所选数值计分，没有反向题。每侧至少3条有效评分时，均分＝该侧有效评分之和÷有效题数，四舍五入到一位小数。数值范围为1.0—5.0，不转换为百分位、爱得多少或关系质量。",
+          "en": "Each category has five giving and five receiving items. Values 1–5 are used directly, with no reverse-keyed items. A side with at least three numeric ratings uses their sum divided by their count, rounded to one decimal. Means range from 1.0 to 5.0, without conversion into percentiles, amount of love or relationship quality."
+        },
+        {
+          "zh": "例如某一侧选4、5、3及两条不计分项，总和12、有效3题，均分为4.0；选4、5及三条不计分项时，保留2条有效评分信息，均分显示资料不足。1是有效低评分，不计分项则不进分子也不进分母。至少3条是本站信息完整度规则，不是经过验证的心理分界。",
+          "en": "For example, 4, 5, 3 and two unscored responses give a sum of 12 from three ratings and a mean of 4.0. With 4, 5 and three unscored responses, two ratings are recorded but the mean is insufficient information. A 1 is a valid low rating; an unscored response enters neither numerator nor denominator. The three-rating minimum is a website completeness rule, not a validated psychological cutoff."
         }
       ]
     },
     {
       "id": "affection-reading",
       "title": {
-        "zh": "五种方式可以同时重要",
-        "en": "Several ways can matter at once"
+        "zh": "怎样读高分、低分和相同分数",
+        "en": "Reading higher, lower and equal means"
       },
       "paragraphs": [
         {
-          "zh": "结果不合成总分，不强派主副爱语、不排名、不算配对或表达减接收差值。你可以全部评高、全部评低或暂时无法判断。五份公开说明都完整可读；它们解释方式与情境，不把均分改写为固定身份或关系结论。",
-          "en": "There is no overall score, forced primary or secondary language, ranking, compatibility score or giving-minus-receiving index. All ratings can be high, low or unscored. All five public guides remain available in full. They explain ways and situations without turning a mean into a fixed identity or verdict on a relationship."
+          "zh": "十项独立自评没有固定总和，所以五种方式都可以评高，某些或全部也可以评低。高均分表示本次对该侧题目更强的意义感，低均分表示相对较弱的意义感；二者都不是好伴侣或坏伴侣的标准。不计分较多时，资料不足与低分必须区分。",
+          "en": "Independent ratings have no fixed grand total, so all five ways may be rated highly, while some or all may receive lower ratings. A higher mean indicates stronger meaningfulness for that side’s items in this attempt; a lower mean indicates less. Neither grades someone as a good or bad partner. Insufficient information must remain distinct from a low mean."
+        },
+        {
+          "zh": "本站不选主爱语、副爱语，不给十项排人格名次，也不把表达减接收算成“付出亏欠”。均分相同就按相同数值阅读；接近时没有统计显著性或最小重要差异标准。还应看有效题数：同为4.0，三条评分与五条评分覆盖的题目数量不同，不代表相同测量精度。",
+          "en": "No primary or secondary language, personality ranking or giving-minus-receiving debt index is assigned. Equal means remain equal; nearby means have no established significance or minimum-important-difference threshold. Also read the rated-item count: a mean of 4.0 based on three rather than five ratings covers fewer items and does not establish equal measurement precision."
+        }
+      ]
+    },
+    {
+      "id": "affection-categories",
+      "title": {
+        "zh": "五种爱的语言：本版观察的具体情境",
+        "en": "Five love languages: the situations this edition explores"
+      },
+      "paragraphs": [
+        {
+          "zh": "肯定言语（Words of Affirmation）：具体表达感谢、欣赏与鼓励，例如指出某次帮助带来的实际影响。表达侧看说出这些话对你的意义，接收侧看听到这些话的意义；不是要求无条件赞同，也不把低分解释为不需要尊重。",
+          "en": "Words of Affirmation: specific appreciation, thanks or encouragement, such as naming the effect of a helpful action. Giving concerns saying it; receiving concerns hearing it. This neither requires unconditional agreement nor makes a low rating a lack of need for respect."
+        },
+        {
+          "zh": "行动支持（Acts of Service）：在对方愿意的前提下，提供具体且有用的帮助。例如先问清最需要分担哪一步，再完成约定。这里评的是帮助的意义，不是家务份额、服从程度或替别人包办一切的义务。",
+          "en": "Acts of Service: useful, concrete help the recipient welcomes. For example, ask which step would help most, then carry out the agreement. Ratings concern meaning, not a share of chores, obedience or an obligation to take over everything."
+        },
+        {
+          "zh": "心意礼物（Gifts）：通过有个人意义的物件或小心意表达记得对方，可以是自制或不增加消费的东西。关注的是具体含义与接收意愿，不根据礼物价格判断爱意，也不要求对方接受不想要的物品。",
+          "en": "Gifts: meaningful tokens that show someone has been remembered, including handmade or no-purchase gestures. Consider their specific meaning and whether they are welcome, rather than using price to judge affection or expecting unwanted items to be accepted."
+        },
+        {
+          "zh": "专注陪伴（Quality Time）：共同选择一段能相互投入注意的时间，可以是谈话或一起做一件事。区别于仅仅处在同一空间，也不要求全天在线、取消个人安排或放弃独处。双方可协商时长、活动与可避免的干扰。",
+          "en": "Quality Time: mutually chosen time with attention available to each other, through conversation or an activity. Sharing a room alone is different, and this does not require constant availability or giving up personal plans or solitude. Agree on duration, activity and avoidable distractions."
+        },
+        {
+          "zh": "自愿身体接触（Welcome Physical Touch）：双方当下愿意的日常非性接触，例如经询问后拥抱或握手。评分不测性欲、性取向或依恋，也不构成接触许可；想法改变或不愿意时，以此刻的表达为准。",
+          "en": "Welcome Physical Touch: mutually wanted everyday nonsexual contact, such as asking before a hug or holding hands. Ratings assess neither sexual desire, sexuality nor attachment and grant no permission to touch. Current willingness takes precedence if someone declines or changes their mind."
         }
       ]
     },
     {
       "id": "source-scope",
       "title": {
-        "zh": "概念来源与本站版本",
-        "en": "Concept sources and this edition"
+        "zh": "概念来源、研究证据与本站题本",
+        "en": "Concept origins, research evidence and this questionnaire"
       },
       "paragraphs": [
         {
-          "zh": "五种方式来自Gary Chapman推广的框架；本站独立写作题目和解释，不是官方测验或LLPP，也未取得本站信效度、常模或匹配验证。下列研究来源提供方法讨论，不验证本题。身体接触只涉及双方当下愿意的日常非性接触；礼物不要求消费，陪伴不要求随时可用。",
-          "en": "The five categories come from the framework popularised by Gary Chapman. These independently authored items and explanations are neither the official quiz nor the LLPP, with no established website validity, norms or matching evidence. The research sources below inform method discussion; they do not validate these items. Touch concerns welcome everyday nonsexual contact. Gifts require no spending, and quality time creates no duty to be always available."
+          "zh": "五种方式由Gary Chapman的著作推广；本站借用类别作为讨论关心的词汇，独立编写50条题目与解释。未使用官方题库或LLPP，也不表示品牌合作。其他网站可能用二选一、同意度或不同类别数量，结果名称相似不等于同一测量，不能直接换算。[1]",
+          "en": "Gary Chapman’s work popularised the five categories. This edition uses them as vocabulary for discussing care, with 50 independently authored items and explanations. It uses neither the official item bank nor the LLPP and implies no affiliation. Other tests may use paired choices, agreement scales or different category counts; similar labels do not establish equivalent measurements.[1]"
+        },
+        {
+          "zh": "Impett、Park与Muise的2024年评述认为，当时研究合起来未对“人人有一个主爱语”“正好五类”和“匹配更满意”三项核心假设提供强支持。[2] 这要求谨慎理解分类，不意味着每一种具体关心行动都没有价值，也不证明本站独立评分方法已经有效。",
+          "en": "Impett, Park and Muise’s 2024 review found that the research collectively did not strongly support three core assumptions: one primary language per person, exactly five categories, and greater satisfaction through matching.[2] That calls for care with classifications; it does not make every caring action valueless or validate this edition’s independent-rating method."
+        },
+        {
+          "zh": "2026年Impett的观点性评述进一步讨论，如何把大众关系框架转化为可检验的问题，并关注情境和文化差异。[3] 本页因此建议核对“对方此刻需要什么、实际收到什么”，而非仅给双方贴标签。这篇文章没有验证本站50题，也没有提供适用于本测试的配对公式。",
+          "en": "Impett’s 2026 perspective discusses using popular relationship frameworks to generate testable questions while attending to context and culture.[3] This page therefore encourages checking current needs and what was actually received, rather than labelling both people. That article neither validates these 50 items nor supplies a matching formula for this test."
+        }
+      ]
+    },
+    {
+      "id": "affection-evidence",
+      "title": {
+        "zh": "本版的证据范围：原创自评与测量验证",
+        "en": "Evidence for this edition: original self-reflection versus validation"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版尚未建立信度、结构效度、重测误差、常模或跨语言测量等值。中英文内容对应和公式可复算，分别说明语言覆盖与算法透明，不能代替这些研究。每侧5题、至少3条评分的设计也不能凭题数推断足够精确。",
+          "en": "Reliability, structural validity, retest error, norms and cross-language measurement equivalence have not been established for this edition. Corresponding Chinese and English content and reproducible arithmetic demonstrate language coverage and scoring transparency, not those forms of evidence. Five items per side and a three-rating minimum do not by themselves establish precision."
+        },
+        {
+          "zh": "自评结果记录你如何理解题目和自己当下重视什么，没有观察伴侣行为、日常互动或关系变化。它适合个人整理与自愿讨论，不评定爱的能力、关系健康或谁更投入。五种方式之外的需要，也可以直接提出，无需先落在某个分类里。",
+          "en": "Self-ratings record how you interpret the items and what matters to you now, without observing a partner’s behaviour, interactions or relationship change. They suit reflection and voluntary discussion, not grading capacity to love, relationship health or who contributes more. Needs outside these five categories can be stated directly without fitting a label."
+        }
+      ]
+    },
+    {
+      "id": "affection-conversation",
+      "title": {
+        "zh": "把结果转为一个清楚、可协商的请求",
+        "en": "Turning a result into one clear, negotiable request"
+      },
+      "paragraphs": [
+        {
+          "zh": "先选一条有具体经历支持的回答，而不必找最高分。例如：“你昨天记得问我的面试，对我很有意义。我希望周五回来后有十分钟，把结果告诉你；那个时间方便吗？”把情境、感受和可调整的行动说出来，再听对方的意愿与条件。",
+          "en": "Choose one answer supported by a real experience, rather than necessarily the highest mean. For example: “It mattered that you remembered my interview yesterday. Could I have ten minutes to tell you how it went when I get back on Friday? Would that time work?” Name the situation, its meaning and an adjustable action, then ask about willingness and circumstances."
+        },
+        {
+          "zh": "试过后再问：“这次安排对你怎样？需要换个时间或方式吗？”可以保留、调整或停止。这个小尝试不是治疗方案或效果承诺；无需让对方先测一遍、证明同一种爱语，或按自己的分数履行固定任务。",
+          "en": "After trying it, ask how the arrangement felt and whether a different time or approach would help. Keep, change or stop it. This small experiment is not treatment or a promise of improvement. The other person need not take the test, prove a matching language or perform a fixed task based on your scores."
+        }
+      ]
+    },
+    {
+      "id": "affection-context",
+      "title": {
+        "zh": "单身、异地与不同关系情境怎样作答",
+        "en": "Answering when single, apart or considering different relationships"
+      },
+      "paragraphs": [
+        {
+          "zh": "不必有伴侣才能作答，可以按当前对自己有意义的亲近互动来想象；没有合适经验或无法判断的题目可不计分，不需要编造经历。参照朋友、家人或伴侣时，应记住关系规则与可接受的接触可能不同，不把某段关系的回答当成对所有人的要求。",
+          "en": "Having a partner is not required. Consider close interactions that would feel meaningful now; use the unscored response where experience is absent or judgment is difficult. There is no need to invent a history. Boundaries and welcome contact may differ among friends, family and partners, so answers about one relationship do not prescribe what everyone should do."
+        },
+        {
+          "zh": "异地、时间不足、经济条件或感官舒适度，会限制某些行动是否方便，不等于那些行动毫无意义。先区分偏好与现实可行性，再商量可做的安排。重测时也先看参照情境、有效题数和具体回答变化；本站没有用均分变化判断感情升温、降温或固定偏好改变的阈值。",
+          "en": "Distance, limited time, finances or sensory comfort can constrain an action’s feasibility without making it meaningless. Distinguish preference from practicality before discussing arrangements. When retaking, check the reference situation, rated-item counts and specific answers first. No threshold here interprets changed means as growing or fading love or a changed permanent preference."
+        }
+      ]
+    },
+    {
+      "id": "affection-boundaries",
+      "title": {
+        "zh": "偏好与边界：关心需要双方都能选择",
+        "en": "Preferences and boundaries: care leaves room for choice"
+      },
+      "paragraphs": [
+        {
+          "zh": "想被怎样关心，可以作为请求，不能变成对他人身体、时间或金钱的索取权。礼物不规定预算，行动支持要先确认需要，陪伴允许暂停，自愿身体接触允许随时拒绝。即使某项评分最高，也不改变这些具体边界。",
+          "en": "A preferred form of care can become a request, not an entitlement to someone’s body, time or money. Gifts impose no budget, practical help calls for checking the need, shared time can pause and welcome touch can be declined. A highest rating does not change those boundaries."
+        },
+        {
+          "zh": "评分低同样不代表拒绝所有关心，或允许别人忽略尊重与约定。若一次行动没有被接收为关心，先问清原因，可能是时机、方式或实际需要不合适；不要用“我的爱语就是这样”取消对方的反馈。",
+          "en": "A low rating neither rejects all care nor permits disrespect or broken agreements. If an action is not received as care, ask why: timing, delivery or actual needs may differ. “That is my love language” does not override the other person’s feedback."
+        }
+      ]
+    },
+    {
+      "id": "affection-free",
+      "title": {
+        "zh": "完整结果、临时保存与分享",
+        "en": "Full results, temporary saving and sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "全部50题、十项评分情况与五份完整指南免费，无需注册，预计约10分钟且不限时。点击开始直接进入题目，不增加同意步骤。每题都需要作出选择，但可选不计分；即使十个部分全部资料不足，五份完整公开指南仍然可读。",
+          "en": "All 50 items, ten rating summaries and five complete guides are free without signup. Allow about ten minutes, without a time limit. Start opens the questions directly, with no additional agreement step. Each item needs a selection, but it can be unscored; all five public guides remain readable even if every part has insufficient information."
+        },
+        {
+          "zh": "答案在浏览器内计分，不经计分请求上传，也不写入网址或分析事件。默认不保存；主动临时保存后可在本标签页24小时内恢复，完成、重测或清除会删除草稿。分享仅包含测试名称和公开入口，不含答卷、均分或私人结果；想讨论分数时，由你自行选择说出哪些内容。",
+          "en": "Answers are scored in the browser, without uploading them through a scoring request or placing them in URLs or analytics events. Saving is off by default. Optional temporary saving allows restoration in this tab for 24 hours; completion, retaking or clearing deletes the draft. Sharing contains the test name and public entry only, not answers, means or private results. Choose for yourself which scores, if any, to discuss."
         }
       ]
     }
@@ -4167,62 +4301,122 @@
   "faq": [
     {
       "question": {
-        "zh": "怎样知道我的爱的语言？",
-        "en": "How can I explore my love language?"
+        "zh": "五种爱的语言分别是什么？",
+        "en": "What are the five love languages?"
       },
       "answer": {
-        "zh": "本版用五种方式各自的表达、接收情境帮助观察偏好，不给唯一固定身份。答完50条自评可看十项均分或资料不足状态，并直接阅读五份完整说明；下一步可以围绕具体例子与对方沟通。",
-        "en": "This edition explores giving and receiving situations across five ways of caring without assigning one permanent identity. Complete 50 ratings to see ten means or insufficient-information states and all five full guides, then discuss concrete examples if useful."
+        "zh": "本版围绕肯定言语、行动支持、心意礼物、专注陪伴和自愿身体接触，分别讨论表达与接收关心时的意义。五种是本页采用的分类，不表示所有人的需要只能归入这五类；具体例子见完整指南。",
+        "en": "This edition explores words, practical help, thoughtful gifts, attentive time and welcome physical touch separately for giving and receiving care. These are the categories used here, not a claim that everyone’s needs fit only five groups. The full guides provide concrete examples."
       }
     },
     {
       "question": {
-        "zh": "这是官方五种爱的语言测验或标准量表吗？",
-        "en": "Is this the official Five Love Languages quiz or a standard scale?"
+        "zh": "怎样知道我的爱语？为什么结果没有主副型？",
+        "en": "How can I explore my love language, and why is there no primary or secondary type?"
       },
       "answer": {
-        "zh": "不是。本版题目、计分与解释由费马独立编写，没有本站信效度、常模或配对验证，不使用官方题库或LLPP，也不代表与原作者或品牌合作。概念及研究来源在下方列出。",
-        "en": "No. FermatMind independently authored the items, scoring and explanations. Website validity, norms and compatibility have not been established. It uses neither the official item bank nor the LLPP and implies no affiliation with the author or brand. Concept and research sources are listed below."
+        "zh": "通过十项独立评分，观察哪些表达与接收情境对你有意义，再用实际例子核对。你可以同时重视多种方式，本版不强制选主爱语或副爱语；最高均分也不被定义为固定身份。",
+        "en": "Use ten independent rating summaries to identify meaningful giving and receiving situations, then check them against real examples. Several ways can matter together. This edition assigns neither primary nor secondary types and does not define a highest mean as a permanent identity."
       }
     },
     {
       "question": {
-        "zh": "为什么不选出我的主爱语和副爱语？",
-        "en": "Why is no primary or secondary love language chosen?"
+        "zh": "这是官方五种爱的语言测验或LLPP吗？",
+        "en": "Is this the official Five Love Languages quiz or the LLPP?"
       },
       "answer": {
-        "zh": "本题独立评价每种方式，允许五种都重要。强制排名会丢掉这种信息。均分不代表爱得多少、人格比例、人群名次或与谁匹配；表达和接收也不相减为实际付出差距。",
-        "en": "Independent ratings allow all five ways to matter. A forced ranking would discard that information. Means do not measure how much someone loves, personality proportions, population ranks or compatibility. Giving and receiving are not subtracted into an actual effort gap."
+        "zh": "不是。本站原创50条自评、计分和解释，使用五种方式作为讨论词汇，不使用官方题库或LLPP，不代表与原作者或品牌合作。不同网站的分数也不能直接互换。",
+        "en": "No. These 50 ratings, scoring rules and explanations are independently authored. The categories provide discussion vocabulary without using the official item bank or LLPP or implying affiliation. Scores from different websites are not interchangeable."
       }
     },
     {
       "question": {
-        "zh": "不适用、无法判断和低评分怎样处理？",
-        "en": "How are unsure responses and low ratings handled?"
+        "zh": "表达和接收有什么区别？",
+        "en": "How do giving and receiving differ?"
       },
       "answer": {
-        "zh": "低评分1是有效的意义感回答；暂不作答或无法判断完全不计分。单侧5题至少3条评分才显示均分，少于3条明确显示资料不足，不用0或中间值填补。所有50条都需要选择后才呈现个人汇总。",
-        "en": "A rating of 1 is a valid meaningfulness response. Unsure or unscored responses are excluded entirely. Each five-item side needs at least three ratings for a mean; otherwise it explicitly shows insufficient information, without zero or midpoint replacement. Personal summaries require a selection for every item."
+        "zh": "表达侧是你以某种方式关心别人时的意义感，接收侧是别人这样对待你时的意义感。二者不一定相同，也不是实际付出与实际获得的测量，不能相减为关系亏欠。",
+        "en": "Giving concerns how meaningful offering a form of care feels; receiving concerns how meaningful receiving it feels. They need not be the same. Neither measures actual contributions or benefits, so subtracting them does not establish a relationship debt."
       }
     },
     {
       "question": {
-        "zh": "身体接触分数会说明性取向、依恋或同意吗？",
-        "en": "Does a touch rating establish sexuality, attachment or consent?"
+        "zh": "十项均分怎样算？",
+        "en": "How are the ten means calculated?"
       },
       "answer": {
-        "zh": "不会。题目只讨论双方愿意的日常非性接触，不推断性取向、依恋、经历、健康或亲密能力。任何结果都不能代替当下明确的共同意愿，拒绝或改变主意无需用分数解释。",
-        "en": "No. Items concern welcome everyday nonsexual contact, without inferences about sexuality, attachment, history, health or intimacy skills. No result replaces mutual willingness in the moment. Declining or changing one’s mind needs no explanation through a score."
+        "zh": "每侧5题，1—5直接计分，没有反向题；至少3条有效评分时，用有效总和除以有效题数，保留一位小数。例如4、5、3和两条不计分项，得到12÷3＝4.0。各侧分别计算，不合成总分。",
+        "en": "Each side has five items scored directly from 1 to 5, without reversed items. With at least three numeric ratings, divide their sum by their count and round to one decimal. For 4, 5, 3 and two unscored responses, 12 ÷ 3 gives 4.0. Each side is calculated separately, without a grand total."
       }
     },
     {
       "question": {
-        "zh": "完整结果免费吗，保存和分享带哪些内容？",
-        "en": "Are full results free, and what do saving and sharing contain?"
+        "zh": "不计分和低评分有什么不同？",
+        "en": "How does an unscored response differ from a low rating?"
       },
       "answer": {
-        "zh": "全部50题、十项评分情况和五份完整说明免费，无需注册。保存为可选的本标签页24小时草稿，完成、重测或清除即删除。分享只有测试名称与公开入口，不含答卷、均分、角色差值或内部ID；存储或复制受限仍可作答。",
-        "en": "All 50 items, ten rating summaries and five full guides are free without signup. Saving is an optional 24-hour tab draft cleared on completion, retake or clearing. Sharing contains the test name and public entry only, without answers, means, role differences or internal IDs. Blocked storage or copying still permits an attempt."
+        "zh": "1是有效低评分；无法判断或暂不作答不进计分分子、分母，不补成0或中间值。某侧不足3条有效评分时显示资料不足，而不是低分。50题都作出选择后才显示个人汇总。",
+        "en": "A 1 is a valid low rating. Unsure or skipped responses enter neither numerator nor denominator and are not replaced by zero or a midpoint. Fewer than three numeric ratings produce insufficient information, not a low score. Personal summaries require a selection for all 50 items."
+      }
+    },
+    {
+      "question": {
+        "zh": "五种都重要、或者分数很接近怎么办？",
+        "en": "What if all five matter, or the means are close?"
+      },
+      "answer": {
+        "zh": "独立自评允许五种都重要，不需要把它们强排先后。相同均分就保持相同，接近分数没有已验证的显著差异阈值；结合具体题目与有效题数理解，比只记一个最高标签更合适。",
+        "en": "Independent ratings allow all five to matter without a forced order. Equal means remain equal and nearby means have no validated significance threshold. Read specific items and rated-item counts instead of retaining only a highest label."
+      }
+    },
+    {
+      "question": {
+        "zh": "爱的语言测试科学吗、准吗？",
+        "en": "Is this love language test scientifically validated?"
+      },
+      "answer": {
+        "zh": "本站原创题本尚未建立信度、效度、常模和跨语言测量等值。研究引用用于说明概念与证据范围，不能验证本题。可复算计分让过程透明，但“描述像我”也不足以证明测量准确。",
+        "en": "Reliability, validity, norms and cross-language measurement equivalence have not been established for these original items. Citations explain concepts and evidence scope; they do not validate this questionnaire. Reproducible scoring is transparent, but a recognisable description alone does not establish measurement accuracy."
+      }
+    },
+    {
+      "question": {
+        "zh": "适合情侣一起做吗？相同爱语就更匹配吗？",
+        "en": "Can couples take it together, and do matching languages mean compatibility?"
+      },
+      "answer": {
+        "zh": "双方可自愿分别作答，再讨论具体需要与可行行动，不代替对方评分。本版不计算匹配率，不据相同或不同均分判断关系前景；一次沟通是否有帮助，需要看实际行动与双方反馈。",
+        "en": "Each person may answer voluntarily and discuss specific needs and feasible actions, without rating the other person. No compatibility rate or relationship forecast is calculated from similar or different means. Whether a conversation helps depends on actions and feedback from both people."
+      }
+    },
+    {
+      "question": {
+        "zh": "单身或没有相关经验也能做吗？",
+        "en": "Can I answer when single or without relevant experience?"
+      },
+      "answer": {
+        "zh": "可以考虑目前对自己有意义的亲近互动，没有经验或无法判断时选不计分项，不需要编造经历。某段关系中的偏好不自动适用于另一人；完整指南也可以不作答就先阅读。",
+        "en": "Consider close interactions that would feel meaningful now. Use the unscored option when experience is absent or judgment is difficult, without inventing a history. Preferences in one relationship do not automatically apply to another person. The full guides can also be read before answering."
+      }
+    },
+    {
+      "question": {
+        "zh": "身体接触评分高，代表同意接触或性偏好吗？",
+        "en": "Does a high touch rating establish consent or sexual preferences?"
+      },
+      "answer": {
+        "zh": "不代表。题目只讨论当下双方愿意的日常非性接触，不推断性欲、性取向、依恋或亲密能力。任何分数都不能代替当下意愿；拒绝、暂停或改变主意无需用分数证明。",
+        "en": "No. Items concern mutually welcome everyday nonsexual contact, not sexual desire, sexuality, attachment or intimacy skill. No score replaces current willingness. Declining, pausing or changing one’s mind needs no justification through a score."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整结果免费吗？会保存或分享我的分数吗？",
+        "en": "Are full results free, and are my scores saved or shared?"
+      },
+      "answer": {
+        "zh": "全部50题、十项汇总和五份指南免费，无需注册，约10分钟。默认不保存答案，主动临时保存仅限本标签页24小时草稿，完成、重测或清除即删除。分享只带公开测试入口，不含答案或均分。",
+        "en": "All 50 items, ten summaries and five guides are free without signup, taking about ten minutes. Answers are not saved by default; optional saving creates a 24-hour tab draft, deleted on completion, retaking or clearing. Sharing includes only the public test entry, without answers or means."
       }
     }
   ]

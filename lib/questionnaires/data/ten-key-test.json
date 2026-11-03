@@ -10,12 +10,12 @@
     "zh": "10-Key 测试"
   },
   "seoTitle": {
-    "en": "10-Key Test: Free 60-Second Number Entry & KPH",
-    "zh": "10-Key 测试：免费60秒数字录入、KPH与准确率"
+    "zh": "10-Key测试：免费60秒数字录入、KPH与准确率",
+    "en": "10-Key Test: Free 60-Second Number Entry, KPH & Accuracy"
   },
   "description": {
-    "en": "Choose whole numbers, decimals or leading-zero codes for a real 60-second number-entry round. See confirmed-equivalent KPH, exact-entry KPH, entry errors, character accuracy and every copied row. All three complete practice guides are free.",
-    "zh": "选择整数、小数或前导零编号，真实计时60秒录入数字。查看确认等价KPH、完全正确条目KPH、条目错误率、逐位准确率和每条核对。三份完整练习指南均免费。"
+    "zh": "用整数、小数与前导零编号练习数字录入。每轮60秒，查看两种KPH、条目错误率、逐位准确率与逐条核对；三种模式的完整复习指南免费开放。",
+    "en": "Practise number entry with whole numbers, decimals and leading-zero codes. Each 60-second round reports two KPH measures, entry errors, positional character accuracy and a row-by-row review. All three complete revision guides are free."
   },
   "minutes": 2,
   "resultHeading": {
@@ -27,8 +27,8 @@
     "zh": "选择三种原创合成列表之一。开始后，每次抄录一个所示值，用Enter或按钮确认。小数点和前导零须与源文本完全一致。确认前可编辑，空白确认算错误条目。粘贴和拖入文本被阻止，须先结束输入法组合再确认。只计60秒截止前已确认文本，未完成尾串排除。隐藏页面或检测到时钟偏差会取消并清空本轮，刷新不恢复计时作答。"
   },
   "introduction": {
-    "en": "Practise copying numbers with real input rather than multiple-choice preferences. Pick a whole-number, decimal or leading-zero reference list; each offers 240 fixed, independently constructed synthetic values. One attempt is one uninterrupted 60-second round in your chosen mode. All three full guides are available before and after practising, with worked examples and explicit units. The exercise does not assign a personality, a hiring grade or a certified keypad speed.",
-    "zh": "通过真实输入练数字抄录，不用选择偏好代替技能任务。整数、小数、前导零编号各有240个固定、独立构造的合成值。一次练习是在所选模式里完成一段未中断的60秒回合。三份完整指南在练习前后都能读，提供算例和明确单位，不派人格、招聘等级或认证小键盘速度。"
+    "zh": "10-Key通常指数字小键盘录入；本页用真实文本输入练习数字抄录，并支持主键盘数字行及兼容输入设备。三个模式各有240个固定原创合成值：整数练数字顺序，小数练小数点与两位尾数，编号练前导零和字符位置。每轮选择一种模式，连续计时60秒。结果保留已确认的源值、输入值与差异，帮助复盘速度、完整性和准确性；三份完整指南在开始前后均可阅读。",
+    "en": "10-key commonly refers to numeric-keypad entry. This exercise uses actual text input to practise number transcription and also accepts the number row and compatible input devices. Three modes each contain 240 fixed original synthetic values: whole numbers for digit order, decimals for points and two-place endings, and reference codes for leading zeros and positions. Choose one mode for an uninterrupted 60-second round. Results retain each confirmed source, entry and difference for reviewing throughput, completeness and accuracy. All three full guides are available before and after practising."
   },
   "tenKey": {
     "durationSeconds": 60,

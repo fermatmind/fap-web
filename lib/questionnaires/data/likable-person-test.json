@@ -15,20 +15,20 @@
   },
   "seoTitle": {
     "zh": "讨人喜欢测试：20题互动选择与31种完整结果",
-    "en": "Likable Person Test: 20 Questions, Full Interaction Guides"
+    "en": "Likable Person Test: 20 Interaction Choices and 31 Full Guides"
   },
   "description": {
-    "zh": "用20道自有情境二选一观察温暖、兑现、轻松、好奇与边界的相对侧重。免费阅读31种完整单项或并列结果，含对话、反例和取舍；无需注册，不测真实好感或社交能力。",
-    "en": "Explore five interaction approaches with 20 paired choices and all 31 full result guides. Free, no signup, with examples and ties; no popularity or ability score."
+    "zh": "通过20道原创情境二选一，探索温暖、兑现、轻松、好奇与边界的相对侧重。约5分钟，免费查看五项计数、全部最高并列与31种完整指南；无需注册。",
+    "en": "Explore warmth, follow-through, lightness, curiosity and boundaries in 20 original paired choices. Free counts, all leading ties and 31 full guides. About five minutes, no signup."
   },
   "minutes": 5,
   "introduction": {
-    "zh": "你在互动里更常先留意感受、确认约定、带来轻松、继续了解，还是说清边界？这份“互动贡献线索测试”保留费马自有小程序的完整20题，回想近期普通交流，每题从两种描述里选更自然的一项。结果只整理本次自报选择，没有询问任何其他人，不能回答别人到底为什么喜欢你，也不要求为了被喜欢而改变自己。",
-    "en": "What do you tend to do first in an interaction: notice feelings, confirm an agreement, add lightness, explore further or clarify a boundary? Interaction Contribution Clues preserves all 20 items from FermatMind’s own mini-program. Think about recent ordinary conversations and choose the more natural description in each pair. The result organises your self-reported choices without asking anyone else why they like you or requiring you to change for approval."
+    "zh": "讨人喜欢测试从日常互动中的五种做法出发：留意感受、兑现约定、带来轻松、继续了解，以及表达真实立场与尊重边界。回答20道情境二选一，观察这次更常先选择哪些做法，免费阅读五项原始计数及对应的单项或全部最高并列解读。结果帮助你提出具体的沟通问题，例如先回应感受还是先确认安排；它没有向他人收集评价，因此不能证明别人为什么喜欢你，也不要求为了获得认可而改变自己。",
+    "en": "This Likable Person Test explores five everyday approaches: noticing feelings, following through, adding lightness, exploring further and expressing a position while respecting boundaries. In 20 paired scenarios, see which approaches you selected more often this time and read the five raw counts with the full single or tied result guide, free. Use the result for concrete conversation questions, such as whether to acknowledge feelings or confirm arrangements first. No ratings are collected from other people, so the result cannot establish why someone likes you or require changing yourself to earn approval."
   },
   "instructions": {
-    "zh": "请先了解五件事：互动贡献线索测试只记录自我报告，本测试没有询问任何其他人；结果只反映你本次更常选择的互动描述；结果不能证明别人喜欢你的真实原因；结果不能判断受欢迎程度、社交价值或人际能力；不建议为了获得喜欢而迎合、过度承诺或放弃边界。",
-    "en": "Please know five things first: Interaction Contribution Clues records only self-report and asks no one else; the result reflects the descriptions you selected more often in this attempt; it cannot prove why others like you; it cannot judge popularity, social value or interpersonal ability; and it does not recommend accommodating, overpromising or abandoning boundaries to gain approval."
+    "zh": "回想近期普通交流、共同活动或协作中的自己，每题选通常更自然或更先出现的一项。本版不规定固定月数；尽量保持同一类真实经历作为参照。两项都像时选更常先做的，两项都不像时选相对更贴近的；没有正确答案，也不按理想形象作答。完成全部20题后生成结果。请只回答自己，不替别人推测；不愿继续时可以退出。",
+    "en": "Think about yourself in recent ordinary conversations, shared activities or collaboration. Choose the response that usually comes more naturally or first. This form specifies no fixed-month recall period; keep a reasonably consistent real-life reference. If both fit, choose what tends to come first; if neither fits well, choose the relatively closer one. There are no correct answers, and an ideal self is not the reference. Complete all 20 items for a result. Answer for yourself rather than guessing for someone else, and leave whenever you prefer not to continue."
   },
   "source": {
     "kind": "FermatMind original LIKED_REASON mini-program; full original form, scoring and31guides adapted for web",
@@ -7076,122 +7076,195 @@
     {
       "id": "raw-wins-explanation",
       "title": {
-        "zh": "计数只属于本题组",
-        "en": "Counts belong to this question set"
+        "zh": "20题怎样计分？五项计数与固定总和",
+        "en": "How are 20 items scored? Five counts and a fixed total"
       },
       "paragraphs": [
         {
-          "zh": "每题从两个选项中选择更接近自己近期自然选择的一项，被选中的选项对应方向记 1 次原始次数。",
-          "en": "For each pair, choose the option closer to your recent natural response. Its direction receives one raw count."
+          "zh": "五种做法两两比较，每一对出现两次，共20题。每次选择给对应方向加1次；各方向参加8次比较，所以单项范围为0—8，五项总和始终为20。所有题目等权，不按回答速度、选项位置或先前结果加权，也不随机抽取结果。",
+          "en": "The five approaches are compared in pairs, with every pair appearing twice across 20 items. Each choice adds one count to its direction. Every direction appears eight times, giving a range of 0–8 and a fixed total of 20 across all five. Items have equal weight; speed, option position and earlier results add no weight, and outcomes are not randomly selected."
         },
         {
-          "zh": "每个方向参与 8 次比较，wins 是该方向对应选项被选择的次数。",
-          "en": "Each direction appears in eight comparisons. Its wins are the number of times its option was chosen."
-        },
-        {
-          "zh": "五个方向的 wins 总和固定为 20；由于总和固定，一个方向增多必然伴随其他方向减少。",
-          "en": "Wins across the five directions always total 20. Because this total is fixed, an increase for one direction necessarily accompanies a decrease elsewhere."
+          "zh": "例如按温暖、兑现、轻松、好奇、边界顺序得到8、3、3、3、3，表示本题组里温暖方向被选得最多。8不是超过了八成人，也不是80%的好感或8分社交能力。若同一题改选另一个选项，原方向减1、新方向加1；计数相互依赖，不能将它们当作五项独立能力测量。",
+          "en": "For counts of 8, 3, 3, 3 and 3 in warmth, follow-through, lightness, curiosity and boundaries order, warmth was selected most often in this set. Eight is not an 80th percentile, 80% liking or an ability score. Changing one answer subtracts one from its former direction and adds one elsewhere. Counts are interdependent, not five independent ability measurements."
         }
       ]
     },
     {
       "id": "ties-explanation",
       "title": {
-        "zh": "最高并列全部保留",
-        "en": "Every leading tie stays"
+        "zh": "为什么有31种结果？单项与所有最高并列",
+        "en": "Why are there 31 results? Single leaders and all leading ties"
       },
       "paragraphs": [
         {
-          "zh": "顶部并列会被原样保留，不强行打破，不指定唯一方向，不产生综合魅力人格。",
-          "en": "Every leading tie is preserved without forcing a winner or producing a combined charm personality."
+          "zh": "五个方向的非空组合共有31种：5种单项、10种双项、10种三项、5种四项和1种五项并列。系统保留所有达到同一最高计数的方向，不按字母、题号或卡片顺序破同分。组合只说明本次计数状态，不建立新的固定人格类型。",
+          "en": "Five directions have 31 nonempty combinations: five single leaders, ten two-way ties, ten three-way ties, five four-way ties and one five-way tie. Every direction sharing the highest count remains, without alphabetic, item-order or card-order tiebreaking. A combination describes this attempt’s counts rather than a new fixed personality type."
         },
         {
-          "zh": "5个方向的全部31种单项或并列都有完整解释。总计数不能还原任意一道具体答案；相同汇总也可能来自不同作答。没有额外破平局、近分阈值或固定人格。",
-          "en": "All 31 single or tied outcomes across five directions have full guides. Aggregate counts cannot reconstruct any particular answer; different attempts can produce the same totals. There is no extra tiebreaker, near-score threshold or fixed personality."
+          "zh": "例如6、6、4、2、2保留温暖与兑现并列；6、6、6、1、1保留前三项；5、5、5、5、0保留前四项；4、4、4、4、4是五项全部并列，不是数据缺失。接近但不相等的计数不会合并，也不设置“差1次就算同分”的阈值。不同作答可以产生相同总计数，结果名称不能还原全部答案。",
+          "en": "For example, 6, 6, 4, 2 and 2 retains warmth and follow-through; 6, 6, 6, 1 and 1 retains the first three; 5, 5, 5, 5 and 0 retains the first four. Counts of 4, 4, 4, 4 and 4 produce a five-way tie, not missing data. Close but unequal counts are not merged, and there is no one-count tie tolerance. Different answers can yield identical counts, so a result name cannot reconstruct every answer."
         }
       ]
     },
     {
       "id": "low-direction-explanation",
       "title": {
-        "zh": "少选方向怎样看",
-        "en": "Reading fewer choices"
+        "zh": "少选方向如何理解？比较取舍与测量范围",
+        "en": "How should fewer choices be read? Tradeoffs and scope"
       },
       "paragraphs": [
         {
-          "zh": "顶部方向不代表现实能力、稳定习惯或他人评价；较少被选方向不表示缺陷或社交不足。",
-          "en": "A leading direction does not establish actual ability, a stable habit or someone else's view. Less frequently chosen directions do not indicate deficits or social inadequacy."
+          "zh": "少选可能是因为另一种做法在这些配对里更符合你的优先顺序。例如在“及时更新进度”和“直接说明限制”之间选了前者，不能由此断言你缺乏边界。0次也只表示这8次比较里没有选择该方向，不证明现实中从未这样做。",
+          "en": "Fewer choices may mean a different approach better matched your priorities in these particular pairs. Choosing a timely progress update over explicitly stating a limit does not establish a lack of boundaries. Even zero means only that the approach was not selected in its eight comparisons, not that you never use it in life."
         },
         {
-          "zh": "不建议通过强化某些行为来获得更多喜欢，也不需要迎合、过度承诺、情绪劳动或压抑真实边界。",
-          "en": "The result does not recommend intensifying behaviours to gain approval, nor accommodation, overpromising, emotional labour or suppressing real boundaries."
+          "zh": "题组没有人群常模、准确率、魅力等级或“越高越好”的总分。五个方向的命名用于整理行为线索，不等同大五人格、情商、共情能力或社会认可。阅读时先核对实际选项，再找一件符合和一件不符合的近期经历。",
+          "en": "This set has no population norms, accuracy percentage, charm level or higher-is-better total. The five labels organise behaviour clues rather than Big Five traits, emotional intelligence, empathy ability or social approval. Check the actual options first, then identify one recent example that fits and one that does not."
         }
       ]
     },
     {
-      "id": "identity",
+      "id": "five-approaches",
       "title": {
-        "zh": "互动贡献线索的真实范围",
-        "en": "What Interaction Contribution Clues covers"
+        "zh": "五种互动做法分别在观察什么？",
+        "en": "What do the five interaction approaches describe?"
       },
       "paragraphs": [
         {
-          "zh": "互动贡献线索测试观察本次题组中更常选择的回应方式。正式结果使用本次互动选择侧重、自我报告的互动贡献线索、值得结合真实反馈继续核对的互动线索等表述。",
-          "en": "Interaction Contribution Clues observes the responses selected more often in this question set. Results describe this attempt's interaction emphasis, self-reported contribution clues and observations to check against actual feedback."
+          "zh": "温暖与留意他人关注情绪线索、是否有人未被听见以及适应空间；它可以表现为安静陪伴，不要求热情外向或猜中他人的内心。可靠与兑现约定关注任务范围、完成时间、进展与变化说明；及时承认做不到也可以是处理约定的一部分，不能把答应得越多当作越可靠。",
+          "en": "Warmth and noticing others concerns emotional cues, unheard contributions and room to settle in. It may involve quiet company, without requiring extroversion or mind-reading. Reliability and follow-through concerns scope, timing, progress and changes. Acknowledging a limit promptly can be part of managing an agreement; accepting more requests is not automatically more reliable."
         },
         {
-          "zh": "本次结果记录五组互动方式在 20 道强制选择中的相对侧重：温暖与留意他人、可靠与兑现约定、活力与轻松感、好奇与交流参与、真诚表达与尊重边界。",
-          "en": "This result records the relative emphasis of five approaches across 20 forced choices: warmth and noticing others, reliability and following through, energy and lightness, curiosity and taking part, and authentic expression and boundaries."
+          "zh": "活力与轻松感关注在拘谨、单调或小尴尬时带来轻松的倾向，而非幽默能力或必须让所有人开心。好奇与交流参与关注追问细节、了解依据和继续展开话题；提问不等于倾听，也需要留意对方是否愿意继续。",
+          "en": "Energy and lightness concerns bringing ease to reserved, repetitive or mildly awkward situations, rather than humour ability or a duty to keep everyone happy. Curiosity and taking part concerns exploring details, reasons and a topic further. Asking is not equivalent to listening and still requires attention to whether the other person wants to continue."
         },
         {
-          "zh": "本测试只有用户自评，没有同伴报告、伴侣报告、朋友评价、行为观察或社交结果数据。",
-          "en": "This test contains only self-report, without peer reports, partner reports, friend ratings, behavioural observations or social-outcome data."
+          "zh": "真诚表达与尊重边界关注说明立场、拒绝、限制与允许暂停，也包括尊重他人不说的选择。它既不要求暴露私人经历，也不意味着用“我很真实”替不顾影响的表达辩护。五种做法都需要放回对方意愿、场景和可用余量中理解。",
+          "en": "Authentic expression and boundaries concerns positions, refusals, limits and pauses, including another person’s choice not to speak. It requires neither private disclosure nor using authenticity to excuse disregarding impact. Understand all five approaches alongside the other person’s wishes, the setting and available capacity."
+        }
+      ]
+    },
+    {
+      "id": "same-event",
+      "title": {
+        "zh": "同一个场景，五种入口与实际取舍",
+        "en": "One situation, five approaches and actual tradeoffs"
+      },
+      "paragraphs": [
+        {
+          "zh": "例如朋友说共同活动让自己疲惫，你可以先回应“听起来你已经撑了很久”，核对约定“我们还需要完成哪些部分”，提议轻松一下，询问“最累的是哪一段”，或说明“我也需要暂停，我们约个时间再谈”。这些都是不同入口，不能从单句就判断哪种必然最讨喜。",
+          "en": "If a friend says a shared activity is exhausting, you might acknowledge their effort, clarify what remains agreed, suggest a lighter moment, ask which part is hardest or say that you also need a pause and arrange a time to return. These are different starting points; a single sentence cannot identify which must be most likeable."
         },
         {
-          "zh": "本测试没有询问任何其他人，不能确定任何人喜欢用户的真实原因；如果要确定他人真实看法，需要独立的他人反馈或行为证据，当前测试没有这些数据。",
-          "en": "This test asks no one else and cannot determine why anyone likes you. Establishing another person's actual view would require independent feedback or behavioural evidence, which this test does not contain."
+          "zh": "更有用的核对是：对方想要倾听、信息还是行动？现在是否有时间继续？是否需要先处理紧急约定？一次互动可以依次使用多种做法，但本题二选一只记录相对选择，不能代表完整沟通过程。",
+          "en": "More useful checks are whether the person wants listening, information or action, whether there is time to continue and whether an urgent agreement needs attention first. One interaction may use several approaches in sequence, while a paired item records only a relative choice, not the whole conversation."
+        }
+      ]
+    },
+    {
+      "id": "research",
+      "title": {
+        "zh": "研究中的好感、他评量表与本站自报",
+        "en": "Liking research, observer ratings and this self-report"
+      },
+      "paragraphs": [
+        {
+          "zh": "Reysen作者公开的量表以11条关于目标人物的评价测量被感知的好感，涉及友善、可接近性和交往意愿等。本站20道自报二选一没有施测该量表，不将其改成“我很讨喜”后借用原研究效度，也不能凭自己的选择推算他人评价。[1]",
+          "en": "Reysen’s published author-hosted scale uses eleven ratings of a target person to measure perceived likability, including friendliness, approachability and willingness to interact. These twenty self-reported paired choices do not administer that scale or borrow its validity by turning observer statements into self-ratings. Your own choices cannot calculate someone else’s evaluation.[1]"
+        },
+        {
+          "zh": "Huang等2017年研究讨论了实时双人交流中提问与好感的关系。2019年评论及作者回应对速配研究的分析和解释有分歧；2025年更正通报了部分结果报告中的小错误，并称审计后实质结论维持不变。本页核对的是正式摘要与更正记录，不据此宣称提问越多越好，或本站好奇方向越高就越受欢迎。[2][3][4][5]",
+          "en": "Huang and colleagues’ 2017 research examined question-asking and liking in live dyadic conversations. A 2019 critique and author reply disputed analyses and interpretations of the speed-dating study. A 2025 correction reported minor reporting errors and stated that an audit left substantive conclusions unchanged. This page checked formal abstracts and the correction record, not grounds for claiming that more questions are always better or that a higher curiosity count predicts approval.[2][3][4][5]"
+        },
+        {
+          "zh": "上述研究有助于区分观察对象与研究问题，但没有验证本站五方向、20题配对、计数差异或31种解释。本原创题本尚未完成信度、效度和常模验证；可复算的算法保证的是计算透明，不是心理测量质量或真实好感预测。",
+          "en": "Those sources help distinguish research questions and what is observed; they do not validate this form’s five directions, twenty pairs, count differences or thirty-one explanations. Reliability, validity and norms have not been established for this original form. Reproducible scoring provides transparency, not psychometric quality or a prediction of actual liking."
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": {
+        "zh": "情境、自我印象与复测变化",
+        "en": "Context, self-impressions and changes on retesting"
+      },
+      "paragraphs": [
+        {
+          "zh": "熟人交流、初次见面、文字消息和共同任务可能有不同的优先顺序。近期突出的事件、你如何理解题目以及想呈现怎样的自己，都可能影响选择。尽量回到具体经历，而不是以“别人应该喜欢怎样的人”决定答案。",
+          "en": "Familiar conversations, first meetings, written messages and shared tasks may involve different priorities. Memorable events, your interpretation of wording and your preferred self-image may influence choices. Use actual experience rather than deciding what kind of person others ought to like."
+        },
+        {
+          "zh": "复测时先比较版本、参照情境和改变的题目，再看计数和最高集合。接近最高值时，改一题就可能改变结果名称；五项计数总和固定，不能把某项上升解释成整个人更讨喜。本题本没有重测误差或重要变化阈值，不能计算改善百分比。",
+          "en": "On a retest, compare version, reference setting and changed items before counts and leading sets. Near the top, one changed answer can alter the result name. With a fixed total, an increase cannot establish that you became more likeable overall. There are no retest-error estimates or meaningful-change thresholds for computing percentage improvement."
+        }
+      ]
+    },
+    {
+      "id": "boundaries-and-counterexamples",
+      "title": {
+        "zh": "善意、外向与讨好：需要保留的区别",
+        "en": "Goodwill, extroversion and people pleasing: distinctions to retain"
+      },
+      "paragraphs": [
+        {
+          "zh": "安静听完不一定缺少活力，及时拒绝不等于不温暖，想独处不等于不愿关心别人。持续微笑、眼神接触、回复速度和社交次数都不是本站好感标准。表达方式与可用精力不同，不应因此被排成更值得交往或更有价值的人。",
+          "en": "Quiet listening does not establish a lack of energy; a timely refusal is not an absence of warmth, and wanting solitude is not an absence of care. Constant smiling, eye contact, reply speed and social frequency are not liking standards here. Differences in expression or energy do not rank who deserves connection or has greater value."
+        },
+        {
+          "zh": "为了获得认可而过度承诺、压下不同意见或越过私人边界，不是本测试的目标。相反，开玩笑时发现对方不自在可以停下，追问前可以先问是否愿意分享，约定受影响时可以尽早说明。这些行动由具体需要决定，不由结果卡要求你扮演某种角色。",
+          "en": "Overcommitting, suppressing disagreement or crossing private boundaries to earn approval is not the goal. You can stop a joke when someone is uncomfortable, ask permission before further questions and give early notice when an agreement changes. Specific needs guide those actions rather than a result card requiring you to perform a role."
+        }
+      ]
+    },
+    {
+      "id": "practical-use",
+      "title": {
+        "zh": "怎样把结果变成一次可核对的沟通？",
+        "en": "How can a result become one checkable conversation?"
+      },
+      "paragraphs": [
+        {
+          "zh": "选一个近期场景，写下自己先做了什么、对方明确表达了什么，以及还有哪些信息不知道。例如：“我先核对了截止时间，却没有问你想不想先谈困难。下次我先确认你希望我听听还是一起安排。”这是调整一次互动的尝试，不是承诺以后一定更被喜欢。",
+          "en": "Choose a recent situation and note your first action, what the other person explicitly expressed and what remains unknown. For example: “I checked the deadline first without asking whether you wanted to talk about the difficulty. Next time I will ask whether you want me to listen or plan with you.” This experiments with one interaction rather than promising greater approval."
+        },
+        {
+          "zh": "如果双方都愿意，可以请对方就这一件事给具体反馈，并保留不同理解；不需要让对方替你完成问卷、证明你的分数或给你的人格打分。事后核对约定是否兑现、选择空间是否保留，比追求更漂亮的结果名称更可操作。",
+          "en": "If both people are willing, ask for feedback on that one event while allowing different interpretations. They do not need to answer the quiz for you, confirm a score or rate your personality. Afterwards, check whether an agreement was followed and room for choice was preserved rather than pursuing a more flattering result name."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "适用用途与不能推出的结论",
+        "en": "Appropriate uses and conclusions the result cannot establish"
+      },
+      "paragraphs": [
+        {
+          "zh": "本页用于娱乐与自我探索，整理近期互动选择，并提供讨论行为的词汇。它不测受欢迎程度、真实吸引力、交友数量、社交能力、人格障碍或情绪健康，也不用于招聘录用、伴侣适配或关系成败预测。遇到持续困扰时，应说明实际经历与影响，而不是用这个结果代替个体化专业评估。",
+          "en": "This page is for entertainment and self-exploration: organising recent interaction choices and supplying language for discussing behaviour. It does not measure popularity, actual attraction, friend counts, social ability, personality disorders or emotional health, and is not for recruitment, partner matching or relationship prediction. For persistent distress, describe real experiences and their effects rather than using the result as an individual professional assessment."
+        },
+        {
+          "zh": "所有31种完整说明都可以先读，包括行为例子、对话、反例、情境取舍与计分解释。它们是公开阅读指南，不是当前访客已经作答的私人报告；预先阅读不会修改题目或计分。只看某一个最高名称会丢掉其他计数与具体答案所提供的细节。",
+          "en": "All thirty-one full guides can be read first, including behaviour examples, dialogue, counterexamples, contextual tradeoffs and scoring explanations. They are public guides, not evidence that the current visitor has submitted private answers. Reading them does not change questions or scoring. Looking only at one leading label loses detail from the other counts and specific answers."
         }
       ]
     },
     {
       "id": "privacy",
       "title": {
-        "zh": "网站草稿与分享",
-        "en": "Website drafts and sharing"
+        "zh": "直接开始、完整免费与可选草稿",
+        "en": "Direct start, full free access and optional drafts"
       },
       "paragraphs": [
         {
-          "zh": "答案在浏览器内计算，不上传答卷，不进入网址或分析事件。只有主动选择后才在当前标签页保存草稿，24小时失效，完成、退出清除或重测即删除。这里不保存小程序的最终结果缓存；公开说明不含个人答案、次数或身份。复制分享只带公开说明或入口，可选择不分享。",
-          "en": "Answers are calculated in your browser, without uploading an answer sheet or placing answers in URLs or analytics. Only opt-in drafts are saved in the current tab, expire after 24 hours and clear on completion, exit-and-clear or retake. This website does not retain the mini-program’s final-result cache. Public guides contain no personal answers, counts or identity. Optional sharing includes only a public guide or entry."
-        }
-      ]
-    },
-    {
-      "id": "source",
-      "title": {
-        "zh": "版本与解释边界",
-        "en": "Edition and interpretation limits"
-      },
-      "paragraphs": [
-        {
-          "zh": "本版实质使用费马小程序LIKED_REASON的完整20题、五方向计分和31份结果素材，正式来源名为“互动贡献线索测试”。保留原中文题目、题号、方向、配对、加1计数及全部并列，新增独立英文适配与对话、反例、比较和网页SEO；网页存储按实际功能调整。它是自建预览框架，尚未完成心理测量或英中文等价验证。",
-          "en": "This edition uses FermatMind’s complete LIKED_REASON mini-program material: 20 items, five-direction scoring and 31 result guides, formally named Interaction Contribution Clues. Original Chinese items, IDs, directions, pairs, one-count scoring and ties are preserved. English adaptation, original dialogues, counterexamples, comparisons and web SEO are added; storage descriptions follow the actual website. It remains an original preview framework without psychometric or English–Chinese equivalence validation."
+          "zh": "点击开始测试直接进入题目，不要求额外勾选同意。20题、五项计数、全部最高并列和完整结果均免费，无需注册。预计5分钟只是时间参考，不计时；每题需选择一项，未完成时不会生成结果。",
+          "en": "Start test opens questions directly without an additional agreement checkbox. All twenty items, five counts, every leading tie and complete results are free without signup. The five-minute estimate is a guide, not a timer. Every item requires one choice; an incomplete attempt does not produce a result."
         },
         {
-          "zh": "“讨人喜欢测试”用于找到这份自我探索入口。这里不使用JobCannon的14题四风格、IDRlabs的35题七类题库或Reysen的11题他评量表；这些对象不能与本版换算。没有同伴评价、观察数据、认证或研究者背书。",
-          "en": "“Likable Person Test” identifies this self-reflection entry. It does not use JobCannon’s 14-item four-style model, IDRlabs’ 35-item seven-trait bank or Reysen’s 11-item target-rating scale, and results cannot be converted between them. This edition contains no peer ratings, observed-outcome data, certification or researcher endorsement."
-        },
-        {
-          "zh": "本测试未完成心理测量验证，不能当作诊断、评估或社交建议依据；现有题目本身不能作为效度证据。",
-          "en": "This test has not completed psychometric validation and cannot support diagnosis, assessment or social advice. The presence of items is not evidence of validity."
-        },
-        {
-          "zh": "所有页面行动建议都可选择不做。不要把结果用于医疗、司法、招聘、学校或升学、安保、伴侣或关系筛选、关系去留等高风险事项；行动建议也不用于酒精、药物、赌博、自伤、进食障碍、危险行为或戒断管理。",
-          "en": "Every suggested action may be skipped. Do not use the result for medical, legal, hiring, education, admissions, security, partner or relationship screening, or decisions to stay or leave a relationship. Suggestions are not for managing alcohol, drugs, gambling, self-harm, eating disorders, dangerous behaviour or withdrawal."
-        },
-        {
-          "zh": "如果以后重新作答，应按当时能确认的状态选择；两次结果不同可能与对象、情境或自我理解变化有关，不能自动解释为你的社交方式已经改变。",
-          "en": "If you retake it, answer from what you can establish at that time. Differences may reflect the person, context or self-understanding and do not automatically show a change in your social approach."
+          "zh": "答案在当前浏览器计分，不随计分请求上传，不写入网址或分析事件。默认不保存，只有主动保存才提供本标签页24小时内恢复；完成、清除或重测即删除。分享只含公开入口，不含答案、计数或私人关系信息；不含答案的使用事件按网站Cookie设置处理。",
+          "en": "Answers are scored in the current browser, without uploading them for scoring or including them in URLs or analytics events. Saving is off by default; an explicitly saved tab draft can be restored within twenty-four hours and is deleted on completion, clearing or retake. Sharing contains the public entry, not answers, counts or relationship details. Answer-free usage events follow the site’s Cookie settings."
         }
       ]
     }
@@ -7199,43 +7272,160 @@
   "faq": [
     {
       "question": {
-        "zh": "能测出别人为什么喜欢我吗？",
-        "en": "Can this tell me why someone likes me?"
+        "zh": "讨人喜欢测试测什么？",
+        "en": "What does the Likable Person Test measure?"
       },
       "answer": {
-        "zh": "不能。本测试没有询问其他人，不计算好感度、人气、社交价值、魅力或能力。它只观察你在20次二选一里的相对选择，可结合真实情境继续核对；你不需要为获得好感而迎合、过度承诺或放弃边界。",
-        "en": "No. It asks no one else and calculates no approval, popularity, social value, charm or ability score. It observes relative choices across 20 pairs for reflection in context. You do not have to accommodate, overpromise or give up boundaries to gain approval."
+        "zh": "本页整理五类日常互动做法的相对选择：温暖、兑现、轻松、好奇与边界。20题二选一产生五项计数和单项或最高并列解读，不收集他人的实际评价。",
+        "en": "This page summarises relative choices among warmth, follow-through, lightness, curiosity and boundaries. Twenty paired items produce five counts and a single or tied guide, without collecting actual evaluations from other people."
       }
     },
     {
       "question": {
-        "zh": "为什么有31种结果，五项相同是什么意思？",
-        "en": "Why are there 31 results, and what does a five-way tie mean?"
+        "zh": "能告诉我别人为什么喜欢我吗？",
+        "en": "Can it tell me why other people like me?"
       },
       "answer": {
-        "zh": "五个方向各参与8次比较，选中加1，总和固定20。最高原始次数相同就保留完整并列，因此有5单项、10双项、10三项、5四项和1五项组合。五项相同时各4次，没有唯一顶部，不意味着完美平衡或万人迷。",
-        "en": "Each of five directions appears eight times, with one count for each selection and a fixed total of 20. Equal highest counts remain tied: five singles, ten pairs, ten triples, five four-way sets and one five-way set. A five-way tie gives four counts each, without a sole leader, perfect balance or universal popularity."
+        "zh": "不能。你选择的是自己的行为描述，并没有询问别人。实际好感还涉及具体关系与互动，不能由计数推断别人心里怎么想；可以在双方愿意时就一件具体事情交换反馈。",
+        "en": "No. You select descriptions of your own behaviour, without asking anyone else. Counts cannot establish what someone thinks within a particular relationship or interaction. If both people want to, discuss feedback about a specific event instead."
       }
     },
     {
       "question": {
-        "zh": "这与Reysen量表、IDRlabs或JobCannon一样吗？",
-        "en": "Is this the Reysen scale, IDRlabs or JobCannon test?"
+        "zh": "五个方向各代表什么？",
+        "en": "What do the five directions represent?"
       },
       "answer": {
-        "zh": "这是自有LIKED_REASON互动贡献线索题本。Reysen原量表由观察者评价一个目标人物；IDRlabs同名页和JobCannon分别采用不同题数与结果范围。本版不复制这些题库，不声称是其量表、临床评估或验证版本，也不做结果换算。",
-        "en": "This is the original LIKED_REASON Interaction Contribution Clues form. Reysen’s original scale rates a target person, while the named IDRlabs and JobCannon pages use different item counts and result scopes. This edition copies none of those banks and claims neither their scale nor a clinical or validated equivalent. Results are not convertible."
+        "zh": "温暖关注留意与回应；兑现关注范围、进度与约定；轻松关注缓和拘谨和带来活力；好奇关注继续了解与展开话题；边界关注真实立场、限制和允许暂停。它们不是五项独立能力或品质排名。",
+        "en": "Warmth concerns noticing and responding; follow-through concerns scope, progress and agreements; lightness concerns ease and energy; curiosity concerns exploring and extending topics; boundaries concern positions, limits and pauses. They are not five independent abilities or character rankings."
       }
     },
     {
       "question": {
-        "zh": "完整结果收费吗？草稿如何保存？",
-        "en": "Are full results free, and how do drafts work?"
+        "zh": "每题怎么计分，为什么总和是20？",
+        "en": "How is each item scored, and why does the total equal twenty?"
       },
       "answer": {
-        "zh": "20题与31种完整说明全部免费，无需邮箱、注册或先做其他测试。答案在浏览器计算，不上传；保存草稿需主动选择，仅限当前标签页、24小时内，完成、退出清除或重测即删除。分享可选，只包含公开说明或入口，不含答卷或个人计数。",
-        "en": "All 20 items and 31 full guides are free, without email, signup or another prerequisite test. Answers are calculated in the browser without uploading them. Draft saving requires opt-in, lasts up to 24 hours in the current tab and clears on completion, exit-and-clear or retake. Optional sharing contains only a public guide or entry, without answers or personal counts."
+        "zh": "每题只给选中的方向加1次，共20题。每个方向出现8次，所以单项0—8，五项总和20。改一题会让两个方向的计数此消彼长，这种相对计数不等于能力百分比。",
+        "en": "Each of twenty items adds one count to its chosen direction. Every direction appears eight times, so each ranges from zero to eight and all five total twenty. Changing one answer shifts a count between two directions; this relative count is not an ability percentage."
       }
+    },
+    {
+      "question": {
+        "zh": "为什么会有31种结果和五项并列？",
+        "en": "Why are there thirty-one results and a five-way tie?"
+      },
+      "answer": {
+        "zh": "五方向有31种非空最高集合。4、4、4、4、4表示五项同为最高；其他最高计数相同的方向也全部保留。不按题号、字母、选项位置或随机方式破同分。",
+        "en": "Five directions have thirty-one nonempty possible leading sets. Counts of four in every direction produce a five-way tie. All other equally highest directions also remain, without item-order, alphabetic, option-position or random tiebreaking."
+      }
+    },
+    {
+      "question": {
+        "zh": "少选一个方向是不是缺点？",
+        "en": "Is choosing a direction less often a weakness?"
+      },
+      "answer": {
+        "zh": "不一定。每题必须在两种做法间取舍，少选只说明它在这组配对里相对较少。即使0次也不表示现实中从不使用；应核对具体条目与真实经历。",
+        "en": "Not necessarily. Every item requires a tradeoff between two approaches, so fewer choices mean less selection within these particular pairs. Even zero does not establish that you never use an approach. Check specific options against real events."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是Reysen好感量表吗，有验证吗？",
+        "en": "Is this the Reysen Likability Scale, and is it validated?"
+      },
+      "answer": {
+        "zh": "不是。Reysen作者公开的11条量表用于评价目标人物的被感知好感；本站为20道原创自报二选一，未建立自己的信度、效度或常模，不能直接借用其他量表的验证结论。[1]",
+        "en": "No. Reysen’s author-hosted eleven-item scale rates perceived likability of a target person. This form uses twenty original self-reported pairs and has not established its own reliability, validity or norms; another scale’s validation does not transfer.[1]"
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样区分好奇、倾听和让人喜欢？",
+        "en": "How do curiosity, listening and being liked differ?"
+      },
+      "answer": {
+        "zh": "好奇是本题组中较多选择继续了解；倾听还涉及理解和回应，实际好感则需要对方的评价。提问研究及其评论、回应和更正不能证明本站计数能预测好感，也不能要求不断追问私人信息。[2][3][4][5]",
+        "en": "Curiosity means relatively more choices about exploring further here. Listening also involves understanding and responding; actual liking requires the other person’s evaluation. Question-asking research, critiques, replies and corrections do not validate these counts as predictions or justify persistent private questioning.[2][3][4][5]"
+      }
+    },
+    {
+      "question": {
+        "zh": "需要变外向、讲笑话或讨好别人吗？",
+        "en": "Must I become outgoing, tell jokes or please people?"
+      },
+      "answer": {
+        "zh": "不需要。安静陪伴、表达分歧和及时拒绝都可以出现在有尊重的互动中。结果不要求持续开心、额外承诺、公开隐私或放弃边界来换取认可。",
+        "en": "No. Quiet company, disagreement and a timely refusal can all occur in respectful interactions. A result does not require constant cheerfulness, extra commitments, disclosure or abandoning boundaries to gain approval."
+      }
+    },
+    {
+      "question": {
+        "zh": "测试多久，全部结果免费吗？",
+        "en": "How long does it take, and are all results free?"
+      },
+      "answer": {
+        "zh": "约5分钟，不计时；全部20题、五项原始计数和31种完整指南均免费，无需注册。点击开始直接进入题目，没有额外同意复选框。",
+        "en": "Allow about five minutes without a timer. All twenty items, five raw counts and thirty-one complete guides are free, without signup. Start opens questions directly, without an extra agreement checkbox."
+      }
+    },
+    {
+      "question": {
+        "zh": "复测结果变了说明更讨喜了吗？",
+        "en": "Does a changed result mean I became more likeable?"
+      },
+      "answer": {
+        "zh": "不能这样推断。先比较参照情境和改变的选项；接近最高值时，一题就可能改变最高集合。本站没有好感常模或重测误差资料，不计算改善百分比。",
+        "en": "That cannot be inferred. Compare reference situations and changed options first; near the top, one answer may change the leading set. This form has no liking norms or retest-error estimates and does not calculate percentage improvement."
+      }
+    },
+    {
+      "question": {
+        "zh": "会保存或分享我的答案吗？",
+        "en": "Are my answers saved or shared?"
+      },
+      "answer": {
+        "zh": "默认不保存，答案在浏览器内计分。只有主动保存的本标签页草稿才可在24小时内恢复，完成、清除或重测即删除。分享只含公开入口；不含答案的使用事件依Cookie设置处理。",
+        "en": "Saving is off by default and answers are scored in the browser. Only an explicitly saved tab draft is restorable within twenty-four hours and it is deleted on completion, clearing or retake. Sharing contains only the public entry; answer-free usage events follow Cookie settings."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "Reysen（2005）：作者公开的好感量表、用途与条目",
+        "en": "Reysen (2005): author-hosted Likability Scale, purpose and items"
+      },
+      "url": "https://sites.google.com/site/stephenreysen/psychology-scales/likability-scale"
+    },
+    {
+      "title": {
+        "zh": "Huang等（2017）：提问与好感研究正式摘要",
+        "en": "Huang et al. (2017): question-asking and liking, formal abstract"
+      },
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28447835/"
+    },
+    {
+      "title": {
+        "zh": "Kluger与Malloy（2019）：双人行为分析评论摘要",
+        "en": "Kluger and Malloy (2019): dyadic-behaviour critique, abstract"
+      },
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31714108/"
+    },
+    {
+      "title": {
+        "zh": "Yeomans等（2019）：作者回应正式摘要",
+        "en": "Yeomans et al. (2019): author response, formal abstract"
+      },
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31714109/"
+    },
+    {
+      "title": {
+        "zh": "2025年更正：提问与好感研究报告更正记录",
+        "en": "2025 correction: reporting corrections to question-asking research"
+      },
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40111841/"
     }
   ]
 }

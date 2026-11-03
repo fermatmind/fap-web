@@ -15,21 +15,21 @@
     "en": "Your ten value readings and full guides"
   },
   "description": {
-    "zh": "用30条原创重要程度题探索Schwartz经典十类价值，分开原始均分与本次相对优先级，十份完整解释免费。非PVQ或SVS标准题本，不评道德、能力或职业。",
-    "en": "Explore ten Schwartz values with 30 original importance items, raw and relative scores and ten full free guides. Not a standard PVQ or SVS instrument."
+    "zh": "用30条原创重要程度题探索Schwartz经典十类价值，免费查看原始均分、相对优先级与十份完整指南。了解价值圆环与计分方法；非PVQ或SVS标准问卷。",
+    "en": "Explore ten classical Schwartz values through 30 original importance items. View raw means, relative priorities and ten full guides free, with scoring and the value circle explained. Not a standard PVQ or SVS."
   },
   "seoTitle": {
-    "zh": "价值观测试：Schwartz十类与完整结果解释",
-    "en": "Schwartz Values Test: Ten Values and Full Free Guides"
+    "zh": "Schwartz价值观测试：十类价值、相对优先级与完整解读",
+    "en": "Schwartz Values Test: Ten Values, Relative Priorities and Full Guides"
   },
   "minutes": 6,
   "introduction": {
-    "zh": "同样说某个目标“很重要”，它在你这次其他回答里的位置仍可能不同。本版30条原创题围绕Schwartz经典十类目标，询问对生活选择的重要程度，不问行为频率、能力或与人物的相似度。每类三条全部有效才显示原始均分，全部30条有效才显示整体均分与十项相对值；暂不作答明确保留不足。十份完整说明同时呈现，含九类对照、计分例子、普通情境和反例，不排唯一人格、职业或道德等级。",
-    "en": "Two people can rate a goal very important while placing it differently among their other responses. Thirty original items explore the importance of the ten classical Schwartz goals for life choices, rather than behaviour frequency, skill or portrait similarity. Each value needs all three ratings for a raw mean, and all 30 ratings are required for an overall mean and ten relative values. Unscored items retain explicit insufficient information. All ten full guides appear together with nine comparisons, worked examples, ordinary situations and counterexamples rather than a sole personality, career or moral ranking."
+    "zh": "Schwartz基本价值理论关注人们认为值得追求的生活目标，以及目标之间的优先关系。它描述十类动机不同的价值和一个相互关联的圆环结构；价值的重要性与实际行为、能力并不是同一问题。[1] 本页围绕经典十类编写30条直接重要程度题，每类三条。结果同时保留原始均分与本次个人整体均分下的相对值，并开放十份完整说明；不从十类中选一个来定义你，也不把这份原创题本称为PVQ或SVS标准工具。",
+    "en": "Schwartz’s theory of basic values concerns goals people consider worth pursuing and their relative priorities. It describes ten motivational values in an interconnected circle; valuing a goal is distinct from acting on it or being skilled at it.[1] This page offers 30 original direct-importance items, three per classical value. Results retain raw means alongside values relative to your overall ratings, with ten full guides available. No single category defines you, and this original questionnaire is not presented as a standard PVQ or SVS instrument."
   },
   "instructions": {
-    "zh": "请评估每句话中的目标作为自己生活选择原则的重要程度，1不重要至5极其重要；不是评估你做得多好、做过多少次，或与一个人物有多相似。可选暂不作答，不补零或中点。30条由费马原创，围绕经典Schwartz十类价值各3条，不是PVQ-21、PVQ40、PVQ-RR、SVS或它们的翻译。每类3条全部有效才显示该类均分；全部30条有效才显示个人整体均分及每类相对值（该类未舍入均分减30条整体均分）。相对值只在本次自己内部比较，零不等于不重视，负数不等于反对；任何一条暂不作答即不估计整体基线或相对值。全部十份完整说明一起呈现，不派唯一顶部、主副型、职业或道德结论。",
-    "en": "Rate how important each stated goal is as a principle for your life choices, from 1 Not important to 5 Extremely important. Do not rate skill, behavioural frequency or similarity to a portrait. Choose the unscored option when needed, without zero or midpoint substitution. FermatMind authored 30 items, three for each of the ten classical Schwartz values; this is no PVQ-21, PVQ40, PVQ-RR, SVS or translation of those banks. A value needs all three ratings for a mean. All 30 ratings are required for your overall mean and each relative value: its unrounded mean minus the overall mean across 30 items. Compare relative values within this attempt only. Zero does not mean unimportant and a negative value does not mean opposition. Any unscored item prevents the overall baseline and relative values. All ten full guides appear together without a sole top identity, primary/secondary type, career or moral verdict."
+    "zh": "把每句话中的目标当作自己生活选择的一项原则，评估它有多重要：1“不重要”至5“极其重要”。回答你实际重视什么，不是做得多好、发生多少次或别人希望你重视什么。可选“暂不作答／无法判断”，不需勉强评分。每类三条全部有效才有原始均分，30条全部有效才计算整体均分与相对值。开始按钮直接进入题目，完成后免费阅读全部十份指南。",
+    "en": "Rate each stated goal as a principle for your life choices, from 1 Not important to 5 Extremely important. Answer for what you value, rather than performance, frequency or what others want you to value. Use the unscored response if you cannot judge or prefer not to rate. Each value requires three valid ratings for its raw mean; all 30 ratings are needed for an overall mean and relative values. Start opens the items directly, with all ten full guides free after completion."
   },
   "source": {
     "kind": "FermatMind original directimportance reflection/classicSchwartz10conceptualbackground/notPVQ21-PVQ40-PVQRR-SVS-bank-key-ortranslation",
@@ -3561,52 +3561,187 @@
     {
       "id": "facet-scoring",
       "title": {
-        "zh": "怎样读原始均分与相对值",
-        "en": "Reading raw means and relative values"
+        "zh": "原始重要程度与相对值怎样计算",
+        "en": "Calculating raw importance and relative values"
       },
       "paragraphs": [
         {
-          "zh": "30条原创题按重要程度1—5评分，经典十类各3条，0条反向；暂不作答不进入分子或分母，不补成零或中点。每类3条全部有效才有原始均分；全部30条有效才有个人整体均分及十项相对值：该类未舍入的和除3，再减全部和除30。显示相对值两位小数，计算不先舍入；正值高于本次自己整体，负值低于自己整体，零不是不重视。所有回答相同时十项相对值全零，仍然是有效回答而不是没有价值观。保留全部十份全文，不排名、硬派唯一顶部或主副型。没有人群常模、百分位、显著差异、准确度或心理测量验证。",
-          "en": "Thirty original items use importance ratings from one to five, three for each classical value, with no reverse keys. Unscored responses enter neither numerator nor denominator and are never filled with zero or a midpoint. Each value needs all three ratings for a raw mean. All 30 ratings are required for your overall mean and ten relative values: the unrounded value sum divided by three minus the overall sum divided by 30. Display two decimals for relative values without rounding first. Positive, negative and zero compare with your own overall responses only; zero does not mean unimportant. Identical ratings give ten valid zero relative values rather than no values. Keep all ten full guides without ranking, a sole top identity or primary/secondary types. There are no population norms, percentiles, significant differences, accuracy claims or psychometric validation."
+          "zh": "30条题目各用1—5重要程度评分，没有反向题。每类三条全部有效，原始均分为三条之和除以3；任一暂不作答，该类保留资料不足。全部30条有效时，整体均分为总和除以30，相对值为该类未舍入均分减整体均分。计算不先舍入；两位小数是显示方式，不代表测量精度。",
+          "en": "All 30 items use 1–5 importance ratings without reverse keys. A raw value mean is its three-item sum divided by three, requiring all three ratings; an unscored item leaves that value insufficient. With all 30 ratings, the overall mean is their sum divided by 30. A relative value subtracts this overall mean from the unrounded value mean. Calculations are not rounded first; two displayed decimals imply no measurement precision."
+        },
+        {
+          "zh": "例如自我导向三条都选4，其余27条都选5，自我导向均分4.00，整体4.90，相对值−0.90。它仍被评为“很重要”，只是低于本次其他回答。若这三条仍为4、其他全为1，整体变为1.30，相对值为+2.70；同一原始均分可以有不同的内部位置。",
+          "en": "If the three self-direction ratings are 4 and the other 27 are 5, its raw mean is 4.00, the overall mean 4.90 and relative value −0.90. It remains very important, just below your other ratings. Keeping those three ratings at 4 while all others are 1 gives an overall mean of 1.30 and relative value +2.70. The same raw mean can occupy a different within-person position."
         }
       ]
     },
     {
       "id": "facet-reading",
       "title": {
-        "zh": "十类、人格与行为分别理解",
-        "en": "Ten goals, personalities and behaviour"
+        "zh": "经典十类价值分别关注什么",
+        "en": "What the ten classical values concern"
       },
       "paragraphs": [
         {
-          "zh": "经典十类是自我导向、刺激、享乐、成就、权力、安全、遵从、传统、仁爱与普世关怀，关心的是不同目标的重要程度，不是互斥人格。自我导向不等于创造能力，成就不等于表现水平；遵从面向交往者期待，传统面向文化或宗教传承；仁爱侧重熟悉者，普世关怀扩及所有人及自然。理论圆环描述目标之间的动机关系，不是本次测得的个人冲突、关系匹配或强制成长路线；经典十类也不等于精细十九类。",
-          "en": "The ten classical values are self-direction, stimulation, hedonism, achievement, power, security, conformity, tradition, benevolence and universalism. They concern importance of goals rather than exclusive personalities. Self-direction is no creativity score and achievement no performance score. Conformity concerns interpersonal expectations, tradition cultural or religious heritage, benevolence close others and universalism wider humanity and nature. The theoretical circle describes motivational relations rather than measured personal conflict, compatibility or a required growth path. The classical ten are distinct from the refined nineteen."
+          "zh": "本页用以下词汇理解目标：自我导向——自己形成想法和选择做法；刺激与新奇——变化、挑战与新体验；享乐——愉快的个人体验；成就——符合社会认可标准的成功；权力——地位及对资源或人的控制。这些是目标侧重，不是创造、冒险、表现或领导能力。[1]",
+          "en": "The first five lenses concern choosing your own ideas and approaches (self-direction), variety and challenge (stimulation), personal enjoyment (hedonism), socially recognised success (achievement), and status or control over resources and people (power). They describe goals rather than creativity, risk-taking, performance or leadership skills.[1]"
+        },
+        {
+          "zh": "另五类是安全——生活、关系与社会的安定；遵从——约束可能伤害他人或违背交往期待的行为；传统——承接有意义的文化或宗教习俗；仁爱——关心日常密切往来者；普世关怀——关心更广的人群、差异与自然。阅读时辨认目标，不把名称当作善恶或政治宗教身份。[1]",
+          "en": "The other five concern dependable conditions for life and relationships (security), restraint in response to others and social expectations (conformity), continuity with meaningful cultural or religious customs (tradition), care for close others (benevolence), and concern beyond that circle and for nature (universalism). Read them as goals, without assigning virtue or political and religious identities.[1]"
         }
       ]
     },
     {
       "id": "facet-comparison",
       "title": {
-        "zh": "原创反思与标准工具的区别",
-        "en": "Original reflection and standard instruments"
+        "zh": "理论框架与本站原创问卷分别理解",
+        "en": "Separate the theory from this original questionnaire"
       },
       "paragraphs": [
         {
-          "zh": "本版30条中英文直接重要程度题、映射、解释、例子与呈现由费马原创，围绕Schwartz经典十类价值目标进行反思。不是PVQ-21／PVQ40的他人画像相似度题、PVQ-RR十九类、SVS标准问卷、这些题本的翻译或官方计分工具；未采用竞品题库、正文或算法。作者理论资料提供概念、目标间关系与个人相对优先级的背景，不验证本题、十因子、个体圆环、中文与英文等价或任何个人解释。标准题本商业使用条件未在本任务确认，未由文章许可推定其商业授权。结果不判断实际行为、能力、健康、道德、政治宗教身份、聘用、职业适配或关系相容性，不将年龄、文化或性别模式套给个人，也不把某个价值指定为应当提高或压低的目标。",
-          "en": "FermatMind authored these 30 bilingual direct-importance items, mappings, explanations, examples and presentation for reflection on the ten classical Schwartz value goals. This is no PVQ-21 or PVQ40 portrait-similarity form, nineteen-value PVQ-RR, standard SVS, translation of those banks or official scoring instrument. No competitor bank, report body or algorithm is adopted. Author materials supply conceptual background, motivational relations and within-person priorities, not validation of these items, ten factors, an individual circle, language equivalence or any personal interpretation. Standard-instrument commercial terms were not established in this task and are not inferred from an article licence. Results judge no actual behaviour, ability, health, morality, political or religious membership, hiring, career fit or compatibility and apply no age, cultural or gender pattern to an individual. No value is prescribed as a target to raise or suppress."
+          "zh": "Schwartz的理论与标准工具有各自研究。作者资源目录区分SVS、PVQ40、PVQ21与精细十九类的PVQ-RR，并提供语言版本和分析说明。[2] 本站30条为原创直接重要程度题，不是这些题本、翻译或官方计分实现。相同价值名称不表示题目、量尺、分数或证据等价。",
+          "en": "The theory and its standard instruments have their own research. The author’s repository distinguishes SVS, PVQ40, PVQ21 and the refined nineteen-value PVQ-RR, with language versions and analysis instructions.[2] These 30 original direct-importance items reproduce none of those forms, translations or official scoring implementations. Shared value names establish no equivalence of items, response scales, scores or evidence."
+        },
+        {
+          "zh": "本站采用个人整体均分作为比较基线，是明确写出的阅读方法；它不能使原创题自动获得标准工具的信度或效度。标准题本的使用条件须按对应资源核查，不能由一篇理论文章的许可推定。下方来源支持概念与版本说明，不验证本站题本或个人结果。",
+          "en": "Using your overall rating as a comparison baseline is an explicit reading method; it does not give original items the reliability or validity of a standard instrument. Terms for a particular instrument need separate examination and cannot be inferred from an article licence. The references support conceptual and version distinctions, rather than validating this form or an individual result."
+        }
+      ]
+    },
+    {
+      "id": "relative-interpretation",
+      "title": {
+        "zh": "正值、负值与零都只比较本次自己",
+        "en": "Positive, negative and zero compare with this attempt"
+      },
+      "paragraphs": [
+        {
+          "zh": "相对值为正表示高于本次整体评分，为负表示低于本次整体，不表示支持与反对两个阵营。全选4时，每类原始均分都是4.00，相对值全为0.00；全选1也全为零，但原始重要程度不同。因此原始均分与相对值需要一起读。",
+          "en": "A positive relative value is above your overall rating and a negative one below it; the signs do not mark support versus opposition. All ratings of 4 give ten raw means of 4.00 and ten relative zeros. All ratings of 1 also give zero relative values, but different raw importance. Read the raw and relative figures together."
+        },
+        {
+          "zh": "十类题量相同且全部完整时，未舍入相对值之和为零；显示舍入后可能有细小差异。这是中心化计算的结果，不是个人内心达到平衡或存在冲突的证据。相对值也不能解释为人群百分位、道德分或两个人谁更重视他人的证明。",
+          "en": "With equal item counts and complete ratings, unrounded relative values sum to zero; display rounding may leave a small discrepancy. That is an arithmetic consequence of centering, not evidence of psychological balance or conflict. Relative values are neither population percentiles nor morality scores or proof of who cares more about others."
+        }
+      ]
+    },
+    {
+      "id": "value-distinctions",
+      "title": {
+        "zh": "容易混淆的价值怎样区分",
+        "en": "Distinguishing closely related goals"
+      },
+      "paragraphs": [
+        {
+          "zh": "自我导向与刺激都可能让人想尝试不同做法，但前者关注由自己决定，后者关注体验的新颖与挑战。成就与权力都涉及社会评价，前者侧重按认可标准获得成功，后者侧重地位与资源控制。一个选择可以同时有多种理由，不必硬归一个价值。[1]",
+          "en": "Self-direction and stimulation can both favour a different approach, but choosing for yourself differs from seeking novelty. Achievement’s recognised success differs from power’s position and control. A decision may serve more than one goal without requiring an exclusive classification.[1]"
+        },
+        {
+          "zh": "遵从与传统的区别可以从参照对象理解：眼前互动中的期待，与传承的习俗理念并不相同。仁爱与普世关怀则有关注范围的区别。先问这件事希望保护什么、涉及谁，再读对应指南，比把“守规则”或“帮助人”直接当成固定人格更具体。",
+          "en": "Conformity and tradition differ in the reference point: expectations in current interactions versus inherited customs and ideas. Benevolence and universalism differ in scope of concern. Ask what the particular choice aims to protect and whom it concerns before consulting a guide; a rule-following or helpful act alone identifies no fixed personality."
+        }
+      ]
+    },
+    {
+      "id": "circle-and-families",
+      "title": {
+        "zh": "价值圆环与四组高阶目标的用途",
+        "en": "Using the circle and broader value families"
+      },
+      "paragraphs": [
+        {
+          "zh": "圆环用来概括目标间的动机关系：开放改变、自我提升、保守维持、自我超越是四组常见概括；享乐与开放改变、自我提升两边都有联系。[1] 它不是十种互斥的人，也不是绕一圈依次成长的阶段。本页不额外计算四组分数或个人圆环冲突指数。",
+          "en": "The circle summarises motivational relations, often discussed as openness to change, self-enhancement, conservation and self-transcendence. Hedonism connects with both openness to change and self-enhancement.[1] These are no exclusive kinds of person or successive development stages. This page calculates neither four additional family scores nor a personal circular-conflict index."
+        },
+        {
+          "zh": "比如新活动既可能带来新奇，也可能增加安排的不确定性。可以在不同时间、做法和情境里照顾不同目标；没有必要从圆环位置断定你不能同时重视安全与新体验，或替另一人决定该放弃什么。具体取舍仍要看这次条件。",
+          "en": "A new activity can offer novelty while increasing uncertainty about arrangements. Different times, approaches and settings can serve different goals. Circle positions do not prove that you cannot value both security and new experience, or authorise deciding what another person must sacrifice. A particular tradeoff still depends on its conditions."
+        }
+      ]
+    },
+    {
+      "id": "importance-and-behaviour",
+      "title": {
+        "zh": "重要程度、实际行为与人格特质",
+        "en": "Importance, behaviour and personality traits"
+      },
+      "paragraphs": [
+        {
+          "zh": "题目问的是生活选择原则的重要程度，不是过去做了多少次、实际资源多少或做得多好。重视成就不等于已有出色表现，重视仁爱不等于总能帮助别人，重视安全也不等于焦虑。价值、行为和实际条件要分别记录。",
+          "en": "Items concern the importance of principles for life choices, not action frequency, resources or performance. Valuing achievement establishes no accomplishment; valuing benevolence does not mean help is always possible; valuing security identifies no anxiety. Record goals, behaviour and conditions separately."
+        },
+        {
+          "zh": "例如一人重视自主，却因共同活动的固定流程采用统一做法；另一人愿意照顾朋友，却没有足够时间参与。这些情况不自动使回答无效。可以核对是否准确理解题意，不能仅凭行为不同就判价值虚假，或从价值分数换算MBTI、大五与职业结果。",
+          "en": "Someone may value choice while using a fixed procedure in a shared activity. Someone may value care but lack time to participate. Such cases do not automatically invalidate ratings. Revisit item meanings without declaring values false from one action or converting value scores into MBTI, Big Five or career results."
+        }
+      ]
+    },
+    {
+      "id": "missing-and-complete",
+      "title": {
+        "zh": "资料不足、同分与全部完整报告",
+        "en": "Missing information, equal scores and complete guides"
+      },
+      "paragraphs": [
+        {
+          "zh": "每类三条缺一，只有该类原始均分不生成；其他全部有效的类别仍显示。全卷任一条暂不评分，就不计算30条整体均分和所有相对值，不从剩余回答估计基线。这样避免用不同的作答集合悄悄改变相对值的参照。",
+          "en": "One unscored item prevents that value’s raw mean while fully rated values remain available. Any unscored item prevents the overall 30-item mean and every relative value. No baseline is estimated from remaining ratings, avoiding a silently changed reference set."
+        },
+        {
+          "zh": "相同回答与相同均分都可以保留，不用题目顺序分出主副型，也不凭全选同项判定认真程度。十份完整指南按框架顺序一起呈现，资料不足也能阅读；不需要复测直到找到一个“真正核心价值”来解锁正文。",
+          "en": "Identical ratings and equal means are valid, without list-order primary/secondary labels or an inattention verdict from repeated options. All ten guides appear in framework order and remain readable with insufficient information. No retaking until a single true core value appears is needed to unlock them."
+        }
+      ]
+    },
+    {
+      "id": "practical-choice",
+      "title": {
+        "zh": "把两项重要目标写成可商量的条件",
+        "en": "Turn two priorities into negotiable conditions"
+      },
+      "paragraphs": [
+        {
+          "zh": "选一次低风险的周末手作活动，写下两件都重要的事，例如有新体验、又能按约定时间结束。再分别列事实与未知：活动内容已确定，交通或时长还待确认。先问一个具体问题，如“能否先确认结束时间，再决定参加哪一段？”不要让某个分数直接替你选择。",
+          "en": "Choose a low-stakes weekend craft activity and name two priorities, such as a new experience and finishing at an agreed time. Separate knowns from unknowns: the content may be settled while travel or duration is unclear. Ask one specific question about the finish time before choosing which part to attend. No score needs to decide for you."
+        },
+        {
+          "zh": "如果条件不能同时满足，可以说明这次愿意保留什么、有哪些替代安排，也允许暂不决定。事后看是否获得所需信息、是否尊重参与者意愿。这个练习不要求证明某个价值更高级，也不保证一定存在折中方案。",
+          "en": "If both conditions cannot be met, explain what you would protect on this occasion, consider alternatives or defer the decision. Afterwards, check information and participants’ wishes. The exercise neither ranks values as superior nor guarantees a compromise exists."
+        }
+      ]
+    },
+    {
+      "id": "evidence-and-change",
+      "title": {
+        "zh": "跨文化理论研究与本站测量证据",
+        "en": "Cross-cultural theory and evidence for this form"
+      },
+      "paragraphs": [
+        {
+          "zh": "理论研究检验价值的含义与结构，标准工具也有其语言版本和测量研究。[1][2] 这些成果不自动验证本站三条一类的原创项目、十类结构、双语等价或个人解释。本站尚无对应信度、效度、常模与重测改变阈值，不把题目数、理论知名度或复算正确包装成准确率。",
+          "en": "Research examines value meanings and structure, while standard instruments have language versions and measurement studies.[1][2] Those findings do not automatically validate these original three-item groupings, ten-part structure, language equivalence or individual interpretations. This form lacks corresponding reliability, validity, norms and change thresholds; item count, a recognised theory and correct arithmetic establish no accuracy percentage."
+        },
+        {
+          "zh": "复测时先比较语言、时间、参照情形和具体改动题目。分数变化可能与理解、近期条件或实际优先考虑有关，单次差值不能区分原因。文化、年龄或性别群体的平均模式也不能当成个人应有的价值顺序；本页不要求填写这些身份来推断答案。",
+          "en": "When retaking, compare language, timing, reference context and changed items. Differences may reflect interpretation, current conditions or priorities, but a score change alone cannot distinguish causes. Group averages by culture, age or gender do not determine an individual’s proper priorities. This page requests no such identities to infer answers."
         }
       ]
     },
     {
       "id": "free-and-private",
       "title": {
-        "zh": "完整免费、草稿与分享",
-        "en": "Full free access, drafts and sharing"
+        "zh": "直接开始、免费范围与答案隐私",
+        "en": "Direct start, free access and answer privacy"
       },
       "paragraphs": [
         {
-          "zh": "30条题目、十项说明与所有完整正文免费，无需邮箱、注册或其他测试解锁。答案只在浏览器计分，不上传、不进网址或分析；不要求填写文化、宗教或私人经历。草稿须主动保存，仅本标签页保留24小时，完成、退出清除或重测即删。分享自选，只含测试名称与公开链接，不含答案、均分、相对值或内部ID。公开正文不关联私人答卷；其他测评须独立完整作答，不从价值分数补出人格或职业结果。",
-          "en": "All 30 items and ten full guides are free without email, signup or another assessment to unlock them. Answers are scored in the browser without uploading or entering URLs or analytics; no cultural or religious membership or personal story is requested. Drafts require opt-in, persist only in this tab for 24 hours and clear on completion, exit-and-clear or retaking. Optional sharing contains the test name and public link without answers, means, relative values or internal IDs. Public guides contain no private attempts. Other assessments require independent full answers rather than personality or career results inferred from these values."
+          "zh": "30条题目、原始与相对分数说明、十份公开及完成后的完整指南免费，无需注册、邮箱或前置测评。开始按钮直接进入题目，没有额外同意步骤。预计用时不是限时；不愿评分的题可选暂不作答，也可以随时退出。",
+          "en": "The 30 items, explanations of raw and relative figures and all ten public and completed-attempt guides are free, without signup, email or a prerequisite test. Start opens the items directly without another agreement. Estimated duration is not a time limit; use an unscored response or exit whenever needed."
+        },
+        {
+          "zh": "默认不保存。主动保存后的草稿只在本标签页保留24小时，完成、重测或退出清除即删除。浏览器计分不上传答案，不把答案写入网址或分析事件；一般使用事件遵循隐私与Cookie设置。公开链接不包含私人均分、相对值或答卷，结果不用来筛选员工、判断健康或给关系判定相容性。",
+          "en": "Saving is off by default. Opted-in drafts remain in this tab for up to 24 hours, clearing on completion, retake or exit-and-clear. Browser scoring uploads no answers and puts none in URLs or analytics events; general usage events follow privacy and Cookie settings. Public links contain no personal means, relative values or answers. Results should not screen employees, judge health or establish relationship compatibility."
         }
       ]
     }
@@ -3614,72 +3749,142 @@
   "faq": [
     {
       "question": {
-        "zh": "这是PVQ-21、PVQ-RR或SVS标准问卷吗？",
-        "en": "Is this a standard PVQ-21, PVQ-RR or SVS questionnaire?"
+        "zh": "这个价值观测试是PVQ或SVS吗？",
+        "en": "Is this values test a PVQ or SVS?"
       },
       "answer": {
-        "zh": "本版30条中英文直接重要程度题、映射、解释、例子与呈现由费马原创，围绕Schwartz经典十类价值目标进行反思。不是PVQ-21／PVQ40的他人画像相似度题、PVQ-RR十九类、SVS标准问卷、这些题本的翻译或官方计分工具；未采用竞品题库、正文或算法。作者理论资料提供概念、目标间关系与个人相对优先级的背景，不验证本题、十因子、个体圆环、中文与英文等价或任何个人解释。标准题本商业使用条件未在本任务确认，未由文章许可推定其商业授权。结果不判断实际行为、能力、健康、道德、政治宗教身份、聘用、职业适配或关系相容性，不将年龄、文化或性别模式套给个人，也不把某个价值指定为应当提高或压低的目标。",
-        "en": "FermatMind authored these 30 bilingual direct-importance items, mappings, explanations, examples and presentation for reflection on the ten classical Schwartz value goals. This is no PVQ-21 or PVQ40 portrait-similarity form, nineteen-value PVQ-RR, standard SVS, translation of those banks or official scoring instrument. No competitor bank, report body or algorithm is adopted. Author materials supply conceptual background, motivational relations and within-person priorities, not validation of these items, ten factors, an individual circle, language equivalence or any personal interpretation. Standard-instrument commercial terms were not established in this task and are not inferred from an article licence. Results judge no actual behaviour, ability, health, morality, political or religious membership, hiring, career fit or compatibility and apply no age, cultural or gender pattern to an individual. No value is prescribed as a target to raise or suppress."
+        "zh": "不是。30条为费马原创直接重要程度题，围绕经典十类提供观察；不是PVQ21、PVQ40、PVQ-RR、SVS或其翻译，不能混用这些工具的分数和证据。[2]",
+        "en": "No. These are 30 original direct-importance items for reflecting on the classical ten values. They reproduce no PVQ21, PVQ40, PVQ-RR, SVS or translation, and their scores and evidence are not interchangeable.[2]"
       }
     },
     {
       "question": {
-        "zh": "Schwartz经典十类价值分别是什么？",
-        "en": "What are the ten classical Schwartz values?"
+        "zh": "价值观是人格特质或能力吗？",
+        "en": "Are values personality traits or abilities?"
       },
       "answer": {
-        "zh": "经典十类是自我导向、刺激、享乐、成就、权力、安全、遵从、传统、仁爱与普世关怀，关心的是不同目标的重要程度，不是互斥人格。自我导向不等于创造能力，成就不等于表现水平；遵从面向交往者期待，传统面向文化或宗教传承；仁爱侧重熟悉者，普世关怀扩及所有人及自然。理论圆环描述目标之间的动机关系，不是本次测得的个人冲突、关系匹配或强制成长路线；经典十类也不等于精细十九类。",
-        "en": "The ten classical values are self-direction, stimulation, hedonism, achievement, power, security, conformity, tradition, benevolence and universalism. They concern importance of goals rather than exclusive personalities. Self-direction is no creativity score and achievement no performance score. Conformity concerns interpersonal expectations, tradition cultural or religious heritage, benevolence close others and universalism wider humanity and nature. The theoretical circle describes motivational relations rather than measured personal conflict, compatibility or a required growth path. The classical ten are distinct from the refined nineteen."
+        "zh": "价值观关注目标的重要程度，人格特质关注惯常模式，能力还需要实际任务依据。重视创造、成就或关怀不能证明已具备相应能力。[1]",
+        "en": "Values concern the importance of goals; traits describe recurring patterns, and ability needs task evidence. Valuing creativity, achievement or care does not establish the corresponding skill.[1]"
       }
     },
     {
       "question": {
-        "zh": "原始均分和相对值有什么区别？",
-        "en": "How do raw means and relative values differ?"
+        "zh": "经典十类与精细十九类有何区别？",
+        "en": "How do the classical ten differ from the refined nineteen?"
       },
       "answer": {
-        "zh": "30条原创题按重要程度1—5评分，经典十类各3条，0条反向；暂不作答不进入分子或分母，不补成零或中点。每类3条全部有效才有原始均分；全部30条有效才有个人整体均分及十项相对值：该类未舍入的和除3，再减全部和除30。显示相对值两位小数，计算不先舍入；正值高于本次自己整体，负值低于自己整体，零不是不重视。所有回答相同时十项相对值全零，仍然是有效回答而不是没有价值观。保留全部十份全文，不排名、硬派唯一顶部或主副型。没有人群常模、百分位、显著差异、准确度或心理测量验证。",
-        "en": "Thirty original items use importance ratings from one to five, three for each classical value, with no reverse keys. Unscored responses enter neither numerator nor denominator and are never filled with zero or a midpoint. Each value needs all three ratings for a raw mean. All 30 ratings are required for your overall mean and ten relative values: the unrounded value sum divided by three minus the overall sum divided by 30. Display two decimals for relative values without rounding first. Positive, negative and zero compare with your own overall responses only; zero does not mean unimportant. Identical ratings give ten valid zero relative values rather than no values. Keep all ten full guides without ranking, a sole top identity or primary/secondary types. There are no population norms, percentiles, significant differences, accuracy claims or psychometric validation."
+        "zh": "它们是理论划分的不同细度，对应工具也有区别。本页只呈现十类原创题目的读法，不由三条一类推算十九个分数。[2]",
+        "en": "They divide the theoretical domain at different levels of detail, with different instruments. This page interprets ten original groupings without inferring nineteen scores from three-item parts.[2]"
       }
     },
     {
       "question": {
-        "zh": "为什么相对值为负，仍可能很重视？",
-        "en": "Why can a negative relative value still describe an important goal?"
+        "zh": "原始均分如何计算，是否有反向题？",
+        "en": "How is a raw mean calculated, and are there reverse items?"
       },
       "answer": {
-        "zh": "例如本类三条都4、其余27条都5，本类均分4.0、整体均分4.9，相对值−0.90；“很重要”只低于你本次其他回答。30条全4时全部相对值0.00，也不是没有价值观。正负和零都不代表人群位置、正确与否或必须改的目标，不能直接比较两个人的能力或道德。",
-        "en": "If these three ratings are four and every other rating five, this mean is 4.0, the overall mean 4.9 and the relative value −0.90. Very important is simply below your other responses. Thirty ratings of four give ten zero relative values rather than no values. Signs establish no population rank, correctness or target to change and compare no ability or morality between people."
+        "zh": "没有反向题。每类三条1—5重要程度全部有效才相加除以3。暂不作答不计为零或中点，少一条则该类均分保留资料不足。",
+        "en": "There are no reverse items. A value needs all three 1–5 importance ratings; their sum divided by three is the raw mean. An unscored response is neither zero nor a midpoint and prevents that value’s mean."
       }
     },
     {
       "question": {
-        "zh": "暂不作答或多项相同时会怎样？",
-        "en": "What happens with unscored items or equal ratings?"
+        "zh": "相对优先级的基线是什么？",
+        "en": "What is the baseline for relative priorities?"
       },
       "answer": {
-        "zh": "每类三条全有效才有该类均分；全卷任一暂不作答就不估计整体基线或相对值，其他完整部分的原始均分仍保留。相同回答是有效选择，不当认真检测；同分不靠顺序硬派主副型。无论个人资料是否足够，十份完整公开说明都可读，完成后也一起呈现。",
-        "en": "Each value needs three valid ratings for its own mean. Any unscored item prevents the overall baseline and relative values, while fully rated parts keep raw means. Identical ratings remain valid without an attention verdict or list-order primary/secondary type. All ten public guides remain available and appear together after completion, regardless of sufficient personal data."
+        "zh": "全部30条有效时，以30条整体均分为基线。每类未舍入均分减这个基线得到相对值，显示两位小数，但计算不先舍入。",
+        "en": "With all 30 valid ratings, the overall mean is the baseline. Subtract it from each unrounded value mean for a relative value. Display uses two decimals without rounding calculations first."
       }
     },
     {
       "question": {
-        "zh": "能从这份结果决定工作、关系或政治宗教身份吗？",
-        "en": "Can these results decide work, relationships, politics or religion?"
+        "zh": "原始4分为什么会得到负相对值？",
+        "en": "Why can a raw mean of four have a negative relative value?"
       },
       "answer": {
-        "zh": "不能。重要程度不是实际能力、行为、道德、环境或身份；本版也没有职业适配、相容性、健康或群体常模验证。圆环仅提供理论背景，不把某两个价值定成个人冲突或成长处方。真实决定需看事实、意愿与实际条件，其他测评须另行完整作答，不互相换算。",
-        "en": "No. Importance is no measure of actual ability, behaviour, morality, environment or membership. This edition has no validation for career fit, compatibility, health or group norms. The circle provides conceptual background rather than a personal conflict or growth prescription. Decisions need facts, wishes and practical conditions; other assessments require separate full answers without conversion."
+        "zh": "如果该类三条都4、其他27条都5，整体均分4.90，相对值为−0.90。它仍表示很重要，只低于本次其他评分，不表示反对或缺少这种价值。",
+        "en": "If these three ratings are 4 and the other 27 are 5, the overall mean is 4.90 and relative value −0.90. The goal is still very important, just below other ratings in this attempt; it is not opposed or absent."
       }
     },
     {
       "question": {
-        "zh": "完整报告、重测和分享免费吗？",
-        "en": "Are full reports, retaking and sharing free?"
+        "zh": "全部相对值为零是不是无效？",
+        "en": "Are all-zero relative values invalid?"
       },
       "answer": {
-        "zh": "30条题目、十项说明与所有完整正文免费，无需邮箱、注册或其他测试解锁。答案只在浏览器计分，不上传、不进网址或分析；不要求填写文化、宗教或私人经历。草稿须主动保存，仅本标签页保留24小时，完成、退出清除或重测即删。分享自选，只含测试名称与公开链接，不含答案、均分、相对值或内部ID。公开正文不关联私人答卷；其他测评须独立完整作答，不从价值分数补出人格或职业结果。",
-        "en": "All 30 items and ten full guides are free without email, signup or another assessment to unlock them. Answers are scored in the browser without uploading or entering URLs or analytics; no cultural or religious membership or personal story is requested. Drafts require opt-in, persist only in this tab for 24 hours and clear on completion, exit-and-clear or retaking. Optional sharing contains the test name and public link without answers, means, relative values or internal IDs. Public guides contain no private attempts. Other assessments require independent full answers rather than personality or career results inferred from these values."
+        "zh": "不是。全部选4时原始均分都是4.00，相对值全0.00；全部选1也全零，但重要程度不同。零是相对于自身整体的结果，不是没有价值观。",
+        "en": "No. All fours give raw means of 4.00 and relative zeros. All ones also give zeros, but different importance. Zero is relative to your overall ratings, not an absence of values."
+      }
+    },
+    {
+      "question": {
+        "zh": "某一题暂不作答会影响哪些结果？",
+        "en": "Which results are affected by one unscored item?"
+      },
+      "answer": {
+        "zh": "该类原始均分不足，其他完整类别仍保留。全卷整体均分与所有相对值都不估计，避免改变基线；全部十份指南照常可读。",
+        "en": "That value’s raw mean is insufficient while fully rated values remain. No overall mean or relative values are estimated, avoiding a changed baseline. All ten guides remain readable."
+      }
+    },
+    {
+      "question": {
+        "zh": "会给出唯一核心价值或主副型吗？",
+        "en": "Will I receive one core value or primary and secondary types?"
+      },
+      "answer": {
+        "zh": "不会。十类按框架顺序一起呈现，不靠顺序破同分。可以同时重视多个目标；同分与相同选项不会自动被判不认真。",
+        "en": "No. All ten appear in framework order without list-order tie breaking. Several goals can matter together. Equal scores and identical options imply no automatic inattention verdict."
+      }
+    },
+    {
+      "question": {
+        "zh": "圆环相对的价值意味着内心矛盾吗？",
+        "en": "Do opposite values on the circle prove inner conflict?"
+      },
+      "answer": {
+        "zh": "不证明。圆环是理论中的动机关系，不是本次测得的冲突指数。可以在不同时间和安排中照顾不同目标，具体取舍取决于条件。[1]",
+        "en": "No. The circle describes theoretical motivational relations, not a conflict index measured here. Different times and arrangements can serve different goals; actual tradeoffs depend on conditions.[1]"
+      }
+    },
+    {
+      "question": {
+        "zh": "四组高阶价值也会有分数吗？",
+        "en": "Are the four higher-order families scored too?"
+      },
+      "answer": {
+        "zh": "本页不额外计算。开放改变、自我提升、保守维持、自我超越用于解释理论关系，享乐跨两组联系；不是四种人格或成长阶段。",
+        "en": "No additional scores are calculated. Openness to change, self-enhancement, conservation and self-transcendence explain theoretical relations, with hedonism spanning two families. They are not four personalities or development stages."
+      }
+    },
+    {
+      "question": {
+        "zh": "能用分数决定职业、招聘、关系或健康吗？",
+        "en": "Can scores decide careers, hiring, relationships or health?"
+      },
+      "answer": {
+        "zh": "不能。本页不评能力、岗位胜任、道德、健康或相容性，也不推断政治宗教身份。可把重视的目标改写为具体问题，再结合事实、意愿与条件判断。",
+        "en": "No. It assesses no ability, job competence, morality, health or compatibility and infers no political or religious identity. Turn valued goals into specific questions and consider facts, wishes and conditions."
+      }
+    },
+    {
+      "question": {
+        "zh": "理论有跨文化研究，本站就验证过了吗？",
+        "en": "Does cross-cultural theory research validate this website form?"
+      },
+      "answer": {
+        "zh": "不会自动验证。本站原创题、双语等价和个人解释都需要对应研究，目前未建立信度、效度、常模或重测改变阈值。小数与可复算公式不等于测量精度。",
+        "en": "Not automatically. Original items, language equivalence and interpretations need their own research. Reliability, validity, norms and change thresholds are not established here. Decimals and reproducible formulas imply no measurement precision."
+      }
+    },
+    {
+      "question": {
+        "zh": "开始、完整报告与保存是否免费？",
+        "en": "Are direct start, complete guides and saving free?"
+      },
+      "answer": {
+        "zh": "免费，无需注册、邮箱、前置测试或额外同意。默认不保存；主动保存后草稿仅本标签页保留24小时，完成、重测或退出清除即删。答案仅浏览器计分，不上传计分或写入网址及分析事件。",
+        "en": "Yes, without signup, email, another test or an extra agreement. Saving is off by default; opted-in drafts remain in this tab for up to 24 hours and clear on completion, retake or exit-and-clear. Browser scoring sends no scoring upload or answer-bearing URLs or analytics events."
       }
     }
   ],

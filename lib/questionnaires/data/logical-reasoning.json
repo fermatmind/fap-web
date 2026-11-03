@@ -11,11 +11,11 @@
   },
   "seoTitle": {
     "en": "Logical & Deductive Reasoning Test: 24 Worked Questions",
-    "zh": "逻辑与演绎推理测试：24道原创题与完整解析"
+    "zh": "逻辑与演绎推理测试：24道题、答案与完整解析"
   },
   "description": {
-    "en": "Practise 24 original logical and deductive questions: quantifiers, conditions, conclusions and ordering. Get worked answers and four full guides, free.",
-    "zh": "免费练习24道原创逻辑与演绎推理题，涵盖量词、条件、必然结论和排序；查看逐题解析与四份完整指南。无需注册，不换算智商、常模或招聘结论。"
+    "en": "Practise 24 original questions on quantifiers, conditional rules, deduction and ordering. Free answers, explanations and four guides; untimed, no sign-up.",
+    "zh": "免费练习24道原创逻辑与演绎推理题，涵盖量词、条件规则、多步演绎与排序约束。查看四组正确数、全部答案、逐题解析及四篇完整指南；不计时，无需注册。"
   },
   "minutes": 12,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "每题单选，只依给定前提。虚构规则视为真，即使它不描述现实对象。“有些”表示至少一个，或、除非、只有才、当且仅当均按题意。完成24题可看全部答案与四份完整指南。不计时，12分钟仅为粗略安排参考，不是实测表现；若练无辅助作答，可完成后再查资料和解析。"
   },
   "introduction": {
-    "en": "Deductive reasoning asks what follows necessarily from the stated premises. This logical reasoning practice includes that task across all four parts. Work through 24 independently written fictional tasks in four groups of six: quantifiers, conditional rules, multi-step deduction and ordering constraints. Each item has one keyed answer and a worked explanation. This edition reports correct counts rather than assigning a logical personality or ability tier. Every count opens all answers and all four full guides. Selected primary logic concepts informed author review; no LSAT, Watson-Glaser or textbook exercise bank is reproduced or adapted. This fixed practice edition has no population norms, exam conversion, hiring cutoff or validated equivalence between English and Chinese scores.",
-    "zh": "演绎推理问的是给定前提必然支持什么结论。本逻辑推理练习的四个部分均练习这一任务。24道独立编写的虚构练习，量词、条件规则、多步演绎、排序约束四组各六题，每题一个答案及完整解析。本版只报告正确数，不分逻辑人格或能力等级。任何正确数都开放全部答案和四份完整指南。作者参考选定原始逻辑概念复核，不复制或改编LSAT、Watson-Glaser或教材练习库。本固定练习无常模、考试换算、招聘线，也未验证英中分数测量等价。"
+    "en": "Use explicit fictional premises to decide what follows, what remains possible and which positions the rules fix. This single text bank contains four groups of six questions, with all 24 explanations and four full revision guides available after completion. It provides correct counts for these exercises rather than an IQ, percentile or hiring score.",
+    "zh": "以题内明确的虚构前提为依据，判断哪些结论必然成立、哪些情况仍可能，以及规则能确定哪些位置。同一份文字题本分四组各六题，完成后免费查看24题全部答案与解析、四篇完整复习指南。结果记录本题组正确数，用于复习具体推理步骤。"
   },
   "resultHeading": {
     "en": "Your logic practice results and every explanation",

@@ -25,13 +25,13 @@ export function ConnectionIdealsClient({ quiz, locale }: { quiz: Questionnaire; 
     if (result.status !== "complete") { setMessage(zh ? "本次结果暂不可用，请检查完整作答。" : "The result is unavailable. Check that all items have a response."); return; }
     setStage("result"); setMessage("");
   }
-  return <section id="take-test" className="my-8 rounded-xl border border-violet-200 bg-white p-5 sm:p-8" aria-label={zh ? "作答与完整结果" : "Questionnaire and full results"}>
-    <p data-ci-privacy className="mb-5 rounded-lg bg-slate-50 p-4 text-sm leading-7">{zh ? "仅本人作答。答案只留当前页面内存，不保存进度、不发送测试流程统计、不分享个人结果；刷新或换语言会丢失本次作答，退出并清除会移除进度。" : "Answer only for yourself. Answers remain in this page’s memory without saved drafts or personal-result sharing; no quiz-flow statistics are sent. Refreshing or changing language loses the attempt; exit and clear removes it from the form."}</p>
+  return <section id="take-test" data-stage={stage} className="my-8 rounded-xl border border-violet-200 bg-white p-5 sm:p-8" aria-label={zh ? "作答与完整结果" : "Questionnaire and full results"}>
+
     {stage === "welcome" && <>
       <h2 className="text-2xl font-semibold">{zh ? "开始十二次连接偏好比较" : "Start twelve connection-ideal comparisons"}</h2>
       <p className="my-4 leading-8">{quiz.instructions?.[locale]}</p>
       {!ready && <p role="status">{zh ? "正在准备测试…" : "Preparing the test…"}</p>}
-      <button disabled={!ready} className={`${button} bg-violet-700 text-white`} onClick={() => reset("answer")}>{zh ? "开始测试" : "Start test"}</button>
+      <div className="flex flex-wrap gap-3"><button data-explore-start disabled={!ready} className={`${button} bg-violet-700 text-white`} onClick={() => reset("answer")}>{zh ? "开始测试" : "Start test"}</button></div>
     </>}
     {stage === "answer" && question && <>
       <p className="mb-3 text-sm">{zh ? `第${position + 1}次比较，共12次` : `Comparison ${position + 1} of 12`}</p>
@@ -54,6 +54,7 @@ export function ConnectionIdealsClient({ quiz, locale }: { quiz: Questionnaire; 
         <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试" : "Back to all tests"}</Link>
       </section>
     </>}
+    <p data-ci-privacy className="mb-5 rounded-lg bg-slate-50 p-4 text-sm leading-7">{zh ? "仅本人作答。答案只留当前页面内存，不保存进度、不发送测试流程统计、不分享个人结果；刷新或换语言会丢失本次作答，退出并清除会移除进度。" : "Answer only for yourself. Answers remain in this page’s memory without saved drafts or personal-result sharing; no quiz-flow statistics are sent. Refreshing or changing language loses the attempt; exit and clear removes it from the form."}</p>
     {message && <p role="status" className="mt-5 rounded-lg bg-amber-50 p-3 text-sm leading-7">{message}</p>}
   </section>;
 }

@@ -10,12 +10,12 @@
     "zh": "情境判断测试"
   },
   "seoTitle": {
-    "en": "Situational Judgement Test: 25 Free Scenarios & Answers",
-    "zh": "情境判断测试：25个免费职场情境、答案与完整解析"
+    "zh": "情境判断测试：25道职场情境题与完整解析",
+    "en": "Situational Judgement Test: 25 Questions & Full Answers"
   },
   "description": {
-    "en": "Practise 25 original workplace scenarios with stated rules, every rationale and five full guides. Free, untimed, no signup. No competency band or hiring score.",
-    "zh": "用25个原创职场情境练习按明示条件选择行动，免费查看全部理由和五份完整指南。不计时、无需注册，不分胜任力等级或招聘分数。"
+    "zh": "完成25道原创职场情境单选，练习优先顺序、交接、事实沟通、职责与协作。免费查看全部答案、五项正确数及五份完整指南；无需注册、不计时。",
+    "en": "Practise 25 original workplace scenarios. Get every answer explained, five section counts and full revision guides. Free, untimed and no sign-up."
   },
   "minutes": 15,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "按每题明示的虚构规则和事实选择符合条件的行动。25题，每题四选一、恰有一个匹配答案，每组五题，匹配记一道，无部分分；全部作答后给报告。不计时，十五分钟是编辑估计。这是原创条件决策练习，不是雇主SJT、行动评级量表、人格问卷或资格认证，不会发送真实消息、账户请求或执行职场动作。"
   },
   "introduction": {
-    "en": "Read a fictional workplace decision, compare its options with the supplied conditions, then inspect the rationale. The 25 original scenarios cover priorities and capacity, ownership and handovers, evidence and updates, permission boundaries, and collaboration. All 25 answers and five complete public guides are free. Answer keys were reviewed by the author against the stated conditions, not established by an independent expert panel, employer scoring or behavioural study. A matched count describes this bank only: it does not establish judgement, empathy, integrity, personality, job fit or performance under real pressure. No standardized norms, validated competency bands or cross-language measurement equivalence are claimed.",
-    "zh": "读虚构职场决定，把选项与题定条件比较，再看理由。25个原创情境覆盖优先级与容量、责任交接、事实更新、权限边界和协作。全部25个答案与五份完整公开指南免费。答案由作者按明示条件核对，未经独立专家小组、雇主评分或行为研究建立。匹配正确数只描述本题库，不证明判断力、共情、诚信、人格、岗位适合度或压力下表现；不声称标准化常模、经验证的胜任力分档或跨语言测量等价。"
+    "zh": "这份情境判断测试（SJT）用25道原创单选，练习依据明确事实与规则作决定。五组各五题：优先顺序、责任交接、事实更新、职责范围与团队协作。完成后免费查看25题答案解析、分项正确数和五份完整复习指南。答案由作者按题定条件核对，尚未建立独立专家共识、常模或岗位效度；结果作为本题本的练习记录。",
+    "en": "This Situational Judgement Test (SJT) offers twenty-five original single-choice exercises in making decisions from explicit facts and rules. Five items each cover priorities, ownership, factual updates, role boundaries and teamwork. Completion provides every answer explained, section counts and five full revision guides for free. Keys follow the author-reviewed fictional conditions and are not established by an independent expert panel. Without norms or job-performance validation, results describe this practice attempt."
   },
   "resultHeading": {
     "en": "Your scenario matches and every explanation",

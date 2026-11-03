@@ -14,21 +14,21 @@
     "en": "Four compass counts, every highest tie and neighbouring readings"
   },
   "description": {
-    "zh": "免费性格罗盘测试：36道原创情境题，查看北南东西原始次数、全部最高并列与12份完整读法。中英双语反思版，非官方PCTI，不由方向判断能力、族群或职业。",
-    "en": "Explore North, South, East and West in 36 original questions, in English or Chinese. All highest ties and 12 full guides are free. Not the official PCTI."
+    "zh": "用36道原创情境题探索北向推进、南向参与、东向顺序与西向尝试。免费查看四向原始次数、全部最高并列和12份完整读法；中英文版，无需注册，非官方PCTI。",
+    "en": "Explore North, South, East and West through 36 original situations. Get all raw counts, highest ties and 12 full guides free. English and Chinese, no signup; not the official PCTI."
   },
   "seoTitle": {
-    "zh": "性格罗盘测试：36道情境题与12份免费完整结果",
-    "en": "Arabic Personality Compass Test: Full Free Results"
+    "zh": "性格罗盘测试：36题、四向计数与12份完整结果",
+    "en": "Arabic Personality Compass Test: 36 Choices and 12 Complete Reading Guides"
   },
   "minutes": 10,
   "instructions": {
-    "zh": "回想近期普通安排中自己更常先做的事，每题选四项里最贴近的一项。36题是固定选择预算，四个次数只能在本次作答内比较。不是正确答案、能力或群体排名；没有合适选项时可退出，公开说明仍可直接阅读。",
-    "en": "Think about what you more often do first in recent everyday arrangements. Pick the closest of four options for each question. The 36 choices form a fixed budget, so four counts compare only within this attempt. These are not correct answers, abilities or population ranks. If none fits, you may leave and still read the public guides."
+    "zh": "以近期普通安排中更常见的自己为参照，每题选四种做法里更可能先做的一项。几种都合适时，选更自然的起点，不按理想形象或好坏排序。36题全部完成才生成四向计数，全部最高并列都保留；邻向另按垂直方向比较，不直接取第二高。约10分钟是预计用时，不是限时。点击开始直接进入题目，无需再次同意；没有贴切选项也可退出，公开指南仍可阅读。",
+    "en": "Use your recent everyday arrangements as a reference and choose what you would more often do first. If several fit, pick the more natural starting point rather than an ideal image or a better-sounding answer. All thirty-six responses are needed for four counts, retaining every highest tie. Neighbours are compared on the perpendicular axis rather than simply taking second place overall. About ten minutes is an estimate, not a time limit. Start opens questions directly without another agreement; you may leave if no option fits and still read the public guides."
   },
   "introduction": {
-    "zh": "安排一次聚餐、接手一个小任务或给活动换个办法时，你较常先推进一步、顾及参与、厘清顺序，还是尝试别法？本版以北、南、东、西作四种日常起手方式的隐喻，使用36道费马原创情境题和明确的固定预算计数。保留全部最高方向，再按显式规则区分相邻读法；12份九模块说明都可直接先读，完整免费。通俗四向罗盘框架的来源包括Diane Turner与Thelma Greco的The Personality Compass；本版不是该书或官方PCTI题本、译本或类型鉴定，没有复制其条目、描述或计分。Arabic是本项所对照的通俗搜索名称背景，此处提供中文与英文，不判断阿拉伯族群性格，也不声称阿语支持、文化常模或跨框架换算。",
-    "en": "When arranging a shared meal, taking over a small task or changing an activity, do you more often begin by moving a step forward, supporting participation, clarifying sequence or trying another approach? This edition uses North, South, East and West as metaphors for those everyday starts, with thirty-six original FermatMind situations and explicit fixed-budget counts. Every highest direction remains before neighbouring readings are distinguished by a stated rule. All twelve full nine-section guides are free and readable first. Background to popular four-direction framing includes The Personality Compass by Diane Turner and Thelma Greco. This is not that book’s or the official PCTI bank, translation or type identification, and reproduces none of its items, descriptions or scoring. Arabic supplies the common search-name context: this edition is in English and Chinese, without ethnic personality conclusions, Arabic-language support, cultural norms or cross-framework conversions."
+    "zh": "安排聚餐、接手任务或调整活动时，你更常先确定下一步、照顾参与条件、厘清顺序，还是尝试另一种办法？这份性格罗盘测试用北、南、东、西命名四种起手方式，通过36道原创四选一整理你的相对选择。完成后免费查看全部次数、每个最高方向及其邻向读法；12份完整指南也可先读。方向用于讨论具体行为，不是地理、族群或能力分类；本页提供中文和英文原创版。",
+    "en": "When arranging a meal, taking on a task or adjusting an activity, do you first establish a next step, attend to participation, clarify the sequence or try another approach? This Arabic Personality Compass Test names these four starting approaches North, South, East and West. Thirty-six original four-option situations organize your relative choices. View all counts, every highest direction and its neighbouring reading free, or read all twelve guides first. Directions describe offered approaches, not geography, ethnicity or ability; this edition is in English and Chinese."
   },
   "source": {
     "kind": "fermatmind_original_compass_choices",
@@ -3501,6 +3501,20 @@
         "en": "Official PCTI public description: distinct from this original reflection"
       },
       "url": "https://www.personalitycompass.com/PCTI.php"
+    },
+    {
+      "title": {
+        "zh": "Brown与Maydeu-Olivares（2013）：强迫选择中的自比计分与IRT（非本站题本验证）",
+        "en": "Brown and Maydeu-Olivares (2013): ipsative scoring and IRT in forced choice, not validation of this quiz"
+      },
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23148475/"
+    },
+    {
+      "title": {
+        "zh": "Turner与Greco《The Personality Compass》：1998年版书目信息",
+        "en": "Turner and Greco, The Personality Compass: bibliographic information for a 1998 edition"
+      },
+      "url": "https://books.google.com/books/about/The_Personality_Compass.html?id=eHhBJwAACAAJ"
     }
   ]
 }

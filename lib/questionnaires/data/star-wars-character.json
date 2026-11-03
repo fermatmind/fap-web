@@ -14,21 +14,21 @@
     "en": "Your seven character choices and every highest tie"
   },
   "description": {
-    "zh": "免费完成21道原创普通选择，比较汉索罗、莱娅、卢克等七位星球大战角色。完整结果、例子与计分直接读，最高并列全部保留；非官方同人测试，不评原力、善恶或心理。",
-    "en": "Take 21 original everyday questions and compare seven Star Wars characters. Full tied results, examples and scoring are free in this unofficial fan quiz."
+    "zh": "用21道原创日常情境题，探索现有办法、持续安排、自选步骤、共同表达、经验分享、学习起步与假设检查。约7分钟，免费查看七位星球大战角色的原始次数、所有最高并列及完整指南，无需注册。",
+    "en": "Explore available means, ongoing arrangements, chosen steps, shared views, experience, learning and assumptions through 21 original everyday scenarios. About 7 minutes, with free raw counts, every highest tie and seven full Star Wars guides. No signup needed."
   },
   "seoTitle": {
-    "zh": "星球大战角色测试：21题、七角色与完整结果",
-    "en": "Star Wars Character Test: Free Quiz & Seven Full Results"
+    "zh": "星球大战角色测试：21题、七位角色与完整解读",
+    "en": "Star Wars Character Quiz: 21 Questions and Seven Full Guides"
   },
   "minutes": 7,
   "introduction": {
-    "zh": "你更愿意用现有办法、说明持续安排、专看明确一步、表达共同意见、分享具体经验、开始学一点，还是问最初假设？21道原创题借原版三部曲出现的七位角色，比较普通自选做法。不是剧情考题、原力测试或心理病理分类，七份完整结果可先读，最高并列全部完整显示。",
-    "en": "Would you rather work with available means, describe continuation, take one clear step, express shared views, offer experience, begin learning or question an assumption? Twenty-one original items use seven characters appearing in the original trilogy for ordinary chosen approaches. This is no trivia, Force test or psychopathology taxonomy. Read all seven guides first and see every highest tie in full."
+    "zh": "用现有材料做一张小卡、开始一本记录本或与朋友安排自愿活动时，你通常先做什么？这份《星球大战》角色测试用21道原创四选一，比较汉·索罗、帕尔帕廷、达斯·维达、莱娅、欧比旺、卢克与尤达在本版中的七种日常阅读角度。完成后可查看全部原始次数、所有最高并列与完整指南。\n\n七位均出现在原版三部曲，本版不覆盖全系列人物。无需记住剧情、星球或光剑名称，题目也不模拟战斗。作品资料用于背景核对，选项对应由本站独立设计；角色名帮助讨论不同做法，不把虚构原力、阵营或命运转成现实结论。",
+    "en": "What do you do first when making a small card from available materials, starting a notebook or planning a voluntary activity with friends? This Star Wars character quiz uses 21 original four-option scenarios to compare seven everyday editorial readings: Han Solo, Palpatine, Darth Vader, Leia, Obi-Wan, Luke and Yoda. Completion shows every raw count, every highest tie and full guides.\n\nAll seven appear in the original trilogy; this edition does not cover the entire franchise. You need not recall plots, planets or lightsaber names, and questions simulate no battles. Series sources establish context; option assignments are independently designed here. Names help discuss approaches without turning fictional Force powers, factions or destinies into conclusions about you."
   },
   "instructions": {
-    "zh": "21道原创非官方同人题，选用在《星球大战》原版三部曲出现的汉·索罗、帕尔帕廷、达斯·维达、莱娅、欧比旺、卢克和尤达七位虚构角色，比较普通自选做法。每题从四种做法选一个较接近自己的，均以自愿、许可、可改和可停止为前提。每选加1，每位出现12次、每位置3次，总数21；最高并列全部完整显示。帕尔帕廷与西迪厄斯、维达与阿纳金各是一位身份，不另增角色。无需剧情知识，不测原力、心理病理、智商、善恶、危险性、身体、族群、性别或职业，不要求模仿战争、武器、操控、伤害或修行，也不换算MBTI；不是Disney或Lucasfilm官方测验。",
-    "en": "Twenty-one original unofficial fan questions select seven characters appearing in the original Star Wars trilogy: Han, Palpatine, Vader, Leia, Obi-Wan, Luke and Yoda. Compare ordinary chosen approaches by selecting the closer of four options in voluntary, permitted, revisable and stoppable situations. Each choice adds one, each character appears twelve times and three times per position, and counts sum to twenty-one. Every highest tie appears in full. Palpatine and Sidious are one identity, as are Vader and Anakin, rather than extra characters. No episode knowledge is needed. There is no Force, psychopathology, IQ, good-versus-evil, dangerousness, bodily, ethnicity, gender or career assessment, imitation of war, weapons, manipulation, harm or spiritual training, or MBTI conversion. This is no official Disney or Lucasfilm test."
+    "zh": "请以近期普通兴趣、学习和自愿合作中的实际选择为参照，每题选四项中更接近自己的一项。多项都合适时选相对更自然的；没有完全合适时选较接近的。无需模仿角色、选择善恶阵营或提供私人经历。完成21题后生成七项次数与所有最高并列的完整解读。",
+    "en": "Refer to recent ordinary interests, learning and voluntary cooperation. Select the closest of four approaches; if several fit, choose the more natural one, and if none fits fully, choose the closest. You need not imitate characters, choose a moral side or supply private experiences. Complete all 21 items for seven counts and full readings for every highest tie."
   },
   "source": {
     "kind": "FermatMindoriginal21ENZH4choice/unofficialtextonlyfanreading/sevencharactersappearingoriginaltrilogy/notclinicalinstrument",
@@ -2024,65 +2024,187 @@
     {
       "id": "archetype-counts",
       "title": {
-        "zh": "21题怎样形成七角色计数",
-        "en": "How 21 choices produce seven character counts"
+        "zh": "21题怎样形成七位角色的次数",
+        "en": "How 21 questions produce seven character counts"
       },
       "paragraphs": [
         {
-          "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；未提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、原力、善恶或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可自行比较，不补造并列、能力、阵营或种族。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
-          "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, the Force, good-versus-evil nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Read close guides without inventing ties, powers, alignments or species. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+          "zh": "每题提供七个方向中的四个选项，选中项对应方向加1次。完成21题后七项次数之和为21。每个方向出现12次，四个位置各3次，单项范围0—12。某题未提供的三个方向不算被拒绝，也不扣分。",
+          "en": "Each item offers four of seven directions. The selected direction gains one; the seven counts sum to 21 on completion. Each appears 12 times, three per position, giving a range of 0–12. The three directions absent from an item are not rejected and lose no points."
+        },
+        {
+          "zh": "例如，按汉·索罗、帕尔帕廷、维达、莱娅、欧比旺、卢克、尤达顺序，次数为2、3、3、3、2、4、4，总和21。卢克与尤达共同最高，均显示完整指南。4表示本次选中4项，不是四成相似、人格比例、原力值或人群位置。",
+          "en": "For example, counts of 2, 3, 3, 3, 2, 4, 4 in the order Han, Palpatine, Vader, Leia, Obi-Wan, Luke and Yoda sum to 21. Luke and Yoda share the maximum, so both full guides appear. Four means four selections here, not a similarity percentage, personality proportion, Force level or population position."
         }
       ]
     },
     {
       "id": "archetype-ties",
       "title": {
-        "zh": "完整结果、最高并列与近分",
-        "en": "Full guides, highest ties and close choices"
+        "zh": "最高并列、相近次数与较低次数",
+        "en": "Highest ties, close counts and lower counts"
       },
       "paragraphs": [
         {
-          "zh": "七份完整说明各含人物背景、有限读法、例子、表达、六角色比较、反例、小观察、计分和来源。最高并列逐份显示，不把主角或名单第一位设为主型，不自动指定第二角色。近分可自选比较，不补造并列、原力等级、阵营或身份；公开页不显示任何人的私有答卷或次数。",
-          "en": "Each of seven guides includes context, the limited reading, an example, wording, six-character comparisons, counterexamples, an observation, scoring and sources. Every highest tie appears in full without protagonist or list-order priority or an automatic second character. Read close guides without inventing ties, Force levels, alignments or identities. Public pages reveal no private attempt or counts."
+          "zh": "所有达到相同最高次数的方向均完整保留，不按名单、题号或选项位置强分主次。始终选同一位置会得到七位各3次。并列是合法结果，不随机选一个角色，也不新增混合身份；可逐份比较指南中的行动入口。",
+          "en": "Every direction sharing the maximum is retained without assigning priority by roster, question order or option position. Choosing the same position throughout gives three each for all seven. A tie is valid, without a random single character or extra hybrid identity; compare the approaches in each guide."
+        },
+        {
+          "zh": "差1次只说明多选了一项，本版没有统计显著性或近分合并阈值。3次的指南可与4次的一起读，但不自动算并列。低次数也不表示缺少智慧、希望或表达能力；固定总数下，一次选择只增加一个方向。",
+          "en": "A one-count gap means one extra selection; this edition has no significance test or threshold merging close counts. Read a guide at three alongside one at four without treating them as tied. Lower counts do not show missing wisdom, hope or expression; one choice increases only one direction."
         }
       ]
     },
     {
       "id": "archetype-metaphor",
       "title": {
-        "zh": "原版三部曲角色、别名与其他问卷的区别",
-        "en": "Original-trilogy characters, names and other quizzes"
+        "zh": "七份完整指南：角色名与具体做法",
+        "en": "Seven full guides: character names and concrete approaches"
       },
       "paragraphs": [
         {
-          "zh": "本版选用原版三部曲出现的七位，不是全作品阵容；官方总传记可能含其他时期，不因此评价全部经历。维达／阿纳金、帕尔帕廷／西迪厄斯各是同一身份，尤达也不等于Grogu。无需剧情知识，不采用竞品另一心理病理路径、其他价值问卷或角色投票算法，不换算原力、心理、善恶或MBTI。",
-          "en": "This edition selects seven characters appearing in the original trilogy rather than the entire cast. Official biographies include other periods without making these readings evaluations of every event. Vader and Anakin are one identity, as are Palpatine and Sidious; Yoda is not Grogu. No trivia, other psychopathology or values instrument, character-voting algorithm or Force, psychological, moral or MBTI conversion is used."
+          "zh": "每位角色都有基础作品语境、本版解释、日常场景、可尝试的表达、其他六位的比较、反例、小观察、计分与来源说明。公开指南可以先读，不含私人答卷。完成后每个最高并列都显示完整内容，无需另做测试或付费解锁。",
+          "en": "Each character has series context, this edition’s reading, an everyday scenario, wording to try, six-character comparisons, counterexamples, an observation activity, scoring and sources. Public guides can be read first and contain no private answers. Every highest tie displays full content without another test or paid unlock."
+        },
+        {
+          "zh": "把“我是尤达”换成一个可核对的问题，例如“开始前，我是否先问原来的假设还适用吗？”再找一次符合和一次不符合的经历。喜欢角色、认同其剧情立场与更常选择一种普通做法是不同问题，不必让三者一致。",
+          "en": "Replace “I am Yoda” with a checkable question, such as whether you first ask if an initial assumption still applies. Find one fitting experience and one counterexample. Liking a character, endorsing a story position and choosing an everyday approach more often are different questions and need not coincide."
         }
       ]
     },
     {
-      "id": "source",
+      "id": "star-wars-seven-readings",
       "title": {
-        "zh": "原创同人与官方资料使用范围",
-        "en": "Original fan reading and official source scope"
+        "zh": "七位角色分别对应什么日常角度",
+        "en": "What the seven everyday readings mean here"
       },
       "paragraphs": [
         {
-          "zh": "这是费马独立创作的21题非官方同人问卷，选用在《星球大战》原版三部曲出现的汉·索罗、帕尔帕廷、达斯·维达、莱娅、欧比旺、卢克和尤达七位虚构角色，只作普通自选做法的有限阅读角度，不代表完整人格、全作品阵容或官方分类。维达与阿纳金、帕尔帕廷与西迪厄斯各保留一个身份，不增加角色或测试；官方总传记包含其他时期，不因此将所有时期的行为一概投射到答题者。题目、选项、映射、计数、解释与例子原创，未采用IDR35题、竞品正文／算法、其他价值或病理问卷、电影截图、立绘、台词、字幕、歌词或其他受保护素材。不是Disney或Lucasfilm官方测验，无权利人合作、授权或认可；作品、角色和STAR WARS商标归相应权利人。官方Databank仅核角色基本语境和身份，不验证本站题目、计分或心理解释。中文名为本版编辑采用写法，英文身份稳定。结果不推断原力、心理病理、疾病、智商、道德、危险性、残障、身体、物种、族群、性别、年龄、创伤、爱情、关系、职业或政治信念，不指导战争、武器、操控、虐待、呼吸、冥想或战斗练习，也不换算MBTI或其他测评。",
-          "en": "This is an independently authored FermatMind 21-item unofficial fan quiz selecting seven characters appearing in the original Star Wars trilogy: Han, Palpatine, Vader, Leia, Obi-Wan, Luke and Yoda. They support limited readings of ordinary chosen approaches rather than complete personalities, the entire franchise cast or an official taxonomy. Vader and Anakin retain one identity, as do Palpatine and Sidious, adding no characters or tests. Official biographies include other periods without projecting every period’s behaviour onto respondents. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, other values or psychopathology instrument, film stills, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official Disney or Lucasfilm test or rights-holder partnership, authorisation or endorsement; respective owners retain works, characters and STAR WARS trademarks. Official Databank pages check basic context and identities without validating these items, counts or psychology. Chinese names are editorial choices retaining English identities. Results infer no Force, psychopathology, illness, IQ, morality, dangerousness, disability, bodily condition, species, ethnicity, gender, age, trauma, romance, relationship, career or political belief, instruct no war, weapons, manipulation, abuse, breathing, meditation or combat practice, and convert into no MBTI or other assessment."
+          "zh": "汉·索罗对应使用眼前可用的办法；帕尔帕廷对应说清持续安排；维达对应集中在明确的自选一步；莱娅对应在共同安排中表达意见。例如制作小卡时，可以组合现有材料、安排后续使用、先完成一个步骤，或说明想法并听取他人意愿。",
+          "en": "Han concerns working with available means; Palpatine describing an ongoing arrangement; Vader one clear chosen step; Leia expressing views in shared plans. Making a card might involve combining materials, arranging continued use, completing one step, or stating a view and hearing others’ wishes."
+        },
+        {
+          "zh": "欧比旺对应需要时分享具体经验；卢克对应迈出自选学习一步；尤达对应停一下检查最初假设。三者分别看经验分享、学习起步与重新提问。本版解释的是选项中的动作，不是智慧等级、学习能力、领导力或政治倾向。",
+          "en": "Obi-Wan concerns offering specific experience when wanted; Luke a chosen learning step; Yoda pausing to question an assumption. They emphasize experience, learning and reconsideration. These describe actions in our options rather than wisdom levels, learning ability, leadership or political positions."
         }
       ]
     },
     {
-      "id": "privacy",
+      "id": "star-wars-comparisons",
       "title": {
-        "zh": "草稿、分享与可选下一步",
-        "en": "Drafts, sharing and optional next steps"
+        "zh": "相近结果怎样比较？学习、经验与假设",
+        "en": "Comparing nearby results: learning, experience and assumptions"
       },
       "paragraphs": [
         {
-          "zh": "答案在浏览器内计分，不上传、不进网址或分析。草稿需主动开启，只在本标签页恢复，24小时失效，完成、重测、退出清除即删除。分享自选，只含公开角色说明和链接，不含答案或次数。完整结果免费，无需注册、邮箱或另一测试；后续测评可不做，选择继续需要另外作答。",
-          "en": "Answers are scored in your browser without uploading them or placing them in URLs or analytics. Drafts require opt-in, restore only in this tab, expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains public guides and links without answers or counts. Full results are free without signup, email or another test; further assessments are optional and require new answers."
+          "zh": "欧比旺、卢克与尤达都可能出现在学习活动中：欧比旺先问对方是否需要一个经验例子，卢克先选自己愿意学的一小步，尤达先检查问题的前提。一个人可以先重新提问、再试一步、随后分享经验，三个方向并不互斥。",
+          "en": "Obi-Wan, Luke and Yoda can all arise in learning: offer an experience if wanted, choose a small learning step, or check a premise first. One person can reconsider, try a step and later share experience; the three approaches are not mutually exclusive."
+        },
+        {
+          "zh": "汉·索罗和维达都可能迅速动手，但前者看现有材料怎样够用，后者聚焦一个明确步骤。帕尔帕廷看持续安排怎样运行，莱娅看共同安排中怎样表达与听取意见。比较时看行动对象和参照场景，不只看果断、随性或有计划等形容词。",
+          "en": "Han and Vader may both act quickly, but one considers available means while the other focuses on a defined step. Palpatine concerns how an arrangement continues; Leia expression and listening in shared plans. Compare the action and setting rather than adjectives such as decisive, spontaneous or organized."
+        }
+      ]
+    },
+    {
+      "id": "star-wars-canon",
+      "title": {
+        "zh": "原版三部曲、人物阶段与官方资料",
+        "en": "The original trilogy, character stages and official sources"
+      },
+      "paragraphs": [
+        {
+          "zh": "官方Databank说明汉·索罗从走私者到反抗军伙伴、莱娅的公共行动，以及卢克与导师们的故事背景。[1][4][5][6][7] 名单选择七位在原版三部曲出现的人物，不代表他们只出现在这三部电影，也不包含全系列英雄、机器人或其他人物。",
+          "en": "The official Databank describes Han’s path to the Rebel Alliance, Leia’s public role, and Luke and his mentors.[1][4][5][6][7] Our roster selects seven who appear in the original trilogy; it does not imply they appear only there or cover every hero, droid or other franchise character."
+        },
+        {
+          "zh": "人物会随故事阶段改变。官方资料中卢克的不同时期与维达从阿纳金到西斯的经历，不能压缩成对现实人的固定标签。[3][6] 本页只取明确的日常阅读入口；官方资料负责背景核对，本站题目和映射没有官方认可或合作关系。",
+          "en": "Characters change across story stages. Luke’s different periods and Vader’s path from Anakin to Sith cannot become fixed labels for real people.[3][6] This page uses defined everyday lenses; official sources check background, without endorsing or partnering on our questions or mappings."
+        }
+      ]
+    },
+    {
+      "id": "star-wars-dark-side",
+      "title": {
+        "zh": "维达与帕尔帕廷结果怎样避免误读",
+        "en": "Reading Vader and Palpatine without moral labeling"
+      },
+      "paragraphs": [
+        {
+          "zh": "官方背景把帕尔帕廷的政治操纵与暴政、维达的帝国角色放在叙事中描述。[2][3] 本版“持续安排”和“自选一步”是另行定义的无害日常选择，不把暴政改写成优点，也不因选中这些方向就说你冷酷、操控他人或支持某种政治立场。",
+          "en": "Official context describes Palpatine’s manipulation and tyranny and Vader’s Imperial role within the narrative.[2][3] Our ongoing-arrangement and chosen-step lenses are separately defined harmless choices. They neither recast tyranny as a virtue nor establish coldness, manipulation or political support in respondents."
+        },
+        {
+          "zh": "反过来，得到尤达、莱娅或卢克也不认证智慧、领导力或道德优越。角色结果不测原力、光明面比例、黑暗人格、攻击性或心理状态。与他人分享时可讨论题目中的具体做法，不应强行给同事、朋友或伴侣贴人物标签。",
+          "en": "Likewise, Yoda, Leia or Luke certifies no wisdom, leadership or moral superiority. Results assess no Force powers, light-side percentage, dark personality, aggression or mental state. Discuss concrete approaches when sharing rather than imposing character labels on colleagues, friends or partners."
+        }
+      ]
+    },
+    {
+      "id": "star-wars-scenario",
+      "title": {
+        "zh": "用一次小卡活动理解七种入口",
+        "en": "Seven approaches to a simple card-making activity"
+      },
+      "paragraphs": [
+        {
+          "zh": "假设朋友自愿制作小卡：用现有材料凑一个办法，说清后续怎样继续，先做自己选的一步，在共同安排中提出意见，问是否需要经验例子，尝试一个新学的小步骤，或先问卡片一定要按原方式做吗。七种入口可相互补充，没有最佳角色。",
+          "en": "Imagine friends voluntarily making cards: improvise with materials, describe how the activity continues, complete a chosen step, express a view in shared plans, offer experience if wanted, try a new learning step, or question whether the original method is necessary. The approaches can complement one another; there is no best character."
+        },
+        {
+          "zh": "这个合成例子解释含义，不新增计分。你可能独自做卡片时先动手，和朋友一起时先表达意见，学习新方法时先问前提。材料、经验、时间与参与者意愿都可能影响选择；找反例有助于避免把一次结果当成所有场景的答案。",
+          "en": "This constructed example explains meanings without adding a score. You might act first alone, express a view with friends, or question a premise when learning. Materials, experience, time and willingness can change choices; counterexamples prevent treating one result as an answer for every situation."
+        }
+      ]
+    },
+    {
+      "id": "star-wars-practice",
+      "title": {
+        "zh": "把结果转成一句清楚的学习或合作表达",
+        "en": "Turning a reading into clear learning or cooperation wording"
+      },
+      "paragraphs": [
+        {
+          "zh": "选一个当前小活动，试说“先用手边材料试这一段。”“如果继续，哪天再看看安排？”“你需要我分享一个做过的例子吗？”也可以问“最初的假设是什么？”只试有用的一项，记录是否让活动更清楚，不追求扮演角色。",
+          "en": "For a current activity, try using available materials for one part, setting a time to review continued arrangements, asking whether an experience example is wanted, or clarifying the initial assumption. Try one useful action and check whether the activity becomes clearer rather than trying to play a character."
+        },
+        {
+          "zh": "共同活动先确认意愿、材料权限和调整空间。持续安排可以停止，自选步骤可以缩小，分享经验也允许对方不采用。结果不替你或别人承担承诺，不分配固定团队角色，也不预测职业或关系适配；下一步以实际反馈为准。",
+          "en": "For shared activities, check willingness, material permissions and room to revise. Stop an arrangement, reduce a step or let someone decline advice. Results make no commitments, assign no fixed team roles and predict no career or relationship fit; actual feedback guides the next step."
+        }
+      ]
+    },
+    {
+      "id": "star-wars-evidence",
+      "title": {
+        "zh": "可复算规则、人格研究与重测",
+        "en": "Reproducible rules, personality research and retesting"
+      },
+      "paragraphs": [
+        {
+          "zh": "本题本尚未建立信度、效度和人群常模。可复算规则说明回答如何形成次数，均衡出现说明各方向有相同机会；两者不自动验证七个科学人格构念，也不证明真实人群中七个结果同样常见。作品背景或其他平台的研究不能替代本站研究。",
+          "en": "Reliability, validity and population norms have not been established. Reproducible rules explain counts and balanced appearances provide equal opportunities. Neither validates seven scientific personality constructs or proves equally common outcomes in real respondents. Series context or research on another tool cannot substitute for evidence about this one."
+        },
+        {
+          "zh": "不同星战测验可能使用特质、价值观、剧情偏好或角色资料，不能仅凭角色同名换算分数。本结果不能换算MBTI、大五或道德评价。重测先比较参照情境和实际变化的次数；接近最高的方向可能因少量回答换位，仅换角色名不足以证明人格改变。",
+          "en": "Other Star Wars quizzes may use traits, values, plot preferences or character profiles; shared names do not make scores convertible. Our counts cannot convert into MBTI, Big Five or moral ratings. When retesting, compare context and changed counts first; small changes can reorder close maxima without establishing personality change."
+        }
+      ]
+    },
+    {
+      "id": "star-wars-free-privacy",
+      "title": {
+        "zh": "免费结果、直接开始与临时进度",
+        "en": "Free results, direct start and temporary progress"
+      },
+      "paragraphs": [
+        {
+          "zh": "全部21题、七项次数、最高并列与七份完整指南免费，无需注册或先做其他测试。点击开始直接进入题目，没有额外同意步骤。约7分钟是参考用时，不限时，不按速度加减分；完成全部题目后生成个人结果，公开指南可以先读。",
+          "en": "All 21 questions, seven counts, highest ties and seven full guides are free without signup or another assessment. Start opens questions directly without an extra agreement. About seven minutes is an estimate, not a limit or speed score. Personal results follow all answers; public guides can be read first."
+        },
+        {
+          "zh": "答案在浏览器内计分，不通过计分请求上传，也不写入网址或分析事件。默认不保存；主动保存后本标签页进度24小时失效，完成、重测或退出清除后删除。固定公开指南不含私人答卷或次数；其他使用事件依隐私与Cookie设置。",
+          "en": "Answers are scored in the browser, not uploaded through scoring requests or included in URLs or analytics events. Progress is unsaved by default; opt-in tab progress expires after 24 hours and clears on completion, retake or explicit exit-and-clear. Fixed public guides contain no private answers or counts; other usage events follow privacy and Cookie settings."
         }
       ]
     }
@@ -2090,52 +2212,142 @@
   "faq": [
     {
       "question": {
-        "zh": "星球大战角色测试包括哪七位？",
-        "en": "Which seven Star Wars characters are included?"
+        "zh": "星球大战角色测试测什么？",
+        "en": "What does the Star Wars character quiz explore?"
       },
       "answer": {
-        "zh": "本版包括汉·索罗、帕尔帕廷、达斯·维达、莱娅·奥加纳、欧比旺·克诺比、卢克·天行者和尤达。他们均在原版三部曲出现，本版只取有限普通读法，不代表完整人格或全作品阵容；别名和中文译名不增加角色或测试。",
-        "en": "This edition includes Han Solo, Palpatine, Darth Vader, Leia Organa, Obi-Wan Kenobi, Luke Skywalker and Yoda, who appear in the original trilogy. Limited ordinary readings represent neither complete personalities nor the entire cast. Alternate and translated names add no characters or tests."
+        "zh": "比较现有办法、持续安排、自选步骤、共同表达、经验分享、学习起步与假设检查七种普通选择。用角色名组织阅读，不测原力、善恶或能力。",
+        "en": "It compares seven everyday approaches: available means, ongoing arrangements, chosen steps, shared views, experience, learning and assumptions. Names organize readings without measuring Force powers, morality or ability."
       }
     },
     {
       "question": {
-        "zh": "需要看过电影、生日或照片吗？",
-        "en": "Do I need film knowledge, a birthday or a photo?"
+        "zh": "有哪些角色，属于哪一版作品？",
+        "en": "Which characters and stories are included?"
       },
       "answer": {
-        "zh": "不需要，也不收生日或照片。21题是普通自选做法，没有剧情答对、外貌、身体或种族输入，也不检测原力。结果页提供理解本版有限读法的基础背景，不替代作品或现实心理评估。",
-        "en": "No, and no birthday or photo is collected. Twenty-one items concern ordinary chosen approaches without correct trivia answers, appearance, bodily or species input or Force detection. Basic context supports limited readings rather than replacing the work or actual psychological assessment."
+        "zh": "汉·索罗、帕尔帕廷、达斯·维达、莱娅、欧比旺、卢克与尤达。七位均出现在原版三部曲，也在其他作品出现；本版不覆盖全系列人物。",
+        "en": "Han Solo, Palpatine, Darth Vader, Leia, Obi-Wan, Luke and Yoda. All appear in the original trilogy and elsewhere; this edition does not cover the entire franchise."
       }
     },
     {
       "question": {
-        "zh": "怎样计分、处理最高并列与近分？",
-        "en": "How are counts, highest ties and close choices handled?"
+        "zh": "不熟悉剧情也能做吗？",
+        "en": "Can I answer without knowing the story?"
       },
       "answer": {
-        "zh": "21题全部各选一项，对应的本版角色读法加1，总数固定21。每题提供七位中的四位，全卷每位出现12次、每位置3次；未提供的三位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会七位各3次、七份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、原力、善恶或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型。近分可自行比较，不补造并列、能力、阵营或种族。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
-        "en": "Choose one option for all 21 items; each adds one to its editorial character reading and counts sum to 21. Four of seven characters are offered per item. Each appears twelve times and three times in each position; three absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all seven guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, the Force, good-versus-evil nor population ranks. One extra choice proves no significance, hidden identity or fixed type. Read close guides without inventing ties, powers, alignments or species. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+        "zh": "可以。21题是原创普通情境，不考电影顺序、星球、台词或光剑名称，不需出生日期、名字或私人经历。按近期较自然的做法作答。",
+        "en": "Yes. All 21 original everyday scenarios require no film-order, planet, dialogue or lightsaber recall, birth date, name or private history. Answer from recent natural approaches."
       }
     },
     {
       "question": {
-        "zh": "这是官方、心理病理或科学人格测试吗？",
-        "en": "Is this official, psychopathology or a scientific personality test?"
+        "zh": "七项次数怎样计算？",
+        "en": "How are the seven counts calculated?"
       },
       "answer": {
-        "zh": "这是费马独立创作的21题非官方同人问卷，选用在《星球大战》原版三部曲出现的汉·索罗、帕尔帕廷、达斯·维达、莱娅、欧比旺、卢克和尤达七位虚构角色，只作普通自选做法的有限阅读角度，不代表完整人格、全作品阵容或官方分类。维达与阿纳金、帕尔帕廷与西迪厄斯各保留一个身份，不增加角色或测试；官方总传记包含其他时期，不因此将所有时期的行为一概投射到答题者。题目、选项、映射、计数、解释与例子原创，未采用IDR35题、竞品正文／算法、其他价值或病理问卷、电影截图、立绘、台词、字幕、歌词或其他受保护素材。不是Disney或Lucasfilm官方测验，无权利人合作、授权或认可；作品、角色和STAR WARS商标归相应权利人。官方Databank仅核角色基本语境和身份，不验证本站题目、计分或心理解释。中文名为本版编辑采用写法，英文身份稳定。结果不推断原力、心理病理、疾病、智商、道德、危险性、残障、身体、物种、族群、性别、年龄、创伤、爱情、关系、职业或政治信念，不指导战争、武器、操控、虐待、呼吸、冥想或战斗练习，也不换算MBTI或其他测评。",
-        "en": "This is an independently authored FermatMind 21-item unofficial fan quiz selecting seven characters appearing in the original Star Wars trilogy: Han, Palpatine, Vader, Leia, Obi-Wan, Luke and Yoda. They support limited readings of ordinary chosen approaches rather than complete personalities, the entire franchise cast or an official taxonomy. Vader and Anakin retain one identity, as do Palpatine and Sidious, adding no characters or tests. Official biographies include other periods without projecting every period’s behaviour onto respondents. Items, options, mappings, counts, explanations and examples are original. No IDR 35-item bank, competitor text or algorithm, other values or psychopathology instrument, film stills, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official Disney or Lucasfilm test or rights-holder partnership, authorisation or endorsement; respective owners retain works, characters and STAR WARS trademarks. Official Databank pages check basic context and identities without validating these items, counts or psychology. Chinese names are editorial choices retaining English identities. Results infer no Force, psychopathology, illness, IQ, morality, dangerousness, disability, bodily condition, species, ethnicity, gender, age, trauma, romance, relationship, career or political belief, instruct no war, weapons, manipulation, abuse, breathing, meditation or combat practice, and convert into no MBTI or other assessment."
+        "zh": "每题选四项中的一项，方向加1；总数21。每方向出现12次、四位置各3次，范围0—12。未提供的三个方向不算被拒绝，次数不是相似度百分比。",
+        "en": "One of four options adds one to its direction; counts total 21. Each direction appears 12 times, three per position, with range 0–12. Three absent directions are not rejected. Counts are not similarity percentages."
       }
     },
     {
       "question": {
-        "zh": "完整结果、重测与分享免费吗？",
-        "en": "Are full results, retaking and sharing free?"
+        "zh": "为什么会同时得到卢克和尤达？",
+        "en": "Why might I get both Luke and Yoda?"
       },
       "answer": {
-        "zh": "免费，无需注册、邮箱或先做另一测试。可先读七份完整说明，完成21题后最高并列全部完整显示。重测清除本次选择，可选分享不含答案或次数。后续MBTI另行作答，不从角色换算，也不是解锁结果的条件。",
-        "en": "They are free without signup, email or another test first. Read seven full guides before answering; every highest tie appears after all 21 choices. Retaking clears this attempt. Optional sharing contains no answers or counts. Further MBTI questions require new responses rather than conversion and do not unlock these results."
+        "zh": "例如按名单次数2、3、3、3、2、4、4时，两者共同最高。所有最高并列完整保留，不按名单、题号或随机方式强分。始终选同一位置会七位各3次。",
+        "en": "Counts of 2, 3, 3, 3, 2, 4, 4 in roster order tie Luke and Yoda. Every highest tie is retained without roster-based, question-order or random priority. Choosing the same position throughout gives three each."
+      }
+    },
+    {
+      "question": {
+        "zh": "卢克、尤达和欧比旺有什么区别？",
+        "en": "How do Luke, Yoda and Obi-Wan differ here?"
+      },
+      "answer": {
+        "zh": "卢克先选愿意学的一小步；尤达先检查最初假设；欧比旺在对方需要时分享具体经验。三者可在同一活动出现，不是学习、智慧或教学能力排名。",
+        "en": "Luke chooses a learning step, Yoda checks an assumption, and Obi-Wan offers experience when wanted. All can occur in one activity without ranking learning, wisdom or teaching ability."
+      }
+    },
+    {
+      "question": {
+        "zh": "维达或帕尔帕廷结果意味着我属于黑暗面吗？",
+        "en": "Does Vader or Palpatine mean I belong to the dark side?"
+      },
+      "answer": {
+        "zh": "不意味着。本版分别记录集中在自选一步和说清持续安排。它们不把剧情暴力或政治操纵转成优点，也不判定你的善恶、危险性或政治立场。",
+        "en": "No. These readings record a chosen step and an ongoing arrangement. They neither turn fictional violence or manipulation into virtues nor determine morality, dangerousness or political positions."
+      }
+    },
+    {
+      "question": {
+        "zh": "差一次和低次数怎样理解？",
+        "en": "How should I read a one-count gap or a lower count?"
+      },
+      "answer": {
+        "zh": "只说明相对多选或少选一项，不证明统计显著、能力差异或品质缺失。本版不自动合并近分；可以一起阅读相近指南并核对具体场景。",
+        "en": "Only one more or fewer selections, not significance, an ability gap or a missing quality. Close counts are not automatically merged; read nearby guides and check concrete situations."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是官方或科学人格测验吗？",
+        "en": "Is this official or a scientific personality assessment?"
+      },
+      "answer": {
+        "zh": "这是独立非官方同人测验，尚未建立信度、效度和常模。官方Databank用于核对人物背景，不验证本站题目和对应规则。适合娱乐阅读与具体日常观察。",
+        "en": "It is an independent unofficial fan quiz with unestablished reliability, validity and norms. The official Databank checks character context, not our questions or mappings. Use it for entertainment and concrete everyday reflection."
+      }
+    },
+    {
+      "question": {
+        "zh": "能换算MBTI、大五或其他星战测验吗？",
+        "en": "Can results convert into MBTI, Big Five or another Star Wars quiz?"
+      },
+      "answer": {
+        "zh": "不能。不同工具可能用特质、价值观或剧情偏好，角色集合与计分也不同。同名人物不使分数可比；本题本的次数只适用于这21道选择。",
+        "en": "No. Tools may use traits, values or plot preferences, with different rosters and scoring. Shared names do not make scores comparable; these counts apply to these 21 choices."
+      }
+    },
+    {
+      "question": {
+        "zh": "结果会等于我最喜欢的角色吗？",
+        "en": "Will the result be my favourite character?"
+      },
+      "answer": {
+        "zh": "不一定。角色喜好和本次普通选择不同。结果不否定你的喜好，也不要求认同人物全部行为。可以结合反例和其他六位的比较一起阅读。",
+        "en": "Not necessarily. Favourite characters and current everyday choices differ. Results invalidate no preference and require no endorsement of every action. Read counterexamples and six-character comparisons together."
+      }
+    },
+    {
+      "question": {
+        "zh": "可以用于团队或日常交流吗？",
+        "en": "Can I use it in a team or everyday conversation?"
+      },
+      "answer": {
+        "zh": "可自愿讨论怎样用现有材料、澄清持续安排或分享经验，再看真实反馈。不强迫别人认领角色，不据此固定分工、招聘筛选或预测关系。",
+        "en": "Voluntarily discuss available means, continued arrangements or experience, then check feedback. Do not force character labels, fix roles, screen applicants or predict relationships from results."
+      }
+    },
+    {
+      "question": {
+        "zh": "免费吗，开始后还要再同意吗？",
+        "en": "Is it free, with another agreement after Start?"
+      },
+      "answer": {
+        "zh": "全部题目、次数、最高并列与七份完整指南免费，无需注册。点击开始直接进入题目，没有额外同意步骤。约7分钟是参考，不限时。",
+        "en": "Questions, counts, highest ties and seven full guides are free without signup. Start opens questions directly without an extra agreement. About seven minutes is an estimate, not a limit."
+      }
+    },
+    {
+      "question": {
+        "zh": "答案会上传、保存或分享吗？",
+        "en": "Are answers uploaded, saved or shared?"
+      },
+      "answer": {
+        "zh": "浏览器内计分，答案不进入计分上传、网址或分析事件。可选本标签页进度24小时失效，完成、重测或退出清除删除。固定公开指南不含私人答卷或次数，其他使用事件依隐私设置。",
+        "en": "Scoring runs in the browser; answers are not included in scoring uploads, URLs or analytics events. Optional tab progress expires after 24 hours and clears on completion, retake or exit-and-clear. Fixed public guides contain no private answers or counts; other usage events follow privacy settings."
       }
     }
   ],

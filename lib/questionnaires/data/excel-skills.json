@@ -10,17 +10,17 @@
     "zh": "Excel技能测试"
   },
   "seoTitle": {
-    "en": "Excel Skills Test: 24 Free Questions & Worked Answers",
-    "zh": "Excel技能测试：24道免费练习题、答案与解析"
+    "zh": "Excel技能测试：24题公式、查找、数据与完整解析",
+    "en": "Excel Skills Test: 24 Formula, Lookup & Data Questions"
   },
   "description": {
-    "en": "Practise 24 original Excel formula, lookup, data and presentation questions. Get every worked answer and four full guides. No level or certificate.",
-    "zh": "用24道原创题练习Excel公式引用、条件查找、数据处理与呈现汇总。免费查看每题答案、完整解析和四份复习指南，不评操作等级或颁证。"
+    "zh": "免费练习24道Excel公式引用、条件查找、数据处理与透视汇总题。不限时，无需注册，完成后查看逐题答案解析、四项正确数和四份完整复习指南。",
+    "en": "Practise 24 Excel formula, lookup, data and PivotTable questions for free. Untimed and no signup, with every worked answer, four section counts and four complete revision guides."
   },
   "minutes": 10,
   "introduction": {
-    "en": "What would this formula return, and what would that command change? Work through 24 independently written Excel knowledge and scenario questions, six in each of four sections. Small invented tables, explicit assumptions and worked answers let you inspect the reasoning. Complete all choices to see your count for this bank and every explanation, with all four public revision guides available before or after practice. There is no timer, file upload or live spreadsheet simulation. This limited recognition exercise does not certify practical Excel ability or assign beginner-to-expert tiers.",
-    "zh": "这条公式返回什么，这个命令会改哪里？通过24道独立编写的Excel知识与情境题，练四个分项、每项六题。虚构小表、明确假设和逐步题解让推理可核。完成全部选择后显示本题组正确数和每题解析，四份公开复习指南开测前后都能读。不计时、不上传文件、不模拟实际操作；有限的识别练习不认证Excel实操能力，也不分初级到专家档。"
+    "zh": "这份Excel技能测试以24道原创单选题，练习公式与引用、条件与查找、数据处理与核对、呈现与汇总四组任务，每组六题。题目明确单元格的储存类型、复制方向、精确匹配及显示设置，要求判断给定公式的返回值或命令的作用。完成后逐题查看所选、正确答案与推理，并分别阅读四份完整复习指南。题目采用英文函数名、逗号参数分隔与A1引用；中文和英文保留同一组公式与虚构数据。无需安装Excel、上传工作簿或计时完成。",
+    "en": "This Excel Skills Test offers twenty-four original multiple-choice questions across formulas and references, conditions and lookup, data handling and checks, and presentation and summaries, with six per group. Items specify stored types, copy direction, exact matching and display settings to ask what a formula returns or a command changes. Completion opens every selected answer, key and reasoning plus four complete revision guides. Both languages retain English function names, comma argument separators, A1 references and the same fictional data. No installed Excel, workbook upload or timed completion is required."
   },
   "instructions": {
     "en": "Choose one answer for each of 24 original questions. Both interfaces use the same English function names, comma argument separators, A1 references and invented values; the question wording and explanations are bilingual. Tasks use selected common Excel 2021/Microsoft 365 behaviour, with the Freeze Panes task explicitly for Windows. Follow each stated condition, including stored types, exact matching and the precision setting. No Excel file is required. Finish all 24 choices to view every selected answer, key and worked explanation. Using a reference is welcome for learning; an unaided count and an assisted count describe different conditions.",

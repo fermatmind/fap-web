@@ -10,17 +10,17 @@
     "zh": "JavaScript测试"
   },
   "seoTitle": {
-    "en": "JavaScript Test: 24 Free Code Questions & Answers",
-    "zh": "JavaScript测试：24道免费代码题、答案与解析"
+    "en": "JavaScript Test: 24 Free Code Questions & Explanations",
+    "zh": "JavaScript测试：24道代码题、答案与逐题解析"
   },
   "description": {
-    "en": "Read 24 original JavaScript programs in a stated Node ES module context. Get every worked answer and four full guides. No level or certificate.",
-    "zh": "阅读24段原创JavaScript程序，按明确的Node ES模块条件预测输出或语法错误。免费查看全部答案、逐题解析和四份完整复习指南，不派等级或认证。"
+    "en": "Predict 24 original JavaScript outputs or syntax errors in Node ES modules. Free answers, four section counts and complete guides; untimed, no sign-up.",
+    "zh": "阅读24段原创JavaScript程序，预测输出或执行前语法错误。免费查看四组正确数、全部答案、逐题解析与四篇完整指南；按Node ES模块条件，不计时，无需注册。"
   },
   "minutes": 10,
   "introduction": {
-    "en": "What does this program print, and can execution begin at all? Work through 24 independently written JavaScript tasks in a declared Node 24.19.0 ES module environment. Four groups cover values and operators, bindings and functions, arrays and objects, and Promises and errors. Each supplied program was checked: 22 produce the keyed output and two fail syntax checking as expected. Every explanation and all four full guides are free. You select outcomes here; the website does not run code submitted by visitors, require a file upload or issue a developer qualification.",
-    "zh": "程序打印什么，又能否开始执行？用24道独立编写的JavaScript题，按明确的Node 24.19.0 ES模块环境练习值与运算符、绑定函数、数组对象、Promise及错误四组。每段均已核验：22段输出与答案一致，另两段按预期未过语法检查。全部解析和四份完整指南免费。这里选择结果，网站不运行访问者代码、不要求上传文件，也不颁开发者资格。"
+    "en": "Read independent .mjs programs under Node 24.19.0 across four groups of six: values and operators, bindings and functions, arrays and objects, and Promises and errors. Decide what prints or whether syntax checking fails before execution. Every worked answer and all four complete guides are free; you select outcomes rather than submit code.",
+    "zh": "按Node 24.19.0的独立.mjs ES模块条件，练习值与运算符、绑定与函数、数组与对象、Promise与错误四组各六题。判断程序打印什么，或是否在执行前未过语法检查。完成后免费查看全部所选、答案与解析、四篇完整指南；读给定代码并选结果，无需提交程序。"
   },
   "instructions": {
     "en": "Treat each snippet as an independent .mjs ES module in Node 24.19.0. Choose its exact console output or the stated syntax-error outcome before execution. ES modules use strict mode. No example depends on DOM APIs, external input, Node I/O or mixed timer ordering. English code and output values remain identical across interfaces; instructions and explanations are bilingual. There is no timer or speed bonus. Finish all 24 valid choices to see every selected answer, key, explanation and complete guide. If you check references while answering, interpret your count under those conditions.",

@@ -2,7 +2,7 @@
   "slug": "travel-personality-test",
   "code": "TRAVEL_PREFERENCES",
   "version": "1.0.0",
-  "updated": "2026-10-25",
+  "updated": "2026-10-31",
   "category": "everyday",
   "kind": "archetype",
   "minutes": 5,
@@ -15,20 +15,20 @@
     "en": "Your travel-preference choices"
   },
   "seoTitle": {
-    "zh": "旅行性格类型测试：18道偏好题与六种完整结果",
-    "en": "Travel Personality Type Test: 18 Questions, Six Full Guides"
+    "zh": "旅行性格测试：18题、六种偏好与完整解读",
+    "en": "Travel Personality Test: 18 Questions, Six Preferences and Full Guides"
   },
   "description": {
-    "zh": "用18道原创出游偏好题，比较随兴漫游、行程规划、文化、户外、休闲与饮食体验。六项计数和最高并列完整报告免费，无需注册；附例子与同行协商，不评定能力或旅行资格。",
-    "en": "Take 18 original travel-preference questions. Compare wandering, planning, culture, outdoors, rest and food, with every tied full guide free. No signup or ability verdict."
+    "zh": "通过18道出游情境选择，了解自己更看重随兴、规划、文化、户外、休闲还是饮食体验。约5分钟，免费查看六项计数、全部最高并列与完整指南，把偏好转化为可讨论的旅行安排。",
+    "en": "Explore what you prioritise in 18 travel scenarios: spontaneity, planning, culture, outdoor activities, rest or food. In about five minutes, see six counts, all highest ties and free full guides for discussing trip arrangements."
   },
   "introduction": {
-    "zh": "有一段可自己安排的出游时间，你更想提前衔接、到现场再选，还是把时间留给文化、户外、休息或饮食？本旅行性格类型测试用18道原创偏好题比较六种常见做法，名称帮助讨论实际安排，不把它们当作六种普遍、互斥的人格。六份完整报告都能先读，作答后显示原始计数与全部最高并列解释，无需注册、付费或先做其他测评。它不判断体能、风险承受、健康、同行配对或职业适配。",
-    "en": "With time you can arrange for an outing, would you coordinate it ahead, decide on arrival or focus on culture, outdoor activities, rest or food? This Travel Personality Type Test uses 18 original preference situations to compare six familiar approaches. Their names help discuss arrangements rather than establish six universal, mutually exclusive personalities. Read every full guide first, then see raw counts and all highest-count interpretations without signup, payment or another assessment. The test judges neither fitness, risk tolerance, health, companion compatibility nor career fit."
+    "zh": "旅行性格测试可以帮助梳理“怎样安排时间”和“想把时间花在哪里”。本站18道原创情境题比较随兴漫游、行程规划、文化探索、户外体验、休闲放松与饮食体验：前两项偏向安排方式，后四项偏向活动内容或节奏，同一次旅程可以同时包含多个方向。完成后查看六项原始计数，以及每个最高方向的完整说明；你也可以先读全部六份指南。这里整理的是本次选择中的相对优先项，而非给所有旅人划分统一人格，也不自动生成目的地或同行者匹配。",
+    "en": "A travel personality test can help separate how you arrange time from what you want to spend it on. These 18 original scenarios compare wandering, planning, culture, outdoor activities, rest and food. The first two concern organisation; the others concern activities or pace, so a single trip can involve several. See six raw counts and the full explanation for every highest-count approach after answering, or read all six guides first. This edition organises relative priorities in your choices rather than classifying all travellers into universal personalities or automatically matching destinations and companions."
   },
   "instructions": {
-    "zh": "以自己想要的一次普通短途出游为参照，假设可选活动都在真实预算、开放与个人条件允许范围内。每题选更愿意优先安排的一项，不按“哪种旅行更高级”回答；没有相关经验也可以选假设偏好，但不要当作已观察到的行为。18题全部完成才显示结果。实际参与仍需核当时条件，任何选项都不要求超出能力、饮食限制或同行意愿。",
-    "en": "Picture an ordinary short outing you would want, assuming the available options fit actual budget, access and personal conditions. Choose the option you would prefer to prioritise, without ranking forms of travel as superior. Without experience, answer as a hypothetical preference rather than observed behaviour. All 18 choices are required. Actual participation still needs current conditions; no option requires exceeding ability, dietary limits or a companion’s wishes."
+    "zh": "以一次自己想要的普通短途出游为参照，假设题中活动在预算、开放和个人条件允许范围内。每题四选一，选更愿意优先保留的安排；几项都喜欢时，选这次更想先安排的一项。没有经验可以按假设偏好回答，但不把它当作实际行为。没有正确答案，也不比较哪种旅行更高级。18题全部完成后生成计数与完整解释。",
+    "en": "Picture an ordinary short outing you would want, with the options feasible for your budget, access and personal circumstances. Choose one of four arrangements in each question. If several appeal, choose what you would prioritise on this outing. Without experience, answer as a hypothetical preference rather than observed behaviour. There are no correct answers or superior ways to travel. Complete all 18 choices to generate counts and full explanations."
   },
   "source": {
     "kind": "FermatMind original ordinary-trip preference reflection;notuniversalvalidatedtaxonomy/Plog/fitness/brandendorsement",
@@ -1759,71 +1759,199 @@
         "en": "UN Tourism: adventure activity scope in the glossary"
       },
       "url": "https://www.untourism.int/glossary-tourism-terms"
+    },
+    {
+      "title": {
+        "zh": "Plog（2001）：旅游心理分群与目的地发展（研究框架）",
+        "en": "Plog (2001): travel psychographics and destination development"
+      },
+      "url": "https://journals.sagepub.com/doi/10.1177/0010880401423001"
     }
   ],
   "guide": [
     {
       "id": "archetype-counts",
       "title": {
-        "zh": "原始次数来自具体选择",
-        "en": "Raw counts come from choices"
+        "zh": "旅行偏好怎样计分？18次选择与六项原始计数",
+        "en": "How are travel preferences scored? Eighteen choices, six counts"
       },
       "paragraphs": [
         {
-          "zh": "18道题各选一种做法，为对应方向加1。每题提供六种中的四种，各方向总共出现12次、每个选项位置3次；次数只能比较这组选择。完成全部18题后显示六项原始次数及所有最高并列完整报告，不随机打破并列、不强派副型，也不用隐藏权重或匹配百分比。接近次数没有经过验证的近分阈值，不能当作人格比例、能力、常模或统计显著差异。",
-          "en": "Each of 18 selections adds one to its approach. An item offers four of the six approaches; each appears 12 times and three times in each position. Counts compare only this set of choices. All 18 selections produce six raw tallies and every highest-count full guide, without random tie breaking, a forced secondary, hidden weighting or match percentages. Nearby counts have no validated close-score threshold and establish neither personality proportions, ability, norms nor statistical significance."
+          "zh": "每题从四种安排中选一项，对应方向加1，其余方向不加分。六个方向各出现在12道题中，在四个选项位置各出现3次；每个方向的次数范围为0—12，六项之和固定为18。没有正误、反向计分、隐藏权重或自动补答；全部18题有效作答后才生成结果。",
+          "en": "Each question offers four arrangements. Selecting one adds one to its approach and nothing to the others. Every approach appears in 12 questions and three times in each option position. Each count ranges from 0 to 12, and the six counts always sum to 18. There are no correct answers, reverse keys, hidden weights or imputed responses. Results require 18 valid choices."
+        },
+        {
+          "zh": "分母12表示该方向出现过12次，不是人格总量或与某种旅人的相似度。例如规划被选6次，显示6/12，意思是12次出现机会中选了6次，不能解释成“50%的规划人格”或在人群中超过50%。某项增加一次通常意味着另一项少一次，因此六项不是互不相关的六个能力分数。",
+          "en": "The denominator 12 is the number of opportunities to choose an approach, not a personality total or similarity to a traveller. A planning count of 6/12 means it was selected on six of its 12 appearances, not that you have a 50% planning personality or exceed half the population. One additional choice for an approach replaces a choice for another, so the six counts are not independent ability scores."
         }
       ]
     },
     {
       "id": "archetype-ties",
       "title": {
-        "zh": "全部最高并列都完整保留",
-        "en": "Every highest-count tie stays complete"
+        "zh": "并列结果怎样读？保留每一个最高方向",
+        "en": "Reading ties: keep every highest-count approach"
       },
       "paragraphs": [
         {
-          "zh": "最高次数相同的方向全部呈现完整报告，包括六项各3次的情况；不按名称顺序优先、不随机抽一个主型、不强派第二高为副型。未并列但次数接近，只表示这组题选择接近，不承诺误差带、统计显著或某种已验证混合类型。所有六份指南也都可直接公开阅读。",
-          "en": "All approaches with the highest count receive their full reports, including six counts of three. Order never prioritises a name; no primary is randomly selected and no runner-up is forced into a secondary type. Nearby untied counts indicate nearby choices in these items, not an error band, significance claim or validated blend. All six guides are also publicly readable."
+          "zh": "假设按随兴、规划、文化、户外、休闲、饮食顺序得到4、4、3、3、2、2，最高为4，随兴与规划两份完整指南都会呈现。六项各3次时，六份全部呈现，不按字母、题号或名单顺序挑一个。最高并列与次高接近是两种情况：4与3不自动合并为并列，也不会把次高强派为“副型”。",
+          "en": "Suppose wandering, planning, culture, outdoors, rest and food receive 4, 4, 3, 3, 2 and 2. The highest count is four, so both wandering and planning receive their full guides. Six counts of three show all six guides, without choosing by letters, question numbers or list order. A highest-count tie differs from nearby counts: four and three are not merged, and a runner-up is not automatically assigned as a secondary type."
+        },
+        {
+          "zh": "并列只说明本次题组的最高计数相同，不证明存在一种独立的混合人格。相差1次也不足以说明偏好已经有稳定差异；本站尚无本题本的测量误差、重测或常模研究来设定置信区间。可以同时阅读相邻计数的指南，再用具体安排确认哪些描述适用。",
+          "en": "A tie records equal highest counts in these items, without establishing a separate blended personality. One extra choice is insufficient to establish a stable preference difference; this form has no measurement-error, retest or normative evidence for a confidence interval. Read nearby guides as well, then check their relevance against actual arrangements."
         }
       ]
     },
     {
       "id": "archetype-metaphor",
       "title": {
-        "zh": "偏好名称帮助讨论，不认证人格",
-        "en": "Preference names support discussion, not personality certification"
+        "zh": "六种旅行偏好的关系：安排方式、活动与节奏",
+        "en": "How the six preferences relate: organisation, activities and pace"
       },
       "paragraphs": [
         {
-          "zh": "规划和随兴偏向安排方式，文化、户外、休闲与饮食偏向活动或节奏，这些层面可以组合。六种名称不是穷尽所有旅人的统一人格模型，不认证普遍类型、Plog量表、生活方式高低或最合适的同行者。结果适合提出具体安排问题，不据此决定路线、活动资格、健康或职业。",
-          "en": "Planning and wandering concern arrangement, while culture, outdoors, rest and food concern activities or pace. These aspects can combine. Six names are not an exhaustive unified personality model, universal types, a Plog instrument, lifestyle ranks or a companion-matching system. Use the result to raise arrangement questions, without deciding routes, eligibility, health or careers from it."
+          "zh": "随兴与规划回答“什么时候作决定”，文化、户外与饮食更多回答“想体验什么”，休闲还涉及“愿意留出怎样的节奏”。这些不是同一条轴上的六个等级，也不是互相排除的六个盒子：可以提前规划一段休息，随兴发现展览，或为户外活动留出饮食时间。",
+          "en": "Spontaneity and planning concern when decisions are made. Culture, outdoors and food concern what to experience, while rest also concerns the pace you want to preserve. These are neither six levels on one axis nor six exclusive boxes: you can plan a rest period, discover an exhibition spontaneously or leave time for food around an outdoor activity."
+        },
+        {
+          "zh": "次数较低不等于讨厌某项活动。每题只能选一项，即使几个选项都喜欢，也必须表达这一次的相对优先。结果不显示每项喜欢程度的独立评分，也没有覆盖预算偏好、独处或结伴、交通方式、住宿等级等所有旅行问题；不要从一个名称推断未问到的内容。",
+          "en": "A lower count does not mean disliking an activity. With one choice per question, several appealing options still require one relative priority. Results do not independently rate how much you like each activity, and the form does not cover every travel issue, such as budget preferences, solo versus shared travel, transport or accommodation level. Do not infer an unasked preference from a label."
         }
       ]
     },
     {
-      "id": "background",
+      "id": "travel-approaches",
       "title": {
-        "zh": "背景定义的范围",
-        "en": "Scope of the background definitions"
+        "zh": "六种方向分别关注什么？",
+        "en": "What does each approach emphasise?"
       },
       "paragraphs": [
         {
-          "zh": "UN Tourism说明文化、饮食与户外探险活动的范围，不提出本站六种人格或验证题目。本站户外偏好不要求刺激、风险或高强度；休闲不需豪华住宿，饮食不要求酒类或忽视限制。真实开放、参与和个人需要另核，不能把偏好名称当作能力或可参加的证明。",
-          "en": "UN Tourism explains cultural, gastronomy and adventure activity scope without proposing these six personalities or validating the items. Outdoor preferences here require neither thrills, risk nor intensity. Rest needs no luxury accommodation and food interest neither alcohol nor ignoring restrictions. Actual access, participation and personal needs are separate checks; a preference name establishes no ability or eligibility."
+          "zh": "随兴漫游关注到现场再决定、跟随有兴趣的细节改变安排。它可以发生在事先约好的区域和时段内；保留弹性与确认必要条件可以同时做到。它不等于独自旅行、结识陌生人或愿意承担更高风险。",
+          "en": "Wandering concerns deciding on arrival and following details that catch your interest. It can take place within an agreed area and time window; flexibility and necessary preparation can coexist. It does not establish a preference for solo travel, meeting strangers or greater risk."
+        },
+        {
+          "zh": "行程规划关注提前整理重点、衔接路线和时间，把想法变成可讨论的日程。计划可以很少，也可以包含留白与休息。是否执行顺畅、谁承担预订和提醒，需要另外核对，不能从次数直接推断效率或控制欲。",
+          "en": "Planning concerns organising priorities, routes and timing into an arrangement people can discuss. A plan can be minimal and include open time or rest. Execution and responsibility for reservations or reminders require separate discussion; a count does not establish efficiency or a wish to control others."
+        },
+        {
+          "zh": "文化探索关注地方历史、文化表达及其背景。UN Tourism的文化旅游定义包含对有形与无形文化内容的学习、发现和体验；这是活动定义，不是知识水平或品味等级。[1] 选择文化活动不需要证明自己比其他旅人更“深入”。",
+          "en": "Cultural exploration concerns local history, cultural expressions and their context. UN Tourism defines cultural tourism around learning about and experiencing tangible and intangible cultural content. This describes activities, not knowledge or taste rankings.[1] Choosing a cultural visit requires no claim to greater depth than other travellers."
+        },
+        {
+          "zh": "户外体验关注适合自己的实际参与和自然环境中的活动过程。UN Tourism的探险旅游术语覆盖特定环境中的身体活动与自然互动，部分活动可能涉及风险与较高要求；本站户外方向更宽泛，不能由兴趣次数推出任何活动资格。[3] 强度、经验与参加条件应单独确认。",
+          "en": "Outdoor exploration concerns suitable participation and activities in natural settings. UN Tourism’s adventure-tourism terminology includes physical activity and engagement with nature, with some activities involving risk or substantial effort. This form’s outdoor category is broader and a preference count establishes no eligibility.[3] Intensity, experience and participation requirements must be checked separately."
+        },
+        {
+          "zh": "休闲放松关注舒适停留、减少连续安排和保留空白。它可以是一段安静休息，不需要豪华住宿、酒类或先完成很多活动。希望休息、实际有没有休息好，以及健康状态，是三个不同问题，本题组只整理选择。",
+          "en": "Rest concerns comfortable pauses, fewer continuous activities and protected open time. It can mean a quiet break without luxury accommodation, alcohol or completing many activities first. Wanting rest, experiencing rest and a person’s health are separate questions; this form records choices."
+        },
+        {
+          "zh": "饮食体验关注品尝、食材、做法或食物的地方背景。UN Tourism将饮食旅游与旅行中的食物及相关活动联系起来，也包含了解生产者、节庆或烹饪活动。[2] 本站无需酒类、昂贵餐厅或吃任何食物来证明兴趣，饮食限制与个人意愿始终另行尊重。",
+          "en": "Food exploration concerns tasting, ingredients, preparation or local food context. UN Tourism connects gastronomy tourism with food and related activities, including learning about producers, festivals or cooking.[2] This form requires neither alcohol, expensive restaurants nor eating anything to prove interest; dietary requirements and personal wishes remain separate considerations."
+        }
+      ]
+    },
+    {
+      "id": "travel-example",
+      "title": {
+        "zh": "同一段下午，六种偏好怎样成为具体安排？",
+        "en": "One afternoon: turning six preferences into arrangements"
+      },
+      "paragraphs": [
+        {
+          "zh": "设想一次可以自行安排的半日出游：一个人先确认会合时间，再留一段到现场决定的空白；另一个人想看一处展览，也愿意在附近舒适停留。这不是规划与随兴、文化与休闲彼此矛盾，而是不同安排层面共存。若还有适合条件的户外项目或饮食体验，可以讨论替换哪一段，而非把每项都塞进去。",
+          "en": "Imagine a freely arranged half-day outing. One person confirms a meeting time and leaves a period for decisions on arrival. Another wants an exhibition and a comfortable pause nearby. Planning and spontaneity, or culture and rest, can coexist at different levels. If a suitable outdoor or food experience also appeals, discuss what it would replace rather than adding every option."
+        },
+        {
+          "zh": "把结果改写为能回应的请求，例如“我想保留展览这一站，其他时间可调整”“我想留一段不连续转场的时间”。再问同行者最想保留什么、哪些活动可以分别参加、改变安排怎样通知。这样的对话能核对实际需要；一个类型名称本身不能替代共同决定。",
+          "en": "Translate a result into a request someone can respond to: “I want to keep the exhibition, but the other time can change,” or “I would like a period without moving between stops.” Ask what companions want to keep, what can be done separately and how changes will be communicated. This checks actual needs; a style name cannot make a joint decision."
+        }
+      ]
+    },
+    {
+      "id": "travel-context",
+      "title": {
+        "zh": "喜欢、做得到与不得不做：区分偏好和条件",
+        "en": "Preference, feasibility and obligation are different"
+      },
+      "paragraphs": [
+        {
+          "zh": "预算、开放时间、无障碍条件、照护责任和同行意愿都会限制可选安排。为配合家庭而提前规划，不足以证明长期都偏好详细计划；因为某项活动暂时不能参加而少选户外，也不等于没有兴趣。作答时按同一次参照出游理解假设，阅读时再把真实限制补回来。",
+          "en": "Budget, opening times, accessibility, caring responsibilities and companions’ wishes affect available arrangements. Planning for family needs does not establish a lasting preference for detailed schedules. Selecting fewer outdoor options because an activity is unavailable does not establish disinterest. Answer within one reference outing, then restore actual constraints when reading the result."
+        },
+        {
+          "zh": "没有出游经验时，可以按希望优先选择的安排回答，但它仍是假设偏好。重测时先核对参照旅程、当时需要和具体答案；不同计数不能单独证明人格改变。英文与中文表达同一套题意和规则，但本站没有跨文化常模或语言等值研究，不把两种语言的计数当成已验证的跨文化比较。",
+          "en": "Without travel experience, you can answer in terms of arrangements you would prefer; these remain hypothetical preferences. On a retake, compare the reference trip, current needs and individual choices before inferring change. English and Chinese express the same item meanings and rules, but this form has no cross-cultural norms or language-equivalence study supporting a validated cross-cultural comparison."
+        }
+      ]
+    },
+    {
+      "id": "travel-companions",
+      "title": {
+        "zh": "同行协商：把差异落实到时间、责任与选择",
+        "en": "Travelling together: discuss time, responsibilities and choices"
+      },
+      "paragraphs": [
+        {
+          "zh": "先各自说明一项最想保留的体验、一项实际限制和愿意调整的部分。区分必须共同确认的交通或会合安排，与个人可以选择的活动。把查询、预订、费用和提醒分别约定；喜欢规划不代表自动承担全部协调，喜欢饮食也不代表必须替全组找餐厅。",
+          "en": "Start with one experience each person wants to protect, one practical constraint and something they can change. Separate transport or meeting arrangements that require joint agreement from optional activities. Agree research, reservations, costs and reminders explicitly; liking planning assigns no automatic coordination role, and a food interest does not require finding meals for the group."
+        },
+        {
+          "zh": "结果不同不代表不适合同行，相同也不保证相处顺利。有人愿意先确定一处活动，有人希望保留现场选择，可以讨论一个固定重点与一个弹性时段；是否可行仍要看当天条件和双方意愿。任何人都可以不分享结果，也不需要为了符合类型接受不愿参加的活动。",
+          "en": "Different results do not establish incompatibility, and matching results do not guarantee a smooth trip. If one person wants an activity confirmed and another wants open choices, discuss a fixed priority and a flexible period. Feasibility still depends on conditions and wishes. Sharing a result is optional, and nobody needs to accept an unwanted activity to fit a type."
+        }
+      ]
+    },
+    {
+      "id": "travel-research",
+      "title": {
+        "zh": "旅行人格研究与本站题本是什么关系？",
+        "en": "Travel-personality research and this questionnaire"
+      },
+      "paragraphs": [
+        {
+          "zh": "旅游研究中存在不同目的的心理分群。Plog在2001年的文章中回顾了从航空出行市场研究发展出的心理图式，并以Venturers、Dependables及中间群体讨论旅行偏好与目的地发展。[4] 这与本站“安排方式、活动内容、节奏”六方向不同；相近的日常词语不意味着使用了同一量表、题目或分类规则。",
+          "en": "Tourism research includes psychographic approaches developed for different purposes. In his 2001 article, Plog reviewed a system developed from air-travel market research, using Venturers, Dependables and intermediate groups to discuss preferences and destination development.[4] That differs from this form’s six organisation, activity and pace categories. Similar everyday words do not establish shared instruments, items or classification rules."
+        },
+        {
+          "zh": "本站题目、计数和解释由费马独立编写，尚未完成本题本的信度、效度或常模验证。UN Tourism的定义帮助明确活动内容，Plog文献帮助区分研究框架，均不是对这18题的验证。计数可以复算，说明规则透明；要证明测量质量，还需要对应语言、样本、结构、重测与实际用途的研究。",
+          "en": "FermatMind independently authored these items, counts and explanations; this form has no established reliability, validity or norms. UN Tourism definitions clarify activities and Plog’s article distinguishes a research framework; neither validates these 18 items. Reproducible counts make the rule transparent, while measurement quality requires evidence for the relevant language, sample, structure, retest behaviour and use."
+        }
+      ]
+    },
+    {
+      "id": "travel-use",
+      "title": {
+        "zh": "怎样把结果用于一次可检验的小调整？",
+        "en": "Using a result for one practical adjustment"
+      },
+      "paragraphs": [
+        {
+          "zh": "选一段负担较小、条件允许的出游时间，把最有共鸣的方向变成一个可观察安排：留白、提前确认重点、围绕一个主题参观，或保留一段休息。结束后记录原本期待什么、实际发生什么、哪项条件最影响体验。它是检验个人安排的办法，不是证明某种旅行类型普遍更好。",
+          "en": "Choose an available, low-burden outing and turn one relevant approach into an observable arrangement: open time, a confirmed priority, a themed visit or a protected pause. Afterwards, note the expectation, actual experience and the condition that mattered most. This tests a personal arrangement rather than proving one travel style universally better."
+        },
+        {
+          "zh": "指南不依据计数推荐具体目的地、酒店、购买项目或最佳同行者，也不把旅行偏好换算为MBTI、大五或职业能力。若需要做真实预订或选择活动，继续核对当时官方信息、预算、参与要求与个人需要；本页结果只是讨论的起点。",
+          "en": "The guides do not use counts to recommend a destination, hotel, purchase or best companion, or convert travel preferences into MBTI, Big Five or career ability. Actual reservations and activities still require current official information, budget, participation requirements and personal needs. The result supplies a starting point for discussion."
         }
       ]
     },
     {
       "id": "free-and-private",
       "title": {
-        "zh": "完整免费、可选草稿与分享",
-        "en": "Full free access, optional drafts and sharing"
+        "zh": "免费范围、开始作答与隐私",
+        "en": "Free access, starting and privacy"
       },
       "paragraphs": [
         {
-          "zh": "18题、六项计数、全部最高并列报告和六份公开完整指南免费，无需邮箱或前置测评。浏览器本地计分，主动保存才保留本标签页24小时草稿，完成、清除或重测即删除。分享只有结果名称与公开链接，不带答案、次数或内部ID；公开页不关联私人答卷。",
-          "en": "All 18 items, six counts, every highest-count report and six full public guides are free without email or another assessment. Scoring happens in the browser. Only opting in saves a 24-hour tab draft, deleted on completion, clearing or retake. Sharing contains names and public links without answers, counts or internal IDs. Public pages contain no private attempts."
+          "zh": "18题、六项原始计数、所有最高并列报告与六份完整公开指南均免费，无需注册或先完成其他测试。点击开始测试直接进入题目，不需要额外勾选同意；约5分钟是阅读与选择的估计，不是限时。公开指南没有任何人的个人答案或计数。",
+          "en": "All 18 questions, six raw counts, every highest-count report and all six full public guides are free. No signup or preliminary assessment is required. Start opens the questions directly, without an extra agreement checkbox. About five minutes estimates reading and choice time, not a time limit. Public guides contain no personal answers or counts."
+        },
+        {
+          "zh": "答案在浏览器内计算，不随计分请求上传，也不写入网址或分析事件。只有主动选择保存才在本标签页临时保存进度，24小时失效，完成、清除或重测即删除。可分享的名称与公开链接不包含答案或计数；不需要提交行程、预订号、住址或同行者资料。",
+          "en": "Answers are scored in the browser, without an answer-upload scoring request or answers in URLs or analytics events. Progress is saved in this tab only when you choose to save it, expires after 24 hours and is deleted on completion, clearing or retake. Shareable names and public links contain no answers or counts. No itinerary, booking number, address or companion details are requested."
         }
       ]
     }
@@ -1831,62 +1959,122 @@
   "faq": [
     {
       "question": {
-        "zh": "这份旅行性格测试有哪六种结果？",
-        "en": "Which six results does this travel personality test include?"
+        "zh": "旅行性格测试是什么？会得到哪六种结果？",
+        "en": "What is this travel personality test, and which six results are included?"
       },
       "answer": {
-        "zh": "随兴漫游、行程规划、文化探索、户外体验、休闲放松与饮食体验。它们是讨论出游安排的偏好名称，可以组合，不是六种普遍或互斥人格。全部六份完整说明都有具体例子、准备、取舍、同行协商和小尝试。",
-        "en": "Wanderer, Planner, Cultural Explorer, Outdoor Explorer, Rest-Focused and Food-Focused. These names organise trip preferences that can combine, not six universal or exclusive personalities. Each full guide includes examples, preparation, tradeoffs, companion agreements and a small experiment."
+        "zh": "它用18道原创情境选择整理随兴漫游、行程规划、文化探索、户外体验、休闲放松与饮食体验的相对优先项。前两项偏向安排方式，后四项偏向活动或节奏；可以共存，不是六种统一人格。六份完整指南都可直接阅读。",
+        "en": "Eighteen original scenarios organise relative priorities for wandering, planning, culture, outdoors, rest and food. The first two concern organisation and the others activities or pace. They can coexist rather than constitute six universal personalities. All six full guides are publicly readable."
       }
     },
     {
       "question": {
-        "zh": "18题怎样计分和处理并列？",
-        "en": "How are the 18 questions scored, including ties?"
+        "zh": "18道题怎样计分，为什么每项显示的分母是12？",
+        "en": "How are the 18 questions scored, and why is each denominator 12?"
       },
       "answer": {
-        "zh": "每题给所选方向加1，六方向各出现12次、每位置3次，完成18题后显示六项原始次数及全部最高并列报告。不随机打破并列或强派副型，次数不是匹配百分比、常模或人格含量；接近分数没有验证的近分阈值。",
-        "en": "Each choice adds one to its approach. Every approach appears 12 times and three times in each position. Complete all 18 for six raw counts and every highest-count full report. Ties are not randomly broken and secondary types are not forced. Counts supply no match percentages, norms, personality content or validated close-score threshold."
+        "zh": "每题选一项，给该方向加1。每个方向出现在12题里、四个位置各3次，所以显示0—12的原始次数；六项之和固定为18。6/12只表示12次出现中选了6次，不是人格百分比或人群位置。",
+        "en": "One choice per question adds one to its approach. Each approach appears in 12 items, three times in each option position, producing a raw count from 0 to 12; all counts sum to 18. Six out of 12 means six selections in 12 opportunities, not a personality percentage or population position."
       }
     },
     {
       "question": {
-        "zh": "这是经过验证的旅行人格或Plog量表吗？",
-        "en": "Is this a validated travel-personality or Plog instrument?"
+        "zh": "如果两个或六个方向同为最高，结果怎样显示？",
+        "en": "What happens when two or all six approaches tie highest?"
       },
       "answer": {
-        "zh": "不是。题目、计数与解释由本站独立编写，没有本站信效度或常模验证，也不采用Plog量表。UN Tourism来源只说明活动背景，不认证六类型；本版不推断MBTI、大五、体能、风险承受、健康或职业适配。",
-        "en": "No. Items, counts and interpretations are independently authored without established website psychometrics or local norms, and no Plog instrument is adopted. UN Tourism sources explain activities rather than certify six types. This edition supplies neither MBTI, Big Five, fitness, risk tolerance, health nor career fit."
+        "zh": "所有最高方向的完整指南都保留。4、4、3、3、2、2显示前两个最高方向；六项各3次则显示全部六份。不随机挑主型，不按字母破同分，也不把次高自动派为副型。",
+        "en": "Every highest-count guide is retained. Counts of 4, 4, 3, 3, 2 and 2 show the first two highest approaches; six counts of three show all six. There is no random primary type, alphabetical tiebreak or automatic runner-up secondary type."
       }
     },
     {
       "question": {
-        "zh": "休闲型必须去度假村，户外型必须冒险吗？",
-        "en": "Does rest require a resort, or outdoor interest require risk?"
+        "zh": "规划与随兴能同时出现吗？",
+        "en": "Can planning and spontaneity appear together?"
       },
       "answer": {
-        "zh": "都不需要。休闲可以是一段舒适停留，户外可以是适合条件的普通参与；饮食也不要求昂贵餐厅或酒类。实际是否能参加、怎样安排需核真实条件与个人需要，不由类型决定，也不把活动强度排高低。",
-        "en": "Neither is required. Rest can be a comfortable pause and outdoor interest ordinary participation suited to the conditions. Food interest needs neither expensive restaurants nor alcohol. Actual participation and arrangements depend on conditions and personal needs rather than a type or an intensity ranking."
+        "zh": "可以。你可以先确认交通和会合，再留一段到现场决定的时间；也可以提前规划休息或文化活动。它们描述安排的不同侧重，并列不表示作答矛盾或测试失败。",
+        "en": "Yes. You can confirm transport and meeting points while leaving a period for decisions on arrival, or plan rest and cultural activities. These describe different emphases in arrangements, so a tie is neither contradictory answering nor a test failure."
       }
     },
     {
       "question": {
-        "zh": "能判断谁最适合和我同行吗？",
-        "en": "Can this tell me the best person to travel with?"
+        "zh": "次数较低就是不喜欢吗，差1次有意义吗？",
+        "en": "Does a lower count mean dislike, and is one extra choice meaningful?"
       },
       "answer": {
-        "zh": "不能按类型认证配对，也不宣称某些组合罕见或注定冲突。可以用结果提出具体问题：谁需要提前知道什么、各自想保留哪段时间、哪些参与可选。真正的安排、责任与意愿需要直接协商。",
-        "en": "It cannot certify matches or declare combinations rare or destined for conflict. Use a result to ask what someone needs to know beforehand, which time they want to protect and what participation is optional. Actual arrangements, responsibilities and wishes require direct discussion."
+        "zh": "不一定。每题只有一个选择，低次数可能只是另一项更优先，不能独立显示绝对喜欢程度。差1次可回看具体题目，但本站没有对应误差或重测研究证明它是稳定差异；也不把相近但不相等的数合为并列。",
+        "en": "Not necessarily. A single choice may favour another priority without measuring absolute liking. One extra choice can prompt a review of the items, but this form has no error or retest evidence establishing it as a stable difference. Nearby unequal counts are not merged into a tie."
       }
     },
     {
       "question": {
-        "zh": "全部结果免费吗，草稿与分享有什么？",
-        "en": "Are all results free, and what do drafts and sharing include?"
+        "zh": "这是Plog或大五人格旅行量表吗？科学性怎样判断？",
+        "en": "Is this a Plog or Big Five travel instrument? How should its evidence be judged?"
       },
       "answer": {
-        "zh": "全部题目、计数、并列报告与六份完整公开解释免费，无需注册或前置测试。草稿是主动选择的本标签页24小时保存，完成、清除或重测即删；分享只有名称与公开链接，不包含答案、次数或内部ID。",
-        "en": "Every item, count, tied report and six full public explanations are free without signup or another test. Drafts are optional 24-hour tab storage, deleted on completion, clearing or retake. Sharing includes names and public links without answers, counts or internal IDs."
+        "zh": "不是。Plog的旅行心理分群有其特定研究背景和概念。[4] 本站是独立原创偏好题，没有直接采用Plog、大五或MBTI量表，也没有本题本的信效度或常模。可复算计分不等于心理测量验证，旅游活动定义也不能替代题本研究。",
+        "en": "No. Plog’s psychographic work has a distinct research background and concepts.[4] This independently authored preference form adopts no Plog, Big Five or MBTI instrument and has no established form-specific psychometrics or norms. Reproducible scoring and activity definitions cannot substitute for questionnaire validation."
+      }
+    },
+    {
+      "question": {
+        "zh": "户外体验高就该尝试高强度或高风险活动吗？",
+        "en": "Does a higher outdoor count mean choosing intense or risky activities?"
+      },
+      "answer": {
+        "zh": "不。本站只记录更想保留的体验，不判断体能、训练、装备或活动资格。户外参与与探险旅游并不完全相同；相关要求取决于具体项目和当时条件。[3] 普通观察、适合自己的参与同样可以表达户外兴趣。",
+        "en": "No. The count records a preferred experience, not fitness, training, equipment or eligibility. Outdoor participation is not identical to adventure tourism, and requirements depend on the activity and current conditions.[3] Ordinary observation and suitable participation can express outdoor interest too."
+      }
+    },
+    {
+      "question": {
+        "zh": "文化、饮食与休闲一定要花很多钱吗？",
+        "en": "Do culture, food and rest require expensive travel?"
+      },
+      "answer": {
+        "zh": "不需要。本页关注想保留的内容或节奏，不按消费水平分型。文化可以来自开放的展览与地方故事，饮食可以关注食材和做法，休闲可以是舒适停留；实际选择仍以预算、开放和个人需要为准。[1][2]",
+        "en": "No. The form concerns activities or pace rather than spending categories. Culture can involve an open exhibition or local story, food can concern ingredients or preparation, and rest can mean a comfortable pause. Actual choices depend on budget, access and personal needs.[1][2]"
+      }
+    },
+    {
+      "question": {
+        "zh": "结果能判断适合和谁一起旅行吗？",
+        "en": "Can a result identify the right travel companion?"
+      },
+      "answer": {
+        "zh": "不能认证最佳配对，也不能预言冲突。更有用的是具体协商：各自保留什么体验、哪些必须共同确认、哪些可以选择性参与，以及谁负责查询和预订。分享结果自愿，安排需要双方实际同意。",
+        "en": "It cannot certify the best match or predict conflict. Discuss protected experiences, jointly confirmed arrangements, optional activities and responsibility for research or reservations. Sharing is voluntary and arrangements require actual agreement."
+      }
+    },
+    {
+      "question": {
+        "zh": "没有旅行经验，或每次旅行偏好不同，还能做吗？",
+        "en": "Can I answer without travel experience or with different preferences on different trips?"
+      },
+      "answer": {
+        "zh": "可以按一次普通短途出游的假设回答，记住它不等于已观察到的行为。保持同一参照情境，避免每题换成不同角色或预算。重测变化时先比较具体答案与条件，不只根据名称判断人格改变。",
+        "en": "You can answer for an imagined ordinary outing, while recognising that this is not observed behaviour. Keep one reference context instead of changing roles or budget across items. On a retake, compare answers and conditions rather than inferring personality change from names alone."
+      }
+    },
+    {
+      "question": {
+        "zh": "结果可以用来选择目的地或安排路线吗？",
+        "en": "Can results choose destinations or plan a route?"
+      },
+      "answer": {
+        "zh": "它可以帮助提出安排问题，但不自动推荐某个城市、酒店或活动，也不验证预订条件。选一项偏好转成小调整，再核对真实开放、预算、交通与个人要求；不必为了符合结果完成某种行程。",
+        "en": "Results can help formulate arrangement questions but do not automatically recommend cities, hotels or activities or verify booking conditions. Turn one preference into a small adjustment and check actual access, budget, transport and personal requirements. No itinerary is required to fit a result."
+      }
+    },
+    {
+      "question": {
+        "zh": "题目与完整结果免费吗，点击开始后还要确认吗？",
+        "en": "Are questions and full results free, and does Start require another confirmation?"
+      },
+      "answer": {
+        "zh": "18题、计数、全部最高并列和六份全文免费。点击开始直接进入题目，无需注册、前置测试或额外同意框。答案在浏览器内计算；进度仅在主动保存后于本标签页保留24小时，完成、清除或重测即删。",
+        "en": "All 18 items, counts, every highest tie and six full guides are free. Start opens questions directly without signup, a preliminary test or an extra agreement box. Scoring happens in the browser; only an explicitly saved draft stays in this tab for up to 24 hours, deleted on completion, clearing or retake."
       }
     }
   ]

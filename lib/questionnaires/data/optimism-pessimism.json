@@ -15,21 +15,21 @@
     "en": "Your IPIP raw score and full readings"
   },
   "description": {
-    "zh": "用IPIP公有领域10条英文与中文试译观察乐观相关自报回答，四正六反、全部有效才计分。五份完整读法免费，边界保留两份；不评健康或职业。",
-    "en": "Explore ten public-domain IPIP Optimism items, transparent scoring and five free full guides. Chinese is a trial translation; no health or career verdict."
+    "zh": "完成IPIP十项乐观自评，约3分钟免费查看原始总分、均分与五份完整指南。公开四正六反计分及边界读法；中文为试译，结果用于理解本次回答。",
+    "en": "Take ten IPIP Optimism items in about three minutes. View your raw total, mean and five full guides free, with reverse scoring and reading boundaries explained. Chinese is a trial translation."
   },
   "seoTitle": {
-    "zh": "乐观与悲观性测试：IPIP 10题与完整结果解释",
-    "en": "Optimism & Pessimism Test: IPIP Score and Full Guides"
+    "zh": "乐观与悲观性测试：IPIP十项、计分与完整解读",
+    "en": "Optimism and Pessimism Test: 10 IPIP Items and Full Guides"
   },
   "minutes": 3,
   "introduction": {
-    "zh": "对未来的预期、近期心情与对自己的感受，可能并不完全一致。本版使用IPIP公有领域Optimism单构念10条英文及本站中文试译，按描述你通常情形的准确程度回答。四正六反、十条全部有效才给出10—50原始总分与1—5均分；任何暂不作答保留资料不足。五份完整解释提供例子、其他区域对照与具体观察，18、26、34、42边界同时保留两份。它们是本站阅读约定，不是五种固定人格或健康等级。",
-    "en": "Future expectations, mood and self-regard need not align. This edition uses ten public-domain IPIP single-construct Optimism items and a website Chinese trial translation. Rate how accurately each describes you generally. Four positive and six negative keys produce a raw total of 10–50 and a mean of 1–5 only when all ten items are rated; any unscored item retains insufficient information. Five full guides offer worked examples, comparisons and observations, keeping both adjacent readings at 18, 26, 34 and 42. These are website conventions rather than five fixed personalities or health grades."
+    "zh": "乐观通常讨论对未来结果的预期，但同名测试不一定使用同一题本。本页采用IPIP单构念Optimism的完整十条英文及其计分键，中文为费马试译。源题同时包含未来看法、心情与自我感受；它们按一个键汇总，本页不自行拆成多个分量表。[1] 完成后查看10—50原始总分、1—5均分及相应完整指南。五个阅读区域帮助理解连续分数，不是五种人格、健康等级或成功预测。",
+    "en": "Optimism usually concerns expectations about future outcomes, but tests sharing its name need not use the same instrument. This page uses all ten English items and the key of the IPIP single-construct Optimism scale, with a FermatMind Chinese trial translation. Source wording covers outlook, mood and self-regard; one key combines the items, without additional subscales invented here.[1] Complete the ratings for a raw total of 10–50, a mean of 1–5 and the relevant full guides. Five reading regions organise a continuous score rather than defining personalities, health grades or future success."
   },
   "instructions": {
-    "zh": "按每句话描述你通常情形的准确程度，选择1非常不准确至5非常准确；无法判断或不愿回答可选暂不作答，不补成零或中间值。英文10条来自IPIP公有领域乐观量表，中文为本站试译；4条正向按原回答，6条反向按6减有效回答。10条全部有效才显示原始总分10—50与均分1—5；有任何暂不作答就保留资料不足。题目原本包含对未来、心情与自我感受的不同表述，不将其拆成未经核实的分量表，也不凭答案组合鉴定是否认真。五份完整读法是本站阅读约定，总分18、26、34、42同时呈现相邻两份；不是IPIP官方类型、常模、百分位、健康或职业结论。",
-    "en": "Rate how accurately each statement describes you generally, from 1 Very Inaccurate to 5 Very Accurate. Choose the unscored response when you cannot judge or prefer not to answer, without zero or midpoint substitution. Ten English items come from public-domain IPIP Optimism; Chinese is a website trial translation. Four positive items use the response and six negative items use six minus a valid response. All ten ratings are required for a raw total from 10 to 50 and a mean from 1 to 5; any unscored item retains insufficient information. Source items include outlook, mood and self-regard wording, without invented subscales or an attention verdict from response patterns. Five full guides are website reading conventions, with both adjacent guides at totals 18, 26, 34 and 42. They are no official IPIP types, norms, percentiles, health or career verdicts."
+    "zh": "按每句话描述你通常情形的准确程度，选择1“非常不准确”至5“非常准确”。不要按理想形象或为了得到高分作答，各题独立考虑。不能判断或不愿回答可选“暂不作答”，不需勉强选择；但十条全部有效评分才产生个人总分与均分。点击开始即进入题目，完成后免费阅读结果。",
+    "en": "Rate how accurately each statement describes you generally, from 1 Very Inaccurate to 5 Very Accurate. Consider each independently rather than answering for an ideal image or a higher score. Choose the unscored response if you cannot judge or prefer not to answer; no forced rating is needed. A personal total and mean require ten valid ratings. Start opens the items directly, with free readings after completion."
   },
   "source": {
     "kind": "Public-domainIPIPsingle-constructOptimism10exactEnglishkey/4positive6negative/ownZHtrialtranslation/notLOT-R/notTCIoptimism/notVIAHopefacet",
@@ -1454,39 +1454,187 @@
     {
       "id": "optimism-scoring",
       "title": {
-        "zh": "如何得到总分和完整读法",
-        "en": "How scoring and full readings work"
+        "zh": "四条正向、六条反向怎样计分",
+        "en": "Scoring four positive and six negative keys"
       },
       "paragraphs": [
         {
-          "zh": "本版保留IPIP单构念Optimism的10条英文与键，四条正向按1—5原值、六条反向按6减有效回答。十条全部有效才相加为原始总分10—50，均分为总分除10；任何暂不作答均保留资料不足，不补零、中点或推算总分。五份读法按本站编辑边界18、26、34、42组织，恰在边界完整呈现相邻两份，不硬派主副型。均分3是回答尺度中点，不是人群平均；边界不是官方类型、常模、百分位、显著差异或置信区间。",
-          "en": "This edition preserves ten English IPIP single-construct Optimism items and their key. Four positive items use responses from one to five; six negative items use six minus a valid response. All ten ratings are required for a raw sum from 10 to 50 and a mean of total divided by ten. Any unscored item retains insufficient information without zero, midpoint or estimated total. Five guides use website editorial boundaries at 18, 26, 34 and 42, keeping both adjacent full guides at a boundary without primary/secondary assignment. A mean of three is the response-scale midpoint, not a population average. Boundaries establish no official types, norms, percentiles, significant differences or confidence intervals."
+          "zh": "正向条目按所选1—5计分；反向条目按6减所选有效数值，即1变5、2变4、3不变、4变2、5变1。本站题号2、4、6、8、9、10为反向；十条相加是总分，除以10是均分。[1][3] 所有条目都参与，不含填充题。",
+          "en": "Positive keys use the selected value from 1 to 5. Negative keys use six minus that valid value: 1 becomes 5, 2 becomes 4, 3 stays 3, 4 becomes 2 and 5 becomes 1. Items 2, 4, 6, 8, 9 and 10 are negative-keyed in this edition. Sum all ten for the total and divide by ten for the mean.[1][3] Every item contributes; none is a filler."
+        },
+        {
+          "zh": "例如依题序回答4、2、3、4、5、2、4、3、2、1，定向后为4、4、3、2、5、4、4、3、4、5，合计38，均分3.8。这个数字描述本组自评在计分键上的位置，不是38%乐观、超过38%的人或38分的现实判断能力。",
+          "en": "For example, responses of 4, 2, 3, 4, 5, 2, 4, 3, 2, 1 become 4, 4, 3, 2, 5, 4, 4, 3, 4, 5 after keying. Their sum is 38 and mean 3.8. These numbers locate the ratings on this key; they mean neither 38 percent optimistic, above 38 percent of people nor a score for realistic judgment."
         }
       ]
     },
     {
       "id": "optimism-source",
       "title": {
-        "zh": "来源与中文版本",
-        "en": "Source and Chinese edition"
+        "zh": "IPIP条目来源与本站中文试译",
+        "en": "IPIP provenance and the Chinese trial translation"
       },
       "paragraphs": [
         {
-          "zh": "英文10条及键来自IPIP公有领域资源，可用于商业与非商业；中文为费马本站试译，未完成语言等价或心理测量验证。五份解释、情境与阅读边界由本站原创，不是IPIP原作者制定的五种人格。源题含未来预期、心情与自我感受，本版只保留一个总分，不自行拆成正向展望／情绪稳定分量表，也不凭正反向组合检测认真程度。源比较表的alpha与相关系数仅属原研究，不验证本中文、个人答卷或五区。未采用LOT-R、竞品正文或算法；不推断防御性悲观、现实判断、能力、健康、职业或关系表现，也不以提高分数为目标。",
-          "en": "The ten English items and key come from public-domain IPIP resources permitting commercial and noncommercial use. Chinese is a FermatMind trial translation without language-equivalence or psychometric validation. Five explanations, examples and reading boundaries are website originals rather than five personalities defined by IPIP authors. Source items concern future outlook, mood and self-regard. This edition retains one total without inventing positive-outlook or emotional-steadiness subscales or an attention test from positive/negative patterns. Source alpha and correlations belong to their research context and validate neither this Chinese version, an individual attempt nor five regions. No LOT-R bank, competitor body or algorithm is adopted. Results infer no defensive-pessimism strategy, realism, ability, health, career or relationship performance and prescribe no higher-score goal."
+          "zh": "IPIP提供这十条英文与正反向键，并允许公有领域材料用于商业和非商业目的。[1][2] 这说明可以使用原材料，不表示IPIP审核或认证本站。中文为本站试译，尚无语言等价研究；英文原题来源与本站解释内容分别标明。",
+          "en": "IPIP supplies the ten English items and positive/negative key, and places its materials in the public domain for commercial and noncommercial use.[1][2] Permission to use them establishes no IPIP review or certification of this website. Chinese is a trial translation without established language equivalence. Source items and website-authored interpretations have separate provenance."
+        },
+        {
+          "zh": "源比较表把这套IPIP十项与原量表六个计分项分别列出，并提供对应研究样本的统计结果。[4] 这些统计不是你答卷的准确率，也不证明本站中文、五区解释或跨语言分数可比。保留来源有助于核查使用了哪一版本。",
+          "en": "The source comparison table distinguishes this ten-item IPIP version from the original measure’s six scored items and reports statistics from its research sample.[4] Those figures are neither the accuracy of your attempt nor evidence validating this Chinese translation, five regions or cross-language comparisons. Provenance helps identify the actual version used."
         }
       ]
     },
     {
       "id": "privacy",
       "title": {
-        "zh": "完整免费、草稿与分享",
-        "en": "Free full access, drafts and sharing"
+        "zh": "免费作答、资料不足与答案保存",
+        "en": "Free access, missing ratings and answer storage"
       },
       "paragraphs": [
         {
-          "zh": "十条题目、分数说明、五份完整公开解释与边界两份正文免费，无需邮箱、注册或其他测试解锁。答案只在浏览器计分，不上传、不进网址或分析。草稿须主动开启，只在本标签页保存、24小时失效，完成或重测清除。分享自选，只含结果名称与公开链接，不含答案、分数或内部ID；资料不足不分享为个人结果。其他测评须另行完整作答，不由此推算MBTI或其他分数。",
-          "en": "All ten items, scoring information, five full public guides and both boundary reports are free without email, signup or another test to unlock them. Answers are scored in the browser without uploading or entering URLs or analytics. Drafts require opt-in, remain only in this tab, expire after 24 hours and clear on completion or retaking. Optional sharing contains result names and public links without answers, scores or internal IDs. Insufficient information is not shared as a personal result. Other assessments require separate complete answers; no MBTI or other scores are inferred here."
+          "zh": "十条题目、五份公开指南、分数说明及边界相邻两份全文均免费，不需邮箱、注册或其他测试。约3分钟是预计用时，没有限时。开始按钮直接进入题目，不另设同意步骤。",
+          "en": "All ten items, five public guides, scoring explanations and both adjacent readings at a boundary are free, without email, signup or another test. About three minutes is an estimate with no time limit. Start opens the items directly, without another agreement step."
+        },
+        {
+          "zh": "默认不保存答案。仅主动保存后，本标签页草稿可在24小时内恢复；完成、重测或退出清除会删除。计分在浏览器进行，答案不通过计分请求上传，不进入网址或分析事件。一般使用事件遵循隐私与Cookie设置；分享公开指南不包含本次答卷或分数。",
+          "en": "Saving is off by default. An opted-in draft can restore in this tab for up to 24 hours and clears on completion, retake or exit-and-clear. Browser scoring sends no scoring upload or answer-bearing URLs or analytics events. General usage events follow privacy and Cookie settings. Public guide links contain no answers or scores from this attempt."
+        }
+      ]
+    },
+    {
+      "id": "reading-regions",
+      "title": {
+        "zh": "五个阅读区域怎样衔接",
+        "en": "How the five reading regions connect"
+      },
+      "paragraphs": [
+        {
+          "zh": "五份指南依原始总分组织为较低、偏低、中段、偏高与较高。18、26、34、42是本站编辑边界：恰好18读较低与偏低，26读偏低与中段，34读中段与偏高，42读偏高与较高。其余分数呈现所在区域；五份公开说明始终可读。",
+          "en": "Five guides organise the raw total into lower, lower-middle, middle, upper-middle and higher readings. Editorial boundaries are 18, 26, 34 and 42: each retains both neighbouring guides. Thus 18 gives lower and lower-middle, 26 gives lower-middle and middle, 34 gives middle and upper-middle, and 42 gives upper-middle and higher. Other totals show their region, with all public guides always available."
+        },
+        {
+          "zh": "这些边界不是IPIP官方分型线，也没有常模百分位或显著差异含义。33与34相差一分，不能解释为人格突然改变。均分3仅是回答尺度中点；中段不自动表示现实、灵活或最健康，较高也不表示更好的人。",
+          "en": "These are no official IPIP type cutoffs, normative percentiles or significant-difference thresholds. A change from 33 to 34 establishes no sudden personality change. A mean of 3 is simply the response-scale midpoint. Middle scores establish no realism, flexibility or ideal health, and higher scores establish no superior person."
+        }
+      ]
+    },
+    {
+      "id": "one-total",
+      "title": {
+        "zh": "一个总分，可以有不同回答来源",
+        "en": "Different response patterns can share one total"
+      },
+      "paragraphs": [
+        {
+          "zh": "全选3得到30，但30也能由较高与较低的定向分数相抵形成。总分相同，不能据此认定两人的未来预期、心情与自我感受逐项相同。可以回看具体题意与对应经历，不把总分扩写成题本没有测出的个人故事。",
+          "en": "All threes total 30, but contrasting keyed ratings can also balance to 30. Equal totals establish no identical item-level outlook, mood or self-regard. Revisit individual meanings and experiences rather than expanding the total into a personal history the instrument did not establish."
+        },
+        {
+          "zh": "源题虽含不同内容，本版只按一个构念键计分，不另造“积极展望”“情绪稳定”分量表。某一道题的回答可以帮助你提出观察问题，但不能单独当成一个可靠分量表或心理状态诊断。",
+          "en": "Although item wording covers several themes, this edition follows one construct key without inventing positive-outlook or emotional-stability subscales. An individual response may prompt an observation question; it does not constitute a reliable separate scale or a diagnosis."
+        }
+      ]
+    },
+    {
+      "id": "unscored-and-patterns",
+      "title": {
+        "zh": "缺答、反向题与相同选项",
+        "en": "Missing ratings, reverse keys and identical responses"
+      },
+      "paragraphs": [
+        {
+          "zh": "“暂不作答”不计为0或3，也不由其他题推算。全部十题作出选择但有一题暂不评分时，保留资料不足，个人总分、均分与区域均不生成；仍可阅读全部公开指南。这区别于尚未完成选择，也不表示你不认真。",
+          "en": "An unscored response becomes neither 0 nor 3 and is not estimated from other items. If all items have responses but one is unscored, the result retains insufficient information without a personal total, mean or region. All public guides remain readable. This differs from unfinished answering and implies no inattention."
+        },
+        {
+          "zh": "反向题用于统一计分方向，不是测谎。四正六反使全选1得到34，全选5得到26；两者都不是极端总分，且都在边界。系统按有效选项计分，不凭全选同项或正反向组合判定认真程度；本版未验证这类检测规则。",
+          "en": "Reverse keys align score direction rather than detecting deception. With four positive and six negative keys, all ones total 34 and all fives total 26: neither is an extreme, and both are boundaries. Valid options are scored without an attention verdict based on identical or positive/negative response patterns. Such detection rules have not been validated here."
+        }
+      ]
+    },
+    {
+      "id": "measure-distinctions",
+      "title": {
+        "zh": "IPIP乐观、LOT-R与解释风格的区别",
+        "en": "IPIP Optimism, LOT-R and explanatory style"
+      },
+      "paragraphs": [
+        {
+          "zh": "虽然IPIP十项与LOT-R都涉及乐观，它们不是同一题本。LOT-R原表十条中六条计分、四条填充，以0—4作答；本站十条全部计分，以1—5准确程度作答。[5] 不能混用两者总分、常模或界线，也不把IPIP版本写成LOT-R原题。",
+          "en": "Although both concern optimism, IPIP’s ten items and the LOT-R are different forms. The original LOT-R has six scored and four filler items, with 0–4 agreement responses; all ten items here are scored using 1–5 accuracy ratings.[5] Totals, norms and thresholds cannot be interchanged, and this IPIP form should not be labelled the original LOT-R."
+        },
+        {
+          "zh": "解释风格讨论怎样解释事件原因，防御性悲观涉及某种预期与准备策略，希望与自我效能又有各自构念。本页没有这些分数。列出潜在困难，不足以判断某人正在使用防御性悲观；一个乐观总分也不证明执行能力、准备质量或韧性。",
+          "en": "Explanatory style concerns explanations of events; defensive pessimism concerns an expectancy/preparation strategy; hope and self-efficacy have their own constructs. None has a score here. Listing obstacles does not identify defensive pessimism, and an optimism total establishes no execution ability, preparation quality or resilience."
+        }
+      ]
+    },
+    {
+      "id": "expectations-and-evidence",
+      "title": {
+        "zh": "把未来预期与现实依据放在一起",
+        "en": "Read expectations alongside actual evidence"
+      },
+      "paragraphs": [
+        {
+          "zh": "假设你准备一次普通读书分享，可以分别写“我预计会怎样”“已确定哪些条件”“还有什么未知”。预期顺利，可以同时核对场地；担心冷场，也可以完成准备。预期、情绪与行动可以不同步，本题本不评这些安排的质量。",
+          "en": "For an ordinary book discussion, separately note what you expect, what is confirmed and what remains unknown. Expecting it to go well can coexist with checking the venue; worrying about silence can coexist with preparing. Expectations, feelings and actions need not align, and this instrument does not rate the quality of arrangements."
+        },
+        {
+          "zh": "对照最高阅读区域，再补找一次不符合描述的经历。是事情熟悉程度、近期消息还是可用资源不同？这些是待核对的可能解释，不从总分反推原因。把事实记清，比把自己固定为乐观者或悲观者更有具体依据。",
+          "en": "Read the relevant region, then find a counterexample. Did familiarity, recent news or available resources differ? These are possible explanations to examine, not causes inferred from a total. Clear facts provide a more concrete basis than fixing an optimistic or pessimistic identity."
+        }
+      ]
+    },
+    {
+      "id": "conversation",
+      "title": {
+        "zh": "把结果用于一次具体沟通",
+        "en": "Use the reading for a specific conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以说：“我对这次安排还没有把握，想先确认结束时间与需要带的材料。”也可以说：“我期待这次分享，但希望留一个设备不能用时的办法。”这两种说法都保留真实感受，并给对方一个可回应的信息请求。",
+          "en": "You might say, “I am unsure about this arrangement and would like to confirm the finish time and materials.” Or, “I look forward to the discussion and would like an alternative if the equipment is unavailable.” Both retain the feeling while giving another person a specific information request."
+        },
+        {
+          "zh": "不需要先提高分数才有资格求助，也不要求同伴按同一种心态回应。可以只阅读或跳过交流。若尝试沟通，就看信息是否更清楚、双方是否理解安排，不把分数上升当成必须达成的效果。",
+          "en": "A higher score is no prerequisite for asking for help, and others need not share the same outlook. Reading alone or skipping the conversation is fine. If you try it, check whether information and mutual understanding improve rather than requiring a score increase."
+        }
+      ]
+    },
+    {
+      "id": "research-limits",
+      "title": {
+        "zh": "怎样理解研究统计与本站证据",
+        "en": "Research statistics and evidence for this edition"
+      },
+      "paragraphs": [
+        {
+          "zh": "源表报告IPIP版本与原量表的题量、内部一致性及相关，属于相应样本与测量条件。[4] 内部一致性描述题目回答的共同变化，不是个人结果正确概率；相关也不表示两套题完全相同。本站不把这些系数包装成准确率。",
+          "en": "The source table reports item counts, internal consistency and correlations for the IPIP and original versions under its study conditions.[4] Internal consistency concerns covariation among item responses, not the probability that an individual result is correct. Correlation does not make two forms identical. This website presents no accuracy percentage derived from those coefficients."
+        },
+        {
+          "zh": "本中文试译及五区解释尚无对应心理测量验证，暂无可用于本页的人群常模、测量误差或重测改变阈值。复测时先核对语言、时间、参照情形与变动题目；不能仅凭分差区分真实变化与作答波动，更不能换算其他测评结果。",
+          "en": "The Chinese trial translation and five-region readings lack corresponding psychometric validation. No local population norms, measurement-error estimates or change thresholds are available. When retaking, compare language, timing, reference context and changed items. A score difference alone cannot distinguish real change from response variation or be converted into another assessment."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "自我观察的用途与健康、职业边界",
+        "en": "Self-reflection, health and occupational scope"
+      },
+      "paragraphs": [
+        {
+          "zh": "本页用于整理本次自报回答，不诊断抑郁、焦虑或其他健康状态，不预测疾病、寿命、工作业绩或职业适配。源题含心情表述，也没有据此建立临床阈值。有关健康或工作决定，应依据对应问题的实际证据，而不是本页区域名称。",
+          "en": "This page organises self-reported responses without diagnosing depression, anxiety or another health condition or predicting illness, lifespan, performance or occupational fit. Mood-related wording supplies no clinical threshold here. Health and work decisions require evidence relevant to those questions, rather than a reading-region name."
+        },
+        {
+          "zh": "结果也不能判断谁更现实、更成熟或值得信任。高低分都可以作为观察入口，具体经历、事实与反馈仍需分别核对。完整指南提供计分例子、相邻区域区别、反例与可选观察，帮助读懂结果，不要求给自己或别人下定论。",
+          "en": "Results establish no ranking of realism, maturity or trustworthiness. Any total can prompt reflection while experiences, facts and feedback are checked separately. Full guides provide scoring examples, neighbouring-region comparisons, counterexamples and optional observations, without requiring a verdict on yourself or someone else."
         }
       ]
     }
@@ -1494,62 +1642,142 @@
   "faq": [
     {
       "question": {
-        "zh": "这份乐观与悲观测试用什么题本？",
-        "en": "Which optimism test is this: IPIP, OPI or LOT-R?"
+        "zh": "这是IPIP、LOT-R还是OPI测试？",
+        "en": "Is this IPIP, LOT-R or OPI?"
       },
       "answer": {
-        "zh": "英文10条及键来自IPIP公有领域资源，可用于商业与非商业；中文为费马本站试译，未完成语言等价或心理测量验证。五份解释、情境与阅读边界由本站原创，不是IPIP原作者制定的五种人格。源题含未来预期、心情与自我感受，本版只保留一个总分，不自行拆成正向展望／情绪稳定分量表，也不凭正反向组合检测认真程度。源比较表的alpha与相关系数仅属原研究，不验证本中文、个人答卷或五区。未采用LOT-R、竞品正文或算法；不推断防御性悲观、现实判断、能力、健康、职业或关系表现，也不以提高分数为目标。",
-        "en": "This edition uses the ten English IPIP single-construct Optimism items and their scoring key. It is neither the Optimism/Pessimism Instrument (OPI) nor the LOT-R. It calculates one total rather than separate optimism and pessimism scores. The five full guides are FermatMind’s reading conventions, not official IPIP types or population norms. Chinese is a trial translation without established language equivalence. Source research does not validate these website interpretations."
+        "zh": "本页采用IPIP单构念Optimism完整十条及键，中文为本站试译；不是LOT-R或OPI原题。不同量表的同名主题不能建立分数可比性。[1][4][5]",
+        "en": "It uses all ten IPIP single-construct Optimism items and their key, with a website Chinese trial translation. It is neither the original LOT-R nor OPI. A shared topic establishes no score comparability.[1][4][5]"
       }
     },
     {
       "question": {
-        "zh": "怎样计分，暂不作答会怎样？",
-        "en": "How is it scored, and what if I leave an item unscored?"
+        "zh": "乐观与悲观会得到两个分数吗？",
+        "en": "Will I get separate optimism and pessimism scores?"
       },
       "answer": {
-        "zh": "本版保留IPIP单构念Optimism的10条英文与键，四条正向按1—5原值、六条反向按6减有效回答。十条全部有效才相加为原始总分10—50，均分为总分除10；任何暂不作答均保留资料不足，不补零、中点或推算总分。五份读法按本站编辑边界18、26、34、42组织，恰在边界完整呈现相邻两份，不硬派主副型。均分3是回答尺度中点，不是人群平均；边界不是官方类型、常模、百分位、显著差异或置信区间。",
-        "en": "This edition preserves ten English IPIP single-construct Optimism items and their key. Four positive items use responses from one to five; six negative items use six minus a valid response. All ten ratings are required for a raw sum from 10 to 50 and a mean of total divided by ten. Any unscored item retains insufficient information without zero, midpoint or estimated total. Five guides use website editorial boundaries at 18, 26, 34 and 42, keeping both adjacent full guides at a boundary without primary/secondary assignment. A mean of three is the response-scale midpoint, not a population average. Boundaries establish no official types, norms, percentiles, significant differences or confidence intervals."
+        "zh": "不会。本版遵循一个总分键，不将正反向题拆成两套量表，也不从总分推断两种独立特质。五份说明是连续分数的阅读区域。",
+        "en": "No. This edition follows one total-score key without splitting positive and negative items into separate scales or inferring two independent traits. Five guides organise that continuous total."
       }
     },
     {
       "question": {
-        "zh": "五份结果是官方人格类型或常模吗？",
-        "en": "Are the five readings official personality types or norms?"
+        "zh": "四正六反怎样计算？",
+        "en": "How are the four positive and six negative items scored?"
       },
       "answer": {
-        "zh": "不是。较低、偏低、中段、偏高、较高仅组织这10条的连续原始总分。18、26、34、42是本站编辑边界，恰在边界呈现两份完整正文；中段不是最健康，较高也不代表更准确、能干或成功。没有人群百分位、置信区间或跨一分显著改变的依据。",
-        "en": "No. Lower, lower-middle, middle, upper-middle and higher organise one continuous raw total. Boundaries at 18, 26, 34 and 42 are editorial, with both full guides at an endpoint. The middle is no healthiest region and higher implies no accuracy, ability or success. There are no population percentiles, confidence intervals or established significant one-point changes."
+        "zh": "四条正向用1—5原值，六条反向用6减回答。十条全部有效后相加得到10—50总分，除以10得到均分；所有题均计分。[1][3]",
+        "en": "Four positive keys use the 1–5 response; six negative keys use six minus the response. Ten valid ratings yield a 10–50 sum and a mean of total divided by ten. Every item contributes.[1][3]"
       }
     },
     {
       "question": {
-        "zh": "测的是心情、情绪稳定或防御性悲观吗？",
-        "en": "Does it measure mood, emotional stability or defensive pessimism?"
+        "zh": "可以看一个完整计分例子吗？",
+        "en": "Can I see a complete scoring example?"
       },
       "answer": {
-        "zh": "源题有未来、心情与自我感受的不同表述，本版按官方单构念键只给一个总分，不自行拆出分量表，不作健康筛查或防御性悲观鉴定。近期经历可能影响回答，但此答卷不能确定原因、持续时间或临床状态，也不评判断准确、准备或职业。",
-        "en": "Source items contain outlook, mood and self-regard wording. This edition follows the single-construct key for one total without invented subscales, health screening or defensive-pessimism identification. Recent experiences may affect responses, but this attempt determines no cause, duration or clinical state and assesses no accuracy, preparation or career."
+        "zh": "依题序4、2、3、4、5、2、4、3、2、1，定向后4、4、3、2、5、4、4、3、4、5，总分38、均分3.8。它是原始自评分数，不是38%乐观。",
+        "en": "Responses of 4, 2, 3, 4, 5, 2, 4, 3, 2, 1 become 4, 4, 3, 2, 5, 4, 4, 3, 4, 5: total 38, mean 3.8. This is a raw self-report score, not 38 percent optimism."
       }
     },
     {
       "question": {
-        "zh": "全选同一个答案会被判无效吗？",
-        "en": "Are identical responses automatically rejected?"
+        "zh": "暂不作答能得到结果吗？",
+        "en": "What happens with an unscored response?"
       },
       "answer": {
-        "zh": "不会，只要每题所选是有效选项就按键处理。十条全选1总分34，全选5总分26；四正六反使它们都不是极端总分。反向组合不是经本站验证的认真程度检测，同分可以来自不同回答。暂不作答则不生成个人总分，而不是判你不认真。",
-        "en": "No. Valid options are scored by their key. All ones total 34 and all fives total 26; four positive and six negative keys make neither an extreme total. Keying patterns are no locally validated attention test and different responses can share a total. An unscored response prevents a personal total rather than implying inattention."
+        "zh": "仍可看全部公开指南，但任一题暂不评分时不生成个人总分、均分或区域。系统保留资料不足，不补零、中点或其他题的均值。",
+        "en": "All public guides remain available, but any unscored item prevents a personal total, mean or region. The result retains insufficient information without zero, midpoint or other-item mean substitution."
       }
     },
     {
       "question": {
-        "zh": "完整报告、重测与分享免费吗？",
-        "en": "Are full reports, retaking and sharing free?"
+        "zh": "为什么边界会同时显示两份指南？",
+        "en": "Why do boundaries return two guides?"
       },
       "answer": {
-        "zh": "十条题目、分数说明、五份完整公开解释与边界两份正文免费，无需邮箱、注册或其他测试解锁。答案只在浏览器计分，不上传、不进网址或分析。草稿须主动开启，只在本标签页保存、24小时失效，完成或重测清除。分享自选，只含结果名称与公开链接，不含答案、分数或内部ID；资料不足不分享为个人结果。其他测评须另行完整作答，不由此推算MBTI或其他分数。",
-        "en": "All ten items, scoring information, five full public guides and both boundary reports are free without email, signup or another test to unlock them. Answers are scored in the browser without uploading or entering URLs or analytics. Drafts require opt-in, remain only in this tab, expire after 24 hours and clear on completion or retaking. Optional sharing contains result names and public links without answers, scores or internal IDs. Insufficient information is not shared as a personal result. Other assessments require separate complete answers; no MBTI or other scores are inferred here."
+        "zh": "18、26、34、42是本站编辑边界，恰好落在边界保留相邻两份全文，不强行选一份。它们不是官方人格界线或统计显著性阈值。",
+        "en": "At editorial boundaries of 18, 26, 34 and 42, both neighbouring full guides remain. These are neither official personality cutoffs nor statistical significance thresholds."
+      }
+    },
+    {
+      "question": {
+        "zh": "中段意味着现实或最健康吗？",
+        "en": "Does the middle mean realistic or healthiest?"
+      },
+      "answer": {
+        "zh": "不意味着。均分3是回答尺度中点，不是人群平均；不同回答可以得到同一总分。现实判断、健康与灵活性没有在本页单独测量。",
+        "en": "No. A mean of 3 is a response-scale midpoint, not a population average. Different ratings can share a total. Realistic judgment, health and flexibility are not separately measured here."
+      }
+    },
+    {
+      "question": {
+        "zh": "全选同一项是不是不认真？",
+        "en": "Are identical responses treated as inattention?"
+      },
+      "answer": {
+        "zh": "不会自动这样判断。全选1得到34，全选5得到26，全选3得到30，均按正反向键计算。本站没有验证用这类组合识别认真程度的规则。",
+        "en": "No automatic verdict is made. All ones total 34, all fives 26 and all threes 30 under the key. No local attention-detection rule based on these patterns has been validated."
+      }
+    },
+    {
+      "question": {
+        "zh": "能识别防御性悲观、希望或自我效能吗？",
+        "en": "Does it identify defensive pessimism, hope or self-efficacy?"
+      },
+      "answer": {
+        "zh": "不能。本版没有对应构念的题本与分量表。预想困难不自动证明准备策略，高分也不证明有更强能力、行动或韧性。",
+        "en": "No. This form has no scales for those constructs. Expecting difficulties establishes no preparation strategy, while a higher total establishes no greater ability, action or resilience."
+      }
+    },
+    {
+      "question": {
+        "zh": "英文有来源就说明中文版也验证过吗？",
+        "en": "Does an established English source validate the Chinese version?"
+      },
+      "answer": {
+        "zh": "不说明。IPIP允许使用原材料，但中文试译、本站阅读区域与跨语言等价仍需各自研究；源表系数不能当作本站准确率。[2][4]",
+        "en": "No. IPIP permits use of its materials, but the trial translation, website reading regions and language equivalence need their own evidence. Source coefficients are not a website accuracy rate.[2][4]"
+      }
+    },
+    {
+      "question": {
+        "zh": "能诊断健康或预测职业成功吗？",
+        "en": "Can the score diagnose health or predict career success?"
+      },
+      "answer": {
+        "zh": "本页不提供这些判断。心情题不等于临床筛查，总分也没有职业适配、能力或疾病阈值。应以实际问题所需的证据另行判断。",
+        "en": "No such verdict is provided. Mood items are not clinical screening, and the total has no occupational-fit, ability or disease threshold. Those decisions require evidence appropriate to the actual question."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样用结果做一次具体观察？",
+        "en": "How can I use the reading for one observation?"
+      },
+      "answer": {
+        "zh": "选一次普通活动，分别记录预期、已知条件、未知事项和实际行动，再找一个不符合区域描述的例子。可以提出一个具体信息请求，不必以提高分数为目标。",
+        "en": "Choose an ordinary activity and separate expectations, confirmed conditions, unknowns and actions. Find a counterexample to the region too. Ask for one specific clarification without making a higher score the goal."
+      }
+    },
+    {
+      "question": {
+        "zh": "需要注册或另点同意吗，多久完成？",
+        "en": "Do I need signup or another agreement, and how long does it take?"
+      },
+      "answer": {
+        "zh": "不需要。开始按钮直接进入十条题目，预计约3分钟、不限时；题目、计分和完整公开指南免费。",
+        "en": "No. Start opens ten items directly. Allow about three minutes, without a time limit. Items, scoring and complete public guides are free."
+      }
+    },
+    {
+      "question": {
+        "zh": "答案保存与分享包含什么？",
+        "en": "What is saved or shared?"
+      },
+      "answer": {
+        "zh": "默认不保存，主动保存后草稿仅本标签页保留24小时，完成、重测或退出清除即删。答案仅浏览器计分，不上传计分或进入网址及分析事件；公开指南链接不含本次答案或分数。",
+        "en": "Saving is off by default. Opted-in drafts remain in this tab for up to 24 hours, clearing on completion, retake or exit-and-clear. Browser scoring sends no scoring upload or answer-bearing URLs or analytics events. Public guide links contain no answers or scores from this attempt."
       }
     }
   ],
@@ -1581,6 +1809,13 @@
         "en": "IPIP: single-construct comparison table"
       },
       "url": "https://ipip.ori.org/newSingleConstructs.htm"
+    },
+    {
+      "title": {
+        "zh": "卡内基梅隆大学：LOT-R原表与计分，用于版本对照",
+        "en": "Carnegie Mellon University: original LOT-R form and scoring for comparison"
+      },
+      "url": "https://www.cmu.edu/dietrich/psychology/pdf/scales/LOTR_Scale.pdf"
     }
   ]
 }

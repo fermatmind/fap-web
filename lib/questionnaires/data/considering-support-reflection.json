@@ -1077,12 +1077,12 @@
     "zh": "考虑心理支持？18条个人回顾｜费马测试"
   },
   "description": {
-    "en": "Reflect on 18 original statements about concerns, everyday impact, support and questions about professional care. Four full public guides, private category records and no readiness score or therapy verdict.",
-    "zh": "用18条原创陈述回顾困扰、日常影响、支持条件和专业支持疑问。四篇完整指南公开，类别记录留在本页，不生成准备度分数或治疗结论。"
+    "en": "Use 18 original statements to review recent concerns, daily effects, support conditions and questions about professional care. Read your six-category records and four complete guides free, without signup.",
+    "zh": "通过18条原创陈述，回顾近期困扰、日常影响、支持条件与专业支持疑问。免费查看六类回答记录和四篇完整指南，无需注册。"
   },
   "introduction": {
-    "en": "You can ask about support without a test deciding that you are ready or that a concern is serious enough. This original reflection keeps four topics separate, including practical conditions and unanswered questions. It is not a clinical scale, diagnostic screen, triage rule or stage-of-change algorithm.",
-    "zh": "无需测试判定准备好或困扰足够严重，也能询问支持。本原创回顾把四个主题分开，包括现实条件和尚未说清的疑问；不是临床量表、诊断筛查、分流规则或改变阶段算法。"
+    "en": "This adult personal reflection keeps four topics separate and retains uncertainty, inapplicable experiences and withheld answers. The first eight statements recall four weeks; the final ten concern your current situation. Results describe selected categories without a therapy-need score, readiness verdict or provider recommendation.",
+    "zh": "本成人个人回顾分别整理四个主题，保留无法判断、没有相关经历与不愿回答。前八条回顾过去四周，后十条关注当前情况；结果描述所选类别，不生成治疗需要分数、准备程度判定或服务者推荐。"
   },
   "instructions": {
     "en": "For adults. The first eight statements concern the past four weeks; the remaining ten concern your current support conditions and questions. Choose whether each description fits your current account, not a frequency or number of days. Partly describes differs from cannot judge. No relevant experience and prefer not to answer remain separate. Categories receive no points. You may pause or leave at any time.",

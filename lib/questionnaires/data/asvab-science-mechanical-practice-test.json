@@ -14,8 +14,8 @@
     "zh": "ASVAB科学与机械练习：30道原创题、五份完整指南"
   },
   "description": {
-    "en": "Practise 30 original English questions across science, mechanics, circuits, auto/shop and written assembly. Section timers or untimed study; five full guides free.",
-    "zh": "免费练习科学、机械、电路、汽车车间与文字组装五领域的30道原创英文题。可选分段计时或不计时学习，提供双语解析与五份完整指南。"
+    "en": "Practise thirty original English questions in science, mechanical models, electric circuits, auto/shop knowledge and written assembly. Choose timed or untimed study; every bilingual solution and five complete guides are free.",
+    "zh": "练习普通科学、机械模型、电路、汽车车间与文字组装三十道原创英文题。可选计时或不计时，免费查看全部双语解答与五篇完整指南。"
   },
   "minutes": 24,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "五部分各六道原创英文题。选A—D或明确留空；当前部分内可返回修改。主动结束或到时后锁定该部分，下一部分需点击开始。允许纸笔、草图和计算器。五部分完成后显示全部题解，公开指南无需作答也可先读。"
   },
   "introduction": {
-    "en": "Explore five science and technical areas related to ASVAB preparation: general science, mechanical models, electric circuits, auto/shop knowledge and written assembly. This is our own short fixed bank, with English questions in both interfaces and bilingual explanations. It complements the separate four-area English practice; these five parts do not produce an AFQT score. The text-and-coordinate assembly tasks are not an official visual subtest.",
-    "zh": "本原创短题本练习与ASVAB备考相关的普通科学、机械模型、电路、汽车车间常识及文字组装。两种界面均使用英文题干选项，解析与指南为英中双语。它补充另一套四领域英文练习；这五部分不产生AFQT成绩。文字坐标组装也不等同官方图形分测验。"
+    "en": "Read each scientific definition, ideal assumption or spatial rule before selecting an answer. Five six-item parts keep correct, wrong and unanswered counts distinct. This independent fixed bank supports paper-based review without reproducing an official visual subtest, predicting AFQT or certifying equipment competence.",
+    "zh": "选择答案前先读清科学定义、理想假设或空间规则。五部分各六题，正确、错误与未答分别记录。本独立固定题本帮助纸上复盘，不复现正式图形分测验、不预测AFQT，也不认证设备操作能力。"
   },
   "resultHeading": {
     "en": "Your five practice records and every worked answer",

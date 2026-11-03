@@ -10,12 +10,12 @@
     "zh": "问题解决与批判性思维测试"
   },
   "seoTitle": {
-    "en": "Problem-Solving & Critical Thinking Test: 30 Cases",
-    "zh": "问题解决与批判性思维测试：30道原创情境、解析与复习指南"
+    "zh": "问题解决与批判性思维测试：30道情境题与完整解析",
+    "en": "Problem-Solving & Critical Thinking Test: 30 Worked Cases"
   },
   "description": {
-    "en": "Practise 30 original school and everyday scenarios on problem steps, decisions and review. Free answers and three full guides. No grade prediction.",
-    "zh": "30道原创校园与日常情境，问题步骤、决策工具、复盘学习各十题，交错呈现。免费查看全部答案、逐题解析和三篇完整指南；不计时，不给智商、学生排名、成绩预测或课程达标认证。"
+    "zh": "免费完成30道原创情境题，练习问题界定、方案比较、证据核查与复盘。查看三组正确数、全部答案解析和三篇完整指南；无需注册，不计时。",
+    "en": "Practise 30 original scenarios on defining problems, comparing plans and evaluating evidence. Free topic counts, all worked answers and three guides. No signup or timer."
   },
   "minutes": 15,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "每题单选，依据题定目标、规则、模型和排除项。三组各十题交错呈现，完成30题可看全部答案、解析和完整指南。金额与记录均为虚构。不计时，15分钟只是粗略安排参考，非实测表现。若练无辅助作答，可完成后再查计算器和资料。无需输入真实学生记录或更改学校流程。"
   },
   "introduction": {
-    "en": "Work through 30 independently written school and everyday situations: problem-solving steps, decision tools, and review and learning, ten each. The items ask you to use explicit criteria, check a claim or calculate stated quantities. A key applies to that limited case; it does not define the universally best response to an open real-life problem. Every correct count opens all 30 explanations and three complete eight-section guides. Educational source concepts provide background, without copying published scenarios or claiming official standards attainment. This fixed, untimed practice has no IQ conversion, population norms, grade prediction, clinical interpretation or validated English–Chinese score equivalence.",
-    "zh": "30道独立编写的校园与日常情境，问题解决步骤、决策工具、复盘与学习各十题，练明示标准、主张核查和题定数量计算。答案只适用于该有限情境，不定义开放现实问题的普遍最佳回应。任何正确数都开放30题解析及三篇各八节完整指南。教育概念仅作背景，不复制已发表情境或宣称官方课程达标。本固定、不计时练习无智商换算、人群常模、成绩预测、临床解释或经验证的英中分数等价。"
+    "zh": "通过30道原创校园与日常情境题，练习界定问题、应用限制、比较数量与核查结论。三组各十题交错呈现，约15分钟，不计时；完成后免费查看总正确数、三组分项、全部答案解析及三篇完整复习指南。",
+    "en": "Practise defining problems, applying constraints, comparing quantities and checking conclusions in thirty original school and everyday cases. Three interleaved groups contain ten questions each. Allow roughly fifteen minutes, without a timer; completion opens total and topic counts, every worked answer and three complete revision guides."
   },
   "resultHeading": {
     "en": "Your problem-solving practice and every explanation",

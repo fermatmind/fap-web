@@ -14,21 +14,21 @@
     "en": "Your seven-colour choices and every highest tie"
   },
   "description": {
-    "zh": "免费光环颜色测试：21道原创选择比较七种自选表达意象，完整结果与所有最高并列直接读。无需注册、照片或生日；不探测能量、预测命运或认证灵性。",
-    "en": "Take a free aura color test with 21 original choices and seven symbolic guides. Full results without signup, photos, birthdays or energy-field claims."
+    "zh": "用21道原创日常选择，探索红、橙、黄、绿、蓝、靛、紫七种表达意象。约7分钟，免费查看七色原始次数、全部最高并列和完整指南；无需注册、照片或生日。",
+    "en": "Explore seven expression metaphors—Red, Orange, Yellow, Green, Blue, Indigo and Violet—through 21 original everyday choices. About 7 minutes; free counts, every highest tie and complete guides. No signup, photo or birthday needed."
   },
   "seoTitle": {
-    "zh": "光环颜色测试：21题、七种意象与完整结果",
-    "en": "Aura Color Test: Free Seven-Color Quiz & Full Results"
+    "zh": "光环颜色测试：21题探索七色意象，免费完整结果",
+    "en": "Aura Color Test: 21 Questions, Seven Colors & Free Full Results"
   },
   "minutes": 7,
   "introduction": {
-    "zh": "如果用颜色作一张表达自己的小卡，你更愿意突出重点、共同玩出变化、提出问题、留意生活条件、把意思说清、私下细看，还是赋予符号个人意义？本版提供21道原创普通选择，七种颜色是当代编辑意象，不是拍到的光或身体能量。全部完成后看原始次数，所有最高并列完整保留；七份完整说明也可以先读。没有高低或稀有颜色，不收照片、生日或邮箱，也不把结果换成心理、健康、灵性或职业判断。",
-    "en": "If colour were a small card for expressing yourself, would you prefer a visible focus, shared play, a question, everyday conditions, plain wording, private observation or personal symbolic meaning? This edition offers 21 original ordinary choices. Its seven colours are contemporary editorial metaphors rather than photographed light or bodily energy. Compare raw counts after completion and read every highest-tied guide in full. All seven full guides are also available first. There are no higher or rare colours, and no photo, birthday or email is collected. Results do not become psychological, health, spiritual or career judgements."
+    "zh": "这份光环颜色测试把七种颜色用作表达方式的象征：呈现鲜明重点、共同玩心、提问解释、关注生活条件、平实沟通、私下细看，以及赋予个人符号意义。21道原创题目围绕笔记、小作品、普通兴趣与自愿交流展开；结果根据你的实际选项产生七项计数，保留全部最高并列，并提供具体例子、对话和相邻主题比较。",
+    "en": "This aura color test uses seven colors as symbols for ways of expressing yourself: a visible focus, shared play, questions and explanations, everyday surroundings, plain communication, private observation and personal symbolic meaning. Its 21 original situations concern notes, small creations, ordinary interests and voluntary exchanges. Your actual choices produce seven counts, retaining every highest tie with concrete examples, dialogues and comparisons."
   },
   "instructions": {
-    "zh": "本版把光环颜色用于七种自选表达的原创象征：红色鲜明表达、橙色共同玩心、黄色提问解释、绿色生活条件、蓝色平实沟通、靛色私下细看、紫色个人符号。它不观察或拍摄能量场，不用生日、星座、照片或身体信息。21题全部各选一个当前更愿意采用的普通做法；情境以自愿、可调整、可拒绝参与为前提，没有高低或正确答案。完成后比较原始次数，全部最高并列都保留完整说明；全选第一项会七种各3次。名称和映射由本版选定，不是统一传统、科学人格、真实能力、健康或灵性等级，也不换算色彩性格、气质、DISC或MBTI。",
-    "en": "This edition uses aura colors as original symbols for chosen expression: Red for visible expression, Orange shared play, Yellow questions and explanations, Green everyday surroundings, Blue plain communication, Indigo private close observation and Violet personal symbols. It observes or photographs no energy field and uses no birthday, zodiac, photo or bodily information. Choose one ordinary approach you currently prefer for all 21 questions. Situations assume voluntary, adjustable participation, including declining, without higher, lower or correct choices. Compare raw counts and read every highest-tied full guide; choosing the first option throughout gives three each. Names and mapping are this edition’s selection, not a unified tradition, scientific personality measure, ability, health or spiritual rank, and cannot convert into Color Personality, Temperament, DISC or MBTI."
+    "zh": "以近期熟悉的日常活动为参照，每题从四项中选出当前更愿意采用的做法。没有正确答案，不必先想自己属于哪种颜色，也不用选最聪明、最善良或最有灵性的说法。多项都合适时，选这次更想先做的一项；全部21题答完后生成七项原始次数、所有最高并列与完整结果。",
+    "en": "Use familiar recent activities as your reference and choose the approach you would prefer now from four options. There are no correct answers. You need not decide your color first or choose what sounds cleverest, kindest or most spiritual. If several fit, select what you would prefer first this time. Complete all 21 questions to see seven raw counts, every highest tie and complete results."
   },
   "source": {
     "kind": "FermatMindoriginalAuraColorSymbolicExpression21/seveneditorialthemes/noenergydetectionorpsychometricinstrument",
@@ -2024,65 +2024,187 @@
     {
       "id": "archetype-counts",
       "title": {
-        "zh": "21题怎样形成七色计数",
-        "en": "How 21 choices produce seven-colour counts"
+        "zh": "21题怎样计分：七项次数与固定总和",
+        "en": "How 21 questions are counted: seven counts and a fixed total"
       },
       "paragraphs": [
         {
-          "zh": "21题全部各选一项，对应主题加1，总数固定21。每题提供七主题中的四个，全卷每主题12次、每位置3次；未提供的另外三种不记为拒绝。原始次数是这些可选做法中的相对分布，不是实际光环比例、能量强弱、匹配百分比或人口排名。所有最高计数完整保留；全选第一项会七种各3次、七份完整显示。名单顺序不设主次，不自动指定第二颜色或强造混色；相差一次不证明显著差异、品质消失或固定人格。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有颜色或科学分界。",
-          "en": "Choose one option for all 21 questions; each adds one to its theme and counts always sum to 21. A question offers four of seven themes. Every theme appears 12 times and three times in each position; the three absent themes are not counted as rejected. Raw counts describe relative choices among these approaches, not aura proportions, energy levels, match percentages or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all seven. List order establishes no priority, automatic secondary colour or mixed colour. A one-choice gap proves neither significance, missing qualities nor fixed personality. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare colours or scientific cutoffs."
+          "zh": "每题提供七种主题中的四种做法，选中一项就给对应颜色加1次，其他不加分。全卷每种主题出现12次，在四个选项位置各出现3次；因此每项范围为0—12次，完成后的七项总和固定为21。",
+          "en": "Each question offers four of the seven themes. Selecting an option adds one count to its color and none to the others. Across the questionnaire, each theme appears 12 times, three times per option position. Each count is therefore 0–12, and the seven counts sum to 21 after completion."
+        },
+        {
+          "zh": "题目未提供的另外三种主题并没有被你拒绝。原始次数描述这组可选做法中的相对选择，不是光环面积、能量浓度、人群排名或准确率。由于总次数固定，多选一个主题就减少了分配给其他主题的次数；低计数不代表缺失某种品质。",
+          "en": "The three themes absent from a question were not rejected. Raw counts describe relative choices among the offered approaches, not aura area, energy concentration, population rank or accuracy. With a fixed total, selecting one theme more often leaves fewer selections for others; a low count does not establish a missing quality."
         }
       ]
     },
     {
       "id": "archetype-ties",
       "title": {
-        "zh": "完整结果、并列与近分",
-        "en": "Full guides, ties and close counts"
+        "zh": "最高并列怎样保留：可复算的例子",
+        "en": "How highest ties are retained: reproducible examples"
       },
       "paragraphs": [
         {
-          "zh": "七份完整说明各有本站主题、计数读法、普通例子、可用表达、六主题比较、反例、小观察、计分和来源。全部最高并列完整显示，不把名单第一位当主色，不把第二名自动设为辅助色。接近的说明可以一起读，但不因此造混色、误差区间或固定人格。重测显示当前选择，不证明光环或人格发生变化。",
-          "en": "Each full guide includes this edition’s theme, a count reading, example, wording, six-theme comparisons, counterexamples, an optional observation, scoring and sources. Every highest tie appears in full without treating the first listed as primary or the runner-up as an automatic supporting colour. Read close guides without creating mixed colours, error intervals or fixed personality types. Retaking reflects current choices, not proof of a changed aura or personality."
+          "zh": "按红、橙、黄、绿、蓝、靛、紫顺序，4、2、5、5、1、2、2是一组能由实际选项产生的计数，总和21，黄色和绿色以5次并列最高。系统会同时显示两份完整结果，不按颜色顺序、题号或选项位置挑一份，也不随机抽出“真正的主色”。",
+          "en": "In Red, Orange, Yellow, Green, Blue, Indigo and Violet order, the counts 4, 2, 5, 5, 1, 2, 2 are achievable from actual options. They total 21, with Yellow and Green tied highest at five. Both full results are shown, without selecting one by color order, question number, option position or a random “true primary” draw."
+        },
+        {
+          "zh": "全选第一项时，七种各3次，七份结果全部保留。当前规则不额外生成白色、彩虹色或混合类型，也不把第二名自动设成辅助色。相差1次可以对照阅读，但没有近分合并阈值、误差区间或统计显著性结论；名单顺序不表示高低。",
+          "en": "Selecting the first option throughout gives three each and retains all seven results. The rules add no White, Rainbow or mixed type and do not automatically make the runner-up a supporting color. You may compare a one-count gap, but there is no near-score merging threshold, error interval or significance conclusion. List order establishes no ranking."
         }
       ]
     },
     {
       "id": "archetype-metaphor",
       "title": {
-        "zh": "问卷、照片与其他颜色测试的区别",
-        "en": "This quiz, photography and other colour tests"
+        "zh": "七色主题如何理解：表达选择与反例",
+        "en": "Understanding seven themes: expression choices and counterexamples"
       },
       "paragraphs": [
         {
-          "zh": "本版只计21题自选表达，不检测照片、皮肤、光线、能量或身体信息。红橙黄绿蓝靛紫是本版选取的七个编辑主题，不表示所有传统或网站统一这样解释。与本站四方向色彩性格24题不同，不能凭同一个颜色互相换算，也不从颜色推出MBTI或职业。",
-          "en": "This edition counts 21 choices about expression without detecting photographs, skin, light, energy or bodily information. Red, Orange, Yellow, Green, Blue, Indigo and Violet are seven editorial themes, not meanings shared by all traditions or websites. They differ from our four-direction, 24-item Color Personality quiz. A colour word permits no conversion between them or into MBTI or careers."
+          "zh": "红色关注一个想明确呈现的重点；橙色是自愿参与的共同玩心；黄色是问题与可查的解释；绿色是日常使用的环境条件；蓝色是平实说明想表达什么；靛色是留给自己的细看；紫色是个人赋予符号的意义。这些定义由本版独立选定，不声称是各传统统一使用的七色标准。",
+          "en": "Red concerns a point you choose to display; Orange voluntary shared play; Yellow questions and checkable explanations; Green everyday use conditions; Blue plain wording of intended meaning; Indigo private close observation; and Violet meaning you give to symbols. This edition independently selected these definitions, without presenting them as a universal seven-color standard."
+        },
+        {
+          "zh": "突出重点可以不吸引全场，共同玩可以只邀请愿意参与的人，提问也可以暂时没有答案。私下细看不表示读心，个人符号不表示预言，绿色环境安排也不证明能疗愈别人。七种主题可以出现在同一次活动中，不是聪明、善良或灵性程度的等级表。",
+          "en": "A visible focus need not attract a whole room, shared play can involve only willing people, and a question can remain unanswered. Private observation is not mind-reading, a personal symbol is not a prediction, and arranging surroundings proves no healing ability. All seven themes can occur in one activity; they do not rank intelligence, goodness or spirituality."
         }
       ]
     },
     {
-      "id": "source",
+      "id": "word-meaning",
       "title": {
-        "zh": "原创内容与术语来源",
-        "en": "Original content and word usage"
+        "zh": "Aura是什么意思？词语用法与本站选择",
+        "en": "What does aura mean? Word usage and this edition"
       },
       "paragraphs": [
         {
-          "zh": "这是费马独立创作的七色自选表达象征问卷。Merriam-Webster词典仅用于核对aura一词有氛围、被认为存在的能量场等不同用法，不为七色主题、映射、计分或解释提供验证；本站不采用其医学含义来评估症状。七种颜色与含义为本版编辑选取，不声称统一传统、脉轮体系或科学分类。21题、选项、报告、例子与计数规则均为原创，没有采用JobCannon10题、竞品正文／代码／算法、受保护图片或词典例句。本版不观察能量场，不拍照、扫码或使用生日星座，不认证健康、疗愈、同理心、直觉、智力、创造力、吸引力、灵性等级、天赋或职业；不预测命运，不从光环颜色换算色彩性格、气质、DISC或MBTI。没有本站心理测量验证。",
-          "en": "This is an independently authored FermatMind seven-colour symbolic quiz about chosen expression. Merriam-Webster checks only that aura has different usages, including atmosphere and a supposed energy field; it validates no seven-colour themes, mapping, counts or interpretations. This quiz does not use the word’s medical sense to assess symptoms. Colours and meanings are an editorial selection, not a unified tradition, chakra system or scientific taxonomy. All 21 items, options, reports, examples and counting rules are original. No JobCannon 10-item bank, competitor text, code, algorithm, protected image or dictionary example is used. This edition observes no energy field and uses no photography, scanning, birthday or zodiac. It certifies no health, healing, empathy, intuition, intelligence, creativity, attractiveness, spiritual rank, talent or career fit, predicts no destiny and converts into no Color Personality, Temperament, DISC or MBTI result. There is no psychometric validation."
+          "zh": "英文aura可以指一个人或事物给人的氛围，也用于被认为存在的能量场等含义；Merriam-Webster分别记录这些用法。词典记录一种说法，不等于证实它所指的能量场。本页采用文化表达意象来组织问卷，没有把词典定义变成身体检测依据。[1]",
+          "en": "Aura can refer to an atmosphere around a person or thing and is also used for a supposed energy field; Merriam-Webster records these senses separately. Recording a usage does not establish the field it describes. This page organises a questionnaire around cultural expression metaphors rather than treating a dictionary definition as a bodily test.[1]"
+        },
+        {
+          "zh": "“光环颜色测试”在本页明确指21题选择问卷。它不拍摄、扫描或计算真实发光，不使用皮肤、呼吸、手掌、生日或星座信息；也不采用aura的医学含义来识别症状。结果中的红或蓝是可读标签，不能拿来判断身体状况。",
+          "en": "On this page, “aura color test” specifically means a 21-question choice quiz. It neither photographs, scans nor calculates emitted light and uses no skin, breathing, palm, birthday or zodiac information. It also does not assess symptoms through the word’s medical sense. Red and Blue are readable labels, not indicators of bodily condition."
+        }
+      ]
+    },
+    {
+      "id": "research",
+      "title": {
+        "zh": "颜色与情绪研究，能支持什么？",
+        "en": "What can color–emotion research support?"
+      },
+      "paragraphs": [
+        {
+          "zh": "一项2024年跨国数据分析让参与者把颜色词与情绪联系，再比较群体之间的联想模式。其讨论指出，颜色与情绪的联系可以是多对多，而非每种颜色只对应一种情绪。这项工作研究颜色词的联想，没有测量人体光环，也没有验证本站七种表达主题。[2]",
+          "en": "A 2024 cross-national analysis examined associations between color words and emotions and compared group patterns. Its discussion describes many-to-many associations rather than one emotion per color. That work studied associations with color words; it neither measured bodily auras nor validated this quiz’s seven expression themes.[2]"
+        },
+        {
+          "zh": "因此，本页不从喜欢蓝色推断你必然平静，也不从选到黄色断言智力或乐观程度。自我报告、颜色联想、他人对你的印象以及实际行为表现是不同证据；本版实际记录的是情境中的选项，不能用外部颜色研究补出没有测量的个人结论。",
+          "en": "Accordingly, this page does not infer calmness from liking Blue or intelligence and optimism from a Yellow result. Self-report, color associations, others’ impressions and observed performance are different kinds of evidence. This edition records choices in situations; external color research cannot supply personal conclusions that the quiz did not measure."
+        }
+      ]
+    },
+    {
+      "id": "comparison",
+      "title": {
+        "zh": "容易混淆的主题：观察、解释与符号意义",
+        "en": "Nearby themes: observation, explanation and symbolic meaning"
+      },
+      "paragraphs": [
+        {
+          "zh": "黄色、靛色与紫色都可能与一本私人笔记有关，区别在于正在做什么：黄色保留一个问题并寻找解释；靛色先记下留意到的细节，不急着说明；紫色给一段经历安排个人符号。看到细节不等于已经解释原因，赋予意义也不等于发现事实。",
+          "en": "Yellow, Indigo and Violet can all concern a private notebook, but they describe different actions: keeping a question and seeking an explanation, recording a noticed detail without explaining it yet, or giving an experience a personal symbol. Noticing a detail does not explain its cause, and assigning meaning does not establish a fact."
+        },
+        {
+          "zh": "红色与蓝色也可以同时出现：红色侧重把哪个点放到前面，蓝色侧重把想说的话讲明白。一句短话既可有鲜明重点，也可保留隐私与讨论范围。结果不据此判断你是否外向、是否诚实或说服力有多强；效果仍要结合实际交流核对。",
+          "en": "Red and Blue can coexist too: Red concerns which point to foreground, while Blue concerns stating the intended meaning plainly. A short sentence can have a clear focus while preserving privacy and scope. Results establish neither extraversion, honesty nor persuasive power; actual communication still determines its effect."
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "zh": "怎样阅读完整结果：选择、实例与不符合的地方",
+        "en": "Reading full results: choices, examples and what does not fit"
+      },
+      "paragraphs": [
+        {
+          "zh": "先查看七项原始次数，再阅读所有最高项的完整指南。每份指南包含本站主题、计数读法、普通例子、可用表达、与其他六色的比较、反例和可选观察。选一段有具体经历支持的解释，也找一件不符合的事；不用为了维持颜色身份忽略反例。",
+          "en": "Start with all seven raw counts, then read each highest theme’s full guide. Every guide includes its theme, a count reading, an ordinary example, possible wording, comparisons with the other six, counterexamples and an optional observation. Choose a passage supported by an event and find another event that does not fit. Keeping a color identity is no reason to ignore counterexamples."
+        },
+        {
+          "zh": "如果黄色与绿色并列，可以问“这次我更常想查明问题，还是先调整资料和环境条件，哪些活动两种都需要？”这比把自己概括成“聪明又有疗愈力”更接近题目真正记录的选择。其他颜色的指南同样公开，可以先读再决定是否作答。",
+          "en": "If Yellow and Green tie, ask “When did I want to clarify a question, when did I want to adjust materials or surroundings, and which activities needed both?”. That is closer to the recorded choices than calling yourself intelligent and healing. Other color guides are public too; you may read them before deciding whether to answer."
+        }
+      ]
+    },
+    {
+      "id": "everyday-example",
+      "title": {
+        "zh": "把颜色主题用在一次小作品里",
+        "en": "Using the themes in a small creation"
+      },
+      "paragraphs": [
+        {
+          "zh": "例如，你想为最近一次阅读做一张私人小卡片。可以先用靛色入口记下一个真实看到的细节，用黄色入口写一个还想查明的问题，用紫色入口给这次经历画一个自选记号。如果愿意分享，再用蓝色入口说明“这个符号只代表我这次的理解”。",
+          "en": "For a private card about a recent reading, an Indigo prompt might record a detail you actually noticed, a Yellow prompt an unanswered question, and a Violet prompt a sign you choose for the experience. If you want to share, a Blue prompt could state “This sign represents only my interpretation this time”."
+        },
+        {
+          "zh": "你也可以突出一个重点、邀请自愿的朋友共同画一点，或调整材料摆放，让卡片容易使用。只选一个小步骤即可，不需要凑齐七色。之后看做法是否方便、是否仍想继续；不要求作品漂亮、别人认同或得到更高的光环分数。",
+          "en": "You could also foreground a point, invite willing friends to add playful marks, or arrange materials for convenient use. One small step is enough; there is no need to complete all seven colors. Afterwards, consider convenience and whether you want to continue, without requiring attractive work, others’ agreement or a higher aura score."
+        }
+      ]
+    },
+    {
+      "id": "evidence",
+      "title": {
+        "zh": "怎样判断科学性：程序、解释与测量研究",
+        "en": "Evaluating scientific claims: computation, interpretation and measurement"
+      },
+      "paragraphs": [
+        {
+          "zh": "相同答案能复算相同计数，说明程序遵循明确规则；报告有具体例子，帮助读者核对解释。这些都不能证明题本能测量稳定人格。若要作心理测量解释，需要本版本在目标语言与人群中的信度、效度、重测与其他相关证据；当前本版尚未完成这些验证。",
+          "en": "Reproducing counts from identical answers shows that computation follows explicit rules, while concrete examples help readers examine an interpretation. Neither establishes stable personality measurement. Psychometric interpretation would require reliability, validity, retest and other relevant evidence for this edition in its target languages and populations. That validation has not been completed."
+        },
+        {
+          "zh": "因此，喜欢某段描述可以成为继续观察的起点，不能单独当作准确率证明。这个测验用于娱乐性表达探索，不给诊断、能量状态、灵性等级、天赋认证或职业适配结果。你可以只保留对理解具体经历有用的提问。",
+          "en": "Enjoying a description can prompt observation but is not an accuracy estimate. This quiz is for entertainment and exploration of expression, producing no diagnosis, energy state, spiritual rank, talent certificate or career-fit result. Keep only questions that help you examine a concrete experience."
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": {
+        "zh": "重测、语言与其他颜色体系",
+        "en": "Retesting, language and other color frameworks"
+      },
+      "paragraphs": [
+        {
+          "zh": "近期活动、可用时间、隐私需要和对题目的理解，都可能影响当前选择。比较两次结果时，先看具体选项与最高次数，再看颜色名字；少数回答变化便可能影响并列。没有本题本的重测误差数据，不能量化人格或光环“改变了多少”。",
+          "en": "Recent activities, time, privacy needs and interpretation can affect current choices. Compare specific answers and highest counts before color names; a few changed answers can alter ties. Without retest-error data for this questionnaire, the result cannot quantify how much a personality or aura has changed."
+        },
+        {
+          "zh": "本页与四方向色彩性格、脉轮、气质、DISC或MBTI使用不同题目与解释结构，不能凭同一个颜色换算。中英文保留相同题目身份与计分规则，方便对照；这也不等于已经证明跨语言测量等值。",
+          "en": "This quiz differs in questions and interpretation from four-direction Color Personality, chakra, Temperament, DISC and MBTI frameworks; a shared color name permits no conversion. Chinese and English preserve question identities and scoring rules for corresponding reading, without establishing measurement equivalence across languages."
         }
       ]
     },
     {
       "id": "privacy",
       "title": {
-        "zh": "草稿、分享与可选下一步",
-        "en": "Drafts, sharing and optional next steps"
+        "zh": "完整免费、答案计算与可选保存",
+        "en": "Full free access, answer computation and optional saving"
       },
       "paragraphs": [
         {
-          "zh": "答案在浏览器内计分，不上传、不进网址或分析。草稿需主动开启，只在本标签页恢复，24小时失效，完成、重测、退出清除即删除。可选分享只含公开颜色说明和链接，不含答案或次数。完整结果免费，不收邮箱、不先做其他测试；后续测评需要另外作答，也可以到此结束。",
-          "en": "Answers are scored in your browser without uploading them or placing them in URLs or analytics. Drafts require opt-in, restore only in this tab, expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains public colour guides and links without answers or counts. Full results are free without email or another test first. Further assessments require separate responses; you can stop here."
+          "zh": "21道题、七项计数和七篇完整指南全部免费，无需邮箱、账户、照片、生日或先完成其他测试。点击开始测试即可作答。答案在浏览器内计分，不通过计分请求上传，也不写入网址或分析事件；不含答案的使用事件仍以隐私与Cookie设置为准。",
+          "en": "All 21 questions, seven counts and seven full guides are free, without email, an account, photos, a birthday or another test first. Start test opens the questions. Answers are scored in the browser, not uploaded through a scoring request or placed in URLs or analytics events. Non-answer usage events remain governed by privacy and cookie settings."
+        },
+        {
+          "zh": "默认不保存作答；只有主动保存后，本标签页才提供24小时内恢复，完成、重测或退出清除会删除进度。公开分享链接只打开通用颜色指南，不包含个人答案或次数。可以读完就结束，不需要额外同意、购买或分享才能查看完整内容。",
+          "en": "Answers are not saved by default. Optional saving enables recovery in this tab for up to 24 hours; completion, retaking or exiting with clearing removes progress. Public sharing links open general color guides without private answers or counts. You may read and stop, with no extra agreement, purchase or sharing required to view the full content."
         }
       ]
     }
@@ -2090,52 +2212,142 @@
   "faq": [
     {
       "question": {
-        "zh": "光环颜色测试的七种颜色是什么？",
-        "en": "What are the seven aura colors in this quiz?"
+        "zh": "光环颜色测试测的是什么？",
+        "en": "What does this aura color test explore?"
       },
       "answer": {
-        "zh": "本版选红、橙、黄、绿、蓝、靛、紫，分别用作鲜明表达、共同玩心、提问解释、生活条件、平实沟通、私下细看、个人符号的意象。名称与映射是本站独立选择，不是统一传统，也不表示真实身体能量。",
-        "en": "This edition selects Red, Orange, Yellow, Green, Blue, Indigo and Violet as metaphors for visible expression, shared play, questions, surroundings, plain wording, private observation and personal symbols. Names and mapping are independently chosen, not a unified tradition or evidence of bodily energy."
+        "zh": "它用21道原创日常选择，记录你更愿意采用哪些表达做法，再用七种颜色命名相应主题。结果是原始次数和最高并列，不是观察到的身体光环、他人评价或稳定人格结论。",
+        "en": "It records preferred approaches to expression through 21 original everyday choices and names the themes with seven colors. Results are raw counts and highest ties, not an observed bodily aura, others’ opinions or a stable personality conclusion."
       }
     },
     {
       "question": {
-        "zh": "能从照片、生日或星座看出我的光环吗？",
-        "en": "Does this read my aura from a photo, birthday or zodiac?"
+        "zh": "七种颜色分别代表什么？",
+        "en": "What do the seven colors represent?"
       },
       "answer": {
-        "zh": "不能，也不收这些信息。本版只按21道当前选择作象征计数，不观察、扫描或拍摄能量场，不预测命运、健康或灵性。网页中的颜色名是可读标签，不是对真实光的检验。",
-        "en": "No, and none of that information is collected. This edition uses 21 current choices for symbolic counts without observing, scanning or photographing an energy field, or predicting destiny, health or spirituality. Colour names are readable labels rather than a test of actual light."
+        "zh": "本版红色是鲜明重点，橙色是共同玩心，黄色是提问解释，绿色是日常环境条件，蓝色是平实表达，靛色是私下细看，紫色是个人符号意义。它们是本站选定的表达意象，不是统一传统或高低等级。",
+        "en": "Here Red is a visible focus, Orange shared play, Yellow questions and explanations, Green everyday conditions, Blue plain expression, Indigo private observation and Violet personal symbolic meaning. These are this site’s selected expression metaphors, not a universal tradition or hierarchy."
       }
     },
     {
       "question": {
-        "zh": "怎样计分、处理并列与近分？",
-        "en": "How are counts, ties and close results handled?"
+        "zh": "多少题、多久、结果是否全部免费？",
+        "en": "How many questions, how long and are full results free?"
       },
       "answer": {
-        "zh": "21题全部各选一项，对应主题加1，总数固定21。每题提供七主题中的四个，全卷每主题12次、每位置3次；未提供的另外三种不记为拒绝。原始次数是这些可选做法中的相对分布，不是实际光环比例、能量强弱、匹配百分比或人口排名。所有最高计数完整保留；全选第一项会七种各3次、七份完整显示。名单顺序不设主次，不自动指定第二颜色或强造混色；相差一次不证明显著差异、品质消失或固定人格。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有颜色或科学分界。",
-        "en": "Choose one option for all 21 questions; each adds one to its theme and counts always sum to 21. A question offers four of seven themes. Every theme appears 12 times and three times in each position; the three absent themes are not counted as rejected. Raw counts describe relative choices among these approaches, not aura proportions, energy levels, match percentages or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all seven. List order establishes no priority, automatic secondary colour or mixed colour. A one-choice gap proves neither significance, missing qualities nor fixed personality. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare colours or scientific cutoffs."
+        "zh": "21题，每题四选一，预计约7分钟，不限时。全部题目、七项计数和七篇完整指南免费，无需注册、邮箱或先做MBTI。点击开始测试后直接进入题目。",
+        "en": "There are 21 four-option questions, taking about 7 minutes without a time limit. All questions, seven counts and seven full guides are free, with no signup, email or prior MBTI test. Start test opens the questions directly."
       }
     },
     {
       "question": {
-        "zh": "哪种颜色更稀有、更高或更适合职业？",
-        "en": "Which color is rarer, higher or better for a career?"
+        "zh": "需要照片、生日或星座吗？",
+        "en": "Do I need a photo, birthday or zodiac sign?"
       },
       "answer": {
-        "zh": "本版没有稀有度、灵性高低、人口常模或职业匹配。七种都可以单独最高，全部最高并列保留，计数不代表身体比例或品质。颜色不转换色彩性格、气质、DISC或MBTI，也不认证天赋与真实能力。",
-        "en": "There are no rarity estimates, spiritual ranks, population norms or career matches. Every colour can be a sole highest result, and all highest ties are retained. Counts describe neither bodily proportions nor personal qualities. Colours convert into no Color Personality, Temperament, DISC or MBTI result and certify no talent or actual ability."
+        "zh": "不需要，也不使用这些信息计算。页面不拍照、不扫描能量场，只根据本次选择加分。照片滤镜、生日计算与这种情境问卷是不同方法，不能把同名颜色当作互相验证。",
+        "en": "No, and none is used in computation. The page neither takes a photo nor scans an energy field; it adds counts from your choices. Photo filters, birthday calculations and this questionnaire use different methods, so matching color names do not validate one another."
       }
     },
     {
       "question": {
-        "zh": "完整结果、重测和分享免费吗？",
-        "en": "Are full results, retaking and sharing free?"
+        "zh": "每种颜色的次数怎样产生？",
+        "en": "How is each color’s count produced?"
       },
       "answer": {
-        "zh": "可以先读七份完整说明，完成21题后全部最高并列完整显示，无需注册或邮箱。重测会清除本次答案，可选分享只含公开说明和链接，不含答卷或次数。后续测评自选，需要另外作答。",
-        "en": "All seven full guides can be read first, and every highest tie appears after all 21 choices without signup or email. Retaking clears this attempt. Optional sharing contains public guides and links without responses or counts. Further assessments are optional and require new answers."
+        "zh": "每次选中给对应主题加1次。七主题各出现12次，四个选项位置各3次，所以每项0—12次，完成后合计21。每题没提供的三种主题没有被拒绝；计数不是能量百分比或人群排名。",
+        "en": "Each selection adds one to its theme. Each theme appears 12 times, three per option position, giving a 0–12 range and completed total of 21. The three absent themes in each question were not rejected. Counts are neither energy percentages nor population ranks."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么有多个颜色并列？",
+        "en": "Why can several colors tie?"
+      },
+      "answer": {
+        "zh": "达到相同最高次数就全部保留。比如按七色顺序4、2、5、5、1、2、2，黄色与绿色并列最高；全选第一项会七种各3次。系统不随机选择一个，也不以页面顺序破同分。",
+        "en": "Every theme at the same maximum is retained. In seven-color order, 4, 2, 5, 5, 1, 2, 2 ties Yellow and Green highest; choosing the first option throughout gives three each. The system uses neither a random choice nor display order to break ties."
+      }
+    },
+    {
+      "question": {
+        "zh": "会生成白色、彩虹色、主色和辅助色吗？",
+        "en": "Does it produce White, Rainbow, primary or supporting colors?"
+      },
+      "answer": {
+        "zh": "本版只提供红橙黄绿蓝靛紫七个主题。全部并列也保留七项，不额外改成白色或彩虹色，不把第二名自动叫作辅助色。其他网站可能使用不同规则，结果不能只按名字对齐。",
+        "en": "This edition has only Red, Orange, Yellow, Green, Blue, Indigo and Violet. An all-way tie retains the seven rather than creating White or Rainbow, and the runner-up is not automatically a supporting color. Other sites may use different rules; names alone do not align results."
+      }
+    },
+    {
+      "question": {
+        "zh": "12次是100%符合，0次是缺少一种品质吗？",
+        "en": "Does twelve mean a 100% match and zero mean a missing quality?"
+      },
+      "answer": {
+        "zh": "都不是。12次表示该主题出现的12次都被选中，0次表示这些比较都选了别项。问卷不观察全部生活，也不判断你缺少好奇、善意或沟通能力；低次数无需补足。",
+        "en": "Neither follows. Twelve means selecting that theme on all 12 appearances; zero means selecting other options instead. The quiz does not observe all of life or establish missing curiosity, kindness or communication ability. Low counts require no correction."
+      }
+    },
+    {
+      "question": {
+        "zh": "这个测试有心理测量验证吗？",
+        "en": "Has this quiz been psychometrically validated?"
+      },
+      "answer": {
+        "zh": "本版尚未完成信度、效度与常模验证。计数可复算说明规则透明，解释有实例便于核对，但两者不能证明能测量稳定人格。请结合具体经历理解结果，不把共鸣当准确率。",
+        "en": "This edition has not completed reliability, validity or norming studies. Reproducible counts make rules transparent and examples help interpretation, but neither proves stable personality measurement. Compare results with concrete experiences rather than treating resonance as an accuracy rate."
+      }
+    },
+    {
+      "question": {
+        "zh": "颜色与情绪有关，就能判断我的光环或性格吗？",
+        "en": "Do color–emotion associations identify my aura or personality?"
+      },
+      "answer": {
+        "zh": "不能据此推断。本页记录的是情境选择，不测颜色知觉或发光，也不从个人喜欢某颜色直接推定情绪、能力和人格。外部颜色联想研究不能替代本题本自己的验证。",
+        "en": "That inference does not follow. This page records situational choices, not color perception or emitted light, and does not infer emotion, ability or personality directly from a favorite color. External association studies cannot replace validation of this instrument."
+      }
+    },
+    {
+      "question": {
+        "zh": "靛色或紫色更稀有、更有灵性吗？",
+        "en": "Are Indigo or Violet rarer or more spiritual?"
+      },
+      "answer": {
+        "zh": "本版没有人群常模或稀有度统计，也不设灵性等级。靛色是私下留意细节，紫色是赋予符号个人意义，均不认证读心、预知、智慧或优越身份。",
+        "en": "This edition has no population norms, rarity statistics or spiritual ranking. Indigo concerns private attention to detail and Violet personal meaning in symbols. Neither certifies mind-reading, prediction, wisdom or superior identity."
+      }
+    },
+    {
+      "question": {
+        "zh": "能用于健康、疗愈、关系配对或职业判断吗？",
+        "en": "Can it guide health, healing, relationship matching or career decisions?"
+      },
+      "answer": {
+        "zh": "不能从这些计数得出相应结论。本页不检测身体、疗愈能力、伴侣契合或岗位胜任。若用于交流，可以讨论某次活动里更想怎样表达，仍要直接核对实际需要、意愿和反馈。",
+        "en": "These counts support none of those conclusions. The quiz tests neither bodily conditions, healing ability, partner compatibility nor job competence. For conversation, discuss preferred expression in one activity and check actual needs, willingness and feedback directly."
+      }
+    },
+    {
+      "question": {
+        "zh": "和色彩性格、脉轮或MBTI能换算吗？",
+        "en": "Can it convert to Color Personality, chakras or MBTI?"
+      },
+      "answer": {
+        "zh": "不能。本站七色表达问卷与四方向色彩性格是不同题本；颜色同名不表示构念相同。脉轮与MBTI也各有自己的解释体系，需另行阅读或作答，不能用七色次数推算。",
+        "en": "No. This seven-color expression quiz differs from the four-direction Color Personality questionnaire; shared names do not establish shared constructs. Chakra and MBTI frameworks have their own interpretations and require separate reading or answers, rather than conversion from these counts."
+      }
+    },
+    {
+      "question": {
+        "zh": "答案会保存或随分享链接公开吗？重测会怎样？",
+        "en": "Are answers saved or exposed in shared links, and what happens on retaking?"
+      },
+      "answer": {
+        "zh": "答案在浏览器计分，不通过计分请求上传，也不进网址或分析事件。只有主动保存才提供本标签页24小时恢复，完成、重测或退出清除后删除。分享只打开公开指南。重测颜色变化反映选择变化，不证明光环改变；不含答案的事件以隐私与Cookie设置为准。",
+        "en": "Answers are scored in the browser without scoring-request uploads or placement in URLs or analytics events. Optional saving enables 24-hour recovery in this tab and clears on completion, retake or exiting with clearing. Sharing opens public guides. A different result reflects changed choices, not proven aura change; non-answer events follow privacy and cookie settings."
       }
     }
   ],
@@ -2146,6 +2358,13 @@
         "en": "Merriam-Webster: aura (word usage, not seven-colour questionnaire validation)"
       },
       "url": "https://www.merriam-webster.com/dictionary/aura"
+    },
+    {
+      "title": {
+        "zh": "Jonauskaitė（2024）：37国背景中的颜色词—情绪联想（研究对象与方法）",
+        "en": "Jonauskaitė (2024): colour–emotion associations in 37 nations (study scope and method)"
+      },
+      "url": "https://www.journals.vu.lt/psichologija/article/download/34682/33639"
     }
   ]
 }

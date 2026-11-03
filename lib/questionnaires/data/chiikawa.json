@@ -14,21 +14,21 @@
     "en": "Your six character choices and every highest tie"
   },
   "description": {
-    "zh": "免费完成18道原创普通选择，比较吉伊卡哇、小八、兔兔、小桃、栗子馒头与海獭。全部最高并列完整显示，含例子、角色差异和计分；非官方同人测试。",
-    "en": "Chiikawa, Hachiware, Usagi, Momonga, Kurimanju or Rakko? Answer 18 original everyday questions in this unofficial fan quiz. Full results, including ties, are free."
+    "zh": "用18道原创日常情境题，探索参与节奏、共同表达、即兴玩法、愿望表达、小舒适与经验分享。约6分钟，免费查看六位角色的原始次数、所有最高并列与完整指南，无需注册。",
+    "en": "Explore participation, shared wording, spontaneous play, personal wishes, small comforts and experience sharing through 18 original everyday scenarios. About 6 minutes, with free counts, every highest tie and six full character guides. No signup needed."
   },
   "seoTitle": {
-    "zh": "吉伊卡哇角色测试：18题、六角色与完整结果",
-    "en": "Chiikawa Test: Free Character Quiz & Full Results"
+    "zh": "吉伊卡哇角色测试：18题、六位角色与完整解读",
+    "en": "Chiikawa Character Quiz: 18 Questions and Six Full Guides"
   },
   "minutes": 6,
   "introduction": {
-    "zh": "不考剧情，也不按图片造型猜MBTI。18道普通小事题，比较参与速度、共同说明、新玩法、愿望、小舒适与经验分享；六位角色各有完整说明，最高并列全部保留。",
-    "en": "Explore your character match through everyday moments, from joining a gathering to enjoying a small comfort. This edition includes six characters: Chiikawa, Hachiware, Usagi, Momonga, Kurimanju and Rakko. Your result includes examples and character comparisons, with a full guide for every character tied for your highest count."
+    "zh": "在自由参加的小聚会、废纸手作或分享普通物件时，你更自然的选择是什么？这份吉伊卡哇角色测试以18道原创四选一，比较吉伊卡哇、小八、兔兔、小桃、栗子馒头和海獭在本版中的六种阅读角度。完成后显示六项原始次数和全部最高并列，每位都有完整说明。\n\n无需看全漫画或动画，也没有剧情知识题。本站借角色名字组织日常选择，官方资料帮助说明人物背景；选项对应与计分是本版独立设计。阅读结果时，先看具体做法，再回到自己的经历，而不是把角色的全部故事当作自己的性格结论。",
+    "en": "What feels natural at an optional gathering, a scrap-paper activity or a moment sharing an ordinary object? This Chiikawa character quiz uses 18 original four-option scenarios to compare six editorial readings: Chiikawa, Hachiware, Usagi, Momonga, Kurimanju and Rakko. Completion shows six raw counts and every highest tie, with a full guide for each character.\n\nYou need not know the whole manga or anime, and there is no episode trivia. Character names organize everyday choices; official material supplies background, while option assignments and scoring are independently designed for this edition. Read the concrete approach first, then compare your experiences instead of treating a character’s entire story as your personality conclusion."
   },
   "instructions": {
-    "zh": "这份18题原创非官方同人问卷，以吉伊卡哇、小八、兔兔、小桃、栗子馒头和海獭六位角色，帮助比较当前普通小事里的参与、表达、玩法、愿望、舒适与经验分享。每题选四个做法中较接近自己的一个，均以自愿、可改和可停止为前提；不要求模仿讨伐、饮酒、索取或剧情伤害。每选加1，六位各出现12次，所有最高并列完整显示。角色名不等于真实动物、性别、年龄、人格或心理状况，结果不判断能力、道德、关系或职业，不换算MBTI。无需看全作品，基础背景只用于理解同人读法。",
-    "en": "For each of the 18 original questions, choose the one of four responses that feels closest to what you would do now. There are no right answers, and you don't need to know every episode. Each choice adds one to a character's count. After all 18 questions, you'll see your counts and a full guide for every character with the highest count. This unofficial fan quiz is for fun; it doesn't determine a fixed personality or an MBTI type."
+    "zh": "请按近期普通小事中的实际选择作答。每题从四种做法中选较接近自己的一项；几项都合适时选相对更自然的，没有完全合适时选较接近的。情境中的参与、分享与尝试均以自愿为前提，无需模仿角色或提供私人经历。完成18题后生成六项计数及所有最高并列的完整解读。",
+    "en": "Answer from recent ordinary situations. Choose the closest of four approaches each time; if several fit, pick the more natural one, and if none fits fully, pick the closest. Participation, sharing and trials in the scenarios are voluntary. You need not imitate a character or provide private experiences. Complete all 18 questions for six counts and full readings for every highest tie."
   },
   "source": {
     "kind": "FermatMindoriginal18ENZH4choice/unofficialtextonlyfaninterpretation/sixselectedcharacters/notclinicalassessment",
@@ -1742,65 +1742,187 @@
     {
       "id": "archetype-counts",
       "title": {
-        "zh": "18题怎样形成六角色计数",
-        "en": "How 18 choices produce six character counts"
+        "zh": "18题怎样计分：六位角色的原始次数",
+        "en": "How 18 questions produce six raw counts"
       },
       "paragraphs": [
         {
-          "zh": "18题全部各选一项，对应的本版角色方向加1，总数固定18。每题提供六位中的四位，全卷每位12次、每位置3次；未提供的两位不记拒绝。所有最高计数完整保留，全选第一项会六位各3次、六份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似度百分比、真实人格比例或成为角色的概率。差一次只是一项选择，不证明显著差异、某种品质消失或固定类型。可自行比较近分说明，但不补造并列、隐藏性格或混合身份。当前情境、时间和理解可能改变选择，没有人群常模、稀有度、科学分界或心理测量验证。",
-          "en": "Choose one option for all 18 items; each adds one to its editorial character direction and counts sum to 18. Four of six characters are offered per item. Each appears 12 times and three times in each position; absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all six guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions nor probabilities of being a character. One extra choice proves neither significance, missing qualities nor a fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Context, time and understanding can change choices; there are no population norms, rarity estimates, scientific cutoffs or psychometric validation."
+          "zh": "每题提供六个角色方向中的四个选项，选择哪一项，对应方向就加1次。18题完成后六项次数之和为18。每个方向在全卷出现12次，四个选项位置各3次，因此单项范围是0—12。某题没有提供的两个方向不算被拒绝，也不会扣分。",
+          "en": "Each item offers four of six character directions. Selecting an option adds one to its direction. Six counts sum to 18 after completion. Each direction appears 12 times, three times in each answer position, so its possible range is 0–12. The two directions absent from an item are not rejected and lose no points."
+        },
+        {
+          "zh": "例如，按吉伊卡哇、小八、兔兔、小桃、栗子馒头、海獭顺序，次数为5、5、2、2、3、1，总和18，吉伊卡哇与小八共同最高，两份完整解读均显示。这里的5只表示本次选中5项，不表示五成相似、在人群中的位置或某种能力水平。",
+          "en": "For example, counts of 5, 5, 2, 2, 3, 1 in the order Chiikawa, Hachiware, Usagi, Momonga, Kurimanju and Rakko sum to 18. Chiikawa and Hachiware share the highest count, so both full guides appear. Five means five selections here, not a similarity percentage, population position or ability level."
         }
       ]
     },
     {
       "id": "archetype-ties",
       "title": {
-        "zh": "完整说明、并列与近分",
-        "en": "Full guides, ties and close counts"
+        "zh": "最高并列、近分与较低次数",
+        "en": "Highest ties, close counts and lower counts"
       },
       "paragraphs": [
         {
-          "zh": "六份完整说明各含基础人物背景、本版读法、例子、表达、五角色比较、反例、小观察、计分与来源。所有最高并列逐份显示，近分可自行读，不补造隐藏人格、概率或第二身份。公开说明不显示任何人的私有答卷或计数。",
-          "en": "Each of six full guides includes basic context, this edition’s reading, an example, wording, five-character comparisons, counterexamples, an observation, scoring and sources. Every highest tie appears in full. Read close guides without inventing hidden traits, probabilities or second identities. Public guides show no private attempt or counts."
+          "zh": "最高次数相同的所有角色均保留，不按名单顺序或选项位置挑一个。18题始终选择第一项，会得到六位各3次的完整并列。并列是这组选择的合法结果；列表先后不产生主角色或次角色。",
+          "en": "All characters sharing the highest count are retained, without breaking ties by list order or option position. Choosing the first option throughout gives three selections each and a complete six-way tie. Ties are valid outcomes; display order assigns no primary or secondary character."
+        },
+        {
+          "zh": "差1次意味着有一项选择不同，本版没有统计显著性或近分合并阈值。可以同时阅读相邻指南，寻找适用场景；较低次数也不说明一种品质缺失。因为总次数固定，一个方向被选中时，其他方向在该题不会同时增加。",
+          "en": "A one-count gap means one different selection; this edition supplies no significance test or threshold merging close counts. Read nearby guides to find relevant situations. Lower counts do not imply missing qualities: with a fixed total, selecting one direction does not also increase the others."
         }
       ]
     },
     {
       "id": "archetype-metaphor",
       "title": {
-        "zh": "角色名字与现实中的你",
-        "en": "Character names and your actual life"
+        "zh": "六份完整指南包含什么",
+        "en": "What the six complete guides contain"
       },
       "paragraphs": [
         {
-          "zh": "本版只选六位的有限读法，不是所有角色或全作品结论。名字、动物外形和剧情身份不决定答题者的物种、性别、年龄、疾病、勇气或能力；也不把漫画里的饮酒、战斗或不合理要求变成现实建议。普通选择可以随条件改变，无需表演角色。",
-          "en": "This edition selects limited readings of six characters rather than every character or the full work. Names, animal-like appearances and fictional identities establish no respondent’s species, gender, age, illness, courage or ability. Drinking, combat and unreasonable fictional demands are not actual advice. Ordinary choices can change with conditions without performing a character."
+          "zh": "每位角色都有基础作品语境、本版读法、日常例子、可尝试的表达、其他五位的比较、反例、小观察、计分与来源说明。公开指南可先阅读，不展示任何访客的私人答卷。完成后的并列结果逐份显示完整内容，不需要再做其他测评解锁。",
+          "en": "Each character has series context, this edition’s interpretation, an everyday example, wording to try, comparisons with the other five, counterexamples, an observation activity, scoring and sources. Public guides can be read first and show no visitor’s private answers. Completion displays every highest guide in full without another assessment to unlock it."
+        },
+        {
+          "zh": "角色名是记忆一种选择侧重的入口。例如“小八”在这里帮助讨论共同说明，“海獭”帮助讨论具体经验分享；两者都可能出现在同一个人身上。喜欢谁、熟悉谁和本次更常选择谁是三个不同的问题。",
+          "en": "A character name is a way to remember an emphasis. Here Hachiware supports discussion of shared wording, while Rakko supports discussion of specific experience sharing; both can occur in one person. Liking a character, knowing a character and selecting their direction more often are different questions."
         }
       ]
     },
     {
-      "id": "source",
+      "id": "chiikawa-six-readings",
       "title": {
-        "zh": "非官方同人与原创内容",
-        "en": "Unofficial fan interpretation and original content"
+        "zh": "六位角色在本版中分别代表什么",
+        "en": "What the six characters represent in this edition"
       },
       "paragraphs": [
         {
-          "zh": "这是费马独立创作的非官方同人问卷，以六位吉伊卡哇角色作当前普通选择的有限阅读角度。官方人物页与授权游戏中文页只核人物基础和名字，不验证本站题目、映射、计数或心理解释；本站与原作者、制作方、授权方和游戏运营方无合作或认可关系，作品和角色权利归相应权利人。18题、选项、解释、例子与规则原创，未采用IDR30题、竞品正文或算法、漫画台词、动画字幕、截图、立绘、游戏素材或其他受保护内容。它不是全作品、全角色或完整人格结论，不推断动物分类、性别、年龄、疾病、焦虑、神经类型、天赋、道德、关系或职业，不模仿饮酒、战斗、索取或伤害，不把可爱作为绕过同意的理由，也不换算MBTI、心理自我状态或其他角色测验。",
-          "en": "This is an independently authored FermatMind unofficial fan quiz using six Chiikawa characters as limited readings of current ordinary choices. Official character and licensed-game Chinese pages check basic context and names without validating these items, mappings, counts or psychology. There is no partnership or endorsement by creators, producers, licensors or game operators; series and character rights belong to their respective owners. All 18 items, options, explanations, examples and rules are original. No IDR 30-item bank, competitor text or algorithm, comic dialogue, subtitles, screenshots, character art, game assets or other protected material is used. This is no full-series, all-character or complete-personality verdict. It infers no species, gender, age, illness, anxiety, neurotype, talent, morality, relationship or career, invites no imitation of drinking, combat, demands or harm, and makes no cuteness an exemption from agreement. Results convert into no MBTI, ego-state or other character-quiz result."
+          "zh": "吉伊卡哇对应按自己的节奏参与：先安顿好，再加入一小段。小八对应共同表达：询问怎样描述，并核对理解。兔兔对应即兴玩法：从普通物件试出没有预定用途的新组合。这里区分的是选择先做什么，而不是害羞程度、语言能力或创造天赋。",
+          "en": "Chiikawa represents participation at your pace: settle in, then join a little. Hachiware represents shared expression: ask how to describe something and check understanding. Usagi represents spontaneous play: find an unplanned combination in an ordinary object. The distinction concerns what you choose first, rather than shyness, language skill or creative talent."
+        },
+        {
+          "zh": "小桃对应让个人愿望被看见：说清现在想参与什么，同时接受不同回应。栗子馒头对应细品小舒适：慢慢留意味道、质地或风景。海獭对应分享试过的具体经验：说明自己的方法与适用条件，由对方决定采用与否。愿望、享受与分享经验可以相互配合，没有优劣排序。",
+          "en": "Momonga represents making a wish visible: name what you want while accepting different responses. Kurimanju represents savouring small comforts through taste, texture or a view. Rakko represents sharing experience you have actually tried, including its conditions, while others decide whether to use it. Wishes, enjoyment and experience sharing can complement one another without a ranking."
         }
       ]
     },
     {
-      "id": "privacy",
+      "id": "chiikawa-context",
       "title": {
-        "zh": "草稿、分享与可选下一步",
-        "en": "Drafts, sharing and optional next steps"
+        "zh": "作品背景与同人解释怎样区分",
+        "en": "Distinguishing series background from fan interpretation"
       },
       "paragraphs": [
         {
-          "zh": "答案在浏览器内计分，不上传、不进网址或分析。草稿需主动开启，只在本标签页恢复，24小时失效，完成、重测、退出清除即删除。可选分享只含公开角色说明和链接，不含答卷或次数。完整结果免费，无需邮箱或先做另一测试；后续测评自选且另行作答。",
-          "en": "Answers are scored in your browser without uploading them or placing them in URLs or analytics. Drafts require opt-in, restore only in this tab, expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains public character guides and links without responses or counts. Full results are free without email or another test first; further assessments are optional and require new answers."
+          "zh": "官方英文人物页介绍不同角色及其关系，授权游戏中文页提供作品与角色名称。[1][2] 这些资料可以核对人物语境，但没有为本问卷给出分数、人格分类或角色与现实读者的一一对应。本站选择六位作有限阅读角度，也不代表作品只包含六位。",
+          "en": "The official English character page describes characters and relationships; the licensed-game Chinese page supplies series and character names.[1][2] They establish context, not scores, personality categories or one-to-one matches with real readers. This edition selects six limited readings without suggesting that the work contains only six characters."
+        },
+        {
+          "zh": "剧情会包含超现实冲突、不同生活条件和夸张行为，不能整套转移到答题者身上。本站将题目放在普通自愿活动里，并以原创文字解释；结果名不要求你模仿讨伐、饮酒或索取，也不把某个角色的行为当作你的道德记录。",
+          "en": "Surreal conflicts, living conditions and exaggerated conduct in fiction cannot be transferred wholesale to a respondent. These questions use ordinary voluntary activities and original explanations. A result name asks for no imitation of hunting, drinking or demands and is no record of your moral conduct."
+        }
+      ]
+    },
+    {
+      "id": "chiikawa-comparisons",
+      "title": {
+        "zh": "同一张废纸，六种不同入口",
+        "en": "One sheet of scrap paper, six possible starting points"
+      },
+      "paragraphs": [
+        {
+          "zh": "在一个可以自由参加的折纸下午，吉伊卡哇式入口是先看一会儿、再试一小步；小八式入口是一起确认“想折成什么”；兔兔式入口是试一个意外形状。三个入口都可能用于同一活动，区别在于此刻优先照顾节奏、共同含义还是玩法。",
+          "en": "At an optional paper-folding afternoon, a Chiikawa reading begins by observing before trying a little; a Hachiware reading clarifies what people mean to make; a Usagi reading tries an unexpected shape. All can serve the same activity, differing in whether pace, shared meaning or play comes first."
+        },
+        {
+          "zh": "小桃式入口是说“我想留这一小块做标记”；栗子馒头式入口是留意纸面与颜色；海獭式入口是说明自己试过的一种折法。说愿望不等于要求别人照办，分享经验也不等于承担指导职责。这个合成例子用于比较含义，不是另一道计分题。",
+          "en": "A Momonga reading says which piece you want for a marker; a Kurimanju reading notices texture and colour; a Rakko reading shares a fold you have tried. Stating a wish does not require compliance, and sharing experience creates no teaching duty. This constructed example compares meanings and is not an extra scored item."
+        }
+      ]
+    },
+    {
+      "id": "chiikawa-counterexamples",
+      "title": {
+        "zh": "怎样用例子和反例核对结果",
+        "en": "Checking a result with examples and counterexamples"
+      },
+      "paragraphs": [
+        {
+          "zh": "选一条具体描述，分别找一次适用和一次不适用的经历。例如你在陌生兴趣小组先观察，和熟悉朋友一起时却直接开玩；这说明场景不同，不必把其中一种删掉。也可区分“愿意这样做”和“最近有条件这样做”。",
+          "en": "Choose one concrete description and find an experience that fits and another that does not. You might observe first in a new hobby group yet play immediately with familiar friends. Different settings need not cancel one another. Also distinguish wanting to act that way from recently having the opportunity."
+        },
+        {
+          "zh": "仅仅喜欢猫一样的外形，不证明你更常共同说明；喜欢可爱物件，也不证明你习惯表达愿望。问卷记录的是选项选择，不能把外貌偏好、角色喜爱或一段剧情感动补算为额外分数。",
+          "en": "Liking a cat-like appearance does not establish a preference for shared wording; enjoying cute objects does not establish how often you voice wishes. The questionnaire records option choices. Appearance preferences, favourite characters or a moving scene do not add extra points."
+        }
+      ]
+    },
+    {
+      "id": "chiikawa-practice",
+      "title": {
+        "zh": "把结果用在一次普通交流里",
+        "en": "Using a result in an ordinary conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以选一个小行动：说清希望怎样加入，问一句对方的意思，试一个纸上玩法，表达一个小愿望，描述一处舒适细节，或询问对方是否想听经验。只选与你当前活动有关的一项，不必集齐六种，也不需要购买物品或改变自己的角色。",
+          "en": "Try one relevant action: explain how you would like to join, ask what someone means, try paper play, voice a small wish, describe a comfortable detail or ask whether experience would be useful. Pick what fits the activity; there is no need to collect all six, buy anything or become a character."
+        },
+        {
+          "zh": "例如：“我想先看一轮，再试一小段，可以吗？”或“这个折法我试过一次，你想听吗？”之后看对方是否理解、是否愿意参与，再调整表达。实际反馈比角色名更能判断一次交流是否合适，拒绝或暂停也可以是有效回应。",
+          "en": "For example: “May I watch one round before trying a little?” or “I tried this fold once; would you like to hear about it?” Check understanding and willingness, then adjust. Actual feedback is more informative about the conversation than a character name; refusal or a pause can also be a valid response."
+        }
+      ]
+    },
+    {
+      "id": "chiikawa-evidence",
+      "title": {
+        "zh": "透明计分与心理测量证据",
+        "en": "Transparent scoring and psychometric evidence"
+      },
+      "paragraphs": [
+        {
+          "zh": "可复算规则说明一次选择怎样变成计数；它不自动证明题目稳定测量某种人格。本站尚未建立本题本的信度、效度或人群常模，六个同人方向不是经过验证的人格维度。官方人物介绍提供文化背景，也不能替代这些研究。",
+          "en": "Reproducible rules explain how choices become counts, but do not establish stable personality measurement. This item bank has no established reliability, validity or population norms. Its six fan readings are not validated personality dimensions. Official descriptions supply cultural background rather than those studies."
+        },
+        {
+          "zh": "因此本版不提供真实相似度、人格稀有度、心理诊断或能力评级，也不能把结果直接换成MBTI、大五或依恋风格。另一个测评的题目、构念与证据需要分别核对；本站角色结果适合轻松阅读和具体交流观察。",
+          "en": "Accordingly, this edition supplies no actual similarity estimate, personality rarity, diagnosis or ability rating, and its results cannot be converted into MBTI, Big Five or attachment results. Another assessment’s items, constructs and evidence require separate examination. These character readings support light exploration and concrete conversational observations."
+        }
+      ]
+    },
+    {
+      "id": "chiikawa-retest",
+      "title": {
+        "zh": "重测、情境与阅读选择",
+        "en": "Retesting, context and choosing what to read"
+      },
+      "paragraphs": [
+        {
+          "zh": "重测前可以记下当时参照的是哪类普通活动，例如陌生聚会或熟悉朋友间的手作。比较时先看哪几项次数变动，再核对题目理解和近期经历。接近最高值的方向只需少量回答变化就可能换位，不能仅凭角色名变化推断人格改变。",
+          "en": "Before retesting, note the kind of ordinary activity you had in mind, such as a new gathering or crafts with familiar friends. Compare changed counts, question interpretation and recent experiences first. A few changed answers can reorder close leading counts; a different character name alone does not demonstrate personality change."
+        },
+        {
+          "zh": "读到不贴近的说明，可以保留这一点，再看相关反例或其他角色指南。没有必要重复作答直到得到喜欢的角色，也不用把结果用于评价朋友、择业或判断关系好坏。你可以只带走一条有用的表达，把其余内容作为不同视角阅读。",
+          "en": "If a reading does not fit, keep that observation and consult its counterexamples or another guide. There is no need to repeat until a favourite appears, or use the result to judge friends, careers or relationships. Keep one useful expression and treat the rest as alternative perspectives."
+        }
+      ]
+    },
+    {
+      "id": "chiikawa-free-privacy",
+      "title": {
+        "zh": "免费作答、临时进度与公开分享",
+        "en": "Free questions, temporary progress and public sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "全部18题、原始次数、所有最高并列与六份完整指南免费，无需注册或先完成其他测评。点击开始直接进入题目，没有额外同意步骤。约6分钟是参考用时，阅读快慢不影响计数；答完全部题目才生成本次结果。",
+          "en": "All 18 questions, raw counts, every highest tie and six full guides are free without signup or another assessment first. Start opens questions directly without an extra agreement. About six minutes is an estimate; reading speed does not affect counts. A personal result is generated after all items are answered."
+        },
+        {
+          "zh": "答案在浏览器内计分，不通过计分请求上传，也不写入网址或分析事件。默认不保存；主动保存进度后仅在本标签页保留24小时，完成、重测或退出清除后删除。公开角色指南不包含私人答案或次数；其他使用事件依隐私与Cookie设置处理。",
+          "en": "Scoring happens in the browser; answers are not uploaded through scoring requests or written into URLs or analytics events. Progress is unsaved by default; opt-in tab progress lasts 24 hours and clears on completion, retake or explicit exit-and-clear. Public character guides contain no private answers or counts; separate usage events follow privacy and Cookie settings."
         }
       ]
     }
@@ -1808,52 +1930,142 @@
   "faq": [
     {
       "question": {
-        "zh": "吉伊卡哇角色测试包括哪些角色？",
-        "en": "Which Chiikawa characters are included?"
+        "zh": "吉伊卡哇角色测试测什么？",
+        "en": "What does the Chiikawa character quiz explore?"
       },
       "answer": {
-        "zh": "本版包括吉伊卡哇、小八（Hachiware）、兔兔（Usagi）、小桃（Momonga）、栗子馒头（Kurimanju）和海獭（Rakko）六份完整说明。它们是选定的同人角度，不是作品全部角色或官方人格类别；最高并列全部完整显示。",
-        "en": "This edition includes full guides for Chiikawa, Hachiware, Usagi, Momonga, Kurimanju and Rakko. These are selected fan-reading angles rather than every character or official personality categories. Every highest tie appears in full."
+        "zh": "比较当前普通小事中的参与节奏、共同表达、即兴玩法、个人愿望、小舒适与经验分享，用六位角色作有限阅读角度。",
+        "en": "It compares participation pace, shared wording, spontaneous play, wishes, small comforts and experience sharing in ordinary situations through six limited character readings."
       }
     },
     {
       "question": {
-        "zh": "这是剧情知识或MBTI测验吗？",
-        "en": "Is this episode trivia or an MBTI test?"
+        "zh": "可以得到哪六位角色？",
+        "en": "Which six characters can appear?"
       },
       "answer": {
-        "zh": "都不是。18题是普通小事里的当前选择，无需看全作品，也不使用角色图片造型或四字母人格映射。后续MBTI必须另行回答其题目，不能由本版次数换算。",
-        "en": "Neither. Eighteen questions concern current ordinary choices without full-series knowledge, character-image variants or four-letter mapping. A further MBTI assessment requires its own responses rather than conversion from these counts."
+        "zh": "吉伊卡哇、小八、兔兔、小桃、栗子馒头与海獭。六位均有完整指南，所有达到最高次数的角色都会显示；这不是全作品角色名册。",
+        "en": "Chiikawa, Hachiware, Usagi, Momonga, Kurimanju and Rakko. All have full guides, and every highest count appears. This is not the complete series cast."
       }
     },
     {
       "question": {
-        "zh": "计分、并列和近分怎样看？",
-        "en": "How do scoring, ties and close counts work?"
+        "zh": "没有看过漫画和动画也能做吗？",
+        "en": "Can I answer without knowing the manga or anime?"
       },
       "answer": {
-        "zh": "18题全部各选一项，对应的本版角色方向加1，总数固定18。每题提供六位中的四位，全卷每位12次、每位置3次；未提供的两位不记拒绝。所有最高计数完整保留，全选第一项会六位各3次、六份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似度百分比、真实人格比例或成为角色的概率。差一次只是一项选择，不证明显著差异、某种品质消失或固定类型。可自行比较近分说明，但不补造并列、隐藏性格或混合身份。当前情境、时间和理解可能改变选择，没有人群常模、稀有度、科学分界或心理测量验证。",
-        "en": "Choose one option for all 18 items; each adds one to its editorial character direction and counts sum to 18. Four of six characters are offered per item. Each appears 12 times and three times in each position; absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all six guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions nor probabilities of being a character. One extra choice proves neither significance, missing qualities nor a fixed type. Read close guides without inventing ties, hidden traits or mixed identities. Context, time and understanding can change choices; there are no population norms, rarity estimates, scientific cutoffs or psychometric validation."
+        "zh": "可以。18题都是原创日常情境，不考剧情、台词或角色名称。按你在普通活动中较自然的选择作答即可，人物背景可以之后再读。",
+        "en": "Yes. The 18 original everyday scenarios test no episodes, dialogue or character names. Answer from ordinary preferences and read the background afterwards."
       }
     },
     {
       "question": {
-        "zh": "这是官方或科学人格分类吗？",
-        "en": "Is this official or a scientific personality taxonomy?"
+        "zh": "小八、哈奇喵、小八猫和Hachiware是不同结果吗？",
+        "en": "Are Hachiware and the different Chinese name variants separate results?"
       },
       "answer": {
-        "zh": "这是费马独立创作的非官方同人问卷，以六位吉伊卡哇角色作当前普通选择的有限阅读角度。官方人物页与授权游戏中文页只核人物基础和名字，不验证本站题目、映射、计数或心理解释；本站与原作者、制作方、授权方和游戏运营方无合作或认可关系，作品和角色权利归相应权利人。18题、选项、解释、例子与规则原创，未采用IDR30题、竞品正文或算法、漫画台词、动画字幕、截图、立绘、游戏素材或其他受保护内容。它不是全作品、全角色或完整人格结论，不推断动物分类、性别、年龄、疾病、焦虑、神经类型、天赋、道德、关系或职业，不模仿饮酒、战斗、索取或伤害，不把可爱作为绕过同意的理由，也不换算MBTI、心理自我状态或其他角色测验。",
-        "en": "This is an independently authored FermatMind unofficial fan quiz using six Chiikawa characters as limited readings of current ordinary choices. Official character and licensed-game Chinese pages check basic context and names without validating these items, mappings, counts or psychology. There is no partnership or endorsement by creators, producers, licensors or game operators; series and character rights belong to their respective owners. All 18 items, options, explanations, examples and rules are original. No IDR 30-item bank, competitor text or algorithm, comic dialogue, subtitles, screenshots, character art, game assets or other protected material is used. This is no full-series, all-character or complete-personality verdict. It infers no species, gender, age, illness, anxiety, neurotype, talent, morality, relationship or career, invites no imitation of drinking, combat, demands or harm, and makes no cuteness an exemption from agreement. Results convert into no MBTI, ego-state or other character-quiz result."
+        "zh": "本版用“小八 / Hachiware”标识同一个结果，不因中文译名不同拆分计分。授权游戏中文页采用“小八猫”等名称；本站页面仍沿用本版固定结果标识。[2]",
+        "en": "This edition uses Hachiware and its short Chinese name for one result, not separate scores for translation variants. The licensed-game Chinese page uses a longer Chinese form; this quiz retains its fixed result identifier.[2]"
       }
     },
     {
       "question": {
-        "zh": "完整结果、重测和分享免费吗？",
-        "en": "Are full results, retaking and sharing free?"
+        "zh": "每道题怎样影响次数？",
+        "en": "How does each question affect counts?"
       },
       "answer": {
-        "zh": "免费，无需注册、邮箱或另一测试。可先读六份公开说明，完成18题后全部最高并列完整显示；重测清除本次选择，分享自选且不含答案或次数。后续测评不是解锁完整结果的条件。",
-        "en": "They are free without signup, email or another test. Read all six public guides first; every highest tie appears after 18 choices. Retaking clears the attempt. Optional sharing includes no answers or counts, and further assessments are not conditions for unlocking full results."
+        "zh": "选中项对应方向加1，18题总数18。六个方向各出现12次，四个位置各3次，范围0—12。未出现的两个方向不被扣分；次数只在这份题组内部比较。",
+        "en": "The selected direction gains one; 18 items sum to 18. Each direction appears 12 times, three per position, with range 0–12. Absent directions lose no points. Comparisons apply within this item set."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么有多个并列角色？",
+        "en": "Why can several characters tie?"
+      },
+      "answer": {
+        "zh": "达到相同最高次数就完整保留。例如5、5、2、2、3、1时前两位并列。全选第一项则六位各3次。系统不按顺序、位置或随机方式破同分。",
+        "en": "Every shared maximum is retained. Counts of 5, 5, 2, 2, 3, 1 tie the first two. Selecting the first option throughout gives three each. Order, position and random selection do not break ties."
+      }
+    },
+    {
+      "question": {
+        "zh": "差1次能证明我更像谁吗？",
+        "en": "Does one extra count prove I resemble a character more?"
+      },
+      "answer": {
+        "zh": "它只表示多选了一项，不是统计显著性、真实相似度或能力差异。本版不自动合并近分；可以比较两份指南在具体情境中的适用之处。",
+        "en": "It means one extra choice, not significance, actual similarity or an ability gap. Close scores are not automatically merged; compare how both guides fit concrete situations."
+      }
+    },
+    {
+      "question": {
+        "zh": "结果会等于我最喜欢的角色吗？",
+        "en": "Will the result be my favourite character?"
+      },
+      "answer": {
+        "zh": "不一定。角色喜爱与18道选项中的相对选择是不同问题。结果不会否定你的喜好，也不为你指定必须喜欢、模仿或认同的角色。",
+        "en": "Not necessarily. Character preference and relative choices across 18 items are different. A result neither invalidates favourites nor assigns someone to like, imitate or endorse."
+      }
+    },
+    {
+      "question": {
+        "zh": "测到小桃是否说明我自私，测到海獭是否说明我有领导力？",
+        "en": "Does Momonga mean selfishness, or Rakko mean leadership?"
+      },
+      "answer": {
+        "zh": "都不能这样推断。本版小桃讨论表达个人愿望并接受回应，海獭讨论分享具体经验；角色剧情的行为与地位不会成为你的道德或能力评分。",
+        "en": "Neither follows. Here Momonga concerns stating wishes and accepting responses; Rakko concerns sharing specific experience. Fictional conduct or status does not become your morality or ability score."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是官方或科学人格测验吗？",
+        "en": "Is this official or a scientific personality assessment?"
+      },
+      "answer": {
+        "zh": "这是独立创作的非官方同人测验。官方资料用于人物背景，未验证本站题目与映射；本题本尚无信度、效度与常模验证，适合娱乐阅读和日常自我观察。[1][2]",
+        "en": "It is an independently authored unofficial fan quiz. Official sources provide character background, not validation of these items or mappings. Reliability, validity and norms have not been established; use it for entertainment and everyday reflection.[1][2]"
+      }
+    },
+    {
+      "question": {
+        "zh": "可以换算MBTI、大五或依恋风格吗？",
+        "en": "Can results convert into MBTI, Big Five or attachment styles?"
+      },
+      "answer": {
+        "zh": "不能。六个方向是本版角色读法，不是这些测评的维度。若想进一步了解相关构念，应另行阅读对应方法并回答其题目，不凭一个角色名换算。",
+        "en": "No. These six readings are not those assessments’ dimensions. Further exploration requires examining the relevant methods and answering their items rather than converting a character name."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样把解读用在日常？",
+        "en": "How can I use a guide in everyday life?"
+      },
+      "answer": {
+        "zh": "从一个自愿小活动挑一条表达，例如说明希望怎样加入，或先问对方是否想听经验。结合一次适用和一次不适用的经历，再看实际反馈，不必扮演人物。",
+        "en": "Choose one expression for an optional activity, such as how you want to join or whether someone wants to hear experience. Compare a fitting and non-fitting occasion, then check actual feedback without acting as the character."
+      }
+    },
+    {
+      "question": {
+        "zh": "免费吗，点击开始后还要同意吗？",
+        "en": "Is it free, with another agreement after Start?"
+      },
+      "answer": {
+        "zh": "题目、计数、并列与六份完整指南均免费，无需注册或邮箱。点击开始直接进入题目，没有额外同意步骤。约6分钟是预计用时，不是限时。",
+        "en": "Questions, counts, ties and six full guides are free without signup or email. Start opens questions directly without another agreement. About six minutes is an estimate, not a time limit."
+      }
+    },
+    {
+      "question": {
+        "zh": "答案会保存或随分享公开吗？",
+        "en": "Are answers saved or made public by sharing?"
+      },
+      "answer": {
+        "zh": "答案在浏览器内计分，不进入计分上传、网址或分析事件。临时保存需主动开启，本标签页24小时后失效，完成、重测或退出清除即删除。公开分享指南不含私人答卷或次数，其他使用事件依隐私设置。",
+        "en": "Answers are scored in the browser, not included in scoring uploads, URLs or analytics events. Optional tab progress expires after 24 hours and clears on completion, retake or exit-and-clear. Shared public guides contain no private answers or counts; other usage events follow privacy settings."
       }
     }
   ],

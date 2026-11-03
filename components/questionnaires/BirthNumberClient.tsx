@@ -72,7 +72,6 @@ function ValidBirthNumberClient({ quiz, locale, readingProfiles }: { quiz: Birth
   }
   useEntertainmentResultView(recordView, finished !== null);
   return <section id="take-test" data-birth-number-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7" aria-labelledby="birth-number-input-title">
-    {activityConsent}
     <h2 id="birth-number-input-title" className="text-2xl font-semibold">{zh ? "选择规则，输入公历日期" : "Choose a rule and enter a Gregorian date"}</h2>
     <p id="birth-number-input-note" className="my-4 text-sm leading-7 text-slate-600">{zh ? "范围为1900年1月1日至当前设备显示的今天。无需姓名、性别、出生时间或地点。输入只在本页内存中，清除、离开、刷新或换语会移除。" : "Use January 1, 1900 through today on this device. No name, gender, birth time or place is needed. Input stays in this page’s memory; clearing, leaving, reloading or changing language removes it."}</p>
     <form onSubmit={calculate} aria-describedby="birth-number-input-note" noValidate>
@@ -88,6 +87,7 @@ function ValidBirthNumberClient({ quiz, locale, readingProfiles }: { quiz: Birth
       <div className="my-5 flex flex-wrap gap-3"><button type="submit" className={button}>{zh ? "计算符号数字" : "Calculate symbolic number"}</button><button type="button" className={button} onClick={clear}>{zh ? "清除输入与结果" : "Clear input and result"}</button></div>
       </fieldset>
     </form>
+    {activityConsent}
     <p role="status" aria-live="polite" className="my-4 text-sm leading-7">{ready ? message : (zh ? "正在准备本页计算器，请稍候。" : "Preparing this calculator. Please wait.")}</p>
     {finished && <section aria-labelledby="birth-number-result-title">
       <h2 id="birth-number-result-title" ref={resultHeading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading![locale]}</h2>

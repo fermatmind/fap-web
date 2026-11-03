@@ -14,21 +14,21 @@
     "en": "Your house-theme choices and every highest tie"
   },
   "description": {
-    "zh": "独立非官方同人测验：24道原创选择比较格兰芬多、赫奇帕奇、拉文克劳和斯莱特林。完整结果免费，无需注册，最高并列都保留；不测智力、善恶或官方学院归属。",
-    "en": "Take an unofficial Hogwarts House Quiz with 24 original choices. Compare all four houses, keep highest ties and read full guides free, without signup."
+    "zh": "24道原创日常选择，探索格兰芬多、赫奇帕奇、拉文克劳与斯莱特林四种学院主题。约7分钟，免费查看全部计数、最高并列与完整解读；独立非官方同人版，无需注册。",
+    "en": "Explore Gryffindor, Hufflepuff, Ravenclaw and Slytherin themes through 24 original everyday choices. About seven minutes, with free raw counts, every highest tie and complete guides. Independent unofficial fan edition; no signup."
   },
   "seoTitle": {
-    "zh": "霍格沃茨分院测试：24题、四学院与完整结果",
-    "en": "Hogwarts House Quiz: 24 Questions and Full House Results"
+    "zh": "霍格沃茨分院测试：24题探索四学院与完整并列结果",
+    "en": "Hogwarts House Quiz: 24 Questions, Four Houses and Complete Tied Results"
   },
   "minutes": 7,
   "introduction": {
-    "zh": "《哈利·波特》的四学院常让读者联想到勇敢、公平、学习和雄心。本版把这些作品联想转为四种原创选择主题：勇于迈步、公平与共同投入、理解与新想法、目标与资源安排。你将比较24个普通、低风险的做法选择，看到本次计数和所有最高并列的完整说明。这是非官方同人娱乐，不会读取内心、进行官方分院，或把某个学院等同更聪明、更善良或更成功。",
-    "en": "Harry Potter’s four houses invite readers to think about bravery, fairness, learning and ambition. This independent fan edition turns those associations into four original choice themes: stepping forward, shared effort, understanding and ideas, and goals and resources. Compare 24 ordinary, low-stakes approaches and read raw counts with every highest-tied full guide. This is unofficial entertainment, not mind reading, official sorting or a claim that a house makes someone smarter, kinder or more successful."
+    "zh": "霍格沃茨分院测试借用《哈利·波特》的四学院主题，比较你在开始行动、共同协作、理解问题与安排目标时更愿意优先采用的做法。本版把格兰芬多对应勇于迈步、赫奇帕奇对应公平与共同投入、拉文克劳对应理解与新想法、斯莱特林对应目标与资源安排。24道原创情境围绕普通活动、学习、反馈和计划展开，结果呈现这一次的选择分布。",
+    "en": "This Hogwarts house quiz uses Harry Potter’s four house themes to compare the approaches you prefer when starting, collaborating, understanding a problem or arranging a goal. This edition links Gryffindor with stepping forward, Hufflepuff with fairness and shared effort, Ravenclaw with understanding and ideas, and Slytherin with goals and resources. Twenty-four original scenarios concern everyday activities, learning, feedback and plans; results describe this attempt’s distribution of choices."
   },
   "instructions": {
-    "zh": "把四个学院当作本版非官方同人题中的四种叙事主题：勇于迈步、公平与共同投入、理解与新想法、目标与资源安排。每题选自己目前更想采用的一种做法，不是能力考试，也没有道德上唯一正确的选项。所有情境都以自愿、低风险和尊重需要为前提；题目不要求冒险、牺牲休息或取悦别人。24题全部选择后，只比较本题组原始次数，保留所有最高并列。结果不是官方分院，也不能证明实际智力、勇气、善恶、财富或职业适配。",
-    "en": "Treat the houses as four narrative themes in this independent fan edition: stepping forward, fairness and shared effort, understanding and ideas, and goals and resources. Choose the approach you would currently prefer, not a correct ability-test answer or a morally superior option. Every situation assumes voluntary, low-stakes participation and respect for needs; no risk-taking, lost rest or pleasing others is required. After all 24 choices, only raw counts within this set are compared and every highest tie is retained. This is not official sorting or evidence of intelligence, courage, morality, wealth or career fit."
+    "zh": "以目前更愿意采用的做法为参照，每题四选一；四个选项都可能有用，不需找道德上或能力上的正确答案。全程尽量保持同一参照情境。题目以自愿、低风险和尊重实际需要为前提，不要求冒险或额外付出。24题全部完成后查看四项计数与全部最高并列的完整报告；可以退出并清除。这是非官方同人娱乐，不进行官方分院或现实能力评定。",
+    "en": "Choose one of four approaches per question according to what you would currently prefer. All options can be useful; there is no correct moral or ability-test answer. Keep a consistent reference context throughout. Scenarios assume voluntary, low-stakes participation and respect for actual needs, without requiring risk or extra giving. Complete all 24 questions to see four counts and every highest-tied full report; you can exit and clear. This is unofficial fan entertainment, not official sorting or an assessment of real ability."
   },
   "source": {
     "kind": "FermatMindoriginalunofficialHogwartsfanquiz24/fictionalhousethemes/notofficialsortingorpsychometricinstrument",
@@ -1670,65 +1670,187 @@
     {
       "id": "archetype-counts",
       "title": {
-        "zh": "选择怎样形成学院主题计数",
-        "en": "How choices produce house-theme counts"
+        "zh": "24题怎样计分：一题一次、四项合计24",
+        "en": "Scoring 24 questions: one count per choice, 24 in total"
       },
       "paragraphs": [
         {
-          "zh": "全部24题各选一个做法，对应学院主题加1。每题四学院各有一个选项，每学院曝光24次、在四个位置各出现6次，总计数固定为24；它表示这组选择的相对分布，不是独立能力分数或学院相似度百分比。完成前不派结果，完成后所有最高计数都显示完整报告。六、六、六、六保留四份，十、十、二、二保留两份；名单顺序不决定重要性。相差一次只表示一次选择，不证明显著、固定主副学院或内在品质差异。较少选到不代表没有某种品质，也没有人口常模、稀有度或官方分院阈值。",
-          "en": "Choose one approach for all 24 questions; each adds one to its house theme. Every question offers all four houses, each with 24 opportunities and six appearances in each position. Counts always sum to 24, describing the relative distribution of this set rather than independent abilities or house-match percentages. No result appears before completion. Every highest count retains its full report: six each displays four, while ten, ten, two, two displays two. List order sets no priority. A one-choice gap establishes neither significance, fixed primary–secondary houses nor different inner qualities. Fewer choices imply no absence of a quality. There are no population norms, rarity estimates or official sorting cutoffs."
+          "zh": "每题四个选项分别对应四学院主题，选中的主题加1，其他主题不加分。完成后各项范围为0—24，四项之和恒为24。每个主题在全部题目中出现24次，在四个位置各出现6次；位置安排平衡不能替代信度与效度研究。",
+          "en": "Each question has one option for each house theme. The chosen theme gains one count; the others gain none. Each final count ranges from 0 to 24 and their sum is always 24. Every theme appears in every question and occupies each option position six times. Balanced positions do not replace reliability and validity research."
+        },
+        {
+          "zh": "例如按格兰芬多、赫奇帕奇、拉文克劳、斯莱特林顺序，10、10、2、2合计24，前两项同为最高。这些数值比较同一人在本题组备选做法之间的选择；选择一个会占用本题唯一的一次计数，所以四项不是相互独立的能力分数。",
+          "en": "For example, 10, 10, 2, 2 in Gryffindor, Hufflepuff, Ravenclaw, Slytherin order sum to 24 and leave the first two tied highest. These numbers compare one person’s selections between the approaches offered. Each question has only one count to allocate, so the four totals are not independent ability scores."
         }
       ]
     },
     {
       "id": "archetype-ties",
       "title": {
-        "zh": "并列、近分与比较",
-        "en": "Ties, close counts and comparisons"
+        "zh": "全部最高并列：单项到四项的结果实例",
+        "en": "Every highest tie: examples from one to four matching houses"
       },
       "paragraphs": [
         {
-          "zh": "所有最高计数的完整报告同时保留，相近但不相同也不补造混合人格。每份说明都有具体例子、对话、三个相邻比较、反例、可选小观察、计分与来源。你可以先读全部四份，或在不同处境下重新选择；变动只说明回答变动，不证明人格、能力、心理健康或官方身份发生了改变。",
-          "en": "Every highest count retains its full report, while close unequal counts create no invented hybrid personality. Each guide includes a concrete example, dialogue, comparisons, counterexamples, an optional observation, scoring and source scope. Read all four first or choose again for another context. Changed answers establish no change in personality, ability, mental health or official identity."
+          "zh": "10、9、3、2只有一项最高；10、10、2、2保留两项；7、7、7、3保留三项；6、6、6、6保留全部四项。四主题共有15种非空最高组合，每个最高方向的完整报告都保留，不按字母、题号、选项位置或报告顺序破同分。",
+          "en": "Counts of 10, 9, 3, 2 have one highest; 10, 10, 2, 2 retain two; 7, 7, 7, 3 retain three; and 6, 6, 6, 6 retain all four. Four themes allow 15 nonempty highest sets. Every highest direction retains its full report, without breaking ties by letters, question numbers, option positions or report order."
+        },
+        {
+          "zh": "10次与9次相差一次选择，系统如实保留差异，但不据此认证主学院、副学院或稳定的人格差别。低计数只说明相对少选某种做法，不代表缺少相应品质；没有把近分合并为同分、换算学院纯度或估计稀有度的规则。",
+          "en": "Ten versus nine differs by one selection. The system preserves that difference without certifying a primary house, secondary house or stable personality distinction. A lower count means fewer choices of an approach, not absence of a quality. No rule merges close unequal counts, calculates house purity or estimates rarity."
         }
       ]
     },
     {
       "id": "archetype-metaphor",
       "title": {
-        "zh": "故事学院与现实能力分开",
-        "en": "Fictional houses and actual ability differ"
+        "zh": "故事学院与日常选择：本版结果的含义",
+        "en": "Fictional houses and everyday choices: what this result means"
       },
       "paragraphs": [
         {
-          "zh": "格兰芬多不要求冒险，赫奇帕奇不要求无条件付出，拉文克劳不认证智力，斯莱特林不等于邪恶或成功潜力。四种主题都可能有用，也都受条件限制；没有好坏学院、稀有度、人群排名或招聘用途。不要用娱乐标签要求自己或别人忽略健康、访问需要、休息、意愿或边界。",
-          "en": "Gryffindor requires no risk, Hufflepuff no unconditional giving, Ravenclaw certifies no intelligence and Slytherin implies neither evil nor success potential. All four themes can be useful and all face limits. There are no good or bad houses, rarity estimates, population ranks or hiring uses. Entertainment labels cannot override health, access, rest, willingness or boundaries."
+          "zh": "四学院在这里是理解选择主题的叙事标签。格兰芬多计数不评现实勇气，赫奇帕奇计数不评道德与忠诚，拉文克劳计数不评智力，斯莱特林计数不评财富、善恶或成功潜力。题目没有观察实际任务表现、长期行为或他人反馈。",
+          "en": "Houses here are narrative labels for choice themes. Gryffindor counts do not assess real courage; Hufflepuff counts do not assess morality or loyalty; Ravenclaw counts do not assess intelligence; Slytherin counts do not assess wealth, goodness or success potential. Items observe neither actual task performance, long-term behaviour nor other people’s feedback."
+        },
+        {
+          "zh": "本版使用原创、普通且低风险的活动情境，独立编写选项与映射，不复刻官方分院题库。完成后得到的是费马这一轮的主题结果，没有官方成员资格或认证含义，也不替代你对故事学院的个人认同。",
+          "en": "This edition independently authors its ordinary, low-stakes scenarios, options and mappings rather than reproducing official sorting items. Completion gives a theme result for this FermatMind attempt, without official membership or certification, and does not replace your own identification with a fictional house."
         }
       ]
     },
     {
-      "id": "source",
+      "id": "fictional-context",
       "title": {
-        "zh": "原创题目与作品背景",
-        "en": "Original items and fictional context"
+        "zh": "四学院的作品背景与本版改写",
+        "en": "The four houses in fiction and this edition’s adaptation"
       },
       "paragraphs": [
         {
-          "zh": "这是费马独立编写的非官方同人娱乐测验。四学院名称及虚构背景来自《哈利·波特》，相关名称、人物和元素的权利属于其权利人；本版无官方制作、合作、认可或授权暗示。官方学院介绍只用于核对作品背景，不提供本版计分或效度依据。24道普通低风险选择、四主题映射、解释、情境和示例均为独立创作，没有采用官方Sorting Ceremony／Pottermore题本、电影截图、学院徽章、标志、原著引文、JobCannon12题或IDRlabs24题及其正文／代码／算法。结果只读本次偏好选择，不认证魔法身份、善恶、智力、学历、能力、职业、信任或诊断；没有本站心理测量验证。",
-          "en": "This is an independently authored, unofficial FermatMind fan quiz. House names and the fictional setting come from Harry Potter; related names, characters and elements belong to their rights holders. No official authorship, partnership, approval or authorisation is implied. The official house guide checks fictional context, not this scoring or validity. All 24 low-stakes choices, theme mappings, explanations, scenes and examples are original. No official Sorting Ceremony or Pottermore items, film stills, house crests, logos, book quotations, competitor questions, reports, code or algorithms are used. Results read this attempt’s preferences without certifying magical identity, morality, intelligence, education, ability, career fit, trust or a diagnosis. This website edition has no psychometric validation."
+          "zh": "官方学院介绍将格兰芬多与勇敢和决心联系，将赫奇帕奇与忠诚和努力联系，将拉文克劳与智慧和学习联系，将斯莱特林与雄心和机敏联系；同时说明不能把所有斯莱特林成员视为坏人。这里核对的是作品背景。[1]",
+          "en": "The official house guide associates Gryffindor with courage and determination, Hufflepuff with loyalty and effort, Ravenclaw with wisdom and learning, and Slytherin with ambition and shrewdness. It also rejects treating every Slytherin member as bad. These are fictional background associations. [1]"
+        },
+        {
+          "zh": "本版把作品联想改写为能够在普通选择中比较的四个主题，而不是把故事描写直接当作心理测量指标。同一件事可以既需要迈步、又需要公平、理解与计划；题目只让你选当下更想优先做什么。",
+          "en": "This edition adapts those associations into four themes that can be compared in ordinary choices, rather than treating fictional descriptions as psychological indicators. One task can need a first step, fairness, understanding and planning together; a question asks only which you would currently prefer to prioritise."
+        }
+      ]
+    },
+    {
+      "id": "four-theme-definitions",
+      "title": {
+        "zh": "四种学院主题具体比较什么",
+        "en": "What the four house themes compare in practice"
+      },
+      "paragraphs": [
+        {
+          "zh": "格兰芬多：在条件允许时，面对犹豫，愿意先尝试一个可撤回的小步骤。赫奇帕奇：关注参与者的实际需要、分担与可用的参与方式。一个侧重开始行动，一个侧重共同投入；主动开口也可以是为了让分工更公平。",
+          "en": "Gryffindor: facing hesitation and trying a reversible first step when conditions allow. Hufflepuff: considering participants’ actual needs, shared burdens and workable participation. One emphasises starting, the other shared effort; speaking first can itself help make an arrangement fairer."
+        },
+        {
+          "zh": "拉文克劳：追问原理、关系和不同解释，享受形成理解与新想法。斯莱特林：明确目标、比较路径并安排有限时间与材料。一个更侧重弄懂问题，一个更侧重达成具体目标；分析与计划并不互斥，也不代表谁更聪明。",
+          "en": "Ravenclaw: exploring principles, connections and explanations, enjoying understanding and ideas. Slytherin: clarifying goals, comparing routes and arranging limited time and materials. One stresses understanding, the other a concrete goal. Analysis and planning can coexist without making either person smarter."
+        }
+      ]
+    },
+    {
+      "id": "research-evidence",
+      "title": {
+        "zh": "分院测试科学吗？已有研究与本题本的区别",
+        "en": "Are house quizzes scientific? Research and this questionnaire differ"
+      },
+      "paragraphs": [
+        {
+          "zh": "Jakob等人2019年在《Collabra: Psychology》发表的研究检验了Pottermore分院与人格、价值观的关系。作者报告总体效应较小，并通过希望进入的学院与实际分院结果的比较，讨论自我选择对解释的影响。研究对象和工具都不是本版题本。[2]",
+          "en": "Jakob and colleagues’ 2019 Collabra: Psychology study examined Pottermore house results in relation to personality and values. The authors reported generally small effects and explored self-selection by comparing desired and assigned houses. Its participants and instrument were not this questionnaire. [2]"
+        },
+        {
+          "zh": "透明计数回答“结果怎样算”，心理测量证据回答“怎样解释与使用才成立”。本版尚无自己的信度、效度、重测误差或常模研究，因此以文化娱乐和选择反思定位；不能把外部研究或官方品牌借作本版准确率、人才判断或关系预测的证明。",
+          "en": "Transparent counting explains how a result is calculated; measurement evidence addresses which interpretations and uses are justified. This edition has no studies establishing its own reliability, validity, retest error or norms, so it is presented as cultural entertainment and choice reflection. External research or an official brand establishes no accuracy rate, talent judgement or relationship prediction for this version."
+        }
+      ]
+    },
+    {
+      "id": "same-task",
+      "title": {
+        "zh": "同一项整理任务，四种可比较的优先做法",
+        "en": "One organising task, four different priorities"
+      },
+      "paragraphs": [
+        {
+          "zh": "例如共同整理一份资料：可以先自愿做一个示例让任务开始；先确认分工和大家能否使用；先理解资料之间的联系；或先明确要解决的查找问题与可用时间。这四种做法分别呼应本版四主题，但实际完成任务常需要把它们结合起来。",
+          "en": "For a shared information-organising task, you might volunteer a first example, check shared work and access, understand connections between the materials, or clarify the search problem and available time. These approaches echo the four themes, while a real task may need several together."
+        },
+        {
+          "zh": "阅读结果时，找一个支持本次高计数主题的具体经历，再找一个你采用其他做法的经历。记录场景、实际行动和后果，比只保留学院名更容易发现适用条件；这些例子用于核对理解，不构成测验验证实验。",
+          "en": "When reading a result, recall one event supporting a high-count theme and another where you chose differently. Recording the setting, action and consequences can clarify conditions better than retaining a house name alone. These examples check understanding; they do not validate the questionnaire."
+        }
+      ]
+    },
+    {
+      "id": "counterexamples",
+      "title": {
+        "zh": "四学院都需要反例：不把标签变成要求",
+        "en": "Counterexamples for every house: labels create no obligation"
+      },
+      "paragraphs": [
+        {
+          "zh": "格兰芬多主题不要求冒险或越过权限，暂停可以是合理决定。赫奇帕奇主题不要求无条件接下额外工作，表达自己的余量也有助于分担。休息、健康、照顾责任与访问需要都应按实际情况安排。",
+          "en": "A Gryffindor theme requires neither risk nor exceeding your authority; pausing can be appropriate. A Hufflepuff theme requires no unconditional extra work; stating your capacity can help distribute tasks. Rest, health, care responsibilities and access needs should be handled on their actual terms."
+        },
+        {
+          "zh": "拉文克劳主题不要求随时知道答案或持续学习，有限时间可能需要先行动。斯莱特林主题不要求追逐名望或把人当资源，缩小目标、保留关系与接受帮助也可以成为计划的一部分。计数不提供给他人分配责任或评定价值的依据。",
+          "en": "A Ravenclaw theme requires neither knowing every answer nor continuous study; limited time may call for action. A Slytherin theme requires neither fame nor treating people as resources; smaller goals, relationships and help can belong in a plan. Counts justify no allocation of duties or judgement of someone’s worth."
+        }
+      ]
+    },
+    {
+      "id": "identity-and-context",
+      "title": {
+        "zh": "喜欢的学院、当前选择与重测结果",
+        "en": "Preferred houses, current choices and retest results"
+      },
+      "paragraphs": [
+        {
+          "zh": "喜欢某个学院可以来自角色、故事经历、颜色或社群认同；本测验则比较24个指定情境的做法。喜欢的学院与最高计数不同，不需要修改自己的认同，也不意味着测验发现了更真实的你。",
+          "en": "A favourite house can reflect characters, story experiences, colours or community identification; this quiz compares approaches to 24 specified situations. A different favourite and highest count require no change in your identity and do not mean the quiz has discovered a truer self."
+        },
+        {
+          "zh": "再次作答时先看改变了哪些具体选项、参照情境和实际条件，再比较总数。中文和英文提供同一主题与规则，但没有跨语言等值研究；题目更多、文字更像自己或多次得到同一学院，都不能单独证明测量质量。",
+          "en": "When retaking, examine changed options, reference contexts and conditions before totals. Chinese and English offer the same themes and rules without cross-language equivalence research. More questions, a convincing description or repeatedly obtaining one house alone establishes no measurement quality."
+        }
+      ]
+    },
+    {
+      "id": "full-guides",
+      "title": {
+        "zh": "怎样使用四份完整结果：从例子到一次小尝试",
+        "en": "Using the four complete guides: examples and a small trial"
+      },
+      "paragraphs": [
+        {
+          "zh": "每份公开指南都有含义、结果读法、情境例子、对话、三个相邻主题比较、反例、可选观察、计分与来源范围。它们不包含任何人的私人答卷，作答前也可以阅读；完成后所有最高主题都会显示完整报告。",
+          "en": "Each public guide covers meaning, interpretation, a situation, dialogue, comparisons with the other three themes, a counterexample, optional observation, scoring and source scope. None contains private attempts, and all may be read beforehand. After completion, every highest theme displays its full report."
+        },
+        {
+          "zh": "可以选择一件自己本来就想做的小事，写下一个开头、参与者需要、未明白的问题与可用条件，再决定哪一步更合适。无需花钱、披露私人计划或完成任务来证明学院身份；与朋友交流也应保留不同偏好。",
+          "en": "Choose an ordinary task you already want to consider. Note a first step, participants’ needs, an unanswered question and available conditions, then decide what fits. No spending, disclosure of private plans or completed task is needed to prove a house identity. Conversations with friends should leave room for different preferences."
         }
       ]
     },
     {
       "id": "privacy",
       "title": {
-        "zh": "草稿、分享与下一步",
-        "en": "Drafts, sharing and next steps"
+        "zh": "直接开始、隐私、草稿与可选分享",
+        "en": "Direct start, privacy, drafts and optional sharing"
       },
       "paragraphs": [
         {
-          "zh": "答案仅在浏览器内计分，不上传、不进入网址或分析事件。草稿需主动保存，仅当前标签页可恢复，24小时失效，完成、退出清除或重测即删。分享可选，只含公开学院主题说明与链接，不含私人答案或计数；完整结果不要求邮箱、注册或先做MBTI。后续测评另属独立框架，需要重新作答，不换算官方学院、能力或职业；也可以在这里结束。",
-          "en": "Answers are scored in your browser without uploading them or including them in URLs or analytics. Drafts require opt-in, can be resumed only in the current tab, expire after 24 hours and clear on completion, exit-and-clear or retake. Optional sharing contains public house-theme guides and links without answers or counts. Full content needs no email, signup or prerequisite MBTI. Later assessments are separate frameworks needing new responses and cannot convert to official houses, abilities or careers. You can stop here."
+          "zh": "点击“开始测试”直接进入题目，不需要注册或再次勾选同意。答案在浏览器内计分，不把答案写进网址或分析事件。网站可能记录不含答案的开始、完成等使用事件，具体以隐私与Cookie设置为准。",
+          "en": "Start test opens the questions directly without registration or another agreement checkbox. Answers are scored in your browser and enter neither URLs nor analytics events. The site may record answer-free usage events such as starts and completions, subject to privacy and Cookie settings."
+        },
+        {
+          "zh": "默认不保存答案；主动保存的草稿仅在当前标签页保留最多24小时，完成、退出清除或重测即删除。分享由你选择，公开链接不含私人答案或次数；其他测评需另行作答，学院结果不换算MBTI、大五人格或职业适配。",
+          "en": "Answers are not saved by default. An explicitly saved draft stays in the current tab for up to 24 hours and clears on completion, exit-and-clear or retake. Sharing is optional; public links contain no private answers or counts. Other assessments need their own responses; houses do not convert to MBTI, Big Five or career fit."
         }
       ]
     }
@@ -1736,52 +1858,142 @@
   "faq": [
     {
       "question": {
-        "zh": "这是官方分院帽或Pottermore测试吗？",
-        "en": "Is this the official Sorting Hat or Pottermore quiz?"
+        "zh": "霍格沃茨分院测试是什么？",
+        "en": "What is a Hogwarts house quiz?"
       },
       "answer": {
-        "zh": "这是费马独立编写的非官方同人娱乐测验。四学院名称及虚构背景来自《哈利·波特》，相关名称、人物和元素的权利属于其权利人；本版无官方制作、合作、认可或授权暗示。官方学院介绍只用于核对作品背景，不提供本版计分或效度依据。24道普通低风险选择、四主题映射、解释、情境和示例均为独立创作，没有采用官方Sorting Ceremony／Pottermore题本、电影截图、学院徽章、标志、原著引文、JobCannon12题或IDRlabs24题及其正文／代码／算法。结果只读本次偏好选择，不认证魔法身份、善恶、智力、学历、能力、职业、信任或诊断；没有本站心理测量验证。",
-        "en": "This is an independently authored, unofficial FermatMind fan quiz. House names and the fictional setting come from Harry Potter; related names, characters and elements belong to their rights holders. No official authorship, partnership, approval or authorisation is implied. The official house guide checks fictional context, not this scoring or validity. All 24 low-stakes choices, theme mappings, explanations, scenes and examples are original. No official Sorting Ceremony or Pottermore items, film stills, house crests, logos, book quotations, competitor questions, reports, code or algorithms are used. Results read this attempt’s preferences without certifying magical identity, morality, intelligence, education, ability, career fit, trust or a diagnosis. This website edition has no psychometric validation."
+        "zh": "本版是费马独立创作的24题非官方同人测验，以四学院名称比较开始行动、公平协作、理解探索与目标安排四种主题。结果记录这一次的选择计数，完整解读免费。",
+        "en": "This is FermatMind’s independently authored, unofficial 24-question fan quiz. House names label starting, fair collaboration, understanding and goal arrangement. Results record this attempt’s choices, with complete guides free."
       }
     },
     {
       "question": {
-        "zh": "四个学院比较的是什么？",
-        "en": "What do the four houses compare here?"
+        "zh": "这是官方分院帽、Pottermore或Wizarding World测试吗？",
+        "en": "Is this the official Sorting Hat, Pottermore or Wizarding World test?"
       },
       "answer": {
-        "zh": "本版原创选项分别偏向勇于迈步、公平与共同投入、理解与新想法、目标与资源安排，以四学院作娱乐标签。它没有使用知识、智商或道德标准答案，也不推断你会魔法或真实属于哪所学校。四个主题都可以被选择，没有最佳学院。",
-        "en": "The original options emphasise stepping forward, fairness and shared effort, understanding and ideas, or goals and resources, using houses as entertainment labels. There are no knowledge, IQ or moral answer keys, and no inference that you have magical abilities or membership of a real school. All themes can be chosen; there is no best house."
+        "zh": "不是。本版使用自己的题目、选项、映射和解释，没有官方制作、合作、认可或授权含义。官方学院资料仅核对作品背景，不能证明本题本有效；结果也不写入官方账户。",
+        "en": "No. This edition has its own questions, options, mappings and explanations, without official authorship, partnership, endorsement or authorisation. Official house material checks fictional context, not questionnaire validity. Results are not added to an official account."
       }
     },
     {
       "question": {
-        "zh": "为什么保留并列，不显示百分比？",
-        "en": "Why keep ties rather than show percentages?"
+        "zh": "四学院分别代表什么？",
+        "en": "What do the four houses represent here?"
       },
       "answer": {
-        "zh": "全部24题各选一个做法，对应学院主题加1。每题四学院各有一个选项，每学院曝光24次、在四个位置各出现6次，总计数固定为24；它表示这组选择的相对分布，不是独立能力分数或学院相似度百分比。完成前不派结果，完成后所有最高计数都显示完整报告。六、六、六、六保留四份，十、十、二、二保留两份；名单顺序不决定重要性。相差一次只表示一次选择，不证明显著、固定主副学院或内在品质差异。较少选到不代表没有某种品质，也没有人口常模、稀有度或官方分院阈值。",
-        "en": "Choose one approach for all 24 questions; each adds one to its house theme. Every question offers all four houses, each with 24 opportunities and six appearances in each position. Counts always sum to 24, describing the relative distribution of this set rather than independent abilities or house-match percentages. No result appears before completion. Every highest count retains its full report: six each displays four, while ten, ten, two, two displays two. List order sets no priority. A one-choice gap establishes neither significance, fixed primary–secondary houses nor different inner qualities. Fewer choices imply no absence of a quality. There are no population norms, rarity estimates or official sorting cutoffs."
+        "zh": "本版格兰芬多侧重勇于迈步，赫奇帕奇侧重公平与共同投入，拉文克劳侧重理解与新想法，斯莱特林侧重目标与资源安排。它们是将作品联想改写为普通选择的主题，不是四个独立能力量表。",
+        "en": "Here Gryffindor emphasises stepping forward, Hufflepuff fairness and shared effort, Ravenclaw understanding and ideas, and Slytherin goals and resources. These adapt fictional associations into everyday choice themes, not four independent ability scales."
       }
     },
     {
       "question": {
-        "zh": "拉文克劳是否代表更聪明，斯莱特林是否代表坏？",
+        "zh": "多少题、多久、是否免费或需要注册？",
+        "en": "How many questions, how long, and is it free?"
+      },
+      "answer": {
+        "zh": "共24题，每题四选一，约7分钟，实际用时因阅读与思考而异。题目、四项计数、所有最高并列及完整报告免费，无需邮箱、注册或先做MBTI；点击开始直接进入题目。",
+        "en": "There are 24 four-option questions, taking about seven minutes depending on reading and reflection. Questions, four counts, every highest tie and complete reports are free without email, signup or prerequisite MBTI. Start opens the questions directly."
+      }
+    },
+    {
+      "question": {
+        "zh": "不熟悉哈利·波特也能做吗？",
+        "en": "Can I take it without knowing Harry Potter?"
+      },
+      "answer": {
+        "zh": "可以。题目是普通活动、资料整理、反馈和计划等情境，不考角色、剧情或魔法知识。按自己目前更愿意采用的做法回答，一轮尽量保持同一参照情境。",
+        "en": "Yes. Items concern ordinary activities, organising information, feedback and plans, not characters, plots or magical knowledge. Answer for the approach you currently prefer, keeping a consistent reference context."
+      }
+    },
+    {
+      "question": {
+        "zh": "计分公式是什么？",
+        "en": "How are the counts calculated?"
+      },
+      "answer": {
+        "zh": "每次选择给对应主题加1，其余不加。完成后每项0—24次，四项合计24；四主题每题各出现一次，并在每个位置各出现6次。计数反映这组备选做法的相对选择，不是学院匹配准确率或人群百分位。",
+        "en": "Each choice adds one to its theme and nothing to the others. Final counts are 0–24 each and total 24; every theme appears once per question and six times in each position. Counts reflect relative choices between these approaches, not match accuracy or population percentiles."
+      }
+    },
+    {
+      "question": {
+        "zh": "能出现两个、三个或四个并列学院吗？",
+        "en": "Can two, three or four houses tie?"
+      },
+      "answer": {
+        "zh": "可以。10、10、2、2保留两项；7、7、7、3保留三项；6、6、6、6保留四项。全部最高方向显示完整报告，不随机抽选，也不按报告顺序破同分。",
+        "en": "Yes. Counts of 10, 10, 2, 2 retain two; 7, 7, 7, 3 retain three; and 6, 6, 6, 6 retain four. Every highest direction receives its complete report, without random selection or report-order tiebreaking."
+      }
+    },
+    {
+      "question": {
+        "zh": "相差一次能判断主学院与副学院吗？",
+        "en": "Does a one-choice gap establish primary and secondary houses?"
+      },
+      "answer": {
+        "zh": "不能据此作稳定判断。10次与9次只差一次选择，本版不生成主副学院或近分合并。较低次数也不表示缺少某种品质；可以同时阅读其他指南理解具体取舍。",
+        "en": "No stable judgement follows. Ten versus nine is one selection apart; this edition creates no primary–secondary classification or close-score merger. A lower count does not mean a quality is absent. Compare other guides to understand particular tradeoffs."
+      }
+    },
+    {
+      "question": {
+        "zh": "分院测试有科学依据吗？",
+        "en": "Is there scientific evidence for house quizzes?"
+      },
+      "answer": {
+        "zh": "已有研究讨论Pottermore结果与人格或价值观的关联，也提示希望进入的学院会影响解释。这不能验证另一套原创题目。本版尚无自己的信度、效度与常模研究，因此用于文化娱乐与选择反思。[2]",
+        "en": "Research has examined Pottermore results in relation to personality or values, including how desired houses complicate interpretation. It cannot validate a different original questionnaire. This edition lacks its own reliability, validity and norms studies and is offered for cultural entertainment and choice reflection. [2]"
+      }
+    },
+    {
+      "question": {
+        "zh": "拉文克劳更聪明，斯莱特林就是坏吗？",
         "en": "Does Ravenclaw mean smarter, or Slytherin mean bad?"
       },
       "answer": {
-        "zh": "都不代表。本版只读24个偏好选择，没有实际能力任务或道德调查。四学院是虚构背景，官方介绍也不把所有斯莱特林成员视为坏人。自己的健康、休息、资源、责任和界限不能被任何学院标签覆盖，更不用拿分数评价别人。",
-        "en": "Neither. This edition reads 24 preference choices without ability tasks or a moral investigation. The houses are fictional, and the official guide also rejects treating every Slytherin as bad. Health, rest, resources, responsibilities and boundaries cannot be overridden by a house label, and scores should not judge others."
+        "zh": "都不能这样判断。本题没有智力任务或道德调查，四种选择也不形成好坏排名。官方作品背景同样明确不能把所有斯莱特林成员视为坏人。[1]",
+        "en": "Neither follows. This quiz has no intelligence tasks or moral investigation, and its choices form no good–bad ranking. The official fictional background also rejects treating every Slytherin member as bad. [1]"
       }
     },
     {
       "question": {
-        "zh": "可以免费读完和分享所有结果吗？",
-        "en": "Can I read and share full results for free?"
+        "zh": "结果和我喜欢的学院不同怎么办？",
+        "en": "What if my result differs from my favourite house?"
       },
       "answer": {
-        "zh": "可以。四份完整说明都能先读，完成后全部最高匹配完整显示。分享不含答卷或次数，不需注册；保存草稿可选，完成后删除。想继续做其他测评可以自行选择，不先收邮箱、不强做MBTI，也不把本次学院换成职业推荐。",
-        "en": "Yes. All four full guides are available before answering and every highest match appears in full after completion. Sharing includes no answers or counts and requires no signup. Draft saving is optional and clears on completion. Further assessments are your choice, without an email gate, forced MBTI or conversion from a house into career recommendations."
+        "zh": "可以保留自己的学院认同。喜欢的角色、社群与故事经历不同于本轮24个选择，结果没有权力更改你的偏好或认证归属。无需反复作答直到得到想要的学院。",
+        "en": "You can keep your own house identification. Favourite characters, communities and story experiences differ from this set of 24 choices. Results neither override preferences nor certify belonging. There is no need to repeat until you obtain a desired house."
+      }
+    },
+    {
+      "question": {
+        "zh": "重测变化、中文英文不同，是否代表人格改变？",
+        "en": "Do retest or language differences mean my personality changed?"
+      },
+      "answer": {
+        "zh": "先核对具体选择、情境和语言理解。本版没有重测误差或跨语言等值数据，标签变化不能单独证明人格改变。相同规则和完整双语说明也不等于已经验证跨语言可比性。",
+        "en": "First compare specific choices, contexts and language interpretation. Without retest-error or cross-language equivalence data, changed labels alone establish no personality change. Shared rules and complete bilingual explanations do not establish cross-language measurement comparability."
+      }
+    },
+    {
+      "question": {
+        "zh": "学院能换算MBTI或判断职业、伴侣吗？",
+        "en": "Can a house convert to MBTI or determine careers or partners?"
+      },
+      "answer": {
+        "zh": "不能。模型、题目、计分与证据不同，没有由学院换算MBTI或大五分数的规则，也不产生招聘、职业适配或关系预测。可以把结果作为讨论具体做法的起点。",
+        "en": "No. Constructs, items, scoring and evidence differ. There is no house-to-MBTI or Big Five conversion, hiring judgement, career-fit score or relationship forecast. Results can start a discussion about concrete approaches."
+      }
+    },
+    {
+      "question": {
+        "zh": "答案会上传、保存或公开吗？",
+        "en": "Are answers uploaded, saved or published?"
+      },
+      "answer": {
+        "zh": "浏览器内计分，答案不写进网址或分析事件，默认不保存。主动保存的草稿仅本标签页可恢复、最多24小时，完成、退出清除或重测即删除。分享可选，公开指南没有个人答案或次数。",
+        "en": "Answers are scored in your browser, enter neither URLs nor analytics and are not saved by default. Opt-in drafts can be resumed only in this tab for up to 24 hours and clear on completion, exit-and-clear or retake. Sharing is optional; public guides contain no personal answers or counts."
       }
     }
   ],
@@ -1792,6 +2004,13 @@
         "en": "Official HarryPotter.com house guide: fictional context, not this questionnaire or scoring"
       },
       "url": "https://www.harrypotter.com/features/hogwarts-house-meanings"
+    },
+    {
+      "title": {
+        "zh": "Jakob等（2019）：分院帽测验与人格、价值观的复制研究",
+        "en": "Jakob et al. (2019): replication study of the Sorting Hat Quiz, personality and human values"
+      },
+      "url": "https://online.ucpress.edu/collabra/article/5/1/31/113037/The-Science-Behind-the-Magic-The-Relation-of-the"
     }
   ]
 }

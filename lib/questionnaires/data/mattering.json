@@ -14,13 +14,13 @@
     "zh": "被重视感测试（GMS/AMS）：双维分数与免费完整解读"
   },
   "description": {
-    "en": "Answer all 10 GMS/AMS questions and read two separate 5–20 scores, worked examples and complete free guides. No signup, diagnosis or combined worth score.",
-    "zh": "免费完成GMS与AMS共10题，分别查看5–20分及完整解读、算例和可选行动。无需注册，不诊断，不生成个人价值总分。"
+    "en": "Explore feeling important to others and feeling insignificant with the five-item GMS and five-item AMS. About 3 minutes; two separate 5–20 scores and complete guides, free without signup.",
+    "zh": "通过五题GMS与五题AMS，回顾被他人看重与感到无足轻重的体验。约3分钟，免费查看两项独立5至20分与完整指南，无需注册。"
   },
   "minutes": 3,
   "introduction": {
-    "en": "Explore feeling important to others and feeling insignificant as two related experiences. Neither score defines your value or establishes what others really think. Chinese is a new, unvalidated working translation.",
-    "zh": "从被他人看重与感到无足轻重两个相关体验观察人际关系。分数不定义个人价值，也不能确定他人的真实想法。中文为未经验证的新工作译本。"
+    "en": "Feeling noticed and feeling invisible are related but distinct experiences. Read GMS and AMS separately, with transparent scoring, worked examples and research context. Neither sum defines your value or verifies what other people think.",
+    "zh": "被注意与被忽视是相关但不同的体验。分别阅读GMS与AMS，查看透明计分、算例和研究背景。两项加总都不定义个人价值，也不核实他人的想法。"
   },
   "instructions": {
     "en": "Consider your experiences with people in general, without a fixed recall period. Choose how much each question applies. All ten questions are needed for both totals; you can exit and read either guide instead.",

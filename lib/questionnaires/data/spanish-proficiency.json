@@ -10,21 +10,21 @@
     "zh": "西班牙语水平测试"
   },
   "seoTitle": {
-    "en": "Spanish Proficiency Practice Test: 24 Questions & Answers",
-    "zh": "西班牙语水平测试：24道书面练习、答案与双语解析"
+    "zh": "西班牙语水平测试：24道书面练习与完整答案解析",
+    "en": "Spanish Proficiency Practice Test: 24 Questions & Full Answers"
   },
   "description": {
-    "en": "Practise written Spanish with 24 original grammar, vocabulary, reading and message tasks. Every answer and four full guides are free. No CEFR estimate.",
-    "zh": "用24道原创西语任务练语法书写、语境词义、阅读依据和任务消息。英中说明解析，保留西语题句与选项。免费查看全部答案、分项正确数和四份完整指南，不换算CEFR或考试等级。"
+    "zh": "用24道原创西语单选题，练语法书写、语境词义、阅读依据与任务消息。中英文说明解析，西语题句与选项一致；免费查看全部答案、四项正确数和完整指南，无需注册。",
+    "en": "Practise written Spanish with twenty-four original grammar, contextual vocabulary, reading and message tasks. English and Chinese explanations retain identical Spanish stimuli. All answers, four correct counts and complete guides are free, without signup."
   },
   "minutes": 10,
   "instructions": {
-    "en": "Choose one answer for each of 24 original written Spanish tasks. Follow the requested form and the facts supplied in the passage or message. Stimuli and alternatives stay in Spanish in both interfaces, while instructions and explanations are available in English and Chinese. Complete every item to see all selected options, keys, explanations and four full guides. No timer is used. For unaided practice, leave dictionaries and translation tools until afterwards; if you use help or have seen the items, interpret the count under those conditions.",
-    "zh": "24道原创书面西语任务，每题单选。按指定形式及短文、消息给定事实作答。两种界面都保留西语刺激与选项，说明和解析提供英语与中文。完成全部题目后，可看每题所选、答案、解析和四份完整指南。不计时。若练无辅助识别，可完成后再查词典或翻译；使用辅助或见过题目，应按该条件理解正确数。"
+    "zh": "每题从四项中选出符合指定形式、短文事实或消息目的的一项，注意人称、数、时间与条件。两种界面均保留相同西语句子与选项，说明和解析可用中文或英文。完成24题后，任何正确数都能查看全部答案解析与四份完整指南。不计时；无辅助练习可等完成后再查词典，使用工具则按实际条件理解结果。点击开始直接进入题目，无需额外同意、账号、邮箱或前置测试。",
+    "en": "Choose one of four alternatives matching the specified form, passage facts or message purpose. Check person, number, time and conditions. Both interfaces retain identical Spanish sentences and options, with English or Chinese directions and explanations. Finish twenty-four items to see all answers, explanations and four complete guides at any count. There is no timer. For unaided practice, consult dictionaries afterwards; interpret assisted work under its actual conditions. Start opens questions directly without another agreement, account, email or prior test."
   },
   "introduction": {
-    "en": "Practise 24 independently written tasks in Spanish, with six each on grammar and written forms, words in context, reading and text evidence, and written messages and tasks. Selected RAE–ASALE grammar and dictionary facts, plus the facts stated in original passages, support the answer review. Every count unlocks the same complete worked answers and four full revision guides. This fixed recognition bank does not estimate overall Spanish proficiency, assign CEFR, convert to DELE or SIELE, certify job readiness, or assess listening, speaking and spontaneous writing.",
-    "zh": "通过24道独立编写的西语任务，练语法书写、语境词义、阅读文本依据和书面任务消息，四组各六题。答案结合RAE–ASALE的选定语法词义及原创短文题定事实核对。任何正确数都能看相同的全部题解和四份完整复习指南。本固定识别题组不估计总体西语能力、不派CEFR、不换算DELE或SIELE、不认证岗位准备，也不测听说和即时写作。"
+    "zh": "从动词人称与词形，到通知里的条件和邮件中的具体要求，用24道原创西语任务检查书面理解。语法、语境词义、阅读依据与任务消息各六题，约10分钟，不限时。完成后免费查看每题所选、正确答案、双语解析及四份完整复习指南；结果记录本题组正确数，不换算CEFR或考试等级。",
+    "en": "From verb forms to notice conditions and specific message requests, practise written comprehension with twenty-four original Spanish tasks. Grammar, contextual meanings, reading evidence and task messages each have six items. Allow about ten minutes, without a timer. Completion provides every selected answer, key, bilingual explanation and four complete revision guides free. Results record correct counts on this bank, without CEFR or exam-level conversion."
   },
   "resultHeading": {
     "en": "Your Spanish practice results and every explanation",

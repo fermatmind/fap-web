@@ -145,13 +145,13 @@ function questionnaireTrackingPayload(quiz: Questionnaire, locale: Locale) {
   return { slug: quiz.slug, locale, entry_surface: legacyPlayEntry ? "entertainment" : "questionnaire", scale_code: legacyPlayEntry ? "ENTERTAINMENT" : quiz.code, form_code: legacyPlayEntry ? `fun_${quiz.slug}_v1` : quiz.source.formCode, test_type: legacyPlayEntry ? "entertainment" : quiz.kind === "practice" ? "knowledge_practice" : "self_report", page_type: legacyPlayEntry ? "entertainment" : "test_detail" };
 }
 
-export function QuestionnaireClient({ quiz, locale, workRoleReadingProfiles, loveTypeReadingProfiles, mentalAgeReadingProfile, fds32ReadingProfiles, breakupReadingProfiles, parentingReadingProfiles }: { quiz: Questionnaire; locale: Locale; workRoleReadingProfiles?: Questionnaire["profiles"]; loveTypeReadingProfiles?: Questionnaire["profiles"]; mentalAgeReadingProfile?: Questionnaire["profiles"][number]; fds32ReadingProfiles?: Questionnaire["profiles"]; breakupReadingProfiles?: Questionnaire["profiles"]; parentingReadingProfiles?: Questionnaire["profiles"] }) {
+export function QuestionnaireClient({ quiz, locale, startOnEntry = false, resumeOnEntry = false, workRoleReadingProfiles, loveTypeReadingProfiles, mentalAgeReadingProfile, fds32ReadingProfiles, breakupReadingProfiles, parentingReadingProfiles }: { quiz: Questionnaire; locale: Locale; startOnEntry?: boolean; resumeOnEntry?: boolean; workRoleReadingProfiles?: Questionnaire["profiles"]; loveTypeReadingProfiles?: Questionnaire["profiles"]; mentalAgeReadingProfile?: Questionnaire["profiles"][number]; fds32ReadingProfiles?: Questionnaire["profiles"]; breakupReadingProfiles?: Questionnaire["profiles"]; parentingReadingProfiles?: Questionnaire["profiles"] }) {
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const zh = locale === "zh", key = `fm_questionnaire_draft:${quiz.slug}`;
   const [loadedStimulusId, setLoadedStimulusId] = useState<string | null>(null);
   const requiresStimulus = quiz.slug === "inkblot-personality-quiz";
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({});
-  const [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome");
+  const [stage, setStage] = useState<"welcome" | "answer" | "result">(startOnEntry ? "answer" : "welcome");
   const [position, setPosition] = useState(0), [saving, setSaving] = useState(false);
   const [message, setMessage] = useState(""), [manualCopy, setManualCopy] = useState("");
   const questionContext = useRef<HTMLParagraphElement>(null);
@@ -198,6 +198,21 @@ export function QuestionnaireClient({ quiz, locale, workRoleReadingProfiles, lov
   const profile = directional ? quiz.profiles.find(p => p.id === directional.profileId) : undefined;
   const question = quiz.questions[position];
   const emit = (event: string) => { if (event === "start_test" || event === "complete_test") recordEntertainmentActivity(quiz.slug, quiz.version, locale, event === "start_test" ? "start" : "complete"); trackEvent(event, questionnaireTrackingPayload(quiz, locale)); };
+  const entryStartRecorded = useRef(false);
+  useEffect(() => {
+    if (ready && startOnEntry && !entryStartRecorded.current) {
+      entryStartRecorded.current = true;
+      if (resumeOnEntry) {
+        const saved = readQuestionnaireDraft(quiz, draft);
+        if (saved) {
+          const first = quiz.questions.findIndex(q => !saved[q.id]);
+          setAnswers(saved); setPosition(first < 0 ? quiz.questions.length - 1 : first); setSaving(true);
+        }
+      }
+      recordEntertainmentActivity(quiz.slug, quiz.version, locale, "start");
+      trackEvent("start_test", questionnaireTrackingPayload(quiz, locale));
+    }
+  }, [ready, startOnEntry, resumeOnEntry, draft, quiz, locale]);
   const mbtiBase = `/${locale}/tests/mbti-personality-test-16-personality-types`;
   const recommendationId = quiz.slug === "relationship-values" ? "entertainment_result_mbti" : "questionnaire_result_mbti";
   const recommendation = { locale, sourceRouteFamily: "test_detail" as const, sourceSlug: quiz.slug, sourcePath: questionnairePath(locale, quiz.slug), href: mbtiBase, ctaId: recommendationId, targetAction: recommendationId, targetTestSlug: "mbti-personality-test-16-personality-types", scaleCode: "MBTI" };
@@ -265,13 +280,13 @@ export function QuestionnaireClient({ quiz, locale, workRoleReadingProfiles, lov
     catch { setManualCopy(text); setMessage(zh ? "请选中下方文字手动复制。" : "Select the text below to copy it manually."); }
   }
 
-  return <section id="take-test" className="my-8 rounded-xl border border-violet-200 bg-white p-5 sm:p-8" aria-label={zh ? "作答与完整结果" : "Questionnaire and full results"}>
+  return <section id="take-test" data-stage={stage} className="my-8 rounded-xl border border-violet-200 bg-white p-5 sm:p-8" aria-label={zh ? "作答与完整结果" : "Questionnaire and full results"}>
     {quiz.slug === "relationship-values" && <span id="play" className="block scroll-mt-24" aria-hidden="true" />}
     {stage === "welcome" && <>
-      <h2 className="text-2xl font-semibold">{quiz.kind === "work-role12" ? (zh ? "开始12项角色与支持方式回顾" : "Start your 12-task role reflection") : quiz.kind === "skills-evidence" ? (zh ? "开始20项任务实例盘点" : "Start your 20-task example inventory") : quiz.kind === "practice" ? (zh ? `开始${quiz.questions.length}题练习` : `Start your ${quiz.questions.length}-question practice`) : (zh ? `开始${quiz.questions.length}题的自我观察` : `Start your ${quiz.questions.length}-question reflection`)}</h2>
+      <h2 className="text-2xl font-semibold">{quiz.slug === "disc" ? (zh ? "DISC测试作答说明" : "How to answer the DISC questionnaire") : quiz.kind === "work-role12" ? (zh ? "开始12项角色与支持方式回顾" : "Start your 12-task role reflection") : quiz.kind === "skills-evidence" ? (zh ? "开始20项任务实例盘点" : "Start your 20-task example inventory") : quiz.kind === "practice" ? (zh ? `开始${quiz.questions.length}题练习` : `Start your ${quiz.questions.length}-question practice`) : (zh ? `开始${quiz.questions.length}题的自我观察` : `Start your ${quiz.questions.length}-question reflection`)}</h2>
       <p className="my-4 leading-7">{quiz.instructions?.[locale] ?? (zh ? "每题比较两种做法，选择通常更自然或更先出现的一项。没有正确答案。答完全部题目后再生成计数和完整解释。" : "Each question compares two responses. Choose the one that comes more naturally or happens first. There are no correct answers. Counts and full explanations appear only after all questions are complete.")}</p>
       {!ready && <p role="status" className="my-3 text-sm text-slate-600">{zh ? "正在准备测试…" : "Preparing the test…"}</p>}
-      <div className="flex flex-wrap gap-3"><button disabled={!ready} className={`${button} bg-violet-700 text-white`} onClick={() => start()}>{zh ? "开始测试" : "Start test"}</button>{draft && <button disabled={!ready} className={button} onClick={() => start(true)}>{zh ? "恢复本标签页进度" : "Resume this tab's progress"}</button>}</div>
+      <div className="flex flex-wrap gap-3"><button data-explore-start disabled={!ready} className={`${button} bg-violet-700 text-white`} onClick={() => start()}>{zh ? "开始测试" : "Start test"}</button>{draft && <button disabled={!ready} className={button} onClick={() => start(true)}>{zh ? "恢复本标签页进度" : "Resume this tab's progress"}</button>}</div>
       <p className="mt-4 text-sm leading-7 text-slate-600">{zh ? "完整题目和结果免费，无需注册。只有主动保存才会在刷新或换语言后提供恢复；本标签页保存24小时后失效，完成或重测即清除。" : "All questions and full results are free, with no signup. Saving is optional; only saved attempts can be resumed after a refresh or language change. Tab drafts expire after 24 hours and clear on completion or retake."}</p>
     </>}
     {stage === "answer" && question && <>

@@ -11,13 +11,13 @@ import { useEntertainmentResultView } from "@/components/entertainment/useEntert
 import { Jung56GuideContent } from "./Jung56GuideContent";
 const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
 const subscribeReady = () => () => {};
-export default function Jung56Client({ locale, readings }: { locale: Locale; readings?: Jung56ResultReading[] }) {
+export default function Jung56Client({ locale, readings, startOnEntry = false }: { locale: Locale; readings?: Jung56ResultReading[]; startOnEntry?: boolean }) {
   if (!isJung56ConfigurationValid(bank) || !isJung56ContentValid(content)) return <p role="status">{locale === "zh" ? "此版本暂不可用，请稍后重试。" : "This edition is unavailable. Please try later."}</p>;
-  return <ValidJung56Client key={locale} bank={bank} content={content} locale={locale} readings={readings} />;
+  return <ValidJung56Client key={locale} bank={bank} content={content} locale={locale} readings={readings} startOnEntry={startOnEntry} />;
 }
-function ValidJung56Client({ bank, content, locale, readings }: { bank: Jung56Bank; content: Jung56Content; locale: Locale; readings?: Jung56ResultReading[] }) {
+function ValidJung56Client({ bank, content, locale, readings, startOnEntry }: { bank: Jung56Bank; content: Jung56Content; locale: Locale; readings?: Jung56ResultReading[]; startOnEntry?: boolean }) {
   const zh = locale === "zh", ready = useSyncExternalStore(subscribeReady, () => true, () => false);
-  const [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome"), [position, setPosition] = useState(0);
+  const [stage, setStage] = useState<"welcome" | "answer" | "result">(startOnEntry ? "answer" : "welcome"), [position, setPosition] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({}), [result, setResult] = useState<Jung56Result | null>(null);
   const [message, setMessage] = useState(""), [manual, setManual] = useState(""), [permission, setPermission] = useState(false);
   const answersRef = useRef<Record<string, string>>({}), submitted = useRef(false), permissionRef = useRef(false), revision = useRef(0);
@@ -56,11 +56,11 @@ function ValidJung56Client({ bank, content, locale, readings }: { bank: Jung56Ba
     try { await navigator.clipboard.writeText(text); if (revision.current !== copiedRevision) return; send("share"); setManual(""); setMessage(zh ? "已复制公开入口，不含回答、次数或方向。" : "Copied the public entry without responses, counts or directions."); }
     catch { if (revision.current !== copiedRevision) return; setManual(text); setMessage(zh ? "无法自动复制，请从下方手动复制公开入口。" : "Automatic copying is unavailable. Copy the public entry below manually."); }
   }
-  return <section id="take-test" data-jung56-client className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7" aria-busy={!ready}>
+  return <section id="take-test" data-stage={stage} data-jung56-client className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7" aria-busy={!ready}>
     <label className="mb-5 block rounded-lg border p-3 text-sm leading-7"><input type="checkbox" disabled={!ready} checked={permission} onChange={e => { permissionRef.current = e.target.checked; setPermission(e.target.checked); }} className="mr-2" />{zh ? "可选：允许本次56题版匿名动作统计（默认关闭）" : "Optional: allow anonymous actions for this 56-choice edition (off by default)"}<span className="block text-slate-600">{zh ? "同时遵循全站分析选择；仅统计开始、完成、结果查看和分享，不发送回答、次数、方向或身份，不回补开启前的动作；离开或切换方法即失效。常规网页分析仍遵循全站选择。" : "Also respects your site analytics choice. Counts only starts, completions, result views and shares, without responses, counts, directions or identity. Earlier actions are not backfilled; permission ends on leaving or switching methods. Ordinary page analytics still follows your site choice."}</span></label>
     <p className="mb-5 text-sm leading-7">{content.common.web_privacy[locale]}</p>
     <fieldset disabled={!ready} className="min-w-0 space-y-5 p-0"><legend className="sr-only">{zh ? "56题荣格方向二选一" : "56 Jungian direction choices"}</legend>
-      {stage === "welcome" && <><h2 className="text-2xl font-semibold">{zh ? "56题二选一 · 公开试用版" : "56 choices · Public-preview edition"}</h2><p className="leading-8">{bank.questions[0].instruction[locale]}</p><p className="leading-8">{content.common.forced_choice_method[locale]}</p><p className="leading-8">{zh ? "约15分钟为估计，不限时。全部56题均需选择A或B；不想选择时可以退出，不生成未完成排序。" : "About 15 minutes is an estimate, without a time limit. All 56 questions require A or B. You can exit instead of choosing; incomplete attempts produce no ranking."}</p><p className="leading-8">{content.common.evidence_status[locale]}</p><button type="button" className={button} onClick={() => { setStage("answer"); send("start"); }}>{zh ? "开始56题二选一" : "Start the 56 choices"}</button></>}
+      {stage === "welcome" && <><h2 className="text-2xl font-semibold">{zh ? "56题二选一 · 公开试用版" : "56 choices · Public-preview edition"}</h2><p className="leading-8">{bank.questions[0].instruction[locale]}</p><p className="leading-8">{content.common.forced_choice_method[locale]}</p><p className="leading-8">{zh ? "约15分钟为估计，不限时。全部56题均需选择A或B；不想选择时可以退出，不生成未完成排序。" : "About 15 minutes is an estimate, without a time limit. All 56 questions require A or B. You can exit instead of choosing; incomplete attempts produce no ranking."}</p><p className="leading-8">{content.common.evidence_status[locale]}</p><button data-explore-start type="button" className={button} onClick={() => { setStage("answer"); send("start"); }}>{zh ? "开始56题二选一" : "Start the 56 choices"}</button></>}
       {stage === "answer" && <>
         <p data-jung56-progress className="text-sm">{zh ? `第 ${position + 1} / 56 题` : `Question ${position + 1} / 56`}</p>
         <h2 ref={heading} tabIndex={-1} id="jung56-question" className="scroll-mt-24 text-xl font-semibold">{question.instruction[locale]}</h2>

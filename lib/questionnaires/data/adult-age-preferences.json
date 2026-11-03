@@ -10,12 +10,12 @@
     "zh": "年上年下情境偏好测试"
   },
   "seoTitle": {
-    "en": "Adult Age Preference Test: 18 Choices & Full Results",
-    "zh": "年上年下情境偏好测试：18题、3方向与完整并列说明"
+    "zh": "年上年下情境偏好测试：18题、三项计数与完整并列",
+    "en": "Adult Age-Preference Quiz: 18 Choices & Complete Tied Results"
   },
   "description": {
-    "en": "Compare older, similar-age and younger adult situations in 18 choices. Read all seven complete results, including ties. Free, no signup or partner data.",
-    "zh": "通过18道原创二选一，回看年长、相近年龄与较年轻成年伴侣情境的相对选择。七份完整结果含全部并列，免费，无需注册或伴侣资料。"
+    "zh": "完成18道原创二选一，探索年长、相近年龄与较年轻成年伴侣情境中的相对选择。免费查看三项原始次数、全部并列及七篇完整指南；无需注册。",
+    "en": "Explore older, similarly aged and younger adult-partner contexts in 18 original choices. Free raw counts, all ties and seven full guides, without sign-up."
   },
   "resultHeading": {
     "en": "Adult age-context choice record",
@@ -23,8 +23,8 @@
   },
   "minutes": 5,
   "introduction": {
-    "en": "Please start with four limits: the test concerns adult relationships only and does not involve minors; it records relative counts across 18 paired choices; the items combine age, life stage, experience and interaction, so they cannot isolate a preference for age itself; the result is not a fixed identity, partner match, relationship-quality assessment or legal judgment.",
-    "zh": "请先了解四件事：本测试只讨论成年人之间的关系情境，不涉及未成年人；结果是 18 道二选一中的相对选择次数；题目混合了年龄、生活阶段、经验和互动安排，不能隔离确定纯年龄偏好；结果不是固定身份、伴侣匹配、关系质量或法律判断。"
+    "zh": "通过18道情境二选一，回看年长、相近年龄与较年轻成年伴侣情境中的相对选择，区分年龄、经验和生活阶段带来的期待。免费查看三项原始次数、全部最高并列与七种完整结果。",
+    "en": "Explore choices among older, similarly aged and younger adult-partner contexts in eighteen paired scenarios. Reflect on age, experience and life-stage expectations, with three raw counts, all joint maxima and seven complete guides, free."
   },
   "instructions": {
     "en": "Consider only situations between adults. For each pair, choose the option closer to your current preference. Neither is correct. All 18 choices are required before counts are interpreted. If neither option fits, you can stop or read the public guides without disclosing private details.",

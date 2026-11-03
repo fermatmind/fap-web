@@ -1,3 +1,4 @@
+import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Imposter20Questionnaire } from "@/lib/questionnaires/imposter20";
@@ -6,6 +7,7 @@ import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
+import { imposter20LandingSections, imposter20LandingFaq } from "./Imposter20LandingEditorial";
 import { Imposter20Client } from "./Imposter20Client";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
@@ -18,16 +20,18 @@ export function Imposter20Page({ quiz, locale }: { quiz: Imposter20Questionnaire
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="imposter20-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="imposter20-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
-    <nav aria-label={zh ? "面包屑" : "Breadcrumb"} className="mb-6 text-sm"><Link prefetch={false} className="underline" href={`/${locale}/tests#more-tests`}>{zh ? "全部测试 · 更多测试" : "All tests · More Tests"}</Link></nav>
-    <p className="text-sm font-semibold text-violet-800">{zh ? "原创成就相关自我反思 · 五篇完整读法免费" : "Original achievement-related reflection · Five full guides free"}</p>
+    <ExploreTestIntro slug={quiz.slug} locale={locale}>
+
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
     <p className="mt-5 text-lg leading-8 text-slate-700">{quiz.description[locale]}</p>
-    <p className="mt-3 text-sm text-slate-600">{zh ? "20条 · 约6分钟 · 不计时 · 18岁及以上 · 无需注册" : "20 statements · About 6 minutes · Untimed · Ages 18+ · No signup"}</p>
-    <p className="mt-5 leading-8">{quiz.introduction[locale]}</p>
+    <div className="explore-intro-meta"><span>{zh ? "20条 · 约6分钟 · 不计时 · 18岁及以上 · 无需注册" : "20 statements · About 6 minutes · Untimed · Ages 18+ · No signup"}</span><span>{zh ? "原创成就相关自我反思 · 五篇完整读法免费" : "Original achievement-related reflection · Five full guides free"}</span></div>
     <Imposter20Client quiz={quiz} locale={locale} readingProfiles={quiz.profiles.map(profile => prepareResultProfile(quiz.slug, profile))} />
+    </ExploreTestIntro>
+    <section className="my-8 space-y-4"><h2 className="text-2xl font-semibold">{imposter20LandingSections[0].title[locale]}</h2><p className="leading-8">{quiz.introduction[locale]}</p>{imposter20LandingSections[0].paragraphs.map((p,i)=><p className="leading-8" key={i}>{p[locale]}</p>)}</section>
     <section aria-labelledby="imposter20-method" className="my-10 space-y-8"><h2 id="imposter20-method" className="text-2xl font-semibold">{zh ? "题本、计分与使用边界" : "Edition, scoring and use"}</h2>{quiz.guide.map(s => <section key={s.id}><h3 className="text-xl font-semibold">{s.title[locale]}</h3>{s.paragraphs.map((p, i) => <p key={i} className="mt-3 leading-8">{p[locale]}</p>)}</section>)}</section>
-    <section aria-labelledby="imposter20-public-guides" className="my-10"><h2 id="imposter20-public-guides" className="text-2xl font-semibold">{zh ? "五种情境的完整公开读法" : "Full public guides: five separate contexts"}</h2><p className="my-4 leading-8">{zh ? "不作答也可阅读。以下对所有人相同，不含个人答案或分数。" : "Read without answering. These pages are identical for everyone, without personal responses or scores."}</p><ul className="space-y-2">{quiz.profiles.map(p => <li key={p.id}><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, p.id)}>{p.title[locale]}</Link></li>)}</ul></section>
-    <section aria-labelledby="imposter20-faq" className="my-10 space-y-6"><h2 id="imposter20-faq" className="text-2xl font-semibold">{zh ? "常见问题" : "Frequently asked questions"}</h2>{quiz.faq.map((f, i) => <section key={i}><h3 className="text-lg font-semibold">{f.question[locale]}</h3><p className="mt-2 leading-8">{f.answer[locale]}</p></section>)}</section>
+    <section aria-labelledby="imposter20-public-guides" className="my-10"><h2 id="imposter20-public-guides" className="text-2xl font-semibold">{zh ? "五种情境的完整公开读法" : "Full public guides: five separate contexts"}</h2><p className="my-4 leading-8">{zh ? "不作答也可阅读。以下对所有人相同，不含个人答案或分数。" : "Read without answering. These pages are identical for everyone, without personal responses or scores."}</p><ul className="imposter20-public-grid">{quiz.profiles.map(p => <li key={p.id}><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, p.id)}>{p.title[locale]}</Link><p className="text-sm leading-7">{p.summary[locale]}</p></li>)}</ul></section>
+    <section aria-labelledby="imposter20-faq" className="my-10 space-y-6"><h2 id="imposter20-faq" className="text-2xl font-semibold">{zh ? "常见问题" : "Frequently asked questions"}</h2>{[...quiz.faq, ...imposter20LandingFaq].map((f, i) => <section key={i}><h3 className="text-lg font-semibold">{f.question[locale]}</h3><p className="mt-2 leading-8">{f.answer[locale]}</p></section>)}</section>
+    <section className="explore-reading-library"><h2>{zh ? "深入阅读：情境、计分与研究证据" : "Reading in depth: context, scoring and research evidence"}</h2>{imposter20LandingSections.slice(1).map(g=><section key={g.id}><h3>{g.title[locale]}</h3><div>{g.paragraphs.map((p,i)=><p key={i}>{p[locale]}</p>)}</div></section>)}</section>
     <Source quiz={quiz} locale={locale} />
     <section className="my-8"><h2 className="text-xl font-semibold">{zh ? "可选的下一步" : "Optional next step"}</h2><p className="my-3 leading-8">{zh ? "若想从更广泛的偏好角度自我了解，可另做大五人格；它不验证此处结果，也不解释自我怀疑的原因。题量与预计用时见入口，不传递此处答案或分数。" : "For a broader view of preferences, you can separately explore Big Five. It does not validate this readout or establish the cause of self-doubt. The entry shows its question count and time; no answers or scores are transferred."}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests/big-five-personality-test-ocean-model`}>{zh ? "查看大五人格测试入口" : "View the Big Five test entry"}</Link></section>
   </Container></main>;

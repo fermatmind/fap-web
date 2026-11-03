@@ -10,8 +10,8 @@
     "zh": "职业匹配测试：比较兴趣与真实职业"
   },
   "description": {
-    "en": "Choose interest themes and compare two or three real careers. See shared RIASEC themes, their limits and complete occupation guides. Free, no signup.",
-    "zh": "选择兴趣主题，比较两个或三个真实职业的已发布RIASEC代码，查看共同主题、适用边界与完整职业档案。免费使用，无需注册。"
+    "en": "Compare one to six RIASEC interest themes with two or three careers you choose. Read shared themes, published codes and full occupation profiles. Free, no signup.",
+    "zh": "选择一至六项RIASEC兴趣主题，与自己选定的两个或三个职业比较，查看共同主题、已发布代码与完整职业档案。免费使用，无需注册。"
   },
   "seoTitle": {
     "en": "Career Match Test: Compare Interests & Real Roles",
@@ -19,8 +19,8 @@
   },
   "minutes": 5,
   "introduction": {
-    "en": "Start with what you want to explore, then read what the work involves. This comparison connects your selected themes to current career descriptions and keeps the arithmetic visible.",
-    "zh": "先从想探索的兴趣出发，再查看实际工作。本比较把你选择的主题与当前职业资料连接起来，规则直接可见。"
+    "en": "Use broad interests as a starting point, then investigate the actual work. This tool compares selected letters with current published career codes, keeping shared themes, source explanations and incomplete reads visible.",
+    "zh": "以宽泛兴趣为起点，再了解实际工作。本工具将所选字母与当前已发布职业代码逐一比较，完整呈现共同主题、来源解释与未完成读取的状态。"
   },
   "instructions": {
     "en": "Choose one to six themes and two or three different occupations. The list loads only when you start. Search titles locally; no name, work history or private narrative is needed.",

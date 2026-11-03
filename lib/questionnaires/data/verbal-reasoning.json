@@ -10,21 +10,21 @@
     "zh": "言语推理测试"
   },
   "seoTitle": {
-    "en": "Verbal Reasoning Test: 24 Questions & Explained Answers",
-    "zh": "言语推理测试：24道原创题、答案与完整解析"
+    "zh": "言语推理测试：24道原创题、答案解析与四项练习指南",
+    "en": "Verbal Reasoning Test: 24 Questions, Answers & Explanations"
   },
   "description": {
-    "en": "Practise words, analogies, reading and deduction with 24 original questions. Free explained answers and four complete guides. No IQ or hiring score.",
-    "zh": "24道原创题练语境词义、词语类比、阅读依据和演绎推理，四组各六题。免费查看全部答案、逐题解析、分项正确数与四份完整指南。不换算智商、百分位或招聘分数。"
+    "zh": "免费练习24道原创言语推理题，涵盖语境词义、词语类比、阅读依据与演绎推理。查看四项正确数、每题答案解析和全部完整指南；不限时，无需注册。",
+    "en": "Practise 24 original verbal reasoning questions in context meanings, analogies, reading evidence and deduction. Free section counts, every answer and full guides. Untimed; no registration."
   },
   "minutes": 10,
   "instructions": {
-    "en": "Choose one answer for every item using the stated meaning, relation, passage or fictional rule. English and Chinese use separately authored native contexts, not equivalent language forms. Complete all 24 items to see your choices, keys, explanations and four full guides. There is no timer. For unaided practice, save tools and dictionaries until afterwards; prior exposure and assistance change how the count should be read.",
-    "zh": "每题单选，依据题定词义、关系、文本或虚构规则。英中语境分别原创，不是经等价校准的语言题本。完成24题可看所选、答案、解析及四份完整指南。不计时。若练无辅助作答，完成后再用词典或工具；见过题目或借助辅助，应据此理解正确数。"
+    "zh": "点击开始直接进入题目，无需额外同意、账号、邮箱或前置测评。每题四选一，按题面指定的词义、关系、短文或虚构规则判断，不把日常经验补成已知事实。共24题，不限时，可返回修改；全部有效作答后统一显示答案、解析和四项正确数。想先独立练习，可暂不查词或看公开指南；若用了辅助，复盘时把条件记下来。没有能力分档或付费解锁，答对多少都能读全部解析。",
+    "en": "Start opens questions directly without another agreement, account, email or prior assessment. Choose one of four alternatives using the specified meaning, relation, passage or fictional rule; do not add everyday expectations as given facts. All twenty-four items are untimed with back navigation for edits. Valid choices on every item open all answers, explanations and four section counts together. For an independent attempt, leave dictionaries and public guides until afterwards; note any assistance when reviewing. Every explanation remains free regardless of the count, without ability tiers or paid unlocks."
   },
   "introduction": {
-    "en": "Work through six original tasks each on words in context, verbal analogies, reading and evidence, and deduction and logical limits. Review every answer and all four complete guides at any count. Selected dictionary facts support the word meanings; original passage facts and explicit fictional premises support other answers. Finite formal checks cover the encoded logic cases, while language meanings remain author-reviewed. This is a fixed practice bank without population norms, IQ conversion, hiring standards or a measure of general verbal ability.",
-    "zh": "语境词义、词语类比、阅读依据、演绎与逻辑边界各六道原创任务。任何正确数均可看全部答案及四份完整指南。选定词典事实支持词义，其余答案依据原创短文和明示虚构前提。有限形式核查覆盖编码后的逻辑情形，自然语言含义仍由作者复核。本固定练习题组没有人群常模、智商换算、招聘标准或总体言语能力测量。"
+    "zh": "言语推理练习关注语言中的含义、关系和证据：一个词在这句话里表示什么，两对词是否保留同一关系，一段文字支持哪些结论，以及给定规则下什么必然成立。本版提供24道原创四选一，语境词义、词语类比、阅读与依据、演绎与逻辑边界各六题。完成后免费查看总正确数、四项正确数、全部24题答案解析及四份完整复习指南。约10分钟，不设倒计时；英中分别采用自然表达，可选择自己想练习的语言。",
+    "en": "Verbal reasoning practice examines meaning, relationships and evidence in language: what an expression means in a sentence, whether two word pairs preserve a relation, what a passage supports and what must follow from given rules. This edition offers twenty-four original four-choice items, six each in words in context, verbal analogies, reading and evidence, and deduction and logical limits. Completion opens the total, four section counts, all twenty-four worked answers and four full revision guides for free. Allow about ten minutes without a countdown. English and Chinese use separately authored natural wording; choose the language you want to practise."
   },
   "resultHeading": {
     "en": "Your verbal practice results and every explanation",

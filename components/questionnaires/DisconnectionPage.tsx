@@ -1,3 +1,6 @@
+import { Fragment } from "react";
+import { disconnectionSections, disconnectionFaq, disconnectionReadingSummaries } from "./DisconnectionLandingEditorial";
+import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -9,26 +12,28 @@ import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
 import { DisconnectionClient } from "./DisconnectionClient";
 import { DisconnectionSupport } from "./DisconnectionReport";
+function Copy({ text }: { text: string }) { return <>{text.split(/(\[\d+\])/g).map((part,i) => /^\[\d+\]$/.test(part) ? <sup key={i}><a className="ml-1 underline" href={`#disconnection-reference-${part.slice(1,-1)}`}>{part}</a></sup> : <Fragment key={i}>{part}</Fragment>)}</>; }
 function Library({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
-  return <section className="my-8" aria-labelledby="disconnection-library"><h2 id="disconnection-library" className="text-2xl font-semibold">{locale === "zh" ? "四篇完整公开指南" : "Four complete public guides"}</h2><p className="my-4 leading-7">{locale === "zh" ? "无需答题即可阅读全文。全部未计分、中途退出或完成后，都可阅读同一份主题说明。" : "Read the full text without answering. The same theme explanations remain available for an entirely unscored record, after leaving midway and after completion."}</p><ul className="space-y-3">{quiz.profiles.map(p => <li key={p.id}><Link prefetch={false} className="inline-block min-h-11 py-2 font-semibold underline" href={questionnaireGuidePath(locale, quiz.slug, p.id)}>{p.title[locale]}</Link></li>)}</ul></section>;
+  return <section className="my-8" aria-labelledby="disconnection-library"><h2 id="disconnection-library" className="text-2xl font-semibold">{locale === "zh" ? "四篇完整公开指南" : "Four complete public guides"}</h2><p className="my-4 leading-7">{locale === "zh" ? "无需答题即可阅读全文。全部未计分、中途退出或完成后，都可阅读同一份主题说明。" : "Read the full text without answering. The same theme explanations remain available for an entirely unscored record, after leaving midway and after completion."}</p><ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">{quiz.profiles.map(p => <li key={p.id} className="rounded-lg border bg-white p-4"><Link prefetch={false} className="inline-block min-h-11 py-2 font-semibold underline" href={questionnaireGuidePath(locale, quiz.slug, p.id)}>{p.title[locale]}</Link><p className="mt-2 leading-7">{(disconnectionReadingSummaries[p.id] ?? p.summary)[locale]}</p></li>)}</ul></section>;
 }
 export function DisconnectionPage({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
   const zh = locale === "zh", path = questionnairePath(locale, quiz.slug);
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="questionnaire-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
-    <Link prefetch={false} className="mb-6 inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "全部测试与练习" : "All tests and practice"}</Link>
-    <p className="font-semibold text-violet-800">{zh ? "20条原创描述 · 四篇全文免费" : "20 original descriptions · Four full guides, free"}</p>
-    <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.description[locale]}</p><p className="mt-4 leading-8">{quiz.introduction[locale]}</p>
+    <ExploreTestIntro slug={quiz.slug} locale={locale}>
+      <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.description[locale]}</p>
+      <div className="explore-intro-meta"><span>{zh ? `20条描述 · 约${quiz.minutes}分钟` : `20 descriptions · About ${quiz.minutes} minutes`}</span><span>{zh ? "完整读法免费 · 无需注册" : "Full readings free · No registration"}</span></div>
+      <DisconnectionClient key={`${quiz.slug}:${locale}`} quiz={quiz} locale={locale} />
+    </ExploreTestIntro>
     <DisconnectionSupport locale={locale} />
-    <p className="my-5 leading-8">{quiz.instructions![locale]}</p>
-    <DisconnectionClient key={`${quiz.slug}:${locale}`} quiz={quiz} locale={locale} />
-    {quiz.guide.map(s => <section key={s.id} className="my-8 space-y-4 leading-8" aria-labelledby={`disconnection-method-${s.id}`}><h2 id={`disconnection-method-${s.id}`} className="text-2xl font-semibold">{s.title[locale]}</h2>{s.paragraphs.map((p, i) => <p key={i}>{p[locale]}</p>)}</section>)}
+    <section className="my-8 leading-8" aria-label={zh ? "原创作答说明" : "Original response instructions"}><p>{quiz.instructions![locale]}</p></section>
+    <section className="my-8 space-y-4 leading-8" aria-labelledby="disconnection-purpose"><h2 id="disconnection-purpose">{disconnectionSections[0].title[locale]}</h2>{disconnectionSections[0].paragraphs.map((p,i)=><p key={i}><Copy text={p[locale]} /></p>)}<p>{quiz.introduction[locale]}</p></section>
+    <section className="explore-reading-library" aria-labelledby="disconnection-methods"><h2 id="disconnection-methods">{zh ? "距离感与回忆：描述、记录与研究证据" : "Detachment and recall: descriptions, records and evidence"}</h2><div className="explore-reading-sections">{[...disconnectionSections.slice(1), ...quiz.guide].map(s => <section key={s.id} className="explore-reading-section" aria-labelledby={`disconnection-method-${s.id}`}><h3 id={`disconnection-method-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p,i)=><p key={i}><Copy text={p[locale]} /></p>)}</div></section>)}</div></section>
     <Library quiz={quiz} locale={locale} />
     {quiz.profiles.map(p => <section key={p.id} id={`disconnection-public-${p.directionIds[0]}`} data-disconnection-full-guide={p.id} className="my-10 scroll-mt-24 border-t border-slate-200 pt-7"><h2 className="mb-5 text-2xl font-semibold">{p.title[locale]}</h2><QuestionnaireResultReading quizSlug={quiz.slug} profile={prepareResultProfile(quiz.slug, p)} locale={locale} headingLevel={3} idPrefix={`disconnection-public-${p.id}`} /></section>)}
-    <section className="my-10 space-y-5 leading-8" aria-labelledby="disconnection-faq"><h2 id="disconnection-faq" className="text-2xl font-semibold">{zh ? "常见问题" : "Frequently asked questions"}</h2>{quiz.faq.map((f, i) => <div key={i}><h3 className="font-semibold">{f.question[locale]}</h3><p className="mt-2">{f.answer[locale]}</p></div>)}</section>
-    <section className="my-8" aria-labelledby="disconnection-references"><h2 id="disconnection-references" className="text-xl font-semibold">{zh ? "体验、回忆与支持的背景资料" : "Public topic and support background"}</h2><ul className="mt-4 space-y-3">{quiz.references!.map(r => <li key={r.url}><a className="underline" href={r.url} rel="noopener noreferrer">{r.title[locale]}</a></li>)}</ul><p className="mt-4 leading-7">{zh ? "资料只提供专业背景，不为原创描述提供题目、计分、验证、身份推断、历史确证或诊断。" : "These sources provide professional background, not items, scoring, validation, identity inference, historical verification, diagnosis or endorsement of these original descriptions."}</p></section>
-    <p className="mt-8 text-sm text-slate-600">{zh ? "原创内容版本" : "Original content edition"} {quiz.version} · <time dateTime={quiz.updated}>{quiz.updated}</time></p>
+    <section className="my-10 space-y-5 leading-8" aria-labelledby="disconnection-faq"><h2 id="disconnection-faq" className="text-2xl font-semibold">{zh ? "常见问题" : "Frequently asked questions"}</h2>{[...quiz.faq, ...disconnectionFaq].map((f, i) => <div key={i}><h3 className="font-semibold">{f.question[locale]}</h3><p className="mt-2">{f.answer[locale]}</p></div>)}</section>
+    <section className="my-8" aria-labelledby="disconnection-references"><h2 id="disconnection-references" className="text-xl font-semibold">{zh ? "体验、回忆与支持的背景资料" : "Public experience, recall and support background"}</h2><ul className="mt-4 space-y-3">{quiz.references!.map((r,i) => <li key={r.url} id={`disconnection-reference-${i+1}`}><a className="underline" href={r.url} rel="noopener noreferrer">{r.title[locale]}</a></li>)}</ul></section>
   </Container></main>;
 }
 export function DisconnectionGuidePage({ quiz, profile, locale }: { quiz: Questionnaire; profile: QuestionnaireProfile; locale: Locale }) {

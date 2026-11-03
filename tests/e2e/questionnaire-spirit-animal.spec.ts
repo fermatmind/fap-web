@@ -9,11 +9,11 @@ async function finish(page: Page, locale: "en" | "zh", mode: "wolf" | "tie") {
     const radio = page.locator(`input[name="${question.id}"][value="${option.id}"]`);
     if (index === 0) { await radio.focus(); await page.keyboard.press("Space"); await expect(radio).toBeChecked(); }
     else await radio.check();
-    if (index < 15) await expect(page.locator("[data-archetype-count]")).toHaveCount(0);
-    await page.getByRole("button", { name: index === 15 ? (locale === "zh" ? "查看完整结果" : "See full result") : (locale === "zh" ? "下一题" : "Next"), exact: true }).click();
+    if (index < quiz.questions.length - 1) await expect(page.locator("[data-archetype-count]")).toHaveCount(0);
+    await page.getByRole("button", { name: index === quiz.questions.length - 1 ? (locale === "zh" ? "查看完整结果" : "See full result") : (locale === "zh" ? "下一题" : "Next"), exact: true }).click();
   }
   await expect(page.getByRole("heading", { level: 2, name: locale === "zh" ? `${quiz.title.zh}：完整结果` : `${quiz.title.en}: your complete result`, exact: true })).toBeFocused();
-  await expect(page.locator("[data-archetype-count]")).toHaveCount(8);
+  await expect(page.locator("[data-archetype-count]")).toHaveCount(9);
   const ids = await page.locator("#take-test [id]").evaluateAll(nodes => nodes.map(node => node.id));
   expect(new Set(ids).size).toBe(ids.length);
   if (mode === "wolf") {
@@ -25,13 +25,13 @@ async function finish(page: Page, locale: "en" | "zh", mode: "wolf" | "tie") {
       await expect(page.locator(`[data-archetype-count="${animal.id}"]`)).toContainText("2 / 8");
       await expect(page.locator(`[data-archetype-match="${animal.id}"] h4`)).toHaveCount(9);
     }
-    await expect(page.locator("[data-archetype-match]")).toHaveCount(8);
-    await expect(page.locator("#take-test h4")).toHaveCount(72);
+    await expect(page.locator("[data-archetype-match]")).toHaveCount(9);
+    await expect(page.locator("#take-test h4")).toHaveCount(81);
   }
 }
 for (const locale of ["en", "zh"] as const) {
   const zh = locale === "zh", entry = `/${locale}/tests/explore/spirit-animal`;
-  test(`@release Spirit Animal ${locale}: hub, keyboard,16realchoices, full unique match and retake`, async ({ page }) => {
+  test(`@release Spirit Animal ${locale}: hub, keyboard,18realchoices, full unique match and retake`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     const posts: string[] = [];
     page.on("request", request => { if (request.method() === "POST" && /SPIRIT_[0-9]{2}/.test(request.postData() ?? "")) posts.push(request.url()); });
@@ -40,7 +40,7 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.locator('link[rel="canonical"]')).toHaveCount(1);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${entry}`);
     await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveCount(0);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.locator("[data-explore-start]").click();
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, locale, "wolf");
@@ -51,7 +51,7 @@ for (const locale of ["en", "zh"] as const) {
     expect(posts).toEqual([]);
   });
   test(`@release Spirit Animal ${locale}: opted-in tab draft survives reload, language change, edit and clear`, async ({ page }) => {
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.goto(entry); await page.locator("[data-explore-start]").click();
     await page.locator('input[value="B"]').check(); await page.getByRole("checkbox").check();
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await page.reload();
     await page.getByRole("button", { name: zh ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
@@ -64,14 +64,14 @@ for (const locale of ["en", "zh"] as const) {
     await page.getByRole("button", { name: other === "zh" ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click();
     expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:spirit-animal"))).toBeNull();
   });
-  test(`@release Spirit Animal ${locale}: denied storage, eight-way tie shows72sections and private-safe clipboard fallback`, async ({ page }) => {
+  test(`@release Spirit Animal ${locale}: denied storage, nine-way tie shows81sections and private-safe clipboard fallback`, async ({ page }) => {
     await page.addInitScript(() => {
       const get = Storage.prototype.getItem, set = Storage.prototype.setItem;
       Storage.prototype.getItem = function(key) { if (key.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return get.call(this, key); };
       Storage.prototype.setItem = function(key, value) { if (key.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return set.call(this, key, value); };
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
     });
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.goto(entry); await page.locator("[data-explore-start]").click();
     await page.getByRole("checkbox").check(); await expect(page.getByRole("status")).toContainText(zh ? "无法保存" : "could not save");
     await finish(page, locale, "tie");
     await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
@@ -82,7 +82,7 @@ for (const locale of ["en", "zh"] as const) {
   });
 }
 
-test("@release Spirit Animal all16public full guides, bilingual images and closed identities", async ({ page, request }) => {
+test("@release Spirit Animal all18public full guides, bilingual images and closed identities", async ({ page, request }) => {
   for (const locale of ["en", "zh"] as const) for (const profile of quiz.profiles) {
     const path = `/${locale}/tests/explore/spirit-animal/results/${profile.id}`;
     expect((await page.goto(path))?.status()).toBe(200); await expect(page.getByRole("heading", { level: 1 })).toHaveText(profile.title[locale]);

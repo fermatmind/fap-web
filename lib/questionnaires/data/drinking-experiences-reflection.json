@@ -14,8 +14,8 @@
     "zh": "饮酒经历回顾：20条原创陈述与四篇完整指南"
   },
   "description": {
-    "en": "A private adult reflection on drinking plans, daily effects, situations and bodily experiences. Original statements and category records; no clinical score.",
-    "zh": "成年人私下回顾饮酒计划、生活影响、情境与身体感受。原创陈述与类别记录，不算临床分数。"
+    "en": "Twenty original descriptions for adults to reflect on drinking plans, everyday effects, situations and bodily experiences over the past four weeks. Read four separate category records and all complete guides, free and without registration.",
+    "zh": "通过20条原创描述，回顾成年人过去四周的饮酒计划、生活影响、情境与身体感受。四组类别记录与完整读法免费开放，无需注册。"
   },
   "minutes": 5,
   "instructions": {
@@ -27,8 +27,8 @@
     "zh": "你的四份独立描述记录"
   },
   "introduction": {
-    "en": "Twenty original statements and four complete public guides. This is not a screen for alcohol use disorder, a safe-drinking calculator or a substitute for medical advice. No account or payment is needed.",
-    "zh": "20条原创陈述与四篇完整公开指南，不是酒精使用障碍筛查、安全饮酒计算器或医疗建议的替代。无需账户或付费。"
+    "en": "Each topic retains five individual descriptions and six separate category counts, without points, a total, a dominant theme or a risk band. The record supports private reflection and specific questions for a conversation; it does not assess alcohol use disorder, withdrawal or safe consumption.",
+    "zh": "每个主题保留五条描述与六类独立计数，不记点数、不合总分、不选主导主题、不划风险档位。记录帮助私下整理经历与具体交流问题，不评估酒精使用障碍、戒断或安全摄入。"
   },
   "source": {
     "kind": "fermatmind_original_drinking_experience_statements",

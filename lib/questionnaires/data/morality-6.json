@@ -15,8 +15,8 @@
     "zh": "道德基础测试：MFQ-2工作中译与六份完整读法"
   },
   "description": {
-    "en": "Take the 36-item MFQ-2 with the authors’ English wording or a clearly identified working Chinese translation. Read six separate means and full guides without political labels.",
-    "zh": "使用作者英文36题或明确标注的费马工作中译完成MFQ-2，分别理解关怀、平等、比例公平、忠诚、权威、纯洁的均分及六份完整指南，不指定政治身份。"
+    "en": "Take the 36-item MFQ-2 in author English or working Chinese. Read six separate means, full guides, exact scoring and research context, free without signup.",
+    "zh": "完成36题MFQ-2作者英文或费马工作中译，分别理解关怀、平等、比例公平、忠诚、权威与纯洁。六项均分、48节完整指南、计分算例与研究背景免费可读，无需注册。"
   },
   "minutes": 7,
   "resultHeading": {
@@ -24,8 +24,8 @@
     "zh": "六个MFQ-2基础的独立读法"
   },
   "introduction": {
-    "en": "This edition uses the authors’ public 36-item Moral Foundations Questionnaire-2 (MFQ-2), with six items each for Care, Equality, Proportionality, Loyalty, Authority and Purity. It is a describes-me questionnaire, not the competitor’s six-scale moral-violation scenarios containing Liberty or the earlier five-foundation MFQ. Equality and Proportionality are separate concerns, not opposite ends of a single axis. The English bank is fixed to the authors’ document; Chinese is a FermatMind working translation with modifications identified below. Six separate means describe these self-reported opinions. They do not rank moral worth, assign parties or identify a person’s politics. All six full guides remain free, including without a personal score.",
-    "zh": "本版使用作者公开的36题道德基础问卷第二版（MFQ-2），关怀、平等、比例公平、忠诚、权威、纯洁各六题。这是贴切程度问卷，不是竞品包含自由维度的六组道德情境题，也不是早期五基础MFQ。平等与比例公平分别呈现，并非同一轴的两端。英文固定作者文档，中文为费马工作译本，下方说明改动。六项独立均分描述自述观点，不排名道德价值、不分配政党或判断个人政治身份。全部六份完整指南始终免费，资料不足也可阅读。"
+    "en": "The Moral Foundations Questionnaire-2 describes six kinds of moral concern: Care, Equality, Proportionality, Loyalty, Authority and Purity. This edition uses the selected author English document, with six items per foundation, plus a clearly marked FermatMind working Chinese translation. Rate how well each statement describes you or your opinions using the five source anchors. Results show separate means and all six complete guides. The sections below distinguish the selected instrument from other similarly named tests, explain the actual arithmetic and compare the published research with this translation and presentation.",
+    "zh": "道德基础问卷第二版（MFQ-2）分别描述关怀、平等、比例公平、忠诚、权威与纯洁六类道德关切。本版使用选定作者英文文档，每基础六题，并提供明确标注的费马工作中译。请按源题五档选项判断陈述对自己或观点的贴切程度。结果显示六项独立均分和全部完整指南。下文区分本题与其他同名测试，解释实际算术，并说明发表研究与本工作译文及呈现之间的关系。"
   },
   "instructions": {
     "en": "For each statement, indicate how well it describes you or your opinions using the five source anchors, from Does not describe me at all (1) to Describes me extremely well (5). There is no fixed recent time period in this source instruction. No response is preselected, and there is no correct answer. A statement records an opinion rather than advice to act, judge someone or choose a treatment. The separate NA lets you decline or retain a position the item cannot express. All thirty-six items need selections; in this website presentation each foundation needs all six valid ratings for its own mean. The added NA and complete-six rule are not claimed to be the source authors’ validated missing-data procedure. Saving is optional in this tab.",

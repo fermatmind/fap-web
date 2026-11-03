@@ -18,7 +18,9 @@ describe("assessment directory correction", () => {
         for (const result of card.resultSlugs) expect(isMissingFunRoute(`/${locale}/tests/play/${card.slug}/results/${result}`)).toBe(false);
       }
       expect(html).toContain(locale === "zh" ? "24 题" : "24 questions");
-      expect(html).not.toMatch(/101|100\+/);
+      const rendered = document.createElement("div");
+      rendered.innerHTML = html;
+      expect(rendered.textContent).not.toMatch(/101|100\+/);
     }
   });
 });

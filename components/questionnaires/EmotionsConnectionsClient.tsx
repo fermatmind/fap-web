@@ -38,8 +38,8 @@ export function EmotionsConnectionsClient({ quiz, locale }: { quiz: Questionnair
     catch { setMessage(text); }
   }
   const q = quiz.questions[position];
-  return <section id="take-test" data-emotions-connections-stage={stage} className="my-8 space-y-5 rounded-lg border border-slate-300 bg-white p-4 sm:p-6">
-    {stage === "ready" && <><h2 className="text-2xl font-semibold">{zh ? "自愿开始，随时离开" : "Begin only if you want; leave at any time"}</h2><p className="leading-7">{quiz.instructions![locale]}</p><button type="button" className={button} disabled={!ready} onClick={() => { clear(); setStage("answer"); }}>{zh ? "开始自我回顾" : "Begin reflection"}</button></>}
+  return <section id="take-test" data-stage={stage === "ready" ? "welcome" : stage} data-emotions-connections-stage={stage} className="my-8 space-y-5 rounded-lg border border-slate-300 bg-white p-4 sm:p-6">
+    {stage === "ready" && <><button data-explore-start type="button" className={`${button} bg-violet-600 text-white`} disabled={!ready} onClick={() => { clear(); setStage("answer"); }}>{zh ? "开始回顾" : "Begin reflection"}</button><h2 className="text-2xl font-semibold">{zh ? "情绪、自我与联结：作答说明" : "Emotions, self and connections: response instructions"}</h2><p className="leading-7">{quiz.instructions![locale]}</p></>}
     {stage === "answer" && <div ref={context} data-emotions-connections-question-context className="scroll-mt-24 space-y-5">
       <p>{zh ? `第 ${position + 1} / 21 条 · 过去四周` : `Statement ${position + 1} / 21 · Past four weeks`}</p>
       <h2 ref={heading} id="emotions-connections-active-question" tabIndex={-1} className="text-xl font-semibold leading-8 outline-none">{q.prompt[locale]}</h2>

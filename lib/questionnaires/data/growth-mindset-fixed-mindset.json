@@ -15,21 +15,21 @@
     "en": "Growth and fixed beliefs: a continuous reading"
   },
   "description": {
-    "zh": "免费成长型与固定型思维测试：以一项学习技能为参照，回答12条原创同意题，查看连续均分及两端、混合与资料不足的完整读法。不估能力或成绩，不派固定类型。",
-    "en": "Explore beliefs about change for one learning skill with 12 original items and a full guide. See a continuous mean, not an ability score or fixed type."
+    "zh": "围绕同一项学习技能，完成12条原创同意度自评，观察你对能力可改变性的当前看法。免费查看有效条数、连续均分与完整解读，含反向计分算例、研究证据与具体学习回顾；无需注册。",
+    "en": "Explore current beliefs about whether one selected learning skill can develop through 12 original agreement items. View rated counts, a continuous mean and a complete guide free, with reverse-scoring examples, research context and practical reflection. No signup."
   },
   "seoTitle": {
-    "zh": "成长型与固定型思维测试：12道原创题与免费完整读法",
-    "en": "Growth Mindset Test: Free Score and Full Guide"
+    "zh": "成长型与固定型思维测试：12题、反向计分与完整解读",
+    "en": "Growth Mindset Test: 12 Questions, Reverse Scoring and a Complete Guide"
   },
   "minutes": 4,
   "introduction": {
-    "zh": "你觉得一项普通技能能否在合适的方法、练习机会与帮助下继续改变？本版请你在心里选一个正在学或想学的技能，用同一参照回答12条原创同意题。六条是可改变表述，六条是较固定表述并反向计分；至少9条有效才显示连续均分与条数，没有合适参照时明确保留资料不足。这里观察的是当前信念，不是技能表现、智力、努力程度或未来成绩，也不是DMI或IDR-MT题本。完整九模块说明同时解释均分两端、中间与混合、资料不足、例子和研究边界，不用阈值把人分成成长型或固定型，也不要求另做测评解锁。",
-    "en": "Do you think one ordinary skill could continue changing with suitable methods, practice opportunities and help? Choose a skill you are learning or considering and keep that reference across twelve original agreement statements. Six concern changeability; six more fixed statements are reverse-keyed. Nine ratings are needed for a continuous mean and count, with explicit insufficient information when the reference does not fit. This observes present beliefs rather than skill, intelligence, effort or future grades, and is not the DMI or IDR-MT bank. A full nine-section guide explains both ends, middle and mixed answers, missing information, examples and research limits. No cutoff assigns people a growth or fixed type, and another test is not required to unlock it."
+    "zh": "面对一项正在学习的技能，你怎样理解起点、困难、反馈与后续发展的关系？这份成长型与固定型思维测试用12条原创陈述，整理你对同一项技能可改变性的当前看法。约4分钟，免费查看有效评分条数、连续均分与完整指南；结果围绕这次选择解释，帮助你联系具体的学习条件与经历。",
+    "en": "For a skill you are learning, how do you understand starting points, difficulty, feedback and later development? This Growth Mindset Test uses twelve original statements to review your current beliefs about the changeability of one selected skill. In about four minutes, view rated-item counts, a continuous mean and a complete guide free. Read the result against your responses, learning conditions and experiences."
   },
   "instructions": {
-    "zh": "先在心里选一项你近期正在学或想学的普通技能，整卷都以同一项为参照；不需要填写技能名称。按你现在对这项技能能否改变的看法，选择同意程度，而非实际表现或希望怎样回答。没有合适参照、资料不足或不愿回答，请选对应项，不当中立或零分。12题都选完才呈现；至少9条有效才显示均分。恢复草稿时仍用原先技能，不记得可清除后重测。",
-    "en": "First choose an ordinary skill you are learning or considering, keeping the same reference throughout; no skill name is entered. Rate your present beliefs about whether it can change, not actual performance or your preferred image of yourself. Use the separate option for no suitable reference, insufficient information or preferring not to answer, rather than neutral or zero. Complete all twelve selections; nine ratings are needed for a mean. Resume with the same skill, or clear and retake if you do not remember it."
+    "zh": "先在心里选定一项正在学习或考虑学习的普通技能，12题始终以它为参照，不用输入技能名称。逐条选择此刻的同意程度，不按理想答案作答；缺乏适当参照、资料不足或不愿回答可选单独的非数值选项。每题均作出选择后结束；至少9条有效数字评分才显示均分，六条较固定表述会反向计分。开始直接进入题目，无需再次同意或注册，约4分钟但不限时。",
+    "en": "Choose an ordinary skill you are learning or considering, keep it in mind for all twelve items, and do not enter its name. Rate your current agreement rather than an ideal answer. Use the separate non-numeric option for no suitable reference, insufficient information or preferring not to answer. Every item needs a selection to finish; at least nine numeric ratings are needed for a mean, with six more fixed statements reverse scored. Start opens questions directly, without another agreement or signup. About four minutes is an untimed estimate."
   },
   "source": {
     "kind": "FermatMind original selected-learning-skill changeability-belief items; not DMI or IDR-MT",
@@ -1107,6 +1107,20 @@
         "en": "Yeager et al. (2019): school intervention and educational context, not validation of this edition"
       },
       "url": "https://www.nature.com/articles/s41586-019-1466-y"
+    },
+    {
+      "title": {
+        "zh": "Sisk等（2018）：思维信念与学业表现的两项元分析",
+        "en": "Sisk et al. (2018): two meta-analyses of mindset and academic achievement"
+      },
+      "url": "https://doi.org/10.1177/0956797617739704"
+    },
+    {
+      "title": {
+        "zh": "Macnamara与Burgoyne（2023）：干预研究质量、偏差与学业效果",
+        "en": "Macnamara and Burgoyne (2023): intervention study quality, bias and achievement effects"
+      },
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36326645/"
     }
   ]
 }

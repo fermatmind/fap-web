@@ -4,7 +4,7 @@ import path from "node:path";
 import type { FunQuiz } from "../../lib/entertainment/types";
 import { resultSlug } from "../../lib/entertainment/guides";
 
-for (const locale of ["en", "zh"] as const) for (const slug of ["woodland-animal", "house-of-doors", "relationship-values"]) {
+for (const locale of ["en", "zh"] as const) for (const slug of ["date-plan-detour", "desert-oasis", "desk-reset", "dinner-host", "dragon-housemate", "dream-train", "enchanted-library", "escape-room-role", "fantasy-party-role", "festival-companion", "fictional-cafe", "firefly-evening", "floating-house", "festival-mask", "forest-soundtrack", "friendship-invitation", "game-night-reset", "garden-season", "gift-note", "group-chat-role", "harbor-light", "creative-spark", "cozy-object", "compliment-style", "community-fair", "comfort-offer", "coffee-break", "cloud-drift", "city-wanderer", "choosing-together", "celebration-planner", "celebrating-a-friend", "campfire-storyteller", "camera-roll", "browser-tabs", "borrowed-book", "board-game-table", "birdwatching-companion", "beachcomber", "woodland-animal", "house-of-doors", "relationship-values"]) {
   test(`@release public guide ${locale}/${slug}: full asset, rules, peer, quiz and result return`, async ({ page }) => {
     const quiz = JSON.parse(readFileSync(path.join(process.cwd(), "lib/entertainment/data", `${slug}.json`), "utf8")) as FunQuiz;
     const result = quiz.results[0], zh = locale === "zh";
@@ -26,7 +26,13 @@ for (const locale of ["en", "zh"] as const) for (const slug of ["woodland-animal
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
     await page.getByRole("button", { name: zh ? "开始测试" : "Start quiz", exact: true }).click();
     for (let step = 0; step < 30; step++) {
-      await page.getByRole("radio").first().check();
+      // These round-trips target the first public guide; rotated options
+      // do not necessarily make that portrait highest when picked first.
+      const option = ["borrowed-book", "date-plan-detour", "festival-companion"].includes(slug)
+        ? quiz.questions[step].options.findIndex(item => item.points?.[result.id] === 1)
+        : 0;
+      expect(option).toBeGreaterThanOrEqual(0);
+      await page.getByRole("radio").nth(option).check();
       const end = page.getByRole("button", { name: zh ? "查看完整结果" : "See full result", exact: true });
       if (await end.count()) { await end.click(); break; }
       await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();

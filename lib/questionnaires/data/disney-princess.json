@@ -14,21 +14,21 @@
     "en": "Your thirteen character choices and every highest tie"
   },
   "description": {
-    "zh": "免费完成26道原创普通选择，比较13位迪士尼动画公主角色。最高并列全部完整显示，含例子、十二角色对照与计分；非官方同人测试，不做外貌或能力评分。",
-    "en": "Take 26 original everyday questions and compare 13 Disney Princess characters. Full tied results, examples and scoring are free in this unofficial fan quiz."
+    "zh": "用26道原创日常情境题，探索欢迎参与、个人愿望、好奇阅读、选择表达与合作安排等13种角色视角。约8分钟，免费查看原始次数、所有最高并列与完整指南；无需注册或剧情知识。",
+    "en": "Explore 13 character perspectives on welcome, hopes, curiosity, expression and cooperation through 26 original everyday scenarios. About 8 minutes, with free raw counts, every highest tie and full guides. No signup or film knowledge needed."
   },
   "seoTitle": {
-    "zh": "迪士尼公主测试：26题、13角色与完整结果",
-    "en": "Disney Princess Test: Free Quiz & All 13 Full Results"
+    "zh": "迪士尼公主测试：26题、13位角色与完整解读",
+    "en": "Disney Princess Quiz: 26 Questions and 13 Full Character Guides"
   },
   "minutes": 8,
   "introduction": {
-    "zh": "不考剧情，不按外貌或性别分类。26道普通选择，借13位动画角色比较不同的自选做法；角色集合来自官方目录，题目与读法由费马独立创作。全部最高并列完整呈现。",
-    "en": "No episode trivia or classification by appearance or gender. Twenty-six ordinary questions use thirteen animated characters to compare chosen approaches. The roster has an official source; items and readings are independently authored. Every highest tie appears in full."
+    "zh": "你会怎样布置一个自用角落、理解一个陌生小物件，或和朋友约定一件自愿的小事？这份迪士尼公主测试以26道原创四选一，比较13位动画角色在本版中的有限阅读角度。题目关注当下的选择，完成后显示13项原始次数、所有最高并列及对应完整解读。\n\n不需要记住电影剧情、选喜欢的裙子或提供照片。本站采用角色名字帮助组织日常选择；官方目录用于核对人物集合，选项与角色的对应则是独立的同人设计。先阅读具体做法，再用个人经历核对，可以得到比单独保存一个角色名更具体的观察。",
+    "en": "How would you arrange a personal corner, understand an unfamiliar object or agree a small voluntary activity with a friend? This Disney Princess quiz uses 26 original four-option scenarios to compare limited editorial readings of 13 animated characters. It concerns present choices and shows 13 raw counts, every highest tie and corresponding full guides.\n\nYou need not recall films, choose a favourite dress or provide a photograph. Character names organize everyday approaches; the official directory establishes the roster, while option assignments are independently designed fan interpretations. Read the concrete approach and compare your experiences for an observation more specific than a character name alone."
   },
   "instructions": {
-    "zh": "本版26题原创非官方同人问卷，选用当前迪士尼公主官方目录的13位虚构角色，比较你在普通小事里目前愿意采用的做法。角色集合有官方出处，题目、映射和解释由费马独立创作，并非迪士尼官方测验。每题从四种做法选一个较接近自己的，均以自选、许可、可改与可停止为前提。每选加1，每位全卷出现8次，全部最高并列完整显示。结果不判断外貌、肤色、性别、族群、宗教、善良程度、勇气、天赋、婚恋或职业，不要求模仿忍受伤害、战斗、航海或魔法；宝嘉康蒂只指动画角色，不代表历史人物与原住民。无需剧情知识，也不换算MBTI。",
-    "en": "This original 26-question unofficial fan quiz uses the 13 fictional characters in Disney’s current official Princess directory to compare ordinary approaches you currently prefer. The roster has an official source; items, mappings and interpretations are independently authored by FermatMind rather than an official Disney test. Choose the closer of four approaches in voluntary, permitted, revisable and stoppable situations. Each choice adds one, each character appears eight times and every highest tie receives its full guide. Results judge no appearance, skin colour, gender, ethnicity, religion, goodness, bravery, talent, romance or career and invite no imitation of accepting harm, combat, navigation or magic. Pocahontas means the animated character, not the historical person or Indigenous peoples. Episode knowledge is unnecessary and there is no MBTI conversion."
+    "zh": "请按近期普通小事中更自然的做法作答，每题从四项中选较接近自己的一项。几项都合适时选相对优先的，没有完全合适时选较接近的。情境中的参与和尝试均以自愿为前提；无需模仿角色、回忆电影或提供私人经历。完成26题后生成13项计数与所有最高并列的完整指南。",
+    "en": "Answer from the approaches that feel natural in recent ordinary situations. Choose the closest of four options; if several fit, choose what comes first, and if none fits fully, select the closest. Participation and trials are voluntary. There is no need to imitate characters, recall films or supply private experiences. Finish all 26 questions for 13 counts and full guides for every highest tie."
   },
   "source": {
     "kind": "FermatMindoriginal26ENZH4choice/unofficialtextonlyfaninterpretation/13officialrosterfictionalcharacters/notclinicalassessmentorofficialDisneytest",
@@ -3183,65 +3183,187 @@
     {
       "id": "archetype-counts",
       "title": {
-        "zh": "26题怎样形成十三角色计数",
-        "en": "How 26 choices produce thirteen character counts"
+        "zh": "26题怎样计分：十三个角色方向",
+        "en": "How 26 questions produce thirteen character counts"
       },
       "paragraphs": [
         {
-          "zh": "26题全部各选一项，对应的本版角色读法加1，总数固定26。每题只提供十三位中的四位，全卷每位8次、每位置2次；当题未提供的九位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会十三位各2次，十三份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似度、真实人格比例、成为公主的概率或优良品质分数。相差一次只是一项选择，不证明显著差异或固定类型。近分可自行比较，不补造并列、隐藏人格、混合身份或人群排名；条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
-          "en": "Choose one option for all 26 items; each adds one to its editorial character reading and counts sum to 26. Four of thirteen characters are offered per item. Each appears eight times and twice in each position; the nine absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives two each and all thirteen guides. List order establishes no priority or automatic second character. Counts are neither similarity, actual personality proportions, probabilities of being a princess nor scores of good qualities. One extra choice proves no significance or fixed type. Read close guides without inventing ties, hidden traits, mixed identities or population ranks. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+          "zh": "每题提供13个方向中的4个选项，选中项对应方向加1次。完成26题后，各项次数之和固定为26。每个方向在全卷出现8次，四个选项位置各2次，所以单项范围为0—8。未在某题出现的9个方向不算被拒绝，也不会扣分。",
+          "en": "Each item offers four of thirteen directions. The selected direction gains one, and counts sum to 26 on completion. Each appears eight times, twice in each answer position, giving a range of 0–8. The nine directions absent from an item are not rejected and lose no points."
+        },
+        {
+          "zh": "例如，按下方13位角色的固定顺序，次数为2、2、0、4、4、1、2、3、2、3、1、1、1，总和26。爱丽儿与贝儿各4次，共同最高，两份完整解读均显示。4只表示本次选中4项，不能读成四成相似、人格比例、能力水平或人群位置。",
+          "en": "For example, counts of 2, 2, 0, 4, 4, 1, 2, 3, 2, 3, 1, 1, 1 in the fixed thirteen-character order below sum to 26. Ariel and Belle share the maximum of four, so both full guides appear. Four means four selections here, not a similarity percentage, personality proportion, ability level or population position."
         }
       ]
     },
     {
       "id": "archetype-ties",
       "title": {
-        "zh": "完整说明、并列与相近选择",
-        "en": "Full guides, ties and close choices"
+        "zh": "并列、近分与相对选择",
+        "en": "Ties, close counts and relative choices"
       },
       "paragraphs": [
         {
-          "zh": "13份完整说明各含动画背景、本版读法、普通例子、表达、十二角色比较、反例、小观察、计分和来源。所有最高并列逐份显示，不把名单第一位当主型，近分也不自动变第二身份。公开说明不显示任何人的私有答卷或计数。",
-          "en": "Each of thirteen guides includes animated context, the editorial reading, an example, wording, twelve-character comparisons, counterexamples, an observation, scoring and sources. Every highest tie appears in full without treating the first as primary or making a close count a second identity. Public guides reveal no private attempt or counts."
+          "zh": "所有达到相同最高次数的角色都保留，不按字母、名单或选项位置破同分。全卷始终选同一位置，会得到13位各2次的完整并列。显示顺序不指定主次角色，也不额外生成一个混合身份；并列就是这份回答的结果。",
+          "en": "Every character sharing the highest count is retained, without alphabetical, roster or position-based tie-breaking. Choosing the same position throughout gives two selections for each of all thirteen. Display order assigns no primary or secondary character, and no extra hybrid identity is generated. A tie is the outcome of those answers."
+        },
+        {
+          "zh": "差1次表示多选了一项，本版没有显著性或近分合并阈值。可以一起阅读相近指南，再找具体场景的区别。因为总数固定，一个方向增加时其他方向不会同时增加；较低次数不表示缺乏善良、想象力、行动力或其他品质。",
+          "en": "A one-count difference means one extra choice, not significance or an automatic near-tie threshold. Read nearby guides and compare concrete situations. With a fixed total, one direction’s gain does not also increase the others. Lower counts do not mean a lack of kindness, imagination, initiative or other qualities."
         }
       ]
     },
     {
       "id": "archetype-metaphor",
       "title": {
-        "zh": "为什么本版有13位？为什么不是剧情知识？",
-        "en": "Why thirteen characters, and why no episode trivia?"
+        "zh": "十三份完整指南怎样阅读",
+        "en": "How to read the thirteen complete guides"
       },
       "paragraphs": [
         {
-          "zh": "本版按当前迪士尼公主官方目录列出的13位选择动画角色，不因此成为官方测验，也不把乐园“公主及女王”的艾莎、安娜合并成同一目录。题目是普通小事里的当前选择，基础背景可帮助理解，无需看全片。宝嘉康蒂的动画故事也不等于真实历史。",
-          "en": "This edition selects the thirteen animated characters in the current official Disney Princess directory without becoming an official test or merging Elsa and Anna from a park’s broader Princesses and Queens collection into that roster. Ordinary current choices require no full-film knowledge. Pocahontas’s animated story is not actual history."
+          "zh": "每份指南包含人物基础、本版解释、一个日常场景、可尝试的表达、其他12位的比较、反例、小观察、计分与来源。公开说明可提前阅读，不显示任何访客的私人答卷。完成后所有最高并列均有完整内容，无需另一测试或付费解锁。",
+          "en": "Each guide includes basic character context, this edition’s interpretation, an everyday scenario, wording to try, comparisons with the other twelve, counterexamples, an observation activity, scoring and sources. Public guides can be read in advance and show no visitor’s private answers. Every highest tie has full content without another assessment or a paid unlock."
+        },
+        {
+          "zh": "角色名是阅读一种选择侧重的入口，不是一个人的全部。喜欢某部电影、喜欢某位角色和在本题组更常选某类做法可以不同。先看次数回答了什么，再看例子是否适合自己；不必为了得到喜欢的角色而修改答案。",
+          "en": "A character name introduces an emphasis rather than describing a whole person. Favourite films, favourite characters and more frequent choices in this questionnaire can differ. First ask what the count records, then whether its examples fit. There is no need to alter answers to obtain a favourite."
         }
       ]
     },
     {
-      "id": "source",
+      "id": "princess-roster",
       "title": {
-        "zh": "非官方同人与原创内容",
-        "en": "Unofficial fan interpretation and original content"
+        "zh": "为什么是这十三位？动画、品牌与园区集合",
+        "en": "Why these thirteen? Animation, brand and park collections"
       },
       "paragraphs": [
         {
-          "zh": "这是费马独立创作的非官方同人问卷，采用当前迪士尼公主目录的13位动画角色作普通选择的有限阅读角度。角色集合有官方出处，本站题目、映射、计数与解释并非迪士尼官方测验，也未获迪士尼或权利人合作、授权或认可；作品与角色权利归相应权利人。26题、选项、解释、例子与规则原创，没有采用IDR35题、竞品正文／算法、台词、歌词、字幕、截图、立绘、官方活动题本或其他受保护素材。官方资料只核基础角色语境，不验证本站心理解释；宝嘉康蒂只指动画角色，不是历史人物Matoaka的传记或原住民性格，NPS与Pamunkey历史资料仅用于区分虚构和复杂历史，不浪漫化殖民、囚禁与强制。结果不判断外貌、肤色、性别、血缘、族群、宗教、善良、勇气、能力、疾病、创伤、婚恋、关系或职业，不要求忍受伤害、等待拯救、饮酒、战斗、航海或魔法实践，也不换算MBTI或其他角色测验。",
-          "en": "This is an independently authored FermatMind unofficial fan quiz using the thirteen animated characters in Disney’s current Princess directory as limited readings of ordinary choices. The roster has an official source, but these items, mappings, counts and interpretations are no official Disney test and have no Disney or rights-holder partnership, authorisation or endorsement. Series and character rights belong to their respective owners. All 26 items, options, explanations, examples and rules are original. No IDR 35-item bank, competitor text or algorithm, dialogue, lyrics, subtitles, screenshots, character art, official activity bank or other protected material is used. Official pages check basic context without validating this psychology. Pocahontas means the animated character, not the historical Matoaka’s biography or an Indigenous personality; NPS and Pamunkey history only distinguish fiction and complex history without romanticising colonialism, captivity or coercion. Results judge no appearance, skin colour, gender, ancestry, ethnicity, religion, goodness, bravery, ability, illness, trauma, romance, relationship or career, require no enduring harm, awaiting rescue, drinking, combat, navigation or magical practice, and convert into no MBTI or other character quiz."
+          "zh": "本版固定角色依次为白雪公主、灰姑娘、爱洛、爱丽儿、贝儿、茉莉、宝嘉康蒂、花木兰、蒂安娜、乐佩、梅莉达、莫阿娜、拉雅。迪士尼公主官方目录与Disney+作品指南用于核对这一集合。[1][2] 它不是所有迪士尼女性角色的总表，也不按是否出生于王室给答题者分类。",
+          "en": "The fixed order is Snow White, Cinderella, Aurora, Ariel, Belle, Jasmine, Pocahontas, Mulan, Tiana, Rapunzel, Merida, Moana and Raya. The official Princess directory and Disney+ film guide establish that collection.[1][2] It is not a list of every Disney heroine or a classification of respondents by royal ancestry."
+        },
+        {
+          "zh": "园区“公主及女王”展示与电影角色名册的用途不同，中文译名也有地区差异，例如灰姑娘与仙蒂瑞拉。[3] 本版保持同一角色对应同一结果，不因别称另增分数；Anna、Elsa或其他人物未纳入这份题本，也不说明这些人物不重要。",
+          "en": "A park’s princess-and-queen display serves a different purpose from a film-character roster, and translated names vary by region.[3] One character remains one result here despite alternate names. Anna, Elsa and other figures are not included in this item bank; that does not diminish their importance."
         }
       ]
     },
     {
-      "id": "privacy",
+      "id": "princess-thirteen-readings",
       "title": {
-        "zh": "草稿、分享与可选下一步",
-        "en": "Drafts, sharing and optional next steps"
+        "zh": "十三种读法：从欢迎与愿望到具体合作",
+        "en": "Thirteen readings: from welcome and hopes to cooperation"
       },
       "paragraphs": [
         {
-          "zh": "答案在浏览器内计分，不上传、不进网址或分析。草稿需主动开启，只在本标签页恢复，24小时失效，完成、重测、退出清除即删除。可选分享只含公开角色说明和链接，不含答案或次数。完整结果免费，无需邮箱或先做另一测试；后续测评自选且另行作答。",
-          "en": "Answers are scored in your browser without uploading them or placing them in URLs or analytics. Drafts require opt-in, restore only in this tab, expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains public character guides and links without answers or counts. Full results are free without email or another test first; further assessments are optional and require new answers."
+          "zh": "白雪公主对应给自愿参与留位置；灰姑娘对应保留个人小盼望；爱洛对应安静想象普通场景；爱丽儿对应接触熟悉范围外的小事；贝儿对应阅读与追问具体意思；茉莉对应说清个人选择。它们分别关注加入方式、个人愿望、心中画面、探索对象、含义与表达，不是外貌或品德排名。",
+          "en": "Snow White concerns room for willing participation; Cinderella a small personal hope; Aurora quiet everyday imagination; Ariel something beyond the familiar; Belle reading and asking about meaning; Jasmine expressing a choice. They emphasize joining, hope, imagery, exploration, meaning and expression, rather than appearance or virtue rankings."
+        },
+        {
+          "zh": "宝嘉康蒂对应留意周围具体联系；花木兰对应按实际需要调整做法；蒂安娜对应为自选目标安排一步；乐佩对应尝试表达形式；梅莉达对应保留自选做法；莫阿娜对应连接路径与在意之处；拉雅对应以具体约定建立合作。这些是本版选项定义，不是官方心理维度或角色的完整性格。",
+          "en": "Pocahontas concerns local connections; Mulan adapting to actual needs; Tiana a step toward a chosen aim; Rapunzel forms of expression; Merida a chosen approach; Moana connecting a route with what matters; Raya concrete cooperation agreements. These are this edition’s option meanings, not official psychological dimensions or complete character profiles."
+        }
+      ]
+    },
+    {
+      "id": "princess-close-readings",
+      "title": {
+        "zh": "相近角色怎样区分？看对象、步骤与条件",
+        "en": "Distinguishing nearby characters by object, step and conditions"
+      },
+      "paragraphs": [
+        {
+          "zh": "爱丽儿与贝儿都可能表现为好奇：前者先接触陌生对象，后者先读懂一段说明。灰姑娘与蒂安娜都可能在意个人目标：前者保留一个小盼望，后者为自选目标安排下一步。爱洛与乐佩都可能涉及想象：前者安静构思，后者尝试线条、文字或排列等表达形式。",
+          "en": "Ariel and Belle can both involve curiosity: one approaches an unfamiliar object, the other studies what an explanation means. Cinderella and Tiana can both concern personal aims: one preserves a hope, the other plans a step. Aurora and Rapunzel can both involve imagination: one quietly pictures a scene, the other tries lines, words or arrangements."
+        },
+        {
+          "zh": "茉莉侧重把选择说清，梅莉达侧重保留自选方法；花木兰看眼前条件怎样调整，拉雅看合作范围怎样约定；宝嘉康蒂留意当前环境的联系，莫阿娜看路径与在意之处怎样相连。一个人可以同时使用这些做法，题本只记录本次四选一中的相对优先。",
+          "en": "Jasmine emphasizes stating a choice, Merida keeping a chosen method; Mulan attends to changing conditions, Raya to cooperation agreements; Pocahontas notices surrounding connections, Moana connects a route with what matters. One person can use all these approaches. Counts record relative priorities in this set of four-option choices."
+        }
+      ]
+    },
+    {
+      "id": "princess-fiction-history",
+      "title": {
+        "zh": "动画人物、历史人物与文化不是同一层证据",
+        "en": "Animation, historical people and cultures are different evidence"
+      },
+      "paragraphs": [
+        {
+          "zh": "宝嘉康蒂在这里仅指迪士尼动画角色。美国国家公园的Pocahontas人物资料讨论真实生平与后世神话，Pamunkey部族历史提供相关族群与殖民接触的历史语境。[4][5] 动画叙事不能代替这些资料；一个角色结果也不代表答题者的族群身份、文化经验或精神能力。",
+          "en": "Pocahontas here refers only to Disney’s animated character. The National Park Service biography distinguishes an actual life from later mythology, while Pamunkey tribal history provides community and colonial-contact context.[4][5] Animation does not replace these accounts, and a quiz result establishes no respondent’s ancestry, cultural experience or spiritual ability."
+        },
+        {
+          "zh": "同样，本版花木兰读法限于迪士尼动画，不能代替文学、民间传说或历史研究；莫阿娜、拉雅等角色也不能概括真实社群的全部生活。阅读角色时可以欣赏故事，同时把文化知识、电影理解和个人选择分别核对，不用一种测验名字解释另一层身份。",
+          "en": "Likewise, this Mulan reading concerns Disney animation rather than replacing literature, folklore or historical research. Moana, Raya and other figures do not summarize the lives of real communities. Enjoy stories while examining cultural knowledge, film interpretation and personal choices separately, without turning a quiz name into an identity conclusion."
+        }
+      ]
+    },
+    {
+      "id": "princess-examples",
+      "title": {
+        "zh": "从一个自用角落核对例子和反例",
+        "en": "Examples and counterexamples in a personal corner"
+      },
+      "paragraphs": [
+        {
+          "zh": "假设你想整理一个自用小角落：可以先给来访朋友留参与空间，保留一件承载愿望的小物，读懂某张说明，画一个想象中的摆法，或为整理安排一步。选择哪一入口，要看当时需要；这个合成场景说明不同读法可以并用，不是额外计分题。",
+          "en": "Imagine arranging a personal corner: you could leave space for a willing visitor, keep an object linked to a hope, understand a label, sketch an imagined arrangement or plan a step. The starting point depends on the occasion. This constructed example shows how readings can coexist; it is not an extra scored item."
+        },
+        {
+          "zh": "为最贴近的一条找一个反例。例如你喜欢阅读，却在这次活动中先考虑路线；或你通常喜欢自选方法，但这次因共享空间而调整。喜好、机会与具体条件不同，都能影响回答。没有选中某个方向不意味着对应品质消失，更不需要表演剧情来证明结果。",
+          "en": "Find a counterexample to a fitting description. You may enjoy reading yet prioritize a route this time, or usually prefer your method but adapt in a shared space. Interests, opportunities and conditions can affect answers. Not selecting a direction does not erase a quality, and acting out a film is no test of the result."
+        }
+      ]
+    },
+    {
+      "id": "princess-practice",
+      "title": {
+        "zh": "把阅读变成一次小而具体的尝试",
+        "en": "Turning a reading into a small concrete trial"
+      },
+      "paragraphs": [
+        {
+          "zh": "从当前活动选一个问题：“我希望这件小事保留什么？”“还有哪个意思想弄清？”“下一步愿意做到哪里？”或“怎样的约定让双方都明白？”用一张已有纸或一句话记录即可，不需要购买装扮、复制角色形象或改变外貌。",
+          "en": "Choose a question for the present activity: “What would I like to keep?”, “What meaning needs clarification?”, “How far am I willing to take the next step?” or “What agreement would both people understand?” A note on existing paper or a sentence is enough, without buying costumes, copying a character’s image or changing appearance."
+        },
+        {
+          "zh": "若和别人一起，可以说“这是我的偏好，你希望怎样？”并确认谁愿意参与、可以修改什么和何时停止。观察实际沟通是否更清楚，而不是把某位公主当作唯一正确做法。愿望、想象和合作都可以存在于普通生活，也可以只作为阅读趣味。",
+          "en": "With someone else, state your preference and ask theirs, including who wants to join, what can change and when to stop. Observe whether communication becomes clearer instead of treating one princess as the only correct approach. Hope, imagination and cooperation can inform ordinary life or remain simply enjoyable reading."
+        }
+      ]
+    },
+    {
+      "id": "princess-evidence",
+      "title": {
+        "zh": "计分可复算，解释仍需对应证据",
+        "en": "Reproducible scoring and evidence for interpretation"
+      },
+      "paragraphs": [
+        {
+          "zh": "本问卷尚未建立信度、效度或人群常模。选项出现次数均衡，可以核查机会与位置；它不自动证明13个同人方向是科学人格维度，也不保证实际人群中每种结果一样常见。官方人物资料证明的是作品语境，不验证本站角色映射。",
+          "en": "Reliability, validity and population norms have not been established for this questionnaire. Balanced appearances allow checks of opportunities and positions; they do not validate thirteen personality dimensions or guarantee equally common outcomes in real respondents. Official character material establishes fictional context rather than validating our assignments."
+        },
+        {
+          "zh": "因此次数不用于心理诊断、能力或道德评级，也不预测婚恋、职业与人生结果。重测时先比较参照场景、题目理解和具体变化；仅换一个角色名不能证明人格改变。MBTI、大五等其他测评有不同题目与构念，需要另行作答与核对证据，不能由本次角色计数换算。",
+          "en": "Counts therefore supply no diagnosis, ability or moral rating, or predictions about relationships, careers or life outcomes. When retesting, compare the reference situation, interpretation and actual changes first; a different name alone does not demonstrate personality change. Other assessments such as MBTI and Big Five have different items and constructs requiring separate responses and evidence, not conversion from character counts."
+        }
+      ]
+    },
+    {
+      "id": "princess-free-privacy",
+      "title": {
+        "zh": "免费结果、直达作答与临时进度",
+        "en": "Free guides, direct questions and temporary progress"
+      },
+      "paragraphs": [
+        {
+          "zh": "全部26题、原始次数、最高并列与13份完整指南免费，无需注册、邮箱或先做其他测试。点击开始直接进入题目，没有额外同意步骤。约8分钟只是参考用时，不是限时；完成全部题目后再生成个人结果，公开指南随时可读。",
+          "en": "All 26 questions, raw counts, highest ties and thirteen full guides are free without signup, email or another assessment. Start opens questions directly without an extra agreement. About eight minutes is an estimate, not a limit. Personal results follow complete answers; public guides can be read anytime."
+        },
+        {
+          "zh": "答案在浏览器内计分，不通过计分请求上传、不写入网址或分析事件。默认不保存；主动保存后，本标签页进度24小时失效，完成、重测或退出清除后删除。公开分享的是固定角色指南，不含私人答卷或次数；其他使用事件依隐私与Cookie设置。",
+          "en": "Answers are scored in the browser, not uploaded through scoring requests or placed in URLs or analytics events. Progress is unsaved by default; opt-in tab progress expires after 24 hours and clears on completion, retake or explicit exit-and-clear. Public sharing links to fixed guides without private answers or counts; other usage events follow privacy and Cookie settings."
         }
       ]
     }
@@ -3249,32 +3371,102 @@
   "faq": [
     {
       "question": {
-        "zh": "迪士尼公主测试包括哪13位？",
-        "en": "Which thirteen Disney Princess characters are included?"
+        "zh": "迪士尼公主测试测什么？",
+        "en": "What does the Disney Princess quiz explore?"
       },
       "answer": {
-        "zh": "本版包括白雪公主、灰姑娘、爱洛、爱丽儿、贝儿、茉莉、宝嘉康蒂、花木兰、蒂安娜、乐佩、梅莉达、莫阿娜和拉雅。当前官方角色目录与本版同人解释是两件事；艾莎、安娜不在这个13位目录中，也不把角色名字当别名增加数量。",
-        "en": "This edition includes Snow White, Cinderella, Aurora, Ariel, Belle, Jasmine, Pocahontas, Mulan, Tiana, Rapunzel, Merida, Moana and Raya. The official roster and these fan interpretations are distinct. Elsa and Anna are not in this thirteen-character directory; alternate names do not add characters."
+        "zh": "以26道原创日常四选一，比较欢迎参与、个人盼望、想象、探索、阅读、选择表达与合作等13种角色读法。它记录本次选择，不测外貌或剧情记忆。",
+        "en": "It compares thirteen readings of welcome, hopes, imagination, exploration, reading, expression and cooperation through 26 original everyday choices, rather than appearance or film recall."
       }
     },
     {
       "question": {
-        "zh": "需要看过电影或按性别作答吗？",
-        "en": "Must I watch films or answer by gender?"
+        "zh": "有哪些角色结果？",
+        "en": "Which character results are included?"
       },
       "answer": {
-        "zh": "不需要。26题是普通自选活动，没有剧情知识、外貌、性别、肤色或血缘输入，也不判断能力、道德与婚恋。基础动画背景只是有限读法，不把虚构当真实历史或人的完整经历。",
-        "en": "No. Twenty-six items concern ordinary chosen activities without trivia, appearance, gender, skin-colour or ancestry input or verdicts on ability, morality or romance. Basic animated context supports limited readings rather than actual history or a person’s whole life."
+        "zh": "白雪公主、灰姑娘、爱洛、爱丽儿、贝儿、茉莉、宝嘉康蒂、花木兰、蒂安娜、乐佩、梅莉达、莫阿娜与拉雅，均有完整指南和其他12位的比较。",
+        "en": "Snow White, Cinderella, Aurora, Ariel, Belle, Jasmine, Pocahontas, Mulan, Tiana, Rapunzel, Merida, Moana and Raya all have full guides and comparisons with the other twelve."
       }
     },
     {
       "question": {
-        "zh": "计分、并列和近分怎样看？",
-        "en": "How do scoring, ties and close counts work?"
+        "zh": "为什么没有艾莎和安娜？",
+        "en": "Why are Elsa and Anna not included?"
       },
       "answer": {
-        "zh": "26题全部各选一项，对应的本版角色读法加1，总数固定26。每题只提供十三位中的四位，全卷每位8次、每位置2次；当题未提供的九位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会十三位各2次，十三份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似度、真实人格比例、成为公主的概率或优良品质分数。相差一次只是一项选择，不证明显著差异或固定类型。近分可自行比较，不补造并列、隐藏人格、混合身份或人群排名；条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
-        "en": "Choose one option for all 26 items; each adds one to its editorial character reading and counts sum to 26. Four of thirteen characters are offered per item. Each appears eight times and twice in each position; the nine absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives two each and all thirteen guides. List order establishes no priority or automatic second character. Counts are neither similarity, actual personality proportions, probabilities of being a princess nor scores of good qualities. One extra choice proves no significance or fixed type. Read close guides without inventing ties, hidden traits, mixed identities or population ranks. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+        "zh": "本题本采用迪士尼公主官方目录与作品指南所列的13位集合。[1][2] 其他迪士尼人物、园区公主及女王展示和这份测验的固定集合用途不同，不据此评价角色重要性。",
+        "en": "This item bank uses the thirteen-character collection in the official directory and film guide.[1][2] Other heroines and park princess-and-queen displays have different scopes; omission is not a judgement of importance."
+      }
+    },
+    {
+      "question": {
+        "zh": "没有看过所有电影也能作答吗？",
+        "en": "Can I answer without seeing every film?"
+      },
+      "answer": {
+        "zh": "可以。题目是原创普通情境，不需要角色知识、台词、照片或出生资料。按当前较自然的选择回答即可，人物背景可在完整指南中阅读。",
+        "en": "Yes. Original everyday scenarios require no character knowledge, dialogue, photos or birth details. Answer from present choices and read background in the full guides."
+      }
+    },
+    {
+      "question": {
+        "zh": "灰姑娘和仙蒂瑞拉是两个结果吗？",
+        "en": "Do regional name variants create separate results?"
+      },
+      "answer": {
+        "zh": "不是。地区译名可以不同，但同一个动画人物在本版只有一个固定结果，例如灰姑娘与仙蒂瑞拉对应Cinderella。[3] 别称不另加分，也不增加角色。",
+        "en": "No. Regional translations differ, but one animated character remains one fixed result, as with Cinderella’s Chinese variants.[3] Alternate names add neither points nor characters."
+      }
+    },
+    {
+      "question": {
+        "zh": "每题怎样加分？",
+        "en": "How does an item add a count?"
+      },
+      "answer": {
+        "zh": "选中项对应方向加1。26题总数26，每位出现8次、四位置各2次，范围0—8。某题未提供的9个方向不记拒绝；次数是本题组相对选择，不是百分比。",
+        "en": "The selected direction gains one. Counts sum to 26; each appears eight times, twice per position, with range 0–8. Nine absent directions are not rejected. Counts are relative selections, not percentages."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么可以有多个公主并列？",
+        "en": "Why can several princesses tie?"
+      },
+      "answer": {
+        "zh": "最高次数相同就完整保留。例如爱丽儿与贝儿同为最高4次，两份完整说明都出现。始终选同一位置会13位各2次；系统不会随机或按顺序强分主次。",
+        "en": "Every shared maximum is retained. If Ariel and Belle share the maximum of four, both full guides appear. Selecting one position throughout gives two each for thirteen characters; random choice or order does not assign priority."
+      }
+    },
+    {
+      "question": {
+        "zh": "近分、较低次数和零次怎样看？",
+        "en": "How should I read close counts, lower counts and zero?"
+      },
+      "answer": {
+        "zh": "差1次只是一项选择差异，没有显著性或近分合并结论。较低或零次表示本次少选或未选该方向，不代表能力、品德或某种品质缺失，可以结合具体例子比较指南。",
+        "en": "A one-count gap is one selection, not significance or automatic merging. Lower or zero counts mean fewer or no selections here, not missing ability, virtue or qualities. Compare guides through concrete examples."
+      }
+    },
+    {
+      "question": {
+        "zh": "爱丽儿和贝儿都好奇，怎样区分？",
+        "en": "How do Ariel and Belle differ if both involve curiosity?"
+      },
+      "answer": {
+        "zh": "本版爱丽儿关注接触熟悉范围外的对象，贝儿关注读懂已有说明和具体意思。两者都可能适用同一个人；选项比较此刻优先哪种做法，不评聪明或勇气。",
+        "en": "Here Ariel concerns encountering something unfamiliar; Belle understanding an explanation and its meaning. Both can fit one person. Options compare immediate priorities, not intelligence or bravery."
+      }
+    },
+    {
+      "question": {
+        "zh": "宝嘉康蒂结果代表真实历史或原住民身份吗？",
+        "en": "Does Pocahontas represent actual history or Indigenous identity?"
+      },
+      "answer": {
+        "zh": "不代表。这里只指迪士尼动画角色的有限同人读法。真实人物与族群历史应另看国家公园和Pamunkey部族资料；角色计数不能推断文化身份或精神天赋。[4][5]",
+        "en": "No. It is a limited reading of the animated character. Actual biography and community history require the National Park Service and Pamunkey sources; counts infer no cultural identity or spiritual gifts.[4][5]"
       }
     },
     {
@@ -3283,18 +3475,38 @@
         "en": "Is this official or a scientific personality assessment?"
       },
       "answer": {
-        "zh": "这是费马独立创作的非官方同人问卷，采用当前迪士尼公主目录的13位动画角色作普通选择的有限阅读角度。角色集合有官方出处，本站题目、映射、计数与解释并非迪士尼官方测验，也未获迪士尼或权利人合作、授权或认可；作品与角色权利归相应权利人。26题、选项、解释、例子与规则原创，没有采用IDR35题、竞品正文／算法、台词、歌词、字幕、截图、立绘、官方活动题本或其他受保护素材。官方资料只核基础角色语境，不验证本站心理解释；宝嘉康蒂只指动画角色，不是历史人物Matoaka的传记或原住民性格，NPS与Pamunkey历史资料仅用于区分虚构和复杂历史，不浪漫化殖民、囚禁与强制。结果不判断外貌、肤色、性别、血缘、族群、宗教、善良、勇气、能力、疾病、创伤、婚恋、关系或职业，不要求忍受伤害、等待拯救、饮酒、战斗、航海或魔法实践，也不换算MBTI或其他角色测验。",
-        "en": "This is an independently authored FermatMind unofficial fan quiz using the thirteen animated characters in Disney’s current Princess directory as limited readings of ordinary choices. The roster has an official source, but these items, mappings, counts and interpretations are no official Disney test and have no Disney or rights-holder partnership, authorisation or endorsement. Series and character rights belong to their respective owners. All 26 items, options, explanations, examples and rules are original. No IDR 35-item bank, competitor text or algorithm, dialogue, lyrics, subtitles, screenshots, character art, official activity bank or other protected material is used. Official pages check basic context without validating this psychology. Pocahontas means the animated character, not the historical Matoaka’s biography or an Indigenous personality; NPS and Pamunkey history only distinguish fiction and complex history without romanticising colonialism, captivity or coercion. Results judge no appearance, skin colour, gender, ancestry, ethnicity, religion, goodness, bravery, ability, illness, trauma, romance, relationship or career, require no enduring harm, awaiting rescue, drinking, combat, navigation or magical practice, and convert into no MBTI or other character quiz."
+        "zh": "这是独立创作的非官方同人测验。官方资料用于人物集合与背景，不验证本站题目、映射或计分。本题本尚无信度、效度与常模验证，适合娱乐阅读和具体自我观察。",
+        "en": "It is an independently authored unofficial fan quiz. Official sources establish roster and context, not these items, mappings or scoring. Reliability, validity and norms are unestablished; use it for entertainment and concrete reflection."
       }
     },
     {
       "question": {
-        "zh": "完整结果、重测和分享免费吗？",
-        "en": "Are full results, retaking and sharing free?"
+        "zh": "怎样实际使用结果，可以换算其他测评吗？",
+        "en": "How can I use the result, and can it convert to another assessment?"
       },
       "answer": {
-        "zh": "免费，无需注册、邮箱或另一测试。可先读13份公开说明，完成26题后全部最高并列完整显示；重测清除本次选择，分享自选且不含答案或次数。后续MBTI另行作答，不由角色次数换算，也不是解锁结果的条件。",
-        "en": "They are free without signup, email or another test. Read all thirteen public guides first; every highest tie appears after 26 choices. Retaking clears the attempt. Optional sharing includes no answers or counts. Further MBTI questions require separate responses rather than conversion and do not unlock these results."
+        "zh": "从一个自愿小活动试一条表达、澄清或合作约定，再看具体反馈，不必模仿剧情。结果不能换算MBTI、大五、能力、职业或关系结论；其他测评需要各自题目与证据。",
+        "en": "Try one expression, clarification or agreement in an optional activity and check feedback without imitating plots. Results do not convert into MBTI, Big Five, ability, career or relationship conclusions; other assessments need their own items and evidence."
+      }
+    },
+    {
+      "question": {
+        "zh": "免费吗，开始后要再次同意吗？",
+        "en": "Is it free, with another agreement after Start?"
+      },
+      "answer": {
+        "zh": "全部26题、次数、并列与13份完整指南免费，无需注册或先做其他测试。点击开始直接进入题目，没有额外同意步骤。约8分钟是参考，不限时。",
+        "en": "All 26 questions, counts, ties and thirteen full guides are free without signup or another test. Start opens questions directly without an extra agreement. About eight minutes is an estimate, not a limit."
+      }
+    },
+    {
+      "question": {
+        "zh": "答案在哪里保存，分享会公开答案吗？",
+        "en": "Where are answers stored, and does sharing reveal them?"
+      },
+      "answer": {
+        "zh": "答案在浏览器内计分，不通过计分请求上传、不进入网址或分析事件。可选本标签页草稿24小时失效，完成、重测或退出清除删除。公开分享指南不含私人答卷或次数，其他使用事件依隐私设置。",
+        "en": "Answers are scored in the browser, not included in scoring uploads, URLs or analytics events. Optional tab drafts expire after 24 hours and clear on completion, retake or exit-and-clear. Shared public guides contain no private answers or counts; other usage events follow privacy settings."
       }
     }
   ],

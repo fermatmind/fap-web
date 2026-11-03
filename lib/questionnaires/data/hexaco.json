@@ -15,17 +15,17 @@
     "zh": "IPIP六个连续领域的完整读法"
   },
   "description": {
-    "en": "Take the free 240-item preliminary IPIP HEXACO test. Read six domain means, reverse scoring, missing information and full bilingual guides. No fixed types.",
-    "zh": "免费HEXACO人格测试：完整preliminary IPIP240条，六个连续领域分别显示原始和、均分或资料不足；含反向计分、具体例子、完整双语指南，不派六种人格。"
+    "zh": "免费完成早期IPIP HEXACO240题，分别查看六领域原始和、均分与完整指南。含反向计分算例、NA读法和研究来源；约35分钟，无需注册。",
+    "en": "Take 240 preliminary IPIP HEXACO items. Read six domain sums, means, full guides, reverse scoring and NA rules. Free, about 35 minutes, no sign-up."
   },
   "seoTitle": {
-    "en": "HEXACO Personality Test: 240 IPIP Items and Free Results",
-    "zh": "HEXACO人格测试：IPIP240题与六维免费完整结果"
+    "zh": "HEXACO人格测试：IPIP240题、六领域与完整解读",
+    "en": "HEXACO Personality Test: 240 IPIP Items & Six Full Guides"
   },
   "minutes": 35,
   "introduction": {
-    "en": "Explore six domains: Honesty–Humility, Emotionality, Extraversion, Agreeableness, Conscientiousness and Openness to Experience. This edition retains all 240 English items and keys from the preliminary public-domain IPIP bank, forty per domain, with our Chinese trial translation. It is not the current official HEXACO-PI-R sixty or hundred item inventory, nor Big Five with one score added. After all selections, fully rated domains show a raw sum and mean; a domain with any NA remains insufficient. All six eight-section guides appear together, covering higher, lower, middle and mixed responses, examples, counterexamples and next steps. No highest trait becomes a type, percentile, diagnosis or career recommendation. The full attempt and reports are free without signup or another test.",
-    "zh": "观察诚实—谦逊、情绪性、外向性、宜人性、尽责性与经验开放性六个领域。本版保留preliminary公有领域IPIP完整240条英文和键向，每域40条，中文为本站试译；不是当前官方HEXACO-PI-R60或100题版，也不是大五加一个分数。完成所有选择后，完整有效的领域显示原始和与均分，任一NA使该领域保留不足。六份各八节指南同时呈现，覆盖较高、较低、中间混合、例子反例与下一步。不按最高特质派型，不给百分位、诊断或职业推荐。完整作答与报告免费，无需注册或另一测试。"
+    "zh": "通过早期公有领域IPIP的240条自评，分别观察诚实—谦逊、情绪性、外向性、宜人性、尽责性与经验开放性。约35分钟，免费阅读六领域原始和、均分或资料不足说明，以及全部六篇完整指南。英文保留原题与键向，中文为费马试译。",
+    "en": "Explore Honesty–Humility, Emotionality, Extraversion, Agreeableness, Conscientiousness and Openness through all 240 preliminary public-domain IPIP items. In about thirty-five minutes, view each domain’s sum, mean or insufficient-information status and all six full guides, free. English wording and keys are retained; Chinese is FermatMind’s trial translation."
   },
   "instructions": {
     "en": "Answer how accurately each English statement or Chinese trial translation describes you as you generally are now, not how you wish to appear. Five accuracy options run from one to five; a separate NA is available for insufficient information, inapplicability or preferring not to answer. The full bank contains potentially uncomfortable statements about money, worry and conflict; no incidents or identifying details are entered. All 240 items need a selection. Each domain needs all forty valid ratings; any NA withholds that domain, without estimating from other answers. Domains are interleaved. Optional tab saving can help you pause; no personal answers are included in a public guide link.",

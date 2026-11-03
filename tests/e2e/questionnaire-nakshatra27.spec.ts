@@ -61,7 +61,7 @@ for (const locale of ["en", "zh"] as const) {
     await fill(page); await complete(page, locale, fixtures.single.profileIds);
     await page.getByRole("button", { name: locale === "zh" ? "复制公开入口和全部指南网址" : "Copy public calculator and all guide URLs", exact: true }).click();
     const copied = await page.evaluate(() => (window as unknown as { __nakCopied: string }).__nakCopied); expect(copied.split("\n")).toHaveLength(28); expect(copied).not.toMatch(/2000-01-01|12:00|zone=|\?/);
-    await page.getByRole("link", { name: locale === "zh" ? "全部测试与工具" : "All tests and tools", exact: true }).click(); await expect(page).toHaveURL(new RegExp(`/${locale}/tests#more-tests$`)); await page.goBack();
+    await page.locator("#nakshatra-all-guides + p + ul a").first().click(); await expect(page).toHaveURL(new RegExp(`/results/${quiz.profiles[0].id}$`)); await page.goBack();
     for (const id of ["date", "time", "zone"]) await expect(page.locator(`#nakshatra-${id}`)).toHaveValue(""); await expect(page.locator("[data-nakshatra-report]")).toHaveCount(0);
     await fill(page); await page.reload(); await expect(page.locator("#nakshatra-date")).toHaveValue("");
     await fill(page); const other = locale === "en" ? "zh" : "en"; await page.goto(path(other)); await expect(page.locator("#nakshatra-date")).toHaveValue(""); await expect(page.locator("#nakshatra-zone")).toHaveValue("");

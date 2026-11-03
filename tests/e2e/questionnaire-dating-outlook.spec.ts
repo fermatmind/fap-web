@@ -36,7 +36,7 @@ for (const locale of ["en", "zh"] as const) {
     await page.goto(`/${locale}/tests`);
     await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.locator("[data-explore-start]").click();
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, zh, false);
@@ -50,7 +50,7 @@ for (const locale of ["en", "zh"] as const) {
   });
   test(`@release dating-outlook ${locale}: opt-in draft reload, back edit and exit clearing`, async ({ page }) => {
     await page.goto(entry);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.locator("[data-explore-start]").click();
     await page.locator('input[name="DO_01"][value="2"]').check();
     await page.getByRole("checkbox").check();
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();

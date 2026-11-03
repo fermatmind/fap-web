@@ -39,7 +39,7 @@ for (const locale of ["en", "zh"] as const) {
     await page.setViewportSize({ width: 390, height: 844 }); const seen = privateRequests(page);
     await page.goto(`/${locale}/tests`); await acceptCookies(page, zh); await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]); await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${path}`);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.locator('[data-explore-start]').click();
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     const order = await page.getByRole("radio").evaluateAll(nodes => nodes.map(n => (n as HTMLInputElement).value)); expect(order.at(-1)).toBe("na");
     await page.locator(`input[value="${values[0]}"]`).check(); await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click();
@@ -49,11 +49,11 @@ for (const locale of ["en", "zh"] as const) {
     await finish(page, zh, "scored"); await expect(page.locator("[data-weton-calendar-result]")).toContainText("Jumat Legi");
     await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click(); await expect(page.locator('input[type="date"]')).toHaveValue(""); await expect(page.locator("select")).toHaveValue("unknown"); await expect(page.locator("[data-weton-count], [data-weton-calendar-result]")).toHaveCount(0);
     await page.locator('input[type="date"]').fill("2026-05-01"); await page.getByRole("button", { name: zh ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click(); await expect(page.locator('input[type="date"]')).toHaveValue("");
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await expect(page.getByRole("radio").first()).not.toBeChecked(); expect(seen).toEqual([]);
+    await page.locator('[data-explore-start]').click(); await expect(page.getByRole("radio").first()).not.toBeChecked(); expect(seen).toEqual([]);
   });
 
   test(`@release Weton stories ${locale}: allNA and singleNA finish without any personal ranks or matches`, async ({ page }) => {
-    const seen = privateRequests(page); await page.goto(path); await acceptCookies(page, zh); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await finish(page, zh, "na");
+    const seen = privateRequests(page); await page.goto(path); await acceptCookies(page, zh); await page.locator('[data-explore-start]').click(); await finish(page, zh, "na");
     await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click(); await finish(page, zh, "one-na");
     await expect(page.getByRole("button", { name: /Copy result|复制结果/ })).toHaveCount(0); expect(seen).toEqual([]);
   });
@@ -69,10 +69,10 @@ for (const locale of ["en", "zh"] as const) {
       Storage.prototype.removeItem = function(k) { if (k === key) { touches.push("remove"); throw new Error("synthetic storage denial"); } return remove.call(this, k); };
     });
     await page.goto(path); await expect(page.getByRole("button", { name: /Resume this tab|恢复本标签页/ })).toHaveCount(0); await expect(page.locator('input[type="date"]')).toHaveValue("");
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await expect(page.locator('input[value="senin"]')).not.toBeChecked(); await page.locator('input[value="senin"]').check(); await page.locator('input[type="date"]').fill("1945-08-17");
+    await page.locator('[data-explore-start]').click(); await expect(page.locator('input[value="senin"]')).not.toBeChecked(); await page.locator('input[value="senin"]').check(); await page.locator('input[type="date"]').fill("1945-08-17");
     expect(await page.evaluate(() => (window as Window & { wetonStorageTouches?: string[] }).wetonStorageTouches)).toEqual([]);
-    await page.reload(); await expect(page.locator('input[type="date"]')).toHaveValue(""); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await expect(page.locator('input[value="senin"]')).not.toBeChecked();
-    const other = zh ? "en" : "zh"; await page.goto(`/${other}/tests/explore/weton-story-preferences`); await expect(page.locator('input[type="date"]')).toHaveValue(""); await page.getByRole("button", { name: other === "zh" ? "开始测试" : "Start test", exact: true }).click(); await expect(page.locator('input[value="senin"]')).not.toBeChecked();
+    await page.reload(); await expect(page.locator('input[type="date"]')).toHaveValue(""); await page.locator('[data-explore-start]').click(); await expect(page.locator('input[value="senin"]')).not.toBeChecked();
+    const other = zh ? "en" : "zh"; await page.goto(`/${other}/tests/explore/weton-story-preferences`); await expect(page.locator('input[type="date"]')).toHaveValue(""); await page.locator('[data-explore-start]').click(); await expect(page.locator('input[value="senin"]')).not.toBeChecked();
     expect(await page.evaluate(() => (window as Window & { wetonStorageTouches?: string[] }).wetonStorageTouches)).toEqual([]);
   });
 }

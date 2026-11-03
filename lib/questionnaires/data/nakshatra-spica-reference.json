@@ -10,8 +10,8 @@
     "zh": "Nakshatra出生宿计算器：Spica参考口径"
   },
   "description": {
-    "en": "Use a known birth date, time and birthplace zone to calculate a geometric Spica-reference Moon sector. Read all 27 full cultural guides, with symbols, gana, rulers and boundary comparisons.",
-    "zh": "用已知出生日期、时间与出生地时区，计算几何Spica参考月球区段。27篇完整文化指南全部公开，说明符号、gana、主星与边界比较。"
+    "en": "Calculate a Spica-reference birth star and pada from a known birth date, time and historical time zone. Inspect Moon longitudes, boundary comparisons and all 27 free cultural guides.",
+    "zh": "用已知出生日期、时间与历史时区，计算角宿一参考出生宿及四分区；查看月球黄经、边界对照与全部27篇免费文化指南。"
   },
   "seoTitle": {
     "en": "Nakshatra Calculator: Spica-Reference Moon & 27 Guides",
@@ -19,8 +19,8 @@
   },
   "minutes": 2,
   "introduction": {
-    "en": "A birth star begins with a Moon position and a named reference convention. This calculator keeps that coordinate work visible and connects it to complete cultural readings. You can explore every symbol without entering birth details or accepting it as a personality label.",
-    "zh": "出生宿从月球位置与明确的参考口径开始。计算器展示坐标怎样得出，再接到完整文化解释；全部符号均可直接探索，无需输入出生资料或接受人格标签。"
+    "en": "A birth-star result depends on a recorded instant and an explicit reference convention. This calculator shows the coordinate steps alongside 27 complete cultural readings, keeping traditional associations and original reflection separate from the astronomical calculation.",
+    "zh": "出生宿结果取决于记录的时刻和明确的参考口径。本计算器展示坐标计算步骤，并提供27篇完整文化读法，将传统对应、原创反思与天文计算分别说明。"
   },
   "instructions": {
     "en": "Enter a known Gregorian date and local minute from 1900 through now, then explicitly choose and confirm the birthplace’s historical IANA zone. Unknown time receives no substitute. This edition is a fixed-Spica approximation, not certified exact Lahiri or IMD.",

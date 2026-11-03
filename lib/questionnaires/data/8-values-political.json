@@ -10,12 +10,12 @@
     "zh": "8 Values 政治价值观测试"
   },
   "seoTitle": {
-    "en": "8 Values Political Test: Four Axes & Full Free Guides",
-    "zh": "8 Values政治价值观测试：70题、四轴八极与完整解读"
+    "zh": "8 Values政治价值观测试：70题与四轴完整解读",
+    "en": "8 Values Political Test: 70 Questions & Four-Axis Guides"
   },
   "description": {
-    "en": "Answer the MIT-adapted 70-item bank. Read four axes, eight complementary values and full free bilingual guides. No party label or population percentile.",
-    "zh": "MIT许可原版70题译编，原题权重保留。完整作答后分开读四轴八极及八篇免费双语指南，含互补、中间混合与反例；不强派政党或意识形态，百分数不是人口百分位。"
+    "zh": "完成MIT开源版70题，分开阅读经济、外交、公民与社会四轴八极。免费查看加权结果、互补百分数和八篇完整指南；无需注册，不计时。",
+    "en": "Explore four political axes with 70 MIT-adapted statements. Read paired percentages, worked scoring and eight full guides. Free, untimed, no sign-up."
   },
   "minutes": 15,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "逐一评定70条陈述，从非常不同意到非常同意。中立／不确定是有效零乘数，区别于缺答，无标准答案。英文及正负权重依所列上游版，中文为本版翻译，未独立验证等值。有些表述可能宽泛、敏感或有年代感；可退出，不给部分分数。条目是待回应观点，不代表费马背书的事实。不计时，15分钟是粗略安排参考；重测同一固定题组。"
   },
   "introduction": {
-    "en": "Explore the four axes of the open-source 8values questionnaire: economic, diplomatic, civil and societal. This edition preserves the pinned original 70 English statements and their cross-axis weights under the MIT License, adds an author-produced Chinese translation and eight original complete reading guides, and shows both ends of every axis. It is an adaptation of that identified bank, not IDRlabs’ modified edition or the Political Compass Test. Percentages normalize this attempt’s weighted responses; they are not population percentiles, probabilities or validated political identities. There is no closest-ideology assignment, party recommendation or voting advice. All eight guides are free before or after answering.",
-    "zh": "探索开源8values问卷的经济、外交、公民与社会四轴。本版按MIT许可保留固定原版70条英文及跨轴权重，加入作者中文译文与八篇原创完整读法，同时显示每轴两端。这是所列题本改编，不是IDRlabs修改版或Political Compass Test。百分数归一本次加权回应，不是人口百分位、概率或已验证政治身份。不作最近意识形态派型、政党推荐或投票建议；八篇指南作答前后都免费。"
+    "zh": "8 Values政治价值观测试以经济、外交、公民与社会四轴，整理你对70条陈述的同意程度。本版保留固定MIT开源题本的英文及跨轴权重，配中文译文与八篇原创完整指南。每轴两端合100%，结合具体议题、互补端和混合看法阅读，不自动指定意识形态或政党。公式可复算；本版尚未独立建立中文等值、常模或心理测量效度。",
+    "en": "The 8 Values Political Test summarizes agreement with seventy statements on economic, diplomatic, civil and societal axes. This edition preserves English items and cross-axis weights from an identified MIT-licensed revision, adding Chinese wording and eight original complete guides. Each pair adds to one hundred percent. Read the issues, complementary pole and mixed views without an automatic ideology or party assignment. Arithmetic is reproducible; Chinese equivalence, norms and psychometric validity have not been independently established for this edition."
   },
   "resultHeading": {
     "en": "Your four axes and eight paired values",

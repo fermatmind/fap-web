@@ -14,13 +14,13 @@
     "zh": "九星气学节年参考与九篇文化指南"
   },
   "description": {
-    "en": "Find a conditional Nine Star Ki year label from a Gregorian year and its Beginning of Spring boundary. Explore nine cultural guides, with both labels retained when timing is uncertain.",
-    "zh": "按公历年份与立春界点查看有条件的九星节年标签，阅读九篇文化指南。时刻不确定时保留两个标签，不据出生年份测量人格或预测未来。"
+    "en": "Calculate a conditional Nine Star Ki year label from a Gregorian year and its Beginning of Spring boundary. Check the JST time, worked arithmetic and nine complete cultural guides. Uncertain timing keeps both possibilities.",
+    "zh": "按公历年份与立春界点计算有条件的九星节年标签，核对JST时刻、完整算例及九篇文化指南；时刻不清楚时保留两个可能结果。"
   },
   "minutes": 2,
   "introduction": {
-    "en": "Nine Star Ki uses nine inherited number, colour and phase labels. This tool follows one annual convention: the season changes at Beginning of Spring. It shows that boundary in Japanese Standard Time and asks you to choose a side explicitly. The nine guides explain cultural images and original everyday examples; they remain open without entering a year.",
-    "zh": "九星气学使用九个由数字、传统色名和五行组成的标签。本工具采用一种年度规则：立春时刻划分节年。页面用日本标准时显示界点，由你明确选择前后。九篇指南解释文化图像与原创日常例子，无需输入年份也能阅读。"
+    "en": "Read the calendar rule, traditional symbols and everyday analogies as separate layers. Nine Star Ki uses nine inherited number, colour and phase labels. This tool follows one annual convention: the season changes at Beginning of Spring. It shows that boundary in Japanese Standard Time and asks you to choose a side explicitly. The nine guides explain cultural images and original everyday examples; they remain open without entering a year.",
+    "zh": "把历法规则、传统符号与日常类比分层阅读。九星气学使用九个由数字、传统色名和五行组成的标签。本工具采用一种年度规则：立春时刻划分节年。页面用日本标准时显示界点，由你明确选择前后。九篇指南解释文化图像与原创日常例子，无需输入年份也能阅读。"
   },
   "instructions": {
     "en": "Enter a Gregorian year, then compare the birth moment with the displayed Beginning of Spring boundary in Japanese Standard Time (UTC+09:00). Select a side only if you can place that moment clearly before or after it; otherwise keep both possibilities. The displayed time is rounded to a minute, so a birth within that minute remains uncertain. This calculates one traditional year-star reference, not a complete birth chart or a measured personality.",

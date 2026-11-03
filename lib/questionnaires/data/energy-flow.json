@@ -15,8 +15,8 @@
     "zh": "精力与专注节奏自评：20题与四组完整免费读法"
   },
   "description": {
-    "en": "Explore timing, effort blocks, focus conditions and pauses with 20 original ratings. Four full readings free; no chronotype or productivity score.",
-    "zh": "用20道原创评分，回看时间偏好、分段投入、专注条件与暂停后的感受。四组完整读法免费，不测生理作息型、不评产出或恢复能力。"
+    "en": "Explore four energy and focus topics with 20 original ratings. Check separate means, numeric coverage and four full guides free, without signup.",
+    "zh": "完成20道原创精力与专注节奏自评，分别查看时段偏好、分段投入、专注条件与暂停感受的均值、数字覆盖及四篇完整指南。免费，无需注册。"
   },
   "minutes": 6,
   "instructions": {
@@ -24,8 +24,8 @@
     "zh": "回想过去两周，从1至5评价题文多符合经验，3包含部分符合／视情况。适当时可选“没有合适机会／不想评价”。二十题都需回应，每个五题主题至少三项数字才给均值；四组独立，不合总分、不派型。可以停止，也可不答题直接读全部完整指南。六分钟为编辑估计。"
   },
   "introduction": {
-    "en": "When does an activity feel easier to start, and what conditions feel inviting? Explore four separate recent-experience topics through twenty original statements. See raw sums, numeric coverage and means alongside specific complete readings, examples and optional observations. This profile does not measure biological timing, flow, performance or health.",
-    "zh": "什么时候更愿意开始活动，哪些条件让人想投入？用二十句原创题文探索四组独立近期经验，结合原始和、数字覆盖与均值，读完整解释、具体算例与可选观察。本自评不测生理作息、心流、表现或健康。"
+    "en": "Reflect on the past two weeks through twenty original statements about earlier waking-day activities, bounded effort, low-interruption conditions and willingness after pauses. Read four separate records with raw sums, numeric coverage and means where available, plus complete examples and explanations.",
+    "zh": "通过二十条原创陈述，回看过去两周的较早清醒时段活动、分段投入、低干扰条件与暂停后的投入意愿。分别阅读四组原始和、数字覆盖与可计算的均值，并查看完整例子和解释。"
   },
   "resultHeading": {
     "en": "Your four separate Energy & Flow readings",

@@ -35,12 +35,12 @@
     "zh": "打字速度测试"
   },
   "seoTitle": {
-    "en": "Typing Speed Test: 60-Second English & Chinese Practice",
-    "zh": "打字速度测试：英文WPM、中文CPM、60秒与准确率"
+    "zh": "打字速度测试：60秒英文WPM、中文CPM与准确率",
+    "en": "Typing Speed Test: 60-Second WPM, CPM & Accuracy"
   },
   "description": {
-    "en": "Type original English or Chinese for 60 seconds. Get WPM or CPM, positional accuracy and two free guides. Corrections allowed; no signup or speed bands.",
-    "zh": "真实计时60秒抄录原创英文或中文，分别查看WPM或CPM、逐位置准确率和两份免费完整指南。允许改错，无需注册，不分速度等级或颁证。"
+    "zh": "用原创英文或中文进行60秒打字练习，查看WPM或CPM、最终文本准确率和两份完整指南。允许改错，免费，无需注册。",
+    "en": "Practise English or Chinese typing for 60 seconds. View WPM or CPM, final-text accuracy and both full guides. Free, corrections allowed, no sign-up."
   },
   "minutes": 2,
   "instructions": {
@@ -48,8 +48,8 @@
     "zh": "选英文或中文，按开始进入完整60秒，再手动抄录原创原文。允许退格和替换；只计截止前最终已提交文本，未完成的输入法组字排除。英文按五字符单位算WPM，中文报CPM不折算WPM；空格及标点计字符。逐位置准确率为匹配字符/已输入字符，空输入不报准确率。这不数物理按键、不算编辑距离，也不是雇主考试或证书。"
   },
   "introduction": {
-    "en": "Use a real one-minute copy round, then review what your speed and accuracy actually describe. Two independently written fictional passages stay in their original English and Chinese in both interfaces. The result separates final output from positional matches and states the correction, timing and IME rules. All metrics and both complete language guides are free at every result. Device, keyboard, input-method help and passage familiarity can affect the attempt. No population norms, fast/slow labels, cross-language equivalence, job-performance prediction or recruitment cutoff is established.",
-    "zh": "用真实一分钟抄录，再看清速度和准确率具体描述什么。两段独立写作的虚构英文及中文，在两种界面均保留原文。结果分开最终输出与逐位置匹配，并说明改错、计时及组字口径；所有指标及两份完整语言指南免费。设备、键盘、输入法辅助和原文熟悉度可能影响本轮，没有建立人群常模、快慢标签、跨语言等价、工作表现预测或招聘线。"
+    "zh": "本页用固定60秒抄录，记录最终已提交字符与原文同位置匹配。英文按五字符单位报告总WPM及正确WPM，中文报告CPM；准确率结合改错、漏字和输入法提交规则阅读。两份完整语言指南免费，原文在中英文界面保持各自语言。结果描述指定条件下的一次练习，比较时需核对材料、设备与输入方式。",
+    "en": "This fixed sixty-second copy task records final committed characters and source-position matches. English reports gross and position-correct WPM in five-character units; Chinese reports CPM. Interpret accuracy alongside corrections, omissions and input-method commitment. Both language guides are free, and passages retain their original languages in either interface. Results describe one attempt under specified conditions; compare material, devices and input methods before comparing figures."
   },
   "resultHeading": {
     "en": "Your 60-second typing result",

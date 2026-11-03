@@ -15,17 +15,17 @@
     "en": "Your four learning-format preferences"
   },
   "description": {
-    "zh": "用20条原创题观察你现在对图示、口头、读写与实例实践的使用意愿。四项均分和全部完整解释免费，无需注册；含同一内容示例、比较与反例，不测学习能力或保证按类型教学更有效。",
-    "en": "Explore four learning-format preferences with 20 original ratings and full free guides. No signup, fixed learner type, ability score or matched-teaching promise."
+    "zh": "通过20条原创题，探索当前对图示、口头解释、阅读书写与实例实践的使用意愿。约5分钟，免费查看四项独立均分、计分算例及完整指南，无需注册。",
+    "en": "Explore current preferences for diagrams, spoken explanations, reading and writing, and practical examples with 20 original items. Free separate means, scoring examples and full guides; about five minutes, no signup."
   },
   "seoTitle": {
-    "zh": "学习风格测试：20题、学习偏好与完整结果",
-    "en": "Learning Style Test: 20 Questions, Full Preference Guides"
+    "zh": "学习风格测试：20题、四项学习偏好与完整指南",
+    "en": "Learning Style Test: 20 Items, Four Preferences and Full Guides"
   },
   "minutes": 5,
   "introduction": {
-    "zh": "面对自己选择的新内容，你现在想先看关系图、听讲解、读写文字，还是看实例并试一小步？本版用20条原创情境描述整理四种形式的使用意愿，不做记忆、速度或理解测验。可以同时想用多种形式，也可以觉得目前都不适合；结果不会把你关进固定学习类型。实际材料、任务与可访问需要仍要分别考虑。",
-    "en": "For new material you chose, would you currently like a diagram, a spoken explanation, written steps or an example and a small trial? Twenty original situation descriptions organise desire for four formats without memory, speed or comprehension testing. You may want several formats or none of those currently available. The result assigns no fixed learner identity; material, task and access needs still matter separately."
+    "zh": "学习风格测试通过20条原创自评，分别观察你现在对图示与空间关系、口头解释与讨论、阅读与书写、实例与动手尝试的使用意愿。四项结果独立呈现，帮助你为一项具体学习任务选择愿意尝试的入口。约5分钟，免费查看有效题数、原始和、均分与四份完整指南，包含同一内容的不同呈现、反例和研究解读。",
+    "en": "This Learning Style Test uses 20 original self-report items to explore how much you currently want diagrams and spatial layouts, spoken explanations and discussion, reading and writing, and examples with practical trials. Four independent results help you choose an approach to try for a specific task. In about five minutes, view rated-item counts, raw sums, means and four free complete guides, including alternative presentations of the same content, counterexamples and research interpretation."
   },
   "instructions": {
     "zh": "想一项你自己选择、材料可访问、可安全开展的普通学习内容。对下面每种安排，回答你现在有多想采用，而不是它是否让你学得更快：1完全不想用至5很想用。没有条件判断、不适用或材料不可访问时选NA；不能访问不代表不喜欢或能力不足。全部20条先选择，每部分5条至少3条有效才显示均分；没有反向题，不测记忆、成绩、稳定脑类型或最佳教学方式。",
@@ -1967,78 +1967,170 @@
     {
       "id": "facet-scoring",
       "title": {
-        "zh": "当前意愿怎样计算",
-        "en": "Calculating current desire"
+        "zh": "20题怎样计分？四项独立均分与NA",
+        "en": "How are 20 items scored? Four separate means and NA"
       },
       "paragraphs": [
         {
-          "zh": "全部20条先选择。每部分5条，至少3条有效评分才计算1完全不想用至5很想用的一位小数均分。没有反向条目，NA排除不补零；最低条数只是本站完整度规则，不是验证过的缺失数据方案。四项分别显示，不合总分，不按最高、近分或并列派类型，不计算脑类型比例。相差0.1不证明显著、能力、效果或改变，有效题数不同也不宜精确比较。",
-          "en": "Complete all 20 selections. Each five-item part needs three ratings for a one-decimal mean from 1 Not at all to 5 Very much wanting to use the format. There are no reverse items; NA is excluded without zero-filling. The minimum is a website completeness rule, not a validated missing-data protocol. Four separate means create no total, highest, close-score or tied type, or brain-type percentages. A 0.1 difference establishes neither significance, ability, effectiveness nor change, and differing rated counts limit precise comparison."
+          "zh": "四部分各5条，按当前使用意愿选择1完全不想用、2不太想用、3一般、4比较想用、5很想用。没有反向题；同部分有效数字相加得到S，以有效题数n计算S÷n，保留一位小数。每部分至少3条有效才显示均分，四项不合成总分、百分比或主导学习者类型。",
+          "en": "Each of four parts has five items rated for current desire: 1 Not at all, 2 Not much, 3 Moderately, 4 Quite a lot and 5 Very much. No items are reversed. Sum numeric ratings within a part to obtain S, divide by their count n and round to one decimal. At least three ratings are needed per part. Four means produce no overall score, percentage or dominant learner type."
+        },
+        {
+          "zh": "例如一部分回答2、4、5、NA、NA，有效和为11、有效题数为3，11÷3≈3.7。若只有3、5与三个NA，就显示资料不足；NA不记0、不补3，也不表示完全不想用。至少3条有效只是本站显示完整度规则，并非经过验证的缺失数据估计方法。",
+          "en": "For ratings 2, 4, 5, NA and NA, the sum is 11 across three ratings: 11/3≈3.7. Ratings 3 and 5 with three NA responses give insufficient information. NA is not zero, a substituted 3 or complete unwillingness. The three-rating requirement is a website completeness rule, not a validated missing-data estimation method."
         }
       ]
     },
     {
       "id": "facet-reading",
       "title": {
-        "zh": "偏好与学习效果分开",
-        "en": "Preference and learning effects differ"
+        "zh": "怎样理解均分？想用、会用与学得好",
+        "en": "Reading means: wanting a format, using it and learning well"
       },
       "paragraphs": [
         {
-          "zh": "本次“想用”不能证明哪种方法让你学得更快、记得更久或成绩更高。四份公开说明都可先读，全部结果保留高低与混合读法、同一内容的不同呈现和反例，不派主导或固定脑类型，也不把四项之和变成占比。",
-          "en": "Wanting a format here does not establish faster learning, longer retention or higher grades. All four public guides are available first, retaining higher, lower and mixed readings, alternative presentations of the same content and counterexamples. There is no dominant or fixed brain type or percentage based on summed means."
+          "zh": "均分概括你在本组情境中表达的使用意愿。题目没有要求你证明这种形式让你记得更久、理解更深或成绩更高。口头解释均分高，不能推出听觉记忆更强；图示均分低，也不能推出空间推理弱。它们需要不同任务和证据来检验。",
+          "en": "A mean summarises expressed willingness within these situations. Items do not ask you to demonstrate better retention, deeper understanding or higher grades. A higher spoken-explanation mean cannot establish stronger auditory memory, and a lower diagram mean cannot establish weaker spatial reasoning. Those require different tasks and evidence."
+        },
+        {
+          "zh": "先核对具体题目、有效题数和眼前的学习目标，再阅读四份指南。0.1的差异没有统计显著性或重要变化阈值支持，有效题数不同也限制精确比较。结果可以帮助开启一次尝试，不决定课程、专业、职业或应获得的学习支持。",
+          "en": "Review individual items, rated-item counts and the current learning goal before reading all four guides. A 0.1 difference has no established statistical-significance or meaningful-change threshold, and differing rated counts limit precise comparison. Results can prompt a trial, without deciding courses, majors, careers or learning support."
         }
       ]
     },
     {
       "id": "facet-comparison",
       "title": {
-        "zh": "多种形式、情境与NA",
-        "en": "Multiple formats, context and NA"
+        "zh": "多项同时想用、都低与资料不足",
+        "en": "Several preferred formats, low ratings and insufficient information"
       },
       "paragraphs": [
         {
-          "zh": "图示、口头、读写和实例可能出现在同一份材料里。均分相同就如实显示，相近不强行归型；都较高不认证全面，都较低不代表不会学习。材料不可访问或无法判断时选NA，不把无障碍需要当低偏好；本测试不决定你应获得哪些支持。",
-          "en": "Diagrams, speech, text and examples can appear in one resource. Equal means remain equal and close means assign no type. All-high responses certify no all-round ability, and all-low responses imply no learning deficit. Use NA for inaccessible material or inability to judge; access needs are not low preferences, and this test does not decide support."
+          "zh": "四项可以同时较高、较低、相同或相近，系统均如实保留，不要求选出一种真正类型。图示配文字、口头说明配演示，可以出现在同一份材料里；四项也不相互扣分。都高不认证全面能力，都低不说明缺少学习兴趣或不会学习。",
+          "en": "All four means may be higher, lower, equal or close; no true type must be selected. Diagrams with text or speech with a demonstration can coexist in one resource, and ratings do not subtract from another part. All-high ratings certify no all-round ability; all-low ratings establish neither low interest nor inability to learn."
+        },
+        {
+          "zh": "材料不可访问、情境不适用或没有条件判断时选NA，仍可阅读全部指南。不能看清图示或听清录音是访问条件问题，不能据此当作不喜欢或能力不足。字幕、文字说明、可读格式与辅助工具的需要，应按实际条件讨论，不由本测试决定。",
+          "en": "Choose NA when material is inaccessible, a situation is inapplicable or you cannot judge; all guides remain available. Difficulty seeing a diagram or hearing audio concerns access and cannot be coded as dislike or low ability. Discuss captions, text descriptions, readable formats and assistive tools according to actual needs rather than this quiz."
+        }
+      ]
+    },
+    {
+      "id": "formats",
+      "title": {
+        "zh": "四种学习形式具体指什么？",
+        "en": "What do the four learning formats mean?"
+      },
+      "paragraphs": [
+        {
+          "zh": "图示与空间关系关注箭头、位置、连接和结构概览；口头解释与讨论关注可暂停的讲解、提问与用自己的话表达；阅读与书写关注按自己节奏阅读、列提纲与写出问题；实例与动手尝试关注普通例子和可安全撤回的小操作。四部分各用五个学习情境展开，不评感官优势、人格或智力。",
+          "en": "Diagrams and spatial layouts concern arrows, positions, connections and overviews. Spoken explanation and discussion concern pausable speech, questions and expressing ideas aloud. Reading and writing concern self-paced text, outlines and written questions. Examples and practical trials concern ordinary examples and safe, reversible actions. Five situations per part explore these arrangements rather than sensory superiority, personality or intelligence."
+        },
+        {
+          "zh": "动手不等于身体越活跃越学得好，口头不等于必须社交，图示也不等于所有视频。比如带字幕的演示可能同时包括文字、动作和口头说明。请按题目描述的具体安排回答，不由某个媒体名称反推你的类型。",
+          "en": "Practical activity does not mean more bodily movement ensures more learning, speech does not require socialising, and diagrams do not mean every video. A captioned demonstration may combine text, action and speech. Answer the specific arrangement described rather than inferring a type from a medium’s name."
+        }
+      ]
+    },
+    {
+      "id": "same-content",
+      "title": {
+        "zh": "同一内容，怎样试四种呈现？",
+        "en": "How can the same content take four forms?"
+      },
+      "paragraphs": [
+        {
+          "zh": "以整理一份虚构文件的流程为例：图示形式画出“收集→分类→核对”的关系；口头形式听一段可暂停的解释并提出问题；读写形式阅读步骤后写自己的提纲；实例形式用空白卡片走一次流程。四者讨论相同目标，不给四组学习者分别降低或提高任务难度。",
+          "en": "For a fictional file-organising process, a diagram can show collect–sort–check relationships; speech can provide a pausable explanation and questions; text can provide steps followed by your own outline; practice can use blank cards to walk through the process. The goal stays the same rather than changing difficulty for four learner groups."
+        },
+        {
+          "zh": "先记录哪种形式愿意开始，再尝试不看材料说明步骤、解释为什么这样安排，或把规则用于另一个例子。这里区分“愿意用”和“能否回忆、解释、应用”。一次私人小尝试受内容难度、熟悉程度和顺序影响，不能当作证明固定类型或某方法疗效的实验。",
+          "en": "First note which format you want to start with, then try describing steps without the material, explaining their purpose or applying the rule to another example. This separates willingness from recall, explanation and application. One personal trial is affected by difficulty, familiarity and order; it cannot prove a fixed type or a method’s effectiveness."
         }
       ]
     },
     {
       "id": "evidence",
       "title": {
-        "zh": "研究读到哪里，支持什么",
-        "en": "What the research reading supports"
+        "zh": "学习风格科学吗？偏好与匹配假说",
+        "en": "What does research say? Preferences and the matching hypothesis"
       },
       "paragraphs": [
         {
-          "zh": "Pashler等（2008）的正式摘要区分表达偏好与按类型匹配教学的效果，指出当时支持普遍教育应用的充分证据不足，也提醒不能据此断言所有可能版本都被检验。Brown（2023）的叙述综述所读摘要、部分证据与讨论继续未支持匹配假说。本次未全文复审两篇，不从中推导“所有人混合某比例最好”，更不把研究当本站20题有效的证明。",
-          "en": "The formal abstract by Pashler and colleagues (2008) distinguishes expressed preferences from instructional matching, finding insufficient evidence then for general educational application while cautioning that not every possible version had been tested. The abstract, selected evidence and discussion read in Brown’s 2023 narrative review likewise do not support the meshing hypothesis. Neither paper was fully reviewed here. They establish neither an ideal mixture for everyone nor validity of these 20 items."
+          "zh": "学习风格并非单一量表或统一理论。Pashler等的综述区分表达偏好与“匹配假说”：要证明按偏好安排教学更好，需要将不同偏好者随机分配到不同教学方式、使用相同结果测验，并出现不同组各自在不同方式下表现最佳的交叉关系。仅报告喜欢某形式或某组成绩较高，不足以证明匹配有效。本页核对了其正式摘要。[1]",
+          "en": "Learning styles are not one instrument or unified theory. Pashler and colleagues distinguish expressed preferences from the matching hypothesis. Supporting it requires assigning different preference groups randomly to instructional methods, testing everyone on the same outcome and finding different best methods for different groups. Liking a format or one group achieving more is insufficient. The formal abstract was checked here.[1]"
+        },
+        {
+          "zh": "2024年Clinton-Lisell与Litzinger的元分析纳入21项研究，报告小幅总体匹配收益，但支持交叉关系的结果仅占约四分之一，且研究质量存在局限；作者不支持据此广泛推广匹配教学。2025年Hattie与O’Leary的领域反思进一步区分匹配实验与相关研究，提醒不能把偏好与成绩的相关性当作匹配教学的因果证据。研究结论需连同设计阅读，既不承诺“按类型学一定更好”，也不将全部研究简化成从无任何正向结果。[2][3]",
+          "en": "Clinton-Lisell and Litzinger’s 2024 meta-analysis included 21 studies and found a small overall matching benefit, but only about one quarter of outcomes supported the crossover pattern and study quality was limited; the authors did not endorse widespread adoption. Hattie and O’Leary’s 2025 field reflection separates matching experiments from correlations, which cannot establish a causal benefit of matching. Read findings with their designs: neither promise better learning by type nor reduce all research to no positive findings ever.[2][3]"
         }
       ]
     },
     {
-      "id": "scope",
+      "id": "instrument",
       "title": {
-        "zh": "原创题目与版本范围",
-        "en": "Original items and edition scope"
+        "zh": "这是VARK或Kolb原版测试吗？",
+        "en": "Is this the official VARK or Kolb instrument?"
       },
       "paragraphs": [
         {
-          "zh": "本版20条题目与四份完整解释由费马独立编写，观察对普通信息形式的当前使用意愿。没有采用、改写或托管VARK问卷、算法、翻译、报告或帮助材料，也不是Kolb等标准工具；常用形式名称不构成原版量表或验证承诺。研究区分表达偏好与按偏好匹配教学的效果，本版没有测实际成绩、记忆、神经类型或教学效果，没有本站信效度、常模或英中文等价验证。不要据此限制课程、无障碍安排、职业或固定分班。",
-          "en": "FermatMind independently authored these 20 items and four full guides about current desire for ordinary information formats. No VARK questionnaire, algorithm, translation, report or helpsheet is used, rewritten or hosted, and this is not a Kolb or other standard instrument. Familiar format names imply no official scale or validation. Expressed preference and the effects of matching instruction are separate questions. This edition measures no grades, memory, brain type or teaching effect and has no local validation, norms or established English–Chinese equivalence. It does not determine courses, accommodations, careers or fixed classroom groups."
+          "zh": "不是。本版20条题目、算法与四份解释由费马独立编写，不采用或改写VARK、Kolb的题本、译文、报告或帮助材料。四种常见形式的名称不能建立量表等价，不能把本站均分换算成其他工具的类型或分数。VARK官方网站的信效度研究介绍对应其自身问卷，不能套用本站题本。[4]",
+          "en": "No. FermatMind independently authored these 20 items, scoring and four guides without adopting or rewriting VARK or Kolb items, translations, reports or helpsheets. Familiar format names establish no measurement equivalence, and these means cannot convert into another instrument’s types or scores. VARK’s official reliability and validity research concerns its own questionnaire, not these items.[4]"
+        },
+        {
+          "zh": "本题本尚未建立信度、效度、常模或中英文测量等价证据。题目可复算和研究资料可查有助于理解产品，不能替代本站题本验证。它是对当前使用意愿的自我观察，不是学习障碍筛查、记忆测验、脑类型鉴定或教学认证。",
+          "en": "Reliability, validity, norms and English–Chinese measurement equivalence have not been established for this form. Reproducible scoring and readable research help explain the product but do not validate its items. This is current-format self-reflection rather than screening for learning difficulties, testing memory, identifying a brain type or certifying instruction."
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": {
+        "zh": "按任务、访问条件与真实反馈调整",
+        "en": "Adapt to the task, access and actual feedback"
+      },
+      "paragraphs": [
+        {
+          "zh": "学地图中的位置关系、辨认语音差异和练习软件操作，各自要完成的任务不同。先明确需要解释、辨认或操作什么，再选择可访问的材料与练习；愿意使用的形式可以是入口，但不能替代任务需要。也没有本站证据支持每个人都按同一比例混合四种形式。",
+          "en": "Locating places on a map, distinguishing speech sounds and using software involve different tasks. Specify what must be explained, recognised or done, then choose accessible material and practice. A preferred format can be an entry point without replacing task demands. This form also provides no evidence for one fixed mixture of four formats for everyone."
+        },
+        {
+          "zh": "向教师或同伴可以说：“这段流程我还没看懂，能否提供文字步骤，或让我先看一个完整例子？”请求围绕尚未理解的内容和可访问安排展开。无需先证明自己属于某种学习者，也不把一次问卷作为限制他人教学或获得支持的条件。",
+          "en": "A request to a teacher or peer might be: “I do not yet understand this process. Could I have written steps or see a complete example?” Focus on the content and accessible arrangement. You need not prove a learner type or make a quiz a condition for support or a restriction on someone else’s teaching."
+        }
+      ]
+    },
+    {
+      "id": "retest",
+      "title": {
+        "zh": "复测变化、比较与不确定性",
+        "en": "Retesting, comparisons and uncertainty"
+      },
+      "paragraphs": [
+        {
+          "zh": "复测时核对同一版本、语言、学习内容、可用材料和有效题数。今天想听解释、明天想自己读，可能与任务和条件有关，不能仅凭均分变化认定脑类型改变。这里也没有可靠变化阈值或人群排名，不把差值换成改善百分比。",
+          "en": "For retests, check version, language, subject, available resources and rated-item counts. Wanting speech today and text tomorrow may relate to the task and circumstances rather than a changed brain type. No reliable-change threshold or population ranking converts a difference into percentage improvement."
+        },
+        {
+          "zh": "如果想观察学习是否进展，记录能否解释概念、完成任务、发现错误或在之后回忆，并核对材料、时间与帮助条件。这与反复测到满意的偏好分数是两件事；记录仍是具体经历，不证明长期能力或普遍最佳方法。",
+          "en": "To observe progress, record whether you can explain a concept, complete a task, find errors or recall it later, alongside resources, time and help. This differs from repeatedly seeking preferred quiz scores; such notes remain specific experiences rather than proof of long-term ability or a universally best method."
         }
       ]
     },
     {
       "id": "privacy",
       "title": {
-        "zh": "草稿、分享与选择",
-        "en": "Drafts, sharing and choice"
+        "zh": "直接开始、完整免费与可选保存",
+        "en": "Direct start, complete free guides and optional saving"
       },
       "paragraphs": [
         {
-          "zh": "答案在浏览器内计算，不上传答卷、不进入网址或分析事件。草稿仅在主动保存后留在当前标签页，24小时失效，完成、退出清除或重测即删除。分享可选，只含公开说明或入口，不含个人均分和答卷。完整内容无需注册、邮箱或先做MBTI；后续测评是另一套任务，不能换算本次学习偏好。",
-          "en": "Answers are calculated in your browser without uploading an answer sheet or placing answers in URLs or analytics. Drafts require opt-in, remain in the current tab for up to 24 hours and clear on completion, exit-and-clear or retake. Optional sharing contains only a public guide or entry, not means or answers. Full content needs no signup, email or prerequisite MBTI; later assessments are separate tasks and cannot convert these preferences."
+          "zh": "点击开始直接进入题目，没有额外同意复选框。全部20条先选择数字或NA，再生成四项结果；约5分钟只是阅读参考，不限时。题目、均分、资料不足状态与四份完整解释均免费，无需注册、邮箱或先做其他测试。",
+          "en": "Start opens questions directly without an additional agreement checkbox. Complete all 20 selections with a number or NA before generating four results. About five minutes is a reading estimate, not a time limit. Items, means, insufficient-information states and all four full guides are free without signup, email or another prerequisite test."
+        },
+        {
+          "zh": "答案在浏览器内计分，不随计分请求上传、不进入网址或分析事件。默认不保存；只有主动保存才提供当前标签页24小时内恢复，完成、清除或重测即删除。分享只含公开入口或指南，不含个人答案和均分；不含答案的使用事件遵循网站Cookie设置。",
+          "en": "Answers are scored in the browser without uploading them for scoring or including them in URLs or analytics events. Saving is off by default; an explicitly saved tab draft can be restored within 24 hours and clears on completion, clearing or retake. Sharing includes a public entry or guide, not personal answers or means. Answer-free usage events follow the site’s Cookie settings."
         }
       ]
     }
@@ -2046,66 +2138,153 @@
   "faq": [
     {
       "question": {
-        "zh": "能测我怎样学最有效吗？",
-        "en": "Does this show how I learn most effectively?"
+        "zh": "学习风格测试测什么？",
+        "en": "What does this Learning Style Test explore?"
       },
       "answer": {
-        "zh": "不能。题目只询问你现在多想采用某些形式，没有实测理解、回忆、速度或成绩。偏好与有效性是不同问题，不能仅凭均分规定只用一种形式或承诺匹配教学能提升结果。",
-        "en": "No. Items ask how much you currently want particular formats, without testing comprehension, recall, speed or grades. Preference and effectiveness are different questions; a mean cannot prescribe a single format or promise benefits from matching instruction."
+        "zh": "20条原创自评询问你现在多想使用图示、口头解释、读写及实例实践。四项各5条，分别显示当前使用意愿及完整指南，不测记忆、智力或学习成绩。",
+        "en": "Twenty original self-report items ask how much you currently want diagrams, speech, text and practical examples. Five items per part produce separate current-desire results and full guides, without measuring memory, intelligence or grades."
       }
     },
     {
       "question": {
-        "zh": "这是VARK、VAK或Kolb原版测试吗？",
-        "en": "Is this the official VARK, VAK or Kolb test?"
+        "zh": "怎样选择1—5与NA？",
+        "en": "How should I choose 1–5 or NA?"
       },
       "answer": {
-        "zh": "这是费马独立编写的20条普通学习形式偏好自评，不采用VARK或Kolb题本、算法、报告或译文。四种常用形式不能说明它与其他工具等价，也不将结果换算为其分类或分数。",
-        "en": "This is FermatMind’s original 20-item ordinary learning-format reflection, using no VARK or Kolb items, algorithms, reports or translations. Familiar formats do not establish equivalence with another instrument, and results do not convert to its categories or scores."
+        "zh": "以自己选择、材料可访问、可安全开展的普通学习内容为参照，按现在想用程度回答。1为完全不想用、5为很想用；无法判断、不适用或不可访问选NA，不把NA当作低能力或不喜欢。",
+        "en": "Think of ordinary material you chose and can safely access. Rate current willingness from 1 Not at all to 5 Very much. Choose NA when you cannot judge, the situation is inapplicable or access is unavailable; NA means neither low ability nor dislike."
       }
     },
     {
       "question": {
-        "zh": "没有明显最高项、四项都低或资料不足怎么办？",
-        "en": "What if there is no clear highest mean, all are low or information is insufficient?"
+        "zh": "均分如何计算？有反向题吗？",
+        "en": "How are means calculated? Are any items reversed?"
       },
       "answer": {
-        "zh": "四项各5条、至少3条有效才显示均分，NA排除不补零。相同、相近、都高或都低都不强行派型；资料不足也保留全部四份完整说明。它不能诊断不会学习、缺少兴趣或学习障碍。",
-        "en": "Each five-item part needs three ratings for a mean, excluding NA without zero-filling. Equal, close, all-high or all-low means assign no type. Insufficient information still retains all four full guides and cannot diagnose inability to learn, lack of interest or a learning difficulty."
+        "zh": "没有反向题。同部分数字相加除以有效题数，保留一位小数。例如2、4、5、NA、NA为11÷3≈3.7；至少3条数字才显示均分，NA不补零或中点。",
+        "en": "No items are reversed. Sum numeric ratings within a part, divide by their count and round to one decimal. Ratings 2,4,5,NA,NA give 11/3≈3.7. At least three numeric ratings are needed; NA is not replaced with zero or a midpoint."
       }
     },
     {
       "question": {
-        "zh": "结果和全部说明免费吗？是否要提交学校或雇主？",
-        "en": "Are all guides free, and must I share with a school or employer?"
+        "zh": "最高均分就是我的主导学习类型吗？",
+        "en": "Does the highest mean define my dominant learning type?"
       },
       "answer": {
-        "zh": "20题、四项均分与所有完整说明全部免费，无需注册、邮箱或后续购买。可以不分享，也不用于分班、升学、录用、职业能力或无障碍安排决定。所有小观察都可跳过。",
-        "en": "All 20 items, four means and full guides are free, without signup, email or a later purchase. Sharing is optional. Results are not for classroom groups, admissions, hiring, work-ability or accommodation decisions, and every observation can be skipped."
+        "zh": "不是。四项独立，不合总分或占比，也不按最高项派固定类型。较高均分仅概括本组题目的使用意愿，不能证明这种方式让你学得最好。",
+        "en": "No. Four parts remain separate without a total, percentage or highest-score type. A higher mean summarises willingness across those items without establishing that the format works best for you."
+      }
+    },
+    {
+      "question": {
+        "zh": "四项都高、都低或资料不足怎样读？",
+        "en": "What if all means are high, low or unavailable?"
+      },
+      "answer": {
+        "zh": "都高不认证全面能力，都低不诊断不会学习。每部分不足3条数字就保留资料不足状态，仍能阅读全部指南；先核对任务、访问条件和具体条目。",
+        "en": "All-high ratings certify no all-round ability and all-low ratings diagnose no inability to learn. Fewer than three ratings leave a part insufficient while every guide remains readable. Check task, access and individual items."
+      }
+    },
+    {
+      "question": {
+        "zh": "学习偏好能证明怎样学最有效吗？",
+        "en": "Can preferences establish how I learn most effectively?"
+      },
+      "answer": {
+        "zh": "不能。想用某形式与实测理解、回忆和应用是不同问题。证明按偏好匹配教学有效需要专门实验，不能凭自评均分或喜欢某方式推断。[1]",
+        "en": "No. Wanting a format differs from measured comprehension, recall and application. Establishing benefits of matched instruction requires a dedicated experiment rather than a self-report mean or liking a method.[1]"
+      }
+    },
+    {
+      "question": {
+        "zh": "研究是否已经证明匹配教学普遍有效？",
+        "en": "Has research established widespread benefits of matched instruction?"
+      },
+      "answer": {
+        "zh": "尚不足以这样承诺。2024年元分析报告小幅总体收益，但交叉结果少且研究质量有限；2025年领域反思区分匹配实验与相关证据。不能只挑正向数字或把相关写成因果。[2][3]",
+        "en": "That promise is not justified. A 2024 meta-analysis found a small aggregate benefit, but crossover results were infrequent and quality limited. A 2025 field reflection distinguishes matching experiments from correlations. Neither cherry-picking positive values nor treating correlation as causation is appropriate.[2][3]"
+      }
+    },
+    {
+      "question": {
+        "zh": "这是官方VARK、VAK或Kolb测试吗？",
+        "en": "Is this an official VARK, VAK or Kolb test?"
+      },
+      "answer": {
+        "zh": "不是。费马独立编写20条题目与解释，没有采用或改写VARK或Kolb题本、译文、算法或报告，结果不能换算为其分类。本站信效度与常模尚未建立。[4]",
+        "en": "No. FermatMind authored these items and guides independently without adopting or rewriting VARK or Kolb items, translations, algorithms or reports. Results do not convert into their classifications. Validation and norms for this form remain unestablished.[4]"
+      }
+    },
+    {
+      "question": {
+        "zh": "图示、口头、读写与实践只能选一种吗？",
+        "en": "Must I choose only one of the four formats?"
+      },
+      "answer": {
+        "zh": "不需要。同一材料可以同时有图、文字、讲解与演示；题目分别询问每种安排的使用意愿。也没有证据支持本站规定每个人都按固定比例混合。",
+        "en": "No. One resource can combine diagrams, text, explanation and demonstrations. Items ask separately about each arrangement. This form provides no basis for prescribing a fixed mixture to everyone."
+      }
+    },
+    {
+      "question": {
+        "zh": "可以用来分班、判断障碍或决定支持吗？",
+        "en": "Can this determine classroom groups, learning difficulties or support?"
+      },
+      "answer": {
+        "zh": "不可以。这里不评实际能力、诊断学习障碍或确定无障碍资格。支持应结合实际需要与适用的评估过程，不能要求先证明某种学习类型。",
+        "en": "No. It does not assess actual ability, diagnose learning difficulties or establish accommodation eligibility. Support requires actual needs and the applicable assessment process rather than proving a learner type."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样把结果用于一次具体学习？",
+        "en": "How can I use results for a specific task?"
+      },
+      "answer": {
+        "zh": "选一项小内容，尝试愿意开始且可访问的形式，再核对是否能解释、回忆或应用。记录任务和帮助条件；一次尝试或复测分差不证明长期能力、固定类型或改善百分比。",
+        "en": "Choose a small topic and an accessible format you want to try, then check explanation, recall or application. Record the task and support conditions. One trial or retest difference proves neither long-term ability, a fixed type nor percentage improvement."
+      }
+    },
+    {
+      "question": {
+        "zh": "多久完成，免费吗，点击开始后要再同意吗？",
+        "en": "How long does it take, is it free, and is another agreement needed?"
+      },
+      "answer": {
+        "zh": "约5分钟，不限时，点击开始直接进入题目。全部题目与完整结果免费免注册；浏览器内计分，默认不保存，主动保存的草稿仅供本标签页24小时内恢复，完成、清除或重测即删除。",
+        "en": "About five minutes without a timer. Start opens questions directly. All items and full results are free without signup. Scoring is in the browser with saving off by default; an explicitly saved tab draft is restorable within 24 hours and clears on completion, clearing or retake."
       }
     }
   ],
   "references": [
     {
       "title": {
-        "zh": "Pashler等（2008）：正式摘要，未全文复审",
-        "en": "Pashler and colleagues (2008): formal abstract, not full review"
+        "zh": "Pashler等：学习风格与匹配假说，正式摘要",
+        "en": "Pashler et al.: learning styles and the matching hypothesis, formal abstract"
       },
-      "url": "https://www.psychologicalscience.org/journals/pspi/j.1539-6053.2009.01038.x/"
+      "url": "https://doi.org/10.1111/j.1539-6053.2009.01038.x"
     },
     {
       "title": {
-        "zh": "Brown（2023）：叙述综述，所读范围见说明",
-        "en": "Brown (2023): narrative review; reading scope stated above"
+        "zh": "Clinton-Lisell与Litzinger（2024）：匹配假说元分析",
+        "en": "Clinton-Lisell and Litzinger (2024): matching-hypothesis meta-analysis"
       },
-      "url": "https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2023.1147498/full"
+      "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1428732/full"
     },
     {
       "title": {
-        "zh": "VARK官方材料使用条件；本版未采用其材料",
-        "en": "VARK material-use terms; no materials adopted here"
+        "zh": "Hattie与O’Leary（2025）：学习风格、偏好与策略的领域反思",
+        "en": "Hattie and O’Leary (2025): field reflection on styles, preferences and strategies"
       },
-      "url": "https://vark-learn.com/copyright-information/"
+      "url": "https://link.springer.com/article/10.1007/s10648-025-10002-w"
+    },
+    {
+      "title": {
+        "zh": "VARK：官方问卷信度、效度与研究范围",
+        "en": "VARK: official questionnaire reliability, validity and research scope"
+      },
+      "url": "https://vark-learn.com/research/validity-and-reliability/"
     }
   ]
 }

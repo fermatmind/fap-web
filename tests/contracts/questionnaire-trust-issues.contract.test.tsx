@@ -126,7 +126,7 @@ describe("T087 original everyday trust reflection", () => {
       dom.innerHTML = renderToStaticMarkup(await entry.default(props)); expect(dom.querySelector("h1")?.textContent).toBe(quiz.title[locale]);
       for (const id of ["facet-scoring","facet-reading","facet-comparison"]) expect(dom.querySelector("section[aria-labelledby='questionnaire-method']")?.textContent).toContain(quiz.guide.find(section => section.id === id)!.paragraphs[0][locale]);
       const metadata = await entry.generateMetadata(props); expect(metadata.title).toBe(quiz.seoTitle[locale]); expect(metadata.description).toBe(quiz.description[locale]); expect(metadata.alternates?.canonical).toBe("https://fermatmind.com"+path);
-      const hub = document.createElement("div"); hub.innerHTML = renderToStaticMarkup(<MoreTests locale={locale}/>); expect(hub.querySelectorAll(`a[href='${path}']`)).toHaveLength(1); expect(maps.filter(row => row.loc === "https://fermatmind.com"+path)).toHaveLength(1);
+      const hub = document.createElement("div"); hub.innerHTML = renderToStaticMarkup(<MoreTests locale={locale}/>); expect(hub.querySelectorAll(`a[href='${path}']`)).toHaveLength(2); expect(hub.querySelectorAll(`h4 a[href='${path}']`)).toHaveLength(1); expect(maps.filter(row => row.loc === "https://fermatmind.com"+path)).toHaveLength(1);
       for (const profile of quiz.profiles) {
         const native = `/${locale}/tests/explore/${quiz.slug}/results/${profile.id}`, props = { params:Promise.resolve({ locale,slug:quiz.slug,profile:profile.id }) }, dom = document.createElement("div");
         dom.innerHTML = renderToStaticMarkup(await guide.default(props)); expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]);

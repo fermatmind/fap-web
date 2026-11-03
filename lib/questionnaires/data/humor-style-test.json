@@ -2,7 +2,7 @@
   "slug": "humor-style-test",
   "code": "HUMOR_EXPRESSIONS",
   "version": "1.0.0",
-  "updated": "2026-10-25",
+  "updated": "2026-10-31",
   "category": "social",
   "kind": "likert",
   "minimumRatedItems": 3,
@@ -16,20 +16,20 @@
     "en": "Your six humor-expression reflections"
   },
   "seoTitle": {
-    "zh": "幽默风格测试：24条自评与六种完整解释",
-    "en": "Humor Style Test: 24 Ratings and Six Full Result Guides"
+    "zh": "幽默风格测试：24题、六种表达与完整解读",
+    "en": "Humor Style Test: 24 Ratings, Six Expressions and Full Guides"
   },
   "description": {
-    "zh": "用24条原创频率题，分别探索冷面、文字巧思、荒诞、共同趣味、自嘲和机锋表达。六项均分与完整解释免费，无需注册；含原创例子与边界，不测智力、受欢迎程度或幽默能力。",
-    "en": "Explore deadpan, wordplay, absurdist, shared, self-deprecating and banter humor with 24 original ratings. Six separate means and full free guides, no signup or ability verdict."
+    "zh": "用24条原创频率自评，回看近四周的冷面、文字巧思、荒诞、共同趣味、自嘲与机锋表达。约6分钟，免费查看六项独立均分、计分算例与完整指南，无需注册。",
+    "en": "Reflect on deadpan, wordplay, absurdist play, shared humor, self-deprecation and banter with 24 original frequency ratings. About 6 minutes; six separate means, scoring examples and full guides are free without signup."
   },
   "introduction": {
-    "zh": "你怎样在聊天、消息、趣事和小意外里表达笑点？本幽默风格测试用24条原创频率题，分别观察六种可以共存的日常表达。冷面侧重口吻，文字巧思和荒诞侧重机制，共同趣味、自嘲与机锋涉及话题或互动；它们不是互斥人格分类。六份完整解释都能先读，作答后同时显示均分或资料不足，没有注册、付费或前置测评。它不是HSQ，不评定你有多好笑、聪明或受欢迎。",
-    "en": "How do you use humor in conversation, messages, stories and small surprises? This Humor Style Test uses 24 original frequency items to explore six expressions that can coexist. Deadpan concerns delivery, wordplay and absurdist play mechanisms, and shared humor, self-deprecation and banter topics or interaction. They are not mutually exclusive personalities. Read all six full guides before answering and receive separate means or insufficient-information states without signup, payment or a preceding assessment. This is not the HSQ and does not rate how funny, intelligent or popular you are."
+    "zh": "幽默风格测试可以从“怎样表达”与“用幽默做什么”两个不同问题展开。本版采用24条原创频率题，回看冷面、文字巧思、荒诞联想、共同趣味、自嘲与机锋六种日常表达：口吻、语言机制、话题对象和互动形式可以重叠，不是六种互斥人格。研究中的幽默风格量表HSQ另有四种使用方式，本页不施测或换算该量表。[6] 完成后分别显示六项均分与有效题数，全部六份完整指南同时提供，帮助把结果带回具体话语、情境与听众反馈。",
+    "en": "A Humor Style Test can address two different questions: how humor is expressed, and what it is used for. This edition uses 24 original frequency items to reflect on deadpan, wordplay, absurdist play, shared humor, self-deprecation and banter. Delivery, language mechanisms, subject matter and interaction can overlap; they are not six mutually exclusive personalities. The research Humor Styles Questionnaire, or HSQ, concerns four uses of humor and is neither administered nor converted here.[6] A completed attempt shows six separate means and rated counts, alongside all six full guides, so you can relate the record to actual wording, context and audience feedback."
   },
   "instructions": {
-    "zh": "回想最近四周自己的实际表达，每条按从不、很少、有时、经常、几乎总是作答。没有适用经历、记不清或不愿回答可选NA，不会补成低分；不要按听众笑了多少或自己喜欢看什么喜剧回答。全部24条先选完，每部分至少3条有效评分才显示均分。不是猜笑话题，中英文用各自自然表达，不要求理解另一语言的双关。",
-    "en": "Think about your own actual expressions during the past four weeks. Rate Never, Rarely, Sometimes, Often or Almost always. Choose NA for no applicable experience, uncertainty or a preference not to answer; it is not a low score. Do not rate audience laughter or the comedy you enjoy watching. All 24 items need a selection and each part needs three ratings for a mean. This is not a joke-comprehension test; each language uses its own natural expression without requiring puns in the other language."
+    "zh": "回想最近四周自己在聊天、消息、讲述趣事与小意外中的实际表达，按1“从不”至5“几乎总是”选择。不是评笑话好坏、猜双关或判断别人笑了多少，也不要按喜欢观看的喜剧类型作答。没有适用经历、记不清或不愿回答，可选不计分项。全部24条先作出选择，每组4题至少3条有效评分才显示均分；无需提交笑话、聊天记录或他人资料。",
+    "en": "Recall your own expressions in conversation, messages, amusing stories and small surprises over the past four weeks. Rate from 1, never, to 5, almost always. This is not judging joke quality, solving puns or counting other people’s laughter; do not answer from the comedy you enjoy watching. Use the unscored option for no applicable experience, uncertainty or a preference not to answer. All 24 items need a selection, and each four-item part needs at least three numerical ratings for a mean. No jokes, chat logs or information about other people need to be submitted."
   },
   "source": {
     "kind": "FermatMind original six-expression frequency reflection;notHSQ/JC FourLaughs/published validated instrument",
@@ -2579,71 +2579,199 @@
         "en": "International Society for Humor Studies: HSQ version and scope catalogue, not adopted here"
       },
       "url": "https://www.humorstudies.org/ISHS%20Test%20Bank/TestCat_HSQ.htm"
+    },
+    {
+      "title": {
+        "zh": "Ruch等（2018）：八种comic styles与48项CSM研究",
+        "en": "Ruch et al. (2018): eight comic styles and the 48-item CSM"
+      },
+      "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2018.00006/full"
     }
   ],
   "guide": [
     {
       "id": "facet-scoring",
       "title": {
-        "zh": "有效评分与均分",
-        "en": "Rated items and means"
+        "zh": "24条自评怎样计分？有效题数与算例",
+        "en": "How are the 24 ratings scored? Rated counts and an example"
       },
       "paragraphs": [
         {
-          "zh": "四条题目分别问最近四周在不同场景这样表达的频率，1为从不、5为几乎总是，NA不计分。本部分至少3条有效评分才取一位小数均分，否则明确显示资料不足；所有24题先完成选择。最低条数是本站信息完整度规则，不是心理学阈值。六部分可共存，不按最高值派类型，不合成幽默总分或百分比，小数差异不等于统计显著。",
-          "en": "Four items ask reported use across situations in the past four weeks, from 1 Never to 5 Almost always; NA is unscored. A part needs at least three ratings for a mean rounded to one decimal, otherwise information is insufficient. All 24 selections come first. This minimum is an original completeness rule, not a psychological cutoff. Six parts can coexist without a highest-score type, overall humor score or percentage; decimal differences establish no statistical significance."
+          "zh": "六种表达各4题，数字选项按1—5原值计分，全部没有反向题。每组至少3条有效评分时，均分＝有效评分总和÷有效题数，四舍五入到一位小数。例如某组选择2、4、5和不计分，总和11、有效数3，显示11÷3＝3.7；不计分项不补0，也不补中间值。",
+          "en": "Each expression has four items scored directly from 1 to 5, with no reverse keys. A part with at least three numerical ratings uses their sum divided by their count, rounded to one decimal. For example, 2, 4, 5 and an unscored response produce a sum of 11 over three ratings: 11÷3 = 3.7. The unscored item is replaced by neither zero nor a midpoint."
+        },
+        {
+          "zh": "“从不”计为有效评分1；没有适用经历、无法判断或不愿回答则排除。只有0—2条有效评分的组显示资料不足，其他组独立计算。全部24条都需选择，包括不计分项；即使六组均不足，也会结束作答并保留全部指南。最低3条是本站完整度规则，不是研究验证的心理阈值。",
+          "en": "Never contributes a valid rating of one; no applicable experience, uncertainty or preferring not to answer is excluded. Parts with zero to two ratings show insufficient information while the others are calculated independently. All 24 items need a selection, including unscored selections. Even if all six parts are insufficient, the attempt finishes with all guides available. The three-rating minimum is this website’s completeness rule, not a research-validated psychological cutoff."
         }
       ]
     },
     {
       "id": "facet-reading",
       "title": {
-        "zh": "分别阅读六种表达",
-        "en": "Read six expressions separately"
+        "zh": "均分描述表达频率，不是好笑程度",
+        "en": "Means describe reported expression frequency, not funniness"
       },
       "paragraphs": [
         {
-          "zh": "每部分4条题目，全部没有反向计分。六项均分或资料不足状态同时显示，六份完整报告不会因高低隐藏。均分反映自报使用频率，不是质量或别人笑了多少；不能把小数差异当显著，也不从最高值派主型、从第二高派副型或计算人格比例。",
-          "en": "Each part has four items with no reverse scoring. All six means or insufficient states appear together, and none of the six full reports is hidden by its mean. Means describe reported use, not quality or audience laughter. Decimal differences establish no significance, and no primary, secondary or personality proportion is assigned."
+          "zh": "均分概括你对这四周相关陈述的回答。3对应“有时”的选项数值位置，不是人群平均；4不表示80%的幽默能力、笑话成功率或实际表达次数比例。对等级选项取等权算术平均是一项显示约定，不证明相邻选项之间存在经过验证的相等心理距离。",
+          "en": "A mean summarizes your answers to the statements for these four weeks. Three occupies the numerical position of sometimes, not a population average. Four is not 80% humor ability, joke success or an observed percentage of expressions. An equally weighted arithmetic mean of ordered options is a display convention, not proof of validated equal psychological distances between options."
+        },
+        {
+          "zh": "题目没有录制表演、要求写笑话、计时反应或请听众评分，也没有统计你有多少开玩笑的机会。因此结果不能判断创作能力、理解力、反应速度、受欢迎程度或职业适合度。较少这样表达也可能只是近期场景不同，不能说缺少幽默感。",
+          "en": "Items do not record a performance, ask you to write jokes, time responses or obtain audience ratings, nor count opportunities to joke. Results therefore cannot establish creative ability, comprehension, response speed, popularity or occupational suitability. Less frequent use may simply reflect recent situations rather than a lack of a sense of humor."
         }
       ]
     },
     {
       "id": "facet-comparison",
       "title": {
-        "zh": "本版与研究量表的区别",
-        "en": "This edition and research questionnaires"
+        "zh": "六项可以同时较高吗？怎样读相近与并列",
+        "en": "Can several expressions be frequent? Reading similar or tied means"
       },
       "paragraphs": [
         {
-          "zh": "六种表达混合口吻、机制、话题与互动，可能同时出现，不是一套独立互斥的六因素模型。HSQ另有32题、1—7评分和四种功能性分量表，本版没有采用它的条目或计分；自嘲不自动等于自我挫败、机锋不自动等于攻击型，名称相近不能转换分数。",
-          "en": "These expressions mix delivery, mechanisms, topics and interaction and can occur together; they are not six independent mutually exclusive factors. The HSQ separately uses 32 items, 1–7 ratings and four functional subscales. Its items and scoring are not adopted. Self-deprecation is not automatically self-defeating, nor banter an aggressive score; similar words do not convert results."
+          "zh": "六项独立计分，没有固定总量，不相加成100%，也不按最高值派主风格或第二高派副风格。一次表达可以同时用冷面口吻、文字双关和自嘲对象；这不是分类出错。六种名称描述的层面不同，并未建立统一六因素测量模型或穷尽幽默类型。",
+          "en": "The six parts are scored separately without a fixed total or a sum of 100%. The highest and second-highest means assign neither primary nor secondary types. One expression may combine deadpan delivery, a pun and a joke about yourself; that is not a classification error. The names describe different aspects, not an established unified six-factor model or an exhaustive humor taxonomy."
+        },
+        {
+          "zh": "相同均分照常保留，资料不足不与数字排名；3.7和3.8的差值没有本题测量误差或显著性证据。解释时可以为每项寻找一个符合、一个不符合的实际例子，再看对象、场景与反馈，不把小数差异解释为人格程度或风格进化。",
+          "en": "Equal means remain visible, and insufficient information is not ranked against numbers. A difference between 3.7 and 3.8 has no form-specific measurement-error or significance evidence. Find one fitting and one contrasting example for each expression, then consider the audience, setting and feedback rather than interpreting small decimals as personality levels or stylistic development."
         }
       ]
     },
     {
-      "id": "examples-and-language",
+      "id": "humor-expressions",
       "title": {
-        "zh": "例子、语言与意愿",
-        "en": "Examples, language and willingness"
+        "zh": "六种幽默表达各指什么？",
+        "en": "What do the six humor expressions mean?"
       },
       "paragraphs": [
         {
-          "zh": "本版例子全部独立编写，不复制受保护段子、竞品情境或辞典例句。中英文各自组织笑点，尤其双关不做逐字翻译，也不因此宣称跨语言等价。表达是否受欢迎应看实际听众的意愿，停止或不接话都允许；本测试不为冒犯开脱，也不让人负责让全场开心。",
-          "en": "All examples are independently authored without copying protected jokes, competitor situations or dictionary examples. Each language organises its own humor, especially wordplay, without claiming cross-language equivalence. Whether expression is welcome depends on the actual audience; stopping or not joining remains valid. The test neither excuses harm nor makes anyone responsible for everyone’s enjoyment."
+          "zh": "冷面表达（Deadpan）侧重用平实、克制的口吻或表情讲出反差，不必靠夸张语气提示笑点。[1] 它不自动等于讽刺、冷漠或没有情绪；文字消息中的冷面尤其可能被当作认真陈述，理解时还要看双方是否共享语境。",
+          "en": "Deadpan concerns a matter-of-fact, restrained delivery of a contrast without relying on exaggerated tone to signal the joke.[1] It is not automatically sarcasm, indifference or an absence of emotion. In text, it may be read as a serious statement, so shared context still matters."
+        },
+        {
+          "zh": "文字巧思（Wordplay）利用双重词义、近音、措辞变化或熟悉表达的新组合。[2] 它问的是自己使用这类语言游戏的频率，不是词汇考试，也不以反应快慢评聪明程度。某语言里的近音或词义在另一语言中可能不成立。",
+          "en": "Wordplay uses multiple meanings, similar sounds, altered wording or a new combination of familiar expressions.[2] The items concern how often you use such language play, not a vocabulary exam or a measure of intelligence through speed. A sound similarity or meaning in one language may not work in another."
+        },
+        {
+          "zh": "荒诞联想（Absurdist play）把日常对象放进明显不合现实的身份、规则或情节中。这里关注有意想象的表达方式，不表示真的相信该情节，也不根据荒诞题的回答推断心理状态。它可能与文字游戏、冷面口吻或共享故事一起出现。",
+          "en": "Absurdist play places ordinary things in deliberately unrealistic identities, rules or sequences. Here it concerns an imaginative expression rather than a belief that the event is real; answers do not establish a psychological state. It may coexist with wordplay, deadpan delivery or a shared story."
+        },
+        {
+          "zh": "共同趣味（Shared humor）围绕大家能理解的日常话题或共同经历提供笑点，也包括先给听众交代必要背景。是否真的产生亲近或共同愉快，仍要看实际回应；较高均分不是关系质量、共情能力或“人人都喜欢”的证据。",
+          "en": "Shared humor concerns everyday subjects or experiences that others can follow, including providing background for listeners. Whether closeness or shared enjoyment actually results depends on the response. A higher mean is not evidence of relationship quality, empathy or being liked by everyone."
+        },
+        {
+          "zh": "自嘲表达（Self-deprecating humor）在本题中主要围绕自己的小失误、尴尬反应或落空期待。[3] 需要区分拿一件小事开玩笑与反复否定自己的价值；本题没有测讨好动机、自尊或情绪健康，不能从频率直接推断这些原因。",
+          "en": "Self-deprecating humor here mainly concerns your own small mistakes, awkward reactions or mistaken expectations.[3] Distinguish joking about one mishap from repeatedly devaluing yourself. Items do not measure approval-seeking motives, self-esteem or emotional health, so frequency cannot establish those causes."
+        },
+        {
+          "zh": "机锋打趣（Banter）围绕对话细节接话、轻轻调侃或来回交换打趣。[4] 自认为友好的意图不等于对方愿意继续。题目没有验证互动是否平等、对方是否舒服或关系是否安全；听到拒绝或察觉不适时，可以停止并改为认真交流。",
+          "en": "Banter involves picking up conversational details, teasing or exchanging playful replies.[4] A friendly intention does not establish willingness to continue. Items do not verify equal participation, comfort or relationship safety. If someone declines or shows discomfort, stopping and returning to a straightforward conversation remains an option."
+        }
+      ]
+    },
+    {
+      "id": "humor-examples",
+      "title": {
+        "zh": "同一个小意外，怎样用不同方式表达？",
+        "en": "One small surprise: comparing different expressions"
+      },
+      "paragraphs": [
+        {
+          "zh": "以下是原创说明例，不是要求你判断哪句话最好笑。假设桌面的计时器突然发出声音。平静地说“我们的安静计划完成了声音测试”偏向冷面；把这段安排称为“静音会议的响亮开场”运用措辞反差；想象“计时器宣布竞选组长”则把物品放进不可能的情节。一个例子可能同时有几种成分，不必强分唯一类型。",
+          "en": "These original examples illustrate expression rather than asking which line is funniest. Suppose a timer suddenly rings on the desk. Calmly saying, “Our quiet plan has passed its sound test,” uses restrained contrast. Calling it “a loud opening to a silent meeting” plays with contrasting wording. Imagining that “the timer is running for team leader” puts an object into an impossible situation. One line may contain several elements without needing a single type."
+        },
+        {
+          "zh": "如果先补充大家刚约好安静整理资料的背景，再一起谈这个小插曲，重点是共享语境；说“我刚把专注模式设置成报时模式”把自己的小失误放进笑点；接住对方“它很积极”的话再轻轻回一句，则更偏向来回打趣。这些只是解释方式，是否欢迎、是否需要认真处理计时器问题，仍由现场的人与任务决定。",
+          "en": "Providing the background that everyone had just agreed on quiet work, then sharing the small interruption, emphasizes common context. Saying, “I seem to have set focus mode to announcement mode,” uses your own mishap. Picking up another person’s remark that the timer is enthusiastic and replying playfully emphasizes an exchange. These are explanatory possibilities; the people and task determine whether joking is welcome and whether the timer problem needs serious attention."
+        }
+      ]
+    },
+    {
+      "id": "humor-language",
+      "title": {
+        "zh": "中英文、消息与现场表达有什么不同？",
+        "en": "Language, messaging and in-person delivery"
+      },
+      "paragraphs": [
+        {
+          "zh": "语言游戏依赖词义、声音与熟悉表达，不能假定逐字翻译仍有同样笑点。本页的双语说明围绕同一种表达行为，各用自然语言解释；题目不要求解答另一语言的双关，也没有建立中英文量表等值或跨文化常模，不能据两种语言的均分断言哪种文化更幽默。",
+          "en": "Language play depends on meaning, sound and familiar expressions, so a literal translation need not preserve a joke. The bilingual explanations concern the same behaviours in natural language. Items require no solving of puns in another language, and cross-language measurement equivalence or cultural norms have not been established. Means cannot establish which culture is more humorous."
+        },
+        {
+          "zh": "现场的表情、语气与前后对话可能帮助识别玩笑，消息中则可能缺少这些线索。回顾时可分别找聊天、文字、故事与小意外的例子，不以某一次被误解推断自己的全部风格，也不把对方没笑当成缺少理解力。能否理解与是否喜欢，本身就是不同问题。",
+          "en": "Expression, tone and surrounding conversation may help identify a joke in person; messages may lack those cues. Find examples from conversation, text, storytelling and small surprises rather than allowing one misunderstanding to define your whole style. Another person not laughing does not establish poor comprehension: understanding a joke and liking it are different questions."
+        }
+      ]
+    },
+    {
+      "id": "humor-boundaries",
+      "title": {
+        "zh": "自嘲与打趣怎样保留选择和边界？",
+        "en": "Keeping choice and boundaries around self-deprecation and teasing"
+      },
+      "paragraphs": [
+        {
+          "zh": "自嘲由自己选择怎样讲自己的小事，并不授权他人不断重复、扩大成对人格的贬低，或要求你用笑话掩盖真实不满。同样，熟悉关系不是持续打趣的永久许可。可以具体说“这个话题我不想拿来开玩笑”，而不需要用测试结果证明拒绝合理。",
+          "en": "Choosing to joke about your own mishap does not authorize others to repeat it indefinitely, turn it into a judgment of your character or expect you to hide genuine concerns behind humor. Familiarity is not permanent permission to tease. You can say, “I do not want to joke about that,” without using a test result to justify the refusal."
+        },
+        {
+          "zh": "若一次玩笑让人不舒服，先停止并听清具体影响，再决定是否需要澄清或道歉；不以“我就是这种风格”取消对方的感受。六项均分描述本人报告的使用方式，未测对方体验，也没有判断谁应为关系中的全部问题负责。",
+          "en": "If a joke causes discomfort, stop and hear the specific impact before deciding whether clarification or an apology is needed. A style label does not cancel another person’s experience. The six means concern your reported usage, not the other person’s perspective or responsibility for every difficulty in a relationship."
+        }
+      ]
+    },
+    {
+      "id": "original-and-language",
+      "title": {
+        "zh": "HSQ、漫画风格研究与本站题本：证据怎样区分？",
+        "en": "HSQ, comic-style research and this questionnaire: separating the evidence"
+      },
+      "paragraphs": [
+        {
+          "zh": "国际幽默研究学会的HSQ目录列出32条自陈陈述、1—7同意评分和亲和、自我提升、攻击、自我挫败四个使用方式分量表。[6] 本版则为24条原创频率题与六类表达。自嘲不自动等于HSQ自我挫败，机锋也不自动等于其攻击分数；相似词语不意味着题目、构念或评分可以互换。",
+          "en": "The International Society for Humor Studies HSQ catalogue describes 32 self-report statements, 1–7 agreement ratings and affiliative, self-enhancing, aggressive and self-defeating use subscales.[6] This edition instead has 24 original frequency items and six expressions. Self-deprecation is not automatically HSQ self-defeating humor, nor banter an aggressive score. Similar terminology does not make items, constructs or scoring interchangeable."
+        },
+        {
+          "zh": "Ruch等2018年的研究另外考察八种comic styles，并以48个标记条目研究这些更具体风格的测量。[7] 这说明研究中的分类与问题可以不同，不证明本站六项已形成有效因子。本题未采用HSQ或CSM题本，尚无本题信度、效度、常模或跨语言等值证据，也不能把其他量表与人格、智力或幸福感的群体相关套到本次个人均分。",
+          "en": "Ruch and colleagues’ 2018 research separately examines eight comic styles using 48 marker items to investigate their measurement.[7] This illustrates that research classifications and questions differ, not that these six website parts have established factors. Neither HSQ nor CSM items are administered here. Form-specific reliability, validity, norms and cross-language equivalence remain unestablished, and group correlations involving other instruments, personality, intelligence or well-being cannot be applied to these personal means."
+        }
+      ]
+    },
+    {
+      "id": "humor-practice",
+      "title": {
+        "zh": "把结果用于一次小观察，不必逼自己搞笑",
+        "en": "Use the result for a small observation, without having to perform"
+      },
+      "paragraphs": [
+        {
+          "zh": "选一个你愿意尝试、风险较低且对方愿意参与的场景，只调整一处：给共同经历补背景、把自嘲限制在具体小事、或在文字冷面后澄清认真信息。记录你说了什么、对方怎样实际回应、是否需要改说法；这是一项可选沟通观察，不承诺让人更幽默或提高关系质量。",
+          "en": "Choose a lower-stakes setting you want to try with someone willing to participate, and adjust one element: provide background for a shared experience, keep self-deprecation about a specific mishap or clarify serious information after a deadpan message. Note what you said, the actual response and whether wording needed revision. This optional observation promises neither greater funniness nor improved relationship quality."
+        },
+        {
+          "zh": "也可以不讲笑话，专注倾听、认真表达或让话题继续。下次回顾时，比起追求六项更高，先看哪些表达在什么情境更常出现，以及哪里需要停止或换成直接说法。频率变化还可能来自经历和记忆变化，本题没有验证过的训练效果或变化量阈值。",
+          "en": "You can also choose not to joke and instead listen, speak straightforwardly or let the conversation continue. In a later reflection, consider which expressions occurred in which situations and where to stop or speak directly rather than aiming for higher means. Frequency may change with experiences and recall; this form establishes no training effect or validated change threshold."
         }
       ]
     },
     {
       "id": "free-and-private",
       "title": {
-        "zh": "完整免费与可选保存分享",
-        "en": "Full free access and optional saving or sharing"
+        "zh": "完整结果、保存与分享的范围",
+        "en": "Full results, saving and sharing"
       },
       "paragraphs": [
         {
-          "zh": "全部24题、六项均分或资料不足、六份完整解释都免费，无需邮箱、注册或前置测试。浏览器本地计分，主动保存才保留本标签页24小时草稿，完成、重测或清除即删除。分享只有公开入口与自评说明，不带答案、均分或内部ID；存储或复制受限仍可继续。",
-          "en": "All 24 items, six means or insufficient states and six full interpretations are free without email, signup or another test. Scoring happens in the browser. Only opting in stores a 24-hour tab draft, deleted on completion, retake or clearing. Sharing uses a public entry and reflection description without answers, means or internal IDs. Blocked storage or copying does not prevent completion."
+          "zh": "全部24题、六项均分或资料不足状态，以及六份完整说明均免费，点击开始直接进入题目，无需注册、邮箱、前置测评或额外勾选同意。公开指南不包含任何人的私人作答；先阅读不会改动题目或计分。",
+          "en": "All 24 items, six means or insufficient-information states and six full guides are free. Start opens the questions without signup, email, another assessment or an additional agreement checkbox. Public guides contain no visitor’s private responses, and reading them beforehand does not change the items or scoring."
+        },
+        {
+          "zh": "答案在当前浏览器计分，不随计分请求上传，也不写入分享链接。只有主动保存才在本标签页保留24小时草稿，完成、清除或重测即删除；分享只包含公开入口与说明，不附答案、均分或笑话文本。不需要输入私人聊天，即使存储或复制功能受限也可继续作答。",
+          "en": "Answers are scored in the current browser, without upload in a scoring request or inclusion in a share link. Only explicit saving creates a 24-hour draft in this tab, cleared on completion, clearing or retake. Sharing contains the public entry and description, not answers, means or joke text. No private chat needs to be entered, and blocked storage or copying does not prevent answering."
         }
       ]
     }
@@ -2651,62 +2779,122 @@
   "faq": [
     {
       "question": {
-        "zh": "本幽默风格测试比较哪六种表达？",
-        "en": "Which six expressions does this humor style test explore?"
+        "zh": "幽默风格测试测什么，包含哪六种？",
+        "en": "What does this Humor Style Test explore, and which six expressions are included?"
       },
       "answer": {
-        "zh": "冷面、文字巧思、荒诞联想、共同趣味、自嘲与机锋打趣。它们关注不同层面，可以同时出现，不是六种互斥人格。全部六份解释都免费直接阅读，作答后分别看频率均分，不按最高值强派一个主风格。",
-        "en": "Deadpan, wordplay, absurdist play, shared humor, self-deprecating humor and banter. They concern different aspects and can coexist, rather than six mutually exclusive personalities. All six full guides are freely readable. A complete attempt shows separate frequency means without assigning a highest-score primary style."
+        "zh": "本版用24条原创题回看近四周的冷面、文字巧思、荒诞联想、共同趣味、自嘲与机锋。它们涉及口吻、机制、话题与互动，可同时出现，不是六种互斥人格；结果分别呈现六项自报频率均分。",
+        "en": "The 24 original items reflect on deadpan, wordplay, absurdist play, shared humor, self-deprecation and banter over four weeks. They concern delivery, mechanisms, topics and interaction and can coexist rather than form six exclusive personalities. Results display six separate self-reported frequency means."
       }
     },
     {
       "question": {
-        "zh": "这是幽默风格量表HSQ吗？",
+        "zh": "这和幽默风格量表HSQ一样吗？",
         "en": "Is this the Humor Styles Questionnaire, or HSQ?"
       },
       "answer": {
-        "zh": "不是。HSQ有自己的32题、1—7评分和四种功能性分量表。本版24题、六种表达与解释独立编写，没有采用HSQ题本或计分，也没有本站信效度、常模或跨语言等价验证。",
-        "en": "No. The HSQ has its own 32 items, 1–7 ratings and four functional subscales. These 24 items, six expressions and interpretations are independently authored, without HSQ items or scoring. There are no established website psychometrics, norms or cross-language equivalence."
+        "zh": "不是。HSQ为32题、1—7同意评分，讨论亲和、自我提升、攻击与自我挫败四种使用方式。本版24题、六种表达和频率计分独立编写，未使用或换算HSQ，也不施测八种comic styles的CSM。[6][7]",
+        "en": "No. The HSQ uses 32 items and 1–7 agreement ratings for affiliative, self-enhancing, aggressive and self-defeating uses. These 24 items, six expressions and frequency scoring are independently authored; HSQ scores are neither administered nor converted. The eight-style CSM is not administered either.[6][7]"
       }
     },
     {
       "question": {
-        "zh": "NA和资料不足怎样处理？",
-        "en": "How are NA and insufficient information handled?"
+        "zh": "24条自评怎样作答，能按喜欢看的喜剧回答吗？",
+        "en": "How should I answer? Can I use the comedy I enjoy watching?"
       },
       "answer": {
-        "zh": "NA排除，不补零或估算。每部分4题至少3条有效评分才显示一位小数均分，否则明确资料不足；全部24条先做选择。这个最低条数是本站完整度规则，不是心理阈值。即使六部分都不足，作答也会结束，全部解释仍可阅读与重测。",
-        "en": "NA is excluded without zero-filling or estimation. A four-item part needs three ratings for a one-decimal mean; otherwise information is insufficient. All 24 selections come first. This minimum is a website completeness rule, not a psychological cutoff. Even six insufficient parts finish the attempt with all guides and retake available."
+        "zh": "按最近四周自己实际使用某种表达的频率作答，不按观看喜好、理解笑话的难易或听众笑声作答。聊天、消息、讲述趣事与小意外都可作为参照；没有经历、记不清或不愿回答可不计分。",
+        "en": "Rate your own actual use over four weeks, not viewing preferences, joke-comprehension difficulty or audience laughter. Consider conversation, messages, amusing stories and small surprises. No experience, uncertainty or preferring not to answer can be unscored."
       }
     },
     {
       "question": {
-        "zh": "能测我有多好笑、聪明或受欢迎吗？",
-        "en": "Does this measure how funny, clever or popular I am?"
+        "zh": "六项均分怎样计算，有反向题吗？",
+        "en": "How are the six means calculated? Are there reverse keys?"
       },
       "answer": {
-        "zh": "不能。题目只问最近四周自己的表达频率，不测听众笑声、反应速度、智力、词汇、社交技能或关系质量。没有笑话的标准答案，也不由均分推荐职业、录用或搭配对象。",
-        "en": "No. Items ask your own reported expression frequency in the past four weeks, not audience laughter, response speed, intelligence, vocabulary, social skill or relationship quality. There are no correct joke answers, and means supply neither career recommendations, hiring decisions nor relationship matches."
+        "zh": "每组4题，按1—5原值计分，无反向题。至少3条有效评分时，总和除以有效题数并保留一位小数。例如2、4、5加一条不计分，显示11÷3＝3.7。六项不合成总分，也不是人格比例或百分位。",
+        "en": "Each part has four items scored directly from 1 to 5 without reverse keys. At least three ratings produce a sum divided by rated count, rounded to one decimal. For example, 2, 4, 5 plus an unscored response give 11÷3 = 3.7. Parts form neither a total, personality proportion nor population percentile."
       }
     },
     {
       "question": {
-        "zh": "自嘲表示低自尊，机锋表示攻击性吗？",
-        "en": "Does self-deprecation mean low self-esteem, or banter aggression?"
+        "zh": "不计分和“从不”有什么区别？",
+        "en": "How does an unscored response differ from never?"
       },
       "answer": {
-        "zh": "不能由本版这样推断。自嘲题围绕自己小失误，机锋题围绕对话打趣；它们不是HSQ功能分数，也未测动机或心理健康。别人是否愿意接玩笑要看实际回应，任何标签都不能取消其停止或拒绝的选择。",
-        "en": "Those inferences are unsupported here. Self-deprecation items concern small personal mishaps and banter items teasing exchanges; neither is an HSQ functional score or a measure of motive or mental health. Whether someone welcomes a joke requires their actual response, and no label overrides a choice to stop or decline."
+        "zh": "“从不”是有效评分1；不计分排除，不补0或估算。每组只有0—2条有效评分时显示资料不足。全部24条均需选择，包括不计分项；资料不足不会隐藏指南，也不会被当作较低能力。",
+        "en": "Never is a valid rating of one. An unscored response is excluded without zero-filling or estimation. A part with zero to two ratings shows insufficient information. All 24 items need a selection, including unscored selections; insufficient information neither hides guides nor indicates lower ability."
       }
     },
     {
       "question": {
-        "zh": "完整解释、草稿与分享包含什么？",
-        "en": "What do full access, drafts and sharing include?"
+        "zh": "最高分就是我的主风格吗？",
+        "en": "Does the highest mean identify my primary style?"
       },
       "answer": {
-        "zh": "全部题目与六份完整解释免费，无需注册或先做其他测评。草稿是可选本标签页24小时保存，完成、重测或清除即删。分享不含答案、均分或内部ID；需要进一步探索MBTI时，可在完整结果之后另行选择并完成其题本，不从幽默频率换算。",
-        "en": "Every item and six full guides are free without signup or another assessment. Drafts are optional 24-hour tab storage, deleted on completion, retake or clearing. Sharing excludes answers, means and internal IDs. Optional MBTI exploration follows the full result and requires its own questionnaire, without conversion from humor frequency."
+        "zh": "本版不按最高或第二高均分派主副型。六种表达可以共存、相近或并列，均分没有固定总量。3.7与3.8的差值不构成经过验证的显著差别，应回到具体话语、情境与反馈理解。",
+        "en": "This edition assigns neither primary nor secondary types from means. Expressions can coexist or have similar or tied means without a fixed total. A difference between 3.7 and 3.8 is not an established significant distinction; use actual wording, context and feedback to interpret it."
+      }
+    },
+    {
+      "question": {
+        "zh": "能测出我有多好笑、聪明或受欢迎吗？",
+        "en": "Can it measure how funny, intelligent or popular I am?"
+      },
+      "answer": {
+        "zh": "不能。题目没有现场表演、笑话创作任务、计时或听众评价，只整理本人频率自评。本版未建立题本信效度、常模或跨语言等值证据；不能根据分数判断智力、社交能力、心理健康或职业适合度。",
+        "en": "No. There is no performance, joke-writing task, timing or audience evaluation, only reported frequency. Form-specific psychometrics, norms and cross-language equivalence are not established. Scores cannot determine intelligence, social ability, mental health or occupational suitability."
+      }
+    },
+    {
+      "question": {
+        "zh": "冷面、讽刺和荒诞是同一种幽默吗？",
+        "en": "Are deadpan, sarcasm and absurdist play the same thing?"
+      },
+      "answer": {
+        "zh": "冷面侧重平实口吻；荒诞侧重不现实的联想；讽刺可能涉及反说或批评，未作为本版独立计分项。同一句话可以兼有几种成分，不能从口吻单独推断意图或对他人的影响。[1]",
+        "en": "Deadpan concerns matter-of-fact delivery; absurdist play concerns unrealistic associations. Sarcasm may involve ironic wording or criticism and is not a separately scored part here. One line can combine elements, so delivery alone cannot establish intent or impact on someone else.[1]"
+      }
+    },
+    {
+      "question": {
+        "zh": "自嘲表示低自尊，机锋就是攻击吗？",
+        "en": "Does self-deprecation mean low self-esteem, and is banter aggression?"
+      },
+      "answer": {
+        "zh": "本题不支持这样的推断。围绕自己小事的笑话与反复否定价值不同，来回打趣也不能直接换成HSQ攻击分数。需要看具体内容、双方意愿与实际影响，不用风格标签取消停止或拒绝的选择。",
+        "en": "Those inferences are unsupported. Joking about a small personal mishap differs from repeatedly devaluing yourself, and teasing exchanges cannot be converted into HSQ aggression scores. Consider content, willingness and actual impact; a style label does not override stopping or declining."
+      }
+    },
+    {
+      "question": {
+        "zh": "中英文笑点不同，会影响作答吗？",
+        "en": "What if jokes work differently in English and Chinese?"
+      },
+      "answer": {
+        "zh": "每种语言的说明围绕同类表达行为，不要求识别另一语言双关。词义、声音与共享背景可能不同，不能假定逐字翻译等效；本题没有跨语言等值或文化常模，结果不用于比较文化高低。",
+        "en": "Each language explains the same kinds of expression without requiring puns in the other language. Meaning, sound and shared background can differ, so literal translations need not be equivalent. This form has no cross-language equivalence or cultural norms and does not rank cultures."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样把结果用于沟通，需要练得更搞笑吗？",
+        "en": "How can I use the result? Do I need to become funnier?"
+      },
+      "answer": {
+        "zh": "可以只观察一处：是否交代了背景、是否把自嘲限定在小事、对方是否想继续。也可以不讲笑话。记录具体反馈，不把较高频率当改善；阅读建议不承诺训练效果、关系改善或心理治疗作用。",
+        "en": "Observe one element: whether background was clear, self-deprecation stayed about a mishap or the other person wanted to continue. You can choose not to joke. Record actual feedback rather than equating frequency with improvement; suggestions promise no training, relationship or therapeutic effect."
+      }
+    },
+    {
+      "question": {
+        "zh": "题目和完整结果免费吗，要额外勾选或提交笑话吗？",
+        "en": "Are full results free? Must I agree again or submit jokes?"
+      },
+      "answer": {
+        "zh": "全部24题、六项评分情况与六份完整指南免费，点击开始直接作答，无需额外勾选、注册或提交笑话。主动保存才有本标签页24小时草稿，完成、清除或重测即删；分享不带答案、均分或聊天内容。",
+        "en": "All 24 items, six rating summaries and six full guides are free. Start opens questions without an extra checkbox, signup or submitted jokes. Explicit saving creates a 24-hour tab draft, cleared on completion, clearing or retake. Sharing contains no answers, means or chat content."
       }
     }
   ]

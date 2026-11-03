@@ -13,19 +13,20 @@ const subscribeReady = () => () => {};
 const now = () => ({ wall: Date.now(), monotonic: performance.now() });
 type QuestionPart = Exclude<WrittenCoordinationPart, "entry">;
 
-function QuestionModule({ quiz, id, mode, locale, onStart, onComplete, onCancel }: {
+function QuestionModule({ quiz, id, mode, locale, onComplete, onCancel }: {
   quiz: WrittenCoordinationQuiz;
   id: QuestionPart;
   mode: WrittenCoordinationMode;
   locale: Locale;
-  onStart: (id: WrittenCoordinationPart) => void;
   onComplete: (record: WrittenCoordinationReadout) => void;
   onCancel: (message: string) => void;
 }) {
   const zh = locale === "zh", section = quiz.coordination.sections.find(s => s.id === id)!;
   const qs = useMemo(() => quiz.questions.filter(q => q.options[0].directionId === id), [quiz, id]);
-  const [stage, setStage] = useState<"ready" | "study" | "answer">("ready"), [position, setPosition] = useState(0);
-  const [answers, setAnswers] = useState<QuestionnaireAnswers>({}), [remaining, setRemaining] = useState(section.timeCapMs / 1000);
+  const initialPhase = id === "memory" && mode === "timed" ? "study" : "answer";
+  const [started] = useState(now);
+  const [stage, setStage] = useState<"study" | "answer">(initialPhase), [position, setPosition] = useState(0);
+  const [answers, setAnswers] = useState<QuestionnaireAnswers>({}), [remaining, setRemaining] = useState(initialPhase === "study" ? 15 : section.timeCapMs / 1000);
   const [exposure, setExposure] = useState(0), [message, setMessage] = useState("");
   const answerRef = useRef<QuestionnaireAnswers>({}), heading = useRef<HTMLHeadingElement>(null), questionContext = useRef<HTMLDivElement>(null);
   const active = useRef<{ mode: WrittenCoordinationMode; phase: "study" | "answer"; started: ReturnType<typeof now>; studyElapsedMs: number } | null>(null);
@@ -56,24 +57,19 @@ function QuestionModule({ quiz, id, mode, locale, onStart, onComplete, onCancel 
     return clock.elapsedMs;
   }, [section.timeCapMs, finish, cancel, zh]);
   useEffect(() => {
-    if (stage === "ready" || mode === "study") return;
+    if (mode === "study") return;
     const timer = window.setInterval(checkClock, 100);
     const hidden = () => { if (document.visibilityState === "hidden") cancel(zh ? "进入后台，本部分已取消并清空。" : "Backgrounding cancelled and cleared this section."); };
     document.addEventListener("visibilitychange", hidden);
     return () => { window.clearInterval(timer); document.removeEventListener("visibilitychange", hidden); };
   }, [stage, mode, checkClock, cancel, zh]);
   useEffect(() => {
+    active.current = { mode, phase: initialPhase, started, studyElapsedMs: 0 };
     const leave = () => { if (active.current) cancel(""); };
     window.addEventListener("pagehide", leave);
     return () => { active.current = null; answerRef.current = {}; window.removeEventListener("pagehide", leave); };
-  }, [cancel]);
+  }, [cancel, mode, initialPhase, started]);
   useEffect(() => { heading.current?.focus({ preventScroll: true }); (stage === "answer" ? questionContext.current : heading.current)?.scrollIntoView({ block: "start" }); }, [stage, position]);
-  function start() {
-    if (active.current) return;
-    onStart(id); answerRef.current = {}; setAnswers({}); setMessage(""); setPosition(0); setExposure(0);
-    const phase = id === "memory" && mode === "timed" ? "study" : "answer";
-    active.current = { mode, phase, started: now(), studyElapsedMs: 0 }; setStage(phase); setRemaining(phase === "study" ? 15 : section.timeCapMs / 1000);
-  }
   function choose(value: string) {
     if (active.current?.phase !== "answer" || checkClock() === null) return;
     answerRef.current = { ...answerRef.current, [qs[position].id]: value }; setAnswers(answerRef.current); setMessage("");
@@ -87,11 +83,6 @@ function QuestionModule({ quiz, id, mode, locale, onStart, onComplete, onCancel 
   const q = qs[position], sourceVisible = id === "memory" && stage === "study";
   return <section data-written-question-module={id} data-written-phase={stage} className="space-y-5">
     <p className="font-semibold">{section.title[locale]} · {mode === "study" ? (zh ? "不计时学习" : "Untimed study") : (zh ? "本站计时练习" : "Site-timed practice")}</p>
-    {stage === "ready" && <>
-      <h3 ref={heading} tabIndex={-1} className="scroll-mt-24 text-xl font-semibold outline-none">{zh ? "准备好后开始本部分" : "Start this section when you are ready"}</h3>
-      <p className="leading-7">{mode === "study" ? (zh ? "六题不计时，记忆模块保留原文，明确为可看来源学习。未答题保留未答；其他模块无需完成。" : "Six untimed questions. The memory module keeps its source visible and is explicitly visible-source study. Missing items stay unanswered; other modules need not be completed.") : id === "memory" ? (zh ? "先以15秒为目标呈现一则英文虚构记录，再移除卡片并给120秒回答六题。浏览器可能延后更新，实际呈现结束时段会显示；不能返回记录卡。" : "A fictional English note has a nominal 15-second exposure, then its card is removed and six questions have a 120-second cap. Browser updates may be delayed; the observed exposure end interval is shown. You cannot return to the study card.") : (zh ? "六道原创题，本站上限180秒。可在同一部分返回修改，时间不暂停；到时未做题保留未答。这不是官方时限或通过标准。" : "Six original questions with a site cap of 180 seconds. Return and revise within the same running clock; untouched items remain unanswered at expiry. This is not an official limit or pass standard.")}</p>
-      <button type="button" className={button} onClick={start}>{mode === "study" ? (zh ? "开始不计时学习" : "Start untimed study") : (zh ? "开始计时部分" : "Start timed section")}</button>
-    </>}
     {sourceVisible && <div data-written-memory-study className="rounded-lg border bg-slate-50 p-4 leading-8"><h3 ref={stage === "study" ? heading : undefined} tabIndex={stage === "study" ? -1 : undefined} className="mb-3 scroll-mt-24 font-semibold outline-none">{stage === "study" ? (zh ? "阅读这则虚构记录" : "Read this fictional note") : (zh ? "可看来源学习：原文保持可见" : "Visible-source study: the note stays available")}</h3>{stage === "study" && <p role="timer" data-written-remaining className="mb-3 font-semibold">{zh ? `剩余 ${remaining} 秒` : `${remaining} seconds remaining`}</p>}<p>{quiz.coordination.memoryText[locale]}</p></div>}
     {stage === "study" && <p>{zh ? "呈现结束后自动进入回忆" : "Recall begins automatically after the exposure"}</p>}
     {stage === "answer" && <div ref={questionContext} data-written-question-context className="scroll-mt-24 space-y-5">
@@ -153,13 +144,15 @@ function ValidWrittenCoordinationClient({ quiz, locale }: { quiz: WrittenCoordin
     <fieldset disabled={!ready} className="min-w-0 space-y-6"><legend className="sr-only">{quiz.title[locale]}</legend>
       {!selected && <>
         <h2 className="text-2xl font-semibold">{zh ? "选择一项独立练习" : "Choose an independent exercise"}</h2>
+        <p className="leading-7">{quiz.instructions![locale]}</p>
+        <p className="text-sm leading-7">{zh ? "选择下方模块即开始；计时模式的时钟也随即开始，无需再次确认。" : "Selecting a module starts it immediately, including its clock in timed mode, without another confirmation."}</p>
         <fieldset className="space-y-3 rounded-lg border p-4"><legend className="font-semibold">{zh ? "五个问答模块的模式，录入始终60秒" : "Mode for five question modules; entry is always 60 seconds"}</legend>
           {(["timed", "study"] as const).map(value => <label key={value} className="flex min-h-11 items-center gap-3"><input type="radio" name="written-practice-mode" value={value} checked={mode === value} onChange={() => setMode(value)} />{value === "timed" ? (zh ? "本站计时练习" : "Site-timed practice") : (zh ? "不计时学习，记忆题可看原文" : "Untimed study; memory source stays visible")}</label>)}
         </fieldset>
         <div className="grid gap-3 sm:grid-cols-2">{quiz.directions.map(d => <button key={d.id} type="button" data-written-start={d.id} className={`${button} text-left`} onClick={() => { remove(d.id as WrittenCoordinationPart); setSelected(d.id as WrittenCoordinationPart); }}>{d.title[locale]}</button>)}</div>
       </>}
-      {selected === "entry" && <WrittenCoordinationEntry round={quiz.coordination.entry} locale={locale} onStart={remove} onComplete={completeEntry} onCancel={cancel} />}
-      {selected && selected !== "entry" && <QuestionModule key={`${selected}:${mode}`} quiz={quiz} id={selected} mode={mode} locale={locale} onStart={remove} onComplete={completeQuestions} onCancel={cancel} />}
+      {selected === "entry" && <WrittenCoordinationEntry round={quiz.coordination.entry} locale={locale} onComplete={completeEntry} onCancel={cancel} />}
+      {selected && selected !== "entry" && <QuestionModule key={`${selected}:${mode}`} quiz={quiz} id={selected} mode={mode} locale={locale} onComplete={completeQuestions} onCancel={cancel} />}
       <div className="flex flex-wrap gap-3"><button type="button" className={button} onClick={share}>{zh ? "复制公开入口" : "Copy public entry"}</button><button type="button" className={button} onClick={clearAll}>{zh ? "退出并清除全部练习记录" : "Exit and clear all exercise records"}</button></div>
     </fieldset>
     {manual && <label className="my-4 block">{zh ? "手动复制公开入口" : "Public entry for manual copying"}<textarea className="mt-2 min-h-28 w-full rounded border p-3" readOnly value={manual} /></label>}

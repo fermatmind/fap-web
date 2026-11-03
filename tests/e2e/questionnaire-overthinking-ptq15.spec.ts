@@ -46,7 +46,7 @@ for (const locale of ["en", "zh"] as const) {
     await expect(method.locator(":scope > h3")).toHaveCount(6);
     for (const s of quiz.guide) await expect(method.getByRole("heading", { level: 3, name: s.title[locale], exact: true })).toBeVisible();
     for (const s of quiz.guide) for (const p of s.paragraphs) await expect(method).toContainText(p[locale]);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await headingBelowHeader(page);
+    await page.locator("[data-explore-start]").click(); await headingBelowHeader(page);
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     for (const mode of ["minimum", "maximum", "mixed"] as const) {
       if (mode !== "minimum") { await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click(); await expect(page.locator("[data-ptq15-result]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked(); }
@@ -55,7 +55,7 @@ for (const locale of ["en", "zh"] as const) {
     expect(sensitivePosts).toEqual([]); expect(new URL(page.url()).search).toBe("");
   });
   test(`@release PTQ15 ${locale}: opt-in draft, language switch, editing zero and reset`, async ({ page }) => {
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await page.locator('input[name="PTQ_01"][value="4"]').check();
+    await page.goto(entry); await page.locator("[data-explore-start]").click(); await page.locator('input[name="PTQ_01"][value="4"]').check();
     expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:overthinking-screener"))).toBeNull(); await page.getByRole("checkbox").check();
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await page.reload(); await page.getByRole("button", { name: zh ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click(); await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[name="PTQ_01"][value="4"]')).toBeChecked(); await page.locator('input[name="PTQ_01"][value="0"]').check();
     const other = zh ? "en" : "zh"; await page.goto(`/${other}/tests/explore/overthinking-screener`); await page.getByRole("button", { name: other === "zh" ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click(); await page.getByRole("button", { name: other === "zh" ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[name="PTQ_01"][value="0"]')).toBeChecked();
@@ -63,7 +63,7 @@ for (const locale of ["en", "zh"] as const) {
   });
   test(`@release PTQ15 ${locale}: one unscored, all unscored, all full guides and public-only sharing on mobile`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 }); await page.addInitScript(() => { Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } }); });
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await finish(page, locale, "one-skip");
+    await page.goto(entry); await page.locator("[data-explore-start]").click(); await finish(page, locale, "one-skip");
     await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click(); const text = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue(); expect(text).toContain(quiz.title[locale]); expect(text).not.toMatch(/PTQ_[0-9]{2}|answers|form_code|submission|14\s*\/\s*15|[?&]score/);
     const url = new URL(text.split("\n").at(-1)!); expect(url.pathname).toBe(entry); expect(url.search).toBe(""); expect(url.hash).toBe("");
     await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click(); await finish(page, locale, "all-skip");

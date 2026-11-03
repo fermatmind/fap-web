@@ -3,15 +3,15 @@
     "slug": "disc",
     "code": "DISC_BEHAVIOR",
     "version": "1.0.0",
-    "updated": "2026-10-28",
+    "updated": "2026-10-31",
     "category": "framework",
     "title": {
       "zh": "DISC测试",
       "en": "DISC Personality Test"
     },
     "description": {
-      "en": "Take 24 original DISC choices, keep every tie and read full free results. Compare Thai Four Animals labels with two named source versions. No signup.",
-      "zh": "免费完成24道原创DISC工作情境二选一，保留全部并列并读完整结果；对照泰国四种动物在两份具名来源中的不同映射。无需注册。"
+      "zh": "通过24道工作情境二选一，观察任务推进、表达带动、稳定支持与规范核对四类行为选择。约5分钟，免费查看原始计数、全部最高并列与完整解读。",
+      "en": "Explore four work-style directions with 24 paired choices. See raw counts, every highest-count tie and full explanations free, with no signup."
     },
     "minutes": 5,
     "formCode": "disc_behavior_forced_choice_24",
@@ -39,15 +39,15 @@
     "slug": "response-color",
     "code": "PERSONALITY_COLOR",
     "version": "2.0.0",
-    "updated": "2026-10-25",
+    "updated": "2026-10-31",
     "category": "framework",
     "title": {
       "zh": "色彩性格测试",
       "en": "Color Personality Test"
     },
     "description": {
-      "zh": "免费完成24道日常情境二选一，查看红、黄、蓝、绿四方向的实际选择次数与完整单项或并列报告。无需注册，附具体例子、取舍和七日观察。",
-      "en": "Take a free 24-question color personality test. See your red, yellow, blue and green choice counts, every tied result, everyday examples and a full report. No signup."
+      "zh": "通过24道日常情境二选一，比较红、黄、蓝、绿四类回应方式。约5分钟，免费查看原始计数、全部最高并列与完整解读，无需注册。",
+      "en": "Compare four everyday response styles with 24 paired choices. See red, yellow, blue and green counts, every highest-count tie and full explanations free."
     },
     "minutes": 5,
     "collection": "play",
@@ -82,8 +82,8 @@
       "en": "Social Battery Test"
     },
     "description": {
-      "zh": "完成20道原创情境频率题，分别阅读交流负担、协调负担、安静独处与轻松陪伴的恢复感。完整结果免费，无需注册；查看实际计分与具体边界表达。",
-      "en": "Take a free 20-question social battery test. Explore interaction and coordination demands, quiet recovery and easy company with full results, clear scoring and no signup."
+      "en": "Explore interaction and coordination demands, quiet recovery and easy company through 20 original questions about the past two weeks. Read four separate means and complete guides, free without registration.",
+      "zh": "通过20道原创问题，回看过去两周的交流与协调负担、安静独处与轻松陪伴的恢复感。免费查看四项独立均分与完整指南，无需注册。"
     },
     "minutes": 5,
     "collection": "explore",
@@ -107,8 +107,8 @@
       "en": "Spirit Animal Test"
     },
     "description": {
-      "zh": "免费完成18道原创情境题，比较狼、猫头鹰、狐狸、狮子、海豚、鹿、熊、鹰和水獭的匹配线索。全部九份解释可直接阅读，保留全部最高并列，说明计分与实际取舍，无需注册。",
-      "en": "What is my spirit animal? Take 18 original questions, see every tied match and read all nine animal profiles, including Otter, with examples and clear scoring. Free, no signup."
+      "en": "Explore nine animal metaphors through 18 everyday four-choice scenarios. See all raw counts, every highest tie and complete guides for Wolf, Owl, Fox, Lion, Dolphin, Deer, Bear, Eagle and Otter. Free, no signup.",
+      "zh": "通过18道日常情境四选一，探索九种动物比喻。免费查看全部原始计数、所有最高并列，以及狼、猫头鹰、狐狸、狮子、海豚、鹿、熊、鹰与水獭的完整指南，无需注册。"
     },
     "minutes": 4,
     "collection": "explore",
@@ -164,8 +164,8 @@
       "en": "What Dog Breed Am I?"
     },
     "description": {
-      "zh": "免费完成12道原创相处与活动偏好题，比较金毛、边牧、哈士奇、德牧、巴哥和吉娃娃六种人类性格比喻。显示全部计数、完整并列结果、具体例子与计分；无需注册。",
-      "en": "What dog breed am I? Take 12 original questions about companionship and activity preferences. Get every tied result and all six full dog-personality guides, free with no signup."
+      "en": "Explore companionship and activity preferences through 12 everyday four-choice scenarios. Compare six dog-breed metaphors, see all raw counts and every highest tie, and read the complete guides. Free, no signup.",
+      "zh": "通过12道日常情境四选一，探索相处与活动偏好。比较六种犬系比喻，免费查看全部原始计数、所有最高并列及完整指南，无需注册。"
     },
     "minutes": 3,
     "collection": "explore",
@@ -191,8 +191,8 @@
       "en": "What Mythical Creature Are You?"
     },
     "description": {
-      "zh": "免费完成18道原创创作与交流偏好题，比较龙、凤凰、独角兽、狮鹫、美人鱼和克拉肯。显示全部计数与完整并列报告，附具体例子、结果比较和计分；无需注册。",
-      "en": "What mythical creature are you? Answer 18 original questions about creative choices and communication. See every tied match and all six full guides, free with no signup."
+      "en": "Explore creative and conversational preferences through 18 everyday four-choice situations. Compare Dragon, Phoenix, Unicorn, Griffin, Mermaid and Kraken, with all raw counts, every highest tie and complete guides. Free, no signup.",
+      "zh": "通过18道日常情境四选一，探索创作与交流偏好。比较龙、凤凰、独角兽、狮鹫、美人鱼与克拉肯，免费查看全部原始计数、所有最高并列及完整指南，无需注册。"
     },
     "minutes": 5,
     "collection": "explore",
@@ -218,8 +218,8 @@
       "en": "Superpower Test"
     },
     "description": {
-      "zh": "免费完成20道原创日常偏好题，比较心灵感应、飞行、时间控制、隐身和超强力量五种趣味比喻。显示全部计数与完整并列报告，附具体例子、相近结果和计分；无需注册。",
-      "en": "What superpower would you have? Take 20 original everyday questions and compare Telepathy, Flight, Time Control, Invisibility and Super Strength. Full results free, no signup."
+      "en": "Explore everyday choices through 20 four-option situations. Compare Telepathy, Flight, Time Control, Invisibility and Super Strength as preference metaphors, with all raw counts, highest ties and complete guides. Free, no signup.",
+      "zh": "通过20道日常情境四选一，探索询问、换视角、节奏、观察与帮助的偏好。以五种虚构超能力作比喻，免费查看全部原始计数、最高并列与完整指南，无需注册。"
     },
     "minutes": 5,
     "collection": "explore",
@@ -237,15 +237,15 @@
     "slug": "moral-alignment",
     "code": "MORAL_ALIGNMENT",
     "version": "1.0.0",
-    "updated": "2026-10-25",
+    "updated": "2026-10-31",
     "category": "framework",
     "title": {
       "zh": "道德阵营测试",
       "en": "Moral Alignment Test"
     },
     "description": {
-      "zh": "完成24道原创情境二选一，查看两轴原始计数、九宫格位置与所有边界并列报告。九种完整双语阵营说明可先读，免费无需注册；区分角色框架与真实道德判断。",
-      "en": "Take 24 original scenarios, see two raw-count axes and explore all nine D&D-inspired alignment guides. Full results free, including boundary matches. No signup."
+      "zh": "通过24道原创情境二选一，探索守序—混乱与善良—邪恶两条阵营轴。免费查看原始计数、九宫格位置、全部边界结果及完整解读，无需注册。",
+      "en": "Explore law–chaos and good–evil through 24 original paired scenarios. Get raw counts, a nine-alignment grid and every boundary-match guide free, without signup."
     },
     "minutes": 7,
     "collection": "explore",
@@ -267,15 +267,15 @@
     "slug": "jungian-archetype",
     "code": "JUNGIAN_ARCHETYPE",
     "version": "1.0.0",
-    "updated": "2026-10-25",
+    "updated": "2026-10-31",
     "category": "framework",
     "title": {
       "zh": "荣格原型测试",
       "en": "Jungian Archetype Test"
     },
     "description": {
-      "zh": "完成36道原创情境题，比较纯真者、智者、英雄等12种原型动机。查看全部计数与完整并列报告，先读相近原型、具体例子和计分；免费无需注册。",
-      "en": "Take 36 original questions and compare all 12 archetypal themes, from Sage to Creator. Get every tied result and full guides with examples. Free, no signup."
+      "zh": "用36道原创情境四选一，比较十二原型动机。免费查看12项原始计数、所有最高并列及完整解读，了解原型来源、相近主题与使用方法，无需注册。",
+      "en": "Explore twelve archetypal motives through 36 original scenarios. View all raw counts, every highest tie and full guides, with model origins and practical examples. Free, no signup."
     },
     "minutes": 8,
     "collection": "explore",
@@ -299,15 +299,15 @@
   {
     "slug": "introvert-extrovert",
     "version": "1.0.0",
-    "updated": "2026-10-25",
+    "updated": "2026-10-31",
     "category": "framework",
     "title": {
       "zh": "内向还是外向测试",
       "en": "Introvert or Extrovert Test"
     },
     "description": {
-      "zh": "用10条IPIP公有领域外向性条目自评，查看实际总分、均分和四种完整结果读法。说明反向计分、边界并列与缺失回应；免费无需注册，不把分数当固定人格或社交能力。",
-      "en": "Take 10 public-domain IPIP extraversion items. See your raw total, mean and full result guides, including boundary matches. Free, no signup or fixed-type verdict."
+      "zh": "用10条IPIP外向性描述，了解交谈、群体参与与注意焦点中的自评倾向。免费查看10—50原始总分、均分、全部边界报告及反向计分说明，无需注册。",
+      "en": "Rate 10 public-domain IPIP Extraversion items about conversation and social attention. See your raw total, mean and every boundary report free, with scoring explained. No signup."
     },
     "minutes": 2,
     "questionCount": 10,
@@ -325,15 +325,15 @@
     "slug": "temperament",
     "code": "CLASSICAL_TEMPERAMENT",
     "version": "1.0.0",
-    "updated": "2026-10-25",
+    "updated": "2026-10-31",
     "category": "framework",
     "title": {
       "zh": "气质测试",
       "en": "Temperament Test"
     },
     "description": {
-      "zh": "完成24道原创日常情境题，比较多血质、胆汁质、抑郁质与黏液质的本次选择次数。四种完整结果免费可读，保留全部最高并列，无需注册；古典标签不等于医学、能力或职业判断。",
-      "en": "Take 24 original everyday questions. Compare Sanguine, Choleric, Melancholic and Phlegmatic choices, with every tied full report. Free, no signup; a classical-style reflection."
+      "zh": "通过24道日常情境四选一，比较多血质、胆汁质、抑郁质与黏液质四类选择。约6分钟，免费查看原始次数、全部最高并列和完整解读，无需注册。",
+      "en": "Compare Sanguine, Choleric, Melancholic and Phlegmatic choices in 24 everyday scenarios. About 6 minutes; raw counts, every highest tie and full guides, free without signup."
     },
     "minutes": 6,
     "collection": "explore",
@@ -350,15 +350,15 @@
     "slug": "love-languages",
     "code": "LOVE_LANGUAGE_REFLECTION_50",
     "version": "1.0.0",
-    "updated": "2026-10-25",
+    "updated": "2026-10-31",
     "category": "relationships",
     "title": {
       "zh": "五种爱的语言测试",
       "en": "Love Language Test"
     },
     "description": {
-      "zh": "用50条原创自评，分别探索肯定言语、行动支持、心意礼物、专注陪伴与自愿身体接触在表达和接收关心时的意义。十项均分、五份完整解读免费，无需注册。",
-      "en": "Explore what five ways of caring mean to you when giving and receiving. Take 50 original ratings for ten separate means and five full free guides, with no signup."
+      "zh": "用50条原创自评，分别了解五种关心方式在表达和接收时对你的意义。约10分钟，免费查看十项独立均分、缺答说明与五份完整解读，无需注册。",
+      "en": "Rate 50 original caring situations for giving and receiving separately. About 10 minutes; ten independent means, missing-response guidance and five full guides, free without signup."
     },
     "minutes": 10,
     "collection": "explore",
@@ -376,15 +376,15 @@
     "slug": "attachment-styles",
     "code": "ATTACHMENT_REFLECTION_24",
     "version": "1.0.0",
-    "updated": "2026-10-25",
+    "updated": "2026-10-31",
     "category": "relationships",
     "title": {
       "zh": "依恋风格测试",
       "en": "Attachment Style Quiz"
     },
     "description": {
-      "zh": "用24道原创情境频率题，分别观察关系中的反复担心与亲近退缩。两维均分和安全、焦虑、回避、恐惧回避四份完整解读免费，无需注册；不强派固定类型。",
-      "en": "Take 24 original situation ratings to explore relationship worry and distance from closeness. See two means and all four full attachment-style guides, free without signup or a fixed label."
+      "zh": "用24道原创情境频率题，回看近三个月同一段成年亲密关系中的反复担心与亲近退缩。约6分钟，免费查看两维均分及四种依恋风格完整指南，无需注册。",
+      "en": "Reflect on worry and distance in one adult close relationship over the past three months. 24 original ratings, about 6 minutes; two means and four full style guides, free without signup."
     },
     "minutes": 6,
     "collection": "explore",
@@ -401,15 +401,15 @@
     "slug": "communication-style",
     "code": "COMMUNICATION_STYLES",
     "version": "1.0.0",
-    "updated": "2026-10-25",
+    "updated": "2026-10-31",
     "category": "social",
     "title": {
       "zh": "沟通风格测试",
       "en": "Communication Style Test"
     },
     "description": {
-      "zh": "用24条原创频率自评，分别探索坚定表达、被动表达、强硬压过他人与间接抗拒。四项均分和四份完整解释免费，无需注册；附具体说法、取舍和小尝试，不评定能力或录用。",
-      "en": "Explore assertive, passive, aggressive and passive-aggressive responses with 24 original ratings. Get four separate means and full free guides with examples. No signup or skill verdict."
+      "zh": "用24条原创频率自评，回看近四周的坚定表达、被动表达、强硬压过他人与间接抗拒。约6分钟，免费查看四项独立均分、计分示例与完整沟通指南，无需注册。",
+      "en": "Reflect on assertive, passive, aggressive and passive-aggressive responses with 24 original frequency ratings. About 6 minutes; four separate means, scoring examples and full communication guides are free, with no signup."
     },
     "minutes": 6,
     "collection": "explore",
@@ -426,15 +426,15 @@
     "slug": "leadership-style",
     "code": "LEADERSHIP_APPROACHES",
     "version": "1.0.0",
-    "updated": "2026-10-25",
+    "updated": "2026-10-31",
     "category": "framework",
     "title": {
       "zh": "领导风格测试",
       "en": "Leadership Style Test"
     },
     "description": {
-      "zh": "完成24道原创团队情境题，比较专制型、民主型、放任型与变革型的本次选择。四项计数和最高并列完整结果免费，无需注册；附具体例子、取舍与小尝试，不评定领导能力。",
-      "en": "Take 24 original team scenarios to compare autocratic, democratic, laissez-faire and transformational choices. Get raw counts and every tied full result free, with no signup."
+      "zh": "通过24道原创团队情境四选一，比较集中决策、共同参与、低介入与方向发展的优先选择。约7分钟，免费查看四项原始计数、全部最高并列与四份完整领导风格指南，无需注册。",
+      "en": "Compare concentrated decisions, participation, limited involvement and direction with development in 24 original team scenarios. About 7 minutes; see four raw counts, every highest-count tie and four full leadership guides free, without signup."
     },
     "minutes": 7,
     "collection": "explore",
@@ -451,15 +451,15 @@
     "slug": "humor-style-test",
     "code": "HUMOR_EXPRESSIONS",
     "version": "1.0.0",
-    "updated": "2026-10-25",
+    "updated": "2026-10-31",
     "category": "social",
     "title": {
       "zh": "幽默风格测试",
       "en": "Humor Style Test"
     },
     "description": {
-      "zh": "用24条原创频率题，分别探索冷面、文字巧思、荒诞、共同趣味、自嘲和机锋表达。六项均分与完整解释免费，无需注册；含原创例子与边界，不测智力、受欢迎程度或幽默能力。",
-      "en": "Explore deadpan, wordplay, absurdist, shared, self-deprecating and banter humor with 24 original ratings. Six separate means and full free guides, no signup or ability verdict."
+      "zh": "用24条原创频率自评，回看近四周的冷面、文字巧思、荒诞、共同趣味、自嘲与机锋表达。约6分钟，免费查看六项独立均分、计分算例与完整指南，无需注册。",
+      "en": "Reflect on deadpan, wordplay, absurdist play, shared humor, self-deprecation and banter with 24 original frequency ratings. About 6 minutes; six separate means, scoring examples and full guides are free without signup."
     },
     "minutes": 6,
     "collection": "explore",
@@ -478,15 +478,15 @@
     "slug": "travel-personality-test",
     "code": "TRAVEL_PREFERENCES",
     "version": "1.0.0",
-    "updated": "2026-10-25",
+    "updated": "2026-10-31",
     "category": "everyday",
     "title": {
       "zh": "旅行性格类型测试",
       "en": "Travel Personality Type Test"
     },
     "description": {
-      "zh": "用18道原创出游偏好题，比较随兴漫游、行程规划、文化、户外、休闲与饮食体验。六项计数和最高并列完整报告免费，无需注册；附例子与同行协商，不评定能力或旅行资格。",
-      "en": "Take 18 original travel-preference questions. Compare wandering, planning, culture, outdoors, rest and food, with every tied full guide free. No signup or ability verdict."
+      "zh": "通过18道出游情境选择，了解自己更看重随兴、规划、文化、户外、休闲还是饮食体验。约5分钟，免费查看六项计数、全部最高并列与完整指南，把偏好转化为可讨论的旅行安排。",
+      "en": "Explore what you prioritise in 18 travel scenarios: spontaneity, planning, culture, outdoor activities, rest or food. In about five minutes, see six counts, all highest ties and free full guides for discussing trip arrangements."
     },
     "minutes": 5,
     "collection": "explore",
@@ -505,15 +505,15 @@
     "slug": "aesthetic-core-test",
     "code": "AESTHETIC_VISUAL_PREFERENCES",
     "version": "1.0.0",
-    "updated": "2026-10-25",
+    "updated": "2026-10-31",
     "category": "metaphor",
     "title": {
       "zh": "美学核心测试",
       "en": "What Is My Aesthetic?"
     },
     "description": {
-      "zh": "用18道原创文字视觉偏好题，比较田园、暗色学院、清爽极简、海岸休闲、林野奇趣与赛博朋克。全部最高并列完整报告免费，无需注册；附配色、材质和不购物小尝试，不判断人格或外貌。",
-      "en": "Explore six aesthetics with 18 original word-based visual choices. Get every tied full guide, palettes, textures and no-purchase ideas free. No signup or personality verdict."
+      "zh": "通过18道文字视觉选择，比较田园、暗色学院、清爽极简、海岸休闲、林野奇趣与赛博朋克。约5分钟，免费查看六项计数、全部最高并列、配色与材质指南；无需照片、注册或购物。",
+      "en": "Compare Cottagecore, Dark Academia, Clean Girl, Coastal Grandmother, Goblincore and Cyberpunk in 18 word-based visual choices. See six counts, all highest ties and free palette and texture guides. About five minutes; no photo, signup or shopping needed."
     },
     "minutes": 5,
     "collection": "explore",
@@ -539,8 +539,8 @@
       "en": "Music Taste Test"
     },
     "description": {
-      "zh": "用24条原创喜欢程度题探索流行、摇滚、嘻哈、电子、爵士、西方古典器乐、原声民谣与乡村声音。八项均分与完整结果免费，无需注册；另讲听歌场景，不以曲风推断智力或阶层。",
-      "en": "Explore eight music preferences with 24 original liking ratings. Full free guides and separate listening-context ideas, no signup, audio quiz or status verdict."
+      "zh": "通过24条声音喜欢程度自评，分别了解流行、摇滚、嘻哈、电子、爵士、西方古典器乐、原声民谣与乡村偏好。约6分钟，免费查看八项均分、有效题数和完整指南，无需注册。",
+      "en": "Rate 24 sound descriptions to explore eight music preferences. See separate means, rated-item counts and eight full guides, free in about six minutes with no signup."
     },
     "minutes": 6,
     "collection": "explore",
@@ -568,8 +568,8 @@
       "en": "People Pleaser Test"
     },
     "description": {
-      "zh": "用10条PPS条目分别探索自身需要、照顾责任和他人期望，三项均分与完整双语解释免费，无需注册。含具体对话、反例和许可说明；日常讨好倾向自评，不诊断人格障碍。",
-      "en": "Explore own needs, responsibility and others’ expectations with ten PPS items. Three readings and full free guides, no signup, personality tiers or diagnosis."
+      "zh": "通过10条PPS自评，分别了解搁置自身需要、照顾他人的责任感与迎合期望。约4分钟，免费查看三项均分、有效题数和完整解读；无需注册，保留量表来源与中文改编说明。",
+      "en": "Explore own needs, felt responsibility and others’ expectations with 10 PPS items. Free means, rated-item counts and full guides in about four minutes, no signup."
     },
     "minutes": 4,
     "collection": "explore",
@@ -592,8 +592,8 @@
       "en": "Difficult Person Test"
     },
     "description": {
-      "zh": "用28条原创题分别观察忽略感受、自我抬高、强行主导、隐瞒施压、猜疑、攻击回应与忽略风险。七项均分与完整解释免费，无需注册；含对话、反例和反向题，不给人贴坏人标签。",
-      "en": "Explore seven interpersonal behaviours with 28 original ratings, reverse items and full free guides. No signup, difficulty percentage, personality verdict or diagnosis."
+      "zh": "用28道原创频率题回看近四周的七类互动行为，免费查看独立均分、有效题数与七份完整指南。约7分钟，无需注册；提供反向计分算例、行为反例和沟通建议。",
+      "en": "Reflect on seven interaction patterns with 28 original items. Free separate means, rated-item counts, reverse-scoring examples and full guides. About seven minutes, no signup."
     },
     "minutes": 7,
     "collection": "explore",
@@ -620,8 +620,8 @@
       "en": "Likable Person Test: Interaction Choices"
     },
     "description": {
-      "zh": "用20道自有情境二选一观察温暖、兑现、轻松、好奇与边界的相对侧重。免费阅读31种完整单项或并列结果，含对话、反例和取舍；无需注册，不测真实好感或社交能力。",
-      "en": "Explore five interaction approaches with 20 paired choices and all 31 full result guides. Free, no signup, with examples and ties; no popularity or ability score."
+      "zh": "通过20道原创情境二选一，探索温暖、兑现、轻松、好奇与边界的相对侧重。约5分钟，免费查看五项计数、全部最高并列与31种完整指南；无需注册。",
+      "en": "Explore warmth, follow-through, lightness, curiosity and boundaries in 20 original paired choices. Free counts, all leading ties and 31 full guides. About five minutes, no signup."
     },
     "minutes": 5,
     "collection": "explore",
@@ -672,8 +672,8 @@
       "en": "Procrastination Patterns Test"
     },
     "description": {
-      "zh": "用24条原创中英文题分别观察额外标准、构想停留、担忧、抗拒要求、等待紧迫与承诺拥挤。六项均分及完整解释免费，无需注册；含反例和小观察，不诊断原因、能力或固定人格。",
-      "en": "Explore six procrastination patterns with 24 original ratings and full free guides. No signup, fixed personality, diagnosis, ability score or claimed hidden cause."
+      "zh": "通过24条原创频率题，回看近四周的额外标准、构想停留、担忧、抗拒、临期启动与承诺拥挤。约6分钟，免费查看六项独立均分、反向计分算例与完整指南；无需注册。",
+      "en": "Reflect on six delay patterns with 24 original frequency items. Free separate means, reverse-scoring examples and full guides for the past four weeks. About six minutes, no signup."
     },
     "minutes": 6,
     "collection": "explore",
@@ -699,8 +699,8 @@
       "en": "Learning Style Test"
     },
     "description": {
-      "zh": "用20条原创题观察你现在对图示、口头、读写与实例实践的使用意愿。四项均分和全部完整解释免费，无需注册；含同一内容示例、比较与反例，不测学习能力或保证按类型教学更有效。",
-      "en": "Explore four learning-format preferences with 20 original ratings and full free guides. No signup, fixed learner type, ability score or matched-teaching promise."
+      "zh": "通过20条原创题，探索当前对图示、口头解释、阅读书写与实例实践的使用意愿。约5分钟，免费查看四项独立均分、计分算例及完整指南，无需注册。",
+      "en": "Explore current preferences for diagrams, spoken explanations, reading and writing, and practical examples with 20 original items. Free separate means, scoring examples and full guides; about five minutes, no signup."
     },
     "minutes": 5,
     "collection": "explore",
@@ -724,8 +724,8 @@
       "en": "Character Strengths Test"
     },
     "description": {
-      "zh": "96条公有领域IPIP-VIA-R题目，24项自评与全部完整双语解释免费，无需注册。中文为独立试译；含具体例子、比较和行动，不评人品、能力或职业适配。",
-      "en": "Take 96 public-domain IPIP-VIA-R items and read all 24 full result guides free. No signup, moral ranking, ability score or automatic signature-strength labels."
+      "zh": "通过96条IPIP-VIA-R公开题目，探索好奇、诚实、关爱、审慎等24项性格优势。约15分钟，免费查看各项原始合计、均分与完整指南；中文为费马独立试译，无需注册。",
+      "en": "Explore 24 character strengths with 96 public-domain IPIP-VIA-R items. Free raw sums, means and full guides in about 15 minutes, with an independent Chinese trial translation. No signup."
     },
     "minutes": 15,
     "collection": "explore",
@@ -769,8 +769,8 @@
       "en": "Dere Type Quiz"
     },
     "description": {
-      "zh": "16道原创情境题，比较傲娇、冷娇、闷娇与热娇四种文化表达原型。全部完整结果免费，无需注册，最高并列都保留；不读心、不预测关系，不把现实拒绝解释为喜欢。",
-      "en": "Take 16 original scenarios and compare tsundere, kuudere, dandere and deredere expression tropes. Full results free, every highest tie kept, no signup."
+      "zh": "通过16道原创日常情境题，比较傲娇、冷娇、闷娇与热娇四种表达方式。约4分钟，免费查看四项原始计数、全部最高并列与完整解读；无需注册。",
+      "en": "Compare tsundere, kuudere, dandere and deredere expressions in 16 original everyday scenarios. About four minutes; free raw counts, every highest tie and complete guides, without signup."
     },
     "minutes": 4,
     "collection": "explore",
@@ -794,8 +794,8 @@
       "en": "Hogwarts House Quiz"
     },
     "description": {
-      "zh": "独立非官方同人测验：24道原创选择比较格兰芬多、赫奇帕奇、拉文克劳和斯莱特林。完整结果免费，无需注册，最高并列都保留；不测智力、善恶或官方学院归属。",
-      "en": "Take an unofficial Hogwarts House Quiz with 24 original choices. Compare all four houses, keep highest ties and read full guides free, without signup."
+      "zh": "24道原创日常选择，探索格兰芬多、赫奇帕奇、拉文克劳与斯莱特林四种学院主题。约7分钟，免费查看全部计数、最高并列与完整解读；独立非官方同人版，无需注册。",
+      "en": "Explore Gryffindor, Hufflepuff, Ravenclaw and Slytherin themes through 24 original everyday choices. About seven minutes, with free raw counts, every highest tie and complete guides. Independent unofficial fan edition; no signup."
     },
     "minutes": 7,
     "collection": "explore",
@@ -819,8 +819,8 @@
       "en": "Which Greek God Are You?"
     },
     "description": {
-      "zh": "免费希腊神测试：18道原创选择比较宙斯、雅典娜、阿波罗、阿芙罗狄蒂、阿瑞斯和阿尔忒弥斯。无需注册，全部最高并列与完整说明直接读；神话趣味，不鉴定能力、天命或职业。",
-      "en": "Which Greek god are you? Compare six myth themes through 18 original choices. Read full results and highest ties free, without signup or ability claims."
+      "zh": "18道原创情境题，探索宙斯、雅典娜、阿波罗、阿芙罗狄蒂、阿瑞斯与阿尔忒弥斯六种神话主题。约6分钟，免费查看原始计数、全部最高并列与完整解读；无需注册。",
+      "en": "Explore six Greek myth themes through 18 original scenarios: Zeus, Athena, Apollo, Aphrodite, Ares and Artemis. About six minutes; free raw counts, every highest tie and complete guides, without signup."
     },
     "minutes": 6,
     "collection": "explore",
@@ -846,8 +846,8 @@
       "en": "Which Tarot Card Are You?"
     },
     "description": {
-      "zh": "你是哪张塔罗牌？22道原创偏好题比较22张大阿尔卡那，全部最高并列与完整结果免费读，无需注册。不是生日计算、抽牌或占卜，不预告健康、财富或未来。",
-      "en": "Which tarot card are you? Take 22 original questions and read full guides for all 22 Major Arcana free. Keep highest ties, with no signup or fortune-telling."
+      "zh": "用22道原创日常偏好题探索22张大阿尔卡那的象征主题。约7分钟，查看每张牌的原始次数、全部最高并列与完整解读；免费、无需注册，不需要生日或塔罗知识。",
+      "en": "Explore the symbolic themes of all 22 Major Arcana through 22 original everyday preference questions. About 7 minutes; free counts, every highest tie and complete guides. No signup, birthday or tarot knowledge needed."
     },
     "minutes": 7,
     "collection": "explore",
@@ -889,8 +889,8 @@
       "en": "What Element Am I?"
     },
     "description": {
-      "zh": "免费四元素测试：20道原创选择比较火、水、土、风（气）四种偏好意象。无需注册，直接读完整结果和所有最高并列；不是生日星座、五行或身体能量测试。",
-      "en": "What element am I? Compare Fire, Water, Earth and Air in 20 original choices. Read full results free, without signup, birthdays or zodiac calculations."
+      "zh": "通过20道原创日常选择，探索火、水、土、风（气）四种偏好意象。约6分钟，免费查看四项原始计数、全部最高并列与完整解读；无需注册或生日，不需要元素知识。",
+      "en": "Explore Fire, Water, Earth and Air as preference metaphors through 20 original everyday choices. About 6 minutes, with free raw counts, every highest tie and complete guides. No signup, birthday or element knowledge needed."
     },
     "minutes": 6,
     "collection": "explore",
@@ -914,8 +914,8 @@
       "en": "Aura Color Test"
     },
     "description": {
-      "zh": "免费光环颜色测试：21道原创选择比较七种自选表达意象，完整结果与所有最高并列直接读。无需注册、照片或生日；不探测能量、预测命运或认证灵性。",
-      "en": "Take a free aura color test with 21 original choices and seven symbolic guides. Full results without signup, photos, birthdays or energy-field claims."
+      "zh": "用21道原创日常选择，探索红、橙、黄、绿、蓝、靛、紫七种表达意象。约7分钟，免费查看七色原始次数、全部最高并列和完整指南；无需注册、照片或生日。",
+      "en": "Explore seven expression metaphors—Red, Orange, Yellow, Green, Blue, Indigo and Violet—through 21 original everyday choices. About 7 minutes; free counts, every highest tie and complete guides. No signup, photo or birthday needed."
     },
     "minutes": 7,
     "collection": "explore",
@@ -942,8 +942,8 @@
       "en": "Past Life Quiz"
     },
     "description": {
-      "zh": "免费前世测试：24道原创选择比较八种历史活动角色意象，完整结果与所有最高并列直接读。无需注册或生日；想象问卷，不认定真实前世、回忆、天赋或职业。",
-      "en": "Take a free past life quiz with 24 original choices and eight historical-role guides. Full results without signup, birthdays or claims of an actual former life."
+      "zh": "用24道原创情境题探索文字记录、器物设计、印刷、织造等八种历史活动意象。约7分钟，免费查看八项原始计数、所有最高并列与完整指南；无需生日或注册。想象性测验，不认定真实前世。",
+      "en": "Explore eight historical activity images through 24 original scenarios, from keeping records to vessels, printing and weaving. About 7 minutes, with free raw counts, every highest tie and full guides. No birthday or signup; an imaginative quiz, not a claim about a real past life."
     },
     "minutes": 7,
     "collection": "explore",
@@ -971,8 +971,8 @@
       "en": "Moon Phase Personality Test"
     },
     "description": {
-      "zh": "免费月相测试：24道原创选择比较八种普通活动节奏意象，完整结果和全部最高并列直接读。无需注册或生日；不是月龄计算，也不判断健康、情绪、关系或命运。",
-      "en": "Take a free moon phase personality test with 24 original choices and eight full symbolic guides. No signup, birthday, moon-age or energy-cycle calculation."
+      "zh": "用24道原创情境题，探索留白、小试、取舍、调整、呈现、分享、减负与间隔八种活动节奏意象。约7分钟，免费查看原始次数、所有最高并列与完整指南；无需生日或注册，不计算出生月相。",
+      "en": "Explore eight activity-pace images through 24 original scenarios: space, trials, tradeoffs, adjustment, presentation, sharing, reducing scope and intervals. About 7 minutes, with free counts, every highest tie and full guides. No birthday or signup; not a birth moon calculation."
     },
     "minutes": 7,
     "collection": "explore",
@@ -1000,8 +1000,8 @@
       "en": "BoJack Horseman Character Quiz"
     },
     "description": {
-      "zh": "免费完成20道原创日常选择，比较波杰克、戴安、凯洛琳公主、陶德与花生酱先生，阅读全部最高并列的完整说明、例子和计分。非官方同人测试，不做临床判断。",
-      "en": "Take 20 original everyday questions and compare five BoJack Horseman characters. Full tied results, examples and scoring are free. An unofficial fan quiz."
+      "zh": "用20道原创日常情境题，比较波杰克、戴安、凯洛琳公主、陶德与花生酱先生五种同人阅读角度。约6分钟，免费查看原始次数、所有最高并列与完整指南。无需注册，不考剧情知识。",
+      "en": "Compare five BoJack Horseman fan readings through 20 original everyday scenarios. About 6 minutes, with free raw counts, every highest tie and full guides for BoJack, Diane, Princess Carolyn, Todd and Mr. Peanutbutter. No signup or episode knowledge needed."
     },
     "minutes": 6,
     "collection": "explore",
@@ -1026,8 +1026,8 @@
       "en": "Chiikawa Test"
     },
     "description": {
-      "zh": "免费完成18道原创普通选择，比较吉伊卡哇、小八、兔兔、小桃、栗子馒头与海獭。全部最高并列完整显示，含例子、角色差异和计分；非官方同人测试。",
-      "en": "Take 18 original everyday questions and compare six Chiikawa characters. Full tied results, examples and scoring are free in this unofficial fan quiz."
+      "zh": "用18道原创日常情境题，探索参与节奏、共同表达、即兴玩法、愿望表达、小舒适与经验分享。约6分钟，免费查看六位角色的原始次数、所有最高并列与完整指南，无需注册。",
+      "en": "Explore participation, shared wording, spontaneous play, personal wishes, small comforts and experience sharing through 18 original everyday scenarios. About 6 minutes, with free counts, every highest tie and six full character guides. No signup needed."
     },
     "minutes": 6,
     "collection": "explore",
@@ -1053,8 +1053,8 @@
       "en": "Disney Princess Test"
     },
     "description": {
-      "zh": "免费完成26道原创普通选择，比较13位迪士尼动画公主角色。最高并列全部完整显示，含例子、十二角色对照与计分；非官方同人测试，不做外貌或能力评分。",
-      "en": "Take 26 original everyday questions and compare 13 Disney Princess characters. Full tied results, examples and scoring are free in this unofficial fan quiz."
+      "zh": "用26道原创日常情境题，探索欢迎参与、个人愿望、好奇阅读、选择表达与合作安排等13种角色视角。约8分钟，免费查看原始次数、所有最高并列与完整指南；无需注册或剧情知识。",
+      "en": "Explore 13 character perspectives on welcome, hopes, curiosity, expression and cooperation through 26 original everyday scenarios. About 8 minutes, with free raw counts, every highest tie and full guides. No signup or film knowledge needed."
     },
     "minutes": 8,
     "collection": "explore",
@@ -1087,8 +1087,8 @@
       "en": "Naruto Character Test"
     },
     "description": {
-      "zh": "免费完成21道原创普通选择，比较鸣人、佐助、小樱等七位角色，最高并列全部完整显示。含例子、角色对照和计分；非官方同人测试，不评智商、战斗或心理状况。",
-      "en": "Take 21 original everyday questions and compare seven Naruto characters. Full tied results, examples and scoring are free in this unofficial fan quiz."
+      "zh": "用21道原创日常情境题，探索共同起步、自选专注、具体练习、分工衔接、条件判断、安静参与与责任边界。约7分钟，免费查看七位角色的原始次数、所有最高并列及完整指南，无需注册。",
+      "en": "Explore shared starts, chosen focus, practice, roles, conditions, quiet participation and bounded responsibility through 21 original everyday scenarios. About 7 minutes, with free raw counts, every highest tie and seven full guides. No signup needed."
     },
     "minutes": 7,
     "collection": "explore",
@@ -1115,8 +1115,8 @@
       "en": "Death Note Test"
     },
     "description": {
-      "zh": "免费完成24道原创普通选择，比较夜神月、L等八位角色，最高并列全部完整显示。含角色对照、例子与计分；非官方同人测试，不评智商、道德或危险性。",
-      "en": "Take 24 original everyday questions and compare eight Death Note characters. Full tied results, examples and scoring are free in this unofficial fan quiz."
+      "zh": "用24道原创日常情境题，比较目标、提问、观察、表达、信息整理、替代路径、条件与资源用途八种角度。约7分钟，免费查看八位角色的原始次数、所有最高并列与完整指南，无需注册。",
+      "en": "Compare aims, questions, observation, expression, information, alternative routes, criteria and resource uses through 24 original everyday scenarios. About 7 minutes, with free raw counts, every highest tie and eight full guides. No signup needed."
     },
     "minutes": 7,
     "collection": "explore",
@@ -1144,8 +1144,8 @@
       "en": "BLEACH Character Test"
     },
     "description": {
-      "zh": "免费完成21道原创普通选择，比较BLEACH《死神》的一护、露琪亚等七位角色。完整结果、例子和计分直接读，最高并列全部保留；非官方同人测试，不评灵压与能力。",
-      "en": "Take 21 original everyday questions and compare seven BLEACH characters. Full tied results, examples and scoring are free in this unofficial fan quiz."
+      "zh": "用21道原创日常情境题，探索帮助范围、做法说明、重看框架、自选承诺、他人意愿、小样试做与有界挑战。约7分钟，免费查看七位BLEACH角色的原始次数、所有最高并列和完整指南，无需注册。",
+      "en": "Explore help limits, procedures, frames, chosen commitments, others’ choices, prototypes and bounded challenges through 21 original everyday scenarios. About 7 minutes, with free raw counts, every highest tie and seven full BLEACH guides. No signup needed."
     },
     "minutes": 7,
     "collection": "explore",
@@ -1172,8 +1172,8 @@
       "en": "Star Wars Character Test"
     },
     "description": {
-      "zh": "免费完成21道原创普通选择，比较汉索罗、莱娅、卢克等七位星球大战角色。完整结果、例子与计分直接读，最高并列全部保留；非官方同人测试，不评原力、善恶或心理。",
-      "en": "Take 21 original everyday questions and compare seven Star Wars characters. Full tied results, examples and scoring are free in this unofficial fan quiz."
+      "zh": "用21道原创日常情境题，探索现有办法、持续安排、自选步骤、共同表达、经验分享、学习起步与假设检查。约7分钟，免费查看七位星球大战角色的原始次数、所有最高并列及完整指南，无需注册。",
+      "en": "Explore available means, ongoing arrangements, chosen steps, shared views, experience, learning and assumptions through 21 original everyday scenarios. About 7 minutes, with free raw counts, every highest tie and seven full Star Wars guides. No signup needed."
     },
     "minutes": 7,
     "collection": "explore",
@@ -1200,8 +1200,8 @@
       "en": "Hello Kitty Test"
     },
     "description": {
-      "zh": "免费完成21道原创相处选择，比较凯蒂猫、美乐蒂、大耳狗等七角色。完整结果、具体例子与计分直接读，最高并列全部保留；非官方同人测试。",
-      "en": "Take 21 original everyday questions and compare seven Hello Kitty and Friends characters. Full tied results, examples and scoring are free; unofficial."
+      "zh": "用21道原创日常题，探索欢迎新朋友、熟悉活动、一起玩、新消息、个人趣味、逐步加入与从容相处。约7分钟，免费查看七位三丽鸥角色的原始次数、全部最高并列与完整解读，无需注册。",
+      "en": "Explore welcoming others, familiar activities, play, updates, personal touches, gradual joining and an easy pace through 21 original everyday questions. About 7 minutes, with free raw counts, every highest tie and seven full Sanrio character guides. No signup needed."
     },
     "minutes": 7,
     "collection": "explore",
@@ -1228,8 +1228,8 @@
       "en": "D&D Class Test"
     },
     "description": {
-      "zh": "免费完成24道原创奇幻游戏情境，比较SRD5.2.1十二类基础职业。完整说明、场景与计分直接读，最高并列全部保留；非官方测试，不是现实职业建议。",
-      "en": "Take 24 original fantasy-play questions and compare twelve SRD base classes. Full tied guides, examples and scoring are free; no real-career assessment."
+      "zh": "用24道原创奇幻合作情境，探索十二类D&D游戏职业的游玩偏好。约8分钟，免费查看原始次数、全部最高并列及完整指南，比较术士、邪术师、法师等不同玩法，无需注册。",
+      "en": "Explore play preferences for twelve D&D classes through 24 original cooperative fantasy scenarios. About 8 minutes, with free raw counts, every highest tie and full guides comparing Sorcerer, Warlock, Wizard and other approaches. No signup needed."
     },
     "minutes": 8,
     "collection": "explore",
@@ -1261,8 +1261,8 @@
       "en": "Type A / Type B Personality Test"
     },
     "description": {
-      "zh": "用20条原创题分别观察时间催促、竞争比较、普通等待烦躁与自选活动难停下。四项均分及完整解释免费，保留资料不足；不派固定A/B类型，不评健康或职业。",
-      "en": "Explore time urgency, competitive comparison, waiting irritation and difficulty stopping. 20 original ratings, four free guides; no fixed A/B label."
+      "zh": "用20条原创频率题，回顾近四周的时间催促、竞争比较、等待烦躁与自选活动难停下。约5分钟，免费查看四项独立均分、缺答说明和完整解读，无需注册。",
+      "en": "Review four weeks of time urgency, competitive comparison, waiting irritation and difficulty stopping through 20 original frequency items. About 5 minutes, with free separate means, missing-response explanations and full guides. No signup needed."
     },
     "minutes": 5,
     "collection": "explore",
@@ -1286,8 +1286,8 @@
       "en": "SDT Motivation Test"
     },
     "description": {
-      "zh": "用24条原创题分别观察自主、胜任、联结的满足与受阻体验。六项均分、资料不足和完整解释免费；不派固定动机型，不评能力、健康或职业。",
-      "en": "Self-Determination Theory reflection: 24 original ratings on autonomy, competence and relatedness. Six free guides separate satisfaction from frustration."
+      "zh": "用24条原创频率题，回顾近四周同一领域的自主、胜任与联结体验。约6分钟，免费查看满足与受阻六项独立均分、资料不足说明及完整指南，无需注册。",
+      "en": "Review autonomy, competence and relatedness in one area over four weeks with 24 original frequency items. About 6 minutes, with free separate satisfaction and frustration means, missing-response explanations and six full guides. No signup needed."
     },
     "minutes": 6,
     "collection": "explore",
@@ -1313,8 +1313,8 @@
       "en": "Socionics Test"
     },
     "description": {
-      "zh": "用24条原创信息配对题探索Alpha、Beta、Gamma、Delta四组倾向，最高并列全部保留。完整解释包含16个TIM的组内所属关系，不鉴定16型或换算MBTI。",
-      "en": "Explore four Socionics quadras with 24 original information-pair choices and full free guides. Keep all highest ties; no individual TIM or MBTI conversion."
+      "zh": "通过24道原创情境题，探索Alpha、Beta、Gamma、Delta四组信息偏好。约6分钟，免费查看四项计数、全部最高并列及四份完整指南，了解四象限与16类型的区别。",
+      "en": "Explore Alpha, Beta, Gamma and Delta information preferences through 24 original choices. View all counts, highest ties and four full guides free, and learn how quadras differ from sixteen types."
     },
     "minutes": 6,
     "collection": "explore",
@@ -1338,8 +1338,8 @@
       "en": "Optimism & Pessimism Test"
     },
     "description": {
-      "zh": "用IPIP公有领域10条英文与中文试译观察乐观相关自报回答，四正六反、全部有效才计分。五份完整读法免费，边界保留两份；不评健康或职业。",
-      "en": "Explore ten public-domain IPIP Optimism items, transparent scoring and five free full guides. Chinese is a trial translation; no health or career verdict."
+      "zh": "完成IPIP十项乐观自评，约3分钟免费查看原始总分、均分与五份完整指南。公开四正六反计分及边界读法；中文为试译，结果用于理解本次回答。",
+      "en": "Take ten IPIP Optimism items in about three minutes. View your raw total, mean and five full guides free, with reverse scoring and reading boundaries explained. Chinese is a trial translation."
     },
     "minutes": 3,
     "collection": "explore",
@@ -1364,8 +1364,8 @@
       "en": "Schwartz Values Test"
     },
     "description": {
-      "zh": "用30条原创重要程度题探索Schwartz经典十类价值，分开原始均分与本次相对优先级，十份完整解释免费。非PVQ或SVS标准题本，不评道德、能力或职业。",
-      "en": "Explore ten Schwartz values with 30 original importance items, raw and relative scores and ten full free guides. Not a standard PVQ or SVS instrument."
+      "zh": "用30条原创重要程度题探索Schwartz经典十类价值，免费查看原始均分、相对优先级与十份完整指南。了解价值圆环与计分方法；非PVQ或SVS标准问卷。",
+      "en": "Explore ten classical Schwartz values through 30 original importance items. View raw means, relative priorities and ten full guides free, with scoring and the value circle explained. Not a standard PVQ or SVS."
     },
     "minutes": 6,
     "collection": "explore",
@@ -1395,8 +1395,8 @@
       "en": "Light Triad Test"
     },
     "description": {
-      "zh": "采用发表LTS十二条英文与中文试译，透明计分，优先读整体并保留三份完整侧面说明。按CC BY 4.0归属原作者，不派善良类型、评善恶或换算黑暗特质。",
-      "en": "Read twelve published LTS items, transparent scores and three full free guides. Chinese is a trial translation; no goodness type or Dark Triad conversion."
+      "zh": "免费完成LTS发表版12条英文及中文试译，查看整体原始分数、人性信念、人文关怀与康德主义三个侧面。附计分算例、研究依据和完整指南；约3分钟，无需注册。",
+      "en": "Take the 12 published LTS items or a Chinese trial translation free. Read your overall raw score and three facets, with worked scoring, research context and full guides. About 3 minutes, no signup."
     },
     "minutes": 3,
     "collection": "explore",
@@ -1419,8 +1419,8 @@
       "en": "Inner Child Personality Test"
     },
     "description": {
-      "zh": "免费内在童年性格测试：18道原创日常选择，探索六种当下童心玩法，直接读完整结果与最高并列。无需回忆受伤经历，不推断真实童年、创伤或职业。",
-      "en": "Take the Inner Child Personality Test: 18 original choices, six playful approaches and full free guides. An adult metaphor, without reconstructing childhood."
+      "zh": "用18道原创日常选择探索六种当下童心玩法，免费查看全部计数、最高并列与完整指南。了解好奇、自主、准备、表达、想象和同玩；无需回忆童年，无需注册。",
+      "en": "Explore six present-day playful approaches through 18 original choices. Get every count, highest tie and complete guide free. No childhood recall or signup required; an adult reflection, not a trauma assessment."
     },
     "minutes": 6,
     "collection": "explore",
@@ -1446,8 +1446,8 @@
       "en": "Which Philosopher Are You?"
     },
     "description": {
-      "zh": "免费哲学家性格测试：18道原创思路选择，比较九个原典阅读入口。完整结果、计分和全部最高并列直接读，不模拟历史人物性格或判断智力、道德和职业。",
-      "en": "Which philosopher are you? Explore nine primary-text reading associations through 18 original choices. Full results and highest ties free, without personality claims."
+      "zh": "18道原创日常思路选择，探索苏格拉底、孔子、波伏瓦等九个哲学阅读入口。免费查看原始计数、全部最高并列、原典背景与完整指南；无需哲学基础或注册。",
+      "en": "Explore nine philosophical reading paths through 18 original everyday choices. Get raw counts, every highest tie, primary-text context and complete guides free. No prior philosophy knowledge or signup needed."
     },
     "minutes": 6,
     "collection": "explore",
@@ -1476,8 +1476,8 @@
       "en": "Rorschach-Style Inkblot Test"
     },
     "description": {
-      "zh": "免费墨迹人格测验：看十张费马原创图，选择此刻更想沿着看的说法，直接读五份完整结果与全部最高并列。趣味版，不是专业Rorschach测试，不诊断或解释隐藏人格。",
-      "en": "A free Rorschach-style inkblot quiz with 10 original images and five full guides. A playful visual reflection, without clinical or personality assessment."
+      "zh": "看10张原创对称墨迹图，用四选一探索整体轮廓、边缘细节、动势联想、色块对照和场景编想。免费查看五项次数、全部最高并列与完整指南，无需注册；趣味看图，不作专业罗夏评估。",
+      "en": "Explore five ways of reading ten original inkblots. Get all counts, highest ties and complete guides free, without signup. An untimed visual-choice quiz, not a clinical Rorschach assessment."
     },
     "minutes": 5,
     "collection": "explore",
@@ -1502,8 +1502,8 @@
       "en": "Arabic Personality Compass Test"
     },
     "description": {
-      "zh": "免费性格罗盘测试：36道原创情境题，查看北南东西原始次数、全部最高并列与12份完整读法。中英双语反思版，非官方PCTI，不由方向判断能力、族群或职业。",
-      "en": "Explore North, South, East and West in 36 original questions, in English or Chinese. All highest ties and 12 full guides are free. Not the official PCTI."
+      "zh": "用36道原创情境题探索北向推进、南向参与、东向顺序与西向尝试。免费查看四向原始次数、全部最高并列和12份完整读法；中英文版，无需注册，非官方PCTI。",
+      "en": "Explore North, South, East and West through 36 original situations. Get all raw counts, highest ties and 12 full guides free. English and Chinese, no signup; not the official PCTI."
     },
     "minutes": 10,
     "collection": "explore",
@@ -1535,8 +1535,8 @@
       "en": "Maturity Test"
     },
     "description": {
-      "zh": "免费成熟度测试：24道原创频率题，分别回看情绪回应、承诺修订、视角核对和自主选择。四份完整结果直接可读，资料不足明确保留，不估年龄或判断是否足够成熟。",
-      "en": "A free maturity reflection: 24 original frequency items and four full guides. Explore everyday practices with explicit missing information and no age labels."
+      "zh": "用24道原创频率题回看近四周的情绪回应、承诺修订、视角核对和自主选择。免费查看四部分独立均分、有效条数与完整指南；可选资料不足，无需注册，不估心理年龄。",
+      "en": "Reflect on four everyday practices through 24 original frequency items. Get separate means, rated-item counts and complete guides free. Missing information stays explicit; no signup or mental-age estimate."
     },
     "minutes": 6,
     "collection": "explore",
@@ -1560,8 +1560,8 @@
       "en": "Growth Mindset Test"
     },
     "description": {
-      "zh": "免费成长型与固定型思维测试：以一项学习技能为参照，回答12条原创同意题，查看连续均分及两端、混合与资料不足的完整读法。不估能力或成绩，不派固定类型。",
-      "en": "Explore beliefs about change for one learning skill with 12 original items and a full guide. See a continuous mean, not an ability score or fixed type."
+      "zh": "围绕同一项学习技能，完成12条原创同意度自评，观察你对能力可改变性的当前看法。免费查看有效条数、连续均分与完整解读，含反向计分算例、研究证据与具体学习回顾；无需注册。",
+      "en": "Explore current beliefs about whether one selected learning skill can develop through 12 original agreement items. View rated counts, a continuous mean and a complete guide free, with reverse-scoring examples, research context and practical reflection. No signup."
     },
     "minutes": 4,
     "collection": "explore",
@@ -1582,8 +1582,8 @@
       "en": "Locus of Control Test"
     },
     "description": {
-      "zh": "免费控制点测试：回答IPIP整体20条，查看原始总分、反向计分与完整连续解释，含内外控看法、例子反例和资料不足。不派固定类型，不判断现实责任。",
-      "en": "Take the free 20-item IPIP locus of control test. Read raw scores, ten reversals, missing information and a full guide to control beliefs and limits."
+      "zh": "用IPIP公开的20题整体键，探索主动、决定、运气与应付困难的控制相关自述。免费查看原始总分、反向计分与完整连续读法，附具体例子和题源说明；无需注册。",
+      "en": "Explore control-related beliefs with the full 20-item IPIP Total key. View a free raw score, reverse-scoring examples and complete guide. No signup."
     },
     "minutes": 5,
     "collection": "explore",
@@ -1604,8 +1604,8 @@
       "en": "Intelligence Type Test"
     },
     "description": {
-      "zh": "免费智能类型测试：18道原创情境题，比较六种思考入口，最高并列都保留完整解释，含例子、反例与计分。不测IQ、能力或最佳学习方式。",
-      "en": "Take 18 original scenario choices to explore six thinking approaches. Read every highest tie in full, with examples and limits. No IQ or ability score."
+      "zh": "通过18道原创情境四选一，探索语言、规则、声音、实作、对话与环境六种思考入口。免费查看六项原始计数、全部最高并列和完整指南；无需注册。",
+      "en": "Explore six ways to begin an everyday task through 18 original scenarios. View all counts, every highest tie and complete guides free. No signup."
     },
     "minutes": 5,
     "collection": "explore",
@@ -1631,8 +1631,8 @@
       "en": "Toxic Trait Test"
     },
     "description": {
-      "zh": "免费有毒特征测试原创自我观察版：20道符合度题，分开回看转述、比较、暗示、先解释与旧争议。五份完整说明免费，不生成总毒性百分比或人格标签。",
-      "en": "Take the free Toxic Trait Test: 20 questions about your own interaction habits and five full guides. No toxicity percentage or personality labels."
+      "zh": "用20条原创自评，分别回看转述、比较、暗示异议、先解释与旧争议五类互动做法。免费查看独立均分、计分算例和完整指南，无需注册。",
+      "en": "Reflect on retelling, comparison, hinted objections, explaining first and old disputes through 20 original items. Five separate means and full guides, free without signup."
     },
     "minutes": 5,
     "collection": "explore",
@@ -1657,8 +1657,8 @@
       "en": "Grit Test"
     },
     "description": {
-      "zh": "免费毅力测试原创长期目标回顾版：16道频率题，分开理解目标延续与受阻后的努力续接。两份完整说明免费，不用总分、四等级或成功预测给自己定性。",
-      "en": "A free Grit Test reflection: 16 original items on long-term aims and returning to effort. Two full guides, without overall bands or success predictions."
+      "zh": "用16道原创频率题回顾同一长期目标，分别理解目标延续与受阻后的努力续接。免费查看两项均分、反向计分算例与完整指南，无需注册。",
+      "en": "Review one long-term aim through 16 original frequency items. Explore goal continuity and returning to effort with separate means, scoring examples and full guides, free without signup."
     },
     "minutes": 5,
     "collection": "explore",
@@ -1680,8 +1680,8 @@
       "en": "Ikigai Test"
     },
     "description": {
-      "zh": "免费生之目的测试原创四组交叠探索版：16道情境题，读喜欢、练习、需要与报酬的四份完整说明。所有最高并列都保留，不把计数当作能力、收入或人生使命。",
-      "en": "A free Ikigai Test: 16 original scenarios, four full overlap guides and every highest tie. Explore questions without ability, income or purpose verdicts."
+      "zh": "用16道原创情境题，探索喜欢、练习、需要与报酬之间的四种提问视角。免费查看四项计数、全部最高并列与完整指南，无需注册。",
+      "en": "Explore enjoyment, practice, needs and payment through 16 original scenarios. View four counts, every highest tie and full guides free, without signup."
     },
     "minutes": 5,
     "collection": "explore",
@@ -1705,8 +1705,8 @@
       "en": "Male Archetype Test"
     },
     "description": {
-      "zh": "免费男性原型测试四角色专门版：20道原创情境，读国王、战士、魔法师与情人的四份完整说明。任何人都可参与，最高并列全部保留，不测性别或成熟度。",
-      "en": "Explore King, Warrior, Magician and Lover through 20 original scenarios. Read all four full role-metaphor guides and every highest tie. Free, no signup; anyone can take part."
+      "zh": "通过20道原创情境，探索国王、战士、魔法师与情人四种角色隐喻。免费查看四项计数、所有最高并列及完整指南，任何人均可参与，无需注册。",
+      "en": "Explore King, Warrior, Magician and Lover through 20 original scenarios. See four counts, every highest tie and complete guides free. Anyone can participate, without signup."
     },
     "minutes": 6,
     "collection": "explore",
@@ -1730,8 +1730,8 @@
       "en": "Social Intelligence Test"
     },
     "description": {
-      "zh": "免费社交智能测试：IPIP-VIA-R四条自述，查看原始总分、两条反向计分、混合与资料不足及完整沟通例子，不以自述断言真实能力。",
-      "en": "Take the free social intelligence test: four IPIP-VIA-R self-reports, raw totals, reverse scoring, missing information and a full guide with examples."
+      "zh": "用IPIP-VIA-R四条公开题目，回看感知他人感受、措辞、新情境与反应预测的自我判断。免费查看4—20原始总分、精确均分与完整指南，可选择无法判断，无需注册。",
+      "en": "Reflect on sensing feelings, choosing words, new situations and anticipating reactions through four public-domain IPIP-VIA-R items. View the 4–20 raw total, exact mean and full guide free, with a cannot-judge option and no signup."
     },
     "minutes": 2,
     "collection": "explore",
@@ -1752,8 +1752,8 @@
       "en": "Egogram Test"
     },
     "description": {
-      "zh": "免费自我状态图测试：20道原创互动做法，分别看CP、NP、A、FC、AC五组频率、原始分数与全部完整解释，不以图表判断心理能量或固定人格。",
-      "en": "Take the free egogram test: 20 original items, five ego-state frequency readings, raw scores, missing information and all full guides with examples."
+      "zh": "回看近四周的规范表达、支持、当下核对、玩兴与情境配合。20条原创频率题，分别查看CP、NP、A、FC、AC原始分数及五份完整指南；可保留资料不足，免费免注册。",
+      "en": "Review standards, support, present-focused checking, play and situational adjustment over four weeks. Twenty original frequency items give separate CP, NP, A, FC and AC scores with five full guides. Free, no signup; missing information stays visible."
     },
     "minutes": 4,
     "collection": "explore",
@@ -1778,8 +1778,8 @@
       "en": "Moral Dilemma Test"
     },
     "description": {
-      "zh": "免费道德困境测试：20道原创日常价值张力情境，探索后果、原则、品格、关怀与公允五组提问。所有最高并列和五份完整说明免费，不判善恶、能力或人格。",
-      "en": "A free moral dilemma test: 20 original situations, five ethical questions and full guides for every highest tie, without moral grades or personality verdicts."
+      "zh": "用20道原创日常情境，探索后果、原则、品格、关怀与公允五种提问。查看全部计数、所有最高并列与五份完整指南；免费免注册，不评道德高低。",
+      "en": "Explore consequences, principles, character, care and fairness through 20 original everyday scenarios. View all counts, every highest tie and five full guides free, without signup or moral grades."
     },
     "minutes": 6,
     "collection": "explore",
@@ -1804,8 +1804,8 @@
       "en": "Dark Triad Test"
     },
     "description": {
-      "zh": "免费黑暗三角测试原创主题观察版：18条自报做法，分别看认可与形象、影响方式和影响距离。三份完整结果免费，仅保留页面内存，不作人格或风险判断。",
-      "en": "A free Dark Triad Test: 18 original self-report items and three full thematic guides. Page memory only, without clinical traits, types or risk verdicts."
+      "zh": "回看近三个月对认可与形象、信息与影响、他人感受和行为影响的自报做法。18条原创符合度题，三组独立均分与完整指南免费；可不愿回答，无需注册。本版不是SD3量表。",
+      "en": "Review three months of reported approaches to recognition and image, information and influence, and feelings and effects on others. Eighteen original accuracy items, three separate means and full free guides; no signup. This is not the SD3 scale."
     },
     "minutes": 5,
     "collection": "explore",
@@ -1828,8 +1828,8 @@
       "zh": "来世之路测试"
     },
     "description": {
-      "en": "Take an original 18-question next life quiz. Explore six imagined paths, keep every tied result and read full explanations for free. No birth date, account or prediction.",
-      "zh": "免费完成18道原创未来生活选择题，比较跨海旅人、四季园丁等六条想象路径，阅读全部最高并列的完整结果。无需生日或注册，不作来世预测。"
+      "zh": "假想重新开始，你想给什么日常留空间？18道原创选择比较发现、照看、相聚、制作、表达与理解，免费查看六项计数、全部最高并列与完整指南；无需生日、照片或注册。",
+      "en": "If you could start again, what would you make room for? Eighteen original choices explore discovery, care, gathering, making, expression and understanding. All counts and highest-tied guides are free; no birth date, photo or signup."
     },
     "minutes": 5,
     "collection": "explore",
@@ -1855,8 +1855,8 @@
       "zh": "金妮与乔治娅（Ginny & Georgia）角色测试"
     },
     "description": {
-      "en": "Answer 20 original questions about creative contributions and shared activities. Compare Ginny, Georgia, Austin, Marcus and Max, keep every highest tie and read all five complete character guides. Free, with no account required.",
-      "zh": "完成20道关于创作表达与共同活动的原创题目，比较金妮、乔治娅、奥斯汀、马库斯和Max五个角度。保留全部最高并列，五份完整角色说明免费可读，无需注册。"
+      "zh": "在20个原创创作与共同活动情境中，比较金妮、乔治娅、奥斯汀、马库斯与Max五个阅读角度。全部计数、最高并列及五份完整指南免费；无需注册，不考剧情。非官方同人版。",
+      "en": "Explore five reading angles inspired by Ginny, Georgia, Austin, Marcus and Max in twenty original creative and shared-activity situations. All counts, highest ties and full guides are free. Unofficial fan edition; no signup or plot trivia."
     },
     "minutes": 5,
     "formCode": "fermatmind_ginny_georgia_original_20_v1",
@@ -1881,8 +1881,8 @@
       "zh": "地狱客栈（Hazbin Hotel）角色测试"
     },
     "description": {
-      "en": "Choose your responses to 18 original everyday situations. Compare Charlie, Vaggie, Alastor, Angel Dust, Husk and Niffty, keep every highest tie and read all six complete guides. Free, with no registration.",
-      "zh": "完成18道原创日常情境题，比较夏莉、薇姬、阿拉斯托、安吉尔、哈斯克与妮芙蒂六个角度。全部最高并列保留，六份完整说明免费可读，无需注册。"
+      "zh": "用18道原创日常活动题，比较夏莉、薇姬、阿拉斯托、安吉尔、哈斯克与妮芙蒂六种参与角度。原始计数、全部最高并列和七节完整指南免费；无需注册，不考剧情。非官方同人版。",
+      "en": "Compare six participation angles inspired by Charlie, Vaggie, Alastor, Angel Dust, Husk and Niffty in eighteen original everyday situations. All counts, highest ties and seven-section guides are free. Unofficial fan edition; no signup or plot trivia."
     },
     "minutes": 4,
     "formCode": "fermatmind_hazbin_original_18_v1",
@@ -1936,8 +1936,8 @@
       "zh": "我的英雄学院（My Hero Academia）角色测试"
     },
     "description": {
-      "en": "Answer 24 original everyday questions and compare Deku, Bakugo, Todoroki, Uraraka, Iida and Kirishima. Explore learning and shared challenges, keep every highest tie and read all six complete guides. Free, no signup.",
-      "zh": "完成24道原创日常情境题，比较绿谷、爆豪、轰、丽日、饭田与切岛六个角度。从学习和共同挑战阅读本次选择，保留全部最高并列，六份完整说明免费可读，无需注册。"
+      "zh": "用24道原创学习与共同活动题，比较绿谷、爆豪、轰、丽日、饭田与切岛六种参与角度。六项计数、全部最高并列和七节完整指南免费；无需注册，不考剧情。非官方同人版。",
+      "en": "Explore six learning and participation angles inspired by Deku, Bakugo, Todoroki, Uraraka, Iida and Kirishima in twenty-four original situations. All counts, highest ties and seven-section guides are free. Unofficial fan edition; no signup or plot trivia."
     },
     "minutes": 6,
     "formCode": "fermatmind_mha_original_24_v1",
@@ -1963,8 +1963,8 @@
       "zh": "小马宝莉（My Little Pony）角色测试"
     },
     "description": {
-      "en": "Take 18 original everyday questions about shared activities and compare Twilight Sparkle, Rainbow Dash, Applejack, Rarity, Pinkie Pie and Fluttershy. Every highest tie and all six complete guides are free, without signup.",
-      "zh": "用18道原创日常题比较紫悦、云宝黛西、苹果嘉儿、珍奇、碧琪和柔柔。从共同活动阅读本次选择，保留全部最高并列，六份完整说明免费可读，无需注册。"
+      "zh": "通过18道原创共同活动题，比较紫悦、云宝黛西、苹果嘉儿、珍奇、碧琪与柔柔六种参与角度。全部计数、最高并列与七节完整指南免费；无需注册，不考剧情。非官方《友谊就是魔法》同人版。",
+      "en": "Compare six participation angles inspired by Twilight Sparkle, Rainbow Dash, Applejack, Rarity, Pinkie Pie and Fluttershy through eighteen original shared-activity situations. All counts, highest ties and seven-section guides are free. Unofficial Friendship Is Magic fan edition; no signup or plot trivia."
     },
     "minutes": 5,
     "formCode": "fermatmind_mlp_original_18_v1",
@@ -1990,8 +1990,8 @@
       "zh": "细节注意力测试"
     },
     "description": {
-      "en": "Practise attention to detail with 24 original tasks. See correct counts, every answer and worked explanations for free. No timer or signup.",
-      "zh": "用24道原创客观题核对编号、规则、数量和格式，查看四分项答对题数、每题正确答案与完整解析。全部免费，无需注册；不限时，附逐项复习方法。"
+      "zh": "免费完成24道细节注意力练习，核对记录、条件步骤、数量与格式。查看总答对数、四项各6题成绩、全部答案解析和四份完整复习指南。不限时，可用纸笔或计算器，无需注册。",
+      "en": "Practise record comparison, rules, quantities and formats in 24 original attention-to-detail questions. See total correct, four six-item subtotals, every worked answer and four complete revision guides. Free, untimed, no signup; paper or calculator allowed."
     },
     "minutes": 8,
     "collection": "explore",
@@ -2015,8 +2015,8 @@
       "zh": "Wojak 角色测试"
     },
     "description": {
-      "en": "Take 18 original everyday questions and compare six Wojak meme lenses: Feels Guy, Bloomer, Doomer, Boomer, Zoomer and NPC. Every highest tie and all complete guides are free. Text-only, unofficial and no signup.",
-      "zh": "用18道原创日常题比较Feels Guy、Bloomer、Doomer、Boomer、Zoomer与NPC六种Wojak梗图角度。最高并列全部保留，完整说明免费，无需注册。纯文字非官方同人版，不给真人下定义。"
+      "zh": "用18道原创日常兴趣题，比较Feels Guy、Bloomer、Doomer、Boomer、Zoomer与NPC六种表达角度。免费查看全部计数、最高并列和七节完整指南。纯文字非官方同人版，无需注册。",
+      "en": "Explore Feels Guy, Bloomer, Doomer, Boomer, Zoomer and NPC through 18 original everyday hobby questions. All raw counts, highest ties and complete seven-section guides are free. Unofficial text-only fan edition; no signup."
     },
     "minutes": 5,
     "formCode": "fermatmind_wojak_original_18_v1",
@@ -2042,8 +2042,8 @@
       "zh": "网络安全意识测试"
     },
     "description": {
-      "en": "Try 20 original cyber security scenarios. Get correct counts, every answer and five complete revision guides for free. No timer, signup or certification.",
-      "zh": "用20道原创情境练习识别钓鱼、保护账户、维护设备、分享资料及事件响应，免费查看五分项答对数、全部答案和解析。无需注册，不限时，不提供认证或招聘通过线。"
+      "zh": "免费完成20道网络安全情境题，练习钓鱼核实、账户保护、设备维护、信息分享与事件响应。查看总答对数、五项各4题成绩、全部答案解析与完整复习指南。不限时，无需注册。",
+      "en": "Practise phishing verification, account protection, device care, information sharing and incident response with 20 original cyber security scenarios. Get total correct, five four-item subtotals, every worked answer and full revision guides free. Untimed, no signup."
     },
     "minutes": 7,
     "collection": "explore",
@@ -2068,8 +2068,8 @@
       "en": "Delulu Test"
     },
     "description": {
-      "zh": "免费Delulu测试：18道原创日常脑补情境，探索愿望预演、日常片场等六种玩笑期待。全部最高并列和六份完整说明免费，不测信念或预测未来。",
-      "en": "A free Delulu Test: 18 original situations, six playful anticipation guides and full readings for every highest tie, without predicting your future."
+      "zh": "18道原创日常想象题，探索愿望预演、日常片场等六种脑补叙事。免费查看原始次数、全部最高并列与九节完整解读，无需注册。",
+      "en": "Explore six playful anticipation lenses in 18 original situations. Free raw counts, every highest tie and full nine-section guides. No signup."
     },
     "minutes": 5,
     "collection": "explore",
@@ -2095,8 +2095,8 @@
       "zh": "《NANA》角色测试"
     },
     "description": {
-      "en": "Answer 21 original everyday creative questions and compare Nana Osaki, Hachi, Ren, Takumi, Nobu, Shin and Yasu. Every highest tie and all seven complete bilingual guides are free, without signup. Unofficial fan edition.",
-      "zh": "完成21道原创日常创作情境题，比较大崎娜娜、阿八、莲、巧、伸夫、真一与泰士。最高并列全部保留，七份完整双语说明免费，无需注册。非官方同人版，不推断剧情经历或关系命运。"
+      "zh": "21道原创创作与协作情境，探索大崎娜娜、阿八、莲、巧、伸夫、真一与泰士七种参与角度。免费查看全部计数、最高并列与七节完整解读，无需注册。",
+      "en": "Explore seven Nana character lenses through 21 original creative situations. Free raw counts, every highest tie and full seven-section guides. No signup."
     },
     "minutes": 5,
     "formCode": "fermatmind_nana_original_21_v1",
@@ -2123,8 +2123,8 @@
       "zh": "职场技术与协作测试"
     },
     "description": {
-      "en": "Try 16 original workplace tech and collaboration tasks. See every answer, explanation and four revision guides for free. No timer, signup or certificate.",
-      "zh": "用16道原创任务练习交接、协作方式、共享规则与技术变化，查看四分项答对题数、全部答案和解析，附四份完整复习说明。全部免费，无需注册，不计时，不发能力认证。"
+      "zh": "16道原创职场情境题，练习交接记录、协作条件、共享权限与技术变化推理。免费查看四项答对数、每题答案解析和四份完整复习指南，无需注册。",
+      "en": "Practise handovers, collaboration constraints, shared permissions and work-change reasoning in 16 original tasks. Free answers and four complete guides."
     },
     "minutes": 8,
     "collection": "explore",
@@ -2148,8 +2148,8 @@
       "zh": "《南方公园》角色测试"
     },
     "description": {
-      "en": "Try 21 original everyday group situations and compare Stan, Kyle, Cartman, Kenny, Butters, Wendy and Randy. All highest ties and seven full bilingual guides are free without signup. Unofficial fan edition.",
-      "zh": "完成21道原创日常小组情境题，比较斯坦、凯尔、卡特曼、肯尼、巴特斯、温迪与兰迪。全部最高并列和七份双语全文免费，无需注册。非官方同人版，不把剧情伤害赋给真人。"
+      "zh": "21道原创小组情境，比较斯坦、凯尔、卡特曼、肯尼、巴特斯、温迪与兰迪七个参与角度。全部计数、最高并列与七节完整指南免费，无需注册。",
+      "en": "Compare seven South Park character lenses through 21 original group situations. Free raw counts, every highest tie and complete seven-section guides. No signup."
     },
     "minutes": 5,
     "formCode": "fermatmind_southpark_original_21_v1",
@@ -2176,8 +2176,8 @@
       "zh": "《吉尔莫女孩》角色测试"
     },
     "description": {
-      "en": "Answer 18 original café, book-club and gathering situations to compare Lorelai, Rory, Emily, Lane, Paris and Sookie. Every highest tie and all six full bilingual guides are free without signup. Unofficial fan edition.",
-      "zh": "完成18道原创咖啡角、读书小组与相聚情境题，比较洛蕾莱、罗里、艾米莉、莱恩、帕里斯和苏琪。最高并列全部保留，六份完整双语说明免费，无需注册。非官方同人版。"
+      "zh": "18道原创咖啡角、读书会与相聚情境，比较洛蕾莱、罗里、艾米莉、莱恩、帕里斯与苏琪六种参与角度。全部计数、最高并列与七节完整指南免费，无需注册。",
+      "en": "Compare six Gilmore Girls character lenses through 18 original café, reading-group and gathering situations. Free counts, every highest tie and full seven-section guides. No signup."
     },
     "minutes": 5,
     "formCode": "fermatmind_gilmoregirls_original_18_v1",
@@ -2203,8 +2203,8 @@
       "zh": "能力倾向与认知能力测试"
     },
     "description": {
-      "en": "Try 30 original numerical, verbal, deductive, pattern and error-checking tasks. Get every answer and five free guides. No IQ, norm or hiring score.",
-      "zh": "30道原创数值、阅读、演绎、符号与查错练习，提供全部答案、逐题解析和五份免费指南。不计时、无需注册，不换算智商、常模或招聘分数。"
+      "zh": "30道原创数值、阅读、演绎、符号与查错题，免费查看每题答案、完整解析和五份复习指南。不计时，允许纸笔与计算器，无需注册。",
+      "en": "Practise 30 original numerical, reading, deductive, symbol and error-checking tasks. Free worked answers and five full guides. Untimed, calculator allowed, no signup."
     },
     "minutes": 15,
     "collection": "explore",
@@ -2229,8 +2229,8 @@
       "zh": "《咒术回战》角色测试"
     },
     "description": {
-      "en": "Try 24 original everyday learning and creative situations. Compare Yuji, Megumi, Nobara, Gojo, Maki and Toge with every highest tie and six complete bilingual guides free, without signup. Unofficial fan edition.",
-      "zh": "完成24道原创日常学习与创作情境题，比较悠仁、惠、野蔷薇、悟、真希和棘。全部最高并列、六份完整双语说明免费，无需注册。非官方同人版，不推断超能力、创伤或真实技能。"
+      "zh": "24道原创学习与创作情境，比较虎杖悠仁、伏黑惠、钉崎野蔷薇、五条悟、禅院真希和狗卷棘六种选择角度。全部计数、最高并列与七节完整指南免费，无需注册。",
+      "en": "Explore six Jujutsu Kaisen character lenses through 24 original learning and creative situations. All counts, every highest tie and complete seven-section guides are free. No signup."
     },
     "minutes": 6,
     "formCode": "fermatmind_jjk_original_24_v1",
@@ -2256,8 +2256,8 @@
       "en": "Egen-Teto Test"
     },
     "description": {
-      "zh": "免费Egen-Teto测试：18道原创情境，比较先接住感受与先明确行动。完整Egen、Teto及9比9并列指南免费，无性别编码，不测激素或固定人格。",
-      "en": "A free Egen-Teto Test with 18 original pairs, full Egen, Teto and tie guides. Compare feelings-first and action-first choices without gender coding."
+      "zh": "18道原创日常情境，比较先回应感受与先明确行动。免费查看两项原始次数、Egen、Teto及9比9并列九节完整指南；无需注册，不使用性别编码。",
+      "en": "Compare feelings-first and action-first openings in 18 original everyday pairs. Free raw counts and full nine-section Egen, Teto and 9–9 tie guides. No signup or gender coding."
     },
     "minutes": 5,
     "formCode": "fm_egen_teto_first_moves_18",
@@ -2280,8 +2280,8 @@
       "zh": "《哈利·波特》角色测试"
     },
     "description": {
-      "en": "Try 21 original paper-game, reading and fan-club situations. Compare Harry, Hermione, Ron, Ginny, Neville, Luna and Hagrid with all highest ties and seven complete bilingual guides free. Unofficial fan edition, without house assignment.",
-      "zh": "完成21道原创纸上游戏、阅读与同人社团情境题，比较哈利、赫敏、罗恩、金妮、纳威、卢娜和海格。最高并列及七份完整双语说明免费，无需注册。非官方同人版，不据人物结果分院。"
+      "zh": "21道原创阅读、纸上游戏与社团情境，比较哈利、赫敏、罗恩、金妮、纳威、卢娜和海格七个角度。计数、最高并列与七节完整指南免费，无需注册。",
+      "en": "Explore seven Harry Potter character lenses in 21 original reading and club situations. Free counts, all highest ties and full seven-section guides. No signup."
     },
     "minutes": 5,
     "formCode": "fermatmind_harrypotter_original_21_v1",
@@ -2308,8 +2308,8 @@
       "zh": "英语拼写测试"
     },
     "description": {
-      "en": "Choose correct English spellings in 24 original sentences. Get all answers, explanations and four complete revision guides free. No signup or timer.",
-      "zh": "在24个原创英文语境中识别正确拼写，查看所选、全部答案与逐题解析，附四份完整复习指南。中文说明保留英文题句和选项，免费、不计时、无需注册。"
+      "zh": "用24道英文语境四选一练习双写辅音、元音、字母顺序和词尾，查看四项正确数、全部答案与四份复习指南。免费、不计时、无需注册。",
+      "en": "Practise 24 English spellings in context. Review four section counts, every answer and four complete guides. Free, untimed and no signup."
     },
     "minutes": 8,
     "formCode": "fm_english_spelling_recognition_24_v1",
@@ -2333,8 +2333,8 @@
       "zh": "《嗜血法医》角色测试"
     },
     "description": {
-      "en": "Try 24 original, harmless paper-mystery and club situations. Compare Dexter, Debra, Angel, Masuka, Doakes and LaGuerta with all highest ties and six complete bilingual guides free. Unofficial TV fan quiz, without clinical or crime inference.",
-      "zh": "完成24道原创、无害的纸上谜案与社团情境题，比较德克斯特、黛布拉、安吉尔、马苏卡、多克斯和拉圭尔塔。最高并列及六份完整双语说明免费，无需注册。非官方Dexter同人版，不推断临床或犯罪。"
+      "zh": "用24道虚构纸上谜题情境，比较德克斯特、黛布拉等六位角色的参与角度。查看原始计数、全部最高并列与完整指南；免费，无需注册。",
+      "en": "Explore six Dexter character lenses through 24 fictional paper-puzzle situations. Read raw counts, every highest tie and full guides. Free, no signup."
     },
     "minutes": 7,
     "formCode": "fermatmind_dexter_original_24_v1",
@@ -2360,8 +2360,8 @@
       "zh": "《复仇者联盟》角色测试"
     },
     "description": {
-      "en": "Explore the original 2012 team through 18 original hobby situations. Compare Iron Man, Captain America, Thor, Hulk, Black Widow and Hawkeye with all highest ties and six complete bilingual guides free. Unofficial fan edition.",
-      "zh": "用18道原创爱好情境探索2012电影初代团队，比较钢铁侠、美国队长、索尔、浩克、黑寡妇与鹰眼。所有最高并列与六份双语全文免费。非官方原创同人版。"
+      "zh": "用18道原创爱好展台情境，比较2012电影六位复仇者的参与方式。查看六项原始计数、全部最高并列和完整指南；免费，无需注册。",
+      "en": "Explore six original Avengers through 18 hobby-display choices. Read six raw counts, every highest tie and complete public guides. Free, no signup."
     },
     "minutes": 5,
     "formCode": "fermatmind_avengers_original_18_v1",
@@ -2387,8 +2387,8 @@
       "zh": "《怪奇物语》角色测试"
     },
     "description": {
-      "en": "Try 18 original, harmless tabletop-story situations. Compare Eleven, Mike, Dustin, Lucas, Will and Max with all highest ties and six complete bilingual guides free. An unofficial friend-group fan edition without plot trivia.",
-      "zh": "完成18道原创无害桌面故事情境，比较小十一、迈克、达斯汀、卢卡斯、威尔与麦克斯。所有最高并列和六份双语全文免费。非官方朋友群像同人版，不考剧情。"
+      "zh": "用18道原创桌面故事情境，比较小十一、迈克等六位朋友的创作参与角度。查看六项原始计数、全部最高并列与完整指南；免费，无需注册。",
+      "en": "Explore six Stranger Things friends through 18 original tabletop-story choices. Read raw counts, every highest tie and full guides. Free, no signup."
     },
     "minutes": 5,
     "formCode": "fermatmind_stranger_things_original_18_v1",
@@ -2414,8 +2414,8 @@
       "zh": "《星期三》角色测试"
     },
     "description": {
-      "en": "Try 18 original, harmless curiosity-cabinet and craft situations. Compare Wednesday, Enid, Bianca, Eugene, Morticia and Thing with all highest ties and six complete bilingual guides free. Unofficial fan edition, without plot trivia.",
-      "zh": "完成18道原创无害趣物柜与手作情境，比较星期三、伊妮德、比安卡、尤金、莫蒂西亚和小手。所有最高并列与六份双语全文免费。非官方同人版，不考剧情。"
+      "zh": "用18道原创手作与趣物展情境，比较星期三、伊妮德等六位人物的创作参与方式。查看原始计数、全部最高并列和完整指南；免费，无需注册。",
+      "en": "Explore six Wednesday characters through 18 original craft-and-display choices. Read raw counts, every highest tie and full guides. Free, no signup."
     },
     "minutes": 5,
     "formCode": "fermatmind_wednesday_original_18_v1",
@@ -2441,8 +2441,8 @@
       "zh": "《暮光之城》角色测试"
     },
     "description": {
-      "en": "Try 21 original, harmless rainy-day hobby situations. Compare Bella, Edward, Jacob, Alice, Rosalie, Emmett and Carlisle with all highest ties and seven complete bilingual guides free. Unofficial fan edition, without plot trivia.",
-      "zh": "完成21道原创无害雨天爱好情境，比较贝拉、爱德华、雅各布、爱丽丝、罗莎莉、埃美特、卡莱尔。所有最高并列和七份双语全文免费。非官方同人版，不考剧情。"
+      "zh": "用21道原创雨天爱好情境，比较贝拉、爱德华等七位人物的参与方式。查看原始计数、全部最高并列和完整指南；免费，无需注册。",
+      "en": "Explore seven Twilight characters through 21 original rainy-day hobby choices. Read raw counts, every highest tie and full guides. Free, no signup."
     },
     "minutes": 6,
     "formCode": "fermatmind_twilight_original_21_v1",
@@ -2469,8 +2469,8 @@
       "en": "Decade Aesthetic Test"
     },
     "description": {
-      "zh": "免费十年美学测试：18道原创视觉小项目，探索1920年代几何装饰、1960年代手作花纹、舞池光影到Y2K数字感。六份完整结果与全部最高并列免费。",
-      "en": "Free Decade Aesthetic Test: 18 original visual projects, six full guides from Art Deco to Y2K, and every highest tie. Explore colour, lines and texture."
+      "zh": "用18道原创纸面项目，比较几何装饰、手作花纹、舞池光影、利落色块、层叠旧感和Y2K数字感。查看六项计数、全部最高并列与完整指南；免费，无需注册。",
+      "en": "Explore six decade-inspired visual styles through 18 original paper-project choices. Read raw counts, every highest tie and full guides. Free, no signup."
     },
     "minutes": 5,
     "formCode": "fm_decade_visual_projects_18",
@@ -2496,8 +2496,8 @@
       "zh": "《权力的游戏》角色测试"
     },
     "description": {
-      "en": "Try 18 original, peaceful model-village hobby situations. Compare Jon, Tyrion, Arya, Sansa, Daenerys and Jaime with all highest ties and six complete bilingual guides free. Unofficial TV fan edition, without plot trivia.",
-      "zh": "完成18道原创和平模型村落爱好情境，比较琼恩、提利昂、艾莉亚、珊莎、丹妮莉丝和詹姆。所有最高并列与六份双语全文免费。非官方电视剧同人版，不考剧情。"
+      "zh": "用18道原创纸村落情境，比较琼恩、提利昂、艾莉亚、珊莎、丹妮莉丝与詹姆六种创作选择。查看原始计数、所有最高并列及六份完整指南。免费，无需注册。",
+      "en": "Explore six Game of Thrones characters through 18 original paper-village choices. Read raw counts, all highest ties and six complete guides. Free, no signup."
     },
     "minutes": 5,
     "formCode": "fermatmind_game_of_thrones_original_18_v1",
@@ -2523,8 +2523,8 @@
       "zh": "《神奇数字马戏团》角色测试"
     },
     "description": {
-      "en": "Try 18 original, voluntary toy-stage and paper-festival situations. Compare Pomni, Jax, Ragatha, Gangle, Kinger and Zooble with all highest ties and six complete bilingual guides free. Unofficial fan edition, without plot trivia.",
-      "zh": "完成18道原创自愿玩具舞台与纸上小节情境，比较波姆尼、贾克斯、拉嘉莎、甘格、金格和祖布。所有最高并列与六份双语全文免费。非官方同人版，不考剧情。"
+      "zh": "用18道原创纸板舞台情境，比较波姆尼、贾克斯等六种创作参与方式。查看六项原始计数、所有最高并列与完整指南。免费，无需注册。",
+      "en": "Explore six Amazing Digital Circus characters through 18 original cardboard-stage choices. Read raw counts, all highest ties and complete guides. Free, no signup."
     },
     "minutes": 5,
     "formCode": "fermatmind_digital_circus_original_18_v1",
@@ -2550,8 +2550,8 @@
       "zh": "《绯闻女孩》角色测试"
     },
     "description": {
-      "en": "Try 18 original friend-made fashion-zine situations. Compare Serena, Blair, Dan, Nate, Chuck and Jenny from the original series, with all highest ties and six complete bilingual guides free. Unofficial fan edition, without plot trivia.",
-      "zh": "完成18道原创朋友穿搭创作刊情境，比较原版剧集的瑟琳娜、布莱尔、丹、内特、查克和珍妮。所有最高并列与六份双语全文免费。非官方同人版，不考剧情。"
+      "zh": "用18道原创创作刊情境，比较原版《绯闻女孩》六位人物的创作回应。查看六项原始计数、所有最高并列和完整指南。免费，无需注册。",
+      "en": "Explore six original Gossip Girl characters through 18 original fashion-zine choices. Read raw counts, all highest ties and complete guides. Free, no signup."
     },
     "minutes": 5,
     "formCode": "fermatmind_gossip_girl_original_18_v1",
@@ -2577,8 +2577,8 @@
       "zh": "英语水平测试"
     },
     "description": {
-      "en": "Practise written English in 24 original grammar, vocabulary, reading and message tasks. Get all answers and four full guides. No CEFR estimate.",
-      "zh": "用24道原创题练习英语语法、语境词义、阅读与工作消息，查看四分项正确题数、全部答案与解析、四份完整复习指南。免费、不计时，不换算CEFR或其他考试等级。"
+      "zh": "免费练习24道原创英语题，覆盖语法、语境词义、阅读与实际消息。查看四组正确数、逐题答案解析及完整复习指南。无需注册，不计时。",
+      "en": "Practise 24 original English grammar, vocabulary, reading and message tasks. Get all answers, explanations and full guides. Free, no signup, no timer."
     },
     "minutes": 10,
     "formCode": "fm_written_english_practice_24_v1",
@@ -2602,8 +2602,8 @@
       "en": "Villain Era Archetype Test"
     },
     "description": {
-      "zh": "免费反派时代原型测试：18道原创日常小场面，探索布策、坦白限度、温和说不等六种戏剧式开场。六份九节完整结果与全部最高并列免费。",
-      "en": "Free Villain Era Archetype Test: 18 original scenes and six full guides to playful boundary openings. Compare specific phrases and read every highest tie."
+      "zh": "用18道原创日常情境，比较安排范围、坦白限度、温和拒绝等六种趣味开场。查看原始计数、全部最高并列和六份九节指南。免费，无需注册。",
+      "en": "Explore six playful boundary openings in 18 original scenes. Read raw counts, every highest tie and six complete guides. Free, no signup."
     },
     "minutes": 5,
     "formCode": "fm_villain_boundary_openers_18",
@@ -2629,8 +2629,8 @@
       "zh": "《蓝色监狱》角色测试"
     },
     "description": {
-      "en": "Try 21 original tabletop football-design situations. Compare Isagi, Bachira, Nagi, Reo, Rin, Barou and Chigiri with all highest ties and seven complete bilingual guides free. Unofficial anime fan edition, without sports ability or plot trivia.",
-      "zh": "完成21道原创桌面足球游戏设计情境，比较洁、蜂乐、凪、玲王、凛、马狼、千切。所有最高并列与七份双语全文免费。非官方动画同人版，不测运动能力、不考剧情。"
+      "zh": "用21道原创桌面足球游戏情境，探索洁、蜂乐、凪、玲王、凛、马狼与千切七种参与角度。免费查看原始计数、所有最高并列和完整指南，无需注册。",
+      "en": "Explore seven Blue Lock character lenses in 21 original tabletop situations. Read raw counts, all highest ties and complete guides. Free, no signup."
     },
     "minutes": 6,
     "formCode": "fermatmind_blue_lock_original_21_v1",
@@ -2657,8 +2657,8 @@
       "zh": "你是哪个动漫角色测试"
     },
     "description": {
-      "en": "Choose among 18 original anime-style festival scenes and explore six story roles. Every highest tie and full bilingual guide is free; no licensed character match.",
-      "zh": "在18道原创动漫风故事情境中选自己的部分，探索启程主角、友好挑战者、绘路者、引路导师、即兴巧匠、约定守护者。所有最高并列与六份双语全文免费。原创故事角色，不匹配授权人物。"
+      "zh": "用18道原创动漫风故事选择，探索启程主角、友好挑战者、绘路者、引路导师、即兴巧匠和约定守护者。免费查看六项原始计数与全部最高并列的完整指南；无需注册或剧情知识。",
+      "en": "Explore six original anime story roles through eighteen choices: Lead, Challenger, Pathfinder, Guide, Improviser and Keeper. See raw counts and every highest tie’s full guide free, without signup or trivia knowledge."
     },
     "minutes": 5,
     "formCode": "fermatmind_anime_story_roles_original_18_v1",
@@ -2684,8 +2684,8 @@
       "zh": "英语语法测试"
     },
     "description": {
-      "en": "Try 24 original English grammar questions on verb forms, agreement, function words and punctuation. Every answer and four full review guides are free.",
-      "zh": "完成24道原创英语语法题，复习动词形式、一致与指代、冠词功能词、标点与所有关系。免费查看全部所选、正确答案、解析及四份完整指南，不计时，不换算CEFR或考试等级。"
+      "zh": "完成24道原创英语语法单选题，复习动词形式、一致与指代、冠词功能词、标点与所有关系。免费查看每题所选、正确答案、完整解析与四份复习指南；不计时，无需注册。",
+      "en": "Practise twenty-four original English grammar questions on verb forms, agreement, function words and punctuation. See every choice, key, explanation and all four revision guides free, untimed and without signup."
     },
     "minutes": 10,
     "formCode": "fm_english_grammar_practice_24_v1",
@@ -2709,8 +2709,8 @@
       "zh": "故事书朋友测验"
     },
     "description": {
-      "en": "Try 18 original paper-picnic and bookmark situations. Compare Pooh, Piglet, Owl, Tigger, Eeyore and Kanga, with all highest ties and six complete bilingual guides free. Unofficial fan edition, without plot trivia or clinical labels.",
-      "zh": "完成18道原创纸上野餐与书签情境，比较维尼熊、小猪、猫头鹰、跳跳虎、屹耳和袋鼠妈妈。所有最高并列与六份双语全文免费。非官方同人版，不考剧情、不派临床标签。"
+      "zh": "用18道原创纸上野餐与书签情境，探索维尼、小猪、猫头鹰、跳跳虎、屹耳和袋鼠妈妈六种参与选择。免费查看原始计数、全部最高并列和六份完整指南；无需注册或剧情知识。",
+      "en": "Explore Pooh, Piglet, Owl, Tigger, Eeyore and Kanga through eighteen original paper-picnic and bookmark choices. See raw counts, every highest tie and six complete guides free, without signup or trivia knowledge."
     },
     "minutes": 5,
     "formCode": "fermatmind_storybook_friends_original_18_v1",
@@ -2736,8 +2736,8 @@
       "zh": "星际战士战团测试"
     },
     "description": {
-      "en": "Explore six Space Marine Chapters through 18 peaceful paper-model choices. Read every tied result and full bilingual guide free in this unofficial fan quiz.",
-      "zh": "完成18道原创和平模型展示情境，比较极限战士、帝国之拳、钢铁之手、火蜥蜴、暗鸦守卫、白疤。所有最高并列与六份双语全文免费。非官方同人版，不是游戏规则。"
+      "zh": "用18道原创纸模型展示选择，探索极限战士、帝国之拳、钢铁之手、火蜥蜴、暗鸦守卫与白疤六种爱好角度。原始计数、全部最高并列和完整指南免费；非官方同人版，无需注册或游戏知识。",
+      "en": "Explore Ultramarines, Imperial Fists, Iron Hands, Salamanders, Raven Guard and White Scars through eighteen original paper-model choices. Raw counts, every highest tie and complete guides are free in this unofficial fan quiz, without signup or game knowledge."
     },
     "minutes": 5,
     "formCode": "fermatmind_space_marine_chapters_original_18_v1",
@@ -2763,8 +2763,8 @@
       "zh": "西班牙语水平测试"
     },
     "description": {
-      "en": "Practise written Spanish with 24 original grammar, vocabulary, reading and message tasks. Every answer and four full guides are free. No CEFR estimate.",
-      "zh": "用24道原创西语任务练语法书写、语境词义、阅读依据和任务消息。英中说明解析，保留西语题句与选项。免费查看全部答案、分项正确数和四份完整指南，不换算CEFR或考试等级。"
+      "zh": "用24道原创西语单选题，练语法书写、语境词义、阅读依据与任务消息。中英文说明解析，西语题句与选项一致；免费查看全部答案、四项正确数和完整指南，无需注册。",
+      "en": "Practise written Spanish with twenty-four original grammar, contextual vocabulary, reading and message tasks. English and Chinese explanations retain identical Spanish stimuli. All answers, four correct counts and complete guides are free, without signup."
     },
     "minutes": 10,
     "formCode": "fm_written_spanish_practice_24_v1",
@@ -2788,8 +2788,8 @@
       "en": "Apocalypse Survival Type Test"
     },
     "description": {
-      "zh": "免费启示录生存类型测试：24道原创纸面营地情境，探索六种虚构角色偏好，读六份九节完整结果与全部最高并列。不是实际生存能力评估。",
-      "en": "Free Apocalypse Survival Type Test: 24 original paper-camp scenes, six full fictional-role guides and every highest tie. Not an actual survival assessment."
+      "zh": "通过24道原创虚构营地选择，探索剧情统筹、人物陪伴、地图线索、模型布置、消息往来与私人记录六种故事偏好。免费查看原始次数、全部最高并列及完整解读，无需注册。",
+      "en": "Explore six fictional camp-story preferences through 24 original choices: sequence, company, map clues, models, messages and private accounts. Free counts, all highest ties and complete guides; no signup."
     },
     "minutes": 7,
     "formCode": "fm_apocalypse_camp_story_24",
@@ -2815,8 +2815,8 @@
       "zh": "芭比角色测试"
     },
     "description": {
-      "en": "Explore 18 original art-afternoon situations and six selected Barbie film characters: Barbie, Ken, Gloria, President Barbie, Weird Barbie and Allan. All highest ties and complete bilingual guides are free. Unofficial fan edition.",
-      "zh": "完成18道原创艺术下午情境，探索芭比、肯、格洛丽亚、总统芭比、怪芭比、艾伦六位选定电影角色。所有最高并列与双语完整说明均免费。非官方同人版。"
+      "zh": "通过18道原创创作情境，看看本次选择更接近芭比、肯、格洛丽亚、总统芭比、怪芭比与艾伦的哪些参与方式。免费查看六项计数、全部最高并列与完整指南；非官方同人版。",
+      "en": "Explore six selected Barbie film characters through 18 original creative choices. Free raw counts, every highest tie and full guides. Unofficial fan quiz."
     },
     "minutes": 5,
     "formCode": "fermatmind_barbie_film_original_18_v1",
@@ -2842,8 +2842,8 @@
       "en": "Big Fish Energy Test"
     },
     "description": {
-      "zh": "免费大鱼能量测试：18道原创海洋心情小场面，探索鲨鱼、海豚、鲸鱼、章鱼、河豚和鮟鱇鱼六种比喻，免费读九节完整结果与全部最高并列。",
-      "en": "Free Big Fish Energy Test: 18 original ocean mood scenes and six full guides, from Shark to Anglerfish. Read every highest tie without signup."
+      "zh": "通过18道原创海洋主题选择，探索完成小事、轻松互动、从容留白、变化组合、参与范围与私人兴趣。免费查看六项原始次数、全部最高并列与九节完整结果；无需注册。",
+      "en": "Explore six ocean-themed preferences in 18 original choices: finishing, exchanging, leaving space, recombining, limiting scope and keeping an interest private. Free counts, every highest tie and full guides."
     },
     "minutes": 5,
     "formCode": "fm_ocean_mood_metaphors_18",
@@ -2869,8 +2869,8 @@
       "zh": "言语推理测试"
     },
     "description": {
-      "en": "Practise words, analogies, reading and deduction with 24 original questions. Free explained answers and four complete guides. No IQ or hiring score.",
-      "zh": "24道原创题练语境词义、词语类比、阅读依据和演绎推理，四组各六题。免费查看全部答案、逐题解析、分项正确数与四份完整指南。不换算智商、百分位或招聘分数。"
+      "zh": "免费练习24道原创言语推理题，涵盖语境词义、词语类比、阅读依据与演绎推理。查看四项正确数、每题答案解析和全部完整指南；不限时，无需注册。",
+      "en": "Practise 24 original verbal reasoning questions in context meanings, analogies, reading evidence and deduction. Free section counts, every answer and full guides. Untimed; no registration."
     },
     "minutes": 10,
     "formCode": "fm_verbal_reasoning_practice_24_v1",
@@ -2894,8 +2894,8 @@
       "zh": "10-Key 测试"
     },
     "description": {
-      "en": "Choose whole numbers, decimals or leading-zero codes for a real 60-second number-entry round. See confirmed-equivalent KPH, exact-entry KPH, entry errors, character accuracy and every copied row. All three complete practice guides are free.",
-      "zh": "选择整数、小数或前导零编号，真实计时60秒录入数字。查看确认等价KPH、完全正确条目KPH、条目错误率、逐位准确率和每条核对。三份完整练习指南均免费。"
+      "zh": "用整数、小数与前导零编号练习数字录入。每轮60秒，查看两种KPH、条目错误率、逐位准确率与逐条核对；三种模式的完整复习指南免费开放。",
+      "en": "Practise number entry with whole numbers, decimals and leading-zero codes. Each 60-second round reports two KPH measures, entry errors, positional character accuracy and a row-by-row review. All three complete revision guides are free."
     },
     "minutes": 2,
     "formCode": "fermatmind_ten_key_original_60s_v1",
@@ -2918,8 +2918,8 @@
       "zh": "计算机素养"
     },
     "description": {
-      "en": "Practise files, browsers, email and Office with 24 original questions. All answers and four full guides are free. No timer or hiring qualification.",
-      "zh": "24道原创情景题练文件、浏览器、邮件和Office基础，四组各六题。免费查看全部答案、逐题解析、分项正确数及四份完整指南。不计时，不作招聘认证或实测操作速度。"
+      "zh": "用24道原创情境题练习文件管理、Chrome浏览器、邮件与Office基础。不限时，免费查看逐题答案、四项正确数和完整复习指南，无需注册。",
+      "en": "Practise files, Chrome, email and Office with 24 original questions. Free worked answers, four section counts and complete guides. Untimed, no signup."
     },
     "minutes": 10,
     "formCode": "fm_computer_literacy_practice_24_v1",
@@ -2943,8 +2943,8 @@
       "en": "Feminine Energy Test"
     },
     "description": {
-      "zh": "免费女性气质能量测试：20项原创频率观察，分别阅读亲昵俏皮、鲜明表达、诗意细节和从容主张四份九节完整说明。不计算女性程度或激素分数。",
-      "en": "Free Feminine Energy Test: 20 original observations and four full guides to expression over four weeks. No femininity percentage or hormone score."
+      "zh": "回看过去四周的20项表达行为，分别了解亲昵俏皮、鲜明表达、诗意细节与从容主张。免费查看有效项、四组均分及完整指南，无需注册，支持未经历／无法判断。",
+      "en": "Reflect on 20 expression behaviours over four weeks: Playful Warmth, Expressive Flair, Poetic Detail and Composed Clarity. Free rated-item counts, four means and full guides. No signup; cannot-judge choices available."
     },
     "minutes": 6,
     "formCode": "fm_feminine_expression_observations_20",
@@ -2968,8 +2968,8 @@
       "zh": "Excel技能测试"
     },
     "description": {
-      "en": "Practise 24 original Excel formula, lookup, data and presentation questions. Get every worked answer and four full guides. No level or certificate.",
-      "zh": "用24道原创题练习Excel公式引用、条件查找、数据处理与呈现汇总。免费查看每题答案、完整解析和四份复习指南，不评操作等级或颁证。"
+      "zh": "免费练习24道Excel公式引用、条件查找、数据处理与透视汇总题。不限时，无需注册，完成后查看逐题答案解析、四项正确数和四份完整复习指南。",
+      "en": "Practise 24 Excel formula, lookup, data and PivotTable questions for free. Untimed and no signup, with every worked answer, four section counts and four complete revision guides."
     },
     "minutes": 10,
     "formCode": "fermatmind_excel_original_24_v1",
@@ -2993,8 +2993,8 @@
       "en": "Found Family Role Test"
     },
     "description": {
-      "zh": "免费找到家庭角色测试：18个原创朋友圈场景，探索迎席、搭把手、记故事、发起小计划、倾听与牵线六种贡献，读九节完整结果及全部最高并列。",
-      "en": "Free Found Family Role Test: 18 original friend-group scenes and six full guides. Explore voluntary contributions and read every highest tie."
+      "zh": "在18个原创朋友相聚场景中，探索迎席、具体帮忙、共同回忆、小计划、倾听与联系六种自愿贡献。免费查看六组计数、全部最高并列与完整指南，无需注册。",
+      "en": "Explore six voluntary contributions across 18 original friend-group scenes: welcoming, practical help, memories, small plans, listening and contact. Free counts, every highest tie and full guides. No signup."
     },
     "minutes": 5,
     "formCode": "fm_found_family_contributions_18",
@@ -3020,8 +3020,8 @@
       "zh": "Java测试"
     },
     "description": {
-      "en": "Read 24 original Java 25 programs and predict output or compilation failure. Get every explanation and four full guides. No level or certificate.",
-      "zh": "阅读24段原创Java 25程序，预测输出或编译失败，免费查看每题答案、完整解析与四份复习指南。不派开发者等级、招聘线或认证。"
+      "zh": "用24道原创Java 25代码题练习表达式、控制流、对象方法及集合异常。免费查看四项正确数、所有答案与完整复习指南；不限时，无需注册。",
+      "en": "Practise Java 25 expressions, control flow, objects and collections in 24 original code questions. Free counts, worked answers and guides. Untimed; no signup."
     },
     "minutes": 10,
     "formCode": "fermatmind_java25_original_24_v1",
@@ -3045,8 +3045,8 @@
       "zh": "财务会计测试"
     },
     "description": {
-      "en": "Practise entries, statements, accruals, depreciation and working capital with 24 original tasks. Free answers and six full guides. No certification.",
-      "zh": "24道原创题练借贷分录、利润表、资产负债表、权责时间、折旧和营运资本，六组各四题。免费查看全部答案、逐题解析、分项正确数与六份完整指南，不作财务建议、准则合规或招聘认证。"
+      "zh": "完成24道原创财务会计题，练习借贷分录、利润表、资产负债表、权责时间、折旧与营运资本。免费查看每题答案、六项正确数和完整复习指南；无需注册，不限时。",
+      "en": "Practise 24 original financial accounting questions on entries, statements, accrual timing, depreciation and working capital. See every answer, six topic counts and full revision guides free, without registration or a timer."
     },
     "minutes": 12,
     "formCode": "fm_financial_accounting_practice_24_v1",
@@ -3072,8 +3072,8 @@
       "en": "Eras of You Test"
     },
     "description": {
-      "zh": "免费时代的你测试：24项原创四周频率观察，分别阅读初见留意、小步试选、节奏搭建、改线调整、回看整理与经验留痕六份完整指南。不按年龄派人生阶段。",
-      "en": "Free Eras of You Test: 24 original four-week observations and six full chapter guides. Read separate frequencies without age or life-stage assignment."
+      "zh": "用24条原创陈述回看过去四周的留意、试选、搭建、调整、整理与留痕。分别查看六组频率均分和六篇完整指南；免费、无需注册，不按年龄或最高分派人生阶段。",
+      "en": "Revisit four weeks of noticing, trying, continuing, adjusting, reviewing and leaving notes through 24 original statements. Read six separate frequency means and full guides, free without signup or age-based life-stage assignment."
     },
     "minutes": 7,
     "formCode": "fm_current_chapter_observations_24",
@@ -3099,8 +3099,8 @@
       "zh": "逻辑与演绎推理测试"
     },
     "description": {
-      "en": "Practise 24 original logical and deductive questions: quantifiers, conditions, conclusions and ordering. Get worked answers and four full guides, free.",
-      "zh": "免费练习24道原创逻辑与演绎推理题，涵盖量词、条件、必然结论和排序；查看逐题解析与四份完整指南。无需注册，不换算智商、常模或招聘结论。"
+      "en": "Practise 24 original questions on quantifiers, conditional rules, deduction and ordering. Free answers, explanations and four guides; untimed, no sign-up.",
+      "zh": "免费练习24道原创逻辑与演绎推理题，涵盖量词、条件规则、多步演绎与排序约束。查看四组正确数、全部答案、逐题解析及四篇完整指南；不计时，无需注册。"
     },
     "minutes": 12,
     "formCode": "fm_logical_reasoning_practice_24_v1",
@@ -3124,8 +3124,8 @@
       "zh": "JavaScript测试"
     },
     "description": {
-      "en": "Read 24 original JavaScript programs in a stated Node ES module context. Get every worked answer and four full guides. No level or certificate.",
-      "zh": "阅读24段原创JavaScript程序，按明确的Node ES模块条件预测输出或语法错误。免费查看全部答案、逐题解析和四份完整复习指南，不派等级或认证。"
+      "en": "Predict 24 original JavaScript outputs or syntax errors in Node ES modules. Free answers, four section counts and complete guides; untimed, no sign-up.",
+      "zh": "阅读24段原创JavaScript程序，预测输出或执行前语法错误。免费查看四组正确数、全部答案、逐题解析与四篇完整指南；按Node ES模块条件，不计时，无需注册。"
     },
     "minutes": 10,
     "formCode": "fermatmind_javascript_node24_esm_original_24_v1",
@@ -3149,8 +3149,8 @@
       "zh": "Python测试"
     },
     "description": {
-      "en": "Predict 24 original Python programs, checked with CPython 3.14.5. Read all worked answers and four full guides. No hiring tier or certificate.",
-      "zh": "用24段原创Python程序练习预测输出或语法错误，按CPython 3.14.5实跑核过。免费查看全部所选、正确答案、逐题解析和四份完整指南，不派招聘等级或认证。"
+      "en": "Predict 24 original Python outputs or syntax errors under CPython 3.14.5. Free answers, four section counts and full guides; untimed, no sign-up.",
+      "zh": "阅读24段原创Python程序，预测输出或执行前语法错误。免费查看四组正确数、全部答案、逐题解析与四篇完整指南；按CPython 3.14.5核验，不计时，无需注册。"
     },
     "minutes": 10,
     "formCode": "fermatmind_python314_original_24_v1",
@@ -3174,8 +3174,8 @@
       "zh": "销售能力测试"
     },
     "description": {
-      "en": "Try 24 original cases on needs, documented fit, follow-up and sales maths. Every answer and four full guides are free. Not hiring certification.",
-      "zh": "24道原创情境与算术题，需求澄清、方案匹配、跟进记录、销售算术各六题。免费查看全部答案、逐题解析和四篇完整指南，按题内规则记正确数，不作销售天赋、业绩预测或招聘认证。"
+      "zh": "免费练习24道原创销售情境与算术题，涵盖需求澄清、方案匹配、跟进记录和销售计算。查看四项正确数、全部答案解析及四篇完整指南，无需注册，不限时。",
+      "en": "Practise 24 original sales scenarios and maths tasks. Review four section counts, every worked answer and four complete guides, free without signup or a timer."
     },
     "minutes": 12,
     "formCode": "fm_sales_decision_practice_24_v1",
@@ -3199,8 +3199,8 @@
       "en": "Color Analysis Quiz"
     },
     "description": {
-      "zh": "免费色彩季节测试：比较16个原创三色菜单，阅读春日、夏日、秋日与冬日四份完整配色指南和24种示例色。不收照片、不作肤色鉴定。",
-      "en": "Free Color Analysis Quiz: compare 16 original three-colour menus and read all four palette guides with 24 examples. No photographs or skin typing."
+      "zh": "比较16组可见三色菜单，探索春夏秋冬配色偏好。免费查看原始次数、全部最高并列与四份完整指南、24种示例色；无需照片或注册。",
+      "en": "Compare 16 visible three-colour menus. Explore four palette guides, 24 example colours, raw counts and every highest tie. Free, with no photo or signup."
     },
     "minutes": 5,
     "formCode": "fm_seasonal_palette_preferences_16",
@@ -3224,8 +3224,8 @@
       "zh": "SQL测试"
     },
     "description": {
-      "en": "Read 24 original SQL tasks with complete input tables, checked on SQLite 3.53.4. Free worked answers and four full guides. Untimed practice.",
-      "zh": "用24道原创SQL题练习读查询，完整列出输入表，并按SQLite 3.53.4核过结果。免费查看全部所选、答案、逐题解析及四份完整指南。不计时，不派招聘等级或认证。"
+      "zh": "免费练习24道原创SQL结果判断题，完整列出表结构与数据。按SQLite 3.53.4核验，查看筛选、联接、聚合、窗口与约束解析及四篇完整指南；无需注册，不计时。",
+      "en": "Practise 24 original SQL outcome questions with full tables, checked on SQLite 3.53.4. Every worked answer and four guides are free, with no signup or timer."
     },
     "minutes": 12,
     "formCode": "fermatmind_sqlite353_original_24_v1",
@@ -3249,8 +3249,8 @@
       "zh": "问题解决与批判性思维测试"
     },
     "description": {
-      "en": "Practise 30 original school and everyday scenarios on problem steps, decisions and review. Free answers and three full guides. No grade prediction.",
-      "zh": "30道原创校园与日常情境，问题步骤、决策工具、复盘学习各十题，交错呈现。免费查看全部答案、逐题解析和三篇完整指南；不计时，不给智商、学生排名、成绩预测或课程达标认证。"
+      "zh": "免费完成30道原创情境题，练习问题界定、方案比较、证据核查与复盘。查看三组正确数、全部答案解析和三篇完整指南；无需注册，不计时。",
+      "en": "Practise 30 original scenarios on defining problems, comparing plans and evaluating evidence. Free topic counts, all worked answers and three guides. No signup or timer."
     },
     "minutes": 15,
     "formCode": "fm_problem_solving_practice_30_v1",
@@ -3273,8 +3273,8 @@
       "zh": "Word技能测试"
     },
     "description": {
-      "en": "Try 25 original Word for Windows knowledge scenarios. Free answers, five full revision guides and section counts. Untimed; no signup or certification.",
-      "zh": "用25道原创情境题练习Windows桌面Word操作知识，免费查看逐题答案、五项正确数及五份完整指南。不计时，不需注册，不颁认证。"
+      "zh": "免费练习25道Windows桌面版Microsoft 365 Word情境题，覆盖样式、分节、表格、邮件合并和审阅。查看全部答案、五项正确数与五份完整指南；无需注册，不计时。",
+      "en": "Practise 25 Word for Microsoft 365 Windows scenarios on styles, layout, mail merge and review. Free worked answers, five topic counts and complete guides."
     },
     "minutes": 12,
     "formCode": "fermatmind_word_windows_original_25_v1",
@@ -3291,16 +3291,16 @@
   {
     "slug": "project-management",
     "code": "FM_PROJECT_CASE_PRACTICE",
-    "version": "1.0.0",
-    "updated": "2026-10-27",
+    "version": "1.0.1",
+    "updated": "2026-11-03",
     "category": "everyday",
     "title": {
       "en": "Project Management Test",
       "zh": "项目管理测试"
     },
     "description": {
-      "en": "Practise 30 original project cases on scope, schedule, risk, communication and budget. Free explanations and five full guides. No certification or hiring tier.",
-      "zh": "30道原创项目情境，范围变更、排程容量、风险响应、沟通决策、预算数量各六题。免费查看全部答案解析与五篇完整指南；按题内规则复算正确数，不派招聘档位、PMP或PRINCE2认证。"
+      "zh": "免费练习30道项目管理情境题，覆盖范围变更、排程容量、风险响应、沟通决策与预算。查看全部答案解析、五项正确数和完整指南；无需注册，不计时。",
+      "en": "Practise 30 project management scenarios on scope, schedules, risk, decisions and budgets. Free worked answers, five topic counts and complete revision guides."
     },
     "minutes": 18,
     "formCode": "fm_project_case_practice_30_v1",
@@ -3325,8 +3325,8 @@
       "en": "Rizz Test"
     },
     "description": {
-      "zh": "免费Rizz 测试：20项原创四周频率观察，分别阅读说明兴趣、接住话头、轻松邀玩与确认邀约四份完整指南，含具体对话和反例。不派魅力等级。",
-      "en": "Free Rizz Test: 20 original four-week observations and four full guides with dialogues and counterexamples. No charm tier or dating prediction."
+      "zh": "免费完成20项Rizz交流自评，回看说明兴趣、接住话头、轻松邀玩与确认邀约。查看四组频率均分、完整对话例子与复习指南；无需注册，可选不适用。",
+      "en": "Take 20 Rizz self-reflection items on interest, replies, playfulness and invitations. Free separate frequency results and full guides, with an unjudged option."
     },
     "minutes": 6,
     "formCode": "fm_rizz_conversation_practices_20",
@@ -3350,8 +3350,8 @@
       "zh": "个人理财素养测试"
     },
     "description": {
-      "en": "Try 23 original questions on budgets, interest, risk, pay and benefits. Free worked answers and three full guides. Fictional figures; untimed practice.",
-      "zh": "用23道原创知识情境题练预算、利息、风险、工资及福利。免费查看逐题解析、三项正确数和三份完整指南。数字均为虚构条件，不计时。"
+      "zh": "免费完成23道个人理财知识题，练习预算、单利复利、风险及工资福利。查看三组答对数、全部解析与三篇完整指南；无需注册，不计时。",
+      "en": "Practise budgeting, interest, risk, pay and benefits in 23 free questions. See three topic counts, every explanation and full guides. No registration or timer."
     },
     "minutes": 10,
     "formCode": "fermatmind_personal_finance_original_23_v1",
@@ -3366,16 +3366,16 @@
   {
     "slug": "ai-literacy",
     "code": "FM_AI_LITERACY_PRACTICE",
-    "version": "1.0.0",
-    "updated": "2026-10-27",
+    "version": "1.0.1",
+    "updated": "2026-11-03",
     "category": "everyday",
     "title": {
       "en": "AI Literacy Test",
       "zh": "人工智能素养测试"
     },
     "description": {
-      "en": "Try 20 original AI literacy scenarios on models, tools, verification, privacy and judgement. Free worked answers and four full guides. Untimed; no signup.",
-      "zh": "用20道原创情境题练模型、提示工具、输出核查、隐私与判断。免费给逐题答案、四项正确数及四份完整指南。不计时，不需注册或AI账户。"
+      "zh": "免费完成20道AI素养情境题，练习模型数据、提示工具、输出核查及隐私判断。查看四组答对数、全部解析与完整指南；不计时，无需注册。",
+      "en": "Practise AI concepts, prompts, tools, verification and privacy in 20 free scenarios. See four topic counts, every answer and full guides. No signup or timer."
     },
     "minutes": 10,
     "formCode": "fermatmind_ai_literacy_original_20_v1",
@@ -3399,8 +3399,8 @@
       "zh": "中国十二生肖测试"
     },
     "description": {
-      "en": "Choose 12 original fictional scenes and read all 12 free animal portraits. Transparent counts keep every highest tie. No birth-year or element calculation.",
-      "zh": "12道原创虚构情境，看看本次选择更接近哪些生肖象征镜头。公开原始计数，保留所有最高并列，十二篇完整双语画像免费；不收生日、不算出生年或五行，不预测运势、关系或职业。"
+      "zh": "用12道原创故事选择探索十二生肖意象，查看全部计数、最高并列与十二篇完整角色指南。免费免注册，不收生日；附文化来源和计分算例。",
+      "en": "Explore twelve animal story roles in 12 free choices. See all counts, highest ties and full portraits, with cultural sources. No birthday or signup."
     },
     "minutes": 5,
     "formCode": "fm_chinese_zodiac_story_choices_12_v1",
@@ -3432,8 +3432,8 @@
       "zh": "客户服务情景测试"
     },
     "description": {
-      "en": "Try 24 original service scenarios with stated policies, worked answers and four full guides. Free, untimed practice; no hiring score or personal customer data.",
-      "zh": "用24道原创客服情境题练澄清、政策阅读、清楚表达和记录跟进。免费查看标准答案、逐题解析及四份完整指南；不计时，不收真实客户资料，不给招聘分数。"
+      "zh": "免费完成24道原创客服情境题，练习澄清诉求、政策判断、清楚表达及记录跟进。查看四项正确数、全部解析与四份全文指南；不计时，无需注册。",
+      "en": "Practise clarification, policy decisions, clear messages and follow-through in 24 free service scenarios. See every worked answer and four full guides. No signup."
     },
     "minutes": 12,
     "formCode": "fermatmind_customer_service_original_24_v1",
@@ -3457,8 +3457,8 @@
       "zh": "德语水平测试"
     },
     "description": {
-      "en": "Try 28 original German grammar and reading tasks. Free worked answers, section counts and four full guides. Written practice, without CEFR bands or a certificate.",
-      "zh": "做28道原创德语冠词、动词、句式及短文题，免费查看分项正确数、全部解析与四份完整指南。仅书面练习，不换算CEFR等级或颁证。"
+      "zh": "免费完成28道原创德语语法与短文题，练习冠词格、动词及句式。查看四项正确数、每题解析及完整指南；英中文说明，不计时，无需注册。",
+      "en": "Practise German articles, cases, verbs, word order and short texts in 28 free questions. See worked answers and four full guides, with English or Chinese support."
     },
     "minutes": 14,
     "formCode": "fermatmind_german_written_original_28_v1",
@@ -3482,8 +3482,8 @@
       "zh": "星座测试"
     },
     "description": {
-      "en": "Choose 12 original story-making scenes and read all 12 free sign guides. Transparent counts keep every highest tie. No birthday or natal-chart calculation.",
-      "zh": "12道原创故事创作选择，看看本次更想采用哪些星座命名的叙事镜头。公开原始计数，保留所有最高并列，十二篇完整双语指南免费；不问生日，不算太阳、月亮、上升或四元素，不预测运势与配对。"
+      "zh": "通过12道原创故事选择探索十二星座命名的叙事视角，免费查看全部计数、最高并列与十二篇完整指南。无需生日或注册，附计分算例与文化来源。",
+      "en": "Explore twelve sign-named story lenses in 12 free choices. See all counts, highest ties and full guides. No birthday or signup; scoring examples included."
     },
     "minutes": 5,
     "formCode": "fm_zodiac_sign_story_lenses_12_v1",
@@ -3515,8 +3515,8 @@
       "zh": "恋爱人格测试"
     },
     "description": {
-      "en": "Take 24 paired choices about expression, response, space and repair. Read all 15 full public result guides, including ties. Free, with no signup.",
-      "zh": "通过24道原创二选一题，回看表达、回应、靠近与空间、分歧修复四种互动入口。免费作答，15种含并列结果均有完整公开说明，无需注册。"
+      "zh": "用24道原创二选一比较表达、回应、空间与修复四种互动入口。免费查看原始次数、全部最高并列与15份完整指南；无需注册，附计数算例与研究说明。",
+      "en": "Compare expression, response, space and repair in 24 paired choices. Free counts, every highest tie and 15 full guides, with worked examples. No signup."
     },
     "minutes": 6,
     "formCode": "love_personality_forced_choice_24",
@@ -3551,8 +3551,8 @@
       "zh": "情境判断测试"
     },
     "description": {
-      "en": "Practise 25 original workplace scenarios with stated rules, every rationale and five full guides. Free, untimed, no signup. No competency band or hiring score.",
-      "zh": "用25个原创职场情境练习按明示条件选择行动，免费查看全部理由和五份完整指南。不计时、无需注册，不分胜任力等级或招聘分数。"
+      "zh": "完成25道原创职场情境单选，练习优先顺序、交接、事实沟通、职责与协作。免费查看全部答案、五项正确数及五份完整指南；无需注册、不计时。",
+      "en": "Practise 25 original workplace scenarios. Get every answer explained, five section counts and full revision guides. Free, untimed and no sign-up."
     },
     "minutes": 15,
     "formCode": "fermatmind_situational_rules_original_25_v1",
@@ -3577,8 +3577,8 @@
       "zh": "8 Values 政治价值观测试"
     },
     "description": {
-      "en": "Answer the MIT-adapted 70-item bank. Read four axes, eight complementary values and full free bilingual guides. No party label or population percentile.",
-      "zh": "MIT许可原版70题译编，原题权重保留。完整作答后分开读四轴八极及八篇免费双语指南，含互补、中间混合与反例；不强派政党或意识形态，百分数不是人口百分位。"
+      "zh": "完成MIT开源版70题，分开阅读经济、外交、公民与社会四轴八极。免费查看加权结果、互补百分数和八篇完整指南；无需注册，不计时。",
+      "en": "Explore four political axes with 70 MIT-adapted statements. Read paired percentages, worked scoring and eight full guides. Free, untimed, no sign-up."
     },
     "minutes": 15,
     "formCode": "fm_8values_upstream3971_70_enzh_v1",
@@ -3606,8 +3606,8 @@
       "zh": "爱情阵营测试"
     },
     "description": {
-      "en": "Compare 24 paired choices about rituals, shared tasks, companionship and autonomy. Read all 15 full result guides, including ties. Free, without signup.",
-      "zh": "通过24道原创二选一题，回看仪式、协作、陪伴与成长自主的相对选择。15种单方向及并列结果均有完整双语说明，免费作答，无需注册。"
+      "zh": "用24组原创二选一比较仪式、协作、陪伴与成长自主。免费查看原始计数及15篇完整单项或并列指南；约6分钟，无需注册。",
+      "en": "Compare rituals, cooperation, companionship and autonomy in 24 paired choices. Read raw counts and all 15 full guides. Free, about 6 minutes, no sign-up."
     },
     "minutes": 6,
     "formCode": "love_role_forced_choice_24",
@@ -3642,8 +3642,8 @@
       "zh": "打字速度测试"
     },
     "description": {
-      "en": "Type original English or Chinese for 60 seconds. Get WPM or CPM, positional accuracy and two free guides. Corrections allowed; no signup or speed bands.",
-      "zh": "真实计时60秒抄录原创英文或中文，分别查看WPM或CPM、逐位置准确率和两份免费完整指南。允许改错，无需注册，不分速度等级或颁证。"
+      "zh": "用原创英文或中文进行60秒打字练习，查看WPM或CPM、最终文本准确率和两份完整指南。允许改错，免费，无需注册。",
+      "en": "Practise English or Chinese typing for 60 seconds. View WPM or CPM, final-text accuracy and both full guides. Free, corrections allowed, no sign-up."
     },
     "minutes": 2,
     "formCode": "fermatmind_original_typing_en_zh_60s_v1",
@@ -3665,8 +3665,8 @@
       "zh": "HEXACO人格测试"
     },
     "description": {
-      "en": "Take the free 240-item preliminary IPIP HEXACO test. Read six domain means, reverse scoring, missing information and full bilingual guides. No fixed types.",
-      "zh": "免费HEXACO人格测试：完整preliminary IPIP240条，六个连续领域分别显示原始和、均分或资料不足；含反向计分、具体例子、完整双语指南，不派六种人格。"
+      "zh": "免费完成早期IPIP HEXACO240题，分别查看六领域原始和、均分与完整指南。含反向计分算例、NA读法和研究来源；约35分钟，无需注册。",
+      "en": "Take 240 preliminary IPIP HEXACO items. Read six domain sums, means, full guides, reverse scoring and NA rules. Free, about 35 minutes, no sign-up."
     },
     "minutes": 35,
     "collection": "explore",
@@ -3692,8 +3692,8 @@
       "zh": "恋爱安排偏好测试"
     },
     "description": {
-      "en": "Compare contact and personal space, then certainty and flexibility in 24 paired choices. Read six complete guides, with ties kept. Free, no signup.",
-      "zh": "通过24道原创二选一题，分别回看联系与个人空间、确定与弹性的安排偏好。六份完整结果说明均公开，保留每维并列，免费作答，无需注册。"
+      "zh": "用24道原创二选一，分别比较联系与个人空间、确定与弹性的安排偏好。免费查看两组原始计数、6:6并列及六篇完整指南；约6分钟，无需注册。",
+      "en": "Compare contact and space, certainty and flexibility in 24 paired choices. Read two raw-count results, ties and six full guides. Free, no sign-up."
     },
     "minutes": 6,
     "formCode": "love_type_paired_choice_24",
@@ -3717,8 +3717,8 @@
       "zh": "抽象推理测试"
     },
     "description": {
-      "en": "Try 24 original symbol tasks: sequences, analogies, classification and transformations. All answers and four full guides free. Untimed, no signup or IQ band.",
-      "zh": "做24道原创符号题，覆盖序列、类比、分类与变换；免费查看全部答案、解析和四份完整指南。不计时、无需注册，不给IQ或能力等级。"
+      "zh": "免费练习24道原创抽象推理题，覆盖符号序列、关系类比、示例分类和有序变换。查看四组正确数、全部答案与完整复习指南；不计时，无需注册。",
+      "en": "Practice 24 original abstract reasoning tasks: sequences, analogies, classification and transformations. Free counts, full explanations and guides; untimed, no sign-up."
     },
     "minutes": 16,
     "collection": "explore",
@@ -3742,8 +3742,8 @@
       "zh": "保守主义测试：SECS2013美国议题版"
     },
     "description": {
-      "en": "Take a free conservatism test using all 12 SECS 2013 U.S. issues. Read separate social and economic means, reversals, missing information and full guides.",
-      "zh": "免费保守主义测试：保留2013年美国SECS完整12个议题及两处反向键，分别查看社会与经济领域的温度均分、资料不足、例子反例和完整读法，不派政治身份。"
+      "zh": "免费完成SECS2013美国议题版12项温度评分，分别阅读社会与经济领域均分、反向计分及两份完整指南。支持NA，无需注册；中文为试译。",
+      "en": "Rate all 12 SECS 2013 U.S. issues. Read separate social and economic means, reverse scoring and two full guides. Free, no sign-up; NA available."
     },
     "minutes": 4,
     "collection": "explore",
@@ -3765,8 +3765,8 @@
       "zh": "数值推理测试"
     },
     "description": {
-      "en": "Solve 30 original arithmetic, percentage, ratio, data and rate tasks. All worked answers and five full guides free. Untimed, no signup or hiring score.",
-      "zh": "做30道原创算术、百分比、比例、数据判读和速率题，免费读全部题解与五份完整指南。不计时、无需注册，不给招聘分数或能力等级。"
+      "zh": "免费练习30道原创数值推理题：运算、百分比、比例、数据判读与速率。查看五组正确数、全部答案解析与完整复习指南。不计时，可用计算器，无需注册。",
+      "en": "Practice 30 original numerical reasoning tasks in arithmetic, percentages, ratios, data and rates. Free explanations and full guides; untimed, calculator allowed, no sign-up."
     },
     "minutes": 18,
     "collection": "explore",
@@ -3791,8 +3791,8 @@
       "zh": "数字伦理与公民意识测试"
     },
     "description": {
-      "en": "Try 30 original privacy, security, information, communication and access scenarios. Every answer and five full guides free. No moral type or behaviour rating.",
-      "zh": "做30道原创隐私、安全、信息、沟通和可访问性场景题，免费读全部答案与五份完整指南。不分道德类型，不评价真实行为；无需注册、不计时。"
+      "zh": "练习30道数字伦理与公民意识情境题，涵盖隐私、账户安全、信息与AI、网络沟通及可访问性。免费查看五组正确数、全部答案与完整指南；不计时，无需注册。",
+      "en": "Practise 30 original digital citizenship scenarios in privacy, security, information, AI, communication and access. Free explanations and guides; untimed, no sign-up."
     },
     "minutes": 18,
     "collection": "explore",
@@ -3817,8 +3817,8 @@
       "zh": "数列推理测试"
     },
     "description": {
-      "en": "Solve 30 original number-series tasks with stated rule families. Get every worked answer and five free guides. Untimed, no signup, IQ or hiring score.",
-      "zh": "完成30道限定规则族的原创数列题，免费读全部推导与五份完整指南。不计时、无需注册，不换算智商或招聘分数。"
+      "en": "Practise 30 original number-series questions across five stated rule families. Review every selected and correct answer, worked explanation and complete topic guide. Untimed, calculator allowed, free with no signup.",
+      "zh": "免费练习30道原创数列题，覆盖五类明示规则。完成后查看逐题所选、正确答案、完整推导与五份专题指南。不计时，可用计算器，无需注册。"
     },
     "minutes": 18,
     "collection": "explore",
@@ -3843,8 +3843,8 @@
       "zh": "年上年下情境偏好测试"
     },
     "description": {
-      "en": "Compare older, similar-age and younger adult situations in 18 choices. Read all seven complete results, including ties. Free, no signup or partner data.",
-      "zh": "通过18道原创二选一，回看年长、相近年龄与较年轻成年伴侣情境的相对选择。七份完整结果含全部并列，免费，无需注册或伴侣资料。"
+      "zh": "完成18道原创二选一，探索年长、相近年龄与较年轻成年伴侣情境中的相对选择。免费查看三项原始次数、全部并列及七篇完整指南；无需注册。",
+      "en": "Explore older, similarly aged and younger adult-partner contexts in 18 original choices. Free raw counts, all ties and seven full guides, without sign-up."
     },
     "minutes": 5,
     "formCode": "age_preference_forced_choice_18",
@@ -3871,8 +3871,8 @@
       "zh": "数据录入测试"
     },
     "description": {
-      "en": "Copy fictional records into real fields for 60 seconds. Get exact field accuracy, clearly defined character KPH and two free full guides. No signup or norm.",
-      "zh": "真实输入框录入虚构记录，每轮60秒，分别查看字段精确准确率和定义清楚的字符KPH，免费读两份完整指南。无需注册，不对照招聘常模。"
+      "zh": "选择物品标签或发运表单，在60秒内抄录四字段虚构记录。免费查看字段准确率、字符KPH、差异分类及两份完整指南；无需注册，允许改错。",
+      "en": "Copy fictional four-field asset or dispatch records for 60 seconds. Free field accuracy, character KPH, difference counts and full guides. No sign-up."
     },
     "minutes": 3,
     "formCode": "fermatmind_original_structured_entry_64_records_v1",
@@ -3894,8 +3894,8 @@
       "zh": "弗洛伊德人格测试：原创历史词汇反思版"
     },
     "description": {
-      "en": "Explore eight quoted historical themes through 48 original prompts about recent choices. Read separate means and full guides, without assigning fixed types.",
-      "zh": "通过48条原创双语提问观察近四周的日常选择，分别阅读八主题原始和、均分或资料不足及完整指南；历史词语注明出处，不给作答者派固定类型。"
+      "zh": "用48条原创频率提问回看近四周，分别观察求助、自立、计划、表达与私人空间等八个主题。免费查看原始和、均分、资料不足说明及八份完整指南；无需注册，不派类型。",
+      "en": "Reflect on eight everyday-action themes with 48 original frequency prompts. Free sums, means, NA explanations and full guides; no sign-up or assigned type."
     },
     "minutes": 10,
     "collection": "explore",
@@ -3923,8 +3923,8 @@
       "en": "Relationship Commitment Test"
     },
     "description": {
-      "zh": "用24条原创自述分别看继续意愿、近期满意度、关系外选择与既有投入。四份完整结果免费，无需注册，不预测分手或替伴侣评分。",
-      "en": "Explore intention, satisfaction, outside options and investment with 24 original statements. Four full guides, free without signup. No breakup prediction."
+      "zh": "用24条原创自述分别回看继续意愿、近期满意度、关系外选择与关联投入。约7分钟，免费查看四项独立读数、反向计分说明与四份完整指南；无需注册。",
+      "en": "Reflect on intention, satisfaction, outside options and linked investment with 24 original statements. About 7 minutes; four separate readings and full guides, free without signup."
     },
     "minutes": 7,
     "formCode": "fm_relationship_commitment_reflection_24_v1",
@@ -3948,8 +3948,8 @@
       "zh": "政治坐标测试：原创公共政策取舍版"
     },
     "description": {
-      "en": "Compare 36 original policy choices on separate economic left–right and social communitarian–liberal axes. Read raw counts, ties, uncertainty and all four full guides.",
-      "zh": "比较36道原创公共政策方案，经济左—右与社会共同体—个人自由两轴分别计数；公开原始差值、边界与资料不足，四份完整双语指南始终可读，不派政党身份。"
+      "zh": "用36项原创公共政策比较，分别观察经济左—右与共同体—个人自由取舍。约8分钟，免费查看原始次数、两轴差值、零值与NA说明及四份完整指南；无需注册。",
+      "en": "Compare 36 original policy proposals on economic and civic axes. About 8 minutes; raw counts, ties, NA and four full guides, free without signup."
     },
     "minutes": 8,
     "collection": "explore",
@@ -3973,8 +3973,8 @@
       "zh": "机械推理测试"
     },
     "description": {
-      "en": "Practise 30 original lever, gear, pulley, spring and fluid tasks. Get worked answers and five full guides, free. Untimed; no norm or hiring band.",
-      "zh": "免费完成30道原创杠杆、齿轮、滑轮、弹簧与流体题，查看逐题解析和五份完整指南。明确理想假设，不计时，不给人群常模或招聘等级。"
+      "zh": "用30道原创文字数量题练习杠杆、齿轮、滑轮、弹簧与流体，免费查看全部题解、五项正确数与五份完整复习指南。约18分钟，不计时，无需注册。",
+      "en": "Practise 30 original written mechanics problems. Review all worked answers, five topic counts and full guides, free and untimed; no signup."
     },
     "minutes": 18,
     "formCode": "fermatmind_original_ideal_mechanics_30_v1",
@@ -3999,8 +3999,8 @@
       "zh": "空间推理测试"
     },
     "description": {
-      "en": "Practise 30 original rotations, mirrors, folds, cube turns and layouts. Worked answers and five full guides, free. Untimed text-and-coordinate tasks.",
-      "zh": "免费练习30道原创旋转、镜像、折纸、立方体转向与布局题，查看逐题解析及五份完整指南。不计时文字与坐标任务，不给智商或人群等级。"
+      "zh": "用30道原创文字坐标题练习旋转、镜像、折纸、立方体与视图，免费查看全部题解、五项正确数及五份完整指南。约18分钟，不计时，无需注册。",
+      "en": "Practise 30 original written coordinate tasks: rotations, mirrors, folds, cubes and views. All worked answers and five full guides, free and untimed."
     },
     "minutes": 18,
     "collection": "explore",
@@ -4025,8 +4025,8 @@
       "zh": "自由意志主义测试：原创原则反思版"
     },
     "description": {
-      "en": "Reflect on 32 original political-principle statements in four authored topic groups. Read separate sums, means or uncertainty and all four full guides without a purity score.",
-      "zh": "用32条原创政治原则命题反思自主、合作、财产权纠错与公共强制；四个自编议题分别显示原始和、均分或资料不足，四份完整指南始终可读，不计算身份或纯度。"
+      "en": "Explore 32 original statements on autonomy, cooperation, property and public coercion. Free separate sums, means and four complete guides; no signup or political identity assignment.",
+      "zh": "通过32条原创命题，分别探索自主与同意、自愿合作、财产权与公共强制。免费查看各组总和、均分及四份完整指南，无须注册，不分配政治身份。"
     },
     "minutes": 8,
     "collection": "explore",
@@ -4050,8 +4050,8 @@
       "en": "Trust Issues Test: Everyday Trust Reflection"
     },
     "description": {
-      "zh": "免费完成24题，分别回顾初次开放、逐步建立、约定核对与保护性距离。看原始和与频率均分与四份完整说明，包含对话例子、反例和私人练习，不诊断你或给别人判型。",
-      "en": "Take 24 free questions about everyday trust actions. Read four separate frequency means and full guides with examples, tradeoffs and private reflection."
+      "en": "Reflect on 24 everyday trust actions across opening, gradual cooperation, clear agreements and protective distance. Free separate means and four full guides.",
+      "zh": "通过24道频率题回顾初次开放、逐步建立、约定核对与保护性距离。免费查看四组独立均分、完整指南、具体情境和计分算例，无需注册。"
     },
     "minutes": 6,
     "collection": "explore",
@@ -4075,8 +4075,8 @@
       "zh": "道德基础测试（MFQ-2工作中译）"
     },
     "description": {
-      "en": "Take the 36-item MFQ-2 with the authors’ English wording or a clearly identified working Chinese translation. Read six separate means and full guides without political labels.",
-      "zh": "使用作者英文36题或明确标注的费马工作中译完成MFQ-2，分别理解关怀、平等、比例公平、忠诚、权威、纯洁的均分及六份完整指南，不指定政治身份。"
+      "en": "Take the 36-item MFQ-2 in author English or working Chinese. Read six separate means, full guides, exact scoring and research context, free without signup.",
+      "zh": "完成36题MFQ-2作者英文或费马工作中译，分别理解关怀、平等、比例公平、忠诚、权威与纯洁。六项均分、48节完整指南、计分算例与研究背景免费可读，无需注册。"
     },
     "minutes": 7,
     "collection": "explore",
@@ -4102,8 +4102,8 @@
       "zh": "自尊测试"
     },
     "description": {
-      "en": "Take the 10-item Rosenberg Self-Esteem Scale. Get your 0–30 raw total and full guide, free. Original English; a clearly labelled Chinese working translation.",
-      "zh": "免费完成罗森伯格自尊量表10题，查看0—30原始总分和完整读法。采用官方英文题序，中文为明确标注的工作译文；不派正常区间或诊断标签。"
+      "en": "Take the 10-item Rosenberg Self-Esteem Scale: a 0–30 raw total, exact reverse scoring and complete reading guide. Free, no signup; working Chinese translation.",
+      "zh": "完成10题罗森伯格自尊量表，查看0—30原始总分、明确反向计分与完整阅读指南。免费、无需注册，中文为工作译文。"
     },
     "minutes": 2,
     "collection": "explore",
@@ -4124,8 +4124,8 @@
       "zh": "时间管理测试"
     },
     "description": {
-      "en": "Reflect on 24 time-management habits from the past two weeks. Read four separate means, examples and small actions, including skipped answers. Full results free.",
-      "zh": "回看过去两周的24项时间管理行为，分别阅读优先容量、步骤估时、专注返回和回看重订的均分、例子与小行动。跳题说明和全部结果免费。"
+      "en": "Reflect on 24 habits from the past two weeks: priorities, planning, attention and review. Four separate means, exact reverse scoring and all full guides, free.",
+      "zh": "用24条陈述回看过去两周的优先安排、步骤估时、专注返回与计划回顾。四项独立均分、反向计分及全部完整指南免费可读，无需注册。"
     },
     "minutes": 6,
     "collection": "explore",
@@ -4149,8 +4149,8 @@
       "zh": "倦怠测试：CBI个人与工作模块"
     },
     "description": {
-      "en": "Answer two complete CBI modules: six personal and seven work-related items. Read separate source-key means and two full guides, without risk bands or a diagnosis.",
-      "zh": "完成CBI个人六题与工作七题两个完整模块，分别理解源键均分、有效题数与两份完整指南，不划风险档位或作诊断。"
+      "en": "Complete CBI personal six and work seven modules. Read separate means, valid counts, reverse scoring and two full guides, free without signup; working Chinese.",
+      "zh": "完成CBI个人六题与工作七题，分别查看均分、有效题数、精力反向计分和两份完整指南。免费、无需注册，中文为费马工作译本。"
     },
     "minutes": 4,
     "collection": "explore",
@@ -4172,8 +4172,8 @@
       "en": "Wholesome Partner Test"
     },
     "description": {
-      "zh": "免费完成32道原创题，分别读守约、选择空间、回应、求助、真实偏好、理解立场、期待协商与分歧修复。八组均分和完整说明全部免费，不给伴侣判好坏。",
-      "en": "Reflect on 32 original questions about partner interactions. Read eight separate keyed means and all full guides, free. No healthy or toxic-person verdict."
+      "en": "Reflect on 32 recent relationship behaviors across eight separate topics. Read keyed means, missing-answer rules and all eight full guides, free without an account.",
+      "zh": "用32道原创题回看过去四周的守约、选择空间、回应、求助、偏好、立场、期待与修复。八组独立均分、完整计分及全部指南免费可读，无需注册。"
     },
     "minutes": 7,
     "collection": "explore",
@@ -4201,8 +4201,8 @@
       "zh": "自我慈悲测试"
     },
     "description": {
-      "en": "Take the full 26-item SCS. Read six part means, reverse scoring and the overall mean with complete free guides. Chinese is an unvalidated working translation.",
-      "zh": "完成26题完整版SCS，阅读六部分均分、反向计分与整体均分，全部指南免费。中文为未经验证的费马工作译本，供自我观察。"
+      "en": "Complete the full 26-item SCS: six part means, clear raw and reversed values, an overall mean and seven free guides. Chinese is an unvalidated working translation.",
+      "zh": "完成26题完整自我慈悲量表（SCS），查看六部分原始及计分后均值、整体均分与七份免费完整指南。中文为未经验证的工作译本，无需注册。"
     },
     "minutes": 7,
     "collection": "explore",
@@ -4229,8 +4229,8 @@
       "zh": "沟通适应性测试"
     },
     "description": {
-      "en": "Try 30 original communication situations. Review five section counts, every answer explanation and complete free guides, without ability grades or hiring claims.",
-      "zh": "完成30道原创沟通情境题，阅读五部分计数、每题解析与完整免费指南。根据明确条件选择，不换算能力等级、职业适配或录用结论。"
+      "en": "Practise 30 original communication cases: audience, channel, context, shared understanding and modes. Review five section counts, every explanation and five complete free guides.",
+      "zh": "练习30道原创沟通情境题，围绕受众、渠道、背景、共同理解与沟通方式，查看五部分答对题数、逐题解析和五份完整免费指南。"
     },
     "minutes": 10,
     "collection": "explore",
@@ -4255,8 +4255,8 @@
       "zh": "冲突风格测试"
     },
     "description": {
-      "en": "Reflect on 20 original conflict-handling items. Read five separate means, worked examples and full free guides, without a fixed type or a best-style verdict.",
-      "zh": "用20道原创题回顾自己处理分歧的行动，分别阅读五组均分、完整算例与对话建议；不派固定类型，不评选最佳风格。"
+      "en": "Explore five ways of handling ordinary disagreements with 20 original frequency items. Read separate means, worked calculations and five complete free guides, with no fixed type.",
+      "zh": "通过20道原创频率题，回顾普通分歧中的五类处理行动，分别查看均分、可复算例子及五份完整免费指南，结合场景理解自己的选择。"
     },
     "minutes": 4,
     "collection": "explore",
@@ -4281,8 +4281,8 @@
       "zh": "有毒积极心态测试"
     },
     "description": {
-      "en": "Reflect on 18 habits involving pressure to stay positive. Read three separate means, clear scoring, skipped-answer rules and all complete guides free.",
-      "zh": "用18道原创题回看对自己、对话与未知结果施加积极要求的习惯。分别阅读三项均分、计分、跳题说明与全部完整免费指南。"
+      "en": "Reflect on 18 original items about pressure on your own feelings, conversations and uncertain outcomes. Read three separate means, reverse-scoring examples and complete free guides.",
+      "zh": "用18条原创题回顾对自身感受、对话回应与未知结果施加的积极要求，分别阅读三组均分、反向计分算例和完整免费指南。"
     },
     "minutes": 4,
     "collection": "explore",
@@ -4305,8 +4305,8 @@
       "zh": "友谊契合度测试"
     },
     "description": {
-      "en": "Reflect on one friendship with 20 free questions. Read five separate means, worked examples and full guides on plans, conversation, effort, privacy and differences.",
-      "zh": "用20道免费原创题回顾一段友谊，分别查看约定、表达、投入、隐私与差异的五组均分和完整指南；含算例、反例及可尝试的沟通建议。"
+      "en": "Explore one adult friendship through 20 original questions about recent agreements, conversation, effort, privacy and different interests. Five separate means and complete guides are free, without signup.",
+      "zh": "通过20道原创题回顾一段成人友谊近期的约定、表达、投入、隐私与兴趣差异，免费查看五组独立均分、计分算例及完整指南，无需注册。"
     },
     "minutes": 5,
     "collection": "explore",
@@ -4331,8 +4331,8 @@
       "zh": "完美主义测试：标准与期待差距"
     },
     "description": {
-      "en": "Explore eight SAPS statements with separate Standards and Discrepancy readings, clear scoring examples and two complete guides. No combined type or percentile.",
-      "zh": "围绕SAPS八个陈述分别理解个人标准与期待差距，查看明确计分示例和两篇完整指南；不合成类型或人群百分位。"
+      "en": "Complete the eight-item SAPS and read personal Standards and Discrepancy separately, with exact sums, means, worked examples and two full free guides. No signup.",
+      "zh": "完成八题SAPS，分别理解个人标准与表现相对期待的差距，免费查看精确总和、均值、计分算例及两份完整指南，无需注册。"
     },
     "minutes": 3,
     "collection": "explore",
@@ -4354,8 +4354,8 @@
       "zh": "道歉语言测试"
     },
     "description": {
-      "en": "Explore what matters to you when receiving an apology with 20 original items. Read five separate means, equal values, examples and complete guides free.",
-      "zh": "用20道原创题看看接收道歉时看重什么，分别阅读五组重视程度、相同均分、缺答、具体对话与反例。完整结果免费，不替他人判型。"
+      "en": "Explore what matters when receiving an apology through 20 original importance ratings. Read five separate means, practical examples and complete free guides; no signup required.",
+      "zh": "通过20道原创重视程度题探索接收道歉时的期待，免费查看五组独立均分、具体情境与完整指南，无需注册。"
     },
     "minutes": 5,
     "collection": "explore",
@@ -4409,8 +4409,8 @@
       "zh": "工作伦理和可靠性测试：日常任务习惯"
     },
     "description": {
-      "en": "Reflect on 24 work-habit statements about agreements, checks, updates and repair. Read all four full guides free, with separate means and no employee reliability grade.",
-      "zh": "用24条陈述回看约定、核对、说明与修正习惯，四篇完整指南免费。各组均分分别呈现，不给员工可靠性等级。"
+      "en": "Reflect on 24 statements about agreements, handover checks, accurate updates and repair over the past four weeks. See four separate habit readings and complete guides free, with no registration.",
+      "zh": "通过24项陈述回看过去四周的履约、交付核对、如实说明与修正习惯，分别查看四组读数与完整指南。约5分钟，免费作答，无需注册。"
     },
     "minutes": 5,
     "collection": "explore",
@@ -4456,8 +4456,8 @@
       "zh": "职场文化契合度测评：工作安排偏好"
     },
     "description": {
-      "en": "Compare 24 original pairs of work arrangements and read four complete guides free. See separate position means with both endpoints, without a company-fit score, dominant type or hiring claim.",
-      "zh": "比较24组原创工作安排，免费读四篇完整指南。分别查看位置均值与两端，不计算公司契合分、不派主导型、不预测录用。"
+      "en": "Explore 24 pairs of work arrangements: coordination, method choice, plan revision and feedback timing. Read four separate position means and complete guides free, without registration.",
+      "zh": "通过24组工作安排比较，探索协调方式、方法选择、计划修订与反馈时机偏好。分别阅读四组位置均值和完整指南，约8分钟，免费作答，无需注册。"
     },
     "minutes": 8,
     "collection": "explore",
@@ -4481,8 +4481,8 @@
       "zh": "魅力类型测试：互动呈现方式"
     },
     "description": {
-      "en": "Compare four pairs of interaction choices with FermatMind’s original 24-item form. Read all four full guides and ties free, without signup or an attractiveness score.",
-      "zh": "用费马原创24题比较四组互动选择，四篇完整指南和并列读法免费，无需注册。不计算吸引力，不生成四型魅力标签。"
+      "en": "Explore four pairs of interaction choices through 24 original questions: expression, clarity, response timing and sharing boundaries. Read raw counts, ties and four complete free guides without signup.",
+      "zh": "通过24道原创二选一，分别探索表达、清晰度、回应时点与分享边界，免费查看四组原始次数、并列及四篇完整指南，无需注册。"
     },
     "minutes": 5,
     "collection": "explore",
@@ -4506,8 +4506,8 @@
       "zh": "技能审计测试：任务实例盘点"
     },
     "description": {
-      "en": "Record examples you recall for 20 tasks across methods, tools, communication and knowledge. Read four full guides free, with no ability score, proficiency level or job-match percentage.",
-      "zh": "围绕方法、工具、沟通和知识的20项任务记录实例状态，四篇完整指南免费。不计算能力分、熟练等级或岗位匹配百分比。"
+      "en": "Record which examples you recall for 20 tasks in methods, tools, communication and task knowledge. See individual task states, four state counts per group and four complete guides free, without signup.",
+      "zh": "用20项任务提示盘点方法、工具、沟通与任务知识实例，查看逐项状态、每组四种状态计数及四篇完整指南。约6分钟，免费使用，无需注册。"
     },
     "minutes": 6,
     "collection": "explore",
@@ -4531,8 +4531,8 @@
       "zh": "嫉妒量表：费马原创三组反思"
     },
     "description": {
-      "en": "Reflect on returning thoughts, discomfort and actions through 18 original prompts. Read three full guides free, with separate summaries and no partner verdict or severity band.",
-      "zh": "用十八条原创提示回看反复思维、不适与行动，三篇完整指南免费。三组分别汇总，不判断伴侣或划分严重程度。"
+      "en": "Use 18 original prompts to reflect on relationship worries, discomfort and actions over four weeks. Read three separate summaries, distinct frequency and intensity explanations, and complete free guides without signup.",
+      "zh": "用18条原创提示回看四周内的关系担心、不适与行动，免费阅读三组独立汇总、频率与强度的不同读法及完整指南，无需注册。"
     },
     "minutes": 6,
     "collection": "explore",
@@ -4555,8 +4555,8 @@
       "zh": "斯特恩伯格爱的三角测试：费马原创反思版"
     },
     "description": {
-      "en": "Reflect on intimacy, passion and decision/commitment through 15 original statements. Read all three full guides free, with separate means and no assigned love type.",
-      "zh": "用十五条原创自述分别回看亲密、激情与决定／承诺，三篇完整指南免费。均分独立呈现，不派发爱的类型。"
+      "en": "Explore intimacy, passion and decision/commitment with 15 original reflection items. Read three separate means, transparent calculations and complete free guides; no signup required.",
+      "zh": "通过15道原创反思题，分别探索亲密、激情与决定／承诺，免费查看三组独立均分、透明计分与完整指南，无需注册。"
     },
     "minutes": 5,
     "collection": "explore",
@@ -4579,8 +4579,8 @@
       "zh": "过度思考检查：15项PTQ"
     },
     "description": {
-      "en": "Complete the 15-item PTQ free and read the total plus three subscales. Original English, a new Chinese working translation, explicit scoring and no diagnostic bands.",
-      "zh": "免费完成15项PTQ并阅读总分与三个分量表。保留原英文，提供新的中文工作译文与可复算方法，不划诊断档次。"
+      "en": "Use the 15-item PTQ to explore repetitive negative thinking: repetition and difficulty disengaging, perceived unproductiveness and occupied attention. About 5 minutes; free total, three subscale sums and four complete readings, without signup.",
+      "zh": "用15项PTQ观察重复消极思维：反复与难以转开、自觉无益及注意被占用。约5分钟，免费查看总分、三个分量表原始和与四篇完整读法，无需注册。"
     },
     "minutes": 5,
     "collection": "explore",
@@ -4664,8 +4664,8 @@
       "zh": "烦人性格测试：互动线索自评"
     },
     "description": {
-      "en": "Use FermatMind’s original twenty-item interaction reflection and read five full guides free. See separate sums and means, without a dislike score, character defect or verdict about anyone else.",
-      "zh": "使用费马原创二十题回看互动线索，五篇完整指南免费。各组分别呈现原始和与均值，不算被讨厌分、不判人格缺陷或他人评价。"
+      "en": "Explore expression, pauses, expectations, plan updates and boundaries through 20 original items. Read five separate sums and means, practical examples and complete free guides; no signup required.",
+      "zh": "用20道原创题回看表达、暂停、期待、计划更新与边界，免费查看五组独立原始和、均值、具体例子与完整指南，无需注册。"
     },
     "minutes": 6,
     "collection": "explore",
@@ -4690,8 +4690,8 @@
       "zh": "爱情吵架风格测试：原创过程反思"
     },
     "description": {
-      "en": "Reflect on escalation, pauses, returning to an issue and repair through twenty original prompts. Four full guides are free, with separate means and no assigned fight type.",
-      "zh": "用二十条原创提示回看升温、暂停、再谈与修复，四篇完整指南免费，分别呈现均分，不派吵架类型。"
+      "en": "Reflect on escalation, pausing, returning to an issue and checking repair through 20 original frequency items. Read four separate means, transparent calculations and complete free guides; no signup required.",
+      "zh": "通过20道原创频率题，分别回看言语升温、表达暂停、返回议题与核对修复，免费查看四组独立均分、透明计分与完整指南，无需注册。"
     },
     "minutes": 6,
     "collection": "explore",
@@ -4715,8 +4715,8 @@
       "zh": "爱的能力测试：CTL-I 2018工作译版"
     },
     "description": {
-      "en": "Read all 41 published 2018 CTL-I English statements with a new Chinese working translation. Six complete guides are free; domain sums and means stay separate without an overall love grade.",
-      "zh": "阅读2018年已发表CTL-I完整41条英文及费马新工作中译，六篇完整指南免费。领域和与均值分别呈现，不划爱的总等级。"
+      "en": "Explore the 41 published CTL-I 2018 statements with a new Chinese working translation. Read six separate keyed sums and means, reverse-scoring examples and complete free guides; no signup required.",
+      "zh": "阅读CTL-I 2018已发表41条陈述及新中文工作译文，免费查看六领域独立计分和、均值、反向计分算例与完整指南，无需注册。"
     },
     "minutes": 10,
     "collection": "explore",
@@ -4742,8 +4742,8 @@
       "zh": "执行功能测试"
     },
     "description": {
-      "en": "Answer the official ADEXI-14 self-report. Read the raw total, two part sums and means, with all three full guides free. No diagnostic cutoffs or signup.",
-      "zh": "完成官方ADEXI14题自评，阅读原始合计、两个部分的合计与均分，三篇完整指南免费，无需注册。不套诊断阈值，不据此判神经类型。"
+      "en": "Complete the 14-item ADEXI adult self-report to explore working memory and inhibition. Read clearly labelled sums, means and all three full guides free; no signup required.",
+      "zh": "完成14项ADEXI成人自评，分别观察工作记忆与抑制控制，免费阅读标注明确的原始和、均分与三篇完整指南，无需注册。"
     },
     "minutes": 4,
     "collection": "explore",
@@ -4766,8 +4766,8 @@
       "zh": "高敏感体验反思：24项近期经历"
     },
     "description": {
-      "en": "Explore 24 original questions on meaning, busy input, emotions and small changes. Four descriptive means and all full guides are free, including unscored answers.",
-      "zh": "用24道原创问题回看含义、密集信息、情绪与细小变化，免费获取四组描述性均分和全部完整指南，也可选择不计分。"
+      "en": "Reflect on 24 recent experiences of meaning, busy input, emotions and small changes. Read four separate frequency means, practical examples and all complete guides free; no signup required.",
+      "zh": "用24项近期经历回看含义、密集信息、情绪与细小变化，免费阅读四组独立频率均分、实际例子与全部完整指南，无需注册。"
     },
     "minutes": 8,
     "collection": "explore",
@@ -4791,8 +4791,8 @@
       "zh": "职业胜任力反思：36项近期工作行为"
     },
     "description": {
-      "en": "Reflect on 36 original work-behavior questions. Read six free guides on shared understanding, problems, agreed action, outputs, change and coordination, without ability or hiring grades.",
-      "zh": "用36道原创工作行为问题，免费阅读共同理解、问题界定、行动约定、成果条件、变化与协同的六份完整指南，不评能力或录用等级。"
+      "en": "Reflect on 36 recent work behaviors across communication, problem framing, responsibility, output conditions, change and coordination. Read six separate frequency summaries, examples and complete guides free.",
+      "zh": "通过36项近期工作行为，回看沟通、问题界定、责任、成果条件、变化与协同，免费阅读六组独立频率摘要、具体例子及全部完整指南。"
     },
     "minutes": 10,
     "collection": "explore",
@@ -4818,8 +4818,8 @@
       "zh": "感觉加工问卷：完整92项SPQ"
     },
     "description": {
-      "en": "Read and answer the full published 92-item SPQ, with the current official 44 reverse keys, an optional unscored choice and a complete free raw-total guide.",
-      "zh": "阅读并作答完整发表版92项SPQ，按现行官方44条反向键计分，可选不计分，并免费阅读完整原始总分指南。"
+      "en": "Explore reported sensory perception with the full 92-item SPQ. Read the 0–276 raw total when all items are rated, a complete guide, worked scoring examples and clear version comparisons, free.",
+      "zh": "通过完整92项SPQ回看自报感觉知觉；全部题目有效计分时查看0—276原始总分，免费阅读完整指南、计分算例与版本对照。"
     },
     "minutes": 20,
     "collection": "explore",
@@ -4840,8 +4840,8 @@
       "zh": "育儿风格测试：温暖回应与日常边界"
     },
     "description": {
-      "en": "Take 12 original questions about warm responses and everyday boundaries. See two frequency summaries and read four complete parenting-style guides free.",
-      "zh": "用12道原创问题回看温暖回应与日常边界，查看两项频率摘要，免费阅读四种养育风格的完整指南、日常情境与行动示例。"
+      "en": "Reflect on 12 recent caregiving actions with one child aged 3–12. See separate warm-response and everyday-boundary frequency means, worked examples and four complete parenting-style guides, free.",
+      "zh": "通过12项近期照料行为，回看与同一位3至12岁孩子的互动，分别查看温暖回应与日常边界频率均分，免费阅读计分算例及四份完整养育风格指南。"
     },
     "minutes": 4,
     "collection": "explore",
@@ -4865,8 +4865,8 @@
       "zh": "内心批评家声音测试"
     },
     "description": {
-      "en": "Explore 22 FSCRS statements about self-criticism and self-reassurance. Read three full explanations, skip any item and keep answers private in this web edition.",
-      "zh": "阅读完整 22 条 FSCRS 来源陈述，任何题目都可跳过；分别理解自我批评、厌恶自我与自我支持的读数和完整解释。网页工作版，不作诊断或风险分类。"
+      "en": "Explore responses to setbacks with the published 22-item FSCRS: separate Inadequate, Hated and Reassured Self sums and means, clear version notes and three complete guides. Free, self-paced and no signup.",
+      "zh": "通过发表版22条FSCRS，分别观察挫折后的不足感、自我厌弃与自我安抚，查看各部分原始和、均值、版本说明及三篇完整指南。免费、自定节奏，无需注册。"
     },
     "minutes": 6,
     "collection": "explore",
@@ -4889,8 +4889,8 @@
       "zh": "自我设限测试"
     },
     "description": {
-      "en": "Reflect on seven everyday difficulties with 35 original questions. Read separate frequency summaries, concrete examples and seven complete guides for free.",
-      "zh": "通过35道原创题回看七类日常困难，分别查看频率摘要，免费阅读七份完整指南、具体情境、相邻主题的区别与可选观察方法。"
+      "en": "Explore seven everyday difficulties with 35 original questions about the past four weeks. Read separate frequency means, a worked example and seven complete guides on emotions, attention, standards, actions and interest. Free, no signup.",
+      "zh": "通过35道原创题，回看过去四周的七类日常困难，分别查看频率均分、完整算例及七篇指南，从情绪、注意、标准、行动与兴趣理解具体经过。免费，无需注册。"
     },
     "minutes": 8,
     "collection": "explore",
@@ -4917,8 +4917,8 @@
       "zh": "分手复盘测试"
     },
     "description": {
-      "en": "Review one ended relationship through 24 original statements. Read four full guides on communication, needs, boundaries and life changes, with optional skips.",
-      "zh": "回顾一段已结束的关系，通过24条原创陈述整理沟通、需要、边界与生活变化。四组独立读数和完整指南全部免费，可跳过题目。"
+      "en": "Review one ended relationship with 24 original statements about communication, expectations, boundaries and life pressures. Read four separate summaries, transparent scoring and complete guides. Free; no signup.",
+      "zh": "通过24条原创陈述，回顾一段已结束关系中的沟通、期待、边界与现实压力，阅读四组独立摘要、完整计分算例与公开指南。免费，无需注册。"
     },
     "minutes": 6,
     "collection": "explore",
@@ -4942,8 +4942,8 @@
       "zh": "九星气学节年参考"
     },
     "description": {
-      "en": "Find a conditional Nine Star Ki year label from a Gregorian year and its Beginning of Spring boundary. Explore nine cultural guides, with both labels retained when timing is uncertain.",
-      "zh": "按公历年份与立春界点查看有条件的九星节年标签，阅读九篇文化指南。时刻不确定时保留两个标签，不据出生年份测量人格或预测未来。"
+      "en": "Calculate a conditional Nine Star Ki year label from a Gregorian year and its Beginning of Spring boundary. Check the JST time, worked arithmetic and nine complete cultural guides. Uncertain timing keeps both possibilities.",
+      "zh": "按公历年份与立春界点计算有条件的九星节年标签，核对JST时刻、完整算例及九篇文化指南；时刻不清楚时保留两个可能结果。"
     },
     "minutes": 2,
     "formCode": "fm_nine_star_year_and_boundary_side_v1",
@@ -5005,8 +5005,8 @@
       "en": "Intimacy Preferences Test"
     },
     "description": {
-      "zh": "用24条原创陈述回看情感分享、身体靠近与边界、共同和个人时间，以及关系对外表达。四部分分别计分，完整指南免费；只讨论成年人互动，不以分数替代同意。",
-      "en": "Explore emotional sharing, closeness, personal space and privacy with 24 original prompts. Read four complete guides free. Adult preferences do not replace consent."
+      "en": "Reflect on emotional sharing, closeness and boundaries, shared time and privacy through 24 original statements. Four separate results and full guides, free.",
+      "zh": "通过24条原创陈述，分别回看情感分享、身体靠近与边界、共同时间和个人空间、对外表达与隐私协商。免费查看四组独立计分与完整指南，无需注册。"
     },
     "minutes": 6,
     "collection": "explore",
@@ -5029,8 +5029,8 @@
       "zh": "习惯模式测试"
     },
     "description": {
-      "en": "Reflect on one everyday habit over the past 30 days. Answer 20 optional statements and read five full guides, without naming the habit or receiving a risk grade.",
-      "zh": "围绕过去30天同一个非紧急日常习惯，完成20条可跳过的陈述，分别查看五组回答记录和全文指南。不询问习惯名称，不计算总分或成瘾风险等级。"
+      "en": "Reflect on one everyday habit over the past 30 days: 20 original statements, five separate records, transparent skip rules and full free guides. No habit name needed.",
+      "zh": "用20条原创陈述回看同一日常习惯过去30天的触发、自动开始、安排变化与日常影响。五组分别计分，跳过规则透明，完整指南免费，无需填写习惯名称。"
     },
     "minutes": 5,
     "updated": "2026-10-28",
@@ -5056,8 +5056,8 @@
       "zh": "应对节奏测试"
     },
     "description": {
-      "en": "Explore four everyday coping comparisons with 24 original paired questions. See raw counts, keep ties and read four complete guides free, without an age estimate.",
-      "zh": "用24道原创配对题探索四组日常应对选择，分别查看原始次数与并列，免费阅读四份完整指南；不计算心理年龄、成熟度或能力分数。"
+      "en": "Explore how you begin, process feelings, adjust plans and balance present needs with future commitments. 24 original paired choices, four free full guides and every tie.",
+      "zh": "通过24道原创二选一，分别回看任务怎样开始、感受怎样整理、计划怎样调整，以及当下需要与未来安排。免费查看四组原始次数、全部并列与完整指南，无需注册。"
     },
     "minutes": 6,
     "collection": "explore",
@@ -5080,8 +5080,8 @@
       "zh": "自由职业者准备程度测试"
     },
     "description": {
-      "en": "Review 20 preparation actions across service, agreements, resources, delivery and boundaries. Read all five complete guides for free, without a pass mark or success prediction.",
-      "zh": "按服务、约定、资源、交付与边界回看20项准备行动，免费阅读五份完整指南；不设合格线，也不预测职业成功。"
+      "en": "Review 20 preparation actions for a specific freelance project: service, agreements, resources, delivery and boundaries. See five separate stage summaries and five complete guides, free in about five minutes.",
+      "zh": "围绕一项具体自由职业项目，回看服务、约定、资源、交付与边界的20项准备行动。约5分钟，免费查看五组独立阶段概括与五篇完整指南。"
     },
     "minutes": 5,
     "updated": "2026-10-28",
@@ -5106,8 +5106,8 @@
       "zh": "远程工作准备程度测试"
     },
     "description": {
-      "en": "Review 20 actions for working conditions, planning, handover, help and boundaries. Explore five full guides without a personality ranking or remote-job pass mark.",
-      "zh": "回看工作条件、计划、交接、求助与边界的20项准备行动，免费阅读五份完整指南；不按人格排名，也不设远程岗位合格线。"
+      "en": "Review 20 preparation actions for one remote working arrangement: access, planning, handovers, support and boundaries. In about five minutes, see five separate stage records and five complete guides for free.",
+      "zh": "围绕一项远程工作安排，回看接入、计划、交接、支持与边界的20项准备行动。约5分钟，免费查看五组独立阶段记录与五篇完整指南。"
     },
     "minutes": 5,
     "updated": "2026-10-28",
@@ -5133,8 +5133,8 @@
       "zh": "压力反应观察测试"
     },
     "description": {
-      "en": "Look back over three months with 20 original statements, five separate sums and means, and complete free guides. No hidden-personality or diagnostic verdict.",
-      "zh": "回看近三个月的五类自报压力反应，完成20道原创题，分别阅读原始和、均值与五份完整免费指南；不揭露隐藏人格或作心理诊断。"
+      "en": "Look back over three months with 20 original statements about postponing, checking, maintaining harmony, explaining and saying less. Read five separate sums, means and complete guides for free.",
+      "zh": "用20条原创描述回看近三个月的延后、检查、维持和气、解释与少说，免费查看五组独立原始和、均值及五篇完整指南。"
     },
     "minutes": 5,
     "collection": "explore",
@@ -5159,8 +5159,8 @@
       "zh": "《亢奋》角色测试"
     },
     "description": {
-      "en": "Try 20 original everyday questions inspired by eight Euphoria characters. Read full bilingual guides, all leading ties and clear limits. Unofficial seasons 1–2 edition.",
-      "zh": "用二十道原创日常题探索八位《亢奋》角色路线，阅读双语完整指南、所有最高次数并列与解释边界。非官方第一、二季编辑版。"
+      "en": "Which Euphoria character route fits your choices? Take 20 original everyday questions and compare Rue, Jules, Cassie, Maddy, Lexi, Fezco, Nate and Kat. All counts, leading ties and eight full guides are free. Unofficial seasons 1–2 edition.",
+      "zh": "你更常选择哪条《亢奋》角色路线？完成20道原创日常情境题，比较鲁、朱尔斯、卡西、麦迪、莱克西、费兹、内特与凯特。免费查看全部计数、最高并列和八篇完整指南。非官方第一、二季编辑版。"
     },
     "minutes": 5,
     "collection": "explore",
@@ -5188,8 +5188,8 @@
       "zh": "七宗罪与七美德测试：日常张力观察"
     },
     "description": {
-      "en": "Use FermatMind's original 28-item reflection with new working English. Read seven full guides free, with separate sums and means and no moral ranking, good-or-evil total or assigned virtue type.",
-      "zh": "用28道原创陈述，观察认可、资源、吸引、比较、即时回报、愤怒与行动启动中的反应。七组分别显示四题合计与平均值，七份完整指南免费；不作道德排名、善恶总分或美德类型判断。"
+      "en": "Explore seven everyday themes through 28 original statements: recognition, resources, attraction, comparison, rewards, anger and getting started. Free separate sums, means and seven full guides. Cultural reflection, with no sin type or moral ranking.",
+      "zh": "用28道原创陈述，分别回看认可、资源、吸引、比较、即时回报、愤怒与行动启动七类日常主题。免费查看各组原始和、均值及七篇完整指南。文化意象下的自我观察，不派罪德类型或道德排名。"
     },
     "minutes": 8,
     "collection": "explore",
@@ -5216,8 +5216,8 @@
       "zh": "四轴自我画像测试"
     },
     "description": {
-      "en": "Explore expression, thinking, lifestyle and public-policy preferences with 60 original statements and four complete free guides.",
-      "zh": "用60道原创题观察表达、思维、生活态度与公共政策偏好，免费阅读四篇完整解读。"
+      "en": "Take 60 original statements to explore expression, thinking experience, lifestyle values and public-policy preferences. Free four-axis positions and four complete guides, with transparent reverse scoring. No combined personality type, gender assignment or diagnosis.",
+      "zh": "完成60道原创陈述，分别观察表达方式、思维体验、生活态度与公共政策偏好。免费查看四轴位置、透明反向计分与四篇完整指南；不合成人格类型，不判定性别或心理诊断。"
     },
     "minutes": 10,
     "collection": "explore",
@@ -5241,8 +5241,8 @@
       "zh": "冲突与边界行为观察测试"
     },
     "description": {
-      "en": "Reflect on your own past three months with 24 original statements and four free full guides. Separate behavior records, skipped answers and safety limits without danger labels.",
-      "zh": "用24道原创陈述回看本人过去三个月，分别阅读冲突加压、面对边界、回应影响和修复跟进的四篇完整免费指南。不贴危险标签，可逐题跳过。"
+      "en": "Reflect on your own past three months through 24 original statements about disagreement, boundaries, impact and repair. Free separate group readings and four full guides, with explicit skips and transparent scoring. No danger labels or safety judgments.",
+      "zh": "通过24条原创陈述回看本人过去三个月的分歧、边界、影响回应与修复跟进。免费查看独立分组读数和四篇完整指南，逐题可跳过，计分透明；不贴危险标签或作安全判断。"
     },
     "minutes": 6,
     "collection": "explore",
@@ -5266,8 +5266,8 @@
       "zh": "近一个月压力自评"
     },
     "description": {
-      "en": "Reflect on the past month with four original prompts, a transparent 0–16 total and a complete free guide. No diagnosis or score cutoffs.",
-      "zh": "用四道原创题回看过去一个月，公开0—16计分并免费提供完整解读；不作诊断，不派分数等级。"
+      "en": "Take four original prompts about the past month’s pressure and room to respond. Free 0–16 total, every item contribution and a complete guide, with transparent reverse scoring. No registration, diagnosis or score bands; distinct from standard PSS-4.",
+      "zh": "用四道原创题回看过去一个月的急迫感与回应空间。免费查看0至16总分、逐题贡献和完整指南，反向计分透明；无需注册，不作诊断或分档，与标准PSS-4分开。"
     },
     "minutes": 1,
     "collection": "explore",
@@ -5287,8 +5287,8 @@
       "zh": "酒水类型测试"
     },
     "description": {
-      "en": "Explore four drink metaphors through 16 original imagined scenes. See raw counts, keep every highest tie and read all four complete guides free. No alcohol needed.",
-      "zh": "用16个原创想象场面探索四种饮品比喻，查看原始次数，保留全部最高并列，免费阅读四份完整指南；不需要饮酒。"
+      "en": "Which drink image fits your imagined choices? Explore 16 original creative scenes, see all four counts and keep every highest tie with complete free readings. Sparkling Wine, Beer, Whisky and Sake are metaphors; no drinking or signup needed.",
+      "zh": "哪种饮品意象更贴近你的想象选择？用16个原创创意场面，查看四项次数及所有最高并列的完整免费读法。起泡酒、啤酒、威士忌和清酒只是比喻，不需饮酒或注册。"
     },
     "minutes": 4,
     "updated": "2026-10-28",
@@ -5313,8 +5313,8 @@
       "zh": "取向探索测试"
     },
     "description": {
-      "en": "Reflect privately with 20 original statements and five full free guides about attraction, patterns, labels and support. No orientation score or identity inference; every item can be skipped.",
-      "zh": "用20道原创题私下回看吸引、模式、标签与支持，阅读五篇完整免费指南。不产生取向分数或身份结论，每题可跳过，回答仅留当前页面内存。"
+      "en": "Explore attraction awareness, different experiences, patterns, labels and support through 20 original statements. Read five complete free guides and separate response records. Every item can be skipped; no orientation score, identity label or signup.",
+      "zh": "通过20条原创陈述，分别回看吸引觉察、不同体验、模式、标签及支持。免费阅读五篇完整指南与独立回答记录，每题可跳过；不产生取向分数、身份标签，无需注册。"
     },
     "minutes": 5,
     "collection": "explore",
@@ -5338,8 +5338,8 @@
       "zh": "技术素养自评测试"
     },
     "description": {
-      "en": "Rate confidence with six tool-learning tasks. See your sum, rated count and continuous mean, plus the full guide free. No skill level or job ranking.",
-      "zh": "自评六种日常工具学习情境的信心，查看原始和、数字项数与连续均值，免费读完整说明；不判技能等级，不作职场排名。"
+      "en": "Rate six tool-learning confidence tasks. See your sum, rated count, mean and full free guide with worked examples. No signup or proficiency classification.",
+      "zh": "自评六种日常工具学习任务的信心，查看原始和、数字项数、连续均值与免费完整指南，包含计算实例和可选观察，无需注册。"
     },
     "minutes": 3,
     "updated": "2026-10-28",
@@ -5361,8 +5361,8 @@
       "zh": "犯蠢测试：日常乌龙方式"
     },
     "description": {
-      "en": "Which small mix-up feels familiar? Explore six original mistake themes through 12 playful choices. All ties and full guides are free; no IQ or error-rate score.",
-      "zh": "哪种小乌龙让你有印象？用12道原创趣味选择探索六类日常失误主题，所有最高并列和完整双语说明免费；不测智商、失误率或人的价值。"
+      "en": "Recognize six everyday mix-up themes through 12 original choices. Read all highest ties, worked counts and six complete free guides. No signup or IQ score.",
+      "zh": "用12道原创情境辨认六种日常乌龙，查看全部最高并列、计数实例与六篇免费完整指南，无需注册，不生成智商分。"
     },
     "minutes": 3,
     "collection": "explore",
@@ -5388,8 +5388,8 @@
       "zh": "心理年龄测试"
     },
     "description": {
-      "en": "Answer 12 daily-preference questions for a playful mental age. See the exact formula and full guide free. No signup, brain-age or IQ claims.",
-      "zh": "回答12道日常偏好题，得到娱乐心理年龄，免费查看明确公式、逐题点数和完整指南。无需注册，不测脑龄、智商或成熟度。"
+      "en": "Explore novelty and familiarity in 12 daily choices. Get a playful age, check every point and read the full guide free. No signup, real-age or IQ assessment.",
+      "zh": "用12道日常选择探索新鲜与熟悉偏好，得到娱乐年龄，核对逐题点数并免费阅读完整指南。无需注册，不测真实心智年龄或智商。"
     },
     "minutes": 3,
     "formCode": "fm_mental_age12_v1",
@@ -5410,8 +5410,8 @@
       "zh": "精力与专注节奏自评"
     },
     "description": {
-      "en": "Explore timing, effort blocks, focus conditions and pauses with 20 original ratings. Four full readings free; no chronotype or productivity score.",
-      "zh": "用20道原创评分，回看时间偏好、分段投入、专注条件与暂停后的感受。四组完整读法免费，不测生理作息型、不评产出或恢复能力。"
+      "en": "Explore four energy and focus topics with 20 original ratings. Check separate means, numeric coverage and four full guides free, without signup.",
+      "zh": "完成20道原创精力与专注节奏自评，分别查看时段偏好、分段投入、专注条件与暂停感受的均值、数字覆盖及四篇完整指南。免费，无需注册。"
     },
     "minutes": 6,
     "collection": "explore",
@@ -5435,8 +5435,8 @@
       "zh": "食物厌恶测试（FDS）"
     },
     "description": {
-      "en": "Rate 32 published FDS situations from 1 to 6. Read eight separate means, complete free guides and source limits. No signup or food exposure.",
-      "zh": "用1至6评价32道发表FDS食物情境，查看八组独立均值、完整免费读法与来源边界。无需注册或实际接触食物；中文为新工作译文。"
+      "en": "Rate 32 FDS food situations from 1 to 6. See eight separate means, item coverage and full free guides. English source items with a Chinese working translation.",
+      "zh": "用1至6评价32道FDS食物情境，分别查看八组均值、回答覆盖与完整免费指南。保留发表英文题，中文为工作译文；无需注册或实际接触食物。"
     },
     "minutes": 9,
     "formCode": "fds32_table2_en_working_zh_v1",
@@ -5493,8 +5493,8 @@
       "zh": "爱情类型测试"
     },
     "description": {
-      "en": "Take 32 original paired choices across four relationship preferences. Keep every tie and read all 16 complete combination guides free. No signup or compatibility prediction.",
-      "zh": "免费完成32道原创关系偏好二选一，分别看四轴次数，保留全部并列，阅读16份完整组合指南；无需注册，不预测伴侣适配。"
+      "en": "Explore four relationship preferences through 32 paired choices. See raw counts, every exact tie and complete guides to all 16 combinations. Free, no signup.",
+      "zh": "通过32道原创二选一探索四组关系偏好，查看原始次数、全部精确并列与16篇完整组合指南，包含算例和情境解释。免费，无需注册。"
     },
     "minutes": 7,
     "formCode": "fm_love_type16_original32_v1",
@@ -5645,8 +5645,8 @@
       "zh": "职业匹配测试：比较兴趣与真实职业"
     },
     "description": {
-      "en": "Choose interest themes and compare two or three real careers. See shared RIASEC themes, their limits and complete occupation guides. Free, no signup.",
-      "zh": "选择兴趣主题，比较两个或三个真实职业的已发布RIASEC代码，查看共同主题、适用边界与完整职业档案。免费使用，无需注册。"
+      "en": "Compare one to six RIASEC interest themes with two or three careers you choose. Read shared themes, published codes and full occupation profiles. Free, no signup.",
+      "zh": "选择一至六项RIASEC兴趣主题，与自己选定的两个或三个职业比较，查看共同主题、已发布代码与完整职业档案。免费使用，无需注册。"
     },
     "minutes": 5,
     "formCode": "fm_career_theme_comparison_v1",
@@ -5665,8 +5665,8 @@
       "zh": "《赛博朋克：边缘行者》角色测试"
     },
     "description": {
-      "en": "Which original-series character do your choices bring to mind? Take 21 original questions and read seven complete fan guides free. No signup or episode trivia.",
-      "zh": "21道原创题，对照大卫、露西、丽贝卡、曼恩、琦薇、法尔科和法拉第。七份完整同人说明免费，无需注册，不考剧情，也不作临床标签。"
+      "en": "Which Cyberpunk: Edgerunners character are you? Explore seven original-anime character angles through 21 everyday choices. See all counts, every highest tie and full free guides.",
+      "zh": "你更像哪位《赛博朋克：边缘行者》角色？用21道日常情境选择，对照初代动画七位人物，查看全部计数、最高并列与免费完整指南。"
     },
     "minutes": 7,
     "collection": "explore",
@@ -5693,8 +5693,8 @@
       "zh": "Caliper风格评估：最符合／最不符合练习"
     },
     "description": {
-      "en": "Practise choosing one Most and one different Least statement in 16 original four-statement blocks. See all eight choice records and full guides, free with no signup.",
-      "zh": "免费练习16组原创四陈述题块，每组选择一项最符合与另一项最不符合。查看八主题的两类次数、差值与完整读法，无需注册。"
+      "en": "Practise Most/Least choices in 16 original four-statement blocks. See eight topics with both counts, their differences and complete free guides. Independent format practice, no signup.",
+      "zh": "用16组原创四陈述题块练习最符合／最不符合选择，免费查看八主题两类次数、差值与完整读法。独立题式练习，无需注册。"
     },
     "minutes": 8,
     "collection": "explore",
@@ -5722,8 +5722,8 @@
       "zh": "社交伪装测试（CAT-Q）"
     },
     "description": {
-      "en": "Complete the original 25-item CAT-Q and read your raw total and three subscales with full free guides. A reflection tool, without autism diagnosis, score bands or signup.",
-      "zh": "完整25项CAT-Q原文与中文工作译文，免费查看原始总分、三个部分与完整读法。仅供反思，不诊断自闭症、不划等级，无需注册。"
+      "en": "Explore social camouflaging with the original 25-item CAT-Q. View raw sums, three separate parts and complete free explanations. Adult self-reflection, no signup or diagnostic cutoff.",
+      "zh": "通过原始25项CAT-Q回看社交伪装体验，免费查看原始合计、三个部分及完整解释。供成年人自我反思，无需注册，不设诊断切点。"
     },
     "minutes": 7,
     "formCode": "catq25_hull2019_appendix1_fm_zh_working_v1",
@@ -5747,8 +5747,8 @@
       "zh": "冒名顶替综合征测试"
     },
     "description": {
-      "en": "Reflect on achievement-related self-doubt with 20 original questions and five free full guides. See response frequencies, without diagnosis, CIPS scoring or signup.",
-      "zh": "用20条原创题目观察成就相关的自我怀疑，免费查看五组频率读数与完整解释。不作诊断，不使用CIPS计分，无需注册。"
+      "en": "Explore achievement-related self-doubt through twenty original prompts about contribution, feedback, evaluation, comparison and preparation. Free separate frequency readings and five complete guides, with no signup.",
+      "zh": "通过二十条原创题目，回看贡献、反馈、评价、比较与准备中的成就相关自我怀疑。免费查看分别呈现的频率读数与五篇完整指南，无需注册。"
     },
     "minutes": 6,
     "formCode": "fm_imposter20_original_v1",
@@ -5773,8 +5773,8 @@
       "zh": "心盲症测试"
     },
     "description": {
-      "en": "Try 12 original visual-imagery prompts and read four free full guides. Explore your pictured experience without VVIQ scoring, condition labels, norms or signup.",
-      "zh": "尝试12个原创视觉意象情境，免费查看物体、虚构面孔、地点和运动四篇完整读法。不使用VVIQ计分，不分诊断类别或人口等级，无需注册。"
+      "en": "Explore voluntary visual imagery with twelve original prompts about objects, fictional faces, places and pictured movement. Free separate readings and four complete guides, without signup.",
+      "zh": "通过物体、虚构面孔、地点与运动画面十二个原创情境，观察主动视觉意象。免费查看四组分别呈现的读数与完整指南，无需注册。"
     },
     "minutes": 4,
     "formCode": "fm_imagery12_original_v1",
@@ -5798,8 +5798,8 @@
       "zh": "联觉测试"
     },
     "description": {
-      "en": "Recall 15 everyday descriptions of colours, sounds, sequences, personification, taste and touch. See literal response records and five free full guides, without a diagnosis or consistency score.",
-      "zh": "回顾15条日常颜色、声音、序列、人格化、味道与触觉样体验描述，查看字面回答记录及五篇免费完整指南。不作诊断，不提供一致性实验分数。"
+      "en": "Recall fifteen descriptions involving symbols, colours, sounds, spatial sequences, personification and taste or touch-like impressions. Free literal response records and five complete guides, without signup.",
+      "zh": "回顾涉及符号、颜色、声音、空间序列、人格化及味道或触觉样印象的十五条描述。免费查看字面回答记录与五篇完整指南，无需注册。"
     },
     "minutes": 5,
     "formCode": "fm_synes15_original_v1",
@@ -5824,8 +5824,8 @@
       "zh": "声音敏感自评"
     },
     "description": {
-      "en": "Explore sound-linked reactions and everyday impact with the DVMSQ v1.5: one screening question and up to 18 source prompts. Raw sums and three full guides are free, without a diagnosis or signup.",
-      "zh": "按DVMSQ v1.5回顾声音相关反应与日常影响：一个前置问题，最多再答18条源题。原始合计和三篇完整读法免费，不作诊断，无需注册。"
+      "en": "Describe sound-linked reactions and everyday impact using the DVMSQ v1.5: one screening question and up to eighteen source prompts. Free raw sums, response records and three complete guides, without signup.",
+      "zh": "通过DVMSQ v1.5回顾声音相关反应与日常影响：一个前置问题，最多十八条后续源题。免费查看原始合计、回答记录与三篇完整指南，无需注册。"
     },
     "minutes": 5,
     "formCode": "dvmsq_v15_18plusgate_fmzh_web_v1",
@@ -5848,8 +5848,8 @@
       "zh": "感官敏感测试"
     },
     "description": {
-      "en": "Reflect on noticing cues later, adding input, sensory interruptions and reducing input. Get four separate response readings and full guides for everyday and work settings. Original, unvalidated and free; no diagnosis.",
-      "zh": "回顾晚察觉、主动增加输入、感官打断与主动减少输入，查看四组独立读数及日常与工作场景完整指南。原创、尚未验证、免费开放，不作诊断。"
+      "en": "Explore noticing cues later, adding input, being interrupted and reducing input through sixteen original prompts. Free separate response readings and four complete guides for everyday and work situations, without signup.",
+      "zh": "通过十六条原创描述，分别回顾晚察觉、增加输入、被输入打断与减少输入。免费查看四组独立读数及日常与工作情境的完整指南，无需注册。"
     },
     "minutes": 5,
     "formCode": "fm_sens16_original_v1",
@@ -5873,8 +5873,8 @@
       "zh": "愤怒与挫败自评"
     },
     "description": {
-      "en": "Reflect on anger occurrence, visible expression, keeping feelings private and perceived response choices. Twenty original prompts, four separate readings and full free guides. No diagnosis, risk tier or signup.",
-      "zh": "回顾生气出现、外显表达、保留感受与自感回应选择。二十条原创描述、四组独立读数及免费完整指南。不作诊断、不分风险层级，无需注册。"
+      "en": "Review anger occurring, outward expression, kept-inside feelings and perceived choice through twenty original prompts about the past four weeks. Free separate response records and four complete guides, without signup.",
+      "zh": "通过二十条原创描述，回顾过去四周的怒意出现、外显表达、保留感受与自感选择。免费查看四组独立记录与四篇完整指南，无需注册。"
     },
     "minutes": 6,
     "formCode": "fm_anger20_original_v1",
@@ -5898,8 +5898,8 @@
       "zh": "ASVAB四领域英文练习"
     },
     "description": {
-      "en": "Practise arithmetic, English vocabulary, paragraph comprehension and mathematics. Choose section timers or untimed study; review all 32 answers and four full guides free. No signup or AFQT score estimate.",
-      "zh": "练习算术、英文词汇、段落理解和数学知识；可选分段计时或不计时，免费查看全部32题答案、双语解析与四篇完整指南。无需注册，不估AFQT成绩。"
+      "en": "Practise thirty-two original English questions in arithmetic reasoning, vocabulary, paragraph comprehension and mathematics. Choose timed or untimed study; review every answer, bilingual explanation and four complete guides free.",
+      "zh": "练习算术推理、英文词汇、段落理解与数学知识三十二道原创英文题。可选计时或不计时，免费查看全部答案、双语解析及四篇完整指南。"
     },
     "minutes": 18,
     "formCode": "fm_afqt32_english_original_v1",
@@ -5923,8 +5923,8 @@
       "zh": "日常掌控方式测试"
     },
     "description": {
-      "en": "Explore six everyday control habits with 24 original statements and full free guides. Read separate means, missing answers and examples; no power rank.",
-      "zh": "用24条原创陈述回顾说明理由、共同参与、职责内决定、共同规则、支持与交接；六篇全文免费，分开均分与资料不足，不派权力等级。"
+      "en": "Reflect on explaining, inviting input, bounded decisions, shared agreements, support and handoffs through 24 original statements. Free separate means, response coverage and six complete guides for ordinary shared plans.",
+      "zh": "用24条原创陈述，回顾说明理由、邀请参与、职责内决定、共同约定、支持与交接。免费查看六组独立均分、有效项数及共同计划的完整指南。"
     },
     "minutes": 5,
     "formCode": "fm_everyday_control24_v1",
@@ -5950,8 +5950,8 @@
       "zh": "ASVAB风格科学与技术练习"
     },
     "description": {
-      "en": "Practise 30 original English questions across science, mechanics, circuits, auto/shop and written assembly. Section timers or untimed study; five full guides free.",
-      "zh": "免费练习科学、机械、电路、汽车车间与文字组装五领域的30道原创英文题。可选分段计时或不计时学习，提供双语解析与五份完整指南。"
+      "en": "Practise thirty original English questions in science, mechanical models, electric circuits, auto/shop knowledge and written assembly. Choose timed or untimed study; every bilingual solution and five complete guides are free.",
+      "zh": "练习普通科学、机械模型、电路、汽车车间与文字组装三十道原创英文题。可选计时或不计时，免费查看全部双语解答与五篇完整指南。"
     },
     "minutes": 24,
     "formCode": "fm_technical30_original_english_v1",
@@ -5976,8 +5976,8 @@
       "zh": "人际偏好反思测试"
     },
     "description": {
-      "en": "Explore invitations, coordination and personal warmth through 24 original items. Six free full guides separate your actions from what you want others to offer.",
-      "zh": "用24条原创题分别回顾参与、协调、个人关心中的主动行为与期望回应。六篇完整指南免费，保留独立均分与资料不足，不派人际类型。"
+      "en": "Reflect on invitations, coordination and personal warmth with 24 original items. Read six separate action and wish summaries, transparent scoring and complete free guides.",
+      "zh": "通过24条原创题回顾参与邀请、实际协调与个人关心，分别阅读六项行动和期望摘要、透明计分与完整免费指南。"
     },
     "minutes": 5,
     "formCode": "fm_interpersonal_preferences24_v1",
@@ -6003,8 +6003,8 @@
       "zh": "被重视感测试（GMS/AMS）"
     },
     "description": {
-      "en": "Answer all 10 GMS/AMS questions and read two separate 5–20 scores, worked examples and complete free guides. No signup, diagnosis or combined worth score.",
-      "zh": "免费完成GMS与AMS共10题，分别查看5–20分及完整解读、算例和可选行动。无需注册，不诊断，不生成个人价值总分。"
+      "en": "Explore feeling important to others and feeling insignificant with the five-item GMS and five-item AMS. About 3 minutes; two separate 5–20 scores and complete guides, free without signup.",
+      "zh": "通过五题GMS与五题AMS，回顾被他人看重与感到无足轻重的体验。约3分钟，免费查看两项独立5至20分与完整指南，无需注册。"
     },
     "minutes": 3,
     "formCode": "gms5_ams5_flett2022_table2",
@@ -6026,8 +6026,8 @@
       "zh": "SHL／Korn Ferry风格推理练习"
     },
     "description": {
-      "en": "Try 18 original English questions: passage decisions, numerical reasoning and logical patterns. Three section timers or untimed study; all explanations and three full guides free.",
-      "zh": "免费尝试18道原创英文题：阅读判断、数量推理与逻辑规律。可选三段计时或不计时学习，提供全部双语解析与三篇完整指南。"
+      "en": "Practise 18 original English passage, numerical and logical reasoning questions. Choose section timers or untimed study; review every answer and three complete free guides.",
+      "zh": "练习18道原创英文阅读、数量与逻辑推理题，可选分段计时或不计时学习，免费查看每题解析和三篇完整指南。"
     },
     "minutes": 16,
     "formCode": "fm_reasoning18_original_english_v1",
@@ -6050,8 +6050,8 @@
       "zh": "社会态度反思测试"
     },
     "description": {
-      "en": "Explore four social topics with 24 original statements and full free guides. Separate agreement from uncertainty; no prejudice, party or identity score.",
-      "zh": "用24条原创陈述，分别回顾社会规则、性别角色、日常接纳同性恋者与种族公平看法。四篇完整指南免费，区分认同、中立与资料不足，不评偏见或身份。"
+      "en": "Reflect on four social topics with 24 original agreement statements. Read separate topic means, transparent scoring and four complete free guides, without a political or identity label.",
+      "zh": "通过24条原创认同陈述，回顾四个社会主题，分别查看主题均分、透明计分与四篇完整免费指南，不派发政治或身份标签。"
     },
     "minutes": 5,
     "formCode": "fm_social_attitudes24_v1",
@@ -6075,8 +6075,8 @@
       "zh": "Watson–Glaser风格批判性思维练习"
     },
     "description": {
-      "en": "Practise 30 original English questions in inference, assumptions, deduction, interpretation and arguments. One 30-minute site clock or untimed study; five full bilingual guides free.",
-      "zh": "免费练习推断、假设、演绎、解读和论证评价五部分的30道原创英文题。可选本站30分钟整卷连续计时或不计时学习，五篇完整双语指南免费。"
+      "en": "Practise 30 original English questions across five critical-thinking families. Choose one continuous 30-minute clock or untimed study; review every explanation and five full guides free.",
+      "zh": "练习五类批判性思维的30道原创英文题，可选整卷30分钟连续计时或不计时学习，免费查看全部解析与五篇完整指南。"
     },
     "minutes": 35,
     "formCode": "fm_critical30_original_english_v1",
@@ -6101,8 +6101,8 @@
       "zh": "TIPI-10极短大五人格测试"
     },
     "description": {
-      "en": "Try the original 10-item TIPI with seven-point answers, five raw Big Five means and full guides. English source items; working Chinese translation.",
-      "zh": "按原TIPI十题、七级选项，查看五个大五维度的原始均值及完整指南。保留英文原题，中文为未独立验证的费马工作译文。"
+      "en": "Complete the original ten English TIPI trait pairs with seven-point ratings. View five independent raw Big Five means and full free guides; Chinese is a declared working translation.",
+      "zh": "用七级认同评价TIPI十组英文原特质，免费查看五项独立大五原始均值与完整指南；中文为明确标注的工作译文。"
     },
     "minutes": 2,
     "formCode": "tipi10_gosling2003_en_fm_zh_working_v1",
@@ -6127,8 +6127,8 @@
       "en": "SBTI Test: Original 31 Questions"
     },
     "description": {
-      "zh": "沿用费马小程序原31题、原选项及原计分玩法。查看本次25种趣味画像之一、15维模型读数和完整双语说明，免费、无需注册。",
-      "en": "Take the original 31-question FermatMind Mini SBTI test with its original choices and scoring. Get one of 25 playful profiles, 15 model readouts and full free guides. No signup."
+      "en": "Answer 31 original Mini SBTI questions. Explore 25 playful profiles, 15 model readouts and full free bilingual guides. No signup; English is a working translation.",
+      "zh": "沿用小程序原31题与原规则，以25种趣味画像和15维模型读数回看日常选择。完整说明免费，英文为工作译文，无需注册。"
     },
     "minutes": 6,
     "formCode": "sbti_entertainment_31",
@@ -6173,8 +6173,8 @@
       "zh": "工作活动兴趣盘点：60项原创任务"
     },
     "description": {
-      "en": "Rate your interest in 60 concrete work tasks. Six separate raw readings and complete free guides; an original supplement to the core RIASEC test.",
-      "zh": "为60项具体工作任务评兴趣，分别阅读六组原始均分与完整免费指南。作为核心RIASEC的原创补充，不评能力、职业匹配或资格。"
+      "en": "Explore your interest in 60 concrete work tasks across six separate areas. See rated counts, means and six complete free guides. No signup; about 12 minutes.",
+      "zh": "用60项具体任务盘点动手、调查、创作、支持、推动与整理兴趣，分别查看有效项数、均分及六篇完整免费指南。约12分钟，无需注册。"
     },
     "minutes": 12,
     "collection": "explore",
@@ -6200,8 +6200,8 @@
       "zh": "亲密关系价值观测试"
     },
     "description": {
-      "en": "Reflect on five intimacy priorities with 25 original statements and full guides. Separate importance from uncertainty, without a type or partner rating.",
-      "zh": "用25条原创题，分别反思隐私、轻松、稳定、信任与情感靠近的重要程度。五篇完整指南免费，区分重要程度与未评分，不派型或评价伴侣。"
+      "en": "Explore five intimacy priorities with 25 original importance ratings. Read separate means and five complete free guides, with room to leave items unscored.",
+      "zh": "用25条原创重要程度题，梳理隐私、轻松、稳定、信任与情感靠近。分别查看五项读数与完整免费指南，可保留未评分，无需注册。"
     },
     "minutes": 5,
     "formCode": "fm_intimacy_values25_v1",
@@ -6226,8 +6226,8 @@
       "zh": "关系相处习惯测试"
     },
     "description": {
-      "en": "Reflect on space, mental fairness tallies, delayed talks and extra giving with 16 original prompts and four full guides. Your own side, without a label.",
-      "zh": "用16条原创题，分别反思空间与暂停、心里记账、延后谈话和超出余量付出。四篇完整指南免费，只看自己一侧，不贴标签或评价伴侣。"
+      "en": "Review 16 everyday relationship moments from your own side over three months. Explore space, fairness tallies, delayed talks and extra giving with four free guides.",
+      "zh": "用16条原创题回看过去三个月自己一侧的相处时刻，分别了解空间、心里记账、延后谈话与超出余量付出。四篇完整指南免费，无需注册。"
     },
     "minutes": 4,
     "formCode": "fm_relationship_habits16_v1",
@@ -6251,8 +6251,8 @@
       "zh": "恋爱心态测试"
     },
     "description": {
-      "en": "Explore possibility, learnable skills, guarded expectations and fixed conditions with 16 original statements and four full guides. No identity label.",
-      "zh": "用16条原创题反思联结可能、可学习技巧、保留期待与固定条件。四篇完整指南免费，不分配身份标签。"
+      "en": "Explore four current dating beliefs with sixteen original statements: connection possibilities, learnable skills, guarded expectations and fixed conditions. Read separate raw means, missing-answer coverage and four complete free guides.",
+      "zh": "用十六条原创陈述探索当前的联结可能、可学习技巧、保留期待与固定条件四类恋爱信念，分别查看原始均值、未评分覆盖及四篇免费完整指南。"
     },
     "minutes": 4,
     "collection": "explore",
@@ -6276,8 +6276,8 @@
       "zh": "工作角色与支持方式回顾"
     },
     "description": {
-      "en": "Review twelve recent task instances and their support contexts. See three separate records and complete guides, without career tiers or ability scores.",
-      "zh": "用十二项任务实例回看问题澄清、交付核对和共同贡献，保留参与情境计数，免费阅读三份完整指南，不判定职业等级。"
+      "en": "Review twelve task instances from one role over the past twelve weeks. Record responsibility and support across problem clarification, delivery checking and shared contribution; read all twelve records and three complete free guides.",
+      "zh": "回看一个角色近十二周的十二项任务实例，记录澄清问题、核对交付与共同贡献中的责任及支持情境，查看十二条所选记录与三篇免费完整指南。"
     },
     "minutes": 4,
     "formCode": "fm_work_role_context12_v1",
@@ -6300,8 +6300,8 @@
       "zh": "面部自我形象观察"
     },
     "description": {
-      "en": "Explore how you see your face, chosen care, photo ease and attention around people with 16 original prompts. Four full guides free; no beauty score.",
-      "zh": "用16条原创题观察面部看法、自选打理、照片自在感与人群中的注意体验。四篇完整指南免费，不算颜值分。"
+      "en": "Reflect on sixteen original prompts about your face self-image over the past month: face-view, chosen care, photo ease and attention around people. Read four separate frequency means and complete free guides; no photo or camera needed.",
+      "zh": "用十六条原创题回看过去一个月的面部看法、自主打理、照片自在感与人群中的注意体验，分别查看四项频率均值及免费完整指南，无需照片或相机。"
     },
     "minutes": 4,
     "collection": "explore",
@@ -6325,8 +6325,8 @@
       "zh": "关系担心反应观察"
     },
     "description": {
-      "en": "Explore repeated reassurance, comparison, extra giving and indirect checks through 16 original prompts. Four full guides free, without labels or levels.",
-      "zh": "用16条原创题观察再次求安心、比较注意、为联结额外付出与间接试探。四篇完整指南免费，不贴标签，不划等级。"
+      "en": "Review sixteen original prompts about your own relationship-worry responses over the past three months. Read separate frequencies for repeated reassurance, comparison, extra giving for connection and indirect checks, with four complete free guides.",
+      "zh": "用十六条原创题回看过去三个月自己一侧的关系担心反应，分别阅读再次求安心、比较注意、为联结额外付出与间接试探的频率，以及四篇免费完整指南。"
     },
     "minutes": 4,
     "collection": "explore",
@@ -6350,8 +6350,8 @@
       "zh": "七类工作主题回顾"
     },
     "description": {
-      "en": "Reflect on forty-two recent work behaviors across seven themes. Read separate frequency summaries and seven full guides, without a winning trait or hiring score.",
-      "zh": "回看七类主题中的四十二项近期工作行为，分别阅读频率概括与七份完整指南，不选胜出特质，也不提供招聘分数。"
+      "en": "Review forty-two original work behaviors from the past four weeks. Read seven separate frequency summaries and complete guides covering pressure, initiative, follow-through, contact, consideration, agreements and learning. Free, without registration.",
+      "zh": "用四十二条原创行为题回看过去四周，分别阅读压力回应、主动行动、任务接续、发起联系、他人视角、履行约定与探索学习七组频率及完整指南。免费，无需注册。"
     },
     "minutes": 7,
     "formCode": "fm_work_themes42_v1",
@@ -6378,8 +6378,8 @@
       "zh": "黑暗四特质 SD4"
     },
     "description": {
-      "en": "The published 28-item SD4, with four separate seven-item means and full guides. Working Chinese translation; no diagnosis or type.",
-      "zh": "发表版SD4完整28题，四项七题均值与全文分别保留。中文为工作译文，不作诊断或分型。"
+      "en": "Complete the published 28-item Short Dark Tetrad and read four separate seven-item means with full explanations. Original English, working Chinese translation, transparent scoring and no registration; no total or personality type.",
+      "zh": "完成发表版28题简式黑暗四特质量表，分别阅读四项七题均值与完整解释。保留英文原题，提供中文工作译文及透明计分；无需注册，不生成总分或人格类型。"
     },
     "minutes": 7,
     "formCode": "sd4_28_published_english",
@@ -6403,8 +6403,8 @@
       "zh": "吸引体验观察"
     },
     "description": {
-      "en": "Reflect on romantic recurrence and bond context, plus sexual attraction across time and settings. 15 original prompts and five full guides, without labels.",
-      "zh": "用十五条原创陈述，观察浪漫吸引的再次出现与联结先后，以及性吸引的延续、情境和特质范围。五篇全文免费，不分配身份。"
+      "en": "Review fifteen original statements about romantic and sexual attraction over the past twelve months. Read five separate agreement means, scoring examples and five complete free guides, without an orientation or identity assignment.",
+      "zh": "用十五条原创陈述回看过去十二个月的浪漫与性吸引体验，分别阅读五项认同均值、计分示例与五篇免费完整指南，不分配取向或身份。"
     },
     "minutes": 4,
     "formCode": "fermatmind_attraction_experiences15",
@@ -6429,8 +6429,8 @@
       "zh": "书面协调技能练习"
     },
     "description": {
-      "en": "Practise six original written tasks: 32 entry cards and 30 questions, with separate records and six full guides. No audio, hiring score or signup.",
-      "zh": "免费练习六项原创书面任务：32张录入卡、30道题，分别查看记录并阅读六篇完整指南。无音频、招聘分或注册要求。"
+      "en": "Practise six written coordination tasks: 32 entry cards and 30 English questions. Read separate counts, full explanations and six free bilingual guides.",
+      "zh": "练习六类书面协调任务：32张录入卡与30道英文题，分别查看计数、完整解析和六篇免费双语指南。"
     },
     "minutes": 18,
     "formCode": "fm_written_coordination32_30_v1",
@@ -6456,8 +6456,8 @@
       "zh": "分布式协作选择回顾"
     },
     "description": {
-      "en": "Compare two useful coordination actions across 24 original pairs. Read separate counts for handover, visible task state, help requests and reply windows, with four complete public guides.",
-      "zh": "用24组原创配对比较两项有用协作行动，分别阅读交接、状态可见、求助请求和回复窗口的选择数量，并免费阅读四篇完整公开指南。"
+      "en": "Reflect on 24 pairs of distributed-work actions: handover context, visible task state, answerable help requests and workable reply windows. View separate choice counts and four complete guides, free and without signup.",
+      "zh": "通过24组分布式协作行动配对，回顾交接背景、任务状态可见、可回答的求助请求与可行回复窗口。分别查看选择计数与四篇完整指南，免费、无需注册。"
     },
     "minutes": 6,
     "formCode": "fm_distributed_work24_choices_v1",
@@ -6481,8 +6481,8 @@
       "zh": "服装线条偏好"
     },
     "description": {
-      "en": "Explore long lines, visible ease, balance, compact contrast and soft drape through 15 original prompts. Five full guides free, with no body-type assignment.",
-      "zh": "通过十五条原创陈述，观察连贯长线、舒展余量、均衡、紧凑对照与柔和垂落偏好。五篇全文免费，不分配身体类型。"
+      "en": "Explore your current preferences for long lines, room and ease, even balance, compact contrast and soft drape. Answer 15 original statements and read five separate results with complete free guides; no signup or photo needed.",
+      "zh": "通过15条原创陈述，回顾目前对连贯长线、舒展余量、平稳均衡、紧凑对照与柔和垂落的偏好。分别查看五项结果及完整免费指南，无需注册或照片。"
     },
     "minutes": 3,
     "formCode": "fermatmind_outfit_lines15",
@@ -6507,8 +6507,8 @@
       "zh": "困难经历后的反应回顾"
     },
     "description": {
-      "en": "Record 20 original observations from the past four weeks, with separate category counts and four complete public guides. Private, optional reflection with no PTSD score or diagnostic result.",
-      "zh": "回顾过去四周的20条原创观察，分别查看类别计数，免费阅读四篇完整公开指南。私人、自愿的反思，不生成PTSD分数或诊断结论。"
+      "en": "An optional adult reflection on 20 observations from the past four weeks: reminders, distance, mood and connection, and feeling on edge. View separate category records and four complete free guides, without recounting the event.",
+      "zh": "通过20条观察，自愿回顾过去四周的提醒、距离、情绪联系与紧绷警觉。供成年人分别查看类别记录及四篇完整免费指南，无需讲述事件。"
     },
     "minutes": 5,
     "formCode": "fm_trauma_response20_observations_v1",
@@ -6532,8 +6532,8 @@
       "zh": "整体造型氛围偏好"
     },
     "description": {
-      "en": "Compare eight whole-look moods through sixteen original visual choices. Read every highest-count full guide free, without a photo or face-type assignment.",
-      "zh": "通过十六次原创视觉选择，比较八种整体造型氛围。每个最高并列都有免费全文，无需照片，不分配面部类型。"
+      "en": "Explore eight whole-look styling themes through 16 original written comparisons of colour, outline, texture and detail. View all counts, every highest tie and eight complete free guides; no photo or signup.",
+      "zh": "通过16次原创文字比较，探索配色、轮廓、质感与细节的八种整体造型主题。免费查看全部次数、所有最高并列与八篇完整指南，无需照片或注册。"
     },
     "minutes": 3,
     "formCode": "fermatmind_style_impressions16",
@@ -6561,8 +6561,8 @@
       "zh": "活动参与方式观察"
     },
     "description": {
-      "en": "Explore self-starting, responding, varied interests, invited input and observing a setting through twenty original prompts. Five full guides free, with separate frequency means.",
-      "zh": "通过二十条原创陈述，观察自主发起、回应机会、兴趣切换、受邀贡献与环境观察。五项频率均值分别阅读，五篇全文免费。"
+      "en": "Reflect on 20 original statements about activity choices in the past four weeks. Read separate frequency means for starting, responding, changing interests, invited contribution and observation, with five complete free guides.",
+      "zh": "通过20条原创陈述回看过去四周的活动选择，分别阅读自主发起、回应机会、兴趣切换、受邀贡献与环境观察的频率均值，五篇完整指南免费开放。"
     },
     "minutes": 4,
     "formCode": "fermatmind_activity_engagement20",
@@ -6587,8 +6587,8 @@
       "zh": "压力下的行动观察"
     },
     "description": {
-      "en": "Recall 12 original observations about defending a view, moving away, getting stuck and agreeing early. Read separate category counts and four complete public guides, without assigning a default response type.",
-      "zh": "回顾维护立场、退开、回应卡住和先答应的12条原创观察，分别查看类别计数，并免费阅读四篇公开全文。不分配默认反应类型。"
+      "en": "An optional adult reflection on 12 observations from the past four weeks: protecting a position, moving away, getting stuck and agreeing early. Read separate category records and four complete free guides, without assigning a response type.",
+      "zh": "通过12条观察，自愿回顾过去四周维护立场、退开、回应卡住与先答应的日常行动。供成年人分别阅读类别记录与四篇完整免费指南，不分配反应类型。"
     },
     "minutes": 3,
     "formCode": "fm_pressure_actions12_observations_v1",
@@ -6612,8 +6612,8 @@
       "zh": "灵魂伴侣测试：连接偏好"
     },
     "description": {
-      "en": "Compare 12 original fictional connection moments across six themes. See raw counts and every highest-tied full guide, free without signup or a prediction about a destined partner.",
-      "zh": "用12组原创想象情境比较六种连接偏好，查看原始次数与所有最高并列全文。免费免注册，不预测命定伴侣。"
+      "en": "Explore six connection ideals through 12 original fictional comparisons. See every raw tally, all highest ties and six complete free guides, without signup or partner details.",
+      "zh": "通过12道原创想象情境比较六种连接偏好，查看全部原始次数、所有最高并列与六篇完整免费指南，无需注册或伴侣资料。"
     },
     "minutes": 4,
     "formCode": "fermatmind_connection_ideals12",
@@ -6639,8 +6639,8 @@
       "zh": "联系与归属回顾"
     },
     "description": {
-      "en": "Reflect on 21 original observations about unwanted distance, listening and belonging. Three full public guides, private category records and no loneliness score or diagnosis.",
-      "zh": "回顾不想要的疏远感、想要的倾听与归属这21条原创观察。三篇完整指南公开，类别记录留在本页，不生成孤独分数或诊断。"
+      "en": "Review 21 original observations about unwanted distance, listening and belonging over the past four weeks. Read three complete free guides and keep separate category records privately in this page.",
+      "zh": "通过21条原创观察回顾过去四周不想要的疏远感、想要的倾听与归属体验。免费阅读三篇完整指南，在当前页面私下整理三个分别阅读的类别记录。"
     },
     "minutes": 5,
     "formCode": "fm_connection_checkin21_observations_v1",
@@ -6663,8 +6663,8 @@
       "zh": "体表轮廓自我观察"
     },
     "description": {
-      "en": "Use 12 original descriptions of familiar outlines and joint landmarks. Three separate means and three complete guides, free without photographs, body measurements or a bone-type assignment.",
-      "zh": "用12条原创描述回顾熟悉的轮廓与关节线条。三个独立均值、三份完整指南免费开放，无需照片、测量身体或分配骨格类型。"
+      "en": "Review familiar surface outlines through 12 original descriptions. See three separate means and complete free guides, without photographs, measurements or a body-type assignment.",
+      "zh": "通过12条原创描述回顾已经熟悉的体表轮廓，查看三个独立均值与三篇完整免费指南，无需照片、测量或身体类型分配。"
     },
     "minutes": 4,
     "formCode": "fermatmind_body_frame_observations12",
@@ -6687,8 +6687,8 @@
       "zh": "考虑支持：个人回顾"
     },
     "description": {
-      "en": "Reflect on 18 original statements about concerns, everyday impact, support and questions about professional care. Four full public guides, private category records and no readiness score or therapy verdict.",
-      "zh": "用18条原创陈述回顾困扰、日常影响、支持条件和专业支持疑问。四篇完整指南公开，类别记录留在本页，不生成准备度分数或治疗结论。"
+      "en": "Use 18 original statements to review recent concerns, daily effects, support conditions and questions about professional care. Read your six-category records and four complete guides free, without signup.",
+      "zh": "通过18条原创陈述，回顾近期困扰、日常影响、支持条件与专业支持疑问。免费查看六类回答记录和四篇完整指南，无需注册。"
     },
     "minutes": 5,
     "formCode": "fm_support_reflection18_current_v1",
@@ -6712,8 +6712,8 @@
       "zh": "双生火焰话题反思"
     },
     "description": {
-      "en": "Reflect on one adult connection through 15 original prompts about familiarity, similarities, pace, checking and personal meaning. Five full guides free, without a soul-bond assignment or relationship verdict.",
-      "zh": "通过15条原创陈述，回顾一段成年连接中的熟悉感、相似处、节奏、确认与个人意义。五篇全文免费，不分配灵魂连接身份，不裁决关系。"
+      "en": "Review your own experience in one adult connection through 15 original frequency prompts. Explore familiarity, similarities, pauses, understanding and meaning, with five separate readings and full guides free.",
+      "zh": "通过15条原创频率陈述，回顾自己在同一段成年连接中的熟悉感、相似处、放慢、理解与意义。免费查看五部分独立读数与完整指南。"
     },
     "minutes": 4,
     "formCode": "fermatmind_connection_meaning15",
@@ -6738,8 +6738,8 @@
       "zh": "重要的人去世之后：个人回顾"
     },
     "description": {
-      "en": "Reflect on 16 original observations after a bereavement, with optional unscored timing and five full public guides. Private category records, without a grief score, diagnosis or timetable for support.",
-      "zh": "用16条原创观察回顾重要的人去世之后的经历，可选时间仅作背景，五篇完整指南公开。类别记录留在本页，不生成哀伤分数、诊断或求助时间表。"
+      "en": "Use 16 original observations to review missing someone, changed roles, reminders, plans and support after a death. Read five private category records and five complete public guides free, with optional timing.",
+      "zh": "通过16条原创观察，回顾重要的人去世之后的想念、角色变化、提醒、计划与支持。免费查看五个主题的私人类别记录及完整公开指南，时间背景可不提供。"
     },
     "minutes": 5,
     "formCode": "fm_bereavement16_observations_v1",
@@ -6764,8 +6764,8 @@
       "zh": "Dosha话题自评：BPI-21"
     },
     "description": {
-      "en": "Read the 21 published English BPI items with working Chinese. Three raw counts, choice percentages and complete cultural guides, without a medical verdict or constitution assignment.",
-      "zh": "阅读BPI发表版21项英文及工作中译。三个原始计数、选择占比与完整文化指南，不作医疗结论、不派体质身份。"
+      "en": "Read all 21 published BPI items with working Chinese, then view three mapped-choice counts and percentages when every item is scored. Explore Vata, Pitta and Kapha through three complete cultural guides, free without signup.",
+      "zh": "阅读完整21项发表BPI题文及工作中译；每题都计分时，查看三个关联选择计数与占比。通过Vata、Pitta、Kapha三篇完整文化指南认识传统词语，全部免费，无需注册。"
     },
     "minutes": 7,
     "formCode": "bpi21_en_working_zh_na_v1",
@@ -6788,8 +6788,8 @@
       "zh": "睡眠经历：个人回顾"
     },
     "description": {
-      "en": "Reflect on 20 original observations about settling to sleep, interruptions, earlier waking, daytime experiences and sleep concerns. Private category records with five full public guides, without a severity score or diagnosis.",
-      "zh": "用20条原创观察回顾入睡、睡眠中断、比计划早醒、白天经历及睡眠相关想法。类别记录留在本页，五篇全文公开，不生成严重程度分数或诊断。"
+      "en": "Use 20 original observations to review settling to sleep, interruptions, earlier waking, daytime experiences and sleep concerns over the past two weeks. Read five private category records and five complete public guides free, without signup.",
+      "zh": "用20条原创观察回顾过去两周的入睡、睡眠中断、比计划早醒、白天经历及睡眠担忧。免费查看五个主题的私人类别记录与完整公开指南，无需注册。"
     },
     "minutes": 5,
     "formCode": "fm_sleep20_observations_v1",
@@ -6814,8 +6814,8 @@
       "zh": "健康担忧：个人回顾"
     },
     "description": {
-      "en": "Reflect on 21 original descriptions of bodily attention, questions and care decisions, and serious possibilities. Three full public guides and private category records, without a SHAI score, medical reassurance or diagnosis.",
-      "zh": "用21条原创描述回顾身体注意、提问与照护决定，以及想到严重可能性时的经历。三篇全文公开，类别记录留在本页，不生成SHAI分数、医学安心保证或诊断。"
+      "en": "Recall the past four weeks with 21 original observations about bodily attention, questions and serious possibilities. View private category records and three complete public guides, free and without signup.",
+      "zh": "通过21条原创观察，回顾过去四周对身体感觉的注意、提问与严重可能性方面的经历。免费查看私人类别记录与三篇完整公开指南，无需注册。"
     },
     "minutes": 5,
     "formCode": "fm_health_worries21_observations_v1",
@@ -6838,8 +6838,8 @@
       "zh": "Weton故事偏好与历法参考"
     },
     "description": {
-      "en": "35 original fictional choices, every highest-tied story in full, and a separate optional Javanese calendar reference. No birth-personality verdict.",
-      "zh": "35题原创虚构选择，完整保留全部最高并列故事，另有独立可选爪哇历法参考，不据出生日期判断人格。"
+      "en": "Explore seven story roles and five pasaran lenses through 35 original fictional choices. Read every highest-tied pairing in full, browse 35 free guides, or use the separate optional Javanese calendar reference.",
+      "zh": "通过35道原创虚构选择，探索七个故事角色与五个市日视角。完整阅读所有最高并列组合，免费浏览35篇指南，也可独立查看可选爪哇历法参考。"
     },
     "minutes": 12,
     "formCode": "fm_weton_story35_v1",
@@ -6894,8 +6894,8 @@
       "zh": "突然强烈恐惧：个人回顾"
     },
     "description": {
-      "en": "Recall sudden fear, sensations and thoughts, anticipation and changes to plans with 20 original adult descriptions. Four full public guides and private category records; no PDSS score, diagnosis or medical reassurance.",
-      "zh": "用20条成年人原创描述回顾突然恐惧、感觉与想法、预先担心及计划变化。四篇全文公开，类别记录留在本页；不生成PDSS分数、诊断或医学安心保证。"
+      "en": "Reflect on 20 original descriptions of sudden fear, accompanying sensations and thoughts, anticipation, and changes to plans. Review four separate category records and four complete guides, free and without signup.",
+      "zh": "通过20条原创描述回顾突然恐惧、伴随的感觉与想法、担心再次出现，以及计划的变化。免费查看四组独立类别记录和四篇完整指南，无需注册。"
     },
     "minutes": 5,
     "formCode": "fm_sudden_fear20_observations_v1",
@@ -6919,8 +6919,8 @@
       "zh": "不想要的想法与重复动作：个人回顾"
     },
     "description": {
-      "en": "Recall cleaning concerns, checking, order and repetition, unwanted thoughts, and keeping belongings with 20 original adult descriptions. Five full public guides and private category records; no Y-BOCS or OCI score, diagnosis or danger judgment.",
-      "zh": "用20条成年人原创描述回顾清洁担忧、再次查看、秩序与重复、不想要的想法，以及保留物品。五篇全文公开，类别记录留在本页；不生成Y-BOCS或OCI分数、诊断或危险判断。"
+      "en": "Explore 20 original observations about cleaning concerns, checking, repetition, unwanted thoughts and belongings. Review five separate category records and five complete guides, free and without signup.",
+      "zh": "通过20条原创观察回顾清洁担忧、再次查看、重复动作、不想要的想法及财物决定。免费查看五组独立类别记录与五篇完整指南，无需注册。"
     },
     "minutes": 5,
     "formCode": "fm_unwanted_actions20_observations_v1",
@@ -6945,8 +6945,8 @@
       "zh": "注意力与能量：日常情境回顾"
     },
     "description": {
-      "en": "Recall attention, restlessness, feelings and energy context, and interpretation of social experiences with 16 original adult observations. Four complete public guides. The existing ADEXI14 page remains separate; no ADHD probability, diagnosis or combined score.",
-      "zh": "用16条成年人原创观察回顾注意、坐立不安、感受与精力背景，以及理解社交经历时的情况。四篇全文公开，已有ADEXI14页保持独立；不生成ADHD概率、诊断或合并分数。"
+      "en": "Reflect on attention, restlessness, feelings and available energy, and uncertainty after social exchanges with 16 original observations. Review four separate category records and four complete guides, free and without signup.",
+      "zh": "用16条原创观察回顾活动中的注意、坐立不安、感受与可用精力，以及交流后的不确定。免费查看四组分别呈现的类别记录与四篇完整指南，无需注册。"
     },
     "minutes": 4,
     "formCode": "fm_focus_context16_observations_v1",
@@ -6970,8 +6970,8 @@
       "zh": "Nakshatra出生宿计算器：Spica参考口径"
     },
     "description": {
-      "en": "Use a known birth date, time and birthplace zone to calculate a geometric Spica-reference Moon sector. Read all 27 full cultural guides, with symbols, gana, rulers and boundary comparisons.",
-      "zh": "用已知出生日期、时间与出生地时区，计算几何Spica参考月球区段。27篇完整文化指南全部公开，说明符号、gana、主星与边界比较。"
+      "en": "Calculate a Spica-reference birth star and pada from a known birth date, time and historical time zone. Inspect Moon longitudes, boundary comparisons and all 27 free cultural guides.",
+      "zh": "用已知出生日期、时间与历史时区，计算角宿一参考出生宿及四分区；查看月球黄经、边界对照与全部27篇免费文化指南。"
     },
     "minutes": 2,
     "formCode": "fm_nakshatra_spica27_v1",
@@ -7018,8 +7018,8 @@
       "zh": "阅读与书写：日常情境回顾"
     },
     "description": {
-      "en": "20 original adult observations about reading, writing, unfamiliar words and access choices. Four full bilingual guides, free. Recall only; no diagnosis or ability score.",
-      "zh": "20条成年人原创观察，回顾阅读、书写、陌生词语及接触信息方式。四篇双语全文免费；只凭回忆，不作诊断或能力评分。"
+      "en": "Recall 20 everyday reading and writing experiences over four weeks. Explore four separate category records and complete free guides on text, writing, unfamiliar words and access choices.",
+      "zh": "用20条原创观察回顾过去四周的阅读与书写经历，分别查看四个主题的类别记录，免费阅读书面内容、成文、陌生词语与接触信息方式的完整指南。"
     },
     "minutes": 8,
     "formCode": "fm_written_language20_observations_v1",
@@ -7043,8 +7043,8 @@
       "zh": "日常数字：个人回顾"
     },
     "description": {
-      "en": "20 original adult observations about everyday quantities, calculation steps, time, measures and prices. Four full bilingual guides, free. Recall only; no diagnosis or ability score.",
-      "zh": "20条成年人原创观察，回顾日常数量、计算步骤、时间度量和价格信息。四篇双语全文免费；只凭回忆，不作诊断或能力评分。"
+      "en": "Recall the past four weeks through 20 original observations about quantities, calculation steps, time, measures and prices. Read four complete guides and your category counts free, without registration.",
+      "zh": "通过20条原创观察，回顾过去四周的数量理解、计算步骤、时间度量与价格信息。免费阅读四篇完整指南与自己的类别计数，无需注册。"
     },
     "minutes": 8,
     "formCode": "fm_number_context20_observations_v1",
@@ -7068,8 +7068,8 @@
       "zh": "社交场景：个人回顾"
     },
     "description": {
-      "en": "20 original adult observations about being observed, conversations, changing plans and sensations in social settings. Four full bilingual guides, free. Recall only; no diagnosis or confidence score.",
-      "zh": "20条成年人原创观察，回顾被他人看到、谈话联系、计划改变及社交背景中的感觉。四篇双语全文免费；只凭回忆，不作诊断或信心评分。"
+      "en": "Recall the past four weeks through 20 original observations about being observed, conversations, social plans and sensations. Read four complete guides and your category counts free, without registration.",
+      "zh": "通过20条原创观察，回顾过去四周被他人看到、谈话联系、社交计划与身体感觉的经历。免费阅读四篇完整指南与自己的类别计数，无需注册。"
     },
     "minutes": 8,
     "formCode": "fm_social_context20_observations_v1",
@@ -7093,8 +7093,8 @@
       "zh": "照护与感受：回忆与当下"
     },
     "description": {
-      "en": "Twenty original adult reflections on remembered emotional attention, responses and comfort, alongside recent feelings and support. Four complete free guides and private item-by-item records; no neglect score or diagnosis.",
-      "zh": "20条成人原创反思，分别整理记得的情绪关注、感受回应、安慰，以及近期感受与支持。四篇完整免费指南与私人的逐条记录，不生成忽视分数或诊断。"
+      "en": "Explore 20 original descriptions of remembered emotional attention, responses and comfort, alongside feelings and support in the past four weeks. Four complete readings and private category records are free, without registration.",
+      "zh": "通过20条原创描述，分别整理记得的情绪关注、感受回应与安慰，以及过去四周的感受和支持。四篇完整读法与私人类别记录免费开放，无需注册。"
     },
     "minutes": 5,
     "formCode": "fm_care_feelings20_mixed_recall_v1",
@@ -7118,8 +7118,8 @@
       "zh": "饮酒经历回顾"
     },
     "description": {
-      "en": "A private adult reflection on drinking plans, daily effects, situations and bodily experiences. Original statements and category records; no clinical score.",
-      "zh": "成年人私下回顾饮酒计划、生活影响、情境与身体感受。原创陈述与类别记录，不算临床分数。"
+      "en": "Twenty original descriptions for adults to reflect on drinking plans, everyday effects, situations and bodily experiences over the past four weeks. Read four separate category records and all complete guides, free and without registration.",
+      "zh": "通过20条原创描述，回顾成年人过去四周的饮酒计划、生活影响、情境与身体感受。四组类别记录与完整读法免费开放，无需注册。"
     },
     "minutes": 5,
     "formCode": "fm_drinking20_four_weeks_v1",
@@ -7143,8 +7143,8 @@
       "zh": "日常担心：个人回顾"
     },
     "description": {
-      "en": "12 original adult observations about recurring worries, tension, restlessness and ordinary activities. Three full guides are free before answers. Recall only; no anxiety diagnosis or severity score.",
-      "zh": "12条成年人原创观察，回顾反复担心、紧绷、坐立不安与日常活动。三篇完整指南答题前免费可读；只凭回忆，不作焦虑诊断或严重度评分。"
+      "en": "Reflect on recurring worries, tension and worry during ordinary activities with 12 original adult observations about the past four weeks. Read three separate category records and all complete guides free, without registration.",
+      "zh": "通过12条成年人原创观察，回顾过去四周反复担心、紧绷与日常活动中的经历。三个主题分别记录类别，完整读法免费开放，无需注册。"
     },
     "minutes": 6,
     "formCode": "fm_everyday_worry12_observations_v1",
@@ -7167,8 +7167,8 @@
       "zh": "儿童专注与活动：照顾者观察"
     },
     "description": {
-      "en": "Twenty original descriptions for adult caregivers reflecting on their own direct observations. Four complete free guides, separate category records and no child ADHD score, subtype, age comparison or diagnosis.",
-      "zh": "供成年照顾者回顾自己直接观察的20条原创描述。四篇完整免费指南和独立类别记录，不生成儿童ADHD分数、亚型、年龄比较或诊断。"
+      "en": "Recall twenty everyday actions you personally observed over the past four weeks. Explore attention, movement, turns and available support through four separate category records and complete caregiver guides. Free, with no registration.",
+      "zh": "通过二十条原创描述，回顾过去四周本人直接观察的儿童日常行动，分别整理共同活动中的注意、身体移动、轮流与开始步骤、情境与协助。免费查看四组类别记录和完整照顾者指南，无需注册。"
     },
     "minutes": 5,
     "formCode": "fm_caregiver_context20_observations_v1",
@@ -7192,8 +7192,8 @@
       "zh": "近期心情：个人回顾"
     },
     "description": {
-      "en": "12 original adult descriptions of recent mood, interest, sleep, appetite, energy, attention and inner words. Three full guides before answers. Recall only, without depression diagnosis or severity scoring.",
-      "zh": "12条成年人原创描述，回顾近期心情、兴趣、睡眠、食欲、精力、注意与内心语言。三篇全文答题前可读，只凭回忆，不作抑郁诊断或严重度评分。"
+      "en": "Reflect on mood, interest, sleep, appetite, energy, attention and inner words with twelve original adult observations. Recall the past four weeks and read three separate category records with complete guides, free without registration.",
+      "zh": "通过十二条成年人原创观察，回顾过去四周的心情、兴趣、睡眠、食欲、精力、注意与内心语言。免费查看三组独立类别记录及完整指南，无需注册。"
     },
     "minutes": 6,
     "formCode": "fm_recent_mood12_observations_v1",
@@ -7216,8 +7216,8 @@
       "zh": "进食与身体经历回顾"
     },
     "description": {
-      "en": "An adult reflection on body thoughts, limiting eating, felt loss of choice, trying to undo eating and food concerns. Private category records, no clinical score.",
-      "zh": "成年人回顾身体想法、限制进食、失去选择感、试图抵消进食及食物顾虑。私密类别记录，不设临床分数。"
+      "en": "Recall your past four weeks through 20 original statements on eating and body-related experiences. Read five separate category records and complete guides, free without registration.",
+      "zh": "通过20条原创陈述，回顾过去四周的进食与身体相关经历。分别查看五组类别记录及完整指南，全部免费，无需注册。"
     },
     "minutes": 6,
     "formCode": "fm_eating20_four_weeks_v1",
@@ -7242,8 +7242,8 @@
       "zh": "沟通、日常安排与做事方式"
     },
     "description": {
-      "en": "Twenty original descriptions about joining exchanges, clarity, familiar routines, details and visual aids. Keep individual labels and read five complete free guides, without an autism score, cognitive ranking or neurotype.",
-      "zh": "20条原创描述，回顾交流参与、清楚表达、熟悉安排、细节和视觉辅助。保留独立标签、阅读五篇完整免费指南，不生成自闭症分数、认知排名或神经类型。"
+      "en": "Recall communication, familiar routines, details and visual arrangements through 20 original observations. Read five separate category records and complete guides, free without registration.",
+      "zh": "通过20条原创观察，回顾沟通、熟悉安排、细节兴趣与视觉辅助的日常情境。分别查看五组类别记录及完整指南，全部免费，无需注册。"
     },
     "minutes": 5,
     "formCode": "fm_communication_routines20_observations_v1",
@@ -7268,8 +7268,8 @@
       "zh": "性别经历回顾"
     },
     "description": {
-      "en": "A private adult reflection on words, bodily experience, address and everyday context. Original descriptions without a gender label or clinical result.",
-      "zh": "成年人私下回顾词语、身体体验、称呼与日常背景。原创描述，不分配性别标签或临床结果。"
+      "en": "Reflect on sixteen original statements about words for your gender, bodily experience, address and everyday settings. Retain each selected description and read four full guides, free and without registration.",
+      "zh": "通过十六条原创陈述，回顾描述性别的词语、身体体验、称呼与日常背景。保留逐条所选描述，免费阅读四篇完整指南，无需注册。"
     },
     "minutes": 5,
     "formCode": "fm_gender16_four_weeks_v1",
@@ -7293,8 +7293,8 @@
       "zh": "心情与活动变化：个人回顾"
     },
     "description": {
-      "en": "16 original adult recollections about one period of changes in mood, confidence, sleep, activity, thoughts and decisions. Four full guides before answers. No bipolar diagnosis, episode identification or clinical score.",
-      "zh": "16条成年人原创回顾，参照同一段心情、自信、睡眠、活动、想法及决定变化的时间。四篇全文答题前可读，不作双相诊断、发作识别或临床评分。"
+      "en": "Recall one period of changes in mood, sleep, activity, thoughts and decisions through sixteen original adult observations. Keep individual descriptions and read four complete guides, free without registration.",
+      "zh": "通过十六条成年人原创观察，回顾同一段心情、睡眠、活动、想法与决定变化的时间。保留逐条描述，免费阅读四篇完整指南，无需注册。"
     },
     "minutes": 8,
     "formCode": "fm_mood_activity16_recollections_v1",
@@ -7318,8 +7318,8 @@
       "zh": "困难时期之后：感受与联系"
     },
     "description": {
-      "en": "Eight original descriptions of recent feelings, settling, closeness and boundaries, with two complete free guides. Separate existing readings cover reminders and self-criticism. No PTSD or complex-PTSD score or diagnosis.",
-      "zh": "八条原创描述，回顾近期感受、平复、亲近与边界，附两篇完整免费指南。提醒与自我批评沿用独立既有读法，不生成PTSD或复杂性PTSD分数或诊断。"
+      "en": "Reflect on feelings, pauses, closeness and boundaries over the past four weeks through eight original adult descriptions. Keep each selected category and read two full guides, free without registration.",
+      "zh": "通过八条成年人原创描述，回顾过去四周的感受、暂停、亲近与边界。保留逐条所选类别，免费阅读两篇完整指南，无需注册。"
     },
     "minutes": 3,
     "formCode": "fm_feelings_connection8_observations_v1",
@@ -7341,8 +7341,8 @@
       "zh": "情绪、自我与联结回顾"
     },
     "description": {
-      "en": "An adult reflection on feelings around distance, changing views, self-understanding, ordinary choices, emotional shifts, emptiness and anger. Private descriptions without clinical scoring.",
-      "zh": "成年人回顾距离感受、看法变化、自我理解、普通选择、感受转换、空虚与生气。私密描述，不设临床分数。"
+      "en": "Reflect on your past four weeks through 21 original statements about emotions, self-understanding and connections. Read seven separate category records and all seven complete guides, free without registration.",
+      "zh": "通过21条原创陈述回顾过去四周的情绪、自我理解与联结经历，分别查看七个主题的类别记录与完整指南。全部免费，无需注册。"
     },
     "minutes": 7,
     "formCode": "fm_emotions21_four_weeks_v1",
@@ -7369,8 +7369,8 @@
       "zh": "日常思考中的空间关系"
     },
     "description": {
-      "en": "Four original recollection prompts about imagined turns and relative positions, with one complete free guide. Record selected labels without a correctness score, timed task, ability ranking or cognitive-style assignment.",
-      "zh": "四条原创回忆描述，涉及推想转动与相对位置，附一篇完整免费指南。保留所选标签，不生成正确率、计时任务、能力排名或认知风格分配。"
+      "en": "Recall everyday thinking about turns and relative positions through four original prompts. In about two minutes, keep a private category record and read the complete guide, free without registration.",
+      "zh": "用四条原创描述回顾日常推想转动与相对位置的经历，约两分钟，保留私人类别记录并阅读完整指南。全部免费，无需注册。"
     },
     "minutes": 2,
     "formCode": "fm_spatial_context4_observations_v1",
@@ -7391,8 +7391,8 @@
       "zh": "反馈与自我价值感回顾"
     },
     "description": {
-      "en": "A private adult reflection on feelings after feedback, wider self-judgments and returning attention. Three description records without a narcissism score or type.",
-      "zh": "成年人私下回顾反馈后感受、广泛自我判断与反复注意。三份描述记录，不设自恋分数或类型。"
+      "en": "Use 12 original statements to reflect on feelings after feedback, wider self-judgments and returning attention over the past four weeks. Read three separate category records and complete guides, free without registration.",
+      "zh": "通过12条原创陈述，回顾过去四周反馈后的感受、广泛自我判断与反复注意，分别查看三份类别记录和完整指南。全部免费，无需注册。"
     },
     "minutes": 4,
     "formCode": "fm_feedback12_four_weeks_v1",
@@ -7415,8 +7415,8 @@
       "zh": "月经周期与近期经历：个人回顾"
     },
     "description": {
-      "en": "16 original adult recollections about feelings, irritation, bodily and ordinary changes before a period, plus remembered before-and-after timing. Four full guides before answers. No PMDD diagnosis, cycle score or hormone inference.",
-      "zh": "16条成年人原创回顾，涉及经期前感受、烦躁、身体与日常变化，以及记得的前后时间。四篇全文答题前可读，不作PMDD诊断、周期评分或激素推断。"
+      "en": "Recall the days around one remembered period start through 16 original descriptions of feelings, irritation, body and routine, and timing. Read four separate category records and all complete guides, free without registration.",
+      "zh": "通过16条原创描述，回顾同一次月经开始前后的感受、烦躁、身体与日常，以及记得的时间关系。分别查看四份类别记录和完整指南，全部免费，无需注册。"
     },
     "minutes": 8,
     "formCode": "fm_cycle_context16_recollections_v1",
@@ -7440,8 +7440,8 @@
       "zh": "距离感、投入与日常回忆"
     },
     "description": {
-      "en": "Twenty original descriptions of self-experience, surroundings, absorption and uncertainty in everyday recall. Keep private category records and read four complete free guides, without a dissociation score, identity claim or diagnosis.",
-      "zh": "20条原创描述，回顾自身体验、环境、投入及日常回忆不确定。保留私人类别记录，阅读四篇完整免费指南，不生成解离分数、身份主张或诊断。"
+      "en": "Recall the past four weeks through 20 original descriptions of self-experience, surroundings, absorption and everyday recall. Read four separate category records and complete public guides, free without registration.",
+      "zh": "通过20条原创描述，回顾过去四周的自身体验、环境感受、投入与日常回忆。分别查看四份类别记录与完整公开指南，全部免费，无需注册。"
     },
     "minutes": 5,
     "formCode": "fm_disconnection20_observations_v1",
@@ -7465,8 +7465,8 @@
       "zh": "面对未知的自在感回顾"
     },
     "description": {
-      "en": "An adult reflection on felt ease, tension and uncertainty in ordinary low-stakes settings. One private description record, without a boldness, psychopathy or safety score.",
-      "zh": "成年人回顾普通低后果场合中的自在、紧张与未知。一份私密描述记录，不设大胆性、精神病态或安全分数。"
+      "en": "Recall ease, tension and uncertainty in ordinary low-stakes situations through six original statements. Keep each selected category and read the complete public guide, free without registration.",
+      "zh": "用六条原创陈述，回顾普通低后果情境中的自在、紧张与未知。逐条保留所选类别，阅读完整公开指南，全部免费，无需注册。"
     },
     "minutes": 3,
     "formCode": "fm_uncertainty6_four_weeks_v1",
@@ -7487,8 +7487,8 @@
       "zh": "分娩之后：个人回顾"
     },
     "description": {
-      "en": "16 original adult self-recollections after childbirth: mood and interest, worry and self-blame, rest and demands, and connection with self. Four full guides before answers. No postpartum-depression diagnosis, parenting verdict or clinical score.",
-      "zh": "16条分娩后成年人本人原创回顾：心情与兴趣、担心与自责、休息与需求，以及与自己的联系。四篇全文答题前可读，不作产后抑郁诊断、育儿裁定或临床评分。"
+      "en": "Recall your own past four weeks after childbirth through 16 original descriptions of mood, worry, rest and connection with yourself. Keep each selected category and read four complete public guides, free without registration.",
+      "zh": "通过16条原创描述，回顾本人过去四周的心情、担心、休息与自我联系。逐条保留所选类别，免费阅读四篇完整公开指南，无需注册。"
     },
     "minutes": 8,
     "formCode": "fm_birth_context16_recollections_v1",
@@ -7512,8 +7512,8 @@
       "zh": "陌生体验与日常参与"
     },
     "description": {
-      "en": "Twenty original descriptions of sensory impressions, following thoughts, wariness, participation and routines, with five complete free guides. Private category records, without a psychosis-risk score, reality verdict or diagnosis.",
-      "zh": "20条原创描述，回顾感官印象、思路、戒备、参与及日常安排，附五篇完整免费指南。只保留私人类别记录，不生成精神病风险分数、现实裁决或诊断。"
+      "en": "Recall sensory impressions, thought threads, wariness, participation and everyday routines through 20 original descriptions. Keep each selected category and read five complete public guides, free without registration.",
+      "zh": "通过20条原创描述，回顾感官印象、思路、戒备、参与及日常事务。逐条保留所选类别，免费阅读五篇完整公开指南，无需注册。"
     },
     "minutes": 5,
     "formCode": "fm_unfamiliar20_observations_v1",
@@ -7538,8 +7538,8 @@
       "zh": "一年中的时间与个人经历：回顾"
     },
     "description": {
-      "en": "16 original adult recollections of mood and energy, sleep, appetite and timing across parts of the year. Four full public guides before answers. No seasonal-depression diagnosis, SPAQ score or assumed winter pattern.",
-      "zh": "16条成年人本人原创回顾，关注一年中不同时间的心情与精力、睡眠、食欲及时间关系。四篇全文答题前公开，不作季节性抑郁诊断或SPAQ评分，不假设冬季模式。"
+      "en": "Recall differences in mood, energy, sleep, appetite and timing across parts of the past two years through 16 original descriptions. Keep each selected category and read four complete public guides, free without registration.",
+      "zh": "通过16条原创描述，回顾过去两年不同时段的心情、精力、睡眠、食欲与时间关系。逐条保留所选类别，免费阅读四篇完整公开指南，无需注册。"
     },
     "minutes": 8,
     "formCode": "fm_season_context16_recollections_v1",
@@ -7563,8 +7563,8 @@
       "zh": "四项感知压力量表（PSS-4）"
     },
     "description": {
-      "en": "Four past-month questions with a transparent 0–16 raw total and a complete guide. No diagnosis or universal score cutoffs.",
-      "zh": "四项月度回顾，公开0—16原始计分并提供完整指南；不作诊断，不派通用分档。"
+      "en": "Answer four published PSS-4 questions about the past month. Read the 0–16 raw total, each reverse-scored contribution and the complete guide, free without registration.",
+      "zh": "回答四道已发表的PSS-4问题，回顾过去一个月。免费查看0—16原始总分、逐题反向计分贡献与完整指南，无需注册。"
     },
     "minutes": 1,
     "formCode": "cmu_pss4_en_fm_zh_translation_v1",

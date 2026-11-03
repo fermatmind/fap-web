@@ -14,21 +14,21 @@
     "en": "Five ethical questions: counts and full readings"
   },
   "description": {
-    "zh": "免费道德困境测试：20道原创日常价值张力情境，探索后果、原则、品格、关怀与公允五组提问。所有最高并列和五份完整说明免费，不判善恶、能力或人格。",
-    "en": "A free moral dilemma test: 20 original situations, five ethical questions and full guides for every highest tie, without moral grades or personality verdicts."
+    "zh": "用20道原创日常情境，探索后果、原则、品格、关怀与公允五种提问。查看全部计数、所有最高并列与五份完整指南；免费免注册，不评道德高低。",
+    "en": "Explore consequences, principles, character, care and fairness through 20 original everyday scenarios. View all counts, every highest tie and five full guides free, without signup or moral grades."
   },
   "seoTitle": {
-    "zh": "道德困境测试：五种伦理提问与免费完整结果",
-    "en": "Moral Dilemma Test: Five Lenses & Free Full Results"
+    "zh": "道德困境测试：20道情境、五种伦理提问与完整解读",
+    "en": "Moral Dilemma Test: 20 Scenarios, Five Ethical Lenses and Full Guides"
   },
   "minutes": 6,
   "introduction": {
-    "zh": "共享材料怎样分、承诺遇到新需要怎样说明、短剧角色怎样安排？这些日常价值张力没有由本网页预设的唯一正确行动。本版写了20道原创假想情境，每题问你此刻更想先核对哪一个问题，围绕后果、原则、品格、关怀和公允五个编辑入口。菜单每次呈现四组，轮流省略第五组；各组总共出现16次、在四个位置各4次。完成后显示选择次数和所有最高并列的九节全文，五份公开说明也可先读。次数不是道德、能力或信念份额，入口不是互斥人格，也不认证完整哲学学派归属。全选同一个位置会五组各4，不表示理想平衡。我们没有采用DIT-2、MJT、MFT或竞品题库，不收集你真实遇到的困境；全部题目、完整结果、重测和分享免费。",
-    "en": "How should shared materials be allocated, commitments discussed when new needs arise, or roles in a short play arranged? This webpage prescribes no single correct action for these everyday value tensions. Twenty original hypothetical situations ask which question you want to examine first now, using five editorial entry points: consequences, principles, character, care and fairness. Each menu presents four groups with a rotating omission; every group appears sixteen times, four in each position. A complete attempt shows selection counts and the nine-section guide for every highest tie. All five public guides can also be read first. Counts are not shares of morality, ability or belief, and the entry points are neither mutually exclusive personalities nor complete philosophical affiliations. Choosing the same position throughout gives four counts per group without an ideal balance. No DIT-2, MJT, MFT or competitor bank is adopted, and no actual dilemma is collected. All questions, full results, retakes and sharing are free."
+    "zh": "承诺、资源、关系与共同规则发生张力时，你更想先弄清哪一个问题？这份道德困境测试提供20道原创日常假想情境，围绕后果、原则、品格、关怀与公允五个提问入口作出选择。完成后查看五项原始计数及所有最高并列的完整指南，继续比较不同理由、事实条件与可能的取舍。结果描述这批选项中的提问先后，不给行为判对错，也不把你归入某个哲学学派。",
+    "en": "When commitments, resources, relationships and shared rules pull in different directions, which question would you examine first? This Moral Dilemma Test offers twenty original everyday hypothetical situations with five lines of inquiry: consequences, principles, character, care and fairness. View five raw counts and complete guides for every highest tie, then compare reasons, factual conditions and possible trade-offs. Results describe priorities among these questions, without grading actions or assigning philosophical-school membership."
   },
   "instructions": {
-    "zh": "每个假想日常情境都有几种值得讨论的考虑。请选择自己此刻想先核对的一个问题，不是挑最高尚的话，也不要求承诺真实会怎样做。每题只呈现五组提问中的四组，轮流省略；每组全卷出现16次、在四个位置各4次，省略4次。每选一项该组加1，无反向或对错分；20题完成才显示次数和全部最高并列全文，不硬派主副型。其他问题可能同样重要，菜单不穷尽现实做法。若没有合适选项，可退出，公开全文仍免费，不输入私人经历。",
-    "en": "Each ordinary hypothetical tension has several considerations worth discussing. Choose one question you want to examine first now, rather than the noblest sentence or a promise of actual behaviour. A menu presents four of five lines of inquiry with a rotating omission. Each group appears sixteen times, four in each position, and is absent four times. A choice adds one count with no reversals or correctness points. All twenty selections are needed for counts and every highest tie’s full guide, without a forced primary or secondary type. Other questions may matter equally, and menus do not exhaust real actions. Leave if none fits; public guides remain free without personal stories."
+    "zh": "仔细阅读每个假想情境，选择此刻想先核对的一个问题；不是选最高尚的话，也不是承诺真实会怎样做。每题提供五组中的四组，轮流省略；各组全卷出现16次，在四个位置各4次。选中加1，无反向或对错分。完成20题后保留全部最高并列，不强派主副型。若没有合适选项可以退出，五份公开指南仍可阅读。开始直接进入题目，无需再次同意、邮箱、注册或其他测评；不输入真实困境或第三人资料。",
+    "en": "Read each hypothetical situation carefully and select the question you want to examine first now. Do not choose the noblest wording or promise how you would actually act. Each menu offers four of five groups with rotating omission; each group appears sixteen times, four in each position. A selection adds one count without reversal or correctness points. Complete twenty items to retain every highest tie, without a forced primary or secondary type. Exit if nothing fits; all five public guides remain readable. Start opens questions directly without another agreement, email, signup or prerequisite assessment. Do not enter real dilemmas or third-party details."
   },
   "source": {
     "kind": "Twenty original bilingual ordinary hypothetical value tensions with original questions for reflection, informed by broad philosophical traditions. Each menu offers four of five editorial lines of inquiry, not a psychological instrument, a correct-action key or a reproduction of any competitor bank.",

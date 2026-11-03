@@ -125,7 +125,8 @@ describe("T013 public-domain IPIP BFM ten-item Extraversion reflection", () => {
         const html = renderToStaticMarkup(await entry.default(props)), metadata = await entry.generateMetadata(props);
         expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(metadata.title).toBe(quiz.seoTitle[locale]);
         expect(html).toContain(locale === "zh" ? "IPIP公有领域条目自评" : "Public-domain IPIP item reflection");
-        for (const section of quiz.guide.slice(0, 3)) expect(html).toContain(section.paragraphs[0][locale]);
+        const entryDom = document.createElement("div"); entryDom.innerHTML = html;
+        for (const section of quiz.guide.slice(0, 3)) expect(entryDom.textContent).toContain(section.paragraphs[0][locale]);
         expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);
         for (const profile of quiz.profiles) {
           const publicPath = `${path}/results/${profile.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };

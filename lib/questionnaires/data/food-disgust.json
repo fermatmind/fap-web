@@ -14,8 +14,8 @@
     "zh": "食物厌恶测试：32题FDS与八组完整免费读法"
   },
   "description": {
-    "en": "Rate 32 published FDS situations from 1 to 6. Read eight separate means, complete free guides and source limits. No signup or food exposure.",
-    "zh": "用1至6评价32道发表FDS食物情境，查看八组独立均值、完整免费读法与来源边界。无需注册或实际接触食物；中文为新工作译文。"
+    "en": "Rate 32 FDS food situations from 1 to 6. See eight separate means, item coverage and full free guides. English source items with a Chinese working translation.",
+    "zh": "用1至6评价32道FDS食物情境，分别查看八组均值、回答覆盖与完整免费指南。保留发表英文题，中文为工作译文；无需注册或实际接触食物。"
   },
   "minutes": 9,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "想象各个所述情境，从1（完全不恶心）至6（非常恶心）评价感受；2至5保留数字。可不评分、停止，或不答题直接读全部指南。32题都需回应才能完成；每个部分所有题都为数字才给该组均值。无需实际食物任务。九分钟为编辑估计。"
   },
   "introduction": {
-    "en": "Explore your reported reactions to eight sets of hypothetical food situations using the complete published 32-item English FDS bank and a new Chinese working translation. See each raw mean and all eight complete readings without signup. These are imagined disgust ratings, not a diet, food-safety test or diagnosis.",
-    "zh": "用完整发表的32道英文FDS与新中文工作译文，探索八组假设食物情境的自报反应。无需注册即可看原始均值与八份完整读法。内容是想象恶心评分，不是食谱、食品安全测试或诊断。"
+    "en": "The Food Disgust Test presents 32 published English FDS situations and a Chinese working translation. Rate imagined disgust from 1 to 6, then read eight separate summaries with numeric coverage, sums and complete-part means. All eight full guides are free, with examples, calculations and a clear account of the source edition.",
+    "zh": "食物厌恶测试采用32道发表英文FDS情境与中文工作译文，从1至6评价想象中的恶心程度。结果分别呈现八组数字覆盖、原始和与完整分组均值；八篇完整指南免费可读，包含情境例子、计算方法与明确的来源版本说明。"
   },
   "resultHeading": {
     "en": "Your eight separate FDS readings",

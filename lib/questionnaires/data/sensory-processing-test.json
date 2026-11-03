@@ -18,8 +18,8 @@
     "zh": "感觉加工问卷：92项SPQ与完整分数指南"
   },
   "description": {
-    "en": "Read and answer the full published 92-item SPQ, with the current official 44 reverse keys, an optional unscored choice and a complete free raw-total guide.",
-    "zh": "阅读并作答完整发表版92项SPQ，按现行官方44条反向键计分，可选不计分，并免费阅读完整原始总分指南。"
+    "en": "Explore reported sensory perception with the full 92-item SPQ. Read the 0–276 raw total when all items are rated, a complete guide, worked scoring examples and clear version comparisons, free.",
+    "zh": "通过完整92项SPQ回看自报感觉知觉；全部题目有效计分时查看0—276原始总分，免费阅读完整指南、计分算例与版本对照。"
   },
   "resultHeading": {
     "en": "Your SPQ raw total and complete guide",
@@ -27,8 +27,8 @@
   },
   "minutes": 20,
   "introduction": {
-    "en": "This adult self-report follows the full 92 English statements published in 2014 and the current official 92-item key. Chinese is a new working translation. There are no score bands, diagnoses, sensory types or job matches. Time is an untimed estimate.",
-    "zh": "这份成人自述沿用2014年发表的完整92条英文与现行官方92项键，中文是新的工作译文。不划分分数档位、诊断、感觉类型或职位匹配。时间是不计时的阅读估计。"
+    "en": "Read the full SPQ as a record of reported perception: distinguish agreement, reverse coding, completeness and the particular situations behind one total. This adult self-report follows the full 92 English statements published in 2014 and the current official 92-item key. Chinese is a new working translation. There are no score bands, diagnoses, sensory types or job matches. Time is an untimed estimate.",
+    "zh": "把完整SPQ作为自报知觉记录来读：区分同意程度、反向处理、完整程度及单总分背后的具体情境。这份成人自述沿用2014年发表的完整92条英文与现行官方92项键，中文是新的工作译文。不划分分数档位、诊断、感觉类型或职位匹配。时间是不计时的阅读估计。"
   },
   "source": {
     "kind": "spq92_published_table4_fmzh_working",

@@ -50,17 +50,15 @@ function ValidShadowClient({ quiz, locale, readingProfiles }: { quiz: MiniShadow
     catch { if (revision.current !== copiedRevision) return; setManual(text); setMessage(zh ? "无法自动复制，可从下方手动复制公开链接。" : "Automatic copying is unavailable. Copy the public links below manually."); }
   }
   useEntertainmentResultView(recordView, stage === "result");
-  return <section id="take-test" data-shadow-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
-    {activityConsent}
-    <p className="mb-4 text-sm leading-7 text-slate-600">{zh ? "只使用当前页面内存；不保存草稿或结果，不上传逐题选择。刷新、换语或离开会清除。" : "Current-page memory only: no draft or result is saved and choices are not uploaded. Reloading, changing language or leaving clears answers."}</p>
+  return <section id="take-test" data-stage={stage} data-shadow-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
     <fieldset disabled={!ready} className="min-w-0 space-y-5 p-0">
       <legend className="sr-only">{quiz.title[locale]}</legend>
       {stage === "welcome" && <>
+        <button data-explore-start type="button" className={`${button} bg-violet-700 text-white`} onClick={() => { revision.current += 1; setStage("answer"); recordStart(); setPosition(0); setMessage(""); }}>{zh ? "开始测试" : "Start test"}</button>
         <h2 className="text-2xl font-semibold">{zh ? "回看过去三个月的具体情境" : "Look back over three months"}</h2>
-        <p className="leading-8">{quiz.introduction[locale]}</p>
         <p className="leading-8">{quiz.instructions[locale]}</p>
         <p className="rounded-lg border border-slate-300 p-4 leading-8">{zh ? "全部20题有效后分别显示五组原始和与均值，不合总分、不排名、不揭露隐藏人格；数值不是发生频率、严重度或心理健康结论。五篇全文均可先读。" : "All 20 valid responses produce five separate sums and means, without a total, ranking or hidden-personality verdict. Values are not frequency, severity or mental-health conclusions. All five full guides can be read first."}</p>
-        <button type="button" className={button} onClick={() => { revision.current += 1; setStage("answer"); recordStart(); setPosition(0); setMessage(""); }}>{zh ? "开始测试" : "Start test"}</button>
+
       </>}
       {stage === "answer" && <>
         <p ref={progress} data-shadow-progress className="scroll-mt-24 text-sm text-slate-600">{zh ? `第 ${position + 1} / 20 题` : `Choice ${position + 1} of 20`}</p>
@@ -80,6 +78,9 @@ function ValidShadowClient({ quiz, locale, readingProfiles }: { quiz: MiniShadow
       </>}
       {stage !== "welcome" && <button type="button" className={button} onClick={clear}>{zh ? "退出并清除本次回答" : "Exit and clear these responses"}</button>}
     </fieldset>
+    {activityConsent}
+    <p className="mb-4 text-sm leading-7 text-slate-600">{zh ? "只使用当前页面内存；不保存草稿或结果，不上传逐题选择。刷新、换语或离开会清除。" : "Current-page memory only: no draft or result is saved and choices are not uploaded. Reloading, changing language or leaving clears answers."}</p>
+
     <p role="status" aria-live="polite" className="my-4 text-sm leading-7">{ready ? message : (zh ? "正在准备问卷，请稍候。" : "Preparing the questionnaire. Please wait.")}</p>
     <noscript><p>{zh ? "互动答题需要JavaScript；禁用时本网站部分页面可能停在加载画面。" : "Interactive answering requires JavaScript. Some pages on this website may remain at a loading screen when it is disabled."}</p></noscript>
   </section>;

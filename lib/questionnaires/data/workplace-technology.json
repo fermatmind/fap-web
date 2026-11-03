@@ -10,21 +10,21 @@
     "zh": "职场技术与协作测试"
   },
   "seoTitle": {
-    "en": "Workplace Tech & Collaboration Test: Practice & Answers",
-    "zh": "职场技术与协作测试：16题练习、答案与解析"
+    "zh": "职场技术与协作测试：16题、完整答案与复习指南",
+    "en": "Workplace Technology Test: 16 Tasks & Full Explanations"
   },
   "description": {
-    "en": "Try 16 original workplace tech and collaboration tasks. See every answer, explanation and four revision guides for free. No timer, signup or certificate.",
-    "zh": "用16道原创任务练习交接、协作方式、共享规则与技术变化，查看四分项答对题数、全部答案和解析，附四份完整复习说明。全部免费，无需注册，不计时，不发能力认证。"
+    "zh": "16道原创职场情境题，练习交接记录、协作条件、共享权限与技术变化推理。免费查看四项答对数、每题答案解析和四份完整复习指南，无需注册。",
+    "en": "Practise handovers, collaboration constraints, shared permissions and work-change reasoning in 16 original tasks. Free answers and four complete guides."
   },
   "minutes": 8,
   "instructions": {
-    "en": "Each of 16 tasks supplies the record, constraints or fictional capability table you need. Choose one of four answers; exactly one meets the stated conditions. There is no timer. Paper or a calculator is welcome. Complete every task to see all selected answers, keys, explanations and four guides. Do not enter real work documents or confidential information.",
-    "zh": "16道任务都给出所需记录、约束或虚构能力表，四选一，恰有一个答案满足题定条件。不计时，可使用纸笔或计算器。完成全部任务后显示所选、正确答案、完整解析和四份指南。不要输入真实工作文档或机密信息。"
+    "zh": "逐题阅读给定记录、能力表、时间与项目规则，从四项中选唯一符合全部条件的答案，不用猜某个真实软件的默认功能。可回看条件，不限时；答对记1，答错记0，完成16题后显示每题所选、正确答案和解析，以及四份完整指南。不要输入真实工作资料、账号或密码。点击开始直接进入题目，无需额外同意、邮箱、注册或前置测评。",
+    "en": "Read each supplied record, capability table, time window and project rule, then choose the one option meeting all conditions. Do not guess a real product’s default features. Review conditions at your own pace; there is no time limit. Correct counts one and incorrect zero. Finish sixteen items for each selection, correct answer and explanation plus all four complete guides. Enter no actual work records, accounts or passwords. Start opens questions directly without another agreement, email, signup or prerequisite assessment."
   },
   "introduction": {
-    "en": "Work through practical handover records, collaboration settings, shared-work rules and before-and-after task data. These 16 independently written cases make every necessary condition visible, including fictional tool features and project policies. Your result is correct counts on this edition, with every answer and four complete revision guides. It is not a self-rating of teamwork, an official software exam, an employer screening cutoff or a prediction about future jobs.",
-    "zh": "实际核对交接记录、协作场景、共享工作规则和前后任务数据。16道独立编写的案例把必要条件都写在题面，包括虚构工具功能与项目制度。结果是本版答对题数，附全部答案和四份完整复习说明。它不是自报团队合作程度，不是官方软件考试或雇主筛选线，也不预测未来岗位。"
+    "zh": "交接时引用哪一版？没有共同在线时间，怎样保留协作记录？一项自动化节省时间，能否据此推断岗位人数？通过16道给定条件的原创任务，练习交接、协作场景、共享规则与技术变化推理。约8分钟，不限时，免费查看全部答案、四项答对数和完整复习指南。",
+    "en": "Which version belongs in a handover? How can a team keep a shared record without overlapping hours? Does time saved by automation establish a staffing change? Practise handovers, collaboration settings, shared-work rules and technology-change reasoning through sixteen original tasks with supplied conditions. About eight minutes, untimed, with every answer, four correctness subtotals and complete revision guides free."
   },
   "resultHeading": {
     "en": "Your work-task results and every explanation",

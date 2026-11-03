@@ -83,7 +83,11 @@ describe("T076 original gender-neutral Egen-Teto first-move edition", () => {
     for (const locale of ["en", "zh"] as const) for (const [slug, count] of [["egen-teto", 2], ["disc", 4]] as const) {
       const root = document.createElement("div"); root.innerHTML = renderToStaticMarkup(await entry({ params: Promise.resolve({ locale, slug }) }));
       const copy = root.querySelector('[aria-labelledby="questionnaire-results"] > p')?.textContent;
-      expect(copy).toContain(locale === "zh" ? `全部${count}个单项` : `all ${count} single directions`);
+      if (slug === "egen-teto") expect(copy).toContain(locale === "zh" ? `全部${count}个单项` : `all ${count} single directions`);
+      else {
+        expect(copy).toContain(locale === "zh" ? "15种组合" : "All 15 single-direction or highest-count tied combinations");
+        expect(root.querySelectorAll('[aria-labelledby="questionnaire-results"] > ul > li')).toHaveLength(15);
+      }
     }
   });
 

@@ -10,21 +10,21 @@
     "zh": "能力倾向与认知能力测试"
   },
   "seoTitle": {
-    "en": "Aptitude & Psychometric Test Practice: 30 Questions",
-    "zh": "能力倾向与心理测评题型练习：30题、答案与查错指南"
+    "zh": "能力倾向与认知能力测试练习：30题、逐题解析与五项指南",
+    "en": "Aptitude & Cognitive Ability Practice: 30 Questions & Answers"
   },
   "description": {
-    "en": "Try 30 original numerical, verbal, deductive, pattern and error-checking tasks. Get every answer and five free guides. No IQ, norm or hiring score.",
-    "zh": "30道原创数值、阅读、演绎、符号与查错练习，提供全部答案、逐题解析和五份免费指南。不计时、无需注册，不换算智商、常模或招聘分数。"
+    "zh": "30道原创数值、阅读、演绎、符号与查错题，免费查看每题答案、完整解析和五份复习指南。不计时，允许纸笔与计算器，无需注册。",
+    "en": "Practise 30 original numerical, reading, deductive, symbol and error-checking tasks. Free worked answers and five full guides. Untimed, calculator allowed, no signup."
   },
   "minutes": 15,
   "instructions": {
-    "en": "Each of 30 tasks has four options and one correct answer under its supplied information or rule. Complete all items to see every selected answer, key, explanation and five guides. There is no timer; paper or a calculator is allowed. Error-checking uses only the transformations explicitly permitted in each item. This is original practice for aptitude and psychometric question formats, not a validated psychological measure, licensed employer exam or recruitment pass.",
-    "zh": "30道任务，每题四个选项，在题定资料或规则下恰有一个正确答案。全部作答后显示所选、答案、完整解析和五份指南。不计时，允许纸笔或计算器。查错题只做该题明示允许的转换。这是能力倾向与心理测评题型的原创练习，不是经效度验证的心理测量、雇主授权考试或招聘通过结论。"
+    "zh": "每题四选一，按题定资料或规则选一个答案。全部30题均需作答后才给正确题数与完整解析；没有计时、速度加分或倒扣分。允许纸笔和计算器，查错只做该题明确允许的转换。不会的题也可先作选择，再根据解析复习。开始直接进入题目，无需额外同意、邮箱、账号或前置测试。",
+    "en": "Choose one of four options using the supplied facts or rule. Complete all thirty items for correct counts and worked answers. There is no timer, speed bonus or negative marking. Paper and calculators are allowed; error-checking permits only explicitly stated transformations. Make a choice even if unsure, then review the explanation. Start opens questions directly without another agreement, email, account or prerequisite test."
   },
   "introduction": {
-    "en": "Use 30 original tasks for aptitude, cognitive and psychometric test-format practice: six each in numerical reasoning, reading and evidence, deduction, explicit symbol rules, and error-checking. Psychometric testing can cover ability or personality; this page supplies right-answer exercises only. It does not estimate general cognitive ability or intelligence, assess personality, diagnose a learning difficulty or attention condition, predict job performance or compare you with a population. Every answer has a deterministic arithmetic, fact, finite-model or string-comparison check. All worked answers and five complete guides are free. English and Chinese instructions have no established measurement equivalence.",
-    "zh": "本页以30道原创任务承接能力倾向、认知推理及心理测评中的能力题型练习：数值、阅读证据、演绎、明示符号规则和查错各六题。“心理测评”也可能涉及人格，本页只做有标准答案的练习，不测人格、不估计一般认知能力或智力、不诊断学习或注意力问题，不预测工作表现或与人群比较。每个答案都有确定的算术、事实、有限模型或字符串核对；全部题解和五份完整指南免费。中英文说明未建立测量等价。"
+    "zh": "从百分比和比例，到阅读证据、条件推理、符号变换与记录核对，用30道原创题练习五种解题操作。每组6题，完成后逐题查看所选、标准答案和完整解析，再用五份指南复习具体步骤。约15分钟，不计时，允许纸笔和计算器。这里提供能力倾向、认知与心理测评题型练习；正确题数只描述本卷，不估计一般认知能力或智商。",
+    "en": "Practise five problem-solving operations across 30 original tasks: percentages and ratios, reading evidence, conditional reasoning, symbol transformations and record checking. Each six-item group comes with selected answers, keys, worked explanations and a full revision guide after completion. About fifteen minutes, untimed, with paper and calculators allowed. This is aptitude, cognitive and psychometric question-format practice; it does not estimate general cognitive ability or IQ."
   },
   "resultHeading": {
     "en": "Your mixed-reasoning results and every worked answer",
@@ -2112,5 +2112,21 @@
     "itemBankSha256": "00cf184a3cacde74bfcc6255f549d218f34c8e1e087bed4f09320920fd411be1",
     "resultContentSha256": "a5b617ae1570d2c0d72b82394c15d0c27e572f6bf03be13481228dbefcae0621",
     "psychometricValidationCompleted": false
-  }
+  },
+  "references": [
+    {
+      "title": {
+        "zh": "国际测验委员会：测验使用指南（分数解释与证据）",
+        "en": "International Test Commission: Guidelines on Test Use — score interpretation and evidence"
+      },
+      "url": "https://www.intestcom.org/files/guideline_test_use.pdf"
+    },
+    {
+      "title": {
+        "zh": "国际测验委员会：测验翻译与改编指南第二版",
+        "en": "International Test Commission: Guidelines for Translating and Adapting Tests, second edition"
+      },
+      "url": "https://www.intestcom.org/files/guideline_test_adaptation_2ed.pdf"
+    }
+  ]
 }

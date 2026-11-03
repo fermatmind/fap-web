@@ -15,21 +15,21 @@
     "en": "Locus of control: raw total and full reading"
   },
   "description": {
-    "zh": "免费控制点测试：回答IPIP整体20条，查看原始总分、反向计分与完整连续解释，含内外控看法、例子反例和资料不足。不派固定类型，不判断现实责任。",
-    "en": "Take the free 20-item IPIP locus of control test. Read raw scores, ten reversals, missing information and a full guide to control beliefs and limits."
+    "zh": "用IPIP公开的20题整体键，探索主动、决定、运气与应付困难的控制相关自述。免费查看原始总分、反向计分与完整连续读法，附具体例子和题源说明；无需注册。",
+    "en": "Explore control-related beliefs with the full 20-item IPIP Total key. View a free raw score, reverse-scoring examples and complete guide. No signup."
   },
   "seoTitle": {
-    "zh": "控制点测试：IPIP整体20题与免费完整结果",
-    "en": "Locus of Control Test: 20 IPIP Items and Free Results"
+    "zh": "控制点测试：IPIP完整20题、原始总分与免费解读",
+    "en": "Locus of Control Test: 20 IPIP Items, Raw Score and Complete Guide"
   },
   "minutes": 5,
   "introduction": {
-    "zh": "你怎样描述主动、做决定、运气与应付困难的看法？本版采用IPIP公有领域控制点整体二十条英文、十正十反键向及本站中文试译，按现在通常的自我描述是否符合来回答。二十条全部有效才显示20—100原始总分及描述性均分；任一资料不足保留未评分，完整九节读法仍可阅读。结果覆盖较高、较低、中间和混合回答、具体例子、反例、证据与隐私，不按阈值派四种类型。这里没有实际掌控、责任或能力判断，也没有单独测三个IPC子量表；英文条目虽然与其他IPIP量表有交叠，不能换算乐观或成长信念。本卷与全文免费，不需另一测评解锁。",
-    "en": "How do you describe initiative, decisions, luck and handling difficulties? This edition uses the public-domain IPIP Locus of Control: Total twenty-item English bank, its ten positive and ten negative keys, and our Chinese trial translation. Rate accuracy as a description of how you generally are now. All twenty ratings are needed for a raw total from 20–100 and a descriptive mean; any unscored response leaves the personal result unavailable while the full nine-section guide remains readable. It covers higher, lower, middle and mixed responses, examples, counterexamples, evidence and privacy without four cutoff-based types. It judges neither actual control, responsibility nor ability and does not separately measure the three IPC subscales. Item overlap with other IPIP scales does not convert totals into optimism or growth beliefs. Everything is free without another assessment."
+    "zh": "控制点（Locus of Control）关注人怎样理解个人行动与外部因素对结果的影响。本页采用IPIP公开的20题整体键，内容涉及主动、决策、成功、运气和应付困难的自我描述，保留英文及本站中文试译。完成后免费查看原始总分、有效条数和完整连续解读，结合情境理解自己的回答。它呈现这一题本中的控制相关看法，不据总分推断你在现实中有多少权力、资源或责任。",
+    "en": "Locus of control concerns beliefs about how personal action and outside factors relate to outcomes. This page uses the published twenty-item IPIP Total key, including self-descriptions about initiative, decisions, success, luck and coping with difficulty. English wording is retained alongside our trial Chinese translation. Read the raw total, rated count and complete continuous guide free, in the context of your responses. The total describes this particular bank of control-related beliefs rather than determining your actual power, resources or responsibility."
   },
   "instructions": {
-    "zh": "按这些句子与你现在通常的自我描述是否符合，选择1非常不符合至5非常符合，不按希望成为的样子作答。英文为IPIP公开条目，中文为本站试译；句子中提到成功、能力或自在，是对看法的自报，不是网站断言你确实如此。不适用、资料不足或不愿回答可选独立项，不当中立或零分。20题都选择后呈现完整读法；只有20条全部有效才显示原始总分，不填写真实经历。",
-    "en": "Rate how accurately each statement describes you as you generally are now, from 1 Very inaccurate to 5 Very accurate, rather than your preferred image. English items come from public-domain IPIP; Chinese is our trial translation. Success, ability and comfort statements ask for self-description, not a website assertion that these are objectively true. Use the separate option when inapplicable, insufficiently informed or preferring not to answer; it is neither neutral nor zero. Complete twenty selections for the full reading; a raw total requires all twenty ratings. No personal story is entered."
+    "zh": "按每句与你现在通常的自我描述有多符合，从非常不符合到非常符合选择，不按理想形象作答。没有适当参照、资料不足或不愿回答，可选独立的非数值回应。20题都作出选择后呈现完整解读；只有20条均为有效评分才显示个人原始总分，十道反向题由系统处理。无需输入私人经历，约5分钟但不限时；点击开始直接进入题目，无需再次同意或注册。",
+    "en": "Rate how accurately each statement describes you as you generally are now, from Very inaccurate to Very accurate, rather than an ideal image. Use the separate non-numeric response for no suitable reference, insufficient information or preferring not to answer. Make a selection on all twenty items to finish with the full guide. A personal raw total requires twenty valid ratings; the system handles ten reverse keys. No private story is entered. About five minutes is untimed; Start opens questions directly without another agreement or signup."
   },
   "source": {
     "kind": "Official public-domain IPIP Locus of Control: Total 20-item key (10 positive, 10 negative), not Rotter I-E or original Levenson IPC items. English wording retained; own Chinese trial translation and interleaved presentation.",
@@ -1657,6 +1657,13 @@
         "en": "APA locus of control definition: conceptual background"
       },
       "url": "https://dictionary.apa.org/locus-of-control"
+    },
+    {
+      "title": {
+        "zh": "SJDM量表档案：Rotter I-E的用途与29题强迫选择格式",
+        "en": "SJDM scale archive: purpose and 29-item forced-choice format of Rotter I-E"
+      },
+      "url": "https://sjdm.org/dmidi/Internal-External_Scale.html"
     }
   ]
 }

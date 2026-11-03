@@ -14,17 +14,17 @@
     "en": "Your expression choices and every highest tie"
   },
   "description": {
-    "zh": "16道原创情境题，比较傲娇、冷娇、闷娇与热娇四种文化表达原型。全部完整结果免费，无需注册，最高并列都保留；不读心、不预测关系，不把现实拒绝解释为喜欢。",
-    "en": "Take 16 original scenarios and compare tsundere, kuudere, dandere and deredere expression tropes. Full results free, every highest tie kept, no signup."
+    "zh": "通过16道原创日常情境题，比较傲娇、冷娇、闷娇与热娇四种表达方式。约4分钟，免费查看四项原始计数、全部最高并列与完整解读；无需注册。",
+    "en": "Compare tsundere, kuudere, dandere and deredere expressions in 16 original everyday scenarios. About four minutes; free raw counts, every highest tie and complete guides, without signup."
   },
   "seoTitle": {
-    "zh": "傲娇类型测试：16题、四种原型与完整结果",
-    "en": "Dere Type Quiz: Tsundere, Kuudere, Dandere or Deredere?"
+    "zh": "傲娇类型测试：16题比较傲娇、冷娇、闷娇与热娇",
+    "en": "Dere Type Quiz: 16 Questions on Tsundere, Kuudere, Dandere and Deredere"
   },
   "minutes": 4,
   "introduction": {
-    "zh": "想说关心时，你更想先轻轻逞强一下、平静简短地说、熟悉之后私下补充，还是直接表达开心？这份趣味测试用16个普通、自愿互动的情境，比较你选择的表达句式。傲娇、冷娇、闷娇和热娇只是本版挑选的四个文化标签，不代表人类只有四种表达，也不把“嘴硬”当作判断别人真实想法的工具。所有完整说明都可以先读。",
-    "en": "When you want to express care, would you choose a light guarded joke, calm brevity, a private word once comfortable or openly expressed pleasure? Sixteen ordinary, voluntary-interaction scenarios compare the expressions you choose. Tsundere, kuudere, dandere and deredere are four cultural labels selected for this edition, not the only ways people communicate or tools for decoding someone else’s real thoughts. Read every full public guide first if you wish."
+    "zh": "傲娇类型测试以动漫与网络文化中的四种表达原型为线索，观察你在感谢、鼓励、接受赞美、表达不同偏好与日常陪伴时更愿意采用的说法。傲娇在这里是轻松逞强之后明确关心，冷娇侧重平静简短，闷娇侧重熟悉之后或私下表达，热娇侧重直接表达温暖。四个名称提供比较语言，结果描述本次选项的相对分布。",
+    "en": "This dere type quiz uses four anime and internet-culture tropes to compare preferred expressions in thanks, encouragement, receiving compliments, discussing different preferences and ordinary company. Here tsundere adds a playful front before explicit care; kuudere is calm and concise; dandere favours familiarity or privacy; deredere expresses warmth directly. These names offer comparison language, and results describe the relative distribution of this attempt’s choices."
   },
   "instructions": {
     "zh": "把题目当作普通、双方自愿来往的朋友之间的表达选择；可按自己想采用的方式回答，也可以只想象情境。每题选一个更合意的表达，不替别人猜意愿。所有情境都以愿意参与和可以拒绝为前提；现实中的“不”、沉默、退开和不舒服都不解释成隐藏的喜欢。16题全部选择后，仅比较本题组次数，保留所有最高并列；不想继续可以退出并清除。",
@@ -1342,65 +1342,187 @@
     {
       "id": "archetype-counts",
       "title": {
-        "zh": "表达选项怎样计数",
-        "en": "Counting expression choices"
+        "zh": "16题怎样计分：四项计数与固定总数",
+        "en": "How the 16 questions are scored: four counts and a fixed total"
       },
       "paragraphs": [
         {
-          "zh": "全部16题各选一个表达，每次只给对应文化标签加1。四类在每题各出现一次，总曝光均为16次，在四个位置各出现4次；分母16是本题组机会数，不是性格相似度或人群比例。完成前不派结果，完成后保留所有最高计数匹配，每份匹配完整呈现；四项同为4次时四份都显示。差1次不证明显著、稳定主副型或哪种风格更真实。可以同时阅读其他公开说明，但不会因先读结果改分；本方法没有常模、验证阈值或预测效度。",
-          "en": "Choose one expression for every one of the 16 questions. Each choice adds one to its cultural label. All four labels appear once per question, each with 16 opportunities and four appearances in each position. The denominator is an opportunity count, not a personality-match percentage or population rate. No result is assigned before completion. Every highest count retains its full report; four equal counts of four display all four reports. One extra choice establishes neither significance, a stable primary–secondary identity nor a truer style. You can read other public guides without affecting scoring. This method has no norms, validated cutoffs or predictive validity."
+          "zh": "每题包含四个表达选项，分别对应傲娇、冷娇、闷娇与热娇；选择一个，只给对应方向加1次。完成全部16题后，各项范围为0—16，四项相加恒为16。每个方向在全部题目中都有16次出现机会，并在四个选项位置各出现4次。位置安排平衡不代表题本已经完成心理测量验证。",
+          "en": "Each question offers one expression for each of the four tropes. Selecting one adds one count to that direction only. After all 16 questions, each count ranges from 0 to 16 and the four counts always total 16. Every direction appears in every question and occupies each of the four option positions four times. Balanced positions do not establish psychometric validity."
+        },
+        {
+          "zh": "例如按傲娇、冷娇、闷娇、热娇顺序得到7、7、1、1时，总数为16，前两项同为最高。这里比较的是同一人在这些备选说法之间的选择；一项被选中，其他项本题就不会增加。不能把7次读成性格含量、他人评价或超过多少人的百分位。",
+          "en": "For example, counts of 7, 7, 1, 1 in tsundere, kuudere, dandere, deredere order total 16 and leave the first two tied highest. This compares one person’s selections between the offered expressions: choosing one means the others gain nothing on that question. Seven selections are not a personality concentration, an observer rating or a population percentile."
         }
       ]
     },
     {
       "id": "archetype-ties",
       "title": {
-        "zh": "最高并列与相近次数",
-        "en": "Highest ties and close counts"
+        "zh": "单项、两项、三项与四项并列怎样呈现",
+        "en": "Single results and two-, three- or four-way highest ties"
       },
       "paragraphs": [
         {
-          "zh": "所有最高计数都同时显示完整结果，名单顺序不决定重要性。例如7、7、1、1保留两个匹配；4、4、4、4保留全部四份。8和7只相差一个选择，不证明稳定主副型或内心感情的差别；较少选到也不表示完全没有某种表达。可以比较四份公开说明，不添加未经验证的百分比或亲密关系预测。",
-          "en": "Every highest count displays its full report without priority from list order. Counts of 7, 7, 1, 1 retain two matches; 4, 4, 4, 4 retain all four. Eight versus seven is one choice, not proof of a stable primary–secondary identity or different inner feeling. Fewer choices imply no total absence of an expression. Compare all public guides without invented percentages or predictions about relationships."
+          "zh": "最高次数相同的所有方向都会保留完整报告。8、7、1、0只有一项最高；7、7、1、1保留两项；5、5、5、1保留三项；4、4、4、4保留四项。四方向共有15种非空最高组合，并列时不按字母、题号、选项位置或报告顺序强行选一个。",
+          "en": "Every direction sharing the highest count retains its complete report. Counts of 8, 7, 1, 0 have one highest; 7, 7, 1, 1 retain two; 5, 5, 5, 1 retain three; and 4, 4, 4, 4 retain all four. There are 15 possible nonempty highest sets. Letters, question numbers, option positions and report order do not break ties."
+        },
+        {
+          "zh": "8次与7次相差一次选择，系统保留这个实际差异，但没有证据把它解释为稳定的主型与副型。低计数说明本题组相对少选某类说法，不表示缺少关心或永远不用这种表达；也不添加未经验证的近分合并规则。",
+          "en": "Eight versus seven differs by one selection. The system preserves that actual difference without evidence for a stable primary and secondary type. A lower count means fewer selections of an expression in this set, not less care or permanent absence of that expression. No unvalidated close-score merging rule is added."
         }
       ]
     },
     {
       "id": "archetype-metaphor",
       "title": {
-        "zh": "文化标签与真实意愿",
-        "en": "Cultural labels and actual willingness"
+        "zh": "本版比较表达方式：以明确意愿为前提",
+        "en": "What this edition compares: expression with explicit willingness"
       },
       "paragraphs": [
         {
-          "zh": "本版四原型只用于轻松比较表达；安静、退开、冷淡、拒绝和不舒服都不能被标签改写成喜欢。所有选项把明确愿意作为前提，口头玩笑后也清楚说明意思。不鼓励辱骂、控制、跟踪、嫉妒试探或制造压力，不用结果给他人贴型或要求其改变。",
-          "en": "The four tropes provide a playful comparison of expression. Quiet, withdrawal, coldness, refusal and discomfort never become affection through a label. Every option assumes clear willingness and makes meaning explicit after a joke. The quiz encourages no insults, control, stalking, jealousy tests or manufactured pressure, and does not type others or require them to change."
+          "zh": "题目限定为双方自愿的普通朋友互动，比较自己愿意说什么，也允许仅想象情境。傲娇选项中的玩笑之后会清楚表达感谢、期待或关心；这种写法是本版的具体设计，不概括全部作品中的傲娇形象。",
+          "en": "Questions assume ordinary friendship exchanges that both people want, comparing what you would prefer to say; you may also imagine the situation. Playful tsundere options make thanks, anticipation or care explicit after the joke. That is this edition’s design, not a definition of every fictional tsundere."
+        },
+        {
+          "zh": "现实中的拒绝、沉默、退开与不舒服都不能被结果改写成隐藏的喜欢。愿不愿意交流应当直接询问并尊重答复；没有答复也不提供继续接触的许可。结果不能为辱骂、欺负、跟踪、控制或制造嫉妒提供理由。",
+          "en": "A real refusal, silence, withdrawal or discomfort cannot become hidden affection through a result. Ask about willingness directly and respect the answer; no answer grants no permission for further contact. Results provide no justification for insults, bullying, stalking, control or manufactured jealousy."
         }
       ]
     },
     {
-      "id": "source",
+      "id": "four-expressions",
       "title": {
-        "zh": "原创题本与文化背景",
-        "en": "Original questions and cultural context"
+        "zh": "四种文化表达原型：各自比较什么",
+        "en": "Four cultural expression tropes: what each comparison means"
       },
       "paragraphs": [
         {
-          "zh": "四个名称是本版选取的动漫和网络文化表达原型，不是统一、完整或经过验证的心理分类。小学馆《数字大辞泉》的词条说明傲娇常用于人物设置，电子书出版方词汇表也在作品语境解释冷娇；这些来源只帮助理解文化用语，不认证本版题目。16题、选项、完整解释、示例和计分安排均由费马独立编写，没有采用JobCannon20题、IDRlabs35题或其正文、角色图、作品设定、代码和算法。本版限定为自愿、无伤害的普通表达，不代表全部“dere”变体。无性别、恋爱状态、能力、职业、依恋或临床判断，不用于替别人确定意愿、隐藏感情或相处价值。",
-          "en": "These four names are selected anime and internet-culture expression tropes, not a unified, complete or validated psychological classification. Shogakukan’s Digital Daijisen describes tsundere as a character-setting term, while a fiction publisher’s glossary explains kuudere in a narrative context. Those sources clarify cultural usage, not validity of these items. FermatMind independently authored all 16 questions, options, guides, examples and scoring arrangements without adopting JobCannon’s 20 items, IDRlabs’ 35 items or their bodies, character art, settings, code or algorithms. This edition limits choices to voluntary, non-hurtful everyday expression and does not represent every dere variation. It establishes neither gender, relationship status, ability, career fit, attachment nor a clinical condition, and cannot determine anyone else’s willingness, concealed feelings or value as a companion."
+          "zh": "傲娇（tsundere）：先有轻松逞强或小小掩饰，再明确表达友好。冷娇（kuudere）：用平静、简短、具体的说法表达关心。两者都可以温暖；区别在本版选项的表达形式，不是内心感情多少。",
+          "en": "Tsundere: a playful guarded front followed by explicit friendliness. Kuudere: calm, brief and specific expressions of care. Both can be warm; the distinction concerns the forms offered here, not how much someone feels."
+        },
+        {
+          "zh": "闷娇（dandere）：更愿意在熟悉、私下或有时间整理之后说。热娇（deredere）：更愿意当下直接表达感谢或开心。它们比较表达时机与可见程度，不评价真诚、受欢迎程度，也不要求任何人更外向。",
+          "en": "Dandere: a preference for speaking after familiarity, in private or after time to find words. Deredere: expressing thanks or pleasure directly in the moment. These compare timing and visibility, not sincerity or popularity, and require nobody to become more outgoing."
+        }
+      ]
+    },
+    {
+      "id": "culture-and-research",
+      "title": {
+        "zh": "傲娇的词义与语言学研究：证据回答什么",
+        "en": "Tsundere meanings and linguistic research: what the evidence addresses"
+      },
+      "paragraphs": [
+        {
+          "zh": "小学馆《数字大辞泉》将傲娇作为人物设置用语解释。本页借用角色文化的名称，改为不限定性别与恋爱关系的朋友表达情境；这种改写属于本版题目设计。[1]",
+          "en": "Shogakukan’s Digital Daijisen explains tsundere as a character-setting term. This page adapts the cultural name into friendship expressions without restricting gender or romantic status; that adaptation belongs to this questionnaire’s design. [1]"
+        },
+        {
+          "zh": "冨樫纯一在2009年研讨会的案例分析研究某些说话形式怎样唤起傲娇角色印象，并讨论角色判定的主观性。这是角色语言研究，不能据此证明本问卷有效，也不能据某个语尾推断现实人物的隐藏感情。本版四类是选定的文化视角，并非完整的人格分类。[3]",
+          "en": "Junichi Togashi’s 2009 symposium case study examines how speech forms evoke a tsundere character impression and discusses subjective character judgements. It studies character language, not this questionnaire’s validity or a method for inferring real hidden feelings from sentence endings. The four categories here are selected cultural lenses, not an exhaustive personality classification. [3]"
+        }
+      ]
+    },
+    {
+      "id": "same-message",
+      "title": {
+        "zh": "同一句感谢的四种表达：先保留清楚的意思",
+        "en": "Four versions of the same thanks: keep the message clear"
+      },
+      "paragraphs": [
+        {
+          "zh": "例如朋友按约定帮你找到物品，可以先开一个双方都接受的轻松玩笑，再明确说谢谢；也可以简短说“找到了，谢谢你帮忙”；可以稍后私下补充感谢；或直接分享开心与谢意。四种表达的共同点是对方能知道你在感谢。",
+          "en": "If a friend helps find an item as agreed, you might begin with a mutually welcome playful joke and then say thanks clearly; say a brief “Found it—thanks for helping”; add a private thank-you later; or openly share your pleasure and thanks. All four versions let the friend understand the appreciation."
+        },
+        {
+          "zh": "想尝试不同说法时，保留同一件事、同一个明确意思和对方可以不继续的空间。再核对对方是否听懂，而不是要求对方猜出标签。这个小观察用于改善一次表达，不是验证测验准确率的实验。",
+          "en": "When trying another expression, retain the same event, clear meaning and room for the other person to stop. Check whether the message was understood instead of asking them to decode a label. This small observation can inform one exchange; it is not an experiment validating the quiz."
+        }
+      ]
+    },
+    {
+      "id": "quiet-comparison",
+      "title": {
+        "zh": "冷娇与闷娇：简短表达与表达时机的区别",
+        "en": "Kuudere versus dandere: brevity and timing"
+      },
+      "paragraphs": [
+        {
+          "zh": "冷娇选项通常已经把意思简短说出；闷娇选项更强调熟悉之后、私下或稍后补充。可以在熟人之间简短表达，也可以在陌生场合直接开口，因此这两个方向不构成完整的社交坐标。",
+          "en": "Kuudere options usually state the message briefly already; dandere options emphasise familiarity, privacy or a later addition. Someone can be concise with close friends or direct among new people, so these two directions are not a complete map of sociability."
+        },
+        {
+          "zh": "安静可能与注意、疲劳、语言熟悉程度或个人空间有关。本次选择不能判定社交焦虑、选择性缄默、神经类型或情绪能力；也不能把少说话解读为更成熟、更可靠或更需要被劝着说。",
+          "en": "Quiet can relate to attention, fatigue, language familiarity or personal space. These choices cannot establish social anxiety, selective mutism, neurotype or emotional ability, nor imply that someone quiet is more mature, more reliable or needs persuading to speak."
+        }
+      ]
+    },
+    {
+      "id": "front-and-warmth",
+      "title": {
+        "zh": "傲娇与热娇：表达形式不等于感情强度",
+        "en": "Tsundere versus deredere: form is not feeling intensity"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版傲娇的特点是玩笑与明确关心的先后组合，热娇则更直接把温暖放在话里。两种说法都可能被理解，也都可能与当下需要不合；结果不提供哪一种更有魅力、恋爱更成功或更善良的排名。",
+          "en": "Here tsundere combines a playful front with explicit care, while deredere puts warmth directly into words. Either can be understood or fail to suit the moment. Results do not rank attractiveness, romantic success or goodness."
+        },
+        {
+          "zh": "如果对方不喜欢玩笑，直接说明意思并停止这种玩笑；如果对方需要安静，直接表达者同样应给空间。表达热情不等于一直开心，逞强说法也不证明深藏爱意。",
+          "en": "If a joke is unwelcome, state the meaning directly and stop that joke. If quiet is wanted, an openly expressive person should also give space. Expressiveness does not mean constant happiness, and a guarded phrase proves no concealed affection."
+        }
+      ]
+    },
+    {
+      "id": "context-and-retest",
+      "title": {
+        "zh": "情境、语言与重测：为什么结果可能变化",
+        "en": "Context, language and retesting: why results may change"
+      },
+      "paragraphs": [
+        {
+          "zh": "可按更想采用的表达回答，也可想象自己在故事中的选择；两种参照会影响作答。建议一轮使用同一参照，留意朋友熟悉度、公开或私下场合，以及翻译中玩笑是否仍自然，不把字面对应当成跨语言等值验证。",
+          "en": "You may answer for expressions you would prefer or imagine choices in a story; those reference frames can change responses. Keep one frame within an attempt, considering familiarity, public versus private settings and whether a translated joke still feels natural. Literal correspondence is not evidence of cross-language measurement equivalence."
+        },
+        {
+          "zh": "重测时先比较具体题目和参照情境，再看次数与最高组合。本版没有重测信度、测量误差、常模或预测效度研究；结果变化不能单独证明人格改变，也没有按某个间隔重测就更准确的依据。",
+          "en": "When retaking, compare particular questions and the reference context before counts and highest sets. This edition has no test–retest reliability, measurement-error, norms or predictive-validity studies. A changed result alone establishes no personality change, and no retest interval is known to make it more accurate."
+        }
+      ]
+    },
+    {
+      "id": "scope-and-reading",
+      "title": {
+        "zh": "结果怎样读：完整报告与可选的小尝试",
+        "en": "Reading results: full guides and optional small trials"
+      },
+      "paragraphs": [
+        {
+          "zh": "先看全部四项计数，再阅读所有最高并列的完整报告；也可比较其他公开指南。每份报告包含含义、读法、情境例子、对话、相邻原型区别、反例、观察方法、计分与使用范围。报告中的例子用于启发核对，不代表系统已经观察到你的真实行为。",
+          "en": "Read all four counts, then every complete guide tied highest; you can compare other public guides too. Each covers meaning, interpretation, an example, dialogue, neighbouring tropes, a counterexample, observation, scoring and scope. Examples prompt reflection; they do not mean the system has observed your actual behaviour."
+        },
+        {
+          "zh": "选一个你愿意改善的表达场景，试着清楚说出感谢、需要或不同偏好，记录什么说法对这一次交流有帮助。结果不换算MBTI、大五人格或依恋分数，也不决定伴侣匹配、职业或心理诊断。",
+          "en": "Choose one exchange you want to improve, practise making thanks, a need or a different preference clear, and note what helped that exchange. Results do not convert to MBTI, Big Five or attachment scores or determine partner compatibility, careers or diagnoses."
         }
       ]
     },
     {
       "id": "privacy",
       "title": {
-        "zh": "草稿、分享与下一步",
-        "en": "Drafts, sharing and next steps"
+        "zh": "直接开始、浏览器计分与自愿保存",
+        "en": "Direct start, browser scoring and optional saving"
       },
       "paragraphs": [
         {
-          "zh": "答卷在浏览器内计算，不上传、不放进网址或分析事件；草稿仅主动保存后留在当前标签页，24小时失效，完成、退出清除或重测即删。分享可选，只含公开匹配说明和链接，不含答卷或原始次数。完整结果无需注册、邮箱或先做MBTI。后续MBTI是独立框架，要另行完整作答，不换算成此处原型；也可以在这里结束。",
-          "en": "Answers are scored in your browser without uploading them or placing them in URLs or analytics. Drafts require opt-in, remain in this tab for up to 24 hours and clear on completion, exit-and-clear or retake. Optional sharing contains public matched explanations and links without answers or raw counts. Full results need no signup, email or prerequisite MBTI. A later MBTI attempt uses a separate framework, requires its own complete responses and does not convert into these tropes. You can also stop here."
+          "zh": "点击“开始测试”直接进入题目，无需注册或再次勾选同意。答卷在浏览器内计算，不把答案写进网址或分析事件。网站可能记录不含答案的开始、完成等使用事件，具体以隐私与Cookie设置为准。",
+          "en": "Start test opens the questions directly, without registration or another agreement checkbox. Answers are scored in your browser and are not put into URLs or analytics events. The site may record answer-free usage events such as starts and completions, subject to privacy and Cookie settings."
+        },
+        {
+          "zh": "默认不保存作答；只有主动保存后，草稿才在本标签页保留最多24小时，完成、退出清除或重测即删除。可随时退出；分享是可选的，公开结果指南不包含你的答卷或原始次数。",
+          "en": "Answers are not saved by default. An explicitly saved draft remains in this tab for up to 24 hours and clears on completion, exit-and-clear or retake. You can leave at any time. Sharing is optional, and public result guides contain neither your answers nor raw counts."
         }
       ]
     }
@@ -1408,52 +1530,142 @@
   "faq": [
     {
       "question": {
-        "zh": "这四种类型是什么意思？",
-        "en": "What do the four types mean here?"
+        "zh": "傲娇类型测试是什么？",
+        "en": "What is a dere type quiz?"
       },
       "answer": {
-        "zh": "傲娇在本版是轻松逞强后明确关心，冷娇是平静简短地表达，闷娇偏熟悉或私下慢慢说，热娇偏直接明显。它们是本版选择的文化表达标签，不是统一的心理分类，也不代表其他dere变体不存在。",
-        "en": "Here tsundere adds a light guarded front before clear care, kuudere uses calm brevity, dandere waits for familiarity or privacy and deredere is openly expressive. These are selected cultural expression labels rather than a unified psychological classification, and other dere variations still exist."
+        "zh": "这是费马原创16题文化表达测验，通过日常朋友情境比较傲娇、冷娇、闷娇与热娇四种说法。名称借用动漫与网络文化，本次结果记录选项计数，不把人划为四种固定人格。",
+        "en": "It is FermatMind’s original 16-question cultural expression quiz, comparing tsundere, kuudere, dandere and deredere responses in ordinary friendship scenarios. Names draw on anime and internet culture; results record selections rather than sorting people into four fixed personalities."
       }
     },
     {
       "question": {
-        "zh": "可以说别人拒绝其实是傲娇吗？",
-        "en": "Can I interpret someone’s no as tsundere affection?"
+        "zh": "四种类型各是什么意思？",
+        "en": "What do the four types mean?"
       },
       "answer": {
-        "zh": "不可以。现实拒绝、沉默、退开或不舒服都不等于隐藏同意或暗恋。本版只在双方明确愿意互动的假设下比较自己的表达选择，不替他人判断意愿，也不能作为继续追问、接触或施压的理由。",
-        "en": "No. A real refusal, silence, withdrawal or discomfort is no hidden consent or crush. The quiz compares your expressions only where both people freely want the exchange. It cannot decide someone else’s willingness or justify continued questions, contact or pressure."
+        "zh": "本版傲娇先轻松逞强再明确关心，冷娇平静简短，闷娇偏熟悉、私下或稍后表达，热娇直接表达温暖。四份完整指南解释相邻区别、反例和具体对话；这些是本版操作定义，不是全部作品的统一标准。",
+        "en": "Here tsundere uses a playful front then explicit care; kuudere is calm and brief; dandere favours familiarity, privacy or later expression; deredere expresses warmth directly. Four full guides explain contrasts, counterexamples and dialogue. These are operational definitions for this edition, not universal standards for every work."
       }
     },
     {
       "question": {
-        "zh": "并列或相差一次怎样看？",
-        "en": "How should I read ties or a one-choice gap?"
+        "zh": "需要了解动漫剧情或正在恋爱吗？",
+        "en": "Do I need anime knowledge or a romantic relationship?"
       },
       "answer": {
-        "zh": "全部16题各选一个表达，每次只给对应文化标签加1。四类在每题各出现一次，总曝光均为16次，在四个位置各出现4次；分母16是本题组机会数，不是性格相似度或人群比例。完成前不派结果，完成后保留所有最高计数匹配，每份匹配完整呈现；四项同为4次时四份都显示。差1次不证明显著、稳定主副型或哪种风格更真实。可以同时阅读其他公开说明，但不会因先读结果改分；本方法没有常模、验证阈值或预测效度。",
-        "en": "Choose one expression for every one of the 16 questions. Each choice adds one to its cultural label. All four labels appear once per question, each with 16 opportunities and four appearances in each position. The denominator is an opportunity count, not a personality-match percentage or population rate. No result is assigned before completion. Every highest count retains its full report; four equal counts of four display all four reports. One extra choice establishes neither significance, a stable primary–secondary identity nor a truer style. You can read other public guides without affecting scoring. This method has no norms, validated cutoffs or predictive validity."
+        "zh": "都不需要。题目围绕感谢、鼓励、活动偏好和陪伴，不考角色或剧情，也不收集伴侣资料。可以按自己想用的方式回答，或仅想象情境；一轮尽量保持同一参照。",
+        "en": "No. Questions concern thanks, encouragement, activity preferences and company, not character knowledge or plots, and collect no partner details. Answer for your preferred expression or imagine the situation, keeping one reference frame throughout."
       }
     },
     {
       "question": {
-        "zh": "这是科学人格、依恋或关系配对测评吗？",
-        "en": "Is this a scientific personality, attachment or compatibility test?"
+        "zh": "有多少题、多久完成、是否免费？",
+        "en": "How long is it, and is it free?"
       },
       "answer": {
-        "zh": "四个名称是本版选取的动漫和网络文化表达原型，不是统一、完整或经过验证的心理分类。小学馆《数字大辞泉》的词条说明傲娇常用于人物设置，电子书出版方词汇表也在作品语境解释冷娇；这些来源只帮助理解文化用语，不认证本版题目。16题、选项、完整解释、示例和计分安排均由费马独立编写，没有采用JobCannon20题、IDRlabs35题或其正文、角色图、作品设定、代码和算法。本版限定为自愿、无伤害的普通表达，不代表全部“dere”变体。无性别、恋爱状态、能力、职业、依恋或临床判断，不用于替别人确定意愿、隐藏感情或相处价值。",
-        "en": "These four names are selected anime and internet-culture expression tropes, not a unified, complete or validated psychological classification. Shogakukan’s Digital Daijisen describes tsundere as a character-setting term, while a fiction publisher’s glossary explains kuudere in a narrative context. Those sources clarify cultural usage, not validity of these items. FermatMind independently authored all 16 questions, options, guides, examples and scoring arrangements without adopting JobCannon’s 20 items, IDRlabs’ 35 items or their bodies, character art, settings, code or algorithms. This edition limits choices to voluntary, non-hurtful everyday expression and does not represent every dere variation. It establishes neither gender, relationship status, ability, career fit, attachment nor a clinical condition, and cannot determine anyone else’s willingness, concealed feelings or value as a companion."
+        "zh": "共16题，每题四选一，约4分钟，实际用时因阅读和思考而异。题目、四项计数、所有最高并列与完整报告免费，无需注册、邮箱或先做MBTI；点击开始直接进入题目。",
+        "en": "There are 16 questions with four options each, taking about four minutes depending on reading and reflection. Questions, all four counts, every highest tie and complete reports are free, without signup, email or prerequisite MBTI. Start goes directly to questions."
       }
     },
     {
       "question": {
-        "zh": "结果和分享要注册或保存答卷吗？",
-        "en": "Do results or sharing require signup or saving answers?"
+        "zh": "计分公式是什么？",
+        "en": "How are scores calculated?"
       },
       "answer": {
-        "zh": "不用。完整说明直接可读，保存草稿和分享都可选。分享只含公开解释与链接，没有私人答案或次数；完成后草稿删除。其他框架如MBTI需要另行选择和作答，本结果不换算成人格或职业匹配。",
-        "en": "No. Full explanations are directly readable; draft saving and sharing are optional. Sharing contains public explanations and links without private answers or counts, and drafts clear on completion. Other frameworks such as MBTI require a separate choice and attempt; this result converts to no personality or career match."
+        "zh": "每次选择只给对应方向加1。各项为0—16次，完成后四项合计16；每个方向在每题出现一次，并在每个位置各出现4次。固定总数使四项相互制约，不能按四个独立人格量表解释。",
+        "en": "Each choice adds one count to its direction. Each count is 0–16, and all four sum to 16 after completion. Each direction appears once per question and four times in each position. The fixed total makes counts interdependent, unlike four independent personality scales."
+      }
+    },
+    {
+      "question": {
+        "zh": "会出现几个并列结果？",
+        "en": "How many tied results can appear?"
+      },
+      "answer": {
+        "zh": "一到四个最高方向都有可能。例如7、7、1、1保留两项；5、5、5、1保留三项；4、4、4、4保留全部四份。所有最高方向显示完整报告，不按字母或选项位置破同分。",
+        "en": "One to four directions can share the highest count. For example, 7, 7, 1, 1 retain two; 5, 5, 5, 1 retain three; and 4, 4, 4, 4 retain all four complete reports. Letters and option positions do not break ties."
+      }
+    },
+    {
+      "question": {
+        "zh": "相差一次或某项为零意味着什么？",
+        "en": "What does a one-choice difference or zero mean?"
+      },
+      "answer": {
+        "zh": "8次与7次只有一次选择差异，没有稳定主副型或显著差异的证据。零次只是这轮没选到相应选项，不证明没有关心、不能表达或从不采用那种说法。",
+        "en": "Eight versus seven is one choice apart, without evidence for stable primary–secondary types or a significant difference. Zero only means that direction was not chosen in this attempt, not absence of care, inability to express it or permanent nonuse."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是经过科学验证的人格测评吗？",
+        "en": "Is this a scientifically validated personality assessment?"
+      },
+      "answer": {
+        "zh": "本版没有建立信度、效度或常模。字典与语言学案例分析可以帮助理解角色文化用语，不能证明16题的测量质量或预测现实关系。本页将文化证据与本版计分分别说明。[1][3]",
+        "en": "This edition has no established reliability, validity or norms. Dictionary and linguistic case-study sources clarify cultural character language; they do not validate these 16 items or predict real relationships. This page separates cultural evidence from its scoring method. [1][3]"
+      }
+    },
+    {
+      "question": {
+        "zh": "傲娇是否表示拒绝其实是喜欢？",
+        "en": "Does tsundere mean a refusal is secretly affection?"
+      },
+      "answer": {
+        "zh": "不表示。现实拒绝、沉默、退开或不舒服都不是隐藏同意。本题只在双方愿意互动的前提下比较自己的说法；真实交往应直接确认意愿并尊重答复。",
+        "en": "No. Refusal, silence, withdrawal and discomfort are not hidden consent. These questions compare your expressions only within mutually wanted interactions. In real exchanges, ask about willingness directly and respect the answer."
+      }
+    },
+    {
+      "question": {
+        "zh": "冷娇和闷娇有什么区别？",
+        "en": "What is the difference between kuudere and dandere?"
+      },
+      "answer": {
+        "zh": "冷娇在这里侧重已经说出的平静简短表达；闷娇更侧重熟悉、私下或稍后表达的时机。安静不能用来推断情绪少、社交焦虑或神经类型，具体原因要回到情境。",
+        "en": "Here kuudere concerns calm, concise expression already spoken; dandere concerns familiarity, privacy or later timing. Quiet does not establish less feeling, social anxiety or neurotype; its meaning depends on the situation."
+      }
+    },
+    {
+      "question": {
+        "zh": "热娇更多是否代表更真诚或更适合恋爱？",
+        "en": "Does more deredere mean greater sincerity or romantic suitability?"
+      },
+      "answer": {
+        "zh": "不能这样推断。直接表达只是本题组一种说法，不是魅力、真诚、受欢迎程度或伴侣适配评分。直接热情也需要给对方空间，玩笑式表达则需要确认对方是否接受。",
+        "en": "No. Direct warmth is one expression offered here, not a score for charm, sincerity, popularity or partner suitability. Open warmth still needs room for the other person, while playful expression needs a welcome audience."
+      }
+    },
+    {
+      "question": {
+        "zh": "可以与MBTI、大五人格或依恋类型换算吗？",
+        "en": "Can results convert to MBTI, Big Five or attachment types?"
+      },
+      "answer": {
+        "zh": "不可以。这些模型的概念、题目、计分与证据不同。不能由冷娇推定内向，由热娇推定安全依恋，也不能由傲娇推定某种心理问题；需要另行理解相应工具。",
+        "en": "No. Those models differ in constructs, items, scoring and evidence. Kuudere does not determine introversion, deredere does not determine secure attachment, and tsundere does not determine a psychological problem. Each tool needs its own interpretation."
+      }
+    },
+    {
+      "question": {
+        "zh": "两次结果不同说明我改变了吗？",
+        "en": "Do different retest results mean I have changed?"
+      },
+      "answer": {
+        "zh": "先比较参照情境、具体选择和次数差。偏好的说法、熟悉程度、翻译理解与当时状态都可能影响回答；本版没有重测误差数据，不能仅凭标签变化判断人格变化。",
+        "en": "First compare reference contexts, individual choices and count differences. Preferred wording, familiarity, translation and current state may affect responses. Without retest-error data, a changed label alone establishes no personality change."
+      }
+    },
+    {
+      "question": {
+        "zh": "答案在哪里计算，会保存或公开吗？",
+        "en": "Where are answers scored, saved or shared?"
+      },
+      "answer": {
+        "zh": "浏览器内计算，默认不保存。主动保存的草稿仅在本标签页保留最多24小时，完成、退出清除或重测即删除；答案不写进网址或分析事件。分享自愿，公开指南没有个人答卷或次数。",
+        "en": "Scoring happens in your browser, without saving by default. Explicitly saved drafts remain in this tab for up to 24 hours and clear on completion, exit-and-clear or retake. Answers enter neither URLs nor analytics. Sharing is optional; public guides contain no personal answers or counts."
       }
     }
   ],
@@ -1463,7 +1675,7 @@
         "zh": "小学馆《数字大辞泉》：傲娇的文化词义（Kotobank）",
         "en": "Shogakukan Digital Daijisen: cultural meaning of tsundere, via Kotobank"
       },
-      "url": "https://kotobank.jp/word/%25E3%2581%25A4%25E3%2582%2593%25E3%2581%25A7%25E3%2582%258C-573086"
+      "url": "https://kotobank.jp/word/%E3%81%A4%E3%82%93%E3%81%A7%E3%82%8C-573086"
     },
     {
       "title": {
@@ -1471,6 +1683,13 @@
         "en": "Publisher Network Bunko Hoshinosuna: kuudere in fiction terminology"
       },
       "url": "https://ucatv.co.jp/ebook/yougosyu/"
+    },
+    {
+      "title": {
+        "zh": "冨樫纯一（2009）：傲娇属性与语言表达的案例分析（研讨会资料）",
+        "en": "Junichi Togashi (2009): tsundere attributes and linguistic expression, symposium case study"
+      },
+      "url": "https://www2.ic.daito.ac.jp/jtogashi/articles/togashi2009a.pdf"
     }
   ]
 }

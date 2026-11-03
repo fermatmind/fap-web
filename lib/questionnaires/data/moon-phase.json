@@ -14,21 +14,21 @@
     "en": "Your eight moon-phase image choices and every highest tie"
   },
   "description": {
-    "zh": "免费月相测试：24道原创选择比较八种普通活动节奏意象，完整结果和全部最高并列直接读。无需注册或生日；不是月龄计算，也不判断健康、情绪、关系或命运。",
-    "en": "Take a free moon phase personality test with 24 original choices and eight full symbolic guides. No signup, birthday, moon-age or energy-cycle calculation."
+    "zh": "用24道原创情境题，探索留白、小试、取舍、调整、呈现、分享、减负与间隔八种活动节奏意象。约7分钟，免费查看原始次数、所有最高并列与完整指南；无需生日或注册，不计算出生月相。",
+    "en": "Explore eight activity-pace images through 24 original scenarios: space, trials, tradeoffs, adjustment, presentation, sharing, reducing scope and intervals. About 7 minutes, with free counts, every highest tie and full guides. No birthday or signup; not a birth moon calculation."
   },
   "seoTitle": {
-    "zh": "月相测试：24题、八种节奏意象与完整结果",
-    "en": "Moon Phase Personality Test: Free Quiz & Full Results"
+    "zh": "月相测试：24题探索八种活动节奏与完整结果",
+    "en": "Moon Phase Personality Test: 24 Questions & Eight Full Guides"
   },
   "minutes": 7,
   "introduction": {
-    "zh": "你现在更愿意留白、小试、明确取舍、调整一处、呈现收束、分享经验、减少负担，还是保留间隔？本版24道原创四选一，借八个月相名称作当代活动节奏意象。它按当前选择计数，不输入生日、不算真实月龄或月亮星座，也不测身体能量、情绪或固定人格。全部完成后，所有最高并列完整显示；八份完整说明也可以先读。没有更强、更好或稀有月相，不要求人生按八阶段循环，不从标签决定关系、健康或职业。",
-    "en": "Would you currently prefer space, a small trial, a tradeoff, one adjustment, presentation and closure, shared experience, reduced burden or an interval? This edition offers 24 original choices using eight phase names as contemporary activity-pace images. Counts use present choices without a birthday, actual moon age or astrological Moon sign, and measure no bodily energy, mood or fixed personality. Every highest tie appears in full after completion, and all eight guides can be read first. No phase is stronger, better or rarer, and no eight-stage life cycle, relationship, health or career decision is imposed."
+    "zh": "这份月相测试把八个月相名称用作普通活动的节奏意象：开始前留一点空间、尝试一个小步骤、说明当前取舍、调整一个细节、收束可呈现的版本、分享一条经验、减少可选负担，或保留一个间隔。24道原创四选一比较你现在更愿意采用哪种做法；完成后呈现八项原始次数与所有最高并列，八份完整指南也可以先读。\n\n这些是本站设计的当代比喻，不是天文学中的人格分类。问卷不收生日，不查你出生时或此刻的月相，也不计算月亮星座。选择一种做法，可以帮助你说清一项普通活动的安排；它不能说明你的身体与月球同步、你处于某个人生阶段，或其他做法就不适合你。",
+    "en": "This moon phase personality test uses eight phase names as images for the pace of ordinary activities: allowing space before starting, trying one small step, stating a tradeoff, adjusting a detail, gathering a presentable version, sharing an experience, reducing an optional burden or leaving an interval. The 24 original four-choice questions compare what you would prefer now. Completion shows all eight raw counts and every highest tie; the eight full guides can also be read beforehand.\n\nThese are contemporary metaphors designed for this edition, not astronomical personality categories. The questionnaire collects no birthday and calculates neither a birth or current phase nor an astrological Moon sign. A preference can help you describe an ordinary activity arrangement; it does not show that your body follows the Moon, place you in a life stage or rule out other approaches."
   },
   "instructions": {
-    "zh": "本版月相测试是一份24题原创活动节奏意象问卷，比较当前愿意采用的普通做法：留白、微小尝试、取舍、局部调整、呈现收束、分享经验、减少可选负担或保留间隔。八个月相名称只作本版编辑意象，不代表你现在或出生时的真实月相，也不测情绪、睡眠、身体能量或人格能力。每题选一个目前更愿意的做法；情境以自选、可改、可停止为前提，没有高低或正确答案。全部24题选择后比较原始次数，所有最高并列完整显示；全选第一项会八种各3次。顺序不要求人生必须经历八阶段，不指导重大决定，也不换算拖延、气质、MBTI或职业。",
-    "en": "This Moon Phase Personality Test is an original 24-question activity-pace image quiz. It compares ordinary approaches you currently prefer: space, a small trial, a tradeoff, a local adjustment, presentation and closure, shared experience, reduced optional burden or an interval. Eight phase names serve as editorial images, not your actual current or birth Moon phase, mood, sleep, bodily energy or personality ability. Choose one currently preferred approach per question in voluntary, revisable and stoppable situations, without higher, lower or correct answers. Compare raw counts after all 24 choices and read every highest-tied guide in full; choosing the first option throughout gives three each. Order imposes no eight-stage life path or major decision and converts into no procrastination, Temperament, MBTI or career result."
+    "zh": "请以近期一项普通、自选的小活动为参照，每题选更愿意采用的一种做法。几项都合适时选相对更想做的；没有完全合适的选项时选较接近的。无需观察天空或提供出生资料，也不用证明效率、毅力或完成能力。完成24题后生成计数与全部最高并列的完整解读。",
+    "en": "Think of a recent ordinary activity you chose for yourself, and pick the approach you would prefer in each question. If several fit, choose the one you want slightly more; if none fits completely, choose the closest. No sky observation, birth details or demonstration of efficiency, persistence or completion skill is needed. Finish all 24 questions to see the counts and full readings for every highest tie."
   },
   "source": {
     "kind": "FermatMindoriginalMoonPhaseOrdinaryPaceImages24/eighteditorialthemes/notastronomicalcalculationorpsychometricinstrument",
@@ -2306,65 +2306,187 @@
     {
       "id": "archetype-counts",
       "title": {
-        "zh": "24题怎样形成八主题计数",
-        "en": "How 24 choices produce eight-theme counts"
+        "zh": "24题怎样计分：八项次数与固定总数",
+        "en": "How scoring works: eight counts and a fixed total"
       },
       "paragraphs": [
         {
-          "zh": "24题全部各选一项，对应节奏意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些普通做法中的相对选择，不是月球照明比例、能量、人格强弱、身体节律或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二月相或强造混合型。相差一次只是一项选择，不证明显著差异、某种品质消失或固定人生阶段。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有类型或科学分界。",
-          "en": "Choose one option for all 24 questions; each adds one to its pace image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative ordinary approaches, not lunar illumination, energy, personality levels, bodily rhythms or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second phase or mixed type. A one-choice gap proves neither significance, absent qualities nor a fixed life stage. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare types or scientific cutoffs."
+          "zh": "每题四个选项，对应八个节奏主题中的四个；选中一项，那个方向加1次。完成24题后，八项合计固定为24。每个方向在题组出现12次，在四个选项位置各出现3次，所以单项范围为0—12。单题未提供的其他四个主题不算被拒绝，次数也不转换为受光比例或能量百分比。",
+          "en": "Each question offers four options representing four of eight pace themes. Choosing one adds one to its direction. After 24 answers, the eight counts sum to 24. Every direction appears 12 times, three in each option position, so individual counts range from 0–12. Themes absent from a question are not treated as rejected. Counts are not converted into illumination or energy percentages."
+        },
+        {
+          "zh": "例如，按新月、渐盈月牙、上弦月、盈凸月、满月、亏凸月、下弦月、渐亏月牙的顺序，一组实际可产生的次数是2、2、2、1、5、3、4、5，满月与渐亏月牙并列最高。这表示“呈现收束”和“安静间隔”在这组选择中获得相同最高次数，不能据此断定你同时处于两个真实月相。",
+          "en": "For example, in the order New Moon, Waxing Crescent, First Quarter, Waxing Gibbous, Full Moon, Waning Gibbous, Last Quarter and Waning Crescent, an attainable answer set gives 2, 2, 2, 1, 5, 3, 4, 5. Full Moon and Waning Crescent share the maximum: presentation-and-closure and a quiet interval were chosen equally often at the top. That does not place you in two actual lunar phases."
         }
       ]
     },
     {
       "id": "archetype-ties",
       "title": {
-        "zh": "完整结果、并列与近分",
-        "en": "Full guides, ties and close counts"
+        "zh": "最高并列、近分与低次数怎样解释",
+        "en": "Interpreting highest ties, nearby counts and lower counts"
       },
       "paragraphs": [
         {
-          "zh": "八份完整说明各有天文名称背景、本站读法、普通例子、可用表达、七主题比较、反例、小观察、计分和来源。所有最高并列完整显示，不把名单第一位当主型，不自动指定第二月相。近分可以一起读，但不构成混合人格、误差区间或生命阶段。重测反映当前选择，不证明真实月相或身体周期发生变化。",
-          "en": "Each full guide includes astronomical name context, this edition’s reading, an example, wording, seven-theme comparisons, counterexamples, an optional observation, scoring and sources. Every highest tie appears in full without treating the first as primary or assigning an automatic second phase. Read close guides without creating mixed personality, error intervals or life stages. Retaking reflects current choices, not a changed actual Moon phase or bodily cycle."
+          "zh": "相同最高次数的方向全部保留，不用字母、题号、位置或随机方式打破并列，也不自动选一个“主月相”和一个“副月相”。全卷都选A、都选B、都选C或都选D，都会得到八项各3次，八份指南全部显示。名单顺序只是阅读顺序，不是强弱或先后的人生阶段。",
+          "en": "All equal maxima are retained. Letters, question order, position and randomness do not break ties, and no main or secondary phase is assigned automatically. Choosing A throughout, B throughout, C throughout or D throughout gives three for each direction, displaying all eight guides. List order is for reading, not a hierarchy or a sequence of life stages."
+        },
+        {
+          "zh": "相差1次只是净计数差1，本版没有显著性检验或近分合并阈值。你可以比较相邻方向的说明，但只有相同最高值列为并列。较低次数表示本次题组中相对少选，不能说明没有相应品质、不会休息或不能完成任务；缺少的活动选项和当前条件也会影响选择。",
+          "en": "A gap of one is a net difference of one, without significance testing or a threshold for merging nearby scores. You may compare nearby guides, while highest-tie status is reserved for equal maxima. Lower counts mean fewer selections in this questionnaire, not a missing quality, inability to rest or failure to finish tasks. The available alternatives and current circumstances also shape choices."
         }
       ]
     },
     {
       "id": "archetype-metaphor",
       "title": {
-        "zh": "问卷与真实月相计算的区别",
-        "en": "This questionnaire and actual phase calculation"
+        "zh": "本版结果是什么：当代意象与当前选择",
+        "en": "What the result is: contemporary images and present choices"
       },
       "paragraphs": [
         {
-          "zh": "本版没有出生日期、时刻、地点、月龄或照明比例输入，不计算真实月相、月亮星座、生日配对或灵魂伴侣。八名称借自天文背景，当前偏好映射由本站创作；自然月相顺序不等于人生或身体必须同步的八阶段，也不把上弦说成周期的一半。",
-          "en": "There is no birth date, time, place, moon age or illumination input, and no actual phase, astrological Moon sign, birthday compatibility or soulmate calculation. Names have astronomical context; this preference mapping is independently authored. Phase order imposes no eight-stage life or bodily synchronisation, and first quarter is not described as halfway through the cycle."
+          "zh": "这是费马的原创象征测验。八个名称提供故事语言，24道题及其对应规则组织当前的相对选择；尚未完成心理测量学验证。可复算的算法能说明结果如何产生，但不能单独证明它测到了稳定人格、身体节律或真实月亮影响。",
+          "en": "This is a FermatMind Original symbolic quiz. Eight names supply story language, while 24 questions and their assignments organize present relative choices. Psychometric validation has not been completed. A reproducible algorithm explains how a result arises, but cannot by itself establish stable personality, bodily rhythms or an actual lunar influence."
+        },
+        {
+          "zh": "八份完整指南分别包含天文名称背景、本站读法、具体例子、可用表达、与其他主题的比较、反例、小观察、计分和来源。它们不是八个必须依次完成的人生步骤。可以只使用其中一个适合当前活动的提问，也可以不同意描述，不必为了标签改变生活安排。",
+          "en": "The eight full guides include astronomical name context, this edition’s reading, an example, suggested wording, comparisons, counterexamples, an optional observation, scoring and sources. They are not eight life steps that must be completed in order. Use a question that fits the activity at hand, or disagree with the description; a label does not require changing your arrangements."
         }
       ]
     },
     {
-      "id": "source",
+      "id": "moon-phase-astronomy",
       "title": {
-        "zh": "原创内容与天文资料的分工",
-        "en": "Original content and astronomical sources"
+        "zh": "真实月相：受光形状与周期，而非人格类型",
+        "en": "Actual phases: illumination and a cycle, not personality types"
       },
       "paragraphs": [
         {
-          "zh": "这是费马独立创作的普通活动节奏偏好问卷，八个月相只作当代编辑意象，不是天文计算、真实出生或当前月相、月亮星座、配对、命运或统一人格分类。NASA资料只核对月相名称和受光背景，不为本站映射、计数或心理解释提供验证，也不表示NASA认可本测验。24题、选项、当代主题、解释、例子与规则均为原创，没有采用JobCannon8题、竞品结果正文／代码／算法、NASA图片、受保护原文或名人生月相指派。本版不测情绪、睡眠、健康、激素、体力或自然能量周期，不认证智力、创造力、韧性、道德、关系或职业，也不规定人生必须经历八阶段；不转换拖延频率、气质、DISC或MBTI，没有本站心理测量验证。",
-          "en": "This is an independently authored FermatMind ordinary activity-pace preference quiz. Eight phases serve as contemporary editorial images rather than astronomical calculations, actual birth or current phases, astrological Moon signs, compatibility, destiny or a unified personality taxonomy. NASA checks names and illumination context without validating this mapping, counts or psychology, or endorsing this quiz. All 24 items, options, contemporary themes, explanations, examples and rules are original. No JobCannon 8-item bank, competitor result text, code, algorithm, NASA image, protected wording or famous-person birth-phase assignment is used. This edition measures neither mood, sleep, health, hormones, stamina nor natural energy cycles. It certifies no intelligence, creativity, resilience, morality, relationship or career, imposes no eight-stage life path and converts into no procrastination frequency, Temperament, DISC or MBTI result. There is no psychometric validation."
+          "zh": "月相是从地球看到的月球受光部分的变化，月光来自反射的太阳光。新月到下一次新月约29.5天。新月、上弦、满月和下弦标记周期中的不同位置；上弦从地球看约半圆受光，但名称指约走过四分之一个月相周期，不是“半个月相周期”。日常月相变化也不是地球影子逐渐挡住月球。[1]",
+          "en": "Phases describe changes in the illuminated portion of the Moon visible from Earth; moonlight is reflected sunlight. New Moon to new Moon takes about 29.5 days. New Moon, first quarter, full Moon and last quarter mark different positions in that cycle. First quarter looks roughly half lit but is about one-quarter through the phase cycle, not halfway through it. Ordinary phase changes are not Earth’s shadow gradually covering the Moon.[1]"
+        },
+        {
+          "zh": "天文上的新月、满月可以指精确时刻，月牙和凸月则描述中间的形态。本站借用八个常见名称，却没有以日期、时刻和历算确定某个天文位置。这里的“满月5次”只是一类选项被选择5次；无论今天月亮是什么样，这个问卷计数的意义都一样。",
+          "en": "Astronomical new and full Moons can denote precise moments, while crescents and gibbous phases describe intervening appearances. This quiz borrows eight familiar names without using dates, times or ephemeris calculations to locate a celestial event. “Full Moon: 5” means that options assigned to that theme were chosen five times. Its questionnaire meaning stays the same whatever the Moon looks like today."
         }
       ]
     },
     {
-      "id": "privacy",
+      "id": "moon-phase-eight-themes",
       "title": {
-        "zh": "草稿、分享与可选下一步",
-        "en": "Drafts, sharing and optional next steps"
+        "zh": "八种节奏意象分别关注什么？",
+        "en": "What do the eight pace images emphasize?"
       },
       "paragraphs": [
         {
-          "zh": "答案在浏览器内计分，不上传、不进网址或分析。草稿需主动开启，只在本标签页恢复，24小时失效，完成、重测、退出清除即删除。可选分享只含公开意象说明和链接，不含答案或次数。完整结果免费，不收邮箱、不先做其他测试；后续测评另行作答，也可以到此结束。",
-          "en": "Answers are scored in your browser without uploading them or placing them in URLs or analytics. Drafts require opt-in, restore only in this tab, expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains public image guides and links without answers or counts. Full results are free without email or another test first. Further assessments require separate responses; you can stop here."
+          "zh": "新月意象关注先留空间、说清自己愿意在意什么；渐盈月牙关注小而可改的尝试。上弦月关注在当前条件下明确取舍；盈凸月关注把已有做法的一处改得更合用。前两者区别在于“先想清意图”和“先试一小步”，后两者区别在于“选哪一种”和“怎样调一个细节”，都不是对速度或能力的评级。",
+          "en": "New Moon emphasizes space to name what matters now; Waxing Crescent a small, revisable trial. First Quarter concerns a tradeoff under current conditions; Waxing Gibbous one adjustment to an existing approach. The first pair distinguishes clarifying an intention from trying a step, and the second choosing an approach from adjusting a detail. None rates speed or ability."
+        },
+        {
+          "zh": "满月意象关注自己愿意呈现的范围与暂时收束；亏凸月关注自愿分享一条可用经验。下弦月关注减少一项可选附加要求；渐亏月牙关注保留不用马上开始下一件事的间隔。呈现不必公开，分享可以被婉拒，减负不等于放弃真实责任，间隔也无需证明已经“恢复能量”。",
+          "en": "Full Moon concerns a chosen scope of presentation and temporary closure; Waning Gibbous sharing a useful experience voluntarily. Last Quarter concerns removing an optional added requirement; Waning Crescent an interval without immediately starting another task. Presentation need not be public, sharing may be declined, reducing scope does not abandon actual duties, and an interval need not demonstrate restored energy."
+        }
+      ]
+    },
+    {
+      "id": "moon-phase-intent-distinctions",
+      "title": {
+        "zh": "月相问卷、出生月相和月亮星座有什么不同？",
+        "en": "How do this quiz, a birth phase and a Moon sign differ?"
+      },
+      "paragraphs": [
+        {
+          "zh": "本页用活动选项加总，得到编辑意象；出生月相计算则需要确定一个出生日期或时刻，求当时的月相，两者的输入和答案不同。月亮星座是占星体系对月球位置的分类，又是另一件事。仅凭选择题、喜欢的图片或对某段文字的认同，不能计算出生月相或月亮星座。",
+          "en": "This page adds activity choices to produce editorial images. A birth-phase calculation establishes a birth date or moment and finds the phase then, using different inputs to answer a different question. An astrological Moon sign classifies the Moon’s position within an astrological system. Preference answers, appealing images or agreement with a description cannot calculate either a birth phase or a Moon sign."
+        },
+        {
+          "zh": "问卷的高次数也不代表出生月相的“准确率”，没有把两个人的次数拼成满月、推算灵魂伴侣或预测关系的规则。若只是想查某日月亮的实际样子，应查看相应天文历算资料；若只是想描述今天更愿意怎样安排活动，可以保留本页的活动语言。",
+          "en": "A high questionnaire count is not the accuracy of a birth-phase identification. There is no rule for combining two people’s counts into a full Moon, identifying soulmates or predicting relationships. For the Moon’s appearance on a date, consult astronomical calculation resources. For describing how you would prefer to arrange an activity now, the activity language here may be useful."
+        }
+      ]
+    },
+    {
+      "id": "moon-phase-research",
+      "title": {
+        "zh": "月亮与睡眠研究，能否验证这个问卷？",
+        "en": "Can research on the Moon and sleep validate this quiz?"
+      },
+      "paragraphs": [
+        {
+          "zh": "不能直接验证。Cordi等人2014年对三组睡眠脑电资料的再分析，未复现其所检验的较早月相效应，并讨论未发表阴性结果可能带来的偏差。[2] Casiraghi等人2021年的实地研究则用腕部活动记录，在所研究的不同照明环境中报告了睡眠时间与月相的关联。[3] 两者的资料、环境和分析设计不同，不能把它们压缩成一句“月亮已被证明控制所有人的节奏”或“绝无任何相关性”。",
+          "en": "Not directly. Cordi and colleagues’ 2014 reanalysis of three sleep-EEG datasets did not replicate the earlier lunar effects they tested and discussed possible bias from unpublished null results.[2] Casiraghi and colleagues’ 2021 field study used wrist actimetry and reported associations between sleep timing and lunar phase in the lighting environments studied.[3] Different data, settings and analyses cannot be compressed into a claim that the Moon controls everyone’s pace or that no association is ever possible."
+        },
+        {
+          "zh": "这些研究考察的是有时间记录的实际睡眠与天文周期，不是八种活动意象，也没有验证本问卷。观察到的群体关联不等于能凭一个结果标签预测个人今晚的睡眠、情绪或体力。本版不收集连续睡眠记录，不估计生理周期，不据此安排治疗或重大决定；引用研究是为了说明证据适用范围。",
+          "en": "Those studies concern recorded sleep and astronomical cycles, not eight activity metaphors, and neither validates this questionnaire. A group-level association does not establish that a label predicts an individual’s sleep, mood or stamina tonight. This edition collects no longitudinal sleep records, estimates no physiological cycle and supplies no treatment or major-decision schedule. The research is cited to explain the scope of evidence."
+        }
+      ]
+    },
+    {
+      "id": "moon-phase-nearby-context",
+      "title": {
+        "zh": "怎样比较相近结果，避免把节奏读成标签？",
+        "en": "Comparing nearby results without turning pace into identity"
+      },
+      "paragraphs": [
+        {
+          "zh": "先找一项具体活动，再读两个高次数主题。例如满月与渐亏月牙并列，可以是“把这版笔记收好，再留一个空档”；并不矛盾，也不等于你既外向又内向。新月的留白是考虑意图，渐亏月牙的间隔是暂不追加安排，表面都安静，关注点却不同。",
+          "en": "Choose a concrete activity before comparing two high-count themes. Full Moon and Waning Crescent tied might suggest gathering this version of a note and then leaving an interval. That is not contradictory and does not establish simultaneous extraversion and introversion. New Moon’s space concerns intention; Waning Crescent’s interval concerns not adding another arrangement. Both can look quiet while serving different purposes."
+        },
+        {
+          "zh": "同样，盈凸月的一处修改不等于完美主义，下弦月的缩小范围不等于懒惰，渐盈月牙的小试也不等于毅力强。为最有共鸣的描述各找一个符合、一个不符合的近期例子。若例子不支持故事，就修改你的读法；无需把日常行为都解释成“天生月相性格”。",
+          "en": "Likewise, Waxing Gibbous adjustment is not perfectionism, Last Quarter scope reduction is not laziness, and a Waxing Crescent trial is not strong persistence. Find one recent example that fits a resonant description and one that does not. If examples fail to support the story, revise your reading rather than explaining every behavior as an innate lunar personality."
+        }
+      ]
+    },
+    {
+      "id": "moon-phase-small-activity",
+      "title": {
+        "zh": "用一次小活动尝试一种安排",
+        "en": "Try an arrangement within a small activity"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以用一张自用便条作观察：先写一句它要服务什么，或只试一个标题；再比较两种排列，或仅改一处难懂的说明。这里对应留白、小试、取舍和局部适配，但你只需要选一个想试的步骤，不必按月相顺序完成，也不用等某天月亮合适。",
+          "en": "Use a personal note for a small observation: write what it should serve or try just a heading; compare two layouts or revise one unclear sentence. These correspond to space, a trial, a tradeoff and adjustment. Choose only a step you want to try, without completing a lunar sequence or waiting for a particular Moon."
+        },
+        {
+          "zh": "另一种做法是确定这一小版的展示范围，愿意时分享一条经验，删去一个可选附加要求，或留一个不安排新任务的空档。最后记录“这一步是否适合这次条件”，而不是打效率分。分享前询问对方是否想听；减负时区分可选要求与真实约定；任何建议都可停止。",
+          "en": "Alternatively, decide who may see this small version, share an experience if wanted, remove an optional extra or leave an unscheduled interval. Record whether the step fits this occasion rather than scoring efficiency. Ask whether another person wants to hear your experience, distinguish optional extras from actual agreements, and leave room to stop any suggestion."
+        }
+      ]
+    },
+    {
+      "id": "moon-phase-retest",
+      "title": {
+        "zh": "重测变化与其他人格测试怎样区分？",
+        "en": "Retesting and distinctions from personality assessments"
+      },
+      "paragraphs": [
+        {
+          "zh": "同一个人在不同活动、期限或资源条件下，可能更想选择不同做法。重测时先看具体选项与八项次数，再看最高标签；少数答案变化就可能改变并列。本版没有用于量化个人变化的重测信度或误差区间，因此不把一次标签变化称为人格转变或月亮影响的证据。",
+          "en": "The same person may prefer different approaches across activities, deadlines or resources. On retesting, compare specific options and all eight counts before the leading label; a few changed answers can alter a tie. This edition has no test–retest reliability or error interval for quantifying personal change, so one changed label is not evidence of personality transformation or lunar influence."
+        },
+        {
+          "zh": "MBTI、大五人格、职业兴趣或拖延行为问卷讨论的构念，与这里的活动节奏意象不同。满月次数不能换算外向性，亏凸月不能换算共情或指导能力，下弦月也不能换算心理健康。可以从结果提出一个具体问题，再通过实际活动和反馈了解自己，而不是跨测试拼出未经验证的结论。",
+          "en": "MBTI, Big Five, vocational-interest and procrastination questionnaires concern different constructs from these activity-pace images. Full Moon counts cannot be converted into extraversion, Waning Gibbous into empathy or mentoring ability, or Last Quarter into mental health. Use a result to form a concrete question and explore it through activity and feedback rather than combining tests into an unvalidated conclusion."
+        }
+      ]
+    },
+    {
+      "id": "moon-phase-free-privacy",
+      "title": {
+        "zh": "免费范围、直接作答与保存方式",
+        "en": "Free access, direct start and saving"
+      },
+      "paragraphs": [
+        {
+          "zh": "全部24题、八项次数、所有最高并列与八份完整指南免费，无需注册、邮箱、生日或先做其他测试。点击开始测试直接进入题目，没有额外同意步骤。约7分钟只是阅读与选择的参考时间，不计速度分；固定公开指南不包含你的个人答案。",
+          "en": "All 24 questions, eight counts, every highest tie and eight full guides are free, without signup, email, birthday or a prior assessment. Start test opens the questions directly, without an additional agreement step. About seven minutes is an estimate for reading and choosing, not a speed score. Fixed public guides do not contain your answers."
+        },
+        {
+          "zh": "答案在当前浏览器计分，不通过计分请求上传服务器、不进入网址或分析事件。默认不保存；主动保存后，可在本标签页24小时内恢复，完成、退出清除或重测时删除进度。网站可能另记录不含答案的开始、完成等使用事件，以隐私与Cookie设置为准。分享公开指南时，无需解释自己的私人经历。",
+          "en": "Answers are scored in the current browser, not uploaded through scoring requests or placed in URLs or analytics events. They are unsaved by default. Opt-in progress can be restored in this tab for 24 hours and is removed on completion, explicit exit-and-clear or retesting. The website may separately record answer-free usage events such as starting or finishing, subject to privacy and Cookie settings. Sharing a public guide does not require explaining private experiences."
         }
       ]
     }
@@ -2372,52 +2494,142 @@
   "faq": [
     {
       "question": {
-        "zh": "月相测试包括哪八种？",
-        "en": "Which eight moon phases are included?"
+        "zh": "月相测试测什么？",
+        "en": "What does this moon phase test explore?"
       },
       "answer": {
-        "zh": "本版采用新月、渐盈月牙、上弦月、盈凸月、满月、亏凸月、下弦月与渐亏月牙，分别作留白、小试、取舍、局部适配、呈现收束、经验分享、减少负担与间隔的编辑意象。名称是天文背景，意象与题目是本站原创，不是NASA人格分类。",
-        "en": "This edition uses New Moon, Waxing Crescent, First Quarter, Waxing Gibbous, Full Moon, Waning Gibbous, Last Quarter and Waning Crescent as editorial images for space, a trial, a tradeoff, adjustment, presentation, sharing, reduced burden and an interval. Names supply astronomical context; images and items are original rather than a NASA personality taxonomy."
+        "zh": "本版用八个月相名称组织普通活动的相对选择，关注留白、小试、取舍、调整、呈现、分享、减负与间隔。它是一份原创象征测验，不把结果当作真实月相、固定人格或人生阶段。",
+        "en": "It uses eight phase names to organize relative choices about space, trials, tradeoffs, adjustment, presentation, sharing, reducing scope and intervals. This is an original symbolic quiz, not an identification of an actual lunar phase, fixed personality or life stage."
       }
     },
     {
       "question": {
-        "zh": "需要生日吗？能查真实月相或月亮星座吗？",
-        "en": "Do I need a birthday? Does this calculate a phase or Moon sign?"
+        "zh": "八个月相名称分别是什么？",
+        "en": "What are the eight phase names?"
       },
       "answer": {
-        "zh": "不需要，也不能。本版只按24道当前选择计数，不计算出生或当前月相、月龄、照明比例、星座或配对。寻找天文日期计算的人需要相应历算工具；问卷次数不能当作这些数据。",
-        "en": "No birthday is needed or collected. This edition counts 24 current choices without calculating birth or current phases, moon age, illumination, signs or compatibility. Astronomical date calculations require an appropriate calculation tool; questionnaire counts cannot stand in for those data."
+        "zh": "新月、渐盈月牙、上弦月、盈凸月、满月、亏凸月、下弦月、渐亏月牙。本版借名称作活动意象；NASA资料用于核对天文背景，没有提供这些心理映射，也不表示其认可本测验。[1]",
+        "en": "New Moon, Waxing Crescent, First Quarter, Waxing Gibbous, Full Moon, Waning Gibbous, Last Quarter and Waning Crescent. This edition borrows the names for activity images. NASA supplies astronomical context, not these psychological mappings or an endorsement of the quiz.[1]"
       }
     },
     {
       "question": {
-        "zh": "怎样计分、处理并列和近分？",
-        "en": "How are counts, ties and close results handled?"
+        "zh": "需要生日、出生时间或地点吗？",
+        "en": "Do I need a birthday, birth time or location?"
       },
       "answer": {
-        "zh": "24题全部各选一项，对应节奏意象加1，总数固定24。每题提供八主题中的四个，全卷每主题12次、每位置3次；未提供的另外四种不记拒绝。原始次数是这些普通做法中的相对选择，不是月球照明比例、能量、人格强弱、身体节律或人口排名。所有最高计数完整保留；全选第一项会八种各3次，八份完整显示。名单顺序不设主次，不自动指定第二月相或强造混合型。相差一次只是一项选择，不证明显著差异、某种品质消失或固定人生阶段。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有类型或科学分界。",
-        "en": "Choose one option for all 24 questions; each adds one to its pace image and counts always sum to 24. A question offers four of eight themes. Every theme appears 12 times and three times in each position; the four absent themes are not counted as rejected. Raw counts describe relative ordinary approaches, not lunar illumination, energy, personality levels, bodily rhythms or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives three each and displays all eight. List order establishes no priority, automatic second phase or mixed type. A one-choice gap proves neither significance, absent qualities nor a fixed life stage. Compare close counts without inventing untied conclusions. Context and time may change choices. There are no norms, rare types or scientific cutoffs."
+        "zh": "不需要。本版不采集这些资料，也不计算出生或当前月相、月龄、照明比例或月亮星座。想查某个日期的实际月相，需要相应天文历算；问卷次数不能替代日期计算。",
+        "en": "No. This edition does not collect these details or calculate a birth or current phase, lunar age, illumination or Moon sign. Finding an actual phase on a date requires astronomical calculation; questionnaire counts cannot substitute for it."
       }
     },
     {
       "question": {
-        "zh": "结果能判断能量、情绪、健康或职业吗？",
-        "en": "Can a result establish energy, mood, health or careers?"
+        "zh": "24题怎样得到八项次数？",
+        "en": "How do 24 questions produce eight counts?"
       },
       "answer": {
-        "zh": "这是费马独立创作的普通活动节奏偏好问卷，八个月相只作当代编辑意象，不是天文计算、真实出生或当前月相、月亮星座、配对、命运或统一人格分类。NASA资料只核对月相名称和受光背景，不为本站映射、计数或心理解释提供验证，也不表示NASA认可本测验。24题、选项、当代主题、解释、例子与规则均为原创，没有采用JobCannon8题、竞品结果正文／代码／算法、NASA图片、受保护原文或名人生月相指派。本版不测情绪、睡眠、健康、激素、体力或自然能量周期，不认证智力、创造力、韧性、道德、关系或职业，也不规定人生必须经历八阶段；不转换拖延频率、气质、DISC或MBTI，没有本站心理测量验证。",
-        "en": "This is an independently authored FermatMind ordinary activity-pace preference quiz. Eight phases serve as contemporary editorial images rather than astronomical calculations, actual birth or current phases, astrological Moon signs, compatibility, destiny or a unified personality taxonomy. NASA checks names and illumination context without validating this mapping, counts or psychology, or endorsing this quiz. All 24 items, options, contemporary themes, explanations, examples and rules are original. No JobCannon 8-item bank, competitor result text, code, algorithm, NASA image, protected wording or famous-person birth-phase assignment is used. This edition measures neither mood, sleep, health, hormones, stamina nor natural energy cycles. It certifies no intelligence, creativity, resilience, morality, relationship or career, imposes no eight-stage life path and converts into no procrastination frequency, Temperament, DISC or MBTI result. There is no psychometric validation."
+        "zh": "每题所选方向加1次，八项合计24。各方向在全卷出现12次，在四个选项位置各出现3次，因此单项为0—12。单题未出现的四个主题不记为拒绝；这些次数不是受光百分比或能量等级。",
+        "en": "Each chosen direction gains one, for a total of 24. Each direction appears 12 times, three in each option position, giving counts of 0–12. The four themes absent from a question are not rejected. Counts are not illumination percentages or energy levels."
       }
     },
     {
       "question": {
-        "zh": "完整结果、重测和分享免费吗？",
-        "en": "Are full results, retaking and sharing free?"
+        "zh": "两个、多个或八个结果并列怎么办？",
+        "en": "What happens with two, several or eight tied results?"
       },
       "answer": {
-        "zh": "可以先读八份完整说明，完成24题后所有最高并列完整显示，无需注册或邮箱。重测清除本次答案，可选分享只含公开说明与链接，不含答卷或次数。后续测评自选，另行作答。",
-        "en": "All eight full guides can be read first, and every highest tie appears after all 24 choices without signup or email. Retaking clears this attempt. Optional sharing contains public guides and links without responses or counts. Further assessments are optional and require new answers."
+        "zh": "所有相同最高次数都保留并显示完整指南。例如2、2、2、1、5、3、4、5对应满月与渐亏月牙并列。全选同一选项字母会得到八项各3次。没有强行破同分或自动选第二月相的规则。",
+        "en": "Every equal maximum is retained with its full guide. For example, 2, 2, 2, 1, 5, 3, 4, 5 gives a Full Moon–Waning Crescent tie. Choosing the same option letter throughout produces three each. There is no forced tie-break or automatic secondary phase."
+      }
+    },
+    {
+      "question": {
+        "zh": "相差1次就代表明显不同吗？",
+        "en": "Does a one-count gap mean a meaningful difference?"
+      },
+      "answer": {
+        "zh": "只表示净计数差1。本版没有统计显著性检验、常模或近分合并阈值。可以一起比较高次数主题的活动含义，但不把近分直接判为并列或两种不同人格；低次数也不是缺点。",
+        "en": "It means a net count difference of one. There is no significance test, norm or near-score merging threshold. Compare high-count themes if useful without treating nearby scores as tied or as distinct personalities. Lower counts are not defects."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么上弦月看起来是半圆？",
+        "en": "Why does a first-quarter Moon look half lit?"
+      },
+      "answer": {
+        "zh": "“上弦”指月相周期约四分之一处，不是可见圆面只有四分之一受光，也不是周期的一半。问卷中它对应当前取舍的编辑意象；选中这个主题不会改变或查明天空中的月相。",
+        "en": "“First quarter” refers to about a quarter of the phase cycle, not a quarter-lit visible disc or halfway through the cycle. In this quiz it is an editorial image for a present tradeoff. Choosing it neither changes nor identifies the phase in the sky."
+      }
+    },
+    {
+      "question": {
+        "zh": "月相会决定我的情绪、睡眠或体力吗？",
+        "en": "Does the result determine my mood, sleep or stamina?"
+      },
+      "answer": {
+        "zh": "本版没有测量这些指标。研究实际月相与睡眠的工作，需要时间记录、合适样本与分析设计，已有研究的结果和条件并不一致。[2][3] 无论如何，都不能把本问卷的一个意象标签当成个人睡眠或身体预测。",
+        "en": "This quiz does not measure those outcomes. Research on actual lunar phases and sleep requires timed observations, appropriate samples and analytical design, with differing findings and conditions across studies.[2][3] None of that makes a metaphor label from this questionnaire a personal sleep or bodily prediction."
+      }
+    },
+    {
+      "question": {
+        "zh": "这份月相人格测试科学吗？",
+        "en": "Is this moon phase personality test scientifically validated?"
+      },
+      "answer": {
+        "zh": "它有明确题目、可复算计数与完整解释，但尚未完成心理测量学验证。“人格测试”是常见检索名称，本版实际提供的是活动节奏意象比较。天文事实不能自动验证编辑映射，也不赋予结果诊断或能力评估用途。",
+        "en": "It has defined questions, reproducible counts and full explanations, but no completed psychometric validation. “Personality test” is a familiar search label; this edition actually compares activity-pace images. Astronomical facts do not validate the mapping or give the result diagnostic or ability-assessment uses."
+      }
+    },
+    {
+      "question": {
+        "zh": "我必须按八个月相依次安排生活吗？",
+        "en": "Must I arrange my life through eight phases in order?"
+      },
+      "answer": {
+        "zh": "不必。一次活动可能既想收束一个版本，也想保留间隔；另一次可能只想试一步。名称顺序不是你的成长进度，也不要求等待新月开工、满月完成。按实际时间、条件和约定作安排即可。",
+        "en": "No. One activity may call for gathering a version and leaving an interval, while another involves only a trial. The name order is not your progress through growth, and there is no requirement to start at new Moon or finish at full Moon. Use actual time, circumstances and agreements."
+      }
+    },
+    {
+      "question": {
+        "zh": "能用结果配对，或换算MBTI、大五人格吗？",
+        "en": "Can I use the result for compatibility, MBTI or Big Five?"
+      },
+      "answer": {
+        "zh": "不能直接换算，也没有灵魂伴侣或关系匹配规则。八个活动意象与人格偏好、连续特质、职业兴趣是不同的解释对象。结果可以提供讨论安排的词汇，不用来替他人判型或决定重大关系与职业选择。",
+        "en": "There is no direct conversion or soulmate or relationship-matching rule. These activity images differ from personality preferences, continuous traits and vocational interests. They may supply words for discussing arrangements, not for typing others or making major relationship or career decisions."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样把结果用到普通活动中？",
+        "en": "How can I use the result in an ordinary activity?"
+      },
+      "answer": {
+        "zh": "选一张便条或小草稿，只试一个适合的步骤：写清意图、试一个标题、比较两种做法、改一处说明，或决定展示范围、分享经验、删去可选要求、留一个空档。观察是否合用，不需要购买物品或证明效率。",
+        "en": "Choose a note or small draft and try one suitable step: clarify an intention, test a heading, compare approaches, revise a sentence, decide visibility, share experience, remove an optional extra or leave an interval. Observe whether it fits, without buying anything or proving efficiency."
+      }
+    },
+    {
+      "question": {
+        "zh": "免费吗，开始测试后还需同意一次吗？",
+        "en": "Is it free, and is there another agreement after Start?"
+      },
+      "answer": {
+        "zh": "全部题目、次数、并列和八份完整指南免费，无需注册或先做其他测评。点击开始测试直接进入题目，没有额外同意步骤。约7分钟是参考用时，不计速度分。",
+        "en": "All questions, counts, ties and eight full guides are free, without signup or a prior assessment. Start test opens the questions directly with no additional agreement step. About seven minutes is an estimate, not a speed score."
+      }
+    },
+    {
+      "question": {
+        "zh": "答案是否上传或保存，重测会怎样？",
+        "en": "Are answers uploaded or saved, and what happens on retesting?"
+      },
+      "answer": {
+        "zh": "在浏览器计分，答案不通过计分请求上传、不进入网址或分析事件。默认不保存；主动保存后本标签页保留24小时，完成、退出清除或重测删除。重测反映新的选择，不证明人格变化；其他使用事件以隐私与Cookie设置为准。",
+        "en": "Scoring runs in the browser; answers are not uploaded through scoring requests or included in URLs or analytics events. They are unsaved by default; opt-in tab progress lasts 24 hours and clears on completion, explicit exit-and-clear or retesting. Retesting records new choices, not proof of personality change. Other usage events follow privacy and Cookie settings."
       }
     }
   ],
@@ -2428,6 +2640,20 @@
         "en": "NASA Science: Moon phases (astronomical context, not personality validation)"
       },
       "url": "https://science.nasa.gov/moon/moon-phases/"
+    },
+    {
+      "title": {
+        "zh": "Cordi等（2014）：月相睡眠效应与未发表结果问题",
+        "en": "Cordi et al. (2014): Lunar cycle effects on sleep and the file drawer problem"
+      },
+      "url": "https://www.pure.ed.ac.uk/ws/files/23618031/Cordi_2014_On_lunar_cycle_effects.pdf"
+    },
+    {
+      "title": {
+        "zh": "Casiraghi等（2021）：实地月相与睡眠研究（摘要及图说明）",
+        "en": "Casiraghi et al. (2021): Moonstruck sleep (abstract and figure legends)"
+      },
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33571126/"
     }
   ]
 }

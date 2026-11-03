@@ -103,7 +103,7 @@ describe("Original fictional connection ideals, without partner identification",
         const path = `/${locale}/tests/explore/${quiz.slug}`, props = { params: Promise.resolve({ locale, slug: quiz.slug }) };
         const html = renderToStaticMarkup(await entry.default(props)), meta = await entry.generateMetadata(props), dom = document.createElement("div"); dom.innerHTML = html;
         expect(dom.querySelector("h1")?.textContent).toBe(quiz.title[locale]); expect(dom.textContent).toContain(quiz.instructions![locale]);
-        expect(dom.textContent).toContain(locale === "zh" ? "原创连接偏好 · 完整结果免费" : "Original connection reflection · Full results free");
+        expect(dom.textContent).toContain(locale === "zh" ? "12次比较 · 约4分钟 · 无需注册 · 完整指南免费" : "12 comparisons · about 4 minutes · no signup · full guides free");
         expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
         const directory = document.createElement("div"); directory.innerHTML = renderToStaticMarkup(<MoreTests locale={locale} />); expect(directory.querySelector(`a[href="${path}"]`)).not.toBeNull();
         for (const profile of quiz.profiles) {

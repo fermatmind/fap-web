@@ -14,21 +14,21 @@
     "en": "Nine philosophical reading entrances and every highest tie"
   },
   "description": {
-    "zh": "免费哲学家性格测试：18道原创思路选择，比较九个原典阅读入口。完整结果、计分和全部最高并列直接读，不模拟历史人物性格或判断智力、道德和职业。",
-    "en": "Which philosopher are you? Explore nine primary-text reading associations through 18 original choices. Full results and highest ties free, without personality claims."
+    "zh": "18道原创日常思路选择，探索苏格拉底、孔子、波伏瓦等九个哲学阅读入口。免费查看原始计数、全部最高并列、原典背景与完整指南；无需哲学基础或注册。",
+    "en": "Explore nine philosophical reading paths through 18 original everyday choices. Get raw counts, every highest tie, primary-text context and complete guides free. No prior philosophy knowledge or signup needed."
   },
   "seoTitle": {
-    "zh": "哲学家性格测试：18题与九份完整结果",
-    "en": "Which Philosopher Are You? Free Quiz & Full Results"
+    "zh": "哲学家性格测试：18题、九种思路与原典阅读指南",
+    "en": "Which Philosopher Are You? 18 Choices, Nine Perspectives and Reading Guides"
   },
   "minutes": 6,
   "introduction": {
-    "zh": "面对一个普通问题，你更想先检视定义、考虑具体合宜，还是重新审视自己的尺度、彼此自由或眼前回应？本版以18道原创四选一提供九个哲学阅读入口：苏格拉底、亚里士多德、孔子、老子、伊壁鸠鲁、爱比克泰德、尼采、波伏瓦和马可·奥勒留。名称只关联所选原典中的有限问题，不替古人答题，不测试你像不像真实人物，也不代表赞同完整学说。全部作答后看相对次数和所有最高并列，九份完整说明也可先读。",
-    "en": "When considering an ordinary question, would you first examine meanings, consider appropriate practice, reconsider your standards, attend to freedom with others or reflect on your present response? Eighteen original choices offer nine reading entrances: Socrates, Aristotle, Confucius, Laozi, Epicurus, Epictetus, Nietzsche, Simone de Beauvoir and Marcus Aurelius. Each name associates with limited questions in selected primary texts rather than supplying historical answers, testing personal resemblance or endorsing an entire doctrine. Complete the set for relative counts and every highest tie, or read all nine full guides first."
+    "zh": "面对同一个日常问题，你更想先澄清概念、练习具体判断，还是重新考虑欲望、尺度与他人的选择空间？这份哲学家性格测试用18道原创四选一，提供苏格拉底、亚里士多德、孔子、老子、伊壁鸠鲁、爱比克泰德、尼采、波伏瓦和马可·奥勒留九个阅读入口。完成后免费查看全部次数、每个最高并列与九份完整指南。名称指向所选原典中的有限问题，帮助开始阅读和比较，不模拟历史人物性格，也不要求赞同某人的全部学说。",
+    "en": "When facing the same everyday question, would you first clarify a concept, practise judgment in context, or reconsider desires, standards and others’ room for choice? This original eighteen-choice quiz offers nine reading paths: Socrates, Aristotle, Confucius, Laozi, Epicurus, Epictetus, Nietzsche, Simone de Beauvoir and Marcus Aurelius. View all counts, every highest tie and nine full guides free. Each name points toward limited questions in selected primary texts, helping you begin reading and comparing rather than simulating a historical personality or endorsing an entire philosophy."
   },
   "instructions": {
-    "zh": "按你目前更想优先考虑的思路完成18道原创四选一，不选哪个哲学家更有名或哪句更高尚。九个阅读联想各出现8次，每个位置2次；每次选择加1，0反向。全部完成才看相对次数与全部最高并列，不硬派主副型或相似度百分比。选项是当代阅读提示，不声称原哲学家会这样答题，也不等于赞同他们的完整思想。新版改变了对象与部分选项，新旧计数不直接互认，也不表示思想、道德、人格或能力的进退。可以直接先读九份全文或退出。",
-    "en": "Complete eighteen original choices using the line of inquiry you currently want to consider first rather than the most famous name or noblest-sounding sentence. Nine reading associations each appear eight times and twice in each position. Each choice adds one count with no reverse keys. Complete the set for relative counts and every highest tie without a forced secondary type or similarity percentage. Options are contemporary reading prompts, not historical answers or endorsements of whole systems. This edition changes the figures and some options; old and new counts are not interchangeable or evidence of intellectual, moral, personality or ability progress or decline. You may read all nine full guides first or leave."
+    "zh": "每题选四种思路中你现在更想先考虑的一项。多个都赞同时，选更愿意从哪里开始；不按哲学家名气、看起来高尚或自己的知识多少作答。18题全部完成才生成计数，所有最高并列都保留，没有固定主副型或相似度百分比。无需提前阅读原典，九份公开指南也可先读。点击开始直接进入题目，无需额外同意。",
+    "en": "For each question, choose the line of inquiry you would consider first now. If several appeal, pick where you would start, rather than a famous name, a noble-sounding answer or your level of knowledge. All eighteen choices are needed for counts; every highest tie is retained without a fixed primary/secondary type or similarity percentage. No advance reading is needed, and all nine public guides can be read first. Start opens questions directly without another agreement."
   },
   "source": {
     "kind": "FermatMindoriginal18philosophical-inquirychoices/9independentprimarytextreadingassociations/notJobSixThinkersorIDR7/personalitysimulation-orcomprehensivephilosophyexam",

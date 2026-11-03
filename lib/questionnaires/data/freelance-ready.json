@@ -30,8 +30,8 @@
     "zh": "自由职业者准备程度测试"
   },
   "description": {
-    "en": "Review 20 preparation actions across service, agreements, resources, delivery and boundaries. Read all five complete guides for free, without a pass mark or success prediction.",
-    "zh": "按服务、约定、资源、交付与边界回看20项准备行动，免费阅读五份完整指南；不设合格线，也不预测职业成功。"
+    "en": "Review 20 preparation actions for a specific freelance project: service, agreements, resources, delivery and boundaries. See five separate stage summaries and five complete guides, free in about five minutes.",
+    "zh": "围绕一项具体自由职业项目，回看服务、约定、资源、交付与边界的20项准备行动。约5分钟，免费查看五组独立阶段概括与五篇完整指南。"
   },
   "resultHeading": {
     "en": "Your current preparation actions",
@@ -43,8 +43,8 @@
   },
   "minutes": 5,
   "introduction": {
-    "en": "Choose one concrete arrangement and report what you have actually prepared so far. See five separate action-stage summaries, the individual choices and every complete public reading. The questions, method and explanations are original and are not a validated prediction of readiness.",
-    "zh": "选择一项具体安排，按目前实际做过的准备作答。查看五组独立阶段概括、逐题选择和全部完整公开指南。题目、方法与解释均为原创，不是已经验证的准备度预测。"
+    "en": "Freelance preparation involves defining a service, discussing project conditions and trying how delivery would work. This original review records what you have prepared for one real or simulated arrangement, using four action stages and a separate not-rated choice. It shows stage counts, individual selections and a group mean only when all four actions are rated. All five guides remain open without an overall readiness grade.",
+    "zh": "自由职业准备涉及定义服务、讨论项目条件，以及试做交付安排。这份原创回顾围绕同一项真实或模拟安排，以四个行动阶段及单独的不计分选项记录已经做过的准备。结果展示阶段计数、逐项选择，以及仅在同组四项均有数字时显示的均值；五篇指南始终开放，不生成总准备等级。"
   },
   "source": {
     "kind": "fermatmind_original_preparation_action_self_report",

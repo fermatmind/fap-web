@@ -12,7 +12,7 @@ for (let mask = 0; mask < 4096; mask++) {
   if (!witnesses.has(profile.id)) witnesses.set(profile.id, { values, counts });
 }
 async function consent(page: Page, l: Locale) { const b = page.getByRole("button", { name: label(l, "Decline", "拒绝"), exact: true }); if (await b.isVisible()) await b.click(); }
-async function button(page: Page, l: Locale, en: string, zh: string) { await page.getByRole("button", { name: label(l, en, zh), exact: true }).click(); }
+async function button(page: Page, l: Locale, en: string, zh: string) { await (en === "Start test" ? page.locator("[data-explore-start]") : page.getByRole("button", { name: label(l, en, zh), exact: true })).click(); }
 async function finish(page: Page, l: Locale, profileId: string) {
   const sample = witnesses.get(profileId)!;
   for (let i = 0; i < 12; i++) {

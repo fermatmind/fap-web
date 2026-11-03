@@ -115,7 +115,7 @@ describe("T086 original four-part relationship reflection", () => {
       const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(await entry.default(props)); expect(dom.querySelector("h1")?.textContent).toBe(quiz.title[locale]);
       for (const id of ["facet-scoring", "facet-reading", "facet-comparison"]) expect(dom.querySelector("section[aria-labelledby='questionnaire-method']")?.textContent).toContain(quiz.guide.find(s => s.id === id)!.paragraphs[0][locale]);
       const meta = await entry.generateMetadata(props); expect(meta.title).toBe(quiz.seoTitle[locale]); expect(meta.description).toBe(quiz.description[locale]); expect(meta.alternates?.canonical).toBe("https://fermatmind.com" + path);
-      const directory = document.createElement("div"); directory.innerHTML = renderToStaticMarkup(<MoreTests locale={locale}/>); expect(directory.querySelectorAll(`a[href='${path}']`)).toHaveLength(1); expect(maps.filter(x => x.loc === "https://fermatmind.com" + path)).toHaveLength(1);
+      const directory = document.createElement("div"); directory.innerHTML = renderToStaticMarkup(<MoreTests locale={locale}/>); expect(directory.querySelectorAll(`a[href='${path}']`)).toHaveLength(2); expect(directory.querySelectorAll(`article:has(a[href='${path}'])`)).toHaveLength(1); expect(maps.filter(x => x.loc === "https://fermatmind.com" + path)).toHaveLength(1);
       for (const p of quiz.profiles) {
         const path = `/${locale}/tests/explore/${quiz.slug}/results/${p.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: p.id }) };
         const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(await guide.default(props)); expect(dom.querySelector("h1")?.textContent).toBe(p.title[locale]);

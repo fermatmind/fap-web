@@ -44,8 +44,8 @@
       ],
       "correctOptionId": "D",
       "explanation": {
-        "en": "The rule names two deliverables. The first package supplies both; an attractive substitute is not an agreed replacement.",
-        "zh": "规则点名两项交付物，首项包同时具备；好看的替代品不自动成为约定替代。"
+        "en": "Package D includes both the CSV index and PDF reading guide required by the acceptance rule. A, B and C each omit at least one required deliverable; a substitute needs an agreed change.",
+        "zh": "D包同时含验收规则要求的CSV索引和PDF阅读指南。A、B、C均至少缺一项；替代交付物需要先约定变更。"
       },
       "id": "PROJECT_01"
     },
@@ -366,8 +366,8 @@
       ],
       "correctOptionId": "B",
       "explanation": {
-        "en": "The first note identifies who checks and a concrete threshold. It does not prove the chosen threshold is optimal outside this fictional plan.",
-        "zh": "首项有监测人和具体阈值，不证明该阈值在虚构计划之外最优。"
+        "en": "Note B names Imani as the monitor and sets a measurable trigger: the queue exceeds 12. A lacks both specifics, C lacks a measurable trigger and D lacks a monitor. The case does not establish that 12 is an optimal threshold elsewhere.",
+        "zh": "B项指定Imani监测，并给出可测触发条件：队列超过12。A缺两项具体信息，C缺可测条件，D缺监测者。本题不证明12在其他场景中也是最优阈值。"
       },
       "id": "PROJECT_08"
     },
@@ -412,8 +412,8 @@
       ],
       "correctOptionId": "D",
       "explanation": {
-        "en": "The first choice matches all four declared fields. A communication plan should be applied to the case’s actual needs, not used to require unnecessary reports everywhere.",
-        "zh": "首项匹配四个题定字段，沟通计划应服务实际需求，不应变成到处强制无用报告。"
+        "en": "Option D matches all four stated fields: the trial owner, queue count, email and every Friday. A is not recurring, B sends the wrong content and C omits the required email to the owner.",
+        "zh": "D项匹配四个题定字段：试验负责人、队列计数、邮件、每周五。A没有持续频率，B内容不符，C没有按要求邮件发给负责人。"
       },
       "id": "PROJECT_09"
     },
@@ -642,8 +642,8 @@
       ],
       "correctOptionId": "B",
       "explanation": {
-        "en": "All required fields are present only in the first record. Presence of fields is not proof that the decision was wise or that its owner had unstated authority.",
-        "zh": "只有首项具备所有必填字段；字段齐全不证明决策明智，也不凭空赋予权限。"
+        "en": "Record B contains Option Cedar, decision owner Esi and the date 12 May. A omits the owner, C has no chosen option and D has no date. Complete fields alone do not prove a wise decision or confer authority.",
+        "zh": "B项含Cedar方案、决策人Esi及5月12日。A缺决策人，C未选定方案，D缺日期。字段齐全本身不证明决策明智，也不赋予权限。"
       },
       "id": "PROJECT_14"
     },
@@ -1102,8 +1102,8 @@
       ],
       "correctOptionId": "C",
       "explanation": {
-        "en": "The first clarification connects information to the named decision. The case does not equate less reporting with better communication in every project.",
-        "zh": "首项把信息连到指定决策，本题不把少写报告普遍等同于沟通更好。"
+        "en": "Clarification C asks which trial outcomes and constraints will inform the named decision. A addresses appearance, B provides unfiltered messages and D assumes length means usefulness. The case links reporting to a decision, not a universal preference for shorter reports.",
+        "zh": "C项询问哪些试验结果与限制将用于题定决策。A只问外观，B发送未筛选消息，D假定长度代表用处。本题强调报告服务决策，不普遍认定报告越短越好。"
       },
       "id": "PROJECT_24"
     },
@@ -1194,8 +1194,8 @@
       ],
       "correctOptionId": "D",
       "explanation": {
-        "en": "The first choice matches the declared inclusion and exclusion. Whether a photo package would be valuable is a separate change decision.",
-        "zh": "首项匹配题定包含与排除，照片包有无价值属于另一变更决策。"
+        "en": "Option D delivers the agreed text-only directory. A, B and C introduce photography, portraits or video outside the stated boundary. Whether such additions would be useful is a separate change decision.",
+        "zh": "D项交付约定的纯文字目录。A、B、C引入摄影、人像或视频，超出题定边界。这些新增内容是否有用，属于另一个变更决策。"
       },
       "id": "PROJECT_26"
     },
@@ -1332,8 +1332,8 @@
       ],
       "correctOptionId": "B",
       "explanation": {
-        "en": "Only the first option respects both the permitted content and exclusions. Use fictional records here; this is a supplied policy exercise, not a statement of legal compliance.",
-        "zh": "只有首项同时服从允许内容与排除项。本题用虚构记录，只练给定政策，不判定法律合规。"
+        "en": "Option B includes aggregate counts and excludes names and personal contact details, meeting both conditions. A discloses email addresses, C names and D phone numbers. This is a fictional policy exercise, not a legal-compliance determination.",
+        "zh": "B项保留汇总计数，并排除姓名和私人联系方式，同时满足两项条件。A披露邮箱，C披露姓名，D披露电话。本题练习虚构政策，不判定法律合规。"
       },
       "id": "PROJECT_29"
     },

@@ -10,17 +10,17 @@
     "zh": "SQL测试"
   },
   "seoTitle": {
-    "en": "SQL Test: 24 Free Query Questions & Worked Answers",
-    "zh": "SQL测试：24道免费查询题、答案与逐题解析"
+    "zh": "SQL测试：24道SQLite查询题、完整答案与解析",
+    "en": "SQL Test: 24 SQLite Query Questions & Worked Answers"
   },
   "description": {
-    "en": "Read 24 original SQL tasks with complete input tables, checked on SQLite 3.53.4. Free worked answers and four full guides. Untimed practice.",
-    "zh": "用24道原创SQL题练习读查询，完整列出输入表，并按SQLite 3.53.4核过结果。免费查看全部所选、答案、逐题解析及四份完整指南。不计时，不派招聘等级或认证。"
+    "zh": "免费练习24道原创SQL结果判断题，完整列出表结构与数据。按SQLite 3.53.4核验，查看筛选、联接、聚合、窗口与约束解析及四篇完整指南；无需注册，不计时。",
+    "en": "Practise 24 original SQL outcome questions with full tables, checked on SQLite 3.53.4. Every worked answer and four guides are free, with no signup or timer."
   },
   "minutes": 12,
   "introduction": {
-    "en": "What rows does the final query return, or does the shown INSERT fail? Each of these 24 original SQL tasks supplies its own table definitions and input rows. A fresh SQLite 3.53.4 in-memory database was used for each check: 22 SELECT statements produced the keyed rows and two INSERT statements failed the stated constraints. Four groups cover filters and NULLs, joins and matches, groups and aggregates, and windows and constraints. Every explanation and all four full guides are free. You choose outcomes here; the site runs no visitor SQL and needs no account, upload or database credentials.",
-    "zh": "最后查询返回哪些行，或给定INSERT会失败吗？24道原创SQL题各自列明表结构及输入行，每题用独立SQLite 3.53.4内存库核过：22条SELECT返回答案行，2条INSERT按所述约束失败。四组覆盖筛选NULL、联接匹配、分组聚合、窗口约束。逐题解析与四份完整指南均免费。这里选择结果，网站不运行访问者SQL，不需账户、上传或数据库凭据。"
+    "zh": "本版SQL测试提供24道原创四选一题，每题完整列出CREATE TABLE、输入行和最后语句，按全新SQLite 3.53.4内存库核验。四组六题覆盖筛选与NULL、联接与匹配、分组与聚合、窗口与约束；22条SELECT返回结果，另两条INSERT触发题给约束。完成后查看0–24总正确数、四项0–6正确数、全部所选与逐题解析，四篇各七节完整指南在作答前后均可阅读。适合练习有限输入下的查询推导，网页不执行访问者SQL或连接数据库，不产生开发者档位、招聘通过线或认证。",
+    "en": "This SQL Test provides twenty-four original four-option tasks with complete CREATE TABLE statements, input rows and a final statement, checked in fresh SQLite 3.53.4 in-memory databases. Four groups of six cover filters and NULLs, joins and matches, groups and aggregates, and windows and constraints. Twenty-two SELECTs return keyed results; two INSERTs trigger the stated constraints. Completion opens a 0–24 total, four 0–6 counts, selections and every explanation. Four complete seven-section guides are readable before and after answering. Practise query inference over bounded input without visitor SQL execution, database connections, developer bands, hiring cutoffs or certification."
   },
   "instructions": {
     "en": "Treat each task as a fresh SQLite 3.53.4 database. Run the displayed CREATE/INSERT setup in order, then evaluate only the statement after the comment. For SELECT answers, | separates columns and ; separates rows; no header is included, and NULL denotes a database NULL. Multirow queries specify their output order. For the two rejected INSERTs, select the constraint outcome rather than a row set. English identifiers and values stay identical across interfaces. There is no timer or speed bonus. All 24 valid choices are needed before personal counts appear. If you consult references, interpret the count under those conditions.",

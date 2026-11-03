@@ -123,7 +123,9 @@ describe("T014 original classical temperament-style reflection", () => {
         expect(html).toContain(quiz.instructions![locale]);
         expect(html).toContain(locale === "zh" ? "原创古典气质自评" : "Original classical-style reflection");
         expect(quiz.resultHeading?.[locale]).toBeTruthy();
-        for (const section of quiz.guide.slice(0, 3)) expect(html).toContain(section.paragraphs[0][locale]);
+        const entryDom = document.createElement("div"); entryDom.innerHTML = html;
+        const normalize = (text: string) => text.replace(/\[\d+\]/g, "").replace(/\s+/g, " ").trim();
+        for (const section of quiz.guide.slice(0, 3)) expect(normalize(entryDom.textContent ?? "")).toContain(normalize(section.paragraphs[0][locale]));
         const hub = renderToStaticMarkup(<MoreTests locale={locale} />); expect(hub).toContain(`href="${path}"`); expect(hub).not.toContain("/tests/play/temperament");
         for (const profile of quiz.profiles) {
           const publicPath = `${path}/results/${profile.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };

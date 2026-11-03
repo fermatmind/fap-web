@@ -2,7 +2,7 @@
   "slug": "introvert-extrovert",
   "code": "IPIP_EXTRAVERSION_10",
   "version": "1.0.0",
-  "updated": "2026-10-25",
+  "updated": "2026-10-31",
   "category": "framework",
   "kind": "extraversion",
   "minutes": 2,
@@ -16,20 +16,20 @@
     "en": "Your extraversion self-reflection"
   },
   "seoTitle": {
-    "zh": "内向外向测试：10题IPIP自评与四种完整读法",
-    "en": "Introvert or Extrovert Test: 10 IPIP Items, Full Results"
+    "zh": "内向还是外向测试：10题IPIP外向性自评与完整解读",
+    "en": "Introvert or Extrovert Test: 10 IPIP Items and Full Score Guide"
   },
   "description": {
-    "zh": "用10条IPIP公有领域外向性条目自评，查看实际总分、均分和四种完整结果读法。说明反向计分、边界并列与缺失回应；免费无需注册，不把分数当固定人格或社交能力。",
-    "en": "Take 10 public-domain IPIP extraversion items. See your raw total, mean and full result guides, including boundary matches. Free, no signup or fixed-type verdict."
+    "zh": "用10条IPIP外向性描述，了解交谈、群体参与与注意焦点中的自评倾向。免费查看10—50原始总分、均分、全部边界报告及反向计分说明，无需注册。",
+    "en": "Rate 10 public-domain IPIP Extraversion items about conversation and social attention. See your raw total, mean and every boundary report free, with scoring explained. No signup."
   },
   "introduction": {
-    "zh": "你通常怎样描述自己在交谈、聚会与注意焦点中的表现？这份内向外向测试采用IPIP Big-Five Factor Markers的十条外向性描述，保留五条正向与五条反向计分，中文由本站独立翻译。它只观察一个连续维度，不是完整大五问卷，也不换算MBTI的I/E。四份完整结果说明可以先读；完成后查看实际总分与均分，而不是“百分之多少外向”或人群排名。",
-    "en": "How do you describe yourself in conversation, gatherings and situations involving attention? This Introvert or Extrovert Test uses the ten-item Extraversion scale from the public-domain IPIP Big-Five Factor Markers, keeping five positively and five negatively keyed items. Chinese wording is independently translated here. It explores one continuous dimension, not a full Big Five inventory or MBTI I/E. Read all four guides first and, after answering, see your actual total and mean rather than a percentage of extroversion or a population rank."
+    "zh": "内向与外向在本页表示同一个外向性维度上的不同位置，而不是必须二选一的固定身份。这份测试采用IPIP Big-Five Factor Markers的10条外向性描述，主要涉及交谈、在人群中的表现与对注意焦点的态度，保留原英文及五正五反的计分方向。[1] 中文为费马独立译文。完成后显示原始总分、均分与四种阅读区间；它只测这一组自评内容，不生成完整大五、MBTI字母或独立的社交电量分。",
+    "en": "On this page, introvert and extrovert describe positions on one Extraversion dimension, rather than fixed identities you must choose between. The form uses ten public-domain IPIP Big-Five Factor Markers items, chiefly about conversation, behaviour around people and social attention. It retains the English items and their five positive and five negative keys.[1] Chinese is an independent FermatMind translation. A completed attempt provides a raw total, mean and four reading bands. It does not generate a full Big Five profile, MBTI letters or a separate social-battery score."
   },
   "instructions": {
-    "zh": "把每条看作对自己一般情况的描述，选择近期通常有多符合，不按希望成为的样子作答。1—5分别为很不符合到很符合；中间项是符合与不符合之间。可以选“暂不作答或无法判断”，但只要有一条未计分，就不生成总分、均分或个人分区；仍可阅读全部公开说明。全部十项完成选择后再显示计分。",
-    "en": "Read each statement as a description of how you generally are now, not how you wish to be. Rate its accuracy from 1, Very Inaccurate, to 5, Very Accurate; the middle response is neither accurate nor inaccurate. You can choose an unscored response, but any such item means no total, mean or personal band is generated. All public guides remain available. Scoring appears only after all ten selections."
+    "zh": "按自己近期通常的情况评价每条描述，不按理想形象或某一次特别的聚会作答。1为很不符合，2为比较不符合，3为符合与不符合之间，4为比较符合，5为很符合。3是一个实际评分；“暂不作答或无法判断”不计分，两者不同。可以选择不计分项，但只要有一项不计分，结果就显示资料不足，不给出总分、均分或个人阅读区间。",
+    "en": "Rate how you generally are now, rather than an ideal self or one unusual gathering. The scale is 1 Very Inaccurate, 2 Moderately Inaccurate, 3 Neither Accurate Nor Inaccurate, 4 Moderately Accurate and 5 Very Accurate. A rating of 3 is a scored response; “Prefer not to answer or cannot judge” is unscored. You may choose it, but any unscored item means insufficient information, with no total, mean or personal reading band."
   },
   "source": {
     "kind": "Public-domain IPIP BFM Extraversion10 items/keying;independentFermatMindZHtranslation/displaybands/reports,notfullBigFiveorMBTI",
@@ -1333,65 +1333,153 @@
     {
       "id": "extraversion-scoring",
       "title": {
-        "zh": "十项怎样得到原始分数",
-        "en": "How ten responses produce the raw score"
+        "zh": "正向、反向与10—50分怎样计算",
+        "en": "Positive keys, reverse keys and the 10–50 total"
       },
       "paragraphs": [
         {
-          "zh": "五条正向条目按1—5计入，五条反向条目用6减原回答，再将十项相加得到10—50总分。均分是总分除以10，范围1—5，只是方便阅读。正反向不是两套独立内外向量表，也不生成百分比、人群百分位或其余四个大五维度。",
-          "en": "Five positive items use responses of 1–5; five negative items use 6 minus the response. Add all ten for a total of 10–50. Dividing by ten gives a mean of 1–5 for convenient reading. The keys are not separate introversion and extraversion scales and generate no percentage, population percentile or remaining Big Five traits."
+          "zh": "五条正向描述按原回答1—5计分；五条反向描述用6减原回答，即1变5、2变4、3不变、4变2、5变1。将十项定向分相加，得到10—50的原始总分；总分除以10得到1—5的均分。这样每项分数都朝较高外向性回应的方向累计。[1][2]",
+          "en": "Five positive items use the original 1–5 rating. Five negative items use 6 minus that rating: 1 becomes 5, 2 becomes 4, 3 stays 3, 4 becomes 2 and 5 becomes 1. Adding all ten keyed responses gives a raw total of 10–50; dividing by ten gives a mean of 1–5. Keying makes all items contribute in the same direction.[1][2]"
+        },
+        {
+          "zh": "例如，正向描述选4，计4分；反向描述选4，则计2分。十项都选3时，总分30、均分3；十项都选5时，也因五项反向而得到总分30。相同总分可以来自不同回答方式，应结合具体条目阅读，不能把均分3自动当作一种均衡能力。",
+          "en": "For example, rating a positive statement 4 contributes four points; rating a negative statement 4 contributes two. Rating every item 3 gives a total of 30 and mean of 3. Rating every item 5 also gives 30 because five items are reversed. Different response patterns can produce the same total, so read the items as well as the score."
         }
       ]
     },
     {
       "id": "extraversion-bands",
       "title": {
-        "zh": "四种读法与边界",
-        "en": "Four readings and their boundaries"
+        "zh": "四个阅读区间与边界双报告",
+        "en": "Four reading bands and boundary reports"
       },
       "paragraphs": [
         {
-          "zh": "本版10—19分为内向侧，21—29为中间偏内向，31—39为中间偏外向，41—50为外向侧；恰好20、30、40分时同时保留相邻两份完整报告。这些界点对应回答均分2、3、4，是本站显示约定，不是IPIP官方人格阈值、人口分组或统计置信区间。",
-          "en": "This edition uses 10–19 for the introvert side, 21–29 for lower-middle, 31–39 for upper-middle and 41–50 for the extrovert side. At exactly 20, 30 or 40, both adjacent full reports remain. These points correspond to response means of two, three and four. They are website display conventions, not official IPIP type cutoffs, population groups or confidence intervals."
+          "zh": "本站用四段帮助阅读：10—19分为内向侧，21—29分为中间偏内向，31—39分为中间偏外向，41—50分为外向侧。恰好20、30、40分时，同时显示相邻两份完整报告。三个边界对应均分2、3、4，不按名单先后或随机方式替你选定一个标签。",
+          "en": "Four bands organise reading: 10–19 is the introvert side, 21–29 lower-middle, 31–39 upper-middle and 41–50 the extrovert side. At exactly 20, 30 or 40, both adjacent full guides appear. The boundaries correspond to means of two, three and four; no list-order or random choice forces a single label."
+        },
+        {
+          "zh": "这些是本网站的显示约定，不是IPIP规定的四种人格、人口分位点或临床阈值。29分与31分相距很近，虽然文字标签不同，也不能推断两个人属于截然不同的类别。边界双报告明示分类位置，不是统计置信区间；本版未给出分数标准误或重测误差范围。",
+          "en": "These are website display conventions, not four official IPIP personalities, population quantiles or clinical cutoffs. Totals of 29 and 31 are close despite different labels; they do not establish sharply different kinds of people. Boundary reports make the display rule visible, not a statistical confidence interval. This edition provides no score standard error or retest-error range."
         }
       ]
     },
     {
       "id": "extraversion-reading",
       "title": {
-        "zh": "缺失、中段与实际情境",
-        "en": "Missing responses, middle totals and context"
+        "zh": "不计分项与中间总分怎样处理",
+        "en": "Unscored responses and middle totals"
       },
       "paragraphs": [
         {
-          "zh": "只有十条全部为有效1—5回答才显示总分与分区；未计分项不补0、不补中间值，也不拿九项加总冒充十项。中间总分既可能来自温和回应，也可能来自高低混合或对正反语句相同的选择，因此不能自动断定兼具两端能力。题目没有直接测恢复电量、共情、职业技能或临床症状。",
-          "en": "Only ten valid ratings produce a total and reading band. Unscored items are not imputed with zero or a midpoint, and a nine-item sum is not presented as ten. A middle total may reflect moderate ratings, mixed responses or the same rating across opposite-keyed statements, rather than proficiency at both ends. Items do not directly assess recovery energy, empathy, occupational skill or clinical symptoms."
+          "zh": "十条都选择有效1—5评分，才生成总分与均分。若有一项选择“暂不作答或无法判断”，可以完成页面流程，但个人结果明确显示资料不足；不把未计分项补成0、3或其余题目的平均数，也不把九项总分当作十项结果。全部公开指南仍可阅读。",
+          "en": "A total and mean require ten valid ratings from 1 to 5. If any item is unscored, you can finish the page flow but the personal result states insufficient information. No zero, midpoint or average of other responses is substituted, and a nine-item sum is not treated as a ten-item result. All public guides remain available."
+        },
+        {
+          "zh": "中间分数可能来自各项温和回应，也可能来自明显高低混合。它不能区分“在不同场合有不同表现”和“每条都觉得一般”，更不独立测量适应能力。Ambivert是对中间位置的常见叫法；本题本不生成Omnivert分数或一个新的第三类人格。",
+          "en": "A middle total may reflect moderate ratings or a mixture of high and low responses. It cannot distinguish variation across situations from moderate endorsement of every statement, and it does not measure adaptability. Ambivert is a familiar name for a middle position. This form supplies no Omnivert score or new third personality type."
+        }
+      ]
+    },
+    {
+      "id": "item-content",
+      "title": {
+        "zh": "这十条实际覆盖什么，哪些问题需要另看",
+        "en": "What the ten items cover and what needs another approach"
+      },
+      "paragraphs": [
+        {
+          "zh": "条目涉及在聚会上与不同人交谈、主动开启对话、在人群中的自在程度，以及愿不愿意成为注意焦点。[1] 这些内容是对自身通常表现的判断，不是现场观察、他人评分或社交技能测验。只用这十条也不能拆出完整外向性面向，例如分别认证领导表达、兴奋寻求和积极情绪。",
+          "en": "Items concern talking with people at gatherings, starting conversations, feeling comfortable around others and being a focus of attention.[1] They are judgments about usual behaviour, not direct observation, observer ratings or a social-skills test. These ten items do not yield a full facet profile, such as separate measures of assertiveness, excitement seeking and positive emotion."
+        },
+        {
+          "zh": "“社交电量”通常还会问交流负担、活动后的感受与恢复方式；本页没有为这些内容单独设分。较少发言可能有多种情境原因，不能从一个低分判断害羞、心理状态、倾听能力或友善程度。同样，高分不证明沟通有效或更善于合作。",
+          "en": "A social-battery reflection also needs questions about demands, feelings after activity and recovery. None receives a separate score here. Speaking less can have several situational explanations, so a low total cannot establish shyness, mental state, listening skill or kindness. A high total likewise does not prove effective communication or cooperation."
         }
       ]
     },
     {
       "id": "source-and-translation",
       "title": {
-        "zh": "题源、译文与网站版本",
-        "en": "Item source, translation and website edition"
+        "zh": "IPIP题源、中文译文与研究证据",
+        "en": "IPIP source, Chinese translation and research evidence"
       },
       "paragraphs": [
         {
-          "zh": "IPIP将条目、量表与题本置于公有领域，允许商业使用与翻译；这里保留其英文十条与正反键向，中文为本站译文。本版分区、缺失处理和解释不等于来源研究的信效度；网站和中文译文尚无本站常模或跨语言等价验证，不复制竞品报告、人物或职业配对。",
-          "en": "IPIP places its items, scales and inventories in the public domain, permitting commercial use and translation. This edition retains the ten English items and keying with an independent Chinese translation. Website bands, missing handling and explanations do not inherit source research validity; this edition has no local norms or established cross-language equivalence. No competitor reports, celebrity types or career matches are copied."
+          "zh": "本页保留IPIP十项英文条目及其正反键向，中文由费马独立翻译。[1] IPIP允许使用、修改和翻译其公有领域材料，并提供实施建议。[3][4] 这些许可说明你可以怎样使用材料，不等于当前中文措辞、独立十题展示或本网站阅读分区已经得到验证。",
+          "en": "This page retains the ten IPIP English items and their keys, with an independent Chinese translation.[1] IPIP permits use, adaptation and translation of public-domain materials and provides administration guidance.[3][4] Permission establishes permitted use, not validation of this Chinese wording, stand-alone presentation or website bands."
+        },
+        {
+          "zh": "应把已有来源量表的研究、本网站的实现核对和目标人群验证分开。计分可复算，说明公式实现可检查；并不证明本站样本中的内部一致性、重测信度、用途效度或跨语言等值。来源页列出的可靠性系数也不能直接当作本站用户或中文版本的系数。",
+          "en": "Distinguish research on the source scale, implementation checks and validation in a target population. Reproducible arithmetic makes a formula checkable; it does not establish internal consistency, retest reliability, validity for a proposed use or language equivalence here. A reliability coefficient on the source page is not automatically a coefficient for this website’s users or Chinese version."
+        }
+      ]
+    },
+    {
+      "id": "trait-and-types",
+      "title": {
+        "zh": "与MBTI、完整大五和其他外向性测试的区别",
+        "en": "MBTI, full Big Five profiles and other Extraversion tests"
+      },
+      "paragraphs": [
+        {
+          "zh": "本页只给出外向性这一个维度。它不能补出开放性、尽责性、宜人性与神经质等其他大五结果，也不能据总分生成MBTI的I／E或四字母类型。具名工具之间即使使用相似词语，题目范围、计分和结果解释也可能不同；如需另一测评的结果，应独立完整作答。",
+          "en": "This page reports one dimension only. It cannot supply the other Big Five traits or generate MBTI I/E or a four-letter type. Named instruments may use similar words while differing in content, scoring and interpretation. Another assessment requires its own complete responses."
+        },
+        {
+          "zh": "外部网站可能显示百分制、三分区、多个社交面向或充电／耗电解释；本页以10—50总分和1—5均分呈现，四个区间仅辅助阅读。没有参考样本与相应转换，就不能把本站35分说成超过多少人，或与另一网站的70分视为同一水平。",
+          "en": "Other websites may use a hundred-point scale, three bands, social facets or recharge explanations. This page shows a 10–50 total and 1–5 mean, with four bands for reading only. Without a reference sample and appropriate linking, a total of 35 gives no population rank and cannot be equated with 70 on another website."
+        }
+      ]
+    },
+    {
+      "id": "using-results",
+      "title": {
+        "zh": "把分数用于具体沟通安排",
+        "en": "Using the score for a concrete communication arrangement"
+      },
+      "paragraphs": [
+        {
+          "zh": "先回看最符合与最不符合自己的条目，再想一次相关事件：对象是否熟悉、自己是否有准备、是否处于职责要求下？你可能在熟悉的人面前主动讲话，在陌生场合更安静。总分压缩了这种差异，因此单个真实例子比“所有内向的人都怎样”更有用。",
+          "en": "Review the most and least accurate items, then recall an event: were the people familiar, were you prepared, and did a role require participation? You might initiate talk among friends and be quieter with strangers. A total compresses that variation, so a real example is more useful than a rule about all introverts."
+        },
+        {
+          "zh": "可以尝试一项自选调整，例如会前写下一个问题、活动前说明希望停留的时间，或交流时给对方留出回应间隔。观察是否更舒适、更容易表达和理解，再根据反馈调整。这些是可尝试的方法，不是按分数分配的职业、领导角色或社交处方。",
+          "en": "Try one adjustment you choose, such as writing a question before a meeting, agreeing how long to stay at an activity or leaving a pause for a response. Observe comfort, expression and understanding, then adjust through feedback. These are options to try, not careers, leadership roles or social prescriptions assigned by a score."
+        }
+      ]
+    },
+    {
+      "id": "retest-and-privacy",
+      "title": {
+        "zh": "重测、草稿与个人答案",
+        "en": "Retests, drafts and personal answers"
+      },
+      "paragraphs": [
+        {
+          "zh": "一次分数变化可能来自情境、回忆、条目理解或真实行为变化，单凭两次标签不能区分这些原因。比较时尽量使用同一版本，并查看原始总分和具体回答，而非只看越过了哪个区间。本站未建立用于判断个体变化是否可靠的误差界限。",
+          "en": "A changed score can reflect circumstances, recall, interpretation or behavioural change. Two labels alone cannot distinguish those explanations. Use the same edition where possible and compare raw totals and responses rather than only a crossed band boundary. This site has not established an error limit for reliable individual change."
+        },
+        {
+          "zh": "答案在浏览器内计分，不通过计分请求上传，不写入网址或分析事件。默认不保存；主动开启时只保留本标签页24小时草稿，完成、清除或重测即删除。重测开始新的作答，不建立历史档案。分享仅含结果名称和公开链接，不含答案、总分或均分；网站使用事件按隐私与Cookie设置处理。",
+          "en": "Answers are scored in your browser without a scoring upload or inclusion in URLs or analytics events. Saving is off by default; an optional 24-hour tab draft is deleted on completion, clearing or retaking. A retake starts a new attempt, without a history file. Sharing contains names and public links, not answers, totals or means. Website usage events follow privacy and Cookie settings."
         }
       ]
     },
     {
       "id": "scope-and-free",
       "title": {
-        "zh": "与其他测试的关系和免费范围",
-        "en": "Other assessments and full free access"
+        "zh": "两分钟自评与四份完整免费指南",
+        "en": "A two-minute reflection and four full free guides"
       },
       "paragraphs": [
         {
-          "zh": "现有大五90／120题提供五维和更多面向，本页只做十条外向性自评，不补出完整OCEAN或MBTI类型，社交电量也要另问负担与恢复。全部题目、原始分数、四份公开报告及边界匹配免费，无需注册。个人回答只在浏览器计算，主动保存才有本标签页24小时草稿，分享不含答案或计数。",
-          "en": "The existing 90/120-question Big Five forms explore five traits and further facets; this page only offers a focused ten-item extraversion reflection. It supplies no full OCEAN profile or MBTI type, and Social Battery requires its own questions about demands and recovery. All items, raw scores, four public reports and boundary matches are free without signup. Answers are scored in the browser; only opting in saves a 24-hour tab draft, and sharing omits answers and counts."
+          "zh": "全部十条、计分、四份公开说明与每份边界报告免费，无需注册、邮箱或前置测试。约2分钟是阅读与选择的估计，不是强制时限。公开指南可以先读，不显示任何人的个人答案，也不能代替一次独立完整作答。",
+          "en": "All ten items, scoring, four public guides and every boundary report are free, without signup, email or a preceding test. About two minutes is an estimate, not a deadline. Public guides can be read first, contain no personal answers and do not replace a complete independent attempt."
+        },
+        {
+          "zh": "本页适合想了解这组自评与实际沟通体验之间关系的读者。它不判断能力高低、招聘合格线、关系价值或心理诊断；把分数与近期行为例子一起看，才能知道哪些描述对自己有帮助。",
+          "en": "This page suits readers exploring how these self-ratings relate to actual communication experiences. It does not determine ability, a hiring threshold, relationship worth or a diagnosis. Pair the score with recent examples to see which interpretations are useful to you."
         }
       ]
     }
@@ -1399,62 +1487,122 @@
   "faq": [
     {
       "question": {
-        "zh": "这个内向外向测试会给我固定类型吗？",
-        "en": "Does this test assign a fixed introvert or extrovert type?"
+        "zh": "这个内向外向测试采用什么量表？",
+        "en": "Which scale does this introvert or extrovert test use?"
       },
       "answer": {
-        "zh": "不会。它给出十条自评经过正反向计分后的总分、均分和本站四种阅读区间。内向、外向和中间只是帮助阅读的称呼，不是离散人格认证；没有“百分之多少外向”、人群排名或谁更好的判断。",
-        "en": "No. It shows the total, mean and website reading bands after keying ten self-ratings. Introvert, extrovert and middle are reading labels rather than certification of discrete personalities. There is no percentage of extroversion, population rank or judgment of who is better."
+        "zh": "采用IPIP Big-Five Factor Markers十项外向性条目，保留英文与五正五反的键向，中文为本站独立译文。[1] 它是一个维度的自评，不是完整大五或MBTI问卷，也不是新编的两种固定人格分类。",
+        "en": "It uses the ten IPIP Big-Five Factor Markers Extraversion items, retaining English wording and five positive/five negative keys, with an independent Chinese translation.[1] This is one self-report dimension, not a complete Big Five or MBTI form or a new binary personality classification."
       }
     },
     {
       "question": {
-        "zh": "反向题、均分和未计分项怎样处理？",
-        "en": "How are reverse items, means and unscored responses handled?"
+        "zh": "分数怎么计算，反向题是不是故意设陷阱？",
+        "en": "How is it scored? Are reverse items a trick?"
       },
       "answer": {
-        "zh": "五条负向语句按6减原回答，另外五条按原值，十项相加得到10—50。均分为总分除以10。任何一条选了暂不作答或无法判断，都明确资料不足，不生成分数或分区，不用0或中间值填补。",
-        "en": "Five negatively keyed items use 6 minus the response and five use the response itself. Their sum ranges from 10 to 50; the mean is the total divided by ten. Any unscored item produces explicit insufficient information, without a total, band, zero substitution or midpoint imputation."
+        "zh": "正向题用原评分，反向题用6减原评分，十项相加为10—50分，除以10为均分。[2] 反向描述关注同一维度的另一种表述，不是正确答案题，也不是独立的“内向分”；请按句子内容如实作答。",
+        "en": "Positive items use the rating; negative items use 6 minus it. Ten keyed ratings sum to 10–50, and division by ten gives the mean.[2] Negative statements concern the same dimension from another direction. They are neither answer-key traps nor a separate introversion score."
       }
     },
     {
       "question": {
-        "zh": "为什么有四种读法，有时还会同时出现两份？",
-        "en": "Why are there four readings and sometimes two reports?"
+        "zh": "总分30、均分3是不是说明我完美平衡？",
+        "en": "Does a total of 30 and mean of 3 mean perfect balance?"
       },
       "answer": {
-        "zh": "本版在回答均分2、3、4处设置阅读边界，也就是总分20、30、40。恰好在边界时，两份相邻完整报告都保留。界点不是IPIP官方阈值、人口分位数或误差估计，不用随机顺序、加题或付费来确定一个身份。",
-        "en": "This edition places reading boundaries at response means of two, three and four: totals of 20, 30 and 40. At a boundary, both adjacent complete reports remain. These are not official IPIP cutoffs, population quantiles or error estimates. Chance, extra questions and payment do not resolve an identity."
+        "zh": "不能这样推断。十项都选3与十项都选5都会因反向处理得到30，但回答含义不同。中间总分可能来自温和回应或高低混合，不证明适应能力、两端能力兼备或人口平均水平。",
+        "en": "No. Rating every item 3 and rating every item 5 both produce 30 after reverse scoring, despite different response patterns. A middle total can reflect moderate or mixed ratings. It establishes neither adaptability, proficiency at both ends nor a population average."
       }
     },
     {
       "question": {
-        "zh": "中间分数说明我是社交全能或“中性人格”吗？",
-        "en": "Does this test tell ambiverts and omniverts apart?"
+        "zh": "为什么显示四个区间，有时出现两份报告？",
+        "en": "Why are there four bands and sometimes two reports?"
       },
       "answer": {
-        "zh": "不能这样推断。温和回答、不同语句的高低混合，甚至对正反向语句都作相同极端回应，都可能得到中间总分。分数没测适应能力；中间读法不是第三种固定人格，更不涉及性别或性取向。",
-        "en": "This quiz summarises one continuous IPIP Extraversion dimension. Its two middle bands are website reading labels, not new IPIP types. Moderate ratings, mixed ratings and even the same extreme response to positively and negatively keyed statements can produce middle totals. A middle total therefore does not establish adaptability or switching between social extremes. This questionnaire produces no separate omnivert score and does not measure social stamina."
+        "zh": "四段是本站阅读约定，边界总分20、30、40对应均分2、3、4；恰好边界保留相邻两份完整报告。它们不是IPIP官方类型、临床切点或置信区间，不会用随机顺序或付费来确定一个身份。",
+        "en": "Four bands are this site’s reading convention. Totals of 20, 30 and 40 correspond to means of two, three and four; at a boundary both adjacent full guides remain. These are not official IPIP types, clinical cutoffs or confidence intervals. Random order and payment do not decide an identity."
       }
     },
     {
       "question": {
-        "zh": "这等于MBTI的I人E人、完整大五或社交电量吗？",
-        "en": "Is this MBTI I/E, a full Big Five result or Social Battery?"
+        "zh": "“无法判断”和选3分有什么区别？",
+        "en": "How is an unscored response different from rating 3?"
       },
       "answer": {
-        "zh": "都不等同。本页是IPIP外向性单维自评；MBTI偏好、完整五维与社交负担／恢复各有不同问题和计分。现有大五90／120题与MBTI都需独立完整作答，这里不能换算字母、补出其余维度或判断社交续航。",
-        "en": "They are different tasks. This page is a single IPIP extraversion reflection; MBTI preferences, a five-trait profile and social demands/recovery each use their own questions and scoring. Existing Big Five and MBTI forms require separate full attempts. This score supplies neither letters, the other traits nor social stamina."
+        "zh": "3分是实际的中间评分，会参与总分。“暂不作答或无法判断”不计分；只要一项不计分，个人结果就显示资料不足，不输出总分、均分或区间，也不以0或3补齐。公开指南仍可阅读。",
+        "en": "A rating of 3 is a scored midpoint. “Prefer not to answer or cannot judge” is unscored. Any unscored item produces insufficient information, with no total, mean or band and no zero or midpoint substitution. Public guides remain readable."
       }
     },
     {
       "question": {
-        "zh": "全部结果免费吗，草稿和分享会包含什么？",
-        "en": "Are full results free, and what do drafts and sharing contain?"
+        "zh": "Ambivert和Omnivert能用这个分数区分吗？",
+        "en": "Can this score distinguish an ambivert from an omnivert?"
       },
       "answer": {
-        "zh": "全部十条、计分和四份完整说明免费，无需邮箱或前置测试。草稿只有主动开启才在本标签页保存24小时，完成、清除或重测即删。分享只有结果名称和公开链接，不含答案、总分、均分或内部ID；不能保存或复制时仍可继续和手动分享。",
-        "en": "All ten items, scoring and four complete guides are free, without email or a preceding assessment. Only opting in saves a 24-hour tab draft; completion, clearing or retaking deletes it. Sharing includes names and public links, never answers, totals, means or internal IDs. Blocked storage or copying does not prevent continuation or manual sharing."
+        "zh": "不能。Ambivert常用于描述外向性连续维度的中间位置，本站两个中间区间只是阅读标签。本题本没有评估在两端切换的独立维度，也没有Omnivert计分，不能只凭中间总分作出这类判定。",
+        "en": "No. Ambivert often names a middle position on continuous Extraversion, and the two middle bands here are reading labels. This form has no separate dimension for switching between extremes and no Omnivert score. A middle total cannot make that distinction."
+      }
+    },
+    {
+      "question": {
+        "zh": "内向侧就代表害羞、不友好或不善沟通吗？",
+        "en": "Does an introvert-side score mean shy, unfriendly or poor at communication?"
+      },
+      "answer": {
+        "zh": "这十条不能支持这些结论。它们记录谈话与注意焦点相关的自评，没有单独测量害羞、友善、倾听或沟通效果。低分不应当成人际缺陷，高分也不等于社交能力更强。需要结合具体情境与实际反馈。",
+        "en": "These ten items do not support those conclusions. They record self-ratings about conversation and attention, without separate measures of shyness, kindness, listening or communication outcomes. A low total is not an interpersonal defect, and a high one does not establish stronger social skills. Use context and actual feedback."
+      }
+    },
+    {
+      "question": {
+        "zh": "它等于MBTI的I／E、完整大五或社交电量吗？",
+        "en": "Is it MBTI I/E, a full Big Five profile or social battery?"
+      },
+      "answer": {
+        "zh": "这些是不同的测评任务。本站十项总分不能生成MBTI字母、其余四个人格维度或社交续航分，也不能与另一题本的百分制直接换算。需要其他结果时，请使用对应测试独立完整作答。",
+        "en": "They are different assessment tasks. This ten-item total supplies no MBTI letters, other four traits or social-stamina score, and it cannot be directly converted to another questionnaire’s hundred-point scale. Use the relevant assessment for a separate complete attempt."
+      }
+    },
+    {
+      "question": {
+        "zh": "IPIP有研究基础，为什么还需要说明本站版本？",
+        "en": "If IPIP has research behind it, why distinguish this website edition?"
+      },
+      "answer": {
+        "zh": "来源量表、独立中文译文、网站分区与具体用途需要分别核对。IPIP允许翻译和调整材料，[3][4] 但许可与来源可靠性系数不会自动证明本站用户中的信度、跨语言等值或四段分类有效。这里不借用其他样本承诺准确率。",
+        "en": "The source scale, independent Chinese wording, website bands and intended use need separate evidence. IPIP permits translation and adaptation,[3][4] but permission and a source reliability coefficient do not automatically validate this site’s scores, language equivalence or four-band classification. No other sample is used to promise accuracy here."
+      }
+    },
+    {
+      "question": {
+        "zh": "高分或低分更适合某种职业、领导或伴侣吗？",
+        "en": "Does a higher or lower score determine a career, leader or partner fit?"
+      },
+      "answer": {
+        "zh": "本页不提供这类判定。岗位任务、技能、需要与现实相处不能由一个外向性总分替代。更有用的是根据具体回答讨论沟通安排，再以实际表现核对，不按区间给人排名。",
+        "en": "This page makes no such determination. One Extraversion total cannot replace job tasks, skills, needs or actual interactions. Use specific responses to discuss communication arrangements, then check behaviour rather than ranking people by band."
+      }
+    },
+    {
+      "question": {
+        "zh": "测试多久，完整结果免费吗，会保存答案吗？",
+        "en": "How long does it take, are full results free, and are answers saved?"
+      },
+      "answer": {
+        "zh": "约2分钟，不限时，十条题目、原始分数、四份完整指南和边界报告全部免费，无需注册或邮箱。答案在浏览器内计分；草稿默认关闭，仅主动开启保留本标签页24小时，完成、清除或重测即删。分享不含私人答案或分数。",
+        "en": "About two minutes, without a deadline. All items, raw scores, four full guides and boundary reports are free without signup or email. Scoring runs in your browser. Draft saving is off by default; if enabled it lasts 24 hours in this tab and is deleted on completion, clearing or retaking. Sharing excludes private answers and scores."
+      }
+    },
+    {
+      "question": {
+        "zh": "重测变化说明我从内向变外向了吗？",
+        "en": "Does a changed retest mean I have become an extrovert or introvert?"
+      },
+      "answer": {
+        "zh": "两次标签本身不能区分情境、回忆、题意理解、测量波动与行为变化。比较时先看是否同版本、总分差多少、具体改变了哪些回答，再结合实际经历。本站没有判断个体可靠变化的误差阈值，重测也不建立个人历史。",
+        "en": "Two labels alone cannot separate circumstances, recall, interpretation, measurement variation and behavioural change. Check the edition, total-score gap and changed responses, then compare actual experience. This site has no threshold for reliable individual change, and retaking does not build a personal history."
       }
     }
   ]

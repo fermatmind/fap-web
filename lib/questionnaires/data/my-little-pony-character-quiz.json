@@ -10,12 +10,12 @@
     "zh": "小马宝莉（My Little Pony）角色测试"
   },
   "description": {
-    "en": "Take 18 original everyday questions about shared activities and compare Twilight Sparkle, Rainbow Dash, Applejack, Rarity, Pinkie Pie and Fluttershy. Every highest tie and all six complete guides are free, without signup.",
-    "zh": "用18道原创日常题比较紫悦、云宝黛西、苹果嘉儿、珍奇、碧琪和柔柔。从共同活动阅读本次选择，保留全部最高并列，六份完整说明免费可读，无需注册。"
+    "zh": "通过18道原创共同活动题，比较紫悦、云宝黛西、苹果嘉儿、珍奇、碧琪与柔柔六种参与角度。全部计数、最高并列与七节完整指南免费；无需注册，不考剧情。非官方《友谊就是魔法》同人版。",
+    "en": "Compare six participation angles inspired by Twilight Sparkle, Rainbow Dash, Applejack, Rarity, Pinkie Pie and Fluttershy through eighteen original shared-activity situations. All counts, highest ties and seven-section guides are free. Unofficial Friendship Is Magic fan edition; no signup or plot trivia."
   },
   "seoTitle": {
-    "en": "My Little Pony Character Quiz: Free Test & All 6 Results",
-    "zh": "小马宝莉角色测试：免费作答与6种完整结果"
+    "zh": "小马宝莉角色测试：18题、六位小马与完整解读",
+    "en": "My Little Pony Character Quiz: 18 Choices and Six Full Guides"
   },
   "resultHeading": {
     "en": "Your My Little Pony character readings",
@@ -23,12 +23,12 @@
   },
   "minutes": 5,
   "introduction": {
-    "en": "Which My Little Pony character do your choices bring to mind? This unofficial Friendship Is Magic fan edition explores six everyday ways of joining shared activities: understanding together, showing up, making a practical promise, adding a personal detail, inviting play and leaving comfortable space. Eighteen original situations ask about your own choices, without episode trivia or fictional adventures. All six public guides are readable before starting. The fictional friendship elements give context; these counts do not measure anyone’s honesty, kindness, loyalty or worth as a friend.",
-    "zh": "你的选择让人想起小马宝莉的哪位角色？本非官方《友谊就是魔法》同人版，从共同理解、在场陪伴、实际承诺、个人细节、邀请玩乐和舒服空间六个角度看共同活动。18道原创日常情境问自己的选择，不考剧情，也不复现冒险。开始前即可阅读六份完整公开说明。虚构友谊元素只是背景，计数不衡量诚实、善良、忠诚或做朋友的价值。"
+    "zh": "为朋友准备一次小聚会，你更想先了解需要什么、约好在场陪伴、完成实际承诺、留下贴心的小细节、邀请轻松玩乐，还是让每个人保有舒服的空间？这份小马宝莉角色测试，用18道原创日常题联系《友谊就是魔法》的紫悦、云宝黛西、苹果嘉儿、珍奇、碧琪与柔柔六个有限角度。约5分钟，免费查看六项原始计数、所有最高并列与七节完整指南。不考剧情，也不凭角色判断你的美德、友谊质量或真实能力。",
+    "en": "When preparing a small gathering for friends, would you first understand what is needed, arrange to be alongside someone, fulfil a practical promise, add a thoughtful personal detail, invite lighthearted play or leave comfortable space? This My Little Pony Character Quiz connects eighteen original everyday situations with six limited Friendship Is Magic angles: Twilight Sparkle, Rainbow Dash, Applejack, Rarity, Pinkie Pie and Fluttershy. In about five minutes, view six raw counts, every highest tie and complete seven-section guides for free. No plot recall is needed, and a character does not judge your virtues, friendship quality or actual abilities."
   },
   "instructions": {
-    "en": "Choose one of four responses in each ordinary, optional shared activity. Think about what you would prefer now, even if none fits perfectly. A pony absent from an item is not rejected. There are no correct answers, virtue points or reverse-keyed items. Complete all 18 questions to see the six raw counts and every highest-match guide in full.",
-    "zh": "每题在普通、自愿参加的共同活动中，从四种回应选现在较愿意的一项，即使都不完全合适。当题没有某位小马不表示你拒绝了她。没有正确答案、美德分或反向题；18题全部完成后，才显示六项原始计数和全部最高匹配全文。"
+    "zh": "以当前自愿参加的普通共同活动为参照，每题选最想先做的一项，不必模仿最喜欢的小马或选“最善良”的回应。六位中每题只提供四位，缺席不算拒绝。选中加1，没有对错、美德或反向分；完成18题后显示全部计数与最高并列。不合适时可以退出，六份公开指南仍可阅读。开始直接进入题目，无需额外同意、邮箱、注册或前置测评。",
+    "en": "Think about ordinary shared activities you would willingly join now. Choose the approach you most want to take first without imitating a favourite pony or selecting a supposedly kindest response. Four of six ponies appear per item; absence is not rejection. A selection adds one count, without correctness, virtue or reversal points. Complete eighteen items to see all counts and highest ties. Exit if the choices do not fit; all six public guides remain readable. Start opens questions directly without another agreement, email, signup or prerequisite assessment."
   },
   "references": [
     {

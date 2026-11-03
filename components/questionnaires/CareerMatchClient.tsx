@@ -94,12 +94,11 @@ function ValidCareerMatchClient({ quiz, locale }: { quiz: Questionnaire; locale:
 
   const themeNames = (ids: readonly string[]) => quiz.directions.filter(d => ids.includes(d.id)).map(d => d.title[locale]).join(zh ? "；" : "; ");
   const needle = filter.trim().toLocaleLowerCase(locale === "zh" ? "zh-CN" : "en"), visibleOptions = directory?.filter(row => row.title.toLocaleLowerCase(locale === "zh" ? "zh-CN" : "en").includes(needle) || picks.includes(row.slug)) ?? [];
-  return <section id="take-test" data-career-match-client aria-busy={busy || listStatus === "loading"} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7" aria-labelledby="career-match-input-title">
-    {metrics.consent}
+  return <section id="take-test" data-career-match-client data-stage={started ? (outcome ? "result" : "answer") : "welcome"} aria-busy={busy || listStatus === "loading"} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7" aria-labelledby="career-match-input-title">
+    {(!started || listStatus === "error") && <button type="button" disabled={!ready || listStatus === "loading"} className={`${button} career-match-primary`} onClick={start}>{!started ? (zh ? "开始比较" : "Start comparison") : (zh ? "重试读取职业目录" : "Retry reading the career list")}</button>}
     <h2 id="career-match-input-title" className="text-2xl font-semibold">{zh ? "选择兴趣，比较真实职业" : "Choose interests and compare real roles"}</h2>
     <p className="my-4 leading-7">{quiz.instructions![locale]}</p>
     <p className="my-4 text-sm leading-7 text-slate-600">{zh ? "输入只留在本页内存中，清除、离开、刷新或换语会移除。目录读取不包含兴趣选择；职业名筛选文字不会发送。" : "Inputs stay in this page’s memory and clear when you clear, leave, reload or switch language. Reading the list does not send interests; title-filter text is not sent."}</p>
-    {(!started || listStatus === "error") && <button type="button" disabled={!ready || listStatus === "loading"} className={button} onClick={start}>{!started ? (zh ? "开始比较" : "Start comparison") : (zh ? "重试读取职业目录" : "Retry reading the career list")}</button>}
     {started && (listStatus !== "ready" || !directory?.length) && <button type="button" className={`${button} ml-3`} onClick={clear}>{zh ? "退出并清除本次比较" : "Exit and clear this comparison"}</button>}
     {listStatus === "loading" && <p className="my-4" role="status">{zh ? "正在读取当前公开职业目录…" : "Reading the current public occupation list…"}</p>}
     {listStatus === "error" && <p className="my-4" role="status">{zh ? "当前语言的职业目录暂不可用，请重试。你的兴趣没有提交。" : "The career list for this language is unavailable. Retry the read; your interests have not been submitted."}</p>}
@@ -107,7 +106,7 @@ function ValidCareerMatchClient({ quiz, locale }: { quiz: Questionnaire; locale:
     {listStatus === "ready" && !!directory?.length && <form onSubmit={compare} noValidate>
       <fieldset className="my-6 min-w-0" disabled={!ready}>
         <legend className="font-semibold">{zh ? "1. 选择想探索的主题（1—6项，可保留并列）" : "1. Choose themes to explore (1–6; keep relevant ties)"}</legend>
-        <div className="mt-3 space-y-2">{quiz.directions.map(d => <label key={d.id} className="flex min-h-12 items-start gap-3 rounded-lg border border-slate-200 p-3">
+        <div className="mt-3 grid gap-3 sm:grid-cols-2">{quiz.directions.map(d => <label key={d.id} className="flex min-h-12 items-start gap-3 rounded-lg border border-slate-200 p-3">
           <input data-interest-theme={d.id} type="checkbox" className="mt-1" checked={themes.includes(d.id as CareerInterestTheme)} onChange={event => { invalidate(); setThemes(event.target.checked ? [...themes, d.id as CareerInterestTheme] : themes.filter(x => x !== d.id)); }} />
           <span>{d.id} · {d.title[locale]}</span>
         </label>)}</div>
@@ -123,8 +122,9 @@ function ValidCareerMatchClient({ quiz, locale }: { quiz: Questionnaire; locale:
           </select>
         </div>)}
       </fieldset>
-      <div className="flex flex-wrap gap-3"><button disabled={!ready || busy} className={button} type="submit">{busy ? (zh ? "正在读取所选职业…" : "Reading selected profiles…") : (zh ? "查看主题比较" : "Compare interest themes")}</button><button type="button" className={button} onClick={clear}>{zh ? "退出并清除本次比较" : "Exit and clear this comparison"}</button></div>
+      <div className="flex flex-wrap gap-3"><button disabled={!ready || busy} className={`${button} career-match-primary`} type="submit">{busy ? (zh ? "正在读取所选职业…" : "Reading selected profiles…") : (zh ? "查看主题比较" : "Compare interest themes")}</button><button type="button" className={button} onClick={clear}>{zh ? "退出并清除本次比较" : "Exit and clear this comparison"}</button></div>
     </form>}
+    {metrics.consent}
     <p data-career-match-message role="status" className="my-4 leading-7">{message}</p>
     {outcome && <section data-career-match-result className="mt-8 space-y-6" aria-labelledby="career-match-result-title">
       <h2 id="career-match-result-title" ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{complete ? quiz.resultHeading![locale] : (zh ? "比较尚不完整：部分职业信息不可用" : "Comparison incomplete: some role information is unavailable")}</h2>

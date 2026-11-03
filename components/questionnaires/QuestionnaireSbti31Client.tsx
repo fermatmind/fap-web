@@ -51,13 +51,14 @@ function ValidClient({ quiz, locale }: { quiz: Sbti31Questionnaire; locale: Loca
       if (generation === copyGeneration.current) { setMessage(zh ? "已复制公开画像说明链接，不含答卷或分数。" : "Public guide link copied, without answers or scores."); metrics.share(); }
     } catch { if (generation === copyGeneration.current) setMessage(zh ? "未能复制；可以打开下方公开指南。" : "Copy did not succeed. Open the public guide below instead."); }
   }
-  return <section id="take-test" data-sbti31-client className="my-8 scroll-mt-24 rounded-xl border bg-white p-5 sm:p-7">
+  return <section id="take-test" data-stage={stage} data-sbti31-client className="my-8 scroll-mt-24 rounded-xl border bg-white p-5 sm:p-7">
     {stage === "welcome" ? <>
+      <button data-explore-start type="button" disabled={!ready} className={`${button} sbti31-primary`} onClick={() => { submitted.current = false; setStage("answer"); setMessage(""); metrics.start(); }}>{zh ? "开始31题" : "Start 31 questions"}</button>
       <h2 className="text-2xl font-semibold">{zh ? "开始小程序原31题" : "Take the original 31 questions"}</h2>
       <p className="my-4 leading-8">{quiz.instructions[locale]}</p>
       <p className="my-4 text-sm leading-7">{zh ? "本页不存草稿；刷新、离开、换语言或重测会清除回答。" : "No draft is saved. Reloading, leaving, changing language or retaking clears your answers."}</p>
       {metrics.consent}
-      <button type="button" disabled={!ready} className={button} onClick={() => { submitted.current = false; setStage("answer"); setMessage(""); metrics.start(); }}>{zh ? "开始31题" : "Start 31 questions"}</button>
+
       <noscript><p>{zh ? "作答需要JavaScript；公开说明仍可阅读。" : "Answering needs JavaScript; the public guides remain readable."}</p></noscript>
     </> : stage === "answer" ? <>
       <p className="mb-4 text-sm" aria-live="polite">{zh ? `第 ${position + 1} / 31 题` : `Question ${position + 1} / 31`}</p>

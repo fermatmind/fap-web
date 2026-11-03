@@ -14,8 +14,8 @@
     "zh": "政治坐标测试：原创公共政策取舍与完整读法"
   },
   "description": {
-    "en": "Compare 36 original policy choices on separate economic left–right and social communitarian–liberal axes. Read raw counts, ties, uncertainty and all four full guides.",
-    "zh": "比较36道原创公共政策方案，经济左—右与社会共同体—个人自由两轴分别计数；公开原始差值、边界与资料不足，四份完整双语指南始终可读，不派政党身份。"
+    "zh": "用36项原创公共政策比较，分别观察经济左—右与共同体—个人自由取舍。约8分钟，免费查看原始次数、两轴差值、零值与NA说明及四份完整指南；无需注册。",
+    "en": "Compare 36 original policy proposals on economic and civic axes. About 8 minutes; raw counts, ties, NA and four full guides, free without signup."
   },
   "minutes": 8,
   "resultHeading": {
@@ -23,8 +23,8 @@
     "zh": "两条政策取舍轴与四份完整读法"
   },
   "introduction": {
-    "en": "This original bilingual edition asks about hypothetical public policies, not personal lifestyle habits. Eighteen comparisons concern economic provision, ownership, taxation and bargaining; eighteen concern shared civic purposes and individual civic freedom. For each item choose between two stated proposals, or keep uncertainty with the separate NA. Every item has equal weight. The result describes the choices offered here, not your complete political outlook or a place in a population. This is not the IDRlabs bank, Political Compass, SECS or a conversion from 8values. All thirty-six items and four full guides are free, with no signup.",
-    "zh": "本原创双语版本询问假设公共政策，不以个人生活习惯替代政治议题。十八道比较涉及经济供给、产权、税收与议价，十八道涉及共同公民目的与个人公民自由。每题比较两个明确方案，也可用独立NA保留不确定，所有题等权。结果只描述本题给出的选择，不概括全部政治观点，也不标定人口位置。本版不是IDRlabs题库、Political Compass、SECS或8values换算。三十六题与四份完整指南免费，无需注册。"
+    "zh": "本版用两条明确定义的轴整理假设公共政策选择：经济轴各方案涉及供给、筹资、产权与议价，社会轴涉及共同公民目的、自愿参与与个人自由。每轴18项，等权计数；零值保留并列，NA保留所属轴资料不足。两轴都完整才显示组合点，四份完整指南始终可读。",
+    "en": "Two explicitly defined axes organise hypothetical public-policy choices: economic proposals concern provision, finance, ownership and bargaining; social proposals concern shared civic purposes, voluntary participation and individual freedom. Each axis has eighteen equally counted items. Zero retains ties, and NA withholds only its own axis. Both axes must be complete for a point; all four full guides remain readable."
   },
   "instructions": {
     "en": "Treat each item as a hypothetical policy discussion. Choose the proposal you would prefer under the stated conditions, without assuming it describes current law or guarantees an outcome. The two alternatives are deliberately limited. If neither represents your position, the context is unclear or you prefer not to answer, select NA. All thirty-six items require a selection. Each axis needs all eighteen valid choices for its own counts and coordinate; any NA withholds only that axis. A combined point needs both axes complete. Optional progress stays in this browser tab. Do not enter personal identifiers.",

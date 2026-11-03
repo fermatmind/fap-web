@@ -5,7 +5,7 @@ const path=(l:Locale)=>`/${l}/tests/explore/${quiz.slug}`;
 const label=(l:Locale,en:string,zh:string)=>l==="zh"?zh:en;
 async function click(page:Page,l:Locale,en:string,zh:string){await page.getByRole("button",{name:label(l,en,zh),exact:true}).click();}
 async function consent(page:Page,l:Locale){const b=page.getByRole("button",{name:label(l,"Decline","拒绝"),exact:true});if(await b.isVisible())await b.click();}
-async function prepare(page:Page,l:Locale,study=false){if(study)await page.locator('input[name="technical30-mode"][value="study"]').check();await click(page,l,"Prepare the first part","准备第一部分");await click(page,l,"Start this part","开始本部分");}
+async function prepare(page:Page,l:Locale,study=false){if(study)await page.locator('input[name="technical30-mode"][value="study"]').check();await page.locator("[data-explore-start]").click();}
 for(const l of ["en","zh"] as const){
   test(`@release Technical30 ${l}: all English tasks, timed/back/keyboard, every solution and guide, sharing and retake`,async({page})=>{
     await page.setViewportSize({width:390,height:844});
@@ -51,14 +51,14 @@ for(const l of ["en","zh"] as const){
   test(`@release Technical30 ${l}: clock discontinuity clears instead of admitting an answer and study can recover`,async({page})=>{
     await page.goto(path(l));await consent(page,l);await page.clock.install();await prepare(page,l);
     await page.evaluate(()=>{const old=Date.now;Date.now=()=>old()+60000;try{document.querySelector<HTMLInputElement>('input[name="TECH_1_01"][value="B"]')!.click();}finally{Date.now=old;}});
-    await expect(page.getByRole("button",{name:label(l,"Prepare the first part","准备第一部分"),exact:true})).toBeVisible();await expect(page.getByRole("status")).toContainText(label(l,"clocks became inconsistent","设备计时发生不一致"));await expect(page.locator("[data-technical30-result]")).toHaveCount(0);
+    await expect(page.getByRole("button",{name:label(l,"Start test","开始测试"),exact:true})).toBeVisible();await expect(page.getByRole("status")).toContainText(label(l,"clocks became inconsistent","设备计时发生不一致"));await expect(page.locator("[data-technical30-result]")).toHaveCount(0);
     await prepare(page,l,true);await expect(page.locator('#take-test input[type="radio"]:checked')).toHaveCount(0);await expect(page.locator("[data-technical30-clock]")).toHaveText(label(l,"Untimed study","不计时学习"));
   });
   test(`@release Technical30 ${l}: refresh/language/return clear and public guides never expose attempts`,async({page})=>{
-    await page.goto(path(l));await consent(page,l);await prepare(page,l,true);await page.locator('input[name="TECH_1_01"][value="B"]').check();await page.reload();await expect(page.getByRole("button",{name:label(l,"Prepare the first part","准备第一部分"),exact:true})).toBeVisible();expect(await page.evaluate(slug=>sessionStorage.getItem(`fm_questionnaire_draft:${slug}`),quiz.slug)).toBeNull();
-    await prepare(page,l,true);await expect(page.locator('#take-test input[type="radio"]:checked')).toHaveCount(0);await page.locator('input[name="TECH_1_01"][value="B"]').check();const other=l==="en"?"zh":"en";await page.goto(path(other));await consent(page,other);await expect(page.getByRole("button",{name:label(other,"Prepare the first part","准备第一部分"),exact:true})).toBeVisible();await page.goBack();await expect(page.getByRole("button",{name:label(l,"Prepare the first part","准备第一部分"),exact:true})).toBeVisible();
+    await page.goto(path(l));await consent(page,l);await prepare(page,l,true);await page.locator('input[name="TECH_1_01"][value="B"]').check();await page.reload();await expect(page.getByRole("button",{name:label(l,"Start test","开始测试"),exact:true})).toBeVisible();expect(await page.evaluate(slug=>sessionStorage.getItem(`fm_questionnaire_draft:${slug}`),quiz.slug)).toBeNull();
+    await prepare(page,l,true);await expect(page.locator('#take-test input[type="radio"]:checked')).toHaveCount(0);await page.locator('input[name="TECH_1_01"][value="B"]').check();const other=l==="en"?"zh":"en";await page.goto(path(other));await consent(page,other);await expect(page.getByRole("button",{name:label(other,"Start test","开始测试"),exact:true})).toBeVisible();await page.goBack();await expect(page.getByRole("button",{name:label(l,"Start test","开始测试"),exact:true})).toBeVisible();
     await page.goto(`${path(l)}/results/mechanical?score=30&answers=private`);await expect(page.locator("h1")).toHaveText(quiz.profiles[1].title[l]);await expect(page.locator("[data-technical30-result]")).toHaveCount(0);const main=page.getByRole("main");for(const s of quiz.profiles[1].sections)for(const p of s.paragraphs)await expect(main).toContainText(p[l]);
-    await page.getByRole("link",{name:label(l,"Try the free 30 English questions","免费尝试30道英文题"),exact:true}).click();await expect(page).toHaveURL(u=>u.pathname===path(l)&&u.search==="");await expect(page.getByRole("button",{name:label(l,"Prepare the first part","准备第一部分"),exact:true})).toBeVisible();
+    await page.getByRole("link",{name:label(l,"Try the free 30 English questions","免费尝试30道英文题"),exact:true}).click();await expect(page).toHaveURL(u=>u.pathname===path(l)&&u.search==="");await expect(page.getByRole("button",{name:label(l,"Start test","开始测试"),exact:true})).toBeVisible();
     await page.getByRole("link",{name:label(l,"View the RIASEC occupational-interest entry","查看RIASEC职业兴趣入口"),exact:true}).click();await expect(page).toHaveURL(u=>u.pathname===`/${l}/tests/holland-career-interest-test-riasec`);await expect(page.locator("h1")).toBeVisible();
   });
 }

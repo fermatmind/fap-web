@@ -61,7 +61,6 @@ function ValidNineStarYearClient({ quiz, locale, readingProfiles }: { quiz: Nine
   const labels = zh ? ["明确在所示界点之前", "明确在所示界点之后", "不确定：保留两个可能结果"] : ["Clearly before the displayed boundary", "Clearly after the displayed boundary", "Uncertain: keep both possibilities"];
   useEntertainmentResultView(recordView, finished !== null);
   return <section id="take-test" data-nine-star-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7" aria-labelledby="nine-star-input-title">
-    {activityConsent}
     <h2 id="nine-star-input-title" className="text-2xl font-semibold">{zh ? "输入年份，再明确选择立春界点前后" : "Enter a year, then explicitly choose a boundary side"}</h2>
     <p id="nine-star-privacy-note" className="my-4 text-sm leading-7 text-slate-600">{zh ? "只需1900至2026的公历年份与界点前后，不收集完整生日、出生时刻、时区、姓名、性别或地点。输入仅在本页内存中，清除、刷新、离开或换语会移除。" : "Only a Gregorian year from 1900–2026 and a boundary side are needed. No full birth date, birth time, time zone, name, sex or location is collected. Input stays in this page’s memory; clearing, reloading, leaving or changing language removes it."}</p>
     <form onSubmit={calculate} aria-describedby="nine-star-privacy-note" noValidate>
@@ -88,6 +87,7 @@ function ValidNineStarYearClient({ quiz, locale, readingProfiles }: { quiz: Nine
       {manual && <label className="my-4 block">{zh ? "手动复制文字" : "Text for manual copying"}<textarea readOnly value={manual} className="mt-2 min-h-28 w-full rounded-lg border border-slate-300 p-3" /></label>}
       <NineStarYearReport quiz={quiz} result={finished} locale={locale} readingProfiles={readingProfiles} />
     </section>}
+    {activityConsent}
     <noscript><p>{zh ? "计算需要浏览器启用JavaScript；下方方法和九篇完整文化指南仍可阅读。" : "Calculation requires JavaScript; the methods and all nine complete cultural guides below remain readable."}</p></noscript>
   </section>;
 }

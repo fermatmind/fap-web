@@ -10,12 +10,12 @@
     "zh": "计算机素养"
   },
   "seoTitle": {
-    "en": "Computer Literacy Test: 24 Questions & Worked Answers",
-    "zh": "计算机素养：24道电脑基础练习、答案与完整解析"
+    "zh": "计算机素养测试：24题电脑基础、答案与完整解析",
+    "en": "Computer Literacy Test: 24 Questions, Answers & Guides"
   },
   "description": {
-    "en": "Practise files, browsers, email and Office with 24 original questions. All answers and four full guides are free. No timer or hiring qualification.",
-    "zh": "24道原创情景题练文件、浏览器、邮件和Office基础，四组各六题。免费查看全部答案、逐题解析、分项正确数及四份完整指南。不计时，不作招聘认证或实测操作速度。"
+    "zh": "用24道原创情境题练习文件管理、Chrome浏览器、邮件与Office基础。不限时，免费查看逐题答案、四项正确数和完整复习指南，无需注册。",
+    "en": "Practise files, Chrome, email and Office with 24 original questions. Free worked answers, four section counts and complete guides. Untimed, no signup."
   },
   "minutes": 10,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "24道原创识别任务，每题单选。先看指定产品、版本、操作及虚构规则。全部完成可看所选、答案、解析与四份完整指南。不计时，本站不操作真实文件、邮件或Office应用。若练无辅助作答，可完成后再用帮助和工具；使用辅助或见过题目，应按该条件理解正确数。"
   },
   "introduction": {
-    "en": "Practise six tasks each on files and Windows basics, browser and downloads, email and message checks, and documents and spreadsheets. The contexts, alternatives, explanations and four complete guides are original. Selected current Microsoft and Google help facts support feature review; explicit fictional rules and small data sets make other answers checkable. Every count opens all explanations. Recognition in this fixed bank is not a practical device exam, general proficiency tier, job certificate or population comparison.",
-    "zh": "文件与Windows基础、浏览器与下载、邮件消息、文档表格各六题。语境、选项、解析与四份完整指南均原创，参考选定Microsoft和Google现行帮助核功能，另用明确虚构规则及小型数据核答案。任何正确数都能看全部解析。本固定识别题组不是设备实操考试、总体熟练度档位、岗位证书或人群比较。"
+    "zh": "这份计算机素养测试围绕四组日常任务展开：文件与Windows基础、浏览器与下载、邮件消息、文档与电子表格，每组六题。题目要求在给定条件下识别操作或结果，既看功能名称，也看文件位置、收件范围、数据类型和记录关联。完成后可逐题查看所选、正确答案与解析，并阅读四份完整指南。题中明确Windows 11、Windows桌面Chrome或Outlook.com等适用条件，部分任务则以题面给出的虚构规则计分。",
+    "en": "This Computer Literacy Test covers four everyday task groups: files and Windows basics, browsers and downloads, email and messages, and documents and spreadsheets, with six items each. Identify an operation or outcome under stated conditions, attending to file location, recipient scope, data types and record relationships as well as feature names. Completion opens every selected answer, key and explanation plus four full guides. Items specify conditions such as Windows 11, desktop Chrome on Windows or Outlook.com; other tasks use explicitly supplied fictional rules."
   },
   "resultHeading": {
     "en": "Your computer practice results and every explanation",

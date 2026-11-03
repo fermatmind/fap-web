@@ -16,7 +16,7 @@ describe("T066 transparently reuses T001 DISC; animal names add no measurement",
     expect(createHash("sha256").update(JSON.stringify(original)).digest("hex")).toBe("e3e36cd150c03dead511083a15b5f5b3ba5ecda77ca4f5833a754c68e6b0d8c5");
     expect(catalog.filter(q => q.slug === "disc")).toHaveLength(1); expect(catalog.some(q => q.slug === "thai-four-animals")).toBe(false);
     expect(quiz.questions).toHaveLength(24); expect(quiz.profiles).toHaveLength(15); expect(quiz.description.en.length).toBeLessThanOrEqual(160);
-    expect(quiz.references?.map(r => r.url)).toEqual(["https://jobcannon.io/tests/thai-four-animals", "https://inskru.com/idea/-Mo92H9lGEhATD1OwjvT/"]);
+    expect(quiz.references?.map(r => r.url)).toEqual(["https://www.everythingdisc.com/EverythingDiSC/media/SiteFiles/Assets/History/Everything-DiSC-Research-Report.pdf", "https://doi.org/10.1111/1467-9450.00253", "https://inskru.com/idea/-Mo92H9lGEhATD1OwjvT/", "https://jobcannon.io/tests/thai-four-animals"]);
     const classroom: Record<string, string[]> = { DOMINANCE: ["Bull", "牛"], INFLUENCE: ["Eagle", "鹰"], STEADINESS: ["Mouse", "鼠"], CONSCIENTIOUSNESS: ["Bear", "熊"] };
     const job: Record<string, string[]> = { ...classroom, STEADINESS: ["Bear", "熊"], CONSCIENTIOUSNESS: ["Mouse", "鼠"] };
     for (const p of quiz.profiles) {
@@ -38,7 +38,18 @@ describe("T066 transparently reuses T001 DISC; animal names add no measurement",
         const args = { params: Promise.resolve({ locale, slug: "disc" }) }, dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(await entry.default(args)); const meta = await entry.generateMetadata(args);
         expect(meta.title).toBe(quiz.seoTitle[locale]); expect(dom.querySelector("h1")?.textContent).toBe(quiz.title[locale]);
         expect(dom.textContent).toContain(locale === "en" ? "Thai Four Animals" : "泰国四种动物");
-        for (const ref of quiz.references!) expect(dom.querySelector(`a[href="${ref.url}"]`)).not.toBeNull();
+        expect(dom.querySelector('a[href*="jobcannon.io"]')).toBeNull();
+        expect(dom.querySelector('a[href*="inskru.com"]')).not.toBeNull();
+        expect(dom.textContent).not.toContain(locale === "en" ? "Website content edition" : "网站内容版本");
+        expect(dom.textContent).not.toContain(locale === "en" ? "These sources provide background, not validation" : "这些来源提供背景，不是对本站题本的验证");
+        const reading = dom.querySelector(".explore-reading-library");
+        expect(reading).not.toBeNull();
+        expect(reading?.closest("details")).toBeNull();
+        for (const section of reading!.querySelectorAll(".explore-reading-section")) {
+          const original = quiz.guide.find(item => item.title[locale] === section.querySelector("h3")?.textContent)!;
+          expect(original).toBeDefined();
+          for (const paragraph of original.paragraphs) expect(section.textContent).toContain(paragraph[locale]);
+        }
         for (const p of quiz.profiles) {
           const path = `/${locale}/tests/explore/disc/results/${p.id}`, args = { params: Promise.resolve({ locale, slug: "disc", profile: p.id }) }; dom.innerHTML = renderToStaticMarkup(await guide.default(args));
           for (const text of p.sections.at(-1)!.paragraphs) expect(dom.querySelector("#report-thai-four-animals-labels")?.textContent).toContain(text[locale]);

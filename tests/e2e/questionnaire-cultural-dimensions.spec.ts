@@ -4,7 +4,7 @@ type Locale = "en" | "zh";
 const path = (l: Locale) => `/${l}/tests/explore/cultural-dimensions`;
 const label = (l: Locale, en: string, zh: string) => l === "zh" ? zh : en;
 async function consent(page: Page, l: Locale) { const b = page.getByRole("button", { name: label(l, "Decline", "拒绝"), exact: true }); if (await b.isVisible()) await b.click(); }
-async function button(page: Page, l: Locale, en: string, zh: string) { await page.getByRole("button", { name: label(l, en, zh), exact: true }).click(); }
+async function button(page: Page, l: Locale, en: string, zh: string) { if (en === "Start test") { await page.locator("[data-explore-start]").click(); return; } await page.getByRole("button", { name: label(l, en, zh), exact: true }).click(); }
 async function finish(page: Page, l: Locale, values: string[]) {
   for (let i = 0; i < 36; i++) {
     const radio = page.locator(`input[name="${quiz.questions[i].id}"][value="${values[i]}"]`);

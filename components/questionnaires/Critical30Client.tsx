@@ -88,14 +88,15 @@ function ValidCritical30Client({ quiz, locale, readingProfiles }: { quiz: Critic
   }
   const partIndex = Math.floor(index / 6), current = quiz.critical30.sections[partIndex], question = quiz.questions[index];
   const counts = (x: { correct: number; wrong: number; unanswered: number; total: number }) => zh ? `正确 ${x.correct}；错误 ${x.wrong}；未答 ${x.unanswered}；共 ${x.total} 题。` : `Correct ${x.correct}; wrong ${x.wrong}; unanswered ${x.unanswered}; total ${x.total}.`;
-  return <section id="take-test" data-critical30-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
-    {activityConsent}<p className="mb-4 text-sm leading-7 text-slate-600">{quiz.critical30.privacy[locale]}</p>
+  return <section id="take-test" data-stage={stage} data-critical30-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
+    {stage === "welcome" && <div className="critical30-entry-controls"><h2 className="text-2xl font-semibold">{quiz.critical30.subtitle[locale]}</h2>
+        <div role="radiogroup" aria-label={zh ? "练习模式" : "Practice mode"} className="space-y-3" aria-disabled={!ready}>{(["timed", "study"] as const).map(m => <label key={m} className="flex min-h-12 items-start gap-3 rounded-lg border p-3"><input type="radio" disabled={!ready} name="critical30-mode" value={m} checked={mode === m} onChange={() => setMode(m)} className="mt-1 size-5 shrink-0 accent-violet-700" /><span className="leading-7">{m === "timed" ? (zh ? "整卷连续计时：30:00，本站选定上限，换段不暂停" : "One continuous 30:00 clock: site-selected cap, no pause between parts") : (zh ? "不计时学习：同一题本，无截止时间" : "Untimed study: the same bank without deadlines")}</span></label>)}</div>
+        <button data-explore-start type="button" disabled={!ready} className={`${button} critical30-primary`} onClick={begin}>{zh ? "开始测试" : "Start test"}</button></div>}
+    <p className="mb-4 text-sm leading-7 text-slate-600">{quiz.critical30.privacy[locale]}</p>
     <fieldset disabled={!ready} className="min-w-0 space-y-5 p-0"><legend className="sr-only">{quiz.title[locale]}</legend>
       {stage === "welcome" && <>
-        <h2 className="text-2xl font-semibold">{quiz.critical30.subtitle[locale]}</h2>
-        <p className="leading-8">{quiz.instructions?.[locale]}</p><p className="leading-8">{quiz.critical30.editionNotice[locale]}</p>
-        <div role="radiogroup" aria-label={zh ? "练习模式" : "Practice mode"} className="space-y-3">{(["timed", "study"] as const).map(m => <label key={m} className="flex min-h-12 items-start gap-3 rounded-lg border p-3"><input type="radio" name="critical30-mode" value={m} checked={mode === m} onChange={() => setMode(m)} className="mt-1 size-5 shrink-0 accent-violet-700" /><span className="leading-7">{m === "timed" ? (zh ? "整卷连续计时：30:00，本站选定上限，换段不暂停" : "One continuous 30:00 clock: site-selected cap, no pause between parts") : (zh ? "不计时学习：同一题本，无截止时间" : "Untimed study: the same bank without deadlines")}</span></label>)}</div>
-        <button type="button" className={button} onClick={begin}>{zh ? "开始整份练习" : "Start the whole practice"}</button>
+        <p className="leading-8">{quiz.instructions?.[locale]}</p>
+
       </>}
       {stage === "answer" && <>
         <p data-critical30-progress className="text-sm text-slate-600">{zh ? `第 ${partIndex + 1}/5 部分 · 全卷第 ${index + 1}/30 题` : `Part ${partIndex + 1}/5 · Question ${index + 1}/30 overall`}</p>
@@ -135,6 +136,7 @@ function ValidCritical30Client({ quiz, locale, readingProfiles }: { quiz: Critic
       </>}
       {stage !== "welcome" && <button type="button" className={button} onClick={() => clear()}>{zh ? "退出并清除本次回答" : "Exit and clear these responses"}</button>}
     </fieldset>
+    {activityConsent}
     <p role="status" aria-live="polite" className="my-4 text-sm leading-7">{ready ? message : (zh ? "正在准备练习，请稍候。" : "Preparing practice. Please wait.")}</p>
     <noscript><p>{zh ? "作答需要JavaScript；全部公开指南仍可阅读。" : "Answering requires JavaScript; all public guides remain readable."}</p></noscript>
   </section>;

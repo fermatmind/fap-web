@@ -23,14 +23,15 @@ export function OutfitLinePreferencesClient({ quiz, locale }: { quiz: Questionna
     if (result.status !== "complete") { setMessage(zh ? "本次结果暂不可用，请检查完整作答。" : "The result is unavailable. Check that all items have a response."); return; }
     setStage("result"); setMessage("");
   }
-  return <section id="take-test" className="my-8 rounded-xl border border-violet-200 bg-white p-5 sm:p-8" aria-label={zh ? "作答与完整结果" : "Questionnaire and full results"}>
-    <p data-olp-privacy className="mb-5 rounded-lg bg-slate-50 p-4 text-sm leading-7">{zh ? "仅本人作答。答案只留当前页面内存，不保存进度、不发送测试流程统计、不分享个人结果；刷新、换语言或离开后不能恢复。" : "Answer only for yourself. Answers remain in this page’s memory without saved drafts or personal-result sharing; no quiz-flow statistics are sent. Refreshing, changing language or leaving loses the attempt."}</p>
+  return <section id="take-test" data-stage={stage} className="my-8 rounded-xl border border-violet-200 bg-white p-5 sm:p-8" aria-label={zh ? "作答与完整结果" : "Questionnaire and full results"}>
+
     {stage === "welcome" && <>
       <h2 className="text-2xl font-semibold">{zh ? `开始${quiz.questions.length}题服装线条观察` : `Start your ${quiz.questions.length}-item outfit-line reflection`}</h2>
       <p className="my-4 leading-8">{quiz.instructions?.[locale]}</p>
       {!ready && <p role="status">{zh ? "正在准备测试…" : "Preparing the test…"}</p>}
-      <button disabled={!ready} className={`${button} bg-violet-700 text-white`} onClick={() => reset("answer")}>{zh ? "开始测试" : "Start test"}</button>
+      <div className="flex flex-wrap gap-3"><button data-explore-start disabled={!ready} className={`${button} bg-violet-700 text-white`} onClick={() => reset("answer")}>{zh ? "开始测试" : "Start test"}</button></div>
     </>}
+    <p data-olp-privacy className="mb-5 rounded-lg bg-slate-50 p-4 text-sm leading-7">{zh ? "仅本人作答。答案只留当前页面内存，不保存进度、不发送测试流程统计、不分享个人结果；刷新、换语言或离开后不能恢复。" : "Answer only for yourself. Answers remain in this page’s memory without saved drafts or personal-result sharing; no quiz-flow statistics are sent. Refreshing, changing language or leaving loses the attempt."}</p>
     {stage === "answer" && question && <>
       <p className="mb-3 text-sm">{zh ? `第${position + 1}题，共${quiz.questions.length}题` : `Question ${position + 1} of ${quiz.questions.length}`}</p>
       <progress aria-label={zh ? "已作答题数" : "Questions answered"} max={quiz.questions.length} value={Object.keys(answers).length} className="mb-5 w-full accent-violet-700" />

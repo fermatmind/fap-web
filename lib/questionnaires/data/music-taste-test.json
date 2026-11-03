@@ -16,20 +16,20 @@
     "en": "Your eight music-preference reflections"
   },
   "seoTitle": {
-    "zh": "音乐品味测试：24条音乐偏好题与八份完整结果",
-    "en": "Music Taste Test: 24 Ratings and Eight Full Music Guides"
+    "zh": "音乐品味测试：八类音乐偏好、计分与完整解读",
+    "en": "Music Taste Test: Eight Preferences, Scoring and Full Guides"
   },
   "description": {
-    "zh": "用24条原创喜欢程度题探索流行、摇滚、嘻哈、电子、爵士、西方古典器乐、原声民谣与乡村声音。八项均分与完整结果免费，无需注册；另讲听歌场景，不以曲风推断智力或阶层。",
-    "en": "Explore eight music preferences with 24 original liking ratings. Full free guides and separate listening-context ideas, no signup, audio quiz or status verdict."
+    "zh": "通过24条声音喜欢程度自评，分别了解流行、摇滚、嘻哈、电子、爵士、西方古典器乐、原声民谣与乡村偏好。约6分钟，免费查看八项均分、有效题数和完整指南，无需注册。",
+    "en": "Rate 24 sound descriptions to explore eight music preferences. See separate means, rated-item counts and eight full guides, free in about six minutes with no signup."
   },
   "introduction": {
-    "zh": "你喜欢副歌旋律、乐队推进、说唱律动，还是某种乐器和声音层次？本音乐品味测试用24条原创文字题，分别询问八类选定声音线索的喜欢程度。流行、摇滚、嘻哈、电子、爵士、西方古典器乐、原声民谣与乡村可以重叠，并不穷尽全球音乐。全部八份完整说明可先读，作答后同时呈现八项均分或资料不足，不按最高值派人格。听歌用途另外解释，没有音频、歌词猜题或歌手排名，也不评价谁的品味更好。",
-    "en": "Do you enjoy returning choruses, a band’s drive, rap grooves, or particular instruments and textures? This Music Taste Test uses 24 original word-based items to ask liking for selected sounds in eight parts: pop, rock, hip-hop, electronic, jazz, Western classical instrumental, acoustic folk and country. They can overlap and do not exhaust world music. Read all eight full guides first, then receive separate means or insufficient-information states without a highest-score personality. Listening uses are discussed separately. There is no audio quiz, lyric recognition, artist ranking or judgment of whose taste is better."
+    "zh": "音乐品味包含对旋律、节奏、音色、人声和编排的不同喜好。本测试用24条原创文字陈述，分别整理流行、摇滚、嘻哈、电子、爵士、西方古典器乐、原声民谣和乡村八类选定声音的喜欢程度。每类三题，结果显示独立均分与有效题数；不熟悉的声音可以保留为资料不足，八份完整指南仍可阅读。八类可以同时喜欢，也可能在同类内部有不同选择。这份题本用于描述自己的聆听偏好，没有音频识别、艺人排名或歌单导入，也不把最高均分指定为人格类型。",
+    "en": "Musical taste includes different preferences for melody, rhythm, timbre, vocals and arrangement. These 24 original written statements organise liking for selected sounds in pop, rock, hip-hop, electronic, jazz, Western classical instrumental, acoustic folk and country. Each part has three items and a separate mean with a rated-item count. Unfamiliar sounds can remain insufficiently rated while all eight full guides stay available. You can like several families and differ across sounds within one family. This questionnaire describes listening preferences without audio recognition, artist rankings, playlist imports or a highest-score personality type."
   },
   "instructions": {
-    "zh": "按你对所描述声音的熟悉体验，选择很不喜欢、不太喜欢、中性、比较喜欢或很喜欢；不熟悉、无法判断或不愿回答请选择NA，不会补成不喜欢或中性。问的是声音喜好，不是最近听过几次、乐理知识、歌词观点或它是否提高表现。没有音频供你试听，不要猜。全部24条先完成选择，每类3题至少2条有效评分才显示均分。",
-    "en": "Use your familiar experience of the described sound: Strongly dislike, Dislike, Neither like nor dislike, Like or Strongly like. Choose NA if unfamiliar, unsure or unwilling to answer; it is not dislike or neutrality. Rate sound liking rather than recent frequency, theory knowledge, agreement with lyrics or effects on performance. No audio is provided, so do not guess. Complete all 24 selections; each three-item part needs two ratings for a mean."
+    "zh": "依据自己实际听过、能够理解的声音体验，评价每条描述的喜欢程度：1很不喜欢、2不太喜欢、3既不喜欢也不讨厌、4比较喜欢、5很喜欢。不熟悉、无法判断或不愿回答时选NA；不要用中性代替不了解，也不必为完成测试去试听。这里没有正确答案，不问听歌次数、乐理水平或是否赞同歌词。全部24条完成选择后显示结果，每类至少两条有效评分才计算均分。",
+    "en": "Rate each description using sounds you have actually heard and can understand: 1 Strongly dislike, 2 Dislike, 3 Neither like nor dislike, 4 Like, 5 Strongly like. Choose NA when unfamiliar, unsure or unwilling to answer; neutrality should not stand in for unfamiliarity, and no listening task is required. There are no correct answers. The items do not ask listening frequency, music theory or agreement with lyrics. Results appear after all 24 selections, with at least two numeric ratings needed for each part’s mean."
   },
   "source": {
     "kind": "FermatMind original eight-part sound-liking reflection;notMUSIC/STOMP/artist-status or listening-habit instrument",
@@ -2858,176 +2858,212 @@
   "references": [
     {
       "title": {
-        "zh": "Oxford：流行音乐常用词义",
-        "en": "Oxford: pop music term background"
+        "zh": "Rentfrow与Gosling（2003）：音乐偏好结构与人格相关原始研究",
+        "en": "Rentfrow & Gosling (2003): original preference-structure and personality-correlate research"
       },
-      "url": "https://www.oxfordlearnersdictionaries.com/definition/english/pop_1"
+      "url": "https://gosling.psy.utexas.edu/wp-content/uploads/2014/09/JPSP03musicdimensions.pdf"
     },
     {
       "title": {
-        "zh": "Merriam-Webster：摇滚词义背景",
-        "en": "Merriam-Webster: rock-and-roll term background"
+        "zh": "Rentfrow等（2011）：MUSIC五因素模型原始研究",
+        "en": "Rentfrow et al. (2011): original five-factor MUSIC study"
       },
-      "url": "https://www.merriam-webster.com/dictionary/rock-and-roll"
-    },
-    {
-      "title": {
-        "zh": "Merriam-Webster：嘻哈词义背景",
-        "en": "Merriam-Webster: hip-hop term background"
-      },
-      "url": "https://www.merriam-webster.com/dictionary/hip-hop"
-    },
-    {
-      "title": {
-        "zh": "Merriam-Webster：电子音乐词义",
-        "en": "Merriam-Webster: electronic music definition"
-      },
-      "url": "https://www.merriam-webster.com/dictionary/electronic%20music"
-    },
-    {
-      "title": {
-        "zh": "Merriam-Webster：爵士词义背景",
-        "en": "Merriam-Webster: jazz term background"
-      },
-      "url": "https://www.merriam-webster.com/dictionary/jazz"
-    },
-    {
-      "title": {
-        "zh": "Oxford：西方古典音乐范围",
-        "en": "Oxford: Western classical music scope"
-      },
-      "url": "https://www.oxfordlearnersdictionaries.com/definition/english/classical-music"
-    },
-    {
-      "title": {
-        "zh": "Merriam-Webster：民谣词义与范围",
-        "en": "Merriam-Webster: folk music meanings and scope"
-      },
-      "url": "https://www.merriam-webster.com/dictionary/folk%20music"
-    },
-    {
-      "title": {
-        "zh": "Merriam-Webster：乡村音乐词义",
-        "en": "Merriam-Webster: country music term background"
-      },
-      "url": "https://www.merriam-webster.com/dictionary/country%20music"
+      "url": "https://projects.ori.org/lrg/PDFs_papers/RentfrowEtal2011StrucMusicPrefsJPSP.pdf"
     }
   ],
   "guide": [
     {
       "id": "facet-scoring",
       "title": {
-        "zh": "喜欢程度怎样计分",
-        "en": "How liking is scored"
+        "zh": "24条音乐偏好题怎样计分？",
+        "en": "How are the 24 music-preference items scored?"
       },
       "paragraphs": [
         {
-          "zh": "每部分3条题目问你对熟悉声音的喜欢程度，1很不喜欢、3中性、5很喜欢；NA不熟悉或无法判断不计分。全部24题先完成选择，每部分至少2条有效评分才显示一位小数均分，否则明确资料不足。最低条数是本站完整度规则，不是心理阈值。八部分可共存，不按最高值派主类型，不合成品味总分、百分比或常模；小数差异不等于统计显著，均分也不是听歌时长或知识水平。",
-          "en": "Three items per part ask liking for a familiar sound: 1 Strongly dislike, 3 Neither like nor dislike, 5 Strongly like. NA for unfamiliarity or uncertainty is unscored. Complete all 24 selections first. Each part needs two ratings for a one-decimal mean, otherwise information is insufficient. This minimum is a website completeness rule, not a psychological cutoff. Parts can coexist without a highest-score type, taste-quality total, percentage or norm. Decimal differences establish no statistical significance; a mean is neither listening time nor musical knowledge."
+          "zh": "八类声音各有三条陈述，五个喜欢程度选项依次记1—5分，本版没有反向题。对某类声音，原始和S等于该类有效评分之和，n为有效评分条数；n至少为2时，显示S÷n并四舍五入到一位小数，同时保留有效题数。NA不计入分子或分母。",
+          "en": "Each of eight parts has three statements, with liking options coded 1–5 and no reverse-scored items. For a part, S is the sum of numeric ratings and n is their count. When n is at least two, the display is S divided by n, rounded to one decimal, alongside the rated-item count. NA contributes to neither sum nor denominator."
+        },
+        {
+          "zh": "例如同类三题为3、5、NA，S=8、n=2，均分为4.0；若第三题改为2，均分变为10÷3≈3.3。若只有5、NA、NA，仍显示资料不足，不把单条5分当作整类结论。至少两题是本站的显示完整度规则，没有被验证为心理学阈值。",
+          "en": "For ratings of 3, 5 and NA, S=8 and n=2, so the mean is 4.0. Changing the third response to 2 gives 10 divided by 3, displayed as 3.3. Ratings of 5, NA and NA remain insufficient; one rating is not treated as a whole-family conclusion. The two-rating minimum is a display-completeness rule, not an established psychological cutoff."
         }
       ]
     },
     {
       "id": "facet-reading",
       "title": {
-        "zh": "八部分分别阅读",
-        "en": "Read eight parts separately"
+        "zh": "八项均分、有效题数与资料不足怎样读？",
+        "en": "How should means, rated-item counts and insufficient information be read?"
       },
       "paragraphs": [
         {
-          "zh": "高均分表示你较喜欢本部分选定的文字声音描述，低均分表示较不喜欢，NA不足则不生成个人均分。它不是听歌频率、熟悉程度排名或好坏品位；三条题目中的差异值得回看。全部八份完整结果同时保留，不因低分或资料不足隐藏，也不从曲风算听歌用途。",
-          "en": "A higher mean describes greater liking for this part’s selected sound descriptions, a lower mean less liking, and insufficient ratings produce no personal mean. This is neither listening frequency, a familiarity ranking nor good or bad taste. Revisit differences among the three items. All eight full guides remain available regardless of mean or insufficient information, and genre preferences are not converted into listening uses."
+          "zh": "均分较高表示你对这三条选定描述的喜欢程度较高，较低表示较不喜欢；先看具体条目，再理解汇总。相同均分可能来自不同回答，例如3、4、5与4、4、4均为4.0，但前者包含条目差异。两题均分和三题均分也应连同覆盖条数阅读。",
+          "en": "A higher mean summarises greater liking for the selected descriptions; a lower mean summarises less liking. Read the items before interpreting the summary. Ratings of 3, 4, 5 and 4, 4, 4 both average 4.0 but differ in their item pattern. A two-rating mean and a three-rating mean should also be read with their coverage."
+        },
+        {
+          "zh": "八项不共享一个固定总额，可以全部较高、全部较低或多项相同。结果不生成总分、主类型、匹配百分比或人群排名。1—5是有序喜欢程度的数字编码，求均分是本版摘要约定，并未证明相邻选项的心理距离相等；一位小数也不代表测量精度或统计显著。",
+          "en": "The eight parts do not divide a fixed total: all can be high, low or equal. There is no overall score, primary type, match percentage or population rank. Coding ordered liking categories as 1–5 and averaging them is this edition’s summary convention; equal psychological distances between categories have not been established. A decimal place establishes neither measurement precision nor statistical significance."
         }
       ]
     },
     {
       "id": "facet-comparison",
       "title": {
-        "zh": "音乐偏好与听歌用途的区别",
-        "en": "Preferences and listening uses differ"
+        "zh": "音乐品味自评、人格测验与听歌数据有什么区别？",
+        "en": "How does this reflection differ from personality tests and listening data?"
       },
       "paragraphs": [
         {
-          "zh": "本版选定八类声音，彼此可重叠，不是全球曲风分类或经过验证的八因素模型，也不是MUSIC、STOMP或歌手喜好推测阶层的题本。想配合心情、细听、共同选歌、发现新声音、回听熟悉作品是另一个层面，下文分别说明，均未计分或派类型。没有本站信效度、常模或中英文等价验证，不推断智力、阶层、人格、健康、职业或关系匹配。",
-          "en": "The eight selected sound families overlap; they are neither a world-genre taxonomy nor a validated eight-factor model, MUSIC, STOMP or an artist-based status task. Choosing for a mood, listening closely, sharing a choice, discovering sound and returning to familiar music are another layer, explained separately below without scores or assigned types. There are no established website psychometrics, norms or cross-language equivalence, nor inferences about intelligence, status, personality, health, careers or compatibility."
+          "zh": "本题本问“我有多喜欢这些声音”，没有测量播放时长、收藏次数、音乐知识、辨音能力或社交身份。常听某首歌可能与可用资源或当时活动有关，喜欢一类声音也不表示每天播放。歌单统计、听歌情境和自评喜欢程度不能直接互相替代。",
+          "en": "This questionnaire asks how much you like selected sounds. It does not measure playback time, saves, musical knowledge, auditory ability or social identity. Frequent plays can reflect available recordings or an activity, while liking a sound does not imply daily listening. Library statistics, listening contexts and self-reported liking are different forms of information."
+        },
+        {
+          "zh": "八类名称是本版组织题目的声音家族，允许交叉，不是经过因素分析确认的八个人格维度。本版尚未建立信度、效度、常模或中英文测量等价证据。研究中的群体关联不能用来给个人换算智力、阶层、大五人格、MBTI类型或关系匹配。",
+          "en": "These eight names organise the selected items into overlapping sound families, not eight personality dimensions established by factor analysis. Reliability, validity, norms and English–Chinese measurement equivalence have not been established for this edition. Group associations in research do not supply a conversion into an individual’s intelligence, social status, Big Five traits, MBTI type or compatibility."
+        }
+      ]
+    },
+    {
+      "id": "sound-families",
+      "title": {
+        "zh": "八类音乐偏好的具体声音线索",
+        "en": "The sound cues covered by the eight music preferences"
+      },
+      "paragraphs": [
+        {
+          "zh": "流行：可辨认的副歌旋律、人声在伴奏前方以及主歌与副歌的变化。摇滚：电吉他与贝斯的组合、鼓与重复乐句的推进，以及乐队从收敛到展开的变化。这里比较声音特点，不用排行榜位置定义流行，也不把摇滚喜好解释为叛逆。",
+          "en": "Pop covers returning chorus melodies, foreground vocals and verse–chorus changes. Rock covers electric guitar with bass, drums with repeated figures and a band moving from restrained to fuller sound. These are sound cues, not a chart-position definition of pop or an inference of rebellion from rock."
+        },
+        {
+          "zh": "嘻哈：说唱语句与节拍的关系、鼓与低音的律动，以及语速、停顿和重音。电子：合成音色、重复节拍中的层次进出，以及声音处理的延伸和空间感。电子制作可以出现在流行或嘻哈作品中，因此喜欢其中一项并不排斥另一项。",
+          "en": "Hip-hop covers vocal phrasing around a beat, drum–bass groove and changes in pace, pauses and emphasis. Electronic covers synthesised timbres, layers entering and leaving a repeating beat, and processed textures or space. Electronic production can occur in pop or hip-hop, so liking one part does not exclude another."
+        },
+        {
+          "zh": "爵士：独奏乐句的展开、重音位置与乐器之间的回应。西方古典器乐：主题变化、弦乐管乐钢琴的音色，以及段落间的力度、速度和配器。后者是本题组选定的范围，不代表全球所有古典传统；喜欢这些线索也不证明学历、智力或品位等级。",
+          "en": "Jazz covers developing solo phrases, accent placement and responses between instruments. Western classical instrumental covers transformed themes, string, wind and piano timbres, and changes in dynamics, pace or instrumentation. The latter is a selected scope, not all classical traditions worldwide, and liking it establishes no education, intelligence or taste hierarchy."
+        },
+        {
+          "zh": "原声民谣：拨弦扫弦与歌声的近距离关系、较少乐器留下的细节以及叙事感。乡村：歌声与弦乐组合、随旋律讲述的演唱，以及拨弦、滑音或拉弦细节。两者可能共享乐器与讲述方式，本版不据此推断乡居经历、政治立场或真实个性。",
+          "en": "Acoustic folk covers plucked or strummed strings close to vocals, exposed details in sparse arrangements and storytelling. Country covers singing with strings, melodic storytelling and plucked, sliding or bowed details. They can share instruments and narrative features; neither part determines rural experience, political views or personal character."
+        }
+      ]
+    },
+    {
+      "id": "research-models",
+      "title": {
+        "zh": "音乐偏好研究：STOMP与MUSIC模型",
+        "en": "Music-preference research: STOMP and the MUSIC model"
+      },
+      "paragraphs": [
+        {
+          "zh": "Rentfrow与Gosling（2003）研究了音乐偏好的结构与人格相关，提出四个较宽的偏好维度。[1] Rentfrow、Goldberg与Levitin（2011）采用音乐片段的喜欢程度等资料研究五因素结构，即MUSIC模型。[2] 这些研究说明，研究者可以对偏好资料检验结构，而不是仅凭曲风名称宣布某种人格。",
+          "en": "Rentfrow and Gosling (2003) investigated preference structure and personality correlates, describing four broad preference dimensions.[1] Rentfrow, Goldberg and Levitin (2011) investigated a five-factor structure, the MUSIC model, using responses to musical excerpts among other data.[2] These are investigations of preference structure, rather than personality assignments based only on genre names."
+        },
+        {
+          "zh": "本站24条原创文字题没有施测上述研究的完整量表或音频程序，也没有输出四因素或五因素分数。参考文献用于说明相关研究与本版差异，不能把原研究的样本、相关性或验证结论转给本站八项均分。若要评估本版，需要针对实际题目、语言、人群和用途另行研究。",
+          "en": "These 24 original written items do not administer those studies’ full measures or audio procedures and do not output their four- or five-factor scores. The references explain related research and the distinction from this edition; their samples, correlations and validation findings do not validate these eight means. This form needs evidence for its own items, languages, populations and intended uses."
         }
       ]
     },
     {
       "id": "context-mood",
       "title": {
-        "zh": "想配合当时心情",
-        "en": "Choosing for the moment"
+        "zh": "按当时心情选歌：另看具体作品与活动",
+        "en": "Choosing for a mood: consider the recording and activity"
       },
       "paragraphs": [
         {
-          "zh": "先写“我现在想听哪种声音”，再考虑某首作品是否合适。喜欢某类音乐与它在这次场景是否有用是两件事；本测试不测调节情绪的能力，也不保证放松、疗愈或健康效果。可以选择别的声音、暂停或不听。",
-          "en": "Ask which sound you want now, then whether a particular recording fits. General liking and usefulness on this occasion are different questions. This test does not measure mood-regulation skill or promise relaxation, healing or health effects. Another sound, a pause or no music can also be a choice."
+          "zh": "先说明此刻想要的体验，例如更安静、想动一动或只是听熟悉的歌，再判断具体作品是否适合。即使摇滚偏好较高，也可能在阅读时不想播放有歌词的歌曲；即使一般不喜欢电子，也可能喜欢某段柔和的合成音色。情境选择没有由均分自动算出。",
+          "en": "Name the experience you want now, such as quiet, movement or a familiar song, then consider a particular recording. A high rock mean can coexist with wanting no lyrics while reading; a low electronic mean can coexist with liking one gentle synthesised texture. Context choices are not computed from the means."
+        },
+        {
+          "zh": "可以换一首、降低音量、暂停或不听。本测试没有评估情绪调节能力，也不保证某类音乐能疗愈、改善专注或提高工作表现。把“我喜欢”与“这次是否合适”分别记录，比让曲风承担固定功效更有用。",
+          "en": "You can change tracks, lower the volume, pause or choose silence. This questionnaire does not assess mood-regulation ability or guarantee healing, concentration or work benefits. Separately noting enjoyment and suitability for this occasion is more useful than assigning a fixed effect to a genre."
         }
       ]
     },
     {
       "id": "context-detail",
       "title": {
-        "zh": "想仔细听一个细节",
-        "en": "Listening closely to one detail"
+        "zh": "细听一个声音线索：从整体印象到具体描述",
+        "en": "Listening to one cue: move from an impression to a description"
       },
       "paragraphs": [
         {
-          "zh": "可以只注意一条人声、一个乐器或段落变化，不要求整张专辑或专业术语。愿意细听不证明更聪明、更认真或注意力更强；只听整体也不较低级。声音线索各结果都有具体观察方法，按自己意愿短听即可。",
-          "en": "Choose a vocal line, instrument or section change without requiring a full album or technical terms. Close listening proves neither intelligence, seriousness nor stronger attention; hearing the whole texture is not inferior. Each result guide offers a concrete sound observation that you can try briefly if you wish."
+          "zh": "选一段自己已有权收听的熟悉音乐，只留意一个线索：副歌回来时的旋律、鼓与低音怎样配合、某个乐器怎样回应人声。写一句“我喜欢的是……”，再找一个不符合的段落。无需识谱、辨调或使用专业术语，也无需完整听完专辑。",
+          "en": "Choose familiar music you can lawfully access and notice one cue: a returning chorus melody, drums working with bass, or an instrument answering a voice. Write one sentence about what you like and identify a passage that does not fit. No notation, key identification, technical vocabulary or full-album session is needed."
+        },
+        {
+          "zh": "例如同样喜欢乡村和原声民谣，可以比较吸引你的是弦乐音色、叙事演唱还是稀疏编排；同样喜欢爵士和古典器乐，可以分别观察即兴式展开与主题变化。这里是个人观察，不是听力、鉴赏水平或注意力考试。",
+          "en": "If both country and acoustic folk appeal, compare string timbre, storytelling vocals and sparse arrangement. If jazz and Western classical instrumental both appeal, notice developing phrases and transformed themes separately. This is personal observation, not an examination of hearing, appreciation skill or attention."
         }
       ]
     },
     {
       "id": "context-shared",
       "title": {
-        "zh": "与别人共同选歌",
-        "en": "Making a shared music choice"
+        "zh": "共同选歌：表达偏好而不替别人判型",
+        "en": "Choosing together: express preferences without typing other people"
       },
       "paragraphs": [
         {
-          "zh": "先问在场者想听什么、是否愿意播放和需要怎样的音量，不从对方测试结果替其作决定。同一曲风里也可能有不合场景的歌词或编排，具体版本要另外判断。共同选歌不是让你负责带动全场，也不测读场面或讨好能力。",
-          "en": "Ask what people want, whether they want music and what volume suits them, rather than choosing on their behalf from a test result. A genre can include recordings with unsuitable subjects or arrangements, so consider the actual version separately. A shared choice does not make you responsible for the room or measure social skill."
+          "zh": "共同播放前，先确认大家是否想听、需要怎样的音量，以及有无需要安静完成的活动。可以说“我想听节奏清楚、歌词不太突出的版本”，比“我电子分高，所以大家听电子”更容易协商。具体录音的歌词内容与编排仍要另外判断。",
+          "en": "Before playing music together, ask whether people want it, what volume suits them and whether an activity needs quiet. Asking for a clear beat with less prominent lyrics is easier to negotiate than choosing for everyone because your electronic mean is high. Consider the actual recording’s subject matter and arrangement separately."
+        },
+        {
+          "zh": "两个音乐偏好结果相似，不保证相处默契；结果不同也不表示无法分享音乐。可以轮流推荐一首并说明喜欢的具体片段，保留拒绝播放和不分享私人歌单的选择。共同选歌不要求任何人负责带动全场。",
+          "en": "Similar music reflections do not guarantee compatibility, and different reflections do not prevent sharing music. Take turns suggesting one recording and explaining a favourite passage, while allowing people to decline playback or keep playlists private. Nobody needs to become responsible for entertaining the room."
         }
       ]
     },
     {
       "id": "context-discovery",
       "title": {
-        "zh": "想听一点新声音",
-        "en": "Trying an unfamiliar sound"
+        "zh": "发现新声音：保留不熟悉与不喜欢的区别",
+        "en": "Discovering sounds: distinguish unfamiliarity from dislike"
       },
       "paragraphs": [
         {
-          "zh": "可以从自己已有合法渠道中找一个与熟悉作品只差一处的声音，例如相近旋律但不同配器。新奇不自动胜过重复，不喜欢也可停止。NA保留“还不熟悉”的状态，不被补成低分；本测试没有用新曲数量衡量开放性、成熟或探索能力。",
-          "en": "Through lawful access you already have, try a sound differing from something familiar in one way, such as similar melody with different instruments. Novelty is not automatically better than repetition, and you can stop. NA preserves unfamiliarity rather than a low score; the number of new tracks is not a measure of openness, maturity or exploration skill."
+          "zh": "不认识一个类别时，先选NA，结果不会替你猜测。若之后愿意探索，可以从熟悉作品只改变一个线索：相似旋律、不同配器，或同样的人声、不同节奏。先形成真实聆听经验，再考虑自己对相关题目的喜欢程度。",
+          "en": "Choose NA when a category is unfamiliar; the result will not guess for you. If you later want to explore, change one cue from a familiar recording, such as similar melody with different instruments or similar vocals with another rhythm. Develop an actual listening experience before reconsidering the relevant ratings."
+        },
+        {
+          "zh": "新奇、冷门和昂贵并不自动更好，不喜欢也可以停止。未列入的金属、R&B、戏曲、游戏配乐或其他传统不被算为低分；它们只是没有在这八项中独立成组。八项均分不能表示你全部的音乐世界。",
+          "en": "Novelty, rarity and price do not make music better for you, and you can stop when you dislike it. Metal, R&B, Chinese opera, game soundtracks and other unlisted traditions are not assigned low scores; they simply lack separate parts here. These eight means cannot represent your entire musical world."
         }
       ]
     },
     {
       "id": "context-familiar",
       "title": {
-        "zh": "想回到熟悉的作品",
-        "en": "Returning to familiar music"
+        "zh": "熟悉感、记忆与重测的读法",
+        "en": "Familiarity, memories and reading a retake"
       },
       "paragraphs": [
         {
-          "zh": "熟悉歌曲可能带着个人记忆，也可能只是此刻喜欢的声音。可以保留这层意义，不必由它推断固定怀旧人格、年龄或不愿改变。具体回忆没有被测试收集；分享只含公开测试入口，不需要公开私人故事、歌单、答案或均分。",
-          "en": "A familiar recording may carry a memory or simply be a sound you enjoy now. Keep that meaning without inferring a fixed nostalgic personality, age or resistance to change. Personal memories are not collected. Sharing contains the public test entry and does not require private stories, playlists, answers or means."
+          "zh": "熟悉作品可能承载一段经历，也可能只是此刻舒服的声音。不必由重复播放推断怀旧人格、年龄或不愿改变。可以把个人意义留给自己，本测试不收集具体回忆，也不需要交出私人歌单来证明喜好。",
+          "en": "A familiar recording may carry an experience or simply sound enjoyable now. Repeated listening does not determine a nostalgic personality, age or resistance to change. Keep personal meanings private if you wish; the questionnaire collects no specific memories and requires no playlist as proof of liking."
+        },
+        {
+          "zh": "重测时先核对是否使用同一题本，以及哪些题目从NA变成评分、哪些具体线索改变。均分变化可能涉及熟悉程度、作答理解或当时参照；仅凭两次数字，不能区分偏好改变与测量波动，更不能量化人格改变。",
+          "en": "For a retake, check the form and which items changed from NA to ratings or changed in liking. Mean changes may involve familiarity, interpretation or the experience used as a reference. Two sets of numbers cannot separate preference changes from measurement variation or quantify personality change."
         }
       ]
     },
     {
       "id": "free-and-private",
       "title": {
-        "zh": "完整免费与可选保存分享",
-        "en": "Full free access and optional saving or sharing"
+        "zh": "完整结果、隐私与可选草稿",
+        "en": "Full results, privacy and optional drafts"
       },
       "paragraphs": [
         {
-          "zh": "全部24题、八项均分或资料不足和八份完整解释免费，无需注册、邮箱、付款或前置测评。浏览器本地计分，主动保存才留本标签页24小时草稿，完成、重测或清除即删除。分享仅公开入口与自评说明，不带答案、均分、歌单或内部ID；存储或复制受限仍可完成。",
-          "en": "All 24 items, eight means or insufficient states and eight full guides are free, without signup, email, payment or another assessment. Scoring happens in the browser. Only opting in saves a 24-hour tab draft, deleted on completion, retake or clearing. Sharing uses the public entry and reflection description without answers, means, playlists or internal IDs. Blocked storage or copying does not prevent completion."
+          "zh": "24题、八项独立读数与八份完整指南均免费，无需注册、邮箱、购买或先做其他测试。点击开始即可进入题目；草稿保存是另行自愿选择，不是开始或查看结果的条件。每个题目需选择一个选项，NA也算完成选择；八项全部资料不足时，作答仍能结束并阅读完整指南。",
+          "en": "All 24 items, eight separate readings and eight full guides are free, with no signup, email, purchase or prerequisite test. Start opens the questions directly; draft saving is a separate optional choice, not a condition of starting or reading results. Every item needs a selection, and NA counts as one. Even eight insufficient parts finish with all full guides available."
+        },
+        {
+          "zh": "答案在当前浏览器计分，不随计分请求上传，也不写入网址或分析事件。主动保存后仅在本标签页保留24小时草稿，完成、重测或清除会删除；分享仅含公开入口，不含答案、均分、歌单或内部标识。网站仍可能按Cookie设置记录不含答案的使用事件，存储或复制受限不妨碍完成测试。",
+          "en": "Scoring happens in the browser, without uploading answers for scoring or putting them in URLs or analytics events. Opting in keeps a 24-hour draft in this tab, deleted on completion, retake or clearing. Sharing contains the public entry, not answers, means, playlists or internal identifiers. Answer-free usage events may follow Cookie settings; blocked storage or copying does not prevent completion."
         }
       ]
     }
@@ -3035,62 +3071,122 @@
   "faq": [
     {
       "question": {
-        "zh": "音乐品味测试包含哪八类？",
-        "en": "Which eight music preferences does this test explore?"
+        "zh": "音乐品味测试测什么？",
+        "en": "What does this Music Taste Test measure?"
       },
       "answer": {
-        "zh": "流行、摇滚、嘻哈、电子、爵士、西方古典器乐、原声民谣和乡村。它们是选定且可重叠的声音家族，不穷尽全球音乐，也不是八种互斥人格。每类都有完整免费说明，包含具体声音线索、差异、场景、比较与可选聆听小尝试。",
-        "en": "Pop, rock, hip-hop, electronic, jazz, Western classical instrumental, acoustic folk and country. They are selected, overlapping sound families, not all world music or eight exclusive personalities. Each has a full free guide with sound cues, variation, contexts, comparisons and an optional listening experiment."
+        "zh": "本版用24条原创文字陈述整理八类选定声音的喜欢程度，各类独立显示均分与有效题数。它描述你的自评偏好，不测音乐知识、辨音能力、播放频率或品味优劣；没有音频识别和歌手排名。",
+        "en": "It summarises liking for selected sounds through 24 original written statements, with a separate mean and rated-item count for each of eight parts. It describes self-reported preferences, not knowledge, auditory skill, playback frequency or taste quality, and includes no audio recognition or artist ranking."
       }
     },
     {
       "question": {
-        "zh": "这是听歌识曲、歌手排名或音乐人格测试吗？",
-        "en": "Is this song recognition, artist ranking or a music personality test?"
+        "zh": "八类音乐包括哪些？没有我的曲风怎么办？",
+        "en": "Which eight families are covered, and what if mine is absent?"
       },
       "answer": {
-        "zh": "都不是。本版24条文字题问你对熟悉声音的喜欢程度，没有受保护音频、歌词或艺人照片，不要求辨认作品。它不采用竞品歌手题本、听歌用途类型或MUSIC／STOMP量表，不输出智力、阶层、人格或职业结论。",
-        "en": "No. These 24 word-based items ask liking for familiar sounds without protected audio, lyrics or artist photos, and no recording must be recognised. The test adopts neither competitor artist banks or listening-habit types nor MUSIC or STOMP scales. It outputs no intelligence, status, personality or career verdict."
+        "zh": "流行、摇滚、嘻哈、电子、爵士、西方古典器乐、原声民谣和乡村。类别允许交叉，未列入的音乐不自动得到低分。西方古典器乐与原声民谣是较窄的选定范围，并不代表全球古典或民间传统。",
+        "en": "Pop, rock, hip-hop, electronic, jazz, Western classical instrumental, acoustic folk and country. The families overlap, and absent music receives no automatic low score. Western classical instrumental and acoustic folk are selected narrower scopes, not all classical or folk traditions worldwide."
       }
     },
     {
       "question": {
-        "zh": "不熟悉某种音乐可以选NA吗？",
-        "en": "Can I choose NA for unfamiliar music?"
+        "zh": "不熟悉音乐、不会乐理也能做吗？",
+        "en": "Can I answer without music theory or familiarity with every genre?"
       },
       "answer": {
-        "zh": "可以。NA不算不喜欢、中性或零分，也不估算。每类3题至少2条有效评分才显示一位小数均分，否则资料不足；全部24条先完成选择。最低条数是本站完整度规则，不是心理阈值。即使八类均不足，作答也结束，全部指南和重测仍可用。",
-        "en": "Yes. NA is neither dislike, neutrality nor zero, and is not estimated. Each three-item part needs two ratings for a one-decimal mean, otherwise information is insufficient; complete all 24 selections first. This minimum is a website completeness rule, not a psychological cutoff. Even eight insufficient parts finish with all guides and retake available."
+        "zh": "可以。不需要识谱、辨调或辨认作品，依据实际听过的声音作答即可。不熟悉或无法判断时选NA；3分表示既不喜欢也不讨厌，应与不了解区分。没有提供试听，也不要求为了做题去听新的音乐。",
+        "en": "Yes. No notation, key identification or recognition task is required. Use sounds you know and choose NA when unfamiliar or unsure. A rating of 3 means neither like nor dislike and should be distinguished from not knowing. No audio is supplied and no new listening is required."
       }
     },
     {
       "question": {
-        "zh": "能知道我适合怎样的听歌场景吗？",
-        "en": "Does a genre score decide my listening context?"
+        "zh": "音乐偏好均分怎样计算？",
+        "en": "How are the music-preference means calculated?"
       },
       "answer": {
-        "zh": "不能直接推导。入口另有配合心情、细听、共同选歌、发现和熟悉感五个场景读法，各结果也给具体观察。它们是不计分的选择提示，不把人派成五种听众，不测调节情绪、专注或社交能力，也不承诺健康或工作效果。",
-        "en": "Not directly. The entry separately explains choosing for a mood, close listening, shared choices, discovery and familiarity, and every guide offers concrete observations. These are unscored prompts, not five assigned listener types, measures of mood regulation, attention or social skill, or promises of health or work effects."
+        "zh": "每类三题按1—5评分，本版无反向题。有效评分之和除以有效题数，保留一位小数。例如3、5、NA得到8÷2=4.0，3、5、2得到10÷3≈3.3。NA不计零分或中性；每类少于两条有效评分时显示资料不足。",
+        "en": "Each part has three 1–5 ratings without reverse scoring. Divide their sum by the number of numeric ratings and round to one decimal: 3, 5, NA gives 8/2=4.0; 3, 5, 2 gives 10/3≈3.3. NA is neither zero nor neutrality. Fewer than two numeric ratings give insufficient information."
       }
     },
     {
       "question": {
-        "zh": "多个均分一样高或都低怎么办？",
-        "en": "What if several means are equal or all are low?"
+        "zh": "资料不足还能看完整结果吗？",
+        "en": "Can I read full results with insufficient information?"
       },
       "answer": {
-        "zh": "照样分别阅读，不随机挑主类型，也不合成匹配百分比或品味总分。音乐类别可重叠，题目只覆盖选定线索；都低不表示没有品味。题目未覆盖的曲风也不自动算低分，小数差异没有统计显著含义。",
-        "en": "Read them separately without a random primary type, match percentage or taste-quality total. Music categories overlap and items cover selected cues only; low means do not mean having no taste. Uncovered genres are not automatically low scores, and decimal differences establish no statistical significance."
+        "zh": "可以。全部24条完成选择后，八份完整指南都会开放，即使所有题目选NA也能结束。资料不足只是没有生成个人均分，并非低分、失败或要求付费补全；可以选择重测，也可以直接阅读。",
+        "en": "Yes. Once all 24 items have a selection, all eight full guides remain available, including after an all-NA attempt. Insufficient information means no personal mean, not a low score, failure or paid upgrade. You can retake or simply read the guides."
       }
     },
     {
       "question": {
-        "zh": "结果是否完整免费、答案会被分享吗？",
-        "en": "Are full results free, and are answers shared?"
+        "zh": "多个均分相同、全部高或全部低代表什么？",
+        "en": "What do equal, uniformly high or uniformly low means mean?"
       },
       "answer": {
-        "zh": "全部题目、八项读法和八份完整结果免费，无需注册。草稿仅在主动同意后留本标签页24小时，完成、重测或清除即删除。分享只含公开入口，不带答案、均分或私人歌单；不要求上传音乐、购买服务或做MBTI才能看结果。",
-        "en": "All items, eight readings and eight full guides are free without signup. A draft stays in this tab for 24 hours only after opting in, and is deleted on completion, retake or clearing. Sharing contains the public entry without answers, means or playlists. No upload, purchase or MBTI attempt is required for results."
+        "zh": "八类分别评分，不争夺一个固定总额，因此这些情况都允许。没有主类型或强制破同分，也没有品味总分或匹配百分比。均分相同还应回看条目分布与有效题数，全部较低不表示没有音乐品味。",
+        "en": "Each part is scored separately rather than dividing a fixed total, so all these patterns are allowed. There is no primary type, tie-breaking rule, taste-quality total or match percentage. Compare item patterns and rated-item counts behind equal means; low means do not imply having no musical taste."
+      }
+    },
+    {
+      "question": {
+        "zh": "这份测试科学吗？与STOMP、MUSIC有什么区别？",
+        "en": "Is this test validated, and how does it differ from STOMP and MUSIC?"
+      },
+      "answer": {
+        "zh": "音乐偏好有正式研究，例如四维结构研究与MUSIC五因素模型。[1][2] 本站使用原创八类文字题，不是这些量表或音频程序。本站题本尚未建立信度、效度、常模和跨语言等价证据；引用研究不等于本版已获验证。",
+        "en": "Music preference has formal research, including four-dimensional work and the five-factor MUSIC model.[1][2] This site uses eight original written parts rather than those measures or audio procedures. Reliability, validity, norms and cross-language equivalence remain unestablished for this form; citing research does not validate it."
+      }
+    },
+    {
+      "question": {
+        "zh": "音乐品味能看出智力、阶层或MBTI吗？",
+        "en": "Can musical taste reveal intelligence, status or MBTI type?"
+      },
+      "answer": {
+        "zh": "本测试不能这样推算。研究中的样本关联、某种音乐的文化声望，以及个人测评结论是不同层次。本版没有相应预测模型或个体效度证据，不把爵士、古典、流行或其他喜好排成智力与人格等级。",
+        "en": "This test provides no such conversion. Sample associations, a genre’s cultural prestige and an individual assessment are different levels of inference. This form lacks the relevant predictive model and individual validity evidence and does not rank jazz, classical, pop or other preferences by intelligence or personality."
+      }
+    },
+    {
+      "question": {
+        "zh": "结果能推荐最适合我的歌单或听歌场景吗？",
+        "en": "Will the result recommend my ideal playlist or listening context?"
+      },
+      "answer": {
+        "zh": "结果提供声音观察和可选的小尝试，不连接流媒体、导入歌单或生成个性化歌曲推荐。心情、细听、共同选歌、发现和熟悉感是另外讨论的五类场景，不计分、不派听众类型，也不承诺改善健康、专注或表现。",
+        "en": "Guides offer sound observations and optional experiments, without connecting to streaming services, importing playlists or generating personalised song recommendations. Mood, close listening, shared choices, discovery and familiarity are five separately discussed contexts, not scored listener types or promises of health, concentration or performance benefits."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么重测结果会变化？",
+        "en": "Why might a retake change?"
+      },
+      "answer": {
+        "zh": "先看具体条目、有效题数和NA变化，再看均分。接触新作品、改变参照体验或对文字理解不同，都可能影响回答；当前没有重测信度或测量误差估计，不能仅凭小数变化判断真实偏好或人格改变。",
+        "en": "Inspect item ratings, rated-item counts and NA changes before comparing means. New listening experiences, another reference point or a different interpretation can affect answers. With no established retest reliability or measurement-error estimate, decimal changes alone cannot establish a true preference or personality change."
+      }
+    },
+    {
+      "question": {
+        "zh": "音乐品味测试要多久，是否完全免费？",
+        "en": "How long does it take, and are full results free?"
+      },
+      "answer": {
+        "zh": "共24条，阅读与作答约6分钟，不限时。全部题目、八项均分或资料不足和八份完整解读均免费，无需账号、邮箱、付款或前置测评。点击开始直接进入题目，不必先同意保存草稿。",
+        "en": "There are 24 items, taking about six minutes without a time limit. All items, eight means or insufficient states and eight full guides are free, with no account, email, payment or prerequisite assessment. Start opens the questions directly without agreement to save a draft."
+      }
+    },
+    {
+      "question": {
+        "zh": "答案在哪里计算？保存与分享会包含什么？",
+        "en": "Where are answers scored, and what do saving and sharing include?"
+      },
+      "answer": {
+        "zh": "答案在浏览器计分，不为计分上传或写入网址、分析事件。草稿仅在主动保存后留本标签页24小时，完成、重测或清除即删除。分享仅为公开入口，不含答案、均分或歌单；网站可能按Cookie设置记录不含答案的使用事件。",
+        "en": "Answers are scored in the browser, not uploaded for scoring or placed in URLs or analytics events. An optional draft lasts 24 hours in this tab and is deleted on completion, retake or clearing. Sharing uses the public entry without answers, means or playlists; answer-free usage events may follow Cookie settings."
       }
     }
   ]

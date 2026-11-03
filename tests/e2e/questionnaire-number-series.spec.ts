@@ -43,7 +43,7 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${entry}`);
     await expect(page.locator("#take-test a[href*='mbti']")).toHaveCount(0);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.locator("[data-explore-start]").click();
     await headingBelowHeader(page);
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, locale, true);
@@ -52,7 +52,7 @@ for (const locale of ["en", "zh"] as const) {
     await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click(); await expect(page.locator("[data-practice-result]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked();
   });
   test(`@release Bounded number-series practice ${locale}: opted-in draft,language switch,edit and clear`, async ({ page }) => {
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.goto(entry); await page.locator("[data-explore-start]").click();
     await page.locator('input[name="SER_01"][value="B"]').check(); await page.getByRole("checkbox").check();
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await page.reload();
     await page.getByRole("button", { name: zh ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
@@ -65,7 +65,7 @@ for (const locale of ["en", "zh"] as const) {
   test(`@release Bounded number-series practice ${locale}: zero correct retains all answers and guides; public-link-only sharing`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.addInitScript(() => { Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } }); });
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await finish(page, locale, false);
+    await page.goto(entry); await page.locator("[data-explore-start]").click(); await finish(page, locale, false);
     await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
     const text = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue();
     expect(text).toContain(quiz.title[locale]); expect(text).not.toMatch(/SER_[0-9]{2}|answers|form_code|submission|0\s*\/\s*30|[?&]score/);

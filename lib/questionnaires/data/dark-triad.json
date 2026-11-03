@@ -15,21 +15,21 @@
     "en": "Three thematic self-observations: full readings"
   },
   "description": {
-    "zh": "免费黑暗三角测试原创主题观察版：18条自报做法，分别看认可与形象、影响方式和影响距离。三份完整结果免费，仅保留页面内存，不作人格或风险判断。",
-    "en": "A free Dark Triad Test: 18 original self-report items and three full thematic guides. Page memory only, without clinical traits, types or risk verdicts."
+    "zh": "回看近三个月对认可与形象、信息与影响、他人感受和行为影响的自报做法。18条原创符合度题，三组独立均分与完整指南免费；可不愿回答，无需注册。本版不是SD3量表。",
+    "en": "Review three months of reported approaches to recognition and image, information and influence, and feelings and effects on others. Eighteen original accuracy items, three separate means and full free guides; no signup. This is not the SD3 scale."
   },
   "seoTitle": {
-    "zh": "黑暗三角测试：原创主题观察与免费完整结果",
-    "en": "Dark Triad Test: Original Themes & Free Full Results"
+    "zh": "黑暗三角测试：18题原创主题自评、三组分数与完整解读",
+    "en": "Dark Triad Test: 18 Original Items, Three Theme Scores and Full Guides"
   },
   "minutes": 5,
   "introduction": {
-    "zh": "面对质疑时先核对事实还是维护形象？推进目标时怎样说明信息、回应反对？别人说出影响后，自己怎样回应？这份自有原创题本围绕黑暗三角相关话题，分别回看认可与形象、影响方式、影响距离三组具体做法，每组六条，共十八条。它是小程序候选的网页公开预览，保留中文原题、符合度选项、各组至少四条有效和独立计分，并增加英文试译与完整阅读。三组不是标准自恋、马基雅维利主义或精神病态量表分数，不派三种人格，也不认证谁善良、危险、善于领导或适合某个职业。每条可选择不愿回答，资料不足的组不会补数；三份九节全文始终免费。为保留这项题本的隐私范围，答案只在当前页面内存，刷新或换语言不会恢复，不发送测试流程统计，也不分享个人结果。可以先读公开说明，再决定是否作答。",
-    "en": "When questioned, do you first check facts or protect an image? How do you explain information and respond to objections while pursuing aims? How do you respond after someone describes an effect? This owned original bank revisits topics discussed around the Dark Triad through three groups of specific practices: recognition and image, influence, and impact distance. Six items per group make eighteen. This web public preview carries forward the mini-program candidate’s Chinese items, accuracy options, four-rating minimum and independent scoring, with a new English trial translation and full readings. These are not standard narcissism, Machiavellianism or psychopathy scale scores, three personalities, or verdicts of goodness, danger, leadership or career fit. Every item offers an unscored preference not to answer, and missing groups are not filled in. All three nine-section guides remain free. To retain this bank’s privacy scope, answers stay in page memory: refreshing or changing language loses the attempt, quiz-flow statistics are not sent and personal results are not shared. Read public explanations before deciding whether to answer."
+    "zh": "面对质疑、提出请求或处理行为影响时，你怎样回应？这份黑暗三角测试以18条原创陈述，回看近三个月对地位、认可和形象的关注，达成目标时的信息与影响方式，以及面对他人感受和行为影响时的距离。三组分别显示原始和、有效条数及符合度均分，三份九节完整指南均可阅读。本版提供主题自我观察，不把三组直接命名为研究量表的自恋、马基雅维利主义和精神病态分数。",
+    "en": "How do you respond to criticism, make requests or address the effects of your actions? This Dark Triad Test uses eighteen original statements about the past three months: attention to status, recognition and image; information and influence in pursuing aims; and distance from feelings and effects on others. Each group shows its own sum, rated-item count and accuracy mean, with all three nine-section guides available. This is thematic self-reflection, without relabelling its groups as research-scale narcissism, Machiavellianism or psychopathy scores."
   },
   "instructions": {
-    "zh": "仅回看本人过去三个月，选择每句话有多符合自己。1完全不符合、2比较不符合、3不确定或视情况、4比较符合、5非常符合；3算有效数值但不解释为稳定中立频率。不愿回答可选独立项，不补零或中点。18条都选择后结束，每组六条至少四条数字才给该组原始和、有效数与描述性均分；三组独立，不算总分、最高型或风险。作答只保留当前页面内存，刷新、换语言或离开后不能恢复，不写入浏览器存储、不发流程统计、不分享个人结果；返回上题可修改，重测或退出清除。三份全文始终免费。",
-    "en": "Refer only to yourself over the past three months and rate how accurately each sentence describes you: 1 Very inaccurate, 2 Somewhat inaccurate, 3 Uncertain or depends on the situation, 4 Somewhat accurate, 5 Very accurate. Three counts numerically without representing a stable neutral frequency. The separate prefer-not-to-answer option is unscored, without zero or midpoint substitution. All eighteen selections finish an attempt; each six-item group needs four numeric ratings for its raw sum, rated count and descriptive mean. Groups remain separate without a total, dominant type or risk result. Answers remain only in this page’s memory: refreshing, changing language or leaving loses them. No browser storage, quiz-flow statistics or personal-result sharing is used. Back edits are possible; retake or exit clears the attempt. All three full guides remain free."
+    "zh": "仅为自己作答，回想近三个月，按陈述与你实际做法的符合程度选择1完全不符合至5非常符合。3表示不确定或视情况，不是有时、正常或人群平均；不愿回答请选独立选项，不按零分处理。每组六条至少四条数值作答才显示该组均分，其他组分别计算。无需填写事例或第三人信息。点击开始直接进入题目，不必勾选可选统计；答案仅留当前页面内存，刷新、换语言或离开后不能恢复。",
+    "en": "Answer only for yourself over the past three months, rating how accurately each statement describes your actual approach from 1 Very inaccurate to 5 Very accurate. A 3 means Uncertain or depends on the situation, not Sometimes, normality or a population average. Use the separate option if you prefer not to answer; it is not scored as zero. Each six-item group needs at least four numerical ratings to display its own mean; other groups are scored separately. No examples or third-party information are entered. Start opens the questions directly without checking optional statistics. Answers remain in this page’s memory and are lost on refresh, language change or departure."
   },
   "source": {
     "kind": "FermatMind owned original DARK_TRIAD mini-program public-preview bank: exact eighteen Chinese prompts, IDs, order, accuracy response labels, direct keys and three independent thematic factors; new English trial translation and web presentation. Not SD3, Dirty Dozen, a clinical trait instrument or a direct measure of the three research traits.",

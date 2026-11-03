@@ -92,14 +92,14 @@ function ValidTechnical30Client({ quiz, locale, readingProfiles }: { quiz: Techn
   }
   const current = quiz.technical30.sections[section], question = quiz.questions[section * 6 + position];
   const counts = (x: { correct: number; wrong: number; unanswered: number; total: number }) => zh ? `正确 ${x.correct}；错误 ${x.wrong}；未答 ${x.unanswered}；共 ${x.total} 题。` : `Correct ${x.correct}; wrong ${x.wrong}; unanswered ${x.unanswered}; total ${x.total}.`;
-  return <section id="take-test" data-technical30-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
-    {activityConsent}<p className="mb-4 text-sm leading-7 text-slate-600">{quiz.technical30.privacy[locale]}</p>
+  return <section id="take-test" data-stage={stage === "ready" ? "welcome" : stage} data-technical30-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
+    {stage === "welcome" && <div className="technical30-entry-controls"><h2 className="text-2xl font-semibold">{quiz.technical30.subtitle[locale]}</h2><div role="radiogroup" aria-label={zh ? "练习模式" : "Practice mode"} className="space-y-3">{(["timed", "study"] as const).map(m => <label key={m} className="flex min-h-12 items-start gap-3 rounded-lg border p-3"><input type="radio" name="technical30-mode" value={m} checked={mode === m} disabled={!ready} onChange={() => setMode(m)} className="mt-1 size-5 shrink-0 accent-violet-700" /><span className="leading-7">{m === "timed" ? (zh ? "分段计时：3:00／4:00／4:00／3:00／5:00，本站选定上限" : "Section timers: 3:00 / 4:00 / 4:00 / 3:00 / 5:00, site-selected caps") : (zh ? "不计时学习：同一题本，无截止时间" : "Untimed study: the same bank without deadlines")}</span></label>)}</div>
+        <button data-explore-start type="button" disabled={!ready} className={`${button} technical30-primary`} onClick={beginSection}>{zh ? "开始测试" : "Start test"}</button></div>}
+    <p className="mb-4 text-sm leading-7 text-slate-600">{quiz.technical30.privacy[locale]}</p>
     <fieldset disabled={!ready} className="min-w-0 space-y-5 p-0"><legend className="sr-only">{quiz.title[locale]}</legend>
       {stage === "welcome" && <>
-        <h2 className="text-2xl font-semibold">{quiz.technical30.subtitle[locale]}</h2>
-        <p className="leading-8">{quiz.instructions?.[locale]}</p><p className="leading-8">{quiz.technical30.editionNotice[locale]}</p>
-        <div role="radiogroup" aria-label={zh ? "练习模式" : "Practice mode"} className="space-y-3">{(["timed", "study"] as const).map(m => <label key={m} className="flex min-h-12 items-start gap-3 rounded-lg border p-3"><input type="radio" name="technical30-mode" value={m} checked={mode === m} onChange={() => setMode(m)} className="mt-1 size-5 shrink-0 accent-violet-700" /><span className="leading-7">{m === "timed" ? (zh ? "分段计时：3:00／4:00／4:00／3:00／5:00，本站选定上限" : "Section timers: 3:00 / 4:00 / 4:00 / 3:00 / 5:00, site-selected caps") : (zh ? "不计时学习：同一题本，无截止时间" : "Untimed study: the same bank without deadlines")}</span></label>)}</div>
-        <button type="button" className={button} onClick={() => { setStage("ready"); setMessage(""); }}>{zh ? "准备第一部分" : "Prepare the first part"}</button>
+        <p className="leading-8">{quiz.instructions?.[locale]}</p>
+
       </>}
       {stage === "ready" && <>
         <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{zh ? `第 ${section + 1} / 5 部分：${current.title.zh}` : `Part ${section + 1} of 5: ${current.title.en}`}</h2>
@@ -142,6 +142,7 @@ function ValidTechnical30Client({ quiz, locale, readingProfiles }: { quiz: Techn
       </>}
       {stage !== "welcome" && <button type="button" className={button} onClick={() => clear()}>{zh ? "退出并清除本次回答" : "Exit and clear these responses"}</button>}
     </fieldset>
+    {activityConsent}
     <p role="status" aria-live="polite" className="my-4 text-sm leading-7">{ready ? message : (zh ? "正在准备练习，请稍候。" : "Preparing practice. Please wait.")}</p>
     <noscript><p>{zh ? "作答需要JavaScript；全部公开指南仍可阅读。" : "Answering requires JavaScript; all public guides remain readable."}</p></noscript>
   </section>;

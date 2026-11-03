@@ -14,8 +14,8 @@
     "zh": "魅力类型测试：24次互动选择与完整免费读法"
   },
   "description": {
-    "en": "Compare four pairs of interaction choices with FermatMind’s original 24-item form. Read all four full guides and ties free, without signup or an attractiveness score.",
-    "zh": "用费马原创24题比较四组互动选择，四篇完整指南和并列读法免费，无需注册。不计算吸引力，不生成四型魅力标签。"
+    "en": "Explore four pairs of interaction choices through 24 original questions: expression, clarity, response timing and sharing boundaries. Read raw counts, ties and four complete free guides without signup.",
+    "zh": "通过24道原创二选一，分别探索表达、清晰度、回应时点与分享边界，免费查看四组原始次数、并列及四篇完整指南，无需注册。"
   },
   "minutes": 5,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "每个情境选择目前对自己更自然的做法。两种选择都成立，没有标准答案。按自己目前的互动方式作答，不设固定回忆期限。完整选择24题后才解释四组比较。两项都不适合或不愿选择时，可以保留未完成状态；缺题不会算到另一侧。题组只记录互动选择，不要求增加披露、表演热情或联系任何人。"
   },
   "introduction": {
-    "en": "Looking for a Mote Type test? This is FermatMind’s own interaction-choice version, reused from our original mini-program form. It compares expressive energy and calm presence, direct clarity and tactful pacing, immediate response and later follow-up, and open sharing and bounded reserve. Each pair has six choices. All four full readings are free, including both sides and ties. This version does not assign the four charm archetypes used by other quizzes, rate your appeal or infer how others feel about you. The original bank and this new English translation have not completed psychometric validation.",
-    "zh": "寻找魅力类型测试时，可以从自己的互动选择入手。本版复用费马小程序原创互动呈现题本，分别比较表达能量与平稳在场、直接清楚与委婉节奏、即时回应与后续跟进、开放分享与有边界保留，每组六题。四篇完整读法免费，同时覆盖两端与并列。本版不指定其他问卷的四种魅力原型，不评价吸引力，也不推断别人怎样看你。原题本及新增英文译文尚未完成心理测量学验证。"
+    "en": "Compare expressive energy and calm presence, direct clarity and tactful pacing, immediate response and later follow-up, and open sharing and bounded reserve. Each pair has six original choices. Read all four guides, including both sides, every count and ties. The form records your own interaction choices rather than other people’s reactions; it does not assign a combined charm type or an attractiveness score.",
+    "zh": "分别比较表达能量与平稳在场、直接清楚与委婉节奏、即时回应与后续跟进、开放分享与有边界保留，每组六道原创二选一。四篇指南完整覆盖两端、全部次数及并列。题本记录自己的互动选择，而非他人反应，不合成魅力类型或吸引力评分。"
   },
   "resultHeading": {
     "en": "Your four interaction comparisons and full readings",

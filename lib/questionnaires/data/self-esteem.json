@@ -14,8 +14,8 @@
     "zh": "自尊测试：罗森伯格10题量表与完整分数说明"
   },
   "description": {
-    "en": "Take the 10-item Rosenberg Self-Esteem Scale. Get your 0–30 raw total and full guide, free. Original English; a clearly labelled Chinese working translation.",
-    "zh": "免费完成罗森伯格自尊量表10题，查看0—30原始总分和完整读法。采用官方英文题序，中文为明确标注的工作译文；不派正常区间或诊断标签。"
+    "en": "Take the 10-item Rosenberg Self-Esteem Scale: a 0–30 raw total, exact reverse scoring and complete reading guide. Free, no signup; working Chinese translation.",
+    "zh": "完成10题罗森伯格自尊量表，查看0—30原始总分、明确反向计分与完整阅读指南。免费、无需注册，中文为工作译文。"
   },
   "minutes": 2,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "按你对自己的总体感受回答十条陈述：非常同意、同意、不同意、非常不同意。不额外规定数字回顾期，不计时。另设不计分的暂不回答选项，它与四个量表锚点分开；十题均有量表回答才给总分，任一跳过均显示资料不足并开放同样完整指南。两分钟是编辑估计，随时可以退出或清除。"
   },
   "introduction": {
-    "en": "This edition uses the ten public-domain English RSES statements in the exact item order displayed by the University of Maryland, with a new FermatMind Chinese working translation. Five items are reverse-keyed before summing a 0–30 total. The scale concerns reported global self-regard, not tested competence, accurate self-knowledge or a personal value judgement. There are no high/low cutoffs, population ranks, diagnostic conclusions or hiring recommendations. The original scale’s research history does not establish validity or cross-language equivalence for this website’s Chinese wording. One complete public guide covers every possible total, mixed answers and insufficient information.",
-    "zh": "本版采用马里兰大学展示题序的十条公版RSES英文陈述，并提供费马新中文工作译文，五题按反向键处理后求0—30总分。关注报告出来的总体自我评价，不是实际能力、准确自知或个人价值判定。不设高低切点、人群排名、诊断结论或招聘建议；原量表研究历史不等于已验证本站中文措辞或跨语言等值。一份完整公开指南覆盖全部可能总分、混合回答与资料不足。"
+    "en": "The Rosenberg Self-Esteem Scale (RSES) describes general self-regard through ten statements about personal worth, qualities and satisfaction. This edition preserves the University of Maryland displayed English order and provides a clearly marked FermatMind working translation into Chinese. Four agreement choices produce one 0–30 raw total after five reverse keys. All complete totals and insufficient-information attempts retain the same seven-section guide. The sections below explain the actual arithmetic, differences between editions, research context and ways to read your answers without universal bands.",
+    "zh": "罗森伯格自尊量表（RSES）通过十条关于价值感、品质与满意的陈述，描述总体自我评价。本版保留马里兰大学所展示的英文题序，并提供明确标注的费马中文工作译文。四档同意程度经五条反向处理，产生一个0—30原始总分。全部完整总分及资料不足的作答，都保留同一份七节指南。下文说明实际算术、版本差异、研究背景，以及不套通用分档的回答读法。"
   },
   "resultHeading": {
     "en": "Your RSES responses and complete reading",

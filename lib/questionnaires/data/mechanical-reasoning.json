@@ -14,8 +14,8 @@
     "zh": "机械推理测试：30道原创题、理想模型与完整题解"
   },
   "description": {
-    "en": "Practise 30 original lever, gear, pulley, spring and fluid tasks. Get worked answers and five full guides, free. Untimed; no norm or hiring band.",
-    "zh": "免费完成30道原创杠杆、齿轮、滑轮、弹簧与流体题，查看逐题解析和五份完整指南。明确理想假设，不计时，不给人群常模或招聘等级。"
+    "zh": "用30道原创文字数量题练习杠杆、齿轮、滑轮、弹簧与流体，免费查看全部题解、五项正确数与五份完整复习指南。约18分钟，不计时，无需注册。",
+    "en": "Practise 30 original written mechanics problems. Review all worked answers, five topic counts and full guides, free and untimed; no signup."
   },
   "minutes": 18,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "完成30道原创四选一题，每主题六题。按各题明示理想假设、单位、力方向与观察侧，只有一个已核答案。选对记一道，其余有效选择记零；不计时、不倒扣、无部分分或速度加权。可用纸笔画草图或计算器。全部作答后给所有题解与五份完整指南。十八分钟是编辑估计，不是实测完成时间。"
   },
   "introduction": {
-    "en": "This edition uses original word-and-number tasks about ideal moments, external gears, stated supporting rope segments, linear springs and stationary or ideal confined fluids. It provides practice with the model in each question, rather than a measurement of hands-on machine operation. All scenarios, options, explanations and guides are independently written. Correctness is checked through exact arithmetic, force balance and explicit direction reversals. There is no electronics section, visual-rotation score, employer comparison, percentile, intelligence estimate or certification. The five guides are revision topics that every complete attempt receives together.",
-    "zh": "本版以原创文字与数量任务练习理想力矩、外啮合齿轮、明确支持绳股、线性弹簧及静液与理想密闭液体，按题内模型作答，不测真实机器操作。场景、选项、解析和指南均独立编写，以精确运算、力平衡及明示转向核对答案。范围不含电学，不给视觉旋转分、雇主比较、百分位、智商估计或资格认证。五份指南是复习主题，每次完整作答同时获得。"
+    "zh": "本版按五类理想力学模型组织30道原创文字数量题，杠杆、外啮合齿轮、滑轮、线性弹簧和流体各六题。先识别题定结构、方向与单位，再运用相应关系求解。全部有效作答后给总正确数/30、五项各/6、每题答案解析和五份七节完整指南。",
+    "en": "This original practice has thirty written tasks, six each on levers, external gears, pulleys, linear springs and fluids. Identify the stated arrangement, directions and units before applying a relation. A complete valid attempt shows total correct out of thirty, five counts out of six, every key and rationale, and five full seven-section guides."
   },
   "resultHeading": {
     "en": "Your five practice counts and every worked answer",

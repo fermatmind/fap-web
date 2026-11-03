@@ -10,17 +10,17 @@
     "zh": "Java测试"
   },
   "seoTitle": {
-    "en": "Java Test: 24 Free Code Questions & Worked Answers",
-    "zh": "Java测试：24道免费代码题、答案与解析"
+    "zh": "Java测试：24题代码阅读、输出预测与完整解析",
+    "en": "Java Test: 24 Code-Reading Questions & Full Explanations"
   },
   "description": {
-    "en": "Read 24 original Java 25 programs and predict output or compilation failure. Get every explanation and four full guides. No level or certificate.",
-    "zh": "阅读24段原创Java 25程序，预测输出或编译失败，免费查看每题答案、完整解析与四份复习指南。不派开发者等级、招聘线或认证。"
+    "zh": "用24道原创Java 25代码题练习表达式、控制流、对象方法及集合异常。免费查看四项正确数、所有答案与完整复习指南；不限时，无需注册。",
+    "en": "Practise Java 25 expressions, control flow, objects and collections in 24 original code questions. Free counts, worked answers and guides. Untimed; no signup."
   },
   "minutes": 10,
   "introduction": {
-    "en": "Can you trace the supplied program one step at a time? This Java 25 edition offers 24 independently written code-reading tasks across values and expressions, branches and loops, methods and objects, and collections and failures. All snippets were compiler checked with Temurin JDK 25.0.2, without preview features: 22 produce the keyed output and two correctly fail compilation. Complete all choices for this bank’s correct counts, every explanation and four full public revision guides. You do not need to install Java, upload files or submit executable code.",
-    "zh": "能逐步追踪给定程序吗？本Java 25版有24道独立编写的代码阅读题，分值与表达式、分支循环、方法对象、集合及失败处理四组。所有片段用Temurin JDK 25.0.2、不启预览特性核验：22段输出与答案一致，另两段按预期编译失败。完成全部选择后查看本题组正确数、逐题解析和四份公开全文。无需安装Java、上传文件或提交可执行代码。"
+    "zh": "这份Java测试用24段完整程序，练习读代码、追踪状态并预测打印文本或编译失败。四组六题分别覆盖值与表达式、分支与循环、方法与对象、集合与失败处理。按Java 25、不启预览特性作答；无需安装JDK或上传代码。完成后免费查看总正确数、四项正确数、每题所选与完整解析，也可随时阅读四份复习指南。",
+    "en": "This Java Test uses twenty-four complete programs to practise code reading, state tracing and prediction of printed text or compilation failure. Four six-item groups cover values and expressions, branches and loops, methods and objects, and collections and failures. Answer for Java 25 without preview features; no JDK installation or code upload is needed. Completion opens the total, four section counts and every selected answer with its worked explanation. Four complete revision guides are also freely readable at any time."
   },
   "instructions": {
     "en": "For each complete Main.java program, choose its exact printed text or the stated compilation-failure outcome. Use Java 25 without preview features and ordinary standard-library behaviour. English code and output values stay identical in both interfaces; instructions and explanations are bilingual. Every snippet is independent, and no race, external input or unspecified collection order determines a key. There is no timer or speed bonus. Finish all 24 valid choices to reveal the complete answer review. References can help you learn; an assisted count and an unaided count describe different conditions.",

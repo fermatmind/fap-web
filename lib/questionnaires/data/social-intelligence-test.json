@@ -15,21 +15,21 @@
     "en": "Social understanding: raw total and full guide"
   },
   "description": {
-    "zh": "免费社交智能测试：IPIP-VIA-R四条自述，查看原始总分、两条反向计分、混合与资料不足及完整沟通例子，不以自述断言真实能力。",
-    "en": "Take the free social intelligence test: four IPIP-VIA-R self-reports, raw totals, reverse scoring, missing information and a full guide with examples."
+    "zh": "用IPIP-VIA-R四条公开题目，回看感知他人感受、措辞、新情境与反应预测的自我判断。免费查看4—20原始总分、精确均分与完整指南，可选择无法判断，无需注册。",
+    "en": "Reflect on sensing feelings, choosing words, new situations and anticipating reactions through four public-domain IPIP-VIA-R items. View the 4–20 raw total, exact mean and full guide free, with a cannot-judge option and no signup."
   },
   "seoTitle": {
-    "zh": "社交智能测试：IPIP四条自述与完整免费结果",
-    "en": "Social Intelligence Test: Four IPIP Items, Full Free Guide"
+    "zh": "社交智能测试：IPIP四题自评、计分方法与完整解读",
+    "en": "Social Intelligence Test: Four IPIP Items, Scoring and Full Guide"
   },
   "minutes": 2,
   "introduction": {
-    "zh": "你怎样描述感知他人、在新场合回应和猜测反应的把握？这里采用IPIP-VIA-R社交／个人／情绪智能四条公有领域英文及本站中文试译，保留两正两反键。四条全部有效后显示4—20原始总分和描述性均分；任何一条资料不足都保留未评分，完整九节仍能阅读。全文包括较高、较低、中间混合、例子反例、可选核对、来源及隐私，不派五种社交角色，也不是能力、IQ或EQ测试。这四条与本站品格优势96条中的同一侧面相同，本版便于单独使用，不能把独立施测或数字小数当作新增构念或验证。可先读全文，无需注册或另一测评解锁。",
-    "en": "How do you describe your confidence in sensing others, responding in a new social setting and guessing reactions? This entry uses four public-domain IPIP-VIA-R Social/Personal/Emotional Intelligence items, our Chinese trial translation and the original two positive and two negative keys. Four valid ratings produce a raw total of 4–20 and a descriptive mean; any unscored answer keeps the personal score unavailable while all nine sections remain readable. The guide covers higher, lower, middle or mixed answers, examples and counterexamples, optional checks, sources and privacy. It assigns no five social roles and is no ability, IQ or EQ test. These are the same four items as the facet in our 96-item character-strengths form, offered separately for access without claiming a new construct or validated equivalence. Read everything without signup or another assessment."
+    "zh": "你怎样评价自己理解他人感受、找到合适措辞、应对新社交情境与预想他人反应的表现？这份社交智能测试采用IPIP-VIA-R的四条自述，保留英文原文及中文试译。完成后查看4—20原始总分、两位小数均分和九节完整指南；有无法判断的题目时，保留资料不足并照常开放解读。它整理你对自己的看法，适合带回具体交往经历核对。",
+    "en": "How do you describe your understanding of others’ feelings, choice of words, handling of new social situations and anticipation of reactions? This Social Intelligence Test uses four IPIP-VIA-R self-report items, retaining the original English and trial Chinese translations. See a raw total of 4–20, a two-decimal mean and a complete nine-section guide. A cannot-judge response retains insufficient information while keeping the guide available. The result organises your self-perceptions for checking against specific interactions."
   },
   "instructions": {
-    "zh": "按句子与你现在通常的自我描述是否符合，选择1很不符合至5非常符合，不按理想形象作答。中文是本站试译，英文是IPIP公有领域原句；感知、知道或猜测是你的自述，不证明判断正确。五档中间项为介于符合与不符合之间，不是资料不足。无法判断或不愿回答可选独立项，不补零或中立。四项全部选择后可读完整结果，全部为有效评分才显示4—20原始总分。不输入对话内容、他人情绪或私人经历。",
-    "en": "Rate how accurately each sentence describes you as you generally are now, from 1 Very inaccurate to 5 Very accurate, rather than your ideal image. English retains public-domain IPIP wording; Chinese is our trial translation. Sensing, knowing and guessing are self-reports, not proof that a judgment is correct. The middle response is neither inaccurate nor accurate, not missing information. Use the separate option if unable to judge or preferring not to answer; it is never zero or neutral. Make four selections for the full result; all four must be scored to display a raw total of 4–20. No conversation, other person’s emotions or private story is entered."
+    "zh": "按你一般的实际情况，评价每条描述的符合程度，不按理想形象或某一次特别成功、尴尬的经历回答。1—5是从很不符合到很符合；3是介于符合与不符合之间，无法判断或不愿回答请选独立的NA选项。四条都作出选择后可查看结果；任何NA都会保留资料不足，不补分。点击开始直接进入题目，无需再次同意、邮箱、注册或先完成其他测试。无需输入对话、他人姓名或私人经历。",
+    "en": "Rate how accurately each statement generally describes you, rather than an ideal self or one unusually successful or awkward encounter. The 1–5 scale runs from very inaccurate to very accurate; 3 means neither inaccurate nor accurate. Use the separate NA option if you cannot judge or prefer not to answer. Choose a response for all four items to finish; any NA retains insufficient information without imputation. Start opens the questions directly, with no additional agreement, email, signup or prerequisite test. Do not enter conversations, names or private experiences."
   },
   "source": {
     "kind": "Public-domain IPIP-VIA-R Social/Personal/Emotional Intelligence (SOC/SIQ) four-item focused administration. Exact official English keys and existing FermatMind Chinese trial translations, identifiers, order and response labels are retained from the social-intelligence facet of the 96-item character-strengths questionnaire. A focused entry, not a different construct or a validated equivalence of separate administrations.",

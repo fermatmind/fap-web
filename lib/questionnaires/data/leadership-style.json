@@ -2,7 +2,7 @@
   "slug": "leadership-style",
   "code": "LEADERSHIP_APPROACHES",
   "version": "1.0.0",
-  "updated": "2026-10-25",
+  "updated": "2026-10-31",
   "category": "framework",
   "kind": "archetype",
   "minutes": 7,
@@ -15,20 +15,20 @@
     "en": "Your leadership-situation choices"
   },
   "seoTitle": {
-    "zh": "领导风格测试：24道情境题与四种完整结果",
-    "en": "Leadership Style Test: 24 Questions and Four Full Guides"
+    "zh": "领导风格测试：24题、四类做法与完整并列解读",
+    "en": "Leadership Style Test: 24 Scenarios, Four Approaches and Full Tie Results"
   },
   "description": {
-    "zh": "完成24道原创团队情境题，比较专制型、民主型、放任型与变革型的本次选择。四项计数和最高并列完整结果免费，无需注册；附具体例子、取舍与小尝试，不评定领导能力。",
-    "en": "Take 24 original team scenarios to compare autocratic, democratic, laissez-faire and transformational choices. Get raw counts and every tied full result free, with no signup."
+    "zh": "通过24道原创团队情境四选一，比较集中决策、共同参与、低介入与方向发展的优先选择。约7分钟，免费查看四项原始计数、全部最高并列与四份完整领导风格指南，无需注册。",
+    "en": "Compare concentrated decisions, participation, limited involvement and direction with development in 24 original team scenarios. About 7 minutes; see four raw counts, every highest-count tie and four full leadership guides free, without signup."
   },
   "introduction": {
-    "zh": "团队要决定方向、分工、反馈或怎样应对变化时，你更愿意先做什么？本领导风格测试用24道原创情境题，比较集中决策、共同参与、低介入以及方向与发展四种做法。它结合不同领导讨论中的常见概念，不是一套经过验证的四因素领导量表，也不是MLQ或官方Lewin测验。可以先读四份完整结果，完成后查看本次四项计数与全部最高并列报告；无需注册、付费或先做其他测试。",
-    "en": "When a group sets direction, divides work, gives feedback or faces change, what would you prefer to do first? This Leadership Style Test compares concentrated decisions, participation, limited involvement, and direction with development through 24 original situations. These familiar concepts come from different leadership discussions, rather than a validated four-factor instrument, the MLQ or an official Lewin test. Read all four full guides before answering, then see four raw counts and every highest-count complete report without signup, payment or another assessment."
+    "zh": "领导风格涉及在团队中怎样安排决定权、组织参与、提供支持与推动方向。本版用24道原创四选一情境，比较专制型的集中决策、民主型的共同参与、放任型的低介入，以及变革型的方向与发展。前三种名称可用于讨论决定权和介入方式；变革型来自另一条领导研究脉络，因此这里是四类做法的描述性比较，不是统一验证过的四因素分类。[1][3] 完成后可查看四项原始选择次数与全部最高并列报告，四份完整公开指南也可先行阅读。",
+    "en": "Leadership style concerns how decisions, participation, support and direction are organised within a group. This edition uses 24 original four-option scenarios to compare autocratic concentrated decisions, democratic participation, laissez-faire limited involvement and transformational direction with development. The first three names help discuss authority and involvement; transformational leadership comes from another research tradition. These are four descriptive approaches, not a unified validated four-factor classification.[1][3] A completed attempt provides four raw choice counts and every highest-count report; all four full public guides can also be read beforehand."
   },
   "instructions": {
-    "zh": "以最近一个普通团队、项目或合作小组为参照，每题选择自己通常更愿意先采取的一种做法。没有带领团队经验时，可以按假设偏好作答，但不要把结果当真实表现。即使几项都可做，也先按具体题目选第一步；选项不是正确答案或优秀程度排名。24题全部完成才显示计数与解释。",
-    "en": "Use a recent ordinary team, project or collaborative group as your context. Choose the first move you would usually prefer in each situation. Without leadership experience, answer as a hypothetical preference and keep that distinct from demonstrated behaviour. Several options may be possible; choose a first move for the specific situation rather than a correct or impressive answer. All 24 selections are required before counts and interpretations appear."
+    "zh": "以最近一个普通团队、项目或合作小组为参照，每题选择通常更愿意先采取的一种做法。几项都可能做到时，仍只选择本题中的第一步，不按理想领导形象作答。没有实际带领经验，可将其作为假设偏好练习，阅读时与真实表现分开。题目没有正确答案或优劣分，不用于应急指挥决策。全部24题完成后显示计数与完整解释；无需填写团队名称或成员资料。",
+    "en": "Use a recent ordinary team, project or collaborative group as your reference. For each scenario, choose the move you would usually prefer first. Even if several options are possible, select one first move rather than an ideal leader image. Without experience of leading, use this as a hypothetical preference exercise and keep it separate from demonstrated behaviour. There are no correct answers or quality grades, and this is not an emergency-command decision aid. All 24 selections are needed for counts and full explanations; no team names or member details are requested."
   },
   "source": {
     "kind": "FermatMind original team-scenario leadership reflection; mixed descriptive approaches, not validated four-factor instrument/official Lewin/MLQ",
@@ -1687,71 +1687,191 @@
         "en": "Mind Garden: MLQ product, scale scope and licensing information"
       },
       "url": "https://www.mindgarden.com/16-multifactor-leadership-questionnaire"
+    },
+    {
+      "title": {
+        "zh": "Judge与Piccolo（2004）：变革型与交易型领导的元分析",
+        "en": "Judge & Piccolo (2004): meta-analysis of transformational and transactional leadership"
+      },
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15506858/"
     }
   ],
   "guide": [
     {
       "id": "archetype-counts",
       "title": {
-        "zh": "每题计一次选择",
-        "en": "One count for each choice"
+        "zh": "24题如何计分？一次选择加一次计数",
+        "en": "How are 24 scenarios scored? One choice, one count"
       },
       "paragraphs": [
         {
-          "zh": "每道题选择一个做法，为对应风格加1；四种风格各出现24次，每个选项位置各6次。全部24题完成后同时显示四项原始次数和每份最高并列完整报告。没有随机定型、隐藏权重、强派副型或经验证的近分阈值；次数不是人格比例、人群排名或领导能力。",
-          "en": "Each choice adds one to its approach. Every approach appears in all 24 items and six times in each position. A complete attempt shows four raw tallies and every highest-count full report. No random assignment, hidden weighting, forced secondary type or validated close-score threshold is used. Counts are neither personality proportions, population ranks nor leadership ability."
+          "zh": "每题从四种做法中选一项，对应方向加1次；全部24题等权，不设隐藏权重、反向计分或对错分。四项计数总和始终为24，各项范围0—24。四种做法每题都出现，各选项位置也各出现6次；位置平衡是题目编排事实，不能因此宣称消除了作答偏差或证实测量有效。",
+          "en": "Choose one of four moves in each item, adding one count to its approach. All 24 items are equally weighted, with no hidden weights, reverse keys or correctness marks. The four counts always sum to 24, and each ranges from zero to 24. Every approach appears in every item and six times in each option position. Position balance describes item arrangement; it does not establish that response bias is removed or measurement validated."
+        },
+        {
+          "zh": "例如四项依次为8、8、5、3，总和24，前两项同时最高，两份完整报告都会显示。8次只表示在这24组四选一中选中该做法8次，不是“拥有33.3%的领导人格”、能力水平或实际工作频率。没有作答完全部24题时，不提前推断最终结果。",
+          "en": "For example, counts of 8, 8, 5 and 3 sum to 24. The first two share the highest count, so both full reports appear. Eight means that approach was selected eight times in these 24 four-option items, not that you have 33.3% of a leadership personality, a particular ability level or an observed workplace frequency. No final result is inferred before all 24 items are answered."
         }
       ]
     },
     {
       "id": "archetype-ties",
       "title": {
-        "zh": "保留全部最高并列",
-        "en": "Keep every highest-count tie"
+        "zh": "并列、近分与较低次数分别怎样读？",
+        "en": "How should ties, nearby counts and lower counts be read?"
       },
       "paragraphs": [
         {
-          "zh": "最高次数相同的风格全部显示完整报告；四项都是6次时保留四份，不按页面位置定主型。没有隐藏加权、随机结果、强派副型或付费解除并列。未并列但次数相近，只能说本题组选择接近，不能解释成经过验证的近分类型或置信区间。",
-          "en": "Every approach sharing the highest count gets its full report. Four counts of six retain all four, without assigning a primary by page position. There are no hidden weights, random outcomes, forced secondary types or paid tie breakers. Nearby untied counts describe nearby selections in these items, not a validated close-score category or confidence interval."
+          "zh": "只要共同达到最高次数，就全部保留，不按字母、题号或页面顺序定主次。四项都是6时显示四份；最高集合还可能有两项或三项。四个单项可形成15种非空最高集合，但本站提供的是四份基础风格全文，并在结果中组合显示对应指南，不是另有15份独立、经过验证的混合类型报告。",
+          "en": "Every approach at the highest count is retained without assigning priority by letter, item number or page order. Four counts of six show all four reports; two- or three-way highest sets are also possible. Four approaches allow 15 non-empty highest sets, but this website supplies four underlying full guides and displays the relevant ones together, not 15 separately validated blended-type reports."
+        },
+        {
+          "zh": "8次与7次不会自动合并为并列；本版没有经过验证的近分阈值、置信区间或显著差异规则。低次数也不证明缺少该能力：每题只能选一个先做的动作，选中一种就减少了其他方向得到该次计数的机会。它记录本题组内部的相对选择，不能作为四项相互独立的行为强度或人群排名。",
+          "en": "Counts of eight and seven are not automatically merged into a tie; this edition has no validated close-score threshold, confidence interval or significant-difference rule. A lower count also does not establish a missing ability: each item permits only one first move, so selecting one approach removes that counting opportunity from the others. Counts record relative choices within this set, not four independent behavioural strengths or population ranks."
         }
       ]
     },
     {
       "id": "archetype-metaphor",
       "title": {
-        "zh": "四种常见做法，不是统一标准量表",
-        "en": "Four familiar approaches, not one standard instrument"
+        "zh": "为什么这四类不是统一的领导力等级？",
+        "en": "Why are these four approaches not one leadership-ability hierarchy?"
       },
       "paragraphs": [
         {
-          "zh": "专制型、民主型与放任型围绕决定权和介入方式，变革型则加入方向、反思、发展与示范。这些概念来自不同讨论，本版只作描述性比较，没有建立统一四因素模型或穷尽领导风格。MLQ是另一份有许可要求的工具，本题没有采用其题本、手册、常模或译本，也没有测其分量表。",
-          "en": "Autocratic, democratic and laissez-faire approaches concern decision authority and involvement; transformational options add purpose, reconsideration, development and example. These concepts come from different discussions and support a descriptive comparison here, not a unified four-factor model or exhaustive taxonomy. The MLQ is a separate licensed instrument. Its items, manual, norms and translations are not adopted, and its subscales are not measured."
+          "zh": "集中决策、共同参与与低介入主要帮助描述谁决定、成员怎样参与、带领者介入多少；变革型选项则涉及共同方向、重新思考问题、个别发展支持和以身作则。它们并非同一条从差到好的轴，在真实团队中也可能同时出现。本版的四选一只是为了比较本题中的优先动作。[1][3]",
+          "en": "Concentrated decisions, participation and limited involvement mainly describe who decides, how members participate and how much the leader intervenes. Transformational options concern shared direction, reconsidering problems, individual development support and example-setting. These do not form one bad-to-good axis and may coexist in an actual group. The four-option format compares the first move within each item.[1][3]"
+        },
+        {
+          "zh": "同一个人可以先征求意见，再在职责范围内作决定，也可以在说明目标后支持成员自行实施。题目选了哪一步，不代表后续不会采取其他做法。变革型题目中的四个主题没有独立分项计分，不能把其选择次数拆成MLQ分量表，也不由此推断人格、魅力或领导潜力。",
+          "en": "A person can first seek input and then decide within their authority, or clarify an aim before supporting members in implementation. Selecting one step does not mean other moves never follow. The four authoring themes in transformational items are not scored separately; its count cannot be decomposed into MLQ subscales or used to infer personality, charisma or leadership potential."
+        }
+      ]
+    },
+    {
+      "id": "leadership-approaches",
+      "title": {
+        "zh": "专制、民主、放任与变革分别指什么？",
+        "en": "What do autocratic, democratic, laissez-faire and transformational mean?"
+      },
+      "paragraphs": [
+        {
+          "zh": "专制型：集中决策（Autocratic）。本版选项倾向由带领者确定方向、分工、标准或修正步骤。需要核对谁有相关权限、信息从哪里来、决定怎样接受反馈；集中决定本身既不是高效率的证明，也不自动等同于羞辱或滥权，真实行为需另行判断。[1]",
+          "en": "Autocratic: concentrated decisions. These options favour the leader setting direction, roles, standards or corrective steps. Ask who has authority, where information comes from and how the decision receives feedback. A concentrated decision alone proves neither efficiency nor humiliation or abuse; actual conduct requires separate examination.[1]"
+        },
+        {
+          "zh": "民主型：共同参与（Democratic）。本版重点是让相关成员提出考虑、比较方案并通过共同过程形成下一步。参与不必等于每件事一致同意，更不应掩盖最终决定者和责任。可以检查是否说明了讨论范围、决定方式与时间，而不只看会议是否热闹。[1]",
+          "en": "Democratic: participation. These options involve relevant members raising considerations, comparing proposals and forming a next step through a shared process. Participation need not require unanimity on everything or obscure who decides and remains accountable. Examine the discussion scope, decision process and timing rather than how lively a meeting appears.[1]"
+        },
+        {
+          "zh": "放任型：低介入（Laissez-faire）。本版选项倾向让成员自行处理，带领者较少主动组织、协调或跟进。成员自主与带领者缺席可能看起来相近，需要看权限、资源、反馈和求助安排。有支持的授权并非不闻不问，低介入计数不能直接认证信任程度或团队成熟度。",
+          "en": "Laissez-faire: limited involvement. These options leave members to proceed while the leader does less proactive organising, coordination or follow-up. Member discretion and leader absence can look similar; check authority, resources, feedback and access to help. Supported delegation is not simply disengagement, and a low-involvement count certifies neither trust nor team maturity."
+        },
+        {
+          "zh": "变革型：方向与发展（Transformational）。本版选项围绕工作意义、检验假设、帮助成员发展及带领者示范责任。它不是演讲感染力的评分，也不保证创新或团队绩效；愿景仍需与具体任务、权限和可用资源衔接。其他做法也可能包含支持与学习，四类并非互斥的人格。[3][4]",
+          "en": "Transformational: direction and development. These options concern purpose, testing assumptions, helping members develop and modelling responsibility. The count is not a rating of inspirational speaking and guarantees neither innovation nor team performance; direction still needs concrete tasks, authority and resources. Other approaches may also include support and learning, so these are not mutually exclusive personalities.[3][4]"
+        }
+      ]
+    },
+    {
+      "id": "leadership-example",
+      "title": {
+        "zh": "同一项目卡住了，四类做法怎样比较？",
+        "en": "The same project is stuck: compare four possible moves"
+      },
+      "paragraphs": [
+        {
+          "zh": "以下为原创比较例，不是针对访客的团队诊断。假设一个普通项目反复修改，下一步尚未确定。集中决策的动作可能是由负责人指定修订路径与分工；共同参与可能是邀请受影响成员比较两个方案，并说明怎样形成决定。前者要检查是否漏掉关键一线信息，后者要检查讨论是否有时间边界和明确结果。",
+          "en": "This original comparison is not a diagnosis of the visitor’s team. Suppose an ordinary project keeps being revised and the next step remains unclear. A concentrated move might be the responsible person specifying a revision path and roles. A participative move might invite affected members to compare two proposals and clarify how a decision will be reached. Check whether the first overlooks important working information and whether the second has a time boundary and a clear outcome."
+        },
+        {
+          "zh": "低介入的动作可能是交由任务负责人自行解决，需进一步问对方是否确有权限与资源，以及何时可以求助；方向与发展的动作可能是追问原假设，再安排一个小范围验证并复盘。四种起手式都不能单凭名称判定结果，后续执行、成员反馈与任务条件才帮助判断是否有用。",
+          "en": "A limited-involvement move might leave resolution to the task owner; further questions are whether they have authority and resources and when they can seek help. A direction-and-development move might question the original assumption, arrange a small test and review what happened. None of these openings establishes an outcome from its name alone. Follow-through, member feedback and task conditions are needed to judge usefulness."
+        }
+      ]
+    },
+    {
+      "id": "leadership-delegation",
+      "title": {
+        "zh": "怎样区分有效授权与缺少带领？",
+        "en": "How does supported delegation differ from absent leadership?"
+      },
+      "paragraphs": [
+        {
+          "zh": "授权的一个可核对安排是：由谁负责、可以独立决定到什么程度、有哪些资源、何时回看、超出边界时找谁。这些是理解实际协作的观察问题，不是本站已经测出的能力维度。只因为选了“让成员自己处理”，不能判断这些条件是否已经具备。",
+          "en": "A delegation arrangement can be checked through who owns the work, how far their decision authority extends, available resources, review timing and whom to approach beyond that boundary. These are questions about actual cooperation, not abilities already measured by this quiz. Choosing to let members handle something does not establish that these conditions exist."
+        },
+        {
+          "zh": "同样，民主型不代表永远投票，集中决策不代表不能征询信息，变革型也不表示可以用目标意义替代合理的任务量。先看具体决策的责任与限制，再讨论哪些做法可以组合，比用一个标签解释整支团队更准确。",
+          "en": "Likewise, democratic participation does not mean always voting; concentrated decisions need not exclude gathering information; transformational direction does not replace a reasonable workload with rhetoric about purpose. Examine responsibility and constraints around a specific decision before discussing which moves could be combined, rather than explaining a whole team through one label."
         }
       ]
     },
     {
       "id": "source-context",
       "title": {
-        "zh": "背景来源如何使用",
-        "en": "How the background sources are used"
+        "zh": "领导研究怎样支持解释，不能支持什么？",
+        "en": "What can leadership research support—and what can it not establish here?"
       },
       "paragraphs": [
         {
-          "zh": "OpenStax提供常见领导方式的教材定义。1939年出版方摘要涉及儿童小组，不能直接推成当代成人职场的普遍效果。MLQ官方页面用于说明后来概念、工具范围和许可边界。它们都不验证本站自编题、计数或团队效果；题目覆盖中的四个变革型主题也没有分别计分。",
-          "en": "OpenStax supplies textbook definitions of familiar approaches. The 1939 publisher abstract concerns children’s groups, not universal effects in contemporary adult workplaces. The official MLQ page explains the later concept, instrument scope and licensing boundary. None validates these independently authored items, counts or team outcomes; the four transformational authoring themes are not separately scored."
+          "zh": "教材对决定权与参与方式的区分可用于理解概念；但一种风格的研究背景不能自动验证本站24题。Judge与Piccolo在2004年的元分析整理87个来源中的626个相关，比较变革型、交易型与放任型领导及多种评价指标。[4] 这是关于不同研究与指标关系的综合，不是“变革型一定最好”的因果结论，也不是本页四个原始计数的效度证据。",
+          "en": "Textbook distinctions about authority and participation help explain concepts, but a style’s research background does not automatically validate these 24 items. Judge and Piccolo’s 2004 meta-analysis integrated 626 correlations from 87 sources concerning transformational, transactional and laissez-faire leadership and several criteria.[4] It synthesizes relationships across studies and criteria, not a causal rule that transformational leadership is always best or validity evidence for these four raw counts."
+        },
+        {
+          "zh": "本站题目、计数与结果解释为原创情境反思，尚未建立本题本的信度、效度、常模、跨语言等值或绩效预测证据，也没有成员、同事或主管的多来源评价。MLQ是另一份具有自身测量范围和使用条件的工具；本题未使用其题目、手册、常模或译本，不称为MLQ缩短版或官方Lewin测验。[3]",
+          "en": "The items, counts and interpretations are an original scenario reflection without established form-specific reliability, validity, norms, cross-language equivalence or performance prediction. They include no multisource ratings from members, colleagues or supervisors. The MLQ is a separate instrument with its own scope and conditions of use. Its items, manual, norms and translations are not used here; this is neither a shortened MLQ nor an official Lewin test.[3]"
+        }
+      ]
+    },
+    {
+      "id": "leadership-use",
+      "title": {
+        "zh": "没有管理职位，也可以怎样使用？",
+        "en": "How can someone without a management role use this?"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以围绕学习小组、共同创作、志愿项目或其他普通合作，比较自己更愿意怎样开始组织下一步。没有相近经历时也可作假设选择，但应保留“我想这样做”与“我已稳定做到”的区别。题目没有客观对错，因此结果不能证明实际领导表现或适合升任管理者。",
+          "en": "You can use a study group, collaborative creation, volunteer project or other ordinary cooperation to compare how you would prefer to organise a next step. Hypothetical choices are possible without similar experience, but keep what you would like to do separate from what you have consistently demonstrated. There are no objectively right answers, so results establish neither actual leadership performance nor readiness for promotion."
+        },
+        {
+          "zh": "本题不是用于紧急安全事件的指挥测验。尤其短时间规划题明确处于普通任务、没有安全紧急事件的条件；不能将该题的选择推成危机领导能力。真实组织决策还要依据专业要求、职责、成员条件、风险与可获得的信息。",
+          "en": "This is not an emergency-safety command assessment. The short-planning-window item explicitly concerns an ordinary task without a safety emergency; its choice cannot establish crisis-leadership ability. Actual organisational decisions also depend on professional requirements, responsibilities, member conditions, risks and available information."
+        }
+      ]
+    },
+    {
+      "id": "leadership-practice",
+      "title": {
+        "zh": "把结果用于一次团队改进，而不是贴标签",
+        "en": "Use the result for one team experiment rather than a label"
+      },
+      "paragraphs": [
+        {
+          "zh": "选一个你有权限调整、风险较低的决定，记录当前做法、想补充的另一种动作以及怎样观察。例如通常直接定方案，可以先请相关成员指出一个未被考虑的限制，再说明最后由谁决定；通常低介入，可以补一次明确的求助与回看约定。练习目的是产生可观察的变化，不是刷出某种“更好”的测试结果。",
+          "en": "Choose one lower-stakes decision you are authorised to adjust. Record the current approach, another move you want to add and what you will observe. If you usually set the plan directly, invite relevant members to identify an overlooked constraint and state who will make the final decision. If you usually intervene little, add an explicit help and review arrangement. The aim is an observable change, not obtaining a supposedly better quiz result."
+        },
+        {
+          "zh": "事后核对决定是否清楚、成员是否知道职责、反馈是否得到回应、实际困难是否减少，也保留没有改善的证据。一次尝试不能归因于单一风格；团队结果由多人和条件共同形成。交流应自愿，不用分数给同事贴型，也不用于招聘、晋升、绩效排名或责任裁决。",
+          "en": "Afterwards, check whether the decision was clear, members knew their responsibilities, feedback received a response and practical difficulties changed; retain evidence when things did not improve. A single attempt cannot be attributed to one style, and team outcomes involve several people and conditions. Discussion should be voluntary, without typing colleagues or using counts for hiring, promotion, performance ranking or assigning blame."
         }
       ]
     },
     {
       "id": "free-and-private",
       "title": {
-        "zh": "免费范围、可选保存与分享",
-        "en": "Free access, optional saving and sharing"
+        "zh": "免费范围、重测与隐私",
+        "en": "Free access, retakes and privacy"
       },
       "paragraphs": [
         {
-          "zh": "全部24题、四项计数、四份公开完整指南及最高并列报告均免费，无需邮箱或前置测试。作答在浏览器计分，只有主动保存才保留本标签页24小时草稿，完成、清除或重测即删除。分享只有结果名称和公开链接，不带答案、次数或内部ID；公开指南不关联个人答卷。",
-          "en": "All 24 items, four counts, four full public guides and every highest-count report are free without email or another test. Scoring happens in the browser. Only opting in saves a 24-hour tab draft, deleted on completion, clearing or retake. Sharing includes names and public links without answers, counts or internal IDs. Public guides are not linked to private attempts."
+          "zh": "全部24题、四项计数、四份完整公开指南及所有最高并列结果均免费，无需注册、邮箱或前置测试。点击开始直接进入题目，不需额外勾选同意。答案在浏览器中计分；主动保存才保留本标签页24小时草稿，完成、清除或重测即删除。分享只包含名称和公开链接，不附答案、次数或团队资料。",
+          "en": "All 24 items, four counts, four full public guides and every highest-count result are free without signup, email or another assessment. Start opens the questions directly without an extra agreement checkbox. Answers are scored in the browser; only explicit saving creates a 24-hour draft in this tab, cleared on completion, clearing or retake. Sharing contains names and public links, not answers, counts or team information."
+        },
+        {
+          "zh": "重测时先核对参照团队、项目阶段、实际经历和自己怎样理解选项，再看哪些题目变化。最高项可能因一次选择而改变，这不证明能力上升或人格转变；本版没有测量变化阈值。若想观察实践效果，应以具体行为和自愿反馈为依据，而不只比较标签。",
+          "en": "On retaking, compare the reference group, project stage, experiences and interpretation of options before identifying changed items. One choice may alter a highest approach without establishing improved ability or a changed personality; this edition has no measurement-based change threshold. Examine concrete behaviour and voluntary feedback when reviewing practice rather than comparing labels alone."
         }
       ]
     }
@@ -1759,62 +1879,122 @@
   "faq": [
     {
       "question": {
-        "zh": "这份领导风格测试包含哪四种？",
-        "en": "Which four leadership styles does this test compare?"
+        "zh": "这份领导风格测试比较哪四种做法？",
+        "en": "Which four approaches does this Leadership Style Test compare?"
       },
       "answer": {
-        "zh": "比较专制型的集中决策、民主型的共同参与、放任型的低介入，以及变革型的方向与发展。四份完整说明都有例子、条件、取舍和小尝试。四种概念不是统一验证过的四因素模型，也不代表全部领导方式。",
-        "en": "It compares autocratic concentrated decisions, democratic participation, laissez-faire limited involvement and transformational direction with development. Each full guide includes examples, conditions, tradeoffs and an experiment. These concepts are neither a unified validated four-factor model nor all possible leadership approaches."
+        "zh": "比较专制型的集中决策、民主型的共同参与、放任型的低介入，以及变革型的方向与发展。它们是不同理论讨论中可用于描述做法的名称，不是穷尽领导风格或统一验证过的四因素量表。[1][3]",
+        "en": "It compares autocratic concentrated decisions, democratic participation, laissez-faire limited involvement and transformational direction with development. These descriptive names come from different theoretical discussions, rather than an exhaustive taxonomy or unified validated four-factor instrument.[1][3]"
       }
     },
     {
       "question": {
-        "zh": "怎样计分和处理并列？",
-        "en": "How are choices scored and ties handled?"
+        "zh": "24道领导情境题怎样计分？",
+        "en": "How are the 24 leadership scenarios scored?"
       },
       "answer": {
-        "zh": "每题给所选风格加1，24题全部完成后显示四项次数和每份最高并列完整报告。四种风格各出现24次、每个位置各6次；没有随机打破并列、强派副型或匹配百分比，接近次数也没有统计显著性承诺。",
-        "en": "Each selected approach receives one count. All 24 choices produce four tallies and every highest-count full report. Each approach appears 24 times and six times in each position. Ties are not randomly broken, secondary types are not forced and counts supply no match percentages or statistical-significance claims."
+        "zh": "每题选一个通常愿意先做的动作，对应方向加1；全部题等权，无对错分或反向题。四项各为0—24次、总和24。8、8、5、3会显示前两项完整报告；8次是题组内选择次数，不是人格比例或能力分。",
+        "en": "Select one move you would usually prefer first, adding one count to its approach. Items are equally weighted, without correctness marks or reverse keys. Counts range from zero to 24 and sum to 24. Counts of 8, 8, 5 and 3 show the first two full reports; eight is an item-set tally, not a personality proportion or ability score."
       }
     },
     {
       "question": {
-        "zh": "放任型等于信任成员和有效授权吗？",
+        "zh": "为什么会有两项、三项或四项并列？",
+        "en": "Why can two, three or four approaches tie?"
+      },
+      "answer": {
+        "zh": "达到同一个最高次数的方向全部保留，不按题号、字母或页面位置破同分。四项都是6次时显示四份全文。四个基础方向共有15种非空最高集合，但仍使用四份基础指南组合呈现，不另造15个混合人格。",
+        "en": "Every approach with the same highest count is retained, without tie breaking by item, letter or page position. Four counts of six show four full guides. The four approaches allow 15 non-empty highest sets, presented using the four underlying guides rather than 15 invented blended personalities."
+      }
+    },
+    {
+      "question": {
+        "zh": "最高次数代表我是这种固定类型吗？",
+        "en": "Does the highest count make me a fixed leadership type?"
+      },
+      "answer": {
+        "zh": "它只表示在本次24组选择中较多先选这一做法。现实中可先共同讨论再集中决定，也可说明方向后授权实施；选择第一步不排除后续做法。结果不强派副型，也不把接近次数当显著差异。",
+        "en": "It means that move was chosen first more often within these 24 comparisons. Real work can combine discussion with a later concentrated decision, or direction-setting with delegated implementation. A first move does not exclude later moves. No secondary type is forced, and nearby counts do not establish a significant difference."
+      }
+    },
+    {
+      "question": {
+        "zh": "放任型等于信任团队和有效授权吗？",
         "en": "Does laissez-faire mean trust and effective delegation?"
       },
       "answer": {
-        "zh": "不能直接等同。本题中的低介入可能让成员自主，也可能缺少目标、反馈或协调。有支持的授权还需要明确权限、资源和求助方式，是否做到应核对真实安排，而不是由名称或次数证明。",
-        "en": "Not automatically. Limited involvement may leave discretion but can also omit aims, feedback or coordination. Supported delegation specifies authority, resources and a help route. Check the actual arrangement instead of treating a name or tally as evidence that these conditions exist."
+        "zh": "不能直接等同。低介入可能伴随自主，也可能缺少协调和支持。有效授权需结合谁负责、权限边界、资源、求助方式和回看安排判断；本次次数并未测出这些条件或团队成熟度。",
+        "en": "Not automatically. Limited involvement may coexist with discretion or with missing coordination and support. Examine ownership, authority boundaries, resources, help routes and review arrangements. The count does not measure those conditions or team maturity."
       }
     },
     {
       "question": {
-        "zh": "这是官方Lewin或MLQ量表吗？",
-        "en": "Is this an official Lewin test or the MLQ?"
+        "zh": "民主型是否每件事都需要投票或一致同意？",
+        "en": "Does democratic leadership require voting or unanimity on everything?"
       },
       "answer": {
-        "zh": "不是。24道题、计数和解释为本站原创，没有采用受许可约束的MLQ题本、手册、常模或译本。本版也没有本站信效度验证、旁观者评价或常模，背景来源不能当作问卷得到认证。",
-        "en": "No. The 24 items, counting rules and explanations are independently authored. No licensed MLQ items, manual, norms or translation are adopted. There is no established website psychometric validation, observer assessment or local norm, and background sources do not certify this questionnaire."
+        "zh": "本版强调相关成员参与比较与形成决定的过程，不要求所有事项都投票。需要提前说明讨论范围、最终决定者、时间与责任；参与本身不是效率、满意度或绩效的证明。",
+        "en": "This edition emphasizes participation in comparing options and forming a decision, not voting on every matter. Clarify the discussion scope, final decision-maker, timing and accountability. Participation alone does not establish efficiency, satisfaction or performance."
       }
     },
     {
       "question": {
-        "zh": "哪种领导风格最好，可以用于录用或晋升吗？",
-        "en": "Which style is best, and can this support hiring or promotion?"
+        "zh": "变革型是不是最优秀的风格？",
+        "en": "Is transformational leadership the best style?"
       },
       "answer": {
-        "zh": "本测试不排名哪种最好，也不能用于录用、晋升或判断团队表现。结果只比较提供情境中的偏好；实际是否有用取决于任务、责任、成员条件和反馈，不由一次自评推断能力、魅力、成熟度或危机表现。",
-        "en": "This test ranks no style as best and supports neither hiring, promotion nor judgments of team performance. It compares preferences in supplied situations. Practical usefulness depends on tasks, responsibility, member conditions and feedback, rather than inferred ability, charisma, maturity or crisis performance."
+        "zh": "本题不按优劣排名。变革型的研究背景不能替代本站题本验证；研究中不同构念与评价指标的关系也不等于任何场景下的因果保证。本版只记录方向、反思、发展与示范选项的相对选择，不评魅力或领导潜力。[4]",
+        "en": "This quiz supplies no quality ranking. Research on transformational leadership does not validate these items, and relationships between constructs and criteria do not guarantee causal benefits in every setting. This edition counts relative choices involving direction, reflection, development and example-setting, not charisma or leadership potential.[4]"
       }
     },
     {
       "question": {
-        "zh": "没有带队经验能做吗，完整结果要付费吗？",
-        "en": "Can I answer without leadership experience, and are full results free?"
+        "zh": "这是官方Lewin测试、MLQ或标准领导能力量表吗？",
+        "en": "Is this an official Lewin test, the MLQ or a standard leadership-ability scale?"
       },
       "answer": {
-        "zh": "可以把它当作情境偏好练习，明确假设选择不等于已表现出来的行为。全部题目、四项计数、并列报告和公开指南都免费，无需注册。可选保存和分享分别受本标签页24小时草稿与公开链接范围约束，不上传答卷。",
-        "en": "You can use it as a scenario-preference exercise while distinguishing imagined choices from demonstrated behaviour. All items, counts, tied reports and public guides are free without signup. Optional saving uses a 24-hour tab draft; sharing uses public links without uploading an answer sheet."
+        "zh": "不是。题目、计数与解释为费马原创，没有采用MLQ题本、手册、常模或译本；也没有本题本的信度、效度、跨语言等值、常模与绩效预测证据。MLQ有自身的工具范围与使用条件，不能由相同术语推定为同一测验。[3]",
+        "en": "No. The items, counts and interpretations are original FermatMind content, without MLQ items, manuals, norms or translations. Form-specific reliability, validity, cross-language equivalence, norms and performance prediction are not established. The MLQ has its own scope and conditions; shared terminology does not make this the same assessment.[3]"
+      }
+    },
+    {
+      "question": {
+        "zh": "没有当过管理者，可以参加吗？",
+        "en": "Can I take this without management experience?"
+      },
+      "answer": {
+        "zh": "可以参照学习、志愿项目或普通合作，也可把题目作为假设偏好练习。需要区分想怎样做与已经做到；结果不证明管理能力、岗位适任或晋升准备，也不用于应急指挥判断。",
+        "en": "Yes. Use study, volunteering or ordinary cooperation as context, or treat the scenarios as hypothetical preferences. Distinguish what you would like to do from demonstrated behaviour. Results establish neither management skill, job suitability nor promotion readiness, and do not guide emergency command."
+      }
+    },
+    {
+      "question": {
+        "zh": "结果怎样用于团队沟通，而不是给同事贴型？",
+        "en": "How can I use results in team discussion without labelling colleagues?"
+      },
+      "answer": {
+        "zh": "只在自愿前提下讨论一件具体事：谁决定、哪些信息还缺、成员有哪些权限、何时回看。可以选一种想补充的动作并观察实际反馈，不把计数用于评价别人动机、招聘、晋升、绩效或责任归属。",
+        "en": "Discuss one concrete issue voluntarily: who decides, what information is missing, what authority members have and when to review. Add a move you want to try and observe actual feedback. Do not use counts to judge motives, hire, promote, rank performance or assign blame."
+      }
+    },
+    {
+      "question": {
+        "zh": "重测风格改变，就说明领导力进步了吗？",
+        "en": "Does a changed retest result demonstrate improved leadership?"
+      },
+      "answer": {
+        "zh": "不能仅凭标签或次数判断。参照团队、项目阶段、选项理解与近期经历都可能变化，一次选择也可能改变最高集合。本版没有已验证的变化阈值，应回到具体行为、工作条件和自愿反馈。",
+        "en": "A label or count alone cannot establish improvement. Reference groups, project stages, interpretation and recent experiences may change, and one choice can alter the highest set. This edition has no validated change threshold; return to behaviour, working conditions and voluntary feedback."
+      }
+    },
+    {
+      "question": {
+        "zh": "题目和完整结果免费吗，需要注册或额外同意吗？",
+        "en": "Are questions and full results free? Is signup or extra agreement needed?"
+      },
+      "answer": {
+        "zh": "全部24题、四项计数、全部最高并列全文及四份公开指南免费，点击开始直接作答，无需注册或额外勾选。可选保存仅保留本标签页24小时草稿，完成、清除或重测即删除；分享不带答案或次数。",
+        "en": "All 24 items, four counts, every highest-count full report and four public guides are free. Start opens questions directly without signup or an extra checkbox. Optional saving retains a 24-hour tab draft, cleared on completion, clearing or retake; sharing includes no answers or counts."
       }
     }
   ]

@@ -2,7 +2,7 @@
   "slug": "moral-alignment",
   "code": "MORAL_ALIGNMENT",
   "version": "1.0.0",
-  "updated": "2026-10-25",
+  "updated": "2026-10-31",
   "category": "framework",
   "kind": "alignment",
   "minutes": 7,
@@ -15,20 +15,20 @@
     "en": "Your complete two-axis alignment result"
   },
   "seoTitle": {
-    "zh": "道德阵营测试：24题两轴计分与九种完整结果",
-    "en": "Moral Alignment Test: Your D&D Alignment"
+    "zh": "道德阵营测试：24题、九宫格与两轴结果解读",
+    "en": "Moral Alignment Test: 24 Questions and Nine D&D Alignments"
   },
   "description": {
-    "zh": "完成24道原创情境二选一，查看两轴原始计数、九宫格位置与所有边界并列报告。九种完整双语阵营说明可先读，免费无需注册；区分角色框架与真实道德判断。",
-    "en": "Take 24 original scenarios, see two raw-count axes and explore all nine D&D-inspired alignment guides. Full results free, including boundary matches. No signup."
+    "zh": "通过24道原创情境二选一，探索守序—混乱与善良—邪恶两条阵营轴。免费查看原始计数、九宫格位置、全部边界结果及完整解读，无需注册。",
+    "en": "Explore law–chaos and good–evil through 24 original paired scenarios. Get raw counts, a nine-alignment grid and every boundary-match guide free, without signup."
   },
   "introduction": {
-    "zh": "你会怎样看待共同准则，又怎样考虑行动对他人的影响？这份道德阵营测试用24道原创二选一情境，分别累计两轴选择，再映射到熟悉的D&D九宫格。角色框架来自SRD 5.2.1，题目、显示分区和报告为本版原创改写。它不是官方问卷，不揭示真实本性，也不给人判好坏。可以先读九种完整说明和计分，再决定是否作答。",
-    "en": "How do you consider a shared code and the effects of a choice on someone else? This Moral Alignment Test uses twenty-four original paired scenarios, separate counts on two axes and the familiar D&D nine-cell grid. The character framework comes from SRD 5.2.1; questions, display bands and reports are original adaptations in this edition. It is not an official questionnaire or a verdict on an essential nature or moral worth. Read all nine guides and the method before deciding whether to answer."
+    "zh": "道德阵营（Moral Alignment）是《龙与地下城》中的角色描述框架：对秩序的态度与善恶取向交叉，形成九种阵营。SRD 5.2.1将它用于概括虚构角色的态度与理想，也承认具体行为可以不同于典型描述。费马把这一角色框架改写为24道日常情境选择，用两组计数整理你在这些题目里的回答；它是娱乐与自我反思工具，不是道德推理能力测验，也不是对真实品格的裁决。[1]",
+    "en": "Moral alignment is a character-description framework from Dungeons & Dragons. Attitudes toward order intersect with good, evil or neutrality to form nine alignments. SRD 5.2.1 uses them to outline fictional attitudes and ideals, while allowing individual behaviour to vary. FermatMind adapts that framework into 24 everyday paired scenarios and two sets of response counts. It is a recreational reflection tool, not an assessment of moral reasoning ability or a verdict on character.[1]"
   },
   "instructions": {
-    "zh": "每题选更接近近期自己可能考虑的一种回应，不按想得到的阵营作答。两项都不贴合时可以结束本次作答；不完整时不分配阵营。这里不是知识对错考试，也不表示每种行为都没有真实后果。完成24题后才显示两轴次数、九宫格与所有边界匹配；合理自我照顾或拒绝请求不会自动计成邪恶。",
-    "en": "For each pair, choose the response closer to what you might consider in your recent life, rather than aiming for a label. You can stop if neither fits; incomplete attempts receive no alignment. This is not a right-answer knowledge examination, nor a claim that every action is without real consequences. After twenty-four responses, see both tallies, the grid and all boundary matches. Legitimate self-care or declining a request is not automatically scored as Evil."
+    "zh": "请按自己近期在相似情境中更可能首先采取的做法选择，不以想获得的阵营反推答案。两项都有道理时，选更接近实际的一项；两项都不贴切且难以比较时，可以停止，本页不会用未完成的回答生成阵营。不需要了解D&D规则。部分选项包含把代价转给他人的做法，选择只记录题目回答，不表示这些做法正当；合理拒绝、自我照顾与保护边界不等于邪恶。",
+    "en": "Choose the response you would more likely take first in a similar recent situation, rather than working backwards from a desired alignment. If both seem plausible, choose the closer fit. If neither fits and you cannot compare them, you may stop; an incomplete attempt produces no alignment. No D&D knowledge is needed. Some options pass a cost to others: recording a choice does not endorse it. Reasonable refusal, self-care and personal boundaries are not Evil."
   },
   "source": {
     "kind": "FermatMind original two-axis reflection adapting the SRD5.2.1 nine-alignment character framework",
@@ -2109,52 +2109,153 @@
     {
       "id": "two-axes",
       "title": {
-        "zh": "两轴分别计分",
-        "en": "Two separately counted axes"
+        "zh": "24题怎样计分：两条轴分别累计",
+        "en": "How the 24 questions are counted: two separate axes"
       },
       "paragraphs": [
         {
-          "zh": "12题比较一致准则与临时自主判断，分别给守序或混乱端加1次；另12题比较顾及他人和容许他人承担未获同意代价的做法，分别给善良或邪恶端加1次。每题只影响所属一轴，两端各出现12次、A/B位置各6次。不合并为总分，也不称统计上已经验证的独立人格因子。",
-          "en": "Twelve items compare a consistent code with autonomous judgment, adding one choice to Lawful or Chaotic. Another twelve compare attention to others with permitting an unagreed cost, adding one to Good or Evil. Each item affects only its own axis. Every endpoint appears twelve times, six in each A/B position. No total is formed and no statistically established independent personality factors are claimed."
+          "zh": "秩序轴有12题，每题在守序（Lawful）与混乱（Chaotic）之间选择；另一轴有12题，每题在善良（Good）与邪恶（Evil）之间选择。选中一端即为该端加1次，另一端不加分。四个端点各在12题中出现，A、B位置各6次。每题只影响所属一轴，不同时给两轴加分。",
+          "en": "Twelve items compare Lawful with Chaotic responses; twelve others compare Good with Evil responses. A choice adds one to the selected endpoint and nothing to its opposite. Each endpoint appears in twelve items, six in each A/B position. An item affects only its own axis, rather than scoring both axes at once."
+        },
+        {
+          "zh": "完整作答后，守序＋混乱＝12，善良＋邪恶＝12。分别查看两组0—12的原始次数，不把它们相加为“道德总分”。这两轴是题本预先设定的内容组织方式；分别计数并不证明它们是经过因子分析确认的独立人格维度。",
+          "en": "After all items are answered, Lawful + Chaotic = 12 and Good + Evil = 12. Read these as separate pairs of raw counts from zero to twelve, with no overall morality score. The two axes organise this questionnaire’s content; separate counting does not establish statistically independent personality factors."
         }
       ]
     },
     {
       "id": "display-bands",
       "title": {
-        "zh": "本版原创分区与边界",
-        "en": "Original display bands and boundaries"
+        "zh": "九宫格分区与4／8次边界",
+        "en": "Grid bands and the boundaries at four and eight"
       },
       "paragraphs": [
         {
-          "zh": "每轴按守序端或善良端的次数定位：0—3低端，4低端＋中立，5—7中立，8中立＋高端，9—12高端。低端为混乱／邪恶，高端为守序／善良。两个轴交叉可得1—4项匹配，每份完整报告都显示；不按名单或随机数选一个。分区为本版编辑约定，不是官方D&D阈值、常模或测量精度。",
-          "en": "Each axis uses the Lawful or Good tally: 0–3 low; 4 low plus neutral; 5–7 neutral; 8 neutral plus high; 9–12 high. Low is Chaotic/Evil and high is Lawful/Good. Crossing the axes produces one to four matches, each with its complete report, without selection by list order or chance. Bands are editorial conventions here, not official D&D cutoffs, norms or measurement precision."
+          "zh": "每轴以守序端或善良端的次数定位：0—3次为低端，4次同时保留低端与中立，5—7次为中立，8次同时保留中立与高端，9—12次为高端。秩序轴的低／高端分别为混乱／守序，另一轴为邪恶／善良。两个轴的分区交叉，显示1、2或4份完整报告。",
+          "en": "Each axis uses its Lawful or Good count: 0–3 selects the low band; 4 keeps low and neutral; 5–7 selects neutral; 8 keeps neutral and high; 9–12 selects high. Low/high means Chaotic/Lawful on order and Evil/Good on the other axis. Crossing the selected bands gives one, two or four complete reports."
+        },
+        {
+          "zh": "分区与相邻保留规则是本版编辑约定，不来自D&D官方测试，也不是心理测量阈值、置信区间或人群常模。4次与8次保留相邻结果，是为了明示分类边界；不表示系统估计你有某个概率属于该阵营。没有随机抽取、按结果名单破同分或付费解锁唯一答案。",
+          "en": "These bands and adjacent matches are editorial rules for this edition, not official D&D test scoring, psychometric cutoffs, confidence intervals or population norms. Keeping adjacent results at four and eight makes the classification boundary explicit; it does not estimate a probability of belonging to an alignment. No random draw, list-order tiebreak or paid single-answer unlock is used."
+        }
+      ]
+    },
+    {
+      "id": "worked-examples",
+      "title": {
+        "zh": "两个算例：中间位置与四项匹配",
+        "en": "Two worked examples: the centre and four matches"
+      },
+      "paragraphs": [
+        {
+          "zh": "例一：守序6、混乱6，善良6、邪恶6。两轴都落在5—7次的中立区，得到绝对中立（True Neutral）。这表示本次计数的位置，不是“道德水平一般”、各方面完美平衡或对一切没有立场。两个人可能因选择了不同题目而得到相同计数。",
+          "en": "Example one: Lawful 6, Chaotic 6, Good 6 and Evil 6. Both axes fall in the neutral 5–7 band, producing True Neutral. This describes count positions, not average moral worth, perfect balance or having no views. Different patterns of item choices can produce the same counts."
+        },
+        {
+          "zh": "例二：守序8、混乱4，善良4、邪恶8。秩序轴保留中立与守序，另一轴保留邪恶与中立，交叉得到绝对中立、守序中立、中立邪恶和守序邪恶四份报告。请同时阅读，并回到具体题目核对；不需要再作答来消除这些边界匹配。",
+          "en": "Example two: Lawful 8, Chaotic 4, Good 4 and Evil 8. Order keeps neutral and Lawful, while the other axis keeps Evil and neutral. Their intersections are True Neutral, Lawful Neutral, Neutral Evil and Lawful Evil. Read all four alongside the actual scenarios; no extra answers are required to eliminate the boundary matches."
         }
       ]
     },
     {
       "id": "meaning-limits",
       "title": {
-        "zh": "框架名称与个人判断",
-        "en": "Framework names and personal judgments"
+        "zh": "阵营术语怎样理解：角色框架与本版回答",
+        "en": "Understanding alignment terms: fiction and this attempt"
       },
       "paragraphs": [
         {
-          "zh": "SRD以两因素形成九种角色阵营，官方Neutral在网络上也常称True Neutral，本页译为绝对中立。邪恶的角色含义涉及容许伤害或剥削，不等于照顾自己或说不；混乱邪恶的官方描述还涉及暴力，本题本并没有测它。名称只是本版计数映射，不能证明或排除现实品格、心理健康、危险性或实际行为。",
-          "en": "The SRD combines two factors into nine character alignments. Neutral is also commonly called True Neutral online. Evil involves permitting harm or exploitation, rather than self-care or saying no. The official Chaotic Evil description includes violence, which these items do not assess. A mapped name can neither establish nor rule out real character, mental health, dangerousness or actual conduct."
+          "zh": "守序关注一致准则，混乱关注自主判断；这不等于“听话的人”与“失控的人”。善良与邪恶是沿用的角色术语，本版相关选项比较顾及他人与容许他人承担未获同意的代价。两轴分别阅读：遵守程序不能自动证明顾及他人，自主改变办法也不能自动证明会伤害别人。",
+          "en": "Lawful concerns a consistent code and Chaotic concerns autonomous judgment; they do not mean obedient versus out of control. Good and Evil retain the fictional terminology. Here, relevant choices contrast attending to others with permitting costs they have not agreed to bear. Read the axes separately: following a procedure does not prove care, and changing a method does not establish harm."
+        },
+        {
+          "zh": "SRD中的中间阵营称Neutral，网络上也常称True Neutral，本页使用“绝对中立”。游戏里的角色描述与本版计数范围要分开看。例如，SRD的混乱邪恶涉及暴力等角色行为，本题本没有评估这些内容；同名结果不能推出危险性、心理状态或真实行为。[1]",
+          "en": "The SRD calls the central alignment Neutral, also widely called True Neutral online. Keep fictional descriptions separate from this quiz’s count ranges. For example, the SRD’s Chaotic Evil description involves violent character behaviour, which these items do not assess. A shared label cannot establish dangerousness, mental state or actual conduct.[1]"
+        }
+      ]
+    },
+    {
+      "id": "self-care-and-consequences",
+      "title": {
+        "zh": "自我照顾、拒绝与对他人的影响",
+        "en": "Self-care, refusal and effects on others"
+      },
+      "paragraphs": [
+        {
+          "zh": "需要休息、拒绝超出余量的请求或不同意不公平安排，并不等于邪恶。本题本中涉及另一端的选项，重点是明知可能把损失、责任或误解转给别人，仍优先保留自身好处。请阅读具体行为条件，不要把所有“选择自己”的情境视为同一件事。",
+          "en": "Resting, declining a request beyond your capacity or rejecting an unfair arrangement is not Evil. Relevant opposite-pole options concern knowingly allowing someone else to bear a loss, responsibility or misrepresentation while retaining an advantage. Read the action and its conditions, rather than treating every choice for yourself as equivalent."
+        },
+        {
+          "zh": "同样，“为了帮助别人”也不能替代对实际后果的检查。可以问：对方是否知道关键信息、是否同意安排、谁承担代价、有没有可行的替代办法？这些问题需要情境与事实，阵营名称不能替你裁决具体行为。",
+          "en": "Likewise, intending to help does not settle an action’s effects. Ask whether the other person has the relevant information, has agreed to the arrangement, who carries the cost and whether an alternative exists. Those questions require facts and context; an alignment name cannot decide them for you."
+        }
+      ]
+    },
+    {
+      "id": "context-and-retest",
+      "title": {
+        "zh": "为什么重测会变化，怎样核对结果",
+        "en": "Why retests can differ and how to check a result"
+      },
+      "paragraphs": [
+        {
+          "zh": "回答同时受题目理解、回忆到的事件、当下角色与理想形象影响。一次自报选择不能证明你在所有场景中都这样行动。阅读报告时，分别写下一个符合的近期例子和一个不符合的例子，比较条件变化，而不只看名称是否“像我”。",
+          "en": "Responses depend on item interpretation, recalled events, present roles and an ideal self-image. One self-report does not establish conduct across situations. For each report, identify a recent example that fits and one that does not, then compare the conditions rather than relying only on whether the label feels familiar."
+        },
+        {
+          "zh": "接近4／8次边界时，一次选项变化就可能改变显示组合，不能据此断言人格或品格发生变化。本版没有重测信度或测量误差估计。重测会开始新的作答并清除当前草稿，不建立个人历史；若自行比较，请核对版本、间隔、作答参照与具体选项。",
+          "en": "Near four or eight, a single changed choice can alter the displayed combination without establishing a change in personality or character. This edition has no test–retest reliability or measurement-error estimate. Retaking starts a new attempt and clears the current draft, without building a personal history. If you compare results yourself, check the edition, interval, reference context and item choices."
+        }
+      ]
+    },
+    {
+      "id": "evidence-and-models",
+      "title": {
+        "zh": "科学性怎样判断：框架、题本与用途分别核对",
+        "en": "Evaluating evidence: framework, questionnaire and use"
+      },
+      "paragraphs": [
+        {
+          "zh": "角色框架的出版来源回答“九宫格是什么意思”，计分代码回答“选择怎样映射到格子”；它们都不能单独回答“能否测出真实道德品质”。本版24题尚未建立信度、效度与常模，也没有行为预测或跨语言测量等值的研究。中英文使用相同题目结构与计数规则，不代表已经证明两种语言的心理测量等值。",
+          "en": "The published character framework explains the grid, and the scoring code explains how choices map onto it. Neither establishes measurement of real moral character. This 24-item edition has no established reliability, validity, norms, behavioural prediction or cross-language measurement equivalence. English and Chinese share item structure and counting rules; that is not evidence of psychometric equivalence."
+        },
+        {
+          "zh": "道德阵营、MBTI与大五人格回答的问题不同。阵营是角色分类框架，MBTI使用心理类型偏好，大五以连续人格特质组织差异；仅凭某个阵营不能换算四字母类型、大五分数、同理心或道德推理水平。也不据此决定招聘、伴侣评价或职业适配。",
+          "en": "Alignment, MBTI and the Big Five address different questions. Alignment categorises fictional characters, MBTI describes type preferences and the Big Five organises continuous personality traits. An alignment cannot be converted into MBTI letters, Big Five scores, empathy or moral-reasoning ability. It does not determine hiring, partner evaluation or career fit."
+        }
+      ]
+    },
+    {
+      "id": "using-the-guides",
+      "title": {
+        "zh": "怎样用于角色创作与自我反思",
+        "en": "Using the guides for writing and reflection"
+      },
+      "paragraphs": [
+        {
+          "zh": "角色创作时，可以先决定一次选择：角色会坚持什么准则，谁承担代价，遇到反例时会怎样调整？再把相邻阵营作为不同写法比较。报告中的普通情境是解释性例子，不是该阵营必然的行动，也不为具体伤害提供正当理由。",
+          "en": "For character writing, begin with a decision: what code does the character keep, who bears the cost and what happens when contrary evidence appears? Compare neighbouring alignments as alternative ways to write the scene. Everyday examples explain a perspective rather than prescribing behaviour or justifying harm."
+        },
+        {
+          "zh": "用于个人反思时，可回看一次合作：先区分共同约定与临时选择，再核对哪些人知情、同意并承担后果。下一次只尝试一项可观察的调整，例如改变办法前先确认受影响者的需要。用实际反馈评价调整，而不用结果格子评定自己的价值。",
+          "en": "For personal reflection, review one collaboration: distinguish an agreement from an improvised choice, then check who knew, agreed and carried the consequences. Try one observable adjustment next time, such as checking affected people’s needs before changing the approach. Evaluate the adjustment through feedback rather than using the grid to rate your worth."
         }
       ]
     },
     {
       "id": "source-scope",
       "title": {
-        "zh": "来源、改写与免费范围",
-        "en": "Source, adaptation and free access"
+        "zh": "来源、版本与免费内容",
+        "en": "Sources, edition and free content"
       },
       "paragraphs": [
         {
-          "zh": "两轴九阵营框架参考SRD 5.2.1，以下保留其许可所要求的署名。24题、原始计数、显示分区和九份解释为费马原创改写，尚无心理测量验证，不复制竞品题库、结果、人物图像或影视台词。全部题目、所有边界匹配和公开报告免费，无需注册；不提供职业适配、名人同型或人群稀有度。",
-          "en": "The two-factor, nine-alignment framework is adapted from SRD 5.2.1, with its required attribution below. FermatMind independently authored the twenty-four items, raw-count display bands and nine explanations without psychometric validation. No competitor bank, results, character artwork or dialogue is reproduced. All questions, boundary matches and public reports are free without signup. There are no career matches, celebrity types or population rarity claims."
+          "zh": "框架依据SRD 5.2.1，九种阵营按两因素组合；本版24题、显示分区和解释是费马原创改写，不是官方D&D人格工具，不复制竞品题库或以名人配型证明结果。许可与版本来源见文末。[1][2][3]",
+          "en": "The framework follows the two-factor, nine-alignment scheme in SRD 5.2.1. The 24 items, display bands and explanations are original FermatMind adaptations, not an official D&D personality instrument. No competitor question bank is copied, and celebrity matches are not offered as evidence. Edition and licence sources appear below.[1][2][3]"
+        },
+        {
+          "zh": "全部24题、两轴原始计数、九宫格位置、每份边界匹配报告与九份公开指南均免费，无需注册。约7分钟为预计阅读与选择时间，不是倒计时。可以先阅读指南，再决定是否作答；公开指南不会显示任何访客的私人答案。",
+          "en": "All 24 items, both raw-count axes, the grid position, every boundary-match report and nine public guides are free without signup. About seven minutes is a reading-and-answering estimate, not a countdown. You may read the guides before deciding to answer; public guides contain no visitor’s private responses."
         }
       ]
     },
@@ -2175,62 +2276,122 @@
   "faq": [
     {
       "question": {
-        "zh": "道德阵营测试怎样得到九宫格结果？",
-        "en": "How does the Moral Alignment Test produce a grid result?"
+        "zh": "道德阵营测试是什么，和D&D九宫格有什么关系？",
+        "en": "What is a moral alignment test, and how does it relate to D&D?"
       },
       "answer": {
-        "zh": "24题分为两组，各12题独立累计原始次数。两条轴各按公开的低端／中立／高端规则定位，再交叉显示阵营；不是从九个角色里随机挑一个，也不把两轴加成总分。",
-        "en": "The twenty-four items form two groups of twelve with separate raw tallies. Each axis uses the published low/neutral/high bands, whose combinations produce the matches. The quiz neither picks randomly among nine characters nor adds both axes into a total."
+        "zh": "它借用D&D的两因素九阵营角色框架，用情境问卷生成一个娱乐性的阅读入口。本站有24道原创二选一，分别累计秩序与善恶两轴的回答。游戏规则说明阵营名称，不把这份问卷认证为真实道德或人格测量工具。[1]",
+        "en": "It adapts D&D’s two-factor, nine-alignment character framework into a recreational questionnaire. This edition has 24 original paired choices, counted separately on order and good–evil axes. The game rules define alignment names; they do not certify this questionnaire as a measure of real morality or personality.[1]"
       }
     },
     {
       "question": {
-        "zh": "有哪些完整阵营说明？",
-        "en": "Which complete alignment guides are available?"
+        "zh": "守序、混乱、善良与邪恶分别怎样理解？",
+        "en": "What do Lawful, Chaotic, Good and Evil mean here?"
       },
       "answer": {
-        "zh": "守序善良、中立善良、混乱善良、守序中立、绝对中立、混乱中立、守序邪恶、中立邪恶、混乱邪恶。九份都有框架含义、计分读法、情境、取舍、相邻比较和小尝试，可在作答前阅读。",
-        "en": "Lawful Good, Neutral Good, Chaotic Good, Lawful Neutral, True Neutral, Chaotic Neutral, Lawful Evil, Neutral Evil and Chaotic Evil. All nine include framework meaning, score interpretation, examples, tradeoffs, neighbouring comparisons and a small experiment, readable before you answer."
+        "zh": "本题本的秩序轴比较一致准则与当下自主判断，另一轴比较顾及他人与容许他人承担未经同意的代价。守序不自动等于善良，混乱不表示失控；合理拒绝、自我照顾与边界不等于邪恶。需要结合题目具体条件阅读。",
+        "en": "Order items compare consistent codes with present autonomous judgment; the other axis compares attention to others with permitting unagreed costs. Lawful does not automatically mean Good, Chaotic does not mean out of control, and reasonable refusal, self-care and boundaries are not Evil. Read the conditions of each scenario."
       }
     },
     {
       "question": {
-        "zh": "这是官方D&D人格测评吗？",
-        "en": "Is this an official D&D personality assessment?"
+        "zh": "24道题怎样得到结果，能算道德总分吗？",
+        "en": "How do 24 choices produce a result? Is there a morality total?"
       },
       "answer": {
-        "zh": "不是。角色框架依据SRD 5.2.1的两因素九阵营，遵守其CC-BY-4.0署名要求；题目、计分分区和报告是费马原创改写，尚未完成信效度或常模研究。官方角色描述不能直接证明这份自报问卷有效。",
-        "en": "No. The character framework follows the two-factor, nine-alignment SRD 5.2.1 under its CC-BY-4.0 attribution terms. Items, display bands and reports are original FermatMind adaptations without established validity, reliability or norms. Official character descriptions do not validate a self-report quiz."
+        "zh": "两组各12题，每题只给所属一轴中选中的一端加1次。守序＋混乱＝12，善良＋邪恶＝12；分别按公开分区定位，再交叉显示阵营。不计算道德总分、百分位、稀有度或超过多少人。",
+        "en": "Two groups of twelve add one to the chosen endpoint on the item’s own axis. Lawful + Chaotic = 12 and Good + Evil = 12. Published bands locate each axis, then their intersections produce the matches. There is no morality total, percentile, rarity estimate or ranking against other people."
       }
     },
     {
       "question": {
-        "zh": "得到邪恶或混乱结果，表示我危险或很坏吗？",
-        "en": "Does an Evil or Chaotic result mean I am dangerous or bad?"
+        "zh": "为什么会出现两个或四个阵营？",
+        "en": "Why can I get two or four alignments?"
       },
       "answer": {
-        "zh": "不能这样推断。原始计数不评估真实品格、心理健康或危险性，也不裁定实际行为。题目把未经同意转嫁代价与健康界限分开；角色术语不能为伤害开脱，也不能给真实的人贴诊断标签。",
-        "en": "That inference is unsupported. Counts do not assess actual character, mental health or dangerousness, or adjudicate conduct. The items distinguish unagreed costs from healthy limits. A character term neither excuses harm nor supplies a diagnosis for a real person."
+        "zh": "守序端或善良端恰好4次时保留低端与中立，8次时保留中立与高端。一轴在边界就有两项，两轴都在边界就有四项。它们是显示规则产生的相邻匹配，不是统计置信区间；所有报告免费完整显示，不强行选一个。",
+        "en": "At exactly four Lawful or Good choices, low and neutral remain; at eight, neutral and high remain. One boundary gives two matches and two boundaries give four. These are adjacent matches under a display rule, not statistical confidence intervals. Every report is complete and free, without forcing one answer."
       }
     },
     {
       "question": {
-        "zh": "为什么有时出现两项或四项完整结果？",
-        "en": "Why can there be two or four complete matches?"
+        "zh": "绝对中立是不是没有原则，或者道德水平一般？",
+        "en": "Does True Neutral mean having no principles or average morality?"
       },
       "answer": {
-        "zh": "某轴守序端或善良端恰好4次或8次时，会同时保留相邻两个分区；两轴都在边界时就是四项。边界是本版显示约定，不是统计置信区间；每份报告都免费完整显示，不用加题、注册或付费打破。",
-        "en": "At exactly four or eight Lawful or Good choices, an axis keeps its two adjacent bands; two such boundaries yield four matches. These are display conventions rather than statistical confidence intervals. Every report is complete and free, without extra questions, signup or payment to break a boundary match."
+        "zh": "不能这样推断。本版两轴处于中间分区时显示绝对中立；例如两轴都6比6。中间计数可能由许多不同选择形成，不等于没有立场、完美平衡或人群平均水平。SRD把中央阵营称Neutral，True Neutral是常见别称。[1]",
+        "en": "No. True Neutral appears when both axes select the central bands, for example six versus six on each. Many choice patterns can produce those counts. They do not establish a lack of principles, perfect balance or an average population level. The SRD names the central alignment Neutral; True Neutral is a common alternative name.[1]"
       }
     },
     {
       "question": {
-        "zh": "答案、草稿与分享会怎样处理？",
-        "en": "How are answers, drafts and sharing handled?"
+        "zh": "邪恶或混乱邪恶结果说明我危险吗？",
+        "en": "Does an Evil or Chaotic Evil result mean I am dangerous?"
       },
       "answer": {
-        "zh": "浏览器计算，完整作答后才显示计数。主动开启时仅保存本标签页24小时草稿，刷新或换语言后可主动恢复；完成、退出清除或重测即删除。分享只有阵营名称和公开链接，不含答案、计数或内部ID；禁止存储仍可完成。",
-        "en": "Scoring runs in your browser and counts appear only after completion. An optional draft lasts 24 hours in this tab and can be resumed after a refresh or language change; completion, exit-and-clear or retaking deletes it. Sharing includes names and public links, never answers, counts or internal IDs. You can finish with storage blocked."
+        "zh": "本题本不评估危险性、暴力、心理健康或真实品格。SRD的某些邪恶阵营描述包含本问卷没有测量的角色行为；同名不能证明这些行为存在或不存在。请看计数与具体回答，也不要用角色名称替伤害行为开脱。[1]",
+        "en": "This questionnaire does not assess dangerousness, violence, mental health or actual character. Some SRD Evil descriptions concern fictional behaviour these items do not assess. Sharing a name proves neither its presence nor its absence. Read the counts and actual responses, and do not use a character label to excuse harm.[1]"
+      }
+    },
+    {
+      "question": {
+        "zh": "这是科学人格量表，或者官方D&D测试吗？",
+        "en": "Is this a scientific personality scale or an official D&D test?"
+      },
+      "answer": {
+        "zh": "这是依据SRD 5.2.1改写的非官方娱乐问卷。24题、分区与报告尚无对应信度、效度或常模研究。公式透明、来源可查与许可合规各有作用，但都不能代替本题本的心理测量研究。",
+        "en": "It is an unofficial recreational adaptation of SRD 5.2.1. Its 24 items, bands and reports have no established reliability, validity or norms. Transparent formulas, traceable sources and licence compliance serve different purposes; none substitutes for psychometric research on this form."
+      }
+    },
+    {
+      "question": {
+        "zh": "可以把阵营换算为MBTI、大五人格或现实职业吗？",
+        "en": "Can an alignment be converted into MBTI, Big Five scores or a career?"
+      },
+      "answer": {
+        "zh": "没有这样的换算规则。角色阵营、类型偏好和连续人格特质的概念、题目与计分不同。本页不据阵营安排职业、筛选求职者或判定伴侣好坏；角色创作与具体行为反思更符合它的用途。",
+        "en": "No such conversion is provided. Fictional alignment, type preferences and continuous traits use different concepts, items and scores. This page does not assign careers, screen applicants or judge partners from an alignment. Character writing and reflection on specific choices fit its purpose better."
+      }
+    },
+    {
+      "question": {
+        "zh": "两项都符合或都不符合，应该怎样作答？",
+        "en": "What if both options fit, or neither does?"
+      },
+      "answer": {
+        "zh": "按近期相似情境，选更可能首先采取的一项，不选“为了得到某个阵营”的答案。若确实无法比较，可以停止；未答完24题不会生成阵营。问卷没有中立选项，但中立结果由两轴计数分区产生，不需要刻意找折中答案。",
+        "en": "Use a comparable recent situation and choose the response you would more likely take first, without targeting an alignment. If comparison is genuinely impossible, you may stop; fewer than 24 answers produce no alignment. There is no neutral answer option. Neutral results come from count bands, not from deliberately finding compromise answers."
+      }
+    },
+    {
+      "question": {
+        "zh": "测试多久，九份完整报告都免费吗？",
+        "en": "How long does it take, and are all nine guides free?"
+      },
+      "answer": {
+        "zh": "共24题，预计约7分钟，没有倒计时。题目、两轴计数、九宫格、所有边界匹配及九份公开指南均免费，无需注册。可以在作答前阅读任意指南，公开页不展示私人答案或个人分数。",
+        "en": "There are 24 items, taking about seven minutes without a countdown. Questions, both count axes, the grid, every boundary match and all nine public guides are free without signup. You may read any guide before answering; public pages contain no private answers or personal scores."
+      }
+    },
+    {
+      "question": {
+        "zh": "答案在哪里计算，草稿和分享包含什么？",
+        "en": "Where are answers scored, and what do drafts and sharing contain?"
+      },
+      "answer": {
+        "zh": "答案在浏览器内计分，不通过计分请求上传，也不写入网址或分析事件。默认不保存；只有主动开启才保存本标签页24小时草稿，完成、退出清除或重测即删除。分享仅含阵营名称和公开链接，不含答案或计数。网站使用事件的处理以隐私与Cookie设置为准。",
+        "en": "Answers are scored in your browser, without a scoring upload or inclusion in URLs or analytics events. Saving is off by default. If enabled, a draft lasts 24 hours in this tab; completion, exit-and-clear or retaking deletes it. Sharing includes alignment names and public links, not answers or counts. Website usage events follow the privacy and Cookie settings."
+      }
+    },
+    {
+      "question": {
+        "zh": "重测结果不同，是不是品格发生了变化？",
+        "en": "Does a changed retest result mean my character has changed?"
+      },
+      "answer": {
+        "zh": "单凭两次标签不能得出这个结论。参照情境、回忆与题意理解都会影响选择，边界附近的一题变化也可能改变显示组合。本站未估计重测信度或测量误差。请比较具体回答与实际行为，而不把结果当成固定身份。",
+        "en": "Two labels alone cannot establish that. Reference situations, recall and item interpretation affect choices, and one changed answer near a boundary can change the displayed matches. Test–retest reliability and measurement error have not been estimated. Compare actual responses and behaviour rather than treating a result as a fixed identity."
       }
     }
   ]

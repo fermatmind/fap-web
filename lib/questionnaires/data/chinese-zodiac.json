@@ -10,12 +10,12 @@
     "zh": "中国十二生肖测试"
   },
   "seoTitle": {
-    "en": "Chinese Zodiac Quiz: 12 Free Symbolic Portraits",
-    "zh": "中国十二生肖测试：12题趣味选择、全部并列与完整画像"
+    "zh": "中国十二生肖测试：12题、全部并列与完整故事解读",
+    "en": "Chinese Zodiac Quiz: 12 Questions & Full Animal Portraits"
   },
   "description": {
-    "en": "Choose 12 original fictional scenes and read all 12 free animal portraits. Transparent counts keep every highest tie. No birth-year or element calculation.",
-    "zh": "12道原创虚构情境，看看本次选择更接近哪些生肖象征镜头。公开原始计数，保留所有最高并列，十二篇完整双语画像免费；不收生日、不算出生年或五行，不预测运势、关系或职业。"
+    "zh": "用12道原创故事选择探索十二生肖意象，查看全部计数、最高并列与十二篇完整角色指南。免费免注册，不收生日；附文化来源和计分算例。",
+    "en": "Explore twelve animal story roles in 12 free choices. See all counts, highest ties and full portraits, with cultural sources. No birthday or signup."
   },
   "minutes": 5,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "每个虚构场景单选你最想尝试的回应，无标准答案。每种动物出现四次，在A–D各一次；每次选择给对应动物加1，保留所有最高计数。完成12题才显示完整结果。不计时，五分钟只是粗略安排参考；无需生日或真实个人记录。重测仍是同一组情境。"
   },
   "introduction": {
-    "en": "Which Chinese zodiac animal story feels closest to the choices you make here? Try 12 original fictional scenes, then read every highest-count portrait in full. The animal names are cultural symbols; FermatMind independently wrote these story roles, options and twelve seven-section guides. This is a playful editorial mapping, not a traditional birth-year lookup or an empirical personality measure. There is no birth-date input, element calculation, fortune, intelligence score, relationship compatibility or career prediction. All twelve public portraits are free before or after an attempt, and tied results remain tied rather than being forced into one “true” animal.",
-    "zh": "本次选择更像哪种生肖故事镜头？试12道原创虚构情境，再完整阅读所有最高计数画像。动物名是文化符号，故事角色、选项及十二篇各七节指南由费马独立编写。这是趣味编辑映射，不是传统出生年查询，也不是经验证的人格测量。不输入生日，不算五行、运势、智力、关系配对或职业预测。十二篇公开画像可在作答前后免费阅读；并列就保留，不硬定唯一“真正生肖”。"
+    "zh": "在12个阅读、手作与共同活动的想象场景中，选择你更想尝试的做法，探索鼠、牛、虎等十二种原创故事角色。约5分钟，免费查看全部计数、每个最高并列与十二篇完整解读；无需生日或注册。",
+    "en": "Choose actions you would like to try in twelve fictional reading, making and shared-activity scenes. Explore original roles named after the twelve Chinese zodiac animals. Allow roughly five minutes; all counts, highest ties and twelve full portraits are free, without a birthday or registration."
   },
   "resultHeading": {
     "en": "Your symbolic animal portraits",

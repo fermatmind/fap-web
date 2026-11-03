@@ -15,8 +15,8 @@
     "zh": "工作伦理和可靠性测试：四组任务习惯与完整免费读法"
   },
   "description": {
-    "en": "Reflect on 24 work-habit statements about agreements, checks, updates and repair. Read all four full guides free, with separate means and no employee reliability grade.",
-    "zh": "用24条陈述回看约定、核对、说明与修正习惯，四篇完整指南免费。各组均分分别呈现，不给员工可靠性等级。"
+    "en": "Reflect on 24 statements about agreements, handover checks, accurate updates and repair over the past four weeks. See four separate habit readings and complete guides free, with no registration.",
+    "zh": "通过24项陈述回看过去四周的履约、交付核对、如实说明与修正习惯，分别查看四组读数与完整指南。约5分钟，免费作答，无需注册。"
   },
   "minutes": 5,
   "instructions": {
@@ -24,8 +24,8 @@
     "zh": "回想过去四周实际参与的普通任务，可以是有偿工作、学习、志愿活动或共同项目。在相关机会中，你多常按陈述做？只有遇到相关机会而没有这样做时才选“从未”。没有机会、信息不足或不愿回答时选不计分。题目不要求披露具体事件或证明品格。任务量、资源、权限和安全会影响选择；不要求接受不可能的任务或承担控制范围外的责任。"
   },
   "introduction": {
-    "en": "This original FermatMind questionnaire asks about ordinary task habits over the past four weeks, in paid work, study, volunteering or a shared project. It keeps four separate readings: commitments, handover checks, accurate updates and attribution, and bounded repair. These are editorial groups, not a validated work-ethic model or a moral grade. The page does not observe conduct, detect deception or predict misconduct. Opportunity, resources, authority and safe communication matter; no result requires impossible promises, unlimited disclosure or responsibility beyond your control. All four complete guides are available before and after answering.",
-    "zh": "这份费马原创问卷回看过去四周工作、学习、志愿活动或共同项目中的普通任务习惯，分别呈现履约、交付核对、如实说明与署名、控制范围内的修正。四组由编辑划定，不是验证过的工作伦理模型或道德等级。页面没有观察行为、不测谎、不预测不当行为。机会、资源、权限与沟通安全都重要；任何结果都不要求不可能的承诺、无限披露或超出控制范围的责任。作答前后均能阅读四篇完整指南。"
+    "en": "Use one familiar work, study, volunteering or shared-project context from the past four weeks. Rate how often each listed action occurred when you had an opportunity; choose unscored for no opportunity, uncertainty or a preference not to answer. The four separate means describe coded self-reports, with all six numeric answers required in each group. The questionnaire does not observe conduct or verify incidents; it offers task-specific reflection, not an employee reliability grade.",
+    "zh": "以过去四周熟悉的工作、学习、志愿活动或共同项目为参照，回答有机会时各项行动的发生频率；没有机会、无法判断或不愿回答时可选不计分。四组分别呈现处理后的自报均分，每组六项数值完整才显示。问卷不观察实际行为、不核实事件，提供针对具体任务的反思，而非员工可靠性等级。"
   },
   "resultHeading": {
     "en": "Your four work-habit readings",

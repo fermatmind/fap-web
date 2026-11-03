@@ -14,21 +14,21 @@
     "en": "Your four-metaphor counts and every highest tie"
   },
   "description": {
-    "zh": "免费四元素测试：20道原创选择比较火、水、土、风（气）四种偏好意象。无需注册，直接读完整结果和所有最高并列；不是生日星座、五行或身体能量测试。",
-    "en": "What element am I? Compare Fire, Water, Earth and Air in 20 original choices. Read full results free, without signup, birthdays or zodiac calculations."
+    "zh": "通过20道原创日常选择，探索火、水、土、风（气）四种偏好意象。约6分钟，免费查看四项原始计数、全部最高并列与完整解读；无需注册或生日，不需要元素知识。",
+    "en": "Explore Fire, Water, Earth and Air as preference metaphors through 20 original everyday choices. About 6 minutes, with free raw counts, every highest tie and complete guides. No signup, birthday or element knowledge needed."
   },
   "seoTitle": {
-    "zh": "四元素测试：20题、火水土风与完整结果",
-    "en": "What Element Am I? Free Four-Element Quiz & Full Results"
+    "zh": "四元素测试：20题探索火水土风，免费完整结果",
+    "en": "What Element Am I? 20-Question Four-Element Quiz & Free Results"
   },
   "minutes": 6,
   "introduction": {
-    "zh": "你现在更愿意短时专注尝试、按情境调节、保留实际基础，还是打开不同联系？本版以古典火、水、土、风（气）为四个当代意象，提供20道普通、可调整的原创四选一。完成后比较原始次数，所有最高并列都完整显示；四份结果也可以先读。元素名不指身体成分，不按生日或星座计算，也不鉴定能力、健康、命运或职业。它与本站气质测试是不同题本，不能凭名字互相换算。",
-    "en": "Would you currently prefer a brief focused attempt, adjustment to context, a practical base or varied connections? This edition uses classical Fire, Water, Earth and Air as four contemporary metaphors in 20 original, ordinary and adjustable choices. Compare raw counts after completion and read every highest-tied guide in full. All four guides can also be read first. Names describe no bodily composition and use no birthday or zodiac calculation. Ability, health, destiny and careers are not assessed. This is a different bank from our Temperament quiz, with no name-based conversion."
+    "zh": "四元素测试用火、水、土、风（气）命名四组当代偏好主题，分别关注短时集中尝试、随情境调整、保留可延续的基础，以及探索不同想法之间的联系。20道原创题目围绕笔记整理、个人创作、空闲安排与自愿小组活动展开；完成后可以查看四项计数和所有最高并列，阅读每种主题的具体例子、对话和相邻比较。",
+    "en": "This four-element quiz names four contemporary preference themes Fire, Water, Earth and Air: a brief focused attempt, adjustment to context, maintaining a base for continuity, and connections among ideas. Its 20 original situations concern notes, personal creations, free time and voluntary group activities. Completion shows all four counts and every highest tie, with concrete examples, dialogues and comparisons for each theme."
   },
   "instructions": {
-    "zh": "本版把火、水、土、风（气）作四种当代偏好意象：短时专注与尝试、按情境调整节奏、实际步骤与延续、开放与多种联系。它是20题原创四选一，不测身体能量、自然元素成分或真实能力，也不按生日和星座计算。每题选当前更愿意采用的普通做法，没有好坏或正确答案，所有情境都以自愿和可调整的范围为前提。20题全部选择后比较原始次数，所有最高并列完整保留；全选第一项会四种各5次。古典名称是背景，不证明本站题本经过心理验证，也不换算气质、DISC、MBTI或职业。",
-    "en": "This edition uses Fire, Water, Earth and Air as contemporary preference metaphors: brief focus and an attempt, adjusting pace to context, tangible steps and continuity, or openness and varied connections. It is an original 20-question quiz, not a measure of bodily energy, elemental composition or ability, and uses no birthday or zodiac calculation. Choose the ordinary approach you currently prefer, without good–bad or correct answers. Situations assume voluntary participation within an adjustable scope. After all 20 choices, compare raw counts and retain every highest-tied full guide; choosing the first option throughout gives five each. Classical names provide context, not psychometric validation or conversion to Temperament, DISC, MBTI or career fit."
+    "zh": "以近期熟悉的日常活动为参照，每题从四种做法中选出这次更愿意采用的一项。没有好坏或正确答案，不必选择听起来最有能力或最讨人喜欢的说法。多项都合适时，选当前更想先做的一项；全部20题答完后生成原始计数、全部最高并列与完整结果。",
+    "en": "Use familiar recent activities as your reference. For each question, choose the one of four approaches you would prefer this time. There are no good, bad or correct answers; avoid choosing what sounds most capable or likeable. If several fit, choose what you would prefer first now. Complete all 20 questions to see raw counts, every highest tie and complete results."
   },
   "source": {
     "kind": "FermatMindoriginalFourElementPreferences20/classicalnamescontextonly/notancientpersonalityinstrument",
@@ -1506,65 +1506,187 @@
     {
       "id": "archetype-counts",
       "title": {
-        "zh": "20题怎样形成四主题计数",
-        "en": "How 20 choices produce four-theme counts"
+        "zh": "20题怎样计分：四项计数与固定总和",
+        "en": "How 20 questions are scored: four counts and a fixed total"
       },
       "paragraphs": [
         {
-          "zh": "20题全部各选一项，对应主题加1，总数固定20。四主题每题均提供，全卷各出现20次、每个位置5次。原始次数是本组可选做法中的相对分布，不是身体元素比例、相似度百分比、品质强弱或人口排名。所有最高计数都保留完整结果；全选第一项会四种各5次，四份完整显示。名单顺序不设主次，不自动指定第二元素；相差一次只是一项选择，不证明显著差异、某种品质消失或固定混合类型。近分可以比较，但不补造未并列的结论。情境和时间可能改变回答，没有常模、稀有度或科学分界。",
-          "en": "Choose one option for all 20 questions; each adds one to its theme and counts always sum to 20. All four themes appear in every question, 20 times each and five times in each position. Raw counts describe relative choices among these approaches, not bodily element proportions, similarity percentages, quality levels or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives five each and displays all four. List order establishes no priority or automatic secondary element. A one-choice gap proves neither significance, absent qualities nor a fixed mixed type. Compare close counts without inventing untied conclusions. Context and time may change answers. There are no norms, rarity estimates or scientific cutoffs."
+          "zh": "每道题同时提供火、水、土、风（气）四种做法，选择哪项就给该主题加1次，其他三项不加分。每种主题在全卷出现20次，在四个选项位置各出现5次；完成后每项为0—20次，四项之和固定为20。",
+          "en": "Every question offers Fire, Water, Earth and Air approaches. Your selected theme receives one count; the other three receive none. Each theme appears 20 times, five times in each option position. After completion, each count is 0–20 and the four counts sum to 20."
+        },
+        {
+          "zh": "这是一组题目内部的相对选择记录。例如按火、水、土、风顺序得到8、6、4、2，表示20次选择中分别有这些次数；不能把8次解释成40%的身体由火构成，也不能据此判断比别人更有行动力。总数固定，更常选择一个方向会减少分配给其他方向的次数。",
+          "en": "These are relative choice records within this set. For example, Fire, Water, Earth and Air counts of 8, 6, 4, 2 record how the 20 selections were allocated. Eight counts mean neither a body made of 40% Fire nor greater initiative than other people. With a fixed total, choosing one theme more often leaves fewer selections for the others."
         }
       ]
     },
     {
       "id": "archetype-ties",
       "title": {
-        "zh": "全部结果、并列与近分",
-        "en": "Full guides, ties and close counts"
+        "zh": "最高并列与近分：四种算例",
+        "en": "Highest ties and nearby counts: four worked examples"
       },
       "paragraphs": [
         {
-          "zh": "四份完整结果各自有古典背景与本站读法、具体例子、可用表达、三个相邻主题比较、反例、小观察、计分和来源。所有最高并列完整显示，不造主副型。近分可以一起读，但不是测量误差区间，也不补造混合元素。重测反映当前选择，不证明人格改变。",
-          "en": "Each full guide includes classical context, this edition’s reading, an example, possible wording, comparisons, counterexamples, an optional observation, scoring and sources. Every highest tie appears in full without primary–secondary types. Read close guides together without treating proximity as a measurement-error interval or creating mixed elements. Retaking reflects current choices rather than proven personality change."
+          "zh": "系统保留所有达到最高次数的方向。8、6、4、2是火单项最高；7、7、3、3是火与水并列；6、6、6、2是火、水、土并列；5、5、5、5是四项并列。四组例子均合计20，且都能由本题组的实际选择产生。",
+          "en": "Every theme sharing the highest count is retained. The counts 8, 6, 4, 2 give Fire alone; 7, 7, 3, 3 give Fire and Water; 6, 6, 6, 2 give Fire, Water and Earth; and 5, 5, 5, 5 tie all four. Each example sums to 20 and is achievable through actual choices in this questionnaire."
+        },
+        {
+          "zh": "全选第一项会得到四种各5次，因为主题的位置每题轮换。结果不按位置、名字或页面顺序破同分，也不暗设主元素与副元素。相差1次仍显示差异；可把相邻指南一起读，但当前没有测量误差区间或近分合并阈值，不能宣称差异显著或已经属于固定混合类型。",
+          "en": "Choosing the first option throughout produces five each because theme positions rotate. Ties are not resolved by position, name or display order, and no primary–secondary pair is imposed. A one-count difference remains visible. You may read nearby guides together, but there is no measurement-error interval or near-score merging threshold supporting significance claims or fixed mixed types."
         }
       ]
     },
     {
       "id": "archetype-metaphor",
       "title": {
-        "zh": "古典元素和其他体系的区别",
-        "en": "Classical elements and other frameworks"
+        "zh": "四种主题的含义：做法、条件与反例",
+        "en": "What the four themes mean: approaches, conditions and counterexamples"
       },
       "paragraphs": [
         {
-          "zh": "本版Air用风（气）帮助识别古典名称，不涉及呼吸、身体之气或能量。四元素不是化学元素表，不是五行／中医或生日星座，也不是Avatar角色题本。古典气质的历史关联不使本站两份题本等价，不能按火水土风换算气质、DISC或MBTI。",
-          "en": "Air is a classical name, not a claim about breathing, bodily energy or physical composition. The four elements are neither the chemical periodic table, five-element or Chinese medical framework, birthday astrology nor an Avatar character bank. Historical associations with temperament do not make our two questionnaires equivalent or permit conversion to Temperament, DISC or MBTI."
+          "zh": "火关注愿意短时投入的一次具体尝试；水关注依据已知需要调整节奏；土关注保留可继续使用的材料、步骤或记录；风（气）关注不同想法与路线之间的联系。它们是本版写作的主题定义，不是四种能力等级，也不要求你始终以同一种方式行动。",
+          "en": "Fire concerns a concrete attempt within a short period; Water adjusting pace to known needs; Earth retaining useful materials, steps or records; and Air connections among ideas and routes. These are this edition’s editorial definitions, not four ability levels or requirements to act the same way every time."
+        },
+        {
+          "zh": "火可以在尝试后停下，水可以拒绝不合适的安排，土可以更换已经失效的规则，风（气）也可以选择一个明确结论。反例有助于避免把火理解为冲动、水理解为顺从、土理解为僵化、风理解为无法专注。计数本身不认证勇气、同理心、可靠性、智力或创造力。",
+          "en": "Fire can stop after an attempt, Water can decline an unsuitable arrangement, Earth can replace a rule that no longer works, and Air can choose a clear conclusion. These counterexamples prevent equating Fire with impulsiveness, Water with compliance, Earth with rigidity or Air with inability to focus. Counts certify neither courage, empathy, reliability, intelligence nor creativity."
         }
       ]
     },
     {
-      "id": "source",
+      "id": "classical-context",
       "title": {
-        "zh": "原创内容与古典背景来源",
-        "en": "Original content and classical background"
+        "zh": "古典四元素的来源：自然哲学与当代隐喻",
+        "en": "Where the classical elements come from: natural philosophy and metaphor"
       },
       "paragraphs": [
         {
-          "zh": "这是费马独立创作的四元素偏好意象问卷。Stanford哲学百科Empedocles条目用于核对古典火、水、土、气四根背景，不为本站心理题本、选择映射、计数或效度提供验证。20题、选项、当代主题、解释、示例和规则均为原创，没有采用JobCannon12题、竞品结果正文／代码／算法或受保护图片。古代自然哲学不等同现代化学或心理学，Love／Strife等古代解释不作现实人格原理。它不是生日星座计算、身体能量、五行／中医、体液、影视Avatar角色或科学人格分类，不转换气质、DISC、MBTI或职业。不认证健康、同理心、可靠性、智力、创造力、道德、吸引力或真实能力，也不预测命运；没有本站心理测量验证。",
-          "en": "This is an independently authored FermatMind four-element preference metaphor quiz. Stanford’s Empedocles entry checks the classical background of Fire, Water, Earth and Air as four roots, without validating this questionnaire, mapping, counts or interpretation. All 20 items, options, contemporary themes, explanations, examples and rules are original. No competitor questions, result text, code, algorithm or protected image is used. Ancient natural philosophy is neither modern chemistry nor psychology; historical Love and Strife supply no personal principles. This is not a birthday or zodiac calculation, bodily energy, five-element or Chinese medical framework, humoural doctrine, Avatar character quiz or scientific personality taxonomy. It converts into no Temperament, DISC, MBTI or career result and certifies no health, empathy, reliability, intelligence, creativity, morality, attractiveness or ability. It predicts no destiny and has no psychometric validation."
+          "zh": "古希腊恩培多克勒提出火、水、土、气四种“根”，用来解释自然事物的构成与变化。Stanford哲学百科介绍相关残篇和解释争议；这一背景提供名称来源，而不是一份传承至今的四选一人格量表。[1]",
+          "en": "The Greek philosopher Empedocles proposed Fire, Water, Earth and Air as four roots in an account of nature and change. The Stanford Encyclopedia of Philosophy discusses the surviving fragments and interpretive questions. This provides historical context for the names, not an ancient four-option personality scale handed down to this quiz.[1]"
+        },
+        {
+          "zh": "亚里士多德在《论生成和消灭》第二卷第三节以热、冷、干、湿的配对讨论四种物体。这属于古代自然哲学的解释体系；本页不把这些物理描述转换成情绪温度、性格强弱或人体状态。20题、选项和当代偏好主题均由费马独立编写。[2]",
+          "en": "In On Generation and Corruption, Book II, Part 3, Aristotle discusses four bodies through pairings of hot, cold, dry and moist. That is an ancient natural-philosophical account. This page does not convert those physical descriptions into emotional temperature, personality strength or bodily states. FermatMind independently authored the 20 questions, options and contemporary preference themes.[2]"
+        }
+      ]
+    },
+    {
+      "id": "framework-differences",
+      "title": {
+        "zh": "四元素、五行、星座与角色测试有什么区别？",
+        "en": "How do four elements differ from five phases, zodiac and character quizzes?"
+      },
+      "paragraphs": [
+        {
+          "zh": "本页的风（气）对应英文Air，是古典名称的中文表达，不涉及呼吸功能、身体之气或能量检测。四元素也不是现代化学元素表。五行使用木、火、土、金、水，具有不同的概念结构；同样出现“火”或“水”，不能把两套符号的规则、结果或用途直接对接。",
+          "en": "Air is rendered as wind/air in Chinese to identify the classical name, without testing breathing, bodily qi or energy. These four elements are also not the modern chemical periodic table. The five phases use Wood, Fire, Earth, Metal and Water in a different conceptual structure; shared names do not make the systems’ rules, results or uses interchangeable."
+        },
+        {
+          "zh": "生日或星座元素使用出生信息，影视中的元素能力属于相应作品设定，本页则只记录当前20道选择。气质、DISC、MBTI和大五人格也各有自己的题本与解释规则；不能从火水土风推算其他测试分数、影视阵营或适合的职业。",
+          "en": "Birthday or zodiac elements use birth information, while fictional elemental abilities belong to their story worlds. This page records only the current 20 choices. Temperament, DISC, MBTI and Big Five have their own instruments and interpretation rules; Fire, Water, Earth and Air counts cannot calculate those scores, fictional factions or suitable careers."
+        }
+      ]
+    },
+    {
+      "id": "reading-results",
+      "title": {
+        "zh": "怎样阅读结果：从次数回到实际情境",
+        "en": "How to read results: return from counts to concrete situations"
+      },
+      "paragraphs": [
+        {
+          "zh": "先查看四项次数，再读所有最高项的完整指南。每份指南包含主题解释、具体例子、可用说法、与其他三主题的比较、反例和可选观察。找到一条有实例支持的描述，同时找一条不符合的描述；结果文字可以作为提问语言，不需要被整体接受为身份。",
+          "en": "Start with all four counts, then read every highest theme’s complete guide. Each includes its meaning, an example, possible wording, comparisons with the other three themes, counterexamples and an optional observation. Identify a description supported by an event and another that does not fit. The text can supply questions without requiring acceptance as an identity."
+        },
+        {
+          "zh": "例如，水与风（气）都可能涉及改变：水强调已经出现的需要或条件，风强调另一种联系或可能路线。把“我很灵活”改问成“这次改动回应了什么需要，还是增加了哪个可比较的想法”，更容易结合具体事实理解回答。",
+          "en": "For example, both Water and Air may involve change: Water emphasises a need or condition that has appeared, while Air emphasises a connection or possible route. Instead of “I am flexible”, ask “Which need did this change address, or which alternative idea did it introduce?”. That makes the answers easier to discuss through concrete facts."
+        }
+      ]
+    },
+    {
+      "id": "practice-example",
+      "title": {
+        "zh": "同一件事的四种入口：阅读小组实例",
+        "en": "Four starting points for one activity: a reading-group example"
+      },
+      "paragraphs": [
+        {
+          "zh": "假设你与朋友自愿交换几段读书笔记。火的入口可以是“我想先用一分钟试讲这一段”；水是“今天只有十分钟，我们是否缩小问题”；土是“把资料和下一次的入口放在固定位置”；风是“这两篇文字之间有没有可比较的联系”。同一人可以在不同阶段使用四种入口。",
+          "en": "Suppose friends voluntarily exchange a few reading notes. Fire might prompt “I would like to try explaining this passage for one minute”; Water “We have ten minutes today; should we narrow the question?”; Earth “Let’s keep the notes and next starting point accessible”; and Air “What connection could we compare between these texts?”. One person may use all four at different stages."
+        },
+        {
+          "zh": "选择其中一个问题，说明自己的时间、需要和可调整范围，再询问对方是否愿意。之后依据实际反馈决定继续、修改或停止；不按元素给朋友分工，也不要求先测试对方。一次安排是否有效，要看参与者的体验和具体结果，不由标签保证。",
+          "en": "Choose one question, state your time, needs and adjustable scope, then ask whether the other person wants to participate. Use actual feedback to continue, revise or stop. Do not assign friends roles by element or require them to take the quiz. Participants’ experience and the actual outcome, rather than a label, determine whether an arrangement helps."
+        }
+      ]
+    },
+    {
+      "id": "evidence",
+      "title": {
+        "zh": "科学性与学术来源：分别核对什么？",
+        "en": "Scientific claims and scholarly sources: what needs separate checking?"
+      },
+      "paragraphs": [
+        {
+          "zh": "公开加分规则可以证明计数能否复算；古典文献可以核对名称与思想史背景。这两类证据都不能证明本题本能测量稳定人格。若要作心理测量解释，仍需该版本在目标语言与人群中的信度、效度、重测与参照证据；当前本版尚未完成这些验证。",
+          "en": "Published addition rules allow counts to be checked, while classical texts document names and intellectual history. Neither demonstrates that this instrument measures stable personality. Psychometric interpretation would require reliability, validity, retest and reference evidence for this edition in the target language and population. That validation has not been completed."
+        },
+        {
+          "zh": "描述让人有共鸣，不足以单独证明准确；题目均衡、报告很长或历史悠久也不替代测量研究。本页用于娱乐性隐喻探索，提供清楚的规则、实例与使用范围，不给诊断、能力等级、招聘结论或未来预测。",
+          "en": "Resonance alone does not establish accuracy. Balanced questions, lengthy reports and old names are also no substitute for measurement research. This page offers entertainment and metaphorical exploration with clear rules, examples and scope, producing no diagnosis, ability level, hiring conclusion or forecast."
+        }
+      ]
+    },
+    {
+      "id": "context-retest",
+      "title": {
+        "zh": "近期情境、重测与跨语言阅读",
+        "en": "Recent context, retesting and reading across languages"
+      },
+      "paragraphs": [
+        {
+          "zh": "时间限制、材料条件、熟悉程度和题目理解都会影响这次更愿意选的做法。比较两次结果时，先核对哪几题变了，再看最高项或并列是否变化。当前没有重测误差估计，不能仅凭火变水就断言性格发生转变，更不能用重测去追求某种更好的元素。",
+          "en": "Time, materials, familiarity and interpretation may affect which approach appeals now. When comparing attempts, check the changed answers before the highest themes or ties. There is no retest-error estimate supporting a claim that Fire becoming Water proves personality change, and retaking need not pursue a supposedly better element."
+        },
+        {
+          "zh": "中英文使用相同问题身份、方向与计分结构，便于对照阅读，但这不是跨语言测量等值性的证明。可以使用更熟悉的语言，并以相同参照情境理解各题；对某个译词不确定时，查看完整语境比只比较元素名字更有帮助。",
+          "en": "Chinese and English share question identities, directions and the scoring structure for corresponding reading. This does not establish measurement equivalence between languages. Use the language you read comfortably and a consistent context across questions; if a translated word is unclear, consult the whole situation rather than compare element names alone."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "结果适合怎样使用：个人观察与共同讨论",
+        "en": "Appropriate use: personal observation and shared discussion"
+      },
+      "paragraphs": [
+        {
+          "zh": "你可以独立阅读，也可以在自愿前提下用一个实例讨论活动安排、表达方式或偏好。次数低只表示这次较少选择，不是缺少某种元素；不需要补足到四项均衡。休息、求助、拒绝或更换做法都可以是合适的选择。",
+          "en": "You can read privately or voluntarily discuss one example about arrangements, expression or preferences. A low count means fewer selections this time, not a missing element. There is no requirement to balance the four. Rest, help, refusal or a different approach may each be appropriate."
+        },
+        {
+          "zh": "不要据此评价他人的人品、心理状态或工作表现。共同活动中，实际需要、边界、约定和反馈应直接沟通；元素计数不能代替本人表达，也不能证明两个人相生、相克或注定相合。",
+          "en": "Do not use counts to judge another person’s character, mental state or work performance. Needs, boundaries, agreements and feedback in a shared activity require direct discussion. Element counts cannot replace what someone says or establish that two people reinforce, oppose or are destined for each other."
         }
       ]
     },
     {
       "id": "privacy",
       "title": {
-        "zh": "草稿、分享和可选下一步",
-        "en": "Drafts, sharing and optional next steps"
+        "zh": "作答、保存与分享：完整免费范围",
+        "en": "Answers, saving and sharing: what is free"
       },
       "paragraphs": [
         {
-          "zh": "答案在浏览器内计分，不上传、不进网址或分析。草稿需主动开启，只在本标签页恢复，24小时失效，完成、重测、退出清除即删除。可选分享只含公开主题说明和链接，不含答案或次数。完整结果免费，不收邮箱、不先做其他测试；后续测评属于不同框架，需要另行作答，也可以到此结束。",
-          "en": "Answers are scored in your browser without uploading them or placing them in URLs or analytics. Drafts require opt-in, restore only in this tab, expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains public theme guides and links without answers or counts. Full results are free without email or another test first. Further assessments use separate frameworks and new responses; you can stop here."
+          "zh": "全部20题、四项计数和四篇完整指南免费，不需要邮箱、生日、账户或先完成MBTI。点击开始测试直接进入题目；答案在浏览器内计分，不通过计分请求上传，也不写入网址或分析事件。网站不含答案的使用事件仍以隐私与Cookie设置为准。",
+          "en": "All 20 questions, four counts and four full guides are free, without email, birthday, an account or prior MBTI completion. Start test opens the questions directly. Answers are scored in the browser, without upload through a scoring request or placement in URLs or analytics events. Non-answer usage events remain governed by privacy and cookie settings."
+        },
+        {
+          "zh": "默认不保存答案。主动保存后才在本标签页提供24小时内的恢复；完成、重测或退出清除会移除进度。公开分享链接只打开通用主题说明，不带你的私人答案或次数。可以直接阅读并结束本次探索，后续测试需要另行作答。",
+          "en": "Answers are not saved by default. Opt-in saving enables recovery in this tab for up to 24 hours; completion, retaking or exiting with clearing removes progress. Public sharing links open general theme guides without private answers or counts. You may read and stop here; another test requires separate answers."
         }
       ]
     }
@@ -1572,52 +1694,142 @@
   "faq": [
     {
       "question": {
-        "zh": "四元素测试包括哪四种？",
-        "en": "Which four elements does this quiz include?"
+        "zh": "四元素测试测的是什么？",
+        "en": "What does the four-element quiz explore?"
       },
       "answer": {
-        "zh": "本版采用古典火、水、土、风（气）作为当代偏好意象：短时专注尝试、情境调节、实际步骤延续、开放联系。名称来自古典背景，题目与解释由费马独立创作，不声称古代已有这份心理问卷。",
-        "en": "This edition uses classical Fire, Water, Earth and Air as contemporary preference metaphors for brief focus, contextual adjustment, practical continuity and varied connections. Names supply historical context. FermatMind independently authored the questions and explanations, without claiming that this psychological questionnaire existed in antiquity."
+        "zh": "它把20道日常偏好选择记录为火、水、土、风（气）四项次数，对应集中尝试、情境调整、基础延续与开放联系。名称是文化隐喻，结果描述本题组的相对选择，不是人体组成或固定人格类型。",
+        "en": "It records 20 everyday preference choices as Fire, Water, Earth and Air counts, corresponding to focused attempts, contextual adjustment, continuity and connections. Names are cultural metaphors; results describe relative choices in this set, not bodily composition or fixed personality types."
       }
     },
     {
       "question": {
-        "zh": "需要生日或星座吗？和五行一样吗？",
-        "en": "Do I need a birthday or zodiac sign? Is this the five elements?"
+        "zh": "有多少题、多久、需要注册吗？",
+        "en": "How many questions, how long and is signup required?"
       },
       "answer": {
-        "zh": "不需要。本版只按20道当前偏好选择计数，不使用出生日期、星座、抽签、身体能量或命运信息。四个古典名称不等同五行／中医，也不是现代化学或影视角色分类。",
-        "en": "No. Counts use only 20 current preference choices, with no birth date, zodiac sign, random draw, bodily energy or destiny information. The four classical names are not the five-element or Chinese medical framework, modern chemistry or a film character classification."
+        "zh": "20题，每题四选一，预计约6分钟，不限时。全部题目、计数、最高并列和四篇完整指南免费，无需注册、邮箱或先做其他测试；点击开始测试即可作答。",
+        "en": "There are 20 four-option questions, taking about 6 minutes without a time limit. Questions, counts, highest ties and four full guides are free, with no signup, email or prior test. Start test opens the questions."
       }
     },
     {
       "question": {
-        "zh": "怎样计分、处理并列和近分？",
-        "en": "How are counts, ties and close results handled?"
+        "zh": "需要生日或星座吗？",
+        "en": "Do I need a birthday or zodiac sign?"
       },
       "answer": {
-        "zh": "20题全部各选一项，对应主题加1，总数固定20。四主题每题均提供，全卷各出现20次、每个位置5次。原始次数是本组可选做法中的相对分布，不是身体元素比例、相似度百分比、品质强弱或人口排名。所有最高计数都保留完整结果；全选第一项会四种各5次，四份完整显示。名单顺序不设主次，不自动指定第二元素；相差一次只是一项选择，不证明显著差异、某种品质消失或固定混合类型。近分可以比较，但不补造未并列的结论。情境和时间可能改变回答，没有常模、稀有度或科学分界。",
-        "en": "Choose one option for all 20 questions; each adds one to its theme and counts always sum to 20. All four themes appear in every question, 20 times each and five times in each position. Raw counts describe relative choices among these approaches, not bodily element proportions, similarity percentages, quality levels or population ranks. Every highest count retains its full guide. Choosing the first option throughout gives five each and displays all four. List order establishes no priority or automatic secondary element. A one-choice gap proves neither significance, absent qualities nor a fixed mixed type. Compare close counts without inventing untied conclusions. Context and time may change answers. There are no norms, rarity estimates or scientific cutoffs."
+        "zh": "不需要。结果只由本次选择产生，不读取出生日期、时辰或星座，也不随机抽元素。出生信息计算与日常偏好问卷是不同方法，不能把两者的同名结果看作相互验证。",
+        "en": "No. Results come from this attempt’s choices, without a birth date, time, zodiac sign or random element draw. Birth-information calculations and everyday preference questionnaires use different methods; matching names do not validate one another."
       }
     },
     {
       "question": {
-        "zh": "它能说明实际能力或人格吗？",
-        "en": "Does this establish ability or personality?"
+        "zh": "风和气是同一个结果吗？",
+        "en": "Are Wind and Air the same result here?"
       },
       "answer": {
-        "zh": "这是费马独立创作的四元素偏好意象问卷。Stanford哲学百科Empedocles条目用于核对古典火、水、土、气四根背景，不为本站心理题本、选择映射、计数或效度提供验证。20题、选项、当代主题、解释、示例和规则均为原创，没有采用JobCannon12题、竞品结果正文／代码／算法或受保护图片。古代自然哲学不等同现代化学或心理学，Love／Strife等古代解释不作现实人格原理。它不是生日星座计算、身体能量、五行／中医、体液、影视Avatar角色或科学人格分类，不转换气质、DISC、MBTI或职业。不认证健康、同理心、可靠性、智力、创造力、道德、吸引力或真实能力，也不预测命运；没有本站心理测量验证。",
-        "en": "This is an independently authored FermatMind four-element preference metaphor quiz. Stanford’s Empedocles entry checks the classical background of Fire, Water, Earth and Air as four roots, without validating this questionnaire, mapping, counts or interpretation. All 20 items, options, contemporary themes, explanations, examples and rules are original. No competitor questions, result text, code, algorithm or protected image is used. Ancient natural philosophy is neither modern chemistry nor psychology; historical Love and Strife supply no personal principles. This is not a birthday or zodiac calculation, bodily energy, five-element or Chinese medical framework, humoural doctrine, Avatar character quiz or scientific personality taxonomy. It converts into no Temperament, DISC, MBTI or career result and certifies no health, empathy, reliability, intelligence, creativity, morality, attractiveness or ability. It predicts no destiny and has no psychometric validation."
+        "zh": "是。本版用“风（气）”对应英文Air，关注开放思路与多种联系，不检测呼吸、身体之气或能量。两种语言的名字指向同一方向，不另外计算一个风元素。",
+        "en": "Yes. The Chinese wind/air wording corresponds to the single English Air theme: openness and connections. It tests neither breathing, bodily qi nor energy and does not add a separate Wind score."
       }
     },
     {
       "question": {
-        "zh": "完整结果、重测和分享免费吗？",
-        "en": "Are full results, retaking and sharing free?"
+        "zh": "四元素与五行一样吗？",
+        "en": "Are four elements the same as the five phases?"
       },
       "answer": {
-        "zh": "四份完整说明可以先读，20题完成后全部最高并列完整显示，无需注册或邮箱。重测清除当前答案，可选分享只含公开说明和链接，不带答卷或次数。后续测试自选，不能把元素直接转换成心理或职业结论。",
-        "en": "All four full guides can be read first, and every highest tie appears after all 20 choices without signup or email. Retaking clears current answers. Optional sharing contains public guides and links without responses or counts. Further tests are optional and cannot directly convert an element into psychological or career verdicts."
+        "zh": "不是。五行使用木、火、土、金、水，四元素使用火、水、土、气，概念结构与解释方法不同。本页不按五行或中医评估身体，也不从元素次数推算相生相克或命运。",
+        "en": "No. The five phases use Wood, Fire, Earth, Metal and Water; these four elements use Fire, Water, Earth and Air. Their structures and interpretation methods differ. This quiz neither assesses the body through those traditions nor calculates generating/overcoming relations or destiny."
+      }
+    },
+    {
+      "question": {
+        "zh": "每项次数怎么算，总和是多少？",
+        "en": "How are counts calculated and what is the total?"
+      },
+      "answer": {
+        "zh": "每题选中的主题加1次，其他不加分。四主题每题均提供，各出现20次、每个位置5次，所以各项0—20次，答完总和20。它记录相对选择，不是能力、相似度或人群百分位。",
+        "en": "The selected theme gets one count and the others none. All four appear in every question, 20 times each and five per option position, giving a 0–20 range and total 20. Counts record relative choices, not ability, similarity or population percentiles."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么有两个、三个甚至四个并列？",
+        "en": "Why can two, three or four themes tie?"
+      },
+      "answer": {
+        "zh": "所有达到最高次数的方向都保留。例如7、7、3、3为两项并列，6、6、6、2为三项并列，5、5、5、5为四项并列。全选第一项就会得到四项各5次；不会按名字或顺序挑一个。",
+        "en": "Every theme at the maximum is retained. For example, 7, 7, 3, 3 ties two; 6, 6, 6, 2 ties three; and 5, 5, 5, 5 ties all four. Choosing the first option throughout gives five each, without a tie-break based on name or order."
+      }
+    },
+    {
+      "question": {
+        "zh": "能看出主元素、副元素或混合人格吗？",
+        "en": "Does it identify a primary element, secondary element or mixed personality?"
+      },
+      "answer": {
+        "zh": "本版不强行分主副型，也不另造混合类型。最高方向全部显示；接近但不相同的次数可以对照阅读，但没有近分合并阈值或统计显著性结论。",
+        "en": "This edition imposes no primary–secondary pair or mixed personality category. All highest themes are shown. Nearby unequal counts can be read together, but there is no merging threshold or statistical-significance conclusion."
+      }
+    },
+    {
+      "question": {
+        "zh": "某个元素0次是不是缺少这种特质？",
+        "en": "Does zero mean I lack the associated trait?"
+      },
+      "answer": {
+        "zh": "不是。它只表示这20道比较中没有选择该主题对应的选项。题目不观察你的全部行为或实际能力，也没有要求每种元素都得到一定次数；无需把低分当缺陷或补足目标。",
+        "en": "No. It means that theme’s options were not chosen in these 20 comparisons. The quiz does not observe all behaviour or actual ability and requires no minimum count for any element. A low count is neither a defect nor a target to fill."
+      }
+    },
+    {
+      "question": {
+        "zh": "古希腊背景能证明这个测试科学吗？",
+        "en": "Does its Greek background make the quiz scientifically validated?"
+      },
+      "answer": {
+        "zh": "不能。恩培多克勒的四根背景与亚里士多德的冷热干湿论述属于思想史，能帮助核对名称；不能验证本站题目、计分或人格解释。本版尚未完成信度、效度与常模验证。[1][2]",
+        "en": "No. Empedocles’ roots and Aristotle’s hot/cold/dry/moist account belong to intellectual history and help contextualise the names. They do not validate this instrument’s questions, scoring or personality interpretations. Reliability, validity and norming studies have not been completed for this edition.[1][2]"
+      }
+    },
+    {
+      "question": {
+        "zh": "能换算气质、DISC、MBTI或职业方向吗？",
+        "en": "Can it convert to Temperament, DISC, MBTI or a career result?"
+      },
+      "answer": {
+        "zh": "不能。共享四个名字或数量不表示题目、构念和计分相同。需要分别完成相应题本，并按它自己的证据阅读结果；本页也不从火水土风判断招聘适任或职业成功。",
+        "en": "No. Shared names or a four-part structure do not make questions, constructs or scoring identical. Complete the relevant instrument separately and consult its own evidence. These counts do not determine hiring suitability or career success."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是Avatar御术或超能力测试吗？",
+        "en": "Is this an Avatar bending or superpower quiz?"
+      },
+      "answer": {
+        "zh": "不是。这里的元素是原创日常偏好主题，不按影视角色、阵营或技能设定匹配，也不测自然力量。可以把符号用于想象，但不把本页结果当作某部作品的官方归属。",
+        "en": "No. These are original everyday preference themes without matching fictional characters, factions or abilities. The quiz measures no natural powers. Symbols can be used imaginatively without treating the result as an official assignment in a story world."
+      }
+    },
+    {
+      "question": {
+        "zh": "重测变化能说明性格改变了吗？",
+        "en": "Does a changed result on retesting prove personality change?"
+      },
+      "answer": {
+        "zh": "不能只凭元素名字判断。先比较参照情境与变化的选项，再看最高次数或并列。疲劳、材料条件和问题理解可能影响选择；当前没有本题本的重测误差数据来量化真实改变。",
+        "en": "The element name alone cannot establish change. Compare context and changed answers before highest counts or ties. Fatigue, materials and interpretation can affect choices; this instrument has no retest-error data for quantifying genuine change."
+      }
+    },
+    {
+      "question": {
+        "zh": "答案会上传、保存或分享给别人吗？",
+        "en": "Are answers uploaded, saved or shared with others?"
+      },
+      "answer": {
+        "zh": "答案在浏览器计分，不通过计分请求上传，也不进入网址或分析事件。只有主动保存才在本标签页提供24小时恢复，完成、重测或退出清除后删除。分享链接只指向公开指南；不含答案的使用事件以隐私与Cookie设置为准。",
+        "en": "Answers are scored in the browser, without scoring-request uploads or placement in URLs or analytics events. Optional saving allows recovery in this tab for 24 hours, cleared on completion, retake or exiting with clearing. Shared links open public guides; non-answer events follow privacy and cookie settings."
       }
     }
   ],
@@ -1628,6 +1840,13 @@
         "en": "Stanford Encyclopedia of Philosophy: Empedocles (classical roots, not questionnaire validation)"
       },
       "url": "https://plato.stanford.edu/entries/empedocles/"
+    },
+    {
+      "title": {
+        "zh": "亚里士多德《论生成和消灭》第二卷第三节：四种物体与冷热干湿（历史文本）",
+        "en": "Aristotle, On Generation and Corruption II.3: four bodies and hot/cold/dry/moist (historical text)"
+      },
+      "url": "https://classics.mit.edu/Aristotle/gener_corr.2.ii.html"
     }
   ]
 }

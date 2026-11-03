@@ -62,11 +62,11 @@ function ValidMostLeastClient({ quiz, locale, readingProfiles }: { quiz: Questio
   const recommendation = { locale, sourceRouteFamily: "test_detail" as const, sourceSlug: quiz.slug, sourcePath: questionnairePath(locale, quiz.slug), href: `/${locale}/tests/${SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN}`, ctaId: "questionnaire_result_big5", targetAction: "questionnaire_result_big5", targetTestSlug: SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN, scaleCode: "BIG5_OCEAN" };
   const big5Href = appendSeoCtaContextParamsToHref(recommendation.href, buildSeoCtaContextParams(recommendation));
 
-  return <section id="take-test" className="my-10 scroll-mt-24 rounded-xl border border-slate-200 bg-white p-5 sm:p-8" aria-labelledby="most-least-heading">
+  return <section id="take-test" data-most-least-client data-stage={phase === "ready" ? "welcome" : phase === "answering" ? "answer" : "result"} className="my-10 scroll-mt-24 rounded-xl border border-slate-200 bg-white p-5 sm:p-8" aria-labelledby="most-least-heading">
+    {phase === "ready" && <button data-explore-start type="button" className={`${button} most-least-primary`} disabled={!ready} onClick={start}>{zh ? "开始练习" : "Start practice"}</button>}
     <h2 id="most-least-heading" ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold focus:outline-none">{phase === "result" ? quiz.resultHeading![locale] : phase === "answering" ? (zh ? `第${position + 1}组，共16组` : `Block ${position + 1} of 16`) : (zh ? "开始原创最符合／最不符合练习" : "Start the original Most/Least practice")}</h2>
     <p className="my-4 text-sm leading-7 text-slate-600">{zh ? "进度只在当前页面内存中。刷新、换语言、离开或清空即移除；没有保存草稿。" : "Progress stays only in this page’s memory. Refreshing, changing language, leaving or clearing removes it. No draft is saved."}</p>
-    {metrics.consent}
-    {phase === "ready" && <><p className="my-4 leading-8">{quiz.instructions![locale]}</p><button type="button" className={button} disabled={!ready} onClick={start}>{zh ? "开始练习" : "Start practice"}</button></>}
+    {phase === "ready" && <><p className="my-4 leading-8">{quiz.instructions![locale]}</p></>}
     {phase === "answering" && <>
       <p className="my-3 text-sm">{zh ? `已完成${result.answered} / 16组` : `${result.answered} / 16 blocks completed`}</p>
       <fieldset className="my-5 space-y-4"><legend className="mb-4 leading-8">{q.prompt[locale]}</legend>
@@ -86,6 +86,7 @@ function ValidMostLeastClient({ quiz, locale, readingProfiles }: { quiz: Questio
       </section>; })}
       <aside className="my-6 border-t pt-5"><h3 className="text-xl font-semibold">{zh ? "按需继续，或在这里结束" : "Continue if useful, or finish here"}</h3><p className="my-3 leading-8">{zh ? "大五是另一个独立测评，需另外作答；它的维度不由本页次数推算，也不是查看完整读法的条件。" : "Big Five is a separate assessment with its own questions. Its dimensions are not inferred from these counts, and taking it is not required to read any full guide."}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={big5Href} onClick={() => trackEvent("click_test", buildSeoCtaTrackingPayload(recommendation))}>{zh ? "可选：了解大五测试与题本" : "Optional: explore Big Five and its versions"}</Link></aside>
     </>}
+    {metrics.consent}
     {message && <p role="status" className="my-4 leading-7">{message}</p>}
     {manualCopy && <label className="my-4 block">{zh ? "公开练习链接" : "Public practice link"}<textarea className="mt-2 w-full rounded border p-3" readOnly value={manualCopy} rows={3} onFocus={e => e.target.select()} /></label>}
   </section>;

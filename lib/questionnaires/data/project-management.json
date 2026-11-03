@@ -1,8 +1,8 @@
 {
   "slug": "project-management",
   "code": "FM_PROJECT_CASE_PRACTICE",
-  "version": "1.0.0",
-  "updated": "2026-10-27",
+  "version": "1.0.1",
+  "updated": "2026-11-03",
   "category": "everyday",
   "kind": "practice",
   "title": {
@@ -10,12 +10,12 @@
     "zh": "项目管理测试"
   },
   "seoTitle": {
-    "en": "Project Management Test: 30 Free Cases & Answers",
-    "zh": "项目管理测试：30道原创情境、全部解析与五篇指南"
+    "zh": "项目管理测试：30道情境题、完整答案与五项复习指南",
+    "en": "Project Management Test: 30 Questions & Worked Answers"
   },
   "description": {
-    "en": "Practise 30 original project cases on scope, schedule, risk, communication and budget. Free explanations and five full guides. No certification or hiring tier.",
-    "zh": "30道原创项目情境，范围变更、排程容量、风险响应、沟通决策、预算数量各六题。免费查看全部答案解析与五篇完整指南；按题内规则复算正确数，不派招聘档位、PMP或PRINCE2认证。"
+    "zh": "免费练习30道项目管理情境题，覆盖范围变更、排程容量、风险响应、沟通决策与预算。查看全部答案解析、五项正确数和完整指南；无需注册，不计时。",
+    "en": "Practise 30 project management scenarios on scope, schedules, risk, decisions and budgets. Free worked answers, five topic counts and complete revision guides."
   },
   "minutes": 18,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "每题单选，依据题定约定、权限、记录、数量与排除项。五组各六题交错呈现，完成30题可读全部答案解析和完整指南。情境金额均虚构。不计时，18分钟只是粗略安排参考，非实测表现。若练无辅助作答，可完成后再查资料和计算器。无需输入保密项目记录或更改真实项目。"
   },
   "introduction": {
-    "en": "Work through 30 independently written fictional cases on scope and change, schedule and capacity, risk and response, communication and decisions, and budget quantities. Each limited task gives explicit rules or a declared model so that its keyed choice is reproducible. Recognizing that choice does not establish universally best professional judgment, organizational authority or real delivery success. All correct counts open 30 explanations and five complete seven-section review guides. Selected PMI and Microsoft concepts provide background; no published exam bank, manual case, template or proprietary standard is adapted. This untimed fixed practice has no population norms, hiring tier, certification, qualifying hours or validated English–Chinese score equivalence.",
-    "zh": "30道独立编写的虚构情境，范围变更、排程容量、风险响应、沟通决策、预算数量各六题。每道有限任务明示规则或模型，使答案可复算；识别它不证明普遍最佳职业判断、真实组织权限或实际交付成功。任意正确数都开放30题解析和五篇各七节完整复习指南。选定PMI与Microsoft概念只作背景，不改编已发表考题、手册情境、模板或专有标准。本固定、不计时练习无人群常模、招聘档位、认证、资格时数或经验证的英中分数等价。"
+    "zh": "通过30道原创项目管理情境题，练习范围与变更、排程与容量、风险与响应、沟通与决策、预算与数量五类任务。约18分钟，不计时；免费查看五项正确数、全部答案解析和五篇完整复习指南，无需注册或提交项目资料。",
+    "en": "Practise five project management topics through thirty original scenarios: scope and change, schedule and capacity, risk and response, communication and decisions, and budget and quantities. Allow roughly eighteen minutes without a timer. View five topic counts, every worked answer and five complete revision guides free, without registering or submitting project records."
   },
   "resultHeading": {
     "en": "Your project practice and every explanation",
@@ -114,8 +114,8 @@
       ],
       "correctOptionId": "D",
       "explanation": {
-        "en": "The rule names two deliverables. The first package supplies both; an attractive substitute is not an agreed replacement.",
-        "zh": "规则点名两项交付物，首项包同时具备；好看的替代品不自动成为约定替代。"
+        "en": "Package D includes both the CSV index and PDF reading guide required by the acceptance rule. A, B and C each omit at least one required deliverable; a substitute needs an agreed change.",
+        "zh": "D包同时含验收规则要求的CSV索引和PDF阅读指南。A、B、C均至少缺一项；替代交付物需要先约定变更。"
       },
       "id": "PROJECT_01"
     },
@@ -436,8 +436,8 @@
       ],
       "correctOptionId": "B",
       "explanation": {
-        "en": "The first note identifies who checks and a concrete threshold. It does not prove the chosen threshold is optimal outside this fictional plan.",
-        "zh": "首项有监测人和具体阈值，不证明该阈值在虚构计划之外最优。"
+        "en": "Note B names Imani as the monitor and sets a measurable trigger: the queue exceeds 12. A lacks both specifics, C lacks a measurable trigger and D lacks a monitor. The case does not establish that 12 is an optimal threshold elsewhere.",
+        "zh": "B项指定Imani监测，并给出可测触发条件：队列超过12。A缺两项具体信息，C缺可测条件，D缺监测者。本题不证明12在其他场景中也是最优阈值。"
       },
       "id": "PROJECT_08"
     },
@@ -482,8 +482,8 @@
       ],
       "correctOptionId": "D",
       "explanation": {
-        "en": "The first choice matches all four declared fields. A communication plan should be applied to the case’s actual needs, not used to require unnecessary reports everywhere.",
-        "zh": "首项匹配四个题定字段，沟通计划应服务实际需求，不应变成到处强制无用报告。"
+        "en": "Option D matches all four stated fields: the trial owner, queue count, email and every Friday. A is not recurring, B sends the wrong content and C omits the required email to the owner.",
+        "zh": "D项匹配四个题定字段：试验负责人、队列计数、邮件、每周五。A没有持续频率，B内容不符，C没有按要求邮件发给负责人。"
       },
       "id": "PROJECT_09"
     },
@@ -712,8 +712,8 @@
       ],
       "correctOptionId": "B",
       "explanation": {
-        "en": "All required fields are present only in the first record. Presence of fields is not proof that the decision was wise or that its owner had unstated authority.",
-        "zh": "只有首项具备所有必填字段；字段齐全不证明决策明智，也不凭空赋予权限。"
+        "en": "Record B contains Option Cedar, decision owner Esi and the date 12 May. A omits the owner, C has no chosen option and D has no date. Complete fields alone do not prove a wise decision or confer authority.",
+        "zh": "B项含Cedar方案、决策人Esi及5月12日。A缺决策人，C未选定方案，D缺日期。字段齐全本身不证明决策明智，也不赋予权限。"
       },
       "id": "PROJECT_14"
     },
@@ -1172,8 +1172,8 @@
       ],
       "correctOptionId": "C",
       "explanation": {
-        "en": "The first clarification connects information to the named decision. The case does not equate less reporting with better communication in every project.",
-        "zh": "首项把信息连到指定决策，本题不把少写报告普遍等同于沟通更好。"
+        "en": "Clarification C asks which trial outcomes and constraints will inform the named decision. A addresses appearance, B provides unfiltered messages and D assumes length means usefulness. The case links reporting to a decision, not a universal preference for shorter reports.",
+        "zh": "C项询问哪些试验结果与限制将用于题定决策。A只问外观，B发送未筛选消息，D假定长度代表用处。本题强调报告服务决策，不普遍认定报告越短越好。"
       },
       "id": "PROJECT_24"
     },
@@ -1264,8 +1264,8 @@
       ],
       "correctOptionId": "D",
       "explanation": {
-        "en": "The first choice matches the declared inclusion and exclusion. Whether a photo package would be valuable is a separate change decision.",
-        "zh": "首项匹配题定包含与排除，照片包有无价值属于另一变更决策。"
+        "en": "Option D delivers the agreed text-only directory. A, B and C introduce photography, portraits or video outside the stated boundary. Whether such additions would be useful is a separate change decision.",
+        "zh": "D项交付约定的纯文字目录。A、B、C引入摄影、人像或视频，超出题定边界。这些新增内容是否有用，属于另一个变更决策。"
       },
       "id": "PROJECT_26"
     },
@@ -1402,8 +1402,8 @@
       ],
       "correctOptionId": "B",
       "explanation": {
-        "en": "Only the first option respects both the permitted content and exclusions. Use fictional records here; this is a supplied policy exercise, not a statement of legal compliance.",
-        "zh": "只有首项同时服从允许内容与排除项。本题用虚构记录，只练给定政策，不判定法律合规。"
+        "en": "Option B includes aggregate counts and excludes names and personal contact details, meeting both conditions. A discloses email addresses, C names and D phone numbers. This is a fictional policy exercise, not a legal-compliance determination.",
+        "zh": "B项保留汇总计数，并排除姓名和私人联系方式，同时满足两项条件。A披露邮箱，C披露姓名，D披露电话。本题练习虚构政策，不判定法律合规。"
       },
       "id": "PROJECT_29"
     },
@@ -2216,10 +2216,10 @@
   "source": {
     "kind": "fermatmind_original_project_case_practice",
     "formCode": "fm_project_case_practice_30_v1",
-    "itemBankVersion": "fm_project_case_practice_30_v1",
+    "itemBankVersion": "fm_project_case_practice_30_v1-explanation-r1",
     "scoringVersion": "practice_equal_correct_counts_v1",
     "resultContentVersion": "fm_project_five_review_guides_v1",
-    "itemBankSha256": "dd5037d92134f7c0dd788b218ccb3c0e8f27ff8d00c16c4236b410605c7bc19b",
+    "itemBankSha256": "cffea96c5eb8acbca90cbaebdfc03be632901b419dec9f9b3b3315cd94d8f8c5",
     "resultContentSha256": "5ee0afb88b326bb54ff116b91d2bea044825ee288eb26351d1ed90624167c9a2",
     "psychometricValidationCompleted": false
   }

@@ -14,21 +14,21 @@
     "en": "Your four counts and full quadra guides"
   },
   "description": {
-    "zh": "用24条原创信息配对题探索Alpha、Beta、Gamma、Delta四组倾向，最高并列全部保留。完整解释包含16个TIM的组内所属关系，不鉴定16型或换算MBTI。",
-    "en": "Explore four Socionics quadras with 24 original information-pair choices and full free guides. Keep all highest ties; no individual TIM or MBTI conversion."
+    "zh": "通过24道原创情境题，探索Alpha、Beta、Gamma、Delta四组信息偏好。约6分钟，免费查看四项计数、全部最高并列及四份完整指南，了解四象限与16类型的区别。",
+    "en": "Explore Alpha, Beta, Gamma and Delta information preferences through 24 original choices. View all counts, highest ties and four full guides free, and learn how quadras differ from sixteen types."
   },
   "seoTitle": {
-    "zh": "Socionics测试（社会人格学）：四组倾向与完整解释",
-    "en": "Socionics Test: Quadra Values and Full Result Guides"
+    "zh": "Socionics测试：四象限偏好、计分与完整解读",
+    "en": "Socionics Test: Quadra Preferences, Scoring and Full Guides"
   },
   "minutes": 6,
   "introduction": {
-    "zh": "你在普通讨论中更想先了解可能、整体走向、体验、落实、结构、实际用处、共同情绪，还是具体关系？24条原创题把这些信息组成四个经典quadra相关配对，呈现四组原始计数与全部最高并列报告。四份完整说明分别介绍受重视元素、所属四个TIM、具体例子和其他三组对照。它是框架反思，不测功能强弱、八个位置或你的16型，也不由组别决定职业、关系或成长方向。",
-    "en": "In an ordinary discussion, what would you rather understand first: possibilities, a trajectory, experience, immediate action, structure, usefulness, shared feelings or personal relations? Twenty-four original items organise information pairs around four classical quadras and present raw counts with every highest-count full guide. Each guide explains valued elements, four TIM members, examples and three comparisons. This is framework reflection rather than a measure of function strengths, eight positions or your individual TIM, with no career, compatibility or growth prescription."
+    "zh": "Socionics（社会人格学）是一种用信息元素与类型模型解释个体差异的理论传统。经典Model A以八种信息元素在八个位置的安排描述16个信息代谢类型（TIM），再按共享的受重视元素划分为四个quadra；中文在本页称“四象限”，指类型分组，不是统计坐标。[1][2] 本站只用24道原创四选一观察四组信息配对的相对选择，呈现Alpha、Beta、Gamma、Delta计数与阅读指南。它没有逐一测量八种元素，也没有据此识别个人TIM。",
+    "en": "Socionics is a typological tradition that interprets individual differences through information elements and type models. Classical Model A describes sixteen types of information metabolism (TIMs) by assigning eight elements to eight positions. Four quadras group types sharing a valued set.[1][2] This questionnaire uses 24 original four-choice situations to record relative selections among editorial information-pair clusters. It returns Alpha, Beta, Gamma and Delta counts with reading guides, rather than eight separate element measurements or an identified individual TIM."
   },
   "instructions": {
-    "zh": "把每题当作普通、条件允许且没有必须按某一种做的情境，选你此刻更愿意先了解或展开的一组信息，不选自己最擅长、最应该或别人期望的答案。24条原创四选一各给一个quadra计1次，四组都出现24次且每个位置各6次，合计24。四个quadra来自经典Socionics的受重视信息元素组合；题目中的配对与加法规则是本站编辑方法，不测八个功能强弱或Model A位置。全部最高计数并列都保留，完整说明介绍每组四个TIM，但不由这份选择鉴定你的16型、MBTI、关系相容性、健康或职业。可以随时退出，不必为保持一致选同类。",
-    "en": "Treat each item as an ordinary feasible situation with no required approach. Choose the information pair you would currently rather understand or explore first, rather than what you do best, ought to do or think others expect. Each of 24 original four-choice items adds one count to one quadra. Each group appears 24 times and six times in each position, with 24 counts overall. The four quadras refer to classical Socionics valued information-element sets. The pairings and additive mapping are editorial conventions, not measurements of eight function strengths or Model A positions. Keep every highest-count tie. Full guides explain the four TIMs in each group without identifying your 16-type, converting MBTI or predicting compatibility, health or careers. You may exit and need not force consistency across choices."
+    "zh": "把每题当作可自由选择做法的普通情境，选此刻更想先了解或探讨的一组信息。两种都想了解时，选更想先展开的一项；不要按擅长程度、理想形象或别人期望作答。24题全部完成后显示四项原始计数和所有最高并列指南，没有正确答案。",
+    "en": "Imagine each ordinary situation allows a free choice of approach. Select the information pair you would currently rather explore first. If several appeal, choose the one you would start with. Answer for your present preference rather than expertise, an ideal image or others’ expectations. Complete all 24 items to see four raw counts and every highest-count guide. There are no correct answers."
   },
   "source": {
     "kind": "FermatMindoriginal24ENZHfourchoiceinformation-pairpreferenceitems/classicalfourquadraframework/NOTstandardSocionicstestorMBTIbank",
@@ -1670,52 +1670,187 @@
     {
       "id": "archetype-counts",
       "title": {
-        "zh": "次数来自具体选项",
-        "en": "Counts come from selected options"
+        "zh": "24次选择如何形成四项计数",
+        "en": "How 24 selections produce four counts"
       },
       "paragraphs": [
         {
-          "zh": "每道原创题的所选项给对应quadra加1，共24次。四组都在24题中出现，每个位置各6次；分母24是选项出现次数，不是相似度。全部24题选择后显示四组原始计数，所有最高并列均完整保留，不按顺序、随机或强行主副型消除并列。低计数不等于没有某种信息功能，差1次不代表显著、真实类型改变或人群排名。没有常模、百分位、置信区间或本站心理测量验证；它也不测八项功能的强弱、位置和16个TIM。",
-          "en": "Each selected option adds one raw count to its mapped quadra, across 24 original items. Each group appears in all 24 items and six times in every position. A denominator of 24 counts appearances, not similarity. Complete all items for four tallies and every highest-count full guide, without ordering, randomness or forced primary/secondary labels breaking ties. Low counts establish no absent function; one extra choice establishes neither significance, a true type change nor a population rank. There are no norms, percentiles, confidence intervals or local psychometric validation. The reflection measures no eight function strengths or positions and identifies no individual TIM."
+          "zh": "每题四个选项分别对应四个象限，所选项给对应组加1次。每组都在24题中出现，每个选项位置各6次；总次数固定24，单组范围0—24。比如第一题整理普通材料，选择先考虑分类可能性与一致理由，给Alpha计1次；这是选项映射，不是分别给Ne和Ti打能力分。",
+          "en": "Each item offers one option for each quadra; the selected option adds one count to its group. Every group appears in all 24 items, six times per option position. Counts total 24, with each group ranging from 0 to 24. In the first materials-organising situation, choosing possible classifications and consistent reasoning adds one Alpha count. This mapping assigns no separate Ne or Ti ability scores."
+        },
+        {
+          "zh": "这是一种同一人内部的相对选择汇总：多选一组，就少了一次选择其他组的机会。计数除以24只能表示本题组的选择份额，不能表示人格浓度、相似度、准确率或人群百分位；也不宜把不同人的次数差解释为能力差。",
+          "en": "This is a within-person summary of relative choices: selecting one group uses an opportunity to select another. Dividing a count by 24 gives a share of these selections, not personality concentration, similarity, accuracy or a population percentile. Differences between people establish no difference in ability."
         }
       ]
     },
     {
       "id": "archetype-ties",
       "title": {
-        "zh": "全部最高并列都完整保留",
-        "en": "Every highest-count tie stays"
+        "zh": "最高并列与近分怎样阅读",
+        "en": "Reading highest ties and nearby counts"
       },
       "paragraphs": [
         {
-          "zh": "四组全A各6次时，四份报告都完整呈现；其他最高并列也都保留，不以目录顺序、随机或次高项硬派主副型。计数接近只说明这组选择接近，没有科学分界或确定性。可以回看具体信息需要和现实条件，公开说明也随时可读，不必用复测找到一个唯一“真正类型”。",
-          "en": "Choosing every first option gives six counts per group and all four full guides. Keep every other highest tie without directory order, randomness or a second-highest primary/secondary assignment. Nearby counts describe nearby choices without an established cutoff or certainty. Consider actual information needs and conditions; public guides remain available without retaking until a single true type appears."
+          "zh": "例如Alpha、Beta、Gamma、Delta依次为8、4、4、8时，Alpha与Delta并列最高，两份完整指南一起呈现。全部选择第一项会得到6、6、6、6，四份都保留。不按字母、目录顺序、随机或“主型／副型”规则消除并列。",
+          "en": "For example, counts of 8, 4, 4, 8 in Alpha, Beta, Gamma, Delta order retain both Alpha and Delta as highest, with both full guides. Choosing every first option gives 6, 6, 6, 6 and retains all four. Alphabetical order, directory order, randomness and primary/secondary labels never break a tie."
+        },
+        {
+          "zh": "8与7不是同分，也没有经过验证的近分合并线。可以阅读相邻结果，再回看哪几题受具体安排影响；一次改选就可能改变最高组。并列不是作答失败，唯一最高也不代表已确定稳定身份。",
+          "en": "Eight and seven are different counts, with no validated rule for merging nearby values. Read neighbouring guides and revisit which choices depended on the situation; one changed answer can change the highest group. A tie is a valid outcome, while a single highest count establishes no stable identity."
         }
       ]
     },
     {
       "id": "archetype-metaphor",
       "title": {
-        "zh": "四组、16个TIM与MBTI分别理解",
-        "en": "Four quadras, sixteen TIMs and MBTI"
+        "zh": "四象限、16类型与本站结果的层级",
+        "en": "Quadras, sixteen types and this result"
       },
       "paragraphs": [
         {
-          "zh": "Socionics在这里指社会人格学这一类型框架，不是一般社交心理学。经典资料以八种信息元素和Model A的八个位置描述16个TIM，并将它们分为Alpha、Beta、Gamma、Delta四个quadra；共享受重视集合不等于位置相同。本版只探索原创选项里四组信息配对的选择倾向，完整说明列出各组四个TIM与前两元素，不鉴定你属于哪一个。所有类型在理论中都包含八个元素，低计数不等于某种功能缺失；组别也不转换成MBTI。",
-          "en": "Socionics here names a typological framework rather than social psychology generally. Classical accounts describe sixteen TIMs using eight information elements in eight Model A positions and group them into Alpha, Beta, Gamma and Delta quadras. A shared valued set does not imply identical positions. This edition explores choices among four editorial information-pair clusters and explains each group’s four TIM members and first two elements without identifying your individual TIM. Every type includes eight elements in the theory; low counts establish no missing function and groups provide no MBTI conversion."
+          "zh": "经典分组为Alpha：ILE、SEI、ESE、LII；Beta：SLE、IEI、EIE、LSI；Gamma：SEE、ILI、LIE、ESI；Delta：IEE、SLI、LSE、EII。[1] 这些是理论成员名单，不是本次测得的16种个人结论。四份公开指南分别解释成员、信息集合、对照、行为例子与反例。",
+          "en": "Classical memberships are Alpha: ILE, SEI, ESE, LII; Beta: SLE, IEI, EIE, LSI; Gamma: SEE, ILI, LIE, ESI; Delta: IEE, SLI, LSE, EII.[1] These are theoretical memberships, not sixteen possible personal identifications from this questionnaire. Four public guides cover members, information sets, comparisons, examples and counterexamples."
+        },
+        {
+          "zh": "即使某组次数最高，也无法决定其中哪一个TIM更适合你。组内四个类型共享受重视集合，但元素所在位置不同。[2] 本题本没有建立区分组内成员的计分步骤；由象限补出某个类型，会增加原答案没有提供的信息。",
+          "en": "Even a highest quadra cannot identify one of its four TIMs. Members share a valued set but assign elements to different positions.[2] This questionnaire has no scoring step that distinguishes members within a group. Inferring an individual type would add information the answers did not establish."
+        }
+      ]
+    },
+    {
+      "id": "valued-elements",
+      "title": {
+        "zh": "受重视的信息，不是四种能力",
+        "en": "Valued information is not a set of abilities"
+      },
+      "paragraphs": [
+        {
+          "zh": "本页采用Ne（可能性）、Si（体验与舒适）、Fe（情绪表达）、Ti（结构与一致性）、Se（行动影响）、Ni（时间进程）、Te（实际运作）、Fi（个人关系）作为阅读词汇。[2] 它们是该框架内的信息类别，不是脑区、生理系统或八项经本站测得的技能。",
+          "en": "The reading vocabulary is Ne (possibilities), Si (experience and comfort), Fe (emotional expression), Ti (structure and consistency), Se (action and impact), Ni (temporal development), Te (practical operation) and Fi (personal relations).[2] These are information categories within the framework, rather than brain regions, bodily systems or eight skills measured here."
+        },
+        {
+          "zh": "“想先讨论关系”不证明擅长处理关系，“想先说明规则”也不证明逻辑能力强。在经典术语里，受重视与强弱是不同区分；本站则只记录选项。讨论一个元素时，请先说清具体需要什么信息，再看实际行为能否支持解释。",
+          "en": "Wanting to discuss relationships first establishes no skill at managing them, just as asking about rules establishes no superior logic. Valuation and strength are separate distinctions in classical terminology; this questionnaire records option choices. Specify the information wanted, then consider whether actual behaviour supports the interpretation."
+        }
+      ]
+    },
+    {
+      "id": "quadra-comparisons",
+      "title": {
+        "zh": "用共享元素比较四组差别",
+        "en": "Compare groups through overlap"
+      },
+      "paragraphs": [
+        {
+          "zh": "Alpha与Delta共享Ne、Si，分别搭配Fe、Ti与Te、Fi；Beta与Gamma共享Se、Ni，也分别搭配这两组。Alpha与Beta共享Fe、Ti，Gamma与Delta共享Te、Fi。这个对照帮助阅读相近选择，而不是把四组排成好坏、成熟或进步次序。",
+          "en": "Alpha and Delta share Ne/Si, paired with Fe/Ti and Te/Fi respectively. Beta and Gamma share Se/Ni, with the same two contrasting pairs. Alpha and Beta share Fe/Ti; Gamma and Delta share Te/Fi. Overlap helps interpret nearby selections without ranking the groups by goodness, maturity or progress."
+        },
+        {
+          "zh": "例如共同整理一份活动说明，你可能既想保留不同构想，也想让操作可行：前者与后者可以同时重要。再问“这次更想先核对共同定义，还是先弄清实际使用与个人需要？”比直接宣布某组身份更能说明本题选择。",
+          "en": "When preparing activity notes, you may want both alternative ideas and a workable procedure. Both can matter. Ask whether you would first clarify shared definitions or practical use and individual needs in this situation. That gives a more specific account of the choice than declaring a group identity."
+        }
+      ]
+    },
+    {
+      "id": "model-a-scope",
+      "title": {
+        "zh": "Model A与不同流派的命名",
+        "en": "Model A and differences between schools"
+      },
+      "paragraphs": [
+        {
+          "zh": "经典Model A区分信息元素与功能位置：相同元素可以处在不同类型的不同位置。[2] 网上还会出现Model G、子型、Reinin特征等扩展。本页采用经典四象限集合解释计数，不把不同模型、子型和四字母命名混在一起，也不提供这些扩展的个人评定。",
+          "en": "Classical Model A distinguishes an element from its functional position: an element occupies different positions in different types.[2] Other pages discuss Model G, subtypes and Reinin traits. This page uses classical quadra sets to interpret counts; it does not combine different models, subtype systems and four-letter conventions or assess those extensions."
+        },
+        {
+          "zh": "阅读其他报告时，先核对作者使用的模型、题目、选项和输出层级。八功能排序、四个维度分数、访谈定型与本页四项选择次数，不是同一种测量输出；名称相似不建立分数可比性。",
+          "en": "When comparing another report, check its model, items, responses and output level. An eight-function ordering, four dichotomy scores, an interview typing and these four selection counts are different outputs. Similar terminology establishes no score comparability."
+        }
+      ]
+    },
+    {
+      "id": "mbti-comparison",
+      "title": {
+        "zh": "Socionics与MBTI、大五人格怎样区分",
+        "en": "Distinguish Socionics, MBTI and Big Five"
+      },
+      "paragraphs": [
+        {
+          "zh": "Socionics与MBTI都使用来自心理类型传统的词汇，但不同作者对元素、功能顺序与类型代码的定义并不完全相同。网上Socionics的四字母写法也有大小写及J/P约定差异。这里用ILE等三字代码介绍理论成员，避免只凭相同字母认定同一种结果。",
+          "en": "Socionics and MBTI use vocabulary from psychological type traditions, but authors differ in element definitions, function arrangements and code conventions. Socionics four-letter notation also varies in case and J/P conventions. This page uses three-letter codes such as ILE for theoretical members, rather than treating identical-looking letters as identical results."
+        },
+        {
+          "zh": "本次四组次数不能换算MBTI类型或大五连续特质分数。若继续其他测评，应按其题本独立作答，再分别阅读分数与依据。几份描述都有共鸣，可以形成值得观察的问题，但不能当成相互验证或更高准确率。",
+          "en": "These four counts cannot be converted into an MBTI type or continuous Big Five trait scores. Complete another questionnaire independently and read its scores and evidence separately. Resonance across descriptions may suggest a question to examine, but does not establish mutual validation or greater accuracy."
+        }
+      ]
+    },
+    {
+      "id": "relations-and-context",
+      "title": {
+        "zh": "关系理论与真实相处分别核对",
+        "en": "Relationship theory and actual interaction"
+      },
+      "paragraphs": [
+        {
+          "zh": "经典资料还讨论双重关系等类型间关系。[1] 本页既没有识别双方个人TIM，也没有采集真实相处结果，不能从同组、异组或所谓对偶推出契合程度。四组不是健康、道德、政治、民族或职业等级，不能据此筛选朋友、伴侣或员工。",
+          "en": "Classical accounts also discuss intertype relations such as duality.[1] This page identifies neither person’s individual TIM and collects no actual relationship outcomes, so shared groups, different groups and supposed duality supply no compatibility estimate. Quadras are no health, morality, politics, ethnicity or occupational ranking and should not screen friends, partners or employees."
+        },
+        {
+          "zh": "一次沟通是否有效，可以观察需求是否说清、安排是否自愿、分工能否完成、反馈是否被听见。即使两人喜欢相同讨论主题，也可能有时间与边界差异；喜欢不同主题，也可以通过补充信息与商量分工合作。",
+          "en": "For an actual conversation, observe whether needs are clear, arrangements are voluntary, tasks are workable and feedback is heard. People who enjoy the same topics can differ in time and boundaries; people who prefer different topics can cooperate through additional information and agreed responsibilities."
+        }
+      ]
+    },
+    {
+      "id": "practical-reading",
+      "title": {
+        "zh": "从一个具体信息请求开始",
+        "en": "Start with one specific information request"
+      },
+      "paragraphs": [
+        {
+          "zh": "选最近一次普通共同活动，分别写下任务、你先问了什么、别人还需要什么。例如你先问“还有哪些材料可以用”，同伴想知道“什么时候必须完成”。先承认两种信息都有关，再商量先解决哪一个。这样用结果提示观察，而不是替别人定型。",
+          "en": "Choose a recent ordinary shared activity. Note the task, what you asked first and what another person still needed. You might ask which other materials are possible while someone asks when it must be finished. Acknowledge that both matter, then agree what to resolve first. The reading prompts observation rather than typing the other person."
+        },
+        {
+          "zh": "再找一件不符合最高组描述的经历，看看是否因为任务要求、熟悉程度或时间改变。可以只阅读，也可以尝试一次具体表达。记录对方是否更容易理解，比追求永远一致的类型更有可核对的依据。",
+          "en": "Find a counterexample to the highest-group description and consider whether task requirements, familiarity or timing differed. You can just read or try one specific request. Recording whether understanding improved gives a checkable outcome without requiring a permanently consistent type."
+        }
+      ]
+    },
+    {
+      "id": "evidence-and-method",
+      "title": {
+        "zh": "理论说明、计分复算与测量证据",
+        "en": "Theory, reproducible scoring and measurement evidence"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版24条双语情境、选项映射与解释由费马编写。下方机构来源用于说明理论术语与成员关系；机构或竞品的测试研究不验证本站题本。目前尚无本题本的信度、效度、常模或中英文测量等价证据，不能称为标准诊断或经过认证的Socionics量表。",
+          "en": "FermatMind authored these 24 bilingual situations, mappings and explanations. The institutional references explain framework terminology and membership; research on another provider’s instrument does not validate this questionnaire. It has no established reliability, validity, norms or English–Chinese measurement equivalence and is not a standard diagnostic or certified Socionics instrument."
+        },
+        {
+          "zh": "能复算每次加1、验证全部并列、检查双语内容完整，是程序与编辑质量检查。要支持测量解释，还需针对这套题本的人群研究、重复测量和相应外部效标。本文把可核查规则写清，不用理论复杂程度、题量或描述共鸣代替这些研究。",
+          "en": "Reproducing each increment, checking all ties and verifying bilingual completeness are software and editorial checks. Measurement claims require population studies of this item set, repeated measurements and relevant external criteria. The explicit rules here do not substitute theoretical complexity, item count or descriptive resonance for that evidence."
         }
       ]
     },
     {
       "id": "free-and-private",
       "title": {
-        "zh": "完整免费、草稿与分享",
-        "en": "Full free access, drafts and sharing"
+        "zh": "免费阅读、草稿与直接开始",
+        "en": "Free guides, drafts and direct start"
       },
       "paragraphs": [
         {
-          "zh": "全部24题、四项计数、四份公开说明与所有最高并列正文免费，不收邮箱或要求前置测试。答案在浏览器计分，不上传、不进网址或分析；草稿须主动开启，只在本标签页恢复，24小时失效，完成、重测或退出清除即删。自选分享只含结果名称与公开说明链接，不含答案、计数或内部ID。后续测评需要独立完整作答，不从quadra补出MBTI或其他分数。",
-          "en": "All 24 items, four counts, four public guides and every highest-count report are free without email or another test. Answers are scored in the browser without uploading or entering URLs or analytics. Drafts require opt-in, restore only in this tab, expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains names and public links without answers, counts or internal IDs. Further assessments require separate full answers rather than MBTI or other scores filled in from a quadra."
+          "zh": "点击“开始测试”直接进入题目，无需另一次同意、注册、邮箱或前置测评。约6分钟是预计阅读作答时间，没有计时限额。四份公开指南可先读；完成24题后，免费查看四项计数与全部最高并列正文。",
+          "en": "Start test opens the questions directly, without another agreement, signup, email or prerequisite assessment. About six minutes is an estimate, not a time limit. Read all four public guides beforehand; completing 24 items gives all counts and every highest-count report free."
+        },
+        {
+          "zh": "答案在浏览器计算，不通过计分请求上传，不写入网址或分析事件。默认不保存；主动保存后仅在本标签页恢复，24小时失效，完成、重测或退出清除即删除。公开指南链接不包含私人答案或计数；一般使用事件仍以隐私与Cookie设置为准。",
+          "en": "Answers are scored in the browser without a scoring upload, answer-bearing URLs or answer-bearing analytics events. Saving is off by default. An opted-in draft restores in this tab for up to 24 hours and clears on completion, retake or exit-and-clear. Public guide links contain no private answers or counts; general usage events follow privacy and Cookie settings."
         }
       ]
     }
@@ -1723,62 +1858,142 @@
   "faq": [
     {
       "question": {
-        "zh": "Socionics在这里指什么，会得到16型吗？",
-        "en": "What does Socionics mean here, and will I receive an individual TIM?"
+        "zh": "Socionics测试是什么，会给我一个16类型吗？",
+        "en": "What is this Socionics Test, and does it identify a TIM?"
       },
       "answer": {
-        "zh": "Socionics在这里指社会人格学这一类型框架，不是一般社交心理学。经典资料以八种信息元素和Model A的八个位置描述16个TIM，并将它们分为Alpha、Beta、Gamma、Delta四个quadra；共享受重视集合不等于位置相同。本版只探索原创选项里四组信息配对的选择倾向，完整说明列出各组四个TIM与前两元素，不鉴定你属于哪一个。所有类型在理论中都包含八个元素，低计数不等于某种功能缺失；组别也不转换成MBTI。",
-        "en": "Socionics here names a typological framework rather than social psychology generally. Classical accounts describe sixteen TIMs using eight information elements in eight Model A positions and group them into Alpha, Beta, Gamma and Delta quadras. A shared valued set does not imply identical positions. This edition explores choices among four editorial information-pair clusters and explains each group’s four TIM members and first two elements without identifying your individual TIM. Every type includes eight elements in the theory; low counts establish no missing function and groups provide no MBTI conversion."
+        "zh": "这是24题原创四象限信息偏好观察，输出四组选择次数与指南，不识别个人16类型。经典TIM与quadra的层级区别见完整方法说明。[1][2]",
+        "en": "It is a 24-item original quadra information-preference reflection, returning four counts and guides rather than an individual TIM. The method explains the distinction between a classical TIM and a quadra.[1][2]"
       }
     },
     {
       "question": {
-        "zh": "四个quadra各有哪些信息元素与TIM？",
-        "en": "Which valued elements and TIMs belong to each quadra?"
+        "zh": "四个象限的名称是什么？",
+        "en": "What are the four quadras?"
       },
       "answer": {
-        "zh": "Alpha重视Ne、Si、Fe、Ti，成员ILE、SEI、ESE、LII；Beta为Se、Ni、Fe、Ti，成员SLE、IEI、EIE、LSI；Gamma为Se、Ni、Te、Fi，成员SEE、ILI、LIE、ESI；Delta为Ne、Si、Te、Fi，成员IEE、SLI、LSE、EII。这些是所选经典框架的分组关系，不是本测试鉴定出的16种个人结果；四份完整正文解释位置差别和三组对照。",
-        "en": "Alpha values Ne/Si/Fe/Ti and includes ILE, SEI, ESE and LII. Beta values Se/Ni/Fe/Ti and includes SLE, IEI, EIE and LSI. Gamma values Se/Ni/Te/Fi and includes SEE, ILI, LIE and ESI. Delta values Ne/Si/Te/Fi and includes IEE, SLI, LSE and EII. These memberships belong to the selected classical account rather than sixteen identified personal results. Four full guides explain positions and comparisons."
+        "zh": "Alpha、Beta、Gamma、Delta。本页“四象限”是quadra的类型分组译法，不是数学坐标，也不表示好坏顺序。完整指南分别介绍每组四个理论成员。",
+        "en": "Alpha, Beta, Gamma and Delta. Quadras are groups of theoretical types, not mathematical coordinates or a ranking. Each full guide introduces its four theoretical members."
       }
     },
     {
       "question": {
-        "zh": "怎样计分，最高并列会怎样？",
-        "en": "How are counts and highest ties handled?"
+        "zh": "受重视元素与强功能是一回事吗？",
+        "en": "Are valued elements the same as strong functions?"
       },
       "answer": {
-        "zh": "每道原创题的所选项给对应quadra加1，共24次。四组都在24题中出现，每个位置各6次；分母24是选项出现次数，不是相似度。全部24题选择后显示四组原始计数，所有最高并列均完整保留，不按顺序、随机或强行主副型消除并列。低计数不等于没有某种信息功能，差1次不代表显著、真实类型改变或人群排名。没有常模、百分位、置信区间或本站心理测量验证；它也不测八项功能的强弱、位置和16个TIM。",
-        "en": "Each selected option adds one raw count to its mapped quadra, across 24 original items. Each group appears in all 24 items and six times in every position. A denominator of 24 counts appearances, not similarity. Complete all items for four tallies and every highest-count full guide, without ordering, randomness or forced primary/secondary labels breaking ties. Low counts establish no absent function; one extra choice establishes neither significance, a true type change nor a population rank. There are no norms, percentiles, confidence intervals or local psychometric validation. The reflection measures no eight function strengths or positions and identifies no individual TIM."
+        "zh": "不是。经典模型分别讨论元素的受重视与位置等概念；本站仅记录信息配对选项，没有八功能能力或强弱分数。喜欢某类信息不证明擅长处理它。[2]",
+        "en": "No. Classical accounts distinguish valuation and positional concepts. This questionnaire records information-pair choices without eight function-strength or ability scores. Liking information does not establish skill at handling it.[2]"
       }
     },
     {
       "question": {
-        "zh": "这份问卷是标准或验证过的Socionics工具吗？",
-        "en": "Is this a standard or validated Socionics instrument?"
+        "zh": "24题怎样计分，是否有百分比？",
+        "en": "How are the 24 choices scored?"
       },
       "answer": {
-        "zh": "本版24条双语信息配对题、映射、计数与解释由费马原创，借经典Socionics四个quadra的受重视信息集合组织反思；四家族各6题、共16种配对是本站编辑方法。它不是标准Socionics题本或Model A鉴定，不采用竞品12题、正文、算法或其他受保护bank、键与常模。理论机构提供框架定义与类型所属关系，不验证本题、读法或跨语言等价。四组说明中的16个TIM及前两元素只是所选经典资料的教育性介绍，不是对你的类型判定。结果不评实际能力、功能强弱、脑部或生理状态、健康、政治或民族特征、道德、领导、绩效、聘用、职业、伴侣或关系相容性，也不把相反quadra指定为成长处方。它与MBTI没有一一换算；现实决定仍需事实、双方意愿与实际条件。",
-        "en": "FermatMind authored these 24 bilingual information-pair items, mappings, counts and explanations, organising reflection around valued sets in classical Socionics. Four families of six items and sixteen pairings are editorial conventions. This is no standard Socionics bank or Model A assessment and adopts no competitor items, body or algorithm, nor another protected bank, key or norms. Theory proponents supply definitions and memberships, not validation of these items, readings or language equivalence. The sixteen TIMs and their first two elements are educational descriptions of the selected classical account rather than your identified type. Results assess no ability, function strength, brain or bodily state, health, politics, ethnicity, morality, leadership, performance, hiring, career, partner or compatibility and prescribe no opposite-quadra growth path. There is no one-to-one MBTI conversion; actual decisions require facts, mutual wishes and real conditions."
+        "zh": "所选项给对应组加1，四项合计24，每组0—24。全题组每组出现24次、每个位置6次；次数是内部选择记录，不是相似度、准确率或人群百分位。",
+        "en": "Each selected option adds one count to one group. Four counts total 24, each ranging from 0 to 24. Every group appears 24 times, six times per position. Counts describe these choices, not similarity, accuracy or population percentiles."
       }
     },
     {
       "question": {
-        "zh": "quadra能判断关系、职业或成长方向吗？",
-        "en": "Can a quadra decide compatibility, careers or a growth direction?"
+        "zh": "出现两个或四个最高并列怎么办？",
+        "en": "What happens with two or four highest ties?"
       },
       "answer": {
-        "zh": "本版不能。受重视信息集合不同不证明实际的人会冲突或相容，同组也不保证沟通与能力。它不指定相反quadra为需要发展的方向，不推断职业、健康、政治或民族特征。正文只用普通具体信息讨论、表达、反例与可选观察帮助理解计数，实际决定仍看事实和双方意愿。",
-        "en": "Not in this edition. Different valued sets establish no conflict or compatibility between actual people, and shared membership guarantees no communication or ability. No opposite quadra is prescribed as a growth direction, and career, health, politics and ethnicity are unmeasured. Guides use ordinary information discussions, wording, counterexamples and optional observations; actual decisions require facts and mutual wishes."
+        "zh": "全部保留。例如8、4、4、8显示Alpha与Delta；6、6、6、6显示四份完整指南。不随机选一个，也不硬派主副型。",
+        "en": "Every highest tie remains: 8, 4, 4, 8 returns Alpha and Delta; 6, 6, 6, 6 returns all four full guides. Nothing is randomly selected or forced into primary and secondary types."
       }
     },
     {
       "question": {
-        "zh": "完整结果、重测与分享免费吗？",
-        "en": "Are full guides, retaking and sharing free?"
+        "zh": "相差一次说明类型更确定吗？",
+        "en": "Does one extra count establish greater certainty?"
       },
       "answer": {
-        "zh": "免费，无需注册、邮箱或另一测试解锁。四份完整说明可先读，全部24题选择后呈现计数与所有最高并列正文。重测清除本次选择；草稿仅主动保存才保留本标签页24小时。分享自选，不含答卷与计数，复制受限仍可手动复制公开链接。",
-        "en": "Yes, without signup, email or another test to unlock anything. Read all four guides first. All 24 selections produce counts and every highest-count full report. Retaking clears choices. Only opted-in drafts persist in this tab for 24 hours. Optional sharing contains no answers or counts; blocked copying still permits manually copying public links."
+        "zh": "不说明统计确定性。本站没有测量误差估计或近分阈值；可以一起阅读相邻指南并回看题目情境，但不会自动合并不同计数。",
+        "en": "No statistical certainty follows. There is no measurement-error estimate or near-tie threshold. Read neighbouring guides and revisit item contexts; unequal counts are not automatically merged."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是标准或经验证的Socionics量表吗？",
+        "en": "Is this a standard or validated Socionics scale?"
+      },
+      "answer": {
+        "zh": "不是标准题本或认证工具。本版为费马原创，尚无本题本信度、效度、常模及双语等价研究；引用框架机构只支持术语说明，不构成本站测量验证。",
+        "en": "It is an original FermatMind questionnaire, not a standard bank or certified tool. Its reliability, validity, norms and language equivalence have not been established. Framework references support terminology rather than validation of this instrument."
+      }
+    },
+    {
+      "question": {
+        "zh": "Socionics可以换算MBTI或大五吗？",
+        "en": "Can the result be converted to MBTI or Big Five?"
+      },
+      "answer": {
+        "zh": "不能。代码惯例、构念、题目与计分不同；本页也未识别个人TIM。继续其他测试时独立作答，分别理解结果依据，不凭相似字母换算。",
+        "en": "No. Code conventions, constructs, items and scoring differ, and this page identifies no individual TIM. Complete another assessment independently and interpret its evidence separately; similar letters do not support conversion."
+      }
+    },
+    {
+      "question": {
+        "zh": "Model A、Model G与子型都包含吗？",
+        "en": "Does this cover Model A, Model G and subtypes?"
+      },
+      "answer": {
+        "zh": "不包含个人模型位置或子型测量。本文以经典四象限受重视集合解释选择；其他流派的方法与输出须另查，不能套到本次次数上。",
+        "en": "No personal function-position or subtype assessment is included. Counts are interpreted through classical valued quadra sets; other schools’ methods and outputs need separate examination."
+      }
+    },
+    {
+      "question": {
+        "zh": "同象限或对偶关系能说明相处契合吗？",
+        "en": "Do shared quadras or duality establish compatibility?"
+      },
+      "answer": {
+        "zh": "本测试不能提供契合预测，也未识别双方TIM。实际相处要看具体沟通、意愿、行为与条件，不用类型关系替代双方反馈。",
+        "en": "This test predicts no compatibility and identifies neither person’s TIM. Examine communication, wishes, behaviour and conditions rather than substituting theoretical relationships for mutual feedback."
+      }
+    },
+    {
+      "question": {
+        "zh": "结果可以用于职业、招聘或诊断吗？",
+        "en": "Can results guide hiring or diagnosis?"
+      },
+      "answer": {
+        "zh": "本版提供自我观察语言，不评能力、岗位胜任或健康。不能据此筛人、决定录用或形成临床结论；具体任务表现与专业评估需要各自证据。",
+        "en": "It supplies language for self-observation, without assessing ability, job competence or health. It should not screen people, determine hiring or produce a clinical conclusion. Task performance and professional assessment need their own evidence."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样实际使用结果，而不是贴标签？",
+        "en": "How can I use a result without labelling anyone?"
+      },
+      "answer": {
+        "zh": "选一次普通活动，记录你先想知道什么、同伴还缺什么信息，再商量一项具体说明。补找一个反例；实际是否更容易理解，用行为和反馈核对。",
+        "en": "Choose an ordinary activity, record what you wanted to know first and what another person still needed, then agree one specific clarification. Find a counterexample too; check understanding through behaviour and feedback."
+      }
+    },
+    {
+      "question": {
+        "zh": "需要多久，开始前要同意或注册吗？",
+        "en": "How long does it take, and is an agreement or signup required?"
+      },
+      "answer": {
+        "zh": "24题约6分钟，无计时限制。开始按钮直接进入题目，不另设同意或注册；题目、计数、四份公开指南与最高并列全文免费。",
+        "en": "Allow about six minutes for 24 items, with no time limit. Start opens questions directly without an extra agreement or signup. Items, counts, four public guides and all highest-count readings are free."
+      }
+    },
+    {
+      "question": {
+        "zh": "答案会上传或自动保存吗？",
+        "en": "Are answers uploaded or saved automatically?"
+      },
+      "answer": {
+        "zh": "答案在浏览器计分，不上传计分、不写入网址或分析事件。仅主动保存后保留本标签页草稿，24小时失效，完成、重测或退出清除即删；一般使用事件遵循隐私与Cookie设置。",
+        "en": "Answers are scored in the browser without a scoring upload or answer-bearing URLs or analytics events. Only an opted-in draft persists in this tab for up to 24 hours, clearing on completion, retake or exit-and-clear. General usage events follow privacy and Cookie settings."
       }
     }
   ],

@@ -16,20 +16,20 @@
     "en": "Your seven interpersonal-behaviour reflections"
   },
   "seoTitle": {
-    "zh": "难相处人格测试：28条互动自评与七份完整结果",
-    "en": "Difficult Person Test: 28 Ratings and Seven Full Guides"
+    "zh": "难相处人格测试：28题、七类互动行为与完整解读",
+    "en": "Difficult Person Test: 28 Items, Seven Behaviour Scores and Guides"
   },
   "description": {
-    "zh": "用28条原创题分别观察忽略感受、自我抬高、强行主导、隐瞒施压、猜疑、攻击回应与忽略风险。七项均分与完整解释免费，无需注册；含对话、反例和反向题，不给人贴坏人标签。",
-    "en": "Explore seven interpersonal behaviours with 28 original ratings, reverse items and full free guides. No signup, difficulty percentage, personality verdict or diagnosis."
+    "zh": "用28道原创频率题回看近四周的七类互动行为，免费查看独立均分、有效题数与七份完整指南。约7分钟，无需注册；提供反向计分算例、行为反例和沟通建议。",
+    "en": "Reflect on seven interaction patterns with 28 original items. Free separate means, rated-item counts, reverse-scoring examples and full guides. About seven minutes, no signup."
   },
   "introduction": {
-    "zh": "“我是否难相处”很难靠一个标签回答。本难相处人格测试采用28条原创中英文日常行为题，分别观察忽略他人感受、自我抬高、强行主导、隐瞒与施压、依据不足的猜疑、攻击回应和忽略行动风险。它们受七类研究概念启发，选定范围不等同原临床构念，也不是原研究或竞品量表。七份完整解释都能先读，作答后同时看七项均分或资料不足，不挑最高人格、不合成难相处百分比、不把自报当成别人真实评价。",
-    "en": "Whether someone is difficult to deal with cannot be settled by one label. This Difficult Person Test uses 28 original bilingual everyday-behaviour items for disregarding feelings, self-importance, overriding others, concealment and pressure, suspicion without enough evidence, aggressive responses and disregarding risks. Seven research concepts provide background, without equating the selected scope with clinical constructs or adopting a study or competitor instrument. Read all seven full guides first, then receive separate means or insufficient-information states without a highest-score personality or difficulty percentage. Self-report is not an observer’s actual judgment."
+    "zh": "难相处人格测试把“我是否难相处”拆成七类可回看的互动行为：忽略感受、自我抬高、强行主导、隐瞒施压、缺少依据的猜疑、攻击式回应与忽略行动风险。通过28道原创频率题，分别查看近四周各部分的回答摘要，并结合具体事件理解分歧、选择空间与行为影响。约7分钟，七项独立结果和全部完整指南免费开放；不将一次自评合成为人的好坏、人格障碍或他人的真实评价。",
+    "en": "This Difficult Person Test turns a broad question about being difficult into seven interaction patterns: disregarding feelings, self-importance, overriding others, concealment and pressure, unsupported suspicion, aggressive responses and disregarding risks. In 28 original frequency items, reflect on the past four weeks and read separate summaries alongside actual disagreements, room for choice and effects on others. In about seven minutes, access all seven results and complete guides free. A single self-report does not establish personal worth, a personality disorder or how others actually judge you."
   },
   "instructions": {
-    "zh": "回想最近四周自己的普通互动，按题目所说做法出现的频率选择从不、很少、有时、经常或几乎总是。没有适用经历、无法判断或不愿回答请选择NA，不算从不、零分或中性。只回答自己，不按某个伴侣或同事的印象代其作答。七条相反方向的行为题会反向计分，请逐条按原句回答，不要为了显得好或坏调整答案。全部28条先选择，每部分4条至少3条有效才显示均分。",
-    "en": "Think about your own ordinary interactions during the past four weeks. Rate the frequency of the described action: Never, Rarely, Sometimes, Often or Almost always. Choose NA for no applicable experience, uncertainty or a preference not to answer; it is neither Never, zero nor neutrality. Answer for yourself, not a partner or colleague. Seven opposite-direction behaviour items are reverse-keyed, so answer each statement as written rather than adjusting to appear good or bad. Complete all 28 selections; each four-item part needs three ratings for a mean."
+    "zh": "请以最近四周自己的普通互动为参照，按每句话所描述行为出现的频率选择：从不、很少、有时、经常、几乎总是。相反方向的题目也按原句回答，系统会处理反向计分。没有适用经历、无法判断或不愿回答时选NA。完成28条选择后，每部分四题中至少三题有数字评分才显示均分。只回答自己的行为，不替伴侣、同事或家人作答。",
+    "en": "Use your own ordinary interactions over the past four weeks. Rate the action in each statement: Never, Rarely, Sometimes, Often or Almost always. Answer opposite-direction statements as written; scoring handles reversal. Choose NA when there is no applicable experience, you are unsure or prefer not to answer. Complete all 28 selections; a part needs at least three numeric ratings among its four items to display a mean. Answer for yourself rather than a partner, colleague or relative."
   },
   "source": {
     "kind": "FermatMind original everydaybehaviourreflectionin7researchbackgrounddomains;notclinicalantagonismbank/IDR35/JC21/validatedscale",
@@ -2965,65 +2965,178 @@
     {
       "id": "facet-scoring",
       "title": {
-        "zh": "频率、反向题与有效评分",
-        "en": "Frequency, reverse items and rated responses"
+        "zh": "28题怎样计分？频率编码、反向题与完整算例",
+        "en": "How are 28 items scored? Frequency coding, reversal and a worked example"
       },
       "paragraphs": [
         {
-          "zh": "全部28条先选择，回想最近四周可回忆的普通互动，1从不至5几乎总是。每部分4条至少3条有效才取一位小数均分，反向题按6减有效评分，NA不计且不补零。最低条数与解释是本站信息完整度规则，不是原研究题本、常模或临床阈值。七项连续读法不合成总分、难相处百分比或最高人格，不按近分或并列强派类型；小数差异不证明统计显著、行为原因或实际他人评价。",
-          "en": "Complete all 28 selections about ordinary recalled interactions in the past four weeks, from 1 Never to 5 Almost always. Each four-item part needs three ratings for a one-decimal mean; rated reverse items contribute six minus the response, while NA is unscored and not zero-filled. Minimum counts and interpretations are website completeness rules, not the study instrument, norms or clinical cutoffs. Seven continuous readings produce no total, difficulty percentage or highest-score personality, and close or equal means assign no type. Decimal differences establish neither significance, causes nor observer judgments."
+          "zh": "五个频率选项编码为1—5。七部分各有四题，其中一题描述相反方向的行为；这类题先用6减去原评分，再与同部分其余有效评分相加。原始和S除以有效题数n，得到保留一位小数的均分。七部分独立计算，既不合成总分，也不转成难相处百分比。",
+          "en": "The five frequency categories are coded 1–5. Each of seven parts has four items, including one opposite-direction statement. Subtract that statement’s rating from six before adding it to other numeric ratings in the same part. Divide the keyed sum S by the rated-item count n and round to one decimal. Calculate parts separately, without a combined total or difficulty percentage."
+        },
+        {
+          "zh": "例如某部分三条正向题回答2、4、NA，反向题回答5。计分后为2、4、未评分、1，S=7、n=3，均分7÷3≈2.3。若反向题也选NA，就只剩两条有效，显示资料不足。NA始终不参与求和或反向运算，不能补成0、3或6分。至少三题有效是本站显示完整度规则，不是经过验证的诊断界线。",
+          "en": "Suppose three same-direction items receive 2, 4 and NA, and the reverse item receives 5. Keyed values are 2, 4, unscored and 1: S=7, n=3 and 7/3≈2.3. If the reverse item is also NA, only two ratings remain and the part shows insufficient information. NA never enters sums or reversal and is not replaced with zero, three or six. Requiring three ratings is a website completeness rule, not a validated diagnostic cutoff."
         }
       ]
     },
     {
       "id": "facet-reading",
       "title": {
-        "zh": "七部分独立读，不派主型",
-        "en": "Read seven parts without a primary type"
+        "zh": "七项均分怎样阅读？先看回答，再回到事件",
+        "en": "How should seven means be read? Start with responses and actual events"
       },
       "paragraphs": [
         {
-          "zh": "均分概括最近四周本人对所选行为的频率回答，不是别人是否觉得你好相处，也不是能力、道德或心理健康。七项可共存，不以最高值决定身份，均分相等不排序；全部低也不生成认证低摩擦人格。没有人群常模、难相处百分比或经过验证的近分阈值，资料不足明确保留，所有七份报告都有完整正文。",
-          "en": "Means summarise your reported frequency of selected actions in four weeks, not whether others find you easy to deal with, ability, morality or mental health. Parts can coexist without a highest-score identity or ordering equal means. Low means across parts do not create a certified low-friction personality. There are no population norms, difficulty percentages or validated close-score thresholds. Insufficiency stays explicit and every guide retains its full text."
+          "zh": "较高均分表示按本版方向处理后，这组行为在你的回答中获得较多频率支持。因为包含反向题，它不是所有原句所选数字的直接平均，也不是现实中的事件发生率。较低均分同样不能证明绝不会出现相关行为；没有适用经历时应保留NA，而不是用从不代替。",
+          "en": "A higher mean indicates more frequency endorsement in the direction defined by this form after keying. Because one item is reversed, it is not the direct average of the literal response numbers or an observed incident rate. A lower mean does not prove the behaviour never occurs. Retain NA when experience is inapplicable rather than substituting Never."
+        },
+        {
+          "zh": "先看有效题数与具体条目，再找一件符合和一件不符合的近期经历。七部分虽然同用1—5，却没有跨领域等值校准，不能把最高一项称为主导人格，也不能把相差0.1解释成真实能力或品格差距。本站没有人群常模、严重程度档次或通过线。",
+          "en": "Check rated-item counts and individual statements, then find one recent example that fits and one that does not. Sharing a 1–5 scale does not establish cross-domain equivalence. The largest mean is not a dominant personality, and a 0.1 difference does not establish a real difference in ability or character. This form has no population norms, severity bands or pass mark."
         }
       ]
     },
     {
       "id": "facet-comparison",
       "title": {
-        "zh": "研究概念与本版实际范围",
-        "en": "Research concepts and this edition’s actual scope"
+        "zh": "研究背景与本站题本：概念相近不代表测量等同",
+        "en": "Research background and this form: related concepts are not equivalent measures"
       },
       "paragraphs": [
         {
-          "zh": "本版28条题目与七份解释由费马独立编写。Sleep等（2021）的正式摘要报告了七类敌对特征结构，来源只核到正式摘要与文献信息，未把原论文、234条临床题池、标准量表或竞品35／21题当作本站题本。这里把相关概念作为日常行为背景，选定范围与研究临床构念不等同；尤其言语回应不完整测身体攻击，后果考虑不完整测风险寻求。没有本站信效度、常模、英中文等价验证或研究者背书，不用于诊断、他人判型、道德排名、职业判断、关系安全或伤害预测。",
-          "en": "FermatMind independently authored these 28 items and seven guides. Sleep and colleagues’ formal 2021 abstract reports seven antagonism domains; only that abstract and bibliographic information were verified. Related concepts provide everyday background, without equating selected behaviours with clinical research constructs. Verbal responses do not cover all physical aggression, and consequence consideration does not cover all risk seeking. There are no established website psychometrics, norms, English–Chinese equivalence or researcher endorsement. Results support neither diagnosis, typing others, moral ranking, career judgments, relationship-safety assessment nor harm prediction."
+          "zh": "Sleep等发表于2021年的研究分析了532名大学参与者对七种病理人格工具中234条敌对特征条目的回答，提出七因素结构。本页核对的是论文正式摘要与书目信息，用于交代七类概念背景；没有把摘要当作本站28题的效度证明，也不声称已核读全文或原始数据。[1]",
+          "en": "Sleep and colleagues’ 2021 study analysed 234 antagonism items from seven pathological-personality measures in 532 university participants and reported a seven-factor structure. The formal abstract and bibliographic record were checked here to identify the conceptual background. They do not validate these 28 items; this page does not claim a full-text or raw-data review.[1]"
+        },
+        {
+          "zh": "本站采用原创日常行为表述、近四周频率、每组四题和独立均分。题目、语言、时间参照与显示规则均需各自验证，目前未建立本题本的信度、效度或常模。网上同名测试可能采用不同题量、维度、百分比或分档；这些结果不能直接换算，其他产品的验证数字也不能移用于本站。",
+          "en": "This form uses original everyday-behaviour wording, a four-week reference period, four items per part and separate means. Its items, languages, recall period and display rules require their own evaluation; reliability, validity and norms have not been established for this form. Other tests with the same name use different item counts, domains, percentages or bands. Their results are not directly convertible, and their validation statistics cannot be transferred here."
         }
       ]
     },
     {
-      "id": "context-and-counterexamples",
+      "id": "seven-domains",
       "title": {
-        "zh": "实际情境、反例与安全限制",
-        "en": "Actual contexts, counterexamples and limits"
+        "zh": "七类互动行为分别指什么？",
+        "en": "What do the seven interaction patterns mean?"
       },
       "paragraphs": [
         {
-          "zh": "明确需要不等于特殊优越，履行授权职责不等于强行主导，保护隐私不等于隐瞒施压，谨慎有依据不等于猜疑，坚定反对不等于攻击，经过考虑的尝试不等于忽略风险。各报告都给具体反例。选择是否讨论或练习要看实际情境，不靠分数证明关系安全，也不要求公开答案、盘问别人、立即对质或承担风险。",
-          "en": "An explicit need is not assumed superiority, an authorised duty not necessarily overriding, privacy not concealment, evidence-based caution not suspicion, firm opposition not aggression, and a considered attempt not disregard of risk. Every guide provides concrete counterexamples. Discussion and exercises depend on real circumstances, not scores as proof of safety. There is no requirement to disclose answers, interrogate others, confront immediately or take risks."
+          "zh": "忽略他人感受关注已经表达的不适或困难是否被纳入行动，而非能否读懂别人的内心；自我抬高与特殊待遇关注对自身贡献、共同标准和额外便利的判断，而非一般自信或合理提出需要。两者可分别回看：对方说过什么，以及双方使用的规则是否一致。",
+          "en": "Disregarding feelings concerns whether expressed discomfort or difficulty enters your actions, not an ability to read minds. Self-importance and special treatment concern contributions, shared standards and extra privileges, rather than ordinary confidence or reasonable needs. Examine what the other person actually expressed and whether the same rules were applied to both parties."
+        },
+        {
+          "zh": "强行主导关注压过他人在共同安排或自身事务中的发言权，不能只因承担负责人职责就计为强行控制；隐瞒与间接施压关注重要条件被扣留、内疚压力或相互矛盾的信息。保留私人信息与诚实说明理由并不自动属于这类行为，应核对信息是否影响对方作出真实选择。",
+          "en": "Overriding others concerns suppressing their say in shared arrangements or their own affairs; holding an authorised role alone does not establish it. Concealment and indirect pressure concern withheld decision-relevant conditions, guilt pressure or inconsistent accounts. Privacy and honest persuasion are not automatically examples. Ask whether missing information affected the other person’s genuine choice."
+        },
+        {
+          "zh": "缺少依据的猜疑关注把尚未证实的动机当成事实，而非忽视真实危险后才算信任；攻击式回应关注分歧中的侮辱、威吓或故意伤人的表达，而非生气、不同意或坚定拒绝。请把已经核实的事实、自己的推测与实际说过的话分开记录。",
+          "en": "Unsupported suspicion concerns treating unverified motives as facts, rather than requiring trust despite genuine danger. Aggressive responses concern insults, intimidation or deliberately hurtful language during disagreement, rather than anger, dissent or a firm refusal. Separate verified facts, your interpretation and the words actually used."
+        },
+        {
+          "zh": "忽略行动风险关注是否跳过可预见后果或将代价留给他人，不测勇气、刺激偏好、投资能力或一般冒险水平。评估一个例子时，要考虑当时可获得的信息、已经同意的风险和谁承担后果；不能只凭事后结果好坏倒推当时行为。",
+          "en": "Disregarding action risks concerns bypassing foreseeable consequences or leaving costs to others. It does not measure courage, sensation seeking, investment skill or general risk appetite. Consider information available at the time, risks that were agreed and who bore the consequences, rather than judging the action solely by its eventual outcome."
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": {
+        "zh": "四周参照、自报与情境影响",
+        "en": "The four-week reference, self-report and context"
+      },
+      "paragraphs": [
+        {
+          "zh": "本问卷记录你对近期行为的回忆，可能受事件是否突出、对措辞的理解和愿不愿承认不理想行为影响。一次紧张争论不能代表全部关系；没有发生相关情境，也不等于已经证明相反能力。可在纸上记下场景、行动与对方明确表达的反应，帮助核对回答。",
+          "en": "This questionnaire records recollections of recent actions, which may be affected by memorable events, wording and willingness to acknowledge unwanted behaviour. One tense disagreement cannot represent every relationship. Lack of a relevant situation does not demonstrate an opposite ability. Notes about the setting, your action and the other person’s expressed response can help check an answer."
+        },
+        {
+          "zh": "工作分工、家庭照顾、资源压力与沟通渠道可能使行为机会不同。尽量使用同一四周范围完成本次作答，不在每题间随意切换成最糟的一天或多年以前的一次事件。背景有助于解释行为，同时仍应留意行为给他人造成的具体影响。",
+          "en": "Work roles, family care, resource pressure and communication channels may create different opportunities for behaviour. Use the same four-week period throughout rather than switching between a worst day and an event years ago. Context can explain actions while their specific effects on others still deserve attention."
+        }
+      ]
+    },
+    {
+      "id": "counterexamples",
+      "title": {
+        "zh": "用反例校对结果，避免把合理行动误读",
+        "en": "Use counterexamples to check interpretations"
+      },
+      "paragraphs": [
+        {
+          "zh": "例如在职责内给出截止时间，同时允许说明困难和调整安排，不等于剥夺他人意见；根据已发生的失信核查证据，不等于无依据猜疑；拒绝超出余量的请求，不等于忽略感受。反过来，语气平静也不能自动排除隐瞒条件或施加内疚压力。",
+          "en": "For example, setting a deadline within your role while allowing discussion of difficulties and adjustments is not the same as removing others’ say. Checking evidence after a broken agreement is not unsupported suspicion. Refusing a request beyond your capacity is not disregarding feelings. Conversely, a calm tone does not rule out withholding conditions or guilt pressure."
+        },
+        {
+          "zh": "可以问自己：对方是否知道关键条件，是否有提出不同意见的机会，我是否清楚说明了事实与猜测，后果由谁承担？这些问题帮助细化一次互动，不能当作给他人定罪的清单。七份指南均保留具体反例、相邻主题区别与可选的小尝试。",
+          "en": "Ask whether the other person knew important conditions, could disagree, could distinguish facts from your assumptions and knew who would bear consequences. These questions make an interaction more specific; they are not a checklist for convicting another person. All seven guides include counterexamples, distinctions from adjacent themes and optional small experiments."
+        }
+      ]
+    },
+    {
+      "id": "conversation",
+      "title": {
+        "zh": "把结果用于一次具体沟通",
+        "en": "Use a result in one specific conversation"
+      },
+      "paragraphs": [
+        {
+          "zh": "不要用“我分数高，所以我就是这样”结束讨论。可把一次行为说清楚：“昨天我没问你的安排就定了时间，这影响了你的选择。下次我先给两个可行时间，再请你确认。”具体行动、已知影响和可协商的下一步，比要求对方接受一个人格名称更容易核对。",
+          "en": "Avoid ending a discussion with a score-based identity. Describe an action instead: “Yesterday I set the time without checking your plans, which limited your choice. Next time I will offer two workable times and ask you to confirm.” A specific action, known effect and negotiable next step are easier to check than asking someone to accept a personality label."
+        },
+        {
+          "zh": "怀疑动机时，可先说“我看到的是……，我猜测的是……，还有哪些解释？”出现言语攻击后，可承认具体说法的影响，并约定暂停和重新讨论的时间。是否修复成功需要看后续行为与双方反馈，问卷不保证某种表达必然改善关系。",
+          "en": "When suspicious of a motive, separate “What I observed was…” from “What I assumed was…” and ask about other explanations. After a verbal attack, acknowledge the specific words and agree on a pause and a time to return. Repair depends on later actions and both people’s feedback; a questionnaire cannot guarantee that a script improves a relationship."
+        }
+      ]
+    },
+    {
+      "id": "retesting",
+      "title": {
+        "zh": "复测变化如何理解？",
+        "en": "How should changes on a retest be understood?"
+      },
+      "paragraphs": [
+        {
+          "zh": "复测时先核对版本、语言、四周参照、有效题数与改变的条目。同一个均分可能来自不同回答组合；较低均分也可能与近期缺少相关机会有关。本题本没有重测信度、测量误差或最小重要差异数据，不能把变化量换算成改善百分比。",
+          "en": "On a retest, compare version, language, four-week reference, rated-item counts and changed statements. Identical means can arise from different response patterns, and a lower mean may reflect fewer relevant opportunities. This form has no test–retest reliability, measurement-error or minimally important difference data, so a change cannot be converted into a percentage improvement."
+        },
+        {
+          "zh": "更可核对的目标是一个行为约定，例如下一次共同排程前先询问对方限制，并在事后回看是否做到。不需要反复作答直到得到喜欢的分数，也不以均分代替对实际行动的观察。",
+          "en": "A more checkable target is an action agreement, such as asking about another person’s constraints before the next shared schedule and reviewing whether you followed through. Repeatedly answering until a score is pleasing is unnecessary, and a mean should not replace observation of actual actions."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "用途、诊断与安全范围",
+        "en": "Purpose, diagnosis and safety scope"
+      },
+      "paragraphs": [
+        {
+          "zh": "本页适合愿意回看自己互动习惯的读者，用于提出自我观察与沟通问题。它不提供人格障碍、精神疾病或危险程度诊断，也不是暴力风险、伴侣安全、招聘录用或适任性评估。题名中的“难相处”是日常说法，不是本站确认的临床类别。",
+          "en": "This page is for readers who want to reflect on their own interaction habits and formulate observation or conversation questions. It does not diagnose personality disorders, mental illness or dangerousness, and is not a violence-risk, partner-safety, recruitment or fitness assessment. “Difficult person” is an everyday phrase, not a clinical category established by this form."
+        },
+        {
+          "zh": "不要要求他人出示结果证明自己安全、值得信任或有错。若实际互动涉及威胁、强迫或伤害，不能用一次低分排除风险，也不必先完成问卷才重视已发生的事情。需要个体化评估时，应向具备相关资质的专业人员说明真实经历与影响。",
+          "en": "Do not require a result as proof that someone is safe, trustworthy or at fault. If interactions involve threats, coercion or harm, a low score cannot rule out risk, and completing a quiz is not a prerequisite for taking actual events seriously. For an individual assessment, describe the real experiences and their effects to an appropriately qualified professional."
         }
       ]
     },
     {
       "id": "free-and-private",
       "title": {
-        "zh": "完整免费与可选保存分享",
-        "en": "Full free access and optional saving or sharing"
+        "zh": "免费结果、直接作答与可选保存",
+        "en": "Free results, direct start and optional saving"
       },
       "paragraphs": [
         {
-          "zh": "全部28条、七项均分或资料不足和七份完整说明都免费，无需邮箱、注册、付款或前置测试。浏览器本地计分，主动保存才留本标签页24小时草稿，完成、重测或清除即删除。分享仅公开入口与自评说明，不含答案、均分、他人信息或内部ID；存储或复制受限仍可完成。",
-          "en": "All 28 items, seven means or insufficient states and seven full guides are free without email, signup, payment or a prior test. Scoring happens in the browser. Only opting in stores a 24-hour tab draft, deleted on completion, retake or clearing. Sharing uses the public entry and reflection description without answers, means, other people’s information or internal IDs. Blocked storage or copying does not prevent completion."
+          "zh": "点击开始测试即可进入题目，没有额外同意复选框。全部28题、七项均分或资料不足状态，以及七份完整结果指南免费，无需注册。每题需要选择一个数字选项或NA；完成全部选择后再生成结果，预计7分钟只是阅读与思考时间参考。",
+          "en": "Start test opens the questions directly, without an additional agreement checkbox. All 28 items, seven means or insufficient-information states and seven complete guides are free, without signup. Each item needs a numeric option or NA before completion generates results. The seven-minute estimate is a reading and reflection guide, not a time limit."
+        },
+        {
+          "zh": "答案在当前浏览器计算，不随计分请求上传服务器，也不写入网址或分析事件。默认不保存；只有主动保存才在本标签页提供24小时内恢复，完成、清除或重测即删除。分享入口只含公开页面，不含答案或均分；不含答案的使用事件按网站Cookie设置处理。",
+          "en": "Answers are scored in the current browser, without being uploaded for scoring or inserted into URLs or analytics events. Saving is off by default. An explicitly saved tab draft can be restored within 24 hours and is deleted on completion, clearing or retake. Sharing contains the public entry, not answers or means; answer-free usage events follow the site’s Cookie settings."
         }
       ]
     }
@@ -3031,62 +3144,122 @@
   "faq": [
     {
       "question": {
-        "zh": "难相处人格测试比较哪七部分？",
-        "en": "Which seven parts does this difficult person test explore?"
+        "zh": "难相处人格测试是什么？",
+        "en": "What is the Difficult Person Test?"
       },
       "answer": {
-        "zh": "忽略感受、自我抬高、强行主导、隐瞒施压、缺少依据的猜疑、攻击回应和忽略风险。它们是研究概念背景下的原创日常自报描述，不是七种互斥人格。全部七份完整解释包含高低读法、具体对话、反例和可选小观察，作答后同时保留。",
-        "en": "Disregarding feelings, self-importance, overriding others, concealment and pressure, suspicion without sufficient evidence, aggressive responses and disregarding risks. They are original everyday self-report descriptions with research-concept background, not seven exclusive personalities. All seven full guides retain higher and lower readings, dialogue, counterexamples and optional observations."
+        "zh": "这是一份28条原创频率自评，分别回看七类近四周互动行为。结果提供独立均分、有效题数和完整解释，帮助把宽泛的“难相处”转成可核对的行动；不产生固定人格或他人评价。",
+        "en": "It is a 28-item original frequency self-report about seven interaction patterns over four weeks. Separate means, rated-item counts and complete explanations turn a broad label into checkable actions, without assigning a fixed personality or an observer’s judgment."
       }
     },
     {
       "question": {
-        "zh": "这是原研究、IDRlabs或JobCannon量表吗？",
-        "en": "Is this the study, IDRlabs or JobCannon instrument?"
+        "zh": "七个部分分别是什么？",
+        "en": "What are the seven parts?"
       },
       "answer": {
-        "zh": "不是。28条题目与解释由费马独立编写，没有采用原研究234条临床题池或竞品35／21题。正式研究只核摘要与文献信息，本版普通互动范围不等同全部临床构念，没有本站信效度、常模、英中文等价验证或研究者背书。",
-        "en": "No. FermatMind independently authored these 28 items and explanations. Only the formal abstract and bibliographic information were verified. The everyday scope does not equal the clinical constructs, and there are no established website psychometrics, norms, English–Chinese equivalence or researcher endorsement."
+        "zh": "忽略他人感受、自我抬高与特殊待遇、强行主导他人、隐瞒与间接施压、缺少依据的猜疑、攻击式回应，以及忽略行动风险。每部分四题，围绕具体行为分别解读，不把七项相加排名。",
+        "en": "Disregarding feelings, self-importance and special treatment, overriding others’ say, concealment and indirect pressure, unsupported suspicion, aggressive responses and disregarding action risks. Each has four items and its own interpretation; the seven are not added into a ranking."
       }
     },
     {
       "question": {
-        "zh": "反向题、NA和资料不足怎样处理？",
-        "en": "How do reverse items, NA and insufficient information work?"
+        "zh": "它有科学研究依据吗？",
+        "en": "What is its research basis?"
       },
       "answer": {
-        "zh": "全部28条先选择1—5或NA。每部分4条至少3条有效，反向题按6减有效评分，NA仍排除不补零，最后均分一位小数。不足则明确资料不足，仍显示全部报告。最低条数是本站完整度规则，不是心理阈值；按原句如实作答即可。",
-        "en": "Complete all 28 selections of 1–5 or NA. A four-item part needs three ratings. Rated reverse items contribute six minus the response; NA remains unscored rather than zero, and means use one decimal. Insufficiency stays explicit with all guides available. The minimum is a website completeness rule, not a psychological cutoff; answer each statement as written."
+        "zh": "七类概念的背景可参阅Sleep等研究的正式摘要。该研究使用234条条目探索敌对特征结构，不是本站28题的验证研究。目前本站题本未建立信度、效度与常模，透明计分也不能替代这些研究。[1]",
+        "en": "The conceptual background is identified in the formal abstract of Sleep and colleagues’ study. That study examined antagonism structure using 234 items; it did not validate this 28-item form. Reliability, validity and norms have not been established here, and transparent scoring cannot substitute for that research.[1]"
       }
     },
     {
       "question": {
-        "zh": "会算出我有多难相处或诊断人格吗？",
-        "en": "Does it calculate how difficult I am or diagnose personality?"
+        "zh": "多久完成，结果是否免费？",
+        "en": "How long does it take, and are results free?"
       },
       "answer": {
-        "zh": "不会。没有总体百分比、总分、最高人格、低中高等级或临床诊断。自报不等于别人实际评价，低分不能保证关系安全，高分也不证明坏人、特定病因或未来伤害；不用于职业、录用或关系匹配。",
-        "en": "No. There is no overall percentage, total, highest-score personality, low-to-high tiers or clinical diagnosis. Self-report is not others’ actual judgment; lower means guarantee no safety and higher means prove no badness, cause or future harm. Results support neither careers, hiring nor relationship matching."
+        "zh": "预计约7分钟，不限时。28题、七项结果与七份完整指南均免费，无需注册。开始按钮直接进入题目，不要求先勾选额外同意；已有保存草稿时可按页面选择恢复或重测。",
+        "en": "Allow about seven minutes, without a timer. All 28 items, seven results and complete guides are free without signup. Start opens questions directly, with no extra agreement checkbox. If a saved draft exists, the page offers restoration or a fresh attempt."
       }
     },
     {
       "question": {
-        "zh": "多个均分相同或全部低怎样看？",
-        "en": "How do I read equal means or all-low results?"
+        "zh": "反向题怎样计算？",
+        "en": "How are reverse items scored?"
       },
       "answer": {
-        "zh": "分别看实际题目、情境和反例，不强派先后或补一个类型。七项可能同时出现，近分没有经过验证的阈值，小数差异不证明统计显著或原因。全部低也只表示这些回答较少认可所选行为，不认证人人都觉得你容易相处。",
-        "en": "Read the items, contexts and counterexamples separately without forced ordering or a new type. Parts can coexist; close means have no validated threshold, and decimal differences establish neither significance nor cause. All-low responses describe less endorsement of selected behaviours, not certification that everyone finds you easy to deal with."
+        "zh": "每部分一条反向题，用6减去原始1—5评分。例如原选5计为1，原选2计为4；再求同部分有效评分的均值。请按原句回答，不需要自己反转选项；NA不参与反向运算。",
+        "en": "Each part has one reverse item, keyed as six minus its original 1–5 rating: five becomes one and two becomes four. Average keyed numeric values within the part. Answer the wording as written rather than reversing your selection yourself. NA is never reversed."
       }
     },
     {
       "question": {
-        "zh": "结果完整免费，分享会带答案吗？",
-        "en": "Are full results free, and are answers shared?"
+        "zh": "为什么显示资料不足？",
+        "en": "Why does a part show insufficient information?"
       },
       "answer": {
-        "zh": "全部题目、七项读法和七份完整解释免费，无需注册。草稿仅在主动同意后留本标签页24小时，完成、重测或清除即删除。分享只有公开入口，不带答案、均分或私人关系信息；不要求别人接受盘问、作答或做MBTI才给结果。",
-        "en": "All items, seven readings and seven full guides are free without signup. A 24-hour tab draft is saved only after opting in and deleted on completion, retake or clearing. Sharing contains the public entry without answers, means or private relationship information. No one must submit to questioning, answer for others or take MBTI to access results."
+        "zh": "四题中至少三题有数字评分才显示均分。没有适用经历、无法判断或不愿回答可选NA，它不当作从不或中性。四题完成选择与至少三题有效是两个条件；资料不足不是低分，也不需要编造经历补齐。",
+        "en": "At least three of four items need numeric ratings for a mean. NA accommodates no applicable experience, uncertainty or a preference not to answer; it is not Never or a midpoint. Completing selections and having enough ratings are different requirements. Insufficient information is not a low score, and experiences should not be invented to fill gaps."
+      }
+    },
+    {
+      "question": {
+        "zh": "多少分算难相处或正常？",
+        "en": "What score means difficult or normal?"
+      },
+      "answer": {
+        "zh": "本版不设正常、异常、轻重或通过线。1—5是本站行为频率编码后的均分范围，不是人群百分位、诊断概率或现实事件发生率；不能据此断定自己比多少人难相处。",
+        "en": "This form has no normal, abnormal, severity or pass thresholds. The 1–5 range represents means of keyed behaviour-frequency ratings, not population percentiles, diagnostic probabilities or observed incident rates. It cannot establish how difficult you are relative to other people."
+      }
+    },
+    {
+      "question": {
+        "zh": "最高的一项就是我的人格类型吗？",
+        "en": "Is my highest score my personality type?"
+      },
+      "answer": {
+        "zh": "不是。七组条目覆盖不同内容，尚未建立跨部分等值性。应连同有效题数和具体回答分别阅读；相邻均分的小差别不能证明主导人格或品格高低。",
+        "en": "No. The seven groups cover different content and have not been calibrated for cross-part equivalence. Read each alongside rated-item counts and specific answers. Small differences between nearby means do not establish a dominant personality or character ranking."
+      }
+    },
+    {
+      "question": {
+        "zh": "自信、负责或谨慎会不会被误判？",
+        "en": "Can confidence, responsibility or caution be misread?"
+      },
+      "answer": {
+        "zh": "需要结合具体行动区分。提出合理需要不等于特殊待遇，在授权职责内安排工作不等于压过他人意见，依据事实核查不等于无依据猜疑，坚定拒绝也不等于攻击。完整指南用反例帮助核对这些区别。",
+        "en": "Distinguish actions in context. Reasonable needs are not special privileges; arranging work within an authorised role is not automatically overriding others; fact-based checking is not unsupported suspicion; a firm refusal is not an attack. Full guides provide counterexamples for these distinctions."
+      }
+    },
+    {
+      "question": {
+        "zh": "可以替伴侣、同事或家人作答吗？",
+        "en": "Can I answer for a partner, colleague or relative?"
+      },
+      "answer": {
+        "zh": "本题本为自报设计，未经他评版本验证。不要凭印象替别人作答或把自己的得分当作别人对你的评价。讨论关系时，可描述双方愿意谈的一件具体事件，避免用分数证明谁有问题。",
+        "en": "This form is designed for self-report and has not been validated as an observer version. Do not answer on another person’s behalf or treat your result as their judgment of you. If discussing a relationship, use a mutually acceptable specific event rather than a score to establish who is at fault."
+      }
+    },
+    {
+      "question": {
+        "zh": "复测下降是否表示改善了？",
+        "en": "Does a lower retest score establish improvement?"
+      },
+      "answer": {
+        "zh": "还需核对行为机会、有效题数、具体条目与近期经历。本题本没有重测误差或重要变化阈值，不能将分差换算成改善百分比。可以跟踪一个明确约定是否落实，用实际行为和反馈补充理解。",
+        "en": "Check opportunities for behaviour, rated-item counts, individual items and recent events. This form has no retest-error estimates or meaningful-change threshold, so a score difference cannot become a percentage improvement. Track whether a specific action agreement was followed and consider actual feedback."
+      }
+    },
+    {
+      "question": {
+        "zh": "答案保存在哪里，可以分享吗？",
+        "en": "Where are answers saved, and what can be shared?"
+      },
+      "answer": {
+        "zh": "答案在浏览器内计分，默认不保存、不随计分上传。主动保存的本标签页草稿24小时内可恢复，完成、清除或重测即删除。分享只提供公开测试入口；不含答案的使用事件依网站Cookie设置处理。",
+        "en": "Answers are scored in the browser and are neither saved by default nor uploaded for scoring. An explicitly saved tab draft is restorable within 24 hours and deleted on completion, clearing or retake. Sharing provides only the public test entry. Answer-free usage events follow Cookie settings."
       }
     }
   ]

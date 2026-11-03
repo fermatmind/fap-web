@@ -49,17 +49,17 @@ function ValidCopingClient({ quiz, locale, readingProfiles }: { quiz: MiniCoping
     catch { if (revision.current !== copiedRevision) return; setManual(text); setMessage(zh ? "无法自动复制，可从下方手动复制公开链接。" : "Automatic copying is unavailable. Copy the public links below manually."); }
   }
   useEntertainmentResultView(recordView, stage === "result");
-  return <section id="take-test" data-coping-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
-    {activityConsent}
-    <p className="mb-4 text-sm leading-7 text-slate-600">{zh ? "只使用当前页面内存；不保存草稿或结果，不上传逐题选择。刷新、换语或离开会清除。" : "Current-page memory only: no draft or result is saved and choices are not uploaded. Reloading, changing language or leaving clears answers."}</p>
+  return <section id="take-test" data-stage={stage} data-coping-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
+
     <fieldset disabled={!ready} className="min-w-0 space-y-5 p-0">
       <legend className="sr-only">{quiz.title[locale]}</legend>
       {stage === "welcome" && <>
+        <button data-explore-start type="button" className={`${button} bg-violet-700 text-white`} onClick={() => { revision.current += 1; setStage("answer"); recordStart(); setPosition(0); setMessage(""); }}>{zh ? "开始测试" : "Start test"}</button>
         <h2 className="text-2xl font-semibold">{zh ? "一次具体情境，一次相对选择" : "One scene, one relative choice"}</h2>
         <p className="leading-8">{quiz.introduction[locale]}</p>
         <p className="leading-8">{quiz.instructions[locale]}</p>
         <p className="rounded-lg border border-slate-300 p-4 leading-8">{zh ? "不同情境可以同时使用两种方式。完整作答后只显示四组原始次数，不评价年龄、成熟度、能力或心理健康；所有全文均可先读。" : "Both approaches can be used in different situations. A complete form shows four separate raw-count records, without assessing age, maturity, ability or mental health. All full guides can be read first."}</p>
-        <button type="button" className={button} onClick={() => { revision.current += 1; setStage("answer"); recordStart(); setPosition(0); setMessage(""); }}>{zh ? "开始测试" : "Start test"}</button>
+
       </>}
       {stage === "answer" && <>
         <p ref={progress} data-coping-progress className="scroll-mt-24 text-sm text-slate-600">{zh ? `第 ${position + 1} / 24 题` : `Choice ${position + 1} of 24`}</p>
@@ -80,6 +80,8 @@ function ValidCopingClient({ quiz, locale, readingProfiles }: { quiz: MiniCoping
       {stage !== "welcome" && <button type="button" className={button} onClick={clear}>{zh ? "退出并清除本次回答" : "Exit and clear these responses"}</button>}
     </fieldset>
     <p role="status" aria-live="polite" className="my-4 text-sm leading-7">{ready ? message : (zh ? "正在准备问卷，请稍候。" : "Preparing the questionnaire. Please wait.")}</p>
+    <p className="mb-4 text-sm leading-7 text-slate-600">{zh ? "只使用当前页面内存；不保存草稿或结果，不上传逐题选择。刷新、换语或离开会清除。" : "Current-page memory only: no draft or result is saved and choices are not uploaded. Reloading, changing language or leaving clears answers."}</p>
+    {activityConsent}
     <noscript><p>{zh ? "互动答题需要JavaScript；禁用时本网站部分页面可能停在加载画面。" : "Interactive answering requires JavaScript. Some pages on this website may remain at a loading screen when it is disabled."}</p></noscript>
   </section>;
 }

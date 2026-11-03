@@ -15,21 +15,21 @@
     "en": "Your four behaviour reflections and full guides"
   },
   "description": {
-    "zh": "用20条原创题分别观察时间催促、竞争比较、普通等待烦躁与自选活动难停下。四项均分及完整解释免费，保留资料不足；不派固定A/B类型，不评健康或职业。",
-    "en": "Explore time urgency, competitive comparison, waiting irritation and difficulty stopping. 20 original ratings, four free guides; no fixed A/B label."
+    "zh": "用20条原创频率题，回顾近四周的时间催促、竞争比较、等待烦躁与自选活动难停下。约5分钟，免费查看四项独立均分、缺答说明和完整解读，无需注册。",
+    "en": "Review four weeks of time urgency, competitive comparison, waiting irritation and difficulty stopping through 20 original frequency items. About 5 minutes, with free separate means, missing-response explanations and full guides. No signup needed."
   },
   "seoTitle": {
-    "zh": "A型/B型人格测试：20题、四项行为自评与完整解释",
-    "en": "Type A / Type B Personality Test: Four-Part Reflection"
+    "zh": "A型/B型人格测试：20题、四项行为观察与完整解读",
+    "en": "Type A / Type B Personality Test: 20 Items and Four Full Guides"
   },
   "minutes": 5,
   "introduction": {
-    "zh": "时间紧迫、想与人比较、等候时烦躁、到了结束点仍想加内容，可以是不同经验。20条原创题分别记录你近四周在有一定选择余地的普通情境里多常遇到它们。A/B概念与混合表现会在完整说明中解释；本版呈现四项均分或资料不足及全部正文，不合成总分，也不派固定A型、B型或平衡型。真实职责、资源与健康状况另按事实理解。",
-    "en": "Added hurry, comparison, irritation during a wait and continuing beyond an endpoint can be different experiences. Twenty original items separately record how often you encountered them over four weeks in ordinary situations with some choice. Full guides explain the A/B framework and mixed patterns. This edition presents four means or insufficient-information states and all full text, without a total or fixed A, B or Balanced assignment. Actual duties, resources and health require their own facts."
+    "zh": "没有临近期限仍想赶快做完、没有比赛也会留意别人进度、短暂等候时烦躁、达到自定结束点还想加内容，这些经验可能同时出现，也可能不同。本站A型/B型人格测试用20条原创题，分别回顾近四周有一定选择余地的普通情境，提供四项均分或资料不足说明，以及全部完整指南。\n\nA型与B型是历史行为模式讨论中的名称。本版借这些常见问题帮助观察具体行为，不把四项相加，也不派固定A型、B型或平衡型。先看每项的实际回答和发生条件，比只保存一个类型标签更有信息；真实期限、职责与资源限制也需要分别理解。",
+    "en": "Hurrying without an approaching deadline, watching others when there is no contest, feeling irritated by a short wait, and adding more after a chosen endpoint may occur together or differ. This Type A / Type B personality test uses 20 original items to review ordinary situations with some choice over the past four weeks, showing four separate means or insufficient-information states and every full guide.\n\nType A and Type B are historical names for behaviour patterns. This edition uses familiar questions to explore concrete experiences without adding a total or assigning a fixed A, B or Balanced type. Examine responses and circumstances rather than saving only a label; actual deadlines, responsibilities and resource constraints also need separate consideration."
   },
   "instructions": {
-    "zh": "回想近四周自己有一定选择余地的普通小事，按每句话实际出现的频率选择，从1从不到5几乎总是；没有相关情境、没有选择余地或不愿回答时可选NA。20条原创题分别观察时间催促、竞争式比较、普通等待烦躁和自选活动难停下，每部分5题、2条相反表述按6减有效评分；至少3条有效才显示一位小数均分。NA不补零，不足明确保留。四部分各自解释，不相加、不评最高人格、不分固定A/B类型；A/B概念及混合表现会在正文说明。它不是Jenkins、Bortner、临床筛查或心脏风险工具，不评健康、能力、善恶或工作适配。",
-    "en": "Recall ordinary activities over the past four weeks where you had some choice. Rate how often each statement applied from 1 Never to 5 Almost always. Choose NA when context or choice was absent, information is insufficient or you prefer not to answer. Twenty original items separately explore felt time urgency, competitive comparison, irritation during ordinary waits and difficulty stopping chosen activities. Each part has five items, two oppositely worded as six minus a valid response; at least three ratings permit a one-decimal mean. NA is excluded without zero-filling and insufficient information stays explicit. Parts remain separate without a total, highest-score personality or fixed A/B assignment; the body explains the framework and mixed patterns. This is no Jenkins, Bortner, clinical screening or cardiac-risk instrument and assesses no health, ability, morality or job fit."
+    "zh": "回想近四周有一定选择余地的普通小事，按实际出现频率选择：1从不、2很少、3有时、4经常、5几乎总是。没有相关情境、没有选择余地或不愿回答时可选NA。完成20条选择后生成四项独立均分或资料不足及完整解读；无需追求某类结果，不按理想中的自己作答。",
+    "en": "Recall ordinary situations over the past four weeks where you had some choice. Rate actual frequency: 1 Never, 2 Rarely, 3 Sometimes, 4 Often, 5 Almost always. Choose NA when context or choice was absent, or you prefer not to answer. Complete all 20 selections for four separate means or insufficient-information states and full guides. Aim for no particular type and avoid answering as an ideal version of yourself."
   },
   "source": {
     "kind": "FermatMindoriginal20ENZHfrequencyitems/fourindependenteditorialfacets/notJenkinsBortnerMMPIorclinicalTypeAinstrument",
@@ -1967,52 +1967,187 @@
     {
       "id": "facet-scoring",
       "title": {
-        "zh": "四项分别计算，不合成A/B总分",
-        "en": "Four separate calculations without an A/B total"
+        "zh": "四项怎样计分？反向题、有效条数与均分",
+        "en": "How are four parts scored? Reverse items, rated items and means"
       },
       "paragraphs": [
         {
-          "zh": "20题都选择后，四部分分别计算。每部分5条，1从不、2很少、3有时、4经常、5几乎总是，2条相反表述按6减有效回答；共8条反向。NA是不适用、情境不足或不愿回答，排除，不补零或中性。每部分至少3条有效评分，才按计分和除有效条数取一位小数均分1—5；不足保留资料不足，不按其他部分补分。四项不相加、不派最高型、不产生A/B总分、百分位或固定标签。相同均分保留，小数差异不证明显著或改变，中间值不证明灵活、最适度或健康。最低条数只是本站完整度规则，未提供常模、科学阈值、信度或效度。",
-          "en": "After all 20 selections, calculate four parts separately. Each has five items rated 1 Never, 2 Rarely, 3 Sometimes, 4 Often or 5 Almost always. Two opposite statements per part, eight overall, use six minus a valid response. NA means absent context, insufficient information or declining to answer; exclude it without zero or midpoint substitution. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items. Otherwise retain insufficient information without borrowing another part’s score. Parts produce no total, highest-score type, A/B score, percentile or fixed label. Equal means stay equal; decimals establish no significance or change. A middle mean proves no flexibility, ideal moderation or health. The minimum is a website completeness convention, without norms, scientific cutoffs, reliability or validity evidence."
+          "zh": "每部分5题，其中2条为相反表述，按6减有效评分计分，共8条反向题。其他题保留1—5原评分。每部分有效计分和除以有效条数，至少3条有效才显示1—5范围内的一位小数均分。四项分别计算，不相加，也不选最高项作为人格。",
+          "en": "Each part has five items, including two opposite statements scored as six minus a valid rating: eight reversed items overall. Other items retain their 1–5 ratings. Divide the scored sum by rated items within each part; at least three ratings permit a one-decimal mean from 1 to 5. Parts are calculated separately, without a total or highest-score personality."
+        },
+        {
+          "zh": "以时间催促感为例，按该部分题目顺序原评分4、2、3、4、NA，反向后为4、4、3、2、NA，有效和13，4条有效，均分3.3。NA排除而不补零或中性。若只有2条有效，即使它们都为5也显示资料不足；其他部分照常独立计算。",
+          "en": "For time urgency, raw responses 4, 2, 3, 4, NA in that part’s item order become 4, 4, 3, 2, NA after reversal. The scored sum is 13 across four ratings, giving 3.3. NA is excluded without zero or midpoint substitution. Only two ratings, even both at five, give insufficient information; other parts remain independently calculated."
         }
       ]
     },
     {
       "id": "facet-reading",
       "title": {
-        "zh": "A型、B型与混合表现怎样理解",
-        "en": "Understanding A, B and mixed patterns"
+        "zh": "A型、B型与混合表现，不只看一个标签",
+        "en": "Type A, Type B and mixed patterns: beyond one label"
       },
       "paragraphs": [
         {
-          "zh": "A型与B型是历史行为模式讨论中的名称，常围绕时间催促、竞争与不耐烦等现象，并非本站测得的两个固定人格。不同研究工具的结构可能不同，不能把概念熟悉度当成量表效度。本版提供四项独立频率观察与全部完整说明，不按均分最高、总和或阈值给你派A型、B型或平衡型。“混合”可以指场景不同、四项不同或单项回答不同，并不证明最灵活、最好或多数人都如此；资料不足也不是B型。",
-          "en": "Type A and Type B are historical names in discussions of behaviours such as urgency, competition and impatience, rather than two fixed personalities measured here. Research instruments can differ in structure; a familiar concept establishes no questionnaire validity. This edition offers four separate frequency reflections and all full guides, without an A, B or Balanced assignment from a highest mean, total or cutoff. Mixed can mean different settings, different parts or contrasting answers within a part; it proves neither ideal flexibility, superiority nor a population majority. Insufficient information is not Type B."
+          "zh": "历史A型行为讨论常涉及紧迫感、竞争和不耐烦，B型常用来对照较少这类表现。本版不把这些概念当成两个固定、互斥的人格，也不把低均分直接命名为B型。不同工具采用不同题目、维度和阈值，不能仅凭同名就互换结果。",
+          "en": "Historical Type A discussions often concern urgency, competition and impatience, with Type B used as a contrast for fewer such behaviours. This edition treats neither as a fixed, mutually exclusive personality, and does not label a lower mean Type B. Tools differ in items, dimensions and thresholds; shared names do not make results interchangeable."
+        },
+        {
+          "zh": "四项可以一高一低、都接近中间或部分资料不足。“混合”描述这种差异，不表示最健康、最灵活或多数人都如此。均分3也可能来自回答都为3，或高低回答相抵；需要回看具体条目。资料不足是缺少可解释的信息，不是低频率或B型。",
+          "en": "Parts may differ, cluster near the middle or contain insufficient information. Mixed describes differences, not optimal health, flexibility or a population majority. A mean of three can come from all threes or offsetting high and low responses; inspect actual items. Insufficient information is missing interpretability, not low frequency or Type B."
         }
       ]
     },
     {
       "id": "facet-comparison",
       "title": {
-        "zh": "四项可以不同，真实情境另看",
-        "en": "Separate parts and actual context"
+        "zh": "四项分别观察什么？催促、比较、等待与结束",
+        "en": "What do the four parts explore? Hurry, comparison, waiting and stopping"
       },
       "paragraphs": [
         {
-          "zh": "时间催促看额外想快，竞争比较看他人参照，等待烦躁看普通暂停中的感受，难停下看可以结束时继续添加。四项可以较高、较低或资料不足，彼此不必一致；小数差异不证明某项是真正原因。全部四份完整解释同时呈现，包含高低混合、具体例子、表达、反例和小观察，不因分数、NA、注册或另一测试而隐藏正文。",
-          "en": "Time urgency concerns added hurry, competitive comparison other people, waiting irritation a feeling during an ordinary pause, and difficulty stopping an available endpoint. Parts can differ and can each be higher, lower or insufficient; decimals establish no true cause. All four full guides appear together with higher, lower and mixed readings, examples, wording, counterexamples and optional observations. Scores, NA, signup and other tests never hide the body."
+          "zh": "时间催促感看时间允许时是否仍额外催自己快；竞争式比较看没有排名要求时是否参照别人；等待烦躁看不影响必要安排的短等候中的感受；自选活动难停下看已达到自定结束点后是否继续添加。它们的参照条件不同，不能仅凭“忙”就视为同一现象。",
+          "en": "Time urgency concerns added hurry when time permits; competitive comparison looking to others without a ranking requirement; waiting irritation feelings during a brief wait that does not disrupt necessary plans; difficulty stopping additions beyond a chosen endpoint. Their conditions differ: being busy does not make them one phenomenon."
+        },
+        {
+          "zh": "例如独自整理卡片时可能很催促，却没有和人比较；等朋友几分钟可能不烦躁，但做完私人记录仍继续加内容。这样的组合并不矛盾。四份完整指南始终同时呈现，分别包含高低、混合、场景、反例与表达建议，不按最高项或NA隐藏正文。",
+          "en": "You might hurry while organizing cards alone without comparing yourself with anyone, wait calmly for a friend, yet keep adding to a personal note. That combination is not contradictory. All four full guides always appear, with higher, lower and mixed readings, scenes, counterexamples and wording; neither the highest score nor NA hides content."
         }
       ]
     },
     {
-      "id": "privacy",
+      "id": "type-ab-research-history",
       "title": {
-        "zh": "草稿、分享与可选下一步",
-        "en": "Drafts, sharing and optional next steps"
+        "zh": "研究为何强调测量方法与多个面向",
+        "en": "Why research distinguishes measurement methods and facets"
       },
       "paragraphs": [
         {
-          "zh": "答案在浏览器内计分，不上传、不进网址或分析。草稿需主动开启，只在本标签页恢复，24小时失效，完成、重测、退出清除即删除。分享自选，只含公开测试说明与链接，不含答案或均分。完整结果免费，无需注册或邮箱；后续测评可以不做，若选择继续，需要独立重新作答，不从本版换算。",
-          "en": "Answers are scored in your browser without uploading them or placing them in URLs or analytics. Drafts require opt-in, restore only in this tab, expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains public test information and a link without answers or means. Full results are free without signup or email. Further assessments are optional and require separate answers rather than conversion from this edition."
+          "zh": "Edwards等1990年用1320名工作成人的数据研究Bortner量表。摘要报告总指标的一致性问题，并将速度与竞争区分为两个独立维度，关联也不相同。[1] 这提醒读者核对具体工具测什么，不宜把所有表现合成单一“强A型”。该研究不验证本站20题。",
+          "en": "Edwards and colleagues examined the Bortner scale using 1,320 working adults in 1990. The abstract reports problems with the overall index and separates speed from competitiveness, with differing associations.[1] This supports examining what a particular tool measures rather than collapsing behaviours into one strong Type A label. It does not validate these 20 items."
+        },
+        {
+          "zh": "Thoresen与Powell的1992年综述摘要批评简单二分与缺少情境的评估，主张多维度、重视情境的测量。[2] Johnson等2012年研究247对成人双生子，所用工作风格问卷包含六个面向。[3] 这些研究说明工具和研究问题各有范围，不能将六面向、遗传关联或其他量表结论套成本页四项。",
+          "en": "The 1992 Thoresen and Powell review abstract critiques simple dichotomies and insensitive assessment, encouraging multidimensional, contextual approaches.[2] Johnson and colleagues studied 247 adult twin pairs in 2012 using six work-style facets.[3] These studies have specific tools and questions; six facets, genetic associations and findings for other measures cannot be transferred to our four parts."
+        }
+      ]
+    },
+    {
+      "id": "type-ab-context",
+      "title": {
+        "zh": "实际期限、资源限制与自我催促怎样分开",
+        "en": "Separating real deadlines, constraints and added hurry"
+      },
+      "paragraphs": [
+        {
+          "zh": "本题本特别参照有一定选择余地的普通小事。必须赶上交通、履行照顾责任或完成紧急任务时的加速，不应直接解释为额外时间催促；没有选择余地时可选NA。真实工作量、经济压力或他人要求也不是靠改变个人标签就能解决。",
+          "en": "This questionnaire refers to ordinary activities with some choice. Speeding up for transport, caregiving duties or an urgent task should not automatically mean added time urgency; choose NA when choice is absent. Actual workload, financial pressure and others’ demands are not resolved by changing a personal label."
+        },
+        {
+          "zh": "回看结果时，记录活动、当时能否调整步调、实际结束条件和外部后果。相同评分可以来自不同经历，四周参照也会受近期环境影响。对某句话理解不清或没有相关经历，保留信息不足比猜一个中间答案更符合本版读法。",
+          "en": "When reviewing, note the activity, freedom to adjust pace, endpoint and external consequences. The same rating can arise from different experiences, and a four-week reference can reflect recent conditions. When wording or context is unclear, retaining insufficient information is more faithful than guessing a midpoint."
+        }
+      ]
+    },
+    {
+      "id": "type-ab-comparison-not-ambition",
+      "title": {
+        "zh": "竞争比较不等于抱负，难停下不等于敬业",
+        "en": "Comparison is not ambition; difficulty stopping is not diligence"
+      },
+      "paragraphs": [
+        {
+          "zh": "竞争式比较看普通活动中是否把别人当参照，不直接测抱负、成就动机、自信或优秀程度。你可以认真追求个人目标而很少比较别人，也可以在小事中常比较却没有想赢得正式比赛。不要用单项给人贴自私、上进或没追求的标签。",
+          "en": "Competitive comparison concerns using others as a reference in ordinary activities, not ambition, achievement motivation, confidence or excellence. You can pursue a personal aim without much comparison, or compare in small activities without seeking a formal win. Avoid labels such as selfish, driven or unambitious from this part."
+        },
+        {
+          "zh": "自选活动难停下看已有结束点后仍加内容，不测工作时长、产出、成瘾或拖延原因。自愿继续享受一个爱好和不愿结束的感受可能不同；实际职责未完成时也不是同一情境。先看自己是否原本想停、能否停，再讨论下一次怎样安排。",
+          "en": "Difficulty stopping concerns adding beyond an established endpoint, not work hours, output, addiction or the cause of procrastination. Freely enjoying more of a hobby can differ from feeling unable to finish; unfinished responsibilities are another situation. Consider whether you wanted and could choose to stop before planning the next occasion."
+        }
+      ]
+    },
+    {
+      "id": "type-ab-feelings-and-actions",
+      "title": {
+        "zh": "等待烦躁、敌意与实际行为要分别理解",
+        "en": "Waiting irritation, hostility and actions need separate interpretation"
+      },
+      "paragraphs": [
+        {
+          "zh": "普通等待中的烦躁记录自报感受，不直接判定敌意、攻击行为或情绪调节能力。一个人可能感到烦躁却礼貌等待，也可能安静但对实际延误有合理担心。本版只问不影响必要安排的短暂等候，不要求忽视真实损失或不公平。",
+          "en": "Waiting irritation records a reported feeling, not hostility, aggression or emotion-regulation ability. Someone may feel irritated yet wait politely, or stay quiet while reasonably concerned about an actual delay. This part asks about brief waits without disruption to necessary plans, not ignoring real loss or unfairness."
+        },
+        {
+          "zh": "表达时可把感受与要求拆开，例如“我现在有点急，想确认大约还要多久”。对方是否能提供信息需另看实际情况，不从烦躁均分推断别人做错了什么。感受、解释与行动之间有区别，结果也不能代替对具体互动的了解。",
+          "en": "Separate a feeling from a request: for example, feeling rushed and asking approximately how long remains. Whether information is available depends on circumstances; an irritation mean establishes no fault in someone else. Feelings, explanations and actions differ, and results do not replace understanding an interaction."
+        }
+      ]
+    },
+    {
+      "id": "type-ab-practical-observation",
+      "title": {
+        "zh": "从一个普通场景做可选观察",
+        "en": "An optional observation in one ordinary setting"
+      },
+      "paragraphs": [
+        {
+          "zh": "选择一件非紧急、自愿的小事，先写清原来的结束点与可用时间，再留意是否催快、比较、烦躁或继续添加。只记录一两个具体例子和反例，不必把整天变成监测任务，也不要求四项同时降低。",
+          "en": "Choose a non-urgent voluntary activity, note its intended endpoint and available time, then notice added hurry, comparison, irritation or extra additions. Record one or two examples and counterexamples without monitoring your whole day or trying to lower all four parts."
+        },
+        {
+          "zh": "可尝试说清“这一轮先到这里，下次再决定是否加内容”，或把别人的进度暂时换成自己原定步骤作为参照。之后记录是否方便执行、是否符合当时职责。它是可选观察，不是治疗处方，不承诺改变人格、提高效率或改善健康。",
+          "en": "You might state where this round ends and decide on additions later, or refer to your intended steps instead of another person’s progress. Note whether that was practical and consistent with responsibilities. This is optional reflection, not treatment or a promise of personality change, productivity or health improvement."
+        }
+      ]
+    },
+    {
+      "id": "type-ab-health-and-other-models",
+      "title": {
+        "zh": "A/B不是血型、MBTI轴，也不是健康结论",
+        "en": "A/B is not blood type, an MBTI axis or a health verdict"
+      },
+      "paragraphs": [
+        {
+          "zh": "本页讨论行为模式中的A/B，不是ABO血型性格说，也不是部分人格网站的A/T附加轴。四项不能换算MBTI、大五、C型或D型分数，也不能用是否内向、喜欢计划或职业类别替代实际回答。",
+          "en": "A/B here concerns behaviour patterns, not ABO blood-type folklore or an A/T additional axis used by some personality sites. These parts do not convert into MBTI, Big Five, Type C or Type D scores. Introversion, planning preferences and job categories do not replace actual responses."
+        },
+        {
+          "zh": "A型概念有健康研究背景，但本站没有建立任何疾病预测模型、诊断阈值或个人风险换算。高均分不证明患病，低均分不保证健康；不要用这份问卷决定检查、治疗或用药。已有研究对特定工具与人群的结论不能成为本页给个人作健康判断的依据。[1][2]",
+          "en": "Type A has a health-research history, but this questionnaire has no disease-prediction model, diagnostic cutoff or individual risk conversion. Higher means establish no illness; lower means guarantee no health. Do not use it to decide examinations, treatment or medication. Findings for specific instruments and populations do not authorize personal health judgments here.[1][2]"
+        }
+      ]
+    },
+    {
+      "id": "type-ab-evidence-retest",
+      "title": {
+        "zh": "原创题本、完整度规则与重测证据",
+        "en": "Original items, completeness rules and retest evidence"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版不是Jenkins活动调查、Bortner量表或MMPI分量表，四个部分也是本站编辑定义，尚未建立信度、效度和常模。至少3/5条有效是本站完整度约定，不是科学分型阈值；反向题和透明公式让规则可查，不会自动证明测量质量。",
+          "en": "This is not the Jenkins Activity Survey, Bortner scale or an MMPI subscale. The four parts are editorially defined, with unestablished reliability, validity and norms. At least three of five ratings is a completeness convention, not a scientific typing threshold. Reverse items and transparent formulas make rules checkable without proving measurement quality."
+        },
+        {
+          "zh": "重测时先核对版本、四周参照、有效条数和具体变化条目。NA变成有效评分可能改变均分，四舍五入也会影响显示；3.2与3.3不代表已证明显著变化。即使两次分数相同，所据情境和条目也可能不同，不能只凭小数宣布人格变了或没变。",
+          "en": "For retests, compare version, four-week reference, rated-item counts and changed responses. An NA becoming a rating can change the mean, and rounding affects display; 3.2 versus 3.3 is not established significant change. Identical means may come from different items and settings, so decimals alone establish neither personality change nor stability."
+        }
+      ]
+    },
+    {
+      "id": "type-ab-free-privacy",
+      "title": {
+        "zh": "免费完整结果、直接开始与答案隐私",
+        "en": "Free full results, direct start and answer privacy"
+      },
+      "paragraphs": [
+        {
+          "zh": "全部20条选择、四项均分或资料不足说明及四份完整指南免费，无需注册或先做其他测试。点击开始直接进入题目，没有额外同意步骤。约5分钟是参考，不限时；每题可选NA，但仍需对20条都作选择，完成后生成结果。",
+          "en": "All 20 selections, four means or insufficient-information states and four full guides are free without signup or another test. Start opens questions directly without an extra agreement. About five minutes is an estimate, not a limit. NA is available on each item; all 20 still need a selection before results appear."
+        },
+        {
+          "zh": "答案在浏览器内计分，不通过计分请求上传，也不写入网址或分析事件。默认不保存；主动保存后本标签页进度24小时失效，完成、重测或退出清除后删除。固定公开指南不含私人答卷或均分；其他使用事件依隐私与Cookie设置。",
+          "en": "Answers are scored in the browser, not uploaded through scoring requests or included in URLs or analytics events. Progress is unsaved by default; opt-in tab progress expires after 24 hours and clears on completion, retake or explicit exit-and-clear. Fixed public guides contain no private answers or means; other usage events follow privacy and Cookie settings."
         }
       ]
     }
@@ -2020,62 +2155,142 @@
   "faq": [
     {
       "question": {
-        "zh": "我会得到A型、B型还是平衡型标签吗？",
-        "en": "Will I receive an A, B or Balanced label?"
+        "zh": "A型/B型人格测试是什么？",
+        "en": "What is a Type A / Type B personality test?"
       },
       "answer": {
-        "zh": "A型与B型是历史行为模式讨论中的名称，常围绕时间催促、竞争与不耐烦等现象，并非本站测得的两个固定人格。不同研究工具的结构可能不同，不能把概念熟悉度当成量表效度。本版提供四项独立频率观察与全部完整说明，不按均分最高、总和或阈值给你派A型、B型或平衡型。“混合”可以指场景不同、四项不同或单项回答不同，并不证明最灵活、最好或多数人都如此；资料不足也不是B型。",
-        "en": "Type A and Type B are historical names in discussions of behaviours such as urgency, competition and impatience, rather than two fixed personalities measured here. Research instruments can differ in structure; a familiar concept establishes no questionnaire validity. This edition offers four separate frequency reflections and all full guides, without an A, B or Balanced assignment from a highest mean, total or cutoff. Mixed can mean different settings, different parts or contrasting answers within a part; it proves neither ideal flexibility, superiority nor a population majority. Insufficient information is not Type B."
+        "zh": "A/B源于历史行为模式讨论，常涉及紧迫、竞争和不耐烦。本站用20条原创题做四项独立频率观察，不派固定A型、B型或平衡型。",
+        "en": "A/B comes from historical discussions of urgency, competition and impatience. Here 20 original items provide four separate frequency reflections without assigning a fixed A, B or Balanced type."
       }
     },
     {
       "question": {
-        "zh": "本版测哪四项？",
-        "en": "Which four parts does this edition explore?"
+        "zh": "为什么没有直接告诉我是A型还是B型？",
+        "en": "Why does this quiz not assign me Type A or Type B?"
       },
       "answer": {
-        "zh": "四项为本版编辑观察框架：时间催促、竞争式比较、普通等待中的烦躁、自选活动难停下，各5条原创频率题。它们独立显示，不是互斥类型，也不等于标准工具中的正式因子。四份完整解释均可先读，完成后仍全部呈现。",
-        "en": "The editorial observation categories are felt time urgency, competitive comparison, irritation during ordinary waits and difficulty stopping chosen activities, each with five original frequency items. They are separate rather than exclusive types or established factors from a standard instrument. All four full guides are available before and after answering."
+        "zh": "四项可能不同，合成标签会遮住这些信息。本版没有分型阈值或常模，因此保留四项均分、有效条数与全部解释，不用最高项给人格命名。",
+        "en": "Parts can differ, and one label would hide information. There are no typing cutoffs or norms here, so results retain four means, rated-item counts and all explanations rather than naming a personality from a highest score."
       }
     },
     {
       "question": {
-        "zh": "反向题、NA与资料不足怎样处理？",
-        "en": "How are opposite items, NA and insufficient information handled?"
+        "zh": "四个部分分别看什么？",
+        "en": "What do the four parts explore?"
       },
       "answer": {
-        "zh": "20题都选择后，四部分分别计算。每部分5条，1从不、2很少、3有时、4经常、5几乎总是，2条相反表述按6减有效回答；共8条反向。NA是不适用、情境不足或不愿回答，排除，不补零或中性。每部分至少3条有效评分，才按计分和除有效条数取一位小数均分1—5；不足保留资料不足，不按其他部分补分。四项不相加、不派最高型、不产生A/B总分、百分位或固定标签。相同均分保留，小数差异不证明显著或改变，中间值不证明灵活、最适度或健康。最低条数只是本站完整度规则，未提供常模、科学阈值、信度或效度。",
-        "en": "After all 20 selections, calculate four parts separately. Each has five items rated 1 Never, 2 Rarely, 3 Sometimes, 4 Often or 5 Almost always. Two opposite statements per part, eight overall, use six minus a valid response. NA means absent context, insufficient information or declining to answer; exclude it without zero or midpoint substitution. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items. Otherwise retain insufficient information without borrowing another part’s score. Parts produce no total, highest-score type, A/B score, percentile or fixed label. Equal means stay equal; decimals establish no significance or change. A middle mean proves no flexibility, ideal moderation or health. The minimum is a website completeness convention, without norms, scientific cutoffs, reliability or validity evidence."
+        "zh": "时间允许时的额外催快、没有排名要求时的比较、普通短等候中的烦躁，以及达到自定结束点后继续添加。参照近四周有一定选择余地的情境。",
+        "en": "Added hurry when time permits, comparison without ranking, irritation during ordinary short waits, and additions beyond a chosen endpoint, over four weeks in situations with some choice."
       }
     },
     {
       "question": {
-        "zh": "均分在中间说明最平衡、健康或灵活吗？",
-        "en": "Does a middle mean establish ideal balance, health or flexibility?"
+        "zh": "20题怎样计分，有多少反向题？",
+        "en": "How are 20 items scored, and how many are reversed?"
       },
       "answer": {
-        "zh": "不说明。中间均分可能由不同答案组合产生，四项也可能各不相同；它没有常模、理想位置或健康含义。本版不测能力、产出、情商或疾病，也不根据一个人的均分推断他人的感受、真实任务要求或外部压力。",
-        "en": "No. Different answer combinations can produce the same middle mean, and parts can differ. There is no norm, ideal position or health interpretation. This edition assesses no ability, output, emotional intelligence or illness and infers no other person’s feelings, actual task requirement or external pressure from your mean."
+        "zh": "每部分5条、其中2条反向，反向评分为6减原评分，共8条。有效和除有效条数，至少3条有效才显示一位小数均分1—5；四部分不相加。",
+        "en": "Five items per part include two reversed as six minus the rating: eight overall. Divide the scored sum by rated items; at least three permit a one-decimal mean from 1 to 5. Parts are not added."
       }
     },
     {
       "question": {
-        "zh": "这是Jenkins、Bortner或医学筛查吗？",
-        "en": "Is this Jenkins, Bortner or medical screening?"
+        "zh": "能举一个包含反向题和NA的例子吗？",
+        "en": "Can you give an example with reversed items and NA?"
       },
       "answer": {
-        "zh": "这是费马原创20题四项行为观察，借A/B行为模式讨论的背景，分别整理近四周有一定选择余地的普通情境；四项是本版编辑观察框架，不是研究已验证了本站四维。它不是Jenkins Activity Survey、Bortner、结构访谈、MMPI或其他标准题本的替代版，不采用其条目、计分键、常模或竞品12题与结果正文。中英文题目、例子、映射和解释独立创作，尚无本站心理测量验证或跨语言等价证据。A/B历史名称帮助理解讨论，不把你分成固定A型、B型或平衡型；也不由总频率推断多维度相同。文献用于说明概念与测量边界，不为本站量表背书：1990年Bortner研究只针对特定量表与样本，2012年六面向研究也不验证这四项。结果不诊断疾病、敌意、焦虑、工作成瘾或其他心理状态，不估计心脏或其他健康风险，也不评能力、智商、基因、道德、产出、关系、聘用或职业适配；真实必要职责与外部限制另看事实。",
-        "en": "This original FermatMind 20-item reflection draws on A/B behaviour discussions to organise four weeks of ordinary experiences with some actual choice. Its four parts are editorial observation categories, not four website dimensions validated by the cited research. It replaces no Jenkins Activity Survey, Bortner scale, structured interview, MMPI or other standard instrument and adopts none of their items, keys or norms, nor a competitor’s twelve items or result text. English and Chinese questions, examples, mappings and explanations are independently authored, without local psychometric validation or established language equivalence. Historical A/B names explain a discussion rather than assigning a fixed A, B or Balanced type or assuming several dimensions are identical. Sources explain concepts and measurement limits without validating this questionnaire: the 1990 Bortner findings concern a particular measure and sample, and the 2012 six-facet study does not validate these four parts. Results diagnose no illness, hostility, anxiety, work addiction or other psychological state, estimate no cardiac or other health risk and assess no ability, IQ, genetics, morality, output, relationship, hiring or career fit. Actual duties and external constraints require their own facts."
+        "zh": "时间催促感按题序原评分4、2、3、4、NA，反向后4、4、3、2、NA，有效和13，4条有效，均分3.3。NA不补零，也不补中性。",
+        "en": "Time-urgency raw ratings 4, 2, 3, 4, NA become 4, 4, 3, 2, NA after reversal: scored sum 13, four ratings, mean 3.3. NA is neither zero nor a midpoint."
       }
     },
     {
       "question": {
-        "zh": "全部解释、重测与分享免费吗？",
-        "en": "Are all explanations, retaking and sharing free?"
+        "zh": "NA、从不和资料不足有什么区别？",
+        "en": "How do NA, Never and insufficient information differ?"
       },
       "answer": {
-        "zh": "免费，无需注册、邮箱或另一测试解锁。四份完整说明可先读，20题全部选择后呈现四项均分或资料不足状态。重测清除本次选择，可选分享不含答案或均分；后续测评需要独立重新作答。",
-        "en": "Yes, without signup, email or another test to unlock anything. Read all four full guides first; all 20 selections produce four means or explicit insufficient-information states. Retaking clears this attempt. Optional sharing contains no answers or means; further assessments require separate answers."
+        "zh": "从不表示有相关情境但该说法没有出现；NA表示无情境、无选择余地或不愿回答。每项少于3条有效即资料不足，不算低频或B型。",
+        "en": "Never means relevant context existed but the statement did not occur. NA means absent context, choice or willingness to answer. Fewer than three ratings gives insufficient information, not low frequency or Type B."
+      }
+    },
+    {
+      "question": {
+        "zh": "均分3是不是最平衡、最健康？",
+        "en": "Does a mean of three mean balanced or healthy?"
+      },
+      "answer": {
+        "zh": "不是。它可能来自都选3，也可能来自高低相抵。本版没有最佳分数或健康阈值，先回看实际条目、有效数量与具体情境。",
+        "en": "No. It may reflect all threes or offsetting high and low ratings. There is no ideal score or health cutoff here; inspect items, rated counts and circumstances."
+      }
+    },
+    {
+      "question": {
+        "zh": "竞争比较高是否说明更上进、更有能力？",
+        "en": "Does more comparison mean more ambition or ability?"
+      },
+      "answer": {
+        "zh": "不说明。这里记录没有比赛要求时参照别人的频率，不测目标质量、能力、成就或道德。专注个人目标和很少比较也可以同时存在。",
+        "en": "No. It records using others as a reference without a contest, not goals, ability, achievement or morality. Pursuing a personal aim can coexist with little comparison."
+      }
+    },
+    {
+      "question": {
+        "zh": "等待烦躁是不是敌意，难停下是不是成瘾？",
+        "en": "Is waiting irritation hostility, or difficulty stopping addiction?"
+      },
+      "answer": {
+        "zh": "不是由本结果判定的。一个部分记录短等候感受，另一个记录自选结束点后的添加；它们不构成行为原因、心理诊断或能力评定。",
+        "en": "These results do not establish either. One part records feelings during short waits, another additions beyond chosen endpoints; neither determines causes, diagnosis or ability."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是Jenkins或Bortner量表吗？科学性怎样？",
+        "en": "Is this Jenkins or Bortner, and what evidence supports it?"
+      },
+      "answer": {
+        "zh": "不是，是费马原创20题与四项编辑观察，尚未建立信度、效度和常模。所引原始研究提供背景，不验证本站题目、3/5规则或任何分型。",
+        "en": "No. These are 20 original FermatMind items and four editorial reflections, with unestablished reliability, validity and norms. Cited research supplies context without validating these items, the three-of-five rule or typing."
+      }
+    },
+    {
+      "question": {
+        "zh": "可以预测心脏风险或判断健康吗？",
+        "en": "Can it predict cardiac risk or judge health?"
+      },
+      "answer": {
+        "zh": "不能。本站没有疾病预测模型或个人风险换算。高均分不证明患病，低均分不保证健康，不用于决定检查、治疗或用药。",
+        "en": "No. This questionnaire has no disease-prediction model or individual risk conversion. Higher means establish no illness and lower means guarantee no health. It does not determine examinations, treatment or medication."
+      }
+    },
+    {
+      "question": {
+        "zh": "和血型、MBTI或其他测试能换算吗？",
+        "en": "Can it convert into blood-type, MBTI or other test results?"
+      },
+      "answer": {
+        "zh": "不能。此处A/B不是ABO血型或A/T轴，四项也不是C/D分型或大五。不同题本的分数、阈值和比例不能只凭概念相似相互替代。",
+        "en": "No. A/B here is neither ABO nor an A/T axis; these parts are not C/D typing or Big Five. Similar terminology does not make scores, cutoffs and proportions interchangeable across questionnaires."
+      }
+    },
+    {
+      "question": {
+        "zh": "免费吗？开始后还要额外同意吗？",
+        "en": "Is it free, with another agreement after Start?"
+      },
+      "answer": {
+        "zh": "全部20条、四项结果状态与四份完整指南免费，无需注册。点击开始直接进入题目，没有额外同意步骤；约5分钟是参考，不限时。",
+        "en": "All 20 items, four result states and four full guides are free without signup. Start opens questions directly without an extra agreement. About five minutes is an estimate, not a limit."
+      }
+    },
+    {
+      "question": {
+        "zh": "答案会上传、保存或分享吗？",
+        "en": "Are answers uploaded, saved or shared?"
+      },
+      "answer": {
+        "zh": "浏览器内计分，答案不进入计分上传、网址或分析事件。可选本标签页进度24小时失效，完成、重测或退出清除后删除。公开指南不含私人答卷或均分，其他使用事件依隐私设置。",
+        "en": "Scoring runs in the browser; answers are not included in scoring uploads, URLs or analytics events. Optional tab progress expires after 24 hours and clears on completion, retake or exit-and-clear. Public guides contain no private answers or means; other usage events follow privacy settings."
       }
     }
   ],

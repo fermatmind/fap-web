@@ -15,21 +15,21 @@
     "en": "Egogram: five frequencies and full readings"
   },
   "description": {
-    "zh": "免费自我状态图测试：20道原创互动做法，分别看CP、NP、A、FC、AC五组频率、原始分数与全部完整解释，不以图表判断心理能量或固定人格。",
-    "en": "Take the free egogram test: 20 original items, five ego-state frequency readings, raw scores, missing information and all full guides with examples."
+    "zh": "回看近四周的规范表达、支持、当下核对、玩兴与情境配合。20条原创频率题，分别查看CP、NP、A、FC、AC原始分数及五份完整指南；可保留资料不足，免费免注册。",
+    "en": "Review standards, support, present-focused checking, play and situational adjustment over four weeks. Twenty original frequency items give separate CP, NP, A, FC and AC scores with five full guides. Free, no signup; missing information stays visible."
   },
   "seoTitle": {
-    "zh": "自我状态图测试：五组互动频率与免费完整结果",
-    "en": "Egogram Test: Five Ego-State Reflections, Full Results"
+    "zh": "自我状态图测试：20题、CP NP A FC AC五组频率与解读",
+    "en": "Egogram Test: 20 Items, Five Frequency Scores and Full Guides"
   },
   "minutes": 4,
   "introduction": {
-    "zh": "近四周在有机会的情况下，你如何说出要求、提供支持、核对信息、表达玩兴和调整配合？这份原创自我观察借用交互分析的CP批判型父母、NP养育型父母、A成人、FC自由儿童、AC适应儿童五个功能名称，每组四条、共二十条具体做法。完成后分别显示五组频率图、原始总分和有效条数，五份九节说明全部可读，覆盖较高较低、混合与资料不足、例子反例和可选核对。各组不争夺固定能量，不按最高柱派人格，也不认定最佳形状。父母、成人、儿童不指实际年龄、家庭角色或童年原因。不是标准TEG3、Dusay、Heyer或竞品题本；全部题目和结果免费，可先读再决定是否作答。",
-    "en": "In the past four weeks, when opportunities arose, how did you express requirements, offer support, check information, express playfulness and adjust coordination? This original self-observation borrows five functional transactional-analysis labels: Critical Parent (CP), Nurturing Parent (NP), Adult (A), Free Child (FC) and Adapted Child (AC). Four concrete actions per group make twenty items. A complete attempt shows five separate frequency bars, raw sums and rated counts, with all five nine-section guides covering higher and lower readings, mixed or missing information, examples, counterexamples and optional checks. The groups compete for no fixed energy and assign neither a highest-bar personality nor an ideal shape. Parent, Adult and Child are not actual ages, family roles or childhood causes. This is no standard TEG3, Dusay, Heyer or competitor bank. All questions and results are free; read before deciding whether to answer."
+    "zh": "同一次合作中，你可能先说清要求，再照应困难、核对资料、尝试新做法，并按约定调整配合。这份自我状态图测试借用交互分析的CP、NP、A、FC、AC五个功能名称，用20条原创陈述回看近四周有相应机会时的做法。结果分别呈现五组原始总分、频率均分与有效条数，五份九节指南全部开放，帮助你结合具体场景理解图形，而不是寻找一个固定人格称号。",
+    "en": "In one collaboration, you might state requirements, offer support, check information, try a new approach and adjust to an agreement. This Egogram Test borrows the transactional-analysis functional labels CP, NP, A, FC and AC for twenty original statements about the past four weeks when relevant opportunities arose. Results show five separate raw sums, frequency means and rated-item counts. All five nine-section guides are available to help you interpret the chart through specific situations rather than a fixed personality title."
   },
   "instructions": {
-    "zh": "回想过去四周，在确有相应机会的情况下，以下具体做法出现得多不多，按1从不到5几乎总是作答；只选自己的实际做法，不按应该怎样或是否赞同来选。没有相应机会、无法判断或不愿回答请选择独立项，不当从不、中立或零分。每组四条全部有效才显示该组分数，其他组可各自保留。父母、成人、儿童是框架标签，不指真实年龄、家庭角色或成熟程度。本版不填写对话、童年经历或第三人资料。",
-    "en": "Think about the past four weeks, when a relevant occasion actually arose, and rate how often each concrete action occurred, from 1 Never to 5 Almost always. Describe what you did, not what ought to happen or whether you agree with an idea. Use the separate option for no relevant opportunity, inability to judge or preferring not to answer; it is not never, neutral or zero. Each group requires all four valid ratings while other groups remain separately readable. Parent, Adult and Child are framework labels, not actual ages, family roles or maturity. No conversations, childhood stories or third-party details are entered."
+    "zh": "回想过去四周，在确有相应机会时，这些具体做法出现得多不多，按1从不到5几乎总是作答。3表示有时，不是中立或不确定；没有机会、无法判断或不愿回答，请选独立的NA。每组四条全部有效才显示该组分数，其他组各自保留。不按理想形象或是否赞同来选，也不填写对话、童年或第三人资料。开始直接进入20条题目，无需再次同意、邮箱、注册或其他测评；可以先读全部指南。",
+    "en": "Recall how often each action occurred during the past four weeks when an appropriate occasion arose, from 1 Never to 5 Almost always. A 3 means Sometimes, not neutrality or uncertainty. Use the separate NA for no opportunity, inability to judge or preferring not to answer. Each group needs all four numerical ratings to show a score; other groups remain independently readable. Describe actual actions rather than an ideal self or agreement with an idea. No conversations, childhood stories or third-party details are entered. Start opens twenty items directly without another agreement, email, signup or prerequisite assessment. All guides can be read first."
   },
   "source": {
     "kind": "Twenty original bilingual frequency self-observation statements inspired by five conventional TA functional ego-state labels. These statements are not the Dusay, Heyer, TEG3 or a competitor item bank, and do not measure conserved psychic energy, diagnose ego states or reconstruct childhood.",

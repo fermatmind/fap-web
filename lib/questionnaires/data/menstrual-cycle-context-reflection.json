@@ -15,12 +15,12 @@
     "zh": "月经周期与近期经历：个人回顾"
   },
   "description": {
-    "en": "16 original adult recollections about feelings, irritation, bodily and ordinary changes before a period, plus remembered before-and-after timing. Four full guides before answers. No PMDD diagnosis, cycle score or hormone inference.",
-    "zh": "16条成年人原创回顾，涉及经期前感受、烦躁、身体与日常变化，以及记得的前后时间。四篇全文答题前可读，不作PMDD诊断、周期评分或激素推断。"
+    "en": "Recall the days around one remembered period start through 16 original descriptions of feelings, irritation, body and routine, and timing. Read four separate category records and all complete guides, free without registration.",
+    "zh": "通过16条原创描述，回顾同一次月经开始前后的感受、烦躁、身体与日常，以及记得的时间关系。分别查看四份类别记录和完整指南，全部免费，无需注册。"
   },
   "introduction": {
-    "en": "If you want, recall the days around one recent menstrual period you remember, before and after it began. No dates, cycle history or free-text account are entered. No relevant period recollection or uncertain recall can remain entirely unscored. This adult self-recollection does not assume gender, pregnancy history, parenthood or regular cycles.",
-    "zh": "愿意时回顾同一次最近记得的月经开始前后几天。不输入日期、周期史或自由叙述。无相关月经回忆或记忆不清时可全未计分。本成人自我回顾不假设性别、妊娠史、家长身份或规则周期。"
+    "en": "Keep each recollection and its uncertainty intact, without a cycle score, prediction or PMDD diagnosis. No dates or cycle history are entered. All four guides can be read before answering, including when every description remains unscored.",
+    "zh": "逐条保留回忆与其中的未知，不生成周期分数、预测或PMDD诊断。不输入日期或周期史；答题前即可阅读四篇完整指南，全部未计分时也能阅读。"
   },
   "instructions": {
     "en": "Refer to the same remembered period start and the timing stated in each description. Choose does not match my recollection, matches slightly, partly, mostly or closely; use unscored for no relevant experience, unclear timing or withholding. Labels are not frequency, points or severity. Do not check a body sensation, reopen messages, start tracking or change sleep, food or care to answer.",

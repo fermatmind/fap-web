@@ -14,8 +14,8 @@
     "zh": "育儿风格测试：12题、两项均分与四份完整指南"
   },
   "description": {
-    "en": "Take 12 original questions about warm responses and everyday boundaries. See two frequency summaries and read four complete parenting-style guides free.",
-    "zh": "用12道原创问题回看温暖回应与日常边界，查看两项频率摘要，免费阅读四种养育风格的完整指南、日常情境与行动示例。"
+    "en": "Reflect on 12 recent caregiving actions with one child aged 3–12. See separate warm-response and everyday-boundary frequency means, worked examples and four complete parenting-style guides, free.",
+    "zh": "通过12项近期照料行为，回看与同一位3至12岁孩子的互动，分别查看温暖回应与日常边界频率均分，免费阅读计分算例及四份完整养育风格指南。"
   },
   "minutes": 4,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "回想过去四周，你本人照料同一位3至12岁孩子的日常行为。有相关情境时，你多常采取题述做法？没有相关机会、无法判断或不愿回答时，选不计分。无需提供孩子的身份信息。两个独立呈现的均分只概括这十二条原创描述，不给你或其他照料者分配养育类型，不评估孩子，也不预测孩子的未来。"
   },
   "introduction": {
-    "en": "Parenting-style terms can open a discussion about responsiveness and expectations. Here, twelve original questions ask about actions you recall when caring for one child, while four full guides explain the framework through ordinary situations. You receive two separate descriptive frequency means when each six-item part is complete. All four guides remain available to everyone; the software does not choose a parenting type for you. About four minutes is an editorial estimate, without a timer.",
-    "zh": "养育风格的词汇可以开启关于回应与要求的讨论。这里用十二道原创问题回看照料同一位孩子时记得的行为，再通过四份完整指南与日常情境理解框架。 每组六项完整时，会分别显示两个描述性频率均分。四份指南对所有人开放，软件不会为你选择养育类型。约四分钟是编辑估计，没有计时器。"
+    "en": "Examine particular caregiving actions before naming a style: what was heard, what next step was explained, and whether the arrangement fitted this child at that time. Parenting-style terms can open a discussion about responsiveness and expectations. Here, twelve original questions ask about actions you recall when caring for one child, while four full guides explain the framework through ordinary situations. You receive two separate descriptive frequency means when each six-item part is complete. All four guides remain available to everyone; the software does not choose a parenting type for you. About four minutes is an editorial estimate, without a timer.",
+    "zh": "先看具体照料行为，再理解风格概念：听清了什么、说明了哪项下一步，以及安排是否适合这个孩子当时的情况。养育风格的词汇可以开启关于回应与要求的讨论。这里用十二道原创问题回看照料同一位孩子时记得的行为，再通过四份完整指南与日常情境理解框架。 每组六项完整时，会分别显示两个描述性频率均分。四份指南对所有人开放，软件不会为你选择养育类型。约四分钟是编辑估计，没有计时器。"
   },
   "resultHeading": {
     "en": "Two recent-care summaries and four complete general guides",

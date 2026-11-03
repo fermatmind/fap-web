@@ -41,7 +41,7 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
     await expect(page.locator("[data-connection-checkin-full-guide]")).toHaveCount(3); await expect(page.locator("[data-connection-checkin-full-guide] h3")).toHaveCount(21);
     await expect(page.locator("[data-connection-checkin-support]")).toHaveCount(1);
-    await page.getByRole("button", { name: label(locale, "Begin original observations", "开始原创观察"), exact: true }).click();
+    await page.locator("[data-explore-start]").click();
     const box = await page.locator("#connection-checkin-active-question").boundingBox(), header = await page.locator("header").first().boundingBox();
     expect(box!.y).toBeGreaterThanOrEqual(header ? header.y + header.height : 0);
     await page.getByRole("button", { name: label(locale, "Next", "下一条"), exact: true }).click();
@@ -54,7 +54,7 @@ for (const locale of ["en", "zh"] as const) {
     expect(leaks).toEqual([]); expect(errors).toEqual([]);
   });
   test(`@release original observations ${locale}:backedit, exit, reloadandpageleaveclearprivateanswers`, async ({ page }) => {
-    await page.goto(path(locale)); const start = () => page.getByRole("button", { name: label(locale, "Begin original observations", "开始原创观察"), exact: true }).click();
+    await page.goto(path(locale)); const start = () => page.locator("[data-explore-start]").click();
     await start(); await page.locator('input[value="4"]').check();
     await page.getByRole("button", { name: label(locale, "Next", "下一条"), exact: true }).click();
     await page.getByRole("button", { name: label(locale, "Back", "上一条"), exact: true }).click(); await expect(page.locator('input[value="4"]')).toBeChecked();
@@ -89,7 +89,7 @@ test("@release original observations: hydration gates the start button until del
   await page.route("**/_next/static/**/*.js", async route => { delayed++; await chunks; await route.continue(); });
   try {
     await page.goto(path("en"), { waitUntil: "commit" });
-    const start = page.getByRole("button", { name: "Begin original observations", exact: true });
+    const start = page.locator("[data-explore-start]");
     await expect(start).toBeVisible(); await expect.poll(() => delayed).toBeGreaterThan(0);
     await expect(start).toBeDisabled();
     release();

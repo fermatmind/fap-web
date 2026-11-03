@@ -10,21 +10,21 @@
     "zh": "英语拼写测试"
   },
   "seoTitle": {
-    "en": "Spelling Test: 24 Questions, Answers & Revision Guides",
-    "zh": "英语拼写测试：24题、全部答案与完整复习指南"
+    "zh": "英语拼写测试：24题、四项正确数与逐题解析",
+    "en": "English Spelling Test: 24 Questions, Answers & Revision"
   },
   "description": {
-    "en": "Choose correct English spellings in 24 original sentences. Get all answers, explanations and four complete revision guides free. No signup or timer.",
-    "zh": "在24个原创英文语境中识别正确拼写，查看所选、全部答案与逐题解析，附四份完整复习指南。中文说明保留英文题句和选项，免费、不计时、无需注册。"
+    "zh": "用24道英文语境四选一练习双写辅音、元音、字母顺序和词尾，查看四项正确数、全部答案与四份复习指南。免费、不计时、无需注册。",
+    "en": "Practise 24 English spellings in context. Review four section counts, every answer and four complete guides. Free, untimed and no signup."
   },
   "minutes": 8,
   "instructions": {
-    "en": "Choose the correctly spelled English word for each original sentence. All 24 items have four options and one key among the displayed forms. English sentences and options stay English in both interface languages. Finish every item for all keys, explanations and four full guides. There is no timer. For unaided practice, avoid dictionaries and spellcheck until finishing; if you use aids, interpret the count under those conditions. This is recognition practice, not dictation, a CEFR level or a school or employer exam.",
-    "zh": "为每个原创句子选出拼写正确的英语词。24题，每题四选一，在所示形式中有一个答案。两种界面语言都保留英文题句与选项，完成全部题目后可看所有答案、解析和四份完整指南。不计时。若想无辅助练习，可完成前不用词典或拼写检查；若使用工具，按该条件理解正确数。这是识别练习，不是听写、CEFR等级或学校及雇主考试。"
+    "zh": "阅读英文句子，选择拼写正确且符合语境的一项，每题四选一。以目前掌握情况作答，不设倒计时；约8分钟只是估计。若想观察无辅助识别，可提交后再查词典和拼写检查。完成全部24题后查看所选、正确词、逐题解析与四份完整指南；开始前也可阅读公开指南。",
+    "en": "Read each English sentence and select the correctly spelled completion from four alternatives. Answer with your current knowledge; there is no countdown and eight minutes is only an estimate. For unaided recognition practice, consult dictionaries and spelling tools after submitting. Finish all twenty-four items to review choices, correct forms, worked answers and four full guides. Public guides are also available before starting."
   },
   "introduction": {
-    "en": "Practise 24 English spellings in independently written sentence contexts. Four six-word groups cover doubled consonants, vowel choices, letter order and selected word endings. Dictionary headwords or explicitly listed forms were checked for the keys; the sentences, distractors, explanations and guides are original. Your result shows this edition’s correct counts, every answer and all four guides. It does not estimate vocabulary size, writing accuracy, language level or job suitability. The Chinese interface translates instructions and explanations while preserving the English stimuli.",
-    "zh": "在24个独立编写的句子语境中练习英语拼写。双写辅音、元音选择、字母顺序和选定词尾四组各六词，答案核对词典词头或明确列出的词形；句子、干扰项、解析与指南均为原创。结果显示本版正确题数、全部题解和四份指南，不估计词汇量、写作准确度、语言等级或岗位适配。中文界面翻译说明和解析，保留英文题句与选项。"
+    "zh": "本页是24题英语拼写识别练习，每题在原创英文句子中从四个形式选择一个正确词。双写辅音、元音选择、字母顺序与词尾变化各六题；完成后显示0—24总正确数、四项0—6正确数及全部题解。句子与选项保留英文，中英文均提供完整说明和复习指南。结果用于定位这组词的复习线索；听写、自由写作、语言等级和学校成绩需要各自相应的评估。",
+    "en": "This twenty-four-item English spelling recognition practice asks you to select one correct form for each original sentence. Six items each cover doubled consonants, vowel choices, letter order and word endings. Completion provides a total out of twenty-four, four counts out of six and every worked answer. Sentences and alternatives remain English, with complete English and Chinese instructions and revision guides. Results locate revision topics in this word set; dictation, composition, language levels and school attainment require their own assessments."
   },
   "resultHeading": {
     "en": "Your spelling results and every explanation",

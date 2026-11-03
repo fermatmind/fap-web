@@ -14,21 +14,21 @@
     "en": "Four overlap lenses: your complete exploration"
   },
   "description": {
-    "zh": "免费生之目的测试原创四组交叠探索版：16道情境题，读喜欢、练习、需要与报酬的四份完整说明。所有最高并列都保留，不把计数当作能力、收入或人生使命。",
-    "en": "A free Ikigai Test: 16 original scenarios, four full overlap guides and every highest tie. Explore questions without ability, income or purpose verdicts."
+    "zh": "用16道原创情境题，探索喜欢、练习、需要与报酬之间的四种提问视角。免费查看四项计数、全部最高并列与完整指南，无需注册。",
+    "en": "Explore enjoyment, practice, needs and payment through 16 original scenarios. View four counts, every highest tie and full guides free, without signup."
   },
   "seoTitle": {
-    "zh": "生之目的测试（Ikigai）：四组交叠免费完整结果",
-    "en": "Ikigai Test: Four Overlap Lenses & Free Full Results"
+    "zh": "Ikigai生之目的测试：16题探索、四种视角与完整解读",
+    "en": "Ikigai Test: 16 Scenarios, Four Exploration Lenses and Full Guides"
   },
   "minutes": 5,
   "introduction": {
-    "zh": "一件小活动可能让你想练一点东西，也可能让你先关心别人需要什么、怎样安排支持。本版借现代四圆图里热情、使命、职业、天职四组常见交叠，写了16道假想情境，只问你更想先探索哪一组问题。喜欢与擅长不是同一件事，支付条件也不代表已经有收入或市场；选择不把这些未知变成事实。四圆图与日本ikigai更广泛的日常含义并不等同，关系、爱好和小事也可以有意义，不必合成一份有薪工作。本版不是传统公式、标准Ikigai9或职业能力测量。所有最高并列都逐份呈现全文，不从全四项并列推理想中心，也不叫你补齐所谓被忽略的两圈。四份完整说明免费，也可以先读再决定是否作答。",
-    "en": "A small activity may make you want to practise something, understand a person’s need or explore support arrangements. This edition uses Passion, Mission, Profession and Vocation, four familiar overlaps from a modern map, for sixteen original hypothetical situations asking which questions you would explore first. Enjoyment is not proficiency, and payment conditions establish neither income nor a market; choosing a question cannot turn those unknowns into facts. The map is not equivalent to the broader everyday Japanese concept: relationships, hobbies and small activities can matter without becoming one paid role. This is neither a traditional formula, standard Ikigai9 nor career-capability measurement. Every highest tie receives its full guide, without an ideal centre inferred from four equal counts or prescribed neglected circles. All four guides are free to read before deciding to answer."
+    "zh": "面对一项有意思的小活动，你更想先了解喜欢与练习怎样结合、别人需要什么，还是交付与支持条件？这份Ikigai生之目的测试用16道原创情境四选一，比较热情、使命、职业与天职四种现代图示视角下的探索问题。结果呈现本次四项选择次数及所有最高并列，每种视角都有完整指南，帮助你把想法转成可以继续了解的问题。日常关系、爱好与小事同样值得探索，不必都成为一份有薪工作。",
+    "en": "For an interesting small activity, would you first explore enjoyment and practice, someone’s needs, or delivery and support conditions? This Ikigai Test compares questions from four modern diagram lenses—Passion, Mission, Profession and Vocation—across sixteen original scenarios. View your four choice counts and every highest tie, with a full guide for each lens to turn ideas into questions worth exploring. Everyday relationships, hobbies and small activities can matter without becoming one paid role."
   },
   "instructions": {
-    "zh": "把每题看作一个可想象的小情境，比较四个问题，选择你此刻更想先了解的一组，不是证明你已经会做或能收到报酬。每题只选一项，16题全部选择后显示计数及每一份最高并列全文；四项都同为4次不代表完美中心。没有合适选项时可以退出，本版不解释未完成答卷。无需输入活动名称、收入、他人需要或私人经历。",
-    "en": "Treat each item as a small hypothetical situation. Choose the pair of questions you would most like to explore first now, without claiming an existing skill or payment. Select one option per item. All sixteen selections produce counts and the full guide for every highest-count tie; four equal counts of four do not establish an ideal centre. You can exit if no option fits; incomplete attempts are not interpreted. No activity name, income, others’ needs or private experience is entered."
+    "zh": "设想每个普通情境，比较四组问题，选择你此刻更愿意先了解的一组；不需要证明自己已有能力、收入或市场需求。每题只选一项，16题完成后查看四项计数和所有最高并列全文。没有合适选项时可以退出，未完成答卷不作解释。不输入活动名称、收入、他人需要或私人经历。点击开始直接进入题目，无需再次同意、注册或付费解锁；也可先阅读四份公开指南。",
+    "en": "Imagine each ordinary situation and choose the pair of questions you would currently prefer to explore first. No existing skill, income or market demand has to be demonstrated. Select one option per item; complete all sixteen for four counts and every highest-tie guide. You can exit if no option fits; incomplete attempts are not interpreted. No activity name, income, others’ needs or private story is entered. Start opens questions directly without another agreement, signup or paid unlock. You can also read all four public guides first."
   },
   "source": {
     "kind": "FermatMind original hypothetical exploration choices using four familiar overlaps in the modern purpose diagram; not a Japanese traditional formula, Ikigai9 scale, psychological measurement or JobCannon bank. Common good-at/skill wording is treated here only as practice questions, not a measured capability.",
@@ -1448,6 +1448,20 @@
         "zh": "JapanGov文化特写：ikigai的日常含义与现代图讨论",
         "en": "JapanGov cultural feature: everyday ikigai and the modern map"
       }
+    },
+    {
+      "title": {
+        "zh": "Marc Winn（2014文章及后加注）：四圆图与ikigai一词的结合",
+        "en": "Marc Winn (2014 essay and later note): joining ikigai to a purpose diagram"
+      },
+      "url": "https://theviewinside.me/what-is-your-ikigai"
+    },
+    {
+      "title": {
+        "zh": "今井、长田与西村（2012）：Ikigai-9的信度与效度研究",
+        "en": "Imai, Osada & Nishimura (2012): reliability and validity of Ikigai-9"
+      },
+      "url": "https://www.jstage.jst.go.jp/article/jph/59/7/59_433/_article/-char/ja/"
     }
   ]
 }

@@ -15,12 +15,12 @@
     "zh": "PSS-4：过去一个月感知压力自评"
   },
   "description": {
-    "en": "Four past-month questions with a transparent 0–16 raw total and a complete guide. No diagnosis or universal score cutoffs.",
-    "zh": "四项月度回顾，公开0—16原始计分并提供完整指南；不作诊断，不派通用分档。"
+    "en": "Answer four published PSS-4 questions about the past month. Read the 0–16 raw total, each reverse-scored contribution and the complete guide, free without registration.",
+    "zh": "回答四道已发表的PSS-4问题，回顾过去一个月。免费查看0—16原始总分、逐题反向计分贡献与完整指南，无需注册。"
   },
   "introduction": {
-    "en": "This page uses the published English PSS-4 items. The Chinese prompts are an independent FermatMind translation, not the listed official China version; Chinese measurement equivalence and norms are not claimed. Use your feelings and thoughts during the past month to answer each question. There is no target score.",
-    "zh": "本页使用作者实验室公开的英文PSS-4四题。中文为本站独立译文，非所列官方China译本；未主张已验证中文等效或中文常模。按过去一个月的感受与想法回答每题，无需追求目标分数。"
+    "en": "Use the past month as your reference for all four questions, including the positive experiences of confidence and things going your way. Chinese prompts and answer labels are an independent FermatMind translation, not the listed official China edition; Chinese measurement equivalence and norms have not been established for this presentation.",
+    "zh": "四题均以过去一个月为参照，包括有信心与事情如愿的正向体验。中文题干及回答标签为费马独立译文，不是所列官方China版本；本页中文呈现尚未建立测量等效与常模。"
   },
   "instructions": {
     "en": "Choose one frequency per question. You can exit and read the guide without a score. The website shows a total only after four valid responses.",

@@ -14,21 +14,21 @@
     "en": "Your 22 symbolic themes and every highest tie"
   },
   "description": {
-    "zh": "你是哪张塔罗牌？22道原创偏好题比较22张大阿尔卡那，全部最高并列与完整结果免费读，无需注册。不是生日计算、抽牌或占卜，不预告健康、财富或未来。",
-    "en": "Which tarot card are you? Take 22 original questions and read full guides for all 22 Major Arcana free. Keep highest ties, with no signup or fortune-telling."
+    "zh": "用22道原创日常偏好题探索22张大阿尔卡那的象征主题。约7分钟，查看每张牌的原始次数、全部最高并列与完整解读；免费、无需注册，不需要生日或塔罗知识。",
+    "en": "Explore the symbolic themes of all 22 Major Arcana through 22 original everyday preference questions. About 7 minutes; free counts, every highest tie and complete guides. No signup, birthday or tarot knowledge needed."
   },
   "seoTitle": {
-    "zh": "你是哪张塔罗牌测试：22题与22张完整结果",
-    "en": "Which Tarot Card Are You? Free 22-Card Quiz and Results"
+    "zh": "你是哪张塔罗牌测试：22题、完整结果与计分说明",
+    "en": "Which Tarot Card Are You? 22 Questions, Free Results & Scoring"
   },
   "minutes": 7,
   "introduction": {
-    "zh": "本版把22张大阿尔卡那用作当代选择的象征：怎样开始、表达、安排、暂停、修正或收尾。你会回答22道原创四选一，看到本题组计数和所有最高并列的完整说明。它是偏好问卷，不是按生日算牌、随机抽牌或预测未来；不需要知道塔罗，也没有最佳或最坏的结果。每张牌的完整背景、例子、对话、比较、反例与可选行动都能先读，死神、高塔和恶魔也不会变成灾祸预告。",
-    "en": "This edition uses all 22 Major Arcana as symbols for contemporary choices: beginning, expressing, arranging, pausing, revising or finishing. Answer 22 original four-choice questions, compare counts within this set and read every highest-tied guide in full. It is a preference quiz rather than a birth-card calculator, random draw or forecast. No tarot knowledge is needed, and there is no best or worst result. Every guide is available before answering, with concrete examples, wording, comparisons and optional observations. Death, The Tower and The Devil forecast no disaster."
+    "zh": "这是一份以塔罗大阿尔卡那为命名素材的原创偏好测验。22道日常情境题分别讨论开始、动手、独自整理、共同选择、调整安排与结束阶段等做法；每题从四项中选出此刻更想采用的一项。结果把选项次数对应到象征主题，帮助你用具体例子讨论本次选择。",
+    "en": "This original preference quiz uses Major Arcana names as symbolic themes. Its 22 everyday situations concern beginning, making, thinking independently, choosing together, adjusting arrangements and closing a phase. Choose the approach you would prefer now from four options; the result connects your counts with themes you can discuss through concrete examples."
   },
   "instructions": {
-    "zh": "本版是22题原创偏好问卷，借22张大阿尔卡那作当代象征标签，不是生日牌计算、随机抽牌或占卜。每题从四种普通、自愿、低风险的做法中选当前更想采用的一项；每张牌在全卷出现4次、四个位置各1次。完成22题后比较本题组次数，所有最高并列都显示完整说明；全选第一项会22张各1次，全都保留。名字不评价好坏，死神、高塔、恶魔等不预告任何事件，也不判断健康、道德、能力或命运。可以停止或重测，没有必须符合的牌型。",
-    "en": "This is an original 22-question preference quiz using the 22 Major Arcana as contemporary symbolic labels, not a birth-card calculation, random draw or divination. Choose the ordinary, voluntary, low-stakes approach you currently prefer from four options per question. Each card appears four times, once in each position. After all 22 choices, compare counts within this set and read every highest-tied guide. Choosing the first option throughout gives one each and retains all 22. Names set no good–bad hierarchy: Death, The Tower and The Devil forecast no events and assess neither health, morality, ability nor destiny. You may stop or retake without needing to fit a card."
+    "zh": "以近期熟悉的日常活动为参照，每题选择四项中更贴近当前想法的一项。没有正确答案，不需要认识牌名，也不用选择听起来更高尚的说法。两项都喜欢时，选这次更想先尝试的一项；全部答完后生成22项原始次数、所有最高并列及完整结果。",
+    "en": "Use familiar recent activities as your reference and choose the closest of four options in each question. There are no correct answers; you need neither card knowledge nor the most admirable-sounding choice. If two appeal, select the one you would try first this time. Finish all questions to see 22 raw counts, every highest tie and the complete results."
   },
   "source": {
     "kind": "FermatMindoriginal22MajorArcanasymbolicpreferences/nobirthdate-randomdraw-forecast-psychometricinstrument",
@@ -4450,78 +4450,187 @@
     {
       "id": "archetype-counts",
       "title": {
-        "zh": "选择怎样形成22张牌的计数",
-        "en": "How choices produce the 22 card-theme counts"
+        "zh": "22道题怎样计分：等次出现与固定总数",
+        "en": "How 22 questions are counted: equal exposure and a fixed total"
       },
       "paragraphs": [
         {
-          "zh": "22题全部各选一项，对应牌的主题加1，总数固定22。每题只提供22主题中的四个，每个主题出现4次、四个位置各1次；没提供的其他主题不算被拒绝。每项0—4次只表示本题组相对选择，不是独立人格强度、牌面相似度百分比或人口排名。所有最高次数都保留完整结果：全选第一项会22张各1次，全部显示；源见证也为每一张构造了单独最高4次的完整答卷。名单先后不定主次，相差一次只是一道选择，不证明显著差异、固定主副牌或某种品质消失。近分可以比较，但不增加未并列的混合类型。没有科学阈值、稀有度、常模或命运概率，换情境和回答可能改变结果。",
-          "en": "Choose one option for all 22 questions; each adds one to its card theme, and counts always sum to 22. A question offers four of the 22 themes. Every theme appears four times, once in each position; absent themes are not counted as rejected. A count from zero to four describes relative choices within this set, not an independent personality strength, card-match percentage or population rank. Every highest count retains a full guide. Any of the 22 cards can be a highest result. Choosing the first option throughout gives one count per card and shows all 22 guides. List order establishes no priority. A one-choice gap proves neither significance, fixed primary–secondary cards nor an absent quality. Compare close counts without inventing untied hybrid types. There are no scientific cutoffs, rarity estimates, norms or fate probabilities. Context and answers may change the result."
+          "zh": "每题有四个不同主题的选项，选中一项就给相应主题加1次，其余不加分。22张牌各出现在四道题里，并在第一、第二、第三、第四个选项位置各出现一次；因此每项范围为0—4次，答完后的22项总和固定为22。",
+          "en": "Each question offers four different themes. Selecting an option adds one count to its theme and none to the others. Each of the 22 cards appears in four questions, once in each of the four option positions. A card can receive 0–4 counts; the sum of all 22 counts is always 22 after completion."
+        },
+        {
+          "zh": "一次选择只比较该题实际提供的四项，题中没有出现的另外18个主题并未被你拒绝。次数说明本题组内相对更常选哪种做法，不能读成人格含量、发生概率、人群百分位或测量精度。出现次数与位置平衡是题本结构，仍需另有证据才能评价测量质量。",
+          "en": "A choice compares only the four options offered in that question. It does not reject the 18 themes that were absent. Counts describe relative choices within this set, not personality concentration, event probability, population percentiles or precision. Balanced exposure and positions describe the questionnaire design; evaluating measurement quality requires separate evidence."
         }
       ]
     },
     {
       "id": "archetype-ties",
       "title": {
-        "zh": "全部最高并列与22份完整说明",
-        "en": "Every highest tie and 22 full guides"
+        "zh": "最高并列怎样保留：算例与完整报告",
+        "en": "How highest ties are retained: examples and complete reports"
       },
       "paragraphs": [
         {
-          "zh": "22份结果各有本版主题解释、计数读法、具体例子、表达方式、相邻比较、反例、小观察、计分和来源。所有最高并列完整显示；全A会显示22份，不把目录第一张当主牌。近分可以比较，不补造固定人格、命运组合或看不见的副牌。更改回答只证明选择变化，不证明人生阶段或心理状态改变。",
-          "en": "Each of the 22 guides includes this edition’s theme, a count reading, a concrete example, possible wording, comparisons, counterexamples, an optional observation, scoring and sources. Every highest tie appears in full; choosing A throughout displays all 22 without making the first primary. Compare close counts without inventing a fixed personality, fate combination or hidden secondary card. Changed answers establish changed choices, not a new life stage or mental state."
-        }
-      ]
-    },
-    {
-      "id": "card-numbering",
-      "title": {
-        "zh": "本版22张牌名与编号",
-        "en": "The 22 names and numbering in this edition"
-      },
-      "paragraphs": [
+          "zh": "系统找出22项中的最高次数，所有达到该次数的牌都进入本次结果。不会随机抽一张，也不靠牌号、选项位置或排列顺序强分主次。相差1次仍保留真实差异，本版没有把接近分数自动合并的阈值。",
+          "en": "The result includes every card whose count equals the maximum across all 22 themes. It does not draw one at random or impose a primary card through numbering, option position or list order. A one-count difference remains a difference; this edition has no threshold for merging nearby counts."
+        },
         {
-          "zh": "0 愚人；1 魔术师；2 女祭司；3 皇后；4 皇帝；5 教皇；6 恋人；7 战车；8 力量；9 隐士；10 命运之轮；11 正义；12 倒吊人；13 死神；14 节制；15 恶魔；16 高塔；17 星星；18 月亮；19 太阳；20 审判；21 世界。本版采用Waite–Smith常见编号，VIII为力量、XI为正义；不同历史牌组可能不同，编号只识别名称，不是好坏、成长阶段或必须依次经历的路线。历史书的0号位置和本版0—21目录展示也不构成命运顺序。",
-          "en": "0 The Fool; 1 The Magician; 2 The High Priestess; 3 The Empress; 4 The Emperor; 5 The Hierophant; 6 The Lovers; 7 The Chariot; 8 Strength; 9 The Hermit; 10 Wheel of Fortune; 11 Justice; 12 The Hanged Man; 13 Death; 14 Temperance; 15 The Devil; 16 The Tower; 17 The Star; 18 The Moon; 19 The Sun; 20 Judgement; 21 The World. This edition uses familiar Waite–Smith numbering, with Strength VIII and Justice XI; historical decks may differ. Numbers identify names, not merit, developmental stages or a required journey. The historical book’s placement of zero and this catalogue’s 0–21 display create no sequence of fate."
+          "zh": "可复算的例子是：22题都选第一项，每张牌恰好被选1次，总和22，全部22张牌并列最高。另一个可实现的情况是某张牌被选4次，其他牌各不超过1次，它便单独最高。并列数量来自回答本身；结果会展示相应完整指南，而不是补出未作答的第二人格。",
+          "en": "For a reproducible example, choosing the first option in all 22 questions gives every card exactly one count: total 22, with all 22 tied highest. Another achievable case gives one card four counts and every other card at most one, producing a sole highest result. The answers determine the number of ties; matching full guides are shown without inventing a secondary personality."
         }
       ]
     },
     {
       "id": "archetype-metaphor",
       "title": {
-        "zh": "象征、实际处境与预测分开",
-        "en": "Symbols, actual circumstances and prediction"
+        "zh": "象征读法：牌名如何对应日常做法",
+        "en": "Symbolic interpretation: connecting names with everyday approaches"
       },
       "paragraphs": [
         {
-          "zh": "死神不预告死亡，高塔不预告灾难，恶魔不判断邪恶或成瘾，审判不裁决人的价值，恋人不配对伴侣，力量不要求忍耐，太阳不要求快乐。所有说明都是原创当代联想，不能用来忽略实际需要、同意、资源和支持。历史或象征有意义，不等于本站题目经过心理验证，也不意味着结果可以作重大决定。",
-          "en": "Death predicts no death; The Tower no disaster. The Devil judges neither evil nor addiction; Judgement no personal worth; The Lovers no partner fit. Strength requires no endurance and The Sun no happiness. These original contemporary associations cannot override needs, consent, resources or support. Historical or symbolic meaning provides neither psychometric validation of these items nor grounds for major decisions."
+          "zh": "本版把愚人对应可退出的小尝试，把魔术师对应使用现有材料，把皇帝对应可调整的安排，把隐士对应自选的独立整理时间。这些是费马为本题组写作的主题连接，不是从古代文献发现的22种科学人格，也不把一张牌解释成你在所有场合的本质。",
+          "en": "This edition connects the Fool with a small reversible attempt, the Magician with available materials, the Emperor with adjustable arrangements and the Hermit with chosen time to think. These are FermatMind editorial connections for this questionnaire, not 22 scientific personality categories discovered in an ancient text or a card defining your essence across situations."
+        },
+        {
+          "zh": "死神只涉及普通事项的结束，高塔涉及核对不合用的假设，恶魔涉及想要与实际限制，审判涉及回看后重新选择。它们不预告死亡、灾祸或惩罚，也不判断邪恶、成瘾或人的价值。可以直接阅读其他牌的指南；不认同某段解释时，无需强行把经历套进去。",
+          "en": "Death concerns closing an ordinary matter, the Tower rechecking an assumption, the Devil wants and real constraints, and Judgement choosing again after review. They predict no death, disaster or punishment and judge neither evil, addiction nor human worth. You may read any other guide; disagreement with a passage does not require fitting your experience to it."
         }
       ]
     },
     {
-      "id": "source",
+      "id": "card-numbering",
       "title": {
-        "zh": "原创题目、结果与历史来源",
-        "en": "Original items, guides and historical sources"
+        "zh": "22张大阿尔卡那：牌名、编号与版本差异",
+        "en": "The 22 Major Arcana: names, numbers and edition differences"
       },
       "paragraphs": [
         {
-          "zh": "这是费马原创的22题象征偏好问卷，采用Waite–Smith常见大阿尔卡那牌名和编号，VIII力量、XI正义；不是全78张牌的问卷，也不是任何牌组或出版方的官方工具。Waite历史文本与Met博物馆文章用于核对牌名、编号及历史背景，宗教、神秘学和历史解释不构成心理测量依据。本版22道日常选择、22个当代主题映射、报告、例子和计数规则为独立创作，没有采用JobCannon12题、竞品正文／算法／代码、牌面图、影视游戏图、现代说明书或原书逐字段落。它不使用生日、随机抽牌、正逆位或预测规则。名字不鉴定性别、宗教、健康、道德、能力、依恋、财富或未来，也不指导医疗、法律、财务和重大关系决定；死神、高塔、恶魔等不预告任何事件。没有本站心理测量验证。",
-          "en": "This is an original FermatMind symbolic preference quiz with 22 questions, using familiar Waite–Smith Major Arcana names and numbering: Strength VIII and Justice XI. It covers neither all 78 cards nor an official publisher’s tool. Waite’s historical text and The Met’s article check names, numbering and context; religious, occult and historical interpretations provide no psychometric validation. All 22 everyday choices, contemporary theme mappings, reports, examples and counting rules are independently authored. No JobCannon 12-item bank, competitor body, algorithm or code, card art, film or game image, modern guidebook or verbatim historical passage is used. There is no birth date, random draw, upright–reversed reading or forecasting rule. Names establish no gender, religion, health, morality, ability, attachment, wealth or future and guide no medical, legal, financial or major relationship decision. Death, The Tower and The Devil predict no event. This website edition has no psychometric validation."
+          "zh": "本页采用韦特—史密斯常见编号：0愚人、I魔术师、II女祭司、III皇后、IV皇帝、V教皇、VI恋人、VII战车、VIII力量、IX隐士、X命运之轮、XI正义、XII倒吊人、XIII死神、XIV节制、XV恶魔、XVI高塔、XVII星星、XVIII月亮、XIX太阳、XX审判、XXI世界。编号用来辨认符号，不表示品格高低、成熟等级或必经的人生阶段。",
+          "en": "The page uses familiar Waite–Smith numbering: 0 Fool, I Magician, II High Priestess, III Empress, IV Emperor, V Hierophant, VI Lovers, VII Chariot, VIII Strength, IX Hermit, X Wheel of Fortune, XI Justice, XII Hanged Man, XIII Death, XIV Temperance, XV Devil, XVI Tower, XVII Star, XVIII Moon, XIX Sun, XX Judgement and XXI World. Numbers identify symbols, not moral rank, maturity levels or compulsory life stages."
+        },
+        {
+          "zh": "不同牌系的名字与排序可能不同。韦特在《The Pictorial Key to the Tarot》第二部分把力量列为VIII、正义列为XI，并说明交换了两者的位置；因此比较其他版本时要先认牌系，不能只按号码对齐。该书可核对历史解释与命名，不能验证本测验的选项映射或人格推断。[2]",
+          "en": "Names and order can vary between traditions. In Part II of The Pictorial Key to the Tarot, Waite lists Strength as VIII and Justice as XI and discusses exchanging their positions. Identify the tradition before comparing cards by number. His text documents historical interpretation and naming; it does not validate this quiz’s option mapping or personality inferences.[2]"
+        }
+      ]
+    },
+    {
+      "id": "history",
+      "title": {
+        "zh": "塔罗的历史背景与本测验的主题范围",
+        "en": "Historical context and the scope of this quiz"
+      },
+      "paragraphs": [
+        {
+          "zh": "塔罗首先有纸牌游戏的历史。Met博物馆将早期记载放在15世纪意大利北部，介绍四花色的56张牌以及愚人和21张王牌；V&A同样区分游戏起源与后来发展出的占卜用途。本页选用现代常见的22张大阿尔卡那作为文化命名，不把纸牌历史改写成古代心理测量史。[1][3]",
+          "en": "Tarot has a history as a card game. The Met locates early references in fifteenth-century northern Italy and describes 56 suited cards alongside the Fool and 21 trumps. The V&A likewise distinguishes the game’s origins from later divinatory uses. This page takes the familiar modern 22 Major Arcana as cultural names, without treating card history as a history of psychological measurement.[1][3]"
+        },
+        {
+          "zh": "历史牌意、当代读者的联想和本站题目是三个层面。例如，古书的宗教或神秘学解释不直接决定某个日常选项该加哪张牌。本测验的题目与计分由费马原创编写，仅覆盖22个象征主题；它不测试78张牌的知识、不生成牌阵，也不处理正位与逆位。",
+          "en": "Historical meanings, contemporary associations and this questionnaire are distinct layers. A religious or esoteric interpretation does not directly determine which card should receive a count for an everyday option. FermatMind authored the questions and scoring for these 22 symbolic themes. The quiz neither examines knowledge of all 78 cards nor generates spreads or upright/reversed readings."
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "zh": "怎样阅读结果：先核对选择，再讨论解释",
+        "en": "Reading results: check the choices before discussing interpretation"
+      },
+      "paragraphs": [
+        {
+          "zh": "先看22项计数与最高并列，再读相应指南中的具体行为、对话、相近主题比较与反例。选择一条你能想到实例的描述，写下发生了什么、当时有哪些条件，以及另一件并不符合的事。这样讨论的是可观察的选择，而不是因为牌名好听就接受一整套身份。",
+          "en": "Start with the 22 counts and highest ties, then read concrete behaviours, dialogues, neighbouring-theme comparisons and counterexamples in the matching guides. Choose one description for which you can recall an event; note what happened, its conditions and another event that does not fit. This keeps discussion about observable choices rather than accepting an identity because a card name appeals."
+        },
+        {
+          "zh": "例如，隐士与倒吊人都可以涉及暂停：前者侧重留一段独立整理时间，后者侧重换一种问法重新审视问题。一个人可以两种都喜欢，也可能在这份题组中只更多选了其中一种；这不表示他总是独处或习惯拖延。",
+          "en": "For example, the Hermit and Hanged Man can both involve pausing: one emphasises time for independent thinking, the other reconsidering how a question is framed. Someone may like both while choosing one more often in this set. Neither result means always seeking solitude or habitually procrastinating."
+        }
+      ]
+    },
+    {
+      "id": "comparisons",
+      "title": {
+        "zh": "相近牌名的区别：修正、结束与完成",
+        "en": "Distinguishing nearby themes: revision, ending and completion"
+      },
+      "paragraphs": [
+        {
+          "zh": "高塔、死神与世界都可能出现在整理旧项目的情境，但本版关注点不同：高塔检查某个假设是否仍然成立；死神允许一个普通阶段停止；世界辨认已经完成和可以整合的部分。不要把三个名字当成同义词，也不必把日常收尾解释成剧烈转变。",
+          "en": "The Tower, Death and World may all be relevant to an old project, but this edition gives them different emphases: checking whether an assumption still holds, allowing an ordinary phase to stop, and recognising what is finished and can be integrated. They are not interchangeable names, and routine closure need not signify dramatic transformation."
+        },
+        {
+          "zh": "皇后与节制也可以一起读：前者关注时间、材料和照顾需要等条件，后者关注两种兼容方法怎样组合。比如整理一个阅读角，可以先确认座位与休息条件，也可以比较安静阅读和短时讨论的比例。计数不会认证照顾能力、自律或所谓能量平衡。",
+          "en": "The Empress and Temperance can also be read together: one concerns conditions such as time, materials and care needs; the other how compatible methods might combine. For a reading corner, you might check seating and rest conditions or compare quiet reading with short discussion. Counts certify neither caregiving ability, discipline nor an energy balance."
+        }
+      ]
+    },
+    {
+      "id": "evidence",
+      "title": {
+        "zh": "科学性怎样判断：计分可复算与测量证据",
+        "en": "Evaluating scientific claims: reproducible counts and measurement evidence"
+      },
+      "paragraphs": [
+        {
+          "zh": "可复算意味着给定相同答案，就能依据公开加分规则核对相同计数与并列。这验证的是程序是否按题本运行。若要声称测量稳定人格，还需要该题本在目标语言与人群中的信度、效度、重测和其他相关证据；当前本版尚未完成这些心理测量验证。",
+          "en": "Reproducibility means that the same answers can be checked against the published addition rules to obtain the same counts and ties. This verifies operation of the questionnaire. Claims about stable personality measurement would require reliability, validity, retest and other relevant evidence for this instrument in its target language and population. That psychometric validation has not been completed for this edition."
+        },
+        {
+          "zh": "觉得描述有共鸣，可以成为继续观察的理由，却不能单独证明人格测量有效。塔罗史料、牌名的流行程度、结果文字长度或算法能否运行，都不替代该题本自身的研究。这里提供的是娱乐性象征探索；不生成临床结论、职业适任分或伴侣匹配率。",
+          "en": "A description that resonates may prompt further observation, but resonance alone cannot establish validity as a personality measure. Historical sources, popular card names, long reports and a functioning algorithm do not replace research on this instrument. This is entertainment and symbolic exploration, producing no clinical conclusion, job-suitability score or partner-match rate."
+        }
+      ]
+    },
+    {
+      "id": "practical",
+      "title": {
+        "zh": "把结果变成一个小问题：共同活动实例",
+        "en": "Turning a result into a small question: a shared-activity example"
+      },
+      "paragraphs": [
+        {
+          "zh": "假设你想和朋友安排一次普通手作活动。可以用魔术师主题问“现有材料能先做什么小样”，用皇帝主题问“哪些步骤需要先约定”，用恋人主题问“每个人愿意参与哪部分”。不需要先测朋友，也不用把任务按牌名分配。",
+          "en": "Suppose you are planning a small craft activity with friends. The Magician theme can prompt “What sample could we make with materials already here?”, the Emperor “Which steps need an agreement?”, and the Lovers “Which parts does each person want to join?”. Friends need not take the quiz, and tasks need not be assigned by card."
+        },
+        {
+          "zh": "从中挑一个问题，尝试一次可调整的小安排，之后核对参与者的实际反馈。如果有人不想加入，尊重这个选择；不能把拒绝解释成某张牌的阴影或成长课题。是否有帮助由具体体验决定，不由结果名称保证。",
+          "en": "Pick one question, try an adjustable arrangement and review participants’ actual feedback. Respect anyone who does not wish to join; refusal is not a card’s shadow or a growth lesson. The experience, rather than the result name, determines whether the prompt helped."
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": {
+        "zh": "重测、语言与个人选择的情境",
+        "en": "Retesting, language and the context of personal choices"
+      },
+      "paragraphs": [
+        {
+          "zh": "近期活动、可用资源、疲劳程度和对句子的理解，都可能影响你更愿意选哪项。比较两次结果时，先看哪些具体题目变了，再看最高项有没有改变。接近最高值的少数选择变化便可能影响并列，不能仅凭牌名变化断言人格转变。",
+          "en": "Recent activities, resources, fatigue and interpretation of a sentence may affect which option appeals. Compare the actual changed answers before comparing highest cards. A few changes near the maximum can alter ties; a different card name alone does not establish personality change."
+        },
+        {
+          "zh": "中英文使用相同题目身份、方向与加分结构，但翻译对照不等于已建立跨语言测量等值性。可以选更熟悉的语言阅读；如需回看一次作答，记录当时的参照情境比追求每次同一张牌更有用。",
+          "en": "Chinese and English share question identities, directions and the addition structure, but bilingual correspondence does not establish measurement equivalence across languages. Use the language you read most comfortably. When revisiting an attempt, recording its context is more useful than trying to obtain the same card every time."
         }
       ]
     },
     {
       "id": "privacy",
       "title": {
-        "zh": "草稿、分享与可选下一步",
-        "en": "Drafts, sharing and optional next steps"
+        "zh": "免费结果、保存与分享范围",
+        "en": "Free results, saving and sharing"
       },
       "paragraphs": [
         {
-          "zh": "答案在浏览器内计分，不上传、不进网址和分析。草稿需主动保存，仅当前标签页恢复，24小时失效，完成、退出清除或重测即删。可选分享只有公开主题说明和链接，没有答卷与次数。完整22份结果免费，不收邮箱、不要求先做MBTI；后续测评另属框架，需要重新作答，不由塔罗换算人格、健康或职业，也可以到此结束。",
-          "en": "Answers are scored in your browser without uploading them or including them in URLs or analytics. Draft saving requires opt-in, restores only in this tab, expires after 24 hours and clears on completion, exit-and-clear or retake. Optional sharing contains public theme guides and links without answers or counts. All 22 full results are free, without email or prerequisite MBTI. Further assessments are separate frameworks needing new responses; tarot does not convert into personality, health or career fit. You can stop here."
+          "zh": "22题和22篇完整指南全部免费，无需注册、邮箱、生日或先完成MBTI。点击开始测试即可作答。当前作答在浏览器计算，不通过计分请求上传答案，也不把答案或各牌计数写入网址或分析事件。网站的非答案使用事件仍以隐私与Cookie设置为准。",
+          "en": "All 22 questions and 22 full guides are free, without signup, email, birthday or a prior MBTI test. Start test opens the questions. Answers are scored in the browser, not uploaded through a scoring request or written with card counts into URLs or analytics events. Non-answer website usage events remain governed by privacy and cookie settings."
+        },
+        {
+          "zh": "默认不保存作答。只有主动保存后，本标签页才提供24小时内的恢复；完成、重测或退出清除会移除进度。公开结果链接指向通用指南，分享它不包含私人答案或次数；可以直接阅读、比较或离开，不需要额外同意来解锁结果。",
+          "en": "Answers are not saved by default. Optional saving enables recovery in this tab for up to 24 hours; completion, retaking or exiting with clearing removes progress. A public result link opens a general guide without private answers or counts. Reading, comparing or leaving requires no extra agreement to unlock results."
         }
       ]
     }
@@ -4529,62 +4638,142 @@
   "faq": [
     {
       "question": {
-        "zh": "这是问卷、生日牌计算还是抽牌？",
-        "en": "Is this a quiz, birth-card calculation or card draw?"
+        "zh": "你是哪张塔罗牌测试，测的是什么？",
+        "en": "What does “Which Tarot Card Are You?” test?"
       },
       "answer": {
-        "zh": "这是22道原创四选一的偏好问卷，只按本次选择计数。没有生日输入、随机抽取、正逆位或占卜步骤，也不需要塔罗知识。22张牌是象征标签，不预告未来；其他计算器或抽牌工具有不同输入与规则，不能与本版结果混用。",
-        "en": "This is an original 22-question preference quiz, with four choices per question and counts from your responses only. There is no birth date, random draw, upright–reversed reading or divination step, and no tarot knowledge is needed. Cards are symbolic labels, not predictions. Calculators and drawing tools have different inputs and rules and are not interchangeable with this result."
+        "zh": "它记录22道原创情境中你更愿意采用的做法，并用22张大阿尔卡那命名本次选择主题。结果包含原始次数、所有最高并列和完整指南，用于象征性自我探索，不把牌名当作稳定人格结论。",
+        "en": "It records preferred approaches in 22 original situations and names the themes with 22 Major Arcana. Results include raw counts, every highest tie and full guides for symbolic exploration, rather than treating a card as a stable personality conclusion."
       }
     },
     {
       "question": {
-        "zh": "全部22张牌都能成为结果吗？",
-        "en": "Can all 22 cards be results?"
+        "zh": "需要出生日期、抽牌或懂塔罗吗？",
+        "en": "Do I need my birthday, a card draw or tarot knowledge?"
       },
       "answer": {
-        "zh": "22题全部各选一项，对应牌的主题加1，总数固定22。每题只提供22主题中的四个，每个主题出现4次、四个位置各1次；没提供的其他主题不算被拒绝。每项0—4次只表示本题组相对选择，不是独立人格强度、牌面相似度百分比或人口排名。所有最高次数都保留完整结果：全选第一项会22张各1次，全部显示；源见证也为每一张构造了单独最高4次的完整答卷。名单先后不定主次，相差一次只是一道选择，不证明显著差异、固定主副牌或某种品质消失。近分可以比较，但不增加未并列的混合类型。没有科学阈值、稀有度、常模或命运概率，换情境和回答可能改变结果。",
-        "en": "Choose one option for all 22 questions; each adds one to its card theme, and counts always sum to 22. A question offers four of the 22 themes. Every theme appears four times, once in each position; absent themes are not counted as rejected. A count from zero to four describes relative choices within this set, not an independent personality strength, card-match percentage or population rank. Every highest count retains a full guide. Any of the 22 cards can be a highest result. Choosing the first option throughout gives one count per card and shows all 22 guides. List order establishes no priority. A one-choice gap proves neither significance, fixed primary–secondary cards nor an absent quality. Compare close counts without inventing untied hybrid types. There are no scientific cutoffs, rarity estimates, norms or fate probabilities. Context and answers may change the result."
+        "zh": "不需要。生日牌属于另一种数字计算，抽牌涉及另一种选择机制；本页只按你的实际回答加分，不读取生日、不随机发牌，也不根据牌阵或正逆位产生预告。",
+        "en": "No. Birth cards use a separate numerical calculation, while drawing cards uses a different selection mechanism. This quiz adds counts from your answers without a birthday, random card assignment, spreads or reversed-card forecasts."
       }
     },
     {
       "question": {
-        "zh": "为什么力量是8、正义是11？",
-        "en": "Why are Strength 8 and Justice 11?"
+        "zh": "多少题、多久、是否全部免费？",
+        "en": "How many questions, how long and is everything free?"
       },
       "answer": {
-        "zh": "本版采用Waite–Smith常见编号：0愚人、VIII力量、XI正义、XXI世界。不同历史牌组和解释版本会有差异，因此这里说明版本。数字只用于识别，不是分数高低、年龄、人生阶段或命运路线；牌名的性别也不限制谁匹配。",
-        "en": "This edition uses familiar Waite–Smith numbering: The Fool 0, Strength VIII, Justice XI and The World XXI. Historical decks and interpretations differ, so the convention is explicit. Numbers identify names rather than score level, age, life stage or fate. Gender in a card name restricts no one’s match."
+        "zh": "共22题，每题四选一，预计约7分钟，不限时。全部题目、计数和22篇完整指南免费，无需注册或先做其他测试。点击开始测试后直接进入题目。",
+        "en": "There are 22 questions with four options each, taking about 7 minutes without a time limit. All questions, counts and 22 complete guides are free, with no registration or prior test. Start test opens the questions directly."
       }
     },
     {
       "question": {
-        "zh": "死神、高塔或恶魔是不是坏结果？",
-        "en": "Are Death, The Tower or The Devil bad results?"
+        "zh": "为什么只包括22张大阿尔卡那？",
+        "en": "Why does the quiz cover only 22 Major Arcana?"
       },
       "answer": {
-        "zh": "不是。它们在本版分别是普通阶段收尾、重查假设、分清愿望与现实限制的原创联想。不预告死亡、灾祸或邪恶，不诊断成瘾，也不要求改变重大生活安排。22张没有好坏排名，实际处境仍按真实资料、意愿与支持处理。",
-        "en": "No. Here they label closing an ordinary phase, checking an assumption, or separating wishes from constraints. They predict neither death, disaster nor evil, diagnose no addiction and demand no major life change. The 22 cards have no good–bad ranking. Address actual circumstances through real information, willingness and support rather than a result label."
+        "zh": "本版明确选择22个文化象征作为主题，不是完整78张塔罗牌测验。常见牌组的另外56张属于小阿尔卡那；牌组结构可参照博物馆资料，题目映射仍是本站原创。[1][3]",
+        "en": "This edition deliberately uses 22 cultural symbols as its themes, not a quiz covering the full 78-card deck. The other 56 cards in a familiar deck are Minor Arcana. Museum sources document the deck structure; the question mapping remains original to this site.[1][3]"
       }
     },
     {
       "question": {
-        "zh": "这是科学人格、健康或关系测评吗？",
-        "en": "Is this a scientific personality, health or relationship assessment?"
+        "zh": "每张牌的次数怎样计算？",
+        "en": "How is each card’s count calculated?"
       },
       "answer": {
-        "zh": "这是费马原创的22题象征偏好问卷，采用Waite–Smith常见大阿尔卡那牌名和编号，VIII力量、XI正义；不是全78张牌的问卷，也不是任何牌组或出版方的官方工具。Waite历史文本与Met博物馆文章用于核对牌名、编号及历史背景，宗教、神秘学和历史解释不构成心理测量依据。本版22道日常选择、22个当代主题映射、报告、例子和计数规则为独立创作，没有采用JobCannon12题、竞品正文／算法／代码、牌面图、影视游戏图、现代说明书或原书逐字段落。它不使用生日、随机抽牌、正逆位或预测规则。名字不鉴定性别、宗教、健康、道德、能力、依恋、财富或未来，也不指导医疗、法律、财务和重大关系决定；死神、高塔、恶魔等不预告任何事件。没有本站心理测量验证。",
-        "en": "This is an original FermatMind symbolic preference quiz with 22 questions, using familiar Waite–Smith Major Arcana names and numbering: Strength VIII and Justice XI. It covers neither all 78 cards nor an official publisher’s tool. Waite’s historical text and The Met’s article check names, numbering and context; religious, occult and historical interpretations provide no psychometric validation. All 22 everyday choices, contemporary theme mappings, reports, examples and counting rules are independently authored. No JobCannon 12-item bank, competitor body, algorithm or code, card art, film or game image, modern guidebook or verbatim historical passage is used. There is no birth date, random draw, upright–reversed reading or forecasting rule. Names establish no gender, religion, health, morality, ability, attachment, wealth or future and guide no medical, legal, financial or major relationship decision. Death, The Tower and The Devil predict no event. This website edition has no psychometric validation."
+        "zh": "每次选中给对应牌加1次。每张牌出现4次，四个位置各一次，因此各项为0—4次，完成后合计22。只比较题中实际出现的选项；未出现的牌不算被拒绝。",
+        "en": "Each selected option adds one to its card. Every card appears four times, once per option position, giving a range of 0–4 and a completed total of 22. Only offered options are compared; an absent card was not rejected."
       }
     },
     {
       "question": {
-        "zh": "可以免费读完、重测和分享吗？",
-        "en": "Can I read everything, retake and share for free?"
+        "zh": "为什么可能有很多张牌并列？",
+        "en": "Why can many cards tie?"
       },
       "answer": {
-        "zh": "可以。22份完整说明都能先读，完成后所有最高匹配完整显示，不用邮箱或注册。重测清除本次答案；分享只含公开说明和链接，没有私人答卷或次数。后续测评自选，不要求先完成其他测试才开放报告，也不把牌型换成MBTI或职业建议。",
-        "en": "Yes. All 22 complete guides are available first, and every highest match appears in full after completion without email or signup. Retaking clears this attempt. Sharing contains public guides and links without private answers or counts. Further assessments are optional, with no prerequisite test gate and no conversion of cards into MBTI or career advice."
+        "zh": "最高次数相同就全部保留，不随机挑一张。比如22题都选第一项，每张牌都是1次，22张全部并列。并列是计数结果，不是系统出错，也不会用牌号暗中破同分。",
+        "en": "All cards sharing the maximum are retained, without a random choice. Choosing the first option throughout gives every card one count and a 22-way tie. A tie follows the counts; it is not an error or secretly resolved by card number."
+      }
+    },
+    {
+      "question": {
+        "zh": "4次代表100%符合、0次代表没有这种特质吗？",
+        "en": "Does four mean a 100% match and zero mean no such trait?"
+      },
+      "answer": {
+        "zh": "都不能这样读。4次仅表示该牌出现的四次中都被选中，0次表示这四次都选了别项。总次数固定，数字是本题组的相对记录，没有常模或准确率含义。",
+        "en": "Neither interpretation follows. Four means selecting that card on each of its four appearances; zero means choosing another option each time. With a fixed total, the numbers are relative records within this set, not norm-based scores or accuracy rates."
+      }
+    },
+    {
+      "question": {
+        "zh": "这个塔罗人格测试有科学验证吗？",
+        "en": "Is this tarot personality quiz scientifically validated?"
+      },
+      "answer": {
+        "zh": "本版尚未完成信度、效度与常模验证。公开规则让计数可复算；博物馆与历史著作帮助核对文化背景，两者都不能证明能测量稳定人格。请把结果作为可讨论的象征主题，结合具体行为核对。",
+        "en": "This edition has not completed reliability, validity or norming studies. Published rules make counts reproducible, while museums and historical texts document cultural context. Neither establishes stable personality measurement. Treat results as symbolic themes to discuss and compare with concrete behaviour."
+      }
+    },
+    {
+      "question": {
+        "zh": "死神、高塔或恶魔是坏结果吗？",
+        "en": "Are Death, the Tower or the Devil bad results?"
+      },
+      "answer": {
+        "zh": "没有好坏等级。本版分别把它们写作普通阶段收尾、检查假设、辨认愿望与实际限制；不预测死亡、事故或厄运，不判断邪恶、成瘾或心理健康，也不要求为了成长经历痛苦。",
+        "en": "There is no good-to-bad ranking. Here these themes concern closing an ordinary phase, checking assumptions, and distinguishing wants from constraints. They predict no death, accident or bad luck, judge neither evil, addiction nor mental health, and require no suffering for growth."
+      }
+    },
+    {
+      "question": {
+        "zh": "力量和正义为什么与其他牌组编号不同？",
+        "en": "Why do Strength and Justice have different numbers in some decks?"
+      },
+      "answer": {
+        "zh": "本版采用力量VIII、正义XI。韦特在第二部分明确讨论将两者交换位置；对照不同牌系时应同时核对名字和版本。编号不是人格高低或计分优先级。[2]",
+        "en": "This edition uses Strength VIII and Justice XI. Waite explicitly discusses exchanging their positions in Part II. Compare names and traditions together when consulting other decks; numbers neither rank people nor determine scoring priority.[2]"
+      }
+    },
+    {
+      "question": {
+        "zh": "恋人牌能判断伴侣或关系配对吗？",
+        "en": "Can the Lovers determine a partner or relationship match?"
+      },
+      "answer": {
+        "zh": "不能。这里的恋人主题关注重视什么与自愿的共同选择，不推断性取向、魅力、依恋或命定伴侣。讨论关系时仍要直接询问对方的意愿、需要与边界。",
+        "en": "No. Here the Lovers concerns values and willing shared choices, without inferring orientation, attractiveness, attachment or a destined partner. Relationship discussions still require asking the other person about wishes, needs and boundaries."
+      }
+    },
+    {
+      "question": {
+        "zh": "和MBTI、大五人格能相互换算吗？",
+        "en": "Can the result be converted to MBTI or Big Five?"
+      },
+      "answer": {
+        "zh": "不能。本页是22个象征主题的选项计数，MBTI讨论四组偏好，大五人格以连续维度描述特质；名字相似或文字有共鸣不能建立分数对应。请分别查看各题本的方法与证据。",
+        "en": "No. This page counts choices across 22 symbolic themes; MBTI discusses four preference pairs and Big Five describes continuous traits. Similar words or resonant descriptions establish no score conversion. Consult each instrument’s own method and evidence."
+      }
+    },
+    {
+      "question": {
+        "zh": "重测换了一张牌，是否说明我改变了？",
+        "en": "Does a different card on retesting mean I have changed?"
+      },
+      "answer": {
+        "zh": "单凭牌名不能判断。先比较作答情境、具体选项与最高次数；少量回答变化就可能改变最高项或并列。当前没有本题本的重测误差证据来量化真实改变。",
+        "en": "The name alone cannot establish change. Compare the context, particular choices and highest counts first; a few changed answers may alter the highest cards or ties. This questionnaire currently lacks retest-error evidence for quantifying genuine change."
+      }
+    },
+    {
+      "question": {
+        "zh": "答案会上传、保存或随分享链接公开吗？",
+        "en": "Are answers uploaded, saved or exposed in a shared link?"
+      },
+      "answer": {
+        "zh": "答案在浏览器计分，不写入计分请求、网址或分析事件。默认不保存；主动保存才在本标签页提供24小时恢复，完成、重测或退出清除后删除。分享的是公开指南，不带个人答案与次数；网站非答案事件以隐私和Cookie设置为准。",
+        "en": "Answers are scored in the browser and not placed in scoring requests, URLs or analytics events. Saving is optional and enables recovery in this tab for 24 hours, cleared on completion, retake or exiting with clearing. Shared links open public guides without answers or counts; non-answer events follow privacy and cookie settings."
       }
     }
   ],
@@ -4602,6 +4791,13 @@
         "en": "A. E. Waite, The Pictorial Key to the Tarot, Part II, 1922 reprint transcription (historical names and symbolism, not psychometric validation)"
       },
       "url": "https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_2"
+    },
+    {
+      "title": {
+        "zh": "V&A：塔罗纸牌的历史、结构与后来的占卜用途",
+        "en": "V&A: history, deck structure and later divinatory uses of tarot"
+      },
+      "url": "https://www.vam.ac.uk/articles/tarot-cards"
     }
   ]
 }

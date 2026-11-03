@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import type { ReactNode } from "react";
+import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import { calculateWetonCalendar, createWetonStory35OptionOrder, isWetonStory35ConfigurationValid, scoreWetonStory35, type SunsetRelation, type WetonCalendarResult } from "@/lib/questionnaires/wetonStory35";
@@ -11,16 +13,16 @@ const subscribeReady = () => () => {};
 const button = "min-h-12 rounded-lg border border-slate-300 px-5 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
 const capital = (s: string) => s[0].toUpperCase() + s.slice(1);
 
-export function WetonStory35Client({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
+export function WetonStory35Client({ quiz, locale, intro }: { quiz: Questionnaire; locale: Locale; intro?: ReactNode }) {
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false), zh = locale === "zh";
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({}), [position, setPosition] = useState(0);
   const [order, setOrder] = useState<Record<string, string[]>>({});
   const [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome"), [message, setMessage] = useState("");
   const [date, setDate] = useState(""), [sunset, setSunset] = useState<SunsetRelation>("unknown");
   const [calendar, setCalendar] = useState<WetonCalendarResult | null>(null);
-  const heading = useRef<HTMLHeadingElement>(null), valid = isWetonStory35ConfigurationValid(quiz);
+  const heading = useRef<HTMLHeadingElement>(null), context = useRef<HTMLDivElement>(null), valid = isWetonStory35ConfigurationValid(quiz);
   const result = valid ? scoreWetonStory35(quiz, answers) : null, question = quiz.questions[position];
-  useEffect(() => { if (stage !== "welcome") heading.current?.focus(); }, [stage, position]);
+  useEffect(() => { if (stage !== "welcome") { heading.current?.focus({ preventScroll: true }); (stage === "answer" ? context.current : heading.current)?.scrollIntoView({ block: "start" }); } }, [stage, position]);
   if (!valid) return <section role="alert" className="my-8 rounded-lg border p-5">{zh ? "这份Weton故事题本暂不可用。" : "This Weton story edition is unavailable."}</section>;
   function clearCalendar() { setDate(""); setSunset("unknown"); setCalendar(null); }
   function reset(next: "welcome" | "answer") { clearCalendar(); setOrder(next === "answer" ? createWetonStory35OptionOrder(quiz) : {}); setAnswers({}); setPosition(0); setMessage(""); setStage(next); }
@@ -30,14 +32,13 @@ export function WetonStory35Client({ quiz, locale }: { quiz: Questionnaire; loca
     if (result?.status !== "complete") { setMessage(zh ? "请检查完整作答。" : "Check that every item has a response."); return; }
     setStage("result"); setMessage("");
   }
-  return <section id="take-test" className="my-8 space-y-8 rounded-xl border border-violet-200 bg-white p-5 sm:p-8" aria-label={zh ? "故事问卷与独立历法" : "Story quiz and separate calendar"}>
-    <p data-weton-privacy className="rounded-lg bg-slate-50 p-4 text-sm leading-7">{zh ? "答案与可选日期只留当前页面内存，不保存进度、不发送测试流程统计、不分享个人结果。刷新或换语言重新开始；退出并清除会同时清除问卷和历法输入。" : "Answers and the optional date remain in this page’s memory. No saved draft, quiz-flow statistics or personal-result sharing. Refreshing or changing language starts fresh; Exit and clear discards both quiz and calendar inputs."}</p>
-    <div data-weton-story-flow>
-      {stage === "welcome" && <>
+  const story = <section id="take-test" data-stage={stage} className="my-8 space-y-8 rounded-xl border border-violet-200 bg-white p-5 sm:p-8" aria-label={zh ? "故事问卷" : "Story quiz"}>
+    <div ref={context} data-weton-story-flow className="scroll-mt-24">
+      {stage === "welcome" && <><div className="flex flex-wrap gap-3"><button data-explore-start disabled={!ready} className={`${button} bg-violet-700 text-white`} onClick={() => reset("answer")}>{zh ? "开始测试" : "Start test"}</button></div>
         <h2 className="text-2xl font-semibold">{zh ? "开始35题原创故事选择" : "Start 35 original story choices"}</h2>
-        <p className="my-4 leading-8">{quiz.instructions?.[locale]}</p>
+        <p className="my-4 leading-8">{intro ? (zh ? "选择较想尝试的虚构贡献或关注。问卷无需生日，完成后完整保留所有最高并列组合；也可不作答，直接阅读35篇公开指南。" : "Choose a fictional contribution or focus you would like to try. No birthdate is required. Every highest-tied pairing remains complete, and all 35 public guides can be read without answering.") : quiz.instructions?.[locale]}</p>
         {!ready && <p role="status">{zh ? "正在准备测试…" : "Preparing the test…"}</p>}
-        <button disabled={!ready} className={`${button} bg-violet-700 text-white`} onClick={() => reset("answer")}>{zh ? "开始测试" : "Start test"}</button>
+
       </>}
       {stage === "answer" && question && <>
         <p className="mb-3 text-sm">{zh ? `第${position + 1}题，共35题` : `Question ${position + 1} of 35`}</p>
@@ -58,7 +59,11 @@ export function WetonStory35Client({ quiz, locale }: { quiz: Questionnaire; loca
       </>}
       {message && <p role="status" className="mt-5 rounded-lg bg-amber-50 p-3 text-sm leading-7">{message}</p>}
     </div>
-    <section className="space-y-4 border-t pt-6" aria-labelledby="weton-calendar-title">
+    {!intro && <p data-weton-privacy className="rounded-lg bg-slate-50 p-4 text-sm leading-7">{zh ? "答案与可选日期只留当前页面内存，不保存进度、不发送测试流程统计、不分享个人结果。刷新或换语言重新开始；退出并清除会同时清除问卷和历法输入。" : "Answers and the optional date remain in this page’s memory. No saved draft, quiz-flow statistics or personal-result sharing. Refreshing or changing language starts fresh; Exit and clear discards both quiz and calendar inputs."}</p>}
+
+    <button className="min-h-11 text-sm underline" onClick={() => reset("welcome")}>{zh ? "退出并清除本次进度" : "Exit and clear this attempt"}</button>
+  </section>;
+  const calendarPanel = <section className="space-y-4 border-t pt-6" aria-labelledby="weton-calendar-title">
       <h2 id="weton-calendar-title" className="text-2xl font-semibold">{zh ? "独立可选历法参考" : "Separate optional calendar reference"}</h2>
       <p className="leading-8">{zh ? "输入1900—2099年的公历日期；可用于生日参考，也可用任意示例日，不影响问卷。传统日界在当地日落，只有确知与日落关系时才选之前或之后。不知道就保留两种可能；不猜时区或固定日落钟点，也不从日期判断性格。" : "Enter a Gregorian date from 1900 through 2099, as a birth-date reference or any example day. It never changes the quiz. The traditional day begins at local sunset: choose before or after only when known. Unknown retains two possibilities. No timezone, fixed sunset hour or personality is inferred."}</p>
       <form className="space-y-4" onSubmit={event => { event.preventDefault(); setCalendar(calculateWetonCalendar(date, sunset)); }}>
@@ -75,6 +80,6 @@ export function WetonStory35Client({ quiz, locale }: { quiz: Questionnaire; loca
         <p className="text-sm leading-7">{zh ? "neptu是传统数值相加，不是能量、吉凶、匹配、健康或人格分。日期参考与故事配对彼此独立，不需要一致。" : "Neptu is a conventional sum, without an energy, fortune, compatibility, health or personality score. Date references and story matches are independent and need not agree."}</p>
       </div>}
     </section>
-    <button className="min-h-11 text-sm underline" onClick={() => reset("welcome")}>{zh ? "退出并清除本次进度" : "Exit and clear this attempt"}</button>
-  </section>;
+  ;
+  return <>{intro ? <ExploreTestIntro slug={quiz.slug} locale={locale}>{intro}{story}</ExploreTestIntro> : story}{intro && <section className="my-8 space-y-4 leading-8" aria-labelledby="weton-answering"><h2 id="weton-answering">{zh ? "35题故事选择：完整作答说明" : "35 story choices: full answering instructions"}</h2><p>{quiz.instructions?.[locale]}</p><p data-weton-privacy className="rounded-lg bg-slate-50 p-4 text-sm leading-7">{zh ? "答案与可选日期只留当前页面内存，不保存进度、不发送测试流程统计、不分享个人结果。刷新或换语言重新开始；退出并清除会同时清除问卷和历法输入。" : "Answers and the optional date remain in this page’s memory. No saved draft, quiz-flow statistics or personal-result sharing. Refreshing or changing language starts fresh; Exit and clear discards both quiz and calendar inputs."}</p></section>}{calendarPanel}</>;
 }

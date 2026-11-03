@@ -10,12 +10,12 @@
     "zh": "数据录入测试"
   },
   "seoTitle": {
-    "en": "Data Entry Test: 60-Second Forms, Accuracy & Character KPH",
-    "zh": "数据录入测试：60秒表单练习、字段准确率与字符KPH"
+    "zh": "数据录入测试：60秒表单、字段准确率与字符KPH",
+    "en": "Data Entry Test: 60-Second Forms, Field Accuracy & KPH"
   },
   "description": {
-    "en": "Copy fictional records into real fields for 60 seconds. Get exact field accuracy, clearly defined character KPH and two free full guides. No signup or norm.",
-    "zh": "真实输入框录入虚构记录，每轮60秒，分别查看字段精确准确率和定义清楚的字符KPH，免费读两份完整指南。无需注册，不对照招聘常模。"
+    "zh": "选择物品标签或发运表单，在60秒内抄录四字段虚构记录。免费查看字段准确率、字符KPH、差异分类及两份完整指南；无需注册，允许改错。",
+    "en": "Copy fictional four-field asset or dispatch records for 60 seconds. Free field accuracy, character KPH, difference counts and full guides. No sign-up."
   },
   "minutes": 3,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "选择物品标签或发运表单，每模式32条虚构四字段记录；开始按钮开启固定60秒。任一字段提交过改动或点下一条，把该记录全部四字段含空白纳入；仅显示和后续未触及记录排除。同一计时内可返回修改，只计最终提交文字，NFC后大小写、空格、前导零、标点须精确相同。不缩短计时、不给字段部分分或雇主等级。三分钟是读说明加一轮的编辑估计，不是实测完成数据。"
   },
   "introduction": {
-    "en": "This is a real structured-input practice, not a knowledge or preference questionnaire. All 64 source records and both full guides are original and fictional, without contacts, customer accounts or actual shipments. Both interface languages preserve identical source values. Character KPH is final committed grapheme characters per minute × 60, not physical key presses. Exact-field character KPH separately counts characters only in wholly correct fields; field accuracy counts exact fields divided by all four fields in each attempted record. These quantities are not multiplied into one score or converted to a norm, percentile, job fit, certification or hour-long performance claim. Input stays in page memory and is cleared on completion, cancellation or leaving; no draft, server submission, input analytics payload or answer-sharing URL is created.",
-    "zh": "这是实际结构输入练习，不是知识或偏好问卷。64条源记录和两份完整指南全部原创虚构，不含联系人、客户账户或真实发运；两语界面保持同一源值。字符KPH是每分钟最终提交字素字符数乘60，不是物理按键。精确字段字符KPH另计整字段全对部分的字符，字段准确率为精确字段数除以尝试记录全部四字段。它们不合成单一分、不换算常模、百分位、岗位适合度、认证或持续一小时表现。输入只在页面内存，完成、取消或离开时清空，不建草稿、不发送服务端、不含输入分析载荷或答卷分享URL。"
+    "zh": "对照源记录，练习代码、名称、日期与数量文本的准确抄录。两种模式各有32条四字段记录，中英文界面使用相同源值。每轮固定60秒，分别展示纳入字段、精确字段、完整记录、最终字符KPH与精确字段字符KPH，帮助你核对产量与文本一致性。",
+    "en": "Copy source codes, labels, dates and quantity text into corresponding fields. Two modes each provide thirty-two four-field records with identical values in Chinese and English interfaces. Each sixty-second round separately reports considered fields, exact fields, complete records, final-character KPH and exact-field character KPH to help review output and text equality."
   },
   "resultHeading": {
     "en": "Your record counts, exact fields and separate rates",

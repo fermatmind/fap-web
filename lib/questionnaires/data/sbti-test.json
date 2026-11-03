@@ -14,16 +14,16 @@
     "en": "SBTI Test: Original 31 Questions and All 25 Results"
   },
   "description": {
-    "zh": "沿用费马小程序原31题、原选项及原计分玩法。查看本次25种趣味画像之一、15维模型读数和完整双语说明，免费、无需注册。",
-    "en": "Take the original 31-question FermatMind Mini SBTI test with its original choices and scoring. Get one of 25 playful profiles, 15 model readouts and full free guides. No signup."
+    "en": "Answer 31 original Mini SBTI questions. Explore 25 playful profiles, 15 model readouts and full free bilingual guides. No signup; English is a working translation.",
+    "zh": "沿用小程序原31题与原规则，以25种趣味画像和15维模型读数回看日常选择。完整说明免费，英文为工作译文，无需注册。"
   },
   "instructions": {
     "zh": "按题目原文选择最接近你的选项，每题选择一项。题目、选项顺序和计分沿用小程序原版；完整作答31题后查看结果。",
     "en": "Choose one option for each original prompt. Question order, options and scoring follow the Mini original; finish all 31 questions to see your result."
   },
   "introduction": {
-    "zh": "这是已上线小程序SBTI的原31题网页适配。保留原题本、十五维计算、固定分配规则及25个结果代码；英文是工作译文。原版趣味文案使用夸张和比喻，不作诊断、能力认定或人群排名。",
-    "en": "This web adaptation keeps the established Mini original: 31 questions, the original fifteen-dimension calculation, deterministic assignment and 25 result codes. English is a working translation. The original humorous portraits use exaggeration and metaphor, rather than diagnosis, ability assessment or population ranking."
+    "en": "This FermatMind Mini adaptation preserves the original Chinese bank, ordering, calculation and twenty-five portrait codes. English is a working translation. Read the result as humorous narration alongside the explicit model rules, rather than a standardized assessment or a population ranking.",
+    "zh": "本费马小程序网页适配保留中文原题、题序、计算及二十五个画像代码，英文为工作译文。可把结果作为趣味叙事，结合明示模型规则阅读，不将它当成标准化测量或人群排名。"
   },
   "resultHeading": {
     "zh": "本次原31题结果",

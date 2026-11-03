@@ -14,21 +14,21 @@
     "en": "Your thinking entrances: counts and full guides"
   },
   "description": {
-    "zh": "免费智能类型测试：18道原创情境题，比较六种思考入口，最高并列都保留完整解释，含例子、反例与计分。不测IQ、能力或最佳学习方式。",
-    "en": "Take 18 original scenario choices to explore six thinking approaches. Read every highest tie in full, with examples and limits. No IQ or ability score."
+    "zh": "通过18道原创情境四选一，探索语言、规则、声音、实作、对话与环境六种思考入口。免费查看六项原始计数、全部最高并列和完整指南；无需注册。",
+    "en": "Explore six ways to begin an everyday task through 18 original scenarios. View all counts, every highest tie and complete guides free. No signup."
   },
   "seoTitle": {
-    "zh": "智能类型测试：18道原创题与免费完整结果",
-    "en": "Intelligence Type Test: Free Thinking-Approach Quiz"
+    "zh": "智能类型测试：18题思考入口、六项计数与完整解读",
+    "en": "Intelligence Type Test: 18 Scenarios, Six Thinking Approaches and Full Guides"
   },
   "minutes": 5,
   "introduction": {
-    "zh": "面对普通任务，你现在更想先把它说清、拆开条件、找声音顺序、做个小样、交换理解，还是看看实际环境？这份原创思考入口趣味版用18道四选一记录当下选择，六类各有相同曝光和位置安排。完成后显示六项次数与所有最高并列，每份完整九节说明直接可读，包含具体例子、反例、取舍、比较、计分与可选回顾。这里的智能类型是常见入口名称，六类是本站编辑隐喻；它不测智力、能力、学习效率、成绩或职业，也不是Gardner八领域、多元智能量表、JobCannon六人设或IDR题本。你不必实际表演题中任务，没有人因更常选某个入口就更聪明；也可以先读六份公开说明再决定是否开始。",
-    "en": "When considering an ordinary task, would you first put it into words, map conditions, explore sound and sequence, make a small version, compare understandings or observe the setting? This original thinking-approach edition records current choices through eighteen scenarios with four options each. Six editorial entrances receive equal exposure and positions. A complete attempt shows six counts and every highest tie, with each nine-section guide freely available: examples, counterexamples, trade-offs, comparisons, scoring and optional reflection. Intelligence Type Test is the common entry name. These six metaphors measure neither intelligence, ability, learning efficiency, grades nor careers and are not Gardner’s eight domains, a Multiple Intelligences instrument, JobCannon’s personas or IDR items. No actual performance is required and one entrance never makes a person smarter. You can read all six public guides before deciding whether to begin."
+    "zh": "面对一个新任务，你会先把话说清楚、列出规则、寻找声音顺序、做个小样、交换理解，还是观察现场条件？这份智能类型测试将18个普通情境作为思考起点的比较，帮助你回顾本次更愿意先做什么。六项选择次数和全部最高并列均可查看，每种入口都有完整公开指南。这六类是本站原创的任务入口隐喻，结果解释选择侧重，供你联系具体任务；不把它们命名为已经测出的智能或能力。",
+    "en": "When a task is new, would you first clarify it in words, map rules, explore sound and sequence, make a small version, compare understandings or examine the setting? This Intelligence Type Test compares starting choices across eighteen ordinary scenarios. View all six counts and every highest tie, with a complete public guide for each approach. These are original editorial metaphors for task entrances. Read your choices against particular tasks rather than treating the six as measured intelligences or abilities."
   },
   "instructions": {
-    "zh": "按你目前在这些普通任务里更想从哪一步开始，完成18道原创四选一。题目请你设想，不要求实际发声、行动或提交私人经历；没有对错，也不选哪句显得更聪明。六种思考入口各出现12次、每位置3次，一次选择加1，0反向。全卷完成才显示六项相对次数与全部最高并列，逐份完整读法都保留；不把选择次数当能力、IQ或最佳学习方式。可以先读结果或直接退出。",
-    "en": "Choose the first step you currently feel drawn to in each of eighteen ordinary imagined tasks. No sound, action or private experience must be performed or submitted; there are no right answers or clever-looking choices to select. Six thinking entrances each appear twelve times and three times in every position. Each choice adds one count, with no reversals. Finish the full set for six relative counts and every highest tie with each full guide retained. Counts measure neither ability, IQ nor a best learning method. You can read guides first or leave."
+    "zh": "设想每个普通情境，选择你目前更愿意先尝试的一步；即使几项都合适，也只选最接近本次想法的一项。无需实际发声、制作物品或提交私人经历，没有标准答案，不按哪项显得更聪明作答。18题全部完成后显示六项计数及所有最高并列，每份匹配指南完整保留。约5分钟但不限时，点击开始直接进入题目，无需再次同意或注册。",
+    "en": "Imagine each ordinary situation and choose the step you would currently prefer to try first. If several fit, choose the closest for this attempt. No actual sound, object-making or private story is required. There are no correct answers or clever-looking choices to select. Complete all eighteen items to view six counts and every highest tie, retaining each matched guide in full. About five minutes is untimed; Start opens questions directly without another agreement or signup."
   },
   "source": {
     "kind": "FermatMind original18ordinarytask-firststepchoices/sixeditorialapproachmetaphors;notGardnerMI,JobSixSmarts,IDR40orIQ/ability/learningstylemeasurement",
@@ -1868,6 +1868,13 @@
         "en": "Gardner (2022): background on MI tests and self-report limits"
       },
       "url": "https://www.multipleintelligencesoasis.org/blog/2022/3/3/is-there-a-test-for-multiple-intelligences-should-there-be"
+    },
+    {
+      "title": {
+        "zh": "Pashler等（2008）：学习风格匹配教学所需的实验证据",
+        "en": "Pashler et al. (2008): experimental evidence required for matching instruction to learning styles"
+      },
+      "url": "https://digitalcommons.usf.edu/psy_facpub/1765/"
     }
   ]
 }

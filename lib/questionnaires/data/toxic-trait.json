@@ -15,21 +15,21 @@
     "en": "Five interaction practices: your complete reflection"
   },
   "description": {
-    "zh": "免费有毒特征测试原创自我观察版：20道符合度题，分开回看转述、比较、暗示、先解释与旧争议。五份完整说明免费，不生成总毒性百分比或人格标签。",
-    "en": "Take the free Toxic Trait Test: 20 questions about your own interaction habits and five full guides. No toxicity percentage or personality labels."
+    "zh": "用20条原创自评，分别回看转述、比较、暗示异议、先解释与旧争议五类互动做法。免费查看独立均分、计分算例和完整指南，无需注册。",
+    "en": "Reflect on retelling, comparison, hinted objections, explaining first and old disputes through 20 original items. Five separate means and full guides, free without signup."
   },
   "seoTitle": {
-    "zh": "有毒特征测试：20题与五类互动习惯免费完整结果",
-    "en": "Toxic Trait Test: Free Interaction Habits Reflection"
+    "zh": "有毒特征测试：20题互动习惯自评与五部分完整解读",
+    "en": "Toxic Trait Test: 20 Interpersonal Habit Items and Five Full Guides"
   },
   "minutes": 5,
   "introduction": {
-    "zh": "转述一条消息前核对了吗？朋友分享近况时，话题转到了谁更好或更难吗？一次分歧里，想改什么、为什么解释和哪些旧事相关，可以分开回看。本版用20条符合度题组织五种具体做法，给你五份完整说明和可选表达，不把一个人定为有毒或无毒。16条为本次新原创，4条中文来自自有压力反应预览版并新写英文；不是标准毒性量表，也不等同于原小程序整份产品。五部分各四条全部有效才显示独立均分，资料不足明确保留，所有正文始终免费。你可以先读任一说明，不必输入姓名、对话或他人经历，也不需要做另一测评解锁。",
-    "en": "Did you check before passing on an account? When a friend shared news, did the topic shift into who did better or had it harder? In a disagreement, requested changes, explanations and relevant history can be considered separately. This edition organises twenty accuracy items around five specific practices, with full guides and optional wording rather than a verdict that someone is toxic or non-toxic. Sixteen items are new; four Chinese items come from an owned pressure-response preview with new English translations. This is not a standard toxicity scale or the whole mini-program product. Each four-item part needs all ratings for its own mean; missing information stays explicit and all text stays free. Read any guide first, without supplying names, conversations or others’ experiences or taking another assessment."
+    "zh": "一次谈话卡住时，值得回看的可以是具体做法：转述前有没有核对、回应时是否变成比较、异议有没有说明、解释之前是否听清影响、旧争议与眼前问题有什么关系。这份有毒特征测试用20条原创陈述，整理过去三个月五类互动做法的自述符合度。五部分分别呈现均分与完整指南，帮助你把回答带回真实情境，找到可以核对或调整的一步。",
+    "en": "When a conversation gets stuck, consider the specific practice: checking a story before retelling it, responding without turning it into a comparison, explaining an objection, hearing an impact before explaining your position, or separating an old dispute from the present issue. This Toxic Trait Test uses twenty original statements about the past three months. Five separate accuracy-rating summaries and full guides help you review an actual interaction and identify something to check or adjust."
   },
   "instructions": {
-    "zh": "以过去三个月普通、可自主选择的互动为参照，评价每句话有多符合自己的做法，不替别人作答。1完全不符合至5非常符合；3表示不确定或视情况，也作为有效评分，不是稳定的中立频率。没有相关情境、资料不足或不愿回答请选择单独的NA。全部20条选择后显示五部分；每部分四条全部有效才有描述性均分。无总毒性分、人格标签或排名，五份完整说明一直免费可读。",
-    "en": "Refer to ordinary interactions with room to choose over the past three months. Rate how accurately each sentence describes your own practice, without answering for someone else. Ratings run from 1 Very inaccurate to 5 Very accurate. Three means uncertain or conditional and counts numerically, not as a stable neutral frequency. Choose the separate NA for no relevant situation, insufficient information or preferring not to answer. All twenty selections finish the attempt; each part needs all four numeric ratings for a descriptive mean. There is no overall toxicity score, personality label or ranking. All five full guides remain free to read."
+    "zh": "回想过去三个月中自己有选择余地的普通互动，逐条选择描述与你的做法有多符合；不要替别人作答。1—5为符合度，3表示不确定或视情况。没有相关情境、资料不足或不愿回答，可选单独的不适用项；它不补0或3。20条都作出选择后，每部分四条均有数值评分才显示该部分均分；五份完整指南始终可读。约5分钟，不限时，点击开始直接进入题目，无需再次同意、注册或填写邮箱。",
+    "en": "Recall ordinary interactions over the past three months in which you had room to choose, and rate how accurately each statement describes your own practice. Do not answer for someone else. Ratings run from 1 to 5; 3 means uncertain or situation-dependent. Select the separate NA option for no relevant situation, insufficient information or preferring not to answer; it is replaced with neither 0 nor 3. After all twenty selections, each part requires four numeric ratings for its mean. All five full guides remain readable. About five minutes, untimed. Start opens questions directly without another agreement, signup or email."
   },
   "source": {
     "kind": "FermatMind original interpersonal-habits self-reflection edition: sixteen new bilingual items plus four exact owned PERSONALITY_SHADOW DEFENSIVE_PROTECTION Chinese items with new English translations. Not a validated toxicity scale or whole mini-program migration.",
@@ -2205,5 +2205,13 @@
       }
     }
   ],
-  "references": []
+  "references": [
+    {
+      "title": {
+        "zh": "Lewicki、Polin与Lount（2016）：有效道歉的组成与情境研究",
+        "en": "Lewicki, Polin & Lount (2016): apology components and trust-violation scenarios"
+      },
+      "url": "https://ncmr.lps.library.cmu.edu/article/id/264/"
+    }
+  ]
 }

@@ -1,3 +1,4 @@
+import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Sens16Questionnaire } from "@/lib/questionnaires/sens16";
@@ -6,6 +7,7 @@ import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
+import { sens16LandingFaq, sens16LandingSections } from "./Sens16LandingEditorial";
 import { Sens16Client } from "./Sens16Client";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
@@ -18,16 +20,18 @@ export function Sens16Page({ quiz, locale }: { quiz: Sens16Questionnaire; locale
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="sens16-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="sens16-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
-    <nav aria-label={zh ? "面包屑" : "Breadcrumb"} className="mb-6 text-sm"><Link prefetch={false} className="underline" href={`/${locale}/tests#more-tests`}>{zh ? "全部测试 · 更多测试" : "All tests · More Tests"}</Link></nav>
-    <p className="text-sm font-semibold text-violet-800">{zh ? "原创感官反应回顾 · 四篇完整读法免费" : "Original sensory response reflection · Four full guides free"}</p>
+    <ExploreTestIntro slug={quiz.slug} locale={locale}>
+
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
     <p className="mt-5 text-lg leading-8 text-slate-700">{quiz.description[locale]}</p>
-    <p className="mt-3 text-sm text-slate-600">{zh ? "16条描述 · 约5分钟 · 不计时 · 18岁及以上 · 无需注册" : "16 prompts · About 5 minutes · Untimed · Ages 18+ · No signup"}</p>
-    <p className="mt-5 leading-8">{quiz.introduction[locale]}</p>
+    <div className="explore-intro-meta"><span>{zh ? "16条描述 · 约5分钟 · 不计时 · 18岁及以上 · 无需注册" : "16 prompts · About 5 minutes · Untimed · Ages 18+ · No signup"}</span><span>{zh ? "原创感官反应回顾 · 四篇完整读法免费" : "Original sensory response reflection · Four full guides free"}</span></div>
     <Sens16Client quiz={quiz} locale={locale} readingProfiles={quiz.profiles.map(p => prepareResultProfile(quiz.slug, p))} />
+    </ExploreTestIntro>
+    <section className="my-8 space-y-4"><h2 className="text-2xl font-semibold">{sens16LandingSections[0].title[locale]}</h2><p className="leading-8">{quiz.introduction[locale]}</p>{sens16LandingSections[0].paragraphs.map((p,i)=><p className="leading-8" key={i}>{p[locale]}</p>)}</section>
     <section aria-labelledby="sens16-method" className="my-10 space-y-8"><h2 id="sens16-method" className="text-2xl font-semibold">{zh ? "题本、计分与使用边界" : "Edition, scoring and use"}</h2>{quiz.guide.map(s => <section key={s.id}><h3 className="text-xl font-semibold">{s.title[locale]}</h3>{s.paragraphs.map((p, i) => <p key={i} className="mt-3 leading-8">{p[locale]}</p>)}</section>)}</section>
-    <section aria-labelledby="sens16-public-guides" className="my-10"><h2 id="sens16-public-guides" className="text-2xl font-semibold">{zh ? "四类感官反应的完整公开读法" : "Full public guides: four sensory response topics"}</h2><p className="my-4 leading-8">{zh ? "不作答也可阅读。以下对所有人相同，不含个人答案或分数。" : "Read without answering. These pages are identical for everyone, without personal responses or scores."}</p><ul className="space-y-2">{quiz.profiles.map(p => <li key={p.id}><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, p.id)}>{p.title[locale]}</Link></li>)}</ul></section>
-    <section aria-labelledby="sens16-faq" className="my-10 space-y-6"><h2 id="sens16-faq" className="text-2xl font-semibold">{zh ? "常见问题" : "Frequently asked questions"}</h2>{quiz.faq.map((f, i) => <section key={i}><h3 className="text-lg font-semibold">{f.question[locale]}</h3><p className="mt-2 leading-8">{f.answer[locale]}</p></section>)}</section>
+    <section aria-labelledby="sens16-public-guides" className="my-10"><h2 id="sens16-public-guides" className="text-2xl font-semibold">{zh ? "四类感官反应的完整公开读法" : "Full public guides: four sensory response topics"}</h2><p className="my-4 leading-8">{zh ? "不作答也可阅读。以下对所有人相同，不含个人答案或分数。" : "Read without answering. These pages are identical for everyone, without personal responses or scores."}</p><ul className="sens16-public-grid">{quiz.profiles.map(p => <li key={p.id}><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, p.id)}>{p.title[locale]}</Link><p className="text-sm leading-7">{p.summary[locale]}</p></li>)}</ul></section>
+    <section aria-labelledby="sens16-faq" className="my-10 space-y-6"><h2 id="sens16-faq" className="text-2xl font-semibold">{zh ? "常见问题" : "Frequently asked questions"}</h2>{[...quiz.faq, ...sens16LandingFaq].map((f, i) => <section key={i}><h3 className="text-lg font-semibold">{f.question[locale]}</h3><p className="mt-2 leading-8">{f.answer[locale]}</p></section>)}</section>
+    <section className="explore-reading-library"><h2>{zh ? "深入阅读：四类反应、情境与研究证据" : "Reading in depth: four responses, context and research evidence"}</h2>{sens16LandingSections.slice(1).map(g=><section key={g.id}><h3>{g.title[locale]}</h3><div>{g.paragraphs.map((p,i)=><p key={i}>{p[locale]}</p>)}</div></section>)}</section>
     <Source quiz={quiz} locale={locale} />
     <section className="my-8"><h2 className="text-xl font-semibold">{zh ? "可选的下一步" : "Optional next step"}</h2><p className="my-3 leading-8">{zh ? "如果想回顾发表题本中的感知陈述，可另读SPQ92；如果关注特定声音相关反应及影响，可另读声音敏感入口。方法、题量与预计用时见各自入口，不传递此处答案或分数。" : "For published sensory-perception statements, separately read the SPQ92 entry; for a particular sound-linked reaction and impact, read the sound-sensitivity entry. Each entry shows its method, question count and time; no answers or scores are transferred."}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnairePath(locale, "sensory-processing-test")}>{zh ? "查看SPQ92感知自评入口" : "View the SPQ92 sensory-perception entry"}</Link><Link prefetch={false} className="ml-5 inline-block min-h-11 py-2 underline" href={questionnairePath(locale, "misophonia-screener")}>{zh ? "查看声音敏感自评入口" : "View the sound-sensitivity entry"}</Link></section>
   </Container></main>;

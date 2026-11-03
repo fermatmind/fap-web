@@ -103,7 +103,7 @@ describe("Original whole-look styling preferences, without face-feature classifi
         const path = `/${locale}/tests/explore/${quiz.slug}`, props = { params: Promise.resolve({ locale, slug: quiz.slug }) };
         const html = renderToStaticMarkup(await entry.default(props)), meta = await entry.generateMetadata(props), dom = document.createElement("div"); dom.innerHTML = html;
         expect(dom.querySelector("h1")?.textContent).toBe(quiz.title[locale]); expect(dom.textContent).toContain(quiz.instructions![locale]);
-        expect(dom.textContent).toContain(locale === "zh" ? "原创造型偏好 · 完整结果免费" : "Original style reflection · Full results free");
+        expect(dom.textContent).toContain(locale === "zh" ? "16次比较 · 约3分钟" : "16 comparisons · about 3 minutes");
         expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
         const directory = document.createElement("div"); directory.innerHTML = renderToStaticMarkup(<MoreTests locale={locale} />); expect(directory.querySelector(`a[href="${path}"]`)).not.toBeNull();
         for (const profile of quiz.profiles) {

@@ -10,12 +10,12 @@
     "zh": "数字伦理与公民意识测试"
   },
   "seoTitle": {
-    "en": "Digital Ethics & Citizenship Test: 30 Free Scenarios",
-    "zh": "数字伦理与公民意识测试：30道免费场景题与完整解析"
+    "zh": "数字伦理与公民意识测试：30道免费情境练习与解析",
+    "en": "Digital Citizenship Test: 30 Free Scenarios & Explanations"
   },
   "description": {
-    "en": "Try 30 original privacy, security, information, communication and access scenarios. Every answer and five full guides free. No moral type or behaviour rating.",
-    "zh": "做30道原创隐私、安全、信息、沟通和可访问性场景题，免费读全部答案与五份完整指南。不分道德类型，不评价真实行为；无需注册、不计时。"
+    "zh": "练习30道数字伦理与公民意识情境题，涵盖隐私、账户安全、信息与AI、网络沟通及可访问性。免费查看五组正确数、全部答案与完整指南；不计时，无需注册。",
+    "en": "Practise 30 original digital citizenship scenarios in privacy, security, information, AI, communication and access. Free explanations and guides; untimed, no sign-up."
   },
   "minutes": 18,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "按30个四选一场景中的事实、局部规则或教育概念，选择最获支持的答案。五组各六题，匹配作者核对的参考答案记一道，其余有效选择记零，无部分分、不计时、不倒扣；全部作答后给所有理由和五份完整指南。不索要真实密码、验证码、私聊，也不执行账户操作。十八分钟为编辑估计。"
   },
   "introduction": {
-    "en": "Practise specific online decisions through original fictional scenarios: collection purpose and audiences, account verification, information and AI use, communication, and access or permission conditions. Every item has four alternatives and a rationale. The author reviewed all 30 keys against the supplied facts, explicit local policies and selected primary educational guidance; no independent expert-panel consensus, grade-level reading calibration or psychometric validation has been established. The five complete guides and every answer are free. The count describes this edition only. It does not observe your online conduct, diagnose safety, assign a moral or personality type, certify legal or accessibility compliance, or predict workplace behaviour. No vendor item bank, Arizona curriculum assessment, Council of Europe instrument or official certification is reproduced or claimed.",
-    "zh": "通过原创虚构场景练具体在线决定：收集用途与受众、账户核实、信息与AI、沟通、访问和许可条件。每题四个选项并有理由，作者按给定事实、明确局部规则及选定一手教育资料核对30个参考答案；没有建立独立专家共识、年级阅读校准或心理测量验证。五份完整指南与全部答案免费。正确数只描述本版，不观察真实网络行为，不诊断是否安全，不派道德或人格类型，不认证法律或无障碍合规，也不预测职场行为。本版不复刻或声称供应商题库、亚利桑那课程测评、欧洲委员会测评工具或官方认证。"
+    "zh": "通过30道原创情境题，练习隐私边界、账户安全、信息核查与AI使用、网络沟通以及访问许可的判断。免费查看五组正确数、逐题解析与完整指南。答案依据题定事实、局部规则和教育概念；本版未建立独立专家共识，不观察真实网络行为。",
+    "en": "Practise decisions about privacy, account safety, information and AI, communication, and access in thirty original scenarios. View five counts, every rationale and full guides, free. Keys follow stated facts, local rules and educational concepts; no independent expert-panel consensus has been established. This practice does not observe your online conduct."
   },
   "resultHeading": {
     "en": "Your five scenario counts and every explanation",

@@ -10,12 +10,12 @@
     "zh": "星座测试"
   },
   "seoTitle": {
-    "en": "Zodiac Sign Story Quiz: 12 Free Original Guides",
-    "zh": "星座测试：12题原创故事选择、全部并列与完整解读"
+    "zh": "星座测试：12道故事选择与十二星座完整解读",
+    "en": "Zodiac Sign Quiz: 12 Story Choices & Full Sign Guides"
   },
   "description": {
-    "en": "Choose 12 original story-making scenes and read all 12 free sign guides. Transparent counts keep every highest tie. No birthday or natal-chart calculation.",
-    "zh": "12道原创故事创作选择，看看本次更想采用哪些星座命名的叙事镜头。公开原始计数，保留所有最高并列，十二篇完整双语指南免费；不问生日，不算太阳、月亮、上升或四元素，不预测运势与配对。"
+    "zh": "通过12道原创故事选择探索十二星座命名的叙事视角，免费查看全部计数、最高并列与十二篇完整指南。无需生日或注册，附计分算例与文化来源。",
+    "en": "Explore twelve sign-named story lenses in 12 free choices. See all counts, highest ties and full guides. No birthday or signup; scoring examples included."
   },
   "minutes": 5,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "每个虚构草稿单选你最想想象的动作，无标准答案。每种星座镜头出现四次，在A–D各一次；每选择给对应镜头加1，保留所有最高数。完成12题才显示完整结果。不计时，五分钟仅粗略安排参考；无需生日、个人经历或私人稿件。重测同一组情境。"
   },
   "introduction": {
-    "en": "Which sign-named story lens feels closest to the choices you make here? Try 12 original scenes about imaginary books, pictures and worlds, then read every highest-count guide in full. FermatMind independently wrote the actions and twelve seven-section portraits. Aries through Pisces are familiar cultural names used as editorial labels, not a claim about people born under those signs. This quiz neither calculates a birth sign nor infers a Sun, Moon, rising sign or element. It does not measure creativity, personality, intelligence or empathy, and it predicts no luck, career or relationship outcome. All twelve complete public guides are free before or after an attempt; ties stay tied.",
-    "zh": "本次选择更接近哪种以星座命名的故事镜头？试12道围绕虚构书页、图画与世界的原创情境，再完整读所有最高计数指南。动作及十二篇各七节画像由费马独立编写。白羊至双鱼是编辑借用的熟悉文化名称，不代表这些出生星座者的事实。本题不算出生星座，不推太阳、月亮、上升或元素，不测创造力、人格、智力、共情，不预测运气、职业或关系。十二完整公开指南作答前后免费，并列保留并列。"
+    "zh": "用12道原创故事选择，探索开场、对话、细节、远景与意象等十二种叙事视角。约5分钟，免费查看全部计数、最高并列与十二篇完整指南；无需生日或注册。",
+    "en": "Explore twelve narrative lenses through original choices about openings, dialogue, detail, horizons and images. Twelve questions take roughly five minutes. All counts, highest ties and full guides are free, without a birthday or registration."
   },
   "resultHeading": {
     "en": "Your sign-named story lenses",

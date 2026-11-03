@@ -2,7 +2,7 @@
   "slug": "jungian-archetype",
   "code": "JUNGIAN_ARCHETYPE",
   "version": "1.0.0",
-  "updated": "2026-10-25",
+  "updated": "2026-10-31",
   "category": "framework",
   "kind": "archetype",
   "minutes": 8,
@@ -15,20 +15,20 @@
     "en": "Your complete 12-archetype reflection"
   },
   "seoTitle": {
-    "zh": "荣格原型测试：36题比较12种动机与完整结果",
-    "en": "Jungian Archetype Test: All 12 Full Results"
+    "zh": "荣格原型测试：36题、十二原型与完整结果解读",
+    "en": "Jungian Archetype Test: 36 Questions and All 12 Full Guides"
   },
   "description": {
-    "zh": "完成36道原创情境题，比较纯真者、智者、英雄等12种原型动机。查看全部计数与完整并列报告，先读相近原型、具体例子和计分；免费无需注册。",
-    "en": "Take 36 original questions and compare all 12 archetypal themes, from Sage to Creator. Get every tied result and full guides with examples. Free, no signup."
+    "zh": "用36道原创情境四选一，比较十二原型动机。免费查看12项原始计数、所有最高并列及完整解读，了解原型来源、相近主题与使用方法，无需注册。",
+    "en": "Explore twelve archetypal motives through 36 original scenarios. View all raw counts, every highest tie and full guides, with model origins and practical examples. Free, no signup."
   },
   "introduction": {
-    "zh": "什么更容易激起你参与一件事的兴趣：理解、发现、投入、照顾、组织，还是做出自己的表达？这份荣格原型测试用36道原创日常情境题，整理现代十二原型的动机线索。十二分类与Pearson等作者对原型概念的后续整理有关，不是荣格亲自编定的固定类型表；本问卷也不是PMAI商业量表。全部结果可先读，完成后显示原始计数与每份最高并列报告，不用注册、付费或先做其他测试。",
-    "en": "What draws you towards an activity: understanding, discovery, attentive connection, support, coordination or making an expression? This Jungian Archetype Test uses thirty-six original everyday questions to explore twelve modern archetypal themes. The twelve-category model reflects later work by authors including Pearson, rather than a fixed type list drawn up by Jung. This questionnaire is also separate from the commercial PMAI instrument. Read all guides before answering; a complete attempt shows raw counts and every highest tied report without signup, payment or a preceding assessment."
+    "zh": "荣格原型测试借用故事中的象征人物，帮助讨论一件事为什么吸引你：寻求理解、尝试未知、回应挑战、建立联结，或把构想做出来。本页以现代十二原型为词汇，通过36道原创情境四选一整理本次选择。常见十二分类与Carol S. Pearson后续发展的模型有关，并非荣格亲自编定的固定十二型量表。[1] 完成后可查看全部12项计数与每份最高并列报告；这些是日常动机的反思线索，不是对潜意识结构、天赋或固定人格的测定。",
+    "en": "This Jungian Archetype Test uses symbolic story figures to discuss what draws you into an activity: understanding, discovery, challenge, connection or making an idea tangible. Thirty-six original scenarios compare choices using the vocabulary of twelve modern archetypes. The familiar twelve-category system reflects Carol S. Pearson’s later model, not a fixed twelve-type questionnaire devised by Jung.[1] A complete attempt shows all twelve raw counts and a full report for every highest tie. These are prompts for reflecting on everyday motives, not measurements of an unconscious structure, talent or fixed personality."
   },
   "instructions": {
-    "zh": "每题4项都可能有价值，请选近期更能吸引自己的一项，不按理想原型作答。比较的是本次动机，不是选出正确、善良或能干的人。若都不贴合可以结束，不完整时不生成解释。36题完成后显示12项计数与所有最高匹配；不把低分叫作阴影，也不把差1次解释成固定主次。",
-    "en": "All four responses can have value. Choose the one that most attracts you in your recent life rather than aim for an ideal theme. This compares motives, not correct, good or capable people. You can stop if none fits; incomplete attempts receive no interpretation. After all thirty-six items, see twelve counts and every highest match. A low count is not a shadow, and one extra choice does not establish fixed primary and secondary identities."
+    "zh": "每题四种做法都可能有价值，请按近期相似情境，选最能吸引你参与的一项。两项都想选时，比较自己更想先投入哪一种；四项都不贴切且难以选择时可以结束，未完成36题不生成结果。无需了解荣格理论，也不用选择听起来更成熟或理想的角色。答案记录本次相对选择，低计数不代表缺陷或阴影。",
+    "en": "All four responses can have value. Think of a comparable recent situation and choose what would most attract your participation. If two appeal, consider which you would want to engage with first. If none fits and you cannot choose, you may stop; fewer than 36 answers produce no result. No knowledge of Jung is needed, and there is no need to select the role that sounds most mature or ideal. Counts record relative choices in this attempt; low counts are not defects or shadows."
   },
   "source": {
     "kind": "FermatMind independentlyauthoredarchetypalmotivationquiz;modern12themecontext,notPMAIinstrument",
@@ -3457,65 +3457,210 @@
     {
       "id": "archetype-counts",
       "title": {
-        "zh": "12种动机怎样计数",
-        "en": "How the twelve themes are counted"
+        "zh": "36题如何产生12项原始计数",
+        "en": "How 36 questions produce twelve raw counts"
       },
       "paragraphs": [
         {
-          "zh": "36题每题4项，各项只对应一个明确原型；每个原型出现12次，各位置3次。选中加1，不加权、不反向、无总人格分。不同题目可能体现同一动机的不同情境，计数不测技能、人格含量或人口百分位。",
-          "en": "Each of the thirty-six items has four options, each naming one theme. Every theme appears twelve times, three in each position. A selection adds one without weighting, reversal or a total personality score. Items reflect different situations for a motive. Counts do not measure skill, personality content or population percentiles."
+          "zh": "每题四个选项分别对应四种不同原型，选中一个就给该原型加1次。全卷每个原型都有12次出现机会，在A、B、C、D位置各3次。没有加权、反向计分、正确答案或总体人格分。完成后，12项计数之和固定为36，每一项范围为0—12。",
+          "en": "Each item offers four different themes, and selecting one adds one to its count. Across the form, each theme appears twelve times, three in each A/B/C/D position. There is no weighting, reverse scoring, correct answer or overall personality score. Completed counts sum to 36, with each count ranging from zero to twelve."
+        },
+        {
+          "zh": "这是固定总次数的相对选择：一项被选中，同题其他三项就不会增加。某项8次表示在它出现的12题中选了8次，不是“人格中有八成该原型”，也不是与人群比较的百分位。出现机会与选项位置相同，只是题本结构均衡，不等于已经证明测量公平、信度或效度。",
+          "en": "These are relative choices with a fixed total: selecting one theme leaves the other three in that item unchanged. Eight choices means selecting that theme in eight of its twelve appearances, not having an eight-tenths personality content or a population percentile. Equal appearances and option positions balance the form’s structure; they do not establish measurement fairness, reliability or validity."
         }
       ]
     },
     {
       "id": "archetype-ties",
       "title": {
-        "zh": "最高并列与近分",
-        "en": "Highest ties and nearby counts"
+        "zh": "最高并列、近分与全部相同怎样读",
+        "en": "Reading highest ties, close counts and an all-theme tie"
       },
       "paragraphs": [
         {
-          "zh": "所有最高计数都保留，每份报告完整呈现，不按名单顺序确定主型。其他计数也同时显示，便于比较；差1次不是经过验证的显著差异。本版没有原型比例、主次型置信度，也不把最低计数或压力下的回答称为测得的阴影。",
-          "en": "Every highest count retains its full report, without selecting a primary by list order. Other counts remain visible for comparison; a single extra choice is not an established significant difference. There are no archetype percentages or primary/secondary confidence scores, and neither a low tally nor a response under pressure becomes an assessed shadow."
+          "zh": "结果把最高计数对应的每个原型都完整保留，不按字母、列表或题目顺序确定唯一主型。例如智者与创造者同为最高，就同时阅读两份报告；其他计数仍公开展示。十二项都为3次时，36次选择平均分配，十二项全部并列，不会随机选一个来制造区分。",
+          "en": "Every theme sharing the highest count keeps its full report, without alphabetic, list-order or item-order selection of one leader. If Sage and Creator tie for the highest count, read both reports; the other counts remain visible too. If all twelve have three choices, all twelve tie. No random selection manufactures a distinction."
+        },
+        {
+          "zh": "接近但不相同的次数不会合并为同分，也不自动生成“主型＋次型”。差1次可能来自具体题目的取舍；本版没有标准误、显著差异阈值或置信度估计。可以主动阅读相近报告，比较哪些例子适用，但不要把小差距变成固定身份。",
+          "en": "Nearby unequal counts are not merged into a tie or automatically turned into a primary–secondary pair. A one-choice gap can arise from a particular tradeoff. This edition has no standard error, significant-difference threshold or confidence estimate. Read nearby guides to compare examples without turning small gaps into fixed identities."
         }
       ]
     },
     {
       "id": "archetype-metaphor",
       "title": {
-        "zh": "动机框架，不是隐藏本性",
-        "en": "A motivational lens, not a hidden essence"
+        "zh": "动机与行为怎样区分",
+        "en": "Distinguishing a motive from an action"
       },
       "paragraphs": [
         {
-          "zh": "原型名称帮助讨论想参与什么、愿意怎样投入，不证明真实本性、普遍文化规律或无意识结构。不能从这里换算MBTI八功能、九型、能力、职业匹配或关系结局。各原型都可以有价值与取舍，没有高低、善恶或成熟度排名。",
-          "en": "Names help discuss what attracts participation and how you want to engage. They do not establish an essential nature, a universal cultural law or an unconscious structure. Counts cannot be converted into MBTI functions, Enneagram, ability, career fit or relationship outcomes. Each theme can involve value and tradeoffs without a rank of worth or maturity."
+          "zh": "同一行为可能服务于不同动机。例如参加读书活动，可能是想弄清概念，也可能是想认识新伙伴、制作自己的作品或挑战难度。本问卷比较选项中写出的参与侧重，不直接观察你的行为，更不证明某个解释是行为唯一或最深的原因。",
+          "en": "The same action can serve several motives. Joining a reading activity might involve understanding a concept, meeting companions, making a piece of work or tackling a challenge. This form compares the participation priorities written into its options. It does not observe behaviour or establish a unique, deepest cause."
+        },
+        {
+          "zh": "阅读结果时，挑选一个最近的具体事件：当时最期待哪一部分，是否有其他解释，换一个任务还会不会这样选择？报告中的例子和取舍用于提出可核对的问题。觉得描述亲切、有共鸣，可以作为进一步观察的起点，但不能单凭这种感受证明测量准确。",
+          "en": "When reading a result, choose a recent event: what part did you anticipate, what other explanation fits, and would the same choice appeal in another task? Examples and tradeoffs provide questions you can check. A description feeling familiar can begin an observation; that feeling alone does not establish measurement accuracy."
+        }
+      ]
+    },
+    {
+      "id": "archetype-themes",
+      "title": {
+        "zh": "十二原型在本题本中的含义",
+        "en": "What the twelve themes mean in this questionnaire"
+      },
+      "paragraphs": [
+        {
+          "zh": "纯真者：偏向简单、可信且容易开始的安排，关注希望与安心感；不是天真程度、道德纯洁或风险判断能力的评分。",
+          "en": "Innocent: reassuring, trustworthy ways to begin, with room for hope and simplicity. It does not score naivety, moral purity or risk judgment."
+        },
+        {
+          "zh": "智者：想理解概念、分清依据，让问题得到更清楚的解释；不是智商、知识储备或判断正确率。",
+          "en": "Sage: understanding concepts, distinguishing evidence and clarifying a question. It is not intelligence, accumulated knowledge or judgment accuracy."
+        },
+        {
+          "zh": "探索者：愿意亲自接触未知，保留自主发现的空间；不由此判断冒险能力、外向性或旅行经历。",
+          "en": "Explorer: encountering the unfamiliar for yourself and preserving space for discovery. It does not establish adventure skills, extraversion or travel experience."
+        },
+        {
+          "zh": "反叛者：想重新讨论默认期待，尝试改变不合适的方式；不意味着攻击、违法或天生不合作。",
+          "en": "Rebel: questioning an assumed expectation and trying a different arrangement. It implies neither aggression, lawbreaking nor inherent uncooperativeness."
+        },
+        {
+          "zh": "魔法师：关注重新连接已有部分，让情境出现另一种可能；是转化的比喻，不是神秘力量或洞察能力认证。",
+          "en": "Magician: reconnecting existing elements to make another possibility visible. Transformation is a metaphor, not a claim about supernatural powers or certified insight."
+        },
+        {
+          "zh": "英雄：愿意投入练习，面对一段有难度的任务；不代表勇气、毅力或成就高于其他人。",
+          "en": "Hero: practising and engaging with a demanding task. It does not establish superior courage, perseverance or achievement."
+        },
+        {
+          "zh": "恋人：愿意专注于在意的人、事物或体验，表达具体的投入；不限定为恋爱，也不评吸引力或关系质量。",
+          "en": "Lover: attentive involvement with a person, activity or experience that matters. It is not limited to romance and does not rate attractiveness or relationship quality."
+        },
+        {
+          "zh": "弄臣：为合适的玩趣、轻松和当下体验留空间；不测幽默能力，不要求用玩笑回避认真话题。",
+          "en": "Jester: making room for considerate play, lightness and the present moment. It does not measure humour or prescribe joking instead of taking a concern seriously."
+        },
+        {
+          "zh": "平凡者：看重自然参与、共同感与不必出众的归属；不是平庸程度、社会地位或从众性的评价。",
+          "en": "Everyperson: ordinary participation and belonging without a need to stand out. It does not evaluate mediocrity, social status or conformity."
+        },
+        {
+          "zh": "照顾者：愿意回应具体需要，在有余量的范围内提供支持；不以牺牲自己、不能拒绝或照顾所有人为标准。",
+          "en": "Caregiver: responding to a concrete need with support within your capacity. Self-sacrifice, an inability to refuse and caring for everyone are not requirements."
+        },
+        {
+          "zh": "统治者：想让资源、责任与决定有清楚衔接；关注组织安排，不是权力地位或领导绩效测验。",
+          "en": "Ruler: connecting resources, responsibilities and decisions clearly. The focus is organisation, not social power or leadership performance."
+        },
+        {
+          "zh": "创造者：愿意把自己的构想做成有形表达，尝试作品的形式；不测艺术天赋、原创能力或职业资格。",
+          "en": "Creator: giving an idea a tangible expression and experimenting with its form. It does not assess artistic talent, creative ability or professional qualification."
         }
       ]
     },
     {
       "id": "framework-source",
       "title": {
-        "zh": "现代十二分类的来源",
-        "en": "Where the modern twelve-category model comes from"
+        "zh": "荣格概念、现代十二分类与PMAI的区别",
+        "en": "Jung’s concept, the modern twelve and PMAI"
       },
       "paragraphs": [
         {
-          "zh": "Pearson在自己的著作中先提出六个、后来扩展到十二个原型，不同著作和应用采用过不同名称。本版保留常见的纯真者、智者、探索者、反叛者、魔法师、英雄、恋人、弄臣、平凡者、照顾者、统治者与创造者，用于原创情境比较；不把这张现代清单归为荣格亲自编定的标准问卷。",
-          "en": "Pearson describes developing six archetypes and later extending her model to twelve, with different names across books and applications. This edition uses the familiar Innocent, Sage, Explorer, Rebel, Magician, Hero, Lover, Jester, Everyperson, Caregiver, Ruler and Creator for original scenario comparisons. It does not attribute this modern list to a standard questionnaire written by Jung."
+          "zh": "Pearson在自己的模型说明中记述，先以六个原型组织框架，后扩展到十二个；不同著作和应用使用过不同名称。[1] 本页保留十二个常见名称作为原创情境比较的词汇，并不宣称它们穷尽了荣格的原型概念，也不把它们当作跨文化人群中已经确认的十二个离散类型。",
+          "en": "In her account of the model, Pearson describes moving from six archetypes to twelve, with names varying across applications.[1] This page uses twelve familiar names for original scenario comparisons. They do not exhaust Jung’s concept of archetypes or establish twelve discrete types across cultures."
+        },
+        {
+          "zh": "PMAI（Pearson-Marr Archetype Indicator）是另一个具名工具，有自己的题目、计分、解释与研究。[2] 本站没有使用它的受保护题目或解释材料，不是其授权版、官方短版或等值替代。[3] 相同名称可以指向不同问卷，比较结果前应先确认具体工具、版本和计分。",
+          "en": "PMAI, the Pearson-Marr Archetype Indicator, is a separate named instrument with its own items, scoring, interpretations and research.[2] This quiz uses none of its protected items or interpretation materials and is not a licensed form, official short version or equivalent substitute.[3] Shared names can refer to different questionnaires; check the instrument, edition and scoring before comparing results."
+        }
+      ]
+    },
+    {
+      "id": "evidence-scope",
+      "title": {
+        "zh": "科学证据应对应到具体问卷与用途",
+        "en": "Evidence must match the questionnaire and its use"
+      },
+      "paragraphs": [
+        {
+          "zh": "本题本尚未建立信度、效度、常模或重测误差估计。原型理论、框架作者的应用说明与另一个工具的研究，都不能自动证明本站36题可以测出隐藏人格或预测现实表现。这里提供的是透明计数与完整反思指南，不报告准确率、人口比例或职业成功概率。",
+          "en": "This form has no established reliability, validity, norms or estimate of retest error. Archetypal theory, an author’s account of its applications and research on another instrument do not establish hidden-personality measurement or prediction by these 36 items. This page offers transparent counts and complete reflection guides, without accuracy rates, population proportions or career-success probabilities."
+        },
+        {
+          "zh": "中英文共用相同选项结构与算法，保持内容上的对应；这不等于完成了跨语言测量等值研究。文化经验、词语联想和当下角色仍可能影响回答。需要正式研究时，应检验特定语言、人群、题目解释与用途，而不能只以“全球使用”或某个审阅标签作证据。",
+          "en": "English and Chinese share option structure and scoring to preserve content correspondence. Cross-language measurement equivalence has not been established. Cultural experience, associations with words and current roles may affect responses. Formal research would need to examine the language, population, item interpretations and proposed use, rather than relying on worldwide popularity or a review badge."
+        }
+      ]
+    },
+    {
+      "id": "low-count-and-shadow",
+      "title": {
+        "zh": "低计数、阴影与压力表现",
+        "en": "Low counts, shadows and responses under pressure"
+      },
+      "paragraphs": [
+        {
+          "zh": "低计数只说明在这些四选一比较中相对少选了某项动机，不说明它缺失、被压抑或需要修复。题目没有直接测量潜意识、心理创伤或压力下的行为；也没有把最低项或最高项自动转换成“阴影”的有效规则。",
+          "en": "A low tally records fewer relative choices among these four-option comparisons. It does not establish an absent, repressed or damaged motive. The items do not directly assess unconscious processes, trauma or conduct under pressure, and there is no validated rule converting either extreme into a shadow."
+        },
+        {
+          "zh": "例如，照顾者次数较低，可能只是本轮更想参与发现、理解或创作，不等于不关心别人；统治者次数较低也不代表没有责任心。若某份报告不符合经历，可以保留不同意见，以具体例子检查，而不必寻找隐藏原因来让标签成立。",
+          "en": "For example, fewer Caregiver choices may mean discovery, understanding or making something appealed more in this set, not that you lack care. Fewer Ruler choices do not establish a lack of responsibility. If a guide does not fit your experience, keep the disagreement and examine examples instead of inventing a hidden cause to make the label fit."
+        }
+      ]
+    },
+    {
+      "id": "neighboring-themes",
+      "title": {
+        "zh": "相近原型怎样比较：关注点与取舍",
+        "en": "Comparing nearby themes through their priorities"
+      },
+      "paragraphs": [
+        {
+          "zh": "智者与探索者都可能好奇，前者在本题本更关注理解与依据，后者更关注亲自发现与自主空间。英雄与创造者都可能投入任务，前者更被挑战与练习吸引，后者更被表达与作品形式吸引。区别是选项里的投入侧重，不是能力排名。",
+          "en": "Sage and Explorer can both involve curiosity; here, one emphasises understanding and evidence, the other firsthand discovery and autonomy. Hero and Creator can both involve effort, with emphasis on practice and challenge versus expression and form. These are option priorities, not ability rankings."
+        },
+        {
+          "zh": "恋人与照顾者都可能重视他人，前者强调专注联结，后者强调回应具体需要。反叛者与魔法师都可能想改变现状，前者重新讨论默认期待，后者重组已有部分。请回看一次具体选择的目的；同一个人完全可能在不同任务里采用不同侧重。",
+          "en": "Lover and Caregiver can both involve other people, with attentive connection versus responding to a specific need. Rebel and Magician can both involve change, through questioning expectations versus recombining existing elements. Examine the purpose of a particular choice; one person can favour different priorities in different tasks."
+        }
+      ]
+    },
+    {
+      "id": "reflection-and-retest",
+      "title": {
+        "zh": "把结果带回一次具体体验",
+        "en": "Taking a result back to one concrete experience"
+      },
+      "paragraphs": [
+        {
+          "zh": "选一项最高或相近的主题，找一个符合与一个不符合的最近事件。写清你愿意参与的部分、现实条件和实际感受，再试一次小调整。例如，对理解感兴趣，可以在下次活动前只追问一个关键概念；对创作感兴趣，可以做一个低成本草稿。效果依据体验与反馈，不由原型名称保证。",
+          "en": "Choose a highest or nearby theme and find one recent event that fits and one that does not. Describe what attracted your participation, the conditions and your experience, then try a small adjustment. You might clarify one concept before an activity or make an inexpensive draft of an idea. Experience and feedback determine its usefulness; an archetype name guarantees nothing."
+        },
+        {
+          "zh": "重测变化可能与近期任务、参照情境、词语理解或回答波动有关，不能仅凭两次名称判断成长阶段或人格改变。重测会开始新的作答并清除当前草稿，本站不建立个人历史；若自行比较，使用同一版本，并查看具体选项与全部计数。",
+          "en": "A retest can differ with recent tasks, reference situations, interpretation or response variation. Two labels do not establish a developmental stage or a personality change. Retaking starts a new attempt and clears the current draft; no personal history is built here. If comparing results yourself, use the same edition and examine choices and all counts."
         }
       ]
     },
     {
       "id": "original-scope",
       "title": {
-        "zh": "独立题本与完整免费范围",
-        "en": "Independent questionnaire and full free access"
+        "zh": "完整免费内容与个人信息",
+        "en": "Full free access and personal information"
       },
       "paragraphs": [
         {
-          "zh": "36题、计数规则与报告由费马独立编写，未使用竞品或PMAI题目、计分、解释材料、人物图片。PMAI是另一个商业工具，其研究不能证明本问卷有效；本站尚无信效度或常模。全部12份完整说明、所有最高并列免费，不需要邮箱或前置测评；小程序荣格心理功能题本也不是本测试。",
-          "en": "FermatMind independently wrote the thirty-six items, count rules and reports without competitor or PMAI questions, scoring, interpretive materials or character artwork. PMAI is a separate commercial instrument whose research does not validate this quiz. This edition has no established validity, reliability or norms. All twelve guides and every highest tie are free without email or a preceding assessment. The owned mini-program’s Jungian-function form is a different product."
+          "zh": "全部36题、12项计数、十二份公开指南和每份最高并列报告均免费，无需邮箱、注册或先做MBTI。约8分钟是阅读与作答估计，没有倒计时。公开指南不展示访客私人答案，也不会因提前阅读而更改计分规则。",
+          "en": "All 36 items, twelve counts, twelve public guides and every highest tied report are free, without email, signup or a prior MBTI attempt. About eight minutes is an estimate, not a countdown. Public guides contain no visitor’s private answers, and reading them first does not change the scoring rules."
+        },
+        {
+          "zh": "答案在浏览器内计分，不通过计分请求上传，不写入网址或分析事件。只有主动开启才保存本标签页24小时草稿，完成、退出清除或重测即删除。分享内容是结果名称与公开链接，不含答案、计数或内部标识；网站使用事件按隐私与Cookie设置处理。",
+          "en": "Answers are scored in your browser without a scoring upload or inclusion in URLs or analytics events. An optional draft lasts 24 hours in this tab and is removed on completion, exit-and-clear or retaking. Sharing includes result names and public links, not answers, counts or internal identifiers. Website usage events follow privacy and Cookie settings."
         }
       ]
     }
@@ -3523,62 +3668,122 @@
   "faq": [
     {
       "question": {
-        "zh": "十二原型包括哪些？",
-        "en": "Which twelve archetypes are included?"
+        "zh": "荣格原型测试测什么？",
+        "en": "What does this Jungian Archetype Test explore?"
       },
       "answer": {
-        "zh": "纯真者、智者、探索者、反叛者、魔法师、英雄、恋人、弄臣、平凡者、照顾者、统治者、创造者。不同现代著作可能用不同名称，例如Rebel也常见Outlaw、Everyperson也常见Everyman；这里不是额外增加类型。",
-        "en": "Innocent, Sage, Explorer, Rebel, Magician, Hero, Lover, Jester, Everyperson, Caregiver, Ruler and Creator. Names differ across modern applications; Rebel may be called Outlaw and Everyperson may be called Everyman. Those variants do not create additional types here."
+        "zh": "本页用36道原创情境四选一比较十二种参与动机，如理解、发现、挑战、联结、支持与创作。结果是本次选择计数和完整报告，不是对隐藏本性、潜意识或能力的测定。",
+        "en": "Thirty-six original four-option scenarios compare twelve participation themes, including understanding, discovery, challenge, connection, support and making things. Results are response counts and full guides, not measurements of a hidden essence, unconscious process or ability."
       }
     },
     {
       "question": {
-        "zh": "这是荣格原版问卷或PMAI吗？",
-        "en": "Is this an original Jung questionnaire or PMAI?"
+        "zh": "十二原型真的是荣格亲自规定的吗？",
+        "en": "Did Jung prescribe these twelve archetypes?"
       },
       "answer": {
-        "zh": "都不是。现代十二分类与Pearson等作者后续整理有关，不能说是荣格亲自编定的固定十二型。PMAI是独立商业工具；本版36题、计数与报告是费马原创，没有其量表授权，也不自称官方或等价替代。",
-        "en": "Neither. The modern twelve-category framework reflects later work by authors including Pearson, rather than a fixed twelve-type questionnaire by Jung. PMAI is a separate commercial instrument. These thirty-six questions, counts and reports are original FermatMind work, without a PMAI licence or claims of official status or equivalent measurement."
+        "zh": "不能这样归属。Pearson记述自己的框架先有六个原型，后来扩展为十二个，不同应用还采用不同名称。本页采用现代十二分类的常见词汇，不把这份清单说成荣格亲自编定的标准问卷。[1]",
+        "en": "That attribution is inaccurate. Pearson describes developing her model from six archetypes to twelve, with names varying across applications. This page uses familiar modern vocabulary, not a standard twelve-type questionnaire authored by Jung.[1]"
       }
     },
     {
       "question": {
-        "zh": "结果怎样计算，为什么会并列？",
-        "en": "How are results counted, and why can they tie?"
+        "zh": "包括哪些原型，Rebel与Outlaw是不是两种？",
+        "en": "Which archetypes are included? Are Rebel and Outlaw separate types?"
       },
       "answer": {
-        "zh": "每题选中选项对应的动机加1，各动机均有12次出现机会、各位置3次。完成36题后保留所有最高次数，逐份显示完整报告。计数不是相似度或人群比例；名单先后不决定主次。",
-        "en": "Each selected response adds one to its named theme. All themes appear twelve times, three in each position. After thirty-six responses, every highest tally receives its full report. Counts are neither similarity percentages nor population proportions, and list order does not establish priority."
+        "zh": "纯真者、智者、探索者、反叛者、魔法师、英雄、恋人、弄臣、平凡者、照顾者、统治者和创造者。Rebel／Outlaw、Everyperson／Everyman等名称差异不在本站新增类型；跨工具比较时仍需确认定义和计分。",
+        "en": "Innocent, Sage, Explorer, Rebel, Magician, Hero, Lover, Jester, Everyperson, Caregiver, Ruler and Creator. Labels such as Rebel/Outlaw or Everyperson/Everyman do not add extra types here. Definitions and scoring still need checking across instruments."
       }
     },
     {
       "question": {
-        "zh": "能从最低计数找到阴影或隐藏动机吗？",
-        "en": "Does the lowest count reveal a shadow or hidden motive?"
+        "zh": "每个原型的次数怎样算，是人格百分比吗？",
+        "en": "How are the counts calculated? Are they personality percentages?"
       },
       "answer": {
-        "zh": "不能。题目没有评估潜意识、压抑或心理创伤，也没有验证把低计数叫作阴影的算法。差1次不构成已验证的显著差异，完整计数和其他报告只是供比较，不生成固定次型或人格发展阶段。",
-        "en": "No. The items assess neither unconscious processes, repression nor trauma, and there is no validated algorithm turning a low tally into a shadow. One extra choice is not an established significant difference. Counts and guides support comparison without fixed secondary identities or developmental stages."
+        "zh": "每题选中一个原型加1次，每个原型出现12次，四个位置各3次。完整计数合计36，每项0—12。它记录在本题组中相对选择的次数，不是人格含量、准确率、相似度或人群百分位。",
+        "en": "Each selection adds one to its theme. Every theme appears twelve times, three at each option position. Completed counts sum to 36, with zero to twelve each. They record relative choices in this set, not personality content, accuracy, similarity or population percentiles."
       }
     },
     {
       "question": {
-        "zh": "和MBTI、八功能及小程序荣格测试有什么不同？",
-        "en": "How does this differ from MBTI, functions and the mini-program form?"
+        "zh": "为什么会有多个最高结果，甚至十二项全并列？",
+        "en": "Why can several themes lead, or even all twelve tie?"
       },
       "answer": {
-        "zh": "这里比较原型动机的原创情境选择；MBTI偏好、八功能与小程序中的荣格态度／心理功能题本是不同任务。不能把四偏好变成十二原型或八功能，也不由本结果推断任何MBTI类型。想进一步做MBTI时需要完整独立作答。",
-        "en": "This quiz compares original archetypal-motivation choices. MBTI preferences, eight-function interpretations and the mini-program’s Jungian-attitude/function form address different tasks. Four preferences cannot generate twelve archetypes or eight-function scores, and this result implies no MBTI type. A later MBTI attempt requires its own complete responses."
+        "zh": "所有最高计数都保留，不强行选唯一主型。十二项各3次时，就是十二项最高并列。并列没有被随机处理，也不因先显示哪个名称决定主次；每份对应报告都免费完整可读。",
+        "en": "Every theme sharing the highest count remains. Three choices for each of twelve themes is a twelve-way tie. Nothing is selected randomly or promoted by display order, and every matching guide is complete and free."
       }
     },
     {
       "question": {
-        "zh": "免费结果、草稿和分享包含什么？",
-        "en": "What do free results, drafts and sharing include?"
+        "zh": "差1次说明主型和次型吗？",
+        "en": "Does a one-choice gap establish primary and secondary archetypes?"
       },
       "answer": {
-        "zh": "全部题目、12种完整指南、每个最高并列结果都免费，无需注册。仅主动开启才在本标签页保存24小时草稿，完成、清除或重测删除。分享只有结果名称与公开链接，不含答案或计数；存储或复制不可用时仍能完成并手动分享。",
-        "en": "All questions, twelve full guides and every highest tied report are free without signup. Only opting in saves a 24-hour draft in this tab; completion, clearing or retaking removes it. Sharing includes names and public links, never answers or counts. Blocked storage or copying does not prevent completion or manual sharing."
+        "zh": "本版不作这种判定。一次选择的差距没有对应显著差异或测量误差证据。你可以读相近指南、回看具体题目的取舍，但不能把小差距解释为固定次型或隐藏身份。",
+        "en": "Not in this edition. A one-choice gap has no established significance or measurement-error estimate. Compare nearby guides and the tradeoffs in actual items without turning a small gap into a fixed secondary type or hidden identity."
+      }
+    },
+    {
+      "question": {
+        "zh": "最低计数能找到我的阴影吗？",
+        "en": "Can the lowest count identify my shadow?"
+      },
+      "answer": {
+        "zh": "不能。低计数只表示本轮相对少选的主题，题目没有测量潜意识、压抑、创伤或压力下的表现。本站没有从低分或高分推导阴影的有效算法，不把它当成需要修复的缺陷。",
+        "en": "No. It records a theme selected less often in this set. The items do not measure unconscious processes, repression, trauma or responses under pressure. No validated algorithm derives a shadow from either high or low counts, and a low count is not a defect to repair."
+      }
+    },
+    {
+      "question": {
+        "zh": "这与PMAI商业测评有什么关系，科学性怎样判断？",
+        "en": "How does this relate to PMAI, and what evidence supports it?"
+      },
+      "answer": {
+        "zh": "PMAI是另一个具有自有题目、计分、解释和研究的工具。[2] 本站36题为独立原创，不使用其受保护材料，也不是授权版或等值替代。[3] 本题本尚无对应信度、效度与常模；框架出处或其他工具的研究不能代替本站验证。",
+        "en": "PMAI is a separate instrument with its own items, scoring, interpretations and research.[2] These 36 original items use none of its protected materials and are not a licensed or equivalent form.[3] This questionnaire has no established reliability, validity or norms. Model origins and research on another tool do not validate it."
+      }
+    },
+    {
+      "question": {
+        "zh": "能换算MBTI、八功能、九型或职业适配吗？",
+        "en": "Can the result be converted into MBTI, functions, Enneagram or career fit?"
+      },
+      "answer": {
+        "zh": "没有这样的换算。这里比较原型动机；MBTI偏好、心理功能、九型与职业兴趣的概念和题本不同。本站也不据原型名称判定能力、职业资格、关系结局或某个性别应有的角色。",
+        "en": "No conversion is provided. This form compares archetypal motives; MBTI preferences, psychological functions, Enneagram and career interests use different concepts and questionnaires. An archetype does not establish ability, qualifications, relationship outcomes or a role prescribed by gender."
+      }
+    },
+    {
+      "question": {
+        "zh": "两项都吸引我或四项都不贴切，怎么办？",
+        "en": "What if two options appeal, or none fits?"
+      },
+      "answer": {
+        "zh": "想象近期相似情境，选更愿意先参与的一项，不按理想原型反推答案。若确实无法比较可以停止，未答完36题不生成结果。一个行为可能对应多种动机，单次选择不应解释成只有一种原因。",
+        "en": "Use a comparable recent situation and choose what would attract your participation first, rather than aiming for an ideal archetype. You may stop if comparison is impossible; fewer than 36 answers produce no result. An action can serve several motives, so one choice should not be treated as its only cause."
+      }
+    },
+    {
+      "question": {
+        "zh": "多久完成，完整结果是否免费，会保存答案吗？",
+        "en": "How long does it take, are full results free, and are answers saved?"
+      },
+      "answer": {
+        "zh": "预计约8分钟，不限时。全部题目、计数与报告免费，无需注册或邮箱。默认不保存答案，仅主动开启时保留本标签页24小时草稿；完成、清除或重测删除。分享只含名称与公开链接，不含私人答案或计数。",
+        "en": "About eight minutes, without a time limit. All items, counts and guides are free without signup or email. Saving is off by default; an optional draft lasts 24 hours in this tab and is removed on completion, clearing or retaking. Sharing includes names and public links, not private answers or counts."
+      }
+    },
+    {
+      "question": {
+        "zh": "结果会变化吗，怎样用它更有帮助？",
+        "en": "Can results change, and how can I use them constructively?"
+      },
+      "answer": {
+        "zh": "近期任务、情境、题意理解与作答波动都可能影响计数，不能只凭两次标签判断成长阶段。找一个符合与不符合的实例，尝试一次小调整，再用真实体验和反馈核对。重测开始新作答并清除当前草稿，不建立个人历史。",
+        "en": "Recent tasks, situations, interpretation and response variation can affect counts. Two labels do not establish a developmental stage. Find one fitting and one non-fitting example, try a small adjustment and check experience and feedback. Retaking starts a new attempt and clears the current draft, without creating a personal history."
       }
     }
   ]

@@ -15,12 +15,12 @@
     "zh": "近期心情：个人回顾"
   },
   "description": {
-    "en": "12 original adult descriptions of recent mood, interest, sleep, appetite, energy, attention and inner words. Three full guides before answers. Recall only, without depression diagnosis or severity scoring.",
-    "zh": "12条成年人原创描述，回顾近期心情、兴趣、睡眠、食欲、精力、注意与内心语言。三篇全文答题前可读，只凭回忆，不作抑郁诊断或严重度评分。"
+    "en": "Reflect on mood, interest, sleep, appetite, energy, attention and inner words with twelve original adult observations. Recall the past four weeks and read three separate category records with complete guides, free without registration.",
+    "zh": "通过十二条成年人原创观察，回顾过去四周的心情、兴趣、睡眠、食欲、精力、注意与内心语言。免费查看三组独立类别记录及完整指南，无需注册。"
   },
   "introduction": {
-    "en": "Recall the past four weeks through three overlapping editorial topics. Each choice stays an individual category and contributes only to a category count, without points, a total or highest topic. This is not PHQ-9, SDS or a replacement for the separate clinical assessment.",
-    "zh": "通过三个可能重叠的编辑主题回顾过去四周。选择保留逐项类别，只作类别计数，没有点数、总分或最高主题。本版不是PHQ-9、SDS，也不替代独立临床评估。"
+    "en": "Each topic contains four descriptions with five frequency labels and an explicit unscored choice. Individual responses remain visible; counts describe the selected labels rather than days or symptoms. These overlapping topics organise a personal recollection, without a total score, highest topic or clinical finding.",
+    "zh": "每个主题四条描述，提供五种频率标签和明确的未计分选择，保留逐项回答。计数描述所选标签，不统计天数或症状。三个可能重叠的主题帮助整理个人回忆，不合总分、不选最高主题，也不作临床判断。"
   },
   "instructions": {
     "en": "If you choose to answer, recall the past four weeks. Choose did not notice, rarely, sometimes, often or very often; use unscored for no relevant experience, unclear memory or withholding. Recall only. No task, sleep or food change, body measurement or thought exercise is required. Unscored stays separate from did not notice.",

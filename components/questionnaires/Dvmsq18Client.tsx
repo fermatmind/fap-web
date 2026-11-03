@@ -54,16 +54,14 @@ function ValidDvmsq18Client({ quiz, locale, readingProfiles }: { quiz: Dvmsq18Qu
     catch { if (revision.current !== copiedRevision) return; setManual(text); setMessage(zh ? "无法自动复制，可从下方手动复制公开链接。" : "Automatic copying is unavailable. Copy the public links below manually."); }
   }
   const question = quiz.questions[position];
-  return <section id="take-test" data-dvmsq18-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
-    {activityConsent}
+  return <section id="take-test" data-stage={stage} data-dvmsq18-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
+    {stage === "welcome" && <button data-explore-start type="button" disabled={!ready} className={`${button} dvmsq18-primary`} onClick={() => { revision.current++; setStage("answer"); setPosition(0); setMessage(""); recordStart(); }}>{zh ? "开始测试" : "Start test"}</button>}
     <p className="mb-4 text-sm leading-7 text-slate-600">{quiz.dvmsq18.privacy[locale]}</p>
     <fieldset disabled={!ready} className="min-w-0 space-y-5 p-0"><legend className="sr-only">{quiz.title[locale]}</legend>
       {stage === "welcome" && <>
         <h2 className="text-2xl font-semibold">{quiz.dvmsq18.subtitle[locale]}</h2>
         <p className="leading-8">{quiz.instructions?.[locale]}</p>
-        <p className="leading-8">{quiz.dvmsq18.editionNotice[locale]}</p>
         <p className="leading-8">{zh ? "先答前置题；选否按源表结束，选是进入18条源题。新增不确定或不愿回答可无分数结束。无需收集声音或身体描述，不做声音暴露。" : "Start with the screening question. No ends the source form; yes opens 18 source prompts. Added unsure or decline can finish without a score. No sound list, bodily description or sound exposure is needed."}</p>
-        <button type="button" className={button} onClick={() => { revision.current++; setStage("answer"); setPosition(0); setMessage(""); recordStart(); }}>{zh ? "开始测试" : "Start test"}</button>
       </>}
       {stage === "answer" && <>
         <p data-dvmsq18-progress className="text-sm text-slate-600">{position === 0 ? (zh ? "前置问题" : "Initial screening question") : (zh ? `源题 ${position} / 18` : `Source prompt ${position} of 18`)}</p>
@@ -114,6 +112,7 @@ function ValidDvmsq18Client({ quiz, locale, readingProfiles }: { quiz: Dvmsq18Qu
       </>}
       {stage !== "welcome" && <button type="button" className={button} onClick={clear}>{zh ? "退出并清除本次回答" : "Exit and clear these responses"}</button>}
     </fieldset>
+    {activityConsent}
     <p role="status" aria-live="polite" className="my-4 text-sm leading-7">{ready ? message : (zh ? "正在准备问卷，请稍候。" : "Preparing the questionnaire. Please wait.")}</p>
     <noscript><p>{zh ? "作答需启用JavaScript；全部公开指南仍可直接阅读。" : "Answering requires JavaScript; all public guides remain readable."}</p></noscript>
   </section>;

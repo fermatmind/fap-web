@@ -56,10 +56,9 @@ for (const locale of ["en", "zh"] as const) {
     await page.goto(`/${locale}/tests`); await acceptCookies(page, locale);
     await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
-    await expect(page.getByText(zh ? "原创自我观察问卷 · 完整结果免费" : "Original self-reflection questionnaire · Full results free", { exact: true })).toBeVisible();
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${entry}`);
     await expect(page.getByRole("link", { name: zh ? "了解独立的能量与心流题本" : "Read about the separate Energy & Flow form" })).toHaveCount(0);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.locator("[data-explore-start]").click();
     await expect(page.getByRole("checkbox")).toHaveCount(0);
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
@@ -71,7 +70,7 @@ for (const locale of ["en", "zh"] as const) {
     await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
     await expect(page.locator("[data-aep-mean]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked();
     await page.getByRole("button", { name: zh ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click();
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await expect(page.getByRole("radio").first()).not.toBeChecked();
+    await page.locator("[data-explore-start]").click(); await expect(page.getByRole("radio").first()).not.toBeChecked();
     expect(requests).toEqual([]);
   });
 
@@ -88,21 +87,21 @@ for (const locale of ["en", "zh"] as const) {
       Storage.prototype.removeItem = function(k) { if (k === key) { touches.push("remove"); throw new Error("synthetic storage denial"); } return remove.call(this, k); };
     });
     await page.goto(entry); await expect(page.getByRole("button", { name: /Resume this tab|恢复本标签页/ })).toHaveCount(0);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await expect(page.locator('input[value="5"]')).not.toBeChecked();
+    await page.locator("[data-explore-start]").click(); await expect(page.locator('input[value="5"]')).not.toBeChecked();
     await page.locator('input[value="4"]').check(); await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     expect(await page.evaluate(() => (window as Window & { activityStorageTouches?: string[] }).activityStorageTouches)).toEqual([]);
-    await page.reload(); await expect(page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true })).toBeVisible();
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await expect(page.locator('input[value="4"]')).not.toBeChecked();
+    await page.reload(); await expect(page.locator("[data-explore-start]")).toBeVisible();
+    await page.locator("[data-explore-start]").click(); await expect(page.locator('input[value="4"]')).not.toBeChecked();
     await page.locator('input[value="5"]').check();
     const other = zh ? "en" : "zh"; await page.goto(`/${other}/tests/explore/activity-engagement-patterns`);
-    await expect(page.getByRole("button", { name: other === "zh" ? "开始测试" : "Start test", exact: true })).toBeVisible();
-    await page.getByRole("button", { name: other === "zh" ? "开始测试" : "Start test", exact: true }).click(); await expect(page.locator('input[value="5"]')).not.toBeChecked();
+    await expect(page.locator("[data-explore-start]")).toBeVisible();
+    await page.locator("[data-explore-start]").click(); await expect(page.locator('input[value="5"]')).not.toBeChecked();
     expect(await page.evaluate(() => (window as Window & { activityStorageTouches?: string[] }).activityStorageTouches)).toEqual([]);
   });
 
   test(`@release Activity engagement ${locale}: all-skipped is finished without means, with all40sections and no result sharing or flow analytics`, async ({ page }) => {
     const requests = observePrivateRequests(page); await page.goto(entry); await acceptCookies(page, locale);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await finish(page, locale, "na");
+    await page.locator("[data-explore-start]").click(); await finish(page, locale, "na");
     await expect(page.getByRole("heading", { level: 3, name: zh ? "五份说明已完整开放，可以在这里结束" : "All five guides are open. You may finish here.", exact: true })).toBeVisible();
     await page.waitForTimeout(250); expect(requests).toEqual([]);
   });

@@ -14,17 +14,17 @@
     "zh": "SECS两个历史议题领域的温度读法"
   },
   "description": {
-    "en": "Take a free conservatism test using all 12 SECS 2013 U.S. issues. Read separate social and economic means, reversals, missing information and full guides.",
-    "zh": "免费保守主义测试：保留2013年美国SECS完整12个议题及两处反向键，分别查看社会与经济领域的温度均分、资料不足、例子反例和完整读法，不派政治身份。"
+    "zh": "免费完成SECS2013美国议题版12项温度评分，分别阅读社会与经济领域均分、反向计分及两份完整指南。支持NA，无需注册；中文为试译。",
+    "en": "Rate all 12 SECS 2013 U.S. issues. Read separate social and economic means, reverse scoring and two full guides. Free, no sign-up; NA available."
   },
   "seoTitle": {
-    "en": "Conservatism Test: 12 SECS Items and Free Full Results",
-    "zh": "保守主义测试：SECS12项与免费完整双语结果"
+    "zh": "保守主义测试：SECS2013十二项、两域均分与完整解读",
+    "en": "Conservatism Test: SECS 2013, 12 Items & Two Full Guides"
   },
   "minutes": 4,
   "introduction": {
-    "en": "How warm or cool do these twelve issue names feel to you? This edition retains the complete English terms and social/economic grouping from Everett’s 2013 Social and Economic Conservatism Scale, with our Chinese trial translation. The source was developed in the United States and explicitly warns that political meanings change with time and place. It is presented as a historical educational edition, not a current universal or Chinese political scale, and not IDRlabs’ separate eighteen-statement test. After twelve selections, social and economic readings appear separately with both full eight-section guides. There are no parties, quadrants, conservative/liberal cutoffs or moral rankings. All content is free without signup.",
-    "zh": "这十二个议题名称给你怎样的正面或负面感受？本版保留Everett于2013年发表的社会与经济保守主义量表完整英文词语和两组归属，中文为本站试译。原工具在美国开发，并明确提醒政治含义随时间与地点变化；这里呈现的是历史教育版本，不是当前通用或中国政治量表，也不是IDRlabs另一套十八陈述测试。十二项都选择后，社会与经济读法分别呈现，两份各八节完整指南同时可读。不派政党、象限、保守／自由阈值或道德排名，全部免费且无需注册。"
+    "zh": "通过完整12项SECS2013美国议题温度评分，分别观察社会与经济领域的回答。免费查看原始和、均分及两份完整指南；约4分钟，可选NA。中文为本站试译，本页保留历史语境，不派政治身份。",
+    "en": "Rate your feelings toward all twelve SECS 2013 U.S. issues, with separate social and economic readings. View raw sums, means and both full guides, free. About four minutes; NA is available. Chinese is our trial translation. This historical edition assigns no political identity."
   },
   "instructions": {
     "en": "Rate your positive or negative feeling toward each term, not agreement with a policy statement. Zero is very negative, fifty neutral and one hundred very positive, in ten-point steps. No value is preselected. If a term is unfamiliar, unclear in your context or something you prefer not to answer, select the separate NA. Twelve selections complete the attempt; social needs all seven valid ratings and economic all five. An NA withholds only its own domain rather than filling it with fifty. Do not enter your identity, party, location or a personal story.",

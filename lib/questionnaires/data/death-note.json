@@ -14,21 +14,21 @@
     "en": "Your eight character choices and every highest tie"
   },
   "description": {
-    "zh": "免费完成24道原创普通选择，比较夜神月、L等八位角色，最高并列全部完整显示。含角色对照、例子与计分；非官方同人测试，不评智商、道德或危险性。",
-    "en": "Take 24 original everyday questions and compare eight Death Note characters. Full tied results, examples and scoring are free in this unofficial fan quiz."
+    "zh": "用24道原创日常情境题，比较目标、提问、观察、表达、信息整理、替代路径、条件与资源用途八种角度。约7分钟，免费查看八位角色的原始次数、所有最高并列与完整指南，无需注册。",
+    "en": "Compare aims, questions, observation, expression, information, alternative routes, criteria and resource uses through 24 original everyday scenarios. About 7 minutes, with free raw counts, every highest tie and eight full guides. No signup needed."
   },
   "seoTitle": {
-    "zh": "死亡笔记角色测试：24题、八角色与完整结果",
-    "en": "Death Note Test: Free Quiz & Eight Full Results"
+    "zh": "死亡笔记角色测试：24题、八位角色与完整解读",
+    "en": "Death Note Character Quiz: 24 Questions and Eight Full Guides"
   },
   "minutes": 7,
   "introduction": {
-    "zh": "面对普通信息与表达，你更愿意说明目标、区分解释、旁观细节、选择可见表达、排列已有信息、另试路径、一致比较，还是重想用途？24道原创题借主系列与a-Kira短篇八位角色作有限同人读法，不考剧情，不把虚构行为当道德或现实能力。八份完整结果可先读，全部最高并列完整显示。",
-    "en": "With ordinary information and expression, would you rather name an aim, distinguish explanations, observe a detail, choose visible expression, arrange information, try another route, apply criteria or reconsider a use? Twenty-four original questions select eight main-series and a-Kira characters as limited fan readings, without trivia or making fiction a verdict on morality or actual ability. Read all eight guides first and see every highest tie in full."
+    "zh": "面对一张普通照片、一本阅读摘记或一个自愿参加的小展览，你通常先关注什么？这份《死亡笔记》角色测试用24道原创四选一，探索夜神月、L、琉克、弥海砂、尼亚、梅洛、魅上照和田中实在本版中的八种阅读角度。完成后可查看全部原始次数、所有最高并列与八份完整指南。\n\n无需熟悉剧情或记住笔记本规则。题目使用无害的日常活动，角色名用于组织不同做法，而非考查推理能力或裁定正义立场。人物来自主系列及短篇；作品资料说明角色背景，本站独立设计选项与角色之间的对应。",
+    "en": "What do you notice first in an ordinary photo, reading notebook or voluntary small exhibition? This Death Note character quiz uses 24 original four-option scenarios to explore eight editorial readings: Light Yagami, L, Ryuk, Misa Amane, Near, Mello, Teru Mikami and Minoru Tanaka. Completion shows every raw count, every highest tie and eight full guides.\n\nYou need not know the plot or notebook rules. Questions use harmless everyday activities, with names organizing approaches rather than testing reasoning ability or judging moral positions. Characters come from the main series and short stories. Series sources establish background; option-to-character assignments are independently designed here."
   },
   "instructions": {
-    "zh": "24道原创非官方同人题，借夜神月、L、琉克、弥海砂、尼亚、梅洛、魅上照与田中实八位虚构角色，比较普通信息处理与自选表达。田中实来自a-Kira短篇，角色集合不是37集动画全集，也不混用2015真人剧设定。每题从四种做法选一个较接近自己的，均为自愿、许可、可改和可停止的普通情境。每选加1，每位全卷12次、每位置3次，总数24；全部最高并列完整显示。不测剧情知识，不推断智商、正义、危险性、疾病、爱情或职业，不要求模仿伤害、操控、追踪或惩罚，也不换算MBTI。",
-    "en": "Twenty-four original unofficial fan questions use Light, L, Ryuk, Misa, Near, Mello, Mikami and Minoru to compare ordinary information choices and chosen expression. Minoru comes from the a-Kira short story; this is neither the full 37-episode anime cast nor a mixture with the 2015 live-action version. Choose the closer of four approaches in voluntary, permitted, revisable and stoppable situations. Each choice adds one, each character appears twelve times and three times per position, and counts sum to twenty-four. Every highest tie appears in full. There is no trivia, IQ, justice, dangerousness, illness, romance or career verdict, imitation of harm, manipulation, stalking or punishment, or MBTI conversion."
+    "zh": "请以近期普通阅读、创作和自愿活动中的实际选择为参照，每题选四项中更接近自己的一项。多项都合适时选相对更自然的；没有完全合适时选较接近的。不需要模仿角色、作道德表态或提供私人经历。完成24题后生成八项次数与所有最高并列的完整解读。",
+    "en": "Refer to recent ordinary reading, creative activities and voluntary participation. Select the closest of four approaches; if several fit, choose the more natural one, and if none fits fully, choose the closest. You need not imitate characters, declare moral positions or supply private experiences. Complete all 24 items for eight counts and full readings for every highest tie."
   },
   "source": {
     "kind": "FermatMindoriginal24ENZH4choice/unofficialtextonlyfanreading/eightselectedmainseriesandshortstorycharacters/notclinicalinstrument",
@@ -2306,65 +2306,187 @@
     {
       "id": "archetype-counts",
       "title": {
-        "zh": "24题怎样形成八角色计数",
-        "en": "How 24 choices produce eight character counts"
+        "zh": "24题怎样形成八位角色的次数",
+        "en": "How 24 questions produce eight character counts"
       },
       "paragraphs": [
         {
-          "zh": "24题全部各选一项，对应的本版角色读法加1，总数固定24。每题只提供八位中的四位，全卷每位出现12次、每位置3次；未提供的四位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会八位各3次、八份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、虚构能力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型；近分可自行比较，不补造并列。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
-          "en": "Choose one option for all 24 items; each adds one to its editorial character reading and counts sum to 24. Four of eight characters are offered per item. Each appears twelve times and three times in each position; four absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all eight guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, fictional powers nor population ranks. One extra choice proves no significance, hidden identity or fixed type; compare close guides without inventing ties. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+          "zh": "每题提供八个方向中的四个选项，选中项对应方向加1次。完成24题后八项次数之和为24。每个方向出现12次，四个位置各3次，单项范围0—12。某题未提供的四个方向不算被拒绝，也不扣分。",
+          "en": "Each item offers four of eight directions. The selected direction gains one; the eight counts sum to 24 on completion. Each appears 12 times, three per position, giving a range of 0–12. The four directions absent from an item are not rejected and lose no points."
+        },
+        {
+          "zh": "例如，按夜神月、L、琉克、弥海砂、尼亚、梅洛、魅上照、田中实顺序，次数为3、5、1、2、5、1、4、3，总和24。L与尼亚共同最高，均显示完整指南。5表示选中5项，不表示五成相似、智力水平、人格比例或人群位置。",
+          "en": "For example, counts of 3, 5, 1, 2, 5, 1, 4, 3 in the order Light, L, Ryuk, Misa, Near, Mello, Mikami and Minoru sum to 24. L and Near share the maximum, so both full guides appear. Five means five selections, not a similarity percentage, intelligence level, personality proportion or population position."
         }
       ]
     },
     {
       "id": "archetype-ties",
       "title": {
-        "zh": "完整结果、最高并列与近分",
-        "en": "Full guides, highest ties and close choices"
+        "zh": "最高并列、近分与较低次数",
+        "en": "Highest ties, close counts and lower counts"
       },
       "paragraphs": [
         {
-          "zh": "八份完整说明各含人物版本与有限读法、具体例子、可用表达、七角色比较、反例、小观察、计分和来源。最高并列逐份显示，不设主角优先，不从名单顺序选主型，也不把第二名自动变成隐藏身份。近分可以自选读，不补造并列、百分比或群体排名；公开说明不显示私有答卷。",
-          "en": "Each of eight guides includes story version and the limited reading, an example, wording, seven-character comparisons, counterexamples, an observation, scoring and sources. Every highest tie appears in full without protagonist priority, list-order types or an automatic hidden runner-up identity. Read close guides without inventing ties, percentages or population ranks. Public pages reveal no private attempts."
+          "zh": "所有达到相同最高次数的方向均完整保留，不按名单、题号或选项位置强分主次。始终选同一位置会得到八位各3次。并列是合法结果，没有额外随机角色，也不需要生成一个混合身份；可以逐份比较对应的具体选择。",
+          "en": "Every direction sharing the maximum is retained without assigning priority by roster, question order or option position. Choosing the same position throughout gives three each for all eight. A tie is valid, without an extra random character or hybrid identity; compare the relevant choices in each guide."
+        },
+        {
+          "zh": "差1次只说明多选了一项，本版没有统计显著性或近分合并阈值。魅上照4次与L、尼亚5次可以一起读，但不自动算并列。低次数不表示缺少目标、表达或观察能力：固定总数下，选择一个方向不会同时增加其他方向。",
+          "en": "A one-count gap means one extra selection; this edition has no significance test or threshold merging close counts. Mikami at four can be read alongside L and Near at five but is not automatically tied. Lower counts do not show missing aims, expression or observation ability: one choice does not increase other directions."
         }
       ]
     },
     {
       "id": "archetype-metaphor",
       "title": {
-        "zh": "主系列、短篇与剧情问答的区别",
-        "en": "Main series, short stories and trivia"
+        "zh": "八份完整指南：从名字到日常做法",
+        "en": "Eight full guides: from names to everyday approaches"
       },
       "paragraphs": [
         {
-          "zh": "七位来自主系列的选定人物，加田中实这位a-Kira短篇角色，不是37集动画全阵容，也不混入2015真人剧的不同设定。无需看完作品，题目都是普通自选情境。中文名为本版编辑采用写法，英文身份稳定；人物名不增加测试数量，也不代表你的现实道德、智商或危险性。",
-          "en": "Seven selected main-series characters join Minoru from a-Kira rather than forming the complete 37-episode anime cast or mixing in different 2015 live-action settings. Ordinary chosen situations require no complete-series knowledge. Chinese names are editorial choices retaining English identities. Names add no tests and establish no actual morality, IQ or dangerousness."
+          "zh": "每位角色都有基础作品语境、本版解释、日常场景、可尝试的表达、其他七位的比较、反例、小观察、计分与来源说明。公开指南可以先读，不含私人答卷。完成后每个最高并列都显示完整内容，无需另做测试或付费解锁。",
+          "en": "Each character has series context, this edition’s reading, an everyday scenario, wording to try, seven-character comparisons, counterexamples, an observation activity, scoring and sources. Public guides can be read first and contain no private answers. Every highest tie displays full content without another test or paid unlock."
+        },
+        {
+          "zh": "把“我就是L”换成一个可以核对的问题，例如“我是否先找能区分两个解释的信息？”然后找一次符合和一次不符合的经历。喜欢人物、赞同其故事行为与更常选择一种日常做法是不同问题，不必让三者一致。",
+          "en": "Replace “I am L” with a checkable question, such as whether you first seek information that distinguishes two explanations. Find one fitting experience and one counterexample. Liking a character, endorsing story actions and choosing an everyday approach more often are different questions and need not coincide."
         }
       ]
     },
     {
-      "id": "source",
+      "id": "death-note-eight-readings",
       "title": {
-        "zh": "原创同人与来源使用范围",
-        "en": "Original fan reading and source scope"
+        "zh": "八位角色分别对应什么阅读角度",
+        "en": "What the eight character readings mean here"
       },
       "paragraphs": [
         {
-          "zh": "这是费马独立创作的24题非官方同人问卷，选择主系列七位角色与a-Kira短篇的田中实，共八个普通信息处理与表达的有限阅读角度，不是37集动画全阵容，也不混用2015真人剧设定。角色不代表完整人格、现实道德或官方类型系统。题目、选项、映射、计数、解释和例子原创，未采用IDR40题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材；不是官方测验，也无权利人合作、授权或认可，作品与角色权利归相应权利人。VIZ系列与短编辑简介、集英社短编辑资料和GoodSmile授权人物名单只核基础作品语境、短篇归属与名字，不验证本站题目、计分或心理解释。中文名为本版编辑采用的写法，英文身份保持不变，不因译名增加角色。结果不推断智商、能力、疾病、神经类型、创伤、道德、危险性、犯罪倾向、爱情、关系、职业或财富，不指导伤害、操控、跟踪、强制、惩罚或交易他人权利，也不换算MBTI或其他角色测试。",
-          "en": "This is an independently authored FermatMind 24-item unofficial fan quiz selecting seven main-series characters and Minoru from a-Kira as eight limited readings of ordinary information and expression choices. It is neither the complete 37-episode anime cast nor a mixture with the 2015 live-action version. Characters represent neither complete personalities, actual morality nor an official type system. Items, options, mappings, counts, explanations and examples are original. No IDR 40-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; respective owners retain series and character rights. VIZ series and collection blurbs, Shueisha’s collection information and GoodSmile’s licensed roster check basic context, short-story membership and names without validating these items, counts or psychology. Chinese names are editorial choices retaining English identities; variants add no characters. Results infer no IQ, ability, illness, neurotype, trauma, morality, dangerousness, criminal tendency, romance, relationship, career or wealth, instruct no harm, manipulation, stalking, coercion, punishment or exchange of others’ rights, and convert into no MBTI or other character test."
+          "zh": "夜神月对应说明自己选择的目标；L对应提出能区分解释的问题；琉克对应注意不寻常细节；弥海砂对应选择可见的个人表达。例如阅读摘记可以先写目的、追问不同解释、记下意外细节或决定呈现风格。这里讨论关注点，不评目标高低、侦探能力、冷漠或外貌。",
+          "en": "Light concerns naming a chosen aim; L asking a question that distinguishes explanations; Ryuk noticing unusual detail; Misa choosing visible expression. A reading notebook might begin with its aim, an explanatory question, a surprising detail or presentation style. These concern priorities, not the worth of aims, detective ability, indifference or appearance."
+        },
+        {
+          "zh": "尼亚对应排列手边已有的信息；梅洛对应另试一条可回头的路径；魅上照对应写明一致使用的条件；田中实对应重想资源用途。它们分别帮助讨论资料、替代方案、规则与用法，不是智商、冒险倾向、道德纯度或商业天赋的测量。",
+          "en": "Near concerns arranging available information; Mello trying another reversible route; Mikami stating consistent criteria; Minoru reconsidering resource uses. They prompt discussion of information, alternatives, rules and uses rather than measuring IQ, risk propensity, moral purity or business talent."
         }
       ]
     },
     {
-      "id": "privacy",
+      "id": "death-note-comparisons",
       "title": {
-        "zh": "草稿、分享与可选下一步",
-        "en": "Drafts, sharing and optional next steps"
+        "zh": "相近角色怎样区分？提问、整理与条件",
+        "en": "Comparing nearby readings: questions, organization and criteria"
       },
       "paragraphs": [
         {
-          "zh": "答案在浏览器内计分，不上传、不进网址或分析。草稿需主动开启，只在本标签页恢复，24小时失效，完成、重测、退出清除即删除。分享自选，只含公开角色说明和链接，不含答案或次数。完整结果免费，无需注册、邮箱或另一测试；后续测评可不做，选择继续需要另外作答。",
-          "en": "Answers are scored in your browser without uploading them or placing them in URLs or analytics. Drafts require opt-in, restore only in this tab, expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains public guides and links without answers or counts. Full results are free without signup, email or another test; further assessments are optional and require new answers."
+          "zh": "L与尼亚都可能涉及信息：L先问什么事实能区分两个解释，尼亚先把已知、未知和来源摆清。魅上照则先说明哪些条件一致使用。三者可以发生在同一次活动中，但提问、整理和规定条件是不同动作；没有一个方向自动更聪明或更正确。",
+          "en": "L and Near both involve information: L asks what fact would distinguish explanations; Near lays out what is known, unknown and sourced. Mikami first states which criteria apply consistently. All can occur in one activity, but questioning, organizing and specifying criteria are distinct actions; none is automatically smarter or more correct."
+        },
+        {
+          "zh": "夜神月与田中实分别从想达成什么、手头资源还能怎样用切入；梅洛着重可回头的另一路。琉克的观察和弥海砂的表达也可先后出现。比较时回到题目中的行动对象，不用剧情里的阵营、胜负或外在形象替代实际选项。",
+          "en": "Light starts with a chosen aim, Minoru with what else a resource could do, and Mello with a reversible alternative. Ryuk’s observation and Misa’s expression can also occur in sequence. Compare the action and its object, rather than replacing options with fictional sides, victories or appearances."
+        }
+      ]
+    },
+    {
+      "id": "death-note-series-context",
+      "title": {
+        "zh": "主系列、短篇与本版人物集合",
+        "en": "Main series, short stories and this edition’s roster"
+      },
+      "paragraphs": [
+        {
+          "zh": "VIZ的主系列介绍确认大场鸫原作、小畑健作画及作品的超自然悬疑背景；短篇集另含C-Kira、a-Kira与L相关短篇。[1][2] 集英社同书的官方简介列出田中实与a-Kira的关联。[3] 因而本版八位是主系列与短篇的选定集合，不是八位电视动画主角。",
+          "en": "VIZ identifies Tsugumi Ohba and Takeshi Obata and the series’ supernatural suspense premise; its short-story collection also contains C-Kira, a-Kira and L stories.[1][2] Shueisha’s collection description links Minoru Tanaka to a-Kira.[3] Our eight therefore form a selection across the main series and short stories, not eight television-anime protagonists."
+        },
+        {
+          "zh": "GoodSmile的授权商品人物名单可交叉核对月、L、弥海砂、尼亚、梅洛与魅上照的名字，但商品介绍不是人物心理研究。[4] 官方资料用于作品与名字语境，不代表权利方认可本站问卷。中文译名可能因版本不同；页面用稳定角色标识连接指南。",
+          "en": "GoodSmile’s licensed product roster cross-checks the names Light, L, Misa, Near, Mello and Mikami, but a product description is not psychological research.[4] Official sources establish series and name context, not endorsement of this questionnaire. Chinese names vary by edition; stable character identifiers connect our guides."
+        }
+      ]
+    },
+    {
+      "id": "death-note-fiction-limits",
+      "title": {
+        "zh": "角色阅读与智力、道德及心理判断",
+        "en": "Character readings versus intelligence, morality and mental health"
+      },
+      "paragraphs": [
+        {
+          "zh": "作品中的推理对决、超自然规则和极端抉择是叙事设置。本站的照片提问和资料整理不是标准化认知任务；选出L或尼亚不构成IQ、破案或识谎成绩，选出夜神月、魅上照也不判定正义观或危险性。普通自报偏好不能支持这些推断。",
+          "en": "Fictional deductions, supernatural rules and extreme choices serve the narrative. Our photo questions and information choices are not standardized cognitive tasks. L or Near establishes no IQ, investigative or lie-detection performance, while Light or Mikami determines no moral position or dangerousness. Everyday self-reported preferences do not support those inferences."
+        },
+        {
+          "zh": "弥海砂的结果不测依恋或受欢迎程度，琉克的结果不判断是否有同理心；梅洛的替代路径也不要求冒险或强迫别人。八份阅读都针对自愿、无害的活动。人物经历可以作为故事欣赏，不把它们当成答题者的临床、创伤或犯罪资料。",
+          "en": "Misa does not assess attachment or popularity, Ryuk does not determine empathy, and Mello’s alternative does not require risk or coercion. All eight readings concern voluntary harmless activities. Enjoy fictional experiences as stories without treating them as clinical, trauma or criminal-history information about respondents."
+        }
+      ]
+    },
+    {
+      "id": "death-note-scenario",
+      "title": {
+        "zh": "用一个普通小展览理解八种入口",
+        "en": "Eight approaches to an ordinary small exhibition"
+      },
+      "paragraphs": [
+        {
+          "zh": "假设朋友自愿筹备小展览：先说明想让观众看到什么，问哪条信息能区分两种解读，记一个意外细节，选择标签风格，整理现有素材，试可撤回的布局，写清作品纳入条件，或把空白卡片改作导览。八种入口可以互相补充，没有最佳角色。",
+          "en": "Imagine friends voluntarily preparing a small exhibition: state what visitors should see, ask what distinguishes two readings, note an unexpected detail, choose label styling, organize materials, try a reversible layout, specify inclusion criteria or use blank cards as a guide. The approaches can complement one another; there is no best character."
+        },
+        {
+          "zh": "这个合成例子用于解释选项，不是新增题目或分数。你也许独自读书时先追问，而合作展览时先整理素材。条件、任务与熟悉程度都可能改变先后顺序；找出不同场景的反例，比把自己固定成一个角色更有助于理解结果。",
+          "en": "This constructed example explains options without adding an item or score. You might question first when reading alone but organize materials first in an exhibition. Conditions, tasks and familiarity can change priorities; counterexamples across situations help interpretation more than fixing yourself to one character."
+        }
+      ]
+    },
+    {
+      "id": "death-note-practice",
+      "title": {
+        "zh": "将结果转成一个可讨论的小行动",
+        "en": "Turning a reading into a small discussable action"
+      },
+      "paragraphs": [
+        {
+          "zh": "选一个当前阅读或创作活动，把结果转成一句话：“我这次想达到什么？”“哪条资料能区分两个解释？”“已有信息来自哪里？”也可以试一个可撤回的布局，或写一条允许修订的纳入条件。观察是否让活动更清楚，而不追求扮演人物。",
+          "en": "Choose a current reading or creative activity and ask what you want to achieve, which information distinguishes explanations, or where known information comes from. You could try a reversible layout or write a revisable inclusion criterion. Check whether the activity becomes clearer rather than trying to play a character."
+        },
+        {
+          "zh": "共同活动先确认参与者意愿、材料权限和修改空间。结果可用于表达偏好，不替别人作决定，也不预测同事、朋友或伴侣之间的适配。若对方的实际需求不同，应依据回应调整做法，而非依据角色分配固定任务。",
+          "en": "For shared activities, check willingness, permission to use materials and room to revise. A result helps express preferences without deciding for others or predicting compatibility among colleagues, friends or partners. Adapt to actual responses rather than assigning fixed tasks by character."
+        }
+      ]
+    },
+    {
+      "id": "death-note-evidence",
+      "title": {
+        "zh": "规则可复算与测量证据有什么区别",
+        "en": "Reproducible rules and measurement evidence"
+      },
+      "paragraphs": [
+        {
+          "zh": "本题本尚未建立信度、效度和人群常模。均衡出现说明八个方向获得相同选择机会，可复算计分说明回答如何成为次数；两者不自动验证八个人格构念，也不说明真实人群中八个结果同样常见。作品资料不能替代问卷研究。",
+          "en": "Reliability, validity and population norms have not been established. Balanced appearances give eight directions equal opportunities, and reproducible scoring explains how answers become counts. Neither validates eight personality constructs or shows equally common outcomes in real respondents. Series sources cannot replace questionnaire research."
+        },
+        {
+          "zh": "重测先核对参照情境、题目理解和变化的次数。相近最高值可能随少量选择换位，仅角色名改变不足以证明人格改变。结果也不能换算MBTI、大五或其他动漫测验的百分比；不同工具的题目、角色集合与计分规则并不相同。",
+          "en": "When retesting, compare the reference situation, item interpretation and changed counts first. Small choice changes can reorder close maxima; a changed name alone does not demonstrate personality change. Results cannot convert into MBTI, Big Five or another anime quiz’s percentages, which use different items, rosters and scoring rules."
+        }
+      ]
+    },
+    {
+      "id": "death-note-free-privacy",
+      "title": {
+        "zh": "免费结果、直接开始与临时进度",
+        "en": "Free results, direct start and temporary progress"
+      },
+      "paragraphs": [
+        {
+          "zh": "全部24题、八项次数、最高并列与八份完整指南免费，无需注册或先做其他测试。点击开始直接进入题目，没有额外同意步骤。约7分钟是参考用时，不限时，不按速度加减分；完成全部题目后生成个人结果，公开指南可以先读。",
+          "en": "All 24 questions, eight counts, highest ties and eight full guides are free without signup or another assessment. Start opens questions directly without an extra agreement. About seven minutes is an estimate, not a limit or speed score. Personal results follow all answers; public guides can be read first."
+        },
+        {
+          "zh": "答案在浏览器内计分，不通过计分请求上传，也不写入网址或分析事件。默认不保存；主动保存后本标签页进度24小时失效，完成、重测或退出清除后删除。固定公开指南不含私人答卷或次数；其他使用事件依隐私与Cookie设置。",
+          "en": "Answers are scored in the browser, not uploaded through scoring requests or included in URLs or analytics events. Progress is unsaved by default; opt-in tab progress expires after 24 hours and clears on completion, retake or explicit exit-and-clear. Fixed public guides contain no private answers or counts; other usage events follow privacy and Cookie settings."
         }
       ]
     }
@@ -2372,52 +2494,142 @@
   "faq": [
     {
       "question": {
-        "zh": "死亡笔记角色测试包括哪八位？",
-        "en": "Which eight Death Note characters are included?"
+        "zh": "死亡笔记角色测试测什么？",
+        "en": "What does the Death Note character quiz explore?"
       },
       "answer": {
-        "zh": "本版包括夜神月、L、琉克、弥海砂、尼亚、梅洛、魅上照与田中实。田中实来自a-Kira短篇，前七位为主系列选定人物；不是全作品阵容，也不把真人改编差异混成官方分类。译名不同不增加角色或测试。",
-        "en": "This edition includes Light Yagami, L, Ryuk, Misa Amane, Near, Mello, Teru Mikami and Minoru Tanaka. Minoru is from a-Kira; the other seven are selected main-series characters. This is no full cast or official classification mixing live-action differences. Name variants add neither characters nor tests."
+        "zh": "比较普通阅读、创作和自愿活动中的八种关注点：目标、提问、观察、表达、资料、路径、条件与资源用途。用人物名字组织阅读，不考剧情或评判智力和道德。",
+        "en": "It compares eight priorities in ordinary reading, creative activities and voluntary participation: aims, questions, observation, expression, information, routes, criteria and resource uses. Names organize readings without testing plot knowledge, intelligence or morality."
       }
     },
     {
       "question": {
-        "zh": "需要剧情知识、生日或照片吗？",
-        "en": "Do I need episode knowledge, a birthday or a photo?"
+        "zh": "可以得到哪些角色？",
+        "en": "Which characters are included?"
       },
       "answer": {
-        "zh": "不需要，也不收生日或照片。24题是普通信息处理与自选表达，没有剧情答对、外貌输入或超自然能力评分。基础背景只帮助理解本站有限同人角度，不能代替作品或说明人的全部经历。",
-        "en": "No, and no birthday or photo is collected. Twenty-four items concern ordinary information and chosen expression without correct trivia answers, appearance input or supernatural ability scores. Basic context supports limited fan readings rather than replacing the work or explaining a person’s whole history."
+        "zh": "夜神月、L、琉克、弥海砂、尼亚、梅洛、魅上照与田中实。每位有完整指南与其他七位的比较，结果保留所有相同最高次数。",
+        "en": "Light Yagami, L, Ryuk, Misa Amane, Near, Mello, Teru Mikami and Minoru Tanaka. Each has a full guide and seven-character comparisons; every shared highest count is retained."
       }
     },
     {
       "question": {
-        "zh": "计数、最高并列与近分怎样看？",
-        "en": "How do counts, highest ties and close choices work?"
+        "zh": "田中实为什么出现在名单里？",
+        "en": "Why is Minoru Tanaka included?"
       },
       "answer": {
-        "zh": "24题全部各选一项，对应的本版角色读法加1，总数固定24。每题只提供八位中的四位，全卷每位出现12次、每位置3次；未提供的四位不记拒绝。所有最高计数逐份保留完整说明，全选第一项会八位各3次、八份完整显示。顺序不设主次，不自动指定第二角色；原始次数不是相似百分比、真实人格比例、虚构能力或人口排名。相差一次只是一项选择，不证明显著差异、隐藏身份或固定类型；近分可自行比较，不补造并列。条件和理解可以改变选择，本版没有常模、稀有度、科学分界或心理测量验证。",
-        "en": "Choose one option for all 24 items; each adds one to its editorial character reading and counts sum to 24. Four of eight characters are offered per item. Each appears twelve times and three times in each position; four absent options are not rejections. Every highest count keeps its full guide. Choosing the first option throughout gives three each and all eight guides. List order establishes no priority or automatic second character. Counts are neither similarity percentages, actual personality proportions, fictional powers nor population ranks. One extra choice proves no significance, hidden identity or fixed type; compare close guides without inventing ties. Conditions and understanding can change choices; this edition has no norms, rarity estimates, scientific cutoffs or psychometric validation."
+        "zh": "本版同时选取主系列和短篇人物。集英社短篇集官方简介将田中实与a-Kira相联系；VIZ也列出a-Kira为收录内容。[2][3] 本版田中实讨论重想资源用途，不是电视动画主角名单。",
+        "en": "This edition selects main-series and short-story characters. Shueisha links Minoru to a-Kira, and VIZ lists a-Kira in its collection.[2][3] Our Minoru reading concerns resource uses; the roster is not a list of television-anime protagonists."
       }
     },
     {
       "question": {
-        "zh": "这是官方、MBTI或道德心理测验吗？",
-        "en": "Is this official, MBTI or a moral or psychological assessment?"
+        "zh": "必须看过作品或回答道德困境吗？",
+        "en": "Must I know the series or answer moral dilemmas?"
       },
       "answer": {
-        "zh": "这是费马独立创作的24题非官方同人问卷，选择主系列七位角色与a-Kira短篇的田中实，共八个普通信息处理与表达的有限阅读角度，不是37集动画全阵容，也不混用2015真人剧设定。角色不代表完整人格、现实道德或官方类型系统。题目、选项、映射、计数、解释和例子原创，未采用IDR40题、竞品正文／算法、漫画、动画截图、立绘、台词、字幕、歌词或其他受保护素材；不是官方测验，也无权利人合作、授权或认可，作品与角色权利归相应权利人。VIZ系列与短编辑简介、集英社短编辑资料和GoodSmile授权人物名单只核基础作品语境、短篇归属与名字，不验证本站题目、计分或心理解释。中文名为本版编辑采用的写法，英文身份保持不变，不因译名增加角色。结果不推断智商、能力、疾病、神经类型、创伤、道德、危险性、犯罪倾向、爱情、关系、职业或财富，不指导伤害、操控、跟踪、强制、惩罚或交易他人权利，也不换算MBTI或其他角色测试。",
-        "en": "This is an independently authored FermatMind 24-item unofficial fan quiz selecting seven main-series characters and Minoru from a-Kira as eight limited readings of ordinary information and expression choices. It is neither the complete 37-episode anime cast nor a mixture with the 2015 live-action version. Characters represent neither complete personalities, actual morality nor an official type system. Items, options, mappings, counts, explanations and examples are original. No IDR 40-item bank, competitor text or algorithm, manga, anime screenshots, character art, dialogue, subtitles, lyrics or other protected material is used. This is no official test or rights-holder partnership, authorisation or endorsement; respective owners retain series and character rights. VIZ series and collection blurbs, Shueisha’s collection information and GoodSmile’s licensed roster check basic context, short-story membership and names without validating these items, counts or psychology. Chinese names are editorial choices retaining English identities; variants add no characters. Results infer no IQ, ability, illness, neurotype, trauma, morality, dangerousness, criminal tendency, romance, relationship, career or wealth, instruct no harm, manipulation, stalking, coercion, punishment or exchange of others’ rights, and convert into no MBTI or other character test."
+        "zh": "不用。24题是原创无害日常情境，不考台词或笔记本规则，也不要求认同角色行为。按近期实际选择作答，无需提供私人经历。",
+        "en": "No. All 24 original harmless everyday scenarios require no dialogue or notebook-rule recall and no endorsement of character actions. Answer from recent choices without supplying private experiences."
       }
     },
     {
       "question": {
-        "zh": "完整结果、重测与分享免费吗？",
-        "en": "Are full results, retaking and sharing free?"
+        "zh": "次数怎样计算？",
+        "en": "How are counts calculated?"
       },
       "answer": {
-        "zh": "免费，无需注册、邮箱或先做另一测试。可先读八份完整说明，完成24题后最高并列全部完整显示。重测清除本次选择，可选分享不含答案或次数。后续MBTI另行作答，不从角色换算，也不是解锁结果的条件。",
-        "en": "They are free without signup, email or another test first. Read eight full guides before answering; every highest tie appears after all 24 choices. Retaking clears this attempt. Optional sharing contains no answers or counts. Further MBTI questions require new responses rather than conversion and do not unlock these results."
+        "zh": "每题选四项中的一项，方向加1；总数24。八方向各出现12次、四位置各3次，范围0—12。某题未出现的四方向不算被拒绝，次数不是相似度百分比。",
+        "en": "One of four options adds one to its direction; counts total 24. Each of eight directions appears 12 times, three per position, with range 0–12. Four absent directions are not rejected. Counts are not similarity percentages."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么会同时得到L和尼亚？",
+        "en": "Why might I get both L and Near?"
+      },
+      "answer": {
+        "zh": "例如按名单次数3、5、1、2、5、1、4、3时，两者共同最高。所有最高并列都保留，不按名单或随机方式强分。始终选同一位置则八位各3次。",
+        "en": "Counts of 3, 5, 1, 2, 5, 1, 4, 3 in roster order tie L and Near at the maximum. All highest ties remain without roster-based or random priority. Choosing the same position throughout gives three each for all eight."
+      }
+    },
+    {
+      "question": {
+        "zh": "L、尼亚与魅上照有什么区别？",
+        "en": "How do L, Near and Mikami differ here?"
+      },
+      "answer": {
+        "zh": "L着重能区分解释的问题，尼亚整理已有信息，魅上照写明一致使用的条件。一个人可在同一活动中采用三种做法，结果不是聪明程度或正确性的排名。",
+        "en": "L emphasizes a distinguishing question, Near arranging available information, and Mikami consistent criteria. One person can use all three in an activity; the result ranks neither intelligence nor correctness."
+      }
+    },
+    {
+      "question": {
+        "zh": "低次数或差1次说明什么？",
+        "en": "What does a lower count or one-count gap mean?"
+      },
+      "answer": {
+        "zh": "只说明本题组相对少选或多选一项，不代表品质缺失或能力差异。近分可以一起阅读，但本版不自动合并，也没有统计显著性阈值。",
+        "en": "Only fewer or one more selections in this set, not a missing quality or ability difference. Close readings can be compared, but are not automatically merged and have no significance threshold here."
+      }
+    },
+    {
+      "question": {
+        "zh": "能测智商、正义感或心理问题吗？",
+        "en": "Does it measure IQ, justice or mental-health problems?"
+      },
+      "answer": {
+        "zh": "不能。这里没有标准化认知任务、道德测量或临床评估。虚构推理、极端行为与人物经历不能转成答题者的智力、危险性、依恋或心理结论。",
+        "en": "No. There are no standardized cognitive tasks, moral measures or clinical assessments. Fictional deductions, extreme actions and histories do not establish intelligence, dangerousness, attachment or mental-health conclusions about respondents."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是官方或经过科学验证的测验吗？",
+        "en": "Is this official or scientifically validated?"
+      },
+      "answer": {
+        "zh": "这是独立非官方同人测验，尚未建立信度、效度或常模。官方来源提供作品语境，不能验证本站题目和映射。适合娱乐阅读与具体日常观察。",
+        "en": "It is an independent unofficial fan quiz with unestablished reliability, validity and norms. Official sources provide series context, not validation of our questions or assignments. Use it for entertainment and concrete everyday reflection."
+      }
+    },
+    {
+      "question": {
+        "zh": "结果和最喜欢的人物一样吗？",
+        "en": "Will the result be my favourite character?"
+      },
+      "answer": {
+        "zh": "不一定。喜欢人物与日常选择不同，结果不否定你的喜好，也不要求模仿或认同其全部行为。可以结合例子、反例和相近指南一起阅读。",
+        "en": "Not necessarily. Favourite characters and everyday choices differ. Results invalidate no preference and require no imitation or endorsement of all actions. Read examples, counterexamples and nearby guides together."
+      }
+    },
+    {
+      "question": {
+        "zh": "可以应用到生活或换算其他测评吗？",
+        "en": "Can I apply it or convert it to other assessments?"
+      },
+      "answer": {
+        "zh": "可为一次阅读或合作提出具体问题，例如先澄清目标还是整理资料，再看实际反馈。不能换算MBTI、大五、IQ或其他角色测验，也不预测关系或职业适配。",
+        "en": "Use it to ask a concrete question in reading or cooperation, such as clarifying an aim or organizing information, then check feedback. It cannot convert into MBTI, Big Five, IQ or another character quiz or predict relationship or career fit."
+      }
+    },
+    {
+      "question": {
+        "zh": "是否免费，开始后还要再同意吗？",
+        "en": "Is it free, with another agreement after Start?"
+      },
+      "answer": {
+        "zh": "全部题目、次数、最高并列与八份完整指南免费，无需注册。点击开始直接进入题目，没有额外同意步骤。约7分钟是参考，不限时。",
+        "en": "Questions, counts, highest ties and eight full guides are free without signup. Start opens questions directly without an extra agreement. About seven minutes is an estimate, not a limit."
+      }
+    },
+    {
+      "question": {
+        "zh": "答案会上传、保存或分享吗？",
+        "en": "Are answers uploaded, saved or shared?"
+      },
+      "answer": {
+        "zh": "浏览器内计分，答案不进入计分上传、网址或分析事件。可选本标签页进度24小时失效，完成、重测或退出清除删除。固定公开指南不含私人答卷或次数，其他使用事件依隐私设置。",
+        "en": "Scoring runs in the browser; answers are not included in scoring uploads, URLs or analytics events. Optional tab progress expires after 24 hours and clears on completion, retake or exit-and-clear. Fixed public guides contain no private answers or counts; other usage events follow privacy settings."
       }
     }
   ],

@@ -14,8 +14,8 @@
     "zh": "自我慈悲测试：SCS26题与完整免费结果"
   },
   "description": {
-    "en": "Take the full 26-item SCS. Read six part means, reverse scoring and the overall mean with complete free guides. Chinese is an unvalidated working translation.",
-    "zh": "完成26题完整版SCS，阅读六部分均分、反向计分与整体均分，全部指南免费。中文为未经验证的费马工作译本，供自我观察。"
+    "en": "Complete the full 26-item SCS: six part means, clear raw and reversed values, an overall mean and seven free guides. Chinese is an unvalidated working translation.",
+    "zh": "完成26题完整自我慈悲量表（SCS），查看六部分原始及计分后均值、整体均分与七份免费完整指南。中文为未经验证的工作译本，无需注册。"
   },
   "minutes": 7,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "回想在困难时刻通常怎样对待自己，按陈述中行为出现的频率作答：1为几乎从不，5为几乎总是；2、3、4是中间数值，不另加频率名称。回答自己的实际体验，不是认为自己应该怎样。独立的暂不回答选项不计分，会暂不给所在部分及整体均分，其他完整部分仍可读。中文是费马新工作译本，尚未验证。约七分钟为编辑估计，不计时。"
   },
   "introduction": {
-    "en": "This uses Kristin Neff’s full 26-item Self-Compassion Scale (2003) with permission and citation. It keeps all six parts visible and follows the current official scoring key: reverse 13 items, compute six unrounded part means, then average those six. The complete report is free, without signup, personality stages, clinical norms or career predictions. The English source scale and the new working Chinese wording have different evidence: this translation has not been validated.",
-    "zh": "本版依许可注明来源，使用Kristin Neff（2003）的26题完整自我慈悲量表。保留六个部分，按当前官方计分键反向13题，先算六个未取舍的部分均值再平均。完整报告免费，无需注册，不分人格阶段，不提供临床常模或职业预测。英文原量表与新中文工作译本的证据不同，不能把英文研究验证移作本译文的验证。"
+    "en": "The full Self-Compassion Scale explores how you typically respond to yourself in difficult times: with kindness, judgment, a sense of shared humanity, isolation, balanced awareness or over-identification. This page uses Neff’s twenty-six English source items with permission and attribution, alongside an unvalidated FermatMind working Chinese translation. Read six component means, separately labelled raw and reversed values, and an overall mean using six equal parts. Seven full guides explain the experiences, arithmetic, research and optional next observations.",
+    "zh": "完整自我慈悲量表探索困难时通常如何对待自己：善待、批评、共同人性、孤立感、平衡觉察或过度认同。本页依许可及署名使用Neff的26条英文源题，并列费马未经验证的中文工作译本；六部分均值区分原始与反向标签，再以六部分等权计算整体均分。七份完整指南解释相关体验、算术、研究与自选观察。"
   },
   "resultHeading": {
     "en": "Your SCS means and complete readings",

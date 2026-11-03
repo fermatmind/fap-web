@@ -10,17 +10,17 @@
     "zh": "Word技能测试"
   },
   "seoTitle": {
-    "en": "Microsoft Word Skills Practice Test: 25 Free Questions",
-    "zh": "Word技能测试：25道免费情境题、答案与逐题解析"
+    "zh": "Word技能测试：25道情境题、完整答案与操作解析",
+    "en": "Microsoft Word Skills Test: 25 Questions & Worked Answers"
   },
   "description": {
-    "en": "Try 25 original Word for Windows knowledge scenarios. Free answers, five full revision guides and section counts. Untimed; no signup or certification.",
-    "zh": "用25道原创情境题练习Windows桌面Word操作知识，免费查看逐题答案、五项正确数及五份完整指南。不计时，不需注册，不颁认证。"
+    "zh": "免费练习25道Windows桌面版Microsoft 365 Word情境题，覆盖样式、分节、表格、邮件合并和审阅。查看全部答案、五项正确数与五份完整指南；无需注册，不计时。",
+    "en": "Practise 25 Word for Microsoft 365 Windows scenarios on styles, layout, mail merge and review. Free worked answers, five topic counts and complete guides."
   },
   "minutes": 12,
   "introduction": {
-    "en": "Which operation fits the document task? Practise 25 original scenarios for Word for Microsoft 365 on Windows, covering paragraphs and formatting, styles and structure, sections and tables, fields and mail merge, and review and templates. Every item has a keyed answer and worked explanation based on selected official Microsoft rules. All five full guides are free. You choose answers here; this website does not open Word or manipulate a document. No account, upload or mailing list is needed.",
-    "zh": "文档遇到具体任务，哪项操作符合？用25道原创情境题练习Windows桌面版Microsoft 365 Word，覆盖段落格式、样式结构、分节表格、域与邮件合并、审阅模板。每题有按选定微软官方规则核对的答案与解析，五份完整指南均免费。这里选择答案，网站不打开Word或操作文档，不需账户、文件上传或收件人名单。"
+    "zh": "本版Word技能测试以Windows桌面版Microsoft 365为环境，通过25道原创情境题练习段落格式、样式结构、分节表格、域与邮件合并、审阅模板五类任务。约12分钟，不计时；完成后免费查看总正确数、五项分项、全部答案解析和五份完整复习指南，无需打开Word、上传文件或提供收件人名单。",
+    "en": "This Word Skills Test uses Word for Microsoft 365 desktop on Windows. Twenty-five original scenarios cover paragraphs and formatting, styles and structure, sections and tables, fields and mail merge, and review and templates. Allow roughly twelve minutes without a timer. Completion opens total and topic counts, every worked answer and five complete revision guides, without opening Word, uploading files or providing recipient data."
   },
   "instructions": {
     "en": "Use Word for Microsoft 365 desktop on Windows as the stated context. Read each condition and choose one operation or outcome. English command names are provided with Chinese labels in that interface. There is no timer or speed bonus. All 25 valid choices are required before personal counts appear: one matching key counts as one, with five items per section. Around twelve minutes is an editorial estimate. This is a knowledge exercise, not a live Word editing, typing or certification exam.",

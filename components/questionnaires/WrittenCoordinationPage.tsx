@@ -1,3 +1,6 @@
+import { Fragment } from "react";
+import { writtenLandingSections, writtenLandingFaq } from "./WrittenCoordinationLandingEditorial";
+import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -11,6 +14,9 @@ import { prepareResultProfile } from "@/lib/questionnaires/result-content/readin
 import { WrittenCoordinationClient } from "./WrittenCoordinationClient";
 import { WrittenCoordinationGrid } from "./WrittenCoordinationGrid";
 
+function Copy({ text }: { text: string }) {
+  return <>{text.split(/(\[\d+\])/g).map((part, i) => /^\[\d+\]$/.test(part) ? <sup key={i}><a className="ml-1 underline" href={`#written-reference-${part.slice(1, -1)}`}>{part}</a></sup> : <Fragment key={i}>{part}</Fragment>)}</>;
+}
 function Context({ locale }: { locale: Locale }) {
   const zh = locale === "zh";
   return <aside data-written-context className="my-6 space-y-3 rounded-lg border border-violet-200 bg-violet-50 p-4 leading-7">
@@ -22,7 +28,7 @@ function Library({ quiz, locale, selected }: { quiz: WrittenCoordinationQuiz; lo
   const zh = locale === "zh";
   return <section className="my-10" aria-labelledby="written-guide-library"><h2 id="written-guide-library" className="text-2xl font-semibold">{zh ? "六篇完整公开练习指南" : "Six complete public practice guides"}</h2>
     <p className="my-4 leading-7">{zh ? "每篇都能在练习前阅读，任何回答或未尝试状态均不限制全文。它们解释六项不同任务，不是六个成绩档位或个人类型。" : "Read every guide before practising. No response pattern or unattempted state limits the full text. These explain six different tasks, not six score bands or personal types."}</p>
-    <ul className="space-y-4">{quiz.profiles.filter(p => p.id !== selected).map(p => <li key={p.id} className="rounded-lg border bg-white p-4"><Link prefetch={false} className="inline-block min-h-11 py-2 text-lg font-semibold underline" href={questionnaireGuidePath(locale, quiz.slug, p.id)}>{p.title[locale]}</Link><p className="mt-2 leading-7">{p.summary[locale]}</p></li>)}</ul>
+    <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">{quiz.profiles.filter(p => p.id !== selected).map(p => <li key={p.id} className="rounded-lg border bg-white p-4"><Link prefetch={false} className="inline-block min-h-11 py-2 text-lg font-semibold underline" href={questionnaireGuidePath(locale, quiz.slug, p.id)}>{p.title[locale]}</Link><p className="mt-2 leading-7">{p.summary[locale]}</p></li>)}</ul>
   </section>;
 }
 function Reading({ quiz, profile, locale, idPrefix }: { quiz: WrittenCoordinationQuiz; profile: QuestionnaireProfile; locale: Locale; idPrefix: string }) {
@@ -37,19 +43,18 @@ export function WrittenCoordinationPage({ quiz, locale }: { quiz: WrittenCoordin
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path: entry }])} />
     <JsonLd id="questionnaire-page" data={buildWebPageJsonLd({ path: entry, title: quiz.title[locale], description: quiz.description[locale], locale })} />
-    <Link prefetch={false} className="mb-6 inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "全部测试与练习" : "All tests and practice"}</Link>
-    <p className="text-sm font-semibold text-violet-800">{zh ? "原创书面练习 · 六篇完整指南免费" : "Original written practice · Six full guides, free"}</p>
+    <ExploreTestIntro slug={quiz.slug} locale={locale} entryLink>
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
-    <p className="mt-5 text-lg leading-8">{quiz.description[locale]}</p><p className="mt-4 leading-7 text-slate-600">{quiz.introduction[locale]}</p>
-    <p className="my-5 leading-8">{quiz.instructions![locale]}</p>
-    <Context locale={locale} />
+    <p className="mt-5 text-lg leading-8">{quiz.description[locale]}</p>
+    <p className="explore-intro-meta">{zh ? "六项独立练习 · 约18分钟 · 无需注册 · 完整指南免费" : "Six independent exercises · about 18 minutes · no signup · full guides free"}</p>
+    </ExploreTestIntro>
     <WrittenCoordinationClient quiz={quiz} locale={locale} />
-    {quiz.guide.map(s => <section key={s.id} className="my-8 space-y-4 leading-8" aria-labelledby={`written-method-${s.id}`}><h2 id={`written-method-${s.id}`} className="text-2xl font-semibold">{s.title[locale]}</h2>{s.paragraphs.map((p, i) => <p key={i}>{p[locale]}</p>)}</section>)}
+    <section className="my-8 space-y-4 leading-8" aria-labelledby="written-purpose"><h2 id="written-purpose">{writtenLandingSections[0].title[locale]}</h2>{writtenLandingSections[0].paragraphs.map((p, i) => <p key={i}><Copy text={p[locale]} /></p>)}<p>{quiz.introduction[locale]}</p><Context locale={locale} /></section>
+    <section className="explore-reading-library" aria-labelledby="written-methods"><h2 id="written-methods">{zh ? "书面协调练习方法：任务规则、计分算例与研究范围" : "Written coordination methods: task rules, worked scoring and evidence"}</h2><div className="explore-reading-sections">{[...writtenLandingSections.slice(1), ...quiz.guide].map(s => <section key={s.id} className="explore-reading-section" aria-labelledby={`written-method-${s.id}`}><h3 id={`written-method-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p, i) => <p key={i}><Copy text={p[locale]} /></p>)}</div></section>)}</div></section>
     <Library quiz={quiz} locale={locale} />
     {quiz.profiles.map(p => <Reading key={p.id} quiz={quiz} profile={p} locale={locale} idPrefix={`written-public-${p.id}`} />)}
-    <section className="my-10 space-y-5" aria-labelledby="written-faq"><h2 id="written-faq" className="text-2xl font-semibold">{zh ? "常见问题" : "Frequently asked questions"}</h2>{quiz.faq.map((item, i) => <div key={i}><h3 className="font-semibold">{item.question[locale]}</h3><p className="mt-2 leading-8">{item.answer[locale]}</p></div>)}</section>
-    <section className="my-8" aria-labelledby="written-references"><h2 id="written-references" className="text-xl font-semibold">{zh ? "公开产品背景与区分" : "Public product background and distinctions"}</h2><ul className="mt-4 space-y-3">{quiz.references!.map(r => <li key={r.url}><a className="underline" href={r.url} rel="noopener noreferrer">{r.title[locale]}</a></li>)}</ul></section>
-    <p className="mt-8 text-sm text-slate-600">{zh ? "原创练习版本更新于" : "Original practice edition updated"} <time dateTime={quiz.updated}>{quiz.updated}</time></p>
+    <section className="my-10 space-y-5" aria-labelledby="written-faq"><h2 id="written-faq" className="text-2xl font-semibold">{zh ? "书面协调技能练习常见问题" : "Written coordination practice FAQ"}</h2>{[...quiz.faq, ...writtenLandingFaq].map((item, i) => <div key={i}><h3 className="font-semibold">{item.question[locale]}</h3><p className="mt-2 leading-8"><Copy text={item.answer[locale]} /></p></div>)}</section>
+    <section className="my-8" aria-labelledby="written-references"><h2 id="written-references" className="text-xl font-semibold">{zh ? "公开产品背景与区分" : "Public product background and distinctions"}</h2><ul className="mt-4 space-y-3">{quiz.references!.map(r => <li key={r.url} id={`written-reference-${quiz.references!.indexOf(r) + 1}`}><a className="underline" href={r.url} rel="noopener noreferrer">{r.title[locale]}</a></li>)}</ul></section>
   </Container></main>;
 }
 export function WrittenCoordinationGuidePage({ quiz, profile, locale }: { quiz: WrittenCoordinationQuiz; profile: QuestionnaireProfile; locale: Locale }) {

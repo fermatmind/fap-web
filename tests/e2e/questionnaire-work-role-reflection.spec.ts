@@ -36,7 +36,7 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
     await expect(page.locator('[aria-labelledby="questionnaire-method"]')).toContainText(quiz.instructions![locale]);
     for (const profile of quiz.profiles) await expect(page.locator('[aria-labelledby="questionnaire-results"]').getByRole("link", { name: profile.title[locale], exact: true })).toHaveAttribute("href", `${entry}/results/${profile.id}`);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.locator("[data-explore-start]").click();
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, locale);
@@ -51,7 +51,7 @@ for (const locale of ["en", "zh"] as const) {
 
   test(`@release work-role-reflection ${locale}: opt-in tab draft, reload, back edit and explicit clearing`, async ({ page }) => {
     await page.goto(entry);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.locator("[data-explore-start]").click();
     await page.locator('input[name="WRC_01"][value="guided"]').check();
     expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:work-role-reflection"))).toBeNull();
     await page.getByRole("checkbox").check();

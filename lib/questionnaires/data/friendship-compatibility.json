@@ -15,8 +15,8 @@
     "zh": "友谊契合度测试：20道原创题与五份完整说明"
   },
   "description": {
-    "en": "Reflect on one friendship with 20 free questions. Read five separate means, worked examples and full guides on plans, conversation, effort, privacy and differences.",
-    "zh": "用20道免费原创题回顾一段友谊，分别查看约定、表达、投入、隐私与差异的五组均分和完整指南；含算例、反例及可尝试的沟通建议。"
+    "en": "Explore one adult friendship through 20 original questions about recent agreements, conversation, effort, privacy and different interests. Five separate means and complete guides are free, without signup.",
+    "zh": "通过20道原创题回顾一段成人友谊近期的约定、表达、投入、隐私与兴趣差异，免费查看五组独立均分、计分算例及完整指南，无需注册。"
   },
   "minutes": 5,
   "instructions": {
@@ -24,8 +24,8 @@
     "zh": "选定一段想回顾的成人友谊，全程以同一位朋友为参照，回想过去四周自己经历的互动。有相关机会时，评价每句话符合的频率。不替朋友作答，不填写姓名、消息或其他私人细节。没有发生相关机会、无法判断或不愿回答时，选独立的不计分选项。每组四题数值全有效才给个人均分，其他完整组保留读数。二十题各选一项后完成作答。不计时，约五分钟是编辑对答题时间的估计。本原创题与双语版本尚未经过心理测量验证。"
   },
   "introduction": {
-    "en": "Explore one friendship through five kinds of recent interaction: agreements and priorities, room to speak, shared effort, space and privacy, and handling different interests. Twenty original questions provide five separate readings. Every complete bilingual guide is free before and after answering. No compatibility percentage, winning friendship type or prediction about your friend is produced.",
-    "zh": "从近期五类互动回顾一段友谊：约定与在意的事、表达与被听见、共同投入、空间与隐私，以及面对不同兴趣。二十道原创题提供五个独立读数，全部完整双语指南在答题前后免费可读。不产生契合百分比、获胜的友谊类型，也不预测朋友会怎样行动。"
+    "en": "Choose one adult friendship and recall the past four weeks: how plans were agreed, concerns heard, contributions arranged, privacy respected and different interests discussed. Twenty original frequency items provide five separate readings with full examples and calculations. This is your account of recent interactions, not a two-person matching algorithm or a prediction about the friendship.",
+    "zh": "选定一段成人友谊，回顾过去四周怎样商定计划、听见困扰、安排投入、尊重隐私与讨论不同兴趣。20道原创频率题提供五组独立读数，附完整例子与计算。这是自己对近期互动的陈述，不是双人配对算法或友谊未来预测。"
   },
   "resultHeading": {
     "en": "Your five friendship interaction readings",

@@ -10,21 +10,21 @@
     "zh": "细节注意力测试"
   },
   "seoTitle": {
-    "en": "Attention to Detail Test: Free Practice & Answers",
-    "zh": "细节注意力测试：24题在线练习、答案与解析"
+    "zh": "细节注意力测试：24道核对练习、答案与四项解读",
+    "en": "Attention to Detail Test: 24 Practice Questions and Worked Answers"
   },
   "description": {
-    "en": "Practise attention to detail with 24 original tasks. See correct counts, every answer and worked explanations for free. No timer or signup.",
-    "zh": "用24道原创客观题核对编号、规则、数量和格式，查看四分项答对题数、每题正确答案与完整解析。全部免费，无需注册；不限时，附逐项复习方法。"
+    "zh": "免费完成24道细节注意力练习，核对记录、条件步骤、数量与格式。查看总答对数、四项各6题成绩、全部答案解析和四份完整复习指南。不限时，可用纸笔或计算器，无需注册。",
+    "en": "Practise record comparison, rules, quantities and formats in 24 original attention-to-detail questions. See total correct, four six-item subtotals, every worked answer and four complete revision guides. Free, untimed, no signup; paper or calculator allowed."
   },
   "minutes": 8,
   "instructions": {
-    "en": "Each item gives the information or rule you need. Select one of four answers; each item has exactly one correct answer. There is no timer. Use paper or a calculator if helpful. All 24 answers are needed before the result and explanations appear. This is original practice, not a certified hiring, medical or IQ assessment.",
-    "zh": "每题给出所需资料或规则，四个选项中恰有一个正确答案。不限时，可按需要使用纸笔或计算器。24题全部选择后，再显示成绩和解析。这是本站原创练习，不是招聘认证、医疗或智商测验。"
+    "zh": "按每题给出的资料与规则，从四个选项中选一个答案，每题恰有一个正确答案。先确认核对单位和限制词，不自行补充题目未给的条件。不限时，可使用纸笔或计算器；24题全部作答后显示完整成绩与解析。点击开始直接进入题目，无需额外同意、邮箱、注册或前置测评。",
+    "en": "Use the information and rules in each question to choose one of four options; exactly one answer is correct. Identify the unit being checked and any qualifying words without adding unstated conditions. There is no timer, and paper or a calculator is allowed. Complete all 24 items to view results and explanations. Start opens questions directly without another agreement, email, signup or prerequisite assessment."
   },
   "introduction": {
-    "en": "Work through actual comparisons and written rules rather than rating how careful you think you are. Six items each cover records, instructions, quantities and formats. All information needed is supplied in the question; the exercise does not depend on an employer’s private test, spelling knowledge or a medical attention scale. The result is your correctness on this small edition, with each selected answer, correct answer and full explanation, plus four complete revision guides.",
-    "zh": "实际比较记录、应用明示规则，分别练习记录、步骤条件、数量核对和格式四部分，每部分六题。所需信息都在题面，不需要雇主内部题库、英文拼写知识或医学注意量表。结果是本版小题组的答对题数，逐题显示所选答案、正确答案与完整解析，并给四份专属复习说明。"
+    "zh": "编号是否完全一致、多个条件是否同时满足、数量是否漏算、格式是否符合要求？通过24道原创客观题，分别练习记录比对、规则与步骤、数量核对、格式与允许集合。完成后免费查看总答对数、四项各6题的成绩、所选答案、正确答案与逐题解析，并阅读四份完整复习指南。约8分钟为阅读估计，不限时，可使用纸笔或计算器。",
+    "en": "Do codes match exactly, are all required conditions satisfied, have quantities been counted correctly, and does an entry meet the stated format? Work through 24 original objective questions covering records, rules and instructions, quantities, and formats and allowed sets. See total correct, four six-item subtotals, your selections, correct answers, every worked explanation and four complete revision guides for free. Eight minutes is a reading estimate, not a time limit; paper or a calculator is allowed."
   },
   "resultHeading": {
     "en": "Your practice results and every worked answer",
@@ -1673,5 +1673,21 @@
     "itemBankSha256": "337296918568523c51bb5c3e698fd8e1934e0571b0d9655beef733514af91055",
     "resultContentSha256": "1329a567cd019fba5526f36dce6fffd2a49fc886aa3deac8bf43f08e0a485e5e",
     "psychometricValidationCompleted": false
-  }
+  },
+  "references": [
+    {
+      "title": {
+        "zh": "AERA、APA与NCME（2014）：分数解释与用途的效度依据",
+        "en": "AERA, APA and NCME (2014): validity evidence for score interpretations and uses"
+      },
+      "url": "https://www.testingstandards.net/uploads/7/6/6/4/76643089/standards_2014edition.pdf"
+    },
+    {
+      "title": {
+        "zh": "Calamia等（2012）：重复测验的练习效应元分析",
+        "en": "Calamia et al. (2012): meta-analyses of practice effects on repeated testing"
+      },
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22540222/"
+    }
+  ]
 }

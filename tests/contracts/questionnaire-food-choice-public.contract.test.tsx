@@ -16,7 +16,9 @@ describe("T073 original12 menu-cue reflection real public/native/SEO callers", (
       for (const locale of ["en", "zh"] as const) {
         const path = `/${locale}/tests/explore/food-choice`, args = { params: Promise.resolve({ locale, slug: quiz.slug }) };
         const meta = await entry.generateMetadata(args), dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(await entry.default(args));
-        expect(dom.querySelector("h1")?.textContent).toBe(quiz.title[locale]); expect(meta.title).toBe(quiz.seoTitle[locale]); expect(meta.description).toBe(quiz.description[locale]);
+        expect(dom.querySelector("h1")?.textContent).toBe(quiz.title[locale]);
+        expect(dom.querySelectorAll('[aria-labelledby="food-choice-library"] li')).toHaveLength(7);
+        expect(dom.querySelectorAll('[aria-labelledby="food-choice-faq"] h3')).toHaveLength(16); expect(meta.title).toBe(quiz.seoTitle[locale]); expect(meta.description).toBe(quiz.description[locale]);
         expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(dom.textContent).toContain(quiz.instructions![locale]);
         for (const s of quiz.guide) for (const p of s.paragraphs) expect(dom.textContent).toContain(p[locale]);
         expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);

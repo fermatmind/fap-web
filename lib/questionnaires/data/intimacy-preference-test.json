@@ -10,8 +10,8 @@
     "en": "Intimacy Preferences Test"
   },
   "description": {
-    "zh": "用24条原创陈述回看情感分享、身体靠近与边界、共同和个人时间，以及关系对外表达。四部分分别计分，完整指南免费；只讨论成年人互动，不以分数替代同意。",
-    "en": "Explore emotional sharing, closeness, personal space and privacy with 24 original prompts. Read four complete guides free. Adult preferences do not replace consent."
+    "en": "Reflect on emotional sharing, closeness and boundaries, shared time and privacy through 24 original statements. Four separate results and full guides, free.",
+    "zh": "通过24条原创陈述，分别回看情感分享、身体靠近与边界、共同时间和个人空间、对外表达与隐私协商。免费查看四组独立计分与完整指南，无需注册。"
   },
   "seoTitle": {
     "zh": "亲密偏好测试：情感分享、靠近与个人边界",
@@ -19,8 +19,8 @@
   },
   "minutes": 6,
   "introduction": {
-    "zh": "只讨论成年人之间的互动，按目前能确认的偏好和条件回答。你可以不答任何不愿回答的题，或直接阅读四篇全文；均分不决定身体靠近、关系公开或伴侣适配。网页仅使用当前页面内存，刷新、换语或离开会清除。",
-    "en": "For interactions between adults, answer only preferences and conditions you can currently confirm. Leave any item unscored or read the four full guides directly. Means do not decide physical closeness, publicity or partner fit. This website uses page memory only; reload, language change or leaving clears answers."
+    "en": "For adults reflecting on present interaction preferences and conditions. Answer for yourself in a situation you can identify; no partner, relationship status or private history is requested. You may leave any item unscored. Read each group alongside its statements, then keep a specific observation or simply stop here.",
+    "zh": "面向成年人，回看当前互动偏好与条件。选择自己能确认的情境，为自己作答，无需另一人参与，也不填写关系身份或私人经历。任何题都可选不计分。把每组数值与具体陈述一起阅读，保留一个有用观察，或在这里结束。"
   },
   "instructions": {
     "zh": "按每句话与你当前偏好或条件的符合程度选择1—5；3是不确定或视情况。无法判断或不想答可选不计分。24个选择完成后，数值完整六题的部分分别显示原始和与四位小数均分；不合总分、不排名。",

@@ -277,8 +277,8 @@
       ],
       "correctOptionId": "B",
       "explanation": {
-        "en": "The first request makes the intended output and constraints inspectable. A clear prompt can guide an output but does not guarantee compliance or truth. Check the resulting notice against the notes and length instead of treating the prompt itself as proof that the result meets every condition.",
-        "zh": "首项使目标和约束便于检查。清楚提示可引导输出，但不保证遵守或真实。仍应按笔记及字数核结果，不能把写过提示当成已满足条件的证据。"
+        "en": "Request B states the notice, new-member audience, supplied-notes boundary and 100-word length. It also asks that missing details be flagged. A clear prompt does not guarantee compliance or truth: check the notice against the notes and length.",
+        "zh": "B项明确通知任务、新成员读者、仅用所给笔记的资料边界和100词长度，并要求指出缺失信息。清楚提示不保证遵守或真实，仍须按笔记和字数核查通知。"
       }
     },
     {

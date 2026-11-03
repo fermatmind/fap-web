@@ -15,21 +15,21 @@
     "en": "Your six procrastination-pattern reflections"
   },
   "description": {
-    "zh": "用24条原创中英文题分别观察额外标准、构想停留、担忧、抗拒要求、等待紧迫与承诺拥挤。六项均分及完整解释免费，无需注册；含反例和小观察，不诊断原因、能力或固定人格。",
-    "en": "Explore six procrastination patterns with 24 original ratings and full free guides. No signup, fixed personality, diagnosis, ability score or claimed hidden cause."
+    "zh": "通过24条原创频率题，回看近四周的额外标准、构想停留、担忧、抗拒、临期启动与承诺拥挤。约6分钟，免费查看六项独立均分、反向计分算例与完整指南；无需注册。",
+    "en": "Reflect on six delay patterns with 24 original frequency items. Free separate means, reverse-scoring examples and full guides for the past four weeks. About six minutes, no signup."
   },
   "seoTitle": {
-    "zh": "拖延者类型测试：24题、六种情境与完整结果",
-    "en": "Procrastinator Type Test: Explore Six Patterns"
+    "zh": "拖延者类型测试：24题、六种行为模式与完整解读",
+    "en": "Procrastination Patterns Test: 24 Items, Six Scores and Full Guides"
   },
   "minutes": 6,
   "introduction": {
-    "zh": "明明想做的普通小事，为什么有时还没开始？本版从额外标准、停留构想、担忧推迟、抗拒要求、临期启动和承诺拥挤六个角度，整理你最近四周的自报情境。六种风格名称帮助阅读，不给你派固定人格，也不能由频率确定原因。所有六份完整说明都能先读；必要等待、真实资源限制与休息另按实际情况理解。",
-    "en": "An ordinary task you intended to do can still remain unstarted. This edition organises four weeks of self-reported situations through extra standards, staying with ideas, worry before starting, resistance to requests, waiting for urgency and crowded commitments. Six style names help with reading rather than assigning a fixed personality or establishing causes from frequency. All six full guides can be read first, with necessary waiting, actual resource limits and rest considered in context."
+    "zh": "拖延者类型测试从六类普通任务情境回看“原本想做，却还没开始或完成”的经历：自己加上的额外标准、停留在构想、担忧结果、抗拒要求、等待期限紧迫，以及承诺超过余量。24条原创频率题分别呈现近四周的六项均分，帮助你辨认值得进一步观察的环节。六份完整指南均免费开放，包含具体例子、反例、沟通和小步骤；名称用于理解本次回答，不把你归为固定人格，也不由一次自评确定拖延原因。",
+    "en": "This Procrastination Patterns Test revisits ordinary tasks you intended to do but had not started or finished: self-added standards, remaining with ideas, worrying about outcomes, resisting requests, waiting for urgency and accepting commitments beyond capacity. Twenty-four original frequency items produce six separate means for the past four weeks, helping identify situations worth exploring. All six full guides are free, with examples, counterexamples, conversation and small steps. Pattern names help interpret these answers, without assigning a fixed personality or establishing causes from one self-report."
   },
   "instructions": {
-    "zh": "回想最近四周，限于你原本想做、已有必要条件、可安全开展的普通任务。按1从不至5几乎总是选择；没有相应机会或记不清选NA。等必要信息、遵守安全要求、休息、身体状况、照护责任或无法自行改变的工作量，不自动算拖延。全部24条先选择；每部分至少3条有效才取均分，NA排除，反向题按6减有效评分。",
-    "en": "Think about the past four weeks, considering ordinary tasks you intended to do, had the necessary conditions for and could safely undertake. Choose from 1 Never to 5 Almost always; use NA for no relevant opportunity or uncertain recall. Waiting for necessary information, meeting safety requirements, rest, health, caring duties or workloads outside your control are not automatically procrastination. Complete all 24 selections; each part needs three ratings for a mean, excluding NA and reversing opposite items as six minus a valid response."
+    "zh": "回想最近四周，只考虑你原本想做、已有必要条件且可安全开展的普通任务。按原句选择1从不、2很少、3有时、4经常、5几乎总是；没有相应机会或记不清选NA。必要等待、遵守安全要求、休息、身体状况、照护责任或无法改变的工作量不自动算拖延。相反方向条目也按原句回答，系统会反向计分。完成全部24条选择后，每部分四题中至少三题有数字评分才显示均分。",
+    "en": "Think about the past four weeks and only ordinary tasks you intended to do, had the necessary conditions for and could safely undertake. Answer each statement as written: 1 Never, 2 Rarely, 3 Sometimes, 4 Often or 5 Almost always. Choose NA for no relevant opportunity or uncertain recall. Necessary waiting, safety requirements, rest, health, care responsibilities or uncontrollable workloads are not automatically procrastination. Answer opposite-direction items as written; the system reverses their scores. Complete all twenty-four selections; each four-item part needs at least three numeric ratings for a mean."
   },
   "source": {
     "kind": "FermatMind original24ordinary-task frequency reflection;Sapadin style names background only/not official instrument",
@@ -2541,65 +2541,195 @@
     {
       "id": "facet-scoring",
       "title": {
-        "zh": "六部分分别计算",
-        "en": "Six separate calculations"
+        "zh": "24题怎样计分？六项独立均分与反向题",
+        "en": "How are 24 items scored? Six separate means and reverse items"
       },
       "paragraphs": [
         {
-          "zh": "先完成全部24次选择。每部分4条至少3条有效，按1从不至5几乎总是计算一位小数均分；每部分1条反向、共6条以6减有效评分，NA排除不补零。最低条数是本站信息完整度规则，不是原研究阈值。六项分别显示均分或资料不足，不合总分、不按最高、相近或并列派固定人格；小数差异不证明统计显著、原因、能力或改变。",
-          "en": "Complete all 24 selections first. Each four-item part needs three ratings for a one-decimal mean from 1 Never to 5 Almost always. One opposite item per part, six in total, is scored as six minus a valid response; NA is excluded without zero-filling. Minimum counts are website completeness rules, not research cutoffs. Six separate means or insufficient-information states produce no total or highest, close-score or tied personality assignment. Decimal differences establish neither significance, causes, ability nor change."
+          "zh": "六部分各有四题，其中三条描述推迟行为，一条描述相反方向的行动。五个频率选项编码为1—5；反向题先按6减原评分处理，再将同部分有效数字相加得到S，以有效题数n求均分S÷n，保留一位小数。六项分别计算，不合成拖延总分，也不派最高人格。",
+          "en": "Each of six parts contains three delay statements and one opposite-direction action statement. Five frequency categories are coded 1–5. Key the opposite item as six minus its rating, add numeric values within that part to obtain S, then divide by the rated-item count n and round to one decimal. Calculate six means separately, without a combined delay score or highest-score personality."
+        },
+        {
+          "zh": "例如三条推迟题为3、5、NA，相反方向题选4，计分后为3、5、未评分、2。S=10、n=3，10÷3≈3.3；若反向题也选NA，只剩两条有效，显示资料不足。NA不记0、不补中点，也不参与6减评分的运算。至少三条有效是本站显示完整度规则，不是临床阈值或已验证的缺答推断方法。",
+          "en": "For delay-item ratings of 3, 5 and NA, with a reverse-item rating of 4, keyed values are 3, 5, unscored and 2. S=10, n=3 and 10/3≈3.3. If the reverse item is also NA, only two ratings remain and the part shows insufficient information. NA is not zero or a midpoint and is never reversed. Requiring three ratings is a website completeness rule, not a clinical cutoff or validated missing-data inference."
         }
       ]
     },
     {
       "id": "facet-reading",
       "title": {
-        "zh": "类型名称怎样使用",
-        "en": "How style names are used"
+        "zh": "六项结果怎样读？频率、条目与真实经历",
+        "en": "How should six results be read? Frequency, items and actual events"
       },
       "paragraphs": [
         {
-          "zh": "完美主义者、梦想者、担忧者、反抗者、危机制造者和过度承接者来自自助框架的风格用语。本版只把它们用于阅读六类选定普通行为，六项可以同时较多、较少或资料不足；不把最高项叫作你的真实人格，不强行破并列，也不做原因或疾病推断。",
-          "en": "Perfectionist, Dreamer, Worrier, Defier, Crisis-Maker and Over-Doer are style terms from a self-help framework. This edition uses them to read six selected ordinary-behaviour groups. All six can be more frequent, less frequent or insufficiently rated together. No highest mean becomes a true personality, no tie is broken and no cause or condition is inferred."
+          "zh": "较高均分表示按同一方向计分后，这组描述在你的回答中获得较多频率支持。它不是一天中拖延的时间比例、任务失败率、严重程度或人群百分位。因为有反向题，也不是所有原句所选数字直接相加求平均。",
+          "en": "A higher mean indicates more frequency endorsement of the pattern after keying. It is not the proportion of a day spent delaying, a task-failure rate, severity or a population percentile. Because one item is reversed, it is not the direct average of the numbers chosen for every literal statement."
+        },
+        {
+          "zh": "先看有效题数与具体回答，再找一件符合和一件不符合的近期任务。六项可以同时较高、较低或相同，不需要强选一种“真正的你”。每部分内容不同，尚无跨模式等值校准；最高均分可以提示阅读顺序，不能证明它是根本原因或最严重的问题。",
+          "en": "Check rated-item counts and specific answers, then identify one recent task that fits and one that does not. Several parts may be high, low or equal without choosing one true identity. Content differs and the patterns have not been calibrated for cross-pattern equivalence. The largest mean may guide reading order but does not establish a root cause or the most serious problem."
         }
       ]
     },
     {
       "id": "facet-comparison",
       "title": {
-        "zh": "相近分、反向条目与不确定",
-        "en": "Close means, opposite items and uncertainty"
+        "zh": "相近分、缺答与同分意味着什么？",
+        "en": "What do nearby means, missing ratings and ties mean?"
       },
       "paragraphs": [
         {
-          "zh": "相同均分按相同显示，相差0.1也不能证明显著差异。反向条目让按计划行动或直接沟通得到相反计分，只对1—5有效评分使用6减，NA不反向。部分仅3条有效时会标出有效题数；最低条数不是经过验证的缺失数据方案，勿把两个不同有效题数的均分当精确比较。",
-          "en": "Equal means remain equal, and a 0.1 difference establishes no significant difference. Opposite items reverse planned action or direct communication as six minus a valid 1–5 rating; NA is never reversed. Rated counts remain visible when only three items are available. The minimum is not a validated missing-data protocol, so means with different rated counts are not precise comparisons."
+          "zh": "3.3与3.5的区别只描述当前计分结果。本题本没有测量误差、重测稳定性或最小重要差异资料，不能把差0.2解释成确定的心理差距。均分相同也可能来自不同条目组合；应保留具体情境，而不是只比较六个数字。",
+          "en": "A difference between 3.3 and 3.5 describes the current scored answers. This form has no measurement-error, retest-stability or minimally important difference estimates to establish a psychological difference of 0.2. Identical means can also arise from different response patterns, so retain context rather than comparing only six numbers."
+        },
+        {
+          "zh": "没有类似任务时，NA比猜一个频率更合适。资料不足不是没有拖延，也不是中等拖延；它表示这部分数字回答不够。反向题也不能证明你是否诚实，不能凭一条回答判定矛盾或把人归成能力差。",
+          "en": "Without relevant tasks, NA is more appropriate than guessing a frequency. Insufficient information means too few numeric answers, not no delay or moderate delay. A reverse item is not a truth detector; one answer cannot establish dishonesty, contradiction or poor ability."
+        }
+      ]
+    },
+    {
+      "id": "six-patterns",
+      "title": {
+        "zh": "六种模式具体观察什么？",
+        "en": "What exactly do the six patterns cover?"
+      },
+      "paragraphs": [
+        {
+          "zh": "额外标准关注必要要求已满足后，自己新增的标准、反复润色或等待理想状态是否伴随推迟；它不要求降低安全、质量底线或合规要求。想法停留关注已有可做步骤后仍扩大构想、想象结果却未行动的经历；必要规划、探索与创造本身不算失败。",
+          "en": "Extra-standard delays concern postponement alongside added standards, repeated polishing or ideal preparation after necessary requirements are met. They do not call for reducing safety, essential quality or compliance. Staying with ideas concerns expanding or imagining after a workable step exists without beginning it; necessary planning, exploration and creativity are not failures."
+        },
+        {
+          "zh": "担忧推迟关注对可安全开展的普通任务想象不良结果，并错过原定开始的经历，不等同焦虑症或缺少勇气。抗拒要求关注对已经接受、可开始任务的不满与推迟同时出现；合理拒绝、要求澄清和不接受不合理安排，应与借推迟回应分开。",
+          "en": "Worry before starting concerns imagining adverse outcomes of an ordinary safe task alongside missing an intended start, not an anxiety disorder or a lack of courage. Resistance to requests concerns dissatisfaction and delay in accepted, actionable tasks. Reasonable refusal, seeking clarification and rejecting unreasonable arrangements differ from responding through delay."
+        },
+        {
+          "zh": "临期启动关注原有准备时间却等到期限接近才动手，不证明压力下表现更好，也不测肾上腺素。承诺拥挤关注可拒绝的额外请求、超出余量的安排与频繁切换；并非所有工作超载都由个人选择造成，照护责任与真实资源限制需另看。",
+          "en": "Waiting for urgency concerns leaving available preparation time unused until a deadline approaches, not proof of better pressure performance or an adrenaline measure. Crowded commitments concerns optional requests, arrangements beyond capacity and switching. Not every overload is individually chosen; care duties and real resource constraints need separate consideration."
+        }
+      ]
+    },
+    {
+      "id": "delay-context",
+      "title": {
+        "zh": "推迟、必要等待与休息怎样区分？",
+        "en": "How do postponement, necessary waiting and rest differ?"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版题目限定在原本想做且具备必要条件的普通任务。等待审批、关键资料、设备或安全许可时，条件并不完整；安排休息、照护家人或改变优先级，也不能只因原任务没完成就算作拖延。先核对当时有什么可行选择。",
+          "en": "Items here concern intended ordinary tasks with necessary conditions available. Waiting for approval, essential information, equipment or safety permission means those conditions may be missing. Planned rest, family care or changing priorities are not automatically procrastination because an earlier task remains unfinished. Check what choices were actually feasible."
+        },
+        {
+          "zh": "可以写下原定行动、实际行动、等待的条件和推迟的影响。若任务范围远超可用时间，下一步可能是减少范围或协商资源，而不是要求自己更努力。若已具备条件却反复偏离原计划，再用六个部分细看哪些描述符合。",
+          "en": "Note the intended action, actual action, conditions awaited and effects of delay. If scope exceeds available time, the next step may be renegotiating scope or resources rather than trying harder. If conditions were available but you repeatedly moved away from your plan, use the six parts to examine which descriptions fit."
+        }
+      ]
+    },
+    {
+      "id": "research",
+      "title": {
+        "zh": "六风格、自我调节研究与本站题本",
+        "en": "Six-style framing, self-regulation research and this form"
+      },
+      "paragraphs": [
+        {
+          "zh": "六种风格名称来自Sapadin自助框架的背景传统。APA网站2017年Appleby教育文章介绍了相关风格，同时提到外部工作量因素；该文已归档，属于教育解释，不是本站题本验证或六种互斥人格的证据。本页用较具体的行为名称组织原创题目，不照搬其中对动机或性格的概括。[1]",
+          "en": "The six style names draw on the background tradition of Sapadin’s self-help framework. Appleby’s 2017 APA educational article describes related styles and also acknowledges external workload factors. It is archived educational material, not validation of this form or evidence for six mutually exclusive personalities. This page organises original items under more specific behavioural labels without adopting its broad motive or character descriptions.[1]"
+        },
+        {
+          "zh": "Steel（2007）的元分析摘要汇总691个相关，讨论任务厌恶、自我效能、冲动性和尽责性等关联；叛逆与刺激寻求的联系较弱。Pychyl与Sirois的情绪调节论述则解释不愉快任务下优先短期情绪缓解的视角。这些研究不能让一次频率自评查明个体原因，也不能证明临期启动属于独立生理类型。[2][3]",
+          "en": "Steel’s 2007 meta-analysis abstract summarises 691 correlations, discussing associations with task aversiveness, self-efficacy, impulsiveness and conscientiousness; rebelliousness and sensation seeking had weaker links. Pychyl and Sirois discuss prioritising short-term mood relief around aversive tasks. These accounts do not let one frequency self-report establish individual causes or demonstrate a distinct physiological deadline type.[2][3]"
+        },
+        {
+          "zh": "本站没有施测原作者测验、通用拖延量表或纯拖延量表，而采用24条原创日常任务题、四周参照与六项独立均分。题目、语言、反向题和显示规则均需本身的测量研究，目前未建立信度、效度或常模。研究摘要、教育文章与理论章节在此用于背景说明，不借用其他工具的准确率或治疗效果。",
+          "en": "This page does not administer the original author’s quiz, the General Procrastination Scale or the Pure Procrastination Scale. It uses twenty-four original ordinary-task items, a four-week reference and six independent means. The items, languages, reverse items and display rules require their own evaluation; reliability, validity and norms have not been established. Abstracts, educational articles and theoretical chapters supply context rather than borrowed accuracy or treatment effects."
+        }
+      ]
+    },
+    {
+      "id": "small-experiments",
+      "title": {
+        "zh": "从一次普通任务开始的小观察",
+        "en": "A small observation around one ordinary task"
+      },
+      "paragraphs": [
+        {
+          "zh": "选一个安全、范围可控的任务，先写明必要完成条件和一个可见的小步骤。例如草稿只需列出三个已知要点，就先区分“必要核对”和“可以稍后润色”；如果停在构想，就把“做个完整方案”改成写下第一个待确认问题。目标是得到可观察的一步，不保证立刻消除拖延。",
+          "en": "Choose a safe, manageable task and specify necessary completion requirements and one visible step. If a draft needs three known points, distinguish essential checks from later polishing. If you remain with ideas, replace making a complete plan with writing the first question to clarify. The aim is one observable action, not a promise to eliminate procrastination immediately."
+        },
+        {
+          "zh": "担忧时先分清真实风险、需要的信息与仍可安全完成的部分；临期启动时可试一个比最终期限早的检查点；承诺拥挤时先核对已有安排，再决定是否接新请求。记录自己尝试了什么、遇到什么条件以及实际结果，不把六种小尝试当作按类型匹配的已验证治疗。",
+          "en": "With worry, separate real risks, needed information and any part that remains safe to do. With deadline waiting, try an earlier checkpoint; with crowded commitments, check existing arrangements before accepting another request. Record the action, conditions and outcome without treating these experiments as validated type-matched treatments."
+        }
+      ]
+    },
+    {
+      "id": "task-conversation",
+      "title": {
+        "zh": "把抗拒与超载转成可协商的安排",
+        "en": "Turn resistance and overload into negotiable arrangements"
+      },
+      "paragraphs": [
+        {
+          "zh": "例如可以说：“我已经答应周五交初版，现在新增内容会影响时间。我能先完成A，B需要延后或有人协助，你希望怎样调整？”这把范围、时间和资源摆到明处，不以拖延表达不满，也不要求接受不合理任务。对方的回应和实际协商空间仍需如实看待。",
+          "en": "For example: “I agreed to a first version on Friday. The added work changes the timing. I can finish A; B needs more time or help. How should we adjust?” This makes scope, timing and resources explicit rather than expressing dissatisfaction through delay or accepting an unreasonable task. Actual responses and room to negotiate still matter."
+        },
+        {
+          "zh": "对自己的计划，也可以核对“这是我仍想做的事吗、必要条件齐了吗、范围能调整吗”。已经不再选择的目标，和仍想完成却反复推迟的任务是不同问题。问卷不能代替你决定哪个承诺值得继续，也不把说不当成失败。",
+          "en": "For your own plan, ask whether you still choose the task, whether conditions are available and whether scope can change. A goal you no longer choose differs from one you want to complete but repeatedly postpone. A questionnaire cannot decide which commitment is worth keeping or make refusal a failure."
+        }
+      ]
+    },
+    {
+      "id": "retest",
+      "title": {
+        "zh": "复测、行为变化与不确定性",
+        "en": "Retesting, behaviour changes and uncertainty"
+      },
+      "paragraphs": [
+        {
+          "zh": "复测比较前，核对是否使用同一版本、语言、四周范围和有效题数。近期没有某类任务可能使NA增多，并不等于已经改善；一次均分下降也可能与回忆或条目理解不同有关。本版没有可靠变化阈值，不将分差换成改善百分比。",
+          "en": "Before comparing retests, check version, language, four-week period and rated-item counts. Fewer relevant tasks may produce more NA responses without establishing improvement. A lower mean may also reflect recall or interpretation differences. This form has no reliable-change threshold for converting score differences into percentage improvement."
+        },
+        {
+          "zh": "比反复测到满意的数字更具体的做法，是回看原定开始时间、实际开始、约定是否调整以及完成了一小步没有。这些记录帮助描述某一次行动变化，仍不能证明长期能力、效率或整个人格已经改变。",
+          "en": "Instead of repeating the quiz for a pleasing number, review the intended and actual start, any renegotiated agreement and whether a small step was completed. Such notes describe a specific action change without proving long-term ability, efficiency or personality change."
         }
       ]
     },
     {
       "id": "scope",
       "title": {
-        "zh": "原题来源与框架范围",
-        "en": "Original items and framework scope"
+        "zh": "自助、专业支持与使用范围",
+        "en": "Self-reflection, professional support and scope"
       },
       "paragraphs": [
         {
-          "zh": "本版24条中英文题目与六份结果由费马独立编写，以Sapadin自助书籍的六风格名称作背景，选定普通任务中的行为范围；没有采用原书测验、案例、治疗或改变程序，也不是JobCannon的10题。作者官网与APA2017教育文只提供框架背景，不验证六个普遍原因或本题本。Steel（2007）正式摘要综述691个相关，神经质、反抗与感觉寻求关联较弱，不能用来给六风格加因果或测量认证；这里只读到摘要与记录，没有采用标准题库。没有本站信效度、常模或英中文等价验证，不作诊断、身体压力、能力、雇佣或职业适配判断。",
-          "en": "FermatMind independently authored these 24 English–Chinese items and six guides, using names from Sapadin’s six-style self-help framework as background for selected ordinary-task behaviours. No book quiz, case, treatment or change programme is used, and this is not JobCannon’s ten-item test. The author’s website and a 2017 APA educational article supply background, not validation of six universal causes or these items. Steel’s formal 2007 abstract reviews 691 correlations and reports weak links with rebelliousness and some other variables; it cannot certify six styles or causality. Only the abstract and record were read, and no standard bank is adopted. There are no local psychometric results, norms or established English–Chinese equivalence, and no diagnosis, bodily-stress, ability, hiring or career-fit verdict."
+          "zh": "本测试用于娱乐与自我探索，不作ADHD、焦虑、抑郁、倦怠或人格诊断，也不评工作能力、服从程度、职业适配或自我价值。长期困难或明显困扰需要结合生活经历、环境和功能影响综合理解，不能仅凭某个风格名称判断原因。",
+          "en": "This test is for entertainment and self-exploration, without diagnosing ADHD, anxiety, depression, burnout or personality conditions or rating work ability, obedience, career fit or personal worth. Persistent difficulty or significant distress needs consideration of experience, environment and functional effects rather than inferring causes from a pattern label."
+        },
+        {
+          "zh": "关于专业干预，Rozental等2018年系统综述摘要纳入12项研究，报告总体效益较小且研究间存在差异，CBT亚组研究数量也有限。它支持谨慎讨论专业支持，不证明本站小步骤有效，更不证明按六型给出建议可以替代治疗。本页核对的是该文正式摘要，不作全文或个体疗效保证。[4]",
+          "en": "For professional interventions, Rozental and colleagues’ 2018 systematic-review abstract included twelve studies, reporting small overall benefits and variation between studies, with limited CBT subgroup evidence. This informs cautious discussion of support, not proof that these small steps work or that six-pattern advice replaces treatment. The formal abstract was checked here, without claiming a full-text review or an individual treatment guarantee.[4]"
         }
       ]
     },
     {
       "id": "privacy",
       "title": {
-        "zh": "草稿、分享与下一步",
-        "en": "Drafts, sharing and next steps"
+        "zh": "直接作答、免费指南与可选保存",
+        "en": "Direct start, free guides and optional saving"
       },
       "paragraphs": [
         {
-          "zh": "答案在浏览器计算，不上传答卷，不进入网址或分析。主动保存的标签页草稿24小时失效，完成、退出清除或重测即删除。完整说明不要求注册、邮箱或先做其他测试；分享只含公开入口或说明，不带答卷与均分。结果后的其他测评由你选择，不能把拖延均分换算成MBTI、大五或职业适配。",
-          "en": "Answers are calculated in your browser without uploading an answer sheet or adding answers to URLs or analytics. Opt-in tab drafts expire after 24 hours and clear on completion, exit-and-clear or retake. Full guides require no signup, email or prerequisite test. Sharing includes only a public entry or guide, without answers or means. Any later assessment is optional; procrastination means cannot convert to MBTI, Big Five or career fit."
+          "zh": "点击开始直接进入题目，没有额外同意复选框。全部24题、六项均分或资料不足状态，以及六份完整指南免费，无需注册。每题需选择数字评分或NA，完成全部选择后生成结果；约6分钟只是阅读与回想时间参考，不限时。",
+          "en": "Start opens questions directly without an additional agreement checkbox. All twenty-four items, six means or insufficient-information states and six complete guides are free without signup. Each item needs a numeric rating or NA before completion generates results. About six minutes is a reading and recall estimate, not a time limit."
+        },
+        {
+          "zh": "答案在当前浏览器计分，不随计分请求上传，不写入网址或分析事件。默认不保存，只有主动保存才提供本标签页24小时内恢复；完成、清除或重测即删除。分享只含公开入口，不含答案或均分；不含答案的使用事件按网站Cookie设置处理。",
+          "en": "Answers are scored in the current browser without being uploaded for scoring or included in URLs or analytics events. Saving is off by default; an explicitly saved tab draft can be restored within twenty-four hours and is deleted on completion, clearing or retake. Sharing contains the public entry, not answers or means. Answer-free usage events follow the site’s Cookie settings."
         }
       ]
     }
@@ -2607,66 +2737,153 @@
   "faq": [
     {
       "question": {
-        "zh": "会给我一个固定的拖延人格吗？",
-        "en": "Will this assign me a fixed procrastinator personality?"
+        "zh": "拖延者类型测试测什么？",
+        "en": "What does the Procrastination Patterns Test explore?"
       },
       "answer": {
-        "zh": "不会。24条完成后分别看六项均分或资料不足，六份完整说明都呈现。风格名称只是阅读入口，最高、相近或相同均分不派型，也没有总分、百分位或能力判断。",
-        "en": "No. After all 24 selections, read six separate means or insufficient-information states and all six full guides. Style names are reading entries; highest, close or equal means assign no type, total, percentile or ability verdict."
+        "zh": "通过24条原创频率题，分别回看近四周六类普通任务情境。结果提供六项均分、有效题数与完整指南，帮助提出观察问题，不分固定人格或确认原因。",
+        "en": "Twenty-four original frequency items revisit six ordinary-task patterns over four weeks. Six means, rated-item counts and full guides help formulate observation questions without assigning a fixed personality or confirming causes."
       }
     },
     {
       "question": {
-        "zh": "这是Sapadin原版量表吗？",
-        "en": "Is this Sapadin’s original instrument?"
+        "zh": "六种模式来自哪里？",
+        "en": "Where do the six patterns come from?"
       },
       "answer": {
-        "zh": "这是费马24条原创日常情境自评，仅以Sapadin六风格名称作背景，没有采用原书题库、案例、治疗程序或竞品10题，不声称信效度、常模、研究者背书或英文中文等价验证。",
-        "en": "This is FermatMind’s original 24-item ordinary-situation reflection, with Sapadin’s six style names as background. It uses no book quiz, cases, treatment programme or competitor ten-item bank, and claims no validity, norms, endorsement or English–Chinese equivalence."
+        "zh": "名称有Sapadin六风格自助框架背景，APA网站已归档的Appleby教育文章也介绍过相关风格。本站题目与计分为原创，教育分类不等于六种已验证的互斥人格。[1]",
+        "en": "The names have background in Sapadin’s six-style self-help framework, also described in Appleby’s archived APA educational article. Items and scoring here are original; an educational classification is not six validated, mutually exclusive personalities.[1]"
       }
     },
     {
       "question": {
-        "zh": "合理等待、休息和工作太多也算拖延吗？",
-        "en": "Do necessary waiting, rest and heavy workload count as procrastination?"
+        "zh": "六项分别在观察什么？",
+        "en": "What do the six parts cover?"
       },
       "answer": {
-        "zh": "不自动算。题目限于原本想做、已有必要条件且可安全开展的普通任务。必要信息、安全要求、健康、照护责任和无法自行改变的工作量要另核，没相应机会或记不清选NA，不补零。",
-        "en": "Not automatically. Items concern ordinary tasks you intended to do, had conditions for and could safely undertake. Necessary information, safety, health, caring duties and workloads outside your control need separate consideration. Use NA for no relevant opportunity or uncertain recall; it is not zero-filled."
+        "zh": "额外标准、想法停留、担忧推迟、抗拒要求、等到期限接近，以及承诺拥挤。每部分四题，描述具体情境中的推迟与相反行动，而非创造力、勇气、服从或工作能力。",
+        "en": "Extra standards, remaining with ideas, worry before starting, resistance to requests, waiting for urgency and crowded commitments. Four items per part describe postponement and opposite actions in specific situations, rather than creativity, courage, obedience or ability."
       }
     },
     {
       "question": {
-        "zh": "所有结果免费吗？可以重测和不分享吗？",
-        "en": "Are all results free, and may I retake without sharing?"
+        "zh": "均分与反向题怎么算？",
+        "en": "How are means and reverse items calculated?"
       },
       "answer": {
-        "zh": "全部24题与六份完整结果免费，无需注册或邮箱。可以回改、选择标签页草稿、完成后重测，也可以完全不分享。小观察都可跳过，不保证效果，不用于心理诊断、治疗、录用或职业能力判断。",
-        "en": "All 24 items and six full guides are free, without signup or email. You can edit, opt into a tab draft and retake after completion, or choose not to share. Every observation can be skipped, guarantees no effect and is not for diagnosis, treatment, hiring or work-ability judgments."
+        "zh": "频率编码1—5，每部分一条反向题先用6减原评分。有效数字相加后除以有效题数，保留一位小数；例如3、5、NA与反向4，计为3、5、未评分、2，10÷3≈3.3。",
+        "en": "Frequency is coded 1–5, with one reverse item per part keyed as six minus its rating. Sum numeric values, divide by their count and round to one decimal. Ratings3,5,NA and reverse4 become3,5,unscored,2, giving10/3≈3.3."
+      }
+    },
+    {
+      "question": {
+        "zh": "NA和资料不足是什么意思？",
+        "en": "What do NA and insufficient information mean?"
+      },
+      "answer": {
+        "zh": "没有相应机会或记不清可选NA，不计0、不补中点，也不反向处理。四题至少三条有效才显示均分；两条及以下显示资料不足，不等于没有拖延或中等水平。",
+        "en": "Use NA for no relevant opportunity or uncertain recall. It is not zero or a midpoint and is not reversed. A four-item part needs at least three numeric ratings; fewer means insufficient information, not no procrastination or an average level."
+      }
+    },
+    {
+      "question": {
+        "zh": "最高均分就是我的主导类型或根本原因吗？",
+        "en": "Is the highest mean my dominant type or root cause?"
+      },
+      "answer": {
+        "zh": "不能这样确定。六类可以同时出现，且没有跨模式等值校准。均分描述本次回答，不能证明原因、严重程度或固定人格；相同均分也可能来自不同经历。",
+        "en": "That cannot be established. Patterns may coexist and have not been calibrated for cross-pattern equivalence. Means describe these answers, not causes, severity or a fixed personality. Equal means can arise from different experiences."
+      }
+    },
+    {
+      "question": {
+        "zh": "休息、照护和等待资料也算拖延吗？",
+        "en": "Do rest, care duties and waiting for information count as procrastination?"
+      },
+      "answer": {
+        "zh": "不自动算。本版只考虑原本想做、已有必要条件且可安全开展的任务。先核对条件和可用余量；无法控制的超载、必要等待和合理休息需要按实际情况理解。",
+        "en": "Not automatically. This form concerns intended tasks with necessary conditions available and safe to undertake. Check conditions and capacity first; uncontrollable overload, necessary waiting and reasonable rest need their own contextual interpretation."
+      }
+    },
+    {
+      "question": {
+        "zh": "完美主义一定导致拖延吗？",
+        "en": "Does perfectionism necessarily cause procrastination?"
+      },
+      "answer": {
+        "zh": "不能仅凭名称判断。本站关注必要要求已满足后，额外标准与推迟同时出现的情境，不评临床完美主义或作品质量，也不要求省略必要检查、安全与合规要求。",
+        "en": "The label alone cannot establish that. These items concern extra standards alongside postponement after necessary requirements are met, not clinical perfectionism or work quality. They never call for skipping essential checks, safety or compliance."
+      }
+    },
+    {
+      "question": {
+        "zh": "临近截止日期才开始说明我擅长压力工作吗？",
+        "en": "Does starting near a deadline show I perform well under pressure?"
+      },
+      "answer": {
+        "zh": "不说明。本站记录等待紧迫与错过准备时间，没有比较工作质量，也不测激素或压力下能力。可以核对是否留出检查、休息和处理意外的时间，不需要人为制造危机。",
+        "en": "No. Items record waiting for urgency and unused preparation time, without comparing work quality or measuring hormones or pressure performance. Check time for review, rest and interruptions rather than manufacturing a crisis."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是经过验证的量表或诊断吗？",
+        "en": "Is this a validated scale or diagnosis?"
+      },
+      "answer": {
+        "zh": "目前未建立本站题本的信度、效度与常模。它不是原作者量表、通用拖延量表或纯拖延量表，也不诊断ADHD、焦虑、抑郁等情况。研究背景与可复算算法不能替代本题本验证。[2]",
+        "en": "Reliability, validity and norms have not been established for this form. It is not an original-author scale, General Procrastination Scale or Pure Procrastination Scale and does not diagnose ADHD, anxiety or depression. Research context and reproducible scoring cannot replace validation of these items.[2]"
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样使用结果，复测下降是否表示改善？",
+        "en": "How can results be used, and does a lower retest mean improvement?"
+      },
+      "answer": {
+        "zh": "选一个具体任务，核对必要要求、可见步骤或可协商的范围，并记录实际行动。复测要同时看情境、有效题数与条目；本版没有重要变化阈值，分差不能换成改善百分比。",
+        "en": "Choose a specific task, check requirements, a visible step or negotiable scope and record the action. Compare retests alongside context, rated-item counts and statements. This form has no meaningful-change threshold for turning differences into percentage improvement."
+      }
+    },
+    {
+      "question": {
+        "zh": "多久完成，免费吗，答案会保存吗？",
+        "en": "How long does it take, is it free, and are answers saved?"
+      },
+      "answer": {
+        "zh": "约6分钟，不限时；全部题目和完整结果免费免注册，开始按钮直接进入题目。浏览器内计分，默认不保存；主动保存的本标签页草稿24小时内可恢复，完成、清除或重测即删除。",
+        "en": "Allow about six minutes without a timer. All questions and full results are free without signup, and Start opens questions directly. Scoring is in the browser with saving off by default; an explicitly saved tab draft is restorable within twenty-four hours and deleted on completion, clearing or retake."
       }
     }
   ],
   "references": [
     {
       "title": {
-        "zh": "Sapadin作者官网：六风格自助书籍背景",
-        "en": "Sapadin’s author website: six-style self-help background"
-      },
-      "url": "https://www.psychwisdom.com/"
-    },
-    {
-      "title": {
-        "zh": "Appleby（2017），APA教育文章（已归档）",
-        "en": "Appleby (2017), archived APA educational article"
+        "zh": "Appleby（2017）：APA已归档教育文章，六风格背景",
+        "en": "Appleby (2017): archived APA educational article, six-style background"
       },
       "url": "https://www.apa.org/ed/precollege/psn/2017/01/overcoming-procrastination"
     },
     {
       "title": {
-        "zh": "Steel（2007）正式摘要与文献记录；未采用题库",
-        "en": "Steel (2007), formal abstract and record; no instrument adopted"
+        "zh": "Steel（2007）：拖延元分析正式摘要与文献记录",
+        "en": "Steel (2007): procrastination meta-analysis, formal abstract and record"
       },
       "url": "https://pubmed.ncbi.nlm.nih.gov/17201571/"
+    },
+    {
+      "title": {
+        "zh": "Pychyl与Sirois（2016）：情绪调节与拖延理论章节摘要",
+        "en": "Pychyl and Sirois (2016): emotion regulation and procrastination, chapter abstract"
+      },
+      "url": "https://www.sciencedirect.com/science/article/pii/B9780128028629000086"
+    },
+    {
+      "title": {
+        "zh": "Rozental等（2018）：心理干预系统综述与元分析摘要",
+        "en": "Rozental et al. (2018): psychological-treatment systematic review and meta-analysis abstract"
+      },
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30214421/"
     }
   ]
 }

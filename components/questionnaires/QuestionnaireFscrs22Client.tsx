@@ -50,17 +50,15 @@ function ValidFscrs22Client({ quiz, locale, readingProfiles }: { quiz: Fscrs22Qu
   }
   const question = quiz.questions[position];
   useEntertainmentResultView(recordView, stage === "result");
-  return <section id="take-test" data-fscrs22-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
-    {activityConsent}
-    <p className="mb-4 text-sm leading-7 text-slate-600">{quiz.fscrs22.privacy[locale]}</p>
-    <QuestionnaireFscrs22Support support={quiz.fscrs22.support} locale={locale} />
+  return <section id="take-test" data-stage={stage} data-fscrs22-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
     <fieldset disabled={!ready} className="min-w-0 space-y-5 p-0">
       <legend className="sr-only">{quiz.title[locale]}</legend>
       {stage === "welcome" && <>
+        <button data-explore-start type="button" className={`${button} bg-violet-700 text-white`} onClick={() => { revision.current += 1; setStage("answer"); recordStart(); setPosition(0); setMessage(""); }}>{zh ? "开始测试" : "Start test"}</button>
         <h2 className="text-2xl font-semibold">{quiz.fscrs22.subtitle[locale]}</h2>
         {quiz.fscrs22.intro.map((paragraph, index) => <p key={index} className="leading-8">{paragraph[locale]}</p>)}
         <p data-fscrs22-sensitive-notice className="rounded-lg border border-slate-300 p-4 leading-8">{quiz.fscrs22.sensitiveNotice[locale]}</p>
-        <button type="button" className={button} onClick={() => { revision.current += 1; setStage("answer"); recordStart(); setPosition(0); setMessage(""); }}>{zh ? "开始测试" : "Start test"}</button>
+
       </>}
       {stage === "answer" && <>
         <p data-fscrs22-progress className="text-sm text-slate-600">{zh ? `第 ${position + 1} / 22 条` : `Statement ${position + 1} of 22`}</p>
@@ -80,6 +78,9 @@ function ValidFscrs22Client({ quiz, locale, readingProfiles }: { quiz: Fscrs22Qu
       </>}
       {stage !== "welcome" && <button type="button" className={button} onClick={clear}>{zh ? "退出并清除本次回答" : "Exit and clear these responses"}</button>}
     </fieldset>
+    {activityConsent}
+    <p className="mb-4 text-sm leading-7 text-slate-600">{quiz.fscrs22.privacy[locale]}</p>
+    <QuestionnaireFscrs22Support support={quiz.fscrs22.support} locale={locale} />
     <p role="status" aria-live="polite" className="my-4 text-sm leading-7">{ready ? message : (zh ? "正在准备问卷，请稍候。" : "Preparing the questionnaire. Please wait.")}</p>
     <noscript><p>{zh ? "作答需要启用 JavaScript；公开解释和支持说明仍可直接阅读。" : "Answering requires JavaScript; public explanations and support information remain readable."}</p></noscript>
   </section>;

@@ -2,7 +2,7 @@
   "slug": "response-color",
   "code": "PERSONALITY_COLOR",
   "version": "2.0.0",
-  "updated": "2026-10-25",
+  "updated": "2026-10-31",
   "category": "framework",
   "kind": "directional",
   "title": {
@@ -10,17 +10,17 @@
     "en": "Color Personality Test"
   },
   "description": {
-    "zh": "免费完成24道日常情境二选一，查看红、黄、蓝、绿四方向的实际选择次数与完整单项或并列报告。无需注册，附具体例子、取舍和七日观察。",
-    "en": "Take a free 24-question color personality test. See your red, yellow, blue and green choice counts, every tied result, everyday examples and a full report. No signup."
+    "zh": "通过24道日常情境二选一，比较红、黄、蓝、绿四类回应方式。约5分钟，免费查看原始计数、全部最高并列与完整解读，无需注册。",
+    "en": "Compare four everyday response styles with 24 paired choices. See red, yellow, blue and green counts, every highest-count tie and full explanations free."
   },
   "seoTitle": {
-    "zh": "色彩性格测试：24题、四色完整结果与并列说明",
-    "en": "Color Personality Test: Free 24-Question Results"
+    "zh": "色彩性格测试：24题、四色行为选择与完整解读",
+    "en": "Color Personality Test: 24 Questions and Full Results"
   },
   "minutes": 5,
   "introduction": {
-    "zh": "周末临时空出时间，你先行动、展开联想、整理条件，还是找回舒服的节奏？这份费马原创问卷用24道日常选择比较四种回应入口，用红、黄、蓝、绿帮助记忆。颜色来自作答计数，不靠喜欢哪种颜色，也不随机分配。",
-    "en": "Unexpected free time, a changed plan or a conversation that goes quiet: what do you do first? This original questionnaire compares acting, exploring connections, organizing and steadying the pace through 24 everyday choices. Red, yellow, blue and green help you remember those approaches. Your result comes from your answers, not your favorite color or a random draw."
+    "zh": "色彩性格测试在本页指费马原创的24题强迫选择式自报问卷。它用红·行动回应、黄·开放联想、蓝·审慎整理、绿·稳定协调，组织对日常回应方式的观察：是先开始做、先想几种可能、先核对条件，还是先顾好共同节奏。四种颜色是本题本的记忆符号，结果由实际选项计数产生。\n本页不让你排列色块、上传照片或填写生日，也不通过色彩知觉判断心理状态。完成后可阅读四项原始次数、所有最高并列及对应完整报告；下方15份单项或并列指南也可在作答前免费阅读。",
+    "en": "Here, the Color Personality Test is FermatMind’s original 24-item forced-choice self-report. Red represents responding through action, Yellow exploring connections, Blue careful organization and Green steady coordination. The questions compare everyday starting responses: doing something, opening up possibilities, checking conditions or attending to a shared pace. The colors are memory aids for this questionnaire; actual selections determine the counts.\nYou do not rank swatches, upload a photo or enter a birthday, and the page does not infer a psychological state from color perception. A complete attempt gives four raw counts, every highest-count tie and the corresponding full reports. All 15 single-color and tied guides can also be read free before answering."
   },
   "source": {
     "kind": "FermatMind original mini-program questionnaire",
@@ -4826,143 +4826,191 @@
     {
       "id": "how-to-read",
       "title": {
-        "zh": "怎样阅读结果",
-        "en": "How to read the result"
+        "zh": "怎样阅读四色结果：从选择回到具体经历",
+        "en": "Reading the four colors through actual choices"
       },
       "paragraphs": [
         {
-          "zh": "先看四个方向各自的原始选择次数，再找出次数最高的一个或多个方向（并列时全部保留），然后把它们带回最近的具体经历核对：哪些说法对得上，哪些对不上。结果页里的描述是线索，不是判决。",
-          "en": "Start with the raw choice count for each of the four directions, then identify the direction or directions with the highest count, keeping every tie. Check them against specific recent experiences: what fits, and what does not? The descriptions on the results page are clues, not a verdict."
+          "zh": "先看四项计数，再看所有最高方向，最后对照具体题目和日常例子。计数回答的是“在这些二选一里更常选哪一类做法”；报告提供的是回看行为的语言。两者都需要结合实际情境，而不能只保留一个颜色标签。",
+          "en": "Read all four counts, identify every highest direction, then revisit individual choices and everyday examples. Counts describe which responses were selected more often in these paired items; reports offer language for reflecting on behavior. Both need context rather than a color label alone."
+        },
+        {
+          "zh": "例如红与蓝并列较高，可以回想一次临时安排：你是否既很快启动，也会在行动前后核对重要条件？再找一个不符合的例子。这样的核对用于提出观察问题，不把并列解释成两种稳定人格或某种最佳搭配。",
+          "en": "For example, a Red–Blue tie might prompt you to recall a changed plan: did you both begin promptly and check important conditions before or after acting? Look for a counterexample too. This generates a reflection question, not evidence of two stable personalities or an optimal combination."
         }
       ]
     },
     {
       "id": "raw-wins-explanation",
       "title": {
-        "zh": "原始计数",
-        "en": "Raw counts"
+        "zh": "24题如何计分：六组配对与固定总和",
+        "en": "Scoring 24 choices: six pairs and a fixed total"
       },
       "paragraphs": [
         {
-          "zh": "每道题是两个方向的两两比较，选中的那个方向得 1 次。四个方向各参与 12 次比较，所以每个方向的次数都在 0 到 12 之间。这个数字只在本次题组内部成立：它说明你相对更常选哪个方向，不代表你在人群中的位置，也不是准确率、浓度或百分位。",
-          "en": "Each question compares two directions, and the selected direction gains 1 count. Each of the four directions takes part in 12 comparisons, so each count ranges from 0 to 12. This number applies only within the current question set. It shows which direction you selected relatively more often, not your place in a population, an accuracy rate, concentration or percentile."
+          "zh": "四方向共有6组不同配对，每组出现4次，合计24题。每个方向参与12次比较；每题只给选中方向加1次。因此四项总和恒为24，单项范围为0—12。计数公式是：某方向次数＝本次选中该方向的题目数。",
+          "en": "There are six distinct pairs of directions, each appearing four times, for 24 items. Every direction appears in 12 comparisons, and each answer adds one count only to its selected direction. The four counts therefore sum to 24; each ranges from 0 to 12. A direction’s count equals the number of items in which it was selected."
+        },
+        {
+          "zh": "这些次数是同一个人在本题组中的相对选择，属于固定总和的自比式记录。某方向增加一次，另一方向就少一次；不能把四项当作四个彼此独立的人格强度。8次也不等于“人格中占三分之二”，更不是超过三分之二的人。",
+          "en": "These are fixed-total, within-person choice counts. Giving one direction an additional choice necessarily withholds that choice from another direction. The four counts are not independent measures of trait intensity. Eight choices do not mean two-thirds of someone’s personality or a rank above two-thirds of other people."
         }
       ]
     },
     {
       "id": "ties-explanation",
       "title": {
-        "zh": "并列与接近的计数",
-        "en": "Ties and close counts"
+        "zh": "15种结果如何产生：最高并列与近分",
+        "en": "How 15 outcomes arise: highest-count ties and close scores"
       },
       "paragraphs": [
         {
-          "zh": "当两个或多个方向的次数相同且同为最高时，本次结果就是并列顶部。并列会完整保留，不使用题号顺序、字母顺序或选项位置破同分。并列不是错误，也不是测试失效，它就是本次回答的真实结果。",
-          "en": "When two or more directions have the same count and jointly hold the highest count, the result is a tie at the top. Every tie is retained, without using question order, letter order or option position to separate it. A tie is neither an error nor a test failure. It is the actual outcome of these answers."
+          "zh": "只按最高次数确定需要展示哪些报告。红＝8、黄＝8、蓝＝4、绿＝4时，结果保留红/黄最高并列；蓝与绿虽然也相等，但不是最高并列。四项都相同时只能各为6次，并保留全部四方向。",
+          "en": "Only the highest count determines which reports form the result. With Red = 8, Yellow = 8, Blue = 4 and Green = 4, Red and Yellow share the highest count. Blue and Green are equal but are not tied leaders. If all four counts are equal, each must be six and all four remain in the result."
+        },
+        {
+          "zh": "全部最高集合共有4种单项、6种双项、4种三项及1种四项并列，合计15种。并列不按题号、颜色顺序或选项位置强行拆分，也不指定主色与副色。相差1次只表示这组题中的一次选择差异；本站未建立测量误差或近分阈值，不能据此判断统计显著或能力差距。",
+          "en": "The possible leading sets comprise four single colors, six pairs, four triples and one four-way tie: 15 in total. Question order, color order and option position never break a tie or assign primary and secondary colors. A one-count gap is one choice in this set. No measurement-error estimate or close-score threshold has been established here, so it cannot establish statistical significance or an ability gap."
         }
       ]
     },
     {
       "id": "context-dependence",
       "title": {
-        "zh": "情境影响",
-        "en": "Context matters"
+        "zh": "以同一日常情境参照理解结果",
+        "en": "Keep a consistent everyday reference context"
       },
       "paragraphs": [
         {
-          "zh": "行为会随情境变化。同一个人，在赶时间的任务里、在熟悉的朋友间、在高压的场合里，第一反应可能完全不同。结果页描述的是这次作答时你更常选什么，不是你任何时候都这样。",
-          "en": "Behavior changes with context. The same person's first response may differ on a rushed task, among familiar friends or under pressure. The report describes what you selected more often in this attempt, not how you always behave."
+          "zh": "与熟悉朋友一起安排周末、独自开始一件事、在时间紧张时处理变化，可能引出不同选择。作答时尽量使用近期通常的生活情境，不在每道题之间轮换“理想的自己”“工作中的自己”和“别人期待的自己”。",
+          "en": "Planning a weekend with friends, starting something alone and handling a change under time pressure can elicit different choices. Use a typical recent everyday context rather than switching between an ideal self, a work role and other people’s expectations from item to item."
+        },
+        {
+          "zh": "结果变化时，先核对哪些题的选择变了，再考虑情境和实际经历。单凭颜色名称变化，无法区分真实行为改变、题意理解不同或作答波动。",
+          "en": "If results differ, first check which item choices changed, then consider the context and actual experiences. A changed color name alone cannot distinguish behavioral change from a different reading of an item or variation in responding."
         }
       ]
     },
     {
       "id": "low-direction-explanation",
       "title": {
-        "zh": "较低计数怎样理解",
-        "en": "Reading lower counts"
+        "zh": "较低次数、零次与四项均衡",
+        "en": "Lower counts, zero counts and equal counts"
       },
       "paragraphs": [
         {
-          "zh": "次数较低的方向不代表缺陷或缺失。它只说明在本次两两比较中，你相对少选那个方向。很多时候，次数低只是因为你在本次作答里更常选了另一个方向。四个方向是反应入口，不是能力打分。",
-          "en": "A lower count does not mean a defect or missing trait. It only means you chose that direction less often in these comparisons, often because you chose another direction more. The four directions describe starting approaches, not ability scores."
+          "zh": "某项计数低，表示在它参与的配对中更常选了另一种做法，不代表没有相应行为。红为0次不证明缺乏行动力，蓝较少不证明不细心；同样，四项各6次也不证明能力全面或人格更加平衡。请回到题目与行为例子阅读。",
+          "en": "A lower count means the alternative was selected more often in the relevant pairs, not that the behavior is absent. Zero Red choices do not demonstrate a lack of initiative, and fewer Blue choices do not demonstrate carelessness. Four counts of six do not establish well-rounded abilities or a more balanced personality. Revisit the items and behavioral examples."
         }
       ]
     },
     {
       "id": "not-a-fixed-identity",
       "title": {
-        "zh": "不是固定身份",
-        "en": "No fixed identity"
+        "zh": "四种颜色在本题本中的具体含义",
+        "en": "What the four colors mean in this questionnaire"
       },
       "paragraphs": [
         {
-          "zh": "结果不是固定身份或标签。请把它当作这次作答的观察记录，而不是你是什么人的答案。颜色只是记忆符号，不描述某种固定不变的人格本质，也不把任何方向称作你的主方向或次方向。",
-          "en": "The result is not a fixed identity or label. Treat it as a record of this attempt, rather than an answer to who you are. Colors are memory aids, not fixed personality essences, and no direction is designated your primary or secondary identity."
+          "zh": "红·行动回应：遇到可以着手的事情，倾向先开始、先回应或先推动一步。它描述选择的起点，不鉴定领导力、执行水平、冲动程度或支配他人的资格。",
+          "en": "Red · Responding through action: beginning, responding or moving a step forward when there is something to do. This describes a starting response, not leadership, execution skill, impulsivity or entitlement to direct others."
+        },
+        {
+          "zh": "黄·开放联想：遇到可变的安排或信息，倾向先想几种可能、接上新线索或探索不同过法。它不等于外向、受欢迎、创造力高低或实际说服能力。",
+          "en": "Yellow · Exploring connections: considering possibilities, following a new connection or exploring alternative approaches. It is not a measure of extraversion, popularity, creativity or persuasive success."
+        },
+        {
+          "zh": "蓝·审慎整理：面对信息或安排，倾向先理清条件、顺序与需要核对之处。它不等于大五尽责性分数，也不推断智力、焦虑或某种完美主义类型。",
+          "en": "Blue · Careful organization: clarifying conditions, sequence and details that need checking. This count is not a Big Five conscientiousness score and does not infer intelligence, anxiety or a perfectionism type."
+        },
+        {
+          "zh": "绿·稳定协调：面对共同安排，倾向先照顾节奏、维持配合或让交流继续。它不认证情绪稳定、善良程度、适应能力或一段关系的质量。",
+          "en": "Green · Steady coordination: attending to pace, sustaining cooperation or keeping an exchange workable. It does not certify emotional stability, kindness, adaptability or relationship quality."
         }
       ]
     },
     {
       "id": "not-a-diagnosis",
       "title": {
-        "zh": "适用范围",
-        "en": "Intended use"
+        "zh": "适用读者与结果的实际用途",
+        "en": "Who this reflection is for and how to use it"
       },
       "paragraphs": [
         {
-          "zh": "这不是临床工具，不用于心理诊断，也不能替代专业评估。它不识别任何心理状态或障碍，不构成心理健康相关结论。",
-          "en": "This is not a clinical tool, is not used for psychological diagnosis and cannot replace a professional assessment. It does not identify mental states or disorders or establish mental-health conclusions."
+          "zh": "本页适合能够根据自己的日常经历独立作答、希望整理回应习惯的读者。可以用结果讨论一次安排、一次交流或一件想尝试的小事；不需要披露私人经历，也不应代替别人作答来给对方判型。",
+          "en": "This reflection is for readers who can answer independently from their own everyday experiences and want to examine response habits. Use it to discuss a plan, a conversation or a small experiment. Private disclosures are unnecessary, and answering on someone else’s behalf should not be used to type them."
+        },
+        {
+          "zh": "本题本不识别心理障碍、症状严重度或治疗需要。颜色与计数也不用于招聘筛选、能力排名、晋升、婚恋匹配或其他高影响决策。",
+          "en": "The questionnaire does not identify disorders, symptom severity or treatment needs. Neither colors nor counts are intended for hiring, ability rankings, promotion, relationship matching or other high-stakes decisions."
         }
       ]
     },
     {
       "id": "not-an-official-four-color-system",
       "title": {
-        "zh": "题本来源",
-        "en": "Questionnaire source"
+        "zh": "与其他四色测试、DISC和颜色偏好测试的区别",
+        "en": "Distinguishing four-color systems, DISC and color-preference tasks"
       },
       "paragraphs": [
         {
-          "zh": "本测试是费马测试自建的原创自报问卷，与任何商业四色课程或认证体系无关，也不构成认证报告。颜色命名（如红·行动回应）只是记忆符号，不表示颜色有天然、文化或科学上的固定人格含义。",
-          "en": "This is FermatMind's original self-report questionnaire, unrelated to any commercial four-color course or certification and not a certified report. Color names such as Red · Responding through action are memory aids; they do not assign natural, cultural or scientifically fixed personality meanings to colors."
+          "zh": "“色彩性格测试”不是一个统一题本名称。不同产品可能采用不同颜色、维度、作答方式和解释规则，同样叫“蓝”也不必然在说同一件事。本页采用费马自己的四色方向、24题配对与原始计数，不提供商业课程认证报告。",
+          "en": "“Color personality test” does not identify one standardized instrument. Products can differ in colors, constructs, response formats and interpretation rules; even the same color name need not describe the same thing. This page uses FermatMind’s own four directions, 24 paired items and raw counts rather than a commercial certification report."
+        },
+        {
+          "zh": "本站DISC问卷与本题本分别作答、分别计分，不能把红黄蓝绿直接换成D、I、S、C。按喜好排列色块的任务则属于另一种施测方式；本题本没有这样的输入，不能从喜欢某种颜色推算这里的结果。",
+          "en": "Our DISC questionnaire has its own items and scoring. Red, Yellow, Blue and Green cannot be converted directly to D, I, S and C. Ranking swatches by preference is another response task: there is no such input here, and liking a color cannot calculate this result."
         }
       ]
     },
     {
       "id": "high-stakes-decision-boundary",
       "title": {
-        "zh": "使用边界",
-        "en": "Limits of use"
+        "zh": "把颜色读法转成可以核对的小行动",
+        "en": "Turn a color description into an observable experiment"
       },
       "paragraphs": [
         {
-          "zh": "请勿将本结果用于招聘、人事筛选、录用、晋升、绩效评估、婚恋决策或任何高影响决策。它没有经过心理测量学验证，不预测工作绩效、领导力、职业适配或人际关系结果。",
-          "en": "Do not use this result for recruitment, personnel screening, hiring, promotion, performance reviews, relationship decisions or any high-stakes decision. It has not established psychometric validity and does not predict job performance, leadership, career fit or relationship outcomes."
+          "zh": "选择一次近期的小安排。例如想马上行动时，先核对一项关键条件；想继续扩展想法时，约定一个收束点；想把条件全部理清时，区分必须确认与可以稍后补充的信息；想维持原有节奏时，问清这次是否确实需要调整。",
+          "en": "Choose a small recent planning situation. Before acting immediately, check one critical condition. When ideas keep expanding, agree on a stopping point. When checking details, separate essential information from details that can follow later. When preserving a routine, ask whether this occasion genuinely calls for a change."
+        },
+        {
+          "zh": "这些是可选观察，不是按颜色开的处方。记录实际做了什么、对方怎样回应、哪里需要修订；没有效果时可以换方法。结果不能替你决定职业、关系或他人的需要。",
+          "en": "These are optional observations rather than color-based prescriptions. Note what you did, how the other person responded and what needs revision. Try another approach if it is unhelpful. A result cannot decide your career, relationship or someone else’s needs."
         }
       ]
     },
     {
       "id": "public-preview-scientific-boundary",
       "title": {
-        "zh": "版本说明",
-        "en": "About this edition"
+        "zh": "色彩性格测试科学吗？区分研究背景与本站证据",
+        "en": "Scientific status: research context versus evidence for this edition"
       },
       "paragraphs": [
         {
-          "zh": "本测试用于娱乐与自我探索，尚未完成信度、效度、常模等心理测量学验证，不代表正式商业量表，也未获得任何官方认证。",
-          "en": "This test is for entertainment and self-exploration. Reliability, validity and population norms have not been established. It is not a formal commercial instrument and has no official certification."
+          "zh": "心理测量的效度关注证据是否支持某种分数解释及其用途。[1] 本页能够说明题目怎样形成计数，也能完整保留并列；这些属于算法与展示规则的透明性，不能代替信度、效度或人群常模研究。本站尚未建立本题本的测量质量、跨语言等价性或预测能力。",
+          "en": "In psychological measurement, validity concerns evidence supporting a particular interpretation and use of scores.[1] This page explains how choices become counts and preserves every highest-count tie. Those are transparent scoring and display rules, not substitutes for reliability, validity or population-norm studies. Measurement quality, cross-language equivalence and predictive performance have not been established for this questionnaire."
+        },
+        {
+          "zh": "色彩心理学研究会考察颜色知觉与情境中的心理反应，这与用颜色给一份文字问卷的回应类别命名是不同的问题。Elliot的2015年研究综述讨论了颜色研究的情境、控制条件与方法限制。[2] 不能由这些研究推导“喜欢某种颜色便具有某种固定人格”，也不能把它们当作本题本已经验证的证据。",
+          "en": "Research on color perception and psychological responses in context addresses a different question from using colors to label responses in a verbal questionnaire. Elliot’s 2015 review discusses contextual effects, experimental controls and methodological limitations.[2] Such work does not establish fixed personalities from favorite colors or validate this questionnaire."
         }
       ]
     },
     {
       "id": "retest-boundary",
       "title": {
-        "zh": "重测与观察",
-        "en": "Retaking and observing"
+        "zh": "重测、临时草稿与隐私",
+        "en": "Retesting, optional drafts and privacy"
       },
       "paragraphs": [
         {
-          "zh": "如果你对结果有疑问，或在不同时间作答可能得到不同结果，都是正常的。可以隔一段时间重新作答，观察结果是否稳定。重新作答不会影响之前的记录，除非你清除本地数据。",
-          "en": "If you retake the questionnaire, answer for your current situation. Different counts can reflect context or different choices; they do not by themselves prove a stable change in personality. Optional tab drafts clear on completion or retake."
+          "zh": "答案在当前浏览器中计分，默认不保存。只有主动选择临时保存后，才在本标签页保留可恢复草稿；24小时后失效，完成、退出并清除或重测会删除。重测开始新的作答，不保留可供比较的历史个人报告。",
+          "en": "Answers are scored in the current browser and are not saved by default. Only an explicit save choice creates a resumable draft in this tab. It expires after 24 hours and clears on completion, exit-and-clear or retake. Retaking starts a new attempt rather than maintaining a history of personal reports."
+        },
+        {
+          "zh": "如需自行比较两次体验，可以私下记下作答时间、参照情境和变化的具体选择；不要把次数差异解释成人格变化幅度。公开指南不包含个人答案，分享内容也不需要逐题选择或计数。",
+          "en": "To compare attempts yourself, privately note the time, reference context and particular choices that changed. A count difference is not the magnitude of personality change. Public guides contain no private answers, and sharing does not require item choices or counts."
         }
       ]
     }
@@ -4970,43 +5018,143 @@
   "faq": [
     {
       "question": {
-        "zh": "红黄蓝绿各是什么意思？",
-        "en": "What do red, yellow, blue and green mean?"
+        "zh": "色彩性格测试测什么，红黄蓝绿各代表什么？",
+        "en": "What does the Color Personality Test explore, and what do the four colors mean?"
       },
       "answer": {
-        "zh": "在本题本里，红指先行动回应，黄指先展开联想，蓝指先整理核对，绿指先稳定协调。四个方向都是日常回应入口，没有优劣之分；颜色是费马自编记忆符号，不等同任何商业四色课程或认证体系。",
-        "en": "In this edition, Red starts with action, Yellow with connections, Blue with organization and checks, and Green with steady coordination. None is superior. The colors are FermatMind’s own memory aids, not categories from a commercial four-color course or certification."
+        "zh": "本页用24道日常二选一观察四类回应入口：红先行动回应，黄先展开联想，蓝先整理核对，绿先稳定协调。结果是本题组中的相对选择次数，颜色是本题本的记忆符号，不是固定身份、能力水平或天然人格本质。",
+        "en": "The 24 everyday paired choices compare four starting responses: action for Red, exploring connections for Yellow, organization and checks for Blue, and steady coordination for Green. Results are relative choice counts in this item set. The colors are memory aids, not fixed identities, abilities or innate personality essences."
       }
     },
     {
       "question": {
-        "zh": "为什么可能出现两个、三个或四个并列方向？",
+        "zh": "需要选自己喜欢的颜色，或根据穿衣颜色作答吗？",
+        "en": "Should I choose my favorite color or answer based on what I wear?"
+      },
+      "answer": {
+        "zh": "不需要。题目比较具体做法，不让你按喜好排列色块，也不分析服装、肤色或照片。请按近期通常的行为作答；喜欢蓝色并不会自动得到蓝色结果，选择也不会随机分配。",
+        "en": "No. The items compare specific responses rather than asking you to rank swatches or analyzing clothes, skin tone or photos. Answer from typical recent behavior. Liking blue does not automatically produce a Blue result, and results are not randomly assigned."
+      }
+    },
+    {
+      "question": {
+        "zh": "这份测试与其他四色性格体系、DISC一样吗？",
+        "en": "Is this equivalent to another four-color system or DISC?"
+      },
+      "answer": {
+        "zh": "不是。同名测试可能采用不同的构念与题型，不能靠颜色名称对应结果。本页是费马原创题本，使用24题二选一和四项原始计数；本站DISC另有独立题目。各工具的研究、常模与认证也不能仅因名称相近而相互移用。",
+        "en": "No. Similarly named tests may use different constructs and item formats; color names alone do not equate results. This original FermatMind questionnaire uses 24 paired choices and four raw counts. Our DISC test has separate items. Research findings, norms and certifications do not transfer simply because names resemble one another."
+      }
+    },
+    {
+      "question": {
+        "zh": "色彩性格测试科学吗，为什么不提供准确率？",
+        "en": "Is this color personality test scientific, and why is there no accuracy rate?"
+      },
+      "answer": {
+        "zh": "本站尚未建立本题本的信度、效度、常模或中英文测量等价性。计分可复算不等于心理解释已经验证；颜色知觉研究也不等于四色人格分类的证明。[1][2] 因而本页不把“觉得很像”、完成次数或商业工具的研究改写成本站准确率。",
+        "en": "Reliability, validity, norms and Chinese–English measurement equivalence have not been established for this questionnaire. Reproducible scoring does not itself validate a psychological interpretation; color-perception research does not establish a four-color personality classification.[1][2] A description feeling familiar, usage counts or another tool’s research is therefore not presented as this test’s accuracy rate."
+      }
+    },
+    {
+      "question": {
+        "zh": "24题怎样计分，次数为什么不能当百分比？",
+        "en": "How are the 24 items scored, and why are counts not percentages?"
+      },
+      "answer": {
+        "zh": "每题给所选方向加1次，四项合计24。每个方向参与12次比较，单项为0—12次。分母12表示它在题本中出现的机会，不是人格总量或人群基数；8/12不能解释为三分之二的人格或某个人群百分位。",
+        "en": "Each selected direction gains one count; the four counts sum to 24. Every direction appears in 12 comparisons and ranges from 0 to 12. Twelve is the number of opportunities in this item set, not a total personality or a population. Eight out of twelve is neither two-thirds of a personality nor a percentile."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么会出现两个、三个或四个颜色并列？",
         "en": "Why can two, three or all four colors tie?"
       },
       "answer": {
-        "zh": "每道题只给选中的方向加1次，四方向各参与12次比较。最高次数相同就完整保留并列，共15种单项或并列结果；全部相同时不指定唯一顶部。没有设近分阈值，相差1次也不能解释为能力差异或人群排名。",
-        "en": "Each answer adds 1 count to its direction, and each direction appears in 12 comparisons. Equal highest totals stay tied. The 15 reports cover every single and tied outcome; equal counts across all four produce no sole leader. There is no near-score cutoff, and a 1-count difference is not an ability difference or population ranking."
+        "zh": "所有达到相同最高次数的方向均保留，形成4种单项、6种双项、4种三项和1种四项并列。四项相等只能是各6次，不指定主色。相同但低于最高的次数不构成最高并列；没有近分阈值，相差1次不表示能力差异。",
+        "en": "Every direction sharing the highest count is retained: four single colors, six pairs, four triples and one four-way tie. Equal counts across all four must be six each, without a primary color. Equal lower counts are not tied leaders. No close-score cutoff is used, and a one-count gap is not an ability difference."
       }
     },
     {
       "question": {
-        "zh": "这与DISC或按颜色偏好排序的测试一样吗？",
-        "en": "Is this the same as DISC or a color-preference test?"
+        "zh": "两项都像或都不像自己时，应该怎么选？",
+        "en": "What should I do if both choices fit, or neither does?"
       },
       "answer": {
-        "zh": "本题本探索日常回应入口，DISC页面探索工作中的行为方式，不能按颜色把两者换算。这里也不要求按喜好排列色块，不使用颜色偏好推断心理状态。每个框架应按自己的题目、计分与版本阅读；本站自编题本尚未完成信度、效度和常模验证。",
-        "en": "This questionnaire explores everyday starting responses; our DISC page explores approaches to workplace behavior. Colors do not convert one result into the other. You do not rank color swatches here, and color preferences are not used to infer psychological states. Read each framework through its own questions, scoring and edition. Reliability, validity and population norms have not been established for this original questionnaire."
+        "zh": "两项都像时，选近期通常更常出现或更先出现的做法；两项都不像时，选相对接近的一项。二选一提供的是相对选择，不能表示每种做法各自的绝对频率。题目没有正确答案；不愿作选择时可以退出，全部公开指南仍可阅读。",
+        "en": "If both fit, choose the response that occurs more often or comes first in typical recent situations. If neither fits, choose the closer one. A paired choice describes a relative preference, not each behavior’s absolute frequency. There are no correct answers. You can leave without choosing and still read every public guide."
       }
     },
     {
       "question": {
-        "zh": "作答和完整报告是否免费，答案会发送吗？",
-        "en": "Are the full questions and report free, and are answers sent anywhere?"
+        "zh": "结果能换算MBTI或大五人格吗？",
+        "en": "Can the result be converted to MBTI or Big Five scores?"
       },
       "answer": {
-        "zh": "24题与全部完整报告免费，无需注册、邮箱或先做MBTI。答案只在浏览器计算，不发送至服务器、不进入网址或分析事件。只有主动选择后才在本标签页保存，24小时后失效，完成、退出清除或重测即删除。",
-        "en": "All 24 questions and full reports are free, with no signup, email or prerequisite MBTI test. Answers are evaluated in your browser, never sent to a server, URL or analytics event. Tab saving is optional, expires after 24 hours and clears on completion, exit-and-clear or retake."
+        "zh": "不能。颜色计数不是MBTI四组偏好，也不是大五的五个连续特质。蓝色方向即使涉及核对，也不能直接换算尽责性；红色次数多也不能直接换算外向性。需要了解其他框架时，应使用其独立题本和对应解释。",
+        "en": "No. These color counts are neither the four MBTI preference pairs nor the five continuous Big Five traits. Blue choices involving checks do not convert into conscientiousness; more Red choices do not convert into extraversion. Other frameworks require their own questionnaires and interpretations."
       }
+    },
+    {
+      "question": {
+        "zh": "哪种颜色最好，四项一样是否更全面？",
+        "en": "Is one color best, or are equal counts better?"
+      },
+      "answer": {
+        "zh": "本题本不评选最佳颜色，也不对能力、善良或成熟度排名。四项各6次只说明本组选择相等。实际安排中，行动、联想、核对与协调是否有帮助，要结合具体任务和他人的需要核对，而不是追求一种分数形状。",
+        "en": "There is no best color or ranking of ability, kindness or maturity. Four counts of six mean equal choices in this set. Whether action, exploration, checking or coordination helps depends on the task and other people’s needs, rather than a preferred score pattern."
+      }
+    },
+    {
+      "question": {
+        "zh": "测试需要多久，作答和完整报告免费吗？",
+        "en": "How long does it take, and are the questions and full reports free?"
+      },
+      "answer": {
+        "zh": "共24题，约5分钟，实际用时随阅读与思考速度变化，没有倒计时限制。全部题目、四项计数和15份完整单项或并列指南免费，无需注册、邮箱或先做其他测试。",
+        "en": "There are 24 items, taking about five minutes depending on reading and reflection, without a countdown. All items, four counts and 15 complete single-color or tied guides are free, without signup, email or a prerequisite test."
+      }
+    },
+    {
+      "question": {
+        "zh": "答案在哪里计算，重测后还保留历史记录吗？",
+        "en": "Where are answers scored, and are earlier attempts kept after a retake?"
+      },
+      "answer": {
+        "zh": "答案只在浏览器计算，不进入网址、答案上传或分析事件。默认不保存；主动保存的标签页草稿24小时后失效，并在完成、退出并清除或重测时删除。本站不通过该草稿保留历史个人报告；复制公开入口和指南无需披露答案或计数。",
+        "en": "Answers are scored in the browser, without answer uploads or inclusion in URLs or analytics events. Saving is off by default. An optional tab draft expires after 24 hours and clears on completion, exit-and-clear or retake; it does not maintain a history of personal reports. Copying public entry and guide links does not disclose answers or counts."
+      }
+    },
+    {
+      "question": {
+        "zh": "重测变了颜色，说明人格改变了吗？",
+        "en": "Does getting a different color on a retake mean my personality changed?"
+      },
+      "answer": {
+        "zh": "仅凭结果名称不能判断。最高次数附近的一两项选择变化，就可能改变顶部方向或并列集合。先核对情境、版本与具体题目，再结合近期行为理解；没有本题本的重测和测量误差数据，无法把差值量化为人格改变。",
+        "en": "A changed name is insufficient evidence. A small number of changed choices near the highest count can alter the leading color or tied set. Compare the context, edition and individual responses with recent behavior. Without test–retest and measurement-error data for this questionnaire, differences cannot quantify personality change."
+      }
+    }
+  ],
+  "instructions": {
+    "zh": "请以近期通常的日常做法为参照，选择更贴近自己、或更先出现的一项。两项都像时，比较哪种做法更常出现；两项都不像时，选相对更接近的一项。题目没有正确答案，也不要求根据喜欢的颜色选择。完整回答24题后再生成四项计数与结果。",
+    "en": "Think about your usual recent everyday behavior. Choose the response that fits better or tends to happen first. If both fit, compare which occurs more often; if neither fits, choose the closer one. There are no correct answers, and you are not choosing a favorite color. Complete all 24 items before the four counts and result are generated."
+  },
+  "references": [
+    {
+      "title": {
+        "zh": "AERA、APA与NCME（2014）·《教育与心理测验标准》第一章：分数解释与用途的效度证据",
+        "en": "AERA, APA & NCME (2014) · Standards for Educational and Psychological Testing, Chapter 1: validity of score interpretations and uses"
+      },
+      "url": "https://www.testingstandards.net/uploads/7/6/6/4/76643089/standards_2014edition.pdf"
+    },
+    {
+      "title": {
+        "zh": "Elliot（2015）· 颜色与心理功能：理论、情境与方法的研究综述",
+        "en": "Elliot (2015) · Color and psychological functioning: a review of theoretical and empirical work"
+      },
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4383146/"
     }
   ]
 }

@@ -30,8 +30,8 @@
     "zh": "远程工作准备程度测试"
   },
   "description": {
-    "en": "Review 20 actions for working conditions, planning, handover, help and boundaries. Explore five full guides without a personality ranking or remote-job pass mark.",
-    "zh": "回看工作条件、计划、交接、求助与边界的20项准备行动，免费阅读五份完整指南；不按人格排名，也不设远程岗位合格线。"
+    "en": "Review 20 preparation actions for one remote working arrangement: access, planning, handovers, support and boundaries. In about five minutes, see five separate stage records and five complete guides for free.",
+    "zh": "围绕一项远程工作安排，回看接入、计划、交接、支持与边界的20项准备行动。约5分钟，免费查看五组独立阶段记录与五篇完整指南。"
   },
   "resultHeading": {
     "en": "Your current preparation actions",
@@ -43,8 +43,8 @@
   },
   "minutes": 5,
   "introduction": {
-    "en": "Choose one concrete arrangement and report what you have actually prepared so far. See five separate action-stage summaries, the individual choices and every complete public reading. The questions, method and explanations are original and are not a validated prediction of readiness.",
-    "zh": "选择一项具体安排，按目前实际做过的准备作答。查看五组独立阶段概括、逐题选择和全部完整公开指南。题目、方法与解释均为原创，不是已经验证的准备度预测。"
+    "en": "Remote working depends on a task, approved resources and agreements with other people. This original preparation review records what you have drafted, tried and reviewed for one arrangement, including the conditions outside your control. The five groups are interpreted separately, with item selections and stage counts retained even when a group has no mean. They do not produce a remote-worker personality or overall readiness grade.",
+    "zh": "远程工作依赖具体任务、获准资源及与他人的约定。这份原创准备回顾记录针对同一安排已经起草、试行和复盘的行动，也考虑个人无法决定的条件。五组分别解释；即使某组没有均值，仍保留逐项选择与阶段计数，不生成人格类型或总准备等级。"
   },
   "source": {
     "kind": "fermatmind_original_preparation_action_self_report",

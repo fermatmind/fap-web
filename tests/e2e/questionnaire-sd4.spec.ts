@@ -58,7 +58,7 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.getByText(zh ? "SD4发表版28题 · 四项独立均值" : "Published SD4 28 · Four separate means", { exact: true })).toBeVisible();
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${entry}`);
     await expect(page.getByRole("link", { name: zh ? "了解Mini 18题独立版本" : "Read about the separate Mini 18-item version" })).toHaveCount(0);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await page.locator("[data-explore-start]").click();
     await expect(page.getByRole("checkbox")).toHaveCount(0);
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
@@ -70,7 +70,7 @@ for (const locale of ["en", "zh"] as const) {
     await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
     await expect(page.locator("[data-sd4-mean]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked();
     await page.getByRole("button", { name: zh ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click();
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await expect(page.getByRole("radio").first()).not.toBeChecked();
+    await page.locator("[data-explore-start]").click(); await expect(page.getByRole("radio").first()).not.toBeChecked();
     expect(requests).toEqual([]);
   });
 
@@ -86,21 +86,21 @@ for (const locale of ["en", "zh"] as const) {
       Storage.prototype.removeItem = function(k) { if (k === key) { touches.push("remove"); throw new Error("synthetic storage denial"); } return remove.call(this, k); };
     });
     await page.goto(entry); await expect(page.getByRole("button", { name: /Resume this tab|恢复本标签页/ })).toHaveCount(0);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await expect(page.locator('input[value="5"]')).not.toBeChecked();
+    await page.locator("[data-explore-start]").click(); await expect(page.locator('input[value="5"]')).not.toBeChecked();
     await page.locator('input[value="4"]').check(); await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     expect(await page.evaluate(() => (window as Window & { darkStorageTouches?: string[] }).darkStorageTouches)).toEqual([]);
-    await page.reload(); await expect(page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true })).toBeVisible();
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await expect(page.locator('input[value="4"]')).not.toBeChecked();
+    await page.reload(); await expect(page.locator("[data-explore-start]")).toBeVisible();
+    await page.locator("[data-explore-start]").click(); await expect(page.locator('input[value="4"]')).not.toBeChecked();
     await page.locator('input[value="5"]').check();
     const other = zh ? "en" : "zh"; await page.goto(`/${other}/tests/explore/dark-tetrad-sd4`);
-    await expect(page.getByRole("button", { name: other === "zh" ? "开始测试" : "Start test", exact: true })).toBeVisible();
-    await page.getByRole("button", { name: other === "zh" ? "开始测试" : "Start test", exact: true }).click(); await expect(page.locator('input[value="5"]')).not.toBeChecked();
+    await expect(page.locator("[data-explore-start]")).toBeVisible();
+    await page.locator("[data-explore-start]").click(); await expect(page.locator('input[value="5"]')).not.toBeChecked();
     expect(await page.evaluate(() => (window as Window & { darkStorageTouches?: string[] }).darkStorageTouches)).toEqual([]);
   });
 
   test(`@release Published SD4 ${locale}: all-skipped is finished without means, with all32sections and no result sharing or flow analytics`, async ({ page }) => {
     const requests = observePrivateRequests(page); await page.goto(entry); await acceptCookies(page, locale);
-    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click(); await finish(page, locale, "na");
+    await page.locator("[data-explore-start]").click(); await finish(page, locale, "na");
     await expect(page.getByRole("heading", { level: 3, name: zh ? "四份说明已完整开放，可以在这里结束" : "All four guides are open. You may finish here.", exact: true })).toBeVisible();
     await page.waitForTimeout(250); expect(requests).toEqual([]);
   });

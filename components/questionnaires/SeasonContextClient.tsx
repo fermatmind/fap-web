@@ -38,8 +38,8 @@ export function SeasonContextClient({ quiz, locale }: { quiz: Questionnaire; loc
     catch { setMessage(text); }
   }
   const q = quiz.questions[position];
-  return <section id="take-test" data-season-context-stage={stage} className="my-8 space-y-5 rounded-lg border border-slate-300 bg-white p-4 sm:p-6">
-    {stage === "ready" && <><h2 className="text-2xl font-semibold">{zh ? "自愿开始，随时离开" : "Begin only if you want; leave at any time"}</h2><p className="leading-7">{quiz.instructions![locale]}</p><button type="button" className={button} disabled={!ready} onClick={() => { clear(); setStage("answer"); }}>{zh ? "开始原创观察" : "Begin original observations"}</button></>}
+  return <section id="take-test" data-stage={stage === "ready" ? "welcome" : stage} data-season-context-stage={stage} className="my-8 space-y-5 rounded-lg border border-slate-300 bg-white p-4 sm:p-6">
+    {stage === "ready" && <><button data-explore-start type="button" className={`${button} bg-violet-600 text-white`} disabled={!ready} onClick={() => { clear(); setStage("answer"); }}>{zh ? "开始回顾" : "Begin reflection"}</button><h2 className="text-2xl font-semibold">{zh ? "一年中的时间：作答说明" : "Time of year: response instructions"}</h2><p className="leading-7">{quiz.instructions![locale]}</p></>}
     {stage === "answer" && <div ref={context} data-season-context-question-context className="scroll-mt-24 space-y-5">
       <p>{zh ? `第 ${position + 1} / 16 条 · 过去两年 · 本人记得的一年中时间` : `Observation ${position + 1} / 16 · Past two years · Your recalled times of year`}</p>
       <h2 ref={heading} id="season-context-active-question" tabIndex={-1} className="text-xl font-semibold leading-8 outline-none">{q.prompt[locale]}</h2>

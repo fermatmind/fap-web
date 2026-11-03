@@ -14,8 +14,8 @@
     "zh": "取向探索测试：20题自我观察，不判定取向或标签"
   },
   "description": {
-    "en": "Reflect privately with 20 original statements and five full free guides about attraction, patterns, labels and support. No orientation score or identity inference; every item can be skipped.",
-    "zh": "用20道原创题私下回看吸引、模式、标签与支持，阅读五篇完整免费指南。不产生取向分数或身份结论，每题可跳过，回答仅留当前页面内存。"
+    "en": "Explore attraction awareness, different experiences, patterns, labels and support through 20 original statements. Read five complete free guides and separate response records. Every item can be skipped; no orientation score, identity label or signup.",
+    "zh": "通过20条原创陈述，分别回看吸引觉察、不同体验、模式、标签及支持。免费阅读五篇完整指南与独立回答记录，每题可跳过；不产生取向分数、身份标签，无需注册。"
   },
   "minutes": 5,
   "resultHeading": {
@@ -27,8 +27,8 @@
     "zh": "按各题的目前或回看措辞，选择描述与你的符合程度。3为暂时不确定或说不清，任何题或全部题都可选不想回答。二十题都作选择后才显示个人记录，但不要求数字回答。"
   },
   "introduction": {
-    "en": "Five separate records help organize your responses without a sum, mean, ranking, probability or identity label. This test cannot determine, prove or change orientation. You do not need to disclose, explain or demonstrate anything.",
-    "zh": "五份分开的记录只整理回答，不计算分数、均值、排名、概率或身份标签。本测试不能确定、证明或改变取向，无须公开、解释或证明自己。"
+    "en": "This Orientation Exploration Test is an original, private self-reflection form with five topics: noticing attraction, distinguishing experiences, describing current patterns, choosing whether to use labels, and considering privacy or support. Four statements in each topic organize how the wording fits you now. The output counts choices separately without a sum, mean, ranking, probability or inference about identity. You may skip any or every statement and read all five public guides without explaining yourself.",
+    "zh": "取向探索测试是一份原创私人自我回顾问卷，包含五个主题：留意吸引、区分体验、描述当前模式、自主使用或不用标签，以及考虑隐私与支持。每个主题四条陈述，整理措辞目前与你的符合情况。输出分别计选项次数，不产生合计分、均值、排名、概率或身份推断。任何一条或全部都可跳过，也可以无须解释地阅读五篇公开指南。"
   },
   "source": {
     "kind": "fermatmind_original_mini_orientation_reflection_20",

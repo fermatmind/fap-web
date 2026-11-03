@@ -94,7 +94,6 @@ function ValidNatalChartClient({ quiz, locale, readingProfiles }: { quiz: NatalC
 
   useEntertainmentResultView(recordView, chart !== null);
   return <section id="take-test" data-natal-client aria-busy={!ready || busy} aria-labelledby="natal-input-title" className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
-    {activityConsent}
     <h2 id="natal-input-title" className="text-2xl font-semibold">{zh ? "填写已知出生时刻与地点条件" : "Enter the known birth time and location details"}</h2>
     <p className="my-4 text-sm leading-7 text-slate-600">{quiz.natalChart.privacy[locale]}</p>
     <fieldset disabled={!ready} className="min-w-0 space-y-5 p-0"><legend className="sr-only">{quiz.title[locale]}</legend>
@@ -121,6 +120,7 @@ function ValidNatalChartClient({ quiz, locale, readingProfiles }: { quiz: NatalC
     <p role="status" aria-live="polite" className="my-4 text-sm leading-7">{!ready ? (zh ? "正在准备计算器，请稍候。" : "Preparing the calculator. Please wait.") : busy ? (zh ? "正在本页计算，出生资料不会上传。" : "Calculating on this page; birth information is not uploaded.") : message}</p>
     {chart && <section aria-labelledby="natal-result-title" className="mt-6"><h2 id="natal-result-title" ref={resultHeading} tabIndex={-1} className="mb-5 scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading[locale]}</h2><NatalChartReport quiz={quiz} chart={chart} locale={locale} readingProfiles={readingProfiles} /></section>}
     <div className="my-5"><button type="button" disabled={!ready} className={button} onClick={copyPublicLinks}>{zh ? "复制公开入口和指南网址" : "Copy public calculator and guide URLs"}</button>{manual && <label className="mt-4 block leading-7">{zh ? "手动复制公开网址" : "Public URLs for manual copying"}<textarea readOnly value={manual} className="mt-2 min-h-40 w-full rounded-lg border border-slate-300 p-3" /></label>}</div>
+    {activityConsent}
     <noscript><p>{zh ? "计算器需要启用JavaScript。如果页面停在加载画面，请启用JavaScript后计算和浏览公开指南。" : "The calculator requires JavaScript. If the page remains on its loading screen, enable JavaScript to calculate and browse the public guides."}</p></noscript>
   </section>;
 }

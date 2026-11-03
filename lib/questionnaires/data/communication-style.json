@@ -2,7 +2,7 @@
   "slug": "communication-style",
   "code": "COMMUNICATION_STYLES",
   "version": "1.0.0",
-  "updated": "2026-10-25",
+  "updated": "2026-10-31",
   "category": "social",
   "kind": "likert",
   "minimumRatedItems": 4,
@@ -11,12 +11,12 @@
     "en": "Communication Style Test"
   },
   "description": {
-    "zh": "用24条原创频率自评，分别探索坚定表达、被动表达、强硬压过他人与间接抗拒。四项均分和四份完整解释免费，无需注册；附具体说法、取舍和小尝试，不评定能力或录用。",
-    "en": "Explore assertive, passive, aggressive and passive-aggressive responses with 24 original ratings. Get four separate means and full free guides with examples. No signup or skill verdict."
+    "zh": "用24条原创频率自评，回看近四周的坚定表达、被动表达、强硬压过他人与间接抗拒。约6分钟，免费查看四项独立均分、计分示例与完整沟通指南，无需注册。",
+    "en": "Reflect on assertive, passive, aggressive and passive-aggressive responses with 24 original frequency ratings. About 6 minutes; four separate means, scoring examples and full communication guides are free, with no signup."
   },
   "seoTitle": {
-    "zh": "沟通风格测试：四种方式、完整结果与具体说法",
-    "en": "Communication Style Test: Four Patterns and Free Full Results"
+    "zh": "沟通风格测试：24题、四项独立评分与完整解读",
+    "en": "Communication Style Test: 24 Questions, Four Scores and Full Guides"
   },
   "minutes": 6,
   "resultHeading": {
@@ -24,12 +24,12 @@
     "en": "Your four communication summaries and full guides"
   },
   "instructions": {
-    "zh": "回顾近四周自己在日常协作、学习、工作或相处中的实际说法与回应，按出现频率选择。1从不到5几乎总是；没有适用经历、无法判断或不愿回答可以不计分。可以有多种方式，不必挑一个理想形象；也不要替他人判型。无需填写私人对话。",
-    "en": "Think about how you actually spoke or responded in everyday cooperation, study, work or relationships over the past four weeks. Rate frequency from 1, never, to 5, almost always. Use the unscored option when no experience applies, you are unsure or you prefer not to answer. Several patterns can occur; do not choose an ideal image or classify someone else. No private conversation text is required."
+    "zh": "以近四周自己实际经历的日常协作、学习、工作或相处为参照，按每条具体说法与回应出现的频率选择1“从不”至5“几乎总是”。不要只凭一次最激烈的争执，也不要选择理想答案或代替别人作答。没有适用经历、无法判断或不愿回答，可选不计分项；全部24条作出选择后显示结果，每组6题至少4条有效评分才显示均分。无需输入私人对话、姓名或对方资料。",
+    "en": "Use your own everyday cooperation, study, work or relationships over the past four weeks. Rate how often each specific response occurred from 1, never, to 5, almost always. Do not rely only on the most heated argument, answer as your ideal self or rate someone else. Choose the unscored response when no experience applies, you are unsure or you prefer not to answer. Results appear after all 24 selections; each six-item part needs at least four numerical ratings for a mean. No private messages, names or information about another person are requested."
   },
   "introduction": {
-    "zh": "沟通风格不只有一种同名分类。本版聚焦表达需要、处理分歧和回应不满时的四种行为方式：坚定表达、被动表达、强硬压过他人与间接抗拒。24条题目覆盖六类日常情境，分别记录出现频率，不把一个人塞进唯一身份。完整结果包含四项评分情况、工作与日常例子、相近方式比较和可选择的小尝试。",
-    "en": "What is my communication style? This edition focuses on four ways of responding when needs, disagreement or frustration arise: assertive, passive, aggressive and passive-aggressive. Twenty-four items cover six everyday situations, recording frequencies separately instead of assigning one identity. Full results include all four summaries, examples at work and in daily life, comparisons and optional small experiments."
+    "zh": "沟通风格测试帮助整理自己怎样表达需要、回应分歧和提出调整。本版采用坚定表达、被动表达、强硬压过他人与间接抗拒四种行为名称，参考坚定表达教育资料中的概念区分。[1][2] 24条原创题围绕调整安排、澄清信息、共同选择、接收反馈、拒绝请求和处理未兑现约定六类情境，每类各有四种回应。结果分别显示四项自报频率均分与有效题数，并提供全部四份完整指南，不按最高分确定唯一人格或主型。",
+    "en": "This Communication Style Test organizes how you describe expressing needs, responding to disagreement and asking for changes. It uses four behaviour labels—assertive, passive, aggressive and passive-aggressive—with conceptual distinctions informed by assertiveness education.[1][2] The 24 original items cover adjusting arrangements, clarifying information, shared decisions, receiving feedback, declining requests and addressing unmet agreements, with four responses represented in each context. Results show four separate self-reported frequency means and rated counts, alongside all four full guides, without assigning a single personality or dominant type."
   },
   "source": {
     "kind": "fermatmind-original-communication-frequency-reflection",
@@ -2233,58 +2233,198 @@
         "en": "UCSF: educational examples of four communication patterns"
       },
       "url": "https://ivy.ucsf.edu/content/menu-c-effective-communication"
+    },
+    {
+      "title": {
+        "zh": "Speed、Goldstein与Goldfried（2018）：坚定表达训练研究综述",
+        "en": "Speed, Goldstein & Goldfried (2018): review of assertiveness training"
+      },
+      "url": "https://onlinelibrary.wiley.com/doi/10.1111/cpsp.12216"
+    },
+    {
+      "title": {
+        "zh": "Omura等（2017）：医护人员与学生坚定表达训练系统综述",
+        "en": "Omura et al. (2017): systematic review of assertiveness training for healthcare professionals and students"
+      },
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28964979/"
     }
   ],
   "guide": [
     {
       "id": "facet-scoring",
       "title": {
-        "zh": "四项频率均分怎样计算",
-        "en": "How the four frequency means are calculated"
+        "zh": "四项均分怎样计算？完整算例与缺答规则",
+        "en": "How are the four means calculated? A worked example and missing responses"
       },
       "paragraphs": [
         {
-          "zh": "每种方式6题，1—5按原值计分，没有反向题。全部24题选择后，各项至少4条有效评分时，按总和除以有效题数，四舍五入到一位小数；不足时明确显示。没有经历、无法判断或不愿回答不补0或中间值。4条最低数为本站信息完整度规则，不是心理测量或临床阈值。",
-          "en": "Each pattern has six items using the selected 1–5 value, with no reversals. After all 24 selections, each part with at least four ratings uses sum divided by rated count, rounded to one decimal; otherwise it shows insufficient information. Unscored responses are never replaced by zero or a midpoint. The four-rating minimum is a website information-completeness rule, not a psychometric or clinical cutoff."
+          "zh": "四种方式各6题，数字选项按1—5原值计分，24题均无反向计分。每组至少4条有效评分时，均分＝该组有效评分总和÷有效题数，四舍五入到一位小数。例：某组选择4、3、5、2、4和不计分，总和18、有效数5，显示18÷5＝3.6；第六题不补0，也不补3。",
+          "en": "Each pattern has six items, scored using the selected 1–5 value; none of the 24 items is reverse-scored. With at least four numerical ratings in a part, its mean is the sum of those ratings divided by their count, rounded to one decimal. For example, 4, 3, 5, 2, 4 and an unscored response give a sum of 18 and five ratings: 18÷5 = 3.6. The sixth item is replaced by neither zero nor three."
+        },
+        {
+          "zh": "“从不”是有效评分1；没有适用经历、无法判断或不愿回答则不进入分子和分母。每组只有0—3条有效评分时显示资料不足，其他资料足够的组照常呈现。全部24条都需作出选择，不计分也是一种选择；4条最低数只是本站信息完整度规则，不是研究证明的诊断或能力阈值。",
+          "en": "Never is a valid rating of one. No applicable experience, uncertainty or preferring not to answer contributes to neither the sum nor the denominator. A part with zero to three ratings shows insufficient information while sufficiently rated parts remain available. All 24 items need a selection, including unscored selections. The minimum of four is this website’s information-completeness rule, not a research-established diagnostic or ability threshold."
         }
       ]
     },
     {
       "id": "facet-reading",
       "title": {
-        "zh": "频率不等于能力或固定人格",
-        "en": "Frequency is not ability or a fixed personality"
+        "zh": "怎样理解1—5均分？先看回应频率，再核对情境",
+        "en": "Reading a 1–5 mean: response frequency first, context next"
       },
       "paragraphs": [
         {
-          "zh": "较高均分表示本组对应回应较常被报告，不代表每种方式都更好，也不证明实际表达有效。坚定拒绝不自动等于攻击，安静和倾听不自动等于被动，忘记或迟回不自动等于间接抗拒。具体意愿、情境和限制都要另外理解，本题不观察或推断它们。",
-          "en": "A higher mean says the listed responses were reported more often. It does not make every pattern better or prove effective expression. A firm refusal is not automatically aggression; quietness is not automatically passivity; forgetting or a delayed reply is not automatically indirect resistance. Wishes, context and constraints need separate understanding and are neither observed nor inferred here."
+          "zh": "均分概括本组陈述在本次回顾中的自报频率。3对应选项“有时”的数值位置，不是人群平均；4也不是80%的沟通能力、成功率或真实事件比例。把等级选项作等权算术平均是一项呈现约定，不能据此假定每个相邻选项之间具有经过验证的相等心理距离。",
+          "en": "The mean summarizes reported frequency for this set of statements in this reflection. Three occupies the numerical position of sometimes; it is not a population average. Four is not 80% communication ability, success or an observed percentage of events. Taking an equally weighted arithmetic mean of ordered responses is a display convention, not evidence of equal psychological distances between adjacent options."
+        },
+        {
+          "zh": "回到条目与具体经历判断：这句话在什么人、什么事情和什么限制下出现？题目没有记录实际发生次数或机会总数，也没有让旁观者评价，因此结果反映你对自己行为的回忆，不是对所有沟通场景的客观观察。",
+          "en": "Return to the items and actual experiences: with whom, about what, and under which constraints did a response occur? Items do not record event counts or the total number of opportunities, and no observer rates the interaction. Results describe your recollection of your behaviour rather than an objective observation of every conversation."
         }
       ]
     },
     {
       "id": "facet-comparison",
       "title": {
-        "zh": "相近、并列与混合方式怎样读",
-        "en": "How to read similar means and mixed patterns"
+        "zh": "四项相近或并列怎么办？保留混合回应",
+        "en": "Similar or tied means: keep the mixed pattern"
       },
       "paragraphs": [
         {
-          "zh": "四项可以相近、并列、都较高或都较低，不随机打破并列、不按最高值派固定主型。小数差异没有经过本题统计验证，不能当显著差别或能力排名。全部四份完整说明都呈现；可以为每一项找一个符合和一个不符合的例子，保留暂时不确定。",
-          "en": "All four means can be similar, tied, high or low. No random tie breaker or highest-score fixed type is used. Small decimal differences have not been statistically validated as meaningful distinctions or ability ranks. All four full guides are shown. Consider one fitting and one contrasting example for each, and keep uncertainty where it belongs."
+          "zh": "四项分别计算，不要求合计为固定总分，可以相近、并列、都较常报告或都较少报告。页面不选“获胜者”，不随机破同分，不生成主型、副型或总体沟通等级。3.6与3.7的差值不表示统计显著或训练效果，本题尚无对应的测量误差与重测证据。",
+          "en": "The four parts are calculated separately and need not add to a fixed total. They can be similar, tied, all more frequently reported or all less frequently reported. The page chooses no winner, breaks no tie at random and creates no primary type, secondary type or overall communication grade. A difference between 3.6 and 3.7 establishes neither statistical significance nor a training effect; this form lacks corresponding measurement-error and retest evidence."
+        },
+        {
+          "zh": "较高的坚定表达均分也不能单独证明沟通有效；其他方式较低不等于从未出现。在同一周，你可能向熟悉同事清楚表达，却在另一次不愿接受的请求中先答应。分别为每组找一个符合和一个不符合的例子，比把四项硬排成性格名次更有解释价值。",
+          "en": "A higher assertive mean alone does not demonstrate effective communication; lower means elsewhere do not mean those responses never occur. In one week you might speak clearly with a familiar colleague yet accept an unwanted request in another interaction. One fitting and one contrasting example for each part can be more informative than forcing the means into a personality ranking."
+        }
+      ]
+    },
+    {
+      "id": "communication-patterns",
+      "title": {
+        "zh": "四种沟通行为分别指什么？",
+        "en": "What do the four communication patterns mean?"
+      },
+      "paragraphs": [
+        {
+          "zh": "坚定表达（Assertive）：把需要、拒绝或分歧说清楚，同时允许对方说明立场与限制。它可以包含明确的“不”，不要求凡事折中，也不以让对方满意作为成立条件。清楚与尊重是行为特征，不等于温柔语气或从不生气。[1]",
+          "en": "Assertive communication makes a need, refusal or disagreement clear while leaving room for the other person’s position and constraints. It can include a definite no, requires neither compromise on everything nor the other person’s approval. Clarity and respect describe the behaviour; they do not require a gentle voice or an absence of anger.[1]"
+        },
+        {
+          "zh": "被动表达（Passive）：自己想提出需要或调整，却没有说出，或在不愿意时先附和。本题所问的是这种意愿与表达之间的落差。自愿让步、专心倾听、保护隐私或暂时不谈，并不能仅凭表面安静归入这一方式。",
+          "en": "Passive communication here means wanting to raise a need or request a change but holding it back, or agreeing despite not wanting to. The items concern that gap between intention and expression. Voluntarily yielding, attentive listening, privacy or postponing a conversation cannot be classified from surface quietness alone."
+        },
+        {
+          "zh": "强硬压过他人（Aggressive）：通过贬低、打断、整体责怪或不给解释空间，推动自己的要求。关键在于具体对待他人的方式，而不只是音量、直接程度或是否坚持立场。它与坚定拒绝需要区别，也不能由本次分数推出暴力倾向或人格障碍。[1]",
+          "en": "Aggressive communication here advances a demand through put-downs, interruptions, global blame or withholding room for explanation. The distinction concerns treatment of another person, not just volume, directness or maintaining a position. Separate it from firm refusal, and do not infer violent tendencies or a personality disorder from these scores.[1]"
+        },
+        {
+          "zh": "间接抗拒（Passive-Aggressive）：没有直接说明反对，而用自己知道的故意拖延、敷衍配合或带刺回应表达不满。题目包含本人对意愿与行动的报告；仅看到他人迟回、忘记、沉默或完成较慢，不能判定他们有相同意图。[2]",
+          "en": "Passive-aggressive communication here expresses an unstated objection through knowingly intentional delay, nominal cooperation or pointed remarks. The items include your own account of intention and action. Someone else replying late, forgetting, staying quiet or working slowly is not enough to establish the same intention.[2]"
+        }
+      ]
+    },
+    {
+      "id": "communication-example",
+      "title": {
+        "zh": "同一件事，四种回应：临时增加任务",
+        "en": "One situation, four responses: an extra task"
+      },
+      "paragraphs": [
+        {
+          "zh": "以下是原创比较例，不是对访客的个人判断。假设有人请你今晚再做一份材料，而你已经没有余量。坚定表达可以是“今晚我不能接这份；明天下午可以先核对一页，是否有帮助？”；被动回应可能是心里想拒绝，却说“可以”，然后独自承担额外负担。两种回应的区别在于是否表达了实际限制，不是愿不愿意帮助他人。",
+          "en": "This original comparison is not a judgment about the visitor. Suppose someone requests another document tonight when you have no capacity. An assertive response could be, “I cannot take this on tonight. I could check one page tomorrow afternoon—would that help?” A passive response might be wanting to refuse but saying yes and privately carrying the extra burden. The contrast is whether the actual limit is expressed, not willingness to help."
+        },
+        {
+          "zh": "强硬回应可能转向“你怎么连这点事都做不了”，把问题变成对人的贬低；间接抗拒则可能口头答应，再有意不推进，让对方从拖延中猜到不满。重新表达时可以保留同一个拒绝，删除人身评价，并说明是否、何时愿意再谈。对方仍可能不同意；清楚表达并不保证请求被接受。[1]",
+          "en": "An aggressive response might turn to “Why can’t you handle even this?” and demean the person. Indirect resistance might involve saying yes and intentionally not progressing so the delay communicates resentment. A revised response can preserve the refusal, remove the personal judgment and clarify whether and when you want to discuss it again. The other person may still disagree; clear expression does not guarantee acceptance.[1]"
+        }
+      ]
+    },
+    {
+      "id": "communication-context",
+      "title": {
+        "zh": "情境、文化与权力差异怎样影响读法？",
+        "en": "How do context, culture and power affect interpretation?"
+      },
+      "paragraphs": [
+        {
+          "zh": "面对不同关系、组织规则、语言熟悉度或权力差异，同一句话可能有不同的现实代价。解释时应区分“我没有表达”“我选择暂缓”和“我判断此时表达并不安全”。本题并未评估这些原因，也没有针对不同文化或语言建立等值常模，不能把某种口音、眼神或社交礼节当成能力标准。",
+          "en": "Different relationships, organisational rules, language familiarity and power differences can change the practical cost of saying the same thing. Distinguish not expressing a view, choosing to postpone it and judging that speaking now is unsafe. This form does not assess those reasons or establish equivalent norms across cultures or languages. An accent, gaze pattern or social convention is not an ability standard."
+        },
+        {
+          "zh": "如果担心具体威胁或报复，不必为了符合“坚定表达”而当场对质。可以根据现实条件考虑书面澄清、改约谈话、寻找可信支持或结束交流。评分不能决定环境是否安全，也不能要求你放弃隐私或边界；这些选择需以实际情况为依据。",
+          "en": "If there is a concrete threat or concern about retaliation, you need not confront someone immediately to fit an assertive label. Depending on the situation, options may include written clarification, arranging another time, seeking trusted support or ending the exchange. A score cannot determine safety or require you to abandon privacy or boundaries; those choices depend on actual circumstances."
         }
       ]
     },
     {
       "id": "source-scope",
       "title": {
-        "zh": "概念来源与本站版本",
-        "en": "Concept sources and this edition"
+        "zh": "研究支持什么？概念、训练与题本验证要分开",
+        "en": "What does research support? Concepts, training and form validation"
       },
       "paragraphs": [
         {
-          "zh": "本版题目、计分与解释由费马独立编写，不施测标准能力量表，不借同名分类、教育资料或临床训练的信效度、认证与疗效。四种常用行为名称用于回顾实际情境，不推断心理疾病、童年、动机、工作胜任或关系安全；也不把分数换成DISC、MBTI或其他测试结果。",
-          "en": "FermatMind independently authored the items, scoring and explanations. This is not a standard ability instrument and borrows no validity, certification or clinical-training effects from similarly named frameworks or educational sources. Four familiar response names help revisit situations, without inferences about mental illness, childhood, motives, work suitability or relationship safety. Scores are not converted into DISC, MBTI or another test."
+          "zh": "坚定表达有行为训练与临床研究背景，不能因此推定每一个同名在线测试都是标准量表。Speed、Goldstein与Goldfried的综述讨论了坚定表达训练的历史、临床研究与实施问题。[3] 本站24题、四项频率均分和解释为原创自我回顾，不施测Rathus等已发表量表，也不借用其他工具的常模、信度或效度。",
+          "en": "Assertiveness has a behavioural-training and clinical-research background, but that does not make every similarly named online quiz a standard instrument. Speed, Goldstein and Goldfried review the history, clinical research and implementation of assertiveness training.[3] This website’s 24 items, four frequency means and interpretations are an original reflection, not administration of published measures such as the Rathus schedule, and do not inherit other instruments’ norms, reliability or validity."
+        },
+        {
+          "zh": "Omura等针对医护人员与学生的系统综述纳入8篇研究，指出训练效果、情境与评价方式需要分别理解，并提出持续行为变化与患者安全仍需进一步研究。[4] 这些结果涉及特定培训与人群，不证明完成本网页、得到较高自评分或阅读一句话建议，就能改善工作表现、治疗症状或取得同等效果。",
+          "en": "Omura and colleagues’ systematic review included eight papers concerning healthcare professionals and students, distinguishing training effects, settings and methods of evaluation while identifying a need for further research on sustained behaviour change and patient safety.[4] Those findings concern particular training and populations. They do not establish that completing this page, reporting a higher score or reading one suggested sentence improves job performance, treats symptoms or produces comparable effects."
+        }
+      ]
+    },
+    {
+      "id": "communication-practice",
+      "title": {
+        "zh": "把结果转成一次可观察的沟通尝试",
+        "en": "Turn a result into one observable conversation experiment"
+      },
+      "paragraphs": [
+        {
+          "zh": "先选一件风险较低、你愿意讨论的事，分开写下可观察事实、自己的限制或感受、具体请求，以及愿意听取的问题。例如“原定周三收到的草稿尚未到，我周五前需要完成核对；你预计何时能提供？如果赶不上，我们要先调整哪一项？”这是依照清楚表达与核对信息原则编写的练习例，不是通用治疗处方。[2]",
+          "en": "Choose one lower-stakes issue you want to discuss. Separate observable facts, your constraint or feeling, a specific request and a question you are willing to hear answered. For example: “The draft planned for Wednesday has not arrived, and I need to finish checking by Friday. When could you send it? If that is not possible, which part should we adjust first?” This is an original practice example using clear expression and clarification principles, not a universal treatment prescription.[2]"
+        },
+        {
+          "zh": "复盘时看实际行为：是否把需要说清楚，是否留出解释空间，是否形成双方理解一致的下一步？也记录对方的真实反馈和没有解决的限制，不只追求下次分数更漂亮。一次谈话是否顺利同时受多方因素影响；可以修改说法，不必否定自己或给对方贴类型标签。",
+          "en": "Review actual behaviour: was the need clear, was there room for explanation, and did both people understand the next step in the same way? Include actual feedback and unresolved constraints rather than aiming for a better-looking score. Many factors influence a conversation. You can revise a sentence without rejecting yourself or labelling the other person."
+        }
+      ]
+    },
+    {
+      "id": "communication-comparison",
+      "title": {
+        "zh": "与DISC、MBTI和沟通能力测验有什么区别？",
+        "en": "How does this differ from DISC, MBTI and communication skills testing?"
+      },
+      "paragraphs": [
+        {
+          "zh": "“沟通风格”没有一个适用于所有产品的统一四分类。有的工具讨论分析、直觉、流程与人际偏好，有的使用DISC或社交风格轴；本版聚焦有需要、分歧与不满时的四种具体回应。名称相近不意味着题目、构念和结果可互换，不能把本次坚定表达均分换成DISC的D或MBTI字母。",
+          "en": "Communication style has no single four-part classification shared by all products. Some tools concern analytical, intuitive, process and interpersonal preferences; others use DISC or Social Style axes. This edition concerns four specific responses to needs, disagreement and frustration. Similar names do not make items, constructs or results interchangeable: an assertive mean cannot be converted into DISC D or an MBTI letter."
+        },
+        {
+          "zh": "能力评估还需明确任务、观察标准、评价者和相关证据。本题没有录音、角色扮演、客观对错或他人评分，因此不能由频率直接判断倾听准确性、谈判水平、领导力、情商或岗位胜任。若用于个人学习，可把具体例子与自愿反馈结合，不用作员工排名或录用筛选。",
+          "en": "Assessing ability additionally requires a defined task, observation criteria, evaluators and supporting evidence. This form has no recordings, role plays, objective right answers or ratings by others. Frequency therefore cannot establish listening accuracy, negotiation skill, leadership, emotional intelligence or job competence. For personal learning, combine examples with voluntary feedback rather than employee ranking or hiring selection."
+        }
+      ]
+    },
+    {
+      "id": "communication-retest",
+      "title": {
+        "zh": "重测、完整结果与隐私怎样处理？",
+        "en": "Retakes, full results and privacy"
+      },
+      "paragraphs": [
+        {
+          "zh": "比较两次结果时，先核对时间范围、涉及的关系、实际经历和有效题数。近期多了拒绝请求的机会、记忆变化或选择了不同的不计分项，都可能改变均分。本版没有建立变化量阈值或长期追踪模型，不能仅凭均分上升认定技能提高，也不承诺训练疗效。",
+          "en": "Before comparing attempts, check the reference period, relationships, experiences and rated counts. More opportunities to decline requests, changed recall or different unscored responses may alter a mean. This edition has no established change threshold or longitudinal model; a higher mean alone does not establish increased skill or a treatment effect."
+        },
+        {
+          "zh": "全部24题、四项评分情况和四份完整说明免费，无需注册。点击开始即可作答，不需要额外勾选同意。答案在浏览器计分，不随计分请求上传；主动保存的草稿仅在本标签页保留24小时，完成、清除或重测即删除。分享只包含测试名称与公开入口，不附答案、均分或私人对话。",
+          "en": "All 24 items, four rating summaries and four full guides are free without signup. Start opens the questions without an additional agreement checkbox. Scoring takes place in the browser, without uploading answers in a scoring request. An explicitly saved draft lasts 24 hours in this tab and clears on completion, clearing or retake. Sharing includes only the test name and public entry, not answers, means or private conversations."
         }
       ]
     }
@@ -2292,62 +2432,122 @@
   "faq": [
     {
       "question": {
-        "zh": "这里的四种沟通风格是什么？",
-        "en": "Which four communication styles does this edition cover?"
+        "zh": "沟通风格测试测什么？四种方式分别是什么？",
+        "en": "What does this Communication Style Test explore?"
       },
       "answer": {
-        "zh": "本版讨论坚定表达（Assertive）、被动表达（Passive）、强硬压过他人（Aggressive）和间接抗拒（Passive-Aggressive）。它们是情境中的行为方式，不是DISC、分析型／直觉型等其他同名分类，也不是固定人格。",
-        "en": "This edition covers assertive, passive, aggressive and passive-aggressive responses. They describe behaviour in situations, not DISC, analytical/intuitive styles or other similarly named frameworks, and not fixed personalities."
+        "zh": "本版回看近四周自己在需要、分歧与不满中的回应：坚定表达清楚说明需要并留出对话空间；被动表达指想说却压下需要；强硬压过他人涉及贬低或阻断表达；间接抗拒涉及以本人知道的故意拖延等方式表达未说出的反对。它们是行为名称，不是四种固定人格。[1][2]",
+        "en": "This edition reflects on your responses to needs, disagreement and frustration over four weeks: assertive expression names a need while allowing dialogue; passive expression holds back a need you wanted to raise; aggression includes put-downs or blocking expression; indirect resistance includes knowingly intentional delays conveying an unstated objection. These are behaviour labels, not four fixed personalities.[1][2]"
       }
     },
     {
       "question": {
-        "zh": "怎样知道我更常用哪种方式？",
-        "en": "How can I explore which responses I use?"
+        "zh": "24题覆盖哪些情境，应该怎样作答？",
+        "en": "Which situations do the 24 items cover, and how should I answer?"
       },
       "answer": {
-        "zh": "回顾近四周实际发生的六类情境，完成24条频率自评后，分别看四项均分或资料不足状态，再读每份完整说明。本版不按最高值派唯一类型，不把一位小数的小差异当显著差别。",
-        "en": "Reflect on six kinds of actual situations over the past four weeks. Complete 24 frequency ratings, read all four means or insufficient-information states, and explore every full guide. This edition assigns no single highest-score type and treats no small decimal difference as statistically meaningful."
+        "zh": "覆盖调整安排、澄清信息、共同选择、接收反馈、拒绝请求和处理未兑现约定，每类四种回应。依据近四周自己的实际行为，从1“从不”到5“几乎总是”选择；没有经历或不愿回答可不计分，不必设想冲突或填写私人对话。",
+        "en": "Items cover adjusting arrangements, clarifying information, shared decisions, feedback, requests and unmet agreements, with four responses in each context. Rate your own behaviour over four weeks from 1, never, to 5, almost always. No experience or preferring not to answer can be unscored; no invented conflict or private conversation text is needed."
       }
     },
     {
       "question": {
-        "zh": "这是沟通能力测验、诊断或招聘工具吗？",
-        "en": "Is this a skills test, diagnosis or hiring tool?"
+        "zh": "四项均分如何计算，有反向题吗？",
+        "en": "How are the four means scored? Are any items reversed?"
       },
       "answer": {
-        "zh": "不是。自报频率不等于观察到的能力、沟通效果、情商、领导力或工作表现；本题没有本站信效度、常模或诊断／招聘预测验证。不能由此决定录用、评价他人动机或给关系下结论。",
-        "en": "No. Reported frequency is not observed ability, effectiveness, emotional intelligence, leadership or work performance. Website validity, norms and diagnostic or hiring predictions have not been established. Results cannot decide employment, explain another person’s motives or provide a verdict on a relationship."
+        "zh": "每组6题，全部按1—5原值计分，无反向题。至少4条有效评分时，求和除以有效题数并保留一位小数。4、3、5、2、4加一条不计分，显示18÷5＝3.6。四项不合并总分，也不换算能力百分位。",
+        "en": "Each part has six items scored directly from 1 to 5, without reverse keys. At least four ratings produce a sum divided by rated count, rounded to one decimal. Ratings of 4, 3, 5, 2, 4 plus an unscored response give 18÷5 = 3.6. The four parts are not combined into a total or converted into ability percentiles."
       }
     },
     {
       "question": {
-        "zh": "低评分和不适用怎样区分？",
-        "en": "How are low ratings different from unscored responses?"
+        "zh": "“从不”和不适用有什么不同？",
+        "en": "How does never differ from an unscored response?"
       },
       "answer": {
-        "zh": "从不对应有效评分1。没有适用经历、无法判断或不愿回答完全不计分，不作零分或补值。每项6题至少4条有效评分才显示均分；资料不足明确显示，完整说明仍可阅读。",
-        "en": "Never is a valid rating of one. No applicable experience, uncertainty or preferring not to answer is excluded entirely, without zero or imputation. Each six-item part needs at least four ratings for a mean. Insufficient information stays explicit and the full guide remains available."
+        "zh": "“从不”计为1，进入总和与有效题数；不适用、无法判断或不愿回答完全排除，不补0或中间值。每组仅0—3条有效评分时明确显示资料不足，其他组照常呈现，完整指南均可阅读。",
+        "en": "Never contributes one and counts as a rating. No applicable experience, uncertainty or preferring not to answer is excluded without replacing it with zero or a midpoint. A part with zero to three ratings shows insufficient information; other parts remain available and all full guides can still be read."
       }
     },
     {
       "question": {
-        "zh": "直接、沉默或延迟回复能说明别人的风格吗？",
-        "en": "Can directness, silence or delayed replies reveal someone else’s style?"
+        "zh": "最高分就是我的主导沟通风格吗？",
+        "en": "Does the highest mean identify my dominant communication style?"
       },
       "answer": {
-        "zh": "不能单凭这些判断。清楚拒绝不等于压倒他人，安静可能是愿意倾听或保留隐私，延迟也可能有实际原因。本题只问自己的具体回应，不观察对方、推断童年或替别人读心。",
-        "en": "Those features alone cannot do so. A clear refusal is not the same as overpowering someone; silence may mean listening or privacy; delay may have practical causes. Items concern your own responses and neither observe another person, infer childhood nor read their mind."
+        "zh": "本站不按最高分派主型或副型。四项独立呈现，相近或相同均分完整保留，小数差异没有显著性依据。同一个人可在不同对象和事件中使用不同回应，需结合条目与实例理解。",
+        "en": "This website assigns no primary or secondary type from the highest mean. All four are displayed independently, including similar or equal means, without treating decimal differences as statistically meaningful. The same person may respond differently across people and events; use items and examples to interpret the record."
       }
     },
     {
       "question": {
-        "zh": "完整结果免费吗，保存与分享包含什么？",
-        "en": "Are full results free, and what do saving and sharing contain?"
+        "zh": "这是科学量表、沟通能力认证或招聘测验吗？",
+        "en": "Is this a validated scale, skills certification or hiring assessment?"
       },
       "answer": {
-        "zh": "全部24题、四项评分情况和四份完整说明免费，无需注册。可选草稿仅在本标签页保留24小时，完成、重测或清除即删除。分享只有名称和公开入口，不带答案、均分、私人对话或内部ID；存储或复制受限仍可继续。",
-        "en": "All 24 items, four rating summaries and four full guides are free without signup. Optional drafts last 24 hours in this tab and clear on completion, retake or clearing. Sharing contains names and the public entry only, without answers, means, private conversations or internal IDs. Blocked storage or copying still permits an attempt."
+        "zh": "这是费马原创频率自评，尚未建立本题本的信度、效度、常模或跨语言等值证据。坚定表达训练的研究不自动验证本站题本。结果不用于诊断、能力认证、招聘或绩效等级。[3][4]",
+        "en": "It is an original FermatMind frequency reflection without established form-specific reliability, validity, norms or cross-language equivalence. Research on assertiveness training does not automatically validate these items. Results do not provide a diagnosis, skills certification, hiring decision or performance grade.[3][4]"
+      }
+    },
+    {
+      "question": {
+        "zh": "坚定拒绝、沉默和迟回消息能直接判型吗？",
+        "en": "Can firm refusal, silence or a late reply identify a style?"
+      },
+      "answer": {
+        "zh": "不能只看外观。明确说“不”不等于攻击，沉默可能是倾听、隐私或暂缓，迟回可能有实际限制。尤其间接抗拒条目询问本人有意用行动表达反对，不能替他人推断意图或把边界解释为敌意。",
+        "en": "Surface behaviour is insufficient. A clear no is not automatically aggression; silence may involve listening, privacy or postponement; a late reply may have practical causes. Indirect-resistance items specifically ask about your own intentional actions. They do not establish another person’s motives or turn a boundary into hostility."
+      }
+    },
+    {
+      "question": {
+        "zh": "沟通风格和DISC、MBTI有什么区别？",
+        "en": "How does communication style differ from DISC and MBTI?"
+      },
+      "answer": {
+        "zh": "本版描述需要与分歧中的四种回应；DISC讨论另一组行为框架，MBTI使用四组偏好构成类型。不同题目和构念不能一一换算，本次分数不能反推出DISC字母、MBTI类型或情商。",
+        "en": "This edition concerns four responses to needs and disagreement. DISC uses a different behavioural framework, while MBTI combines four preference pairs into types. Different items and constructs cannot be converted one to one; these means cannot establish DISC letters, an MBTI type or emotional intelligence."
+      }
+    },
+    {
+      "question": {
+        "zh": "可以给伴侣或同事作答，判断谁沟通有问题吗？",
+        "en": "Can I rate a partner or colleague to decide who communicates badly?"
+      },
+      "answer": {
+        "zh": "题目为本人自评设计，不是对他人的观察量表。结果不能判断另一人的动机、关系责任或谁对谁错。若双方自愿交流，可以各选一件具体事，讨论需要、限制与下一步，不比较类型高低。",
+        "en": "Items are designed for self-report, not rating another person. Results cannot determine someone else’s motives, responsibility for a relationship or who is right. If both people wish to discuss them, choose a concrete event and talk about needs, constraints and next steps rather than ranking types."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样根据结果练习更清楚的表达？",
+        "en": "How can I use the result to practise clearer expression?"
+      },
+      "answer": {
+        "zh": "从一件风险较低的事开始，分开说事实、自己的限制或感受、具体请求，再核对对方理解。保留明确拒绝和个人边界，不以说服成功为唯一目标；如果当场表达可能不安全，可选择暂缓或其他支持。正文提供原创情境例。[1][2]",
+        "en": "Start with a lower-stakes issue. Separate facts, your constraint or feeling and a specific request, then check understanding. Keep clear refusals and boundaries; successful persuasion is not the only goal. If speaking immediately may be unsafe, consider postponement or other support. The page includes original situational examples.[1][2]"
+      }
+    },
+    {
+      "question": {
+        "zh": "重测分数变化能说明沟通能力提高了吗？",
+        "en": "Does a changed retest score demonstrate improved communication skill?"
+      },
+      "answer": {
+        "zh": "不能仅凭分数判断。先核对回顾时期、经历、有效题数和具体行动；自评变化也可能来自记忆或理解变化。本版没有经过验证的变化阈值，观察真实谈话和自愿反馈更能帮助理解一次尝试。",
+        "en": "A score alone cannot establish that. Compare the period, experiences, rated counts and actual actions first; recall or interpretation may also change. This form has no validated change threshold. Real conversations and voluntary feedback provide additional context for understanding a practice attempt."
+      }
+    },
+    {
+      "question": {
+        "zh": "测试与完整结果免费吗，需要注册或额外勾选吗？",
+        "en": "Are the test and full results free? Is signup or another agreement needed?"
+      },
+      "answer": {
+        "zh": "全部24题、四项评分情况和四份完整说明免费免注册，点击开始直接进入题目。默认不保存答案；主动保存后仅保留本标签页24小时草稿，完成、重测或清除即删除。分享不附答案、均分或私人对话。",
+        "en": "All 24 items, four rating summaries and four full guides are free without signup; Start opens the questions directly. Answers are not saved by default. Explicit saving creates a 24-hour draft in this tab, cleared on completion, retake or clearing. Sharing contains no answers, means or private conversations."
       }
     }
   ]

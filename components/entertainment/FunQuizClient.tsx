@@ -1,4 +1,7 @@
 "use client";
+import { NightGardenPanel } from "./NightGardenPanel";
+import { SnowDayPanel } from "./SnowDayPanel";
+import { ThriftShelfPanel } from "./ThriftShelfPanel";
 import { recordEntertainmentActivity } from "@/lib/entertainment/activity";
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
@@ -23,9 +26,12 @@ function saveDraftToTab(key: string, version: string, answers: Answers) {
   window.dispatchEvent(new Event("fm-fun-draft"));
 }
 
+const subscribeHydration = () => () => {};
+
 const action = "min-h-12 rounded-lg border border-slate-300 px-5 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
 
-export function FunQuizClient({ quiz, locale }: { quiz: FunQuiz; locale: Locale }) {
+export function FunQuizClient({ quiz, locale, compactLanding = false, landingInstructions }: { quiz: FunQuiz; locale: Locale; compactLanding?: boolean; landingInstructions?: { en: string; zh: string } }) {
+  const hydrated = useSyncExternalStore(subscribeHydration, () => true, () => false);
   const zh = locale === "zh";
   const [answers, setAnswers] = useState<Answers>({});
   const [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome");
@@ -132,19 +138,24 @@ export function FunQuizClient({ quiz, locale }: { quiz: FunQuiz; locale: Locale 
     catch { setCopyFallback(text); setMessage(zh ? "无法自动复制，请选中下方文字手动复制。" : "Automatic copying is unavailable. Select and copy the text below."); }
   }
 
-  return <section id="play" aria-label={zh ? "开始娱乐测试" : "Play the quiz"} className="my-8 rounded-xl border border-violet-200 bg-white p-5 shadow-sm sm:p-8">
+  const welcomeActions = <div className="flex flex-wrap gap-3"><button data-explore-start={compactLanding ? true : undefined} disabled={compactLanding && !hydrated} className={compactLanding ? "min-h-14 min-w-60 rounded-full bg-teal-600 px-8 py-4 font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-700 disabled:opacity-50" : `${action} bg-violet-700 text-white`} onClick={() => start()}>{zh ? "开始测试" : "Start quiz"}</button>
+    {draft && <button className={action} onClick={() => start(true)}>{zh ? "恢复本标签页进度" : "Resume this tab’s progress"}</button>}
+    {draft && <button className={action} onClick={clearDraft}>{zh ? "清除已存进度" : "Delete saved progress"}</button>}
+  </div>;
+  return <section id="play" data-story-landing={compactLanding ? true : undefined} data-stage={stage} aria-label={zh ? "开始娱乐测试" : "Play the quiz"} className={compactLanding && stage === "welcome" ? "my-6" : "my-8 rounded-xl border border-violet-200 bg-white p-5 shadow-sm sm:p-8"}>
     {stage === "welcome" && <>
-      <h2 className="text-2xl font-semibold">{zh ? "准备好开始了吗？" : "Ready to try the quiz?"}</h2>
-      <p className="my-4 text-slate-600">{zh ? "请按每题说明选择。没有标准答案，完整结果直接显示；不会提交六测答卷。" : "Follow each question’s wording. There are no right answers, and your complete result appears here immediately."}</p>
-      <div className="flex flex-wrap gap-3"><button className={`${action} bg-violet-700 text-white`} onClick={() => start()}>{zh ? "开始测试" : "Start quiz"}</button>
-        {draft && <button className={action} onClick={() => start(true)}>{zh ? "恢复本标签页进度" : "Resume this tab’s progress"}</button>}
-        {draft && <button className={action} onClick={clearDraft}>{zh ? "清除已存进度" : "Delete saved progress"}</button>}
-      </div>
+      {compactLanding && welcomeActions}
+      <h2 className={compactLanding ? "mt-6 border-t border-teal-100 pt-5 text-sm font-semibold" : "text-2xl font-semibold"}>{compactLanding ? (quiz.mechanism === "branch" ? (zh ? "短篇分支故事的阅读说明" : "Reading a short branching story") : (zh ? "六个想象场景的作答说明" : "Answering six imagined scenes")) : (zh ? "准备好开始了吗？" : "Ready to try the quiz?")}</h2>
+      <p className={compactLanding ? "my-3 text-sm leading-7 text-slate-600" : "my-4 text-slate-600"}>{compactLanding ? (landingInstructions?.[locale] ?? (zh ? "每题从三个观看角度选择更想尝试的一项，没有标准答案。六题完成后查看全部计数和最高并列画像；无需勾选同意、保存或另做测试。" : "Choose the viewing angle you would most like to try in each scene. There are no right answers. Finish six questions to see all counts and highest tied portraits, without an agreement, saving requirement or further test.")) : (zh ? "请按每题说明选择。没有标准答案，完整结果直接显示；不会提交六测答卷。" : "Follow each question’s wording. There are no right answers, and your complete result appears here immediately.")}</p>
+      {!compactLanding && welcomeActions}
     </>}
     {stage === "answer" && question && <>
       <p className="mb-3 text-sm text-slate-600">{zh ? `第 ${position + 1} 题` : `Question ${position + 1}`} · {zh ? `${resolved.path.filter(id => answers[id]).length} 题已答` : `${resolved.path.filter(id => answers[id]).length} answered`}</p>
       <progress aria-label={zh ? "作答进度" : "Quiz progress"} className="mb-5 w-full accent-violet-700" max={resolved.complete ? resolved.path.length : catalog.find(q => q.slug === quiz.slug)!.questionCount} value={resolved.path.filter(id => answers[id]).length} />
       <h2 ref={heading} tabIndex={-1} className="text-xl font-semibold leading-relaxed outline-none">{question.prompt[locale]}</h2>
+      {quiz.slug === "night-garden" && <NightGardenPanel questionId={question.id} locale={locale} />}
+      {quiz.slug === "snow-day" && <SnowDayPanel questionId={question.id} locale={locale} />}
+      {quiz.slug === "thrift-shop-find" && question.id === "q1" && <ThriftShelfPanel locale={locale} />}
       <fieldset className="mt-5 grid gap-3"><legend className="sr-only">{question.prompt[locale]}</legend>
         {question.options.map(option => <label key={option.id} className={`flex min-h-14 cursor-pointer items-start gap-3 rounded-lg border p-4 ${answers[question.id] === option.id ? "border-violet-600 bg-violet-50" : "border-slate-300"}`}>
           <input className="mt-1 size-5 shrink-0 accent-violet-700" type="radio" name={question.id} value={option.id} checked={answers[question.id] === option.id} onChange={() => choose(option.id)} />

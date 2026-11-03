@@ -4,11 +4,19 @@ import content from "../../lib/questionnaires/jung56Content.json";
 type Locale = "en" | "zh";
 const path = (l: Locale) => `/${l}/tests/explore/cognitive-functions-test`;
 const label = (l: Locale, en: string, zh: string) => l === "zh" ? zh : en;
-async function button(page: Page, l: Locale, en: string, zh: string) { await page.getByRole("button", { name: label(l, en, zh), exact: true }).click(); }
+async function button(page: Page, l: Locale, en: string, zh: string) {
+  const target = page.getByRole("button", { name: label(l, en, zh), exact: true });
+  if (["Start the 56 choices", "Start test"].includes(en)) {
+    const first = page.locator(en === "Start test" ? 'input[name="CF_NI_01"]' : 'input[name="JUNG_FC_001"]').first();
+    await expect(target.or(first).first()).toBeVisible();
+    if (await first.isVisible()) return;
+  }
+  await target.click();
+}
 async function choose56(page: Page) { const decline = page.getByRole("button", { name: /^(Decline|拒绝)$/ }); if (await decline.isVisible()) await decline.click(); const choose = page.locator('[data-cognitive-method="paired56"]'); await choose.click(); await expect(page.locator("[data-jung56-client]")).toBeVisible(); }
 async function enter(page: Page, l: Locale) { await page.goto(path(l)); const decline = page.getByRole("button", { name: label(l, "Decline", "拒绝"), exact: true }); if (await decline.isVisible()) await decline.click(); await choose56(page); }
 async function finish(page: Page, l: Locale, codes: string, edit = false) {
-  await button(page, l, "Start the 56 choices", "开始56题二选一"); await expect(page.locator("#jung56-question")).toBeFocused();
+  await expect(page.locator("#jung56-question")).toBeFocused();
   await button(page, l, "Next", "下一题"); await expect(page.locator("[data-jung56-client]").getByRole("status")).toContainText(label(l, "Choose A or B", "请选择A或B"));
   for (const [i, question] of bank.questions.entries()) {
     await expect(page.locator("#jung56-question")).toHaveText(question.instruction[l]);

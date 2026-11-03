@@ -52,16 +52,14 @@ function ValidSens16Client({ quiz, locale, readingProfiles }: { quiz: Sens16Ques
     catch { if (revision.current !== copiedRevision) return; setManual(text); setMessage(zh ? "无法自动复制，可从下方手动复制公开链接。" : "Automatic copying is unavailable. Copy the public links below manually."); }
   }
   const question = quiz.questions[position];
-  return <section id="take-test" data-sens16-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
-    {activityConsent}
+  return <section id="take-test" data-stage={stage} data-sens16-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
+    {stage === "welcome" && <button data-explore-start type="button" disabled={!ready} className={`${button} sens16-primary`} onClick={() => { revision.current++; setStage("answer"); setPosition(0); setMessage(""); recordStart(); }}>{zh ? "开始测试" : "Start test"}</button>}
     <p className="mb-4 text-sm leading-7 text-slate-600">{quiz.sens16.privacy[locale]}</p>
     <fieldset disabled={!ready} className="min-w-0 space-y-5 p-0"><legend className="sr-only">{quiz.title[locale]}</legend>
       {stage === "welcome" && <>
         <h2 className="text-2xl font-semibold">{quiz.sens16.subtitle[locale]}</h2>
         <p className="leading-8">{quiz.instructions?.[locale]}</p>
-        <p className="leading-8">{quiz.sens16.editionNotice[locale]}</p>
         <p className="leading-8">{zh ? "面向18岁及以上成年人；回顾过去四周有相关机会时的反应，不现场尝试刺激。没有机会、不确定或不愿回答可选不计分。" : "For adults aged 18 and over. Recall responses on relevant occasions in the past four weeks; do not try sensory exposure. No opportunity, uncertainty or declining can be unscored."}</p>
-        <button type="button" className={button} onClick={() => { revision.current++; setStage("answer"); setPosition(0); setMessage(""); recordStart(); }}>{zh ? "开始测试" : "Start test"}</button>
       </>}
       {stage === "answer" && <>
         <p data-sens16-progress className="text-sm text-slate-600">{zh ? `第 ${position + 1} / 16 条描述` : `Prompt ${position + 1} of 16`}</p>
@@ -94,6 +92,7 @@ function ValidSens16Client({ quiz, locale, readingProfiles }: { quiz: Sens16Ques
       </>}
       {stage !== "welcome" && <button type="button" className={button} onClick={clear}>{zh ? "退出并清除本次回答" : "Exit and clear these responses"}</button>}
     </fieldset>
+    {activityConsent}
     <p role="status" aria-live="polite" className="my-4 text-sm leading-7">{ready ? message : (zh ? "正在准备问卷，请稍候。" : "Preparing the questionnaire. Please wait.")}</p>
     <noscript><p>{zh ? "作答需启用JavaScript；全部公开指南仍可直接阅读。" : "Answering requires JavaScript; all public guides remain readable."}</p></noscript>
   </section>;

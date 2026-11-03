@@ -10,21 +10,21 @@
     "zh": "英语语法测试"
   },
   "seoTitle": {
-    "en": "English Grammar Test: 24 Questions, Answers & Review",
-    "zh": "英语语法测试：24道原创题、答案解析与四份复习指南"
+    "zh": "英语语法测试：24道原创题、答案解析与免费复习",
+    "en": "English Grammar Test: 24 Questions, Answers & Free Review"
   },
   "description": {
-    "en": "Try 24 original English grammar questions on verb forms, agreement, function words and punctuation. Every answer and four full review guides are free.",
-    "zh": "完成24道原创英语语法题，复习动词形式、一致与指代、冠词功能词、标点与所有关系。免费查看全部所选、正确答案、解析及四份完整指南，不计时，不换算CEFR或考试等级。"
+    "zh": "完成24道原创英语语法单选题，复习动词形式、一致与指代、冠词功能词、标点与所有关系。免费查看每题所选、正确答案、完整解析与四份复习指南；不计时，无需注册。",
+    "en": "Practise twenty-four original English grammar questions on verb forms, agreement, function words and punctuation. See every choice, key, explanation and all four revision guides free, untimed and without signup."
   },
   "minutes": 10,
   "instructions": {
-    "en": "Choose one answer for each of 24 original grammar tasks. Follow the requested standard written construction and any explicit constraint, such as keeping one sentence or naming the owner count. English stimuli and alternatives remain English in both interfaces; instructions and explanations are bilingual. Finish every item to see your selected options, keys, explanations and all four complete guides. No timer is used. If practising without help, save reference checks until afterwards; any aids or prior exposure can affect your count.",
-    "zh": "24道原创语法任务，每题单选。按指定标准书面结构和明示条件作答，例如保留一个句子或固定拥有者数量。两种界面都保留英文题句与选项，说明和解析双语。完成全部题目后，可看每题所选、答案、解析和四份完整指南。不计时。若练无辅助识别，可完成后再查参考；使用辅助或见过题目都会影响正确数。"
+    "zh": "每题选择一个符合指定结构与明示条件的答案，例如保留一个句子或固定拥有者数量。英文题句和选项在两种界面保持英文，说明解析为中英文。点击开始直接进入题目，无需额外同意、账号、邮箱或付款。完成24题后查看全部答案、解析和四份完整指南；不计时。若要记录无辅助作答，可在完成后再查资料，并注明是否看过题目。",
+    "en": "Choose one answer meeting each requested construction and explicit condition, such as one sentence or a stated owner count. English stimuli and options stay English in both interfaces; instructions and explanations are bilingual. Start opens questions directly without another agreement, account, email or payment. Finish twenty-four items for every answer, explanation and all four full guides. There is no timer. To record unaided practice, check references afterwards and note prior exposure."
   },
   "introduction": {
-    "en": "Practise 24 independently written English grammar tasks, six each on verb forms and time, agreement and reference, articles and function words, and punctuation and possession. The questions state their intended constructions so that another legitimate meaning or style choice is not silently treated as an error. Your report gives correct counts for this edition, every worked answer and four full revision guides at every count. It is not a calibrated language-level test, a free-writing mark, an exam conversion or a proofreading qualification.",
-    "zh": "通过24道独立编写的英语语法任务，练动词形式与时间、一致与指代、冠词功能词，以及标点所有关系，每组六题。题目明示所要求的结构，避免把适合其他含义或风格的合法表达无提示地判错。报告在任何正确数下都提供本版题数、全部题解和四份完整复习指南，不是经校准的语言等级测试、自由写作评分、考试换算或校对资格。"
+    "zh": "通过24道原创英语语法单选题，练习动词形式与时间、一致与指代、冠词功能词，以及标点与所有关系，每组六题。题目说明所要求的书面结构和改写条件，完成后查看逐题所选、答案、理由与四份完整复习指南。全部免费，不计时；正确数用于定位本题组的复习内容，不换算CEFR或其他考试等级。",
+    "en": "Practise twenty-four original English grammar questions, six each on verb forms and time, agreement and reference, articles and function words, and punctuation and possession. Tasks state their written construction and editing constraints. Completion shows every choice, key and reason alongside four full revision guides. Everything is free and untimed. Correct counts help select revision for this bank rather than convert to CEFR or exam levels."
   },
   "resultHeading": {
     "en": "Your grammar practice results and every explanation",

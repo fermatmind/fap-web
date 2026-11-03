@@ -15,17 +15,17 @@
     "en": "Your 24 character-strength self-reports"
   },
   "description": {
-    "zh": "96条公有领域IPIP-VIA-R题目，24项自评与全部完整双语解释免费，无需注册。中文为独立试译；含具体例子、比较和行动，不评人品、能力或职业适配。",
-    "en": "Take 96 public-domain IPIP-VIA-R items and read all 24 full result guides free. No signup, moral ranking, ability score or automatic signature-strength labels."
+    "zh": "通过96条IPIP-VIA-R公开题目，探索好奇、诚实、关爱、审慎等24项性格优势。约15分钟，免费查看各项原始合计、均分与完整指南；中文为费马独立试译，无需注册。",
+    "en": "Explore 24 character strengths with 96 public-domain IPIP-VIA-R items. Free raw sums, means and full guides in about 15 minutes, with an independent Chinese trial translation. No signup."
   },
   "seoTitle": {
-    "zh": "性格优势测试：96题、24项自评与完整结果",
-    "en": "Character Strengths Test: 96 Items, 24 Full Result Guides"
+    "zh": "性格优势测试：IPIP-VIA-R 96题与24项完整解读",
+    "en": "Character Strengths Test: IPIP-VIA-R 96 Items and 24 Guides"
   },
   "minutes": 15,
   "introduction": {
-    "zh": "你怎样看待自己的好奇、守诺、关心、审慎和其他日常倾向？本版逐条使用IPIP官方96条IPIP-VIA-R短版英文题与正反向键，提供费马独立中文试译和24份完整解释。结果记录本次自述，包含具体例子、取舍、对话与可选小观察，不把积极词语变成人品等级，也不把自认能力当成实际表现。可先阅读全部公开结果，再决定是否作答。",
-    "en": "How do you describe your curiosity, promise-keeping, care, caution and other everyday tendencies? This edition uses the official 96-item IPIP-VIA-R English short key with FermatMind’s independent Chinese trial translation and 24 full educational guides. Results record this attempt through concrete examples, tradeoffs, dialogue and optional observations. Positive labels do not create moral ranks, and perceived ability is not demonstrated performance. Read every public guide first if you wish."
+    "zh": "性格优势测试用24组自述，整理你如何看待自己的思考、关心、行动、合作与生活态度。本版采用IPIP公开的96条IPIP-VIA-R英文短版及正反向键，每项四条，提供费马独立中文试译。完成后24项分别呈现原始合计、均分或资料不足，并可阅读全部完整指南，包括具体行为、相邻概念比较、情境取舍、对话与可选行动。你也可以先读公开指南，再决定是否作答。[1]",
+    "en": "This Character Strengths Test uses 24 groups of self-descriptions to explore thinking, care, action, cooperation and attitudes to everyday life. It presents the public-domain 96-item IPIP-VIA-R English short scales and keying, four items per strength, with FermatMind’s independent Chinese trial translation. After completion, each part displays its raw sum and mean or insufficient-information state. All full guides include concrete behaviours, related concepts, contextual tradeoffs, conversations and optional actions. Public guides can also be read before taking the test.[1]"
   },
   "instructions": {
     "zh": "按你目前通常的实际情况，而非理想中的自己，选择每条描述多符合你：1很不符合、2比较不符合、3介于符合与不符合之间、4比较符合、5非常符合。英文沿用IPIP短语，不是能力考试；有些条目问到你对别人看法的印象，并未向别人核实。涉及私人信念、不愿回答或无法判断，可选NA。全部96条先作选择，各项四条全部有效才显示该项分数；不愿回答不扣分，也不会隐藏完整说明。",
@@ -10011,78 +10011,204 @@
     {
       "id": "facet-scoring",
       "title": {
-        "zh": "96条如何计算24项",
-        "en": "How 96 ratings produce 24 parts"
+        "zh": "96题怎样计分？正反向、原始合计与均分",
+        "en": "How are 96 items scored? Keying, raw sums and means"
       },
       "paragraphs": [
         {
-          "zh": "先为全部96条作选择，每项恰有四条，其中两条正向、两条反向。有效评分为1很不符合至5非常符合，反向条按6减评分；每项四条全部有效才显示原始合计4—20及其除以4后保留一位小数的均分1—5。选不愿回答或无法判断，不补零、不补中间值，只让该项显示资料不足，其他项目可分别显示。IPIP通用说明使用键向后的合计；均分展示、交错题序、NA退出和全部四条要求是本站呈现与完整度约定。24项同时保留，没有综合道德分、百分位、六美德总分或最高项派型。相同数值如实保留，0.1差异不证明显著、实际能力或改变，也不自动指定五项标志性优势。",
-          "en": "First make all 96 selections. Each part has exactly four items: two positively and two negatively keyed. Valid ratings run from 1 Very inaccurate to 5 Very accurate; reverse items use six minus the rating. Only four valid ratings produce that part’s raw sum of 4–20 and its one-decimal mean, the sum divided by four, from 1–5. Voluntary nonresponse or inability to judge is never zero-filled or replaced with a midpoint; only that part remains insufficient. IPIP’s general instructions use keyed sums. Mean display, mixed order, NA and the all-four requirement are website presentation and completeness conventions. All 24 parts remain visible without a moral total, percentile, six-virtue total or highest-score assignment. Equal values remain equal. A 0.1 gap establishes neither significance, ability nor change, and no five signature strengths are automatically assigned."
+          "zh": "每项四条，恰有两条正向、两条反向。按原句回答1很不符合至5非常符合；系统保留正向评分，对反向评分计算6减原评分，再相加得到该项原始合计4—20。本站将合计除以4，按一位小数显示1—5均分。IPIP通用说明提供正反向赋值与求和；均分只是本站呈现方式，不是人群百分位。[1][3]",
+          "en": "Each four-item part contains two positive and two reverse keys. Answer phrases as written from 1 Very inaccurate to 5 Very accurate. Positive ratings keep their values; reverse ratings become six minus the original response. Sum them for a raw score of 4–20. This website divides the sum by four for a one-decimal mean of 1–5. IPIP specifies keying and summing; the mean is a website display convention, not a population percentile.[1][3]"
+        },
+        {
+          "zh": "例如两条正向选4、5，两条反向原句选2、3，键向后为4、5、4、3，合计16，16÷4=4.0。不要为了得到高分自行翻转答案，按原句如实回答即可。若四条原句一律选5，正反向相抵为5+5+1+1=12，均分3.0；这说明键向运算，不是用来判定诚信或作答质量的规则。",
+          "en": "For two positive ratings of 4 and 5 and two reverse-phrase ratings of 2 and 3, keyed values are 4,5,4,3: a sum of 16 and 16/4=4.0. Answer phrases honestly rather than reversing your own choices to obtain a high score. Rating every phrase 5 gives 5+5+1+1=12 and a mean of 3.0. This illustrates keying, not a rule for judging honesty or response quality."
         }
       ]
     },
     {
       "id": "facet-reading",
       "title": {
-        "zh": "完整结果怎样阅读",
-        "en": "Reading all the results"
+        "zh": "怎样读24项结果？自述、经历与具体表现",
+        "en": "Reading 24 results: self-description, experience and behaviour"
       },
       "paragraphs": [
         {
-          "zh": "完成后24项同时可读，每项显示四条均有效时的原始合计与均分，否则显示资料不足。所有完整说明都保留，不合成总体好坏，不按固定名次、近分或并列强行派型。可以先找具体题目的例子，再看哪些描述适合当前处境；相同均分不说明相同经历，跨部分的微小差异也不证明哪一种优势更真实。",
-          "en": "All 24 parts remain available. Each shows a raw sum and mean only with four valid ratings, otherwise explicit insufficient information. Every full explanation remains readable. There is no overall good-or-bad score or forced assignment from rank, close scores or ties. Begin with concrete examples of items and their current context. Equal means imply no identical experiences, and small between-part gaps establish no truer strength."
+          "zh": "较高均分表示更认可该组键向后的描述，较低表示认可较少。先回看每条题目的实际例子，再看原始合计与均分。部分题目涉及你认为别人如何看自己，但本次没有向那些人收集反馈；自认协调得好与一组人的实际合作表现，需要分别理解。",
+          "en": "A higher mean indicates stronger endorsement of that part after keying; a lower mean indicates less endorsement. Review actual examples of each phrase alongside the sum and mean. Some items concern how you think others see you, but no observer feedback was collected. Perceived coordination and a group’s actual performance need separate interpretation."
+        },
+        {
+          "zh": "24项不合成总体人品、智慧或能力分，也不生成六美德总分。均分相同仍如实显示，不按题序、字母或微小差异派固定类型。跨项0.1差异没有显著性或重要变化阈值支持，不能证明一种优势更真实、更稀有或更值得拥有。",
+          "en": "The 24 parts produce no overall moral-worth, wisdom or ability score and no six-virtue total. Equal means remain equal rather than assigning types through item order, letters or small gaps. A 0.1 difference has no established significance or meaningful-change threshold and establishes no truer, rarer or more desirable strength."
         }
       ]
     },
     {
       "id": "facet-comparison",
       "title": {
-        "zh": "自评、能力与职业兴趣",
-        "en": "Self-report, ability and career interest"
+        "zh": "缺答、隐私与资料不足怎样处理？",
+        "en": "How are nonresponse, privacy and insufficient information handled?"
       },
       "paragraphs": [
         {
-          "zh": "部分源量表名称使用智慧、智能、领导等词，但本版只有自述题，没有能力标准答案、任务表现或他人独立反馈。它也不测职业兴趣、资格、信任或关系成功率。需要职业探索时，可另看RIASEC的兴趣问题与实际任务；不同框架不换算，也不由本次均分分配工作。",
-          "en": "Some source labels include wisdom, intelligence and leadership, but this edition contains self-description items without ability answers, performance tasks or independent observer feedback. It measures neither career interest, qualifications, trust nor relationship prospects. Separate RIASEC interest questions and actual tasks can inform further career exploration; frameworks do not convert and these means allocate no jobs."
+          "zh": "完成全部96条选择后，各项四条都为数字才显示该项合计与均分。任一条选择不愿回答或无法判断，该项保留资料不足，其他项分别计算；NA不记0、不补中点，也不因为反向题而变成6。四条全部有效是本站完整度约定，不是临床阈值或已验证的缺失值估计方案。",
+          "en": "After all 96 selections, a part needs four numeric ratings to display its sum and mean. Any Prefer not to answer or Cannot judge response leaves that part insufficient while other parts are scored separately. NA is not zero, an imputed midpoint or a reverse-key value of six. Requiring all four is a website completeness convention, not a clinical threshold or validated missing-data estimation procedure."
+        },
+        {
+          "zh": "你可以拒答涉及信念或私人经历的条目，仍可阅读全部24份指南。资料不足不表示缺少优势、没有意义感或不合作。若当前没有某种角色或机会，先核对题目是否适用；不要为了凑齐分数猜测答案，也不要求他人交出私人结果。",
+          "en": "You may decline belief-related or private items and still read all 24 guides. Insufficient information means neither a missing strength, lack of meaning nor unwillingness to cooperate. Consider applicability when a role or opportunity is absent. Do not guess merely to fill a score or require another person’s private results."
         }
       ]
     },
     {
-      "id": "scope",
+      "id": "framework",
       "title": {
-        "zh": "版本与证据范围",
-        "en": "Version and evidence scope"
+        "zh": "24项性格优势与六类美德是什么关系？",
+        "en": "How do 24 character strengths relate to six virtues?"
       },
       "paragraphs": [
         {
-          "zh": "英文条目和键向逐条依据IPIP官方96条IPIP-VIA-R短版，署名Bluemke、Partsch、Saucier与Lechner（2021），每项2正2反；不是旧版多题IPIP-VIA，也不是VIA Institute的官方Survey、GACS或Gallup工具。IPIP许可页明确将其条目、量表和题本置于公有领域，可商用；没有采用VIA Institute的受保护题目、算法、报告、图像或译文。中文由费马独立试译，完整解释和示例独立编写；本网站版本没有本地信效度、常模或跨语言等价验证。官方键页与大学论文记录所述英德研究不能推广为中文验证，也不证明跨文化普遍公平。分数只描述这次自述，不评人品、能力、诊断、招聘或职业适配。",
-          "en": "English phrases and keying follow the official 96-item IPIP-VIA-R short key attributed to Bluemke, Partsch, Saucier and Lechner (2021), with two positive and two negative items per part. This is neither the older variable-length IPIP-VIA nor the VIA Institute Survey, GACS or a Gallup tool. IPIP places its items, scales and inventories in the public domain, including commercial use. No protected VIA Institute items, algorithms, reports, art or translations are used. FermatMind independently drafted the Chinese trial translation and educational explanations. This website edition has no local validation, norms or established language equivalence. English–German research described by the official key and university record establishes neither Chinese validation nor universal cultural fairness. Scores describe this attempt, not worth, tested ability, diagnosis, hiring or career fit."
+          "zh": "Peterson与Seligman的分类为积极人格提供24项优势词汇，通常置于智慧、勇气、仁爱、正义、节制与超越六类概念之下。VIA Institute公开介绍这一分类，但分类框架、具体问卷和个人结果是不同层次。本站分别计算24组自述，不把六类概念当作六个已由本站验证的分数。[5]",
+          "en": "Peterson and Seligman’s classification describes 24 character strengths, commonly organised under wisdom, courage, humanity, justice, temperance and transcendence. The VIA Institute explains this taxonomy, but a classification, a particular questionnaire and a personal result are different levels. This website scores 24 groups of self-descriptions without turning the six concepts into locally validated scores.[5]"
+        },
+        {
+          "zh": "本版覆盖美的欣赏、表达与接纳关爱、团队合作、好奇、公平、宽恕、感恩、希望、幽默、坚持、诚实、判断、善意、带领、学习、谦逊、原创、整体视角、审慎、自我调节、社交理解、精神性、表达信念与活力。名称采用适合题意的读法；例如社交理解只有自评条目，没有独立能力任务。[1]",
+          "en": "This edition covers beauty, giving and receiving care, teamwork, curiosity, fairness, forgiveness, gratitude, hope, humor, perseverance, honesty, judgment, kindness, leadership, learning, humility, originality, perspective, prudence, self-regulation, social understanding, spirituality, expressing convictions and zest. Reader-facing names follow the item content: social understanding, for example, uses self-ratings rather than independent ability tasks.[1]"
         }
       ]
     },
     {
-      "id": "reading-limits",
+      "id": "instruments",
       "title": {
-        "zh": "已读原始来源的范围",
-        "en": "Scope of the source reading"
+        "zh": "IPIP-VIA-R、官方VIA Survey与Gallup有什么区别？",
+        "en": "IPIP-VIA-R, the official VIA Survey and Gallup: what differs?"
       },
       "paragraphs": [
         {
-          "zh": "本次实读IPIP官方96条键、比较表、公有领域许可和通用计分说明，以及乌得勒支大学论文记录的完整摘要与书目信息。2021预印本的大学链接指向2023修订稿，但PDF返回403，未阅读全文、样本方法或附表。公开键可直接核对本版英文与反向，研究摘要不能验证本站译文、缺失处理、解释或个人判断；本站不借“文化公平”原题名作通用效果承诺。",
-          "en": "The published IPIP key identifies the English items and reverse keys used here. The linked university record provides an abstract and bibliographic information. The full study methods and supplements were not reviewed for this edition. These sources do not validate FermatMind’s Chinese trial translation, missing-response rules, educational explanations or individual conclusions. The source title’s culture-fair wording is not a guarantee of fairness for every population."
+          "zh": "IPIP-VIA-R是IPIP公开的24项短量表，每项两正两反；本版英语沿用其96条键。VIA Institute另有自身Survey与其他研究工具，其中也存在96题版本，因此“同样96题”不代表题目、算法、译文或结果可以互换。本站不采用其受保护题本、报告或图像。[1][2][5]",
+          "en": "IPIP-VIA-R comprises 24 public-domain short scales with two positive and two reverse items each; this edition follows its 96 English keys. The VIA Institute has its own Survey and research instruments, including 96-item forms. Equal item counts do not make items, scoring, translations or results interchangeable. This edition uses none of its protected item banks, reports or artwork.[1][2][5]"
+        },
+        {
+          "zh": "Gallup的CliftonStrengths围绕34个才干主题；其他优势产品也可能采用工作能量、能力或不同数量的主题。不能因为都使用“优势”一词，便把本站某个均分翻译成另一产品的前五名、工作才干或职业匹配率。本页只解释实际提供的24组自评。[6]",
+          "en": "Gallup’s CliftonStrengths concerns 34 talent themes; other strengths products may address workplace energy, ability or different sets of themes. The shared word “strengths” does not convert one of these means into another product’s top five, workplace talent or career-match percentage. This page interprets only the 24 self-report parts actually provided.[6]"
+        }
+      ]
+    },
+    {
+      "id": "evidence",
+      "title": {
+        "zh": "研究依据支持到哪里？信度、效度与语言范围",
+        "en": "What does the evidence support? Reliability, validity and language"
+      },
+      "paragraphs": [
+        {
+          "zh": "IPIP官方键页列出德英样本的重测与内部一致性指标，并注明各指标的样本和方法。乌得勒支大学的预印本记录摘要介绍美国、英国和德国样本中的量表开发、因素结构与跨语言比较。这是源量表的研究背景，不能把其中系数称为本站准确率，也不能把论文标题里的跨文化措辞扩大为所有文化均已验证。[1][4]",
+          "en": "The official IPIP key reports retest and internal-consistency indices with sample and method notes. A Utrecht University preprint abstract describes scale development, factor structure and language comparisons using US, UK and German samples. This is source-instrument evidence, not an accuracy rate for this website or proof of validation in every culture.[1][4]"
+        },
+        {
+          "zh": "本页核对官方键、许可、计分说明及大学记录的完整摘要；链接的2023修订稿全文未能获取，因此不声称复审全部方法或附表。费马中译、NA、交错呈现及完整解释尚无本站信效度、常模与中英文等价验证。可复算算法保证运算可核对，不保证每种个人解释都成立。",
+          "en": "This page checked the official key, permission, scoring instructions and full university-record abstract. The linked 2023 revision was unavailable, so a complete methods or supplement review is not claimed. FermatMind’s translation, NA handling, presentation and explanations lack local validation, norms and established English–Chinese equivalence. Reproducible arithmetic permits checking calculations rather than guaranteeing each individual interpretation."
+        }
+      ]
+    },
+    {
+      "id": "signature",
+      "title": {
+        "zh": "为什么不自动指定五项标志性优势？",
+        "en": "Why are five signature strengths not automatically assigned?"
+      },
+      "paragraphs": [
+        {
+          "zh": "一些产品将前几名作为阅读入口，另一些问卷还询问优势是否自然、重要、令人有活力等特征。本版仅按四条自述生成各项均分，没有额外施测那些特征。最高的五个数字可以来自相近回答，不能据此自动认证五项固定身份，也不借用另一产品的识别算法。[5]",
+          "en": "Some products use top ranks as an entry point; other questionnaires separately ask whether a strength feels natural, important or energising. This edition uses four self-descriptions per part without separately measuring those features. Five numerically higher values may reflect close responses; they do not automatically certify five fixed identities or reproduce another product’s identification algorithm.[5]"
+        },
+        {
+          "zh": "更具体的读法，是选择一两条你有实例支持、现在愿意继续探索的描述，同时找出不符合的经历。可以重视某种品质但缺少实践机会，也可能经常做某件事却感到消耗。把重要性、出现频率、是否喜欢和实际效果分开讨论，比仅保存名次更有信息。",
+          "en": "Choose one or two descriptions supported by examples that you currently want to explore, and also find counterexamples. You may value a quality without opportunities to practise it, or do something often while finding it draining. Discuss importance, occurrence, enjoyment and actual effects separately rather than keeping only a rank."
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": {
+        "zh": "善意、宽恕、谦逊与勇气：结合边界阅读",
+        "en": "Kindness, forgiveness, humility and bravery in context"
+      },
+      "paragraphs": [
+        {
+          "zh": "关心别人可以与拒绝超出余量的请求同时存在；宽恕不要求恢复信任、放弃追责或重新进入受伤害的关系；谦逊不要求隐去成果或接受不公平待遇。源题目可能使用绝对或概括措辞，阅读时仍应回到具体经历，不用积极名称要求自己无限付出。",
+          "en": "Care can coexist with declining a request beyond capacity. Forgiveness need not restore trust, remove accountability or resume a harmful relationship. Humility need not erase achievements or accept unfair treatment. Source phrases may use absolute or general wording; interpret them through specific experiences rather than demanding unlimited giving under a positive label."
+        },
+        {
+          "zh": "表达信念的条目讨论面对反对时的自述，不测你应承担多少现实风险。保持沉默可能涉及安全、权力与时机；坚持也可以包含修改失效目标、暂停和求助。指南中的小尝试限于自愿、安全、可撤回的日常行动，不是让你证明自己勇敢或有毅力。",
+          "en": "Conviction items concern self-described expression under opposition, not how much real risk you should accept. Silence may concern safety, power and timing; persistence can include revising an unworkable goal, pausing or asking for help. Optional guide exercises are voluntary, safe and reversible everyday actions rather than tests of bravery or grit."
+        }
+      ]
+    },
+    {
+      "id": "beliefs",
+      "title": {
+        "zh": "精神性、信念与活力怎样理解？",
+        "en": "How should spirituality, beliefs and zest be understood?"
+      },
+      "paragraphs": [
+        {
+          "zh": "精神性部分实际包含精神自认、人生目的、意义感和神或普遍力量的信念。它将这些不同内容组合为一个源量表读数；无神论、非宗教生活或不认同某种措辞，并不证明没有目的、人品较低或心理不健康。拒答私人信念只保留该项资料不足。[1]",
+          "en": "Spirituality items include spiritual self-description, purpose, meaning and belief in a god or universal power. They combine those contents into a source-scale reading. Atheism, a nonreligious life or disagreement with wording establishes neither lack of purpose, lesser worth nor poor mental health. Declining private beliefs leaves that part insufficient.[1]"
+        },
+        {
+          "zh": "活力条目涉及对新一天的期待、能量及自认给人的印象，不是睡眠、生理精力或情绪障碍评估。疲劳、疾病、照护和环境条件可能影响回答，休息无需由分数批准。本测试不能确定这些情况的原因或替代个体化支持。",
+          "en": "Zest items concern anticipation of a new day, energy and perceived impressions, not assessment of sleep, physiological vitality or mood conditions. Fatigue, illness, care and environmental conditions may affect answers, and rest needs no score-based permission. This test cannot determine causes or replace individual support."
+        }
+      ]
+    },
+    {
+      "id": "practice",
+      "title": {
+        "zh": "从一个优势词，转为可观察的一次行动",
+        "en": "Turn one strength label into an observable action"
+      },
+      "paragraphs": [
+        {
+          "zh": "例如共同整理资料时，可以说：“我想先把三个方案的依据列出来，方便我们一起核对；你是否看到了我遗漏的条件？”这里把审慎判断落实为一种可见操作。它仍需接受证据和他人反馈，也可能需要在信息足够后停止比较，避免把“认真”变成无限延后。",
+          "en": "When organising material together, you might say: “I would like to list the evidence for three options so we can check it together. Have I missed any conditions?” This turns judgment into an observable action that still needs evidence and feedback. It may also require stopping comparisons once information is adequate rather than turning care into indefinite delay."
+        },
+        {
+          "zh": "记录行动、对方是否愿意参与、实际帮助和代价，再决定是否调整。可以用原创思考提出一个替代方案，用感恩具体说出帮助了什么，或用公平核对共同规则是否一致。它们是可选观察例子，本页没有验证这些练习能提高幸福感、治愈困扰或提升绩效。",
+          "en": "Record the action, others’ willingness to participate, its help and costs, then decide whether to adapt. Original thinking might propose one alternative, gratitude can name specific help, or fairness can examine shared rules. These are optional observation examples; this page has not validated them as improving wellbeing, treating distress or raising performance."
+        }
+      ]
+    },
+    {
+      "id": "retest",
+      "title": {
+        "zh": "复测、其他测评与个人变化",
+        "en": "Retesting, other assessments and personal change"
+      },
+      "paragraphs": [
+        {
+          "zh": "比较复测先核对版本、语言、有效题数、经历与题意理解。本站没有可靠变化阈值，名次变化、0.1分差或一项从资料不足变为有均分，都不能直接换算成成长比例。更有帮助的是回看行为实例、机会和实际反馈是否改变。",
+          "en": "Compare version, language, rated-item counts, experiences and item interpretation before retests. This website has no reliable-change threshold. Changed rank, a 0.1 difference or a part becoming scorable cannot convert directly into percentage growth. Review changes in examples, opportunities and actual feedback instead."
+        },
+        {
+          "zh": "大五人格、MBTI和RIASEC分别提出不同问题，不能由本次分数换算。职业探索还需兴趣、技能、实际任务与条件；本版不认证道德、智慧、能力或信任，不用于招聘淘汰、资源分配或心理诊断。选择是否分享由你决定。",
+          "en": "Big Five, MBTI and RIASEC ask different questions and cannot be derived from these scores. Career exploration also requires interests, skills, actual tasks and conditions. This edition certifies no morality, wisdom, ability or trust and is not for hiring exclusion, allocating resources or diagnosis. Sharing remains your choice."
         }
       ]
     },
     {
       "id": "privacy",
       "title": {
-        "zh": "私人作答、草稿与分享",
-        "en": "Private answers, drafts and sharing"
+        "zh": "免费直接作答、公开指南与可选保存",
+        "en": "Free direct start, public guides and optional saving"
       },
       "paragraphs": [
         {
-          "zh": "题目可能涉及信念和私人经验，可以不愿回答。答卷在浏览器内计分，不上传、不进入网址或分析事件；草稿只有主动选择保存才留在当前标签页，24小时失效，完成、退出清除或重测即删。分享只含公开入口，不包含回答、信念、均分或私人结果标识。完整解释无需邮箱、注册或先做另一项测评。",
-          "en": "Items may concern beliefs and private experiences; you can decline. Answers are scored in the browser without uploading them or including them in URLs or analytics. Drafts require opt-in, stay in the current tab for up to 24 hours and clear on completion, exit-and-clear or retake. Sharing contains a public entry without answers, beliefs, means or private result identifiers. Full explanations need no email, signup or prerequisite assessment."
+          "zh": "点击开始直接进入题目，不另设同意复选框。约15分钟只是阅读与回想参考，不限时；所有题目、24项结果及全部完整指南免费免注册，没有邮箱或购买要求，也无需先做MBTI。题目始终可以选择数字或NA。",
+          "en": "Start opens questions directly without an additional agreement checkbox. About 15 minutes is a reading and reflection estimate, not a timer. All items, 24 results and full guides are free without signup, email, purchase or prerequisite MBTI. Every item offers a numeric answer or NA."
+        },
+        {
+          "zh": "答案在浏览器内计分，不随计分请求上传、不进入网址或分析事件。默认不保存；主动保存的当前标签页草稿24小时内可恢复，完成、清除或重测即删除。分享仅含公开入口，不含回答、信念或均分；不含答案的使用事件按网站Cookie设置处理。",
+          "en": "Answers are scored in the browser without being uploaded for scoring or placed in URLs or analytics events. Saving is off by default; an explicitly saved tab draft is restorable within 24 hours and deleted on completion, clearing or retake. Sharing contains the public entry rather than answers, beliefs or means. Answer-free usage events follow the site’s Cookie settings."
         }
       ]
     }
@@ -10090,83 +10216,187 @@
   "faq": [
     {
       "question": {
-        "zh": "这是VIA Institute或Gallup的官方测评吗？",
-        "en": "Is this the official VIA Institute or Gallup assessment?"
+        "zh": "性格优势测试测什么？",
+        "en": "What does this Character Strengths Test measure?"
       },
       "answer": {
-        "zh": "英文条目和键向逐条依据IPIP官方96条IPIP-VIA-R短版，署名Bluemke、Partsch、Saucier与Lechner（2021），每项2正2反；不是旧版多题IPIP-VIA，也不是VIA Institute的官方Survey、GACS或Gallup工具。IPIP许可页明确将其条目、量表和题本置于公有领域，可商用；没有采用VIA Institute的受保护题目、算法、报告、图像或译文。中文由费马独立试译，完整解释和示例独立编写；本网站版本没有本地信效度、常模或跨语言等价验证。官方键页与大学论文记录所述英德研究不能推广为中文验证，也不证明跨文化普遍公平。分数只描述这次自述，不评人品、能力、诊断、招聘或职业适配。",
-        "en": "English phrases and keying follow the official 96-item IPIP-VIA-R short key attributed to Bluemke, Partsch, Saucier and Lechner (2021), with two positive and two negative items per part. This is neither the older variable-length IPIP-VIA nor the VIA Institute Survey, GACS or a Gallup tool. IPIP places its items, scales and inventories in the public domain, including commercial use. No protected VIA Institute items, algorithms, reports, art or translations are used. FermatMind independently drafted the Chinese trial translation and educational explanations. This website edition has no local validation, norms or established language equivalence. English–German research described by the official key and university record establishes neither Chinese validation nor universal cultural fairness. Scores describe this attempt, not worth, tested ability, diagnosis, hiring or career fit."
+        "zh": "96条IPIP-VIA-R自述分别整理24项优势，包括好奇、诚实、关爱、审慎与活力。每项四条，提供各自原始合计、均分或资料不足，以及完整指南；它是自评而非行为能力考试。[1]",
+        "en": "Ninety-six IPIP-VIA-R self-descriptions cover 24 strengths, including curiosity, honesty, care, prudence and zest. Four items per part provide separate sums, means or insufficient-information states and full guides. This is self-report rather than an ability examination.[1]"
       }
     },
     {
       "question": {
-        "zh": "24项怎样计分？资料不足能看结果吗？",
-        "en": "How are the 24 parts scored, and can I read incomplete parts?"
+        "zh": "这是官方VIA Survey或Gallup测试吗？",
+        "en": "Is this the official VIA Survey or a Gallup assessment?"
       },
       "answer": {
-        "zh": "先为全部96条作选择，每项恰有四条，其中两条正向、两条反向。有效评分为1很不符合至5非常符合，反向条按6减评分；每项四条全部有效才显示原始合计4—20及其除以4后保留一位小数的均分1—5。选不愿回答或无法判断，不补零、不补中间值，只让该项显示资料不足，其他项目可分别显示。IPIP通用说明使用键向后的合计；均分展示、交错题序、NA退出和全部四条要求是本站呈现与完整度约定。24项同时保留，没有综合道德分、百分位、六美德总分或最高项派型。相同数值如实保留，0.1差异不证明显著、实际能力或改变，也不自动指定五项标志性优势。",
-        "en": "First make all 96 selections. Each part has exactly four items: two positively and two negatively keyed. Valid ratings run from 1 Very inaccurate to 5 Very accurate; reverse items use six minus the rating. Only four valid ratings produce that part’s raw sum of 4–20 and its one-decimal mean, the sum divided by four, from 1–5. Voluntary nonresponse or inability to judge is never zero-filled or replaced with a midpoint; only that part remains insufficient. IPIP’s general instructions use keyed sums. Mean display, mixed order, NA and the all-four requirement are website presentation and completeness conventions. All 24 parts remain visible without a moral total, percentile, six-virtue total or highest-score assignment. Equal values remain equal. A 0.1 gap establishes neither significance, ability nor change, and no five signature strengths are automatically assigned."
+        "zh": "不是。本站英语使用IPIP公开96条短版；VIA Institute另有自身问卷，Gallup则使用34才干主题。名称相近、甚至题数相同也不建立结果等价。[1][5][6]",
+        "en": "No. English uses IPIP’s public-domain 96-item short scales. The VIA Institute publishes separate questionnaires, and Gallup uses 34 talent themes. Similar names or even equal item counts do not establish equivalent results.[1][5][6]"
       }
     },
     {
       "question": {
-        "zh": "为什么不自动给五项标志性优势或人品分？",
-        "en": "Why no automatic top five or moral-worth score?"
+        "zh": "英文题本、中文与使用许可来自哪里？",
+        "en": "Where do the English items, Chinese translation and permission come from?"
       },
       "answer": {
-        "zh": "四条自述不能把你的人品、智慧或能力排成等级。本版保留24项连续均分和完整解释，不由微小差异、相近或并列强派固定优势身份；你可对照具体经历，自行判断哪些描述当前有用。低项、无信仰、休息或保护界限不等于缺陷。",
-        "en": "Four self-descriptions cannot rank worth, wisdom or ability. This edition retains 24 continuous means and full guides without turning small gaps, close scores or ties into fixed strength identities. Compare concrete experiences and decide which readings are useful now. Lower endorsement, nonbelief, rest and protecting boundaries imply no deficiency."
+        "zh": "英文与键向逐条依据IPIP-VIA-R官方短版，IPIP许可允许公有领域条目、量表与题本商用。中文为费马独立试译，完整解释独立编写，尚无本站跨语言等价验证。[1][2]",
+        "en": "English phrases and keys follow the official IPIP-VIA-R short scales. IPIP permits commercial use of its public-domain items, scales and inventories. FermatMind independently drafted the Chinese trial translation and explanations, without established local language equivalence.[1][2]"
       }
     },
     {
       "question": {
-        "zh": "可以拿来选职业、招聘或判断别人可信吗？",
-        "en": "Can this choose a career, select employees or establish trust?"
+        "zh": "反向题、原始合计和均分怎么算？",
+        "en": "How do reverse items, raw sums and means work?"
       },
       "answer": {
-        "zh": "不能。这里只是自评，没有能力任务、职业兴趣调查、背景核查或他人反馈。职业探索可另看RIASEC兴趣和真实任务，但兴趣也不认证能力或资格；不同测评不可互换。本次分数不用于他人的录用、信任、关系或支持资源决定。",
-        "en": "No. This is self-report without ability tasks, career-interest assessment, background checks or observer feedback. Career exploration can separately consider RIASEC interests and actual tasks, but interests do not certify ability or qualifications either. Assessments do not convert; these scores determine no hiring, trust, relationship or allocation of support."
+        "zh": "每项两正两反。正向保留1—5，反向用6减原评分，再相加；四条齐全时合计4—20，除以4显示一位小数均分。例如正向4、5与反向2、3，键向后4、5、4、3，16÷4=4.0。[3]",
+        "en": "Each part has two positive and two reverse keys. Keep positive ratings and subtract reverse ratings from six, then sum. Four valid ratings yield 4–20; dividing by four gives a one-decimal mean. Positive 4,5 and reverse 2,3 become 4,5,4,3:16/4=4.0.[3]"
       }
     },
     {
       "question": {
-        "zh": "私人信念和答卷会被分享或长期保存吗？",
-        "en": "Are private beliefs or answers shared or stored long term?"
+        "zh": "不愿回答或无法判断会怎样？",
+        "en": "What happens if I decline or cannot judge?"
       },
       "answer": {
-        "zh": "题目可能涉及信念和私人经验，可以不愿回答。答卷在浏览器内计分，不上传、不进入网址或分析事件；草稿只有主动选择保存才留在当前标签页，24小时失效，完成、退出清除或重测即删。分享只含公开入口，不包含回答、信念、均分或私人结果标识。完整解释无需邮箱、注册或先做另一项测评。",
-        "en": "Items may concern beliefs and private experiences; you can decline. Answers are scored in the browser without uploading them or including them in URLs or analytics. Drafts require opt-in, stay in the current tab for up to 24 hours and clear on completion, exit-and-clear or retake. Sharing contains a public entry without answers, beliefs, means or private result identifiers. Full explanations need no email, signup or prerequisite assessment."
+        "zh": "可选NA，不扣分、不补0或中点。任一条NA使该项资料不足，其他项分别计算；全部24份指南仍开放。四条齐全是本站完整度规则，不是诊断阈值。",
+        "en": "Choose NA without a penalty or zero/midpoint substitution. Any NA leaves that part insufficient while other parts score separately. All 24 guides remain open. Requiring four ratings is a website completeness rule rather than a diagnostic threshold."
+      }
+    },
+    {
+      "question": {
+        "zh": "最高五项就是标志性优势吗？",
+        "en": "Are the five highest scores automatically signature strengths?"
+      },
+      "answer": {
+        "zh": "本版不自动指定。它没有另外测量自然感、身份认同、能量等识别特征，也不借用其他产品算法。可结合具体经历选择值得继续探索的条目，近分与并列均如实保留。[5]",
+        "en": "Not in this edition. It does not separately measure naturalness, identity or energy criteria or borrow another product’s algorithm. Use concrete experiences to choose descriptions worth exploring; close and equal values remain as reported.[5]"
+      }
+    },
+    {
+      "question": {
+        "zh": "能看出我比多少人更好，或人品如何吗？",
+        "en": "Can this rank me against others or judge moral worth?"
+      },
+      "answer": {
+        "zh": "不能。本版没有人群常模、道德总分或六美德总分。较高均分表示对一组键向描述认可更多，不是人品、实际能力、稀有程度或优秀百分位。",
+        "en": "No. This edition has no population norms, moral total or six-virtue total. A higher mean indicates stronger endorsement of keyed descriptions rather than worth, demonstrated ability, rarity or an excellence percentile."
+      }
+    },
+    {
+      "question": {
+        "zh": "有学术研究是否代表中英文版都已验证？",
+        "en": "Does source research validate both website languages?"
+      },
+      "answer": {
+        "zh": "不能这样推论。官方键和研究摘要提供源量表的德英等样本证据；本站译文、NA、呈现和解释没有本地验证。论文全文未能获取，本页不声称复审全部样本方法或跨文化普遍公平。[1][4]",
+        "en": "No. The official key and research abstract provide source-scale evidence from German, English and other stated samples. Website translation, NA, presentation and explanations lack local validation. The full paper was unavailable; this page claims no complete methods review or universal cultural fairness.[1][4]"
+      }
+    },
+    {
+      "question": {
+        "zh": "较低的善意、宽恕或谦逊说明我不好吗？",
+        "en": "Do lower kindness, forgiveness or humility scores mean I am bad?"
+      },
+      "answer": {
+        "zh": "不说明。核对具体条目、条件与经历，关心可以伴随拒绝，宽恕不要求恢复信任，谦逊不要求隐去贡献。四条自述不能替代对一段经历的完整理解。",
+        "en": "No. Review items, conditions and experiences. Care can include refusal, forgiveness need not restore trust and humility need not hide contributions. Four statements cannot replace a full understanding of an experience."
+      }
+    },
+    {
+      "question": {
+        "zh": "无宗教信仰或最近疲劳会影响怎样阅读？",
+        "en": "How should nonbelief or recent fatigue be understood?"
+      },
+      "answer": {
+        "zh": "精神性条目混合信念、目的和意义感，非宗教生活不等于缺少意义。活力条目也不诊断健康或情绪状态，疲劳和休息需按实际条件理解。私人条目可以拒答。",
+        "en": "Spirituality combines beliefs, purpose and meaning; a nonreligious life does not imply meaninglessness. Zest items do not diagnose health or mood, and fatigue and rest require contextual understanding. Private items can be declined."
+      }
+    },
+    {
+      "question": {
+        "zh": "可以根据结果选职业、招聘或判断别人可靠吗？",
+        "en": "Can results choose careers, select staff or establish trust?"
+      },
+      "answer": {
+        "zh": "不可以。这里没有独立表现任务、背景核查或他人反馈。职业探索还需兴趣、技能、真实任务与条件；不能将本次均分换成录用线、职业匹配率或信任认证。",
+        "en": "No. There are no independent performance tasks, background checks or observer ratings. Career exploration requires interests, skills, actual tasks and conditions; these means are not hiring cutoffs, career-match percentages or trust certificates."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样把结果用于生活，复测变化又意味着什么？",
+        "en": "How can results inform life, and what does retest change mean?"
+      },
+      "answer": {
+        "zh": "选一个有实例的描述，在自愿、安全的情境尝试一次具体行动，记录帮助和代价。复测要核对版本、经历与有效题数；本版没有可靠变化阈值，不把分差解释成成长百分比。",
+        "en": "Choose a description supported by examples, try one voluntary safe action and record benefits and costs. Compare retests with version, experiences and rated counts. This edition has no reliable-change threshold for turning differences into percentage growth."
+      }
+    },
+    {
+      "question": {
+        "zh": "多久完成，是否免费，开始后要再同意吗？",
+        "en": "How long does it take, is it free, and is another agreement required?"
+      },
+      "answer": {
+        "zh": "约15分钟，不限时。点击开始直接进入题目，没有额外同意复选框；96题、24项结果与全部指南免费免注册，私人条目可选NA。",
+        "en": "Allow about 15 minutes without a timer. Start opens questions directly without another agreement checkbox. All 96 items,24 results and full guides are free without signup; private items can receive NA."
+      }
+    },
+    {
+      "question": {
+        "zh": "回答、信念或结果会上传和分享吗？",
+        "en": "Are answers, beliefs or results uploaded or shared?"
+      },
+      "answer": {
+        "zh": "浏览器内计分，不上传答卷、不写入网址或分析事件。默认不保存；主动保存的本标签页草稿24小时内恢复，完成、清除或重测即删。分享只含公开入口，不含个人回答或均分。",
+        "en": "Scoring occurs in the browser without uploading answers or placing them in URLs or analytics events. Saving is off by default; an opted-in tab draft is restorable within 24 hours and clears on completion, clearing or retake. Sharing includes the public entry, not answers or means."
       }
     }
   ],
   "references": [
     {
       "title": {
-        "zh": "IPIP：96条IPIP-VIA-R官方条目与正反向键",
-        "en": "IPIP: official 96-item IPIP-VIA-R phrases and keying"
+        "zh": "IPIP：96条IPIP-VIA-R英文题、正反向键与样本说明",
+        "en": "IPIP:96 IPIP-VIA-R English items, keys and sample notes"
       },
       "url": "https://ipip.ori.org/IPIP-VIA-R_Key.html"
     },
     {
       "title": {
-        "zh": "IPIP：公有领域与商用许可说明",
-        "en": "IPIP: public-domain and commercial-use permission"
+        "zh": "IPIP：公有领域与使用许可",
+        "en": "IPIP:public-domain use and permission"
       },
       "url": "https://ipip.ori.org/newPermission.htm"
     },
     {
       "title": {
-        "zh": "IPIP：正反向评分与原始合计说明",
-        "en": "IPIP: keyed ratings and raw-sum instructions"
+        "zh": "IPIP：正反向计分与原始合计",
+        "en": "IPIP:positive/reverse keying and raw sums"
       },
-      "url": "https://www.ipip.ori.org/newScoringInstructions.htm"
+      "url": "https://ipip.ori.org/newScoringInstructions.htm"
     },
     {
       "title": {
-        "zh": "乌得勒支大学：2021预印本记录与完整摘要（非全文复审）",
-        "en": "Utrecht University: 2021 preprint record and full abstract, not a full-paper review"
+        "zh": "Bluemke等（2021）：乌得勒支大学预印本记录与摘要",
+        "en": "Bluemke et al.(2021):Utrecht preprint record and abstract"
       },
       "url": "https://research-portal.uu.nl/en/publications/human-character-in-the-ipip-towards-shorter-more-content-valid-an/"
+    },
+    {
+      "title": {
+        "zh": "VIA Institute：自身测评工具与版本说明",
+        "en": "VIA Institute:its assessment instruments and versions"
+      },
+      "url": "https://www.viacharacter.org/researchers/assessments"
+    },
+    {
+      "title": {
+        "zh": "Gallup：CliftonStrengths测评与34才干主题",
+        "en": "Gallup:CliftonStrengths assessment and 34 talent themes"
+      },
+      "url": "https://www.gallup.com/cliftonstrengths/en/253676/how-cliftonstrengths-works.aspx"
     }
   ]
 }

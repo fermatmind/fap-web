@@ -14,21 +14,21 @@
     "en": "Six ocean images: counts and full guides"
   },
   "description": {
-    "zh": "免费大鱼能量测试：18道原创海洋心情小场面，探索鲨鱼、海豚、鲸鱼、章鱼、河豚和鮟鱇鱼六种比喻，免费读九节完整结果与全部最高并列。",
-    "en": "Free Big Fish Energy Test: 18 original ocean mood scenes and six full guides, from Shark to Anglerfish. Read every highest tie without signup."
+    "zh": "通过18道原创海洋主题选择，探索完成小事、轻松互动、从容留白、变化组合、参与范围与私人兴趣。免费查看六项原始次数、全部最高并列与九节完整结果；无需注册。",
+    "en": "Explore six ocean-themed preferences in 18 original choices: finishing, exchanging, leaving space, recombining, limiting scope and keeping an interest private. Free counts, every highest tie and full guides."
   },
   "seoTitle": {
-    "zh": "大鱼能量测试：六种海洋比喻与免费完整结果",
-    "en": "Big Fish Energy Test: Six Ocean Images, Full Results"
+    "zh": "大鱼能量测试：18道题、六种海洋意象与完整结果",
+    "en": "Big Fish Energy Test: 18 Questions & Six Ocean Guides"
   },
   "minutes": 5,
   "introduction": {
-    "zh": "一张海边照片，可以先配一句旁白，也可以安静看一会儿；一页海洋心情卡，可以先做完一个小部分，也可以试两种不同的拼法。用18个原创日常小安排，探索鲨鱼、海豚、鲸鱼、章鱼、河豚与鮟鱇鱼六种海洋比喻。每份九节完整结果都有具体例子、可调整的取舍、相近结果比较和小尝试，所有最高并列都保留全文。本版的“能量”只是趣味名称，不是心理能量或体力；鲸与海豚不是鱼，章鱼也不是鱼，六组不是六个精确物种。生物资料只解释有限画面，不验证人的人格、智力、共情、适应、健康或职业匹配。每组曝光相同，结果只读本次菜单的原始次数，不派隐藏主副型。可以先读再作答、修改或重测；无需账号或真实经历。草稿自愿开启，在本标签页最多保存24小时；分享只含结果名与公开链接。",
-    "en": "A seaside photograph can invite a playful caption or a quiet look. An ocean mood card can begin with finishing a little part or trying two arrangements. Across eighteen original everyday scenes, explore six marine images: Shark, Dolphin, Whale, Octopus, Pufferfish and Anglerfish. Each nine-section guide offers particular examples, adjustable tradeoffs, comparisons and a little experiment, retaining every highest tie in full. Energy is a playful title here, not psychological energy or fitness. Whales and dolphins are not fish; octopuses are not fish either, and the groups are not six precise species. Biological sources explain limited images without validating personality, intelligence, empathy, adaptability, health or career fit. Equal exposure produces raw counts for this attempt’s menus without hidden primary or secondary types. Read first, answer, edit or retake without an account or actual experiences. Optional drafts remain in this tab for up to twenty-four hours; sharing contains only names and public links."
+    "zh": "大鱼能量测试用18道原创四选一，把周末心情卡、照片旁白、书签、听歌与手账中的小安排，联系到鲨鱼、海豚、鲸鱼、章鱼、河豚和鮟鱇鱼六种海洋意象。你会看到本次选择的六项原始次数、全部最高并列，以及每种结果的九节完整指南。约5分钟，不限时，无需注册或提供私人经历；这是一份日常偏好的趣味探索，动物名称帮助记住具体选择，不测心理能量或动物知识。",
+    "en": "The Big Fish Energy Test connects eighteen original four-choice situations—weekend mood cards, photograph captions, bookmarks, music and journals—with Shark, Dolphin, Whale, Octopus, Pufferfish and Anglerfish. Read six raw selection counts, every equal highest result and nine complete sections for each reading. Allow about five minutes without a timer, registration or private experiences. This playful exploration concerns everyday preferences; animal names make particular choices memorable rather than measuring psychological energy or animal knowledge."
   },
   "instructions": {
-    "zh": "把海洋心情卡当成这次日常小安排的比喻，选给定四项中更想先尝试的一项，不是选更聪明、更强或更像真实动物的答案。四个编辑选项不能穷尽偏好，不合适可退出，六份公开指南仍免费。六组各出现12次、每个位置各3次、省略6次；一选加1，无反向、对错或能力权重。完整18题后才显示原始次数，所有最高并列都保留全文，不硬派主副型。一直选同一位置会各3次，不证明理想均衡。无需真实经历、位置、照片或他人信息。",
-    "en": "Treat the ocean mood card as a metaphor for little everyday arrangements. Choose the offered step you would prefer first, not the cleverest, strongest or most biologically animal-like answer. Four editorial choices cannot exhaust preferences; leave if none fits and all six guides remain free. Every group appears twelve times, three in each position, and is omitted six times. A choice adds one count without reversals, correctness or ability weighting. Complete all eighteen to see raw counts and every highest tie in full, without forced primary or secondary types. Repeating one position gives each group three counts without proving ideal balance. Enter no actual experiences, locations, photographs or another person’s information."
+    "zh": "以现在愿意参加的普通小活动为参照，每题四选一，选这次更想先做的一项，不按喜欢哪种动物或哪项显得更优秀作答。18题均需选择，可返回修改；每选一项给对应意象加1次，完成后显示六项计数与全部最高并列全文。开始直接进入题目，无需额外同意、账号、邮箱或前置测试。没有合适选项可以停止，六份公开指南仍能完整阅读；不需上传照片、手账或聊天记录。",
+    "en": "Imagine an ordinary little activity you would enjoy now. Choose the action you would prefer first, rather than a favourite creature or the response that sounds most impressive. All eighteen items need one choice, with back navigation for changes. Each adds one count to its image; completion shows six counts and every highest tie in full. Start opens questions directly without another agreement, account, email or prior test. Stop if no option fits and read the six public guides in full, without uploading photos, journals or chat records."
   },
   "source": {
     "kind": "frontend_original_ocean_mood_preferences",

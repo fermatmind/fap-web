@@ -10,12 +10,12 @@
     "zh": "爱情阵营测试"
   },
   "seoTitle": {
-    "en": "Relationship Values Test: 24 Choices & Full Results",
-    "zh": "爱情阵营测试：24题关系价值侧重与完整并列解读"
+    "zh": "爱情阵营测试：24题、四类关系价值与完整并列解读",
+    "en": "Relationship Values Test: 24 Questions & Full Tie Guides"
   },
   "description": {
-    "en": "Compare 24 paired choices about rituals, shared tasks, companionship and autonomy. Read all 15 full result guides, including ties. Free, without signup.",
-    "zh": "通过24道原创二选一题，回看仪式、协作、陪伴与成长自主的相对选择。15种单方向及并列结果均有完整双语说明，免费作答，无需注册。"
+    "zh": "用24组原创二选一比较仪式、协作、陪伴与成长自主。免费查看原始计数及15篇完整单项或并列指南；约6分钟，无需注册。",
+    "en": "Compare rituals, cooperation, companionship and autonomy in 24 paired choices. Read raw counts and all 15 full guides. Free, about 6 minutes, no sign-up."
   },
   "resultHeading": {
     "en": "Relationship values in these choices",
@@ -23,8 +23,8 @@
   },
   "minutes": 6,
   "introduction": {
-    "en": "What matters in a shared moment can change with the occasion, the people and what each person wants. This original questionnaire compares four sets of relationship value situations. It keeps raw choice counts and every highest tie, with concrete examples in all 15 complete guides. “Camp” is a product name, not a fixed identity or a measure of love.",
-    "zh": "同一个共同时刻，在不同对象、阶段和现实条件下，可能在意不同的部分。这份原创题本比较四组关系价值情境，保留原始选择次数和全部顶部并列，15份完整说明均配具体例子。“阵营”只是产品名称，不定义固定身份，也不衡量爱意。"
+    "zh": "爱情阵营测试通过24组关系情境，观察你在浪漫表达、务实协作、情感陪伴与成长自主之间的相对选择。约6分钟，免费查看四项原始次数、全部最高并列与15篇完整指南；无需伴侣资料或注册。结果用于整理近期偏好和具体讨论，不生成双人匹配率。",
+    "en": "Explore your relative choices between rituals, practical partnership, emotional companionship and growth with autonomy through twenty-four relationship scenarios. In about six minutes, view all four raw counts, every highest tie and fifteen complete guides, free without partner details or sign-up. Use them to reflect on recent priorities and concrete conversations, without a two-person compatibility score."
   },
   "instructions": {
     "en": "For each pair, choose the option closer to your natural choices lately, using experiences you are comfortable considering. Neither is a correct answer. All 24 are needed for an interpreted result; if neither option fits, you can stop or read the guides. No partner’s information or private messages are needed.",

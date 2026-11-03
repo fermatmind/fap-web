@@ -15,21 +15,21 @@
     "en": "Your six need experiences and full guides"
   },
   "description": {
-    "zh": "用24条原创题分别观察自主、胜任、联结的满足与受阻体验。六项均分、资料不足和完整解释免费；不派固定动机型，不评能力、健康或职业。",
-    "en": "Self-Determination Theory reflection: 24 original ratings on autonomy, competence and relatedness. Six free guides separate satisfaction from frustration."
+    "zh": "用24条原创频率题，回顾近四周同一领域的自主、胜任与联结体验。约6分钟，免费查看满足与受阻六项独立均分、资料不足说明及完整指南，无需注册。",
+    "en": "Review autonomy, competence and relatedness in one area over four weeks with 24 original frequency items. About 6 minutes, with free separate satisfaction and frustration means, missing-response explanations and six full guides. No signup needed."
   },
   "seoTitle": {
-    "zh": "SDT动机档案测试：24题需要体验自评与完整解释",
-    "en": "SDT Motivation Test: 24-Item Need Experience Reflection"
+    "zh": "SDT动机测试：24题、自主胜任联结与六项完整解读",
+    "en": "SDT Motivation Test: 24 Items and Six Psychological Need Guides"
   },
   "minutes": 6,
   "introduction": {
-    "zh": "愿意认同一项安排、感觉能做成一步、感到被关心，可以与受到施压、尝试被否定或被排除的体验分别理解。选定近四周一个普通领域，用24条原创题回看这六项。完整结果保留六项均分或资料不足与全部正文，不把它们合成总体动力、固定动机人物或职业结论；自主、胜任、联结的概念及满足与受阻区别会在下方说明。",
-    "en": "Willingly endorsing an arrangement, feeling able to manage a step and experiencing care can be considered separately from pressure, dismissed attempts or exclusion. Choose one ordinary area over four weeks and reflect with 24 original items. Full results retain six means or insufficient-information states and all guides, without an overall motivation score, fixed persona or career verdict. The explanations distinguish the three needs and satisfaction from frustration."
+    "zh": "参与一门课程、一项爱好或一类共同任务时，你是否认同自己的参与理由、感到行动有作用，并体验到关心与接纳？又是否经历施压、被否定或被排除？这份SDT动机档案测试用24条原创题，分别回顾近四周同一领域的自主、胜任、联结满足与受阻，提供六项均分或资料不足及全部完整指南。\n\nSDT是自我决定理论，心理需要是其中一个研究主题。本版关注你在具体领域里的自报体验，不寻找固定动机人格，也不将六项相减合成总分。满意于一部分安排与在另一部分感到受阻可以同时存在；结合具体经历阅读，比用一个标签概括自己更有信息。",
+    "en": "In a course, hobby or shared task, do you endorse your reasons for participating, feel that your actions have an effect, and experience care and acceptance? Do you also experience pressure, dismissal or exclusion? This SDT motivation test uses 24 original items to review autonomy, competence and relatedness satisfaction and frustration in one area over four weeks, showing six means or insufficient-information states and every full guide.\n\nSDT means Self-Determination Theory; psychological needs are one part of its research. This edition concerns reported experiences in a specific area, not a fixed motivational personality, and does not subtract six parts into a total. Supporting experiences in one arrangement and frustration elsewhere can coexist; interpret concrete experiences rather than reducing yourself to one label."
   },
   "instructions": {
-    "zh": "先在心里选定近四周一个较常参与的普通领域，例如一门课程、一项兴趣活动或一类日常共同任务；整份题目沿用同一个领域，不必把领域名称输入网站。按每句话在该领域实际出现的频率，从1从不到5几乎总是选择；没有情境、资料不足或不愿回答都可选NA。24条原创题分别观察自主、胜任、联结的满足与受阻体验，各4条、至少3条有效才显示一位小数均分。六项分别保留；受阻题不反向，低满足不自动等于高受阻，不相减或合成总分，也不派固定动机类型。它不判断他人的真实意图、能力、健康、职业适配或你为何采取某个行动。",
-    "en": "Choose in your mind one ordinary area you took part in over the past four weeks, such as a course, an interest activity or a kind of shared everyday task. Keep the same area throughout; do not enter its name on the website. Rate how often each statement occurred there from 1 Never to 5 Almost always. Choose NA for absent context, insufficient information or declining to answer. Twenty-four original items separately explore satisfaction and frustration experiences for autonomy, competence and relatedness. Each four-item part needs three ratings for a one-decimal mean. Keep all six parts separate: frustration is not reverse-scored, low satisfaction does not automatically mean high frustration, and there is no subtraction, total or fixed motivation type. The reflection determines no other person’s actual intention, ability, health, career fit or reason for your actions."
+    "zh": "先在心里选定近四周较常参与的一个普通领域，如一门课程、一项兴趣活动或一类共同任务，全程沿用同一领域，不需输入名称。按实际频率选择1从不、2很少、3有时、4经常、5几乎总是；无情境、资料不足或不愿回答可选NA。完成24条选择后，查看六项独立结果与完整解释，不必追求某种理想分数组合。",
+    "en": "Choose in your mind one ordinary area you participated in over the past four weeks, such as a course, interest activity or shared task. Use the same area throughout without entering its name. Rate actual frequency: 1 Never, 2 Rarely, 3 Sometimes, 4 Often, 5 Almost always. Choose NA for absent context, insufficient information or preferring not to answer. Complete all 24 selections for six separate results and full explanations without aiming for an ideal pattern."
   },
   "source": {
     "kind": "FermatMindoriginal24ENZHcontextualfrequencyitems/conceptualSDTneedsreflection/NOTBPNSFS-BPNSS-IMI-MWMS-WEIMS-GCOSorJobCannonbank",
@@ -2541,52 +2541,187 @@
     {
       "id": "facet-scoring",
       "title": {
-        "zh": "六项分别计算，不相减合成",
-        "en": "Six separate calculations without subtraction"
+        "zh": "六项如何计分？有效条数、均分与NA",
+        "en": "How are six parts scored? Rated items, means and NA"
       },
       "paragraphs": [
         {
-          "zh": "24条都选择后，六项分别计算。每项4条，1从不至5几乎总是；没有反向题，受阻体验不反向补成满足。NA是不适用、资料不足或不愿回答，排除而不补零、中性或其他项的分数。每项至少3条有效，才以计分和除有效条数取一位小数均分1—5；不足明确保留。六项不相加、不相减、不排最高人格或最重要需要，也没有总体动机分、健康指数、常模、百分位或科学阈值。相同均分保留，小数差异不证明显著或变化；中间值可能来自不同答案组合。最低条数只是本站完整度规则，不是已验证的心理测量标准。",
-          "en": "After all 24 selections, calculate six parts separately. Each has four items rated 1 Never to 5 Almost always. There are no reverse items: frustration never reverses into satisfaction. Exclude NA for absent context, insufficient information or declining to answer, without filling zero, a midpoint or another part’s score. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items; otherwise retain insufficient information. Do not add, subtract or rank the six means into a personality or most important need. There is no overall motivation score, health index, norm, percentile or scientific cutoff. Equal means stay equal; decimals establish no significance or change, and middle means can reflect different answers. The minimum is a website completeness convention rather than a validated psychometric standard."
+          "zh": "每项4条，按1—5频率原评分计算有效和，再除以有效条数，至少3条有效才显示一位小数均分1—5。24题没有反向题：受阻的高评分保留为较常受阻，不能按6减评分翻转。六项不相减、不相加，也不选最高项作为动机类型。",
+          "en": "Each part has four items. Add valid 1–5 frequency ratings and divide by rated items; at least three ratings permit a one-decimal mean from 1 to 5. None of the 24 items is reversed: a high frustration rating remains more frequent frustration, not six minus the response. Parts are neither subtracted nor added, and the highest part is not a motivation type."
+        },
+        {
+          "zh": "例如自主满足的四条原评分4、3、NA、5，有效和12、3条有效，均分4.0；自主受阻若为2、2、1、NA，则和5、3条有效，均分1.7。两项分别保留，不算2.3的净自主分。某项只有2条有效时显示资料不足；其他项不受影响，NA不补零或中性。",
+          "en": "For example, autonomy-satisfaction ratings 4, 3, NA, 5 give sum 12 across three ratings, mean 4.0. Autonomy-frustration ratings 2, 2, 1, NA give sum five across three ratings, mean 1.7. Both stay separate, without a net-autonomy score of 2.3. Two ratings in a part give insufficient information; others remain unaffected. NA is neither zero nor a midpoint."
         }
       ]
     },
     {
       "id": "facet-reading",
       "title": {
-        "zh": "三种需要、满足与受阻的区别",
-        "en": "Three needs, satisfaction and frustration"
+        "zh": "自主、胜任与联结分别是什么意思",
+        "en": "What autonomy, competence and relatedness mean"
       },
       "paragraphs": [
         {
-          "zh": "SDT自我决定理论讨论自主、胜任、联结等需要及不同的动机调节方式。本版只观察同一选定领域中的六类需要体验：自主满足与受阻、胜任满足与受阻、联结满足与受阻。满足偏向积极体验，受阻偏向感到需要被压制；缺少满足不自动等于受到阻碍。自主不是必须单独决定，胜任感不是客观技能，联结不是外向或朋友数量。这里没有测需要有多重要，也没有从需要均分推断内在兴趣、奖励驱动或行动原因；不能把最高项叫你的真正动力。",
-          "en": "Self-Determination Theory discusses autonomy, competence, relatedness and different forms of motivational regulation. This edition observes only six need experiences in one selected area: satisfaction and frustration for each need. Satisfaction concerns positive experiences; frustration concerns felt thwarting. An absence of satisfaction does not automatically establish active frustration. Autonomy requires no independent decision-making, felt competence is no measured skill, and connection is no extraversion or friend count. Need importance, intrinsic interest, reward-driven action and reasons for acting are unmeasured; a highest mean does not identify your true motivator."
+          "zh": "自主指行动中能认同自己的理由与参与方式，不等于凡事独立或没有规则；胜任关注感到有效、能在任务中发挥作用，不是实测能力；联结关注关心、接纳与相互联系的体验，不等于朋友数量或外向性。这三个需要的理论含义可参阅SDT概述。[1]",
+          "en": "Autonomy concerns endorsing reasons and ways of participating, not doing everything independently or having no rules. Competence concerns experienced effectiveness, not measured ability. Relatedness concerns care, acceptance and connection, not contact counts or extraversion. The SDT overview explains the theoretical needs.[1]"
+        },
+        {
+          "zh": "本版把每个需要的满足和受阻分别记录，共六项。满足可表现为愿意参与、看见进展或感到被接纳；受阻可表现为感到被迫、被否定或被排除。题目描述你的体验，不裁定别人是否有意施压，也不把所有困难和限制都定义为受阻。",
+          "en": "This edition records satisfaction and frustration separately for each need: six parts. Satisfaction may involve willing participation, progress or acceptance; frustration felt pressure, dismissal or exclusion. Items describe your experience without determining anyone else’s intentions or defining every difficulty and limit as frustration."
         }
       ]
     },
     {
       "id": "facet-comparison",
       "title": {
-        "zh": "混合、相同与不足都保留",
-        "en": "Mixed, equal and insufficient experiences"
+        "zh": "低满足不等于高受阻，混合结果怎样读",
+        "en": "Low satisfaction is not high frustration: reading mixed results"
       },
       "paragraphs": [
         {
-          "zh": "例如，一项自主满足均分4.0，而自主受阻2.0，分别描述两组题的自报频率；不能用4减2生成净自主分。若同一对都较高，可以回看不同时间和事件，不自动判你作答矛盾；若都较低，可能只是两类体验都不常出现，不等于理想平衡。六项都独立保留，缺资料也不补分，全部六份完整说明同时可读。",
-          "en": "For example, an autonomy satisfaction mean of 4.0 and frustration mean of 2.0 describe separate reported frequencies; subtracting them creates no valid net autonomy score. If both are higher, consider different events or times rather than automatically declaring contradictory answers. If both are lower, neither experience may have occurred often, without establishing ideal balance. Keep all six parts and explicit missing information. All six full guides remain available together."
+          "zh": "缺少一次积极体验与经历明确的压制不同。例如很少参与交流，可能让联结满足较少，却不一定经历排斥。基本心理需要研究区分满足的缺少与主动受阻。[2] 本版因此不将受阻题反向归入满足，也不把NA、低满足或中间均分当成同一状态。",
+          "en": "An absent positive experience differs from active thwarting. Little interaction may mean fewer satisfying connections without exclusion. Basic-need research distinguishes absent satisfaction from active frustration.[2] This edition therefore does not reverse frustration into satisfaction or equate NA, low satisfaction and midpoint means."
+        },
+        {
+          "zh": "六项可以不同，同一需要的两项也可能都较常出现：一类安排给你参与理由，另一类互动让你感到被迫。回看哪些场景、哪些条目支撑了均分，不用两项抵消。六份完整指南始终同时开放，不因最高项、低分或资料不足隐藏解释。",
+          "en": "Parts can differ; satisfaction and frustration for one need may both occur frequently when one arrangement supports willing participation and another feels pressuring. Check settings and responses behind each mean without cancelling them out. All six full guides remain available regardless of highest score, lower mean or insufficient information."
         }
       ]
     },
     {
-      "id": "privacy",
+      "id": "sdt-autonomy",
       "title": {
-        "zh": "草稿、分享与可选下一步",
-        "en": "Drafts, sharing and optional next steps"
+        "zh": "自主可以发生在合作和接受建议中",
+        "en": "Autonomy can occur in cooperation and accepting guidance"
       },
       "paragraphs": [
         {
-          "zh": "答案在浏览器内计分，不上传、不进网址或分析。选定领域只需心里记住，不输入名称。草稿需主动开启，只在本标签页恢复，24小时失效，完成、重测、退出清除即删除。分享自选，只含公开测试说明与链接，不含答案或均分。完整结果免费，无需注册、邮箱或另一测试解锁；后续测评可以不做，若继续需独立完整作答，不从这里换算。",
-          "en": "Answers are scored in your browser without uploading them or putting them in URLs or analytics. Keep the selected area in mind without entering its name. Drafts require opt-in, restore only in this tab, expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains public test information and a link without answers or means. Full results are free without signup, email or another test to unlock them. Further assessments are optional and require separate full answers rather than conversion."
+          "zh": "自愿采纳建议、遵循自己认同的共同规则、请求别人协助，都可能有自主体验。反过来，独自完成任务也可能伴随被迫感。研究对自主意愿与独立行为作出区分，不能把“一个人做”直接当成自主满足。[2]",
+          "en": "Willingly accepting advice, following endorsed shared rules and asking for help can involve autonomy. Working alone can still feel pressured. Research distinguishes volition from independent behaviour; doing something alone does not directly establish autonomy satisfaction.[2]"
+        },
+        {
+          "zh": "在共同任务中，可观察自己能否说明参与理由、提出意见并认同最后的做法。一个要求是否必要、是否留有协商空间和自己怎样理解它，需要分开看。本结果不保证无限选择，也不把不赞同就服从或不服从当作唯一评价标准。",
+          "en": "In a shared task, consider whether you can explain your reasons, voice a view and endorse the eventual approach. Whether a requirement is necessary, negotiable and understood are separate questions. Results promise no unlimited choice and do not reduce evaluation to complying or refusing when you disagree."
+        }
+      ]
+    },
+    {
+      "id": "sdt-competence",
+      "title": {
+        "zh": "胜任体验、任务难度与真实能力的区别",
+        "en": "Competence experiences, difficulty and actual ability differ"
+      },
+      "paragraphs": [
+        {
+          "zh": "胜任满足关注能起步、行动有作用和看见进展的感受。它不测知识、技能、智商或岗位资格；较低均分也可能涉及任务陌生、标准不清或反馈不足，不能直接得出能力低。较高均分同样不能替代实际作品与表现证据。",
+          "en": "Competence satisfaction concerns feeling able to begin, affect a task and recognize progress. It measures no knowledge, skill, IQ or job qualification. A lower mean may involve unfamiliar tasks, unclear criteria or limited feedback rather than low ability. A higher mean likewise cannot replace work samples or performance evidence."
+        },
+        {
+          "zh": "胜任受阻关注本题中被否定、尝试被贬低等体验，不把正常挑战或一次做错自动视为受阻。可回看反馈针对哪一步、是否具体、还有什么资源可用，再区分“这一步还没做会”和“我感到自己的尝试被否定”。均分不能裁定谁的反馈一定不当。",
+          "en": "Competence frustration concerns experiences described in these items, such as dismissal of attempts, not every challenge or mistake. Review the step addressed, specificity of feedback and available resources. Needing to learn a step differs from feeling an attempt was dismissed; a mean determines no feedback to be necessarily improper."
+        }
+      ]
+    },
+    {
+      "id": "sdt-relatedness",
+      "title": {
+        "zh": "联结的质量、独处与联系频率",
+        "en": "Relatedness quality, solitude and contact frequency"
+      },
+      "paragraphs": [
+        {
+          "zh": "联结满足看选定领域里是否体验到关心、接纳与联系。频繁见面不保证被理解，联系人少也不直接表示缺少联结。自己愿意的独处、暂时联系不上和在互动中感到排斥，需要分别理解；不要用社交数量或团队表现替代题目回答。",
+          "en": "Relatedness satisfaction concerns experienced care, acceptance and connection in the chosen area. Frequent meetings do not guarantee understanding; few contacts do not establish poor connection. Chosen solitude, temporary unavailability and feeling excluded in interaction differ. Contact counts or team performance do not replace item responses."
+        },
+        {
+          "zh": "联结受阻是你报告的被排除、被忽视等体验，不读取他人的真实想法，也不自动决定关系应继续还是结束。可以记录发生了什么、自己怎样理解以及还有哪些解释；讨论时谈具体互动和希望的回应，比根据均分给别人下结论更清楚。",
+          "en": "Relatedness frustration records felt exclusion or disregard without reading others’ minds or deciding whether a relationship should continue. Note what happened, your interpretation and possible alternatives. Discussing an interaction and the response you want is clearer than drawing conclusions about someone from a mean."
+        }
+      ]
+    },
+    {
+      "id": "sdt-needs-versus-motives",
+      "title": {
+        "zh": "心理需要体验与内外在动机不是同一分数",
+        "en": "Need experiences and intrinsic or extrinsic motivation are different scores"
+      },
+      "paragraphs": [
+        {
+          "zh": "SDT包含多个子理论，基本心理需要理论与动机调节方式回答的问题不同。[1] “我是否感到被支持”不等同于“我为什么做这件事”。本题本不计算内在动机、认同调节、内摄调节、外在调节或无动机分数，六项也不能换算这些类型。",
+          "en": "SDT contains several mini-theories; basic needs and motivational regulation address different questions.[1] Feeling supported differs from why you act. This questionnaire calculates no intrinsic, identified, introjected, external-regulation or amotivation scores, and its six parts cannot convert into them."
+        },
+        {
+          "zh": "一件不算有趣的事，也可能有你愿意认同的理由；获得奖励也不足以判断全部动机。需要支持、行为理由、努力程度和实际成效应分别了解。本结果不寻找潜意识驱动力，也不凭一项受阻分数解释你为什么拖延、离职或不想行动。",
+          "en": "An uninteresting activity can have reasons you willingly endorse; a reward alone does not explain all motivation. Need support, reasons, effort and outcomes should be examined separately. Results identify no subconscious driver or single frustration-based explanation for delay, leaving work or reluctance to act."
+        }
+      ]
+    },
+    {
+      "id": "sdt-one-domain",
+      "title": {
+        "zh": "为什么整份问卷要沿用同一个领域",
+        "en": "Why the same area should be used throughout"
+      },
+      "paragraphs": [
+        {
+          "zh": "在一门课里感到有进展，在另一项合作中感到受压，都可能是真实经验；如果逐题更换领域，六项就难以共同解释。本版要求近四周同一领域，并非所有生活领域的总评。领域名只需在心里确定，不必输入网站。",
+          "en": "Progress in one course and pressure in another activity can both be real, but switching areas across items makes the six parts harder to interpret together. This edition uses one area over four weeks rather than evaluating your whole life. Keep its name in mind without entering it on the website."
+        },
+        {
+          "zh": "同一领域内部仍可有不同人、任务和安排，所以满足与受阻可能共存。可为每项找一个具体例子和一个反例，记录当时的要求、信息和回应。不要为了让六项看起来一致而改答案，也不要用另一个领域的印象补足NA。",
+          "en": "One area may still contain different people, tasks and arrangements, allowing satisfaction and frustration to coexist. Find an example and counterexample for each part, noting requests, information and responses. Do not edit answers to make parts consistent or fill an NA from another area."
+        }
+      ]
+    },
+    {
+      "id": "sdt-practical-conversation",
+      "title": {
+        "zh": "把六项结果用于具体的协商",
+        "en": "Using six results in a concrete discussion"
+      },
+      "paragraphs": [
+        {
+          "zh": "选一个非紧急的小任务，分别描述自己愿意怎样参与、需要知道什么标准，以及希望得到怎样的回应。例如“我认同这次共同目标，想先确认我负责哪一步和怎样算完成”。这样可以同时讨论自主、胜任与联结，不必先判断哪个需要最重要。",
+          "en": "Choose a small non-urgent task. Describe how you would willingly participate, the criteria you need and the response you want. For example, endorse a shared aim while clarifying your step and what completion means. This can address autonomy, competence and relatedness without ranking one need as most important."
+        },
+        {
+          "zh": "把尝试当作可选观察：记录这次说法是否清楚、对方是否有条件回应，再决定下次怎样调整。结果不要求别人满足所有期待，也不承诺改善绩效、关系或健康。实际资源、职责与协商条件仍需直接核对，不能只靠个人心态解决。",
+          "en": "Treat this as optional observation: note whether the wording was clear and a response was practical, then decide what to adjust. Results require no one to meet every expectation and promise no performance, relationship or health improvement. Resources, responsibilities and room for negotiation still need direct examination."
+        }
+      ]
+    },
+    {
+      "id": "sdt-research-evidence",
+      "title": {
+        "zh": "理论研究、原创题本与证据边界",
+        "en": "Theory research, original items and limits of evidence"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版24题为费马原创，不是BPNSFS、BPNSS、IMI、MWMS、WEIMS或GCOS的施测版本。理论来源不等于本题本已有信度、效度和常模，至少3/4条有效也是本站完整度约定，不是科学阈值；均分不能用于诊断、能力评级或职业适配。",
+          "en": "These 24 items are original FermatMind content, not an administration of BPNSFS, BPNSS, IMI, MWMS, WEIMS or GCOS. A theoretical source does not establish reliability, validity or norms for this questionnaire. Three of four ratings is a completeness convention, not a scientific cutoff; means support no diagnosis, ability rating or job-fit verdict."
+        },
+        {
+          "zh": "Martela与Ryan研究有益于他人的体验，区分候选基本需要和其他有益体验；这提醒读者，不是所有让人感觉好的事都能直接列为基本需要。[3] 本页独立转述理论，不复制已发表题目，来源许可也不表示原作者认可本问卷。[4] 重测先比较领域、参照时间、有效条数和实际条目，小数差异不能证明显著变化。",
+          "en": "Martela and Ryan examine beneficence and distinguish a candidate basic need from other beneficial experiences: not everything that feels good automatically qualifies as a basic need.[3] This page independently summarizes concepts without copying published items; a source licence implies no author endorsement.[4] On retesting, compare area, time frame, rated counts and responses; decimal differences establish no significant change."
+        }
+      ]
+    },
+    {
+      "id": "sdt-free-privacy",
+      "title": {
+        "zh": "免费完整结果、直接开始与答案隐私",
+        "en": "Free full results, direct start and answer privacy"
+      },
+      "paragraphs": [
+        {
+          "zh": "全部24条选择、六项均分或资料不足说明及六份完整指南免费，无需注册或先做其他测试。点击开始直接进入题目，没有额外同意步骤。约6分钟是参考，不限时；每题可选NA，但仍需对24条都作选择，完成后生成结果。",
+          "en": "All 24 selections, six means or insufficient-information states and six full guides are free without signup or another assessment. Start opens questions directly without an extra agreement. About six minutes is an estimate, not a limit. Each item offers NA, but all 24 need a selection before results appear."
+        },
+        {
+          "zh": "答案在浏览器内计分，不通过计分请求上传，也不写入网址或分析事件。默认不保存；主动保存后本标签页进度24小时失效，完成、重测或退出清除后删除。固定公开指南不含私人答卷或均分；其他使用事件依隐私与Cookie设置。",
+          "en": "Answers are scored in the browser, not uploaded through scoring requests or included in URLs or analytics events. Progress is unsaved by default; opt-in tab progress expires after 24 hours and clears on completion, retake or explicit exit-and-clear. Fixed public guides contain no private answers or means; other usage events follow privacy and Cookie settings."
         }
       ]
     }
@@ -2594,72 +2729,142 @@
   "faq": [
     {
       "question": {
-        "zh": "SDT与这份原创问卷分别是什么？",
-        "en": "What are SDT and this original questionnaire?"
+        "zh": "SDT动机测试测什么？",
+        "en": "What does this SDT motivation test explore?"
       },
       "answer": {
-        "zh": "SDT自我决定理论讨论自主、胜任、联结等需要及不同的动机调节方式。本版只观察同一选定领域中的六类需要体验：自主满足与受阻、胜任满足与受阻、联结满足与受阻。满足偏向积极体验，受阻偏向感到需要被压制；缺少满足不自动等于受到阻碍。自主不是必须单独决定，胜任感不是客观技能，联结不是外向或朋友数量。这里没有测需要有多重要，也没有从需要均分推断内在兴趣、奖励驱动或行动原因；不能把最高项叫你的真正动力。",
-        "en": "Self-Determination Theory discusses autonomy, competence, relatedness and different forms of motivational regulation. This edition observes only six need experiences in one selected area: satisfaction and frustration for each need. Satisfaction concerns positive experiences; frustration concerns felt thwarting. An absence of satisfaction does not automatically establish active frustration. Autonomy requires no independent decision-making, felt competence is no measured skill, and connection is no extraversion or friend count. Need importance, intrinsic interest, reward-driven action and reasons for acting are unmeasured; a highest mean does not identify your true motivator."
+        "zh": "用24条原创题回顾同一领域近四周的自主、胜任与联结满足及受阻，共六项自报体验。不测固定人格、潜意识原因或动机总量。",
+        "en": "Six reported experiences: autonomy, competence and relatedness satisfaction and frustration in one area over four weeks, using 24 original items. No fixed personality, subconscious cause or total motivation is assessed."
       }
     },
     {
       "question": {
-        "zh": "低满足是不是高受阻，能相减吗？",
-        "en": "Does low satisfaction mean high frustration, and can I subtract them?"
+        "zh": "自主、胜任与联结分别指什么？",
+        "en": "What are autonomy, competence and relatedness?"
       },
       "answer": {
-        "zh": "不是，不能相减。三种需要各有满足与受阻题目，分别问近四周在同一选定领域的体验；缺少积极体验不自动证明被压制。六项不合成净分、总体动力或最高类型，高低混合也不按某个人物标签解释。",
-        "en": "No. Each need has separate satisfaction and frustration items about four weeks in the same selected area. Missing positive experience does not automatically establish thwarting. Keep six means without a net score, overall motivation or highest-score type, and interpret mixed patterns without assigning a persona."
+        "zh": "自主关注能否认同自己的行动理由；胜任关注感到行动有作用；联结关注关心与接纳。不是独立程度、实测技能或朋友数量。",
+        "en": "Autonomy concerns endorsing reasons for action; competence experienced effectiveness; relatedness care and acceptance. They are not independence, measured skill or contact counts."
       }
     },
     {
       "question": {
-        "zh": "自主、胜任、联结是独立、能力与外向吗？",
-        "en": "Do autonomy, competence and relatedness mean independence, ability and extraversion?"
+        "zh": "为什么低满足不等于高受阻？",
+        "en": "Why is low satisfaction not high frustration?"
       },
       "answer": {
-        "zh": "不是。这里分别关注自愿认同、感到能有效完成一步、被关心与接纳的体验。合作也可以自主，初学者也可以在小步里感到胜任，少量交流也可以有联结。问卷不评实际技能、社交能力、需要重要程度或职业。",
-        "en": "No. This edition concerns willing endorsement, experienced effectiveness at a step, and care and acceptance. Cooperation can include autonomy, beginners can feel effective in a small step and few exchanges can include connection. Actual skill, social ability, need importance and career fit are unmeasured."
+        "zh": "缺少积极体验与经历明确压制不同。交流少不自动等于被排斥；六项分别保留，受阻不反向并入满足，也不相减抵消。",
+        "en": "Absent positive experiences differ from active thwarting. Little interaction is not automatically exclusion. Six parts remain separate; frustration is neither reversed into satisfaction nor subtracted away."
       }
     },
     {
       "question": {
-        "zh": "反向、NA和资料不足怎样处理？",
-        "en": "How are reverse scoring, NA and insufficient information handled?"
+        "zh": "满足与受阻可以同时较常出现吗？",
+        "en": "Can satisfaction and frustration both occur frequently?"
       },
       "answer": {
-        "zh": "24条都选择后，六项分别计算。每项4条，1从不至5几乎总是；没有反向题，受阻体验不反向补成满足。NA是不适用、资料不足或不愿回答，排除而不补零、中性或其他项的分数。每项至少3条有效，才以计分和除有效条数取一位小数均分1—5；不足明确保留。六项不相加、不相减、不排最高人格或最重要需要，也没有总体动机分、健康指数、常模、百分位或科学阈值。相同均分保留，小数差异不证明显著或变化；中间值可能来自不同答案组合。最低条数只是本站完整度规则，不是已验证的心理测量标准。",
-        "en": "After all 24 selections, calculate six parts separately. Each has four items rated 1 Never to 5 Almost always. There are no reverse items: frustration never reverses into satisfaction. Exclude NA for absent context, insufficient information or declining to answer, without filling zero, a midpoint or another part’s score. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items; otherwise retain insufficient information. Do not add, subtract or rank the six means into a personality or most important need. There is no overall motivation score, health index, norm, percentile or scientific cutoff. Equal means stay equal; decimals establish no significance or change, and middle means can reflect different answers. The minimum is a website completeness convention rather than a validated psychometric standard."
+        "zh": "可以。同一领域可能有不同任务和互动。分别寻找哪些经历支持了每项，保留差异，不把混合结果当错误、最优平衡或固定类型。",
+        "en": "Yes. An area can contain different tasks and interactions. Identify experiences behind each part and retain differences without treating a mixed result as an error, ideal balance or fixed type."
       }
     },
     {
       "question": {
-        "zh": "这是BPNSFS或其他官方标准量表吗？",
-        "en": "Is this BPNSFS or another official standard instrument?"
+        "zh": "六项均分怎样计算，有反向题吗？",
+        "en": "How are six means scored? Are any items reversed?"
       },
       "answer": {
-        "zh": "本版是费马原创24题情境频率观察，以SDT三种基本心理需要为概念背景，分别整理满足与受阻体验；不是官方或标准量表、临床筛查或研究验证版本。没有采用BPNSFS、BPNSS、IMI、MWMS、WEIMS、GCOS等题本、键、常模、官方翻译或竞品题目、正文与算法。中英文题目、映射、例子与解释独立创作，尚无本站信度、效度或跨语言等价证据。文献提供概念背景，不验证本站题本、最低条数或分数解释；Martela与Ryan的开放论文依其CC BY 4.0许可提供背景，例子与说明为本站原创，该论文许可不扩为其他题本许可。均分不测需要的重要程度、真实能力、内外在动机调节、行动原因、他人意图、健康、产出、聘用或职业适配，也不把你分成五种固定动机人物。实际情境与职责仍需另看事实。",
-        "en": "This original FermatMind 24-item contextual frequency reflection uses the three SDT needs as conceptual background while keeping satisfaction and frustration separate. It is no official, standard, clinical or research-validated instrument. No BPNSFS, BPNSS, IMI, MWMS, WEIMS, GCOS bank, key, norm, official translation or competitor items, body or algorithm is adopted. English and Chinese questions, mappings, examples and explanations are independently authored without local reliability, validity or established language equivalence. References provide background without validating this bank, minimum or interpretations. Martela and Ryan’s open article supplies background under CC BY 4.0; examples and explanations are original, and that article’s licence covers no other bank. Means assess no need importance, actual ability, motivational regulation, causes, others’ intentions, health, output, hiring or career fit, and assign no five fixed motivation personas. Actual situations and duties require their own facts."
+        "zh": "每项4条，按原评分求有效和除有效条数，至少3条有效显示一位小数均分1—5。没有反向题，受阻高分仍是较常受阻，不合成总分。",
+        "en": "Each part has four items. Divide the sum of original ratings by rated items; at least three permit a one-decimal mean from 1 to 5. No items are reversed; higher frustration stays more frequent frustration. There is no total."
       }
     },
     {
       "question": {
-        "zh": "结果能解释为什么没动力或评健康吗？",
-        "en": "Can results establish why motivation changed or assess health?"
+        "zh": "能举包含NA的算例吗？",
+        "en": "Can you give an example with NA?"
       },
       "answer": {
-        "zh": "不能。它只整理本组原创题的自报频率，没有测行动原因、实际环境、疾病、耗竭、能力或表现，也不由需要分数确定内外在动机类型或职业。六份说明提供具体例子、比较与可选观察；现实问题仍需实际信息，不把最低或最高项当成万能原因。",
-        "en": "No. It organises reported frequencies in these original items without measuring causes, actual environments, illness, exhaustion, ability or performance. Need means determine no motivational regulation or career. Six guides provide examples, comparisons and optional observations; actual problems need actual information, without making a lowest or highest part a universal cause."
+        "zh": "自主满足4、3、NA、5，12/3为4.0；自主受阻2、2、1、NA，5/3为1.7。两项独立显示，不算净分。NA不补零或中性。",
+        "en": "Autonomy satisfaction 4, 3, NA, 5 gives 12/3=4.0; frustration 2, 2, 1, NA gives 5/3=1.7. Both display independently without a net score. NA is neither zero nor a midpoint."
       }
     },
     {
       "question": {
-        "zh": "全部正文、重测与分享免费吗？",
-        "en": "Are all guides, retaking and sharing free?"
+        "zh": "NA、从不和资料不足有何区别？",
+        "en": "How do NA, Never and insufficient information differ?"
       },
       "answer": {
-        "zh": "免费，无需注册或邮箱。六份完整说明可先读，全部24条选择后呈现六项均分或不足状态，NA也不隐藏正文。重测清除本次选择，可选分享不含个人答案、选定领域名称或均分；后续测试需要独立作答。",
-        "en": "Yes, without signup or email. Read all six full guides first. All 24 selections produce six means or insufficient-information states, and NA never hides the body. Retaking clears selections. Optional sharing contains no answers, selected area name or means; further tests require separate answers."
+        "zh": "从不表示有情境但未出现该体验；NA表示无情境、信息不足或不愿回答。每项少于3条有效即资料不足，不等于低满足、高受阻或需要不存在。",
+        "en": "Never means a relevant setting existed without the experience. NA means absent context, insufficient information or declining. Fewer than three ratings gives insufficient information, not low satisfaction, high frustration or an absent need."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么要一直参照同一个领域？",
+        "en": "Why use the same area throughout?"
+      },
+      "answer": {
+        "zh": "逐题换成不同课程、工作或爱好会让六项难以共同解释。选近四周常参与的一类普通领域即可，不需输入领域名称，也不将它当全部生活的总评。",
+        "en": "Switching courses, work or hobbies across items makes parts harder to interpret together. Choose one ordinary area over four weeks without entering its name or treating it as a whole-life evaluation."
+      }
+    },
+    {
+      "question": {
+        "zh": "合作、听取建议会降低自主吗？",
+        "en": "Does cooperation or accepting advice reduce autonomy?"
+      },
+      "answer": {
+        "zh": "不一定。愿意认同共同规则、主动请求协助也可以有自主体验；独自完成也可能感到被迫。要看参与理由与具体条件，不只看是否独立。",
+        "en": "Not necessarily. Endorsed shared rules and requested help can involve autonomy; working alone may still feel pressured. Examine reasons and circumstances, not independence alone."
+      }
+    },
+    {
+      "question": {
+        "zh": "胜任满足低是不是能力差？",
+        "en": "Does low competence satisfaction mean low ability?"
+      },
+      "answer": {
+        "zh": "不是。它是自报体验，可能涉及任务陌生、标准不清或反馈不足。真实技能需要实际表现证据；受阻均分也不能裁定别人一定有贬低意图。",
+        "en": "No. It is reported experience that may involve unfamiliarity, unclear criteria or limited feedback. Actual skill needs performance evidence; frustration means establish no dismissive intent in another person."
+      }
+    },
+    {
+      "question": {
+        "zh": "能判断内在动机、拖延原因或职业适配吗？",
+        "en": "Can it identify intrinsic motivation, causes of delay or job fit?"
+      },
+      "answer": {
+        "zh": "不能。需要体验与行动理由不同，本题本不计算动机调节类型，不换算其他动机量表，不解释拖延、离职或健康原因，也不评职业适配。",
+        "en": "No. Need experiences differ from reasons for action. This tool scores no regulation types, converts into no other motivation scale, explains no delay, resignation or health cause, and rates no job fit."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是BPNSFS或经过验证的量表吗？",
+        "en": "Is this BPNSFS or a validated scale?"
+      },
+      "answer": {
+        "zh": "不是，是费马原创24题的概念性反思。尚未建立本题本信度、效度和常模；理论与已发表工具的证据不能直接作为本站验证。",
+        "en": "No. It is a conceptual reflection with 24 original FermatMind items and unestablished reliability, validity and norms. Theory and evidence for published tools do not directly validate this questionnaire."
+      }
+    },
+    {
+      "question": {
+        "zh": "免费吗？点击开始后还要额外同意吗？",
+        "en": "Is it free? Must I agree again after Start?"
+      },
+      "answer": {
+        "zh": "全部24条、六项结果状态与六份完整指南免费，无需注册。点击开始直接进入题目，没有额外同意步骤；约6分钟是参考，不限时。",
+        "en": "All 24 items, six result states and six full guides are free without signup. Start opens questions directly without an extra agreement. About six minutes is an estimate, not a limit."
+      }
+    },
+    {
+      "question": {
+        "zh": "答案会上传、保存或分享吗？",
+        "en": "Are answers uploaded, saved or shared?"
+      },
+      "answer": {
+        "zh": "浏览器内计分，答案不进入计分上传、网址或分析事件。可选本标签页进度24小时失效，完成、重测或退出清除后删除。公开指南不含私人答卷或均分，其他使用事件依隐私设置。",
+        "en": "Scoring runs in the browser; answers are not included in scoring uploads, URLs or analytics events. Optional tab progress expires after 24 hours and clears on completion, retake or exit-and-clear. Public guides contain no private answers or means; other usage events follow privacy settings."
       }
     }
   ],

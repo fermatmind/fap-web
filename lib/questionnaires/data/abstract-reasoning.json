@@ -10,12 +10,12 @@
     "zh": "抽象推理测试"
   },
   "seoTitle": {
-    "en": "Abstract Reasoning Test: 24 Free Questions & Worked Answers",
-    "zh": "抽象推理测试：24道免费规则练习、答案与完整解析"
+    "zh": "抽象推理测试：24道规则练习与完整解析",
+    "en": "Abstract Reasoning Test: 24 Rule Exercises & Full Explanations"
   },
   "description": {
-    "en": "Try 24 original symbol tasks: sequences, analogies, classification and transformations. All answers and four full guides free. Untimed, no signup or IQ band.",
-    "zh": "做24道原创符号题，覆盖序列、类比、分类与变换；免费查看全部答案、解析和四份完整指南。不计时、无需注册，不给IQ或能力等级。"
+    "zh": "免费练习24道原创抽象推理题，覆盖符号序列、关系类比、示例分类和有序变换。查看四组正确数、全部答案与完整复习指南；不计时，无需注册。",
+    "en": "Practice 24 original abstract reasoning tasks: sequences, analogies, classification and transformations. Free counts, full explanations and guides; untimed, no sign-up."
   },
   "minutes": 16,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "完成24道原创四选一题，每组六题，按各题定义有一个已核对答案。推断题只在明列的有限候选操作或标准中选择，不声称在一切可想象规律中唯一。选对记一道，其余有效选择记零，无部分分、不计时、不倒扣、不按速度加权。全部作答后给全部答案与四份完整指南。十六分钟是编辑估计。"
   },
   "introduction": {
-    "en": "Work with original letter rows, bit strings, small grids described by rows and finite sets. The complete practice covers continuing a symbolic sequence, transferring a demonstrated relation, classifying positive and negative examples, and executing specified transformations. Every option key is checked by a separate literal computation; the 18 inference items each have one surviving rule within their stated candidate family. The other six give explicit operations to execute. This checks this bank’s arithmetic and symbolic rules, not its psychometric validity. No Raven, SHL or JobCannon questions, scoring norms or result bands are used. It is not a nonverbal matrix battery, IQ measure, clinical instrument, employer certification or prediction of job performance. Language and notation familiarity may affect performance.",
-    "zh": "使用原创字母串、0/1位串、按行描述的小网格及有限集合，完整练习延续符号序列、迁移示例关系、用正反例分类、执行明示变换。每个答案键都有单独的字面计算核对；18道推断题在各自明列候选中只剩一个规则，另六题按题定操作执行。这能核对题库的符号规则和计算，不代表心理测量效度。本版不使用Raven、SHL或JobCannon题库、常模或分档，不是非言语矩阵测验、IQ测量、临床工具、雇主认证或工作表现预测；语言及记号熟悉度可能影响表现。"
+    "zh": "通过24道原创符号题，练习序列规律、关系类比、示例分类与有序变换。免费查看四组正确数、每题答案与完整复习指南。约16分钟，不计时；规则可复算不等于题本已完成心理测量验证。",
+    "en": "Practice sequences, analogies, classification and ordered transformations in twenty-four original symbolic tasks. View four section counts, every explanation and all full guides, free. About sixteen minutes, untimed. Reproducible rules establish answer consistency, not its psychometric validity."
   },
   "resultHeading": {
     "en": "Your four practice counts and every worked answer",

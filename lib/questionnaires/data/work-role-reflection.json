@@ -37,8 +37,8 @@
     "zh": "工作角色与支持方式回顾"
   },
   "description": {
-    "en": "Review twelve recent task instances and their support contexts. See three separate records and complete guides, without career tiers or ability scores.",
-    "zh": "用十二项任务实例回看问题澄清、交付核对和共同贡献，保留参与情境计数，免费阅读三份完整指南，不判定职业等级。"
+    "en": "Review twelve task instances from one role over the past twelve weeks. Record responsibility and support across problem clarification, delivery checking and shared contribution; read all twelve records and three complete free guides.",
+    "zh": "回看一个角色近十二周的十二项任务实例，记录澄清问题、核对交付与共同贡献中的责任及支持情境，查看十二条所选记录与三篇免费完整指南。"
   },
   "resultHeading": {
     "en": "Your task-context records",
@@ -50,8 +50,8 @@
   },
   "minutes": 4,
   "introduction": {
-    "en": "Choose one role and describe your main responsibility in recent concrete instances. See every chosen context and three complete public readings. The original inventory does not verify skills, rank career stages or assess hiring eligibility.",
-    "zh": "选定一个角色，按近期具体实例中的主要责任作答。查看逐题情境和三份完整公开读法。本原创回顾不验证技能、不排列职业阶段，也不评估招聘资格。"
+    "en": "Work role reflection records how you participated in particular tasks: with step-by-step guidance, with ownership and agreed checkpoints, or by supporting someone else. Each group keeps separate category counts and item-level records, including unassessed choices. Read the responsibilities alongside the actual task, permission and resources; the categories are not a proficiency ladder.",
+    "zh": "工作角色回顾记录你怎样参与具体任务：接受逐步指导、按约定检查点承担，或支持他人。每组分别保留类别次数及逐题记录，包括未评估选择。可以结合实际任务、权限与资源理解责任；这些类别不是熟练程度阶梯。"
   },
   "source": {
     "kind": "fermatmind_original_work_role_context_inventory",

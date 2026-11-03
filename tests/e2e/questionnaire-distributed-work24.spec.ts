@@ -42,7 +42,7 @@ for (const locale of ["en", "zh"] as const) {
     await page.goto(`/${locale}/tests`); await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
     await expect(page.locator("[data-distributed-full-guide]")).toHaveCount(4); await expect(page.locator("[data-distributed-full-guide] h3")).toHaveCount(28);
-    await page.getByRole("button", { name: label(locale, "Start test", "开始测试"), exact: true }).click();
+    await page.locator("[data-explore-start]").click();
     const firstHeading = await page.locator("#take-test h2").boundingBox(), fixedHeader = await page.locator("header").first().boundingBox();
     expect(firstHeading!.y).toBeGreaterThanOrEqual(fixedHeader ? fixedHeader.y + fixedHeader.height : 0);
     await page.getByRole("button", { name: label(locale, "Next", "下一题"), exact: true }).click();
@@ -56,7 +56,7 @@ for (const locale of ["en", "zh"] as const) {
   });
 
   test(`@release distributed work ${locale}: explicit tab saving, resume, back edit, expiry and exit clearing`, async ({ page }) => {
-    await page.goto(path(locale)); await page.getByRole("button", { name: label(locale, "Start test", "开始测试"), exact: true }).click();
+    await page.goto(path(locale)); await page.locator("[data-explore-start]").click();
     await page.locator('input[name="DWC_01"][value="A"]').check(); expect(await page.evaluate(key => sessionStorage.getItem(key), draftKey)).toBeNull();
     await page.getByRole("checkbox").check(); await page.getByRole("button", { name: label(locale, "Next", "下一题"), exact: true }).click();
     await page.reload(); await page.getByRole("button", { name: label(locale, "Resume this tab's progress", "恢复本标签页进度"), exact: true }).click();

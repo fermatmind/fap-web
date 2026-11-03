@@ -14,8 +14,8 @@
     "zh": "技能审计测试：20项实例盘点与完整免费读法"
   },
   "description": {
-    "en": "Record examples you recall for 20 tasks across methods, tools, communication and knowledge. Read four full guides free, with no ability score, proficiency level or job-match percentage.",
-    "zh": "围绕方法、工具、沟通和知识的20项任务记录实例状态，四篇完整指南免费。不计算能力分、熟练等级或岗位匹配百分比。"
+    "en": "Record which examples you recall for 20 tasks in methods, tools, communication and task knowledge. See individual task states, four state counts per group and four complete guides free, without signup.",
+    "zh": "用20项任务提示盘点方法、工具、沟通与任务知识实例，查看逐项状态、每组四种状态计数及四篇完整指南。约6分钟，免费使用，无需注册。"
   },
   "minutes": 6,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "逐项选择目前能回想的实例状态。“近期”指过去12个月，“更早”指这之前。实例可来自工作、学习、志愿活动、爱好或日常生活，结果可以有用、好坏参半或没有帮助。不评价实例质量，也不为自己的能力打分。没有实例但愿意了解这项活动时选相应选项，其他情况可选不相关、无法判断或暂不回答。无需输入实例、上传文件或披露他人信息；页面只记录所选状态，不核实事件或技能质量。"
   },
   "introduction": {
-    "en": "A useful skills audit can begin with a specific task and an example to examine. This original FermatMind inventory asks which examples you can currently recall for twenty activities. It records recent, older, explore and not-recorded states across four editorial areas; it does not assess whether the task was done well. An unsuccessful example still counts as an example. Europass and O*NET provide background concepts, not an endorsed question bank or validation. There is no overall beginner-to-expert level, ability average, ranking, hiring verdict or career-fit percentage. All four complete guides are free before and after answering.",
-    "zh": "技能盘点可以从一项具体任务和一个可查看的实例开始。这份费马原创盘点询问目前能回想哪些活动实例，将20项记录为近期、更早、探索和暂不记录，并放入四个编辑类别；不评估任务做得好不好，失败实例也算实例。Europass与O*NET仅提供概念背景，不提供背书题库或验证。没有从新手到专家的整体等级、能力均分、排名、招聘判断或职业匹配百分比。作答前后均免费开放四篇完整指南。"
+    "en": "Choose a recalled-example state for each task: within the past twelve months, older, would like to explore, or not recorded. Helpful, mixed and unsuccessful outcomes can all be examples. This original inventory does not assess whether the task was done well; it keeps twenty task records and four separate sets of state counts, without numeric skill scores or a proficiency ladder. Real examples and documents stay outside the questionnaire.",
+    "zh": "逐项选择实例状态：过去12个月内、更早、想探索或暂不记录。有用、好坏参半和没有成功的经历都可以作为实例。本原创盘点不评价任务做得好不好；保留20项任务记录和四组独立状态计数，不给技能分或熟练度阶梯。真实实例与文件保留在问卷之外。"
   },
   "resultHeading": {
     "en": "Your task-example inventory and four full readings",

@@ -10,17 +10,17 @@
     "zh": "个人理财素养测试"
   },
   "seoTitle": {
-    "en": "Personal Finance Literacy Test: Free Questions & Answers",
-    "zh": "个人理财素养测试：23道免费知识题、答案与解析"
+    "zh": "个人理财素养测试：23题、预算利息与完整解析",
+    "en": "Financial Literacy Test: 23 Questions & Full Explanations"
   },
   "description": {
-    "en": "Try 23 original questions on budgets, interest, risk, pay and benefits. Free worked answers and three full guides. Fictional figures; untimed practice.",
-    "zh": "用23道原创知识情境题练预算、利息、风险、工资及福利。免费查看逐题解析、三项正确数和三份完整指南。数字均为虚构条件，不计时。"
+    "zh": "免费完成23道个人理财知识题，练习预算、单利复利、风险及工资福利。查看三组答对数、全部解析与三篇完整指南；无需注册，不计时。",
+    "en": "Practise budgeting, interest, risk, pay and benefits in 23 free questions. See three topic counts, every explanation and full guides. No registration or timer."
   },
   "minutes": 10,
   "introduction": {
-    "en": "Can you reconcile a budget, trace interest or read the stated terms of a benefit? Work through 23 original scenarios in three groups: budget and spending, saving and risk, and pay and benefits. The questions use fictional currency units, rates and conditions. Fifteen numerical keys and fifteen new guide examples were checked with integer or Decimal arithmetic; the remaining concepts were reviewed against selected primary financial-education sources. Every explanation and all three full guides are free. You supply no personal income, account or document.",
-    "zh": "能否核对预算、追踪利息或读懂给定福利条件？23道原创情境分预算支出、储蓄风险、工资福利三组，采用虚构货币单位、费率及条件。15个数值答案与15个指南新算例已用整数或Decimal运算核过，其他概念按选定一手金融教育来源复核。全部解析及三份完整指南免费，不需提供个人收入、账户或文件。"
+    "zh": "通过23道原创知识题，练习预算与支出、储蓄与风险、工资与福利的概念和计算。约10分钟，免费查看三组答对数、逐题答案解析与三篇完整指南。金额、利率和福利均按题定虚构条件处理，无需注册或提供个人财务资料，不计时。",
+    "en": "Practise concepts and calculations in Budget and Spending, Saving and Risk, and Pay and Benefits with twenty-three original knowledge questions. Allow roughly ten minutes for three topic counts, every answer and worked explanation, and three full guides, all free. Amounts, rates and benefits follow fictional conditions, with no personal income or other financial details required, no registration and no timer."
   },
   "instructions": {
     "en": "Read each fictional condition and choose one answer. Amounts use generic currency units, not a specified national currency. Stated rates, deductions, fees and benefit caps are assumptions rather than current offers, tax rates or universal rules. There is no timer or speed bonus; around ten minutes is an editorial estimate. All 23 valid choices are required for counts: seven budget items, eight saving-and-risk items and eight pay-and-benefit items. Using a calculator or reference changes your practice conditions; the count is not a certification or a personal financial recommendation.",

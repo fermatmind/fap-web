@@ -10,12 +10,12 @@
     "zh": "数值推理测试"
   },
   "seoTitle": {
-    "en": "Numerical Reasoning Test: 30 Free Questions & Answers",
-    "zh": "数值推理测试：30道免费数量练习、答案与完整解析"
+    "zh": "数值推理测试：30道免费练习与完整解析",
+    "en": "Numerical Reasoning Test: 30 Free Tasks & Full Explanations"
   },
   "description": {
-    "en": "Solve 30 original arithmetic, percentage, ratio, data and rate tasks. All worked answers and five full guides free. Untimed, no signup or hiring score.",
-    "zh": "做30道原创算术、百分比、比例、数据判读和速率题，免费读全部题解与五份完整指南。不计时、无需注册，不给招聘分数或能力等级。"
+    "zh": "免费练习30道原创数值推理题：运算、百分比、比例、数据判读与速率。查看五组正确数、全部答案解析与完整复习指南。不计时，可用计算器，无需注册。",
+    "en": "Practice 30 original numerical reasoning tasks in arithmetic, percentages, ratios, data and rates. Free explanations and full guides; untimed, calculator allowed, no sign-up."
   },
   "minutes": 18,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "完成30道原创四选一题，每组六题，按题定数量、单位和假设有一个已核对答案。选对记一道，其余有效选择记零；不计时、不倒扣、无部分分或速度加权。可用纸笔或计算器，仅在题目要求时对最终结果舍入。全部作答后给全部题解与五份完整指南。十八分钟为编辑估计，不是实测完成数据。"
   },
   "introduction": {
-    "en": "Read fictional quantities, choose the operation and keep its units. This full original practice covers arithmetic setup, percentage bases, ratios, small data tables described in words, and rates or conversions. Separate exact-fraction calculations check all 30 keys and the stated final rounding; fresh guide examples are also checked. This is answer-bank verification, not psychometric validation. All 120 alternatives, 30 rationales and five complete revision guides are free. No SHL, Kenexa, Cubiks, GMAT or JobCannon question bank, licensed score or norm is used. Counts do not measure speed, intelligence, job readiness, professional competence or future test performance. No percentile, employer pass threshold, cross-language calibration or fairness study is established. Number-series puzzles are a separate topic rather than part of this edition.",
-    "zh": "读虚构数量、选恰当运算并保留单位。完整原创练习覆盖算术列式、百分比基数、比例、用文字列出的小表和速率换算。独立精确分数计算核对30个答案及题定最终舍入，指南新例子也单独核算；这是答案核对，不代表心理测量验证。120个选项、30个理由及五份完整指南全部免费。本版不使用SHL、Kenexa、Cubiks、GMAT或JobCannon题库、授权成绩或常模。正确数不测速度、智力、岗位准备、专业胜任或未来考试表现，没有建立百分位、雇主通过线、跨语言校准或公平性研究。本版不含数字序列谜题，该主题另行处理。"
+    "zh": "通过30道原创数值情境题，练习基础运算、百分比、比例、数据判读与速率换算。免费查看五组正确数、每题答案与完整复习指南。约18分钟，不计时，可使用纸笔与计算器。",
+    "en": "Practice arithmetic, percentages, ratios, data interpretation and rates in thirty original numerical tasks. View five section counts, every answer and full revision guides, free. About eighteen minutes, untimed; paper and a calculator are allowed."
   },
   "resultHeading": {
     "en": "Your five practice counts and every worked answer",

@@ -10,21 +10,21 @@
     "zh": "英语水平测试"
   },
   "seoTitle": {
-    "en": "English Proficiency Practice Test: 24 Questions & Answers",
-    "zh": "英语水平测试：24题书面英语练习、答案与解析"
+    "zh": "英语水平测试：24题书面练习、答案与完整解析",
+    "en": "English Proficiency Test: 24 Practice Questions & Answers"
   },
   "description": {
-    "en": "Practise written English in 24 original grammar, vocabulary, reading and message tasks. Get all answers and four full guides. No CEFR estimate.",
-    "zh": "用24道原创题练习英语语法、语境词义、阅读与工作消息，查看四分项正确题数、全部答案与解析、四份完整复习指南。免费、不计时，不换算CEFR或其他考试等级。"
+    "zh": "免费练习24道原创英语题，覆盖语法、语境词义、阅读与实际消息。查看四组正确数、逐题答案解析及完整复习指南。无需注册，不计时。",
+    "en": "Practise 24 original English grammar, vocabulary, reading and message tasks. Get all answers, explanations and full guides. Free, no signup, no timer."
   },
   "minutes": 10,
   "instructions": {
-    "en": "Choose one answer for each of 24 original written English tasks. Grammar items state the requested standard written construction; reading and message items use the information supplied. English sentences, passages and options remain English in both interfaces, while instructions and explanations are bilingual. Finish all items to see every selected answer, key, explanation and four complete guides. No timer is used. For unaided practice, leave dictionaries and translators until after finishing; if you use help, interpret the count under those conditions. This is a limited practice set, without a CEFR level, listening, speaking or free-writing assessment.",
-    "zh": "24道原创书面英语任务，每题单选。语法题明示所要求的标准书面结构，阅读与消息题按给定信息作答。两种界面都保留英文句子、短文和选项，说明与解析提供双语。完成全部题目后显示所有所选、答案、解析和四份完整指南。不计时。若练无辅助识别，可完成后再查词典或翻译；使用辅助则按该条件理解正确数。这是范围有限的练习，不给CEFR等级，不评听说或自由写作。"
+    "zh": "每题从四个选项中选择一个答案，按题目指定结构或所给短文、消息核对。完成24题后显示四组正确数、全部所选、答案解析及完整指南。不计时，开始直接进入题目，无需另行同意、注册、邮箱或前置测试。若练无辅助识别，可完成后再查词典或翻译；使用辅助则保留这一条件。本页提供书面练习，不给CEFR等级。",
+    "en": "Choose one of four answers per item, using the requested construction or supplied passage or message. Finish twenty-four items for section counts, all selected responses, keys, explanations and complete guides. There is no timer. Start opens questions directly without another agreement, signup, email or prior test. For unaided recognition, check dictionaries or translations afterwards; otherwise record the assistance used. This is written practice, without a CEFR level."
   },
   "introduction": {
-    "en": "Practise 24 independently written tasks across grammar and structure, vocabulary in context, reading and evidence, and functional written English. Each group has six items. Keys were checked against selected grammar rules, primary dictionary senses or the facts stated in the original passages. Your report includes this edition’s correct counts, every explanation and all four full revision guides at every count. It does not estimate overall English proficiency, assign CEFR or exam bands, certify workplace readiness, or assess listening, speaking and spontaneous writing. The Chinese interface preserves the English stimuli; cross-language measurement equivalence is not established.",
-    "zh": "通过24道独立编写的任务，练习语法句式、语境词义、阅读证据和任务中的书面英语，四组各六题。答案结合选定语法规则、原始词典义项或原创短文中的事实核对。任何正确数都可看本版分项题数、全部解析及四份完整复习指南，不估计总体英语能力、不派CEFR或考试等级、不认证岗位准备，也不测听说和即时写作。中文界面保留英文刺激，未建立跨语言测量等价。"
+    "zh": "通过24道原创书面英语任务，练习语法句式、语境词义、短文证据与实际消息，四组各六题。约10分钟，免费查看每题所选、正确答案、详细解析和四份完整复习指南。英文题句与选项在中英文界面中保持一致，说明与解析可选中文或英文。",
+    "en": "Practise twenty-four original written English tasks across grammar, contextual vocabulary, passage evidence and practical messages, six per group. Allow about ten minutes for every selected answer, key, explanation and four complete revision guides, all free. English stimuli and options stay the same in both interfaces; choose Chinese or English instructions and explanations."
   },
   "resultHeading": {
     "en": "Your written English practice results and every explanation",

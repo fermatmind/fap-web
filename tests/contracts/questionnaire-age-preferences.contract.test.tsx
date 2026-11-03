@@ -132,7 +132,8 @@ describe("original adult age-context choices and all seven complete readings", (
       }
       const meta = await entry.generateMetadata(props); expect(meta.title).toBe(quiz.seoTitle[locale]); expect(meta.description).toBe(quiz.description[locale]);
       const directory = document.createElement("div"); directory.innerHTML = renderToStaticMarkup(<MoreTests locale={locale}/>);
-      expect(directory.querySelectorAll(`a[href='${path}']`)).toHaveLength(1); expect(maps.filter(v => v.loc === "https://fermatmind.com" + path)).toHaveLength(1);
+      expect(directory.querySelectorAll(`article a[href='${path}']`)).toHaveLength(2);
+      expect(directory.querySelectorAll(`article:has(a[href='${path}'])`)).toHaveLength(1); expect(maps.filter(v => v.loc === "https://fermatmind.com" + path)).toHaveLength(1);
       expect(new Set(quiz.profiles.map(p => p.seo!.title[locale])).size).toBe(7);
       for (const p of quiz.profiles) {
         const path = `/${locale}/tests/explore/${quiz.slug}/results/${p.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: p.id }) };

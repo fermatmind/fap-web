@@ -95,7 +95,7 @@ describe("Original familiar body-outline observations, without official skeletal
       for (const locale of ["en", "zh"] as const) {
         const path = `/${locale}/tests/explore/${quiz.slug}`, props = { params: Promise.resolve({ locale, slug: quiz.slug }) };
         const html = renderToStaticMarkup(await entry.default(props)), meta = await entry.generateMetadata(props), dom = document.createElement("div"); dom.innerHTML = html;
-        expect(dom.querySelector("h1")?.textContent).toBe(quiz.title[locale]); expect(dom.textContent).toContain(quiz.instructions![locale]); expect(dom.textContent).toContain(locale === "zh" ? "原创轮廓观察 · 三篇全文免费" : "Original outline reflection · Three full guides free"); expect(html).not.toContain('type="checkbox"');
+        expect(dom.querySelector("h1")?.textContent).toBe(quiz.title[locale]); expect(dom.textContent).toContain(quiz.instructions![locale]); expect(dom.textContent).toContain(locale === "zh" ? "12条描述 · 约4分钟 · 无需注册 · 完整指南免费" : "12 descriptions · about 4 minutes · no signup · full guides free"); expect(html).not.toContain('type="checkbox"');
         expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
         const directory = document.createElement("div"); directory.innerHTML = renderToStaticMarkup(<MoreTests locale={locale} />); expect(directory.querySelector(`a[href="${path}"]`)).not.toBeNull();
         for (const profile of quiz.profiles) {

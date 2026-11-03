@@ -69,6 +69,8 @@ describe("T026 LIKED_REASON complete source questionnaire", () => {
       }
       layer = next;
     }
+    // Published examples must be possible under this exact paired item schedule.
+    for (const vector of ["8,3,3,3,3", "6,6,4,2,2", "6,6,6,1,1", "5,5,5,5,0", "4,4,4,4,4"]) expect(layer.has(vector), vector).toBe(true);
     const reached = new Set<string>();
     for (const state of layer.values()) {
       const expected = sourceScorer.scoreSubmission(sourceSubmission(state.answers), reference.itemBank, reference.scoringSpec);

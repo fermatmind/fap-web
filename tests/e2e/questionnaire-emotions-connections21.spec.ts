@@ -42,7 +42,7 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
     await expect(page.locator("[data-emotions-connections-full-guide]")).toHaveCount(7); await expect(page.locator("[data-emotions-connections-full-guide] h3")).toHaveCount(49);
     await expect(page.locator("[data-emotions-connections-support]")).toHaveCount(1);
-    await page.getByRole("button", { name: label(locale, "Begin reflection", "开始自我回顾"), exact: true }).click();
+    await page.locator("[data-explore-start]").click();
     const box = await page.locator("#emotions-connections-active-question").boundingBox(), header = await page.locator("header").first().boundingBox();
     expect(box!.y).toBeGreaterThanOrEqual(header ? header.y + header.height : 0);
     await page.getByRole("button", { name: label(locale, "Next", "下一条"), exact: true }).click();
@@ -55,7 +55,7 @@ for (const locale of ["en", "zh"] as const) {
     expect(leaks).toEqual([]); expect(errors).toEqual([]);
   });
   test(`@release original observations ${locale}:backedit, exit, reloadandpageleaveclearprivateanswers`, async ({ page }) => {
-    await page.goto(path(locale)); const start = () => page.getByRole("button", { name: label(locale, "Begin reflection", "开始自我回顾"), exact: true }).click();
+    await page.goto(path(locale)); const start = () => page.locator("[data-explore-start]").click();
     await start(); await page.locator('input[value="fits"]').check();
     await page.getByRole("button", { name: label(locale, "Next", "下一条"), exact: true }).click();
     await page.getByRole("button", { name: label(locale, "Back", "上一条"), exact: true }).click(); await expect(page.locator('input[value="fits"]')).toBeChecked();
@@ -66,7 +66,7 @@ for (const locale of ["en", "zh"] as const) {
     await page.locator('input[value="partly"]').check(); await page.evaluate(() => window.dispatchEvent(new PageTransitionEvent("pagehide")));
     await expect(page.locator('[data-emotions-connections-stage="ready"]')).toHaveCount(1); await start(); await expect(page.locator('input[value="partly"]')).not.toBeChecked();
     await page.locator('input[value="fits"]').check();
-    await page.getByRole("link", { name: label(locale, "All tests and practice", "全部测试与练习"), exact: true }).click();
+    await page.goto(`/${locale}/tests#more-tests`);
     await expect(page).toHaveURL(new RegExp(`/${locale}/tests#more-tests$`));
     await page.goBack(); await expect(page.locator('[data-emotions-connections-stage="ready"]')).toHaveCount(1);
     await start(); await expect(page.locator('input[value="fits"]')).not.toBeChecked();
@@ -92,11 +92,17 @@ test("@release original observations: hydration gates the start button until del
   let release!: () => void;
   const chunks = new Promise<void>(resolve => { release = resolve; });
   let delayed = 0;
+  // Slow styles can hold back the streamed content reveal before hydration.
+  // Keep JavaScript paused while exercising that independently delayed reveal.
+  await page.route("**/_next/static/**/*.css", async route => {
+    await new Promise(resolve => setTimeout(resolve, 6000));
+    await route.continue();
+  });
   await page.route("**/_next/static/**/*.js", async route => { delayed++; await chunks; await route.continue(); });
   try {
     await page.goto(path("en"), { waitUntil: "commit" });
-    const start = page.getByRole("button", { name: "Begin reflection", exact: true });
-    await expect(start).toBeVisible(); await expect.poll(() => delayed).toBeGreaterThan(0);
+    const start = page.locator("[data-explore-start]");
+    await expect(start).toBeVisible({ timeout: 30000 }); await expect.poll(() => delayed).toBeGreaterThan(0);
     await expect(start).toBeDisabled();
     release();
     await page.waitForLoadState("load");

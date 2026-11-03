@@ -15,21 +15,21 @@
     "en": "Long-term goal reflection: two complete parts"
   },
   "description": {
-    "zh": "免费毅力测试原创长期目标回顾版：16道频率题，分开理解目标延续与受阻后的努力续接。两份完整说明免费，不用总分、四等级或成功预测给自己定性。",
-    "en": "A free Grit Test reflection: 16 original items on long-term aims and returning to effort. Two full guides, without overall bands or success predictions."
+    "zh": "用16道原创频率题回顾同一长期目标，分别理解目标延续与受阻后的努力续接。免费查看两项均分、反向计分算例与完整指南，无需注册。",
+    "en": "Review one long-term aim through 16 original frequency items. Explore goal continuity and returning to effort with separate means, scoring examples and full guides, free without signup."
   },
   "seoTitle": {
-    "zh": "毅力测试：16道原创题与长期目标免费完整结果",
-    "en": "Grit Test: Free Long-Term Goal Reflection & Full Guides"
+    "zh": "毅力测试：16题长期目标回顾、独立计分与完整解读",
+    "en": "Grit Test: 16 Long-Term Goal Items, Separate Scores and Full Guides"
   },
   "minutes": 5,
   "introduction": {
-    "zh": "一个目标可以延续很久，方法却不断调整；你也可能很愿意努力，但投入的方向正在变化。本版把长期目标的延续与遇阻后的努力续接分开，用16条原创频率题回看你私下选择的一项目标，参照过去六个月，给出两份完整说明。它不是Duckworth的Grit-O或Grit-S标准量表，不把研究中的多年毅力当作这份短期回顾已测到的稳定特质。原计划持续半年以上的目标只需在心里选，不填写名称；没有目标或相关机会时可以明确保留NA。各八条至少六条有效才显示各自均分，不生成总体0—100、四等级或成功预测。目标已不适合时，调整、暂停或停止都需要根据现实考虑，分数不替你决定。全文免费，也可以先读说明再决定是否作答。",
-    "en": "An aim can continue while its methods change, and serious effort can also move between directions. This edition separates continuity of a long-term aim from returning to effort after setbacks, using sixteen original frequency items about one privately chosen aim and the past six months, with two full guides. It is not Duckworth’s Grit-O or Grit-S and does not establish a stable years-long trait from this shorter review. Privately choose an aim you intended to pursue for at least six months; no name is entered. NA preserves the absence of an aim or relevant opportunity. Each eight-item part needs six ratings for its own mean, without an overall 0–100 score, four bands or success predictions. Adjusting, pausing or stopping an unsuitable aim remains a decision informed by circumstances, not a score. Full text is free, and you can read it before deciding to answer."
+    "zh": "一个方向仍然重要，并不意味着每个方法都值得重复；一次暂停，也不必然代表放弃。这份毅力测试以你私下选定的一项长期目标为参照，用16条原创题回顾过去六个月的具体做法，分别呈现“长期目标的延续”与“受阻之后的努力续接”。完成后可查看两项独立均分及完整指南，把结果联系到实际安排、遇到的条件和下一步选择。目标名称不需要填写。",
+    "en": "An aim can remain important without every method being worth repeating; a pause need not mean abandonment. This Grit Test uses sixteen original items about one privately chosen long-term aim and the past six months. It separately describes continuity of that aim and returning to effort after setbacks. Read two independent means and full guides against actual plans, circumstances and next steps. No goal name is entered."
   },
   "instructions": {
-    "zh": "在心里选一项你曾打算持续半年以上、由自己选择的长期目标，以同一项目标回顾过去六个月。在出现相应机会且有现实选择空间时，题目所写做法出现得多频繁？按从不1至几乎总是5选择。没有这项目标、没有相关机会、资料不足或不愿回答，选单独NA，不猜测；目标名称不需要输入或上传。全部16条选择后显示两部分；各8条至少6条有效评分才显示均分，四条反向按6减有效评分处理。两份全文免费，没有总体毅力百分比、等级或成就预测，也不要求继续已不适合的目标。",
-    "en": "Privately choose one self-selected aim you intended to pursue for at least six months. Keep that same aim in mind while reviewing the past six months. When relevant opportunities and room to choose existed, how often did the stated practice occur? Select Never 1 through Almost always 5. Use separate NA for no such aim, no relevant opportunity, insufficient information or preferring not to answer, without guessing. No aim name is entered or uploaded. All sixteen selections finish the attempt. Each eight-item part needs six numeric ratings for its mean; four reverse items use six minus a valid rating. Both guides are free, without an overall grit percentage, level or achievement prediction, and you are not required to continue an unsuitable aim."
+    "zh": "在心里选一项由自己选择、原计划持续半年以上的目标，用同一项目标回顾过去六个月。在有相关机会和现实选择空间时，按从不1至几乎总是5评价题中做法的频率。没有这项目标、没有相关机会、资料不足或不愿回答，可选单独的不适用项，不必猜测。16条都选完后，每部分八条至少六条数值有效才有该项均分；两份指南始终免费可读。第9—12条反向计分，系统自动处理。点击开始直接进入题目，无需再次同意、注册或输入目标名称；可随时停止。",
+    "en": "Privately choose one self-selected aim you intended to pursue for at least six months. Keep the same aim in mind while reviewing the past six months. When relevant opportunities and room to choose existed, rate the stated practice from Never 1 to Almost always 5. Use separate NA for no such aim, no relevant opportunity, insufficient information or preferring not to answer, without guessing. After all sixteen selections, each eight-item part needs six numeric ratings for its mean. Both guides remain free and readable. Items 9–12 are reverse-keyed automatically. Start opens questions directly without another agreement, signup or goal name; you may stop at any time."
   },
   "source": {
     "kind": "FermatMind independently authored sixteen-item long-term-goal reflection. Two editorial observation topics informed by public discussions of direction and sustained effort; not the copyrighted Grit Scale, Grit-O/Grit-S, JobCannon twelve-item bank or a validated substitute.",
@@ -1486,6 +1486,20 @@
         "zh": "官方测量页面：版权、公开使用与前后变化的限制",
         "en": "Official measures page: copyright, public use and change-score limitations"
       }
+    },
+    {
+      "title": {
+        "zh": "Credé、Tynan与Harms（2017）：毅力研究的元分析",
+        "en": "Credé, Tynan & Harms (2017): meta-analytic synthesis of grit research"
+      },
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27845531/"
+    },
+    {
+      "title": {
+        "zh": "Wrosch等（2003）：不可达目标的脱离、重新投入与主观幸福感",
+        "en": "Wrosch et al. (2003): disengagement, reengagement and subjective well-being"
+      },
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15018681/"
     }
   ]
 }

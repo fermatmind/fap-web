@@ -1,3 +1,5 @@
+import { matteringLandingSections, matteringLandingFaq } from "./MatteringLandingEditorial";
+import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Mattering10Questionnaire } from "@/lib/questionnaires/mattering10";
@@ -17,15 +19,16 @@ export function Mattering10Page({ quiz, locale }: { quiz: Mattering10Questionnai
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="mattering10-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="mattering10-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
-    <nav aria-label={zh ? "面包屑" : "Breadcrumb"} className="mb-6 text-sm"><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "全部测试" : "All tests"}</Link></nav>
-    <p className="text-sm font-semibold text-violet-800">{zh ? "GMS五题＋AMS五题 · 两份完整指南免费" : "GMS 5 + AMS 5 · Two full guides free"}</p>
-    <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
-    <p className="mt-5 text-lg leading-8">{quiz.description[locale]}</p><p className="my-4 text-sm leading-7">{zh ? "10题 · 约3分钟 · 不计时 · 无需注册" : "10 questions · About 3 minutes · Untimed · No signup"}</p><p className="leading-8">{quiz.introduction[locale]}</p>
+    <ExploreTestIntro slug={quiz.slug} locale={locale}>
+    <h1 className="mt-3 text-4xl font-semibold leading-tight">{zh ? <><span className="inline-block">被重视感测试</span><wbr /><span className="inline-block">（GMS/AMS）</span></> : quiz.title[locale]}</h1>
+    <p className="mt-5 text-lg leading-8">{quiz.description[locale]}</p><div className="explore-intro-meta"><span>{zh ? "10题 · 约3分钟 · 不计时 · 无需注册" : "10 questions · About 3 minutes · Untimed · No signup"}</span><span>{zh ? "GMS五题＋AMS五题 · 两份完整指南免费" : "GMS 5 + AMS 5 · Two full guides free"}</span></div>
     <QuestionnaireMattering10Client quiz={quiz} locale={locale} readingProfiles={quiz.profiles.map(profile => prepareResultProfile(quiz.slug, profile))} />
-    <section className="my-10" aria-labelledby="mattering10-guides"><h2 id="mattering10-guides" className="text-2xl font-semibold">{zh ? "两份完整公开读法" : "Two full public readings"}</h2><p className="my-4 leading-8">{zh ? "不作答也可阅读；公开页面对所有人相同，不含个人分数。" : "Read without answering. Public pages are identical for everyone, without personal scores."}</p><ul className="space-y-5">{quiz.profiles.map(p => <li key={p.id} className="rounded-xl border bg-white p-5"><Link prefetch={false} className="inline-block min-h-11 py-2 text-xl font-semibold underline" href={questionnaireGuidePath(locale, quiz.slug, p.id)}>{p.title[locale]}</Link><p className="mt-2 leading-8">{p.summary[locale]}</p></li>)}</ul></section>
+    </ExploreTestIntro>
+    <section className="my-8 space-y-4"><h2 className="text-2xl font-semibold">{matteringLandingSections[0].title[locale]}</h2><p className="leading-8">{quiz.introduction[locale]}</p>{matteringLandingSections[0].paragraphs.map((p,i)=><p className="leading-8" key={i}>{p[locale]}</p>)}</section>
+    <section className="my-10" aria-labelledby="mattering10-guides"><h2 id="mattering10-guides" className="text-2xl font-semibold">{zh ? "两份完整公开读法" : "Two full public readings"}</h2><p className="my-4 leading-8">{zh ? "不作答也可阅读；公开页面对所有人相同，不含个人分数。" : "Read without answering. Public pages are identical for everyone, without personal scores."}</p><ul className="mattering10-public-grid">{quiz.profiles.map(p => <li key={p.id} className="rounded-xl border bg-white p-5"><Link prefetch={false} className="inline-block min-h-11 py-2 text-xl font-semibold underline" href={questionnaireGuidePath(locale, quiz.slug, p.id)}>{p.title[locale]}</Link><p className="mt-2 leading-8">{p.summary[locale]}</p></li>)}</ul></section>
     <Method quiz={quiz} locale={locale} />
-    <section className="my-10 space-y-6" aria-labelledby="mattering10-faq"><h2 id="mattering10-faq" className="text-2xl font-semibold">{zh ? "常见问题" : "Frequently asked questions"}</h2>{quiz.faq.map((f, i) => <section key={i}><h3 className="text-lg font-semibold">{f.question[locale]}</h3><p className="mt-2 leading-8">{f.answer[locale]}</p></section>)}</section>
-    <p className="text-sm leading-7 text-slate-600">{zh ? "网站内容版本" : "Website edition"}: {quiz.version} · {quiz.updated}</p>
+    <section className="my-10 space-y-6" aria-labelledby="mattering10-faq"><h2 id="mattering10-faq" className="text-2xl font-semibold">{zh ? "常见问题" : "Frequently asked questions"}</h2>{[...quiz.faq, ...matteringLandingFaq].map((f, i) => <section key={i}><h3 className="text-lg font-semibold">{f.question[locale]}</h3><p className="mt-2 leading-8">{f.answer[locale]}</p></section>)}</section>
+    <section className="explore-reading-library"><h2>{zh ? "深入阅读：两项体验、研究与结果使用" : "Reading in depth: two experiences, research and use"}</h2>{matteringLandingSections.slice(1).map(g=><section key={g.id}><h3>{g.title[locale]}</h3><div>{g.paragraphs.map((p,i)=><p key={i}>{p[locale]}</p>)}</div></section>)}</section>
   </Container></main>;
 }
 export function Mattering10GuidePage({ quiz, profile, locale }: { quiz: Mattering10Questionnaire; profile: QuestionnaireProfile; locale: Locale }) {

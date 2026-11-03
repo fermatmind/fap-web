@@ -14,21 +14,21 @@
     "en": "Your twelve game-class choices and every highest tie"
   },
   "description": {
-    "zh": "免费完成24道原创奇幻游戏情境，比较SRD5.2.1十二类基础职业。完整说明、场景与计分直接读，最高并列全部保留；非官方测试，不是现实职业建议。",
-    "en": "Take 24 original fantasy-play questions and compare twelve SRD base classes. Full tied guides, examples and scoring are free; no real-career assessment."
+    "zh": "用24道原创奇幻合作情境，探索十二类D&D游戏职业的游玩偏好。约8分钟，免费查看原始次数、全部最高并列及完整指南，比较术士、邪术师、法师等不同玩法，无需注册。",
+    "en": "Explore play preferences for twelve D&D classes through 24 original cooperative fantasy scenarios. About 8 minutes, with free raw counts, every highest tie and full guides comparing Sorcerer, Warlock, Wizard and other approaches. No signup needed."
   },
   "seoTitle": {
-    "zh": "D&D职业测试：龙与地下城十二类游戏职业与完整结果",
-    "en": "D&D Class Test: Free Quiz & Twelve Full Class Results"
+    "zh": "D&D职业测试：24题、十二类游戏职业与完整结果",
+    "en": "D&D Class Quiz: 24 Questions and Twelve Full Class Guides"
   },
   "minutes": 8,
   "introduction": {
-    "zh": "你想在虚构合作冒险中怎样参与？24道原创情境借SRD5.2.1十二类基础职业，比较原初力量、表演支援、神圣魔法、自然形态、武技、身法、誓言、路线、精细切口、自身魔法、契约与研习。十二份完整说明可先读，最高并列全部完整显示。这里的职业指游戏职业，不评现实人格、能力、就业或信仰，也不替你生成角色卡。",
-    "en": "How would you like to participate in a fictional cooperative adventure? Twenty-four original situations compare primal power, performance, divine support, nature and forms, martial technique, agile movement, an oath, routes, precise openings, innate magic, a pact and study through twelve SRD 5.2.1 base classes. Read all twelve full guides first and see every highest tie in full. Class means a game class rather than actual personality, ability, employment or belief, and no playable character sheet is generated."
+    "zh": "在虚构合作冒险中，你更想用原初力量迎接挑战、用表演支援同伴、变化形态寻找路线，还是研习法术做好准备？这份D&D职业测试用24道原创四选一，比较SRD 5.2.1中的十二类基础游戏职业。完成后查看十二项原始次数、所有最高并列与完整指南；不熟悉规则也可按想扮演的做法作答。\n\n这里的“职业”是龙与地下城角色的游戏类别，不是现实就业方向。结果整理的是本次想体验的奇幻玩法，不要求与现实性格相同，也不生成可直接使用的角色卡、子职或最强构筑。每份指南提供具体场景和相近职业比较，帮助你形成可与同桌讨论的游玩想法。",
+    "en": "In a fictional cooperative adventure, would you rather meet a challenge with primal power, support companions through performance, change form to find a route, or study spells and prepare? This D&D class quiz uses 24 original four-option scenarios to compare the twelve base classes in SRD 5.2.1. Completion shows twelve raw counts, every highest tie and full guides. You can answer from approaches you would enjoy playing without knowing the rules.\n\nClass means a Dungeons & Dragons character category, not employment. Results organize fantasy-play preferences for this attempt; they need not mirror real personality and generate no playable sheet, subclass or optimal build. Each guide offers concrete scenes and nearby-class comparisons to help discuss play ideas with your table."
   },
   "instructions": {
-    "zh": "24道原创奇幻游戏情境题，比较SRD5.2.1中的十二类基础职业游玩偏好：野蛮人、吟游诗人、牧师、德鲁伊、战士、武僧、圣武士、游侠、游荡者、术士、邪术师与法师。每题选一个更想在虚构合作故事里扮演的做法，不按现实里会不会、强不强回答；可以先读十二份完整说明。每选加1，每类出现8次、每位置2次，总数24；最高并列全部完整显示。职业指游戏职业，不是现实就业建议；不评属性、能力、善恶、信仰或心理，不是官方测验，也不从结果生成实际角色卡或换算MBTI。",
-    "en": "Twenty-four original fantasy-game situations compare play preferences for the twelve SRD 5.2.1 base classes: Barbarian, Bard, Cleric, Druid, Fighter, Monk, Paladin, Ranger, Rogue, Sorcerer, Warlock and Wizard. Choose an approach you would enjoy playing in a fictional cooperative story, rather than what you can actually do or how strong you are. Read all twelve full guides first if wanted. Each choice adds one; each class appears eight times, twice per position, and counts sum to twenty-four. Every highest tie appears in full. Class means a game class, not a real career. This unofficial quiz assesses no ability scores, skills, goodness, religious belief or psychology, produces no playable character sheet and converts into no MBTI type."
+    "zh": "每题从四种虚构做法中，选一个更想在合作故事里扮演的。多项都喜欢时选相对更想尝试的一项；没有完全合适时选较接近的。不按现实中会不会、身体强不强或哪类职业伤害最高作答，也无需提供姓名或私人经历。完成24题后生成十二项次数与所有最高并列的完整解读。",
+    "en": "Choose one of four fictional approaches you would most enjoy playing in a cooperative story. If several appeal, select the one you would rather try; if none fits fully, choose the closest. Do not answer from actual ability, physical strength or maximum damage. No name or private experience is required. Complete all 24 items for twelve counts and full readings for every highest tie."
   },
   "source": {
     "kind": "FermatMindoriginal24ENZH4choice/12SRD5.2.1baseclasses/unofficialfictionalplaypreferences/notrealpersonalitycareerorability",
@@ -2942,34 +2942,195 @@
     {
       "id": "archetype-counts",
       "title": {
-        "zh": "24题怎样形成十二类计数",
+        "zh": "24题怎样形成十二项职业次数",
         "en": "How 24 choices produce twelve class counts"
       },
       "paragraphs": [
         {
-          "zh": "24题全部各选一项，对应的本版职业游玩角度加1，总数24。每题提供十二类中的四类，每类全卷出现8次、每位置2次，未提供的八类不记拒绝。最高计数全部保留完整说明；全选第一项会十二类各2次、十二份完整显示。名单顺序不设主次，不自动指定第二职业；次数不是相似百分比、属性值、战力、适配概率或人口排名。相差一次只是一项选择，不证明显著差异、天赋或固定身份。近分可以自行比较，不补造并列；并列也不自动建议兼职业。本版没有常模、稀有度、科学分界或心理测量验证，故事情境与理解改变时，选择也可以改变。",
-          "en": "Choose one option for all 24 items; each adds one to its editorial class play angle and counts sum to 24. Four of twelve classes appear per item. Each appears eight times, twice in each position; absent classes are not rejections. Every highest count retains its full guide. Choosing the first option throughout gives two each and all twelve guides. List order establishes no priority or automatic second class. Counts are neither similarity percentages, ability scores, power, fit probabilities nor population ranks. One extra choice proves no significance, talent or fixed identity. Compare close guides without inventing ties; ties prescribe no multiclassing. This edition has no norms, rarity estimates, scientific cutoffs or psychometric validation. Changing stories and interpretations can change choices."
+          "zh": "每题提供十二类中的四个选项，选中项对应职业加1次。完成24题后十二项之和为24。每类出现8次，四个位置各2次，单项范围0—8。某题未提供的八类不算被拒绝，也不扣分。",
+          "en": "Each item offers four of twelve classes. The selected class gains one; all twelve counts sum to 24 on completion. Each appears eight times, twice per position, giving a range of 0–8. The eight classes absent from an item are not rejected and lose no points."
+        },
+        {
+          "zh": "例如，按野蛮人、吟游诗人、牧师、德鲁伊、战士、武僧、圣武士、游侠、游荡者、术士、邪术师、法师顺序，次数1、0、2、2、2、2、2、2、1、4、2、4，总和24。术士与法师共同最高，均提供完整指南。4是本题组选中4项，不是四成相似、属性值或人群位置。",
+          "en": "For example, counts of 1, 0, 2, 2, 2, 2, 2, 2, 1, 4, 2, 4 in the order Barbarian, Bard, Cleric, Druid, Fighter, Monk, Paladin, Ranger, Rogue, Sorcerer, Warlock and Wizard sum to 24. Sorcerer and Wizard share the maximum, so both full guides appear. Four means four selections here, not a similarity percentage, ability score or population position."
         }
       ]
     },
     {
       "id": "archetype-ties",
       "title": {
-        "zh": "完整结果、并列与相近职业",
-        "en": "Full guides, ties and nearby classes"
+        "zh": "全部最高并列、相近次数与多职业的区别",
+        "en": "Highest ties, close counts and multiclassing are different"
       },
       "paragraphs": [
         {
-          "zh": "十二份完整说明各有职业语境、游玩选择、虚构场景、同桌沟通、十一职业对照、反例、纸上尝试、计分和来源署名。所有最高并列逐份完整显示，不按名单顺序选主型，也不自动推荐兼职业。公开页不含私有答卷或次数；相近结果可以自选比较，不把一次选择差写成科学适配度。",
-          "en": "Each of twelve guides includes class context, play choices, a fictional scene, table discussion, eleven comparisons, counterexamples, an imaginary tryout, scoring and source attribution. Every highest tie appears in full without list-order priority or automatic multiclassing advice. Public guides contain no private answers or counts. Choose close guides to compare without converting a one-choice gap into scientific suitability."
+          "zh": "所有达到相同最高次数的职业均保留，不按名单、题号或选项位置强分。始终选择同一位置会得到十二类各2次。并列是合法结果，不随机只选一类；每份最高并列指南均完整展示。差1次只说明多选了一项，本版没有显著性检验或近分合并阈值。",
+          "en": "Every class sharing the maximum is retained without priority by roster, question order or option position. Choosing the same position throughout gives two each for all twelve. A tie is valid, without randomly selecting one; every highest-tied guide appears in full. A one-count gap means one extra selection, with no significance test or threshold merging close counts."
+        },
+        {
+          "zh": "两个职业并列，只表示两类玩法在本次题组获得相同最高次数，不自动组成规则中的多职业角色。实际多职业涉及所用版本的条件、等级分配与规则；本测试不生成这些内容。低次数也不表示不会玩、缺少勇气或没有魔法天赋。",
+          "en": "Two tied classes mean two play approaches share the highest count in this questionnaire, not an automatic multiclass character. Actual multiclassing involves edition-specific requirements, level allocation and rules that this quiz does not generate. Lower counts do not show inability to play, missing courage or absent magical talent."
         }
       ]
     },
     {
       "id": "archetype-metaphor",
       "title": {
-        "zh": "游戏职业、规则版本与现实测评的区别",
-        "en": "Game classes, rule versions and actual assessment"
+        "zh": "十二份完整指南：从偏好读到可讨论的玩法",
+        "en": "Twelve full guides: from preferences to play ideas"
+      },
+      "paragraphs": [
+        {
+          "zh": "每类职业都有规则语境、本版解释、虚构场景、同桌沟通例子、其他十一类的比较、反例、小尝试、计分与来源说明。公开指南可以先读，不含私人答卷。完成后所有最高并列均有完整内容，无需付费解锁或另做测试。",
+          "en": "Each class has rules context, this edition’s reading, a fictional scene, table-discussion wording, eleven-class comparisons, counterexamples, a small activity, scoring and sources. Public guides can be read first and contain no private answers. Every highest tie has full content without a paid unlock or another test."
+        },
+        {
+          "zh": "把“我是法师”换成更具体的想法，例如“我想扮演一个通过研习和准备解决谜题的人物”。再看自己是否喜欢这类叙事、愿意处理哪些游戏资源，以及同桌期待怎样合作。结果是讨论入口，不替你决定角色或保证实际游玩体验。",
+          "en": "Replace “I am a Wizard” with a concrete idea, such as playing someone who approaches puzzles through study and preparation. Consider the narrative you enjoy, the game resources you want to manage and how the table wants to cooperate. Results start a discussion rather than choose a character or guarantee play experience."
+        }
+      ]
+    },
+    {
+      "id": "dnd-twelve-classes",
+      "title": {
+        "zh": "十二类职业各有什么游玩主题",
+        "en": "What themes distinguish the twelve classes"
+      },
+      "paragraphs": [
+        {
+          "zh": "野蛮人关注原初力量与直接投入；吟游诗人关注表演与灵活支援；牧师关注神圣魔法与同伴支援；德鲁伊关注自然魔法与形态变化。战士强调练熟的武技与明确招式，武僧强调徒手风格与灵活移动。这些是本版题目采用的有限入口，不是完整职业能力表。[2][4]",
+          "en": "Barbarian emphasizes primal power and direct commitment; Bard performance and versatile support; Cleric divine magic and allies; Druid nature magic and changing form. Fighter emphasizes practised technique and clear moves, Monk unarmed style and agile movement. These are limited lenses used in our items, not complete class-feature tables.[2][4]"
+        },
+        {
+          "zh": "圣武士关注誓言与守护；游侠关注荒野路线与多样手段；游荡者关注巧妙切入与精细操作。术士、邪术师、法师分别以自身魔法与塑形、契约故事与奇异魔法、研习与准备为入口。真实规则还随等级、子职和选择变化，不能把职业压缩成唯一队伍岗位。[2][4]",
+          "en": "Paladin concerns an oath and protection; Ranger wilderness routes and mixed approaches; Rogue clever openings and precision. Sorcerer, Warlock and Wizard emphasize innate magic and shaping, pact stories and unusual magic, and study and preparation. Actual rules vary with level, subclass and choices; a class is not one fixed party job.[2][4]"
+        }
+      ]
+    },
+    {
+      "id": "dnd-caster-comparison",
+      "title": {
+        "zh": "术士、邪术师与法师：魔法来源和体验的区别",
+        "en": "Sorcerer, Warlock and Wizard: sources and experiences of magic"
+      },
+      "paragraphs": [
+        {
+          "zh": "术士的本版角度是角色自身的魔法及其塑形；法师的角度是研习、记录与准备；邪术师的角度是异界联系、契约故事与奇异知识。SRD对三者采用不同职业规则，本测试用叙事选择比较兴趣，不把它们简化为“天才、聪明人和坏人”。[2]",
+          "en": "Our Sorcerer lens concerns a character’s innate magic and its shaping; Wizard study, records and preparation; Warlock otherworldly connections, pact stories and unusual knowledge. The SRD gives them different rules. This quiz compares narrative interests rather than reducing them to a genius, an intellectual and a villain.[2]"
+        },
+        {
+          "zh": "例如面对魔法古门，可以想象让自身力量形成一种办法、查阅法术记录再尝试，或沿虚构契约线索理解阻碍。这些选择不测现实天赋、智商、学历或信仰。某次喜欢即兴魔法，下次喜欢研究型角色，也不构成心理矛盾。",
+          "en": "At a magical gate, you might imagine shaping innate power, consulting spell records, or following a fictional pact clue. These choices measure no actual talent, IQ, education or belief. Enjoying improvisational magic on one occasion and a scholarly character on another creates no psychological contradiction."
+        }
+      ]
+    },
+    {
+      "id": "dnd-nearby-comparisons",
+      "title": {
+        "zh": "相近职业怎样比较：力量、支援与自然",
+        "en": "Comparing nearby classes: power, support and nature"
+      },
+      "paragraphs": [
+        {
+          "zh": "野蛮人、战士与武僧都可参与行动场景，但这里分别看原初投入、练熟招式和徒手移动的想象。吟游诗人与牧师都可支援同伴，但分别以表演和神圣魔法展开；圣武士则把自选誓言与守护放在故事中心。不能仅凭“喜欢帮助人”就唯一对应某类。",
+          "en": "Barbarian, Fighter and Monk can share action scenes, but here emphasize primal commitment, practised moves and unarmed movement. Bard and Cleric can support allies through performance or divine magic; Paladin puts a chosen oath and protection at the story’s centre. Enjoying helping does not identify one unique class."
+        },
+        {
+          "zh": "德鲁伊与游侠都涉及自然环境，前者侧重自然魔法和变化形态，后者侧重路线与多样手段；游荡者的精细切入也可以出现在探索中。应比较选项中的动作和你想体验的场景，而不是把喜欢森林、独处或解谜直接当职业标签。",
+          "en": "Druid and Ranger both involve natural settings: one emphasizes magic and forms, the other routes and mixed methods. Rogue precision can also feature in exploration. Compare actions and desired scenes rather than treating a liking for forests, solitude or puzzles as a class identity."
+        }
+      ]
+    },
+    {
+      "id": "dnd-edition-scope",
+      "title": {
+        "zh": "SRD 5.2.1、十二类名单与规则范围",
+        "en": "SRD 5.2.1, the twelve-class roster and rules scope"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版以SRD 5.2.1的十二类基础职业为范围。官方SRD入口提供这一规则参考文件；它与完整书籍、其他版本和扩展职业不是同一范围。[1][2] 本页不包含奇械师、子职、物种、背景或阵营测评，也不生成《博德之门3》等电子游戏构筑。",
+          "en": "This edition uses the twelve base classes in SRD 5.2.1. The official SRD page provides that rules reference; its scope differs from full books, other editions and expanded classes.[1][2] This quiz includes no Artificer, subclasses, species, backgrounds or alignment assessment, and generates no Baldur’s Gate 3 or other video-game build."
+        },
+        {
+          "zh": "实际开团前，先与主持人确认采用哪套规则、可选内容、起始等级及角色创建方式。相同职业名在不同版本、翻译和电子游戏中未必有相同机制。本页中文为独立翻译，完整规则请回到所用版本；结果不替代属性、装备、法术和资源选择。",
+          "en": "Before playing, confirm the rules, permitted content, starting level and character creation with the game master. A shared class name need not mean identical mechanics across editions, translations or video games. Chinese wording here is independently translated; consult the edition you use for rules. Results do not replace ability, equipment, spell or resource choices."
+        }
+      ]
+    },
+    {
+      "id": "dnd-fiction-and-person",
+      "title": {
+        "zh": "角色职业与现实中的你可以不同",
+        "en": "A character class can differ from your everyday self"
+      },
+      "paragraphs": [
+        {
+          "zh": "选择野蛮人不说明现实易怒，选择游荡者不说明不诚实，选择邪术师不说明邪恶或服从。神圣魔法、誓言与契约是虚构故事元素，不据此判断宗教或道德。法师、吟游诗人与武僧结果也不认证智力、社交天赋或身体能力。",
+          "en": "Choosing Barbarian establishes no actual anger, Rogue no dishonesty, and Warlock no evil or obedience. Divine magic, oaths and pacts are fictional story elements, not verdicts of religion or morality. Wizard, Bard and Monk results certify no intelligence, social talent or bodily ability."
+        },
+        {
+          "zh": "角色扮演允许尝试与日常习惯不同的表达：安静的玩家可以喜欢舞台感，喜欢计划的人也可以扮演直接行动的角色。本题问“想玩什么”，不是“真实身份是什么”。它不用于心理诊断、现实就业、同伴优劣或关系契合评价。",
+          "en": "Roleplay allows expression unlike everyday habits: a quiet player can enjoy a theatrical role, and a planner can play direct action. The question is what you want to play, not your true identity. Results are not used for diagnosis, employment, ranking companions or relationship compatibility."
+        }
+      ]
+    },
+    {
+      "id": "dnd-table-conversation",
+      "title": {
+        "zh": "怎样把结果用于一次同桌讨论",
+        "en": "Using a result in a table discussion"
+      },
+      "paragraphs": [
+        {
+          "zh": "选一个共同认可的虚构场景，例如如何通过魔法古门。先描述最想体验的动作，再说明不想承担的固定职责，例如“我想试表演支援，但不想每次都负责交涉”。邀请同桌补充，给不同玩家留出轮流参与的空间。",
+          "en": "Choose a shared fictional scene, such as passing a magical gate. Describe the action you want to try, then any role you do not want fixed on you: for example, enjoying performance support without handling every negotiation. Invite others to contribute and leave room for turns in participation."
+        },
+        {
+          "zh": "这是故事讨论，不是规则试运行或能力训练。是否能成功、消耗什么资源、需要怎样掷骰，应按所用规则与主持人裁定。可先读两三份相近指南，再尝试一段短场景；不因测试结果强迫自己或同桌接受某类角色。",
+          "en": "This is story discussion, not a rules simulation or ability training. Success, resource costs and dice procedures depend on the rules and game master. Read two or three nearby guides and try a short scene without forcing yourself or anyone else into a class because of a quiz result."
+        }
+      ]
+    },
+    {
+      "id": "dnd-evidence",
+      "title": {
+        "zh": "计数可复算与测量证据是两回事",
+        "en": "Reproducible counts and measurement evidence are different"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版是原创非官方游玩偏好问卷，尚未建立信度、效度或人群常模。曝光均衡与规则可复算，使计数过程可检查；不证明十二类是现实人格结构，也不保证所有职业在真实用户中同样常见。游戏规则资料不构成人格测量验证。",
+          "en": "This original unofficial play-preference questionnaire has unestablished reliability, validity and population norms. Balanced exposure and reproducible rules make counting checkable; they do not establish twelve real personality constructs or equally common results in users. Game rules do not validate personality measurement."
+        },
+        {
+          "zh": "不同测验可能问现实特质、价值观、战斗风格或规则管理偏好，题数、职业集合和算法也不同。同名结果不使分数可换算。重测时先看想玩的故事与具体选项是否改变；少量选择变化使最高职业换位，不足以证明人格改变或原结果错误。",
+          "en": "Other quizzes may ask about real traits, values, combat style or rules management, using different lengths, rosters and algorithms. Shared result names do not make scores convertible. When retesting, compare the story you want and changed choices; small shifts that reorder maxima establish neither personality change nor an invalid earlier result."
+        }
+      ]
+    },
+    {
+      "id": "dnd-free-privacy",
+      "title": {
+        "zh": "免费完整结果、直接开始与答案隐私",
+        "en": "Free full results, direct start and answer privacy"
+      },
+      "paragraphs": [
+        {
+          "zh": "全部24题、十二项次数、最高并列与十二份完整指南免费，无需注册或先做其他测试。点击开始直接进入题目，没有额外同意步骤。约8分钟是参考，不限时、不按速度计分；完成全部题目后生成个人结果，公开指南可先读。",
+          "en": "All 24 items, twelve counts, highest ties and twelve full guides are free without signup or another test. Start opens questions directly without an extra agreement. About eight minutes is an estimate, not a time limit or speed score. Personal results follow all answers; public guides can be read first."
+        },
+        {
+          "zh": "答案在浏览器内计分，不通过计分请求上传，也不写入网址或分析事件。默认不保存；主动保存后本标签页进度24小时失效，完成、重测或退出清除后删除。固定公开指南不含私人答卷或次数；其他使用事件依隐私与Cookie设置。",
+          "en": "Answers are scored in the browser, not uploaded through scoring requests or included in URLs or analytics events. Progress is unsaved by default; opt-in tab progress expires after 24 hours and clears on completion, retake or explicit exit-and-clear. Fixed public guides contain no private answers or counts; other usage events follow privacy and Cookie settings."
+        }
+      ]
+    },
+    {
+      "id": "dnd-attribution",
+      "title": {
+        "zh": "来源、独立改写与SRD署名",
+        "en": "Sources, independent adaptation and SRD attribution"
       },
       "paragraphs": [
         {
@@ -2977,70 +3138,147 @@
           "en": "This independently authored FermatMind 24-item unofficial fantasy-game quiz selects the twelve SRD 5.2.1 base classes for limited readings of current play preferences. Class means a game class, not a real career, actual personality or complete rules taxonomy. The selection excludes other D&D versions, expanded classes, Artificer, subclasses, species, alignment and video-game builds. Items, options, mappings, counts, examples and explanations are original; brief class context is editorially adapted and independently translated into Chinese rather than replacing actual rules. No IDR 60-item bank, competitor text or algorithm, official art, protected book questions, full spells or character assets are adopted. Only actual SRD content falls under its CC-BY-4.0 terms, not all Basic Rules, trademarks, artwork or other books. No official partnership, authorisation or endorsement is claimed. This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode. Adaptation and translation represent no views of the original author. Results assess no actual body, IQ, psychology, religion, morality, danger, culture, ancestry, gender, relationship or career, instruct no actual weapons, survival, lock-picking, spiritual or magical practice, and generate no playable sheet, optimal build or MBTI type."
         }
       ]
-    },
-    {
-      "id": "privacy",
-      "title": {
-        "zh": "草稿、分享与可选下一步",
-        "en": "Drafts, sharing and optional next steps"
-      },
-      "paragraphs": [
-        {
-          "zh": "答案在浏览器内计分，不上传、不进网址或分析。草稿需主动开启，只在本标签页恢复，24小时失效，完成、重测、退出清除即删除。分享自选，只含公开职业说明和链接，不含答案或次数。完整结果免费，无需注册、邮箱或另一测试；后续测评可不做，选择继续需要另外作答。",
-          "en": "Answers are scored in your browser without uploading them or placing them in URLs or analytics. Drafts require opt-in, restore only in this tab, expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains public class guides and links without answers or counts. Full results are free without signup, email or another test; further assessments are optional and require new answers."
-        }
-      ]
     }
   ],
   "faq": [
     {
       "question": {
-        "zh": "D&D职业测试包括哪十二类、哪个版本？",
-        "en": "Which twelve classes and version does this D&D class quiz use?"
+        "zh": "D&D职业测试测什么？",
+        "en": "What does the D&D class quiz explore?"
       },
       "answer": {
-        "zh": "本版选SRD5.2.1的野蛮人、吟游诗人、牧师、德鲁伊、战士、武僧、圣武士、游侠、游荡者、术士、邪术师与法师十二类基础职业。不声称覆盖所有D&D版本、奇械师、子职、物种、阵营或BG3构筑；这里的职业是游戏职业，不是就业分类。",
-        "en": "This edition selects Barbarian, Bard, Cleric, Druid, Fighter, Monk, Paladin, Ranger, Rogue, Sorcerer, Warlock and Wizard from SRD 5.2.1. It covers neither every D&D version, Artificer, subclasses, species, alignment nor video-game builds. Class means a game class rather than employment."
+        "zh": "比较你想在虚构合作冒险中体验的十二类游戏玩法。用24题整理本次选择，不测现实职业、人格或身体能力，也不要求结果和日常性格相同。",
+        "en": "Preferences for twelve kinds of fictional cooperative play, organized through 24 choices. It assesses no actual career, personality or bodily ability, and need not mirror everyday habits."
       }
     },
     {
       "question": {
-        "zh": "没玩过龙与地下城也能做吗？",
-        "en": "Can I answer without having played Dungeons & Dragons?"
+        "zh": "包含哪十二类职业？为什么没有奇械师？",
+        "en": "Which twelve classes are included? Why no Artificer?"
       },
       "answer": {
-        "zh": "可以。按更想在虚构合作故事里体验哪种做法选择，不按现实会不会或强不强回答，也没有剧情知识答对。十二份完整说明可先读；真实建卡、法术与规则仍需另外核对本桌采用材料，问卷不替代它们。",
-        "en": "Yes. Choose what you would enjoy in a fictional cooperative story rather than actual ability, strength or correct trivia. Read all twelve full guides first if wanted. Actual character creation, spells and rules still require the table’s chosen material; this quiz does not replace them."
+        "zh": "野蛮人、吟游诗人、牧师、德鲁伊、战士、武僧、圣武士、游侠、游荡者、术士、邪术师、法师。本版范围是SRD 5.2.1十二类，不代表所有版本或扩展内容。",
+        "en": "Barbarian, Bard, Cleric, Druid, Fighter, Monk, Paladin, Ranger, Rogue, Sorcerer, Warlock and Wizard. This edition selects the twelve in SRD 5.2.1, not every edition or expansion."
       }
     },
     {
       "question": {
-        "zh": "最高并列、近分和次数怎样理解？",
-        "en": "How do highest ties, close choices and counts work?"
+        "zh": "没玩过D&D也能做吗？",
+        "en": "Can I answer without having played D&D?"
       },
       "answer": {
-        "zh": "24题全部各选一项，对应的本版职业游玩角度加1，总数24。每题提供十二类中的四类，每类全卷出现8次、每位置2次，未提供的八类不记拒绝。最高计数全部保留完整说明；全选第一项会十二类各2次、十二份完整显示。名单顺序不设主次，不自动指定第二职业；次数不是相似百分比、属性值、战力、适配概率或人口排名。相差一次只是一项选择，不证明显著差异、天赋或固定身份。近分可以自行比较，不补造并列；并列也不自动建议兼职业。本版没有常模、稀有度、科学分界或心理测量验证，故事情境与理解改变时，选择也可以改变。",
-        "en": "Choose one option for all 24 items; each adds one to its editorial class play angle and counts sum to 24. Four of twelve classes appear per item. Each appears eight times, twice in each position; absent classes are not rejections. Every highest count retains its full guide. Choosing the first option throughout gives two each and all twelve guides. List order establishes no priority or automatic second class. Counts are neither similarity percentages, ability scores, power, fit probabilities nor population ranks. One extra choice proves no significance, talent or fixed identity. Compare close guides without inventing ties; ties prescribe no multiclassing. This edition has no norms, rarity estimates, scientific cutoffs or psychometric validation. Changing stories and interpretations can change choices."
+        "zh": "可以。按更想扮演的虚构做法选择，不考规则、法术名或剧情知识。完整指南解释角色主题；实际游戏仍需确认同桌采用的规则。",
+        "en": "Yes. Choose fictional approaches you would enjoy, without rules, spell-name or plot recall. Guides explain themes; actual play still requires the rules used at your table."
       }
     },
     {
       "question": {
-        "zh": "结果能决定真实职业、属性、信仰或道德吗？",
-        "en": "Can a result decide actual work, ability scores, belief or morality?"
+        "zh": "十二项次数怎样计算？",
+        "en": "How are the twelve counts calculated?"
       },
       "answer": {
-        "zh": "这是费马独立创作的24题非官方奇幻游戏问卷，选SRD5.2.1的十二类基础职业，用有限游玩角度解释当前选择。职业指游戏职业，不是现实就业、真实人格或完整规则分类；不包括所有D&D版本、扩展职业、奇械师、子职、物种、道德阵营或BG3构筑。题目、选项、映射、计数、例子与解释原创；职业背景为简要编辑改写，中文为独立翻译，不替代原版游戏规则。未采用IDR60题、竞品正文／算法、官方立绘、其他受保护书题、法术全文或角色素材。只有实际SRD内容适用其CCBY4.0，不扩大到全BasicRules、商标、画作或其他书；本站不声称官方合作、授权或认可。原署名如下：This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode. 本版改写与翻译不代表原作者观点；结果不评现实身体、智商、心理、宗教、道德、危险、文化、血缘、性别、关系或职业，不提供现实武器、野外生存、开锁、修行或魔法练习，不生成可玩角色卡、最强构筑或MBTI类型。",
-        "en": "This independently authored FermatMind 24-item unofficial fantasy-game quiz selects the twelve SRD 5.2.1 base classes for limited readings of current play preferences. Class means a game class, not a real career, actual personality or complete rules taxonomy. The selection excludes other D&D versions, expanded classes, Artificer, subclasses, species, alignment and video-game builds. Items, options, mappings, counts, examples and explanations are original; brief class context is editorially adapted and independently translated into Chinese rather than replacing actual rules. No IDR 60-item bank, competitor text or algorithm, official art, protected book questions, full spells or character assets are adopted. Only actual SRD content falls under its CC-BY-4.0 terms, not all Basic Rules, trademarks, artwork or other books. No official partnership, authorisation or endorsement is claimed. This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode. Adaptation and translation represent no views of the original author. Results assess no actual body, IQ, psychology, religion, morality, danger, culture, ancestry, gender, relationship or career, instruct no actual weapons, survival, lock-picking, spiritual or magical practice, and generate no playable sheet, optimal build or MBTI type."
+        "zh": "每题选四项之一，职业加1；总数24。每类出现8次、四位置各2次，范围0—8。未提供的八类不算被拒绝，次数不是属性值或相似百分比。",
+        "en": "One of four options adds one to its class; counts total 24. Each class appears eight times, twice per position, with range 0–8. Eight absent classes are not rejected. Counts are not ability scores or similarity percentages."
       }
     },
     {
       "question": {
-        "zh": "完整结果、重测和分享免费吗？",
-        "en": "Are full results, retaking and sharing free?"
+        "zh": "术士和法师一起最高，怎样读？",
+        "en": "How do I read a Sorcerer and Wizard tie?"
       },
       "answer": {
-        "zh": "免费，十二份完整说明可先读，答完24题后最高并列全部完整显示，无需邮箱或其他测试解锁。重测清除本次选择，分享自选且不含答案或次数。后续MBTI需独立重新作答，不从游戏职业结果换算。",
-        "en": "Yes. Read all twelve full guides first; every highest tie appears after 24 choices, without email or another test to unlock it. Retaking clears this attempt. Optional sharing contains no answers or counts. Further MBTI questions require separate answers rather than conversion from a game class."
+        "zh": "例如按名单次数1、0、2、2、2、2、2、2、1、4、2、4时，两者共同最高。分别读自身魔法塑形与研习准备的指南，不强行选一类；始终选同一位置会十二类各2次。",
+        "en": "Counts of 1, 0, 2, 2, 2, 2, 2, 2, 1, 4, 2, 4 in roster order tie both at four. Read innate shaping and studied preparation without forcing one winner. Choosing the same position throughout gives two each."
+      }
+    },
+    {
+      "question": {
+        "zh": "并列是否意味着适合多职业构筑？",
+        "en": "Does a tie mean a multiclass build suits me?"
+      },
+      "answer": {
+        "zh": "不自动意味着。并列是本题本的相同最高次数；规则多职业另有条件、等级与资源机制。本测试不生成构筑或判断其强度，实际创建需按所用规则。",
+        "en": "Not automatically. A tie is equal highest counts here; rules-based multiclassing has separate requirements, levels and resources. No build or power assessment is generated. Create characters using your actual rules."
+      }
+    },
+    {
+      "question": {
+        "zh": "术士、邪术师、法师有什么区别？",
+        "en": "How do Sorcerer, Warlock and Wizard differ here?"
+      },
+      "answer": {
+        "zh": "术士看自身魔法与塑形，邪术师看契约故事与奇异魔法，法师看研习与准备。这些是虚构玩法角度，不分别代表现实天赋、邪恶和智力。",
+        "en": "Sorcerer emphasizes innate magic and shaping, Warlock pact stories and unusual magic, Wizard study and preparation. These fictional play lenses do not represent actual talent, evil or intellect."
+      }
+    },
+    {
+      "question": {
+        "zh": "战士、野蛮人和武僧如何比较？",
+        "en": "How do Fighter, Barbarian and Monk compare?"
+      },
+      "answer": {
+        "zh": "本版分别强调练熟武技、原初投入、徒手风格与移动。它们都可参与行动场景，不是现实力量、纪律、愤怒或灵性等级。",
+        "en": "This edition emphasizes practised technique, primal commitment, and unarmed style with movement. All can feature in action scenes without ranking actual strength, discipline, anger or spirituality."
+      }
+    },
+    {
+      "question": {
+        "zh": "牧师、圣武士结果会判断我的信仰吗？",
+        "en": "Do Cleric or Paladin results judge my religion?"
+      },
+      "answer": {
+        "zh": "不会。神圣魔法和自选誓言是故事元素。它们也不要求你固定担任治疗者、牺牲者或队伍负责人；实际角色职责可与同桌讨论。",
+        "en": "No. Divine magic and a chosen oath are story elements. They also impose no fixed healer, self-sacrifice or leadership role; discuss actual responsibilities with your table."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是官方或经过验证的人格测试吗？",
+        "en": "Is this official or a validated personality test?"
+      },
+      "answer": {
+        "zh": "这是费马原创非官方游玩偏好问卷，尚未建立信度、效度和常模。SRD核对职业背景与规则范围，不验证题本或人格解释。",
+        "en": "This original unofficial FermatMind play-preference questionnaire has unestablished reliability, validity and norms. The SRD checks class context and rules scope, not the questionnaire or personality interpretations."
+      }
+    },
+    {
+      "question": {
+        "zh": "低次数或只差一次表示什么？",
+        "en": "What does a lower count or a one-count gap mean?"
+      },
+      "answer": {
+        "zh": "只说明本次相对少选或多选一项，不证明不会玩或能力差异。没有统计显著性和近分合并阈值，可同时阅读相近职业并比较想体验的场景。",
+        "en": "Only fewer or more selections here, not inability to play or an ability gap. There is no significance test or close-count merging threshold. Read nearby classes and compare desired scenes."
+      }
+    },
+    {
+      "question": {
+        "zh": "能生成角色卡、最强职业或BG3构筑吗？",
+        "en": "Can it generate a sheet, best class or BG3 build?"
+      },
+      "answer": {
+        "zh": "不能。结果是十二类玩法指南，不计算属性、等级、装备、法术、子职或电子游戏机制。实际角色创建应核对版本、允许内容与同桌安排。",
+        "en": "No. Results guide twelve play themes without calculating abilities, levels, equipment, spells, subclasses or video-game mechanics. Check edition, allowed content and table arrangements for actual creation."
+      }
+    },
+    {
+      "question": {
+        "zh": "免费吗？点击开始后还要再同意吗？",
+        "en": "Is it free? Must I agree again after Start?"
+      },
+      "answer": {
+        "zh": "全部题目、次数、最高并列和十二份指南免费，无需注册。点击开始直接进入题目，没有额外同意步骤。约8分钟是参考，不限时。",
+        "en": "Questions, counts, highest ties and twelve guides are free without signup. Start opens questions directly without an extra agreement. About eight minutes is an estimate, not a limit."
+      }
+    },
+    {
+      "question": {
+        "zh": "答案会上传、保存或分享吗？",
+        "en": "Are answers uploaded, saved or shared?"
+      },
+      "answer": {
+        "zh": "浏览器内计分，答案不进入计分上传、网址或分析事件。可选本标签页进度24小时失效，完成、重测或退出清除后删除。公开指南不含私人答卷或次数，其他使用事件依隐私设置。",
+        "en": "Scoring runs in the browser; answers are not included in scoring uploads, URLs or analytics events. Optional tab progress expires after 24 hours and clears on completion, retake or exit-and-clear. Public guides contain no private answers or counts; other usage events follow privacy settings."
       }
     }
   ],

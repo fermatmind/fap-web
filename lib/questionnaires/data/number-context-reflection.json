@@ -1191,12 +1191,12 @@
     "zh": "日常数字：个人回顾"
   },
   "description": {
-    "en": "20 original adult observations about everyday quantities, calculation steps, time, measures and prices. Four full bilingual guides, free. Recall only; no diagnosis or ability score.",
-    "zh": "20条成年人原创观察，回顾日常数量、计算步骤、时间度量和价格信息。四篇双语全文免费；只凭回忆，不作诊断或能力评分。"
+    "en": "Recall the past four weeks through 20 original observations about quantities, calculation steps, time, measures and prices. Read four complete guides and your category counts free, without registration.",
+    "zh": "通过20条原创观察，回顾过去四周的数量理解、计算步骤、时间度量与价格信息。免费阅读四篇完整指南与自己的类别计数，无需注册。"
   },
   "introduction": {
-    "en": "Recall everyday number-related experiences without solving a task. Four overlapping editorial topics remain separate categorical records, not validated dimensions or a dyscalculia test. Tool use and maths anxiety are not additional diagnostic indicators.",
-    "zh": "不必做题，回顾日常数字经历。四个可能重叠的编辑主题各自记录类别，不是验证维度或计算障碍测试。使用工具和数学担忧不是追加诊断指标。"
+    "en": "This adult reflection organises remembered situations into four separate topics. It presents no calculation or memory task and produces no ability score, diagnostic band or dyscalculia probability. Category counts describe selections, not mathematical performance.",
+    "zh": "本回顾供成年人按四个主题整理记得的场景。不安排计算或记忆任务，不产生能力分数、诊断分档或计算障碍概率；类别计数描述选择，不代表数学表现。"
   },
   "instructions": {
     "en": "If you choose to answer, recall the past four weeks. Select did not notice, rarely, sometimes, often or very often; choose unscored for no relevant experience, unclear recall or withholding. No calculation, clock-reading, measuring, memory or transaction task is needed. Keep useful aids. Labels are not points and unscored is not zero.",

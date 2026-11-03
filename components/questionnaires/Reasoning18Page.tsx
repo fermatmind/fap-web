@@ -1,3 +1,5 @@
+import { reasoning18LandingSections, reasoning18LandingFaq, reasoning18LandingReferences } from "./Reasoning18LandingEditorial";
+import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Reasoning18Questionnaire } from "@/lib/questionnaires/reasoning18";
@@ -11,23 +13,25 @@ import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
 
 function Source({ quiz, locale }: { quiz: Reasoning18Questionnaire; locale: Locale }) {
-  return <aside data-reasoning18-attribution className="my-8 space-y-3 border-t pt-6 text-sm leading-7 text-slate-600"><p>{quiz.reasoning18.attribution[locale]}</p><p>{quiz.reasoning18.editionNotice[locale]}</p>{quiz.references?.map(r => <p key={r.url}><a className="underline" href={r.url} rel="noopener noreferrer">{r.title[locale]}</a></p>)}</aside>;
+  return <aside data-reasoning18-attribution className="my-8 space-y-3 border-t pt-6 text-sm leading-7 text-slate-600"><p>{quiz.reasoning18.attribution[locale]}</p><p>{quiz.reasoning18.editionNotice[locale]}</p>{[...(quiz.references ?? []), ...reasoning18LandingReferences].map(r => <p key={r.url}><a className="underline" href={r.url} rel="noopener noreferrer">{r.title[locale]}</a></p>)}</aside>;
 }
 export function Reasoning18Page({ quiz, locale }: { quiz: Reasoning18Questionnaire; locale: Locale }) {
   const zh = locale === "zh", path = questionnairePath(locale, quiz.slug);
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="reasoning18-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="reasoning18-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
-    <nav aria-label={zh ? "面包屑" : "Breadcrumb"} className="mb-6 text-sm"><Link prefetch={false} className="underline" href={`/${locale}/tests#more-tests`}>{zh ? "全部测试 · 更多测试" : "All tests · More Tests"}</Link></nav>
-    <p className="text-sm font-semibold text-violet-800">{zh ? "原创英文练习 · 三篇完整指南免费" : "Original English practice · Three full guides free"}</p>
+    <ExploreTestIntro slug={quiz.slug} locale={locale}>
+
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
     <p className="mt-5 text-lg leading-8 text-slate-700">{quiz.description[locale]}</p>
-    <p className="mt-3 text-sm text-slate-600">{zh ? "18道英文题 · 约16分钟含说明 · 分段计时／不计时 · 无需注册" : "18 English questions · About 16 minutes including instructions · Timed / untimed · No signup"}</p>
-    <p className="mt-5 leading-8">{quiz.introduction[locale]}</p>
+    <div className="explore-intro-meta"><span>{zh ? "18道英文题 · 约16分钟含说明 · 分段计时／不计时 · 无需注册" : "18 English questions · About 16 minutes including instructions · Timed / untimed · No signup"}</span><span>{zh ? "原创英文练习 · 三篇完整指南免费" : "Original English practice · Three full guides free"}</span></div>
     <Reasoning18Client quiz={quiz} locale={locale} readingProfiles={quiz.profiles.map(profile => prepareResultProfile(quiz.slug, profile))} />
+    </ExploreTestIntro>
+    <section className="my-8 space-y-4"><h2 className="text-2xl font-semibold">{reasoning18LandingSections[0].title[locale]}</h2><p className="leading-8">{quiz.introduction[locale]}</p>{reasoning18LandingSections[0].paragraphs.map((p,i)=><p className="leading-8" key={i}>{p[locale]}</p>)}</section>
     <section aria-labelledby="reasoning18-method" className="my-10 space-y-8"><h2 id="reasoning18-method" className="text-2xl font-semibold">{zh ? "题本、计时与使用边界" : "Edition, timing and use"}</h2>{quiz.guide.map(s => <section key={s.id}><h3 className="text-xl font-semibold">{s.title[locale]}</h3>{s.paragraphs.map((p, i) => <p key={i} className="mt-3 leading-8">{p[locale]}</p>)}</section>)}</section>
-    <section aria-labelledby="reasoning18-public-guides" className="my-10"><h2 id="reasoning18-public-guides" className="text-2xl font-semibold">{zh ? "三领域完整公开学习指南" : "Full public guides: three reasoning areas"}</h2><p className="my-4 leading-8">{zh ? "不作答也可阅读。以下对所有人相同，不含个人答案或分数。" : "Read without answering. These pages are identical for everyone, without personal responses or scores."}</p><ul className="space-y-2">{quiz.profiles.map(p => <li key={p.id}><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, p.id)}>{p.title[locale]}</Link></li>)}</ul></section>
-    <section aria-labelledby="reasoning18-faq" className="my-10 space-y-6"><h2 id="reasoning18-faq" className="text-2xl font-semibold">{zh ? "常见问题" : "Frequently asked questions"}</h2>{quiz.faq.map((f, i) => <section key={i}><h3 className="text-lg font-semibold">{f.question[locale]}</h3><p className="mt-2 leading-8">{f.answer[locale]}</p></section>)}</section>
+    <section aria-labelledby="reasoning18-public-guides" className="my-10"><h2 id="reasoning18-public-guides" className="text-2xl font-semibold">{zh ? "三领域完整公开学习指南" : "Full public guides: three reasoning areas"}</h2><p className="my-4 leading-8">{zh ? "不作答也可阅读。以下对所有人相同，不含个人答案或分数。" : "Read without answering. These pages are identical for everyone, without personal responses or scores."}</p><ul className="reasoning18-public-grid">{quiz.profiles.map(p => <li key={p.id}><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, p.id)}>{p.title[locale]}</Link><p className="text-sm leading-7">{p.summary[locale]}</p></li>)}</ul></section>
+    <section aria-labelledby="reasoning18-faq" className="my-10 space-y-6"><h2 id="reasoning18-faq" className="text-2xl font-semibold">{zh ? "常见问题" : "Frequently asked questions"}</h2>{[...quiz.faq, ...reasoning18LandingFaq].map((f, i) => <section key={i}><h3 className="text-lg font-semibold">{f.question[locale]}</h3><p className="mt-2 leading-8">{f.answer[locale]}</p></section>)}</section>
+    <section className="explore-reading-library"><h2>{zh ? "深入学习：证据、运算、规律与练习结果" : "Study in depth: evidence, calculations, rules and results"}</h2>{reasoning18LandingSections.slice(1).map(g=><section key={g.id}><h3>{g.title[locale]}</h3><div>{g.paragraphs.map((p,i)=><p key={i}>{p[locale]}</p>)}</div></section>)}</section>
     <Source quiz={quiz} locale={locale} />
     <section className="my-8"><h2 className="text-xl font-semibold">{zh ? "可选的下一步" : "Optional next step"}</h2><p className="my-3 leading-8">{zh ? "若想探索喜欢的活动，可另看RIASEC职业兴趣入口。它不验证本练习，也不判定招聘资格；题量、预计用时及免费范围见入口，不传递本次答案。" : "To explore activities you enjoy, separately view the RIASEC occupational-interest entry. It does not validate this practice or decide hiring eligibility. The entry explains questions, time and free scope; no responses are transferred."}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests/holland-career-interest-test-riasec`}>{zh ? "查看RIASEC职业兴趣入口" : "View the RIASEC occupational-interest entry"}</Link></section>
   </Container></main>;

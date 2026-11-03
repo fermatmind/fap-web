@@ -4,7 +4,7 @@ type Locale = "en" | "zh";
 const path = (l: Locale) => `/${l}/tests/explore/cognitive-functions-test`;
 const label = (l: Locale, en: string, zh: string) => l === "zh" ? zh : en;
 async function consent(page: Page, l: Locale) { const b = page.getByRole("button", { name: label(l, "Decline", "拒绝"), exact: true }); if (await b.isVisible()) await b.click(); }
-async function button(page: Page, l: Locale, en: string, zh: string) { if (["Start test", "Resume this tab's progress"].includes(en)) { const choice = page.locator('[data-cognitive-method="ratings32"]'); await choice.click(); } await page.getByRole("button", { name: label(l, en, zh), exact: true }).click(); }
+async function button(page: Page, l: Locale, en: string, zh: string) { if (["Start test", "Resume this tab's progress"].includes(en)) { await page.locator('[data-cognitive-method="ratings32"]').click(); await expect(page.locator('#take-test input[type="radio"]').first()).toBeVisible(); return; } await page.getByRole("button", { name: label(l, en, zh), exact: true }).click(); }
 async function finish(page: Page, l: Locale, values: string[]) {
   for (let i = 0; i < 32; i++) {
     const q = quiz.questions[i], radio = page.locator(`input[name="${q.id}"][value="${values[i]}"]`);

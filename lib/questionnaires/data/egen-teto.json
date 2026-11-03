@@ -14,21 +14,21 @@
     "en": "First moves: two counts and full readings"
   },
   "seoTitle": {
-    "zh": "Egen-Teto测试：18题与免费完整结果",
-    "en": "Egen-Teto Test: 18 Original Pairs & Free Full Results"
+    "zh": "Egen-Teto测试：18题、开场顺序与完整结果",
+    "en": "Egen-Teto Test: 18 Pairs, First Moves & Full Results"
   },
   "description": {
-    "zh": "免费Egen-Teto测试：18道原创情境，比较先接住感受与先明确行动。完整Egen、Teto及9比9并列指南免费，无性别编码，不测激素或固定人格。",
-    "en": "A free Egen-Teto Test with 18 original pairs, full Egen, Teto and tie guides. Compare feelings-first and action-first choices without gender coding."
+    "zh": "18道原创日常情境，比较先回应感受与先明确行动。免费查看两项原始次数、Egen、Teto及9比9并列九节完整指南；无需注册，不使用性别编码。",
+    "en": "Compare feelings-first and action-first openings in 18 original everyday pairs. Free raw counts and full nine-section Egen, Teto and 9–9 tie guides. No signup or gender coding."
   },
   "minutes": 5,
   "introduction": {
-    "zh": "朋友带着未完成的小作品来问意见，你想先听他期待什么，还是先试一个具体调整？这份18题原创趣味问卷借Egen和Teto来聊相处时的第一步：先接住感受，或先明确行动。每题两种回应都可以合理，场景围绕小聚、散步、手作和共同安排，不要求提交真实对话。两方向各在每个位置出现9次；完整作答后显示原始次数，较高侧有九节全文，9比9有专门九节并列说明，三份也能随时先读。它们不是两种固定人格，次数不换算温柔、行动力、激素或适配百分比。本版不使用竞品的性别编码题与四类标签，也不是其17题五点题本的翻译。想了解自己在哪些情境先听、哪些情境先做，可以把具体选项拿来比较；不合适就停止，公开全文仍免费。",
-    "en": "A friend brings an unfinished craft: would you first hear what they hoped for or try one specific adjustment? This original eighteen-pair playful questionnaire uses Egen and Teto to discuss the first move in an interaction: acknowledging a feeling or clarifying an action. Both responses can be reasonable. Ordinary gatherings, walks, crafts and shared arrangements require no actual conversation text. Each direction appears nine times in each position. A complete attempt shows raw counts and a nine-section guide for the higher side, or a dedicated nine-section guide for nine each; all three are public before answering. These are not two fixed personalities, and counts become no percentages of gentleness, drive, hormones or compatibility. This edition uses neither a competitor’s gender-coding question nor its four coded labels, and is not a translation of its seventeen five-point items. Compare the particular situations to explore when you listen or act first. Stop if the pairs do not fit; the public guides remain free."
+    "zh": "朋友拿来未完成的作品，你想先听他希望表达什么，还是先试一个具体调整？本版Egen-Teto测试用18道原创二选一，比较相处时较想先采用的回应。情境涉及相册、野餐、手作与共同安排；约5分钟，查看两项原始次数和九节完整解读。先听与先做可以接着发生，9比9也有专门全文。",
+    "en": "A friend brings an unfinished creation: would you first hear what they hope to express or try a specific adjustment? This Egen-Teto Test uses eighteen original pairs to compare preferred openings in interactions. Situations concern albums, picnics, crafts and shared arrangements. About five minutes, with two raw counts and a full nine-section reading. Listening and acting can follow one another; nine each has its own complete guide."
   },
   "instructions": {
-    "zh": "每个情境的两种回应都可以合理，只选近期更容易先出现的一步：先回应感受，或先明确下一步。题目只比较顺序，不评价善意、能力或哪种做法更好。每题两方向各出现一次，18题中各在A、B位置9次；每选一项给该方向加1，无反向或加权。完成18题才计数：次数较高读对应全文，9比9读并列专篇。10比8只差一次改答，没有验证的分界意义。两项都不合适可以退出，三份公开指南一直免费。无需输入真实聊天、性别、激素或私人经历。",
-    "en": "Both responses in each situation can be reasonable. Choose the move more likely to come first for you recently: acknowledging a feeling or clarifying the next step. Only sequence is compared, not goodwill, ability or which response is better. Each direction appears once per question and nine times in each position across eighteen pairs. A choice adds one count without reversals or weighting. Complete all eighteen before counting: the higher count selects its full guide; nine each selects the tie guide. Ten versus eight can be reversed by one changed answer and has no validated cutoff meaning. Leave if neither fits; all three public guides stay free. Enter no actual conversations, gender, hormones or private experiences."
+    "zh": "以近期普通、非紧急的相处为参照，每题选较想先做的一步，不是永远唯一的做法。两项都可以合理；不按温柔、果断或理想形象选答案。每题选一项加1，无反向或权重，完成18题后显示计数和完整指南。两项都不适合可退出阅读公开全文。开始直接进入题目，无需额外同意、性别选择、邮箱、账号或前置测试。",
+    "en": "Think of recent ordinary, non-urgent interactions. Select the step you would prefer first, not the only response you would ever use. Both options can be reasonable; avoid answering for an ideal image of gentleness or decisiveness. Each choice adds one without reversals or weights. Complete eighteen items for counts and a full guide. If neither fits, leave and read the public guides. Start opens questions directly without another agreement, gender selection, email, account or prerequisite test."
   },
   "source": {
     "kind": "frontend_original_entertainment_forced_choice",
@@ -1111,6 +1111,13 @@
       "title": {
         "zh": "JobCannon Egen-Teto公开介绍：话题对照，不是本站计分依据",
         "en": "JobCannon Egen-Teto public introduction: topic comparison, not this edition’s scoring source"
+      }
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26098734/",
+      "title": {
+        "zh": "Morelli等（2015）：情绪支持与工具性支持的日记研究",
+        "en": "Morelli et al. (2015): diary study of emotional and instrumental support"
       }
     }
   ]

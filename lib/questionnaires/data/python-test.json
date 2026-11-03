@@ -10,17 +10,17 @@
     "zh": "Python测试"
   },
   "seoTitle": {
-    "en": "Python Test: 24 Free Code Questions & Worked Answers",
-    "zh": "Python测试：24道免费代码题、答案与逐题解析"
+    "en": "Python Test: 24 Free Code Questions & Explanations",
+    "zh": "Python测试：24道代码题、答案与逐题解析"
   },
   "description": {
-    "en": "Predict 24 original Python programs, checked with CPython 3.14.5. Read all worked answers and four full guides. No hiring tier or certificate.",
-    "zh": "用24段原创Python程序练习预测输出或语法错误，按CPython 3.14.5实跑核过。免费查看全部所选、正确答案、逐题解析和四份完整指南，不派招聘等级或认证。"
+    "en": "Predict 24 original Python outputs or syntax errors under CPython 3.14.5. Free answers, four section counts and full guides; untimed, no sign-up.",
+    "zh": "阅读24段原创Python程序，预测输出或执行前语法错误。免费查看四组正确数、全部答案、逐题解析与四篇完整指南；按CPython 3.14.5核验，不计时，无需注册。"
   },
   "minutes": 10,
   "introduction": {
-    "en": "Can this script begin execution, and what does it print? Read 24 independently written Python programs across values and text, loops and functions, collections and aliases, and errors and objects. Each was checked with CPython 3.14.5: 22 produce the stated output and two fail parsing as intended. Every worked explanation and all four full revision guides are free. This is a fixed read-and-predict practice bank. It needs no installation, account or file upload and does not run scripts supplied by visitors.",
-    "zh": "这段脚本能开始执行吗，会打印什么？阅读24段独立编写的Python程序，覆盖值与文本、循环函数、集合别名、错误对象四组，均按CPython 3.14.5核过：22段得到题给输出，两段按预期未过解析。逐题解析与四份完整复习指南全免费。它是固定的读代码预测练习，不需安装、账户或上传文件，也不运行访问者脚本。"
+    "en": "Practise reading independent Python scripts across values and text, loops and functions, collections and aliases, and errors and objects, with six questions per group. Programs use declared CPython 3.14.5 conditions and explicit indentation. After all 24 selections, review every program, answer and explanation plus four full guides, free.",
+    "zh": "围绕值与文本、循环与函数、集合与别名、错误与对象四组各六题，练习阅读独立Python脚本。按CPython 3.14.5条件与实际缩进判断输出或执行前的解析失败。完成24题后免费查看全部代码、所选、答案与逐题解析、四篇完整复习指南。"
   },
   "instructions": {
     "en": "Read each snippet as an independent .py script checked with CPython 3.14.5. Choose exact printed text or the stated syntax-error outcome before execution. Indentation is part of the code. Programs use invented ASCII values and no external input, files, network, third-party libraries or assumed set iteration order. Code, punctuation and Boolean spellings stay identical across interfaces; instructions and explanations are bilingual. There is no timer or speed bonus. All 24 valid choices are required before personal counts appear. If you consult references, interpret the attempt under those conditions.",

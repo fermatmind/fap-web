@@ -16,20 +16,20 @@
     "en": "Your three people-pleasing reflections"
   },
   "seoTitle": {
-    "zh": "讨好型人格测试：PPS十条自评与完整结果",
-    "en": "People Pleaser Test: 10 PPS Items and Full Free Results"
+    "zh": "讨好型人格测试：10题PPS、三维结果与完整解读",
+    "en": "People Pleaser Test: 10 PPS Items, Three Scores and Full Guides"
   },
   "description": {
-    "zh": "用10条PPS条目分别探索自身需要、照顾责任和他人期望，三项均分与完整双语解释免费，无需注册。含具体对话、反例和许可说明；日常讨好倾向自评，不诊断人格障碍。",
-    "en": "Explore own needs, responsibility and others’ expectations with ten PPS items. Three readings and full free guides, no signup, personality tiers or diagnosis."
+    "zh": "通过10条PPS自评，分别了解搁置自身需要、照顾他人的责任感与迎合期望。约4分钟，免费查看三项均分、有效题数和完整解读；无需注册，保留量表来源与中文改编说明。",
+    "en": "Explore own needs, felt responsibility and others’ expectations with 10 PPS items. Free means, rated-item counts and full guides in about four minutes, no signup."
   },
   "introduction": {
-    "zh": "当你答应一个请求，是愿意帮助、履行职责，还是很难给自己的需要留位置？本讨好型人格测试把通行名称中的“讨好”作为日常自报倾向，不诊断人格障碍。题本按CC BY 4.0采用Blötner（2026）PPS最终10条作者英文，并由费马独立译为中文；原研究只实际施测德文。三部分分别看搁置自身需要、照顾他人的责任感和迎合他人的期望，全部完整解释可先读，结果不按四分位派型，不判断伴侣、职业或关系命运。",
-    "en": "When you agree to a request, are you choosing to help, meeting a duty, or finding little room for your own needs? This People Pleaser Test explores an everyday self-reported tendency, not a personality disorder. Under CC BY 4.0, it uses the author-provided English wording of Blötner’s final ten PPS items (2026), with FermatMind’s independent Chinese translation; the original studies administered German only. Read separate guides to setting aside needs, felt responsibility and orientation to expectations before answering. There are no quartile types or verdicts about partners, careers or relationship outcomes."
+    "zh": "“讨好型人格”是常见搜索名称，本页讨论的是日常自报的讨好倾向，不把它当作人格障碍诊断。通过10条PPS陈述，你可以分别回看是否容易搁置自身需要、怎样感受照顾他人的责任，以及多大程度迎合他人的期望。三部分独立呈现，帮助把“我是不是太讨好”转成更具体的观察：这次答应是否出于自愿，自己的需要是否被听见，以及职责与余量是否说清楚。题本保留作者英文与费马中文工作译文，来源、许可及网站改编在下方说明；全部三份完整指南可在作答前阅读。",
+    "en": "This People Pleaser Test explores an everyday self-reported tendency, rather than diagnosing a personality disorder. Ten PPS statements help you separately reflect on setting aside your own needs, felt responsibility for others and orientation to their expectations. The three parts turn a broad question about people pleasing into more specific observations: whether you freely chose an agreement, whether your needs were heard and whether duties and capacity were clear. Author-provided English and FermatMind’s working Chinese translation are retained, with sources, licence and website adaptations explained below. All three full guides can be read before answering."
   },
   "instructions": {
-    "zh": "按每句话对你一般情况的符合程度，从1完全不符合到5完全符合作答，不要求回想某个固定月数。无法判断或不愿回答可选NA，不补零或中性。只回答自己，不代替伴侣或同事打分；具体职责、自愿照顾和安全限制要另外理解。全部10条先选择，每部分至少3条有效才显示均分；因此自身需要允许4条中缺1条，另外两部分各3条都需要有效。NA与本网站读法是明确改编，不是原研究验证的缺失规则。",
-    "en": "Rate how well each statement applies to you generally, from 1 Does not apply at all to 5 Completely applies, without a fixed-month recall period. Choose NA if unsure or unwilling; it is not zero or neutrality. Answer for yourself rather than a partner or colleague. Actual duties, voluntary care and safety constraints need separate context. Complete all ten selections. Each part needs three ratings: own needs may have one missing of four; the other parts need all three. NA and website readings are identified adaptations, not a validated study missing-data rule."
+    "zh": "按每句话对你一般情况的符合程度作答：1完全不符合、2有一点符合、3有些符合、4大体符合、5完全符合；本版不规定固定月数。尽量结合实际经历，不按希望成为的样子作答，也不替别人打分。无法判断或不愿回答可选NA。全部10条先完成选择；自身需要4题中至少3题有效，责任感与他人期望各3题全部有效时才显示相应均分。NA、中文译文、中间选项标签及显示规则属于网站改编。",
+    "en": "Rate how well each statement applies to you generally: 1 Does not apply at all, 2 Applies a little, 3 Applies somewhat, 4 Applies mostly, 5 Completely applies. This form specifies no fixed-month recall period. Use actual experiences rather than an ideal self, and answer only for yourself. Choose NA if unsure or unwilling. Complete all ten selections; own needs requires three of four numeric ratings, while responsibility and expectations each require all three. NA, Chinese translation, intermediate option labels and display rules are website adaptations."
   },
   "source": {
     "kind": "Blötner2026 final10PPSauthorEnglish/CCBY4+FermatMindZHtranslationandwebsiteadaptations;GermanstudyvalidationnotlocalENZHvalidation",
@@ -1205,65 +1205,208 @@
     {
       "id": "facet-scoring",
       "title": {
-        "zh": "三部分怎样计分",
-        "en": "How the three parts are scored"
+        "zh": "10题PPS怎样计分？三部分分别求均分",
+        "en": "How are the ten PPS items scored? Three separate means"
       },
       "paragraphs": [
         {
-          "zh": "全部10条先选择1完全不符合至5完全符合，无法判断或不愿回答可选NA。三部分分别取一位小数均分：自身需要4条至少3条有效，责任感与他人期望各3条都有效；不足则不出个人均分，NA不补零。NA、中间标签、最低条数、取整与解释为本站改编，不是研究中的缺失规则、心理阈值或常模。三个连续读法不合成总分、不按最高值派型，不使用四分位等级；小数差异不证明因果或统计显著。",
-          "en": "Select an answer for all ten items, from 1 Does not apply at all to 5 Completely applies, or NA if unsure or unwilling to answer. Each part has a one-decimal mean: own needs requires three of four ratings, responsibility and expectations all three each. Otherwise there is no personal mean; NA is not zero-filled. NA, intermediate labels, minimum counts, rounding and interpretations are website adaptations, not a study missing-data rule, psychological cutoff or norm. Three continuous readings produce no total, highest-score type or quartile tiers; decimal differences establish neither causation nor statistical significance."
+          "zh": "本版10条均为正向计分，没有反向题。五个符合程度选项依次编码为1—5；每部分原始和S等于有效评分之和，n为有效条数，显示均分为S÷n并保留一位小数。三部分题数为4、3、3，不直接比较原始和，也不把所有条目合成一个本站总分。",
+          "en": "All ten items in this form are scored in the same direction, without reverse scoring. The five applicability categories are coded 1–5. Within each part, S is the sum of numeric ratings and n their count; the display is S divided by n, rounded to one decimal. Parts contain four, three and three items, so raw sums are not directly compared or combined into a website total."
+        },
+        {
+          "zh": "例如自身需要四题为2、4、5、NA，有效原始和11、有效题数3，均分为11÷3≈3.7。责任感三题为2、4、5，也为3.7；但2、4、NA只有两条有效，显示资料不足。NA不补成零或3分。每部分至少三条有效是本站显示完整度规则，不是经过验证的心理阈值或原研究缺失处理方案。",
+          "en": "For own-needs ratings of 2, 4, 5 and NA, the numeric sum is 11 across three ratings, giving 11/3≈3.7. Responsibility ratings of 2, 4 and 5 also give 3.7, but 2, 4 and NA leave only two ratings and are insufficient. NA is not zero-filled or assigned 3. Requiring three ratings per part is a website display-completeness rule, not a validated psychological cutoff or the study’s missing-data procedure."
         }
       ]
     },
     {
       "id": "facet-reading",
       "title": {
-        "zh": "连续读法与真实情境",
-        "en": "Continuous readings and actual context"
+        "zh": "均分、混合回答与资料不足怎样理解？",
+        "en": "How should means, mixed responses and insufficient information be read?"
       },
       "paragraphs": [
         {
-          "zh": "均分高低只指对本部分条目的认同，不自动等于好坏、心理健康、善良或自私。照顾责任部分尤其不能单独证明过度负责；实际职责、自愿帮助、代价与可选择范围需另外看。三部分的题数与措辞不同，不按小差异猜核心原因；没有人群排名、四种人格等级或临床判断，全部解释都保留。",
-          "en": "A mean describes agreement with that part’s items, not automatic goodness, mental health, kindness or selfishness. Responsibility in particular cannot alone prove excessive care. Actual duties, voluntary help, costs and available choices need context. Item counts and wording differ; small differences do not identify a root cause. There are no population rankings, four personality tiers or clinical judgments, and all explanations remain available."
+          "zh": "均分较高表示更认同这一部分的陈述，较低表示较少认同；先回看条目和有效题数。相同均分可以来自不同组合，例如2、4、5与3、3、5都约为3.7；它们未必描述同样的经历。1—5是有序选项的编码，求均分是本版摘要约定，没有因此证明每一步心理距离相等。",
+          "en": "A higher mean indicates stronger endorsement of that part’s statements and a lower mean less endorsement. Review items and rated-item counts first. Ratings of 2, 4, 5 and 3, 3, 5 both average about 3.7 but need not describe the same experiences. Coding ordered categories as 1–5 and averaging them is this form’s summary convention, not proof of equal psychological distances."
+        },
+        {
+          "zh": "三个均分不是互斥的人格类型，也不按最高值找“核心驱动”。结果没有四分位等级、人群百分位、匹配概率或善良分数；小数差异没有统计显著含义。资料不足只表示未生成个人均分，全部三份完整解释仍显示。不能由较低认同推断自私，也不能由较高认同断定关系有问题。",
+          "en": "The three means are not exclusive personality types or a way to select a strongest driver. There are no quartile tiers, population percentiles, match probabilities or kindness scores; decimal differences establish no statistical significance. Insufficient information means no personal mean, while all three full guides remain visible. Lower endorsement does not establish selfishness, and higher endorsement does not establish a troubled relationship."
         }
       ]
     },
     {
       "id": "facet-comparison",
       "title": {
-        "zh": "与沟通、依恋或大五的区别",
-        "en": "Different from communication, attachment or Big Five"
+        "zh": "讨好倾向与宜人性、依恋、沟通方式的区别",
+        "en": "People pleasing, agreeableness, attachment and communication"
       },
       "paragraphs": [
         {
-          "zh": "PPS聚焦自身需要、照顾责任与他人期望，不把一般宜人性、亲密关系依恋或沟通中的被动表达当作同一结果。这些主题可以重叠，名称或分数不能换算。本文没有由PPS倒推出童年、创伤、焦虑抑郁、伴侣人格、分手概率或职业适配。所有例子和小观察由本站独立编写，限于自愿、普通、可安全讨论的场景，不要求立即对抗。",
-          "en": "The PPS focuses on needs, responsibility and expectations rather than equating agreeableness, attachment or passive communication with one result. Topics can overlap without interchangeable names or scores. No childhood, trauma, anxiety, depression, partner personality, breakup probability or career fit is inferred. Examples and small observations are independently authored for voluntary, ordinary situations that can be discussed safely, without demanding immediate confrontation."
+          "zh": "PPS本版关注自身需要、照顾责任和他人期望。宜人性是较宽的人格特质主题，依恋讨论亲近关系中的取向，沟通自评则可能关注表达行为；这些主题有交集，但名称相近不代表量表相同。不能用三项PPS均分换算MBTI、大五人格、依恋类型或沟通能力。",
+          "en": "This PPS form concerns own needs, felt responsibility and others’ expectations. Agreeableness is a broader trait topic, attachment concerns orientations in close relationships, and communication reflections may concern expression. Overlap does not make these measures interchangeable. Three PPS means cannot be converted into MBTI, Big Five traits, attachment types or communication ability."
+        },
+        {
+          "zh": "同样说“可以”，可能是自愿帮助、履行约定、权衡现实限制，也可能是难以拒绝。一次可见行为不足以判断动机。本测试没有测出童年经历、创伤反应、焦虑抑郁、伴侣人格或职业适配；这些问题需要各自适当的信息与评估，不能由讨好标签代答。",
+          "en": "The same agreement can reflect freely chosen help, an existing duty, practical constraints or difficulty refusing. One visible action does not establish its motive. This test does not reveal childhood history, trauma responses, anxiety, depression, a partner’s personality or career fit. Those questions need their own information and appropriate assessment rather than an answer supplied by a people-pleaser label."
+        }
+      ]
+    },
+    {
+      "id": "pps-parts",
+      "title": {
+        "zh": "三部分分别在问什么？",
+        "en": "What do the three parts ask about?"
+      },
+      "paragraphs": [
+        {
+          "zh": "搁置自身需要：四条陈述涉及忘记需要、难以为需要发声，以及帮助别人时忽视自己。重点是“自己的需要有没有被纳入”，而不是是否经常帮助别人。可以观察休息、时间、任务安排或表达偏好中，自己是否有机会提出具体需要。",
+          "en": "Setting aside own needs: four statements concern forgetting needs, difficulty voicing them and neglecting yourself while helping. The question is whether your needs are included, rather than how often you help. Consider whether you have opportunities to name needs about rest, time, tasks or preferences."
+        },
+        {
+          "zh": "照顾他人的责任感：三条陈述涉及他人是否过得好、福祉责任与照顾愿望。题目本身不区分所有合理职责与额外负担，因此较高认同不自动等于过度负责。照顾孩子、履行工作约定或自愿支持朋友，都需要结合具体职责、资源与分工理解。",
+          "en": "Felt responsibility for others: three statements concern others being well, responsibility for well-being and the wish to care. The items do not distinguish every legitimate duty from extra burden, so high endorsement does not automatically establish excessive responsibility. Childcare, work agreements and voluntary support require consideration of duties, resources and shared roles."
+        },
+        {
+          "zh": "迎合他人的期望：三条陈述涉及满足期待、取悦冲动与拒绝请求的困难。可以分别看“我知道对方真正要求什么吗”“我是否先核对自己的余量”“不答应时是否有表达空间”，不把一次答应或一次拒绝变成固定身份。",
+          "en": "Orientation to others’ expectations: three statements concern meeting expectations, an urge to please and difficulty refusing. Ask separately whether you know what is actually requested, have checked your capacity and have room to express a different response. One agreement or refusal does not determine a fixed identity."
+        }
+      ]
+    },
+    {
+      "id": "pps-evidence",
+      "title": {
+        "zh": "PPS研究证据与本网站版本",
+        "en": "PPS research evidence and this website edition"
+      },
+      "paragraphs": [
+        {
+          "zh": "Blötner（2026）在两组德国样本中开发和检验PPS，并在最终10条中区分三个相关部分。[1][2] 原文说明实际施测的是德文；作者英文条目可供查阅，不表示本网站英文、中文译文或网站显示规则已经完成相应验证。",
+          "en": "Blötner (2026) developed and investigated the PPS in two German samples, distinguishing three related parts in the final ten items.[1][2] The paper specifies that German was administered. Availability of author-provided English does not establish validation of this website’s English, Chinese translation or display rules."
+        },
+        {
+          "zh": "原研究也讨论样本构成、假设情境与真实行为的差距，以及跨文化推广等限制。[1] 因此，本页不引用原研究来承诺本站准确率、不套用国外常模，也不把三部分当作全球通用诊断分类。判断本站测量质量仍需实际语言、人群、题本和用途的证据。",
+          "en": "The study discusses sample composition, differences between hypothetical tasks and real behaviour, and cross-cultural generalisation limits.[1] It therefore supplies no accuracy guarantee, imported norms or universal diagnostic categories for this site. Evaluating this website requires evidence for its actual languages, users, form and uses."
+        }
+      ]
+    },
+    {
+      "id": "pps-context",
+      "title": {
+        "zh": "善意、职责与选择空间：先回到具体事情",
+        "en": "Kindness, duties and available choices: start with the situation"
+      },
+      "paragraphs": [
+        {
+          "zh": "回看一次答应时，分开记录四件事：别人提出什么、已有约定是什么、自己有哪些需要、现实中有哪些可行选择。例如照顾家人时暂时调整计划，可以是有意承担；要另外看是否有接替、资源和休息安排，而不是只问“我拒绝了吗”。",
+          "en": "For one agreement, separate the request, existing commitments, your needs and the choices actually available. Temporarily changing plans to care for family can be an intentional responsibility. Consider backup, resources and rest arrangements rather than asking only whether you refused."
+        },
+        {
+          "zh": "经济依赖、照顾责任、组织权力或安全顾虑可能影响表达空间，分数不会消除这些条件。建议中的对话只适用于自愿、普通、可安全讨论的情境；不要求立即对抗、停止必要照顾，或通过重大工作与关系决定来证明边界。",
+          "en": "Financial dependence, care duties, workplace power or safety concerns can constrain expression; a score does not remove them. The conversation examples apply only to voluntary, ordinary situations where discussion is safe. They do not require immediate confrontation, withdrawal of essential care or major work and relationship decisions to prove a boundary."
+        }
+      ]
+    },
+    {
+      "id": "needs-conversation",
+      "title": {
+        "zh": "自身需要：把抽象不适改成具体安排",
+        "en": "Own needs: turn a vague difficulty into an arrangement"
+      },
+      "paragraphs": [
+        {
+          "zh": "如果愿意，可以选择一次低风险、非紧急请求，先在心里补齐“我现在需要……”。例如“我需要先把已经答应的任务完成，今天只能帮你核对第一页”。这既表达可提供的帮助，也说明自己的限制；不需要先证明对方不合理。[5]",
+          "en": "If you wish, choose a low-stakes, nonurgent request and first name what you need. For example: “I need to finish the task I already agreed to. Today I can check only the first page.” This states available help and your limit without needing to prove that the request was unreasonable.[5]"
+        },
+        {
+          "zh": "观察一次表达后，原任务和个人需要是否都更清楚，并保留一个不符合“我总忽略自己”的反例。如果没有安全或合适的机会，只记录也可以。这个小观察是本站原创练习，不是经本量表验证的治疗方案，也不以均分降低作为成功标准。",
+          "en": "Notice whether the task and your needs became clearer, and keep a counterexample to a belief that you always neglect yourself. Simply recording an example is enough when discussion is unsuitable or unsafe. This is an original optional reflection, not a treatment validated by the scale or an exercise judged successful by a lower mean."
+        }
+      ]
+    },
+    {
+      "id": "responsibility-conversation",
+      "title": {
+        "zh": "照顾责任：区分关心、职责与全部结果",
+        "en": "Felt responsibility: separate care, duties and outcomes"
+      },
+      "paragraphs": [
+        {
+          "zh": "可以问“我负责的具体行动是什么，哪些部分需要共同承担”。例如“我愿意陪你整理申请材料，但是否录取由评审决定；今晚我可以投入半小时”。关心对方不等于能够控制对方全部感受或最终结果，也不取消已经承担的必要职责。",
+          "en": "Ask which specific action is yours and which parts need shared responsibility. For example: “I can help organise the application, but the decision belongs to the reviewers. I can give half an hour tonight.” Caring does not give control over every feeling or outcome, nor does it cancel essential duties already accepted."
+        },
+        {
+          "zh": "若责任感认同较高而搁置自身需要较低，可以先看是否已经有明确分工和支持；不要因为一个分数给健康照顾贴负面标签。若感到安排超出余量，可以先讨论任务、时间和接替资源，保持对真实照顾需要的关注。[4][5]",
+          "en": "If responsibility is strongly endorsed while setting aside needs is less endorsed, first consider whether roles and support are already clear. Do not label workable care negatively because of one score. When arrangements exceed capacity, discuss tasks, timing and backup while keeping actual care needs in view.[4][5]"
+        }
+      ]
+    },
+    {
+      "id": "expectations-conversation",
+      "title": {
+        "zh": "他人期望：先澄清请求，再作回应",
+        "en": "Others’ expectations: clarify a request before responding"
+      },
+      "paragraphs": [
+        {
+          "zh": "在适合协商的场景，可以先问交付内容、截止时间和可调整部分，再回答。例如“你需要今天完成全部，还是先确认方案？我可以先做后一项”。这把对期望的猜测变成具体信息，不要求你为了显得坚定而一律拒绝。",
+          "en": "Where negotiation is appropriate, clarify the deliverable, deadline and flexible parts before answering. For example: “Do you need everything finished today, or a plan confirmed first? I can do the latter.” This replaces guessed expectations with information, without requiring refusal as a performance of assertiveness."
+        },
+        {
+          "zh": "也可以把立即答应改成一个明确的回复时间：“我核对一下已有安排，下午三点前答复你。”之后按承诺回应。观察的是是否多了一次真实选择，不是别人是否永远满意，更不把对方的失望自动归为你的失败。[5]",
+          "en": "You might replace an immediate agreement with a clear reply time: “I’ll check my existing commitments and reply by three.” Then follow through. The observation is whether you gained a real choice, not whether everyone remained satisfied or whether another person’s disappointment means you failed.[5]"
+        }
+      ]
+    },
+    {
+      "id": "retake-context",
+      "title": {
+        "zh": "重测、混合情境与何时需要更多支持",
+        "en": "Retakes, mixed contexts and seeking further support"
+      },
+      "paragraphs": [
+        {
+          "zh": "重测时先看具体条目和有效题数，记录自己想到的是哪些关系或场景。一次主要想到工作、另一次想到亲密关系，可能使回答不同；从NA变成评分也会改变均分。本站没有建立个人变化的可靠阈值，不用小数变化断定人格改变或干预有效。",
+          "en": "For a retake, inspect item responses and rated-item counts and note which relationships or situations you considered. Thinking mainly of work once and close relationships another time can change responses; moving from NA to a rating also affects a mean. This site has no established threshold for reliable individual change, so decimal shifts do not prove personality change or intervention benefit."
+        },
+        {
+          "zh": "如果相关困扰持续影响生活，可以向合格专业人员说明具体经历、影响和想获得的帮助，而不是只提供一个标签或分数。[4] 这份测试可以整理谈话问题，但不评估症状严重程度、关系是否安全、病因或治疗需要。",
+          "en": "If these difficulties persistently affect daily life, you can describe the experiences, their effects and the help you want to a qualified professional, rather than offering only a label or score.[4] This reflection can organise questions for discussion but does not assess symptom severity, relationship safety, causes or treatment needs."
         }
       ]
     },
     {
       "id": "source-credit",
       "title": {
-        "zh": "PPS署名、许可与明确改编",
-        "en": "PPS attribution, licence and identified changes"
+        "zh": "条目来源、CC BY 4.0许可与改编说明",
+        "en": "Item source, CC BY 4.0 licence and identified adaptations"
       },
       "paragraphs": [
         {
-          "zh": "条目来源：Christian Blötner（2026），Valuing others over oneself: development and validation of a people pleasing scale in two German samples，DOI 10.1007/s12144-026-09519-2；原文及最终10条Table1：https://link.springer.com/article/10.1007/s12144-026-09519-2 。按CC BY 4.0使用：https://creativecommons.org/licenses/by/4.0/ 。保留作者提供的英文条目，中文由费马独立翻译；加入NA、中间标签、最低条数、一位小数均分与原创解释，均已标明改动。原研究只施测德文，不表示英中文已验证、作者背书或本站有常模。",
-          "en": "Items: Christian Blötner (2026), Valuing others over oneself: development and validation of a people pleasing scale in two German samples, DOI 10.1007/s12144-026-09519-2; article and final Table 1: https://link.springer.com/article/10.1007/s12144-026-09519-2 . Used under CC BY 4.0: https://creativecommons.org/licenses/by/4.0/ . Author-provided English wording is retained; FermatMind independently translated Chinese and added NA, intermediate labels, minimum counts, one-decimal means and original explanations. These changes are identified. The studies administered German only; they establish neither English–Chinese validation, author endorsement nor website norms."
+          "zh": "条目署名：Christian Blötner（2026），Valuing others over oneself: development and validation of a people pleasing scale in two German samples，DOI 10.1007/s12144-026-09519-2，最终10条见出版方Table 1。[1][2] 本站按CC BY 4.0使用，保留作者英文并提供来源与许可链接；该许可要求适当署名并标明改动。[3]",
+          "en": "Item credit: Christian Blötner (2026), Valuing others over oneself: development and validation of a people pleasing scale in two German samples, DOI 10.1007/s12144-026-09519-2, final ten items in publisher Table 1.[1][2] Used under CC BY 4.0 with author-provided English, source and licence links. The licence requires appropriate attribution and identification of changes.[3]"
+        },
+        {
+          "zh": "费马独立提供中文工作译文、中间选项标签、NA、每部分最低三条有效的显示规则、一位小数均分与原创解释。它们属于本网站改编，不声称原作者背书。原始研究与本网站版本的证据分开陈述，不把授权使用等同于中文验证、官方认证或诊断许可。",
+          "en": "FermatMind independently provides the working Chinese translation, intermediate labels, NA, the three-rating minimum display rule, one-decimal means and original explanations. These are website adaptations, without claimed author endorsement. Permission to use the material is distinguished from Chinese validation, official certification or diagnostic authority."
         }
       ]
     },
     {
       "id": "free-and-private",
       "title": {
-        "zh": "完整免费与可选保存分享",
-        "en": "Full free access and optional saving or sharing"
+        "zh": "免费完整结果与自愿保存",
+        "en": "Full free results and optional saving"
       },
       "paragraphs": [
         {
-          "zh": "全部10条、三项均分或资料不足及三份完整解释免费，无需邮箱、注册、付款或另一测评。浏览器本地计分，主动保存才留本标签页24小时草稿，完成、重测或清除即删除。分享仅公开入口与自评说明，不含答案、均分、他人信息或内部ID；存储与复制受限仍可完成。",
-          "en": "All ten items, three means or insufficient states and three full guides are free without email, signup, payment or another test. Scoring happens in the browser. Only opting in saves a 24-hour tab draft, deleted on completion, retake or clearing. Sharing uses the public entry and reflection description without answers, means, another person’s information or internal IDs. Blocked storage or copying does not prevent completion."
+          "zh": "全部10条、三项均分或资料不足，以及三份完整解释均免费，无需注册、邮箱、付款或前置测试。点击开始直接进入题目，保存草稿不是条件。每题选1—5或NA都算完成选择；即使三部分都资料不足，也能结束并阅读全部指南，不会要求付费补全。",
+          "en": "All ten items, three means or insufficient states and three full guides are free, with no signup, email, payment or prerequisite test. Start opens the questions directly; saving a draft is not a condition. Any 1–5 or NA selection completes an item. Even three insufficient parts finish with every guide available, without a paid completion step."
+        },
+        {
+          "zh": "答案在浏览器内计分，不随计分请求上传，也不写入网址或分析事件。主动保存才留本标签页24小时草稿，完成、重测或清除即删除。分享仅为公开测试入口，不含答案、均分或私人关系资料；网站可能按Cookie设置记录不含答案的使用事件，存储或复制受限仍可完成。",
+          "en": "Answers are scored in the browser, without upload for scoring or inclusion in URLs or analytics events. Opting in keeps a 24-hour draft in this tab, deleted on completion, retake or clearing. Sharing uses the public entry without answers, means or private relationship information. Answer-free usage events may follow Cookie settings; blocked storage or copying does not prevent completion."
         }
       ]
     }
@@ -1271,62 +1414,122 @@
   "faq": [
     {
       "question": {
-        "zh": "讨好型人格测试能诊断人格障碍吗？",
-        "en": "Does this people pleaser test diagnose a disorder?"
+        "zh": "什么是讨好型人格？这份测试测什么？",
+        "en": "What does people pleasing mean in this test?"
       },
       "answer": {
-        "zh": "不能。本版使用通行测试名探索日常自报讨好倾向，三部分为自身需要、照顾责任和他人期望。没有临床阈值、四种人格等级、病因或关系命运结论，也不能代替别人作答。三份完整结果含具体对话和反例，不把善意或职责自动归为讨好。",
-        "en": "No. The familiar test name refers to everyday self-reported people pleasing: own needs, responsibility and expectations. There are no clinical cutoffs, four personality tiers, causes or relationship predictions, and you cannot answer for someone else. Three full guides include dialogue and counterexamples without equating kindness or duties with pleasing."
+        "zh": "本页沿用常见测试名称，讨论日常自报倾向：搁置自身需要、照顾他人的责任感和迎合他人的期望。10条PPS陈述分别形成三个读数，不把一个分数变成固定人格、善良等级或关系结论。",
+        "en": "The familiar test name refers to everyday self-reported patterns: setting aside own needs, felt responsibility for others and orientation to their expectations. Ten PPS statements produce three separate readings, not a fixed personality, kindness ranking or relationship verdict."
       }
     },
     {
       "question": {
-        "zh": "PPS条目从哪里来、许可是什么？",
+        "zh": "PPS条目来自哪里，使用什么许可？",
         "en": "Where do the PPS items come from, and what is the licence?"
       },
       "answer": {
-        "zh": "来自Christian Blötner（2026）出版原文Table1最终10条，按CC BY 4.0保留作者英文，独立译中文，署名和许可链接在入口与各完整说明保留。原研究只施测德文；中文、NA、中间标签、最低条数、一位小数均分和本站解释均为明确改编，不冒称本地验证或作者背书。",
-        "en": "The final ten items come from Christian Blötner’s published Table 1 (2026), under CC BY 4.0. Author-provided English is retained with independent Chinese translation, attribution and licence links on the entry and full guides. Studies administered German only. Chinese, NA, intermediate labels, minimum counts, rounded means and website explanations are identified adaptations, not local validation or author endorsement."
+        "zh": "来自Christian Blötner（2026）发表的PPS最终10条，出版方Table 1提供英德条目。[1][2] 本站按CC BY 4.0保留作者英文与署名，由费马独立提供中文工作译文和已标明的网站改编；原作者并未因此背书本站。[3]",
+        "en": "They are the final ten PPS items published by Christian Blötner (2026), with English and German wording in Table 1.[1][2] This site retains author-provided English and attribution under CC BY 4.0, with FermatMind’s working Chinese translation and identified website adaptations, without implied author endorsement.[3]"
       }
     },
     {
       "question": {
-        "zh": "三部分均分和NA怎样处理？",
-        "en": "How do the three means and NA work?"
+        "zh": "这份中文版是否已完成科学验证？",
+        "en": "Has this Chinese edition been validated?"
       },
       "answer": {
-        "zh": "全部10条先选择1—5或NA。自身需要4条至少3条有效，责任感和他人期望各3条都有效，才取一位小数均分；NA不补零或估算，不足则明确资料不足。这是本站完整度读法，不是原研究缺失规则或心理阈值。任何均分状态都显示全部三份完整解释。",
-        "en": "Complete ten selections of 1–5 or NA. Own needs requires three of four ratings; responsibility and expectations all three each for a one-decimal mean. NA is neither zero-filled nor estimated, and insufficient information is explicit. This is a website completeness rule, not a study missing-data protocol or psychological cutoff. All three full guides appear regardless of means."
+        "zh": "尚未。原研究实际施测德文；本网站英文、中文译文、NA、最低条数与结果解释没有相应本地验证证据。原研究的量表证据与本站改编必须分开，不直接套用原样本常模或承诺准确率。[1]",
+        "en": "No local validation has been established. The original studies administered German; this website’s English, Chinese translation, NA, minimum counts and interpretations lack corresponding local validation. Original scale evidence and website adaptations must be distinguished, without importing norms or an accuracy promise.[1]"
       }
     },
     {
       "question": {
-        "zh": "能分出四种人格或推荐职业吗？",
-        "en": "Does it assign four types or recommend careers?"
+        "zh": "三项均分怎样算？",
+        "en": "How are the three means calculated?"
       },
       "answer": {
-        "zh": "不分。本站没有经核实可用的本地四分位常模，不沿用竞品的四种等级、名人判型或职业适配。三项分别阅读，没有总分、最强驱动、匹配比例或伴侣诊断，小数差异也不说明谁更健康或更善良。",
-        "en": "No. There are no established local quartile norms, competitor tiers, famous-person typing or career matches here. Read three parts without a total, strongest driver, match percentage or partner diagnosis. Decimal differences do not establish who is healthier or kinder."
+        "zh": "每条按1—5正向计分，本版没有反向题。自身需要四题至少三条有效；责任感、他人期望各三题都须有效。原始和除以有效条数，保留一位小数，例如2、4、5、NA在自身需要部分为11÷3≈3.7。三个部分不合成总分。",
+        "en": "Each item is coded 1–5 without reverse scoring. Own needs requires three of four ratings; responsibility and expectations each require all three. Divide the numeric sum by the rated-item count and round to one decimal: 2, 4, 5, NA in own needs gives 11/3≈3.7. Parts are not combined into a total."
       }
     },
     {
       "question": {
-        "zh": "责任感高一定是讨好吗？",
-        "en": "Does high responsibility automatically mean people pleasing?"
+        "zh": "NA与中间选项有什么区别，资料不足能看结果吗？",
+        "en": "How does NA differ from the middle option, and can I still read results?"
       },
       "answer": {
-        "zh": "不是。三条责任题包含照顾愿望和福祉责任，本身不证明不健康或忽视自己。实际照顾职责、愿意程度和可协商空间要另外看；其他两部分也分别呈现。不要为了降低分数停止必要照顾或做重大关系决定。",
-        "en": "No. The responsibility items include caring wishes and obligation for well-being; they do not alone prove ill health or self-neglect. Consider actual duties, willingness and room for discussion, alongside the other parts. Lowering a score is no reason to stop necessary care or make a major relationship decision."
+        "zh": "3分表示有些符合；NA表示无法判断或不愿回答，不补成零或中间值。全部10条完成选择后，资料不足部分不生成个人均分，但全部三份完整指南都保留，即使所有题都选NA也能结束。",
+        "en": "A rating of 3 means applies somewhat; NA means unsure or unwilling to answer and is not zero or a midpoint. After all ten selections, insufficient parts have no personal mean, but all three full guides remain available, including after an all-NA attempt."
       }
     },
     {
       "question": {
-        "zh": "结果完整免费，分享会带答案吗？",
-        "en": "Are results complete and free, and are answers shared?"
+        "zh": "能分成四种人格或显示我超过多少人吗？",
+        "en": "Does it assign four personality types or a population rank?"
       },
       "answer": {
-        "zh": "全部题目与三份完整解释免费，无需注册或前置测试。仅主动同意才保存本标签页24小时草稿，完成、重测或清除即删除。分享只含公开入口，不含答案、均分或私人关系信息；MBTI仅是完整结果后另行自愿作答的选择。",
-        "en": "All items and three full guides are free without signup or another test. A 24-hour tab draft is saved only after opting in and deleted on completion, retake or clearing. Sharing contains the public entry without answers, means or private relationship information. MBTI is an optional separate attempt after the full result."
+        "zh": "不提供。这份网站版本没有建立可用的本地常模或诊断阈值，不划四分位等级，不按最高均分派主类型，也不生成百分位、匹配概率或善良分数。小数差异也不能证明统计显著。",
+        "en": "No. This website edition has no established local norms or diagnostic cutoff. It produces no quartile tiers, highest-mean type, population percentile, match probability or kindness score. Decimal differences do not establish statistical significance."
+      }
+    },
+    {
+      "question": {
+        "zh": "喜欢照顾别人、责任感强一定是讨好吗？",
+        "en": "Does wanting to care or feeling responsible automatically mean people pleasing?"
+      },
+      "answer": {
+        "zh": "不能只凭这一部分判断。责任题包括照顾愿望和对他人福祉的责任感，可能涉及真实职责或自愿选择。还需看自身需要、资源、分工和表达空间；不应为了降低分数停止必要照顾。",
+        "en": "Not from that part alone. Its items include a wish to care and responsibility for well-being, which can reflect real duties or freely chosen care. Consider own needs, resources, shared roles and room to express preferences. Lowering a score is no reason to stop essential care."
+      }
+    },
+    {
+      "question": {
+        "zh": "讨好倾向是否等于创伤反应、焦虑或人格障碍？",
+        "en": "Does people pleasing establish trauma, anxiety or a personality disorder?"
+      },
+      "answer": {
+        "zh": "本测试没有评估这些问题，不能由回答倒推出病因或诊断。一次答应可能出于多种原因；若持续困扰影响生活，可以把具体经历和影响带给合格专业人员讨论，而不是用标签替代评估。[4]",
+        "en": "This test does not assess those questions and cannot infer a cause or diagnosis from responses. An agreement can have several explanations. If persistent difficulties affect daily life, discuss concrete experiences and effects with a qualified professional rather than substituting a label for assessment.[4]"
+      }
+    },
+    {
+      "question": {
+        "zh": "能用PPS给伴侣或同事打分，或者换算MBTI吗？",
+        "en": "Can I rate a partner or colleague, or convert PPS into MBTI?"
+      },
+      "answer": {
+        "zh": "不能按本版这样使用。这是本人自报条目，没有建立他评或跨测评换算规则。PPS、依恋、沟通方式与人格特质的题目和解释不同；也不能用相似结果预测关系匹配、分手概率或职业适配。",
+        "en": "This form does not support those uses. Its items are self-report, without established observer-rating or cross-test conversion rules. PPS, attachment, communication and personality measures differ in items and interpretation. Similar results also do not predict compatibility, breakup probability or career fit."
+      }
+    },
+    {
+      "question": {
+        "zh": "做完后可以怎样使用结果？",
+        "en": "How can I use the result?"
+      },
+      "answer": {
+        "zh": "先选一段真实经历，分别写请求、职责、自己的需要与可行选择。在可安全协商的普通场景，尝试澄清任务或约定回复时间，再观察表达是否更清楚。无需立刻对抗，也不以分数降低作为唯一目标；下方有原创对话与反例。",
+        "en": "Choose one real situation and separate the request, duties, your needs and available choices. In an ordinary situation where negotiation is safe, clarify a task or agree on a reply time, then notice whether expression became clearer. No immediate confrontation or score-reduction target is required; guides include original dialogue and counterexamples."
+      }
+    },
+    {
+      "question": {
+        "zh": "讨好型人格测试多久，完整结果免费吗？",
+        "en": "How long does the People Pleaser Test take, and are full results free?"
+      },
+      "answer": {
+        "zh": "共10条，约4分钟，不限时。题目、三项读数和三份完整指南均免费，无需注册、邮箱、付款或另一测评。点击开始直接进入题目，保存草稿另行自愿选择，不必先勾选同意保存。",
+        "en": "There are ten items, taking about four minutes without a time limit. All items, three readings and three full guides are free without signup, email, payment or another assessment. Start opens questions directly; saving a draft is a separate optional choice, without an agreement-to-save prerequisite."
+      }
+    },
+    {
+      "question": {
+        "zh": "答案会上传吗？保存和分享包含什么？",
+        "en": "Are answers uploaded, and what do saving and sharing contain?"
+      },
+      "answer": {
+        "zh": "在浏览器计分，不为计分上传或写入网址、分析事件。主动保存的草稿在本标签页24小时内可恢复，完成、重测或清除即删除。分享只含公开入口，不含答案、均分或私人关系信息；不含答案的使用事件依Cookie设置处理。",
+        "en": "Scoring happens in the browser without uploading answers for scoring or placing them in URLs or analytics events. An optional tab draft can be restored within 24 hours and is deleted on completion, retake or clearing. Sharing contains the public entry, not answers, means or relationship details. Answer-free usage events follow Cookie settings."
       }
     }
   ]

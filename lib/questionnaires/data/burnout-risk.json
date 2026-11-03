@@ -14,8 +14,8 @@
     "zh": "倦怠测试：CBI个人与工作模块完整读法"
   },
   "description": {
-    "en": "Answer two complete CBI modules: six personal and seven work-related items. Read separate source-key means and two full guides, without risk bands or a diagnosis.",
-    "zh": "完成CBI个人六题与工作七题两个完整模块，分别理解源键均分、有效题数与两份完整指南，不划风险档位或作诊断。"
+    "en": "Complete CBI personal six and work seven modules. Read separate means, valid counts, reverse scoring and two full guides, free without signup; working Chinese.",
+    "zh": "完成CBI个人六题与工作七题，分别查看均分、有效题数、精力反向计分和两份完整指南。免费、无需注册，中文为费马工作译本。"
   },
   "minutes": 4,
   "resultHeading": {
@@ -23,8 +23,8 @@
     "zh": "两个CBI模块的独立读法"
   },
   "introduction": {
-    "en": "This edition administers the complete six-item personal and seven-item work-related modules from the Copenhagen Burnout Inventory (CBI). It does not administer the client-related module and is not the full nineteen-item inventory or a newly validated thirteen-item short form. Personal questions describe reported exhaustion across life; work questions describe exhaustion perceived as related to work. These are separate self-reports, with no combined burnout total, future-risk probability or clinical diagnosis. Both full guides are free and remain readable when responses are insufficient. Chinese is a FermatMind working translation, identified alongside the original English source.",
-    "zh": "本版采用哥本哈根倦怠量表（CBI）完整个人六题与工作七题两个模块，不施测服务对象相关模块，不是完整十九题或新近验证的十三题短版。个人模块描述生活中的自述耗竭，工作模块描述自觉与工作相关的耗竭；分别呈现，不合成倦怠总分、不预测未来风险或作临床诊断。两份完整指南免费，资料不足也可阅读。中文为费马工作译本，与英文原始来源一起标明。"
+    "en": "This Copenhagen Burnout Inventory (CBI) presentation uses two complete source modules: six personal and seven work-related items. It is not the full nineteen-item inventory or a newly validated thirteen-item short form. Personal questions describe general reported exhaustion; work questions describe exhaustion perceived as work-related. Separate means use the source response formats, one reversed energy item and module-specific minimum valid counts. Chinese is a FermatMind working translation. Both eight-section guides remain fully available, with the explanations below distinguishing source research, website adaptations and WHO occupational terminology.",
+    "zh": "本哥本哈根倦怠量表（CBI）呈现使用个人六题、工作相关七题两个完整源模块，不是完整十九题或新验证的十三题短版。个人题描述一般自述耗竭，工作题描述本人感到与工作相关的耗竭；独立均分保留源回答格式、唯一精力反向题及各模块最低有效数。中文为费马工作译本，两份各八节指南始终完整开放，下方说明区分源研究、网站改编与WHO职业术语。"
   },
   "instructions": {
     "en": "For each item use its displayed source anchors: frequency for all personal items and the last four work items; degree for the first three work items. The source does not specify a numeric recall period. Work items refer to your own work; if they do not apply, choose NA rather than inventing an experience. NA also allows unable or unwilling responses. All thirteen displayed items need a selection, with none preselected. The source requires at least three valid personal responses and four valid work responses; average only valid item scores. Optional NA and a fixed interleaved item order are website presentation choices without established measurement equivalence. Saving in this tab is optional. You can stop at any time.",

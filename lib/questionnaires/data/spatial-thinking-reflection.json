@@ -15,12 +15,12 @@
     "zh": "空间关系思考反思：日常位置与布局"
   },
   "description": {
-    "en": "Four original recollection prompts about imagined turns and relative positions, with one complete free guide. Record selected labels without a correctness score, timed task, ability ranking or cognitive-style assignment.",
-    "zh": "四条原创回忆描述，涉及推想转动与相对位置，附一篇完整免费指南。保留所选标签，不生成正确率、计时任务、能力排名或认知风格分配。"
+    "en": "Recall everyday thinking about turns and relative positions through four original prompts. In about two minutes, keep a private category record and read the complete guide, free without registration.",
+    "zh": "用四条原创描述回顾日常推想转动与相对位置的经历，约两分钟，保留私人类别记录并阅读完整指南。全部免费，无需注册。"
   },
   "introduction": {
-    "en": "Recall your own ordinary spatial-thinking opportunities during the past four weeks. Thinking about a position can use words, an abstract relation or a picture; this page does not require a vivid image. No physical demonstration, object rotation, drawing or new puzzle is requested.",
-    "zh": "回顾过去四周自己的普通空间思考机会。思考位置可以使用语言、抽象关系或画面，本页不要求生动画面，也不要求身体演示、转动物品、绘图或新做谜题。"
+    "en": "Recall your own past four weeks without performing a new task. Attempts, uncertainty and difficulty remain separate observations; no correctness, speed, ability rank or fixed cognitive style is inferred.",
+    "zh": "回顾本人过去四周，无需新做任务。尝试、不确定与困难分别作为观察保留，不推断正确率、速度、能力排名或固定认知风格。"
   },
   "instructions": {
     "en": "Choose a category only from a relevant occasion you recall. No opportunity, unclear recall or withholding can stay unscored. Reports of trying, uncertainty and difficulty are not reversed or combined into an ability score. No answer is checked for spatial correctness.",

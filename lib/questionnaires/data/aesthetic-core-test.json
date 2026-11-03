@@ -2,7 +2,7 @@
   "slug": "aesthetic-core-test",
   "code": "AESTHETIC_VISUAL_PREFERENCES",
   "version": "1.0.0",
-  "updated": "2026-10-25",
+  "updated": "2026-10-31",
   "category": "metaphor",
   "kind": "archetype",
   "minutes": 5,
@@ -15,20 +15,20 @@
     "en": "Your visual-style preferences"
   },
   "seoTitle": {
-    "zh": "美学核心测试：18道文字偏好题与六种完整风格",
-    "en": "What Is My Aesthetic? 18 Questions, Six Full Style Guides"
+    "zh": "美学核心测试：18题、六种视觉偏好与完整解读",
+    "en": "What Is My Aesthetic? 18 Questions and Six Full Visual Style Guides"
   },
   "description": {
-    "zh": "用18道原创文字视觉偏好题，比较田园、暗色学院、清爽极简、海岸休闲、林野奇趣与赛博朋克。全部最高并列完整报告免费，无需注册；附配色、材质和不购物小尝试，不判断人格或外貌。",
-    "en": "Explore six aesthetics with 18 original word-based visual choices. Get every tied full guide, palettes, textures and no-purchase ideas free. No signup or personality verdict."
+    "zh": "通过18道文字视觉选择，比较田园、暗色学院、清爽极简、海岸休闲、林野奇趣与赛博朋克。约5分钟，免费查看六项计数、全部最高并列、配色与材质指南；无需照片、注册或购物。",
+    "en": "Compare Cottagecore, Dark Academia, Clean Girl, Coastal Grandmother, Goblincore and Cyberpunk in 18 word-based visual choices. See six counts, all highest ties and free palette and texture guides. About five minutes; no photo, signup or shopping needed."
   },
   "introduction": {
-    "zh": "What is my aesthetic——你更喜欢怎样的颜色、材质、图案与布局？本美学核心测试用18道文字描述的视觉偏好题，比较Cottagecore田园风、Dark Academia暗色学院风、Clean Girl清爽极简风、Coastal Grandmother海岸休闲风、Goblincore林野奇趣风与Cyberpunk赛博朋克风。它不是照片分析，也不把风格当作真实身份或人格。六份完整解释都可先读，作答后呈现原始计数与全部最高并列报告；配色与利用现有物品的小尝试免费，无需注册、购物或前置测评。",
-    "en": "What is my aesthetic: which colours, textures, motifs and arrangements appeal to you? This test uses 18 original word-described visual choices to compare Cottagecore, Dark Academia, Clean Girl, Coastal Grandmother, Goblincore and Cyberpunk. It analyses no photo and treats style as neither a real identity nor personality. Read all six full guides first, then receive raw counts and every highest-count report. Original palettes and experiments with existing things are free without signup, purchases or a preceding assessment."
+    "zh": "“What is my aesthetic？”可以从具体视觉线索回答：更喜欢暖浅色还是暗底亮线、细花纹还是几何留白、均匀排列还是自然不规则？本站美学核心测试用18道原创文字描述比较六种网络风格。每个选项把颜色、材质感、图案或构图组合起来，你选的是更喜欢的画面描述，而非照片中最适合自己的衣服、真实空间效果或某种人格。完成后呈现六项原始计数与所有最高风格的完整指南，帮助拆解自己喜欢的元素，再按需要自由组合。",
+    "en": "“What is my aesthetic?” can begin with specific visual cues: pale warmth or bright lines on dark, small flowers or geometric open space, even repetition or natural irregularity. These 18 original word-described choices compare six internet styles. Each option combines colours, texture impressions, motifs or composition. You choose a description you prefer, rather than clothing that suits your appearance, a real room’s performance or a personality. Results show six raw counts and full guides for every highest-count style, helping you identify elements to combine freely."
   },
   "instructions": {
-    "zh": "每题比较四段文字视觉描述，选择此刻更喜欢的一种，不按自己拥有多少物品、能否买到或某种人应该怎样回答。没有图片作答或照片上传；文字只帮助想象，不要求猜中标准风格。全部18题完成才显示结果，最高并列全部保留。你可以只喜欢某个颜色或材质，不必接受整个标签关联的生活方式。",
-    "en": "Compare four word-described visual arrangements and choose the one you prefer now, without considering possessions, purchasing power or how a certain person should answer. There are no image choices or photo uploads. Descriptions support imagination rather than guessing a correct style. Complete all 18 for the result, keeping every highest-count tie. Liking one colour or texture does not require adopting a label’s associated lifestyle."
+    "zh": "每题四段文字描述，选此刻更喜欢的一组视觉关系。几项都喜欢时，选更想保留在同一张灵感卡上的一项；不要猜“标准风格”，也不按已有物品、预算、性别或身份作答。题目没有图片选项或照片上传，不必在脑中形成清晰画面；按能理解的颜色、纹理与排列比较即可。18题全部完成后显示计数，最高并列全部保留。",
+    "en": "Choose the visual relationship you prefer among four descriptions in each question. If several appeal, choose the one you would most want on the same inspiration card. Do not guess a correct style or answer from possessions, budget, gender or identity. There are no picture choices or photo uploads, and no requirement to form a vivid mental image; compare the colours, textures and arrangements you understand. All 18 choices generate counts, keeping every highest tie."
   },
   "source": {
     "kind": "FermatMind original word-based visual style reflection;notphoto/personality/clinical/identity/abilityassessment",
@@ -1780,71 +1780,199 @@
         "en": "Vogue: Coastal Grandmother style background"
       },
       "url": "https://www.vogue.com/article/anne-hathaway-coastal-grandma-trend"
+    },
+    {
+      "title": {
+        "zh": "Palmer与Schloss（2010）：颜色偏好的生态效价理论（原始研究）",
+        "en": "Palmer and Schloss (2010): ecological valence theory of colour preference"
+      },
+      "url": "https://palmerlab.berkeley.edu/pdf/Palmer%26Schloss%282010%29.pdf"
     }
   ],
   "guide": [
     {
       "id": "archetype-counts",
       "title": {
-        "zh": "文字选择怎样成为次数",
-        "en": "How word-based choices become counts"
+        "zh": "美学核心测试怎样计分？18次选择与六项计数",
+        "en": "How does the aesthetic quiz score 18 choices?"
       },
       "paragraphs": [
         {
-          "zh": "18道文字视觉偏好题，每题所选风格加1；六种风格各出现12次、每个选项位置3次。全部18题完成后显示六项原始次数和所有最高并列完整报告。没有随机定型、隐藏权重、强派副型或匹配百分比；接近次数没有经过验证的近分阈值。计数只描述本题组选择，不测美貌、品味高低、身份、心理特质或能力。",
-          "en": "Each of 18 word-based visual choices adds one to its style. Every style appears 12 times and three times in each position. Complete all items for six raw tallies and every highest-count full report. There is no random assignment, hidden weighting, forced secondary type or match percentage; nearby counts have no validated close-score threshold. Counts describe these choices without measuring beauty, taste rankings, identity, psychological traits or ability."
+          "zh": "每题从四种文字描述中选一项，对应风格加1，其余不加分。六种风格各出现在12题中，在四个选项位置各出现3次，所以每项计数范围为0—12，六项相加固定为18。没有正误、隐藏权重、反向计分或自动补答；18题全部有效后才生成个人结果。",
+          "en": "One of four descriptions is selected per question, adding one to its style and nothing to the others. Every style appears in 12 items and three times in each option position. Each count ranges from 0 to 12, and all six always sum to 18. There are no correct answers, hidden weights, reverse keys or imputed responses. Personal results require 18 valid choices."
+        },
+        {
+          "zh": "例如田园风被选6次，显示6/12，意思是该类描述出现的12次中选了6次，不是“50%田园人格”或与某种人的50%相似度。每题只能选一项，因此计数反映同一题组内的相对选择，不是六个互不相关的绝对喜爱分数，也不是审美能力或人群百分位。",
+          "en": "A Cottagecore count of 6/12 means six selections among 12 appearances. It is not a 50% Cottagecore personality or 50% similarity to someone. With one selection per item, counts represent relative choices within these questions rather than six independent absolute liking scores, aesthetic ability or population percentiles."
         }
       ]
     },
     {
       "id": "archetype-ties",
       "title": {
-        "zh": "最高并列全部保留",
-        "en": "Keep every highest-count tie"
+        "zh": "最高并列怎样显示？喜欢多种风格也可以",
+        "en": "How are highest ties shown when several styles appeal?"
       },
       "paragraphs": [
         {
-          "zh": "六种都为3次时保留六份完整报告；任何其他最高并列也全部保留，不按页面顺序、随机或加权选一个主型。未并列时不强派副型，接近次数不对应经过验证的近分类型、误差带或统计显著。六份公开指南始终可读，不需要付费才能比较。",
-          "en": "Six counts of three retain all six full reports, as does any other highest-count tie. Page order, randomness and weighting never select a primary. An untied tally supplies no forced secondary, and nearby counts establish no validated close-score type, error band or significance. All six public guides remain readable without payment for comparison."
+          "zh": "按田园、暗色学院、清爽极简、海岸休闲、林野奇趣、赛博朋克顺序，若计数为4、4、3、3、2、2，前两项同为最高，两份完整指南都会呈现。六项各3次时，全部六份都呈现。名单顺序、字母和随机规则都不会选出唯一主型，次高也不自动成为副型。",
+          "en": "If Cottagecore, Dark Academia, Clean Girl, Coastal Grandmother, Goblincore and Cyberpunk receive 4, 4, 3, 3, 2 and 2, the first two share the highest count and both full guides appear. Six counts of three show all six guides. List order, letters and randomness do not select a sole primary, and a runner-up is not automatically a secondary."
+        },
+        {
+          "zh": "并列不代表必须把两个标签完整混搭，也不说明某种罕见身份。你可以只保留一个方向的颜色和另一个方向的布局。相差1次可提示回看具体选项，但本站没有测量误差或重测研究来判断稳定差异；接近但不相同的计数不会自动合并。",
+          "en": "A tie requires neither combining two entire labels nor adopting a rare identity. You can keep the colours of one approach and the layout of another. One extra choice can prompt a review of the options, but this form has no measurement-error or retest evidence establishing a stable difference. Nearby unequal counts are not automatically merged."
         }
       ]
     },
     {
       "id": "archetype-metaphor",
       "title": {
-        "zh": "风格名称不等于你是谁",
-        "en": "Style names do not determine who you are"
+        "zh": "“Aesthetic”在这里是什么？视觉风格与身份的区别",
+        "en": "What does “aesthetic” mean here? Style and identity"
       },
       "paragraphs": [
         {
-          "zh": "六种只是本版比较的常见视觉方向，不穷尽网络审美，也不规定你必须生活、工作或穿着成什么样。Clean Girl不判断性别或卫生，Coastal Grandmother不要求年龄与住房，Dark Academia不判断智力，Goblincore不判断临床或收藏，Cyberpunk不判断政治或技术能力，Cottagecore不要求乡村生活。",
-          "en": "These are six familiar visual directions selected for this edition, not all internet aesthetics or rules for living, working or dressing. Clean Girl judges neither gender nor hygiene; Coastal Grandmother requires no age or home. Dark Academia measures no intelligence, Goblincore no clinical or collecting state, Cyberpunk no politics or technical ability, and Cottagecore requires no rural lifestyle."
+          "zh": "本页使用的是网络语境中的风格名称，帮助讨论反复出现的视觉线索。“核心”是测试名称的一部分，不表示发现心理核心、潜意识或固定身份。六种是本版选出的比较方向，不是所有网络审美的完整目录，也没有按单一的“简单到复杂”或“温柔到叛逆”轴排序。",
+          "en": "This page uses internet style labels to discuss recurring visual cues. “Core” in the test name does not imply discovering a psychological core, subconscious or fixed identity. The six styles are this edition’s comparison set, not an exhaustive internet-aesthetics catalogue or positions on a single simple-to-complex or gentle-to-rebellious scale."
+        },
+        {
+          "zh": "题中一段描述常同时包含配色、图案和布局。被选中可能是因为其中一个元素，而不是喜欢整套组合；计数无法分离每种元素各自的作用。可在读完结果后圈出真正吸引你的词，再删除不喜欢的部分，这比把名称当作必须遵守的规范更具体。",
+          "en": "A description often combines palette, motifs and layout. One element may drive a choice without the whole combination appealing; counts cannot separate each element’s contribution. After reading, identify the words that actually attracted you and remove what you dislike, rather than treating the name as a rule to follow."
+        }
+      ]
+    },
+    {
+      "id": "aesthetic-directions",
+      "title": {
+        "zh": "六种风格分别采用哪些视觉线索？",
+        "en": "Which visual cues define the six comparisons?"
+      },
+      "paragraphs": [
+        {
+          "zh": "田园风（Cottagecore）：本版采用暖米色、细小花草、格纹、织纹与柔和轮廓。Cambridge对该词的说明关联传统乡村生活及使人联想到这种生活的穿着。[1] 本题组只借用视觉线索，不要求真实乡居、园艺、烘焙或手工能力。",
+          "en": "Cottagecore: this edition uses warm cream, small plant motifs, checks, weave and soft outlines. Cambridge describes the term through traditional rural activities and clothing that evokes them.[1] These questions use visual cues without requiring rural residence, gardening, baking or craft skills."
+        },
+        {
+          "zh": "暗色学院风（Dark Academia）：本版采用低饱和深色、旧纸书本意象、细格纹与正式构图。Penguin从文学与文化运动角度讨论学院场景、学习用具和哥特氛围。[2] 这里的选择不判断学历、知识、阅读量，也不要求接受作品中的痛苦或精英叙事。",
+          "en": "Dark Academia: muted deep colours, paper and book motifs, fine checks and formal composition. Penguin discusses academic settings, objects of learning and Gothic atmosphere in its literary and cultural account.[2] A choice here establishes neither education, knowledge nor reading volume, and requires no adoption of distress or elite narratives."
+        },
+        {
+          "zh": "清爽极简风（Clean Girl）：本版采用浅中性色、较少元素、平整线条与规整留白。名称在流行语中涉及更广的妆容、时尚与生活方式，也存在对标准和命名的争议。[4] 此处不做面部、皮肤或生活习惯评估，任何人都可以喜欢这种视觉关系。",
+          "en": "Clean Girl: pale neutrals, fewer elements, smooth lines and orderly open space. The popular term also covers beauty, fashion and lifestyle, with debate about its naming and standards.[4] This form assesses no face, skin or lifestyle routine; anyone can prefer this visual relationship."
+        },
+        {
+          "zh": "海岸休闲风（Coastal Grandmother）：本版采用沙米、浅蓝白、浅木色、宽松布纹与疏朗条纹。Vogue对这一趋势的介绍也指出，不必真是祖母才能采用这种氛围。[6] 这里不以年龄、家庭角色、住房或消费条件决定你能否选择。",
+          "en": "Coastal Grandmother: sand beige, pale blue-white, light wood, relaxed weave and open stripes. Vogue’s account notes that being a grandmother is not required to adopt the mood.[6] Age, family role, housing and spending do not determine whether you can choose these cues."
+        },
+        {
+          "zh": "林野奇趣风（Goblincore）：本版采用苔绿土色、斑点、叶脉、蘑菇轮廓与不规则旧物细节。Dictionary.com将其描述为欣赏一些通常不被当作传统美感对象的事物。[5] 图案上的不规则不等于生活混乱，喜欢这些线索也不要求收集自然物。",
+          "en": "Goblincore: moss and earth tones, speckles, leaf veins, mushroom outlines and irregular old-object details. Dictionary.com describes an appreciation of things not usually treated as conventionally beautiful.[5] Visual irregularity establishes no disorder in someone’s life, and enjoying these cues requires no collecting of natural objects."
+        },
+        {
+          "zh": "赛博朋克风（Cyberpunk）：本版采用暗底局部亮线、机械接口感、网格与界面般几何。Merriam-Webster说明该词与未来城市和计算机技术相关的科幻类型背景。[3] 本页借用视觉语言，不据此判断技术能力、政治态度，亦不隶属某款游戏或影视作品。",
+          "en": "Cyberpunk: bright accents on dark, connector-like forms, grids and interface-like geometry. Merriam-Webster describes the word’s science-fiction context involving future cities and computer technology.[3] This form borrows visual language without inferring technical skills or politics, or affiliation with a game or film."
+        }
+      ]
+    },
+    {
+      "id": "aesthetic-comparisons",
+      "title": {
+        "zh": "相似风格怎样区分？从具体元素开始",
+        "en": "Distinguishing similar styles through their elements"
+      },
+      "paragraphs": [
+        {
+          "zh": "田园与林野奇趣都可以有植物线索；本版前者偏暖浅色、细花与柔软重复，后者偏苔土色、斑驳与不规则。清爽极简与海岸休闲都可以明亮疏朗；前者侧重减少元素和几何秩序，后者增加蓝白条纹与宽松织纹。差异用于解释题目，不是对风格规定唯一正确边界。",
+          "en": "Cottagecore and Goblincore can both use plants. Here the former emphasises pale warmth, small flowers and soft repetition, while the latter emphasises moss, earth and mottled irregularity. Clean Girl and Coastal Grandmother can both be light and open; this edition distinguishes reduced geometry from added blue-white stripes and relaxed weave. These contrasts explain the items, not uniquely correct style boundaries."
+        },
+        {
+          "zh": "暗色学院与赛博朋克都可以采用深色背景，前者在本版搭配旧纸、书本和正式边框，后者搭配发光线条、技术网格与接口形状。选择暗色本身不足以区分两者；可以比较自己更关注明暗关系、物件意象，还是构图节奏。",
+          "en": "Dark Academia and Cyberpunk can share dark backgrounds. Here one pairs them with old paper, books and formal borders, the other with luminous lines, technical grids and connector forms. Darkness alone cannot distinguish them; ask whether light contrast, object motifs or compositional rhythm attracted you."
         }
       ]
     },
     {
       "id": "palettes-and-examples",
       "title": {
-        "zh": "配色和例子如何使用",
-        "en": "How to use palettes and examples"
+        "zh": "配色与材质指南怎样用？一个不购物的例子",
+        "en": "Using palettes and textures without a purchase"
       },
       "paragraphs": [
         {
-          "zh": "六份报告都有本站原创、可调整的配色例子、材质与图案说明，以及利用已有纸张、物件照片或自己绘图的小尝试。它们不是固定规范、购物清单、护肤建议或装修指令。题目没有调用艺术图片或影视游戏画面，公开分享图为本站文字设计，不暗示任何品牌合作。",
-          "en": "Each guide includes an original adjustable palette, textures and motifs, plus experiments with existing paper, photos of your possessions or your own drawings. These are not fixed standards, shopping lists, skincare advice or renovation instructions. Items use no artist images or film or game frames. Public share images use the website’s text design without implying brand affiliation."
+          "zh": "设想用现有纸张做两张小卡：两张保留相同浅色，一张只用几何线条与较多留白，另一张加入疏朗条纹和布纹感。比较哪张更喜欢，再只改变一项元素，例如线条密度。这个自选小尝试有助于把偏好说具体，但不是受控实验，也不证明某种风格更适合所有场景。",
+          "en": "Make two small cards from existing paper. Keep the same pale colours; use geometric lines and more open space on one, and open stripes with a fabric impression on the other. Compare them, then change just one element, such as line density. This optional exercise can make a preference more specific, but is not a controlled experiment or proof that one style suits every setting."
+        },
+        {
+          "zh": "六份完整指南分别给出本站原创、可调整的色号、材质和图案例子。色号是参考起点，不是官方风格规范；屏幕色、印刷色与真实材料并不自动一致。浅色搭配也要兼顾文字辨识，暗色氛围不必把真实空间弄暗，技术感图形也不需要真实设备或灯光。",
+          "en": "Each full guide offers an original, adjustable palette with texture and motif examples. Colour codes are starting points rather than official style standards; screen colours, print and real materials are not automatically equivalent. Pale combinations still need distinguishable text, a dark atmosphere need not dim a real room, and technical-looking shapes need no actual devices or lights."
+        }
+      ]
+    },
+    {
+      "id": "aesthetic-preference-research",
+      "title": {
+        "zh": "颜色偏好研究能说明什么，不能说明什么？",
+        "en": "What can colour-preference research establish?"
+      },
+      "paragraphs": [
+        {
+          "zh": "Palmer与Schloss（2010）研究颜色偏好与人们对相关物体的情感评价之间的关系：其颜色评分任务使用实际色刺激，并分析样本平均偏好。[7] 这是一种研究视觉喜好的途径，不能据此从一个人的苔绿、米白或霓虹选择反推其人格、情绪或人生经历。",
+          "en": "Palmer and Schloss (2010) studied colour preferences in relation to affective evaluations of associated objects, using actual colour stimuli and analysing average preferences in their sample.[7] This is one approach to studying visual liking, not a method for inferring an individual’s personality, mood or life history from moss, cream or neon choices."
+        },
+        {
+          "zh": "本站不是该实验的复现：这里比较的是同时包含颜色、纹理与布局的文字组合，没有标准化色刺激、色觉检查或感知能力任务。现有研究不能替代这18题自身的信度、效度、结构或常模证据；本站尚未完成这些验证。词义、文化介绍与研究论文各自支持不同范围的解释，不共同构成“六种科学人格”。",
+          "en": "This form does not replicate that experiment. It compares word-described combinations of colour, texture and layout, with no standardised colour stimuli, colour-vision examination or perceptual-ability task. External work cannot replace this form’s own reliability, validity, structural or normative evidence, which has not been established. Definitions, cultural accounts and research support different claims, not six scientific personalities."
+        }
+      ]
+    },
+    {
+      "id": "aesthetic-context",
+      "title": {
+        "zh": "文字想象、使用场景与跨语言差异",
+        "en": "Descriptions, context and language"
+      },
+      "paragraphs": [
+        {
+          "zh": "同样的“柔和蓝白”可能让不同人想到不同饱和度、光线或材料。没有形成清晰的心中画面，也可以按文字含义比较，不用由此评价想象力；本站不测心盲症、色觉或艺术技能。中英文使用同一套题意与计数规则，但没有语言等值或跨文化常模研究。",
+          "en": "The same phrase, such as soft blue-white, can evoke different saturation, lighting or materials for different readers. You can compare meanings without a vivid mental picture; the form evaluates neither imagery ability, aphantasia, colour vision nor art skills. English and Chinese use the same item meanings and counting rule, without an established language-equivalence or cross-cultural norm study."
+        },
+        {
+          "zh": "喜欢灵感卡上的密集纹样，不表示想在工作界面上使用它；喜欢低饱和色，也不规定所有衣物或空间都用同一配色。使用时同时考虑功能、可读性、舒适与已有物品。重测变化先比较参照场景和实际选项，不只根据风格名推断自己“变成另一种人”。",
+          "en": "Liking a dense pattern on an inspiration card does not require using it in a work interface, and liking muted colours prescribes no single palette for clothes or rooms. Consider function, readability, comfort and existing possessions alongside preference. On a retake, compare the context and actual choices rather than interpreting a different name as becoming another kind of person."
+        }
+      ]
+    },
+    {
+      "id": "aesthetic-application",
+      "title": {
+        "zh": "从结果中提取自己的视觉词汇",
+        "en": "Building a personal visual vocabulary"
+      },
+      "paragraphs": [
+        {
+          "zh": "读一份最有共鸣的指南，记下三个具体词，例如“低饱和”“细格纹”“对称边框”，再写下一个不喜欢的元素。用已有物品的照片、自己画的形状或文字列表试着组合。你可以喜欢暗色学院的纸张意象，却不要正式对称；也可以借海岸休闲的浅蓝，而不接受整个生活方式。",
+          "en": "Read one relevant guide and record three specific cues, such as muted colour, fine checks and symmetrical borders, plus an element you dislike. Try combining photos of your own objects, your drawings or a word list. You can enjoy Dark Academia paper motifs without formal symmetry, or borrow Coastal Grandmother’s pale blue without adopting a whole lifestyle."
+        },
+        {
+          "zh": "名称可以帮助找同类视觉例子，但搜索到的风格图片不必当作购物清单或外貌标准。保留现有有用物品、不公开结果或完全不用标签，都不影响这次探索。结果也不用于挑职业、判断人与人是否合适，或把品味按“高级”“成熟”“纯正”排序。",
+          "en": "A label can help locate visual examples, but search images need not become shopping lists or appearance standards. Keeping useful belongings, withholding a result or using no label are all compatible with exploration. The result does not select careers, match people or rank taste by sophistication, maturity or purity."
         }
       ]
     },
     {
       "id": "free-and-private",
       "title": {
-        "zh": "免费范围与可选草稿分享",
-        "en": "Free access and optional drafts or sharing"
+        "zh": "免费范围、开始测试与隐私",
+        "en": "Free access, starting and privacy"
       },
       "paragraphs": [
         {
-          "zh": "全部18题、六项计数、所有最高并列报告与六份完整公开指南免费，无需邮箱、注册或前置测试。浏览器本地计分，主动保存才保留本标签页24小时草稿，完成、清除或重测即删除。分享只有风格名称与公开链接，不带答案、计数、照片或内部ID；公开指南不关联个人答卷。",
-          "en": "All 18 items, six counts, every highest-count report and six full public guides are free without email, signup or another test. Scoring happens in the browser. Only opting in saves a 24-hour tab draft, deleted on completion, clearing or retake. Sharing includes style names and public links without answers, counts, photos or internal IDs. Public guides contain no private attempts."
+          "zh": "18题、六项计数、所有最高并列报告和六份完整公开指南免费，无需邮箱、注册、购物或前置测试。点击开始测试直接进入题目，不需要额外勾选同意。约5分钟是阅读选择的估计，不是限时；六份指南也能在作答前阅读，不包含任何人的个人答案或计数。",
+          "en": "All 18 questions, six counts, every highest-count report and six full public guides are free, without email, signup, shopping or a preliminary test. Start opens the questions directly, without an extra agreement checkbox. About five minutes estimates reading and choice time, not a time limit. Guides are also readable beforehand and contain no personal answers or counts."
+        },
+        {
+          "zh": "答案在浏览器内计算，不随计分请求上传，不写入网址或分析事件。仅在主动保存后保留本标签页24小时草稿，完成、清除或重测即删。分享风格名称与公开链接不带答案、计数或照片；题目不要求提交自己的脸、身体、住处、衣柜或他人的图片。",
+          "en": "Answers are scored in the browser without an answer-upload scoring request, answers in URLs or answer analytics. Only explicitly saved progress remains in this tab for up to 24 hours, deleted on completion, clearing or retake. Sharing names and public links includes no answers, counts or photos. The questions request no images of faces, bodies, homes, wardrobes or other people."
         }
       ]
     }
@@ -1852,62 +1980,122 @@
   "faq": [
     {
       "question": {
-        "zh": "本美学核心测试比较哪六种风格？",
-        "en": "Which six aesthetics does this test compare?"
+        "zh": "美学核心测试比较哪六种风格？",
+        "en": "Which six styles does this aesthetic quiz compare?"
       },
       "answer": {
-        "zh": "田园Cottagecore、暗色学院Dark Academia、清爽极简Clean Girl、海岸休闲Coastal Grandmother、林野奇趣Goblincore与赛博朋克Cyberpunk。它们是六种常见视觉方向，不穷尽审美或规定固定身份。全部完整解释都有配色、材质、具体例子、比较与小尝试。",
-        "en": "Cottagecore, Dark Academia, Clean Girl, Coastal Grandmother, Goblincore and Cyberpunk. These are six familiar visual directions rather than all aesthetics or fixed identities. Every full guide includes an original palette, textures, examples, comparisons and a small experiment."
+        "zh": "田园Cottagecore、暗色学院Dark Academia、清爽极简Clean Girl、海岸休闲Coastal Grandmother、林野奇趣Goblincore与赛博朋克Cyberpunk。它们是本版选定的视觉比较方向，不是所有审美的完整分类；每份指南都有配色、材质、图案、比较和小尝试。",
+        "en": "Cottagecore, Dark Academia, Clean Girl, Coastal Grandmother, Goblincore and Cyberpunk. These are this edition’s visual comparisons, not a complete classification of aesthetics. Every guide includes palettes, textures, motifs, comparisons and an optional exercise."
       }
     },
     {
       "question": {
-        "zh": "需要图片作答、上传照片或买东西吗？",
-        "en": "Are there image choices, photo uploads or purchases?"
+        "zh": "这是图片测试、照片分析还是穿搭诊断？",
+        "en": "Is this an image quiz, photo analysis or styling diagnosis?"
       },
       "answer": {
-        "zh": "没有。18题是文字描述的视觉偏好比较，不分析照片、皮肤或身体。报告示例可用已有纸张、物件照片或自己的图形尝试，不需要购物、护肤、装修或为风格添装备。",
-        "en": "No. The 18 items compare word-described visual preferences without analysing photos, skin or bodies. Guide examples can use existing paper, photos of your own objects or your drawings, without purchases, skincare, renovation or equipment for a style."
+        "zh": "都不是。18题使用文字描述，让你比较颜色、材质感、图案和布局，不分析脸、皮肤、身体或真实衣服是否适合你。页面插画是辅助展示，不是图片评分材料；没有照片上传。",
+        "en": "None of these. Eighteen descriptions compare colours, texture impressions, motifs and layouts without analysing faces, skin, bodies or whether clothes suit you. Page illustrations support presentation rather than serving as image-scoring stimuli. There are no photo uploads."
       }
     },
     {
       "question": {
-        "zh": "怎样计分和保留并列？",
-        "en": "How are choices counted and ties preserved?"
+        "zh": "怎样计分？6/12是不是50%匹配？",
+        "en": "How is it scored? Does 6/12 mean a 50% match?"
       },
       "answer": {
-        "zh": "每题为所选风格加1，各方向出现12次、每位置3次。完成18题后显示六项原始次数与每份最高并列完整报告，不随机取型、不强派副型或给匹配百分比；接近次数没有经过验证的近分阈值。",
-        "en": "Each choice adds one to its style. Every style appears 12 times and three times in each position. Complete 18 items for six raw tallies and every highest-count full report, without random assignment, forced secondary types or match percentages. Nearby counts have no validated close-score threshold."
+        "zh": "每次选择给一种风格加1。每种在12题中出现、四个位置各3次，六项之和为18。6/12只是出现12次时选了6次，不是匹配概率、审美能力或风格含量；没有隐藏权重或随机结果。",
+        "en": "Each choice adds one to a style. Every style appears in 12 items, three times in each position, and all counts sum to 18. Six out of 12 means six choices in 12 appearances, not match probability, aesthetic ability or style content. There are no hidden weights or random results."
       }
     },
     {
       "question": {
-        "zh": "结果能说明人格、智力或职业吗？",
-        "en": "Can this establish personality, intelligence or careers?"
+        "zh": "两个甚至六个风格并列怎么办？",
+        "en": "What if two or all six styles tie highest?"
       },
       "answer": {
-        "zh": "不能。本版为独立编写的视觉偏好自评，没有本站信效度或常模验证；词义和文化来源不验证题本。结果不判断智力、自律、卫生、性别、年龄、心理健康、政治或职业适配，也不由审美补出MBTI或大五分数。",
-        "en": "No. This independently authored visual reflection has no established website psychometrics or local norms; term and cultural sources do not validate items. Results assess neither intelligence, discipline, hygiene, gender, age, mental health, politics nor career fit, and do not supply MBTI or Big Five scores."
+        "zh": "所有最高风格的完整指南都会呈现。4、4、3、3、2、2保留前两个最高方向，六项各3次保留六份。不会按名单选唯一主型，不把次高强派为副型；喜欢多个风格并非错误。",
+        "en": "Every highest-count guide appears. Counts of 4, 4, 3, 3, 2 and 2 keep the first two highest styles; six counts of three keep all six. List order does not pick a sole primary or force a runner-up secondary. Liking several styles is not an error."
       }
     },
     {
       "question": {
-        "zh": "喜欢两种风格、或者不喜欢整个标签怎么办？",
-        "en": "What if I like several styles or only part of a label?"
+        "zh": "能否只喜欢一个颜色，不喜欢整个风格？",
+        "en": "Can I like one colour without liking the whole style?"
       },
       "answer": {
-        "zh": "可以只保留某个颜色、材质或布局。最高次数相同的报告全部呈现，其他六份公开指南也都可先比较；不宣称某些组合罕见、冲突或更成熟。名字是讨论工具，不要求忠于一种生活方式或购买相应物件。",
-        "en": "Keep one colour, texture or arrangement if that is what you like. Every highest-count report appears and all six public guides can be compared first, without claims that blends are rare, conflicting or more mature. Names help discussion without loyalty to a lifestyle or associated possessions."
+        "zh": "可以。每段描述组合了多个线索，一次选择不能分离其中哪一项最有吸引力。可以在指南中圈出想保留的颜色、纹理或布局，删除其余；不需要把自己的生活、衣柜和空间统一成一个标签。",
+        "en": "Yes. Each description combines several cues, and one choice cannot isolate which attracted you most. Identify the colours, textures or layouts you want to retain and discard the rest. No single label is required for your life, wardrobe or space."
       }
     },
     {
       "question": {
-        "zh": "完整报告免费吗，保存与分享包含什么？",
-        "en": "Are full reports free, and what do saving and sharing include?"
+        "zh": "田园、林野奇趣、清爽极简和海岸休闲怎样区分？",
+        "en": "How do Cottagecore, Goblincore, Clean Girl and Coastal Grandmother differ here?"
       },
       "answer": {
-        "zh": "全部题目、计数、并列报告及六份完整公开指南免费，无需注册或前置测试。草稿是可选本标签页24小时保存，完成、重测或清除即删。分享只有名称与公开链接，不含答卷、计数、照片或内部ID；存储或复制受限仍能继续与手动分享。",
-        "en": "All items, counts, tied reports and six full public guides are free without signup or a preceding test. Drafts are optional 24-hour tab storage, deleted on completion, retake or clearing. Sharing contains names and public links without answers, counts, photos or internal IDs. Restricted storage or copying still permits completion and manual sharing."
+        "zh": "本版田园偏暖浅色、细花和织纹，林野奇趣偏苔土色、斑点与不规则；清爽极简偏较少元素和几何留白，海岸休闲增加浅蓝白、条纹与宽松布纹。这是解释本题组的线索，不是唯一官方风格标准。",
+        "en": "Here Cottagecore emphasises pale warmth, small flowers and weave; Goblincore moss, earth, speckles and irregularity. Clean Girl emphasises reduced elements and geometric open space; Coastal Grandmother adds pale blue-white, stripes and relaxed weave. These clarify the items rather than establish official style standards."
+      }
+    },
+    {
+      "question": {
+        "zh": "Dark Academia或Cyberpunk能看出智力、技术能力或性格吗？",
+        "en": "Can Dark Academia or Cyberpunk indicate intelligence, technical skills or personality?"
+      },
+      "answer": {
+        "zh": "不能。书本、旧纸与深色构图不等于知识或学历，技术网格与亮线也不等于编程能力、政治态度或职业适配。[2][3] 本页只记录描述之间的选择，不把风格意象转换为人的能力或心理特质。",
+        "en": "No. Books, paper and deep colours establish neither knowledge nor education; technical grids and bright lines establish neither coding ability, politics nor career fit.[2][3] This page records choices between descriptions without converting motifs into abilities or psychological traits."
+      }
+    },
+    {
+      "question": {
+        "zh": "Clean Girl和Coastal Grandmother限制性别、年龄或卫生吗？",
+        "en": "Do Clean Girl and Coastal Grandmother prescribe gender, age or hygiene?"
+      },
+      "answer": {
+        "zh": "不限制。它们是流行语中的名称，背景语义比本题组的视觉线索更宽。[4][6] 本站不评皮肤、身材、清洁程度、健康或家庭角色，任何人都可以喜欢浅中性色、简洁几何或蓝白布纹。",
+        "en": "No. These are popular names whose broader associations exceed the visual cues used here.[4][6] The form evaluates no skin, body, cleanliness, health or family role. Anyone can prefer pale neutrals, simple geometry or blue-white weave."
+      }
+    },
+    {
+      "question": {
+        "zh": "这份测试经过科学验证吗？颜色偏好研究能验证它吗？",
+        "en": "Is this quiz scientifically validated? Does colour research validate it?"
+      },
+      "answer": {
+        "zh": "本站18题为原创文字偏好比较，尚无本题本的信度、效度或常模。颜色偏好研究使用自己的刺激、任务和样本，不能直接验证六种网络风格或推断个人身份。[7] 可复算计数说明规则透明，不等于心理测量验证。",
+        "en": "These 18 original word-based comparisons have no established form-specific reliability, validity or norms. Colour-preference studies use their own stimuli, tasks and samples and cannot directly validate six internet styles or infer personal identity.[7] Reproducible counts make the rule transparent without constituting psychometric validation."
+      }
+    },
+    {
+      "question": {
+        "zh": "必须购物、换衣服或重新装修才能用结果吗？",
+        "en": "Do I need to shop, change clothes or redecorate?"
+      },
+      "answer": {
+        "zh": "不需要。可以用现有纸张、自有物品照片、自己画的图形或文字做一个小比较。指南色号可调整，不是必须购买的材料规范；保留有用物品与探索风格并不冲突。",
+        "en": "No. Compare existing paper, photos of your own belongings, drawings or words. Guide palettes are adjustable examples rather than material-purchasing specifications. Keeping useful possessions is compatible with exploring a style."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么文字想象不同、或者重测结果变了？",
+        "en": "What if descriptions evoke different images or a retake changes my result?"
+      },
+      "answer": {
+        "zh": "文字不固定真实颜色、亮度和材质，不同读者可能想象不同画面。可以按理解到的线索作答，不据此判断想象力或色觉。重测先比较场景和具体选择；本站没有证据把名称变化量化为人格改变。",
+        "en": "Descriptions do not fix actual colour, brightness or materials, so readers can imagine different scenes. Answer from the cues you understand without judging imagery or colour vision. On a retake, compare contexts and choices; a changed label does not quantify personality change."
+      }
+    },
+    {
+      "question": {
+        "zh": "题目与完整结果免费吗，开始后还要确认吗？",
+        "en": "Are questions and full results free, and is another confirmation required?"
+      },
+      "answer": {
+        "zh": "全部18题、六项计数、所有最高并列报告和六份全文免费，无需注册或前置测试。点击开始直接进入题目，没有额外同意框。答案在浏览器计算；只有主动保存才保留24小时标签页草稿，完成、清除或重测即删。",
+        "en": "All 18 questions, six counts, every highest-count report and six full guides are free without signup or a preliminary test. Start opens questions directly with no extra agreement box. Answers are scored in the browser; only explicitly saved progress remains as a 24-hour tab draft, deleted on completion, clearing or retake."
       }
     }
   ]

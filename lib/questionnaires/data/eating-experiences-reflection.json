@@ -14,8 +14,8 @@
     "zh": "进食与身体经历回顾：20条原创陈述与五篇完整指南"
   },
   "description": {
-    "en": "An adult reflection on body thoughts, limiting eating, felt loss of choice, trying to undo eating and food concerns. Private category records, no clinical score.",
-    "zh": "成年人回顾身体想法、限制进食、失去选择感、试图抵消进食及食物顾虑。私密类别记录，不设临床分数。"
+    "en": "Recall your past four weeks through 20 original statements on eating and body-related experiences. Read five separate category records and complete guides, free without registration.",
+    "zh": "通过20条原创陈述，回顾过去四周的进食与身体相关经历。分别查看五组类别记录及完整指南，全部免费，无需注册。"
   },
   "minutes": 6,
   "instructions": {
@@ -27,8 +27,8 @@
     "zh": "你的五份独立描述记录"
   },
   "introduction": {
-    "en": "Twenty original statements and five complete guides, free without an account. This is a personal reflection, not an eating-disorder screen, nutrition assessment or substitute for medical care.",
-    "zh": "20条原创陈述与五篇完整说明，无需账户，全部免费。这是个人回顾，不是进食障碍筛查、营养评估或医疗照护的替代。"
+    "en": "Five topics distinguish body-related thoughts, limiting eating, a felt loss of choice, trying to undo eating and food concerns taking up attention. This adult self-description keeps each choice separate, without a clinical score or a judgment about the body.",
+    "zh": "五个主题分别讨论身体相关想法、限制进食、主观失去选择感、试图抵消进食及食物顾虑占据注意。本成年人自述保留每项选择，不生成临床分数或身体评定。"
   },
   "source": {
     "kind": "fermatmind_original_eating_experience_statements",

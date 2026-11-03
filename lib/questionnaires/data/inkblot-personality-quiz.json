@@ -14,21 +14,21 @@
     "en": "Five inkblot readings and every highest tie"
   },
   "description": {
-    "zh": "免费墨迹人格测验：看十张费马原创图，选择此刻更想沿着看的说法，直接读五份完整结果与全部最高并列。趣味版，不是专业Rorschach测试，不诊断或解释隐藏人格。",
-    "en": "A free Rorschach-style inkblot quiz with 10 original images and five full guides. A playful visual reflection, without clinical or personality assessment."
+    "zh": "看10张原创对称墨迹图，用四选一探索整体轮廓、边缘细节、动势联想、色块对照和场景编想。免费查看五项次数、全部最高并列与完整指南，无需注册；趣味看图，不作专业罗夏评估。",
+    "en": "Explore five ways of reading ten original inkblots. Get all counts, highest ties and complete guides free, without signup. An untimed visual-choice quiz, not a clinical Rorschach assessment."
   },
   "seoTitle": {
-    "zh": "墨迹人格测验：原创图、免费作答与完整结果",
-    "en": "Rorschach-Style Inkblot Quiz: Full Free Results"
+    "zh": "墨迹人格测验：10张原创图、五种读法与免费完整结果",
+    "en": "Rorschach-Style Inkblot Quiz: 10 Original Images and Five Full Reading Guides"
   },
   "minutes": 5,
   "introduction": {
-    "zh": "把同一幅抽象图当作整体、追一个边缘、想象动势、比较色块，或临时编想场景，你此刻更想选哪一种？本版提供十张费马独立创作的对称SVG墨迹，每图一题、四种说法，旁有中性结构说明。它不是心理学家使用的Rorschach测试，不采用历史牌卡或CS、R-PAS临床编码，也不从图像选择解释人格、无意识、共情或职业。全部十题后看相对次数与所有最高并列；五份完整说明也可直接先读，无需注册或另做测评解锁。",
-    "en": "Would you rather read an abstract image as a whole, follow an edge, imagine movement, compare regions or develop a temporary scene? This edition offers ten independently authored symmetrical SVG blots, one question per image and four offered readings, with neutral structural descriptions. It is not the professional Rorschach assessment, uses no historical plates or CS or R-PAS clinical codes, and infers no personality, unconscious content, empathy or career. Complete ten choices for relative counts and every highest tie, or read all five full guides first without signup or another assessment."
+    "zh": "同一幅抽象图，可以沿整体轮廓看，也可以追踪边缘、想象动势、比较色块或编想场景。这份墨迹人格测验提供10张费马原创对称图，每图四种说法，邀请你选择此刻更想继续的看法。约5分钟后免费查看五项原始次数、所有最高并列与完整指南。结果描述本次选项选择，不从图像联想推断隐藏人格或心理状态。",
+    "en": "One abstract image can invite an overall outline, a small edge, imagined movement, a color contrast or a temporary scene. This Rorschach-style inkblot quiz offers ten original symmetrical images, each with four possible ways to continue looking. In about five minutes, view all five raw counts, every highest tie and complete guides free. Results describe choices among these options, without inferring hidden personality or mental health from image associations."
   },
   "instructions": {
-    "zh": "看十张费马原创抽象墨迹图，每张从四种说法中选此刻更想沿着看的方式。图旁有中性结构说明；不要求看到特定物体，也不测最先看到什么、速度、眼动或隐藏人格。五种编辑阅读焦点各出现8次，在四个位置各2次；每选一项加1，0反向。完整十题后保留全部最高并列，不硬派主副型或百分比。没有贴切选项时可退出并直接读全部五份公开说明，不把未完成解释成问题。图像加载失败时不能继续计分。",
-    "en": "Look at ten independently authored abstract blots and choose the offered way of looking you currently prefer. Neutral structural descriptions accompany the images. No particular object is required and neither first perception, speed, eye movements nor hidden personality is measured. Five editorial reading focuses each appear eight times and twice in each position. Every choice adds one count with no reverse keys. Complete ten choices for every highest tie without a forced secondary type or percentage. If no option fits, you may leave and read all five public guides; an unfinished attempt establishes no problem. Image loading failure prevents continued scoring."
+    "zh": "先看当题图像，再选四种说法中此刻更想沿着看的一项；多个都贴近时选更想继续的一种，无须猜标准答案或强迫看出某个物体。图旁文字仅描述结构，不替代图像。10题全部完成才生成计数，图片加载失败时不能继续计分。没有贴切说法可以退出，五份公开指南仍可直接阅读。点击开始直接进入题目，无需再次同意。",
+    "en": "Look at the current image, then choose the offered reading you would like to follow now. If several fit, select the one you would continue with; there is no correct object to find. The accompanying text describes structure, without replacing the image. All ten responses are needed for counts, and image-loading failure prevents continued scoring. You may leave if no option fits and still read all five public guides. Start opens questions directly without another agreement."
   },
   "source": {
     "kind": "FermatMind10originalSVGblotsandfourchoiceprompts/fiveeditorialreadingfocuses/notclinicalRorschachplates-CS-RPAS-orpersonalityperceptiontest",
@@ -1384,6 +1384,13 @@
         "en": "R-PAS: public information about professional administration, coding and interpretation"
       },
       "url": "https://r-pas.org/"
+    },
+    {
+      "title": {
+        "zh": "Ales等（2022）：专业R-PAS远程施测试点及局限（非本站题本研究）",
+        "en": "Ales et al. (2022): professional remote R-PAS pilot and limitations, not a study of this quiz"
+      },
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8923744/"
     }
   ]
 }

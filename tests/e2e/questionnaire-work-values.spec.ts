@@ -11,7 +11,7 @@ const witnesses = Object.fromEntries(["sole", "all-ten"].map(kind => {
   return [kind, { values, counts, profiles }];
 }));
 async function consent(page: Page, l: Locale) { const b = page.getByRole("button", { name: label(l, "Decline", "拒绝"), exact: true }); if (await b.isVisible()) await b.click(); }
-async function button(page: Page, l: Locale, en: string, zh: string) { await page.getByRole("button", { name: label(l, en, zh), exact: true }).click(); }
+async function button(page: Page, l: Locale, en: string, zh: string) { await (en === "Start test" ? page.locator("[data-explore-start]") : page.getByRole("button", { name: label(l, en, zh), exact: true })).click(); }
 async function finish(page: Page, l: Locale, kind: "sole" | "all-ten") {
   const sample = witnesses[kind];
   for (let i = 0; i < 30; i++) {
