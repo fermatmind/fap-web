@@ -73,7 +73,7 @@ describe("complete original mini-program relationship values at the existing can
   const entry=catalog.find(q=>q.slug===quiz.slug)!;expect(entry.collection).toBe("play");expect(entry.resultSlugs).toEqual(quiz.profiles.map(p=>p.id));expect(entry.formCode).toBe(quiz.source.formCode);
   expect(quiz.guide.filter(s=>["raw-wins-explanation","ties-explanation","low-direction-explanation"].includes(s.id))).toHaveLength(3);
  });
- it.each(["en", "zh"] as const)("preserves the existing play analytics identity and once-only completion after a full %s attempt", locale => {
+ it.each(["en", "zh"] as const)("preserves the existing play analytics identity and once-only completion after a full %s attempt", async locale => {
   const prior = Object.getOwnPropertyDescriptor(HTMLElement.prototype, "scrollIntoView");
   Object.defineProperty(HTMLElement.prototype, "scrollIntoView", { configurable: true, value: vi.fn() });
   try {
@@ -88,7 +88,7 @@ describe("complete original mini-program relationship values at the existing can
     const envelope=toSeoAttributionIngestEnvelope({eventName:event,anonymousId:"",path:`/${locale}/tests/play/relationship-values`,timestamp:"2026-10-27T00:00:00Z",payload:filterTrackingPayload(event,payload)});expect(envelope.payload).toMatchObject({scale_code:"ENTERTAINMENT",form_code:"fun_relationship-values_v1"});
     expect(JSON.stringify(payload)).not.toMatch(/answers|counts|q1|o1|raw|profileId|submission/i);
    }
-   const onward=screen.getByRole("link",{name:zh?"了解MBTI与题本选择":"Explore MBTI and its versions"});onward.addEventListener("click",e=>e.preventDefault());fireEvent.click(onward);
+   const onward=await screen.findByRole("link",{name:zh?"了解MBTI与题本选择":"Explore MBTI and its versions"});onward.addEventListener("click",e=>e.preventDefault());fireEvent.click(onward);
    const calls=tracking.trackEvent.mock.calls.filter(([event])=>event==="article_to_test_click");expect(calls).toHaveLength(1);expect(calls[0][1]).toMatchObject({source_path:`/${locale}/tests/play/relationship-values`,cta_id:"entertainment_result_mbti",scale_code:"MBTI"});
   } finally { if(prior)Object.defineProperty(HTMLElement.prototype,"scrollIntoView",prior);else Reflect.deleteProperty(HTMLElement.prototype,"scrollIntoView"); }
  });
