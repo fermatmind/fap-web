@@ -22,8 +22,8 @@ function build(chunks: unknown[] = ["/_next/static/chunks/current-tool.js"]) {
 }
 
 describe("Initial questionnaire script hints", () => {
-  it("uses only deduplicated installed bootstrap and current route chunks", () => {
-    expect(initialQuestionnaireScripts("disc", build(["/_next/static/chunks/current-tool.js", "/_next/static/chunks/bootstrap.js"]))).toEqual(["/_next/static/chunks/bootstrap.js", "/_next/static/chunks/current-tool.js"]);
+  it("keeps every SSR dependency, including the global error bootstrap, and deduplicates chunks", () => {
+    expect(initialQuestionnaireScripts("disc", build(["/_next/static/chunks/current-tool.js", "/_next/static/chunks/bootstrap.js"]))).toEqual(["/_next/static/chunks/bootstrap.js", "/_next/static/chunks/current-tool.js", "/_next/static/chunks/error-document.js"]);
   });
   it.each(["https://other.example/script.js", "static/chunks/../../outside.js", "static/chunks/style.css"])("never emits an unsafe build path: %s", chunk => {
     expect(initialQuestionnaireScripts("disc", build([chunk]))).toEqual([]);

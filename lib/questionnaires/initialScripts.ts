@@ -14,10 +14,8 @@ export function initialQuestionnaireScripts(tool: Tool, root = process.cwd()): s
     const client = JSON.parse(serialized);
     if (!client.clientModules || typeof client.clientModules !== "object") return [];
     const chunks: unknown[] = [...build.rootMainFiles];
-    for (const [name, module] of Object.entries(client.clientModules)) {
-      // The global error document is not part of these pages' hydration tree.
-      if (name.endsWith("/app/global-error.tsx")) continue;
-      const entry = module as { chunks?: unknown } | null;
+    for (const clientModule of Object.values(client.clientModules)) {
+      const entry = clientModule as { chunks?: unknown } | null;
       if (!entry || !Array.isArray(entry.chunks)) return [];
       chunks.push(...entry.chunks);
     }
