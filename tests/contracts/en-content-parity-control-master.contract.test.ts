@@ -290,7 +290,7 @@ function makeRegisteredPackageDirectory(outputDirectory: string): string {
   );
   if (existingArtifacts.length > 0) {
     const backupDirectory = fs.mkdtempSync(
-      path.join(os.tmpdir(), "en-content-parity-contract-package-")
+      path.join(path.dirname(packageDirectory), ".en-content-parity-contract-package-")
     );
     const movedArtifacts: string[] = [];
     try {

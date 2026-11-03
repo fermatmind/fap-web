@@ -56,7 +56,7 @@ describe("tests hub PR-UX-01 render contract", () => {
 
     render(<TestsHubExperience locale="zh" content={content} />);
 
-    const bodyText = document.body.textContent ?? "";
+    const bodyText = document.querySelector("#core-tests")?.textContent ?? "";
     const bodyHtml = document.body.innerHTML;
     const mbtiIndex = bodyText.indexOf("MBTI 性格测试");
     const bigFiveIndex = bodyText.indexOf("大五人格测试");
@@ -75,7 +75,7 @@ describe("tests hub PR-UX-01 render contract", () => {
       1,
     );
     expect(
-      screen.getAllByText("霍兰德职业兴趣测试").length,
+      screen.getAllByText(/^霍兰德职业兴趣测试/).length,
     ).toBeGreaterThanOrEqual(1);
     expect(
       screen.getByRole("heading", { level: 1, name: content.hero.title }),

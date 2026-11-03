@@ -46,7 +46,7 @@ describe("tests hub and category contract", () => {
     const source = read("app/(localized)/[locale]/tests/page.tsx");
 
     expect(source).toContain("buildCollectionPageJsonLd");
-    expect(source).toContain('idSuffix: "quickstart-itemlist"');
-    expect(source).toContain('idSuffix: "family-itemlist"');
+    expect(read("components/entertainment/MoreTests.tsx")).toContain('idSuffix: "exploration-test-itemlist"');
+    expect(read("components/entertainment/InteractiveStoryLibrary.tsx")).toContain('idSuffix: "interactive-story-itemlist"');
   });
 });

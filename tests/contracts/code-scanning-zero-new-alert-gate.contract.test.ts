@@ -30,7 +30,9 @@ describe("code scanning zero-new-alert gate", () => {
     const ci = read(".github/workflows/ci.yml");
     const nightly = read(".github/workflows/nightly.yml");
 
-    expect(ci).toContain("pnpm lint . --max-warnings=0");
+    expect(ci).toContain("git ls-files -z --");
+    expect(ci).toContain("xargs -0 -r -n 40 pnpm exec eslint --max-warnings=0");
+    expect(ci).toContain("set -euo pipefail");
     expect(ci).toContain("git diff --check");
     expect(nightly).toContain("CodeQL security scan");
     expect(nightly).toContain("github/codeql-action/analyze@");
