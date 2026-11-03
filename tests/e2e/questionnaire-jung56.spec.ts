@@ -38,7 +38,7 @@ for (const l of ["en", "zh"] as const) {
     await expect(page.locator("[data-jung56-tie]")).toContainText(label(l, "All eight directions", "八个方向均为7次"));
     for (const card of content.cards) {
       await expect(page.locator(`[data-jung56-count="${card.id}"]`)).toHaveText("7 / 14");
-      const full = page.locator(`[data-jung56-full="${card.id}"]`); await full.locator("..").locator("summary").click(); await expect(full).toBeVisible(); await expect(full.locator("h4")).toHaveCount(10);
+      const full = page.locator(`[data-jung56-full="${card.id}"]`); await full.locator("..").locator(":scope > summary").click(); await expect(full).toBeVisible(); await expect(full.locator("h4")).toHaveCount(10);
       for (const key of ["construct_definition", "attention_focus", "processing_pattern", "interpretation_boundary"] as const) await expect(full).toContainText(card[key][l]);
       for (const key of ["observable_tendencies", "possible_contributions", "possible_blind_spots", "balance_practices", "reflection_questions", "does_not_mean"] as const) for (const paragraph of card[key]) await expect(full).toContainText(paragraph[l]);
     }
@@ -53,7 +53,7 @@ for (const l of ["en", "zh"] as const) {
     await enter(page, l); await finish(page, l, "AB".repeat(7) + "A".repeat(42));
     await expect(page.locator('[data-jung56-count="se"]')).toHaveText("14 / 14"); for (const id of ["si", "ne", "ni", "te", "ti", "fe", "fi"]) await expect(page.locator(`[data-jung56-count="${id}"]`)).toHaveText("6 / 14");
     await expect(page.locator("[data-jung56-tie]")).toContainText(content.cards[0].display_name[l]);
-    await page.locator('[data-jung56-full="se"]').locator("..").locator("summary").click(); await page.locator('[data-jung56-full="se"] h4').first().evaluate(el => el.scrollIntoView({ block: "start" })); await page.screenshot({ path: test.info().outputPath(`${l}-jung56-guide.png`) });
+    await page.locator('[data-jung56-full="se"]').locator("..").locator(":scope > summary").click(); await page.locator('[data-jung56-full="se"] h4').first().evaluate(el => el.scrollIntoView({ block: "start" })); await page.screenshot({ path: test.info().outputPath(`${l}-jung56-guide.png`) });
     await page.getByRole("link", { name: label(l, "View the separate MBTI assessment entry", "查看独立MBTI测评入口"), exact: true }).click(); await expect(page).toHaveURL(u => u.pathname === `/${l}/tests/mbti-personality-test-16-personality-types`); await expect(page.locator("h1")).toBeVisible();
   });
   test(`@release Jung56 ${l}: incomplete refresh/language/version clearing and public explanations ignore private query`, async ({ page }) => {

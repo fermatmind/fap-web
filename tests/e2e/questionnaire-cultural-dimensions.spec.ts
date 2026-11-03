@@ -18,7 +18,7 @@ async function finish(page: Page, l: Locale, values: string[]) {
     await expect(report.locator(`[data-cultural-coverage="${d.id}"]`)).toHaveText(`${n} / 6`); await expect(report.locator(`[data-cultural-sum="${d.id}"]`)).toHaveText(n ? String(sum) : "—"); await expect(report.locator(`[data-cultural-mean="${d.id}"]`)).toHaveText(n < 4 ? label(l, "Not calculated", "不计算") : `${(Math.round(sum / n * 10) / 10).toFixed(1)} / 5`);
   }
   const text = await report.innerText(); for (const p of quiz.profiles) for (const s of p.sections) for (const t of s.paragraphs) expect(text).toContain(t[l]);
-  await report.locator("summary").click(); for (const [i, q] of quiz.questions.entries()) await expect(report.locator(`[data-cultural-answer="${q.id}"]`)).toContainText(q.options.find(o => o.id === values[i])!.label[l]); await report.locator("summary").click();
+  await report.locator(":scope > details > summary").click(); for (const [i, q] of quiz.questions.entries()) await expect(report.locator(`[data-cultural-answer="${q.id}"]`)).toContainText(q.options.find(o => o.id === values[i])!.label[l]); await report.locator(":scope > details > summary").click();
   await expect(page.getByRole("heading", { name: label(l, "Check one statement against its context, or finish here", "选一条题文核对情境，或在这里结束"), exact: true })).toBeVisible();
   expect(new URL(page.url()).search).toBe(""); expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true); const ids = await page.locator("#take-test [id]").evaluateAll(ns => ns.map(n => n.id)); expect(ids.length).toBe(new Set(ids).size);
 }

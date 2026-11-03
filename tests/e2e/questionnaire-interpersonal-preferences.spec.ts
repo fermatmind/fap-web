@@ -39,7 +39,7 @@ for (const locale of ["en", "zh"] as const) {
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, zh, false);
-    await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
+    await page.getByRole("button", { name: zh ? "复制公开入口" : "Copy public entry", exact: true }).click();
     const share = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue();
     expect(share).toContain(`https://fermatmind.com${entry}`);
     expect(share).not.toMatch(/IPR_|3\.0|answers|[?&]score|facets/);

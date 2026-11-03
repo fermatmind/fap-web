@@ -18,7 +18,7 @@ async function finish(page: Page, l: Locale, values: string[]) {
     await expect(report.locator(`[data-cognitive-count="${d.id}"]`)).toHaveText(`${n} / 4`); await expect(report.locator(`[data-cognitive-sum="${d.id}"]`)).toHaveText(n ? String(sum) : "—"); await expect(report.locator(`[data-cognitive-mean="${d.id}"]`)).toHaveText(n < 3 ? label(l, "Not calculated", "不计算") : `${(Math.round(sum / n * 10) / 10).toFixed(1)} / 5`);
   }
   for (const p of quiz.profiles) for (const s of p.sections) for (const text of s.paragraphs) await expect(report).toContainText(text[l]);
-  await report.locator("summary").click(); for (const [i, q] of quiz.questions.entries()) await expect(report.locator(`[data-cognitive-answer="${q.id}"]`)).toContainText(q.options.find(o => o.id === values[i])!.label[l]); await report.locator("summary").click();
+  await report.locator(":scope > details > summary").click(); for (const [i, q] of quiz.questions.entries()) await expect(report.locator(`[data-cognitive-answer="${q.id}"]`)).toContainText(q.options.find(o => o.id === values[i])!.label[l]); await report.locator(":scope > details > summary").click();
   if (values.every(v => v === "na")) await expect(page.getByRole("heading", { name: label(l, "This attempt is finished. Choose what comes next.", "本次作答已结束，下一步由你选择"), exact: true })).toBeVisible();
   expect(new URL(page.url()).search).toBe(""); expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true); const ids = await page.locator("#take-test [id]").evaluateAll(ns => ns.map(n => n.id)); expect(ids.length).toBe(new Set(ids).size);
 }
