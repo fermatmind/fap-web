@@ -994,7 +994,7 @@ return (quiz.references ?? []);
     const host = new URL(reference.url).hostname.replace(/^www\./, "");
     return host !== "jobcannon.io" && host !== "idrlabs.com";
   });
-  return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
+  return (() => <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="questionnaire-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: (slug === "stress-check-in-test" ? monthlyStressLandingDescription[locale] : slug === "four-axes-test" ? fourAxesLandingDescription[locale] : quiz.description[locale]), locale })} />
     <ExploreTestIntro slug={slug} locale={locale}>
@@ -2352,5 +2352,5 @@ return !["rosenberg-scoring", "rosenberg-reading", "rosenberg-source", "practice
     {quiz.kind === "tipi10" && <Tipi10Attribution locale={locale} />}
     {visibleReferences.length ? <section className="my-8 leading-8" aria-labelledby="questionnaire-references"><h2 id="questionnaire-references" className="text-xl font-semibold">{hasInlineReferences ? (zh ? "参考文献与来源说明" : "References and source notes") : (zh ? "背景与来源范围" : "Background and source scope")}</h2><ul className="mt-3 list-disc pl-5">{visibleReferences.map(reference => <li key={reference.url} id={hasInlineReferences ? `${referencePrefix}-reference-${pageReferences.indexOf(reference) + 1}` : undefined}><a className="underline" href={reference.url}>{hasInlineReferences ? `[${pageReferences.indexOf(reference) + 1}] ` : ""}{reference.title[locale]}</a></li>)}</ul>{referenceNote && <p className="mt-3 text-sm text-slate-600">{referenceNote}</p>}</section> : null}
     {quiz.slug === "people-pleaser" && <QuestionnairePpsAttribution locale={locale} />}
-  </Container></main>;
+  </Container></main>)();
 }

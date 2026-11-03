@@ -207,12 +207,6 @@
       "count": 1
     },
     {
-      "file": "components/marketing/tests/TestsHubExperience.tsx",
-      "rule": "no-new-half-step-utility",
-      "snippet": "px-2.5",
-      "count": 3
-    },
-    {
       "file": "components/marketing/tests/TestsShared.tsx",
       "rule": "no-new-half-step-utility",
       "snippet": "px-2.5",

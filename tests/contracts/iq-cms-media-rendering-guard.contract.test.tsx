@@ -47,7 +47,7 @@ describe("IQ CMS media rendering guard", () => {
 
     render(<TestsHubExperience locale="zh" content={surface.payloadJson} />);
 
-    const title = screen.getByRole("heading", { level: 2, name: "IQ 智商测试" });
+    const title = screen.getByRole("heading", { level: 3, name: "IQ 智商测试" });
     const card = title.closest("article");
     expect(card).toBeTruthy();
 

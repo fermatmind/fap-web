@@ -27,8 +27,8 @@ describe("Four bilingual ai-literacy revision readings", () => {
   });
   it("clarifies the request explanation without mutating any stimulus or key", () => {
     const before = JSON.stringify(quiz), prepared = prepareQuestionnaireResultReadings(quiz);
-    expect(prepared.questions.filter((q, i) => q !== quiz.questions[i]).map(q => q.id)).toEqual(["AI_06"]);
-    expect(prepared.questions[5].explanation!.en).toContain("The specified request");
+    expect(prepared.questions.filter((q, i) => q !== quiz.questions[i]).map(q => q.id)).toEqual([]);
+    expect(prepared.questions[5].explanation!.en).toContain("Request B states");
     expect(prepared.questions[5].explanation!.zh).not.toContain("首项");
     expect(prepared.questions.map(q => ({ ...q, explanation: undefined }))).toEqual(quiz.questions.map(q => ({ ...q, explanation: undefined })));
     expect(prepareQuestionnaireResultReadings(prepared)).toBe(prepared);

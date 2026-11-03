@@ -1,3 +1,5 @@
+import { JsonLd } from "@/components/seo/JsonLd";
+import { buildItemListJsonLd } from "@/lib/seo/generateSchema";
 import { TestDirectory } from "@/components/tests/TestDirectory";
 import { directoryQuizzes } from "@/lib/entertainment/directory";
 import questionnaires from "@/lib/questionnaires/catalog.json";
@@ -116,6 +118,8 @@ export function MoreTests({
                             : `${q.minQuestionCount === q.questionCount ? q.questionCount : `${q.minQuestionCount}–${q.questionCount}`} questions · about ${q.minutes} min · fully free`,
   }));
   return (
+    <>
+    <JsonLd id={`exploration-tests-${locale}`} data={buildItemListJsonLd({ path: `/${locale}/tests`, idSuffix: "exploration-test-itemlist", title: locale === "zh" ? "测试与实用工具" : "Tests and practical tools", description: locale === "zh" ? "当前目录中可见的285项测试与工具。" : "The 285 tests and tools visible in this directory.", locale, items: [...items].sort((a, b) => Object.keys(FUN_CATEGORIES).indexOf(a.category) - Object.keys(FUN_CATEGORIES).indexOf(b.category)).map(item => ({ name: item.title, path: item.href, description: item.description })) })} />
     <TestDirectory
       items={items}
       categories={FUN_CATEGORIES}
@@ -126,5 +130,6 @@ export function MoreTests({
       }))}
       heroTitle={heroTitle}
     />
+    </>
   );
 }

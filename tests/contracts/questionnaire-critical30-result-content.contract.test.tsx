@@ -13,7 +13,7 @@ beforeEach(()=>Object.defineProperty(HTMLElement.prototype,"scrollIntoView",{con
 afterEach(cleanup);
 const fixed=(mode="correct")=>Object.fromEntries(quiz.questions.map((q,i)=>[q.id,mode==="correct"?q.correctOptionId!:mode==="wrong"?q.options.find(o=>o.id!==q.correctOptionId)!.id:mode==="skip"?"skip":i%3===0?q.correctOptionId!:i%3===1?q.options.find(o=>o.id!==q.correctOptionId)!.id:"skip"]));
 function finish(container:HTMLElement,locale:"en"|"zh",answers:Record<string,string>=fixed(),early=false){
- fireEvent.click(container.querySelector('input[value="study"]')!);fireEvent.click(screen.getByRole("button",{name:locale==="zh"?"开始整份练习":"Start the whole practice"}));
+ fireEvent.click(container.querySelector('input[value="study"]')!);fireEvent.click(screen.getByRole("button",{name:locale==="zh"?"开始测试":"Start test"}));
  if(early){fireEvent.click(container.querySelector('[data-critical30-finish]')!);return;}
  for(let i=0;i<30;i++){fireEvent.click(container.querySelector(`input[value="${answers[quiz.questions[i].id]}"]`)!);fireEvent.click(screen.getByRole("button",{name:i===29?(locale==="zh"?"结束并看解析":"Finish and review"):(locale==="zh"?"下一题":"Next")}));}
 }

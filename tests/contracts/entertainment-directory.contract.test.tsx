@@ -20,6 +20,7 @@ describe("assessment directory correction", () => {
       expect(html).toContain(locale === "zh" ? "24 题" : "24 questions");
       const rendered = document.createElement("div");
       rendered.innerHTML = html;
+      rendered.querySelectorAll("script").forEach(node => node.remove());
       expect(rendered.textContent).not.toMatch(/101|100\+/);
     }
   });

@@ -28,13 +28,13 @@ describe("Five bilingual project-management revision readings", () => {
   it("clarifies seven shuffled-option explanations without mutating stimulus or key authority", () => {
     const before = JSON.stringify(quiz), prepared = prepareQuestionnaireResultReadings(quiz);
     const changed = prepared.questions.filter((q, i) => q !== quiz.questions[i]);
-    expect(changed.map(q => q.id)).toEqual(["PROJECT_01", "PROJECT_08", "PROJECT_09", "PROJECT_14", "PROJECT_24", "PROJECT_26", "PROJECT_29"]);
-    for (const q of changed) {
+    expect(changed).toEqual([]);
+    for (const q of prepared.questions.filter(q => ["PROJECT_01", "PROJECT_08", "PROJECT_09", "PROJECT_14", "PROJECT_24", "PROJECT_26", "PROJECT_29"].includes(q.id))) {
       expect(q.explanation!.en).not.toMatch(/\bfirst\b/);
       expect(q.explanation!.zh).not.toContain("首项");
     }
     expect(prepared.questions.map(q => ({ ...q, explanation: undefined }))).toEqual(quiz.questions.map(q => ({ ...q, explanation: undefined })));
-    expect(prepared.questions[28].explanation!.en).toContain("without names or personal contact details");
+    expect(prepared.questions[28].explanation!.en).toContain("excludes names and personal contact details");
     expect(prepareQuestionnaireResultReadings(prepared)).toBe(prepared);
     expect(JSON.stringify(quiz)).toBe(before);
   });

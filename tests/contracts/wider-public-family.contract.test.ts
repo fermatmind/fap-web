@@ -47,9 +47,11 @@ describe("wider public family contract", () => {
 
     expect(testsIndex).toContain('import { TestsHubExperience } from "@/components/marketing/tests/TestsHubExperience"');
     expect(testsIndex).toContain('import { getTestsHubContent } from "@/lib/marketing/testsHubContent"');
-    expect(testsIndex).toContain("function buildTestsHubJsonLd(locale: Locale, content:");
-    expect(testsIndex).toContain('idSuffix: "quickstart-itemlist"');
-    expect(testsIndex).toContain('idSuffix: "family-itemlist"');
+    expect(testsIndex).toMatch(/function buildTestsHubJsonLd\(\s*locale: Locale,\s*content:/);
+    expect(testsIndex).not.toContain("jsonLd.quickStart");
+    expect(testsIndex).not.toContain("jsonLd.families");
+    expect(read("components/entertainment/MoreTests.tsx")).toContain('idSuffix: "exploration-test-itemlist"');
+    expect(testsIndex).toContain("<InteractiveStoryLibrary locale={locale} />");
     expect(testsIndex).toContain("<TestsHubExperience content={content} locale={locale} />");
   });
 });

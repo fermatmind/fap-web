@@ -2,6 +2,7 @@ import { beforeAll, describe, expect, it, vi } from "vitest";
 import { fireEvent, render, screen, cleanup, waitFor } from "@testing-library/react";
 import { ExploreTestEntry } from "@/components/tests/ExploreTestEntry";
 import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
+import { deluluResultSections } from "@/lib/questionnaires/result-content/delulu";
 import catalog from "@/lib/questionnaires/catalog.json";
 import { renderToStaticMarkup } from "react-dom/server";
 vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
@@ -30,7 +31,7 @@ describe("entertainment preview entry", () => {
     const entry = (await import("@/components/questionnaires/QuestionnairePage")).default;
     for (const slug of ["aphantasia-test", "sensory-sensitivity", "sbti-test", "uncertainty-ease-reflection", "emotions-connections-reflection", "caliper-style-assessment-test"]) {
       render(await entry({ params: Promise.resolve({ slug, locale: "en" }) }));
-      const hero = document.querySelector<HTMLButtonElement>("button.explore-intro-entry")!;
+      const hero = document.querySelector<HTMLButtonElement>(".explore-intro-content button[data-explore-start]")!;
       expect(hero, slug).not.toBeNull();
       fireEvent.click(hero);
       await waitFor(() => expect(document.querySelector('#take-test input[type="radio"]'), slug).not.toBeNull());
@@ -48,7 +49,7 @@ describe("entertainment preview entry", () => {
         dom.innerHTML = renderToStaticMarkup(await entry({ params: Promise.resolve({ slug: item.slug, locale }) }));
         expect(dom.querySelectorAll("h1"), `${item.slug}:${locale}`).toHaveLength(1);
         expect(dom.querySelector("h1")?.textContent, item.slug).toBe(quiz.title[locale]);
-        for (const section of quiz.guide) for (const paragraph of section.paragraphs) {
+        for (const section of item.slug === "delulu-test" ? deluluResultSections(quiz.guide) : quiz.guide) for (const paragraph of section.paragraphs) {
           const normalize = (s: string) => s.replace(/\[[1-3]\]/g, "").replace(/\s+/g, " ").trim();
           if (!normalize(dom.textContent ?? "").includes(normalize(paragraph[locale]))) omitted.push(`${item.slug}:${locale}:${section.id}`);
         }

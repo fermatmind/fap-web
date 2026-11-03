@@ -3,7 +3,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { InteractiveStoryLibrary } from "@/components/entertainment/InteractiveStoryLibrary";
 import { StoryDirectory } from "@/components/entertainment/StoryDirectory";
-import { FUN_CATEGORIES, MORE_TEST_PRODUCT_COUNT } from "@/components/entertainment/MoreTests";
+import { MoreTests, FUN_CATEGORIES, MORE_TEST_PRODUCT_COUNT } from "@/components/entertainment/MoreTests";
 import catalog from "@/lib/entertainment/catalog.json";
 import questionnaires from "@/lib/questionnaires/catalog.json";
 import { directoryQuizzes, storyQuizzes } from "@/lib/entertainment/directory";
@@ -42,6 +42,18 @@ describe("384 distinct products with separate test and story directories", () =>
     }
     expect(dom.textContent).toContain(locale === 'zh' ? '合计 384个产品' : '384 products in total');
     expect(dom.querySelector('h1')).toBeNull();
+  });
+  it.each(["en", "zh"] as const)("aligns the 285 visible %s test/tool cards with their structured data", locale => {
+    const dom = document.createElement("div");
+    dom.innerHTML = renderToStaticMarkup(<MoreTests locale={locale} />);
+    const schema = JSON.parse(dom.querySelector('script[type="application/ld+json"]')!.textContent!);
+    const links = [...dom.querySelectorAll('#more-tests h4 a')];
+    expect(links).toHaveLength(285);
+    expect(schema["@type"]).toBe("ItemList");
+    expect(schema.numberOfItems).toBe(285);
+    const expected = links.map(a => ({ name: a.textContent, url: canonicalUrl(a.getAttribute("href")!) }));
+    expect(schema.itemListElement.map((item: {name:string; url:string}) => ({ name:item.name, url:item.url }))).toEqual(expected);
+    expect(new Set(expected.map(item => item.url)).size).toBe(285);
   });
   it("searches story titles and slugs, filters a category and recovers from an empty result", () => {
     const items=storyQuizzes.map(q=>({slug:q.slug,category:q.category,title:q.title.zh,description:q.description.zh,href:`/zh/tests/play/${q.slug}`,meta:'6次选择'}));

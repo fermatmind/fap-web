@@ -13,8 +13,8 @@ beforeEach(()=>Object.defineProperty(HTMLElement.prototype,"scrollIntoView",{con
 afterEach(cleanup);
 const fixed=(mode="correct")=>Object.fromEntries(quiz.questions.map((q,i)=>[q.id,mode==="correct"?q.correctOptionId!:mode==="wrong"?q.options.find(o=>o.id!==q.correctOptionId)!.id:mode==="skip"?"skip":i%3===0?q.correctOptionId!:i%3===1?q.options.find(o=>o.id!==q.correctOptionId)!.id:"skip"]));
 function finish(container:HTMLElement,locale:"en"|"zh",answers:Record<string,string>=fixed(),early=false){
- fireEvent.click(container.querySelector('input[value="study"]')!);fireEvent.click(screen.getByRole("button",{name:locale==="zh"?"准备第一部分":"Prepare the first part"}));
- for(let group=0;group<3;group++){fireEvent.click(screen.getByRole("button",{name:locale==="zh"?"开始本部分":"Start this part"}));if(early){fireEvent.click(screen.getByRole("button",{name:locale==="zh"?"提前结束本部分，保留未答":"Finish part early; keep blanks unanswered"}));continue;}for(let j=0;j<6;j++){fireEvent.click(container.querySelector(`input[value="${answers[quiz.questions[group*6+j].id]}"]`)!);fireEvent.click(screen.getByRole("button",{name:j===5?(locale==="zh"?"结束本部分":"Finish this part"):(locale==="zh"?"下一题":"Next")}));}}
+ fireEvent.click(container.querySelector('input[value="study"]')!);fireEvent.click(screen.getByRole("button",{name:locale==="zh"?"开始测试":"Start test"}));
+ for(let group=0;group<3;group++){if(group>0)fireEvent.click(screen.getByRole("button",{name:locale==="zh"?"开始本部分":"Start this part"}));if(early){fireEvent.click(screen.getByRole("button",{name:locale==="zh"?"提前结束本部分，保留未答":"Finish part early; keep blanks unanswered"}));continue;}for(let j=0;j<6;j++){fireEvent.click(container.querySelector(`input[value="${answers[quiz.questions[group*6+j].id]}"]`)!);fireEvent.click(screen.getByRole("button",{name:j===5?(locale==="zh"?"结束本部分":"Finish this part"):(locale==="zh"?"下一题":"Next")}));}}
 }
 describe("three mixed-format English reasoning learning readings without score conversion",()=>{
  it("keeps the strict original source and all paragraphs intact with idempotent projection",()=>{

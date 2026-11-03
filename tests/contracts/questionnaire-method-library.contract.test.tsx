@@ -34,7 +34,7 @@ describe("Existing questionnaire method and public-guide explanations", () => {
         expect(section.paragraphs).toHaveLength(1);
         const text = section.paragraphs[0][locale], dom = await render(slug, locale);
         const method = dom.querySelector('section[aria-labelledby="questionnaire-method"]');
-        expect(method?.querySelector("p")?.textContent).toBe(text);
+        expect([...method!.querySelectorAll("p")].some(p => p.textContent === text)).toBe(true);
         expect(method?.closest("details")).toBeNull();
         expect([...dom.querySelectorAll("p")].filter(p => p.textContent === text)).toHaveLength(1);
       });
@@ -44,9 +44,9 @@ describe("Existing questionnaire method and public-guide explanations", () => {
     for (const locale of ["en", "zh"] as const) {
       it(`${slug}/${locale}: describes the actual full guide library without inventing winners or ties`, async () => {
         const quiz = read(slug), dom = await render(slug, locale);
-        const library = dom.querySelector('section[aria-labelledby="questionnaire-results"]');
+        const library = dom.querySelector(slug === "overthinking-screener" ? 'section[aria-labelledby="overthinking-screener-library"]' : 'section[aria-labelledby="questionnaire-results"]');
         const explanation = library?.querySelector("p")?.textContent;
-        expect(explanation).toContain(locale === "en" ? "this edition" : "本题本");
+        expect(explanation).toContain(slug === "overthinking-screener" ? (locale === "en" ? "all four full guides" : "四篇指南") : (locale === "en" ? "this edition" : "本题本"));
         expect(explanation).not.toMatch(/single directions|every tied combination|单项和并列组合/);
         const links = [...library!.querySelectorAll("li > a")];
         expect(links.map(a => a.getAttribute("href"))).toEqual(quiz.profiles.map(p => `/${locale}/tests/explore/${slug}/results/${p.id}`));
