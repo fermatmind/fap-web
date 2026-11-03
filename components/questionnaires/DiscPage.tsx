@@ -2,13 +2,13 @@ import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
-import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
+import { discEntryDefinition } from "@/lib/questionnaires/discEntry";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import { DiscCitations, discLandingSummary } from "./DiscLandingEditorial";
-import { BasicQuestionnaireClient } from "./BasicQuestionnaireClient";
+import { DiscEntryClient } from "./DiscEntryClient";
 
 /** The existing DISC landing body, without the other tools' client references. */
 export function DiscPage({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
@@ -23,7 +23,7 @@ export function DiscPage({ quiz, locale }: { quiz: Questionnaire; locale: Locale
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
       <p className="mt-5 text-lg leading-8 text-slate-700">{quiz.description[locale]}</p>
       <p className="explore-intro-meta"><span>{zh ? `${quiz.questions.length}题 · 约${quiz.minutes}分钟 · 无需注册` : `${quiz.questions.length} questions · about ${quiz.minutes} minutes · no signup`}</span><span>{zh ? "自编风格问卷 · 完整结果免费" : "Original style questionnaire · Full results free"}</span></p>
-      <BasicQuestionnaireClient quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />
+      <DiscEntryClient quiz={discEntryDefinition(quiz)} locale={locale} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="questionnaire-purpose">
       <h2 id="questionnaire-purpose" className="text-2xl font-semibold">{zh ? "DISC测试测什么？四类行为风格与本站题本" : "What does DISC measure? The model and this questionnaire"}</h2>

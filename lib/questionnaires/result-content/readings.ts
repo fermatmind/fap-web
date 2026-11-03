@@ -64,7 +64,7 @@ import { workTraitsResultProfile } from "./work-traits-reflection";
 import { skillsAuditResultProfile } from "./skills-audit";
 import { workRoleResultProfile } from "./work-role-reflection";
 import { distributedWorkResultProfile } from "./distributed-work-choices";
-import { cognitiveFunctionsResultProfile } from "./cognitive-functions-test";
+import { cognitiveFunctionsReading } from "./cognitive-functions-test";
 import { attractionExperiencesResultProfile } from "./attraction-experiences";
 import { visualImageryResultProfile } from "./aphantasia-test";
 import { afterChildbirthResultProfile } from "./after-childbirth-context-reflection";
@@ -269,7 +269,7 @@ import { travelPersonalityResultProfile } from "./travel-personality";
 import { aestheticCoreResultProfile } from "./aesthetic-core";
 import { peoplePleaserResultProfile } from "./people-pleaser";
 import { difficultPersonResultProfile } from "./difficult-person";
-import { discResultProfile } from "./disc";
+import { discReading } from "./disc";
 import { responseColorResultProfile } from "./response-color";
 import { socialBatteryResultProfile } from "./social-battery";
 import { spiritAnimalResultProfile } from "./spirit-animal";
@@ -281,15 +281,10 @@ import { moralAlignmentResultProfile } from "./moral-alignment";
 import { jungianArchetypeResultProfile } from "./jungian-archetype";
 import { extraversionResultProfile } from "./extraversion";
 import { temperamentResultProfile } from "./temperament";
-import type { Questionnaire, QuestionnaireProfile, Text } from "../types";
+import type { Questionnaire, QuestionnaireProfile } from "../types";
+import { prepareSelectedResultProfile, type ResultReadingDefinition } from "./prepare-profile";
 
-type Reading = {
-  attribute: string;
-  select: (profile: QuestionnaireProfile) => QuestionnaireProfile;
-  note?: Text;
-  references?: { title: Text; url: string }[];
-};
-const readings: Record<string, Reading> = {
+const readings: Record<string, ResultReadingDefinition> = {
   "time-of-year-context-reflection": { attribute: "season-context", select: seasonContextResultProfile },
   "menstrual-cycle-context-reflection": { attribute: "cycle-context", select: cycleContextResultProfile },
   "after-bereavement-reflection": { attribute: "bereavement", select: bereavementResultProfile },
@@ -356,7 +351,7 @@ const readings: Record<string, Reading> = {
   "skills-audit": { attribute: "skills-audit", select: skillsAuditResultProfile },
   "work-role-reflection": { attribute: "work-role", select: workRoleResultProfile },
   "distributed-work-choices": { attribute: "distributed-work", select: distributedWorkResultProfile },
-  "cognitive-functions-test": { attribute: "cognitive-functions", select: cognitiveFunctionsResultProfile },
+  "cognitive-functions-test": cognitiveFunctionsReading,
   "attraction-experiences": { attribute: "attraction-experiences", select: attractionExperiencesResultProfile },
   "aphantasia-test": { attribute: "visual-imagery", select: visualImageryResultProfile },
   "after-childbirth-context-reflection": { attribute: "birth-context", select: afterChildbirthResultProfile },
@@ -561,7 +556,7 @@ const readings: Record<string, Reading> = {
   "communication-style": { attribute: "communication-style", select: communicationStyleResultProfile },
   "attachment-styles": { attribute: "attachment-styles", select: attachmentStylesResultProfile },
   "love-languages": { attribute: "love-languages", select: loveLanguagesResultProfile },
-  "disc": { attribute: "disc", select: discResultProfile, references: [{ title: { zh: "版本比较来源：Everything DiSC官方模型说明", en: "Edition comparison source: Everything DiSC’s official model explanation" }, url: "https://www.everythingdisc.com/what-is-disc/" }] },
+  "disc": discReading,
   "response-color": { attribute: "response-color", select: responseColorResultProfile, references: [{ title: { zh: "版本比较来源：Color Code", en: "Edition comparison source: Color Code" }, url: "https://www.colorcode.com/" }, { title: { zh: "版本比较来源：Insights Discovery", en: "Edition comparison source: Insights Discovery" }, url: "https://www.insights.com/products/insights-discovery/" }] },
   "social-battery-test": { attribute: "social-battery", select: socialBatteryResultProfile },
   "spirit-animal": { attribute: "spirit-animal", select: spiritAnimalResultProfile, note: {"zh": "若本次有多个最高匹配，请分别读各份说明。并列不合成一个新动物，也不指定主次；分享某份公开说明只会打开通用读法，不会附带个人计数或答案。", "en": "If several matches share the highest count, read each separately. A tie creates neither a new animal nor a primary and secondary match. Sharing a public reading opens only the general guide, without personal counts or answers."} },
@@ -585,17 +580,7 @@ export function getResultReading(slug: string, profile: QuestionnaireProfile) {
 
 /** Materialise only the selected product on the server; keep the source object untouched. */
 export function prepareResultProfile(quizSlug: string, profile: QuestionnaireProfile): QuestionnaireProfile {
-  if (profile.resultReading?.quizSlug === quizSlug && profile.resultReading.profileId === profile.id) return profile;
-  const reading = getResultReading(quizSlug, profile);
-  if (!reading) return profile;
-  return {
-    ...reading.profile,
-    resultReading: {
-      quizSlug, profileId: profile.id, attribute: reading.attribute,
-      ...(reading.note ? { note: reading.note } : {}),
-      ...(reading.references ? { references: reading.references } : {}),
-    },
-  };
+  return prepareSelectedResultProfile(quizSlug, profile, Object.hasOwn(readings, quizSlug) ? readings[quizSlug] : undefined);
 }
 
 export function prepareQuestionnaireResultReadings(quiz: Questionnaire): Questionnaire {

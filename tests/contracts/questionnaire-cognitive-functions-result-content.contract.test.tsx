@@ -5,19 +5,27 @@ import raw56 from "@/lib/questionnaires/jung56Content.json";
 import bank from "@/lib/questionnaires/jung56Bank.json";
 import additions32 from "@/lib/questionnaires/result-content/cognitive-functions-test.json";
 import additions56 from "@/lib/questionnaires/result-content/jung56-readings.json";
-import { cognitiveFunctionsResultProfile } from "@/lib/questionnaires/result-content/cognitive-functions-test";
+import { cognitiveFunctionsResultProfile, prepareCognitiveFunctionsResultProfile } from "@/lib/questionnaires/result-content/cognitive-functions-test";
 import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { getJung56ResultReading } from "@/lib/questionnaires/result-content/jung56-readings";
 import { isJung56ContentValid, isJung56ConfigurationValid, type Jung56Content } from "@/lib/questionnaires/jung56";
 import { scoreLikertQuestionnaire } from "@/lib/questionnaires/scoring";
 import { QuestionnaireCognitiveFunctionsReport } from "@/components/questionnaires/QuestionnaireCognitiveFunctionsReport";
 import { Jung56GuideContent } from "@/components/questionnaires/Jung56GuideContent";
+import Jung56EditionClient from "@/components/questionnaires/Jung56EditionClient";
 import Original32Client from "@/components/questionnaires/CognitiveFunctions32Client";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
 const quiz=source as Questionnaire;
 const prepared=prepareQuestionnaireResultReadings(quiz);
 describe("Both complete cognitive-function result editions, with method-specific original extensions",()=>{
+ it("prepares only the selected edition with the same full authoritative readings",()=>{
+  expect(quiz.profiles.map(prepareCognitiveFunctionsResultProfile)).toEqual(prepared.profiles);
+  expect(Original32Client({locale:"en"}).props.quiz.profiles).toEqual(prepared.profiles);
+  for(const p of prepared.profiles) expect(prepareCognitiveFunctionsResultProfile(p)).toBe(p);
+  const unknown={...quiz.profiles[0],id:"__proto__"};expect(prepareCognitiveFunctionsResultProfile(unknown)).toBe(unknown);
+  expect(Jung56EditionClient({locale:"en"}).props.readings).toEqual(raw56.cards.map(c=>getJung56ResultReading(c.id)));
+ });
  it("preserves raw bank, strict 56-card validation and every 32-rating source paragraph",()=>{
   const before=JSON.stringify([quiz,raw56,bank]);expect(isJung56ContentValid(raw56)).toBe(true);expect(isJung56ConfigurationValid(bank)).toBe(true);
   for(const p of quiz.profiles){const r=cognitiveFunctionsResultProfile(p);expect(r.sections.flatMap(s=>s.paragraphs)).toHaveLength(17);expect(r.title).toEqual(p.title);expect(r.sections.map(s=>s.id)).toEqual(p.sections.map(s=>s.id));for(const s of p.sections)expect(r.sections.find(v=>v.id===s.id)!.paragraphs.slice(0,2)).toEqual(s.paragraphs);}

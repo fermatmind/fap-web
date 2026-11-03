@@ -4,7 +4,7 @@ import type { QuestionnaireProfile } from "@/lib/questionnaires/types";
 import type { Jung56ResultReading } from "@/lib/questionnaires/result-content/jung56-reading-types";
 import type { Locale } from "@/lib/i18n/locales";
 import { questionnaireModule } from "./QuestionnaireModule";
-const Jung56Client = questionnaireModule<Parameters<typeof import("./Jung56Client").default>[0]>(() => import("./Jung56Client"));
+const Jung56Client = questionnaireModule<Parameters<typeof import("./Jung56EditionClient").default>[0]>(() => import("./Jung56EditionClient"));
 const Original32Client = questionnaireModule<Parameters<typeof import("./CognitiveFunctions32Client").default>[0]>(() => import("./CognitiveFunctions32Client"));
 const readySubscription = () => () => {};
 const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 text-left font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";

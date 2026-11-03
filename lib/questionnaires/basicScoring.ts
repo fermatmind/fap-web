@@ -1,5 +1,9 @@
 import type { Questionnaire } from "./types";
 
+export type DirectionalQuestionnaire = Pick<Questionnaire, "kind" | "questions" | "directions"> & {
+  profiles: Pick<Questionnaire["profiles"][number], "id" | "directionIds">[];
+};
+
 export type DirectionalResult = {
   status: "incomplete" | "invalid" | "unavailable";
   answered: number;
@@ -14,7 +18,7 @@ const object = (value: unknown): value is Record<string, unknown> => value !== n
   && (Object.getPrototypeOf(value) === Object.prototype || Object.getPrototypeOf(value) === null);
 const key = (ids: string[]) => [...ids].sort().join("|");
 
-export function isDirectionalConfigurationValid(quiz: Questionnaire): boolean {
+export function isDirectionalConfigurationValid(quiz: DirectionalQuestionnaire): boolean {
   if (quiz.kind !== "directional" || !quiz.questions.length || quiz.directions.length < 2) return false;
   const directions = new Set(quiz.directions.map(d => d.id));
   if (directions.size !== quiz.directions.length || new Set(quiz.questions.map(q => q.id)).size !== quiz.questions.length) return false;
@@ -33,7 +37,7 @@ export function isDirectionalConfigurationValid(quiz: Questionnaire): boolean {
     && quiz.profiles.every(p => p.directionIds.length > 0 && new Set(p.directionIds).size === p.directionIds.length && p.directionIds.every(id => directions.has(id)));
 }
 
-export function scoreDirectionalQuestionnaire(quiz: Questionnaire, answers: unknown): DirectionalResult {
+export function scoreDirectionalQuestionnaire(quiz: DirectionalQuestionnaire, answers: unknown): DirectionalResult {
   if (!isDirectionalConfigurationValid(quiz)) return { status: "unavailable", answered: 0 };
   if (!object(answers)) return { status: "invalid", answered: 0 };
   const questions = new Map(quiz.questions.map(q => [q.id, q]));

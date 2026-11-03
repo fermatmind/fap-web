@@ -41,7 +41,7 @@ export function CognitiveFunctionsPage({ quiz, locale }: { quiz: Questionnaire; 
 
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.description[locale]}</p>
     <div className="explore-intro-meta"><span>{zh ? "32题约10分钟；56题约15分钟，均为估计，不限时，无需注册。" : "About 10 minutes for 32 ratings or 15 for 56 choices. Both are estimates, untimed and require no signup."}</span><span>{zh ? "32条自评／56题二选一 · 全部解释免费" : "32 ratings / 56 choices · All explanations free"}</span></div>
-    <CognitiveFunctionsVersions key={locale} locale={locale} readingProfiles={quiz.profiles.map(p => prepareResultProfile(quiz.slug, p))} jungReadings={content.cards.map(c => getJung56ResultReading(c.id)!)} />
+    <CognitiveFunctionsVersions key={locale} locale={locale} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="cognitive-purpose"><h2 id="cognitive-purpose" className="text-2xl font-semibold">{cognitiveSections[0].title[locale]}</h2>{cognitiveSections[0].paragraphs.map((p,i)=><p key={i}><EditorialCopy text={p[locale]}/></p>)}</section>
     <section className="explore-reading-library" aria-labelledby="cognitive-methods"><h2 id="cognitive-methods">{zh ? "八方向、两种计分与研究证据" : "Eight directions, two calculations and research evidence"}</h2><div className="explore-reading-sections">{cognitiveSections.slice(1).map(s=><section key={s.id} className="explore-reading-section" aria-labelledby={`cognitive-method-${s.id}`}><h3 id={`cognitive-method-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p,i)=><p key={i}><EditorialCopy text={p[locale]}/></p>)}</div></section>)}</div></section>

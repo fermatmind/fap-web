@@ -1,3 +1,4 @@
+import { prepareSelectedResultProfile } from "./prepare-profile";
 import content from "./disc.json";
 import type { QuestionnaireProfile, QuestionnaireSection, Text } from "../types";
 
@@ -46,4 +47,10 @@ export function discResultProfile(profile: QuestionnaireProfile): QuestionnaireP
   // Keep the separately sourced naming explanation available under its stable anchor.
   sections.push(...profile.sections.filter(s => s.id === "thai-four-animals-labels"));
   return { ...profile, headline: editorial.headline, summary: editorial.summary, sections };
+}
+
+export const discReading = { attribute: "disc", select: discResultProfile, references: [{ title: { zh: "版本比较来源：Everything DiSC官方模型说明", en: "Edition comparison source: Everything DiSC’s official model explanation" }, url: "https://www.everythingdisc.com/what-is-disc/" }] };
+
+export function prepareDiscResultProfile(profile: QuestionnaireProfile): QuestionnaireProfile {
+  return prepareSelectedResultProfile("disc", profile, discReading);
 }
