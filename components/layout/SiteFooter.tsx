@@ -1,7 +1,6 @@
 import { Container } from "@/components/layout/Container";
 import { BrandLogo } from "@/components/layout/BrandLogo";
-import { SiteFooterSocialRail } from "@/components/layout/SiteFooterSocialRail";
-import { SiteFooterPlatforms } from "@/components/layout/SiteFooterPlatforms";
+import { DeferredSiteFooterSocialRail as SiteFooterSocialRail, DeferredSiteFooterPlatforms as SiteFooterPlatforms } from "@/components/layout/DeferredFooterFeatures";
 import { PublicNavigationLink } from "@/components/navigation/PublicNavigationPendingIndicator";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";

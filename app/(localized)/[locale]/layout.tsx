@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { SiteChrome } from "@/components/layout/SiteChrome";
 import { AnalyticsScripts } from "@/components/analytics/AnalyticsScripts";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
-import { CookieBanner } from "@/components/legal/CookieBanner";
+import { DeferredCookieBanner } from "@/components/legal/DeferredCookieBanner";
 import { LocaleProvider } from "@/components/i18n/LocaleContext";
 import { Providers } from "@/app/providers";
 import { isSupportedLocale, type Locale } from "@/lib/i18n/locales";
@@ -120,7 +120,7 @@ export default async function LocalizedRootLayout({
             ) : (
               <>
                 <SiteChrome locale={resolvedLocale} productPriority={productPriority}>{children}</SiteChrome>
-                <CookieBanner />
+                <DeferredCookieBanner locale={resolvedLocale} />
               </>
             )}
           </LocaleProvider>

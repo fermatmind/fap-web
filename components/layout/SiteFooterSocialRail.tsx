@@ -1,13 +1,15 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import type { Locale } from "@/lib/i18n/locales";
 import { FOOTER_SOCIAL_ITEMS } from "@/lib/ui/footerSocialIcons";
 
 const SiteFooterQrPanel = dynamic(() => import("@/components/layout/SiteFooterQrPanel"));
+const subscribeReady = () => () => {};
 
 export function SiteFooterSocialRail({ locale }: { locale: Locale }) {
+  const ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const [activeSocialKey, setActiveSocialKey] = useState<string | null>(null);
 
   return (
@@ -24,6 +26,7 @@ export function SiteFooterSocialRail({ locale }: { locale: Locale }) {
               <>
                 <button
                   type="button"
+                  disabled={!ready}
                   title={locale === "zh" ? item.labels.zh : item.labels.en}
                   aria-label={locale === "zh" ? item.labels.zh : item.labels.en}
                   aria-expanded={activeSocialKey === item.key}

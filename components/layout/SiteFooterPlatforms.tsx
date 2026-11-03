@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import Image from "next/image";
 import { ArrowUpRight, Pause, Play } from "lucide-react";
 import type { Locale } from "@/lib/i18n/locales";
@@ -15,6 +15,7 @@ const platforms = [
   { name: "Zearches", href: "https://zearches.com/directory.php?slug=education-learning&q=FermatMind" },
   { name: "Outbring", href: "https://outbring.lol/zh/" },
 ] as const;
+const subscribeReady = () => () => {};
 
 // Original assets: producthunt.com/branding (logo, unmodified) and the badge
 // embed offered by saashub.com/fermatmind. No ranking/featured badge is implied.
@@ -29,6 +30,7 @@ function PlatformMark({ name }: { name: string }) {
 }
 
 export function SiteFooterPlatforms({ locale }: { locale: Locale }) {
+  const ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const [paused, setPaused] = useState(false);
   const zh = locale === "zh";
   const title = zh ? "平台收录" : "Find us on";
@@ -47,6 +49,7 @@ export function SiteFooterPlatforms({ locale }: { locale: Locale }) {
         <h2>{title}</h2>
         <button
           type="button"
+          disabled={!ready}
           className={styles.platformPause}
           aria-label={zh ? "暂停平台展示滚动" : "Pause platform scrolling"}
           aria-pressed={paused}

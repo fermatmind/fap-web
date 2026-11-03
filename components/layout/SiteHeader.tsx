@@ -3,7 +3,7 @@
 import { ChevronDown, Menu, X } from "lucide-react";
 import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
-import { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { useLocale } from "@/components/i18n/LocaleContext";
 import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
 import { useLocaleSwitchHref } from "@/components/i18n/useLocaleSwitchHref";
@@ -27,6 +27,7 @@ import { cn } from "@/lib/utils";
 const SiteHeaderDropdownPanel = dynamic(
   () => import("@/components/layout/SiteHeaderDropdownPanel")
 );
+const subscribeReady = () => () => {};
 
 function shouldHideNavItem(
   item: { key: HeaderNavKey; href: string; label: string },
@@ -47,6 +48,7 @@ export function SiteHeader({
 }: {
   productPriority?: ProductPriorityEnvSnapshot;
 }) {
+  const ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileExpandedKey, setMobileExpandedKey] = useState<HeaderNavKey | null>(null);
   const [activeDropdown, setActiveDropdown] = useState<HeaderNavKey | null>(null);
@@ -225,6 +227,7 @@ export function SiteHeader({
     <header
       data-private-result-print-hidden="true"
       data-site-header="true"
+      data-site-header-ready={ready ? "true" : "false"}
       className="sticky top-0 z-50 border-b border-[var(--fm-border-soft)] bg-white text-[var(--fm-text-main)]"
     >
       <Suspense fallback={null}>
@@ -251,6 +254,7 @@ export function SiteHeader({
 
           <button
             type="button"
+            disabled={!ready}
             aria-expanded={menuOpen}
             aria-label={dict.header.menu}
             onClick={toggleMobileMenu}
@@ -298,6 +302,7 @@ export function SiteHeader({
                       <button
                         id={triggerId}
                         type="button"
+                        disabled={!ready}
                         aria-label={`${item.label} menu`}
                         aria-haspopup={items.length > 0 ? "menu" : undefined}
                         aria-expanded={isOpen}

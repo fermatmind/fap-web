@@ -54,6 +54,7 @@ for (const locale of ["en", "zh"] as const) {
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveAttribute("href", /target_action=questionnaire_result_mbti/);
     await page.getByRole("link", { name: zh ? "阅读这项结果的公开说明" : "Read the public explanation of this result", exact: true }).click();
+    await page.waitForURL(url => url.pathname === `${entry}/results/${profile.id}`);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(profile.title[locale]);
     await expect(page.locator('link[rel="alternate"][hreflang="zh-CN"]')).toHaveAttribute("href", `https://fermatmind.com/zh/tests/explore/disc/results/${profile.id}`);
     await page.getByRole("link", { name: zh ? "免费开始完整测试" : "Start the full test for free", exact: true }).click();

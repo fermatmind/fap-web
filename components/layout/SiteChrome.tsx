@@ -1,6 +1,6 @@
 import { Suspense, type ReactNode } from "react";
 import { SiteFooter } from "@/components/layout/SiteFooter";
-import { SiteHeader } from "@/components/layout/SiteHeader";
+import { DeferredSiteHeader } from "@/components/layout/DeferredSiteHeader";
 import type { ProductPriorityEnvSnapshot } from "@/lib/rollout/scaleRollout";
 import type { Locale } from "@/lib/i18n/locales";
 import { AssessmentSiteFrame } from "@/components/quiz/AssessmentSiteFrame";
@@ -17,7 +17,7 @@ export function SiteChrome({
   return (
     <AssessmentSiteFrame
       locale={locale}
-      header={<Suspense fallback={null}><SiteHeader productPriority={productPriority} /></Suspense>}
+      header={<Suspense fallback={null}><DeferredSiteHeader locale={locale} productPriority={productPriority} /></Suspense>}
       footer={<SiteFooter locale={locale} />}
     >
       {children}

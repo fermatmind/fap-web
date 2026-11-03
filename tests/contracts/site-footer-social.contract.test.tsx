@@ -12,7 +12,7 @@ describe("site footer social contract", () => {
       </LocaleProvider>
     );
 
-    const qrButton = screen.getByRole("button", { name: "WeChat" });
+    const qrButton = await screen.findByRole("button", { name: "WeChat" });
 
     fireEvent.focus(qrButton);
     expect(qrButton).toHaveAttribute("aria-expanded", "true");
