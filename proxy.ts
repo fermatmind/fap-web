@@ -1,4 +1,5 @@
 import { isMissingFunRoute } from "@/lib/entertainment/routing";
+import { initialQuestionnaireScripts } from "@/lib/questionnaires/initialScripts";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { buildApiUrl } from "@/lib/api-base";
@@ -562,6 +563,12 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
     },
   });
   applyNonceCspHeaders(response.headers, cspNonce, strippedPath === "/account");
+
+  const focusedTool = pathname.match(/^\/(?:en|zh)\/tests\/explore\/(disc|cognitive-functions-test)\/?$/)?.[1];
+  if (request.method === "GET" && request.headers.get("accept")?.includes("text/html") && !request.headers.has("rsc") && focusedTool) {
+    const scripts = initialQuestionnaireScripts(focusedTool as "disc" | "cognitive-functions-test");
+    if (scripts.length) response.headers.append("Link", scripts.map(href => `<${href}>; rel=preload; as=script; fetchpriority=high; nonce="${cspNonce}"`).join(", "));
+  }
 
   if (shouldAttachAnon && resolvedAnonId && (!cookieAnonId || cookieAnonId !== resolvedAnonId)) {
     response.cookies.set({
