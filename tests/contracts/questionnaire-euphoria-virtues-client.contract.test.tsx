@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { beforeEach, expect, it, vi } from "vitest";
-import { fireEvent, render, screen, act } from "@testing-library/react";
+import { fireEvent, render, screen, act, waitFor } from "@testing-library/react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { QuestionnaireClient } from "@/components/questionnaires/QuestionnaireClient";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
@@ -23,6 +23,7 @@ for(const locale of ["en","zh"] as const)for(const quiz of [virtues,euphoria]){
   const clipboard=vi.fn(async()=>{});Object.defineProperty(navigator,"clipboard",{configurable:true,value:{writeText:clipboard}});
   const stored=vi.spyOn(Storage.prototype,"setItem"),key=`fm_questionnaire_draft:${quiz.slug}`;
   render(<QuestionnaireClient quiz={quiz} locale={locale}/>);
+  await waitFor(()=>expect(screen.getByRole("button",{name:locale==="zh"?"开始测试":"Start test"})).toBeEnabled());
   fireEvent.click(screen.getByRole("button",{name:locale==="zh"?"开始测试":"Start test"}));
   fireEvent.click(screen.getByRole("button",{name:locale==="zh"?"下一题":"Next"}));
   expect(screen.getByRole("status").textContent).toContain(locale==="zh"?"请选择":"Choose an option");
@@ -30,6 +31,7 @@ for(const locale of ["en","zh"] as const)for(const quiz of [virtues,euphoria]){
   fireEvent.click(screen.getByRole("checkbox"));expect(sessionStorage.getItem(key)).not.toBeNull();
   const answers=quiz===virtues?Object.fromEntries(quiz.questions.map(q=>[q.id,"3"])):outcomes.witnesses.find(w=>w.winnerIds.length===6)!.answers;
   finish(quiz,answers,locale);
+  await waitFor(()=>expect(document.querySelectorAll(quiz===virtues?"[data-mini-virtues-part]":"[data-archetype-match]")).toHaveLength(quiz===virtues?7:6));
   expect(sessionStorage.getItem(key)).toBeNull();expect(localStorage.length).toBe(0);
   expect(document.querySelectorAll(quiz===virtues?"[data-mini-virtues-part]":"[data-archetype-match]")).toHaveLength(quiz===virtues?7:6);
   expect(document.querySelectorAll("#take-test h4")).toHaveLength(quiz===virtues?56:36);
@@ -46,10 +48,11 @@ for(const locale of ["en","zh"] as const)for(const quiz of [virtues,euphoria]){
   expect(document.querySelectorAll("[data-mini-virtues-result],[data-archetype-match]")).toHaveLength(0);stored.mockRestore();
  });
 }
-it("restores only a saved compatible draft, supports Back and deletes it on explicit exit",()=>{
+it("restores only a saved compatible draft, supports Back and deletes it on explicit exit",async()=>{
  const key=`fm_questionnaire_draft:${virtues.slug}`;
  sessionStorage.setItem(key,JSON.stringify({version:virtues.version,savedAt:Date.now(),answers:{VIRTUES_LK_001:"4"}}));
  render(<QuestionnaireClient quiz={virtues} locale="en"/>);
+ await waitFor(()=>expect(screen.getByRole("button",{name:"Resume this tab's progress"})).toBeEnabled());
  fireEvent.click(screen.getByRole("button",{name:"Resume this tab's progress"}));
  expect(screen.getByText("Question 2 of 28",{exact:true})).toBeInTheDocument();fireEvent.click(screen.getByRole("button",{name:"Back"}));
  expect(screen.getByRole("radio",{name:virtues.questions[0].options[3].label.en})).toBeChecked();
@@ -57,7 +60,7 @@ it("restores only a saved compatible draft, supports Back and deletes it on expl
 });
 it("provides a public-only manual copy fallback when clipboard access fails",async()=>{
  Object.defineProperty(navigator,"clipboard",{configurable:true,value:{writeText:vi.fn(async()=>{throw Error("synthetic clipboard denial");})}});
- render(<QuestionnaireClient quiz={euphoria} locale="en"/>);fireEvent.click(screen.getByRole("button",{name:"Start test"}));finish(euphoria,outcomes.witnesses[0].answers,"en");
+ render(<QuestionnaireClient quiz={euphoria} locale="en"/>);await waitFor(()=>expect(screen.getByRole("button",{name:"Start test"})).toBeEnabled());fireEvent.click(screen.getByRole("button",{name:"Start test"}));finish(euphoria,outcomes.witnesses[0].answers,"en");
  await act(async()=>{fireEvent.click(screen.getByRole("button",{name:"Copy public entry"}));});
  expect(screen.getByRole("textbox",{name:"Result text for manual copying"})).toHaveValue(`${euphoria.title.en}\nhttps://fermatmind.com/en/tests/explore/euphoria-character-quiz`);
 });

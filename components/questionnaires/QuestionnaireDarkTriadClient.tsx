@@ -4,7 +4,7 @@ import { useEntertainmentMetrics, useEntertainmentResultView } from "@/component
 import Link from "next/link";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
-import { scoreLikertQuestionnaire } from "@/lib/questionnaires/scoring";
+import { scoreLikertQuestionnaire } from "@/lib/questionnaires/basicScoring";
 import type { Locale } from "@/lib/i18n/locales";
 import { listMbtiFormMetas } from "@/lib/mbti/forms";
 import { QuestionnaireDarkTriadReport } from "./QuestionnaireDarkTriadReport";

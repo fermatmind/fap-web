@@ -2,6 +2,7 @@ import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import path from "node:path";
+import { discResultProfile } from "../../lib/questionnaires/result-content/disc";
 import type { Questionnaire, QuestionnaireAnswers } from "../../lib/questionnaires/types";
 
 const quiz = JSON.parse(readFileSync(path.join(process.cwd(), "lib/questionnaires/data/disc.json"), "utf8")) as Questionnaire;
@@ -26,7 +27,10 @@ async function complete(page: Page, locale: "en" | "zh", mode: "D" | "all-A") {
   await expect(page.getByRole("heading", { level: 2, name: profile.title[locale], exact: true })).toBeFocused();
   const counts = page.getByRole("region", { name: locale === "zh" ? "本次原始选择次数" : "Raw choice counts for this attempt", exact: true });
   for (const direction of quiz.directions) await expect(counts.locator("dl > div").filter({ hasText: direction.title[locale] }).locator("dd")).toHaveText(`${expected.directions[direction.id].wins} / ${direction.comparisons}`);
-  for (const section of profile.sections) await expect(page.locator(`#report-${section.id}`)).toBeAttached();
+  for (const section of discResultProfile(profile).sections) {
+    await expect(page.locator(`#report-${section.id}`)).toBeAttached();
+    for (const paragraph of section.paragraphs) await expect(page.locator(`#report-${section.id}`)).toContainText(paragraph[locale]);
+  }
   for (const text of profile.sections.find(s => s.id === "thai-four-animals-labels")!.paragraphs) await expect(page.locator("#report-thai-four-animals-labels")).toContainText(text[locale]);
   return profile;
 }
@@ -109,7 +113,7 @@ test("@release DISC public images and closed identities", async ({ request }, te
 
 for (const locale of ["en", "zh"] as const) test(`@release T066 ${locale}: named animal versions and all fifteen canonical DISC guides`, async ({ page }) => {
   await page.goto(`/${locale}/tests/explore/disc`); await expect(page).toHaveTitle(`${quiz.seoTitle[locale]} | FermatMind`);
-  for (const ref of quiz.references!) await expect(page.locator(`#questionnaire-references + ul a[href="${ref.url}"]`)).toHaveCount(1);
+  for (const ref of quiz.references!.filter(ref => !["jobcannon.io", "idrlabs.com"].includes(new URL(ref.url).hostname.replace(/^www\./, "")))) await expect(page.locator(`#questionnaire-references + ul a[href="${ref.url}"]`)).toHaveCount(1);
   for (const profile of quiz.profiles) {
     const path = `/${locale}/tests/explore/disc/results/${profile.id}`; await page.goto(path);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${path}`);

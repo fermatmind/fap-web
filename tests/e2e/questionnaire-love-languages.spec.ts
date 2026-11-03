@@ -1,7 +1,9 @@
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
+import { prepareQuestionnaireResultReadings } from "../../lib/questionnaires/result-content/readings";
 import type { Questionnaire } from "../../lib/questionnaires/types";
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/love-languages.json", "utf8")) as Questionnaire;
+const readingProfiles = prepareQuestionnaireResultReadings(quiz).profiles;
 async function finish(page: Page, locale: "en" | "zh", mode: "high" | "na" | "mixed") {
   for (const [index, question] of quiz.questions.entries()) {
     const value = mode === "na" ? "na" : mode === "high" ? "5" : question.id.startsWith("LL_G_") ? "4" : "2";
@@ -12,7 +14,8 @@ async function finish(page: Page, locale: "en" | "zh", mode: "high" | "na" | "mi
   }
   await expect(page.getByRole("heading", { level: 2, name: quiz.resultHeading![locale], exact: true })).toBeFocused();
   await expect(page.locator("[data-affection-facet]")).toHaveCount(10); await expect(page.locator("[data-affection-profile]")).toHaveCount(5);
-  await expect(page.locator("#take-test h4")).toHaveCount(45);
+  await expect(page.locator("#take-test h4")).toHaveCount(readingProfiles.reduce((count, profile) => count + profile.sections.length, 0));
+  for (const profile of readingProfiles) for (const section of profile.sections) for (const paragraph of section.paragraphs) await expect(page.locator("#take-test")).toContainText(paragraph[locale]);
   for (const direction of quiz.directions) {
     const mean = page.locator(`[data-affection-facet="${direction.id}"] [data-affection-mean]`);
     await expect(mean).toHaveText(mode === "na" ? (locale === "zh" ? "资料不足" : "Insufficient information") : mode === "high" ? "5.0 / 5" : direction.id.startsWith("giving") ? "4.0 / 5" : "2.0 / 5");
@@ -22,7 +25,7 @@ async function finish(page: Page, locale: "en" | "zh", mode: "high" | "na" | "mi
 }
 for (const locale of ["en", "zh"] as const) {
   const zh = locale === "zh", entry = `/${locale}/tests/explore/love-languages`;
-  test(`@release Love languages ${locale}: hub, keyboard,50actualratings, ten independent means,45fullsections and retake`, async ({ page }) => {
+  test(`@release Love languages ${locale}: hub, keyboard,50actualratings, ten independent means,complete-authoritative-sections and retake`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 }); const leaks: string[] = [];
     page.on("request", r => { if (r.method() === "POST" && /LL_[GR]_(WORDS|ACTS|GIFTS|TIME|TOUCH)_/.test(r.postData() ?? "")) leaks.push(r.url()); });
     await page.goto(`/${locale}/tests`); await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
@@ -60,7 +63,7 @@ for (const locale of ["en", "zh"] as const) {
     await page.getByRole("checkbox").check(); await expect(page.getByRole("status")).toContainText(zh ? "无法保存" : "could not save"); await finish(page, locale, "na");
     await expect(page.getByRole("heading", { level: 3, name: zh ? "本次作答已结束，下一步由你选择" : "This attempt is finished. Choose what comes next.", exact: true })).toBeVisible();
     await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click(); await finish(page, locale, "mixed");
-    await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
+    await page.getByRole("button", { name: zh ? "复制公开入口" : "Copy public entry", exact: true }).click();
     const text = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue(); expect(text).toContain(quiz.title[locale]);
     expect(text).not.toMatch(/LL_[GR]_|answers|giving_|receiving_|form_code|4\.0|2\.0|[?&]score/);
     const url = new URL(text.split("\n").at(-1)!); expect(url.pathname).toBe(entry); expect(url.search).toBe(""); expect(url.hash).toBe("");

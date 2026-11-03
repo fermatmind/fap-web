@@ -1,6 +1,6 @@
 import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from "vitest";
-import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { QuestionnaireClient } from "@/components/questionnaires/QuestionnaireClient";
 import { renderToStaticMarkup } from "react-dom/server";
 import source from "@/lib/questionnaires/data/introvert-extrovert.json";
@@ -89,11 +89,13 @@ describe("Extraversion reading examples, participation and sharing", () => {
     try {
       for (const missing of [true, false]) {
         const { container, unmount } = render(<QuestionnaireClient quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />);
+        await waitFor(() => expect(screen.getByRole("button", { name: locale === "zh" ? "开始测试" : "Start test" })).toBeEnabled());
         fireEvent.click(screen.getByRole("button", { name: locale === "zh" ? "开始测试" : "Start test" }));
         for (let index = 0; index < 10; index++) {
           fireEvent.click(container.querySelector(`input[type="radio"][value="${missing && index === 0 ? "na" : "3"}"]`)!);
           fireEvent.click(screen.getByRole("button", { name: index === 9 ? (locale === "zh" ? "查看完整结果" : "See full result") : (locale === "zh" ? "下一题" : "Next") }));
         }
+        await waitFor(() => expect(container.querySelector(missing ? "[data-extraversion-insufficient]" : "[data-extraversion-total]")).not.toBeNull());
         if (missing) expect(container.querySelector("[data-extraversion-insufficient]")).not.toBeNull();
         else expect(container.querySelector("[data-extraversion-total]")?.textContent).toBe("30");
         const label = missing ? (locale === "zh" ? "复制公开入口" : "Copy public entry") : (locale === "zh" ? "复制结果与链接" : "Copy result and link");

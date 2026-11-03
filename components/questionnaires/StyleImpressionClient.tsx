@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
-import { scoreArchetypeQuestionnaire, isArchetypeConfigurationValid } from "@/lib/questionnaires/scoring";
+import { scoreArchetypeQuestionnaire, isArchetypeConfigurationValid } from "@/lib/questionnaires/basicScoring";
 import type { Locale } from "@/lib/i18n/locales";
 import { StyleImpressionReport } from "./StyleImpressionReport";
 

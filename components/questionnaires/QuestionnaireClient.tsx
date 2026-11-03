@@ -2,129 +2,162 @@
 
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
-import { DistributedWorkReport, DistributedWorkNextSteps } from "./DistributedWorkReport";
+const DistributedWorkReport = questionnaireModule<Parameters<typeof import("./DistributedWorkReport").DistributedWorkReport>[0]>(() => import("./DistributedWorkReport").then(module => ({ default: module.DistributedWorkReport })));
+const DistributedWorkNextSteps = questionnaireModule<Parameters<typeof import("./DistributedWorkReport").DistributedWorkNextSteps>[0]>(() => import("./DistributedWorkReport").then(module => ({ default: module.DistributedWorkNextSteps })));
 
-import { WorkTraitsReport, WorkTraitsNextSteps } from "./WorkTraitsReport";
+const WorkTraitsReport = questionnaireModule<Parameters<typeof import("./WorkTraitsReport").WorkTraitsReport>[0]>(() => import("./WorkTraitsReport").then(module => ({ default: module.WorkTraitsReport })));
+const WorkTraitsNextSteps = questionnaireModule<Parameters<typeof import("./WorkTraitsReport").WorkTraitsNextSteps>[0]>(() => import("./WorkTraitsReport").then(module => ({ default: module.WorkTraitsNextSteps })));
 
-import { QuestionnaireWorkRoleReport, QuestionnaireWorkRoleNextSteps } from "./QuestionnaireWorkRoleReport";
-import { QuestionnaireEmotionDashboardReport, QuestionnaireEmotionDashboardNextSteps } from "./QuestionnaireEmotionDashboardReport";
-import { QuestionnaireFoodChoiceNextSteps } from "./QuestionnaireFoodChoiceNextSteps";
-import { QuestionnaireWorkValuesReport, QuestionnaireWorkValuesNextSteps } from "./QuestionnaireWorkValuesReport";
-import { QuestionnaireCulturalDimensionsReport, QuestionnaireCulturalDimensionsNextSteps } from "./QuestionnaireCulturalDimensionsReport";
-import { QuestionnaireLoveType16Report, QuestionnaireLoveType16NextSteps } from "./QuestionnaireLoveType16Report";
-import { QuestionnaireCognitiveFunctionsReport } from "./QuestionnaireCognitiveFunctionsReport";
-import { QuestionnaireFds32Report } from "./QuestionnaireFds32Report";
-import { QuestionnaireEnergyFlowReport } from "./QuestionnaireEnergyFlowReport";
-import { QuestionnaireMentalAgeReport } from "./QuestionnaireMentalAgeReport";
-import { QuestionnaireMiniVirtuesReport, QuestionnaireMiniVirtuesNextSteps } from "./QuestionnaireMiniVirtuesReport";
-import { QuestionnaireEuphoriaNextSteps } from "./QuestionnaireEuphoriaNextSteps";
+const QuestionnaireWorkRoleReport = questionnaireModule<Parameters<typeof import("./QuestionnaireWorkRoleReport").QuestionnaireWorkRoleReport>[0]>(() => import("./QuestionnaireWorkRoleReport").then(module => ({ default: module.QuestionnaireWorkRoleReport })));
+const QuestionnaireWorkRoleNextSteps = questionnaireModule<Parameters<typeof import("./QuestionnaireWorkRoleReport").QuestionnaireWorkRoleNextSteps>[0]>(() => import("./QuestionnaireWorkRoleReport").then(module => ({ default: module.QuestionnaireWorkRoleNextSteps })));
+const QuestionnaireEmotionDashboardReport = questionnaireModule<Parameters<typeof import("./QuestionnaireEmotionDashboardReport").QuestionnaireEmotionDashboardReport>[0]>(() => import("./QuestionnaireEmotionDashboardReport").then(module => ({ default: module.QuestionnaireEmotionDashboardReport })));
+const QuestionnaireEmotionDashboardNextSteps = questionnaireModule<Parameters<typeof import("./QuestionnaireEmotionDashboardReport").QuestionnaireEmotionDashboardNextSteps>[0]>(() => import("./QuestionnaireEmotionDashboardReport").then(module => ({ default: module.QuestionnaireEmotionDashboardNextSteps })));
+const QuestionnaireFoodChoiceNextSteps = questionnaireModule<Parameters<typeof import("./QuestionnaireFoodChoiceNextSteps").QuestionnaireFoodChoiceNextSteps>[0]>(() => import("./QuestionnaireFoodChoiceNextSteps").then(module => ({ default: module.QuestionnaireFoodChoiceNextSteps })));
+const QuestionnaireWorkValuesReport = questionnaireModule<Parameters<typeof import("./QuestionnaireWorkValuesReport").QuestionnaireWorkValuesReport>[0]>(() => import("./QuestionnaireWorkValuesReport").then(module => ({ default: module.QuestionnaireWorkValuesReport })));
+const QuestionnaireWorkValuesNextSteps = questionnaireModule<Parameters<typeof import("./QuestionnaireWorkValuesReport").QuestionnaireWorkValuesNextSteps>[0]>(() => import("./QuestionnaireWorkValuesReport").then(module => ({ default: module.QuestionnaireWorkValuesNextSteps })));
+const QuestionnaireCulturalDimensionsReport = questionnaireModule<Parameters<typeof import("./QuestionnaireCulturalDimensionsReport").QuestionnaireCulturalDimensionsReport>[0]>(() => import("./QuestionnaireCulturalDimensionsReport").then(module => ({ default: module.QuestionnaireCulturalDimensionsReport })));
+const QuestionnaireCulturalDimensionsNextSteps = questionnaireModule<Parameters<typeof import("./QuestionnaireCulturalDimensionsReport").QuestionnaireCulturalDimensionsNextSteps>[0]>(() => import("./QuestionnaireCulturalDimensionsReport").then(module => ({ default: module.QuestionnaireCulturalDimensionsNextSteps })));
+const QuestionnaireLoveType16Report = questionnaireModule<Parameters<typeof import("./QuestionnaireLoveType16Report").QuestionnaireLoveType16Report>[0]>(() => import("./QuestionnaireLoveType16Report").then(module => ({ default: module.QuestionnaireLoveType16Report })));
+const QuestionnaireLoveType16NextSteps = questionnaireModule<Parameters<typeof import("./QuestionnaireLoveType16Report").QuestionnaireLoveType16NextSteps>[0]>(() => import("./QuestionnaireLoveType16Report").then(module => ({ default: module.QuestionnaireLoveType16NextSteps })));
+const QuestionnaireCognitiveFunctionsReport = questionnaireModule<Parameters<typeof import("./QuestionnaireCognitiveFunctionsReport").QuestionnaireCognitiveFunctionsReport>[0]>(() => import("./QuestionnaireCognitiveFunctionsReport").then(module => ({ default: module.QuestionnaireCognitiveFunctionsReport })));
+const QuestionnaireFds32Report = questionnaireModule<Parameters<typeof import("./QuestionnaireFds32Report").QuestionnaireFds32Report>[0]>(() => import("./QuestionnaireFds32Report").then(module => ({ default: module.QuestionnaireFds32Report })));
+const QuestionnaireEnergyFlowReport = questionnaireModule<Parameters<typeof import("./QuestionnaireEnergyFlowReport").QuestionnaireEnergyFlowReport>[0]>(() => import("./QuestionnaireEnergyFlowReport").then(module => ({ default: module.QuestionnaireEnergyFlowReport })));
+const QuestionnaireMentalAgeReport = questionnaireModule<Parameters<typeof import("./QuestionnaireMentalAgeReport").QuestionnaireMentalAgeReport>[0]>(() => import("./QuestionnaireMentalAgeReport").then(module => ({ default: module.QuestionnaireMentalAgeReport })));
+const QuestionnaireMiniVirtuesReport = questionnaireModule<Parameters<typeof import("./QuestionnaireMiniVirtuesReport").QuestionnaireMiniVirtuesReport>[0]>(() => import("./QuestionnaireMiniVirtuesReport").then(module => ({ default: module.QuestionnaireMiniVirtuesReport })));
+const QuestionnaireMiniVirtuesNextSteps = questionnaireModule<Parameters<typeof import("./QuestionnaireMiniVirtuesReport").QuestionnaireMiniVirtuesNextSteps>[0]>(() => import("./QuestionnaireMiniVirtuesReport").then(module => ({ default: module.QuestionnaireMiniVirtuesNextSteps })));
+const QuestionnaireEuphoriaNextSteps = questionnaireModule<Parameters<typeof import("./QuestionnaireEuphoriaNextSteps").QuestionnaireEuphoriaNextSteps>[0]>(() => import("./QuestionnaireEuphoriaNextSteps").then(module => ({ default: module.QuestionnaireEuphoriaNextSteps })));
 import { recordEntertainmentActivity } from "@/lib/entertainment/activity";
 import { preparationActions20GuideLinks } from "@/lib/questionnaires/preparationActions20";
-import { QuestionnairePreparationActions20Report, QuestionnairePreparationActions20NextSteps } from "./QuestionnairePreparationActions20Report";
-import { QuestionnaireHoldingBack35Report, QuestionnaireHoldingBack35NextSteps } from "./QuestionnaireHoldingBack35Report";
+const QuestionnairePreparationActions20Report = questionnaireModule<Parameters<typeof import("./QuestionnairePreparationActions20Report").QuestionnairePreparationActions20Report>[0]>(() => import("./QuestionnairePreparationActions20Report").then(module => ({ default: module.QuestionnairePreparationActions20Report })));
+const QuestionnairePreparationActions20NextSteps = questionnaireModule<Parameters<typeof import("./QuestionnairePreparationActions20Report").QuestionnairePreparationActions20NextSteps>[0]>(() => import("./QuestionnairePreparationActions20Report").then(module => ({ default: module.QuestionnairePreparationActions20NextSteps })));
+const QuestionnaireHoldingBack35Report = questionnaireModule<Parameters<typeof import("./QuestionnaireHoldingBack35Report").QuestionnaireHoldingBack35Report>[0]>(() => import("./QuestionnaireHoldingBack35Report").then(module => ({ default: module.QuestionnaireHoldingBack35Report })));
+const QuestionnaireHoldingBack35NextSteps = questionnaireModule<Parameters<typeof import("./QuestionnaireHoldingBack35Report").QuestionnaireHoldingBack35NextSteps>[0]>(() => import("./QuestionnaireHoldingBack35Report").then(module => ({ default: module.QuestionnaireHoldingBack35NextSteps })));
 
-import { QuestionnaireWorkBehaviorReport, QuestionnaireWorkBehaviorNextSteps } from "./QuestionnaireWorkBehaviorReport";
+const QuestionnaireWorkBehaviorReport = questionnaireModule<Parameters<typeof import("./QuestionnaireWorkBehaviorReport").QuestionnaireWorkBehaviorReport>[0]>(() => import("./QuestionnaireWorkBehaviorReport").then(module => ({ default: module.QuestionnaireWorkBehaviorReport })));
+const QuestionnaireWorkBehaviorNextSteps = questionnaireModule<Parameters<typeof import("./QuestionnaireWorkBehaviorReport").QuestionnaireWorkBehaviorNextSteps>[0]>(() => import("./QuestionnaireWorkBehaviorReport").then(module => ({ default: module.QuestionnaireWorkBehaviorNextSteps })));
 
-import { QuestionnaireSensitivityExperienceReport, QuestionnaireSensitivityExperienceNextSteps } from "./QuestionnaireSensitivityExperienceReport";
+const QuestionnaireSensitivityExperienceReport = questionnaireModule<Parameters<typeof import("./QuestionnaireSensitivityExperienceReport").QuestionnaireSensitivityExperienceReport>[0]>(() => import("./QuestionnaireSensitivityExperienceReport").then(module => ({ default: module.QuestionnaireSensitivityExperienceReport })));
+const QuestionnaireSensitivityExperienceNextSteps = questionnaireModule<Parameters<typeof import("./QuestionnaireSensitivityExperienceReport").QuestionnaireSensitivityExperienceNextSteps>[0]>(() => import("./QuestionnaireSensitivityExperienceReport").then(module => ({ default: module.QuestionnaireSensitivityExperienceNextSteps })));
 
-import { QuestionnaireBreakupReviewReport, QuestionnaireBreakupReviewNextSteps } from "./QuestionnaireBreakupReviewReport";
-import { QuestionnaireParentingPracticesReport, QuestionnaireParentingPracticesNextSteps } from "./QuestionnaireParentingPracticesReport";
-import { QuestionnaireSpq92Report, QuestionnaireSpq92NextSteps } from "./QuestionnaireSpq92Report";
-import { QuestionnaireAdexi14Report } from "./QuestionnaireAdexi14Report";
+const QuestionnaireBreakupReviewReport = questionnaireModule<Parameters<typeof import("./QuestionnaireBreakupReviewReport").QuestionnaireBreakupReviewReport>[0]>(() => import("./QuestionnaireBreakupReviewReport").then(module => ({ default: module.QuestionnaireBreakupReviewReport })));
+const QuestionnaireBreakupReviewNextSteps = questionnaireModule<Parameters<typeof import("./QuestionnaireBreakupReviewReport").QuestionnaireBreakupReviewNextSteps>[0]>(() => import("./QuestionnaireBreakupReviewReport").then(module => ({ default: module.QuestionnaireBreakupReviewNextSteps })));
+const QuestionnaireParentingPracticesReport = questionnaireModule<Parameters<typeof import("./QuestionnaireParentingPracticesReport").QuestionnaireParentingPracticesReport>[0]>(() => import("./QuestionnaireParentingPracticesReport").then(module => ({ default: module.QuestionnaireParentingPracticesReport })));
+const QuestionnaireParentingPracticesNextSteps = questionnaireModule<Parameters<typeof import("./QuestionnaireParentingPracticesReport").QuestionnaireParentingPracticesNextSteps>[0]>(() => import("./QuestionnaireParentingPracticesReport").then(module => ({ default: module.QuestionnaireParentingPracticesNextSteps })));
+const QuestionnaireSpq92Report = questionnaireModule<Parameters<typeof import("./QuestionnaireSpq92Report").QuestionnaireSpq92Report>[0]>(() => import("./QuestionnaireSpq92Report").then(module => ({ default: module.QuestionnaireSpq92Report })));
+const QuestionnaireSpq92NextSteps = questionnaireModule<Parameters<typeof import("./QuestionnaireSpq92Report").QuestionnaireSpq92NextSteps>[0]>(() => import("./QuestionnaireSpq92Report").then(module => ({ default: module.QuestionnaireSpq92NextSteps })));
+const QuestionnaireAdexi14Report = questionnaireModule<Parameters<typeof import("./QuestionnaireAdexi14Report").QuestionnaireAdexi14Report>[0]>(() => import("./QuestionnaireAdexi14Report").then(module => ({ default: module.QuestionnaireAdexi14Report })));
 
-import { QuestionnaireMiniFrictionReport, QuestionnaireMiniFrictionNextSteps } from "./QuestionnaireMiniFrictionReport";
-import { QuestionnaireCtl41Report, QuestionnaireCtl41NextSteps } from "./QuestionnaireCtl41Report";
-import { QuestionnaireLoveConflictProcessReport } from "./QuestionnaireLoveConflictProcessReport";
-import { QuestionnaireMotivationThemesReport, QuestionnaireMotivationThemesNextSteps } from "./QuestionnaireMotivationThemesReport";
+const QuestionnaireMiniFrictionReport = questionnaireModule<Parameters<typeof import("./QuestionnaireMiniFrictionReport").QuestionnaireMiniFrictionReport>[0]>(() => import("./QuestionnaireMiniFrictionReport").then(module => ({ default: module.QuestionnaireMiniFrictionReport })));
+const QuestionnaireMiniFrictionNextSteps = questionnaireModule<Parameters<typeof import("./QuestionnaireMiniFrictionReport").QuestionnaireMiniFrictionNextSteps>[0]>(() => import("./QuestionnaireMiniFrictionReport").then(module => ({ default: module.QuestionnaireMiniFrictionNextSteps })));
+const QuestionnaireCtl41Report = questionnaireModule<Parameters<typeof import("./QuestionnaireCtl41Report").QuestionnaireCtl41Report>[0]>(() => import("./QuestionnaireCtl41Report").then(module => ({ default: module.QuestionnaireCtl41Report })));
+const QuestionnaireCtl41NextSteps = questionnaireModule<Parameters<typeof import("./QuestionnaireCtl41Report").QuestionnaireCtl41NextSteps>[0]>(() => import("./QuestionnaireCtl41Report").then(module => ({ default: module.QuestionnaireCtl41NextSteps })));
+const QuestionnaireLoveConflictProcessReport = questionnaireModule<Parameters<typeof import("./QuestionnaireLoveConflictProcessReport").QuestionnaireLoveConflictProcessReport>[0]>(() => import("./QuestionnaireLoveConflictProcessReport").then(module => ({ default: module.QuestionnaireLoveConflictProcessReport })));
+const QuestionnaireMotivationThemesReport = questionnaireModule<Parameters<typeof import("./QuestionnaireMotivationThemesReport").QuestionnaireMotivationThemesReport>[0]>(() => import("./QuestionnaireMotivationThemesReport").then(module => ({ default: module.QuestionnaireMotivationThemesReport })));
+const QuestionnaireMotivationThemesNextSteps = questionnaireModule<Parameters<typeof import("./QuestionnaireMotivationThemesReport").QuestionnaireMotivationThemesNextSteps>[0]>(() => import("./QuestionnaireMotivationThemesReport").then(module => ({ default: module.QuestionnaireMotivationThemesNextSteps })));
 
-import { QuestionnairePtq15Report, QuestionnairePtq15NextSteps } from "./QuestionnairePtq15Report";
+const QuestionnairePtq15Report = questionnaireModule<Parameters<typeof import("./QuestionnairePtq15Report").QuestionnairePtq15Report>[0]>(() => import("./QuestionnairePtq15Report").then(module => ({ default: module.QuestionnairePtq15Report })));
+const QuestionnairePtq15NextSteps = questionnaireModule<Parameters<typeof import("./QuestionnairePtq15Report").QuestionnairePtq15NextSteps>[0]>(() => import("./QuestionnairePtq15Report").then(module => ({ default: module.QuestionnairePtq15NextSteps })));
 
-import { QuestionnaireTriangleReport } from "./QuestionnaireTriangleReport";
+const QuestionnaireTriangleReport = questionnaireModule<Parameters<typeof import("./QuestionnaireTriangleReport").QuestionnaireTriangleReport>[0]>(() => import("./QuestionnaireTriangleReport").then(module => ({ default: module.QuestionnaireTriangleReport })));
 
-import { QuestionnaireJealousyReport } from "./QuestionnaireJealousyReport";
+const QuestionnaireJealousyReport = questionnaireModule<Parameters<typeof import("./QuestionnaireJealousyReport").QuestionnaireJealousyReport>[0]>(() => import("./QuestionnaireJealousyReport").then(module => ({ default: module.QuestionnaireJealousyReport })));
 
-import { QuestionnaireCompassionReport, QuestionnaireCompassionNextSteps } from "./QuestionnaireCompassionReport";
-import { QuestionnaireInteractionPairsReport } from "./QuestionnaireInteractionPairsReport";
-import { QuestionnaireSkillsEvidenceReport, QuestionnaireSkillsEvidenceNextSteps } from "./QuestionnaireSkillsEvidenceReport";
-import { QuestionnaireSapsReport, QuestionnaireSapsNextSteps } from "./QuestionnaireSapsReport";
+const QuestionnaireCompassionReport = questionnaireModule<Parameters<typeof import("./QuestionnaireCompassionReport").QuestionnaireCompassionReport>[0]>(() => import("./QuestionnaireCompassionReport").then(module => ({ default: module.QuestionnaireCompassionReport })));
+const QuestionnaireCompassionNextSteps = questionnaireModule<Parameters<typeof import("./QuestionnaireCompassionReport").QuestionnaireCompassionNextSteps>[0]>(() => import("./QuestionnaireCompassionReport").then(module => ({ default: module.QuestionnaireCompassionNextSteps })));
+const QuestionnaireInteractionPairsReport = questionnaireModule<Parameters<typeof import("./QuestionnaireInteractionPairsReport").QuestionnaireInteractionPairsReport>[0]>(() => import("./QuestionnaireInteractionPairsReport").then(module => ({ default: module.QuestionnaireInteractionPairsReport })));
+const QuestionnaireSkillsEvidenceReport = questionnaireModule<Parameters<typeof import("./QuestionnaireSkillsEvidenceReport").QuestionnaireSkillsEvidenceReport>[0]>(() => import("./QuestionnaireSkillsEvidenceReport").then(module => ({ default: module.QuestionnaireSkillsEvidenceReport })));
+const QuestionnaireSkillsEvidenceNextSteps = questionnaireModule<Parameters<typeof import("./QuestionnaireSkillsEvidenceReport").QuestionnaireSkillsEvidenceNextSteps>[0]>(() => import("./QuestionnaireSkillsEvidenceReport").then(module => ({ default: module.QuestionnaireSkillsEvidenceNextSteps })));
+const QuestionnaireSapsReport = questionnaireModule<Parameters<typeof import("./QuestionnaireSapsReport").QuestionnaireSapsReport>[0]>(() => import("./QuestionnaireSapsReport").then(module => ({ default: module.QuestionnaireSapsReport })));
+const QuestionnaireSapsNextSteps = questionnaireModule<Parameters<typeof import("./QuestionnaireSapsReport").QuestionnaireSapsNextSteps>[0]>(() => import("./QuestionnaireSapsReport").then(module => ({ default: module.QuestionnaireSapsNextSteps })));
 
-import { QuestionnaireWorkArrangementReport } from "./QuestionnaireWorkArrangementReport";
-import { QuestionnaireTimeManagementReport } from "./QuestionnaireTimeManagementReport";
-import { QuestionnaireWholesomePartnerReport } from "./QuestionnaireWholesomePartnerReport";
-import { QuestionnaireConflictStylesReport } from "./QuestionnaireConflictStylesReport";
-import { QuestionnairePositivePressureReport } from "./QuestionnairePositivePressureReport";
-import { QuestionnaireFriendshipFitReport } from "./QuestionnaireFriendshipFitReport";
-import { QuestionnaireTrustReport } from "./QuestionnaireTrustReport";
-import { QuestionnaireCommitmentReport } from "./QuestionnaireCommitmentReport";
+const QuestionnaireWorkArrangementReport = questionnaireModule<Parameters<typeof import("./QuestionnaireWorkArrangementReport").QuestionnaireWorkArrangementReport>[0]>(() => import("./QuestionnaireWorkArrangementReport").then(module => ({ default: module.QuestionnaireWorkArrangementReport })));
+const QuestionnaireTimeManagementReport = questionnaireModule<Parameters<typeof import("./QuestionnaireTimeManagementReport").QuestionnaireTimeManagementReport>[0]>(() => import("./QuestionnaireTimeManagementReport").then(module => ({ default: module.QuestionnaireTimeManagementReport })));
+const QuestionnaireWholesomePartnerReport = questionnaireModule<Parameters<typeof import("./QuestionnaireWholesomePartnerReport").QuestionnaireWholesomePartnerReport>[0]>(() => import("./QuestionnaireWholesomePartnerReport").then(module => ({ default: module.QuestionnaireWholesomePartnerReport })));
+const QuestionnaireConflictStylesReport = questionnaireModule<Parameters<typeof import("./QuestionnaireConflictStylesReport").QuestionnaireConflictStylesReport>[0]>(() => import("./QuestionnaireConflictStylesReport").then(module => ({ default: module.QuestionnaireConflictStylesReport })));
+const QuestionnairePositivePressureReport = questionnaireModule<Parameters<typeof import("./QuestionnairePositivePressureReport").QuestionnairePositivePressureReport>[0]>(() => import("./QuestionnairePositivePressureReport").then(module => ({ default: module.QuestionnairePositivePressureReport })));
+const QuestionnaireFriendshipFitReport = questionnaireModule<Parameters<typeof import("./QuestionnaireFriendshipFitReport").QuestionnaireFriendshipFitReport>[0]>(() => import("./QuestionnaireFriendshipFitReport").then(module => ({ default: module.QuestionnaireFriendshipFitReport })));
+const QuestionnaireTrustReport = questionnaireModule<Parameters<typeof import("./QuestionnaireTrustReport").QuestionnaireTrustReport>[0]>(() => import("./QuestionnaireTrustReport").then(module => ({ default: module.QuestionnaireTrustReport })));
+const QuestionnaireCommitmentReport = questionnaireModule<Parameters<typeof import("./QuestionnaireCommitmentReport").QuestionnaireCommitmentReport>[0]>(() => import("./QuestionnaireCommitmentReport").then(module => ({ default: module.QuestionnaireCommitmentReport })));
 
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { QuestionnairePaletteSwatches } from "./QuestionnairePaletteSwatches";
-import { QuestionnaireChakraReport } from "./QuestionnaireChakraReport";
+const QuestionnaireChakraReport = questionnaireModule<Parameters<typeof import("./QuestionnaireChakraReport").QuestionnaireChakraReport>[0]>(() => import("./QuestionnaireChakraReport").then(module => ({ default: module.QuestionnaireChakraReport })));
 import { QuestionnaireJavaCode } from "./QuestionnaireJavaCode";
 import { QuestionnaireJavaScriptCode } from "./QuestionnaireJavaScriptCode";
 import { QuestionnairePythonCode } from "./QuestionnairePythonCode";
 import { QuestionnaireSqlCode } from "./QuestionnaireSqlCode";
-import { QuestionnairePracticeReport } from "./QuestionnairePracticeReport";
-import { QuestionnaireEgogramReport } from "./QuestionnaireEgogramReport";
-import { QuestionnaireSocialReport } from "./QuestionnaireSocialReport";
-import { QuestionnaireGritReport } from "./QuestionnaireGritReport";
-import { QuestionnaireHabitsReport } from "./QuestionnaireHabitsReport";
-import { QuestionnaireLocusReport } from "./QuestionnaireLocusReport";
-import { QuestionnaireGrowthReport } from "./QuestionnaireGrowthReport";
-import { QuestionnaireMaturityReport } from "./QuestionnaireMaturityReport";
-import { QuestionnaireCompassReport } from "./QuestionnaireCompassReport";
+const QuestionnairePracticeReport = questionnaireModule<Parameters<typeof import("./QuestionnairePracticeReport").QuestionnairePracticeReport>[0]>(() => import("./QuestionnairePracticeReport").then(module => ({ default: module.QuestionnairePracticeReport })));
+const QuestionnaireEgogramReport = questionnaireModule<Parameters<typeof import("./QuestionnaireEgogramReport").QuestionnaireEgogramReport>[0]>(() => import("./QuestionnaireEgogramReport").then(module => ({ default: module.QuestionnaireEgogramReport })));
+const QuestionnaireSocialReport = questionnaireModule<Parameters<typeof import("./QuestionnaireSocialReport").QuestionnaireSocialReport>[0]>(() => import("./QuestionnaireSocialReport").then(module => ({ default: module.QuestionnaireSocialReport })));
+const QuestionnaireGritReport = questionnaireModule<Parameters<typeof import("./QuestionnaireGritReport").QuestionnaireGritReport>[0]>(() => import("./QuestionnaireGritReport").then(module => ({ default: module.QuestionnaireGritReport })));
+const QuestionnaireHabitsReport = questionnaireModule<Parameters<typeof import("./QuestionnaireHabitsReport").QuestionnaireHabitsReport>[0]>(() => import("./QuestionnaireHabitsReport").then(module => ({ default: module.QuestionnaireHabitsReport })));
+const QuestionnaireLocusReport = questionnaireModule<Parameters<typeof import("./QuestionnaireLocusReport").QuestionnaireLocusReport>[0]>(() => import("./QuestionnaireLocusReport").then(module => ({ default: module.QuestionnaireLocusReport })));
+const QuestionnaireGrowthReport = questionnaireModule<Parameters<typeof import("./QuestionnaireGrowthReport").QuestionnaireGrowthReport>[0]>(() => import("./QuestionnaireGrowthReport").then(module => ({ default: module.QuestionnaireGrowthReport })));
+const QuestionnaireMaturityReport = questionnaireModule<Parameters<typeof import("./QuestionnaireMaturityReport").QuestionnaireMaturityReport>[0]>(() => import("./QuestionnaireMaturityReport").then(module => ({ default: module.QuestionnaireMaturityReport })));
+const QuestionnaireCompassReport = questionnaireModule<Parameters<typeof import("./QuestionnaireCompassReport").QuestionnaireCompassReport>[0]>(() => import("./QuestionnaireCompassReport").then(module => ({ default: module.QuestionnaireCompassReport })));
 import { QuestionnaireInkblotStimulus } from "./QuestionnaireInkblotStimulus";
 import { getInkblotStimulus } from "@/lib/questionnaires/inkblotStimuli";
-import { QuestionnaireLtsReport } from "./QuestionnaireLtsReport";
-import { QuestionnaireValuesReport } from "./QuestionnaireValuesReport";
-import { QuestionnaireSdtNeedsReport } from "./QuestionnaireSdtNeedsReport";
-import { QuestionnaireTypeAbReport } from "./QuestionnaireTypeAbReport";
-import { QuestionnaireChapterReport } from "./QuestionnaireChapterReport";
-import { QuestionnaireRizzReport } from "./QuestionnaireRizzReport";
-import { QuestionnaireExpressionReport } from "./QuestionnaireExpressionReport";
-import { QuestionnaireScs26Report } from "./QuestionnaireScs26Report";
-import { QuestionnaireCbiReport, QuestionnaireCbiNextSteps } from "./QuestionnaireCbiReport";
-import { QuestionnaireRosenbergReport } from "./QuestionnaireRosenbergReport";
-import { QuestionnairePoliticalCoordinatesReport } from "./QuestionnairePoliticalCoordinatesReport";
-import { QuestionnaireSecsReport } from "./QuestionnaireSecsReport";
-import { QuestionnairePairedDimensionsReport } from "./QuestionnairePairedDimensionsReport";
-import { QuestionnaireEightValuesReport } from "./QuestionnaireEightValuesReport";
-import { QuestionnaireApologyPreferenceReport } from "./QuestionnaireApologyPreferenceReport";
-import { QuestionnaireActivityConfidenceReport } from "./QuestionnaireActivityConfidenceReport";
-import { QuestionnaireWorkHabitsReport } from "./QuestionnaireWorkHabitsReport";
-import { QuestionnaireTechConfidenceReport, QuestionnaireTechConfidenceNextSteps } from "./QuestionnaireTechConfidenceReport";
-import { EverydayControlReport } from "./EverydayControlReport";
-import { InterpersonalPreferencesReport } from "./InterpersonalPreferencesReport";
-import { Tipi10Report, Tipi10NextSteps } from "./Tipi10Report";
-import { WorkActivityInterestsReport } from "./WorkActivityInterestsReport";
-import { RelationshipWorryHabitsReport, RelationshipWorryHabitsNextSteps } from "./RelationshipWorryHabitsReport";
-import { FaceSelfImageReport, FaceSelfImageNextSteps } from "./FaceSelfImageReport";
-import { DatingOutlookReport, DatingOutlookNextSteps } from "./DatingOutlookReport";
-import { RelationshipHabitsReport, RelationshipHabitsNextSteps } from "./RelationshipHabitsReport";
-import { IntimacyValuesReport, IntimacyValuesNextSteps } from "./IntimacyValuesReport";
-import { SocialAttitudesReport } from "./SocialAttitudesReport";
-import { QuestionnaireFacetReport } from "./QuestionnaireFacetReport";
-import { QuestionnaireMfq2Report } from "./QuestionnaireMfq2Report";
-import { QuestionnaireLibertyPrinciplesReport } from "./QuestionnaireLibertyPrinciplesReport";
-import { QuestionnaireFreudianReport } from "./QuestionnaireFreudianReport";
-import { QuestionnaireHexacoReport } from "./QuestionnaireHexacoReport";
-import { QuestionnaireArchetypeReport } from "./QuestionnaireArchetypeReport";
-import { QuestionnaireAlignmentReport } from "./QuestionnaireAlignmentReport";
-import { QuestionnaireOptimismReport } from "./QuestionnaireOptimismReport";
-import { QuestionnaireExtraversionReport } from "./QuestionnaireExtraversionReport";
-import { QuestionnaireAffectionReport } from "./QuestionnaireAffectionReport";
-import { QuestionnaireAttachmentReport } from "./QuestionnaireAttachmentReport";
-import { QuestionnaireCharacterStrengthsReport } from "./QuestionnaireCharacterStrengthsReport";
-import { QuestionnaireLearningPreferenceReport } from "./QuestionnaireLearningPreferenceReport";
-import { QuestionnaireProcrastinationReport } from "./QuestionnaireProcrastinationReport";
-import { QuestionnaireFrictionReport } from "./QuestionnaireFrictionReport";
-import { QuestionnairePpsReport } from "./QuestionnairePpsReport";
-import { QuestionnaireMusicReport } from "./QuestionnaireMusicReport";
-import { QuestionnaireHumorReport } from "./QuestionnaireHumorReport";
-import { QuestionnaireCommunicationReport } from "./QuestionnaireCommunicationReport";
+const QuestionnaireLtsReport = questionnaireModule<Parameters<typeof import("./QuestionnaireLtsReport").QuestionnaireLtsReport>[0]>(() => import("./QuestionnaireLtsReport").then(module => ({ default: module.QuestionnaireLtsReport })));
+const QuestionnaireValuesReport = questionnaireModule<Parameters<typeof import("./QuestionnaireValuesReport").QuestionnaireValuesReport>[0]>(() => import("./QuestionnaireValuesReport").then(module => ({ default: module.QuestionnaireValuesReport })));
+const QuestionnaireSdtNeedsReport = questionnaireModule<Parameters<typeof import("./QuestionnaireSdtNeedsReport").QuestionnaireSdtNeedsReport>[0]>(() => import("./QuestionnaireSdtNeedsReport").then(module => ({ default: module.QuestionnaireSdtNeedsReport })));
+const QuestionnaireTypeAbReport = questionnaireModule<Parameters<typeof import("./QuestionnaireTypeAbReport").QuestionnaireTypeAbReport>[0]>(() => import("./QuestionnaireTypeAbReport").then(module => ({ default: module.QuestionnaireTypeAbReport })));
+const QuestionnaireChapterReport = questionnaireModule<Parameters<typeof import("./QuestionnaireChapterReport").QuestionnaireChapterReport>[0]>(() => import("./QuestionnaireChapterReport").then(module => ({ default: module.QuestionnaireChapterReport })));
+const QuestionnaireRizzReport = questionnaireModule<Parameters<typeof import("./QuestionnaireRizzReport").QuestionnaireRizzReport>[0]>(() => import("./QuestionnaireRizzReport").then(module => ({ default: module.QuestionnaireRizzReport })));
+const QuestionnaireExpressionReport = questionnaireModule<Parameters<typeof import("./QuestionnaireExpressionReport").QuestionnaireExpressionReport>[0]>(() => import("./QuestionnaireExpressionReport").then(module => ({ default: module.QuestionnaireExpressionReport })));
+const QuestionnaireScs26Report = questionnaireModule<Parameters<typeof import("./QuestionnaireScs26Report").QuestionnaireScs26Report>[0]>(() => import("./QuestionnaireScs26Report").then(module => ({ default: module.QuestionnaireScs26Report })));
+const QuestionnaireCbiReport = questionnaireModule<Parameters<typeof import("./QuestionnaireCbiReport").QuestionnaireCbiReport>[0]>(() => import("./QuestionnaireCbiReport").then(module => ({ default: module.QuestionnaireCbiReport })));
+const QuestionnaireCbiNextSteps = questionnaireModule<Parameters<typeof import("./QuestionnaireCbiReport").QuestionnaireCbiNextSteps>[0]>(() => import("./QuestionnaireCbiReport").then(module => ({ default: module.QuestionnaireCbiNextSteps })));
+const QuestionnaireRosenbergReport = questionnaireModule<Parameters<typeof import("./QuestionnaireRosenbergReport").QuestionnaireRosenbergReport>[0]>(() => import("./QuestionnaireRosenbergReport").then(module => ({ default: module.QuestionnaireRosenbergReport })));
+const QuestionnairePoliticalCoordinatesReport = questionnaireModule<Parameters<typeof import("./QuestionnairePoliticalCoordinatesReport").QuestionnairePoliticalCoordinatesReport>[0]>(() => import("./QuestionnairePoliticalCoordinatesReport").then(module => ({ default: module.QuestionnairePoliticalCoordinatesReport })));
+const QuestionnaireSecsReport = questionnaireModule<Parameters<typeof import("./QuestionnaireSecsReport").QuestionnaireSecsReport>[0]>(() => import("./QuestionnaireSecsReport").then(module => ({ default: module.QuestionnaireSecsReport })));
+const QuestionnairePairedDimensionsReport = questionnaireModule<Parameters<typeof import("./QuestionnairePairedDimensionsReport").QuestionnairePairedDimensionsReport>[0]>(() => import("./QuestionnairePairedDimensionsReport").then(module => ({ default: module.QuestionnairePairedDimensionsReport })));
+const QuestionnaireEightValuesReport = questionnaireModule<Parameters<typeof import("./QuestionnaireEightValuesReport").QuestionnaireEightValuesReport>[0]>(() => import("./QuestionnaireEightValuesReport").then(module => ({ default: module.QuestionnaireEightValuesReport })));
+const QuestionnaireApologyPreferenceReport = questionnaireModule<Parameters<typeof import("./QuestionnaireApologyPreferenceReport").QuestionnaireApologyPreferenceReport>[0]>(() => import("./QuestionnaireApologyPreferenceReport").then(module => ({ default: module.QuestionnaireApologyPreferenceReport })));
+const QuestionnaireActivityConfidenceReport = questionnaireModule<Parameters<typeof import("./QuestionnaireActivityConfidenceReport").QuestionnaireActivityConfidenceReport>[0]>(() => import("./QuestionnaireActivityConfidenceReport").then(module => ({ default: module.QuestionnaireActivityConfidenceReport })));
+const QuestionnaireWorkHabitsReport = questionnaireModule<Parameters<typeof import("./QuestionnaireWorkHabitsReport").QuestionnaireWorkHabitsReport>[0]>(() => import("./QuestionnaireWorkHabitsReport").then(module => ({ default: module.QuestionnaireWorkHabitsReport })));
+const QuestionnaireTechConfidenceReport = questionnaireModule<Parameters<typeof import("./QuestionnaireTechConfidenceReport").QuestionnaireTechConfidenceReport>[0]>(() => import("./QuestionnaireTechConfidenceReport").then(module => ({ default: module.QuestionnaireTechConfidenceReport })));
+const QuestionnaireTechConfidenceNextSteps = questionnaireModule<Parameters<typeof import("./QuestionnaireTechConfidenceReport").QuestionnaireTechConfidenceNextSteps>[0]>(() => import("./QuestionnaireTechConfidenceReport").then(module => ({ default: module.QuestionnaireTechConfidenceNextSteps })));
+const EverydayControlReport = questionnaireModule<Parameters<typeof import("./EverydayControlReport").EverydayControlReport>[0]>(() => import("./EverydayControlReport").then(module => ({ default: module.EverydayControlReport })));
+const InterpersonalPreferencesReport = questionnaireModule<Parameters<typeof import("./InterpersonalPreferencesReport").InterpersonalPreferencesReport>[0]>(() => import("./InterpersonalPreferencesReport").then(module => ({ default: module.InterpersonalPreferencesReport })));
+const Tipi10Report = questionnaireModule<Parameters<typeof import("./Tipi10Report").Tipi10Report>[0]>(() => import("./Tipi10Report").then(module => ({ default: module.Tipi10Report })));
+const Tipi10NextSteps = questionnaireModule<Parameters<typeof import("./Tipi10Report").Tipi10NextSteps>[0]>(() => import("./Tipi10Report").then(module => ({ default: module.Tipi10NextSteps })));
+const WorkActivityInterestsReport = questionnaireModule<Parameters<typeof import("./WorkActivityInterestsReport").WorkActivityInterestsReport>[0]>(() => import("./WorkActivityInterestsReport").then(module => ({ default: module.WorkActivityInterestsReport })));
+const RelationshipWorryHabitsReport = questionnaireModule<Parameters<typeof import("./RelationshipWorryHabitsReport").RelationshipWorryHabitsReport>[0]>(() => import("./RelationshipWorryHabitsReport").then(module => ({ default: module.RelationshipWorryHabitsReport })));
+const RelationshipWorryHabitsNextSteps = questionnaireModule<Parameters<typeof import("./RelationshipWorryHabitsReport").RelationshipWorryHabitsNextSteps>[0]>(() => import("./RelationshipWorryHabitsReport").then(module => ({ default: module.RelationshipWorryHabitsNextSteps })));
+const FaceSelfImageReport = questionnaireModule<Parameters<typeof import("./FaceSelfImageReport").FaceSelfImageReport>[0]>(() => import("./FaceSelfImageReport").then(module => ({ default: module.FaceSelfImageReport })));
+const FaceSelfImageNextSteps = questionnaireModule<Parameters<typeof import("./FaceSelfImageReport").FaceSelfImageNextSteps>[0]>(() => import("./FaceSelfImageReport").then(module => ({ default: module.FaceSelfImageNextSteps })));
+const DatingOutlookReport = questionnaireModule<Parameters<typeof import("./DatingOutlookReport").DatingOutlookReport>[0]>(() => import("./DatingOutlookReport").then(module => ({ default: module.DatingOutlookReport })));
+const DatingOutlookNextSteps = questionnaireModule<Parameters<typeof import("./DatingOutlookReport").DatingOutlookNextSteps>[0]>(() => import("./DatingOutlookReport").then(module => ({ default: module.DatingOutlookNextSteps })));
+const RelationshipHabitsReport = questionnaireModule<Parameters<typeof import("./RelationshipHabitsReport").RelationshipHabitsReport>[0]>(() => import("./RelationshipHabitsReport").then(module => ({ default: module.RelationshipHabitsReport })));
+const RelationshipHabitsNextSteps = questionnaireModule<Parameters<typeof import("./RelationshipHabitsReport").RelationshipHabitsNextSteps>[0]>(() => import("./RelationshipHabitsReport").then(module => ({ default: module.RelationshipHabitsNextSteps })));
+const IntimacyValuesReport = questionnaireModule<Parameters<typeof import("./IntimacyValuesReport").IntimacyValuesReport>[0]>(() => import("./IntimacyValuesReport").then(module => ({ default: module.IntimacyValuesReport })));
+const IntimacyValuesNextSteps = questionnaireModule<Parameters<typeof import("./IntimacyValuesReport").IntimacyValuesNextSteps>[0]>(() => import("./IntimacyValuesReport").then(module => ({ default: module.IntimacyValuesNextSteps })));
+const SocialAttitudesReport = questionnaireModule<Parameters<typeof import("./SocialAttitudesReport").SocialAttitudesReport>[0]>(() => import("./SocialAttitudesReport").then(module => ({ default: module.SocialAttitudesReport })));
+const QuestionnaireFacetReport = questionnaireModule<Parameters<typeof import("./QuestionnaireFacetReport").QuestionnaireFacetReport>[0]>(() => import("./QuestionnaireFacetReport").then(module => ({ default: module.QuestionnaireFacetReport })));
+const QuestionnaireMfq2Report = questionnaireModule<Parameters<typeof import("./QuestionnaireMfq2Report").QuestionnaireMfq2Report>[0]>(() => import("./QuestionnaireMfq2Report").then(module => ({ default: module.QuestionnaireMfq2Report })));
+const QuestionnaireLibertyPrinciplesReport = questionnaireModule<Parameters<typeof import("./QuestionnaireLibertyPrinciplesReport").QuestionnaireLibertyPrinciplesReport>[0]>(() => import("./QuestionnaireLibertyPrinciplesReport").then(module => ({ default: module.QuestionnaireLibertyPrinciplesReport })));
+const QuestionnaireFreudianReport = questionnaireModule<Parameters<typeof import("./QuestionnaireFreudianReport").QuestionnaireFreudianReport>[0]>(() => import("./QuestionnaireFreudianReport").then(module => ({ default: module.QuestionnaireFreudianReport })));
+const QuestionnaireHexacoReport = questionnaireModule<Parameters<typeof import("./QuestionnaireHexacoReport").QuestionnaireHexacoReport>[0]>(() => import("./QuestionnaireHexacoReport").then(module => ({ default: module.QuestionnaireHexacoReport })));
+const QuestionnaireArchetypeReport = questionnaireModule<Parameters<typeof import("./QuestionnaireArchetypeReport").QuestionnaireArchetypeReport>[0]>(() => import("./QuestionnaireArchetypeReport").then(module => ({ default: module.QuestionnaireArchetypeReport })));
+const QuestionnaireAlignmentReport = questionnaireModule<Parameters<typeof import("./QuestionnaireAlignmentReport").QuestionnaireAlignmentReport>[0]>(() => import("./QuestionnaireAlignmentReport").then(module => ({ default: module.QuestionnaireAlignmentReport })));
+const QuestionnaireOptimismReport = questionnaireModule<Parameters<typeof import("./QuestionnaireOptimismReport").QuestionnaireOptimismReport>[0]>(() => import("./QuestionnaireOptimismReport").then(module => ({ default: module.QuestionnaireOptimismReport })));
+const QuestionnaireExtraversionReport = questionnaireModule<Parameters<typeof import("./QuestionnaireExtraversionReport").QuestionnaireExtraversionReport>[0]>(() => import("./QuestionnaireExtraversionReport").then(module => ({ default: module.QuestionnaireExtraversionReport })));
+const QuestionnaireAffectionReport = questionnaireModule<Parameters<typeof import("./QuestionnaireAffectionReport").QuestionnaireAffectionReport>[0]>(() => import("./QuestionnaireAffectionReport").then(module => ({ default: module.QuestionnaireAffectionReport })));
+const QuestionnaireAttachmentReport = questionnaireModule<Parameters<typeof import("./QuestionnaireAttachmentReport").QuestionnaireAttachmentReport>[0]>(() => import("./QuestionnaireAttachmentReport").then(module => ({ default: module.QuestionnaireAttachmentReport })));
+const QuestionnaireCharacterStrengthsReport = questionnaireModule<Parameters<typeof import("./QuestionnaireCharacterStrengthsReport").QuestionnaireCharacterStrengthsReport>[0]>(() => import("./QuestionnaireCharacterStrengthsReport").then(module => ({ default: module.QuestionnaireCharacterStrengthsReport })));
+const QuestionnaireLearningPreferenceReport = questionnaireModule<Parameters<typeof import("./QuestionnaireLearningPreferenceReport").QuestionnaireLearningPreferenceReport>[0]>(() => import("./QuestionnaireLearningPreferenceReport").then(module => ({ default: module.QuestionnaireLearningPreferenceReport })));
+const QuestionnaireProcrastinationReport = questionnaireModule<Parameters<typeof import("./QuestionnaireProcrastinationReport").QuestionnaireProcrastinationReport>[0]>(() => import("./QuestionnaireProcrastinationReport").then(module => ({ default: module.QuestionnaireProcrastinationReport })));
+const QuestionnaireFrictionReport = questionnaireModule<Parameters<typeof import("./QuestionnaireFrictionReport").QuestionnaireFrictionReport>[0]>(() => import("./QuestionnaireFrictionReport").then(module => ({ default: module.QuestionnaireFrictionReport })));
+const QuestionnairePpsReport = questionnaireModule<Parameters<typeof import("./QuestionnairePpsReport").QuestionnairePpsReport>[0]>(() => import("./QuestionnairePpsReport").then(module => ({ default: module.QuestionnairePpsReport })));
+const QuestionnaireMusicReport = questionnaireModule<Parameters<typeof import("./QuestionnaireMusicReport").QuestionnaireMusicReport>[0]>(() => import("./QuestionnaireMusicReport").then(module => ({ default: module.QuestionnaireMusicReport })));
+const QuestionnaireHumorReport = questionnaireModule<Parameters<typeof import("./QuestionnaireHumorReport").QuestionnaireHumorReport>[0]>(() => import("./QuestionnaireHumorReport").then(module => ({ default: module.QuestionnaireHumorReport })));
+const QuestionnaireCommunicationReport = questionnaireModule<Parameters<typeof import("./QuestionnaireCommunicationReport").QuestionnaireCommunicationReport>[0]>(() => import("./QuestionnaireCommunicationReport").then(module => ({ default: module.QuestionnaireCommunicationReport })));
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
-import { readQuestionnaireDraft, scoreQuestionnaire } from "@/lib/questionnaires/scoring";
+import type { scoreQuestionnaire as GeneralScorer } from "@/lib/questionnaires/scoring";
+import { scoreDirectionalQuestionnaire, scoreLikertQuestionnaire, scoreArchetypeQuestionnaire } from "@/lib/questionnaires/basicScoring";
+import { readQuestionnaireDraftWithScorer } from "@/lib/questionnaires/draft";
+import { questionnaireModule } from "./QuestionnaireModule";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
 import type { Locale } from "@/lib/i18n/locales";
 import { trackEvent } from "@/lib/analytics";
@@ -145,8 +178,9 @@ function questionnaireTrackingPayload(quiz: Questionnaire, locale: Locale) {
   return { slug: quiz.slug, locale, entry_surface: legacyPlayEntry ? "entertainment" : "questionnaire", scale_code: legacyPlayEntry ? "ENTERTAINMENT" : quiz.code, form_code: legacyPlayEntry ? `fun_${quiz.slug}_v1` : quiz.source.formCode, test_type: legacyPlayEntry ? "entertainment" : quiz.kind === "practice" ? "knowledge_practice" : "self_report", page_type: legacyPlayEntry ? "entertainment" : "test_detail" };
 }
 
-export function QuestionnaireClient({ quiz, locale, startOnEntry = false, resumeOnEntry = false, workRoleReadingProfiles, loveTypeReadingProfiles, mentalAgeReadingProfile, fds32ReadingProfiles, breakupReadingProfiles, parentingReadingProfiles }: { quiz: Questionnaire; locale: Locale; startOnEntry?: boolean; resumeOnEntry?: boolean; workRoleReadingProfiles?: Questionnaire["profiles"]; loveTypeReadingProfiles?: Questionnaire["profiles"]; mentalAgeReadingProfile?: Questionnaire["profiles"][number]; fds32ReadingProfiles?: Questionnaire["profiles"]; breakupReadingProfiles?: Questionnaire["profiles"]; parentingReadingProfiles?: Questionnaire["profiles"] }) {
-  const ready = useSyncExternalStore(subscribeReady, () => true, () => false);
+export function QuestionnaireRunner({ scoreQuestionnaire, pending = false, quiz, locale, startOnEntry = false, resumeOnEntry = false, workRoleReadingProfiles, loveTypeReadingProfiles, mentalAgeReadingProfile, fds32ReadingProfiles, breakupReadingProfiles, parentingReadingProfiles }: { scoreQuestionnaire: typeof GeneralScorer; pending?: boolean; quiz: Questionnaire; locale: Locale; startOnEntry?: boolean; resumeOnEntry?: boolean; workRoleReadingProfiles?: Questionnaire["profiles"]; loveTypeReadingProfiles?: Questionnaire["profiles"]; mentalAgeReadingProfile?: Questionnaire["profiles"][number]; fds32ReadingProfiles?: Questionnaire["profiles"]; breakupReadingProfiles?: Questionnaire["profiles"]; parentingReadingProfiles?: Questionnaire["profiles"] }) {
+  const readQuestionnaireDraft = useCallback((value: Questionnaire, raw: string | null) => readQuestionnaireDraftWithScorer(value, raw, scoreQuestionnaire), [scoreQuestionnaire]);
+  const ready = useSyncExternalStore(subscribeReady, () => true, () => false) && !pending;
   const zh = locale === "zh", key = `fm_questionnaire_draft:${quiz.slug}`;
   const [loadedStimulusId, setLoadedStimulusId] = useState<string | null>(null);
   const requiresStimulus = quiz.slug === "inkblot-personality-quiz";
@@ -212,7 +246,7 @@ export function QuestionnaireClient({ quiz, locale, startOnEntry = false, resume
       recordEntertainmentActivity(quiz.slug, quiz.version, locale, "start");
       trackEvent("start_test", questionnaireTrackingPayload(quiz, locale));
     }
-  }, [ready, startOnEntry, resumeOnEntry, draft, quiz, locale]);
+  }, [ready, startOnEntry, resumeOnEntry, draft, quiz, locale, readQuestionnaireDraft]);
   const mbtiBase = `/${locale}/tests/mbti-personality-test-16-personality-types`;
   const recommendationId = quiz.slug === "relationship-values" ? "entertainment_result_mbti" : "questionnaire_result_mbti";
   const recommendation = { locale, sourceRouteFamily: "test_detail" as const, sourceSlug: quiz.slug, sourcePath: questionnairePath(locale, quiz.slug), href: mbtiBase, ctaId: recommendationId, targetAction: recommendationId, targetTestSlug: "mbti-personality-test-16-personality-types", scaleCode: "MBTI" };
@@ -280,13 +314,13 @@ export function QuestionnaireClient({ quiz, locale, startOnEntry = false, resume
     catch { setManualCopy(text); setMessage(zh ? "请选中下方文字手动复制。" : "Select the text below to copy it manually."); }
   }
 
-  return <section id="take-test" data-stage={stage} className="my-8 rounded-xl border border-violet-200 bg-white p-5 sm:p-8" aria-label={zh ? "作答与完整结果" : "Questionnaire and full results"}>
+  return <section id={pending ? "preparing-questionnaire" : "take-test"} data-stage={stage} className="my-8 rounded-xl border border-violet-200 bg-white p-5 sm:p-8" aria-label={zh ? "作答与完整结果" : "Questionnaire and full results"}>
     {quiz.slug === "relationship-values" && <span id="play" className="block scroll-mt-24" aria-hidden="true" />}
     {stage === "welcome" && <>
       <h2 className="text-2xl font-semibold">{quiz.slug === "disc" ? (zh ? "DISC测试作答说明" : "How to answer the DISC questionnaire") : quiz.kind === "work-role12" ? (zh ? "开始12项角色与支持方式回顾" : "Start your 12-task role reflection") : quiz.kind === "skills-evidence" ? (zh ? "开始20项任务实例盘点" : "Start your 20-task example inventory") : quiz.kind === "practice" ? (zh ? `开始${quiz.questions.length}题练习` : `Start your ${quiz.questions.length}-question practice`) : (zh ? `开始${quiz.questions.length}题的自我观察` : `Start your ${quiz.questions.length}-question reflection`)}</h2>
       <p className="my-4 leading-7">{quiz.instructions?.[locale] ?? (zh ? "每题比较两种做法，选择通常更自然或更先出现的一项。没有正确答案。答完全部题目后再生成计数和完整解释。" : "Each question compares two responses. Choose the one that comes more naturally or happens first. There are no correct answers. Counts and full explanations appear only after all questions are complete.")}</p>
       {!ready && <p role="status" className="my-3 text-sm text-slate-600">{zh ? "正在准备测试…" : "Preparing the test…"}</p>}
-      <div className="flex flex-wrap gap-3"><button data-explore-start disabled={!ready} className={`${button} bg-violet-700 text-white`} onClick={() => start()}>{zh ? "开始测试" : "Start test"}</button>{draft && <button disabled={!ready} className={button} onClick={() => start(true)}>{zh ? "恢复本标签页进度" : "Resume this tab's progress"}</button>}</div>
+      <div className="flex flex-wrap gap-3"><button data-explore-start={pending ? undefined : true} disabled={!ready} className={`${button} bg-violet-700 text-white`} onClick={() => start()}>{zh ? "开始测试" : "Start test"}</button>{draft && <button disabled={!ready} className={button} onClick={() => start(true)}>{zh ? "恢复本标签页进度" : "Resume this tab's progress"}</button>}</div>
       <p className="mt-4 text-sm leading-7 text-slate-600">{zh ? "完整题目和结果免费，无需注册。只有主动保存才会在刷新或换语言后提供恢复；本标签页保存24小时后失效，完成或重测即清除。" : "All questions and full results are free, with no signup. Saving is optional; only saved attempts can be resumed after a refresh or language change. Tab drafts expire after 24 hours and clear on completion or retake."}</p>
     </>}
     {stage === "answer" && question && <>
@@ -351,4 +385,19 @@ export function QuestionnaireClient({ quiz, locale, startOnEntry = false, resume
     </>}
     {message && <p role="status" className="mt-5 rounded-lg bg-amber-50 p-3 text-sm leading-7">{message}</p>}
   </section>;
+}
+
+export type QuestionnaireClientProps = Omit<Parameters<typeof QuestionnaireRunner>[0], "scoreQuestionnaire" | "pending">;
+const GeneralQuestionnaireClient = questionnaireModule<QuestionnaireClientProps>(
+  () => import("./GeneralQuestionnaireClient"),
+  props => <QuestionnaireRunner {...props} pending scoreQuestionnaire={() => ({ status: "unavailable", answered: 0 })} />,
+);
+
+export function QuestionnaireClient(props: QuestionnaireClientProps) {
+  const kind = props.quiz.kind;
+  if (kind === "directional" || kind === "likert" || (kind === "archetype" && props.quiz.slug !== "euphoria-character-quiz")) {
+    const score = kind === "likert" ? scoreLikertQuestionnaire : kind === "archetype" ? scoreArchetypeQuestionnaire : scoreDirectionalQuestionnaire;
+    return <QuestionnaireRunner {...props} scoreQuestionnaire={score} />;
+  }
+  return <GeneralQuestionnaireClient {...props} />;
 }

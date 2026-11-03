@@ -1,4 +1,4 @@
-import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { QuestionnaireClient } from "@/components/questionnaires/QuestionnaireClient";
 import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -87,11 +87,13 @@ describe("Love language separate-role result readings", () => {
     try {
       for (const value of ["3", "na"]) {
         const { container, unmount } = render(<QuestionnaireClient quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />);
+        await waitFor(() => expect(screen.getByRole("button", { name: locale === "zh" ? "开始测试" : "Start test" })).toBeEnabled());
         fireEvent.click(screen.getByRole("button", { name: locale === "zh" ? "开始测试" : "Start test" }));
         for (let index = 0; index < quiz.questions.length; index++) {
           fireEvent.click(container.querySelector(`input[type="radio"][value="${value}"]`)!);
           fireEvent.click(screen.getByRole("button", { name: index === quiz.questions.length - 1 ? (locale === "zh" ? "查看完整结果" : "See full result") : (locale === "zh" ? "下一题" : "Next") }));
         }
+        await waitFor(() => expect(container.querySelectorAll("[data-affection-profile]")).toHaveLength(5));
         expect(container.querySelectorAll("[data-affection-profile]")).toHaveLength(5);
         await act(async () => { fireEvent.click(screen.getByRole("button", { name: locale === "zh" ? "复制公开入口" : "Copy public entry" })); });
         expect(writeText).toHaveBeenLastCalledWith(`${quiz.title[locale]}\nhttps://fermatmind.com/${locale}/tests/explore/${quiz.slug}`);

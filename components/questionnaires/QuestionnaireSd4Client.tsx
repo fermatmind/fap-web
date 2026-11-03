@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
-import { scoreLikertQuestionnaire, type FacetResult } from "@/lib/questionnaires/scoring";
+import { scoreLikertQuestionnaire, type FacetResult } from "@/lib/questionnaires/basicScoring";
 import { isSd4ConfigurationValid } from "@/lib/questionnaires/sd4";
 import type { Locale } from "@/lib/i18n/locales";
 import { QuestionnaireSd4Report } from "./QuestionnaireSd4Report";

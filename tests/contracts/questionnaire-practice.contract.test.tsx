@@ -101,6 +101,7 @@ describe("standard-answer practice shared runtime", () => {
     Object.defineProperty(HTMLElement.prototype, "scrollIntoView", { configurable: true, value: scrollIntoView });
     const copy = vi.fn().mockResolvedValue(undefined); vi.stubGlobal("navigator", { clipboard: { writeText: copy } });
     const zh = locale === "zh"; const { container } = render(<QuestionnaireClient quiz={quiz} locale={locale} />);
+    await waitFor(() => expect(screen.getByRole("button", { name: zh ? "开始测试" : "Start test" })).toBeEnabled());
     expect(screen.getByRole("heading", { name: zh ? "开始4题练习" : "Start your 4-question practice" })).toBeVisible();
     fireEvent.click(screen.getByRole("button", { name: zh ? "开始测试" : "Start test" }));
     expect(scrollIntoView.mock.contexts.at(-1)).toBe(container.querySelector("progress")?.previousElementSibling);
@@ -114,6 +115,7 @@ describe("standard-answer practice shared runtime", () => {
     expect(scrollIntoView).toHaveBeenLastCalledWith({ block: "start" });
     expect(scrollIntoView.mock.contexts.at(-1)).toBe(document.activeElement);
     expect(document.activeElement?.tagName).toBe("H2");
+    await waitFor(() => expect(container.querySelector("[data-practice-correct]")).not.toBeNull());
     expect(container.querySelector("[data-practice-correct]")).toHaveTextContent("4 / 4"); expect(container.querySelectorAll("[data-practice-explanation]")).toHaveLength(4);
     expect(screen.getByRole("link", { name: /RIASEC/ })).toHaveAttribute("href", `/${locale}/tests/holland-career-interest-test-riasec`);
     expect(screen.queryByRole("link", { name: /Explore MBTI|了解MBTI/ })).toBeNull();
