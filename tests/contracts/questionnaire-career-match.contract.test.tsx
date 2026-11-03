@@ -95,6 +95,45 @@ describe("original Career Match tool, reusing the interest construct and publish
     expect(container.querySelector("[data-career-match-result]")).toBeNull();
     expect(screen.getByRole("button", { name: "查看主题比较" })).toBeEnabled();
   });
+  it("ignores a delayed directory after clear and retries the actual read", async () => {
+    responses("en");
+    let resolve!: (value: ReturnType<typeof careerMatchDirectoryFixture>) => void;
+    vi.mocked(fetchCareerJobIndex).mockImplementationOnce(() => new Promise(r => { resolve = r; }));
+    const { container } = render(<CareerMatchClient quiz={quiz} locale="en" />);
+    fireEvent.click(screen.getByRole("button", { name: "Start comparison" }));
+    fireEvent.click(screen.getByRole("button", { name: "Exit and clear this comparison" }));
+    await act(async () => { resolve(careerMatchDirectoryFixture("en")); });
+    expect(container.querySelector("#career-match-role-0")).toBeNull();
+    expect(screen.getByRole("button", { name: "Start comparison" })).toBeInTheDocument();
+    await start("en");
+    expect(container.querySelector("#career-match-role-0")).toBeInTheDocument();
+  });
+  it("retries partial network failure without losing selections and ignores delayed details after clear", async () => {
+    responses("en");
+    const { container } = render(<CareerMatchClient quiz={quiz} locale="en" />);
+    await start("en"); pick(); fireEvent.click(container.querySelector("[data-interest-theme='A']")!);
+    vi.mocked(fetchCareerInterestComparisonRole).mockImplementation(async ({ slug }) => {
+      if (slug.endsWith("b")) throw new Error("transport");
+      return careerMatchRoleFixture("en", slug);
+    });
+    const compare = () => fireEvent.click(screen.getByRole("button", { name: "Compare interest themes" }));
+    compare();
+    await waitFor(() => expect(container.querySelectorAll("[data-career-read-status='error']")).toHaveLength(1));
+    expect(container.querySelectorAll("[data-career-read-status='available']")).toHaveLength(1);
+    expect(container.querySelector("#career-match-role-0")).toHaveValue("contract-role-a");
+    expect(container.querySelector("[data-interest-theme='A']")).toBeChecked();
+    responses("en"); compare();
+    await waitFor(() => expect(container.querySelectorAll("[data-career-read-status='available']")).toHaveLength(2));
+    let resolve!: (value: ReturnType<typeof careerMatchRoleFixture>) => void;
+    vi.mocked(fetchCareerInterestComparisonRole).mockImplementation(({ slug }) => slug.endsWith("a") ? new Promise(r => { resolve = r; }) : Promise.resolve(careerMatchRoleFixture("en", slug)));
+    compare(); fireEvent.click(screen.getByRole("button", { name: "Exit and clear this comparison" }));
+    await act(async () => { resolve(careerMatchRoleFixture("en")); });
+    expect(container.querySelector("[data-career-match-result]")).toBeNull();
+    expect(container.querySelector("#career-match-role-0")).toBeNull();
+    await start("en");
+    expect(container.querySelector("#career-match-role-0")).toHaveValue("");
+    expect(container.querySelectorAll("[data-interest-theme]:checked")).toHaveLength(0);
+  });
   it("copies only the public entry and supports clipboard denial without sending inputs or retaining a draft", async () => {
     responses("en"); const setItem = vi.spyOn(Storage.prototype, "setItem"), writeText = vi.fn().mockRejectedValue(new Error("denied"));
     Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText } });

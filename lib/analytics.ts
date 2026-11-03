@@ -1,6 +1,6 @@
 import { trackClientEvent, trackNetworkObservableFunnelEvent } from "@/lib/tracking/client";
 import { getLocaleFromPathname } from "@/lib/i18n/locales";
-import questionnaires from "@/lib/questionnaires/catalog.json";
+import { native as questionnaires } from "@/lib/entertainment/clientCatalog.json";
 import { getOrCreateAnonId } from "@/lib/anon";
 import { hasAnalyticsConsent } from "@/lib/consent/store";
 import {
