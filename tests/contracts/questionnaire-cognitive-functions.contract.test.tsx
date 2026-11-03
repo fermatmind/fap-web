@@ -22,7 +22,7 @@ describe("T012 original eight-function reflection, preserved original32 alongsid
     for (const p of quiz.profiles) { expect(p.sections).toHaveLength(7); expect(p.sections.every(s => s.paragraphs.length === 2)).toBe(true); expect(p.sections.flatMap(s => s.paragraphs.map(t => t.en)).join(" ").split(/\s+/).length).toBeGreaterThan(700); expect(p.seo!.description.en.length).toBeLessThanOrEqual(160); }
     const leaves = (v: unknown): void => { if (!v || typeof v !== "object") return; const o = v as Record<string, unknown>; if ("en" in o || "zh" in o) { expect(o.en).not.toMatch(/\p{Script=Han}|TODO|placeholder/u); expect(o.zh).toMatch(/\p{Script=Han}/u); } else Object.values(o).forEach(leaves); }; leaves(quiz);
     expect(quiz.description.en.length).toBeLessThanOrEqual(160); expect(quiz.instructions!.en).toContain("past month"); expect(quiz.instructions!.en).toContain("6 minus");
-    expect(readFileSync("components/questionnaires/QuestionnaireClient.tsx", "utf8")).toContain('quiz.slug === "cognitive-functions-test" ? <QuestionnaireCognitiveFunctionsReport');
+    expect(readFileSync("components/questionnaires/QuestionnaireRunner.tsx", "utf8")).toContain('quiz.slug === "cognitive-functions-test" ? <QuestionnaireCognitiveFunctionsReport');
   });
   it("checks all1296 single-topic response patterns for each of8 topics against independent reverse-key arithmetic", () => {
     const options = ["na", "1", "2", "3", "4", "5"];

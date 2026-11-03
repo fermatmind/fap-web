@@ -28,12 +28,12 @@ function Loading({ locale, retry }: { locale: Locale; retry: () => void }) {
 
 /** A retry creates a fresh lazy instance; rejected promises must not trap the UI.
  * The boundary surrounds only the module, leaving the caller's answers intact. */
-export function questionnaireModule<Props extends { locale: Locale }>(load: () => Promise<{ default: (props: Props) => ReactNode }>, welcome?: (props: Props) => ReactNode) {
+export function questionnaireModule<Props extends { locale: Locale }>(load: () => Promise<{ default: (props: Props) => ReactNode }>) {
   return function QuestionnaireModule(props: Props) {
     const [{ Loaded, attempt }, setModule] = useState(() => ({ Loaded: lazy(load), attempt: 0 }));
     const retry = () => setModule(previous => ({ Loaded: lazy(load), attempt: previous.attempt + 1 }));
     return <ModuleBoundary key={attempt} locale={props.locale} retry={retry}>
-      <Suspense fallback={<>{welcome?.(props)}<Loading locale={props.locale} retry={retry} /></>}><Loaded {...props} /></Suspense>
+      <Suspense fallback={<Loading locale={props.locale} retry={retry} />}><Loaded {...props} /></Suspense>
     </ModuleBoundary>;
   };
 }
