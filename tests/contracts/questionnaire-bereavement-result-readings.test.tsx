@@ -31,9 +31,18 @@ describe("Bereavement result readings retain categorical records and public acce
       const root = dom(renderToStaticMarkup(<BereavementGuidePage quiz={quiz} profile={p} locale={locale} />));
       const reading = root.querySelector(`[data-bereavement-result-reading="${p.id}"]`)!;
       expect(reading).not.toBeNull(); expect(reading.querySelectorAll("h2")).toHaveLength(7);
-      expect(reading.querySelector("details")?.hasAttribute("open")).toBe(false);
+      const navigation = reading.querySelector(`nav[aria-label="${locale === "zh" ? "结果解读目录" : "Result reading contents"}"]`);
+      expect(navigation).not.toBeNull();
+      expect(navigation!.closest("details:not([open]), [hidden], [aria-hidden=true]")).toBeNull();
+      const links = navigation!.querySelectorAll<HTMLAnchorElement>("a");
+      expect(links).toHaveLength(p.sections.length);
+      expect([...links].map(a => a.getAttribute("href"))).toEqual(p.sections.map(s => `#report-${s.id}`));
       for (const s of [...p.sections, ...assets[p.id]]) for (const t of s.paragraphs) expect(reading.textContent).toContain(t[locale]);
-      for (const a of reading.querySelectorAll<HTMLAnchorElement>("nav a")) expect(root.querySelector(a.hash)).not.toBeNull();
+      for (const a of reading.querySelectorAll<HTMLAnchorElement>("nav a")) {
+        const target = root.querySelector(a.hash);
+        expect(target).not.toBeNull();
+        expect(target?.tagName).toBe("SECTION");
+      }
       expect(root.querySelector("[data-bereavement-result]")).toBeNull();
       expect(root.querySelector("[data-bereavement-support]")).not.toBeNull();
     }
