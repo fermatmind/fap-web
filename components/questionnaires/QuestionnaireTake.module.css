@@ -37,3 +37,14 @@
 @media (max-width: 640px) { .main { padding-inline: 12px; } .engine :global([data-stage="answer"]) fieldset:not(.options):has(input[type="radio"]), .engine fieldset.options, .engine fieldset.options[data-take-template="scale"] { grid-template-columns: 1fr; } .engine :global([data-stage="answer"]) fieldset:not(.options) > label:has(input[type="radio"]) { min-height: 64px; padding: 14px 44px 14px 14px; font-size: 14px; } .engine fieldset.options[data-take-template="scale"] > label { min-height: 64px; flex-direction: row; justify-content: flex-start; padding: 8px 44px 8px 14px; } .engine :global([data-stage="answer"]) > h2 { min-height: 88px; margin-block: 24px; } }
 @media (max-width: 640px) { .engine fieldset.options:not([data-take-template="scale"]) > label { display: grid; grid-template-columns: 20px minmax(0, 1fr); align-items: center; gap: 10px; min-height: 76px; } .engine fieldset.options > label > input { top: calc(50% - 9px); } }
 @media (prefers-reduced-motion: reduce) { .engine fieldset > label { transition: none; } }
+
+/* Keep this report's cards independent of the answering surface. */
+.main:has(:global([data-result-kind="mini-virtues"])) { align-items: start; background: #f6f4fa; padding-block: 32px 48px; }
+.main:has(:global([data-result-kind="mini-virtues"])) .surface { width: 100%; max-width: 1120px; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+.surface:has(:global([data-result-kind="mini-virtues"])) > header { padding-inline: 8px; }
+.surface:has(:global([data-result-kind="mini-virtues"])) > header > p { display: none; }
+.engine :global([data-result-kind="mini-virtues"]) > h2 { margin: 24px 0 32px; text-align: center; font-size: clamp(26px, 4vw, 38px); line-height: 1.4; text-wrap: balance; }
+.engine :global([data-mini-virtues-actions]) { justify-content: center; margin-top: 28px; }
+.engine :global([data-mini-virtues-actions]) button { border-radius: 28px; padding: 12px 28px; border-color: #c72c70; background: transparent; color: #b62663; }
+.engine :global([data-mini-virtues-actions]) button:last-child { background: #c72c70; color: #fff; }
+@media (max-width: 480px) { .main:has(:global([data-result-kind="mini-virtues"])) { padding-top: 24px; } .engine :global([data-result-kind="mini-virtues"]) > h2 { margin-block: 20px 24px; } }

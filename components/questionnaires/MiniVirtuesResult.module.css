@@ -1,0 +1,64 @@
+.report { color: #292733; font-size: 16px; line-height: 1.8; }
+.overview { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.overviewSide { display: grid; gap: 24px; }
+.panel, .part, .next { min-width: 0; padding: 28px; border: 1px solid #f0e9f0; border-radius: 28px; background: #fff; box-shadow: 0 12px 40px #39304a06; }
+.panelHeader { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 16px; }
+.panelHeader h3 { margin: 0; font-size: 20px; font-weight: 700; }
+.legend { color: #c72c70; font-size: 13px; }
+.radar { margin: 24px -12px 0; }
+.radar svg { display: block; width: 100%; height: auto; overflow: visible; }
+.radar figcaption { padding: 20px 12px 0; font-size: 14px; line-height: 1.7; color: #6c6878; }
+.radar figcaption strong { color: #c72c70; }
+.radar figcaption p { margin: 6px 0 0; }
+.radarLine { animation: draw 650ms ease-out both; }
+.radarFill { animation: appear 650ms ease-out both; }
+.eyebrow { margin: 0 0 6px; color: #996482; font-size: 13px; font-weight: 700; letter-spacing: .05em; }
+.overviewTitle { margin: 0 0 12px; font-size: 23px; font-weight: 700; }
+.values { padding: 0; margin: 0; list-style: none; }
+.values li + li { border-top: 1px solid #f0e9f0; }
+.report .values a { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 48px; text-decoration: none; color: #595461; font-size: 15px; transition: color 160ms ease; }
+.values strong { flex: none; font-size: 20px; color: #c72c70; }
+.intro { padding: 24px 28px; border: 1px solid #e7dff0; border-radius: 24px; background: #eee8f5; }
+.intro h3 { margin: 0 0 12px; font-size: 23px; font-weight: 700; }
+.intro > p:last-child { margin: 0; color: #655d70; font-size: 15px; }
+.parts { display: grid; gap: 24px; margin-top: 32px; }
+.part { padding: 32px; }
+.partTitle { margin: 0 0 12px; color: #4d756e; font-size: clamp(24px, 3vw, 32px); line-height: 1.4; font-weight: 750; scroll-margin-top: 24px; }
+.score { display: inline-block; margin: 0 0 24px; padding: 5px 14px; border-radius: 24px; background: #eaf2ef; color: #456b64; font-size: 14px; font-variant-numeric: tabular-nums; }
+.score strong { font-weight: 500; }
+.headline { margin: 0 0 12px; color: #223b35; font-size: clamp(19px, 2vw, 23px); line-height: 1.6; font-weight: 700; text-wrap: balance; }
+.summary { margin: 0 0 24px; max-width: 72ch; color: #596661; }
+.details > summary, .common > summary { display: flex; align-items: center; justify-content: center; gap: 12px; min-height: 56px; padding: 14px 20px; border: 1px solid #e5dce8; border-radius: 16px; background: #f9f6fa; color: #875b78; cursor: pointer; list-style: none; font-weight: 650; transition: background 160ms ease; }
+.details > summary::-webkit-details-marker, .common > summary::-webkit-details-marker { display: none; }
+.openText { display: none; }
+.details[open] > summary .closedText { display: none; }
+.details[open] > summary .openText { display: inline; }
+.chevron { display: inline-block; width: 8px; height: 8px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(45deg); transition: transform 160ms ease; flex: none; }
+.details[open] > summary .chevron, .common[open] > summary .chevron { transform: translateY(2px) rotate(225deg); }
+.reading { padding-top: 24px; max-width: 76ch; color: #52615b; }
+.reading section { margin: 24px 0; padding-top: 20px; border-top: 1px solid #e6eeea; }
+.reading h4 { margin: 0 0 12px; color: #456b64; font-size: 17px; font-weight: 700; }
+.reading p { margin: 0 0 16px; }
+.reading p:last-child { margin-bottom: 0; }
+.scoreReading { font-weight: 600; }
+.details[open] .reading, .common[open] .reading { animation: appear 180ms ease; }
+.guide { display: inline-flex; align-items: center; min-height: 44px; color: #875b78; margin: 0 0 12px; font-size: 14px; }
+.limit { margin-top: 24px; padding: 20px; border-radius: 16px; background: #f2f7f5; color: #596862; font-size: 14px; line-height: 1.85; }
+.limit h4 { margin: 0 0 10px; color: #456b64; font-size: 15px; font-weight: 700; }
+.limit p { margin: 8px 0 0; max-width: 80ch; }
+.common { margin-top: 24px; padding: 0 24px; border-radius: 24px; background: #eef3f1; }
+.common > summary { justify-content: space-between; padding: 22px 0; border: 0; background: transparent; color: #36584e; font-size: 16px; }
+.common .reading { padding: 0 0 24px; font-size: 14px; }
+.common .reading h4 { margin: 24px 0 12px; }
+.next { margin-top: 24px; color: #596862; font-size: 15px; line-height: 1.8; }
+.next h3 { margin: 0 0 8px; color: #36584e; font-size: 20px; font-weight: 700; }
+.next p { margin: 0 0 12px; }
+.next > div { display: flex; flex-wrap: wrap; gap: 12px 24px; }
+.next a { display: inline-flex; align-items: center; min-height: 44px; color: #875b78; }
+.report a:focus-visible, .details > summary:focus-visible, .common > summary:focus-visible, .next a:focus-visible { outline: 3px solid #9b6c96; outline-offset: 4px; border-radius: 4px; }
+@media (hover: hover) { .report .values a:hover { color: #c72c70; } .details > summary:hover { background: #f0e8f3; } }
+@media (max-width: 800px) { .overview { grid-template-columns: 1fr; } .radar { max-width: 600px; margin-inline: auto; } }
+@media (max-width: 480px) { .panel, .part, .next { padding: 24px 20px; border-radius: 24px; } .panelHeader h3 { font-size: 18px; } .panelHeader { gap: 6px; } .legend { font-size: 12px; } .radar { margin-inline: -12px; } .radar figcaption { padding-inline: 12px; } .parts { margin-top: 24px; } .intro { padding: 24px 20px; } .partTitle { font-size: 25px; } .score { padding-inline: 10px; font-size: 13px; } .limit { padding: 16px; } .common { padding-inline: 20px; } }
+@keyframes draw { from { stroke-dasharray: 1; stroke-dashoffset: 1; } to { stroke-dasharray: 1; stroke-dashoffset: 0; } }
+@keyframes appear { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .radarLine, .radarFill, .details[open] .reading, .common[open] .reading { animation: none; } .report .values a, .details > summary, .common > summary, .chevron { transition: none; } }

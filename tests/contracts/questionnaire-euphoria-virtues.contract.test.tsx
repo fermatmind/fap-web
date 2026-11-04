@@ -78,7 +78,7 @@ describe("C formal continuation: VIRTUES source and original T110", () => {
     for (const locale of ["en", "zh"] as const) {
       const rendered = dom(renderToStaticMarkup(<QuestionnaireMiniVirtuesReport quiz={virtues} result={equal} locale={locale} />));
       expect(rendered.querySelectorAll("[data-mini-virtues-part]")).toHaveLength(7);
-      expect(rendered.querySelectorAll("h4")).toHaveLength(56);
+      expect(rendered.querySelectorAll("h4")).toHaveLength(50);
       expect(rendered.querySelectorAll("[data-mini-virtues-equal]")).toHaveLength(1);
       expect(rendered.querySelectorAll("progress")).toHaveLength(0);
       const ids = Array.from(rendered.querySelectorAll("[id]"), e => e.id); expect(new Set(ids).size).toBe(ids.length);

@@ -120,8 +120,9 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
     if (stage !== "welcome") {
       heading.current?.focus({ preventScroll: standalone });
       if (!standalone) (stage === "answer" ? questionContext.current : heading.current)?.scrollIntoView({ block: "start" });
+      if (standalone && stage === "result" && quiz.kind === "mini-virtues") window.scrollTo({ top: 0, behavior: "instant" });
     }
-  }, [position, stage, quiz.slug, standalone]);
+  }, [position, stage, quiz.slug, quiz.kind, standalone]);
   useEffect(() => {
     if (stage === "result" && hasCompleteResult && !viewed.current) {
       viewed.current = true;
@@ -170,7 +171,7 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
     catch { setManualCopy(text); setMessage(zh ? "请选中下方文字手动复制。" : "Select the text below to copy it manually."); }
   }
 
-  return <section id="take-test" data-stage={stage} className="my-8 rounded-xl border border-violet-200 bg-white p-5 sm:p-8" aria-label={zh ? "作答与完整结果" : "Questionnaire and full results"}>
+  return <section id="take-test" data-stage={stage} data-result-kind={stage === "result" && miniVirtues ? "mini-virtues" : undefined} className="my-8 rounded-xl border border-violet-200 bg-white p-5 sm:p-8" aria-label={zh ? "作答与完整结果" : "Questionnaire and full results"}>
     {quiz.slug === "relationship-values" && <span id="play" className="block scroll-mt-24" aria-hidden="true" />}
     {stage === "welcome" && <QuestionnaireWelcome quiz={quiz} locale={locale} ready={ready} hasDraft={Boolean(draft)} onStart={start} />}
     {stage === "answer" && question && <>
@@ -192,14 +193,14 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
       <QuestionnaireLegacyControl><button className="mt-3 min-h-11 text-sm underline" onClick={() => { clear(); setAnswers({}); setSaving(false); setStage("welcome"); setMessage(""); }}>{zh ? "退出并清除本次进度" : "Exit and clear this attempt"}</button></QuestionnaireLegacyControl>
     </>}
     {stage === "result" && result.status === "complete" && <>
-      <h2 ref={heading} tabIndex={-1} className="text-3xl font-semibold leading-tight outline-none [overflow-wrap:anywhere] scroll-mt-24">{profile?.title[locale] ?? quiz.resultHeading?.[locale] ?? (zh ? `${quiz.title.zh}：完整结果` : `${quiz.title.en}: your complete result`)}</h2>
+      <h2 ref={heading} tabIndex={-1} className="text-3xl font-semibold leading-tight outline-none [overflow-wrap:anywhere] scroll-mt-24">{miniVirtues ? (zh ? "七宗罪与七美德测试结果" : "Seven Sins and Virtues: Your Results") : profile?.title[locale] ?? quiz.resultHeading?.[locale] ?? (zh ? `${quiz.title.zh}：完整结果` : `${quiz.title.en}: your complete result`)}</h2>
       {directional && profile && <>
       <section className="my-6 rounded-lg bg-slate-50 p-4" aria-label={zh ? "本次原始选择次数" : "Raw choice counts for this attempt"}><h3 className="font-semibold">{zh ? "各方向的本次选择次数" : "Your counts across the directions"}</h3><dl className="mt-3 space-y-3">{quiz.directions.map(direction => <div className="flex flex-wrap justify-between gap-3" key={direction.id}><dt>{direction.title[locale]}</dt><dd>{directional.counts[direction.id]} / {direction.comparisons}</dd></div>)}</dl><p className="mt-3 text-sm leading-7">{zh ? "分母为该方向参加比较的次数。原始次数只比较本题组内的选择，不是人群排名或能力分数。" : "The denominator is the number of comparisons for that direction. Raw counts compare choices within this question set, not population ranks or ability scores."}</p></section>
       <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} />
       <Link prefetch={false} className="my-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这项结果的公开说明" : "Read the public explanation of this result"}</Link>
       </>}
       <QuestionnaireResultSections {...reportProps} />
-      <div className="flex flex-wrap gap-3"><button className={button} onClick={copy}>{quiz.slug === "hsp-sensitivity-quiz" || adexi14 || ptq15 || miniFriction || interactionPairs || extraversionUnscored || affection || attachment || distributedWork || workRole || skillsEvidence || quiz.slug === "work-traits-reflection" || quiz.slug === "work-activity-interests" || quiz.slug === "interpersonal-preferences" || quiz.slug === "everyday-control-style" || loveType16 || mentalAge || quiz.kind === "fds32" || quiz.slug === "energy-flow" || quiz.slug === "cognitive-functions-test" || quiz.slug === "cultural-dimensions" || quiz.slug === "food-choice" || quiz.slug === "values-assessment" || quiz.slug === "eq-dashboard" || miniVirtues || quiz.slug === "euphoria-character-quiz" ? (zh ? "复制公开入口" : "Copy public entry") : preparationActions20 ? (zh ? "复制五份公开指南链接" : "Copy five public guide links") : (zh ? "复制结果与链接" : "Copy result and link")}</button><button className={button} onClick={() => start()}>{zh ? "重新测试" : "Retake test"}</button></div>
+      <div data-mini-virtues-actions={miniVirtues ? "true" : undefined} className="flex flex-wrap gap-3"><button className={button} onClick={copy}>{quiz.slug === "hsp-sensitivity-quiz" || adexi14 || ptq15 || miniFriction || interactionPairs || extraversionUnscored || affection || attachment || distributedWork || workRole || skillsEvidence || quiz.slug === "work-traits-reflection" || quiz.slug === "work-activity-interests" || quiz.slug === "interpersonal-preferences" || quiz.slug === "everyday-control-style" || loveType16 || mentalAge || quiz.kind === "fds32" || quiz.slug === "energy-flow" || quiz.slug === "cognitive-functions-test" || quiz.slug === "cultural-dimensions" || quiz.slug === "food-choice" || quiz.slug === "values-assessment" || quiz.slug === "eq-dashboard" || miniVirtues || quiz.slug === "euphoria-character-quiz" ? (zh ? "复制公开入口" : "Copy public entry") : preparationActions20 ? (zh ? "复制五份公开指南链接" : "Copy five public guide links") : (zh ? "复制结果与链接" : "Copy result and link")}</button><button className={button} onClick={() => start()}>{zh ? "重新测试" : "Retake test"}</button></div>
       {manualCopy && <textarea readOnly aria-label={zh ? "手动复制结果" : "Result text for manual copying"} value={manualCopy} onFocus={e => e.target.select()} className="mt-4 min-h-40 w-full rounded border p-3" />}
     </>}
     {message && <p role="status" className="mt-5 rounded-lg bg-amber-50 p-3 text-sm leading-7">{message}</p>}
