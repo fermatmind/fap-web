@@ -49,6 +49,26 @@
 .fq-ring b { font-size:2rem; color:#7c3aed; margin-top:4px; }
 .fq-result-head { text-align:center; }
 .fq-result-head .fq-primary { width:100%; margin-top:20px; }
+.fq-result .fq-result-head { padding:28px 20px; border-radius:24px; background:#f6f1ff; }
+.fq-result-facts { display:grid; grid-template-columns:1fr 1fr; gap:20px; text-align:left; margin:24px 0; padding-top:24px; border-top:1px solid #e4d9f1; }
+.fq-result-facts > div { min-width:0; }
+.fq-result-facts dt { font-size:.85rem; color:#675e7d; }
+.fq-result-facts dd { margin:8px 0 0; color:#6d28d9; font-size:1.1rem; font-weight:650; overflow-wrap:anywhere; }
+.fq-result .fq-conversation { padding:24px; border:1px solid #e0e9e3; border-radius:20px; background:#f0f7f2; }
+.fq-result .fq-conversation .fq-eyebrow { color:#456b64; }
+.fq-result .fq-result-limits { padding:24px; border:0; border-radius:20px; background:#f7f5f9; font-size:.9rem; }
+.fq-result .fq-result-limits h3 { font-size:1.1rem; }
+.fq-result .fq-result-next { display:flex; flex-wrap:wrap; gap:12px; }
+.fq-result-nav a { min-height:44px; }
+.fq-result [id] { scroll-margin-top:96px; }
+.fq-result .fq-bar-label { flex-wrap:wrap; }
+.fq-result .fq-bar-label span { font-variant-numeric:tabular-nums; }
+.fq-solo-overview { padding:24px; border-radius:20px; background:#f1f5fb; border-left:4px solid #607fa0; }
+.fq-solo-reading { margin-top:24px; }
+.fq-solo-reading .fq-answer-list { margin:0; }
+.fq-solo-reading .fq-answer-list li { padding:16px 0; border-bottom:1px solid #e8e3ec; }
+.fq-solo-category { color:#675e7d; font-size:.8rem; font-weight:600; }
+@media(max-width:480px) { .fq-result .fq-result-head { padding:24px 16px; }.fq-result-facts { grid-template-columns:1fr; gap:16px; }.fq-result .fq-conversation,.fq-result .fq-result-limits,.fq-solo-overview { padding:20px; }.fq-result .fq-ring { width:min(230px,100%); aspect-ratio:1; height:auto; }.fq-result .fq-ring > div { width:calc(100% - 30px); height:calc(100% - 30px); }.fq-result .fq-ring strong { font-size:3.2rem; } }
 .fq-highlight { color:#6d28d9; font-weight:650; }
 .fq-category-bars { display:grid; gap:18px; margin-top:24px; }
 .fq-bar-label { display:flex; justify-content:space-between; gap:12px; }

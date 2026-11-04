@@ -13,7 +13,7 @@ export function QuestionnaireSd4Report({ quiz, result, locale }: { quiz: Questio
       <p className="leading-8">{zh ? `${available} / 4项七条数值完整。各项原始和除以7，从未舍入的和计算并显示两位小数。全部28条同向、0反向。3是中立；未评分不补0或3，缺一条就不生成该项均值。` : `${available} / 4 subscales have all seven numeric ratings. Each raw sum is divided by seven and displayed to two decimals from the unrounded sum. All 28 items are direct, with zero reversals. Three is Neutral; unscored ratings become neither zero nor three. Any missing rating withholds that subscale’s mean.`}</p>
       <dl className="space-y-5">{quiz.directions.map(direction => {
         const facet = result.facets[direction.id], mean = facet.rated === 7 ? facet.sum / 7 : null;
-        return <div key={direction.id} data-sd4-facet={direction.id} className="space-y-2"><dt className="font-semibold leading-7">{direction.title[locale]}</dt><dd>
+        return <div key={direction.id} data-sd4-facet={direction.id} className="space-y-2"><dt className="font-semibold leading-7">{quiz.profiles.some(profile => profile.directionIds.includes(direction.id)) ? <a className="inline-flex min-h-11 items-center py-2 underline decoration-slate-300 underline-offset-4" href={`#sd4-title-${quiz.profiles.find(profile => profile.directionIds.includes(direction.id))!.id}`}>{direction.title[locale]}</a> : direction.title[locale]}</dt><dd>
           <span data-sd4-mean>{mean === null ? (zh ? "资料不足" : "Insufficient information") : `${mean.toFixed(2)} / 5`}</span>
           {mean !== null && <span data-sd4-sum className="ml-3 text-sm">{zh ? `原始和${facet.sum} / 7条数值` : `Raw sum ${facet.sum} / 7 rated items`}</span>}
           <span data-sd4-rated className="block text-sm text-slate-600">{zh ? `${facet.rated} / 7条数值有效；${7 - facet.rated}条未评分` : `${facet.rated} / 7 numeric ratings; ${7 - facet.rated} unscored responses`}</span>
@@ -24,7 +24,7 @@ export function QuestionnaireSd4Report({ quiz, result, locale }: { quiz: Questio
     </section>
     <p className="leading-8">{zh ? "四篇八节全文全部保留，包括资料不足的项；它们解释分量表，不是四种人格。" : "All four eight-section guides remain open, including for insufficient subscales. They explain measures rather than four personality types."}</p>
     {quiz.profiles.map(profile => <section key={profile.id} data-sd4-profile={profile.id} aria-labelledby={`sd4-title-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
-      <h3 id={`sd4-title-${profile.id}`} className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
+      <h3 id={`sd4-title-${profile.id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
       <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一分量表的公开说明" : "Read this subscale’s public explanation"}</Link>
     </section>)}

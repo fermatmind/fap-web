@@ -25,7 +25,7 @@ describe("five freelance action readings without an employment or business verdi
   const {default:Guide}=await import("@/components/questionnaires/QuestionnaireGuide");
   for(const p of prepared.profiles){
    const d=dom(renderToStaticMarkup(await Guide({params:Promise.resolve({locale,slug:quiz.slug,profile:p.id})})));
-   const reader=d.querySelector(`[data-freelance-preparation-result-reading="${p.id}"]`)!;expect(reader).not.toBeNull();expect(reader.querySelectorAll("h2")).toHaveLength(6);expect(reader.querySelectorAll("section li,section > p")).toHaveLength(9);expect(reader.querySelectorAll("details:not([open]) nav a")).toHaveLength(6);
+   const reader=d.querySelector(`[data-freelance-preparation-result-reading="${p.id}"]`)!;expect(reader).not.toBeNull();expect(reader.querySelectorAll("h2")).toHaveLength(6);expect(reader.querySelectorAll("section > div > p")).toHaveLength(9);expect(reader.querySelectorAll("details:not([open]) nav a")).toHaveLength(6);
    for(const a of reader.querySelectorAll("nav a"))expect(d.querySelector(a.getAttribute("href")!)).not.toBeNull();for(const s of p.sections)for(const para of s.paragraphs)expect(reader.textContent).toContain(para[locale]);expect(d.querySelector("input,textarea,[data-preparation-action-row],[data-preparation-actions-mean]")).toBeNull();if(locale==="en")expect(d.textContent).not.toMatch(/\p{Script=Han}/u);
   }
  });

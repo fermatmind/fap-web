@@ -17,7 +17,7 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale }: { quiz: Q
     {result.profileIds.map(id => {
       const profile = quiz.profiles.find(p => p.id === id)!;
       return <section key={id} aria-labelledby={`animal-title-${id}`} data-archetype-match={id} className="rounded-lg border border-slate-200 p-4 sm:p-6">
-        <h3 id={`animal-title-${id}`} className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
+        <h3 id={`animal-title-${id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
         <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "阅读这项结果的公开说明" : "Read this result’s public guide"}</Link>
       </section>;

@@ -1,3 +1,4 @@
+import { ResultReadingNav } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire } from "@/lib/questionnaires/types";
@@ -10,6 +11,7 @@ export function QuestionnaireSapsReport({ quiz, result, locale }: {
 }) {
   const zh = locale === "zh";
   return <div data-saps-result className="mt-6 space-y-8">
+    {quiz.directions.length > 1 && <ResultReadingNav label={zh ? "按主题阅读结果" : "Read results by topic"} sections={quiz.directions.map(direction => ({ id: `saps-title-${direction.id}`, title: direction.title[locale] }))} />}
     <p className="leading-8 text-slate-700">{zh
       ? "八题均有有效回答。标准与差距分别呈现四题原始总和及均值，不合成完美主义百分比、人口排名、类型或诊断。两篇完整指南始终可以阅读。"
       : "All eight responses are valid. Standards and Discrepancy show separate four-item sums and means, without a combined perfectionism percentage, population rank, type or diagnosis. Both complete guides remain available."}</p>
@@ -20,7 +22,7 @@ export function QuestionnaireSapsReport({ quiz, result, locale }: {
       const score = result.sapsDomains[direction.id as SapsDomain];
       const profile = quiz.profiles.find(candidate => candidate.directionIds[0] === direction.id)!;
       return <section className="rounded-lg border border-slate-200 p-4 sm:p-6" key={direction.id} aria-labelledby={`saps-title-${direction.id}`}>
-        <h3 id={`saps-title-${direction.id}`} className="text-2xl font-semibold">{direction.title[locale]}</h3>
+        <h3 id={`saps-title-${direction.id}`} className="scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{direction.title[locale]}</h3>
         <p data-saps-mean={direction.id} className="my-4 rounded-lg bg-slate-50 p-4 text-xl font-semibold">{zh
           ? `四题均值：${score.mean.toFixed(2)}（范围 1—7；4/4题有效）`
           : `Four-item mean: ${score.mean.toFixed(2)} (range 1–7; 4/4 valid)`}</p>

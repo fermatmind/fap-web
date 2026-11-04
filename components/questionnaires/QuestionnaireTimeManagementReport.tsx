@@ -1,3 +1,4 @@
+import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire } from "@/lib/questionnaires/types";
@@ -9,14 +10,22 @@ export function QuestionnaireTimeManagementReport({ quiz, result, locale }: {
   quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale;
 }) {
   const zh = locale === "zh";
-  return <div data-time-management-result className="mt-6 space-y-10">
+  return <ResultPage variant="dimensions" data-time-management-result className="mt-6 space-y-10">
+    <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
+      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
+      items={quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return { id: direction.id, label: direction.title[locale], href: `#time-part-${direction.id}`,
+          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
+          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
+      })} />
     <p className="leading-8 text-slate-700">{zh
       ? "四部分分别回看过去两周的自报行为，不相加、不排名、不选出获胜类型。均分包含明示的反向计分，不是生产力百分比或实测能力；实践机会、任务负担和自主权需要一起考虑。相近均分不代表能力相当，也没有重要差异阈值。"
       : "These four parts describe separate reported behaviors over the past two weeks. They are not added, ranked or used to choose a winning type. Means include the stated reverse coding; they are neither productivity percentages nor tested ability. Consider opportunity, workload and autonomy. Close means do not establish equivalent ability or a meaningful difference."}</p>
     {quiz.directions.map(direction => {
       const score = result.facets[direction.id], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
       return <section data-time-management-part={direction.id} className="rounded-lg border border-slate-200 p-4 sm:p-6" key={direction.id} aria-labelledby={`time-part-${direction.id}`}>
-        <h3 id={`time-part-${direction.id}`} className="text-2xl font-semibold">{direction.title[locale]}</h3>
+        <h3 id={`time-part-${direction.id}`} className="scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{direction.title[locale]}</h3>
         <p data-time-management-score={direction.id} className="my-4 rounded-lg bg-slate-50 p-4 font-semibold">{score.mean === null
           ? (zh ? `资料不足：${score.rated}/${score.total}题有频率回答，需要完整6题；本部分不计算均分。` : `Insufficient information: ${score.rated}/${score.total} frequency responses; all six are required. No mean for this part.`)
           : (zh ? `计分后均分：${score.mean.toFixed(1)} / 5（${score.sum} ÷ ${score.rated}，显示一位小数）` : `Keyed mean: ${score.mean.toFixed(1)} / 5 (${score.sum} ÷ ${score.rated}, displayed to one decimal)`)}</p>
@@ -25,5 +34,5 @@ export function QuestionnaireTimeManagementReport({ quiz, result, locale }: {
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一部分的公开完整指南" : "Read this part’s complete public guide"}</Link>
       </section>;
     })}
-  </div>;
+  </ResultPage>;
 }

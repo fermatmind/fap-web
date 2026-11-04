@@ -63,7 +63,7 @@ export function NatalSignGuideBody({ profile, locale, idPrefix = "natal-sign" }:
 export function NatalAspectGuide({ quiz, locale }: { quiz: NatalChartQuestionnaire; locale: Locale }) {
   const zh = locale === "zh", aspects = quiz.natalChart.aspects;
   return <section data-natal-aspect-guide aria-labelledby="natal-aspect-guide-title" className="my-8 space-y-5 leading-8">
-    <h2 id="natal-aspect-guide-title" className="text-2xl font-semibold">{zh ? "五类主要相位完整读法（无需出生资料）" : "Complete five-aspect reference, without birth information"}</h2>
+    <h2 id="natal-aspect-guide-title" className="text-xl font-semibold leading-snug sm:text-2xl">{zh ? "五类主要相位完整读法（无需出生资料）" : "Complete five-aspect reference, without birth information"}</h2>
     <p>{aspects.introduction[locale]}</p><p>{aspects.orbExplanation[locale]}</p><p data-natal-aspect-convention>{aspects.convention[locale]}</p>
     {aspects.readings.map(reading => <section key={reading.id} id={`natal-aspect-${reading.id}`} data-natal-aspect-definition={reading.id} className="scroll-mt-24 rounded-lg border border-slate-200 bg-white p-5">
       <h3 className="text-xl font-semibold">{reading.name[locale]} · {reading.targetDegrees}°</h3><p className="mt-3 font-semibold">{reading.theme[locale]}</p>
@@ -74,7 +74,7 @@ export function NatalAspectGuide({ quiz, locale }: { quiz: NatalChartQuestionnai
 
 export function NatalMotionGuide({ quiz, locale }: { quiz: NatalChartQuestionnaire; locale: Locale }) {
   return <section data-natal-motion-guide aria-labelledby="natal-motion-guide-title" className="my-8 space-y-4 leading-8">
-    <h2 id="natal-motion-guide-title" className="text-2xl font-semibold">{quiz.natalChart.motion.name[locale]}</h2>
+    <h2 id="natal-motion-guide-title" className="text-xl font-semibold leading-snug sm:text-2xl">{quiz.natalChart.motion.name[locale]}</h2>
     {quiz.natalChart.motion.paragraphs.map((p, index) => <p key={index}>{p[locale]}</p>)}
   </section>;
 }
@@ -82,7 +82,7 @@ export function NatalMotionGuide({ quiz, locale }: { quiz: NatalChartQuestionnai
 export function NatalAnglesGuide({ quiz, locale }: { quiz: NatalChartQuestionnaire; locale: Locale }) {
   const zh = locale === "zh";
   return <section data-natal-angles-guide aria-labelledby="natal-angles-guide-title" className="my-8 space-y-5 leading-8">
-    <h2 id="natal-angles-guide-title" className="text-2xl font-semibold">{zh ? "MC、IC 与 DSC 完整参考（无需出生资料）" : "Complete MC, IC and DSC reference, without birth information"}</h2>
+    <h2 id="natal-angles-guide-title" className="text-xl font-semibold leading-snug sm:text-2xl">{zh ? "MC、IC 与 DSC 完整参考（无需出生资料）" : "Complete MC, IC and DSC reference, without birth information"}</h2>
     <p>{quiz.natalChart.angles.methodReading[locale]}</p>
     {quiz.natalChart.angles.roles.map(role => <section key={role.id} id={`natal-angle-guide-${role.id}`} data-natal-angle-reference={role.id} className="scroll-mt-24 rounded-lg border border-slate-200 bg-white p-5">
       <h3 className="text-xl font-semibold">{role.name[locale]}</h3><p className="mt-3 font-semibold">{role.topic[locale]}</p>
@@ -94,7 +94,7 @@ export function NatalAnglesGuide({ quiz, locale }: { quiz: NatalChartQuestionnai
 export function NatalPointsGuide({ quiz, locale }: { quiz: NatalChartQuestionnaire; locale: Locale }) {
   const zh = locale === "zh", points = quiz.natalChart.points;
   return <section data-natal-points-guide aria-labelledby="natal-points-guide-title" className="my-8 space-y-5 leading-8">
-    <h2 id="natal-points-guide-title" className="text-2xl font-semibold">{zh ? "四个数学点完整参考（无需出生资料）" : "Complete four-point reference, without birth information"}</h2>
+    <h2 id="natal-points-guide-title" className="text-xl font-semibold leading-snug sm:text-2xl">{zh ? "四个数学点完整参考（无需出生资料）" : "Complete four-point reference, without birth information"}</h2>
     <h3 className="text-xl font-semibold">{points.name[locale]}</h3>{points.paragraphs.map((p, index) => <p key={index}>{p[locale]}</p>)}
     {points.roles.map(role => <section key={role.id} id={`natal-point-guide-${role.id}`} data-natal-point-reference={role.id} className="scroll-mt-24 rounded-lg border border-slate-200 bg-white p-5">
       <h3 className="text-xl font-semibold">{role.name[locale]}</h3><p className="mt-3 font-semibold">{role.topic[locale]}</p>
@@ -150,7 +150,7 @@ export function NatalChartReport({ quiz, chart, locale, readingProfiles }: { qui
         })}
       </tbody></table></div>
     <section aria-labelledby="natal-aspects-title" data-natal-aspects className="space-y-4 leading-8">
-      <h3 id="natal-aspects-title" className="text-2xl font-semibold">{zh ? "本次十天体主要相位" : "This chart’s major ten-body aspects"}</h3>
+      <h3 id="natal-aspects-title" className="text-xl font-semibold leading-snug sm:text-2xl">{zh ? "本次十天体主要相位" : "This chart’s major ten-body aspects"}</h3>
       <p>{c.aspects.convention[locale]}</p>
       {aspects.status === "unavailable" ? <p role="status" data-natal-aspects-unavailable>{zh ? "完整十天体黄经不可用，无法计算相位；不显示部分列表。" : "The complete ten-body longitudes are unavailable, so aspects cannot be calculated. No partial list is shown."}</p> : <>
         <p data-natal-aspects-summary>{zh ? `已比较${aspects.comparisons}个无序对，按本页规则纳入${aspects.aspects.length}对。` : `Compared ${aspects.comparisons} unordered pairs; ${aspects.aspects.length} meet this page’s rule.`}</p>
@@ -170,12 +170,12 @@ export function NatalChartReport({ quiz, chart, locale, readingProfiles }: { qui
     <section aria-labelledby="natal-inventory" className="space-y-4 leading-8"><h3 id="natal-inventory" className="text-xl font-semibold">{zh ? "十天体元素与性质计数" : "Ten-body element and modality counts"}</h3><p>{c.inventoryReading.definition[locale]}</p>
       <div className="grid gap-5 sm:grid-cols-2"><dl className="rounded-lg bg-slate-50 p-4">{([ ["fire", "Fire", "火"], ["earth", "Earth", "土"], ["air", "Air", "风"], ["water", "Water", "水"] ] as const).map(([key, en, cn]) => <div key={key} className="flex justify-between"><dt>{zh ? cn : en}</dt><dd data-natal-element={key}>{chart.inventory.elements[key]}</dd></div>)}</dl><dl className="rounded-lg bg-slate-50 p-4">{([ ["cardinal", "Cardinal", "基本"], ["fixed", "Fixed", "固定"], ["mutable", "Mutable", "变动"] ] as const).map(([key, en, cn]) => <div key={key} className="flex justify-between"><dt>{zh ? cn : en}</dt><dd data-natal-modality={key}>{chart.inventory.modalities[key]}</dd></div>)}</dl></div><p>{c.inventoryReading.zero[locale]}</p>
     </section>
-    <section aria-labelledby="natal-three" className="space-y-5"><h3 id="natal-three" className="text-2xl font-semibold">{zh ? "本次太阳、月亮与上升读法" : "This chart's Sun, Moon and rising readings"}</h3>
+    <section aria-labelledby="natal-three" className="space-y-5"><h3 id="natal-three" className="text-xl font-semibold leading-snug sm:text-2xl">{zh ? "本次太阳、月亮与上升读法" : "This chart's Sun, Moon and rising readings"}</h3>
       {chart.placements.slice(0, 2).map(p => roleCard(p, true))}
       {chart.ascendant.status === "computed" && <section data-natal-rising-reading className="rounded-lg border border-slate-200 bg-white p-5 leading-8"><h3 className="text-xl font-semibold">{zh ? "上升" : "Rising"} · {coordinateLabel(quiz, chart.ascendant.coordinate, locale)}</h3>{c.ascendantRole.paragraphs.map((p, index) => <p className="mt-3" key={index}>{p[locale]}</p>)}<h4 className="mt-5 font-semibold">{signContext(chart.ascendant.coordinate, "ascendant").title[locale]}</h4>{signContext(chart.ascendant.coordinate, "ascendant").paragraphs.map((p, index) => <p className="mt-3" key={index}>{p[locale]}</p>)}<Link prefetch={false} className="mt-4 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, chart.ascendant.coordinate.sign)}>{zh ? "阅读这个星座的完整解释" : "Read the complete sign guide"}</Link></section>}
     </section>
-    <section aria-labelledby="natal-other-bodies" className="space-y-5"><h3 id="natal-other-bodies" className="text-2xl font-semibold">{zh ? "其他八天体：角色、符号与宫位" : "The other eight bodies: role, symbol and house"}</h3>{chart.placements.slice(2).map(p => roleCard(p, false))}</section>
-    <section aria-labelledby="natal-additional-angle-readings" className="space-y-5 leading-8"><h3 id="natal-additional-angle-readings" className="text-2xl font-semibold">{zh ? "本次 MC、IC 与 DSC 读法" : "This chart’s MC, IC and DSC readings"}</h3>
+    <section aria-labelledby="natal-other-bodies" className="space-y-5"><h3 id="natal-other-bodies" className="text-xl font-semibold leading-snug sm:text-2xl">{zh ? "其他八天体：角色、符号与宫位" : "The other eight bodies: role, symbol and house"}</h3>{chart.placements.slice(2).map(p => roleCard(p, false))}</section>
+    <section aria-labelledby="natal-additional-angle-readings" className="space-y-5 leading-8"><h3 id="natal-additional-angle-readings" className="text-xl font-semibold leading-snug sm:text-2xl">{zh ? "本次 MC、IC 与 DSC 读法" : "This chart’s MC, IC and DSC readings"}</h3>
       {!Object.values(chart.angles).some(angle => angle.status === "computed") && <p data-natal-no-angles>{zh ? "本次没有可用的额外角点，请参照上表状态；公开角点说明仍可阅读。" : "No additional angle is available for this calculation. Use the table’s states; the public angle reference remains available."}</p>}
       {c.angles.roles.map(role => {
         const angle = chart.angles[role.id]; if (angle.status !== "computed") return null;
@@ -190,7 +190,7 @@ export function NatalChartReport({ quiz, chart, locale, readingProfiles }: { qui
         </section>;
       })}
     </section>
-    <section aria-labelledby="natal-point-readings-title" data-natal-point-readings className="space-y-5 leading-8"><h3 id="natal-point-readings-title" className="text-2xl font-semibold">{zh ? "本次数学点读法" : "This chart’s mathematical-point readings"}</h3>
+    <section aria-labelledby="natal-point-readings-title" data-natal-point-readings className="space-y-5 leading-8"><h3 id="natal-point-readings-title" className="text-xl font-semibold leading-snug sm:text-2xl">{zh ? "本次数学点读法" : "This chart’s mathematical-point readings"}</h3>
       {Object.values(chart.points).some(point => point.status === "unavailable") && <p data-natal-point-unavailable role="status">{zh ? "不可用的数学点不生成个人读法，也不补造坐标。公开模型与角色参考仍可阅读。" : "Unavailable mathematical points do not receive a personal reading or substituted coordinate. The public model and role references remain available."}</p>}
       {c.points.roles.map(role => {
         const point = chart.points[role.id]; if (point.status !== "computed") return null;

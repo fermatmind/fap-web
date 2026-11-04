@@ -1,3 +1,4 @@
+import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
@@ -23,7 +24,15 @@ export function WorkTraitsReport({ quiz, result, locale }: {
   locale: Locale;
 }) {
   const zh = locale === "zh";
-  return <div className="mt-6 space-y-8" data-work-traits-report>
+  return <ResultPage variant="dimensions" className="mt-6 space-y-8" data-work-traits-report>
+    <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
+      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
+      items={quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return { id: direction.id, label: direction.title[locale], href: `#work-traits-${direction.id}`,
+          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
+          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
+      })} />
     <p className="leading-8">{zh
       ? "七组按固定顺序显示，不产生总分或胜出类型。每组六条至少五条数字才显示一位小数均值；3表示“有时”，未评分保持缺失。原始和只加有效项。均值相同可能来自不同回答、机会和任务，不代表七组已在同一人格尺度上校准。"
       : "Seven groups stay in a fixed order without a total or winning type. Each six-item group needs five numeric ratings for a mean rounded to one decimal. A 3 means Sometimes; unscored remains missing. Raw sums include rated items only. Equal means can reflect different responses, opportunities and tasks; the groups are not calibrated to a common personality scale."}</p>
@@ -32,7 +41,7 @@ export function WorkTraitsReport({ quiz, result, locale }: {
       const facet = result.facets[direction.id], profile = quiz.profiles.find(item => item.directionIds[0] === direction.id)!;
       return <section key={direction.id} data-work-traits-part={direction.id} aria-labelledby={`work-traits-${direction.id}`}
         className="rounded-lg border border-slate-200 p-4 sm:p-6">
-        <h3 id={`work-traits-${direction.id}`} className="text-2xl font-semibold">{direction.title[locale]}</h3>
+        <h3 id={`work-traits-${direction.id}`} className="scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{direction.title[locale]}</h3>
         <p data-work-traits-coverage={direction.id} className="mt-4 leading-7">{zh
           ? `有效项原始和 ${facet.rated ? facet.sum : "—"}；${facet.rated}/6项有效`
           : `Rated-item raw sum ${facet.rated ? facet.sum : "—"}; ${facet.rated}/6 rated`}</p>
@@ -46,7 +55,7 @@ export function WorkTraitsReport({ quiz, result, locale }: {
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本组完整公开指南" : "Read this group’s full public guide"}</Link>
       </section>;
     })}
-  </div>;
+  </ResultPage>;
 }
 
 export function WorkTraitsNextSteps({ locale }: { locale: Locale }) {

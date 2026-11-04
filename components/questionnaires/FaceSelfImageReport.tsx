@@ -1,3 +1,4 @@
+import { ResultSection, ResultReadingNav, ResultScoreRow } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
@@ -9,10 +10,17 @@ export function FaceSelfImageReport({ quiz, result, locale }: { quiz: Questionna
   const zh = locale === "zh";
   return <div data-face-self-image-report className="mt-6 space-y-8">
     <p className="leading-8">{zh ? "四项分别记录过去一个月自己一侧的体验。每项四条，至少三条数字才显示均值；3是有时，未评分不当零分。条形只定位原始1至5，不是颜值、百分比、人群位置或别人对你的评价。四项可以同时高、低或相同，不合总分或划分等级。" : "Four parts separately record your own experience over the past month. Each has four prompts and needs three numeric ratings for a mean. Three means sometimes; unscored answers are not zero. Bars locate the raw 1–5 mean, not beauty, a percentage, population position or someone else’s assessment. Parts can all be high, low or equal, without a total or assigned tier."}</p>
+    <ResultSection title={zh ? "四项自我形象体验概览" : "Four self-image experience readings"}>
+      <div className="grid gap-x-8 sm:grid-cols-2">{quiz.directions.map(direction => {
+        const part = result.facets[direction.id];
+        return <ResultScoreRow key={direction.id} label={direction.title[locale]} value={part.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${part.mean.toFixed(1)} / 5`} score={part.mean} min={1} max={5} description={zh ? `原始频率均值 · 1–5；${part.rated}/${part.total}条有效` : `Raw frequency mean · 1–5; ${part.rated}/${part.total} rated`} />;
+      })}</div>
+    </ResultSection>
+    <ResultReadingNav label={zh ? "逐项完整解读" : "Full readings by topic"} sections={quiz.directions.map(direction => ({ id: `face-self-image-${direction.id}`, title: direction.title[locale] }))} />
     {quiz.directions.map(direction => {
       const part = result.facets[direction.id], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
-      return <section key={direction.id} data-face-self-image-part={direction.id} aria-labelledby={`face-self-image-${direction.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
-        <h3 id={`face-self-image-${direction.id}`} className="text-2xl font-semibold">{direction.title[locale]}</h3>
+      return <section key={direction.id} data-face-self-image-part={direction.id} aria-labelledby={`face-self-image-${direction.id}`} className="border-t border-slate-200 pt-7">
+        <h3 id={`face-self-image-${direction.id}`} className="scroll-mt-24 text-2xl font-semibold">{direction.title[locale]}</h3>
         <p data-face-self-image-mean={direction.id} className="my-4 rounded-lg bg-slate-50 p-4 font-semibold">{part.mean === null
           ? (zh ? `资料不足：${part.rated}/4条有效，至少需3条；不显示个人均值或条形。` : `Insufficient information: ${part.rated}/4 rated, at least 3 needed; no personal mean or bar.`)
           : (zh ? `原始和 ${part.sum}，${part.rated}/4条有效，频率均值 ${part.mean.toFixed(1)} / 5` : `Raw sum ${part.sum}; ${part.rated}/4 rated; frequency mean ${part.mean.toFixed(1)} / 5`)}</p>

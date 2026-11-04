@@ -1,4 +1,5 @@
 "use client";
+import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
 import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 
 import Link from "next/link";
@@ -74,7 +75,11 @@ function ValidSynes15Client({ quiz, locale, readingProfiles }: { quiz: Synes15Qu
       {stage === "result" && result && <>
         <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading?.[locale]}</h2>
         <p className="leading-8">{zh ? "15项均已作明确选择。五组分别保留四种回答计数和每条原始选择；不计算总分、均分、强度或概率，不分配类型，也不确认联觉。没有仅指有机会却未记得，不代表终身缺失。" : "All 15 prompts have an explicit choice. Five groups retain four literal response counts and each original choice, without a total, mean, strength, probability, type assignment or confirmation of synaesthesia. No means relevant opportunities but no recollection, not lifetime absence."}</p>
-        <div data-synes15-result className="space-y-6">{SYNES15_TOPICS.map(id => {
+        <ResultPage variant="reflection" data-synes15-result className="space-y-6">
+          <ResultOverview locale={locale} title={zh ? "五组观察记录" : "Five observation records"}
+            description={zh ? "保留四种原始类别，不换算分数。选择主题可核对三条原始选择与完整读法。" : "Four literal response categories, without a score conversion. Choose a topic to review its three choices and full guide."}
+            items={SYNES15_TOPICS.map(id => ({ id, label: quiz.profiles.find(profile => profile.id === id)!.title[locale], href: `#synes15-${id}`,
+              note: zh ? `有 ${result[id].counts.yes} · 没有 ${result[id].counts.no} · 不确定 ${result[id].counts.unsure} · 无机会／不愿回答 ${result[id].counts.na}` : `Yes ${result[id].counts.yes} · No ${result[id].counts.no} · Unsure ${result[id].counts.unsure} · No opportunity / decline ${result[id].counts.na}` }))} />{SYNES15_TOPICS.map(id => {
           const score = result[id], profile = quiz.profiles.find(p => p.id === id)!;
           const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === 1 && item.directionIds[0] === id && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
           return <section key={id} data-synes15-part={id} aria-labelledby={`synes15-${id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
@@ -88,7 +93,7 @@ function ValidSynes15Client({ quiz, locale, readingProfiles }: { quiz: Synes15Qu
             <details className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开此部分完整读法" : "Expand this full reading"}</summary><div className="mt-5"><QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`synes15-${id}`} /></div></details>
             <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "阅读完整公开指南" : "Read the complete public guide"}</Link>
           </section>;
-        })}</div>
+        })}</ResultPage>
         <button type="button" className={button} onClick={copyPublicLinks}>{zh ? "复制公开解释链接" : "Copy public explanation links"}</button>
         {manual && <label className="block leading-7">{zh ? "手动复制公开链接" : "Public links for manual copying"}<textarea readOnly value={manual} className="mt-2 min-h-40 w-full rounded-lg border border-slate-300 p-3" /></label>}
         <button type="button" className={button} onClick={clear}>{zh ? "清空并重新测试" : "Clear and retake"}</button>

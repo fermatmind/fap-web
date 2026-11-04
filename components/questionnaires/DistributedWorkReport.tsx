@@ -1,3 +1,4 @@
+import { ResultReadingNav } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { DistributedWorkResult } from "@/lib/questionnaires/distributedWork24";
@@ -17,14 +18,15 @@ export function DistributedWorkReport({ quiz, result, locale }: {
   const zh = locale === "zh";
   return <div data-distributed-work-result className="my-6 space-y-7">
     <p className="leading-8">{zh ? "分别阅读四项记录。每个主题有十二次出现机会；选择本主题、选择另一行动和未计分合计十二。未选中不表示没有发生，未计分不转成低分；不计算总分、胜出项或等级。" : "Read the four records separately. Each theme has twelve appearances: selected, other action selected and left unscored sum to twelve. Unselected does not mean absent, and unscored is not converted into a low score. No overall, winner or level is calculated."}</p>
+    <ResultReadingNav label={zh ? "四项协作记录" : "Four coordination records"} sections={result.distributedWork.map(part => ({ id: `distributed-result-${part.id}`, title: quiz.directions.find(direction => direction.id === part.id)!.title[locale] }))} />
     {result.distributedWork.map(part => <section key={part.id} data-distributed-work-part={part.id} className="rounded-lg border border-slate-200 p-4 sm:p-6" aria-labelledby={`distributed-result-${part.id}`}>
-      <h3 id={`distributed-result-${part.id}`} className="text-xl font-semibold">{quiz.directions.find(d => d.id === part.id)!.title[locale]}</h3>
+      <h3 id={`distributed-result-${part.id}`} className="scroll-mt-24 text-xl font-semibold">{quiz.directions.find(d => d.id === part.id)!.title[locale]}</h3>
       <dl className="my-5 grid grid-cols-1 gap-4 sm:grid-cols-3" aria-label={zh ? "十二次出现机会的选择记录" : "Choice records across twelve appearances"}>
         {([
           ["selected", zh ? "选择本主题" : "This theme selected", part.selected],
           ["other", zh ? "选择另一行动" : "Other action selected", part.otherSelected],
           ["unscored", zh ? "未计分" : "Left unscored", part.unscored],
-        ] as const).map(([key, label, value]) => <div key={key}><dt>{label}</dt><dd data-distributed-count={`${part.id}-${key}`} className="mt-2 font-semibold">{value} / {part.appearances}</dd></div>)}
+        ] as const).map(([key, label, value]) => <div key={key}><dt>{label}</dt><dd data-distributed-count={`${part.id}-${key}`} className="mt-2 text-2xl font-semibold tabular-nums text-slate-900">{value} / {part.appearances}</dd></div>)}
       </dl>
       {part.unscored === 12 && <p data-distributed-entirely-unscored className="my-4 leading-7">{zh ? "本主题没有已计入的相对选择，不能据此推断习惯或能力。" : "No relative choice was scored for this theme. This does not establish a habit or ability."}</p>}
       <a className="inline-block min-h-11 py-2 underline" href={`#distributed-public-${part.id}`}>{zh ? "阅读下方本主题完整指南" : "Read this theme’s full guide below"}</a>

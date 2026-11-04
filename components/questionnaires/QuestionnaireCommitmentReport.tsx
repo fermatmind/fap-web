@@ -14,7 +14,7 @@ export function QuestionnaireCommitmentReport({ quiz, result, locale }: { quiz: 
       <dl className="mt-4 grid gap-5 sm:grid-cols-2">{quiz.directions.map(direction => {
         const score = result.facets[direction.id];
         return <div key={direction.id} data-commitment-summary={direction.id} className="min-w-0 space-y-2">
-          <dt className="font-semibold">{direction.title[locale]}</dt>
+          <dt className="font-semibold">{quiz.profiles.some(profile => profile.directionIds.includes(direction.id)) ? <a className="inline-flex min-h-11 items-center py-2 underline decoration-slate-300 underline-offset-4" href={`#commitment-guide-${quiz.profiles.find(profile => profile.directionIds.includes(direction.id))!.id}`}>{direction.title[locale]}</a> : direction.title[locale]}</dt>
           <dd data-commitment-mean className="text-lg">{score.mean === null ? missing : `${(score.sum / score.total).toFixed(1)} / 5`}</dd>
           <dd data-commitment-sum className="text-sm text-slate-600">{zh ? "键向调整后总数（6—30）" : "Key-adjusted sum (6–30)"}: {score.mean === null ? missing : score.sum}</dd>
           <dd data-commitment-rated className="text-sm text-slate-600">{zh ? "有效符合度回答" : "Valid fit ratings"}: {score.rated} / {score.total}</dd>
@@ -25,7 +25,7 @@ export function QuestionnaireCommitmentReport({ quiz, result, locale }: { quiz: 
     {quiz.profiles.map(profile => {
       const score = result.facets[profile.directionIds[0]];
       return <section key={profile.id} data-commitment-guide={profile.id} aria-labelledby={`commitment-guide-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
-        <h3 id={`commitment-guide-${profile.id}`} className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
+        <h3 id={`commitment-guide-${profile.id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
         {score.mean === null && <p data-commitment-insufficient className="mb-5 rounded-lg bg-amber-50 p-4 leading-7">{zh ? "本部分资料不足，未生成个人总数或均分。以下是完整通用解释，不能当作对本次个人状态的判断；可以保留未评分。" : "This part has insufficient information, so no personal sum or mean was generated. The complete general guide below is not a judgement of your state in this attempt. You can leave this part unscored."}</p>}
         <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一部分的完整公开指南" : "Read this part’s complete public guide"}</Link>

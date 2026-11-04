@@ -39,6 +39,11 @@
 @media (prefers-reduced-motion: reduce) { .engine fieldset > label { transition: none; } }
 
 /* Keep this report's cards independent of the answering surface. */
+.main:has(:global([data-stage="result"]):not(:global([data-result-kind="mini-virtues"]))) { align-items: start; padding-block: 32px 48px; }
+.main:has(:global([data-stage="result"]):not(:global([data-result-kind="mini-virtues"]))) .surface { width: 100%; max-width: 1120px; padding: 24px 32px; }
+.engine :global([data-stage="result"]):not(:global([data-result-kind="mini-virtues"])) { min-width: 0; overflow-wrap: anywhere; }
+.engine :global([data-stage="result"]) button:focus-visible, .engine :global([data-stage="result"]) a:focus-visible, .engine :global([data-stage="result"]) summary:focus-visible { outline: 3px solid #9b6c96; outline-offset: 4px; border-radius: 4px; }
+@media (max-width: 640px) { .main:has(:global([data-stage="result"]):not(:global([data-result-kind="mini-virtues"]))) { padding: 16px 12px 32px; } .main:has(:global([data-stage="result"]):not(:global([data-result-kind="mini-virtues"]))) .surface { padding: 20px 16px; } }
 .main:has(:global([data-result-kind="mini-virtues"])) { align-items: start; background: #f6f4fa; padding-block: 32px 48px; }
 .main:has(:global([data-result-kind="mini-virtues"])) .surface { width: 100%; max-width: 1120px; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
 .surface:has(:global([data-result-kind="mini-virtues"])) > header { padding-inline: 8px; }

@@ -1,3 +1,4 @@
+import { ResultReadingNav } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire } from "@/lib/questionnaires/types";
@@ -14,16 +15,20 @@ export function ConnectionCheckInSupport({ locale }: { locale: Locale }) {
 }
 export function ConnectionCheckInReport({ quiz, records, locale }: { quiz: Questionnaire; records: ConnectionCheckInRecord[]; locale: Locale }) {
   const zh = locale === "zh";
-  return <section data-connection-checkin-result className="space-y-7" aria-labelledby="connection-checkin-result-heading">
+  return <section data-connection-checkin-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="connection-checkin-result-heading">
     <h2 id="connection-checkin-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
     <p className="leading-7">{zh ? "类别只作记录，不作点数。每个主题六种计数合计七条；未计分与没有注意到分别显示。没有总分、均值、最高项或风险判断。" : "Categories are recorded without points. Each theme’s six counts add to seven statements; unscored stays separate from did not notice. There is no total, mean, highest theme or risk judgment."}</p>
+    <ResultReadingNav label={zh ? "本次主题记录" : "Topics in this record"} sections={records.map((record, index) => ({
+      id: `connection-checkin-record-${record.id}`,
+      title: `${quiz.directions[index].title[locale]} · ${record.observations.length}${zh ? "条记录" : " records"}`,
+    }))} />
     <ConnectionCheckInSupport locale={locale} />
-    {records.map((r, i) => <section key={r.id} data-connection-checkin-theme={r.id} className="rounded-lg border border-slate-300 p-4">
-      <h3 className="mb-4 text-xl font-semibold">{quiz.directions[i].title[locale]}</h3>
+    {records.map((r, i) => <section id={`connection-checkin-record-${r.id}`} key={r.id} data-connection-checkin-theme={r.id} aria-labelledby={`connection-checkin-record-title-${r.id}`} className="scroll-mt-24 border-b border-slate-200 pb-8 last:border-b-0">
+      <h3 id={`connection-checkin-record-title-${r.id}`} className="mb-5 text-xl font-semibold leading-8 text-slate-950">{quiz.directions[i].title[locale]}</h3>
       {r.counts.na === 7 && <p data-connection-checkin-unscored className="mb-4 leading-7">{zh ? "这七条全部未计分，不代表没有困难或不需要支持。" : "All seven are unscored; this does not mean no difficulty or no need for support."}</p>}
-      <dl className="space-y-3">{connectionCheckInCategories.map(c => <div key={c.id} className="flex items-start justify-between gap-4"><dt className="min-w-0">{c.id === "na" ? (zh ? "未计分：没有经历／无法回想／保留回答" : "Unscored: no experience / unclear recall / withheld") : c.label[locale]}</dt><dd data-connection-checkin-count={`${r.id}-${c.id}`} className="shrink-0 font-semibold">{r.counts[c.id]} / 7</dd></div>)}</dl>
-      <h4 className="my-4 font-semibold">{zh ? "逐条观察与所选类别" : "Individual observations and selected categories"}</h4>
-      <ul className="space-y-4 leading-7">{r.observations.map(o => <li key={o.questionId} data-connection-checkin-observation={o.questionId}><p>{quiz.questions.find(q => q.id === o.questionId)!.prompt[locale]}</p><p className="font-semibold">{o.category === "na" ? (zh ? "未计分" : "Unscored") : connectionCheckInCategories.find(c => c.id === o.category)!.label[locale]}</p></li>)}</ul>
+      <dl className="grid gap-x-8 gap-y-2 sm:grid-cols-2">{connectionCheckInCategories.map(c => <div key={c.id} className="flex items-start justify-between gap-4 border-b border-slate-100 py-3"><dt className="min-w-0">{c.id === "na" ? (zh ? "未计分：没有经历／无法回想／保留回答" : "Unscored: no experience / unclear recall / withheld") : c.label[locale]}</dt><dd data-connection-checkin-count={`${r.id}-${c.id}`} className="shrink-0 text-lg font-semibold tabular-nums text-slate-900">{r.counts[c.id]} / 7</dd></div>)}</dl>
+      <h4 className="mb-4 mt-7 font-semibold text-slate-700">{zh ? "逐条观察与所选类别" : "Individual observations and selected categories"}</h4>
+      <ul className="space-y-4 border-l-2 border-slate-200 pl-4 text-sm leading-7 sm:pl-5">{r.observations.map(o => <li key={o.questionId} data-connection-checkin-observation={o.questionId}><p>{quiz.questions.find(q => q.id === o.questionId)!.prompt[locale]}</p><p className="font-semibold">{o.category === "na" ? (zh ? "未计分" : "Unscored") : connectionCheckInCategories.find(c => c.id === o.category)!.label[locale]}</p></li>)}</ul>
       <a className="mt-5 inline-block min-h-11 py-2 font-semibold underline" href={`#connection-checkin-public-${r.id}`}>{zh ? "阅读下方完整主题说明" : "Read the complete theme below"}</a>{" · "}
       <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, quiz.profiles[i].id)}>{zh ? "公开指南页" : "Public guide page"}</Link>
     </section>)}

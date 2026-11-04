@@ -1,3 +1,4 @@
+import { ResultSection, ResultReadingNav, ResultScoreRow } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
@@ -15,11 +16,18 @@ export function InterpersonalPreferencesReport({ quiz, result, locale }: {
     <p className="leading-8">{zh
       ? "六项分别记录近四周同一情境中的主动行为或期望频率。每项四条，至少三条数字才显示均分；未评分不补零或中点。主动与期望无需一致，不相减、不合成总分，也不计算人际匹配。"
       : "Six separate parts record actions or wishes in one context over four weeks. Each has four items and needs three numeric ratings for a mean; unscored responses are never filled with zero or a midpoint. Actions and wishes need not match. They are not subtracted, totalled or used to calculate interpersonal compatibility."}</p>
+    <ResultSection title={zh ? "主动与期望：六项记录" : "Actions and wishes: six separate readings"}>
+      <div className="grid gap-x-8 sm:grid-cols-2">{quiz.directions.map(direction => {
+        const part = result.facets[direction.id];
+        return <ResultScoreRow key={direction.id} label={direction.title[locale]} value={part.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${part.mean.toFixed(1)} / 5`} score={part.mean} min={1} max={5} description={zh ? `原始频率均值 · 1–5；${part.rated}/${part.total}条有效` : `Raw frequency mean · 1–5; ${part.rated}/${part.total} rated`} />;
+      })}</div>
+    </ResultSection>
+    <ResultReadingNav label={zh ? "逐项完整解读" : "Full readings by topic"} sections={quiz.directions.map(direction => ({ id: `interpersonal-${direction.id}`, title: direction.title[locale] }))} />
     {quiz.directions.map(direction => {
       const facet = result.facets[direction.id];
       const profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
-      return <section key={direction.id} data-interpersonal-part={direction.id} aria-labelledby={`interpersonal-${direction.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
-        <h3 id={`interpersonal-${direction.id}`} className="text-2xl font-semibold">{direction.title[locale]}</h3>
+      return <section key={direction.id} data-interpersonal-part={direction.id} aria-labelledby={`interpersonal-${direction.id}`} className="border-t border-slate-200 pt-7">
+        <h3 id={`interpersonal-${direction.id}`} className="scroll-mt-24 text-2xl font-semibold">{direction.title[locale]}</h3>
         <p data-interpersonal-mean={direction.id} className="my-4 rounded-lg bg-slate-50 p-4 font-semibold">{facet.mean === null
           ? (zh ? `资料不足：${facet.rated}/4条有效，至少需3条；不显示个人均分。` : `Insufficient information: ${facet.rated}/4 rated, at least 3 needed; no personal mean.`)
           : (zh ? `原始和 ${facet.sum}，${facet.rated}/4条有效，显示均分 ${facet.mean.toFixed(1)} / 5` : `Raw sum ${facet.sum}; ${facet.rated}/4 rated; displayed mean ${facet.mean.toFixed(1)} / 5`)}</p>

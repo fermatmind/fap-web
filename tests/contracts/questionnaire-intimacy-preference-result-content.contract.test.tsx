@@ -27,7 +27,7 @@ describe("four separate adult preference guides without a new score, type or per
   const {default:Guide}=await import("@/components/questionnaires/QuestionnaireGuide");
   for(const locale of ["en","zh"]as const)for(const p of readings){
    const d=dom(renderToStaticMarkup(await Guide({params:Promise.resolve({locale,slug:quiz.slug,profile:p.id})})));
-   const reader=d.querySelector(`[data-intimacy-preference-result-reading="${p.id}"]`)!;expect(reader).not.toBeNull();expect(reader.querySelectorAll("h2")).toHaveLength(8);expect(reader.querySelectorAll("section li")).toHaveLength(19);expect(reader.querySelectorAll("details:not([open]) nav a")).toHaveLength(8);
+   const reader=d.querySelector(`[data-intimacy-preference-result-reading="${p.id}"]`)!;expect(reader).not.toBeNull();expect(reader.querySelectorAll("h2")).toHaveLength(8);expect(reader.querySelectorAll("section > div > p:not(:only-child)")).toHaveLength(19);expect(reader.querySelectorAll("details:not([open]) nav a")).toHaveLength(8);
    for(const a of reader.querySelectorAll("nav a"))expect(d.querySelector(a.getAttribute("href")!)).not.toBeNull();
    for(const s of p.sections)for(const para of s.paragraphs)expect(reader.textContent).toContain(para[locale]);
    expect(d.querySelector("input,textarea,[data-intimacy-mean],[data-intimacy-sum]")).toBeNull();if(locale==="en")expect(d.textContent).not.toMatch(/\p{Script=Han}/u);
@@ -39,7 +39,7 @@ describe("four separate adult preference guides without a new score, type or per
    const answers=base();let remainder=sum-6;for(let i=0;i<6;i++){const extra=Math.min(remainder,4);remainder-=extra;answers[quiz.questions[group*6+i].id]=String(1+extra);}
    const result=complete(answers),d=dom(renderToStaticMarkup(<QuestionnaireIntimacyReport quiz={quiz} result={result} readingProfiles={readings} locale="en"/>));
    const part=d.querySelector(`[data-intimacy-part="${quiz.directions[group].id}"]`)!;expect(part.querySelector("[data-intimacy-sum]")?.textContent).toContain(String(sum));expect(part.querySelector("[data-intimacy-mean]")?.textContent).toContain((sum/6).toFixed(4));
-   expect(d.querySelectorAll("[data-intimacy-preference-result-reading]")).toHaveLength(4);expect(d.querySelectorAll("[data-intimacy-preference-result-reading] section li")).toHaveLength(76);checked++;
+   expect(d.querySelectorAll("[data-intimacy-preference-result-reading]")).toHaveLength(4);expect(d.querySelectorAll("[data-intimacy-preference-result-reading] section > div > p:not(:only-child)")).toHaveLength(76);checked++;
   }
   expect(checked).toBe(100);
   for(const locale of ["en","zh"]as const)for(const group of [-1,0,1,2,3]){
@@ -51,7 +51,7 @@ describe("four separate adult preference guides without a new score, type or per
  it("uses original report content when a reading carries mismatched direction, product or profile identity",()=>{
   const p=readings[0],result=complete(base());
   for(const bad of [undefined,[{...p,id:"other"}],[{...p,directionIds:["other"]}],[{...p,resultReading:{...p.resultReading!,quizSlug:"other"}}],[{...p,resultReading:{...p.resultReading!,profileId:"other"}}]]){
-   const d=dom(renderToStaticMarkup(<QuestionnaireIntimacyReport quiz={quiz} result={result} readingProfiles={bad} locale="en"/>));expect(d.querySelector("[data-intimacy-preference-result-reading]")).toBeNull();expect(d.querySelectorAll('[data-intimacy-part="emotional-sharing"] section li')).toHaveLength(16);
+   const d=dom(renderToStaticMarkup(<QuestionnaireIntimacyReport quiz={quiz} result={result} readingProfiles={bad} locale="en"/>));expect(d.querySelector("[data-intimacy-preference-result-reading]")).toBeNull();expect(d.querySelectorAll('[data-intimacy-part="emotional-sharing"] section > div > p:not(:only-child)')).toHaveLength(16);
   }
  });
  it("runs the strict native client with projected readings and keeps answers out of copying and persistence",async()=>{

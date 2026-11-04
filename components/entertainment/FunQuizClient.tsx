@@ -2,6 +2,8 @@
 import { useQuestionnaireTake, QuestionnaireLegacyControl } from "@/components/questionnaires/QuestionnaireTakeContext";
 import { QuestionnaireTakeOptions } from "@/components/questionnaires/QuestionnaireTakeOptions";
 import sessionStyles from "@/components/questionnaires/QuestionnaireTake.module.css";
+import resultStyles from "./FunQuizResult.module.css";
+import { ResultPage } from "@/components/questionnaires/QuestionnaireResultPresentation";
 import { NightGardenPanel } from "./NightGardenPanel";
 import { SnowDayPanel } from "./SnowDayPanel";
 import { ThriftShelfPanel } from "./ThriftShelfPanel";
@@ -174,20 +176,48 @@ export function FunQuizClient({ quiz, locale, compactLanding = false, landingIns
       <QuestionnaireLegacyControl><button className="mt-3 min-h-11 text-sm underline" onClick={() => { clearDraft(); setAnswers({}); setPosition(0); setSaving(false); setStage("welcome"); }}>{zh ? "退出并清除本次进度" : "Exit and clear this attempt"}</button></QuestionnaireLegacyControl>
     </>}
     {stage === "result" && result && <>
-      <p className="text-sm font-medium text-violet-800">{zh ? "你的趣味测试结果" : "Your playful quiz result"}</p>
-      <h2 ref={heading} tabIndex={-1} className="mt-2 text-3xl font-semibold leading-snug outline-none [overflow-wrap:anywhere]">{result.title[locale]}</h2>
-      {quiz.mechanism === "tally" && <div className="mt-5 rounded-lg bg-slate-50 p-4"><p className="text-sm font-medium">{zh ? "本次选项的累计分（不是心理量尺）" : "Choice point totals (not a psychological scale)"}</p><dl className="mt-2 space-y-2">{quiz.results.map(portrait => <div className="flex flex-wrap justify-between gap-3 text-sm" key={portrait.id}><dt>{portrait.title[locale]}</dt><dd>{resolved.scores[portrait.id]}</dd></div>)}</dl></div>}
-      {resolved.resultIds.length > 1 && <p className="mt-4 rounded-lg bg-amber-50 p-4">{zh ? "本次并列：" : "A tie this time: "}{resolved.resultIds.map(id => quiz.results.find(r => r.id === id)!.title[locale]).join(zh ? "、" : "; ")}{zh ? "。下方按事先设定的展示顺序展开，并列不代表你只能属于一类。" : ". The portraits below follow the declared display order. You do not have to fit just one."}</p>}
-      {resolved.resultIds.map(id => {
-        const portrait = quiz.results.find(r => r.id === id)!;
-        return <article key={id} className="mt-6 space-y-5">
-          {resolved.resultIds.length > 1 && <h3 className="text-xl font-semibold">{portrait.title[locale]}</h3>}
-          <p className="leading-8">{portrait.summary[locale]}</p>
-          {([ ["example", zh ? "生活里的一个例子" : "A small everyday example"], ["strength", zh ? "你带来的好处" : "What you bring"], ["tradeoff", zh ? "也有这样的取舍" : "The tradeoff"], ["experiment", zh ? "可以尝试的小行动" : "One thing to try"] ] as const).map(([key, label]) => <section key={key}><h3 className="font-semibold">{label}</h3><p className="mt-2 leading-8 text-slate-700">{portrait[key][locale]}</p></section>)}
-          <Link prefetch={false} className="inline-block min-h-11 py-2 font-medium underline" href={resultPath(locale, quiz.slug, portrait.id)}>{zh ? `阅读「${portrait.title.zh}」公开指南` : `Read the public guide to ${portrait.title.en}`}</Link>
-        </article>;
-      })}
-      <p className="mt-6 border-t pt-5 text-sm leading-6 text-slate-600">{zh ? "结果来自本测试的选项规则，不是人格诊断、能力分数或职业建议，也不能换算为 MBTI 类型。今天的情境与偏好可能影响选择。" : "This result follows this quiz’s choice rules. It is not a diagnosis, ability score, career recommendation, or MBTI equivalent. Your current mood and context can change your choices."}</p>
+      <ResultPage variant="story" data-story-mechanism={quiz.mechanism} className={resultStyles.report}>
+        <header className={resultStyles.overview}>
+          <p className={resultStyles.eyebrow}>{quiz.mechanism === "branch" ? (zh ? "故事终章 · 你的趣味测试结果" : "The ending · Your playful quiz result") : (zh ? "选择侧写 · 你的趣味测试结果" : "Choice portraits · Your playful quiz result")}</p>
+          <h2 ref={heading} tabIndex={-1} className={resultStyles.title}>{resolved.resultIds.map(id => quiz.results.find(portrait => portrait.id === id)!.title[locale]).join(zh ? "、" : " · ")}</h2>
+          <p className={resultStyles.routeNote}>{quiz.mechanism === "branch" ? (zh ? `${resolved.path.length} 次选择 · 一个故事结局` : `${resolved.path.length} choices · One story ending`) : (zh ? `${resolved.path.length} 次选择 · ${resolved.resultIds.length} 个最高画像` : `${resolved.path.length} choices · ${resolved.resultIds.length} leading ${resolved.resultIds.length === 1 ? "portrait" : "portraits"}`)}</p>
+          <p className={resultStyles.context}>{quiz.mechanism === "branch" ? (zh ? "这是本次故事路线到达的结局。先读结局，再看看它在生活里可以怎样理解。" : "This is the ending reached by your story route. Read the ending, then explore what it could look like in everyday life.") : (zh ? "这是本次选择中计数最高的画像。先看概览，再读例子、用处与取舍。" : "These portraits received the highest choice totals this time. Start with the overview, then explore their examples, contributions and tradeoffs.")}</p>
+          {resolved.resultIds.length > 1 && <p className={resultStyles.tie}>{zh ? "本次并列：" : "A tie this time: "}{resolved.resultIds.map(id => quiz.results.find(r => r.id === id)!.title[locale]).join(zh ? "、" : "; ")}{zh ? "。下方按事先设定的展示顺序展开，并列不代表你只能属于一类。" : ". The portraits below follow the declared display order. You do not have to fit just one."}</p>}
+          <nav className={resultStyles.nav} aria-label={zh ? "结果阅读导航" : "Result reading navigation"}>
+            <a href={`#${quiz.slug}-result-readings`}>{zh ? "完整解释" : "Full readings"}</a>
+            <a href={`#${quiz.slug}-result-actions`}>{zh ? "可选小行动" : "Optional experiments"}</a>
+            <a href={`#${quiz.slug}-result-rules`}>{zh ? "结果依据与边界" : "Rules and limits"}</a>
+          </nav>
+        </header>
+        <div id={`${quiz.slug}-result-readings`} className={resultStyles.readings}>
+          {resolved.resultIds.map(id => {
+            const portrait = quiz.results.find(r => r.id === id)!;
+            return <article key={id} className={resultStyles.portrait} aria-labelledby={`${quiz.slug}-${id}-reading`}>
+              <p className={resultStyles.eyebrow}>{quiz.mechanism === "branch" ? (zh ? "本次结局" : "Your ending") : (zh ? "本次画像" : "Your portrait")}</p>
+              <h3 id={`${quiz.slug}-${id}-reading`} className={resultStyles.portraitTitle}>{portrait.title[locale]}</h3>
+              <p className={resultStyles.summary}>{portrait.summary[locale]}</p>
+              <div className={resultStyles.details}>
+                {([ ["example", zh ? "生活里的一个例子" : "A small everyday example"], ["strength", zh ? "你带来的好处" : "What you bring"], ["tradeoff", zh ? "也有这样的取舍" : "The tradeoff"] ] as const).map(([key, label]) => <section key={key}><h4>{label}</h4><p>{portrait[key][locale]}</p></section>)}
+              </div>
+              <Link prefetch={false} className={resultStyles.guide} href={resultPath(locale, quiz.slug, portrait.id)}>{zh ? `阅读「${portrait.title.zh}」公开指南` : `Read the public guide to ${portrait.title.en}`}</Link>
+            </article>;
+          })}
+        </div>
+        <section id={`${quiz.slug}-result-actions`} className={resultStyles.experiments} aria-labelledby={`${quiz.slug}-result-actions-title`}>
+          <p className={resultStyles.eyebrow}>{zh ? "从故事回到生活" : "From story to everyday life"}</p>
+          <h3 id={`${quiz.slug}-result-actions-title`}>{zh ? "可以尝试的小行动" : "One thing to try"}</h3>
+          {resolved.resultIds.map(id => {
+            const portrait = quiz.results.find(r => r.id === id)!;
+            return <div key={id}>{resolved.resultIds.length > 1 && <h4>{portrait.title[locale]}</h4>}<p>{portrait.experiment[locale]}</p></div>;
+          })}
+        </section>
+        <section id={`${quiz.slug}-result-rules`} className={resultStyles.rules} aria-labelledby={`${quiz.slug}-result-rules-title`}>
+          <h3 id={`${quiz.slug}-result-rules-title`}>{zh ? "这项结果怎样产生？" : "How was this result reached?"}</h3>
+          <p>{quiz.mechanism === "tally" ? (zh ? "每次选择按本测试事先写好的规则累计分数，最高分画像全部保留；同分按预设顺序展示，不额外区分高低。" : "Each choice adds points under this quiz’s authored rules. Every highest-scoring portrait is retained. Tied portraits follow the declared display order, with no extra ranking.") : (zh ? "每次选择沿本测试事先写好的故事分支前进；同一路线到达同一结局。结局描述来自原创故事，不是心理量尺。" : "Each choice follows an authored story branch. The same route reaches the same ending. The ending is an original story description, not a psychological scale.")}</p>
+          {quiz.mechanism === "tally" && <div className={resultStyles.scores}><p>{zh ? "本次选项的累计分（不是心理量尺）" : "Choice point totals (not a psychological scale)"}</p><dl>{quiz.results.map(portrait => <div key={portrait.id}><dt>{portrait.title[locale]}{resolved.resultIds.includes(portrait.id) && <span className={resultStyles.leading}>{zh ? "本次最高" : "Highest this time"}</span>}</dt><dd>{resolved.scores[portrait.id]}</dd></div>)}</dl></div>}
+          <p className={resultStyles.limit}>{zh ? "结果来自本测试的选项规则，不是人格诊断、能力分数或职业建议，也不能换算为 MBTI 类型。今天的情境与偏好可能影响选择。" : "This result follows this quiz’s choice rules. It is not a diagnosis, ability score, career recommendation, or MBTI equivalent. Your current mood and context can change your choices."}</p>
+        </section>
+      </ResultPage>
       <div className="mt-6 flex flex-wrap gap-3"><button className={action} onClick={copy}>{zh ? "复制结果与链接" : "Copy result and link"}</button><button className={action} onClick={() => start()}>{zh ? "重新测试" : "Retake quiz"}</button></div>
       {copyFallback && <textarea aria-label={zh ? "手动复制结果" : "Result text for manual copying"} readOnly value={copyFallback} className="mt-4 min-h-40 w-full rounded border p-3" onFocus={event => event.target.select()} />}
       <section className="mt-10 border-t pt-7" aria-label={zh ? "可选下一步" : "Optional next steps"}>

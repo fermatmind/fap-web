@@ -34,7 +34,7 @@ export function QuestionnaireEmotionDashboardReport({ quiz, result, answers, loc
       const score = result.facets[direction.id];
       const profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
       return <section key={direction.id} data-emotion-part={direction.id} aria-labelledby={`emotion-title-${direction.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
-        <h3 id={`emotion-title-${direction.id}`} className="text-2xl font-semibold">{direction.title[locale]}</h3>
+        <h3 id={`emotion-title-${direction.id}`} className="scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{direction.title[locale]}</h3>
         <p data-emotion-mean={direction.id} className="my-4 rounded-lg bg-slate-50 p-4 font-semibold">{score.mean === null
           ? (zh ? `观察不足：${score.rated}/${score.total}条数值，至少需要${quiz.minimumRatedItems}条，不给个人均值。` : `Insufficient observations: ${score.rated}/${score.total} numeric ratings; at least ${quiz.minimumRatedItems} are needed. No personal mean.`)
           : (zh ? `本题组频率均值：${score.mean.toFixed(1)} / 5（${score.rated}/${score.total}条数值）` : `Frequency mean for these items: ${score.mean.toFixed(1)} / 5 (${score.rated}/${score.total} numeric ratings)`)}</p>

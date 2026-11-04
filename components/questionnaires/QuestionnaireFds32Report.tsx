@@ -24,7 +24,7 @@ export function QuestionnaireFds32Report({ quiz, result, answers, locale, readin
     {quiz.profiles.map(profile => {
       const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === 1 && item.directionIds[0] === profile.directionIds[0] && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
       return <section key={profile.id} aria-labelledby={`fds-guide-${profile.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6" data-fds-full={profile.id}>
-      <h3 id={`fds-guide-${profile.id}`} className="text-2xl font-semibold">{profile.title[locale]}</h3><QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix="report" />
+      <h3 id={`fds-guide-${profile.id}`} className="scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3><QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix="report" />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读不含个人数值的公开完整指南" : "Read the complete public guide without personal values"}</Link>
     </section>; })}
   </div>;

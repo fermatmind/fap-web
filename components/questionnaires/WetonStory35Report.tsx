@@ -17,7 +17,7 @@ export function WetonStory35Report({ quiz, result, locale }: { quiz: Questionnai
       <p className="text-sm leading-7">{zh ? "名称是本版原创编辑索引，不是传统性格计分键或已验证类型。问卷不需要生日；独立历法输入不参与计分，也不能验证故事。" : "Names are this edition’s original editorial indexes, without a traditional personality key or validated types. The quiz needs no birthdate; the separate calendar input never enters scoring or validates a story."}</p>
     </section>
     {quiz.profiles.filter(profile => result.profileIds.includes(profile.id)).map(profile => <section key={profile.id} data-weton-profile={profile.id} aria-labelledby={`weton-title-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
-      <h3 id={`weton-title-${profile.id}`} className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
+      <h3 id={`weton-title-${profile.id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
       <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一原创组合的公开说明" : "Read this original pairing’s public guide"}</Link>
     </section>)}

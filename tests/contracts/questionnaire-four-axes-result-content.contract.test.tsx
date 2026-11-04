@@ -27,7 +27,7 @@ describe("four original axis guides without inferred identities, clinical labels
   const {default:Guide}=await import("@/components/questionnaires/QuestionnaireGuide");
   for(const locale of ["en","zh"]as const)for(const p of readings){
    const d=dom(renderToStaticMarkup(await Guide({params:Promise.resolve({locale,slug:quiz.slug,profile:p.id})})));
-   const reader=d.querySelector(`[data-four-axes-result-reading="${p.id}"]`)!;expect(reader).not.toBeNull();expect(reader.querySelectorAll("h2")).toHaveLength(6);expect(reader.querySelectorAll("section li")).toHaveLength(15);expect(reader.querySelectorAll("details:not([open]) nav a")).toHaveLength(6);
+   const reader=d.querySelector(`[data-four-axes-result-reading="${p.id}"]`)!;expect(reader).not.toBeNull();expect(reader.querySelectorAll("h2")).toHaveLength(6);expect(reader.querySelectorAll("section > div > p:not(:only-child)")).toHaveLength(15);expect(reader.querySelectorAll("details:not([open]) nav a")).toHaveLength(6);
    for(const a of reader.querySelectorAll("nav a"))expect(d.querySelector(a.getAttribute("href")!)).not.toBeNull();
    for(const s of p.sections)for(const para of s.paragraphs)expect(reader.textContent).toContain(para[locale]);
    expect(d.querySelector("input,textarea,[data-four-axes-sum],[data-four-axes-part]")).toBeNull();if(locale==="en")expect(d.textContent).not.toMatch(/\p{Script=Han}/u);
@@ -41,7 +41,7 @@ describe("four original axis guides without inferred identities, clinical labels
    const result=complete(answers),d=dom(renderToStaticMarkup(<QuestionnaireFourAxesReport quiz={quiz} result={result} readingProfiles={readings} locale="en"/>));
    const part=d.querySelector(`[data-four-axes-part="${quiz.profiles[group].id}"]`)!;expect(part.querySelector("[data-four-axes-sum]")?.textContent).toContain(`Raw sum: ${sum} / 60;`);
    const image=part.querySelector('[role="img"]')!;expect(image.getAttribute("aria-label")).toContain(`${(sum/60*100).toFixed(1)}%`);expect(image.getAttribute("aria-label")).toContain(`${(100-sum/60*100).toFixed(1)}%`);
-   expect(d.querySelectorAll("[data-four-axes-result-reading]")).toHaveLength(4);expect(d.querySelectorAll("[data-four-axes-result-reading] section li")).toHaveLength(60);checked++;
+   expect(d.querySelectorAll("[data-four-axes-result-reading]")).toHaveLength(4);expect(d.querySelectorAll("[data-four-axes-result-reading] section > div > p:not(:only-child)")).toHaveLength(60);checked++;
   }
   expect(checked).toBe(244);
   for(const value of ["0","2","4"]){const result=complete(Object.fromEntries(quiz.questions.map(q=>[q.id,value])));expect(result.axes.gender.sum).toBe(value==="0"?28:value==="2"?30:32);}
@@ -49,7 +49,7 @@ describe("four original axis guides without inferred identities, clinical labels
  it("uses original report content when a reading carries mismatched direction, product or profile identity",()=>{
   const p=readings[0],result=complete(base());
   for(const bad of [undefined,[{...p,id:"other"}],[{...p,directionIds:["other"]}],[{...p,directionIds:[p.directionIds[0],"other"]}],[{...p,resultReading:{...p.resultReading!,quizSlug:"other"}}],[{...p,resultReading:{...p.resultReading!,profileId:"other"}}]]){
-   const d=dom(renderToStaticMarkup(<QuestionnaireFourAxesReport quiz={quiz} result={result} readingProfiles={bad} locale="en"/>));expect(d.querySelector("[data-four-axes-result-reading]")).toBeNull();expect(d.querySelectorAll('[data-four-axes-part="gender"] section li')).toHaveLength(12);
+   const d=dom(renderToStaticMarkup(<QuestionnaireFourAxesReport quiz={quiz} result={result} readingProfiles={bad} locale="en"/>));expect(d.querySelector("[data-four-axes-result-reading]")).toBeNull();expect(d.querySelectorAll('[data-four-axes-part="gender"] section > div > p:not(:only-child)')).toHaveLength(12);
   }
  });
  it("runs the strict native client with projected readings and keeps answers out of copying and persistence",async()=>{

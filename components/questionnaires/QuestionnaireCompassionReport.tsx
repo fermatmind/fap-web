@@ -13,8 +13,8 @@ export function QuestionnaireCompassionReport({ quiz, result, locale }: { quiz: 
     <section className="space-y-4 rounded-xl bg-slate-50 p-4 sm:p-6" aria-labelledby="compassion-total-title">
       <h3 id="compassion-total-title" className="text-xl font-semibold">{zh ? "IPIP关怀倾向十题的本次读数" : "Your ten-item IPIP Compassion reading"}</h3>
       <dl data-compassion-overview="compassion" className="space-y-3">
-        <div className="flex flex-wrap justify-between gap-3"><dt>{zh ? "原始总分（10—50）" : "Raw total (10–50)"}</dt><dd data-compassion-total>{total === null ? missing : total}</dd></div>
-        <div className="flex flex-wrap justify-between gap-3"><dt>{zh ? "描述性均分（1—5）" : "Descriptive mean (1–5)"}</dt><dd data-compassion-mean>{total === null ? missing : `${(total / 10).toFixed(1)} / 5`}</dd></div>
+        <div className="grid grid-cols-1 gap-2 border-b border-slate-200 py-3 sm:grid-cols-[minmax(0,1fr)_minmax(7rem,auto)] sm:gap-4 [&>dd]:font-semibold [&>dd]:tabular-nums"><dt>{zh ? "原始总分（10—50）" : "Raw total (10–50)"}</dt><dd data-compassion-total>{total === null ? missing : total}</dd></div>
+        <div className="grid grid-cols-1 gap-2 border-b border-slate-200 py-3 sm:grid-cols-[minmax(0,1fr)_minmax(7rem,auto)] sm:gap-4 [&>dd]:font-semibold [&>dd]:tabular-nums"><dt>{zh ? "描述性均分（1—5）" : "Descriptive mean (1–5)"}</dt><dd data-compassion-mean>{total === null ? missing : `${(total / 10).toFixed(1)} / 5`}</dd></div>
         <div className="text-sm text-slate-600"><dt className="sr-only">{zh ? "有效符合程度回答" : "Valid accuracy responses"}</dt><dd data-compassion-rated>{zh ? `${facet.rated} / 10题有效` : `${facet.rated} / 10 rated items`}</dd></div>
       </dl>
       <p className="leading-8">{zh ? "奇数题直接计分，偶数题按6减原值反向；十题全部有效才给个人原始总分。均分使用原始和除以10，不从其他已舍入数字倒推。不计分不补零或中立。" : "Odd items keep the original rating and even items use six minus the rating. A personal raw total requires all ten numeric responses. The mean divides the unrounded sum by ten; it is not reconstructed from another rounded value. Unscored answers are not replaced by zero or a midpoint."}</p>
@@ -22,7 +22,7 @@ export function QuestionnaireCompassionReport({ quiz, result, locale }: { quiz: 
       <p className="text-sm leading-7 text-slate-600">{zh ? "本次数字描述关怀倾向相关自述，不代表同理心百分比、人口排名、读心准确度或工作能力。没有四档派型或情绪共鸣／关怀行动分量表。中文为未独立验证的工作译文；有序选项求和与小数不证明等距精度。" : "This value describes Compassion-related self-report, not an empathy percentage, population rank, mind-reading accuracy or work ability. No four-band type or Emotional Resonance/Caring Action subscore is assigned. Chinese is a working translation without independent validation; ordered-category sums and decimals establish no interval precision."}</p>
     </section>
     {quiz.profiles.map(profile => <section key={profile.id} data-compassion-profile={profile.id} aria-labelledby={`compassion-guide-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
-      <h3 id={`compassion-guide-${profile.id}`} className="mb-5 scroll-mt-24 text-2xl font-semibold">{profile.title[locale]}</h3>
+      <h3 id={`compassion-guide-${profile.id}`} className="scroll-mt-24 mb-5 scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
       <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`compassion-report-${profile.id}`} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "打开同理心测试的完整公开读法" : "Open the complete public empathy-test reading"}</Link>
     </section>)}

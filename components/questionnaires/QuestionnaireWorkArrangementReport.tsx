@@ -1,3 +1,4 @@
+import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -16,7 +17,15 @@ export function QuestionnaireWorkArrangementReport({ quiz, result, locale }: {
   locale: Locale;
 }) {
   const zh = locale === "zh";
-  return <div className="my-6 space-y-8" data-work-arrangement-result>
+  return <ResultPage variant="dimensions" className="my-6 space-y-8" data-work-arrangement-result>
+    <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
+      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
+      items={quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return { id: direction.id, label: direction.title[locale], href: `#work-arrangement-${direction.id}`,
+          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
+          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
+      })} />
     <p className="leading-8">{zh
       ? "四组分别显示所选安排的位置均值，数字不表示能力、绩效或与公司的契合。两端都可以是合适安排；中间值可能来自无明确偏好或不同情境中的相反选择，不派主导型。"
       : "The four groups separately show position means for the selected arrangements, not ability, performance or company fit. Either endpoint can be suitable. A middle value can reflect no clear preference or opposing choices across situations; no dominant type is assigned."}</p>
@@ -24,7 +33,7 @@ export function QuestionnaireWorkArrangementReport({ quiz, result, locale }: {
       const score = result.facets[direction.id], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!, pole = anchors[direction.id];
       return <section key={direction.id} className="rounded-lg border border-slate-200 p-4 sm:p-6"
         data-work-arrangement-part={direction.id} aria-labelledby={`work-arrangement-${direction.id}`}>
-        <h3 id={`work-arrangement-${direction.id}`} className="text-xl font-semibold">{direction.title[locale]}</h3>
+        <h3 id={`work-arrangement-${direction.id}`} className="scroll-mt-24 text-xl font-semibold">{direction.title[locale]}</h3>
         <dl className="my-4 grid gap-3 rounded-lg bg-slate-50 p-4 sm:grid-cols-2" aria-label={zh ? "位置两端" : "Position endpoints"}>
           <div><dt className="font-semibold">1.0</dt><dd className="leading-7">{pole.one[locale]}</dd></div>
           <div><dt className="font-semibold">5.0</dt><dd className="leading-7">{pole.five[locale]}</dd></div>
@@ -42,5 +51,5 @@ export function QuestionnaireWorkArrangementReport({ quiz, result, locale }: {
     <p className="leading-8">{zh
       ? "本原创双语反思未建立信度、常模、预测效度或语言等价性，也没有测量任何公司。实际安排仍需看任务要求、许可、参与者、安全与无障碍条件，不按均值决定录用、晋升或是否适合一家公司。"
       : "This original bilingual reflection has no established reliability, norms, predictive validity or language equivalence and does not measure any company. Real arrangements still depend on task requirements, permission, participants, safety and accessibility. Means do not determine hiring, promotion or suitability for a company."}</p>
-  </div>;
+  </ResultPage>;
 }

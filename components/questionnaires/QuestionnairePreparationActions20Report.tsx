@@ -24,7 +24,7 @@ export function QuestionnairePreparationActions20Report({ quiz, result, locale }
       : "The five groups appear in a fixed order and summarize actions you report for one current arrangement. Four numeric selections are required for each raw sum and 0–3 mean (one decimal). These original website action stages are not an official scale, ability rating or employment prediction. There is no overall score, readiness percentage or dominant type."}</p>
     {checked.domains.map((part, index) => <section key={part.id} data-preparation-actions-part={part.id}
       aria-labelledby={`preparation-part-${part.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-5">
-      <h3 id={`preparation-part-${part.id}`} className="text-xl font-semibold">{quiz.directions[index].title[locale]}</h3>
+      <h3 id={`preparation-part-${part.id}`} className="scroll-mt-24 text-xl font-semibold">{quiz.directions[index].title[locale]}</h3>
       <p data-preparation-actions-mean className="mt-3 leading-7">{part.mean === null
         ? (zh ? `本组不显示数值：${part.ratedItems}/4项有数值回答；不补值、不折算。` : `Value withheld: ${part.ratedItems}/4 actions rated. No imputation or rescaling.`)
         : (zh ? `合计 ${part.sum} / 12；均分 ${part.mean.toFixed(1)} / 3（4/4项有数值回答）` : `Sum ${part.sum} / 12; mean ${part.mean.toFixed(1)} / 3 (4/4 actions rated)`)}</p>
@@ -44,7 +44,7 @@ export function QuestionnairePreparationActions20Report({ quiz, result, locale }
       : "Equal or close means can hide different gaps: 3, 3, 0, 0 and 2, 2, 1, 1 both show 1.5. Read individual actions and resource conditions rather than ranking strengths. Not rated is not zero, and a withheld value does not affect other groups. All non-rating choices still finish the attempt and keep all five full guides available."}</p>
     {quiz.profiles.map(profile => <section key={profile.id} data-preparation-actions-guide={profile.id}
       aria-labelledby={`preparation-guide-${profile.id}`}>
-      <h3 id={`preparation-guide-${profile.id}`} className="mb-4 text-2xl font-semibold">{profile.title[locale]}</h3>
+      <h3 id={`preparation-guide-${profile.id}`} className="scroll-mt-24 mb-4 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
       <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`preparation-${profile.id}`} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这份公开完整指南" : "Read this complete public guide"}</Link>
     </section>)}

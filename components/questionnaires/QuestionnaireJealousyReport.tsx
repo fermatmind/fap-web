@@ -1,3 +1,4 @@
+import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -11,7 +12,15 @@ export function QuestionnaireJealousyReport({ quiz, result, locale }: {
   locale: Locale;
 }) {
   const zh = locale === "zh";
-  return <div className="my-6 space-y-8" data-jealousy-reflection-result>
+  return <ResultPage variant="reflection" className="my-6 space-y-8" data-jealousy-reflection-result>
+    <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
+      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
+      items={quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return { id: direction.id, label: direction.title[locale], href: `#jealousy-reflection-${direction.id}`,
+          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
+          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
+      })} />
     <p className="leading-8">{zh
       ? "三组分别描述思维频率、不适强度与行动频率，端点不同，不跨组排名或合成嫉妒总分，不选主导型或临床档位。相近与相同数值保留，不推断伴侣想法或事件真相。"
       : "The three groups separately describe thought frequency, discomfort intensity and action frequency. Their different anchors are not ranked or combined into a jealousy total, dominant type or clinical band. Close and equal numbers remain visible without establishing a partner’s thoughts or the truth of an event."}</p>
@@ -20,7 +29,7 @@ export function QuestionnaireJealousyReport({ quiz, result, locale }: {
       const score = result.facets[direction.id], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
       return <section key={direction.id} className="rounded-lg border border-slate-200 p-4 sm:p-6"
         data-jealousy-reflection-part={direction.id} aria-labelledby={`jealousy-reflection-${direction.id}`}>
-        <h3 id={`jealousy-reflection-${direction.id}`} className="text-xl font-semibold">{direction.title[locale]}</h3>
+        <h3 id={`jealousy-reflection-${direction.id}`} className="scroll-mt-24 text-xl font-semibold">{direction.title[locale]}</h3>
         <p data-jealousy-reflection-score={direction.id} className="my-4 rounded-lg bg-slate-50 p-4 font-semibold">{score.mean === null
           ? (zh ? `资料不足：${score.rated}/6题有数值回答；需要六题完整，不计算本组均分。` : `Insufficient information: ${score.rated}/6 items rated; all six are needed. No mean is calculated for this group.`)
           : (zh ? `${scoreLabel}：${score.mean.toFixed(1)} / 5（6/6题有效）` : `${scoreLabel}: ${score.mean.toFixed(1)} / 5 (6/6 items rated)`)}</p>
@@ -35,5 +44,5 @@ export function QuestionnaireJealousyReport({ quiz, result, locale }: {
     <p className="leading-8">{zh
       ? "本版是费马原创反思，不是MJS原版或经验证短版，没有本地常模、跨语言等价性或关系预测证据。无需联系、调查、查看私密材料或寻求安慰来完成；下一步由你选择。"
       : "This is a FermatMind original reflection, not the original MJS or a validated short form. It has no local norms, established language equivalence or relationship-prediction evidence. No contact, investigation, private-material check or reassurance seeking is required; what comes next is your choice."}</p>
-  </div>;
+  </ResultPage>;
 }

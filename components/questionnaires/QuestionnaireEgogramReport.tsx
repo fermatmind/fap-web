@@ -15,11 +15,11 @@ export function QuestionnaireEgogramReport({ quiz, result, locale }: { quiz: Que
       <dl className="space-y-6">{quiz.directions.map(direction => {
         const facet = result.facets[direction.id], total = facet.rated === 4 ? facet.sum : null, mean = total === null ? null : total / 4;
         return <div key={direction.id} data-ego-facet={direction.id} className="space-y-2">
-          <dt className="font-semibold">{direction.title[locale]}</dt>
+          <dt className="font-semibold">{quiz.profiles.some(profile => profile.directionIds.includes(direction.id)) ? <a className="inline-flex min-h-11 items-center py-2 underline decoration-slate-300 underline-offset-4" href={`#ego-title-${quiz.profiles.find(profile => profile.directionIds.includes(direction.id))!.id}`}>{direction.title[locale]}</a> : direction.title[locale]}</dt>
           <dd className="space-y-2">
             <dl className="space-y-1">
-              <div className="flex flex-wrap justify-between gap-3"><dt>{zh ? "原始总分（4—20）" : "Raw sum (4–20)"}</dt><dd data-ego-total>{total === null ? missing : total}</dd></div>
-              <div className="flex flex-wrap justify-between gap-3"><dt>{zh ? "描述性均分（1—5）" : "Descriptive mean (1–5)"}</dt><dd data-ego-mean>{mean === null ? missing : `${mean.toFixed(2)} / 5`}</dd></div>
+              <div className="grid grid-cols-1 gap-2 border-b border-slate-200 py-3 sm:grid-cols-[minmax(0,1fr)_minmax(7rem,auto)] sm:gap-4 [&>dd]:font-semibold [&>dd]:tabular-nums"><dt>{zh ? "原始总分（4—20）" : "Raw sum (4–20)"}</dt><dd data-ego-total>{total === null ? missing : total}</dd></div>
+              <div className="grid grid-cols-1 gap-2 border-b border-slate-200 py-3 sm:grid-cols-[minmax(0,1fr)_minmax(7rem,auto)] sm:gap-4 [&>dd]:font-semibold [&>dd]:tabular-nums"><dt>{zh ? "描述性均分（1—5）" : "Descriptive mean (1–5)"}</dt><dd data-ego-mean>{mean === null ? missing : `${mean.toFixed(2)} / 5`}</dd></div>
               <div className="text-sm text-slate-600"><dt className="sr-only">{zh ? "本次有效条目" : "Ratings supplied"}</dt><dd data-ego-rated>{zh ? `${facet.rated} / 4条有效频率评分` : `${facet.rated} / 4 rated frequency items`}</dd></div>
             </dl>
             {mean === null ? <p data-ego-insufficient className="text-sm leading-7">{zh ? "本组未生成个人分数，完整说明仍可阅读。" : "No personal score was generated for this group; its full guide remains readable."}</p> : <div aria-hidden="true" data-ego-bar className="h-3 overflow-hidden rounded-full bg-slate-200"><div className="h-full bg-violet-600" style={{ width: `${mean / 5 * 100}%` }} /></div>}
@@ -29,7 +29,7 @@ export function QuestionnaireEgogramReport({ quiz, result, locale }: { quiz: Que
       <p className="text-sm leading-7">{zh ? "均分用未舍入原始总和除4，不从一位小数倒推；NA不补零、中立或从不。柱长只对应1—5回答类别，类别求和和小数不表示测量精度。父母、成人、儿童是框架名称，不指实际年龄、家庭身份、成熟程度或童年原因，也不认证正确判断、关怀效果、创造力或同意。" : "Means divide unrounded raw sums by four, never reconstructed from a one-decimal value; NA is not zero, neutral or never. Bar length represents 1–5 response categories, whose sums and decimals establish no measurement precision. Parent, Adult and Child are framework names, not ages, family identities, maturity or childhood causes, and certify no correct judgment, effective care, creativity or consent."}</p>
     </section>
     {quiz.profiles.map(profile => <section key={profile.id} data-ego-profile={profile.id} aria-labelledby={`ego-title-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
-      <h3 id={`ego-title-${profile.id}`} className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
+      <h3 id={`ego-title-${profile.id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
       <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本组的完整公开说明" : "Read this group’s full public guide"}</Link>
     </section>)}

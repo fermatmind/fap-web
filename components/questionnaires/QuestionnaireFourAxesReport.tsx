@@ -20,7 +20,7 @@ export function QuestionnaireFourAxesReport({ quiz, result, locale, readingProfi
       const value = result.axes[axis.id], profile = quiz.profiles.find(p => p.id === axis.id)!;
       const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === 1 && item.directionIds[0] === axis.id && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
       return <section key={axis.id} data-four-axes-part={axis.id} aria-labelledby={`four-axes-${axis.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
-        <h3 id={`four-axes-${axis.id}`} className="text-2xl font-semibold">{axis.title[locale]}</h3>
+        <h3 id={`four-axes-${axis.id}`} className="scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{axis.title[locale]}</h3>
         <p className="my-3 leading-8">{axis.definition[locale]}</p>
         <div role="img" aria-label={`${axis.low[locale]} ${value.lowPercent.toFixed(1)}%; ${axis.high[locale]} ${value.highPercent.toFixed(1)}%`} className="my-4">
           <div className="flex justify-between gap-4 text-sm leading-7"><span>{axis.low[locale]} {value.lowPercent.toFixed(1)}%</span><span className="text-right">{axis.high[locale]} {value.highPercent.toFixed(1)}%</span></div>

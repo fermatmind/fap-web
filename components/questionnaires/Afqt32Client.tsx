@@ -1,4 +1,5 @@
 "use client";
+import { ResultReadingNav } from "./QuestionnaireResultPresentation";
 import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 
 import Link from "next/link";
@@ -121,14 +122,19 @@ function ValidAfqt32Client({ quiz, locale, readingProfiles }: { quiz: Afqt32Ques
       {stage === "result" && result && <>
         <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading?.[locale]}</h2>
         <p data-afqt32-result-mode className="leading-8">{result.mode === "timed" ? (zh ? "分段计时练习 · 本站选定上限" : "Timed section practice · Site-selected caps") : (zh ? "不计时学习" : "Untimed study")}</p>
+        <dl className="grid grid-cols-3 gap-3 border-y border-teal-200 py-5" aria-label={zh ? "本次题本表现" : "This practice bank’s outcomes"}>
+          {(["correct", "wrong", "unanswered"] as const).map(key => <div key={key} className="min-w-0"><dt className="text-sm leading-6 text-slate-600">{key === "correct" ? (zh ? "正确" : "Correct") : key === "wrong" ? (zh ? "错误" : "Incorrect") : (zh ? "未答" : "Unanswered")}</dt><dd className={`mt-2 text-3xl font-semibold tabular-nums ${key === "correct" ? "text-teal-800" : "text-slate-800"}`}>{result.overall[key]}<span className="ml-1 text-sm font-normal text-slate-500">/ {result.overall.total}</span></dd></div>)}
+        </dl>
         <p data-afqt32-overall className="rounded-lg bg-violet-50 p-4 leading-8">{counts(result.overall)}</p>
         <p className="leading-8">{zh ? "以上仅为本题本原始记录，不是AFQT成绩、百分位、通过或资格判定。各部分难度未等值，不按最低正确数判定弱项。全部题目与解析如下免费可读。" : "These are raw records on this bank, not an AFQT score, percentile, pass or qualification decision. Parts are not equated; the lowest count does not diagnose a weakness. Every question and explanation is free below."}</p>
+        <ResultReadingNav label={zh ? "分段表现与答案解析" : "Section outcomes and answer review"} sections={result.parts.map((part, index) => ({ id: `afqt32-reading-${part.id}`, title: quiz.afqt32.sections[index].title[locale] }))} />
         <div data-afqt32-result className="space-y-6">{result.parts.map((part, i) => {
           const profile = quiz.profiles[i];
           const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === 1 && item.directionIds[0] === part.id && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
           return <section key={part.id} data-afqt32-part={part.id} className="rounded-lg border border-slate-200 p-4 sm:p-6">
-            <h3 className="scroll-mt-24 text-xl font-semibold">{quiz.afqt32.sections[i].title[locale]}</h3>
+            <h3 id={`afqt32-reading-${part.id}`} className="scroll-mt-24 text-xl font-semibold">{quiz.afqt32.sections[i].title[locale]}</h3>
             <p data-afqt32-count className="my-3 leading-8">{counts(part)}</p><p data-afqt32-closure className="my-3 leading-7">{part.reason === "expired" ? (zh ? "到时结束；空白仍为未答。" : "Closed at the deadline; blanks remain unanswered.") : (zh ? "主动结束本部分。" : "You finished this part.")}</p>
+            <div className="my-4 flex h-2 overflow-hidden rounded-full bg-slate-100" aria-hidden="true"><span className="bg-teal-600" style={{ width: `${part.correct / part.total * 100}%` }} /><span className="bg-rose-300" style={{ width: `${part.wrong / part.total * 100}%` }} /><span className="bg-slate-300" style={{ width: `${part.unanswered / part.total * 100}%` }} /></div>
             <details data-afqt32-review className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "查看八题答案与双语解析" : "Review all eight answers and explanations"}</summary><ol className="my-4 space-y-6">{quiz.questions.slice(i * 8, i * 8 + 8).map(q => {
               const item = result.items.find(x => x.id === q.id)!, selected = q.options.find(o => o.id === item.selectedOptionId), key = q.options.find(o => o.id === item.correctOptionId)!;
               return <li key={q.id} data-afqt32-review-item={q.id} className="rounded-lg bg-slate-50 p-3 leading-8"><p lang="en" className="whitespace-pre-line">{q.prompt.en}</p><p className="mt-3">{zh ? "你的选择：" : "Your choice: "}{selected ? <span lang="en">{selected.id} — {selected.label.en}</span> : (zh ? "未答" : "Unanswered")}</p><p>{zh ? "正确答案：" : "Correct answer: "}<span lang="en">{key.id} — {key.label.en}</span></p><p className="mt-3">{q.explanation![locale]}</p></li>;

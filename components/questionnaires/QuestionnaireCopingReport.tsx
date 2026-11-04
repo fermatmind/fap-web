@@ -14,7 +14,7 @@ export function QuestionnaireCopingReport({ quiz, result, locale, readingProfile
       const profile = quiz.profiles.find(p => p.id === pair.profileId)!;
       const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === 2 && item.directionIds.every((id, index) => id === profile.directionIds[index]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
       return <section key={pair.id} data-coping-pair={pair.id} aria-labelledby={`coping-${pair.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
-        <h3 id={`coping-${pair.id}`} className="text-2xl font-semibold">{profile.title[locale]}</h3>
+        <h3 id={`coping-${pair.id}`} className="scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
         <dl className="my-4 space-y-3" aria-label={zh ? "本组原始选择次数" : "Raw choices within this group"}>
           {profile.directionIds.map(id => <div key={id} data-coping-pole={id}>
             <dt>{quiz.directions.find(d => d.id === id)!.title[locale]}</dt>

@@ -19,10 +19,10 @@ export function QuestionnairePairedDimensionsReport({ quiz, result, locale }: { 
     {result.pairedDimensions.map(axis => {
       const dimension = quiz.pairedDimensions!.find(d => d.id === axis.id)!, profile = quiz.profiles.find(p => p.id === axis.profileId)!;
       return <section key={axis.id} aria-labelledby={`paired-title-${axis.id}`} data-paired-dimension={axis.id} className="rounded-lg border border-slate-200 p-4 sm:p-6">
-        <h3 id={`paired-title-${axis.id}`} className="text-xl font-semibold">{dimension.title[locale]}</h3>
+        <h3 id={`paired-title-${axis.id}`} className="scroll-mt-24 text-xl font-semibold">{dimension.title[locale]}</h3>
         <dl className="my-4 space-y-3" aria-label={zh ? "本维度原始选择次数" : "Raw choice counts for this dimension"}>{dimension.poleIds.map(id => <div key={id} data-paired-pole={id}><dt>{quiz.directions.find(d => d.id === id)!.title[locale]}</dt><dd className="font-semibold">{axis.counts[id]} / 12</dd></div>)}</dl>
         <p className="mb-5 leading-8">{axis.leaders.length === 2 ? (zh ? "两侧各6次，保留并列；次数不能确定原因或现实中的优先安排。" : "Six choices on each side: the tie remains. Counts cannot establish its cause or a real-life priority.") : (zh ? "下面说明本维度次数较多的一侧；这是本题组内比较，不是固定身份或另一侧的缺陷。" : "The explanation below concerns the side selected more often on this dimension, a comparison within this bank rather than a fixed identity or deficit in the other side.")}</p>
-        <h3 className="mb-4 text-2xl font-semibold">{profile.title[locale]}</h3>
+        <h3 className="mb-4 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
         <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`paired-report-${axis.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本维度的公开说明" : "Read this dimension’s public explanation"}</Link>
       </section>;

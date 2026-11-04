@@ -1,3 +1,4 @@
+import { ResultReadingNav } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import type { Locale } from "@/lib/i18n/locales";
@@ -11,11 +12,12 @@ import { Tipi10Attribution } from "./Tipi10Attribution";
 export function Tipi10Report({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<Tipi10Result, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh";
   return <div data-tipi10-result className="mt-6 space-y-8">
+    {quiz.directions.length > 1 && <ResultReadingNav label={zh ? "按主题阅读结果" : "Read results by topic"} sections={quiz.directions.map(direction => ({ id: `tipi-title-${direction.id}`, title: direction.title[locale] }))} />}
     <p className="leading-8">{zh ? "十题均有效。以下为五项独立原始两题均值，范围1至7。不合总分、不设百分位或类型；4是选项中点，不是人群平均。每对都保留原回答与计分值，五篇完整读法均可阅读。" : "All ten responses are valid. These are five separate raw two-item means, ranging from 1 to 7, without a combined total, percentile or type. Four is the response midpoint, not a population average. Each pair retains its original and keyed values, and all five complete guides remain available."}</p>
     {quiz.directions.map(direction => {
       const score = result.tipi10[direction.id as TipiDomain], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
       return <section key={direction.id} className="rounded-lg border border-slate-200 p-4 sm:p-6" aria-labelledby={`tipi-title-${direction.id}`}>
-        <h3 id={`tipi-title-${direction.id}`} className="text-2xl font-semibold">{direction.title[locale]}</h3>
+        <h3 id={`tipi-title-${direction.id}`} className="scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{direction.title[locale]}</h3>
         <p data-tipi10-mean={direction.id} className="my-4 rounded-lg bg-slate-50 p-4 text-xl font-semibold">{zh ? "两题均值" : "Two-item mean"}: {score.mean.toFixed(2)} / 7</p>
         <ul className="mb-5 space-y-3 leading-7">{score.items.map(item => {
           const q = quiz.questions.find(q => q.id === item.id)!;

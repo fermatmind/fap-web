@@ -1,3 +1,4 @@
+import { ResultSection, ResultReadingNav, ResultScoreRow } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
@@ -9,10 +10,17 @@ export function DatingOutlookReport({ quiz, result, locale }: { quiz: Questionna
   const zh = locale === "zh";
   return <div data-dating-outlook-report className="mt-6 space-y-8">
     <p className="leading-8">{zh ? "四项分别记录自己当前的恋爱信念认同程度。每项四条，至少三条数字才显示均值；3是中立，未评分不当中立或零分。各项可以同时高、低或相同，不相减、不合总分、不找主要心态。条形只定位原始1至5，不是匹配率、成功率或人群排名。" : "Four parts separately record agreement with your current dating beliefs. Each has four statements and needs three numeric ratings for a mean. Three is neutral; unscored answers are neither neutral nor zero. Parts can all be high, low or equal, without subtraction, a total or a main outlook. Bars locate the raw 1–5 mean, not compatibility, success probability or population rank."}</p>
+    <ResultSection title={zh ? "四项恋爱信念概览" : "Your four dating-belief readings"}>
+      <div className="grid gap-x-8 sm:grid-cols-2">{quiz.directions.map(direction => {
+        const part = result.facets[direction.id];
+        return <ResultScoreRow key={direction.id} label={direction.title[locale]} value={part.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${part.mean.toFixed(1)} / 5`} score={part.mean} min={1} max={5} description={zh ? `原始认同均值 · 1–5；${part.rated}/${part.total}条有效` : `Raw agreement mean · 1–5; ${part.rated}/${part.total} rated`} />;
+      })}</div>
+    </ResultSection>
+    <ResultReadingNav label={zh ? "逐项完整解读" : "Full readings by topic"} sections={quiz.directions.map(direction => ({ id: `dating-outlook-${direction.id}`, title: direction.title[locale] }))} />
     {quiz.directions.map(direction => {
       const part = result.facets[direction.id], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
-      return <section key={direction.id} data-dating-outlook-part={direction.id} aria-labelledby={`dating-outlook-${direction.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
-        <h3 id={`dating-outlook-${direction.id}`} className="text-2xl font-semibold">{direction.title[locale]}</h3>
+      return <section key={direction.id} data-dating-outlook-part={direction.id} aria-labelledby={`dating-outlook-${direction.id}`} className="border-t border-slate-200 pt-7">
+        <h3 id={`dating-outlook-${direction.id}`} className="scroll-mt-24 text-2xl font-semibold">{direction.title[locale]}</h3>
         <p data-dating-outlook-mean={direction.id} className="my-4 rounded-lg bg-slate-50 p-4 font-semibold">{part.mean === null
           ? (zh ? `资料不足：${part.rated}/4条有效，至少需3条；不显示个人均值或条形。` : `Insufficient information: ${part.rated}/4 rated, at least 3 needed; no personal mean or bar.`)
           : (zh ? `原始和 ${part.sum}，${part.rated}/4条有效，认同均值 ${part.mean.toFixed(1)} / 5` : `Raw sum ${part.sum}; ${part.rated}/4 rated; agreement mean ${part.mean.toFixed(1)} / 5`)}</p>

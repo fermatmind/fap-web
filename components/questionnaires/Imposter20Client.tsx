@@ -1,4 +1,5 @@
 "use client";
+import { ResultSection, ResultReadingNav, ResultScoreRow } from "./QuestionnaireResultPresentation";
 import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 
 import Link from "next/link";
@@ -74,6 +75,13 @@ function ValidImposter20Client({ quiz, locale, readingProfiles }: { quiz: Impost
       {stage === "result" && result && <>
         <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading?.[locale]}</h2>
         <p className="leading-8">{zh ? "20项均已作明确选择，包括跳过项。五组分开显示，不合成总分，不选主导类型，也不作诊断。均分只描述本次答案的频率，不能证明实际能力或比较各组严重程度。" : "All 20 statements have an explicit choice, including skips. The five topics are shown separately, without a total, dominant type or diagnosis. Means describe these responses, not actual ability or comparable severity across topics."}</p>
+        <ResultSection title={zh ? "本次各组读数" : "Readings by topic"}>
+          <div className="grid gap-x-8 sm:grid-cols-2">{IMPOSTER20_TOPICS.map(id => {
+            const score = result[id];
+            return <ResultScoreRow key={id} label={quiz.profiles.find(profile => profile.id === id)!.title[locale]} value={score.mean === null ? (zh ? "未计分" : "Unscored") : `${score.mean.toFixed(2)} / 4`} score={score.mean} min={0} max={4} description={zh ? `原始均分范围0–4；${score.numericCount}/${score.requiredCount}条数字答案` : `Raw mean range 0–4; ${score.numericCount}/${score.requiredCount} numeric responses`} />;
+          })}</div>
+        </ResultSection>
+        <ResultReadingNav label={zh ? "各组记录与完整读法" : "Topic records and full readings"} sections={IMPOSTER20_TOPICS.map(id => ({ id: `imposter20-${id}`, title: quiz.profiles.find(profile => profile.id === id)!.title[locale] }))} />
         <div data-imposter20-result className="space-y-6">{IMPOSTER20_TOPICS.map(id => {
           const score = result[id], profile = quiz.profiles.find(p => p.id === id)!;
           const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === 1 && item.directionIds[0] === id && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;

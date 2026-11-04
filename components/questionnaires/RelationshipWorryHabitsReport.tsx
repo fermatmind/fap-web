@@ -1,3 +1,4 @@
+import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
@@ -7,12 +8,20 @@ import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 export function RelationshipWorryHabitsReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh";
-  return <div data-relationship-worry-habits-report className="mt-6 space-y-8">
+  return <ResultPage variant="reflection" data-relationship-worry-habits-report className="mt-6 space-y-8">
+    <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
+      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
+      items={quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return { id: direction.id, label: direction.title[locale], href: `#relationship-worry-habits-${direction.id}`,
+          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
+          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
+      })} />
     <p className="leading-8">{zh ? "四项分别记录过去三个月自己一侧的反应。每项四条，至少三条数字才显示均值；3是有时，未评分不当零分。各项可同时高、低或相同，不合总分、不找主要类型，也不划沉重等级。较低不证明平静。条形只定位原始1至5，不是百分比、爱意或严重程度。" : "Four parts separately record your own responses over the past three months. Each has four prompts and needs three numeric ratings for a mean. Three means sometimes; unscored answers are not zero. Parts can all be high, low or equal, without a total, main type or heaviness level. Lower values do not establish calmness. Bars locate the raw 1–5 mean, not a percentage, amount of love or severity."}</p>
     {quiz.directions.map(direction => {
       const part = result.facets[direction.id], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
       return <section key={direction.id} data-relationship-worry-habits-part={direction.id} aria-labelledby={`relationship-worry-habits-${direction.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
-        <h3 id={`relationship-worry-habits-${direction.id}`} className="text-2xl font-semibold">{direction.title[locale]}</h3>
+        <h3 id={`relationship-worry-habits-${direction.id}`} className="scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{direction.title[locale]}</h3>
         <p data-relationship-worry-habits-mean={direction.id} className="my-4 rounded-lg bg-slate-50 p-4 font-semibold">{part.mean === null
           ? (zh ? `资料不足：${part.rated}/4条有效，至少需3条；不显示个人均值或条形。` : `Insufficient information: ${part.rated}/4 rated, at least 3 needed; no personal mean or bar.`)
           : (zh ? `原始和 ${part.sum}，${part.rated}/4条有效，频率均值 ${part.mean.toFixed(1)} / 5` : `Raw sum ${part.sum}; ${part.rated}/4 rated; frequency mean ${part.mean.toFixed(1)} / 5`)}</p>
@@ -23,7 +32,7 @@ export function RelationshipWorryHabitsReport({ quiz, result, locale }: { quiz: 
       </section>;
     })}
     <p className="text-sm leading-7">{zh ? "题目和读法为费马原创，尚未建立信效度、常模或跨语言等价。不识别menhera身份、依恋类型、心理健康状况或伴侣的在意程度，不决定是否继续关系。结果不要求披露、联系、监控或获得别人更多回应。" : "FermatMind authored these prompts and readings; reliability, validity, norms and language equivalence have not been established. They identify no menhera identity, attachment type, mental health condition or level of a partner’s care, and decide no relationship outcome. No disclosure, contact, monitoring or additional response from someone else is required."}</p>
-  </div>;
+  </ResultPage>;
 }
 
 export function RelationshipWorryHabitsNextSteps({ locale }: { locale: Locale }) {

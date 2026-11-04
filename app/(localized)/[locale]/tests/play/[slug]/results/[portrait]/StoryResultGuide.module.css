@@ -1,0 +1,28 @@
+.page { --guide-accent: #715175; --guide-tint: #f6f1f7; padding: 36px 0 64px; background: #faf9fc; color: #302b36; overflow-wrap: anywhere; }
+.container { max-width: 960px; }
+.hero { padding: 32px; border-radius: 24px; background: var(--guide-tint); }
+.eyebrow { margin: 0 0 12px; color: var(--guide-accent); font-size: 13px; font-weight: 650; }
+.title { margin: 0; font-size: clamp(30px, 4vw, 44px); line-height: 1.3; font-weight: 700; text-wrap: balance; }
+.context { max-width: 72ch; margin-top: 20px; color: #655e6d; font-size: 15px; line-height: 1.9; }
+.entry { display: inline-flex; align-items: center; min-height: 44px; margin-top: 16px; color: var(--guide-accent); font-weight: 650; text-decoration: underline; text-underline-offset: 4px; }
+.navigation { display: flex; flex-wrap: wrap; gap: 0 24px; margin: 24px 0; padding-block: 12px; border-block: 1px solid #e5dfe8; color: var(--guide-accent); font-size: 14px; }
+.reading { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 36px; padding: 32px; background: #fff; border-radius: 24px; line-height: 1.9; }
+.reading > section { min-width: 0; grid-column: 1 / -1; padding-block: 28px; border-top: 1px solid #e8e3eb; }
+.reading > section:first-child { border: 0; padding-top: 0; }
+.reading h2 { font-size: clamp(20px, 2.4vw, 26px); line-height: 1.5; color: #44394a; }
+.reading p { max-width: 76ch; }
+.reading > :global(#meaning) > p { color: #504656; font-size: 18px; }
+.reading > :global(#strength), .reading > :global(#tradeoff) { grid-column: span 1; }
+.reading > :global(#experiment) { padding: 24px; border: 0; border-radius: 16px; background: #eef5ef; color: #405e4a; }
+.reading > :global(#experiment) h2 { color: #36533e; }
+.reading > :global(#comparison) { margin-top: 28px; }
+.reading > :global(#comparison) dl > div { padding-bottom: 16px; border-bottom: 1px solid #eee9f0; }
+.reading > :global(#rules), .reading > :global(#faq) { color: #625c69; font-size: 14px; }
+.reading > :global(#rules) h2, .reading > :global(#faq) h2 { font-size: 21px; }
+.reading details > summary { min-height: 44px; display: flex; align-items: center; gap: 12px; }
+.page a:focus-visible, .page summary:focus-visible { outline: 3px solid var(--guide-accent); outline-offset: 4px; border-radius: 3px; }
+.page[data-story-guide="branch"] { --guide-accent: #795638; --guide-tint: #f5eee3; background: #faf8f3; }
+.page[data-story-guide="branch"] .hero { border-left: 4px solid #a4815b; border-radius: 4px 24px 24px 4px; }
+.page[data-story-guide="branch"] .title { font-family: Georgia, "Noto Serif SC", serif; font-weight: 500; color: #51402e; }
+.page[data-story-guide="branch"] .reading { border-radius: 4px; background: #fffdfa; }
+@media (max-width: 640px) { .page { padding-block: 24px 48px; } .hero, .reading { padding: 24px 20px; border-radius: 20px; } .reading { display: block; } .reading > section { padding-block: 24px; } .navigation { gap: 0 20px; } .reading > :global(#meaning) > p { font-size: 17px; } .reading > :global(#experiment) { padding: 20px; } }

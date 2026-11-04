@@ -12,7 +12,7 @@ export function QuestionnaireCulturalDimensionsReport({ quiz, result, answers, l
     {quiz.directions.map(direction => {
       const score = result.facets[direction.id], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
       return <section key={direction.id} className="rounded-lg border border-slate-200 p-4 sm:p-6" data-cultural-full={direction.id}>
-        <h3 className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
+        <h3 className="mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
         <dl className="mb-5 grid gap-5 rounded-lg bg-slate-50 p-4 sm:grid-cols-3">
           <div><dt>{zh ? "数字贡献之和" : "Sum of numeric contributions"}</dt><dd className="mt-1 font-semibold" data-cultural-sum={direction.id}>{score.rated ? score.sum : "—"}</dd></div>
           <div><dt>{zh ? "数字条数／全部条目" : "Numeric responses / all statements"}</dt><dd className="mt-1 font-semibold" data-cultural-coverage={direction.id}>{score.rated} / 6</dd></div>

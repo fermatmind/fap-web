@@ -1,3 +1,4 @@
+import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import type { QuestionnaireProfile } from "@/lib/questionnaires/types";
@@ -12,7 +13,15 @@ export function QuestionnaireIntimacyReport({ quiz, result, locale, readingProfi
   quiz: MiniIntimacyQuestionnaire; result: Complete; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[];
 }) {
   const zh = locale === "zh";
-  return <div data-intimacy-result className="my-6 space-y-8">
+  return <ResultPage variant="reflection" data-intimacy-result className="my-6 space-y-8">
+    <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
+      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
+      items={quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return { id: direction.id, label: direction.title[locale], href: `#intimacy-${direction.id}`,
+          value: score.mean !== null ? `${score.mean.toFixed(4)} / 5` : (zh ? "资料不足" : "Insufficient information"),
+          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
+      })} />
     <p className="leading-8">{zh
       ? "四部分分别读，不合总分、不排名、不指定亲密类型。均分只摘要六次数值选择，不衡量情感成熟、接触需求、陪伴比例或关系公开程度；同样的均分也可能来自不同答案。3是有效的不确定或视情况，不计分不补零。"
       : "Read the four parts separately, without an overall total, ranking or assigned intimacy type. Each mean summarizes six numeric choices, not emotional maturity, a need for contact, a time-allocation ratio or relationship publicity. Different answers can produce the same mean. A 3 is a valid uncertain or depends response; unscored is not zero."}</p>
@@ -25,7 +34,7 @@ export function QuestionnaireIntimacyReport({ quiz, result, locale, readingProfi
       const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds[0] === direction.id && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
       return <section key={direction.id} data-intimacy-part={direction.id}
         className="rounded-lg border border-slate-200 p-4 sm:p-6" aria-labelledby={`intimacy-${direction.id}`}>
-        <h3 id={`intimacy-${direction.id}`} className="text-2xl font-semibold">{direction.title[locale]}</h3>
+        <h3 id={`intimacy-${direction.id}`} className="scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{direction.title[locale]}</h3>
         <p data-intimacy-mean className="my-4 rounded-lg bg-slate-50 p-4 font-semibold">{score.mean === null
           ? (zh ? `资料不足：${score.rated} / 6项有数值回答，需要完整六项。` : `Insufficient information: ${score.rated} / 6 items rated; all six are required.`)
           : (zh ? `均分：${score.mean.toFixed(4)} / 5（${score.sum} ÷ 6，显示至四位小数）` : `Mean: ${score.mean.toFixed(4)} / 5 (${score.sum} ÷ 6, rounded to four decimals)`)}</p>
@@ -47,5 +56,5 @@ export function QuestionnaireIntimacyReport({ quiz, result, locale, readingProfi
         : "You may privately note one arrangement you want now, one condition to confirm first and one way to pause. For example, ask whether there is capacity to listen tonight before deciding to talk. You can skip this exercise. Sharing answers, contacting someone or persuading anyone is not required."}</p>
       <Link prefetch={false} className="mt-4 inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试" : "Back to all tests"}</Link>
     </section>
-  </div>;
+  </ResultPage>;
 }

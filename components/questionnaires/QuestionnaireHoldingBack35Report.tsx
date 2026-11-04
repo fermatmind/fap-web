@@ -17,7 +17,7 @@ export function QuestionnaireHoldingBack35Report({ quiz, result, locale }: {
     <div className="grid gap-4 sm:grid-cols-2">
       {result.holdingBack35.domains.map(part => <section data-holding-back35-part={part.domainId} key={part.domainId}
         aria-labelledby={`holding-back35-part-${part.domainId}`} className="rounded-lg border border-slate-200 p-4 sm:p-5">
-        <h3 id={`holding-back35-part-${part.domainId}`} className="text-xl font-semibold">{quiz.directions.find(d => d.id === part.domainId)!.title[locale]}</h3>
+        <h3 id={`holding-back35-part-${part.domainId}`} className="scroll-mt-24 text-xl font-semibold">{quiz.directions.find(d => d.id === part.domainId)!.title[locale]}</h3>
         <p data-holding-back35-mean className="mt-3 leading-7">{part.mean === null
           ? (zh ? `资料不足：${part.numericCount}/5题有数值回答，暂不给本项均分。` : `Insufficient information: ${part.numericCount}/5 items rated. No mean for this topic.`)
           : (zh ? `${part.mean.toFixed(1)} / 5（5/5题有数值回答）` : `${part.mean.toFixed(1)} / 5 (5/5 items rated)`)}</p>
@@ -28,7 +28,7 @@ export function QuestionnaireHoldingBack35Report({ quiz, result, locale }: {
       : "Unscored choices are never zero, Never or imputed answers. An unavailable mean does not affect complete topics. Even with all choices unscored, this attempt is finished and all seven guides remain available. Imagined scenarios covers everyday absorption displacing an intended activity, a narrower scope than the research construct. This is not the IPRS instrument and does not inherit its validation."}</p>
     {quiz.profiles.map(profile => <section data-holding-back35-guide={profile.id} key={profile.id}
       aria-labelledby={`holding-back35-guide-${profile.id}`}>
-      <h3 id={`holding-back35-guide-${profile.id}`} className="mb-4 text-2xl font-semibold">{profile.title[locale]}</h3>
+      <h3 id={`holding-back35-guide-${profile.id}`} className="scroll-mt-24 mb-4 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
       <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`holding-back35-${profile.id}`} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline"
         href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这份公开完整指南" : "Read this complete public guide"}</Link>

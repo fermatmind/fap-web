@@ -21,7 +21,7 @@ export function QuestionnairePoliticalCoordinatesReport({ quiz, result, locale }
       {(["economic", "social"] as PoliticalCoordinateAxis[]).map(axis => {
         const score = result.politicalCoordinates[axis], available = score.difference !== null;
         return <section key={axis} data-political-axis={axis} aria-labelledby={`political-axis-${axis}`} className="rounded-xl border border-slate-200 bg-white p-5">
-          <h3 id={`political-axis-${axis}`} className="text-xl font-semibold">{axis === "economic" ? (zh ? "经济左—右" : "Economic left–right") : (zh ? "共同体—个人自由" : "Communitarian–liberal")}</h3>
+          <h3 id={`political-axis-${axis}`} className="scroll-mt-24 text-xl font-semibold">{axis === "economic" ? (zh ? "经济左—右" : "Economic left–right") : (zh ? "共同体—个人自由" : "Communitarian–liberal")}</h3>
           <dl className="mt-4 space-y-3">
             <div className="flex flex-wrap justify-between gap-2"><dt>{endpoints[axis][0]}</dt><dd data-political-negative>{available ? score.negativeCount : missing}</dd></div>
             <div className="flex flex-wrap justify-between gap-2"><dt>{endpoints[axis][1]}</dt><dd data-political-positive>{available ? score.positiveCount : missing}</dd></div>
@@ -34,7 +34,7 @@ export function QuestionnairePoliticalCoordinatesReport({ quiz, result, locale }
       })}
     </div>
     <section aria-labelledby="political-point-title" className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
-      <h3 id="political-point-title" className="text-2xl font-semibold">{zh ? "本题本的两轴位置" : "Two-axis position in this bank"}</h3>
+      <h3 id="political-point-title" className="text-xl font-semibold leading-snug sm:text-2xl">{zh ? "本题本的两轴位置" : "Two-axis position in this bank"}</h3>
       {pointAvailable ? <>
         <p data-political-point className="my-4 font-semibold">{zh ? `原始坐标（x，y）＝（${signed(x)}，${signed(y)}）` : `Raw coordinates (x, y) = (${signed(x)}, ${signed(y)})`}</p>
         <div role="img" aria-label={zh ? `经济x ${signed(x)}，社会y ${signed(y)}。正方向分别为经济右向及个人自由优先。` : `Economic x ${signed(x)}, social y ${signed(y)}. Positive directions are economic right and social liberal.`} className="mx-auto max-w-md py-4 text-center text-xs leading-6 sm:text-sm">
@@ -51,7 +51,7 @@ export function QuestionnairePoliticalCoordinatesReport({ quiz, result, locale }
       <p className="mt-4 text-sm leading-7 text-slate-600">{zh ? "正号和图上方向只是约定，不代表好坏；原始次数不是百分比、重要程度或人口距离。新版原创题、双语表述与计数规则没有心理测量或跨文化等价验证，不提供政党、人物位置或政治劝服。" : "Positive signs and drawing directions are conventions, not approval. Raw counts are not percentages, personal importance or distances within a population. The new original items, bilingual wording and count rule lack established psychometric or cross-cultural equivalence validation. No party, politician placement or political persuasion is provided."}</p>
     </section>
     {quiz.profiles.map(profile => <section key={profile.id} data-political-guide={profile.id} aria-labelledby={`political-guide-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
-      <h3 id={`political-guide-${profile.id}`} className="mb-4 text-2xl font-semibold">{profile.title[locale]}</h3>
+      <h3 id={`political-guide-${profile.id}`} className="scroll-mt-24 mb-4 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
       <p className="mb-5 text-sm leading-7 text-slate-600">{zh ? "完整通用比较，始终可读；不是派给你的身份或私人答案。" : "A complete general comparison, always available; not an assigned identity or private answer record."}</p>
       <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`political-report-${profile.id}`} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这份完整公开说明" : "Read this complete public guide"}</Link>

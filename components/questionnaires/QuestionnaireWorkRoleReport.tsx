@@ -1,3 +1,4 @@
+import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { workRoleLabels, workRoleStates, type WorkRoleResult } from "@/lib/questionnaires/workRole12";
@@ -12,7 +13,11 @@ export function QuestionnaireWorkRoleReport({ quiz, result, locale, readingProfi
   readingProfiles?: Questionnaire["profiles"];
 }) {
   const zh = locale === "zh";
-  return <div className="my-6 space-y-8" data-work-role-result>
+  return <ResultPage variant="reflection" className="my-6 space-y-8" data-work-role-result>
+    <ResultOverview locale={locale} title={zh ? "任务参与情境概览" : "Task participation contexts"}
+      description={zh ? "保留四种参与情境，不转换职业等级或能力分数。点击主题可核对逐项实例状态。" : "Four participation contexts, without career tiers or ability scores. Select a topic to review its item-level example states."}
+      items={result.workRole.map(part => ({ id: part.id, label: quiz.directions.find(direction => direction.id === part.id)!.title[locale], href: `#work-role-${part.id}`,
+        note: workRoleStates.map(state => `${workRoleLabels[state][locale]} ${part.counts[state]}`).join(" · ") }))} />
     <p className="leading-8">{zh
       ? "以下记录你为选定角色近12周的具体实例选择的参与方式，不核实表现质量。逐步指导、按检查点承担、支持他人是不同情境，不是初级、中级或专家等级；支持他人的人也可能在其他任务上需要指导。"
       : "These records show the participation context you selected for concrete instances in one role during the past twelve weeks, without verifying performance quality. Step-by-step guidance, task ownership and supporting another person are different contexts, not beginner, intermediate or expert levels. A person supporting others may need guidance on other tasks."}</p>
@@ -21,7 +26,7 @@ export function QuestionnaireWorkRoleReport({ quiz, result, locale, readingProfi
       const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
       return <section key={part.id} data-work-role-part={part.id} aria-labelledby={`work-role-${part.id}`}
         className="rounded-lg border border-slate-200 p-4 sm:p-6">
-        <h3 id={`work-role-${part.id}`} className="text-xl font-semibold">{direction.title[locale]}</h3>
+        <h3 id={`work-role-${part.id}`} className="scroll-mt-24 text-xl font-semibold">{direction.title[locale]}</h3>
         <dl className="my-5 grid grid-cols-1 gap-3 sm:grid-cols-2" aria-label={zh ? "四项任务的情境计数" : "Context counts for four tasks"}>
           {workRoleStates.map(state => <div key={state} className="rounded-lg bg-slate-50 p-3">
             <dt className="text-sm leading-6">{workRoleLabels[state][locale]}</dt>
@@ -42,7 +47,7 @@ export function QuestionnaireWorkRoleReport({ quiz, result, locale, readingProfi
           href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本组完整公开指南" : "Read this group’s full public guide"}</Link>
       </section>;
     })}
-  </div>;
+  </ResultPage>;
 }
 
 export function QuestionnaireWorkRoleNextSteps({ locale }: { locale: Locale }) {

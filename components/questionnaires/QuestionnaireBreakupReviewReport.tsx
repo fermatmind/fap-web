@@ -1,3 +1,4 @@
+import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -11,7 +12,15 @@ export function QuestionnaireBreakupReviewReport({ quiz, result, locale, reading
   quiz: Questionnaire; result: Complete; locale: Locale; readingProfiles?: Questionnaire["profiles"];
 }) {
   const zh = locale === "zh";
-  return <div data-breakup-review-result className="my-6 space-y-8">
+  return <ResultPage variant="reflection" data-breakup-review-result className="my-6 space-y-8">
+    <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
+      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
+      items={quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return { id: direction.id, label: direction.title[locale], href: `#breakup-review-${direction.id}`,
+          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
+          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
+      })} />
     <p className="leading-8">{zh
       ? "四组记录分别阅读，不合总分、不排名、不指定主要分手原因。它们只摘要你对一段已结束关系的回顾，不分配责任，不决定复合、伴侣适配或下一段关系。原数值中点3表示不确定或视情况，不是中等严重程度；网页新增不计分选项不补零。"
       : "Read four separate records without an overall total, ranking or main-cause verdict. They summarise your recollection of one relationship that ended, without assigning responsibility, deciding reconciliation or predicting compatibility or another relationship. The original numeric midpoint 3 means uncertain or depends on the situation, not moderate severity. The website’s added unscored choice is not filled with zero."}</p>
@@ -27,7 +36,7 @@ export function QuestionnaireBreakupReviewReport({ quiz, result, locale, reading
       const mean = score.mean;
       return <section key={direction.id} data-breakup-review-part={direction.id}
         className="rounded-lg border border-slate-200 p-4 sm:p-6" aria-labelledby={`breakup-review-${direction.id}`}>
-        <h3 id={`breakup-review-${direction.id}`} className="text-2xl font-semibold">{direction.title[locale]}</h3>
+        <h3 id={`breakup-review-${direction.id}`} className="scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{direction.title[locale]}</h3>
         <p data-breakup-review-mean className="my-4 rounded-lg bg-slate-50 p-4 font-semibold">{mean === null
           ? (zh ? `资料不足：${score.rated} / 6项有数值回答，需要完整六项。` : `Insufficient information: ${score.rated} / 6 items rated; all six are required.`)
           : (zh ? `均分：${mean.toFixed(4)} / 5（${score.sum} ÷ 6，显示至四位小数）` : `Mean: ${mean.toFixed(4)} / 5 (${score.sum} ÷ 6, rounded to four decimals)`)}</p>
@@ -42,7 +51,7 @@ export function QuestionnaireBreakupReviewReport({ quiz, result, locale, reading
           href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本组完整公开指南" : "Read this group’s complete public guide"}</Link>
       </section>;
     })}
-  </div>;
+  </ResultPage>;
 }
 
 export function QuestionnaireBreakupReviewNextSteps({ result, locale }: { result: Complete; locale: Locale }) {

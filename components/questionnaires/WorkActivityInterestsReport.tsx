@@ -1,3 +1,4 @@
+import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import type { Locale } from "@/lib/i18n/locales";
@@ -25,7 +26,15 @@ export function WorkActivityInterestsReport({ quiz, result, locale }: {
   locale: Locale;
 }) {
   const zh = locale === "zh";
-  return <div className="mt-6 space-y-8" data-work-activity-report>
+  return <ResultPage variant="dimensions" className="mt-6 space-y-8" data-work-activity-report>
+    <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
+      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
+      items={quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return { id: direction.id, label: direction.title[locale], href: `#work-activity-${direction.id}`,
+          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
+          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
+      })} />
     <p className="leading-8">{zh
       ? "六组分别汇总对所列具体活动的兴趣，固定顺序显示，不跨组排名。每组十项至少八条数字才有一位小数均分；3是有效中立，未评分保持缺失。原始和只加有效数字，没有总分、前三代码、能力等级或职业匹配。相同均分可能来自不同回答。"
       : "Six separate summaries describe interest in the specific activities, displayed in a fixed order without ranking. Each ten-task group needs eight numeric ratings for a mean rounded to one decimal. Neutral is a valid 3; unscored stays missing. Raw sums include rated items only. There is no total, top-three code, ability level or job match. Different responses can yield the same mean."}</p>
@@ -34,7 +43,7 @@ export function WorkActivityInterestsReport({ quiz, result, locale }: {
       const facet = result.facets[direction.id];
       const profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
       return <section key={direction.id} data-work-activity-part={direction.id} aria-labelledby={`work-activity-${direction.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
-        <h3 id={`work-activity-${direction.id}`} className="text-2xl font-semibold">{direction.title[locale]}</h3>
+        <h3 id={`work-activity-${direction.id}`} className="scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{direction.title[locale]}</h3>
         <p data-work-activity-coverage={direction.id} className="mt-4 leading-7">{zh
           ? `有效项原始和 ${facet.rated ? facet.sum : "—"}；${facet.rated}/10项有效`
           : `Rated-item raw sum ${facet.rated ? facet.sum : "—"}; ${facet.rated}/10 rated`}</p>
@@ -48,5 +57,5 @@ export function WorkActivityInterestsReport({ quiz, result, locale }: {
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本组完整公开指南" : "Read this group’s full public guide"}</Link>
       </section>;
     })}
-  </div>;
+  </ResultPage>;
 }

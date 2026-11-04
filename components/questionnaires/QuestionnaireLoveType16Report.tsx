@@ -28,7 +28,7 @@ export function QuestionnaireLoveType16Report({ quiz, result, locale, readingPro
       const profile = quiz.profiles.find(p => p.id === id)!;
       const readingProfile = readingProfiles?.find(p => p.id === id && p.resultReading?.quizSlug === quiz.slug && p.resultReading.profileId === id) ?? profile;
       return <section key={id} id={`love-type16-${id}`} data-love-profile={id} className="scroll-mt-24 rounded-lg border border-slate-200 p-4 sm:p-6">
-        <h3 className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
+        <h3 className="mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
         <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`love-type16-${id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "本组合的公开完整指南" : "This combination’s complete public guide"}</Link>
       </section>;

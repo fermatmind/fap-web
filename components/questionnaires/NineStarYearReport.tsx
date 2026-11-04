@@ -57,7 +57,7 @@ export function NineStarYearReport({ quiz, result, locale, readingProfiles }: { 
       </section>;
     })}</div>
     {profiles.map(profile => profile && <section key={profile.id} className="rounded-lg border border-violet-200 bg-white p-5 sm:p-7" aria-labelledby={`nine-star-reading-${profile.id}`}>
-      <h3 id={`nine-star-reading-${profile.id}`} className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
+      <h3 id={`nine-star-reading-${profile.id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
       <NineStarYearGuideBody profile={projected(profile)} locale={locale} headingLevel={4} idPrefix={`nine-star-result-${profile.id}`} />
       <Link prefetch={false} className="mt-6 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这篇完整公开指南" : "Read this complete public guide"}</Link>
     </section>)}

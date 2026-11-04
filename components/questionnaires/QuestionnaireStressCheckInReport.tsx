@@ -17,7 +17,7 @@ export function QuestionnaireStressCheckInReport({ quiz, result, locale, resultP
   const profile = quiz.profiles[0];
   const readingProfile = (quiz.kind === "stress-reflection4" || quiz.kind === "pss4") && resultProfile?.id === profile.id && resultProfile.resultReading?.quizSlug === quiz.slug ? resultProfile : profile;
   return <div data-stress-check-in-result className="my-6 space-y-8">
-    <p data-stress-check-in-total className="rounded-lg border border-violet-200 bg-violet-50 p-5 text-2xl font-semibold">{quiz.kind === "pss4" ? `${quiz.resultHeading[locale]}: ` : (zh ? "本次总分：" : "This check-in total: ")}<span className="whitespace-nowrap">{result.total} / 16</span></p>
+    <p data-stress-check-in-total className="rounded-lg border border-violet-200 bg-violet-50 p-5 text-xl font-semibold leading-snug sm:text-2xl">{quiz.kind === "pss4" ? `${quiz.resultHeading[locale]}: ` : (zh ? "本次总分：" : "This check-in total: ")}<span className="whitespace-nowrap">{result.total} / 16</span></p>
     <p className="leading-8">{profile.scoreReading[locale]}</p>
     <section aria-labelledby="stress-check-in-calculation" className="rounded-lg border border-slate-200 p-4 sm:p-6">
       <h3 id="stress-check-in-calculation" className="text-xl font-semibold">{zh ? "这四项怎样相加" : "How these four choices add up"}</h3>

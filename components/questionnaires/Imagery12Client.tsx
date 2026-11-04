@@ -1,4 +1,5 @@
 "use client";
+import { ResultSection, ResultReadingNav, ResultScoreRow } from "./QuestionnaireResultPresentation";
 import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 
 import Link from "next/link";
@@ -74,6 +75,13 @@ function ValidImagery12Client({ quiz, locale, readingProfiles }: { quiz: Imagery
       {stage === "result" && result && <>
         <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading?.[locale]}</h2>
         <p className="leading-8">{zh ? "12项均已作明确选择，包括跳过项。四组分开显示，不合成总分，不分配意象类别或诊断。均分只概括所选主观描述，不是经校准的意象强度或能力比较。" : "All 12 prompts have an explicit choice, including skips. The four contexts are shown separately, without a total, imagery category or diagnosis. Means summarize chosen subjective descriptions, not calibrated imagery strength or comparable abilities."}</p>
+        <ResultSection title={zh ? "本次各组读数" : "Readings by topic"}>
+          <div className="grid gap-x-8 sm:grid-cols-2">{IMAGERY12_TOPICS.map(id => {
+            const score = result[id];
+            return <ResultScoreRow key={id} label={quiz.profiles.find(profile => profile.id === id)!.title[locale]} value={score.mean === null ? (zh ? "未计分" : "Unscored") : `${score.mean.toFixed(2)} / 4`} score={score.mean} min={0} max={4} description={zh ? `原始均分范围0–4；${score.numericCount}/${score.requiredCount}条数字答案` : `Raw mean range 0–4; ${score.numericCount}/${score.requiredCount} numeric responses`} />;
+          })}</div>
+        </ResultSection>
+        <ResultReadingNav label={zh ? "各组记录与完整读法" : "Topic records and full readings"} sections={IMAGERY12_TOPICS.map(id => ({ id: `imagery12-${id}`, title: quiz.profiles.find(profile => profile.id === id)!.title[locale] }))} />
         <div data-imagery12-result className="space-y-6">{IMAGERY12_TOPICS.map(id => {
           const score = result[id], profile = quiz.profiles.find(p => p.id === id)!;
           return <section key={id} data-imagery12-part={id} aria-labelledby={`imagery12-${id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">

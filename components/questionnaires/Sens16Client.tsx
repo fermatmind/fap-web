@@ -1,4 +1,5 @@
 "use client";
+import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
 import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 
 import Link from "next/link";
@@ -74,7 +75,12 @@ function ValidSens16Client({ quiz, locale, readingProfiles }: { quiz: Sens16Ques
       {stage === "result" && result && <>
         <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading?.[locale]}</h2>
         <p className="leading-8">{zh ? "16项均已作明确选择，包括不计分项。四组分开显示，不合成总分、不计算阈值轴或赢家、不分配感官类型或诊断。均分只概括所选频率描述，不是校准感官测量或人口比较。" : "All 16 prompts have an explicit choice, including unscored responses. Four topics are shown separately, without a total, threshold axes, winner, sensory type or diagnosis. Means summarize selected frequency descriptions, not calibrated sensory measures or population comparisons."}</p>
-        <div data-sens16-result className="space-y-6">{SENS16_TOPICS.map(id => {
+        <ResultPage variant="dimensions" data-sens16-result className="space-y-6">
+          <ResultOverview locale={locale} title={zh ? "四组频率读数" : "Four frequency readings"}
+            description={zh ? "四组独立，保留未计分；均分范围0—4，不是百分比或人群位置。" : "Four separate groups, with unscored parts preserved. Means range from 0–4, without percentages or population comparisons."}
+            items={SENS16_TOPICS.map(id => ({ id, label: quiz.profiles.find(profile => profile.id === id)!.title[locale], href: `#sens16-${id}`,
+              value: result[id].sum === null || result[id].mean === null ? (zh ? "未计分" : "Unscored") : `${result[id].mean!.toFixed(2)} / 4`,
+              note: zh ? `${result[id].numericCount} / ${result[id].requiredCount}个数字回答` : `${result[id].numericCount} / ${result[id].requiredCount} numeric responses` }))} />{SENS16_TOPICS.map(id => {
           const score = result[id], profile = quiz.profiles.find(p => p.id === id)!;
           return <section key={id} data-sens16-part={id} aria-labelledby={`sens16-${id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
             <h3 id={`sens16-${id}`} className="scroll-mt-24 text-xl font-semibold">{profile.title[locale]}</h3>
@@ -86,7 +92,7 @@ function ValidSens16Client({ quiz, locale, readingProfiles }: { quiz: Sens16Ques
             <details className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开此部分完整读法" : "Expand this full reading"}</summary><div className="mt-5"><Sens16FullReading profile={profile} locale={locale} readingProfiles={readingProfiles} /></div></details>
             <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "阅读完整公开指南" : "Read the complete public guide"}</Link>
           </section>;
-        })}</div>
+        })}</ResultPage>
         <button type="button" className={button} onClick={copyPublicLinks}>{zh ? "复制公开解释链接" : "Copy public explanation links"}</button>
         {manual && <label className="block leading-7">{zh ? "手动复制公开链接" : "Public links for manual copying"}<textarea readOnly value={manual} className="mt-2 min-h-40 w-full rounded-lg border border-slate-300 p-3" /></label>}
         <button type="button" className={button} onClick={clear}>{zh ? "清空并重新测试" : "Clear and retake"}</button>

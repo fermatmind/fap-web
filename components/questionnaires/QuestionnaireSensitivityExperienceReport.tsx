@@ -1,3 +1,4 @@
+import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -10,7 +11,15 @@ export function QuestionnaireSensitivityExperienceReport({ quiz, result, locale 
   locale: Locale;
 }) {
   const zh = locale === "zh";
-  return <div className="my-6 space-y-8" data-sensitivity-experience-result>
+  return <ResultPage variant="reflection" className="my-6 space-y-8" data-sensitivity-experience-result>
+    <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
+      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
+      items={quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return { id: direction.id, label: direction.title[locale], href: `#sensitivity-experience-${direction.id}`,
+          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
+          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
+      })} />
     <p className="leading-8">{zh
       ? "四组分别概括过去四周题述体验的自报发生频率。没有综合分、HSP判定线或主导类型；均分不能证明大脑机制、感官能力、共情准确性或与他人的差异。"
       : "The four groups separately summarize reported frequency of the listed experiences in the past four weeks. There is no overall score, HSP cutoff or dominant type. Means do not establish brain mechanisms, sensory ability, empathic accuracy or differences from other people."}</p>
@@ -21,7 +30,7 @@ export function QuestionnaireSensitivityExperienceReport({ quiz, result, locale 
       const score = result.facets[direction.id], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
       return <section key={direction.id} className="rounded-lg border border-slate-200 p-4 sm:p-6"
         data-sensitivity-experience-part={direction.id} aria-labelledby={`sensitivity-experience-${direction.id}`}>
-        <h3 id={`sensitivity-experience-${direction.id}`} className="text-xl font-semibold">{direction.title[locale]}</h3>
+        <h3 id={`sensitivity-experience-${direction.id}`} className="scroll-mt-24 text-xl font-semibold">{direction.title[locale]}</h3>
         <p data-sensitivity-experience-score={direction.id} className="my-4 font-semibold">{score.mean === null
           ? (zh ? `资料不足：${score.rated}/6题有数值回答；需要六题完整，不计算本组均分。` : `Insufficient information: ${score.rated}/6 items rated; all six are needed. No mean is calculated for this group.`)
           : (zh ? `近期体验频率均分：${score.mean.toFixed(1)} / 5（6/6题有效）` : `Recent-experience frequency mean: ${score.mean.toFixed(1)} / 5 (6/6 items rated)`)}</p>
@@ -35,7 +44,7 @@ export function QuestionnaireSensitivityExperienceReport({ quiz, result, locale 
     <p className="leading-8">{zh
       ? "这些原创双语题目与解释尚未建立信度、常模、因子结构或语言等价性。DOES只是概念背景，本页没有施测或改编原作者HSP量表。可以从一个真实情境和一个可撤回的小调整开始，也可以在这里结束。"
       : "These original bilingual questions and guides have no established reliability, norms, factor structure or language equivalence. DOES is conceptual background; this page does not administer or adapt the author’s HSP instruments. You can start with one actual situation and one reversible adjustment, or finish here."}</p>
-  </div>;
+  </ResultPage>;
 }
 
 export function QuestionnaireSensitivityExperienceNextSteps({ locale }: { locale: Locale }) {

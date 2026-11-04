@@ -1,3 +1,4 @@
+import { ResultReadingNav } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -12,6 +13,7 @@ export function QuestionnaireMotivationThemesReport({ quiz, result, locale }: {
 }) {
   const zh = locale === "zh";
   return <div data-deep-desire-result className="my-6 space-y-8">
+    {quiz.directions.length > 1 && <ResultReadingNav label={zh ? "按主题阅读结果" : "Read results by topic"} sections={quiz.directions.map(direction => ({ id: `deep-motivation-${direction.id}`, title: direction.title[locale] }))} />}
     <p className="leading-8">{zh
       ? "六主题分别阅读，不合总分、不排名、不选最深或主导欲望。这里保留原小程序的四题原始和与准确均分，不把动机当能力。原中点表示不确定或视情况，新增不计分不补零。"
       : "Read the six themes separately, without an overall total, ranking or deepest-desire label. These are the mini-program’s four-item raw sums and exact means, not ability scores. The original midpoint means uncertainty or depending on the situation; the added unscored choice is not zero-filled."}</p>
@@ -23,7 +25,7 @@ export function QuestionnaireMotivationThemesReport({ quiz, result, locale }: {
       const exactMean = available ? score.sum / 4 : null;
       return <section key={direction.id} data-deep-desire-part={direction.id}
         className="rounded-lg border border-slate-200 p-4 sm:p-6" aria-labelledby={`deep-motivation-${direction.id}`}>
-        <h3 id={`deep-motivation-${direction.id}`} className="text-2xl font-semibold">{direction.title[locale]}</h3>
+        <h3 id={`deep-motivation-${direction.id}`} className="scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{direction.title[locale]}</h3>
         <p data-deep-desire-mean className="my-4 rounded-lg bg-slate-50 p-4 font-semibold">{exactMean === null
           ? (zh ? `资料不足：${score.rated} / 4项有数值回答，需要完整四项。` : `Insufficient information: ${score.rated} / 4 items rated; all four are required.`)
           : (zh ? `准确均分：${exactMean.toFixed(2)} / 5（${score.sum} ÷ 4）` : `Exact mean: ${exactMean.toFixed(2)} / 5 (${score.sum} ÷ 4)`)}</p>

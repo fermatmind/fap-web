@@ -1,3 +1,4 @@
+import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -11,9 +12,17 @@ export function QuestionnaireParentingPracticesReport({ quiz, result, locale, re
   quiz: Questionnaire; result: Complete; locale: Locale; readingProfiles?: Questionnaire["profiles"];
 }) {
   const zh = locale === "zh";
-  return <div data-parenting-practices-result className="my-6 space-y-8">
+  return <ResultPage variant="reflection" data-parenting-practices-result className="my-6 space-y-8">
+    <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
+      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
+      items={quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return { id: direction.id, label: direction.title[locale], href: `#parenting-practices-${direction.id}`,
+          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
+          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
+      })} />
     <section aria-labelledby="parenting-practices-summaries" className="space-y-4">
-      <h3 id="parenting-practices-summaries" className="text-2xl font-semibold">{zh ? "过去四周的两项频率摘要" : "Two frequency summaries for the past four weeks"}</h3>
+      <h3 id="parenting-practices-summaries" className="text-xl font-semibold leading-snug sm:text-2xl">{zh ? "过去四周的两项频率摘要" : "Two frequency summaries for the past four weeks"}</h3>
       <p className="leading-8">{zh
         ? "先读两个部分，再选择一项具体互动回看。它们分别概括你记得的温暖回应与日常边界行为；四种养育风格在下方作为通用框架解释，不由这两个数字派型。"
         : "Read the two parts, then choose one interaction to revisit. They separately summarize recalled warm responses and everyday boundary actions. The four styles below are general framework explanations; these numbers do not assign a type."}</p>
@@ -21,7 +30,7 @@ export function QuestionnaireParentingPracticesReport({ quiz, result, locale, re
         const part = result.facets[direction.id];
         return <section key={direction.id} data-parenting-practices-part={direction.id}
           aria-labelledby={`parenting-practices-${direction.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
-          <h4 id={`parenting-practices-${direction.id}`} className="text-xl font-semibold">{direction.title[locale]}</h4>
+          <h4 id={`parenting-practices-${direction.id}`} className="scroll-mt-24 text-xl font-semibold">{direction.title[locale]}</h4>
           <p data-parenting-practices-mean className="my-4 rounded-lg bg-slate-50 p-4 font-semibold">{part.mean === null
             ? (zh ? `资料不足：${part.rated} / 6项有数值回答，需要六项齐全。` : `Insufficient information: ${part.rated} / 6 items rated; all six are required.`)
             : (zh ? `均分：${part.mean.toFixed(1)} / 5（${part.sum} ÷ 6）` : `Mean: ${part.mean.toFixed(1)} / 5 (${part.sum} ÷ 6)`)}</p>
@@ -37,19 +46,19 @@ export function QuestionnaireParentingPracticesReport({ quiz, result, locale, re
         : "Each mean summarizes six frequency choices, rather than a percentage of occasions or a parenting-quality rating. The two parts are not combined, and no high/low cutoff assigns one of the four styles."}</p>
     </section>
     <section aria-labelledby="parenting-practices-guides" className="space-y-6">
-      <h2 id="parenting-practices-guides" className="text-2xl font-semibold">{zh ? "四种风格的完整通用指南" : "Four complete general parenting-style guides"}</h2>
+      <h2 id="parenting-practices-guides" className="text-xl font-semibold leading-snug sm:text-2xl">{zh ? "四种风格的完整通用指南" : "Four complete general parenting-style guides"}</h2>
       <p className="leading-8">{zh ? "每个人都能阅读全部四份，比较概念、算例、日常情境与反例。打开指南不会改变你的作答或均分。" : "Everyone can read all four, comparing concepts, worked examples, everyday situations and counterexamples. Opening a guide does not change your answers or means."}</p>
       {quiz.profiles.map(sourceProfile => {
         const profile = readingProfiles?.find(p => p.id === sourceProfile.id && p.resultReading?.quizSlug === quiz.slug && p.resultReading.profileId === sourceProfile.id) ?? sourceProfile;
         return <section key={profile.id} data-parenting-practices-guide={profile.id}
         aria-labelledby={`parenting-practices-guide-${profile.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
-        <h3 id={`parenting-practices-guide-${profile.id}`} className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
+        <h3 id={`parenting-practices-guide-${profile.id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
         <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`parenting-practices-report-${profile.id}`} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline"
           href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "打开这份完整公开指南" : "Open this complete public guide"}</Link>
       </section>;})}
     </section>
-  </div>;
+  </ResultPage>;
 }
 
 export function QuestionnaireParentingPracticesNextSteps({ result, locale }: { result: Complete; locale: Locale }) {

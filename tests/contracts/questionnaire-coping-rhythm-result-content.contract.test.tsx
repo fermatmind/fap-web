@@ -27,7 +27,7 @@ describe("four paired coping guides without an age, trait-strength or overall sc
   const {default:Guide}=await import("@/components/questionnaires/QuestionnaireGuide");
   for(const locale of ["en","zh"]as const)for(const p of readings){
    const d=dom(renderToStaticMarkup(await Guide({params:Promise.resolve({locale,slug:quiz.slug,profile:p.id})})));
-   const reader=d.querySelector(`[data-coping-rhythm-result-reading="${p.id}"]`)!;expect(reader).not.toBeNull();expect(reader.querySelectorAll("h2")).toHaveLength(8);expect(reader.querySelectorAll("section li")).toHaveLength(19);expect(reader.querySelectorAll("details:not([open]) nav a")).toHaveLength(8);
+   const reader=d.querySelector(`[data-coping-rhythm-result-reading="${p.id}"]`)!;expect(reader).not.toBeNull();expect(reader.querySelectorAll("h2")).toHaveLength(8);expect(reader.querySelectorAll("section > div > p:not(:only-child)")).toHaveLength(19);expect(reader.querySelectorAll("details:not([open]) nav a")).toHaveLength(8);
    for(const a of reader.querySelectorAll("nav a"))expect(d.querySelector(a.getAttribute("href")!)).not.toBeNull();
    for(const s of p.sections)for(const para of s.paragraphs)expect(reader.textContent).toContain(para[locale]);
    expect(d.querySelector("input,textarea,[data-coping-count],[data-coping-pair]")).toBeNull();if(locale==="en")expect(d.textContent).not.toMatch(/\p{Script=Han}/u);
@@ -42,7 +42,7 @@ describe("four paired coping guides without an age, trait-strength or overall sc
    const part=d.querySelector(`[data-coping-pair="${result.interactionPairs[group].id}"]`)!;
    expect([...part.querySelectorAll("[data-coping-count]")].map(n=>n.textContent)).toEqual([`${count} / 6`,`${6-count} / 6`]);
    expect(part.querySelector("[data-coping-tie]")?.getAttribute("data-coping-tie")).toBe(String(count===3));
-   expect(d.querySelectorAll("[data-coping-rhythm-result-reading]")).toHaveLength(4);expect(d.querySelectorAll("[data-coping-rhythm-result-reading] section li")).toHaveLength(76);checked++;
+   expect(d.querySelectorAll("[data-coping-rhythm-result-reading]")).toHaveLength(4);expect(d.querySelectorAll("[data-coping-rhythm-result-reading] section > div > p:not(:only-child)")).toHaveLength(76);checked++;
   }
   expect(checked).toBe(28);
   for(const locale of ["en","zh"]as const)for(const value of ["A","B"]){
@@ -55,7 +55,7 @@ describe("four paired coping guides without an age, trait-strength or overall sc
  it("uses original report content when a reading carries mismatched direction, product or profile identity",()=>{
   const p=readings[0],result=complete(base());
   for(const bad of [undefined,[{...p,id:"other"}],[{...p,directionIds:["other"]}],[{...p,directionIds:[p.directionIds[0],"other"]}],[{...p,directionIds:[...p.directionIds].reverse()}],[{...p,resultReading:{...p.resultReading!,quizSlug:"other"}}],[{...p,resultReading:{...p.resultReading!,profileId:"other"}}]]){
-   const d=dom(renderToStaticMarkup(<QuestionnaireCopingReport quiz={quiz} result={result} readingProfiles={bad} locale="en"/>));expect(d.querySelector("[data-coping-rhythm-result-reading]")).toBeNull();expect(d.querySelectorAll('[data-coping-pair="EXPLORATION_EVALUATION"] section li')).toHaveLength(16);
+   const d=dom(renderToStaticMarkup(<QuestionnaireCopingReport quiz={quiz} result={result} readingProfiles={bad} locale="en"/>));expect(d.querySelector("[data-coping-rhythm-result-reading]")).toBeNull();expect(d.querySelectorAll('[data-coping-pair="EXPLORATION_EVALUATION"] section > div > p:not(:only-child)')).toHaveLength(16);
   }
  });
  it("runs the strict native client with projected readings and keeps answers out of copying and persistence",async()=>{

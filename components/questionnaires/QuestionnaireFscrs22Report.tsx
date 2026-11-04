@@ -1,3 +1,4 @@
+import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import { FSCRS22_PARTS, type Fscrs22Questionnaire, type Fscrs22Readout } from "@/lib/questionnaires/fscrs22";
@@ -9,13 +10,18 @@ export function QuestionnaireFscrs22Report({ quiz, result, locale, readingProfil
   quiz: Fscrs22Questionnaire; result: Fscrs22Readout; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[];
 }) {
   const zh = locale === "zh";
-  return <div data-fscrs22-result className="my-6 space-y-8">
+  return <ResultPage variant="reflection" data-fscrs22-result className="my-6 space-y-8">
+    <ResultOverview locale={locale} title={zh ? "三个部分分别阅读" : "Three separate parts"}
+      description={zh ? "均值范围1—5，跳过会使所属部分未计分。名称可跳到该部分的完整解释。" : "Means range from 1–5. A skip leaves its own part unscored. Select a name for that part’s full explanation."}
+      items={FSCRS22_PARTS.map(id => ({ id, label: quiz.profiles.find(profile => profile.id === id)!.title[locale], href: `#fscrs22-part-${id}`,
+        value: result.parts[id].sum === null || result.parts[id].mean === null ? (zh ? "未计分" : "Unscored") : `${result.parts[id].mean!.toFixed(2)} / 5`,
+        note: zh ? `${result.parts[id].numericCount} / ${result.parts[id].requiredCount}个数字回答` : `${result.parts[id].numericCount} / ${result.parts[id].requiredCount} numeric responses` }))} />
     <p className="leading-8">{zh ? "本次 22 条均已作出明确选择，包括跳过项。三个部分分别呈现；跳过任一条，仅使其所属部分不计分。三篇完整解释始终可读。" : "All 22 statements have an explicit choice, including skips. Each part is separate; a skip leaves only its own part unscored. All three complete explanations remain readable."}</p>
     {FSCRS22_PARTS.map(id => {
       const score = result.parts[id], sourceProfile = quiz.profiles.find(item => item.id === id)!;
       const profile = readingProfiles?.find(item => item.id === id && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === id) ?? sourceProfile;
       return <section key={id} data-fscrs22-part={id} className="rounded-lg border border-slate-200 p-4 sm:p-6" aria-labelledby={`fscrs22-part-${id}`}>
-        <h3 id={`fscrs22-part-${id}`} className="text-2xl font-semibold">{profile.title[locale]}</h3>
+        <h3 id={`fscrs22-part-${id}`} className="scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
         <p data-fscrs22-count className="my-4 leading-7">{zh ? `数字答案 ${score.numericCount}/${score.requiredCount}；跳过 ${score.skippedCount} 条。` : `Numeric responses ${score.numericCount}/${score.requiredCount}; ${score.skippedCount} skipped.`}</p>
         {score.sum === null || score.mean === null ? <p data-fscrs22-unscored className="my-4 rounded-lg bg-slate-50 p-4 leading-8">{zh ? "此部分未计分：有跳过项，不补填，也不按剩余题目求平均。" : "This part is unscored: a statement was skipped. No value is filled in and no average is calculated from the remaining responses."}</p> : <div className="my-4 space-y-3 rounded-lg bg-slate-50 p-4 leading-8">
           <p data-fscrs22-mean className="text-xl font-semibold">{zh ? `平均值：${score.mean.toFixed(2)}（范围 1—5）` : `Mean: ${score.mean.toFixed(2)} (range 1–5)`}</p>
@@ -25,5 +31,5 @@ export function QuestionnaireFscrs22Report({ quiz, result, locale, readingProfil
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "阅读这一部分的完整公开解释" : "Read this part’s complete public explanation"}</Link>
       </section>;
     })}
-  </div>;
+  </ResultPage>;
 }

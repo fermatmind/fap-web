@@ -11,7 +11,7 @@ export function QuestionnaireSpq92Report({ quiz, result, locale }: {
   const zh = locale === "zh", score = result.spq92;
   return <div data-spq92-result className="mt-6 space-y-8">
     <section aria-labelledby="spq92-total-heading" className="rounded-lg border border-slate-200 p-4 sm:p-6">
-      <h3 id="spq92-total-heading" className="text-2xl font-semibold">{zh ? "SPQ92项原始总分" : "Your SPQ 92-item raw total"}</h3>
+      <h3 id="spq92-total-heading" className="text-xl font-semibold leading-snug sm:text-2xl">{zh ? "SPQ92项原始总分" : "Your SPQ 92-item raw total"}</h3>
       <p data-spq92-total className="my-4 rounded-lg bg-slate-50 p-4 text-xl font-semibold">{score.total === null
         ? (zh ? `资料不足：${score.rated}/92题有数值回答；${score.skipped}题不计分，暂不计算总分。` : `Insufficient information: ${score.rated}/92 items rated; ${score.skipped} unscored. No total is calculated.`)
         : (zh ? `${score.total}（0到276；92/92题有效）` : `${score.total} (0 to 276; 92/92 items rated)`)}</p>
@@ -26,7 +26,7 @@ export function QuestionnaireSpq92Report({ quiz, result, locale }: {
         : "Any unscored choice withholds the total rather than becoming zero or an imputed response. All unscored choices still finish and leave the full guide available. Requiring all 92 numeric responses is a website policy, not a validated missing-data threshold. Answer from existing experience without trying risky or uncomfortable stimuli. Chinese is a new FermatMind working translation without established psychometric validation or language equivalence."}</p>
     </section>
     {quiz.profiles.map(profile => <section key={profile.id} aria-labelledby={`spq92-guide-${profile.id}`}>
-      <h3 id={`spq92-guide-${profile.id}`} className="mb-4 text-2xl font-semibold">{profile.title[locale]}</h3>
+      <h3 id={`spq92-guide-${profile.id}`} className="scroll-mt-24 mb-4 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
       <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`spq92-${profile.id}`} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这份公开完整指南" : "Read this complete public guide"}</Link>
     </section>)}

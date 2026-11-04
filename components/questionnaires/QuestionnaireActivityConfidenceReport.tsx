@@ -1,3 +1,4 @@
+import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -11,7 +12,15 @@ export function QuestionnaireActivityConfidenceReport({ quiz, result, locale }: 
   locale: Locale;
 }) {
   const zh = locale === "zh";
-  return <div className="my-6 space-y-8" data-activity-confidence-result>
+  return <ResultPage variant="dimensions" className="my-6 space-y-8" data-activity-confidence-result>
+    <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
+      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
+      items={quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return { id: direction.id, label: direction.title[locale], href: `#activity-confidence-${direction.id}`,
+          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
+          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
+      })} />
     <p className="leading-8">{zh
       ? "八组分别显示对选定活动的自报把握，不测八种智能或实际能力，不选最强项、不合成总分，也不按数值指定学习风格或职业。相近与并列值都原样保留。"
       : "The eight groups show self-reported confidence about selected activities, not eight measured intelligences or actual ability. There is no strongest group, total, learning-style assignment or career match. Close and equal means remain visible."}</p>
@@ -19,7 +28,7 @@ export function QuestionnaireActivityConfidenceReport({ quiz, result, locale }: 
       const score = result.facets[direction.id], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
       return <section key={direction.id} className="rounded-lg border border-slate-200 p-4 sm:p-6"
         data-activity-confidence-part={direction.id} aria-labelledby={`activity-confidence-${direction.id}`}>
-        <h3 id={`activity-confidence-${direction.id}`} className="text-xl font-semibold">{direction.title[locale]}</h3>
+        <h3 id={`activity-confidence-${direction.id}`} className="scroll-mt-24 text-xl font-semibold">{direction.title[locale]}</h3>
         <p data-activity-confidence-score={direction.id} className="my-4 rounded-lg bg-slate-50 p-4 font-semibold">{score.mean === null
           ? (zh ? `资料不足：${score.rated}/4题有数值回答；需要四题完整，不计算本组均分。` : `Insufficient information: ${score.rated}/4 items rated; all four are needed. No mean is calculated for this group.`)
           : (zh ? `自报把握均分：${score.mean.toFixed(1)} / 5（4/4题有效）` : `Self-reported confidence mean: ${score.mean.toFixed(1)} / 5 (4/4 items rated)`)}</p>
@@ -34,5 +43,5 @@ export function QuestionnaireActivityConfidenceReport({ quiz, result, locale }: 
     <p className="leading-8">{zh
       ? "本原创反思没有建立心理测量学效度或常模，没有加德纳背书。可以只回看一次普通任务，不要求实际尝试、公开答案或把结果用于录用、分班及其他重要判断。"
       : "This original reflection has no established psychometric validation or norms and no Gardner endorsement. A private review of one ordinary task is enough; no activity, disclosure or use in hiring, placement or other consequential judgments is required."}</p>
-  </div>;
+  </ResultPage>;
 }

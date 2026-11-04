@@ -1,3 +1,4 @@
+import { ResultReadingNav } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -59,7 +60,7 @@ export function BirthNumberReport({ quiz, results, locale, readingProfiles }: { 
   return <div data-birth-number-result className="mt-6 space-y-8">
     <div className="grid gap-5 sm:grid-cols-2">{results.map(result => <section key={result.method} data-birth-number-method={result.method} className="min-w-0 rounded-lg border border-slate-200 bg-white p-5 leading-8">
       <h3 className="text-xl font-semibold">{quiz.birthNumber.methods.find(method => method.id === result.method)!.label[locale]}</h3>
-      <p className="my-4 text-2xl font-semibold">{zh ? "符号结果" : "Symbolic result"}: <span data-birth-number-value={result.method}>{result.number}</span></p>
+      <p className="my-5 flex flex-wrap items-baseline gap-x-4 gap-y-2 text-sm font-medium text-slate-600">{zh ? "符号结果" : "Symbolic result"}: <span data-birth-number-value={result.method} className="text-6xl font-semibold tabular-nums leading-none text-violet-900">{result.number}</span></p>
       <div data-birth-number-trace className="space-y-5 text-sm leading-7">
         {result.method === "separate-parts" ? <>
           {result.parts.map(part => <div key={part.id}><h4 className="font-semibold">{partLabels[part.id]}: {part.reduction.initial}</h4><Reduction reduction={part.reduction} locale={locale} /></div>)}
@@ -69,8 +70,9 @@ export function BirthNumberReport({ quiz, results, locale, readingProfiles }: { 
       </div>
     </section>)}</div>
     <p className="text-sm leading-7 text-slate-600">{zh ? "这些详细算式只显示在当前页面。复制功能不包含生日或算式。两法得到同一数字时，下方共用同一篇完整指南。" : "Detailed operations stay on this page. Copying omits the date and operations. When both rules reach the same number, they share one complete guide below."}</p>
+    <ResultReadingNav label={zh ? "符号主题完整指南" : "Full symbolic motif guides"} sections={profiles.flatMap(profile => profile ? [{ id: `birth-reading-${profile.id}`, title: profile.title[locale] }] : [])} />
     {profiles.map(profile => profile && <section key={profile.id} className="rounded-lg border border-violet-200 bg-white p-5 sm:p-7" aria-labelledby={`birth-reading-${profile.id}`}>
-      <h3 id={`birth-reading-${profile.id}`} className="mb-5 text-2xl font-semibold">{profile.title[locale]}</h3>
+      <h3 id={`birth-reading-${profile.id}`} className="mb-5 scroll-mt-24 text-2xl font-semibold">{profile.title[locale]}</h3>
       <BirthNumberGuideBody profile={projected(profile)} locale={locale} headingLevel={4} idPrefix={`birth-result-${profile.id}`} />
       <Link prefetch={false} className="mt-6 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这篇完整公开指南" : "Read this complete public guide"}</Link>
     </section>)}

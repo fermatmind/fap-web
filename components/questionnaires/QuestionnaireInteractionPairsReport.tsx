@@ -1,3 +1,4 @@
+import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { InteractionPairsResult } from "@/lib/questionnaires/interactionPairs";
@@ -11,7 +12,15 @@ export function QuestionnaireInteractionPairsReport({ quiz, result, locale }: {
   locale: Locale;
 }) {
   const zh = locale === "zh";
-  return <div className="my-6 space-y-8" data-interaction-pairs-result>
+  return <ResultPage variant="dimensions" className="my-6 space-y-8" data-interaction-pairs-result>
+    <ResultOverview locale={locale} title={zh ? "四组相对选择" : "Four paired comparisons"}
+      description={zh ? "每组两侧合计六次，保留并列；次数不是能力或百分位。选择一组可对照两侧的完整读法。" : "Each pair contains six choices, with ties preserved. Counts are neither ability nor percentiles. Choose a pair to read both sides in full."}
+      items={result.interactionPairs.map(pair => {
+        const profile = quiz.profiles.find(item => item.id === pair.profileId)!;
+        return { id: pair.id, label: profile.title[locale], href: `#interaction-${pair.id}`,
+          value: profile.directionIds.map(id => pair.counts[id]).join(" : "),
+          note: profile.directionIds.map(id => quiz.directions.find(direction => direction.id === id)!.title[locale]).join(" / ") };
+      })} />
     <p className="leading-8">{zh
       ? "四组分别阅读，每组两侧次数之和为六。这里显示的是本题组的选择次数，不是魅力、人气、能力或百分位；四组不合成类型，也不跨组排名。"
       : "Read the four comparisons separately. Each pair sums to six choices from this bank, not charm, popularity, ability or a percentile. The groups do not form a combined type or a cross-group ranking."}</p>
@@ -19,9 +28,9 @@ export function QuestionnaireInteractionPairsReport({ quiz, result, locale }: {
       const profile = quiz.profiles.find(p => p.id === pair.profileId)!;
       return <section key={pair.id} data-interaction-pair={pair.id} aria-labelledby={`interaction-${pair.id}`}
         className="rounded-lg border border-slate-200 p-4 sm:p-6">
-        <h3 id={`interaction-${pair.id}`} className="text-xl font-semibold">{profile.title[locale]}</h3>
+        <h3 id={`interaction-${pair.id}`} className="scroll-mt-24 text-xl font-semibold">{profile.title[locale]}</h3>
         <dl className="my-4 space-y-3" aria-label={zh ? "本组原始选择次数" : "Raw choices within this comparison"}>
-          {profile.directionIds.map(id => <div key={id} data-interaction-pole={id}>
+          {profile.directionIds.map(id => <div key={id} data-interaction-pole={id} className="grid grid-cols-[minmax(0,1fr)_auto] gap-4 border-b border-slate-200 py-3">
             <dt>{quiz.directions.find(d => d.id === id)!.title[locale]}</dt>
             <dd className="font-semibold" data-interaction-count>{pair.counts[id]} / 6</dd>
           </div>)}
@@ -37,5 +46,5 @@ export function QuestionnaireInteractionPairsReport({ quiz, result, locale }: {
     <p className="leading-8">{zh
       ? "本原创题本和新增英文译文尚未完成心理测量学验证。互动选择会随对象、场合、精力、文化和安全条件改变。可以只作私人观察，不要求披露、联系他人或改变边界。"
       : "This original bank and its new English translation have not completed psychometric validation. Choices may change with the person, setting, energy, culture and safety. Private observation is enough; no disclosure, contact or change of boundaries is required."}</p>
-  </div>;
+  </ResultPage>;
 }

@@ -1,4 +1,5 @@
 "use client";
+import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
 import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 
 import Link from "next/link";
@@ -124,11 +125,16 @@ function ValidReasoning18Client({ quiz, locale, readingProfiles }: { quiz: Reaso
         <p data-reasoning18-result-mode className="leading-8">{result.mode === "timed" ? (zh ? "分段计时练习 · 本站选定上限" : "Timed section practice · Site-selected caps") : (zh ? "不计时学习" : "Untimed study")}</p>
         <p data-reasoning18-overall className="rounded-lg bg-violet-50 p-4 leading-8">{counts(result.overall)}</p>
         <p className="leading-8">{zh ? "以上仅为本题本原始记录，不换算提供方成绩、百分位、通过或资格判定。各部分难度未等值，不按最低正确数判定弱项。全部题目与解析如下免费可读。" : "These are raw records on this bank, not a provider score, percentile, pass or qualification decision. Parts are not equated; the lowest count does not diagnose a weakness. Every question and explanation is free below."}</p>
-        <div data-reasoning18-result className="space-y-6">{result.parts.map((part, i) => {
+        <ResultPage variant="practice" data-reasoning18-result className="space-y-6">
+          <ResultOverview locale={locale} title={zh ? "分段表现概览" : "Section performance"}
+            description={zh ? "只核对本题本的正确、错误和未答记录。选择一段，查看答案、解析与复习内容。" : "Correct, wrong and unanswered counts on this bank only. Choose a section to review its answers, explanations and study guide."}
+            items={result.parts.map((part, index) => ({ id: part.id, label: quiz.reasoning18.sections[index].title[locale],
+              value: `${part.correct} / ${part.total}`, href: `#reasoning18-result-${part.id}`,
+              note: zh ? `答对；错误 ${part.wrong}，未答 ${part.unanswered}` : `correct; ${part.wrong} wrong, ${part.unanswered} unanswered` }))} />{result.parts.map((part, i) => {
           const profile = quiz.profiles[i];
           const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === 1 && item.directionIds[0] === part.id && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
           return <section key={part.id} data-reasoning18-part={part.id} className="rounded-lg border border-slate-200 p-4 sm:p-6">
-            <h3 className="scroll-mt-24 text-xl font-semibold">{quiz.reasoning18.sections[i].title[locale]}</h3>
+            <h3 id={`reasoning18-result-${part.id}`} className="scroll-mt-24 text-xl font-semibold">{quiz.reasoning18.sections[i].title[locale]}</h3>
             <p data-reasoning18-count className="my-3 leading-8">{counts(part)}</p><p data-reasoning18-closure className="my-3 leading-7">{part.reason === "expired" ? (zh ? "到时结束；空白仍为未答。" : "Closed at the deadline; blanks remain unanswered.") : (zh ? "主动结束本部分。" : "You finished this part.")}</p>
             <details data-reasoning18-review className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "查看六题答案与双语解析" : "Review all six answers and explanations"}</summary><ol className="my-4 space-y-6">{quiz.questions.slice(i * 6, i * 6 + 6).map(q => {
               const item = result.items.find(x => x.id === q.id)!, selected = q.options.find(o => o.id === item.selectedOptionId), key = q.options.find(o => o.id === item.correctOptionId)!;
@@ -137,7 +143,7 @@ function ValidReasoning18Client({ quiz, locale, readingProfiles }: { quiz: Reaso
             <details data-reasoning18-full className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开完整学习指南" : "Expand the full study guide"}</summary><div className="mt-5"><QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`reasoning18-${part.id}`} /></div></details>
             <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, part.id)}>{zh ? "阅读完整公开指南" : "Read the complete public guide"}</Link>
           </section>;
-        })}</div>
+        })}</ResultPage>
         <button type="button" className={button} onClick={copyPublicLinks}>{zh ? "复制公开指南链接" : "Copy public guide links"}</button>
         {manual && <label className="block leading-7">{zh ? "手动复制公开链接" : "Public links for manual copying"}<textarea readOnly value={manual} className="mt-2 min-h-40 w-full rounded-lg border p-3" /></label>}
         <button type="button" className={button} onClick={() => clear()}>{zh ? "清空并重新练习" : "Clear and practise again"}</button>

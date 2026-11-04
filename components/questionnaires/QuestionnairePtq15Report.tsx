@@ -1,3 +1,4 @@
+import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -11,16 +12,22 @@ export function QuestionnairePtq15Report({ quiz, result, locale }: {
   locale: Locale;
 }) {
   const zh = locale === "zh", data = result.ptq15;
-  return <div className="my-6 space-y-8" data-ptq15-result>
+  const rows = [{ id: "total-reading", title: zh ? "十五项总分" : "Fifteen-item total", sum: data.overallSum, rated: data.rated, total: 15, maximum: 60 },
+      ...quiz.directions.map(direction => ({ id: `${direction.id}-reading`, title: direction.title[locale], ...data.parts[direction.id as keyof typeof data.parts] }))];
+  return <ResultPage variant="reflection" className="my-6 space-y-8" data-ptq15-result>
+    <ResultOverview locale={locale} title={zh ? "总分与三项原始和" : "Total and three raw subscale sums"}
+      description={zh ? "各项题量不同，不按原始和比较强弱。资料不足保持未评分；点击名称查看各自读法。" : "Item counts differ, so raw sums do not rank the parts. Insufficient information stays unscored. Select a name for its own guide."}
+      items={rows.map(row => ({ id: row.id, label: row.title, href: `#ptq15-${row.id}`,
+        value: row.sum === null ? (zh ? "资料不足" : "Insufficient information") : `${row.sum} / ${row.maximum}`,
+        note: zh ? `${row.rated} / ${row.total}项有效回答` : `${row.rated} / ${row.total} rated items` }))} />
     <p className="leading-8">{zh
       ? "以下保留原PTQ总分和三个分量表原始和。题目询问通常的思考方式，没有指定近期时间窗。不划严重程度档、不作人群或职业排名，也不诊断。简体中文是尚未验证的费马工作译文。"
       : "These are the original PTQ total and three raw subscale sums. Items concern typical thinking without a fixed recent time window. No severity bands, population or career rankings, or diagnosis are produced. Simplified Chinese is a new, unvalidated FermatMind working translation."}</p>
-    {[{ id: "total-reading", title: zh ? "十五项总分" : "Fifteen-item total", sum: data.overallSum, rated: data.rated, total: 15, maximum: 60 },
-      ...quiz.directions.map(direction => ({ id: `${direction.id}-reading`, title: direction.title[locale], ...data.parts[direction.id as keyof typeof data.parts] }))].map(row => {
+    {rows.map(row => {
       const profile = quiz.profiles.find(p => p.id === row.id)!;
       return <section key={row.id} className="rounded-lg border border-slate-200 p-4 sm:p-6"
         data-ptq15-part={row.id} aria-labelledby={`ptq15-${row.id}`}>
-        <h3 id={`ptq15-${row.id}`} className="text-xl font-semibold">{row.title}</h3>
+        <h3 id={`ptq15-${row.id}`} className="scroll-mt-24 text-xl font-semibold">{row.title}</h3>
         <p data-ptq15-score={row.id} className="my-4 rounded-lg bg-slate-50 p-4 font-semibold">{row.sum === null
           ? (zh ? `资料不足：${row.rated}/${row.total}项有数值回答；需要完整，不计算本项原始和。` : `Insufficient information: ${row.rated}/${row.total} items rated; all are needed. No raw sum is calculated.`)
           : (zh ? `原始和：${row.sum}（可取范围0—${row.maximum}；${row.rated}/${row.total}项有效）` : `Raw sum: ${row.sum} (possible range 0–${row.maximum}; ${row.rated}/${row.total} items rated)`)}</p>
@@ -35,7 +42,7 @@ export function QuestionnairePtq15Report({ quiz, result, locale }: {
     <p className="leading-8">{zh
       ? "三个分量表题量不同，不能按原始和比较强弱。分数不决定诊断、治疗、资格或职业适配。反复思考令人困扰或影响日常时，可以无论分数多少都考虑合格专业支持，无需提交私密想法。"
       : "The subscales have different item counts; do not rank them by raw sums. Scores do not decide diagnosis, treatment, qualifications or career fit. If repetitive thinking is distressing or affecting daily life, qualified professional support can be considered regardless of the score, without submitting private thoughts."}</p>
-  </div>;
+  </ResultPage>;
 }
 
 export function QuestionnairePtq15NextSteps({ locale }: { locale: Locale }) {

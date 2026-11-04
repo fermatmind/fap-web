@@ -1,3 +1,4 @@
+import { ResultSection, ResultReadingNav, ResultScoreRow } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
@@ -9,10 +10,17 @@ export function IntimacyValuesReport({ quiz, result, locale }: { quiz: Questionn
   const zh = locale === "zh";
   return <div data-intimacy-values-report className="mt-6 space-y-8">
     <p className="leading-8">{zh ? "五项分别记录所列条件对你的重要程度。每项五条，至少四条数字才显示原始均值；3是中等重要，未评分保持缺失。五项可同时很高，不合总分、不排名或派型。同意与尊重保持为底线，不参与得分取舍。" : "Five separate parts record how important the stated conditions are to you. Each has five prompts and needs four numeric ratings for a raw mean. Three means moderately important; unscored responses stay missing. All five can be high, without a total, rank or assigned type. Consent and respect remain baseline conditions, not scored trade-offs."}</p>
+    <ResultSection title={zh ? "五项亲近关系条件概览" : "Five intimacy-priority readings"}>
+      <div className="grid gap-x-8 sm:grid-cols-2">{quiz.directions.map(direction => {
+        const part = result.facets[direction.id];
+        return <ResultScoreRow key={direction.id} label={direction.title[locale]} value={part.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${part.mean.toFixed(1)} / 5`} score={part.mean} min={1} max={5} description={zh ? `原始重要程度均值 · 1–5；${part.rated}/${part.total}条有效` : `Raw importance mean · 1–5; ${part.rated}/${part.total} rated`} />;
+      })}</div>
+    </ResultSection>
+    <ResultReadingNav label={zh ? "逐项完整解读" : "Full readings by topic"} sections={quiz.directions.map(direction => ({ id: `intimacy-title-${direction.id}`, title: direction.title[locale] }))} />
     {quiz.directions.map(direction => {
       const part = result.facets[direction.id], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
-      return <section key={direction.id} data-intimacy-values-part={direction.id} aria-labelledby={`intimacy-title-${direction.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
-        <h3 id={`intimacy-title-${direction.id}`} className="text-2xl font-semibold">{direction.title[locale]}</h3>
+      return <section key={direction.id} data-intimacy-values-part={direction.id} aria-labelledby={`intimacy-title-${direction.id}`} className="border-t border-slate-200 pt-7">
+        <h3 id={`intimacy-title-${direction.id}`} className="scroll-mt-24 text-2xl font-semibold">{direction.title[locale]}</h3>
         <p data-intimacy-values-mean={direction.id} className="my-4 rounded-lg bg-slate-50 p-4 font-semibold">{part.mean === null
           ? (zh ? `资料不足：${part.rated}/5条有效，至少需4条；不显示个人均值。` : `Insufficient information: ${part.rated}/5 rated, at least 4 needed; no personal mean.`)
           : (zh ? `原始和 ${part.sum}，${part.rated}/5条有效，重要程度均值 ${part.mean.toFixed(1)} / 5` : `Raw sum ${part.sum}; ${part.rated}/5 rated; importance mean ${part.mean.toFixed(1)} / 5`)}</p>

@@ -1,3 +1,4 @@
+import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -8,7 +9,15 @@ export function QuestionnaireWorkBehaviorReport({ quiz, result, locale }: {
   quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale;
 }) {
   const zh = locale === "zh";
-  return <div className="my-6 space-y-8" data-work-behavior-result>
+  return <ResultPage variant="dimensions" className="my-6 space-y-8" data-work-behavior-result>
+    <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
+      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
+      items={quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return { id: direction.id, label: direction.title[locale], href: `#work-behavior-${direction.id}`,
+          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
+          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
+      })} />
     <p className="leading-8">{zh
       ? "六组分别概括过去四周有相关机会时，题述工作行为的自报频率。没有综合胜任力分、最强最弱型或录用等级；频繁做某件事不证明做得合适、有效或具备岗位能力。"
       : "The six groups separately summarize reported frequency of the listed work behaviors when an occasion arose in the past four weeks. There is no overall competency score, strongest or weakest type, or hiring grade. Doing something often does not prove appropriateness, effectiveness or ability for a job."}</p>
@@ -18,7 +27,7 @@ export function QuestionnaireWorkBehaviorReport({ quiz, result, locale }: {
     {quiz.directions.map(direction => {
       const score = result.facets[direction.id], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
       return <section key={direction.id} className="rounded-lg border border-slate-200 p-4 sm:p-6" data-work-behavior-part={direction.id} aria-labelledby={`work-behavior-${direction.id}`}>
-        <h3 id={`work-behavior-${direction.id}`} className="text-xl font-semibold">{direction.title[locale]}</h3>
+        <h3 id={`work-behavior-${direction.id}`} className="scroll-mt-24 text-xl font-semibold">{direction.title[locale]}</h3>
         <p data-work-behavior-score={direction.id} className="my-4 font-semibold">{score.mean === null
           ? (zh ? `资料不足：${score.rated}/6题有数值回答；需要六题完整，不计算本组均分。` : `Insufficient information: ${score.rated}/6 items rated; all six are needed. No mean is calculated for this group.`)
           : (zh ? `行为频率均分：${score.mean.toFixed(1)} / 5（6/6题有效）` : `Behavior frequency mean: ${score.mean.toFixed(1)} / 5 (6/6 items rated)`)}</p>
@@ -32,7 +41,7 @@ export function QuestionnaireWorkBehaviorReport({ quiz, result, locale }: {
     <p className="leading-8">{zh
       ? "可以选择一个实际例子，看看当时的机会、限制和可观察结果，再决定是否尝试一个小调整。六个主题是相关的编辑分组，尚未建立独立因子、信效度、常模或跨语言等价性。它不转换人格、职位匹配或资格，也可以在这里结束。"
       : "Choose an actual example, examine its opportunities, constraints and observable outcome, then decide whether a small adjustment is useful. The six topics are related editorial groups without established independent factors, reliability, validity, norms or language equivalence. They do not convert into a personality type, job match or qualification. You may also finish here."}</p>
-  </div>;
+  </ResultPage>;
 }
 
 export function QuestionnaireWorkBehaviorNextSteps({ locale }: { locale: Locale }) {

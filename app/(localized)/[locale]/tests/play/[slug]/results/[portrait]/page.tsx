@@ -1,3 +1,4 @@
+import styles from "./StoryResultGuide.module.css";
 import { ExploreTestShell } from "@/components/tests/ExploreTestShell";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -80,8 +81,8 @@ async function FunResultGuideContent({ params }: Props) {
   const others = quiz.results.filter((other) => other.id !== result.id);
   const examples = portraitRuleExample(quiz, result.id);
   return (
-    <main className="bg-slate-50 py-10 text-slate-950">
-      <Container className="max-w-3xl">
+    <main className={styles.page} data-story-guide={quiz.mechanism}>
+      <Container className={styles.container}>
         <JsonLd
           id="fun-guide-breadcrumb"
           data={buildBreadcrumbJsonLd([
@@ -116,29 +117,31 @@ async function FunResultGuideContent({ params }: Props) {
             {quiz.seo.topic[locale]}
           </Link>
         </nav>
-        <p className="text-sm font-semibold text-violet-800">
+        <header className={styles.hero}>
+        <p className={styles.eyebrow}>
           {zh
-            ? "原创画像 · 完整公开指南"
-            : "Original portrait · Complete public guide"}
+            ? (quiz.mechanism === "branch" ? "故事结局 · 完整公开指南" : "原创画像 · 完整公开指南")
+            : (quiz.mechanism === "branch" ? "Story ending · Complete public guide" : "Original portrait · Complete public guide")}
         </p>
-        <h1 className="mt-3 text-4xl font-semibold leading-tight [overflow-wrap:anywhere]">
+        <h1 className={styles.title}>
           {result.title[locale]}
         </h1>
-        <p className="mt-5 leading-8 text-slate-600">
+        <p className={styles.context}>
           {zh
             ? `这是「${quiz.seo.topic.zh}」的公开画像，不关联任何人的答案或成绩。你可以先了解画像，也可以回到测试作出自己的选择。`
             : `This is a public portrait from the ${quiz.seo.topic.en}, not a record of anyone’s answers or score. Read it on its own or return to the quiz to make your own choices.`}
         </p>
         <Link
           prefetch={false}
-          className="mt-4 inline-block min-h-11 py-2 font-semibold text-violet-800 underline"
+          className={styles.entry}
           href={`${entry}#play`}
         >
           {zh ? "免费体验本测试" : "Try this quiz for free"}
         </Link>
+        </header>
         <nav
           aria-label={zh ? "本页内容" : "On this page"}
-          className="my-6 flex flex-wrap gap-3 rounded-lg border border-slate-200 bg-white p-4 text-sm"
+          className={styles.navigation}
         >
           {[
             ["meaning", zh ? "画像含义" : "Meaning"],
@@ -153,7 +156,7 @@ async function FunResultGuideContent({ params }: Props) {
             </a>
           ))}
         </nav>
-        <article className="space-y-8 rounded-xl border border-slate-200 bg-white p-5 leading-8 sm:p-8">
+        <article className={styles.reading}>
           <section id="meaning" className="scroll-mt-24">
             <h2 className="mb-3 text-2xl font-semibold">
               {zh ? "这幅画像在说什么？" : "What does this portrait mean?"}

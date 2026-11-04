@@ -1,4 +1,5 @@
 "use client";
+import { ResultOverview, ResultPage, ResultReadingNav } from "./QuestionnaireResultPresentation";
 import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
@@ -110,8 +111,9 @@ function ValidTenKeyClient({ quiz, locale }: { quiz: Questionnaire; locale: Loca
       </> : <p className="my-5 leading-8">{zh ? "本列表240条已用完。计时继续到60秒，随后呈现完整结果。" : "All 240 source rows are used. The round continues to its 60-second deadline, then shows the full result."}</p>}
       <button type="button" className={`${button} ml-0 mt-4 block`} onClick={() => cancel(zh ? "本轮已取消，输入已清空。" : "Round cancelled and entries cleared.")}>{zh ? "取消并清空本轮" : "Cancel and clear this round"}</button>
     </>}
-    {phase === "result" && result?.status === "complete" && finished && <div data-ten-key-result className="mt-5 space-y-6 leading-8">
+    {phase === "result" && result?.status === "complete" && finished && <ResultPage variant="practice" data-ten-key-result className="mt-5 space-y-6 leading-8">
       <p>{rounds[finished.mode].title[locale]} · {zh ? "计分窗口：60秒；截止后事件不计入。" : "Scoring window: 60 seconds. Events at or after the deadline are excluded."}</p>
+      <ResultOverview locale={locale} title={zh ? "本轮数字输入表现" : "This round’s numeric-entry performance"}>
       <dl className="grid grid-cols-1 gap-4 sm:grid-cols-2">{[
         [zh ? "确认等价KPH" : "Confirmed-equivalent KPH", result.confirmedKph.toFixed(1)],
         [zh ? "完全正确条目KPH" : "Exact-entry KPH", result.exactEntryKph.toFixed(1)],
@@ -122,14 +124,16 @@ function ValidTenKeyClient({ quiz, locale }: { quiz: Questionnaire; locale: Loca
         [zh ? "逐位字符准确率" : "Positional character accuracy", percent(result.characterAccuracy)],
         [zh ? "相同字符位置 / 比较位置" : "Matching / compared character positions", `${result.correctCharacters} / ${result.comparedCharacters}`],
       ].map(([label, value]) => <div key={label} className="rounded-lg bg-slate-50 p-4"><dt>{label}</dt><dd className="text-xl font-semibold">{value}</dd></div>)}</dl>
+      </ResultOverview>
+      <ResultReadingNav label={zh ? "核对本轮与完整读法" : "Review this round and its full guides"} sections={[{ id: "ten-key-review", title: zh ? "逐条核对" : "Entry-by-entry review" }, ...quiz.profiles.map(profile => ({ id: `ten-key-result-guide-${profile.id}`, title: profile.title[locale] }))]} />
       <p data-ten-key-formula>{zh ? `确认字符${result.confirmedCharacters}＋分隔符${result.separators}，除以60秒，再乘3600。删除的字符、退格与未确认尾串不计产出。` : `${result.confirmedCharacters} confirmed characters + ${result.separators} separators, divided by 60 seconds, multiplied by 3,600. Deleted characters, Backspace and unconfirmed text are not throughput.`}</p>
       <p>{zh ? `观察到的数字keydown事件（含之后被删的数字）：Numpad ${finished.events.numpad}，数字行 ${finished.events.row}，其他/未知 ${finished.events.other}。触屏可能没有键码；这些数字不能认证设备。` : `Observed digit keydown events, including later edits: Numpad ${finished.events.numpad}, number row ${finished.events.row}, other/unknown ${finished.events.other}. Touch input may supply no codes; these counts cannot certify a device.`}</p>
       <p>{zh ? "截止时未确认尾串（排除计分）：" : "Unconfirmed text at the deadline (excluded): "}<span className="break-all font-mono">{finished.tail || (zh ? "无" : "None")}</span></p>
       <section aria-labelledby="ten-key-review"><h3 id="ten-key-review" className="text-xl font-semibold">{zh ? "每条输入的完整核对" : "Complete copied-row review"}</h3>{result.rows.length ? <ol className="mt-4 space-y-4">{result.rows.map((row, index) => <li key={index} data-ten-key-review-row className="rounded-lg border p-4"><p>{index + 1}. {row.correct ? (zh ? "整条正确" : "Exact entry") : (zh ? "不完全匹配" : "Not an exact entry")}</p><p>{zh ? "源文本：" : "Source: "}<span className="break-all font-mono">{row.expected}</span></p><p>{zh ? "输入：" : "Entered: "}<span className="break-all font-mono">{row.entered || (zh ? "空白" : "Blank")}</span></p><p>{zh ? "相同字符位置：" : "Matching character positions: "}{row.matchingCharacters} / {row.comparedCharacters}</p></li>)}</ol> : <p>{zh ? "没有确认条目。KPH为0，准确率与错误率资料不足；这不判定你的能力。" : "No entries were confirmed. KPH is zero and accuracy/error rate are unavailable; this does not establish your ability."}</p>}</section>
-      {quiz.profiles.map(profile => <section key={profile.id} data-ten-key-full-guide={profile.id} className="border-t pt-6"><h3 className="mb-4 text-xl font-semibold">{profile.title[locale]}</h3><QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`ten-key-${profile.id}`} /></section>)}
+      {quiz.profiles.map(profile => <section key={profile.id} id={`ten-key-result-guide-${profile.id}`} data-ten-key-full-guide={profile.id} className="border-t pt-6"><h3 className="mb-4 text-xl font-semibold">{profile.title[locale]}</h3><QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`ten-key-${profile.id}`} /></section>)}
       <button type="button" className={button} onClick={() => cancel(zh ? "结果与输入已清空，可选择新模式。" : "Result and entries cleared. Choose a new mode.")}>{zh ? "清空并重新练习" : "Clear and practise again"}</button>
       <section className="border-t pt-6"><h3 className="text-xl font-semibold">{zh ? "下一步由你选择" : "Choose what comes next"}</h3><p className="my-3">{zh ? "可以复核本轮、另选练习或在这里结束。若想另探工作兴趣，RIASEC需要独立完整作答；速度不换算为兴趣或人格。" : "Review this round, choose more practice or stop here. RIASEC explores work interests through its own separate full attempt; speed is never converted into interests or personality."}</p><Link prefetch={false} className="block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "全部测试与练习" : "All tests and practice"}</Link><Link prefetch={false} className="block min-h-11 py-2 underline" href={`/${locale}/tests/holland-career-interest-test-riasec`}>{zh ? "可选：另做RIASEC职业兴趣测试" : "Optional: take a separate RIASEC career-interest test"}</Link><Link prefetch={false} className="block min-h-11 py-2 underline" href={`/${locale}/tests/explore/ten-key-test`}>{zh ? "公开练习入口链接（不含成绩）" : "Public practice link (no scores)"}</Link></section>
-    </div>}
+    </ResultPage>}
     {phase === "result" && result?.status !== "complete" && <p role="status">{zh ? "本轮资料不可用，请清空后重新开始。" : "Round data is unavailable. Clear and start again."}<button type="button" className={`${button} mt-4 block`} onClick={() => cancel("")}>{zh ? "清空并重开" : "Clear and restart"}</button></p>}
   </section>;
 }
