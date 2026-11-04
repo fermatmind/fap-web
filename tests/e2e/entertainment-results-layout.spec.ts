@@ -54,7 +54,12 @@ for (const locale of ["en", "zh"] as const) {
     for (const [index, question] of disc.questions.entries()) await page.locator(`input[name="${question.id}"][value="${answers[index]}"]`).check();
     const result = page.locator('#take-test[data-stage="result"]');
     await expect(result).toContainText(disc.profiles.find(profile => profile.directionIds.length === 4)!.title[locale]);
-    await expect(result.getByRole("region", { name: locale === "zh" ? "本次原始选择次数" : "Raw choice counts for this attempt", exact: true }).locator("strong")).toHaveText(["6 / 12", "6 / 12", "6 / 12", "6 / 12"]);
+    const countsSummary = result.getByText(locale === "zh" ? "查看各方向的原始选择次数" : "View the raw counts for every direction", { exact: true });
+    await expect(countsSummary).toBeVisible();
+    await countsSummary.click();
+    const counts = result.getByRole("region", { name: locale === "zh" ? "本次原始选择次数" : "Raw choice counts for this attempt", exact: true });
+    await expect(counts).toBeVisible();
+    await expect(counts.locator("strong")).toHaveText(["6 / 12", "6 / 12", "6 / 12", "6 / 12"]);
     await inspectLayout(page, result, `disc-tie-${locale}`);
     await page.getByRole("button", { name: locale === "zh" ? "重新测试" : "Retake test", exact: true }).click();
     await expect(page.locator('#take-test[data-stage="answer"] input:checked')).toHaveCount(0);
