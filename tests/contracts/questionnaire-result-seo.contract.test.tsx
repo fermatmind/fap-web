@@ -53,13 +53,23 @@ describe("Result-specific bilingual search assets for the four early complete qu
           expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
           expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com${questionnaireGuidePath("en", slug, profile.id)}`, "zh-CN": `https://fermatmind.com${questionnaireGuidePath("zh", slug, profile.id)}` });
           expect(maps.some(e => e.loc === `https://fermatmind.com${path}`)).toBe(true);
-          expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]);
+          const title = dom.querySelector("h1")!;
+          expect(title.textContent).toBe(profile.title[locale]);
+          const lead = title.nextElementSibling;
+          expect(lead?.tagName).toBe("P");
+          expect(lead?.textContent).toBe(profile.summary[locale]);
           const reading = prepareResultProfile(slug, profile);
           expect(reading.id).toBe(profile.id); expect(reading.directionIds).toEqual(profile.directionIds);
           const body = dom.querySelector(`[data-${reading.resultReading!.attribute}-result-reading="${profile.id}"]`);
           expect(body).not.toBeNull();
           expect(body!.textContent).toContain(reading.headline[locale]);
-          expect(body!.textContent).toContain(reading.summary[locale]);
+          // The original summary is already the page lead. A different accepted
+          // editorial summary must still be preserved in the complete reading.
+          if (reading.summary[locale] === profile.summary[locale]) {
+            expect(lead?.textContent).toBe(reading.summary[locale]);
+          } else {
+            expect(body!.textContent).toContain(reading.summary[locale]);
+          }
           expect(body!.textContent).toContain(reading.scoreReading[locale]);
           for (const section of reading.sections) for (const paragraph of section.paragraphs) expect(body!.textContent).toContain(paragraph[locale]);
           const links = Array.from(dom.querySelectorAll("a"), a => a.getAttribute("href"));

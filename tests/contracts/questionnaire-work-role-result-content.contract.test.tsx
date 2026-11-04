@@ -25,9 +25,11 @@ describe("Three complete bilingual work-role readings with raw categorical confi
     // once, then require their exact markup in every render before parsing the rows.
     const readings=baseline.workRole.map(part=>{
       const profile=profiles.find(p=>p.id===part.profileId)!;
-      const html=renderToStaticMarkup(<QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`work-role-reading-${part.id}`}/>);
+      const html=renderToStaticMarkup(<QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`work-role-reading-${part.id}`} mode="result" previewSectionIds={["meaning", "example", "try", "scenario", "practice"]}/>);
       const dom=document.createElement("div");dom.innerHTML=html;
       expect(dom.querySelectorAll('[data-work-role-result-reading] h4')).toHaveLength(7);
+      for(const section of profile.sections)for(const paragraph of section.paragraphs)expect(dom.textContent).toContain(paragraph[locale]);
+      for(const id of ["meaning","example","try","scenario","practice"].filter(id=>profile.sections.some(section=>section.id===id))){const section=dom.querySelector(`#work-role-reading-${part.id}-${id}`);expect(section).not.toBeNull();expect(section!.closest("details")).toBeNull();}
       for(const section of content[profile.id as keyof typeof content])for(const paragraph of section.paragraphs)expect(dom.textContent).toContain(paragraph[locale]);
       return html;
     });

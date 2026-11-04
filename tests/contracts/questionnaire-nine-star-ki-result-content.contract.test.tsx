@@ -28,8 +28,9 @@ describe("original Nine Star cultural readings alongside conditional year refere
         const d = dom(renderToStaticMarkup(<NineStarYearGuidePage quiz={quiz} profile={p} locale={locale} />));
         expect(d.querySelectorAll("h1")).toHaveLength(1); expect(d.querySelectorAll("[data-nine-star-guide] h2")).toHaveLength(6);
         expect(d.querySelectorAll("[data-nine-star-guide] section > p")).toHaveLength(10);
-        expect(d.querySelectorAll("details:not([open]) nav a")).toHaveLength(6);
-        for (const a of d.querySelectorAll("details nav a")) expect(d.querySelector(a.getAttribute("href")!)).not.toBeNull();
+        expect(d.querySelectorAll("[data-nine-star-guide] nav a")).toHaveLength(6);
+        expect(d.querySelector("[data-nine-star-guide] nav")?.closest("details")).toBeNull();
+        for (const a of d.querySelectorAll("[data-nine-star-guide] nav a")) expect(d.querySelector(a.getAttribute("href")!)).not.toBeNull();
         for (const s of p.sections) for (const para of s.paragraphs) expect(d.textContent).toContain(para[locale]);
         expect(d.querySelector("input,textarea,[data-nine-star-value],[data-nine-star-result],[data-nine-star-calculation]")).toBeNull();
         if (locale === "en") expect(d.textContent).not.toMatch(/\p{Script=Han}/u);

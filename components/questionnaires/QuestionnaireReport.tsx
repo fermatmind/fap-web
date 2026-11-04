@@ -31,10 +31,10 @@ export function QuestionnaireReport({ profile, locale, headingLevel = 3, idPrefi
   const previews = mode === "result" ? [...new Set(selectedIds)].flatMap(id => profile.sections.filter(section => section.id === id)) : [];
   const remaining = profile.sections.filter(section => !previews.includes(section));
   const renderSection = (section: QuestionnaireSection, preview = false) => <ResultSection id={`${idPrefix}-${section.id}`} key={section.id} title={section.title[locale]} headingLevel={headingLevel} tone={!preview && ["limits", "scope", "boundary", "source", "source-method", "edition"].includes(section.id) ? "muted" : "default"}>
-    <div className={styles.paragraphs}>{section.paragraphs.map((line, index) => <p key={index}>{line[locale]}</p>)}</div>
+    {section.paragraphs.map((line, index) => <p key={index}>{line[locale]}</p>)}
   </ResultSection>;
   const score = scoreReadingVisible ? <p className={styles.scoreReading}>{scoreReading}</p> : null;
-  const contents = navigation && profile.sections.length > 2 ? <ResultReadingNav collapsible={mode === "guide"} label={locale === "zh" ? "结果解读目录" : "Result reading contents"} sections={(mode === "result" ? remaining : profile.sections).map(section => ({ id: `${idPrefix}-${section.id}`, title: section.title[locale] }))} /> : null;
+  const contents = navigation && profile.sections.length > 2 ? <ResultReadingNav label={locale === "zh" ? "结果解读目录" : "Result reading contents"} sections={(mode === "result" ? remaining : profile.sections).map(section => ({ id: `${idPrefix}-${section.id}`, title: section.title[locale] }))} /> : null;
   return <article className={styles.reading} data-reading-mode={mode}>
     {(headlineVisible || summaryVisible) && <header className={styles.intro}>
       {headlineVisible && <p className={styles.headline}>{headline}</p>}

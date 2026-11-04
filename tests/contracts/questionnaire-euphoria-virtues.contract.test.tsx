@@ -78,7 +78,29 @@ describe("C formal continuation: VIRTUES source and original T110", () => {
     for (const locale of ["en", "zh"] as const) {
       const rendered = dom(renderToStaticMarkup(<QuestionnaireMiniVirtuesReport quiz={virtues} result={equal} locale={locale} />));
       expect(rendered.querySelectorAll("[data-mini-virtues-part]")).toHaveLength(7);
-      expect(rendered.querySelectorAll("h4")).toHaveLength(50);
+      expect(rendered.querySelectorAll("[data-mini-virtues-everyday]")).toHaveLength(7);
+      expect(rendered.querySelectorAll("[data-mini-virtues-action]")).toHaveLength(7);
+      const common = rendered.querySelector("[data-mini-virtues-common]")!;
+      const sharedScoringText = new Set(virtues.profiles.map(profile => profile.scoreReading[locale]));
+      for (const profile of virtues.profiles) {
+        const part = rendered.querySelector(`[data-virtues-result-reading="${profile.id}"]`)!;
+        expect(part).not.toBeNull();
+        expect(part.textContent).toContain(profile.summary[locale]);
+        for (const section of profile.sections) for (const paragraph of section.paragraphs) {
+          expect((section.id === "edition" || sharedScoringText.has(paragraph[locale]) ? common : part).textContent).toContain(paragraph[locale]);
+        }
+        const context = part.querySelector("[data-mini-virtues-everyday]")!;
+        const action = part.querySelector("[data-mini-virtues-action]")!;
+        expect(context.textContent!.trim()).not.toBe(""); expect(action.textContent!.trim()).not.toBe("");
+        expect(context.closest("details:not([open])")).toBeNull();
+        expect(action.closest("details:not([open])")).toBeNull();
+        if (["desire-boundaries-reading", "rewards-reading", "anger-reading"].includes(profile.id)) {
+          const boundary = [...part.querySelectorAll("p")].find(element => element.textContent?.includes(locale === "zh"
+            ? profile.id === "desire-boundaries-reading" ? "吸引不等于同意" : profile.id === "rewards-reading" ? "戒断管理" : "耐心也不要求忍受伤害"
+            : profile.id === "desire-boundaries-reading" ? "Attraction is not consent" : profile.id === "rewards-reading" ? "withdrawal management" : "patience does not require enduring harm"));
+          expect(boundary).toBeDefined(); expect(boundary!.closest("details:not([open])")).toBeNull();
+        }
+      }
       expect(rendered.querySelectorAll("[data-mini-virtues-equal]")).toHaveLength(1);
       expect(rendered.querySelectorAll("progress")).toHaveLength(0);
       const ids = Array.from(rendered.querySelectorAll("[id]"), e => e.id); expect(new Set(ids).size).toBe(ids.length);
@@ -140,6 +162,24 @@ describe("C formal continuation: VIRTUES source and original T110", () => {
     expect(rendered.querySelectorAll("[data-archetype-count]")).toHaveLength(8); expect(rendered.querySelectorAll("[data-archetype-match]")).toHaveLength(6); expect(rendered.querySelectorAll("h4")).toHaveLength(36);
     const next = dom(renderToStaticMarkup(<QuestionnaireEuphoriaNextSteps locale="en" mbtiHref="/en/tests/mbti-personality-test-16-personality-types?target_action=questionnaire_result_mbti" />));
     expect(Array.from(next.querySelectorAll("a"), a => a.getAttribute("href"))).toEqual(["/en/tests/explore/euphoria-character-quiz#questionnaire-results", "/en/tests/mbti-personality-test-16-personality-types?target_action=questionnaire_result_mbti", "/en/tests#more-tests"]);
+  });
+
+  it.each(["en", "zh"] as const)("keeps each Euphoria route’s source boundaries and optional safe choices visible in %s", locale => {
+    for (const profile of euphoria.profiles) {
+      const witness = outcomes.witnesses.find(item => item.winnerIds.length === 1 && item.winnerIds[0] === profile.directionIds[0])!;
+      expect(witness).toBeDefined();
+      const result = scoreQuestionnaire(euphoria, witness.answers);
+      if (result.status !== "complete" || !("profileIds" in result)) throw Error("Source route witness rejected");
+      const rendered = dom(renderToStaticMarkup(<QuestionnaireArchetypeReport quiz={euphoria} result={result} locale={locale} />));
+      const match = rendered.querySelector(`[data-archetype-match="${profile.id}"]`)!;
+      for (const section of profile.sections) for (const paragraph of section.paragraphs) expect(match.textContent).toContain(paragraph[locale]);
+      for (const id of ["route", "try"]) {
+        const section = profile.sections.find(item => item.id === id)!;
+        const node = match.querySelector(`[id="report-${profile.id}-${id}"]`)!;
+        expect(node).not.toBeNull(); expect(node.closest("details:not([open])")).toBeNull();
+        for (const paragraph of section.paragraphs) expect(node.textContent).toContain(paragraph[locale]);
+      }
+    }
   });
 
   for (const [quiz, valid] of [[virtues, isMiniVirtuesConfigurationValid], [euphoria, isEuphoriaConfigurationValid]] as const) {

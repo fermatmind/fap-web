@@ -82,6 +82,31 @@ describe("Original uncertainty and ease descriptions without scores or clinical 
       expect(support).toContain(locale === "zh" ? "不以完成题目" : "without completion, a label or a count");
     }
   });
+  it("keeps mixed unknown notices and immediate support outside collapsed records", () => {
+    for (const locale of ["en", "zh"] as const) {
+      const mixed = Object.fromEntries(quiz.questions.map((q, i) => [q.id, ["unsure", "na", "withheld"][i % 3]]));
+      const records = complete(mixed);
+      const dom = document.createElement("div");
+      dom.innerHTML = renderToStaticMarkup(<UncertaintyEaseReport quiz={quiz} records={records} locale={locale} />);
+      const notices = dom.querySelectorAll("[data-uncertainty-ease-unscored]");
+      expect(notices).toHaveLength(1);
+      for (const notice of notices) {
+        expect(notice.closest("details")).toBeNull();
+        expect(notice.textContent).toContain(locale === "zh" ? "不代表不需要支持" : "this does not mean support is unnecessary");
+      }
+      const support = dom.querySelector("[data-uncertainty-ease-support]");
+      expect(support).not.toBeNull();
+      expect(support!.closest("details")).toBeNull();
+      expect(support!.textContent).toContain(locale === "zh" ? "即时危险" : "immediate danger");
+      for (const record of records) {
+        for (const category of ["unsure", "na", "withheld"]) expect(dom.querySelector(`[data-uncertainty-ease-count="${record.id}-${category}"]`)?.textContent).toBe(`${record.counts[category as "unsure" | "na" | "withheld"]} / ${record.observations.length}`);
+        for (const observation of record.observations) expect(dom.querySelector(`[data-uncertainty-ease-observation="${observation.questionId}"]`)).not.toBeNull();
+      }
+      const withKnown = { ...mixed, [quiz.questions[0].id]: "fits" };
+      dom.innerHTML = renderToStaticMarkup(<UncertaintyEaseReport quiz={quiz} records={complete(withKnown)} locale={locale} />);
+      expect(dom.querySelectorAll("[data-uncertainty-ease-unscored]")).toHaveLength(1 - 1);
+    }
+  });
   it("makes all eight paragraphs public before answers and on their own guide pages", () => {
     for (const locale of ["en", "zh"] as const) {
       const html = renderToStaticMarkup(<UncertaintyEasePage quiz={quiz} locale={locale} />);

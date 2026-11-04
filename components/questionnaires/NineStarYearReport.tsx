@@ -9,17 +9,14 @@ export function NineStarYearGuideBody({ profile, locale, headingLevel = 3, idPre
 }) {
   const candidate = profile.resultReading;
   const reading = candidate?.quizSlug === "nine-star-ki" && candidate.profileId === profile.id ? candidate : null;
-  if (mode === "result") return <article data-nine-star-guide={profile.id} data-nine-star-cultural-result-reading={reading ? profile.id : undefined}>
+  if (mode === "result") return <article data-nine-star-guide={profile.id}>
     <QuestionnaireResultReading quizSlug="nine-star-ki" profile={profile} locale={locale} headingLevel={headingLevel} idPrefix={idPrefix} mode="result" showHeadline={false} previewSectionIds={[`${profile.id}-culture-4`, `${profile.id}-culture-5`]} />
   </article>;
   const Heading = headingLevel === 2 ? "h2" : headingLevel === 4 ? "h4" : "h3";
   return <article data-nine-star-guide={profile.id} data-nine-star-cultural-result-reading={reading ? profile.id : undefined} className="space-y-7 leading-8 [overflow-wrap:anywhere]">
-    {reading && <details className="mb-6 rounded-lg bg-slate-50 p-4">
-      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{locale === "zh" ? "跳转到解读模块" : "Jump to a reading section"}</summary>
-      <nav aria-label={locale === "zh" ? "结果解读目录" : "Result reading contents"} className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm leading-7">
+    {reading && <nav aria-label={locale === "zh" ? "结果解读目录" : "Result reading contents"} className="mb-6 flex flex-wrap gap-x-5 gap-y-2 text-sm leading-7">
         {profile.sections.map(section => <a key={section.id} className="min-h-11 py-2 underline" href={`#${idPrefix}-${section.id}`}>{section.title[locale]}</a>)}
-      </nav>
-    </details>}
+    </nav>}
     <p>{profile.summary[locale]}</p>
     <p className="rounded-lg bg-slate-50 p-4 text-sm leading-7">{profile.scoreReading[locale]}</p>
     {profile.sections.map(section => <section id={`${idPrefix}-${section.id}`} key={section.id} className="scroll-mt-24">

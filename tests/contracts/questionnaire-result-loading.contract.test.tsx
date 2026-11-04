@@ -44,8 +44,16 @@ describe("Server-selected result content", () => {
     expect(prepareResultProfile(source.slug, unknown)).toBe(unknown);
     const prepared = prepareResultProfile(source.slug, source.profiles[0]);
     for (const [slug, p] of [["unknown-test", prepared], [source.slug, { ...prepared, id: "unknown-profile" }]] as const) {
-      expect(renderToStaticMarkup(<QuestionnaireResultReading quizSlug={slug} profile={p} locale="en" />))
-        .toBe(renderToStaticMarkup(<QuestionnaireReport profile={p} locale="en" />));
+      // A rejected binding keeps the caller's navigation preference, but emits no
+      // product-specific wrapper or supplemental references from that binding.
+      for (const navigation of [undefined, true, false]) {
+        const html = renderToStaticMarkup(<QuestionnaireResultReading quizSlug={slug} profile={p} locale="en" navigation={navigation} />);
+        expect(html).toBe(renderToStaticMarkup(<QuestionnaireReport profile={p} locale="en" navigation={navigation} />));
+        const root = document.createElement("div"); root.innerHTML = html;
+        expect(root.querySelector(`[data-${prepared.resultReading!.attribute}-result-reading]`)).toBeNull();
+        expect(root.querySelectorAll("nav")).toHaveLength(navigation ? 1 : 0);
+        for (const section of p.sections) for (const paragraph of section.paragraphs) expect(root.querySelector(`#report-${section.id}`)?.textContent).toContain(paragraph.en);
+      }
     }
   });
 });

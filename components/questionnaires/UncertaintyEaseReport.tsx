@@ -29,6 +29,7 @@ export function UncertaintyEaseReport({ quiz, records, locale, readingProfiles }
         <h3 id={`uncertainty-ease-record-title-${r.id}`} className="mb-4 text-xl font-semibold leading-8">{quiz.directions[i].title[locale]}</h3>
         <p className="leading-8" data-uncertainty-ease-topic-summary>{original.summary[locale]}</p>
         <p className="my-4 text-sm leading-7 text-slate-600" data-uncertainty-ease-choice-pattern>{uncertaintyEaseCategories.filter(category => r.counts[category.id] > 0).map(category => `${category.label[locale]} ${r.counts[category.id]}${zh ? "条" : " statements"}`).join(zh ? "；" : "; ")}</p>
+        {r.observations.every(o => ["unsure", "na", "withheld"].includes(o.category)) && <p data-uncertainty-ease-unscored className="mb-4 leading-7">{zh ? "本主题全部为未知、没有经历或保留回答，未据此推断个人情况，不代表不需要支持。" : "This theme is entirely unknown, inapplicable or withheld. No personal finding is inferred; this does not mean support is unnecessary."}</p>}
 
         <div id={`uncertainty-ease-public-${r.id}`} className="scroll-mt-24" data-uncertainty-ease-full-reading>
           <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`uncertainty-ease-result-reading-${profile.id}`} mode="result" previewSectionIds={previewSectionIds} showHeadline={false} showSummary={false} />

@@ -24,7 +24,7 @@ describe("twelve chart-symbol readings with distinct roles and unchanged astrono
    expect(p.sections.map(s=>s.paragraphs.length)).toEqual([2,2,2,2,2,2]);for(const [j,s]of p.sections.entries())expect(s.paragraphs[0]).toEqual(quiz.profiles[i].sections[j].paragraphs[0]);
    for(const locale of ["en","zh"]as const){const d=dom(renderToStaticMarkup(<NatalChartGuidePage quiz={quiz} profile={p} locale={locale}/>));
     const reader=d.querySelector("[data-natal-symbol-result-reading]");expect(reader?.getAttribute("data-natal-symbol-result-reading")).toBe(p.id);
-    expect(reader?.querySelectorAll("h2")).toHaveLength(6);expect(reader?.querySelectorAll("section > div > p:not(:only-child)")).toHaveLength(12);expect(reader?.querySelectorAll("details:not([open]) nav a")).toHaveLength(6);
+    expect(reader?.querySelectorAll("h2")).toHaveLength(6);expect(reader?.querySelectorAll("section > p")).toHaveLength(12);expect(reader?.querySelectorAll(`nav[aria-label="${locale === "zh" ? "结果解读目录" : "Result reading contents"}"] a`)).toHaveLength(6);
     for(const s of p.sections)for(const para of s.paragraphs)expect(reader?.textContent).toContain(para[locale]);
     for(const a of reader!.querySelectorAll("nav a"))expect(d.querySelector(a.getAttribute("href")!)).not.toBeNull();
     expect(d.querySelector("input,textarea,[data-natal-result],[data-natal-body],[data-natal-element],[data-natal-table]")).toBeNull();if(locale==="en")expect(d.textContent).not.toMatch(/\p{Script=Han}/u);

@@ -21,11 +21,11 @@ describe("five freelance action readings without an employment or business verdi
   for(const q of quiz.questions){const a=base();delete a[q.id];expect(scorePreparationActions20Questionnaire(prepared,a)).toEqual({status:"incomplete",answered:19});}
   expect(JSON.stringify(quiz)).toBe(before);const unknown={...quiz.profiles[0],id:"__proto__"};expect(prepareResultProfile(quiz.slug,unknown)).toBe(unknown);
  });
- it.each(["zh","en"]as const)("publishes every complete %s public guide with collapsed usable anchors and no private rows",async locale=>{
+ it.each(["zh","en"]as const)("publishes every complete %s public guide with expanded usable anchors and no private rows",async locale=>{
   const {default:Guide}=await import("@/components/questionnaires/QuestionnaireGuide");
   for(const p of prepared.profiles){
    const d=dom(renderToStaticMarkup(await Guide({params:Promise.resolve({locale,slug:quiz.slug,profile:p.id})})));
-   const reader=d.querySelector(`[data-freelance-preparation-result-reading="${p.id}"]`)!;expect(reader).not.toBeNull();expect(reader.querySelectorAll("h2")).toHaveLength(6);expect(reader.querySelectorAll("section > div > p")).toHaveLength(9);expect(reader.querySelectorAll("details:not([open]) nav a")).toHaveLength(6);
+   const reader=d.querySelector(`[data-freelance-preparation-result-reading="${p.id}"]`)!;expect(reader).not.toBeNull();expect(reader.querySelectorAll("h2")).toHaveLength(6);expect(reader.querySelectorAll("section > p")).toHaveLength(9);expect(reader.querySelectorAll(`nav[aria-label="${locale === "zh" ? "结果解读目录" : "Result reading contents"}"] a`)).toHaveLength(6);
    for(const a of reader.querySelectorAll("nav a"))expect(d.querySelector(a.getAttribute("href")!)).not.toBeNull();for(const s of p.sections)for(const para of s.paragraphs)expect(reader.textContent).toContain(para[locale]);expect(d.querySelector("input,textarea,[data-preparation-action-row],[data-preparation-actions-mean]")).toBeNull();if(locale==="en")expect(d.textContent).not.toMatch(/\p{Script=Han}/u);
   }
  });
