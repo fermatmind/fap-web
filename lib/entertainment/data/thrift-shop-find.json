@@ -1,7 +1,7 @@
 {
   "slug": "thrift-shop-find",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "everyday",
   "title": {
     "en": "Your Imaginary Secondhand-Shelf Find",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Seeing a fictional reused object through a current use, a possible transformation or a small trace of its existing character.",
-    "zh": "从当前用途、可能改造或已有小痕迹，看一件虚构再用物。"
+    "zh": "看一件故事里的旧物，你会想到现在就能用它做什么、改一处会怎样，还是先欣赏它已有的小痕迹？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -266,23 +266,23 @@
       },
       "summary": {
         "en": "Your shelf story notices a use that already exists in your day. The object does not have to become a major project before it earns a place in the scene. This is an imagined choice, not a recommendation to buy something you do not need.",
-        "zh": "你的货架故事留意日常里已有的用途。物件不必先变大项目，才有位置。这是想象选择，不建议购买并不需要的东西。"
+        "zh": "你看见这件旧物时，先想到它能放进已有生活的哪个地方。不必把它变成一个大工程，才值得留下。这是想象中的选择，不是在建议你购买不需要的东西。"
       },
       "example": {
         "en": "A small reused box might fit the loose paper you already keep, without requiring a new collection to fill it.",
-        "zh": "一个再用小盒，也许刚好装已有散纸，不必先开新收藏来填它。"
+        "zh": "一个旧小盒刚好可以装已有的散纸，不需要为了把它填满，再开始一项新收藏。"
       },
       "strength": {
         "en": "Starting from an actual use can keep a playful object choice grounded and reduce the extra work hidden inside an appealing imagined project.",
-        "zh": "从实际用途开始，让趣味物件选择有落点，也减少诱人想象项目里藏的额外工作。"
+        "zh": "先想眼下有什么用，选择就更踏实，也不容易被一个听起来诱人、实际却很费力的改造计划拖住。"
       },
       "tradeoff": {
         "en": "Usefulness is not the only possible source of enjoyment. A purely decorative or playful object can still be a choice if you genuinely want it.",
-        "zh": "有用不是唯一乐趣。确实想要时，纯装饰或趣味物件也可被选择。"
+        "zh": "实用不是唯一的乐趣。只要你确实喜欢，一件纯粹用来装饰或玩的小东西，也可以有留下的理由。"
       },
       "experiment": {
         "en": "Look at one object you already have and name a use it serves now. Let that be enough without immediately adding an improvement project.",
-        "zh": "看一件已有物，说出它现在服务的用途。让这样就够，不立刻添改进项目。"
+        "zh": "看一件自己已经拥有的物品，说出它现在的用途。做到这里就可以，不必立刻再给它安排一个改进计划。"
       }
     },
     {
@@ -293,23 +293,23 @@
       },
       "summary": {
         "en": "Your imaginary find offers a starting point for making something different. A frame, box or odd shape can invite one small change. The portrait values a bounded possibility rather than requiring every appealing object to become a finished makeover.",
-        "zh": "你的想象拾物给做出不同东西一个起点。框、盒或奇怪形状，都可邀请一次小变化。画像珍惜有边界可能，不要求每件吸引物都变成完整改造。"
+        "zh": "你想象中的发现，是一个小小的改造起点。画框、盒子或特别的形状，都可以试着改一处；但不是每件吸引你的东西，都必须最后完成一场大改造。"
       },
       "example": {
         "en": "You might draw one paper insert for an empty frame you already own, rather than redesigning the whole room around it.",
-        "zh": "你可能给已有空框画一张纸内页，不为它重设计整间房。"
+        "zh": "给家里已有的空画框画一张新内页，不必为了它重新布置整个房间。"
       },
       "strength": {
         "en": "A concrete starting object can make an idea easier to try because it provides a scale and shape to respond to.",
-        "zh": "具体起始物让想法容易试，因为它提供可回应的大小与形状。"
+        "zh": "先有一件具体物品，大小和形状都确定了，想法就更容易从一个小改动试起。"
       },
       "tradeoff": {
         "en": "Possible transformations can accumulate as obligations. Choosing one and releasing another helps the idea remain play rather than a growing queue of duties.",
-        "zh": "可能改造会堆成义务。选一个、放另一个，想法更能保持游戏而非增长任务队列。"
+        "zh": "想做的改造，攒多了也可能变成待办。选一个来玩，也放下另一个，才能让它继续是乐趣，而不是越来越长的任务单。"
       },
       "experiment": {
         "en": "Choose one already-owned object for a reversible paper mockup. Stop after the mockup and decide separately whether any further change is wanted.",
-        "zh": "选一件已有物做可撤回的纸上样稿。样稿后先停，再另行决定是否想更多改变。"
+        "zh": "选一件已有的物品，用纸做一个能撤下的小样。做完先停一停，再决定还想不想继续改。"
       }
     },
     {
@@ -320,23 +320,23 @@
       },
       "summary": {
         "en": "Your shelf portrait stays with the mark that is actually visible: a label, a curve or a little worn edge. It can be interesting without a story you cannot verify. The ending offers a way to look, not an ability to read an object’s past.",
-        "zh": "你的货架画像停在实际可见标记：标签、曲线或磨边。不必有无法核实的身世，也能有趣。结局提供看法，不赋予读物件过去的能力。"
+        "zh": "你会多看看眼前真正可见的痕迹：一个标签、一条曲线，或稍有磨损的边缘。不替它编出无法核实的身世，它也可以很有趣。这是一种观看角度，不是读懂物件过去的能力。"
       },
       "example": {
         "en": "A faded printed label might become a tiny drawing subject, while its unknown owner and history remain simply unknown.",
-        "zh": "褪色印刷标签可成微型绘画对象，未知主人与历史仍只是未知。"
+        "zh": "把一张褪色的印刷标签当作小速写的对象。它原来的主人和经历，如果不知道，就继续留作未知。"
       },
       "strength": {
         "en": "Attention to a visible trace can make an ordinary object particular and offer a small creative subject without needing to possess it.",
-        "zh": "留意可见痕迹让普通物具体，也给小创作对象，不必拥有它。"
+        "zh": "留意一个看得见的细节，普通小物也会显得特别。你可以用它作为小创作的题材，不一定要把它买回家。"
       },
       "tradeoff": {
         "en": "An attractive invented history can slip into a factual claim. Keeping what you saw separate from what you imagined protects the pleasure of both.",
-        "zh": "好听的虚构历史会滑成事实主张。分清看见与想象，能同时保留两者乐趣。"
+        "zh": "编得动听的经历，也可能不小心被说成事实。分清看见的与想象的，就能同时保留观察和创作的乐趣。"
       },
       "experiment": {
         "en": "Sketch one visible detail of an ordinary object. If you invent a tale from it, label that tale as fiction and let the observation remain separate.",
-        "zh": "速写普通物一个可见细节。如由此编故事，标成虚构，让观察单独保留。"
+        "zh": "画下普通物件上一个看得见的细节。如果再由此编故事，就清楚写明是虚构，让观察与故事各自保留。"
       }
     }
   ],

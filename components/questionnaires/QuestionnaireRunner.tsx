@@ -197,12 +197,14 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
     {stage === "result" && result.status === "complete" && <>
       <h2 ref={heading} tabIndex={-1} className="text-3xl font-semibold leading-tight outline-none [overflow-wrap:anywhere] scroll-mt-24">{miniVirtues ? (zh ? "七宗罪与七美德测试结果" : "Seven Sins and Virtues: Your Results") : profile?.title[locale] ?? quiz.resultHeading?.[locale] ?? (zh ? `${quiz.title.zh}：完整结果` : `${quiz.title.en}: your complete result`)}</h2>
       {directional && profile && <>
-      <ResultOverview eyebrow={zh ? "结果概览" : "Result overview"} title={profile.headline[locale]} description={profile.sections.some(section => section.paragraphs.some(paragraph => paragraph[locale] === profile.summary[locale])) ? undefined : profile.summary[locale]} />
+      <ResultOverview eyebrow={zh ? "本题组内的选择结果" : "Choices in this question set"} title={profile.headline[locale]} description={profile.summary[locale]} />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} showHeadline={false} showSummary={false} mode="result" />
+      <details className={resultStyles.fullReading}><summary>{zh ? "查看各方向的原始选择次数" : "View the raw counts for every direction"}</summary>
       <ResultSection title={zh ? "各方向的本次选择次数" : "Your counts across the directions"} aria-label={zh ? "本次原始选择次数" : "Raw choice counts for this attempt"}>
         {quiz.directions.map(direction => <ResultScoreRow key={direction.id} label={direction.title[locale]} value={`${directional.counts[direction.id]} / ${direction.comparisons}`} score={directional.counts[direction.id]} min={0} max={direction.comparisons} />)}
         <p className="mt-3 text-sm leading-7">{zh ? "分母为该方向参加比较的次数。原始次数只比较本题组内的选择，不是人群排名或能力分数。" : "The denominator is the number of comparisons for that direction. Raw counts compare choices within this question set, not population ranks or ability scores."}</p>
       </ResultSection>
-      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} showHeadline={false} showSummary={false} />
+      </details>
       <Link prefetch={false} className="my-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这项结果的公开说明" : "Read the public explanation of this result"}</Link>
       </>}
       <QuestionnaireResultSections {...reportProps} />

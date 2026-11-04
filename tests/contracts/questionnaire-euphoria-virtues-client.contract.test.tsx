@@ -34,7 +34,10 @@ for(const locale of ["en","zh"] as const)for(const quiz of [virtues,euphoria]){
   await waitFor(()=>expect(document.querySelectorAll(quiz===virtues?"[data-mini-virtues-part]":"[data-archetype-match]")).toHaveLength(quiz===virtues?7:6));
   expect(sessionStorage.getItem(key)).toBeNull();expect(localStorage.length).toBe(0);
   expect(document.querySelectorAll(quiz===virtues?"[data-mini-virtues-part]":"[data-archetype-match]")).toHaveLength(quiz===virtues?7:6);
-  expect(document.querySelectorAll("#take-test h4")).toHaveLength(quiz===virtues?50:36);
+  if(quiz===virtues){
+   expect(document.querySelectorAll("[data-mini-virtues-everyday]")).toHaveLength(7);
+   expect(document.querySelectorAll("[data-mini-virtues-action]")).toHaveLength(7);
+  }else expect(document.querySelectorAll("#take-test h4")).toHaveLength(36);
   expect(screen.getByRole("heading",{level:2})).toHaveFocus();
   await act(async()=>{fireEvent.click(screen.getByRole("button",{name:locale==="zh"?"复制公开入口":"Copy public entry"}));});
   expect(clipboard).toHaveBeenCalledWith(`${quiz.title[locale]}\nhttps://fermatmind.com/${locale}/tests/explore/${quiz.slug}`);

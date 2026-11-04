@@ -1,7 +1,7 @@
 {
   "slug": "seasonal-table",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "metaphor",
   "title": {
     "en": "How Would Your Imaginary Table Mark a New Season?",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Marking a transition by keeping one trace, making a place available or inviting a shared addition.",
-    "zh": "留一处痕迹、腾一个位置或邀共享添加，标记转换。"
+    "zh": "季节变了，你会给桌面留一点新痕迹、腾一个空位，还是请别人自愿添一件小东西？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -266,23 +266,23 @@
       },
       "summary": {
         "en": "Your table marks change through one specific detail. The object does not stand for everyone’s experience of a season; it simply makes this fictional scene’s transition visible.",
-        "zh": "你的桌用一个具体细节标变化。物不代表所有人季节体验，只让此虚构转换可见。"
+        "zh": "你的桌面用一个具体细节，记下季节的小变化。它不代表所有人对这个季节的感受，只让这幅虚构桌景里的变化容易被看见。"
       },
       "example": {
         "en": "A drawn branch with one new paper leaf might sit beside an earlier sketch, making the difference easy to notice.",
-        "zh": "一根添新纸叶的画枝，可放早先草图旁，差异好看见。"
+        "zh": "画一根添了新纸叶的枝条，放在先前的草图旁边，就能看出两幅画的差别。"
       },
       "strength": {
         "en": "A small trace can make a transition concrete without turning the table into a collection of every possible seasonal symbol.",
-        "zh": "一处小痕迹让转换具体，不把桌变成全套季节符号集。"
+        "zh": "一个小细节就能让变化变得具体，不必把所有季节符号都堆到桌上。"
       },
       "tradeoff": {
         "en": "A seasonal symbol may mean different things in different places. Naming the detail plainly is clearer than treating one climate or tradition as universal.",
-        "zh": "不同地方季节符号不同。普通指明细节，比把一种气候传统当普遍更清楚。"
+        "zh": "同一个季节符号，在不同地方可能有不同意思。直接说清画了什么，比把某一种气候或传统当作所有人的经验更明白。"
       },
       "experiment": {
         "en": "Draw two tabletop scenes with only one ordinary detail changed. Write what visibly changed, without turning the difference into a lesson about personal growth.",
-        "zh": "画两桌景，只变一普通细节，写可见变化，不升成人成长教训。"
+        "zh": "画两幅桌面小景，只改变一个普通细节，再写下看得见的差别。不必把它总结成人成长的道理。"
       }
     },
     {
@@ -293,23 +293,23 @@
       },
       "summary": {
         "en": "Your transition includes something not yet assigned. An available place lets the fictional table change later without demanding that the new season immediately arrive with a complete plan.",
-        "zh": "你的转换有未指定之处。可用位置让虚构桌以后变，不要新季立刻带全计划。"
+        "zh": "你的桌面给尚未决定的东西留了位置。不必在新季节开始时就想好全部安排，这一小块空间可以等以后再变化。"
       },
       "example": {
         "en": "One clear square beside the existing objects might remain empty through the first drawing and gain a small paper shape in a later version.",
-        "zh": "旧物旁一空方可在首图留白，后版才添小纸形。"
+        "zh": "在已有的小物旁留一块空白。第一张画先空着，下个版本再决定要不要添一个纸片造型。"
       },
       "strength": {
         "en": "Leaving a visible place open gives incompleteness an intentional role and lets a small arrangement welcome change at a chosen pace.",
-        "zh": "留可见空位给未完刻意角色，让小布置按自选节奏迎变化。"
+        "zh": "有意留一个空位，未完成也就成了布置的一部分。你可以按自己选的节奏，慢慢改变这张想象中的桌面。"
       },
       "tradeoff": {
         "en": "An open place can still become an expectation to fill it perfectly. The scene can remain complete even if that square stays empty.",
-        "zh": "空位也会变成必须完美填上的期待。那格一直空，场景也可完整。"
+        "zh": "空位也可能变成“必须完美填上”的压力。即使那一格始终空着，这幅桌景也可以是完整的。"
       },
       "experiment": {
         "en": "Draw a table with one deliberately unassigned place. Give the space a neutral caption and imagine leaving it unchanged in the next drawing.",
-        "zh": "画一桌，留刻意未指定位置，写中性图注，想象下一图仍不改。"
+        "zh": "画一张桌面小景，有意留一个尚未安排的位置，写一句不带评价的说明，再想象下次也让它空着。"
       }
     },
     {
@@ -320,23 +320,23 @@
       },
       "summary": {
         "en": "Your table marks a season by becoming a shared composition. Another person can add a different detail without having to agree with your interpretation of the change.",
-        "zh": "你的桌以共作标季节。别人可添不同细节，不需同意你的变化解读。"
+        "zh": "你用一幅大家可以一起添画的桌景，记下季节。别人可以加上不同的小细节，不必先同意你对变化的理解。"
       },
       "example": {
         "en": "Two fictional guests might place a paper bird and a little abstract shape beside your drawn branch, each with their own short caption.",
-        "zh": "两虚构客可在画枝旁添纸鸟与抽象小形，各有短图注。"
+        "zh": "想象两位客人，在你画的枝条旁分别添一只纸鸟和一个抽象小图形，各写一句自己的说明。"
       },
       "strength": {
         "en": "An optional contribution lets the arrangement acknowledge several views and makes its shared character visible rather than assuming everybody experiences a season alike.",
-        "zh": "自愿贡献让布置承认多视角，不假定人人季节体验相同。"
+        "zh": "让别人自愿添一点，桌面就能呈现不止一种感受，而不是假定每个人都以同样的方式经历季节。"
       },
       "tradeoff": {
         "en": "A shared table still needs room and consent. Removing or displaying another person’s real work should not be assumed from this fictional invitation.",
-        "zh": "共享桌仍需空间与同意。此虚构邀请不代表可随意撤或展别人真实作品。"
+        "zh": "共同布置仍要先商量空间和意愿。故事里的邀请，不表示现实中可以随意移走或展示别人的作品。"
       },
       "experiment": {
         "en": "Invent two characters who add different harmless details to a seasonal drawing. Give both equal caption space and let a third character simply look.",
-        "zh": "编两角色给季节画添不同无害细节，图注等空间，第三角色可只看。"
+        "zh": "编两位角色，让他们为季节画各添一个不同的小细节，给两人的说明同样大小的位置。第三位角色可以只看看，不必参加。"
       }
     }
   ],

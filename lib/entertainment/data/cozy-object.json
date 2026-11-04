@@ -1,7 +1,7 @@
 {
   "slug": "cozy-object",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "metaphor",
   "title": {
     "en": "Which Ordinary Object Holds Your Cozy Scene?",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "A cozy scene centered on a small ritual, a soft boundary or a place for wandering thoughts.",
-    "zh": "围着小仪式、柔软边界或游走想法的落脚处，搭温暖场景。"
+    "zh": "用一个小仪式、一个柔软角落，或一页容纳零散念头的纸，搭出想象中的温暖场景。"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -266,23 +266,23 @@
       },
       "summary": {
         "en": "Your cozy symbol is an ordinary object with a repeatable beginning. The cup holds a small ritual in the story without promising to fix an entire day.",
-        "zh": "你的温暖象征是能重复开头的普通物。故事中的杯子承载小仪式，不承诺修好一天。"
+        "zh": "在你想象的温暖场景里，一件普通物品就能成为小仪式的起点。把杯子放好，便像是为自己留出了一小段时间。它不必解决整天的烦恼，也可以让这个片刻有一点不同。"
       },
       "example": {
         "en": "In your scene, placing a cup on its usual coaster might be enough to say that a short personal moment has begun.",
-        "zh": "你的场景里，把杯子放熟悉杯垫，就足以宣布一小段自己的片刻开始。"
+        "zh": "在这个场景里，把杯子放上熟悉的杯垫，就足以表示：接下来这一小会儿，是留给自己的。"
       },
       "strength": {
         "en": "A familiar gesture can give a scene continuity even when the rest of the afternoon is different from what you first imagined.",
-        "zh": "熟悉动作给场景连续性，即使午后其余与最初想象不同。"
+        "zh": "一个熟悉的动作，可以让场景保持一点连续感，即使这个下午的其他事情与原先想象不同。"
       },
       "tradeoff": {
         "en": "A ritual can become restrictive if every detail must be exact. The cup in this story can change shape without losing its invitation.",
-        "zh": "每个细节都必须精确，仪式也会拘束。故事中的杯子可换样，邀请仍在。"
+        "zh": "如果每个细节都必须一模一样，仪式也会变成束缚。故事里的杯子换个样子，这份属于自己的时间仍然可以存在。"
       },
       "experiment": {
         "en": "Write a three-line cozy scene beginning with a familiar preparation. Change one detail and see whether the scene still feels recognizably yours.",
-        "zh": "以熟悉准备开头写三行温暖场景，改一处细节，看是否仍像你的场景。"
+        "zh": "用一个熟悉的准备动作开头，写三行温暖的小场景。再改一个细节，看看这个场景是否仍然像属于你。"
       }
     },
     {
@@ -293,23 +293,23 @@
       },
       "summary": {
         "en": "Your object gives the imagined scene a boundary you can feel. A blanket marks a modest place to settle without making the whole world disappear outside it.",
-        "zh": "你的物给想象场景可感边界。毯子标出一小处停留，不让外界全部消失。"
+        "zh": "在你想象的场景里，一条毯子就能围出一个可以安心坐下的小角落。它给这段停留一个摸得到的边缘，不必把外面的世界全部隔开。"
       },
       "example": {
         "en": "A casually folded blanket on the end of a seat might distinguish a short pause from the rest of an otherwise ordinary room.",
-        "zh": "座位一端随意折的毯子，让短暂停留与普通房间其余区分。"
+        "zh": "座位一端一条随意折好的毯子，就能让普通房间里的一小处，变成短暂休息的位置。"
       },
       "strength": {
         "en": "A soft edge makes the scene specific and portable in imagination, so coziness does not depend on furnishing an entire perfect room.",
-        "zh": "柔和边缘让场景具体，也便于想象搬走，不依赖整间完美布置。"
+        "zh": "柔软的边缘，能让场景变得具体。即使只在想象中，也不必布置出一整间完美房间，才有温暖的感觉。"
       },
       "tradeoff": {
         "en": "Even an inviting corner can feel limiting after a while. Leaving it and returning later does not make the scene any less cozy.",
-        "zh": "再诱人的角落也会坐够。离开以后再回，不会让温暖变少。"
+        "zh": "再舒服的角落，也可能有坐够的时候。离开一会儿，以后再回来，不会让这个角落失去温暖。"
       },
       "experiment": {
         "en": "Draw a small corner and give it one visible boundary. Leave an opening so the imagined person can come and go without a rule.",
-        "zh": "画小角落，给一处可见边缘，留个开口，让想象的人自由进出。"
+        "zh": "画一个小角落，给它加一处看得见的边缘，也留一个开口。让画里的人可以自由进出，不用守什么规则。"
       }
     },
     {
@@ -320,23 +320,23 @@
       },
       "summary": {
         "en": "Your cozy object welcomes thoughts without demanding a polished outcome. The notebook is a place for a fragment to exist, not a promise that every fragment becomes useful.",
-        "zh": "你的温暖物接纳念头，不要求精致产出。笔记本让碎片存在，不许诺每片都要有用。"
+        "zh": "你的温暖小物，给零散的想法留了一个地方。笔记本里可以只是一句话或一张小画，不必成为精致的成品，也不要求每个念头最后都有用。"
       },
       "example": {
         "en": "Your imagined afternoon might leave one strange sentence beside a little sketch, with plenty of blank page still around them.",
-        "zh": "你的想象午后留一句奇怪话与小画，周围仍有大片空页。"
+        "zh": "在你想象的下午，纸上可能只有一句奇怪的话和一张小画，周围仍然留着大片空白。"
       },
       "strength": {
         "en": "A page with no required topic lets a scene hold curiosity and incompleteness together rather than converting every interesting detail into a task.",
-        "zh": "不指定题目的纸页，能让好奇与未完共处，不把有趣细节都变任务。"
+        "zh": "没有规定题目的纸页，可以同时容纳好奇和没写完的东西。不必把每个有意思的细节，都变成一项待办。"
       },
       "tradeoff": {
         "en": "An open page can still feel like pressure when you think it must be filled. Closing the notebook is an equally valid ending to the scene.",
-        "zh": "以为必须填满时，空页也有压力。合上本子同样是合适结尾。"
+        "zh": "如果觉得一定要把它填满，空白页也会让人有压力。直接合上本子，也可以是这个场景很好的结尾。"
       },
       "experiment": {
         "en": "Write one harmless fragment on a page and deliberately leave space around it. Give the page a title only if that adds to the enjoyment.",
-        "zh": "写一条无害碎片，刻意留空。只有添乐趣时才给这一页起标题。"
+        "zh": "在纸上写下一个不涉及隐私的小念头，特意留些空白。想取标题就取，不取也没有关系。"
       }
     }
   ],

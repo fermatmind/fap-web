@@ -117,23 +117,35 @@ function ValidCritical30Client({ quiz, locale, readingProfiles }: { quiz: Critic
         <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading?.[locale]}</h2>
         <p data-critical30-result-mode className="leading-8">{result.mode === "timed" ? (zh ? "整卷连续计时练习 · 本站选定上限" : "Continuous whole-attempt practice · Site-selected cap") : (zh ? "不计时学习" : "Untimed study")}</p>
         <p data-critical30-closure className="leading-8">{result.closure.reason === "expired" ? (zh ? "整卷到时结束，空白仍为未答。" : "The whole attempt closed at its deadline; blanks remain unanswered.") : (zh ? "你主动结束了整份练习。" : "You finished the whole practice.")}</p>
-        <dl className="grid grid-cols-3 gap-3 border-y border-teal-200 py-5" aria-label={zh ? "本次题本表现" : "This practice bank’s outcomes"}>
+        <dl data-critical30-overall className="grid grid-cols-3 gap-3 border-y border-teal-200 py-5" aria-label={zh ? "本次题本表现" : "This practice bank’s outcomes"}>
           {(["correct", "wrong", "unanswered"] as const).map(key => <div key={key} className="min-w-0"><dt className="text-sm leading-6 text-slate-600">{key === "correct" ? (zh ? "正确" : "Correct") : key === "wrong" ? (zh ? "错误" : "Incorrect") : (zh ? "未答" : "Unanswered")}</dt><dd className={`mt-2 text-3xl font-semibold tabular-nums ${key === "correct" ? "text-teal-800" : "text-slate-800"}`}>{result.overall[key]}<span className="ml-1 text-sm font-normal text-slate-500">/ {result.overall.total}</span></dd></div>)}
         </dl>
-        <p data-critical30-overall className="rounded-lg bg-violet-50 p-4 leading-8">{counts(result.overall)}</p>
-        <p className="leading-8">{zh ? "仅为本题本原始记录，不是提供方成绩、百分位、表现档或通过预测。各段选项数不同且未等值，不按最低数判定弱项，也不由个人数量断言猜测。全部题目与解析免费如下。" : "These are raw records on this bank, not provider scores, percentiles, performance bands or pass predictions. Parts differ in option count and are not equated; the lowest count does not diagnose a weakness, and an individual count cannot identify guessing. Every question and explanation is free below."}</p>
+        <p className="text-sm leading-7 text-slate-600">{zh ? "这里只记录这30题的表现，不是正式考试成绩。先核对题目允许作出的结论，再看自己选择的理由。" : "This records performance on these 30 questions, not an official test score. Start with what each question permits you to conclude, then examine your reason for choosing."}</p>
         <ResultReadingNav label={zh ? "分段表现与答案解析" : "Section outcomes and answer review"} sections={result.parts.map((part, index) => ({ id: `critical30-reading-${part.id}`, title: quiz.critical30.sections[index].title[locale] }))} />
         <div data-critical30-result className="space-y-6">{result.parts.map((part, i) => {
           const profile = quiz.profiles[i];
+          const partQuestions = quiz.questions.slice(i * 6, i * 6 + 6);
+          const reviewQuestion = partQuestions.find(question => result.items.find(item => item.id === question.id)?.outcome !== "correct") ?? partQuestions[0];
+          const reviewItem = result.items.find(item => item.id === reviewQuestion.id)!;
+          const selectedReviewOption = reviewQuestion.options.find(option => option.id === reviewItem.selectedOptionId);
+          const correctReviewOption = reviewQuestion.options.find(option => option.id === reviewItem.correctOptionId)!;
+
           const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === 1 && item.directionIds[0] === part.id && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
           return <section key={part.id} data-critical30-part={part.id} className="rounded-lg border border-slate-200 p-4 sm:p-6">
             <h3 id={`critical30-reading-${part.id}`} className="scroll-mt-24 text-xl font-semibold">{quiz.critical30.sections[i].title[locale]}</h3><p data-critical30-count className="my-3 leading-8">{counts(part)}</p>
             <div className="my-4 flex h-2 overflow-hidden rounded-full bg-slate-100" aria-hidden="true"><span className="bg-teal-600" style={{ width: `${part.correct / part.total * 100}%` }} /><span className="bg-rose-300" style={{ width: `${part.wrong / part.total * 100}%` }} /><span className="bg-slate-300" style={{ width: `${part.unanswered / part.total * 100}%` }} /></div>
+            <section data-critical30-first-review className="my-5 space-y-3 border-l-2 border-teal-300 pl-4 leading-8">
+              <h4 className="font-semibold">{zh ? "从这一题开始复盘" : "Start your review with this question"}</h4>
+              <p lang="en" className="whitespace-pre-line">{reviewQuestion.prompt.en}</p>
+              <p>{zh ? "你的选择：" : "Your choice: "}{selectedReviewOption ? <span lang="en">{selectedReviewOption.id} — {selectedReviewOption.label.en}</span> : (zh ? "未答" : "Unanswered")}</p>
+              <p>{zh ? "正确答案：" : "Correct answer: "}<span lang="en">{correctReviewOption.id} — {correctReviewOption.label.en}</span></p>
+              <p>{reviewQuestion.explanation![locale]}</p>
+            </section>
             <details data-critical30-review className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "查看六题答案与双语解析" : "Review all six answers and explanations"}</summary><ol className="my-4 space-y-6">{quiz.questions.slice(i * 6, i * 6 + 6).map(q => {
               const item = result.items.find(x => x.id === q.id)!, selected = q.options.find(o => o.id === item.selectedOptionId), key = q.options.find(o => o.id === item.correctOptionId)!;
               return <li key={q.id} data-critical30-review-item={q.id} className="rounded-lg bg-slate-50 p-3 leading-8"><p lang="en" className="whitespace-pre-line">{q.prompt.en}</p><p className="mt-3">{zh ? "你的选择：" : "Your choice: "}{selected ? <span lang="en">{selected.id} — {selected.label.en}</span> : (zh ? "未答" : "Unanswered")}</p><p>{zh ? "正确答案：" : "Correct answer: "}<span lang="en">{key.id} — {key.label.en}</span></p><p className="mt-3">{q.explanation![locale]}</p></li>;
             })}</ol></details>
-            <details data-critical30-full className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开完整学习指南" : "Expand the full study guide"}</summary><div className="mt-5"><QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`critical30-${part.id}`} /></div></details>
+            <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`critical30-${part.id}`} mode="result" previewSectionIds={[`${part.id}-7`]} />
             <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, part.id)}>{zh ? "阅读完整公开指南" : "Read the complete public guide"}</Link>
           </section>;
         })}</div>

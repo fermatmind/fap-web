@@ -25,7 +25,7 @@ export function OutfitLinePreferencesReport({ quiz, result, locale }: { quiz: Qu
     <p className="leading-8">{zh ? "五篇八节全文全部保留，包括资料不足的项；它们解释衣服偏好，不是五种身体身份。" : "All five eight-section guides remain open, including for insufficient parts. They explain clothing preferences rather than five body identities."}</p>
     {quiz.profiles.map(profile => <section key={profile.id} data-olp-profile={profile.id} aria-labelledby={`olp-title-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
       <h3 id={`olp-title-${profile.id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
-      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} mode="result" previewSectionIds={["reading-2", "reading-6"]} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一线条偏好的公开说明" : "Read this line preference’s public explanation"}</Link>
     </section>)}
   </div>;

@@ -1,7 +1,7 @@
 {
   "slug": "festival-mask",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "metaphor",
   "title": {
     "en": "Which Original Festival Mask Would You Design?",
@@ -266,23 +266,23 @@
       },
       "summary": {
         "en": "Your costume gives the fictional character a deliberate signal. A small chime marks a moment without requiring constant noise or turning every entrance into the center of the festival.",
-        "zh": "你的装扮给虚构角色刻意信号。小铃标片刻，不需一直响，也不让每次入场都成焦点。"
+        "zh": "你为虚构角色设计了一个有意发出的信号。一声短短的铃响，就能标记一个时刻，不必一直发声，也不用每次出场都成为全场焦点。"
       },
       "example": {
         "en": "The character might raise one hand, make a brief imaginary bell sound and then leave the next scene to someone else.",
-        "zh": "角色可举手发短想象铃声，再把下一幕交给别人。"
+        "zh": "角色可能举起一只手，发出一声想象中的短铃响，然后把接下来的场景留给别人。"
       },
       "strength": {
         "en": "A bounded signal gives the design a recognizable action and makes it possible to describe the costume through something it does.",
-        "zh": "有边界信号给设计可认动作，也可通过它做什么来描述装扮。"
+        "zh": "一个简短的信号，能让装扮有一个容易记住的动作。描述角色时，也可以讲它会做什么，而不只讲外观。"
       },
       "tradeoff": {
         "en": "Sound is not equally enjoyable for everyone. In the fictional festival, a silent gesture or written cue can carry the same role.",
-        "zh": "声音非人人喜欢。虚构节庆中，安静手势或文字提示也能担同角色。"
+        "zh": "并不是每个人都喜欢声音。在这个虚构节庆里，一个安静手势或文字提示，也可以起到相同作用。"
       },
       "experiment": {
         "en": "Invent a silent equivalent of your character’s one chime. Describe how a visitor could recognize it without hearing anything at all.",
-        "zh": "为一声铃编安静等价动作，描述访客完全不用听怎样仍可认出。"
+        "zh": "为角色的一声铃响，想出一个无声版本。描述一下：访客即使完全听不见，也能怎样认出这个信号。"
       }
     },
     {
@@ -293,23 +293,23 @@
       },
       "summary": {
         "en": "Your mask frames attention rather than concealing a secret identity. The fictional character helps one small piece of the festival become visible from an unexpected angle.",
-        "zh": "你的面具框注意，不藏秘密身份。虚构角色让节庆一小部分从意外角度可见。"
+        "zh": "你的面具像一个小框，把注意力引向一处景物，而不是用来隐藏秘密身份。这个虚构角色，会让节庆里的一个小角落从不同角度被看见。"
       },
       "example": {
         "en": "A simple open frame might turn a hanging paper shape into a tiny landscape when the character holds it at just the right angle.",
-        "zh": "简单开框换个角度，可让悬纸片成为小景。"
+        "zh": "角色举起一个简单的空框，换一个角度看，悬着的纸片就可能变成一幅小小的风景。"
       },
       "strength": {
         "en": "A frame gives the design an interactive invitation without requiring another visitor to perform, disclose anything or accept a character assigned to them.",
-        "zh": "小框给设计互动邀请，不要求别人表演、披露或接受被分角色。"
+        "zh": "一个框，就能邀请别人换个角度看，不要求对方表演、透露私事，也不替别人分配角色。"
       },
       "tradeoff": {
         "en": "Pointing out a view can become directing someone’s attention too firmly. Another visitor may prefer a different angle or no invitation at all.",
-        "zh": "指出视角也可能太强势。别人可选别角度，也可不接邀请。"
+        "zh": "指出一个视角，有时也可能让人觉得被要求照着看。别人可以选另一个角度，也可以不接受邀请。"
       },
       "experiment": {
         "en": "Draw a plain festival scene and sketch two frames around different parts. Write a different original character line for each chosen view.",
-        "zh": "画普通节庆景，框两处，各写一句原创角色台词。"
+        "zh": "画一幅普通的节庆场景，框出两个不同的部分。针对每个画面，各写一句原创角色台词。"
       }
     },
     {
@@ -320,23 +320,23 @@
       },
       "summary": {
         "en": "Your costume makes a passing movement visible in imagination. The ribbon belongs to an original evening character whose story is expressed through a trail rather than a fixed emblem.",
-        "zh": "你的装扮让经过的动作在想象中可见。纸带属原创夜间角色，故事用轨迹而非固定徽号表达。"
+        "zh": "你设计的装扮，让角色经过时的动作也能在想象里留下形状。这个原创夜间角色用纸带画出轨迹，靠移动来表达故事，而不是只靠一个固定徽号。"
       },
       "example": {
         "en": "The character might move slowly past a drawn doorway, leaving a curved paper trail that suggests a greeting without needing words.",
-        "zh": "角色可慢过画的门口，弯纸轨迹像招呼，不需话语。"
+        "zh": "角色可能慢慢走过画中的门口，留下一条弯弯的纸带轨迹，像一个不用说话的招呼。"
       },
       "strength": {
         "en": "A visible trail can make the costume’s motion part of its design and give even a simple character a distinct way to enter a scene.",
-        "zh": "可见轨迹把动作纳入设计，让简单角色也有独特入场方式。"
+        "zh": "看得见的轨迹，能把动作变成装扮的一部分。即使角色很简单，也可以有自己独特的入场方式。"
       },
       "tradeoff": {
         "en": "An elaborate moving design can crowd the imagined space. Keeping the trail small and optional helps the festival remain enjoyable for nearby characters.",
-        "zh": "复杂活动装扮会占空间。轨迹保持小且可选择，旁边角色也好玩。"
+        "zh": "过于复杂的活动装扮，也会挤占想象中的空间。让轨迹小一点，并允许选择是否展开，附近的角色才能自在参与。"
       },
       "experiment": {
         "en": "Draw three still positions of one imaginary ribbon movement. Give the sequence a short title that describes its path rather than a hidden personality.",
-        "zh": "画想象纸带三帧静姿，短标题描述路径，不写隐藏人格。"
+        "zh": "把一次想象中的纸带动作画成三帧静止画面。取一个描述移动路径的短标题，不必把它解释成隐藏人格。"
       }
     }
   ],

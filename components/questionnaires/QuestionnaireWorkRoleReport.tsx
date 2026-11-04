@@ -14,13 +14,8 @@ export function QuestionnaireWorkRoleReport({ quiz, result, locale, readingProfi
 }) {
   const zh = locale === "zh";
   return <ResultPage variant="reflection" className="my-6 space-y-8" data-work-role-result>
-    <ResultOverview locale={locale} title={zh ? "任务参与情境概览" : "Task participation contexts"}
-      description={zh ? "保留四种参与情境，不转换职业等级或能力分数。点击主题可核对逐项实例状态。" : "Four participation contexts, without career tiers or ability scores. Select a topic to review its item-level example states."}
-      items={result.workRole.map(part => ({ id: part.id, label: quiz.directions.find(direction => direction.id === part.id)!.title[locale], href: `#work-role-${part.id}`,
-        note: workRoleStates.map(state => `${workRoleLabels[state][locale]} ${part.counts[state]}`).join(" · ") }))} />
-    <p className="leading-8">{zh
-      ? "以下记录你为选定角色近12周的具体实例选择的参与方式，不核实表现质量。逐步指导、按检查点承担、支持他人是不同情境，不是初级、中级或专家等级；支持他人的人也可能在其他任务上需要指导。"
-      : "These records show the participation context you selected for concrete instances in one role during the past twelve weeks, without verifying performance quality. Step-by-step guidance, task ownership and supporting another person are different contexts, not beginner, intermediate or expert levels. A person supporting others may need guidance on other tasks."}</p>
+
+
     {result.workRole.map(part => {
       const direction = quiz.directions.find(item => item.id === part.id)!, profile = quiz.profiles.find(item => item.id === part.profileId)!;
       const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
@@ -42,11 +37,22 @@ export function QuestionnaireWorkRoleReport({ quiz, result, locale, readingProfi
             <p className="text-sm font-semibold text-slate-600" data-work-role-state={row.questionId}>{workRoleLabels[row.stateId][locale]}</p>
           </li>)}
         </ul>
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`work-role-reading-${part.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`work-role-reading-${part.id}`} mode="result" previewSectionIds={["meaning", "example", "try", "scenario", "practice"]} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline"
           href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本组完整公开指南" : "Read this group’s full public guide"}</Link>
       </section>;
     })}
+
+    <details className="border-t border-slate-200 pt-4" data-result-reading-method>
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
+      <ResultOverview locale={locale} title={zh ? "任务参与情境概览" : "Task participation contexts"}
+      description={zh ? "保留四种参与情境，不转换职业等级或能力分数。点击主题可核对逐项实例状态。" : "Four participation contexts, without career tiers or ability scores. Select a topic to review its item-level example states."}
+      items={result.workRole.map(part => ({ id: part.id, label: quiz.directions.find(direction => direction.id === part.id)!.title[locale], href: `#work-role-${part.id}`,
+        note: workRoleStates.map(state => `${workRoleLabels[state][locale]} ${part.counts[state]}`).join(" · ") }))} />
+      <p className="leading-8">{zh
+      ? "以下记录你为选定角色近12周的具体实例选择的参与方式，不核实表现质量。逐步指导、按检查点承担、支持他人是不同情境，不是初级、中级或专家等级；支持他人的人也可能在其他任务上需要指导。"
+      : "These records show the participation context you selected for concrete instances in one role during the past twelve weeks, without verifying performance quality. Step-by-step guidance, task ownership and supporting another person are different contexts, not beginner, intermediate or expert levels. A person supporting others may need guidance on other tasks."}</p>
+    </details>
   </ResultPage>;
 }
 

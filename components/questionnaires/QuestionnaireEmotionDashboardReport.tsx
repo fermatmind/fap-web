@@ -13,8 +13,36 @@ export function QuestionnaireEmotionDashboardReport({ quiz, result, answers, loc
 }) {
   const zh = locale === "zh";
   return <div className="my-6 space-y-8">
-    <p className="leading-8">{zh ? "八类感受分别回看，不合成EQ能力、总体强度或主导人格。数字只概括本题组在相关机会中的频率选择，不同情境和机会使各部分不能排成最强情绪；较高不天然更好或更差。同值或接近不需要破同分，喜悦和难过等感受也不互相抵销。" : "Read eight feelings separately, without an EQ ability score, overall intensity or dominant personality. Numbers summarize these frequency selections on relevant occasions. Different contexts and opportunities prevent a strongest-emotion ranking; higher is not inherently better or worse. Equal or close means need no tie-break, and feelings such as Joy and Sadness do not cancel one another."}</p>
-    <table data-emotion-overview className="w-full text-left text-sm">
+
+
+    {quiz.directions.map(direction => {
+      const score = result.facets[direction.id];
+      const profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
+      return <section key={direction.id} data-emotion-part={direction.id} aria-labelledby={`emotion-title-${direction.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
+        <h3 id={`emotion-title-${direction.id}`} className="scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{direction.title[locale]}</h3>
+        <p data-emotion-mean={direction.id} className="my-4 rounded-lg bg-slate-50 p-4 font-semibold">{score.mean === null
+          ? (zh ? `观察不足：${score.rated}/${score.total}条数值，至少需要${quiz.minimumRatedItems}条，不给个人均值。` : `Insufficient observations: ${score.rated}/${score.total} numeric ratings; at least ${quiz.minimumRatedItems} are needed. No personal mean.`)
+          : (zh ? `本题组频率均值：${score.mean.toFixed(1)} / 5（${score.rated}/${score.total}条数值）` : `Frequency mean for these items: ${score.mean.toFixed(1)} / 5 (${score.rated}/${score.total} numeric ratings)`)}</p>
+        {score.mean === null && <p className="mb-4 text-sm leading-7 text-slate-600">{zh ? "观察不足不同于感受较少。以下是通用读法，不能当成对本次个人状态的解释。" : "Insufficient observations differ from a lower frequency. The following is a general guide, not an interpretation of a personal state in this attempt."}</p>}
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`emotion-${direction.id}`} mode="result" previewSectionIds={[`${profile.id}-2`, `${profile.id}-6`]} />
+        <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这类感受的公开完整指南" : "Read this emotion’s complete public guide"}</Link>
+      </section>;
+    })}
+    <details data-emotion-review className="rounded-lg border border-slate-200 p-4">
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "私下回看四十条原始选择" : "Privately review all forty original selections"}</summary>
+      <p className="my-4 leading-7">{zh ? "这里只回看当前页面中的答案，不提交私人事件，也不加入分享。数值是所选频率；不计分不补零或中间值，均值不保留每题的全部差异。无需重新经历或制造题中的情境。" : "Review answers held in this page, without submitting private events or adding them to sharing. A number is the chosen frequency; unscored is never filled with zero or a midpoint, and a mean does not preserve every item difference. No situation needs to be repeated or created."}</p>
+      <ol className="space-y-5">{quiz.questions.map((question, index) => {
+        const option = question.options.find(o => o.id === answers[question.id]);
+        return <li key={question.id} data-emotion-answer={question.id}>
+          <h4 className="font-semibold">{index + 1}. {question.prompt[locale]}</h4>
+          <p className="mt-2 leading-7">{option?.label[locale]}{option?.score !== null && option?.score !== undefined ? ` (${option.score})` : (zh ? "（不计分）" : " (unscored)")}</p>
+        </li>;
+      })}</ol>
+    </details>
+
+    <details className="border-t border-slate-200 pt-3" data-result-reading-method><summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、原始记录与计算说明" : "View all readings, original records and calculation notes"}</summary>
+<p className="leading-8">{zh ? "八类感受分别回看，不合成EQ能力、总体强度或主导人格。数字只概括本题组在相关机会中的频率选择，不同情境和机会使各部分不能排成最强情绪；较高不天然更好或更差。同值或接近不需要破同分，喜悦和难过等感受也不互相抵销。" : "Read eight feelings separately, without an EQ ability score, overall intensity or dominant personality. Numbers summarize these frequency selections on relevant occasions. Different contexts and opportunities prevent a strongest-emotion ranking; higher is not inherently better or worse. Equal or close means need no tie-break, and feelings such as Joy and Sadness do not cancel one another."}</p>
+<table data-emotion-overview className="w-full text-left text-sm">
       <caption className="mb-4 text-left text-base font-semibold">{zh ? "八项读数概览：固定顺序，不按数值排名" : "Eight readings at a glance: fixed order, without ranking"}</caption>
       <thead><tr className="border-b border-slate-200">
         <th scope="col" className="py-3 pr-2">{zh ? "感受与全文" : "Feeling and guide"}</th>
@@ -30,29 +58,6 @@ export function QuestionnaireEmotionDashboardReport({ quiz, result, answers, loc
         </tr>;
       })}</tbody>
     </table>
-    {quiz.directions.map(direction => {
-      const score = result.facets[direction.id];
-      const profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
-      return <section key={direction.id} data-emotion-part={direction.id} aria-labelledby={`emotion-title-${direction.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
-        <h3 id={`emotion-title-${direction.id}`} className="scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{direction.title[locale]}</h3>
-        <p data-emotion-mean={direction.id} className="my-4 rounded-lg bg-slate-50 p-4 font-semibold">{score.mean === null
-          ? (zh ? `观察不足：${score.rated}/${score.total}条数值，至少需要${quiz.minimumRatedItems}条，不给个人均值。` : `Insufficient observations: ${score.rated}/${score.total} numeric ratings; at least ${quiz.minimumRatedItems} are needed. No personal mean.`)
-          : (zh ? `本题组频率均值：${score.mean.toFixed(1)} / 5（${score.rated}/${score.total}条数值）` : `Frequency mean for these items: ${score.mean.toFixed(1)} / 5 (${score.rated}/${score.total} numeric ratings)`)}</p>
-        {score.mean === null && <p className="mb-4 text-sm leading-7 text-slate-600">{zh ? "观察不足不同于感受较少。以下是通用读法，不能当成对本次个人状态的解释。" : "Insufficient observations differ from a lower frequency. The following is a general guide, not an interpretation of a personal state in this attempt."}</p>}
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`emotion-${direction.id}`} />
-        <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这类感受的公开完整指南" : "Read this emotion’s complete public guide"}</Link>
-      </section>;
-    })}
-    <details data-emotion-review className="rounded-lg border border-slate-200 p-4">
-      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "私下回看四十条原始选择" : "Privately review all forty original selections"}</summary>
-      <p className="my-4 leading-7">{zh ? "这里只回看当前页面中的答案，不提交私人事件，也不加入分享。数值是所选频率；不计分不补零或中间值，均值不保留每题的全部差异。无需重新经历或制造题中的情境。" : "Review answers held in this page, without submitting private events or adding them to sharing. A number is the chosen frequency; unscored is never filled with zero or a midpoint, and a mean does not preserve every item difference. No situation needs to be repeated or created."}</p>
-      <ol className="space-y-5">{quiz.questions.map((question, index) => {
-        const option = question.options.find(o => o.id === answers[question.id]);
-        return <li key={question.id} data-emotion-answer={question.id}>
-          <h4 className="font-semibold">{index + 1}. {question.prompt[locale]}</h4>
-          <p className="mt-2 leading-7">{option?.label[locale]}{option?.score !== null && option?.score !== undefined ? ` (${option.score})` : (zh ? "（不计分）" : " (unscored)")}</p>
-        </li>;
-      })}</ol>
     </details>
   </div>;
 }

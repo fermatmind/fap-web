@@ -78,7 +78,7 @@ function ValidCatQ25Client({ quiz, locale, readingProfiles }: { quiz: CatQ25Ques
         <ResultSection title={zh ? "本次各组读数" : "Readings by topic"}>
           <div className="grid gap-x-8 sm:grid-cols-2">{CATQ25_GUIDES.map(id => {
             const score = id === "overall" ? result.total : result.parts[id];
-            return <ResultScoreRow key={id} label={quiz.profiles.find(profile => profile.id === id)!.title[locale]} value={score.mean === null ? (zh ? "未计分" : "Unscored") : `${score.mean.toFixed(2)} / 7`} score={score.mean} min={1} max={7} description={zh ? `原始均分范围1–7；${score.numericCount}/${score.requiredCount}条数字答案` : `Raw mean range 1–7; ${score.numericCount}/${score.requiredCount} numeric responses`} />;
+            return <ResultScoreRow key={id} label={quiz.profiles.find(profile => profile.id === id)!.title[locale]} value={score.mean === null ? (zh ? "未计分" : "Unscored") : `${score.mean.toFixed(2)} / 7`} score={score.mean} min={1} max={7} description={<>{quiz.profiles.find(profile => profile.id === id)!.summary[locale]}<span className="mt-2 block text-xs">{zh ? `原始均分范围1–7；${score.numericCount}/${score.requiredCount}条数字答案` : `Raw mean range 1–7; ${score.numericCount}/${score.requiredCount} numeric responses`}</span></>} />;
           })}</div>
         </ResultSection>
         <ResultReadingNav label={zh ? "各组记录与完整读法" : "Topic records and full readings"} sections={CATQ25_GUIDES.map(id => ({ id: `catq25-${id}`, title: quiz.profiles.find(profile => profile.id === id)!.title[locale] }))} />
@@ -92,7 +92,7 @@ function ValidCatQ25Client({ quiz, locale, readingProfiles }: { quiz: CatQ25Ques
               <p data-catq25-sum className="text-xl font-semibold">{zh ? `原始合计：${score.sum}（范围 ${score.requiredCount}—${score.requiredCount * 7}）` : `Raw sum: ${score.sum} (range ${score.requiredCount}–${score.requiredCount * 7})`}</p>
               <p data-catq25-mean>{zh ? `均分：${score.mean.toFixed(2)}（范围1—7）；合计除以${score.requiredCount}，不是百分位。` : `Mean: ${score.mean.toFixed(2)} (range 1–7); sum divided by ${score.requiredCount}, not a percentile.`}</p>
             </div>}
-            <details className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开此部分完整读法" : "Expand this full reading"}</summary><div className="mt-5"><QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`catq25-${id}`} /></div></details>
+            <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`catq25-${id}`} mode="result" previewSectionIds={id === "overall" ? ["meaning", "reflection"] : ["example", "reflection"]} />
             <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "阅读完整公开指南" : "Read the complete public guide"}</Link>
           </section>;
         })}</div>

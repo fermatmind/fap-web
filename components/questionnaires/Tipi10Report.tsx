@@ -12,7 +12,7 @@ import { Tipi10Attribution } from "./Tipi10Attribution";
 export function Tipi10Report({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<Tipi10Result, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh";
   return <div data-tipi10-result className="mt-6 space-y-8">
-    {quiz.directions.length > 1 && <ResultReadingNav label={zh ? "按主题阅读结果" : "Read results by topic"} sections={quiz.directions.map(direction => ({ id: `tipi-title-${direction.id}`, title: direction.title[locale] }))} />}
+    {quiz.directions.length > 1 && <ResultReadingNav collapsible label={zh ? "按主题阅读结果" : "Read results by topic"} sections={quiz.directions.map(direction => ({ id: `tipi-title-${direction.id}`, title: direction.title[locale] }))} />}
     <p className="leading-8">{zh ? "十题均有效。以下为五项独立原始两题均值，范围1至7。不合总分、不设百分位或类型；4是选项中点，不是人群平均。每对都保留原回答与计分值，五篇完整读法均可阅读。" : "All ten responses are valid. These are five separate raw two-item means, ranging from 1 to 7, without a combined total, percentile or type. Four is the response midpoint, not a population average. Each pair retains its original and keyed values, and all five complete guides remain available."}</p>
     {quiz.directions.map(direction => {
       const score = result.tipi10[direction.id as TipiDomain], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
@@ -24,7 +24,7 @@ export function Tipi10Report({ quiz, result, locale }: { quiz: Questionnaire; re
           return <li key={item.id} data-tipi10-item={item.id}><span className="font-medium">{q.prompt[locale]}</span><br />{zh ? `原回答${item.response}；${item.reverse ? `反向：8 − ${item.response} = ${item.keyed}` : `正向计分${item.keyed}`}` : `Original response ${item.response}; ${item.reverse ? `reversed: 8 − ${item.response} = ${item.keyed}` : `direct keyed value ${item.keyed}`}`}</li>;
         })}</ul>
         <p className="mb-5 leading-7">{zh ? "本对计算" : "Pair calculation"}: ({score.items[0].keyed} + {score.items[1].keyed}) / 2 = {score.mean.toFixed(2)}</p>
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={correctTipiMidpoint(profile)} locale={locale} headingLevel={4} idPrefix={`tipi-reading-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={correctTipiMidpoint(profile)} locale={locale} headingLevel={4} idPrefix={`tipi-reading-${profile.id}`} mode="result" previewSectionIds={[`${profile.directionIds[0]}-5`, `${profile.directionIds[0]}-7`]} />
         <Link prefetch={false} className="mt-4 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一维度的完整公开指南" : "Read this domain’s full public guide"}</Link>
       </section>;
     })}

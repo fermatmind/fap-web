@@ -1,7 +1,7 @@
 {
   "slug": "snow-day",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "nature",
   "title": {
     "en": "Build a Snow-Day Sculpture in Your Imagination",
@@ -266,7 +266,7 @@
       },
       "summary": {
         "en": "Your imagined sculpture comes together through a satisfying arrangement of parts. You enjoy giving the picture a base, a relation and a form that holds visually. This game does not assess engineering ability or imply a correct way to build real snow.",
-        "zh": "你的想象雪雕通过部件之间舒服的安排成形。你喜欢给画面一个底座、一种关系与视觉上成立的形状。游戏不评估工程能力，也不指导真实堆雪方法。"
+        "zh": "你想象中的雪雕，由摆在一起的几部分慢慢成形。底座放哪里、形状怎样衔接，都是这幅画的乐趣。这不评工程能力，也不指导现实中怎样堆雪。"
       },
       "example": {
         "en": "In a paper collage, you might move the large pieces until the composition feels balanced before adding the smallest decorative scraps.",
@@ -274,11 +274,11 @@
       },
       "strength": {
         "en": "Attention to arrangement can give a playful idea a clear shape that others can recognize and build on without needing a long explanation.",
-        "zh": "对构成的关注，能让趣味想法形状清楚，别人不用长解释也能看懂并接着添。"
+        "zh": "想一想各部分怎样摆放，一个好玩的点子就能有清楚的形状，别人也容易看懂、接着添画。"
       },
       "tradeoff": {
         "en": "A tidy composition can become restrictive if every new addition must preserve the original plan; one deliberate odd piece may keep the game alive.",
-        "zh": "若每次新增都必须维护原计划，整齐构图也可能变拘束；一块主动的不规则能让游戏继续活着。"
+        "zh": "如果每次添东西都得守住原计划，整齐的构图也可能变得拘束。故意加一块不那么规则的形状，也许能带来新的玩法。"
       },
       "experiment": {
         "en": "Arrange five paper scraps into a simple form, then invite one unexpected addition. See what can change while the picture still feels connected.",
@@ -316,11 +316,11 @@
       "id": "player",
       "title": {
         "en": "The Rearranging Snow-Player",
-        "zh": "重排雪景玩家"
+        "zh": "让雪景换个玩法"
       },
       "summary": {
         "en": "Your snow scene is made to be moved, changed and played again. A doorway or loose piece matters because it invites another move. The result celebrates this chosen play structure without claiming that every unfinished thing is better left unfinished.",
-        "zh": "你的雪景本就为了移动、改变与再玩。小门和松散部件有意义，因为它们邀请下一步。结果珍惜本次玩法结构，不宣称所有未完成都该永不完成。"
+        "zh": "你的雪景可以移动、重排，再玩一次。一扇小门、一块没有固定的部件，都给下一个人留下动手的机会。这是你选的玩法，不表示所有未完成的东西都应该一直搁着。"
       },
       "example": {
         "en": "With a small toy scene, you might keep a few pieces unattached so the next visitor can invent a different path through it.",
@@ -328,7 +328,7 @@
       },
       "strength": {
         "en": "A changeable arrangement gives other people something concrete to try and makes the activity less dependent on protecting a finished display.",
-        "zh": "可变化的安排给别人具体可试的东西，也让活动不必依赖守护一件完成展品。"
+        "zh": "东西可以调整，别人就有了具体的尝试方式，不必只顾着保护一件已经完成的展品。"
       },
       "tradeoff": {
         "en": "Constant rearrangement can frustrate someone who wanted to keep a finished picture. Agreeing on what is movable helps both kinds of enjoyment coexist.",

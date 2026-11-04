@@ -1,7 +1,7 @@
 {
   "slug": "fictional-cafe",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "metaphor",
   "title": {
     "en": "What Kind of Impossible Café Would You Open?",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Offering visitors a tiny stage, a shared language experiment or a way to make something visually new.",
-    "zh": "给访客一个小舞台、共享文字实验或造出新视觉的机会。"
+    "zh": "想象一家咖啡馆，你更愿意给来客一个小舞台、一句可以接写的话，还是尝试新颜色的机会？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -266,23 +266,23 @@
       },
       "summary": {
         "en": "Your café makes ordinary things briefly perform. A spoon or paper scrap can become a character without the visitor needing to be an actor or the audience needing to applaud.",
-        "zh": "你的馆让普通物短暂演出。匙或纸片可当角色，访客不必会演，观众不必鼓掌。"
+        "zh": "你的咖啡馆让普通小物也能短暂登台。一把勺子、一片纸，都可以成为角色。来客不用是演员，旁观的人也不一定要鼓掌。"
       },
       "example": {
         "en": "A folded receipt might sail across a saucer while its maker gives it one line about searching for the edge of the table.",
-        "zh": "折收据驶过碟子，作者给它一句寻找桌边的台词。"
+        "zh": "一张折好的收据，可能在碟子上像船一样驶过。作者给它配一句台词，说它正在寻找桌子的边缘。"
       },
       "strength": {
         "en": "A tiny stage gives playful expression a clear, manageable frame and lets an everyday object be seen differently for a short visit.",
-        "zh": "小舞台给表达清晰可控的框，让日常物在短到访中被换种眼光看。"
+        "zh": "一个小舞台，给轻松表达留出清楚、不费力的范围，也让普通物件暂时被用不同的眼光看待。"
       },
       "tradeoff": {
         "en": "Even a tiny performance can feel exposing. Your imagined café works best when watching, declining and stopping midway remain complete ways to visit.",
-        "zh": "再小表演也可能怕被看。观看、拒绝和中途停下都算完整到访，馆才好玩。"
+        "zh": "再小的表演，也可能让人担心被注视。只看、不参加，或演到一半停下，都可以是完整的游玩方式。"
       },
       "experiment": {
         "en": "Give one harmless object a two-line scene on a drawn saucer. End the performance while it is still small enough to enjoy.",
-        "zh": "在画的碟子上，给一件无害物写两句戏，仍小到有趣时就收场。"
+        "zh": "在画出的碟子小舞台上，选一件不涉及隐私的小物品，写两句短戏。趁它还是一个轻松的小点子时，就让演出结束。"
       }
     },
     {
@@ -293,23 +293,23 @@
       },
       "summary": {
         "en": "Your invented place lets language travel between visitors. A sentence is a shared starting point rather than a test of who writes the cleverest or most revealing response.",
-        "zh": "你的场所让文字在访客间走动。句子是共享起点，不考谁写得最聪明或最袒露。"
+        "zh": "你想象的咖啡馆，让一句话可以在不同来客之间传递。这句话只是共同创作的起点，不是在比赛谁写得最聪明，也不要求谁透露最多心事。"
       },
       "example": {
         "en": "A card saying “the cupboard opened onto Tuesday” might return tomorrow with a new ending and an entirely different imagined cupboard.",
-        "zh": "写“柜门打开就是星期二”的卡片，明天可换结尾，柜子也全不同。"
+        "zh": "一张写着“柜门打开就是星期二”的卡片，到了明天可能被接上新结尾，连想象中的柜子都变了样。"
       },
       "strength": {
         "en": "Borrowing a line lowers the size of the blank page and gives strangers an indirect, optional way to contribute to the same fiction.",
-        "zh": "借一句话缩小空白页，让陌生人间接且自愿参与同一虚构。"
+        "zh": "借用一句开头，能减轻面对整页空白的压力。陌生人也可以不必直接交流，就自愿参与同一个虚构故事。"
       },
       "tradeoff": {
         "en": "A sentence can be misunderstood or changed in a way its first writer dislikes. Fictional contributions should be offered only when that openness is welcome.",
-        "zh": "句子可能被误读或改得作者不喜。只有欢迎开放改写时，才把虚构贡献放出。"
+        "zh": "句子可能被误读，也可能被改成最初作者不喜欢的样子。愿意接受这些变化时，再邀请别人续写会更合适。"
       },
       "experiment": {
         "en": "Write one clearly fictional sentence and make two different endings yourself. Notice how the same beginning can support incompatible but enjoyable stories.",
-        "zh": "写一句明确虚构的话，自写两种结尾，看看同一开头如何容纳相异有趣故事。"
+        "zh": "写一句明确是虚构的话，自己接出两个不同结尾。看看同一开头，怎样容纳两个互不相同、却都可以有趣的故事。"
       }
     },
     {
@@ -320,23 +320,23 @@
       },
       "summary": {
         "en": "Your café invites visitors to make a visual possibility before explaining it. A new shade can exist without one correct name, a polished picture or a message about personality.",
-        "zh": "你的馆邀请先造视觉可能，再解释。新颜色可没有唯一正名、精画或人格寓意。"
+        "zh": "你的咖啡馆邀请来客先想象一种颜色，再决定怎样解释它。新颜色可以没有唯一正确的名字，不必成为精致画作，也不用代表任何人格含义。"
       },
       "example": {
         "en": "A guest might imagine mixing pale blue with the color of a remembered ticket and call the result “almost boarding.”",
-        "zh": "客人可想象浅蓝混记忆中票根色，叫它“快登车了”。"
+        "zh": "一位来客可能想象把浅蓝和记忆中票根的颜色混在一起，给它取名叫“快登车了”。"
       },
       "strength": {
         "en": "An unnamed palette gives small visual experiments room to remain provisional, so trying a combination need not become a claim about artistic talent.",
-        "zh": "无名色盘让小实验可暂定，试配色不变成画技主张。"
+        "zh": "还没取名的色盘，可以让小小的配色尝试暂时没有定论。试一种组合，不必成为证明绘画天赋的任务。"
       },
       "tradeoff": {
         "en": "Invented colors may be difficult to describe accessibly. A short text description can let another visitor enjoy the idea without relying on sight alone.",
-        "zh": "新色可能难描述。添短文字，让他人不只靠视觉也能享受想法。"
+        "zh": "想象中的颜色，未必容易让每个人理解。加一小段文字描述，可以让别人不只依靠视觉，也能欣赏这个点子。"
       },
       "experiment": {
         "en": "Invent a harmless color name and describe it in ordinary words, including an imagined texture or setting. No actual materials or purchases are needed.",
-        "zh": "造无害色名，用普通话描述，带一种想象质地或场景，不需材料购买。"
+        "zh": "为一种想象中的颜色取个名字，再用日常语言描述它，可以加上想象的质地或场景。不用准备材料，也不用购买任何东西。"
       }
     }
   ],

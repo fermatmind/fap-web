@@ -1,3 +1,4 @@
+import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { ResultReadingNav } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
@@ -14,12 +15,15 @@ function Reduction({ reduction, locale }: { reduction: BirthNumberReduction; loc
   </div>;
 }
 
-export function BirthNumberGuideBody({ profile, locale, headingLevel = 3, idPrefix = "birth-guide" }: {
-  profile: BirthNumberProfile; locale: Locale; headingLevel?: 2 | 3 | 4; idPrefix?: string;
+export function BirthNumberGuideBody({ profile, locale, headingLevel = 3, idPrefix = "birth-guide", mode = "guide" }: {
+  profile: BirthNumberProfile; locale: Locale; headingLevel?: 2 | 3 | 4; idPrefix?: string; mode?: "guide" | "result";
 }) {
   const candidate = profile.resultReading;
   const reading = candidate?.quizSlug === "life-path-number" && candidate.profileId === profile.id ? candidate : null;
   const Heading = headingLevel === 2 ? "h2" : headingLevel === 4 ? "h4" : "h3";
+  if (mode === "result") return <article data-birth-number-guide={profile.id}>
+    <QuestionnaireResultReading quizSlug="life-path-number" profile={profile} locale={locale} headingLevel={headingLevel} idPrefix={idPrefix} mode="result" previewSectionIds={["concrete-example", "optional-experiment"]} />
+  </article>;
   return <article data-birth-number-guide={profile.id} data-birth-symbol-result-reading={reading ? profile.id : undefined} className="space-y-7 leading-8 [overflow-wrap:anywhere]">
     {reading && <details className="mb-6 rounded-lg bg-slate-50 p-4">
       <summary className="min-h-11 cursor-pointer py-2 font-semibold">{locale === "zh" ? "跳转到解读模块" : "Jump to a reading section"}</summary>
@@ -61,19 +65,19 @@ export function BirthNumberReport({ quiz, results, locale, readingProfiles }: { 
     <div className="grid gap-5 sm:grid-cols-2">{results.map(result => <section key={result.method} data-birth-number-method={result.method} className="min-w-0 rounded-lg border border-slate-200 bg-white p-5 leading-8">
       <h3 className="text-xl font-semibold">{quiz.birthNumber.methods.find(method => method.id === result.method)!.label[locale]}</h3>
       <p className="my-5 flex flex-wrap items-baseline gap-x-4 gap-y-2 text-sm font-medium text-slate-600">{zh ? "符号结果" : "Symbolic result"}: <span data-birth-number-value={result.method} className="text-6xl font-semibold tabular-nums leading-none text-violet-900">{result.number}</span></p>
-      <div data-birth-number-trace className="space-y-5 text-sm leading-7">
+      <details data-birth-number-trace className="space-y-5 text-sm leading-7"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "查看这一规则的详细算式" : "View this rule’s calculation steps"}</summary>
         {result.method === "separate-parts" ? <>
           {result.parts.map(part => <div key={part.id}><h4 className="font-semibold">{partLabels[part.id]}: {part.reduction.initial}</h4><Reduction reduction={part.reduction} locale={locale} /></div>)}
           <div><h4 className="font-semibold">{zh ? "合计化简后的各部分" : "Combine the reduced parts"}</h4><p><code>{result.parts.map(part => part.reduction.value).join(" + ")} = {result.final.initial}</code></p></div>
         </> : <div><h4 className="font-semibold">{zh ? "先合计八个日期数字" : "Add the eight date digits first"}</h4><p><code className="[overflow-wrap:anywhere]">{result.initialDigits.join(" + ")} = {result.final.initial}</code></p></div>}
         <Reduction reduction={result.final} locale={locale} />
-      </div>
+      </details>
     </section>)}</div>
     <p className="text-sm leading-7 text-slate-600">{zh ? "这些详细算式只显示在当前页面。复制功能不包含生日或算式。两法得到同一数字时，下方共用同一篇完整指南。" : "Detailed operations stay on this page. Copying omits the date and operations. When both rules reach the same number, they share one complete guide below."}</p>
     <ResultReadingNav label={zh ? "符号主题完整指南" : "Full symbolic motif guides"} sections={profiles.flatMap(profile => profile ? [{ id: `birth-reading-${profile.id}`, title: profile.title[locale] }] : [])} />
     {profiles.map(profile => profile && <section key={profile.id} className="rounded-lg border border-violet-200 bg-white p-5 sm:p-7" aria-labelledby={`birth-reading-${profile.id}`}>
       <h3 id={`birth-reading-${profile.id}`} className="mb-5 scroll-mt-24 text-2xl font-semibold">{profile.title[locale]}</h3>
-      <BirthNumberGuideBody profile={projected(profile)} locale={locale} headingLevel={4} idPrefix={`birth-result-${profile.id}`} />
+      <BirthNumberGuideBody profile={projected(profile)} locale={locale} headingLevel={4} idPrefix={`birth-result-${profile.id}`} mode="result" />
       <Link prefetch={false} className="mt-6 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这篇完整公开指南" : "Read this complete public guide"}</Link>
     </section>)}
   </div>;

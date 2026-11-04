@@ -1,7 +1,7 @@
 {
   "slug": "celebration-planner",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "social",
   "title": {
     "en": "Your Small-Celebration Planning Style",
@@ -266,7 +266,7 @@
       },
       "summary": {
         "en": "Your celebration begins with what the person actually wants to receive. Recognition can be quiet, public, brief or postponed by choice. The portrait values asking rather than claiming that you always know the perfect way to make someone happy.",
-        "zh": "你的庆祝从对方实际愿意接收什么开始。祝贺可安静、公开、简短，或主动改期。画像珍惜询问，不宣称你总知道让别人开心的完美办法。"
+        "zh": "你的庆祝计划，会先问对方希望收到怎样的祝贺。安静一点、公开一点、简短一些，或改天再庆祝，都可以由对方选择。先问清楚，比假定自己知道什么一定能让朋友开心更重要。"
       },
       "example": {
         "en": "You might ask whether a friend wants a shared toast, a private note or simply an ordinary evening before inviting a larger group into the plan.",
@@ -274,7 +274,7 @@
       },
       "strength": {
         "en": "An explicit preference check can keep the occasion centered on its recipient rather than on the planner’s favorite kind of event.",
-        "zh": "明确问偏好，能让活动围绕接收者，而非策划者最喜欢的活动形式。"
+        "zh": "明确问问偏好，能让庆祝围绕被祝贺的人来安排，而不是只照着策划者最喜欢的形式。"
       },
       "tradeoff": {
         "en": "Asking too many detailed questions can turn a small celebration into homework. A few meaningful choices may be enough to establish a comfortable direction.",
@@ -282,61 +282,61 @@
       },
       "experiment": {
         "en": "Before one small acknowledgment, ask a single concrete preference question. Use the answer to simplify the plan rather than opening a longer questionnaire.",
-        "zh": "一次小祝贺前，只问一个具体偏好问题。用答案简化安排，不开启更长问卷。"
+        "zh": "准备一次小祝贺前，只问一个具体问题，了解对方的偏好。用答案简化安排，不必接着追问一长串细节。"
       }
     },
     {
       "id": "moment",
       "title": {
         "en": "The One-Moment Planner",
-        "zh": "一个瞬间策划者"
+        "zh": "留一个庆祝瞬间的策划者"
       },
       "summary": {
         "en": "Your occasion gains a recognizable shape through one bounded shared moment. A short toast, a reveal or a final photo can be enough if the person wants it. The ending values a chosen highlight rather than maximum spectacle.",
-        "zh": "你的庆祝通过一个有边界共同瞬间有了形状。对方愿意时，短举杯、揭晓或最后一张合影就可足够。结局珍惜选中的亮点，不追求最大场面。"
+        "zh": "你喜欢为庆祝留一个清楚的小环节，让大家记得这个时刻。如果对方愿意，一次简短举杯、一个揭晓，或最后一张合影，就已经足够。不必追求盛大的场面。"
       },
       "example": {
         "en": "For a modest hobby milestone, you might choose a five-minute display of the finished piece and leave the rest of the visit relaxed.",
-        "zh": "为一个小爱好里程碑，你可能选五分钟展示成品，其余到访继续轻松。"
+        "zh": "朋友完成一件爱好作品时，你可能安排五分钟一起看看成品，剩下的见面时间就轻松度过。"
       },
       "strength": {
         "en": "One clear moment can make an occasion memorable without requiring a full schedule of activities or a large amount of preparation.",
-        "zh": "一个清楚瞬间能让活动难忘，不必排满项目，也不必大量准备。"
+        "zh": "一个明确的小环节，就能让庆祝留下记忆，不一定要排满节目，也不需要大量准备。"
       },
       "tradeoff": {
         "en": "A planned highlight can feel staged if there is no room for the people present. Keeping it brief and revisable helps the moment fit the actual evening.",
-        "zh": "若不给在场的人留空间，亮点会像摆拍。简短且可改，更能贴合实际夜晚。"
+        "zh": "如果一切都安排得太死，亮点也会像摆拍。保持简短，并允许临时调整，会更适合当晚在场的人。"
       },
       "experiment": {
         "en": "Choose one small shared moment for a willing group and give it a simple finish. Let the rest of the time remain unscripted.",
-        "zh": "给愿意的小组选一个共同小瞬间，留简单结束，其余时间不写剧本。"
+        "zh": "和愿意参与的朋友选一个简短的庆祝环节，说好怎样结束。剩下的时间，就不必事先写好剧本。"
       }
     },
     {
       "id": "contribution",
       "title": {
         "en": "The Optional-Contribution Planner",
-        "zh": "自愿贡献策划者"
+        "zh": "邀请大家添一点的策划者"
       },
       "summary": {
         "en": "Your celebration is built from small contributions people can choose. A message, a drawing or simply being present need not carry equal weight or effort. The portrait values an accessible invitation without measuring anyone’s care by how much they provide.",
-        "zh": "你的庆祝由大家可自主选择的小贡献搭起。短话、画作或只在场，不必具有相同份量与精力。画像珍惜容易进入的邀请，不按提供多少衡量关心。"
+        "zh": "你愿意邀请大家各做一点，拼成一份庆祝。一句话、一幅画，或者只是到场，都可以按各自意愿参与，不要求每个人花同样多的时间和精力。付出多少，不是衡量关心多少的标准。"
       },
       "example": {
         "en": "You might invite one sentence for a shared card while making clear that a late reply or no written contribution does not need an explanation.",
-        "zh": "你可能邀请为共同卡片写一句，也说明晚回或不写都不用解释。"
+        "zh": "你可能邀请大家在同一张卡片上各写一句，也明确说明：晚点回复或不想写，都不用解释。"
       },
       "strength": {
         "en": "A manageable contribution can make coordination easier and let different people take part in ways that fit the time they actually have.",
-        "zh": "容易掌握的贡献能让协调简单，也让不同人按实际拥有的时间参与。"
+        "zh": "小而明确的参与方式，更容易协调，也让时间不同的人都能找到适合自己的做法。"
       },
       "tradeoff": {
         "en": "Even a small request can feel compulsory if the group tracks who has not replied. Keeping the invitation private and optional helps preserve its purpose.",
-        "zh": "小请求若被群体追踪谁未回，也会像强制。让邀请私下且可选，能照顾原本目的。"
+        "zh": "即使是小请求，如果群里一直追问谁还没回复，也会让人觉得不得不做。私下邀请，并允许不参加，才更符合原本的心意。"
       },
       "experiment": {
         "en": "Offer one short optional contribution for a group occasion, without a public completion list. Accept different forms of participation and a comfortable no.",
-        "zh": "共同活动里，提供一项简短可选贡献，不做公开完成名单。接受不同参与方式，也接受自在拒绝。"
+        "zh": "为一次集体庆祝提供一个简短、自愿的参与方式，不公开记录谁完成了。接受不同的参与形式，也接受对方拒绝。"
       }
     }
   ],

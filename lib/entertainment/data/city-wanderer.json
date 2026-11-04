@@ -1,7 +1,7 @@
 {
   "slug": "city-wanderer",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "everyday",
   "title": {
     "en": "What Kind of City Wanderer Are You?",
@@ -316,7 +316,7 @@
       "id": "layers",
       "title": {
         "en": "The Place-Story Collector",
-        "zh": "地方故事的拾层者"
+        "zh": "收集地方故事的人"
       },
       "summary": {
         "en": "Your city portrait notices that a street can hold more than one period of use. A date plaque, changed doorway, or old photograph gives you a question to follow. Curiosity about those layers does not mean the first attractive explanation is the right one.",

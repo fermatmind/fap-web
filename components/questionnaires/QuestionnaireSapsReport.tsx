@@ -11,7 +11,7 @@ export function QuestionnaireSapsReport({ quiz, result, locale }: {
 }) {
   const zh = locale === "zh";
   return <div data-saps-result className="mt-6 space-y-8">
-    {quiz.directions.length > 1 && <ResultReadingNav label={zh ? "按主题阅读结果" : "Read results by topic"} sections={quiz.directions.map(direction => ({ id: `saps-title-${direction.id}`, title: direction.title[locale] }))} />}
+    {quiz.directions.length > 1 && <ResultReadingNav collapsible label={zh ? "按主题阅读结果" : "Read results by topic"} sections={quiz.directions.map(direction => ({ id: `saps-title-${direction.id}`, title: direction.title[locale] }))} />}
     <p className="leading-8 text-slate-700">{zh
       ? "八题均有有效回答。标准与差距分别呈现四题原始总和及均值，不合成完美主义百分比、人口排名、类型或诊断。两篇完整指南始终可以阅读。"
       : "All eight responses are valid. Standards and Discrepancy show separate four-item sums and means, without a combined perfectionism percentage, population rank, type or diagnosis. Both complete guides remain available."}</p>
@@ -29,7 +29,7 @@ export function QuestionnaireSapsReport({ quiz, result, locale }: {
         <p data-saps-sum={direction.id} className="mb-4 leading-7 text-slate-600">{zh
           ? `四题原始总和：${score.sum}（范围 4—28）。均值是总和除以4，不是人群百分位。`
           : `Four-item raw sum: ${score.sum} (range 4–28). The mean is the sum divided by four, not a population percentile.`}</p>
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`saps-reading-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`saps-reading-${profile.id}`} mode="result" previewSectionIds={["3", "6"]} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh
           ? "阅读这一维度的完整公开指南" : "Read this dimension’s complete public guide"}</Link>
       </section>;

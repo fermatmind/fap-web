@@ -1,7 +1,7 @@
 {
   "slug": "hosting-a-guest",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "relationships",
   "title": {
     "en": "How Would You Welcome an Overnight Guest?",
@@ -266,23 +266,23 @@
       },
       "summary": {
         "en": "Your welcome leaves a few useful facts where the guest can return to them. A note can give independence without requiring somebody to memorize a tour. The portrait values a practical information format rather than the quality or size of your home.",
-        "zh": "你的欢迎把几条有用信息留在来客可回看的位置。便条能给独立，不要求把导览背下来。画像珍惜实际信息形式，不评家品质或大小。"
+        "zh": "你愿意把几条有用信息留成小便条，让客人需要时可以回来查看。不必刚到就记住一整段介绍，也能自己找到需要的东西。这是在描述一种信息提供方式，不是在评价家的大小或好坏。"
       },
       "example": {
         "en": "You might leave a small card showing where agreed shared cups and spare blankets are, alongside the time you both chose for the next morning.",
-        "zh": "你可能留小卡说明已同意共用的杯子与备用毯在哪，也写双方约好的次晨时间。"
+        "zh": "你可能留张小卡，写清约好可以共用的杯子、备用毯子放在哪，也记下双方商量好的第二天早晨安排。"
       },
       "strength": {
         "en": "A short reference can reduce repeated guessing and let the guest use ordinary shared space without needing to interrupt every time.",
-        "zh": "短参考能减少重复猜测，也让来客用普通共用空间时不必次次打断。"
+        "zh": "一份简短说明，可以减少反复猜测。客人使用共用空间时，也不必每次都打断主人询问。"
       },
       "tradeoff": {
         "en": "A note can become a wall of rules if every preference is included. Keeping only the useful shared details leaves room for an actual visit.",
-        "zh": "把每个偏好都塞入，便条会成规则墙。只留有用共同细节，才给真正来访留空间。"
+        "zh": "如果把每个偏好都写进去，便条也会变成满墙规则。只留下真正有用的共用信息，才能给实际相处留空间。"
       },
       "experiment": {
         "en": "For a willing short stay, write three practical details the guest asked for or will actually use. Leave the rest open to a simple question.",
-        "zh": "一次自愿短住，写三条来客问过或实际会用的细节。其余留给简单询问。"
+        "zh": "有客人短住时，写三条对方问过、或确实用得上的信息。其他事情，让客人需要时简单问一句就好。"
       }
     },
     {
@@ -293,7 +293,7 @@
       },
       "summary": {
         "en": "Your guest’s first orientation happens in the space itself. A short shared walk lets a name connect with an actual place. This result describes an introduction style, not a requirement to guide or entertain a visitor throughout the stay.",
-        "zh": "来客的初次熟悉发生在空间里。短短共走让名称连到实际位置。结果描述介绍方式，不要求全程带领或招待。"
+        "zh": "你愿意先和客人走一小圈，把名称和实际位置对上。简短介绍有助于安顿，但不代表你要整个住宿期间一直带领或安排娱乐。"
       },
       "example": {
         "en": "You might show the agreed common shelf and a comfortable place for the guest’s bag, then let them settle without narrating every object in the room.",
@@ -301,15 +301,15 @@
       },
       "strength": {
         "en": "Seeing a few places together can make instructions easier to picture and give a guest a concrete reference for a later question.",
-        "zh": "一起看几个位置，让说明更易想象，也给之后提问具体参照。"
+        "zh": "一起看看几个位置，说明就更具体，客人之后提问时也有一个知道在哪的参照。"
       },
       "tradeoff": {
         "en": "A first tour can contain more than a tired guest wants to take in. A brief version and permission to ask again can work better than completeness.",
-        "zh": "第一圈可能比累着的来客想接收的更多。简短版本与允许再问，可能比全面更好。"
+        "zh": "刚到的客人也许很累，未必想一次记很多东西。介绍短一点，并允许以后再问，可能比讲得面面俱到更合适。"
       },
       "experiment": {
         "en": "Offer a short orientation to a willing guest and ask which place matters first. Stop after the useful part rather than finishing an imagined full tour.",
-        "zh": "给愿意的来客短介绍，问先想知道哪个位置。有用部分后就停，不必走完想象中的全导览。"
+        "zh": "如果客人愿意，先问最想知道哪个位置，再做一个简短介绍。讲完此刻有用的部分就可以停，不必走完预想的全程。"
       }
     },
     {
@@ -320,23 +320,23 @@
       },
       "summary": {
         "en": "Your welcome keeps questions ordinary as the stay unfolds. You do not need to predict every need in advance. The portrait values an available response while leaving both host and guest free to have their own time.",
-        "zh": "你的欢迎让问题随短住展开也普通。不必提前预测所有需要。画像珍惜可回应，也让主客都保留自己时间。"
+        "zh": "你希望客人住下来后，有问题时也能自然地问，不必第一天就预料所有需要。愿意回应，同时也让主人和客人各自保留自己的时间。"
       },
       "example": {
         "en": "You might explain the few essentials first and say when you can answer other questions, so the guest does not need to store a long list of information immediately.",
-        "zh": "你可能先说明少数必要项，再说何时可答其他问题，不让来客立刻存一长串信息。"
+        "zh": "你可能先介绍几件必要的事，再说清其他问题什么时候方便问。客人就不用一到场便记住长长一串信息。"
       },
       "strength": {
         "en": "A responsive approach can make the explanation fit the question actually being asked and keep a short visit from beginning with too many assumptions.",
-        "zh": "按需回应让说明贴合实际问题，也让短访不从过多假定开始。"
+        "zh": "需要时再说明，可以让回答贴近真实问题，也避免短住一开始就加入太多没确认的假设。"
       },
       "tradeoff": {
         "en": "An invitation to ask can feel vague if the host is unavailable without saying so. Naming a simple contact or timing arrangement helps it work.",
-        "zh": "主人不可用却没说明时，“随时问”会模糊。说清简单联系或时间安排，邀请才好用。"
+        "zh": "如果说“随时问”，却没说明自己什么时候不方便，客人还是难以判断。说清联系办法或方便回应的时间，会更实用。"
       },
       "experiment": {
         "en": "Tell a willing guest the essentials and one clear way to ask later. Give an honest time boundary rather than promising constant availability.",
-        "zh": "告诉愿意的来客必要项与之后怎么问。给诚实时间边界，不承诺一直可用。"
+        "zh": "告诉客人几件必要的事，再说明以后有问题可以怎样问。诚实说清方便回应的时间，不必承诺一直在线。"
       }
     }
   ],

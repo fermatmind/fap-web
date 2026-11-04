@@ -1,7 +1,7 @@
 {
   "slug": "small-apology",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "relationships",
   "title": {
     "en": "Your First Step After a Small Mix-Up",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Approaching a minor repair through a clear acknowledgment, a specific corrective offer or space for an unpressured response.",
-    "zh": "通过清楚承认、具体纠正提供，或不催促的回应空间，处理一件小补救。"
+    "zh": "一次普通小失误之后，你会先承认做错的地方、提出具体补救，还是给对方不被催促的回应时间？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -266,23 +266,23 @@
       },
       "summary": {
         "en": "Your first move names the specific part that was yours. A short acknowledgment can stand without a long account of your intentions. This ending emphasizes one part of a minor repair; it does not make words a substitute for any correction you agreed to do.",
-        "zh": "你的第一步说出具体哪部分属于自己。简短承认可以成立，不必长讲意图。结局只强调小补救的一部分，不让言语代替已约实际纠正。"
+        "zh": "你的第一步，是说清自己具体做了什么。简短承认，就不必花很长时间解释自己的意图。它只是补救的一部分；已经答应要改正的事，仍然需要实际去做。"
       },
       "example": {
         "en": "You might say you wrote the wrong start time and recognize that it changed the other person’s plan, before discussing what can now be adjusted.",
-        "zh": "你可能说自己写错开始时间，承认它改变对方计划，再谈现在可怎样调整。"
+        "zh": "写错了开始时间，可以先承认这影响了对方的安排，再一起看看现在还能怎样调整。"
       },
       "strength": {
         "en": "A clear acknowledgment can reduce the burden on the other person to prove what happened and keep a small error from being hidden behind general wording.",
-        "zh": "清楚承认能减少对方证明发生什么的负担，也让小错误不藏在泛泛措辞后。"
+        "zh": "清楚承认发生的事，就不用让对方再费力证明问题所在，也不把具体错误藏在泛泛的说辞里。"
       },
       "tradeoff": {
         "en": "An acknowledgment can become repetitive if the practical issue stays untouched. Pairing it with a wanted correction can help the conversation move.",
-        "zh": "实际问题不动，承认也会变重复。配上对方愿意的纠正，交流更能向前。"
+        "zh": "如果实际问题一直没处理，反复道歉也可能只是重复。再配上对方觉得有用的补救，交流才容易继续。"
       },
       "experiment": {
         "en": "For one minor mistake, write one sentence naming your action and its effect. Add a practical next step only after checking what is actually useful.",
-        "zh": "为一件小失误，写一句自己的行动与影响。问清实际有用什么后，再添下一步。"
+        "zh": "为一个小失误写一句话，说清自己的行动和造成的影响。先确认怎样做有帮助，再提出实际的下一步。"
       }
     },
     {
@@ -293,23 +293,23 @@
       },
       "summary": {
         "en": "Your first emphasis is a small action that can change the current situation. The offer remains something the other person may accept or decline. The portrait does not suggest that fixing a detail automatically removes its inconvenience or earns a particular response.",
-        "zh": "你的第一重点是能改变现状的小行动。提供仍可被接受或拒绝。画像不说修好细节就自动抹去不便，或换来某种回应。"
+        "zh": "你先想到一个能改变眼下情况的小行动，也让对方决定要不要接受。修好一个细节，不表示不便就从未发生，更不能用来换取某一种回应。"
       },
       "example": {
         "en": "If you returned the wrong notebook, you might offer a feasible exchange time and ask whether it works instead of promising to do absolutely anything.",
-        "zh": "还错笔记本时，你可能提供可行交换时间并问是否合适，不承诺“什么都愿做”。"
+        "zh": "还错了笔记本，可以提出一个做得到的交换时间，问对方是否方便，不必承诺“什么都愿意做”。"
       },
       "strength": {
         "en": "A specific correction can make an apology usable and give both people a concrete next choice rather than leaving the practical problem undefined.",
-        "zh": "具体纠正让道歉可用，也给双方一个下一选择，不把实际问题留成未定义。"
+        "zh": "补救具体，双方就有下一步可以商量，不必把实际问题一直悬着。"
       },
       "tradeoff": {
         "en": "An action offered too quickly can bypass the acknowledgment the other person wanted. A correction and a clear admission can sit together.",
-        "zh": "行动提得太快，会绕过对方想要的承认。纠正与清楚认下可以并存。"
+        "zh": "太快提出解决办法，也可能略过对方希望听到的承认。认下做错的地方，与实际改正，可以一起进行。"
       },
       "experiment": {
         "en": "Offer one feasible correction for a small mix-up and ask whether it helps. Do the agreed version, rather than expanding the offer into a grand gesture.",
-        "zh": "给小失误提供一个可行纠正，问是否有用。做已约版本，不扩成宏大表示。"
+        "zh": "为一次小差错提出一个做得到的补救，问对方是否有用。按商量好的方式完成，不必扩大成一次隆重的表示。"
       }
     },
     {
@@ -320,23 +320,23 @@
       },
       "summary": {
         "en": "Your repair leaves the other person free to respond in their own time and terms. An apology need not ask them to make you feel better immediately. The ending emphasizes room for a response while keeping your own acknowledgment and practical responsibilities intact.",
-        "zh": "你的补救让对方可按自己时间与方式回应。道歉不必要求对方立刻让自己好受。结局强调回应空间，也保留自己的承认与实际责任。"
+        "zh": "你给对方时间，让对方用自己的方式回应。道歉不需要对方立刻反过来安慰你；留出空间，也不免除你承认问题和实际补救的责任。"
       },
       "example": {
         "en": "After acknowledging a minor late return, you might offer the item’s handover and stop asking whether the person is definitely no longer annoyed.",
-        "zh": "承认一件小借物晚还后，你可能提出交接，不反复问对方是否肯定不再不快。"
+        "zh": "借来的东西还晚了，可以先认下这件事、商量归还，再停止追问对方是不是已经完全不生气。"
       },
       "strength": {
         "en": "An unpressured response can keep the apology from becoming another task the recipient must complete before their own preference is heard.",
-        "zh": "不催促回应，能让道歉不成为接收者必须先完成、自己的偏好才能被听见的新任务。"
+        "zh": "不催着对方回应，道歉就不会又变成一道任务，要求对方先安慰你，自己的想法才有机会被听见。"
       },
       "tradeoff": {
         "en": "Giving space without stating your part can look like leaving the issue untouched. A brief acknowledgment helps the pause have a clear basis.",
-        "zh": "没说自己的部分就留空间，也会像问题未处理。简短承认能让停顿有清楚基础。"
+        "zh": "如果什么都没说就直接退开，也可能像没有处理问题。先简短承认自己的部分，再留出回应的时间。"
       },
       "experiment": {
         "en": "For a minor repair, make your acknowledgment and wanted next step clear, then leave the response open. Do not ask the recipient to certify your intentions.",
-        "zh": "小补救中，说清承认与对方愿意的下一步，再留回应开放。不要求接收者认证你的意图。"
+        "zh": "遇到普通小失误，先认下做错的地方，再说清对方同意的补救，然后等对方自行回应。不要求对方证明你本意是好的。"
       }
     }
   ],

@@ -18,7 +18,7 @@ const bytes = readFileSync("lib/entertainment/data/island-day.json");
 const quiz = JSON.parse(bytes.toString()) as FunQuiz;
 describe("island-day: authored branching fiction, not tally scoring", () => {
  it("preserves the source bytes and checks all eight terminal paths and every incomplete prefix", () => {
-  expect(createHash("sha256").update(bytes).digest("hex")).toBe("29a890a791e3d525b2a2daca289f6e34379569f90b92ca1c992951954a072a5b");
+  expect(createHash("sha256").update(bytes).digest("hex")).toBe("7e10bf80b45c4f1af522b747e91dfc5995f4bf91036f288ffcfd7b425e0a32d5");
   const lengths: Record<number,number> = {}, endings: Record<string,number> = {};
   for (const [encoded,ending] of routes) {
    const steps=encoded.split(",").map(s=>s.split(":")); const answers: Answers = {};

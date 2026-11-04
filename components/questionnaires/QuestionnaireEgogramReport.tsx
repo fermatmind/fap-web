@@ -1,3 +1,4 @@
+import { ResultReadingNav } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -8,7 +9,20 @@ import type { Locale } from "@/lib/i18n/locales";
 export function QuestionnaireEgogramReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh", missing = zh ? "资料不足" : "Insufficient information";
   return <div className="my-6 space-y-8">
-    <section className="space-y-4 rounded-lg bg-slate-50 p-4" aria-labelledby="egogram-frequencies-title">
+
+    <ResultReadingNav collapsible label={zh ? "选择想读的部分" : "Choose a part to read"} sections={quiz.profiles.map(profile => ({ id: `ego-title-${profile.id}`, title: profile.title[locale] }))} />
+
+    {quiz.profiles.map(profile => <section key={profile.id} data-ego-profile={profile.id} aria-labelledby={`ego-title-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
+      <h3 id={`ego-title-${profile.id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
+      {(() => { const facet = result.facets[profile.directionIds[0]], mean = facet.rated === 4 ? facet.sum / 4 : null; return <p className="mb-5 text-lg font-semibold tabular-nums">{zh ? "本次均分：" : "Your mean: "}{mean === null ? (zh ? "资料不足" : "Insufficient information") : `${mean.toFixed(2)} / 5`}</p>; })()}
+
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} mode="result" previewSectionIds={["observes", "examples", "optional-check"]} />
+      <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本组的完整公开说明" : "Read this group’s full public guide"}</Link>
+    </section>)}
+
+    <details className="border-t border-slate-200 pt-4" data-result-reading-method>
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "全部读数、计分与使用说明" : "All readings, scoring and use notes"}</summary>
+      <section className="space-y-4 rounded-lg bg-slate-50 p-4" aria-labelledby="egogram-frequencies-title">
       <h3 id="egogram-frequencies-title" className="text-xl font-semibold">{zh ? "五组自报频率（1—5）" : "Five self-reported frequencies (1–5)"}</h3>
       <p className="leading-8">{zh ? "以下图形分别显示近四周有相应机会时的做法频率，不是心理能量百分比、固定总量或主导人格。每组四条全部有效才有分数，全部直接计分、0反向；其他组不替缺失条目估算。五组可以同时较高或较低，最高、最低或相同均不派型。" : "The chart separately shows how often actions occurred in the past four weeks when relevant occasions arose, not energy percentages, a fixed total or a dominant personality. Each group requires all four ratings, all direct with no reversals; other groups never estimate a missing item. All five can be higher or lower together without highest, lowest or equal patterns assigning a type."}</p>
       <p data-ego-legend className="text-sm leading-7 text-slate-600">{zh ? "横条对应回答频率：1从不、2很少、3有时、4常常、5几乎总是。资料不足不画柱。" : "Bars use response frequencies: 1 Never, 2 Rarely, 3 Sometimes, 4 Often, 5 Almost always. Insufficient information has no bar."}</p>
@@ -28,10 +42,6 @@ export function QuestionnaireEgogramReport({ quiz, result, locale }: { quiz: Que
       })}</dl>
       <p className="text-sm leading-7">{zh ? "均分用未舍入原始总和除4，不从一位小数倒推；NA不补零、中立或从不。柱长只对应1—5回答类别，类别求和和小数不表示测量精度。父母、成人、儿童是框架名称，不指实际年龄、家庭身份、成熟程度或童年原因，也不认证正确判断、关怀效果、创造力或同意。" : "Means divide unrounded raw sums by four, never reconstructed from a one-decimal value; NA is not zero, neutral or never. Bar length represents 1–5 response categories, whose sums and decimals establish no measurement precision. Parent, Adult and Child are framework names, not ages, family identities, maturity or childhood causes, and certify no correct judgment, effective care, creativity or consent."}</p>
     </section>
-    {quiz.profiles.map(profile => <section key={profile.id} data-ego-profile={profile.id} aria-labelledby={`ego-title-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
-      <h3 id={`ego-title-${profile.id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
-      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
-      <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本组的完整公开说明" : "Read this group’s full public guide"}</Link>
-    </section>)}
+    </details>
   </div>;
 }

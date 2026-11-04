@@ -1,7 +1,7 @@
 {
   "slug": "friendship-invitation",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "relationships",
   "title": {
     "en": "Your Friendship Invitation Style",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Making an invitation understandable through its concrete plan, personal point of connection or comfortable choice boundary.",
-    "zh": "通过具体安排、个人联系点或舒服选择边界，让邀请易懂。"
+    "zh": "邀请朋友时，你更想把安排说清、接上对方的兴趣，还是让答应和拒绝都容易？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -266,23 +266,23 @@
       },
       "summary": {
         "en": "Your invitation gives another person a small plan they can actually picture. A time, place and activity make the next answer easier. This result describes the message shape you chose, not a guarantee of acceptance or a measure of how organized you are.",
-        "zh": "你的邀请给对方一个实际可想象的小计划。时间、地点、活动，让下一回答容易。结果只描述所选信息形状，不保证被接受，也不测多有条理。"
+        "zh": "你愿意把邀请说成一个对方想象得出的具体小计划。什么时候、在哪里、做什么，说清这些，对方就更容易回答。这描述的是本次游戏中的邀请方式，不保证一定被接受，也不衡量你有多有条理。"
       },
       "example": {
         "en": "You might ask about a short public sketch afternoon with an approximate finish, rather than sending “we should hang out sometime” and leaving all details to them.",
-        "zh": "你可能约一个大致结束时间明确的公共速写下午，不只发“哪天一起玩”再把细节留给对方。"
+        "zh": "你可能约朋友去公共场所画一下午速写，说好大致何时结束，而不是只发一句“哪天一起玩”，把细节都留给对方想。"
       },
       "strength": {
         "en": "Concrete information can reduce back-and-forth and let the recipient decide whether the actual arrangement fits their time and interest.",
-        "zh": "具体信息能减少来回，也让接收者按实际安排判断时间兴趣是否合适。"
+        "zh": "具体信息能减少来回确认，让对方更容易判断这次活动是否符合自己的时间和兴趣。"
       },
       "tradeoff": {
         "en": "A detailed plan can feel decided in advance if the other person has no room to change it. A question keeps clarity compatible with choice.",
-        "zh": "对方没空间改时，详细计划也会像事先定好。问句能让清楚与选择并存。"
+        "zh": "计划太详细，又不给对方调整空间，也可能显得已经替人决定好了。留一个真正的问句，清楚安排和自由选择可以同时存在。"
       },
       "experiment": {
         "en": "Make one small invitation with three useful details and a genuine question. Leave the recipient room to change one part or decline the whole plan.",
-        "zh": "一次小邀请写三个有用细节，再给真问题。让接收者可改一部分，也可整份拒绝。"
+        "zh": "发一次小邀请，写清三个有用细节，再真正问问对方是否愿意。允许调整其中一部分，也允许整份拒绝。"
       }
     },
     {
@@ -293,7 +293,7 @@
       },
       "summary": {
         "en": "Your invitation says why this person came to mind. A small point of connection can make an ordinary plan feel personal without claiming that you know every preference they have. The ending values a specific link rather than a claim of special compatibility.",
-        "zh": "你的邀请说清为什么想到这个人。小联系点能让普通计划有个人意味，也不宣称知道对方全部偏好。结局珍惜具体联系，不主张特殊匹配。"
+        "zh": "你的邀请会说清楚，为什么想到这个人。朋友曾提过的一个兴趣，就能让普通计划多一点个人联系。不过，你不必假定自己知道对方所有偏好，也不需要把这次邀请说成特别合拍的证明。"
       },
       "example": {
         "en": "After a friend mentions liking handmade maps, you might invite them to a small map display and say that their comment reminded you of it.",
@@ -301,15 +301,15 @@
       },
       "strength": {
         "en": "A real interest link can make the invitation understandable and show that the suggestion is connected to something the person chose to share.",
-        "zh": "真实兴趣联系让邀请易懂，也表明建议连着对方主动分享过的东西。"
+        "zh": "围绕对方真正提过的兴趣来邀请，对方就更容易明白你为什么想到这件事，也知道你留意过那次分享。"
       },
       "tradeoff": {
         "en": "A past interest may have changed. Keeping your wording tentative lets the person update you without having to defend a new preference.",
-        "zh": "过去兴趣也可能变了。措辞留余地，让对方可更新偏好，不用为变化辩解。"
+        "zh": "过去喜欢的东西，现在也可能不想看了。措辞留点余地，对方就可以更新自己的偏好，不用解释或辩护。"
       },
       "experiment": {
         "en": "Link one optional invitation to an interest the person actually expressed. Include enough room for “that is not for me now” to be an easy answer.",
-        "zh": "把一次可选邀请连到对方实际表达过的兴趣，也让“我现在不想这个”容易回答。"
+        "zh": "把一次可选邀请，连到对方实际表达过的兴趣上。也让“我现在不太想去”成为容易说出口的回答。"
       }
     },
     {
@@ -320,23 +320,23 @@
       },
       "summary": {
         "en": "Your invitation does not require a particular answer to remain kind. A clear yes, no or alternative can all fit inside it. This portrait values the shape of the offer without assuming that you should make every possible accommodation.",
-        "zh": "你的邀请不需要特定回答才继续友好。清楚答应、拒绝或替代，都在其中。画像珍惜提供形状，不要求你迁就所有可能。"
+        "zh": "你希望对方答应、拒绝，或提出别的安排，都能自然地回应。邀请不必收到某个指定答案，才能继续友好。当然，让回答自在，也不意味着你必须迁就所有可能的安排。"
       },
       "example": {
         "en": "You might invite a friend to a short activity, mention that passing is fine and then accept their no without sending several replacement plans.",
-        "zh": "你可能邀朋友短活动，说明不来也可，再接受拒绝，不连续发送多份替代计划。"
+        "zh": "你可能邀请朋友参加一个短活动，说明不来也没关系。对方拒绝后，就接受这个回答，不连续发来好几个替代计划。"
       },
       "strength": {
         "en": "A comfortable response boundary can lower the pressure of deciding and keep an invitation from turning into a task to manage the sender’s expectations.",
-        "zh": "舒服回答边界能减轻决定压力，也让邀请不变成管理发送者期待的任务。"
+        "zh": "让答应和拒绝都容易，可以减轻做决定的压力，不让对方为了照顾发出邀请者的期待而费心。"
       },
       "tradeoff": {
         "en": "Repeatedly saying “no pressure” can itself become a lot of reassurance. A short clear offer followed by accepting the answer may work better.",
-        "zh": "反复说“没压力”本身也会很多。短而清楚提供后接受回答，可能更有效。"
+        "zh": "反复强调“没压力”，有时也会让对方需要一再安抚你。简短说清邀请，然后自然接受回答，可能更舒服。"
       },
       "experiment": {
         "en": "Send one specific invitation and let the first clear response stand. If you offer an alternative, check that another suggestion is wanted first.",
-        "zh": "发一次具体邀请，让第一份清楚回答成立。再给替代之前，先确认欢迎另一个建议。"
+        "zh": "发出一次具体邀请，接受对方第一个明确回答。如果还想提别的安排，先问对方是否愿意再听一个建议。"
       }
     }
   ],

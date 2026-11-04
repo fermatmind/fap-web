@@ -1,7 +1,7 @@
 {
   "slug": "escape-room-role",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "social",
   "title": {
     "en": "Your Escape-Room Team Role",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Connecting existing clues, testing a specific explanation and deciding when the group should change its use of game time.",
-    "zh": "连接已有线索、试一个具体解释，以及决定小组何时调整游戏时间用法。"
+    "zh": "一起解谜时，你更愿意串联已有线索、试清一个想法，还是提醒大家怎样使用剩下的游戏时间？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -266,7 +266,7 @@
       },
       "summary": {
         "en": "Your puzzle role keeps the found pieces in relation to each other. A symbol may matter because it changes how another clue is read. The ending describes your chosen game approach rather than measuring your ability to find patterns in real life.",
-        "zh": "你的谜题角色让找到的部件彼此有关系。一个符号可能因改变另一线索读法而重要。结局只描述所选游戏方式，不测现实找规律能力。"
+        "zh": "你喜欢把找到的线索放在一起，看看它们怎样相互说明。一个符号，可能因为改变了另一条线索的读法而变得重要。这是在描述本次游戏里的解谜方式，不是在测量现实中的找规律能力。"
       },
       "example": {
         "en": "You might place a drawn map beside a symbol strip and ask whether the repeated mark belongs to a location rather than guessing a code immediately.",
@@ -278,11 +278,11 @@
       },
       "tradeoff": {
         "en": "A neat pattern can be accidental. Checking what the proposed connection actually predicts helps prevent a satisfying story from replacing the game’s evidence.",
-        "zh": "好看规律也可能偶然。核对这处联系实际预示什么，能防止顺耳故事代替游戏证据。"
+        "zh": "看起来很巧的规律，也可能只是巧合。试着问：如果这个联系成立，还应该出现什么？这样可以避免用顺耳的故事代替游戏里的依据。"
       },
       "experiment": {
         "en": "For one recreational puzzle, lay out the known pieces and name one proposed connection. Then ask what observation would make you reconsider it.",
-        "zh": "面对一个休闲谜题，摆出已知部件，说一处拟议联系，再问什么观察会让你重想它。"
+        "zh": "玩一个休闲谜题时，摆出已知线索，说出一个你想到的联系。再问问，看到什么情况时，你会重新考虑这个想法。"
       }
     },
     {
@@ -293,7 +293,7 @@
       },
       "summary": {
         "en": "Your game advances by giving one explanation a clear trial. You want to know what a move will show before making several more guesses. The portrait is about this fictional puzzle process, not a scientific aptitude score.",
-        "zh": "你的游戏通过给一个解释一次清楚试验推进。连着多猜之前，你想知道这步会显示什么。画像只谈虚构谜题过程，不给科学天赋打分。"
+        "zh": "你喜欢一次试清一个想法，看看这一步究竟能说明什么，再继续猜下一步。这描述的是虚构谜题里的尝试过程，不是科学天赋的分数。"
       },
       "example": {
         "en": "You might change only the order of a three-symbol code while keeping the symbols fixed, so the next result can answer one specific question.",
@@ -301,7 +301,7 @@
       },
       "strength": {
         "en": "A bounded trial can make failure informative and give the team a result it can use instead of another unexplained yes or no.",
-        "zh": "有边界试验能让失败带信息，也给小队可使用的结果，不只是又一个莫名对错。"
+        "zh": "一次针对明确问题的尝试，即使失败也能带来信息。小队可以据此继续，而不只是知道这次又对了或错了。"
       },
       "tradeoff": {
         "en": "Testing without pausing to share the idea can leave others unsure what happened. A quick statement of the question keeps the trial collaborative.",
@@ -309,18 +309,18 @@
       },
       "experiment": {
         "en": "Before trying a move in a shared puzzle, state the single question it tests. Afterward, share what changed and what remains uncertain.",
-        "zh": "共同谜题试一步之前，说清它只测试哪个问题。之后分享什么变了，什么还不确定。"
+        "zh": "共同解谜时，动手前先说清这一步想测试什么。试完后，告诉大家什么发生了变化、什么仍不确定。"
       }
     },
     {
       "id": "keeper",
       "title": {
         "en": "The Shared-Time Keeper",
-        "zh": "共同游戏时间照应者"
+        "zh": "照看共同游戏时间的人"
       },
       "summary": {
         "en": "Your role keeps attempts, time and the option of a hint visible. The group can decide how to use its remaining play rather than repeating a move unnoticed. The result does not make you responsible for keeping everyone productive.",
-        "zh": "你的角色让已试内容、时间与提示选项可见。小组能决定怎样用剩余游戏，而非没察觉地重复走法。结果不让你对每个人的效率负责。"
+        "zh": "你愿意帮小队记住已经试过什么、还剩多少时间，以及是否要用提示。大家可以一起决定下一步，不必无意间重复尝试。不过，你不需要为所有人的游戏效率负责。"
       },
       "example": {
         "en": "You might mark two codes as already tried and ask whether the group wants one more attempt or the optional hint before the round ends.",
@@ -328,7 +328,7 @@
       },
       "strength": {
         "en": "A small shared record can reduce avoidable repetition and make a change of approach feel like a group choice rather than a personal interruption.",
-        "zh": "一份小共同记录能减少无谓重复，也让换办法成为共同选择，而非个人打断。"
+        "zh": "一份简短的共同记录，可以减少不必要的重复。想换个办法时，也更容易一起商量，而不是由某个人突然打断。"
       },
       "tradeoff": {
         "en": "Frequent time reminders can make a relaxed game tense. Agreeing on a few check-in points may work better than announcing every passing minute.",

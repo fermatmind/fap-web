@@ -1,7 +1,7 @@
 {
   "slug": "paper-world",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "metaphor",
   "title": {
     "en": "How Would You Build a World from Paper?",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Creating a paper world around traversable routes, characters with small actions or layers that change the view.",
-    "zh": "围绕可走的路径、有小动作的角色或改变视野的层次，造纸世界。"
+    "zh": "在想象中搭一个纸世界：可以沿路走一圈，让角色做一件小事，也可以移动纸层换个角度看。"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -266,23 +266,23 @@
       },
       "summary": {
         "en": "Your paper world invites a visitor to travel through a small structure. Turns and connections matter because they let the sheet be experienced as a route rather than only an image.",
-        "zh": "你的纸世界邀人经过小结构。转弯与相连，让纸页成一段路，不只一张图。"
+        "zh": "你想象中的纸世界，邀请访客沿着一条小路走进去。转弯和连接的地方，让纸页不只是一张图，也成了一段可以走过的旅程。"
       },
       "example": {
         "en": "An imagined folded strip might lead from a paper doorway to a little platform, then return along a different edge of the sheet.",
-        "zh": "想象折条从纸门到小平台，再沿纸的另一边返回。"
+        "zh": "想象一条折出的纸路，从小门通向平台，再沿纸页的另一边绕回来。"
       },
       "strength": {
         "en": "A connected route gives the visitor something concrete to try and helps separate a world’s usable path from its decorative background.",
-        "zh": "相连路径给访客具体可试之事，也区分可走之路与装饰背景。"
+        "zh": "连得起来的小路，让访客有事情可以尝试，也让人分得清哪里能走、哪里是背景装饰。"
       },
       "tradeoff": {
         "en": "An intricate route can overshadow the places along it. A shorter path with one interesting stopping point may offer more than many clever turns.",
-        "zh": "复杂路会抢沿途景。一条短路加有趣停点，可能比许多巧转更好玩。"
+        "zh": "路线太复杂，反而容易错过沿途的景色。一条短路配一个有趣的停留处，可能比很多巧妙的转弯更好玩。"
       },
       "experiment": {
         "en": "Draw a route across a sheet with one entrance, one stopping point and one return. Trace it with a finger before adding more destinations.",
-        "zh": "在纸画入口、停点与返回路。先用手指走过，再添目的地。"
+        "zh": "在纸上画一条路，安排一个入口、一个停留处和一条返回路线。先用手指走一遍，再考虑是否添加目的地。"
       }
     },
     {
@@ -293,23 +293,23 @@
       },
       "summary": {
         "en": "Your world begins when a paper character has something small to do. The action gives the scenery a reason to matter without requiring an elaborate plot or a heroic quest.",
-        "zh": "你的世界从纸角色有件小事可做开始。动作让景有作用，不需复杂情节或英雄任务。"
+        "zh": "让一个纸角色有件小事可做，世界就开始动起来了。角色的行动让布景有了用处，不一定要配上复杂的故事或英雄任务。"
       },
       "example": {
         "en": "A paper figure might carry an imaginary button across a table-sized town and choose whether to deliver it or make it a sign.",
-        "zh": "纸人可把想象纽扣带过桌面城镇，选送出去或改成牌子。"
+        "zh": "一个纸人带着想象中的纽扣，走过桌面大小的小镇；它可以把纽扣送出去，也可以拿来做一块招牌。"
       },
       "strength": {
         "en": "A simple character action can give a visitor an immediate way into the world and show which parts of the setting are relevant.",
-        "zh": "简单角色动作给访客入口，也显出场景哪些部分有关。"
+        "zh": "一件简单的小事，就能让访客跟着角色走进世界，也让人看出哪些布景与故事有关。"
       },
       "tradeoff": {
         "en": "A character does not need a complete biography to move a little scene. Too much explanation may crowd out the action you wanted to show.",
-        "zh": "角色动一小幕不需全传记。解释过多，反会挤掉想展示的动作。"
+        "zh": "演一小段故事，不需要先写完角色的一生。解释太多，反而会挤掉原本想展示的动作。"
       },
       "experiment": {
         "en": "Invent a paper character with one object and two possible uses for it. Describe the different small scene each choice would create.",
-        "zh": "编纸角色、一物与两种用途，描述各选会造什么不同小景。"
+        "zh": "想一个纸角色，再给它一件有两种用途的东西。分别说说，两种选择会带来什么不同的小场景。"
       }
     },
     {
@@ -320,23 +320,23 @@
       },
       "summary": {
         "en": "Your world changes when its parts overlap differently. A foreground edge and a distant shape can make a new relationship without adding more pieces to the sheet.",
-        "zh": "你的世界因纸片重叠不同而变。前缘与远形能造新关系，不必再添片。"
+        "zh": "纸片换一种重叠方式，眼前的世界也跟着变了。前面的边框和远处的形状可以形成新的画面，不一定需要加更多纸片。"
       },
       "example": {
         "en": "An imagined paper arch might frame a tiny hill in one position and a character’s doorway when the front layer shifts.",
-        "zh": "纸拱一处框住小山，前层一移又成角色门口。"
+        "zh": "想象一个纸拱门：从一个位置看，它框住一座小山；把前面的纸层挪一挪，它又像是角色家的门口。"
       },
       "strength": {
         "en": "Layered views let a small set of elements support several scenes and make the act of looking part of the world’s play.",
-        "zh": "分层视野让少量元素支持多景，也让观看动作成为玩法。"
+        "zh": "分层的画面能让少量纸片变出不同场景，连换个角度看，也成了玩法的一部分。"
       },
       "tradeoff": {
         "en": "A reveal can be hard to follow when every layer moves at once. Keeping one part steady gives the viewer an easier reference point.",
-        "zh": "各层齐动时难跟显露。留一部分不动，观者更容易找参照。"
+        "zh": "所有纸层同时移动，观者可能看不清哪里发生了变化。留一部分不动，会更容易找到参照。"
       },
       "experiment": {
         "en": "Draw a foreground frame and a separate background on paper. Imagine shifting only the frame and write how the same background would look different.",
-        "zh": "画前景框与独立背景。只想象移框，写同一背景会怎样不同。"
+        "zh": "分别画一个前景边框和一幅背景。想象只移动边框，再写下同一幅背景看起来会有什么不同。"
       }
     }
   ],

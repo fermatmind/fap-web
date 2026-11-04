@@ -27,7 +27,7 @@ export function QuestionnaireAffectionReport({ quiz, result, locale }: { quiz: Q
     <p className="leading-8">{zh ? "以下五份完整说明分别包含表达、接收、例子、取舍、比较、反例、小尝试与使用范围。每份都可阅读，不因均分高低而隐藏。" : "All five complete guides follow, covering giving, receiving, examples, tradeoffs, comparisons, counterexamples, experiments and scope. Every guide is available regardless of its means."}</p>
     {quiz.profiles.map(profile => <section key={profile.id} data-affection-profile={profile.id} aria-labelledby={`affection-title-${profile.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
       <h3 id={`affection-title-${profile.id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
-      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} mode="result" previewSectionIds={["meaning", "everyday", "experiment"]} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这种方式的公开说明" : "Read this way of caring’s public guide"}</Link>
     </section>)}
   </div>;

@@ -1,7 +1,7 @@
 {
   "slug": "tiny-superpower",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "metaphor",
   "title": {
     "en": "Which Tiny Original Superpower Would You Pick?",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Preferring a fictional power that clarifies a phrase, makes room for a voluntary pause or makes a small physical detail visible.",
-    "zh": "选能澄清短句、留自愿停顿或让实体小细节可见的虚构能力。"
+    "zh": "选一种小小的虚构能力：让一句话更清楚、留一次自愿暂停，或显出画面里原有的细节。"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -262,81 +262,81 @@
       "id": "word",
       "title": {
         "en": "The One-Plain-Word Power",
-        "zh": "补一个普通词的微能力"
+        "zh": "把一句话说清一点"
       },
       "summary": {
         "en": "Your original power makes one small phrase easier to understand. It does not read minds or discover a hidden truth; it offers a possible word that a fictional writer can accept or decline.",
-        "zh": "你的原创能力让一小句更好懂。不读心或揭隐藏真相，只给虚构作者可接可拒的词。"
+        "zh": "你的原创小能力，让一个短句更容易看懂。它不读心，也不揭开隐藏真相，只是补一个可能有用的词；故事里的作者仍可以接受或拒绝。"
       },
       "example": {
         "en": "A vague label saying “put it there” might gain the word “shelf,” making the small imagined instruction easier to follow.",
-        "zh": "“放那儿”的模糊标签可补“架子”，让小想象指引好跟。"
+        "zh": "把模糊的“放那儿”补成“放架子上”，这条想象中的小提示就更容易照做。"
       },
       "strength": {
         "en": "A tiny language adjustment gives this fictional power a bounded use and makes an ordinary communication detail worth noticing without grand claims.",
-        "zh": "小文字调整给能力有界用途，让普通沟通细节值得看，不做大主张。"
+        "zh": "只改一个词，能力就有了具体而有限的用途。普通的沟通细节也可以成为故事的乐趣，不必附上宏大的本领。"
       },
       "tradeoff": {
         "en": "Even a clearer word can be the wrong word for someone else. The character keeps authorship and does not have to accept the suggestion.",
-        "zh": "更清词对别人也可错。角色保有作者权，不必接受建议。"
+        "zh": "说得更清楚，也可能仍不是作者想用的那个词。句子仍属于故事里的作者，对方不必接受建议。"
       },
       "experiment": {
         "en": "Invent a vague fictional label and two possible clarifying words. Explain how each changes the instruction without declaring one universally correct.",
-        "zh": "编模糊虚构标签与两种澄清词，写各怎样改指令，不宣称一种普遍正确。"
+        "zh": "想一张措辞模糊的虚构标签，试着分别补上两个不同的词，再说明两种写法各让指示变得怎样。不必认定一种永远正确。"
       }
     },
     {
       "id": "pause",
       "title": {
         "en": "The Optional-Little-Pause Power",
-        "zh": "放一个可选停顿的微能力"
+        "zh": "留出想停就停的一刻"
       },
       "summary": {
         "en": "Your power makes a moment available rather than taking control of time. A fictional character can use the pause, skip it or choose a different next step.",
-        "zh": "你的能力让片刻可用，不控制时间。虚构角色可用、跳过或选别的下一步。"
+        "zh": "你的能力留一个可以歇一歇的片刻，而不是控制时间。故事里的角色可以用它，也可以不停下，直接选择下一步。"
       },
       "example": {
         "en": "In an imaginary paper parade, a small marked space might let one character stop to look while the rest of the scene continues.",
-        "zh": "想象纸游行里，一小标记位置让角色停看，其余场景继续。"
+        "zh": "想象一场纸片游行，在旁边标一小块停留处。一个角色可以停下看看，其他场景照常继续。"
       },
       "strength": {
         "en": "An optional pause can give a busy little scene another possible rhythm without requiring every participant to slow down together.",
-        "zh": "可选停点给忙碌小景另一节奏，不要求所有人一起慢。"
+        "zh": "给忙碌的小场景留一个可选停顿，就多了一种节奏，不需要所有参与者一起慢下来。"
       },
       "tradeoff": {
         "en": "A pause is not automatically helpful and cannot solve a serious problem in this game. The character’s choice gives the power its limit.",
-        "zh": "暂停不自动有用，也不解决严肃问题。角色选择就是能力边界。"
+        "zh": "暂停不一定总有帮助，这个游戏里的能力也不能解决严肃的现实问题。用不用它，仍由角色自己选择。"
       },
       "experiment": {
         "en": "Write a short fictional scene with an optional stopping point. Give the character two equally valid continuations, including one that does not use it.",
-        "zh": "写带可选停点的短虚构景，给角色两种同样有效继续法，一种不用停点。"
+        "zh": "写一个有自选停留处的虚构小场景，再给角色两种同样说得通的后续，其中一种不在这里停下。"
       }
     },
     {
       "id": "edge",
       "title": {
         "en": "The Already-There Outline Power",
-        "zh": "显出原有边缘的微能力"
+        "zh": "让已有的轮廓更清楚"
       },
       "summary": {
         "en": "Your power makes one existing detail easier to see in a fictional image. It changes visibility, not the object’s value or the character’s real capacity to understand the world.",
-        "zh": "你的能力让虚构图中已有细节更可见。它改可见度，不改物价值或角色理解世界的真能力。"
+        "zh": "你的能力让虚构画面里本来就有的一个细节更容易被看见。改变的是清晰程度，不是物件的价值，也不是角色理解世界的真实能力。"
       },
       "example": {
         "en": "A light outline around two overlapping paper pieces might reveal that the smaller piece is a separate removable tab.",
-        "zh": "叠纸处轻勾边，可显较小片是独立可取标签。"
+        "zh": "在两片重叠的纸周围轻轻勾一道边，就能看出：较小的那片其实是一张可以取下来的标签。"
       },
       "strength": {
         "en": "A bounded visual cue gives the story a concrete tiny discovery and lets an ordinary construction become interesting without a dramatic secret.",
-        "zh": "有界视觉提示给故事具体小发现，让普通结构有趣，不需大秘密。"
+        "zh": "一处小小的视觉提示，就能给故事带来具体的发现。普通结构也会变得有趣，不必背后藏着惊天秘密。"
       },
       "tradeoff": {
         "en": "An outline can direct attention away from other details. The fictional viewer may choose to remove it and look at the whole picture again.",
-        "zh": "勾边也会移开别处注意。虚构观者可撤边，再看全图。"
+        "zh": "突出一条轮廓，也可能让人忽略其他细节。故事里的观者可以撤掉勾边，再看看整幅画。"
       },
       "experiment": {
         "en": "Draw two overlapping harmless shapes and imagine highlighting only one edge. Describe what becomes clearer and what remains unchanged in the drawing.",
-        "zh": "画两无害相叠形，想象只亮一边，描述什么更清、图中什么未变。"
+        "zh": "画两个重叠的普通形状，想象只突出其中一条边。分别说清，什么变得更明白，画面里的什么则没有改变。"
       }
     }
   ],

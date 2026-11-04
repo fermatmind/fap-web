@@ -1,7 +1,7 @@
 {
   "slug": "celebrating-a-friend",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "relationships",
   "title": {
     "en": "How Would You Meet a Friend’s Good News?",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Responding to a friend’s chosen good news through their own account, a personal message or an invited shared acknowledgment.",
-    "zh": "通过朋友自己的讲述、个人信息或受邀共同致意，回应对方主动分享的好消息。"
+    "zh": "朋友主动分享好消息时，你更愿意听对方讲、发一句具体祝贺，还是受邀一起庆祝？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -266,77 +266,77 @@
       },
       "summary": {
         "en": "Your response gives the friend space to say what the news means to them. You do not need to choose the impressive part in advance. The portrait values their own account rather than measuring your capacity for empathy.",
-        "zh": "你的回应给朋友空间说消息对自己意味着什么。不必提前选最厉害部分。画像珍惜对方自己的讲述，不测你的共情容量。"
+        "zh": "面对朋友的好消息，你愿意先听听，这件事对朋友本人意味着什么。不必预先认定哪部分最厉害，让对方自己来讲就好。这是你这次选择的回应方式，不是共情能力的分数。"
       },
       "example": {
         "en": "You might ask which small moment in finishing the project felt best and let the answer be ordinary rather than turning it into a motivational speech.",
-        "zh": "你可能问做完项目哪个小瞬间最好，让答案可以普通，不把它变励志演讲。"
+        "zh": "你可能问朋友，完成项目时哪个小瞬间最开心。答案可以很普通，不必把它变成一场励志演讲。"
       },
       "strength": {
         "en": "Listening to the person’s version can make acknowledgment more particular and keep a happy update from becoming another person’s interpretation of success.",
-        "zh": "听本人版本让致意更具体，也让开心更新不被别人的成功解释代替。"
+        "zh": "听朋友自己的讲述，能让祝贺更贴近这件事，而不是用别人的成功标准代替朋友自己的感受。"
       },
       "tradeoff": {
         "en": "Too many questions can turn good news into an interview. A simple warm response can be enough when the friend has said what they wanted.",
-        "zh": "问题太多会把好消息变采访。朋友讲完想讲的，简单温暖回应就够。"
+        "zh": "问题太多，也会把分享好消息变成接受采访。朋友讲完想讲的，简单而温暖地回应就够了。"
       },
       "experiment": {
         "en": "Ask one optional question about what the person enjoyed, then follow their pace. Let them keep any part of the story they do not want to tell.",
-        "zh": "问一个可选问题，看看对方享受什么，再跟节奏。任何不想讲的部分都可保留。"
+        "zh": "问一个对方愿意回答的小问题，听听哪部分最让对方开心，然后跟随对方的节奏。不想讲的部分，可以留给朋友自己。"
       }
     },
     {
       "id": "note",
       "title": {
         "en": "The Personal-Acknowledgment Partner",
-        "zh": "个人致意的伙伴"
+        "zh": "写下具体祝贺的伙伴"
       },
       "summary": {
         "en": "Your response can be a small message with a particular detail that belongs to this news. It need not become a plan for a bigger celebration. The ending values a personal acknowledgment without treating its length as a measure of care.",
-        "zh": "你的回应可是一条带着本消息具体细节的小信息，不必变成更大庆祝计划。结局珍惜个人致意，不按字数衡量关心。"
+        "zh": "你愿意用一条简短的信息，回应朋友这次分享的具体好消息。不一定要安排更大的庆祝，一句贴心的祝贺也可以。信息长短，不是衡量关心多少的标准。"
       },
       "example": {
         "en": "You might write that you remember the little model’s first sketch and are glad the friend now has a finished version they enjoy.",
-        "zh": "你可能写记得小模型最初草图，也为朋友现在有喜欢的成品而开心。"
+        "zh": "你可能告诉朋友，自己还记得那个小模型最初的草图，也很高兴朋友现在做出了喜欢的成品。"
       },
       "strength": {
         "en": "A concise personal note can be received at the friend’s own pace and give recognition without requiring them to host a conversation immediately.",
-        "zh": "简短个人便条可按朋友节奏接收，表达看见，也不要求对方立刻主持对话。"
+        "zh": "简短而具体的祝贺，朋友可以在方便时再看。你表达了关注，也不要求对方立刻开始一场对话。"
       },
       "tradeoff": {
         "en": "A written note can assume more about the achievement than you know. Keeping it tied to what was actually shared makes it easier to receive.",
-        "zh": "文字便条可能假定比已知更多。贴着实际分享的内容写，更容易接收。"
+        "zh": "写祝贺时，有时会不自觉地替对方解释这项成果。围绕朋友实际分享过的内容写，会更贴切。"
       },
       "experiment": {
         "en": "Send one short acknowledgment of a specific detail the friend shared. Leave out a request for the next achievement or a required reply.",
-        "zh": "针对朋友分享的具体细节发简短致意，不附下一成就要求或必须回复。"
+        "zh": "挑朋友分享的一个具体细节，写一句简短的祝贺。不附带下一次要取得什么成绩的要求，也不要求必须回复。"
       }
     },
     {
       "id": "join",
       "title": {
         "en": "The Invited-Moment Partner",
-        "zh": "受邀共享时刻的伙伴"
+        "zh": "应邀一起庆祝的伙伴"
       },
       "summary": {
         "en": "Your response offers company around a happy moment, with the form chosen by the person sharing it. A small visit or shared toast can be enough. The portrait does not make public attention or a group event necessary for news to matter.",
-        "zh": "你的回应提供好时刻周围的作伴，形式由分享者选。小到访或共同举杯就可足够。画像不要求公开关注或群体活动，消息才有意义。"
+        "zh": "你愿意陪朋友一起度过这个开心的时刻，具体怎么庆祝，由分享好消息的人来选。短暂到访、一起举杯，都可以。好消息不需要公开给所有人知道，也不必办一场大聚会才算重要。"
       },
       "example": {
         "en": "You might ask whether the friend wants a short look at the finished piece together, then keep the visit within the shape they actually chose.",
-        "zh": "你可能问朋友想不想一起短看成品，再按对方确实选的形状见面。"
+        "zh": "你可能问朋友，想不想一起看看刚做完的作品，再按对方愿意的方式和时间安排见面。"
       },
       "strength": {
         "en": "An invited shared moment can make company concrete while keeping the recipient in charge of how visible or elaborate the acknowledgment becomes.",
-        "zh": "受邀共同瞬间让作伴具体，也让接收者掌握致意多公开、多复杂。"
+        "zh": "应对方的意愿一起庆祝，可以让陪伴变得具体，也让朋友自己决定这份祝贺要多公开、多隆重。"
       },
       "tradeoff": {
         "en": "An offer of celebration can quietly become work for the person with the news. A small clear invitation should leave declining comfortable.",
-        "zh": "庆祝提供也会悄悄成为分享消息者的工作。小而清楚邀请应让拒绝自在。"
+        "zh": "提议庆祝，有时也会给朋友添上接待和安排的工作。把邀请说得小而清楚，并让对方容易拒绝，会更舒服。"
       },
       "experiment": {
         "en": "Offer one modest shared moment only if the person wants it. Ask what shape would suit them before gathering anyone else into the plan.",
-        "zh": "只有对方想要才提供一次适度共同瞬间。把其他人加入前，先问怎样合适。"
+        "zh": "如果朋友愿意，就提议一起度过一个简短的庆祝时刻。邀请其他人之前，先问朋友希望怎样安排。"
       }
     }
   ],

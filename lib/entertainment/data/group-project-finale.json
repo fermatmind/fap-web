@@ -1,7 +1,7 @@
 {
   "slug": "group-project-finale",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "social",
   "title": {
     "en": "How Do You Close a Shared Hobby Project?",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Closing a voluntary collaboration through accurate acknowledgment, a practical final state or a chosen shared moment.",
-    "zh": "通过准确致意、实际最终状态或主动选择的共同瞬间，为自愿合作收尾。"
+    "zh": "共同完成一件作品后，你更愿意具体致谢、保存最终成果，还是一起留一个收尾时刻？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -262,11 +262,11 @@
       "id": "credit",
       "title": {
         "en": "The Specific-Thanks Keeper",
-        "zh": "具体致谢保留者"
+        "zh": "记下具体感谢的人"
       },
       "summary": {
         "en": "Your project finale makes the actual contributions visible. A quiet supporting task can be named without pretending every person did the same work. The portrait values accurate acknowledgment rather than turning a hobby collaboration into a performance ranking.",
-        "zh": "你的项目收尾让实际贡献可见。安静支持任务也可被说出，不必假装人人做相同工作。画像珍惜准确致意，不把爱好合作变表现排名。"
+        "zh": "共同项目结束时，你想让大家实际做过的事被看见。不显眼的支持工作，也可以具体说出来，不必假装每个人做了一样的事情。这是在准确致谢，不是给业余合作排表现名次。"
       },
       "example": {
         "en": "You might thank one person for the layout trial and another for preparing the shared materials, using the work each actually chose to do.",
@@ -274,15 +274,15 @@
       },
       "strength": {
         "en": "Specific acknowledgment can preserve a fuller memory of the collaboration and help the final story include work that was less publicly visible.",
-        "zh": "具体致意能保留更完整合作记忆，也让最终故事包含较不显眼的工作。"
+        "zh": "把感谢说具体，能留下更完整的合作记忆，也让那些不太显眼的工作进入大家最后记住的故事。"
       },
       "tradeoff": {
         "en": "A detailed credit list can feel like accounting if nobody wanted one. Asking how people wish to be named keeps thanks connected to their preferences.",
-        "zh": "若大家并不想要，详细贡献表也会像算账。问希望怎样被提到，让感谢贴合偏好。"
+        "zh": "如果大家并不想要，详细贡献表也可能像在算账。先问对方希望怎样被提到，感谢才更贴合心意。"
       },
       "experiment": {
         "en": "After one small collaboration, name one concrete contribution you appreciated and check whether the person is comfortable with how it is shared.",
-        "zh": "一次小合作后，说一项欣赏的具体贡献，也确认对方是否接受这样的分享方式。"
+        "zh": "一次小合作后，说出一项你欣赏的具体贡献。分享给其他人之前，也确认对方是否愿意以这种方式被提到。"
       }
     },
     {
@@ -293,23 +293,23 @@
       },
       "summary": {
         "en": "Your ending leaves a usable final state: what was made, where it belongs and what remains optional. The group does not need to reconstruct the project later. The result concerns this practical close rather than a general organizing ability score.",
-        "zh": "你的结尾留下可用最终状态：做成什么、归在哪里、哪些仍可选。小组以后不用重新拼经过。结果只谈这次实际收尾，不给一般组织能力打分。"
+        "zh": "你希望项目结束后，留下容易找到、可以继续使用的最终成果：完成了什么、放在哪里，还有哪些事情可做可不做。大家以后不用重新拼凑整个过程。这是一次具体的收尾方式，不是组织能力的分数。"
       },
       "example": {
         "en": "You might keep one agreed photo of the finished paper model and a short note about where the original and spare materials will stay.",
-        "zh": "你可能保留大家同意的一张纸模型成品照，短记原件与备用材料放哪。"
+        "zh": "你可能保留一张大家同意留下的纸模型成品照，再简单记下原件和备用材料放在哪里。"
       },
       "strength": {
         "en": "A clear final version can make the project easier to enjoy afterward and prevent an old draft from being mistaken for the work the group chose to keep.",
-        "zh": "清楚最终版本让以后更容易欣赏，也避免把旧草稿误当大家决定保留的作品。"
+        "zh": "标清最终版本，之后就容易回看，也不会把旧草稿误认成大家决定保留的作品。"
       },
       "tradeoff": {
         "en": "Saving every intermediate version can make the useful final state hard to find. A selective handover may be kinder to the future reader.",
-        "zh": "中间版本全存，也会让有用最终状态难找。有选择交接，可能更照顾未来查看者。"
+        "zh": "如果把所有中间版本都混在一起保存，最终成果也会不好找。有选择地交接，会方便以后查看的人。"
       },
       "experiment": {
         "en": "For one completed hobby piece, identify the version you want to keep and one note that helps you find it later. Leave unnecessary duplicates out if their owners agree.",
-        "zh": "给一件完成的爱好作品，标明要保留版本与以后能找到它的一笔说明。所有者同意时，可不留多余副本。"
+        "zh": "为一件已完成的爱好作品，标明要保留的版本，再加一条方便以后查找的说明。所有者同意的情况下，可以不保留多余副本。"
       }
     },
     {
@@ -320,23 +320,23 @@
       },
       "summary": {
         "en": "Your collaboration gets a moment to be complete. A shared look or a small acknowledgment can close this version without creating a promise to continue. The portrait values a chosen ending and does not suggest every project needs a ceremony.",
-        "zh": "你的合作得到一个完整时刻。共同一眼或一点致意，能结束本版本，不产生必须继续的许诺。画像珍惜主动结尾，不建议所有项目都需仪式。"
+        "zh": "你愿意为合作留一个“这一版已经完成”的时刻。一起看一眼成品，或简短互相致谢，就能收尾，不必因此答应继续下一项。不过，并不是每个项目都需要仪式。"
       },
       "example": {
         "en": "You might invite willing makers to look at the finished model for a minute, then let people leave or talk without introducing the next assignment.",
-        "zh": "你可能邀愿意的作者看成品一分钟，再让人离开或聊天，不发下一任务。"
+        "zh": "你可能邀请愿意参与的创作者一起看一分钟成品。之后想离开或聊天，都可以，不必马上布置下一个任务。"
       },
       "strength": {
         "en": "A modest shared finish can protect the pleasure of making something together from becoming an endlessly renewed obligation.",
-        "zh": "适度共同收尾，能让一起做成东西的乐趣不变成无尽续约义务。"
+        "zh": "一起做个简短收尾，可以保留合作完成一件事的快乐，不把它延长成没有尽头的义务。"
       },
       "tradeoff": {
         "en": "A symbolic finish does not replace returning belongings or making the final state clear. One practical closing step can sit beside the enjoyable moment.",
-        "zh": "象征结束不能代替归还物品或说明最终状态。一项实际收尾也可与愉快瞬间并列。"
+        "zh": "有了象征性的结束，也仍然需要归还物品、说清最终成果。一件实际的收尾工作，可以与愉快时刻放在一起。"
       },
       "experiment": {
         "en": "Finish one shared recreational activity with a brief optional acknowledgment and a clear next practical step, then let any future activity be a new choice.",
-        "zh": "给一项共同休闲活动以简短可选致意和清楚实际下一步收尾，让未来活动成为新选择。"
+        "zh": "结束一次共同休闲活动时，简短致谢，并说清最后一项实际安排。以后要不要再做别的，当作新的选择。"
       }
     }
   ],

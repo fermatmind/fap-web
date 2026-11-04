@@ -1,7 +1,7 @@
 {
   "slug": "message-tone",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "relationships",
   "title": {
     "en": "Your First Move with an Ambiguous Message",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Responding to mild textual ambiguity by asking directly, checking relevant context or leaving uncertainty unresolved for a while.",
-    "zh": "通过直接问、核对相关情境，或暂时不解读，回应轻微文字模糊。"
+    "zh": "文字有点含糊时，你更愿意直接问、回看相关上下文，还是先不急着解释？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -262,54 +262,54 @@
       "id": "ask",
       "title": {
         "en": "The Plain-Question Clarifier",
-        "zh": "普通问句澄清者"
+        "zh": "直接问一句的人"
       },
       "summary": {
         "en": "Your next step turns a needed uncertainty into a small question. You can ask what affects the plan without demanding an account of the other person’s entire mood. The result does not mean every brief reply needs a follow-up.",
-        "zh": "你的下一步把必要不确定变成小问题。可以问影响计划的部分，不要求对方交代整份心情。结果不说每条短回复都需追问。"
+        "zh": "如果有件事确实需要弄清，你愿意直接问一个小问题。可以只问影响安排的那一部分，不必要求对方交代全部心情。不过，并不是每条简短回复都需要追问。"
       },
       "example": {
         "en": "Instead of asking whether “fine” secretly means annoyance, you might ask whether the agreed meeting time still works.",
-        "zh": "你可能不问“行”是不是暗含不快，而问已约见面时间是否仍合适。"
+        "zh": "你可能不去追问一句“行”是不是暗含不快，而是问：原先约好的见面时间，现在还合适吗？"
       },
       "strength": {
         "en": "A concrete question gives the sender something answerable and can separate the practical uncertainty from an unsupported interpretation of tone.",
-        "zh": "具体问题给发送者可回答的对象，也把实际不确定与没依据语气解读分开。"
+        "zh": "一个具体问题，给对方一个容易回答的对象，也把实际要确认的事，与没有依据的语气猜测分开。"
       },
       "tradeoff": {
         "en": "Repeated clarification can make a casual exchange feel like an examination. Asking only what changes your next step keeps the question proportionate.",
-        "zh": "反复澄清会让随意交流像考试。只问改变下一步的内容，让问题相称。"
+        "zh": "反复澄清，会让随意聊天像在接受考问。只问真正影响下一步的事，才不容易把问题扩大。"
       },
       "experiment": {
         "en": "Name one fact you actually need for a small plan and ask for it directly. Leave the sender’s unexpressed mood outside the question.",
-        "zh": "说清小计划实际需要的一项事实，直接问。把对方未表达的心情留在问题外。"
+        "zh": "面对一个小计划，说清自己实际需要知道哪项信息，直接询问。不替对方猜测尚未表达的心情。"
       }
     },
     {
       "id": "context",
       "title": {
         "en": "The Relevant-Context Checker",
-        "zh": "相关情境核对者"
+        "zh": "核对上下文的人"
       },
       "summary": {
         "en": "Your message scene becomes clearer when you return to what was actually being discussed. A short word may answer a practical question more simply than a tone story suggests. The portrait values relevant context rather than claiming you can reconstruct a hidden intention.",
-        "zh": "回到实际在谈什么，你的消息场景更清楚。短字也许只在简单回答实际问题，不像语气故事那样复杂。画像珍惜相关情境，不宣称能重建隐藏意图。"
+        "zh": "你愿意先回看这段消息原本在谈什么，再理解一句短回复。它也许只是在简单回答一个实际问题，不一定藏着复杂情绪。这里重视的是相关上下文，不表示你能还原对方没说出的意图。"
       },
       "example": {
         "en": "You might reread the agreed date and the question immediately before a reply, rather than searching a long conversation for proof of a feeling.",
-        "zh": "你可能回看已约日期与回复前一问，不在长聊天里搜索某种感受的证明。"
+        "zh": "你可能回看双方约好的日期，以及回复前的那个问题，而不是在一整段聊天里寻找某种情绪的证据。"
       },
       "strength": {
         "en": "A small context check can prevent a reply from being separated from its actual topic and reduce unnecessary follow-up questions.",
-        "zh": "小情境核对能让回复不脱离实际话题，也减少无谓追问。"
+        "zh": "看一小段相关上下文，可以避免把回复从原话题里单独摘出来，也能减少不必要的追问。"
       },
       "tradeoff": {
         "en": "Collecting more context can become overanalysis when the relevant detail is already clear. A direct question or a pause may be the better next choice.",
-        "zh": "相关细节已明白后，继续收情境会变过度分析。下一步也许可直接问或停一停。"
+        "zh": "如果相关信息已经清楚，继续翻找上下文也会变成过度分析。直接问一句，或先停一停，也可能更合适。"
       },
       "experiment": {
         "en": "For one mild ambiguity, reread only the current question and last agreement. Stop if they already answer the practical issue.",
-        "zh": "遇一次轻微模糊，只重读当前问题与上一约定。如果已回答实际问题，就停。"
+        "zh": "遇到一处轻微含糊时，只重读当前问题和上一次约定。如果已经能解决实际疑问，就先停下来。"
       }
     },
     {
@@ -320,23 +320,23 @@
       },
       "summary": {
         "en": "Your first move lets some uncertainty stay uncertain. A short reply or a delay does not have to become a story about what the sender must feel. The ending values a chosen pause without suggesting that needed practical questions should never be asked.",
-        "zh": "你的第一步允许不确定暂时就是不确定。短回复或延迟，不必变发送者必然感受的故事。结局珍惜主动停顿，不建议永远不问必要实际问题。"
+        "zh": "你愿意先让一些不确定保留着。回复简短，或晚了一会儿，不必马上被解释成“对方一定是什么心情”。停一停是一种选择，但并不意味着有实际问题也永远不问。"
       },
       "example": {
         "en": "If no arrangement needs an immediate answer, you might put the phone aside instead of composing several interpretations of a brief message.",
-        "zh": "若安排不急着等答案，你可能先放手机，不为短消息编几种解释。"
+        "zh": "如果没有什么安排急着等答案，你可能先放下手机，不为一句短消息编出几套解释。"
       },
       "strength": {
         "en": "A pause can keep an ordinary exchange from gathering unsupported emotional meaning and leave room for the sender to speak for themselves later.",
-        "zh": "停顿能让普通交流不积累没依据情绪含义，也给发送者以后自己表达留空间。"
+        "zh": "停一停，可以避免给普通交流附加没有依据的情绪含义，也给对方以后自己表达的空间。"
       },
       "tradeoff": {
         "en": "Waiting can become avoidance if a clear practical issue needs an answer. A pause works best when you know what would make a question necessary.",
-        "zh": "有明确实际问题待答时，等待也会成回避。知道何时必须问，停顿才好用。"
+        "zh": "如果确实有一件事需要及时答复，等待也可能变成回避。知道什么时候必须再问，暂停才更有用。"
       },
       "experiment": {
         "en": "For one non-urgent message, leave the meaning open and choose when you would need a practical follow-up. Do something else until that point.",
-        "zh": "对一条不急消息，先开放含义，定何时需要实际跟进。在那之前做别的。"
+        "zh": "对一条不紧急的消息，先不确定它的情绪含义。想清楚什么时候需要为实际安排再问一句，在那之前先去做别的事。"
       }
     }
   ],

@@ -50,6 +50,13 @@
 .fq-result-head { text-align:center; }
 .fq-result-head .fq-primary { width:100%; margin-top:20px; }
 .fq-result .fq-result-head { padding:28px 20px; border-radius:24px; background:#f6f1ff; }
+.fq-result .fq-ring { width:160px; height:160px; margin:16px auto; }
+.fq-result .fq-ring > div { width:138px; height:138px; }
+.fq-result .fq-ring strong { font-size:2.7rem; }
+.fq-result .fq-ring strong span { font-size:1.3rem; }
+.fq-result .fq-ring b { font-size:1.4rem; }
+.fq-score-caption { font-size:1.15rem; font-weight:650; color:#534264; }
+.fq-conversation-example { padding:16px 20px; margin:20px 0; background:#fff; border-left:3px solid #7f9b89; border-radius:4px; }
 .fq-result-facts { display:grid; grid-template-columns:1fr 1fr; gap:20px; text-align:left; margin:24px 0; padding-top:24px; border-top:1px solid #e4d9f1; }
 .fq-result-facts > div { min-width:0; }
 .fq-result-facts dt { font-size:.85rem; color:#675e7d; }
@@ -68,7 +75,7 @@
 .fq-solo-reading .fq-answer-list { margin:0; }
 .fq-solo-reading .fq-answer-list li { padding:16px 0; border-bottom:1px solid #e8e3ec; }
 .fq-solo-category { color:#675e7d; font-size:.8rem; font-weight:600; }
-@media(max-width:480px) { .fq-result .fq-result-head { padding:24px 16px; }.fq-result-facts { grid-template-columns:1fr; gap:16px; }.fq-result .fq-conversation,.fq-result .fq-result-limits,.fq-solo-overview { padding:20px; }.fq-result .fq-ring { width:min(230px,100%); aspect-ratio:1; height:auto; }.fq-result .fq-ring > div { width:calc(100% - 30px); height:calc(100% - 30px); }.fq-result .fq-ring strong { font-size:3.2rem; } }
+@media(max-width:480px) { .fq-result .fq-result-head { padding:24px 16px; }.fq-result-facts { grid-template-columns:1fr; gap:16px; }.fq-result .fq-conversation,.fq-result .fq-result-limits,.fq-solo-overview { padding:20px; }.fq-result .fq-ring { width:min(160px,100%); aspect-ratio:1; height:auto; }.fq-result .fq-ring > div { width:calc(100% - 30px); height:calc(100% - 30px); }.fq-result .fq-ring strong { font-size:2.7rem; } }
 .fq-highlight { color:#6d28d9; font-weight:650; }
 .fq-category-bars { display:grid; gap:18px; margin-top:24px; }
 .fq-bar-label { display:flex; justify-content:space-between; gap:12px; }

@@ -19,7 +19,7 @@ export function QuestionnaireCulturalDimensionsReport({ quiz, result, answers, l
           <div><dt>{zh ? "本组描述性均值" : "Descriptive response-code mean"}</dt><dd className="mt-1 font-semibold" data-cultural-mean={direction.id}>{score.mean === null ? (zh ? "不计算" : "Not calculated") : `${score.mean.toFixed(1)} / 5`}</dd></div>
         </dl>
         {score.mean === null ? <p className="mb-5 leading-8">{zh ? `本组六条均已回应，其中${score.rated}条为数字；至少四条才显示均值。未评分不作零分，以下完整指南仍可阅读。` : `All six statements have responses, of which ${score.rated} are numeric; at least four are needed to show a mean. Unscored is not zero. The complete guide below remains available.`}</p> : null}
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`culture-${direction.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`culture-${direction.id}`} mode="result" previewSectionIds={["examples", "reflection"]} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本主题的公开完整指南" : "Read this topic’s complete public guide"}</Link>
       </section>;
     })}

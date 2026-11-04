@@ -1,7 +1,7 @@
 {
   "slug": "board-game-table",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "social",
   "title": {
     "en": "Who Are You at the Board-Game Table?",
@@ -289,11 +289,11 @@
       "id": "challenger",
       "title": {
         "en": "The Friendly-Contest Seeker",
-        "zh": "友好较量寻找者"
+        "zh": "寻找友好较量的人"
       },
       "summary": {
         "en": "You enjoy a table where moves create an interesting contest. A comeback, a constraint or a surprising interaction gives you something to explore. The portrait does not equate winning with value, and a close contest can be satisfying regardless of the final score.",
-        "zh": "你喜欢走法能形成有趣较量的一桌。追赶、限制或意外关联，让你有可探索之处。画像不把获胜等同价值，比分接近的过程也可以与最终胜负无关地满足。"
+        "zh": "你喜欢棋逢对手、走法有变化的桌游。落后时的追赶、规则中的限制，或意外的局面，都能带来探索的乐趣。输赢不是衡量价值的标准；即使最后没赢，一场势均力敌的较量也可以让你满足。"
       },
       "example": {
         "en": "You might enjoy testing an unfamiliar opening in a rematch because it changes the contest, even if it gives you a less certain chance of winning.",
@@ -305,7 +305,7 @@
       },
       "tradeoff": {
         "en": "A challenge that delights you may overwhelm someone learning the basics. Agreeing on the level of competition keeps the contest shared rather than imposed.",
-        "zh": "让你兴奋的挑战，可能压住正在学基础的人。约好竞争程度，较量才是共同选择而非强加。"
+        "zh": "让你兴奋的挑战，可能会让刚学规则的人招架不住。先约好这轮想玩得多认真，才能让较量成为大家共同的选择。"
       },
       "experiment": {
         "en": "Before a rematch, ask whether everyone wants a competitive round or a practice round. Enjoy the chosen version without treating either as lesser.",
@@ -320,7 +320,7 @@
       },
       "summary": {
         "en": "Your game night makes room for people who need different amounts of help, time or intensity. You ask what kind of round the table wants. This ending values a shared fit without making you responsible for everybody’s mood.",
-        "zh": "你的桌游夜给需要不同帮助、时间或强度的人留空间。你会问这一桌想玩怎样的一轮。结局珍惜共同合适，不让你对每个人心情负责。"
+        "zh": "在你设想的桌游夜里，经验不同的人都可以找到舒服的参与方式。有人需要提示，有人想多想一会儿，也有人希望玩得轻松些。你会问问大家想要怎样的一轮，但不必负责照顾每个人的心情。"
       },
       "example": {
         "en": "When a beginner pauses, you might ask whether they want a hint, more thinking time or a simpler practice round rather than assuming which would help.",

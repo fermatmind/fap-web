@@ -79,7 +79,7 @@ function ValidAnger20Client({ quiz, locale, readingProfiles }: { quiz: Anger20Qu
         <ResultSection title={zh ? "本次各组读数" : "Readings by topic"}>
           <div className="grid gap-x-8 sm:grid-cols-2">{ANGER20_TOPICS.map(id => {
             const score = result[id];
-            return <ResultScoreRow key={id} label={quiz.profiles.find(profile => profile.id === id)!.title[locale]} value={score.mean === null ? (zh ? "未计分" : "Unscored") : `${score.mean.toFixed(2)} / 4`} score={score.mean} min={0} max={4} description={zh ? `原始均分范围0–4；${score.numericCount}/${score.requiredCount}条数字答案` : `Raw mean range 0–4; ${score.numericCount}/${score.requiredCount} numeric responses`} />;
+            return <ResultScoreRow key={id} label={quiz.profiles.find(profile => profile.id === id)!.title[locale]} value={score.mean === null ? (zh ? "未计分" : "Unscored") : `${score.mean.toFixed(2)} / 4`} score={score.mean} min={0} max={4} description={<>{quiz.profiles.find(profile => profile.id === id)!.summary[locale]}<span className="mt-2 block text-xs">{zh ? `原始均分范围0–4；${score.numericCount}/${score.requiredCount}条数字答案` : `Raw mean range 0–4; ${score.numericCount}/${score.requiredCount} numeric responses`}</span></>} />;
           })}</div>
         </ResultSection>
         <ResultReadingNav label={zh ? "各组记录与完整读法" : "Topic records and full readings"} sections={ANGER20_TOPICS.map(id => ({ id: `anger20-${id}`, title: quiz.profiles.find(profile => profile.id === id)!.title[locale] }))} />
@@ -94,7 +94,7 @@ function ValidAnger20Client({ quiz, locale, readingProfiles }: { quiz: Anger20Qu
               <p data-anger20-mean>{zh ? `均分：${score.mean.toFixed(2)}（范围0—4）；合计除以${score.numericCount}，不是百分比或百分位。` : `Mean: ${score.mean.toFixed(2)} (range 0–4); sum divided by ${score.numericCount}, not a percentage or percentile.`}</p>
             </div>}
             <details data-anger20-response-review className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "查看这五条私人回答" : "Review these five private responses"}</summary><ol className="my-4 space-y-4">{quiz.questions.filter(q => q.options[0].directionId === id).map(q => <li key={q.id} className="rounded-lg bg-slate-50 p-3 leading-7"><p>{q.prompt[locale]}</p><p className="mt-2 font-semibold">{q.options.find(o => o.id === answers[q.id])!.label[locale]}</p></li>)}</ol></details>
-            <details className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开此部分完整读法" : "Expand this full reading"}</summary><div className="mt-5"><QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`anger20-${id}`} /></div></details>
+            <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`anger20-${id}`} mode="result" previewSectionIds={["example", "context"]} />
             <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "阅读完整公开指南" : "Read the complete public guide"}</Link>
           </section>;
         })}</div>

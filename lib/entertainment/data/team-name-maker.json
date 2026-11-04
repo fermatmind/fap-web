@@ -1,7 +1,7 @@
 {
   "slug": "team-name-maker",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "social",
   "title": {
     "en": "How Does Your Team Name Take Shape?",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Making a shared name through playful word combinations, an inclusive reference or a manageable selection process.",
-    "zh": "通过趣味词语组合、大家都能进入的共同指涉，或好掌握的选择过程来起名。"
+    "zh": "给小队起名时，你会组合两个有趣的词、用一个大家都懂的共同回忆，还是列几项再一起选？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -262,11 +262,11 @@
       "id": "wordplay",
       "title": {
         "en": "The Word-Combination Maker",
-        "zh": "词语组合制造者"
+        "zh": "把两个词碰在一起"
       },
       "summary": {
         "en": "Your team name grows by putting ordinary words into an unexpected partnership. A playful sound can work before there is a complicated explanation. This result reflects one naming game, not a ranking of your creativity or sense of humor.",
-        "zh": "你的小队名通过让普通词语意外搭档长出来。有趣读音可以先成立，不必复杂解释。结果只对应一个起名游戏，不排创造力或幽默感高低。"
+        "zh": "你把普通词语放在意想不到的位置，让小队名字冒出来。念着有趣就可以成立，不一定需要一套复杂解释。这只是一次起名游戏，不评创造力或幽默感的高低。"
       },
       "example": {
         "en": "A hobby group might become the Paper Comets after someone combines a material on the table with an unrelated image from the evening’s doodles.",
@@ -274,53 +274,53 @@
       },
       "strength": {
         "en": "A fresh combination can give a temporary group an easy shared phrase without requiring everyone to know a long personal history.",
-        "zh": "新组合能给临时群体一个容易共用的短语，不必人人知道长长个人前情。"
+        "zh": "一个新鲜的组合，就能给临时小队一句容易记住、大家都能用的名字，不需要每个人先了解很长的故事。"
       },
       "tradeoff": {
         "en": "A clever sound may be difficult to read or mean something unintended to someone else. Trying it aloud together can reveal what needs changing.",
-        "zh": "巧读音也可能难读，或对别人有意外含义。一起念一遍，能显出需要改哪里。"
+        "zh": "名字听着巧，也可能难念，或让别人想到你没料到的意思。一起念一遍，就容易发现哪里需要改。"
       },
       "experiment": {
         "en": "Combine three pairs of ordinary words for an imaginary team. Say each aloud and keep the one that feels easy to share, not merely the most elaborate.",
-        "zh": "给想象小队组合三对普通词，各念一遍，留最容易分享的，不只选最花哨的。"
+        "zh": "给想象中的小队试着组合三对普通词语，各念一遍。留下容易和别人一起说的那个，不必只选最花哨的。"
       }
     },
     {
       "id": "reference",
       "title": {
         "en": "The Shared-Reference Maker",
-        "zh": "共同指涉起名者"
+        "zh": "从共同的小事里取个名字"
       },
       "summary": {
         "en": "Your team name keeps a small piece of the group’s own context. A shared moment can make the name feel particular to this event. The portrait values a reference people can enter, rather than an inside story that proves who belongs.",
-        "zh": "你的小队名留着一点群体自己的情境。共同瞬间让名字贴合这场活动。画像珍惜大家可进入的指涉，不把内幕故事当归属证明。"
+        "zh": "你会把小队一起经历过的一件事留在名字里，让它和这场活动有关。这个故事可以讲给新人听，不必成为考查谁才属于小队的暗号。"
       },
       "example": {
         "en": "A group that accidentally drew the same tiny umbrella might use that image in its name and briefly explain it to a newcomer who joins later.",
-        "zh": "一组人恰好都画了小雨伞，可能把它用进名字，也给后来新人简短说明。"
+        "zh": "几个人恰好都画了小雨伞，可以把它放进队名。后来有新人加入，再简单讲讲这个名字怎么来的。"
       },
       "strength": {
         "en": "A shared reference can make a temporary identity memorable and give the name a story that is modest enough to retell.",
-        "zh": "共同指涉让临时身份难忘，也给名字一个不难重讲的小故事。"
+        "zh": "一个共同的小细节，能让临时小队的名字更好记，也有一段很容易讲给别人听的故事。"
       },
       "tradeoff": {
         "en": "A reference can exclude someone if its meaning is guarded or repeatedly tested. Explaining it and allowing it to change keeps the name usable.",
-        "zh": "含义被守着或反复考问时，指涉会排人。愿意说明，也允许变化，名字才好用。"
+        "zh": "如果不肯解释含义，或拿它反复考新人，名字也会把人挡在外面。愿意说明，也愿意一起调整，它才更好用。"
       },
       "experiment": {
         "en": "Choose one harmless shared moment for an imaginary group name, then write a one-sentence explanation that a new member could understand without a quiz.",
-        "zh": "选一个无害共同瞬间做想象队名，再写一句说明，让新成员无需被考也能懂。"
+        "zh": "为想象中的小队选一个普通的共同片刻作队名，再写一句新成员也能看懂的解释，不需要对方先通过提问考验。"
       }
     },
     {
       "id": "process",
       "title": {
         "en": "The Shortlist-and-Choose Maker",
-        "zh": "候选单选择推动者"
+        "zh": "列几项，再一起选"
       },
       "summary": {
         "en": "Your naming game becomes manageable through a short list and an agreed way to finish. The final name does not have to contain every person’s first choice to be usable. This ending concerns the group’s decision process rather than leadership status.",
-        "zh": "你的起名游戏通过小候选单与约定收尾方式变容易掌握。最终名字不必容纳每人最初选择，也能用起来。结局只谈共同决定过程，不授予领导地位。"
+        "zh": "你用一张简短的候选单，加上大家同意的选择方式，让起名不再没完没了。最终名字不必包含每个人最初的想法，也可以一起使用。这描述的是一次共同决定，不评谁有领导地位。"
       },
       "example": {
         "en": "You might invite one suggestion per person, check for objections and then use a simple agreed vote for the temporary event name.",
@@ -328,15 +328,15 @@
       },
       "strength": {
         "en": "A bounded choice process can stop a low-stakes task from expanding into endless discussion and leave more time for the activity itself.",
-        "zh": "有边界选择过程，能让低风险小事不扩大成无尽讨论，把时间留给活动本身。"
+        "zh": "一个简短、范围明确的选择过程，就能避免小事变成无休止的讨论，把更多时间留给活动本身。"
       },
       "tradeoff": {
         "en": "A quick process can overlook a meaningful concern if finishing becomes the only goal. A brief chance to name a problem should remain available.",
-        "zh": "若结束变成唯一目标，快速过程会漏掉重要顾虑。仍应留一个简短指出问题的机会。"
+        "zh": "如果一心只想快点结束，也可能略过真正重要的顾虑。定下来之前，仍要给大家一个说出问题的机会。"
       },
       "experiment": {
         "en": "For one small shared choice, agree on a short list and how you will finish. Include one chance to raise a concern before settling the result.",
-        "zh": "面对一个小共同选择，约好候选单与结束方式。定结果前，也留一次提出顾虑的机会。"
+        "zh": "为一次小小的共同选择，先约好保留哪些候选项、怎样作决定。确定结果前，也留一次提出顾虑的机会。"
       }
     }
   ],

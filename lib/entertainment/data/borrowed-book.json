@@ -1,7 +1,7 @@
 {
   "slug": "borrowed-book",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "relationships",
   "title": {
     "en": "Your Borrowed-Book Agreement Style",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Sharing a borrowed object through a clear return plan, an optional reading exchange or care preferences agreed with its owner.",
-    "zh": "通过清楚归还安排、可选阅读交流或与所有者约好爱惜方式，分享一件借物。"
+    "zh": "借书时，你更留意归还安排、阅读交流，还是书的主人希望怎样使用和保管？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -266,23 +266,23 @@
       },
       "summary": {
         "en": "Your book-sharing arrangement includes the moment the object goes back. A clear return is something people can discuss rather than silently guess. The portrait describes a lending agreement choice and does not measure a person’s trustworthiness from six answers.",
-        "zh": "你的借书安排包含物件回去的一刻。清楚归还是可商量的事，不用默猜。画像只描述借物约定选择，不从六答测人可信程度。"
+        "zh": "你的借书安排里，也包括什么时候把书还回去。你更愿意把归还时间说清楚，而不是让双方默默猜测。这只是在描述本次游戏中你偏向的借物方式，不会凭六道题判断一个人是否可信。"
       },
       "example": {
         "en": "You might ask whether the owner wants the book next weekend, then ask before extending rather than treating an unfinished chapter as an automatic new deadline.",
-        "zh": "你可能问主人下周末是否要书，再在延长前问，不把未读完一章当自动新期限。"
+        "zh": "你可能先问书的主人下周末是否需要用书。如果到时还没读完，会再询问能否续借，而不是默认自己可以延期。"
       },
       "strength": {
         "en": "A visible return plan can make lending easier to agree to and keep different expectations from becoming an unexplained inconvenience.",
-        "zh": "可见归还安排让出借容易决定，也让不同预期不变莫名不便。"
+        "zh": "把归还安排说清楚，会让对方更容易决定是否出借，也能减少双方预期不同带来的不便。"
       },
       "tradeoff": {
         "en": "A date alone cannot cover every change in circumstances. A clear plan works best when people can update it honestly.",
-        "zh": "日期本身不能包办所有情境变化。可以诚实更新时，清楚安排更好用。"
+        "zh": "只约一个日期，未必能应对所有变化。情况有变时能坦诚商量，这份安排才更好用。"
       },
       "experiment": {
         "en": "For one ordinary borrowed object, ask when it is wanted back and how to discuss a change. Treat an extension as a new question.",
-        "zh": "一件普通借物，问何时要回、变化怎样商量。把延长当一个新问题。"
+        "zh": "下次借一件普通物品时，问问对方什么时候需要收回，若计划有变又该如何沟通。续借也需要重新询问，而不是默认延长。"
       }
     },
     {
@@ -293,50 +293,50 @@
       },
       "summary": {
         "en": "Your borrowed book can open a small conversation as well as a practical agreement. One passage or question may be enough to share. The ending keeps the exchange optional rather than making a full reaction the price of accepting a loan.",
-        "zh": "你的借书除了实际约定，也可开一段小对话。一段文字或一个问题就够分享。结局让交流可选，不把交完整读后感当借物费用。"
+        "zh": "借书除了借来读，也可以带来一段小小的交流。你可能想分享喜欢的一段话，或读后想到的一个问题。不过，聊不聊都可以，不必把交出完整读后感当作借书的条件。"
       },
       "example": {
         "en": "You might return a book with one separate note about a sentence you enjoyed, leaving the owner free to discuss it or simply receive the book.",
-        "zh": "你可能还书时另夹一条喜欢句子的便条，让所有者可聊，也可只收书。"
+        "zh": "还书时，你可能另夹一张便条，写下自己喜欢的一句话。对方可以接着聊，也可以只收下书。"
       },
       "strength": {
         "en": "A small reading thread can make the shared object personal without requiring both people to read at the same pace or reach the same interpretation.",
-        "zh": "小阅读线索让共用物有个人联系，不要求同速度阅读或同一种理解。"
+        "zh": "一点阅读交流，能让借书多一份个人联系，不要求双方读得一样快，或得出同一种理解。"
       },
       "tradeoff": {
         "en": "Discussion can become pressure if the borrower feels tested on the recommendation. Asking whether they want to talk keeps the exchange light.",
-        "zh": "借者觉得推荐后还被考试时，讨论也会变压力。问是否想聊，交流才轻。"
+        "zh": "如果借书的人觉得读完还要接受考问，交流就可能变成压力。先问对方想不想聊，会轻松一些。"
       },
       "experiment": {
         "en": "Share one optional reading thought in your own words, separately from the return arrangement. Let a different interpretation or no discussion be equally acceptable.",
-        "zh": "用自己的话分享一个可选阅读想法，与归还分开。不同解释或不聊，都可接受。"
+        "zh": "用自己的话分享一个阅读想法，把它与还书安排分开。对方有不同理解，或暂时不想聊，都没有关系。"
       }
     },
     {
       "id": "care",
       "title": {
         "en": "The Owner-Preference Bookmark",
-        "zh": "所有者偏好书签"
+        "zh": "顾及主人偏好的书签"
       },
       "summary": {
         "en": "Your lending picture keeps the owner’s preferences visible. A book may be ordinary to one person and meaningful to another. The result values asking about the actual object rather than assuming one universal standard of care.",
-        "zh": "你的借书画面让所有者偏好可见。一本书对一人普通，对另一人也许有意义。结果珍惜询问实际物件，不假定一种普遍爱惜标准。"
+        "zh": "借书时，你愿意先了解主人希望怎样爱惜这本书。同一本书，对一个人很普通，对另一个人却可能很有纪念意义。你会询问这件物品的具体情况，而不是默认大家的使用习惯都相同。"
       },
       "example": {
         "en": "Before using a removable tab, you might ask whether the owner prefers no additions at all and keep your note on a separate page if so.",
-        "zh": "用可移标签前，你可能问主人是否更想不加任何东西；若是，就另纸记。"
+        "zh": "贴可移除的标签前，你可能先问主人介不介意。如果对方希望书上不加任何东西，你就把笔记记在另一张纸上。"
       },
       "strength": {
         "en": "A specific care agreement can reduce guesswork and help the borrower understand what matters about this particular object.",
-        "zh": "具体爱惜约定能减少猜测，也让借者理解这件特定物品重要在哪里。"
+        "zh": "具体问清使用和保管方式，能减少猜测，也能让借书的人明白主人看重的是什么。"
       },
       "tradeoff": {
         "en": "Care preferences can become a long instruction list if they are not kept relevant. The owner can also choose not to lend an object that feels too difficult to share.",
-        "zh": "偏好若不贴实际，会成长说明清单。太难共用的物件，主人也可选择不借。"
+        "zh": "如果要求太多，又与实际使用无关，借书就会变得很费心。有些物品不适合出借，主人也可以直接选择不借。"
       },
       "experiment": {
         "en": "Ask one care preference before borrowing something meaningful to its owner. If the agreement does not fit, accept choosing a different way to access the material.",
-        "zh": "借所有者看重的东西前，问一项爱惜偏好。若约定不合适，也接受换种接触材料的方式。"
+        "zh": "借一件主人很看重的物品前，先问一项保管要求。如果自己无法做到，就接受换一种获取所需资料的方式。"
       }
     }
   ],

@@ -13,7 +13,7 @@ export function QuestionnaireMotivationThemesReport({ quiz, result, locale }: {
 }) {
   const zh = locale === "zh";
   return <div data-deep-desire-result className="my-6 space-y-8">
-    {quiz.directions.length > 1 && <ResultReadingNav label={zh ? "按主题阅读结果" : "Read results by topic"} sections={quiz.directions.map(direction => ({ id: `deep-motivation-${direction.id}`, title: direction.title[locale] }))} />}
+    {quiz.directions.length > 1 && <ResultReadingNav collapsible label={zh ? "按主题阅读结果" : "Read results by topic"} sections={quiz.directions.map(direction => ({ id: `deep-motivation-${direction.id}`, title: direction.title[locale] }))} />}
     <p className="leading-8">{zh
       ? "六主题分别阅读，不合总分、不排名、不选最深或主导欲望。这里保留原小程序的四题原始和与准确均分，不把动机当能力。原中点表示不确定或视情况，新增不计分不补零。"
       : "Read the six themes separately, without an overall total, ranking or deepest-desire label. These are the mini-program’s four-item raw sums and exact means, not ability scores. The original midpoint means uncertainty or depending on the situation; the added unscored choice is not zero-filled."}</p>
@@ -35,7 +35,7 @@ export function QuestionnaireMotivationThemesReport({ quiz, result, locale }: {
         {!available && <p className="mb-4 leading-8 text-slate-600">{zh
           ? "不确定可选原数值中点；不计分则保留暂缺，不补中点或零。下面仍可读完整通用指南，不能当本次个人结果。其他完整主题分别保留。"
           : "Uncertainty can use the original numeric midpoint. Unscored remains missing, without midpoint or zero imputation. The full general guide below remains readable without assigning a personal result. Other complete themes remain separate."}</p>}
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`deep-motivation-report-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`deep-motivation-report-${profile.id}`} mode="result" previewSectionIds={[`${profile.id}-3`, `${profile.id}-7`]} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline"
           href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本主题完整公开指南" : "Read this theme’s complete public guide"}</Link>
       </section>;

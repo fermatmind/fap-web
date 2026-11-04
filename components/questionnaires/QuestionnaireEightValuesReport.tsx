@@ -24,7 +24,7 @@ export function QuestionnaireEightValuesReport({ quiz, result, locale }: { quiz:
     <p className="leading-8">{zh ? "以下八份读法全部完整呈现，解释各极与互补、较高、较低、中间混合和版本边界，不是为你指定八选一人格。" : "All eight complete guides follow. Read each pole with its complement, higher, lower and mixed values and edition limits. They do not assign you one of eight personalities."}</p>
     {quiz.profiles.map(profile => <section key={profile.id} aria-labelledby={`eight-values-title-${profile.id}`} data-eight-values-guide={profile.id} className="rounded-lg border border-slate-200 p-4 sm:p-6">
       <h3 id={`eight-values-title-${profile.id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
-      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`eight-values-report-${profile.id}`} />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`eight-values-report-${profile.id}`} mode="result" previewSectionIds={[`${profile.id}-2`, `${profile.id}-5`]} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这项结果的公开说明" : "Read this result’s public guide"}</Link>
     </section>)}
   </div>;

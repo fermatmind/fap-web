@@ -1,7 +1,7 @@
 {
   "slug": "comfort-offer",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "relationships",
   "title": {
     "en": "What Kind of Company Would You Offer After a Tiring Day?",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Offering support as a choice between one practical action, a listening invitation and an undemanding shared presence.",
-    "zh": "把支持作为可选的一件实际小事、倾听邀请或无要求的共同在场。"
+    "zh": "想陪伴朋友时，你更愿意提议做一件小事、邀请对方聊聊，还是安静待在一起？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -262,27 +262,27 @@
       "id": "practical",
       "title": {
         "en": "The One-Small-Thing Offer",
-        "zh": "一件小事的提供"
+        "zh": "提议帮一件小事"
       },
       "summary": {
         "en": "Your company often takes the form of one concrete offer that the other person can choose. The action stays small enough not to take over their evening. The result does not mean practical help is always wanted or that you should know the need without asking.",
-        "zh": "你的作伴常是一件对方可选择的具体提供。行动保持小，不接管夜晚。结果不说实际帮助总被需要，也不要求你无需问就知道需求。"
+        "zh": "你愿意提出一件具体的小事，让朋友自己决定要不要这份帮助。事情不大，也不会接管对方整个晚上的安排。实际帮忙不一定总是对方想要的，先问一句，不必靠猜。"
       },
       "example": {
         "en": "You might offer to return a shared item on your way past, rather than reorganizing the friend’s whole plan because they said they were tired.",
-        "zh": "你可能提议顺路归还一件共用物，不因朋友说累，就重排对方整套计划。"
+        "zh": "你可能提议路过时帮忙归还一件共用物品，而不是听朋友说累，就替对方重排整套计划。"
       },
       "strength": {
         "en": "A specific offer is easier to accept or decline than an unlimited promise and can remove one small burden without creating another decision pile.",
-        "zh": "具体提供比无限承诺容易接受或拒绝，也能减一件小负担，不添一堆决定。"
+        "zh": "一个具体的提议，比没有范围的承诺更容易接受或拒绝。它可以减轻一件小负担，又不添一堆需要决定的事。"
       },
       "tradeoff": {
         "en": "Helping before agreement can create extra work or feel intrusive. A clear offer can remain useful even when the answer is no.",
-        "zh": "未约好就帮助，会添活或显得闯入。即使被拒，一份清楚提供仍可以合适。"
+        "zh": "没问清楚就动手，有时反而会添麻烦，让人觉得被打扰。把提议说清楚，即使对方说不需要，也没有关系。"
       },
       "experiment": {
         "en": "Offer one ordinary small action with an easy decline. Wait for the answer before doing it, and let that answer be enough.",
-        "zh": "提供一件普通小行动，也方便拒绝。等回答再做，并让这份回答已足够。"
+        "zh": "提议帮一件普通小事，并让对方容易拒绝。等对方回答后再行动，也接受这次不需要帮助。"
       }
     },
     {
@@ -293,7 +293,7 @@
       },
       "summary": {
         "en": "Your invitation leaves room for the person’s own account of the day. You ask what kind of response they want before turning their story into a problem to solve. This is a chosen conversational offer, not a score for listening skill or emotional intelligence.",
-        "zh": "你的邀请给对方自己讲这一天留位置。先问想要怎样回应，不急着把故事变成待解问题。这是所选对话提供，不给倾听能力或情商打分。"
+        "zh": "你愿意留点空间，让朋友按自己的方式讲讲这一天。先问对方想听建议，还是只想有人听，不急着把每段经历都变成要解决的问题。这是本次游戏里你选择的回应方式，不是倾听能力或情商的分数。"
       },
       "example": {
         "en": "You might ask “Would you like me to listen, or think about one part with you?” and then follow the answer without requesting the full story.",
@@ -301,42 +301,42 @@
       },
       "strength": {
         "en": "A clear listening invitation can reduce guessing and let the person control how much they share and whether they want suggestions.",
-        "zh": "清楚倾听邀请减少猜测，也让对方掌握分享多少、是否想听建议。"
+        "zh": "说清自己愿意听，也问问对方需要什么，能减少猜测。分享多少、要不要建议，都可以由对方决定。"
       },
       "tradeoff": {
         "en": "Repeated questions can feel like pressure to produce a story. Leaving a pause or changing the subject can also respect the invitation.",
-        "zh": "反复提问会像催人交故事。留停顿或换话题，同样可尊重这份邀请。"
+        "zh": "一直提问，也可能让人觉得必须把故事交代完整。安静等一会儿，或换个话题，同样可以表达尊重。"
       },
       "experiment": {
         "en": "When a willing friend shares an ordinary difficulty, ask once what response would help. Listen within that request rather than extending the conversation automatically.",
-        "zh": "愿意的朋友分享普通困难时，问一次哪种回应有用。按请求倾听，不自动延长对话。"
+        "zh": "当朋友愿意分享一件日常困难时，问一次什么回应会有帮助。按对方的需要倾听，不必自动把对话延长。"
       }
     },
     {
       "id": "quiet",
       "title": {
         "en": "The Undemanding-Company Offer",
-        "zh": "不索求表现的作伴"
+        "zh": "不用费力回应的陪伴"
       },
       "summary": {
         "en": "Your offer lets company exist without a required conversation or activity. A quiet shared moment can be complete on its own. The ending does not assume silence means comfort; it keeps the other person’s choice central.",
-        "zh": "你的提供允许不附带必需对话或活动的作伴。安静共同一刻，本身可以完整。结局不假定沉默就舒服，仍以对方选择为中心。"
+        "zh": "你愿意陪着朋友，不一定要聊天或安排活动。安静共处一小会儿，本身就可以是陪伴。不过，沉默不一定让每个人都舒服，仍然要先问对方愿不愿意。"
       },
       "example": {
         "en": "You might offer to sit nearby with your own book, while making it equally easy for the friend to choose some time alone instead.",
-        "zh": "你可能提出拿自己的书坐附近，也同样方便朋友改选独处。"
+        "zh": "你可能提议拿自己的书坐在附近，也让朋友可以轻松地说，自己更想独处一会儿。"
       },
       "strength": {
         "en": "Low-demand presence can make a small visit feel easier when the other person does not want to host a conversation or explain their whole day.",
-        "zh": "对方不想主持对话、解释整天时，低要求在场能让短探访容易些。"
+        "zh": "当对方不想费力聊天，也不想解释一整天的事时，不带额外要求的陪伴，能让短暂相处轻松一点。"
       },
       "tradeoff": {
         "en": "Quiet presence is still a form of company that someone may not want. Asking rather than assuming keeps it from becoming another obligation.",
-        "zh": "安静在场仍是对方可能不想要的作伴。先问不假定，才不易成为另一义务。"
+        "zh": "安静陪着，也仍然可能是对方此刻不想要的陪伴。先询问，而不是默认对方需要，才不容易添上一份人情负担。"
       },
       "experiment": {
         "en": "Offer one low-demand way to spend time together and a clear option for separate space. Let either choice remain ordinary.",
-        "zh": "提供一种低要求共处方式，也清楚允许各自空间。让两种选择都普通成立。"
+        "zh": "提出一种不用费力回应的共处方式，也明确说好可以各自待着。无论对方选哪一种，都自然地接受。"
       }
     }
   ],

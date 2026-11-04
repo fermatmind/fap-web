@@ -1,7 +1,7 @@
 {
   "slug": "new-club-member",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "social",
   "title": {
     "en": "Your First-Visit Hobby Club Toolkit",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Entering a hobby practice by clarifying its vocabulary, following one shared process or arranging a bounded skill exchange.",
-    "zh": "通过说清用语、跟随一段共同流程，或约一次有边界技能交换，进入爱好实践。"
+    "zh": "加入一个爱好小组时，你会先弄懂常用词、跟着做一遍，还是边学边交换一项小技能？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -262,27 +262,27 @@
       "id": "glossary",
       "title": {
         "en": "The Plain-Word Toolkit",
-        "zh": "普通话小词表"
+        "zh": "通俗易懂的小词表"
       },
       "summary": {
         "en": "Your first visit becomes easier when unfamiliar labels turn into words you can use. A short personal glossary gives you a way to ask the next question. The result describes this toolkit choice rather than a verbal ability or permanent learning category.",
-        "zh": "陌生标签变成自己能用的话时，你的初访更容易。一份短小个人词表，给下一次提问入口。结果只描述工具选择，不评语言能力，也不设永久学习分类。"
+        "zh": "先把陌生术语换成自己听得懂的话，初次参加活动就容易多了。一份简短的小词表，也能帮你接着提问。这描述的是你这次选用的工具，不代表语言能力，也不把你归入固定的学习类型。"
       },
       "example": {
         "en": "At a printmaking club, you might note two unfamiliar material names with a plain description so you can recognize them during the next demonstration.",
-        "zh": "版画小组里，你可能为两个陌生材料名记普通说明，以便下次演示认出来。"
+        "zh": "参加版画小组时，你可以记下两个陌生的材料名称，再各写一句通俗解释，方便下次看演示时认出来。"
       },
       "strength": {
         "en": "A few understood terms can lower the effort of following a conversation and help you describe exactly what you still need to ask.",
-        "zh": "弄懂少数词，能降低跟随讨论所需精力，也帮你说准仍要问什么。"
+        "zh": "弄懂几个常用词，能让你更容易跟上讨论，也更清楚自己还有哪里想问。"
       },
       "tradeoff": {
         "en": "Collecting terminology can postpone trying the activity itself. A small useful glossary may serve the visit better than an exhaustive vocabulary list.",
-        "zh": "收集术语也会推迟实际尝试。一份小而有用词表，可能比穷尽词汇更适合初访。"
+        "zh": "一直收集术语，也可能迟迟没有动手。一份眼下用得上的小词表，往往比记全所有词汇更适合第一次参加活动。"
       },
       "experiment": {
         "en": "For one new hobby session, write only three terms you actually encountered and explain them plainly. Use one in a genuine question rather than memorizing the list.",
-        "zh": "一次新爱好活动，只记实际遇到的三个词并用普通话解释。用其中一个真提问，不必背整表。"
+        "zh": "下次参加一项新爱好活动时，只记三个实际遇到的词，用自己的话解释，再挑一个用来提问，不必背下整份词表。"
       }
     },
     {
@@ -293,23 +293,23 @@
       },
       "summary": {
         "en": "Your first visit gains a foothold through one usable sequence. You can begin without claiming to know every variation. The portrait is about this visit’s practical entry point, not proof that following steps is always your best way to learn.",
-        "zh": "你的初访通过一段可用顺序找到落脚。你能先开始，不必声称会所有变化。画像只谈这次实际入口，不证明按步骤永远是最佳学习方法。"
+        "zh": "先跟着完成一套步骤，你就能找到参与的起点，不必一开始便懂得所有变化。这只是你这次尝试新活动的方式，不证明按步骤做永远最适合你。"
       },
       "example": {
         "en": "In a small model-making group, you might follow one demonstrated assembly with spare pieces before adapting the design on a later visit.",
-        "zh": "小模型组里，你可能先用备用件跟一次示范拼装，等之后再改设计。"
+        "zh": "参加模型制作小组时，你可以先用备用零件跟着示范拼装一次，等下次再尝试改动设计。"
       },
       "strength": {
         "en": "A shared sequence can make the next action understandable and give a newcomer a clear place to pause and ask when something is unfamiliar.",
-        "zh": "共同顺序能让下一动作易懂，也给新人遇到陌生处一个清楚可停下提问的位置。"
+        "zh": "清楚的步骤能让新人知道接下来做什么；遇到不懂的地方，也容易停下来提问。"
       },
       "tradeoff": {
         "en": "A sequence can be mistaken for the only valid method. Asking which parts are essential keeps a useful starting point from becoming a fixed limit.",
-        "zh": "顺序可能被误当唯一方法。问清哪些必要，能让有用起点不变固定限制。"
+        "zh": "一套步骤也可能被误当成唯一的做法。问清哪些环节必不可少，哪些可以变化，就能把它当作起点，而不是限制。"
       },
       "experiment": {
         "en": "Try one ordinary version of a recreational process, then ask which step can vary. Choose a small variation only if you actually want to explore it.",
-        "zh": "试一个休闲流程的普通版本，再问哪步可变。只有真想探索时，才选一个小变化。"
+        "zh": "先试做一个常见版本，再问问其中哪一步可以改变。如果你想继续探索，就从一个小变化开始。"
       }
     },
     {
@@ -320,23 +320,23 @@
       },
       "summary": {
         "en": "Your new-club visit includes something modest you can offer while learning something else. Contribution and beginner status can coexist. The ending does not imply that you must repay every explanation or earn permission to join by being useful.",
-        "zh": "你的新组初访包含边学边可提供的一点东西。贡献与新手身份能并存。结局不暗示每次解释都要偿还，也不要求先有用才有资格加入。"
+        "zh": "刚加入小组，你可以一边学习，一边自愿提供一点小帮助。新手也能有所贡献，但不需要用帮忙来换取每一次解释，更不必先证明自己有用才有资格加入。"
       },
       "example": {
         "en": "You might help arrange the shared paper while a willing partner explains a new folding step, with both parts kept small and optional.",
-        "zh": "你可能帮摆共用纸张，同时由愿意的伙伴解释一个新折法，两部分都小且可选。"
+        "zh": "如果你愿意，可以帮忙摆好共用的纸张，同时请一位愿意的伙伴讲解一种新折法。两件事都不必做得多，也都可以不参加。"
       },
       "strength": {
         "en": "A bounded exchange can make participation concrete and let a newcomer contribute without pretending to have expertise they have not developed.",
-        "zh": "有边界交换能让参与具体，也让新人不必装作已有尚未形成的熟练。"
+        "zh": "一次小小的技能交换能让参与更具体，也让新人不必装作自己已经熟练掌握了这项爱好。"
       },
       "tradeoff": {
         "en": "An exchange can become a hidden obligation if the newcomer feels they must always help. A clear welcome should remain even when there is nothing to offer back.",
-        "zh": "若新人觉得总得帮忙，交换会变隐形义务。即使没有回赠内容，清楚欢迎也应继续。"
+        "zh": "如果新人觉得自己必须一直帮忙，交换就会变成隐形义务。即使暂时没有什么可以回报，也应该同样受到欢迎。"
       },
       "experiment": {
         "en": "Offer one small contribution only if you want to, and ask one honest beginner question. Keep the two independent enough that neither becomes a fee for the other.",
-        "zh": "愿意时提供一次小贡献，也诚实问一个新手问题。让两者足够独立，不互相变成费用。"
+        "zh": "愿意时提供一点小帮助，也坦率地问一个新手问题。两件事各自成立，不必把其中一件当成另一件的交换条件。"
       }
     }
   ],

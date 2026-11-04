@@ -1,7 +1,7 @@
 {
   "slug": "choosing-together",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "relationships",
   "title": {
     "en": "How Do You Make a Small Choice Together?",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Settling a small shared choice through explicit criteria, a turn arrangement, a bounded trial or a divisible plan.",
-    "zh": "通过清楚条件、轮次安排、小范围试用或可分计划，敲定小共同选择。"
+    "zh": "一起做小决定时，你更愿意先说清条件、轮流选、先试一小段，还是把活动拆成几部分？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -322,27 +322,27 @@
       "id": "criteria",
       "title": {
         "en": "The Two-Conditions Chooser",
-        "zh": "说清两条件的选择者"
+        "zh": "说清两项条件的选择者"
       },
       "summary": {
         "en": "Your shared choice becomes clearer when the relevant conditions are named. Time, interest or effort can be discussed before an option wins. The portrait follows your chosen decision method, not a score for rationality or a claim that feelings are less important.",
-        "zh": "相关条件被说清时，你的共同选择更明白。时间、兴趣或精力，可先于选项胜出被讨论。画像只跟随决定方法，不给理性打分，也不说感受较不重要。"
+        "zh": "一起做小决定时，你更想先说清各自看重什么。时间、兴趣和需要花的精力，都可以在选定方案前讨论。这描述的是一种商量方法，不是在给理性打分，也不表示感受不重要。"
       },
       "example": {
         "en": "Before choosing a short outing, you might learn that one person wants somewhere easy to leave and the other wants one unfamiliar thing to see.",
-        "zh": "选短外出前，你可能先知道一人想方便离开，另一人想看一件陌生东西。"
+        "zh": "安排一次短途外出前，你可能先了解到：一个人希望随时方便离开，另一个人想看点没见过的东西。"
       },
       "strength": {
         "en": "A few explicit conditions can reveal a workable overlap and prevent the choice from becoming a contest between two unexplained favorites.",
-        "zh": "少数清楚条件能显出可行交集，也让选择不变成两个没解释的最爱之间较量。"
+        "zh": "说清几项条件，就容易找到双方都能接受的部分，不必只拿两个各自最爱的选项反复争论。"
       },
       "tradeoff": {
         "en": "Comparing endlessly can use up the time meant for the activity. The conditions need only be clear enough for this small decision.",
-        "zh": "比较无尽会用掉原给活动的时间。条件只需清楚到足够本次小决定。"
+        "zh": "不停比较，也会用掉原本想一起玩的时间。条件说清到足够做这次小决定，就可以了。"
       },
       "experiment": {
         "en": "For one minor shared choice, each name two conditions that matter. Find one option that fits enough, and stop comparing when both freely agree.",
-        "zh": "一次小共同选择，各说两个重要条件。找一个足够合适选项，双方自由同意后就停比。"
+        "zh": "面对一次小决定，各说两个在意的条件。找一个够合适的方案，双方都自愿同意后，就不必继续比较。"
       }
     },
     {
@@ -353,7 +353,7 @@
       },
       "summary": {
         "en": "Your shared plan gives choosing a turn rather than asking every occasion to contain both first preferences. The arrangement remains something both people can revise. The result is not proof that exact alternation is the fairest method in every relationship.",
-        "zh": "你的共同安排给选择一个轮次，不要求每次同时容纳双方首选。安排仍可由双方修改。结果不证明精确轮流是每段关系最公平方法。"
+        "zh": "你愿意用轮流选择的方式安排共同活动，不要求每一次都同时满足双方的首选。这份安排也可以由双方重新商量。轮流是一种办法，但不意味着严格交替在所有关系里都最公平。"
       },
       "example": {
         "en": "Two friends might agree to choose alternate short films for one afternoon, while keeping a clear option to stop or change the format.",
@@ -361,15 +361,15 @@
       },
       "strength": {
         "en": "An agreed turn can reduce repeated negotiation and make room for an experience one person would not have selected first on their own.",
-        "zh": "约定轮次减少反复协商，也容纳一人独自原本不会优先选择的体验。"
+        "zh": "约好轮流，可以减少反复协商，也让人有机会尝试自己原本不会优先选择的活动。"
       },
       "tradeoff": {
         "en": "A turn can become a debt if consent is assumed forever. Rechecking the arrangement matters more than maintaining a perfect scorecard.",
-        "zh": "若同意被假定永久存在，轮次会成债。重新确认，比维护完美计分表重要。"
+        "zh": "如果默认一次同意就永远有效，轮流也可能变成欠人情。重新确认彼此是否愿意，比把次数算得一分不差更重要。"
       },
       "experiment": {
         "en": "Try a turn arrangement for one bounded leisure session only if both want it. Agree beforehand that either person can ask to revise the plan.",
-        "zh": "双方愿意时，只为一场有边界休闲试轮流。提前约好谁都可提修改。"
+        "zh": "双方都愿意时，为一次有明确结束时间的休闲活动试试轮流。提前约好，任何一方都可以提出调整。"
       }
     },
     {
@@ -380,23 +380,23 @@
       },
       "summary": {
         "en": "Your decision starts with a little actual experience. A small sample can answer something discussion alone has not settled. The ending values a bounded test without claiming that another trial is always better than accepting a no.",
-        "zh": "你的决定从一点实际体验开始。小样本能回答单靠讨论还没定的东西。结局珍惜有边界试用，不说多试一次永远比接受拒绝更好。"
+        "zh": "你倾向于先体验一小段，再做决定。有时，亲自试一下，比继续讨论更容易知道双方想不想参与。不过，尝试应该有范围，也不能用“再试一次”代替接受对方的拒绝。"
       },
       "example": {
         "en": "You might try the first few minutes of a voluntary craft demonstration together, then choose whether the longer version interests both people.",
-        "zh": "你可能一起自愿看手工演示前几分钟，再选双方是否对长版本都有兴趣。"
+        "zh": "你们可能自愿一起看几分钟手工演示，再决定是否都对完整版本有兴趣。"
       },
       "strength": {
         "en": "A modest sample can turn an abstract preference into a clearer choice while keeping the cost of changing direction small.",
-        "zh": "适度样本把抽象偏好变更清楚选择，也让转方向代价保持小。"
+        "zh": "一小段体验，能让原本抽象的想法变得具体。即使决定换个方向，也不用付出太多成本。"
       },
       "tradeoff": {
         "en": "Repeated samples can become the whole activity without agreement. Naming one question and one finish helps the trial stay small.",
-        "zh": "反复小样可能没约好就占整场活动。说清一个问题与一个结束，让尝试仍小。"
+        "zh": "如果反复尝试却不事先商量，小体验也可能占掉整场活动。先说清想弄明白什么、何时结束，才能让它保持轻量。"
       },
       "experiment": {
         "en": "Choose one small trial that can answer a real shared uncertainty. Decide its finish before starting and treat the result as information rather than an obligation to continue.",
-        "zh": "选一个能回答真实共同不确定的小试。开始前定结束，把结果当信息，不当继续义务。"
+        "zh": "选一次能帮助双方弄清某个疑问的小尝试，开始前约好结束点。把体验结果当作参考，不必因此答应继续。"
       }
     },
     {
@@ -407,23 +407,23 @@
       },
       "summary": {
         "en": "Your plan asks whether the choice can have more than one part. Separate preferences do not always need a single winner. The portrait describes a divisible leisure arrangement, not a claim that splitting up is the answer to every disagreement.",
-        "zh": "你的安排会问选择能否不只一部分。不同偏好不总需要唯一赢家。画像只描述可分休闲安排，不说每次分歧都该分开。"
+        "zh": "你会想：这次活动能不能分成几个部分，让不同偏好都有位置？并不是每次都必须选出唯一的方案。这适合某些可以拆开的休闲安排，但不代表所有分歧都该靠分开行动解决。"
       },
       "example": {
         "en": "At a small fair, you might each choose a different stall for a short stretch and then share one agreed final stop.",
-        "zh": "小市集里，你们可各短逛一个不同摊位，再共享一处已约最后停点。"
+        "zh": "逛一个小市集时，你们可能先各去自己喜欢的摊位逛一会儿，再一起去事先约好的最后一站。"
       },
       "strength": {
         "en": "A divisible plan can preserve both interests and make shared time flexible without requiring one person to abandon a genuine preference.",
-        "zh": "可分计划能保留双方兴趣，让共处灵活，不要求一人放弃真实偏好。"
+        "zh": "分成几个部分，能保留双方的兴趣，也让共同时间更灵活，不必总由一个人放下自己的偏好。"
       },
       "tradeoff": {
         "en": "A split can feel distant if one person wanted company for the main part. Naming what is shared keeps the plan understandable.",
-        "zh": "若一人主要想作伴，分开会显远。说清共同部分，计划才易懂。"
+        "zh": "如果一方主要是想有人陪，分开行动也可能让人失落。把哪些时间一起、哪些时间分开说清楚，会更容易理解。"
       },
       "experiment": {
         "en": "For one small outing, ask whether separate parts and one shared moment would suit both people. Keep staying together available too.",
-        "zh": "一次小外出，问分选部分加一个共同瞬间是否合双方，也保留全程一起的选择。"
+        "zh": "下次小范围外出前，问问各自逛一部分、再一起度过一小段时间是否合适。如果都想全程同行，也保留这个选择。"
       }
     }
   ],

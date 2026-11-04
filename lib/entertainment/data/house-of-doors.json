@@ -1,7 +1,7 @@
 {
   "slug": "house-of-doors",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "metaphor",
   "title": {
     "en": "Which Room Will Your House of Doors Reveal?",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Choosing what to follow when sounds, light and unfinished objects offer different routes through one original house.",
-    "zh": "声音、光与未完物提供不同路线时，选跟什么探索原创小屋。"
+    "zh": "探索这座原创小屋时，声音、光和未完成的物件会引向不同路线。你会选择跟随哪一条？"
   },
   "minutes": 2,
   "mechanism": "branch",
@@ -178,27 +178,27 @@
       "id": "workshop",
       "title": {
         "en": "The Room of Possible Pieces",
-        "zh": "可能零件工作间"
+        "zh": "零件还能变化的工作间"
       },
       "summary": {
         "en": "Your route ends where an unfinished object can become something else. This room offers a reversible little trial rather than a test of whether you can solve the house.",
-        "zh": "路线结束在未完物可变别样的地方。房间提供可撤回小试，不考你能否解开小屋。"
+        "zh": "你的路线，结束在一间可以把未完成零件试着拼起来的工作间。在这里，试了也可以拆开重来，不是在考你能不能破解整座小屋。"
       },
       "example": {
         "en": "A paper hinge and a plain frame wait on a table, ready to be tried together and separated again if the idea is uninteresting.",
-        "zh": "纸铰与素框在桌等候，可相接试，也可没趣就拆。"
+        "zh": "一片纸铰链和一个素色框放在桌上，等你试着把它们接起来。如果觉得没意思，也可以再拆开。"
       },
       "strength": {
         "en": "The workshop gives your exploration a concrete stopping point and turns an intriguing detail into one small thing you can imagine doing.",
-        "zh": "工作间给探索具体停点，把有趣细节变一件可想象做的小事。"
+        "zh": "工作间为探索留了一个具体的停点：一个吸引你的细节，变成一件可以想象着动手做的小事。"
       },
       "tradeoff": {
         "en": "Reaching a workshop does not mean every curiosity needs to become a project. Looking at the unfinished pieces can be a complete visit.",
-        "zh": "到工作间不代表每份好奇都需成项目。只看未完件也算完整参观。"
+        "zh": "走进工作间，不代表每份好奇都要变成项目。只是看看那些没做完的零件，也可以算完整的一次参观。"
       },
       "experiment": {
         "en": "Invent two harmless pieces from the house and describe one reversible way they might connect. Stop before designing the rest of the machine.",
-        "zh": "编小屋两件无害零件，描述一种可撤回相接方式，不必设计整台机器。"
+        "zh": "想象小屋里的两个普通零件，描述一种试过后仍能拆开的连接方式。不必接着设计整台机器。"
       }
     },
     {
@@ -209,23 +209,23 @@
       },
       "summary": {
         "en": "Your route reaches a room where changes in sound become the exhibition. Nothing asks you to identify a secret message; staying with a simple pattern is enough.",
-        "zh": "路线到声音变化成展品的房间。不需识秘密信息，留意简单排列就够。"
+        "zh": "你的路线来到一间把声音变化当作展品的房间。这里没有等你破解的秘密信息，只是留意一个简单节奏，就已经足够。"
       },
       "example": {
         "en": "A fictional curtain might soften the tapping from the hall while an open window adds a different quiet rhythm beside it.",
-        "zh": "虚构帘让厅敲声变轻，开窗另添不同安静节奏。"
+        "zh": "虚构房间的一幅帘子，可能让走廊的敲击声变轻；一扇打开的窗，又添上另一种轻轻的节奏。"
       },
       "strength": {
         "en": "A listening room can give an exploratory story a pause and make ordinary differences noticeable without introducing another object to collect.",
-        "zh": "聆听室给探索故事暂停，不添要收物，也让普通差异可察。"
+        "zh": "聆听室让探索故事暂时停一停。没有新物件要收集，也可以注意到普通声音之间的不同。"
       },
       "tradeoff": {
         "en": "The same soundscape will not suit every visitor, and silence can be its own choice. This ending does not prescribe a relaxation method.",
-        "zh": "同一声景非人人适合，安静也可选。结局不规定放松方法。"
+        "zh": "同一片声音，不一定适合每位来客。选择安静也可以，这个结局不是在推荐一种固定的放松方法。"
       },
       "experiment": {
         "en": "Write three ordinary fictional sounds into one room and describe their relative timing. Leave the room’s meaning open rather than decoding it.",
-        "zh": "给一间房写三种普通虚构声，描述相对时序，不解码房间意义。"
+        "zh": "为一个虚构房间写三种普通声音，说明它们谁先谁后、怎样交错。不必替整个房间解出什么隐藏含义。"
       }
     },
     {
@@ -236,23 +236,23 @@
       },
       "summary": {
         "en": "Your route ends at a small living-looking corner in the fictional house. The garden offers an unfinished continuation beyond the visit rather than a prize for choosing the correct doors.",
-        "zh": "路线到虚构屋里像仍活着的小角落。园给参观后未完延续，不奖励选对门。"
+        "zh": "你的路线停在虚构小屋里一个仿佛仍在生长的角落。参观结束后，小园似乎还会继续变化。它不是选对门才得到的奖品，而是故事还可以延续的一处地方。"
       },
       "example": {
         "en": "A drawn leaf casts a changing shadow over a blank label, suggesting that the room will look a little different after your departure.",
-        "zh": "画叶把变动影投空标签，像你走后房间还会略变。"
+        "zh": "画中的叶子，把变动的影子投在空白标签上，仿佛你离开之后，房间仍会悄悄有一点变化。"
       },
       "strength": {
         "en": "An open-ended garden lets a story stop without freezing its world, leaving a modest sense that other ordinary moments can follow.",
-        "zh": "开放小园让故事停而世界不冻住，留以后仍有普通片刻的感觉。"
+        "zh": "一个还会变化的小园，让故事可以停下，世界却不必定格。之后似乎仍然会有普通的片刻发生。"
       },
       "tradeoff": {
         "en": "A continuing scene does not need a promised transformation. This garden can remain small, uneven and different from what a visitor expected.",
-        "zh": "延续场景不必承诺蜕变。小园可小、不齐，与访客预期不同。"
+        "zh": "继续变化，不等于一定会发生巨大的蜕变。小园可以一直很小、不太整齐，也可以与访客期待的不同。"
       },
       "experiment": {
         "en": "Draw a fictional window garden now and one ordinary change it might show later. Give both images equal space without making the second superior.",
-        "zh": "画现在的虚构窗园及之后一处普通变化，两图等大，不说后一幅更高级。"
+        "zh": "画出现在的虚构窗边小园，再画一种以后可能出现的普通变化。给两张图同样大小的空间，不必把后来的那张画得更高级。"
       }
     }
   ],

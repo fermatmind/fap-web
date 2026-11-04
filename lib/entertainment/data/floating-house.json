@@ -1,7 +1,7 @@
 {
   "slug": "floating-house",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "fantasy",
   "title": {
     "en": "Where Would Your Floating House Belong?",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Choosing a fictional home’s relationship to a familiar anchor, an open route or a series of planned visits.",
-    "zh": "为虚构小屋选择与熟悉锚点、开放路线或一连串约定到访的关系。"
+    "zh": "为漂浮小屋选择一种与外界联系的方式：守着熟悉的落脚点、沿路漫游，或按约定接待来访。"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -266,7 +266,7 @@
       },
       "summary": {
         "en": "Your floating home keeps one recognizable place to return to. Movement remains possible, but an address does not need to change with every new view. This is a fantasy-home choice, not a judgment about how adventurous or settled you are.",
-        "zh": "你的漂浮家保留一处可辨认的返回点。移动仍可能，但地址不必随每幅新景变化。这是幻想小屋选择，不评判你多爱冒险或安定。"
+        "zh": "你的漂浮小屋，保留了一处熟悉、可以返回的地方。它仍然可以移动，但不必每换一幅风景，就换一个家。这只是幻想游戏里的住处选择，不是在判断你爱冒险，还是更想安定。"
       },
       "example": {
         "en": "In a recreational project, you might keep one familiar workspace while trying new ideas, so each experiment has an easy place to return to.",
@@ -274,11 +274,11 @@
       },
       "strength": {
         "en": "A recognizable anchor can make change feel manageable because not every part of the arrangement needs to be reinvented at once.",
-        "zh": "可辨认锚点能让变化容易承受，因为安排的每一部分不必同时重新发明。"
+        "zh": "有一个熟悉的落脚点，变化就可能更容易应对，不必同时重新安排所有事情。"
       },
       "tradeoff": {
         "en": "Returning automatically can make an old arrangement persist after it stops fitting. A familiar anchor can still be reviewed and adjusted.",
-        "zh": "自动返回也可能让旧安排在不合用后继续。熟悉锚点同样可以重看、调整。"
+        "zh": "如果每次都习惯性地回到原处，已经不合用的安排也可能继续留下。熟悉的落脚点，同样可以重新考虑和调整。"
       },
       "experiment": {
         "en": "Name one familiar starting point that supports an enjoyable activity. Keep it if it still helps, and change one detail that no longer does.",
@@ -293,7 +293,7 @@
       },
       "summary": {
         "en": "Your house belongs to a route that can keep unfolding. The next view matters without needing every stop to become a permanent home. The ending follows this invented journey and does not predict whether travel or change would suit your real circumstances.",
-        "zh": "你的小屋属于一条可继续展开的路线。下一幅景象有意义，却不必让每一站都成为永久家。结局跟随虚构旅程，不预测旅行变化是否适合你的真实处境。"
+        "zh": "你的小屋沿着一条可以不断展开的路线前进。下一站值得期待，却不必每到一处，就在那里永久安家。这描述的是虚构旅程，不会预测真实生活中的旅行或变化是否适合你。"
       },
       "example": {
         "en": "In a sketchbook, you might let one drawing suggest the next subject instead of deciding the whole series before opening the first page.",
@@ -320,7 +320,7 @@
       },
       "summary": {
         "en": "Your house connects through visits with a clear invitation and a chosen end. It can lower a step without making every arrival a permanent stay. The portrait values a workable form of contact rather than assigning a social personality type.",
-        "zh": "你的小屋通过有清楚邀请与约定结尾的到访来相连。它能放下阶梯，不必让每次抵达都成永久停留。画像珍惜可行联系形式，不分配社交人格类型。"
+        "zh": "你的小屋通过一次次约好的到访，与其他地方产生联系。清楚地发出邀请，说好大致什么时候结束，放下阶梯也不必意味着要一直留下。这是一种想象中的联络方式，不是社交人格类型。"
       },
       "example": {
         "en": "For a casual creative exchange, you might offer one short afternoon together rather than a broad promise that anyone can drop in at any time.",

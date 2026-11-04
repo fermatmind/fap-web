@@ -19,13 +19,8 @@ export function QuestionnaireSkillsEvidenceReport({ quiz, result, locale }: {
 }) {
   const zh = locale === "zh";
   return <ResultPage variant="reflection" className="my-6 space-y-8" data-skills-evidence-result>
-    <ResultOverview locale={locale} title={zh ? "四组任务实例状态" : "Example states across four task groups"}
-      description={zh ? "只呈现你选的实例状态，不换算能力、等级或匹配。选择一组可核对逐项记录与完整指南。" : "Your selected example states, without ability, proficiency or match scores. Choose a group for its item records and full guide."}
-      items={result.skillsEvidence.map(part => ({ id: part.id, label: quiz.directions.find(direction => direction.id === part.id)!.title[locale], href: `#skills-evidence-${part.id}`,
-        note: skillsEvidenceStates.map(state => `${labels[state][locale]} ${part.counts[state]}`).join(" · ") }))} />
-    <p className="leading-8">{zh
-      ? "以下只记录你为20项任务选择的实例状态，未核实事件或表现质量。近期实例可以失败，更早实例也可能相关；四类计数不换算成能力、等级或岗位匹配。"
-      : "This records the example states you selected for twenty tasks, without verifying an event or its quality. A recent example can be unsuccessful, and an older example can remain relevant. Category counts are not ability, proficiency levels or job matches."}</p>
+
+
     {result.skillsEvidence.map(part => {
       const direction = quiz.directions.find(d => d.id === part.id)!, profile = quiz.profiles.find(p => p.id === part.profileId)!;
       return <section key={part.id} data-skills-evidence-part={part.id} aria-labelledby={`skills-evidence-${part.id}`}
@@ -44,7 +39,7 @@ export function QuestionnaireSkillsEvidenceReport({ quiz, result, locale }: {
             <p className="text-sm font-semibold text-slate-600" data-skills-evidence-state={row.questionId}>{labels[row.stateId][locale]}</p>
           </li>)}
         </ul>
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`skills-evidence-report-${part.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`skills-evidence-report-${part.id}`} mode="result" previewSectionIds={["example", "action", "next"]} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline"
           href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本组完整公开指南" : "Read this group’s full public guide"}</Link>
       </section>;
@@ -52,6 +47,17 @@ export function QuestionnaireSkillsEvidenceReport({ quiz, result, locale }: {
     <p className="leading-8">{zh
       ? "暂不记录不是能力不足。四篇指南在任何状态下都开放；本原创盘点未建立信度、常模或效度，不认证胜任、不纠正自评偏差，也不预测薪资、表现或录用。"
       : "Not recorded does not mean low ability. All four guides remain available for every state. This original inventory has no established reliability, norms or validity; it cannot certify competence, correct self-assessment bias or predict salary, performance or hiring."}</p>
+
+    <details className="border-t border-slate-200 pt-4" data-result-reading-method>
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
+      <ResultOverview locale={locale} title={zh ? "四组任务实例状态" : "Example states across four task groups"}
+      description={zh ? "只呈现你选的实例状态，不换算能力、等级或匹配。选择一组可核对逐项记录与完整指南。" : "Your selected example states, without ability, proficiency or match scores. Choose a group for its item records and full guide."}
+      items={result.skillsEvidence.map(part => ({ id: part.id, label: quiz.directions.find(direction => direction.id === part.id)!.title[locale], href: `#skills-evidence-${part.id}`,
+        note: skillsEvidenceStates.map(state => `${labels[state][locale]} ${part.counts[state]}`).join(" · ") }))} />
+      <p className="leading-8">{zh
+      ? "以下只记录你为20项任务选择的实例状态，未核实事件或表现质量。近期实例可以失败，更早实例也可能相关；四类计数不换算成能力、等级或岗位匹配。"
+      : "This records the example states you selected for twenty tasks, without verifying an event or its quality. A recent example can be unsuccessful, and an older example can remain relevant. Category counts are not ability, proficiency levels or job matches."}</p>
+    </details>
   </ResultPage>;
 }
 

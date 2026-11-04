@@ -1,7 +1,7 @@
 {
   "slug": "mountain-cabin",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "nature",
   "title": {
     "en": "Your Role in a Shared Mountain Cabin",
@@ -262,7 +262,7 @@
       "id": "keeper",
       "title": {
         "en": "The Cabin-Shelf Keeper",
-        "zh": "小屋架边照料者"
+        "zh": "给共用品找好位置的人"
       },
       "summary": {
         "en": "Your short stay becomes easier through practical things having a place. A mug, lamp or shared supply does not need an elaborate system to be findable. The portrait values usable arrangements without making you the default caretaker for every guest.",
@@ -289,7 +289,7 @@
       "id": "nest",
       "title": {
         "en": "The Common-Room Nester",
-        "zh": "公共房安顿者"
+        "zh": "让公共房间更舒服的人"
       },
       "summary": {
         "en": "Your cabin story centers on a room people can comfortably inhabit together. Chairs, pauses and an available spare help the evening settle. The ending is about this chosen atmosphere, not a promise that you can make every group feel at home.",
@@ -316,7 +316,7 @@
       "id": "boundary",
       "title": {
         "en": "The Quiet-Corner Negotiator",
-        "zh": "安静角落商量者"
+        "zh": "一起约好安静角落的人"
       },
       "summary": {
         "en": "Your cabin works through clear expectations around noise, belongings and personal space. Time together does not have to erase a quiet corner. The portrait values a conversation about boundaries rather than inferring that you always prefer solitude.",

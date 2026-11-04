@@ -47,7 +47,7 @@ export function QuestionnaireTechConfidenceReport({ quiz, result, answers, local
     </details>
     <section aria-labelledby="tech-confidence-full-guide" className="rounded-lg border border-slate-200 p-4 sm:p-6">
       <h3 id="tech-confidence-full-guide" className="text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
-      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} mode="result" previewSectionIds={["contexts", "try"]} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读不含个人数值的公开指南" : "Read the public guide without personal values"}</Link>
     </section>
   </div>;

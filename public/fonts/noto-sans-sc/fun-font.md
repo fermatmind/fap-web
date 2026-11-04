@@ -9,3 +9,5 @@ The subset was generated with FontTools: instantiate weight 700, populate the su
 The DISC questionnaire edition adds its bilingual test/profile titles and the labels `公开结果说明自编风格问卷完整报告免费自我探索` to the existing character set. Existing entertainment glyph coverage is retained.
 
 The complete color edition retains its existing entry and four single-result titles, adds all tied-result titles, and extends the existing glyph set with `三向四彩数`. All prior glyphs remain covered.
+
+The revised entertainment result labels use the same source font at weight 700, regenerated with FontTools 4.68.0. Regeneration retains every existing Unicode cmap entry and unions the current bilingual story topics and result titles, so new labels and unchanged questionnaire fallbacks remain covered. The 20 added codepoints require a 310 kB budget for this server-side OG font; other font budgets are unchanged. Existing glyph outlines, layout features and metrics are retained.

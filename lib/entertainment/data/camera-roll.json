@@ -1,7 +1,7 @@
 {
   "slug": "camera-roll",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "everyday",
   "title": {
     "en": "Your Camera-Roll Curator Style",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Making a fictional photo collection usable through retrieval, a small favorite set or a deliberate viewing sequence.",
-    "zh": "通过重找、少量喜欢集合或主动观看顺序，让虚构照片集合好用。"
+    "zh": "整理虚构相册时，你更想方便查找、挑几张最喜欢的，还是排出一个观看顺序？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -262,81 +262,81 @@
       "id": "find",
       "title": {
         "en": "The Find-It-Again Curator",
-        "zh": "容易重找的策展者"
+        "zh": "让照片好找的整理者"
       },
       "summary": {
         "en": "Your fictional roll becomes a place you can return to with a question. A small label or grouping helps a particular image reappear. The portrait values usable retrieval rather than treating a perfectly organized archive as a personal achievement you owe.",
-        "zh": "你的虚构相册变成可带着问题回来的地方。小标签或分组，让具体图片再出现。画像珍惜好用重找，不把完美档案当你欠下的个人成就。"
+        "zh": "你希望相册里的照片，以后还找得到。一个小标签或简单分组，就能帮你重新找到某张图。不必把整个相册整理得井井有条，只要它在需要时好用，就已经有意义。"
       },
       "example": {
         "en": "You might name one small set after an outing’s ordinary theme, using words you would actually remember when looking for it later.",
-        "zh": "你可能按一次外出的普通主题给小集合命名，用以后真会想到的词。"
+        "zh": "你可能按一次出游的主题给一小组照片命名，用自己以后找照片时真会想到的词。"
       },
       "strength": {
         "en": "A simple retrieval cue can lower the effort of revisiting a collection and make one useful image available without sorting everything.",
-        "zh": "简单重找提示能降低回看所需精力，也不必全整理就找到有用一张。"
+        "zh": "一个简单的查找线索，就能减少翻相册的功夫。不必先整理全部照片，也能找到此刻需要的一张。"
       },
       "tradeoff": {
         "en": "More labels can become harder to maintain than the pictures. A few cues that match your own searches may be enough.",
-        "zh": "标签太多会比照片难维护。符合自己搜法的少数提示，也许已够。"
+        "zh": "标签一多，维护它们可能比整理照片还麻烦。留下几个符合自己查找习惯的提示，也许就够了。"
       },
       "experiment": {
         "en": "For a fictional or already-owned small collection, add one label you would naturally search for. Test that cue once before creating a larger system.",
-        "zh": "给虚构或已有小集合添一个自然会搜的标签。先试一次提示，再想更大系统。"
+        "zh": "给一小组虚构照片或自己已有的照片，加一个日后自然会想到的标签。先试试能否用它找回照片，再决定要不要整理更多。"
       }
     },
     {
       "id": "favorites",
       "title": {
         "en": "The Favorite-Few Curator",
-        "zh": "喜欢几张就好的策展者"
+        "zh": "只挑几张喜欢的照片"
       },
       "summary": {
         "en": "Your roll offers a small doorway rather than requiring a complete tour. A few chosen pictures can hold today’s enjoyment while the rest remain available. The result does not say the unchosen images are worthless or need removing.",
-        "zh": "你的相册提供小入口，不要求完整巡游。几张选中图足够今天欣赏，其余仍可用。结果不说没选的无价值或要删掉。"
+        "zh": "你更想先选几张喜欢的照片，给这次回看留一个轻松的入口，而不是要求自己把整个相册看完。今天只欣赏这几张也很好，其他照片可以以后再看。没选中的照片不等于没有价值，也不一定要删掉。"
       },
       "example": {
         "en": "You might choose three ordinary images for a short shared look and leave the full day’s collection for another optional time.",
-        "zh": "你可能选三张普通图短短共看，整天照片留另一次可选时间。"
+        "zh": "你可能挑三张照片，和别人一起看一小会儿，把一整天拍下的其他照片留到下次想看时再翻。"
       },
       "strength": {
         "en": "A small favorite set can make revisiting feel light enough to enjoy, especially when the whole collection is larger than the time you want to spend.",
-        "zh": "小喜欢集合让回看轻到能享受，尤其当整份大过愿花时间时。"
+        "zh": "只选几张喜欢的，能让回看照片轻松一些。尤其当照片很多，而你今天只想花一小会儿时，不必有看不完的负担。"
       },
       "tradeoff": {
         "en": "Choosing only favorites can hide an unexpected detail in the wider set. An occasional open browse can offer another way to enjoy it.",
-        "zh": "只看最爱也会漏掉大集合里的意外细节。偶尔自由翻，也有另一种乐趣。"
+        "zh": "只看最喜欢的几张，也可能错过其他照片里的有趣细节。偶尔不设目标地翻一翻，也能有另一种乐趣。"
       },
       "experiment": {
         "en": "Pick a tiny set for one viewing and call it today’s selection, not the definitive best. Leave room to choose differently another time.",
-        "zh": "为一次观看挑极小集合，叫它今天所选，不叫最终最佳。留以后不同选择空间。"
+        "zh": "为今天这次观看挑几张照片，把它们叫作“今天想看的”，不用选出永远的最佳。以后完全可以换一组。"
       }
     },
     {
       "id": "sequence",
       "title": {
         "en": "The Little-Sequence Curator",
-        "zh": "小序列策展者"
+        "zh": "用几张照片讲故事"
       },
       "summary": {
         "en": "Your pictures gain something from being seen in a chosen order. A beginning, contrast and ending can make a little movement between separate frames. The portrait follows this viewing preference rather than claiming your version is the true story of the day.",
-        "zh": "你的图在所选顺序里得到新东西。开头、对照与结尾，让分开画面之间有小推进。画像只跟随观看偏好，不说你的版本就是那天真实唯一故事。"
+        "zh": "你喜欢给照片安排一个观看顺序。一个开头、一处对照，再到一个结尾，分开的画面就能连成小故事。这是你选择的呈现方式，不代表它是那一天唯一真实的版本。"
       },
       "example": {
         "en": "A wide view, a tiny detail and a final empty table might become a three-picture sequence about an ordinary shared afternoon.",
-        "zh": "全景、小细节、最后空桌，可排成普通共同下午的三图序列。"
+        "zh": "一张全景、一处小细节，再加上一张人已散去的空桌，就能排成三张照片，讲述一个普通的共度下午。"
       },
       "strength": {
         "en": "A short sequence can give another viewer a clear path through a small set without demanding they inspect every image equally.",
-        "zh": "短序列给观者一条清楚路径，不要求每图平均细看。"
+        "zh": "一个短短的顺序，能带着别人看完这一小组照片，不要求对方对每张图都花同样多的时间。"
       },
       "tradeoff": {
         "en": "An elegant order can make a day look more coherent than it felt. A caption can keep the selection visibly a chosen edit.",
-        "zh": "漂亮顺序会让一天看起来比实际更连贯。说明一句，可让人看见这只是主动剪选。"
+        "zh": "精心安排的顺序，可能让一天看起来比亲历时更连贯。加一句说明，能让别人知道这只是你挑选和编排的一个版本。"
       },
       "experiment": {
         "en": "Arrange three invented or shareable images into a short sequence, then try another order. Notice how the edit changes the little story.",
-        "zh": "把三张虚构或可分享图排短序列，再换顺序。看看剪选怎样改变小故事。"
+        "zh": "把三张虚构的、或适合分享的图片排成一个短故事，再换一种顺序。看看同样的图片，怎样讲出不同的故事。"
       }
     }
   ],

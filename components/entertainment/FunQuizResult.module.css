@@ -5,6 +5,7 @@
 .title { margin: 0; color: #463449; font-size: clamp(26px, 4vw, 36px); line-height: 1.4; font-weight: 750; }
 .title:focus { outline: none; }
 .context { margin: 16px 0 0; color: #6b6070; max-width: 76ch; }
+.shortLimit { margin: 12px 0 0; font-size: 13px; color: #6b6070; }
 .routeNote { margin: 16px 0 0; font-size: 13px; color: #875b78; }
 .report[data-story-mechanism="branch"] .overview { border-radius: 4px 24px 24px 4px; border-left: 4px solid #8c6845; background: #faf5ec; }
 .report[data-story-mechanism="branch"] .title { font-family: Georgia, "Noto Serif SC", serif; color: #51402e; }
@@ -20,7 +21,7 @@
 .summary { margin: 0; color: #52615b; max-width: 76ch; font-size: 17px; }
 .details { display: grid; gap: 20px; margin-top: 24px; }
 .details section { padding-top: 20px; border-top: 1px solid #e6eeea; }
-.report h4 { margin: 0 0 8px; color: #456b64; font-size: 16px; font-weight: 700; }
+.details h3, .details h4, .experiments h3, .experiments h4 { margin: 0 0 8px; color: #456b64; font-size: 17px; font-weight: 700; }
 .details p, .experiments p, .rules p { margin: 0; max-width: 76ch; }
 .details p { color: #596661; }
 .guide { margin-top: 16px; font-size: 14px; }
@@ -28,6 +29,9 @@
 .experiments h3, .rules h3 { margin: 0 0 16px; font-size: 22px; line-height: 1.4; color: #36584e; font-weight: 700; }
 .experiments > div + div { margin-top: 20px; padding-top: 20px; border-top: 1px solid #dce7e0; }
 .rules { margin-top: 24px; color: #655d70; font-size: 14px; scroll-margin-top: 24px; }
+.rules > summary { display: list-item; min-height: 44px; cursor: pointer; color: #534a60; font-size: 16px; font-weight: 650; }
+.rules[open] > summary { margin-bottom: 20px; }
+.rules > summary:focus-visible { outline: 3px solid #9b6c96; outline-offset: 4px; }
 .scores { margin-top: 20px; padding: 20px; border-radius: 16px; background: #f7f5f9; }
 .scores > p { color: #534a60; font-weight: 650; }
 .scores dl { margin-top: 12px; }

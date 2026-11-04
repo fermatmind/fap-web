@@ -1,7 +1,7 @@
 {
   "slug": "festival-companion",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "social",
   "title": {
     "en": "Your Festival Companion Style",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Balancing a shared highlight, freedom to split up and a bounded new experience during one imaginary visit.",
-    "zh": "在一次想象到访里，平衡共同重点、分开行动的自由与有边界的新体验。"
+    "zh": "一次节庆外出里，你更想保留共同重点、各自逛逛的自由，还是试一点新活动？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -262,11 +262,11 @@
       "id": "anchor",
       "title": {
         "en": "The Shared-Highlight Companion",
-        "zh": "共同重点同行者"
+        "zh": "约好共同重点的同行者"
       },
       "summary": {
         "en": "Your festival has one event that gives the shared visit a recognizable center. Not every stop needs to match for the day to feel connected. The portrait values a chosen common highlight rather than insisting the group stay together throughout.",
-        "zh": "你的节庆有一个让共同到访有中心的节目。不必每处停点都一致，一天也能相连。画像珍惜主动共选重点，不坚持全程结队。"
+        "zh": "你喜欢在节庆里约定一个大家都想看的节目，让这次同行有一个共同重点。其他时间不必每站都一起走，也仍然可以觉得这一天是共同度过的。重点是一起选定，不是要求全程结队。"
       },
       "example": {
         "en": "On a casual exhibition day, friends might agree to see one room together and leave the rest of the visit open to separate interests.",
@@ -274,15 +274,15 @@
       },
       "strength": {
         "en": "One clear shared choice can make planning manageable and leave more room for difference elsewhere in the visit.",
-        "zh": "一个清楚共同选择，能让安排容易操作，也给其余部分留下更多差异空间。"
+        "zh": "先约好一个共同重点，安排就容易掌握一些，其他时间也能给不同兴趣留出空间。"
       },
       "tradeoff": {
         "en": "A shared highlight can become compulsory if someone’s preference changes. Rechecking the choice keeps it an invitation rather than a debt.",
-        "zh": "若偏好变了，共同重点也可能变强制。重新确认，能让它继续是邀请而非欠约。"
+        "zh": "如果有人临时改变主意，原先约好的重点也不该变成强制参加。再确认一次，才能让它仍是一份邀请，而不是欠下的任务。"
       },
       "experiment": {
         "en": "For one shared outing, name a single thing you both want and keep the rest optional. Check again if either person’s energy changes.",
-        "zh": "为一次共同外出，说清双方都想做的一件事，其余可选。任何一方精力变了，就再确认。"
+        "zh": "下次共同外出，约定一件双方都想做的事，其他安排保持可选。如果任何一方精力有变，就再商量。"
       }
     },
     {
@@ -293,23 +293,23 @@
       },
       "summary": {
         "en": "Your imagined festival allows company and separate routes to coexist. A simple agreement about reconnecting lets different interests remain welcome. The result does not infer weak commitment or claim that every outing should be spent apart.",
-        "zh": "你的想象节庆让同行与分路并存。简单约定重新碰面，让不同兴趣仍被欢迎。结果不推断投入不足，也不宣称所有外出都该分开。"
+        "zh": "你想象的节庆里，可以一起同行，也可以各自逛一会儿。约清楚在哪里、怎样再碰面，不同兴趣就能同时有位置。这不代表投入不够，也不意味着每次外出都应该分开。"
       },
       "example": {
         "en": "Friends at a small fair might choose different demonstrations for a short while, then meet at the place they agreed without needing identical reports of the afternoon.",
-        "zh": "小市集里，朋友可短暂选不同演示，再在约定处碰面，不必交出相同下午见闻。"
+        "zh": "在小市集里，朋友们可以各看一段不同的演示，再到约定的位置碰面，不必整个下午看过完全一样的东西。"
       },
       "strength": {
         "en": "Permission to differ can reduce the pressure to negotiate every stop and give a shared visit more than one satisfying route.",
-        "zh": "允许不同，能减少每个停点都要协商的压力，也给共同到访不止一条满足路线。"
+        "zh": "允许各自有不同兴趣，能减少每一站都要协商的压力，也让这次共同外出有不止一种好玩的路线。"
       },
       "tradeoff": {
         "en": "An arrangement can be too vague for someone who wants more connection. Naming the actual reunion shape can make flexibility easier to trust.",
-        "zh": "安排过于模糊，也会让想多点联系的人不安。说清实际再会方式，灵活更容易被理解。"
+        "zh": "如果安排太含糊，想多一点陪伴的人也可能不安心。把什么时候、在哪里重新碰面说清楚，灵活安排才更容易被接受。"
       },
       "experiment": {
         "en": "In a willing shared outing, discuss whether a short separate stretch would be enjoyable. Agree on a clear reconnection without making the split compulsory.",
-        "zh": "共同外出时，商量短暂分开是否愉快。约清再会，也不把分开变成必须。"
+        "zh": "共同外出前，问问短暂各逛一会儿是否都觉得合适。约好怎样再碰面，也保留全程一起走的选择。"
       }
     },
     {
@@ -320,7 +320,7 @@
       },
       "summary": {
         "en": "Your festival visit finds a little room for something unfamiliar without turning it into a whole-day commitment. A short trial can be enough to discover whether you want more. The portrait follows these choices, not a general adventurousness score.",
-        "zh": "你的节庆到访为陌生体验留一点空间，不把它变成整天承诺。短试就足够发现是否还想继续。画像跟随选择，不给普遍冒险程度打分。"
+        "zh": "你愿意在节庆里给没试过的活动留一小段时间，不必因此答应玩一整天。先试一下，就可以知道还想不想继续。这只是本次游戏中的选择，不是冒险程度的分数。"
       },
       "example": {
         "en": "At an open craft event, you might try one sample fold with a willing friend before deciding whether to join the longer demonstration.",
@@ -328,15 +328,15 @@
       },
       "strength": {
         "en": "A bounded first try can make novelty approachable and give a shared decision something concrete to build on.",
-        "zh": "有边界的初试让新东西容易靠近，也给共同决定具体依据。"
+        "zh": "给初次体验留一个小范围，可以让陌生的活动更容易尝试，也让双方有实际体验后再商量。"
       },
       "tradeoff": {
         "en": "Repeated little trials can still fill the whole visit. Keeping the agreed finish visible helps curiosity stay enjoyable for the group.",
-        "zh": "一次次小试仍可能填满整场到访。让已约结束可见，好奇才容易保持共同愉快。"
+        "zh": "一次又一次的小尝试，仍然可能用掉整段游玩时间。记住约好的结束点，才能让好奇对大家都保持有趣。"
       },
       "experiment": {
         "en": "Choose one short unfamiliar recreational activity with a clear end. Afterward, ask whether you actually want more before adding the next thing.",
-        "zh": "选一个有清楚结尾的短陌生休闲活动。结束后先问是否真想继续，再添下一件。"
+        "zh": "选一项没试过的短时休闲活动，先说好什么时候结束。试完再问自己是否真想继续，不急着加下一项。"
       }
     }
   ],

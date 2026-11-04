@@ -12,20 +12,9 @@ export function QuestionnaireSensitivityExperienceReport({ quiz, result, locale 
 }) {
   const zh = locale === "zh";
   return <ResultPage variant="reflection" className="my-6 space-y-8" data-sensitivity-experience-result>
-    <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
-      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
-      items={quiz.directions.map(direction => {
-        const score = result.facets[direction.id];
-        return { id: direction.id, label: direction.title[locale], href: `#sensitivity-experience-${direction.id}`,
-          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
-          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
-      })} />
-    <p className="leading-8">{zh
-      ? "四组分别概括过去四周题述体验的自报发生频率。没有综合分、HSP判定线或主导类型；均分不能证明大脑机制、感官能力、共情准确性或与他人的差异。"
-      : "The four groups separately summarize reported frequency of the listed experiences in the past four weeks. There is no overall score, HSP cutoff or dominant type. Means do not establish brain mechanisms, sensory ability, empathic accuracy or differences from other people."}</p>
-    <p className="text-sm leading-7 text-slate-600">{zh
-      ? "回答选项：1从不、2很少、3有时、4经常、5几乎总是。分母固定为六项；这些是回答的描述性均分，不是实际事件发生比例。"
-      : "Response anchors: 1 Never, 2 Rarely, 3 Sometimes, 4 Often, 5 Almost always. The denominator is six items. These are descriptive response means, not proportions of actual events."}</p>
+
+
+
     {quiz.directions.map(direction => {
       const score = result.facets[direction.id], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
       return <section key={direction.id} className="rounded-lg border border-slate-200 p-4 sm:p-6"
@@ -37,13 +26,31 @@ export function QuestionnaireSensitivityExperienceReport({ quiz, result, locale 
         {score.mean === null && <p className="mb-4 text-sm leading-7 text-slate-600">{zh
           ? "没有相关机会、无法判断或选择不回答，均不转成零分，也不解释为没有情绪或感知。以下完整指南仍可阅读。"
           : "No relevant occasion, uncertainty or a choice not to answer never becomes a zero or evidence of absent emotion or perception. The complete guide remains readable below."}</p>}
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`sensitivity-experience-report-${direction.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`sensitivity-experience-report-${direction.id}`} mode="result" previewSectionIds={[`${profile.directionIds[0]}-example`, `${profile.directionIds[0]}-shared`, `${profile.directionIds[0]}-relationships`, `${profile.directionIds[0]}-boundaries`]} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本组完整公开指南" : "Read this group’s full public guide"}</Link>
       </section>;
     })}
     <p className="leading-8">{zh
       ? "这些原创双语题目与解释尚未建立信度、常模、因子结构或语言等价性。DOES只是概念背景，本页没有施测或改编原作者HSP量表。可以从一个真实情境和一个可撤回的小调整开始，也可以在这里结束。"
       : "These original bilingual questions and guides have no established reliability, norms, factor structure or language equivalence. DOES is conceptual background; this page does not administer or adapt the author’s HSP instruments. You can start with one actual situation and one reversible adjustment, or finish here."}</p>
+
+    <details className="border-t border-slate-200 pt-4" data-result-reading-method>
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
+      <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
+      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
+      items={quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return { id: direction.id, label: direction.title[locale], href: `#sensitivity-experience-${direction.id}`,
+          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
+          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
+      })} />
+      <p className="leading-8">{zh
+      ? "四组分别概括过去四周题述体验的自报发生频率。没有综合分、HSP判定线或主导类型；均分不能证明大脑机制、感官能力、共情准确性或与他人的差异。"
+      : "The four groups separately summarize reported frequency of the listed experiences in the past four weeks. There is no overall score, HSP cutoff or dominant type. Means do not establish brain mechanisms, sensory ability, empathic accuracy or differences from other people."}</p>
+      <p className="text-sm leading-7 text-slate-600">{zh
+      ? "回答选项：1从不、2很少、3有时、4经常、5几乎总是。分母固定为六项；这些是回答的描述性均分，不是实际事件发生比例。"
+      : "Response anchors: 1 Never, 2 Rarely, 3 Sometimes, 4 Often, 5 Almost always. The denominator is six items. These are descriptive response means, not proportions of actual events."}</p>
+    </details>
   </ResultPage>;
 }
 

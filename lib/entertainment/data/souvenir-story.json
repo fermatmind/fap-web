@@ -1,7 +1,7 @@
 {
   "slug": "souvenir-story",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "everyday",
   "title": {
     "en": "What Kind of Souvenir Story Do You Keep?",
@@ -274,11 +274,11 @@
       },
       "strength": {
         "en": "You connect memory with the life you are living now and may find it easier to enjoy a reminder instead of protecting it from every sign of use.",
-        "zh": "你会把记忆接到眼下正在过的生活里，也可能更容易享用纪念，而不是替它挡住每一点使用痕迹。"
+        "zh": "你把过去的记忆带进现在的生活，也可能更愿意使用这件纪念物，而不是小心挡住每一道使用痕迹。"
       },
       "tradeoff": {
         "en": "Use is not the only legitimate reason to keep something. An object can matter without being productive, and some reminders are fragile or unsuitable for daily handling.",
-        "zh": "有用途不是保留东西的唯一正当理由。物件可以不实用但有意义，有些提醒也确实易损，不适合每天拿来用。"
+        "zh": "实用不是保留东西的唯一理由。没有用途的物件也可以有意义；有些纪念物易损，本来就不适合每天拿来用。"
       },
       "experiment": {
         "en": "Choose one existing keepsake and consider whether a simple use would let you enjoy it more. If not, let its meaning be enough without inventing a job for it.",
@@ -316,11 +316,11 @@
       "id": "shared",
       "title": {
         "en": "The Shared Story",
-        "zh": "两个人以上的故事"
+        "zh": "一起留下的故事"
       },
       "summary": {
         "en": "Your keepsake portrait puts connection at the center. A reminder earns its place because it belongs to an experience you can revisit with someone. Its meaning is relational, but the people involved do not have to remember or value the day in identical ways.",
-        "zh": "你的纪念画像把连接放在中间。一份提醒能留下，是因为它属于可以和别人再次回看的经历。它的意义在关系里，但参与的人不必以完全相同的方式记得或重视那一天。"
+        "zh": "你想留下的纪念物，和一段共同经历有关。它能让你与别人再聊起那一天，但参与的人不必记得同样的细节，也不必以相同程度重视这段回忆。"
       },
       "example": {
         "en": "An ordinary menu or a short note can restart a conversation about an unplanned lunch. Someone else may remember a different detail, adding another version without replacing yours.",
@@ -328,7 +328,7 @@
       },
       "strength": {
         "en": "You give shared experiences a gentle route back into conversation. A small reminder can make staying in touch feel more personal than a generic update.",
-        "zh": "你给共同经历留了一条温和的返回路线。一份小提醒，可以让联系比笼统汇报近况更有个人意味。"
+        "zh": "一件小纪念，能让共同经历自然地重新进入对话。比起笼统地问近况，从一个具体回忆聊起，也许更有亲切感。"
       },
       "tradeoff": {
         "en": "A shared object does not create an obligation to keep the same level of closeness forever. People can appreciate a memory while having different present needs.",

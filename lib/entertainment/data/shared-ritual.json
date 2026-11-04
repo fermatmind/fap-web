@@ -1,7 +1,7 @@
 {
   "slug": "shared-ritual",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "relationships",
   "title": {
     "en": "What Kind of Small Ritual Would You Share?",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Keeping a shared ritual workable through a small cue, a flexible window or a clear personal meaning.",
-    "zh": "通过小提示、灵活时段或清楚个人意义，让共同小仪式好用。"
+    "zh": "用一个日常小提示、一个灵活时段，或一个双方在意的目的，维持愿意一起做的小仪式。"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -262,50 +262,50 @@
       "id": "cue",
       "title": {
         "en": "The Tiny-Cue Ritual",
-        "zh": "小提示仪式"
+        "zh": "从日常小提示开始"
       },
       "summary": {
         "en": "Your shared ritual fits beside something already ordinary: a kettle, a closing notebook or a short evening pause. The cue makes beginning easy without demanding a major routine. This result is about your chosen arrangement, not a measure of habit strength.",
-        "zh": "你的共同仪式靠着已有日常：水壶、合上的笔记本或晚间短暂停顿。提示让开始容易，不要求大日程。结果只谈所选安排，不测习惯强度。"
+        "zh": "你们的小仪式，可以接在已经熟悉的日常动作后面：烧好一壶水、合上笔记本，或晚间歇一会儿。这样开始会容易些，不必额外排一大套日程。这描述的是安排，不测习惯有多牢固。"
       },
       "example": {
         "en": "Two people might share one drawing after putting their own materials away, so the exchange has a familiar small beginning rather than a new elaborate appointment.",
-        "zh": "两人可以在各自收好材料后分享一幅小画，让交流有熟悉小开头，不新增复杂约会。"
+        "zh": "两人各自收好画具后，再互相看一张小画。它有一个熟悉的开头，不需要另外安排复杂的约会。"
       },
       "strength": {
         "en": "A small cue can reduce the effort of starting and keep the ritual close enough to ordinary life that it remains manageable.",
-        "zh": "小提示能降低启动所需精力，让仪式贴近日常、容易掌握。"
+        "zh": "一个小提示，能让开始少费些力气，也让这件共同的小事自然地放进日常生活。"
       },
       "tradeoff": {
         "en": "A familiar cue can quietly become a demand if missing it is treated as failure. Keeping a skip possible protects the activity’s voluntary purpose.",
-        "zh": "熟悉提示若错过就算失败，也会悄悄变要求。允许跳过，能照顾活动自愿的原意。"
+        "zh": "如果错过一次就被当成失败，小提示也会悄悄变成要求。允许偶尔跳过，才能保留双方自愿参加的初衷。"
       },
       "experiment": {
         "en": "Choose one existing moment for a tiny shared action only if both people want it. Agree that missing the cue creates no debt.",
-        "zh": "双方都愿意时，选一个已有时刻放小共同行动。约好错过不欠补做。"
+        "zh": "双方都愿意时，选一个已有的日常时刻，接上一件小事。先说好，错过了也不欠一次补做。"
       }
     },
     {
       "id": "window",
       "title": {
         "en": "The Flexible-Window Ritual",
-        "zh": "灵活时段仪式"
+        "zh": "留一个可以调整的时段"
       },
       "summary": {
         "en": "Your ritual has a place in the week without becoming a fixed test of the relationship. Moving, skipping and returning can all belong to it. The ending values an adaptable agreement rather than less interest or weaker care.",
-        "zh": "你的仪式在一周有位置，却不变固定关系考试。移动、跳过与返回都可以属于它。结局珍惜可调整约定，不把灵活解释成少兴趣或少关心。"
+        "zh": "你们的小仪式在一周里有个位置，也允许改期、跳过，之后再回来。它不必变成关系的固定考题；安排灵活，不代表兴趣少了或不再关心。"
       },
       "example": {
         "en": "Friends might share a short voice note sometime during a chosen weekend window, with no assumption that a delayed reply needs a personal explanation.",
-        "zh": "朋友可约一个周末时段发短语音，不假定晚回就需私人解释。"
+        "zh": "朋友可以约定在周末某个时段分享一条短语音。回复晚了，也不需要因此交代私人的原因。"
       },
       "strength": {
         "en": "A flexible window can accommodate different schedules and keep a small recurring connection from competing with everything else each person is doing.",
-        "zh": "灵活时段能容纳不同日程，让重复小联系不必与各自所有事情竞争。"
+        "zh": "灵活的时段能照顾不同日程，让一件重复的小事不必和双方生活里的所有安排争时间。"
       },
       "tradeoff": {
         "en": "Too much vagueness can leave one person unsure whether the activity still exists. A clear optional invitation can give flexibility a usable shape.",
-        "zh": "过于模糊会让一人不知活动是否还在。清楚可选邀请，能让灵活有好用形状。"
+        "zh": "如果约得太模糊，一方也可能不知道这件事还算不算数。把邀请说具体，同时允许不参加，会更容易安排。"
       },
       "experiment": {
         "en": "Name a small shared window and an easy way to say “not this time.” Check occasionally whether both people still want the arrangement.",
@@ -316,27 +316,27 @@
       "id": "meaning",
       "title": {
         "en": "The Meaning-Kept Ritual",
-        "zh": "意义留着的仪式"
+        "zh": "把在意的部分留下来"
       },
       "summary": {
         "en": "Your shared ritual begins with what the activity is for, so its outer form can change. A memory, a pause or a little mutual attention may matter more than repeating the exact same action. The portrait does not decide what the ritual should mean for either person.",
-        "zh": "你的共同仪式从活动为了什么开始，外形因而可变。记忆、停顿或一点相互关注，也许比动作原样重复重要。画像不代替任何一方规定意义。"
+        "zh": "你先问这件一起做的小事，究竟带来了什么。也许是一段回忆、一次歇息，或一点相互关注；只要在意的部分还在，形式就可以改变。双方不必赋予它同样的意义。"
       },
       "example": {
         "en": "If a weekly sketch exchange stops fitting, you might keep the shared noticing by sending one ordinary detail instead, provided both people like the change.",
-        "zh": "每周交换画不再合适时，双方都愿意的话，可以改发一个普通细节，留下共同留意的意义。"
+        "zh": "如果每周交换一张画不再合适，双方都愿意的话，也可以改成各发一个留意到的小细节，保留一起观察生活的乐趣。"
       },
       "strength": {
         "en": "A clear purpose can make simplification easier because the activity does not have to preserve every original detail to remain recognizable.",
-        "zh": "目的清楚，让简化容易，因为活动不必保留原来每个细节才仍可辨认。"
+        "zh": "知道为什么还想做，就容易把形式简化。它不需要保留最初每一个细节，仍然可以是你们熟悉的那件小事。"
       },
       "tradeoff": {
         "en": "A stated meaning can still differ between two people. Asking separately what each enjoys avoids turning one interpretation into the official one.",
-        "zh": "两人赋予的意义仍可能不同。分别问喜欢什么，能避免一种解释成唯一官方版本。"
+        "zh": "说到同一个仪式，双方喜欢的部分仍可能不同。分别听听彼此的理由，不必指定一种解释才算正确。"
       },
       "experiment": {
         "en": "Ask what one small shared activity gives each person. Keep the overlap you both want and allow the rest of the form to change.",
-        "zh": "问一项共同小活动分别给双方什么。留下都想要的交集，也让其余外形改变。"
+        "zh": "问问这项小活动分别给双方带来了什么。留下两个人都还想要的部分，其他形式可以一起调整。"
       }
     }
   ],

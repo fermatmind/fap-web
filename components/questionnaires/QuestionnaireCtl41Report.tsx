@@ -11,13 +11,8 @@ export function QuestionnaireCtl41Report({ quiz, result, locale }: {
 }) {
   const zh = locale === "zh";
   return <ResultPage variant="reflection" className="my-6 space-y-8" data-ctl41-result>
-    <ResultOverview locale={locale} title={zh ? "各组独立读数" : "Separate group readings"}
-      description={zh ? "按题本顺序阅读，不合成总分或排名。点击主题可查看完整解释。" : "Read in the form’s order, without a combined score or ranking. Select a topic for its full explanation."}
-      items={result.ctl41.map(part => ({ id: part.id, label: quiz.directions.find(direction => direction.id === part.id)!.title[locale], href: `#ctl41-${part.id}`,
-        value: `${part.mean.toFixed(2)} / 4`, note: zh ? `原始和 ${part.rawSum}` : `Raw sum ${part.rawSum}` }))} />
-    <p className="leading-8">{zh
-      ? "四十一项有效选择已齐。六个源领域分别显示计分和与均值，不合总分、不排名领域、不划爱的能力等级或伴侣匹配。均值范围相同不证明心理单位相同，同分和近分均保留。"
-      : "All forty-one valid choices are complete. Six source domains show separate keyed sums and means, without an overall score, domain ranking, love-capacity level or partner match. A shared numeric range does not establish common psychological units; close and equal means remain visible."}</p>
+
+
     {result.ctl41.map(part => {
       const direction = quiz.directions.find(d => d.id === part.id)!;
       const profile = quiz.profiles.find(p => p.id === part.profileId)!;
@@ -27,13 +22,24 @@ export function QuestionnaireCtl41Report({ quiz, result, locale }: {
         <p data-ctl41-score={part.id} className="my-4 rounded-lg bg-slate-50 p-4 font-semibold">{zh
           ? `本域${part.itemCount}题计分和：${part.rawSum}（范围${part.itemCount}—${part.itemCount * 4}）；计分均值：${part.mean.toFixed(2)}（范围1—4）。`
           : `${part.itemCount}-item keyed sum: ${part.rawSum} (range ${part.itemCount}–${part.itemCount * 4}); keyed mean: ${part.mean.toFixed(2)} (range 1–4).`}</p>
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`ctl41-report-${part.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`ctl41-report-${part.id}`} mode="result" previewSectionIds={["meaning", "example", "next"]} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本领域完整公开指南" : "Read this domain’s full public guide"}</Link>
       </section>;
     })}
     <p className="leading-8">{zh
       ? "英文按2018表一，中文为费马新工作译；源德语和波兰语研究不验证本显示或译文。PSP两题为一般陈述，不评个人性功能或取向；信任不要求披露，哀伤不设期限或新关系要求。"
       : "English follows the 2018 Table 1 and Chinese is a new FermatMind working translation; the source German and Polish research does not validate these displays or translation. The two PSP items are general statements, not personal sexual functioning or orientation. Trust requires no disclosure, and mourning has no deadline or requirement for a new relationship."}</p>
+
+    <details className="border-t border-slate-200 pt-4" data-result-reading-method>
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
+      <ResultOverview locale={locale} title={zh ? "各组独立读数" : "Separate group readings"}
+      description={zh ? "按题本顺序阅读，不合成总分或排名。点击主题可查看完整解释。" : "Read in the form’s order, without a combined score or ranking. Select a topic for its full explanation."}
+      items={result.ctl41.map(part => ({ id: part.id, label: quiz.directions.find(direction => direction.id === part.id)!.title[locale], href: `#ctl41-${part.id}`,
+        value: `${part.mean.toFixed(2)} / 4`, note: zh ? `原始和 ${part.rawSum}` : `Raw sum ${part.rawSum}` }))} />
+      <p className="leading-8">{zh
+      ? "四十一项有效选择已齐。六个源领域分别显示计分和与均值，不合总分、不排名领域、不划爱的能力等级或伴侣匹配。均值范围相同不证明心理单位相同，同分和近分均保留。"
+      : "All forty-one valid choices are complete. Six source domains show separate keyed sums and means, without an overall score, domain ranking, love-capacity level or partner match. A shared numeric range does not establish common psychological units; close and equal means remain visible."}</p>
+    </details>
   </ResultPage>;
 }
 

@@ -18,7 +18,7 @@ const bytes = readFileSync("lib/entertainment/data/secret-door.json");
 const quiz = JSON.parse(bytes.toString()) as FunQuiz;
 describe("secret-door: authored branching fiction, not tally scoring", () => {
  it("preserves the source bytes and checks all eight terminal paths and every incomplete prefix", () => {
-  expect(createHash("sha256").update(bytes).digest("hex")).toBe("030d5fa5fd52994497c166eac77daf83dc02b77803084addd40a23ece3071ec7");
+  expect(createHash("sha256").update(bytes).digest("hex")).toBe("83e3e3493fcc161bec0a1da2d1d4ceb8a28674e193286dbcd603212cf6f3e437");
   const lengths: Record<number,number> = {}, endings: Record<string,number> = {};
   for (const [encoded,ending] of routes) {
    const steps=encoded.split(",").map(s=>s.split(":")); const answers: Answers = {};

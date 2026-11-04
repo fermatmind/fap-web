@@ -9,11 +9,11 @@ import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 export function IntimacyValuesReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh";
   return <div data-intimacy-values-report className="mt-6 space-y-8">
-    <p className="leading-8">{zh ? "五项分别记录所列条件对你的重要程度。每项五条，至少四条数字才显示原始均值；3是中等重要，未评分保持缺失。五项可同时很高，不合总分、不排名或派型。同意与尊重保持为底线，不参与得分取舍。" : "Five separate parts record how important the stated conditions are to you. Each has five prompts and needs four numeric ratings for a raw mean. Three means moderately important; unscored responses stay missing. All five can be high, without a total, rank or assigned type. Consent and respect remain baseline conditions, not scored trade-offs."}</p>
+
     <ResultSection title={zh ? "五项亲近关系条件概览" : "Five intimacy-priority readings"}>
       <div className="grid gap-x-8 sm:grid-cols-2">{quiz.directions.map(direction => {
         const part = result.facets[direction.id];
-        return <ResultScoreRow key={direction.id} label={direction.title[locale]} value={part.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${part.mean.toFixed(1)} / 5`} score={part.mean} min={1} max={5} description={zh ? `原始重要程度均值 · 1–5；${part.rated}/${part.total}条有效` : `Raw importance mean · 1–5; ${part.rated}/${part.total} rated`} />;
+        return <ResultScoreRow key={direction.id} label={direction.title[locale]} value={part.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${part.mean.toFixed(1)} / 5`} score={part.mean} min={1} max={5} description={quiz.profiles.find(profile => profile.directionIds[0] === direction.id)!.summary[locale]} />;
       })}</div>
     </ResultSection>
     <ResultReadingNav label={zh ? "逐项完整解读" : "Full readings by topic"} sections={quiz.directions.map(direction => ({ id: `intimacy-title-${direction.id}`, title: direction.title[locale] }))} />
@@ -27,11 +27,14 @@ export function IntimacyValuesReport({ quiz, result, locale }: { quiz: Questionn
         <p className="mb-4 leading-7">{part.mean === null
           ? (zh ? "以下是完整通用指南，不是本次个人偏好的结论。" : "The complete text below is a general guide, not a conclusion about your preferences in this attempt.")
           : (zh ? "较高只表示更重视本组条件；较低不解释原因，也不授权忽视任何人的边界。相同均值可能来自不同回答，请结合具体条件阅读。" : "A higher mean records more importance placed on this set. A lower mean explains no cause and never permits disregarding anyone’s boundaries. Different answers can yield the same mean; read the actual conditions in context.")}</p>
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`intimacy-reading-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`intimacy-reading-${profile.id}`} mode="result" previewSectionIds={[`${profile.id}-2`, `${profile.id}-6`]} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一主题的完整公开指南" : "Read this topic’s full public guide"}</Link>
       </section>;
     })}
     <p className="text-sm leading-7">{zh ? "题目与读法为费马原创，尚未建立信效度、常模或跨语言测量等价。不据此判断性取向、身份、私密行为、伴侣品质或关系未来；不要求披露私人经历。" : "FermatMind authored these prompts and readings; reliability, validity, norms and language equivalence have not been established. Results do not judge orientation, identity, private acts, partner quality or a relationship’s future, and no private history is requested."}</p>
+    <details className="border-t border-slate-200 pt-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "均值与未评分回答怎样计算" : "How means and unscored responses are handled"}</summary>
+    <p className="leading-8">{zh ? "五项分别记录所列条件对你的重要程度。每项五条，至少四条数字才显示原始均值；3是中等重要，未评分保持缺失。五项可同时很高，不合总分、不排名或派型。同意与尊重保持为底线，不参与得分取舍。" : "Five separate parts record how important the stated conditions are to you. Each has five prompts and needs four numeric ratings for a raw mean. Three means moderately important; unscored responses stay missing. All five can be high, without a total, rank or assigned type. Consent and respect remain baseline conditions, not scored trade-offs."}</p>
+    </details>
   </div>;
 }
 

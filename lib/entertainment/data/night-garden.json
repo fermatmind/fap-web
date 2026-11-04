@@ -1,7 +1,7 @@
 {
   "slug": "night-garden",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "nature",
   "title": {
     "en": "What Would You Notice in the Night Garden?",
@@ -274,11 +274,11 @@
       },
       "strength": {
         "en": "A few carefully chosen sounds can give an imagined place rhythm and help other people picture an atmosphere without needing many visual details.",
-        "zh": "几种选好的声音能给想象空间节奏，让他人无需大量视觉细节也能感到氛围。"
+        "zh": "挑几种声音写进场景，就能带出节奏。即使没有很多外观描写，读者也能感到那个地方的气氛。"
       },
       "tradeoff": {
         "en": "Filling every pause with a new sound can make a scene feel crowded; quiet space is also part of the sound picture.",
-        "zh": "每次停顿都填新声音，也会让场景拥挤；安静空隙同样属于声音画面。"
+        "zh": "每个停顿都填进新声音，也会让场景显得拥挤。安静的空隙同样是声音描写的一部分。"
       },
       "experiment": {
         "en": "Describe one ordinary place using two sounds and a pause. Keep the exercise comfortable and skip any sound you do not enjoy attending to.",
@@ -293,19 +293,19 @@
       },
       "summary": {
         "en": "Your garden takes shape through light, contrast and movement across surfaces. A shadow can link distant parts of the picture, and a reflection can make a second frame. This is a visual-story preference within the game, not a personality measure.",
-        "zh": "你的花园通过光、明暗与表面移动成形。影子可以连接画面远处，倒影也能形成第二画框。这是游戏里的视觉叙事偏好，不是人格测量。"
+        "zh": "你想象中的花园由光线、明暗和移动的影子慢慢成形。影子能把画面中相隔较远的地方连起来，倒影则像是另一幅取景。这是游戏中选出的叙事角度，不是人格测量。"
       },
       "example": {
         "en": "In a harmless still-life sketch, you might draw the shadow cast by a mug before adding the mug’s printed pattern or its handle detail.",
-        "zh": "画一幅无害静物速写时，你可能先画杯子投影，再加杯身图案和把手细节。"
+        "zh": "画静物速写时，你可以先画杯子投下的影子，再补杯身图案和把手的细节。"
       },
       "strength": {
         "en": "Noticing light relationships can give a busy scene a simple structure and show how familiar objects change as the viewpoint changes.",
-        "zh": "留意光的关系，能给复杂场景简单结构，也让熟悉物体随视角变化重新显现。"
+        "zh": "留意光线与物体的关系，可以让复杂画面更有条理，也能看见同一件东西随视角变化的样子。"
       },
       "tradeoff": {
         "en": "A striking contrast may pull attention away from quieter details. One clear shadow does not have to organize the whole picture.",
-        "zh": "强烈明暗可能把注意从细小之处拉走；一条鲜明影子不必统领整张画。"
+        "zh": "强烈的明暗可能让人忽略不显眼的细节。一道清晰的影子，不必负责安排整张画。"
       },
       "experiment": {
         "en": "Make two small sketches of the same object with different imagined lighting. Notice what changes in the picture without ranking one view as better.",
@@ -328,15 +328,15 @@
       },
       "strength": {
         "en": "A small focus can make an enormous scene approachable and give a short creative exercise a clear, manageable subject.",
-        "zh": "一个小焦点能让庞大场景容易靠近，也给短创作练习一个清楚、可操作的对象。"
+        "zh": "从一个小细节入手，庞大的场景也会变得容易描画；短短一次创作，就有了明确的对象。"
       },
       "tradeoff": {
         "en": "Staying close to one detail can hide how the whole picture fits together; occasionally stepping back can restore its context.",
-        "zh": "一直贴着细节，也可能看不清全图关系；偶尔退一步，可以找回它的情境。"
+        "zh": "一直盯着同一个细节，也可能忘记它与整体的关系。偶尔退后看一眼，能重新找到它在画面中的位置。"
       },
       "experiment": {
         "en": "Pick one harmless visual detail in your room and sketch it for a minute. Then draw a tiny frame showing where it sits in the larger scene.",
-        "zh": "选房间里一个无害视觉细节画一分钟，再加一个小框，画出它在更大场景中的位置。"
+        "zh": "挑房间里一个普通的细节，花一分钟画下来。再添一个小小的外框，标出它在整个场景中的位置。"
       }
     }
   ],

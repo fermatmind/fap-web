@@ -1,7 +1,7 @@
 {
   "slug": "portal-choice",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "fantasy",
   "title": {
     "en": "The Pocket Portal: Where Will Your Choices Lead?",
@@ -215,7 +215,7 @@
       },
       "summary": {
         "en": "Your route ends beside a small harbor whose lights mark a way to land and a way back. The keeper asks for no grand explanation of your voyage. You have enough of a story for today, and the rest of the coastline can remain unexplored.",
-        "zh": "你的路线停在一座小港口旁，灯光标出靠岸与返回的方向。守灯人不要求你为旅程作宏大解释。今天已经有了足够的一段故事，余下海岸也可以暂时没有探索。"
+        "zh": "你的路线停在一座小港口旁，灯光标出靠岸和返回的方向。守灯人不要求你给这趟旅程一个宏大的解释。今天走过的这一段已经足够，剩下的海岸可以留待以后。"
       },
       "example": {
         "en": "An everyday parallel might be ending an enjoyable outing after one memorable stop, rather than adding another destination because the day could technically hold it. The ending describes a choice, not a fixed trait.",
@@ -227,7 +227,7 @@
       },
       "tradeoff": {
         "en": "A comfortable harbor can become the only place you visit if you never ask whether you still want a new route. Rest and curiosity can take turns.",
-        "zh": "舒服的港口也可能变成唯一停靠处，如果从不再问自己是否想走新路。休息与好奇，可以轮流上场。"
+        "zh": "如果从不问自己还想不想探索，舒服的港口也可能变成唯一的停靠处。休息和好奇，可以轮流上场。"
       },
       "experiment": {
         "en": "For one small activity, decide what would make it enough for today. Stop there if you want, and keep a separate note of anything you would enjoy exploring another time.",
@@ -242,11 +242,11 @@
       },
       "summary": {
         "en": "Your portal opens onto a gallery that leaves space around every picture. A visitor can add a frame without deciding the whole exhibition. Your ending keeps another version possible: the story has reached a resting point, while its edges remain open.",
-        "zh": "你的传送门通向一间给每幅画留白的画廊。来客可以添一个框，而不用决定整场展览。这个结局为另一个版本保留可能：故事到了休息点，边缘却仍然开放。"
+        "zh": "你的传送门通向一间画廊，每幅画旁都留着空白。来客可以添一个画框，不必一口气决定整个展览。故事在这里歇一歇，也给以后的另一个版本留着位置。"
       },
       "example": {
         "en": "Outside the adventure, this could resemble keeping one unfinished sketch that you may return to, without calling it a failure or promising to complete every abandoned idea.",
-        "zh": "走出冒险，这可能像留下一张以后也许会回来的未完成速写，不把它叫作失败，也不承诺补完所有搁下的想法。"
+        "zh": "这像是留下一张以后也许会继续画的速写，不把未完成当成失败，也不承诺补完所有搁下的点子。"
       },
       "strength": {
         "en": "This ending makes room for curiosity and revision. A partial version can be meaningful without pretending to be a complete answer to everything.",
@@ -254,11 +254,11 @@
       },
       "tradeoff": {
         "en": "Leaving every edge open can make it difficult to know what is ready to use or share. An unfinished picture still benefits from knowing which part is intentionally unfinished.",
-        "zh": "如果每条边都开放，也会难以知道什么已经能用、能分享。未完成的画，同样可以说清哪一部分是有意留白。"
+        "zh": "如果每一部分都还没定下来，就不容易知道哪些已经可以使用或分享。即使作品未完成，也可以说清哪里是有意留白的。"
       },
       "experiment": {
         "en": "Pick a small creative piece and name one part that is ready plus one part you are deliberately leaving open. You do not need to reopen the whole project.",
-        "zh": "挑一个小创作，说清一部分已经可以，以及一部分是有意留下的。并不需要把整个项目重新打开。"
+        "zh": "挑一件小创作，指出一部分已经完成的内容，以及一部分你有意留待以后的内容，不必重新改动整个作品。"
       }
     },
     {

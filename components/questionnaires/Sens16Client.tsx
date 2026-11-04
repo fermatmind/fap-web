@@ -89,7 +89,7 @@ function ValidSens16Client({ quiz, locale, readingProfiles }: { quiz: Sens16Ques
               <p data-sens16-sum className="text-xl font-semibold">{zh ? `已答数字合计：${score.sum}（范围 0—${score.numericCount * 4}）` : `Rated sum: ${score.sum} (range 0–${score.numericCount * 4})`}</p>
               <p data-sens16-mean>{zh ? `均分：${score.mean.toFixed(2)}（范围0—4）；合计除以${score.numericCount}，不是百分比或百分位。` : `Mean: ${score.mean.toFixed(2)} (range 0–4); sum divided by ${score.numericCount}, not a percentage or percentile.`}</p>
             </div>}
-            <details className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开此部分完整读法" : "Expand this full reading"}</summary><div className="mt-5"><Sens16FullReading profile={profile} locale={locale} readingProfiles={readingProfiles} /></div></details>
+            <div className="mt-5"><Sens16FullReading profile={profile} locale={locale} readingProfiles={readingProfiles} /></div>
             <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "阅读完整公开指南" : "Read the complete public guide"}</Link>
           </section>;
         })}</ResultPage>
@@ -107,5 +107,5 @@ function ValidSens16Client({ quiz, locale, readingProfiles }: { quiz: Sens16Ques
 
 export function Sens16FullReading({ profile, locale, readingProfiles }: { profile: QuestionnaireProfile; locale: Locale; readingProfiles?: QuestionnaireProfile[] }) {
   const reading = readingProfiles?.find(p => p.id === profile.id && p.resultReading?.quizSlug === "sensory-sensitivity" && p.resultReading.profileId === profile.id) ?? profile;
-  return <QuestionnaireResultReading quizSlug="sensory-sensitivity" profile={reading} locale={locale} headingLevel={4} idPrefix={`sens16-${profile.id}`} />;
+  return <QuestionnaireResultReading quizSlug="sensory-sensitivity" profile={reading} locale={locale} headingLevel={4} idPrefix={`sens16-${profile.id}`} mode="result" previewSectionIds={["example", "next"]} />;
 }

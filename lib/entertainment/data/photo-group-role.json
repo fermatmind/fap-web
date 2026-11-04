@@ -1,7 +1,7 @@
 {
   "slug": "photo-group-role",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "social",
   "title": {
     "en": "Your Role in the Group Photo",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Coordinating a shared picture through clear composition, participation choices or a bounded moment worth remembering.",
-    "zh": "通过清楚构图、参与选择或值得记住的有边界瞬间，协调一张共同照片。"
+    "zh": "拍一张合影时，你会先安排站位、问清谁愿意入镜，还是挑一个大家想留下的瞬间？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -262,50 +262,50 @@
       "id": "frame",
       "title": {
         "en": "The Simple-Frame Coordinator",
-        "zh": "简单画框协调者"
+        "zh": "把合影安排得简单一点"
       },
       "summary": {
         "en": "Your group photo becomes easier through one clear arrangement people can follow. Spacing and a visible shared focus matter more than a string of complicated poses. The portrait follows this small coordination task rather than judging photographic ability or anybody’s appearance.",
-        "zh": "你的合影通过一种大家能跟随的清楚排列变简单。间距与共同焦点，比接连复杂姿势重要。画像只跟随小协调任务，不评摄影能力或任何人的外貌。"
+        "zh": "你的合影从一种简单、大家容易照做的站位开始。人与人之间的距离、共同的拍摄重点，比一连串复杂姿势更重要。这描述的是这次协调拍照的方式，不评摄影能力，也不评任何人的外貌。"
       },
       "example": {
         "en": "You might suggest standing around the finished craft table so willing participants and the shared work are visible in one uncomplicated picture.",
-        "zh": "你可能提议围着完成的手工桌站，让愿意的人与共同作品在一张简单画面里都可见。"
+        "zh": "手工活动结束后，你可以请愿意合影的人站在作品桌旁，让大家和共同完成的作品都清楚地出现在画面里。"
       },
       "strength": {
         "en": "A simple frame can reduce repeated instructions and make the photo a manageable part of the event rather than its main activity.",
-        "zh": "简单画框能减少反复指挥，让合影只是活动里好掌握的一部分，不成为主活动。"
+        "zh": "安排简单一些，就不用反复指挥。合影可以是活动中的一小部分，而不必占去整个活动。"
       },
       "tradeoff": {
         "en": "A technically clear frame can still feel uncomfortable to someone in it. Asking about the arrangement keeps composition connected to actual participants.",
-        "zh": "技术上清楚的画面，仍可能让入镜者不自在。询问排列，能让构图与实际参与者相连。"
+        "zh": "画面拍得清楚，不表示每个人都觉得自在。安排好站位后，也可以问问入镜的人是否舒服。"
       },
       "experiment": {
         "en": "For one willing group picture, suggest a single simple arrangement and ask whether it works. Make one adjustment rather than directing every detail.",
-        "zh": "给愿意的群体拍照时，只提一种简单排列，再问是否合适。调整一处，不指挥所有细节。"
+        "zh": "为一张大家愿意拍的合影提一个简单站位，再问是否合适。需要时调整一处，不必指挥每个细节。"
       }
     },
     {
       "id": "choice",
       "title": {
         "en": "The Easy-Opt-Out Coordinator",
-        "zh": "方便自选的协调者"
+        "zh": "让大家自在选择是否入镜"
       },
       "summary": {
         "en": "Your picture makes participation a choice people can express without a performance. Joining, staying outside the frame or asking about sharing can all be ordinary parts of the task. A simple shared choice keeps the photo from becoming a test of who belongs in the group.",
-        "zh": "你的照片让参与成为不必表演就能表达的选择。加入、留在画外、询问分享，都可作为普通步骤。一个简单共同选择，能让拍照不变成谁属于群体的考试。"
+        "zh": "在你安排的合影里，参加或不参加都可以直接说。入镜、站在画外、先问清照片怎样分享，都是很普通的选择，不必用拍照来证明谁属于这个群体。"
       },
       "example": {
         "en": "You might say that anyone can step out of a casual picture, then carry on with the willing group without turning the absence into a topic.",
-        "zh": "你可能说明谁都可不参加轻松合影，再继续拍愿意的人，不把缺席变成话题。"
+        "zh": "你可以先说清楚，不想入镜的人可以不参加。然后和愿意的人继续拍照，不把谁没入镜变成话题。"
       },
       "strength": {
         "en": "A clear option can reduce awkward guessing and let the group keep a picture without treating inclusion in it as proof of belonging.",
-        "zh": "清楚选项能减少尴尬猜测，也让群体留影不必把入镜当归属证明。"
+        "zh": "把选择说清楚，就少了一些尴尬的猜测。大家可以留一张合影，也不必把是否入镜当作归属感的证明。"
       },
       "tradeoff": {
         "en": "Asking repeatedly after someone has answered can create the pressure the option was meant to remove. Accepting the first clear answer matters too.",
-        "zh": "对方已答后还反复问，也会带来原本想去掉的压力。接受第一份清楚回答同样重要。"
+        "zh": "对方已经回答后，再三确认也可能带来压力。听见清楚的答复，就接受这一次选择。"
       },
       "experiment": {
         "en": "Before a small group photo, offer a plain option to participate or pass. Accept the response without asking for an explanation or a second decision.",
@@ -316,27 +316,27 @@
       "id": "moment",
       "title": {
         "en": "The One-Memory Coordinator",
-        "zh": "一个记忆瞬间协调者"
+        "zh": "留下一个共同的瞬间"
       },
       "summary": {
         "en": "Your photo keeps a little of what the group was actually doing together. You prefer one chosen memory to a long sequence of poses. The result does not claim that a picture is necessary for an occasion to matter.",
-        "zh": "你的照片保留一点大家实际共同做的事。你偏向一个选中记忆，而非长串摆姿势。结果不宣称活动必须拍照才有意义。"
+        "zh": "你的照片想留下大家确实一起做过的一件小事。比起接连摆姿势，你更愿意选一个瞬间拍下来；一场活动也不必有照片才算有意义。"
       },
       "example": {
         "en": "After a shared model build, you might suggest one picture with the finished piece and then return to the conversation rather than staging another scene.",
-        "zh": "一起拼完模型，你可能提议与成品拍一张就回去聊天，不再摆另一场景。"
+        "zh": "一起拼好模型后，可以和成品拍一张，再回去聊天，不必接着安排下一轮摆拍。"
       },
       "strength": {
         "en": "A bounded memory moment can give the event a small record while leaving most of the time for the experience itself.",
-        "zh": "有边界记忆瞬间能留下小记录，也把大部分时间还给体验本身。"
+        "zh": "只留一个想记住的瞬间，活动就有了小小的记录，大部分时间仍能用来享受相处。"
       },
       "tradeoff": {
         "en": "Choosing a meaningful moment for everyone can be difficult. Asking what people want to keep may work better than selecting the emotional highlight for them.",
-        "zh": "替所有人选有意义瞬间并不容易。问大家想留什么，可能比代选情感高潮更合适。"
+        "zh": "很难替所有人决定哪个瞬间最有意义。先问大家想留下什么，比代选一个“最感动的时刻”更合适。"
       },
       "experiment": {
         "en": "After one willing shared activity, ask whether there is a single moment people want recorded. Let a no-photo ending remain a complete option.",
-        "zh": "一项共同活动后，问是否有一个大家愿记录的瞬间。也让不拍照收尾仍是完整选项。"
+        "zh": "一次共同活动结束后，问问大家有没有一个想拍下来的瞬间。也可以都不拍，让活动直接结束。"
       }
     }
   ],

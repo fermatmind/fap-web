@@ -2,13 +2,13 @@
 import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Locale } from "@/lib/i18n/locales";
-import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
+import type { Questionnaire, QuestionnaireProfile, QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import { recordSocialContext20, type SocialContextRecord } from "@/lib/questionnaires/socialContext20";
 import { questionnairePath } from "@/lib/questionnaires/paths";
 import { SocialContextReport } from "./SocialContextReport";
 const subscribeReady = () => () => undefined;
 const button = "min-h-12 rounded-lg border border-slate-400 px-5 py-3 font-semibold disabled:opacity-50";
-export function SocialContextClient({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
+export function SocialContextClient({ quiz, locale, readingProfiles }: { quiz: Questionnaire; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const zh = locale === "zh", [stage, setStage] = useState<"ready" | "answer" | "result">("ready");
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({}), [position, setPosition] = useState(0);
@@ -48,7 +48,7 @@ export function SocialContextClient({ quiz, locale }: { quiz: Questionnaire; loc
       <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? "上一条" : "Back"}</button><button data-questionnaire-next type="button" className={button} onClick={next}>{position === 19 ? (zh ? "整理观察记录" : "Organize observations") : (zh ? "下一条" : "Next")}</button></div>
       <QuestionnaireLegacyControl><button type="button" className={button} onClick={() => clear(zh ? "已退出并清除回答。" : "Exited and cleared answers.")}>{zh ? "退出并清除" : "Exit and clear"}</button></QuestionnaireLegacyControl>
     </div>}
-    {stage === "result" && <><SocialContextReport quiz={quiz} records={records} locale={locale} /><button type="button" className={button} onClick={() => { clear(); setStage("answer"); }}>{zh ? "清除并重做" : "Clear and retake"}</button><QuestionnaireLegacyControl><button type="button" className={button} onClick={() => clear(zh ? "已退出并清除记录。" : "Exited and cleared the record.")}>{zh ? "退出并清除" : "Exit and clear"}</button></QuestionnaireLegacyControl><button type="button" className={button} onClick={copyPublicEntry}>{zh ? "复制公开入口" : "Copy public entry"}</button></>}
+    {stage === "result" && <><SocialContextReport quiz={quiz} records={records} locale={locale} readingProfiles={readingProfiles} /><button type="button" className={button} onClick={() => { clear(); setStage("answer"); }}>{zh ? "清除并重做" : "Clear and retake"}</button><QuestionnaireLegacyControl><button type="button" className={button} onClick={() => clear(zh ? "已退出并清除记录。" : "Exited and cleared the record.")}>{zh ? "退出并清除" : "Exit and clear"}</button></QuestionnaireLegacyControl><button type="button" className={button} onClick={copyPublicEntry}>{zh ? "复制公开入口" : "Copy public entry"}</button></>}
     {message && <p role="status" className="break-words leading-7">{message}</p>}
   </section>;
 }

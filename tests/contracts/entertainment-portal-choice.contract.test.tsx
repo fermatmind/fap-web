@@ -19,7 +19,7 @@ const bytes = readFileSync("lib/entertainment/data/portal-choice.json");
 const quiz = JSON.parse(bytes.toString()) as FunQuiz;
 describe("portal-choice: authored branching fiction, not tally scoring", () => {
  it("preserves the source bytes and checks all sixteen terminal paths and every incomplete prefix", () => {
-  expect(createHash("sha256").update(bytes).digest("hex")).toBe("c1a3d22eac007a0ee8f99a6b1a09620c48fcf2a85fa741bd66fb190684ae24d6");
+  expect(createHash("sha256").update(bytes).digest("hex")).toBe("39c451fdae230ec560a8764687b01b10e5eac219017a2d4657f9c1560b918b94");
   const lengths: Record<number,number> = {}, endings: Record<string,number> = {};
   for (const [encoded,ending] of routes) {
    const steps=encoded.split(",").map(s=>s.split(":")); const answers: Answers = {};

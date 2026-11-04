@@ -25,17 +25,8 @@ export function WorkTraitsReport({ quiz, result, locale }: {
 }) {
   const zh = locale === "zh";
   return <ResultPage variant="dimensions" className="mt-6 space-y-8" data-work-traits-report>
-    <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
-      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
-      items={quiz.directions.map(direction => {
-        const score = result.facets[direction.id];
-        return { id: direction.id, label: direction.title[locale], href: `#work-traits-${direction.id}`,
-          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
-          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
-      })} />
-    <p className="leading-8">{zh
-      ? "七组按固定顺序显示，不产生总分或胜出类型。每组六条至少五条数字才显示一位小数均值；3表示“有时”，未评分保持缺失。原始和只加有效项。均值相同可能来自不同回答、机会和任务，不代表七组已在同一人格尺度上校准。"
-      : "Seven groups stay in a fixed order without a total or winning type. Each six-item group needs five numeric ratings for a mean rounded to one decimal. A 3 means Sometimes; unscored remains missing. Raw sums include rated items only. Equal means can reflect different responses, opportunities and tasks; the groups are not calibrated to a common personality scale."}</p>
+
+
     <WorkTraitsContext locale={locale} />
     {quiz.directions.map(direction => {
       const facet = result.facets[direction.id], profile = quiz.profiles.find(item => item.directionIds[0] === direction.id)!;
@@ -51,10 +42,25 @@ export function WorkTraitsReport({ quiz, result, locale }: {
         <p className="mb-4 leading-7">{facet.mean === null
           ? (zh ? "以下完整指南对所有人相同，不是本次个人特质结论。" : "The complete guide below is identical for everyone, not a personal trait conclusion from this attempt.")
           : (zh ? "更频繁不自动代表更合适、表现更好或更符合雇主要求；以下读法对所有回答相同。" : "More frequent does not automatically mean more appropriate, better performance or a better employer fit. The reading below is the same for every response pattern.")}</p>
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`work-traits-report-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`work-traits-report-${profile.id}`} mode="result" previewSectionIds={["meaning", "example", "practice", "permission"]} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本组完整公开指南" : "Read this group’s full public guide"}</Link>
       </section>;
     })}
+
+    <details className="border-t border-slate-200 pt-4" data-result-reading-method>
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
+      <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
+      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
+      items={quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return { id: direction.id, label: direction.title[locale], href: `#work-traits-${direction.id}`,
+          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
+          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
+      })} />
+      <p className="leading-8">{zh
+      ? "七组按固定顺序显示，不产生总分或胜出类型。每组六条至少五条数字才显示一位小数均值；3表示“有时”，未评分保持缺失。原始和只加有效项。均值相同可能来自不同回答、机会和任务，不代表七组已在同一人格尺度上校准。"
+      : "Seven groups stay in a fixed order without a total or winning type. Each six-item group needs five numeric ratings for a mean rounded to one decimal. A 3 means Sometimes; unscored remains missing. Raw sums include rated items only. Equal means can reflect different responses, opportunities and tasks; the groups are not calibrated to a common personality scale."}</p>
+    </details>
   </ResultPage>;
 }
 

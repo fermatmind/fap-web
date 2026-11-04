@@ -1,7 +1,7 @@
 {
   "slug": "gift-note",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "relationships",
   "title": {
     "en": "What Would Your Gift Note Say?",
@@ -266,7 +266,7 @@
       },
       "summary": {
         "en": "Your note keeps a little piece of time the two of you already share. A small detail can make an ordinary object feel connected without a grand declaration. This is the voice you chose for this card, not the only way you express care.",
-        "zh": "你的纸条留下一小块两人已经共享的时间。一个小细节，就能让普通物件有联系，不必宏大宣言。这是本卡所选声音，不是你表达关心的唯一方式。"
+        "zh": "你的纸条，留住了一小段两人共同经历过的时间。一个具体细节，就能让普通礼物带上彼此的联系，不必写成郑重宣言。这只是你本次为卡片选择的表达方式，不是你关心别人的唯一方式。"
       },
       "example": {
         "en": "A handmade bookmark might carry a line about the rainy afternoon when you both kept rereading the same funny paragraph.",
@@ -282,7 +282,7 @@
       },
       "experiment": {
         "en": "Write two plain lines about a harmless shared moment. Keep one concrete detail and leave out any claim about what the other person must remember or feel.",
-        "zh": "为一个无害共同瞬间写两句普通话。留一个具体细节，不替对方规定一定记得或感到什么。"
+        "zh": "为一个不涉及隐私的共同片刻，写两句简单的话。留下一个具体细节，不替对方规定一定记得什么、一定有什么感受。"
       }
     },
     {
@@ -293,7 +293,7 @@
       },
       "summary": {
         "en": "Your card names something the recipient actually did. The thanks can stand on its own rather than becoming a request for more of the same. This ending values a concrete acknowledgment without measuring either person’s generosity.",
-        "zh": "你的卡片说出对方实际做过什么。感谢本身成立，不变成继续这样做的请求。结局珍惜具体致意，不衡量任何一方慷慨多少。"
+        "zh": "你的卡片会说清，对方实际做过哪件让你感谢的事。道谢本身就可以完整，不必接着要求对方以后还这么做。这是在表达一次具体的感谢，不是在衡量谁更慷慨。"
       },
       "example": {
         "en": "You might thank a friend for sending the map that made your small outing easier, instead of telling them they must always be the organized one.",
@@ -301,7 +301,7 @@
       },
       "strength": {
         "en": "Naming the act makes appreciation understandable and lets the recipient know what reached you without assigning them a permanent helping role.",
-        "zh": "说清行动让欣赏易懂，也让对方知道什么被接收，而不被分配永久帮忙角色。"
+        "zh": "把行动说具体，对方就更容易知道哪件事帮到了你，也不用因此一直承担帮助你的职责。"
       },
       "tradeoff": {
         "en": "A thank-you can become heavy if it carries expectations of a particular response. A brief note can leave the receiver free to accept it quietly.",
@@ -309,7 +309,7 @@
       },
       "experiment": {
         "en": "Thank someone for one specific voluntary act and stop there. Leave out a request, a repayment promise or a prediction of what they will do next.",
-        "zh": "为一个具体自愿行动向人道谢，就停在那里。不附请求、偿还承诺或对之后行动的预测。"
+        "zh": "为对方自愿做的一件具体事情道谢，然后就停在这份感谢上。不附带新请求、偿还承诺，或对方下一次还会怎么做的预期。"
       }
     },
     {
@@ -320,23 +320,23 @@
       },
       "summary": {
         "en": "Your note offers a wish without writing the recipient’s future for them. You can hope something goes well while leaving the form of that good outcome open. The portrait describes a small message, not your ability to predict what another person needs.",
-        "zh": "你的便条送祝愿，不代写对方未来。可以希望事情顺利，也让怎样算好结果保持开放。画像描述小信息，不证明你能预测别人需要什么。"
+        "zh": "你愿意送上一句祝愿，却不替朋友写好未来的样子。可以希望事情顺利，也允许对方自己决定什么算好结果。这是一种写卡片的方式，不表示你能预知别人需要什么。"
       },
       "example": {
         "en": "For a friend starting a hobby, you might wish them enjoyable time with it rather than promising that it will become their new passion.",
-        "zh": "朋友开始一项爱好，你可能祝有愉快相处时间，不许诺它会成为对方新的热爱。"
+        "zh": "朋友刚开始一个爱好时，你可能祝对方玩得愉快，而不是断言它一定会成为对方新的热爱。"
       },
       "strength": {
         "en": "An open wish can feel supportive without making a particular achievement or emotional response a condition of receiving the gift.",
-        "zh": "开放祝愿可以支持人，不把特定成就或情绪反应设成收下礼物的条件。"
+        "zh": "不规定结果的祝愿，也可以带来支持。收下礼物，不需要以某项成就或特定的情绪反应作为条件。"
       },
       "tradeoff": {
         "en": "A very broad wish can sound distant. Linking it to something the person has actually said they want gives the note a more particular shape.",
-        "zh": "祝愿太宽也会显远。连到对方实际表达过想要的东西，便条会更具体。"
+        "zh": "祝愿太笼统，也可能显得疏远。连到对方真正说过想做的事情上，这句话就更具体。"
       },
       "experiment": {
         "en": "Write one short wish tied to a preference the person has expressed. Keep their freedom to change that preference visible in the wording.",
-        "zh": "为对方说过的一个偏好写短祝愿，也在措辞里保留以后改变偏好的自由。"
+        "zh": "围绕对方表达过的一个愿望，写一句简短祝福。也在措辞里，留下对方以后改变想法的余地。"
       }
     }
   ],

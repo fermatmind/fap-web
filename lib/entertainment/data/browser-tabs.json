@@ -1,7 +1,7 @@
 {
   "slug": "browser-tabs",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "everyday",
   "title": {
     "en": "What Is Your Casual-Tab Keeping Style?",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Keeping a casual online interest through the question behind it, an immediate small trial or an optional place to revisit later.",
-    "zh": "通过背后问题、当下小试或以后可回看的位置，保留随手在线兴趣。"
+    "zh": "面对随手打开的兴趣网页，你更想记住问题、动手试试，还是留到以后再看？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -266,77 +266,77 @@
       },
       "summary": {
         "en": "Your imaginary tab keeps the reason you opened it. A short question can remain useful even when the page itself is no longer left on screen. The portrait values a clear thread of curiosity rather than a requirement to research everything thoroughly.",
-        "zh": "你的想象标签页留着打开理由。短问题仍可有用，页面本身不必一直在屏幕。画像珍惜清楚好奇线索，不要求把一切彻底研究。"
+        "zh": "你希望留下的，不只是一个网页，还有当初打开它的那个问题。即使关掉页面，一句简短的提问也能帮你记住兴趣所在。这不意味着每份好奇都要研究到底，只是为以后回看留一条线索。"
       },
       "example": {
         "en": "You might note “Which paper fold makes this corner work?” beside one hobby reference instead of saving ten similar pages with no explanation.",
-        "zh": "你可能在一份爱好参考旁记“哪个折法让这角成立？”，不存十页却不知为何。"
+        "zh": "你可能在一份折纸参考旁记下“这个角是怎么折出来的？”，而不是存下十个相似网页，之后却忘了为什么收藏。"
       },
       "strength": {
         "en": "A remembered question can help you choose what to revisit and recognize when the current interest has been answered well enough.",
-        "zh": "记得问题能帮你选回看什么，也识别当前兴趣何时已得到足够回答。"
+        "zh": "记住自己想问什么，有助于决定回看哪份资料，也更容易知道一个问题什么时候已经得到了够用的答案。"
       },
       "tradeoff": {
         "en": "A question can become overly narrow and hide an enjoyable detour. Leaving a little optional browsing room can preserve the play.",
-        "zh": "问题过窄也会藏住愉快岔路。留一点可选随意翻，能保留游戏感。"
+        "zh": "如果只盯着原先的问题，也可能错过有趣的发现。留一点随意浏览的空间，兴趣才不容易变成任务。"
       },
       "experiment": {
         "en": "For one casual interest, write the single question that brought you there. Keep one useful reference and let the rest stay optional.",
-        "zh": "给一个休闲兴趣写带你来的单一问题。留一份有用参考，其余仍可选。"
+        "zh": "为一个休闲兴趣写下最初吸引你的那个问题。留下一个有用的参考网页，其他内容想不想继续看，都可以。"
       }
     },
     {
       "id": "action",
       "title": {
         "en": "The One-Small-Try Keeper",
-        "zh": "接一次小试的标签页保管者"
+        "zh": "先动手试试的标签页保管者"
       },
       "summary": {
         "en": "Your tab points toward a little thing you actually want to try. The interest can become an experience before it becomes a collection. This ending does not say that reading for pleasure must always produce an action.",
-        "zh": "你的标签页指向一件真想试的小事。兴趣可以先成体验，再决定是否成收藏。结局不说享受阅读必须产出行动。"
+        "zh": "你想让网页上的点子，变成一件可以亲手试试的小事。先体验一次，再决定要不要继续收集资料，也很合适。当然，阅读本身也可以有乐趣，并不是每次看完都必须行动。"
       },
       "example": {
         "en": "After seeing a fictional paper-flower guide, you might try one fold with spare paper before collecting more variations.",
-        "zh": "看到虚构纸花说明后，你可能先用散纸试一折，再决定是否收更多变化。"
+        "zh": "在虚构的纸花教程里看到一种折法后，你可能先拿一张闲置的纸试折一次，再决定要不要收集其他样式。"
       },
       "strength": {
         "en": "A small trial can make a casual idea concrete and reveal whether you want to keep exploring without committing to a larger project.",
-        "zh": "小试让随手想法具体，也让你看是否想继续，不必承诺大项目。"
+        "zh": "一次小尝试能让想法变得具体，也能帮你判断还想不想继续，不必一开始就给自己定下大项目。"
       },
       "tradeoff": {
         "en": "Moving to action too quickly can skip a detail you wanted to understand. A brief return to the relevant explanation can help the trial stay enjoyable.",
-        "zh": "动得太快也会跳过想懂的细节。短回相关说明，让尝试更愉快。"
+        "zh": "动手太快，有时会略过你原本想弄懂的细节。需要时回头读一小段说明，也能让尝试更顺畅。"
       },
       "experiment": {
         "en": "Choose one reversible hobby trial from something already available to you. After trying, decide separately whether another step would be fun.",
-        "zh": "从已有可用东西选一次可撤回爱好小试。试后再另选下一步是否有趣。"
+        "zh": "用手边已有的材料，做一次容易停止或调整的兴趣小尝试。试完后，再决定下一步是否仍然有趣。"
       }
     },
     {
       "id": "shelf",
       "title": {
         "en": "The Optional-Interest Shelf Keeper",
-        "zh": "稍后兴趣架保管者"
+        "zh": "为兴趣留个位置的保管者"
       },
       "summary": {
         "en": "Your casual links have a place to wait without remaining active tasks. A small shelf can be browsed when you want and ignored when you do not. The portrait values optional return rather than measuring how efficiently you clear a browser.",
-        "zh": "你的休闲链接有一处可等的位置，不必持续当活动任务。小架子想看可看，不想也可忽略。画像珍惜可选返回，不测清浏览器效率。"
+        "zh": "你想给感兴趣的链接找个暂存的位置，而不是让它们一直占着屏幕、像未完成的任务一样提醒自己。想看时回来翻翻，不想看也可以放着。这里重视的是随时可回看的自由，不是清理浏览器的效率。"
       },
       "example": {
         "en": "You might keep a short list of playful exhibition ideas under one plain title, without assigning yourself a date to visit each one.",
-        "zh": "你可能把几个趣味展览想法放在一条普通标题下，不给自己逐一参观日期。"
+        "zh": "你可能把几个有趣展览记在同一份清单里，用一个容易认出的标题归拢，却不给自己规定逐一参观的日期。"
       },
       "strength": {
         "en": "An optional place can separate a genuine interest from a commitment and reduce the pressure to finish every curiosity before moving on.",
-        "zh": "可选位置能分清真实兴趣与承诺，减少必须先完成每份好奇才可继续的压力。"
+        "zh": "给兴趣留一个暂存处，可以分清“我有兴趣”和“我答应要做”，不用先完成每一份好奇，才能继续别的事。"
       },
       "tradeoff": {
         "en": "A shelf can become so large that it is no longer enjoyable to revisit. Keeping only what still interests you can make the collection lighter.",
-        "zh": "架子大到不想再看时，也失去作用。只留仍有兴趣的，集合可更轻。"
+        "zh": "收藏太多，多到自己都不想回看时，这个暂存处也会失去作用。只留下仍有兴趣的内容，可以让清单轻一点。"
       },
       "experiment": {
         "en": "Make a tiny optional list from a few casual interests. Give yourself permission to remove an entry without calling the original curiosity a waste.",
-        "zh": "从几个休闲兴趣做极小可选清单。允许移走一条，也不把原先好奇叫浪费。"
+        "zh": "从几个休闲兴趣开始，做一份很短的备选清单。允许自己移除某一项，不必因此觉得当初的好奇是浪费。"
       }
     }
   ],

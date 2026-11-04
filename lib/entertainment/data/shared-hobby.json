@@ -1,7 +1,7 @@
 {
   "slug": "shared-hobby",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "relationships",
   "title": {
     "en": "How Would You Share a Hobby Hour?",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Sharing an interest through a small guest experience, parallel activities or a reciprocal short exchange.",
-    "zh": "通过小小来宾体验、并行活动或双向短交换来分享兴趣。"
+    "zh": "爱好不同也可以一起玩：去对方的活动里体验一小轮、并排各做各的，或轮流分享一点兴趣。"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -266,23 +266,23 @@
       },
       "summary": {
         "en": "Your shared hour includes a visit to the other person’s interest without requiring you to move in permanently. One enjoyable small trial can count. The portrait values a guest experience rather than measuring how devoted you are to someone else.",
-        "zh": "你的共玩时间像到对方兴趣里做客，不要求永久入住。一次愉快小试就算数。画像珍惜来宾体验，不测你对别人多投入。"
+        "zh": "你愿意到对方的爱好里做一会儿客，不必从此也把它变成自己的爱好。试一小轮，觉得愉快就已经足够；这不衡量你对一个人有多投入。"
       },
       "example": {
         "en": "You might try one paper fold your friend enjoys, ask for the help you want and leave learning the full craft as a separate choice.",
-        "zh": "你可能试朋友喜欢的一种折纸，按需问帮助，把是否学整门手艺留作另一次选择。"
+        "zh": "试一种朋友喜欢的折纸，遇到不懂的地方就请对方帮忙。要不要学完整门手艺，可以以后再决定。"
       },
       "strength": {
         "en": "A bounded guest role can make curiosity comfortable and let another person share a favorite activity without needing to recruit a permanent partner.",
-        "zh": "有边界来宾角色让好奇舒服，也让人分享喜爱活动，不必招募永久伙伴。"
+        "zh": "只体验一小段，好奇也能保持轻松。对方可以分享自己喜欢的活动，不必因此找到一个长期搭档。"
       },
       "tradeoff": {
         "en": "Always being the guest can leave your own interests outside the time together. A separate invitation can keep the exchange from becoming one-sided.",
-        "zh": "总当客人也会让自己兴趣留在共同时间外。另一次邀请能让交流不单向。"
+        "zh": "如果总是体验对方的爱好，自己的兴趣也可能没有机会被看见。另找一次机会发出邀请，就能让分享有来有回。"
       },
       "experiment": {
         "en": "Try one small part of a willing person’s hobby and name one thing you enjoyed. Leave a future invitation open rather than promising a new shared identity.",
-        "zh": "试愿意者爱好里一小部分，说一个喜欢之处。未来邀请开放，不许诺全新共同身份。"
+        "zh": "在对方愿意分享时，试一小部分活动，再说一个喜欢的地方。以后还可以再约，不必承诺从此拥有同一个爱好。"
       }
     },
     {
@@ -293,23 +293,23 @@
       },
       "summary": {
         "en": "Your shared hobby time does not require a single shared task. Different materials can occupy the same hour, and a little conversation can come and go. The ending values parallel company rather than treating different interests as distance between people.",
-        "zh": "你的共玩时间不要求单一共同任务。不同材料可在同一小时，聊天也可来去。结局珍惜并行作伴，不把不同兴趣当成人与人疏远。"
+        "zh": "一起度过一段爱好时间，不一定要做同一件事。你们可以各用各的材料，偶尔聊几句，也可以继续安静地做。兴趣不同，不一定就代表彼此疏远。"
       },
       "example": {
         "en": "One person might sketch while another repairs a small model, occasionally showing a detail without turning either activity into a joint assignment.",
-        "zh": "一人速写，另一人修小模型，偶尔展示细节，不把任何一项变共同作业。"
+        "zh": "一个人速写，另一个人修小模型，偶尔给对方看看一个细节，不必把任何一项变成共同任务。"
       },
       "strength": {
         "en": "Parallel making can preserve both interests and reduce the pressure to match skill, pace or enthusiasm throughout a shared visit.",
-        "zh": "并行创作能保留双方兴趣，减少整段到访必须同步熟练、节奏与热情的压力。"
+        "zh": "并排各做各的，双方都能保留自己的兴趣，不必整段时间都在熟练程度、节奏或兴致上保持一致。"
       },
       "tradeoff": {
         "en": "Parallel time can feel separate if no shared expectation is named. A brief check about company and quiet can make the arrangement easier to enjoy.",
-        "zh": "共同预期没说明时，并行也会像分开。简短问作伴与安静需求，安排更自在。"
+        "zh": "如果没有先说好，各做各的也可能让人觉得只是待在同一个地方。简单问问对方想聊天还是安静作伴，会更自在。"
       },
       "experiment": {
         "en": "Offer one short side-by-side session with a willing person and agree on how much conversation each wants. Let both activities keep their own pace.",
-        "zh": "和愿意的人约一次短并排时间，说清各想聊多少，让两项活动保持自己节奏。"
+        "zh": "和愿意的人约一小段并排做事的时间，先说说各自想聊多少，再让两项活动按自己的节奏进行。"
       }
     },
     {
@@ -320,23 +320,23 @@
       },
       "summary": {
         "en": "Your hobby hour gives each person a small turn to invite the other in. The exchange can be mutual without matching minutes or effort exactly. The portrait does not make attention to an interest something that must always be repaid.",
-        "zh": "你的爱好时间给每人一个邀请对方进入的小回合。交换可双向，不必精确匹配分钟精力。画像不把关注兴趣变成必须偿还的东西。"
+        "zh": "你们轮流邀请对方，体验一点自己的爱好。分享可以有来有回，不需要精确计算时间和精力，也不表示别人关注过你的兴趣，你就欠下一次回报。"
       },
       "example": {
         "en": "You might spend a short round trying a friend’s puzzle and another making a tiny drawing together, with either person free to skip a turn.",
-        "zh": "你可能短试朋友谜题，再一起画小画，任何一方都可跳过一轮。"
+        "zh": "可以先试一小轮朋友的谜题，再一起画一张小画。任何一方都可以跳过一轮。"
       },
       "strength": {
         "en": "A short exchange can make different interests visible and give both people a concrete way to share something they chose.",
-        "zh": "短交换让不同兴趣可见，也给双方一个具体分享自己所选之物的方式。"
+        "zh": "短短一次交换，就能看见对方的兴趣，也让双方各有机会分享自己选的内容。"
       },
       "tradeoff": {
         "en": "Keeping an exact balance can make a playful exchange feel like accounting. Mutual interest can stay clear without tracking every minute.",
-        "zh": "追求精确平衡，会让趣味交换像算账。不追踪每分钟，也可有清楚双向兴趣。"
+        "zh": "如果每一分钟都要平衡，轻松分享也会变成算账。不必计算得一模一样，也可以彼此感到被关心。"
       },
       "experiment": {
         "en": "Invite a two-part hobby exchange with small optional turns. Ask afterward what each person actually enjoyed before deciding whether to repeat it.",
-        "zh": "邀一次双部分爱好交换，每轮小且可选。之后问各自真喜欢什么，再决定是否重复。"
+        "zh": "试着约一次分两小轮的爱好交换，每轮都自愿参加。结束后问问双方真正喜欢什么，再决定还想不想一起试。"
       }
     }
   ],

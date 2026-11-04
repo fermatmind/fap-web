@@ -27,7 +27,7 @@ export function QuestionnaireFourAxesReport({ quiz, result, locale, readingProfi
           <div aria-hidden="true" className="mt-2 flex h-4 overflow-hidden rounded-full bg-violet-100"><div className="bg-violet-700" style={{ width: `${value.lowPercent}%` }} /><div className="bg-teal-600" style={{ width: `${value.highPercent}%` }} /></div>
         </div>
         <p data-four-axes-sum className="mb-5 text-sm leading-7">{zh ? `原始和：${value.sum} / 60；高端位置：${value.sum} ÷ 60 × 100。显示一位小数。` : `Raw sum: ${value.sum} / 60; high-end position: ${value.sum} ÷ 60 × 100. Displayed to one decimal.`}</p>
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`four-axes-report-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`four-axes-report-${profile.id}`} mode="result" previewSectionIds={["meaning", "context", "reflection"]} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "单独阅读本轴完整公开指南" : "Read this axis’s complete public guide separately"}</Link>
       </section>;
     })}

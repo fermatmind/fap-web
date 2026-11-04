@@ -53,7 +53,7 @@ export function QuestionnaireParentingPracticesReport({ quiz, result, locale, re
         return <section key={profile.id} data-parenting-practices-guide={profile.id}
         aria-labelledby={`parenting-practices-guide-${profile.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
         <h3 id={`parenting-practices-guide-${profile.id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`parenting-practices-report-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`parenting-practices-report-${profile.id}`} mode="result" previewSectionIds={[`${profile.id}-3`, `${profile.id}-7`]} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline"
           href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "打开这份完整公开指南" : "Open this complete public guide"}</Link>
       </section>;})}

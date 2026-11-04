@@ -8,7 +8,7 @@ import { additionalStoryEditorials } from "@/components/entertainment/Additional
 vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
 afterEach(() => vi.unstubAllEnvs());
 const fixtures = [
- {slug:"spell-school-elective",hash:"474084b272c55fdf50d9e3aa68b51919f8ed36673a323e5878627d3bd5d30bb4",mapping:[["weather","architecture","echo","floating"],["architecture","echo","floating","weather"],["echo","floating","weather","architecture"],["floating","weather","architecture","echo"],["weather","echo","architecture","floating"],["architecture","floating","echo","weather"]]},
+ {slug:"spell-school-elective",hash:"5fe0ae5caf7dbbd11b63d09e144a5b52b8554756f9f37caec28e33c7bf9996de",mapping:[["weather","architecture","echo","floating"],["architecture","echo","floating","weather"],["echo","floating","weather","architecture"],["floating","weather","architecture","echo"],["weather","echo","architecture","floating"],["architecture","floating","echo","weather"]]},
 ];
 for (const {slug,hash,mapping} of fixtures) describe(slug,()=>{
  const bytes=readFileSync(`lib/entertainment/data/${slug}.json`);const quiz=JSON.parse(bytes.toString()) as FunQuiz;

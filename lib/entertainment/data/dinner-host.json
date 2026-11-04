@@ -1,7 +1,7 @@
 {
   "slug": "dinner-host",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "social",
   "title": {
     "en": "What Kind of Casual Dinner Host Are You?",
@@ -266,23 +266,23 @@
       },
       "summary": {
         "en": "Your fictional dinner has a clear unfolding shape. The ready part begins, the next part has its moment and the meal can finish without confusion. The portrait values a useful sequence rather than a perfectly controlled evening.",
-        "zh": "你的虚构晚餐有清楚展开形状。备好的部分开始，下一部分有自己的时刻，也能明白收尾。画像珍惜有用顺序，不追求完美控制夜晚。"
+        "zh": "你想象中的晚餐，有一个容易跟上的顺序。准备好的部分先开始，接着自然进入下一环节，最后也知道怎样收尾。顺序是为了让大家方便参与，不是要把整个晚上控制得分毫不差。"
       },
       "example": {
         "en": "You might put one simple shared plate on the table while the next planned part is being finished, so the guests understand where the meal is in its sequence.",
-        "zh": "你可能先上一份简单共同餐盘，再完成已计划的下一部分，让来客知道晚餐进到哪里。"
+        "zh": "你可能先上一盘简单的共享菜，再完成原先安排的下一道，让客人知道晚餐正进行到哪个部分。"
       },
       "strength": {
         "en": "A modest sequence can make preparation and participation easier to follow without requiring every minute of conversation to be scheduled.",
-        "zh": "适度顺序让准备与参与更易跟随，不必把每分钟聊天都排进日程。"
+        "zh": "一个简单的顺序，能让准备和用餐更容易衔接，不必连聊天的每一分钟都排进日程。"
       },
       "tradeoff": {
         "en": "A sequence can become inflexible if the host feels every planned moment must happen. A pleasant conversation may justify changing the order.",
-        "zh": "若主人觉得每个计划时刻都必须发生，顺序会变僵。愉快聊天也可以成为改顺序的理由。"
+        "zh": "如果觉得所有计划环节都必须发生，顺序也会变得僵硬。大家正聊得开心，就可以为此调整安排。"
       },
       "experiment": {
         "en": "For one small shared event, name just the beginning, main part and finish. Leave the timing between them loose enough for the people actually there.",
-        "zh": "为一次小共同活动，只定开始、主体和结束。中间时间留松一点，容纳实际在场的人。"
+        "zh": "下次安排小型聚会，只定好怎么开始、主要做什么、怎样结束。中间的时间留松一点，照顾当时在场的人。"
       }
     },
     {
@@ -293,23 +293,23 @@
       },
       "summary": {
         "en": "Your table offers a few understandable choices rather than one required way to take part. Different preferences can sit in the same meal. This ending concerns hosting style, not a claim that a set of options can meet every person’s needs.",
-        "zh": "你的餐桌提供几种易懂选择，不要求唯一参与方式。不同偏好可以坐在同一餐里。结局只谈请客方式，不宣称一组选项能满足每个人全部需求。"
+        "zh": "你想让同一张餐桌上，不同偏好的人都有一点选择。大家不必按唯一的方式参与，也仍然可以一起享受这顿饭。不过，几组选项未必能满足每个人的所有需要，还是要具体询问。"
       },
       "example": {
         "en": "For a fictional build-your-own supper, you might explain the available parts clearly and let each guest choose a combination instead of assigning everyone the same plate.",
-        "zh": "虚构自选晚餐里，你可能说清现有部分，让各人搭配，不给所有人分同一盘。"
+        "zh": "在虚构的自选晚餐里，你可能说清有哪些食物可以搭配，让每位客人自己选择，而不是给所有人分同样的一盘。"
       },
       "strength": {
         "en": "A small choice can give guests agency while keeping the gathering shared, especially when everyone understands what the available options are.",
-        "zh": "小选择能给来客自主，也让聚会继续共同，尤其当大家明白现有选项时。"
+        "zh": "让客人知道有哪些选择，再自己决定，既能保留自主，也不会失去一起用餐的感觉。"
       },
       "tradeoff": {
         "en": "Too many options can multiply preparation and make choosing tiring. A few distinct choices may be more usable than an elaborate range.",
-        "zh": "选项过多会放大准备，也让选择累。几种分明选项，可能比庞大范围更好用。"
+        "zh": "选项太多，会增加准备工作，也可能让人选得累。几种差别明确的选择，有时比一长串更好用。"
       },
       "experiment": {
         "en": "Offer two clear options in one small shared activity and leave the recipient free to choose. Notice whether the options help or simply add complexity.",
-        "zh": "在一个小共同活动里提供两个清楚选项，让接收者自由选择。看看它们有帮助，还是只增加复杂。"
+        "zh": "在一次小型共同活动里，提供两个清楚的选项，让对方自由选择。看看这些选项是否真的有帮助，还是只让事情更复杂。"
       }
     },
     {
@@ -320,23 +320,23 @@
       },
       "summary": {
         "en": "Your hosting plan leaves room for the person who made the invitation to enjoy it too. Removing an extra dish can be a positive design choice. The portrait does not equate a simple meal with low effort or limited care.",
-        "zh": "你的请客计划也给发出邀请的人留下享受空间。去掉额外一道，可以是积极设计选择。画像不会把简单一餐等同敷衍或少关心。"
+        "zh": "你的请客安排，也给自己留了坐下来享受聚会的空间。少准备一道额外的菜，可以是认真考虑后的选择。简单的一餐，不等于敷衍，也不等于关心少了。"
       },
       "example": {
         "en": "You might choose one manageable main arrangement and a simple finish so you can spend the evening at the table rather than repeatedly leaving to prepare more.",
-        "zh": "你可能选一个好掌握的主体安排与简单收尾，让自己留在桌边，而非反复起身继续准备。"
+        "zh": "你可能选一套做得过来的主餐和简单收尾，让自己能留在桌边，而不是整个晚上反复起身准备。"
       },
       "strength": {
         "en": "A manageable scale can protect the purpose of the gathering and make it easier to offer another invitation in the future.",
-        "zh": "容易掌握的规模，能照顾聚会原本目的，也让以后再发邀请容易一点。"
+        "zh": "把规模控制在做得过来的范围，更容易保住聚会原本想一起相处的目的，也让以后再请客不那么费力。"
       },
       "tradeoff": {
         "en": "Simplifying without checking can remove something guests were relying on. A short conversation helps distinguish an optional flourish from a useful part of the plan.",
-        "zh": "不先询问就简化，也可能删掉来客正需要的东西。短商量能分清额外花样与有用安排。"
+        "zh": "如果没先问就删减安排，也可能删掉客人原本需要的部分。简短商量一下，能分清哪些只是额外花样，哪些确实有用。"
       },
       "experiment": {
         "en": "Before a small invitation, remove one optional flourish and keep one thing you genuinely want to share. Check that the remaining plan is clear to everyone involved.",
-        "zh": "一次小邀请前，去掉一项可选花样，保留一件确实想分享的东西。让相关的人都明白剩下安排。"
+        "zh": "下次小型邀约前，少安排一项可有可无的花样，留下一件你真想分享的事。也让参与者知道剩下怎样安排。"
       }
     }
   ],

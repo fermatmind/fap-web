@@ -1,3 +1,4 @@
+import { ResultReadingNav } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -8,7 +9,21 @@ import type { Locale } from "@/lib/i18n/locales";
 export function QuestionnaireDarkTriadReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh", available = Object.values(result.facets).filter(f => f.rated >= 4).length;
   return <div className="my-6 space-y-8">
-    <section className="space-y-4 rounded-lg bg-slate-50 p-4" aria-labelledby="dtt-summary-title">
+
+    <ResultReadingNav collapsible label={zh ? "选择想读的部分" : "Choose a part to read"} sections={quiz.profiles.map(profile => ({ id: `dtt-title-${profile.id}`, title: profile.title[locale] }))} />
+
+
+    {quiz.profiles.map(profile => <section key={profile.id} data-dtt-profile={profile.id} aria-labelledby={`dtt-title-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
+      <h3 id={`dtt-title-${profile.id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
+      {(() => { const facet = result.facets[profile.directionIds[0]], mean = facet.rated >= 4 ? facet.sum / facet.rated : null; return <p className="mb-5 text-lg font-semibold tabular-nums">{zh ? "本次均分：" : "Your mean: "}{mean === null ? (zh ? "资料不足" : "Insufficient information") : `${mean.toFixed(2)} / 5`}</p>; })()}
+
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} mode="result" previewSectionIds={["theme", "example", "optional-check"]} />
+      <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一主题的公开说明" : "Read this theme’s public explanation"}</Link>
+    </section>)}
+
+    <details className="border-t border-slate-200 pt-4" data-result-reading-method>
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "全部读数、计分与使用说明" : "All readings, scoring and use notes"}</summary>
+      <section className="space-y-4 rounded-lg bg-slate-50 p-4" aria-labelledby="dtt-summary-title">
       <h3 id="dtt-summary-title" className="text-xl font-semibold">{zh ? "过去三个月，三组分别阅读" : "Three separate readings of the past three months"}</h3>
       <p className="leading-8">{zh ? `${available} / 3组有足够数值。每组六条至少四条有效，才显示原始和、有效条数与从未舍入原始和除以有效条数计算的两位描述性均分。全部同向、0反向；不愿回答排除，不补零或3。` : `${available} / 3 groups have enough numeric ratings. Each six-item group needs four ratings for its raw sum, rated count and two-decimal descriptive mean from the unrounded sum divided by that count. All items are direct, with zero reversals; unscored responses are excluded without zero or three substitution.`}</p>
       <dl className="space-y-5">{quiz.directions.map(direction => {
@@ -22,11 +37,7 @@ export function QuestionnaireDarkTriadReport({ quiz, result, locale }: { quiz: Q
       {available === 0 && <p data-dtt-insufficient className="leading-8">{zh ? "本次作答已结束，没有生成个人均分。无需补答，三份完整说明仍在下方。" : "This attempt is finished without personal means. No further answers are required; all three full guides remain below."}</p>}
       <p className="text-sm leading-7">{zh ? "1完全不符合、2比较不符合、3不确定或视情况、4比较符合、5非常符合。均分描述符合度，不是频率或强度。三组不加总、不排序、不设阈值或派最高型，也不与SD3或Dirty Dozen换算。均分不证明等距精度、可靠改变、临床人格、善恶、能力、安全或风险。" : "1 Very inaccurate, 2 Somewhat inaccurate, 3 Uncertain or depends on the situation, 4 Somewhat accurate, 5 Very accurate. Means describe accuracy, not frequency or intensity. Groups are not added, ranked, assigned thresholds or converted into a dominant type, SD3 or Dirty Dozen scores. Means establish neither interval precision, reliable change, clinical personality, morality, ability, safety nor risk."}</p>
     </section>
-    <p className="leading-8">{zh ? "三份完整说明全部保留，包括资料不足的组。它们是具体主题的说明，不是三种人格。可以读完后结束，不需另一测评解锁。" : "All three full guides remain available, including for insufficient groups. They explain specific themes rather than three personalities. You may finish after reading, without another assessment unlocking anything."}</p>
-    {quiz.profiles.map(profile => <section key={profile.id} data-dtt-profile={profile.id} aria-labelledby={`dtt-title-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
-      <h3 id={`dtt-title-${profile.id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
-      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
-      <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一主题的公开说明" : "Read this theme’s public explanation"}</Link>
-    </section>)}
+      <p className="leading-8">{zh ? "三份完整说明全部保留，包括资料不足的组。它们是具体主题的说明，不是三种人格。可以读完后结束，不需另一测评解锁。" : "All three full guides remain available, including for insufficient groups. They explain specific themes rather than three personalities. You may finish after reading, without another assessment unlocking anything."}</p>
+    </details>
   </div>;
 }

@@ -22,7 +22,7 @@ export function QuestionnaireRosenbergReport({ quiz, result, locale }: {
     </section>
     <section aria-labelledby="rses-reading-heading">
       <h3 id="rses-reading-heading" className="mb-4 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
-      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix="rses-score-reading" />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix="rses-score-reading" mode="result" previewSectionIds={["global", "context", "reflection"]} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读公开的完整分数说明" : "Read the complete public score guide"}</Link>
     </section>
   </div>;

@@ -40,7 +40,7 @@ export function QuestionnaireScs26Report({ quiz, result, locale }: {
     </section>
     {quiz.profiles.map(profile => <section key={profile.id} aria-labelledby={`scs26-guide-${profile.id}`}>
       <h3 id={`scs26-guide-${profile.id}`} className="scroll-mt-24 mb-4 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
-      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`scs26-${profile.id}`} />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`scs26-${profile.id}`} mode="result" previewSectionIds={["meaning", "example", "action"]} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这份公开完整指南" : "Read this complete public guide"}</Link>
     </section>)}
   </div>;

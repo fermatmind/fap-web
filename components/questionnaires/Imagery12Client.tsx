@@ -78,7 +78,7 @@ function ValidImagery12Client({ quiz, locale, readingProfiles }: { quiz: Imagery
         <ResultSection title={zh ? "本次各组读数" : "Readings by topic"}>
           <div className="grid gap-x-8 sm:grid-cols-2">{IMAGERY12_TOPICS.map(id => {
             const score = result[id];
-            return <ResultScoreRow key={id} label={quiz.profiles.find(profile => profile.id === id)!.title[locale]} value={score.mean === null ? (zh ? "未计分" : "Unscored") : `${score.mean.toFixed(2)} / 4`} score={score.mean} min={0} max={4} description={zh ? `原始均分范围0–4；${score.numericCount}/${score.requiredCount}条数字答案` : `Raw mean range 0–4; ${score.numericCount}/${score.requiredCount} numeric responses`} />;
+            return <ResultScoreRow key={id} label={quiz.profiles.find(profile => profile.id === id)!.title[locale]} value={score.mean === null ? (zh ? "未计分" : "Unscored") : `${score.mean.toFixed(2)} / 4`} score={score.mean} min={0} max={4} description={<>{quiz.profiles.find(profile => profile.id === id)!.summary[locale]}<span className="mt-2 block text-xs">{zh ? `原始均分范围0–4；${score.numericCount}/${score.requiredCount}条数字答案` : `Raw mean range 0–4; ${score.numericCount}/${score.requiredCount} numeric responses`}</span></>} />;
           })}</div>
         </ResultSection>
         <ResultReadingNav label={zh ? "各组记录与完整读法" : "Topic records and full readings"} sections={IMAGERY12_TOPICS.map(id => ({ id: `imagery12-${id}`, title: quiz.profiles.find(profile => profile.id === id)!.title[locale] }))} />
@@ -91,7 +91,7 @@ function ValidImagery12Client({ quiz, locale, readingProfiles }: { quiz: Imagery
               <p data-imagery12-sum className="text-xl font-semibold">{zh ? `已答数字合计：${score.sum}（范围 0—${score.numericCount * 4}）` : `Rated sum: ${score.sum} (range 0–${score.numericCount * 4})`}</p>
               <p data-imagery12-mean>{zh ? `均分：${score.mean.toFixed(2)}（范围0—4）；合计除以${score.numericCount}，不是百分比或百分位。` : `Mean: ${score.mean.toFixed(2)} (range 0–4); sum divided by ${score.numericCount}, not a percentage or percentile.`}</p>
             </div>}
-            <details className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开此部分完整读法" : "Expand this full reading"}</summary><div className="mt-5"><Imagery12FullReading profile={profile} locale={locale} readingProfiles={readingProfiles} /></div></details>
+            <Imagery12FullReading profile={profile} locale={locale} readingProfiles={readingProfiles} />
             <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "阅读完整公开指南" : "Read the complete public guide"}</Link>
           </section>;
         })}</div>
@@ -109,5 +109,5 @@ function ValidImagery12Client({ quiz, locale, readingProfiles }: { quiz: Imagery
 
 export function Imagery12FullReading({ profile, locale, readingProfiles }: { profile: QuestionnaireProfile; locale: Locale; readingProfiles?: QuestionnaireProfile[] }) {
   const reading = readingProfiles?.find(p => p.id === profile.id && p.resultReading?.quizSlug === "aphantasia-test" && p.resultReading.profileId === profile.id) ?? profile;
-  return <QuestionnaireResultReading quizSlug="aphantasia-test" profile={reading} locale={locale} headingLevel={4} idPrefix={`imagery12-${profile.id}`} />;
+  return <QuestionnaireResultReading quizSlug="aphantasia-test" profile={reading} locale={locale} headingLevel={4} idPrefix={`imagery12-${profile.id}`} mode="result" previewSectionIds={["s3", "s6"]} />;
 }

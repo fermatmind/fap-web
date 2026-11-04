@@ -10,16 +10,9 @@ import type { Locale } from "@/lib/i18n/locales";
 export function QuestionnaireCbiReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<CbiResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh", missing = zh ? "资料不足" : "Insufficient information";
   return <ResultPage variant="reflection" className="my-6 space-y-8">
-    <ResultOverview locale={locale} title={zh ? "两个领域分别读数" : "Two separate domain readings"}
-      description={zh ? "0—100是本量表的分数点，不是风险或人群百分比；保留资料不足，不合成总分。" : "0–100 denotes this scale’s score points, not risk or a population percentage. Insufficient information stays separate, without a combined total."}
-      items={quiz.directions.map(direction => {
-        const score = result.cbiDomains[direction.id as CbiDomain];
-        return { id: direction.id, label: direction.title[locale], href: `#cbi-title-${direction.id}`,
-          value: score.mean === null ? missing : `${score.mean.toFixed(2)} / 100`,
-          note: zh ? `${score.rated} / ${score.total}项有效回答` : `${score.rated} / ${score.total} rated items` };
-      })} />
-    <p className="leading-8">{zh ? "分别呈现CBI个人与工作相关耗竭，个人六题至少三项有效、工作七题至少四项有效才有所属均分。缺失不补0，两个模块不合成总分，也不划风险档位或作诊断。无论资料是否充分，两份完整指南均可阅读。" : "Personal and work-related CBI exhaustion are presented separately. Personal needs at least three of six valid ratings, and work needs four of seven, for its own mean. Missing responses are not zero. The modules have no combined total, risk band or diagnosis. Both full guides remain available regardless of sufficiency."}</p>
-    <p className="text-sm leading-7 text-slate-600">{zh ? "个人六题与工作后四题使用频率，工作前三题使用程度，五档编码100、75、50、25、0。只有工作最后一条精力题按100减原编码反向。用调整后总和除以实际有效题数，未舍入均分显示两位小数。分数点不是未来风险百分比；两个均分之差不能分配成因。工作不适用可选NA，中译与呈现没有建立本地效度。" : "Personal items and the last four work items use frequency; the first three work items use degree. Both formats code 100, 75, 50, 25 and 0. Only the last work-energy item reverses to 100 minus its response code. Divide the adjusted sum by the actual valid count; the unrounded mean displays two decimals. Score points are not future-risk percentages. Differences between means cannot allocate causes. Work items may be NA when inapplicable; the working translation and presentation lack established local validity."}</p>
+
+
+
     <div className="grid gap-4 sm:grid-cols-2">
       {quiz.directions.map(direction => {
         const score = result.cbiDomains[direction.id as CbiDomain], scored = score.mean !== null;
@@ -36,10 +29,24 @@ export function QuestionnaireCbiReport({ quiz, result, locale }: { quiz: Questio
     </div>
     {quiz.profiles.map(profile => <section key={profile.id} aria-labelledby={`cbi-guide-title-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
       <h3 id={`cbi-guide-title-${profile.id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
-      <div data-cbi-guide={profile.id}><QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} /></div>
+      <div data-cbi-guide={profile.id}><QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} mode="result" previewSectionIds={["counterexample", "support-and-context"]} /></div>
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本模块完整公开说明" : "Read this module’s full public guide"}</Link>
     </section>)}
     <QuestionnaireCbiAttribution locale={locale} />
+
+    <details className="border-t border-slate-200 pt-4" data-result-reading-method>
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
+      <ResultOverview locale={locale} title={zh ? "两个领域分别读数" : "Two separate domain readings"}
+      description={zh ? "0—100是本量表的分数点，不是风险或人群百分比；保留资料不足，不合成总分。" : "0–100 denotes this scale’s score points, not risk or a population percentage. Insufficient information stays separate, without a combined total."}
+      items={quiz.directions.map(direction => {
+        const score = result.cbiDomains[direction.id as CbiDomain];
+        return { id: direction.id, label: direction.title[locale], href: `#cbi-title-${direction.id}`,
+          value: score.mean === null ? missing : `${score.mean.toFixed(2)} / 100`,
+          note: zh ? `${score.rated} / ${score.total}项有效回答` : `${score.rated} / ${score.total} rated items` };
+      })} />
+      <p className="leading-8">{zh ? "分别呈现CBI个人与工作相关耗竭，个人六题至少三项有效、工作七题至少四项有效才有所属均分。缺失不补0，两个模块不合成总分，也不划风险档位或作诊断。无论资料是否充分，两份完整指南均可阅读。" : "Personal and work-related CBI exhaustion are presented separately. Personal needs at least three of six valid ratings, and work needs four of seven, for its own mean. Missing responses are not zero. The modules have no combined total, risk band or diagnosis. Both full guides remain available regardless of sufficiency."}</p>
+      <p className="text-sm leading-7 text-slate-600">{zh ? "个人六题与工作后四题使用频率，工作前三题使用程度，五档编码100、75、50、25、0。只有工作最后一条精力题按100减原编码反向。用调整后总和除以实际有效题数，未舍入均分显示两位小数。分数点不是未来风险百分比；两个均分之差不能分配成因。工作不适用可选NA，中译与呈现没有建立本地效度。" : "Personal items and the last four work items use frequency; the first three work items use degree. Both formats code 100, 75, 50, 25 and 0. Only the last work-energy item reverses to 100 minus its response code. Divide the adjusted sum by the actual valid count; the unrounded mean displays two decimals. Score points are not future-risk percentages. Differences between means cannot allocate causes. Work items may be NA when inapplicable; the working translation and presentation lack established local validity."}</p>
+    </details>
   </ResultPage>;
 }
 

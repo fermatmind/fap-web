@@ -27,7 +27,7 @@ export function QuestionnaireStressCheckInReport({ quiz, result, locale, resultP
       </li>)}</ol>
       <p className="leading-8">{result.contributions.map(p => p.value).join(" + ")} = {result.total}</p>
     </section>
-    <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={3} idPrefix="stress-check-in-report" />
+    <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={3} idPrefix="stress-check-in-report" mode="result" previewSectionIds={["meaning", "context", "reflection"]} />
     <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "单独阅读完整公开指南" : "Read the complete public guide separately"}</Link>
     <p className="rounded-lg border border-slate-200 p-4 leading-8">{quiz.guide.find(s => s.id === "privacy")!.paragraphs[0][locale]}</p>
     <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试" : "Back to all tests"}</Link>

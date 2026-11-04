@@ -25,7 +25,7 @@ export function Mattering10Report({ quiz, result, locale, readingProfiles }: { q
       <p data-mattering10-total={s.id} className="my-4 text-xl font-semibold">{s.total === null ? (zh ? `资料不足：${s.answered}/5题` : `Incomplete: ${s.answered}/5 items`) : `${s.total} (${zh ? "可得范围" : "possible range"}: 5–20)`}</p>
       <p className="leading-8">{quiz.profiles[i].scoreReading[locale]}</p>
       {s.total !== null && <p className="my-4 leading-8">{s.contributions.map(p => p.value).join(" + ")} = {s.total}</p>}
-      <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`mattering10-${s.id}`} />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`mattering10-${s.id}`} mode="result" previewSectionIds={["example", "action"]} />
       <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, quiz.profiles[i].id)}>{zh ? "单独阅读这份完整指南" : "Read this full guide separately"}</Link>
     </section>; })}
   </div>;

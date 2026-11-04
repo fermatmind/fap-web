@@ -13,17 +13,8 @@ export function QuestionnaireActivityConfidenceReport({ quiz, result, locale }: 
 }) {
   const zh = locale === "zh";
   return <ResultPage variant="dimensions" className="my-6 space-y-8" data-activity-confidence-result>
-    <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
-      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
-      items={quiz.directions.map(direction => {
-        const score = result.facets[direction.id];
-        return { id: direction.id, label: direction.title[locale], href: `#activity-confidence-${direction.id}`,
-          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
-          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
-      })} />
-    <p className="leading-8">{zh
-      ? "八组分别显示对选定活动的自报把握，不测八种智能或实际能力，不选最强项、不合成总分，也不按数值指定学习风格或职业。相近与并列值都原样保留。"
-      : "The eight groups show self-reported confidence about selected activities, not eight measured intelligences or actual ability. There is no strongest group, total, learning-style assignment or career match. Close and equal means remain visible."}</p>
+
+
     {quiz.directions.map(direction => {
       const score = result.facets[direction.id], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
       return <section key={direction.id} className="rounded-lg border border-slate-200 p-4 sm:p-6"
@@ -35,7 +26,7 @@ export function QuestionnaireActivityConfidenceReport({ quiz, result, locale }: 
         {score.mean === null && <p className="mb-4 text-sm leading-7 text-slate-600">{zh
           ? "经验不足、无法接触或不愿评价都可以不计分，不转成低分。以下完整指南是通用读法，不是对你能力或状态的判断。"
           : "Insufficient experience, inaccessible activities or a choice not to rate remain unscored, never low scores. The complete guide below is general information, not a judgment of your ability or state."}</p>}
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`activity-confidence-report-${direction.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`activity-confidence-report-${direction.id}`} mode="result" previewSectionIds={["context", "example", "experiment"]} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline"
           href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本组完整公开指南" : "Read this group’s full public guide"}</Link>
       </section>;
@@ -43,5 +34,20 @@ export function QuestionnaireActivityConfidenceReport({ quiz, result, locale }: 
     <p className="leading-8">{zh
       ? "本原创反思没有建立心理测量学效度或常模，没有加德纳背书。可以只回看一次普通任务，不要求实际尝试、公开答案或把结果用于录用、分班及其他重要判断。"
       : "This original reflection has no established psychometric validation or norms and no Gardner endorsement. A private review of one ordinary task is enough; no activity, disclosure or use in hiring, placement or other consequential judgments is required."}</p>
+
+    <details className="border-t border-slate-200 pt-4" data-result-reading-method>
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
+      <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
+      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
+      items={quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return { id: direction.id, label: direction.title[locale], href: `#activity-confidence-${direction.id}`,
+          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
+          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
+      })} />
+      <p className="leading-8">{zh
+      ? "八组分别显示对选定活动的自报把握，不测八种智能或实际能力，不选最强项、不合成总分，也不按数值指定学习风格或职业。相近与并列值都原样保留。"
+      : "The eight groups show self-reported confidence about selected activities, not eight measured intelligences or actual ability. There is no strongest group, total, learning-style assignment or career match. Close and equal means remain visible."}</p>
+    </details>
   </ResultPage>;
 }

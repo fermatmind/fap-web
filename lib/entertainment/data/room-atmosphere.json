@@ -1,7 +1,7 @@
 {
   "slug": "room-atmosphere",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "everyday",
   "title": {
     "en": "What Atmosphere Would Your Imaginary Room Hold?",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Making an atmosphere through a pool of light, usable breathing space or a collection of visible details.",
-    "zh": "用一处光、能活动的留白或可见细节的集合，营造氛围。"
+    "zh": "给想象中的房间布置气氛：聚起一圈灯光、留一块活动空间，还是摆几件喜欢的小物？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -266,7 +266,7 @@
       },
       "summary": {
         "en": "Your imagined atmosphere gathers around a visible point of warmth. A small lit area gives the room a place to begin without requiring every corner to be equally bright.",
-        "zh": "你想象的氛围围着一处可见暖光聚拢。小小亮处给房间一个起点，不要求每角同样明亮。"
+        "zh": "你想象中的房间，围着一小片温暖的灯光展开。有一个亮起来的角落就能让人想停留，不需要每个地方都同样明亮。"
       },
       "example": {
         "en": "A lamp beside an ordinary chair might become the center of your drawing, with the surrounding room allowed to remain loosely described.",
@@ -274,15 +274,15 @@
       },
       "strength": {
         "en": "A clear light focus can make an arrangement feel intentional while leaving you free to keep the rest of the picture simple.",
-        "zh": "明确光点让布置有心意，其余画面仍可简单。"
+        "zh": "一处明确的灯光重点，能让布置显得用过心，其他地方仍然可以简单一些。"
       },
       "tradeoff": {
         "en": "A beautiful glow cannot replace a usable arrangement. In a real room, different activities and people could need quite different lighting and space.",
-        "zh": "好看光晕不能代替可用布置。现实中不同活动和人，会需要不同光线与空间。"
+        "zh": "好看的光晕，不能代替实际好用的布置。在真实房间里，不同的人和活动可能需要不同的照明与空间。"
       },
       "experiment": {
         "en": "Draw one small circle of light on a room sketch. Put only one wanted activity inside it and leave the other corners undecided.",
-        "zh": "在房间草图画一圈光，只放一项想做的活动，其余角落暂不决定。"
+        "zh": "在房间草图上画一圈灯光，只放进一件你想在那里做的事，其他角落先不安排。"
       }
     },
     {
@@ -293,23 +293,23 @@
       },
       "summary": {
         "en": "Your atmosphere comes from what remains available. An open area lets the room support different moments instead of telling every visitor exactly how to use it.",
-        "zh": "你的氛围来自仍可使用的地方。留白让房间承接不同当下，不必规定访客怎么用。"
+        "zh": "你想象中的房间，舒服在还有一块可以自由使用的地方。留点空地，就能随着聊天、创作或休息的需要改变，不必先规定每个人怎样使用。"
       },
       "example": {
         "en": "You might draw a chair near a clear patch of floor and imagine moving it for a conversation, a paper project or a quiet pause.",
-        "zh": "你可在空地旁画椅子，想象为聊天、纸作或稍作停留而移动。"
+        "zh": "在一小块空地旁画一张椅子，想象需要聊天、做纸艺或歇一会儿时，可以怎样移动它。"
       },
       "strength": {
         "en": "Leaving a place unassigned can make an imagined room adaptable and help a later idea find somewhere to happen without a complete redesign.",
-        "zh": "不指定全部位置，让想象房间可调整，后来想法有地方发生，不必全重画。"
+        "zh": "不把每个位置都安排满，后来有了新点子，就还有地方尝试，不必重新设计整个房间。"
       },
       "tradeoff": {
         "en": "Openness can feel unfinished if nothing gives it character. A single chosen object can add a point of interest without filling the whole room.",
-        "zh": "若没有特点，空白也像未完成。一件选定物可添趣味，不必填满。"
+        "zh": "如果什么都没有，空白也可能显得缺少特点。选一件小物作重点，就能增加趣味，不需要把房间填满。"
       },
       "experiment": {
         "en": "On paper, remove one object from a crowded room drawing. Sketch two different things that the newly available space could support.",
-        "zh": "在纸上从拥挤房间删一件物，画出新空位可承接的两种事情。"
+        "zh": "从一幅画得拥挤的房间草图里移走一件物品，再画出腾出的空间可以用来做哪两件不同的事。"
       }
     },
     {
@@ -320,23 +320,23 @@
       },
       "summary": {
         "en": "Your room tells its story through a few visible layers. Different textures and objects can share a corner while keeping their individual details available to notice.",
-        "zh": "你的房间用几层可见细节讲故事。不同质地物件共享一角，各自特点仍可看见。"
+        "zh": "你的房间靠几件放在一起的小物讲故事。不同的质地、颜色和形状可以待在同一个角落，同时保留各自值得看的细节。"
       },
       "example": {
         "en": "A folded cloth, a postcard and a curious paper shape might sit together because their colors or memories make an interesting small conversation.",
-        "zh": "折布、明信片与奇形纸片可放一起，因为色彩或记忆让它们有话可说。"
+        "zh": "一块折好的布、一张明信片和一片特别形状的纸，可以因为相近的颜色或相关的回忆放在一起。"
       },
       "strength": {
         "en": "A modest collection can make an imaginary space specific and give a visitor several gentle starting points for looking or conversation.",
-        "zh": "适量集合让想象空间具体，也给访客几个观看或聊天的小起点。"
+        "zh": "不多的几件收藏，就能让想象中的房间有自己的样子，也给访客一些观看或聊天的话题。"
       },
       "tradeoff": {
         "en": "Adding another layer does not always add another meaning. When details compete, removing or regrouping one can make the remaining objects easier to enjoy.",
-        "zh": "多一层未必多一份意思。细节争抢时，移走或重组一件，更易欣赏其余。"
+        "zh": "多放一件，不一定就多一层意义。细节互相抢眼时，移走一件或重新分组，可能更容易欣赏剩下的东西。"
       },
       "experiment": {
         "en": "Choose three objects in a fictional room sketch and write one reason they belong together. Stop before adding a fourth simply to fill a gap.",
-        "zh": "在虚构房间草图选三物，写一个相伴理由。不因空位就添第四件。"
+        "zh": "在虚构房间的草图上选三件物品，写一句它们适合放在一起的理由。不必为了填空，再添第四件。"
       }
     }
   ],

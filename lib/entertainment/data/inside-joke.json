@@ -1,7 +1,7 @@
 {
   "slug": "inside-joke",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "social",
   "title": {
     "en": "How Do You Keep an Inside Joke Welcoming?",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Keeping a group joke understandable through a brief context bridge, situation-based wordplay or a light touch with repetition.",
-    "zh": "通过简短前情桥接、围绕场景玩文字，或轻轻使用重复，让群体笑点容易理解。"
+    "zh": "群里的共同笑点，你更愿意补一句背景、围绕眼前场景接新梗，还是轻轻带过后继续聊别的？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -266,7 +266,7 @@
       },
       "summary": {
         "en": "Your group joke has a door people can enter. A short explanation lets someone understand the reference without being tested on attendance or memory. The portrait describes your choices in this humor scene, not a certificate of inclusion or social skill.",
-        "zh": "你的群体笑点有一扇人可进入的门。短说明让人理解指涉，不必被考到场次数或记忆。画像描述本次幽默场景选择，不认证包容或社交技能。"
+        "zh": "你愿意给群里的老笑点留一个让新人听懂的入口。简短说明前因后果，对方就不用因为没到场、没记住而被挡在外面。这是本次幽默场景的选择，不是包容程度或社交能力的认证。"
       },
       "example": {
         "en": "If the group says “umbrella committee,” you might explain that three people once drew the same umbrella, then return to the current conversation.",
@@ -274,15 +274,15 @@
       },
       "strength": {
         "en": "A compact context bridge can keep shared history from becoming a barrier and help the joke remain a small enjoyable reference.",
-        "zh": "简短前情桥能让共同历史不变障碍，也让笑话继续只是愉快小指涉。"
+        "zh": "一句简短的背景说明，可以让共同回忆不必成为别人加入的障碍，笑话也仍然只是一个轻松的小话头。"
       },
       "tradeoff": {
         "en": "A long explanation can make a brief joke feel like required reading. One clear sentence and room to move on may be enough.",
-        "zh": "长解释会让短笑话像必读资料。一句清楚话与继续往前的空间，可能已够。"
+        "zh": "解释太久，会让一句笑话像必须读完的资料。说清一句，再允许大家往下聊，可能就够了。"
       },
       "experiment": {
         "en": "Explain one harmless shared reference in a single sentence. Let the other person choose whether to ask more rather than requiring the whole backstory.",
-        "zh": "用一句解释一个无害共同指涉，让对方选是否多问，不要求听完整前史。"
+        "zh": "用一句话，解释一个不涉及隐私的共同笑点。对方想多问再聊，不必要求听完整段往事。"
       }
     },
     {
@@ -320,11 +320,11 @@
       },
       "summary": {
         "en": "Your joke can have its moment and then finish. You do not need a callback to become the group’s whole language. The ending values a light touch with repetition rather than implying that you are less playful than someone who adds another line.",
-        "zh": "你的笑话可以有自己的时刻，然后结束。回扣不必变成群体全部语言。结局珍惜轻轻重复，不暗示你比继续添句的人少趣味。"
+        "zh": "你愿意让一个笑点热闹一下，然后自然结束。熟悉的梗，不必变成整个群聊唯一的话题。少接一句，并不代表你比继续玩梗的人少一点趣味。"
       },
       "example": {
         "en": "You might smile at a familiar line once and then ask about the craft someone is making now, letting the old joke remain pleasant rather than obligatory.",
-        "zh": "你可能对熟悉一句笑一下，再问对方现在做的手作，让旧笑点保持愉快，不变义务。"
+        "zh": "你可能听到熟悉的梗时笑一下，再问问朋友手上正在做的手工。旧笑点可以保持愉快，不必每次都接着讲。"
       },
       "strength": {
         "en": "Knowing when to leave a joke can keep a small shared memory enjoyable and leave space for new topics or people who do not share it.",
@@ -332,7 +332,7 @@
       },
       "tradeoff": {
         "en": "Moving on too quickly can miss an addition someone genuinely wanted to share. A light touch can still include listening before changing the subject.",
-        "zh": "转得过快，也会错过别人真想添的内容。轻轻使用也可以包括换题前先听。"
+        "zh": "话题转得太快，也可能错过别人真想分享的后半句。轻松用梗，也可以包括换话题前先听一听。"
       },
       "experiment": {
         "en": "After enjoying one familiar joke, leave a natural pause and see what the group chooses next. Do not require either more humor or an immediate topic change.",

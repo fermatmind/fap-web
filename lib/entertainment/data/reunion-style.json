@@ -1,7 +1,7 @@
 {
   "slug": "reunion-style",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "relationships",
   "title": {
     "en": "How Would You Reconnect After a Long Gap?",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Reopening contact through a shared past detail, curiosity about the present or a small meeting that can begin fresh.",
-    "zh": "通过共同过去细节、对当下的好奇，或一次可重新开始的小见面来重开联系。"
+    "zh": "久未联系后再见面，你会从共同回忆聊起、问问最近的生活，还是约一次简单的新活动？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -262,11 +262,11 @@
       "id": "thread",
       "title": {
         "en": "The Old-Thread Reconnector",
-        "zh": "旧线索重连者"
+        "zh": "从一段共同回忆聊起"
       },
       "summary": {
         "en": "Your reunion starts with something small the two of you already recognize. The thread opens a door without requiring the old room to remain unchanged. This ending values a shared past detail rather than measuring nostalgia or the strength of the bond.",
-        "zh": "你的重逢从两人都认得的小东西开始。线索开门，却不要求旧房间原样不动。结局珍惜共同过去细节，不测怀旧程度或关系强弱。"
+        "zh": "你从两个人都记得的一件小事开始重逢。它能帮你打开话题，却不要求对方仍和从前一样。这描述的是这次选择的开场，不测怀旧程度，也不评关系有多牢固。"
       },
       "example": {
         "en": "A song mentioned years ago might become one light opening line, followed by a genuine question about what the person enjoys listening to now.",
@@ -274,69 +274,69 @@
       },
       "strength": {
         "en": "A recognizable thread can reduce the effort of beginning and give both people a concrete memory they may choose to revisit.",
-        "zh": "可认出的线索能降低开场所需精力，也给双方一份可自主重访的具体记忆。"
+        "zh": "一条熟悉的线索，能让开口容易一些。双方可以选择要不要再聊聊那段回忆。"
       },
       "tradeoff": {
         "en": "The past can become a script that leaves no space for change. A memory works best as an opening, not a test of whether the other person is still the same.",
-        "zh": "过去也会变剧本，让变化没空间。记忆适合作开头，不考对方是否仍与从前一样。"
+        "zh": "如果一直照着过去相处，可能就没有空间认识现在的彼此。把记忆当作开场，而不是考对方是否还和以前一样。"
       },
       "experiment": {
         "en": "Use one harmless shared detail to open an optional reconnection, then leave a question that welcomes the person’s current interests.",
-        "zh": "用一个无害共同细节打开可选重连，再留一个欢迎对方当下兴趣的问题。"
+        "zh": "如果你想重新联系，可以从一件普通的共同回忆说起，再问一个和对方现在的兴趣有关的问题。"
       }
     },
     {
       "id": "present",
       "title": {
         "en": "The Present-Day Reconnector",
-        "zh": "当下近况重连者"
+        "zh": "从现在的生活聊起"
       },
       "summary": {
         "en": "Your reunion makes space for what matters to each person now. You do not need a complete explanation of the years between meetings to begin. The portrait follows your chosen conversational route rather than claiming you can assess how someone has changed.",
-        "zh": "你的重逢给各自现在在乎的东西留空间。不必完整解释见面之间几年，也能开始。画像跟随所选对话路线，不宣称你能评估他人怎样改变。"
+        "zh": "重逢时，你想先了解彼此现在在乎什么。不必交代完整个失联期间，也可以开始聊天。这只是你选择的话题，不表示你能据此判断一个人发生了哪些改变。"
       },
       "example": {
         "en": "You might ask about a current small hobby and let the person decide how much of their recent life they want to bring into the answer.",
-        "zh": "你可能问一个当前小爱好，让对方决定回答里带入多少近来生活。"
+        "zh": "可以问问对方最近的一项小爱好，由对方决定愿意分享多少近况。"
       },
       "strength": {
         "en": "An easy current question can invite a fresh exchange without making the gap in contact something either person has to justify.",
-        "zh": "容易的当下问题能邀请新交流，不把联络空白变成任何人必须辩解的东西。"
+        "zh": "一个容易回答的近况问题，就能带出新的交流，不必先为过去为什么少了联系作解释。"
       },
       "tradeoff": {
         "en": "Too many update questions can feel like an interview. Sharing a little of your own present can keep the exchange mutual.",
-        "zh": "近况问题过多会像采访。也分享一点自己的当下，交流更能双向。"
+        "zh": "接连追问近况，也可能像在采访。分享一点自己的生活，才能让交流来回进行。"
       },
       "experiment": {
         "en": "Ask one current question and offer one small update of your own. Let the other person choose whether to deepen the conversation or keep it light.",
-        "zh": "问一个近况问题，也给一条自己的小更新。让对方选聊深还是轻轻就好。"
+        "zh": "问一个近况问题，也说一件自己的近况。之后是深入聊，还是轻松聊几句，就让双方慢慢选择。"
       }
     },
     {
       "id": "fresh",
       "title": {
         "en": "The Small-New-Start Reconnector",
-        "zh": "小小重新开始者"
+        "zh": "约一次小小的新开始"
       },
       "summary": {
         "en": "Your reunion can be a new encounter without erasing the old connection. A short invitation offers a shape both people may freely choose. The ending leaves future closeness undecided rather than treating one pleasant meeting as a promise.",
-        "zh": "你的重逢可以是新相遇，也不抹去旧联系。短邀请给双方可自由选择的形状。结局让未来亲近保持未定，不把一次愉快见面当承诺。"
+        "zh": "你愿意把重逢当作一次新的相遇，同时保留过去的联系。一份简短邀请，让双方都能自由选择；一次愉快的见面，也不必立刻变成未来关系的承诺。"
       },
       "example": {
         "en": "You might suggest a brief visit to a public exhibition rather than trying to recreate the entire routine you once shared years ago.",
-        "zh": "你可能约短看一场公共展览，不试着重建多年前整套共同日程。"
+        "zh": "可以约着短暂看一场公开展览，不必努力重现多年前整套相处安排。"
       },
       "strength": {
         "en": "A modest new start can reduce pressure and make it easier to discover what kind of contact fits the people who are actually meeting now.",
-        "zh": "适度新开始能减少压力，也方便发现什么联系适合此刻实际见面的人。"
+        "zh": "从一件小事重新开始，压力会少一些，也更容易发现，现在的彼此适合怎样保持联系。"
       },
       "tradeoff": {
         "en": "Keeping everything tentative can make genuine interest hard to read. A specific optional invitation can be clear without demanding a lasting commitment.",
-        "zh": "凡事暂定也会让真实兴趣难读。具体可选邀请可以清楚，也不要求长期承诺。"
+        "zh": "如果什么都说得模糊，对方也可能不知道你是否真想见面。一个具体、可以拒绝的邀请，能表达心意，又不要求长期承诺。"
       },
       "experiment": {
         "en": "If you want to reconnect, offer one specific small meeting with an easy decline. Let its outcome inform the next choice rather than deciding the whole relationship in advance.",
-        "zh": "想重连时，给一次具体小见面与方便拒绝的余地。由这次结果帮助下一选择，不预定整段关系。"
+        "zh": "想重新联系时，可以约一次具体的小见面，也让对方容易拒绝。先看看这次相处如何，再决定下一步，不必预先安排整段关系。"
       }
     }
   ],

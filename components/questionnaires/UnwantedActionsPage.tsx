@@ -19,7 +19,7 @@ function Library({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
 }
 export function UnwantedActionsPage({ quiz, locale , take = false }: { quiz: Questionnaire; locale: Locale ; take?: boolean }) {
   const zh = locale === "zh", path = questionnairePath(locale, quiz.slug);
-  const engine = <UnwantedActionsClient key={`${quiz.slug}:${locale}`} quiz={quiz} locale={locale} />;
+  const engine = <UnwantedActionsClient key={`${quiz.slug}:${locale}`} quiz={quiz} locale={locale} readingProfiles={quiz.profiles.map(profile => prepareResultProfile(quiz.slug, profile))} />;
   if (take) return engine;
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />

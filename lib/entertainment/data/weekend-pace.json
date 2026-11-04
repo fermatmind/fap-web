@@ -1,7 +1,7 @@
 {
   "slug": "weekend-pace",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "everyday",
   "title": {
     "en": "What Is Your Weekend Pace?",
@@ -274,7 +274,7 @@
       },
       "strength": {
         "en": "A clear anchor makes coordination easier and protects anticipation from being crowded out by small chores. It offers direction without requiring a packed itinerary.",
-        "zh": "明确的锚点让协同更容易，也保护期待，不让它被零碎家务挤掉。它提供方向，而不要求满满当当的行程。"
+        "zh": "先留好一件想做的事，和别人也更容易协调，不容易被零碎家务挤掉。它给周末一个方向，不必把行程排满。"
       },
       "tradeoff": {
         "en": "When the anchor changes, the whole weekend may briefly feel canceled. The important part might be company or novelty, not the exact booking you made.",
@@ -289,7 +289,7 @@
       "id": "open",
       "title": {
         "en": "The Open Afternoon",
-        "zh": "打开的下午"
+        "zh": "随心安排的下午"
       },
       "summary": {
         "en": "You prefer a weekend that can answer the mood and opportunities of the day. Your choices make room for invitations, detours, and interests that are hard to predict on Thursday. Openness feels enjoyable when you still have a real choice about saying yes.",
@@ -324,7 +324,7 @@
       },
       "example": {
         "en": "You might keep Sunday morning free from messages and errands, then decide whether to read or see someone later. The point is that the hour belongs to you before it belongs to a list.",
-        "zh": "你可能不在周日上午安排消息和跑腿，晚一点再决定读书还是见人。重点是，这段时间先属于你，然后才属于清单。"
+        "zh": "你可以先不在周日上午安排回消息和跑腿，晚一些再决定读书还是见人。这段时间先留给自己，不必立即属于待办清单。"
       },
       "strength": {
         "en": "Margin can make a plan kinder to different energy levels and prevent every pleasant invitation from becoming another obligation you must fulfill.",

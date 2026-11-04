@@ -53,7 +53,7 @@ export function QuestionnairePoliticalCoordinatesReport({ quiz, result, locale }
     {quiz.profiles.map(profile => <section key={profile.id} data-political-guide={profile.id} aria-labelledby={`political-guide-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
       <h3 id={`political-guide-${profile.id}`} className="scroll-mt-24 mb-4 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
       <p className="mb-5 text-sm leading-7 text-slate-600">{zh ? "完整通用比较，始终可读；不是派给你的身份或私人答案。" : "A complete general comparison, always available; not an assigned identity or private answer record."}</p>
-      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`political-report-${profile.id}`} />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`political-report-${profile.id}`} mode="result" previewSectionIds={["two-separate-axes", "policy-instruments", "reflection"]} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这份完整公开说明" : "Read this complete public guide"}</Link>
     </section>)}
   </div>;

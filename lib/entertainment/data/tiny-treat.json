@@ -1,7 +1,7 @@
 {
   "slug": "tiny-treat",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "everyday",
   "title": {
     "en": "What Is Your Tiny Finish-Line Treat?",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Marking completion through a present sensation, a visible keepsake or freedom from the next instruction.",
-    "zh": "用当下感觉、可见留念或暂时不接下一条安排，标记完成。"
+    "zh": "完成一件小事后，你想享受一小段愉快、留一个小记号，还是先不安排下一分钟？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -262,11 +262,11 @@
       "id": "moment",
       "title": {
         "en": "The Pleasant-Minute Marker",
-        "zh": "愉快一分钟的标记"
+        "zh": "享受轻松的一分钟"
       },
       "summary": {
         "en": "Your chosen treat is a brief experience you can actually notice. The finish gives you an occasion to pay attention, rather than an obligation to make the moment impressive.",
-        "zh": "你选的庆祝是能留意的短体验。完成提供注意的契机，不要求片刻必须精彩。"
+        "zh": "你选的庆祝，是一小段自己能享受到的体验。完成一件事，就有机会停下来留意此刻，不需要努力把它弄得格外精彩。"
       },
       "example": {
         "en": "After folding a paper model, you might look out of the window and listen to one song you already enjoy.",
@@ -274,42 +274,42 @@
       },
       "strength": {
         "en": "A sensory moment can mark an ending without creating another object to keep or another elaborate activity to organize afterward.",
-        "zh": "感官片刻能标记结束，不增加要保留的物或要组织的复杂活动。"
+        "zh": "一小段喜欢的声音或景色，就能为事情收尾。不必多留一件纪念物，也不用接着筹备另一场复杂活动。"
       },
       "tradeoff": {
         "en": "A pleasant minute may not be memorable, and that is allowed. Trying too hard to make every pause special can turn the treat into work.",
-        "zh": "愉快一分钟可以不难忘。努力把每次暂停变特别，也会让庆祝变任务。"
+        "zh": "愉快的一分钟，不一定要令人难忘。每次暂停都努力追求特别，也可能让犒劳自己变成新任务。"
       },
       "experiment": {
         "en": "After any ordinary stopping point, notice one sound, color or texture you like. Let the experience finish without rating how rewarding it was.",
-        "zh": "在普通停点留意喜欢的声音、颜色或质地。不评分有多值得，让体验结束。"
+        "zh": "一件普通小事告一段落后，留意一个喜欢的声音、颜色或触感。体验过去就让它结束，不必评分它有多值得。"
       }
     },
     {
       "id": "token",
       "title": {
         "en": "The Little-Done Symbol",
-        "zh": "小小完成符号"
+        "zh": "给完成留个小记号"
       },
       "summary": {
         "en": "Your treat leaves a modest visible trace. A small mark gives this particular project an ending without turning it into a public performance or a permanent record of productivity.",
-        "zh": "你的庆祝留一点可见痕迹。小记号给这次作品一个结束，不变公开表演或永久效率记录。"
+        "zh": "你愿意用一个看得见的小记号，为这件作品收尾。它不必拿来公开展示，也不需要成为长期记录自己效率的证据。"
       },
       "example": {
         "en": "A tiny star drawn behind a homemade card might remind you when you decided the card was ready to give away.",
-        "zh": "自制卡片背面一颗小星，提醒你何时决定它已可送出。"
+        "zh": "在自制卡片的背面画一颗小星星，记住自己在什么时候觉得它已经可以送出。"
       },
       "strength": {
         "en": "A chosen symbol can make a quiet finish tangible and preserve a detail that would otherwise disappear into the next ordinary activity.",
-        "zh": "选定符号让安静完成可触，也保留本会融入下一项日常的细节。"
+        "zh": "选一个小符号，就能把安静完成的这一刻留下来，不至于一转身就被下一件日常小事带走。"
       },
       "tradeoff": {
         "en": "Keeping every token can become another collection to manage. You can let a mark be temporary or remove it without undoing what you finished.",
-        "zh": "每个记号都留，也成要管理的收藏。允许临时记号或移除，不会抹掉完成。"
+        "zh": "每个记号都要保存，也会多出一份需要整理的收藏。它可以只留一阵，之后去掉，也不影响你已经完成的事。"
       },
       "experiment": {
         "en": "Invent one small sign for a finished recreational piece. Put it somewhere optional and decide later whether it is still enjoyable to keep.",
-        "zh": "为完成的休闲作品创一个小标记，放可选位置，以后再决定留着是否有趣。"
+        "zh": "给一件做完的休闲小作品想一个标记，放在想放的位置。过一阵再决定，你是否仍喜欢留着它。"
       }
     },
     {
@@ -320,7 +320,7 @@
       },
       "summary": {
         "en": "Your chosen ending includes a little freedom from the next instruction. The treat is not doing nothing correctly; it is allowing the next moment to remain open.",
-        "zh": "你选的结束包含暂离下一条安排的自由。庆祝不在正确放空，而在下一刻仍可开放。"
+        "zh": "你选的收尾，是先不接着安排下一件事。不是要求自己正确地“什么都不做”，只是允许下一刻暂时没有计划。"
       },
       "example": {
         "en": "You might put a finished puzzle aside and wait before choosing whether to chat, stretch, browse something or simply stay where you are.",
@@ -328,15 +328,15 @@
       },
       "strength": {
         "en": "An unassigned interval can give a small finish its own boundary instead of immediately making it the starting signal for another project.",
-        "zh": "不安排的间隙给小完成自己的边界，不立刻把它当下个项目发令。"
+        "zh": "暂不安排的一小段时间，能让刚完成的事在这里告一段落，不必立刻成为下一项任务开始的信号。"
       },
       "tradeoff": {
         "en": "Open time will not always feel satisfying, especially when you want a specific activity. Choosing that activity is still compatible with this portrait.",
-        "zh": "空闲未必总满足，尤其想做某事时。主动选那件事，也符合此画像。"
+        "zh": "空着的时间不一定总令人满足，尤其当你正想做一件具体的事。选择去做它，也不违背这个故事里的安排。"
       },
       "experiment": {
         "en": "Leave one short interval after a harmless task undecided. When you do choose the next thing, let it be a fresh choice rather than a reward requirement.",
-        "zh": "无害小事后留短间隙。再选下一事时，把它当新选择，不当奖励条件。"
+        "zh": "一件普通小事结束后，先留一小段不作安排的时间。之后选下一件事时，把它当作新的选择，不必当成享受奖励的必要条件。"
       }
     }
   ],

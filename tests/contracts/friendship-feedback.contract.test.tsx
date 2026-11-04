@@ -73,6 +73,24 @@ describe("friendship immediate feedback and result comparison", () => {
     expect(streak([], [])).toEqual({ combo: 0, best: 0 });
   });
 
+  it.each(["en", "zh"] as const)("keeps a zero-match %s round honest and opens a real conversation without invented highlights", locale => {
+    const result: Result = {
+      id: "own", nickname: "Friend", correct: 0, total: questions.length, percent: 0,
+      categories: Object.fromEntries(Object.keys(CATEGORIES).map(category => [category, { correct: 0, total: 5 }])),
+      guesses: questions.map(() => 0), answers: questions.map(() => 1), preview: false, entries: [],
+    };
+    const { container } = render(<ResultView locale={locale} challenge={challenge} result={result} url="https://example.com/invite" />);
+    expect(screen.getByRole("img", { name: locale === "zh" ? "猜中 0/30 题，0%" : "0/30 matches, 0%" })).toBeVisible();
+    expect(screen.getByText(locale === "zh" ? "这次各类都还没猜中，可以从一个意外的答案聊起。" : "No category had a match this time. Start with one surprising answer.", { exact: true })).toBeVisible();
+    expect(container.querySelector(".fq-result-head")).not.toHaveTextContent(/本次亮点|猜中率最高|Your highlights|Highest match rate|\(tied\)|（并列）/);
+    const conversation = container.querySelector(".fq-conversation-example")!;
+    expect(conversation).toBeVisible();
+    expect(conversation.closest("details")).toBeNull();
+    expect(conversation).toHaveTextContent(locale === "zh" ? "你猜的是：第一项" : "Your guess: First choice");
+    expect(conversation).toHaveTextContent(locale === "zh" ? "朋友选的是：第二项" : "Their choice: Second choice");
+    expect(conversation).toHaveTextContent(locale === "zh" ? "这是一道你们选择不同的题" : "one of the choices you did not guess");
+  });
+
   it("shows a radar without inventing a comparison and adds one only for other visible entries", () => {
     const categories = Object.fromEntries(Object.keys(CATEGORIES).map(key => [key, { correct: 3, total: 5 }]));
     const result: Result = { id: "own", nickname: "Friend", correct: 18, total: 30, percent: 60, categories, answers: Array(30).fill(0), guesses: Array(30).fill(0), preview: false, entries: [], question_stats: questions.map(() => ({ correct: 0, total: 0 })) };

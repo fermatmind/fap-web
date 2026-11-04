@@ -78,6 +78,7 @@ async function FunResultGuideContent({ params }: Props) {
   const zh = locale === "zh",
     path = resultPath(locale, slug, result.id),
     entry = quizPath(locale, slug);
+  const narrative = quiz.slug === "story-ending";
   const others = quiz.results.filter((other) => other.id !== result.id);
   const examples = portraitRuleExample(quiz, result.id);
   return (
@@ -126,10 +127,9 @@ async function FunResultGuideContent({ params }: Props) {
         <h1 className={styles.title}>
           {result.title[locale]}
         </h1>
+        <p id="meaning" className={styles.meaning}>{result.summary[locale]}</p>
         <p className={styles.context}>
-          {zh
-            ? `这是「${quiz.seo.topic.zh}」的公开画像，不关联任何人的答案或成绩。你可以先了解画像，也可以回到测试作出自己的选择。`
-            : `This is a public portrait from the ${quiz.seo.topic.en}, not a record of anyone’s answers or score. Read it on its own or return to the quiz to make your own choices.`}
+          {zh ? "公开结果解读，不含任何人的私人答卷。" : "A public result guide, without anyone’s private answers."}
         </p>
         <Link
           prefetch={false}
@@ -157,26 +157,20 @@ async function FunResultGuideContent({ params }: Props) {
           ))}
         </nav>
         <article className={styles.reading}>
-          <section id="meaning" className="scroll-mt-24">
-            <h2 className="mb-3 text-2xl font-semibold">
-              {zh ? "这幅画像在说什么？" : "What does this portrait mean?"}
-            </h2>
-            <p>{result.summary[locale]}</p>
-          </section>
           {(
             [
               [
                 "example",
-                zh ? "生活里的一个具体例子" : "A concrete everyday example",
+                narrative ? (zh ? "结尾中的一个画面" : "A scene in this ending") : (zh ? "一个具体情境" : "A concrete example"),
               ],
               [
                 "strength",
-                zh ? "这种选择带来的好处" : "What this choice can bring",
+                narrative ? (zh ? "这段结尾的作用" : "What this ending does") : (zh ? "这种选择带来的好处" : "What this choice can bring"),
               ],
               ["tradeoff", zh ? "也要留意的取舍" : "The tradeoff to notice"],
               [
                 "experiment",
-                zh ? "一次可选的小尝试" : "One optional small experiment",
+                narrative ? (zh ? "可以继续写的一小步" : "A small writing prompt") : (zh ? "一次可选的小尝试" : "One optional small experiment"),
               ],
             ] as const
           ).map(([key, label]) => (

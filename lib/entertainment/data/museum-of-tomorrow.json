@@ -1,7 +1,7 @@
 {
   "slug": "museum-of-tomorrow",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "fantasy",
   "title": {
     "en": "What Would You Label in the Museum of Tomorrow?",
@@ -262,11 +262,11 @@
       "id": "function",
       "title": {
         "en": "The Clear-Function Label Writer",
-        "zh": "清楚用途展签作者"
+        "zh": "把用途说清的展签作者"
       },
       "summary": {
         "en": "Your tomorrow museum begins with what the fictional object actually does in its own rules. A short action or diagram offers an entry into the invention. This result reflects your label choices, not a certification of technical communication skill.",
-        "zh": "你的明日博物馆从虚构物件在自身规则里做什么开始。短动作或简图，为发明提供入口。结果对应展签选择，不认证技术沟通能力。"
+        "zh": "你的明日博物馆，先说明这件虚构物品按故事规则到底能做什么。一个简单动作或示意图，就能让观众开始理解它。这是本次游戏里你选择的展签方式，不是技术沟通能力的认证。"
       },
       "example": {
         "en": "When introducing a made-up board-game tool, you might demonstrate one input and one outcome before telling the whole story of its world.",
@@ -274,7 +274,7 @@
       },
       "strength": {
         "en": "A clear basic function gives another person something concrete to understand and question, making an elaborate invention easier to enter.",
-        "zh": "清楚基本功能给别人具体可理解、可提问的对象，让复杂发明容易进入。"
+        "zh": "先讲清基本功能，别人就有一个具体的对象可以理解和提问，复杂的发明也更容易接近。"
       },
       "tradeoff": {
         "en": "A function-only label can leave out whether the object fits anyone’s real needs. Adding one use context can keep the explanation grounded.",
@@ -282,7 +282,7 @@
       },
       "experiment": {
         "en": "Explain one harmless invented object in two sentences: what action it performs and one situation in which someone might choose to use it.",
-        "zh": "用两句解释一件无害虚构物：它执行什么动作，以及人可能在什么场景自愿使用。"
+        "zh": "用两句话介绍一件不涉及风险的虚构物品：它能做什么，以及人们可能在什么情况下选择使用它。"
       }
     },
     {
@@ -293,7 +293,7 @@
       },
       "summary": {
         "en": "Your exhibit label starts with a person who might choose the object, rather than an invention that everyone must want. Different circumstances can give the same fictional tool different meanings. The result does not infer empathy from a short quiz.",
-        "zh": "你的展签从可能自愿使用物件的人开始，不从人人都该想要的发明开始。不同处境能给同一虚构工具不同意义。结果不会从短测推断共情能力。"
+        "zh": "你的展签从一个可能会使用这件物品的人开始，而不是默认所有人都会想要这个发明。同一种虚构工具，在不同处境里可以有不同意义。这并不意味着一次短测能判断共情能力。"
       },
       "example": {
         "en": "For a pretend device in a story, you might describe one person who enjoys it and another who would rather use a familiar alternative.",
@@ -301,7 +301,7 @@
       },
       "strength": {
         "en": "A use story can make an unfamiliar object understandable while keeping choice and varied needs visible instead of treating one use as universal.",
-        "zh": "使用故事能让陌生物件易懂，也让选择与不同需求可见，不把单一用法当普遍。"
+        "zh": "讲一个使用故事，能帮助别人理解陌生物品，也保留不同需要和选择，不把一种用法当成人人适用。"
       },
       "tradeoff": {
         "en": "One appealing character can still stand in for too many people. A second contrasting use story may reveal assumptions hidden in the first.",
@@ -320,7 +320,7 @@
       },
       "summary": {
         "en": "Your museum makes the fictional object’s limits visible beside its promise. A condition, an exception or a clear distinction between invention and prediction helps the visitor understand the display. The ending values a bounded explanation rather than general skepticism as a trait.",
-        "zh": "你的博物馆把虚构物件限制与愿景并列。条件、例外，或发明与预测的清楚区别，帮助观众理解展览。结局珍惜有边界的说明，不把它评成普遍怀疑特质。"
+        "zh": "你的博物馆，会把虚构物品的限制和它能带来的东西放在一起说明。什么条件下可用、有哪些例外，以及哪些是想象而不是预测，能帮助观众理解展品。这是一种说明方式，不是在给怀疑程度打分。"
       },
       "example": {
         "en": "A label for a fantasy map might explain that it shows only paths already walked, so a blank patch is not mistaken for an empty world.",
@@ -328,7 +328,7 @@
       },
       "strength": {
         "en": "A visible limit can prevent an imaginative promise from quietly becoming a claim the object’s own rules cannot support.",
-        "zh": "可见限制能避免想象愿景悄悄变成物件自身规则也支持不了的主张。"
+        "zh": "把限制说清楚，能避免想象中的美好愿景，悄悄变成连故事自身规则都无法支持的承诺。"
       },
       "tradeoff": {
         "en": "Listing every exception can overwhelm a short label. The most useful boundary is often the one that changes how a visitor would understand or use the object.",

@@ -1,7 +1,7 @@
 {
   "slug": "island-day",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "nature",
   "title": {
     "en": "One Day on Postcard Island",
@@ -153,7 +153,7 @@
       "id": "bell",
       "title": {
         "en": "The Card of Quiet Sounds",
-        "zh": "安静声音卡"
+        "zh": "记录安静声音的卡片"
       },
       "summary": {
         "en": "You leave with a record of what became audible when the bell did not ring. The island’s missing event turns into another kind of presence. Your ending gives a quiet interval a shape without requiring it to deliver a dramatic revelation.",
@@ -207,7 +207,7 @@
       "id": "ledger",
       "title": {
         "en": "The Open-Ledger Note",
-        "zh": "开放船簿便条"
+        "zh": "留着空白的船簿便条"
       },
       "summary": {
         "en": "You place one plain detail beside today’s date and leave the next entry empty. The island keeps a trace without pretending the day can be fully captured. Your ending gives a future reader a starting point while letting their visit be different.",

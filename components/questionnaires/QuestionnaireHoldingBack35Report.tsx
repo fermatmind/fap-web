@@ -11,10 +11,28 @@ export function QuestionnaireHoldingBack35Report({ quiz, result, locale }: {
 }) {
   const zh = locale === "zh";
   return <div data-holding-back35-result className="mt-6 space-y-8">
-    <p className="leading-8 text-slate-700">{zh
+
+
+
+    {quiz.profiles.map(profile => <section data-holding-back35-guide={profile.id} key={profile.id}
+      aria-labelledby={`holding-back35-guide-${profile.id}`}>
+      <h3 id={`holding-back35-guide-${profile.id}`} className="scroll-mt-24 mb-4 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
+      {(() => { const part = result.holdingBack35.domains.find(part => part.domainId === profile.directionIds[0])!; return <p className="mb-4 font-semibold tabular-nums">{zh ? "本次均分：" : "Your mean: "}{part.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${part.mean.toFixed(1)} / 5`}</p>; })()}
+
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`holding-back35-${profile.id}`} mode="result" previewSectionIds={[`${profile.directionIds[0]}-3`, `${profile.directionIds[0]}-5`]} />
+      <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline"
+        href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这份公开完整指南" : "Read this complete public guide"}</Link>
+    </section>)}
+    <aside data-holding-back35-source className="space-y-3 text-sm leading-7">
+      {quiz.guide.find(s => s.id === "source")?.paragraphs.map((p, i) => <p key={i}>{p[locale]}</p>)}
+      {quiz.references?.map(reference => <p key={reference.url}><a className="underline" href={reference.url}>{reference.title[locale]}</a></p>)}
+    </aside>
+
+    <details className="border-t border-slate-200 pt-3" data-result-reading-method><summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、原始记录与计算说明" : "View all readings, original records and calculation notes"}</summary>
+<p className="leading-8 text-slate-700">{zh
       ? "以下七项按固定主题顺序分别呈现，回看过去四周的具体情境。每项五题数值齐全才给1—5均分，显示一位小数。数值只概括本网站原创情境的频率，不分档、不比较谁更严重，也不生成总分或主导类型。"
       : "The seven topics appear separately in a fixed order, reflecting situations from the past four weeks. Each requires five numeric responses for a 1–5 mean shown to one decimal. The numbers summarize frequency in these original website scenarios, without bands, severity comparisons, an overall score or a dominant type."}</p>
-    <div className="grid gap-4 sm:grid-cols-2">
+<div className="grid gap-4 sm:grid-cols-2">
       {result.holdingBack35.domains.map(part => <section data-holding-back35-part={part.domainId} key={part.domainId}
         aria-labelledby={`holding-back35-part-${part.domainId}`} className="rounded-lg border border-slate-200 p-4 sm:p-5">
         <h3 id={`holding-back35-part-${part.domainId}`} className="scroll-mt-24 text-xl font-semibold">{quiz.directions.find(d => d.id === part.domainId)!.title[locale]}</h3>
@@ -23,20 +41,10 @@ export function QuestionnaireHoldingBack35Report({ quiz, result, locale }: {
           : (zh ? `${part.mean.toFixed(1)} / 5（5/5题有数值回答）` : `${part.mean.toFixed(1)} / 5 (5/5 items rated)`)}</p>
       </section>)}
     </div>
-    <p className="leading-8 text-slate-700">{zh
+<p className="leading-8 text-slate-700">{zh
       ? "不计分不当作零、从不或猜测答案；一项资料不足不影响其他完整项。即使全部不计分，本次也已结束，七份指南仍完整开放。“想象占用当下”仅观察日常神游与实际活动的错位，比原研究构念更窄；本观察不是IPRS量表，也不继承其验证。"
       : "Unscored choices are never zero, Never or imputed answers. An unavailable mean does not affect complete topics. Even with all choices unscored, this attempt is finished and all seven guides remain available. Imagined scenarios covers everyday absorption displacing an intended activity, a narrower scope than the research construct. This is not the IPRS instrument and does not inherit its validation."}</p>
-    {quiz.profiles.map(profile => <section data-holding-back35-guide={profile.id} key={profile.id}
-      aria-labelledby={`holding-back35-guide-${profile.id}`}>
-      <h3 id={`holding-back35-guide-${profile.id}`} className="scroll-mt-24 mb-4 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
-      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`holding-back35-${profile.id}`} />
-      <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline"
-        href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这份公开完整指南" : "Read this complete public guide"}</Link>
-    </section>)}
-    <aside data-holding-back35-source className="space-y-3 text-sm leading-7">
-      {quiz.guide.find(s => s.id === "source")?.paragraphs.map((p, i) => <p key={i}>{p[locale]}</p>)}
-      {quiz.references?.map(reference => <p key={reference.url}><a className="underline" href={reference.url}>{reference.title[locale]}</a></p>)}
-    </aside>
+    </details>
   </div>;
 }
 

@@ -1,7 +1,7 @@
 {
   "slug": "party-arrival",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "social",
   "title": {
     "en": "How Do You Find Your Place at a Party?",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Entering a gathering through a small conversation, an activity with visible rules or a gentle settling-in interval.",
-    "zh": "通过一段小对话、规则可见的活动，或温和安顿间隔进入聚会。"
+    "zh": "到了聚会，你会先聊几句、参加一项活动，还是给自己一点时间安顿下来？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -262,11 +262,11 @@
       "id": "conversation",
       "title": {
         "en": "The One-Conversation Arriver",
-        "zh": "一段对话的到场者"
+        "zh": "先聊几句再加入"
       },
       "summary": {
         "en": "Your arrival finds an opening through one person and one manageable exchange. You do not need to work the whole room for the evening to begin. The ending follows these choices and does not label you introverted or extroverted.",
-        "zh": "你的到场通过一个人与一段可掌握交流找到入口。夜晚开始，不必先与全屋所有人打交道。结局跟随本次选择，不给你贴内外向标签。"
+        "zh": "先找到一个人，聊一段轻松的对话，你的聚会就开始了。不必先和屋里每个人都打过招呼。这只是你在本次情境里的选择，不给你贴内向或外向的标签。"
       },
       "example": {
         "en": "At an open hobby gathering, you might ask someone about the piece they are already making rather than searching for a topic impressive enough for everybody.",
@@ -274,11 +274,11 @@
       },
       "strength": {
         "en": "A small exchange gives participation a concrete starting point and lets connection grow at a scale both people can comfortably choose.",
-        "zh": "一段小交流给参与具体起点，也让联系按双方舒服的规模慢慢长。"
+        "zh": "从一段小对话开始，参与就有了具体的起点；双方也能选择自己舒服的交谈节奏。"
       },
       "tradeoff": {
         "en": "One conversation can become hard to leave if it is treated as the only route into the gathering. A simple pause or goodbye can keep the evening flexible.",
-        "zh": "若把一段对话当作进入聚会的唯一路线，也可能难离开。简单停顿或告别，能让夜晚灵活。"
+        "zh": "如果把这一段对话当成参与聚会的唯一方式，也可能不知如何暂时离开。一句告别或短暂休息，能让接下来的安排更灵活。"
       },
       "experiment": {
         "en": "At a willing social moment, ask one specific easy question and listen to the answer. Let one exchange count without requiring it to become a lasting connection.",
@@ -289,54 +289,54 @@
       "id": "activity",
       "title": {
         "en": "The Shared-Activity Arriver",
-        "zh": "一起做点事的到场者"
+        "zh": "一起做事，自然加入"
       },
       "summary": {
         "en": "Your way into the gathering is something visible to do together. A drawing, game or small shared task offers context without demanding a polished introduction. The portrait describes a chosen entry route rather than a limit on your conversational ability.",
-        "zh": "你通过看得见、可一起做的事进入聚会。绘画、游戏或小共同任务提供前情，不要求精致自我介绍。画像描述所选入口，不限定你的对话能力。"
+        "zh": "你通过一起做一件事加入聚会。画画、游戏或一项小任务，让大家自然有话可聊，不需要准备漂亮的自我介绍。这是你选的参与方式，不限制你的交谈能力。"
       },
       "example": {
         "en": "At a casual craft evening, you might ask how to join the open collage table and begin with one small piece beside the others.",
-        "zh": "轻松手工夜里，你可能问怎么加入开放拼贴桌，从其他人旁边一小块开始。"
+        "zh": "参加手工聚会时，你可以先问怎样加入正在开放的拼贴活动，再和大家一起从一小块纸片做起。"
       },
       "strength": {
         "en": "A shared activity gives newcomers immediate common ground and can let conversation emerge from what people are already doing.",
-        "zh": "共同活动给新人即时共同内容，也让对话从正在做的事自然出现。"
+        "zh": "一起做事，新人就有了共同话题，对话也能从手边正在做的东西自然展开。"
       },
       "tradeoff": {
         "en": "Taking on a task can become a way to stay busy without enjoying the gathering. Joining does not mean you must keep helping all evening.",
-        "zh": "认领任务也可能让人一直忙却没享受聚会。加入不等于整晚都必须帮忙。"
+        "zh": "领了一项任务，也可能整晚都在忙，顾不上享受聚会。参加活动不表示你必须一直帮忙。"
       },
       "experiment": {
         "en": "Join one optional activity for a small round and then check whether you want to continue, talk or pause. Let the activity be an entrance rather than an obligation.",
-        "zh": "自愿参加一小轮活动，再看看想继续、聊天还是停一下。让活动成为入口，不变义务。"
+        "zh": "自愿参加一小轮活动，再看看自己想继续、聊一会儿，还是休息。让活动帮助你加入，不必把它当成义务。"
       }
     },
     {
       "id": "landing",
       "title": {
         "en": "The Gentle-Landing Arriver",
-        "zh": "轻轻安顿的到场者"
+        "zh": "先安顿，再慢慢加入"
       },
       "summary": {
         "en": "Your arrival includes a moment to put things down and understand the room. Taking time is part of joining, not evidence that you are doing it wrong. The ending leaves your later level of conversation and activity entirely open.",
-        "zh": "你的到场包含放下东西、理解房间的一刻。用一点时间也是加入的一部分，不说明你做错了。结局让之后想聊多少、参与多少都保持开放。"
+        "zh": "刚到场时，你先放下东西，看看周围，再决定怎样加入。花一点时间安顿下来，也是参加聚会的一部分。之后想聊多少、参加什么活动，都还可以慢慢决定。"
       },
       "example": {
         "en": "On arriving at a friendly event, you might first learn where coats go and where you can sit before deciding which conversation or activity to approach.",
-        "zh": "到友好活动时，你可能先知道外套放哪、可坐哪里，再决定靠近哪段对话或活动。"
+        "zh": "刚到一场活动，你可以先弄清外套放哪里、哪里可以坐，再决定想加入哪段对话或哪项活动。"
       },
       "strength": {
         "en": "A settling interval can make the next choice feel deliberate and reduce the pressure to respond to every part of a busy room immediately.",
-        "zh": "一段安顿间隔让下一选择更主动，也减少必须立刻回应满屋所有内容的压力。"
+        "zh": "先安顿一会儿，下一步就更容易由自己选择，不必立刻回应热闹房间里的每件事。"
       },
       "tradeoff": {
         "en": "Waiting for complete comfort can sometimes delay a small enjoyable step. A gentle landing can include a modest hello when you want one.",
-        "zh": "有时等到完全舒服才动，会拖过本可愉快的一小步。愿意时，轻轻安顿也能包含一声小招呼。"
+        "zh": "如果一直等到完全自在，可能会错过一件原本想试的小事。安顿好之后，也可以先向一个人简单打个招呼。"
       },
       "experiment": {
         "en": "Give yourself a simple arrival sequence for one event: put things down, orient yourself, then choose one small next step. Adjust it to how you feel that day.",
-        "zh": "为一次活动准备简单到场顺序：放东西、看清方位，再选下一小步。按当天感受调整。"
+        "zh": "给一次活动安排简单的到场顺序：放好东西、看看周围，再选一件想做的小事。当天也可以按自己的感受调整。"
       }
     }
   ],

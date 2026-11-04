@@ -85,12 +85,12 @@ function ValidSynes15Client({ quiz, locale, readingProfiles }: { quiz: Synes15Qu
           return <section key={id} data-synes15-part={id} aria-labelledby={`synes15-${id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
             <h3 id={`synes15-${id}`} className="scroll-mt-24 text-xl font-semibold">{profile.title[locale]}</h3>
             <p data-synes15-count className="my-3 leading-8">{zh ? `三条中的回答计数：有 ${score.counts.yes}；没有 ${score.counts.no}；不确定 ${score.counts.unsure}；无机会／不愿回答 ${score.counts.na}。` : `Response counts out of three: yes ${score.counts.yes}; no ${score.counts.no}; unsure ${score.counts.unsure}; no opportunity / decline ${score.counts.na}.`}</p>
-            <ol data-synes15-responses className="my-4 space-y-5">{score.responses.map(response => {
+            <details className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "核对三条原始选择" : "Review the three original choices"}</summary><ol data-synes15-responses className="my-4 space-y-5">{score.responses.map(response => {
               const item = quiz.questions.find(q => q.id === response.questionId)!;
               const chosen = item.options.find(o => o.id === response.choice)!;
               return <li key={response.questionId} className="rounded-lg bg-slate-50 p-4 leading-8"><p>{item.prompt[locale]}</p><p className="mt-2 font-semibold">{chosen.label[locale]}</p></li>;
-            })}</ol>
-            <details className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开此部分完整读法" : "Expand this full reading"}</summary><div className="mt-5"><QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`synes15-${id}`} /></div></details>
+            })}</ol></details>
+            <div className="mt-5"><QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`synes15-${id}`} mode="result" previewSectionIds={["s2", "s6"]} /></div>
             <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "阅读完整公开指南" : "Read the complete public guide"}</Link>
           </section>;
         })}</ResultPage>

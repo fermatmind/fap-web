@@ -123,9 +123,12 @@ function ValidTypingClient({ quiz, locale }: { quiz: Questionnaire; locale: Loca
     </>}
     {phase === "result" && finished && <ResultPage variant="practice" data-typing-result data-observed-elapsed-ms={finished.observedElapsedMs} data-typing-language={finished.language} className="mt-5 space-y-6 leading-8">
       <p>{round.title[locale]} · {zh ? "固定60秒；仅计时限内已提交文本" : "Fixed 60 seconds; only text committed before the deadline"}</p>
+      <p className="text-lg font-semibold tabular-nums">{zh ? "本轮 " : "This round: "}<strong data-typing-cpm>{finished.cpm.toFixed(1)}</strong>{zh ? " 字符/分钟" : " characters per minute"}</p>
+      <p>{zh ? `最终保留的${finished.typedCharacters}个字符中，${finished.correctCharacters}个与原文同位置相符。可以先核对文字位置，再决定要不要继续练习。` : `${finished.correctCharacters} of the ${finished.typedCharacters} final characters match the source at the same position. Review those positions before deciding whether to practise again.`}</p>
+      <details className="border-t border-slate-200 pt-3"><summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看准确率、单位与全部输入记录" : "View accuracy, units and all typing counts"}</summary>
       <ResultOverview locale={locale} title={zh ? "本轮输入表现" : "This round’s typing performance"} id="typing-result-metrics">
       <dl className="grid gap-3 sm:grid-cols-2 [&>div]:min-w-0 [&>div]:border-b [&>div]:border-slate-200 [&>div]:pb-4 [&_dd]:tabular-nums">
-        <div><dt>{zh ? "最终字符 / 分钟（CPM）" : "Final characters per minute (CPM)"}</dt><dd data-typing-cpm className="text-2xl font-semibold">{finished.cpm.toFixed(1)}</dd></div>
+        <div><dt>{zh ? "最终字符 / 分钟（CPM）" : "Final characters per minute (CPM)"}</dt><dd className="text-2xl font-semibold">{finished.cpm.toFixed(1)}</dd></div>
         <div><dt>{zh ? "同位置正确字符 / 分钟" : "Position-correct characters per minute"}</dt><dd data-typing-correct-cpm className="text-2xl font-semibold">{finished.correctCpm.toFixed(1)}</dd></div>
         {finished.language === "en" && <>
           <div><dt>{zh ? "英文总 WPM（5字符折1词）" : "Gross English WPM (5-character units)"}</dt><dd data-typing-wpm className="text-2xl font-semibold">{finished.grossWpm!.toFixed(1)}</dd></div>
@@ -136,13 +139,16 @@ function ValidTypingClient({ quiz, locale }: { quiz: Questionnaire; locale: Loca
         <div><dt>{zh ? "同位置匹配 / 不匹配字符" : "Position-matched / mismatched characters"}</dt><dd data-typing-errors>{finished.correctCharacters} / {finished.incorrectCharacters}</dd></div>
       </dl>
       </ResultOverview>
+      </details>
       <ResultReadingNav label={zh ? "查看本轮与复习说明" : "Review this round and its guides"} sections={[{ id: "typing-result-metrics", title: zh ? "输入表现" : "Typing performance" }, { id: "typing-result-guides", title: zh ? "完整复习指南" : "Complete revision guides" }]} />
+      <details className="border-t border-slate-200 pt-3"><summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "WPM换算、比较方式与隐私" : "WPM conversion, comparison method and privacy"}</summary>
       <p>{finished.language === "zh" ? (zh ? "中文仅报字符/分钟，不折算英文WPM。标点、数字和空格均计为字符；不是输入法按键数或语言能力分。" : "Chinese reports characters per minute without an English-WPM conversion. Punctuation, digits and spaces count as characters; this is neither IME keystrokes nor language proficiency.") : (zh ? "WPM按5个最终字符折1词，不是词典单词数。正确WPM只计与原文同位置相符的字符，不采用每1%错误扣2WPM等其他网站罚分。" : "WPM uses five final characters per unit, not dictionary words. Position-correct WPM counts only matching positions; it does not use another site's error penalties.")}</p>
       <p>{zh ? "改掉并删除的旧字符不累计；未输入的原文余量不作错字。插入或漏掉一个字符可能使后续位置错开；这是逐位置比较，不是编辑距离。原始输入在结束时已清空，只保留本页内聚合结果。不分快慢档、不提供常模、雇主通过线或证书。" : "Deleted or corrected characters do not accumulate. The untyped source remainder is not treated as errors. An insertion or omission can shift later positions: this is positional matching, not edit distance. Raw input was cleared at the end; only page-local aggregate results remain. No speed band, norm, employer cutoff or certificate is supplied."}</p>
+      </details>
       <div className="flex flex-wrap gap-3"><button className={button} onClick={() => reset()}>{zh ? "重新选择并练习" : "Choose again and practise"}</button><button className={button} onClick={share}>{zh ? "复制公开练习链接" : "Copy public practice link"}</button></div>
       {manual && <label className="block">{zh ? "手动复制公开链接" : "Public link for manual copying"}<textarea className="mt-2 min-h-24 w-full rounded-lg border p-3" readOnly value={manual} /></label>}
       <h3 id="typing-result-guides" className="scroll-mt-24 text-xl font-semibold">{zh ? "两份完整复习指南，均免费" : "Both complete revision guides, free"}</h3>
-      {quiz.profiles.map(profile => <section key={profile.id} data-typing-guide={profile.id}><h3 className="text-xl font-semibold">{profile.title[locale]}</h3><QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`typing-guide-${profile.id}`} /></section>)}
+      {quiz.profiles.map(profile => <section key={profile.id} data-typing-guide={profile.id}><h3 className="text-xl font-semibold">{profile.title[locale]}</h3><QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`typing-guide-${profile.id}`} mode="result" showHeadline={false} previewSectionIds={profile.id === "english" ? ["corrections", "position", "next"] : ["composition", "punctuation", "next"]} /></section>)}
       <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试与练习" : "Back to all tests and practice"}</Link>
     </ResultPage>}
     <p role="status" className="mt-4 leading-7">{message}</p>

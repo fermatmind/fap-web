@@ -9,11 +9,11 @@ import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 export function FaceSelfImageReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh";
   return <div data-face-self-image-report className="mt-6 space-y-8">
-    <p className="leading-8">{zh ? "四项分别记录过去一个月自己一侧的体验。每项四条，至少三条数字才显示均值；3是有时，未评分不当零分。条形只定位原始1至5，不是颜值、百分比、人群位置或别人对你的评价。四项可以同时高、低或相同，不合总分或划分等级。" : "Four parts separately record your own experience over the past month. Each has four prompts and needs three numeric ratings for a mean. Three means sometimes; unscored answers are not zero. Bars locate the raw 1–5 mean, not beauty, a percentage, population position or someone else’s assessment. Parts can all be high, low or equal, without a total or assigned tier."}</p>
+
     <ResultSection title={zh ? "四项自我形象体验概览" : "Four self-image experience readings"}>
       <div className="grid gap-x-8 sm:grid-cols-2">{quiz.directions.map(direction => {
         const part = result.facets[direction.id];
-        return <ResultScoreRow key={direction.id} label={direction.title[locale]} value={part.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${part.mean.toFixed(1)} / 5`} score={part.mean} min={1} max={5} description={zh ? `原始频率均值 · 1–5；${part.rated}/${part.total}条有效` : `Raw frequency mean · 1–5; ${part.rated}/${part.total} rated`} />;
+        return <ResultScoreRow key={direction.id} label={direction.title[locale]} value={part.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${part.mean.toFixed(1)} / 5`} score={part.mean} min={1} max={5} description={quiz.profiles.find(profile => profile.directionIds[0] === direction.id)!.summary[locale]} />;
       })}</div>
     </ResultSection>
     <ResultReadingNav label={zh ? "逐项完整解读" : "Full readings by topic"} sections={quiz.directions.map(direction => ({ id: `face-self-image-${direction.id}`, title: direction.title[locale] }))} />
@@ -26,11 +26,14 @@ export function FaceSelfImageReport({ quiz, result, locale }: { quiz: Questionna
           : (zh ? `原始和 ${part.sum}，${part.rated}/4条有效，频率均值 ${part.mean.toFixed(1)} / 5` : `Raw sum ${part.sum}; ${part.rated}/4 rated; frequency mean ${part.mean.toFixed(1)} / 5`)}</p>
         {part.mean !== null && <div className="mb-5"><div role="meter" aria-labelledby={`face-self-image-${direction.id}`} aria-valuemin={1} aria-valuemax={5} aria-valuenow={part.mean} aria-valuetext={zh ? `原始自报频率${part.mean.toFixed(1)}，范围1从不至5几乎每次` : `Raw self-reported frequency ${part.mean.toFixed(1)}, from 1 never to 5 almost always`} className="h-3 overflow-hidden rounded-full bg-slate-100"><div className="h-full rounded-full bg-violet-600" style={{ width: `${(part.mean - 1) / 4 * 100}%` }} /></div><p className="mt-2 flex justify-between gap-4 text-xs leading-6 text-slate-600"><span>{zh ? "1 从不" : "1 Never"}</span><span>{zh ? "5 几乎每次" : "5 Almost always"}</span></p></div>}
         <p className="mb-4 leading-7">{part.mean === null ? (zh ? "以下完整正文是通用读法，不是本次个人自我形象的结论。" : "The complete text below is a general guide, not a conclusion about your self-image in this attempt.") : (zh ? "较高只记录更常认同这些时刻，不证明更好看、更健康、别人觉得你自信，或需要改变外表。请结合具体题目与场合阅读。" : "A higher mean records more frequent endorsement of these moments. It does not establish better looks, health, confidence as seen by others or a need to change appearance. Read the actual prompts in context.")}</p>
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`face-self-image-reading-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`face-self-image-reading-${profile.id}`} mode="result" previewSectionIds={[`${profile.id}-2`, `${profile.id}-6`]} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一观察的完整公开指南" : "Read this observation’s full public guide"}</Link>
       </section>;
     })}
     <p className="text-sm leading-7">{zh ? "题目和读法为费马原创，尚未建立信效度、常模或跨语言等价。不使用照片、相机或AI分析，不测面部吸引力、偏差值、健康或他人印象，也不建议购买、打理或改变五官。" : "FermatMind authored these prompts and readings; reliability, validity, norms and language equivalence have not been established. No photograph, camera or AI analysis is used. This is not facial attractiveness, hensachi, health or another person’s impression, and no purchase, grooming or feature change is recommended."}</p>
+    <details className="border-t border-slate-200 pt-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "均值与未评分回答怎样计算" : "How means and unscored responses are handled"}</summary>
+    <p className="leading-8">{zh ? "四项分别记录过去一个月自己一侧的体验。每项四条，至少三条数字才显示均值；3是有时，未评分不当零分。条形只定位原始1至5，不是颜值、百分比、人群位置或别人对你的评价。四项可以同时高、低或相同，不合总分或划分等级。" : "Four parts separately record your own experience over the past month. Each has four prompts and needs three numeric ratings for a mean. Three means sometimes; unscored answers are not zero. Bars locate the raw 1–5 mean, not beauty, a percentage, population position or someone else’s assessment. Parts can all be high, low or equal, without a total or assigned tier."}</p>
+    </details>
   </div>;
 }
 

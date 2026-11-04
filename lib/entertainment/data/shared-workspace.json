@@ -1,7 +1,7 @@
 {
   "slug": "shared-workspace",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "social",
   "title": {
     "en": "Your Role at a Shared Creative Table",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Making a creative handover clear through artifact labels, tool-sharing arrangements or feedback requested by the maker.",
-    "zh": "通过作品标记、工具共用安排，或作者主动想要的反馈，让创作交接清楚。"
+    "zh": "在共用的创作桌上，你会先标清作品状态、约好工具怎样归还，还是问作者想听哪种反馈？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -262,11 +262,11 @@
       "id": "label",
       "title": {
         "en": "The Work-in-Progress Marker",
-        "zh": "进行中状态标记者"
+        "zh": "给未完成的作品留个标记"
       },
       "summary": {
         "en": "Your shared table keeps the maker and the current state of a page visible. A small note can protect an unfinished idea from being mistaken for spare material. The portrait values a clear creative handover rather than a formal project-management identity.",
-        "zh": "你的共用桌让纸页作者与当前状态可见。小便条能让未完想法不被误当备用材料。画像珍惜清楚创作交接，不授予正式项目管理身份。"
+        "zh": "在你安排的共用桌上，大家能看出纸上是谁的作品、做到哪一步。一张小便条，就能避免未完成的创作被当成闲置材料。这是一次清楚的交接，不是项目管理能力或身份认定。"
       },
       "example": {
         "en": "You might leave “Mina’s trial layout, please keep as placed” beside a collage draft rather than expecting everybody to recognize which scraps are still in use.",
@@ -274,26 +274,26 @@
       },
       "strength": {
         "en": "A legible state can reduce accidental changes and make it easier for someone to return without reconstructing what happened while they were away.",
-        "zh": "可读状态能减少无意变动，也让人回来时不用重建离开期间发生过什么。"
+        "zh": "状态写明白，能减少不小心的改动。作者回来时，也不用重新猜测自己离开后发生了什么。"
       },
       "tradeoff": {
         "en": "Labeling every tiny move can take over the creative session. A short note at a real handover point may be enough.",
-        "zh": "标记每个微动作也会接管创作时间。真正交接时一则短记，也许已够。"
+        "zh": "每一个小动作都要标注，也会占去创作的时间。真到交接时，留一张简短便条可能就够了。"
       },
       "experiment": {
         "en": "At the end of one shared creative session, leave a two-line note: whose work it is and what is open to change. Keep the note smaller than the work.",
-        "zh": "一次共同创作结束时，留两行：是谁的作品、哪些可改。让便条比作品本身小。"
+        "zh": "一次共同创作结束后，用两行写明：这是谁的作品，哪些部分可以改。交代清楚就好，不让便条比创作本身还费力。"
       }
     },
     {
       "id": "tool",
       "title": {
         "en": "The Common-Tool Handover Partner",
-        "zh": "共用工具交接伙伴"
+        "zh": "让共用工具好找好还"
       },
       "summary": {
         "en": "Your table runs more easily when a tool can be found, used and returned without a small negotiation every time. You choose a practical handover that fits the activity. The result does not make you custodian of everyone’s belongings.",
-        "zh": "工具不用每次都重新小协商，就能找到、使用、归还时，你的桌子更顺。你选择贴活动的实际交接。结果不让你保管所有人物品。"
+        "zh": "共用工具能找到、拿来用、再放回去，桌上的创作就顺畅一些，不必每次都重新商量。你选的是贴合活动的小安排，不是替所有人保管物品。"
       },
       "example": {
         "en": "You might agree where the common ruler lives and how to pass it between two people working at the same table, while personal tools remain separately identified.",
@@ -301,42 +301,42 @@
       },
       "strength": {
         "en": "A simple sharing arrangement can prevent avoidable interruption and keep access to a common resource understandable for a newcomer.",
-        "zh": "简单共用安排能减少无谓打断，也让新人明白怎样使用公共资源。"
+        "zh": "简单的共用约定能减少打断，新人也更容易知道怎样借用工具。"
       },
       "tradeoff": {
         "en": "An overly fixed arrangement can fail when the project changes. Checking whether the actual users still find it helpful keeps the system modest.",
-        "zh": "项目变了，过度固定安排也会失效。问实际使用者是否仍有帮助，能让安排保持适度。"
+        "zh": "创作变了，原来的安排也可能不再好用。问问正在使用的人是否还方便，再决定要不要调整。"
       },
       "experiment": {
         "en": "Choose one genuinely shared item and agree on its return place with its users. Avoid arranging somebody else’s personal materials without asking.",
-        "zh": "选一件确实共用物，与使用者约归位处。不问就安排他人私人材料的事可以省去。"
+        "zh": "选一件确实共用的物品，和使用它的人约好归还位置。别人的私人材料，要先问过再安排。"
       }
     },
     {
       "id": "feedback",
       "title": {
         "en": "The Asked-for-Feedback Partner",
-        "zh": "回应所需反馈的伙伴"
+        "zh": "先问作者想听什么"
       },
       "summary": {
         "en": "Your table gives a draft a response the maker actually asked for. A question about scope comes before a list of improvements. The ending values a bounded creative exchange, not a claim that your feedback is always correct or should always be followed.",
-        "zh": "你的桌子给草稿作者实际想要的回应。先问范围，再列改进。结局珍惜有边界创作交换，不宣称你的反馈总正确或总该被采纳。"
+        "zh": "你会先问作者想听哪方面的反馈，再回应这份草稿，不急着列一串改进建议。这是一次范围明确的创作交流，不表示你的意见总是正确，或作者必须照做。"
       },
       "example": {
         "en": "If a friend asks about a card design, you might check whether they want a first impression, a wording suggestion or help choosing between two versions.",
-        "zh": "朋友问卡片设计时，你可能先确认想听第一印象、文字建议，还是帮选两个版本。"
+        "zh": "朋友拿来卡片设计时，可以先问：想听第一印象、文字建议，还是一起比较两个版本？"
       },
       "strength": {
         "en": "A clear feedback request can make a response more useful and let the maker retain ownership of the choices still being explored.",
-        "zh": "清楚反馈请求让回应更有用，也让作者继续拥有仍在探索中选择的主导权。"
+        "zh": "知道作者想问什么，回应就更容易帮上忙。仍在尝试的那些选择，也继续由作者自己决定。"
       },
       "tradeoff": {
         "en": "Clarifying endlessly can postpone a small useful observation. Once the scope is clear enough, one concrete response may serve better than another round of questions.",
-        "zh": "澄清过久也会推迟有用小观察。范围足够明白后，一条具体回应可能比再问一轮更好。"
+        "zh": "一直追问范围，也可能迟迟不给出有用的回应。已经足够清楚时，说一条具体观察就好，不必再问一轮。"
       },
       "experiment": {
         "en": "Before commenting on a willing person’s draft, ask what kind of response would help. Offer one specific observation and leave the final choice with the maker.",
-        "zh": "评论愿意者草稿前，问哪种回应有帮助。给一条具体观察，让最终选择留在作者手里。"
+        "zh": "评论一份对方愿意分享的草稿前，先问哪种意见有帮助。说出一条具体观察，再把最终选择留给作者。"
       }
     }
   ],

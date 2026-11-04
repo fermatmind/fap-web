@@ -14,7 +14,7 @@ export function QuestionnaireHabitReport({ quiz, result, locale, readingProfiles
   const privacy = zh ? "回答和结果仅在当前页面内存中；不收习惯名称，不保存草稿或结果，不接分析事件，不提供个人结果分享。刷新、换语或离开会清除。" : "Responses and results remain in current-page memory only: no habit name, saved draft or result, analytics or personal-result sharing. Reloading, changing language or leaving clears them.";
   const support = zh ? "不要根据本页停药、改变处方或实施危险戒断。如果现实影响持续波及休息、任务、关系、财务或安全，可以按实际需要联系具备资质的专业服务；无需由本页数值决定是否寻求支持。现实紧急安全问题应优先联系当地紧急服务或可信任的人。" : "Do not use this page to stop medication, change prescriptions or attempt dangerous withdrawal. Persistent real-world effects on rest, tasks, relationships, finances or safety can be discussed with qualified professional services, without relying on a questionnaire value to decide whether to seek support. For an urgent safety problem, prioritize local emergency services or a trusted person.";
   return <div data-habit-result className="my-6 space-y-8">
-    {available.length > 0 && quiz.directions.length > 1 && <ResultReadingNav label={zh ? "按主题阅读结果" : "Read results by topic"} sections={quiz.directions.map(direction => ({ id: `habit-${direction.id}`, title: direction.title[locale] }))} />}
+    {available.length > 0 && quiz.directions.length > 1 && <ResultReadingNav collapsible label={zh ? "按主题阅读结果" : "Read results by topic"} sections={quiz.directions.map(direction => ({ id: `habit-${direction.id}`, title: direction.title[locale] }))} />}
     <p className="leading-8">{scope}</p>
     {!available.length ? <section data-habit-all-insufficient role="status" className="rounded-lg border border-slate-200 p-4 leading-8">
       <h3 className="text-xl font-semibold">{zh ? "各部分信息均不足" : "All parts have insufficient information"}</h3>
@@ -30,7 +30,7 @@ export function QuestionnaireHabitReport({ quiz, result, locale, readingProfiles
           {score.mean === null ? <p data-habit-insufficient className="leading-8">{zh ? "信息不足：本组不显示原始和、均值或个人解释。不推算、不补答；其他满足条件的组保留。" : "Insufficient information: no sum, mean or personal interpretation for this part. No inference or replacement answer; other available parts remain."}</p> : <>
             <p data-habit-mean className="mb-4 rounded-lg bg-slate-50 p-4 font-semibold">{zh ? `均值：${score.mean.toFixed(4)} / 5（${score.sum} ÷ ${score.rated}，显示至四位小数）` : `Mean: ${score.mean.toFixed(4)} / 5 (${score.sum} ÷ ${score.rated}, rounded to four decimals)`}</p>
             <p data-habit-sum className="mb-4 leading-8">{zh ? `原始和：${score.sum}，由${score.rated}个数字回答相加。描述的是这些回答，不转换为成瘾程度、概率或风险等级。` : `Raw sum: ${score.sum}, from ${score.rated} numeric responses. It describes these answers without conversion to addiction severity, probability or a risk grade.`}</p>
-            <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`habit-report-${profile.id}`} />
+            <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`habit-report-${profile.id}`} mode="result" previewSectionIds={[`${profile.id}-example`, `${profile.id}-observation`]} />
           </>}
           <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "单独阅读本部分通用全文（不含个人记录）" : "Read this part’s general full guide separately (no personal record)"}</Link>
         </section>;

@@ -24,7 +24,7 @@ export function QuestionnaireCognitiveFunctionsReport({ quiz, result, answers, l
       return <li key={q.id} data-cognitive-answer={q.id}><p>{q.prompt[locale]}</p><p className="font-semibold">{option?.label[locale]}</p><p className="text-sm text-slate-600">{zh ? `${q.reverse ? "反向题：6减所选数" : "直接计分"}；贡献${contribution === null ? "不评分" : contribution}` : `${q.reverse ? "Reverse item: 6 minus response" : "Direct rating"}; contribution: ${contribution === null ? "unscored" : contribution}`}</p></li>;
     })}</ol></details>
     {quiz.profiles.map(profile => <section key={profile.id} aria-labelledby={`cognitive-guide-${profile.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6" data-cognitive-full={profile.id}>
-      <h3 id={`cognitive-guide-${profile.id}`} className="scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3><QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix="report" />
+      <h3 id={`cognitive-guide-${profile.id}`} className="scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3><QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix="report" mode="result" previewSectionIds={[`${profile.id}-example`, `${profile.id}-try`]} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读不含个人数值的公开完整指南" : "Read the complete public guide without personal values"}</Link>
     </section>)}
   </div>;

@@ -1,7 +1,7 @@
 {
   "slug": "desert-oasis",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "nature",
   "title": {
     "en": "Design an Imaginary Oasis Rest Stop",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Designing a public resting place through practical legibility, a shared memory or unhurried space.",
-    "zh": "通过实际清晰度、共同记忆或不催促的空间，设计一处公共歇脚点。"
+    "zh": "设计公共歇脚点时，你更想提供清楚的指引、留下共同回忆，还是留出不催促人的休息空间？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -266,7 +266,7 @@
       },
       "summary": {
         "en": "Your imaginary rest stop welcomes through clarity. A traveler can find the next useful place without decoding a wall of instructions. The result reflects your chosen design emphasis, not a qualification in accessibility or public-space planning.",
-        "zh": "你的想象歇脚站通过清楚来欢迎。旅客不必破解满墙说明，就能找到下一处有用位置。结果对应所选设计重点，不认证无障碍或公共空间规划资格。"
+        "zh": "你想象中的歇脚站，用清楚的指引迎接来客。旅人不必读懂满墙说明，就能找到需要的地方。这是在描述你本次选择的设计重点，不代表具备无障碍设计或公共空间规划的专业资格。"
       },
       "example": {
         "en": "For a casual open workshop, you might put the materials sign beside the actual supplies instead of hiding the information in a long welcome message.",
@@ -282,7 +282,7 @@
       },
       "experiment": {
         "en": "Look at one small shared setup. Move its most useful instruction to the point of use, then ask a newcomer what still feels unclear.",
-        "zh": "看看一个小共用布置。把最有用说明移到使用点，再问新人还有哪里不清楚。"
+        "zh": "看看一处小型共用区域，把最有用的说明移到真正要用它的地方，再问第一次来的人，还有哪里不清楚。"
       }
     },
     {
@@ -316,11 +316,11 @@
       "id": "shade",
       "title": {
         "en": "The Unhurried-Bench Oasis",
-        "zh": "不催促长椅的绿洲"
+        "zh": "留一张歇脚长椅的绿洲"
       },
       "summary": {
         "en": "Your illustrated oasis gives rest a place that does not require a task. A quiet bench is a complete feature, not an empty gap waiting for another activity. The result describes a design you selected here rather than your social energy level.",
-        "zh": "你的插画绿洲给不附带任务的休息留位置。安静长椅本身就是完整设施，不是等待塞入活动的空白。结果描述本次设计，不判断你的社交能量。"
+        "zh": "你想象的绿洲，给单纯休息留了一个位置。一张安静的长椅，本身就是有用的设施，不必在旁边再加一项活动。这描述的是本次游戏里的设计选择，不是在判断你的社交精力。"
       },
       "example": {
         "en": "In a hobby gathering, you might leave one seating area free from games and demonstrations so someone can stay nearby without joining every round.",
@@ -328,7 +328,7 @@
       },
       "strength": {
         "en": "An undemanding place to pause can make participation more flexible and give people a way to remain present at a pace they choose.",
-        "zh": "一处不索求表现的停歇点，让参与更灵活，也让人按自己节奏继续在场。"
+        "zh": "一处不用参与任何任务的歇脚点，让大家可以按自己的节奏留在现场，不必每时每刻都跟着活动走。"
       },
       "tradeoff": {
         "en": "Quiet space can be accidentally taken over unless its purpose is understandable. A simple shared agreement may protect it better than silently hoping.",
@@ -336,7 +336,7 @@
       },
       "experiment": {
         "en": "In one shared plan, leave a genuine pause with no optional task attached. Check that people can use it without having to justify wanting a break.",
-        "zh": "在一份共同安排里，留一次真正停顿，不附可选任务。让想休息的人也不用解释理由。"
+        "zh": "安排一次共同活动时，留一段真正的休息时间，不再附加其他任务。想休息的人，不必解释理由。"
       }
     }
   ],

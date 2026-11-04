@@ -24,7 +24,7 @@ export function QuestionnaireCopingReport({ quiz, result, locale, readingProfile
         <p data-coping-tie={pair.leaders.length === 2 ? "true" : "false"} className="mb-5 leading-8">{pair.leaders.length === 2
           ? (zh ? "两侧各三次，保留并列；不表示完美平衡或心理年龄居中，无需改答选赢家。" : "Three choices each: both sides remain tied. This is neither perfect balance nor an intermediate psychological age, and no answer needs changing to choose a winner.")
           : (zh ? "本组六次相对选择中一侧次数较多。较少的一侧仍有完整解释，不表示缺失或缺点，也不证明年龄、成熟度或能力。" : "One side has more selections within these six relative choices. The other side still has a full explanation and is not missing or a deficit; no count establishes age, maturity or ability.")}</p>
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`coping-report-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`coping-report-${profile.id}`} mode="result" previewSectionIds={[`${readingProfile.id}-trying`, `${readingProfile.id}-evaluating`, `${readingProfile.id}-expressing`, `${readingProfile.id}-private`, `${readingProfile.id}-adjusting`, `${readingProfile.id}-structure`, `${readingProfile.id}-present`, `${readingProfile.id}-future`, `${readingProfile.id}-observation`]} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "单独阅读本组完整公开指南" : "Read this group’s complete public guide separately"}</Link>
       </section>;
     })}

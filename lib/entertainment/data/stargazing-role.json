@@ -1,7 +1,7 @@
 {
   "slug": "stargazing-role",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "nature",
   "title": {
     "en": "Your Role at an Imaginary Stargazing Night",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Making a shared sky-chart evening memorable through its pattern, its narrative or its practical welcome.",
-    "zh": "通过图案、叙事或实际欢迎方式，让共同看星图的夜晚留下记忆。"
+    "zh": "一起看一张虚构星图时，你会先连出图案、编一个故事，还是安排一个待得舒服的夜晚？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -274,11 +274,11 @@
       },
       "strength": {
         "en": "A simple visible pattern can lower the first step into a busy picture and give a group something specific to notice together.",
-        "zh": "简单可见图案能降低进入复杂画面的第一步，也给群体一个可共同留意的具体对象。"
+        "zh": "一个清楚的简单图案，能让复杂的画面更容易看懂，大家也有了可以一起寻找的具体细节。"
       },
       "tradeoff": {
         "en": "A useful starting pattern may leave other details out. It works best as an invitation to explore rather than the only valid way to read the chart.",
-        "zh": "有用起始图案难免省略细节。把它当探索邀请，而非唯一合法读法，会更合适。"
+        "zh": "用来入门的图案，难免会略去其他细节。把它当成继续探索的起点，不必当成读这张星图的唯一方式。"
       },
       "experiment": {
         "en": "Take one crowded recreational image and mark a simple starting route. Ask another person what different path they would like to follow.",
@@ -316,11 +316,11 @@
       "id": "host",
       "title": {
         "en": "The Comfortable-Night Host",
-        "zh": "舒适星夜照应者"
+        "zh": "让星夜聚会更自在"
       },
       "summary": {
         "en": "Your sky gathering is held together by a place to settle, a pause and a clear way back in. The chart matters, but so does being able to enjoy it. This portrait values practical welcome without assigning you responsibility for every guest.",
-        "zh": "你的星空聚会靠安顿位置、适当停顿和清楚返回方式串起来。星图重要，能自在欣赏也重要。画像珍惜实际欢迎，不让你对每位来客负责到底。"
+        "zh": "在你的星图聚会里，大家有地方坐下来，可以歇一会儿，也知道怎样重新加入。星图值得看，能舒服地看也同样重要；你不必因此负责照顾每位来客的一切。"
       },
       "example": {
         "en": "For a casual photo-sharing evening, you might check seating and make a break possible before adding more slides to an already full plan.",
@@ -328,7 +328,7 @@
       },
       "strength": {
         "en": "Practical comfort can make an unfamiliar activity easier to enter, especially when people want different amounts of time or conversation.",
-        "zh": "实际舒适让陌生活动更易加入，尤其当大家需要的停留与交流程度不同。"
+        "zh": "座位和休息安排合适，陌生的活动就更容易加入。每个人想待多久、想聊多少，也可以不同。"
       },
       "tradeoff": {
         "en": "Preparing every detail can leave you little room to enjoy the evening yourself. A simple arrangement shared with others may be enough.",

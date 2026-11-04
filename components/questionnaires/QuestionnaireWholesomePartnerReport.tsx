@@ -29,7 +29,7 @@ export function QuestionnaireWholesomePartnerReport({ quiz, result, locale }: { 
       return <section key={profile.id} data-wholesome-guide={profile.id} aria-labelledby={`wholesome-guide-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
         <h3 id={`wholesome-guide-${profile.id}`} className="scroll-mt-24 mb-5 scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
         {score.mean === null && <p data-wholesome-insufficient className="mb-5 rounded-lg bg-amber-50 p-4 leading-7">{zh ? "本组资料不足，未生成个人评分和或均分。完整通用说明仍可阅读，不替代个人读数，也不需要猜答。其他完整组照常显示。" : "This group has insufficient information, so no personal sum or mean was generated. The full general reading remains available without replacing a personal value or requiring guessed answers. Other complete groups remain shown."}</p>}
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`wholesome-report-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`wholesome-report-${profile.id}`} mode="result" previewSectionIds={["meaning", "examples", "practice"]} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "打开这组完整公开指南" : "Open this complete public guide"}</Link>
       </section>;
     })}

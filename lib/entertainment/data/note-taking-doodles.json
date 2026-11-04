@@ -1,7 +1,7 @@
 {
   "slug": "note-taking-doodles",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "everyday",
   "title": {
     "en": "How Do Your Notes Catch an Idea?",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Capturing an idea as a plain verbal cue, a visual relationship or a link between separate fragments.",
-    "zh": "用普通文字提示、视觉关系或分开碎片之间的连接来抓住想法。"
+    "zh": "用一句话、一张示意图，或两个片段之间的一条联系，记住刚冒出的想法。"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -262,23 +262,23 @@
       "id": "line",
       "title": {
         "en": "The One-Line Return Cue",
-        "zh": "一句话返回提示"
+        "zh": "一句话备忘"
       },
       "summary": {
         "en": "Your note catches the idea in a line you can understand later. The point is not polished prose but a small return path. This portrait values plain words without suggesting they are the best format for every idea or every person.",
-        "zh": "你的笔记用以后能懂的一句抓住想法。重点不是精致文章，而是小返回路。画像珍惜普通话，不说它最适合每个想法或每个人。"
+        "zh": "你用一句以后仍看得懂的话，把想法记下来。重点不在文笔，而在过一阵还能想起自己要做什么。这是你选的一种记录方式，不表示文字适合所有想法或所有人。"
       },
       "example": {
         "en": "You might write “try the narrow paper strip as a handle” and leave the surrounding design unfinished until another visit.",
-        "zh": "你可能写“试把窄纸条当把手”，周围设计未完也可留到下次。"
+        "zh": "你可以写下“试试用窄纸条做把手”，把还没想完的设计留到下次继续。"
       },
       "strength": {
         "en": "A short verbal cue can preserve the reason for an idea and make it easier to take one wanted next step.",
-        "zh": "短文字提示能保留想法理由，也方便迈想要的一小步。"
+        "zh": "一句简短的提示，能保留当时为什么有这个想法，也方便你以后接着试。"
       },
       "tradeoff": {
         "en": "A sentence can flatten a visual relationship that a tiny drawing would show more directly. Adding a sketch remains available.",
-        "zh": "句子也会压平小画更直接显示的视觉关系。仍可以添草图。"
+        "zh": "有些位置关系，画一笔比写一句更清楚。文字记不明白的地方，仍可以补一张小草图。"
       },
       "experiment": {
         "en": "Write one note using the words you would naturally say aloud. Read it once later and add only the detail you actually needed.",
@@ -289,54 +289,54 @@
       "id": "sketch",
       "title": {
         "en": "The Rough-Shape Return Cue",
-        "zh": "粗线条返回提示"
+        "zh": "一张草图备忘"
       },
       "summary": {
         "en": "Your note holds the idea through a visible arrangement. A rough box, arrow or silhouette can be enough to bring the relationship back. The ending concerns a chosen note format rather than drawing talent or visual intelligence.",
-        "zh": "你的笔记靠可见排列保留想法。粗方框、箭头或剪影，就可带回关系。结局只谈所选记录形式，不评画技或视觉智力。"
+        "zh": "你用大致的形状和位置记住想法。一个方框、一支箭头或一道轮廓，可能就足以让你以后想起来。这里说的是你选的笔记形式，不评画技，也不评所谓视觉智力。"
       },
       "example": {
         "en": "You might sketch two paper pieces overlapping and add an arrow, instead of describing the whole construction in several paragraphs.",
-        "zh": "你可能画两片纸重叠，加支箭头，不用几段话描述整套构造。"
+        "zh": "两片纸该怎样重叠，可以简单画出来，再加一支箭头，不必用几段文字解释整个结构。"
       },
       "strength": {
         "en": "A small rough sketch can keep spatial relationships available and give a later trial something concrete to respond to.",
-        "zh": "小粗图能保留空间关系，也给后续尝试具体可回应的东西。"
+        "zh": "一张粗略的小图能保留空间关系，方便你下次照着尝试或调整。"
       },
       "tradeoff": {
         "en": "A picture without any label may be hard to read after the moment has passed. One plain word can help without making the drawing elaborate.",
-        "zh": "过了当下，无标签图可能难懂。加一个普通词就有帮助，不必画复杂。"
+        "zh": "没有任何标注的图，过一阵可能就看不懂了。补上一个关键的词即可，不必把草图画得很精细。"
       },
       "experiment": {
         "en": "Sketch one idea in under a minute and add the single label that makes it understandable to your later self. Leave the rest rough.",
-        "zh": "用不到一分钟画一个想法，加一处让以后自己能懂的标签。其余留粗。"
+        "zh": "用不到一分钟画下一个想法，再添一个能让以后自己看懂的标注，其余部分保持粗略就好。"
       }
     },
     {
       "id": "links",
       "title": {
         "en": "The Connected-Fragments Return Cue",
-        "zh": "碎片相连的返回提示"
+        "zh": "把零散想法连起来"
       },
       "summary": {
         "en": "Your note keeps the relation between pieces, not only the pieces themselves. An arrow or short link can preserve why two fragments met. The portrait values a particular connection rather than claiming that more connected notes always mean better thinking.",
-        "zh": "你的笔记保留碎片关系，不只碎片本身。箭头或短连线能留住为什么相遇。画像珍惜具体连接，不宣称连线越多思考越好。"
+        "zh": "你不只记下几个零散片段，也会记下它们为什么有关。一支箭头或一句说明，就能留住当时的联系。这不意味着连线越多，思考就越好。"
       },
       "example": {
         "en": "A line from a story and a small paper shape might sit on the same page with one note explaining the idea that linked them.",
-        "zh": "故事一句与小纸形可同页放，旁边一笔说明什么想法把它们相连。"
+        "zh": "在同一页放上一句故事文字和一个纸片造型，再写一句话，说明它们怎样让你想到同一个点子。"
       },
       "strength": {
         "en": "A visible connection can help you revisit the spark between two details without reconstructing the entire earlier chain of thought.",
-        "zh": "可见连接帮你重访两个细节之间火花，不必重建先前整条思路。"
+        "zh": "保留一处明确的联系，以后就容易重新想起两个细节碰在一起的灵感，不必从头还原整段思路。"
       },
       "tradeoff": {
         "en": "Too many links can make a small note hard to enter. One useful connection may matter more than a complete web.",
-        "zh": "连线太多，小笔记也难进入。一处有用联系，也许比完整网重要。"
+        "zh": "连线太多，笔记反而不好读。一处真正有用的联系，可能比一张完整的关系网更值得留下。"
       },
       "experiment": {
         "en": "Place two fragments from a harmless idea together and write why they connect. Keep only one link you would actually want to revisit.",
-        "zh": "把一个无害想法的两个碎片放一起，写为何相连。只留真想重访的一条。"
+        "zh": "把一个普通点子里的两个片段放在一起，写明它们为什么有关，只保留一条你以后还想回看的联系。"
       }
     }
   ],

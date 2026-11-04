@@ -1,7 +1,7 @@
 {
   "slug": "tiny-kingdom",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "fantasy",
   "title": {
     "en": "Which Tiny Kingdom Would You Build?",
@@ -293,7 +293,7 @@
       },
       "summary": {
         "en": "Your tiny kingdom has sawdust made of paper confetti and a proud shelf of imperfect models. Ideas do not have to arrive fully formed before citizens can explore them. The story favors small trials with a purpose, rather than permanent novelty for its own sake.",
-        "zh": "你的微型王国里，木屑像纸屑，架子上大方摆着不完美模型。想法不必完全成形，居民就可以开始探索。这个故事偏向有目的的小尝试，不是为了新鲜而不停求新。"
+        "zh": "你的微型王国拿纸屑充当木屑，架子上大方摆着不完美的模型。想法还没完全成形，居民就可以先试试。这里喜欢有目的的小尝试，不是为了新鲜而不停求新。"
       },
       "example": {
         "en": "The moving bridge might begin as three folded cards tested on the workshop table. A comparable everyday activity is trying a small arrangement before committing everyone to a larger hobby project.",
@@ -316,7 +316,7 @@
       "id": "promise",
       "title": {
         "en": "The Lantern Archive Kingdom",
-        "zh": "灯下承诺档案王国"
+        "zh": "灯下档案王国"
       },
       "summary": {
         "en": "Your kingdom keeps a little lamp beside its current plans. Citizens can tell what was agreed, what changed, and who is handling the next step. The archive is not a pile of impressive paperwork; it is a memory that ordinary people can actually use.",

@@ -19,10 +19,27 @@ export function QuestionnairePreparationActions20Report({ quiz, result, locale }
     return <p role="alert">{zh ? "结果暂不可用，请重新作答。" : "Result unavailable. Please start a new attempt."}</p>;
   }
   return <div data-preparation-actions-result className="mt-6 space-y-8">
-    <p className="leading-8 text-slate-700">{zh
+
+
+
+    {quiz.profiles.map(profile => <section key={profile.id} data-preparation-actions-guide={profile.id}
+      aria-labelledby={`preparation-guide-${profile.id}`}>
+      <h3 id={`preparation-guide-${profile.id}`} className="scroll-mt-24 mb-4 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
+      {(() => { const part = checked.domains.find(part => part.id === profile.directionIds[0])!; return <p className="mb-4 font-semibold tabular-nums">{zh ? "本次行动阶段均分：" : "Your action-stage mean: "}{part.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${part.mean.toFixed(1)} / 3`}</p>; })()}
+
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`preparation-${profile.id}`} mode="result" previewSectionIds={["meaning", "scenario", "try"]} />
+      <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这份公开完整指南" : "Read this complete public guide"}</Link>
+    </section>)}
+    <aside className="space-y-3 text-sm leading-7" data-preparation-actions-source>
+      {quiz.guide.find(s => s.id === "source-boundary")?.paragraphs.map((p, i) => <p key={i}>{p[locale]}</p>)}
+      {quiz.references?.map(r => <p key={r.url}><a className="underline" href={r.url}>{r.title[locale]}</a></p>)}
+    </aside>
+
+    <details className="border-t border-slate-200 pt-3" data-result-reading-method><summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、原始记录与计算说明" : "View all readings, original records and calculation notes"}</summary>
+<p className="leading-8 text-slate-700">{zh
       ? "以下五组按固定顺序呈现当前安排中的自报行动。每组四项都选数值时，分别显示原始合计与0—3均分（一位小数）。行动阶段由本网站原创，不是官方量表、能力评级或就业预测；不生成总分、准备率或主导类型。"
       : "The five groups appear in a fixed order and summarize actions you report for one current arrangement. Four numeric selections are required for each raw sum and 0–3 mean (one decimal). These original website action stages are not an official scale, ability rating or employment prediction. There is no overall score, readiness percentage or dominant type."}</p>
-    {checked.domains.map((part, index) => <section key={part.id} data-preparation-actions-part={part.id}
+{checked.domains.map((part, index) => <section key={part.id} data-preparation-actions-part={part.id}
       aria-labelledby={`preparation-part-${part.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-5">
       <h3 id={`preparation-part-${part.id}`} className="scroll-mt-24 text-xl font-semibold">{quiz.directions[index].title[locale]}</h3>
       <p data-preparation-actions-mean className="mt-3 leading-7">{part.mean === null
@@ -39,19 +56,10 @@ export function QuestionnairePreparationActions20Report({ quiz, result, locale }
         })}</ul>
       </details>
     </section>)}
-    <p className="leading-8 text-slate-700">{zh
+<p className="leading-8 text-slate-700">{zh
       ? "相同或相近均分可以来自不同的具体缺口。比如3、3、0、0与2、2、1、1都显示1.5；请回到各项行动和资源条件，而不是排列强弱。不计分不是零分，一组不显示数值不影响其他组。全部不计分也已完成，五份完整指南照常开放。"
       : "Equal or close means can hide different gaps: 3, 3, 0, 0 and 2, 2, 1, 1 both show 1.5. Read individual actions and resource conditions rather than ranking strengths. Not rated is not zero, and a withheld value does not affect other groups. All non-rating choices still finish the attempt and keep all five full guides available."}</p>
-    {quiz.profiles.map(profile => <section key={profile.id} data-preparation-actions-guide={profile.id}
-      aria-labelledby={`preparation-guide-${profile.id}`}>
-      <h3 id={`preparation-guide-${profile.id}`} className="scroll-mt-24 mb-4 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
-      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`preparation-${profile.id}`} />
-      <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这份公开完整指南" : "Read this complete public guide"}</Link>
-    </section>)}
-    <aside className="space-y-3 text-sm leading-7" data-preparation-actions-source>
-      {quiz.guide.find(s => s.id === "source-boundary")?.paragraphs.map((p, i) => <p key={i}>{p[locale]}</p>)}
-      {quiz.references?.map(r => <p key={r.url}><a className="underline" href={r.url}>{r.title[locale]}</a></p>)}
-    </aside>
+    </details>
   </div>;
 }
 

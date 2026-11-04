@@ -17,7 +17,7 @@ export function QuestionnaireMiniVirtuesRadar({ axes, locale }: { axes: Axis[]; 
   };
   const polygon = (values: number[]) => values.map((value, i) => point(i, 145 * value / 100).join(",")).join(" ");
   return <figure className={styles.radar} aria-describedby="mini-virtues-chart-caption">
-    <svg viewBox="0 0 600 465" role="img" aria-label={locale === "zh" ? "七组本次作答位置雷达图，精确数值见各维度概览" : "Seven-group response-position radar; exact values are listed in the overview"}>
+    <svg viewBox="0 0 600 465" role="img" aria-label={locale === "zh" ? "七组本次作答位置雷达图，原始和与均值见各组正文" : "Seven-group response-position radar; sums and means are listed in each group’s reading"}>
       {[25, 50, 75, 100].map(value => <polygon key={value} points={polygon(axes.map(() => value))} fill="none" stroke="#dfe1e9" strokeWidth="1.5" />)}
       {axes.map((axis, i) => {
         const [x, y] = point(i, 145), [tx, ty] = point(i, 195);
@@ -29,7 +29,7 @@ export function QuestionnaireMiniVirtuesRadar({ axes, locale }: { axes: Axis[]; 
           <text x={tx} y={top} textAnchor={anchor} fill="#292733" fontSize={locale === "zh" ? 20 : 18}>
             {lines.map((line, index) => <tspan key={line} x={tx} dy={index ? 23 : 0}>{line}</tspan>)}
           </text>
-          <text x={tx} y={top + (lines.length - 1) * 23 + 29} textAnchor={anchor} fill="#c72c70" fontSize="22" data-mini-virtues-radar-value={axis.id}>{Math.round(miniVirtuesPosition(axis.rawSum))}%</text>
+          <text x={tx} y={top + (lines.length - 1) * 23 + 29} textAnchor={anchor} fill="#c72c70" fontSize="22" data-mini-virtues-radar-value={axis.id} data-mini-virtues-position={axis.id}>{Math.round(miniVirtuesPosition(axis.rawSum))}%</text>
         </g>;
       })}
       <polygon className={styles.radarFill} points={polygon(axes.map(axis => miniVirtuesPosition(axis.rawSum)))} fill="#f25392" fillOpacity=".14" />

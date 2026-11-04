@@ -4,42 +4,47 @@ import { average, CATEGORIES, PUBLIC_PATH, ranked, streak, title, type Challenge
 import { CategoryRadar } from "./CategoryRadar";
 import { ShareTools } from "./ShareTools";
 import { friendshipEvent } from "@/lib/friendship/analytics";
-import { ResultPage, ResultReadingNav } from "@/components/questionnaires/QuestionnaireResultPresentation";
+import { ResultPage } from "@/components/questionnaires/QuestionnaireResultPresentation";
 export function ResultView({ locale, challenge, result, url, onManage }: { locale: Locale; challenge: Challenge; result: Result; url: string; onManage?: () => void }) {
   const zh = locale === "zh";
   const max = Math.max(...Object.values(result.categories).map(c => c.correct / c.total));
   const highlights = Object.entries(result.categories).filter(([, c]) => c.correct / c.total === max).map(([key]) => CATEGORIES[key][locale]);
+  const surprise = result.guesses.findIndex((guess, index) => guess !== result.answers[index]);
+  const conversationIndex = surprise >= 0 ? surprise : 0;
+  const conversationQuestion = challenge.questions[conversationIndex];
   return <ResultPage variant="dimensions" className="fq-result">
     <header className="fq-result-head">
       <p className="fq-eyebrow">{zh ? `${challenge.nickname} 的朋友默契挑战` : `${challenge.nickname}’s friendship quiz`}</p>
       <h2>{zh ? `${result.nickname} 的结果` : `${result.nickname}’s result`}</h2>
+      <p className="fq-score-caption">{zh ? `你猜中了 ${result.total} 题中的 ${result.correct} 题。` : `You matched ${result.correct} of the creator’s ${result.total} choices.`}</p>
       <div className="fq-ring" style={{ background: `conic-gradient(#7c3aed ${result.percent}%, #e9e2fa 0)` }} role="img" aria-label={zh ? `猜中 ${result.correct}/${result.total} 题，${result.percent}%` : `${result.correct}/${result.total} matches, ${result.percent}%`}><div><strong>{result.correct}<span>/{result.total}</span></strong><b>{result.percent}%</b></div></div>
       <h3>{title(result.percent, locale)}</h3>
       <p>{zh ? "这次猜中了这些选择。没猜中的，正好拿来聊聊。" : "These are the choices you guessed. The surprises are something to talk about."}</p>
-      <dl className="fq-result-facts"><div><dt>{zh ? "最佳连击" : "Best streak"}</dt><dd>{streak(result.guesses, result.answers).best} {zh ? "题" : "correct guesses"}</dd></div><div><dt>{zh ? "本次亮点" : "Your highlights"}</dt><dd>{highlights.join(zh ? "、" : ", ")}{highlights.length > 1 ? (zh ? "（并列）" : " (tied)") : ""}</dd></div></dl>
+      <dl className="fq-result-facts"><div><dt>{zh ? "最佳连击" : "Best streak"}</dt><dd>{streak(result.guesses, result.answers).best} {zh ? "题" : "correct guesses"}</dd></div><div><dt>{zh ? "本次各类猜中情况" : "Your category matches"}</dt><dd>{max === 0 ? (zh ? "这次各类都还没猜中，可以从一个意外的答案聊起。" : "No category had a match this time. Start with one surprising answer.") : <>{zh ? "猜中率最高：" : "Highest match rate: "}{highlights.join(zh ? "、" : ", ")}{highlights.length > 1 ? (zh ? "（并列）" : " (tied)") : ""}</>}</dd></div></dl>
       {result.preview && <p role="status" className="fq-warning">{zh ? "创建者预演 · 未加入榜单或统计" : "Creator preview · not recorded in the ranking or statistics"}</p>}
-      <p className="fq-muted">{zh ? "猜中数 ÷ 总题数 × 100，百分比四舍五入。这个称号是本轮游戏反馈，不是友情质量或人格配对。" : "Matches ÷ questions × 100, rounded to a whole number. This title is feedback on this round, not friendship quality or personality compatibility."}</p>
+      <p className="fq-muted">{zh ? "称号只是这轮小游戏的反馈，不给友情打分。" : "The title is playful feedback on this round, not a rating of your friendship."}</p>
     </header>
-    <ResultReadingNav className="fq-result-nav" label={zh ? "结果阅读导航" : "Result reading navigation"} sections={[{ id: "fq-conversation", title: zh ? "聊一聊" : "Conversation" }, { id: "fq-category-reading", title: zh ? "类别理解度" : "Categories" }, { id: "fq-friendboard", title: zh ? "好友榜单" : "Friendboard" }, { id: "fq-result-limits", title: zh ? "计分与边界" : "Scoring and limits" }]} />
+
     <section id="fq-conversation" className="fq-section fq-conversation" aria-labelledby="fq-conversation-title">
       <p className="fq-eyebrow">{zh ? "从分数回到朋友" : "From scores to friends"}</p>
       <h3 id="fq-conversation-title">{zh ? "把答案变成聊天" : "Turn your answers into a conversation"}</h3>
+      {conversationQuestion && <div className="fq-conversation-example"><p><b>{conversationQuestion[locale].options.join(" / ")}</b></p><p>{zh ? "你猜的是：" : "Your guess: "}{conversationQuestion[locale].options[result.guesses[conversationIndex]]}<br />{zh ? "朋友选的是：" : "Their choice: "}{conversationQuestion[locale].options[result.answers[conversationIndex]]}</p><p>{surprise >= 0 ? (zh ? "这是一道你们选择不同的题，可以从这里聊起。" : "This is one of the choices you did not guess. It could be a place to start talking.") : (zh ? "这次全部猜中了！可以问问，你是凭哪次共同经历想到这个答案的？" : "Every guess matched this time! What shared memory helped you guess this choice?")}</p></div>}
       <p>{zh ? "问一句：你选这一边，是最近改变了想法，还是我一直没留意？尊重对方不想讨论的题。" : "Ask: Is this a recent change, or something I hadn't noticed? It's fine to leave a question out of the conversation."}</p>
       <details><summary>{zh ? "查看逐题对照" : "See every answer"}</summary><ol className="fq-answer-list">{challenge.questions.map((q, i) => <li key={q.id}><b>{i + 1}. {q[locale].options.join(" / ")}</b><p>{zh ? "你的猜测" : "Your guess"}: {q[locale].options[result.guesses[i]]}<br />{zh ? "出题者的选择" : "Creator's choice"}: {q[locale].options[result.answers[i]]} <span>{result.guesses[i] === result.answers[i] ? (zh ? "✓ 猜中" : "✓ Match") : (zh ? "↔ 新发现" : "↔ A discovery")}</span></p></li>)}</ol></details>
     </section>
     <section id="fq-category-reading" className="fq-section" aria-labelledby="fq-category-reading-title">
       <p className="fq-eyebrow">{zh ? "六类选择，各自来看" : "Six categories, read separately"}</p>
-      <h3 id="fq-category-reading-title">{zh ? "类别理解度" : "How you did by category"}</h3>
-      <p>{zh ? "参照只含同一题组的其他可见完成记录；不含你本人或创建者预演。" : "The comparison uses other visible completed entries on this exact quiz, excluding you and creator previews."}</p>
+      <h3 id="fq-category-reading-title">{zh ? "六类题目猜中情况" : "Matches in each category"}</h3>
+      <p>{zh ? "每类分开看：数值表示这一类题目中，你猜中了多少。" : "Read each category separately: the value shows how many of its questions you guessed correctly."}</p>
       <CategoryRadar locale={locale} result={result} />
       <div className="fq-category-bars">{Object.entries(result.categories).map(([category, c]) => {
         const value = Math.round(c.correct / c.total * 100); const avg = average(result.entries, category, result.id);
         return <div key={category}><div className="fq-bar-label"><b>{CATEGORIES[category][locale]}</b><span>{c.correct}/{c.total} · {value}%</span></div><div className="fq-bar-track" aria-hidden="true"><span style={{ width: `${value}%` }} /></div><p className="fq-muted">{avg === null ? (zh ? "尚无其他参与记录，暂无平均参照。" : "No other entries yet; no average to compare with.") : (zh ? `其他记录平均 ${Math.round(avg)}% · 差 ${value - Math.round(avg) > 0 ? "+" : ""}${value - Math.round(avg)} 个百分点` : `Other entries: ${Math.round(avg)}% average · ${value - Math.round(avg) > 0 ? "+" : ""}${value - Math.round(avg)} percentage points`)}</p></div>;
       })}</div>
     </section>
-    <div id="fq-friendboard"><Ranking locale={locale} entries={result.entries} total={result.total} ownId={result.id} /></div>
-    <QuestionAccuracy locale={locale} challenge={challenge} stats={result.question_stats} />
-    <section id="fq-result-limits" className="fq-section fq-result-limits" aria-labelledby="fq-result-limits-title"><h3 id="fq-result-limits-title">{zh ? "计分与使用边界" : "Scoring and limits"}</h3><p>{zh ? "分数是猜中数÷总题数，百分比四舍五入。称号只是游戏反馈，不代表友情质量、忠诚、人格配对或人口百分位。第一次作答之外的其他设备参与无法完全识别，榜单适合朋友间娱乐。" : "Your percentage is matches divided by questions, rounded to a whole number. Titles are playful feedback, not friendship quality, loyalty, personality compatibility or population percentiles. Play from another device cannot be reliably detected; keep rankings lighthearted."}</p></section>
+    <details className="fq-section fq-secondary-result"><summary>{zh ? "查看好友榜单与逐题统计" : "See the friendboard and question statistics"}</summary><div id="fq-friendboard"><Ranking locale={locale} entries={result.entries} total={result.total} ownId={result.id} /></div>
+    <QuestionAccuracy locale={locale} challenge={challenge} stats={result.question_stats} /></details>
+    <details id="fq-result-limits" className="fq-section fq-result-limits" ><summary>{zh ? "计分和对照数据怎么看？" : "How do the score and comparisons work?"}</summary><p>{zh ? "平均参照只含同一题组的其他可见完成记录，不含你本人、隐藏记录或创建者预演。没有其他记录时，不显示虚构平均。" : "The comparison uses other visible completed entries on this exact quiz, excluding you, hidden entries and creator previews. With no other entries, no average is invented."}</p><p>{zh ? "分数是猜中数÷总题数，百分比四舍五入。称号只是游戏反馈，不代表友情质量、忠诚、人格配对或人口百分位。第一次作答之外的其他设备参与无法完全识别，榜单适合朋友间娱乐。" : "Your percentage is matches divided by questions, rounded to a whole number. Titles are playful feedback, not friendship quality, loyalty, personality compatibility or population percentiles. Play from another device cannot be reliably detected; keep rankings lighthearted."}</p></details>
     <ShareTools locale={locale} url={url} result={result} />
     <section className="fq-section fq-result-next" aria-label={zh ? "下一轮" : "Another round"}><Link className="fq-primary" href={`/${locale}${PUBLIC_PATH}`} onClick={() => friendshipEvent("continue_exploration", locale, result.preview ? "creator" : "friend", "make_my_quiz")}>{zh ? "创建我的挑战，让朋友来猜我" : "Create my own challenge"} <span aria-hidden="true">↗</span></Link>{onManage && <button onClick={onManage}>{zh ? "返回管理" : "Back to management"}</button>}</section>
   </ResultPage>;

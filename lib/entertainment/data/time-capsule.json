@@ -1,7 +1,7 @@
 {
   "slug": "time-capsule",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "metaphor",
   "title": {
     "en": "What Would Your Ordinary-Day Time Capsule Keep?",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Preserving a current scene, a question that can remain open or a small practical way to revisit an ordinary activity.",
-    "zh": "保存当下场景、可保持开放的问题或重访普通活动的小实用方法。"
+    "zh": "给想象中的未来留一点东西：今天的小场景、一个开放的问题，或一项以后还能试的小方法。"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -266,50 +266,50 @@
       },
       "summary": {
         "en": "Your capsule preserves what a small moment looked or sounded like. Specificity matters more than making the invented day seem historically important or emotionally profound.",
-        "zh": "你的胶囊保存小片刻看听起来怎样。具体比把虚构日写成历史大事或深刻情绪重要。"
+        "zh": "你的时间胶囊保存一个小片刻看起来、听起来的样子。把细节记具体就够了，不必让想象中的普通一天显得历史性或格外深刻。"
       },
       "example": {
         "en": "A note might describe a paper envelope on a windowsill, a passing bicycle bell and the unfinished corner of a drawing.",
-        "zh": "便条可写窗台纸信封、经过的车铃与画上未完角。"
+        "zh": "一张便条可以写下窗台上的纸信封、路过的自行车铃声，还有画面上没画完的那一角。"
       },
       "strength": {
         "en": "A concrete scene gives a future reader something to imagine without requiring agreement about what the moment meant or how it should be valued.",
-        "zh": "具体景给未来读者想象之物，不要求同意意义或价值。"
+        "zh": "具体的场景，能让未来读者在心里想象当时的样子，不需要对方认同这一刻意味着什么、值不值得记住。"
       },
       "tradeoff": {
         "en": "A capsule selects a fragment, not an entire life. One vivid paragraph should not be presented as a complete account of a real person or period.",
-        "zh": "胶囊选碎片，不是整人生。一段生动文不等于真实人或时段全貌。"
+        "zh": "时间胶囊留下的是一个片段，不是整个人生。一段生动的文字，也不是某个人或某段时间的全部。"
       },
       "experiment": {
         "en": "Write five observable details from an invented ordinary day. Remove any private identifiers and let the scene end without a moral or prediction.",
-        "zh": "写虚构日五可观察细节，去私人标识，不加道理或预测收尾。"
+        "zh": "想象普通的一天，写下五个看得见或听得见的细节，不放私人身份信息。场景写完就收尾，不必附上道理或未来预测。"
       }
     },
     {
       "id": "question",
       "title": {
         "en": "The Still-Open Question Capsule",
-        "zh": "问题仍开放的胶囊"
+        "zh": "把问题留给以后"
       },
       "summary": {
         "en": "Your capsule sends a question forward without assigning a future answer. The reader is allowed to be different, uninterested or unsure without disappointing the person who imagined the note.",
-        "zh": "你的胶囊送问题往前，不指定未来答案。读者可不同、不感兴趣或不确定，不使写者失望。"
+        "zh": "你的时间胶囊把一个问题送向未来，不替未来的读者规定答案。对方可以有不同想法、没有兴趣，或仍然不确定，不必担心让写便条的人失望。"
       },
       "example": {
         "en": "A fictional note might ask which ordinary object the future reader would choose to draw now, leaving room for an entirely new choice.",
-        "zh": "虚构便条可问未来想画哪件普通物，给全新选择余地。"
+        "zh": "一张虚构便条可以问：“现在的你，想画哪一件普通的小东西？”答案可以是写便条时完全没想到的选择。"
       },
       "strength": {
         "en": "An open question lets a capsule become a conversation across imagined time rather than a checklist of goals the future must satisfy.",
-        "zh": "开放问让胶囊成跨想象时间对话，不是未来须满足的目标表。"
+        "zh": "一个开放的问题，让胶囊像是一场跨越想象时间的对话，而不是要求未来逐项完成的目标清单。"
       },
       "tradeoff": {
         "en": "Even a friendly question can feel like a test when an expected answer is implied. Keeping the wording optional preserves the invitation.",
-        "zh": "友善问题若暗示期待答案也像考题。可选措辞能保留邀请。"
+        "zh": "即使语气友好，只要暗示了必须给出的答案，问题也可能像考试。说清可以选择，才能保留邀请的意味。"
       },
       "experiment": {
         "en": "Write one harmless question for an imaginary future reader. Add a sentence explicitly welcoming a different answer, no answer or a changed question.",
-        "zh": "给想象未来读者写一无害问题，添一句欢迎不同答案、不答或改问题。"
+        "zh": "给想象中的未来读者写一个普通问题，再加一句：答案不同、暂时不答，甚至想换个问题，都没关系。"
       }
     },
     {
@@ -320,23 +320,23 @@
       },
       "summary": {
         "en": "Your capsule keeps a small action understandable. A useful instruction can survive changing tastes because the future reader is free to try, adapt or ignore it.",
-        "zh": "你的胶囊让小动作仍好懂。指引可过口味变化，因为未来读者可试、改或忽略。"
+        "zh": "你的时间胶囊留下一项看得懂的小做法。即使以后的喜好变了，读者也可以自己选择试一试、改一改，或完全不做。"
       },
       "example": {
         "en": "A fictional note might explain a three-step paper arrangement that once made a dull tabletop scene more interesting to its maker.",
-        "zh": "虚构便条可说明三步纸布置，曾让作者觉得平淡桌景有趣。"
+        "zh": "一张虚构便条可以用三个步骤，说明怎样摆几片纸；这曾经让作者觉得平淡的桌面变得有趣。"
       },
       "strength": {
         "en": "A clear little method offers a practical way back to an activity without demanding that the reader recreate the original setting or feeling.",
-        "zh": "清楚小方法给活动返回路，不要求重建原环境或感觉。"
+        "zh": "一个清楚的小方法，能帮人重新试试某项活动，不要求重现原来的环境或感受。"
       },
       "tradeoff": {
         "en": "Instructions can lose context as time passes. Naming their limited purpose helps a future reader decide whether they still want to use them.",
-        "zh": "指引会随时间失背景。写清有限用途，未来读者更好选是否仍用。"
+        "zh": "时间久了，步骤的背景可能不再清楚。写明当时为什么这样做，未来的读者才容易判断是否还想使用。"
       },
       "experiment": {
         "en": "Invent a harmless three-step creative activity and label what it is for. Include permission to change any step rather than promising a future result.",
-        "zh": "编无害三步创作活动，标用途，允许改任何步，不承诺未来成果。"
+        "zh": "想一项简单、无害的三步创作活动，写明用途，也允许读者改变任何一步，不承诺将来会得到什么成果。"
       }
     }
   ],

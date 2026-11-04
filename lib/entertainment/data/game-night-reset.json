@@ -1,7 +1,7 @@
 {
   "slug": "game-night-reset",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "social",
   "title": {
     "en": "When Game Night Stops Being Fun, What Is Your Reset?",
@@ -266,7 +266,7 @@
       },
       "summary": {
         "en": "Your reset starts with the preference someone actually expresses. You do not need to diagnose why the fun changed before asking what they want next. The portrait values a small check-in, not the role of permanent mediator for every group.",
-        "zh": "你的重新安排从实际表达的偏好开始。问接着想怎样之前，不必诊断乐趣为何变化。画像珍惜一次小询问，不要求你永久调解所有群体。"
+        "zh": "当有人说这局不再好玩，你愿意先问问对方接下来想怎样。不必先分析为什么失去乐趣，再决定能不能商量。这只是一次小询问，不代表你需要一直做所有人的调解者。"
       },
       "example": {
         "en": "If a friend says a puzzle round feels too long, you might ask whether they want a pause, a shorter version or an end instead of insisting the original plan should work.",
@@ -274,15 +274,15 @@
       },
       "strength": {
         "en": "A direct question can replace unsupported guessing and give the next group choice a clearer basis in what people actually want.",
-        "zh": "直接问能代替没依据猜测，也让下一共同选择以实际意愿为依据。"
+        "zh": "直接询问，能减少没有依据的猜测，也让下一步安排更贴近大家实际想要的东西。"
       },
       "tradeoff": {
         "en": "Repeated check-ins can become tiring if the answer is already clear. Accepting a stated preference can matter more than finding another way to ask it.",
-        "zh": "答案已清楚后，反复询问也会累。接受已说偏好，可能比换种问法更重要。"
+        "zh": "对方已经说清楚后，反复再问也会让人累。接受已经表达的偏好，有时比换一种方式继续问更重要。"
       },
       "experiment": {
         "en": "When someone names a low-stakes preference, ask one clarifying question only if needed. Then use the answer in the next choice rather than reopening it.",
-        "zh": "别人说出低风险偏好时，只在必要时澄清一次，再把答案用进下一选择，不反复重开。"
+        "zh": "别人说出一项普通活动偏好时，只在需要时澄清一次。然后把答案用在下一步安排里，不必反复重问。"
       }
     },
     {
@@ -293,7 +293,7 @@
       },
       "summary": {
         "en": "Your game reset offers a small agreed experiment rather than a complete redesign. One change can show whether the activity still has something the group wants. This ending does not make persistence automatically better than stopping.",
-        "zh": "你的游戏重排提供一次共同同意的小试验，不彻底重做。改一处就能看活动里是否仍有大家想要的东西。结局不把坚持自动看得比停止更好。"
+        "zh": "你愿意和大家商量，只改一个小地方，再看看这场游戏是否还有想继续玩的部分。不必一下重新设计全部规则。不过，尝试调整是一种选择，并不一定比直接结束更好。"
       },
       "example": {
         "en": "A willing table might try a shorter scoring round once, then decide whether to continue based on that actual experience.",
@@ -301,15 +301,15 @@
       },
       "strength": {
         "en": "A bounded adjustment can turn a vague hope that things improve into something the group can try and assess without a large commitment.",
-        "zh": "有边界调整能把“希望变好”变成群体可试、可感受的东西，不必大承诺。"
+        "zh": "一个小而明确的调整，能让“希望变好玩”变成大家可以实际试一试的事，不用先答应投入很多时间。"
       },
       "tradeoff": {
         "en": "Offering one more change after every no can become pressure. A trial works only while people still want the experiment.",
-        "zh": "每次拒绝后都再提一种变化，会变压力。只有大家仍愿意时，试验才合适。"
+        "zh": "如果每次被拒绝后都再提出一个变化，提议也会变成压力。只有大家仍然愿意，继续尝试才合适。"
       },
       "experiment": {
         "en": "For one optional shared activity, propose a single small adjustment and a clear review point. Treat declining the trial as a complete answer.",
-        "zh": "为一项可选共同活动提一处小调整与清楚再看时点，也把拒绝尝试当完整回答。"
+        "zh": "为一次可选的共同活动，提议只改一个地方，并说好什么时候再决定是否继续。对方不想试，也已经是完整的回答。"
       }
     },
     {
@@ -320,23 +320,23 @@
       },
       "summary": {
         "en": "Your reset makes finishing an ordinary possible outcome. A game can have been worthwhile without filling all the time originally reserved for it. The portrait values a clear stopping point, not giving up as a general habit or a verdict on the group.",
-        "zh": "你的重新安排让结束成为普通可选结果。游戏不必填满原留时间，也可以值得。画像珍惜清楚停止点，不把它解释成普遍放弃习惯或群体评价。"
+        "zh": "你愿意把结束也当作一次普通选择。游戏没有占满原先预留的时间，也可以是值得的经历。想停下来，不必被解释成总爱放弃，更不是对整群人的评价。"
       },
       "example": {
         "en": "You might close a casual round, put the pieces away together and leave the remaining evening open to conversation or separate plans.",
-        "zh": "你可能收住休闲一局，一起归好棋子，再让余下夜晚可聊天也可各自安排。"
+        "zh": "你可能结束这一局，和大家一起收好棋子。剩下的晚上，想聊天或各自安排，都可以。"
       },
       "strength": {
         "en": "A comfortable finish can protect a pleasant shared memory from being stretched into obligation and let different preferences remain compatible.",
-        "zh": "自在结束能让愉快共同记忆不被拉成义务，也让不同偏好继续并存。"
+        "zh": "自在地结束，可以让一段愉快经历不必被延长成义务，也给不同的偏好留出空间。"
       },
       "tradeoff": {
         "en": "Ending abruptly can leave a practical loose end for others. A short shared closing step can make the stop easier to use.",
-        "zh": "结束过急会给别人留实际零碎。一小步共同收尾，可以让停止更好用。"
+        "zh": "结束太突然，也可能给别人留下还没处理的小事。一起做一个简短的收尾，停下来就更方便。"
       },
       "experiment": {
         "en": "Give one optional activity a clear closing step and then stop. Let the fact that it ended coexist with the fact that parts of it were enjoyable.",
-        "zh": "给一项可选活动一个清楚收尾步骤，然后停下。允许“已经结束”与“其中有愉快”同时成立。"
+        "zh": "为一次可选活动安排一个清楚的收尾动作，然后就停下来。它已经结束，也不妨碍其中有过愉快的部分。"
       }
     }
   ],

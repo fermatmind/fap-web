@@ -1,7 +1,7 @@
 {
   "slug": "campfire-storyteller",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "social",
   "title": {
     "en": "Your Role in a Circle of Storytellers",
@@ -262,11 +262,11 @@
       "id": "suspense",
       "title": {
         "en": "The Curious-Pause Storyteller",
-        "zh": "好奇停顿讲述者"
+        "zh": "用停顿引出好奇的讲述者"
       },
       "summary": {
         "en": "Your spoken tale gathers attention around a question and a carefully placed pause. You enjoy giving listeners something to wait for, then paying it off. The result concerns story timing in this game, not your ability to influence people.",
-        "zh": "你的口述故事用一个问题与恰好停顿聚住注意。你喜欢给听者一个可期待之处，再回应它。结果只谈游戏里的讲述时机，不评影响他人的能力。"
+        "zh": "你喜欢用一个问题和恰到好处的停顿，让听众期待接下来会发生什么，再给出回应。这描述的是这次游戏中你偏好的讲故事节奏，不是在评价你影响他人的能力。"
       },
       "example": {
         "en": "You might begin with a missing garden sign, reveal two ordinary clues and then explain its unexpected destination before the short story ends.",
@@ -305,7 +305,7 @@
       },
       "tradeoff": {
         "en": "A joke can miss even with good intentions. Letting it pass without explaining why others should laugh can keep the story circle comfortable.",
-        "zh": "即便善意，笑话也会没接住。允许它过去，不解释别人为何该笑，故事圈更容易自在。"
+        "zh": "即使没有恶意，笑话也可能没有逗笑别人。让这个笑点自然过去，不要求别人解释为什么不笑，会让大家更自在。"
       },
       "experiment": {
         "en": "Write a three-sentence fictional scene with one ordinary detail that turns unexpectedly playful. Keep real people’s vulnerabilities outside the joke.",
@@ -320,7 +320,7 @@
       },
       "summary": {
         "en": "Your story is something the circle can build rather than a performance it must only watch. You leave a line for the next willing voice. The portrait values participation while keeping passing or simply listening equally legitimate.",
-        "zh": "你的故事是这一圈可共同搭建的东西，不只是必须观看的表演。你给下位愿意的声音留一句。画像珍惜参与，也同样允许跳过或只听。"
+        "zh": "你愿意让围坐的大家一起把故事接下去，而不只是听你独自讲完。你会给下一位想参与的人留一句续写的空间。有人想跳过，或只想听，也同样可以。"
       },
       "example": {
         "en": "You might start with a fictional parcel arriving at the wrong library, then invite each interested listener to add one possible item inside it.",

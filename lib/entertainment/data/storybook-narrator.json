@@ -1,7 +1,7 @@
 {
   "slug": "storybook-narrator",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "fantasy",
   "title": {
     "en": "Which Original Storybook Narrator Is Yours?",
@@ -270,11 +270,11 @@
       },
       "example": {
         "en": "When retelling a pleasant outing, you might begin with the crooked paper sign outside a cafe rather than a summary of the whole afternoon. One precise detail gives the listener somewhere to stand.",
-        "zh": "讲一次愉快外出时，你可能先说咖啡馆门外歪着的纸招牌，而不先总结整个下午。一个具体细节，给听者一个站得住的地方。"
+        "zh": "讲一次愉快外出时，你可以先说咖啡馆门外那块歪着的纸招牌，不急着概括整个下午。一个具体细节，就让听者容易想象当时的画面。"
       },
       "strength": {
         "en": "This narrator gives ordinary things attention and lets a scene unfold at a human scale. A small image can carry feeling without a long explanation.",
-        "zh": "这位叙述者愿意注意普通东西，让场景以贴近人的尺度展开。一个小画面，也能承载感受，不必先讲很长的解释。"
+        "zh": "这位叙述者会多看普通东西一眼，让故事从身边可感的小事展开。一幅小画面就能传递感受，不必先解释很长一段。"
       },
       "tradeoff": {
         "en": "A close view leaves other parts outside the frame. Following one vivid detail too long can make it harder to understand the wider event or another person’s perspective.",
@@ -297,7 +297,7 @@
       },
       "example": {
         "en": "After a shared day out, you might enjoy hearing what each person noticed first. Their accounts can add texture without turning the conversation into a contest over whose afternoon was the real one.",
-        "zh": "共同外出后，你可能喜欢听听每个人最先注意到了什么。不同讲法能增加质地，不必把交流变成谁的下午才是真的的比赛。"
+        "zh": "共同外出后，你可能想听听每个人最先注意到了什么。不同讲法能让回忆更丰富，不必争论谁记得的下午才是真的。"
       },
       "strength": {
         "en": "This narrator makes room for contrast and can keep a familiar event from becoming a single person’s official version. Differences become part of the story.",
@@ -328,7 +328,7 @@
       },
       "strength": {
         "en": "This narrator creates surprise through framing and can give an ordinary scene a memorable little turn. A brief aside may invite a smile without taking over the story.",
-        "zh": "这位旁白通过角度带来意外，也能给普通场景一个记得住的小转弯。短短插话可以邀请微笑，不必接管整段故事。"
+        "zh": "这位旁白会换个角度，为普通场景加一点意外。短短一句插话就能逗人一笑，不必抢走整个故事。"
       },
       "tradeoff": {
         "en": "A clever aside can interrupt a moment that needs a direct telling. Humor also depends on context, and another person does not have to enjoy the framing you chose.",

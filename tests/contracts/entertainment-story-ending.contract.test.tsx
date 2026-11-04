@@ -21,7 +21,7 @@ const bytes = readFileSync("lib/entertainment/data/story-ending.json");
 const quiz = JSON.parse(bytes.toString()) as FunQuiz;
 describe("story-ending: authored branching fiction, not tally scoring", () => {
  it("preserves the source bytes and checks all eleven terminal paths and every incomplete prefix", () => {
-  expect(createHash("sha256").update(bytes).digest("hex")).toBe("3add2b9110c10cb973e91f758a7079410fecfa91378bdaf6ce5374faa9b7dae6");
+  expect(createHash("sha256").update(bytes).digest("hex")).toBe("e46dbc25a8a5c73addbb06483292f3ccc7f049aae09380b7a715f89f6e50b4a5");
   const lengths: Record<number,number> = {}, endings: Record<string,number> = {};
   for (const [encoded,ending] of routes) {
    const steps=encoded.split(",").map(s=>s.split(":")); const answers: Answers = {};

@@ -14,25 +14,13 @@ export function QuestionnaireWorkValuesReport({ quiz, result, answers, locale }:
   const zh = locale === "zh";
   const ordered = [...quiz.directions].sort((a, b) => result.counts[b.id] - result.counts[a.id]);
   return <div className="my-6 space-y-8">
-    <section className="rounded-lg bg-slate-50 p-4" aria-label={zh ? "十项工作价值的次数与并列名次" : "Counts and shared ranks for ten work values"}>
-      <h3 className="text-xl font-semibold">{zh ? "本题组的完整优先次序" : "The complete order in this question set"}</h3>
-      <table className="my-4 w-full table-fixed text-left">
-        <caption className="sr-only">{zh ? "相同次数保持相同名次" : "Equal counts keep equal ranks"}</caption>
-        <thead><tr><th className="w-1/2 py-2 pr-2">{zh ? "工作价值" : "Work value"}</th><th className="py-2 pr-2">{zh ? "次数" : "Count"}</th><th className="py-2">{zh ? "并列名次" : "Shared rank"}</th></tr></thead>
-        <tbody>{ordered.map(direction => <tr key={direction.id} data-work-value={direction.id} className="border-t border-slate-200">
-          <th scope="row" className="py-3 pr-2 font-normal [overflow-wrap:anywhere]">{direction.title[locale]}</th>
-          <td className="py-3 pr-2">{result.counts[direction.id]} / {direction.comparisons}</td>
-          <td className="py-3">{1 + quiz.directions.filter(other => result.counts[other.id] > result.counts[direction.id]).length}</td>
-        </tr>)}</tbody>
-      </table>
-      <p className="text-sm leading-7">{zh ? "分母是该价值出现的十二次机会。每次选择也放弃同题另外三项；次数较少不等于反对、能力低或人格缺陷。相同次数保留同名次，列表顺序不破同分。差一次没有已验证的显著性；这些不是人口排名、百分比或岗位适配度。" : "The denominator is twelve appearances of that value. Each choice also declines three alternatives; a lower count means neither rejection nor low ability or a character flaw. Equal counts share a rank, without a list-order tie-break. A one-choice gap has no established significance. These are not population ranks, percentages or job-fit scores."}</p>
-    </section>
-    <p className="leading-8">{zh ? `本次有${result.profileIds.length}项并列最高，下面分别保留完整读法；这不是固定人格或职业分类。其他价值的全文始终可以阅读。` : `${result.profileIds.length} value${result.profileIds.length === 1 ? " has" : "s have"} the highest count. Each full reading follows, without a fixed personality or career classification. Every other value’s complete guide remains available.`}</p>
+
+
     {result.profileIds.map(id => {
       const profile = quiz.profiles.find(p => p.id === id)!;
       return <section key={id} data-work-value-reading={id} aria-labelledby={`work-value-title-${id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
         <h3 id={`work-value-title-${id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`work-value-${id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`work-value-${id}`} mode="result" previewSectionIds={[`${profile.id}-2`, `${profile.id}-5`]} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "阅读这项工作价值的公开指南" : "Read this work value’s public guide"}</Link>
       </section>;
     })}
@@ -45,6 +33,23 @@ export function QuestionnaireWorkValuesReport({ quiz, result, answers, locale }:
           {answers[question.id] === option.id ? (zh ? "已选：" : "Selected: ") : (zh ? "未选：" : "Not selected: ")}{option.label[locale]} <span className="text-slate-600">({quiz.directions.find(d => d.id === option.directionId)!.title[locale]})</span>
         </li>)}</ul>
       </li>)}</ol>
+    </details>
+
+    <details className="border-t border-slate-200 pt-3" data-result-reading-method><summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、原始记录与计算说明" : "View all readings, original records and calculation notes"}</summary>
+<section className="rounded-lg bg-slate-50 p-4" aria-label={zh ? "十项工作价值的次数与并列名次" : "Counts and shared ranks for ten work values"}>
+      <h3 className="text-xl font-semibold">{zh ? "本题组的完整优先次序" : "The complete order in this question set"}</h3>
+      <table className="my-4 w-full table-fixed text-left">
+        <caption className="sr-only">{zh ? "相同次数保持相同名次" : "Equal counts keep equal ranks"}</caption>
+        <thead><tr><th className="w-1/2 py-2 pr-2">{zh ? "工作价值" : "Work value"}</th><th className="py-2 pr-2">{zh ? "次数" : "Count"}</th><th className="py-2">{zh ? "并列名次" : "Shared rank"}</th></tr></thead>
+        <tbody>{ordered.map(direction => <tr key={direction.id} data-work-value={direction.id} className="border-t border-slate-200">
+          <th scope="row" className="py-3 pr-2 font-normal [overflow-wrap:anywhere]">{direction.title[locale]}</th>
+          <td className="py-3 pr-2">{result.counts[direction.id]} / {direction.comparisons}</td>
+          <td className="py-3">{1 + quiz.directions.filter(other => result.counts[other.id] > result.counts[direction.id]).length}</td>
+        </tr>)}</tbody>
+      </table>
+      <p className="text-sm leading-7">{zh ? "分母是该价值出现的十二次机会。每次选择也放弃同题另外三项；次数较少不等于反对、能力低或人格缺陷。相同次数保留同名次，列表顺序不破同分。差一次没有已验证的显著性；这些不是人口排名、百分比或岗位适配度。" : "The denominator is twelve appearances of that value. Each choice also declines three alternatives; a lower count means neither rejection nor low ability or a character flaw. Equal counts share a rank, without a list-order tie-break. A one-choice gap has no established significance. These are not population ranks, percentages or job-fit scores."}</p>
+    </section>
+<p className="leading-8">{zh ? `本次有${result.profileIds.length}项并列最高，下面分别保留完整读法；这不是固定人格或职业分类。其他价值的全文始终可以阅读。` : `${result.profileIds.length} value${result.profileIds.length === 1 ? " has" : "s have"} the highest count. Each full reading follows, without a fixed personality or career classification. Every other value’s complete guide remains available.`}</p>
     </details>
   </div>;
 }

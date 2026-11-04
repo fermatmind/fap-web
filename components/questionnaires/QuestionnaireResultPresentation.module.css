@@ -52,6 +52,10 @@
 .paragraphs p { margin: 0 0 18px; }
 .paragraphs p:last-child { margin-bottom: 0; }
 .reading > section + section { margin-top: 24px; }
+.fullReading { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--fm-border, #e8e3ec); }
+.fullReading > summary { min-height: 44px; padding-block: 10px; color: var(--result-accent, #75536e); cursor: pointer; font-size: 14px; font-weight: 600; }
+.fullReading > summary:focus-visible { outline: 3px solid #9b6c96; outline-offset: 4px; }
+.fullReading > section + section { margin-top: 24px; }
 .references { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--fm-border, #e8e3ec); font-size: 14px; }
 .references ul { padding-left: 20px; }
 .references li + li { margin-top: 10px; }

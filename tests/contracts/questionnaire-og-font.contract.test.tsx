@@ -59,7 +59,9 @@ describe("bounded local fonts for public quiz images", () => {
   });
 
   it("keeps both font files local and within the existing individual image-font budget", () => {
-    for (const file of ["fun-700.ttf", "naruto-character-700.ttf"]) expect(readFileSync(`public/fonts/noto-sans-sc/${file}`).byteLength).toBeLessThan(300000);
+    // Only the shared font grows for twenty newly authored title glyphs.
+    expect(readFileSync("public/fonts/noto-sans-sc/fun-700.ttf").byteLength).toBeLessThan(310000);
+    expect(readFileSync("public/fonts/noto-sans-sc/naruto-character-700.ttf").byteLength).toBeLessThan(300000);
     expect(readFileSync("app/og/fun/[slug]/route.tsx", "utf8")).not.toMatch(/fetch\(/);
   });
 });

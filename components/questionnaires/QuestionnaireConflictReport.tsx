@@ -15,7 +15,7 @@ export function QuestionnaireConflictReport({ quiz, result, locale, readingProfi
   const privacy = zh ? "回答和结果仅在当前页面内存；不保存草稿或结果，不提供个人结果分享。普通页面分析保持禁用；仅在自愿开启本页匿名次数统计并允许全站分析时，可记录开始、完成和查看动作，不带答案或结果内容。刷新、换语、离开或重测会清除。" : "Responses and results remain in current-page memory only: no saved draft or result or personal-result sharing. Ordinary page analytics remain disabled. Only page opt-in together with site analytics consent can allow anonymous start, completion and view counts, without answers or result content. Reloading, changing language, leaving or retaking clears them.";
   const support = zh ? "现实中若已有威胁、暴力、强迫、跟踪或紧急安全问题，应优先联系当地紧急服务、可信任的支持者或具备资质的专业服务，不等待分数。任何观察都可不做，不要求不安全的联系、原谅或恢复信任。" : "For actual threats, violence, coercion, stalking or urgent safety concerns, prioritize local emergency services, a trusted supporter or qualified professional services as appropriate, without waiting for a score. Observations are optional and never require unsafe contact, forgiveness or restored trust.";
   return <div data-conflict-result className="my-6 space-y-8">
-    {available.length > 0 && quiz.directions.length > 1 && <ResultReadingNav label={zh ? "按主题阅读结果" : "Read results by topic"} sections={quiz.directions.map(direction => ({ id: `conflict-${direction.id}`, title: direction.title[locale] }))} />}
+    {available.length > 0 && quiz.directions.length > 1 && <ResultReadingNav collapsible label={zh ? "按主题阅读结果" : "Read results by topic"} sections={quiz.directions.map(direction => ({ id: `conflict-${direction.id}`, title: direction.title[locale] }))} />}
     <p className="leading-8">{scope}</p>
     {!available.length ? <section data-conflict-all-insufficient role="status" className="rounded-lg border border-slate-200 p-4 leading-8">
       <h3 className="text-xl font-semibold">{zh ? "各部分信息均不足" : "All parts have insufficient information"}</h3>
@@ -31,7 +31,7 @@ export function QuestionnaireConflictReport({ quiz, result, locale, readingProfi
           {score.mean === null ? <p data-conflict-insufficient className="leading-8">{zh ? "信息不足：本组不显示原始和、均值或个人解释。不推算、不补答；其他满足条件的组保留。" : "Insufficient information: no sum, mean or personal interpretation for this part. No inference or replacement answer; other available parts remain."}</p> : <>
             <p data-conflict-mean className="mb-4 rounded-lg bg-slate-50 p-4 font-semibold">{zh ? `均值：${score.mean.toFixed(4)} / 5（${score.sum} ÷ ${score.rated}，显示至四位小数）` : `Mean: ${score.mean.toFixed(4)} / 5 (${score.sum} ÷ ${score.rated}, rounded to four decimals)`}</p>
             <p data-conflict-sum className="mb-4 leading-8">{zh ? `原始和：${score.sum}，由${score.rated}个数字回答相加。描述的是这些回答，不转换为危险程度、概率或风险等级。` : `Raw sum: ${score.sum}, from ${score.rated} numeric responses. It describes these answers without conversion to dangerousness, probability or a risk grade.`}</p>
-            <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`conflict-report-${profile.id}`} />
+            <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`conflict-report-${profile.id}`} mode="result" previewSectionIds={[`${readingProfile.id}-context`, `${readingProfile.id}-observation`]} />
           </>}
           <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "单独阅读本部分通用全文（不含个人记录）" : "Read this part’s general full guide separately (no personal record)"}</Link>
         </section>;

@@ -1,7 +1,7 @@
 {
   "slug": "pocket-map",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "metaphor",
   "title": {
     "en": "What Would Your Pocket Map Remember?",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Recording the structure of an imagined place, the stops that matter to a character or discoveries left for a future reader.",
-    "zh": "记录虚构地方结构、角色在意的停点，或留给后来读者的发现。"
+    "zh": "画一张虚构地点的小地图：可以标清地标，也可以留下角色停过的地方，或留一块空白请下一个人来画。"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -262,54 +262,54 @@
       "id": "landmarks",
       "title": {
         "en": "The Readable-Landmark Map",
-        "zh": "地标可读的小地图"
+        "zh": "看得懂的地标地图"
       },
       "summary": {
         "en": "Your pocket map keeps the imagined place understandable. A few stable shapes give the reader reference points without pretending that a small sketch contains every detail of the world.",
-        "zh": "你的图让想象地好懂。几处稳定形给参照，不装小图能容世界全部细节。"
+        "zh": "你的口袋地图，让人看得懂这个想象中的地方。几个清楚的地标就能帮助定位，不需要把整个世界的细节都塞进一张小图。"
       },
       "example": {
         "en": "A square tower between two drawn lanes might let a reader understand where the paper market sits relative to the river.",
-        "zh": "两画巷间方塔，可让读者懂纸市场与河的相对位置。"
+        "zh": "在两条画出来的小巷之间标一座方塔，就能让读者看懂纸市集与河流的相对位置。"
       },
       "strength": {
         "en": "Clear reference points help an invented setting remain coherent as the story moves, leaving other details free to change or remain unspecified.",
-        "zh": "清楚参照让故事移动时虚构地仍连贯，其余可变或不指定。"
+        "zh": "有了明确的参照，故事走到不同地方时，场景仍然连贯。其他细节可以变化，也可以暂时不画。"
       },
       "tradeoff": {
         "en": "A map can be clear but impersonal if it only shows structure. One chosen small detail can give the drawing character without confusing its layout.",
-        "zh": "只展结构，图也可清却无特点。添一处小细节，不乱布局也添个性。"
+        "zh": "只标结构，地图虽然清楚，也可能少一点特色。添一个小细节，就能让它更有自己的样子，又不打乱布局。"
       },
       "experiment": {
         "en": "Draw three fictional landmarks and two connecting paths. Explain their relationships in one sentence before adding decorations or invented street names.",
-        "zh": "画三虚构地标两连接路，先用一句说明关系，再添装饰与街名。"
+        "zh": "画三个虚构地标，再用两条路连起来。先用一句话说明它们的位置关系，再添装饰或自创街名。"
       }
     },
     {
       "id": "stops",
       "title": {
         "en": "The Linger-Here Pocket Map",
-        "zh": "在这里多待的小地图"
+        "zh": "标出停留处的小地图"
       },
       "summary": {
         "en": "Your map records a particular visit rather than the whole place. A stop earns its mark through what a fictional character did there, not through official importance or popularity.",
-        "zh": "你的图记特定到访，不是整地。停点因角色做过什么获标，不因官方重要或热门。"
+        "zh": "你的地图记录一次特别的到访，而不是整个地方。某处值得标出来，是因为角色在那里做过一件事，不一定因为它出名或重要。"
       },
       "example": {
         "en": "A tiny mark by a made-up bridge might note where the traveler sat to finish drawing the shape of a passing cloud.",
-        "zh": "虚构桥旁小记，可写旅人在此坐着画完一朵过云。"
+        "zh": "在一座虚构小桥旁做个记号，写下旅人曾坐在这里，画完一朵飘过的云。"
       },
       "strength": {
         "en": "A selected stop can turn a plain layout into a small narrative and let a reader see how one character actually used the setting.",
-        "zh": "选定停点把平面图变小叙事，让读者看角色如何使用场景。"
+        "zh": "选几个停留的地方，普通平面图就有了故事。读者也能看见，角色怎样走过这个场景。"
       },
       "tradeoff": {
         "en": "Your chosen stops will not be another reader’s chosen stops. Keeping the map explicitly personal avoids presenting one route as the best experience.",
-        "zh": "你的停点未必是别人停点。明确个人图，不把一路说成最佳体验。"
+        "zh": "你想停的地方，不一定是别人想停的地方。说明这是一张个人路线图，就不必把它说成最好的游览方式。"
       },
       "experiment": {
         "en": "Invent a character’s twenty-minute visit and mark only three stops. Give each a plain action rather than a rating or claim of hidden significance.",
-        "zh": "编角色二十分钟到访，只标三停点。各写普通动作，不评分或称暗有深意。"
+        "zh": "想象一个角色用了二十分钟到访这里，只标三个停留处。每处写一个普通动作，不评分，也不必赋予隐藏意义。"
       }
     },
     {
@@ -320,23 +320,23 @@
       },
       "summary": {
         "en": "Your map invites another version by leaving selected space open. An omission is part of the creative invitation, not a trap, a missing safety instruction or a test of imagination.",
-        "zh": "你的图靠留空邀另一版。省略是创意邀请，不是陷阱、缺安全指令或想象力考题。"
+        "zh": "你的地图留出一块空白，邀请下一个人画出另一个版本。这是创作上的留白，不是陷阱，也不是实际出行时缺失的安全指引，更不考想象力。"
       },
       "example": {
         "en": "A blank square beside an invented square might ask the next reader to add a small shop, a bench or something entirely different.",
-        "zh": "虚构广场旁空格可请后来读者添小店、长椅或全异物。"
+        "zh": "在虚构广场旁留一个空格，请下一个读者添一家小店、一张长椅，或别的任何东西。"
       },
       "strength": {
         "en": "An intentional gap gives another person a concrete way to contribute and lets the fictional place grow without treating the first drawing as final.",
-        "zh": "刻意空白给人具体贡献方式，让虚构地可长，不把首图当定稿。"
+        "zh": "留一处明确的空白，别人就有了具体的参与方式。这个虚构地方也能继续变化，不必把第一张图当成定稿。"
       },
       "tradeoff": {
         "en": "Too many gaps can make an invitation vague. A little established structure gives the next reader something useful to respond to.",
-        "zh": "空白太多，邀请会含糊。已有一点结构，后来读者才有东西回应。"
+        "zh": "空白太多，别人可能不知道从哪里画起。先留下少量明确的结构，会更容易接着创作。"
       },
       "experiment": {
         "en": "Draw a small invented neighborhood with one clearly marked blank plot. Offer two possible additions while explicitly leaving room for a third idea.",
-        "zh": "画小虚构街区，标一空地。给两添法，同时明确可有第三想法。"
+        "zh": "画一个虚构的小街区，清楚标出一块空地。你可以给出两种添画的想法，也明确欢迎第三种。"
       }
     }
   ],

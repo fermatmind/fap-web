@@ -1,7 +1,7 @@
 {
   "slug": "birdwatching-companion",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "nature",
   "title": {
     "en": "What Kind of Birdwatching Companion Are You?",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "The difference between giving a sighting time, keeping a useful record and helping another observer find the view.",
-    "zh": "给一次现身留时间、保留有用记录，以及帮另一位观察者找到视野之间的选择。"
+    "zh": "在观鸟时，你更想耐心等待、记录发现，还是帮助同行者看见？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -266,7 +266,7 @@
       },
       "summary": {
         "en": "Your club story makes room for a sighting to happen without turning waiting into wasted time. You choose a view you can stay with. The portrait follows your imagined outing, not a claim that you are always patient.",
-        "zh": "你的小组故事让现身有时间发生，不把等待自动算作浪费。你选一个能待住的视野。画像对应想象中的外出，不宣称你永远耐心。"
+        "zh": "在这次想象中的小组观鸟活动里，你愿意留在一个位置，给鸟儿出现的机会。等待也可以是活动的一部分，不一定是在浪费时间。这描述的是你这次选择的游览方式，不代表你任何时候都很有耐心。"
       },
       "example": {
         "en": "At a small public demonstration, you might enjoy watching one stage unfold instead of moving to the next station before anything has had time to happen.",
@@ -320,7 +320,7 @@
       },
       "summary": {
         "en": "Your imagined outing includes the person who has not yet found the branch. You make the view easier to locate and participation easier to enter. The result does not appoint you permanent guide or make other people’s enjoyment your responsibility.",
-        "zh": "你想象的外出包含那位还没找到树枝的人。你让视野容易定位、参与容易进入。结果不会任命你为永久向导，也不把他人的愉快全交给你负责。"
+        "zh": "在这次想象中的外出里，你也会照顾到还没找到鸟儿停在哪根树枝上的人。你愿意指一指位置，让对方更容易加入观察。不过，你不必一直做向导，也不用为所有人的游玩感受负责。"
       },
       "example": {
         "en": "At a shared art table, you might turn a demonstration slightly so the person at the end can see, then return to your own making.",
@@ -328,7 +328,7 @@
       },
       "strength": {
         "en": "A simple orientation cue can lower the cost of joining and let someone take part without pretending they already know where to look.",
-        "zh": "一个简单定位提示，能降低加入成本，让人不用假装已知道看哪里也能参与。"
+        "zh": "一个简单的位置提示，就能让别人更容易加入观察，不必因为不知道往哪里看而难以开口。"
       },
       "tradeoff": {
         "en": "Helping without asking can interrupt someone who was enjoying a different view. An offer works best when declining it is comfortable.",

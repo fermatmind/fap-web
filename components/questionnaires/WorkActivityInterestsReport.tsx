@@ -27,17 +27,8 @@ export function WorkActivityInterestsReport({ quiz, result, locale }: {
 }) {
   const zh = locale === "zh";
   return <ResultPage variant="dimensions" className="mt-6 space-y-8" data-work-activity-report>
-    <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
-      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
-      items={quiz.directions.map(direction => {
-        const score = result.facets[direction.id];
-        return { id: direction.id, label: direction.title[locale], href: `#work-activity-${direction.id}`,
-          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
-          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
-      })} />
-    <p className="leading-8">{zh
-      ? "六组分别汇总对所列具体活动的兴趣，固定顺序显示，不跨组排名。每组十项至少八条数字才有一位小数均分；3是有效中立，未评分保持缺失。原始和只加有效数字，没有总分、前三代码、能力等级或职业匹配。相同均分可能来自不同回答。"
-      : "Six separate summaries describe interest in the specific activities, displayed in a fixed order without ranking. Each ten-task group needs eight numeric ratings for a mean rounded to one decimal. Neutral is a valid 3; unscored stays missing. Raw sums include rated items only. There is no total, top-three code, ability level or job match. Different responses can yield the same mean."}</p>
+
+
     <WorkActivityContext locale={locale} />
     {quiz.directions.map(direction => {
       const facet = result.facets[direction.id];
@@ -53,9 +44,24 @@ export function WorkActivityInterestsReport({ quiz, result, locale }: {
         <p className="mb-4 leading-7">{facet.mean === null
           ? (zh ? "以下是对所有人相同的完整指南，不是本次个人兴趣结论。" : "The complete guide below is identical for everyone, not a personal interest conclusion from this attempt.")
           : (zh ? "较高只表示更喜欢本组已评任务，不表示更擅长或更适任；以下指南对所有回答相同。" : "Higher means more liking for this group’s rated tasks, not greater skill or suitability. The guide below is the same for every response pattern.")}</p>
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`work-activity-report-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`work-activity-report-${profile.id}`} mode="result" previewSectionIds={[`${profile.id}-2`, `${profile.id}-5`]} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本组完整公开指南" : "Read this group’s full public guide"}</Link>
       </section>;
     })}
+
+    <details className="border-t border-slate-200 pt-4" data-result-reading-method>
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
+      <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
+      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
+      items={quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return { id: direction.id, label: direction.title[locale], href: `#work-activity-${direction.id}`,
+          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
+          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
+      })} />
+      <p className="leading-8">{zh
+      ? "六组分别汇总对所列具体活动的兴趣，固定顺序显示，不跨组排名。每组十项至少八条数字才有一位小数均分；3是有效中立，未评分保持缺失。原始和只加有效数字，没有总分、前三代码、能力等级或职业匹配。相同均分可能来自不同回答。"
+      : "Six separate summaries describe interest in the specific activities, displayed in a fixed order without ranking. Each ten-task group needs eight numeric ratings for a mean rounded to one decimal. Neutral is a valid 3; unscored stays missing. Raw sums include rated items only. There is no total, top-three code, ability level or job match. Different responses can yield the same mean."}</p>
+    </details>
   </ResultPage>;
 }

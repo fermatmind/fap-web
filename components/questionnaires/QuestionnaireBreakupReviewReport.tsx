@@ -13,17 +13,8 @@ export function QuestionnaireBreakupReviewReport({ quiz, result, locale, reading
 }) {
   const zh = locale === "zh";
   return <ResultPage variant="reflection" data-breakup-review-result className="my-6 space-y-8">
-    <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
-      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
-      items={quiz.directions.map(direction => {
-        const score = result.facets[direction.id];
-        return { id: direction.id, label: direction.title[locale], href: `#breakup-review-${direction.id}`,
-          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
-          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
-      })} />
-    <p className="leading-8">{zh
-      ? "四组记录分别阅读，不合总分、不排名、不指定主要分手原因。它们只摘要你对一段已结束关系的回顾，不分配责任，不决定复合、伴侣适配或下一段关系。原数值中点3表示不确定或视情况，不是中等严重程度；网页新增不计分选项不补零。"
-      : "Read four separate records without an overall total, ranking or main-cause verdict. They summarise your recollection of one relationship that ended, without assigning responsibility, deciding reconciliation or predicting compatibility or another relationship. The original numeric midpoint 3 means uncertain or depends on the situation, not moderate severity. The website’s added unscored choice is not filled with zero."}</p>
+
+
     <aside role="note" className="rounded-lg border border-slate-200 p-4 leading-8">{zh
       ? "安全边界与任何分数无关：暴力、胁迫、跟踪、威胁、强迫和控制不属于普通沟通不良或双方不合。无需联系、对质、解释或复合；若有现实安全威胁，可暂停作答或联系，向可信的人、当地紧急服务或合适的专业支持求助。"
       : "The safety boundary applies at every score: violence, coercion, stalking, threats, force and control are not ordinary poor communication or mutual incompatibility. Contact, confrontation, explanation and reconciliation are not required. If there is a practical safety threat, you can pause the test or contact with the former partner, and seek help from a trusted person, local emergency services or appropriate professional support."}</aside>
@@ -46,11 +37,26 @@ export function QuestionnaireBreakupReviewReport({ quiz, result, locale, reading
         {!available && <p className="mb-4 leading-8 text-slate-600">{zh
           ? "本组保留暂缺，不以零或中点代答；其他完整组仍分别保留。以下通用指南可读，但不是本次个人因素解释。全部不计分也可以完成并阅读四份全文。"
           : "This group remains unavailable without zero or midpoint imputation. Other complete groups remain separate. The general guide below is readable without assigning a personal interpretation. An entirely unscored attempt can finish and read all four full guides."}</p>}
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`breakup-review-report-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`breakup-review-report-${profile.id}`} mode="result" previewSectionIds={[`${profile.id}-example`, `${profile.id}-action`]} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline"
           href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本组完整公开指南" : "Read this group’s complete public guide"}</Link>
       </section>;
     })}
+
+    <details className="border-t border-slate-200 pt-4" data-result-reading-method>
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
+      <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
+      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
+      items={quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return { id: direction.id, label: direction.title[locale], href: `#breakup-review-${direction.id}`,
+          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
+          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
+      })} />
+      <p className="leading-8">{zh
+      ? "四组记录分别阅读，不合总分、不排名、不指定主要分手原因。它们只摘要你对一段已结束关系的回顾，不分配责任，不决定复合、伴侣适配或下一段关系。原数值中点3表示不确定或视情况，不是中等严重程度；网页新增不计分选项不补零。"
+      : "Read four separate records without an overall total, ranking or main-cause verdict. They summarise your recollection of one relationship that ended, without assigning responsibility, deciding reconciliation or predicting compatibility or another relationship. The original numeric midpoint 3 means uncertain or depends on the situation, not moderate severity. The website’s added unscored choice is not filled with zero."}</p>
+    </details>
   </ResultPage>;
 }
 

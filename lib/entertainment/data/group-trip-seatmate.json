@@ -1,7 +1,7 @@
 {
   "slug": "group-trip-seatmate",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "social",
   "title": {
     "en": "What Kind of Seatmate Are You on a Group Trip?",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Negotiating a shared seat through a gentle conversation, an undemanding parallel activity or practical space agreements.",
-    "zh": "通过轻松交流、无要求的并行活动或实际空间约定，共用一段邻座。"
+    "zh": "旅途中与人邻座，你更愿意轻松聊天、安静各做各的，还是先约好怎样共用空间？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -266,7 +266,7 @@
       },
       "summary": {
         "en": "Your shared journey makes room for a little conversation that both people can choose. An opening and a pause can coexist. The portrait describes the exchange you selected in this scene rather than assigning a fixed level of sociability.",
-        "zh": "你的同行给双方可选择的小交流留位置。开口与停顿可以并存。画像描述这个场景里所选交流，不分配固定社交程度。"
+        "zh": "在这段同行里，你愿意聊一会儿，也愿意自然地停下来。交流多少，可以由双方选择。这描述的是本次邻座场景中的回应方式，不是一个固定的社交程度。"
       },
       "example": {
         "en": "You might ask about a book a neighbor has chosen to mention, then happily return to the window when the conversation reaches a natural pause.",
@@ -274,7 +274,7 @@
       },
       "strength": {
         "en": "A modest invitation to talk can make shared time feel personal while leaving the other person free to choose how much to contribute.",
-        "zh": "适度邀请聊天能让共处时间有个人联系，也让对方自由选择聊多少。"
+        "zh": "一个适度的话题邀请，能让同行多一点个人联系，也让对方自由决定想聊多少。"
       },
       "tradeoff": {
         "en": "A friendly opening is still optional for the other person. Treating short replies as permission to pause keeps the exchange comfortable.",
@@ -282,7 +282,7 @@
       },
       "experiment": {
         "en": "Offer one easy conversation opening in a willing shared moment, then leave an equally easy pause rather than trying to keep every minute filled.",
-        "zh": "在愿意的共处时刻开一个轻松话题，也留同样容易的停顿，不必填满每一分钟。"
+        "zh": "双方愿意交流时，试着开一个轻松话题，也给停顿留出空间。不需要让每一分钟都有话可说。"
       }
     },
     {
@@ -293,7 +293,7 @@
       },
       "summary": {
         "en": "Your seatmate portrait enjoys being nearby without requiring a continuous exchange. Separate pages or a shared view can hold company quietly. This ending does not infer avoidance, loneliness or a general preference to be alone.",
-        "zh": "你的邻座画像享受靠近，却不要求连续交流。各自书页或共同景象，也可安静作伴。结局不推断回避、孤独或普遍偏爱独处。"
+        "zh": "你喜欢有人在身边，也不要求一路持续聊天。各读各的书，或一起看看窗外，都可以安静地作伴。这不代表回避别人、感到孤独，也不意味着你平时总爱独处。"
       },
       "example": {
         "en": "Two friends might read different books on the same journey and occasionally share a sentence, without needing to turn the whole trip into a conversation.",
@@ -301,15 +301,15 @@
       },
       "strength": {
         "en": "Parallel activity gives companionship a low-demand form and can let different energy levels coexist within the same small space.",
-        "zh": "并行活动给作伴一种低要求形式，也让不同精力状态在小空间并存。"
+        "zh": "各自做点事，也可以是不用费力回应的陪伴。即使精力不同，双方仍然可以舒服地待在同一小片空间。"
       },
       "tradeoff": {
         "en": "Quiet can be misread if a shared expectation is never named. One simple statement of preference can prevent unnecessary guessing.",
-        "zh": "共同预期从不说明时，安静也可能被误读。一句简单偏好说明，能减少无谓猜测。"
+        "zh": "如果从没说清彼此的期待，安静也可能被误会。简单说一句自己此刻想怎样相处，就能减少猜测。"
       },
       "experiment": {
         "en": "When sharing quiet time with someone willing, name that you enjoy their company and also want a little independent activity. Ask what would suit them.",
-        "zh": "与愿意的人共享安静时，说明喜欢作伴，也想做一点独立活动，再问对方怎样合适。"
+        "zh": "和愿意的人共享安静时间时，可以说说：自己喜欢有对方作伴，也想各做一点事。再问问对方觉得怎样合适。"
       }
     },
     {
@@ -320,7 +320,7 @@
       },
       "summary": {
         "en": "Your journey becomes comfortable through small shared arrangements that do not have to be guessed. A table turn or a place for bags can matter more than another activity. The ending does not appoint you manager of the whole trip.",
-        "zh": "你的旅程通过不用猜的小共用安排变舒服。桌面轮次或包袋位置，也许比再加活动更重要。结局不任命你管理整段旅途。"
+        "zh": "你希望把共用空间的小安排说清楚，不用一路猜。桌面怎样轮流用，包放在哪里，有时比再添一个活动更重要。不过，这不表示你需要管理整段旅程。"
       },
       "example": {
         "en": "You might agree where each person’s small items can sit before spreading a map across a shared table during a leisurely outing.",
@@ -328,15 +328,15 @@
       },
       "strength": {
         "en": "A clear arrangement can reduce accidental interruptions and make a limited shared space feel easier for both people to use.",
-        "zh": "清楚安排能减少无意打扰，让有限共用空间对双方都更好用。"
+        "zh": "说清一个实际安排，能减少无意的打扰，也让有限空间对双方都更好用。"
       },
       "tradeoff": {
         "en": "Arranging every detail can become fussy when no one is actually uncomfortable. Checking the one real constraint may be enough.",
-        "zh": "没人实际不舒服时，安排每个细节也会琐碎。核清一个真实限制，可能已够。"
+        "zh": "如果没有人觉得不方便，把每个细节都规定好也会显得琐碎。问清真正碍事的一点，也许就够了。"
       },
       "experiment": {
         "en": "For one small shared space, ask what is getting in the way and agree on one simple change. Leave the other details flexible.",
-        "zh": "面对一个小共用空间，问什么确实碍事，再约一项简单变化。其他细节保持灵活。"
+        "zh": "共用一小片空间时，先问问哪里确实不方便，再一起商量一个简单改变。其他细节可以保持灵活。"
       }
     }
   ],

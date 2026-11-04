@@ -1,7 +1,7 @@
 {
   "slug": "spell-school-elective",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "fantasy",
   "title": {
     "en": "Which Original Spell-School Elective Would You Choose?",
@@ -326,7 +326,7 @@
       },
       "summary": {
         "en": "Your elective fills a small scene with atmosphere. You are drawn to the difference a cloud, a patch of light, or an imagined breeze makes to the whole picture. The project is less about controlling a world than choosing how one little moment feels.",
-        "zh": "你的选修课会给小场景装上氛围。云、光斑或想象中的微风，怎样改变整幅画面，很容易吸引你。项目不需要控制整个世界，只是选择一个小片刻呈现什么感觉。"
+        "zh": "你的选修课关注小场景的气氛。一朵云、一片光斑或一阵想象中的微风，都会改变整幅画给人的感觉。不必控制整个世界，只是试试这一刻可以是什么样子。"
       },
       "example": {
         "en": "Your showcase might contain the same paper house under two invented skies. In everyday creative play, the parallel could be photographing one ordinary corner in different light and noticing what changes.",
@@ -353,7 +353,7 @@
       },
       "summary": {
         "en": "Your elective turns a tiny outline into a place with possibilities. You enjoy entrances, hidden compartments, and arrangements that make a small space usable. The delight is in how the parts fit together, not in proving that bigger or more complicated must be better.",
-        "zh": "你的选修课把小轮廓变成有可能性的地方。入口、暗格，以及让小空间真正用起来的安排，都会让你感兴趣。乐趣在于各部分怎样配合，不在于证明越大、越复杂就越好。"
+        "zh": "你的选修课把一个小轮廓，变成可以想象怎样使用的地方。入口、暗格和小空间的安排，都能带来乐趣。重点是各部分怎样配合，不必越大、越复杂才越好。"
       },
       "example": {
         "en": "You might create a paper reading nook whose doorway unfolds into a seat. A real-life playful parallel is arranging a small tray so that each object has room without adding another container.",
@@ -361,7 +361,7 @@
       },
       "strength": {
         "en": "You notice relationships between form and use and can find an enjoyable puzzle in limited space. Constraints give the project a shape to work with.",
-        "zh": "你会注意形式与用途的关系，也能从有限空间里找到有趣的小难题。限制为项目提供了可着手的形状。"
+        "zh": "你会留意形状和用途怎样配合，也愿意试着解决小空间里的布置问题。有限的大小，反而给了创作一个具体起点。"
       },
       "tradeoff": {
         "en": "A clever design can become difficult for someone else to understand or access. Tiny details matter only if the intended user can actually enjoy them.",
@@ -411,7 +411,7 @@
       },
       "example": {
         "en": "Your display might suspend three paper-like moons that trade places in a slow loop. Outside the story, a small collage with movable pieces could offer a similar playful question.",
-        "zh": "你的展品可能挂着三枚纸一样的月亮，沿缓慢循环交换位置。走出故事，一张可以移动零件的小拼贴，也能提供类似的游戏问题。"
+        "zh": "你的展品可以是三枚像纸片一样的月亮，慢慢转动、交换位置。日常也可以试着用一张零件能移动的小拼贴，看看挪动后会出现什么变化。"
       },
       "strength": {
         "en": "You can find interest in balance, timing, and relationships between parts. A change becomes something to observe rather than immediately tidy away.",

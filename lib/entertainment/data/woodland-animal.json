@@ -1,7 +1,7 @@
 {
   "slug": "woodland-animal",
-  "version": "1.0.2",
-  "updated": "2026-10-24",
+  "version": "1.0.3",
+  "updated": "2026-11-05",
   "category": "nature",
   "title": {
     "en": "Which Woodland Animal Matches Your Trail Style?",
@@ -266,7 +266,7 @@
       },
       "summary": {
         "en": "You make an outing feel bigger by noticing the path nobody has discussed yet. In this story, discovery matters more than ticking off the official highlights. You can enjoy company while still wanting room to follow an interesting detail.",
-        "zh": "你总能留意到大家还没讨论的小路，让一次出游多一点可能。在这个故事里，新发现比打卡规定景点更有趣。你享受同行，也希望有空间追随一个有意思的细节。"
+        "zh": "你会留意大家还没讨论的小路，让一次出游多一点可能。在这个故事里，新发现比打卡规定景点更有趣。你享受同行，也希望有空间追随一个有意思的细节。"
       },
       "example": {
         "en": "At a familiar park, you might suggest taking a mapped side trail because its old bridge looks intriguing. The successful version includes telling the group where you are going and when you will return.",

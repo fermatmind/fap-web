@@ -1,7 +1,7 @@
 {
   "slug": "river-crossing",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "nature",
   "title": {
     "en": "The Paper River: How Will You Cross?",
@@ -262,7 +262,7 @@
       "id": "tester",
       "title": {
         "en": "The Erasable-Bridge Tester",
-        "zh": "可擦纸桥试行者"
+        "zh": "先试一座能擦掉的纸桥"
       },
       "summary": {
         "en": "Your paper crossing develops through small reversible trials. A short move reveals more than a perfectly imagined route, and an erased line can be part of the solution. The portrait applies to this tabletop story rather than real-world risk taking.",
@@ -274,7 +274,7 @@
       },
       "strength": {
         "en": "A bounded trial makes uncertainty visible and can reveal a mistaken assumption before it becomes part of a larger arrangement.",
-        "zh": "有边界的尝试让不确定可见，也能在错误假设进入更大安排前发现它。"
+        "zh": "先试一个小步骤，就容易看清哪些地方还不确定，也可能在把错误设想带进后续安排之前发现它。"
       },
       "tradeoff": {
         "en": "Trying repeatedly can become aimless if you never name what each attempt is meant to show; a small question helps the next move matter.",
@@ -301,7 +301,7 @@
       },
       "strength": {
         "en": "An agreed shared step can reduce guessing and make help specific enough that both people can decide whether they want it.",
-        "zh": "约定的共同一步减少猜测，也让帮助具体到双方都能决定是否愿意。"
+        "zh": "说清一起做哪一步，能少一些猜测。帮助越具体，双方就越容易决定自己是否愿意参与。"
       },
       "tradeoff": {
         "en": "Coordination costs attention too. A task that either player can comfortably do alone may not need a meeting before every move.",
@@ -320,7 +320,7 @@
       },
       "summary": {
         "en": "Your map gives the crossing a pace people can choose. An easy bridge and a halfway stop are part of the game rather than signs that it is being played badly. The ending prefers a satisfying challenge over an automatically harder one.",
-        "zh": "你的地图给过河留了可选择的节奏。容易的桥与半途歇脚，都是游戏一部分，不说明玩得差。结局偏向让人满足的挑战，而非自动选择更难。"
+        "zh": "你的地图让人可以自己选择过河的节奏。容易通过的桥和半途歇脚，都是游戏的一部分，不表示谁玩得不好。你选的是一段玩得满足的挑战，不一定要不断加难。"
       },
       "example": {
         "en": "At a casual puzzle afternoon, you might finish a comfortable round and pause for conversation instead of raising the difficulty as soon as someone succeeds.",

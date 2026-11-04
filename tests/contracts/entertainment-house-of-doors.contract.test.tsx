@@ -19,7 +19,7 @@ const bytes = readFileSync("lib/entertainment/data/house-of-doors.json");
 const quiz = JSON.parse(bytes.toString()) as FunQuiz;
 describe("house-of-doors: authored branching fiction, not tally scoring", () => {
  it("preserves the source bytes and checks all ten terminal paths and every incomplete prefix", () => {
-  expect(createHash("sha256").update(bytes).digest("hex")).toBe("7885005df44283a481b37f77e3369c15c43ab6ec5a8d5b995450c21c0d940cff");
+  expect(createHash("sha256").update(bytes).digest("hex")).toBe("9dadd6405197a97b6781956b35d9d227cc0f3c4c6d4112cca0629b3c28cf2c09");
   const lengths: Record<number,number> = {}, endings: Record<string,number> = {};
   for (const [encoded,ending] of routes) {
    const steps=encoded.split(",").map(s=>s.split(":")); const answers: Answers = {};

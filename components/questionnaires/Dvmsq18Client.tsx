@@ -106,7 +106,7 @@ function ValidDvmsq18Client({ quiz, locale, readingProfiles }: { quiz: Dvmsq18Qu
           const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === profile.directionIds.length && item.directionIds.every((id, i) => id === profile.directionIds[i]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
           return <section key={profile.id} data-dvmsq18-guide={profile.id} className="rounded-lg border border-slate-200 p-4 sm:p-6">
           <h3 id={`dvmsq18-reading-${profile.id}`} className="scroll-mt-24 text-xl font-semibold">{profile.title[locale]}</h3>
-          <details className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开此部分完整读法" : "Expand this full reading"}</summary><div className="mt-5"><QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`dvmsq18-${profile.id}`} /></div></details>
+          <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`dvmsq18-${profile.id}`} mode="result" previewSectionIds={profile.id === "overall" ? ["s6"] : ["s1", "s6"]} />
           <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读完整公开指南" : "Read the complete public guide"}</Link>
         </section>; })}</div>
         <button type="button" className={button} onClick={copyPublicLinks}>{zh ? "复制公开解释链接" : "Copy public explanation links"}</button>

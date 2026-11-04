@@ -21,7 +21,7 @@ export function StyleImpressionReport({ quiz, result, locale }: { quiz: Question
     <p className="leading-8">{zh ? "每个最高并列的八节全文都已开放，实际合身与舒适仍需自己判断。" : "Every highest-count eight-section guide is open. Actual fit and comfort need your own judgement."}</p>
     {matched.map(profile => <section key={profile.id} data-sip-profile={profile.id} aria-labelledby={`sip-title-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
       <h3 id={`sip-title-${profile.id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
-      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} mode="result" previewSectionIds={["reading-4", "reading-6"]} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一造型主题的公开指南" : "Read this style theme’s public guide"}</Link>
     </section>)}
   </div>;

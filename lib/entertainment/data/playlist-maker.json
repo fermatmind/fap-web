@@ -1,7 +1,7 @@
 {
   "slug": "playlist-maker",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "everyday",
   "title": {
     "en": "What Kind of Playlist Maker Are You?",
@@ -274,7 +274,7 @@
       },
       "strength": {
         "en": "You give transitions attention and can make a familiar set of tracks feel newly connected. A thoughtful ending can help the experience feel intentionally complete.",
-        "zh": "你会认真对待过渡，也能让熟悉的曲子产生新的连接。一个经过考虑的结尾，能让体验更像主动完成的安排。"
+        "zh": "你愿意花心思安排歌曲之间的过渡，让熟悉的曲子听出新的联系。一个想好的结尾，也能让这段聆听有完整的收尾。"
       },
       "tradeoff": {
         "en": "A carefully planned arc may not fit a room that changes halfway through. Listeners can enjoy individual tracks without noticing the story you intended.",
@@ -301,7 +301,7 @@
       },
       "strength": {
         "en": "You notice fit and can make musical participation less intimidating. A group can have a pleasant shared soundtrack without agreeing on one favorite genre.",
-        "zh": "你会注意是否合适，也让参与音乐选择不那么有门槛。一群人不必最爱同一种曲风，也能拥有舒服的共同背景。"
+        "zh": "你会留意音乐与场合是否合适，也让其他人更容易参与选歌。大家不必喜欢同一种曲风，也能一起享受背景音乐。"
       },
       "tradeoff": {
         "en": "Trying to satisfy every preference can leave you with an incoherent list or no space for your own enjoyment. Shared listening does not require universal approval.",
@@ -320,7 +320,7 @@
       },
       "summary": {
         "en": "Your answers favor the pleasure of finding something outside the expected queue. A playlist becomes an invitation to wander into a different sound or artist. Novelty is enjoyable here when it creates an opening, not when it proves that familiar music is inferior.",
-        "zh": "你的答案偏向播放队列之外的发现感。歌单像一份邀请，把人带向不同的声音或创作者。新鲜感的乐趣是打开入口，不是证明熟悉的音乐比较低级。"
+        "zh": "你的选择里，有播放列表之外的发现乐趣。歌单像一份邀请，让人遇见不同的声音或创作者。分享新音乐，是多给一种选择，不是证明熟悉的歌比较低级。"
       },
       "example": {
         "en": "You might place one unfamiliar track among several comfortable ones, then follow the conversation it starts. If nobody is interested, the discovery can still remain a private favorite.",
@@ -328,7 +328,7 @@
       },
       "strength": {
         "en": "You bring possibilities that a predictable selection would miss. A small surprise can give listeners an easy next artist or sound to explore for themselves.",
-        "zh": "你能带来可预期选择之外的可能。一点惊喜，就可能给听众一个愿意自己继续探索的创作者或声音方向。"
+        "zh": "你会带来原本不在计划里的音乐。一点惊喜，可能让听众发现自己还想听哪位创作者、哪种声音。"
       },
       "tradeoff": {
         "en": "Too many abrupt surprises can make listening tiring or turn discovery into a performance. An unfamiliar track does not need to become a lesson for everyone else.",

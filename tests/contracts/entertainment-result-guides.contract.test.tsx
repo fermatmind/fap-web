@@ -48,6 +48,26 @@ describe("complete public entertainment result assets", () => {
     expect(isMissingFunRoute("/en/tests/play/woodland-animal/results/jay/extra")).toBe(true);
   });
 
+  it("retains public metadata identities and versioned OG URLs after result-copy edits without rendering full guides", async () => {
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com");
+    const { generateMetadata } = await import("@/app/(localized)/[locale]/tests/play/[slug]/results/[portrait]/page");
+    try {
+      for (const card of catalog.filter(card => !nativeCatalog.some(native => native.slug === card.slug))) {
+        const quiz = (await loadFunQuiz(card.slug))!;
+        for (const portrait of quiz.results) for (const locale of ["en", "zh"] as const) {
+          const id = portrait.id.replaceAll("_", "-");
+          const path = (language: string) => `https://fermatmind.com/${language}/tests/play/${quiz.slug}/results/${id}`;
+          const metadata = await generateMetadata({ params: Promise.resolve({ locale, slug: quiz.slug, portrait: id }) });
+          expect(metadata.alternates?.canonical).toBe(path(locale));
+          expect(metadata.alternates?.languages).toMatchObject({ en: path("en"), "zh-CN": path("zh"), "x-default": path("en") });
+          expect(metadata.title).toBe(`${portrait.title[locale]} · ${quiz.seo.topic[locale]}`);
+          expect(metadata.openGraph?.images).toEqual([`https://fermatmind.com/og/fun/${quiz.slug}?locale=${locale}&portrait=${id}&v=${quiz.version}`]);
+          expect(metadata.robots).toMatchObject({ index: true, follow: true });
+        }
+      }
+    } finally { vi.unstubAllEnvs(); }
+  });
+
   it("server-renders every complete portrait with its own canonical, language pair, metadata, comparisons and return path", async () => {
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com");
     vi.resetModules();
@@ -92,6 +112,7 @@ describe("complete public entertainment result assets", () => {
     // identity may be read from the request. Personal result input stays unused.
     expect([...source.matchAll(/query\.get\(["']([^"']+)["']\)/g)].map(match => match[1])).toEqual(["locale", "portrait"]);
     expect(source).not.toMatch(/fetch\(|request\.(?:json|formData|text)\s*\(|\bscoreQuestionnaire\s*\(/);
-    expect(readFileSync("public/fonts/noto-sans-sc/fun-700.ttf").byteLength).toBeLessThan(300000);
+    // Twenty new title glyphs retain the original font features and metrics.
+    expect(readFileSync("public/fonts/noto-sans-sc/fun-700.ttf").byteLength).toBeLessThan(310000);
   });
 });

@@ -19,7 +19,7 @@ export function QuestionnaireMentalAgeReport({ quiz, result, answers, locale, re
       <ol className="mt-4 list-decimal space-y-4 pl-5">{quiz.questions.map(q => <li key={q.id} data-mental-age-answer={q.id}><p>{q.prompt[locale]}</p><p className="font-semibold">{q.options.find(o => o.id === answers[q.id])?.label[locale]} — {points[q.id]}{zh ? "点" : " points"}</p></li>)}</ol>
     </details>
     <section aria-labelledby="mental-age-full-guide" className="rounded-lg border border-slate-200 p-4 sm:p-6"><h3 id="mental-age-full-guide" className="text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
-      <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile?.id === profile.id && readingProfile.resultReading?.quizSlug === quiz.slug && readingProfile.resultReading.profileId === profile.id ? readingProfile : profile} locale={locale} headingLevel={4} idPrefix="report" />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile?.id === profile.id && readingProfile.resultReading?.quizSlug === quiz.slug && readingProfile.resultReading.profileId === profile.id ? readingProfile : profile} locale={locale} headingLevel={4} idPrefix="report" mode="result" previewSectionIds={["meaning", "situations", "action"]} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读不含个人年龄的公开完整指南" : "Read the complete public guide without your personal age"}</Link>
     </section>
   </div>;

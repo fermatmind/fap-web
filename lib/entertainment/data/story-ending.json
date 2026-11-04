@@ -1,7 +1,7 @@
 {
   "slug": "story-ending",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "metaphor",
   "title": {
     "en": "How Will the Last Page of the Paper Parade End?",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Deciding what an original tale resolves, what its characters make together and what it leaves available beyond the final page.",
-    "zh": "决定原创故事解决什么、角色共造什么，以及末页后留什么开放。"
+    "zh": "给原创故事写个结尾：归还一件小物、留下大家一起完成的场景，或给下一段旅程留一条路。"
   },
   "minutes": 2,
   "mechanism": "branch",
@@ -182,50 +182,50 @@
       },
       "summary": {
         "en": "Your route closes a modest loop in the original tale. The bench and sign connect the last scene with the first, without claiming that every character’s future is now settled.",
-        "zh": "路线为原创故事合一个小环。长椅与牌连末景首景，不称角色未来全定。"
+        "zh": "你的路线让故事前后呼应。结尾的长椅和招牌连回开头，完成了一个小小的心愿，但不表示所有角色的未来都已经安排好了。"
       },
       "example": {
         "en": "The final illustration might show the sign resting beside the bench while the paper square remains visible in the distance.",
-        "zh": "末图可画牌在椅边，纸广场远处仍可见。"
+        "zh": "最后一幅插图，可以画招牌靠在长椅旁，远处仍看得见纸片广场。"
       },
       "strength": {
         "en": "A concrete return gives the reader a recognizable point of closure and lets a small object carry the connection between scenes.",
-        "zh": "具体归还给读者可认收束，让小物承载场景联系。"
+        "zh": "一件具体的小物回到原处，就能让读者认出故事已经收尾，也把前后的场景连起来。"
       },
       "tradeoff": {
         "en": "A neat loop can feel too complete if every loose detail is forced back into place. This ending only resolves the one object it follows.",
-        "zh": "所有散细节硬归位，环也过圆。此结尾只解决跟着的那一物。"
+        "zh": "如果每个零散细节都必须回到原位，结局也可能收得太满。这个结尾只解决它一路跟随的那件小物，其他事情可以留着。"
       },
       "experiment": {
         "en": "Write two opening lines for a fictional object’s journey and a last line that returns to it. Leave at least one surrounding detail unresolved.",
-        "zh": "写虚构物旅程两开头句，一末句回它，至少留一周围细节未解。"
+        "zh": "为一件虚构小物的旅程写两句开头，再写一句与它呼应的结尾。周围至少留一件事，不必交代到底。"
       }
     },
     {
       "id": "together",
       "title": {
         "en": "The Ending Made from Several Contributions",
-        "zh": "几份贡献共成的结尾"
+        "zh": "一起添出来的结尾"
       },
       "summary": {
         "en": "Your route ends with a scene the willing figures made together. The final page shows different contributions sharing a place without insisting that every character wanted the same ending.",
-        "zh": "路线以愿意纸人共作景结束。末页显不同贡献共处，不坚持每角色想同结局。"
+        "zh": "你的故事结束在一幅大家自愿一起完成的场景里。不同的贡献放在同一个地方，但不要求每个角色都想要同样的结局。"
       },
       "example": {
         "en": "One figure’s sign, another’s paper arch and a third’s little drawing might form a square that none of them designed alone.",
-        "zh": "一人的牌、另一纸拱与第三小画可成无人独创的广场。"
+        "zh": "一个角色带来招牌，一个折了纸拱门，还有一个画了一张小画。它们合成了没有任何一人能独自设计出的广场。"
       },
       "strength": {
         "en": "Visible contributions make the shared ending concrete and give the reader several small actions to recognize rather than a vague claim of togetherness.",
-        "zh": "可见贡献让共作结尾具体，给读者可认小动作，不空称团结。"
+        "zh": "具体画出谁添了什么，读者就能看懂这幅场景怎样一起完成，而不只听到一句笼统的“大家很团结”。"
       },
       "tradeoff": {
         "en": "A shared scene can still leave out quieter perspectives. The story can acknowledge a figure who watched or declined without treating them as a problem.",
-        "zh": "共享景仍可漏安静视角。故事可承认只看或不参加者，不当问题。"
+        "zh": "一起完成的场景，也可能没说出安静角色的感受。故事可以留意只在旁边看、或选择不参加的人，不把他们当成问题。"
       },
       "experiment": {
         "en": "Invent a three-character final scene and give each willing contributor one distinct harmless addition. Let a fourth character simply enjoy the view.",
-        "zh": "编三角色末景，各愿意者一独特无害添加，第四角色可只欣赏。"
+        "zh": "为三个自愿参与的角色各安排一件不同的小东西，一起组成最后的场景。再留一个第四位角色，让他只欣赏也可以。"
       }
     },
     {
@@ -236,23 +236,23 @@
       },
       "summary": {
         "en": "Your route lets the tale stop while one possibility remains open. The continuing path is an invitation to imagine, not a promise of a sequel or a refusal to finish the present scene.",
-        "zh": "路线让故事停而一可能仍开放。延伸路是想象邀请，不许诺续集，也不拒绝完成当景。"
+        "zh": "你的故事在这里告一段落，仍有一条路可以继续想象。它不承诺一定有续篇，也不需要因为留了可能，就拒绝为眼前这一幕收尾。"
       },
       "example": {
         "en": "The final corner might show a narrow paper path leaving the square while the completed parade rests behind it.",
-        "zh": "末角可画窄纸路离广场，已完成游行在后方歇。"
+        "zh": "最后一幅画的角落，可以有一条窄窄的纸路离开广场，已经抵达的游行队伍则在后面休息。"
       },
       "strength": {
         "en": "An open continuation lets the world feel larger than the selected story while still giving the reader a clear last image to keep.",
-        "zh": "开放延续让世界大于所选故事，仍给读者清楚末图。"
+        "zh": "留一点延续的可能，读者就能感到世界还比这一个故事更大，同时仍有一幅明确的最后画面可以记住。"
       },
       "tradeoff": {
         "en": "Openness can feel evasive if the current scene never reaches a stopping point. This parade has arrived; only the next journey remains undecided.",
-        "zh": "当景没停点，开放会像逃避。这游行已抵达，只有下一程未定。"
+        "zh": "如果眼前这一幕始终没有结束，留白也可能像在回避收尾。这次游行已经到达广场，没决定的只是下一段旅程。"
       },
       "experiment": {
         "en": "Write a fictional final image with one completed action and one open path. Make the completed part clear before adding any hint of continuation.",
-        "zh": "写有一完成动作与一开放路的虚构末图，先说清完成，再暗示延续。"
+        "zh": "写一幅虚构故事的结尾画面：一件行动已经完成，一条路仍然敞开。先交代完成的部分，再给继续想象的提示。"
       }
     }
   ],

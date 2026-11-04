@@ -1,7 +1,7 @@
 {
   "slug": "creative-spark",
-  "version": "1.0.1",
-  "updated": "2026-10-24",
+  "version": "1.0.2",
+  "updated": "2026-11-05",
   "category": "metaphor",
   "title": {
     "en": "How Does Your Small Creative Idea Catch Fire?",
@@ -17,7 +17,7 @@
   },
   "focus": {
     "en": "Starting a small idea by changing the prompt, making a rough version or testing how another willing person understands it.",
-    "zh": "换提示、造粗版或听愿意者怎样理解，启动小想法。"
+    "zh": "启动一个小点子时，你更愿意换个问法、做出粗略版本，还是听听愿意交流的人怎样理解？"
   },
   "minutes": 2,
   "mechanism": "tally",
@@ -266,23 +266,23 @@
       },
       "summary": {
         "en": "Your idea starts by changing the invitation. An unusual combination or a different constraint gives an ordinary subject another possible direction without requiring a completely original discovery.",
-        "zh": "你的创意从改邀请开始。意外组合或不同限制给普通主题另一路，不要求全新发现。"
+        "zh": "你喜欢换个问法，让一个普通主题有新的方向。把不常放在一起的东西组合起来，或改一条小限制，就可能冒出有趣的点子。不必追求完全前所未有的发现。"
       },
       "example": {
         "en": "You might ask what a postcard would look like if it could describe only sounds, then enjoy a few possible answers.",
-        "zh": "你可问明信片若只能写声音会怎样，享受几个可能答案。"
+        "zh": "你可能问：“如果明信片只能描述声音，会是什么样？”然后试着想出几种答案。"
       },
       "strength": {
         "en": "A fresh prompt can loosen a familiar starting point and generate alternatives before you commit effort to making any one version.",
-        "zh": "新问法可松开熟悉起点，在投入造某版前生成替代。"
+        "zh": "一个新问法，能打开熟悉的起点。先看到几种可能，再决定要花精力做哪一种。"
       },
       "tradeoff": {
         "en": "New prompts can keep replacing each other without giving one idea time to develop. Choosing a single small trial remains available whenever you want it.",
-        "zh": "新提示会一直相替，不给一想法发展。愿意时仍可选一个小试。"
+        "zh": "如果一直换问题，也可能没有一个点子得到展开的时间。想继续时，可以选其中一个，先做一次小尝试。"
       },
       "experiment": {
         "en": "Take an ordinary fictional object and change one harmless constraint. Write three possible responses, then choose whether any deserves a tiny sketch.",
-        "zh": "选普通虚构物，换一无害限制，写三回应，再选是否值得画小图。"
+        "zh": "选一件普通的虚构物品，改一个不涉及风险的小限制。写出三种可能的回应，再决定是否挑一种画成小图。"
       }
     },
     {
@@ -293,23 +293,23 @@
       },
       "summary": {
         "en": "Your idea becomes interesting when something is available to respond to. A rough version is a question made visible, not an early examination of whether your final work will be good.",
-        "zh": "有东西可回应时，你的点子活起来。粗版是可见提问，不是提前考试成品好坏。"
+        "zh": "你喜欢先做出一个粗略版本，再看它能带来什么想法。粗版像是把问题摆到眼前，不是提前考验最终作品够不够好。"
       },
       "example": {
         "en": "A folded scrap with a penciled handle might help you understand an imagined object more quickly than another page of plans.",
-        "zh": "折纸片添铅笔把手，可能比再写一页计划更快理解想象物。"
+        "zh": "一片折起来的纸，加一个铅笔画的把手，也许就比再写一页计划更容易看清想象中的物品。"
       },
       "strength": {
         "en": "A small working image can reveal specific decisions and make the next revision more concrete than a general wish to improve the idea.",
-        "zh": "小试图显出具体决定，让修改比笼统“更好”具体。"
+        "zh": "一个简单的草图或模型，能让具体选择看得见。接下来改哪里，也会比笼统地想着“做得更好”更清楚。"
       },
       "tradeoff": {
         "en": "A rough version can become expensive if you keep polishing it before learning anything. The trial only needs enough detail to answer one question.",
-        "zh": "没学到东西就不断打磨，粗版也贵。只需足够细节答一个问题。"
+        "zh": "如果还没弄清问题就不断打磨，粗版也会变得费时费力。细节够回答一个问题，就可以先停下来。"
       },
       "experiment": {
         "en": "Make a thirty-second sketch of a harmless idea and write the one question it helps answer. Stop before improving details unrelated to that question.",
-        "zh": "三十秒画无害点子，写它帮答的一问题。无关细节先别磨。"
+        "zh": "花三十秒，画出一个不涉及风险的小点子。写下这张图帮你弄清了什么，暂时不打磨与这个问题无关的细节。"
       }
     },
     {
@@ -320,23 +320,23 @@
       },
       "summary": {
         "en": "Your idea takes shape through a voluntary exchange. Another person’s question shows what your words actually communicate without making their approval the measure of whether the idea deserves to exist.",
-        "zh": "你的想法经自愿交流成形。别人问题显出话传了什么，不把赞同当存在资格。"
+        "zh": "你喜欢在有人愿意听的时候，把点子说出来聊聊。对方的问题能帮助你知道，自己讲清了哪些部分。不过，别人是否赞同，不是决定一个想法有没有存在价值的标准。"
       },
       "example": {
         "en": "A friend might ask which part of your imaginary exhibition a visitor would try first, helping you notice an assumption you had not explained.",
-        "zh": "朋友问想象展中访客先试哪处，帮你发现未解释的假定。"
+        "zh": "朋友可能问：“你想象的这个展览，访客进来先试哪一项？”这能让你发现，自己有一个原本没说清的设想。"
       },
       "strength": {
         "en": "A willing listener can provide a different view of an idea and help separate what is clear to its maker from what was actually shared.",
-        "zh": "愿意听者给另视角，区分作者自己清楚与实际说出的部分。"
+        "zh": "愿意倾听的人可以带来另一个角度，让你分清哪些只是在自己脑海里很明白，哪些已经表达了出来。"
       },
       "tradeoff": {
         "en": "Feedback can pull an idea in several directions. You can thank a listener and still choose which question, if any, you want to act on.",
-        "zh": "反馈会拉多向。可谢听者，仍自己选要不要、回应哪问。"
+        "zh": "不同反馈，可能把点子拉向几个方向。你可以感谢对方，也仍然自己决定要不要改、先回应哪个问题。"
       },
       "experiment": {
         "en": "If someone wants to listen, describe a tiny fictional idea in one sentence and ask what they pictured. Treat their answer as information, not a verdict.",
-        "zh": "有人愿听时，一句讲虚构点子，问想到什么画面。把回答当信息，不当判决。"
+        "zh": "如果有人愿意听，用一句话介绍一个小小的虚构点子，问对方想到了什么画面。把回答当作参考，不当作判决。"
       }
     }
   ],

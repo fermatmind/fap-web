@@ -9,15 +9,8 @@ import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 export function RelationshipHabitsReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh";
   return <ResultPage variant="reflection" data-relationship-habits-report className="mt-6 space-y-8">
-    <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
-      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
-      items={quiz.directions.map(direction => {
-        const score = result.facets[direction.id];
-        return { id: direction.id, label: direction.title[locale], href: `#relationship-habit-${direction.id}`,
-          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
-          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
-      })} />
-    <p className="leading-8">{zh ? "四项记录过去三个月自己一侧的原始频率。每项四条，至少三条数字才显示均值；3表示有时，未评分保持缺失。四项可同时高、低或相同，不合红旗总分、不排名或派型，也不评判另一人。条形只定位1至5，不是百分比或危险程度。" : "Four parts record raw self-reported frequency on your own side over the past three months. Each has four prompts and needs three numeric ratings for a mean. Three means sometimes; unscored responses remain missing. Parts can all be high, low or equal, without a red-flag total, rank, assigned type or judgement of another person. Bars locate 1–5, not a percentage or danger level."}</p>
+
+
     {quiz.directions.map(direction => {
       const part = result.facets[direction.id], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
       return <section key={direction.id} data-relationship-habits-part={direction.id} aria-labelledby={`relationship-habit-${direction.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
@@ -32,11 +25,24 @@ export function RelationshipHabitsReport({ quiz, result, locale }: { quiz: Quest
         <p className="mb-4 leading-7">{part.mean === null
           ? (zh ? "以下完整正文是通用读法，不是本次个人习惯的结论。" : "The complete text below is a general guide, not a conclusion about your habits in this attempt.")
           : (zh ? "较高只表示本组时刻更常被你报告，不确定动机、客观公平、后果或别人的感受。请结合实际题目和场合阅读。" : "A higher mean records more frequent endorsement of these moments. It does not establish motives, objective fairness, outcomes or another person’s feelings. Read the actual prompts in context.")}</p>
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`relationship-habits-reading-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`relationship-habits-reading-${profile.id}`} mode="result" previewSectionIds={[`${profile.id}-2`, `${profile.id}-6`]} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一习惯的完整公开指南" : "Read this habit’s full public guide"}</Link>
       </section>;
     })}
     <p className="text-sm leading-7">{zh ? "题目与读法为费马原创，尚未建立信效度、常模或跨语言测量等价。只描述自己的选定近期场合，不作诊断、安全或虐待评估，也不决定一段关系是否应继续。" : "FermatMind authored these prompts and readings; reliability, validity, norms and language equivalence have not been established. They describe only your selected recent context, without a diagnosis, safety or abuse assessment, or a decision about continuing a relationship."}</p>
+
+    <details className="border-t border-slate-200 pt-4" data-result-reading-method>
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
+      <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
+      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
+      items={quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return { id: direction.id, label: direction.title[locale], href: `#relationship-habit-${direction.id}`,
+          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
+          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
+      })} />
+      <p className="leading-8">{zh ? "四项记录过去三个月自己一侧的原始频率。每项四条，至少三条数字才显示均值；3表示有时，未评分保持缺失。四项可同时高、低或相同，不合红旗总分、不排名或派型，也不评判另一人。条形只定位1至5，不是百分比或危险程度。" : "Four parts record raw self-reported frequency on your own side over the past three months. Each has four prompts and needs three numeric ratings for a mean. Three means sometimes; unscored responses remain missing. Parts can all be high, low or equal, without a red-flag total, rank, assigned type or judgement of another person. Bars locate 1–5, not a percentage or danger level."}</p>
+    </details>
   </ResultPage>;
 }
 

@@ -9,11 +9,11 @@ import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 export function DatingOutlookReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh";
   return <div data-dating-outlook-report className="mt-6 space-y-8">
-    <p className="leading-8">{zh ? "四项分别记录自己当前的恋爱信念认同程度。每项四条，至少三条数字才显示均值；3是中立，未评分不当中立或零分。各项可以同时高、低或相同，不相减、不合总分、不找主要心态。条形只定位原始1至5，不是匹配率、成功率或人群排名。" : "Four parts separately record agreement with your current dating beliefs. Each has four statements and needs three numeric ratings for a mean. Three is neutral; unscored answers are neither neutral nor zero. Parts can all be high, low or equal, without subtraction, a total or a main outlook. Bars locate the raw 1–5 mean, not compatibility, success probability or population rank."}</p>
+
     <ResultSection title={zh ? "四项恋爱信念概览" : "Your four dating-belief readings"}>
       <div className="grid gap-x-8 sm:grid-cols-2">{quiz.directions.map(direction => {
         const part = result.facets[direction.id];
-        return <ResultScoreRow key={direction.id} label={direction.title[locale]} value={part.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${part.mean.toFixed(1)} / 5`} score={part.mean} min={1} max={5} description={zh ? `原始认同均值 · 1–5；${part.rated}/${part.total}条有效` : `Raw agreement mean · 1–5; ${part.rated}/${part.total} rated`} />;
+        return <ResultScoreRow key={direction.id} label={direction.title[locale]} value={part.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${part.mean.toFixed(1)} / 5`} score={part.mean} min={1} max={5} description={quiz.profiles.find(profile => profile.directionIds[0] === direction.id)!.summary[locale]} />;
       })}</div>
     </ResultSection>
     <ResultReadingNav label={zh ? "逐项完整解读" : "Full readings by topic"} sections={quiz.directions.map(direction => ({ id: `dating-outlook-${direction.id}`, title: direction.title[locale] }))} />
@@ -26,11 +26,14 @@ export function DatingOutlookReport({ quiz, result, locale }: { quiz: Questionna
           : (zh ? `原始和 ${part.sum}，${part.rated}/4条有效，认同均值 ${part.mean.toFixed(1)} / 5` : `Raw sum ${part.sum}; ${part.rated}/4 rated; agreement mean ${part.mean.toFixed(1)} / 5`)}</p>
         {part.mean !== null && <div className="mb-5"><div role="meter" aria-labelledby={`dating-outlook-${direction.id}`} aria-valuemin={1} aria-valuemax={5} aria-valuenow={part.mean} aria-valuetext={zh ? `原始认同均值${part.mean.toFixed(1)}，范围1强烈不同意至5强烈同意` : `Raw agreement mean ${part.mean.toFixed(1)}, from 1 strongly disagree to 5 strongly agree`} className="h-3 overflow-hidden rounded-full bg-slate-100"><div className="h-full rounded-full bg-violet-600" style={{ width: `${(part.mean - 1) / 4 * 100}%` }} /></div><p className="mt-2 flex justify-between gap-4 text-xs leading-6 text-slate-600"><span>{zh ? "1 强烈不同意" : "1 Strongly disagree"}</span><span>{zh ? "5 强烈同意" : "5 Strongly agree"}</span></p></div>}
         <p className="mb-4 leading-7">{part.mean === null ? (zh ? "以下完整正文是通用读法，不是本次个人看法的结论。" : "The complete text below is a general guide, not a conclusion about your views in this attempt.") : (zh ? "较高只表示更认同本组陈述，不证明观点真实、你已具备某种技巧，或任何关系将怎样发展。请逐句阅读。" : "A higher mean records more agreement with these statements. It does not verify a belief, demonstrate a skill or establish how a relationship will develop. Read each statement in context.")}</p>
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`dating-outlook-reading-${profile.id}`} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`dating-outlook-reading-${profile.id}`} mode="result" previewSectionIds={[`${profile.id}-2`, `${profile.id}-6`]} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一信念的完整公开指南" : "Read this belief’s full public guide"}</Link>
       </section>;
     })}
     <p className="text-sm leading-7">{zh ? "题目和读法为费马原创，尚未建立信效度、常模或跨语言等价。不识别群体成员、个人价值、男性气质或性取向，不评估别人，也不预测关系。努力从不带来获得别人兴趣、回应或继续联系的权利。" : "FermatMind authored these prompts and readings; reliability, validity, norms and language equivalence have not been established. They identify no group membership, worth, masculinity or sexuality, assess no other person and predict no relationship. Effort never creates an entitlement to another person’s interest, reply or continued contact."}</p>
+    <details className="border-t border-slate-200 pt-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "均值与未评分回答怎样计算" : "How means and unscored responses are handled"}</summary>
+    <p className="leading-8">{zh ? "四项分别记录自己当前的恋爱信念认同程度。每项四条，至少三条数字才显示均值；3是中立，未评分不当中立或零分。各项可以同时高、低或相同，不相减、不合总分、不找主要心态。条形只定位原始1至5，不是匹配率、成功率或人群排名。" : "Four parts separately record agreement with your current dating beliefs. Each has four statements and needs three numeric ratings for a mean. Three is neutral; unscored answers are neither neutral nor zero. Parts can all be high, low or equal, without subtraction, a total or a main outlook. Bars locate the raw 1–5 mean, not compatibility, success probability or population rank."}</p>
+    </details>
   </div>;
 }
 

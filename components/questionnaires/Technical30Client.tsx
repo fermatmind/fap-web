@@ -124,6 +124,19 @@ function ValidTechnical30Client({ quiz, locale, readingProfiles }: { quiz: Techn
         <p data-technical30-result-mode className="leading-8">{result.mode === "timed" ? (zh ? "分段计时练习 · 本站选定上限" : "Timed section practice · Site-selected caps") : (zh ? "不计时学习" : "Untimed study")}</p>
         <p data-technical30-overall className="rounded-lg bg-violet-50 p-4 leading-8">{counts(result.overall)}</p>
         <p className="leading-8">{zh ? "以上仅为本题本原始记录，不是AFQT成绩、百分位、通过或资格判定。各部分难度未等值，不按最低正确数判定弱项。全部题目与解析如下免费可读。" : "These are raw records on this bank, not an AFQT score, percentile, pass or qualification decision. Parts are not equated; the lowest count does not diagnose a weakness. Every question and explanation is free below."}</p>
+        {(() => {
+          const item = result.items.find(candidate => candidate.outcome === "wrong") ?? result.items.find(candidate => candidate.outcome === "unanswered") ?? result.items[0];
+          const question = quiz.questions.find(candidate => candidate.id === item.id)!;
+          const selected = question.options.find(option => option.id === item.selectedOptionId);
+          const correct = question.options.find(option => option.id === item.correctOptionId)!;
+          return <section className="border-l-2 border-amber-300 pl-4 leading-8" data-technical30-focus={item.id}>
+            <h3 className="mb-3 text-xl font-semibold">{zh ? "先复盘一题，再选择复习方向" : "Review one item, then choose what to study"}</h3>
+            <p lang="en" className="whitespace-pre-line">{question.prompt.en}</p>
+            <p className="mt-3 text-sm">{zh ? "你的选择：" : "Your choice: "}<span lang={selected ? "en" : undefined}>{selected ? selected.label.en : (zh ? "未答" : "Unanswered")}</span></p>
+            <p className="text-sm">{zh ? "正确答案：" : "Answer key: "}<span lang="en">{correct.label.en}</span></p>
+            <p className="mt-3">{question.explanation![locale]}</p>
+          </section>;
+        })()}
         <ResultPage variant="practice" data-technical30-result className="space-y-6">
           <ResultOverview locale={locale} title={zh ? "分段表现概览" : "Section performance"}
             description={zh ? "只核对本题本的正确、错误和未答记录。选择一段，查看答案、解析与复习内容。" : "Correct, wrong and unanswered counts on this bank only. Choose a section to review its answers, explanations and study guide."}
@@ -139,7 +152,7 @@ function ValidTechnical30Client({ quiz, locale, readingProfiles }: { quiz: Techn
               const item = result.items.find(x => x.id === q.id)!, selected = q.options.find(o => o.id === item.selectedOptionId), key = q.options.find(o => o.id === item.correctOptionId)!;
               return <li key={q.id} data-technical30-review-item={q.id} className="rounded-lg bg-slate-50 p-3 leading-8"><p lang="en" className="whitespace-pre-line">{q.prompt.en}</p><p className="mt-3">{zh ? "你的选择：" : "Your choice: "}{selected ? <span lang="en">{selected.id} — {selected.label.en}</span> : (zh ? "未答" : "Unanswered")}</p><p>{zh ? "正确答案：" : "Correct answer: "}<span lang="en">{key.id} — {key.label.en}</span></p><p className="mt-3">{q.explanation![locale]}</p></li>;
             })}</ol></details>
-            <details data-technical30-full className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开完整学习指南" : "Expand the full study guide"}</summary><div className="mt-5"><QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`technical30-${part.id}`} /></div></details>
+            <details data-technical30-full className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开完整学习指南" : "Expand the full study guide"}</summary><div className="mt-5"><QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`technical30-${part.id}`} mode="guide" /></div></details>
             <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, part.id)}>{zh ? "阅读完整公开指南" : "Read the complete public guide"}</Link>
           </section>;
         })}</ResultPage>
