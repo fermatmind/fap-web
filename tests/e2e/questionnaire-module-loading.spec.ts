@@ -48,21 +48,26 @@ for (const locale of ["en", "zh"] as const) {
     let interrupted = 0;
     const chunks = "**/_next/static/chunks/*.js";
     await page.route(chunks, route => { if (selectedChunks["ratings32"].has(new URL(route.request().url()).pathname)) { interrupted++; return route.abort("failed"); } return route.continue(); });
+    // Measure recovery after the injected failure, rather than during document bootstrap.
+    const injectedFailure = page.waitForEvent("requestfailed", { predicate: request => selectedChunks["ratings32"].has(new URL(request.url()).pathname) });
     await edition.click();
+    await injectedFailure;
     await expect(page.locator("[data-cognitive-versions]").getByRole("alert")).toContainText(zh ? "加载失败" : "could not load");
     expect(interrupted).toBeGreaterThan(0);
     await expect(page.getByRole("button", { name: zh ? "切换方法并清除回答" : "Switch method and clear responses", exact: true })).toBeVisible();
     await page.unroute(chunks);
     await page.getByRole("button", { name: zh ? "重试加载" : "Retry loading", exact: true }).click();
     await expect(page.locator('#take-test[data-stage="answer"]')).toBeVisible();
+    let reportFailure: Promise<unknown> | undefined;
     for (const [i, question] of quiz.questions.entries()) {
-      await page.locator(`input[name="${question.id}"][value="4"]`).check();
       if (i === quiz.questions.length - 1) {
         interrupted = 0;
         await page.route(chunks, route => { interrupted++; return route.abort("failed"); });
+        reportFailure = page.waitForEvent("requestfailed", { predicate: request => request.resourceType() === "script" });
       }
-
+      await page.locator(`input[name="${question.id}"][value="4"]`).check();
     }
+    await reportFailure;
     await expect(page.locator('#take-test[data-stage="result"]')).toBeVisible();
     await expect(page.locator("[data-cognitive-versions]").getByRole("alert")).toContainText(zh ? "当前输入仍保留" : "current inputs are retained");
     expect(interrupted).toBeGreaterThan(0);
@@ -85,7 +90,9 @@ for (const locale of ["en", "zh"] as const) {
     const chunks = "**/_next/static/chunks/*.js";
     let interrupted = 0;
     await page.route(chunks, route => { if (selectedChunks.paired56.has(new URL(route.request().url()).pathname)) { interrupted++; return route.abort("failed"); } return route.continue(); });
+    const injectedFailure = page.waitForEvent("requestfailed", { predicate: request => selectedChunks.paired56.has(new URL(request.url()).pathname) });
     await edition.click();
+    await injectedFailure;
     await expect(page.locator("[data-cognitive-versions]").getByRole("alert")).toContainText(zh ? "加载失败" : "could not load");
     expect(interrupted).toBeGreaterThan(0);
     await expect(page.getByRole("button", { name: zh ? "切换方法并清除回答" : "Switch method and clear responses", exact: true })).toBeVisible();
@@ -107,7 +114,9 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.locator("[data-explore-start]")).toBeEnabled();
     let interrupted = 0;
     await page.route(chunks, route => { if (selectedChunks.disc.has(new URL(route.request().url()).pathname)) { interrupted++; return route.abort("failed"); } return route.continue(); });
+    const injectedFailure = page.waitForEvent("requestfailed", { predicate: request => selectedChunks.disc.has(new URL(request.url()).pathname) });
     await page.locator("[data-explore-start]").click();
+    await injectedFailure;
     await expect(failure).toContainText(zh ? "加载失败" : "could not load");
     expect(interrupted).toBeGreaterThan(0);
     await expect(page.locator("[data-disc-prepare-return]")).toBeVisible();
