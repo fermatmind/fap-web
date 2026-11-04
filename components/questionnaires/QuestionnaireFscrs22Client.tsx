@@ -1,4 +1,5 @@
 "use client";
+import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
@@ -68,7 +69,7 @@ function ValidFscrs22Client({ quiz, locale, readingProfiles }: { quiz: Fscrs22Qu
           <input type="radio" name={question.id} value={option.id} checked={answers[question.id] === option.id} className="mt-1 size-5 shrink-0 accent-violet-700" onChange={() => { revision.current += 1; setAnswers({ ...answers, [question.id]: option.id }); setMessage(""); setManual(""); setResult(null); }} />
           <span className="leading-7">{option.id !== "na" && !["2", "3", "4"].includes(option.id) ? `${option.id} — ` : ""}{option.label[locale]}</span>
         </label>)}</div>
-        <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? "上一题" : "Back"}</button><button type="button" className={button} onClick={next}>{position === 21 ? (zh ? "查看三个部分" : "See three parts") : (zh ? "下一题" : "Next")}</button></div>
+        <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? "上一题" : "Back"}</button><button data-questionnaire-next type="button" className={button} onClick={next}>{position === 21 ? (zh ? "查看三个部分" : "See three parts") : (zh ? "下一题" : "Next")}</button></div>
       </>}
       {stage === "result" && result && <>
         <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading?.[locale]}</h2>
@@ -76,7 +77,7 @@ function ValidFscrs22Client({ quiz, locale, readingProfiles }: { quiz: Fscrs22Qu
         <button type="button" className={button} onClick={copyPublicLinks}>{zh ? "复制公开解释链接" : "Copy public explanation links"}</button>
         {manual && <label className="block leading-7">{zh ? "手动复制公开链接" : "Public links for manual copying"}<textarea readOnly value={manual} className="mt-2 min-h-40 w-full rounded-lg border border-slate-300 p-3" /></label>}
       </>}
-      {stage !== "welcome" && <button type="button" className={button} onClick={clear}>{zh ? "退出并清除本次回答" : "Exit and clear these responses"}</button>}
+      {stage !== "welcome" && <QuestionnaireLegacyControl><button type="button" className={button} onClick={clear}>{zh ? "退出并清除本次回答" : "Exit and clear these responses"}</button></QuestionnaireLegacyControl>}
     </fieldset>
     {activityConsent}
     <p className="mb-4 text-sm leading-7 text-slate-600">{quiz.fscrs22.privacy[locale]}</p>

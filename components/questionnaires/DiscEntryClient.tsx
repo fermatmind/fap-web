@@ -1,4 +1,5 @@
 "use client";
+import { useQuestionnaireTake } from "./QuestionnaireTakeContext";
 import { useCallback, useState, useSyncExternalStore } from "react";
 import type { Locale } from "@/lib/i18n/locales";
 import type { DiscEntryDefinition } from "@/lib/questionnaires/discEntry";
@@ -15,9 +16,11 @@ const draftEvent = "fm-questionnaire-draft";
 const subscribeReady = () => () => {};
 function subscribe(listener: () => void) { window.addEventListener(draftEvent, listener); return () => window.removeEventListener(draftEvent, listener); }
 export function DiscEntryClient({ quiz, locale }: { quiz: DiscEntryDefinition; locale: Locale }) {
+  const standalone = useQuestionnaireTake();
   const zh = locale === "zh", key = `fm_questionnaire_draft:${quiz.slug}`;
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const draft = useSyncExternalStore(subscribe, () => {
+    if (standalone) return null;
     try { const raw = sessionStorage.getItem(key); return readQuestionnaireDraftWithScorer(quiz, raw, scoreDirectionalQuestionnaire) ? raw : null; } catch { return null; }
   }, () => null);
   const [attempt, setAttempt] = useState<{ resume: boolean } | null>(null);
@@ -25,11 +28,11 @@ export function DiscEntryClient({ quiz, locale }: { quiz: DiscEntryDefinition; l
   const onReady = useCallback(() => setLoaded(true), []);
   function clear() { try { sessionStorage.removeItem(key); } catch { /* Saving is optional. */ } window.dispatchEvent(new Event(draftEvent)); }
   function start(resume = false) {
-    if (resume) {
+    if (resume && !standalone) {
       try { if (!readQuestionnaireDraftWithScorer(quiz, sessionStorage.getItem(key), scoreDirectionalQuestionnaire)) throw new Error("expired"); }
       catch { clear(); setMessage(zh ? "已存进度已过期或不可用，请开始新作答。" : "Saved progress expired or is unavailable. Start a new attempt."); return; }
     } else clear();
-    setMessage(""); setLoaded(false); setAttempt({ resume });
+    setMessage(""); setLoaded(false); setAttempt({ resume: resume && !standalone });
     recordEntertainmentActivity(quiz.slug, quiz.version, locale, "start");
     trackEvent("start_test", questionnaireTrackingPayload(quiz, locale));
   }

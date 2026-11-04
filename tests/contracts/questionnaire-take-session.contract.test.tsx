@@ -24,14 +24,13 @@ describe("Shared take session", () => {
     expect(started).toHaveBeenCalledTimes(1);
     expect(window.location.search).toBe("");
   });
-  it("leaves a saved attempt available for an explicit resume after a refresh", async () => {
+  it("starts a new attempt on reload instead of restoring an old draft", async () => {
     window.history.replaceState(null, "", "/zh/tests/explore/example/take");
     const started = vi.fn(), resumed = vi.fn();
     render(session(<section data-stage="welcome"><button data-explore-start onClick={started}>Start</button><button data-questionnaire-resume onClick={resumed}>Resume</button></section>));
     await waitFor(() => expect(screen.queryByText("正在准备题目…")).toBeNull());
-    expect(started).not.toHaveBeenCalled();
-    fireEvent.click(screen.getByRole("button", { name: "Resume" }));
-    expect(resumed).toHaveBeenCalledTimes(1);
+    expect(started).toHaveBeenCalledTimes(1);
+    expect(resumed).not.toHaveBeenCalled();
   });
   it("keeps the real script retry control available and starts only after recovery", async () => {
     const started = vi.fn();

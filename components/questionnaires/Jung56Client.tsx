@@ -1,4 +1,5 @@
 "use client";
+import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import bank from "@/lib/questionnaires/jung56Bank.json";
@@ -65,7 +66,7 @@ function ValidJung56Client({ bank, content, locale, readings, startOnEntry }: { 
         <p data-jung56-progress className="text-sm">{zh ? `第 ${position + 1} / 56 题` : `Question ${position + 1} / 56`}</p>
         <h2 ref={heading} tabIndex={-1} id="jung56-question" className="scroll-mt-24 text-xl font-semibold">{question.instruction[locale]}</h2>
         <div role="radiogroup" aria-labelledby="jung56-question" className="space-y-3">{question.options.map(o => <label key={o.id} className="flex min-h-12 cursor-pointer items-start gap-3 rounded-lg border p-3"><input type="radio" name={question.id} value={o.id} checked={answers[question.id] === o.id} onChange={() => choose(o.id)} className="mt-1 size-5 shrink-0 accent-violet-700" /><span className="leading-8">{o.id} — {o.label[locale]}</span></label>)}</div>
-        <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? "上一题" : "Back"}</button><button type="button" className={button} onClick={next}>{position === 55 ? (zh ? "完成并查看八方向" : "Finish and view all eight directions") : (zh ? "下一题" : "Next")}</button></div>
+        <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? "上一题" : "Back"}</button><button data-questionnaire-next type="button" className={button} onClick={next}>{position === 55 ? (zh ? "完成并查看八方向" : "Finish and view all eight directions") : (zh ? "下一题" : "Next")}</button></div>
       </>}
       {stage === "result" && result && <>
         <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{zh ? "本次56题选择记录" : "Your 56-choice record"}</h2>
@@ -80,7 +81,7 @@ function ValidJung56Client({ bank, content, locale, readings, startOnEntry }: { 
         {manual && <label className="block leading-7">{zh ? "手动复制公开入口" : "Public entry for manual copying"}<textarea className="mt-2 min-h-32 w-full rounded-lg border p-3" readOnly value={manual} /></label>}
         <p className="leading-8">{zh ? "可以在这里结束，也可另做独立MBTI四偏好测评。它有自己的题目与版本，不能从以上次数换算；完整结果已经免费呈现。" : "You can finish here or choose a separate MBTI four-preference assessment. It has its own questions and editions; these counts cannot be converted into its result. Your full result here is already free."}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests/mbti-personality-test-16-personality-types`}>{zh ? "查看独立MBTI测评入口" : "View the separate MBTI assessment entry"}</Link>
       </>}
-      {stage !== "welcome" && <button type="button" className={button} onClick={clear}>{zh ? "退出并清除56题回答" : "Exit and clear the 56-choice responses"}</button>}
+      {stage !== "welcome" && <QuestionnaireLegacyControl><button type="button" className={button} onClick={clear}>{zh ? "退出并清除56题回答" : "Exit and clear the 56-choice responses"}</button></QuestionnaireLegacyControl>}
     </fieldset>
     <p role="status" aria-live="polite" className="my-4 text-sm leading-7">{message}</p>
   </section>;

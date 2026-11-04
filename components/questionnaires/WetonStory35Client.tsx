@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { wetonStoryEntryInstructions, WetonStoryAnsweringInstructions } from "./WetonStoryInstructions";
-import { useQuestionnaireTake } from "./QuestionnaireTakeContext";
+import { useQuestionnaireTake, QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 import type { ReactNode } from "react";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
@@ -51,7 +51,7 @@ export function WetonStory35Client({ quiz, locale, intro, calendarOnly = false }
         <fieldset className="mt-5 space-y-3"><legend className="sr-only">{question.prompt[locale]}</legend>{(order[question.id] ?? []).map(id => question.options.find(o => o.id === id)!).map(option => <label key={option.id} className="flex min-h-12 cursor-pointer items-start gap-3 rounded-lg border border-slate-300 p-4 has-[:checked]:border-violet-700 has-[:checked]:bg-violet-50">
           <input type="radio" className="mt-1 size-5 shrink-0 accent-violet-700" name={question.id} value={option.id} checked={answers[question.id] === option.id} onChange={() => { setAnswers({ ...answers, [question.id]: option.id }); setMessage(""); }} /><span className="min-w-0 leading-7 [overflow-wrap:anywhere]">{option.label[locale]}</span>
         </label>)}</fieldset>
-        <div className="mt-6 flex flex-wrap gap-3"><button className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? "上一题" : "Back"}</button><button className={`${button} bg-violet-700 text-white`} onClick={advance}>{position === 34 ? (zh ? "查看完整结果" : "See full result") : (zh ? "下一题" : "Next")}</button></div>
+        <div className="mt-6 flex flex-wrap gap-3"><button className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? "上一题" : "Back"}</button><button data-questionnaire-next className={`${button} bg-violet-700 text-white`} onClick={advance}>{position === 34 ? (zh ? "查看完整结果" : "See full result") : (zh ? "下一题" : "Next")}</button></div>
       </>}
       {stage === "result" && result?.status === "complete" && <>
         <h2 ref={heading} tabIndex={-1} className="text-3xl font-semibold leading-tight outline-none [overflow-wrap:anywhere]">{quiz.resultHeading![locale]}</h2>
@@ -64,7 +64,7 @@ export function WetonStory35Client({ quiz, locale, intro, calendarOnly = false }
     </div>
     {!intro && <p data-weton-privacy className="rounded-lg bg-slate-50 p-4 text-sm leading-7">{zh ? "答案与可选日期只留当前页面内存，不保存进度、不发送测试流程统计、不分享个人结果。刷新或换语言重新开始；退出并清除会同时清除问卷和历法输入。" : "Answers and the optional date remain in this page’s memory. No saved draft, quiz-flow statistics or personal-result sharing. Refreshing or changing language starts fresh; Exit and clear discards both quiz and calendar inputs."}</p>}
 
-    <button className="min-h-11 text-sm underline" onClick={() => reset("welcome")}>{zh ? "退出并清除本次进度" : "Exit and clear this attempt"}</button>
+    <QuestionnaireLegacyControl><button className="min-h-11 text-sm underline" onClick={() => reset("welcome")}>{zh ? "退出并清除本次进度" : "Exit and clear this attempt"}</button></QuestionnaireLegacyControl>
   </section>;
   const calendarPanel = <section className="space-y-4 border-t pt-6" aria-labelledby="weton-calendar-title">
       <h2 id="weton-calendar-title" className="text-2xl font-semibold">{zh ? "独立可选历法参考" : "Separate optional calendar reference"}</h2>

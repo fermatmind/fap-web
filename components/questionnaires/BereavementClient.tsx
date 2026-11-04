@@ -1,4 +1,5 @@
 "use client";
+import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
@@ -46,10 +47,10 @@ export function BereavementClient({ quiz, locale }: { quiz: Questionnaire; local
       <p>{zh ? `第 ${position + 1} / 16 条 · 去世后过去四周` : `Observation ${position + 1} / 16 · Past four weeks after the death`}</p>
       <h2 ref={heading} id="bereavement-active-question" tabIndex={-1} className="text-xl font-semibold leading-8 outline-none">{q.prompt[locale]}</h2>
       <fieldset className="min-w-0 space-y-3" aria-labelledby="bereavement-active-question">{q.options.map(o => <label key={o.id} className="flex min-h-12 cursor-pointer items-start gap-3 rounded-lg border border-slate-300 p-3 leading-7"><input className="mt-2 h-5 w-5 shrink-0" type="radio" name={q.id} value={o.id} checked={answers[q.id] === o.id} onChange={() => { setAnswers({ ...answers, [q.id]: o.id }); setMessage(""); }} /><span className="min-w-0">{o.id === "na" ? `${zh ? "未计分：" : "Unscored: "}${o.label[locale]}` : o.label[locale]}</span></label>)}</fieldset>
-      <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? "上一条" : "Back"}</button><button type="button" className={button} onClick={next}>{position === 15 ? (zh ? "整理观察记录" : "Organize observations") : (zh ? "下一条" : "Next")}</button></div>
-      <button type="button" className={button} onClick={() => clear(zh ? "已退出并清除回答与时间背景。" : "Exited and cleared answers and timing.")}>{zh ? "退出并清除" : "Exit and clear"}</button>
+      <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? "上一条" : "Back"}</button><button data-questionnaire-next type="button" className={button} onClick={next}>{position === 15 ? (zh ? "整理观察记录" : "Organize observations") : (zh ? "下一条" : "Next")}</button></div>
+      <QuestionnaireLegacyControl><button type="button" className={button} onClick={() => clear(zh ? "已退出并清除回答与时间背景。" : "Exited and cleared answers and timing.")}>{zh ? "退出并清除" : "Exit and clear"}</button></QuestionnaireLegacyControl>
     </div>}
-    {stage === "result" && <><BereavementReport quiz={quiz} records={records} timeContext={timeContext} locale={locale} /><button type="button" className={button} onClick={() => { clear(); setStage("answer"); }}>{zh ? "清除并重做" : "Clear and retake"}</button><button type="button" className={button} onClick={() => clear(zh ? "已退出并清除记录与时间背景。" : "Exited and cleared the record and timing.")}>{zh ? "退出并清除" : "Exit and clear"}</button><button type="button" className={button} onClick={copyPublicEntry}>{zh ? "复制公开入口" : "Copy public entry"}</button></>}
+    {stage === "result" && <><BereavementReport quiz={quiz} records={records} timeContext={timeContext} locale={locale} /><button type="button" className={button} onClick={() => { clear(); setStage("answer"); }}>{zh ? "清除并重做" : "Clear and retake"}</button><QuestionnaireLegacyControl><button type="button" className={button} onClick={() => clear(zh ? "已退出并清除记录与时间背景。" : "Exited and cleared the record and timing.")}>{zh ? "退出并清除" : "Exit and clear"}</button></QuestionnaireLegacyControl><button type="button" className={button} onClick={copyPublicEntry}>{zh ? "复制公开入口" : "Copy public entry"}</button></>}
     {message && <p role="status" className="break-words leading-7">{message}</p>}
   </section>;
 }

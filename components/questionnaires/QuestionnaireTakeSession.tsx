@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { useQuestionnaireAutoAdvance } from "./useQuestionnaireAutoAdvance";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import type { Locale } from "@/lib/i18n/locales";
 import { QuestionnaireTakeContext } from "./QuestionnaireTakeContext";
@@ -9,6 +10,7 @@ import styles from "./QuestionnaireTake.module.css";
 /** Invoke each mounted engine's real start handler once, after hydration. */
 export function QuestionnaireTakeSession({ children, title, minutes, locale, landing, autoStart = true }: { children: ReactNode; title: string; minutes: number; locale: Locale; landing: string; autoStart?: boolean }) {
   const region = useRef<HTMLDivElement>(null), entered = useRef(false);
+  useQuestionnaireAutoAdvance(region);
   const [preparing, setPreparing] = useState(autoStart), [slow, setSlow] = useState(false);
   const zh = locale === "zh";
   useEffect(() => {
@@ -28,9 +30,6 @@ export function QuestionnaireTakeSession({ children, title, minutes, locale, lan
       const start = root.querySelector<HTMLButtonElement>("button[data-explore-start]:not(:disabled)");
       if (!start) return;
       const url = new URL(window.location.href);
-      const resume = root.querySelector<HTMLButtonElement>("button[data-questionnaire-resume]:not(:disabled)");
-      // A reload keeps an optional saved draft available for an explicit choice.
-      if (resume && url.searchParams.get("start") !== "1") { entered.current = true; setPreparing(false); return; }
       entered.current = true;
       start.click();
       url.searchParams.delete("start");

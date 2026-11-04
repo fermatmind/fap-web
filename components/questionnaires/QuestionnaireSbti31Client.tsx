@@ -1,4 +1,5 @@
 "use client";
+import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
@@ -64,7 +65,7 @@ function ValidClient({ quiz, locale }: { quiz: Sbti31Questionnaire; locale: Loca
       <p className="mb-4 text-sm" aria-live="polite">{zh ? `第 ${position + 1} / 31 题` : `Question ${position + 1} / 31`}</p>
       <h2 ref={heading} tabIndex={-1} id="sbti31-question" className="mb-5 scroll-mt-24 text-2xl leading-relaxed outline-none">{question.prompt[locale]}</h2>
       <fieldset aria-labelledby="sbti31-question" className="space-y-3"><legend className="sr-only">{zh ? "选择一项" : "Choose one option"}</legend>{question.options.map(option => <label key={option.id} className="flex min-h-12 cursor-pointer items-start gap-3 rounded-lg border p-4 leading-8"><input className="mt-2" type="radio" name={question.id} value={option.id} checked={answers[question.id] === option.id} onChange={() => { setAnswers(current => ({ ...current, [question.id]: option.id })); setMessage(""); }} /><span>{option.label[locale]}</span></label>)}</fieldset>
-      <div className="my-5 flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? "上一题" : "Back"}</button><button type="button" className={button} onClick={next}>{position === 30 ? (zh ? "查看完整结果" : "See the complete result") : (zh ? "下一题" : "Next")}</button><button type="button" className={button} onClick={clear}>{zh ? "退出并清除回答" : "Exit and clear answers"}</button></div>
+      <div className="my-5 flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? "上一题" : "Back"}</button><button data-questionnaire-next type="button" className={button} onClick={next}>{position === 30 ? (zh ? "查看完整结果" : "See the complete result") : (zh ? "下一题" : "Next")}</button><QuestionnaireLegacyControl><button type="button" className={button} onClick={clear}>{zh ? "退出并清除回答" : "Exit and clear answers"}</button></QuestionnaireLegacyControl></div>
     </> : result && profile ? <>
       <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-3xl font-semibold outline-none" data-sbti31-result={result.profileCode}>{profile.headline[locale]} · {result.profileCode}</h2>
       <Sbti31Portrait key={result.profileCode} code={result.profileCode} name={profile.headline[locale]} locale={locale} />

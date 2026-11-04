@@ -1,5 +1,5 @@
 "use client";
-import { useQuestionnaireTake } from "./QuestionnaireTakeContext";
+import { useQuestionnaireTake, QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 import { QuestionnaireTakeOptions } from "./QuestionnaireTakeOptions";
 import takeStyles from "@/components/quiz/AssessmentTake.module.css";
 import sessionStyles from "./QuestionnaireTake.module.css";
@@ -52,6 +52,7 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
   const questionContext = useRef<HTMLParagraphElement>(null);
   const heading = useRef<HTMLHeadingElement>(null), submitted = useRef(false), viewed = useRef(false), enteredLegacyPlay = useRef(false);
   const draft = useSyncExternalStore(subscribe, () => {
+    if (standalone) return null;
     try { const raw = sessionStorage.getItem(key); return readQuestionnaireDraft(quiz, raw) ? raw : null; } catch { return null; }
   }, () => null);
   const result = scoreQuestionnaire(quiz, answers);
@@ -91,7 +92,10 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
   useEffect(() => {
     if (ready && startOnEntry && !entryStartRecorded.current) {
       entryStartRecorded.current = true;
-      if (resumeOnEntry) {
+      if (standalone) {
+        try { sessionStorage.removeItem(key); } catch { /* No draft restoration in standalone sessions. */ }
+      }
+      if (resumeOnEntry && !standalone) {
         const saved = readQuestionnaireDraft(quiz, draft);
         if (saved) {
           const first = quiz.questions.findIndex(q => !saved[q.id]);
@@ -103,7 +107,7 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
         trackEvent("start_test", questionnaireTrackingPayload(quiz, locale));
       }
     }
-  }, [ready, startOnEntry, resumeOnEntry, emitStartOnEntry, draft, quiz, locale, readQuestionnaireDraft]);
+  }, [ready, startOnEntry, resumeOnEntry, emitStartOnEntry, draft, quiz, locale, readQuestionnaireDraft, standalone, key]);
 
   useEffect(() => {
     if (ready && quiz.slug === "relationship-values" && !enteredLegacyPlay.current) {
@@ -131,7 +135,7 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
     window.dispatchEvent(new Event(draftEvent));
   }
   function persist(next: QuestionnaireAnswers, enabled: boolean) {
-    if (!enabled) return;
+    if (standalone || !enabled) return;
     try {
       sessionStorage.setItem(key, JSON.stringify({ version: quiz.version, savedAt: Date.now(), answers: next }));
       window.dispatchEvent(new Event(draftEvent));
@@ -139,13 +143,13 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
   }
   function start(resume = false) {
     let next: QuestionnaireAnswers = {};
-    if (resume) {
+    if (resume && !standalone) {
       try { const saved = readQuestionnaireDraft(quiz, sessionStorage.getItem(key)); if (!saved) throw new Error("expired"); next = saved; }
       catch { clear(); setMessage(zh ? "已存进度已过期或不可用，请开始新作答。" : "Saved progress expired or is unavailable. Start a new attempt."); return; }
     } else clear();
     const first = quiz.questions.findIndex(q => !next[q.id]);
     submitted.current = false; viewed.current = false;
-    setLoadedStimulusId(null); setAnswers(next); setPosition(first < 0 ? quiz.questions.length - 1 : first); setSaving(resume);
+    setLoadedStimulusId(null); setAnswers(next); setPosition(first < 0 ? quiz.questions.length - 1 : first); setSaving(resume && !standalone);
     setMessage(""); setManualCopy(""); setStage("answer"); emit("start_test");
   }
   function advance() {
@@ -183,9 +187,9 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
       {standalone ? <QuestionnaireTakeOptions questionId={question.id} prompt={(quiz.slug === "java-test" || quiz.slug === "javascript-test" || quiz.slug === "python-test" || quiz.slug === "sql-test") ? question.prompt[locale].split("\n\n")[0] : question.prompt[locale]} options={question.options.map(option => ({ id: option.id, unscored: option.score === null, label: <>{option.label[locale]}{quiz.slug === "color-season" && option.paletteSwatches && <QuestionnairePaletteSwatches swatches={option.paletteSwatches} locale={locale} showLabels={false} />}</> }))} value={answers[question.id]} scale={quiz.kind === "likert" || quiz.kind === "tipi10"} positiveLast onChange={id => { if (submitted.current) return; const next = { ...answers, [question.id]: id }; setAnswers(next); setMessage(""); persist(next, saving); }} /> :       <fieldset className="mt-5 space-y-3"><legend className="sr-only">{(quiz.slug === "java-test" || quiz.slug === "javascript-test" || quiz.slug === "python-test" || quiz.slug === "sql-test") ? question.prompt[locale].split("\n\n")[0] : question.prompt[locale]}</legend>{question.options.map(option => <label key={option.id} className="flex min-h-12 cursor-pointer items-start gap-3 rounded-lg border border-slate-300 p-4 has-[:checked]:border-violet-700 has-[:checked]:bg-violet-50">
         <input type="radio" className="mt-1 size-5 shrink-0 accent-violet-700" name={question.id} value={option.id} checked={answers[question.id] === option.id} onChange={() => { if (submitted.current) return; const next = { ...answers, [question.id]: option.id }; setAnswers(next); setMessage(""); persist(next, saving); }} /><span className={`min-w-0 leading-7 [overflow-wrap:anywhere]${quiz.slug === "color-season" ? " flex-1" : ""}`}>{option.label[locale]}{quiz.slug === "color-season" && option.paletteSwatches && <QuestionnairePaletteSwatches swatches={option.paletteSwatches} locale={locale} showLabels={false} />}</span>
       </label>)}</fieldset>}
-      <div className={standalone ? sessionStyles.actions : "mt-6 flex flex-wrap gap-3"}><button className={button} disabled={position === 0} onClick={() => { setLoadedStimulusId(null); setPosition(position - 1); setMessage(""); }}>{zh ? "上一题" : "Back"}</button><button className={`${button} bg-violet-700 text-white`} disabled={requiresStimulus && loadedStimulusId !== question.id} onClick={advance}>{position === quiz.questions.length - 1 ? (zh ? "查看完整结果" : "See full result") : (zh ? "下一题" : "Next")}</button></div>
-      <label className="mt-6 flex items-start gap-3 text-sm leading-7 text-slate-600"><input type="checkbox" className="mt-1 size-5 shrink-0" checked={saving} onChange={event => { setSaving(event.target.checked); if (event.target.checked) persist(answers, true); else clear(); }} /><span>{zh ? "在本标签页临时保存进度，刷新或换语言后可主动恢复；24小时后失效，完成、清除或重测即删除。" : "Save progress in this tab so I can resume after a refresh or language change. It expires after 24 hours and clears on completion, exit-and-clear or retake."}</span></label>
-      <button className="mt-3 min-h-11 text-sm underline" onClick={() => { clear(); setAnswers({}); setSaving(false); setStage("welcome"); setMessage(""); }}>{zh ? "退出并清除本次进度" : "Exit and clear this attempt"}</button>
+      <div className={standalone ? sessionStyles.actions : "mt-6 flex flex-wrap gap-3"}><button className={button} disabled={position === 0} onClick={() => { setLoadedStimulusId(null); setPosition(position - 1); setMessage(""); }}>{zh ? "上一题" : "Back"}</button><button data-questionnaire-next className={`${button} bg-violet-700 text-white`} disabled={requiresStimulus && loadedStimulusId !== question.id} onClick={advance}>{position === quiz.questions.length - 1 ? (zh ? "查看完整结果" : "See full result") : (zh ? "下一题" : "Next")}</button></div>
+      <QuestionnaireLegacyControl><label className="mt-6 flex items-start gap-3 text-sm leading-7 text-slate-600"><input type="checkbox" className="mt-1 size-5 shrink-0" checked={saving} onChange={event => { setSaving(event.target.checked); if (event.target.checked) persist(answers, true); else clear(); }} /><span>{zh ? "在本标签页临时保存进度，刷新或换语言后可主动恢复；24小时后失效，完成、清除或重测即删除。" : "Save progress in this tab so I can resume after a refresh or language change. It expires after 24 hours and clears on completion, exit-and-clear or retake."}</span></label></QuestionnaireLegacyControl>
+      <QuestionnaireLegacyControl><button className="mt-3 min-h-11 text-sm underline" onClick={() => { clear(); setAnswers({}); setSaving(false); setStage("welcome"); setMessage(""); }}>{zh ? "退出并清除本次进度" : "Exit and clear this attempt"}</button></QuestionnaireLegacyControl>
     </>}
     {stage === "result" && result.status === "complete" && <>
       <h2 ref={heading} tabIndex={-1} className="text-3xl font-semibold leading-tight outline-none [overflow-wrap:anywhere] scroll-mt-24">{profile?.title[locale] ?? quiz.resultHeading?.[locale] ?? (zh ? `${quiz.title.zh}：完整结果` : `${quiz.title.en}: your complete result`)}</h2>

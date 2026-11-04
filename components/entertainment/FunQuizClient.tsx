@@ -1,5 +1,5 @@
 "use client";
-import { useQuestionnaireTake } from "@/components/questionnaires/QuestionnaireTakeContext";
+import { useQuestionnaireTake, QuestionnaireLegacyControl } from "@/components/questionnaires/QuestionnaireTakeContext";
 import { QuestionnaireTakeOptions } from "@/components/questionnaires/QuestionnaireTakeOptions";
 import sessionStyles from "@/components/questionnaires/QuestionnaireTake.module.css";
 import { NightGardenPanel } from "./NightGardenPanel";
@@ -49,6 +49,7 @@ export function FunQuizClient({ quiz, locale, compactLanding = false, landingIns
   const viewed = useRef(false);
   const storageKey = `fm_fun_draft:${quiz.slug}`;
   const savedRaw = useSyncExternalStore(subscribeDraft, () => {
+    if (standalone) return null;
     try { const raw = sessionStorage.getItem(storageKey); return readFunDraft(quiz, raw) ? raw : null; } catch { return null; }
   }, () => null);
   const draft: Answers | null = savedRaw ? JSON.parse(savedRaw).answers : null;
@@ -85,7 +86,7 @@ export function FunQuizClient({ quiz, locale, compactLanding = false, landingIns
     window.dispatchEvent(new Event("fm-fun-draft"));
   }
   function persist(nextAnswers: Answers, enabled: boolean) {
-    if (!enabled) return;
+    if (standalone || !enabled) return;
     try {
       saveDraftToTab(storageKey, quiz.version, nextAnswers);
     } catch {
@@ -94,7 +95,7 @@ export function FunQuizClient({ quiz, locale, compactLanding = false, landingIns
   }
   function start(resume = false) {
     let restored: Answers = {};
-    if (resume) {
+    if (resume && !standalone) {
       // A welcome screen can stay open beyond the draft's lifetime.
       let current: Answers | null = null;
       try { current = readFunDraft(quiz, sessionStorage.getItem(storageKey)); } catch { /* Optional storage. */ }
@@ -109,7 +110,7 @@ export function FunQuizClient({ quiz, locale, compactLanding = false, landingIns
     viewed.current = false;
     setAnswers(restored);
     setPosition(Math.max(0, resolveFunQuiz(quiz, restored).path.length - 1));
-    setSaving(resume);
+    setSaving(resume && !standalone);
     if (!resume) clearDraft();
     setMessage(""); setCopyFallback(""); setStage("answer");
     emit("start_test");
@@ -167,10 +168,10 @@ export function FunQuizClient({ quiz, locale, compactLanding = false, landingIns
         </label>)}
       </fieldset>}
       <div className={standalone ? sessionStyles.actions : "mt-6 flex flex-wrap gap-3"}><button className={action} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? "上一题" : "Back"}</button>
-        <button className={`${action} bg-violet-700 text-white`} onClick={advance}>{resolved.complete && position === resolved.path.length - 1 ? (zh ? "查看完整结果" : "See full result") : (zh ? "下一题" : "Next")}</button>
+        <button data-questionnaire-next className={`${action} bg-violet-700 text-white`} onClick={advance}>{resolved.complete && position === resolved.path.length - 1 ? (zh ? "查看完整结果" : "See full result") : (zh ? "下一题" : "Next")}</button>
       </div>
-      <label className="mt-6 flex items-start gap-3 text-sm leading-6 text-slate-600"><input type="checkbox" className="mt-1 size-5 shrink-0" checked={saving} onChange={event => { setSaving(event.target.checked); if (!event.target.checked) clearDraft(); else persist(answers, true); }} /><span>{zh ? "在本标签页临时保存进度，刷新后可主动恢复；24小时后失效，完成或重测即清除。不会跨设备保存。" : "Save progress in this tab so I can resume after a refresh. It expires after 24 hours and clears on completion or retake. No cross-device storage."}</span></label>
-      <button className="mt-3 min-h-11 text-sm underline" onClick={() => { clearDraft(); setAnswers({}); setPosition(0); setSaving(false); setStage("welcome"); }}>{zh ? "退出并清除本次进度" : "Exit and clear this attempt"}</button>
+      <QuestionnaireLegacyControl><label className="mt-6 flex items-start gap-3 text-sm leading-6 text-slate-600"><input type="checkbox" className="mt-1 size-5 shrink-0" checked={saving} onChange={event => { setSaving(event.target.checked); if (!event.target.checked) clearDraft(); else persist(answers, true); }} /><span>{zh ? "在本标签页临时保存进度，刷新后可主动恢复；24小时后失效，完成或重测即清除。不会跨设备保存。" : "Save progress in this tab so I can resume after a refresh. It expires after 24 hours and clears on completion or retake. No cross-device storage."}</span></label></QuestionnaireLegacyControl>
+      <QuestionnaireLegacyControl><button className="mt-3 min-h-11 text-sm underline" onClick={() => { clearDraft(); setAnswers({}); setPosition(0); setSaving(false); setStage("welcome"); }}>{zh ? "退出并清除本次进度" : "Exit and clear this attempt"}</button></QuestionnaireLegacyControl>
     </>}
     {stage === "result" && result && <>
       <p className="text-sm font-medium text-violet-800">{zh ? "你的趣味测试结果" : "Your playful quiz result"}</p>

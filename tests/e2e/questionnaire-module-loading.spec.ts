@@ -61,7 +61,7 @@ for (const locale of ["en", "zh"] as const) {
         interrupted = 0;
         await page.route(chunks, route => { interrupted++; return route.abort("failed"); });
       }
-      await page.getByRole("button", { name: i === quiz.questions.length - 1 ? (zh ? "查看完整结果" : "See full result") : (zh ? "下一题" : "Next"), exact: true }).click();
+
     }
     await expect(page.locator('#take-test[data-stage="result"]')).toBeVisible();
     await expect(page.locator("[data-cognitive-versions]").getByRole("alert")).toContainText(zh ? "当前输入仍保留" : "current inputs are retained");
@@ -92,8 +92,6 @@ for (const locale of ["en", "zh"] as const) {
     await page.unroute(chunks);
     await page.getByRole("button", { name: zh ? "重试加载" : "Retry loading", exact: true }).click();
     await page.getByRole("radio").first().check();
-    await expect(page.getByRole("radio").first()).toBeChecked();
-    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.locator("[data-jung56-progress]")).toContainText("2 / 56");
     await page.getByRole("button", { name: zh ? "切换方法并清除回答" : "Switch method and clear responses", exact: true }).click();
     await expect(page.locator('[data-cognitive-method="paired56"]')).toBeVisible();
@@ -102,7 +100,7 @@ for (const locale of ["en", "zh"] as const) {
 }
 
 for (const locale of ["en", "zh"] as const) {
-  test(`@release DISC ${locale}: retry interrupted engine, retain a saved attempt and return safely`, async ({ page }) => {
+  test(`@release DISC ${locale}: retry interrupted engine, discard old drafts and reload safely`, async ({ page }) => {
     const zh = locale === "zh", chunks = "**/_next/static/chunks/*.js";
     const failure = page.locator("[data-disc-prepare-return]").locator("..").getByRole("alert");
     await page.goto(`/${locale}/tests/explore/disc`);
@@ -115,21 +113,14 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.locator("[data-disc-prepare-return]")).toBeVisible();
     await page.unroute(chunks);
     await page.getByRole("button", { name: zh ? "重试加载" : "Retry loading", exact: true }).click();
-    await page.getByRole("radio").first().check(); await page.getByRole("checkbox").check();
-    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
-    const saved = await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:disc"));
-    expect(saved).not.toBeNull();
-    await page.reload();
-    const resume = page.getByRole("button", { name: zh ? "恢复本标签页进度" : "Resume this tab's progress", exact: true });
-    await expect(resume).toBeVisible();
-    await page.route(chunks, route => selectedChunks.disc.has(new URL(route.request().url()).pathname) ? route.abort("failed") : route.continue());
-    await resume.click(); await expect(failure).toBeVisible();
-    expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:disc"))).toBe(saved);
-    await page.locator("[data-disc-prepare-return]").click();
-    await page.unroute(chunks); await resume.click();
-    await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click();
-    await expect(page.getByRole("radio").first()).toBeChecked();
-    await page.getByRole("button", { name: zh ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click();
+    await expect(page.getByRole("checkbox")).toHaveCount(0);
+    await page.getByRole("radio").first().check();
+    await expect(page.locator("#take-test h2")).toHaveText(disc.questions[1].prompt[locale]);
     expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:disc"))).toBeNull();
+    await page.reload();
+    await expect(page.locator("#take-test h2")).toHaveText(disc.questions[0].prompt[locale]);
+    await expect(page.getByRole("radio", { checked: true })).toHaveCount(0);
+    await expect(page.locator("[data-questionnaire-resume]")).toHaveCount(0);
+    await expect(page.getByRole("button", { name: /Exit and clear|退出并清除/ })).toHaveCount(0);
   });
 }

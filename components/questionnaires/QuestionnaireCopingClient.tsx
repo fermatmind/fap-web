@@ -1,4 +1,5 @@
 "use client";
+import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
@@ -68,7 +69,7 @@ function ValidCopingClient({ quiz, locale, readingProfiles }: { quiz: MiniCoping
           <input type="radio" name={quiz.questions[position].id} value={option.id} checked={answers[quiz.questions[position].id] === option.id} className="mt-1 size-5 shrink-0 accent-violet-700" onChange={() => { revision.current += 1; setAnswers({ ...answers, [quiz.questions[position].id]: option.id }); setMessage(""); setManual(""); setResult(null); }} />
           <span className="leading-7">{`${option.id} — `}{option.label[locale]}</span>
         </label>)}</div>
-        <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? "上一题" : "Back"}</button><button type="button" className={button} onClick={next}>{position === 23 ? (zh ? "查看四组记录" : "See four records") : (zh ? "下一题" : "Next")}</button></div>
+        <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? "上一题" : "Back"}</button><button data-questionnaire-next type="button" className={button} onClick={next}>{position === 23 ? (zh ? "查看四组记录" : "See four records") : (zh ? "下一题" : "Next")}</button></div>
       </>}
       {stage === "result" && result && <>
         <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading[locale]}</h2>
@@ -77,7 +78,7 @@ function ValidCopingClient({ quiz, locale, readingProfiles }: { quiz: MiniCoping
         {manual && <label className="block leading-7">{zh ? "手动复制公开链接" : "Public links for manual copying"}<textarea readOnly value={manual} className="mt-2 min-h-40 w-full rounded-lg border border-slate-300 p-3" /></label>}
         <button type="button" className={button} onClick={() => { clear(); setStage("answer"); recordStart(); }}>{zh ? "重新测试（清除本次回答）" : "Retake with empty answers"}</button>
       </>}
-      {stage !== "welcome" && <button type="button" className={button} onClick={clear}>{zh ? "退出并清除本次回答" : "Exit and clear these responses"}</button>}
+      {stage !== "welcome" && <QuestionnaireLegacyControl><button type="button" className={button} onClick={clear}>{zh ? "退出并清除本次回答" : "Exit and clear these responses"}</button></QuestionnaireLegacyControl>}
     </fieldset>
     <p role="status" aria-live="polite" className="my-4 text-sm leading-7">{ready ? message : (zh ? "正在准备问卷，请稍候。" : "Preparing the questionnaire. Please wait.")}</p>
     <p className="mb-4 text-sm leading-7 text-slate-600">{zh ? "只使用当前页面内存；不保存草稿或结果，不上传逐题选择。刷新、换语或离开会清除。" : "Current-page memory only: no draft or result is saved and choices are not uploaded. Reloading, changing language or leaving clears answers."}</p>

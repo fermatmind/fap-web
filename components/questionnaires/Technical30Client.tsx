@@ -1,4 +1,5 @@
 "use client";
+import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
@@ -114,7 +115,7 @@ function ValidTechnical30Client({ quiz, locale, readingProfiles }: { quiz: Techn
         <div role="radiogroup" aria-labelledby="technical30-question technical30-stem" className="space-y-3">{question.options.map(o => <label key={o.id} className="flex min-h-12 cursor-pointer items-start gap-3 rounded-lg border border-slate-300 p-3"><input type="radio" name={question.id} value={o.id} checked={answers[question.id] === o.id} className="mt-1 size-5 shrink-0 accent-violet-700" onChange={() => choose(o.id)} /><span lang="en" className="leading-7">{o.id} — {o.label.en}</span></label>)}
           <label className="flex min-h-12 cursor-pointer items-start gap-3 rounded-lg border border-slate-300 p-3"><input type="radio" name={question.id} value="skip" checked={answers[question.id] === "skip"} onChange={() => choose("skip")} className="mt-1 size-5 shrink-0 accent-violet-700" /><span className="leading-7">{zh ? "留空（记为未答）" : "Leave unanswered"}</span></label>
         </div>
-        <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { if (checkClock() !== null) { setPosition(position - 1); setMessage(""); } }}>{zh ? "上一题" : "Back"}</button><button type="button" className={button} onClick={next}>{position === 5 ? (zh ? "结束本部分" : "Finish this part") : (zh ? "下一题" : "Next")}</button></div>
+        <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { if (checkClock() !== null) { setPosition(position - 1); setMessage(""); } }}>{zh ? "上一题" : "Back"}</button><button data-questionnaire-next type="button" className={button} onClick={next}>{position === 5 ? (zh ? "结束本部分" : "Finish this part") : (zh ? "下一题" : "Next")}</button></div>
         <button type="button" className={button} onClick={() => { const elapsed = checkClock(); if (elapsed !== null) closeSection("finished", elapsed); }}>{zh ? "提前结束本部分，保留未答" : "Finish part early; keep blanks unanswered"}</button>
       </>}
       {stage === "result" && result && <>
@@ -140,7 +141,7 @@ function ValidTechnical30Client({ quiz, locale, readingProfiles }: { quiz: Techn
         {manual && <label className="block leading-7">{zh ? "手动复制公开链接" : "Public links for manual copying"}<textarea readOnly value={manual} className="mt-2 min-h-40 w-full rounded-lg border p-3" /></label>}
         <button type="button" className={button} onClick={() => clear()}>{zh ? "清空并重新练习" : "Clear and practise again"}</button>
       </>}
-      {stage !== "welcome" && <button type="button" className={button} onClick={() => clear()}>{zh ? "退出并清除本次回答" : "Exit and clear these responses"}</button>}
+      {stage !== "welcome" && <QuestionnaireLegacyControl><button type="button" className={button} onClick={() => clear()}>{zh ? "退出并清除本次回答" : "Exit and clear these responses"}</button></QuestionnaireLegacyControl>}
     </fieldset>
     {activityConsent}
     <p role="status" aria-live="polite" className="my-4 text-sm leading-7">{ready ? message : (zh ? "正在准备练习，请稍候。" : "Preparing practice. Please wait.")}</p>

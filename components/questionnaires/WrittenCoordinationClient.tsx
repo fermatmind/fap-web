@@ -1,4 +1,5 @@
 "use client";
+import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 
 import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import type { Locale } from "@/lib/i18n/locales";
@@ -98,7 +99,7 @@ function QuestionModule({ quiz, id, mode, locale, onComplete, onCancel }: {
       </fieldset>
       <div className="flex flex-wrap gap-3">
         <button type="button" className={button} disabled={position === 0} onClick={() => { if (checkClock() !== null) { setPosition(position - 1); setMessage(""); } }}>{zh ? "上一题" : "Back"}</button>
-        <button type="button" className={button} onClick={next}>{position === 5 ? (zh ? "完成本部分" : "Complete this section") : (zh ? "下一题" : "Next")}</button>
+        <button data-questionnaire-next type="button" className={button} onClick={next}>{position === 5 ? (zh ? "完成本部分" : "Complete this section") : (zh ? "下一题" : "Next")}</button>
       </div>
       <button type="button" className={button} onClick={() => { const elapsed = checkClock(); if (elapsed !== null) finish("finished", elapsed); }}>{zh ? "现在结束，未做题保留未答" : "Finish now; untouched items remain unanswered"}</button>
     </div>}
@@ -153,7 +154,7 @@ function ValidWrittenCoordinationClient({ quiz, locale }: { quiz: WrittenCoordin
       </>}
       {selected === "entry" && <WrittenCoordinationEntry round={quiz.coordination.entry} locale={locale} onComplete={completeEntry} onCancel={cancel} />}
       {selected && selected !== "entry" && <QuestionModule key={`${selected}:${mode}`} quiz={quiz} id={selected} mode={mode} locale={locale} onComplete={completeQuestions} onCancel={cancel} />}
-      <div className="flex flex-wrap gap-3"><button type="button" className={button} onClick={share}>{zh ? "复制公开入口" : "Copy public entry"}</button><button type="button" className={button} onClick={clearAll}>{zh ? "退出并清除全部练习记录" : "Exit and clear all exercise records"}</button></div>
+      <div className="flex flex-wrap gap-3"><button type="button" className={button} onClick={share}>{zh ? "复制公开入口" : "Copy public entry"}</button><QuestionnaireLegacyControl><button type="button" className={button} onClick={clearAll}>{zh ? "退出并清除全部练习记录" : "Exit and clear all exercise records"}</button></QuestionnaireLegacyControl></div>
     </fieldset>
     {manual && <label className="my-4 block">{zh ? "手动复制公开入口" : "Public entry for manual copying"}<textarea className="mt-2 min-h-28 w-full rounded border p-3" readOnly value={manual} /></label>}
     {message && <p role="status" className="my-4 leading-7">{message}</p>}

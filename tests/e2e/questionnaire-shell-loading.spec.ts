@@ -44,7 +44,8 @@ for (const locale of ["en", "zh"] as const) {
         release();
         await expect(page.getByRole("link", { name: zh ? "返回测评介绍" : "Back to assessment", exact: true })).toBeVisible();
         await expect(page.locator("[data-site-header]")).toHaveCount(0);
-        await expect(first).toBeChecked();
+        await expect(page.getByRole("radio", { checked: true })).toHaveCount(0);
+        await expect(page.locator("#take-test")).toContainText(method === "paired56" ? "2 / 56" : zh ? "第 2 题" : "Question 2");
       } finally { release(); }
     });
   }
@@ -58,6 +59,6 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.locator("[data-questionnaire-take]")).toBeVisible();
     await expect(page.getByRole("link", { name: zh ? "返回测评介绍" : "Back to assessment", exact: true })).toBeVisible();
     await page.unroute(scripts);
-    await expect(first).toBeChecked();
+    await expect(page.locator("#take-test")).toContainText(zh ? "第 2 题" : "Question 2");
   });
 }

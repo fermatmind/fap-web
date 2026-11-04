@@ -1,4 +1,5 @@
 "use client";
+import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
@@ -60,14 +61,14 @@ function ValidConflictClient({ quiz, locale, readingProfiles }: { quiz: MiniConf
           <input type="radio" name={quiz.questions[position].id} value={option.id} checked={answers[quiz.questions[position].id] === option.id} className="mt-1 size-5 shrink-0 accent-violet-700" onChange={() => { setAnswers({ ...answers, [quiz.questions[position].id]: option.id }); setMessage("");  setResult(null); }} />
           <span className="leading-7">{option.id === "na" ? "" : `${option.id} — `}{option.label[locale]}</span>
         </label>)}</div>
-        <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? "上一题" : "Back"}</button><button type="button" className={button} onClick={next}>{position === 23 ? (zh ? "查看本次记录" : "See this record") : (zh ? "下一题" : "Next")}</button></div>
+        <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? "上一题" : "Back"}</button><button data-questionnaire-next type="button" className={button} onClick={next}>{position === 23 ? (zh ? "查看本次记录" : "See this record") : (zh ? "下一题" : "Next")}</button></div>
       </>}
       {stage === "result" && result && <>
         <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading[locale]}</h2>
         <QuestionnaireConflictReport quiz={quiz} result={result} locale={locale} readingProfiles={readingProfiles} />
         <button type="button" className={button} onClick={() => { clear(); setStage("answer"); recordStart(); }}>{zh ? "愿意时重新作答（清除本次回答）" : "Answer again if you want (empty answers)"}</button>
       </>}
-      {stage !== "welcome" && <button type="button" className={button} onClick={clear}>{zh ? "退出并清除本次回答" : "Exit and clear these responses"}</button>}
+      {stage !== "welcome" && <QuestionnaireLegacyControl><button type="button" className={button} onClick={clear}>{zh ? "退出并清除本次回答" : "Exit and clear these responses"}</button></QuestionnaireLegacyControl>}
     </fieldset>
     {activityConsent}
     <p className="mb-4 text-sm leading-7 text-slate-600">{zh ? "只使用当前页面内存；不保存草稿或结果，不上传逐题选择，默认不接分析事件，不提供个人结果分享。刷新、换语或离开会清除。" : "Current-page memory only: no saved draft or result, choice uploads or personal-result sharing; analytics is off by default. Reloading, changing language or leaving clears answers."}</p>
