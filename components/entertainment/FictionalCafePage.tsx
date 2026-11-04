@@ -8,7 +8,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { FunQuiz } from "@/lib/entertainment/types";
 import { resultPath } from "@/lib/entertainment/guides";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { FunQuizClient } from "./FunQuizClient";
+import { StoryTakeEntry } from "./StoryTakeEntry";
 import { fictionalCafeSections, fictionalCafeFaq } from "./FictionalCafeEditorial";
 
 function Copy({ text }: { text: string }) {
@@ -23,7 +23,7 @@ export function FictionalCafePage({ quiz, locale }: { quiz: FunQuiz; locale: Loc
     <ExploreTestIntro slug={quiz.slug} locale={locale}>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.seo.description[locale]}</p>
       <div className="explore-intro-meta"><span>{zh ? "6题 · 约2分钟 · 无需注册" : "6 choices · About 2 minutes · No registration"}</span><span>{zh ? "原创虚构咖啡馆情境 · 完整画像免费" : "Original impossible-café scenes · Full portraits free"}</span></div>
-      <FunQuizClient quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "Choose the invitation you would offer in each impossible café scene: a tiny object performance, a sentence to borrow or an unnamed shade. Complete all six for three raw counts and every highest portrait. No artwork, personal writing, entry agreement, MBTI result or saved progress is required.", zh: "每个不可能咖啡馆场景，选择更想提供的邀请：物品小表演、可借句子或无名颜色。六题完成后查看三项原始次数与全部最高画像。无需作品、私人文字、入口同意、MBTI结果或保存进度。" }} />
+      <StoryTakeEntry quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "Choose the invitation you would offer in each impossible café scene: a tiny object performance, a sentence to borrow or an unnamed shade. Complete all six for three raw counts and every highest portrait. No artwork, personal writing, entry agreement, MBTI result or saved progress is required.", zh: "每个不可能咖啡馆场景，选择更想提供的邀请：物品小表演、可借句子或无名颜色。六题完成后查看三项原始次数与全部最高画像。无需作品、私人文字、入口同意、MBTI结果或保存进度。" }} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="about-quiz"><h2 id="about-quiz" className="text-2xl font-semibold">{fictionalCafeSections[0].title[locale]}</h2>{fictionalCafeSections[0].paragraphs.map((p,i)=><p key={i}>{p[locale]}</p>)}<p>{quiz.introduction[locale]}</p><p>{quiz.focus[locale]}</p></section>
     <section className="explore-reading-library" aria-labelledby="fictional-cafe-methods"><h2 id="fictional-cafe-methods">{zh ? "三种创作邀请、透明计数与结果读法" : "Three creative invitations, transparent counts and result readings"}</h2><div className="explore-reading-sections">{fictionalCafeSections.slice(1).map(s=><section className="explore-reading-section" key={s.id} aria-labelledby={`fictional-cafe-${s.id}`}><h3 id={`fictional-cafe-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p,i)=><p key={i}><Copy text={p[locale]} /></p>)}</div></section>)}</div></section>

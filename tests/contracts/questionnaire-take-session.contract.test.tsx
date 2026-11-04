@@ -1,0 +1,59 @@
+import { StrictMode, useEffect, useState } from "react";
+import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { QuestionnaireTakeSession } from "@/components/questionnaires/QuestionnaireTakeSession";
+import { QuestionnaireTakeOptions } from "@/components/questionnaires/QuestionnaireTakeOptions";
+
+beforeEach(() => window.history.replaceState(null, "", "/zh/tests/explore/example/take?start=1"));
+afterEach(cleanup);
+const session = (children: React.ReactNode, autoStart = true) => <QuestionnaireTakeSession title="Example" minutes={3} locale="zh" landing="/zh/tests/explore/example" autoStart={autoStart}>{children}</QuestionnaireTakeSession>;
+
+describe("Shared take session", () => {
+  it("invokes a hydrated engine once in StrictMode and removes only the public start command", async () => {
+    const started = vi.fn();
+    function Engine() {
+      const [ready, setReady] = useState(false), [stage, setStage] = useState("welcome");
+      useEffect(() => { const timer = setTimeout(() => setReady(true), 0); return () => clearTimeout(timer); }, []);
+      return <section data-stage={stage}><button disabled={!ready} data-explore-start onClick={() => { started(); setStage("answer"); }}>Start</button>{stage === "answer" && <p>First question</p>}</section>;
+    }
+    render(<StrictMode>{session(<Engine />)}</StrictMode>);
+    await screen.findByText("First question");
+    expect(started).toHaveBeenCalledTimes(1);
+    expect(window.location.search).toBe("");
+  });
+  it("leaves a saved attempt available for an explicit resume after a refresh", async () => {
+    window.history.replaceState(null, "", "/zh/tests/explore/example/take");
+    const started = vi.fn(), resumed = vi.fn();
+    render(session(<section data-stage="welcome"><button data-explore-start onClick={started}>Start</button><button data-questionnaire-resume onClick={resumed}>Resume</button></section>));
+    await waitFor(() => expect(screen.queryByText("正在准备题目…")).toBeNull());
+    expect(started).not.toHaveBeenCalled();
+    fireEvent.click(screen.getByRole("button", { name: "Resume" }));
+    expect(resumed).toHaveBeenCalledTimes(1);
+  });
+  it("keeps the real script retry control available and starts only after recovery", async () => {
+    const started = vi.fn();
+    function Engine() {
+      const [failed, setFailed] = useState(true);
+      return failed ? <div role="alert"><button onClick={() => setFailed(false)}>Retry module</button></div> : <section data-stage="welcome"><button data-explore-start onClick={started}>Start</button></section>;
+    }
+    render(session(<Engine />));
+    fireEvent.click(screen.getByRole("button", { name: "Retry module" }));
+    await waitFor(() => expect(started).toHaveBeenCalledTimes(1));
+  });
+  it("does not auto-submit configurable friendship setup forms", () => {
+    window.history.replaceState(null, "", "/zh/tests/explore/example/take?start=1&edition=selected");
+    const submitted = vi.fn();
+    render(session(<form onSubmit={submitted}><label>Nickname<input /></label><button>Create</button></form>, false));
+    expect(screen.queryByText("正在准备题目…")).toBeNull();
+    expect(submitted).not.toHaveBeenCalled();
+    expect(window.location.search).toBe("?edition=selected");
+  });
+  it.each([2, 4, 5])("preserves the original option IDs through the %i-option template", count => {
+    const changed = vi.fn();
+    render(<QuestionnaireTakeOptions questionId="q1" prompt="Example question" options={Array.from({ length: count }, (_, i) => ({ id: `original-${i}`, label: `Original option ${i}` }))} onChange={changed} scale={count === 5} />);
+    const options = screen.getAllByRole("radio");
+    expect(options).toHaveLength(count);
+    fireEvent.click(options[count - 1]);
+    expect(changed).toHaveBeenCalledWith(`original-${count - 1}`);
+  });
+});

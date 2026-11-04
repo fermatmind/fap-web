@@ -1,3 +1,4 @@
+import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import { Fragment } from "react";
 import { communicationRoutinesSections, communicationRoutinesFaq, communicationRoutinesReadingSummaries } from "./CommunicationRoutinesLandingEditorial";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
@@ -28,15 +29,17 @@ function SeparateResources({ locale }: { locale: Locale }) {
   ];
   return <section className="my-8 space-y-4 leading-8" data-communication-routines-separate-resources><h2 className="text-2xl font-semibold">{zh ? "按具体问题选择独立资源" : "Choose a separate resource for a specific question"}</h2><p>{zh ? "这些既有入口各有题目、选项及完整读法。感官反应不同于感知分辨，成人执行功能不同于认知能力，社交伪装不同于神经类型，意象不同于空间推理。没有回答转移、共同总分或联合雷达图。" : "These existing entries have their own items, response options and complete readings. Sensory responses differ from sensory perception, adult executive function from cognitive ability, camouflaging from neurotype, and imagery from spatial reasoning. No answers transfer and no shared total or combined radar is produced."}</p><ul className="space-y-2">{resources.map(([slug,en,cn])=><li key={slug}><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnairePath(locale,slug)}>{zh?cn:en}</Link></li>)}</ul></section>;
 }
-export function CommunicationRoutinesPage({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
+export function CommunicationRoutinesPage({ quiz, locale , take = false }: { quiz: Questionnaire; locale: Locale ; take?: boolean }) {
   const zh = locale === "zh", path = questionnairePath(locale, quiz.slug);
+  const engine = <CommunicationRoutinesClient key={`${quiz.slug}:${locale}`} quiz={quiz} locale={locale} />;
+  if (take) return engine;
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="questionnaire-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
     <ExploreTestIntro slug={quiz.slug} locale={locale}>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.description[locale]}</p>
       <div className="explore-intro-meta"><span>{zh ? `20条陈述 · 约${quiz.minutes}分钟` : `20 statements · About ${quiz.minutes} minutes`}</span><span>{zh ? "完整读法免费 · 无需注册" : "Full readings free · No registration"}</span></div>
-      <CommunicationRoutinesClient key={`${quiz.slug}:${locale}`} quiz={quiz} locale={locale} />
+      <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     </ExploreTestIntro>
     <CommunicationRoutinesSupport locale={locale} />
     <section className="my-8 leading-8" aria-label={zh ? "原创作答说明" : "Original response instructions"}><p>{quiz.instructions![locale]}</p></section>

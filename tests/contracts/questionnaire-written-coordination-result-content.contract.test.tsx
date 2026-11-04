@@ -40,8 +40,11 @@ describe("Six server-rendered bilingual written-coordination readings", () => {
   it.each(["zh", "en"] as const)("makes all six full %s readings available with every module unattempted", locale => {
     const dom = document.createElement("div");
     dom.innerHTML = renderToStaticMarkup(<WrittenCoordinationPage quiz={quiz} locale={locale} />);
-    expect(dom.querySelectorAll("[data-written-unattempted]")).toHaveLength(6);
+    const takeDom=document.createElement("div");takeDom.innerHTML=renderToStaticMarkup(<WrittenCoordinationPage quiz={quiz} locale={locale} take/>);
+    expect(takeDom.querySelectorAll("[data-written-unattempted]")).toHaveLength(6);
+    expect(takeDom.querySelectorAll("[data-written-full-guide]")).toHaveLength(6);
     expect(dom.querySelectorAll("[data-written-coordination-result-reading]")).toHaveLength(6);
+    expect(takeDom.querySelectorAll("[data-written-coordination-result-reading]")).toHaveLength(6);
     for (const p of quiz.profiles) {
       const reading = dom.querySelector(`[data-written-full-guide="${p.id}"]`)!;
       expect(reading.querySelectorAll("h3")).toHaveLength(9);
@@ -49,6 +52,7 @@ describe("Six server-rendered bilingual written-coordination readings", () => {
         expect(reading.textContent).toContain(text[locale]);
     }
     expect(dom.querySelector("[data-written-entry-result], [data-written-counts]")).toBeNull();
+    expect(takeDom.querySelector("[data-written-entry-result], [data-written-counts]")).toBeNull();
     expect(isWrittenCoordinationConfigurationValid(quiz)).toBe(true);
   });
 });

@@ -1,4 +1,7 @@
 "use client";
+import { useQuestionnaireTake } from "@/components/questionnaires/QuestionnaireTakeContext";
+import { QuestionnaireTakeOptions } from "@/components/questionnaires/QuestionnaireTakeOptions";
+import sessionStyles from "@/components/questionnaires/QuestionnaireTake.module.css";
 import { NightGardenPanel } from "./NightGardenPanel";
 import { SnowDayPanel } from "./SnowDayPanel";
 import { ThriftShelfPanel } from "./ThriftShelfPanel";
@@ -31,6 +34,7 @@ const subscribeHydration = () => () => {};
 const action = "min-h-12 rounded-lg border border-slate-300 px-5 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
 
 export function FunQuizClient({ quiz, locale, compactLanding = false, landingInstructions }: { quiz: FunQuiz; locale: Locale; compactLanding?: boolean; landingInstructions?: { en: string; zh: string } }) {
+  const standalone = useQuestionnaireTake();
   const hydrated = useSyncExternalStore(subscribeHydration, () => true, () => false);
   const zh = locale === "zh";
   const [answers, setAnswers] = useState<Answers>({});
@@ -66,8 +70,8 @@ export function FunQuizClient({ quiz, locale, compactLanding = false, landingIns
   }, [quiz, locale, storageKey]);
 
   useEffect(() => {
-    if (stage !== "welcome") heading.current?.focus();
-  }, [position, stage]);
+    if (stage !== "welcome") heading.current?.focus({ preventScroll: standalone });
+  }, [position, stage, standalone]);
 
   useEffect(() => {
     if (stage !== "result" || viewed.current) return;
@@ -138,8 +142,8 @@ export function FunQuizClient({ quiz, locale, compactLanding = false, landingIns
     catch { setCopyFallback(text); setMessage(zh ? "无法自动复制，请选中下方文字手动复制。" : "Automatic copying is unavailable. Select and copy the text below."); }
   }
 
-  const welcomeActions = <div className="flex flex-wrap gap-3"><button data-explore-start={compactLanding ? true : undefined} disabled={compactLanding && !hydrated} className={compactLanding ? "min-h-14 min-w-60 rounded-full bg-teal-600 px-8 py-4 font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-700 disabled:opacity-50" : `${action} bg-violet-700 text-white`} onClick={() => start()}>{zh ? "开始测试" : "Start quiz"}</button>
-    {draft && <button className={action} onClick={() => start(true)}>{zh ? "恢复本标签页进度" : "Resume this tab’s progress"}</button>}
+  const welcomeActions = <div className="flex flex-wrap gap-3"><button data-explore-start disabled={!hydrated} className={compactLanding ? "min-h-14 min-w-60 rounded-full bg-teal-600 px-8 py-4 font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-700 disabled:opacity-50" : `${action} bg-violet-700 text-white`} onClick={() => start()}>{zh ? "开始测试" : "Start quiz"}</button>
+    {draft && <button data-questionnaire-resume className={action} onClick={() => start(true)}>{zh ? "恢复本标签页进度" : "Resume this tab’s progress"}</button>}
     {draft && <button className={action} onClick={clearDraft}>{zh ? "清除已存进度" : "Delete saved progress"}</button>}
   </div>;
   return <section id="play" data-story-landing={compactLanding ? true : undefined} data-stage={stage} aria-label={zh ? "开始娱乐测试" : "Play the quiz"} className={compactLanding && stage === "welcome" ? "my-6" : "my-8 rounded-xl border border-violet-200 bg-white p-5 shadow-sm sm:p-8"}>
@@ -156,13 +160,13 @@ export function FunQuizClient({ quiz, locale, compactLanding = false, landingIns
       {quiz.slug === "night-garden" && <NightGardenPanel questionId={question.id} locale={locale} />}
       {quiz.slug === "snow-day" && <SnowDayPanel questionId={question.id} locale={locale} />}
       {quiz.slug === "thrift-shop-find" && question.id === "q1" && <ThriftShelfPanel locale={locale} />}
-      <fieldset className="mt-5 grid gap-3"><legend className="sr-only">{question.prompt[locale]}</legend>
+      {standalone ? <QuestionnaireTakeOptions questionId={question.id} prompt={question.prompt[locale]} options={question.options.map(option => ({ id: option.id, label: option.label[locale] }))} value={answers[question.id]} onChange={choose} /> :       <fieldset className="mt-5 grid gap-3"><legend className="sr-only">{question.prompt[locale]}</legend>
         {question.options.map(option => <label key={option.id} className={`flex min-h-14 cursor-pointer items-start gap-3 rounded-lg border p-4 ${answers[question.id] === option.id ? "border-violet-600 bg-violet-50" : "border-slate-300"}`}>
           <input className="mt-1 size-5 shrink-0 accent-violet-700" type="radio" name={question.id} value={option.id} checked={answers[question.id] === option.id} onChange={() => choose(option.id)} />
           <span className="min-w-0 leading-relaxed [overflow-wrap:anywhere]">{option.label[locale]}</span>
         </label>)}
-      </fieldset>
-      <div className="mt-6 flex flex-wrap gap-3"><button className={action} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? "上一题" : "Back"}</button>
+      </fieldset>}
+      <div className={standalone ? sessionStyles.actions : "mt-6 flex flex-wrap gap-3"}><button className={action} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? "上一题" : "Back"}</button>
         <button className={`${action} bg-violet-700 text-white`} onClick={advance}>{resolved.complete && position === resolved.path.length - 1 ? (zh ? "查看完整结果" : "See full result") : (zh ? "下一题" : "Next")}</button>
       </div>
       <label className="mt-6 flex items-start gap-3 text-sm leading-6 text-slate-600"><input type="checkbox" className="mt-1 size-5 shrink-0" checked={saving} onChange={event => { setSaving(event.target.checked); if (!event.target.checked) clearDraft(); else persist(answers, true); }} /><span>{zh ? "在本标签页临时保存进度，刷新后可主动恢复；24小时后失效，完成或重测即清除。不会跨设备保存。" : "Save progress in this tab so I can resume after a refresh. It expires after 24 hours and clears on completion or retake. No cross-device storage."}</span></label>

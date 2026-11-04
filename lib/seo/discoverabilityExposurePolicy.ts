@@ -8,6 +8,8 @@ export const PRIVATE_FLOW_ROUTE_EXCLUDES = [
   "/payment/*",
   "/history/*",
   "/tests/*/take",
+  "/tests/explore/*/take",
+  "/tests/play/*/take",
 ] as const;
 
 export const SHARED_DISCOVERABILITY_DENY_PATH_PATTERNS: readonly RegExp[] = [
@@ -23,6 +25,7 @@ export const SHARED_DISCOVERABILITY_DENY_PATH_PATTERNS: readonly RegExp[] = [
   /^\/payment(\/|$)/i,
   /^\/pay(\/|$)/i,
   /^\/tests\/[^/]+\/take(\/|$)/i,
+  /^\/tests\/(?:explore|play)\/[^/]+\/take(\/|$)/i,
   /^\/test\/[^/]+\/take(\/|$)/i,
 ];
 

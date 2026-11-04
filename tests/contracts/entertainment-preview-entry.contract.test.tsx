@@ -1,3 +1,4 @@
+import { QuestionnaireTakeSession } from "@/components/questionnaires/QuestionnaireTakeSession";
 import { beforeAll, describe, expect, it, vi } from "vitest";
 import { fireEvent, render, screen, cleanup, waitFor } from "@testing-library/react";
 import { ExploreTestEntry } from "@/components/tests/ExploreTestEntry";
@@ -27,13 +28,19 @@ describe("entertainment preview entry", () => {
     expect(screen.getByRole("status")).toHaveTextContent("not ready");
     cleanup();
   });
-  it("starts representative specialized questionnaires directly from the hero", async () => {
+  it("links specialized introductions to private take routes and starts the real engine without opting in", async () => {
     const entry = (await import("@/components/questionnaires/QuestionnairePage")).default;
     for (const slug of ["aphantasia-test", "sensory-sensitivity", "sbti-test", "uncertainty-ease-reflection", "emotions-connections-reflection", "caliper-style-assessment-test"]) {
       render(await entry({ params: Promise.resolve({ slug, locale: "en" }) }));
       const hero = document.querySelector<HTMLButtonElement>(".explore-intro-content button[data-explore-start]")!;
       expect(hero, slug).not.toBeNull();
-      fireEvent.click(hero);
+      expect(hero.closest("form")?.getAttribute("action")).toBe(`/en/tests/explore/${slug}/take`);
+      expect(document.querySelector('#take-test input[type="radio"]')).toBeNull();
+      cleanup();
+      const source=await loadQuestionnaire(slug);
+      if (!source) throw new Error(`Missing source: ${slug}`);
+      const engine=await entry({params:Promise.resolve({slug,locale:"en"}),take:true});
+      render(<QuestionnaireTakeSession title={source.title.en} minutes={source.minutes} locale="en" landing={`/en/tests/explore/${slug}`}>{engine}</QuestionnaireTakeSession>);
       await waitFor(() => expect(document.querySelector('#take-test input[type="radio"]'), slug).not.toBeNull());
       expect(document.querySelector('[data-entertainment-activity-opt-in] input:checked'), slug).toBeNull();
       cleanup();

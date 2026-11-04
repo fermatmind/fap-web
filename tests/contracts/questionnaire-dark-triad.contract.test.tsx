@@ -1,3 +1,4 @@
+import { renderQuestionnaireTakeDom } from "@/tests/fixtures/questionnaires/renderQuestionnaireTake";
 import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
@@ -123,7 +124,7 @@ describe("T074 owned original Dark Triad thematic preview", () => {
         expect(metadata.title).toBe(quiz.seoTitle[locale]); expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
         expect(html).toContain(quiz.instructions![locale]); expect(html).toContain(locale === "zh" ? "原创三组主题观察" : "Original three-theme reflection");
         expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);
-        expect(html.match(/type="checkbox"/g)).toHaveLength(1); expect(html).toContain("data-entertainment-activity-opt-in"); expect(html).not.toContain("checked=");
+        const takeDom=await renderQuestionnaireTakeDom(locale,quiz.slug); expect(takeDom.querySelectorAll('input[type="checkbox"]')).toHaveLength(1); expect(takeDom.querySelector("[data-entertainment-activity-opt-in]")).not.toBeNull(); expect(takeDom.querySelectorAll("input:checked")).toHaveLength(0);
         for (const profile of quiz.profiles) {
           const publicPath = `${path}/results/${profile.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };
           const rendered = renderToStaticMarkup(await guide.default(props)), meta = await guide.generateMetadata(props), dom = document.createElement("div"); dom.innerHTML = rendered;

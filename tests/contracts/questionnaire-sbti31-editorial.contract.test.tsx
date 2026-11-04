@@ -27,7 +27,7 @@ describe("SBTI original31 individual bilingual editorial", () => {
     for (const f of [...quiz.faq, ...sbti31LandingFaq]) expect(body).toContain(norm(f.answer[locale]));
     expect(dom.querySelectorAll(".sbti31-public-grid > li")).toHaveLength(25);
     for (const p of quiz.profiles) expect(body).toContain(norm(p.summary[locale]));
-    expect(dom.querySelector(".explore-intro [data-explore-start]")?.textContent).toBe(locale === "zh" ? "开始31题" : "Start 31 questions");
+    expect(dom.querySelector(".explore-intro [data-explore-start]")?.textContent).toBe(locale === "zh" ? "开始测试→" : "Start test→");
     expect(dom.querySelector("input[required]")).toBeNull();
     expect(dom.querySelector(".explore-reading-library details")).toBeNull();
     expect(catalog.find(q => q.slug === quiz.slug)?.description).toEqual(quiz.description);

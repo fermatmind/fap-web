@@ -1,3 +1,4 @@
+import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
@@ -15,8 +16,10 @@ import { prepareResultProfile } from "@/lib/questionnaires/result-content/readin
 function Source({ quiz, locale }: { quiz: Sens16Questionnaire; locale: Locale }) {
   return <aside data-sens16-attribution className="my-8 space-y-3 border-t pt-6 text-sm leading-7 text-slate-600"><p>{quiz.sens16.attribution[locale]}</p><p>{quiz.sens16.editionNotice[locale]}</p>{quiz.references?.map(r => <p key={r.url}><a className="underline" href={r.url} rel="noopener noreferrer">{r.title[locale]}</a></p>)}</aside>;
 }
-export function Sens16Page({ quiz, locale }: { quiz: Sens16Questionnaire; locale: Locale }) {
+export function Sens16Page({ quiz, locale , take = false }: { quiz: Sens16Questionnaire; locale: Locale ; take?: boolean }) {
   const zh = locale === "zh", path = questionnairePath(locale, quiz.slug);
+  const engine = <Sens16Client quiz={quiz} locale={locale} readingProfiles={quiz.profiles.map(p => prepareResultProfile(quiz.slug, p))} />;
+  if (take) return engine;
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="sens16-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="sens16-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
@@ -25,7 +28,7 @@ export function Sens16Page({ quiz, locale }: { quiz: Sens16Questionnaire; locale
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
     <p className="mt-5 text-lg leading-8 text-slate-700">{quiz.description[locale]}</p>
     <div className="explore-intro-meta"><span>{zh ? "16条描述 · 约5分钟 · 不计时 · 18岁及以上 · 无需注册" : "16 prompts · About 5 minutes · Untimed · Ages 18+ · No signup"}</span><span>{zh ? "原创感官反应回顾 · 四篇完整读法免费" : "Original sensory response reflection · Four full guides free"}</span></div>
-    <Sens16Client quiz={quiz} locale={locale} readingProfiles={quiz.profiles.map(p => prepareResultProfile(quiz.slug, p))} />
+    <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4"><h2 className="text-2xl font-semibold">{sens16LandingSections[0].title[locale]}</h2><p className="leading-8">{quiz.introduction[locale]}</p>{sens16LandingSections[0].paragraphs.map((p,i)=><p className="leading-8" key={i}>{p[locale]}</p>)}</section>
     <section aria-labelledby="sens16-method" className="my-10 space-y-8"><h2 id="sens16-method" className="text-2xl font-semibold">{zh ? "题本、计分与使用边界" : "Edition, scoring and use"}</h2>{quiz.guide.map(s => <section key={s.id}><h3 className="text-xl font-semibold">{s.title[locale]}</h3>{s.paragraphs.map((p, i) => <p key={i} className="mt-3 leading-8">{p[locale]}</p>)}</section>)}</section>

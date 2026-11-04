@@ -8,7 +8,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { FunQuiz } from "@/lib/entertainment/types";
 import { resultPath } from "@/lib/entertainment/guides";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { FunQuizClient } from "./FunQuizClient";
+import { StoryTakeEntry } from "./StoryTakeEntry";
 import { choosingTogetherSections, choosingTogetherFaq } from "./ChoosingTogetherEditorial";
 
 function Copy({ text }: { text: string }) {
@@ -23,7 +23,7 @@ export function ChoosingTogetherPage({ quiz, locale }: { quiz: FunQuiz; locale: 
     <ExploreTestIntro slug={quiz.slug} locale={locale}>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.seo.description[locale]}</p>
       <div className="explore-intro-meta"><span>{zh ? "6题 · 约2分钟 · 无需注册" : "6 choices · About 2 minutes · No registration"}</span><span>{zh ? "原创共同选择情境 · 完整画像免费" : "Original shared-choice scenes · Full portraits free"}</span></div>
-      <FunQuizClient quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "For each imagined shared-choice scene, choose criteria, turns, a small trial or separate parts. Finish all six for the four counts and every highest tie. No correct answers, partner’s answers, entry agreement or saving step is required.", zh: "每个虚构共同选择场景，选择说清条件、轮流、小试或拆分部分。六题完成后查看四项次数与全部最高并列。没有标准答案，无需另一人作答，也不要求入口勾选或保存进度。" }} />
+      <StoryTakeEntry quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "For each imagined shared-choice scene, choose criteria, turns, a small trial or separate parts. Finish all six for the four counts and every highest tie. No correct answers, partner’s answers, entry agreement or saving step is required.", zh: "每个虚构共同选择场景，选择说清条件、轮流、小试或拆分部分。六题完成后查看四项次数与全部最高并列。没有标准答案，无需另一人作答，也不要求入口勾选或保存进度。" }} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="about-quiz"><h2 id="about-quiz" className="text-2xl font-semibold">{choosingTogetherSections[0].title[locale]}</h2>{choosingTogetherSections[0].paragraphs.map((p,i)=><p key={i}>{p[locale]}</p>)}<p>{quiz.introduction[locale]}</p><p>{quiz.focus[locale]}</p></section>
     <section className="explore-reading-library" aria-labelledby="choosing-together-methods"><h2 id="choosing-together-methods">{zh ? "四种共同选择方法、研究背景与结果读法" : "Four shared-choice approaches, research background and result readings"}</h2><div className="explore-reading-sections">{choosingTogetherSections.slice(1).map(s=><section className="explore-reading-section" key={s.id} aria-labelledby={`choosing-together-${s.id}`}><h3 id={`choosing-together-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p,i)=><p key={i}><Copy text={p[locale]} /></p>)}</div></section>)}</div></section>

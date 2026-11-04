@@ -1,3 +1,4 @@
+import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import { Fragment } from "react";
 import { focusContextSections, focusContextFaq } from "./FocusContextLandingEditorial";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
@@ -30,15 +31,17 @@ function ExistingExecutiveReading({ locale }: { locale: Locale }) {
     <ul className="space-y-3">{readings.map(r => <li key={r.id}><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, slug, r.id)}>{zh ? r.zh : r.en}</Link></li>)}</ul>
   </section>;
 }
-export function FocusContextPage({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
+export function FocusContextPage({ quiz, locale , take = false }: { quiz: Questionnaire; locale: Locale ; take?: boolean }) {
   const zh = locale === "zh", path = questionnairePath(locale, quiz.slug);
+  const engine = <FocusContextClient key={`${quiz.slug}:${locale}`} quiz={quiz} locale={locale} />;
+  if (take) return engine;
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="questionnaire-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
     <ExploreTestIntro slug={quiz.slug} locale={locale}>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.description[locale]}</p>
       <p className="explore-intro-meta">{zh ? "16条观察 · 约4分钟 · 无需注册 · 完整指南免费" : "16 observations · about 4 minutes · no signup · full guides free"}</p>
-      <FocusContextClient key={`${quiz.slug}:${locale}`} quiz={quiz} locale={locale} />
+      <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     </ExploreTestIntro>
     <FocusContextSupport locale={locale} />
     <section className="my-8 leading-8" aria-label={zh ? "原创作答说明" : "Original response instructions"}><p>{quiz.instructions![locale]}</p></section>

@@ -1,3 +1,4 @@
+import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import { Fragment } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -16,16 +17,18 @@ import { socialBatterySections, socialBatteryFaq, socialBatterySummaries } from 
 function Copy({ text }: { text: string }) {
   return <>{text.split(/(\[\d+\])/g).map((part, i) => /^\[\d+\]$/.test(part) ? <sup key={i}><a className="ml-1 underline" href={`#social-battery-reference-${part.slice(1, -1)}`}>{part}</a></sup> : <Fragment key={i}>{part}</Fragment>)}</>;
 }
-export function SocialBatteryPage({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
+export function SocialBatteryPage({ quiz, locale , take = false }: { quiz: Questionnaire; locale: Locale ; take?: boolean }) {
   if (quiz.slug !== "social-battery-test" || !isLikertConfigurationValid(quiz)) notFound();
   const zh = locale === "zh", path = questionnairePath(locale, quiz.slug);
+  const engine = <QuestionnaireClient quiz={quiz} locale={locale} />;
+  if (take) return engine;
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="questionnaire-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
     <ExploreTestIntro slug={quiz.slug} locale={locale}>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.description[locale]}</p>
       <div className="explore-intro-meta"><span>{zh ? "20题 · 约5分钟 · 无需注册" : "20 questions · About 5 minutes · No registration"}</span><span>{zh ? "四部分独立阅读 · 完整结果免费" : "Four separate readings · Full results free"}</span></div>
-      <QuestionnaireClient quiz={quiz} locale={locale} />
+      <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="social-battery-purpose"><h2 id="social-battery-purpose" className="text-2xl font-semibold">{socialBatterySections[0].title[locale]}</h2>{socialBatterySections[0].paragraphs.map((p, i) => <p key={i}><Copy text={p[locale]} /></p>)}<p>{quiz.introduction[locale]}</p></section>
     <section className="explore-reading-library" aria-labelledby="social-battery-methods"><h2 id="social-battery-methods">{zh ? "社交电量计分、情境与研究证据" : "Social battery scoring, context and research evidence"}</h2><div className="explore-reading-sections">{[...socialBatterySections.slice(1), ...quiz.guide.map(s => ({ ...s, id: `source-${s.id}` }))].map(s => <section key={s.id} className="explore-reading-section" aria-labelledby={`social-battery-method-${s.id}`}><h3 id={`social-battery-method-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p, i) => <p key={i}><Copy text={p[locale]} /></p>)}</div></section>)}</div></section>

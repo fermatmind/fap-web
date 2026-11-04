@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { wetonStoryEntryInstructions, WetonStoryAnsweringInstructions } from "./WetonStoryInstructions";
+import { useQuestionnaireTake } from "./QuestionnaireTakeContext";
 import type { ReactNode } from "react";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
@@ -13,7 +15,8 @@ const subscribeReady = () => () => {};
 const button = "min-h-12 rounded-lg border border-slate-300 px-5 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
 const capital = (s: string) => s[0].toUpperCase() + s.slice(1);
 
-export function WetonStory35Client({ quiz, locale, intro }: { quiz: Questionnaire; locale: Locale; intro?: ReactNode }) {
+export function WetonStory35Client({ quiz, locale, intro, calendarOnly = false }: { quiz: Questionnaire; locale: Locale; intro?: ReactNode; calendarOnly?: boolean }) {
+  const standalone = useQuestionnaireTake();
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false), zh = locale === "zh";
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({}), [position, setPosition] = useState(0);
   const [order, setOrder] = useState<Record<string, string[]>>({});
@@ -36,7 +39,7 @@ export function WetonStory35Client({ quiz, locale, intro }: { quiz: Questionnair
     <div ref={context} data-weton-story-flow className="scroll-mt-24">
       {stage === "welcome" && <><div className="flex flex-wrap gap-3"><button data-explore-start disabled={!ready} className={`${button} bg-violet-700 text-white`} onClick={() => reset("answer")}>{zh ? "开始测试" : "Start test"}</button></div>
         <h2 className="text-2xl font-semibold">{zh ? "开始35题原创故事选择" : "Start 35 original story choices"}</h2>
-        <p className="my-4 leading-8">{intro ? (zh ? "选择较想尝试的虚构贡献或关注。问卷无需生日，完成后完整保留所有最高并列组合；也可不作答，直接阅读35篇公开指南。" : "Choose a fictional contribution or focus you would like to try. No birthdate is required. Every highest-tied pairing remains complete, and all 35 public guides can be read without answering.") : quiz.instructions?.[locale]}</p>
+        <p className="my-4 leading-8">{intro ? wetonStoryEntryInstructions[locale] : quiz.instructions?.[locale]}</p>
         {!ready && <p role="status">{zh ? "正在准备测试…" : "Preparing the test…"}</p>}
 
       </>}
@@ -81,5 +84,7 @@ export function WetonStory35Client({ quiz, locale, intro }: { quiz: Questionnair
       </div>}
     </section>
   ;
-  return <>{intro ? <ExploreTestIntro slug={quiz.slug} locale={locale}>{intro}{story}</ExploreTestIntro> : story}{intro && <section className="my-8 space-y-4 leading-8" aria-labelledby="weton-answering"><h2 id="weton-answering">{zh ? "35题故事选择：完整作答说明" : "35 story choices: full answering instructions"}</h2><p>{quiz.instructions?.[locale]}</p><p data-weton-privacy className="rounded-lg bg-slate-50 p-4 text-sm leading-7">{zh ? "答案与可选日期只留当前页面内存，不保存进度、不发送测试流程统计、不分享个人结果。刷新或换语言重新开始；退出并清除会同时清除问卷和历法输入。" : "Answers and the optional date remain in this page’s memory. No saved draft, quiz-flow statistics or personal-result sharing. Refreshing or changing language starts fresh; Exit and clear discards both quiz and calendar inputs."}</p></section>}{calendarPanel}</>;
+  if (calendarOnly) return calendarPanel;
+  if (standalone) return story;
+  return <>{intro ? <ExploreTestIntro slug={quiz.slug} locale={locale}>{intro}{story}</ExploreTestIntro> : story}{intro && <WetonStoryAnsweringInstructions quiz={quiz} locale={locale} />}{calendarPanel}</>;
 }

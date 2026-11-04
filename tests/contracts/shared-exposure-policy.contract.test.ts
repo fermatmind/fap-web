@@ -26,6 +26,8 @@ describe("shared discoverability exposure policy", () => {
       "/payment/*",
       "/history/*",
       "/tests/*/take",
+      "/tests/explore/*/take",
+      "/tests/play/*/take",
     ]);
 
     for (const sample of [
@@ -33,6 +35,8 @@ describe("shared discoverability exposure policy", () => {
       "/en/account?section=reports",
       "/en/tests/mbti-personality-test-16-personality-types/take",
       "/zh/tests/mbti-personality-test-16-personality-types/take?step=1",
+      "/en/tests/explore/what-dog-breed-am-i/take",
+      "/zh/tests/play/story-ending/take?start=1",
       "/en/result/example",
       "/zh/results/lookup",
       "/en/orders/example",
@@ -51,6 +55,8 @@ describe("shared discoverability exposure policy", () => {
     for (const sample of [
       "/en/tests/mbti-personality-test-16-personality-types",
       "/zh/tests/mbti-personality-test-16-personality-types",
+      "/en/tests/explore/what-dog-breed-am-i",
+      "/zh/tests/play/story-ending",
       "/en/personality/intj-a",
       "/zh/topics/mbti",
       "/en/support",

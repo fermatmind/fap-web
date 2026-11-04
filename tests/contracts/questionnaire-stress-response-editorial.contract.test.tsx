@@ -1,3 +1,4 @@
+import { renderQuestionnaireTakeDom } from "@/tests/fixtures/questionnaires/renderQuestionnaireTake";
 import { expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import QuestionnairePage from "@/components/questionnaires/QuestionnairePage";
@@ -14,8 +15,8 @@ it("gives five stress-response observation notes and a context sequence their ow
 it("renders sixteen bilingual FAQ answers, all eight original methods and eight research chapters",async()=>{
  expect(catalog.find(q=>q.slug===raw.slug)?.description).toEqual(raw.description);
  const norm=(s:string)=>s.replace(/\[\d+\]/g,"").replace(/\s+/g," ").trim();
- for(const locale of ["en","zh"] as const){const d=document.createElement("div");d.innerHTML=renderToStaticMarkup(await QuestionnairePage({params:Promise.resolve({locale,slug:raw.slug})}));const body=norm(d.textContent??"");
- expect(d.querySelectorAll("h1")).toHaveLength(1);expect(d.querySelector("#take-test fieldset > button")?.hasAttribute("data-explore-start")).toBe(true);expect(d.querySelector("[data-entertainment-activity-opt-in] input")?.hasAttribute("checked")).toBe(false);
+ for(const locale of ["en","zh"] as const){const d=document.createElement("div");d.innerHTML=renderToStaticMarkup(await QuestionnairePage({params:Promise.resolve({locale,slug:raw.slug})}));const takeDom=await renderQuestionnaireTakeDom(locale,raw.slug);expect(takeDom.querySelectorAll('input[type="checkbox"][required],input[type="checkbox"]:checked')).toHaveLength(0);const body=norm(d.textContent??"");
+ expect(d.querySelectorAll("h1")).toHaveLength(1);expect(d.querySelector("#take-test form > button")?.hasAttribute("data-explore-start")).toBe(true);expect(takeDom.querySelector("[data-entertainment-activity-opt-in] input")?.hasAttribute("checked")).toBe(false);
  expect(d.querySelectorAll('[aria-labelledby="questionnaire-faq"]>section')).toHaveLength(16);
  expect(d.querySelectorAll('[aria-labelledby="questionnaire-results"]>ul>li')).toHaveLength(5);
  expect(d.querySelectorAll(".explore-reading-section")).toHaveLength(8);

@@ -1,3 +1,4 @@
+import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
@@ -15,8 +16,10 @@ function Source({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
   return <aside className="my-8 space-y-3 border-t pt-6 text-sm leading-7 text-slate-600"><p>{locale === "zh" ? "题块、主题与解释均为费马原创。下方出版方资料只用于说明正式工具的题式与常模背景，不是本站效度、题库许可或合作证明。" : "FermatMind created the blocks, topics and explanations. The publisher reference below documents the official formats and norming context; it does not validate, license or endorse this practice."}</p>{[...(quiz.references ?? []), ...mostLeastLandingReferences].map(r => <p key={r.url}><a className="underline" href={r.url} rel="noopener noreferrer">{r.title[locale]}</a></p>)}</aside>;
 }
 
-export function MostLeastPage({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
+export function MostLeastPage({ quiz, locale , take = false }: { quiz: Questionnaire; locale: Locale ; take?: boolean }) {
   const zh = locale === "zh", path = questionnairePath(locale, quiz.slug);
+  const engine = <MostLeastClient quiz={quiz} locale={locale} readingProfiles={quiz.profiles.map(profile => prepareResultProfile(quiz.slug, profile))} />;
+  if (take) return engine;
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="most-least-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="most-least-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
@@ -25,7 +28,7 @@ export function MostLeastPage({ quiz, locale }: { quiz: Questionnaire; locale: L
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
     <p className="mt-5 text-lg leading-8 text-slate-700">{quiz.description[locale]}</p>
     <div className="explore-intro-meta"><span>{zh ? "16组 · 64条原创陈述 · 约8分钟 · 不计时 · 无需注册" : "16 blocks · 64 original statements · About 8 minutes · Untimed · No signup"}</span><span>{zh ? "独立原创题式练习 · 八份完整读法免费" : "Independent original format practice · Eight full guides free"}</span></div>
-    <MostLeastClient quiz={quiz} locale={locale} readingProfiles={quiz.profiles.map(profile => prepareResultProfile(quiz.slug, profile))} />
+    <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4" aria-labelledby="most-least-purpose"><h2 id="most-least-purpose" className="text-2xl font-semibold">{mostLeastLandingSections[0].title[locale]}</h2><p className="leading-8">{quiz.introduction[locale]}</p>{mostLeastLandingSections[0].paragraphs.map((p, i) => <p className="leading-8" key={i}>{p[locale]}</p>)}</section>
     <section aria-labelledby="most-least-method" className="my-10 space-y-8"><h2 id="most-least-method" className="text-2xl font-semibold">{zh ? "题式、次数与使用说明" : "Format, counts and instructions"}</h2>{quiz.guide.map(s => <section key={s.id}><h3 className="text-xl font-semibold">{s.title[locale]}</h3>{s.paragraphs.map((p, i) => <p key={i} className="mt-3 leading-8">{p[locale]}</p>)}</section>)}</section>

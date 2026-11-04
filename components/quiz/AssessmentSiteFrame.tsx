@@ -8,6 +8,7 @@ import styles from "./AssessmentTake.module.css";
 
 import { FOCUSED_ASSESSMENT_SLUGS } from "@/lib/quiz/assessmentTakeUi";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
+import { parseQuestionnaireTakePath } from "@/lib/questionnaires/takePath";
 
 export function AssessmentSiteFrame({ children, header, footer, locale }: {
   children: ReactNode;
@@ -24,7 +25,9 @@ export function AssessmentSiteFrame({ children, header, footer, locale }: {
     return () => window.removeEventListener("storage", changed);
   }, []);
   const focusedSlug = FOCUSED_ASSESSMENT_SLUGS.find((slug) => pathname === localizedPath(`/tests/${slug}/take`, locale));
-  const focused = Boolean(focusedSlug) && isImmersiveSingleFlowEnabled();
+  const questionnaireTake = parseQuestionnaireTakePath(pathname);
+  const friendshipInvite = /^\/(?:en|zh)\/share\/friendship\/[a-f0-9-]+\/?$/i.test(pathname);
+  const focused = friendshipInvite || Boolean(questionnaireTake) || (Boolean(focusedSlug) && isImmersiveSingleFlowEnabled());
 
   if (pathname === localizedPath("/account", locale)) return <>{children}</>;
 
@@ -38,7 +41,7 @@ export function AssessmentSiteFrame({ children, header, footer, locale }: {
         <Link href={localizedPath("/", locale)} className={styles.wordmark}>
           {locale === "zh" ? "费马测试" : "FermatMind"}
         </Link>
-        <Link href={localizedPath(`/tests/${focusedSlug}`, locale)} className={styles.exitLink}>
+        <Link prefetch={questionnaireTake || friendshipInvite ? false : undefined} href={friendshipInvite ? localizedPath("/tests/play/friendship-quiz", locale) : questionnaireTake?.landing ?? localizedPath(`/tests/${focusedSlug}`, locale)} className={styles.exitLink}>
           {locale === "zh" ? "返回测评介绍" : "Back to assessment"}<span aria-hidden>↗</span>
         </Link>
       </header>

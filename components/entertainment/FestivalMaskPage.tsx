@@ -8,7 +8,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { FunQuiz } from "@/lib/entertainment/types";
 import { resultPath } from "@/lib/entertainment/guides";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { FunQuizClient } from "./FunQuizClient";
+import { StoryTakeEntry } from "./StoryTakeEntry";
 import { festivalMaskSections, festivalMaskFaq } from "./FestivalMaskEditorial";
 
 function Copy({ text }: { text: string }) {
@@ -23,7 +23,7 @@ export function FestivalMaskPage({ quiz, locale }: { quiz: FunQuiz; locale: Loca
     <ExploreTestIntro slug={quiz.slug} locale={locale}>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.seo.description[locale]}</p>
       <div className="explore-intro-meta"><span>{zh ? "6题 · 约2分钟 · 无需注册" : "6 choices · About 2 minutes · No registration"}</span><span>{zh ? "原创虚构装扮情境 · 完整画像免费" : "Original costume-design scenes · Full portraits free"}</span></div>
-      <FunQuizClient quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "Choose a costume detail for each invented festival scene: one small signal, a framed view or a paper-ribbon path. Answer all six for three raw counts and every highest complete portrait. No wearing, sound, upload, entry agreement, saving or prior test is required.", zh: "每个虚构节庆场景选一处装扮细节：小信号、景物视框或纸带路径。六题后查看三项原始次数与全部最高完整画像。无需佩戴、声音、上传、入口同意、保存或先做其他测试。" }} />
+      <StoryTakeEntry quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "Choose a costume detail for each invented festival scene: one small signal, a framed view or a paper-ribbon path. Answer all six for three raw counts and every highest complete portrait. No wearing, sound, upload, entry agreement, saving or prior test is required.", zh: "每个虚构节庆场景选一处装扮细节：小信号、景物视框或纸带路径。六题后查看三项原始次数与全部最高完整画像。无需佩戴、声音、上传、入口同意、保存或先做其他测试。" }} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="about-quiz"><h2 id="about-quiz" className="text-2xl font-semibold">{festivalMaskSections[0].title[locale]}</h2>{festivalMaskSections[0].paragraphs.map((p,i)=><p key={i}>{p[locale]}</p>)}<p>{quiz.introduction[locale]}</p><p>{quiz.focus[locale]}</p></section>
     <section className="explore-reading-library" aria-labelledby="festival-mask-methods"><h2 id="festival-mask-methods">{zh ? "三种装扮动作、透明计数与完整结果读法" : "Three costume actions, transparent counts and complete result readings"}</h2><div className="explore-reading-sections">{festivalMaskSections.slice(1).map(s=><section className="explore-reading-section" key={s.id} aria-labelledby={`festival-mask-${s.id}`}><h3 id={`festival-mask-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p,i)=><p key={i}><Copy text={p[locale]} /></p>)}</div></section>)}</div></section>

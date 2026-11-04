@@ -1,4 +1,8 @@
 "use client";
+import { useQuestionnaireTake } from "./QuestionnaireTakeContext";
+import { QuestionnaireTakeOptions } from "./QuestionnaireTakeOptions";
+import takeStyles from "@/components/quiz/AssessmentTake.module.css";
+import sessionStyles from "./QuestionnaireTake.module.css";
 
 import { questionnaireTrackingPayload } from "@/lib/questionnaires/tracking";
 import { QuestionnaireWelcome, questionnaireButtonClass as button } from "./QuestionnaireWelcome";
@@ -35,6 +39,7 @@ function subscribe(listener: () => void) {
 
 
 export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnEntry = false, resumeOnEntry = false, emitStartOnEntry = true, workRoleReadingProfiles, loveTypeReadingProfiles, mentalAgeReadingProfile, fds32ReadingProfiles, breakupReadingProfiles, parentingReadingProfiles }: { scoreQuestionnaire: typeof GeneralScorer; quiz: Questionnaire; locale: Locale; startOnEntry?: boolean; resumeOnEntry?: boolean; emitStartOnEntry?: boolean; workRoleReadingProfiles?: Questionnaire["profiles"]; loveTypeReadingProfiles?: Questionnaire["profiles"]; mentalAgeReadingProfile?: Questionnaire["profiles"][number]; fds32ReadingProfiles?: Questionnaire["profiles"]; breakupReadingProfiles?: Questionnaire["profiles"]; parentingReadingProfiles?: Questionnaire["profiles"] }) {
+  const standalone = useQuestionnaireTake();
   const readQuestionnaireDraft = useCallback((value: Questionnaire, raw: string | null) => readQuestionnaireDraftWithScorer(value, raw, scoreQuestionnaire), [scoreQuestionnaire]);
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const zh = locale === "zh", key = `fm_questionnaire_draft:${quiz.slug}`;
@@ -109,10 +114,10 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
 
   useEffect(() => {
     if (stage !== "welcome") {
-      heading.current?.focus();
-      (stage === "answer" ? questionContext.current : heading.current)?.scrollIntoView({ block: "start" });
+      heading.current?.focus({ preventScroll: standalone });
+      if (!standalone) (stage === "answer" ? questionContext.current : heading.current)?.scrollIntoView({ block: "start" });
     }
-  }, [position, stage, quiz.slug]);
+  }, [position, stage, quiz.slug, standalone]);
   useEffect(() => {
     if (stage === "result" && hasCompleteResult && !viewed.current) {
       viewed.current = true;
@@ -165,8 +170,9 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
     {quiz.slug === "relationship-values" && <span id="play" className="block scroll-mt-24" aria-hidden="true" />}
     {stage === "welcome" && <QuestionnaireWelcome quiz={quiz} locale={locale} ready={ready} hasDraft={Boolean(draft)} onStart={start} />}
     {stage === "answer" && question && <>
-      <p ref={questionContext} className="mb-3 text-sm scroll-mt-24">{zh ? `第${position + 1}题，共${quiz.questions.length}题` : `Question ${position + 1} of ${quiz.questions.length}`}</p>
+      {standalone ? <div className={sessionStyles.progress}><div className={takeStyles.progressMeta}><p ref={questionContext}>{zh ? `第 ${position + 1} 题 / 共 ${quiz.questions.length} 题` : `Question ${position + 1} of ${quiz.questions.length}`}</p><span className={takeStyles.percent}>{Math.round(Object.keys(answers).length / quiz.questions.length * 100)}%</span></div><progress aria-label={zh ? "已作答题数" : "Questions answered"} max={quiz.questions.length} value={Object.keys(answers).length} className="w-full" /></div> : <>      <p ref={questionContext} className="mb-3 text-sm scroll-mt-24">{zh ? `第${position + 1}题，共${quiz.questions.length}题` : `Question ${position + 1} of ${quiz.questions.length}`}</p>
       <progress aria-label={zh ? "已作答题数" : "Questions answered"} max={quiz.questions.length} value={Object.keys(answers).length} className="mb-5 w-full accent-violet-700" />
+</>}
       {quiz.kind === "tipi10" && <p className="mb-3 leading-7">{zh ? "总体上，我认为自己：请评价这对特质整体符合的程度，即使其中一项更符合。" : "I see myself as: rate the pair overall, even if one trait applies more strongly than the other."}</p>}
       <h2 ref={heading} tabIndex={-1} className="text-xl font-semibold leading-8 outline-none scroll-mt-24">{(quiz.slug === "java-test" || quiz.slug === "javascript-test" || quiz.slug === "python-test" || quiz.slug === "sql-test") ? question.prompt[locale].split("\n\n")[0] : question.prompt[locale]}</h2>
       {quiz.slug === "java-test" && <QuestionnaireJavaCode code={question.prompt[locale].split("\n\n").slice(1).join("\n\n")} locale={locale} number={position + 1} />}
@@ -174,10 +180,10 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
       {quiz.slug === "python-test" && <QuestionnairePythonCode code={question.prompt[locale].split("\n\n").slice(1).join("\n\n")} locale={locale} number={position + 1} />}
       {quiz.slug === "sql-test" && <QuestionnaireSqlCode code={question.prompt[locale].split("\n\n").slice(1).join("\n\n")} locale={locale} number={position + 1} />}
       {requiresStimulus && <QuestionnaireInkblotStimulus key={question.id} stimulus={getInkblotStimulus(question.id)} locale={locale} onAvailabilityChange={available => setLoadedStimulusId(available ? question.id : null)} />}
-      <fieldset className="mt-5 space-y-3"><legend className="sr-only">{(quiz.slug === "java-test" || quiz.slug === "javascript-test" || quiz.slug === "python-test" || quiz.slug === "sql-test") ? question.prompt[locale].split("\n\n")[0] : question.prompt[locale]}</legend>{question.options.map(option => <label key={option.id} className="flex min-h-12 cursor-pointer items-start gap-3 rounded-lg border border-slate-300 p-4 has-[:checked]:border-violet-700 has-[:checked]:bg-violet-50">
+      {standalone ? <QuestionnaireTakeOptions questionId={question.id} prompt={(quiz.slug === "java-test" || quiz.slug === "javascript-test" || quiz.slug === "python-test" || quiz.slug === "sql-test") ? question.prompt[locale].split("\n\n")[0] : question.prompt[locale]} options={question.options.map(option => ({ id: option.id, unscored: option.score === null, label: <>{option.label[locale]}{quiz.slug === "color-season" && option.paletteSwatches && <QuestionnairePaletteSwatches swatches={option.paletteSwatches} locale={locale} showLabels={false} />}</> }))} value={answers[question.id]} scale={quiz.kind === "likert" || quiz.kind === "tipi10"} positiveLast onChange={id => { if (submitted.current) return; const next = { ...answers, [question.id]: id }; setAnswers(next); setMessage(""); persist(next, saving); }} /> :       <fieldset className="mt-5 space-y-3"><legend className="sr-only">{(quiz.slug === "java-test" || quiz.slug === "javascript-test" || quiz.slug === "python-test" || quiz.slug === "sql-test") ? question.prompt[locale].split("\n\n")[0] : question.prompt[locale]}</legend>{question.options.map(option => <label key={option.id} className="flex min-h-12 cursor-pointer items-start gap-3 rounded-lg border border-slate-300 p-4 has-[:checked]:border-violet-700 has-[:checked]:bg-violet-50">
         <input type="radio" className="mt-1 size-5 shrink-0 accent-violet-700" name={question.id} value={option.id} checked={answers[question.id] === option.id} onChange={() => { if (submitted.current) return; const next = { ...answers, [question.id]: option.id }; setAnswers(next); setMessage(""); persist(next, saving); }} /><span className={`min-w-0 leading-7 [overflow-wrap:anywhere]${quiz.slug === "color-season" ? " flex-1" : ""}`}>{option.label[locale]}{quiz.slug === "color-season" && option.paletteSwatches && <QuestionnairePaletteSwatches swatches={option.paletteSwatches} locale={locale} showLabels={false} />}</span>
-      </label>)}</fieldset>
-      <div className="mt-6 flex flex-wrap gap-3"><button className={button} disabled={position === 0} onClick={() => { setLoadedStimulusId(null); setPosition(position - 1); setMessage(""); }}>{zh ? "上一题" : "Back"}</button><button className={`${button} bg-violet-700 text-white`} disabled={requiresStimulus && loadedStimulusId !== question.id} onClick={advance}>{position === quiz.questions.length - 1 ? (zh ? "查看完整结果" : "See full result") : (zh ? "下一题" : "Next")}</button></div>
+      </label>)}</fieldset>}
+      <div className={standalone ? sessionStyles.actions : "mt-6 flex flex-wrap gap-3"}><button className={button} disabled={position === 0} onClick={() => { setLoadedStimulusId(null); setPosition(position - 1); setMessage(""); }}>{zh ? "上一题" : "Back"}</button><button className={`${button} bg-violet-700 text-white`} disabled={requiresStimulus && loadedStimulusId !== question.id} onClick={advance}>{position === quiz.questions.length - 1 ? (zh ? "查看完整结果" : "See full result") : (zh ? "下一题" : "Next")}</button></div>
       <label className="mt-6 flex items-start gap-3 text-sm leading-7 text-slate-600"><input type="checkbox" className="mt-1 size-5 shrink-0" checked={saving} onChange={event => { setSaving(event.target.checked); if (event.target.checked) persist(answers, true); else clear(); }} /><span>{zh ? "在本标签页临时保存进度，刷新或换语言后可主动恢复；24小时后失效，完成、清除或重测即删除。" : "Save progress in this tab so I can resume after a refresh or language change. It expires after 24 hours and clears on completion, exit-and-clear or retake."}</span></label>
       <button className="mt-3 min-h-11 text-sm underline" onClick={() => { clear(); setAnswers({}); setSaving(false); setStage("welcome"); setMessage(""); }}>{zh ? "退出并清除本次进度" : "Exit and clear this attempt"}</button>
     </>}

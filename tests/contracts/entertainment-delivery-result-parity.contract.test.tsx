@@ -35,11 +35,11 @@ function mountedGenericClient(node: ReactNode): { quiz: Questionnaire; [key:stri
   return mountedGenericClient(node.props.children);
 }
 
-it.each(['en','zh'] as const)('actual %s generic entry calls retain the current prepared question and result authority', async locale => {
+it.each(['en','zh'] as const)('actual %s generic take calls retain the current prepared question and result authority', async locale => {
   const { default: page } = await import('@/components/questionnaires/QuestionnairePage');
   const checked: string[] = [];
   for (const item of catalog) {
-    const props = mountedGenericClient(await page({ params:Promise.resolve({locale,slug:item.slug}) }));
+    const props = mountedGenericClient(await page({ params:Promise.resolve({locale,slug:item.slug}), take:true }));
     if (!props) continue;
     const source = await loadQuestionnaire(item.slug);
     if (!source) throw new Error(`Missing source: ${item.slug}`);

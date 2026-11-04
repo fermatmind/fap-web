@@ -8,7 +8,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { FunQuiz } from "@/lib/entertainment/types";
 import { resultPath } from "@/lib/entertainment/guides";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { FunQuizClient } from "./FunQuizClient";
+import { StoryTakeEntry } from "./StoryTakeEntry";
 import { gardenSeasonSections, gardenSeasonFaq } from "./GardenSeasonEditorial";
 
 function Copy({ text }: { text: string }) {
@@ -23,7 +23,7 @@ export function GardenSeasonPage({ quiz, locale }: { quiz: FunQuiz; locale: Loca
     <ExploreTestIntro slug={quiz.slug} locale={locale}>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.seo.description[locale]}</p>
       <div className="explore-intro-meta"><span>{zh ? "6题 · 约2分钟 · 无需注册" : "6 choices · About 2 minutes · No registration"}</span><span>{zh ? "原创想象花园情境 · 完整画像免费" : "Original garden scenes · Full portraits free"}</span></div>
-      <FunQuizClient quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "Imagine each garden scene and choose the kind of attention you would enjoy giving it now. There are no correct answers or planting tasks. Complete all six to read the three counts and every highest full portrait.", zh: "想象每个花园场景，选择此刻愿意给它的关注方式。没有正确答案，也不需实际种植。答完六题查看三项次数与全部最高完整画像。" }} />
+      <StoryTakeEntry quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "Imagine each garden scene and choose the kind of attention you would enjoy giving it now. There are no correct answers or planting tasks. Complete all six to read the three counts and every highest full portrait.", zh: "想象每个花园场景，选择此刻愿意给它的关注方式。没有正确答案，也不需实际种植。答完六题查看三项次数与全部最高完整画像。" }} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="about-quiz"><h2 id="about-quiz" className="text-2xl font-semibold">{gardenSeasonSections[0].title[locale]}</h2>{gardenSeasonSections[0].paragraphs.map((p,i)=><p key={i}>{p[locale]}</p>)}<p>{quiz.introduction[locale]}</p><p>{quiz.focus[locale]}</p></section>
     <section className="explore-reading-library" aria-labelledby="garden-season-methods"><h2 id="garden-season-methods">{zh ? "春、夏与冬的故事意象：计分及完整读法" : "Spring, summer and winter imagery: counts and complete readings"}</h2><div className="explore-reading-sections">{gardenSeasonSections.slice(1).map(s=><section className="explore-reading-section" key={s.id} aria-labelledby={`garden-season-${s.id}`}><h3 id={`garden-season-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p,i)=><p key={i}><Copy text={p[locale]} /></p>)}</div></section>)}</div></section>

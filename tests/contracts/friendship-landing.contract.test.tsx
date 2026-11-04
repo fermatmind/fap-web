@@ -1,6 +1,7 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import Page, { generateMetadata } from "@/app/(localized)/[locale]/tests/play/friendship-quiz/page";
+import TakePage from "@/app/(localized)/[locale]/tests/play/friendship-quiz/take/page";
 import { PublicResource } from "@/components/friendship/PublicContent";
 
 vi.mock("@/components/friendship/FriendshipClient", () => ({ default: ({ locale }: { locale: string }) => <div data-testid="live-game" data-locale={locale}>Live game</div> }));
@@ -11,10 +12,12 @@ describe("friendship search intent and one canonical tool", () => {
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com");
     const { container } = render(await Page({ params: Promise.resolve({ locale }) }));
     expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
-    expect(screen.getAllByTestId("live-game")).toHaveLength(1);
-    expect(screen.getByTestId("live-game")).toHaveAttribute("data-locale", locale);
+    expect(screen.queryByTestId("live-game")).toBeNull();
+    const take = render(await TakePage({ params: Promise.resolve({ locale }) }));
+    expect(take.container.querySelectorAll('[data-testid="live-game"]')).toHaveLength(1);
+    expect(take.container.querySelector('[data-testid="live-game"]')).toHaveAttribute("data-locale", locale);
     expect(container.querySelectorAll('#create')).toHaveLength(1);
-    expect(container.querySelectorAll('a[href="#create"]')).toHaveLength(3);
+    expect(container.querySelectorAll(`a[href="/${locale}/tests/play/friendship-quiz/take"]`)).toHaveLength(3);
     const links = Array.from(container.querySelectorAll('a[href]'), a => a.getAttribute("href"));
     for (const path of ["questions", "how-to-play", "scores"]) expect(links).toContain(`/${locale}/tests/play/friendship-quiz/${path}`);
     expect(links.some(path => /\/bff-test|\/who-knows-me-best|\/friendship-quiz-maker/.test(path ?? ""))).toBe(false);
@@ -51,7 +54,7 @@ describe("friendship search intent and one canonical tool", () => {
     expect(comparison.textContent).toContain(locale === "en" ? "no import" : "不能直接导入");
     expect(comparison.textContent).toContain(locale === "en" ? "Another device may still repeat" : "换设备仍可能重复");
     const links = Array.from(comparison.querySelectorAll("a"), a => a.getAttribute("href"));
-    expect(comparison.querySelector('a.fq-primary')).toHaveAttribute("href", "#create");
+    expect(comparison.querySelector('a.fq-primary')).toHaveAttribute("href", `/${locale}/tests/play/friendship-quiz/take`);
     for (const path of ["/questions", "/how-to-play", "/scores"]) expect(links).toContain(`/${locale}/tests/play/friendship-quiz${path}`);
     expect(links).toContain("https://rikaido.me/en/guide.html");
     expect(links).toContain("https://rikaido.me/en/lab/read-results/");

@@ -8,7 +8,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { FunQuiz } from "@/lib/entertainment/types";
 import { resultPath } from "@/lib/entertainment/guides";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { FunQuizClient } from "./FunQuizClient";
+import { StoryTakeEntry } from "./StoryTakeEntry";
 import { birdwatchingSections, birdwatchingFaq } from "./BirdwatchingEditorial";
 
 function Copy({ text }: { text: string }) {
@@ -23,7 +23,7 @@ export function BirdwatchingPage({ quiz, locale }: { quiz: FunQuiz; locale: Loca
     <ExploreTestIntro slug={quiz.slug} locale={locale}>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.seo.description[locale]}</p>
       <div className="explore-intro-meta"><span>{zh ? "6题 · 约2分钟 · 无需注册" : "6 choices · About 2 minutes · No registration"}</span><span>{zh ? "原创观鸟同行 · 完整画像免费" : "Original birdwatching scenes · Full portraits free"}</span></div>
-      <FunQuizClient quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "Choose how you would participate in each imagined scene: wait, record or help someone locate the view. There are no right answers. Finish six questions to see all counts and highest ties; no saving choice or prior test is required.", zh: "每个想象场景选更想采用的参与方式：等待、记录或帮同伴找到视野。没有标准答案。六题完成后查看全部次数与最高并列；无需保存或先做其他测试。" }} />
+      <StoryTakeEntry quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "Choose how you would participate in each imagined scene: wait, record or help someone locate the view. There are no right answers. Finish six questions to see all counts and highest ties; no saving choice or prior test is required.", zh: "每个想象场景选更想采用的参与方式：等待、记录或帮同伴找到视野。没有标准答案。六题完成后查看全部次数与最高并列；无需保存或先做其他测试。" }} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="about-quiz"><h2 id="about-quiz" className="text-2xl font-semibold">{birdwatchingSections[0].title[locale]}</h2>{birdwatchingSections[0].paragraphs.map((p,i)=><p key={i}>{p[locale]}</p>)}<p>{quiz.introduction[locale]}</p><p>{quiz.focus[locale]}</p></section>
     <section className="explore-reading-library" aria-labelledby="birdwatching-companion-methods"><h2 id="birdwatching-companion-methods">{zh ? "同行方式、观察记录与结果读法" : "Companion styles, observation records and result readings"}</h2><div className="explore-reading-sections">{birdwatchingSections.slice(1).map(s=><section className="explore-reading-section" key={s.id} aria-labelledby={`birdwatching-companion-${s.id}`}><h3 id={`birdwatching-companion-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p,i)=><p key={i}><Copy text={p[locale]} /></p>)}</div></section>)}</div></section>

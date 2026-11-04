@@ -1,5 +1,41 @@
 import { test, expect } from "@playwright/test";
 import quiz from "../../lib/questionnaires/data/cognitive-functions-test.json";
+import disc from "../../lib/questionnaires/data/disc.json";
+import jung from "../../lib/questionnaires/jung56Bank.json";
+
+const selectedChunks = { ratings32: new Set<string>(), paired56: new Set<string>(), disc: new Set<string>() };
+function englishProbe(value: unknown): string | null {
+  if (!value || typeof value !== "object") return null;
+  const object = value as Record<string, unknown>;
+  if (typeof object.en === "string") {
+    const match = object.en.match(/[A-Za-z][A-Za-z ,]{25,}/);
+    if (match) return match[0];
+  }
+  for (const child of Object.values(object)) { const found = englishProbe(child); if (found) return found; }
+  return null;
+}
+
+// Find the current build's real edition assets; never abort the new document's bootstrap.
+test.beforeAll(async ({ browser, baseURL }) => {
+  for (const method of ["ratings32", "paired56", "disc"] as const) {
+    const probe = englishProbe(method === "disc" ? disc.questions[0] : method === "ratings32" ? quiz.questions[0] : jung.questions[0]);
+    expect(probe).not.toBeNull();
+    const context = await browser.newContext({ baseURL });
+    try {
+      const page = await context.newPage(), reads: Promise<void>[] = [];
+      await page.addInitScript(() => localStorage.setItem("fm_consent_v1", JSON.stringify({ analytics: "denied", updatedAt: new Date().toISOString() })));
+      page.on("response", response => {
+        if (response.request().resourceType() !== "script") return;
+        reads.push(response.text().then(body => { if (body.includes(probe!)) selectedChunks[method].add(new URL(response.url()).pathname); }).catch(() => {}));
+      });
+      await page.goto(method === "disc" ? "/en/tests/explore/disc/take?start=1" : `/en/tests/explore/cognitive-functions-test/take?edition=${method}&start=1`);
+      await expect(page.getByRole("radio").first()).toBeVisible();
+      await page.waitForLoadState("networkidle");
+      await Promise.all(reads);
+      expect(selectedChunks[method].size).toBeGreaterThan(0);
+    } finally { await context.close(); }
+  }
+});
 
 for (const locale of ["en", "zh"] as const) {
   test(`@release cognitive ${locale}: retry interrupted edition and result chunks without losing answers`, async ({ page }) => {
@@ -11,7 +47,7 @@ for (const locale of ["en", "zh"] as const) {
     await expect(edition).toBeEnabled();
     let interrupted = 0;
     const chunks = "**/_next/static/chunks/*.js";
-    await page.route(chunks, route => { interrupted++; return route.abort("failed"); });
+    await page.route(chunks, route => { if (selectedChunks["ratings32"].has(new URL(route.request().url()).pathname)) { interrupted++; return route.abort("failed"); } return route.continue(); });
     await edition.click();
     await expect(page.locator("[data-cognitive-versions]").getByRole("alert")).toContainText(zh ? "加载失败" : "could not load");
     expect(interrupted).toBeGreaterThan(0);
@@ -48,7 +84,7 @@ for (const locale of ["en", "zh"] as const) {
     await expect(edition).toBeEnabled();
     const chunks = "**/_next/static/chunks/*.js";
     let interrupted = 0;
-    await page.route(chunks, route => { interrupted++; return route.abort("failed"); });
+    await page.route(chunks, route => { if (selectedChunks.paired56.has(new URL(route.request().url()).pathname)) { interrupted++; return route.abort("failed"); } return route.continue(); });
     await edition.click();
     await expect(page.locator("[data-cognitive-versions]").getByRole("alert")).toContainText(zh ? "加载失败" : "could not load");
     expect(interrupted).toBeGreaterThan(0);
@@ -72,7 +108,7 @@ for (const locale of ["en", "zh"] as const) {
     await page.goto(`/${locale}/tests/explore/disc`);
     await expect(page.locator("[data-explore-start]")).toBeEnabled();
     let interrupted = 0;
-    await page.route(chunks, route => { interrupted++; return route.abort("failed"); });
+    await page.route(chunks, route => { if (selectedChunks.disc.has(new URL(route.request().url()).pathname)) { interrupted++; return route.abort("failed"); } return route.continue(); });
     await page.locator("[data-explore-start]").click();
     await expect(failure).toContainText(zh ? "加载失败" : "could not load");
     expect(interrupted).toBeGreaterThan(0);
@@ -86,7 +122,7 @@ for (const locale of ["en", "zh"] as const) {
     await page.reload();
     const resume = page.getByRole("button", { name: zh ? "恢复本标签页进度" : "Resume this tab's progress", exact: true });
     await expect(resume).toBeVisible();
-    await page.route(chunks, route => route.abort("failed"));
+    await page.route(chunks, route => selectedChunks.disc.has(new URL(route.request().url()).pathname) ? route.abort("failed") : route.continue());
     await resume.click(); await expect(failure).toBeVisible();
     expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:disc"))).toBe(saved);
     await page.locator("[data-disc-prepare-return]").click();

@@ -44,7 +44,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/layout/Container";
-import { FunQuizClient } from "@/components/entertainment/FunQuizClient";
+import { StoryTakeEntry } from "@/components/entertainment/StoryTakeEntry";
 import { JsonLd } from "@/components/seo/JsonLd";
 import catalog from "@/lib/entertainment/catalog.json";
 import { loadFunQuiz } from "@/lib/entertainment/loaders";
@@ -200,7 +200,7 @@ async function FunQuizContent({ params }: Props) {
             ? `${questionCount} 题 · 约 ${quiz.minutes} 分钟 · 无需注册或先做其他测试`
             : `${questionCount} questions · about ${quiz.minutes} minutes · no signup or prerequisite test`}
         </p>
-        <FunQuizClient quiz={quiz} locale={locale} />
+        <StoryTakeEntry quiz={quiz} locale={locale} />
         <section
           className="my-8 space-y-4 leading-8"
           aria-labelledby="about-quiz"

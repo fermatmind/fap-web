@@ -1,3 +1,4 @@
+import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import { sbti31LandingSections, sbti31LandingFaq, sbti31LandingReferences } from "./Sbti31LandingEditorial";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import Link from "next/link";
@@ -18,15 +19,17 @@ function Method({ quiz, locale }: { quiz: Sbti31Questionnaire; locale: Locale })
 function GuideList({ quiz, locale, exclude }: { quiz: Sbti31Questionnaire; locale: Locale; exclude?: string }) {
   return <section id="sbti31-guides" className="my-10 scroll-mt-24" aria-labelledby="sbti31-guides-heading"><h2 id="sbti31-guides-heading" className="text-2xl font-semibold">{locale === "zh" ? "全部25种原版结果说明" : "All 25 original result guides"}</h2><p className="my-4 leading-8">{locale === "zh" ? "作答前也可完整阅读；这些公开页面不含任何个人答卷或分数。" : "Read every guide before answering. These public pages contain no personal answers or scores."}</p><ul className="sbti31-public-grid">{quiz.profiles.filter(p => p.id !== exclude).map(p => <li key={p.id} className="rounded-xl border bg-white p-5"><Link prefetch={false} className="inline-block min-h-11 py-2 text-xl font-semibold underline" href={questionnaireGuidePath(locale, quiz.slug, p.id)}>{p.title[locale]}</Link><p className="mt-2 leading-8">{p.summary[locale]}</p></li>)}</ul></section>;
 }
-export function Sbti31Page({ quiz, locale }: { quiz: Sbti31Questionnaire; locale: Locale }) {
+export function Sbti31Page({ quiz, locale , take = false }: { quiz: Sbti31Questionnaire; locale: Locale ; take?: boolean }) {
   const zh = locale === "zh", path = questionnairePath(locale, quiz.slug);
+  const engine = <QuestionnaireSbti31Client quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
+  if (take) return engine;
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="sbti31-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="sbti31-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
     <ExploreTestIntro slug={quiz.slug} locale={locale}>
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{zh ? <><span className="inline-block">{quiz.title.zh.split("：")[0]}：</span><span className="inline-block">{quiz.title.zh.split("：").slice(1).join("：")}</span></> : quiz.title.en}</h1><p className="mt-5 text-lg leading-8">{quiz.description[locale]}</p>
     <div className="explore-intro-meta"><span>{zh ? "原31题 · 约6分钟 · 不计时 · 无需注册" : "31 original questions · About 6 minutes · Untimed · No signup"}</span><span>{zh ? "25种趣味画像 · 完整结果免费" : "25 playful portraits · Full results free"}</span></div>
-    <QuestionnaireSbti31Client quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />
+    <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4"><h2 className="text-2xl font-semibold">{sbti31LandingSections[0].title[locale]}</h2><p className="leading-8">{quiz.introduction[locale]}</p>{sbti31LandingSections[0].paragraphs.map((p,i)=><p className="leading-8" key={i}>{p[locale]}</p>)}</section>
     <Method quiz={quiz} locale={locale} /><GuideList quiz={quiz} locale={locale} />

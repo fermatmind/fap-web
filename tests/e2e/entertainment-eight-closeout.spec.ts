@@ -33,6 +33,7 @@ for(const locale of ['en','zh'] as const){
   const owner=await c.newPage(),friend=await f.newPage();let id:string|undefined;let ownerKey:string|undefined;
   try{
    await owner.goto(`${baseURL}/${locale}/tests/play/friendship-quiz`);
+   await owner.locator("[data-explore-start]").click();
    await owner.locator('#fq-name').fill('Local creator');await owner.locator('input[name="length"][value="30"]').check();
    await owner.getByRole('button',{name:zh?'开始出题 →':'Start my quiz →',exact:true}).click();
    for(let i=0;i<30;i++){await owner.locator('.fq-options input').first().check();await owner.getByRole('button',{name:i===29?(zh?'检查答案':'Review answers'):(zh?'下一题':'Next'),exact:true}).click();}

@@ -26,7 +26,7 @@ for (const locale of ["en", "zh"] as const) {
     page.on("request", r => { if (/WC_(REF|MEM|PRI|MAP|SUM)_|FM-WC-|"answers"/.test((r.postData() ?? "") + new URL(r.url()).search)) leaks.push(r.url()); });
     await page.addInitScript(() => Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw Error("synthetic clipboard denial"); } } }));
     await page.goto(`/${locale}/tests`); await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]); await expect(page.locator("[data-written-unattempted]")).toHaveCount(6);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]); await page.locator("[data-explore-start]").click(); await expect(page.locator("[data-written-unattempted]")).toHaveCount(6);
     await expect(page.locator("[data-written-full-guide]")).toHaveCount(6);
     for (const p of quiz.profiles) for (const s of p.sections) for (const text of s.paragraphs) await expect(page.locator(`[data-written-full-guide="${p.id}"]`)).toContainText(text[locale]);
     const checkContext = async (part: string) => {
@@ -63,7 +63,7 @@ for (const locale of ["en", "zh"] as const) {
 
   test(`@release written coordination ${locale}: real60-second entry, exact fields, correction and background clearing`, async ({ page }) => {
     test.setTimeout(120000);
-    await page.setViewportSize({ width: 390, height: 844 }); await page.goto(path(locale));
+    await page.setViewportSize({ width: 390, height: 844 }); await page.goto(`${path(locale)}/take`);
     await page.locator('[data-written-start="entry"]').click();
     await expect(page.locator("#written-entry-card")).toBeEnabled();
     const started = Date.now();
@@ -90,7 +90,7 @@ for (const locale of ["en", "zh"] as const) {
   });
 
   test(`@release written coordination ${locale}: emulated exposure removal, expiry, drift rejection and deadline-before-input`, async ({ page }) => {
-    await page.goto(path(locale)); await page.clock.install(); await openModule(page, locale, "memory", "timed");
+    await page.goto(`${path(locale)}/take`); await page.clock.install(); await openModule(page, locale, "memory", "timed");
     await expect(page.locator("[data-written-memory-study]")).toBeVisible(); await expect(page.locator("#written-active-question")).toHaveCount(0);
     await page.clock.fastForward(15001); await expect(page.locator("[data-written-memory-study]")).toHaveCount(0); await expect(page.locator("[data-written-exposure]")).toBeVisible();
     const q = quiz.questions.find(q => q.options[0].directionId === "memory")!; await page.locator(`input[name="${q.id}"][value="${q.correctOptionId}"]`).check();

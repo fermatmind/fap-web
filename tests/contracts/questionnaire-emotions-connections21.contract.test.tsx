@@ -87,7 +87,9 @@ describe("Original emotions and connections descriptions without scores or clini
       const html = renderToStaticMarkup(<EmotionsConnectionsPage quiz={quiz} locale={locale} />);
       expect((html.match(/data-emotions-connections-full-guide=/g) ?? [])).toHaveLength(7);
       const dom = document.createElement("div"); dom.innerHTML = html; expect(dom.querySelector("[data-emotions-connections-result]")).toBeNull();
-      expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(true);
+      expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(false);
+      expect(dom.querySelector("#take-test button")?.closest("form")?.getAttribute("action")).toBe(`/${locale}/tests/explore/${quiz.slug}/take`);
+      expect(dom.querySelectorAll('#take-test input:not([type="hidden"])')).toHaveLength(0);
       for (const p of quiz.profiles) {
         const guide = renderToStaticMarkup(<EmotionsConnectionsGuidePage quiz={quiz} profile={p} locale={locale} />);
         expect(guide).toContain("data-emotions-connections-support");

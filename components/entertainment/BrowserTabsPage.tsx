@@ -8,7 +8,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { FunQuiz } from "@/lib/entertainment/types";
 import { resultPath } from "@/lib/entertainment/guides";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { FunQuizClient } from "./FunQuizClient";
+import { StoryTakeEntry } from "./StoryTakeEntry";
 import { browserTabsSections, browserTabsFaq } from "./BrowserTabsEditorial";
 
 function Copy({ text }: { text: string }) {
@@ -23,7 +23,7 @@ export function BrowserTabsPage({ quiz, locale }: { quiz: FunQuiz; locale: Local
     <ExploreTestIntro slug={quiz.slug} locale={locale}>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.seo.description[locale]}</p>
       <div className="explore-intro-meta"><span>{zh ? "6题 · 约2分钟 · 无需注册" : "6 choices · About 2 minutes · No registration"}</span><span>{zh ? "原创休闲浏览情境 · 完整画像免费" : "Original casual-browsing scenes · Full portraits free"}</span></div>
-      <FunQuizClient quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "For each fictional browsing scene, choose what you would keep: a question, one small trial or an optional interest shelf. There are no right answers. Finish six questions to see all counts and highest ties; no real links, history access or saving choice is required.", zh: "每个虚构浏览场景，选择更想留住的用途：一个问题、一次小试或可选兴趣架。没有标准答案。六题完成后查看全部次数与最高并列；无需真实链接、历史权限或保存选择。" }} />
+      <StoryTakeEntry quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "For each fictional browsing scene, choose what you would keep: a question, one small trial or an optional interest shelf. There are no right answers. Finish six questions to see all counts and highest ties; no real links, history access or saving choice is required.", zh: "每个虚构浏览场景，选择更想留住的用途：一个问题、一次小试或可选兴趣架。没有标准答案。六题完成后查看全部次数与最高并列；无需真实链接、历史权限或保存选择。" }} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="about-quiz"><h2 id="about-quiz" className="text-2xl font-semibold">{browserTabsSections[0].title[locale]}</h2>{browserTabsSections[0].paragraphs.map((p,i)=><p key={i}>{p[locale]}</p>)}<p>{quiz.introduction[locale]}</p><p>{quiz.focus[locale]}</p></section>
     <section className="explore-reading-library" aria-labelledby="browser-tabs-methods"><h2 id="browser-tabs-methods">{zh ? "页面用途、研究背景与结果读法" : "Page functions, research background and result readings"}</h2><div className="explore-reading-sections">{browserTabsSections.slice(1).map(s=><section className="explore-reading-section" key={s.id} aria-labelledby={`browser-tabs-${s.id}`}><h3 id={`browser-tabs-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p,i)=><p key={i}><Copy text={p[locale]} /></p>)}</div></section>)}</div></section>

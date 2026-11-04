@@ -201,10 +201,10 @@ export function trackLandingPageView(properties: AnalyticsProperties = {}): void
   const questionnaire = (routeLocale === "en" || routeLocale === "zh") && family === "tests" && (collection === "explore" || collection === "play")
     ? questionnaires.find(quiz => quiz.slug === quizSlug && quiz.collection === collection) : undefined;
   const isQuestionnaireGuide = Boolean(questionnaire && remaining.length === 2 && remaining[0] === "results" && questionnaire.resultSlugs.includes(remaining[1]));
-  const isQuestionnaireEntry = Boolean(questionnaire && (remaining.length === 0 || isQuestionnaireGuide));
+  const isQuestionnaireEntry = Boolean(questionnaire && (remaining.length === 0 || (remaining.length === 1 && remaining[0] === "take") || isQuestionnaireGuide));
   const isEntertainmentGuide = remaining.length === 2 && remaining[0] === "results" && /^[a-z]+(?:-[a-z]+)*$/.test(remaining[1]);
   const isEntertainmentEntry = (routeLocale === "en" || routeLocale === "zh")
-    && family === "tests" && collection === "play" && (remaining.length === 0 || isEntertainmentGuide)
+    && family === "tests" && collection === "play" && (remaining.length === 0 || (remaining.length === 1 && remaining[0] === "take") || isEntertainmentGuide)
     && typeof quizSlug === "string" && /^[a-z]+(?:-[a-z]+)*$/.test(quizSlug);
   const landingProperties = isQuestionnaireEntry && questionnaire ? {
     ...properties,

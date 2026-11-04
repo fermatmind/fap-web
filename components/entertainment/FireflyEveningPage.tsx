@@ -8,7 +8,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { FunQuiz } from "@/lib/entertainment/types";
 import { resultPath } from "@/lib/entertainment/guides";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { FunQuizClient } from "./FunQuizClient";
+import { StoryTakeEntry } from "./StoryTakeEntry";
 import { fireflyEveningSections, fireflyEveningFaq } from "./FireflyEveningEditorial";
 
 function Copy({ text }: { text: string }) {
@@ -23,7 +23,7 @@ export function FireflyEveningPage({ quiz, locale }: { quiz: FunQuiz; locale: Lo
     <ExploreTestIntro slug={quiz.slug} locale={locale}>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.seo.description[locale]}</p>
       <div className="explore-intro-meta"><span>{zh ? "每次3次选择 · 约2分钟 · 无需注册" : "3 choices per reading · About 2 minutes · No registration"}</span><span>{zh ? "原创纸灯展短篇 · 三种完整结局免费" : "Original paper-light tale · Three full endings free"}</span></div>
-      <FunQuizClient quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "Read each paper-light scene and choose one of its two options. Three linked choices lead to one complete ending; you do not need to visit all five scenes. There is no score, entry agreement, prior MBTI or required saving. No real lights, wildlife or personal memories are needed.", zh: "阅读每个纸灯展情境，从两个选项中选一项。三个相连选择通向一个完整结局，无需遍历全部五个场景。没有分数、入口同意、MBTI前置或强制保存，也无需真实灯具、野生动物或私人记忆。" }} />
+      <StoryTakeEntry quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "Read each paper-light scene and choose one of its two options. Three linked choices lead to one complete ending; you do not need to visit all five scenes. There is no score, entry agreement, prior MBTI or required saving. No real lights, wildlife or personal memories are needed.", zh: "阅读每个纸灯展情境，从两个选项中选一项。三个相连选择通向一个完整结局，无需遍历全部五个场景。没有分数、入口同意、MBTI前置或强制保存，也无需真实灯具、野生动物或私人记忆。" }} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="about-quiz"><h2 id="about-quiz" className="text-2xl font-semibold">{fireflyEveningSections[0].title[locale]}</h2>{fireflyEveningSections[0].paragraphs.map((p,i)=><p key={i}>{p[locale]}</p>)}<p>{quiz.introduction[locale]}</p><p>{quiz.focus[locale]}</p></section>
     <section className="explore-reading-library" aria-labelledby="firefly-evening-methods"><h2 id="firefly-evening-methods">{zh ? "共同收尾、闭场信号与最后一眼：结局及阅读方法" : "Shared closure, a closing signal and the last view: endings and reading"}</h2><div className="explore-reading-sections">{fireflyEveningSections.slice(1).map(s=><section className="explore-reading-section" key={s.id} aria-labelledby={`firefly-evening-${s.id}`}><h3 id={`firefly-evening-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p,i)=><p key={i}><Copy text={p[locale]} /></p>)}</div></section>)}</div></section>

@@ -8,7 +8,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { FunQuiz } from "@/lib/entertainment/types";
 import { resultPath } from "@/lib/entertainment/guides";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { FunQuizClient } from "./FunQuizClient";
+import { StoryTakeEntry } from "./StoryTakeEntry";
 import { celebratingFriendSections, celebratingFriendFaq } from "./CelebratingFriendEditorial";
 
 function Copy({ text }: { text: string }) {
@@ -23,7 +23,7 @@ export function CelebratingFriendPage({ quiz, locale }: { quiz: FunQuiz; locale:
     <ExploreTestIntro slug={quiz.slug} locale={locale}>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.seo.description[locale]}</p>
       <div className="explore-intro-meta"><span>{zh ? "6题 · 约2分钟 · 无需注册" : "6 choices · About 2 minutes · No registration"}</span><span>{zh ? "原创报喜回应情境 · 完整画像免费" : "Original good-news response scenes · Full portraits free"}</span></div>
-      <FunQuizClient quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "For each imagined good-news scene, choose listening, a personal note or invited company. There are no right answers. Finish six questions for all counts and highest ties; no friend’s name, private messages or saving choice is required.", zh: "每个虚构报喜场景，选择倾听、个人小笺或受邀作伴。没有标准答案。六题完成后查看全部次数与最高并列；无需朋友姓名、私人信息或保存选择。" }} />
+      <StoryTakeEntry quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "For each imagined good-news scene, choose listening, a personal note or invited company. There are no right answers. Finish six questions for all counts and highest ties; no friend’s name, private messages or saving choice is required.", zh: "每个虚构报喜场景，选择倾听、个人小笺或受邀作伴。没有标准答案。六题完成后查看全部次数与最高并列；无需朋友姓名、私人信息或保存选择。" }} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="about-quiz"><h2 id="about-quiz" className="text-2xl font-semibold">{celebratingFriendSections[0].title[locale]}</h2>{celebratingFriendSections[0].paragraphs.map((p,i)=><p key={i}>{p[locale]}</p>)}<p>{quiz.introduction[locale]}</p><p>{quiz.focus[locale]}</p></section>
     <section className="explore-reading-library" aria-labelledby="celebrating-a-friend-methods"><h2 id="celebrating-a-friend-methods">{zh ? "回应形式、研究背景与结果读法" : "Response formats, research background and result readings"}</h2><div className="explore-reading-sections">{celebratingFriendSections.slice(1).map(s=><section className="explore-reading-section" key={s.id} aria-labelledby={`celebrating-a-friend-${s.id}`}><h3 id={`celebrating-a-friend-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p,i)=><p key={i}><Copy text={p[locale]} /></p>)}</div></section>)}</div></section>

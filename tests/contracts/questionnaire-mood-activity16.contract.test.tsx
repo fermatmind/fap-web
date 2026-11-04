@@ -90,7 +90,9 @@ describe("Original mood-activity context observation categories, never a clinica
       expect((html.match(/data-mood-activity-full-guide=/g) ?? [])).toHaveLength(4);
       const dom = document.createElement("div"); dom.innerHTML = html;
       expect(dom.querySelector("[data-mood-activity-result]")).toBeNull();
-      expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(true);
+      expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(false);
+      expect(dom.querySelector("#take-test button")?.closest("form")?.getAttribute("action")).toBe(`/${locale}/tests/explore/${quiz.slug}/take`);
+      expect(dom.querySelectorAll('#take-test input:not([type="hidden"])')).toHaveLength(0);
       for (const p of quiz.profiles) {
         const guide = renderToStaticMarkup(<MoodActivityGuidePage quiz={quiz} profile={p} locale={locale} />);
         expect(guide).toContain("data-mood-activity-support");

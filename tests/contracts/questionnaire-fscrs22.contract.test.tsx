@@ -1,3 +1,4 @@
+import { renderQuestionnaireTakeDom } from "@/tests/fixtures/questionnaires/renderQuestionnaireTake";
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
@@ -163,10 +164,12 @@ describe("FSCRS22 2019 source edition, separate strict groups and optional web s
       expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/${quiz.slug}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/${quiz.slug}` });
       expect(urls).toContain(`https://fermatmind.com${path}`);
       const dom = new DOMParser().parseFromString(renderToStaticMarkup(await page.default(args)), "text/html");
-      expect(dom.querySelectorAll("[data-fscrs22-client]")).toHaveLength(1);
+      expect(dom.querySelectorAll("[data-fscrs22-client]")).toHaveLength(0);
+      const takeDom=await renderQuestionnaireTakeDom(locale,quiz.slug);
+      expect(takeDom.querySelectorAll("[data-fscrs22-client]")).toHaveLength(1);
       expect(dom.querySelectorAll("[data-fscrs22-support]")).toHaveLength(1);
-      expect(dom.querySelectorAll('input[type="checkbox"]')).toHaveLength(1);
-      expect((dom.querySelector("[data-entertainment-activity-opt-in] input") as HTMLInputElement).checked).toBe(false);
+      expect(takeDom.querySelectorAll('input[type="checkbox"]')).toHaveLength(1);
+      expect((takeDom.querySelector("[data-entertainment-activity-opt-in] input") as HTMLInputElement).checked).toBe(false);
       const method = dom.querySelector('section[aria-labelledby="questionnaire-method"]');
       for (const section of quiz.guide) for (const paragraph of section.paragraphs) expect(method?.textContent).toContain(paragraph[locale]);
       for (const profile of quiz.profiles) {

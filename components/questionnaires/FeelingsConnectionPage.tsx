@@ -1,3 +1,4 @@
+import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import { Fragment } from "react";
 import { feelingsConnectionSections, feelingsConnectionFaq, feelingsConnectionReadingSummaries } from "./FeelingsConnectionLandingEditorial";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
@@ -21,15 +22,17 @@ function SeparateReadings({ locale }: { locale: Locale }) {
  const resources = [["trauma-response-reflection", "", "Reactions After a Difficult Experience", "困难经历后的反应回顾"], ["trauma-response-reflection", "unwanted-reminders-reading", "Unwanted reminders — Complete Reading", "不想要的提醒：完整读法"], ["trauma-response-reflection", "keeping-distance-reading", "Keeping some distance — Complete Reading", "保持一些距离：完整读法"], ["trauma-response-reflection", "mood-and-connection-reading", "Mood and connection — Complete Reading", "情绪与联系：完整读法"], ["trauma-response-reflection", "feeling-on-edge-reading", "Feeling on edge — Complete Reading", "紧绷与警觉：完整读法"], ["inner-critic-voice-test", "", "Inner Critic Voice Test", "内心批评家声音测试"], ["inner-critic-voice-test", "inadequate", "Feeling inadequate and self-critical", "不足感与自我批评"], ["inner-critic-voice-test", "hated", "Self-hatred and self-directed attack", "对自己的厌恶与攻击"], ["inner-critic-voice-test", "reassured", "Self-reassurance and support", "自我安慰与支持"]];
  return <section data-feelings-connection-separate-resources className="my-8 space-y-4 leading-8"><h2 className="text-2xl font-semibold">{zh ? "提醒反应与自我回应的独立完整读法" : "Separate complete readings on reminders and self-response"}</h2><p>{zh ? "既有20条提醒反应与四篇全文、22条自我批评与三篇全文保留自身题目、选项、回忆范围和计分。自我批评题本没有固定数字回忆期，不改成这里的四周。没有回答转移、跨工具总分或复杂性PTSD判定。" : "The existing twenty trauma-response descriptions with four full guides and twenty-two self-criticism statements with three full guides keep their own items, options, recall scope and scoring. The self-criticism form has no fixed numeric recall window and is not converted to four weeks here. No answers transfer, and no cross-tool total or complex-PTSD classification is made."}</p><ul className="space-y-2">{resources.map(([slug,id,en,cn])=><li key={`${slug}:${id}`}><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={id?questionnaireGuidePath(locale,slug,id):questionnairePath(locale,slug)}>{zh?cn:en}</Link></li>)}</ul></section>;
 }
-export function FeelingsConnectionPage({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
+export function FeelingsConnectionPage({ quiz, locale , take = false }: { quiz: Questionnaire; locale: Locale ; take?: boolean }) {
   const zh = locale === "zh", path = questionnairePath(locale, quiz.slug);
+  const engine = <FeelingsConnectionClient key={`${quiz.slug}:${locale}`} quiz={quiz} locale={locale} />;
+  if (take) return engine;
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="questionnaire-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
     <ExploreTestIntro slug={quiz.slug} locale={locale}>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.description[locale]}</p>
       <div className="explore-intro-meta"><span>{zh ? `8条陈述 · 约${quiz.minutes}分钟` : `8 statements · About ${quiz.minutes} minutes`}</span><span>{zh ? "完整读法免费 · 无需注册" : "Full readings free · No registration"}</span></div>
-      <FeelingsConnectionClient key={`${quiz.slug}:${locale}`} quiz={quiz} locale={locale} />
+      <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     </ExploreTestIntro>
     <FeelingsConnectionSupport locale={locale} />
     <section className="my-8 leading-8" aria-label={zh ? "原创作答说明" : "Original response instructions"}><p>{quiz.instructions![locale]}</p></section>

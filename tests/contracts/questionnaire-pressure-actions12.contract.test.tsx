@@ -85,7 +85,9 @@ describe("Original under-pressure action observation categories, never a clinica
       expect((html.match(/data-pressure-actions-full-guide=/g) ?? [])).toHaveLength(4);
       expect(new DOMParser().parseFromString(html, "text/html").querySelector("[data-pressure-actions-result]")).toBeNull();
       const dom = document.createElement("div"); dom.innerHTML = html;
-      expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(true);
+      expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(false);
+      expect(dom.querySelector("#take-test button")?.closest("form")?.getAttribute("action")).toBe(`/${locale}/tests/explore/${quiz.slug}/take`);
+      expect(dom.querySelectorAll('#take-test input:not([type="hidden"])')).toHaveLength(0);
       for (const p of quiz.profiles) {
         const guide = renderToStaticMarkup(<PressureActionsGuidePage quiz={quiz} profile={p} locale={locale} />);
         expect(guide).toContain("data-pressure-actions-support");

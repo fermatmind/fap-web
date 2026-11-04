@@ -11,12 +11,13 @@ describe("PSS-4 bilingual editorial without changing the published form", () => 
     if (!isPss4ConfigurationValid(data)) throw Error("Invalid source");
     const html = renderToStaticMarkup(<Pss4Page quiz={data} locale={locale} />);
     const dom = document.createElement("div"); dom.innerHTML = html;
+    const takeDom = document.createElement("div"); takeDom.innerHTML = renderToStaticMarkup(<Pss4Page quiz={data} locale={locale} take />);
     const text = dom.textContent!;
     for (const section of [...data.guide, ...data.profiles[0].sections]) for (const paragraph of section.paragraphs) expect(text).toContain(paragraph[locale]);
     for (const section of pss4Sections) { expect(text).toContain(section.title[locale]); for (const paragraph of section.paragraphs) expect(text).toContain(paragraph[locale]); }
     for (const faq of [...data.faq, ...pss4Faq]) expect(text).toContain(faq.answer[locale]);
     expect(dom.querySelectorAll("[data-explore-start]")).toHaveLength(1);
-    expect(dom.querySelectorAll('input[type="checkbox"][required],input[type="checkbox"]:checked')).toHaveLength(0);expect(dom.querySelector('[data-entertainment-activity-opt-in]')).not.toBeNull();
+    expect(takeDom.querySelectorAll('input[type="checkbox"][required],input[type="checkbox"]:checked')).toHaveLength(0);expect(takeDom.querySelector('[data-entertainment-activity-opt-in]')).not.toBeNull();
     expect(dom.querySelectorAll("[data-pss4-full-guide]")).toHaveLength(1);
     const ids = [...dom.querySelectorAll("[id]")].map(x => x.id); expect(new Set(ids).size).toBe(ids.length);
     for (const a of dom.querySelectorAll('a[href^="#pss4-reference-"]')) expect(dom.querySelector(a.getAttribute("href")!)).not.toBeNull();

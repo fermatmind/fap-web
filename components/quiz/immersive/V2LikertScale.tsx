@@ -15,6 +15,16 @@ const SIZE_CLASSES = [
   "h-14 w-14 sm:h-16 sm:w-16",
 ] as const;
 
+export function LikertResponseGlyph({ tone }: { tone: number }) {
+  const expression = RESPONSE_EXPRESSIONS[Math.max(0, Math.min(4, tone))];
+  return <svg className={styles.optionGlyph} viewBox="0 0 80 76" aria-hidden="true" focusable="false">
+    <g className={styles.avatarMotion} fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
+      <path className={styles.expressionEyes} d={expression.eyes} />
+      <path d={expression.mouth} />
+    </g>
+  </svg>;
+}
+
 const RESPONSE_EXPRESSIONS = [
   { eyes: "M20 30Q25 21 30 30M50 30Q55 21 60 30", mouth: "M22 43C30 59 50 59 58 43" },
   { eyes: "M25 25V32M55 25V32", mouth: "M28 47Q40 56 52 47" },
@@ -74,7 +84,6 @@ export function V2LikertScale({
         {normalized.map((option, index) => {
           const selected = value === option.code;
           const tone = positiveEnd === "first" ? index : normalized.length - 1 - index;
-          const expression = RESPONSE_EXPRESSIONS[tone];
           return (
             <button
               key={option.code}
@@ -88,12 +97,7 @@ export function V2LikertScale({
               className={styles.option}
               data-tone={tone}
             >
-              <svg className={styles.optionGlyph} viewBox="0 0 80 76" aria-hidden="true" focusable="false">
-                <g className={styles.avatarMotion} fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path className={styles.expressionEyes} d={expression.eyes} />
-                  <path d={expression.mouth} />
-                </g>
-              </svg>
+              <LikertResponseGlyph tone={tone} />
               <span className={styles.optionLabel}>{option.text}</span>
               <svg className={styles.selectedMark} viewBox="0 0 20 20" aria-hidden="true" focusable="false">
                 <path d="m5 10 3 3 7-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

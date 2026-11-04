@@ -8,7 +8,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { FunQuiz } from "@/lib/entertainment/types";
 import { resultPath } from "@/lib/entertainment/guides";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { FunQuizClient } from "./FunQuizClient";
+import { StoryTakeEntry } from "./StoryTakeEntry";
 import { dinnerHostSections, dinnerHostFaq } from "./DinnerHostEditorial";
 
 function Copy({ text }: { text: string }) {
@@ -23,7 +23,7 @@ export function DinnerHostPage({ quiz, locale }: { quiz: FunQuiz; locale: Locale
     <ExploreTestIntro slug={quiz.slug} locale={locale}>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.seo.description[locale]}</p>
       <div className="explore-intro-meta"><span>{zh ? "6题 · 约2分钟 · 无需注册" : "6 choices · About 2 minutes · No registration"}</span><span>{zh ? "原创轻松聚餐情境 · 完整画像免费" : "Original casual-dinner scenes · Full portraits free"}</span></div>
-      <FunQuizClient quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "For each imagined casual dinner, choose how you would arrange the flow, guest choices or preparation scale. Think about a fictional evening with people you know, without planning an actual menu. Finish six choices for all counts and highest ties; no cooking, invitation, agreement or saved progress is required.", zh: "每个想象聚餐情境，选择会怎样安排节奏、来客选择或准备规模。想象与熟人的虚构夜晚，无需实际拟菜单。六题完成后查看全部次数与最高并列，无需做饭、发邀请、入口同意或保存进度。" }} />
+      <StoryTakeEntry quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "For each imagined casual dinner, choose how you would arrange the flow, guest choices or preparation scale. Think about a fictional evening with people you know, without planning an actual menu. Finish six choices for all counts and highest ties; no cooking, invitation, agreement or saved progress is required.", zh: "每个想象聚餐情境，选择会怎样安排节奏、来客选择或准备规模。想象与熟人的虚构夜晚，无需实际拟菜单。六题完成后查看全部次数与最高并列，无需做饭、发邀请、入口同意或保存进度。" }} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="about-quiz"><h2 id="about-quiz" className="text-2xl font-semibold">{dinnerHostSections[0].title[locale]}</h2>{dinnerHostSections[0].paragraphs.map((p,i)=><p key={i}>{p[locale]}</p>)}<p>{quiz.introduction[locale]}</p><p>{quiz.focus[locale]}</p></section>
     <section className="explore-reading-library" aria-labelledby="dinner-host-methods"><h2 id="dinner-host-methods">{zh ? "三种请客安排、工作量与结果读法" : "Three hosting arrangements, workload and result readings"}</h2><div className="explore-reading-sections">{dinnerHostSections.slice(1).map(s=><section className="explore-reading-section" key={s.id} aria-labelledby={`dinner-host-${s.id}`}><h3 id={`dinner-host-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p,i)=><p key={i}><Copy text={p[locale]} /></p>)}</div></section>)}</div></section>

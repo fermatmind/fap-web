@@ -17,6 +17,7 @@ import { isLegacyPath, resolveLegacyPathMode } from "@/lib/legacyCompatibility";
 import { resolveBigFivePublicRouteEntry } from "@/lib/personality/bigFivePublicRoutes";
 import { normalizeBigFivePolicyContentPage } from "@/lib/cms/content-pages";
 import { shouldNoindex } from "@/lib/seo/indexingPolicy";
+import { parseQuestionnaireTakePath } from "@/lib/questionnaires/takePath";
 import {
   PRIVATE_ANALYTICS_SUPPRESSION_HEADER,
   getBrowserAnalyticsSuppressionDecision,
@@ -543,7 +544,7 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
     search: request.nextUrl.search,
   });
   const suppressAnalyticsBootstrap = analyticsSuppression.suppressed;
-  const hardenPrivateResponse = isPrivateAnalyticsSuppressedPath(pathname) || shouldNoindex(strippedPath, null);
+  const hardenPrivateResponse = Boolean(parseQuestionnaireTakePath(pathname)) || isPrivateAnalyticsSuppressedPath(pathname) || shouldNoindex(strippedPath, null);
 
   if (suppressAnalyticsBootstrap) {
     requestHeaders.set(PRIVATE_ANALYTICS_SUPPRESSION_HEADER, "true");

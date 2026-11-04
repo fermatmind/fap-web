@@ -3,7 +3,7 @@ import { DiscoveryCardArt } from "@/components/tests/DiscoveryCardArt";
 import Link from "next/link";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { JsonLd } from "@/components/seo/JsonLd";
-import FriendshipClient from "@/components/friendship/FriendshipClient";
+import { StartTestButton } from "@/components/tests/StartTestButton";
 import RikaidoComparison from "@/components/friendship/RikaidoComparison";
 import {
   FriendshipNav,
@@ -86,7 +86,7 @@ export default async function Page({
               ? "先选自己的日常偏好，发给朋友来猜。谁更了解你，用同一份挑战看看。"
               : "Make a free friendship quiz about yourself. Send your link, let friends guess, and see who knows you best."}
           </p>
-          <a className="fq-primary" href="#create">
+          <a className="fq-primary" href={`/${locale}/tests/play/friendship-quiz/take`}>
             {zh ? "免费创建我的挑战" : "Make my friendship quiz"} ↗
           </a>
           <p className="fq-muted">
@@ -110,7 +110,7 @@ export default async function Page({
       </p>
       <div className="fq-body">
         <section id="create" className="scroll-mt-24">
-          <FriendshipClient locale={locale} />
+          <StartTestButton href={`/${locale}/tests/play/friendship-quiz/take`} className="fq-primary">{zh ? "开始测试" : "Start test"} →</StartTestButton>
         </section>
         <section className="fq-section">
           <h2 className="text-3xl font-semibold">
@@ -264,7 +264,7 @@ export default async function Page({
               ? "现在，让朋友来猜猜你的选择"
               : "Make your quiz. Give friends something to guess."}
           </h2>
-          <a className="fq-primary" href="#create">
+          <a className="fq-primary" href={`/${locale}/tests/play/friendship-quiz/take`}>
             {zh ? "免费开始出题" : "Create my free friendship quiz"} →
           </a>
         </section>

@@ -1,3 +1,4 @@
+import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
@@ -15,8 +16,10 @@ import { prepareResultProfile } from "@/lib/questionnaires/result-content/readin
 function Source({ quiz, locale }: { quiz: Dvmsq18Questionnaire; locale: Locale }) {
   return <aside data-dvmsq18-attribution className="my-8 space-y-3 border-t pt-6 text-sm leading-7 text-slate-600"><p>{quiz.dvmsq18.attribution[locale]}</p><p>{quiz.dvmsq18.editionNotice[locale]}</p>{quiz.references?.map(r => <p key={r.url}><a className="underline" href={r.url} rel="noopener noreferrer">{r.title[locale]}</a></p>)}</aside>;
 }
-export function Dvmsq18Page({ quiz, locale }: { quiz: Dvmsq18Questionnaire; locale: Locale }) {
+export function Dvmsq18Page({ quiz, locale , take = false }: { quiz: Dvmsq18Questionnaire; locale: Locale ; take?: boolean }) {
   const zh = locale === "zh", path = questionnairePath(locale, quiz.slug);
+  const engine = <Dvmsq18Client quiz={quiz} locale={locale} readingProfiles={quiz.profiles.map(profile => prepareResultProfile(quiz.slug, profile))} />;
+  if (take) return engine;
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="dvmsq18-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="dvmsq18-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
@@ -25,7 +28,7 @@ export function Dvmsq18Page({ quiz, locale }: { quiz: Dvmsq18Questionnaire; loca
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
     <p className="mt-5 text-lg leading-8 text-slate-700">{quiz.description[locale]}</p>
     <div className="explore-intro-meta"><span>{zh ? "1个前置问题＋最多18条源题 · 约5分钟 · 不计时 · 18岁及以上 · 无需注册" : "1 screening question + up to 18 source prompts · About 5 minutes · Untimed · Ages 18+ · No signup"}</span><span>{zh ? "源表自评 · 三篇完整读法免费" : "Published source form · Three full guides free"}</span></div>
-    <Dvmsq18Client quiz={quiz} locale={locale} readingProfiles={quiz.profiles.map(profile => prepareResultProfile(quiz.slug, profile))} />
+    <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4"><h2 className="text-2xl font-semibold">{dvmsq18LandingSections[0].title[locale]}</h2><p className="leading-8">{quiz.introduction[locale]}</p>{dvmsq18LandingSections[0].paragraphs.map((p,i)=><p className="leading-8" key={i}>{p[locale]}</p>)}</section>
     <section aria-labelledby="dvmsq18-method" className="my-10 space-y-8"><h2 id="dvmsq18-method" className="text-2xl font-semibold">{zh ? "来源、计分与使用边界" : "Source, scoring and use"}</h2>{quiz.guide.map(s => <section key={s.id}><h3 className="text-xl font-semibold">{s.title[locale]}</h3>{s.paragraphs.map((p, i) => <p key={i} className="mt-3 leading-8">{p[locale]}</p>)}</section>)}</section>

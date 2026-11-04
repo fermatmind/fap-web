@@ -8,7 +8,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { FunQuiz } from "@/lib/entertainment/types";
 import { resultPath } from "@/lib/entertainment/guides";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { FunQuizClient } from "./FunQuizClient";
+import { StoryTakeEntry } from "./StoryTakeEntry";
 import { dragonHousemateSections, dragonHousemateFaq } from "./DragonHousemateEditorial";
 
 function Copy({ text }: { text: string }) {
@@ -23,7 +23,7 @@ export function DragonHousematePage({ quiz, locale }: { quiz: FunQuiz; locale: L
     <ExploreTestIntro slug={quiz.slug} locale={locale}>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.seo.description[locale]}</p>
       <div className="explore-intro-meta"><span>{zh ? "6题 · 约2分钟 · 无需注册" : "6 choices · About 2 minutes · No registration"}</span><span>{zh ? "原创友好龙室友情境 · 完整画像免费" : "Original friendly-dragon scenes · Full portraits free"}</span></div>
-      <FunQuizClient quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "For each friendly dragon-housemate scene, choose how you would discuss shared space, recurring contact or a small joint solution. Use the fictional flat rather than judging a real person. Finish six choices for all counts and highest ties; no roommate reply, signed agreement, MBTI result or saved progress is required.", zh: "每个友好龙室友情境，选择会怎样商量共用空间、重复联系或小型共同办法。使用虚构公寓，不评价真人。六题完成后查看全部次数与最高并列，无需室友回复、签署约定、MBTI结果或保存进度。" }} />
+      <StoryTakeEntry quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "For each friendly dragon-housemate scene, choose how you would discuss shared space, recurring contact or a small joint solution. Use the fictional flat rather than judging a real person. Finish six choices for all counts and highest ties; no roommate reply, signed agreement, MBTI result or saved progress is required.", zh: "每个友好龙室友情境，选择会怎样商量共用空间、重复联系或小型共同办法。使用虚构公寓，不评价真人。六题完成后查看全部次数与最高并列，无需室友回复、签署约定、MBTI结果或保存进度。" }} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="about-quiz"><h2 id="about-quiz" className="text-2xl font-semibold">{dragonHousemateSections[0].title[locale]}</h2>{dragonHousemateSections[0].paragraphs.map((p,i)=><p key={i}>{p[locale]}</p>)}<p>{quiz.introduction[locale]}</p><p>{quiz.focus[locale]}</p></section>
     <section className="explore-reading-library" aria-labelledby="dragon-housemate-methods"><h2 id="dragon-housemate-methods">{zh ? "三种合住协调、共同选择与结果读法" : "Three shared-living approaches, joint choices and result readings"}</h2><div className="explore-reading-sections">{dragonHousemateSections.slice(1).map(s=><section className="explore-reading-section" key={s.id} aria-labelledby={`dragon-housemate-${s.id}`}><h3 id={`dragon-housemate-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p,i)=><p key={i}><Copy text={p[locale]} /></p>)}</div></section>)}</div></section>

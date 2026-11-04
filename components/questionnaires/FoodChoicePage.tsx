@@ -1,3 +1,4 @@
+import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import { Fragment } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -15,16 +16,18 @@ import { foodChoiceSections, foodChoiceFaq, foodChoiceSummaries } from "./FoodCh
 function Copy({ text }: { text: string }) {
   return <>{text.split(/(\[\d+\])/g).map((part, i) => /^\[\d+\]$/.test(part) ? <sup key={i}><a className="ml-1 underline" href={`#food-choice-reference-${part.slice(1, -1)}`}>{part}</a></sup> : <Fragment key={i}>{part}</Fragment>)}</>;
 }
-export function FoodChoicePage({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
+export function FoodChoicePage({ quiz, locale , take = false }: { quiz: Questionnaire; locale: Locale ; take?: boolean }) {
   if (quiz.slug !== "food-choice" || !isQuestionnaireConfigurationValid(quiz) || !quiz.references) notFound();
   const zh = locale === "zh", path = questionnairePath(locale, quiz.slug);
+  const engine = <QuestionnaireClient quiz={quiz} locale={locale} />;
+  if (take) return engine;
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="questionnaire-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
     <ExploreTestIntro slug={quiz.slug} locale={locale}>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.description[locale]}</p>
       <div className="explore-intro-meta"><span>{zh ? "12题 · 约3分钟 · 无需注册" : "12 pairs · About 3 minutes · No registration"}</span><span>{zh ? "三种菜单呈现 · 七份完整指南" : "Three presentation styles · Seven complete guides"}</span></div>
-      <QuestionnaireClient quiz={quiz} locale={locale} />
+      <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="food-choice-purpose"><h2 id="food-choice-purpose" className="text-2xl font-semibold">{foodChoiceSections[0].title[locale]}</h2>{foodChoiceSections[0].paragraphs.map((p, i) => <p key={i}><Copy text={p[locale]} /></p>)}<p>{quiz.introduction[locale]}</p></section>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="questionnaire-method"><h2 id="questionnaire-method" className="text-2xl font-semibold">{zh ? "食物呈现选择怎样计分与阅读" : "How presentation choices are counted and read"}</h2>{quiz.guide.filter(s => ["original-scope", "counting", "close-results"].includes(s.id)).flatMap(s => s.paragraphs).map((p,i) => <p key={i}>{p[locale]}</p>)}</section>

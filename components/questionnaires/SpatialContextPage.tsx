@@ -1,3 +1,4 @@
+import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import { Fragment } from "react";
 import { spatialContextSections, spatialContextFaq, spatialContextReadingSummaries } from "./SpatialContextLandingEditorial";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
@@ -21,15 +22,17 @@ function SeparateResources({ locale }: { locale: Locale }) {
  const resources = [["communication-routines-context", "", "Communication, Routines & Ways of Working", "沟通、日常安排与做事方式"], ["focus-energy-context-reflection", "", "Attention & Energy: Daily Context", "注意力与能量：日常情境回顾"], ["executive-function", "", "Executive Function Check-In", "执行功能测试"], ["sensory-sensitivity", "", "Sensory Sensitivity Test", "感官敏感测试"], ["sensory-processing-test", "", "Sensory Perception Quotient: Full 92-Item SPQ", "感觉加工问卷：完整92项SPQ"], ["masking-test", "", "Masking Test (CAT-Q)", "社交伪装测试（CAT-Q）"], ["aphantasia-test", "", "Aphantasia Test", "心盲症测试"], ["communication-routines-context", "visual-arrangements-reading", "Using visual arrangements — separate full guide", "使用视觉安排：独立完整指南"]];
  return <section data-spatial-context-separate-resources className="my-8 space-y-4 leading-8"><h2 className="text-2xl font-semibold">{zh ? "其他问题，分别阅读既有资源" : "Separate resources for other questions"}</h2><p>{zh ? "日常沟通、细节与安排、近期专注、成人执行功能、感官体验、社交伪装和视觉意象各保留自身题本。外部视觉辅助不同于这里的空间关系思考。没有回答转移、共同总分、能力换算或联合认知风格档案。" : "Everyday communication, details and routines, recent focus, adult executive function, sensory experiences, camouflaging and visual imagery keep their own forms. External visual aids differ from spatial-relationship thinking here. No answers transfer and no shared total, ability conversion or combined cognitive-style profile is made."}</p><ul className="space-y-2">{resources.map(([slug,id,en,cn])=><li key={`${slug}:${id}`}><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={id?questionnaireGuidePath(locale,slug,id):questionnairePath(locale,slug)}>{zh?cn:en}</Link></li>)}</ul></section>;
 }
-export function SpatialContextPage({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
+export function SpatialContextPage({ quiz, locale , take = false }: { quiz: Questionnaire; locale: Locale ; take?: boolean }) {
   const zh = locale === "zh", path = questionnairePath(locale, quiz.slug);
+  const engine = <SpatialContextClient key={`${quiz.slug}:${locale}`} quiz={quiz} locale={locale} />;
+  if (take) return engine;
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="questionnaire-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
     <ExploreTestIntro slug={quiz.slug} locale={locale}>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.description[locale]}</p>
       <div className="explore-intro-meta"><span>{zh ? `4条描述 · 约${quiz.minutes}分钟` : `4 prompts · About ${quiz.minutes} minutes`}</span><span>{zh ? "完整读法免费 · 无需注册" : "Full readings free · No registration"}</span></div>
-      <SpatialContextClient key={`${quiz.slug}:${locale}`} quiz={quiz} locale={locale} />
+      <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     </ExploreTestIntro>
     <SpatialContextSupport locale={locale} />
     <section className="my-8 leading-8" aria-label={zh ? "原创作答说明" : "Original response instructions"}><p>{quiz.instructions![locale]}</p></section>

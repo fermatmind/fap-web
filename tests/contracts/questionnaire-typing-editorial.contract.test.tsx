@@ -40,7 +40,9 @@ describe("individual timed typing editorial",()=>{
       expect(dom.querySelectorAll(".disc-source-citation").length).toBeGreaterThan(0);
       for(const link of dom.querySelectorAll<HTMLAnchorElement>(".disc-source-citation"))expect(dom.querySelector(link.getAttribute("href")!)).not.toBeNull();
       for(const i of [1,2,3,4,5])expect(dom.querySelector(`a[href="#typing-speed-reference-${i}"]`)).not.toBeNull();
-      expect(dom.querySelector("[data-typing-passage]")?.textContent).toBe(quiz.typing!.rounds[0].passage);
+      const takeDom=document.createElement("div");takeDom.innerHTML=renderToStaticMarkup(<TypingPage quiz={quiz} locale={locale} take/>);
+      expect(dom.querySelector("[data-typing-passage]")).toBeNull();
+      expect(takeDom.querySelector("[data-typing-passage]")?.textContent).toBe(quiz.typing!.rounds[0].passage);
       if(locale==="en")expect(body.replaceAll("春天。", "")).not.toMatch(/\p{Script=Han}/u);
     }
   });

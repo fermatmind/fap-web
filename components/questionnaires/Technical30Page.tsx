@@ -1,3 +1,4 @@
+import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
@@ -15,8 +16,10 @@ import { prepareResultProfile } from "@/lib/questionnaires/result-content/readin
 function Source({ quiz, locale }: { quiz: Technical30Questionnaire; locale: Locale }) {
   return <aside data-technical30-attribution className="my-8 space-y-3 border-t pt-6 text-sm leading-7 text-slate-600"><p>{quiz.technical30.attribution[locale]}</p><p>{quiz.technical30.editionNotice[locale]}</p>{quiz.references?.map(r => <p key={r.url}><a className="underline" href={r.url} rel="noopener noreferrer">{r.title[locale]}</a></p>)}</aside>;
 }
-export function Technical30Page({ quiz, locale }: { quiz: Technical30Questionnaire; locale: Locale }) {
+export function Technical30Page({ quiz, locale , take = false }: { quiz: Technical30Questionnaire; locale: Locale ; take?: boolean }) {
   const zh = locale === "zh", path = questionnairePath(locale, quiz.slug);
+  const engine = <Technical30Client quiz={quiz} locale={locale} readingProfiles={quiz.profiles.map(profile => prepareResultProfile(quiz.slug, profile))} />;
+  if (take) return engine;
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="technical30-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="technical30-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
@@ -25,7 +28,7 @@ export function Technical30Page({ quiz, locale }: { quiz: Technical30Questionnai
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
     <p className="mt-5 text-lg leading-8 text-slate-700">{quiz.description[locale]}</p>
     <div className="explore-intro-meta"><span>{zh ? "30道英文题 · 约24分钟含说明 · 分段计时／不计时 · 无需注册" : "30 English questions · About 24 minutes including instructions · Timed / untimed · No signup"}</span><span>{zh ? "原创英文练习 · 五篇完整指南免费" : "Original English practice · Five full guides free"}</span></div>
-    <Technical30Client quiz={quiz} locale={locale} readingProfiles={quiz.profiles.map(profile => prepareResultProfile(quiz.slug, profile))} />
+    <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4"><h2 className="text-2xl font-semibold">{technical30LandingSections[0].title[locale]}</h2><p className="leading-8">{quiz.introduction[locale]}</p>{technical30LandingSections[0].paragraphs.map((p,i)=><p className="leading-8" key={i}>{p[locale]}</p>)}</section>
     <section aria-labelledby="technical30-method" className="my-10 space-y-8"><h2 id="technical30-method" className="text-2xl font-semibold">{zh ? "题本、计时与使用边界" : "Edition, timing and use"}</h2>{quiz.guide.map(s => <section key={s.id}><h3 className="text-xl font-semibold">{s.title[locale]}</h3>{s.paragraphs.map((p, i) => <p key={i} className="mt-3 leading-8">{p[locale]}</p>)}</section>)}</section>

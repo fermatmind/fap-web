@@ -1,3 +1,4 @@
+import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
@@ -14,18 +15,21 @@ function cited(text: string) {
     ? <a key={index} className="disc-source-citation" href={`#ten-key-test-reference-${part.slice(1, -1)}`}>{part}</a> : part);
 }
 
-export function TenKeyPage({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
+export function TenKeyPage({ quiz, locale , take = false }: { quiz: Questionnaire; locale: Locale ; take?: boolean }) {
   const zh = locale === "zh", path = questionnairePath(locale, quiz.slug);
+  const engine = <TenKeyClient quiz={quiz} locale={locale} />;
+  if (take) return engine;
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="questionnaire-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
-    <ExploreTestIntro slug={quiz.slug} locale={locale} entryLink>
+    <ExploreTestIntro slug={quiz.slug} locale={locale}>
 
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
     <p className="mt-5 text-lg leading-8 text-slate-700">{quiz.description[locale]}</p>
     <div className="explore-intro-meta"><span>{zh ? "3种模式 · 每轮真实60秒 · 无需注册" : "3 modes · Real 60-second rounds · No signup"}</span><span>{zh ? "原创数字录入练习 · 计时结果与完整复习免费" : "Original number-entry practice · Timed results and full revision free"}</span></div>
+    <QuestionnaireTakeEntry quiz={{ slug: quiz.slug }} locale={locale} />
     </ExploreTestIntro>
-    <TenKeyClient quiz={quiz} locale={locale} />
+
     <section className="my-8 space-y-4 leading-8" aria-labelledby="ten-key-purpose"><h2 id="ten-key-purpose" className="text-2xl font-semibold">{zh ? "10-Key数字录入测试：三种格式与真实输入" : "10-Key number-entry practice: three formats and real input"}</h2><p>{quiz.introduction[locale]}</p></section>
     {quiz.guide.map(section => <section key={section.id} className="my-8 space-y-4 leading-8" aria-labelledby={`ten-key-guide-${section.id}`}><h2 id={`ten-key-guide-${section.id}`} className="text-2xl font-semibold">{section.title[locale]}</h2>{section.paragraphs.map((paragraph, index) => <p key={index}>{paragraph[locale]}</p>)}</section>)}
     <section className="explore-reading-library" aria-label={zh ? "数字录入方法与结果解读" : "Number-entry methods and result interpretation"}>{tenKeyLandingSections.map(section => <section key={section.id} className="explore-reading-section" aria-labelledby={section.id}><h2 id={section.id} className="text-2xl font-semibold">{section.title[locale]}</h2><div>{section.paragraphs.map((paragraph, index) => <p key={index}>{cited(paragraph[locale])}</p>)}</div></section>)}</section>

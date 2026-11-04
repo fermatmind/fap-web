@@ -1,3 +1,4 @@
+import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire } from "@/lib/questionnaires/types";
@@ -11,11 +12,13 @@ import { DiscCitations, discLandingSummary } from "./DiscLandingEditorial";
 import { DiscEntryClient } from "./DiscEntryClient";
 
 /** The existing DISC landing body, without the other tools' client references. */
-export function DiscPage({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
+export function DiscPage({ quiz, locale , take = false }: { quiz: Questionnaire; locale: Locale ; take?: boolean }) {
   const zh = locale === "zh", path = questionnairePath(locale, quiz.slug);
   const methods = ["raw-wins-explanation", "ties-explanation", "low-direction-explanation"];
   const references = (quiz.references ?? []).filter(reference => !["jobcannon.io", "idrlabs.com"].includes(new URL(reference.url).hostname.replace(/^www\./, "")));
   const copy = (text: string) => <DiscCitations text={text} locale={locale} referencePrefix="disc" />;
+  const engine = <DiscEntryClient quiz={discEntryDefinition(quiz)} locale={locale} />;
+  if (take) return engine;
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="questionnaire-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
@@ -23,7 +26,7 @@ export function DiscPage({ quiz, locale }: { quiz: Questionnaire; locale: Locale
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
       <p className="mt-5 text-lg leading-8 text-slate-700">{quiz.description[locale]}</p>
       <p className="explore-intro-meta"><span>{zh ? `${quiz.questions.length}题 · 约${quiz.minutes}分钟 · 无需注册` : `${quiz.questions.length} questions · about ${quiz.minutes} minutes · no signup`}</span><span>{zh ? "自编风格问卷 · 完整结果免费" : "Original style questionnaire · Full results free"}</span></p>
-      <DiscEntryClient quiz={discEntryDefinition(quiz)} locale={locale} />
+      <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="questionnaire-purpose">
       <h2 id="questionnaire-purpose" className="text-2xl font-semibold">{zh ? "DISC测试测什么？四类行为风格与本站题本" : "What does DISC measure? The model and this questionnaire"}</h2>

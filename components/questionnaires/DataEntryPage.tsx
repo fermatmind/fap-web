@@ -1,3 +1,4 @@
+import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import { dataEntryLandingSections, dataEntryLandingFaq, dataEntryLandingReferences } from "./DataEntryLandingEditorial";
 import { DiscCitations } from "./DiscLandingEditorial";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
@@ -10,20 +11,23 @@ import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { Locale } from "@/lib/i18n/locales";
 import { DataEntryClient } from "./DataEntryClient";
 
-export function DataEntryPage({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
+export function DataEntryPage({ quiz, locale , take = false }: { quiz: Questionnaire; locale: Locale ; take?: boolean }) {
   const zh = locale === "zh", path = questionnairePath(locale, quiz.slug);
   const references = [...(quiz.references ?? []), ...dataEntryLandingReferences];
   const renderCopy = (text: string) => <DiscCitations text={text} locale={locale} referencePrefix="data-entry" />;
+  const engine = <DataEntryClient quiz={quiz} locale={locale} />;
+  if (take) return engine;
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="questionnaire-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
-    <ExploreTestIntro slug={quiz.slug} locale={locale} entryLink>
+    <ExploreTestIntro slug={quiz.slug} locale={locale}>
 
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
     <p className="mt-5 text-lg leading-8 text-slate-700">{quiz.description[locale]}</p>
     <div className="explore-intro-meta"><span>{zh ? "两种虚构记录模式 · 每轮60秒 · 无需注册 · 允许返回改错" : "Two fictional record modes · 60 seconds per round · No signup · Return and correct within the clock"}</span><span>{zh ? "原创结构化录入 · 真实计时与完整指南免费" : "Original structured entry · Real timing and complete guides, free"}</span></div>
+    <QuestionnaireTakeEntry quiz={{ slug: quiz.slug }} locale={locale} />
     </ExploreTestIntro>
-    <DataEntryClient quiz={quiz} locale={locale} />
+
     <section className="my-8 space-y-4 leading-8" aria-labelledby="data-entry-purpose"><h2 id="data-entry-purpose" className="text-2xl font-semibold">{zh ? "数据录入练习：两种记录格式与独立指标" : "Data entry practice: two record formats and separate measures"}</h2><p>{quiz.introduction[locale]}</p><p>{quiz.instructions![locale]}</p></section>
     {quiz.guide.map(section => <section key={section.id} className="my-8 space-y-4 leading-8" aria-labelledby={`data-entry-source-${section.id}`}><h2 id={`data-entry-source-${section.id}`} className="text-2xl font-semibold">{section.title[locale]}</h2>{section.paragraphs.map((paragraph, index) => <p key={index}>{paragraph[locale]}</p>)}</section>)}
     <section className="explore-reading-library" aria-labelledby="data-entry-reading"><h2 id="data-entry-reading" className="text-2xl font-semibold">{zh ? "数据录入方法与结果读法：字段、字符与计时条件" : "Data entry methods and results: fields, characters and timing"}</h2><div className="explore-reading-sections">{dataEntryLandingSections.map(section => <section key={section.id} className="explore-reading-section"><h3>{section.title[locale]}</h3><div>{section.paragraphs.map((p,i)=><p key={i}>{renderCopy(p[locale])}</p>)}</div></section>)}</div></section>

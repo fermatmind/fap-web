@@ -1,3 +1,4 @@
+import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import { Fragment } from "react";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
@@ -13,8 +14,10 @@ import { outfitLandingSections, outfitLandingFaq, outfitLandingReferences } from
 function Copy({ text }: { text: string }) {
   return <>{text.split(/(\[\d+\])/g).map((part, i) => /^\[\d+\]$/.test(part) ? <sup key={i}><a className="ml-1 underline" href={`#outfit-reference-${part.slice(1, -1)}`}>{part}</a></sup> : <Fragment key={i}>{part}</Fragment>)}</>;
 }
-export function OutfitLinePreferencesPage({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
+export function OutfitLinePreferencesPage({ quiz, locale , take = false }: { quiz: Questionnaire; locale: Locale ; take?: boolean }) {
   const zh = locale === "zh", path = questionnairePath(locale, quiz.slug);
+  const engine = <OutfitLinePreferencesClient key={`${quiz.slug}:${locale}`} quiz={quiz} locale={locale} />;
+  if (take) return engine;
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="questionnaire-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
@@ -22,7 +25,7 @@ export function OutfitLinePreferencesPage({ quiz, locale }: { quiz: Questionnair
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
       <p className="mt-5 text-lg leading-8">{quiz.description[locale]}</p>
       <p className="explore-intro-meta">{zh ? "15条陈述 · 约3分钟 · 无需注册 · 完整指南免费" : "15 statements · about 3 minutes · no signup · full guides free"}</p>
-      <OutfitLinePreferencesClient key={`${quiz.slug}:${locale}`} quiz={quiz} locale={locale} />
+      <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="outfit-purpose"><h2 id="outfit-purpose">{outfitLandingSections[0].title[locale]}</h2>{outfitLandingSections[0].paragraphs.map((p, i) => <p key={i}><Copy text={p[locale]} /></p>)}<p>{quiz.introduction[locale]}</p></section>
     <section className="explore-reading-library" aria-labelledby="outfit-methods"><h2 id="outfit-methods">{zh ? "服装线条偏好方法：设计概念、均值读法与实际观察" : "Outfit-line methods: design concepts, means and practical observation"}</h2><div className="explore-reading-sections">{[...outfitLandingSections.slice(1), ...quiz.guide].map(s => <section key={s.id} className="explore-reading-section" aria-labelledby={`outfit-method-${s.id}`}><h3 id={`outfit-method-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p, i) => <p key={i}><Copy text={p[locale]} /></p>)}</div></section>)}</div></section>

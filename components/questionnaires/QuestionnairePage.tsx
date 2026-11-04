@@ -1,3 +1,4 @@
+import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import { prepareQuestionnaireResultReadings, prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
 import { completionGapEditorial } from "./CompletionGapEditorial";
 import { EmotionDashboardPage } from "./EmotionDashboardPage";
@@ -472,12 +473,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return buildPageMetadata({ locale, pathname: questionnairePath(locale, slug), title: quiz.seoTitle[locale], description: (slug === "stress-check-in-test" ? monthlyStressLandingDescription[locale] : slug === "four-axes-test" ? fourAxesLandingDescription[locale] : quiz.description[locale]), imagePath: `/og/fun/${slug}?locale=${locale}&v=${quiz.version}`, alternatesByLocale: { en: questionnairePath("en", slug), zh: questionnairePath("zh", slug), xDefault: questionnairePath("en", slug) } });
 }
 
-export default async function QuestionnairePage({ params }: Props) {
+export default async function QuestionnairePage({ params, take = false }: Props & { take?: boolean }) {
   const { locale: input, slug } = await params, locale = resolveLocale(input), zh = locale === "zh";
   const quiz = await loadQuestionnaire(slug);
   if (quiz?.kind === "sudden-fear20") {
     if (!isSuddenFear20ConfigurationValid(quiz)) notFound();
-    return <SuddenFearPage quiz={quiz} locale={locale} />;
+    return <SuddenFearPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "nakshatra27") {
     if (!isNakshatra27ConfigurationValid(quiz)) notFound();
@@ -485,266 +486,266 @@ export default async function QuestionnairePage({ params }: Props) {
   }
   if (quiz?.kind === "unwanted-actions20") {
     if (!isUnwantedActions20ConfigurationValid(quiz)) notFound();
-    return <UnwantedActionsPage quiz={quiz} locale={locale} />;
+    return <UnwantedActionsPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "caregiver-context20") {
     if (!isCaregiverContext20ConfigurationValid(quiz)) notFound();
-    return <CaregiverContextPage quiz={quiz} locale={locale} />;
+    return <CaregiverContextPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "communication-routines20") {
     if (!isCommunicationRoutines20ConfigurationValid(quiz)) notFound();
-    return <CommunicationRoutinesPage quiz={quiz} locale={locale} />;
+    return <CommunicationRoutinesPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "feelings-connection8") {
     if (!isFeelingsConnection8ConfigurationValid(quiz)) notFound();
-    return <FeelingsConnectionPage quiz={quiz} locale={locale} />;
+    return <FeelingsConnectionPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "spatial-context4") {
     if (!isSpatialContext4ConfigurationValid(quiz)) notFound();
-    return <SpatialContextPage quiz={quiz} locale={locale} />;
+    return <SpatialContextPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "care-feelings20") {
     if (!isCareFeelings20ConfigurationValid(quiz)) notFound();
-    return <CareFeelingsPage quiz={quiz} locale={locale} />;
+    return <CareFeelingsPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "disconnection20") {
     if (!isDisconnection20ConfigurationValid(quiz)) notFound();
-    return <DisconnectionPage quiz={quiz} locale={locale} />;
+    return <DisconnectionPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "unfamiliar20") {
     if (!isUnfamiliar20ConfigurationValid(quiz)) notFound();
-    return <UnfamiliarPage quiz={quiz} locale={locale} />;
+    return <UnfamiliarPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "focus-context16") {
     if (!isFocusContext16ConfigurationValid(quiz)) notFound();
-    return <FocusContextPage quiz={quiz} locale={locale} />;
+    return <FocusContextPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "written-language20") {
     if (!isWrittenLanguage20ConfigurationValid(quiz)) notFound();
-    return <WrittenLanguagePage quiz={quiz} locale={locale} />;
+    return <WrittenLanguagePage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "number-context20") {
     if (!isNumberContext20ConfigurationValid(quiz)) notFound();
-    return <NumberContextPage quiz={quiz} locale={locale} />;
+    return <NumberContextPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "social-context20") {
     if (!isSocialContext20ConfigurationValid(quiz)) notFound();
-    return <SocialContextPage quiz={quiz} locale={locale} />;
+    return <SocialContextPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "worry-observations12") {
     if (!isEverydayWorry12ConfigurationValid(quiz)) notFound();
-    return <EverydayWorryPage quiz={quiz} locale={locale} />;
+    return <EverydayWorryPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "mood-observations12") {
     if (!isRecentMood12ConfigurationValid(quiz)) notFound();
-    return <RecentMoodPage quiz={quiz} locale={locale} />;
+    return <RecentMoodPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "mood-activity16") {
     if (!isMoodActivity16ConfigurationValid(quiz)) notFound();
-    return <MoodActivityPage quiz={quiz} locale={locale} />;
+    return <MoodActivityPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "cycle-context16") {
     if (!isCycleContext16ConfigurationValid(quiz)) notFound();
-    return <CycleContextPage quiz={quiz} locale={locale} />;
+    return <CycleContextPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "birth-context16") {
     if (!isBirthContext16ConfigurationValid(quiz)) notFound();
-    return <BirthContextPage quiz={quiz} locale={locale} />;
+    return <BirthContextPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "season-context16") {
     if (!isSeasonContext16ConfigurationValid(quiz)) notFound();
-    return <SeasonContextPage quiz={quiz} locale={locale} />;
+    return <SeasonContextPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "health-worries21") {
     if (!isHealthWorry21ConfigurationValid(quiz)) notFound();
-    return <HealthWorryPage quiz={quiz} locale={locale} />;
+    return <HealthWorryPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "sleep-experiences20") {
     if (!isSleepExperiences20ConfigurationValid(quiz)) notFound();
-    return <SleepExperiencesPage quiz={quiz} locale={locale} />;
+    return <SleepExperiencesPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "bereavement16") {
     if (!isBereavement16ConfigurationValid(quiz)) notFound();
-    return <BereavementPage quiz={quiz} locale={locale} />;
+    return <BereavementPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "weton-story35") {
     if (!isWetonStory35ConfigurationValid(quiz)) notFound();
-    return <WetonStory35Page quiz={quiz} locale={locale} />;
+    return <WetonStory35Page quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "bpi21") {
     if (!isBpi21ConfigurationValid(quiz)) notFound();
-    return <Bpi21Page quiz={quiz} locale={locale} />;
+    return <Bpi21Page quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "eating-experiences20") {
     if (!isEatingExperiences20ConfigurationValid(quiz)) notFound();
-    return <EatingExperiencesPage quiz={quiz} locale={locale} />;
+    return <EatingExperiencesPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "gender-experiences16") {
     if (!isGenderExperiences16ConfigurationValid(quiz)) notFound();
-    return <GenderExperiencesPage quiz={quiz} locale={locale} />;
+    return <GenderExperiencesPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "emotions-connections21") {
     if (!isEmotionsConnections21ConfigurationValid(quiz)) notFound();
-    return <EmotionsConnectionsPage quiz={quiz} locale={locale} />;
+    return <EmotionsConnectionsPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "feedback-worth12") {
     if (!isFeedbackWorth12ConfigurationValid(quiz)) notFound();
-    return <FeedbackWorthPage quiz={quiz} locale={locale} />;
+    return <FeedbackWorthPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "uncertainty-ease6") {
     if (!isUncertaintyEase6ConfigurationValid(quiz)) notFound();
-    return <UncertaintyEasePage quiz={quiz} locale={locale} />;
+    return <UncertaintyEasePage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "drinking-experiences20") {
     if (!isDrinkingExperiences20ConfigurationValid(quiz)) notFound();
-    return <DrinkingExperiencesPage quiz={quiz} locale={locale} />;
+    return <DrinkingExperiencesPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "support-reflection18") {
     if (!isSupportReflection18ConfigurationValid(quiz)) notFound();
-    return <SupportReflectionPage quiz={quiz} locale={locale} />;
+    return <SupportReflectionPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "connection-checkin21") {
     if (!isConnectionCheckIn21ConfigurationValid(quiz)) notFound();
-    return <ConnectionCheckInPage quiz={quiz} locale={locale} />;
+    return <ConnectionCheckInPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "pressure-actions12") {
     if (!isPressureActions12ConfigurationValid(quiz)) notFound();
-    return <PressureActionsPage quiz={quiz} locale={locale} />;
+    return <PressureActionsPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "trauma-response20") {
     if (!isTraumaResponse20ConfigurationValid(quiz)) notFound();
-    return <TraumaResponsePage quiz={quiz} locale={locale} />;
+    return <TraumaResponsePage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "distributed-work24") {
     if (!isDistributedWork24ConfigurationValid(quiz)) notFound();
-    return <DistributedWorkPage quiz={quiz} locale={locale} />;
+    return <DistributedWorkPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "written-coordination") {
     if (!isWrittenCoordinationConfigurationValid(quiz)) notFound();
-    return <WrittenCoordinationPage quiz={quiz} locale={locale} />;
+    return <WrittenCoordinationPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "sbti31") {
     if (!isSbti31ConfigurationValid(quiz)) notFound();
-    return <Sbti31Page quiz={quiz} locale={locale} />;
+    return <Sbti31Page quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "mattering10") {
     if (!isMattering10ConfigurationValid(quiz)) notFound();
-    return <Mattering10Page quiz={quiz} locale={locale} />;
+    return <Mattering10Page quiz={quiz} locale={locale} take={take} />;
   }
   if (slug === "eq-dashboard" && quiz) {
     if (!isQuestionnaireConfigurationValid(quiz)) notFound();
-    return <EmotionDashboardPage quiz={quiz} locale={locale} />;
+    return <EmotionDashboardPage quiz={quiz} locale={locale} take={take} />;
   }
   if (slug === "values-assessment" && quiz) {
     if (!isQuestionnaireConfigurationValid(quiz)) notFound();
-    return <WorkValuesPage quiz={quiz} locale={locale} />;
+    return <WorkValuesPage quiz={quiz} locale={locale} take={take} />;
   }
   if (slug === "food-choice" && quiz) {
     if (!isQuestionnaireConfigurationValid(quiz)) notFound();
-    return <FoodChoicePage quiz={quiz} locale={locale} />;
+    return <FoodChoicePage quiz={quiz} locale={locale} take={take} />;
   }
   if (slug === "cultural-dimensions" && quiz) {
     if (!isQuestionnaireConfigurationValid(quiz)) notFound();
-    return <CulturalDimensionsPage quiz={quiz} locale={locale} />;
+    return <CulturalDimensionsPage quiz={quiz} locale={locale} take={take} />;
   }
   if (slug === "deep-desire" && quiz) {
     if (!isQuestionnaireConfigurationValid(quiz)) notFound();
-    return <DeepDesirePage quiz={quiz} locale={locale} />;
+    return <DeepDesirePage quiz={quiz} locale={locale} take={take} />;
   }
   if (slug === "overthinking-screener" && quiz) {
     if (!isQuestionnaireConfigurationValid(quiz)) notFound();
-    return <PtqPage quiz={quiz} locale={locale} />;
+    return <PtqPage quiz={quiz} locale={locale} take={take} />;
   }
   if (slug === "skills-audit" && quiz) {
     if (!isQuestionnaireConfigurationValid(quiz)) notFound();
-    return <SkillsAuditPage quiz={quiz} locale={locale} />;
+    return <SkillsAuditPage quiz={quiz} locale={locale} take={take} />;
   }
   if (slug === "culture-fit" && quiz) {
     if (!isQuestionnaireConfigurationValid(quiz)) notFound();
-    return <CultureFitPage quiz={quiz} locale={locale} />;
+    return <CultureFitPage quiz={quiz} locale={locale} take={take} />;
   }
   if (slug === "work-ethics" && quiz) {
     if (!isQuestionnaireConfigurationValid(quiz)) notFound();
-    return <WorkEthicsPage quiz={quiz} locale={locale} />;
+    return <WorkEthicsPage quiz={quiz} locale={locale} take={take} />;
   }
   if (slug === "number-series" && quiz) {
     if (!isQuestionnaireConfigurationValid(quiz)) notFound();
-    return <NumberSeriesPage quiz={quiz} locale={locale} />;
+    return <NumberSeriesPage quiz={quiz} locale={locale} take={take} />;
   }
   if (slug === "superpower-test" && quiz) {
     if (!isQuestionnaireConfigurationValid(quiz)) notFound();
-    return <SuperpowerPage quiz={quiz} locale={locale} />;
+    return <SuperpowerPage quiz={quiz} locale={locale} take={take} />;
   }
   if (slug === "mythical-creature" && quiz) {
     if (!isQuestionnaireConfigurationValid(quiz)) notFound();
-    return <MythicalCreaturePage quiz={quiz} locale={locale} />;
+    return <MythicalCreaturePage quiz={quiz} locale={locale} take={take} />;
   }
   if (slug === "what-dog-breed-am-i" && quiz) {
     if (!isQuestionnaireConfigurationValid(quiz)) notFound();
-    return <DogBreedPage quiz={quiz} locale={locale} />;
+    return <DogBreedPage quiz={quiz} locale={locale} take={take} />;
   }
   if (slug === "spirit-animal" && quiz) {
     if (!isQuestionnaireConfigurationValid(quiz)) notFound();
-    return <SpiritAnimalPage quiz={quiz} locale={locale} />;
+    return <SpiritAnimalPage quiz={quiz} locale={locale} take={take} />;
   }
   if (slug === "social-battery-test" && quiz) {
     if (!isQuestionnaireConfigurationValid(quiz)) notFound();
-    return <SocialBatteryPage quiz={quiz} locale={locale} />;
+    return <SocialBatteryPage quiz={quiz} locale={locale} take={take} />;
   }
   if (slug === "perceived-stress-scale-4" && quiz) {
     const validPss4 = Boolean(isPss4ConfigurationValid(quiz));
     if (!validPss4) notFound();
-    return <Pss4Page quiz={quiz} locale={locale} />;
+    return <Pss4Page quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.slug === "cognitive-functions-test") return <CognitiveFunctionsPage quiz={quiz} locale={locale} />;
 
   if (quiz?.kind === "dvmsq18") {
     if (!isDvmsq18ConfigurationValid(quiz)) notFound();
-    return <Dvmsq18Page quiz={quiz} locale={locale} />;
+    return <Dvmsq18Page quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "synes15") {
     if (!isSynes15ConfigurationValid(quiz)) notFound();
-    return <Synes15Page quiz={quiz} locale={locale} />;
+    return <Synes15Page quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "reasoning18") {
     if (!isReasoning18ConfigurationValid(quiz)) notFound();
-    return <Reasoning18Page quiz={quiz} locale={locale} />;
+    return <Reasoning18Page quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "critical30") {
     if (!isCritical30ConfigurationValid(quiz)) notFound();
-    return <Critical30Page quiz={quiz} locale={locale} />;
+    return <Critical30Page quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "technical30") {
     if (!isTechnical30ConfigurationValid(quiz)) notFound();
-    return <Technical30Page quiz={quiz} locale={locale} />;
+    return <Technical30Page quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "afqt32") {
     if (!isAfqt32ConfigurationValid(quiz)) notFound();
-    return <Afqt32Page quiz={quiz} locale={locale} />;
+    return <Afqt32Page quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "anger20") {
     if (!isAnger20ConfigurationValid(quiz)) notFound();
-    return <Anger20Page quiz={quiz} locale={locale} />;
+    return <Anger20Page quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "sens16") {
     if (!isSens16ConfigurationValid(quiz)) notFound();
-    return <Sens16Page quiz={quiz} locale={locale} />;
+    return <Sens16Page quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "imagery12") {
     if (!isImagery12ConfigurationValid(quiz)) notFound();
-    return <Imagery12Page quiz={quiz} locale={locale} />;
+    return <Imagery12Page quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "imposter20") {
     if (!isImposter20ConfigurationValid(quiz)) notFound();
-    return <Imposter20Page quiz={quiz} locale={locale} />;
+    return <Imposter20Page quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "catq25") {
     if (!isCatQ25ConfigurationValid(quiz)) notFound();
-    return <CatQ25Page quiz={quiz} locale={locale} />;
+    return <CatQ25Page quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "most-least") {
     if (!isMostLeastConfigurationValid(quiz)) notFound();
-    return <MostLeastPage quiz={quiz} locale={locale} />;
+    return <MostLeastPage quiz={quiz} locale={locale} take={take} />;
   }
   if (quiz?.kind === "love-type16" && !isLoveType16ConfigurationValid(quiz)) notFound();
   if (((quiz?.kind === "mini-virtues" || quiz?.slug === "seven-sins-virtues-test") && !isMiniVirtuesConfigurationValid(quiz)) || (quiz?.slug === "euphoria-character-quiz" && !isEuphoriaConfigurationValid(quiz))) notFound();
@@ -766,15 +767,15 @@ export default async function QuestionnairePage({ params }: Props) {
   }
   if (!quiz || (quiz.kind === "fds32" && !isFds32ConfigurationValid(quiz)) || (quiz.kind === "mental-age" && !isMentalAgeConfigurationValid(quiz)) || (quiz.kind === "pss4" && !isPss4ConfigurationValid(quiz)) || (quiz.kind === "stress-reflection4" && !isStressReflection4ConfigurationValid(quiz)) || (quiz.kind === "mini-orientation" && !isMiniOrientationConfigurationValid(quiz)) || (quiz.kind === "mini-conflict" && !isMiniConflictConfigurationValid(quiz)) || (quiz.kind === "four-axes" && !isFourAxesConfigurationValid(quiz)) || (quiz.kind === "mini-shadow" && !isMiniShadowConfigurationValid(quiz)) || (quiz.kind === "preparation-actions20" && !isPreparationActions20ConfigurationValid(quiz)) || (quiz.kind === "mini-coping" && !isMiniCopingConfigurationValid(quiz)) || (quiz.kind === "mini-habit" && !isMiniHabitConfigurationValid(quiz)) || (quiz.kind === "mini-intimacy" && !isMiniIntimacyConfigurationValid(quiz)) || (quiz.kind === "mini-breakup" && !isMiniBreakupConfigurationValid(quiz)) || (quiz.kind === "holding-back35" && !isHoldingBack35ConfigurationValid(quiz)) || (quiz.kind === "fscrs22" && !isFscrs22ConfigurationValid(quiz)) || (quiz.kind === "parenting-practices" && !isParentingPracticesConfigurationValid(quiz)) || (quiz.kind === "spq92" && !isSpq92ConfigurationValid(quiz)) || (quiz.kind === "adexi14" && !isAdexi14ConfigurationValid(quiz)) || (quiz.kind === "mini-friction" && !isMiniFrictionConfigurationValid(quiz)) || (quiz.kind === "ctl41" && !isCtl41ConfigurationValid(quiz)) || (quiz.kind === "ptq15" && !isPtq15ConfigurationValid(quiz)) || (quiz.kind === "interaction-pairs" && !isInteractionPairsConfigurationValid(quiz)) || (quiz.kind === "work-role12" && !isWorkRole12ConfigurationValid(quiz)) || (quiz.kind === "skills-evidence" && !isSkillsEvidenceConfigurationValid(quiz)) || (quiz.slug === "dark-tetrad-sd4" && !isSd4ConfigurationValid(quiz)) || (quiz.kind === "tipi10" && !isTipi10ConfigurationValid(quiz)) || (quiz.kind === "saps" && !isSapsConfigurationValid(quiz)) || (quiz.kind === "scs26" && !isScs26ConfigurationValid(quiz)) || (quiz.kind === "cbi" && !isCbiConfigurationValid(quiz)) || (quiz.kind === "rosenberg" && !isRosenbergConfigurationValid(quiz)) || (quiz.kind === "political-coordinates" && !isPoliticalCoordinatesConfigurationValid(quiz)) || (quiz.kind === "data-entry" && !isDataEntryConfigurationValid(quiz)) || (quiz.kind === "secs" && !isSecsConfigurationValid(quiz)) || (quiz.kind === "paired-dimensions" && !isPairedDimensionsConfigurationValid(quiz)) || (quiz.kind === "typing" && !isTypingConfigurationValid(quiz))) notFound();
   if (!isQuestionnaireConfigurationValid(quiz)) throw new Error("QUESTIONNAIRE_CONFIGURATION_UNAVAILABLE");
-  if (quiz.slug === "connection-meaning-reflection") return <ConnectionMeaningPage quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
-  if (quiz.slug === "body-frame-observations") return <BodyFrameObservationsPage quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
-  if (quiz.slug === "connection-ideals") return <ConnectionIdealsPage quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
-  if (quiz.slug === "activity-engagement-patterns") return <ActivityEngagementPage quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
-  if (quiz.slug === "style-impression-preferences") return <StyleImpressionPage quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
-  if (quiz.slug === "outfit-line-preferences") return <OutfitLinePreferencesPage quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
-  if (quiz.kind === "data-entry") return <DataEntryPage quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
-  if (quiz.kind === "typing") return <TypingPage quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
-  if (quiz.kind === "ten-key") return <TenKeyPage quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
+  if (quiz.slug === "connection-meaning-reflection") return <ConnectionMeaningPage quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} take={take} />;
+  if (quiz.slug === "body-frame-observations") return <BodyFrameObservationsPage quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} take={take} />;
+  if (quiz.slug === "connection-ideals") return <ConnectionIdealsPage quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} take={take} />;
+  if (quiz.slug === "activity-engagement-patterns") return <ActivityEngagementPage quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} take={take} />;
+  if (quiz.slug === "style-impression-preferences") return <StyleImpressionPage quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} take={take} />;
+  if (quiz.slug === "outfit-line-preferences") return <OutfitLinePreferencesPage quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} take={take} />;
+  if (quiz.kind === "data-entry") return <DataEntryPage quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} take={take} />;
+  if (quiz.kind === "typing") return <TypingPage quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} take={take} />;
+  if (quiz.kind === "ten-key") return <TenKeyPage quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} take={take} />;
   const readingProfiles = quiz.profiles.map(profile => prepareResultProfile(quiz.slug, profile));
   const resultReadingProps = (() => {
     if (quiz.kind === "mental-age") return { mentalAgeReadingProfile: readingProfiles[0] };
@@ -785,6 +786,28 @@ export default async function QuestionnairePage({ params }: Props) {
     if (quiz.kind === "parenting-practices") return { parentingReadingProfiles: readingProfiles };
     return {};
   })();
+  const engine = (() => {
+if (quiz.kind === "mini-orientation") return <QuestionnaireOrientationClient quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
+if (quiz.kind === "mini-conflict") return <QuestionnaireConflictClient quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
+if ((quiz.kind === "stress-reflection4" || quiz.kind === "pss4")) return <QuestionnaireStressCheckInClient quiz={quiz} locale={locale} resultProfile={readingProfiles[0]} />;
+if (quiz.kind === "four-axes") return <QuestionnaireFourAxesClient quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
+if (quiz.kind === "mini-shadow") return <QuestionnaireShadowClient quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
+if (quiz.kind === "mini-coping") return <QuestionnaireCopingClient quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
+if (quiz.kind === "mini-habit") return <QuestionnaireHabitClient quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
+if (quiz.kind === "mini-intimacy") return <QuestionnaireIntimacyClient quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
+if (quiz.kind === "fscrs22") return <QuestionnaireFscrs22Client quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
+if (quiz.slug === "connection-ideals") return <ConnectionIdealsClient key={`${slug}:${locale}`} quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
+if (quiz.slug === "style-impression-preferences") return <StyleImpressionClient key={`${slug}:${locale}`} quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
+if (quiz.slug === "connection-meaning-reflection") return <ConnectionMeaningClient key={`${slug}:${locale}`} quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
+if (quiz.slug === "body-frame-observations") return <BodyFrameObservationsClient key={`${slug}:${locale}`} quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
+if (quiz.slug === "activity-engagement-patterns") return <ActivityEngagementClient key={`${slug}:${locale}`} quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
+if (quiz.slug === "outfit-line-preferences") return <OutfitLinePreferencesClient key={`${slug}:${locale}`} quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
+if (quiz.slug === "attraction-experiences") return <AttractionExperiencesClient key={`${slug}:${locale}`} quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
+if (quiz.slug === "dark-tetrad-sd4") return <QuestionnaireSd4Client key={`${slug}:${locale}`} quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
+if (quiz.slug === "dark-triad") return <QuestionnaireDarkTriadClient key={`${slug}:${locale}`} quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
+return <QuestionnaireClient quiz={Object.keys(resultReadingProps).length ? quiz : prepareQuestionnaireResultReadings(quiz)} locale={locale} {...resultReadingProps} />;
+})();
+  if (take) return engine;
   const gapEditorial = completionGapEditorial[slug];
   const resultGuide = quiz.slug === "delulu-test" ? prepareQuestionnaireResultReadings(quiz).guide : quiz.guide;
   const path = questionnairePath(locale, slug);
@@ -1003,27 +1026,7 @@ return (quiz.references ?? []);
     <p className="mt-5 text-lg leading-8 text-slate-700">{(slug === "stress-check-in-test" ? monthlyStressLandingDescription[locale] : slug === "four-axes-test" ? fourAxesLandingDescription[locale] : quiz.description[locale])}</p>
     <p className="explore-intro-meta"><span>{quiz.kind === "fscrs22" ? (zh ? "22 条陈述 · 按自己的节奏 · 无需注册" : "22 statements · Self-paced · No signup") : zh ? `${quiz.questions.length}题 · 约${quiz.minutes}分钟 · 无需注册` : `${quiz.questions.length} questions · about ${quiz.minutes} ${quiz.minutes === 1 ? "minute" : "minutes"} · no signup`}</span><span>{entryLabel}</span></p>
 
-    {(() => {
-if (quiz.kind === "mini-orientation") return <QuestionnaireOrientationClient quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
-if (quiz.kind === "mini-conflict") return <QuestionnaireConflictClient quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
-if ((quiz.kind === "stress-reflection4" || quiz.kind === "pss4")) return <QuestionnaireStressCheckInClient quiz={quiz} locale={locale} resultProfile={readingProfiles[0]} />;
-if (quiz.kind === "four-axes") return <QuestionnaireFourAxesClient quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
-if (quiz.kind === "mini-shadow") return <QuestionnaireShadowClient quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
-if (quiz.kind === "mini-coping") return <QuestionnaireCopingClient quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
-if (quiz.kind === "mini-habit") return <QuestionnaireHabitClient quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
-if (quiz.kind === "mini-intimacy") return <QuestionnaireIntimacyClient quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
-if (quiz.kind === "fscrs22") return <QuestionnaireFscrs22Client quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
-if (quiz.slug === "connection-ideals") return <ConnectionIdealsClient key={`${slug}:${locale}`} quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
-if (quiz.slug === "style-impression-preferences") return <StyleImpressionClient key={`${slug}:${locale}`} quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
-if (quiz.slug === "connection-meaning-reflection") return <ConnectionMeaningClient key={`${slug}:${locale}`} quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
-if (quiz.slug === "body-frame-observations") return <BodyFrameObservationsClient key={`${slug}:${locale}`} quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
-if (quiz.slug === "activity-engagement-patterns") return <ActivityEngagementClient key={`${slug}:${locale}`} quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
-if (quiz.slug === "outfit-line-preferences") return <OutfitLinePreferencesClient key={`${slug}:${locale}`} quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
-if (quiz.slug === "attraction-experiences") return <AttractionExperiencesClient key={`${slug}:${locale}`} quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
-if (quiz.slug === "dark-tetrad-sd4") return <QuestionnaireSd4Client key={`${slug}:${locale}`} quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
-if (quiz.slug === "dark-triad") return <QuestionnaireDarkTriadClient key={`${slug}:${locale}`} quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} />;
-return <QuestionnaireClient quiz={Object.keys(resultReadingProps).length ? quiz : prepareQuestionnaireResultReadings(quiz)} locale={locale} {...resultReadingProps} />;
-})()}
+    <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     </ExploreTestIntro>
     {quiz.kind === "fscrs22" && <QuestionnaireFscrs22Attribution quiz={quiz} locale={locale} />}
     <section className="my-8 space-y-4 leading-8" aria-labelledby="questionnaire-purpose"><h2 id="questionnaire-purpose" className="text-2xl font-semibold">{(() => {

@@ -1,3 +1,4 @@
+import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import { Fragment } from "react";
 import { writtenLandingSections, writtenLandingFaq } from "./WrittenCoordinationLandingEditorial";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
@@ -38,17 +39,20 @@ function Reading({ quiz, profile, locale, idPrefix }: { quiz: WrittenCoordinatio
     <QuestionnaireResultReading quizSlug={quiz.slug} profile={prepareResultProfile(quiz.slug, profile)} locale={locale} headingLevel={3} idPrefix={idPrefix} />
   </section>;
 }
-export function WrittenCoordinationPage({ quiz, locale }: { quiz: WrittenCoordinationQuiz; locale: Locale }) {
+export function WrittenCoordinationPage({ quiz, locale , take = false }: { quiz: WrittenCoordinationQuiz; locale: Locale ; take?: boolean }) {
   const zh = locale === "zh", entry = questionnairePath(locale, quiz.slug);
+  const engine = <WrittenCoordinationClient quiz={quiz} locale={locale} />;
+  if (take) return <>{engine}<section className="mt-8 space-y-4" aria-label={zh ? "完整练习指南" : "Complete practice guides"}>{quiz.profiles.map(profile => <details key={profile.id} className="rounded-xl border border-slate-200 p-4"><summary className="cursor-pointer font-semibold">{profile.title[locale]}</summary><Reading quiz={quiz} profile={profile} locale={locale} idPrefix={`written-take-${profile.id}`} /></details>)}</section></>;
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path: entry }])} />
     <JsonLd id="questionnaire-page" data={buildWebPageJsonLd({ path: entry, title: quiz.title[locale], description: quiz.description[locale], locale })} />
-    <ExploreTestIntro slug={quiz.slug} locale={locale} entryLink>
+    <ExploreTestIntro slug={quiz.slug} locale={locale}>
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
     <p className="mt-5 text-lg leading-8">{quiz.description[locale]}</p>
     <p className="explore-intro-meta">{zh ? "六项独立练习 · 约18分钟 · 无需注册 · 完整指南免费" : "Six independent exercises · about 18 minutes · no signup · full guides free"}</p>
+    <QuestionnaireTakeEntry quiz={{ slug: quiz.slug }} locale={locale} />
     </ExploreTestIntro>
-    <WrittenCoordinationClient quiz={quiz} locale={locale} />
+
     <section className="my-8 space-y-4 leading-8" aria-labelledby="written-purpose"><h2 id="written-purpose">{writtenLandingSections[0].title[locale]}</h2>{writtenLandingSections[0].paragraphs.map((p, i) => <p key={i}><Copy text={p[locale]} /></p>)}<p>{quiz.introduction[locale]}</p><Context locale={locale} /></section>
     <section className="explore-reading-library" aria-labelledby="written-methods"><h2 id="written-methods">{zh ? "书面协调练习方法：任务规则、计分算例与研究范围" : "Written coordination methods: task rules, worked scoring and evidence"}</h2><div className="explore-reading-sections">{[...writtenLandingSections.slice(1), ...quiz.guide].map(s => <section key={s.id} className="explore-reading-section" aria-labelledby={`written-method-${s.id}`}><h3 id={`written-method-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p, i) => <p key={i}><Copy text={p[locale]} /></p>)}</div></section>)}</div></section>
     <Library quiz={quiz} locale={locale} />

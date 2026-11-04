@@ -8,7 +8,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { FunQuiz } from "@/lib/entertainment/types";
 import { resultPath } from "@/lib/entertainment/guides";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { FunQuizClient } from "./FunQuizClient";
+import { StoryTakeEntry } from "./StoryTakeEntry";
 import { forestSoundtrackSections, forestSoundtrackFaq } from "./ForestSoundtrackEditorial";
 
 function Copy({ text }: { text: string }) {
@@ -23,7 +23,7 @@ export function ForestSoundtrackPage({ quiz, locale }: { quiz: FunQuiz; locale: 
     <ExploreTestIntro slug={quiz.slug} locale={locale}>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.seo.description[locale]}</p>
       <div className="explore-intro-meta"><span>{zh ? "每次3至4次选择 · 约2分钟 · 无需注册" : "3–4 choices per reading · About 2 minutes · No registration"}</span><span>{zh ? "原创森林曲子短篇 · 三种完整结局免费" : "Original forest-tune tale · Three full endings free"}</span></div>
-      <FunQuizClient quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "Read a forest-tune scene and choose one of its two options. Three or four linked choices lead to one full ending; there is no score or need to read every scene. No audio, instrument, microphone access, agreement, saved progress or prior test is required.", zh: "阅读森林曲子场景，从两个选项选一项。三至四个相连选择通向一个完整结局，无分数，也无需读遍每幕。不需音频、乐器、麦克风访问、同意页、保存进度或先做测试。" }} />
+      <StoryTakeEntry quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "Read a forest-tune scene and choose one of its two options. Three or four linked choices lead to one full ending; there is no score or need to read every scene. No audio, instrument, microphone access, agreement, saved progress or prior test is required.", zh: "阅读森林曲子场景，从两个选项选一项。三至四个相连选择通向一个完整结局，无分数，也无需读遍每幕。不需音频、乐器、麦克风访问、同意页、保存进度或先做测试。" }} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="about-quiz"><h2 id="about-quiz" className="text-2xl font-semibold">{forestSoundtrackSections[0].title[locale]}</h2>{forestSoundtrackSections[0].paragraphs.map((p,i)=><p key={i}>{p[locale]}</p>)}<p>{quiz.introduction[locale]}</p><p>{quiz.focus[locale]}</p></section>
     <section className="explore-reading-library" aria-labelledby="forest-soundtrack-methods"><h2 id="forest-soundtrack-methods">{zh ? "回声、纸鸟合奏与留白：结局及分支阅读方法" : "Echo, paper-bird chorus and an open beat: endings and branching"}</h2><div className="explore-reading-sections">{forestSoundtrackSections.slice(1).map(s=><section className="explore-reading-section" key={s.id} aria-labelledby={`forest-soundtrack-${s.id}`}><h3 id={`forest-soundtrack-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p,i)=><p key={i}><Copy text={p[locale]} /></p>)}</div></section>)}</div></section>

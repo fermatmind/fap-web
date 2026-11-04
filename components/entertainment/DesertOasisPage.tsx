@@ -8,7 +8,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { FunQuiz } from "@/lib/entertainment/types";
 import { resultPath } from "@/lib/entertainment/guides";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { FunQuizClient } from "./FunQuizClient";
+import { StoryTakeEntry } from "./StoryTakeEntry";
 import { desertOasisSections, desertOasisFaq } from "./DesertOasisEditorial";
 
 function Copy({ text }: { text: string }) {
@@ -23,7 +23,7 @@ export function DesertOasisPage({ quiz, locale }: { quiz: FunQuiz; locale: Local
     <ExploreTestIntro slug={quiz.slug} locale={locale}>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.seo.description[locale]}</p>
       <div className="explore-intro-meta"><span>{zh ? "6题 · 约2分钟 · 无需注册" : "6 choices · About 2 minutes · No registration"}</span><span>{zh ? "原创想象空间设计 · 完整画像免费" : "Original imaginary space design · Full portraits free"}</span></div>
-      <FunQuizClient quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "For each imaginary oasis scene, choose the detail you would emphasise: clear information, a shared picture or space to pause. Visitors have already arrived safely and have everything they need. Complete six choices for all counts and highest ties; no real travel, agreement or saved progress is required.", zh: "每个想象绿洲情境，选择会先强调的细节：清楚信息、共同画面或停留空间。访客已安全抵达，所需已备齐。六题完成后查看全部次数与最高并列，无需真实旅行、入口同意或保存进度。" }} />
+      <StoryTakeEntry quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "For each imaginary oasis scene, choose the detail you would emphasise: clear information, a shared picture or space to pause. Visitors have already arrived safely and have everything they need. Complete six choices for all counts and highest ties; no real travel, agreement or saved progress is required.", zh: "每个想象绿洲情境，选择会先强调的细节：清楚信息、共同画面或停留空间。访客已安全抵达，所需已备齐。六题完成后查看全部次数与最高并列，无需真实旅行、入口同意或保存进度。" }} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="about-quiz"><h2 id="about-quiz" className="text-2xl font-semibold">{desertOasisSections[0].title[locale]}</h2>{desertOasisSections[0].paragraphs.map((p,i)=><p key={i}>{p[locale]}</p>)}<p>{quiz.introduction[locale]}</p><p>{quiz.focus[locale]}</p></section>
     <section className="explore-reading-library" aria-labelledby="desert-oasis-methods"><h2 id="desert-oasis-methods">{zh ? "三种空间侧重、设计取舍与结果读法" : "Three spatial priorities, design tradeoffs and result readings"}</h2><div className="explore-reading-sections">{desertOasisSections.slice(1).map(s=><section className="explore-reading-section" key={s.id} aria-labelledby={`desert-oasis-${s.id}`}><h3 id={`desert-oasis-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p,i)=><p key={i}><Copy text={p[locale]} /></p>)}</div></section>)}</div></section>

@@ -1,3 +1,4 @@
+import { renderQuestionnaireTakeDom } from "@/tests/fixtures/questionnaires/renderQuestionnaireTake";
 import { expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import QuestionnairePage from "@/components/questionnaires/QuestionnairePage";
@@ -36,7 +37,9 @@ it("renders fourteen bilingual FAQs, all original methods, complete attribution 
     for(const key of ["privacy","attribution","sensitiveNotice"] as const)expect(body).toContain(norm(quiz.fscrs22[key][locale]));
     for(const link of dom.querySelectorAll<HTMLAnchorElement>(".disc-source-citation"))expect(dom.querySelector(link.getAttribute("href")!)).not.toBeNull();
     for(const i of [1,2,3,4,5])expect(dom.querySelector(`#${quiz.slug}-reference-${i}`)).not.toBeNull();
-    const client=dom.querySelector("[data-fscrs22-client]")!;
+    const takeDom=await renderQuestionnaireTakeDom(locale,quiz.slug);
+    expect(dom.querySelector("[data-fscrs22-client]")).toBeNull();
+    const client=takeDom.querySelector("[data-fscrs22-client]")!;
     expect(client.querySelector("fieldset button")?.hasAttribute("data-explore-start")).toBe(true);
     expect(client.querySelectorAll("[data-fscrs22-support]")).toHaveLength(1);
   }

@@ -1,3 +1,4 @@
+import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import { Fragment } from "react";
 import { distributedLandingSections, distributedLandingFaq, distributedLandingReferences } from "./DistributedWorkLandingEditorial";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
@@ -24,8 +25,10 @@ function Library({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
   </section>;
 }
 
-export function DistributedWorkPage({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
+export function DistributedWorkPage({ quiz, locale , take = false }: { quiz: Questionnaire; locale: Locale ; take?: boolean }) {
   const zh = locale === "zh", path = questionnairePath(locale, quiz.slug);
+  const engine = <QuestionnaireClient key={`${quiz.slug}:${locale}`} quiz={quiz} locale={locale} />;
+  if (take) return engine;
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="questionnaire-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
@@ -33,7 +36,7 @@ export function DistributedWorkPage({ quiz, locale }: { quiz: Questionnaire; loc
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
     <p className="mt-5 text-lg leading-8">{quiz.description[locale]}</p>
     <p className="explore-intro-meta">{zh ? "24组配对 · 约6分钟 · 无需注册 · 完整指南免费" : "24 pairs · about 6 minutes · no signup · full guides free"}</p>
-    <QuestionnaireClient key={`${quiz.slug}:${locale}`} quiz={quiz} locale={locale} />
+    <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="distributed-purpose"><h2 id="distributed-purpose">{distributedLandingSections[0].title[locale]}</h2>{distributedLandingSections[0].paragraphs.map((p, i) => <p key={i}><Copy text={p[locale]} /></p>)}<p>{quiz.introduction[locale]}</p><DistributedWorkContext locale={locale} /></section>
     <section className="explore-reading-library" aria-labelledby="distributed-methods"><h2 id="distributed-methods">{zh ? "分布式协作回顾方法：行动情境、计数示例与研究依据" : "Distributed work reflection methods: context, worked counts and evidence"}</h2><div className="explore-reading-sections">{[...distributedLandingSections.slice(1), ...quiz.guide].map(s => <section key={s.id} className="explore-reading-section" aria-labelledby={`distributed-method-${s.id}`}><h3 id={`distributed-method-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p, i) => <p key={i}><Copy text={p[locale]} /></p>)}</div></section>)}</div></section>

@@ -1,3 +1,4 @@
+import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import { typingLandingSections, typingLandingFaq, typingLandingReferences } from "./TypingLandingEditorial";
 import { DiscCitations } from "./DiscLandingEditorial";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
@@ -10,20 +11,23 @@ import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { Locale } from "@/lib/i18n/locales";
 import { TypingClient } from "./TypingClient";
 
-export function TypingPage({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
+export function TypingPage({ quiz, locale , take = false }: { quiz: Questionnaire; locale: Locale ; take?: boolean }) {
   const zh = locale === "zh", path = questionnairePath(locale, quiz.slug);
   const references = [...(quiz.references ?? []), ...typingLandingReferences];
   const renderCopy = (text: string) => <DiscCitations text={text} locale={locale} referencePrefix="typing-speed" />;
+  const engine = <TypingClient quiz={quiz} locale={locale} />;
+  if (take) return engine;
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="questionnaire-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
-    <ExploreTestIntro slug={quiz.slug} locale={locale} entryLink>
+    <ExploreTestIntro slug={quiz.slug} locale={locale}>
 
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
     <p className="mt-5 text-lg leading-8 text-slate-700">{quiz.description[locale]}</p>
     <div className="explore-intro-meta"><span>{zh ? "英/中文两种原文模式 · 每轮60秒 · 无需注册 · 允许改错" : "English and Chinese passage modes · 60 seconds per round · No signup · Corrections allowed"}</span><span>{zh ? "原创打字练习 · 真实计时与完整指南免费" : "Original typing practice · Real timing and complete guides, free"}</span></div>
+    <QuestionnaireTakeEntry quiz={{ slug: quiz.slug }} locale={locale} />
     </ExploreTestIntro>
-    <TypingClient quiz={quiz} locale={locale} />
+
     <section className="my-8 space-y-4 leading-8" aria-labelledby="typing-purpose"><h2 id="typing-purpose" className="text-2xl font-semibold">{zh ? "打字速度测试：英文WPM、中文CPM与一分钟抄录" : "Typing Speed Test: English WPM, Chinese CPM and one-minute copying"}</h2><p>{quiz.introduction[locale]}</p><p>{quiz.instructions![locale]}</p></section>
     {quiz.guide.map(section => <section key={section.id} className="my-8 space-y-4 leading-8" aria-labelledby={`typing-source-${section.id}`}><h2 id={`typing-source-${section.id}`} className="text-2xl font-semibold">{section.title[locale]}</h2>{section.paragraphs.map((paragraph, index) => <p key={index}>{paragraph[locale]}</p>)}</section>)}
     <section className="explore-reading-library" aria-labelledby="typing-reading"><h2 id="typing-reading" className="text-2xl font-semibold">{zh ? "打字结果读法：单位、改错与输入条件" : "Reading typing results: units, corrections and input conditions"}</h2><div className="explore-reading-sections">{typingLandingSections.map(section => <section key={section.id} className="explore-reading-section"><h3>{section.title[locale]}</h3><div>{section.paragraphs.map((p,i)=><p key={i}>{renderCopy(p[locale])}</p>)}</div></section>)}</div></section>

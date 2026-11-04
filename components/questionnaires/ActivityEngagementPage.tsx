@@ -1,3 +1,4 @@
+import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import { Fragment } from "react";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
@@ -13,8 +14,10 @@ import { activityLandingSections, activityLandingFaq } from "./ActivityEngagemen
 function Copy({ text }: { text: string }) {
   return <>{text.split(/(\[\d+\])/g).map((part, i) => /^\[\d+\]$/.test(part) ? <sup key={i}><a className="ml-1 underline" href={`#activity-reference-${part.slice(1, -1)}`}>{part}</a></sup> : <Fragment key={i}>{part}</Fragment>)}</>;
 }
-export function ActivityEngagementPage({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
+export function ActivityEngagementPage({ quiz, locale , take = false }: { quiz: Questionnaire; locale: Locale ; take?: boolean }) {
   const zh = locale === "zh", path = questionnairePath(locale, quiz.slug);
+  const engine = <ActivityEngagementClient key={`${quiz.slug}:${locale}`} quiz={quiz} locale={locale} />;
+  if (take) return engine;
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="questionnaire-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
@@ -22,7 +25,7 @@ export function ActivityEngagementPage({ quiz, locale }: { quiz: Questionnaire; 
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
       <p className="mt-5 text-lg leading-8">{quiz.description[locale]}</p>
       <p className="explore-intro-meta">{zh ? "20条陈述 · 约4分钟 · 无需注册 · 完整指南免费" : "20 statements · about 4 minutes · no signup · full guides free"}</p>
-      <ActivityEngagementClient key={`${quiz.slug}:${locale}`} quiz={quiz} locale={locale} />
+      <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="activity-purpose"><h2 id="activity-purpose">{activityLandingSections[0].title[locale]}</h2>{activityLandingSections[0].paragraphs.map((p, i) => <p key={i}><Copy text={p[locale]} /></p>)}<p>{quiz.introduction[locale]}</p></section>
     <section className="explore-reading-library" aria-labelledby="activity-methods"><h2 id="activity-methods">{zh ? "活动参与方式：五项行为、计分方法与使用范围" : "Activity engagement: five patterns, scoring and use"}</h2><div className="explore-reading-sections">{[...activityLandingSections.slice(1), ...quiz.guide].map(s => <section key={s.id} className="explore-reading-section" aria-labelledby={`activity-method-${s.id}`}><h3 id={`activity-method-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p, i) => <p key={i}><Copy text={p[locale]} /></p>)}</div></section>)}</div></section>

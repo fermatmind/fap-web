@@ -87,7 +87,9 @@ describe("Original sudden fear observation categories, never a clinical score", 
       expect((html.match(/data-sudden-fear-full-guide=/g) ?? [])).toHaveLength(4);
       const dom = document.createElement("div"); dom.innerHTML = html;
       expect(dom.querySelector("[data-sudden-fear-result]")).toBeNull();
-      expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(true);
+      expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(false);
+      expect(dom.querySelector("#take-test button")?.closest("form")?.getAttribute("action")).toBe(`/${locale}/tests/explore/${quiz.slug}/take`);
+      expect(dom.querySelectorAll('#take-test input:not([type="hidden"])')).toHaveLength(0);
       for (const p of quiz.profiles) {
         const guide = renderToStaticMarkup(<SuddenFearGuidePage quiz={quiz} profile={p} locale={locale} />);
         expect(guide).toContain("data-sudden-fear-support");

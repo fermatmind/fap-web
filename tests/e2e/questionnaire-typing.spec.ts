@@ -1,16 +1,17 @@
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
+import { prepareResultProfile } from "../../lib/questionnaires/result-content/readings";
 import type { Questionnaire } from "../../lib/questionnaires/types";
 const quiz=JSON.parse(readFileSync("lib/questionnaires/data/typing-speed.json","utf8")) as Questionnaire;
 const startName=(locale:"en"|"zh")=>locale==="zh"?"开始60秒练习":"Start 60-second round";
 async function open(page:Page,locale:"en"|"zh",mode="english",fromHub=false){
-  if(fromHub){await page.goto(`/${locale}/tests`);await page.locator("#more-tests").getByRole("link",{name:quiz.title[locale],exact:true}).click();}else await page.goto(`/${locale}/tests/explore/typing-speed`);await expect(page.getByRole("heading",{level:1})).toHaveText(quiz.title[locale]);await expect(page.getByRole("button",{name:startName(locale),exact:true})).toBeEnabled();
+  if(fromHub){await page.goto(`/${locale}/tests`);await page.locator("#more-tests").getByRole("link",{name:quiz.title[locale],exact:true}).click();}else await page.goto(`/${locale}/tests/explore/typing-speed`);await expect(page.getByRole("heading",{level:1})).toHaveText(quiz.title[locale]);await page.locator("[data-explore-start]").click();await expect(page.getByRole("button",{name:startName(locale),exact:true})).toBeEnabled();
   const decline=page.getByRole("button",{name:locale==="zh"?"拒绝":"Decline",exact:true});if(await decline.isVisible())await decline.click();
   await page.locator("#typing-mode").selectOption(String(quiz.typing!.rounds.findIndex(r=>r.id===mode)));
 }
 async function checkGuides(page:Page,locale:"en"|"zh"){
   await expect(page.locator("[data-typing-guide]")).toHaveCount(2);
-  for(const p of quiz.profiles){const guide=page.locator(`[data-typing-guide="${p.id}"]`);await expect(guide.locator("h4")).toHaveCount(7);for(const s of p.sections)for(const t of s.paragraphs)await expect(guide).toContainText(t[locale]);}
+  for(const p of quiz.profiles.map(profile => prepareResultProfile(quiz.slug, profile))){const guide=page.locator(`[data-typing-guide="${p.id}"]`);await expect(guide.locator("h4")).toHaveCount(p.sections.length);for(const s of p.sections)for(const t of s.paragraphs)await expect(guide).toContainText(t[locale]);}
   const ids=await page.locator("#take-test [id]").evaluateAll(nodes=>nodes.map(n=>n.id));expect(new Set(ids).size).toBe(ids.length);
 }
 async function freeze(page:Page){await page.clock.install();}

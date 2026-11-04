@@ -8,7 +8,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { FunQuiz } from "@/lib/entertainment/types";
 import { resultPath } from "@/lib/entertainment/guides";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { FunQuizClient } from "./FunQuizClient";
+import { StoryTakeEntry } from "./StoryTakeEntry";
 import { enchantedLibrarySections, enchantedLibraryFaq } from "./EnchantedLibraryEditorial";
 
 function Copy({ text }: { text: string }) {
@@ -23,7 +23,7 @@ export function EnchantedLibraryPage({ quiz, locale }: { quiz: FunQuiz; locale: 
     <ExploreTestIntro slug={quiz.slug} locale={locale}>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.seo.description[locale]}</p>
       <div className="explore-intro-meta"><span>{zh ? "每次3至4次选择 · 约2分钟 · 无需注册" : "3–4 choices per reading · About 2 minutes · No registration"}</span><span>{zh ? "原创图书馆短篇 · 三种完整结局免费" : "Original library tale · Three full endings free"}</span></div>
-      <FunQuizClient quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "Read each conflicting-catalogue scene and choose one of its two options. Three or four linked choices lead to one complete ending; you do not need to visit all five scenes. No uploaded records, entry agreement, MBTI result or saved progress is required.", zh: "阅读每个目录冲突情境，从两个选项中选一项。沿三至四个相连选择走到一个完整结局，不需要遍历全部五个情境。无需上传记录、入口同意、MBTI结果或保存进度。" }} />
+      <StoryTakeEntry quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "Read each conflicting-catalogue scene and choose one of its two options. Three or four linked choices lead to one complete ending; you do not need to visit all five scenes. No uploaded records, entry agreement, MBTI result or saved progress is required.", zh: "阅读每个目录冲突情境，从两个选项中选一项。沿三至四个相连选择走到一个完整结局，不需要遍历全部五个情境。无需上传记录、入口同意、MBTI结果或保存进度。" }} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="about-quiz"><h2 id="about-quiz" className="text-2xl font-semibold">{enchantedLibrarySections[0].title[locale]}</h2>{enchantedLibrarySections[0].paragraphs.map((p,i)=><p key={i}>{p[locale]}</p>)}<p>{quiz.introduction[locale]}</p><p>{quiz.focus[locale]}</p></section>
     <section className="explore-reading-library" aria-labelledby="enchanted-library-methods"><h2 id="enchanted-library-methods">{zh ? "记录、见闻与未解问题：结局及阅读方法" : "Records, testimony and open questions: endings and reading"}</h2><div className="explore-reading-sections">{enchantedLibrarySections.slice(1).map(s=><section className="explore-reading-section" key={s.id} aria-labelledby={`enchanted-library-${s.id}`}><h3 id={`enchanted-library-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p,i)=><p key={i}><Copy text={p[locale]} /></p>)}</div></section>)}</div></section>

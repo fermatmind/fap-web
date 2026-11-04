@@ -90,7 +90,9 @@ describe("Original cycle-context context observation categories, never a clinica
       expect((html.match(/data-cycle-context-full-guide=/g) ?? [])).toHaveLength(4);
       expect(html).not.toContain("data-cycle-context-result=");
       const dom = document.createElement("div"); dom.innerHTML = html;
-      expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(true);
+      expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(false);
+      expect(dom.querySelector("#take-test button")?.closest("form")?.getAttribute("action")).toBe(`/${locale}/tests/explore/${quiz.slug}/take`);
+      expect(dom.querySelectorAll('#take-test input:not([type="hidden"])')).toHaveLength(0);
       for (const p of quiz.profiles) {
         const guide = renderToStaticMarkup(<CycleContextGuidePage quiz={quiz} profile={p} locale={locale} />);
         expect(guide).toContain("data-cycle-context-support");

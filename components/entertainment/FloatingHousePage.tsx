@@ -8,7 +8,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { FunQuiz } from "@/lib/entertainment/types";
 import { resultPath } from "@/lib/entertainment/guides";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { FunQuizClient } from "./FunQuizClient";
+import { StoryTakeEntry } from "./StoryTakeEntry";
 import { floatingHouseSections, floatingHouseFaq } from "./FloatingHouseEditorial";
 
 function Copy({ text }: { text: string }) {
@@ -23,7 +23,7 @@ export function FloatingHousePage({ quiz, locale }: { quiz: FunQuiz; locale: Loc
     <ExploreTestIntro slug={quiz.slug} locale={locale}>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.seo.description[locale]}</p>
       <div className="explore-intro-meta"><span>{zh ? "6题 · 约2分钟 · 无需注册" : "6 choices · About 2 minutes · No registration"}</span><span>{zh ? "原创幻想住处情境 · 完整画像免费" : "Original fantasy-home scenes · Full portraits free"}</span></div>
-      <FunQuizClient quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "Choose how the floating house connects with places in six imagined scenes: a familiar anchor, an unfolding route or planned visits. Complete all six to see three raw counts and every highest portrait. No address, drawing, entry agreement, saved progress or prior test is required.", zh: "六个想象场景里，选择漂浮小屋怎样与地方相连：熟悉锚点、展开路线或约定到访。答完六题查看三项原始次数与全部最高画像。无需地址、绘画、入口同意、保存进度或先做其他测试。" }} />
+      <StoryTakeEntry quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "Choose how the floating house connects with places in six imagined scenes: a familiar anchor, an unfolding route or planned visits. Complete all six to see three raw counts and every highest portrait. No address, drawing, entry agreement, saved progress or prior test is required.", zh: "六个想象场景里，选择漂浮小屋怎样与地方相连：熟悉锚点、展开路线或约定到访。答完六题查看三项原始次数与全部最高画像。无需地址、绘画、入口同意、保存进度或先做其他测试。" }} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="about-quiz"><h2 id="about-quiz" className="text-2xl font-semibold">{floatingHouseSections[0].title[locale]}</h2>{floatingHouseSections[0].paragraphs.map((p,i)=><p key={i}>{p[locale]}</p>)}<p>{quiz.introduction[locale]}</p><p>{quiz.focus[locale]}</p></section>
     <section className="explore-reading-library" aria-labelledby="floating-house-methods"><h2 id="floating-house-methods">{zh ? "三种地点连接、透明计分与完整结果读法" : "Three place connections, transparent counts and complete result readings"}</h2><div className="explore-reading-sections">{floatingHouseSections.slice(1).map(s=><section className="explore-reading-section" key={s.id} aria-labelledby={`floating-house-${s.id}`}><h3 id={`floating-house-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p,i)=><p key={i}><Copy text={p[locale]} /></p>)}</div></section>)}</div></section>

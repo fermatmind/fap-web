@@ -8,7 +8,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { FunQuiz } from "@/lib/entertainment/types";
 import { resultPath } from "@/lib/entertainment/guides";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { FunQuizClient } from "./FunQuizClient";
+import { StoryTakeEntry } from "./StoryTakeEntry";
 import { borrowedBookSections, borrowedBookFaq } from "./BorrowedBookEditorial";
 
 function Copy({ text }: { text: string }) {
@@ -23,7 +23,7 @@ export function BorrowedBookPage({ quiz, locale }: { quiz: FunQuiz; locale: Loca
     <ExploreTestIntro slug={quiz.slug} locale={locale}>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.seo.description[locale]}</p>
       <div className="explore-intro-meta"><span>{zh ? "6题 · 约2分钟 · 无需注册" : "6 choices · About 2 minutes · No registration"}</span><span>{zh ? "原创借书情境 · 完整画像免费" : "Original borrowing scenes · Full portraits free"}</span></div>
-      <FunQuizClient quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "In each imagined borrowing scene, choose the part of the agreement you would focus on: a return plan, an optional reading exchange or care preferences. There are no right answers. Finish six questions to see all counts and highest ties; saving or another test is not required.", zh: "每个想象借书场景，选择更想关注的约定部分：归还安排、可选阅读交流或爱惜偏好。没有标准答案。六题完成后查看全部次数与最高并列；无需保存或先做其他测试。" }} />
+      <StoryTakeEntry quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "In each imagined borrowing scene, choose the part of the agreement you would focus on: a return plan, an optional reading exchange or care preferences. There are no right answers. Finish six questions to see all counts and highest ties; saving or another test is not required.", zh: "每个想象借书场景，选择更想关注的约定部分：归还安排、可选阅读交流或爱惜偏好。没有标准答案。六题完成后查看全部次数与最高并列；无需保存或先做其他测试。" }} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="about-quiz"><h2 id="about-quiz" className="text-2xl font-semibold">{borrowedBookSections[0].title[locale]}</h2>{borrowedBookSections[0].paragraphs.map((p,i)=><p key={i}>{p[locale]}</p>)}<p>{quiz.introduction[locale]}</p><p>{quiz.focus[locale]}</p></section>
     <section className="explore-reading-library" aria-labelledby="borrowed-book-methods"><h2 id="borrowed-book-methods">{zh ? "借阅约定、书籍使用与结果读法" : "Borrowing agreements, book handling and result readings"}</h2><div className="explore-reading-sections">{borrowedBookSections.slice(1).map(s=><section className="explore-reading-section" key={s.id} aria-labelledby={`borrowed-book-${s.id}`}><h3 id={`borrowed-book-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p,i)=><p key={i}><Copy text={p[locale]} /></p>)}</div></section>)}</div></section>

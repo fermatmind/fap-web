@@ -8,7 +8,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { FunQuiz } from "@/lib/entertainment/types";
 import { resultPath } from "@/lib/entertainment/guides";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { FunQuizClient } from "./FunQuizClient";
+import { StoryTakeEntry } from "./StoryTakeEntry";
 import { communityFairSections, communityFairFaq } from "./CommunityFairEditorial";
 
 function Copy({ text }: { text: string }) {
@@ -23,7 +23,7 @@ export function CommunityFairPage({ quiz, locale }: { quiz: FunQuiz; locale: Loc
     <ExploreTestIntro slug={quiz.slug} locale={locale}>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.seo.description[locale]}</p>
       <div className="explore-intro-meta"><span>{zh ? "6题 · 约2分钟 · 无需注册" : "6 choices · About 2 minutes · No registration"}</span><span>{zh ? "原创自愿帮忙情境 · 完整画像免费" : "Original voluntary-help scenes · Full portraits free"}</span></div>
-      <FunQuizClient quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "For each imagined craft-fair scene, choose a time window, one defined task or a clear handover. Finish six choices for all three counts and every highest tie. No actual volunteering, donation, application or saved progress is required.", zh: "每个虚构手作市集场景，选择时间段、明确任务或清楚交接。六题完成后查看三项次数与全部最高并列。无需真实志愿服务、捐款、申请或保存进度。" }} />
+      <StoryTakeEntry quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "For each imagined craft-fair scene, choose a time window, one defined task or a clear handover. Finish six choices for all three counts and every highest tie. No actual volunteering, donation, application or saved progress is required.", zh: "每个虚构手作市集场景，选择时间段、明确任务或清楚交接。六题完成后查看三项次数与全部最高并列。无需真实志愿服务、捐款、申请或保存进度。" }} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="about-quiz"><h2 id="about-quiz" className="text-2xl font-semibold">{communityFairSections[0].title[locale]}</h2>{communityFairSections[0].paragraphs.map((p,i)=><p key={i}>{p[locale]}</p>)}<p>{quiz.introduction[locale]}</p><p>{quiz.focus[locale]}</p></section>
     <section className="explore-reading-library" aria-labelledby="community-fair-methods"><h2 id="community-fair-methods">{zh ? "三种贡献安排、志愿参与研究与结果读法" : "Three contribution approaches, volunteering research and result readings"}</h2><div className="explore-reading-sections">{communityFairSections.slice(1).map(s=><section className="explore-reading-section" key={s.id} aria-labelledby={`community-fair-${s.id}`}><h3 id={`community-fair-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p,i)=><p key={i}><Copy text={p[locale]} /></p>)}</div></section>)}</div></section>

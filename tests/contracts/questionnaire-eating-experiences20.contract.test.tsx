@@ -91,7 +91,9 @@ describe("Original eating descriptions without scores or clinical verdicts", () 
       const html = renderToStaticMarkup(<EatingExperiencesPage quiz={quiz} locale={locale} />);
       expect((html.match(/data-eating-experiences-full-guide=/g) ?? [])).toHaveLength(5);
       const dom = document.createElement("div"); dom.innerHTML = html; expect(dom.querySelector("[data-eating-experiences-result]")).toBeNull();
-      expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(true);
+      expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(false);
+      expect(dom.querySelector("#take-test button")?.closest("form")?.getAttribute("action")).toBe(`/${locale}/tests/explore/${quiz.slug}/take`);
+      expect(dom.querySelectorAll('#take-test input:not([type="hidden"])')).toHaveLength(0);
       for (const p of quiz.profiles) {
         const guide = renderToStaticMarkup(<EatingExperiencesGuidePage quiz={quiz} profile={p} locale={locale} />);
         expect(guide).toContain("data-eating-experiences-support");

@@ -1,3 +1,4 @@
+import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import { Fragment } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -15,16 +16,18 @@ import { dogBreedSections, dogBreedFaq, dogBreedSummaries } from "./DogBreedLand
 function Copy({ text }: { text: string }) {
   return <>{text.split(/(\[\d+\])/g).map((part, i) => /^\[\d+\]$/.test(part) ? <sup key={i}><a className="ml-1 underline" href={`#dog-breed-reference-${part.slice(1, -1)}`}>{part}</a></sup> : <Fragment key={i}>{part}</Fragment>)}</>;
 }
-export function DogBreedPage({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
+export function DogBreedPage({ quiz, locale , take = false }: { quiz: Questionnaire; locale: Locale ; take?: boolean }) {
   if (quiz.slug !== "what-dog-breed-am-i" || !isArchetypeConfigurationValid(quiz)) notFound();
   const zh = locale === "zh", path = questionnairePath(locale, quiz.slug);
+  const engine = <QuestionnaireClient quiz={quiz} locale={locale} />;
+  if (take) return engine;
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="questionnaire-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: quiz.description[locale], locale })} />
     <ExploreTestIntro slug={quiz.slug} locale={locale}>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.description[locale]}</p>
       <div className="explore-intro-meta"><span>{zh ? "12题 · 约3分钟 · 无需注册" : "12 questions · About 3 minutes · No registration"}</span><span>{zh ? "六种犬系比喻 · 完整结果免费" : "Six breed metaphors · Full results free"}</span></div>
-      <QuestionnaireClient quiz={quiz} locale={locale} />
+      <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="dog-breed-purpose"><h2 id="dog-breed-purpose" className="text-2xl font-semibold">{dogBreedSections[0].title[locale]}</h2>{dogBreedSections[0].paragraphs.map((p, i) => <p key={i}><Copy text={p[locale]} /></p>)}<p>{quiz.introduction[locale]}</p></section>
     <section className="explore-reading-library" aria-labelledby="dog-breed-methods"><h2 id="dog-breed-methods">{zh ? "犬系结果的计分、解释与研究证据" : "Breed metaphor scoring, interpretation and research evidence"}</h2><div className="explore-reading-sections">{[...dogBreedSections.slice(1), ...quiz.guide.map(s => ({ ...s, id: `source-${s.id}` }))].map(s => <section key={s.id} className="explore-reading-section" aria-labelledby={`dog-breed-method-${s.id}`}><h3 id={`dog-breed-method-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p, i) => <p key={i}><Copy text={p[locale]} /></p>)}</div></section>)}</div></section>

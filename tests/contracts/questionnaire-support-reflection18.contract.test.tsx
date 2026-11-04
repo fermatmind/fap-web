@@ -90,7 +90,9 @@ describe("Original support consideration categories without a readiness or clini
       const html = renderToStaticMarkup(<SupportReflectionPage quiz={quiz} locale={locale} />);
       expect((html.match(/data-support-reflection-full-guide=/g) ?? [])).toHaveLength(4); expect(html).not.toContain("data-support-reflection-result=");
       const dom = document.createElement("div"); dom.innerHTML = html;
-      expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(true);
+      expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(false);
+      expect(dom.querySelector("#take-test button")?.closest("form")?.getAttribute("action")).toBe(`/${locale}/tests/explore/${quiz.slug}/take`);
+      expect(dom.querySelectorAll('#take-test input:not([type="hidden"])')).toHaveLength(0);
       for (const p of quiz.profiles) {
         const guide = renderToStaticMarkup(<SupportReflectionGuidePage quiz={quiz} profile={p} locale={locale} />);
         expect(guide).toContain("data-support-reflection-support");

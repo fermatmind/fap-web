@@ -8,7 +8,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { FunQuiz } from "@/lib/entertainment/types";
 import { resultPath } from "@/lib/entertainment/guides";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { FunQuizClient } from "./FunQuizClient";
+import { StoryTakeEntry } from "./StoryTakeEntry";
 import { festivalCompanionSections, festivalCompanionFaq } from "./FestivalCompanionEditorial";
 
 function Copy({ text }: { text: string }) {
@@ -23,7 +23,7 @@ export function FestivalCompanionPage({ quiz, locale }: { quiz: FunQuiz; locale:
     <ExploreTestIntro slug={quiz.slug} locale={locale}>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1><p className="mt-5 text-lg leading-8">{quiz.seo.description[locale]}</p>
       <div className="explore-intro-meta"><span>{zh ? "6题 · 约2分钟 · 无需注册" : "6 choices · About 2 minutes · No registration"}</span><span>{zh ? "原创插画节庆情境 · 完整画像免费" : "Original illustrated-festival scenes · Full portraits free"}</span></div>
-      <FunQuizClient quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "For each illustrated festival scene, choose the arrangement you prefer: one shared highlight, room for separate interests or a short new experience. Answer all six to see three counts and every highest portrait. No actual event, companion, entry agreement or saved progress is required.", zh: "每个插画节庆场景，选择更喜欢的安排：一个共同重点、为分开兴趣留空间，或一段短新体验。六题完成后查看三项次数及全部最高画像。无需真实活动、同伴、入口同意或保存进度。" }} />
+      <StoryTakeEntry quiz={quiz} locale={locale} compactLanding landingInstructions={{ en: "For each illustrated festival scene, choose the arrangement you prefer: one shared highlight, room for separate interests or a short new experience. Answer all six to see three counts and every highest portrait. No actual event, companion, entry agreement or saved progress is required.", zh: "每个插画节庆场景，选择更喜欢的安排：一个共同重点、为分开兴趣留空间，或一段短新体验。六题完成后查看三项次数及全部最高画像。无需真实活动、同伴、入口同意或保存进度。" }} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="about-quiz"><h2 id="about-quiz" className="text-2xl font-semibold">{festivalCompanionSections[0].title[locale]}</h2>{festivalCompanionSections[0].paragraphs.map((p,i)=><p key={i}>{p[locale]}</p>)}<p>{quiz.introduction[locale]}</p><p>{quiz.focus[locale]}</p></section>
     <section className="explore-reading-library" aria-labelledby="festival-companion-methods"><h2 id="festival-companion-methods">{zh ? "三种同行安排、透明计数与结果读法" : "Three companion arrangements, transparent counts and result readings"}</h2><div className="explore-reading-sections">{festivalCompanionSections.slice(1).map(s=><section className="explore-reading-section" key={s.id} aria-labelledby={`festival-companion-${s.id}`}><h3 id={`festival-companion-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p,i)=><p key={i}><Copy text={p[locale]} /></p>)}</div></section>)}</div></section>

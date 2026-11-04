@@ -27,7 +27,7 @@ describe("Written coordination editorial preserves task conditions and full bili
     expect(dom.querySelectorAll('[aria-labelledby="written-guide-library"] > ul > li')).toHaveLength(6);
     expect(dom.querySelectorAll('[data-written-full-guide]')).toHaveLength(6);
     for (const p of quiz.profiles) for (const s of p.sections) for (const t of s.paragraphs) expect(body).toContain(norm(t[locale]));
-    expect(dom.querySelector('.explore-intro input, .explore-intro aside')).toBeNull();
+    expect(dom.querySelector('.explore-intro input:not([type="hidden"]), .explore-intro aside')).toBeNull();
     expect(dom.querySelector('input[type="checkbox"], input[required]')).toBeNull();
     for (const n of [1, 2, 3]) { expect(dom.querySelector(`a[href="#written-reference-${n}"]`)).not.toBeNull(); expect(dom.querySelector(`#written-reference-${n}`)).not.toBeNull(); }
     expect(catalog.find(q => q.slug === quiz.slug)?.description).toEqual(quiz.description);

@@ -9,7 +9,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { FunQuiz } from "@/lib/entertainment/types";
 import { resultPath } from "@/lib/entertainment/guides";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { FunQuizClient } from "./FunQuizClient";
+import { StoryTakeEntry } from "./StoryTakeEntry";
 import { additionalStoryEditorials } from "./AdditionalStoryEditorials";
 
 export function StoryEditorialPage({ quiz, locale }: { quiz: FunQuiz; locale: Locale }) {
@@ -30,7 +30,7 @@ export function StoryEditorialPage({ quiz, locale }: { quiz: FunQuiz; locale: Lo
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
       <p className="mt-5 text-lg leading-8">{quiz.seo.description[locale]}</p>
       <div className="explore-intro-meta"><span>{zh ? `${count}次选择 · 约${quiz.minutes}分钟 · 无需注册` : `${count} choices · About ${quiz.minutes} minutes · No registration`}</span><span>{editorial.label[locale]}</span></div>
-      <FunQuizClient quiz={quiz} locale={locale} compactLanding landingInstructions={editorial.instructions} />
+      <StoryTakeEntry quiz={quiz} locale={locale} compactLanding landingInstructions={editorial.instructions} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="about-quiz">
       <h2 id="about-quiz" className="text-2xl font-semibold">{editorial.sections[0].title[locale]}</h2>
