@@ -1,11 +1,14 @@
+import { CognitiveFunctionsVersions } from "@/components/questionnaires/CognitiveFunctionsVersions";
 import { StrictMode, useEffect, useState } from "react";
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { QuestionnaireTakeSession } from "@/components/questionnaires/QuestionnaireTakeSession";
 import { QuestionnaireTakeOptions } from "@/components/questionnaires/QuestionnaireTakeOptions";
 
+vi.mock("next/navigation", () => ({ useRouter: () => ({ push: vi.fn() }) }));
+
 beforeEach(() => window.history.replaceState(null, "", "/zh/tests/explore/example/take?start=1"));
-afterEach(cleanup);
+afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 const session = (children: React.ReactNode, autoStart = true) => <QuestionnaireTakeSession title="Example" minutes={3} locale="zh" landing="/zh/tests/explore/example" autoStart={autoStart}>{children}</QuestionnaireTakeSession>;
 
 describe("Shared take session", () => {
@@ -56,4 +59,23 @@ describe("Shared take session", () => {
     fireEvent.click(options[count - 1]);
     expect(changed).toHaveBeenCalledWith(`original-${count - 1}`);
   });
+});
+
+
+it("runs the original draft-deletion handler before starting a direct 56-choice entry", async () => {
+  const scroll = Object.getOwnPropertyDescriptor(Element.prototype, "scrollIntoView");
+  Object.defineProperty(Element.prototype, "scrollIntoView", { configurable: true, value: vi.fn() });
+  try {
+    window.history.replaceState(null, "", "/en/tests/explore/cognitive-functions-test/take?edition=paired56&start=1");
+    const removed = vi.spyOn(Storage.prototype, "removeItem").mockImplementation(() => { throw Error("Synthetic storage denial"); });
+    render(<QuestionnaireTakeSession title="Cognitive functions" minutes={15} locale="en" landing="/en/tests/explore/cognitive-functions-test"><CognitiveFunctionsVersions locale="en" initialMethod="paired56" /></QuestionnaireTakeSession>);
+    await screen.findByText(/deletion of that copy could not be confirmed/);
+    expect(removed).toHaveBeenCalledWith("fm_questionnaire_draft:cognitive-functions-test");
+    await waitFor(() => expect(document.querySelector("[data-jung56-progress]")).toHaveTextContent("Question 1 / 56"));
+    expect(new URL(window.location.href).searchParams.get("edition")).toBe("paired56");
+    expect(new URL(window.location.href).searchParams.has("start")).toBe(false);
+  } finally {
+    if (scroll) Object.defineProperty(Element.prototype, "scrollIntoView", scroll);
+    else Reflect.deleteProperty(Element.prototype, "scrollIntoView");
+  }
 });

@@ -50,7 +50,7 @@ export function WrittenCoordinationPage({ quiz, locale , take = false }: { quiz:
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
     <p className="mt-5 text-lg leading-8">{quiz.description[locale]}</p>
     <p className="explore-intro-meta">{zh ? "六项独立练习 · 约18分钟 · 无需注册 · 完整指南免费" : "Six independent exercises · about 18 minutes · no signup · full guides free"}</p>
-    <QuestionnaireTakeEntry quiz={{ slug: quiz.slug }} locale={locale} />
+    <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     </ExploreTestIntro>
 
     <section className="my-8 space-y-4 leading-8" aria-labelledby="written-purpose"><h2 id="written-purpose">{writtenLandingSections[0].title[locale]}</h2>{writtenLandingSections[0].paragraphs.map((p, i) => <p key={i}><Copy text={p[locale]} /></p>)}<p>{quiz.introduction[locale]}</p><Context locale={locale} /></section>

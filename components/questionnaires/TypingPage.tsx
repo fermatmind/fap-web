@@ -25,7 +25,7 @@ export function TypingPage({ quiz, locale , take = false }: { quiz: Questionnair
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
     <p className="mt-5 text-lg leading-8 text-slate-700">{quiz.description[locale]}</p>
     <div className="explore-intro-meta"><span>{zh ? "英/中文两种原文模式 · 每轮60秒 · 无需注册 · 允许改错" : "English and Chinese passage modes · 60 seconds per round · No signup · Corrections allowed"}</span><span>{zh ? "原创打字练习 · 真实计时与完整指南免费" : "Original typing practice · Real timing and complete guides, free"}</span></div>
-    <QuestionnaireTakeEntry quiz={{ slug: quiz.slug }} locale={locale} />
+    <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     </ExploreTestIntro>
 
     <section className="my-8 space-y-4 leading-8" aria-labelledby="typing-purpose"><h2 id="typing-purpose" className="text-2xl font-semibold">{zh ? "打字速度测试：英文WPM、中文CPM与一分钟抄录" : "Typing Speed Test: English WPM, Chinese CPM and one-minute copying"}</h2><p>{quiz.introduction[locale]}</p><p>{quiz.instructions![locale]}</p></section>

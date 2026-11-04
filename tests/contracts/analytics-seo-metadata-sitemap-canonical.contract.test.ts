@@ -77,11 +77,15 @@ describe("analytics SEO metadata sitemap canonical governance", () => {
       "/payment/*",
       "/history/*",
       "/tests/*/take",
+      "/tests/explore/*/take",
+      "/tests/play/*/take",
     ]);
 
     for (const sample of [
       "/zh/account",
       "/en/account?section=reports",
+      "/en/tests/explore/what-dog-breed-am-i/take",
+      "/zh/tests/play/story-ending/take?start=1",
       "/zh/result/private-result",
       "/zh/results/lookup",
       "/zh/orders/ORD-RAW-123",

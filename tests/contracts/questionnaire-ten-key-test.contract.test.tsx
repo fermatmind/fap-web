@@ -1,3 +1,4 @@
+import { renderQuestionnaireTakeDom } from "@/tests/fixtures/questionnaires/renderQuestionnaireTake";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -93,7 +94,8 @@ describe("T134 real 60-second numeric entry", () => {
       for (const locale of ["en", "zh"] as const) {
         const path = `/${locale}/tests/explore/ten-key-test`, props = { params: Promise.resolve({ locale, slug: quiz.slug }) };
         const html = renderToStaticMarkup(await entry.default(props)), metadata = await entry.generateMetadata(props);
-        expect(html).toContain(quiz.instructions![locale]); expect(html).toContain(locale === "en" ? "Start 60-second practice" : "开始60秒练习");
+        expect(html).toContain(quiz.instructions![locale]); expect(html).toContain(`action="${path}/take"`);
+        const takeDom = await renderQuestionnaireTakeDom(locale, quiz.slug); expect(takeDom.textContent).toContain(locale === "en" ? "Start 60-second practice" : "开始60秒练习");
         expect(html).not.toContain("fm_questionnaire_draft"); expect(html).not.toContain("data-ten-key-result");
         expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
         expect(metadata.title).toBe(quiz.seoTitle[locale]);

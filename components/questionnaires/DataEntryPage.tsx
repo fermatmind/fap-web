@@ -25,7 +25,7 @@ export function DataEntryPage({ quiz, locale , take = false }: { quiz: Questionn
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
     <p className="mt-5 text-lg leading-8 text-slate-700">{quiz.description[locale]}</p>
     <div className="explore-intro-meta"><span>{zh ? "两种虚构记录模式 · 每轮60秒 · 无需注册 · 允许返回改错" : "Two fictional record modes · 60 seconds per round · No signup · Return and correct within the clock"}</span><span>{zh ? "原创结构化录入 · 真实计时与完整指南免费" : "Original structured entry · Real timing and complete guides, free"}</span></div>
-    <QuestionnaireTakeEntry quiz={{ slug: quiz.slug }} locale={locale} />
+    <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     </ExploreTestIntro>
 
     <section className="my-8 space-y-4 leading-8" aria-labelledby="data-entry-purpose"><h2 id="data-entry-purpose" className="text-2xl font-semibold">{zh ? "数据录入练习：两种记录格式与独立指标" : "Data entry practice: two record formats and separate measures"}</h2><p>{quiz.introduction[locale]}</p><p>{quiz.instructions![locale]}</p></section>

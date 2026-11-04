@@ -38,7 +38,7 @@ describe("island-day: authored branching fiction, not tally scoring", () => {
   for(const section of editorial.sections)for(const p of section.paragraphs)expect(dom.textContent).toContain(p[locale].replace(/\s*\[\d+\]/g,""));
   for(const item of editorial.faq)expect(dom.textContent).toContain(item.answer[locale]);
   expect(dom.querySelector(".explore-intro-meta")?.textContent).toContain("3");
-  expect(dom.querySelectorAll("[data-explore-start]")).toHaveLength(1);expect(dom.querySelectorAll("#play input")).toHaveLength(0);
+  expect(dom.querySelectorAll("[data-explore-start]")).toHaveLength(1);expect(dom.querySelectorAll('#play input:not([type="hidden"])')).toHaveLength(0);expect(dom.querySelector("#play form")?.getAttribute("action")).toBe(`/${locale}/tests/play/${quiz.slug}/take`);expect([...dom.querySelectorAll<HTMLInputElement>('#play input[type="hidden"]')].map(input => [input.name, input.value])).toEqual([["start", "1"]]);
   expect(dom.textContent).not.toMatch(/retains every highest tie|本次结果会保留并完整显示所有最高并列/);
   for(const result of quiz.results)expect(dom.querySelector(`a[href="/${locale}/tests/play/${quiz.slug}/results/${result.id}"]`)).not.toBeNull();
   const ids=[...dom.querySelectorAll("[id]")].map(n=>n.id);expect(new Set(ids).size).toBe(ids.length);

@@ -1,3 +1,4 @@
+import { QuestionnaireTakeContext } from "@/components/questionnaires/QuestionnaireTakeContext";
 import { CognitiveFunctionsVersions } from "@/components/questionnaires/CognitiveFunctionsVersions";
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import Jung56Client from "@/components/questionnaires/Jung56Client";
@@ -7,6 +8,7 @@ import content from "@/lib/questionnaires/jung56Content.json";
 import { Jung56GuideContent } from "@/components/questionnaires/Jung56GuideContent";
 import { createHash } from "node:crypto";
 import { afterEach, describe, expect, it, vi } from "vitest";
+vi.mock("next/navigation", () => ({ useRouter: () => ({ push: vi.fn() }) }));
 vi.mock("@/lib/tracking/internalTraffic", () => ({ getAnalyticsDeploymentEnvironment: () => "production", shouldAllowFirstPartyAnalyticsRuntime: () => ({ allowed: true }) }));
 const originalScrollDescriptor = Object.getOwnPropertyDescriptor(Element.prototype, "scrollIntoView");
 afterEach(() => { cleanup(); window.localStorage.clear(); vi.unstubAllGlobals(); vi.restoreAllMocks(); if (originalScrollDescriptor) Object.defineProperty(Element.prototype, "scrollIntoView", originalScrollDescriptor); else Reflect.deleteProperty(Element.prototype, "scrollIntoView"); });
@@ -87,7 +89,7 @@ it("requires56 page opt-in plus global consent, does not backfill, and revokes o
 it("reports a denied32 draft deletion without claiming success or blocking the memory-only56 edition", async () => {
   Object.defineProperty(Element.prototype,"scrollIntoView",{configurable:true,value:vi.fn()});
   vi.spyOn(Storage.prototype,'removeItem').mockImplementation(()=>{throw Error('Synthetic storage denial');});
-  render(createElement(CognitiveFunctionsVersions,{locale:'en'}));fireEvent.click(screen.getByRole('button',{name:/Start the 56-choice edition/}));
+  render(createElement(QuestionnaireTakeContext.Provider,{value:true},createElement(CognitiveFunctionsVersions,{locale:'en'})));fireEvent.click(screen.getByRole('button',{name:/Start the 56-choice edition/}));
   expect(screen.getByText(/deletion of that copy could not be confirmed/)).toBeVisible();
   await waitFor(()=>expect(document.querySelector('[data-jung56-progress]')).toHaveTextContent('Question 1 / 56'));
   expect(screen.queryByRole('button',{name:'Start the 56 choices'})).toBeNull();

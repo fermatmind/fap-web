@@ -1,3 +1,4 @@
+import { renderQuestionnaireTakeDom } from "@/tests/fixtures/questionnaires/renderQuestionnaireTake";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -123,7 +124,9 @@ describe("Original written coordination: six separate practices, no overall or q
         const path = `/${locale}/tests/explore/${quiz.slug}`, props = { params: Promise.resolve({ locale, slug: quiz.slug }) };
         const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(await entry.default(props));
         expect(dom.querySelector("h1")?.textContent).toBe(quiz.title[locale]); expect(dom.textContent).toContain(quiz.instructions![locale]);
-        expect(dom.querySelectorAll("[data-written-full-guide]")).toHaveLength(6); expect(dom.querySelectorAll("[data-written-unattempted]")).toHaveLength(6);
+        expect(dom.querySelectorAll("[data-written-full-guide]")).toHaveLength(6);
+        expect(dom.querySelectorAll("[data-written-unattempted]")).toHaveLength(0);
+        const takeDom = await renderQuestionnaireTakeDom(locale, quiz.slug); expect(takeDom.querySelectorAll("[data-written-unattempted]")).toHaveLength(6);
         expect(dom.querySelectorAll("[data-written-edge]")).toHaveLength(38); expect(dom.querySelectorAll("[data-written-node]")).toHaveLength(25);
         expect((await entry.generateMetadata(props)).alternates?.canonical).toBe(`https://fermatmind.com${path}`);
         expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);

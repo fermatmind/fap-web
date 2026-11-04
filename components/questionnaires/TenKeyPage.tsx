@@ -27,7 +27,7 @@ export function TenKeyPage({ quiz, locale , take = false }: { quiz: Questionnair
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
     <p className="mt-5 text-lg leading-8 text-slate-700">{quiz.description[locale]}</p>
     <div className="explore-intro-meta"><span>{zh ? "3种模式 · 每轮真实60秒 · 无需注册" : "3 modes · Real 60-second rounds · No signup"}</span><span>{zh ? "原创数字录入练习 · 计时结果与完整复习免费" : "Original number-entry practice · Timed results and full revision free"}</span></div>
-    <QuestionnaireTakeEntry quiz={{ slug: quiz.slug }} locale={locale} />
+    <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     </ExploreTestIntro>
 
     <section className="my-8 space-y-4 leading-8" aria-labelledby="ten-key-purpose"><h2 id="ten-key-purpose" className="text-2xl font-semibold">{zh ? "10-Key数字录入测试：三种格式与真实输入" : "10-Key number-entry practice: three formats and real input"}</h2><p>{quiz.introduction[locale]}</p></section>
