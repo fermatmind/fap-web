@@ -24,9 +24,9 @@ describe("Independent entertainment answering routes", () => {
     expect(catalog.filter(item => !hasQuestionnaireTake(item.slug)).map(item => item.slug).sort()).toEqual([...INLINE_QUESTIONNAIRE_TOOLS].sort());
     expect(hasQuestionnaireTake("unknown-product")).toBe(false);
   });
-  it("admits all 379 answering experiences in both languages and still refuses absent products", () => {
+  it("admits all 380 answering experiences in both languages and still refuses absent products", () => {
     const entries = [...catalog.filter(item => hasQuestionnaireTake(item.slug)).map(item => `${item.collection}/${item.slug}`), ...stories.filter(item => !catalog.some(native => native.slug === item.slug)).map(item => `play/${item.slug}`), "play/friendship-quiz"];
-    expect(entries).toHaveLength(379);
+    expect(entries).toHaveLength(380);
     for (const locale of ["en", "zh"]) for (const entry of entries) expect(isMissingFunRoute(`/${locale}/tests/${entry}/take`)).toBe(false);
     for (const path of ["/zh/tests/explore/missing-product/take", "/en/tests/play/missing-story/take", "/en/tests/explore/career-match/take", "/en/tests/play/friendship-quiz/take/manage"]) expect(isMissingFunRoute(path)).toBe(true);
   });
@@ -53,7 +53,7 @@ describe("Independent entertainment answering routes", () => {
     expect(html).toContain('id="harbor-light-methods"');
     expect(html).not.toContain('data-stage="welcome"');
   });
-  it.each(["/en/tests/explore/disc/take", "/zh/tests/explore/what-dog-breed-am-i/take", "/en/tests/play/harbor-light/take", "/zh/tests/play/friendship-quiz/take"])("keeps %s out of indexing and shared caches", async path => {
+  it.each(["/en/tests/explore/disc/take", "/zh/tests/explore/what-dog-breed-am-i/take", "/en/tests/play/harbor-light/take", "/zh/tests/play/friendship-quiz/take", "/en/tests/play/changan-history-quiz/take", "/zh/tests/play/changan-history-quiz/take"])("keeps %s out of indexing and shared caches", async path => {
     const route = parseQuestionnaireTakePath(path)!;
     expect(route.landing).toBe(path.replace(/\/take$/, ""));
     expect(isIndexablePath(path)).toBe(false);
