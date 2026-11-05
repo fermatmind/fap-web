@@ -53,3 +53,32 @@
 .engine :global([data-mini-virtues-actions]) button { border-radius: 28px; padding: 12px 28px; border-color: #c72c70; background: transparent; color: #b62663; }
 .engine :global([data-mini-virtues-actions]) button:last-child { background: #c72c70; color: #fff; }
 @media (max-width: 480px) { .main:has(:global([data-result-kind="mini-virtues"])) { padding-top: 24px; } .engine :global([data-result-kind="mini-virtues"]) > h2 { margin-block: 20px 24px; } }
+
+.main:has(:global([data-seven-sins-board])) {
+  background: linear-gradient(#211211, #321614 40rem, #211211 70rem);
+  padding-block-start: 12px;
+}
+.surface:has(:global([data-seven-sins-board])) > header { display: none; }
+.engine:has(:global([data-seven-sins-board])) :global(#take-test) { margin-top: 0; }
+.engine :global([data-seven-sins-board]) + :global([data-mini-virtues-result]) {
+  width: min(100%, 780px);
+  margin: 28px auto 0;
+  padding: 20px 16px 0;
+  border-radius: 14px 14px 0 0;
+  background: #f6f4fa;
+}
+.engine :global([data-seven-sins-board]) ~ :global([data-mini-virtues-next]) {
+  width: min(100%, 780px);
+  margin: 0 auto;
+  padding: 24px 16px 16px;
+  border-radius: 0 0 14px 14px;
+  background: #f6f4fa;
+}
+.engine :global([data-seven-sins-board]) ~ :global([data-mini-virtues-actions]) button {
+  border-color: #b98d5b;
+  color: #f2d9af;
+}
+.engine :global([data-seven-sins-board]) ~ :global([data-mini-virtues-actions]) button:last-child {
+  background: #874441;
+  color: #fff0d3;
+}

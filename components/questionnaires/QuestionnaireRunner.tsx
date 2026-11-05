@@ -1,4 +1,5 @@
 "use client";
+import { QuestionnaireSevenSinsOverview } from "./QuestionnaireSevenSinsOverview";
 import { useQuestionnaireTake, QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 import { QuestionnaireTakeOptions } from "./QuestionnaireTakeOptions";
 import takeStyles from "@/components/quiz/AssessmentTake.module.css";
@@ -195,7 +196,8 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
       <QuestionnaireLegacyControl><button className="mt-3 min-h-11 text-sm underline" onClick={() => { clear(); setAnswers({}); setSaving(false); setStage("welcome"); setMessage(""); }}>{zh ? "退出并清除本次进度" : "Exit and clear this attempt"}</button></QuestionnaireLegacyControl>
     </>}
     {stage === "result" && result.status === "complete" && <>
-      <h2 ref={heading} tabIndex={-1} className="text-3xl font-semibold leading-tight outline-none [overflow-wrap:anywhere] scroll-mt-24">{miniVirtues ? (zh ? "七宗罪与七美德测试结果" : "Seven Sins and Virtues: Your Results") : profile?.title[locale] ?? quiz.resultHeading?.[locale] ?? (zh ? `${quiz.title.zh}：完整结果` : `${quiz.title.en}: your complete result`)}</h2>
+      {miniVirtues?.model === "dual" ? <QuestionnaireSevenSinsOverview result={miniVirtues} locale={locale} headingRef={heading} /> :
+      <h2 ref={heading} tabIndex={-1} className="text-3xl font-semibold leading-tight outline-none [overflow-wrap:anywhere] scroll-mt-24">{miniVirtues ? (zh ? "七宗罪与七美德测试结果" : "Seven Sins and Virtues: Your Results") : profile?.title[locale] ?? quiz.resultHeading?.[locale] ?? (zh ? `${quiz.title.zh}：完整结果` : `${quiz.title.en}: your complete result`)}</h2>}
       {directional && profile && <>
       <ResultOverview eyebrow={zh ? "本题组内的选择结果" : "Choices in this question set"} title={profile.headline[locale]} description={profile.summary[locale]} />
       <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} showHeadline={false} showSummary={false} mode="result" />

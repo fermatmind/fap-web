@@ -1,7 +1,7 @@
 import type { Locale } from "@/lib/i18n/locales";
 import styles from "./MiniVirtuesResult.module.css";
 
-type Axis = { id: string; title: string; rawSum: number };
+type Axis = { id: string; rawSum: number };
 const labels = {
   zh: [["认可与自我定位"], ["资源安全与分享"], ["欲望吸引", "与边界"], ["比较敏感与欣赏"], ["即时满足与节制"], ["愤怒信号", "与耐心"], ["启动与休息回避"]],
   en: [["Recognition", "and self-view"], ["Resources", "and sharing"], ["Attraction", "and boundaries"], ["Comparison", "and appreciation"], ["Rewards", "and moderation"], ["Anger", "and patience"], ["Starting", "and rest"]],

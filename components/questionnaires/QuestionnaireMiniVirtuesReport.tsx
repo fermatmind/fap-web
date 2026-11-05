@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { Questionnaire, QuestionnaireProfile, Text } from "@/lib/questionnaires/types";
-import type { MiniVirtuesResult } from "@/lib/questionnaires/miniVirtues";
+import { miniVirtuesDefinitions, type MiniVirtuesResult } from "@/lib/questionnaires/miniVirtues";
 import type { Locale } from "@/lib/i18n/locales";
 import { QuestionnaireMiniVirtuesRadar } from "./QuestionnaireMiniVirtuesRadar";
 import styles from "./MiniVirtuesResult.module.css";
@@ -83,7 +83,7 @@ export function QuestionnaireMiniVirtuesReport({ quiz, result, locale }: {
   return <div className={styles.report} data-mini-virtues-result>
     <header className={styles.intro}>
       <p>{zh ? "从被看见、分享、比较到休息，看看七组回答各自在谈什么。" : "Explore what your seven groups of answers cover, from recognition and sharing to comparison and rest."}</p>
-      <p className={styles.boundary}>{zh ? "1—5表示对本组四句话的符合程度；不是罪、美德或人品评分。七组分开读。" : "The 1–5 mean describes agreement with four statements, not a sin, virtue or character rating. Read each group separately."}</p>
+      <p className={styles.boundary}>{result.model === "dual" ? quiz.guide[2].paragraphs[0][locale] : zh ? "1—5表示对本组四句话的符合程度。七组分开读。" : "The 1–5 mean describes agreement with four statements. Read each group separately."}</p>
     </header>
     <label className={styles.chooser} id="mini-virtues-choose">
       <span>{zh ? "想先了解哪个角度？" : "Which perspective would you like to explore?"}</span>
@@ -93,19 +93,24 @@ export function QuestionnaireMiniVirtuesReport({ quiz, result, locale }: {
         target.focus({ preventScroll: true });
         target.scrollIntoView({ block: "start", behavior: "instant" });
       }}>
-        {parts.map(part => <option key={part.id} value={part.id}>{part.direction.title[locale]} · {part.mean.toFixed(2)} / 5</option>)}
+        {parts.map(part => <option key={part.id} value={part.id}>{part.direction.title[locale]}{"mean" in part ? ` · ${part.mean.toFixed(2)} / 5` : ""}</option>)}
       </select>
     </label>
     <div className={styles.parts}>
-      {parts.map(part => {
+      {parts.map((part, index) => {
         const reading = everydayReading(part.profile, locale);
+        const { sin, virtue } = miniVirtuesDefinitions[index];
         return <section key={part.id} className={styles.part} data-mini-virtues-part={part.id} data-virtues-result-reading={part.profileId} aria-labelledby={`mini-virtues-${part.id}`}>
           <div className={styles.partHeader}>
             <h3 id={`mini-virtues-${part.id}`} tabIndex={-1} className={styles.partTitle}>{part.direction.title[locale]}</h3>
-            <p className={styles.score} data-mini-virtues-score={part.id}>
+            {"sin" in part ? <p className={styles.pairScore} data-mini-virtues-score={part.id}>
+              <span>{sin[locale]} <strong>{Math.round(part.sin)}</strong></span>
+              <span>{virtue[locale]} <strong>{Math.round(part.virtue)}</strong></span>
+              <small>{zh ? "满分各为100" : "Each out of 100"}</small>
+            </p> : <p className={styles.score} data-mini-virtues-score={part.id}>
               <span>{zh ? "本次均值" : "Your mean"}</span> <strong>{part.mean.toFixed(2)} / 5</strong>
               <small>{zh ? `四题原始和 ${part.rawSum} / 20` : `Four-item sum ${part.rawSum} / 20`}</small>
-            </p>
+            </p>}
           </div>
           <p className={styles.summary}>{part.profile.summary[locale]}</p>
           {reading.context && <section className={styles.everyday} id={`report-${part.profileId}-context`} data-mini-virtues-everyday={part.id}>
@@ -126,16 +131,21 @@ export function QuestionnaireMiniVirtuesReport({ quiz, result, locale }: {
         </section>;
       })}
     </div>
-    <details className={styles.chart} data-mini-virtues-chart>
+    {result.model !== "dual" && <details className={styles.chart} data-mini-virtues-chart>
       <summary>{zh ? "查看七组作答位置图（可选）" : "View the seven-group response-position chart (optional)"}<span className={styles.chevron} aria-hidden="true" /></summary>
-      <QuestionnaireMiniVirtuesRadar axes={parts.map(part => ({ id: part.id, title: part.direction.title[locale], rawSum: part.rawSum }))} locale={locale} />
-    </details>
+      <QuestionnaireMiniVirtuesRadar axes={result.miniVirtues} locale={locale} />
+    </details>}
     <details className={styles.common} data-mini-virtues-common>
       <summary>{zh ? "计分方式、版本与完整依据" : "Scoring, edition and full background"}<span className={styles.chevron} aria-hidden="true" /></summary>
       <div className={styles.reading}>
         {scoreReadings.map(text => <p key={text}>{text}</p>)}
-        <p>{zh ? "每组四题原始和范围4—20，除以四得到1—5均值。图中的位置按（原始和−4）÷16×100计算，不能当作罪、美德或人群百分比。" : "Each four-item sum ranges from 4–20; dividing by four gives a 1–5 mean. The chart uses (sum − 4) / 16 × 100 for position, never a sin, virtue or population percentage."}</p>
-        {result.equalFactorGroups.length > 0 && <p data-mini-virtues-equal>{zh ? "有些组的原始和相同，只表示本次数字相同。各组题目不同，不能据此比较心理意义，也不表示罪与美德平衡、混合人格或同样严重。七组仍分别完整阅读，不打破相同数值。" : "Some groups have equal sums. That establishes equal numbers in this attempt only. Their statements differ, so equal sums do not establish equivalent meaning, a balance of sins and virtues, a mixed identity or equal seriousness. Read all seven separately; no equal score is broken."}</p>}
+        {result.model === "dual" ? <>
+          <p>{quiz.guide[0].paragraphs[0][locale]}</p>
+          <p>{quiz.guide.find(section => section.id === "reading")?.paragraphs[0][locale]}</p>
+        </> : <>
+          <p>{zh ? "每组四题原始和范围4—20，除以四得到1—5均值。图中的位置按（原始和−4）÷16×100计算，不能当作罪、美德或人群百分比。" : "Each four-item sum ranges from 4–20. Dividing by four gives a 1–5 mean. Chart position is (sum − 4) / 16 × 100."}</p>
+          {result.equalFactorGroups.length > 0 && <p data-mini-virtues-equal>{zh ? "相同原始和只表示本次数值相同。七组仍分别阅读。" : "Equal sums describe equal numbers in this attempt. Read all seven groups separately."}</p>}
+        </>}
         <h4 id="mini-virtues-edition">{zh ? "版本、来源与验证范围" : "Edition, source and validation limits"}</h4>
         {editions.map(text => <p key={text}>{text}</p>)}
       </div>
@@ -145,5 +155,5 @@ export function QuestionnaireMiniVirtuesReport({ quiz, result, locale }: {
 
 export function QuestionnaireMiniVirtuesNextSteps({ locale }: { locale: Locale }) {
   const zh = locale === "zh";
-  return <section className={styles.next}><h3>{zh ? "读到这里，下一步由你选择" : "Choose what comes next"}</h3><p>{zh ? "可以回看七份公开指南，也可以直接结束。是否记录观察或继续探索，由你决定。" : "Revisit the seven public guides or finish here. Recording an observation or continuing is your choice."}</p><div><Link prefetch={false} href={`/${locale}/tests/explore/seven-sins-virtues-test#questionnaire-results`}>{zh ? "回看七份完整指南" : "Read all seven guides"}</Link><Link prefetch={false} href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试" : "Back to all tests"}</Link></div></section>;
+  return <section className={styles.next} data-mini-virtues-next><h3>{zh ? "读到这里，下一步由你选择" : "Choose what comes next"}</h3><p>{zh ? "可以回看七份公开指南，也可以直接结束。是否记录观察或继续探索，由你决定。" : "Revisit the seven public guides or finish here. Recording an observation or continuing is your choice."}</p><div><Link prefetch={false} href={`/${locale}/tests/explore/seven-sins-virtues-test#questionnaire-results`}>{zh ? "回看七份完整指南" : "Read all seven guides"}</Link><Link prefetch={false} href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试" : "Back to all tests"}</Link></div></section>;
 }

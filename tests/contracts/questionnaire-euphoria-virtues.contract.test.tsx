@@ -17,16 +17,33 @@ const read = (name: string) => JSON.parse(readFileSync(name, "utf8"));
 const virtues = read("lib/questionnaires/data/seven-sins-virtues-test.json") as Questionnaire;
 const euphoria = read("lib/questionnaires/data/euphoria-character-quiz.json") as Questionnaire;
 const virtuesSource = read("tests/fixtures/questionnaires/seven-sins-virtues-source-reference.json");
+const legacyVirtues: Questionnaire = {
+  ...virtues,
+  version: "1.0.0",
+  questions: virtuesSource.questions,
+  directions: virtuesSource.directions,
+  profiles: read("tests/fixtures/questionnaires/seven-sins-virtues-profiles-reference.json"),
+  source: {
+    kind: "fermatmind_original_mini_reuse",
+    formCode: "virtues_exploration_likert_28",
+    itemBankVersion: "0.1.0-preview",
+    scoringVersion: "0.1.0-preview",
+    resultContentVersion: "0.2.0-editorial-candidate",
+    itemBankSha256: "157c2a23712f1e20b6302f4e9574c870395e9195f93ec304a43ab29cd404c8b1",
+    resultContentSha256: "ac328fd45b5547717459921980b5ba79e2b59cb8b93ee033adf192d644d6b059",
+    psychometricValidationCompleted: false,
+  },
+};
 const euphoriaSource = read("tests/fixtures/questionnaires/euphoria-source-reference.json");
 const numeric = read("tests/fixtures/questionnaires/seven-sins-virtues-numeric-reference.json") as { vectors: { part: number; tuple: number[]; sum: number; mean: number }[] };
 const outcomes = read("tests/fixtures/questionnaires/euphoria-outcomes-reference.json") as { witnesses: { winnerIds: string[]; counts: Record<string, number>; answers: QuestionnaireAnswers }[]; impossibleWinnerSets: string[][] };
-const all3 = () => Object.fromEntries(virtues.questions.map(q => [q.id, "3"]));
+const all3 = (quiz = virtues) => Object.fromEntries(quiz.questions.map(q => [q.id, "3"]));
 const hash = (path: string) => createHash("sha256").update(readFileSync(path)).digest("hex");
 const dom = (html: string) => { const element = document.createElement("div"); element.innerHTML = html; return element; };
 
 describe("C formal continuation: VIRTUES source and original T110", () => {
   it("binds complete bilingual banks and every full profile to the reviewed source bytes", () => {
-    for (const [quiz, prefix, valid, sections] of [[virtues, "seven-sins-virtues", isMiniVirtuesConfigurationValid, 8], [euphoria, "euphoria", isEuphoriaConfigurationValid, 6]] as const) {
+    for (const [quiz, prefix, valid, sections] of [[legacyVirtues, "seven-sins-virtues", isMiniVirtuesConfigurationValid, 8], [euphoria, "euphoria", isEuphoriaConfigurationValid, 6]] as const) {
       expect(valid(quiz)).toBe(true); expect(isQuestionnaireConfigurationValid(quiz)).toBe(true);
       expect(quiz.source.itemBankSha256).toBe(hash(`tests/fixtures/questionnaires/${prefix}-source-reference.json`));
       expect(quiz.source.resultContentSha256).toBe(hash(`tests/fixtures/questionnaires/${prefix}-profiles-reference.json`));
@@ -48,11 +65,11 @@ describe("C formal continuation: VIRTUES source and original T110", () => {
   });
 
   it("preserves all28 original Chinese prompts, all-forward agreement anchors and seven groups", () => {
-    expect(virtues.questions).toEqual(virtuesSource.questions);
-    expect(virtues.directions).toEqual(virtuesSource.directions);
+    expect(legacyVirtues.questions).toEqual(virtuesSource.questions);
+    expect(legacyVirtues.directions).toEqual(virtuesSource.directions);
     expect(virtuesSource.sourceFlags).toMatchObject({ network_mode: "local_only", psychometric_validation_completed: false, human_expert_review_completed: false });
     virtuesSource.originalItemBank.items.forEach((item: { question_id: string; prompt: string; factor_code: string; reverse_scored: boolean; response_scale: { labels: Record<string, string> } }, i: number) => {
-      const q = virtues.questions[i]; expect(q.id).toBe(item.question_id); expect(q.prompt.zh).toBe(item.prompt);
+      const q = legacyVirtues.questions[i]; expect(q.id).toBe(item.question_id); expect(q.prompt.zh).toBe(item.prompt);
       expect(q.reverse).toBe(false); expect(item.reverse_scored).toBe(false);
       q.options.forEach((o, p) => { expect(o.score).toBe(p + 1); expect(o.directionId).toBe(item.factor_code); expect(o.label.zh).toBe(item.response_scale.labels[String(p + 1)]); });
     });
@@ -63,26 +80,26 @@ describe("C formal continuation: VIRTUES source and original T110", () => {
     const keys = new Set<string>();
     for (const vector of numeric.vectors) {
       keys.add(`${vector.part}:${vector.tuple.join(",")}`);
-      const answers = all3(); vector.tuple.forEach((v, i) => { answers[virtues.questions[vector.part * 4 + i].id] = String(v); });
-      const result = scoreQuestionnaire(virtues, answers);
-      if (result.status !== "complete" || !("miniVirtues" in result)) throw Error("Complete source vector rejected");
+      const answers = all3(legacyVirtues); vector.tuple.forEach((v, i) => { answers[legacyVirtues.questions[vector.part * 4 + i].id] = String(v); });
+      const result = scoreQuestionnaire(legacyVirtues, answers);
+      if (result.status !== "complete" || !("miniVirtues" in result) || result.model === "dual") throw Error("Complete source vector rejected");
       const part = result.miniVirtues[vector.part];
       if (part.rawSum !== vector.sum || part.mean !== vector.mean || part.mean !== vector.tuple.reduce((a,b) => a+b,0)/4) throw Error(`Source mismatch ${vector.part}:${vector.tuple}`);
       result.miniVirtues.forEach((p, i) => { if (i !== vector.part && (p.rawSum !== 12 || p.mean !== 3)) throw Error("Cross-group leakage"); });
       expect(result).not.toHaveProperty("total"); expect(result).not.toHaveProperty("profileId");
     }
     expect(keys.size).toBe(4375);
-    const equal = scoreMiniVirtuesQuestionnaire(virtues, all3());
-    if (equal.status !== "complete") throw Error("Numeric midpoint rejected");
+    const equal = scoreMiniVirtuesQuestionnaire(legacyVirtues, all3(legacyVirtues));
+    if (equal.status !== "complete" || equal.model === "dual") throw Error("Numeric midpoint rejected");
     expect(equal.equalFactorGroups).toEqual([miniVirtuesDefinitions.map(d => d.id)]);
     for (const locale of ["en", "zh"] as const) {
-      const rendered = dom(renderToStaticMarkup(<QuestionnaireMiniVirtuesReport quiz={virtues} result={equal} locale={locale} />));
+      const rendered = dom(renderToStaticMarkup(<QuestionnaireMiniVirtuesReport quiz={legacyVirtues} result={equal} locale={locale} />));
       expect(rendered.querySelectorAll("[data-mini-virtues-part]")).toHaveLength(7);
       expect(rendered.querySelectorAll("[data-mini-virtues-everyday]")).toHaveLength(7);
       expect(rendered.querySelectorAll("[data-mini-virtues-action]")).toHaveLength(7);
       const common = rendered.querySelector("[data-mini-virtues-common]")!;
-      const sharedScoringText = new Set(virtues.profiles.map(profile => profile.scoreReading[locale]));
-      for (const profile of virtues.profiles) {
+      const sharedScoringText = new Set(legacyVirtues.profiles.map(profile => profile.scoreReading[locale]));
+      for (const profile of legacyVirtues.profiles) {
         const part = rendered.querySelector(`[data-virtues-result-reading="${profile.id}"]`)!;
         expect(part).not.toBeNull();
         expect(part.textContent).toContain(profile.summary[locale]);

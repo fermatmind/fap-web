@@ -12,6 +12,10 @@
 .score { display: grid; grid-template-columns: auto auto; align-items: baseline; gap: 0 10px; margin: 0; color: #615568; font-size: 13px; font-variant-numeric: tabular-nums; }
 .score strong { color: #76516b; font-size: 23px; font-weight: 650; }
 .score small { grid-column: 1 / -1; font-size: 12px; }
+.pairScore { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 14px; margin: 0; color: #605460; font-size: 14px; }
+.pairScore strong { color: #873c4d; font-size: 21px; font-variant-numeric: tabular-nums; }
+.pairScore span:nth-child(2) strong { color: #73552a; }
+.pairScore small { font-size: 12px; }
 .summary { max-width: 74ch; margin: 16px 0 24px; color: #57505c; }
 .everyday, .action { max-width: 74ch; margin: 24px 0; scroll-margin-top: 96px; }
 .everyday h4, .action h4 { margin: 0 0 10px; color: #3d5c53; font-size: 17px; font-weight: 650; }

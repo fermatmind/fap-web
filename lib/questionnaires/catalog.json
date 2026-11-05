@@ -5180,20 +5180,20 @@
   {
     "slug": "seven-sins-virtues-test",
     "code": "VIRTUES_EXPLORATION",
-    "version": "1.0.0",
-    "updated": "2026-10-28",
+    "version": "2.0.0",
+    "updated": "2026-11-05",
     "category": "metaphor",
     "title": {
       "en": "Seven Sins and Virtues Test: Everyday Reflections",
       "zh": "七宗罪与七美德测试：日常张力观察"
     },
     "description": {
-      "en": "Explore seven everyday themes through 28 original statements: recognition, resources, attraction, comparison, rewards, anger and getting started. Free separate sums, means and seven full guides. Cultural reflection, with no sin type or moral ranking.",
-      "zh": "用28道原创陈述，分别回看认可、资源、吸引、比较、即时回报、愤怒与行动启动七类日常主题。免费查看各组原始和、均值及七篇完整指南。文化意象下的自我观察，不派罪德类型或道德排名。"
+      "en": "Answer 28 original statements for separate scores on seven sins and seven virtues, a 14-axis radar, and seven everyday reading guides.",
+      "zh": "28道原创陈述，查看七宗罪与七美德各自的得分、十四维雷达和七篇情境指南。"
     },
     "minutes": 8,
     "collection": "explore",
-    "formCode": "virtues_exploration_likert_28",
+    "formCode": "virtues_dual_likert_28",
     "questionCount": 28,
     "resultSlugs": [
       "recognition-reading",

@@ -2674,7 +2674,7 @@
       "slug": "seven-sins-virtues-test",
       "collection": "explore",
       "code": "VIRTUES_EXPLORATION",
-      "formCode": "virtues_exploration_likert_28",
+      "formCode": "virtues_dual_likert_28",
       "resultSlugs": [
         "recognition-reading",
         "resources-reading",

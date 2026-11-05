@@ -42,7 +42,7 @@ for(const locale of ["en","zh"] as const)for(const quiz of [virtues,euphoria]){
   await act(async()=>{fireEvent.click(screen.getByRole("button",{name:locale==="zh"?"复制公开入口":"Copy public entry"}));});
   expect(clipboard).toHaveBeenCalledWith(`${quiz.title[locale]}\nhttps://fermatmind.com/${locale}/tests/explore/${quiz.slug}`);
   expect(screen.getByRole("status").textContent).toContain(locale==="zh"?"不含个人答案或次数":"without personal answers or counts");
-  expect(JSON.stringify(events.mock.calls)).not.toMatch(/VIRTUES_LK_|EUPHORIA_ORIGINAL_|rawSum|winnerIds|answers|miniVirtues|counts/);
+  expect(JSON.stringify(events.mock.calls)).not.toMatch(/VIRTUES_(?:LK|DUAL)_|EUPHORIA_ORIGINAL_|rawSum|winnerIds|answers|miniVirtues|counts/);
   expect(events.mock.calls.filter(c=>c[0]==="complete_test")).toHaveLength(1);expect(events.mock.calls.filter(c=>c[0]==="view_result")).toHaveLength(1);
   const mbti=screen.queryByRole("link",{name:locale==="zh"?"可选：另做MBTI偏好探索":"Optional: explore MBTI preferences separately"});
   if(quiz===virtues)expect(mbti).toBeNull();else expect(mbti).toHaveAttribute("href",expect.stringContaining("target_action=questionnaire_result_mbti"));
@@ -53,7 +53,7 @@ for(const locale of ["en","zh"] as const)for(const quiz of [virtues,euphoria]){
 }
 it("restores only a saved compatible draft, supports Back and deletes it on explicit exit",async()=>{
  const key=`fm_questionnaire_draft:${virtues.slug}`;
- sessionStorage.setItem(key,JSON.stringify({version:virtues.version,savedAt:Date.now(),answers:{VIRTUES_LK_001:"4"}}));
+ sessionStorage.setItem(key,JSON.stringify({version:virtues.version,savedAt:Date.now(),answers:{[virtues.questions[0].id]:"4"}}));
  render(<QuestionnaireClient quiz={virtues} locale="en"/>);
  await waitFor(()=>expect(screen.getByRole("button",{name:"Resume this tab's progress"})).toBeEnabled());
  fireEvent.click(screen.getByRole("button",{name:"Resume this tab's progress"}));

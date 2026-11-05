@@ -1,0 +1,110 @@
+.frame {
+  container-type: inline-size;
+  width: min(100%, 570px);
+  margin-inline: auto;
+  color: #f3e5ca;
+}
+.board {
+  position: relative;
+  padding: 6.8cqw 3.4cqw 3.8cqw;
+  border: 1px solid #785345;
+  border-radius: 2.2cqw;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 12%, #b9866510 12.15%, transparent 12.3%),
+    radial-gradient(ellipse at 50% 15%, #501e1d 0, #361815 40%, #1e1110 100%);
+  box-shadow: inset 0 0 0 1px #cfa77a30, 0 0 24px #13080780;
+}
+.board::before {
+  position: absolute;
+  inset: 2.2cqw;
+  border: 1px solid #ae755341;
+  border-radius: 1.7cqw;
+  pointer-events: none;
+  content: "";
+}
+.hero { position: relative; padding-bottom: 4.4cqw; border-bottom: 1px solid #8d624b; text-align: center; }
+.eyebrow {
+  margin: 0 0 2cqw;
+  color: #dfbe82;
+  font-size: 2.8cqw;
+  font-weight: 800;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+}
+.frame .hero .title {
+  margin: 0;
+  color: #f6e8cd;
+  font-size: 6.45cqw;
+  font-weight: 850;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+.title span {
+  display: inline-block;
+  padding: .65cqw 2cqw;
+  border: 1px solid #bf7371;
+  border-radius: 1.2cqw;
+  background: linear-gradient(115deg, #7b302f, #a44743 48%, #782f2e);
+  box-shadow: inset 0 0 5px #e8a39440;
+  font-size: .74em;
+  vertical-align: .1em;
+}
+.frame:lang(en) .hero .title { font-size: 4.45cqw; }
+.lined { display: flex; align-items: center; justify-content: center; gap: 2.5cqw; }
+.lined::before, .lined::after {
+  width: 7cqw;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #bd935d);
+  content: "";
+}
+.lined::after { transform: rotate(180deg); }
+.tagline { margin: 2.6cqw 0 0; color: #dfc2aa; font-size: 3.45cqw; line-height: 1.45; }
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.6cqw; margin-top: 3.2cqw; }
+.card {
+  display: flex;
+  min-height: 37.5cqw;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: .6cqw;
+  padding: 3.1cqw 1cqw 2.6cqw;
+  border: 1px solid #66513d;
+  border-radius: 2.3cqw;
+  background: radial-gradient(ellipse at top, #3a2820 0, #211917 38%, #17110e 100%);
+  box-shadow: inset 0 0 0 1px #f0c69c16;
+  text-align: center;
+}
+.cardLabel { margin: 0 0 1.15cqw; color: #c2ad9b; font-size: 3.15cqw; font-weight: 700; }
+.cardEnglish { margin: 0; color: #e4c68d; font-size: 2.8cqw; font-weight: 850; letter-spacing: .21em; text-transform: uppercase; }
+.cardName { margin: 0; color: #f8ebd1; font-size: 8.2cqw; font-weight: 850; line-height: 1.25; }
+.frame:lang(en) .cardName { font-size: 5.8cqw; }
+.cardTies { margin: 0; color: #f8ebd1; font-size: 3.6cqw; font-weight: 750; line-height: 1.35; }
+.tieLabel { display: block; margin-bottom: .55cqw; color: #e4c68d; font-size: 2.5cqw; }
+.cardScore { margin: auto 0 0; color: #e4bd7c; font-size: 3.2cqw; font-weight: 700; line-height: 1.35; }
+.cardScore strong { font-size: 6cqw; font-weight: 850; font-variant-numeric: tabular-nums; }
+.cardScore span { color: #c0ab99; }
+.card[data-seven-sins-leader="sin"] strong { color: #e27579; }
+.balance { display: flex; justify-content: center; flex-wrap: wrap; gap: 0 1.2cqw; margin: 3.5cqw 0 .6cqw; color: #e7a274; font-size: 3.45cqw; font-weight: 750; line-height: 1.4; }
+.balance span + span::before { margin-right: 1.2cqw; content: "·"; }
+.chart {
+  padding: 3cqw 1cqw 0;
+  border: 1px solid #65513e;
+  border-radius: 2.3cqw;
+  background: radial-gradient(ellipse at 48% 6%, #29201c, #171312 62%, #13100e);
+  box-shadow: inset 0 0 0 .55cqw #1b1715, inset 0 0 0 .75cqw #55433162;
+  text-align: center;
+}
+.chart h3 { margin: 0; color: #f5e8ce; font-size: 4.65cqw; font-weight: 850; line-height: 1.35; }
+.chartSubtitle { margin: 1.1cqw 0 1cqw; color: #c0a99a; font-size: 3.15cqw; line-height: 1.45; }
+.radar { display: block; width: 100%; height: auto; margin-inline: auto; overflow: visible; }
+.grid { fill: none; stroke: #c6a477; stroke-opacity: .32; stroke-width: .8; }
+.divide { stroke: #e7d4b8; stroke-opacity: .65; stroke-width: 1.1; stroke-dasharray: 3 3; }
+.sinShape polygon { fill: #be4956; fill-opacity: .35; stroke: #d45f6a; stroke-width: 1.8; stroke-linejoin: round; }
+.virtueShape polygon { fill: #ccaa76; fill-opacity: .28; stroke: #f1dec1; stroke-width: 1.8; stroke-linejoin: round; }
+.sinShape circle { fill: #f9c1c5; stroke: #1b1010; stroke-width: 1.5; }
+.virtueShape circle { fill: #f6e6cc; stroke: #1b1010; stroke-width: 1.5; }
+.axisLabel, .axisLabelEn { fill: #f3e5ca; font-size: 11.6px; font-weight: 800; }
+.axisLabelEn { font-size: 9.2px; }
+.sinValue, .virtueValue { font-size: 10.6px; font-weight: 850; font-variant-numeric: tabular-nums; }
+.sinValue { fill: #eb818a; }
+.virtueValue { fill: #f2cd8b; }

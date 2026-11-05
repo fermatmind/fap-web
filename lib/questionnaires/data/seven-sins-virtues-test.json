@@ -2,8 +2,8 @@
   "slug": "seven-sins-virtues-test",
   "code": "VIRTUES_EXPLORATION",
   "kind": "mini-virtues",
-  "version": "1.0.0",
-  "updated": "2026-10-28",
+  "version": "2.0.0",
+  "updated": "2026-11-05",
   "category": "metaphor",
   "title": {
     "en": "Seven Sins and Virtues Test: Everyday Reflections",
@@ -14,26 +14,26 @@
     "zh": "七宗罪与七美德测试：七组完整读法免费"
   },
   "description": {
-    "en": "Explore seven everyday themes through 28 original statements: recognition, resources, attraction, comparison, rewards, anger and getting started. Free separate sums, means and seven full guides. Cultural reflection, with no sin type or moral ranking.",
-    "zh": "用28道原创陈述，分别回看认可、资源、吸引、比较、即时回报、愤怒与行动启动七类日常主题。免费查看各组原始和、均值及七篇完整指南。文化意象下的自我观察，不派罪德类型或道德排名。"
+    "en": "Answer 28 original statements for separate scores on seven sins and seven virtues, a 14-axis radar, and seven everyday reading guides.",
+    "zh": "28道原创陈述，查看七宗罪与七美德各自的得分、十四维雷达和七篇情境指南。"
   },
   "minutes": 8,
   "introduction": {
-    "en": "This Seven Sins and Virtues Test uses cultural names as an entry into seven everyday observation themes. The original 28 statements ask how descriptions fit what you can currently confirm about yourself. Each four-item group produces its own sum and mean, followed by a complete guide with examples and different possible interpretations. The groups include both reactions and ways of responding; the result is not fourteen separate sin-and-virtue scores, a dominant type or a judgment of character.",
-    "zh": "这份七宗罪与七美德测试借文化名称，引出七类日常观察主题。28条原创陈述询问，描述与目前能确认的自身情况有多符合。每组四题分别给出原始和与均值，并配完整指南、具体例子和不同解释。题组包含反应及回应方式，结果不是十四项罪德得分，不派主导类型，也不评判人品。"
+    "en": "Think about your everyday experiences over the past four weeks and consider which reactions and responses fit you. This original entertainment quiz uses the seven sins and seven virtues as cultural labels.",
+    "zh": "回想近四周的日常经历，看看哪些反应和回应方式更符合你。七宗罪与七美德是这套娱乐题本借用的文化标签。"
   },
   "instructions": {
-    "en": "For each original statement, choose the 1–5 option that best describes what you can currently confirm. 3 means uncertain or depends on the situation and remains numeric. All 28 responses must be valid before any personal interpretation; there is no NA option. You may leave or read all seven full guides without answering. No response is a virtuous answer, and no particular mean is a goal.",
-    "zh": "按目前能确认的情况，为每条原陈述选择最符合的1—5选项。3“不确定或视情况”仍是有效数值；28题全部有效后才给任何个人解释，没有NA选项。可以退出，或先不作答阅读全部七份完整指南。没有哪个选项是美德答案，也没有需要追求的均值。"
+    "en": "Choose how well each statement describes your actual experience over the past four weeks. Finish all 28 items to see all fourteen scores.",
+    "zh": "按过去四周的实际情况，选择每条陈述的符合程度。全部28题完成后查看十四项得分。"
   },
   "source": {
-    "kind": "fermatmind_original_mini_reuse",
-    "formCode": "virtues_exploration_likert_28",
-    "itemBankVersion": "0.1.0-preview",
-    "scoringVersion": "0.1.0-preview",
-    "resultContentVersion": "0.2.0-editorial-candidate",
-    "itemBankSha256": "157c2a23712f1e20b6302f4e9574c870395e9195f93ec304a43ab29cd404c8b1",
-    "resultContentSha256": "ac328fd45b5547717459921980b5ba79e2b59cb8b93ee033adf192d644d6b059",
+    "kind": "fermatmind_original",
+    "formCode": "virtues_dual_likert_28",
+    "itemBankVersion": "2.0.0",
+    "scoringVersion": "2.0.0",
+    "resultContentVersion": "2.0.0",
+    "itemBankSha256": "c44b67466fde14e23887937b06bd5d2d9790188546bfc6a397e3e1c8e9cb5ac9",
+    "resultContentSha256": "1b2bb372c1f185066a662dcd427302f9f33231970d08971fb555a109ba296a09",
     "psychometricValidationCompleted": false
   },
   "directions": [
@@ -96,10 +96,10 @@
   ],
   "questions": [
     {
-      "id": "VIRTUES_LK_001",
+      "id": "VIRTUES_DUAL_001",
       "prompt": {
-        "en": "When my effort goes unnoticed, I keep thinking about it.",
-        "zh": "付出没有被留意时，这件事会持续占据我的注意。"
+        "en": "On a familiar topic, I tend to assume my view is more reliable than other people’s.",
+        "zh": "在熟悉的话题上，我容易先认定自己的看法比别人的更可靠。"
       },
       "reverse": false,
       "options": [
@@ -151,10 +151,10 @@
       ]
     },
     {
-      "id": "VIRTUES_LK_002",
+      "id": "VIRTUES_DUAL_002",
       "prompt": {
-        "en": "After completing an important task, I expect fairly clear feedback.",
-        "zh": "完成一项重要任务后，我会期待获得较明确的反馈。"
+        "en": "When someone points out a genuine mistake, I am willing to acknowledge that I got it wrong.",
+        "zh": "别人指出一个有道理的错误时，我愿意承认自己弄错了。"
       },
       "reverse": false,
       "options": [
@@ -206,10 +206,10 @@
       ]
     },
     {
-      "id": "VIRTUES_LK_003",
+      "id": "VIRTUES_DUAL_003",
       "prompt": {
-        "en": "When judging how I have done, I tend to refer to other people's responses.",
-        "zh": "判断自己做得怎样时，我容易参考别人给出的回应。"
+        "en": "When we finish something together, I want more of the credit to go to me.",
+        "zh": "和别人一起完成事情时，我希望大家把更多功劳算在我身上。"
       },
       "reverse": false,
       "options": [
@@ -261,10 +261,10 @@
       ]
     },
     {
-      "id": "VIRTUES_LK_004",
+      "id": "VIRTUES_DUAL_004",
       "prompt": {
-        "en": "When I feel overlooked, I check again whether my contribution has been seen.",
-        "zh": "感到被忽略时，我会重新确认自己的贡献是否被看见。"
+        "en": "When discussing a shared achievement, I name what others contributed.",
+        "zh": "谈到一项共同成果时，我会具体说出别人做了什么。"
       },
       "reverse": false,
       "options": [
@@ -316,10 +316,10 @@
       ]
     },
     {
-      "id": "VIRTUES_LK_005",
+      "id": "VIRTUES_DUAL_005",
       "prompt": {
-        "en": "When future resources are uncertain, I first keep a margin for myself.",
-        "zh": "未来资源不确定时，我会优先为自己保留余量。"
+        "en": "Even when I have enough, I want to keep an extra share of resources when I get the chance.",
+        "zh": "即使手头已经够用，有机会多占一份资源时，我还是想留下。"
       },
       "reverse": false,
       "options": [
@@ -371,10 +371,10 @@
       ]
     },
     {
-      "id": "VIRTUES_LK_006",
+      "id": "VIRTUES_DUAL_006",
       "prompt": {
-        "en": "Before deciding whether to share time or possessions, I check whether I have enough for my own needs.",
-        "zh": "决定是否分享时间或物品前，我会先确认自己是否够用。"
+        "en": "When I have something spare that another person needs, I offer to share it.",
+        "zh": "手头有闲置而别人正好需要的东西时，我愿意主动提出分享。"
       },
       "reverse": false,
       "options": [
@@ -426,10 +426,10 @@
       ]
     },
     {
-      "id": "VIRTUES_LK_007",
+      "id": "VIRTUES_DUAL_007",
       "prompt": {
-        "en": "After lending an important resource, I pay attention to when it can be restored.",
-        "zh": "借出重要资源后，我会留意它何时能够恢复。"
+        "en": "When an extra benefit is shared, I still want a larger share even if others have an equal claim.",
+        "zh": "分配额外好处时，即使别人也有份，我仍想让自己多拿一些。"
       },
       "reverse": false,
       "options": [
@@ -481,10 +481,10 @@
       ]
     },
     {
-      "id": "VIRTUES_LK_008",
+      "id": "VIRTUES_DUAL_008",
       "prompt": {
-        "en": "When facing extra spending, I tend first to think about needs that may arise later.",
-        "zh": "面对额外支出时，我容易先想到之后可能出现的需要。"
+        "en": "When someone needs help and I have time to spare, I am willing to give them some of my time.",
+        "zh": "别人需要帮助、我也有余力时，我愿意拿出一点自己的时间。"
       },
       "reverse": false,
       "options": [
@@ -536,10 +536,10 @@
       ]
     },
     {
-      "id": "VIRTUES_LK_009",
+      "id": "VIRTUES_DUAL_009",
       "prompt": {
-        "en": "When I encounter a very appealing person or opportunity, I noticeably feel my attention being pulled toward them.",
-        "zh": "遇到很有吸引力的人或机会时，我会明显感到注意力被拉动。"
+        "en": "When I feel strongly attracted to someone, I feel an urge to move the interaction toward intimacy quickly.",
+        "zh": "对某个人产生强烈吸引时，我会急着把互动推进到更亲密的程度。"
       },
       "reverse": false,
       "options": [
@@ -591,10 +591,10 @@
       ]
     },
     {
-      "id": "VIRTUES_LK_010",
+      "id": "VIRTUES_DUAL_010",
       "prompt": {
-        "en": "When I want to move closer to a person or something, I check whether both sides' boundaries are clear.",
-        "zh": "想靠近某个人或事物时，我会留意双方边界是否清楚。"
+        "en": "Before moving an intimate interaction forward, I check that the other person wants it too.",
+        "zh": "想推进亲密互动时，我会先确认对方也愿意。"
       },
       "reverse": false,
       "options": [
@@ -646,10 +646,10 @@
       ]
     },
     {
-      "id": "VIRTUES_LK_011",
+      "id": "VIRTUES_DUAL_011",
       "prompt": {
-        "en": "When I strongly want something, I need some time to distinguish an impulse from a longer-term choice.",
-        "zh": "强烈想要一件事时，我需要花些时间区分冲动与长期选择。"
+        "en": "When I feel strongly attracted to someone, I find it easy to get carried away by the immediate impulse.",
+        "zh": "感到强烈吸引时，我容易被眼前的冲动牵着走。"
       },
       "reverse": false,
       "options": [
@@ -701,10 +701,10 @@
       ]
     },
     {
-      "id": "VIRTUES_LK_012",
+      "id": "VIRTUES_DUAL_012",
       "prompt": {
-        "en": "After an attraction arises, I check present willingness and practical circumstances.",
-        "zh": "吸引出现后，我会确认当下的意愿和现实条件。"
+        "en": "Even with mutual attraction, I move at a pace I am comfortable with.",
+        "zh": "即使彼此有吸引力，我也会按自己舒服的节奏推进关系。"
       },
       "reverse": false,
       "options": [
@@ -756,10 +756,10 @@
       ]
     },
     {
-      "id": "VIRTUES_LK_013",
+      "id": "VIRTUES_DUAL_013",
       "prompt": {
-        "en": "When someone in a similar position makes progress, I naturally compare where I stand.",
-        "zh": "看到处境相近的人取得进展时，我会自然比较自己的位置。"
+        "en": "When someone in a similar position gets an opportunity I wanted, I find it hard not to resent that they got it.",
+        "zh": "处境相近的人得到我想要的机会时，我很难不介意那个人得到了它。"
       },
       "reverse": false,
       "options": [
@@ -811,10 +811,10 @@
       ]
     },
     {
-      "id": "VIRTUES_LK_014",
+      "id": "VIRTUES_DUAL_014",
       "prompt": {
-        "en": "When others receive recognition, I tend to notice whether I have similar opportunities.",
-        "zh": "别人获得认可时，我容易留意自己是否也得到相似机会。"
+        "en": "Even when I wanted the same opportunity, I am willing to sincerely congratulate the person who got it.",
+        "zh": "即使自己也想得到同一个机会，我仍愿意真诚祝贺得到它的人。"
       },
       "reverse": false,
       "options": [
@@ -866,10 +866,10 @@
       ]
     },
     {
-      "id": "VIRTUES_LK_015",
+      "id": "VIRTUES_DUAL_015",
       "prompt": {
-        "en": "When appreciating other people's abilities, I also think of parts of myself I still want to develop.",
-        "zh": "欣赏他人的能力时，我也会想到自己仍想发展的部分。"
+        "en": "When a peer seems to be doing better than I am, I keep thinking about what I lack.",
+        "zh": "看到同伴过得比我顺利时，我会反复想着自己缺少什么。"
       },
       "reverse": false,
       "options": [
@@ -921,10 +921,10 @@
       ]
     },
     {
-      "id": "VIRTUES_LK_016",
+      "id": "VIRTUES_DUAL_016",
       "prompt": {
-        "en": "When clear differences appear within a group, I notice them relatively quickly.",
-        "zh": "群体中出现明显差距时，我会较快注意到这种差距。"
+        "en": "When I see a peer struggling, I am willing to first find out what they need.",
+        "zh": "看到同伴遇到困难时，我愿意先了解他们需要什么。"
       },
       "reverse": false,
       "options": [
@@ -976,10 +976,10 @@
       ]
     },
     {
-      "id": "VIRTUES_LK_017",
+      "id": "VIRTUES_DUAL_017",
       "prompt": {
-        "en": "When an easy reward is within reach, I find it hard to ignore.",
-        "zh": "眼前有轻松回报时，我会感到它很难被忽略。"
+        "en": "When enjoying snacks, videos, or games, I often go beyond the amount or time I planned.",
+        "zh": "享受零食、视频或游戏时，我经常超过自己原先打算的量或时间。"
       },
       "reverse": false,
       "options": [
@@ -1031,10 +1031,10 @@
       ]
     },
     {
-      "id": "VIRTUES_LK_018",
+      "id": "VIRTUES_DUAL_018",
       "prompt": {
-        "en": "Under greater pressure, I am more likely to choose something that helps me feel a little better immediately.",
-        "zh": "压力较大时，我更容易选择能立刻让我舒服一点的做法。"
+        "en": "Before starting an enjoyable activity that can run long, I set a time to stop.",
+        "zh": "开始一项容易持续很久的享受前，我会先给自己定个停下来的时间。"
       },
       "reverse": false,
       "options": [
@@ -1086,10 +1086,10 @@
       ]
     },
     {
-      "id": "VIRTUES_LK_019",
+      "id": "VIRTUES_DUAL_019",
       "prompt": {
-        "en": "While waiting for a reward that will come later, I repeatedly notice my impatience in the present.",
-        "zh": "等待较晚才出现的回报时，我会反复注意当下的不耐烦。"
+        "en": "Even after I feel satisfied, I find it easy to have one more when the reward is still available.",
+        "zh": "已经满足以后，只要即时回报还在，我也容易再多来一次。"
       },
       "reverse": false,
       "options": [
@@ -1141,10 +1141,10 @@
       ]
     },
     {
-      "id": "VIRTUES_LK_020",
+      "id": "VIRTUES_DUAL_020",
       "prompt": {
-        "en": "With an experience I enjoy, I need to actively decide when to pause.",
-        "zh": "面对喜欢的体验时，我需要主动决定什么时候暂停。"
+        "en": "When I feel I have had enough, I can stop at the limit I set.",
+        "zh": "发现已经享受得差不多时，我能按自己定下的界限停下来。"
       },
       "reverse": false,
       "options": [
@@ -1196,10 +1196,10 @@
       ]
     },
     {
-      "id": "VIRTUES_LK_021",
+      "id": "VIRTUES_DUAL_021",
       "prompt": {
-        "en": "When something feels unfair, I quickly notice tension in my body or emotions.",
-        "zh": "觉得不公平时，我会很快注意到身体或情绪变紧。"
+        "en": "When I feel offended, I tend to snap back in a harsh tone right away.",
+        "zh": "觉得被冒犯时，我容易立刻用很重的语气回击。"
       },
       "reverse": false,
       "options": [
@@ -1251,10 +1251,10 @@
       ]
     },
     {
-      "id": "VIRTUES_LK_022",
+      "id": "VIRTUES_DUAL_022",
       "prompt": {
-        "en": "After a disagreement has ended, I sometimes keep thinking about things I did not finish saying.",
-        "zh": "分歧结束后，我有时仍会继续想着当时没有说完的话。"
+        "en": "When I notice anger rising in a disagreement, I give myself a moment before responding.",
+        "zh": "分歧中察觉自己开始生气时，我会给自己一点时间再回应。"
       },
       "reverse": false,
       "options": [
@@ -1306,10 +1306,10 @@
       ]
     },
     {
-      "id": "VIRTUES_LK_023",
+      "id": "VIRTUES_DUAL_023",
       "prompt": {
-        "en": "When interrupted or misunderstood, I feel an urge to respond immediately.",
-        "zh": "被打断或误解时，我会出现立刻回应的冲动。"
+        "en": "After an argument, I keep thinking about how I could hit back with words.",
+        "zh": "争执过后，我仍会想着怎样用言语还击。"
       },
       "reverse": false,
       "options": [
@@ -1361,10 +1361,10 @@
       ]
     },
     {
-      "id": "VIRTUES_LK_024",
+      "id": "VIRTUES_DUAL_024",
       "prompt": {
-        "en": "When my emotions intensify, I need to leave some time before I can respond more patiently.",
-        "zh": "情绪升高时，我需要先留出时间才能更耐心地回应。"
+        "en": "When something cannot be resolved immediately, I give the other person time to deal with it.",
+        "zh": "等候一件不能马上解决的事时，我会留出对方处理所需的时间。"
       },
       "reverse": false,
       "options": [
@@ -1416,10 +1416,10 @@
       ]
     },
     {
-      "id": "VIRTUES_LK_025",
+      "id": "VIRTUES_DUAL_025",
       "prompt": {
-        "en": "When a task's first step is unclear, I delay starting.",
-        "zh": "任务的第一步不清楚时，我会推迟开始。"
+        "en": "Even when I know the first step, I often put off getting started on something I need to do.",
+        "zh": "即使知道第一步怎么做，我也常把该开始的事往后拖。"
       },
       "reverse": false,
       "options": [
@@ -1471,10 +1471,10 @@
       ]
     },
     {
-      "id": "VIRTUES_LK_026",
+      "id": "VIRTUES_DUAL_026",
       "prompt": {
-        "en": "After becoming exhausted, I need a longer time to get back into action.",
-        "zh": "疲惫之后，我需要较长时间才能重新进入行动状态。"
+        "en": "When a task feels demanding, I start with one small step I can manage.",
+        "zh": "遇到一件费力的事时，我会先做一个自己能完成的小步骤。"
       },
       "reverse": false,
       "options": [
@@ -1526,10 +1526,10 @@
       ]
     },
     {
-      "id": "VIRTUES_LK_027",
+      "id": "VIRTUES_DUAL_027",
       "prompt": {
-        "en": "Once I have rested enough, I sometimes still find it hard to end the break.",
-        "zh": "休息已经足够时，我有时仍不容易结束休息。"
+        "en": "Even after I have rested enough, I often delay returning to what I planned to do.",
+        "zh": "已经休息够了，我也常继续拖延回到原本计划的任务。"
       },
       "reverse": false,
       "options": [
@@ -1581,10 +1581,10 @@
       ]
     },
     {
-      "id": "VIRTUES_LK_028",
+      "id": "VIRTUES_DUAL_028",
       "prompt": {
-        "en": "When facing something important but demanding, I first look for a way to make starting easier.",
-        "zh": "面对重要但费力的事情，我会先寻找降低启动难度的方法。"
+        "en": "When an important task takes several days, I make time to keep making a little progress.",
+        "zh": "一项重要任务需要几天完成时，我会安排时间持续做一点。"
       },
       "reverse": false,
       "options": [
@@ -1655,8 +1655,8 @@
         "zh": "这四道题关心外部反馈、自我评价和被看见的需要。"
       },
       "scoreReading": {
-        "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
-        "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+        "en": "Each score summarizes your agreement with two statements in this attempt. The form is for entertainment and reflection and has no established psychometric validity or population norms.",
+        "zh": "分数表示本次对两道题的符合程度。题本仅供娱乐与自我探索，尚未建立心理测量效度或人群常模。"
       },
       "seo": {
         "title": {
@@ -1664,8 +1664,8 @@
           "zh": "七宗罪与七美德：认可需要与自我定位"
         },
         "description": {
-          "en": "Separate completed work, its use and explicit recognition in a meeting example. Read four-item sums and means without turning missing feedback into a verdict on worth.",
-          "zh": "认可需要与自我定位完整读法：从会议资料未被提及的情境，区分完成、被使用与明确认可；含四题算例，不把缺少反馈解释为贡献无价值或自恋。"
+          "en": "Use examples of shared work and feedback to read the separate scores for wanting credit and acknowledging others.",
+          "zh": "从共同成果与反馈中，分开阅读争取功劳与承认他人贡献的两项得分。"
         }
       },
       "sections": [
@@ -1693,17 +1693,17 @@
         {
           "id": "numbers",
           "title": {
-            "en": "A four-response worked example",
-            "zh": "一个四题算例"
+            "en": "How to read the two scores",
+            "zh": "两项分数怎么读"
           },
           "paragraphs": [
             {
-              "en": "Worked example, not your responses: 1, 2, 4, 5 add to 12; 12 / 4 = 3.00. All four responses retain their original 1–5 direction, without reverse scoring. Midpoint 3 is a numeric response, not an unanswered item. A sum ranges 4–20, and a mean 1–5. These are agreement summaries, with no threshold, percentile or progress target. A later attempt is not a before-and-after test of moral improvement.",
-              "zh": "算例，不是你的答案：1、2、4、5相加为12，12÷4＝3.00。四项都保留原1—5方向，不作反向计分；中点3是有效数值，不是未答。原始和范围4—20，均值范围1—5，只是整体符合程度摘要，没有阈值、百分位或进步目标。之后重测，也不构成道德进步的前后评估。"
+              "en": "For example, ratings of 2 and 4 average 3 and yield 50. Ratings of 1 and 5 also yield 50, with a different response pattern.",
+              "zh": "例如，一轴两题选2和4，均值3，对应50分。选1和5也得到50分，逐题回答仍可能不同。"
             },
             {
-              "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
-              "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+              "en": "Each score summarizes your agreement with two statements in this attempt. The form is for entertainment and reflection and has no established psychometric validity or population norms.",
+              "zh": "分数表示本次对两道题的符合程度。题本仅供娱乐与自我探索，尚未建立心理测量效度或人群常模。"
             }
           ]
         },
@@ -1719,8 +1719,8 @@
               "zh": "可以回看：你更在意哪类反馈；没有回应时你还用什么事实评价自己。 最近一次期待反馈的场景；那次没有回应时你怎样判断投入是否值得。 被忽略时占据注意的是事件本身，还是对投入是否值得的怀疑？这只能由你自己确认。"
             },
             {
-              "en": "Imagine contributing notes before a meeting. Nobody mentions them, and you keep revisiting the silence. A colleague later says they used the notes without realizing you needed feedback. That sequence contains several facts: the work was completed, it was used, and recognition was not explicit. Feeling overlooked does not establish that the contribution was worthless or that the colleague deliberately excluded you. The four-item mean cannot choose among those explanations.",
-              "zh": "假设你会前整理了资料，会上却没人提到，你之后一直想着那段沉默。后来同事说，自己使用了那些资料，只是没有意识到你期待明确反馈。这里至少有三件可核对的事：资料确实完成了、有人用过、认可没有被清楚表达。感到被忽略，不等于贡献没有价值，也不能直接证明对方故意排除你。四题均值不能替这些解释作选择。"
+              "en": "Imagine contributing notes before a meeting. Nobody mentions them, and you keep revisiting the silence. A colleague later says they used the notes without realizing you needed feedback. That sequence contains several facts: the work was completed, it was used, and recognition was not explicit. Feeling overlooked does not establish that the contribution was worthless or that the colleague deliberately excluded you. The score cannot choose among those explanations.",
+              "zh": "假设你会前整理了资料，会上却没人提到，你之后一直想着那段沉默。后来同事说，自己使用了那些资料，只是没有意识到你期待明确反馈。这里至少有三件可核对的事：资料确实完成了、有人用过、认可没有被清楚表达。感到被忽略，不等于贡献没有价值，也不能直接证明对方故意排除你。分数不能替这些解释作选择。"
             }
           ]
         },
@@ -1736,8 +1736,8 @@
               "zh": "这组题同时包含反应线索（被忽略时的注意）与核对方式（确认贡献是否被看见），因此不能解释成单一强度。"
             },
             {
-              "en": "For example, 1,1,5,5 and 3,3,3,3 both sum to 12 and average 3.00, despite different individual responses. The displayed mean cannot reveal which statement you agreed with. Read the exact statements privately before proposing an explanation, and leave reasons unknown when they cannot be checked. The example is arithmetic, not a validated pattern or a profile assigned to you.",
-              "zh": "例如，1、1、5、5与3、3、3、3都相加为12、均值为3.00，但逐题回答不同。显示的均值不能揭示你更符合哪一句。提出解释前，可以私下回看确切陈述；无法核对的原因仍保留未知。这只是算术例子，不是经过验证的作答模式，也不是给你派出的画像。"
+              "en": "Each track uses its own items. Both scores for a theme can be high or low together. Each track average is the mean of its seven axes.",
+              "zh": "两条轨道分别使用各自的题目。同一主题的两个分数可以同时高或同时低。两组均值各为七轴的平均值。"
             }
           ]
         },
@@ -1783,8 +1783,8 @@
           },
           "paragraphs": [
             {
-              "en": "A quiet work setting may offer little visible feedback even when work is valued. A highly public setting may invite frequent checking. Neither context turns a larger number into vanity or a smaller number into humility. Looking for the conditions around one response is more informative than trying to earn a better-looking mean.",
-              "zh": "安静的工作环境可能很少提供可见反馈，即使工作被重视；公开竞争的环境也可能让人更常核对外部回应。两种情境都不能把较大数值变成虚荣，或把较小数值变成谦逊。核对一次反应发生的条件，比追求更好看的均值更有信息。"
+              "en": "Wanting recognition and accepting feedback can coexist. Notice when you want more credit and when you acknowledge another person’s contribution.",
+              "zh": "想获得认可、能接受指正，可以同时发生。可以分别留意什么时候想多争取功劳，什么时候愿意承认其他人的贡献。"
             },
             {
               "en": "Wanting recognition is a common human need, not a moral defect. This reflection does not condemn or shame.",
@@ -1804,8 +1804,8 @@
               "zh": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。"
             },
             {
-              "en": "This guide preserves the scope of FermatMind's original twenty-eight-item Mini form and its seven separate four-item groups. The English prompts and this web presentation are new working adaptations, without independent validation. The source's cultural reference is not scientific support for a score. All seven complete public guides can be read before answering; they contain no private attempt or individual result.",
-              "zh": "本页保留费马原创小程序28题与七组各四题的观察范围。英文题文及网页呈现是新的工作改编，没有独立验证；文化参照不是分数的科学依据。七份公开完整指南均可在作答前阅读，其中不含私人答卷或个人成绩。"
+              "en": "Web edition 2.0 uses 28 original items across two tracks. The earlier Mini edition combined four items into one theme mean, so its numbers have a different meaning. The seven public guides contain general examples and are freely available.",
+              "zh": "网页2.0采用原创双轨28题。早期小程序版把四题合为一个主题均值，两版读数的含义不同。七篇公开指南随时可读，其中只有通用示例。"
             }
           ]
         }
@@ -1829,8 +1829,8 @@
         "zh": "这四道题关心资源不确定时的保留、余量和分享判断。"
       },
       "scoreReading": {
-        "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
-        "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+        "en": "Each score summarizes your agreement with two statements in this attempt. The form is for entertainment and reflection and has no established psychometric validity or population norms.",
+        "zh": "分数表示本次对两道题的符合程度。题本仅供娱乐与自我探索，尚未建立心理测量效度或人群常模。"
       },
       "seo": {
         "title": {
@@ -1838,8 +1838,8 @@
           "zh": "七宗罪与七美德：资源安全感与分享"
         },
         "description": {
-          "en": "Explore a camera-loan example to separate a real resource margin from a sharing decision. Four-item means do not measure generosity, wealth or selfishness.",
-          "zh": "资源安全感与分享完整读法：用借相机与归还日期的示例核对现实余量、基本需要和自愿分享；含四题算例，均值不衡量慷慨、财富或自私。"
+          "en": "Use a camera-lending example to consider real constraints and voluntary sharing, then read greed and generosity separately.",
+          "zh": "用借相机的例子核对实际余量和自愿分享，分开读贪婪与慷慨。"
         }
       },
       "sections": [
@@ -1867,17 +1867,17 @@
         {
           "id": "numbers",
           "title": {
-            "en": "A four-response worked example",
-            "zh": "一个四题算例"
+            "en": "How to read the two scores",
+            "zh": "两项分数怎么读"
           },
           "paragraphs": [
             {
-              "en": "Worked example, not your responses: 4, 2, 5, 2 add to 13; 13 / 4 = 3.25. All four responses retain their original 1–5 direction, without reverse scoring. Midpoint 3 is a numeric response, not an unanswered item. A sum ranges 4–20, and a mean 1–5. These are agreement summaries, with no threshold, percentile or progress target. A later attempt is not a before-and-after test of moral improvement.",
-              "zh": "算例，不是你的答案：4、2、5、2相加为13，13÷4＝3.25。四项都保留原1—5方向，不作反向计分；中点3是有效数值，不是未答。原始和范围4—20，均值范围1—5，只是整体符合程度摘要，没有阈值、百分位或进步目标。之后重测，也不构成道德进步的前后评估。"
+              "en": "For example, ratings of 2 and 4 average 3 and yield 50. Ratings of 1 and 5 also yield 50, with a different response pattern.",
+              "zh": "例如，一轴两题选2和4，均值3，对应50分。选1和5也得到50分，逐题回答仍可能不同。"
             },
             {
-              "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
-              "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+              "en": "Each score summarizes your agreement with two statements in this attempt. The form is for entertainment and reflection and has no established psychometric validity or population norms.",
+              "zh": "分数表示本次对两道题的符合程度。题本仅供娱乐与自我探索，尚未建立心理测量效度或人群常模。"
             }
           ]
         },
@@ -1893,8 +1893,8 @@
               "zh": "可以回看：你担心失去的具体资源是什么；风险有多确定；分享范围是怎样设定的。 最近一次拒绝或同意分享时的余量；那次分享是否影响你的基本需要。 保留更多是出于现实风险，还是习惯性担心？这个判断只能由你自己核对。"
             },
             {
-              "en": "Suppose a friend asks to borrow a camera before you need it for your own project. You consider the return date, the spare equipment and what happens if plans change. Keeping a margin could reflect a real deadline rather than reluctance to help. Agreeing to lend the camera might coexist with careful checking. The same mean cannot establish which resource is scarce, who has an alternative, or how freely a person agreed.",
-              "zh": "假设朋友想借你的相机，而你不久后也要用它完成自己的项目。你会考虑归还日期、备用器材，以及计划变动时怎么办。保留余量可能来自真实截止日期，不是“不肯帮忙”；同意借出，也可能同时伴随仔细核对。相同均值不能确认究竟缺少什么资源、谁还有替代方案，或同意是否出于自愿。"
+              "en": "Suppose a friend asks to borrow a camera before you need it for your own project. You consider the return date, the spare equipment and what happens if plans change. Keeping a margin could reflect a real deadline rather than reluctance to help. Agreeing to lend the camera might coexist with careful checking. The same score cannot establish which resource is scarce, who has an alternative, or how freely a person agreed.",
+              "zh": "假设朋友想借你的相机，而你不久后也要用它完成自己的项目。你会考虑归还日期、备用器材，以及计划变动时怎么办。保留余量可能来自真实截止日期，不是“不肯帮忙”；同意借出，也可能同时伴随仔细核对。相同分数不能确认究竟缺少什么资源、谁还有替代方案，或同意是否出于自愿。"
             }
           ]
         },
@@ -1910,8 +1910,8 @@
               "zh": "这组题同时包含保留倾向与分享判断，不能解释成慷慨或吝啬的单一强度。"
             },
             {
-              "en": "For example, 1,1,5,5 and 3,3,3,3 both sum to 12 and average 3.00, despite different individual responses. The displayed mean cannot reveal which statement you agreed with. Read the exact statements privately before proposing an explanation, and leave reasons unknown when they cannot be checked. The example is arithmetic, not a validated pattern or a profile assigned to you.",
-              "zh": "例如，1、1、5、5与3、3、3、3都相加为12、均值为3.00，但逐题回答不同。显示的均值不能揭示你更符合哪一句。提出解释前，可以私下回看确切陈述；无法核对的原因仍保留未知。这只是算术例子，不是经过验证的作答模式，也不是给你派出的画像。"
+              "en": "Each track uses its own items. Both scores for a theme can be high or low together. Each track average is the mean of its seven axes.",
+              "zh": "两条轨道分别使用各自的题目。同一主题的两个分数可以同时高或同时低。两组均值各为七轴的平均值。"
             }
           ]
         },
@@ -1957,8 +1957,8 @@
           },
           "paragraphs": [
             {
-              "en": "Checking a return date is not proof of distrust, and declining a loan does not identify selfishness. Equally, saying yes does not prove that basic needs are protected. Those conclusions require direct facts about the arrangement; adding four agreement responses does not supply them.",
-              "zh": "核对归还日期不能证明不信任，拒绝借出不能认定自私；同样，同意也不能证明基本需要已得到保护。这些判断需要关于安排的直接事实，四个符合程度数值相加并不会自动提供那些事实。"
+              "en": "Keeping enough for your own needs and choosing to share can coexist. Check your actual constraints, then decide what you have available to offer.",
+              "zh": "保留够用的资源和自愿分享可以同时做到。可以先核对实际需要，再决定怎样分享手头确实有余量的东西。"
             },
             {
               "en": "Resource concerns have practical functions. Time, possessions and a practical margin should not be stretched into a claim about a person's wealth or character.",
@@ -1978,8 +1978,8 @@
               "zh": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。"
             },
             {
-              "en": "This guide preserves the scope of FermatMind's original twenty-eight-item Mini form and its seven separate four-item groups. The English prompts and this web presentation are new working adaptations, without independent validation. The source's cultural reference is not scientific support for a score. All seven complete public guides can be read before answering; they contain no private attempt or individual result.",
-              "zh": "本页保留费马原创小程序28题与七组各四题的观察范围。英文题文及网页呈现是新的工作改编，没有独立验证；文化参照不是分数的科学依据。七份公开完整指南均可在作答前阅读，其中不含私人答卷或个人成绩。"
+              "en": "Web edition 2.0 uses 28 original items across two tracks. The earlier Mini edition combined four items into one theme mean, so its numbers have a different meaning. The seven public guides contain general examples and are freely available.",
+              "zh": "网页2.0采用原创双轨28题。早期小程序版把四题合为一个主题均值，两版读数的含义不同。七篇公开指南随时可读，其中只有通用示例。"
             }
           ]
         }
@@ -2003,8 +2003,8 @@
         "zh": "这四道题关心吸引出现时的注意力、意愿确认和边界核对。"
       },
       "scoreReading": {
-        "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
-        "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+        "en": "Each score summarizes your agreement with two statements in this attempt. The form is for entertainment and reflection and has no established psychometric validity or population norms.",
+        "zh": "分数表示本次对两道题的符合程度。题本仅供娱乐与自我探索，尚未建立心理测量效度或人群常模。"
       },
       "seo": {
         "title": {
@@ -2012,8 +2012,8 @@
           "zh": "七宗罪与七美德：欲望、吸引与边界"
         },
         "description": {
-          "en": "Use a creative-collaboration example to separate attraction, willingness and agreement. Read the mixed four-item mean without treating it as desire or self-control.",
-          "zh": "欲望、吸引与边界完整读法：从创作合作示例区分被吸引、想参与与具体同意；四题均值混合反应和边界核对，不代表欲望强度或自控能力。"
+          "en": "Use an everyday scenario to separate attraction, mutual willingness and a comfortable pace.",
+          "zh": "用具体情境分开看吸引冲动、双方意愿和舒服的节奏。"
         }
       },
       "sections": [
@@ -2041,17 +2041,17 @@
         {
           "id": "numbers",
           "title": {
-            "en": "A four-response worked example",
-            "zh": "一个四题算例"
+            "en": "How to read the two scores",
+            "zh": "两项分数怎么读"
           },
           "paragraphs": [
             {
-              "en": "Worked example, not your responses: 5, 1, 4, 3 add to 13; 13 / 4 = 3.25. All four responses retain their original 1–5 direction, without reverse scoring. Midpoint 3 is a numeric response, not an unanswered item. A sum ranges 4–20, and a mean 1–5. These are agreement summaries, with no threshold, percentile or progress target. A later attempt is not a before-and-after test of moral improvement.",
-              "zh": "算例，不是你的答案：5、1、4、3相加为13，13÷4＝3.25。四项都保留原1—5方向，不作反向计分；中点3是有效数值，不是未答。原始和范围4—20，均值范围1—5，只是整体符合程度摘要，没有阈值、百分位或进步目标。之后重测，也不构成道德进步的前后评估。"
+              "en": "For example, ratings of 2 and 4 average 3 and yield 50. Ratings of 1 and 5 also yield 50, with a different response pattern.",
+              "zh": "例如，一轴两题选2和4，均值3，对应50分。选1和5也得到50分，逐题回答仍可能不同。"
             },
             {
-              "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
-              "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+              "en": "Each score summarizes your agreement with two statements in this attempt. The form is for entertainment and reflection and has no established psychometric validity or population norms.",
+              "zh": "分数表示本次对两道题的符合程度。题本仅供娱乐与自我探索，尚未建立心理测量效度或人群常模。"
             }
           ]
         },
@@ -2067,8 +2067,8 @@
               "zh": "可以回看：吸引出现时你通常会确认什么；边界是否清楚；冲动与长期选择怎样区分。 最近一次吸引出现时你确认了哪些意愿和条件。 注意力被拉动本身不等于要行动；你通常在哪一步停下来核对？这个节奏只能由你自己确认。"
             },
             {
-              "en": "Imagine being drawn to a new creative collaboration. The idea is exciting, but the proposed schedule, permission to share unfinished work and each person's willingness are still unclear. Attention, wanting to join and agreeing to a specific arrangement are three separate events. You can notice attraction without acting on it, or ask for clarification without promising participation. A group mean cannot establish consent, desire for one particular person or what anyone will do.",
-              "zh": "假设一个新的创作合作很吸引你，但时间安排、未完成作品能否公开、各方是否愿意参与都还没有说清。注意被吸引、想要加入、同意某一项具体安排，是三件不同的事。你可以感到吸引但不行动，也可以先问清楚而不承诺参与。分组均值不能确定任何同意、对某个人的欲望，或任何人接下来会做什么。"
+              "en": "Imagine being drawn to a new creative collaboration. The idea is exciting, but the proposed schedule, permission to share unfinished work and each person's willingness are still unclear. Attention, wanting to join and agreeing to a specific arrangement are three separate events. You can notice attraction without acting on it, or ask for clarification without promising participation. A score cannot establish consent, desire for one particular person or what anyone will do.",
+              "zh": "假设一个新的创作合作很吸引你，但时间安排、未完成作品能否公开、各方是否愿意参与都还没有说清。注意被吸引、想要加入、同意某一项具体安排，是三件不同的事。你可以感到吸引但不行动，也可以先问清楚而不承诺参与。分数不能确定任何同意、对某个人的欲望，或任何人接下来会做什么。"
             }
           ]
         },
@@ -2084,8 +2084,8 @@
               "zh": "注意被拉动与主动核对边界不是同一含义；这组题同时包含两者，不能解释成欲望强度的单一读数。"
             },
             {
-              "en": "For example, 1,1,5,5 and 3,3,3,3 both sum to 12 and average 3.00, despite different individual responses. The displayed mean cannot reveal which statement you agreed with. Read the exact statements privately before proposing an explanation, and leave reasons unknown when they cannot be checked. The example is arithmetic, not a validated pattern or a profile assigned to you.",
-              "zh": "例如，1、1、5、5与3、3、3、3都相加为12、均值为3.00，但逐题回答不同。显示的均值不能揭示你更符合哪一句。提出解释前，可以私下回看确切陈述；无法核对的原因仍保留未知。这只是算术例子，不是经过验证的作答模式，也不是给你派出的画像。"
+              "en": "Each track uses its own items. Both scores for a theme can be high or low together. Each track average is the mean of its seven axes.",
+              "zh": "两条轨道分别使用各自的题目。同一主题的两个分数可以同时高或同时低。两组均值各为七轴的平均值。"
             }
           ]
         },
@@ -2131,8 +2131,8 @@
           },
           "paragraphs": [
             {
-              "en": "Stronger agreement with noticing attraction may coexist with less agreement with a boundary-checking item, or the reverse. Even an identical sum can hide that difference. It would therefore be incorrect to call the mean either sexual intensity or a certificate of safe boundaries.",
-              "zh": "对“注意被拉动”更符合，可能与对“主动核对边界”较少符合同时出现，也可能相反。即使原始和相同，这种区别也会被合在一起。因此不能把均值解释成性欲强度，或把它当作边界安全证书。"
+              "en": "Attraction can coexist with respect for boundaries. Here chastity refers to checking willingness and moving at a comfortable pace. It does not describe sexual history or orientation.",
+              "zh": "吸引和尊重边界可以同时出现。贞洁轴在这里指确认意愿和按自己舒服的节奏行动，不涉及性经历或性取向。"
             },
             {
               "en": "Attraction and desire are common experiences, not moral stains. Any person's consent must be explicit, voluntary and revocable.",
@@ -2152,8 +2152,8 @@
               "zh": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。"
             },
             {
-              "en": "This guide preserves the scope of FermatMind's original twenty-eight-item Mini form and its seven separate four-item groups. The English prompts and this web presentation are new working adaptations, without independent validation. The source's cultural reference is not scientific support for a score. All seven complete public guides can be read before answering; they contain no private attempt or individual result.",
-              "zh": "本页保留费马原创小程序28题与七组各四题的观察范围。英文题文及网页呈现是新的工作改编，没有独立验证；文化参照不是分数的科学依据。七份公开完整指南均可在作答前阅读，其中不含私人答卷或个人成绩。"
+              "en": "Web edition 2.0 uses 28 original items across two tracks. The earlier Mini edition combined four items into one theme mean, so its numbers have a different meaning. The seven public guides contain general examples and are freely available.",
+              "zh": "网页2.0采用原创双轨28题。早期小程序版把四题合为一个主题均值，两版读数的含义不同。七篇公开指南随时可读，其中只有通用示例。"
             }
           ]
         }
@@ -2177,8 +2177,8 @@
         "zh": "这四道题关心比较反应、机会差异、失落与欣赏的线索。"
       },
       "scoreReading": {
-        "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
-        "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+        "en": "Each score summarizes your agreement with two statements in this attempt. The form is for entertainment and reflection and has no established psychometric validity or population norms.",
+        "zh": "分数表示本次对两道题的符合程度。题本仅供娱乐与自我探索，尚未建立心理测量效度或人群常模。"
       },
       "seo": {
         "title": {
@@ -2186,8 +2186,8 @@
           "zh": "七宗罪与七美德：比较敏感与欣赏"
         },
         "description": {
-          "en": "Read a peer-opportunity example where appreciation and disappointment coexist. Check four-item sums without inferring envy, unfairness or insincere congratulations.",
-          "zh": "比较敏感与欣赏完整读法：从同伴获得机会的示例理解欣赏与失落可以并存；含四题算例，不凭均值认定嫉妒、不公或祝贺不真诚。"
+          "en": "Use a peer-opportunity example to see how comparison, disappointment and sincere congratulations can coexist.",
+          "zh": "从同伴获得机会的示例理解比较、失落与真诚祝贺如何同时出现。"
         }
       },
       "sections": [
@@ -2215,17 +2215,17 @@
         {
           "id": "numbers",
           "title": {
-            "en": "A four-response worked example",
-            "zh": "一个四题算例"
+            "en": "How to read the two scores",
+            "zh": "两项分数怎么读"
           },
           "paragraphs": [
             {
-              "en": "Worked example, not your responses: 2, 3, 3, 5 add to 13; 13 / 4 = 3.25. All four responses retain their original 1–5 direction, without reverse scoring. Midpoint 3 is a numeric response, not an unanswered item. A sum ranges 4–20, and a mean 1–5. These are agreement summaries, with no threshold, percentile or progress target. A later attempt is not a before-and-after test of moral improvement.",
-              "zh": "算例，不是你的答案：2、3、3、5相加为13，13÷4＝3.25。四项都保留原1—5方向，不作反向计分；中点3是有效数值，不是未答。原始和范围4—20，均值范围1—5，只是整体符合程度摘要，没有阈值、百分位或进步目标。之后重测，也不构成道德进步的前后评估。"
+              "en": "For example, ratings of 2 and 4 average 3 and yield 50. Ratings of 1 and 5 also yield 50, with a different response pattern.",
+              "zh": "例如，一轴两题选2和4，均值3，对应50分。选1和5也得到50分，逐题回答仍可能不同。"
             },
             {
-              "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
-              "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+              "en": "Each score summarizes your agreement with two statements in this attempt. The form is for entertainment and reflection and has no established psychometric validity or population norms.",
+              "zh": "分数表示本次对两道题的符合程度。题本仅供娱乐与自我探索，尚未建立心理测量效度或人群常模。"
             }
           ]
         },
@@ -2242,7 +2242,7 @@
             },
             {
               "en": "Suppose a peer's project is selected for an opportunity you also wanted. You appreciate one part of their work and also notice disappointment about access to the opportunity. Both experiences can be true without canceling one another. There may be useful information about selection criteria, but there may also be uncertainty you cannot resolve. The mean cannot identify resentment, unfairness or whether congratulations were sincere.",
-              "zh": "假设一位同伴的项目获得了你也想争取的机会。你欣赏对方作品的某一部分，也注意到自己因机会落差而失落。这两种体验可以同时成立，不需要互相抵消。事情也许包含可了解的选择标准，也可能有暂时无法确认的因素。均值不能认定怨恨、不公，或一次祝贺是否真诚。"
+              "zh": "假设一位同伴的项目获得了你也想争取的机会。你欣赏对方作品的某一部分，也注意到自己因机会落差而失落。这两种体验可以同时成立，不需要互相抵消。事情也许包含可了解的选择标准，也可能有暂时无法确认的因素。分数不能认定怨恨、不公，或一次祝贺是否真诚。"
             }
           ]
         },
@@ -2258,8 +2258,8 @@
               "zh": "这组题同时包含比较反应与欣赏线索，比较不等于敌意，欣赏也不要求否认失落；不能解释成嫉妒或欣赏的单一强度。"
             },
             {
-              "en": "For example, 1,1,5,5 and 3,3,3,3 both sum to 12 and average 3.00, despite different individual responses. The displayed mean cannot reveal which statement you agreed with. Read the exact statements privately before proposing an explanation, and leave reasons unknown when they cannot be checked. The example is arithmetic, not a validated pattern or a profile assigned to you.",
-              "zh": "例如，1、1、5、5与3、3、3、3都相加为12、均值为3.00，但逐题回答不同。显示的均值不能揭示你更符合哪一句。提出解释前，可以私下回看确切陈述；无法核对的原因仍保留未知。这只是算术例子，不是经过验证的作答模式，也不是给你派出的画像。"
+              "en": "Each track uses its own items. Both scores for a theme can be high or low together. Each track average is the mean of its seven axes.",
+              "zh": "两条轨道分别使用各自的题目。同一主题的两个分数可以同时高或同时低。两组均值各为七轴的平均值。"
             }
           ]
         },
@@ -2305,8 +2305,8 @@
           },
           "paragraphs": [
             {
-              "en": "Someone may readily notice unequal opportunities and still appreciate a peer. Another person may compare less because a particular setting feels irrelevant. A larger number does not expose bad intentions, while a smaller number does not verify gratitude. Ask what the comparison concerned before assigning meaning.",
-              "zh": "一个人可能很快注意机会不相同，同时仍然欣赏同伴；另一个人比较较少，也可能只是因为这个场景对自己不重要。较大的数值不能揭示恶意，较小的数值也不能验证感恩。赋予意义之前，先核对究竟在比较什么。"
+              "en": "Feeling disappointed about an opportunity can coexist with sincere congratulations. If the other person struggles, you can separately ask what support they want.",
+              "zh": "对机会落差感到失落，也可以真诚地祝贺对方。对方遇到困难时，还可以单独问问他们需要什么。"
             },
             {
               "en": "Comparison is a common psychological response, not a verdict of evil. This reflection does not condemn.",
@@ -2326,8 +2326,8 @@
               "zh": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。"
             },
             {
-              "en": "This guide preserves the scope of FermatMind's original twenty-eight-item Mini form and its seven separate four-item groups. The English prompts and this web presentation are new working adaptations, without independent validation. The source's cultural reference is not scientific support for a score. All seven complete public guides can be read before answering; they contain no private attempt or individual result.",
-              "zh": "本页保留费马原创小程序28题与七组各四题的观察范围。英文题文及网页呈现是新的工作改编，没有独立验证；文化参照不是分数的科学依据。七份公开完整指南均可在作答前阅读，其中不含私人答卷或个人成绩。"
+              "en": "Web edition 2.0 uses 28 original items across two tracks. The earlier Mini edition combined four items into one theme mean, so its numbers have a different meaning. The seven public guides contain general examples and are freely available.",
+              "zh": "网页2.0采用原创双轨28题。早期小程序版把四题合为一个主题均值，两版读数的含义不同。七篇公开指南随时可读，其中只有通用示例。"
             }
           ]
         }
@@ -2351,8 +2351,8 @@
         "zh": "这四道题关心压力和等待中即时回报的注意力与暂停选择。"
       },
       "scoreReading": {
-        "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
-        "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+        "en": "Each score summarizes your agreement with two statements in this attempt. The form is for entertainment and reflection and has no established psychometric validity or population norms.",
+        "zh": "分数表示本次对两道题的符合程度。题本仅供娱乐与自我探索，尚未建立心理测量效度或人群常模。"
       },
       "seo": {
         "title": {
@@ -2360,8 +2360,8 @@
           "zh": "七宗罪与七美德：即时满足与节制"
         },
         "description": {
-          "en": "Use a short-video break to distinguish immediate relief from deciding when to pause. Four-item means are not willpower, eating or addiction assessments.",
-          "zh": "即时满足与节制完整读法：用普通短视频休息的示例区分眼前轻松、实际需要与暂停选择；含四题算例，不评判意志力，不用于饮食或成瘾评估。"
+          "en": "Use a short-video break to consider exceeding a plan and choosing when to stop, then read the two scores separately.",
+          "zh": "用短视频休息的例子分开看享受超过计划与主动暂停，理解暴食与节制两项读数。"
         }
       },
       "sections": [
@@ -2389,17 +2389,17 @@
         {
           "id": "numbers",
           "title": {
-            "en": "A four-response worked example",
-            "zh": "一个四题算例"
+            "en": "How to read the two scores",
+            "zh": "两项分数怎么读"
           },
           "paragraphs": [
             {
-              "en": "Worked example, not your responses: 1, 2, 2, 3 add to 8; 8 / 4 = 2.00. All four responses retain their original 1–5 direction, without reverse scoring. Midpoint 3 is a numeric response, not an unanswered item. A sum ranges 4–20, and a mean 1–5. These are agreement summaries, with no threshold, percentile or progress target. A later attempt is not a before-and-after test of moral improvement.",
-              "zh": "算例，不是你的答案：1、2、2、3相加为8，8÷4＝2.00。四项都保留原1—5方向，不作反向计分；中点3是有效数值，不是未答。原始和范围4—20，均值范围1—5，只是整体符合程度摘要，没有阈值、百分位或进步目标。之后重测，也不构成道德进步的前后评估。"
+              "en": "For example, ratings of 2 and 4 average 3 and yield 50. Ratings of 1 and 5 also yield 50, with a different response pattern.",
+              "zh": "例如，一轴两题选2和4，均值3，对应50分。选1和5也得到50分，逐题回答仍可能不同。"
             },
             {
-              "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
-              "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+              "en": "Each score summarizes your agreement with two statements in this attempt. The form is for entertainment and reflection and has no established psychometric validity or population norms.",
+              "zh": "分数表示本次对两道题的符合程度。题本仅供娱乐与自我探索，尚未建立心理测量效度或人群常模。"
             }
           ]
         },
@@ -2415,8 +2415,8 @@
               "zh": "可以回看：压力下你选择即时满足是在回应什么需要；暂停是怎样被决定的。 最近一次等待回报时的感受；那次你怎样决定暂停或继续。 即时满足解决的是疲惫、无聊还是其他需要？这个原因只能由你自己分辨。"
             },
             {
-              "en": "Imagine finishing a demanding but ordinary task and opening a short video for a break. The video offers immediate relief; deciding when to stop is a different question. Fatigue, available time and what you intended the break to do may all matter. This example concerns an everyday, non-dangerous choice. It is not an example for substances, gambling, self-harm, eating problems or withdrawal, and the mean cannot establish an addiction.",
-              "zh": "假设完成一项费力但普通的任务后，你打开短视频休息。视频提供眼前的轻松，而什么时候停下来，是另一个问题。疲惫程度、可用时间，以及原本希望休息起什么作用，都可能需要核对。这个例子只讨论普通、非危险的日常选择，不用于物质使用、赌博、自伤、进食问题或戒断；均值也不能认定成瘾。"
+              "en": "Imagine finishing a demanding but ordinary task and opening a short video for a break. The video offers immediate relief; deciding when to stop is a different question. Fatigue, available time and what you intended the break to do may all matter. This example concerns an everyday, non-dangerous choice. It is not an example for substances, gambling, self-harm, eating problems or withdrawal, and the score cannot establish an addiction.",
+              "zh": "假设完成一项费力但普通的任务后，你打开短视频休息。视频提供眼前的轻松，而什么时候停下来，是另一个问题。疲惫程度、可用时间，以及原本希望休息起什么作用，都可能需要核对。这个例子只讨论普通、非危险的日常选择，不用于物质使用、赌博、自伤、进食问题或戒断；分数也不能认定成瘾。"
             }
           ]
         },
@@ -2432,8 +2432,8 @@
               "zh": "即时回报有吸引力与主动决定何时暂停不是同一含义；这组题同时包含两者，不能解释成意志力强弱。"
             },
             {
-              "en": "For example, 1,1,5,5 and 3,3,3,3 both sum to 12 and average 3.00, despite different individual responses. The displayed mean cannot reveal which statement you agreed with. Read the exact statements privately before proposing an explanation, and leave reasons unknown when they cannot be checked. The example is arithmetic, not a validated pattern or a profile assigned to you.",
-              "zh": "例如，1、1、5、5与3、3、3、3都相加为12、均值为3.00，但逐题回答不同。显示的均值不能揭示你更符合哪一句。提出解释前，可以私下回看确切陈述；无法核对的原因仍保留未知。这只是算术例子，不是经过验证的作答模式，也不是给你派出的画像。"
+              "en": "Each track uses its own items. Both scores for a theme can be high or low together. Each track average is the mean of its seven axes.",
+              "zh": "两条轨道分别使用各自的题目。同一主题的两个分数可以同时高或同时低。两组均值各为七轴的平均值。"
             }
           ]
         },
@@ -2479,8 +2479,8 @@
           },
           "paragraphs": [
             {
-              "en": "Enjoying quick comfort and making deliberate pauses can both be present. Less agreement with waiting-related impatience does not prove willpower. Nor does agreement with seeking relief show a disorder. Keep the need, the appeal of the reward and the choice about pausing distinguishable.",
-              "zh": "喜欢即时的舒服与主动决定暂停，可以同时存在。对等待时的不耐烦较少符合，并不能证明意志力；对寻求轻松较符合，也不能说明存在障碍。把需要、回报的吸引力与暂停选择分开核对，才不会让均值替你编写原因。"
+              "en": "Enjoying immediate rewards can coexist with setting a stopping point. Here gluttony is a cultural label for excess in immediate enjoyment, including food and entertainment.",
+              "zh": "喜欢即时回报和主动设置暂停界限可以同时出现。这里的暴食是对过量即时享受的文化标签，涵盖饮食和娱乐。"
             },
             {
               "en": "Immediate rewards have ordinary appeal, not moral guilt. This reflection does not offer dietary, medical or addiction diagnosis advice.",
@@ -2500,8 +2500,8 @@
               "zh": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。"
             },
             {
-              "en": "This guide preserves the scope of FermatMind's original twenty-eight-item Mini form and its seven separate four-item groups. The English prompts and this web presentation are new working adaptations, without independent validation. The source's cultural reference is not scientific support for a score. All seven complete public guides can be read before answering; they contain no private attempt or individual result.",
-              "zh": "本页保留费马原创小程序28题与七组各四题的观察范围。英文题文及网页呈现是新的工作改编，没有独立验证；文化参照不是分数的科学依据。七份公开完整指南均可在作答前阅读，其中不含私人答卷或个人成绩。"
+              "en": "Web edition 2.0 uses 28 original items across two tracks. The earlier Mini edition combined four items into one theme mean, so its numbers have a different meaning. The seven public guides contain general examples and are freely available.",
+              "zh": "网页2.0采用原创双轨28题。早期小程序版把四题合为一个主题均值，两版读数的含义不同。七篇公开指南随时可读，其中只有通用示例。"
             }
           ]
         }
@@ -2525,8 +2525,8 @@
         "zh": "这四道题关心不公平、受阻或误解时身体和情绪信号及回应节奏。"
       },
       "scoreReading": {
-        "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
-        "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+        "en": "Each score summarizes your agreement with two statements in this attempt. The form is for entertainment and reflection and has no established psychometric validity or population norms.",
+        "zh": "分数表示本次对两道题的符合程度。题本仅供娱乐与自我探索，尚未建立心理测量效度或人群常模。"
       },
       "seo": {
         "title": {
@@ -2534,8 +2534,8 @@
           "zh": "七宗罪与七美德：愤怒信号与耐心回应"
         },
         "description": {
-          "en": "Separate tension after an interruption from the timing of a reply. Read four-item sums with an optional pause, without predicting violence or requiring reconciliation.",
-          "zh": "愤怒信号与耐心回应完整读法：从被打断的情境区分紧绷信号、未说完的话与回应时间；含四题算例，不预测暴力，也不要求忍受伤害或和解。"
+          "en": "Use an interruption scenario to separate snapping back from taking time to respond, with room to protect yourself or leave.",
+          "zh": "从被打断的情境分开看冲动回击与留时间回应，保留保护自己和离开的选择。"
         }
       },
       "sections": [
@@ -2563,17 +2563,17 @@
         {
           "id": "numbers",
           "title": {
-            "en": "A four-response worked example",
-            "zh": "一个四题算例"
+            "en": "How to read the two scores",
+            "zh": "两项分数怎么读"
           },
           "paragraphs": [
             {
-              "en": "Worked example, not your responses: 4, 5, 2, 4 add to 15; 15 / 4 = 3.75. All four responses retain their original 1–5 direction, without reverse scoring. Midpoint 3 is a numeric response, not an unanswered item. A sum ranges 4–20, and a mean 1–5. These are agreement summaries, with no threshold, percentile or progress target. A later attempt is not a before-and-after test of moral improvement.",
-              "zh": "算例，不是你的答案：4、5、2、4相加为15，15÷4＝3.75。四项都保留原1—5方向，不作反向计分；中点3是有效数值，不是未答。原始和范围4—20，均值范围1—5，只是整体符合程度摘要，没有阈值、百分位或进步目标。之后重测，也不构成道德进步的前后评估。"
+              "en": "For example, ratings of 2 and 4 average 3 and yield 50. Ratings of 1 and 5 also yield 50, with a different response pattern.",
+              "zh": "例如，一轴两题选2和4，均值3，对应50分。选1和5也得到50分，逐题回答仍可能不同。"
             },
             {
-              "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
-              "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+              "en": "Each score summarizes your agreement with two statements in this attempt. The form is for entertainment and reflection and has no established psychometric validity or population norms.",
+              "zh": "分数表示本次对两道题的符合程度。题本仅供娱乐与自我探索，尚未建立心理测量效度或人群常模。"
             }
           ]
         },
@@ -2606,8 +2606,8 @@
               "zh": "愤怒信号出现与能否留时间回应不是同一含义；这组题同时包含两者，不能解释成脾气大小。"
             },
             {
-              "en": "For example, 1,1,5,5 and 3,3,3,3 both sum to 12 and average 3.00, despite different individual responses. The displayed mean cannot reveal which statement you agreed with. Read the exact statements privately before proposing an explanation, and leave reasons unknown when they cannot be checked. The example is arithmetic, not a validated pattern or a profile assigned to you.",
-              "zh": "例如，1、1、5、5与3、3、3、3都相加为12、均值为3.00，但逐题回答不同。显示的均值不能揭示你更符合哪一句。提出解释前，可以私下回看确切陈述；无法核对的原因仍保留未知。这只是算术例子，不是经过验证的作答模式，也不是给你派出的画像。"
+              "en": "Each track uses its own items. Both scores for a theme can be high or low together. Each track average is the mean of its seven axes.",
+              "zh": "两条轨道分别使用各自的题目。同一主题的两个分数可以同时高或同时低。两组均值各为七轴的平均值。"
             }
           ]
         },
@@ -2653,8 +2653,8 @@
           },
           "paragraphs": [
             {
-              "en": "Two people with the same mean may differ in agreement with noticing tension and with leaving time before responding. A person reporting strong signals might also pause deliberately. Neither a larger nor a smaller number supplies a violence-risk assessment or a moral ranking.",
-              "zh": "相同均值的两个人，在对“注意到紧绷”与“留时间再回应”两类陈述的符合程度上，可能并不相同。报告信号明显的人，也可能会主动暂停。无论数值较大还是较小，都不提供暴力风险评估或道德排名。"
+              "en": "Anger, an urge to retaliate, and the actual response are distinct. A person who feels strong anger may still pause or wait.",
+              "zh": "怒意、还击冲动与实际如何回应可以分开看。有明显愤怒的人也可能会暂停或等待。"
             },
             {
               "en": "Anger is a signal, not a conviction. If a real situation involves possible harm, safety comes first; this reflection does not suggest confrontation.",
@@ -2674,8 +2674,8 @@
               "zh": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。"
             },
             {
-              "en": "This guide preserves the scope of FermatMind's original twenty-eight-item Mini form and its seven separate four-item groups. The English prompts and this web presentation are new working adaptations, without independent validation. The source's cultural reference is not scientific support for a score. All seven complete public guides can be read before answering; they contain no private attempt or individual result.",
-              "zh": "本页保留费马原创小程序28题与七组各四题的观察范围。英文题文及网页呈现是新的工作改编，没有独立验证；文化参照不是分数的科学依据。七份公开完整指南均可在作答前阅读，其中不含私人答卷或个人成绩。"
+              "en": "Web edition 2.0 uses 28 original items across two tracks. The earlier Mini edition combined four items into one theme mean, so its numbers have a different meaning. The seven public guides contain general examples and are freely available.",
+              "zh": "网页2.0采用原创双轨28题。早期小程序版把四题合为一个主题均值，两版读数的含义不同。七篇公开指南随时可读，其中只有通用示例。"
             }
           ]
         }
@@ -2699,8 +2699,8 @@
         "zh": "这四道题关心任务启动、疲惫恢复、结束休息和降低行动门槛。"
       },
       "scoreReading": {
-        "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
-        "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+        "en": "Each score summarizes your agreement with two statements in this attempt. The form is for entertainment and reflection and has no established psychometric validity or population norms.",
+        "zh": "分数表示本次对两道题的符合程度。题本仅供娱乐与自我探索，尚未建立心理测量效度或人群常模。"
       },
       "seo": {
         "title": {
@@ -2708,8 +2708,8 @@
           "zh": "七宗罪与七美德：行动启动与休息回避"
         },
         "description": {
-          "en": "Explore an unclear folder task to separate starting difficulty, fatigue and an easier first step. Read four-item means without labelling rest or delay as laziness.",
-          "zh": "行动启动与休息回避完整读法：以整理项目文件夹的示例区分第一步不清楚、疲惫恢复与降低启动门槛；含四题算例，不把休息或延后贴成懒惰标签。"
+          "en": "Use a folder task to distinguish delay, recovery and taking a small step, then read sloth and diligence separately.",
+          "zh": "从整理文件的例子区分拖延、疲惫恢复与迈出小步骤，读懂懒惰和勤勉两项分数。"
         }
       },
       "sections": [
@@ -2737,17 +2737,17 @@
         {
           "id": "numbers",
           "title": {
-            "en": "A four-response worked example",
-            "zh": "一个四题算例"
+            "en": "How to read the two scores",
+            "zh": "两项分数怎么读"
           },
           "paragraphs": [
             {
-              "en": "Worked example, not your responses: 3, 4, 1, 5 add to 13; 13 / 4 = 3.25. All four responses retain their original 1–5 direction, without reverse scoring. Midpoint 3 is a numeric response, not an unanswered item. A sum ranges 4–20, and a mean 1–5. These are agreement summaries, with no threshold, percentile or progress target. A later attempt is not a before-and-after test of moral improvement.",
-              "zh": "算例，不是你的答案：3、4、1、5相加为13，13÷4＝3.25。四项都保留原1—5方向，不作反向计分；中点3是有效数值，不是未答。原始和范围4—20，均值范围1—5，只是整体符合程度摘要，没有阈值、百分位或进步目标。之后重测，也不构成道德进步的前后评估。"
+              "en": "For example, ratings of 2 and 4 average 3 and yield 50. Ratings of 1 and 5 also yield 50, with a different response pattern.",
+              "zh": "例如，一轴两题选2和4，均值3，对应50分。选1和5也得到50分，逐题回答仍可能不同。"
             },
             {
-              "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
-              "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+              "en": "Each score summarizes your agreement with two statements in this attempt. The form is for entertainment and reflection and has no established psychometric validity or population norms.",
+              "zh": "分数表示本次对两道题的符合程度。题本仅供娱乐与自我探索，尚未建立心理测量效度或人群常模。"
             }
           ]
         },
@@ -2764,7 +2764,7 @@
             },
             {
               "en": "Imagine needing to organize a project folder after a tiring week. “Organize everything” leaves the first action unclear, while recovery may still be needed. Opening one document, asking what the folder is for, or postponing the task to rest are different possible choices. The mean cannot decide which condition caused a delay, whether rest was sufficient or whether a person has a health or attention problem.",
-              "zh": "假设疲惫的一周之后，你需要整理一个项目文件夹。“把所有东西整理好”没有指出第一步，而身体也可能仍需恢复。打开一份文件、先确认文件夹的用途，或暂时推迟任务去休息，是不同的可选做法。均值不能决定延后由什么条件引起、休息是否足够，或一个人是否有健康与注意方面的问题。"
+              "zh": "假设疲惫的一周之后，你需要整理一个项目文件夹。“把所有东西整理好”没有指出第一步，而身体也可能仍需恢复。打开一份文件、先确认文件夹的用途，或暂时推迟任务去休息，是不同的可选做法。分数不能决定延后由什么条件引起、休息是否足够，或一个人是否有健康与注意方面的问题。"
             }
           ]
         },
@@ -2780,8 +2780,8 @@
               "zh": "启动困难与主动降低启动门槛不是同一含义；这组题同时包含两者，不能解释成勤奋或懒惰的单一强度。"
             },
             {
-              "en": "For example, 1,1,5,5 and 3,3,3,3 both sum to 12 and average 3.00, despite different individual responses. The displayed mean cannot reveal which statement you agreed with. Read the exact statements privately before proposing an explanation, and leave reasons unknown when they cannot be checked. The example is arithmetic, not a validated pattern or a profile assigned to you.",
-              "zh": "例如，1、1、5、5与3、3、3、3都相加为12、均值为3.00，但逐题回答不同。显示的均值不能揭示你更符合哪一句。提出解释前，可以私下回看确切陈述；无法核对的原因仍保留未知。这只是算术例子，不是经过验证的作答模式，也不是给你派出的画像。"
+              "en": "Each track uses its own items. Both scores for a theme can be high or low together. Each track average is the mean of its seven axes.",
+              "zh": "两条轨道分别使用各自的题目。同一主题的两个分数可以同时高或同时低。两组均值各为七轴的平均值。"
             }
           ]
         },
@@ -2827,8 +2827,8 @@
           },
           "paragraphs": [
             {
-              "en": "Agreement with making a first step easier can raise this group's mean, just as agreement with delaying an unclear task can. Calling the resulting number laziness would confuse unlike statements. A clear task in one environment may produce different responses from an ambiguous task elsewhere; that does not demonstrate a change in character.",
-              "zh": "“先降低启动难度”更符合，和“第一步不清楚时推迟”更符合，都可能增加本组均值。把这个数字叫作懒惰，会混淆不同陈述。一个环境里任务清楚、另一个环境里任务模糊，可能引出不同回答，并不能据此证明人品发生变化。"
+              "en": "Even someone who delays starting may still use small steps to move an important task forward. Consider how clear the task was and whether you needed to recover.",
+              "zh": "即使容易推迟开始，也可能会用小步骤推进重要的事。可以先看看任务是否清楚，以及当时是否需要恢复。"
             },
             {
               "en": "Many conditions may affect starting a task. That is not a character defect, and no one factor in this reflection judges a personality.",
@@ -2848,8 +2848,8 @@
               "zh": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。"
             },
             {
-              "en": "This guide preserves the scope of FermatMind's original twenty-eight-item Mini form and its seven separate four-item groups. The English prompts and this web presentation are new working adaptations, without independent validation. The source's cultural reference is not scientific support for a score. All seven complete public guides can be read before answering; they contain no private attempt or individual result.",
-              "zh": "本页保留费马原创小程序28题与七组各四题的观察范围。英文题文及网页呈现是新的工作改编，没有独立验证；文化参照不是分数的科学依据。七份公开完整指南均可在作答前阅读，其中不含私人答卷或个人成绩。"
+              "en": "Web edition 2.0 uses 28 original items across two tracks. The earlier Mini edition combined four items into one theme mean, so its numbers have a different meaning. The seven public guides contain general examples and are freely available.",
+              "zh": "网页2.0采用原创双轨28题。早期小程序版把四题合为一个主题均值，两版读数的含义不同。七篇公开指南随时可读，其中只有通用示例。"
             }
           ]
         }
@@ -2860,39 +2860,39 @@
     {
       "id": "virtues-scoring",
       "title": {
-        "en": "Original choices, four-item sums and means",
-        "zh": "原选项、四题和与均值"
+        "en": "How the fourteen scores work",
+        "zh": "十四项如何计分"
       },
       "paragraphs": [
         {
-          "en": "All twenty-eight original statements use 1–5 agreement choices. Midpoint 3 means uncertain or depends on the situation and is numeric. Each four-item group is added separately (4–20) and divided by four (1–5), with no reverse key. The display retains quarter steps such as 1.25. There is no total, cross-group ranking or high/low band. The mean summarizes unlike statements; read their wording and context rather than treating it as one intensity.",
-          "zh": "28条原始陈述使用1—5符合程度选项，中点3“不确定或视情况”是有效数值。各组四题分别相加（4—20），再除以四（1—5），不作反向计分；显示保留1.25等四分之一步长。不合总分、不跨组排名，也不派高低档位；均值汇合了含义不同的陈述，需要结合题文与情境阅读，不把它当作单一强度。"
+          "en": "Each axis uses two dedicated 1–5 items. Subtract 1 from their mean and multiply by 25 for a 0–100 score. Display values are rounded. Highest scores are selected before rounding, with all ties retained.",
+          "zh": "每轴使用两道专属题。选项按1–5计分，两题均值减1，再乘25，换算为0–100。图上取整，榜首按未取整得分确定，同分并列。"
         }
       ]
     },
     {
       "id": "virtues-complete",
       "title": {
-        "en": "Complete responses or free reading",
-        "zh": "完整作答或无分阅读"
+        "en": "Complete the quiz or read the guides",
+        "zh": "完整作答或直接阅读"
       },
       "paragraphs": [
         {
-          "en": "All twenty-eight responses must be valid before any personal interpretation appears. There is no NA option. A missing or invalid response withholds every group, rather than filling gaps or publishing partial meanings. You can leave without a score and read all seven full guides free. Equal sums remain equal; they do not mean a balance between sins and virtues or equivalent psychological meaning.",
-          "zh": "28题全部有效后才显示任何个人解释，本题本没有NA选项。缺答或非法回答会暂停全部分组，不填补答案、不先给部分含义。可以不带分数退出，七份完整指南都免费可读。相同和保留为相同数字，不表示罪德平衡，也不表示心理意义相同。"
+          "en": "Personal results require all 28 valid responses. The midpoint 3 is a valid choice. All seven guides are also free to read before answering.",
+          "zh": "全部28题有效后才显示个人读数。中点3是有效选项。七篇指南也可在作答前免费阅读。"
         }
       ]
     },
     {
       "id": "virtues-source",
       "title": {
-        "en": "Original Mini form and new working English",
-        "zh": "原创小程序题本与新工作英文"
+        "en": "Original form and scope",
+        "zh": "原创题本和适用范围"
       },
       "paragraphs": [
         {
-          "en": "This is FermatMind's original seven-group Mini form, adapted for the web with unchanged Chinese statements and new working English. These groups can combine reactions with ways of responding. Sins and virtues are cultural metaphors only; neither the original nor the translation is a validated moral, religious, ability or diagnostic scale. Complete personal results and all full public guides are free, without registration.",
-          "zh": "本页由费马原创小程序七组题本改编，中文原陈述不变，英文为新工作译文。各组可能同时包含反应线索与调节方式。七宗罪与七美德只作文化隐喻，原题本及译文都不是经过验证的道德、宗教、能力或诊断量表。个人完整结果与全部公开完整指南免费，无需注册。"
+          "en": "Each score summarizes your agreement with two statements in this attempt. The form is for entertainment and reflection and has no established psychometric validity or population norms.",
+          "zh": "分数表示本次对两道题的符合程度。题本仅供娱乐与自我探索，尚未建立心理测量效度或人群常模。"
         }
       ]
     },
@@ -2920,49 +2920,21 @@
     {
       "id": "reading",
       "title": {
-        "en": "Read seven groups without a moral league table",
-        "zh": "七组分别读，不作道德排行榜"
+        "en": "How to read both tracks",
+        "zh": "如何读两组分数"
       },
       "paragraphs": [
         {
-          "en": "First note five things: sins and virtues are cultural metaphors here; there is no good-or-evil score, moral level or ranking of people; seven groups are read separately without a total, ranking or bands; a result concerns agreement with this set of statements in this attempt; groups may combine reactions and ways of responding, so a mean is not a single intensity.",
-          "zh": "请先了解五件事：七宗罪与七美德在这里仅作为文化隐喻；结果不计算善恶分、道德等级或人格优劣；七个因素独立阅读，不计算总分、不排名、不划分高低；结果只反映本次对这些题目的整体符合程度；因素中可能同时包含反应线索和调节方式，不能解释成单一强度。"
+          "en": "Each track uses its own items. Both scores for a theme can be high or low together. Each track average is the mean of its seven axes.",
+          "zh": "两条轨道分别使用各自的题目。同一主题的两个分数可以同时高或同时低。两组均值各为七轴的平均值。"
         },
         {
-          "en": "Seven separate groups each have a sum of four responses and a mean on the 1–5 scale. There is no total.",
-          "zh": "本次结果由七个独立因素组成，每个因素单独计算四道题的原始总和与 1–5 平均值，没有总分。"
+          "en": "For example, ratings of 2 and 4 average 3 and yield 50. Ratings of 1 and 5 also yield 50, with a different response pattern.",
+          "zh": "例如，一轴两题选2和4，均值3，对应50分。选1和5也得到50分，逐题回答仍可能不同。"
         },
         {
-          "en": "A raw sum adds four response numbers and ranges 4–20. It concerns this attempt, without establishing a level.",
-          "zh": "原始总和是四道题回答数值之和，范围 4–20；它只在本次回答内有意义，不代表任何等级。"
-        },
-        {
-          "en": "The mean divides the sum by four and ranges 1–5. A mean nearer 5 indicates more overall agreement with those statements; a mean nearer 1 indicates less agreement.",
-          "zh": "平均值是把总和除以四，范围 1–5。平均值越接近 5，只表示总体上更同意这四个陈述；越接近 1，只表示总体上较少同意。"
-        },
-        {
-          "en": "Read the groups separately. Do not combine, subtract or rank them as more important than one another.",
-          "zh": "七个因素各自独立阅读，不合并、不加减、不比较谁更重要。"
-        },
-        {
-          "en": "There is no overall score, good-or-evil score, sin index or virtue index.",
-          "zh": "本测试不计算总分，也不计算善恶分、罪恶指数或美德指数。"
-        },
-        {
-          "en": "No group is selected as a greatest weakness, leading sin or first virtue. There is no winner.",
-          "zh": "七个因素不能互相排名，不产生最大弱点、主要罪或第一美德，不选冠军。"
-        },
-        {
-          "en": "There are no high, medium or low bands, normality labels, red alerts or moral-risk levels.",
-          "zh": "本测试没有高、中、低标签，不划分正常与异常，不设置红色预警或道德风险等级。"
-        },
-        {
-          "en": "A number summarizes agreement across four statements. Read the statements and context together; the aggregate does not explain the reasons behind a response or establish a statement as a fact about your behaviour.",
-          "zh": "分数汇总对四条陈述的符合程度。需要结合题文与情境阅读；汇总数字不解释回答的原因，也不能把某条陈述确立为你的行为事实。"
-        },
-        {
-          "en": "Some groups combine reactions with ways of responding: attraction with checking boundaries, reward appeal with deciding to pause, anger signals with leaving time to respond, and starting difficulty with making a first step easier. No group is one underlying intensity.",
-          "zh": "多个因素中可能同时包含反应线索与调节方式，例如注意力被吸引与主动核对边界、即时回报的吸引力与主动暂停、愤怒信号与留时间回应、启动困难与降低启动门槛；因此任何因素都不能解释成单一强度。"
+          "en": "A leading score identifies the highest readout on that track in this attempt. The averages summarize response differences across tracks and cannot establish moral standing, a diagnosis, or a decision in a consequential setting.",
+          "zh": "榜首只表示本次同一轨道中的最高读数。均值的高低概括两组答题差异，不能评价善恶、诊断问题或决定重要事项。"
         }
       ]
     },
@@ -3040,8 +3012,8 @@
           "zh": "版本不可用：题本、计分或内容版本不兼容时停止解释，不替换旧结果或给部分含义。这是版本问题，不是对作答的评判，无需立即反复重做。"
         },
         {
-          "en": "Equal numbers: two or more identical raw sums establish identical numbers only. There is no tie-break, combined personality, sin–virtue balance or equal seriousness. Statements differ across groups, so read each complete guide separately.",
-          "zh": "数值相同：两个或更多原始和相同，只表示数字相同。不打破相同值、不生成组合人格，不表示罪德平衡或同样严重；各组陈述不同，应分别阅读每份完整指南。"
+          "en": "Ties: when multiple axes share the top score on one track, the card retains every joint leader. Equal numbers describe arithmetic in this attempt.",
+          "zh": "并列：同一轨道的最高分相等时，结果卡会保留全部并列项。数字相同只表示这次换算结果相同。"
         }
       ]
     }
@@ -3049,12 +3021,12 @@
   "faq": [
     {
       "question": {
-        "en": "Will I receive a sin or virtue type?",
-        "zh": "为什么是七组读数，而不是十四项得分或某种类型？"
+        "en": "Can both tracks have high scores?",
+        "zh": "能同时得到较高的罪与美德读数吗？"
       },
       "answer": {
-        "en": "No. You receive seven separate observations and their full guides, not a leading sin, first virtue, good-or-evil total or fixed identity.",
-        "zh": "这28道原创陈述分为七组，每组四题；同一组可能同时包含反应线索和回应方式，只汇总该组四题的合计与平均值，没有分别计算七种罪与七种美德，也不能由一个数值推算其“相反面”。结果不派首要罪、第一美德或固定身份，也没有善恶总分。不同网站同名测试的题目、分组与算法可能不同，结果不能直接换算或比较。"
+        "en": "Each track uses its own items. Both scores for a theme can be high or low together. Each track average is the mean of its seven axes.",
+        "zh": "两条轨道分别使用各自的题目。同一主题的两个分数可以同时高或同时低。两组均值各为七轴的平均值。"
       }
     },
     {
@@ -3063,8 +3035,8 @@
         "zh": "28题如何计分？"
       },
       "answer": {
-        "en": "All items are forward agreement choices 1–5. Each group's four response numbers are added (4–20), then divided by four (1–5). Sums and means stay separate across seven groups.",
-        "zh": "各题均为正向1—5符合程度选项。每组四项数值相加（4—20），再除以四（1—5），七组的和与均值分别保留。"
+        "en": "Each axis uses two dedicated 1–5 items. Subtract 1 from their mean and multiply by 25 for a 0–100 score. Display values are rounded. Highest scores are selected before rounding, with all ties retained.",
+        "zh": "每轴使用两道专属题。选项按1–5计分，两题均值减1，再乘25，换算为0–100。图上取整，榜首按未取整得分确定，同分并列。"
       }
     },
     {
@@ -3073,28 +3045,28 @@
         "zh": "中点3“不确定或视情况”是否不计分？"
       },
       "answer": {
-        "en": "No. It is the source's numeric midpoint. There is no NA option; you can leave without a score and still read every full guide.",
-        "zh": "不是。它是原题本的有效数值中点。本题本没有NA选项，可以无分退出，仍能阅读全部完整指南。"
+        "en": "Three is a valid response meaning uncertain or depends on the situation. You may also leave and read the public guides for free.",
+        "zh": "3是有效数值，表示不确定或视情况。你也可以退出并免费阅读公开指南。"
       }
     },
     {
       "question": {
-        "en": "Can I rank the seven means?",
-        "zh": "可以把七组均值排出名次吗？"
+        "en": "How do I read the leading scores and the averages?",
+        "zh": "榜首和两组均值怎么读？"
       },
       "answer": {
-        "en": "No. The statements and their mixtures differ. A larger mean is not a more important weakness, a stronger trait or a worse moral standing.",
-        "zh": "不可以。各组陈述与混合含义不同；均值较大不表示更重要的弱点、更强的特质或更差的道德。"
+        "en": "A leading score identifies the highest readout on that track in this attempt. The averages summarize response differences across tracks and cannot establish moral standing, a diagnosis, or a decision in a consequential setting.",
+        "zh": "榜首只表示本次同一轨道中的最高读数。均值的高低概括两组答题差异，不能评价善恶、诊断问题或决定重要事项。"
       }
     },
     {
       "question": {
-        "en": "What do equal sums mean?",
-        "zh": "相同的原始和表示什么？"
+        "en": "How are equal scores displayed?",
+        "zh": "同分怎么显示？"
       },
       "answer": {
-        "en": "Only equal arithmetic in this attempt. It is not a balance of sins and virtues, equivalent meaning, a combined personality or equal seriousness.",
-        "zh": "只表示本次数值相同，不表示罪德平衡、意义相同、组合人格或同样严重。"
+        "en": "Ties: when multiple axes share the top score on one track, the card retains every joint leader. Equal numbers describe arithmetic in this attempt.",
+        "zh": "并列：同一轨道的最高分相等时，结果卡会保留全部并列项。数字相同只表示这次换算结果相同。"
       }
     },
     {
@@ -3119,12 +3091,12 @@
     },
     {
       "question": {
-        "en": "Which original edition and language does this use?",
-        "zh": "采用哪个原题本和语言版本？"
+        "en": "How does this edition differ from the earlier form?",
+        "zh": "新版和旧版有什么区别？"
       },
       "answer": {
-        "en": "Chinese keeps all 28 original Mini statements. English is a new working translation; expanded guides and the web display have no independent validation.",
-        "zh": "中文保留小程序全部28条原陈述；英文为新工作译文，扩展指南和网页呈现没有独立验证。"
+        "en": "Web edition 2.0 uses 28 original items across two tracks. The earlier Mini edition combined four items into one theme mean, so its numbers have a different meaning. The seven public guides contain general examples and are freely available.",
+        "zh": "网页2.0采用原创双轨28题。早期小程序版把四题合为一个主题均值，两版读数的含义不同。七篇公开指南随时可读，其中只有通用示例。"
       }
     },
     {
@@ -3133,8 +3105,8 @@
         "zh": "为什么可能暂时不提供个人结果？"
       },
       "answer": {
-        "en": "Any missing or invalid response withholds all seven groups. Incompatible source or content versions make the edition unavailable; they do not cause a fallback personality.",
-        "zh": "任一缺答或非法回答都会暂停全部七组；题本或内容版本不兼容时，当前版本不可用，不生成替代人格。"
+        "en": "Personal results require all 28 valid responses. The midpoint 3 is a valid choice. All seven guides are also free to read before answering.",
+        "zh": "全部28题有效后才显示个人读数。中点3是有效选项。七篇指南也可在作答前免费阅读。"
       }
     },
     {

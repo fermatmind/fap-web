@@ -43,8 +43,8 @@ export const virtuesLandingSections: Questionnaire["guide"] = [
     },
     "paragraphs": [
       {
-        "en": "The recognition group asks about attention remaining on unnoticed effort, expecting feedback after an important task, using others’ responses to judge performance and checking whether a contribution was seen. These statements describe different moments around feedback. Endorsing them cannot establish superiority, entitlement, humility or a need for admiration across every setting.",
-        "zh": "认可组分别询问：未被留意的付出持续占据注意、完成重要任务后期待反馈、借他人回应判断表现，以及确认贡献是否被看见。它们描述反馈前后的不同环节，不能据此判定优越感、特权感、谦逊或跨情境的赞美需要。"
+        "en": "Pride covers assuming your judgment is more reliable and wanting more credit. Humility covers accepting correction and acknowledging others’ contributions.",
+        "zh": "傲慢轴关注默认自己更可靠、希望多得功劳。谦卑轴关注接受指正、承认别人的贡献。"
       },
       {
         "en": "In an invented project example, a missing acknowledgment might leave someone unsure whether a file was received, whether credit was recorded or whether a task met its requirements. A useful observation separates those questions. Ask what feedback was expected and what evidence was available, rather than renaming every request for acknowledgment as pride.",
@@ -60,8 +60,8 @@ export const virtuesLandingSections: Questionnaire["guide"] = [
     },
     "paragraphs": [
       {
-        "en": "The resource group concerns a personal margin under uncertainty, checking one’s own needs before sharing, watching when a loaned resource returns and considering later needs before extra spending. It records agreement with these four descriptions. It does not measure wealth, generosity, greed or the objective adequacy of a person’s resources.",
-        "zh": "资源组涉及不确定时保留余量、分享前核对自身需要、留意借出资源何时恢复，以及额外支出前考虑后续需要。结果记录对四条描述的符合程度，不测财富、慷慨、贪婪或资源客观上是否充足。"
+        "en": "Greed covers wanting an extra share when you already have enough. Generosity covers offering spare goods or time voluntarily.",
+        "zh": "贪婪轴关注已经够用时仍想多占一份。慷慨轴关注有余力时自愿分享物品或时间。"
       },
       {
         "en": "For example, lending a tool needed for tomorrow’s task and offering an unused spare involve different constraints. You can note what was available, what had already been promised and whether the offer was freely made. Declining a request can reflect a real limit; agreeing does not automatically demonstrate a virtue.",
@@ -72,17 +72,17 @@ export const virtuesLandingSections: Questionnaire["guide"] = [
   {
     "id": "virtues-attraction-context",
     "title": {
-      "en": "Attraction and boundaries are not opposite scores",
-      "zh": "吸引与边界，不是两个相反得分"
+      "en": "Attraction can coexist with boundaries",
+      "zh": "吸引与边界可以同时出现"
     },
     "paragraphs": [
       {
-        "en": "This group combines noticing strong attraction, checking boundaries, taking time to distinguish an impulse from a longer-term choice, and checking willingness and circumstances. All four use the same forward numeric direction. A larger mean can include more attraction and more checking at the same time; it cannot be read as greater lust or less restraint.",
-        "zh": "这一组同时包含注意被吸引、核对边界、花时间区分冲动与长期选择，以及确认意愿和现实条件。四题均按原方向计入。较大均值可能同时包含更明显的吸引与更多核对，不能解释为色欲更强或克制更少。"
+        "en": "Lust covers urges to move quickly toward intimacy under strong attraction. Chastity covers checking mutual willingness and choosing a comfortable pace. The two axes are scored independently.",
+        "zh": "色欲轴关注强烈吸引下急于推进亲密互动的冲动。贞洁轴关注确认双方意愿和选择自己舒服的节奏。两轴各自计分。"
       },
       {
-        "en": "An invented example might involve an appealing collaboration opportunity: you notice the interest, ask what participation involves and decide whether the conditions fit. Where another person’s wishes are involved, their actual agreement remains necessary. A group mean cannot establish consent, sexual orientation, relationship status or a history of behaviour.",
-        "zh": "以一次虚构合作机会为例：你注意到兴趣，询问参与要求，再判断条件是否适合。涉及他人意愿时，仍需对方实际同意。题组均值不能确立同意、性取向、关系状态或行为经历。"
+        "en": "An invented example might involve an appealing collaboration opportunity: you notice the interest, ask what participation involves and decide whether the conditions fit. Where another person’s wishes are involved, their actual agreement remains necessary. A score cannot establish consent, sexual orientation, relationship status or a history of behaviour.",
+        "zh": "以一次虚构合作机会为例：你注意到兴趣，询问参与要求，再判断条件是否适合。涉及他人意愿时，仍需对方实际同意。分数不能确立同意、性取向、关系状态或行为经历。"
       }
     ]
   },
@@ -94,12 +94,12 @@ export const virtuesLandingSections: Questionnaire["guide"] = [
     },
     "paragraphs": [
       {
-        "en": "The comparison group asks about locating oneself relative to similar others, noticing recognition opportunities, considering one’s own development while appreciating an ability, and noticing visible differences in a group. It does not ask whether you want another person to lose what they have. Noticing a difference is not sufficient evidence of hostility or a moral failing.",
-        "zh": "比较组询问与处境相近者对照位置、留意认可机会、欣赏能力时想到自身发展，以及注意群体差距。题目没有询问是否希望别人失去已有事物。注意差异，本身不足以证明敌意或道德缺陷。"
+        "en": "Envy covers resentment around missed opportunities and repeated comparison. Kindness covers sincere congratulations and taking an interest in someone’s difficulties.",
+        "zh": "嫉妒轴关注机会落差带来的介意和反复比较。仁爱轴关注真诚祝贺和理解对方的困难。"
       },
       {
-        "en": "After a peer’s achievement, one person might ask how the work was learned; another might question whether access to an opportunity was fair. The same response number can arise for different reasons. Read the original wording, then identify what was being compared and what action followed, without inferring a hidden motive from the mean.",
-        "zh": "同伴取得进展后，有人想了解怎样学会这项工作，有人则关注机会分配是否公平。相同选项数值可能出于不同原因。可以先读原陈述，再分清比较的是什么、之后采取什么行动，不从均值推断隐藏动机。"
+        "en": "After a peer’s achievement, one person might ask how the work was learned; another might question whether access to an opportunity was fair. The same response number can arise for different reasons. Read the original wording, then identify what was being compared and what action followed, without inferring a hidden motive from the score.",
+        "zh": "同伴取得进展后，有人想了解怎样学会这项工作，有人则关注机会分配是否公平。相同选项数值可能出于不同原因。可以先读原陈述，再分清比较的是什么、之后采取什么行动，不从分数推断隐藏动机。"
       }
     ]
   },
@@ -111,8 +111,8 @@ export const virtuesLandingSections: Questionnaire["guide"] = [
     },
     "paragraphs": [
       {
-        "en": "The reward group combines attention to easy rewards, seeking immediate comfort under pressure, noticing impatience while waiting and actively deciding when to pause an enjoyable experience. These are self-descriptions, not a recorded delay-discounting task or an observation of consumption. A mean cannot establish addiction, overeating or self-control ability.",
-        "zh": "回报组同时涉及轻松回报吸引注意、压力下寻求即时舒适、等待时注意不耐烦，以及主动决定何时暂停喜欢的体验。这些是自我描述，不是实际延迟折扣任务或消费行为记录。均值不能判定成瘾、过量饮食或自控能力。"
+        "en": "Gluttony covers exceeding a planned limit on immediate enjoyment, such as snacks, videos or games. Temperance covers setting a limit and stopping at it.",
+        "zh": "暴食轴关注零食、视频或游戏等即时享受超过原定界限。节制轴关注提前设限和主动停下。"
       },
       {
         "en": "A small optional observation is to describe one break: what you wanted from it, what you chose and how you decided to return. Keep enjoyment and its consequences separate. The questionnaire does not set a correct amount of leisure, a consumption limit or a target score, and it supplies no reason to punish ordinary pleasure.",
@@ -128,8 +128,8 @@ export const virtuesLandingSections: Questionnaire["guide"] = [
     },
     "paragraphs": [
       {
-        "en": "The anger group concerns tension when something seems unfair, unfinished thoughts after disagreement, an urge to reply when interrupted and needing time before a more patient response. A signal, an urge, a thought and an action are different observations. Agreement with these statements cannot predict aggression or establish dangerousness.",
-        "zh": "愤怒组涉及觉得不公时绷紧、分歧后继续想着未说完的话、被打断时想立即回应，以及耐心回应前需要时间。信号、冲动、思维和行动是不同观察对象。符合这些描述，不能预测攻击或判定危险。"
+        "en": "Wrath covers snapping back and dwelling on how to retaliate. Patience covers giving people time to respond or resolve an issue.",
+        "zh": "暴怒轴关注冲动回击和事后反复想着如何还击。耐心轴关注留时间回应或处理。"
       },
       {
         "en": "In a disagreement, a useful account distinguishes what happened, what you noticed and what you actually said or did. Taking a pause does not settle the issue by itself, and a calm voice does not prove the situation is fair. The guide offers observation questions, not a requirement to tolerate harm or continue an unwanted interaction.",
@@ -145,8 +145,8 @@ export const virtuesLandingSections: Questionnaire["guide"] = [
     },
     "paragraphs": [
       {
-        "en": "The final group combines delaying when the first step is unclear, returning slowly after exhaustion, finding it hard to end sufficient rest and seeking a way to make starting easier. The last statement describes an active strategy, not simply a failure to act. Because all four count forward, the mean does not form a diligence-versus-sloth scale.",
-        "zh": "最后一组同时包含第一步不清楚时推迟、疲惫后较慢恢复、休息足够后仍难结束，以及寻找降低启动难度的方法。最后一条描述主动策略，不只是未行动。四题都按原方向计入，因此均值不是勤勉与懒惰的两极量尺。"
+        "en": "Sloth covers putting off a known first step and delaying a return after enough rest. Diligence covers taking small steps and following through over time.",
+        "zh": "懒惰轴关注知道第一步仍拖延，以及休息够了仍难返回任务。勤勉轴关注做出小步骤和持续推进。"
       },
       {
         "en": "An invented task example can separate missing instructions, an unrealistic workload and uncertainty about where to begin. Writing one small next action may make the issue clearer, but the questionnaire cannot establish why a delay occurred or whether rest is sufficient. Avoid turning the number into a verdict on productivity, health or personal worth.",
@@ -162,12 +162,12 @@ export const virtuesLandingSections: Questionnaire["guide"] = [
     },
     "paragraphs": [
       {
-        "en": "Within each group, add the four selected numbers and divide by four: 1+2+4+5=12, and 12/4=3.00. Four responses of 3 give the same sum and mean, although their item pattern is different. Quarter-step means such as 3.25 remain visible. The midpoint 3 is a valid numeric answer meaning uncertain or depends on the situation; it is not a skipped item.",
-        "zh": "每组把四个所选数值相加，再除以四：1+2+4+5＝12，12÷4＝3.00。四题都选3也得到同样的和与均值，但逐题模式不同。3.25等四分之一步长会保留。中点3表示不确定或视情况，是有效数字，不是跳题。"
+        "en": "Each axis uses two dedicated 1–5 items. Subtract 1 from their mean and multiply by 25 for a 0–100 score. Display values are rounded. Highest scores are selected before rounding, with all ties retained.",
+        "zh": "每轴使用两道专属题。选项按1–5计分，两题均值减1，再乘25，换算为0–100。图上取整，榜首按未取整得分确定，同分并列。"
       },
       {
-        "en": "All twenty-eight valid responses are required before any personal interpretation. Each sum ranges 4–20 and each mean 1–5. Read all seven guides separately; no overall score, cross-group ranking, moral cutoff or opposite virtue score is calculated. On another attempt, a changed number can reflect a changed situation or interpretation and does not establish moral progress or decline.",
-        "zh": "28题全部有效后才呈现个人解释。各组原始和为4至20，均值为1至5。七篇指南分别阅读，不计算总分、跨组排名、道德阈值或相反美德得分。再次作答时，数字变化可能来自情境或理解变化，不能据以证明道德进步或退步。"
+        "en": "Each track uses its own items. Both scores for a theme can be high or low together. Each track average is the mean of its seven axes.",
+        "zh": "两条轨道分别使用各自的题目。同一主题的两个分数可以同时高或同时低。两组均值各为七轴的平均值。"
       }
     ]
   }
@@ -180,18 +180,18 @@ export const virtuesLandingFaq: Questionnaire["faq"] = [
       "zh": "本页是否分别测量七种罪与七种美德？"
     },
     "answer": {
-      "en": "No. It records seven original groups of four statements, not fourteen independently measured traits. Some groups mix reactions with ways of responding. A group mean cannot supply a separate score for either cultural label or its opposite.",
-      "zh": "不是。本页记录七组各四题的原创陈述，不是十四个分别测量的特质。部分题组混合反应与回应方式，均值不能拆成某个文化标签及其相反面的独立得分。"
+      "en": "Each track uses its own items. Both scores for a theme can be high or low together. Each track average is the mean of its seven axes.",
+      "zh": "两条轨道分别使用各自的题目。同一主题的两个分数可以同时高或同时低。两组均值各为七轴的平均值。"
     }
   },
   {
     "question": {
-      "en": "Why can a larger mean include more boundary checking or planning?",
-      "zh": "为什么均值较大，也可能包含更多边界核对或行动准备？"
+      "en": "Which track scores checking boundaries and getting started?",
+      "zh": "边界核对和行动准备计入哪一轨？"
     },
     "answer": {
-      "en": "Every statement retains its original 1–5 direction. Boundary checking and finding an easier first step are included alongside other descriptions, without reversing their scores. Read what each statement asks; a larger number has no uniform meaning of more vice or less virtue.",
-      "zh": "各陈述都保留原1至5方向。边界核对、寻找较容易的第一步等描述，与其他陈述一起计入，不反向处理。需要回看每题问什么，较大数字没有统一的“罪更多”或“德更少”含义。"
+      "en": "Checking mutual willingness belongs to chastity, and taking a small step belongs to diligence. Attraction impulses and delaying a task each have their own separate pair of items.",
+      "zh": "确认双方意愿的题计入贞洁轴，主动迈出小步的题计入勤勉轴。吸引冲动和任务拖延各用另外两道题。"
     }
   },
   {
@@ -200,8 +200,8 @@ export const virtuesLandingFaq: Questionnaire["faq"] = [
       "zh": "这是VAVS恶德与美德量表的一个版本吗？"
     },
     "answer": {
-      "en": "No. The 2014 VAVS research concerns another item set and its validation. FermatMind uses 28 original statements in seven mixed observation groups. VAVS findings cannot validate this questionnaire, its English working translation or its result guides. [4]",
-      "zh": "不是。2014年VAVS研究讨论另一套条目及其验证。费马采用七组混合观察主题下的28条原创陈述。VAVS结论不能验证本题本、英文工作译文或结果指南。[4]"
+      "en": "This edition uses 28 original statements, two per axis. The 2014 VAVS study concerns a different set of items and its validation. [4]",
+      "zh": "费马这版采用28条原创陈述，每轴两题。2014年VAVS研究讨论另一套条目及其验证。[4]"
     }
   },
   {
@@ -216,12 +216,12 @@ export const virtuesLandingFaq: Questionnaire["faq"] = [
   },
   {
     "question": {
-      "en": "Can two people with the same mean have different answers?",
-      "zh": "两个人均值相同，逐题答案也一定相同吗？"
+      "en": "Can the same axis score come from different answers?",
+      "zh": "两个人同一轴得分相同，逐题答案也一定相同吗？"
     },
     "answer": {
-      "en": "No. Different four-item patterns can have the same sum. For example,1,2,4,5 and 3,3,3,3 both total 12. A mean is a short arithmetic summary; interpreting it requires the actual wording and relevant circumstances.",
-      "zh": "不一定。不同四题模式可以有同样的和。例如1、2、4、5与3、3、3、3都合计12。均值只是简短算术摘要，需要结合实际题文与相关情境阅读。"
+      "en": "For example, ratings of 2 and 4 average 3 and yield 50. Ratings of 1 and 5 also yield 50, with a different response pattern.",
+      "zh": "例如，一轴两题选2和4，均值3，对应50分。选1和5也得到50分，逐题回答仍可能不同。"
     }
   },
   {
