@@ -26,6 +26,10 @@
     "en": "Explore six source domains through one consistent relationship reference. Read the exact edition and adaptation notes before interpreting a result. English reproduces Table 1 of Kapusta et al. (2018), Measuring the Capacity to Love: Development of the CTL-Inventory, with attribution under CC BY 4.0. Chinese is a new FermatMind working translation; the instructions, digital presentation and full guides are identified adaptations. This is not the current author-site revised form. The original German and Polish research does not establish validity of this English display, new Chinese or online interpretation. Six source domains have separate keyed sums and means, without an overall score, domain ranking, clinical cutoff, partner match or love-capacity level. Every full guide is public and free.",
     "zh": "围绕同一段关系，分别阅读六个来源领域；解释结果前，请先确认版本与改编说明。英文按Kapusta等（2018）《Measuring the Capacity to Love: Development of the CTL-Inventory》表一，在CC BY 4.0署名条件下复用。中文为费马新工作译文，说明、数字呈现及完整指南明确为改编，不是当前作者站修订题本。原德语、波兰语研究不确立本英文显示、新中译或线上解读效度。六源领域分别给计分和均值，无总分、域排名、临床阈值、伴侣匹配或爱的能力等级，全部全文公开免费。"
   },
+  "resultHeading": {
+    "en": "Your six CTL-I 2018 relationship domains",
+    "zh": "你的 CTL-I 2018 六个关系领域"
+  },
   "directions": [
     {
       "id": "INT",

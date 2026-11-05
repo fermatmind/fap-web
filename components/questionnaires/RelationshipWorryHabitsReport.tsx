@@ -9,6 +9,14 @@ import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 export function RelationshipWorryHabitsReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh";
   return <ResultPage variant="reflection" data-relationship-worry-habits-report className="mt-6 space-y-8">
+    <ResultOverview className="rounded-xl border border-amber-200 bg-amber-50/65" locale={locale} title={zh ? "担心出现时，你怎样回应" : "How did you respond when relationship worries came up?"}
+      description={zh ? "选一个你记得的回应，阅读它在日常相处里的例子。每组单独保留频率和回答完整度。" : "Choose a response you remember and read its examples. Frequency and completeness stay separate for each group."}
+      items={quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return { id: direction.id, label: direction.title[locale], href: `#relationship-worry-habits-${direction.id}`,
+          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
+          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
+      })} />
 
 
     {quiz.directions.map(direction => {
@@ -28,14 +36,6 @@ export function RelationshipWorryHabitsReport({ quiz, result, locale }: { quiz: 
 
     <details className="border-t border-slate-200 pt-4" data-result-reading-method>
       <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
-      <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
-      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
-      items={quiz.directions.map(direction => {
-        const score = result.facets[direction.id];
-        return { id: direction.id, label: direction.title[locale], href: `#relationship-worry-habits-${direction.id}`,
-          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
-          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
-      })} />
       <p className="leading-8">{zh ? "四项分别记录过去三个月自己一侧的反应。每项四条，至少三条数字才显示均值；3是有时，未评分不当零分。各项可同时高、低或相同，不合总分、不找主要类型，也不划沉重等级。较低不证明平静。条形只定位原始1至5，不是百分比、爱意或严重程度。" : "Four parts separately record your own responses over the past three months. Each has four prompts and needs three numeric ratings for a mean. Three means sometimes; unscored answers are not zero. Parts can all be high, low or equal, without a total, main type or heaviness level. Lower values do not establish calmness. Bars locate the raw 1–5 mean, not a percentage, amount of love or severity."}</p>
     </details>
   </ResultPage>;

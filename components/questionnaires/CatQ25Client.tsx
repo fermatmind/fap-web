@@ -1,5 +1,5 @@
 "use client";
-import { ResultSection, ResultReadingNav, ResultScoreRow } from "./QuestionnaireResultPresentation";
+import { ResultSection, ResultScoreRow } from "./QuestionnaireResultPresentation";
 import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 
 import Link from "next/link";
@@ -75,13 +75,12 @@ function ValidCatQ25Client({ quiz, locale, readingProfiles }: { quiz: CatQ25Ques
       {stage === "result" && result && <>
         <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading?.[locale]}</h2>
         <p className="leading-8">{zh ? "25项均已作明确选择，包括跳过项。以下是原始合计与均分，不划等级、不选主导类型，也不作诊断。" : "All 25 statements have an explicit choice, including skips. These are raw sums and means, without bands, a dominant type or a diagnosis."}</p>
-        <ResultSection title={zh ? "本次各组读数" : "Readings by topic"}>
+        <ResultSection tone="framed" title={zh ? "先看 CAT-Q 总体与三种策略" : "CAT-Q overall and three strategies"} description={zh ? "分开读补偿、掩饰与同化的回答。任一相关题跳过时，所属读数仍显示覆盖范围。选一项看计分和生活情境。" : "Read compensation, masking and assimilation separately. If a relevant item was skipped, the reading still shows how many were rated. Select one for its calculation and everyday examples."} className="rounded-xl border border-indigo-200 bg-indigo-50/70">
           <div className="grid gap-x-8 sm:grid-cols-2">{CATQ25_GUIDES.map(id => {
             const score = id === "overall" ? result.total : result.parts[id];
-            return <ResultScoreRow key={id} label={quiz.profiles.find(profile => profile.id === id)!.title[locale]} value={score.mean === null ? (zh ? "未计分" : "Unscored") : `${score.mean.toFixed(2)} / 7`} score={score.mean} min={1} max={7} description={<>{quiz.profiles.find(profile => profile.id === id)!.summary[locale]}<span className="mt-2 block text-xs">{zh ? `原始均分范围1–7；${score.numericCount}/${score.requiredCount}条数字答案` : `Raw mean range 1–7; ${score.numericCount}/${score.requiredCount} numeric responses`}</span></>} />;
+            return <ResultScoreRow key={id} className={id === "overall" ? "sm:col-span-2" : undefined} label={<a className="inline-flex min-h-11 items-center font-semibold underline underline-offset-4 text-indigo-950 decoration-indigo-400" href={`#catq25-${id}`}>{quiz.profiles.find(profile => profile.id === id)!.title[locale]}</a>} value={score.mean === null ? (zh ? "未计分" : "Unscored") : `${score.mean.toFixed(2)} / 7`} score={score.mean} min={1} max={7} description={<span className="block text-sm">{zh ? `原始均分范围1–7；${score.numericCount}/${score.requiredCount}条数字答案` : `Raw mean range 1–7; ${score.numericCount}/${score.requiredCount} numeric responses`}</span>} />;
           })}</div>
         </ResultSection>
-        <ResultReadingNav label={zh ? "各组记录与完整读法" : "Topic records and full readings"} sections={CATQ25_GUIDES.map(id => ({ id: `catq25-${id}`, title: quiz.profiles.find(profile => profile.id === id)!.title[locale] }))} />
         <div data-catq25-result className="space-y-6">{CATQ25_GUIDES.map(id => {
           const score = id === "overall" ? result.total : result.parts[id], profile = quiz.profiles.find(p => p.id === id)!;
           const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === profile.directionIds.length && item.directionIds.every((value, index) => value === profile.directionIds[index]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;

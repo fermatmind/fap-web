@@ -15,8 +15,8 @@ export function QuestionnaireMotivationThemesReport({ quiz, result, locale }: {
   return <div data-deep-desire-result className="my-6 space-y-8">
     {quiz.directions.length > 1 && <ResultReadingNav collapsible label={zh ? "按主题阅读结果" : "Read results by topic"} sections={quiz.directions.map(direction => ({ id: `deep-motivation-${direction.id}`, title: direction.title[locale] }))} />}
     <p className="leading-8">{zh
-      ? "六主题分别阅读，不合总分、不排名、不选最深或主导欲望。这里保留原小程序的四题原始和与准确均分，不把动机当能力。原中点表示不确定或视情况，新增不计分不补零。"
-      : "Read the six themes separately, without an overall total, ranking or deepest-desire label. These are the mini-program’s four-item raw sums and exact means, not ability scores. The original midpoint means uncertainty or depending on the situation; the added unscored choice is not zero-filled."}</p>
+      ? "六个主题分别阅读。四题都有数值时，显示该组原始和与准确均分，用来回看本次动机体验。中点表示不确定或视情况，选择不计分时保留缺项。"
+      : "Read the six themes separately. When all four responses in a theme are numeric, the sum and exact mean help you reflect on those motivations. The midpoint means uncertainty or depending on the situation. An unscored choice leaves that response missing."}</p>
     {quiz.directions.map(direction => {
       const score = result.facets[direction.id];
       const profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;

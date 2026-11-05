@@ -13,11 +13,21 @@ export function QuestionnaireWorkValuesReport({ quiz, result, answers, locale }:
 }) {
   const zh = locale === "zh";
   const ordered = [...quiz.directions].sort((a, b) => result.counts[b.id] - result.counts[a.id]);
+  const matched = result.profileIds.map(id => quiz.profiles.find(profile => profile.id === id)!);
   return <div className="my-6 space-y-8">
-
-
-    {result.profileIds.map(id => {
-      const profile = quiz.profiles.find(p => p.id === id)!;
+    <section className="space-y-3 rounded-xl border border-teal-200 bg-teal-50 p-4 sm:p-6" aria-labelledby="work-value-lead-title">
+      <h3 id="work-value-lead-title" className="text-xl font-semibold">{zh ? "这次更常保留的工作价值" : "Work values you protected more often"}</h3>
+      <p className="text-sm leading-7">{zh ? "所有最高次数都保留。选一项，看看真实任务中可能怎样取舍。" : "Every highest count remains. Open a value to see how its trade-offs may look in a work situation."}</p>
+      <dl className="grid gap-2 md:grid-cols-2">{matched.map(profile => {
+        const direction = quiz.directions.find(item => profile.directionIds.includes(item.id))!;
+        return <div key={profile.id} className="flex min-w-0 flex-wrap items-baseline justify-between gap-x-3 rounded-lg border border-teal-100 bg-white px-3 pb-2">
+          <dt><a className="inline-block min-h-11 py-2 font-semibold underline" href={`#work-value-title-${profile.id}`}>{profile.title[locale]}</a></dt>
+          <dd className="font-semibold tabular-nums">{result.counts[direction.id]} / {direction.comparisons}</dd>
+        </div>;
+      })}</dl>
+    </section>
+    {matched.map(profile => {
+      const id = profile.id;
       return <section key={id} data-work-value-reading={id} aria-labelledby={`work-value-title-${id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
         <h3 id={`work-value-title-${id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
         <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`work-value-${id}`} mode="result" previewSectionIds={[`${profile.id}-2`, `${profile.id}-5`]} />

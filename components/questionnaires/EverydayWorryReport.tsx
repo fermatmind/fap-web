@@ -1,4 +1,4 @@
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
@@ -18,11 +18,16 @@ export function EverydayWorrySupport({ locale, compact = false }: { locale: Loca
 export function EverydayWorryReport({ quiz, records, locale, readingProfiles }: { quiz: Questionnaire; readingProfiles?: readonly QuestionnaireProfile[]; records: EverydayWorryRecord[]; locale: Locale }) {
   const zh = locale === "zh";
   return <section data-everyday-worry-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="everyday-worry-result-heading">
-    <h2 id="everyday-worry-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "本次主题记录" : "Topics in this record"} sections={records.map((record, index) => ({
-      id: `everyday-worry-record-${record.id}`,
-      title: `${quiz.directions[index].title[locale]} · ${record.observations.length}${zh ? "条记录" : " records"}`,
-    }))} />
+    <header className="rounded-xl border border-amber-200 bg-amber-50/60 p-4 text-slate-900 sm:p-6">
+      <h2 id="everyday-worry-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "从你想回看的情境进入。每行显示本次选过的类别和题目数，点开可读具体题目与对应情境。" : "Start with the situation you want to revisit. Each row shows the categories you selected and how many prompts they cover, with a link to those prompts and examples."}</p>
+      <nav className="mt-4 divide-y divide-amber-200" aria-label={zh ? "按担忧情境阅读" : "Read by worry context"}>
+        {records.map((record, index) => <div key={record.id} className="py-2 md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] md:items-center md:gap-4">
+          <a className="inline-flex min-h-11 items-center font-semibold text-amber-950 underline underline-offset-4" href={`#everyday-worry-record-${record.id}`}>{quiz.directions[index].title[locale]}</a>
+          <ObservationChoiceCounts categories={everydayWorryCategories} counts={record.counts} locale={locale} shortLabels={{ na: { zh: "未计分", en: "Unscored" } }} />
+        </div>)}
+      </nav>
+    </header>
     <EverydayWorrySupport locale={locale} compact />
     {records.map((r, i) => {
       const original = quiz.profiles[i];

@@ -1,4 +1,4 @@
-import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
+import { ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { InteractionPairsResult } from "@/lib/questionnaires/interactionPairs";
@@ -13,7 +13,21 @@ export function QuestionnaireInteractionPairsReport({ quiz, result, locale }: {
 }) {
   const zh = locale === "zh";
   return <ResultPage variant="dimensions" className="my-6 space-y-8" data-interaction-pairs-result>
-
+    <section className="rounded-xl border border-fuchsia-200 bg-fuchsia-50/50 p-4 sm:p-6" aria-labelledby="interaction-choice-overview">
+      <h3 id="interaction-choice-overview" className="text-xl font-semibold text-fuchsia-950">{zh ? "这六次，你更常选哪边" : "Which side did you pick in these six choices?"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "每组的小格各表示一次选择。两边都是可选做法，三比三时原样呈现。点开主题可看两侧在对话中怎么用。" : "Each block is one choice within a pair. Both sides are options, and three choices each stays a tie. Open a pair to see both options in conversation."}</p>
+      <div className="mt-4 grid gap-x-6 lg:grid-cols-2">
+        {result.interactionPairs.map(pair => {
+          const profile = quiz.profiles.find(item => item.id === pair.profileId)!;
+          const [left, right] = profile.directionIds;
+          return <article key={pair.id} className="min-w-0 border-t border-fuchsia-200 py-2">
+            <a href={`#interaction-${pair.id}`} className="inline-flex min-h-11 items-center font-semibold text-fuchsia-950 underline decoration-fuchsia-400 underline-offset-4">{profile.title[locale]}</a>
+            <p className="grid grid-cols-2 gap-2 text-sm leading-6">{[left, right].map(id => <span key={id} className="min-w-0 last:text-right">{quiz.directions.find(direction => direction.id === id)!.title[locale]} <strong className="tabular-nums">{pair.counts[id]}</strong></span>)}</p>
+            <div aria-hidden="true" className="mt-2 grid grid-cols-6 gap-1">{Array.from({ length: 6 }, (_, index) => <span key={index} className={`h-2 rounded-sm ${index < pair.counts[left] ? "bg-fuchsia-700" : "bg-indigo-500"}`} />)}</div>
+          </article>;
+        })}
+      </div>
+    </section>
 
     {result.interactionPairs.map(pair => {
       const profile = quiz.profiles.find(p => p.id === pair.profileId)!;
@@ -39,15 +53,7 @@ export function QuestionnaireInteractionPairsReport({ quiz, result, locale }: {
       : "This original bank and its new English translation have not completed psychometric validation. Choices may change with the person, setting, energy, culture and safety. Private observation is enough; no disclosure, contact or change of boundaries is required."}</p>
 
     <details className="border-t border-slate-200 pt-4" data-result-reading-method>
-      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
-      <ResultOverview locale={locale} title={zh ? "四组相对选择" : "Four paired comparisons"}
-      description={zh ? "每组两侧合计六次，保留并列；次数不是能力或百分位。选择一组可对照两侧的完整读法。" : "Each pair contains six choices, with ties preserved. Counts are neither ability nor percentiles. Choose a pair to read both sides in full."}
-      items={result.interactionPairs.map(pair => {
-        const profile = quiz.profiles.find(item => item.id === pair.profileId)!;
-        return { id: pair.id, label: profile.title[locale], href: `#interaction-${pair.id}`,
-          value: profile.directionIds.map(id => pair.counts[id]).join(" : "),
-          note: profile.directionIds.map(id => quiz.directions.find(direction => direction.id === id)!.title[locale]).join(" / ") };
-      })} />
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看计分与使用说明" : "View scoring and use notes"}</summary>
       <p className="leading-8">{zh
       ? "四组分别阅读，每组两侧次数之和为六。这里显示的是本题组的选择次数，不是魅力、人气、能力或百分位；四组不合成类型，也不跨组排名。"
       : "Read the four comparisons separately. Each pair sums to six choices from this bank, not charm, popularity, ability or a percentile. The groups do not form a combined type or a cross-group ranking."}</p>

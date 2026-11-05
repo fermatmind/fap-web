@@ -82,7 +82,8 @@ describe("T138 original Python knowledge practice", () => {
         expect(item.textContent).toContain(q.explanation![locale]);
         expect(item.querySelector("[data-python-code] code")?.textContent).toBe(q.prompt[locale].split("\n\n").slice(1).join("\n\n"));
       }
-      expect(dom.querySelectorAll("[data-python-code]")).toHaveLength(24);
+      expect(dom.querySelectorAll("#practice-answer-review [data-python-code]")).toHaveLength(24);
+      expect(dom.querySelectorAll("[data-practice-focus] [data-python-code]")).toHaveLength(1);
       for (const p of quiz.profiles) for (const section of p.sections) for (const text of section.paragraphs) expect(dom.textContent).toContain(text[locale]);
       const ids = Array.from(dom.querySelectorAll("[id]"), e => e.id); expect(new Set(ids).size).toBe(ids.length);
     }

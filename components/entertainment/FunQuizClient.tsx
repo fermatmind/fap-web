@@ -19,6 +19,7 @@ import { trackEvent } from "@/lib/analytics";
 import { appendSeoCtaContextParamsToHref, buildSeoCtaContextParams, buildSeoCtaTrackingPayload } from "@/lib/tracking/seoCtaAttribution";
 import catalog from "@/lib/entertainment/catalog.json";
 import { relatedFunQuizzes, resultPath } from "@/lib/entertainment/guides";
+import { storyResultSceneLabels, storyResultThemes } from "./StoryResultThemes";
 
 function subscribeDraft(listener: () => void) {
   window.addEventListener("fm-fun-draft", listener);
@@ -34,6 +35,29 @@ function saveDraftToTab(key: string, version: string, answers: Answers) {
 const subscribeHydration = () => () => {};
 
 const action = "min-h-12 rounded-lg border border-slate-300 px-5 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
+
+type StoryChoice = {
+  number: number;
+  prompt: string;
+  label: string;
+  points: Record<string, number> | undefined;
+};
+
+function StoryChoiceTrail({ choices, label }: { choices: StoryChoice[]; label: string }) {
+  if (choices.length === 0) return null;
+  return <details className={resultStyles.choiceTrail}>
+    <summary>{label}</summary>
+    <ol>
+      {choices.map(choice => <li key={choice.number}>
+        <span className={resultStyles.choiceNumber} aria-hidden="true">{choice.number}</span>
+        <div>
+          <p className={resultStyles.choicePrompt}>{choice.prompt}</p>
+          <p>{choice.label}</p>
+        </div>
+      </li>)}
+    </ol>
+  </details>;
+}
 
 export function FunQuizClient({ quiz, locale, compactLanding = false, landingInstructions }: { quiz: FunQuiz; locale: Locale; compactLanding?: boolean; landingInstructions?: { en: string; zh: string } }) {
   const standalone = useQuestionnaireTake();
@@ -63,6 +87,13 @@ export function FunQuizClient({ quiz, locale, compactLanding = false, landingIns
   const questionId = resolved.path[position];
   const question = quiz.questions.find(q => q.id === questionId);
   const result = quiz.results.find(r => r.id === resolved.resultIds[0]);
+  const resultChoices = stage === "result" ? resolved.path.map((id, index): StoryChoice => {
+    const question = quiz.questions.find(item => item.id === id)!;
+    const choice = question.options.find(option => option.id === answers[id])!;
+    return { number: index + 1, prompt: question.prompt[locale], label: choice.label[locale], points: choice.points };
+  }) : [];
+  const resultTheme = Object.hasOwn(storyResultThemes, quiz.slug) ? storyResultThemes[quiz.slug][zh ? 0 : 1] : quiz.title[locale];
+  const sceneLabel = storyResultSceneLabels[quiz.slug]?.[locale] ?? (zh ? "比如这样的时刻" : "What this could look like");
   const emit = (event: string) => { if (event === "start_test" || event === "complete_test") recordEntertainmentActivity(quiz.slug, quiz.version, locale, event === "start_test" ? "start" : "complete"); trackEvent(event, { slug: quiz.slug, locale, entry_surface: "entertainment", scale_code: "ENTERTAINMENT", test_type: "entertainment", page_type: "entertainment", form_code: `fun_${quiz.slug}_v1` }); };
 
   useEffect(() => {
@@ -74,6 +105,7 @@ export function FunQuizClient({ quiz, locale, compactLanding = false, landingIns
 
   useEffect(() => {
     if (stage !== "welcome") heading.current?.focus({ preventScroll: standalone });
+    if (standalone && stage === "result") window.scrollTo({ top: 0, behavior: "instant" });
   }, [position, stage, standalone]);
 
   useEffect(() => {
@@ -176,27 +208,42 @@ export function FunQuizClient({ quiz, locale, compactLanding = false, landingIns
       <QuestionnaireLegacyControl><button className="mt-3 min-h-11 text-sm underline" onClick={() => { clearDraft(); setAnswers({}); setPosition(0); setSaving(false); setStage("welcome"); }}>{zh ? "退出并清除本次进度" : "Exit and clear this attempt"}</button></QuestionnaireLegacyControl>
     </>}
     {stage === "result" && result && <>
-      <ResultPage variant="story" data-story-mechanism={quiz.mechanism} className={resultStyles.report}>
-        <header className={resultStyles.overview}>
-          <p className={resultStyles.eyebrow}>{quiz.mechanism === "branch" ? (zh ? "你的故事结局" : "Your story ending") : (zh ? "你的趣味画像" : "Your playful portrait")}</p>
-          <h2 ref={heading} tabIndex={-1} className={resultStyles.title}>{resolved.resultIds.length === 1 ? result.title[locale] : (zh ? "这次，你的选择有几个同样突出的方向" : "Your choices led to more than one portrait")}</h2>
-          {resolved.resultIds.length > 1 && <p className={resultStyles.context}>{zh ? "下面几幅画像并列，没有先后高低。可以分别看看，哪些情境更像你。" : "The portraits below are tied, with none ranked above another. Explore which situations feel familiar."}</p>}
-          <p className={resultStyles.shortLimit}>{zh ? "原创故事，仅供娱乐和交流。" : "An original story for fun and conversation."}</p>
+      <ResultPage variant="story" data-story-mechanism={quiz.mechanism} data-story-category={quiz.category} data-portrait-count={resolved.resultIds.length} className={resultStyles.report}>
+        <header className={resultStyles.overview} data-story-result-overview>
+          <p className={resultStyles.eyebrow}>{resultTheme}</p>
+          <h2 ref={heading} tabIndex={-1} className={resultStyles.title}>{resolved.resultIds.length === 1 ? result.title[locale] : (zh ? `${resolved.resultIds.length} 幅画像并列` : `${resolved.resultIds.length} tied portraits`)}</h2>
+          {resolved.resultIds.length === 1 ? <p className={resultStyles.context}>{result.summary[locale]}</p> : <>
+            <p className={resultStyles.context}>{zh ? "这些画像没有先后高低。可以分别看看，哪些情境更像你。" : "The portraits are tied. Explore which situations feel familiar to you."}</p>
+            <nav className={resultStyles.nav} aria-label={zh ? "并列画像目录" : "Tied portrait index"}>
+              {resolved.resultIds.map(id => <a key={id} href={`#${quiz.slug}-reading-${id}`}>{quiz.results.find(portrait => portrait.id === id)!.title[locale]}</a>)}
+            </nav>
+          </>}
+          <p className={resultStyles.shortLimit}>{quiz.mechanism === "branch"
+            ? (zh ? `你的路线 · ${resolved.path.length} 次选择` : `Your route · ${resolved.path.length} choices`)
+            : (zh ? "原创趣味画像 · 仅供娱乐与交流" : "An original portrait for fun and conversation")}</p>
         </header>
-        <div id={`${quiz.slug}-result-readings`} className={resultStyles.readings}>
+        <div id={`${quiz.slug}-result-readings`} className={resultStyles.readings} data-story-result-readings>
           {resolved.resultIds.map((id, index) => {
             const portrait = quiz.results.find(r => r.id === id)!;
+            const contributingChoices = quiz.mechanism === "tally" ? resultChoices.filter(choice => (choice.points?.[id] ?? 0) > 0) : [];
             const Label = resolved.resultIds.length > 1 ? "h4" : "h3";
-            return <article key={id} className={resultStyles.portrait} aria-label={portrait.title[locale]}>
-              {resolved.resultIds.length > 1 && <h3 className={resultStyles.portraitTitle}>{portrait.title[locale]}</h3>}
-              <p className={resultStyles.summary}>{portrait.summary[locale]}</p>
+            return <article key={id} id={`${quiz.slug}-reading-${id}`} tabIndex={-1} className={resultStyles.portrait} aria-label={portrait.title[locale]}>
+              {resolved.resultIds.length > 1 && <>
+                <h3 className={resultStyles.portraitTitle}>{portrait.title[locale]}</h3>
+                <p className={resultStyles.summary}>{portrait.summary[locale]}</p>
+              </>}
+              <StoryChoiceTrail
+                choices={contributingChoices}
+                label={zh ? `为这幅画像加分的选择（${contributingChoices.length} 项）` : `Choices that supported this portrait (${contributingChoices.length})`}
+              />
               <div className={resultStyles.details}>
-                {([ ["example", zh ? "比如这样的时刻" : "What this could look like"], ["strength", quiz.mechanism === "branch" ? (zh ? "这个结局留下了什么" : "What this ending offers") : (zh ? "这种选择的好处" : "What this choice can bring")], ["tradeoff", zh ? "也可以留意" : "Something to keep in mind"] ] as const).map(([key, label]) => <section key={key}><Label>{label}</Label><p>{portrait[key][locale]}</p></section>)}
+                {([ ["example", sceneLabel], ["strength", quiz.mechanism === "branch" ? (zh ? "这个结局留下了什么" : "What this ending offers") : (zh ? "这种选择的好处" : "What this choice can bring")], ["tradeoff", zh ? "也可以留意" : "Something to keep in mind"] ] as const).map(([key, label]) => <section key={key}><Label>{label}</Label><p>{portrait[key][locale]}</p></section>)}
               </div>
               <section id={index === 0 ? `${quiz.slug}-result-actions` : undefined} className={resultStyles.experiments}>
                 <Label>{quiz.mechanism === "branch" ? (zh ? "想继续玩，可以试试" : "If you would like to keep playing") : (zh ? "下次可以试试" : "One thing to try next time")}</Label>
                 <p>{portrait.experiment[locale]}</p>
               </section>
+              {quiz.mechanism === "branch" && <StoryChoiceTrail choices={resultChoices} label={zh ? "回看走向这个结局的选择" : "Review the choices that led to this ending"} />}
               <Link prefetch={false} className={resultStyles.guide} href={resultPath(locale, quiz.slug, portrait.id)}>{zh ? `阅读「${portrait.title.zh}」公开指南` : `Read the public guide to ${portrait.title.en}`}</Link>
             </article>;
           })}

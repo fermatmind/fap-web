@@ -34,7 +34,7 @@ describe("original INTIMACY_PREFERENCE migration", () => {
       expect(question.options.slice(0, 5).map(o => o.label)).toEqual(Object.values(source.numeric_labels));
       expect(question.options.at(-1)).toMatchObject({ id: "na", label: source.NA_addition, score: null });
     }
-    expect(data.guide.flatMap(s => s.paragraphs).map(p => p.en).join(" ")).toContain("original Mini requires all 24 numeric responses");
+    expect(data.guide.flatMap(s => s.paragraphs).map(p => p.en).join(" ")).toContain("earlier FermatMind edition requires all 24 numeric responses");
   });
 
   it("matches every possible group sum against the independent Decimal reference", () => {

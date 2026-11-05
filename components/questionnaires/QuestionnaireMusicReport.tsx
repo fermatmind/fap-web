@@ -1,4 +1,4 @@
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { PortraitFacetLead } from "./PortraitFacetLead";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -9,9 +9,7 @@ import type { Locale } from "@/lib/i18n/locales";
 export function QuestionnaireMusicReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh", valid = Object.values(result.facets).filter(f => f.mean !== null).length;
   return <div className="my-6 space-y-8">
-
-    <ResultReadingNav collapsible label={zh ? "选择想读的部分" : "Choose a part to read"} sections={quiz.profiles.map(profile => ({ id: `music-title-${profile.id}`, title: profile.title[locale] }))} />
-
+    <PortraitFacetLead quiz={quiz} result={result} locale={locale} anchorPrefix="music-title-" />
 
     {quiz.profiles.map(profile => <section key={profile.id} data-music-profile={profile.id} aria-labelledby={`music-title-${profile.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
       <h3 id={`music-title-${profile.id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>

@@ -11,7 +11,15 @@ export function QuestionnaireTimeManagementReport({ quiz, result, locale }: {
 }) {
   const zh = locale === "zh";
   return <ResultPage variant="dimensions" data-time-management-result className="mt-6 space-y-10">
-
+    <ResultOverview locale={locale} title={zh ? "时间管理的四个环节" : "Four parts of managing time"}
+      className="border-sky-200 bg-sky-50"
+      description={zh ? "先找一个想调整的环节，再看近两周的例子和做法。" : "Choose a part to adjust, then read the examples and actions for the past two weeks."}
+      items={quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return { id: direction.id, label: direction.title[locale], href: `#time-part-${direction.id}`,
+          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
+          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
+      })} />
 
     {quiz.directions.map(direction => {
       const score = result.facets[direction.id], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
@@ -28,14 +36,6 @@ export function QuestionnaireTimeManagementReport({ quiz, result, locale }: {
 
     <details className="border-t border-slate-200 pt-4" data-result-reading-method>
       <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
-      <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
-      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
-      items={quiz.directions.map(direction => {
-        const score = result.facets[direction.id];
-        return { id: direction.id, label: direction.title[locale], href: `#time-part-${direction.id}`,
-          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
-          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
-      })} />
       <p className="leading-8 text-slate-700">{zh
       ? "四部分分别回看过去两周的自报行为，不相加、不排名、不选出获胜类型。均分包含明示的反向计分，不是生产力百分比或实测能力；实践机会、任务负担和自主权需要一起考虑。相近均分不代表能力相当，也没有重要差异阈值。"
       : "These four parts describe separate reported behaviors over the past two weeks. They are not added, ranked or used to choose a winning type. Means include the stated reverse coding; they are neither productivity percentages nor tested ability. Consider opportunity, workload and autonomy. Close means do not establish equivalent ability or a meaningful difference."}</p>

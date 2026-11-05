@@ -1,4 +1,4 @@
-import { ResultSection, ResultReadingNav, ResultScoreRow } from "./QuestionnaireResultPresentation";
+import { ResultSection, ResultScoreRow } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
@@ -14,13 +14,12 @@ export function EverydayControlReport({ quiz, result, locale }: {
   const zh = locale === "zh";
   return <div className="mt-6 space-y-8" data-everyday-control-report>
 
-    <ResultSection title={zh ? "六种情境行动概览" : "Six contextual action readings"}>
+    <ResultSection tone="framed" title={zh ? "安排遇到变化时，你怎样调整" : "How you plan when an arrangement changes"} description={zh ? "从一件日常安排读起，选一个你想理解的做法，再看例子。" : "Start with one everyday plan. Choose a response you want to understand and open its examples."} className="rounded-xl border border-sky-200 bg-sky-50/65">
       <div className="grid gap-x-8 sm:grid-cols-2">{quiz.directions.map(direction => {
         const part = result.facets[direction.id];
-        return <ResultScoreRow key={direction.id} label={direction.title[locale]} value={part.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${part.mean.toFixed(1)} / 5`} score={part.mean} min={1} max={5} description={quiz.profiles.find(profile => profile.directionIds[0] === direction.id)!.summary[locale]} />;
+        return <ResultScoreRow key={direction.id} label={<a className="inline-flex min-h-11 items-center font-semibold text-sky-950 underline underline-offset-4" href={`#control-${direction.id}`}>{direction.title[locale]}</a>} value={part.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${part.mean.toFixed(1)} / 5`} score={part.mean} min={1} max={5} description={quiz.profiles.find(profile => profile.directionIds[0] === direction.id)!.summary[locale]} />;
       })}</div>
     </ResultSection>
-    <ResultReadingNav label={zh ? "逐项完整解读" : "Full readings by topic"} sections={quiz.directions.map(direction => ({ id: `control-${direction.id}`, title: direction.title[locale] }))} />
     {quiz.directions.map(direction => {
       const facet = result.facets[direction.id];
       const profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;

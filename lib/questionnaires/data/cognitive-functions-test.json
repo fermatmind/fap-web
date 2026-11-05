@@ -28,8 +28,8 @@
     "zh": "你怎样获取信息、考虑决定？用32句原创反思题文探索八个荣格功能主题，结合换算和、数字覆盖、描述性均值、具体例子与全部八份指南阅读。本版不识别能力、有序功能栈或四字母人格类型。"
   },
   "resultHeading": {
-    "en": "Your eight separate cognitive-function readings",
-    "zh": "八组独立认知功能读法"
+    "en": "Your scores across eight cognitive function themes",
+    "zh": "八组认知功能题的独立读数"
   },
   "source": {
     "kind": "fermatmind_original_cognitive_function_reflection",
@@ -3444,7 +3444,7 @@
       "paragraphs": [
         {
           "en": "The Myers & Briggs Foundation’s explanation of the eight dominant processes supplies background terminology. The 32-rating bank, keyed means, examples and readings remain independent original FermatMind work. A separately selectable 56-choice edition now migrates our Mini public-preview bank and raw selection counts. It uses a different response method, not a longer form of these ratings. Neither is official, endorsed or copied from a competitor.",
-          "zh": "Myers & Briggs Foundation关于八种主导过程的说明提供背景术语。32题自评题本、换算均值、例子与读法仍为费马独立原创。现在可另选56题二选一版，迁移自有小程序公开试用题本与原始选择次数；它是不同作答方法，不是本自评版的加长题本。两版均非官方或获背书工具，不复制竞品。"
+          "zh": "Myers & Briggs Foundation关于八种主导过程的说明提供背景术语。32题自评题本、换算均值、例子与读法仍为费马独立原创。现在可另选56题二选一版，沿用费马早期试用题本及原始选择计数；它是不同作答方法，不是本自评版的加长题本。两版均非官方或获背书工具，不复制竞品。"
         },
         {
           "en": "This edition does not borrow the validity, norms or results of another assessment. English and Chinese are working versions without demonstrated measurement equivalence. The results are for your own reflection and should not decide recruitment, school placement, treatment or another person’s role. The references do not supply evidence that this bank measures abilities or predicts behavior.",
@@ -3540,11 +3540,11 @@
     {
       "question": {
         "en": "Which edition comes from the Mini Jung test?",
-        "zh": "哪一版来自小程序荣格测试？"
+        "zh": "56 题版与 32 题版有何不同？"
       },
       "answer": {
         "en": "The 56-choice edition reuses our Mini Jung public-preview bank, raw-wins rule and all eight direction explanations, with a new working English translation. The 32-rating edition is a separate original web bank. Mini publication does not establish scientific validation or language equivalence.",
-        "zh": "56题二选一版复用自有小程序荣格公开试用题本、原始胜次规则和全部八方向解释，英文为新的工作译本。32题版是另一份原创网页题本。小程序公开发布不等于科学验证或语言等值已成立。"
+        "zh": "56题二选一版沿用费马早期荣格试用题本、原始胜次规则和全部八方向解释，英文为新的工作译本。32题版是另一份原创网页题本。公开试用不代表已有科学验证或语言等值。"
       }
     }
   ],

@@ -1,5 +1,5 @@
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire, QuestionnaireProfile } from "@/lib/questionnaires/types";
@@ -19,8 +19,17 @@ export function UnwantedActionsReport({ quiz, records, locale, readingProfiles }
   const zh = locale === "zh";
   return <section data-unwanted-actions-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="unwanted-actions-result-heading">
     <h2 id="unwanted-actions-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "选择一个主题阅读" : "Choose a topic to read"} sections={records.map((record, index) => ({ id: `record-${quiz.slug}-${record.id}`, title: quiz.directions[index].title[locale] }))} />
     <UnwantedActionsSupport locale={locale} compact />
+    <section className="rounded-xl border border-stone-300 bg-stone-50 p-4 sm:p-6" aria-labelledby="unwanted-reading-start">
+      <h3 id="unwanted-reading-start" className="text-xl font-semibold text-stone-950">{zh ? "从一项想法或动作读自己的记录" : "Start with one thought or action you recorded"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "五部分各自保留你的回答。可以按自己想回看的情境阅读。数字是每类回答对应的题目数。" : "The five parts keep your responses separate. Open a context you want to revisit. The numbers count prompts for each response category."}</p>
+      <ul className="mt-4 grid gap-x-6 md:grid-cols-2">
+        {records.map((record, index) => <li key={record.id} className="min-w-0 border-l-2 border-stone-300 px-3 py-2">
+          <a className="inline-flex min-h-11 items-center font-semibold text-stone-950 underline underline-offset-4" href={`#record-${quiz.slug}-${record.id}`}>{quiz.directions[index].title[locale]}</a>
+          <ObservationChoiceCounts categories={unwantedActionsCategories} counts={record.counts} locale={locale} shortLabels={{ na: { zh: "未计分", en: "Unscored" } }} />
+        </li>)}
+      </ul>
+    </section>
     {records.map((r, i) => {
       const original = quiz.profiles[i];
       const profile = readingProfiles?.find(item => item.id === original.id && item.directionIds.length === original.directionIds.length && item.directionIds.every((id, index) => id === original.directionIds[index]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === original.id) ?? original;

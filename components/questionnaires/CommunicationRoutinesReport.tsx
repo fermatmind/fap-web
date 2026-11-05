@@ -1,4 +1,4 @@
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
@@ -18,10 +18,14 @@ export function CommunicationRoutinesReport({ quiz, records, locale, readingProf
   const zh = locale === "zh";
   return <section data-communication-routines-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="communication-routines-result-heading">
     <h2 id="communication-routines-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "本次主题记录" : "Topics in this record"} sections={records.map((record, index) => ({
-      id: `communication-routines-record-${record.id}`,
-      title: `${quiz.directions[index].title[locale]} · ${record.observations.length}${zh ? "条记录" : " records"}`,
-    }))} />
+    <section className="rounded-xl bg-sky-50/65 p-4 sm:p-6" aria-labelledby="communication-context-reading">
+      <h3 id="communication-context-reading" className="text-xl font-semibold text-sky-950">{zh ? "选一类交流或日常安排" : "Choose a communication or routine context"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "同一个人在不同安排里可能有不同体验。先看本次选过的类别和对应题目数，再进入具体情境。" : "The same person can have different experiences in different arrangements. Review the category counts, then open a particular context."}</p>
+      <ul className="mt-4 grid gap-x-5 md:grid-cols-2 xl:grid-cols-3">{records.map((record, index) => <li key={record.id} className="min-w-0 border-t border-sky-200 py-3">
+        <a className="inline-flex min-h-11 items-center font-semibold text-sky-950 underline underline-offset-4" href={`#communication-routines-record-${record.id}`}>{quiz.directions[index].title[locale]}</a>
+        <ObservationChoiceCounts categories={communicationRoutinesCategories} counts={record.counts} locale={locale} shortLabels={{ na: { zh: "未计分", en: "Unscored" } }} />
+      </li>)}</ul>
+    </section>
     <CommunicationRoutinesSupport locale={locale} compact />
     {records.map((r, i) => {
       const original = quiz.profiles[i];

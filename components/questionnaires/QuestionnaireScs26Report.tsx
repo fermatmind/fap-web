@@ -11,17 +11,20 @@ export function QuestionnaireScs26Report({ quiz, result, locale }: {
 }) {
   const zh = locale === "zh", score = result.scs26;
   return <div data-scs26-result className="mt-6 space-y-8">
-    <section className="rounded-lg border border-slate-200 p-4 sm:p-6" aria-labelledby="scs26-overall-heading">
+    <section className="rounded-xl border border-emerald-200 bg-emerald-50/65 p-4 sm:p-6" aria-labelledby="scs26-overall-heading">
       <h3 id="scs26-overall-heading" className="text-xl font-semibold leading-snug sm:text-2xl">{zh ? "本次 SCS 整体均分" : "Your SCS overall mean"}</h3>
-      <p data-scs26-overall className="my-4 rounded-lg bg-slate-50 p-4 text-xl font-semibold">{score.overallNumerator === null
+      <div className="my-4 grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:items-center">
+      <p data-scs26-overall className="rounded-lg bg-white p-4 text-xl font-semibold tabular-nums text-emerald-950">{score.overallNumerator === null
         ? (zh ? `资料不足：${score.rated}/26 题有量表回答；${score.skipped}题跳过，不计算整体均分。` : `Insufficient information: ${score.rated}/26 scale responses; ${score.skipped} skipped. No overall mean is calculated.`)
         : (zh ? `${formatScs26Mean(score.overallNumerator, 120)}（1到5；26/26题有效）` : `${formatScs26Mean(score.overallNumerator, 120)} (1 to 5; 26/26 scale responses)`)}</p>
       <p className="leading-8 text-slate-700">{zh ? "先将三个负向部分反向，分别算六个未取舍的部分均值，再平均。不是直接平均26题，也不提前平均屏幕上的两位小数。整体均分较大，表示在这些条目定义下报告了较多自我慈悲回应；不代表个人价值、诊断、百分位或招聘资格。" : "The three negative parts are reversed first. Six unrounded part means are then averaged, rather than averaging all 26 items or already-rounded screen values. A larger overall mean reflects more compassionate responding as defined by these items, without measuring personal worth, diagnosis, percentile or hiring eligibility."}</p>
+      </div>
       <p className="mt-3 text-sm leading-7 text-slate-600">{zh ? "完整26题SCS，注明Neff（2003）并依许可使用。中文为费马新工作译本，尚无心理测量验证或跨语言等值证据。不套用非正式高低分档或成长阶段；缺答不是零，不估算。" : "The full 26-item SCS is used with permission and attribution to Neff (2003). Chinese is a new FermatMind working translation, without psychometric validation or established language equivalence. No informal high/low bands or growth stages are applied. Missing is not zero and is not imputed."}</p>
+      <a className="mt-2 inline-flex min-h-11 items-center font-semibold text-emerald-950 underline decoration-emerald-400 underline-offset-4" href="#scs26-parts-heading">{zh ? "从整体均分追到六个部分" : "See the six parts behind the overall mean"}</a>
     </section>
     <section aria-labelledby="scs26-parts-heading">
-      <h3 id="scs26-parts-heading" className="mb-4 text-xl font-semibold leading-snug sm:text-2xl">{zh ? "六部分：先看原始与反向标签" : "Six parts: read the raw and reversed labels"}</h3>
-      <div className="space-y-4">{quiz.directions.map(direction => {
+      <h3 id="scs26-parts-heading" className="mb-4 scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{zh ? "六部分：先看原始与反向标签" : "Six parts: read the raw and reversed labels"}</h3>
+      <div className="grid gap-4 md:grid-cols-2">{quiz.directions.map(direction => {
         const part = score.parts[direction.id as keyof typeof score.parts];
         const negative = ["self-judgment", "isolation", "over-identification"].includes(direction.id);
         return <section key={direction.id} data-scs26-part={direction.id} className="rounded-lg border border-slate-200 p-4">

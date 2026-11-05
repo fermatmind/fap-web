@@ -1,0 +1,77 @@
+.lead {
+  --lead-ink: #274c40;
+  --lead-paper: #edf5ed;
+  --lead-edge: #c8d8c9;
+}
+
+header.lead[data-portrait-lead] {
+  display: grid;
+  gap: 12px 26px;
+  align-items: center;
+  background: var(--lead-paper);
+  color: var(--lead-ink);
+}
+
+.lead[data-portrait-lead="field-note"] { border-block-start: 3px solid var(--lead-ink); }
+.lead[data-portrait-lead="companion"] {
+  --lead-ink: #164a5b;
+  --lead-paper: #e9f5f6;
+  --lead-edge: #bad6da;
+  border-inline-start: 4px solid var(--lead-ink);
+}
+.lead[data-portrait-lead="house"] {
+  --lead-ink: #3b315c;
+  --lead-paper: #eeedf7;
+  --lead-edge: #d3cde4;
+  border-block-start: 4px double var(--lead-ink);
+}
+.lead[data-portrait-key="gryffindor"] { --lead-ink: #713745; --lead-paper: #f9eef0; --lead-edge: #e7cbd2; }
+.lead[data-portrait-key="hufflepuff"] { --lead-ink: #665021; --lead-paper: #faf4e3; --lead-edge: #e5d4a9; }
+.lead[data-portrait-key="ravenclaw"] { --lead-ink: #284967; --lead-paper: #ebf3fa; --lead-edge: #c3d5e6; }
+.lead[data-portrait-key="slytherin"] { --lead-ink: #265549; --lead-paper: #edf5ef; --lead-edge: #c5dfcf; }
+.lead[data-portrait-lead="botanical"] {
+  --lead-ink: #77395d;
+  --lead-paper: #f8edf2;
+  --lead-edge: #e7d1dd;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+.lead[data-portrait-key="sunflower"],
+.lead[data-portrait-key="daisy"] { --lead-ink: #665125; --lead-paper: #fbf4e5; --lead-edge: #e5d4ae; }
+.lead[data-portrait-key="lavender"],
+.lead[data-portrait-key="orchid"] { --lead-ink: #5d427b; --lead-paper: #f1ecf8; --lead-edge: #d9cbe9; }
+.lead[data-portrait-key="lotus"] { --lead-ink: #355e4c; --lead-paper: #edf6ef; --lead-edge: #cadfcf; }
+.lead[data-portrait-tone="amber"] { --lead-ink: #65471f; --lead-paper: #fbf1e1; --lead-edge: #e6d0aa; }
+.lead[data-portrait-tone="rose"] { --lead-ink: #733e53; --lead-paper: #faedf1; --lead-edge: #eccdd7; }
+.lead[data-portrait-tone="mint"] { --lead-ink: #285c4a; --lead-paper: #edf7f2; --lead-edge: #c6e1d4; }
+.lead[data-portrait-tone="violet"] { --lead-ink: #504279; --lead-paper: #f2eef9; --lead-edge: #dcd3ed; }
+.lead[data-portrait-tone="ink"] { --lead-ink: #334755; --lead-paper: #edf2f4; --lead-edge: #cad8df; }
+.lead[data-portrait-tone="blue"] { --lead-ink: #2e536f; --lead-paper: #edf4fa; --lead-edge: #cbddeb; }
+.lead[data-portrait-lead="character"] { border-inline-start: 4px solid var(--lead-edge); }
+.lead[data-portrait-lead="symbol"] { border-block-start: 3px double var(--lead-ink); }
+.lead[data-portrait-emblem] { grid-template-columns: minmax(0, 1fr) auto; }
+.lead[data-portrait-lead="framework"] { border-block-start: 3px solid var(--lead-ink); }
+.lead[data-portrait-layout="serial"] { border-inline-start: 0; border-block-start: 4px solid var(--lead-ink); }
+.lead[data-portrait-layout="serial"] .eyebrow { letter-spacing: .05em; }
+.lead[data-portrait-layout="storybook"] { border-inline-start: 0; border-block-start: 4px double var(--lead-ink); }
+.lead[data-portrait-layout="storybook"] .title { font-family: Georgia, "Noto Serif SC", serif; }
+.lead[data-portrait-layout="dossier"] .selection { border-style: dashed; border-radius: 0; }
+
+.intro { min-width: 0; }
+.eyebrow { margin: 0 0 8px; font-size: 13px; font-weight: 700; }
+.lead h3.title { margin: 0; scroll-margin-top: 96px; color: var(--lead-ink); font-size: clamp(24px, 3vw, 38px); line-height: 1.2; overflow-wrap: anywhere; }
+.lead[data-portrait-lead="house"] .title,
+.lead[data-portrait-lead="botanical"] .title { font-family: Georgia, "Noto Serif SC", serif; }
+.headline { margin: 8px 0 0; font-size: 16px; font-weight: 650; line-height: 1.5; }
+.summary { max-width: 72ch; margin: 8px 0 0; line-height: 1.65; }
+.petal { width: clamp(34px, 7vw, 78px); }
+.selection { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0; padding: 8px 12px; border: 1px solid var(--lead-edge); border-radius: 8px; font-size: 13px; }
+.selection dd { margin: 0; font-weight: 700; }
+.selection > div:first-child dd { font-size: 22px; font-variant-numeric: tabular-nums; }
+.selection dd span { font-size: 15px; }
+
+@media (min-width: 760px) {
+  .lead:not([data-portrait-lead="botanical"]):has(.selection) { grid-template-columns: minmax(0, 1fr) auto; }
+  .selection { flex-direction: column; gap: 4px; min-width: 132px; }
+  .lead[data-portrait-layout="storybook"]:has(.selection) { grid-template-columns: minmax(0, 1fr); }
+  .lead[data-portrait-layout="storybook"] .selection { flex-direction: row; gap: 6px 18px; justify-self: start; }
+}

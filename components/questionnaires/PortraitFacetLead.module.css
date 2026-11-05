@@ -1,0 +1,42 @@
+.lead {
+  --ink: #284e5a;
+  --paper: #edf7f8;
+  --rule: #c5dce0;
+  padding: clamp(14px, 3vw, 26px);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.lead[data-portrait-facet-lead="rhythm"] { --ink: #6c4b20; --paper: #fcf4e5; --rule: #e9d9b9; }
+.lead[data-portrait-facet-lead="playlist"] { --ink: #543e78; --paper: #f3effa; --rule: #ddd2ed; }
+.lead[data-portrait-facet-lead="patterns"] { --ink: #693b52; --paper: #faf0f3; --rule: #eacfd8; }
+.lead[data-portrait-facet-lead="study"] { --ink: #33576b; --paper: #eef5fa; --rule: #cedfe9; }
+.lead[data-portrait-facet-lead="pace"] { --ink: #3c5860; --paper: #eef3f3; --rule: #cfdcdd; }
+.lead[data-portrait-facet-lead="pairs"] { --ink: #345d49; --paper: #edf6ef; --rule: #cce0d2; }
+.lead[data-portrait-facet-lead="symbol"] { --ink: #5c4268; --paper: #f7eff8; --rule: #e4d1e7; border-block-start: 3px double var(--ink); }
+
+.lead h3 { margin: 0; font-size: clamp(19px, 3vw, 26px); font-weight: 700; line-height: 1.35; }
+.lead p { max-width: 68ch; margin: 8px 0 14px; font-size: 15px; line-height: 1.65; }
+.groups { display: grid; gap: 10px; }
+.group { min-width: 0; }
+.group h4 { margin: 0 0 5px; font-size: 16px; font-weight: 700; }
+.group dl { display: grid; gap: 2px 12px; margin: 0; }
+.group dl > div { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0 8px; min-width: 0; border-block-end: 1px solid var(--rule); }
+.group dt { min-width: 0; }
+.group a { display: inline-flex; align-items: center; min-height: 44px; padding-block: 5px; text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.group dd { margin: 0; font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.lead:is([data-portrait-facet-lead="rhythm"], [data-portrait-facet-lead="study"]) .group dl > div { padding-inline: 10px; border: 1px solid var(--rule); border-radius: 8px; background: white; }
+.lead[data-portrait-facet-lead="playlist"] .group dl > div { padding-inline-start: 10px; border-inline-start: 2px solid var(--rule); }
+.lead[data-portrait-facet-lead="pairs"] .group { padding: 8px 10px; border: 1px solid var(--rule); border-radius: 8px; background: white; }
+
+@media (min-width: 650px) {
+  .group dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .lead[data-portrait-facet-lead="pairs"] .group dl { grid-template-columns: minmax(0, 1fr); }
+  .lead[data-portrait-facet-lead="pairs"] .groups { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1024px) {
+  .lead[data-portrait-facet-lead="rhythm"] .group dl { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}

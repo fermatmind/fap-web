@@ -27,8 +27,8 @@
     "zh": "每段按CPython 3.14.5核过的独立.py脚本阅读，选择准确打印文本或执行前语法错误结果，缩进属于代码。程序使用虚构ASCII值，无外部输入、文件、网络、第三方库或假定集合迭代顺序。两语保留相同代码、标点及布尔拼写，说明解析双语。无计时或速度奖励，24题有效选择前不显示个人正确数。若查资料，按该条件理解本次练习。"
   },
   "resultHeading": {
-    "en": "Your Python practice counts and every worked answer",
-    "zh": "本次Python练习正确数与全部题解"
+    "en": "Python practice: trace objects and execution results",
+    "zh": "Python 练习：跟踪对象和运行结果"
   },
   "directions": [
     {

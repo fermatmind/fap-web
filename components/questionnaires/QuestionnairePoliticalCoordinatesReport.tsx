@@ -17,7 +17,8 @@ export function QuestionnairePoliticalCoordinatesReport({ quiz, result, locale }
   const signed = (n: number) => n > 0 ? `+${n}` : String(n);
   return <div className="my-6 space-y-8">
     <p className="leading-8">{zh ? "两轴只汇总本原创题本给出的公共政策方案，不代表完整政治身份、政党或人口位置。每轴十八项全部有效才显示两端次数和原始差值；任一NA只使所属轴不足，两轴都完整才画组合点。以下四份完整指南始终可读，不按分数解锁。" : "The two axes summarize only the public-policy proposals in this original bank, not a complete political identity, party or population position. An axis needs all eighteen valid choices for endpoint counts and a raw difference; any NA withholds only its own axis. Both axes must be complete for a combined point. All four full guides below remain available at every result."}</p>
-    <div className="grid gap-4 sm:grid-cols-2">
+    <div className="grid gap-4 rounded-2xl border border-sky-200 bg-sky-50/55 p-3 sm:p-5 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+    <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-1">
       {(["economic", "social"] as PoliticalCoordinateAxis[]).map(axis => {
         const score = result.politicalCoordinates[axis], available = score.difference !== null;
         return <section key={axis} data-political-axis={axis} aria-labelledby={`political-axis-${axis}`} className="rounded-xl border border-slate-200 bg-white p-5">
@@ -33,13 +34,13 @@ export function QuestionnairePoliticalCoordinatesReport({ quiz, result, locale }
         </section>;
       })}
     </div>
-    <section aria-labelledby="political-point-title" className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
+    <section aria-labelledby="political-point-title" className="min-w-0 rounded-xl border border-sky-200 bg-white p-4 sm:p-6">
       <h3 id="political-point-title" className="text-xl font-semibold leading-snug sm:text-2xl">{zh ? "本题本的两轴位置" : "Two-axis position in this bank"}</h3>
       {pointAvailable ? <>
         <p data-political-point className="my-4 font-semibold">{zh ? `原始坐标（x，y）＝（${signed(x)}，${signed(y)}）` : `Raw coordinates (x, y) = (${signed(x)}, ${signed(y)})`}</p>
         <div role="img" aria-label={zh ? `经济x ${signed(x)}，社会y ${signed(y)}。正方向分别为经济右向及个人自由优先。` : `Economic x ${signed(x)}, social y ${signed(y)}. Positive directions are economic right and social liberal.`} className="mx-auto max-w-md py-4 text-center text-xs leading-6 sm:text-sm">
           <p>{zh ? "个人自由优先（y正）" : "Liberal (positive y)"}</p>
-          <div className="relative mx-3 my-2 h-64 border border-slate-400 bg-slate-50" aria-hidden="true">
+          <div className="relative mx-3 my-2 aspect-square max-h-72 border border-slate-400 bg-slate-50" aria-hidden="true">
             <div className="absolute left-1/2 top-0 h-full border-l border-slate-300" /><div className="absolute left-0 top-1/2 w-full border-t border-slate-300" />
             <span className="absolute h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white bg-violet-800 ring-1 ring-violet-800" style={{ left: `${(x + 18) / 36 * 100}%`, top: `${(18 - y) / 36 * 100}%` }} />
           </div>
@@ -50,6 +51,11 @@ export function QuestionnairePoliticalCoordinatesReport({ quiz, result, locale }
       </> : <p data-political-no-point className="my-4 leading-8">{zh ? "至少一轴资料不足，本次不生成组合坐标或象限比较。已完整的轴可单独阅读；全部四份完整指南照常提供。" : "At least one axis has insufficient information, so this attempt has no combined coordinate or quadrant comparison. A complete axis can still be read separately, and all four full guides remain available."}</p>}
       <p className="mt-4 text-sm leading-7 text-slate-600">{zh ? "正号和图上方向只是约定，不代表好坏；原始次数不是百分比、重要程度或人口距离。新版原创题、双语表述与计数规则没有心理测量或跨文化等价验证，不提供政党、人物位置或政治劝服。" : "Positive signs and drawing directions are conventions, not approval. Raw counts are not percentages, personal importance or distances within a population. The new original items, bilingual wording and count rule lack established psychometric or cross-cultural equivalence validation. No party, politician placement or political persuasion is provided."}</p>
     </section>
+    </div>
+    <nav className="rounded-lg border-y border-sky-200 px-4 py-3" aria-label={zh ? "从坐标继续读政策取舍" : "Explore policy trade-offs after the coordinate"}>
+      <p className="max-w-prose leading-7">{zh ? "读一份对照，看看两条轴会怎样组合。四份指南始终可选。" : "Read a comparison to see how the two axes can combine. All four guides remain available."}</p>
+      <ul className="mt-2 grid gap-x-4 sm:grid-cols-2">{quiz.profiles.map(profile => <li key={profile.id}><a className="inline-flex min-h-11 items-center font-semibold text-sky-950 underline underline-offset-4" href={`#political-guide-${profile.id}`}>{profile.title[locale]}</a></li>)}</ul>
+    </nav>
     {quiz.profiles.map(profile => <section key={profile.id} data-political-guide={profile.id} aria-labelledby={`political-guide-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
       <h3 id={`political-guide-${profile.id}`} className="scroll-mt-24 mb-4 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
       <p className="mb-5 text-sm leading-7 text-slate-600">{zh ? "完整通用比较，始终可读；不是派给你的身份或私人答案。" : "A complete general comparison, always available; not an assigned identity or private answer record."}</p>

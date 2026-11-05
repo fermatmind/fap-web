@@ -28,8 +28,8 @@
     "zh": "把记得的事件、个人感受与仍不确定的解释分开。通过四组独立内容，回看沟通、需要差异、边界与外部压力。结果提供完整解释和可选的私人复盘提示；约六分钟是编辑估计，不设计时。"
   },
   "resultHeading": {
-    "zh": "关系结束复盘线索",
-    "en": "Reflection clues about a relationship that ended"
+    "en": "Where to start reflecting after the relationship ended",
+    "zh": "关系结束之后，你想先回看什么"
   },
   "directions": [
     {
@@ -2306,7 +2306,7 @@
       "paragraphs": [
         {
           "en": "The 24 Chinese statements, their four six-item groups and the five numeric anchors come from FermatMind’s original miniature-program product for reviewing a breakup. English is a new working translation. The explanatory guides add original examples while retaining the source’s four separate themes.",
-          "zh": "24条中文陈述、四组各六题归属和五个数值锚点，来自费马原小程序的关系结束复盘产品。英文为新的工作译文；完整指南保留原有四组主题，并增加原创情境例子。"
+          "zh": "24条中文陈述、四组各六题归属和五个数值锚点，来自费马早期的关系结束复盘题本。英文为新的工作译文；完整指南保留原有四组主题，并增加原创情境例子。"
         },
         {
           "zh": "本测试仅供娱乐与自我探索；尚未完成信度、效度、常模或百分位验证。",
@@ -2389,7 +2389,7 @@
         },
         {
           "en": "This is a stated web adaptation: the original miniature-program scorer suppresses personal interpretation when its full 24-item numeric attempt is incomplete. The website’s separate complete-group display and skipped-item completion are not a new validation of the source. An unanswered blank also remains different from an explicit skip.",
-          "zh": "这是明确的网页改编：原小程序在完整24项数字作答未齐时不输出个人因素解释。本网页对完整组分别呈现、允许带不计分项完成的规则，并不构成对来源的新验证；尚未选择也与明确不计分不同。"
+          "zh": "这是明确的网页改编：早期题本在 24 项数字回答未齐时不输出个人因素解释。本网页对完整组分别呈现、允许带不计分项完成的规则，并不构成对来源的新验证；尚未选择也与明确不计分不同。"
         }
       ]
     },
@@ -2435,7 +2435,7 @@
         },
         {
           "en": "The original miniature-program version used a device draft and a final-result cache. That historical storage description is not the website’s promise. Website public guide links contain no answers, group scores or partner identity, and the copy action includes only the public title and entry link.",
-          "zh": "原小程序曾使用设备草稿与最终结果缓存；这段原版存储说明不代表本网页的存储承诺。网页公开指南网址不含答案、因素分数或伴侣身份；复制功能只包含公开标题和入口链接。"
+          "zh": "当前网页的存储方式以本站隐私说明为准。网页公开指南网址不含答案、因素分数或伴侣身份；复制功能只包含公开标题和入口链接。"
         },
         {
           "zh": "如果以后重新作答，应按当时能确认的经历回答；两次结果不同可能与回忆、情境或理解变化有关，不能自动解释为关系真相已经改变。",

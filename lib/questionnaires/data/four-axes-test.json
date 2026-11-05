@@ -27,8 +27,8 @@
     "zh": "按通常情境选择认同程度，中立也是有效回答。如果不愿作答，可以退出并直接读指南。只有60题全部有效后才显示四条图。"
   },
   "resultHeading": {
-    "en": "Your four separate response positions",
-    "zh": "本次回答的四个独立位置"
+    "en": "Your positions on four self-description axes",
+    "zh": "你在四条自我描述轴上的位置"
   },
   "fourAxes": {
     "method": "original-four-domains-60-balanced-0to4-v1",

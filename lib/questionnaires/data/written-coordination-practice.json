@@ -567,8 +567,8 @@
     "zh": "选择一项练习。录入始终采用固定60秒；五个问答模块均先选计时练习或不计时学习。计时记忆以15秒为呈现目标，再给120秒回答六题；可看来源学习保留原文。可明确结束问答部分，或等本站上限到时，缺失项仍为未答。不输入真实人物、来电、位置或工作记录。"
   },
   "resultHeading": {
-    "en": "Separate records for this practice",
-    "zh": "本次练习的独立记录"
+    "en": "Your written coordination choices and scenario review",
+    "zh": "你的书面协作选择与情境复盘"
   },
   "source": {
     "kind": "fermatmind_original_written_coordination_entry32_mcq30",

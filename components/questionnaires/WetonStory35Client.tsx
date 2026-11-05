@@ -77,10 +77,14 @@ export function WetonStory35Client({ quiz, locale, intro, calendarOnly = false }
         </fieldset>
       </form>
       {calendar?.status === "invalid" && <p role="alert">{zh ? "请输入有效的1900—2099年公历日期。" : "Enter a valid Gregorian date from 1900 through 2099."}</p>}
-      {calendar?.status === "complete" && <div data-weton-calendar-result role="status" className="space-y-4 rounded-lg bg-slate-50 p-4">
-        <p className="leading-8">{calendar.relation === "unknown" ? (zh ? "与当地日落关系未知：保留以下两个可能参考，不选定唯一出生Weton。" : "Relation to local sunset is unknown: both possible references remain; no unique birth Weton is selected.") : (zh ? "按你明确提供的日落关系计算；这里只是历法参考。" : "Calculated using your explicit sunset relation, as a calendar reference only.")}</p>
-        <ul className="space-y-4">{calendar.references.map(reference => <li key={reference.civilDate} data-weton-calendar-reference className="leading-8"><span>{reference.civilDate}: {capital(reference.weekday)} {capital(reference.pasaran)}</span><br /><span>{zh ? "neptu传统相加参考" : "Conventional neptu sum"}: {reference.weekdayNeptu} + {reference.pasaranNeptu} = {reference.neptu}</span></li>)}</ul>
-        <p className="text-sm leading-7">{zh ? "neptu是传统数值相加，不是能量、吉凶、匹配、健康或人格分。日期参考与故事配对彼此独立，不需要一致。" : "Neptu is a conventional sum, without an energy, fortune, compatibility, health or personality score. Date references and story matches are independent and need not agree."}</p>
+      {calendar?.status === "complete" && <div data-weton-calendar-result role="status" className="overflow-hidden rounded-xl border border-teal-200 bg-teal-50">
+        <p className="px-4 pt-4 text-sm leading-7 text-teal-950 sm:px-6 sm:pt-6">{calendar.relation === "unknown" ? (zh ? "与当地日落关系未知，以下两种历法参考都保留。" : "Relation to local sunset is unknown. Both calendar references remain available.") : (zh ? "历法结果对应你明确选择的日落关系。" : "The calendar result uses your explicit sunset relation.")}</p>
+        <ul className={`grid gap-3 p-4 sm:p-6 ${calendar.references.length > 1 ? "md:grid-cols-2" : ""}`}>{calendar.references.map(reference => <li key={reference.civilDate} data-weton-calendar-reference className="min-w-0 rounded-lg border border-teal-100 bg-white p-4 leading-7">
+          <time className="block text-sm tabular-nums text-slate-700" dateTime={reference.civilDate}>{reference.civilDate}</time>
+          <strong className="block text-lg text-teal-950">{capital(reference.weekday)} {capital(reference.pasaran)}</strong>
+          <span>{zh ? "neptu传统相加参考" : "Conventional neptu sum"} {reference.weekdayNeptu} + {reference.pasaranNeptu} = {reference.neptu}</span>
+        </li>)}</ul>
+        <p className="border-t border-teal-200 bg-white px-4 py-3 text-sm leading-7 text-slate-700 sm:px-6">{zh ? "neptu是传统数值相加，不是能量、吉凶、匹配、健康或人格分。日期参考与故事配对彼此独立，不需要一致。" : "Neptu is a conventional sum, without an energy, fortune, compatibility, health or personality score. Date references and story matches are independent and need not agree."}</p>
       </div>}
     </section>
   ;

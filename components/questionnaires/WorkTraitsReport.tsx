@@ -1,4 +1,4 @@
-import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
+import { ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
@@ -28,6 +28,17 @@ export function WorkTraitsReport({ quiz, result, locale }: {
 
 
     <WorkTraitsContext locale={locale} />
+    <section className="rounded-xl border border-sky-200 bg-sky-50/55 p-4 sm:p-6" aria-labelledby="work-traits-review-start">
+      <h3 id="work-traits-review-start" className="text-xl font-semibold text-sky-950">{zh ? "从一次工作任务读自己的做法" : "Start from one work task you remember"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "选一个具体主题，回想任务要求、当时的资源和你采取的行动。数值是本组有效回答的频率均分。" : "Choose a topic and recall the task, the resources you had and what you did. Each number is the mean frequency of the rated items in that group."}</p>
+      <ul className="mt-4 grid gap-x-6 md:grid-cols-2">{quiz.directions.map(direction => {
+        const facet = result.facets[direction.id];
+        return <li key={direction.id} className="min-w-0 border-t border-sky-200 py-2 md:grid md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:gap-x-2">
+          <a className="inline-flex min-h-11 items-center font-semibold text-sky-950 underline decoration-sky-400 underline-offset-4" href={`#work-traits-${direction.id}`}>{direction.title[locale]}</a>
+          <p className="text-sm leading-6 tabular-nums">{facet.mean === null ? (zh ? `${facet.rated}/6 项有效` : `${facet.rated}/6 rated`) : `${facet.mean.toFixed(1)} / 5`}</p>
+        </li>;
+      })}</ul>
+    </section>
     {quiz.directions.map(direction => {
       const facet = result.facets[direction.id], profile = quiz.profiles.find(item => item.directionIds[0] === direction.id)!;
       return <section key={direction.id} data-work-traits-part={direction.id} aria-labelledby={`work-traits-${direction.id}`}
@@ -48,15 +59,7 @@ export function WorkTraitsReport({ quiz, result, locale }: {
     })}
 
     <details className="border-t border-slate-200 pt-4" data-result-reading-method>
-      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
-      <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
-      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
-      items={quiz.directions.map(direction => {
-        const score = result.facets[direction.id];
-        return { id: direction.id, label: direction.title[locale], href: `#work-traits-${direction.id}`,
-          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
-          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
-      })} />
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看计分与使用说明" : "View scoring and use notes"}</summary>
       <p className="leading-8">{zh
       ? "七组按固定顺序显示，不产生总分或胜出类型。每组六条至少五条数字才显示一位小数均值；3表示“有时”，未评分保持缺失。原始和只加有效项。均值相同可能来自不同回答、机会和任务，不代表七组已在同一人格尺度上校准。"
       : "Seven groups stay in a fixed order without a total or winning type. Each six-item group needs five numeric ratings for a mean rounded to one decimal. A 3 means Sometimes; unscored remains missing. Raw sums include rated items only. Equal means can reflect different responses, opportunities and tasks; the groups are not calibrated to a common personality scale."}</p>

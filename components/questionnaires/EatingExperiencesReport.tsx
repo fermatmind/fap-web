@@ -1,4 +1,4 @@
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
@@ -19,11 +19,17 @@ export function EatingExperiencesReport({ quiz, records, locale, readingProfiles
   const zh = locale === "zh";
   return <section data-eating-experiences-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="eating-experiences-result-heading">
     <h2 id="eating-experiences-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "本次主题记录" : "Topics in this record"} sections={records.map((record, index) => ({
-      id: `eating-experiences-record-${record.id}`,
-      title: `${quiz.directions[index].title[locale]} · ${record.observations.length}${zh ? "条记录" : " records"}`,
-    }))} />
     <EatingExperiencesSupport locale={locale} compact />
+    <section className="rounded-xl border border-teal-200 bg-teal-50/55 p-4 sm:p-6" aria-labelledby="eating-context-start">
+      <h3 id="eating-context-start" className="text-xl font-semibold text-teal-950">{zh ? "从某个进食或想法情境读起" : "Choose one context involving food or thoughts"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "各主题分开读，可以从你愿意回看的体验开始。这里的数字只统计你为几条题目选择了该类别。" : "Read the topics separately, starting with a context you choose. Each number counts the prompts you placed in that category."}</p>
+      <ul className="mt-4 grid gap-3 md:grid-cols-2">
+        {records.map((record, index) => <li key={record.id} className="min-w-0 rounded-lg bg-white px-3 pb-3">
+          <a className="inline-flex min-h-11 items-center font-semibold text-teal-950 underline underline-offset-4" href={`#eating-experiences-record-${record.id}`}>{quiz.directions[index].title[locale]}</a>
+          <ObservationChoiceCounts categories={eatingExperiencesCategories} counts={record.counts} locale={locale} />
+        </li>)}
+      </ul>
+    </section>
     {records.map((r, i) => {
       const original = quiz.profiles[i];
       const profile = readingProfiles?.find(item => item.id === original.id && item.directionIds.length === original.directionIds.length && item.directionIds.every((id, index) => id === original.directionIds[index]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === original.id) ?? original;

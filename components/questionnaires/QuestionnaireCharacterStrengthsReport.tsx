@@ -22,7 +22,7 @@ export function QuestionnaireCharacterStrengthsReport({ quiz, result, locale }: 
       <p className="leading-7">{zh ? "分数描述你怎样评价自己的日常表现。先选一项，读一个生活例子，再看看有没有想尝试的小事。" : "The scores describe how you see your everyday experiences. Choose a part, read an everyday example and consider whether you want to try a small observation."}</p>
       <p className="text-sm leading-7 text-slate-600">{zh ? "1—5是条目认同程度，不是能力或人品等级；24项分开读，不指定五项标志性优势。" : "The 1–5 means describe endorsement, not ability or character grades. Read the 24 parts separately; no five signature strengths are assigned."}</p>
     </header>
-    <label className="grid max-w-xl gap-2 text-sm font-medium">
+    <label className="grid max-w-xl gap-2 text-sm font-medium lg:hidden">
       <span>{zh ? "先了解哪一项？" : "Which part would you like to explore?"}</span>
       <select className="min-h-12 min-w-0 w-full rounded-lg border border-slate-300 bg-white p-3 text-base" defaultValue={quiz.profiles[0].id} onChange={event => {
         const target = document.getElementById(`character-title-${event.target.value}`);
@@ -33,6 +33,17 @@ export function QuestionnaireCharacterStrengthsReport({ quiz, result, locale }: 
         return <option key={profile.id} value={profile.id}>{profile.title[locale]} · {facet.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${facet.mean.toFixed(1)} / 5`}</option>;
       })}</select>
     </label>
+    <nav className="hidden rounded-xl border border-emerald-200 bg-emerald-50/60 p-4 lg:block" aria-label={zh ? "二十四项优势读数与例子" : "Twenty-four strength readings and examples"}>
+      <ul className="grid grid-cols-4 gap-x-4 xl:grid-cols-6">{quiz.profiles.map(profile => {
+        const facet = result.facets[profile.directionIds[0]];
+        return <li key={profile.id} className="min-w-0 border-b border-emerald-200">
+          <a href={`#character-title-${profile.id}`} className="flex min-h-12 flex-col justify-center py-2 text-emerald-950">
+            <span className="font-semibold underline decoration-emerald-400 underline-offset-4">{profile.title[locale]}</span>
+            <span className="text-sm leading-6 tabular-nums">{facet.mean === null ? (zh ? `${facet.rated}/4 项有效` : `${facet.rated}/4 rated`) : `${facet.mean.toFixed(1)} / 5`}</span>
+          </a>
+        </li>;
+      })}</ul>
+    </nav>
     {valid === 0 && <p className="leading-8" data-character-insufficient>{zh ? "本次作答已结束，24部分均未生成个人分数。全部24份完整公开说明仍可阅读，也可以选择重测或在这里结束。" : "This attempt is finished without personal scores for any part. All 24 full public guides remain readable; you can retake it or stop here."}</p>}
     {quiz.profiles.map(profile => {
       const facet = result.facets[profile.directionIds[0]];

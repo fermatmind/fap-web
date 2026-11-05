@@ -17,7 +17,7 @@ function NatalWheel({ quiz, chart, locale }: { quiz: NatalChartQuestionnaire; ch
     const angle = (degrees - 90) * Math.PI / 180;
     return { x: 200 + radius * Math.cos(angle), y: 200 + radius * Math.sin(angle) };
   };
-  return <figure className="mx-auto my-6 max-w-md">
+  return <figure className="mx-auto w-full max-w-[24rem]">
     <svg viewBox="0 0 400 400" role="img" aria-label={zh ? "十天体回归黄道示意图；完整数值见下方表格" : "Ten-body tropical zodiac diagram; full values are in the following table"} className="h-auto w-full">
       <title>{zh ? "计算落点的黄道示意图" : "Zodiac diagram of calculated placements"}</title>
       <desc>{zh ? "白羊起点在上方，黄经顺时针增加。圆点编号对应数值表，径向分层仅便于阅读，不表示天体距离。" : "Aries begins at the top and longitude increases clockwise. Numbered dots match the table. Radial lanes aid reading and do not indicate celestial distances."}</desc>
@@ -129,12 +129,33 @@ export function NatalChartReport({ quiz, chart, locale, readingProfiles }: { qui
     </section>;
   };
   return <div data-natal-result className="space-y-8">
-    <p className="leading-8">{zh ? `本次采用UTC ${chart.utc}，当地偏移${chart.offset}。这些是本页内存中的私人计算数值，不会加入公开链接。` : `This calculation uses UTC ${chart.utc}, local offset${chart.offset}. These private values stay in this page's memory and are excluded from public links.`}</p>
     {chart.before1970 && <p data-natal-history-warning className="rounded-lg border border-amber-300 bg-amber-50 p-4 leading-8">{c.boundaries.timezone[locale]}</p>}
-    <p className="leading-8">{c.boundaries.rounding[locale]}</p>
     {chart.ascendant.status === "unavailable" && <p data-natal-angle-unavailable role="status" className="rounded-lg border border-amber-300 bg-amber-50 p-4 leading-8">{zh ? "该坐标与时刻无法确定本版本要求的唯一东方上升点。十天体位置和计数保留，上升点与全部宫位不可用，不补造角度。" : "This time and location do not provide a unique eastern rising point under this version's method. The ten body positions and counts remain available; the Ascendant and all houses are unavailable, without a substituted angle."}</p>}
-    <NatalWheel quiz={quiz} chart={chart} locale={locale} />
-    <h3 id="natal-placements-title" className="text-xl font-semibold">{zh ? "十天体位置、视运动、角点与数学点" : "Ten body positions, apparent motion, angles and mathematical points"}</h3>
+    <section aria-labelledby="natal-summary-title" className="overflow-hidden rounded-2xl border border-indigo-200 bg-indigo-50/70">
+      <div className="grid items-center gap-5 p-4 sm:p-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
+        <div className="min-w-0">
+          <p className="text-sm font-semibold text-indigo-900">{zh ? "回归黄道 · 整宫制" : "Tropical zodiac · Whole-sign houses"}</p>
+          <h3 id="natal-summary-title" className="mt-2 text-xl font-semibold text-indigo-950">{zh ? "太阳、月亮与上升" : "Sun, Moon and rising"}</h3>
+          <dl className="mt-4 divide-y divide-indigo-200">
+            {chart.placements.slice(0, 2).map(placement => <div key={placement.body} className="flex flex-wrap items-baseline justify-between gap-x-3 py-2">
+              <dt>{bodyName(placement.body)}</dt><dd className="font-semibold tabular-nums"><a className="inline-block min-h-11 py-2 underline" href={`#natal-body-role-${placement.body}`}>{coordinateLabel(quiz, placement.coordinate, locale)}</a></dd>
+            </div>)}
+            <div className="flex flex-wrap items-baseline justify-between gap-x-3 py-2">
+              <dt>{zh ? "上升" : "Rising"}</dt><dd className="font-semibold tabular-nums">{chart.ascendant.status === "computed" ? <a className="inline-block min-h-11 py-2 underline" href="#natal-rising-reading">{coordinateLabel(quiz, chart.ascendant.coordinate, locale)}</a> : (zh ? "不可用" : "Unavailable")}</dd>
+            </div>
+          </dl>
+          <p className="mt-3 text-sm leading-6 text-slate-700">{zh ? "可点开上方落点的符号读法，或向下核对全部计算位置。" : "Open the symbolic reading for a position above, or review all calculated positions below."}</p>
+          <a className="mt-2 inline-block min-h-11 py-2 font-medium underline" href="#natal-placements-title">{zh ? "查看完整位置表" : "View the full placements table"}</a>
+        </div>
+        <NatalWheel quiz={quiz} chart={chart} locale={locale} />
+      </div>
+      <details className="border-t border-indigo-200 bg-white px-4 py-1 sm:px-6">
+        <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "本次时区与坐标显示规则" : "Time zone and coordinate display"}</summary>
+        <p className="text-sm leading-7">{zh ? `本次采用 UTC ${chart.utc}，当地偏移 ${chart.offset}。这些计算数值只留当前页面，公开链接仅指向参考指南。` : `This calculation uses UTC ${chart.utc}, local offset ${chart.offset}. The values stay on this page. Public links point to the reference guides.`}</p>
+        <p className="pb-3 text-sm leading-7">{c.boundaries.rounding[locale]}</p>
+      </details>
+    </section>
+    <h3 id="natal-placements-title" className="scroll-mt-24 text-xl font-semibold">{zh ? "十天体位置、视运动、角点与数学点" : "Ten body positions, apparent motion, angles and mathematical points"}</h3>
     <p className="text-sm leading-7">{zh ? "窄屏可横向滚动表格，查看全部列。视运动的数值约定见下方公开方法说明。" : "On narrow screens, scroll the table horizontally to see every column. The numerical motion convention is explained in the public method below."}</p>
     <div className="overflow-x-auto" role="region" tabIndex={0} aria-label={zh ? "天体位置、视运动与宫位表" : "Body positions, apparent motion and houses table"}><table aria-labelledby="natal-placements-title" className="min-w-max w-full border-collapse text-left text-sm leading-7" data-natal-table>
       <thead><tr>{[zh ? "天体／点" : "Body / point", zh ? "星座内度数" : "Degrees within sign", zh ? "视运动" : "Apparent motion", zh ? "整宫制宫位" : "Whole-sign house"].map((label, index) => <th key={label} scope="col" className={`border-b border-slate-300 p-3${index === 0 ? " sticky left-0 z-20 bg-white" : ""}`}>{label}</th>)}</tr></thead>
@@ -172,7 +193,7 @@ export function NatalChartReport({ quiz, chart, locale, readingProfiles }: { qui
     </section>
     <section aria-labelledby="natal-three" className="space-y-5"><h3 id="natal-three" className="text-xl font-semibold leading-snug sm:text-2xl">{zh ? "本次太阳、月亮与上升读法" : "This chart's Sun, Moon and rising readings"}</h3>
       {chart.placements.slice(0, 2).map(p => roleCard(p, true))}
-      {chart.ascendant.status === "computed" && <section data-natal-rising-reading className="rounded-lg border border-slate-200 bg-white p-5 leading-8"><h3 className="text-xl font-semibold">{zh ? "上升" : "Rising"} · {coordinateLabel(quiz, chart.ascendant.coordinate, locale)}</h3>{c.ascendantRole.paragraphs.map((p, index) => <p className="mt-3" key={index}>{p[locale]}</p>)}<h4 className="mt-5 font-semibold">{signContext(chart.ascendant.coordinate, "ascendant").title[locale]}</h4>{signContext(chart.ascendant.coordinate, "ascendant").paragraphs.map((p, index) => <p className="mt-3" key={index}>{p[locale]}</p>)}<Link prefetch={false} className="mt-4 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, chart.ascendant.coordinate.sign)}>{zh ? "阅读这个星座的完整解释" : "Read the complete sign guide"}</Link></section>}
+      {chart.ascendant.status === "computed" && <section id="natal-rising-reading" data-natal-rising-reading className="scroll-mt-24 rounded-lg border border-slate-200 bg-white p-5 leading-8"><h3 className="text-xl font-semibold">{zh ? "上升" : "Rising"} · {coordinateLabel(quiz, chart.ascendant.coordinate, locale)}</h3>{c.ascendantRole.paragraphs.map((p, index) => <p className="mt-3" key={index}>{p[locale]}</p>)}<h4 className="mt-5 font-semibold">{signContext(chart.ascendant.coordinate, "ascendant").title[locale]}</h4>{signContext(chart.ascendant.coordinate, "ascendant").paragraphs.map((p, index) => <p className="mt-3" key={index}>{p[locale]}</p>)}<Link prefetch={false} className="mt-4 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, chart.ascendant.coordinate.sign)}>{zh ? "阅读这个星座的完整解释" : "Read the complete sign guide"}</Link></section>}
     </section>
     <section aria-labelledby="natal-other-bodies" className="space-y-5"><h3 id="natal-other-bodies" className="text-xl font-semibold leading-snug sm:text-2xl">{zh ? "其他八天体：角色、符号与宫位" : "The other eight bodies: role, symbol and house"}</h3>{chart.placements.slice(2).map(p => roleCard(p, false))}</section>
     <section aria-labelledby="natal-additional-angle-readings" className="space-y-5 leading-8"><h3 id="natal-additional-angle-readings" className="text-xl font-semibold leading-snug sm:text-2xl">{zh ? "本次 MC、IC 与 DSC 读法" : "This chart’s MC, IC and DSC readings"}</h3>

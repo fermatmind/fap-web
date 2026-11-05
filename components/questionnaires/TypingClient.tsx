@@ -122,11 +122,25 @@ function ValidTypingClient({ quiz, locale }: { quiz: Questionnaire; locale: Loca
       <p className="mt-3 text-sm leading-6 text-slate-600">{zh ? "切换到后台或时钟明显偏差会取消本轮；刷新丢失进度。输入只在本页内存中使用，不保存草稿、不发送到服务器、不加入链接或分析事件。设备和输入法建议可能影响结果，本练习不作监考认证。" : "Moving the page to the background or a clock divergence cancels the round; refresh loses progress. Input stays in page memory: no drafts, server submission, link payload or analytics event. Device and IME suggestions can affect results; this is not a proctored certification."}</p>
     </>}
     {phase === "result" && finished && <ResultPage variant="practice" data-typing-result data-observed-elapsed-ms={finished.observedElapsedMs} data-typing-language={finished.language} className="mt-5 space-y-6 leading-8">
-      <p>{round.title[locale]} · {zh ? "固定60秒；仅计时限内已提交文本" : "Fixed 60 seconds; only text committed before the deadline"}</p>
-      <p className="text-lg font-semibold tabular-nums">{zh ? "本轮 " : "This round: "}<strong data-typing-cpm>{finished.cpm.toFixed(1)}</strong>{zh ? " 字符/分钟" : " characters per minute"}</p>
-      <p>{zh ? `最终保留的${finished.typedCharacters}个字符中，${finished.correctCharacters}个与原文同位置相符。可以先核对文字位置，再决定要不要继续练习。` : `${finished.correctCharacters} of the ${finished.typedCharacters} final characters match the source at the same position. Review those positions before deciding whether to practise again.`}</p>
-      <details className="border-t border-slate-200 pt-3"><summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看准确率、单位与全部输入记录" : "View accuracy, units and all typing counts"}</summary>
-      <ResultOverview locale={locale} title={zh ? "本轮输入表现" : "This round’s typing performance"} id="typing-result-metrics">
+      <div className="overflow-hidden rounded-xl border border-indigo-200 bg-indigo-50">
+        <div className="px-4 pt-4 sm:px-6 sm:pt-6">
+          <p className="text-sm font-semibold text-indigo-900">{round.title[locale]}</p>
+          <p className="mt-1 text-sm leading-6 text-slate-700">{zh ? "固定 60 秒，仅计入截止前已提交的文本。" : "The 60-second round counts text committed before the deadline."}</p>
+        </div>
+        <dl className="grid gap-y-4 px-4 py-4 sm:grid-cols-2 sm:divide-x sm:divide-indigo-200 sm:px-6 sm:py-5">
+          <div className="min-w-0 sm:pr-5">
+            <dt className="text-sm font-medium text-indigo-950">{zh ? "最终字符 / 分钟" : "Final characters per minute"}</dt>
+            <dd className="mt-1 text-3xl font-semibold leading-tight tabular-nums text-indigo-950"><strong data-typing-cpm>{finished.cpm.toFixed(1)}</strong></dd>
+          </div>
+          <div className="min-w-0 border-t border-indigo-200 pt-3 sm:border-t-0 sm:pl-5 sm:pt-0">
+            <dt className="text-sm font-medium text-indigo-950">{zh ? "同位置相符 / 最终输入" : "Position-matched / entered"}</dt>
+            <dd className="mt-1 text-3xl font-semibold leading-tight tabular-nums text-indigo-950">{finished.correctCharacters} / {finished.typedCharacters}</dd>
+          </div>
+        </dl>
+        <p className="border-t border-indigo-200 bg-white p-4 text-sm leading-6 text-slate-700 sm:px-6">{zh ? "匹配数按原文同一位置核对。下方可查看速度、准确率和本轮复习方法。" : "Matching compares characters at the same position in the source. Review speed, accuracy and how to practise below."}</p>
+      </div>
+      <details className="border-t border-slate-200 pt-3"><summary id="typing-result-metrics" className="min-h-11 scroll-mt-24 cursor-pointer py-2 font-semibold">{zh ? "查看准确率、单位与全部输入记录" : "View accuracy, units and all typing counts"}</summary>
+      <ResultOverview locale={locale} title={zh ? "本轮输入表现" : "This round’s typing performance"}>
       <dl className="grid gap-3 sm:grid-cols-2 [&>div]:min-w-0 [&>div]:border-b [&>div]:border-slate-200 [&>div]:pb-4 [&_dd]:tabular-nums">
         <div><dt>{zh ? "最终字符 / 分钟（CPM）" : "Final characters per minute (CPM)"}</dt><dd className="text-2xl font-semibold">{finished.cpm.toFixed(1)}</dd></div>
         <div><dt>{zh ? "同位置正确字符 / 分钟" : "Position-correct characters per minute"}</dt><dd data-typing-correct-cpm className="text-2xl font-semibold">{finished.correctCpm.toFixed(1)}</dd></div>

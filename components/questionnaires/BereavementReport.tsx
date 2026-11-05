@@ -1,4 +1,4 @@
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
@@ -20,11 +20,17 @@ export function BereavementReport({ quiz, records, timeContext, locale, readingP
   return <section data-bereavement-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="bereavement-result-heading">
     <h2 id="bereavement-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
     <div data-bereavement-time-context={timeContext} className="space-y-3 leading-7"><p>{zh ? "自选时间背景：" : "Optional timing context: "}<strong>{bereavementTimeChoices.find(c => c.id === timeContext)!.label[locale]}</strong></p><p>{quiz.bereavementTimeContext!.boundary[locale]}</p></div>
-    <ResultReadingNav collapsible label={zh ? "本次主题记录" : "Topics in this record"} sections={records.map((record, index) => ({
-      id: `bereavement-record-${record.id}`,
-      title: `${quiz.directions[index].title[locale]} · ${record.observations.length}${zh ? "条记录" : " records"}`,
-    }))} />
     <BereavementSupport locale={locale} compact />
+    <section className="border-y border-stone-300 bg-stone-50 p-4 sm:p-6" aria-labelledby="bereavement-reading-start">
+      <h3 id="bereavement-reading-start" className="text-xl font-semibold text-stone-950">{zh ? "只读你现在愿意回看的部分" : "Read only what you want to revisit now"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "上面的时间背景由你选择。下方每组只呈现本次选过的类别和题目数，你可以直接进入某一篇，或到这里结束。" : "The timing above is your own context. Each topic lists the categories and prompt counts from your choices. Open any guide, or stop here."}</p>
+      <ul className="mt-4 divide-y divide-stone-300">
+        {records.map((record, index) => <li key={record.id} className="py-2 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:items-center lg:gap-4">
+          <a className="inline-flex min-h-11 items-center font-semibold text-stone-950 underline decoration-stone-500 underline-offset-4" href={`#bereavement-record-${record.id}`}>{quiz.directions[index].title[locale]}</a>
+          <ObservationChoiceCounts categories={bereavementCategories} counts={record.counts} locale={locale} shortLabels={{ na: { zh: "未计分", en: "Unscored" } }} />
+        </li>)}
+      </ul>
+    </section>
     {records.map((r, i) => {
       const original = quiz.profiles[i];
       const profile = readingProfiles?.find(item => item.id === original.id && item.directionIds.length === original.directionIds.length && item.directionIds.every((id, index) => id === original.directionIds[index]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === original.id) ?? original;

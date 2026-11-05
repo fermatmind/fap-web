@@ -15,6 +15,27 @@ export function QuestionnaireEmotionDashboardReport({ quiz, result, answers, loc
   return <div className="my-6 space-y-8">
 
 
+    <section className="rounded-xl border border-indigo-200 bg-indigo-50/65 p-4 sm:p-6" aria-labelledby="emotion-reading-start">
+      <h3 id="emotion-reading-start" className="text-xl font-semibold text-indigo-950">{zh ? "你想先把哪一种感受放回情境" : "Which feeling would you like to put in context?"}</h3>
+      <p className="my-3 max-w-prose leading-7">{zh ? "先想起一个有相关感受的场景，再选它的名称读生活例子。数值是本组题里选择的频率，观察不足时仍可读例子。" : "Recall a situation and choose a feeling for its everyday examples. The numbers describe frequency on these items. Examples stay available with too few numeric answers for a mean."}</p>
+      <table data-emotion-overview className="w-full table-fixed text-left text-sm [overflow-wrap:anywhere]">
+      <caption className="mb-4 text-left text-base font-semibold">{zh ? "八项读数概览：固定顺序，不按数值排名" : "Eight readings at a glance: fixed order, without ranking"}</caption>
+      <thead><tr className="border-b border-slate-200">
+        <th scope="col" className="w-2/5 py-3 pr-2">{zh ? "感受与全文" : "Feeling and guide"}</th>
+        <th scope="col" className="py-3 pr-2">{zh ? "频率均值" : "Frequency mean"}</th>
+        <th scope="col" className="py-3">{zh ? "数值条目" : "Numeric items"}</th>
+      </tr></thead>
+      <tbody>{quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return <tr key={direction.id} data-emotion-overview-row={direction.id} className="border-b border-slate-200">
+          <th scope="row" className="pr-2 font-medium"><a href={`#emotion-title-${direction.id}`} className="inline-block min-h-11 py-3 underline">{direction.title[locale]}</a></th>
+          <td className="py-3 pr-2">{score.mean === null ? (zh ? "观察不足" : "Insufficient") : `${score.mean.toFixed(1)} / 5`}</td>
+          <td className="py-3">{score.rated}/{score.total}</td>
+        </tr>;
+      })}</tbody>
+    </table>
+    </section>
+
     {quiz.directions.map(direction => {
       const score = result.facets[direction.id];
       const profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
@@ -42,22 +63,7 @@ export function QuestionnaireEmotionDashboardReport({ quiz, result, answers, loc
 
     <details className="border-t border-slate-200 pt-3" data-result-reading-method><summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、原始记录与计算说明" : "View all readings, original records and calculation notes"}</summary>
 <p className="leading-8">{zh ? "八类感受分别回看，不合成EQ能力、总体强度或主导人格。数字只概括本题组在相关机会中的频率选择，不同情境和机会使各部分不能排成最强情绪；较高不天然更好或更差。同值或接近不需要破同分，喜悦和难过等感受也不互相抵销。" : "Read eight feelings separately, without an EQ ability score, overall intensity or dominant personality. Numbers summarize these frequency selections on relevant occasions. Different contexts and opportunities prevent a strongest-emotion ranking; higher is not inherently better or worse. Equal or close means need no tie-break, and feelings such as Joy and Sadness do not cancel one another."}</p>
-<table data-emotion-overview className="w-full text-left text-sm">
-      <caption className="mb-4 text-left text-base font-semibold">{zh ? "八项读数概览：固定顺序，不按数值排名" : "Eight readings at a glance: fixed order, without ranking"}</caption>
-      <thead><tr className="border-b border-slate-200">
-        <th scope="col" className="py-3 pr-2">{zh ? "感受与全文" : "Feeling and guide"}</th>
-        <th scope="col" className="py-3 pr-2">{zh ? "频率均值" : "Frequency mean"}</th>
-        <th scope="col" className="py-3">{zh ? "数值条目" : "Numeric items"}</th>
-      </tr></thead>
-      <tbody>{quiz.directions.map(direction => {
-        const score = result.facets[direction.id];
-        return <tr key={direction.id} data-emotion-overview-row={direction.id} className="border-b border-slate-200">
-          <th scope="row" className="pr-2 font-medium"><a href={`#emotion-title-${direction.id}`} className="inline-block min-h-11 py-3 underline">{direction.title[locale]}</a></th>
-          <td className="py-3 pr-2">{score.mean === null ? (zh ? "观察不足" : "Insufficient") : `${score.mean.toFixed(1)} / 5`}</td>
-          <td className="py-3">{score.rated}/{score.total}</td>
-        </tr>;
-      })}</tbody>
-    </table>
+
     </details>
   </div>;
 }

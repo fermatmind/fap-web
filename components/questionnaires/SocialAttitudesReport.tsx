@@ -13,6 +13,14 @@ export function SocialAttitudesReport({ quiz, result, locale }: {
 }) {
   const zh = locale === "zh";
   return <ResultPage variant="dimensions" className="mt-6 space-y-8" data-social-attitudes-report>
+    <ResultOverview className="rounded-xl border border-sky-200 bg-sky-50/65" locale={locale} title={zh ? "从你在意的社会议题开始" : "Start with a social issue you care about"}
+      description={zh ? "四个议题分别保留自己的读数。选一个主题，阅读具体情境下会遇到哪些不同的考虑。" : "Each of the four issues keeps its own reading. Open one to see the considerations that may matter in a concrete situation."}
+      items={quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return { id: direction.id, label: direction.title[locale], href: `#social-attitudes-${direction.id}`,
+          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
+          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
+      })} />
 
 
     {quiz.directions.map(direction => {
@@ -36,14 +44,6 @@ export function SocialAttitudesReport({ quiz, result, locale }: {
 
     <details className="border-t border-slate-200 pt-4" data-result-reading-method>
       <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
-      <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
-      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
-      items={quiz.directions.map(direction => {
-        const score = result.facets[direction.id];
-        return { id: direction.id, label: direction.title[locale], href: `#social-attitudes-${direction.id}`,
-          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
-          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
-      })} />
       <p className="leading-8">{zh
       ? "四项分别概括对所列具体陈述的认同。每项六条，至少四条数字才显示均分；中立回答为3，未评分保持缺失。四项不合成总分，不评偏见、道德或身份。相同均分也可能来自不同回答组合。"
       : "Four separate parts summarize agreement with the particular statements shown. Each has six items and needs four numeric ratings for a mean. Neutral responses score 3; unscored responses remain missing. Parts are not combined into a total or used to rate prejudice, morality or identity. Different answer patterns can yield the same mean."}</p>

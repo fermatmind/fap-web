@@ -10,13 +10,23 @@ export function QuestionnaireEnergyFlowReport({ quiz, result, answers, locale }:
 }) {
   const zh = locale === "zh";
   return <div className="mt-6 space-y-8" data-energy-flow-report="">
-
-
-
-    {quiz.profiles.map(profile => <section key={profile.id} aria-labelledby={`energy-guide-${profile.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6" data-energy-full={profile.id}>
+    <section aria-labelledby="energy-flow-overview" className="border-y border-amber-200 bg-amber-50/60 p-4 sm:p-6">
+      <h3 id="energy-flow-overview" className="text-lg font-semibold text-amber-950">{zh ? "回看过去两周的四种情境" : "Four contexts from the past two weeks"}</h3>
+      <p className="mt-2 max-w-prose leading-7">{zh ? "从最想回看的情境开始。每组的数字回答和解读都可以单独查看。" : "Start with the situation you most want to revisit. Each topic has its own responses and explanation."}</p>
+      <ul className="mt-4 grid grid-cols-1 gap-x-6 divide-y divide-amber-200 sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4">
+        {quiz.profiles.map(profile => {
+          const score = result.facets[profile.directionIds[0]];
+          return <li key={profile.id} className="min-w-0 py-2">
+            <a href={`#energy-guide-${profile.id}`} className="block min-h-11 font-semibold text-amber-950 underline underline-offset-4">{quiz.directions.find(direction => direction.id === profile.directionIds[0])?.title[locale] ?? profile.headline[locale]}</a>
+            <p className="text-sm leading-7 tabular-nums">{score.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${score.mean.toFixed(1)} / 5`} <span className="text-slate-600">· {score.rated}/{score.total} {zh ? "项数字回答" : "numeric responses"}</span></p>
+          </li>;
+        })}
+      </ul>
+    </section>
+    {quiz.profiles.map(profile => <section key={profile.id} aria-labelledby={`energy-guide-${profile.id}`} className="border-b border-slate-200 pb-5 sm:pb-6" data-energy-full={profile.id}>
       <h3 id={`energy-guide-${profile.id}`} className="scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
       {(() => { const part = result.facets[profile.directionIds[0]]; return <p className="mb-4 font-semibold tabular-nums">{zh ? "本次均分：" : "Your mean: "}{part.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${part.mean.toFixed(1)} / 5`}</p>; })()}
-<QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix="report" mode="result" previewSectionIds={[`${profile.id}-scenario`, `${profile.id}-action`]} />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix="report" mode="result" previewSectionIds={[`${profile.id}-scenario`, `${profile.id}-action`]} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读不含个人数值的公开完整指南" : "Read the complete public guide without personal values"}</Link>
     </section>)}
 

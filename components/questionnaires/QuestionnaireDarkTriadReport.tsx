@@ -1,4 +1,3 @@
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -9,9 +8,18 @@ import type { Locale } from "@/lib/i18n/locales";
 export function QuestionnaireDarkTriadReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh", available = Object.values(result.facets).filter(f => f.rated >= 4).length;
   return <div className="my-6 space-y-8">
-
-    <ResultReadingNav collapsible label={zh ? "选择想读的部分" : "Choose a part to read"} sections={quiz.profiles.map(profile => ({ id: `dtt-title-${profile.id}`, title: profile.title[locale] }))} />
-
+    <section className="rounded-xl border border-slate-300 bg-slate-100/80 p-4 sm:p-6" aria-labelledby="dtt-reading-start">
+      <h3 id="dtt-reading-start" className="text-xl font-semibold text-slate-950">{zh ? "从三个日常主题读回答" : "Read the responses in three everyday themes"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "认可与形象、影响方式、关注他人感受，各自反映本次陈述的符合度。选一个主题可读情境例子。每组六题至少四项有效才显示均分。" : "Recognition and image, influence, and attention to others’ feelings each have their own ratings. Choose a theme for a situation you can compare. Each six-item theme needs four valid ratings for a mean."}</p>
+      <ul className="mt-4 grid gap-3 lg:grid-cols-3">{quiz.profiles.map(profile => {
+        const facet = result.facets[profile.directionIds[0]];
+        return <li key={profile.id} className="min-w-0 rounded-lg bg-white p-3">
+          <a href={`#dtt-title-${profile.id}`} className="inline-flex min-h-11 items-center font-semibold text-slate-950 underline decoration-slate-400 underline-offset-4">{profile.title[locale]}</a>
+          <p className="font-semibold tabular-nums">{facet.rated >= 4 ? `${(facet.sum / facet.rated).toFixed(2)} / 5` : (zh ? "资料不足" : "Insufficient information")}</p>
+          <p className="text-sm leading-7">{zh ? `${facet.rated}/6 项有效` : `${facet.rated}/6 rated`}</p>
+        </li>;
+      })}</ul>
+    </section>
 
     {quiz.profiles.map(profile => <section key={profile.id} data-dtt-profile={profile.id} aria-labelledby={`dtt-title-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
       <h3 id={`dtt-title-${profile.id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>

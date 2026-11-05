@@ -14,7 +14,7 @@ async function openModule(page: Page, locale: string, id: string, mode: "timed" 
   await expect(page.locator("[data-written-question-module]")).not.toHaveAttribute("data-written-phase", "ready");
 }
 async function clear(page: Page, locale: string) {
-  await page.getByRole("button", { name: label(locale, "Exit and clear all exercise records", "退出并清除全部练习记录"), exact: true }).click();
+  await page.getByRole("button", { name: label(locale, "Clear all exercise records", "清除全部练习记录"), exact: true }).click();
   await expect(page.locator("[data-written-unattempted]")).toHaveCount(6);
 }
 
@@ -55,6 +55,21 @@ for (const locale of ["en", "zh"] as const) {
     }
     await expect(page.locator('[data-written-module-record="entry"] [data-written-unattempted]')).toHaveCount(1);
     await expect(page.locator("[data-written-item-feedback]")).toHaveCount(30); expect(new URL(page.url()).search).toBe("");
+    const review = page.getByRole("navigation", { name: label(locale, "Open the records of completed exercises", "打开已完成练习的记录"), exact: true });
+    const reviewLinks = review.getByRole("link");
+    await expect(reviewLinks).toHaveCount(5);
+    const reviewTarget = await reviewLinks.first().getAttribute("href");
+    await reviewLinks.first().click();
+    await expect(page.locator(`${reviewTarget} h3`)).toBeInViewport();
+    for (const width of [320, 390, 1440]) {
+      await page.setViewportSize({ width, height: 844 });
+      const first = (await reviewLinks.first().boundingBox())!;
+      const second = (await reviewLinks.nth(1).boundingBox())!;
+      if (width === 1440) expect(second.x).toBeGreaterThan(first.x);
+      else expect(second.y).toBeGreaterThan(first.y);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    }
+    await page.setViewportSize({ width: 390, height: 844 });
     await page.getByRole("button", { name: label(locale, "Copy public entry", "复制公开入口"), exact: true }).click();
     await expect(page.getByRole("textbox", { name: label(locale, "Public entry for manual copying", "手动复制公开入口"), exact: true })).toHaveValue(`${quiz.title[locale]}\nhttps://fermatmind.com${path(locale)}`);
     await clear(page, locale); await expect(page.locator("[data-written-item-feedback]")).toHaveCount(0);

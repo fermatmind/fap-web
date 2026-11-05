@@ -1,4 +1,3 @@
-import { ResultSection, ResultReadingNav, ResultScoreRow } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import { scoreMattering10, type Mattering10Questionnaire, type Mattering10Result } from "@/lib/questionnaires/mattering10";
@@ -12,11 +11,15 @@ export function Mattering10Report({ quiz, result, locale, readingProfiles }: { q
   const checked = scoreMattering10(quiz, answers);
   if (JSON.stringify(checked) !== JSON.stringify(result)) return <p role="status">{zh ? "读数暂不可用，请清除后重试。" : "Readout unavailable. Clear and try again."}</p>;
   return <div data-mattering10-result className="my-6 space-y-8">
-    <p className="leading-8">{zh ? "两项分数分别阅读；不合并、不相减、不排名。相同数字没有特殊含义。" : "Read separately: do not combine, subtract or rank the totals. Equal numbers have no special meaning."}</p>
-    <ResultSection title={zh ? "两项独立读数" : "Two separate readouts"}>
-      <div className="grid gap-x-8 sm:grid-cols-2">{result.scales.map((scale, index) => <ResultScoreRow key={scale.id} label={quiz.directions[index].title[locale]} value={scale.total === null ? (zh ? "资料不足" : "Insufficient information") : `${scale.total} / 20`} score={scale.total} min={5} max={20} description={zh ? `可得范围5–20；${scale.answered}/5题已答` : `Possible range 5–20; ${scale.answered}/5 answered`} />)}</div>
-    </ResultSection>
-    <ResultReadingNav label={zh ? "完整读法" : "Full readings"} sections={result.scales.map((scale, index) => ({ id: `mattering-reading-${scale.id}`, title: quiz.directions[index].title[locale] }))} />
+    <section className="space-y-4 rounded-2xl border border-violet-200 bg-violet-50/60 p-4 sm:p-6" aria-labelledby="mattering-readouts-title">
+      <h3 id="mattering-readouts-title" className="text-xl font-semibold text-violet-950">{zh ? "两种经历分别读" : "Read each experience separately"}</h3>
+      <p className="max-w-prose leading-7">{zh ? "两项分数分别阅读，不合并、不相减、不排名。相同数字没有特殊含义。选一项可看计分与日常例子。" : "Read the totals separately without combining, subtracting or ranking them. Equal numbers have no special meaning. Select either total for its calculation and an everyday example."}</p>
+      <div className="grid gap-3 sm:grid-cols-2">{result.scales.map((scale, index) => <a key={scale.id} href={`#mattering-reading-${scale.id}`} className="block min-w-0 rounded-xl border border-violet-200 bg-white px-4 py-3 text-violet-950">
+        <span className="block font-semibold underline decoration-violet-400 underline-offset-4">{quiz.directions[index].title[locale]} ({scale.id})</span>
+        <span className="mt-1 block text-xl font-semibold tabular-nums">{scale.total === null ? (zh ? "资料不足" : "Insufficient information") : `${scale.total} / 20`}</span>
+        <span className="block text-sm leading-7">{zh ? `可得范围 5–20 · ${scale.answered}/5 题` : `Possible range 5–20 · ${scale.answered}/5 items`}</span>
+      </a>)}</div>
+    </section>
     {result.scales.map((s, i) => {
       const profile = quiz.profiles[i];
       const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === 1 && item.directionIds[0] === s.id && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;

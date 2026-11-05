@@ -27,8 +27,8 @@
     "zh": "分别比较表达能量与平稳在场、直接清楚与委婉节奏、即时回应与后续跟进、开放分享与有边界保留，每组六道原创二选一。四篇指南完整覆盖两端、全部次数及并列。题本记录自己的互动选择，而非他人反应，不合成魅力类型或吸引力评分。"
   },
   "resultHeading": {
-    "en": "Your four interaction comparisons and full readings",
-    "zh": "四组互动比较与完整读法"
+    "en": "Your choices across four interaction trade-offs",
+    "zh": "你在四组互动取舍中的选择"
   },
   "source": {
     "kind": "fermatmind_original_mini_reuse",
@@ -1236,8 +1236,8 @@
         "zh": "这是四原型魅力问卷吗？"
       },
       "answer": {
-        "en": "This is FermatMind’s own original interaction-choice form, reused from its mini-program. It reports four separate paired comparisons, not Playful, Regal, Healing or Mysterious archetypes.",
-        "zh": "这是复用自费马小程序的原创互动选择题本，报告四组独立比较，不生成活泼、高贵、治愈或神秘四原型。"
+        "en": "This is FermatMind’s own earlier original interaction-choice form. It reports four separate paired comparisons, not Playful, Regal, Healing or Mysterious archetypes.",
+        "zh": "这是基于费马早期原创互动选择题本，报告四组独立比较，不生成活泼、高贵、治愈或神秘四原型。"
       }
     },
     {

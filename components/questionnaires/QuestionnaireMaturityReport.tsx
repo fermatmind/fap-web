@@ -1,4 +1,3 @@
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -10,7 +9,14 @@ export function QuestionnaireMaturityReport({ quiz, result, locale }: { quiz: Qu
   const zh = locale === "zh", valid = Object.values(result.facets).filter(f => f.mean !== null).length;
   return <div className="my-6 space-y-8">
 
-    <ResultReadingNav collapsible label={zh ? "选择想读的部分" : "Choose a part to read"} sections={quiz.profiles.map(profile => ({ id: `maturity-title-${profile.id}`, title: profile.title[locale] }))} />
+    <section className="rounded-xl border border-amber-200 bg-amber-50/65 p-4 sm:p-6" aria-labelledby="maturity-actions">
+      <h3 id="maturity-actions" className="text-xl font-semibold text-amber-950">{zh ? "找一件你处理过的日常小事" : "Choose one everyday situation you handled"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "四项都是近四周具体做法的自报频率。选你最想理解的一项，看看它在日常情境里可以怎样做。" : "Each reading describes a practice you reported over the past four weeks. Choose one you want to understand and read what it can look like in an everyday situation."}</p>
+      <dl className="mt-4 grid gap-x-6 md:grid-cols-2">{quiz.directions.map(direction => {
+        const facet = result.facets[direction.id];
+        return <div key={direction.id} data-maturity-facet={direction.id} className="min-w-0 border-t border-amber-200 py-3 [&>dd]:font-semibold [&>dd]:tabular-nums"><dt className="font-medium">{quiz.profiles.some(profile => profile.directionIds.includes(direction.id)) ? <a className="inline-flex min-h-11 items-center py-2 underline decoration-slate-300 underline-offset-4" href={`#maturity-title-${quiz.profiles.find(profile => profile.directionIds.includes(direction.id))!.id}`}>{direction.title[locale]}</a> : direction.title[locale]}</dt><dd><span data-maturity-mean>{facet.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${facet.mean.toFixed(1)} / 5`}</span><span className="block text-sm text-slate-600">{zh ? `${facet.rated} / 6条有效频率评分` : `${facet.rated} / 6 rated items`}</span></dd></div>;
+      })}</dl>
+    </section>
 
 
     {quiz.profiles.map(profile => <section key={profile.id} data-maturity-profile={profile.id} aria-labelledby={`maturity-title-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
@@ -26,10 +32,7 @@ export function QuestionnaireMaturityReport({ quiz, result, locale }: { quiz: Qu
       <section className="space-y-4 rounded-lg bg-slate-50 p-4" aria-labelledby="maturity-reflection-title">
       <h3 id="maturity-reflection-title" className="text-xl font-semibold">{zh ? "近四周，四部分分别回看" : "Four separate reflections over the past four weeks"}</h3>
       <p className="leading-8">{zh ? `四部分中，${valid}个有足够资料显示均分。每部分6条至少4条有效，1从不至5几乎总是，全部直接键向、0条反向。没有机会、资料不足或不愿回答均排除，不补零；最低条数只是本站完整度规则。` : `${valid} of four parts have enough information for a mean. Each six-item part needs four ratings from 1 Never to 5 Almost always, with all items directly keyed and zero reversals. No opportunity, insufficient information or preferring not to answer is excluded without zero-filling. The minimum is a website completeness rule.`}</p>
-      <dl className="space-y-5">{quiz.directions.map(direction => {
-        const facet = result.facets[direction.id];
-        return <div key={direction.id} data-maturity-facet={direction.id} className="grid grid-cols-1 gap-2 border-b border-slate-200 py-3 sm:grid-cols-[minmax(0,1fr)_minmax(7rem,auto)] sm:gap-4 [&>dd]:font-semibold [&>dd]:tabular-nums"><dt className="font-medium">{quiz.profiles.some(profile => profile.directionIds.includes(direction.id)) ? <a className="inline-flex min-h-11 items-center py-2 underline decoration-slate-300 underline-offset-4" href={`#maturity-title-${quiz.profiles.find(profile => profile.directionIds.includes(direction.id))!.id}`}>{direction.title[locale]}</a> : direction.title[locale]}</dt><dd><span data-maturity-mean>{facet.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${facet.mean.toFixed(1)} / 5`}</span><span className="block text-sm text-slate-600">{zh ? `${facet.rated} / 6条有效频率评分` : `${facet.rated} / 6 rated items`}</span></dd></div>;
-      })}</dl>
+
       {valid === 0 && <p className="leading-8" data-maturity-insufficient>{zh ? "本次作答已结束，四部分均未生成个人均分。可以重新测试，下面四份完整公开说明仍可阅读。" : "This attempt is finished without personal means for any part. You can retake it; all four full public guides remain available below."}</p>}
       <p className="text-sm leading-7">{zh ? "均分只概括本组具体做法的自报频率，不评是否够成熟、年龄、能力、健康或品德。频率标签是有序类别，平均为呈现约定，不证明等距测量；同均分可来自不同组合。四项不排序、不相加，不生成总分、年龄或固定类型，小数差异不证明显著变化。机会、现实选择空间和记忆仍需另看，接受帮助或修改约定不能被分数叫作不成熟。" : "Means summarise reported frequencies of these practices without judging whether you are mature enough, your age, ability, health or morality. Frequency labels are ordered categories; averaging is a display convention rather than established interval measurement. Equal means can come from different patterns. Parts are neither ranked nor added into a total, age or fixed type, and decimals establish no significant change. Opportunity, room to choose and recall still matter. Receiving help or revising an agreement is not immaturity inferred from a score."}</p>
     </section>

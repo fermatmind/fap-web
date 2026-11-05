@@ -1,4 +1,4 @@
-import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
+import { ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -9,6 +9,17 @@ import type { Locale } from "@/lib/i18n/locales";
 export function QuestionnaireExpressionReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh";
   return <ResultPage variant="dimensions" className="mt-6 space-y-10">
+    <section className="border-y border-fuchsia-200 bg-fuchsia-50/55 p-4 sm:p-6" aria-labelledby="expression-in-context">
+      <h3 id="expression-in-context" className="text-xl font-semibold text-fuchsia-950">{zh ? "在什么场合，你会这样表达" : "Where does each way of expressing yourself show up?"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "回想一个适合表达、也愿意表达的场合。每项读数只对应这些场合下报告的频率，选名称即可继续读例子。" : "Think of a setting where you felt willing to express yourself. Each rating describes the reported frequency in these contexts. Open a topic for an example."}</p>
+      <dl className="mt-4 divide-y divide-fuchsia-200 border-t border-fuchsia-200">{quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return <div key={direction.id} className="flex flex-wrap items-baseline justify-between gap-x-4 py-1">
+          <dt><a className="inline-flex min-h-11 items-center font-semibold text-fuchsia-950 underline underline-offset-4" href={`#facet-title-${direction.id}`}>{direction.title[locale]}</a></dt>
+          <dd className="text-sm font-medium tabular-nums">{score.mean === null ? (zh ? `${score.rated}/${score.total} 项有效，未算均分` : `${score.rated}/${score.total} rated, no mean`) : `${score.mean.toFixed(1)} / 5`}</dd>
+        </div>;
+      })}</dl>
+    </section>
 
 
     {quiz.directions.map(direction => {
@@ -25,15 +36,7 @@ export function QuestionnaireExpressionReport({ quiz, result, locale }: { quiz: 
     })}
 
     <details className="border-t border-slate-200 pt-4" data-result-reading-method>
-      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
-      <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
-      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
-      items={quiz.directions.map(direction => {
-        const score = result.facets[direction.id];
-        return { id: direction.id, label: direction.title[locale], href: `#facet-title-${direction.id}`,
-          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
-          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
-      })} />
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看计分与使用说明" : "View scoring and use notes"}</summary>
       <p className="leading-8 text-slate-700">{zh ? "四组分别回看过去四周自愿、合适场面中的表达频率，不相加，也不按最高值派原型。高低只对应当前条目与机会，不表示女性程度、魅力、激素或他人的反应。每组的完整指南始终可读；资料不足时仅作通用说明。" : "Four groups separately revisit expression frequencies in fitting, voluntary situations over four weeks. They are not added together or assigned as a highest-value archetype. Higher or lower means concern these items and opportunities, not femininity, charm, hormones or other people's responses. Every full guide remains available; insufficient information permits general reading only."}</p>
     </details>
   </ResultPage>;

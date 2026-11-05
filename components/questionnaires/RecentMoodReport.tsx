@@ -18,8 +18,11 @@ export function RecentMoodSupport({ locale, compact = false }: { locale: Locale;
 export function RecentMoodReport({ quiz, records, locale, readingProfiles }: { quiz: Questionnaire; readingProfiles?: readonly QuestionnaireProfile[]; records: RecentMoodRecord[]; locale: Locale }) {
   const zh = locale === "zh";
   return <section data-recent-mood-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="recent-mood-result-heading">
-    <h2 id="recent-mood-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "选择一个主题阅读" : "Choose a topic to read"} sections={records.map((record, index) => ({ id: `record-${quiz.slug}-${record.id}`, title: quiz.directions[index].title[locale] }))} />
+    <header className="border-l-4 border-indigo-300 bg-indigo-50/60 p-4 sm:p-6">
+      <h2 id="recent-mood-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold text-indigo-950 outline-none">{quiz.resultHeading![locale]}</h2>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "回看这两周里记得的经历。每个主题先呈现本次选择，再展开逐条记录和通用解读。" : "Look back at what you remember from the past two weeks. Each topic starts with your choices and lets you open the individual responses and general reading."}</p>
+      <ResultReadingNav label={zh ? "选择一个主题阅读" : "Choose a topic to read"} sections={records.map((record, index) => ({ id: `record-${quiz.slug}-${record.id}`, title: quiz.directions[index].title[locale] }))} />
+    </header>
     <RecentMoodSupport locale={locale} compact />
     {records.map((r, i) => {
       const original = quiz.profiles[i];
@@ -28,7 +31,7 @@ export function RecentMoodReport({ quiz, records, locale, readingProfiles }: { q
       return <section key={r.id} id={`record-${quiz.slug}-${r.id}`} data-recent-mood-theme={r.id} aria-labelledby={`recent-mood-record-title-${r.id}`} className="scroll-mt-24 border-t border-slate-200 pt-6">
         <h3 id={`recent-mood-record-title-${r.id}`} className="mb-4 text-xl font-semibold leading-8">{quiz.directions[i].title[locale]}</h3>
         <p className="leading-8" data-recent-mood-topic-summary>{original.summary[locale]}</p>
-        <p className="my-4 text-sm leading-7 text-slate-600" data-recent-mood-choice-pattern>{recentMoodCategories.filter(category => r.counts[category.id] > 0).map(category => `${category.label[locale]} ${r.counts[category.id]}${zh ? "条" : " statements"}`).join(zh ? "；" : "; ")}</p>
+        <p className="my-4 border-l-2 border-indigo-200 pl-3 text-sm leading-7 text-slate-700" data-recent-mood-choice-pattern>{recentMoodCategories.filter(category => r.counts[category.id] > 0).map(category => `${category.label[locale]} ${r.counts[category.id]}${zh ? "条" : " statements"}`).join(" · ")}</p>
         {r.counts.na === 4 && <p data-recent-mood-unscored className="mb-4 leading-7">{zh ? "这四条全部未计分，不代表没有困难或不需要支持。" : "All four are unscored; this does not mean no difficulty or no need for support."}</p>}
         <div id={`recent-mood-public-${r.id}`} className="scroll-mt-24" data-recent-mood-full-reading>
           <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`recent-mood-result-reading-${profile.id}`} mode="result" previewSectionIds={previewSectionIds} showHeadline={false} showSummary={false} />

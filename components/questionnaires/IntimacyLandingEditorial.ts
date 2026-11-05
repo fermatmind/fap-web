@@ -115,8 +115,8 @@ export const intimacyLandingSections: Questionnaire["guide"] = [
         "zh": "选项3是计分回答，含义为不确定或视情况；无法判断或不愿回答时，可以另选不计分。24个选择全部完成后，含任一不计分项的组不显示原始和与均分，其他数值完整组仍可显示。缺失信息不会补成0、3，也不从其他组推算。"
       },
       {
-        "en": "All-unscored answers can finish and open all four guides. Leaving a question blank is different: it requires an explicit choice before the attempt can advance. A withheld mean describes completeness, not a psychological difficulty. The web rule works group by group and differs from the original Mini’s all-24-numeric condition; neither rule should be presented as a validated missing-data model.",
-        "zh": "全部选择不计分也可以完成，并阅读四篇指南。题目留空则不同，需要明确作出选择才能继续。暂不给均分描述的是资料完整度，不是心理困难。网页逐组处理，与原小程序要求24题数值完整的条件不同；两项规则都不应写成已经验证的缺失值模型。"
+        "en": "All-unscored answers can finish and open all four guides. Leaving a question blank is different: it requires an explicit choice before the attempt can advance. A withheld mean describes completeness, not a psychological difficulty. The web rule works group by group and differs from the earlier edition’s requirement for 24 numeric answers; neither rule should be presented as a validated missing-data model.",
+        "zh": "全部选择不计分也可以完成，并阅读四篇指南。题目留空则不同，需要明确作出选择才能继续。暂不给均分描述的是资料完整度，不是心理困难。网页逐组处理，与早期题本要求24题数值完整的条件不同；两项规则都不应写成已经验证的缺失值模型。"
       }
     ]
   },

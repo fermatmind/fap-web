@@ -1,5 +1,5 @@
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire, QuestionnaireProfile } from "@/lib/questionnaires/types";
@@ -19,8 +19,17 @@ export function WrittenLanguageReport({ quiz, records, locale, readingProfiles }
   const zh = locale === "zh";
   return <section data-written-language-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="written-language-result-heading">
     <h2 id="written-language-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "选择一个主题阅读" : "Choose a topic to read"} sections={records.map((record, index) => ({ id: `record-${quiz.slug}-${record.id}`, title: quiz.directions[index].title[locale] }))} />
     <WrittenLanguageSupport locale={locale} compact />
+    <section className="rounded-xl border border-indigo-200 bg-indigo-50/55 p-4 sm:p-6" aria-labelledby="written-context-start">
+      <h3 id="written-context-start" className="text-xl font-semibold text-indigo-950">{zh ? "从读一段文字或写一行字开始回看" : "Revisit a time you read or wrote something"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "每个主题对应不同的读写安排。这里先显示所选类别及题目数，再展开例子和原始回答。" : "The topics cover different ways of reading and writing. Start with category counts, then open examples and your original responses."}</p>
+      <ul className="mt-4 grid gap-x-6 md:grid-cols-2">
+        {records.map((record, index) => <li key={record.id} className="min-w-0 border-t border-indigo-200 py-2">
+          <a className="inline-flex min-h-11 items-center font-semibold text-indigo-950 underline underline-offset-4" href={`#record-${quiz.slug}-${record.id}`}>{quiz.directions[index].title[locale]}</a>
+          <ObservationChoiceCounts categories={writtenLanguageCategories} counts={record.counts} locale={locale} shortLabels={{ na: { zh: "未计分", en: "Unscored" } }} />
+        </li>)}
+      </ul>
+    </section>
     {records.map((r, i) => {
       const original = quiz.profiles[i];
       const profile = readingProfiles?.find(item => item.id === original.id && item.directionIds.length === original.directionIds.length && item.directionIds.every((id, index) => id === original.directionIds[index]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === original.id) ?? original;

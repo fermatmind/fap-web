@@ -18,7 +18,15 @@ export function QuestionnaireWorkArrangementReport({ quiz, result, locale }: {
 }) {
   const zh = locale === "zh";
   return <ResultPage variant="dimensions" className="my-6 space-y-8" data-work-arrangement-result>
-
+    <ResultOverview locale={locale} title={zh ? "四组工作安排位置" : "Four work arrangement preferences"}
+      className="border-indigo-200 bg-indigo-50"
+      description={zh ? "选择一组，核对刻度两端，再看适用的任务条件。" : "Open a group to check both endpoints and then read which task conditions matter."}
+      items={quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return { id: direction.id, label: direction.title[locale], href: `#work-arrangement-${direction.id}`,
+          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
+          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
+      })} />
 
     {quiz.directions.map(direction => {
       const score = result.facets[direction.id], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!, pole = anchors[direction.id];
@@ -45,14 +53,6 @@ export function QuestionnaireWorkArrangementReport({ quiz, result, locale }: {
 
     <details className="border-t border-slate-200 pt-4" data-result-reading-method>
       <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
-      <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
-      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
-      items={quiz.directions.map(direction => {
-        const score = result.facets[direction.id];
-        return { id: direction.id, label: direction.title[locale], href: `#work-arrangement-${direction.id}`,
-          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
-          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
-      })} />
       <p className="leading-8">{zh
       ? "四组分别显示所选安排的位置均值，数字不表示能力、绩效或与公司的契合。两端都可以是合适安排；中间值可能来自无明确偏好或不同情境中的相反选择，不派主导型。"
       : "The four groups separately show position means for the selected arrangements, not ability, performance or company fit. Either endpoint can be suitable. A middle value can reflect no clear preference or opposing choices across situations; no dominant type is assigned."}</p>

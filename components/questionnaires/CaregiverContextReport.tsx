@@ -1,4 +1,4 @@
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
@@ -18,11 +18,17 @@ export function CaregiverContextReport({ quiz, records, locale, readingProfiles 
   const zh = locale === "zh";
   return <section data-caregiver-context-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="caregiver-context-result-heading">
     <h2 id="caregiver-context-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "本次主题记录" : "Topics in this record"} sections={records.map((record, index) => ({
-      id: `caregiver-context-record-${record.id}`,
-      title: `${quiz.directions[index].title[locale]} · ${record.observations.length}${zh ? "条记录" : " records"}`,
-    }))} />
     <CaregiverContextSupport locale={locale} compact />
+    <section className="rounded-xl bg-orange-50/65 p-4 sm:p-6" aria-labelledby="caregiver-example-reading">
+      <h3 id="caregiver-example-reading" className="text-xl font-semibold text-orange-950">{zh ? "选一次你亲眼看到的活动" : "Choose an activity you directly observed"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "同一孩子在不同场合可能有不同表现。选择你想回顾的情境，看看本次各类观察对应几条题目，以及当时有哪些支持。" : "A child may act differently in different settings. Choose a context to see how many prompts you marked in each category and consider what support was present."}</p>
+      <ul className="mt-4 grid gap-x-6 md:grid-cols-2">
+        {records.map((record, index) => <li key={record.id} className="min-w-0 border-b border-orange-200 py-2">
+          <a className="inline-flex min-h-11 items-center font-semibold text-orange-950 underline underline-offset-4" href={`#caregiver-context-record-${record.id}`}>{quiz.directions[index].title[locale]}</a>
+          <ObservationChoiceCounts categories={caregiverContextCategories} counts={record.counts} locale={locale} shortLabels={{ na: { zh: "未计分", en: "Unscored" } }} />
+        </li>)}
+      </ul>
+    </section>
     {records.map((r, i) => {
       const original = quiz.profiles[i];
       const profile = readingProfiles?.find(item => item.id === original.id && item.directionIds.length === original.directionIds.length && item.directionIds.every((id, index) => id === original.directionIds[index]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === original.id) ?? original;

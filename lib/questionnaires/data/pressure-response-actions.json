@@ -27,8 +27,8 @@
     "zh": "回想过去四周的普通情境，无需寻找困难事件。为每条观察选择自己注意到的频率；没有相关机会、回想不清或不愿回答时，选择未计分。12条都须明确回应，包括未计分，之后才整理私人记录。可随时停止或退出，不答题也能读四篇全文。"
   },
   "resultHeading": {
-    "en": "Your four separate action-observation records",
-    "zh": "四个分别阅读的行动观察记录"
+    "en": "What you did under pressure",
+    "zh": "压力当下，你采取了哪些行动"
   },
   "directions": [
     {
@@ -1395,7 +1395,7 @@
         },
         {
           "en": "The existing Stress Response Patterns Test preserves twenty original Mini statements in five groups and records agreement over three months. This twelve-statement exercise uses four-week frequency categories, including an unscored option, and distinguishes wanting to begin from deliberately holding back. Its counts cannot be combined with the Mini form’s values or used to rename its five groups as four physiological types.",
-          "zh": "现有压力反应观察测试保留原创小程序二十条描述、五组结构，记录近三个月的符合程度。本十二条练习使用四周频率类别及未计分选项，并区分想开始却卡住与主动暂不回应。计数不能与小程序题本的数值合并，也不能把其五组改称四种生理类型。"
+          "zh": "现有压力反应观察测试保留费马早期题本的二十条原创描述、五组结构，记录近三个月的符合程度。本十二条练习使用四周频率类别及未计分选项，并区分想开始却卡住与主动暂不回应。计数不能与早期题本的数值合并，也不能把其五组改称四种生理类型。"
         }
       ]
     },

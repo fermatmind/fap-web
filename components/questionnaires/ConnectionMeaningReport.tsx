@@ -1,4 +1,4 @@
-import { ResultReadingNav, ResultScoreRow } from "./QuestionnaireResultPresentation";
+import { ResultScoreRow } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -9,12 +9,13 @@ import type { Locale } from "@/lib/i18n/locales";
 export function ConnectionMeaningReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh", available = Object.values(result.facets).filter(f => f.rated >= 3).length;
   return <div className="my-6 min-w-0 space-y-8 [overflow-wrap:anywhere]">
-    <section className="space-y-4 rounded-lg bg-slate-50 p-4" aria-labelledby="cmr-summary-title">
-      <h3 id="cmr-summary-title" className="text-xl font-semibold">{zh ? "五部分连接体验分别阅读" : "Five separate connection-experience readings"}</h3>
+    <section className="space-y-4 rounded-xl border border-emerald-200 bg-emerald-50/60 p-4 sm:p-6" aria-labelledby="cmr-summary-title">
+      <h3 id="cmr-summary-title" className="text-xl font-semibold">{zh ? "回想一段让你觉得有意义的连接" : "Recall a connection that felt meaningful"}</h3>
 
       <dl className="grid gap-x-8 gap-y-3 sm:grid-cols-2">{quiz.directions.map(direction => {
+        const profile = quiz.profiles.find(item => item.directionIds[0] === direction.id)!;
         const facet = result.facets[direction.id], mean = facet.rated >= 3 ? facet.sum / facet.rated : null;
-        return <div key={direction.id} data-cmr-facet={direction.id} className="min-w-0 border-b border-slate-200 pb-4"><dt className="font-semibold leading-7">{direction.title[locale]}</dt><dd>
+        return <div key={direction.id} data-cmr-facet={direction.id} className="min-w-0 border-b border-slate-200 pb-4"><dt><a className="inline-flex min-h-11 items-center font-semibold text-emerald-950 underline underline-offset-4" href={`#cmr-title-${profile.id}`}>{direction.title[locale]}</a></dt><dd>
           <ResultScoreRow label={zh ? "原始均值 · 1–5" : "Raw mean · 1–5"} value={<span data-cmr-mean>{mean === null ? (zh ? "资料不足" : "Insufficient information") : `${mean.toFixed(1)} / 5`}</span>} score={mean} min={1} max={5} description={quiz.profiles.find(profile => profile.directionIds[0] === direction.id)!.summary[locale]} />
           {mean !== null && <span data-cmr-sum className="mt-3 block text-sm leading-7 text-slate-600">{zh ? `原始和${facet.sum} / ${facet.rated}条数值` : `Raw sum ${facet.sum} / ${facet.rated} rated items`}</span>}
           <span data-cmr-rated className="block text-sm text-slate-600">{zh ? `${facet.rated} / 3条数值有效；${3 - facet.rated}条未评分` : `${facet.rated} / 3 numeric ratings; ${3 - facet.rated} unscored responses`}</span>
@@ -27,7 +28,6 @@ export function ConnectionMeaningReport({ quiz, result, locale }: { quiz: Questi
       </details>
     </section>
     <p className="leading-8">{zh ? "五篇八节全文全部保留，包括资料不足的项。结合具体机会与情境阅读，不把频率当固定身份。" : "All five eight-section guides remain open, including for insufficient parts. Read them alongside actual opportunities and context rather than as fixed identities."}</p>
-    <ResultReadingNav label={zh ? "完整主题解读" : "Full topic readings"} sections={quiz.profiles.map(profile => ({ id: `cmr-title-${profile.id}`, title: profile.title[locale] }))} />
     {quiz.profiles.map(profile => <section key={profile.id} data-cmr-profile={profile.id} aria-labelledby={`cmr-title-${profile.id}`} className="border-t border-slate-200 pt-7">
       <h3 id={`cmr-title-${profile.id}`} className="mb-5 scroll-mt-24 text-2xl font-semibold">{profile.title[locale]}</h3>
       <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} mode="result" previewSectionIds={["reading-2", "reading-5"]} />

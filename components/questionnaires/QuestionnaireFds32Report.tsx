@@ -11,9 +11,21 @@ export function QuestionnaireFds32Report({ quiz, result, answers, locale, readin
 }) {
   const zh = locale === "zh";
   return <div className="mt-6 space-y-8" data-fds-report="">
-
-
-
+    <section className="rounded-2xl border border-orange-200 bg-orange-50/60 p-4 sm:p-6" aria-labelledby="fds-contexts-title">
+      <h3 id="fds-contexts-title" className="text-xl font-semibold text-orange-950">{zh ? "从食物线索进入对应情境" : "Find the food cues you want to revisit"}</h3>
+      <p className="mt-2 max-w-prose leading-7 text-slate-700">{zh ? "均分在 1–6 的原始回答范围内，表示对题目所述情境的想象感受。每组填满数字回答才计算，点开名称可读对应例子。" : "The mean uses the original 1–6 response scale for imagined reactions to each scenario. A group needs all of its numeric answers. Choose any cue for its examples."}</p>
+      <ul className="mt-4 grid gap-x-6 md:grid-cols-2">
+        {quiz.profiles.map(profile => {
+          const score = result.facets[profile.directionIds[0]];
+          return <li key={profile.id} className="min-w-0 border-b border-orange-200 last:border-b-0">
+            <a className="flex min-h-12 items-center justify-between gap-2 py-2 text-orange-950" href={`#fds-guide-${profile.id}`}>
+              <span className="min-w-0 font-semibold underline decoration-orange-400 underline-offset-4">{profile.title[locale]}</span>
+              <span className="shrink-0 text-sm font-semibold tabular-nums">{score.mean === null ? (zh ? `${score.rated}/${score.total} 项有效` : `${score.rated}/${score.total} rated`) : `${score.mean.toFixed(1)} / 6`}</span>
+            </a>
+          </li>;
+        })}
+      </ul>
+    </section>
 
     {quiz.profiles.map(profile => {
       const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === 1 && item.directionIds[0] === profile.directionIds[0] && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;

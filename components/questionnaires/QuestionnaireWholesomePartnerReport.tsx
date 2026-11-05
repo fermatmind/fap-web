@@ -10,13 +10,14 @@ export function QuestionnaireWholesomePartnerReport({ quiz, result, locale }: { 
   const missing = zh ? "资料不足" : "Insufficient information";
   return <div className="my-6 space-y-8">
     <p className="leading-8">{zh ? "八组分别回顾过去四周自己的相处行动，不相加、不跨组排名或按最高均分派型。以下完整读法全部提供，不需要把自己或伴侣归为健康／有毒类型；任何均分都不证明一段关系安全。" : "Eight groups describe your own reported interactions during the past four weeks. They are not combined, ranked or assigned as a highest-mean type. Every full reading is available without a healthy/toxic label for you or a partner. No mean establishes that a relationship is safe."}</p>
-    <section data-wholesome-overview aria-label={zh ? "八组分别读数" : "Eight separate partner-behavior readings"} className="rounded-xl bg-slate-50 p-4 sm:p-6">
-      <h3 className="text-xl font-semibold">{zh ? "先看八组读数，再读每组完整说明" : "Read eight separate values, then every full guide"}</h3>
-      <dl className="mt-4 grid gap-5 sm:grid-cols-2">{quiz.directions.map(direction => {
+    <section data-wholesome-overview aria-label={zh ? "八组分别读数" : "Eight separate partner-behavior readings"} className="rounded-xl border border-rose-200 bg-rose-50/60 p-4 sm:p-6">
+      <h3 className="text-xl font-semibold">{zh ? "从一件伴侣相处中的小事开始" : "Start with one everyday interaction with a partner"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "读与你想回看的行动有关的一项。数字对应自己报告的频率，各篇指南有相处例子和行动边界。" : "Choose the action you want to revisit. The numbers reflect your reported frequencies, with examples and boundaries in each guide."}</p>
+      <dl className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">{quiz.directions.map(direction => {
         const score = result.facets[direction.id];
         const profile = quiz.profiles.find(item => item.directionIds[0] === direction.id)!;
-        return <div key={direction.id} data-wholesome-summary={direction.id} className="min-w-0 space-y-2">
-          <dt className="font-semibold"><a className="inline-block min-h-11 py-2 underline" href={`#wholesome-guide-${profile.id}`}>{direction.title[locale]}</a></dt>
+        return <div key={direction.id} data-wholesome-summary={direction.id} className="min-w-0 space-y-2 rounded-lg bg-white p-3">
+          <dt className="font-semibold"><a className="inline-flex min-h-11 items-center py-2 text-rose-950 underline underline-offset-4" href={`#wholesome-guide-${profile.id}`}>{direction.title[locale]}</a></dt>
           <dd data-wholesome-mean className="text-lg">{score.mean === null ? missing : `${(score.sum / score.total).toFixed(1)} / 5`}</dd>
           <dd data-wholesome-sum className="text-sm text-slate-600">{zh ? "计分后评分和（4—20）" : "Keyed rating sum (4–20)"}: {score.mean === null ? missing : score.sum}</dd>
           <dd data-wholesome-rated className="text-sm text-slate-600">{zh ? "有效频率回答" : "Valid frequency ratings"}: {score.rated} / {score.total}</dd>

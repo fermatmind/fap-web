@@ -1,0 +1,92 @@
+.index,
+.topic {
+  min-width: 0;
+  border: 1px solid #dee5e7;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.index {
+  background: #eff5f4;
+  color: #244640;
+  padding: clamp(16px, 3vw, 28px);
+}
+
+.index nav,
+.topic nav {
+  margin-bottom: 0;
+}
+
+.topics {
+  display: grid;
+  gap: 16px;
+}
+
+.topic {
+  padding: clamp(16px, 3vw, 28px);
+}
+
+.topic > h3 {
+  margin: 0 0 12px;
+  scroll-margin-top: 96px;
+  color: #244640;
+  font-weight: 700;
+  font-size: clamp(19px, 2.5vw, 24px);
+}
+
+.measures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 0 0 16px;
+  padding: 14px 16px;
+  border-radius: 9px;
+  background: #eff5f4;
+}
+
+.measures > div { min-width: 0; }
+.measures dt { font-size: 13px; color: #465e5a; }
+.measures dd { font-weight: 680; font-variant-numeric: tabular-nums; }
+
+.calculation {
+  margin-block: 16px;
+  color: #465e5a;
+  font-size: 14px;
+}
+
+.calculation summary { min-height: 44px; padding-block: 8px; cursor: pointer; font-weight: 650; }
+
+.paired {
+  display: grid;
+  min-width: 0;
+  border: 1px solid #dfe0ec;
+  border-radius: 16px;
+  background: #f3f3fa;
+  color: #353b65;
+}
+
+.pairedLead,
+.pairedCounts { padding: clamp(16px, 3vw, 28px); min-width: 0; }
+.pairedCounts { border-top: 1px solid #dfe0ec; border-radius: 0 0 15px 15px; background: white; }
+.pairedCounts a { display: inline-flex; min-height: 44px; align-items: center; text-decoration: underline; text-underline-offset: 4px; }
+.pairedReadings { display: grid; gap: 16px; }
+.pairedReadings .topic > h3 { color: #353b65; }
+
+@media (min-width: 880px) {
+  .topics, .pairedReadings { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+  .paired { grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr); }
+  .pairedCounts { border-top: 0; border-inline-start: 1px solid #dfe0ec; border-radius: 0 15px 15px 0; }
+}
+
+.countGrid {
+  display: grid;
+  gap: 0 18px;
+}
+
+.countGrid > div { padding-block: 5px 10px; }
+.countGrid > div > dl { gap: 0 10px; }
+.countGrid a { font-size: 14px; }
+
+@media (min-width: 390px) {
+  .countGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

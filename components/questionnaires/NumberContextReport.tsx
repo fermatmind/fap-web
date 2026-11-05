@@ -1,5 +1,5 @@
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire, QuestionnaireProfile } from "@/lib/questionnaires/types";
@@ -18,8 +18,16 @@ export function NumberContextSupport({ locale, compact = false }: { locale: Loca
 export function NumberContextReport({ quiz, records, locale, readingProfiles }: { quiz: Questionnaire; readingProfiles?: readonly QuestionnaireProfile[]; records: NumberContextRecord[]; locale: Locale }) {
   const zh = locale === "zh";
   return <section data-number-context-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="number-context-result-heading">
-    <h2 id="number-context-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "选择一个主题阅读" : "Choose a topic to read"} sections={records.map((record, index) => ({ id: `record-${quiz.slug}-${record.id}`, title: quiz.directions[index].title[locale] }))} />
+    <header className="rounded-xl border border-cyan-200 bg-cyan-50/50 p-4 sm:p-6">
+      <h2 id="number-context-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold text-cyan-950 outline-none">{quiz.resultHeading![locale]}</h2>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "找一类你想回看的日常数字任务。每栏列出本次选过的频率类别及对应题目数，帮助你找到下方相关情境。" : "Pick a kind of everyday number task to revisit. Each panel shows the frequencies you selected and their prompt counts, with links to the corresponding contexts below."}</p>
+      <nav className="mt-5 grid gap-px overflow-hidden rounded-lg border border-cyan-200 bg-cyan-200 md:grid-cols-2" aria-label={zh ? "按日常数字任务阅读" : "Read by everyday number task"}>
+        {records.map((record, index) => <div key={record.id} className="min-w-0 bg-white px-3 pb-3 sm:px-4">
+          <a className="inline-flex min-h-11 items-center font-semibold text-cyan-950 underline underline-offset-4" href={`#record-${quiz.slug}-${record.id}`}>{quiz.directions[index].title[locale]}</a>
+          <ObservationChoiceCounts categories={numberContextCategories} counts={record.counts} locale={locale} shortLabels={{ na: { zh: "未计分", en: "Unscored" } }} />
+        </div>)}
+      </nav>
+    </header>
     <NumberContextSupport locale={locale} compact />
     {records.map((r, i) => {
       const original = quiz.profiles[i];

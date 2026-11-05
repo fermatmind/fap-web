@@ -18,10 +18,24 @@ export function QuestionnairePreparationActions20Report({ quiz, result, locale }
     || JSON.stringify(checked) !== JSON.stringify(result.preparationActions20)) {
     return <p role="alert">{zh ? "结果暂不可用，请重新作答。" : "Result unavailable. Please start a new attempt."}</p>;
   }
+  const remote = quiz.slug === "remote-work";
+  const overviewTitle = remote ? (zh ? "远程工作安排" : "Your remote-work setup") : (zh ? "自由职业准备清单" : "Your freelance preparation checklist");
   return <div data-preparation-actions-result className="mt-6 space-y-8">
-
-
-
+    <section aria-labelledby="preparation-overview" className={`rounded-xl border p-4 sm:p-6 ${remote ? "border-sky-200 bg-sky-50" : "border-amber-200 bg-amber-50"}`}>
+      <h3 id="preparation-overview" className="text-xl font-semibold">{overviewTitle}</h3>
+      <p className="my-3 max-w-prose text-sm leading-7 text-slate-700">{remote
+        ? (zh ? "先找出你当前远程安排里的一个具体环节，再读相关场景。" : "Choose one part of your current remote-work setup and read its situation below.")
+        : (zh ? "先找出接单前想准备的一项，再读相关场景和小试验。" : "Choose one thing to prepare before taking on freelance work, then read its situation and rehearsal.")}</p>
+      <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{checked.domains.map((part, index) => {
+        const profile = quiz.profiles.find(candidate => candidate.directionIds[0] === part.id)!;
+        return <li key={part.id} className="min-w-0 rounded-lg border border-slate-200 bg-white px-3 pb-3">
+          <a className="inline-block min-h-11 py-2 font-semibold underline" href={`#preparation-guide-${profile.id}`}>{quiz.directions[index].title[locale]}</a>
+          <p className="text-sm leading-6 tabular-nums">{part.mean === null
+            ? (zh ? `资料不足 · ${part.ratedItems} / 4 项有数值` : `Insufficient information · ${part.ratedItems} / 4 rated`)
+            : (zh ? `阶段均分 ${part.mean.toFixed(1)} / 3` : `Action-stage mean ${part.mean.toFixed(1)} / 3`)}</p>
+        </li>;
+      })}</ul>
+    </section>
     {quiz.profiles.map(profile => <section key={profile.id} data-preparation-actions-guide={profile.id}
       aria-labelledby={`preparation-guide-${profile.id}`}>
       <h3 id={`preparation-guide-${profile.id}`} className="scroll-mt-24 mb-4 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>

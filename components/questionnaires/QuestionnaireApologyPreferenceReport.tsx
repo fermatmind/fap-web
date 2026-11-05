@@ -1,4 +1,4 @@
-import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
+import { ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire } from "@/lib/questionnaires/types";
@@ -11,7 +11,19 @@ export function QuestionnaireApologyPreferenceReport({ quiz, result, locale }: {
 }) {
   const zh = locale === "zh";
   return <ResultPage variant="dimensions" data-apology-preference-result className="mt-6 space-y-10">
-
+    <section className="border-y border-rose-200 bg-rose-50/60 p-4 sm:p-6" aria-labelledby="apology-reading-start">
+      <h3 id="apology-reading-start" className="text-xl font-semibold text-rose-950">{zh ? "收到道歉时，你在意哪些内容" : "What matters to you when someone apologises?"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "选五项中的任意一项，读它在真实对话里可能怎样出现。数字表示你对这些内容的重视程度。" : "Open any element to see how it might come up in a conversation. Each number reflects how much importance you gave to the listed elements."}</p>
+      <ol className="mt-4 divide-y divide-rose-200 border-t border-rose-200">
+        {quiz.directions.map(direction => {
+          const score = result.facets[direction.id];
+          return <li key={direction.id} className="flex flex-wrap items-center justify-between gap-x-4 py-1">
+            <a className="inline-flex min-h-11 items-center font-semibold text-rose-950 underline underline-offset-4" href={`#apology-preference-part-${direction.id}`}>{direction.title[locale]}</a>
+            <span className="text-sm font-semibold tabular-nums">{score.mean === null ? (zh ? `${score.rated}/${score.total} 项有效，未算均分` : `${score.rated}/${score.total} rated, no mean`) : `${score.mean.toFixed(1)} / 5`}</span>
+          </li>;
+        })}
+      </ol>
+    </section>
 
     {quiz.directions.map(direction => {
       const score = result.facets[direction.id], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
@@ -27,15 +39,7 @@ export function QuestionnaireApologyPreferenceReport({ quiz, result, locale }: {
     })}
 
     <details className="border-t border-slate-200 pt-4" data-result-reading-method>
-      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
-      <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
-      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
-      items={quiz.directions.map(direction => {
-        const score = result.facets[direction.id];
-        return { id: direction.id, label: direction.title[locale], href: `#apology-preference-part-${direction.id}`,
-          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
-          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
-      })} />
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看计分与使用说明" : "View scoring and use notes"}</summary>
       <p className="leading-8 text-slate-700">{zh
       ? "五组分别描述接收道歉时对题中内容的重视程度，不相加、不排名，不按并列次序强派主要语言。较高只表示更重视所列内容，不推断你自己怎样道歉、他人是否真诚或关系是否会恢复。相同均分全部保留，小差距不证明需要有重要差别；没有人因此负有原谅义务。"
       : "These five groups describe what you value when receiving an apology, without an aggregate, ranking or primary language selected by a tie-break. Larger means only reflect more stated importance of the listed elements. They do not establish how you apologize, anyone’s sincerity or whether a relationship will recover. Equal means all remain visible; small gaps do not establish meaningful differences. No result creates a duty to forgive."}</p>

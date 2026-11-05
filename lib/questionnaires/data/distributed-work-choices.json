@@ -27,8 +27,8 @@
     "zh": "每组选择一项更接近你在选定安排中过去四周通常先关注的有用行动。两项都不是错误答案。两项都不符合、同样符合、没有相关实例、无法比较或不愿回答时，请选未计分选项。24组都须明确回应，包括未计分选择，之后才展示计数。"
   },
   "resultHeading": {
-    "en": "Your four separate coordination-choice records",
-    "zh": "四个分别阅读的协作选择记录"
+    "en": "How you coordinate work across locations",
+    "zh": "你怎样安排异地协作"
   },
   "source": {
     "kind": "fermatmind_original_distributed_work_relative_choices",

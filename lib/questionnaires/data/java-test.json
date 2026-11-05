@@ -27,8 +27,8 @@
     "zh": "每题给完整Main.java程序，选择准确打印文本或所述编译失败结果，按Java 25、不启预览特性及普通标准库行为理解。两语保留相同英文代码和输出值，说明与解析双语。各片段相互独立，不靠竞态、外部输入或未规定的集合顺序决定答案。不计时、无速度奖励；24题全部有效作答后看完整核对。可查资料学习，辅助与独立作答反映不同条件。"
   },
   "resultHeading": {
-    "en": "Your Java practice counts and every explanation",
-    "zh": "本次Java练习正确数与全部解析"
+    "en": "Java practice: trace the execution to check each result",
+    "zh": "Java 练习：沿执行顺序核对结果"
   },
   "directions": [
     {

@@ -12,6 +12,7 @@ import { useEntertainmentMetrics, useEntertainmentResultView } from "@/component
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
+import resultStyles from "./QuestionnaireResultPresentation.module.css";
 const subscribeReady = () => () => {};
 const now = () => ({ wall: Date.now(), monotonic: performance.now() });
 const time = (seconds: number) => `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
@@ -122,22 +123,26 @@ function ValidReasoning18Client({ quiz, locale, readingProfiles }: { quiz: Reaso
       </>}
       {stage === "result" && result && <>
         <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading?.[locale]}</h2>
-        <p data-reasoning18-result-mode className="leading-8">{result.mode === "timed" ? (zh ? "分段计时练习 · 本站选定上限" : "Timed section practice · Site-selected caps") : (zh ? "不计时学习" : "Untimed study")}</p>
-        <p data-reasoning18-overall className="rounded-lg bg-violet-50 p-4 leading-8">{counts(result.overall)}</p>
-        <p className="leading-8">{zh ? "以上仅为本题本原始记录，不换算提供方成绩、百分位、通过或资格判定。各部分难度未等值，不按最低正确数判定弱项。全部题目与解析如下免费可读。" : "These are raw records on this bank, not a provider score, percentile, pass or qualification decision. Parts are not equated; the lowest count does not diagnose a weakness. Every question and explanation is free below."}</p>
-        {(() => {
-          const item = result.items.find(candidate => candidate.outcome === "wrong") ?? result.items.find(candidate => candidate.outcome === "unanswered") ?? result.items[0];
-          const question = quiz.questions.find(candidate => candidate.id === item.id)!;
-          const selected = question.options.find(option => option.id === item.selectedOptionId);
-          const correct = question.options.find(option => option.id === item.correctOptionId)!;
-          return <section className="border-l-2 border-amber-300 pl-4 leading-8" data-reasoning18-focus={item.id}>
-            <h3 className="mb-3 text-xl font-semibold">{zh ? "先复盘一题，再选择复习方向" : "Review one item, then choose what to study"}</h3>
-            <p lang="en" className="whitespace-pre-line">{question.prompt.en}</p>
-            <p className="mt-3 text-sm">{zh ? "你的选择：" : "Your choice: "}<span lang={selected ? "en" : undefined}>{selected ? selected.label.en : (zh ? "未答" : "Unanswered")}</span></p>
-            <p className="text-sm">{zh ? "正确答案：" : "Answer key: "}<span lang="en">{correct.label.en}</span></p>
-            <p className="mt-3">{question.explanation![locale]}</p>
-          </section>;
-        })()}
+        <div className={resultStyles.sectionPracticeLead} data-section-practice="reasoning18">
+          <div className={resultStyles.sectionPracticeScore}>
+            <p data-reasoning18-result-mode className="leading-8">{result.mode === "timed" ? (zh ? "分段计时练习 · 本站选定上限" : "Timed section practice · Site-selected caps") : (zh ? "不计时学习" : "Untimed study")}</p>
+            <p data-reasoning18-overall className="rounded-lg bg-violet-50 p-4 leading-8">{counts(result.overall)}</p>
+            <p className="leading-8">{zh ? "以上仅为本题本原始记录，不换算提供方成绩、百分位、通过或资格判定。各部分难度未等值，不按最低正确数判定弱项。全部题目与解析如下免费可读。" : "These are raw records on this bank, not a provider score, percentile, pass or qualification decision. Parts are not equated; the lowest count does not diagnose a weakness. Every question and explanation is free below."}</p>
+          </div>
+          {(() => {
+            const item = result.items.find(candidate => candidate.outcome === "wrong") ?? result.items.find(candidate => candidate.outcome === "unanswered") ?? result.items[0];
+            const question = quiz.questions.find(candidate => candidate.id === item.id)!;
+            const selected = question.options.find(option => option.id === item.selectedOptionId);
+            const correct = question.options.find(option => option.id === item.correctOptionId)!;
+            return <section className={`${resultStyles.sectionPracticeContext} leading-8`} data-reasoning18-focus={item.id}>
+              <h3 className="mb-3 text-xl font-semibold">{zh ? "重走一道题的推理过程" : "Work through one reasoning item again"}</h3>
+              <p lang="en" className="whitespace-pre-line">{question.prompt.en}</p>
+              <p className="mt-3 text-sm">{zh ? "你的选择：" : "Your choice: "}<span lang={selected ? "en" : undefined}>{selected ? selected.label.en : (zh ? "未答" : "Unanswered")}</span></p>
+              <p className="text-sm">{zh ? "正确答案：" : "Answer key: "}<span lang="en">{correct.label.en}</span></p>
+              <p className="mt-3">{question.explanation![locale]}</p>
+            </section>;
+          })()}
+        </div>
         <ResultPage variant="practice" data-reasoning18-result className="space-y-6">
           <ResultOverview locale={locale} title={zh ? "分段表现概览" : "Section performance"}
             description={zh ? "只核对本题本的正确、错误和未答记录。选择一段，查看答案、解析与复习内容。" : "Correct, wrong and unanswered counts on this bank only. Choose a section to review its answers, explanations and study guide."}

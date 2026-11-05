@@ -1,5 +1,5 @@
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire, QuestionnaireProfile } from "@/lib/questionnaires/types";
@@ -19,7 +19,15 @@ export function PressureActionsReport({ quiz, records, locale, readingProfiles }
   const zh = locale === "zh";
   return <section data-pressure-actions-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="pressure-actions-result-heading">
     <h2 id="pressure-actions-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "选择一个主题阅读" : "Choose a topic to read"} sections={records.map((record, index) => ({ id: `record-${quiz.slug}-${record.id}`, title: quiz.directions[index].title[locale] }))} />
+    <nav aria-label={zh ? "回看压力下的四种动作" : "Revisit four actions under pressure"} className="rounded-xl border border-orange-200 bg-orange-50/60 p-4 sm:p-6">
+      <p className="max-w-prose leading-7">{zh ? "守住立场、离开、卡住和先同意可以发生在不同情境。选一个你还记得的例子。每个数字是选了该类别的题目数。" : "Holding a position, stepping away, getting stuck and agreeing early can happen in different situations. Start with a moment you remember. The numbers count prompts in each category."}</p>
+      <ol className="mt-4 grid gap-px overflow-hidden rounded-lg bg-orange-200 sm:grid-cols-2">
+        {records.map((record, index) => <li key={record.id} className="min-w-0 bg-white p-3">
+          <a className="inline-flex min-h-11 items-center font-semibold text-orange-950 underline underline-offset-4" href={`#record-${quiz.slug}-${record.id}`}>{quiz.directions[index].title[locale]}</a>
+          <ObservationChoiceCounts categories={pressureActionsCategories} counts={record.counts} locale={locale} shortLabels={{ na: { zh: "未计分", en: "Unscored" } }} />
+        </li>)}
+      </ol>
+    </nav>
     <PressureActionsSupport locale={locale} compact />
     {records.map((r, i) => {
       const original = quiz.profiles[i];

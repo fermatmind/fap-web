@@ -1,4 +1,4 @@
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
@@ -19,11 +19,17 @@ export function CycleContextReport({ quiz, records, locale, readingProfiles }: {
   const zh = locale === "zh";
   return <section data-cycle-context-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="cycle-context-result-heading">
     <h2 id="cycle-context-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "本次主题记录" : "Topics in this record"} sections={records.map((record, index) => ({
-      id: `cycle-context-record-${record.id}`,
-      title: `${quiz.directions[index].title[locale]} · ${record.observations.length}${zh ? "条记录" : " records"}`,
-    }))} />
     <CycleContextSupport locale={locale} compact />
+    <section className="rounded-xl border border-rose-200 bg-rose-50/60 p-4 sm:p-6" aria-labelledby="cycle-recollection-start">
+      <h3 id="cycle-recollection-start" className="text-xl font-semibold text-rose-950">{zh ? "把感受、日常安排和记得的时间分开看" : "Read feelings, routines and recalled timing separately"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "这些是你能回想的情境。先读想了解的主题，再看它有哪些不同的生活例子。数字是各回答类别对应的题目数。" : "These are contexts you could recall. Choose one theme for its everyday examples. Each number counts the prompts for a response category."}</p>
+      <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+        {records.map((record, index) => <li key={record.id} className="min-w-0 rounded-lg bg-white px-3 pb-3">
+          <a className="inline-flex min-h-11 items-center font-semibold text-rose-950 underline underline-offset-4" href={`#cycle-context-record-${record.id}`}>{quiz.directions[index].title[locale]}</a>
+          <ObservationChoiceCounts categories={cycleContextCategories} counts={record.counts} locale={locale} shortLabels={{ na: { zh: "未计分", en: "Unscored" } }} />
+        </li>)}
+      </ul>
+    </section>
     {records.map((r, i) => {
       const original = quiz.profiles[i];
       const profile = readingProfiles?.find(item => item.id === original.id && item.directionIds.length === original.directionIds.length && item.directionIds.every((id, index) => id === original.directionIds[index]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === original.id) ?? original;

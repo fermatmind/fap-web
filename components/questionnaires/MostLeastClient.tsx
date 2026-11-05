@@ -79,15 +79,31 @@ function ValidMostLeastClient({ quiz, locale, readingProfiles }: { quiz: Questio
       <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? "上一组" : "Back"}</button><button data-questionnaire-next type="button" className={button} onClick={next}>{position === 15 ? (zh ? "查看完整记录" : "See complete record") : (zh ? "下一组" : "Next")}</button><button type="button" className={button} onClick={() => { setAnswers(a => ({ ...a, [q.id]: {} })); setMessage(""); }}>{zh ? "清空本组" : "Clear this block"}</button><QuestionnaireLegacyControl><button type="button" className={button} onClick={reset}>{zh ? "清空并退出" : "Clear and exit"}</button></QuestionnaireLegacyControl></div>
     </>}
     {phase === "result" && result.status === "complete" && <>
-      <p className="my-5 leading-8">{zh ? "以下是八主题在固定菜单中的原始选择次数。差值＝最符合－最不符合，不排序、不分类，也不换算为Caliper分数。八主题的差值合计恒为零。" : "These are raw selections within fixed menus across all eight topics. Difference = Most − Least. Topics are not ranked or assigned as types, and counts are not converted into Caliper scores. All eight differences sum to zero."}</p>
-      <div className="my-5 flex flex-wrap gap-3"><button type="button" className={button} onClick={start}>{zh ? "重新练习" : "Retake practice"}</button><button type="button" className={button} onClick={share}>{zh ? "复制公开练习链接" : "Copy public practice link"}</button><QuestionnaireLegacyControl><button type="button" className={button} onClick={reset}>{zh ? "清空并退出" : "Clear and exit"}</button></QuestionnaireLegacyControl></div>
-      <ResultReadingNav label={zh ? "八主题的最符合／最不符合记录" : "Most / Least records across eight topics"} sections={quiz.profiles.map(profile => ({ id: `most-least-reading-${profile.id}`, title: profile.title[locale] }))} />
-      {quiz.profiles.map(p => { const c = result.counts[p.id]; const readingProfile = readingProfiles?.find(item => item.id === p.id && item.directionIds.length === 1 && item.directionIds[0] === p.id && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === p.id) ?? p; return <section key={p.id} data-most-least-topic={p.id} className="my-6 rounded-lg border border-slate-200 p-4">
-        <h3 id={`most-least-reading-${p.id}`} className="scroll-mt-24 text-xl font-semibold">{p.title[locale]}</h3><dl className="my-4 grid grid-cols-3 gap-2 text-center text-sm">{(["most", "least", "difference"] as const).map(k => <div key={k}><dt>{k === "most" ? (zh ? "最符合" : "Most") : k === "least" ? (zh ? "最不符合" : "Least") : (zh ? "差值" : "Difference")}</dt><dd data-count={k} className="mt-2 text-lg font-semibold">{c[k]}{k === "difference" ? "" : " / 8"}</dd></div>)}</dl>
-        <div className="mb-5 grid grid-cols-3 gap-2" aria-hidden="true">{(["most", "least"] as const).map(side => <div key={side} className="h-2 overflow-hidden rounded-full bg-slate-100"><span className={`block h-full ${side === "most" ? "bg-violet-600" : "bg-slate-500"}`} style={{ width: `${c[side] / 8 * 100}%` }} /></div>)}</div>
-        <p className="leading-8">{p.summary[locale]}</p><QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`most-least-${p.id}`} mode="result" previewSectionIds={["example", "next"]} showSummary={false} />
+      <div className="my-5 rounded-xl border border-teal-200 bg-teal-50 p-4 sm:p-6">
+        <p className="text-sm font-semibold text-teal-950">{zh ? `已完成 ${result.answered} 组练习` : `${result.answered} practice blocks completed`}</p>
+        <p className="my-3 max-w-prose text-sm leading-7 text-slate-700">{zh ? "各主题分别记录最符合与最不符合的选择次数。点一个主题，先看两种次数，再读具体例子。" : "Each topic has separate Most and Least counts. Choose a topic to read its counts and then an example."}</p>
+        <ResultReadingNav label={zh ? "八主题的最符合／最不符合记录" : "Most / Least records across eight topics"} sections={quiz.profiles.map(profile => ({ id: `most-least-reading-${profile.id}`, title: profile.title[locale] }))} />
+      </div>
+      {quiz.profiles.map(p => { const c = result.counts[p.id]; const readingProfile = readingProfiles?.find(item => item.id === p.id && item.directionIds.length === 1 && item.directionIds[0] === p.id && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === p.id) ?? p; return <section key={p.id} data-most-least-topic={p.id} className="my-6 overflow-hidden rounded-xl border border-slate-200">
+        <header className="grid gap-4 bg-slate-50 p-4 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] sm:p-6">
+          <div className="min-w-0">
+            <h3 id={`most-least-reading-${p.id}`} className="scroll-mt-24 text-xl font-semibold">{p.title[locale]}</h3>
+            <p className="mt-2 text-sm leading-7">{p.summary[locale]}</p>
+          </div>
+          <dl className="grid grid-cols-3 gap-2 text-center text-sm">{(["most", "least", "difference"] as const).map(key => <div key={key} className="min-w-0 rounded-lg border border-slate-200 bg-white p-2">
+            <dt className="[overflow-wrap:anywhere]">{key === "most" ? (zh ? "最符合" : "Most") : key === "least" ? (zh ? "最不符合" : "Least") : (zh ? "差值" : "Difference")}</dt>
+            <dd data-count={key} className="mt-1 text-lg font-semibold tabular-nums">{c[key]}{key === "difference" ? "" : " / 8"}
+              {key !== "difference" && <span className="mt-2 block h-1.5 overflow-hidden rounded-full bg-slate-100" aria-hidden="true"><span className={`block h-full ${key === "most" ? "bg-teal-700" : "bg-slate-500"}`} style={{ width: `${c[key] / 8 * 100}%` }} /></span>}
+            </dd>
+          </div>)}</dl>
+        </header>
+        <div className="border-t border-slate-200 p-4 sm:p-6">
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`most-least-${p.id}`} mode="result" previewSectionIds={["example", "next"]} showSummary={false} />
         <Link prefetch={false} className="mt-3 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, p.id)}>{zh ? "打开不含个人次数的公开指南" : "Open the public guide without personal counts"}</Link>
+        </div>
       </section>; })}
+      <p className="my-5 text-sm leading-7 text-slate-700">{zh ? "差值等于最符合减最不符合，八主题的差值合计为零。这是练习中的选择记录，不换算为 Caliper 分数。" : "Difference equals Most minus Least. The differences sum to zero across the eight topics. This practice records choices without converting them to Caliper scores."}</p>
+      <div className="my-5 flex flex-wrap gap-3"><button type="button" className={button} onClick={start}>{zh ? "重新练习" : "Retake practice"}</button><button type="button" className={button} onClick={share}>{zh ? "复制公开练习链接" : "Copy public practice link"}</button><QuestionnaireLegacyControl><button type="button" className={button} onClick={reset}>{zh ? "清空并退出" : "Clear and exit"}</button></QuestionnaireLegacyControl></div>
       <aside className="my-6 border-t pt-5"><h3 className="text-xl font-semibold">{zh ? "按需继续，或在这里结束" : "Continue if useful, or finish here"}</h3><p className="my-3 leading-8">{zh ? "大五是另一个独立测评，需另外作答；它的维度不由本页次数推算，也不是查看完整读法的条件。" : "Big Five is a separate assessment with its own questions. Its dimensions are not inferred from these counts, and taking it is not required to read any full guide."}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={big5Href} onClick={() => trackEvent("click_test", buildSeoCtaTrackingPayload(recommendation))}>{zh ? "可选：了解大五测试与题本" : "Optional: explore Big Five and its versions"}</Link></aside>
     </>}
     {metrics.consent}

@@ -31,6 +31,17 @@ import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/
 import type { Locale } from "@/lib/i18n/locales";
 import { trackEvent } from "@/lib/analytics";
 
+const directionPresentation = {
+  disc: { eyebrow: { zh: "本题组内的选择结果", en: "Choices in this question set" }, previews: ["editorial-scene", "editorial-experiment"] },
+  "relationship-values": { eyebrow: { zh: "亲密关系 · 本次配对选择", en: "Relationships · Your paired choices" }, previews: ["scene", "private-exercise"] },
+  "response-color": { eyebrow: { zh: "四色回应 · 本次配对选择", en: "Four response colours · Your paired choices" }, previews: ["editorial-scene", "editorial-conversation"] },
+  "egen-teto": { eyebrow: { zh: "先接住感受，还是先明确行动", en: "Make space for feelings or clarify what to do" }, previews: ["example", "practice", "experiment"] },
+  "likable-person-test": { eyebrow: { zh: "五种互动贡献 · 本次选择", en: "Five ways to contribute in an interaction" }, previews: ["dialogue", "optional-observation"] },
+  "food-choice": { eyebrow: { zh: "餐桌选择 · 本次搭配", en: "Table choices · This attempt" }, previews: ["scene", "next-step"] },
+  "love-personality": { eyebrow: { zh: "四种相处方式 · 本次选择", en: "Four ways of relating · Your choices" }, previews: ["real-world-scenes", "real-world-checkpoints", "balancing-actions", "counterbalance-prompts"] },
+  "adult-age-preferences": { eyebrow: { zh: "成年阶段与相处条件 · 本次选择", en: "Adult life stages and relationship contexts" }, previews: ["fictional-example", "optional-step"] },
+};
+
 const QuestionnaireResultSections = questionnaireModule<import("./QuestionnaireReports").QuestionnaireReportProps>(() => import("./QuestionnaireReports").then(module => ({ default: module.QuestionnaireResultSections })));
 
 const draftEvent = "fm-questionnaire-draft";
@@ -123,7 +134,7 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
     if (stage !== "welcome") {
       heading.current?.focus({ preventScroll: standalone });
       if (!standalone) (stage === "answer" ? questionContext.current : heading.current)?.scrollIntoView({ block: "start" });
-      if (standalone && stage === "result" && quiz.kind === "mini-virtues") window.scrollTo({ top: 0, behavior: "instant" });
+      if (standalone && stage === "result") window.scrollTo({ top: 0, behavior: "instant" });
     }
   }, [position, stage, quiz.slug, quiz.kind, standalone]);
   useEffect(() => {
@@ -174,6 +185,16 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
     catch { setManualCopy(text); setMessage(zh ? "请选中下方文字手动复制。" : "Select the text below to copy it manually."); }
   }
 
+  const disc = quiz.slug === "disc";
+  const responseColor = quiz.slug === "response-color";
+  const adultAgePreferences = quiz.slug === "adult-age-preferences";
+  const directionReading = Object.hasOwn(directionPresentation, quiz.slug) ? directionPresentation[quiz.slug as keyof typeof directionPresentation] : undefined;
+  const showDirectionCounts = Boolean(directionReading) && !adultAgePreferences;
+  const directionEyebrow = directionReading?.eyebrow[locale] ?? (zh ? "本题组内的选择结果" : "Choices in this question set");
+  const directionCounts = directional && <ResultSection className={showDirectionCounts ? resultStyles.choiceCounts : undefined} title={zh ? "各方向的本次选择次数" : "Your counts across the directions"} aria-label={zh ? "本次原始选择次数" : "Raw choice counts for this attempt"}>
+    {quiz.directions.map(direction => <ResultScoreRow key={direction.id} data-disc-direction={disc ? direction.id : undefined} data-colour-direction={responseColor ? direction.id : undefined} data-egen-teto-direction={quiz.slug === "egen-teto" ? direction.id : undefined} label={direction.title[locale]} value={`${directional.counts[direction.id]} / ${direction.comparisons}`} score={directional.counts[direction.id]} min={0} max={direction.comparisons} />)}
+    <p className="mt-3 text-sm leading-7">{zh ? "分母为该方向参加比较的次数。原始次数只比较本题组内的选择，不是人群排名或能力分数。" : "The denominator is the number of comparisons for that direction. Raw counts compare choices within this question set, not population ranks or ability scores."}</p>
+  </ResultSection>;
   return <section id="take-test" data-stage={stage} data-result-variant={stage === "result" && !miniVirtues ? questionnaireResultVariant(quiz.kind) : undefined} data-result-kind={stage === "result" && miniVirtues ? "mini-virtues" : undefined} className={`my-8 rounded-xl border border-violet-200 bg-white p-5 sm:p-8 ${stage === "result" && !miniVirtues ? resultStyles.page : ""}`} aria-label={zh ? "作答与完整结果" : "Questionnaire and full results"}>
     {quiz.slug === "relationship-values" && <span id="play" className="block scroll-mt-24" aria-hidden="true" />}
     {stage === "welcome" && <QuestionnaireWelcome quiz={quiz} locale={locale} ready={ready} hasDraft={Boolean(draft)} onStart={start} />}
@@ -199,14 +220,21 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
       {miniVirtues?.model === "dual" ? <QuestionnaireSevenSinsOverview result={miniVirtues} locale={locale} headingRef={heading} /> :
       <h2 ref={heading} tabIndex={-1} className="text-3xl font-semibold leading-tight outline-none [overflow-wrap:anywhere] scroll-mt-24">{miniVirtues ? (zh ? "七宗罪与七美德测试结果" : "Seven Sins and Virtues: Your Results") : profile?.title[locale] ?? quiz.resultHeading?.[locale] ?? (zh ? `${quiz.title.zh}：完整结果` : `${quiz.title.en}: your complete result`)}</h2>}
       {directional && profile && <>
-      <ResultOverview eyebrow={zh ? "本题组内的选择结果" : "Choices in this question set"} title={profile.headline[locale]} description={profile.summary[locale]} />
-      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} showHeadline={false} showSummary={false} mode="result" />
-      <details className={resultStyles.fullReading}><summary>{zh ? "查看各方向的原始选择次数" : "View the raw counts for every direction"}</summary>
-      <ResultSection title={zh ? "各方向的本次选择次数" : "Your counts across the directions"} aria-label={zh ? "本次原始选择次数" : "Raw choice counts for this attempt"}>
-        {quiz.directions.map(direction => <ResultScoreRow key={direction.id} label={direction.title[locale]} value={`${directional.counts[direction.id]} / ${direction.comparisons}`} score={directional.counts[direction.id]} min={0} max={direction.comparisons} />)}
-        <p className="mt-3 text-sm leading-7">{zh ? "分母为该方向参加比较的次数。原始次数只比较本题组内的选择，不是人群排名或能力分数。" : "The denominator is the number of comparisons for that direction. Raw counts compare choices within this question set, not population ranks or ability scores."}</p>
-      </ResultSection>
-      </details>
+      <div className={resultStyles.readingFlow} data-result-reading-flow={quiz.slug}>
+        <ResultOverview eyebrow={directionEyebrow} title={profile.headline[locale]} description={profile.summary[locale]} />
+        {showDirectionCounts && directionCounts}
+        {adultAgePreferences && <details className={`${resultStyles.fullReading} ${resultStyles.optionalDirectionCounts}`}>
+          <summary>{zh ? "查看本次三个成年情境的原始次数" : "View your raw counts for the three adult contexts"}</summary>
+          {directionCounts}
+        </details>}
+        <div className={resultStyles.profileBody}>
+          <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} showHeadline={false} showSummary={false} mode="result" previewSectionIds={directionReading?.previews} />
+        </div>
+      </div>
+      {!showDirectionCounts && !adultAgePreferences && <details className={resultStyles.fullReading}>
+        <summary>{zh ? "查看各方向的原始选择次数" : "View the raw counts for every direction"}</summary>
+        {directionCounts}
+      </details>}
       <Link prefetch={false} className="my-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这项结果的公开说明" : "Read the public explanation of this result"}</Link>
       </>}
       <QuestionnaireResultSections {...reportProps} />

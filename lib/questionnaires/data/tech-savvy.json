@@ -28,8 +28,8 @@
     "zh": "技术素养自评测试是一份原创六题自报问卷，回顾过去一个月对小型数字工具任务的信心，涉及开始操作、核对步骤、选择功能、重复演示、说明卡点和尝试可撤销示例。六题都需选择数字或明确不计分回答；至少四项数字时显示一位小数均值，并列出原始和与数字项数。完整指南解释任务区别、覆盖范围、计算实例和可选观察，描述主观信心，不将其解释为经过演示验证的熟练程度。"
   },
   "resultHeading": {
-    "en": "Your six tool-confidence ratings and full reading",
-    "zh": "六项工具信心自评与完整读法"
+    "en": "Your confidence with six digital tasks",
+    "zh": "你对六种数字工具的信心"
   },
   "source": {
     "kind": "fermatmind_original_tool_learning_confidence",

@@ -29,8 +29,11 @@ async function calculate(page: Page, locale: Locale, date: string) {
 async function completeGuide(page: Page, locale: Locale, profileId: string) {
   const profile = quiz.profiles.find(item => item.id === profileId)!;
   const guide = page.locator(`[data-birth-number-guide="${profileId}"]`);
-  await expect(guide.locator("section > p")).toHaveCount(8);
-  for (const section of profile.sections) await expect(guide).toContainText(section.paragraphs[0][locale]);
+  await expect(guide).toBeVisible();
+  for (const section of profile.sections) {
+    await expect(guide).toContainText(section.title[locale]);
+    for (const paragraph of section.paragraphs) await expect(guide).toContainText(paragraph[locale]);
+  }
 }
 for (const locale of ["en", "zh"] as const) {
   const zh = locale === "zh";

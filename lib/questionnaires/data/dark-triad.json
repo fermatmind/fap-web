@@ -11,8 +11,8 @@
     "en": "Dark Triad Test"
   },
   "resultHeading": {
-    "zh": "三组主题自我观察：完整读法",
-    "en": "Three thematic self-observations: full readings"
+    "en": "Your three Dark Triad reflections",
+    "zh": "你的黑暗三角三组自我观察"
   },
   "description": {
     "zh": "回看近三个月对认可与形象、信息与影响、他人感受和行为影响的自报做法。18条原创符合度题，三组独立均分与完整指南免费；可不愿回答，无需注册。本版不是SD3量表。",
@@ -1348,13 +1348,13 @@
         {
           "id": "framework",
           "title": {
-            "zh": "主题候选与标准自恋量表分开",
-            "en": "Separate this thematic candidate from narcissism instruments"
+            "zh": "认可与形象组的题本范围",
+            "en": "Scope of the recognition-and-image questions"
           },
           "paragraphs": [
             {
-              "zh": "黑暗三角研究把自恋、马基雅维利主义和精神病态作为相关但可区分的研究特质，不能只凭名称就认为任何原创题本测到了它们。本组承接自有小程序的认可与形象六条，不采用SD3或Dirty Dozen，也不继承其常模或验证。难相处人格中的自我抬高、有毒特质中的比较话题与这里有交叠，分数仍不互换。光明三元素也不是本组的反向分数。可以把这些主题并排阅读，但不能算光暗比例或从一个均分诊断任何人。",
-              "en": "Dark Triad research treats narcissism, Machiavellianism and psychopathy as related but distinguishable research traits; a name alone does not establish that an original bank measures them. This group carries forward our owned mini-program’s six recognition-and-image items without adopting SD3 or Dirty Dozen or inheriting their norms or validation. Self-importance in the difficult-person bank and conversational comparisons in interaction habits overlap with this topic, without score conversion. The Light Triad is not its reverse score either. Read neighbouring themes alongside one another if useful, without a light/dark ratio, a clinical conclusion or an assumption that a mean describes someone else."
+              "zh": "黑暗三角研究把自恋、马基雅维利主义和精神病态作为相关但可区分的研究特质，不能只凭名称就认为任何原创题本测到了它们。本组承接费马早期题本的六条认可与形象陈述，不采用SD3或Dirty Dozen，也不继承其常模或验证。难相处人格中的自我抬高、有毒特质中的比较话题与这里有交叠，分数仍不互换。光明三元素也不是本组的反向分数。可以把这些主题并排阅读，但不能算光暗比例或从一个均分诊断任何人。",
+              "en": "Dark Triad research treats narcissism, Machiavellianism and psychopathy as related but distinguishable research traits; a name alone does not establish that an original bank measures them. This group carries forward six recognition-and-image items from the earlier FermatMind questionnaire without adopting SD3 or Dirty Dozen or inheriting their norms or validation. Self-importance in the difficult-person bank and conversational comparisons in interaction habits overlap with this topic, without score conversion. The Light Triad is not its reverse score either. Read neighbouring themes alongside one another if useful, without a light/dark ratio, a clinical conclusion or an assumption that a mean describes someone else."
             }
           ]
         },
@@ -1366,8 +1366,8 @@
           },
           "paragraphs": [
             {
-              "zh": "这项候选保留小程序的敏感主题隐私限制。答案与个人结果只在当前页面内存，不写浏览器存储、不上传答卷或发送测试流程统计，不提供个人结果分享。刷新、换语言或离开后不能恢复；作答中可回上题修改，退出或重测清除。公开全文与私人作答无关，三份九节说明免费，不需邮箱、付费或另一测评解锁，也不要求把真实冲突、姓名或他人情况输入网站。仅回答本人过去三个月，不代伴侣、同事或任何人作答。你可以读完结束；这些说明不能作招聘、关系筛选、医疗、司法、安保或学校评价，不从低均分证明安全，也不从高均分预测伤害。",
-              "en": "This candidate retains the mini-program’s sensitive-topic privacy limits. Answers and personal results stay only in the current page’s memory, without browser storage, uploaded answers, quiz-flow statistics or personal-result sharing. Refreshing, changing language or leaving loses the attempt. Back edits are available while answering; exit or retake clears it. Public full text is unrelated to a private attempt. All three nine-section guides are free without email, payment or another assessment, and the website asks for no actual conflict, names or other people’s circumstances. Answer only for yourself over the past three months, never for a partner, colleague or anyone else. You may stop after reading. These explanations supply no hiring, relationship-screening, medical, forensic, security or school evaluation. A lower mean proves no safety, and a higher mean predicts no harm."
+              "zh": "本测试按敏感主题保护作答隐私。答案与个人结果只在当前页面内存，不写浏览器存储、不上传答卷或发送测试流程统计，不提供个人结果分享。刷新、换语言或离开后不能恢复；作答中可回上题修改，退出或重测清除。公开全文与私人作答无关，三份九节说明免费，不需邮箱、付费或另一测评解锁，也不要求把真实冲突、姓名或他人情况输入网站。仅回答本人过去三个月，不代伴侣、同事或任何人作答。你可以读完结束；这些说明不能作招聘、关系筛选、医疗、司法、安保或学校评价，不从低均分证明安全，也不从高均分预测伤害。",
+              "en": "This test applies privacy protections for sensitive responses. Answers and personal results stay only in the current page’s memory, without browser storage, uploaded answers, quiz-flow statistics or personal-result sharing. Refreshing, changing language or leaving loses the attempt. Back edits are available while answering; exit or retake clears it. Public full text is unrelated to a private attempt. All three nine-section guides are free without email, payment or another assessment, and the website asks for no actual conflict, names or other people’s circumstances. Answer only for yourself over the past three months, never for a partner, colleague or anyone else. You may stop after reading. These explanations supply no hiring, relationship-screening, medical, forensic, security or school evaluation. A lower mean proves no safety, and a higher mean predicts no harm."
             }
           ]
         }
@@ -1504,8 +1504,8 @@
           },
           "paragraphs": [
             {
-              "zh": "本组承接自有原创题本六条，不是MACH-IV、SD3或Dirty Dozen的替代测量，也不因为研究有三因素就继承它的效度。理论背景谈相关但不同的研究特质，不给这个候选个人分数背书。难相处人格中的隐瞒施压、光明三元素中的不把人当工具，与这里有相邻话题；方法与题项不同，分数不换算，也不能相加成道德或光暗比例。请用每组自己的条目、有效数和局限阅读，不拿网页均分筛选关系或评价他人。",
-              "en": "These six owned original items are no replacement measure for MACH-IV, SD3 or Dirty Dozen, and a three-factor research background transfers no validity to them. Research on related but distinguishable traits does not endorse this candidate’s personal scores. Concealment and pressure in the difficult-person bank and treating people as more than tools in the Light Triad concern neighbouring topics. Methods and items differ, without score conversion or a combined morality or light/dark ratio. Read each group through its own statements, rated count and limits rather than use a webpage mean to screen relationships or evaluate another person’s character or motives."
+              "zh": "本组承接自有原创题本六条，不是MACH-IV、SD3或Dirty Dozen的替代测量，也不因为研究有三因素就继承它的效度。理论背景谈相关但不同的研究特质，不给本题本的个人读数背书。难相处人格中的隐瞒施压、光明三元素中的不把人当工具，与这里有相邻话题；方法与题项不同，分数不换算，也不能相加成道德或光暗比例。请用每组自己的条目、有效数和局限阅读，不拿网页均分筛选关系或评价他人。",
+              "en": "These six owned original items are no replacement measure for MACH-IV, SD3 or Dirty Dozen, and a three-factor research background transfers no validity to them. Research on related but distinguishable traits does not endorse personal scores in this questionnaire. Concealment and pressure in the difficult-person bank and treating people as more than tools in the Light Triad concern neighbouring topics. Methods and items differ, without score conversion or a combined morality or light/dark ratio. Read each group through its own statements, rated count and limits rather than use a webpage mean to screen relationships or evaluate another person’s character or motives."
             }
           ]
         },
@@ -1517,8 +1517,8 @@
           },
           "paragraphs": [
             {
-              "zh": "这项候选保留小程序的敏感主题隐私限制。答案与个人结果只在当前页面内存，不写浏览器存储、不上传答卷或发送测试流程统计，不提供个人结果分享。刷新、换语言或离开后不能恢复；作答中可回上题修改，退出或重测清除。公开全文与私人作答无关，三份九节说明免费，不需邮箱、付费或另一测评解锁，也不要求把真实冲突、姓名或他人情况输入网站。仅回答本人过去三个月，不代伴侣、同事或任何人作答。你可以读完结束；这些说明不能作招聘、关系筛选、医疗、司法、安保或学校评价，不从低均分证明安全，也不从高均分预测伤害。",
-              "en": "This candidate retains the mini-program’s sensitive-topic privacy limits. Answers and personal results stay only in the current page’s memory, without browser storage, uploaded answers, quiz-flow statistics or personal-result sharing. Refreshing, changing language or leaving loses the attempt. Back edits are available while answering; exit or retake clears it. Public full text is unrelated to a private attempt. All three nine-section guides are free without email, payment or another assessment, and the website asks for no actual conflict, names or other people’s circumstances. Answer only for yourself over the past three months, never for a partner, colleague or anyone else. You may stop after reading. These explanations supply no hiring, relationship-screening, medical, forensic, security or school evaluation. A lower mean proves no safety, and a higher mean predicts no harm."
+              "zh": "本测试按敏感主题保护作答隐私。答案与个人结果只在当前页面内存，不写浏览器存储、不上传答卷或发送测试流程统计，不提供个人结果分享。刷新、换语言或离开后不能恢复；作答中可回上题修改，退出或重测清除。公开全文与私人作答无关，三份九节说明免费，不需邮箱、付费或另一测评解锁，也不要求把真实冲突、姓名或他人情况输入网站。仅回答本人过去三个月，不代伴侣、同事或任何人作答。你可以读完结束；这些说明不能作招聘、关系筛选、医疗、司法、安保或学校评价，不从低均分证明安全，也不从高均分预测伤害。",
+              "en": "This test applies privacy protections for sensitive responses. Answers and personal results stay only in the current page’s memory, without browser storage, uploaded answers, quiz-flow statistics or personal-result sharing. Refreshing, changing language or leaving loses the attempt. Back edits are available while answering; exit or retake clears it. Public full text is unrelated to a private attempt. All three nine-section guides are free without email, payment or another assessment, and the website asks for no actual conflict, names or other people’s circumstances. Answer only for yourself over the past three months, never for a partner, colleague or anyone else. You may stop after reading. These explanations supply no hiring, relationship-screening, medical, forensic, security or school evaluation. A lower mean proves no safety, and a higher mean predicts no harm."
             }
           ]
         }
@@ -1655,8 +1655,8 @@
           },
           "paragraphs": [
             {
-              "zh": "研究中的精神病态、马基雅维利主义和自恋有各自方法，六条“影响距离”不能覆盖其中一个完整特质。本版承接自有小程序候选，不用SD3、Dirty Dozen、PCL-R或临床工具，不提供人格障碍、精神病性症状或风险评估。难相处人格中的忽略感受、光明三元素中的关怀话题与此有关，不能反向换算。低分不是无害证明，高分不是压力优势，也不是未来行为。所有三份正文完整保留，使你能看懂每组范围后自行结束，不靠另一测试补出临床结论。",
-              "en": "Research on psychopathy, Machiavellianism and narcissism uses specific methods; six impact-distance items cannot cover one complete trait. This edition carries forward our owned mini-program candidate without SD3, Dirty Dozen, PCL-R or a clinical instrument. It supplies no personality-disorder, psychotic-symptom or risk assessment. Disregarding feelings in the difficult-person bank and concern-related Light Triad topics are neighbouring themes, not reverse-convertible scores. A lower reading guarantees no harmlessness; a higher one establishes no pressure-related advantage or future action. All three full guides remain available so you can understand their limits and stop, without another test filling in a clinical conclusion."
+              "zh": "研究中的精神病态、马基雅维利主义和自恋有各自方法，六条“影响距离”不能覆盖其中一个完整特质。本版承接费马早期原创题本，不用SD3、Dirty Dozen、PCL-R或临床工具，不提供人格障碍、精神病性症状或风险评估。难相处人格中的忽略感受、光明三元素中的关怀话题与此有关，不能反向换算。低分不是无害证明，高分不是压力优势，也不是未来行为。所有三份正文完整保留，使你能看懂每组范围后自行结束，不靠另一测试补出临床结论。",
+              "en": "Research on psychopathy, Machiavellianism and narcissism uses specific methods; six impact-distance items cannot cover one complete trait. This edition carries forward the earlier original FermatMind questionnaire without SD3, Dirty Dozen, PCL-R or a clinical instrument. It supplies no personality-disorder, psychotic-symptom or risk assessment. Disregarding feelings in the difficult-person bank and concern-related Light Triad topics are neighbouring themes, not reverse-convertible scores. A lower reading guarantees no harmlessness; a higher one establishes no pressure-related advantage or future action. All three full guides remain available so you can understand their limits and stop, without another test filling in a clinical conclusion."
             }
           ]
         },
@@ -1668,8 +1668,8 @@
           },
           "paragraphs": [
             {
-              "zh": "这项候选保留小程序的敏感主题隐私限制。答案与个人结果只在当前页面内存，不写浏览器存储、不上传答卷或发送测试流程统计，不提供个人结果分享。刷新、换语言或离开后不能恢复；作答中可回上题修改，退出或重测清除。公开全文与私人作答无关，三份九节说明免费，不需邮箱、付费或另一测评解锁，也不要求把真实冲突、姓名或他人情况输入网站。仅回答本人过去三个月，不代伴侣、同事或任何人作答。你可以读完结束；这些说明不能作招聘、关系筛选、医疗、司法、安保或学校评价，不从低均分证明安全，也不从高均分预测伤害。",
-              "en": "This candidate retains the mini-program’s sensitive-topic privacy limits. Answers and personal results stay only in the current page’s memory, without browser storage, uploaded answers, quiz-flow statistics or personal-result sharing. Refreshing, changing language or leaving loses the attempt. Back edits are available while answering; exit or retake clears it. Public full text is unrelated to a private attempt. All three nine-section guides are free without email, payment or another assessment, and the website asks for no actual conflict, names or other people’s circumstances. Answer only for yourself over the past three months, never for a partner, colleague or anyone else. You may stop after reading. These explanations supply no hiring, relationship-screening, medical, forensic, security or school evaluation. A lower mean proves no safety, and a higher mean predicts no harm."
+              "zh": "本测试按敏感主题保护作答隐私。答案与个人结果只在当前页面内存，不写浏览器存储、不上传答卷或发送测试流程统计，不提供个人结果分享。刷新、换语言或离开后不能恢复；作答中可回上题修改，退出或重测清除。公开全文与私人作答无关，三份九节说明免费，不需邮箱、付费或另一测评解锁，也不要求把真实冲突、姓名或他人情况输入网站。仅回答本人过去三个月，不代伴侣、同事或任何人作答。你可以读完结束；这些说明不能作招聘、关系筛选、医疗、司法、安保或学校评价，不从低均分证明安全，也不从高均分预测伤害。",
+              "en": "This test applies privacy protections for sensitive responses. Answers and personal results stay only in the current page’s memory, without browser storage, uploaded answers, quiz-flow statistics or personal-result sharing. Refreshing, changing language or leaving loses the attempt. Back edits are available while answering; exit or retake clears it. Public full text is unrelated to a private attempt. All three nine-section guides are free without email, payment or another assessment, and the website asks for no actual conflict, names or other people’s circumstances. Answer only for yourself over the past three months, never for a partner, colleague or anyone else. You may stop after reading. These explanations supply no hiring, relationship-screening, medical, forensic, security or school evaluation. A lower mean proves no safety, and a higher mean predicts no harm."
             }
           ]
         }
@@ -1719,13 +1719,13 @@
     {
       "id": "scope",
       "title": {
-        "zh": "原创候选的适用范围",
-        "en": "The original candidate’s scope"
+        "zh": "原创题本的适用范围",
+        "en": "Scope of the original questionnaire"
       },
       "paragraphs": [
         {
-          "zh": "这是自有小程序原创题本的三组主题自我观察公开预览，借黑暗三角常见话题讨论具体做法，不测标准自恋、马基雅维利主义或精神病态量表分数，不把三组对应为三种人格。不是SD3、Dirty Dozen、临床、司法或风险工具；不能继承现有工具的常模、效度或预测。只回答本人过去三个月，不代他人作答，不评善恶、安全、暴力、犯罪、未来、健康、职业或招聘适配。较少符合不是安全或无伤害证明，较多符合也不认证能力或优势。",
-          "en": "This public preview uses our owned original mini-program bank for three thematic self-observations, informed by topics commonly discussed around the Dark Triad. It supplies no standard narcissism, Machiavellianism or psychopathy scale scores and assigns no three personalities. It is neither SD3, Dirty Dozen nor a clinical, forensic or risk instrument and inherits no norms, validity or prediction from them. Answer only for yourself over the past three months. No morality, safety, violence, crime, future, health, career or hiring fit is assessed. Fewer endorsements guarantee no safety or absence of harm; more establish no ability or advantage."
+          "zh": "这是基于费马早期原创题本的三组主题自我观察，借黑暗三角常见话题讨论具体做法，不测标准自恋、马基雅维利主义或精神病态量表分数，不把三组对应为三种人格。不是SD3、Dirty Dozen、临床、司法或风险工具；不能继承现有工具的常模、效度或预测。只回答本人过去三个月，不代他人作答，不评善恶、安全、暴力、犯罪、未来、健康、职业或招聘适配。较少符合不是安全或无伤害证明，较多符合也不认证能力或优势。",
+          "en": "This reflection uses FermatMind’s earlier original items for three thematic self-observations, informed by topics commonly discussed around the Dark Triad. It supplies no standard narcissism, Machiavellianism or psychopathy scale scores and assigns no three personalities. It is neither SD3, Dirty Dozen nor a clinical, forensic or risk instrument and inherits no norms, validity or prediction from them. Answer only for yourself over the past three months. No morality, safety, violence, crime, future, health, career or hiring fit is assessed. Fewer endorsements guarantee no safety or absence of harm; more establish no ability or advantage."
         }
       ]
     },
@@ -1737,8 +1737,8 @@
       },
       "paragraphs": [
         {
-          "zh": "这项候选保留小程序的敏感主题隐私限制。答案与个人结果只在当前页面内存，不写浏览器存储、不上传答卷或发送测试流程统计，不提供个人结果分享。刷新、换语言或离开后不能恢复；作答中可回上题修改，退出或重测清除。公开全文与私人作答无关，三份九节说明免费，不需邮箱、付费或另一测评解锁，也不要求把真实冲突、姓名或他人情况输入网站。仅回答本人过去三个月，不代伴侣、同事或任何人作答。你可以读完结束；这些说明不能作招聘、关系筛选、医疗、司法、安保或学校评价，不从低均分证明安全，也不从高均分预测伤害。",
-          "en": "This candidate retains the mini-program’s sensitive-topic privacy limits. Answers and personal results stay only in the current page’s memory, without browser storage, uploaded answers, quiz-flow statistics or personal-result sharing. Refreshing, changing language or leaving loses the attempt. Back edits are available while answering; exit or retake clears it. Public full text is unrelated to a private attempt. All three nine-section guides are free without email, payment or another assessment, and the website asks for no actual conflict, names or other people’s circumstances. Answer only for yourself over the past three months, never for a partner, colleague or anyone else. You may stop after reading. These explanations supply no hiring, relationship-screening, medical, forensic, security or school evaluation. A lower mean proves no safety, and a higher mean predicts no harm."
+          "zh": "这份观察采用敏感主题隐私设置。答案与个人结果只在当前页面内存，不写浏览器存储、不上传答卷或发送测试流程统计，不提供个人结果分享。刷新、换语言或离开后不能恢复；作答中可回上题修改，退出或重测清除。公开全文与私人作答无关，三份九节说明免费，不需邮箱、付费或另一测评解锁，也不要求把真实冲突、姓名或他人情况输入网站。仅回答本人过去三个月，不代伴侣、同事或任何人作答。你可以读完结束；这些说明不能作招聘、关系筛选、医疗、司法、安保或学校评价，不从低均分证明安全，也不从高均分预测伤害。",
+          "en": "This reflection uses privacy settings for sensitive topics. Answers and personal results stay only in the current page’s memory, without browser storage, uploaded answers, quiz-flow statistics or personal-result sharing. Refreshing, changing language or leaving loses the attempt. Back edits are available while answering; exit or retake clears it. Public full text is unrelated to a private attempt. All three nine-section guides are free without email, payment or another assessment, and the website asks for no actual conflict, names or other people’s circumstances. Answer only for yourself over the past three months, never for a partner, colleague or anyone else. You may stop after reading. These explanations supply no hiring, relationship-screening, medical, forensic, security or school evaluation. A lower mean proves no safety, and a higher mean predicts no harm."
         }
       ]
     }
@@ -1750,8 +1750,8 @@
         "en": "Is this the 27-item SD3 or Dirty Dozen?"
       },
       "answer": {
-        "zh": "不是。这是费马自有小程序18条原创主题候选的网页版本，中文题干、顺序、键向和计分边界保留，英文为新试译。三个主题不直接测完整研究特质，不继承既有工具的常模或验证。",
-        "en": "No. This web edition carries forward eighteen owned original mini-program items, retaining Chinese wording, order, keys and scoring limits, with a new English trial translation. Its themes do not directly measure complete research traits or inherit established instruments’ norms or validation."
+        "zh": "不是。这是费马早期题本中 18 条原创主题陈述的网页版本，中文题干、顺序、键向和计分边界保留，英文为新试译。三个主题不直接测完整研究特质，不继承既有工具的常模或验证。",
+        "en": "No. This web edition carries forward eighteen original items from FermatMind’s earlier form, retaining Chinese wording, order, keys and scoring limits, with a new English trial translation. Its themes do not directly measure complete research traits or inherit established instruments’ norms or validation."
       }
     },
     {
@@ -1790,8 +1790,8 @@
         "en": "What happens with refresh, language change and sharing?"
       },
       "answer": {
-        "zh": "这项候选保留小程序的敏感主题隐私限制。答案与个人结果只在当前页面内存，不写浏览器存储、不上传答卷或发送测试流程统计，不提供个人结果分享。刷新、换语言或离开后不能恢复；作答中可回上题修改，退出或重测清除。公开全文与私人作答无关，三份九节说明免费，不需邮箱、付费或另一测评解锁，也不要求把真实冲突、姓名或他人情况输入网站。仅回答本人过去三个月，不代伴侣、同事或任何人作答。你可以读完结束；这些说明不能作招聘、关系筛选、医疗、司法、安保或学校评价，不从低均分证明安全，也不从高均分预测伤害。",
-        "en": "This candidate retains the mini-program’s sensitive-topic privacy limits. Answers and personal results stay only in the current page’s memory, without browser storage, uploaded answers, quiz-flow statistics or personal-result sharing. Refreshing, changing language or leaving loses the attempt. Back edits are available while answering; exit or retake clears it. Public full text is unrelated to a private attempt. All three nine-section guides are free without email, payment or another assessment, and the website asks for no actual conflict, names or other people’s circumstances. Answer only for yourself over the past three months, never for a partner, colleague or anyone else. You may stop after reading. These explanations supply no hiring, relationship-screening, medical, forensic, security or school evaluation. A lower mean proves no safety, and a higher mean predicts no harm."
+        "zh": "这份观察采用敏感主题隐私设置。答案与个人结果只在当前页面内存，不写浏览器存储、不上传答卷或发送测试流程统计，不提供个人结果分享。刷新、换语言或离开后不能恢复；作答中可回上题修改，退出或重测清除。公开全文与私人作答无关，三份九节说明免费，不需邮箱、付费或另一测评解锁，也不要求把真实冲突、姓名或他人情况输入网站。仅回答本人过去三个月，不代伴侣、同事或任何人作答。你可以读完结束；这些说明不能作招聘、关系筛选、医疗、司法、安保或学校评价，不从低均分证明安全，也不从高均分预测伤害。",
+        "en": "This reflection uses privacy settings for sensitive topics. Answers and personal results stay only in the current page’s memory, without browser storage, uploaded answers, quiz-flow statistics or personal-result sharing. Refreshing, changing language or leaving loses the attempt. Back edits are available while answering; exit or retake clears it. Public full text is unrelated to a private attempt. All three nine-section guides are free without email, payment or another assessment, and the website asks for no actual conflict, names or other people’s circumstances. Answer only for yourself over the past three months, never for a partner, colleague or anyone else. You may stop after reading. These explanations supply no hiring, relationship-screening, medical, forensic, security or school evaluation. A lower mean proves no safety, and a higher mean predicts no harm."
       }
     },
     {

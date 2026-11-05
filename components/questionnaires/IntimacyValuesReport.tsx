@@ -1,4 +1,4 @@
-import { ResultSection, ResultReadingNav, ResultScoreRow } from "./QuestionnaireResultPresentation";
+import { ResultSection, ResultScoreRow } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
@@ -10,13 +10,12 @@ export function IntimacyValuesReport({ quiz, result, locale }: { quiz: Questionn
   const zh = locale === "zh";
   return <div data-intimacy-values-report className="mt-6 space-y-8">
 
-    <ResultSection title={zh ? "五项亲近关系条件概览" : "Five intimacy-priority readings"}>
+    <ResultSection tone="framed" title={zh ? "你想和对方说清的相处优先事项" : "Which relationship priorities would you like to clarify?"} description={zh ? "每项反映你对这组陈述的重视程度。点开名称可读具体相处例子。" : "Each reading reflects the importance you gave to those statements. Open a topic for an example of how it might come up in a relationship."} className="rounded-xl border border-rose-200 bg-rose-50/65">
       <div className="grid gap-x-8 sm:grid-cols-2">{quiz.directions.map(direction => {
         const part = result.facets[direction.id];
-        return <ResultScoreRow key={direction.id} label={direction.title[locale]} value={part.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${part.mean.toFixed(1)} / 5`} score={part.mean} min={1} max={5} description={quiz.profiles.find(profile => profile.directionIds[0] === direction.id)!.summary[locale]} />;
+        return <ResultScoreRow key={direction.id} label={<a className="inline-flex min-h-11 items-center font-semibold text-rose-950 underline underline-offset-4" href={`#intimacy-title-${direction.id}`}>{direction.title[locale]}</a>} value={part.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${part.mean.toFixed(1)} / 5`} score={part.mean} min={1} max={5} description={quiz.profiles.find(profile => profile.directionIds[0] === direction.id)!.summary[locale]} />;
       })}</div>
     </ResultSection>
-    <ResultReadingNav label={zh ? "逐项完整解读" : "Full readings by topic"} sections={quiz.directions.map(direction => ({ id: `intimacy-title-${direction.id}`, title: direction.title[locale] }))} />
     {quiz.directions.map(direction => {
       const part = result.facets[direction.id], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
       return <section key={direction.id} data-intimacy-values-part={direction.id} aria-labelledby={`intimacy-title-${direction.id}`} className="border-t border-slate-200 pt-7">

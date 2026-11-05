@@ -27,8 +27,8 @@
     "en": "Choose 1–5 for how each statement fits your present preferences or conditions; 3 means uncertain or depends. You may choose unscored. After all 24 choices, each six-item numeric-complete group shows its sum and four-decimal mean, without an overall total or ranking."
   },
   "resultHeading": {
-    "zh": "四个独立阅读的部分，下一步由你选择",
-    "en": "Four Separate Readings. Choose What Comes Next."
+    "en": "Your preferences around intimacy and boundaries",
+    "zh": "你怎样看待亲密与个人边界"
   },
   "minimumRatedItems": 6,
   "source": {
@@ -2304,12 +2304,12 @@
       },
       "paragraphs": [
         {
-          "zh": "本版保留费马小程序《亲密偏好测试》的24条原创中文陈述、四组六题归属和直接计分。英文为费马新工作译文，没有已建立的跨语言等价；具体例子和完整网页指南为新增解释。",
-          "en": "This edition preserves the 24 original Chinese statements, four six-item groupings and forward scoring from FermatMind’s Intimacy Preferences Mini. English is a new working translation without established cross-language equivalence; examples and full web guides add explanation."
+          "zh": "本版保留费马早期《亲密偏好测试》的24条原创中文陈述、四组六题归属和直接计分。英文为费马新工作译文，没有已建立的跨语言等价；具体例子和完整网页指南为新增解释。",
+          "en": "This edition preserves the 24 original Chinese statements, four six-item groupings and forward scoring from the original FermatMind Intimacy Preferences questionnaire. English is a new working translation without established cross-language equivalence; examples and full web guides add explanation."
         },
         {
-          "zh": "原小程序需24题数值完整才作个人解释。本网页另加不计分选项，以完整六题为一组分别提供数值；这是网页完整度规则，不能当作原题本已经验证的缺失值处理方式。",
-          "en": "The original Mini requires all 24 numeric responses before personal interpretation. This website adds an unscored option and supplies numbers separately for each complete six-item group. That is a web completeness policy, not a validated missing-data method inherited from the original bank."
+          "zh": "早期题本要求 24 题数值完整才作个人解释。本网页另加不计分选项，以完整六题为一组分别提供数值；这是网页完整度规则，不能当作原题本已经验证的缺失值处理方式。",
+          "en": "The earlier FermatMind edition requires all 24 numeric responses before personal interpretation. This website adds an unscored option and supplies numbers separately for each complete six-item group. That is a web completeness policy, not a validated missing-data method inherited from the original bank."
         },
         {
           "zh": "两版都没有总亲密度、主导类型、分档或常模。题本尚未完成信度、效度和跨语言验证；它提供原始自述与具体讨论材料，不提供伴侣匹配、关系预测或能力判断。",
@@ -2405,8 +2405,8 @@
       },
       "paragraphs": [
         {
-          "zh": "本网页版不保存答卷草稿或最终结果，不上传逐题选择；刷新、换语或离开会清除当前回答。它与原小程序当前设备保存草稿和结果缓存的方式不同，作答前就应知道这个区别。",
-          "en": "This web edition saves neither an answer draft nor a final result and does not upload choices. Reloading, changing language or leaving clears current answers. This differs from the original Mini’s device drafts and result cache, a distinction shown before starting."
+          "zh": "本网页版不保存答卷草稿或最终结果，不上传逐题选择；刷新、换语或离开会清除当前回答。",
+          "en": "This web edition saves neither an answer draft nor a final result and does not upload choices. Reloading, changing language or leaving clears current answers."
         },
         {
           "zh": "复制仅提供公开测试和指南链接，不包含答案、分数、关系信息或个人描述。全部完整指南无需注册、邮箱或前置测评即可阅读；重测从空白开始，不能由上次结果补推。",

@@ -1,4 +1,4 @@
-import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
+import { ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import type { Locale } from "@/lib/i18n/locales";
@@ -27,7 +27,19 @@ export function WorkActivityInterestsReport({ quiz, result, locale }: {
 }) {
   const zh = locale === "zh";
   return <ResultPage variant="dimensions" className="mt-6 space-y-8" data-work-activity-report>
-
+    <section className="rounded-xl border border-emerald-200 bg-emerald-50/65 p-4 sm:p-6" aria-labelledby="work-activity-review-start">
+      <h3 id="work-activity-review-start" className="text-xl font-semibold text-emerald-950">{zh ? "哪一类工作任务让你想试一试" : "Which kind of work task would you want to try?"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "选一种任务，看看它在工作中具体做什么。每个读数描述本组兴趣回答，资料不足时也可以看任务例子。" : "Open a kind of task to see what it involves. Each reading describes the interest ratings in that group. Task examples remain available when a mean is withheld."}</p>
+      <ul className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+        {quiz.directions.map(direction => {
+          const facet = result.facets[direction.id];
+          return <li key={direction.id} className="min-w-0 border-t-2 border-emerald-300 bg-white/65 px-3 pb-3">
+            <a className="inline-flex min-h-11 items-center font-semibold text-emerald-950 underline decoration-emerald-400 underline-offset-4" href={`#work-activity-${direction.id}`}>{direction.title[locale]}</a>
+            <p className="text-sm leading-6 tabular-nums">{facet.mean === null ? (zh ? `${facet.rated}/${facet.total} 项有效` : `${facet.rated}/${facet.total} rated`) : `${facet.mean.toFixed(1)} / 5`}</p>
+          </li>;
+        })}
+      </ul>
+    </section>
 
     <WorkActivityContext locale={locale} />
     {quiz.directions.map(direction => {
@@ -50,15 +62,7 @@ export function WorkActivityInterestsReport({ quiz, result, locale }: {
     })}
 
     <details className="border-t border-slate-200 pt-4" data-result-reading-method>
-      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
-      <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
-      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
-      items={quiz.directions.map(direction => {
-        const score = result.facets[direction.id];
-        return { id: direction.id, label: direction.title[locale], href: `#work-activity-${direction.id}`,
-          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
-          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
-      })} />
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看计分与使用说明" : "View scoring and use notes"}</summary>
       <p className="leading-8">{zh
       ? "六组分别汇总对所列具体活动的兴趣，固定顺序显示，不跨组排名。每组十项至少八条数字才有一位小数均分；3是有效中立，未评分保持缺失。原始和只加有效数字，没有总分、前三代码、能力等级或职业匹配。相同均分可能来自不同回答。"
       : "Six separate summaries describe interest in the specific activities, displayed in a fixed order without ranking. Each ten-task group needs eight numeric ratings for a mean rounded to one decimal. Neutral is a valid 3; unscored stays missing. Raw sums include rated items only. There is no total, top-three code, ability level or job match. Different responses can yield the same mean."}</p>

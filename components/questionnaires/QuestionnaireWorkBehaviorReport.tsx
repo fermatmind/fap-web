@@ -10,7 +10,15 @@ export function QuestionnaireWorkBehaviorReport({ quiz, result, locale }: {
 }) {
   const zh = locale === "zh";
   return <ResultPage variant="dimensions" className="my-6 space-y-8" data-work-behavior-result>
-
+    <ResultOverview locale={locale} title={zh ? "近期六组工作行为" : "Six groups of recent work behaviors"}
+      className="border-slate-300 bg-slate-50"
+      description={zh ? "各组独立呈现，从一个近期工作情境继续读。" : "Each group is shown separately. Start with one recent work situation."}
+      items={quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return { id: direction.id, label: direction.title[locale], href: `#work-behavior-${direction.id}`,
+          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
+          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
+      })} />
 
 
     {quiz.directions.map(direction => {
@@ -33,14 +41,6 @@ export function QuestionnaireWorkBehaviorReport({ quiz, result, locale }: {
 
     <details className="border-t border-slate-200 pt-4" data-result-reading-method>
       <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
-      <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
-      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
-      items={quiz.directions.map(direction => {
-        const score = result.facets[direction.id];
-        return { id: direction.id, label: direction.title[locale], href: `#work-behavior-${direction.id}`,
-          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
-          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
-      })} />
       <p className="leading-8">{zh
       ? "六组分别概括过去四周有相关机会时，题述工作行为的自报频率。没有综合胜任力分、最强最弱型或录用等级；频繁做某件事不证明做得合适、有效或具备岗位能力。"
       : "The six groups separately summarize reported frequency of the listed work behaviors when an occasion arose in the past four weeks. There is no overall competency score, strongest or weakest type, or hiring grade. Doing something often does not prove appropriateness, effectiveness or ability for a job."}</p>

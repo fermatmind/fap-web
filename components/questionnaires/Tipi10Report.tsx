@@ -1,4 +1,3 @@
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import type { Locale } from "@/lib/i18n/locales";
@@ -12,8 +11,18 @@ import { Tipi10Attribution } from "./Tipi10Attribution";
 export function Tipi10Report({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<Tipi10Result, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh";
   return <div data-tipi10-result className="mt-6 space-y-8">
-    {quiz.directions.length > 1 && <ResultReadingNav collapsible label={zh ? "按主题阅读结果" : "Read results by topic"} sections={quiz.directions.map(direction => ({ id: `tipi-title-${direction.id}`, title: direction.title[locale] }))} />}
-    <p className="leading-8">{zh ? "十题均有效。以下为五项独立原始两题均值，范围1至7。不合总分、不设百分位或类型；4是选项中点，不是人群平均。每对都保留原回答与计分值，五篇完整读法均可阅读。" : "All ten responses are valid. These are five separate raw two-item means, ranging from 1 to 7, without a combined total, percentile or type. Four is the response midpoint, not a population average. Each pair retains its original and keyed values, and all five complete guides remain available."}</p>
+    <section className="border-y border-indigo-200 bg-indigo-50/60 p-4 sm:p-6" aria-labelledby="tipi-pairs-title">
+      <h3 id="tipi-pairs-title" className="text-xl font-semibold text-indigo-950">{zh ? "从五项均值回看对应两题" : "From each average back to its two items"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "十题均有效。每项单独计算，范围 1 至 7。不合总分、不设百分位或类型。4 是选项中点，不是人群平均。选一个维度，查看原始回答与计分值。" : "All ten responses are valid. Each pair is averaged separately on the 1–7 scale, with no combined total, percentile or type. Four is the response midpoint, not a population average. Select a domain to see the original responses and keyed values."}</p>
+      <ol className="mt-4 grid divide-y divide-indigo-200 border-t border-indigo-200 lg:grid-cols-5 lg:divide-x lg:divide-y-0">
+        {quiz.directions.map(direction => <li key={direction.id} className="min-w-0">
+          <a className="flex min-h-12 items-center justify-between gap-3 px-2 py-2 text-indigo-950 lg:flex-col lg:items-start" href={`#tipi-title-${direction.id}`}>
+            <span className="font-medium underline decoration-indigo-400 underline-offset-4">{direction.title[locale]}</span>
+            <span className="shrink-0 font-semibold tabular-nums">{result.tipi10[direction.id as TipiDomain].mean.toFixed(2)} / 7</span>
+          </a>
+        </li>)}
+      </ol>
+    </section>
     {quiz.directions.map(direction => {
       const score = result.tipi10[direction.id as TipiDomain], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
       return <section key={direction.id} className="rounded-lg border border-slate-200 p-4 sm:p-6" aria-labelledby={`tipi-title-${direction.id}`}>

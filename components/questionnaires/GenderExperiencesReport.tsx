@@ -1,4 +1,4 @@
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
@@ -19,10 +19,20 @@ export function GenderExperiencesReport({ quiz, records, locale, readingProfiles
   const zh = locale === "zh";
   return <section data-gender-experiences-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="gender-experiences-result-heading">
     <h2 id="gender-experiences-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "本次主题记录" : "Topics in this record"} sections={records.map((record, index) => ({
-      id: `gender-experiences-record-${record.id}`,
-      title: `${quiz.directions[index].title[locale]} · ${record.observations.length}${zh ? "条记录" : " records"}`,
-    }))} />
+    <section className="rounded-xl border border-indigo-200 bg-indigo-50/60 p-4 sm:p-6" aria-labelledby="gender-notes-title">
+      <h3 id="gender-notes-title" className="text-xl font-semibold text-indigo-950">{zh ? "按你在意的情境翻看记录" : "Open the context that matters to you"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "这里按主题记录四周内的回答。无法判断、没有相关经历和不愿回答分别保留。数字是各类回答对应的题目数。" : "These notes group the past four weeks by context. Cannot judge, no relevant experience and prefer not to answer stay separate. The numbers count prompts in each category."}</p>
+      <ul className="mt-4 grid gap-3 lg:grid-cols-2">
+        {records.map((record, index) => <li key={record.id} className="min-w-0 border-t-2 border-indigo-300 pt-2">
+          <a className="inline-flex min-h-11 items-center font-semibold text-indigo-950 underline decoration-indigo-400 underline-offset-4" href={`#gender-experiences-record-${record.id}`}>{quiz.directions[index].title[locale]}</a>
+          <ObservationChoiceCounts categories={genderExperiencesCategories} counts={record.counts} locale={locale} shortLabels={{
+            "not-now": { zh: "不符合", en: "Does not describe" },
+            partly: { zh: "部分符合", en: "Partly describes" },
+            fits: { zh: "符合", en: "Describes" },
+          }} />
+        </li>)}
+      </ul>
+    </section>
     <GenderExperiencesSupport locale={locale} compact />
     {records.map((r, i) => {
       const original = quiz.profiles[i];

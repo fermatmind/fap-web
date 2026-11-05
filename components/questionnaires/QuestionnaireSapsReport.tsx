@@ -1,4 +1,3 @@
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire } from "@/lib/questionnaires/types";
@@ -11,7 +10,19 @@ export function QuestionnaireSapsReport({ quiz, result, locale }: {
 }) {
   const zh = locale === "zh";
   return <div data-saps-result className="mt-6 space-y-8">
-    {quiz.directions.length > 1 && <ResultReadingNav collapsible label={zh ? "按主题阅读结果" : "Read results by topic"} sections={quiz.directions.map(direction => ({ id: `saps-title-${direction.id}`, title: direction.title[locale] }))} />}
+    <section className="rounded-xl border border-stone-300 bg-stone-50 p-4 sm:p-6" aria-labelledby="saps-readout-title">
+      <h3 id="saps-readout-title" className="text-xl font-semibold text-stone-950">{zh ? "想做到怎样，和感觉做到多少" : "The standards you set and how close you feel to them"}</h3>
+      <div className="mt-4 grid gap-4 sm:grid-cols-2">
+        {quiz.directions.map(direction => {
+          const score = result.sapsDomains[direction.id as SapsDomain];
+          return <a key={direction.id} href={`#saps-title-${direction.id}`} className="min-w-0 border-t border-stone-300 py-3">
+            <span className="block font-semibold text-stone-950 underline decoration-stone-500 underline-offset-4">{direction.title[locale]}</span>
+            <span className="mt-2 block text-2xl font-semibold tabular-nums">{score.mean.toFixed(2)} / 7</span>
+            <span className="block text-sm leading-6">{zh ? `原始和 ${score.sum}，四题有效` : `Raw sum ${score.sum}, four valid items`}</span>
+          </a>;
+        })}
+      </div>
+    </section>
     <p className="leading-8 text-slate-700">{zh
       ? "八题均有有效回答。标准与差距分别呈现四题原始总和及均值，不合成完美主义百分比、人口排名、类型或诊断。两篇完整指南始终可以阅读。"
       : "All eight responses are valid. Standards and Discrepancy show separate four-item sums and means, without a combined perfectionism percentage, population rank, type or diagnosis. Both complete guides remain available."}</p>

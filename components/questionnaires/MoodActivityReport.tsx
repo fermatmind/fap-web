@@ -1,4 +1,4 @@
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
@@ -19,11 +19,17 @@ export function MoodActivityReport({ quiz, records, locale, readingProfiles }: {
   const zh = locale === "zh";
   return <section data-mood-activity-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="mood-activity-result-heading">
     <h2 id="mood-activity-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "本次主题记录" : "Topics in this record"} sections={records.map((record, index) => ({
-      id: `mood-activity-record-${record.id}`,
-      title: `${quiz.directions[index].title[locale]} · ${record.observations.length}${zh ? "条记录" : " records"}`,
-    }))} />
     <MoodActivitySupport locale={locale} compact />
+    <section className="rounded-xl border border-indigo-200 bg-indigo-50/60 p-4 sm:p-6" aria-labelledby="mood-activity-reading-start">
+      <h3 id="mood-activity-reading-start" className="text-xl font-semibold text-indigo-950">{zh ? "回到你记得的心情和活动变化" : "Return to changes in mood and activity that you remember"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "你可以先看睡眠与活动，也可以从对话或安排入手。每个主题单独列出本次选择和题目数。" : "Start with sleep and activity, conversations, or plans. Each topic keeps its own selected categories and prompt counts."}</p>
+      <ul className="mt-4 grid gap-3 md:grid-cols-2">
+        {records.map((record, index) => <li key={record.id} className="min-w-0 border-l-2 border-indigo-300 pl-3">
+          <a className="inline-flex min-h-11 items-center font-semibold text-indigo-950 underline underline-offset-4" href={`#mood-activity-record-${record.id}`}>{quiz.directions[index].title[locale]}</a>
+          <ObservationChoiceCounts categories={moodActivityCategories} counts={record.counts} locale={locale} shortLabels={{ na: { zh: "未计分", en: "Unscored" } }} />
+        </li>)}
+      </ul>
+    </section>
     {records.map((r, i) => {
       const original = quiz.profiles[i];
       const profile = readingProfiles?.find(item => item.id === original.id && item.directionIds.length === original.directionIds.length && item.directionIds.every((id, index) => id === original.directionIds[index]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === original.id) ?? original;

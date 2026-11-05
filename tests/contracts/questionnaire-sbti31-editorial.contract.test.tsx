@@ -20,6 +20,7 @@ describe("SBTI original31 individual bilingual editorial", () => {
     dom.innerHTML = renderToStaticMarkup(<Sbti31Page quiz={quiz} locale={locale} />);
     const norm = (s: string) => s.replace(/\s+/g, " ").trim();
     const body = norm(dom.textContent ?? "");
+    expect(body).not.toMatch(/小程序|\bmini[- ](?:program|edition|original|source|SBTI|game|adaptation)\b/i);
     expect(sbti31LandingSections).toHaveLength(8);
     expect(sbti31LandingFaq).toHaveLength(8);
     expect([...quiz.faq, ...sbti31LandingFaq]).toHaveLength(14);

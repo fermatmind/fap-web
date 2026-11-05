@@ -48,6 +48,9 @@ export function QuestionnaireParentingPracticesReport({ quiz, result, locale, re
     <section aria-labelledby="parenting-practices-guides" className="space-y-6">
       <h2 id="parenting-practices-guides" className="text-xl font-semibold leading-snug sm:text-2xl">{zh ? "四种风格的完整通用指南" : "Four complete general parenting-style guides"}</h2>
       <p className="leading-8">{zh ? "每个人都能阅读全部四份，比较概念、算例、日常情境与反例。打开指南不会改变你的作答或均分。" : "Everyone can read all four, comparing concepts, worked examples, everyday situations and counterexamples. Opening a guide does not change your answers or means."}</p>
+      <nav className="rounded-xl border border-emerald-200 bg-emerald-50/60 p-3 sm:p-4" aria-label={zh ? "在日常照料情境里比较四种做法" : "Compare four approaches in everyday caregiving"}>
+        <ul className="grid gap-x-5 sm:grid-cols-2">{quiz.profiles.map(profile => <li key={profile.id}><a className="inline-flex min-h-11 items-center font-semibold text-emerald-950 underline underline-offset-4" href={`#parenting-practices-guide-${profile.id}`}>{profile.title[locale]}</a></li>)}</ul>
+      </nav>
       {quiz.profiles.map(sourceProfile => {
         const profile = readingProfiles?.find(p => p.id === sourceProfile.id && p.resultReading?.quizSlug === quiz.slug && p.resultReading.profileId === sourceProfile.id) ?? sourceProfile;
         return <section key={profile.id} data-parenting-practices-guide={profile.id}

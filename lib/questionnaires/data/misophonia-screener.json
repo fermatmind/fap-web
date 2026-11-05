@@ -27,8 +27,8 @@
     "zh": "面向18岁及以上成年人，先答前置题；否按源表结束，是进入18题。新增不确定或不愿回答可结束但不计分。只按已有经验回答，不需声音暴露、录音或实际任务。来源频率题没有指定近期时段；第12—15题问过去7天，第16—18题按一般影响措辞，未指定时段。每条展示题需明确选择，包括新增不计分选项。"
   },
   "resultHeading": {
-    "en": "Your source-based response record",
-    "zh": "你的源表回答记录"
+    "en": "Your responses to specific sounds",
+    "zh": "你对特定声音的反应记录"
   },
   "source": {
     "kind": "dvmsq18_v15_cc_by_sa_working_zh_web_adaptation",

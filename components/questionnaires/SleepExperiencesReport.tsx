@@ -1,5 +1,5 @@
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire, QuestionnaireProfile } from "@/lib/questionnaires/types";
@@ -18,8 +18,18 @@ export function SleepExperiencesSupport({ locale, compact = false }: { locale: L
 export function SleepExperiencesReport({ quiz, records, locale, readingProfiles }: { quiz: Questionnaire; readingProfiles?: readonly QuestionnaireProfile[]; records: SleepExperiencesRecord[]; locale: Locale }) {
   const zh = locale === "zh";
   return <section data-sleep-experiences-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="sleep-experiences-result-heading">
-    <h2 id="sleep-experiences-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "选择一个主题阅读" : "Choose a topic to read"} sections={records.map((record, index) => ({ id: `record-${quiz.slug}-${record.id}`, title: quiz.directions[index].title[locale] }))} />
+    <header className="rounded-2xl bg-slate-900 p-4 text-slate-50 sm:p-7">
+      <h2 id="sleep-experiences-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
+      <p className="mt-3 max-w-prose leading-7 text-slate-200">{zh ? "从准备入睡到白天活动，沿着这些情境回看。数字是每类回答对应的题目数，展开后可读题目原文。" : "Follow the contexts from settling to sleep through daytime experiences. The numbers count prompts in each selected category. You can open the original prompts in the reading below."}</p>
+      <nav className="mt-5" aria-label={zh ? "睡眠与白天情境" : "Sleep and daytime contexts"}>
+        <ol className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+          {records.map((record, index) => <li key={record.id} className="min-w-0 border-l-2 border-indigo-300/65 pl-3">
+            <a className="inline-flex min-h-11 items-center font-semibold text-indigo-100 underline underline-offset-4" href={`#record-${quiz.slug}-${record.id}`}>{quiz.directions[index].title[locale]}</a>
+            <ObservationChoiceCounts categories={sleepCategories} counts={record.counts} locale={locale} shortLabels={{ na: { zh: "未计分", en: "Unscored" } }} />
+          </li>)}
+        </ol>
+      </nav>
+    </header>
     <SleepExperiencesSupport locale={locale} compact />
     {records.map((r, i) => {
       const original = quiz.profiles[i];

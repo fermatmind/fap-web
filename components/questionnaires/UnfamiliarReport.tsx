@@ -1,5 +1,5 @@
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire, QuestionnaireProfile } from "@/lib/questionnaires/types";
@@ -18,8 +18,17 @@ export function UnfamiliarReport({ quiz, records, locale, readingProfiles }: { q
   const zh = locale === "zh";
   return <section data-unfamiliar-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="unfamiliar-result-heading">
     <h2 id="unfamiliar-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "选择一个主题阅读" : "Choose a topic to read"} sections={records.map((record, index) => ({ id: `record-${quiz.slug}-${record.id}`, title: quiz.directions[index].title[locale] }))} />
     <UnfamiliarSupport locale={locale} compact />
+    <section className="rounded-xl border border-sky-200 bg-sky-50/60 p-4 sm:p-6" aria-labelledby="unfamiliar-context-start">
+      <h3 id="unfamiliar-context-start" className="text-xl font-semibold text-sky-950">{zh ? "挑一类你愿意回看的陌生体验" : "Choose an unfamiliar experience you want to revisit"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "感官印象、思路、人际接触和日常安排都可以分开看。数字对应本次各类回答的题目数。" : "Read sensory impressions, trains of thought, contact and routines separately. The numbers count prompts for each response category."}</p>
+      <ul className="mt-4 grid gap-x-6 md:grid-cols-2">
+        {records.map((record, index) => <li key={record.id} className="min-w-0 border-b border-sky-200 py-2">
+          <a className="inline-flex min-h-11 items-center font-semibold text-sky-950 underline underline-offset-4" href={`#record-${quiz.slug}-${record.id}`}>{quiz.directions[index].title[locale]}</a>
+          <ObservationChoiceCounts categories={unfamiliarCategories} counts={record.counts} locale={locale} shortLabels={{ na: { zh: "未计分", en: "Unscored" } }} />
+        </li>)}
+      </ul>
+    </section>
     {records.map((r, i) => {
       const original = quiz.profiles[i];
       const profile = readingProfiles?.find(item => item.id === original.id && item.directionIds.length === original.directionIds.length && item.directionIds.every((id, index) => id === original.directionIds[index]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === original.id) ?? original;

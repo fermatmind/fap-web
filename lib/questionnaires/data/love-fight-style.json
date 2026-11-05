@@ -27,6 +27,10 @@
     "en": "Recall one current or most recent significant romantic relationship across four editorial observation areas: verbal escalation, expressing a pause, returning to the issue and checking repair. These are not established independent factors. Conflict recovery research provides background but does not validate this new item set. Read four separate means and complete guides without an assigned fight type.",
     "zh": "围绕当前或最近一段重要恋爱关系，分别回看言语升温、表达暂停、返回议题与核对修复四个编辑观察区；它们不是已确立的独立因素。冲突恢复研究提供背景，不验证本原创题本。分别阅读四项均分与完整指南，不分配吵架类型。"
   },
+  "resultHeading": {
+    "en": "How conflict escalates, pauses, and gets repaired",
+    "zh": "分歧如何升温、暂停与修复"
+  },
   "directions": [
     {
       "id": "verbal-escalation",

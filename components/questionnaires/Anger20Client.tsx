@@ -1,5 +1,5 @@
 "use client";
-import { ResultSection, ResultReadingNav, ResultScoreRow } from "./QuestionnaireResultPresentation";
+import { ResultSection, ResultScoreRow } from "./QuestionnaireResultPresentation";
 import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 
 import Link from "next/link";
@@ -76,13 +76,12 @@ function ValidAnger20Client({ quiz, locale, readingProfiles }: { quiz: Anger20Qu
       {stage === "result" && result && <>
         <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading?.[locale]}</h2>
         <p className="leading-8">{zh ? "20项均已作明确选择，包括不计分项。四组分开显示，无总分、赢家、风险分段或诊断。外显不自动等于失控，保留不自动等于不健康，选择感不是已展示能力或安全证明。均分只是所选频率描述的摘要。" : "All 20 prompts have an explicit choice, including unscored responses. Four topics are separate, without a total, winner, risk band or diagnosis. Expression is not automatically failed control; privacy is not automatically unhealthy; perceived choice is not demonstrated skill or safety. Means summarize selected frequency descriptions only."}</p>
-        <ResultSection title={zh ? "本次各组读数" : "Readings by topic"}>
+        <ResultSection tone="framed" title={zh ? "回想一个情境，再看自己的反应" : "Recall a context, then look at your response"} description={zh ? "感受到愤怒、表达出来、保留感受以及感觉有选择，分开呈现。选一个主题进入例子和私人回答。" : "Feeling anger, expressing it, keeping it private and feeling a choice are shown separately. Open a topic for its examples and private responses."} className="rounded-xl border border-teal-200 bg-teal-50/65">
           <div className="grid gap-x-8 sm:grid-cols-2">{ANGER20_TOPICS.map(id => {
             const score = result[id];
-            return <ResultScoreRow key={id} label={quiz.profiles.find(profile => profile.id === id)!.title[locale]} value={score.mean === null ? (zh ? "未计分" : "Unscored") : `${score.mean.toFixed(2)} / 4`} score={score.mean} min={0} max={4} description={<>{quiz.profiles.find(profile => profile.id === id)!.summary[locale]}<span className="mt-2 block text-xs">{zh ? `原始均分范围0–4；${score.numericCount}/${score.requiredCount}条数字答案` : `Raw mean range 0–4; ${score.numericCount}/${score.requiredCount} numeric responses`}</span></>} />;
+            return <ResultScoreRow key={id} label={<a className="inline-flex min-h-11 items-center font-semibold underline underline-offset-4 text-teal-950 decoration-teal-400" href={`#anger20-${id}`}>{quiz.profiles.find(profile => profile.id === id)!.title[locale]}</a>} value={score.mean === null ? (zh ? "未计分" : "Unscored") : `${score.mean.toFixed(2)} / 4`} score={score.mean} min={0} max={4} description={<span className="block text-sm">{zh ? `原始均分范围0–4；${score.numericCount}/${score.requiredCount}条数字答案` : `Raw mean range 0–4; ${score.numericCount}/${score.requiredCount} numeric responses`}</span>} />;
           })}</div>
         </ResultSection>
-        <ResultReadingNav label={zh ? "各组记录与完整读法" : "Topic records and full readings"} sections={ANGER20_TOPICS.map(id => ({ id: `anger20-${id}`, title: quiz.profiles.find(profile => profile.id === id)!.title[locale] }))} />
         <div data-anger20-result className="space-y-6">{ANGER20_TOPICS.map(id => {
           const score = result[id], profile = quiz.profiles.find(p => p.id === id)!;
           const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === 1 && item.directionIds[0] === id && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;

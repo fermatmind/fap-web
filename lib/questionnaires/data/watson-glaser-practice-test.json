@@ -27,8 +27,8 @@
     "zh": "明确开始后，同一时钟贯穿五段，读规则和换题也计时。结束前可返回任题、选给定项或明确留空。提交或到时关闭整份，空白保留未答并与错选分开。两界面均英文题干选项，说明解析双语。本练习允许纸笔和计算器，实际测评规则可能不同。"
   },
   "resultHeading": {
-    "en": "Your five raw practice records and all worked answers",
-    "zh": "五项原始练习记录与全部题解"
+    "en": "Your critical reasoning practice score and review",
+    "zh": "你的批判性推理练习成绩与题解"
   },
   "critical30": {
     "sections": [

@@ -1,4 +1,4 @@
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
@@ -18,11 +18,17 @@ export function DisconnectionReport({ quiz, records, locale, readingProfiles }: 
   const zh = locale === "zh";
   return <section data-disconnection-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="disconnection-result-heading">
     <h2 id="disconnection-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "本次主题记录" : "Topics in this record"} sections={records.map((record, index) => ({
-      id: `disconnection-record-${record.id}`,
-      title: `${quiz.directions[index].title[locale]} · ${record.observations.length}${zh ? "条记录" : " records"}`,
-    }))} />
     <DisconnectionSupport locale={locale} compact />
+    <section className="rounded-xl bg-slate-100/75 p-4 sm:p-6" aria-labelledby="disconnection-context-start">
+      <h3 id="disconnection-context-start" className="text-xl font-semibold text-slate-950">{zh ? "在一个具体情境里读自己的体验" : "Read an experience in its own context"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "关于自己、周围、注意和回忆的回答分开显示。选一个你愿意回看的主题，数字是所选类别对应的题目数。" : "Responses about yourself, surroundings, attention and recall stay separate. Choose a topic you want to revisit. The numbers count prompts in each selected category."}</p>
+      <ul className="mt-4 grid gap-3 md:grid-cols-2">
+        {records.map((record, index) => <li key={record.id} className="min-w-0 rounded-lg border border-slate-300 bg-white px-3 pb-3">
+          <a className="inline-flex min-h-11 items-center font-semibold text-slate-950 underline underline-offset-4" href={`#disconnection-record-${record.id}`}>{quiz.directions[index].title[locale]}</a>
+          <ObservationChoiceCounts categories={disconnectionCategories} counts={record.counts} locale={locale} shortLabels={{ na: { zh: "未计分", en: "Unscored" } }} />
+        </li>)}
+      </ul>
+    </section>
     {records.map((r, i) => {
       const original = quiz.profiles[i];
       const profile = readingProfiles?.find(item => item.id === original.id && item.directionIds.length === original.directionIds.length && item.directionIds.every((id, index) => id === original.directionIds[index]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === original.id) ?? original;

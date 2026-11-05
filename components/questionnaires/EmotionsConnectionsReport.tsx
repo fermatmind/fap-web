@@ -1,4 +1,4 @@
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
@@ -19,11 +19,17 @@ export function EmotionsConnectionsReport({ quiz, records, locale, readingProfil
   const zh = locale === "zh";
   return <section data-emotions-connections-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="emotions-connections-result-heading">
     <h2 id="emotions-connections-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "本次主题记录" : "Topics in this record"} sections={records.map((record, index) => ({
-      id: `emotions-connections-record-${record.id}`,
-      title: `${quiz.directions[index].title[locale]} · ${record.observations.length}${zh ? "条记录" : " records"}`,
-    }))} />
     <EmotionsConnectionsSupport locale={locale} compact />
+    <section className="border-y border-fuchsia-200 bg-fuchsia-50/55 p-4 sm:p-6" aria-labelledby="emotions-connections-reading-start">
+      <h3 id="emotions-connections-reading-start" className="text-xl font-semibold text-fuchsia-950">{zh ? "你想从哪一种感受或相处情境开始" : "Which feeling or situation do you want to read about?"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "七部分各自列出所选类别和题目数。可以选你记得最清楚的一项，不必把所有感受合在一起读。" : "Each of the seven topics lists the selected categories and their prompt counts. Start with one you remember clearly."}</p>
+      <ul className="mt-4 grid gap-x-6 md:grid-cols-2">
+        {records.map((record, index) => <li key={record.id} className="min-w-0 border-t border-fuchsia-200 py-2">
+          <a className="inline-flex min-h-11 items-center font-semibold text-fuchsia-950 underline underline-offset-4" href={`#emotions-connections-record-${record.id}`}>{quiz.directions[index].title[locale]}</a>
+          <ObservationChoiceCounts categories={emotionsConnectionsCategories} counts={record.counts} locale={locale} />
+        </li>)}
+      </ul>
+    </section>
     {records.map((r, i) => {
       const original = quiz.profiles[i];
       const profile = readingProfiles?.find(item => item.id === original.id && item.directionIds.length === original.directionIds.length && item.directionIds.every((id, index) => id === original.directionIds[index]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === original.id) ?? original;

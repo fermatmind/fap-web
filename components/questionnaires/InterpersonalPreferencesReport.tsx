@@ -1,4 +1,4 @@
-import { ResultSection, ResultReadingNav, ResultScoreRow } from "./QuestionnaireResultPresentation";
+import { ResultSection, ResultScoreRow } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
@@ -14,13 +14,12 @@ export function InterpersonalPreferencesReport({ quiz, result, locale }: {
   const zh = locale === "zh";
   return <div className="mt-6 space-y-8" data-interpersonal-report>
 
-    <ResultSection title={zh ? "主动与期望：六项记录" : "Actions and wishes: six separate readings"}>
+    <ResultSection tone="framed" title={zh ? "相处时，什么安排对你重要" : "What arrangements matter when you are with people?"} description={zh ? "选一项偏好，看看它在哪些条件下容易变，或需要和别人先说清。" : "Choose a preference to see when it can change or need a conversation."} className="rounded-xl border border-teal-200 bg-teal-50/65">
       <div className="grid gap-x-8 sm:grid-cols-2">{quiz.directions.map(direction => {
         const part = result.facets[direction.id];
-        return <ResultScoreRow key={direction.id} label={direction.title[locale]} value={part.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${part.mean.toFixed(1)} / 5`} score={part.mean} min={1} max={5} description={quiz.profiles.find(profile => profile.directionIds[0] === direction.id)!.summary[locale]} />;
+        return <ResultScoreRow key={direction.id} label={<a className="inline-flex min-h-11 items-center font-semibold text-teal-950 underline underline-offset-4" href={`#interpersonal-${direction.id}`}>{direction.title[locale]}</a>} value={part.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${part.mean.toFixed(1)} / 5`} score={part.mean} min={1} max={5} description={quiz.profiles.find(profile => profile.directionIds[0] === direction.id)!.summary[locale]} />;
       })}</div>
     </ResultSection>
-    <ResultReadingNav label={zh ? "逐项完整解读" : "Full readings by topic"} sections={quiz.directions.map(direction => ({ id: `interpersonal-${direction.id}`, title: direction.title[locale] }))} />
     {quiz.directions.map(direction => {
       const facet = result.facets[direction.id];
       const profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;

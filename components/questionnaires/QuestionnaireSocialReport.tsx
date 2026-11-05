@@ -9,7 +9,7 @@ export function QuestionnaireSocialReport({ quiz, result, locale }: { quiz: Ques
   const zh = locale === "zh", facet = result.facets["social-intelligence"], total = facet.rated === 4 ? facet.sum : null;
   const missing = zh ? "资料不足" : "Insufficient information";
   return <div className="my-6 space-y-8">
-    <section className="space-y-4 rounded-lg bg-slate-50 p-4" aria-labelledby="social-total-title">
+    <section className="space-y-4 rounded-xl border border-sky-200 bg-sky-50/65 p-4 sm:p-6" aria-labelledby="social-total-title">
       <h3 id="social-total-title" className="text-xl font-semibold">{zh ? "IPIP-VIA-R社交理解四条原始分数" : "The four-item IPIP-VIA-R social-understanding raw score"}</h3>
       <dl data-social-facet="social-intelligence" className="space-y-3">
         <div className="grid grid-cols-1 gap-2 border-b border-slate-200 py-3 sm:grid-cols-[minmax(0,1fr)_minmax(7rem,auto)] sm:gap-4 [&>dd]:font-semibold [&>dd]:tabular-nums"><dt>{zh ? "原始总分（4—20）" : "Raw total (4–20)"}</dt><dd data-social-total>{total === null ? missing : total}</dd></div>
@@ -19,6 +19,10 @@ export function QuestionnaireSocialReport({ quiz, result, locale }: { quiz: Ques
       <p className="leading-8">{zh ? "按呈现顺序，两条正向直接计分，两条反向（第2、4条）按6减有效回答。四条全部有效才给4—20原始总分，均分用未舍入总和除4，不从一位小数均分倒推。任一NA保留不足，不补零、中立或按三条估算。" : "In presentation order, the two positive items are direct and the two negative items, second and fourth, use six minus the rating. All four ratings are required for a raw total of 4–20. The mean divides the unrounded sum by four, never reconstructing it from a one-decimal mean. Any NA retains insufficient information without zero, neutral or estimates from three items."}</p>
       {total === null && <p data-social-insufficient className="leading-8">{zh ? "本次作答已结束，没有生成个人总分或均分。可以重测，下面完整说明仍可阅读。" : "This attempt is finished without a personal total or mean. You can retake it; the full guide remains readable below."}</p>}
       <p className="text-sm leading-7">{zh ? "较高较低只描述这四条的自报方向，不证明真实能力、读心、共情或IQ／EQ。12可来自不同组合，不认证平衡或人群平均。与本站品格优势中的同一四条复用题目和键向，独立作答语境仍可能改变回答；公有领域许可不等于中文或个人结果验证。" : "Higher and lower describe self-reports on these four items, not demonstrated ability, mind-reading, empathy or IQ/EQ. Twelve can come from different patterns without an ideal balance or population average. Items and keys are shared with the same facet in our character-strengths form; separate administration can still affect responses. Public-domain permission establishes no Chinese or individual validation."}</p>
+      <aside className="border-l-2 border-sky-300 pl-4 leading-7">
+        <p>{zh ? "回想一次你试着读懂别人意思的情境。下面的例子可以帮助你分开看观察、猜测和向对方确认。" : "Think of a time you tried to understand someone. The examples distinguish what you noticed, what you guessed and what you checked with them."}</p>
+        <a className="inline-flex min-h-11 items-center font-semibold text-sky-950 underline underline-offset-4" href={`#social-title-${quiz.profiles[0].id}`}>{zh ? "从本次读数继续看相处例子" : "Continue from your result to social examples"}</a>
+      </aside>
     </section>
     {quiz.profiles.map(profile => <section key={profile.id} data-social-profile={profile.id} aria-labelledby={`social-title-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
       <h3 id={`social-title-${profile.id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>

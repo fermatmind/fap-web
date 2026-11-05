@@ -11,7 +11,15 @@ export function QuestionnairePositivePressureReport({ quiz, result, locale }: {
 }) {
   const zh = locale === "zh";
   return <ResultPage variant="dimensions" data-positive-pressure-result className="mt-6 space-y-10">
-
+    <ResultOverview locale={locale} title={zh ? "三种积极压力习惯" : "Three positive-pressure habits"}
+      className="border-rose-200 bg-rose-50"
+      description={zh ? "分别看自己、对话和安慰时的习惯，再读对应例子。" : "Read habits in self-talk, conversation and reassurance separately, then open an example."}
+      items={quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return { id: direction.id, label: direction.title[locale], href: `#positive-pressure-part-${direction.id}`,
+          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
+          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
+      })} />
 
     {quiz.directions.map(direction => {
       const score = result.facets[direction.id], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
@@ -28,14 +36,6 @@ export function QuestionnairePositivePressureReport({ quiz, result, locale }: {
 
     <details className="border-t border-slate-200 pt-4" data-result-reading-method>
       <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
-      <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
-      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
-      items={quiz.directions.map(direction => {
-        const score = result.facets[direction.id];
-        return { id: direction.id, label: direction.title[locale], href: `#positive-pressure-part-${direction.id}`,
-          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
-          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
-      })} />
       <p className="leading-8 text-slate-700">{zh
       ? "三部分分别回看过去两周的自报习惯，不相加、不排名、不选类型。较高计分均分仅表示对所选积极压力习惯认可较多，不能证明伤害、疾病或“有毒人格”；较低也不认证沟通良好。保留隐私、普通希望和安全边界本身不等于有害。相近均分不证明习惯相同。"
       : "These three parts describe separate reported habits over the past two weeks, without an aggregate, ranking or type. Higher keyed means only reflect more endorsement of the selected positive-pressure habits, not proof of harm, illness or a toxic personality; lower means do not certify helpful communication. Privacy, ordinary hope and safety boundaries are not inherently harmful. Close means do not establish equivalent habits."}</p>

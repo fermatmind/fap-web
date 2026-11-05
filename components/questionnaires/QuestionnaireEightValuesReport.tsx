@@ -9,13 +9,18 @@ export function QuestionnaireEightValuesReport({ quiz, result, locale }: { quiz:
   const zh = locale === "zh";
   const title = (id: string) => quiz.profiles.find(p => p.id === id)!.title[locale];
   return <div className="my-6 space-y-8">
-    <section className="rounded-lg bg-slate-50 p-4" aria-label={zh ? "本次四轴八极结果" : "Four axes and eight poles for this attempt"}>
+    <section className="rounded-xl border border-violet-200 bg-violet-50/55 p-4 sm:p-6" aria-label={zh ? "本次四轴八极结果" : "Four axes and eight poles for this attempt"}>
       <h3 className="text-xl font-semibold">{zh ? "本次四轴，分别阅读" : "Read each of your four axes separately"}</h3>
-      <dl className="mt-4 space-y-6">{eightValuesPairs.map(({ axis, positive, negative }) => {
+      <p className="mt-3 max-w-prose leading-7">{zh ? "每条轴的两端一起读。选一端可读它涉及哪些议题和取舍，另一端的指南也始终可读。" : "Read both ends of each axis together. Open either end for its issues and trade-offs. The guide to the other end remains available."}</p>
+      <dl className="mt-4 grid gap-x-6 lg:grid-cols-2">{eightValuesPairs.map(({ axis, positive, negative }) => {
         const score = result.eightValuesAxes[axis];
-        return <div key={axis} data-eight-values-axis={axis} className="space-y-2">
+        return <div key={axis} data-eight-values-axis={axis} className="min-w-0 space-y-2 border-t border-violet-200 py-3">
           <dt className="font-semibold">{quiz.directions.find(d => d.id === axis)!.title[locale]}</dt>
-          <dd>{title(positive)}: {score.percentage.toFixed(1)}% · {title(negative)}: {score.complement.toFixed(1)}%</dd>
+          <dd className="grid grid-cols-2 gap-3 text-sm leading-6">
+            <a className="inline-flex min-h-11 flex-col justify-center font-medium text-violet-950 underline underline-offset-4" href={`#eight-values-title-${positive}`}>{title(positive)} <span className="tabular-nums">{score.percentage.toFixed(1)}%</span></a>
+            <a className="inline-flex min-h-11 flex-col items-end justify-center text-right font-medium text-teal-950 underline underline-offset-4" href={`#eight-values-title-${negative}`}>{title(negative)} <span className="tabular-nums">{score.complement.toFixed(1)}%</span></a>
+          </dd>
+          <dd aria-hidden="true" className="flex h-2 overflow-hidden rounded-full"><span className="bg-violet-700" style={{ width: `${score.percentage}%` }} /><span className="bg-teal-700" style={{ width: `${score.complement}%` }} /></dd>
           <dd className="text-sm">{zh ? "原始加权和 / 绝对权重和：" : "Weighted sum / absolute weight sum: "}{score.sum} / {score.maximum}</dd>
         </div>;
       })}</dl>

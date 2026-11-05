@@ -1,4 +1,4 @@
-import { ResultReadingNav, ResultScoreRow } from "./QuestionnaireResultPresentation";
+import { ResultScoreRow } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -9,13 +9,15 @@ import type { Locale } from "@/lib/i18n/locales";
 export function ActivityEngagementReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh", available = Object.values(result.facets).filter(f => f.rated >= 3).length;
   return <div className="my-6 min-w-0 space-y-8 [overflow-wrap:anywhere]">
-    <section className="space-y-4 rounded-lg bg-slate-50 p-4" aria-labelledby="aep-summary-title">
-      <h3 id="aep-summary-title" className="text-xl font-semibold">{zh ? "五项活动参与方式分别阅读" : "Five separate activity-engagement readings"}</h3>
+    <section className="space-y-4 rounded-xl border border-emerald-200 bg-emerald-50/60 p-4 sm:p-6" aria-labelledby="aep-summary-title">
+      <h3 id="aep-summary-title" className="text-xl font-semibold">{zh ? "什么机会让你开始参与" : "What makes it easier to join in?"}</h3>
+      <p className="max-w-prose leading-7">{zh ? "选一个你想回看的参与方式，从它自己的读数进入日常活动例子。" : "Choose a way of getting involved. Its reading links directly to an everyday example."}</p>
 
       <dl className="grid gap-x-8 gap-y-3 sm:grid-cols-2">{quiz.directions.map(direction => {
+        const profile = quiz.profiles.find(item => item.directionIds[0] === direction.id)!;
         const facet = result.facets[direction.id], mean = facet.rated >= 3 ? facet.sum / facet.rated : null;
-        return <div key={direction.id} data-aep-facet={direction.id} className="min-w-0 border-b border-slate-200 pb-4"><dt className="font-semibold leading-7">{direction.title[locale]}</dt><dd>
-          <ResultScoreRow label={zh ? "原始均值 · 1–5" : "Raw mean · 1–5"} value={<span data-aep-mean>{mean === null ? (zh ? "资料不足" : "Insufficient information") : `${mean.toFixed(1)} / 5`}</span>} score={mean} min={1} max={5} description={quiz.profiles.find(profile => profile.directionIds[0] === direction.id)!.summary[locale]} />
+        return <div key={direction.id} data-aep-facet={direction.id} className="min-w-0 border-b border-slate-200 pb-4"><dt><a className="inline-flex min-h-11 items-center font-semibold text-emerald-950 underline underline-offset-4" href={`#aep-title-${profile.id}`}>{direction.title[locale]}</a></dt><dd>
+          <ResultScoreRow label={zh ? "原始均值 · 1–5" : "Raw mean · 1–5"} value={<span data-aep-mean>{mean === null ? (zh ? "资料不足" : "Insufficient information") : `${mean.toFixed(1)} / 5`}</span>} score={mean} min={1} max={5} description={profile.summary[locale]} />
           {mean !== null && <span data-aep-sum className="mt-3 block text-sm leading-7 text-slate-600">{zh ? `原始和${facet.sum} / ${facet.rated}条数值` : `Raw sum ${facet.sum} / ${facet.rated} rated items`}</span>}
           <span data-aep-rated className="block text-sm text-slate-600">{zh ? `${facet.rated} / 4条数值有效；${4 - facet.rated}条未评分` : `${facet.rated} / 4 numeric ratings; ${4 - facet.rated} unscored responses`}</span>
         </dd></div>;
@@ -27,7 +29,6 @@ export function ActivityEngagementReport({ quiz, result, locale }: { quiz: Quest
       </details>
     </section>
     <p className="leading-8">{zh ? "五篇八节全文全部保留，包括资料不足的项。结合具体机会与情境阅读，不把频率当固定身份。" : "All five eight-section guides remain open, including for insufficient parts. Read them alongside actual opportunities and context rather than as fixed identities."}</p>
-    <ResultReadingNav label={zh ? "完整主题解读" : "Full topic readings"} sections={quiz.profiles.map(profile => ({ id: `aep-title-${profile.id}`, title: profile.title[locale] }))} />
     {quiz.profiles.map(profile => <section key={profile.id} data-aep-profile={profile.id} aria-labelledby={`aep-title-${profile.id}`} className="border-t border-slate-200 pt-7">
       <h3 id={`aep-title-${profile.id}`} className="mb-5 scroll-mt-24 text-2xl font-semibold">{profile.title[locale]}</h3>
       <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} mode="result" previewSectionIds={["reading-2", "reading-6"]} />

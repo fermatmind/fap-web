@@ -1,5 +1,5 @@
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire, QuestionnaireProfile } from "@/lib/questionnaires/types";
@@ -19,8 +19,17 @@ export function UncertaintyEaseReport({ quiz, records, locale, readingProfiles }
   const zh = locale === "zh";
   return <section data-uncertainty-ease-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="uncertainty-ease-result-heading">
     <h2 id="uncertainty-ease-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "选择一个主题阅读" : "Choose a topic to read"} sections={records.map((record, index) => ({ id: `record-${quiz.slug}-${record.id}`, title: quiz.directions[index].title[locale] }))} />
     <UncertaintyEaseSupport locale={locale} compact />
+    <section className="rounded-xl border border-emerald-200 bg-emerald-50/60 p-4 sm:p-6" aria-labelledby="uncertainty-context-start">
+      <h3 id="uncertainty-context-start" className="text-xl font-semibold text-emerald-950">{zh ? "你面对不确定时的选择记录" : "Your responses to uncertainty"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "只回看本次题目。各类别分别显示，可进入完整记录看每条提示和它的具体情境。" : "Review the prompts from this attempt. Categories remain separate. Open the full record for each prompt and its context."}</p>
+      <ul className="mt-4 grid gap-3">
+        {records.map((record, index) => <li key={record.id} className="min-w-0 border-t border-emerald-200 py-2">
+          <a className="inline-flex min-h-11 items-center font-semibold text-emerald-950 underline underline-offset-4" href={`#record-${quiz.slug}-${record.id}`}>{quiz.directions[index].title[locale]}</a>
+          <ObservationChoiceCounts categories={uncertaintyEaseCategories} counts={record.counts} locale={locale} />
+        </li>)}
+      </ul>
+    </section>
     {records.map((r, i) => {
       const original = quiz.profiles[i];
       const profile = readingProfiles?.find(item => item.id === original.id && item.directionIds.length === original.directionIds.length && item.directionIds.every((id, index) => id === original.directionIds[index]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === original.id) ?? original;

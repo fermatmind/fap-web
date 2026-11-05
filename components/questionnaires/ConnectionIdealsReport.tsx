@@ -1,4 +1,4 @@
-import { ResultReadingNav, ResultScoreRow } from "./QuestionnaireResultPresentation";
+import { ResultScoreRow } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -9,9 +9,15 @@ import type { Locale } from "@/lib/i18n/locales";
 export function ConnectionIdealsReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<ArchetypeResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh", matched = quiz.profiles.filter(p => result.profileIds.includes(p.id));
   return <div className="my-6 space-y-8">
-{matched.length > 1 && <p data-ci-tied className="leading-8">{zh ? `${matched.length}个主题最高并列，下面每篇都全文保留；没有隐藏的唯一赢家。` : `${matched.length} themes share the highest count. Every complete guide remains below; no hidden rule chooses a sole winner.`}</p>}
-    <p className="leading-8">{zh ? "每个最高并列的八节全文都已开放；想象偏好不能代替真实意愿与行为。" : "Every highest-count eight-section guide is open. Imagined preferences do not replace actual wishes and conduct."}</p>
-    <ResultReadingNav label={zh ? "完整主题解读" : "Full topic readings"} sections={matched.map(profile => ({ id: `ci-title-${profile.id}`, title: profile.title[locale] }))} />
+    <section aria-labelledby="ci-summary-title" className="space-y-4 rounded-xl border border-rose-200 bg-rose-50 p-4 sm:p-6">
+      <h3 id="ci-summary-title" className="text-xl font-semibold">{zh ? "你更常选择的相处方式" : "Ways of connecting you chose more often"}</h3>
+      <p className="text-sm leading-7">{zh ? "从相处主题接到一个具体片段，看看这种偏好在日常里会是什么样。" : "Open a theme for an everyday scene that shows how this preference can look."}</p>
+      <dl className="grid gap-2 sm:grid-cols-2">{matched.map(profile => <div key={profile.id} className="min-w-0 rounded-lg border border-rose-100 bg-white px-3 pb-3">
+        <dt><a className="inline-block min-h-11 py-2 font-semibold underline" href={`#ci-title-${profile.id}`}>{profile.title[locale]}</a></dt><dd className="tabular-nums">{result.counts[profile.directionIds[0]]} / 8</dd>
+      </div>)}</dl>
+      {matched.length > 1 && <p data-ci-tied className="text-sm leading-7">{zh ? `${matched.length}个主题最高并列，每篇全文都保留。` : `${matched.length} themes share the highest count. Each full guide remains available.`}</p>}
+    </section>
+    <p className="text-sm leading-7">{zh ? "每个最高并列的八节全文都已开放；想象偏好不能代替真实意愿与行为。" : "Every highest-count eight-section guide is open. Imagined preferences do not replace actual wishes and conduct."}</p>
     {matched.map(profile => <section key={profile.id} data-ci-profile={profile.id} aria-labelledby={`ci-title-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
       <h3 id={`ci-title-${profile.id}`} className="mb-5 scroll-mt-24 text-2xl font-semibold">{profile.title[locale]}</h3>
       <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} mode="result" previewSectionIds={["reading-2", "reading-6"]} />

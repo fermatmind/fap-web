@@ -13,7 +13,19 @@ export function QuestionnaireOrientationReport({ quiz, result, locale, readingPr
       <h3 className="text-xl font-semibold">{zh ? "本次全部选择不回答" : "Every statement was explicitly skipped"}</h3>
       <p className="mt-3">{zh ? "这是合法选择，无须理由。不生成个人领域卡或解释，不推断回避、压抑、准备程度、取向或身份；可以直接退出。" : "This is a valid choice without any explanation required. No personal domain cards or interpretations are generated, and no avoidance, suppression, readiness, orientation or identity is inferred. You may exit directly."}</p>
     </section> : <>
-      <p className="leading-8">{zh ? "五主题分开看。数字回答含1—5，暂不确定是其中选3的子集，跳过单列。不相加、不求均值、不排名或评能力。以下通用指南人人相同，不是根据次数生成的个人解释。" : "Read five topics separately. Numeric responses include 1–5; uncertain choices are the subset at 3, with skips separate. There is no score, mean, ranking or ability grade. The guides below are general, identical for everyone, and not personal interpretations of these counts."}</p>
+      <section className="rounded-xl border border-cyan-200 bg-cyan-50/60 p-4 sm:p-6" aria-labelledby="orientation-notebook">
+        <h3 id="orientation-notebook" className="text-xl font-semibold text-cyan-950">{zh ? "选择你想翻看的一页" : "Open a page of your reflection"}</h3>
+        <p className="mt-3 max-w-prose leading-7">{zh ? "五主题分开看。数字回答含1—5，暂不确定是其中选3的子集，跳过单列。不相加、不求均值、不排名或评能力。以下通用指南人人相同，不是根据次数生成的个人解释。" : "Read five topics separately. Numeric responses include 1–5; uncertain choices are the subset at 3, with skips separate. There is no score, mean, ranking or ability grade. The guides below are general, identical for everyone, and not personal interpretations of these counts."}</p>
+        <nav aria-label={zh ? "按探索主题打开记录" : "Open your notes by topic"} className="mt-4 border-t border-cyan-200">
+          {quiz.directions.map(direction => {
+            const record = result.domains[direction.id];
+            return <a key={direction.id} href={`#orientation-${direction.id}`} className="block min-h-12 border-b border-cyan-200 py-2.5 text-cyan-950 last:border-b-0 md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:gap-4">
+              <span className="font-semibold underline decoration-cyan-400 underline-offset-4">{direction.title[locale]}</span>
+              <span className="block text-sm leading-6">{zh ? `${record.numeric} 项数字回答，其中 ${record.uncertain} 项暂不确定 · ${record.skipped} 项跳过` : `${record.numeric} numeric, including ${record.uncertain} uncertain · ${record.skipped} skipped`}</span>
+            </a>;
+          })}
+        </nav>
+      </section>
       {quiz.directions.map(direction => {
         const record = result.domains[direction.id], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
         const options = quiz.questions.find(q => q.options[0].directionId === direction.id)!.options;

@@ -27,8 +27,8 @@
     "zh": "在心里选定一个工作、学习或志愿项目情境，回顾近四周。按每条描述符合的频率选择：0从不、1很少、2有时、3经常、4非常经常。没有对应情境或不愿回答时可明确跳过，不必输入名称或具体经历。"
   },
   "resultHeading": {
-    "en": "Your five separate frequency readings",
-    "zh": "你的五组独立频率读数"
+    "en": "How often you reported five impostor experiences",
+    "zh": "你的五组冒名者体验频率"
   },
   "source": {
     "kind": "fermatmind_original_achievement_selfdoubt_reflection",

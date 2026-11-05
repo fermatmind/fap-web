@@ -12,6 +12,7 @@ import { useEntertainmentMetrics, useEntertainmentResultView } from "@/component
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
+import resultStyles from "./QuestionnaireResultPresentation.module.css";
 const subscribeReady = () => () => {};
 const now = () => ({ wall: Date.now(), monotonic: performance.now() });
 const time = (seconds: number) => `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
@@ -115,13 +116,20 @@ function ValidCritical30Client({ quiz, locale, readingProfiles }: { quiz: Critic
       </>}
       {stage === "result" && result && <>
         <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading?.[locale]}</h2>
-        <p data-critical30-result-mode className="leading-8">{result.mode === "timed" ? (zh ? "整卷连续计时练习 · 本站选定上限" : "Continuous whole-attempt practice · Site-selected cap") : (zh ? "不计时学习" : "Untimed study")}</p>
-        <p data-critical30-closure className="leading-8">{result.closure.reason === "expired" ? (zh ? "整卷到时结束，空白仍为未答。" : "The whole attempt closed at its deadline; blanks remain unanswered.") : (zh ? "你主动结束了整份练习。" : "You finished the whole practice.")}</p>
-        <dl data-critical30-overall className="grid grid-cols-3 gap-3 border-y border-teal-200 py-5" aria-label={zh ? "本次题本表现" : "This practice bank’s outcomes"}>
-          {(["correct", "wrong", "unanswered"] as const).map(key => <div key={key} className="min-w-0"><dt className="text-sm leading-6 text-slate-600">{key === "correct" ? (zh ? "正确" : "Correct") : key === "wrong" ? (zh ? "错误" : "Incorrect") : (zh ? "未答" : "Unanswered")}</dt><dd className={`mt-2 text-3xl font-semibold tabular-nums ${key === "correct" ? "text-teal-800" : "text-slate-800"}`}>{result.overall[key]}<span className="ml-1 text-sm font-normal text-slate-500">/ {result.overall.total}</span></dd></div>)}
-        </dl>
-        <p className="text-sm leading-7 text-slate-600">{zh ? "这里只记录这30题的表现，不是正式考试成绩。先核对题目允许作出的结论，再看自己选择的理由。" : "This records performance on these 30 questions, not an official test score. Start with what each question permits you to conclude, then examine your reason for choosing."}</p>
-        <ResultReadingNav label={zh ? "分段表现与答案解析" : "Section outcomes and answer review"} sections={result.parts.map((part, index) => ({ id: `critical30-reading-${part.id}`, title: quiz.critical30.sections[index].title[locale] }))} />
+        <div className={resultStyles.sectionPracticeLead} data-section-practice="critical30">
+          <div className={resultStyles.sectionPracticeScore}>
+            <p data-critical30-result-mode className="leading-8">{result.mode === "timed" ? (zh ? "整卷连续计时练习 · 本站选定上限" : "Continuous whole-attempt practice · Site-selected cap") : (zh ? "不计时学习" : "Untimed study")}</p>
+            <p data-critical30-closure className="leading-8">{result.closure.reason === "expired" ? (zh ? "整卷到时结束，空白仍为未答。" : "The whole attempt closed at its deadline; blanks remain unanswered.") : (zh ? "你主动结束了整份练习。" : "You finished the whole practice.")}</p>
+            <dl data-critical30-overall className="grid grid-cols-3 gap-3 border-y border-teal-200 py-5" aria-label={zh ? "本次题本表现" : "This practice bank’s outcomes"}>
+              {(["correct", "wrong", "unanswered"] as const).map(key => <div key={key} className="min-w-0"><dt className="text-sm leading-6 text-slate-600">{key === "correct" ? (zh ? "正确" : "Correct") : key === "wrong" ? (zh ? "错误" : "Incorrect") : (zh ? "未答" : "Unanswered")}</dt><dd className={`mt-2 text-3xl font-semibold tabular-nums ${key === "correct" ? "text-teal-800" : "text-slate-800"}`}>{result.overall[key]}<span className="ml-1 text-sm font-normal text-slate-500">/ {result.overall.total}</span></dd></div>)}
+            </dl>
+            <p className="text-sm leading-7 text-slate-600">{zh ? "这里只记录这30题的表现，不是正式考试成绩。先核对题目允许作出的结论，再看自己选择的理由。" : "This records performance on these 30 questions, not an official test score. Start with what each question permits you to conclude, then examine your reason for choosing."}</p>
+          </div>
+          <div className={resultStyles.sectionPracticeContext}>
+            <h3 className="text-xl font-semibold">{zh ? "从证据到结论，选择要核对的一部分" : "Choose a reasoning step to review"}</h3>
+            <ResultReadingNav label={zh ? "分段表现与答案解析" : "Section outcomes and answer review"} sections={result.parts.map((part, index) => ({ id: `critical30-reading-${part.id}`, title: `${quiz.critical30.sections[index].title[locale]} · ${part.correct}/${part.total}` }))} />
+          </div>
+        </div>
         <div data-critical30-result className="space-y-6">{result.parts.map((part, i) => {
           const profile = quiz.profiles[i];
           const partQuestions = quiz.questions.slice(i * 6, i * 6 + 6);

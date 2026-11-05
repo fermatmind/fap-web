@@ -27,8 +27,8 @@
     "zh": "面向18岁及以上成年人，只回答本人。回顾过去四周普通情境，不诱发或重现怒意。前五条询问题述日常情境出现时的生气；后十五条询问已经生气的场合。没有生气场合时，后十五条选不计分而非零。无相关机会、不确定或不愿回答均可不计分。不需描述事件、填写姓名或联系别人。"
   },
   "resultHeading": {
-    "en": "Your four separate anger response readings",
-    "zh": "你的四组独立愤怒反应读数"
+    "en": "Your responses across four anger themes",
+    "zh": "你在四类愤怒情境中的反应"
   },
   "source": {
     "kind": "fermatmind_original_anger_response_reflection",

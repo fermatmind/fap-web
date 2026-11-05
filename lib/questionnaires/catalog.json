@@ -6123,12 +6123,12 @@
     "updated": "2026-10-29",
     "category": "framework",
     "title": {
-      "zh": "SBTI 娱乐人格测试：小程序原31题",
-      "en": "SBTI Test: Original 31 Questions"
+      "zh": "SBTI 娱乐人格测试：31题版",
+      "en": "SBTI Personality Test: 31 Questions"
     },
     "description": {
-      "en": "Answer 31 original Mini SBTI questions. Explore 25 playful profiles, 15 model readouts and full free bilingual guides. No signup; English is a working translation.",
-      "zh": "沿用小程序原31题与原规则，以25种趣味画像和15维模型读数回看日常选择。完整说明免费，英文为工作译文，无需注册。"
+      "en": "Answer 31 questions and see your playful SBTI portrait and 15 model readouts. Explore all 25 portrait guides for free, with no signup.",
+      "zh": "完成31道情境题，查看你的SBTI趣味画像与15项模型读数。25篇画像指南均可免费阅读，无需注册。"
     },
     "minutes": 6,
     "formCode": "sbti_entertainment_31",

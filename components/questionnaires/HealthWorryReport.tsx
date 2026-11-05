@@ -1,4 +1,4 @@
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
@@ -19,11 +19,17 @@ export function HealthWorryReport({ quiz, records, locale, readingProfiles }: { 
   const zh = locale === "zh";
   return <section data-health-worry-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="health-worry-result-heading">
     <h2 id="health-worry-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "本次主题记录" : "Topics in this record"} sections={records.map((record, index) => ({
-      id: `health-worry-record-${record.id}`,
-      title: `${quiz.directions[index].title[locale]} · ${record.observations.length}${zh ? "条记录" : " records"}`,
-    }))} />
     <HealthWorrySupport locale={locale} compact />
+    <section className="rounded-xl border border-sky-200 bg-sky-50/65 p-4 sm:p-6" aria-labelledby="health-worry-reading-start">
+      <h3 id="health-worry-reading-start" className="text-xl font-semibold text-sky-950">{zh ? "选一个你记得的担忧情境" : "Choose a worry context you remember"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "可以从留意身体感受、询问与就医选择，或想到严重情况开始。数字表示各回答类别下的题目数。" : "Start with noticing a bodily sensation, questions and care decisions, or thoughts about serious possibilities. The numbers count prompts in each response category."}</p>
+      <ul className="mt-4 grid gap-4 lg:grid-cols-3">
+        {records.map((record, index) => <li key={record.id} className="min-w-0 border-t-2 border-sky-300 pt-2">
+          <a className="inline-flex min-h-11 items-center font-semibold text-sky-950 underline underline-offset-4" href={`#health-worry-record-${record.id}`}>{quiz.directions[index].title[locale]}</a>
+          <ObservationChoiceCounts categories={healthWorryCategories} counts={record.counts} locale={locale} shortLabels={{ na: { zh: "未计分", en: "Unscored" } }} />
+        </li>)}
+      </ul>
+    </section>
     {records.map((r, i) => {
       const original = quiz.profiles[i];
       const profile = readingProfiles?.find(item => item.id === original.id && item.directionIds.length === original.directionIds.length && item.directionIds.every((id, index) => id === original.directionIds[index]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === original.id) ?? original;

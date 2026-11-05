@@ -7,23 +7,64 @@ import { QuestionnaireJavaScriptCode } from "./QuestionnaireJavaScriptCode";
 import { QuestionnairePythonCode } from "./QuestionnairePythonCode";
 import { QuestionnaireSqlCode } from "./QuestionnaireSqlCode";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
+import styles from "./QuestionnaireResultPresentation.module.css";
+
+const practiceCode: Record<string, typeof QuestionnaireSqlCode | undefined> = {
+  "java-test": QuestionnaireJavaCode,
+  "javascript-test": QuestionnaireJavaScriptCode,
+  "python-test": QuestionnairePythonCode,
+  "sql-test": QuestionnaireSqlCode,
+};
+
+function PracticePrompt({ prompt, number, locale, slug, full }: {
+  prompt: string; number: number; locale: Locale; slug: string; full?: boolean;
+}) {
+  const Code = practiceCode[slug];
+  const [lead, ...code] = Code ? prompt.split("\n\n") : [prompt];
+  return <>
+    {full ? <h4 className="font-semibold">{number}. {lead}</h4> : <p className="whitespace-pre-wrap font-medium">{lead}</p>}
+    {Code && <Code code={code.join("\n\n")} locale={locale} number={number} />}
+  </>;
+}
 
 export function QuestionnairePracticeReport({ quiz, result, locale }: {
   quiz: Questionnaire; result: Extract<PracticeResult, { status: "complete" }>; locale: Locale;
 }) {
   const zh = locale === "zh";
+  const communication = quiz.slug === "communication-adaptability";
   const focusItem = result.practice.items.find(item => !item.correct) ?? result.practice.items[0];
   const focusQuestion = focusItem ? quiz.questions.find(question => question.id === focusItem.questionId) : undefined;
   return <ResultPage variant="practice" className="space-y-8 leading-8 [overflow-wrap:anywhere]" data-practice-result>
-    <p className="text-xl font-semibold" data-practice-correct>{zh ? `本题本答对 ${result.practice.correct} / ${result.practice.total} 题` : `${result.practice.correct} / ${result.practice.total} correct in this question bank`}</p>
-
-    {focusItem && focusQuestion && <section className="border-l-2 border-amber-300 pl-4" data-practice-focus={focusItem.questionId}>
-      <h3 className="mb-3 text-xl font-semibold">{focusItem.correct ? (zh ? "先用一题核对思路" : "Check your reasoning on one item") : (zh ? "先复盘一题" : "Start by reviewing one item")}</h3>
-      <p className="whitespace-pre-wrap font-medium">{focusQuestion.prompt[locale]}</p>
-      <p className="mt-3 text-sm leading-7">{zh ? "你的选择：" : "Your choice: "}{focusQuestion.options.find(option => option.id === focusItem.selectedOptionId)!.label[locale]}</p>
-      <p className="text-sm leading-7">{zh ? "正确答案：" : "Answer key: "}{focusQuestion.options.find(option => option.id === focusItem.correctOptionId)!.label[locale]}</p>
-      <p className="mt-3" data-practice-focus-explanation>{focusQuestion.explanation![locale]}</p>
-    </section>}
+    <div className={styles.practiceLead} data-practice-lead data-scenario-practice={communication || undefined}>
+      <div className={styles.practiceTotal}>
+        <p data-practice-correct>{zh ? `本题本答对 ${result.practice.correct} / ${result.practice.total} 题` : `${result.practice.correct} / ${result.practice.total} correct in this question bank`}</p>
+        <a href="#practice-answer-review" onClick={() => {
+          const review = document.getElementById("practice-answer-review");
+          if (review instanceof HTMLDetailsElement) review.open = true;
+        }}>{zh ? "核对全部答案" : "Review every answer"} <span aria-hidden="true">↓</span></a>
+        {communication && <nav className={styles.practiceScenarioNav} aria-label={zh ? "按沟通情境复习" : "Review by communication situation"}>
+          {quiz.directions.map(direction => {
+            const guide = quiz.profiles.find(profile => profile.directionIds.includes(direction.id));
+            const section = result.practice.sections[direction.id];
+            if (!guide) return null;
+            const guideId = `practice-scenario-${guide.id}`;
+            return <a key={direction.id} href={`#${guideId}`} onClick={() => {
+              const details = document.getElementById(guideId);
+              if (details instanceof HTMLDetailsElement) details.open = true;
+            }}><span>{direction.title[locale]}</span><strong>{section.correct} / {section.total}</strong></a>;
+          })}
+        </nav>}
+      </div>
+      {focusItem && focusQuestion && <section className={styles.practiceFocus} data-practice-focus={focusItem.questionId}>
+        <h3 className="mb-3 text-xl font-semibold">{communication
+          ? (zh ? "把话放回当时的情境" : "Read the message in context")
+          : focusItem.correct ? (zh ? "先用一题核对思路" : "Check your reasoning on one item") : (zh ? "先复盘一题" : "Start by reviewing one item")}</h3>
+        <PracticePrompt prompt={focusQuestion.prompt[locale]} number={quiz.questions.indexOf(focusQuestion) + 1} locale={locale} slug={quiz.slug} />
+        <p className="mt-3 text-sm leading-7">{zh ? "你的选择：" : "Your choice: "}{focusQuestion.options.find(option => option.id === focusItem.selectedOptionId)!.label[locale]}</p>
+        <p className="text-sm leading-7">{zh ? "正确答案：" : "Answer key: "}{focusQuestion.options.find(option => option.id === focusItem.correctOptionId)!.label[locale]}</p>
+        <p className="mt-3" data-practice-focus-explanation>{focusQuestion.explanation![locale]}</p>
+      </section>}
+    </div>
     <details className="border-t border-slate-200 pt-3"><summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看分项记录与计分范围" : "View section counts and scoring scope"}</summary>
     <ResultOverview locale={locale} title={zh ? "分项答题记录" : "Answers by section"}>
     <dl className="grid gap-4 sm:grid-cols-2">
@@ -44,11 +85,7 @@ export function QuestionnairePracticeReport({ quiz, result, locale }: {
           const selected = question.options.find(option => option.id === item.selectedOptionId)!;
           const correct = question.options.find(option => option.id === item.correctOptionId)!;
           return <li key={item.questionId} className="rounded-xl border border-slate-200 p-5" data-practice-question={item.questionId}>
-            <h4 className="font-semibold">{index + 1}. {(quiz.slug === "java-test" || quiz.slug === "javascript-test" || quiz.slug === "python-test" || quiz.slug === "sql-test") ? question.prompt[locale].split("\n\n")[0] : question.prompt[locale]}</h4>
-            {quiz.slug === "java-test" && <QuestionnaireJavaCode code={question.prompt[locale].split("\n\n").slice(1).join("\n\n")} locale={locale} number={index + 1} />}
-            {quiz.slug === "javascript-test" && <QuestionnaireJavaScriptCode code={question.prompt[locale].split("\n\n").slice(1).join("\n\n")} locale={locale} number={index + 1} />}
-            {quiz.slug === "python-test" && <QuestionnairePythonCode code={question.prompt[locale].split("\n\n").slice(1).join("\n\n")} locale={locale} number={index + 1} />}
-            {quiz.slug === "sql-test" && <QuestionnaireSqlCode code={question.prompt[locale].split("\n\n").slice(1).join("\n\n")} locale={locale} number={index + 1} />}
+            <PracticePrompt prompt={question.prompt[locale]} number={index + 1} locale={locale} slug={quiz.slug} full />
             <p className="mt-3 font-semibold">{item.correct ? (zh ? "本题答对" : "Correct answer") : (zh ? "本题未答对" : "Not correct on this item")}</p>
             <dl className="my-3 space-y-2">
               <div><dt className="font-medium">{zh ? "你选择的答案" : "Your selected answer"}</dt><dd>{selected.label[locale]}</dd></div>
@@ -61,7 +98,7 @@ export function QuestionnairePracticeReport({ quiz, result, locale }: {
     </details>
     <section id="practice-revision-guides" className="scroll-mt-24 space-y-8">
       <p className="text-xl font-semibold">{zh ? "全部分项复习说明" : "All section revision guides"}</p>
-      {quiz.profiles.map(profile => <details key={profile.id} data-practice-guide={profile.id} className="border-t border-slate-200 pt-3">
+      {quiz.profiles.map(profile => <details key={profile.id} id={communication ? `practice-scenario-${profile.id}` : undefined} data-practice-guide={profile.id} className="scroll-mt-24 border-t border-slate-200 pt-3">
         <summary className="min-h-11 cursor-pointer py-2 text-xl font-semibold">{profile.title[locale]}</summary>
         <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`practice-guide-${profile.id}`} mode="guide" />
       </details>)}

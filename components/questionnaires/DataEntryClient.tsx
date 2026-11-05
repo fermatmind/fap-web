@@ -113,10 +113,24 @@ function ValidDataEntryClient({ quiz, locale }: { quiz: Questionnaire; locale: L
     {phase === "result" && finished && <div data-data-entry-result data-observed-elapsed-ms={finished.observedElapsedMs}>
       <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading![locale]}</h2>
       <p className="my-4 leading-7">{zh ? `本次60秒 · ${round.title.zh} · 仅本设备本次条件；不是招聘、资格或能力等级。` : `This 60-second round · ${round.title.en} · This device and attempt only; no hiring, qualification or ability band.`}</p>
-      <dl className="my-5 grid grid-cols-2 gap-5 border-y border-teal-200 py-5">
-        <div><dt className="text-sm leading-7 text-slate-600">{zh ? "字段精确准确率" : "Exact field accuracy"}</dt><dd className="mt-2 text-2xl font-semibold tabular-nums text-teal-900">{finished.fieldAccuracy === null ? (zh ? "未尝试记录，准确率不适用" : "No attempted records; accuracy not applicable") : `${finished.fieldAccuracy.toFixed(1)}%`}</dd></div>
-        <div><dt className="text-sm leading-7 text-slate-600">{zh ? "每小时字符折算（KPH）" : "Characters per hour, extrapolated"}</dt><dd className="mt-2 text-2xl font-semibold tabular-nums text-teal-900">{finished.characterKph.toFixed(1)}</dd></div>
-      </dl>
+      <div className="my-5 overflow-hidden rounded-xl border border-teal-200 md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+        <dl className="grid min-w-0 gap-4 bg-teal-50 p-4 sm:p-6">
+          <div>
+            <dt className="text-sm leading-7 text-slate-700">{zh ? "字段精确准确率" : "Exact field accuracy"}</dt>
+            <dd className="text-2xl font-semibold leading-snug tabular-nums text-teal-950">{finished.fieldAccuracy === null ? (zh ? "不适用" : "Not applicable") : `${finished.fieldAccuracy.toFixed(1)}%`}</dd>
+            <dd className="mt-1 text-sm leading-6 text-slate-700">{finished.consideredFields ? (zh ? `${finished.exactFields} 个精确字段，共核对 ${finished.consideredFields} 个字段` : `${finished.exactFields} exact out of ${finished.consideredFields} considered fields`) : (zh ? "本轮没有尝试录入记录。" : "No records were attempted in this round.")}</dd>
+          </div>
+          <div>
+            <dt className="text-sm leading-7 text-slate-700">{zh ? "每小时字符折算（KPH）" : "Characters per hour, extrapolated"}</dt>
+            <dd className="text-2xl font-semibold leading-snug tabular-nums text-teal-950">{finished.characterKph.toFixed(1)}</dd>
+            <dd className="mt-1 text-sm leading-6 text-slate-700">{zh ? "以 60 秒内的最终录入字符数折算。" : "Extrapolated from final characters entered in 60 seconds."}</dd>
+          </div>
+        </dl>
+        <section aria-labelledby="data-entry-error-title" className="min-w-0 border-t border-teal-200 p-4 md:border-l md:border-t-0 sm:p-6">
+          <h3 id="data-entry-error-title" className="text-lg font-semibold">{zh ? "错误字段的文本差异" : "Text differences in incorrect fields"}</h3>
+          <dl className="mt-3 space-y-2">{(Object.keys(labels) as DataEntryError[]).map(key => <div key={key} data-data-entry-error={key} className="flex items-baseline justify-between gap-3 border-b border-teal-100 pb-1"><dt>{labels[key]}</dt><dd className="tabular-nums">{finished.errors[key]}</dd></div>)}</dl>
+        </section>
+      </div>
       <details className="my-5"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "所有原始计数、单位与计算方法" : "All raw counts, units and calculations"}</summary>
       <dl className="grid gap-x-8 gap-y-5 border-y border-teal-200 py-5 sm:grid-cols-2">
         <div><dt className="text-sm leading-7 text-slate-600">{zh ? "纳入记录／字段" : "Considered records / fields"}</dt><dd data-data-entry-considered className="mt-2 text-2xl font-semibold tabular-nums leading-8 text-teal-900">{finished.attemptedRecords} / {finished.consideredFields}</dd></div>
@@ -129,7 +143,6 @@ function ValidDataEntryClient({ quiz, locale }: { quiz: Questionnaire; locale: L
       </dl>
       <p className="my-5 leading-7 text-slate-600">{zh ? "字符KPH=60秒内最终录入字符数×60；精确字段字符KPH只计算整字段精确匹配的字符。字段准确率=精确字段数÷纳入字段数。它们是不同单位，没有相乘成一个等级。一分钟折算不证明能持续一小时。" : "Character KPH equals final characters entered in 60 seconds × 60. Exact-field character KPH counts characters only in wholly matching fields. Field accuracy is exact fields divided by considered fields. These are separate units, not multiplied into a band. A one-minute extrapolation does not establish hour-long performance."}</p>
       </details>
-      <h3 className="text-xl font-semibold">{zh ? "错误字段的文本差异" : "Text differences in incorrect fields"}</h3><ul className="my-4 grid gap-x-8 gap-y-3 sm:grid-cols-2">{(Object.keys(labels) as DataEntryError[]).map(key => <li key={key} data-data-entry-error={key}>{labels[key]}: {finished.errors[key]}</li>)}</ul>
       <p className="my-4 text-sm leading-7 text-slate-600">{zh ? "每错字段按上述顺序归入第一个匹配描述，大小写和空白先于漏字、多字；不是失误原因诊断。未触及的后续记录没有加入分母。全部32条记录都完成时，来源上限可能限制产量。" : "Each incorrect field uses the first matching description in the displayed order; case or whitespace differences precede omissions and additions. This does not diagnose the cause of an error. Untouched later records are excluded. Completing all 32 records may make the source cap limit output."}</p>
       <div className="my-5 flex flex-wrap gap-3"><button type="button" className={button} onClick={() => reset()}>{zh ? "重新选择并练习" : "Choose again and practise"}</button><button type="button" className={button} onClick={share}>{zh ? "复制公开练习链接" : "Copy public practice link"}</button></div>
       {manual && <label className="block">{zh ? "可手动复制的公开链接" : "Public link for manual copying"}<textarea readOnly rows={3} value={manual} className="mt-2 w-full rounded border p-3" /></label>}

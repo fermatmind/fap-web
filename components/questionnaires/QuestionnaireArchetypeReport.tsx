@@ -4,6 +4,8 @@ import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { Questionnaire, QuestionnaireProfile } from "@/lib/questionnaires/types";
 import type { ArchetypeResult } from "@/lib/questionnaires/scoring";
 import type { Locale } from "@/lib/i18n/locales";
+import styles from "./QuestionnaireResultPresentation.module.css";
+import { PortraitResultLead, portraitResultLeadKind } from "./PortraitResultLead";
 
 /** Existing section identities across the original animal, character and symbolic editions. */
 function previewSections(profile: QuestionnaireProfile) {
@@ -18,14 +20,21 @@ function previewSections(profile: QuestionnaireProfile) {
 
 export function QuestionnaireArchetypeReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<ArchetypeResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh";
-  return <div className="my-6 space-y-8">
+  const lead = portraitResultLeadKind(quiz.slug);
+  return <div className={styles.profileReadings} data-profile-category={quiz.category}>
     {result.profileIds.length > 1 && <p className="leading-7">{zh ? `本次保留${result.profileIds.length}项并列匹配，可以分别阅读；顺序不代表主次。` : `All ${result.profileIds.length} tied matches are kept. Read each in turn; their order does not imply priority.`}</p>}
     {result.profileIds.map(id => {
       const profile = quiz.profiles.find(p => p.id === id)!;
-      return <section key={id} aria-labelledby={`animal-title-${id}`} data-archetype-match={id} className="border-t border-slate-200 pt-6">
-        <h3 id={`animal-title-${id}`} className="scroll-mt-24 mb-4 text-2xl font-semibold leading-snug">{profile.title[locale]}</h3>
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${id}`} mode="result" showHeadline={false} previewSectionIds={previewSections(profile)} />
-        <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "单独阅读这项结果的完整指南" : "Read this result’s full guide separately"}</Link>
+      const titleId = `animal-title-${id}`;
+      return <section key={id} aria-labelledby={titleId} data-archetype-match={id} className={styles.profileChapter}>
+        {lead ? <PortraitResultLead kind={lead} quiz={quiz} profile={profile} result={result} locale={locale} titleId={titleId} /> : <header>
+          <h3 id={titleId} className="scroll-mt-24 text-2xl font-semibold leading-snug">{profile.title[locale]}</h3>
+          <p className={styles.summary}>{profile.summary[locale]}</p>
+        </header>}
+        <div className={styles.profileBody}>
+          <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${id}`} mode="result" showHeadline={false} showSummary={false} previewSectionIds={previewSections(profile)} />
+          <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "单独阅读这项结果的完整指南" : "Read this result’s full guide separately"}</Link>
+        </div>
       </section>;
     })}
     <details className="border-t border-slate-200 pt-4" data-archetype-counts-details>

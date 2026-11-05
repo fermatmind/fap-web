@@ -112,18 +112,26 @@ function ValidTenKeyClient({ quiz, locale }: { quiz: Questionnaire; locale: Loca
       <button type="button" className={`${button} ml-0 mt-4 block`} onClick={() => cancel(zh ? "本轮已取消，输入已清空。" : "Round cancelled and entries cleared.")}>{zh ? "取消并清空本轮" : "Cancel and clear this round"}</button>
     </>}
     {phase === "result" && result?.status === "complete" && finished && <ResultPage variant="practice" data-ten-key-result className="mt-5 space-y-6 leading-8">
-      <p>{rounds[finished.mode].title[locale]} · {zh ? "计分窗口：60秒；截止后事件不计入。" : "Scoring window: 60 seconds. Events at or after the deadline are excluded."}</p>
-      <p className="text-lg font-semibold">{zh ? `本轮确认${result.confirmedEntries}条，其中${result.correctEntries}条完全正确。` : `${result.correctEntries} of ${result.confirmedEntries} confirmed entries match exactly.`}</p>
-      <p className="font-semibold tabular-nums">{zh ? "确认等价KPH：" : "Confirmed-equivalent KPH: "}{result.confirmedKph.toFixed(1)}</p>
-      {(() => {
-        const row = result.rows.find(candidate => !candidate.correct) ?? result.rows[0];
-        return row ? <section className="border-l-2 border-amber-300 pl-4" data-ten-key-focus>
-          <h3 className="text-xl font-semibold">{zh ? "先核对一条输入" : "Check one entry first"}</h3>
-          <p className="mt-3">{zh ? "源文本：" : "Source: "}<span className="break-all font-mono">{row.expected}</span></p>
-          <p>{zh ? "输入：" : "Entered: "}<span className="break-all font-mono">{row.entered || (zh ? "空白" : "Blank")}</span></p>
-          <p>{zh ? "相同字符位置：" : "Matching character positions: "}{row.matchingCharacters} / {row.comparedCharacters}</p>
-        </section> : null;
-      })()}
+      <div className="grid overflow-hidden rounded-xl border border-amber-200 bg-amber-50 md:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
+        <div className="min-w-0 p-4 sm:p-6">
+          <p className="text-sm font-semibold text-amber-900">{rounds[finished.mode].title[locale]}</p>
+          <dl className="mt-4">
+            <dt className="text-sm font-medium text-amber-950">{zh ? "确认等价 KPH" : "Confirmed-equivalent KPH"}</dt>
+            <dd className="text-3xl font-semibold leading-tight tabular-nums text-amber-950">{result.confirmedKph.toFixed(1)}</dd>
+          </dl>
+          <p className="mt-3 font-semibold">{zh ? `本轮确认${result.confirmedEntries}条，其中${result.correctEntries}条完全正确。` : `${result.correctEntries} of ${result.confirmedEntries} confirmed entries match exactly.`}</p>
+          <p className="mt-2 text-sm leading-6 text-slate-700">{zh ? "固定 60 秒。确认后的数字和分隔符用于每小时产出折算。" : "Fixed 60 seconds. Confirmed characters and separators determine the hourly extrapolation."}</p>
+        </div>
+        {(() => {
+          const row = result.rows.find(candidate => !candidate.correct) ?? result.rows[0];
+          return row ? <section className="min-w-0 border-t border-amber-200 bg-white p-4 md:border-l md:border-t-0 sm:p-6" data-ten-key-focus>
+            <h3 className="text-lg font-semibold">{zh ? "先核对一条输入" : "Check one entry first"}</h3>
+            <p className="mt-3">{zh ? "源文本：" : "Source: "}<span className="break-all font-mono">{row.expected}</span></p>
+            <p>{zh ? "输入：" : "Entered: "}<span className="break-all font-mono">{row.entered || (zh ? "空白" : "Blank")}</span></p>
+            <p>{zh ? "相同字符位置：" : "Matching character positions: "}{row.matchingCharacters} / {row.comparedCharacters}</p>
+          </section> : <p className="border-t border-amber-200 bg-white p-4 md:border-l md:border-t-0 sm:p-6">{zh ? "本轮没有确认输入。可在下方查看单位和计分窗口。" : "There are no confirmed entries this round. See the units and scoring window below."}</p>;
+        })()}
+      </div>
       <details className="border-t border-slate-200 pt-3"><summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部速度与准确率读数" : "View all speed and accuracy readings"}</summary>
       <ResultOverview locale={locale} title={zh ? "本轮数字输入表现" : "This round’s numeric-entry performance"}>
       <dl className="grid grid-cols-1 gap-4 sm:grid-cols-2">{[

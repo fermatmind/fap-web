@@ -1,4 +1,4 @@
-import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
+import { ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -9,6 +9,17 @@ import type { Locale } from "@/lib/i18n/locales";
 export function QuestionnaireChapterReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh";
   return <ResultPage variant="reflection" className="mt-6 space-y-10">
+    <section className="rounded-2xl border border-indigo-200 bg-indigo-50/65 p-4 sm:p-6" aria-labelledby="chapter-reading-start">
+      <h3 id="chapter-reading-start" className="text-xl font-semibold text-indigo-950">{zh ? "翻开过去四周的一页" : "Open a page from the past four weeks"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "六种做法可以在同一周出现。从你此刻想回看的做法读起，看看它在日常里长什么样。" : "These six practices can show up in the same week. Pick the one you want to revisit and see what it can look like in everyday life."}</p>
+      <ul className="mt-4 grid gap-3 md:grid-cols-2">{quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return <li key={direction.id} className="min-w-0 border-l-2 border-indigo-300 bg-white/75 px-3 pb-3">
+          <a className="inline-flex min-h-11 items-center font-semibold text-indigo-950 underline decoration-indigo-400 underline-offset-4" href={`#facet-title-${direction.id}`}>{direction.title[locale]}</a>
+          <p className="text-sm leading-6 tabular-nums">{score.mean === null ? (zh ? `${score.rated}/${score.total} 项有效，未算均分` : `${score.rated}/${score.total} rated, no mean`) : `${score.mean.toFixed(1)} / 5`}</p>
+        </li>;
+      })}</ul>
+    </section>
 
 
     {quiz.directions.map(direction => {
@@ -25,15 +36,7 @@ export function QuestionnaireChapterReport({ quiz, result, locale }: { quiz: Que
     })}
 
     <details className="border-t border-slate-200 pt-4" data-result-reading-method>
-      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
-      <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
-      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
-      items={quiz.directions.map(direction => {
-        const score = result.facets[direction.id];
-        return { id: direction.id, label: direction.title[locale], href: `#facet-title-${direction.id}`,
-          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
-          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
-      })} />
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看计分与使用说明" : "View scoring and use notes"}</summary>
       <p className="leading-8 text-slate-700">{zh ? "六组分别回看过去四周有机会且自愿的具体做法，不相加，不按最高均分派人生时代。它们可以同时出现，没有年龄、事件或先后顺序，也不评进度、成熟、成功或心理健康。资料不足时只读通用解释，六份完整指南始终开放。" : "Six groups separately revisit particular practices over four weeks with an opportunity and your willingness. They are not added together or assigned as a highest-mean life era. They may coexist without an age, event or sequence and rate no progress, maturity, success or mental health. Insufficient information permits general reading only; all six full guides remain available."}</p>
     </details>
   </ResultPage>;

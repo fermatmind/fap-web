@@ -27,8 +27,8 @@
     "zh": "每题视为全新SQLite 3.53.4数据库，先依次执行所示CREATE/INSERT设置，再核注释后的最后语句。SELECT答案以|分列、;分行，不含表头，NULL表示数据库NULL，多行查询明确输出顺序。两道被拒INSERT选择约束结果，不当作行集。两语英文标识及值相同，说明解析双语。无计时或速度奖励，24题有效选择后才给个人正确数。若查资料，按该条件理解。"
   },
   "resultHeading": {
-    "en": "Your SQL practice counts, rows and explanations",
-    "zh": "本次SQL练习正确数、返回行与全部解析"
+    "en": "SQL practice: follow the table data to the query result",
+    "zh": "SQL 练习：从表数据推到返回结果"
   },
   "directions": [
     {

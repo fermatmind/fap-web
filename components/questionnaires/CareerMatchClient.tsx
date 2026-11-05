@@ -1,5 +1,4 @@
 "use client";
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore, type FormEvent } from "react";
 import { CareerMatchResultReading } from "./CareerMatchResultReading";
@@ -131,7 +130,18 @@ function ValidCareerMatchClient({ quiz, locale }: { quiz: Questionnaire; locale:
       <h2 id="career-match-result-title" ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{complete ? quiz.resultHeading![locale] : (zh ? "比较尚不完整：部分职业信息不可用" : "Comparison incomplete: some role information is unavailable")}</h2>
       <p className="leading-7">{zh ? "本次选择：" : "Your selection: "}{themeNames(outcome.themes)}</p>
       <p className="text-sm leading-7 text-slate-600">{zh ? "共同主题是继续研究的线索，不是能力、录用、收入或职业适配分。未选主题不等于不喜欢；没有交集也不能排除一个职业。职业按你的选择顺序展示。" : "Shared themes are clues for further exploration, not ability, hiring, income or job-fit scores. An unselected theme does not mean dislike, and no intersection does not rule out a career. Roles remain in your selection order."}</p>
-      <ResultReadingNav label={zh ? "所选职业逐项比较" : "Compare selected occupations"} sections={outcome.roles.map(read => ({ id: `career-match-role-${read.status === "available" ? read.role.slug : read.option.slug}`, title: read.status === "available" ? read.role.title : read.option.title }))} />
+      <nav className="grid gap-3 lg:grid-cols-3" aria-label={zh ? "各职业与所选兴趣的交集" : "What each occupation shares with your interests"}>
+        {outcome.roles.map(read => {
+          const role = read.status === "available" ? read.role : read.option;
+          const compared = read.status === "available" ? compareCareerInterestThemes(outcome.themes, read.role.code) : null;
+          return <div key={role.slug} className="min-w-0 rounded-lg border border-emerald-200 bg-emerald-50/65 px-3 pb-3">
+            <a className="inline-flex min-h-11 items-center font-semibold text-emerald-950 underline underline-offset-4" href={`#career-match-role-${role.slug}`}>{role.title}</a>
+            <p className="text-sm leading-6">{compared
+              ? (compared.shared.length ? themeNames(compared.shared) : (zh ? "没有共同的所选主题" : "No shared selected theme"))
+              : (zh ? "本次职业数据未能读到" : "Occupation data unavailable for this comparison")}</p>
+          </div>;
+        })}
+      </nav>
       {outcome.roles.map(read => {
         const slug = read.status === "available" ? read.role.slug : read.option.slug;
         if (read.status !== "available") return <article id={`career-match-role-${slug}`} data-career-match-role={slug} data-career-read-status={read.status} key={slug} className="scroll-mt-24 rounded-lg border border-amber-200 p-4 leading-7">

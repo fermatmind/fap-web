@@ -27,8 +27,8 @@
     "zh": "24道原创题每题单选。两语使用相同英文函数名、逗号参数分隔、A1引用和虚构值，题干与解析双语。任务取Excel 2021/Microsoft 365共通的选定行为，冻结窗格题明确为Windows版。按题定储存类型、精确匹配、精度设置等条件作答，无需Excel文件。24题全部有效选择后，查看每题所选、答案及完整解析。学习时可以查资料，独立与辅助作答的正确数反映不同条件。"
   },
   "resultHeading": {
-    "en": "Your Excel practice counts and every explanation",
-    "zh": "本次Excel练习正确数与全部解析"
+    "en": "Excel practice: check formulas and summary results",
+    "zh": "Excel 练习：核对公式与汇总结果"
   },
   "directions": [
     {

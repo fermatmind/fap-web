@@ -1,5 +1,5 @@
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire, QuestionnaireProfile } from "@/lib/questionnaires/types";
@@ -19,8 +19,17 @@ export function SupportReflectionReport({ quiz, records, locale, readingProfiles
   const zh = locale === "zh";
   return <section data-support-reflection-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="support-reflection-result-heading">
     <h2 id="support-reflection-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "选择一个主题阅读" : "Choose a topic to read"} sections={records.map((record, index) => ({ id: `record-${quiz.slug}-${record.id}`, title: quiz.directions[index].title[locale] }))} />
     <SupportReflectionSupport locale={locale} compact />
+    <section className="rounded-xl border border-emerald-200 bg-emerald-50/60 p-4 sm:p-6" aria-labelledby="support-practical-reading">
+      <h3 id="support-practical-reading" className="text-xl font-semibold text-emerald-950">{zh ? "从你关心的支持问题读起" : "Start with the question you have about support"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "可以先回看生活中的困扰，也可以直接读现实条件或你想向专业人员问的问题。数字只表示本次各类回答对应的题目数。" : "Start with what has been hard in everyday life, or go straight to practical conditions and questions you want to ask. The numbers count prompts in each response category."}</p>
+      <ul className="mt-4 grid gap-3 md:grid-cols-2">
+        {records.map((record, index) => <li key={record.id} className="min-w-0 rounded-lg bg-white px-3 pb-3">
+          <a className="inline-flex min-h-11 items-center font-semibold text-emerald-950 underline underline-offset-4" href={`#record-${quiz.slug}-${record.id}`}>{quiz.directions[index].title[locale]}</a>
+          <ObservationChoiceCounts categories={supportReflectionCategories} counts={record.counts} locale={locale} shortLabels={{ "not-now": { zh: "目前不符合", en: "Does not describe now" }, partly: { zh: "目前部分符合", en: "Partly describes now" }, fits: { zh: "目前符合", en: "Describes now" } }} />
+        </li>)}
+      </ul>
+    </section>
     {records.map((r, i) => {
       const original = quiz.profiles[i];
       const profile = readingProfiles?.find(item => item.id === original.id && item.directionIds.length === original.directionIds.length && item.directionIds.every((id, index) => id === original.directionIds[index]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === original.id) ?? original;

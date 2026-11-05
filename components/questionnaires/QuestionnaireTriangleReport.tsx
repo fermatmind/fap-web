@@ -1,4 +1,4 @@
-import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
+import { ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -13,7 +13,19 @@ export function QuestionnaireTriangleReport({ quiz, result, locale }: {
 }) {
   const zh = locale === "zh";
   return <ResultPage variant="dimensions" className="my-6 space-y-8" data-triangle-reflection-result>
-
+    <section className="rounded-xl border border-fuchsia-200 bg-fuchsia-50/55 p-4 sm:p-6" aria-labelledby="love-components">
+      <h3 id="love-components" className="text-xl font-semibold text-fuchsia-950">{zh ? "亲密、激情和决定各自看" : "Look at intimacy, passion and commitment separately"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "围绕同一段关系，选一项你想多了解的体验。每项只取本组五道题的均分。资料不够时，仍可读例子。" : "Think about the same relationship and choose one experience to read more about. Each mean comes from five ratings in that group. Examples remain available when there are too few ratings."}</p>
+      <div className="mt-5 grid gap-4 lg:grid-cols-3">
+        {quiz.directions.map(direction => {
+          const score = result.facets[direction.id];
+          return <a key={direction.id} href={`#triangle-reflection-${direction.id}`} className="block min-w-0 border-t-2 border-fuchsia-300 py-3 text-fuchsia-950">
+            <span className="block font-semibold underline decoration-fuchsia-400 underline-offset-4">{direction.title[locale]}</span>
+            <span className="mt-2 block font-semibold tabular-nums">{score.mean === null ? (zh ? `${score.rated}/5 项有效，未算均分` : `${score.rated}/5 rated, no mean`) : `${score.mean.toFixed(1)} / 5`}</span>
+          </a>;
+        })}
+      </div>
+    </section>
 
     {quiz.directions.map(direction => {
       const score = result.facets[direction.id], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
@@ -36,15 +48,7 @@ export function QuestionnaireTriangleReport({ quiz, result, locale }: {
       : "This is a FermatMind original theory-informed reflection, not the original TLS or a validated short form. It has no local norms, established language equivalence or relationship-prediction evidence. No contact, disclosure, physical intimacy or promise to continue is required; what comes next is your choice."}</p>
 
     <details className="border-t border-slate-200 pt-4" data-result-reading-method>
-      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
-      <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
-      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
-      items={quiz.directions.map(direction => {
-        const score = result.facets[direction.id];
-        return { id: direction.id, label: direction.title[locale], href: `#triangle-reflection-${direction.id}`,
-          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
-          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
-      })} />
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看计分与使用说明" : "View scoring and use notes"}</summary>
       <p className="leading-8">{zh
       ? "三组分别描述本题本中自己报告的亲密、激情与决定／承诺，不合成爱的总分、不选主导成分，也不按阈值派发八种理论类型。相近或相同均分保留，不证明成分同样强。"
       : "The three groups separately describe your reports of intimacy, passion and decision/commitment in this item set. There is no total love score, dominant component or cutoff assigning eight theoretical types. Close and equal means remain visible without proving equal components."}</p>

@@ -1,4 +1,4 @@
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
@@ -19,11 +19,15 @@ export function BirthContextReport({ quiz, records, locale, readingProfiles }: {
   const zh = locale === "zh";
   return <section data-birth-context-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="birth-context-result-heading">
     <h2 id="birth-context-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "本次主题记录" : "Topics in this record"} sections={records.map((record, index) => ({
-      id: `birth-context-record-${record.id}`,
-      title: `${quiz.directions[index].title[locale]} · ${record.observations.length}${zh ? "条记录" : " records"}`,
-    }))} />
     <BirthContextSupport locale={locale} compact />
+    <section className="rounded-xl border border-rose-200 bg-rose-50/60 p-4 sm:p-6" aria-labelledby="birth-reading-start">
+      <h3 id="birth-reading-start" className="text-xl font-semibold text-rose-950">{zh ? "先读分娩后的一件日常经历" : "Start with one everyday experience after childbirth"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "选一个你愿意回看的部分。数字表示本次有几条描述属于各类别；每部分保留自己的情境和公开读法。" : "Choose a topic you want to revisit. The numbers are counts of statements in each response category. Each topic has its own context and guide."}</p>
+      <ul className="mt-4 grid gap-3 md:grid-cols-2">{records.map((record, index) => <li key={record.id} className="min-w-0 border-l-2 border-rose-300 pl-3">
+        <a className="inline-flex min-h-11 items-center font-semibold text-rose-950 underline underline-offset-4" href={`#birth-context-record-${record.id}`}>{quiz.directions[index].title[locale]}</a>
+        <ObservationChoiceCounts categories={birthContextCategories} counts={record.counts} locale={locale} shortLabels={{ na: { zh: "未计分", en: "Unscored" } }} />
+      </li>)}</ul>
+    </section>
     {records.map((r, i) => {
       const original = quiz.profiles[i];
       const profile = readingProfiles?.find(item => item.id === original.id && item.directionIds.length === original.directionIds.length && item.directionIds.every((id, index) => id === original.directionIds[index]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === original.id) ?? original;

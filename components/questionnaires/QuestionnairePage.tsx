@@ -875,13 +875,13 @@ if (quiz.kind === "mini-intimacy") return (zh ? "原创24题亲密偏好 · 四�
 if (quiz.kind === "mini-breakup") return (zh ? "原创24题关系复盘 · 四组全文免费" : "24 original breakup-reflection items · Four full guides free");
 if (quiz.kind === "holding-back35") return (zh ? "原创35题日常观察 · 七份完整指南免费" : "35 original everyday scenarios · Seven complete guides free");
 if (isFscrs22ConfigurationValid(quiz)) return quiz.fscrs22.subtitle[locale];
-if (quiz.kind === "mini-friction") return (zh ? "原创小程序互动自评 · 五篇全文免费" : "Original Mini interaction reflection · Five full guides free");
+if (quiz.kind === "mini-friction") return (zh ? "日常互动自评 · 五篇完整解读免费" : "Everyday interaction reflection · Five full guides free");
 if (quiz.kind === "ctl41") return (zh ? "2018源题文工作译版 · 六篇全文免费" : "2018 source items · Working edition · Six full guides free");
 if (quiz.kind === "parenting-practices") return (zh ? "原创12题养育行为回顾 · 四份完整指南免费" : "12 original parenting-response items · Four full guides free");
 if (quiz.kind === "spq92") return (zh ? "完整92项SPQ · 工作中译 · 完整读法免费" : "Full 92-item SPQ · Working Chinese · Full guide, free");
 if (quiz.kind === "adexi14") return (zh ? "ADEXI14题自评 · 三份完整读法免费" : "ADEXI-14 self-report · Three full readings free");
 if (quiz.kind === "ptq15") return (zh ? "PTQ15原文与工作译文 · 完整读法免费" : "PTQ 15 original text and working translation · Full guides free");
-if (quiz.kind === "interaction-pairs") return (zh ? "自有小程序互动选择版 · 四份完整读法免费" : "Original Mini interaction choices · Four full guides free");
+if (quiz.kind === "interaction-pairs") return (zh ? "互动情境配对选择 · 四份完整解读免费" : "Paired choices in everyday interactions · Four full guides free");
 if (quiz.kind === "work-role12") return (zh ? "原创12项角色回顾 · 三份完整读法免费" : "12 original task contexts · Three full guides free");
 if (quiz.kind === "skills-evidence") return (zh ? "原创任务实例盘点 · 四份完整读法免费" : "Original task-example inventory · Four full guides free");
 if (quiz.slug === "dark-tetrad-sd4") return (zh ? "SD4发表版28题 · 四项独立均值" : "Published SD4 28 · Four separate means");

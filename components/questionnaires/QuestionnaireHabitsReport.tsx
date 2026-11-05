@@ -1,4 +1,3 @@
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -9,9 +8,17 @@ import type { Locale } from "@/lib/i18n/locales";
 export function QuestionnaireHabitsReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh", valid = Object.values(result.facets).filter(f => f.rated === 4).length;
   return <div className="my-6 space-y-8">
-
-    <ResultReadingNav collapsible label={zh ? "选择想读的部分" : "Choose a part to read"} sections={quiz.profiles.map(profile => ({ id: `habits-title-${profile.id}`, title: profile.title[locale] }))} />
-
+    <section className="rounded-xl border border-lime-300 bg-lime-50/55 p-4 sm:p-6" aria-labelledby="habits-reading-start">
+      <h3 id="habits-reading-start" className="text-xl font-semibold text-lime-950">{zh ? "从一件具体做法读起" : "Start with one specific practice"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "挑一个你能想起情境的主题，先看例子和可以怎么说。均分只概括过去三个月里这四条与你的符合程度。" : "Pick a topic that brings a situation to mind. Start with its example and optional wording. Each mean summarises how well four statements described you over the past three months."}</p>
+      <ul className="mt-4 divide-y divide-lime-200 border-y border-lime-200">{quiz.profiles.map(profile => {
+        const facet = result.facets[profile.directionIds[0]];
+        return <li key={profile.id} className="flex flex-wrap items-center justify-between gap-x-4 py-1">
+          <a href={`#habits-title-${profile.id}`} className="inline-flex min-h-11 items-center font-semibold text-lime-950 underline decoration-lime-500 underline-offset-4">{profile.title[locale]}</a>
+          <span className="text-sm font-medium tabular-nums">{facet.rated === 4 ? `${(facet.sum / 4).toFixed(2)} / 5` : (zh ? `${facet.rated}/4 项有效，未算均分` : `${facet.rated}/4 rated, no mean`)}</span>
+        </li>;
+      })}</ul>
+    </section>
 
     {quiz.profiles.map(profile => <section key={profile.id} data-habits-profile={profile.id} aria-labelledby={`habits-title-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
       <h3 id={`habits-title-${profile.id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>

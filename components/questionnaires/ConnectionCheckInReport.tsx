@@ -1,4 +1,4 @@
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
@@ -18,11 +18,16 @@ export function ConnectionCheckInSupport({ locale, compact = false }: { locale: 
 export function ConnectionCheckInReport({ quiz, records, locale, readingProfiles }: { quiz: Questionnaire; readingProfiles?: readonly QuestionnaireProfile[]; records: ConnectionCheckInRecord[]; locale: Locale }) {
   const zh = locale === "zh";
   return <section data-connection-checkin-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="connection-checkin-result-heading">
-    <h2 id="connection-checkin-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "本次主题记录" : "Topics in this record"} sections={records.map((record, index) => ({
-      id: `connection-checkin-record-${record.id}`,
-      title: `${quiz.directions[index].title[locale]} · ${record.observations.length}${zh ? "条记录" : " records"}`,
-    }))} />
+    <header className="rounded-xl bg-teal-50/70 p-4 text-teal-950 sm:p-6">
+      <h2 id="connection-checkin-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "联系、独处和归属感可以是不同的体验。每个主题有七条描述，数字表示你为其中几条选择了该类别。先选一个你想理解的主题。" : "Connection, time alone and belonging can feel different. Each topic has seven statements. The numbers show how many statements you put in each category."}</p>
+      <nav className="mt-5 grid gap-3 lg:grid-cols-3" aria-label={zh ? "联系与归属的三个主题" : "Three topics on connection and belonging"}>
+        {records.map((record, index) => <div key={record.id} className="min-w-0 rounded-lg border border-teal-200 bg-white/70 px-3 pb-3">
+          <a className="inline-flex min-h-11 items-center font-semibold underline underline-offset-4" href={`#connection-checkin-record-${record.id}`}>{quiz.directions[index].title[locale]}</a>
+          <ObservationChoiceCounts categories={connectionCheckInCategories} counts={record.counts} locale={locale} shortLabels={{ na: { zh: "未计分", en: "Unscored" } }} />
+        </div>)}
+      </nav>
+    </header>
     <ConnectionCheckInSupport locale={locale} compact />
     {records.map((r, i) => {
       const original = quiz.profiles[i];

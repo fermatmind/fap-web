@@ -7,10 +7,29 @@ import type { Locale } from "@/lib/i18n/locales";
 
 export function WetonStory35Report({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<WetonStoryResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh";
+  const counts = result.counts;
+  const leaders = [
+    { keys: result.weekdayLeaders, title: zh ? "星期故事角色" : "Weekday story roles", appearances: 9 },
+    { keys: result.pasaranLeaders, title: zh ? "市日故事视角" : "Pasaran story lenses", appearances: 14 },
+  ];
+  const matches = quiz.profiles.filter(profile => result.profileIds.includes(profile.id));
   return <div className="my-6 space-y-8">
     <p className="leading-7">{zh ? "这些是本次选择对应的原创故事组合，不是出生人格。每份都可分别阅读。" : "These original story pairings reflect this set of choices, not a birth personality. Read each pairing separately."}</p>
+    {counts && matches.length > 0 && <section aria-label={zh ? "本次故事组合" : "Story pairings from this attempt"} className="overflow-hidden rounded-xl border border-orange-200">
+      <div className="grid gap-px bg-orange-200 md:grid-cols-2">{leaders.map(bank => <div key={bank.title} className="min-w-0 bg-orange-50 p-4 sm:p-6">
+        <h3 className="text-lg font-semibold text-orange-950">{bank.title}</h3>
+        <dl className="mt-3 space-y-3">{bank.keys.map(key => <div key={key} className="flex flex-wrap items-baseline justify-between gap-x-4">
+          <dt>{quiz.directions.find(direction => direction.id === key)!.title[locale]}</dt>
+          <dd className="font-semibold tabular-nums">{counts[key]} / {bank.appearances}</dd>
+        </div>)}</dl>
+      </div>)}</div>
+      <div className="space-y-3 border-t border-orange-200 bg-white p-4 sm:p-6">
+        <p className="text-sm leading-7 text-slate-700">{zh ? "两组分别计数。每组保留所有并列最高项，再把角色和视角配成下方故事。" : "The two banks are counted separately. Every highest role pairs with every highest lens in the stories below."}</p>
+        <a className="inline-block min-h-11 py-2 font-medium underline" href={`#weton-title-${matches[0].id}`}>{matches.length === 1 ? (zh ? "读这个故事组合" : "Read this story pairing") : (zh ? `开始阅读 ${matches.length} 个并列组合` : `Start reading ${matches.length} tied pairings`)}</a>
+      </div>
+    </section>}
 {!result.counts && <p data-weton-insufficient className="leading-8">{zh ? "本次已完成；存在未评分，不显示两组任何个人计数、最高键或匹配。不补零、不推断，35篇公开指南仍可在下方阅读，无需补答。" : "This attempt is complete. An unscored response withholds every personal count, leader and match in both banks. No zero is substituted and no winner inferred. All 35 public guides remain linked below; no further answers are required."}</p>}
-    {quiz.profiles.filter(profile => result.profileIds.includes(profile.id)).map(profile => <section key={profile.id} data-weton-profile={profile.id} aria-labelledby={`weton-title-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
+    {matches.map(profile => <section key={profile.id} data-weton-profile={profile.id} aria-labelledby={`weton-title-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
       <h3 id={`weton-title-${profile.id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
       <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} mode="result" previewSectionIds={["reading-2", "reading-3", "reading-4"]} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一原创组合的公开说明" : "Read this original pairing’s public guide"}</Link>

@@ -30,7 +30,7 @@ type SectionProps = Omit<HTMLAttributes<HTMLElement>, "title"> & {
   eyebrow?: ReactNode;
   description?: ReactNode;
   headingLevel?: HeadingLevel;
-  tone?: "default" | "soft" | "muted";
+  tone?: "default" | "soft" | "muted" | "framed";
 };
 
 /** Presentation only: callers retain ownership of scoring, availability and copy. */

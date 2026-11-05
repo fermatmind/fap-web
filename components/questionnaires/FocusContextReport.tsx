@@ -1,4 +1,3 @@
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
@@ -18,11 +17,19 @@ export function FocusContextSupport({ locale, compact = false }: { locale: Local
 export function FocusContextReport({ quiz, records, locale, readingProfiles }: { quiz: Questionnaire; readingProfiles?: readonly QuestionnaireProfile[]; records: FocusContextRecord[]; locale: Locale }) {
   const zh = locale === "zh";
   return <section data-focus-context-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="focus-context-result-heading">
-    <h2 id="focus-context-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "本次主题记录" : "Topics in this record"} sections={records.map((record, index) => ({
-      id: `focus-context-record-${record.id}`,
-      title: `${quiz.directions[index].title[locale]} · ${record.observations.length}${zh ? "条记录" : " records"}`,
-    }))} />
+    <div className="grid gap-5 border-y border-teal-200 bg-teal-50/60 p-4 sm:p-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+      <div>
+        <h2 id="focus-context-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold text-teal-950 outline-none">{quiz.resultHeading![locale]}</h2>
+        <p className="mt-3 max-w-prose leading-7">{zh ? "从一个具体场景读起。主题里的计数只记录你给几条描述选了同一类别，未计分的回答单独保留。" : "Start with a situation you want to revisit. A topic count shows how many statements received the same choice. Unscored responses stay separate."}</p>
+      </div>
+      <nav aria-label={zh ? "本次主题记录" : "Topics in this record"}>
+        <ul className="divide-y divide-teal-200">
+          {records.map((record, index) => <li key={record.id}>
+            <a href={`#focus-context-record-${record.id}`} className="flex min-h-11 items-center py-2 font-semibold text-teal-950 underline underline-offset-4">{quiz.directions[index].title[locale]}</a>
+          </li>)}
+        </ul>
+      </nav>
+    </div>
     <FocusContextSupport locale={locale} compact />
     {records.map((r, i) => {
       const original = quiz.profiles[i];
@@ -31,7 +38,7 @@ export function FocusContextReport({ quiz, records, locale, readingProfiles }: {
       return <section id={`focus-context-record-${r.id}`} key={r.id} data-focus-context-theme={r.id} aria-labelledby={`focus-context-record-title-${r.id}`} className="scroll-mt-24 border-b border-slate-200 pb-8 last:border-b-0">
       <h3 id={`focus-context-record-title-${r.id}`} className="mb-5 text-xl font-semibold leading-8 text-slate-950">{quiz.directions[i].title[locale]}</h3>
       <p data-focus-context-topic-summary className="text-base leading-8 text-slate-700">{original.summary[locale]}</p>
-      <p data-focus-context-choice-pattern className="my-4 text-sm leading-7 text-slate-600">{focusContextCategories.filter(category => r.counts[category.id] > 0).map(category => `${category.label[locale]} ${r.counts[category.id]}${zh ? "条" : " statements"}`).join(zh ? "；" : "; ")}</p>
+      <p data-focus-context-choice-pattern className="my-4 border-l-2 border-teal-300 pl-3 text-sm leading-7 text-slate-700">{focusContextCategories.filter(category => r.counts[category.id] > 0).map(category => `${category.label[locale]} ${r.counts[category.id]}${zh ? "条" : " statements"}`).join(" · ")}</p>
       {r.counts.na === 4 && <p data-focus-context-unscored className="mb-4 leading-7">{zh ? "这四条全部未计分，不代表没有困难或不需要支持。" : "All four are unscored; this does not mean no difficulty or no need for support."}</p>}
       <div id={`focus-context-public-${r.id}`} data-focus-context-full-reading className="scroll-mt-24">
         <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`focus-context-result-reading-${profile.id}`} mode="result" previewSectionIds={previewSectionIds} showHeadline={false} showSummary={false} />

@@ -8,8 +8,25 @@ import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 export function QuestionnaireLoveType16Report({ quiz, result, locale, readingProfiles }: { quiz: Questionnaire; readingProfiles?: Questionnaire["profiles"]; result: Extract<LoveType16Result, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh";
   return <div className="my-6 space-y-8" data-love-type16-result>
-
-
+    <section aria-labelledby="love-type16-compatible-title" className="overflow-hidden rounded-xl border border-rose-200 bg-rose-50">
+      <div className="p-4 sm:p-6">
+        <p className="text-sm font-semibold text-rose-900">{zh ? "四组亲密互动选择" : "Four relationship preference comparisons"}</p>
+        <h3 id="love-type16-compatible-title" className="mt-2 text-xl font-semibold text-rose-950">{zh ? `符合本次选择的组合 · ${result.compatibleProfileIds.length} 种` : `Combinations that fit these choices · ${result.compatibleProfileIds.length}`}</h3>
+        <p className="mt-2 text-sm leading-7 text-slate-700">{zh ? "一组两侧各选 4 次时，两侧都保留。可以直接点组合代码阅读。" : "When each side gets four choices in a group, both remain. Choose a code to read that combination."}</p>
+        <ul className="mt-3 flex flex-wrap gap-2">{result.compatibleProfileIds.map(id => <li key={id}><a className="inline-flex min-h-11 items-center rounded-lg border border-rose-200 bg-white px-3 font-semibold text-rose-950 underline" href={`#love-type16-${id}`}>{id.toUpperCase()}</a></li>)}</ul>
+      </div>
+      <div className="border-t border-rose-200 bg-white p-4 sm:p-6" aria-labelledby="love-type16-counts-title">
+        <h4 id="love-type16-counts-title" className="text-lg font-semibold">{zh ? "本次四组原始次数" : "Your four raw comparisons"}</h4>
+        <div className="mt-4 grid gap-4 md:grid-cols-2">{result.loveType16.map((axis, index) => <section key={axis.id} data-love-axis={axis.id} className="min-w-0 rounded-lg border border-rose-100 bg-rose-50/60 p-3">
+          <h5 className="font-semibold">{LOVE_TYPE16_AXES[index].title[locale]}</h5>
+          <dl className="mt-2 space-y-2">{LOVE_TYPE16_AXES[index].sides.map(id => <div key={id} data-love-side={id} className="flex flex-wrap items-baseline justify-between gap-x-3">
+            <dt className="min-w-0">{quiz.directions.find(direction => direction.id === id)!.title[locale]}</dt>
+            <dd className="shrink-0 font-semibold tabular-nums">{axis.counts[id]} / 8</dd>
+          </div>)}</dl>
+          <p className="mt-2 text-sm leading-6 text-slate-700">{axis.retained.length === 2 ? (zh ? "4:4 并列，两侧保留。" : "A 4:4 tie keeps both sides.") : (zh ? `这组保留 ${axis.retained[0].toUpperCase()}。` : `This group keeps ${axis.retained[0].toUpperCase()}.`)}</p>
+        </section>)}</div>
+      </div>
+    </section>
 
     {result.compatibleProfileIds.map(id => {
       const profile = quiz.profiles.find(p => p.id === id)!;
@@ -20,27 +37,14 @@ export function QuestionnaireLoveType16Report({ quiz, result, locale, readingPro
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "本组合的公开完整指南" : "This combination’s complete public guide"}</Link>
       </section>;
     })}
-
-    <details className="border-t border-slate-200 pt-3" data-result-reading-method><summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、原始记录与计算说明" : "View all readings, original records and calculation notes"}</summary>
-<p className="leading-8">{zh ? "四轴分别计次，两侧合为8；不合总分、不跨轴排名。次数只描述本题本的选择，不是人格占比、爱意或伴侣成功概率。4:4保留两侧，展示全部兼容组合；显示顺序不是排名。" : "Each axis is counted separately and its two sides sum to eight. There is no overall total or ranking across axes. Counts describe this bank’s choices, not a share of personality, love, or couple success probability. A 4:4 tie keeps both sides; every compatible combination is shown, without ranking."}</p>
-<section aria-labelledby="love-type16-counts-title" className="rounded-lg bg-slate-50 p-4 sm:p-6">
-      <h3 id="love-type16-counts-title" className="text-xl font-semibold">{zh ? "四组原始次数" : "Your four raw comparisons"}</h3>
-      <div className="mt-5 space-y-6">{result.loveType16.map((axis, i) => <div key={axis.id} data-love-axis={axis.id}>
-        <h4 className="font-semibold">{LOVE_TYPE16_AXES[i].title[locale]}</h4>
-        <dl className="my-3 grid grid-cols-1 gap-3 sm:grid-cols-2">{LOVE_TYPE16_AXES[i].sides.map(id => <div key={id} data-love-side={id}>
-          <dt>{quiz.directions.find(d => d.id === id)!.title[locale]}</dt><dd className="mt-1 font-semibold">{axis.counts[id]} / 8</dd>
-        </div>)}</dl>
-        <p className="text-sm leading-7">{axis.retained.length === 2 ? (zh ? "4:4并列，两个字母都保留。" : "A 4:4 tie: both letters remain.") : (zh ? `本轴保留 ${axis.retained[0].toUpperCase()}；仅为本组内次数较多的一侧。` : `This axis retains ${axis.retained[0].toUpperCase()}, the side selected more often within this group only.`)}</p>
-      </div>)}</div>
-    </section>
-<section aria-labelledby="love-type16-compatible-title">
-      <h3 id="love-type16-compatible-title" className="text-xl font-semibold">{zh ? `全部兼容组合：${result.compatibleProfileIds.length}种` : `All compatible combinations: ${result.compatibleProfileIds.length}`}</h3>
-      <p className="mt-3 leading-8">{zh ? "没有抽签、隐藏破并列或补题。本次代码如下，每份完整解读都在下面；可以先按链接跳到想读的组合。兼容表示符合本次四轴保留字母，不表示适配某个伴侣。" : "No draw, hidden tie-break, or extra question selects a winner. Every complete compatible reading appears below; use these links to jump to one. Compatible means consistent with this attempt’s retained letters, not compatible with a partner."}</p>
-      <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-2">{result.compatibleProfileIds.map(id => <li key={id}><a className="inline-block min-h-11 py-2 underline" href={`#love-type16-${id}`}>{id.toUpperCase()}</a></li>)}</ul>
-    </section>
+    <details className="border-t border-slate-200 pt-3" data-result-reading-method>
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "计数与组合的读法" : "How to read the counts and combinations"}</summary>
+      <p className="leading-8">{zh ? "四轴分别计次，两侧合为8；不合总分、不跨轴排名。次数只描述本题本的选择，不是人格占比、爱意或伴侣成功概率。4:4保留两侧，展示全部兼容组合；显示顺序不是排名。" : "Each axis is counted separately and its two sides sum to eight. There is no overall total or ranking across axes. Counts describe this bank’s choices, not a share of personality, love, or couple success probability. A 4:4 tie keeps both sides; every compatible combination is shown, without ranking."}</p>
+      <p className="mt-3 leading-8">{zh ? "兼容表示符合本次四组保留字母。所有符合的组合与指南都保留。" : "Compatible means consistent with the letters retained in these four groups. Every matching combination and guide remains available."}</p>
     </details>
   </div>;
 }
+
 export function QuestionnaireLoveType16NextSteps({ locale }: { locale: Locale }) {
   const zh = locale === "zh";
   return <section className="mt-10 border-t pt-7">

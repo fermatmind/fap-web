@@ -1,4 +1,4 @@
-import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
+import { ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -18,6 +18,21 @@ export function QuestionnaireBreakupReviewReport({ quiz, result, locale, reading
     <aside role="note" className="rounded-lg border border-slate-200 p-4 leading-8">{zh
       ? "安全边界与任何分数无关：暴力、胁迫、跟踪、威胁、强迫和控制不属于普通沟通不良或双方不合。无需联系、对质、解释或复合；若有现实安全威胁，可暂停作答或联系，向可信的人、当地紧急服务或合适的专业支持求助。"
       : "The safety boundary applies at every score: violence, coercion, stalking, threats, force and control are not ordinary poor communication or mutual incompatibility. Contact, confrontation, explanation and reconciliation are not required. If there is a practical safety threat, you can pause the test or contact with the former partner, and seek help from a trusted person, local emergency services or appropriate professional support."}</aside>
+    <section className="rounded-xl bg-stone-100/75 p-4 sm:p-6" aria-labelledby="breakup-review-start">
+      <h3 id="breakup-review-start" className="text-xl font-semibold text-stone-950">{zh ? "给这段回顾选一个起点" : "Choose where to start looking back"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "选择此刻想回看的主题。可先读情境和边界，即使本组没算出均分，指南仍然可读。" : "Choose what you want to revisit now. You can start with an example or a boundary. A guide stays available when its mean cannot be calculated."}</p>
+      <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+        {quiz.directions.map(direction => {
+          const score = result.facets[direction.id];
+          return <li key={direction.id} className="min-w-0">
+            <a href={`#breakup-review-${direction.id}`} className="flex min-h-12 flex-wrap items-center justify-between gap-x-4 gap-y-1 rounded-lg border border-stone-300 bg-white px-3 py-2 text-stone-950">
+              <span className="font-semibold underline decoration-stone-400 underline-offset-4">{direction.title[locale]}</span>
+              <span className="text-sm tabular-nums">{score.mean === null ? (zh ? `${score.rated}/6 项有效` : `${score.rated}/6 rated`) : `${score.mean.toFixed(4)} / 5`}</span>
+            </a>
+          </li>;
+        })}
+      </ul>
+    </section>
     {quiz.directions.map(direction => {
       const score = result.facets[direction.id];
       const sourceProfile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
@@ -44,15 +59,7 @@ export function QuestionnaireBreakupReviewReport({ quiz, result, locale, reading
     })}
 
     <details className="border-t border-slate-200 pt-4" data-result-reading-method>
-      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
-      <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
-      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
-      items={quiz.directions.map(direction => {
-        const score = result.facets[direction.id];
-        return { id: direction.id, label: direction.title[locale], href: `#breakup-review-${direction.id}`,
-          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
-          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
-      })} />
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看计分与使用说明" : "View scoring and use notes"}</summary>
       <p className="leading-8">{zh
       ? "四组记录分别阅读，不合总分、不排名、不指定主要分手原因。它们只摘要你对一段已结束关系的回顾，不分配责任，不决定复合、伴侣适配或下一段关系。原数值中点3表示不确定或视情况，不是中等严重程度；网页新增不计分选项不补零。"
       : "Read four separate records without an overall total, ranking or main-cause verdict. They summarise your recollection of one relationship that ended, without assigning responsibility, deciding reconciliation or predicting compatibility or another relationship. The original numeric midpoint 3 means uncertain or depends on the situation, not moderate severity. The website’s added unscored choice is not filled with zero."}</p>

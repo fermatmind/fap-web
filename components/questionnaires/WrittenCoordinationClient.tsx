@@ -1,5 +1,4 @@
 "use client";
-import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 
 import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import type { Locale } from "@/lib/i18n/locales";
@@ -154,15 +153,38 @@ function ValidWrittenCoordinationClient({ quiz, locale }: { quiz: WrittenCoordin
       </>}
       {selected === "entry" && <WrittenCoordinationEntry round={quiz.coordination.entry} locale={locale} onComplete={completeEntry} onCancel={cancel} />}
       {selected && selected !== "entry" && <QuestionModule key={`${selected}:${mode}`} quiz={quiz} id={selected} mode={mode} locale={locale} onComplete={completeQuestions} onCancel={cancel} />}
-      <div className="flex flex-wrap gap-3"><button type="button" className={button} onClick={share}>{zh ? "复制公开入口" : "Copy public entry"}</button><QuestionnaireLegacyControl><button type="button" className={button} onClick={clearAll}>{zh ? "退出并清除全部练习记录" : "Exit and clear all exercise records"}</button></QuestionnaireLegacyControl></div>
+      <div className="flex flex-wrap gap-3">
+        <button type="button" className={button} onClick={share}>{zh ? "复制公开入口" : "Copy public entry"}</button>
+        <button type="button" className={button} onClick={clearAll}>{zh ? "清除全部练习记录" : "Clear all exercise records"}</button>
+      </div>
     </fieldset>
     {manual && <label className="my-4 block">{zh ? "手动复制公开入口" : "Public entry for manual copying"}<textarea className="mt-2 min-h-28 w-full rounded border p-3" readOnly value={manual} /></label>}
     {message && <p role="status" className="my-4 leading-7">{message}</p>}
     <section className="mt-8 space-y-6" aria-labelledby="written-records-heading"><h2 id="written-records-heading" ref={recordsHeading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
       <p className="leading-7">{zh ? "单位不同，分别阅读，不产生总体平均、档位、排名或招聘结论。未尝试不等于零分，六篇全文始终开放。" : "Different units stay separate, without an overall average, band, ranking or hiring conclusion. Unattempted is not zero; all six full readings remain open."}</p>
+      {(entryRecord || Object.keys(records).length > 0) && <nav className="rounded-xl border border-teal-200 bg-teal-50/60 p-4 sm:p-6" aria-label={zh ? "打开已完成练习的记录" : "Open the records of completed exercises"}>
+        <h3 className="text-lg font-semibold text-teal-950">{zh ? "从一项已完成的练习开始复盘" : "Choose a completed exercise to review"}</h3>
+        <ul className="mt-3 grid gap-x-6 md:grid-cols-2">
+          {quiz.directions.map(direction => {
+            if (direction.id === "entry") {
+              if (!entryRecord) return null;
+              return <li key={direction.id} className="min-w-0 border-t border-teal-200 py-2">
+                <a className="inline-flex min-h-11 items-center font-semibold text-teal-950 underline underline-offset-4" href="#written-review-entry">{direction.title[locale]}</a>
+                <p className="text-sm leading-6">{zh ? `一分钟录入 · ${entryRecord.exactFields} 个精确字段` : `One-minute entry · ${entryRecord.exactFields} exact fields`}</p>
+              </li>;
+            }
+            const record = records[direction.id as QuestionPart];
+            if (!record) return null;
+            return <li key={direction.id} className="min-w-0 border-t border-teal-200 py-2">
+              <a className="inline-flex min-h-11 items-center font-semibold text-teal-950 underline underline-offset-4" href={`#written-review-${direction.id}`}>{direction.title[locale]}</a>
+              <p className="text-sm leading-6">{zh ? `答对 ${record.correct}/6 · 未答 ${record.unanswered}` : `${record.correct}/6 correct · ${record.unanswered} unanswered`}</p>
+            </li>;
+          })}
+        </ul>
+      </nav>}
       {quiz.directions.map(d => {
         const r = d.id === "entry" ? null : records[d.id as QuestionPart];
-        return <article key={d.id} data-written-module-record={d.id} className="space-y-4 rounded-lg border border-slate-200 p-4"><h3 className="text-xl font-semibold">{d.title[locale]}</h3>
+        return <article key={d.id} id={`written-review-${d.id}`} data-written-module-record={d.id} className="scroll-mt-24 space-y-4 rounded-lg border border-slate-200 p-4"><h3 className="text-xl font-semibold">{d.title[locale]}</h3>
           {d.id === "entry" ? entryRecord ? <div data-written-entry-result className="space-y-3 leading-7">
             <p>{zh ? "本设备本次完整60秒，非招聘或能力等级。" : "This device, this full 60-second round; no hiring or ability level."}</p>
             <p data-written-entry-considered>{zh ? "纳入记录／字段" : "Considered records / fields"}: {entryRecord.attemptedRecords} / {entryRecord.consideredFields}</p>

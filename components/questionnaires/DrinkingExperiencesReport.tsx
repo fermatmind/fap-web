@@ -1,4 +1,4 @@
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
@@ -19,11 +19,17 @@ export function DrinkingExperiencesReport({ quiz, records, locale, readingProfil
   const zh = locale === "zh";
   return <section data-drinking-experiences-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="drinking-experiences-result-heading">
     <h2 id="drinking-experiences-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "本次主题记录" : "Topics in this record"} sections={records.map((record, index) => ({
-      id: `drinking-experiences-record-${record.id}`,
-      title: `${quiz.directions[index].title[locale]} · ${record.observations.length}${zh ? "条记录" : " records"}`,
-    }))} />
     <DrinkingExperiencesSupport locale={locale} compact />
+    <section className="rounded-xl border border-sky-200 bg-sky-50/60 p-4 sm:p-6" aria-labelledby="drinking-context-start">
+      <h3 id="drinking-context-start" className="text-xl font-semibold text-sky-950">{zh ? "分开读饮酒情境和日常影响" : "Read drinking contexts and daily experiences separately"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "你可以按愿意阅读的情境进入。每行显示所选类别和对应题目数，三个不可判定或保留的选择分别保留。" : "Open a context you want to read about. Each row shows the categories and prompt counts, with each uncertainty or withholding option kept separate."}</p>
+      <ul className="mt-4 divide-y divide-sky-200">
+        {records.map((record, index) => <li key={record.id} className="min-w-0 py-2 md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] md:items-center md:gap-4">
+          <a className="inline-flex min-h-11 items-center font-semibold text-sky-950 underline underline-offset-4" href={`#drinking-experiences-record-${record.id}`}>{quiz.directions[index].title[locale]}</a>
+          <ObservationChoiceCounts categories={drinkingExperiencesCategories} counts={record.counts} locale={locale} />
+        </li>)}
+      </ul>
+    </section>
     {records.map((r, i) => {
       const original = quiz.profiles[i];
       const profile = readingProfiles?.find(item => item.id === original.id && item.directionIds.length === original.directionIds.length && item.directionIds.every((id, index) => id === original.directionIds[index]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === original.id) ?? original;

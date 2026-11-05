@@ -3,6 +3,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { HoldingBack35Questionnaire, HoldingBack35Result } from "@/lib/questionnaires/holdingBack35";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
+import { ResultOverview } from "./QuestionnaireResultPresentation";
 
 export function QuestionnaireHoldingBack35Report({ quiz, result, locale }: {
   quiz: Omit<HoldingBack35Questionnaire, "kind">;
@@ -11,9 +12,16 @@ export function QuestionnaireHoldingBack35Report({ quiz, result, locale }: {
 }) {
   const zh = locale === "zh";
   return <div data-holding-back35-result className="mt-6 space-y-8">
-
-
-
+    <ResultOverview locale={locale} title={zh ? "过去四周的七项观察" : "Seven observations from the past four weeks"}
+      className="border-violet-200 bg-violet-50"
+      description={zh ? "选择一个熟悉情境，把事件、感受和实际行动分开阅读。" : "Choose a familiar situation and read the event, feelings and actions separately."}
+      items={result.holdingBack35.domains.map(part => {
+        const direction = quiz.directions.find(item => item.id === part.domainId)!;
+        const profile = quiz.profiles.find(item => item.directionIds[0] === part.domainId)!;
+        return { id: part.domainId, label: direction.title[locale], href: `#holding-back35-guide-${profile.id}`,
+          value: part.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${part.mean.toFixed(1)} / 5`,
+          note: zh ? `${part.numericCount} / 5 题有数值` : `${part.numericCount} / 5 rated items` };
+      })} />
     {quiz.profiles.map(profile => <section data-holding-back35-guide={profile.id} key={profile.id}
       aria-labelledby={`holding-back35-guide-${profile.id}`}>
       <h3 id={`holding-back35-guide-${profile.id}`} className="scroll-mt-24 mb-4 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>

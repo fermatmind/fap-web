@@ -1,4 +1,4 @@
-import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
+import { ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -11,7 +11,16 @@ export function QuestionnaireMiniFrictionReport({ quiz, result, locale }: {
 }) {
   const zh = locale === "zh";
   return <ResultPage variant="reflection" className="my-6 space-y-8" data-mini-friction-result>
-
+    <section className="rounded-xl border border-emerald-200 bg-emerald-50/60 p-4 sm:p-6" aria-labelledby="friction-situation-start">
+      <h3 id="friction-situation-start" className="text-xl font-semibold text-emerald-950">{zh ? "从一件相处小事读起" : "Start with one everyday interaction"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "五组分开看。想起一次没说清楚、计划临时变化或需要表达边界时，可以打开对应例子。均分只概括你对本组陈述的回答。" : "Read the five groups separately. If you remember a misunderstanding, a changed plan or a boundary you needed to express, open that example. The means reflect your answers to each set of statements."}</p>
+      <ul className="mt-4 grid gap-3 md:grid-cols-2">
+        {result.miniFriction.map(part => <li key={part.id} className="min-w-0 rounded-lg bg-white px-3 pb-3">
+          <a className="inline-flex min-h-11 items-center font-semibold text-emerald-950 underline decoration-emerald-400 underline-offset-4" href={`#mini-friction-${part.id}`}>{quiz.directions.find(direction => direction.id === part.id)!.title[locale]}</a>
+          <p className="text-sm leading-6 tabular-nums">{zh ? `本组均分 ${part.mean.toFixed(2)} / 5` : `Group mean ${part.mean.toFixed(2)} / 5`}</p>
+        </li>)}
+      </ul>
+    </section>
 
     {result.miniFriction.map(part => {
       const direction = quiz.directions.find(d => d.id === part.id)!;
@@ -31,11 +40,7 @@ export function QuestionnaireMiniFrictionReport({ quiz, result, locale }: {
       : "The original form and new working English have no independent psychometric validation or established language equivalence. A mean summarises a group rather than recovering an item response, actual behaviour or another person’s feelings. No people-pleasing, explanation of a refusal, lowered boundary or resumed unsafe contact is required."}</p>
 
     <details className="border-t border-slate-200 pt-4" data-result-reading-method>
-      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
-      <ResultOverview locale={locale} title={zh ? "各组独立读数" : "Separate group readings"}
-      description={zh ? "按题本顺序阅读，不合成总分或排名。点击主题可查看完整解释。" : "Read in the form’s order, without a combined score or ranking. Select a topic for its full explanation."}
-      items={result.miniFriction.map(part => ({ id: part.id, label: quiz.directions.find(direction => direction.id === part.id)!.title[locale], href: `#mini-friction-${part.id}`,
-        value: `${part.mean.toFixed(2)} / 5`, note: zh ? `原始和 ${part.rawSum}` : `Raw sum ${part.rawSum}` }))} />
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看计分与使用说明" : "View scoring and use notes"}</summary>
       <p className="leading-8">{zh
       ? "二十项有效选择已齐，以下分别阅读五组本次自报，不合总分、不排名、不指定主要问题或负面人格。同和只表示数值相同，不表示同等严重；未询问任何其他人，不能确认谁讨厌你或其原因。"
       : "All twenty valid choices are complete. Read five separate self-reports, without a total, ranking, main problem or negative personality type. Equal sums are equal numbers rather than equal severity. No other person was asked, so this cannot confirm who dislikes you or why."}</p>

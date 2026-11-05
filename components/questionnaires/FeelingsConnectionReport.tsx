@@ -1,4 +1,4 @@
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
@@ -18,11 +18,17 @@ export function FeelingsConnectionReport({ quiz, records, locale, readingProfile
   const zh = locale === "zh";
   return <section data-feelings-connection-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="feelings-connection-result-heading">
     <h2 id="feelings-connection-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "本次主题记录" : "Topics in this record"} sections={records.map((record, index) => ({
-      id: `feelings-connection-record-${record.id}`,
-      title: `${quiz.directions[index].title[locale]} · ${record.observations.length}${zh ? "条记录" : " records"}`,
-    }))} />
     <FeelingsConnectionSupport locale={locale} compact />
+    <section className="rounded-xl border border-rose-200 bg-rose-50/55 p-4 sm:p-6" aria-labelledby="feelings-connection-reading-start">
+      <h3 id="feelings-connection-reading-start" className="text-xl font-semibold text-rose-950">{zh ? "先看看感受，也可以先读靠近与边界" : "Start with feelings, or with closeness and boundaries"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "两组可以分开回看，不必从一组推断另一组。数字是你本次各类选择对应的题目数。" : "Open either topic separately. The numbers count prompts in each category you selected."}</p>
+      <ul className="mt-4 grid gap-4 sm:grid-cols-2">
+        {records.map((record, index) => <li key={record.id} className="min-w-0 rounded-lg bg-white px-3 pb-3">
+          <a className="inline-flex min-h-11 items-center font-semibold text-rose-950 underline underline-offset-4" href={`#feelings-connection-record-${record.id}`}>{quiz.directions[index].title[locale]}</a>
+          <ObservationChoiceCounts categories={feelingsConnectionCategories} counts={record.counts} locale={locale} shortLabels={{ na: { zh: "未计分", en: "Unscored" } }} />
+        </li>)}
+      </ul>
+    </section>
     {records.map((r, i) => {
       const original = quiz.profiles[i];
       const profile = readingProfiles?.find(item => item.id === original.id && item.directionIds.length === original.directionIds.length && item.directionIds.every((id, index) => id === original.directionIds[index]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === original.id) ?? original;

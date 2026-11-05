@@ -1,4 +1,4 @@
-import { ResultSection, ResultReadingNav, ResultScoreRow } from "./QuestionnaireResultPresentation";
+import { ResultSection } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
@@ -10,13 +10,16 @@ export function FaceSelfImageReport({ quiz, result, locale }: { quiz: Questionna
   const zh = locale === "zh";
   return <div data-face-self-image-report className="mt-6 space-y-8">
 
-    <ResultSection title={zh ? "四项自我形象体验概览" : "Four self-image experience readings"}>
-      <div className="grid gap-x-8 sm:grid-cols-2">{quiz.directions.map(direction => {
+    <ResultSection title={zh ? "你在镜子、照片和相处里怎样看自己" : "How you see yourself in mirrors, photos and company"} description={zh ? "回看过去一个月四个场合里的体验频率。1 表示从不，5 表示几乎每次。可以直接选一个场合读例子。" : "Look back at how often you noticed these experiences across four settings in the past month. One means never and five means almost always. Pick a setting to read its example."} tone="framed" className="rounded-xl border border-stone-200 bg-stone-50/75" data-face-self-image-overview>
+      <dl className="mt-3 grid gap-x-6 md:grid-cols-2">{quiz.directions.map(direction => {
         const part = result.facets[direction.id];
-        return <ResultScoreRow key={direction.id} label={direction.title[locale]} value={part.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${part.mean.toFixed(1)} / 5`} score={part.mean} min={1} max={5} description={quiz.profiles.find(profile => profile.directionIds[0] === direction.id)!.summary[locale]} />;
-      })}</div>
+        return <div key={direction.id} className="min-w-0 border-t border-stone-200 py-2" data-face-self-image-overview-part={direction.id}>
+          <dt><a className="inline-flex min-h-11 items-center py-1 font-semibold text-stone-950 underline decoration-stone-400 underline-offset-4" href={`#face-self-image-${direction.id}`}>{direction.title[locale]}</a></dt>
+          <dd className="flex flex-wrap items-baseline gap-x-3"><strong className="tabular-nums">{part.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${part.mean.toFixed(1)} / 5`}</strong>
+            <span className="text-sm text-stone-600">{zh ? `${part.rated}/${part.total} 条有效` : `${part.rated}/${part.total} rated`}</span></dd>
+        </div>;
+      })}</dl>
     </ResultSection>
-    <ResultReadingNav label={zh ? "逐项完整解读" : "Full readings by topic"} sections={quiz.directions.map(direction => ({ id: `face-self-image-${direction.id}`, title: direction.title[locale] }))} />
     {quiz.directions.map(direction => {
       const part = result.facets[direction.id], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
       return <section key={direction.id} data-face-self-image-part={direction.id} aria-labelledby={`face-self-image-${direction.id}`} className="border-t border-slate-200 pt-7">

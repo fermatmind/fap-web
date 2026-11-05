@@ -3,13 +3,13 @@ export const sbti31LandingSections: Questionnaire["guide"] = [
   {
     "id": "sbti31-purpose",
     "title": {
-      "en": "What this SBTI test offers: one original Mini edition, 25 playful portraits",
-      "zh": "这份SBTI测什么：小程序原31题与25种趣味画像"
+      "en": "What this SBTI test offers: 31 questions and 25 playful portraits",
+      "zh": "这份SBTI测什么：31道情境题与25种趣味画像"
     },
     "paragraphs": [
       {
-        "en": "This is the web adaptation of FermatMind’s established Mini SBTI game. It preserves the thirty-one Chinese questions, their choices and order, the original calculation and twenty-five result codes. English is a working translation of this edition. The name SBTI alone does not identify one universal questionnaire, scoring method or result library.",
-        "zh": "这是费马既有小程序SBTI玩法的网页适配，保留三十一道中文原题、选项与题序、原计算和二十五个结果代码，英文为本版工作译文。仅凭SBTI这个名称，不能确定各网站使用同一问卷、计分或结果库。"
+        "en": "This is FermatMind’s 31-question SBTI edition. It uses the original Chinese questions, choice order, scoring and 25 portrait codes. English is a working translation of this edition. The name SBTI alone does not identify one universal questionnaire, scoring method or result library.",
+        "zh": "这是费马SBTI的31题版，沿用中文原题、选项与题序、原计分和25个画像代码。英文为工作译文。仅凭SBTI这个名称，不能确定各网站使用同一问卷、计分或结果库。"
       },
       {
         "en": "Complete the questions to see one selected portrait, fifteen model readouts and the complete associated explanation. All twenty-five public guides are also free before answering. Treat the humorous language as a way into a discussion of particular choices, not a standardized personality assessment or an instruction about who you must be.",
@@ -144,8 +144,8 @@ export const sbti31LandingFaq: Questionnaire["faq"] = [
       "zh": "为什么本站25种，有的SBTI网站却写27种？"
     },
     "answer": {
-      "en": "This page preserves the twenty-five codes in FermatMind’s established Mini edition. Other products may add different special types or use different banks and algorithms. A shared name does not make those inventories interchangeable; we do not add outcomes just to match another site’s count.",
-      "zh": "本页保留费马既有小程序版的二十五个代码。其他产品可能增加不同特殊类型，或采用不同题本、算法。同名不使结果库互换，本页不为凑齐其他站点数量而增加结果。"
+      "en": "FermatMind’s 31-question edition uses 25 portrait codes. Other products may add different special types or use different banks and algorithms. A shared name does not make those inventories interchangeable; we do not add outcomes just to match another site’s count.",
+      "zh": "费马SBTI的31题版使用25个画像代码。其他产品可能增加不同特殊类型，或采用不同题本、算法。同名不使结果库互换，本页不为凑齐其他站点数量而增加结果。"
     }
   },
   {

@@ -27,6 +27,10 @@
     "en": "Choose one current romantic relationship, or your most recent significant one, and keep that relationship in mind. Recall the past four weeks, or its final four weeks if it ended; this window is editorial. For thoughts and actions choose frequency when there was a relevant opportunity. For the six discomfort prompts choose the strength of discomfort in relevant recalled situations, not its frequency. Use unscored if no relevant experience occurred, you cannot judge or you prefer not to answer. Do not investigate, check private material or reproduce an action to answer. All eighteen recognised choices, including unscored, can finish.",
     "zh": "选择一段当前恋爱关系，或最近一段重要关系，始终以同一段为参照。回想过去四周；已结束时回想最后四周，窗口为编辑选择。思维与行动按有相关机会时的频率回答，六条不适提示按相关回想情境中的不适强度答，不问频率。没有相关经历、无法判断或不愿答时可不计分。不要为作答调查、查看私密材料或重复行动。十八项包括不计分的有效选择均可完成。"
   },
+  "resultHeading": {
+    "en": "Your relationship worries, discomfort, and actions",
+    "zh": "关系里的担心、不适与行动"
+  },
   "directions": [
     {
       "id": "thoughts",

@@ -18,8 +18,8 @@
     "en": "Compare contact and space, certainty and flexibility in 24 paired choices. Read two raw-count results, ties and six full guides. Free, no sign-up."
   },
   "resultHeading": {
-    "en": "Relationship arrangements in these choices",
-    "zh": "本次关系安排偏好"
+    "en": "Your preferences for relationship arrangements",
+    "zh": "你偏好的关系安排"
   },
   "minutes": 6,
   "introduction": {
@@ -2149,8 +2149,8 @@
       },
       "paragraphs": [
         {
-          "en": "This is the two-dimension model from FermatMind’s own mini-program Love Type questionnaire, rather than a 16-type service. It has not completed reliability, validity, norms, accuracy or language-equivalence validation. It does not measure affection, investment, maturity, responsibility, coldness or faithfulness; generate attachment or clinical labels; match partners; predict duration; or decide commitment, cohabitation, marriage, separation or responsibility.",
-          "zh": "本模型来自费马自有小程序的恋爱类型题本，实际比较两个维度，不是16型服务；尚未完成信度、效度、常模、准确率或语言等值验证。不测爱意、投入、成熟、责任、冷淡或专一，不产生依恋或临床标签，不做伴侣配对、关系长久预测，也不替你决定承诺、同居、婚姻、分手或责任归属。"
+          "en": "This is the two-dimension model from FermatMind’s earlier Love Type questionnaire, rather than a 16-type service. It has not completed reliability, validity, norms, accuracy or language-equivalence validation. It does not measure affection, investment, maturity, responsibility, coldness or faithfulness; generate attachment or clinical labels; match partners; predict duration; or decide commitment, cohabitation, marriage, separation or responsibility.",
+          "zh": "本模型来自费马早期的恋爱类型题本，实际比较两个维度，不是16型服务；尚未完成信度、效度、常模、准确率或语言等值验证。不测爱意、投入、成熟、责任、冷淡或专一，不产生依恋或临床标签，不做伴侣配对、关系长久预测，也不替你决定承诺、同居、婚姻、分手或责任归属。"
         }
       ]
     },
@@ -2198,8 +2198,8 @@
         "zh": "会产生LoveType16代码吗？"
       },
       "answer": {
-        "en": "No. This original mini-program model has two separately counted dimensions and produces no four-letter code or combined romantic type. It cannot be substituted for a service with four axes and 16 profiles.",
-        "zh": "不会。本原创小程序模型实际有两个分别计数的维度，不生成四字母代码或综合恋爱类型，不能替代四轴16画像的其他服务。"
+        "en": "No. This original FermatMind model has two separately counted dimensions and produces no four-letter code or combined romantic type. It cannot be substituted for a service with four axes and 16 profiles.",
+        "zh": "不会。本费马原创模型实际有两个分别计数的维度，不生成四字母代码或综合恋爱类型，不能替代四轴16画像的其他服务。"
       }
     },
     {

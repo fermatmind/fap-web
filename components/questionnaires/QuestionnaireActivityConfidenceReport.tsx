@@ -13,6 +13,14 @@ export function QuestionnaireActivityConfidenceReport({ quiz, result, locale }: 
 }) {
   const zh = locale === "zh";
   return <ResultPage variant="dimensions" className="my-6 space-y-8" data-activity-confidence-result>
+    <ResultOverview className="rounded-xl border border-emerald-200 bg-emerald-50/65" locale={locale} title={zh ? "你想先了解哪一类活动的把握感" : "Which activity would you like to explore first?"}
+      description={zh ? "选一个活动主题，看看分数对应哪些任务、条件和例子。" : "Choose an activity for the tasks, conditions and examples behind its rating."}
+      items={quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return { id: direction.id, label: direction.title[locale], href: `#activity-confidence-${direction.id}`,
+          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
+          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
+      })} />
 
 
     {quiz.directions.map(direction => {
@@ -37,14 +45,6 @@ export function QuestionnaireActivityConfidenceReport({ quiz, result, locale }: 
 
     <details className="border-t border-slate-200 pt-4" data-result-reading-method>
       <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
-      <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
-      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
-      items={quiz.directions.map(direction => {
-        const score = result.facets[direction.id];
-        return { id: direction.id, label: direction.title[locale], href: `#activity-confidence-${direction.id}`,
-          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
-          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
-      })} />
       <p className="leading-8">{zh
       ? "八组分别显示对选定活动的自报把握，不测八种智能或实际能力，不选最强项、不合成总分，也不按数值指定学习风格或职业。相近与并列值都原样保留。"
       : "The eight groups show self-reported confidence about selected activities, not eight measured intelligences or actual ability. There is no strongest group, total, learning-style assignment or career match. Close and equal means remain visible."}</p>

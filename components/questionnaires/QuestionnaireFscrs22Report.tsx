@@ -11,6 +11,11 @@ export function QuestionnaireFscrs22Report({ quiz, result, locale, readingProfil
 }) {
   const zh = locale === "zh";
   return <ResultPage variant="reflection" data-fscrs22-result className="my-6 space-y-8">
+    <ResultOverview className="rounded-xl border border-teal-200 bg-teal-50/65" locale={locale} title={zh ? "分别看自我批评与自我安抚" : "Read self-criticism and self-reassurance separately"}
+      description={zh ? "均值范围1—5，跳过会使所属部分未计分。名称可跳到该部分的完整解释。" : "Means range from 1–5. A skip leaves its own part unscored. Select a name for that part’s full explanation."}
+      items={FSCRS22_PARTS.map(id => ({ id, label: quiz.profiles.find(profile => profile.id === id)!.title[locale], href: `#fscrs22-part-${id}`,
+        value: result.parts[id].sum === null || result.parts[id].mean === null ? (zh ? "未计分" : "Unscored") : `${result.parts[id].mean!.toFixed(2)} / 5`,
+        note: zh ? `${result.parts[id].numericCount} / ${result.parts[id].requiredCount}个数字回答` : `${result.parts[id].numericCount} / ${result.parts[id].requiredCount} numeric responses` }))} />
 
 
     {FSCRS22_PARTS.map(id => {
@@ -29,12 +34,7 @@ export function QuestionnaireFscrs22Report({ quiz, result, locale, readingProfil
     })}
 
     <details className="border-t border-slate-200 pt-4" data-result-reading-method>
-      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
-      <ResultOverview locale={locale} title={zh ? "三个部分分别阅读" : "Three separate parts"}
-      description={zh ? "均值范围1—5，跳过会使所属部分未计分。名称可跳到该部分的完整解释。" : "Means range from 1–5. A skip leaves its own part unscored. Select a name for that part’s full explanation."}
-      items={FSCRS22_PARTS.map(id => ({ id, label: quiz.profiles.find(profile => profile.id === id)!.title[locale], href: `#fscrs22-part-${id}`,
-        value: result.parts[id].sum === null || result.parts[id].mean === null ? (zh ? "未计分" : "Unscored") : `${result.parts[id].mean!.toFixed(2)} / 5`,
-        note: zh ? `${result.parts[id].numericCount} / ${result.parts[id].requiredCount}个数字回答` : `${result.parts[id].numericCount} / ${result.parts[id].requiredCount} numeric responses` }))} />
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看计分与使用说明" : "View scoring and use notes"}</summary>
       <p className="leading-8">{zh ? "本次 22 条均已作出明确选择，包括跳过项。三个部分分别呈现；跳过任一条，仅使其所属部分不计分。三篇完整解释始终可读。" : "All 22 statements have an explicit choice, including skips. Each part is separate; a skip leaves only its own part unscored. All three complete explanations remain readable."}</p>
     </details>
   </ResultPage>;

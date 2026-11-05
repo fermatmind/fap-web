@@ -1,5 +1,5 @@
 "use client";
-import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
+import { ResultPage } from "./QuestionnaireResultPresentation";
 import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 
 import Link from "next/link";
@@ -76,10 +76,20 @@ function ValidSynes15Client({ quiz, locale, readingProfiles }: { quiz: Synes15Qu
         <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading?.[locale]}</h2>
         <p className="leading-8">{zh ? "15项均已作明确选择。五组分别保留四种回答计数和每条原始选择；不计算总分、均分、强度或概率，不分配类型，也不确认联觉。没有仅指有机会却未记得，不代表终身缺失。" : "All 15 prompts have an explicit choice. Five groups retain four literal response counts and each original choice, without a total, mean, strength, probability, type assignment or confirmation of synaesthesia. No means relevant opportunities but no recollection, not lifetime absence."}</p>
         <ResultPage variant="reflection" data-synes15-result className="space-y-6">
-          <ResultOverview locale={locale} title={zh ? "五组观察记录" : "Five observation records"}
-            description={zh ? "保留四种原始类别，不换算分数。选择主题可核对三条原始选择与完整读法。" : "Four literal response categories, without a score conversion. Choose a topic to review its three choices and full guide."}
-            items={SYNES15_TOPICS.map(id => ({ id, label: quiz.profiles.find(profile => profile.id === id)!.title[locale], href: `#synes15-${id}`,
-              note: zh ? `有 ${result[id].counts.yes} · 没有 ${result[id].counts.no} · 不确定 ${result[id].counts.unsure} · 无机会／不愿回答 ${result[id].counts.na}` : `Yes ${result[id].counts.yes} · No ${result[id].counts.no} · Unsure ${result[id].counts.unsure} · No opportunity / decline ${result[id].counts.na}` }))} />{SYNES15_TOPICS.map(id => {
+          <section className="rounded-xl border border-fuchsia-200 bg-fuchsia-50/60 p-4 sm:p-6" aria-labelledby="synes-response-start">
+            <h3 id="synes-response-start" className="text-xl font-semibold text-fuchsia-950">{zh ? "五种感受关联，分别回看" : "Look back at five kinds of sensory associations"}</h3>
+            <p className="mt-3 max-w-prose leading-7">{zh ? "选一个你记得的体验。每栏数字是你在本主题三道题里选择该类别的次数，点开可以核对原始回答。" : "Choose an experience you recall. The numbers count your choices across three prompts per topic. Open one to review the original responses."}</p>
+            <ul className="mt-4 grid gap-3 lg:grid-cols-2">{SYNES15_TOPICS.map(id => <li key={id} className="min-w-0 rounded-lg bg-white p-3">
+              <a href={`#synes15-${id}`} className="inline-flex min-h-11 items-center font-semibold text-fuchsia-950 underline underline-offset-4">{quiz.profiles.find(profile => profile.id === id)!.title[locale]}</a>
+              <dl className="grid grid-cols-2 gap-2 text-sm leading-6 sm:grid-cols-4">
+                <div><dt>{zh ? "有" : "Yes"}</dt><dd className="font-semibold tabular-nums">{result[id].counts.yes}</dd></div>
+                <div><dt>{zh ? "没有" : "No"}</dt><dd className="font-semibold tabular-nums">{result[id].counts.no}</dd></div>
+                <div><dt>{zh ? "不确定" : "Unsure"}</dt><dd className="font-semibold tabular-nums">{result[id].counts.unsure}</dd></div>
+                <div><dt>{zh ? "无机会／不愿答" : "No occasion / prefer not to answer"}</dt><dd className="font-semibold tabular-nums">{result[id].counts.na}</dd></div>
+              </dl>
+            </li>)}</ul>
+          </section>
+          {SYNES15_TOPICS.map(id => {
           const score = result[id], profile = quiz.profiles.find(p => p.id === id)!;
           const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === 1 && item.directionIds[0] === id && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
           return <section key={id} data-synes15-part={id} aria-labelledby={`synes15-${id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">

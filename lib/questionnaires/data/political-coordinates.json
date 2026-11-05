@@ -19,8 +19,8 @@
   },
   "minutes": 8,
   "resultHeading": {
-    "en": "Two policy-choice axes and four complete readings",
-    "zh": "两条政策取舍轴与四份完整读法"
+    "en": "Your two policy trade-off axes",
+    "zh": "你的两条政策取舍轴"
   },
   "introduction": {
     "zh": "本版用两条明确定义的轴整理假设公共政策选择：经济轴各方案涉及供给、筹资、产权与议价，社会轴涉及共同公民目的、自愿参与与个人自由。每轴18项，等权计数；零值保留并列，NA保留所属轴资料不足。两轴都完整才显示组合点，四份完整指南始终可读。",

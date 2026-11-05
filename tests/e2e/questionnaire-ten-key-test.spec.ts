@@ -6,6 +6,8 @@ const quiz = JSON.parse(readFileSync("lib/questionnaires/data/ten-key-test.json"
 const path = (locale: string) => `/${locale}/tests/explore/ten-key-test`;
 async function controlledClock(page: Page) {
   await expect(page.locator('input[name="ten-key-mode"][value="whole"]')).toBeEnabled();
+  const decline = page.getByRole("button", { name: /^(Decline|拒绝)$/ });
+  if (await decline.isVisible()) await decline.click();
   await page.clock.install({ time: new Date("2026-10-27T00:00:00Z") });
   await page.clock.pauseAt(new Date("2026-10-27T00:00:01Z"));
 }
@@ -23,6 +25,8 @@ for (const locale of ["en", "zh"] as const) {
     await page.goto(`/${locale}/tests`);
     await page.locator(`a[href="${path(locale)}"]`).first().click();
     await expect(page.locator("h1")).toHaveText(quiz.title[locale]);
+    await page.locator("[data-explore-start]").click();
+    await expect(page).toHaveURL(`${path(locale)}/take`);
     await controlledClock(page); await start(page, locale);
     const first = quiz.tenKey!.rounds[0].values[0];
     await page.locator("#ten-key-entry").pressSequentially(first + "9");
@@ -58,7 +62,7 @@ for (const locale of ["en", "zh"] as const) {
 
 test("@release 10-Key: leading zeros, IME confirmation, blocked paste, visibility cancellation and reload (controlled clock/visibility)", async ({ page }) => {
   await page.addInitScript(() => { Object.defineProperty(window, "sessionStorage", { get() { throw Error("Synthetic denied storage"); } }); });
-  await page.goto(path("en")); await controlledClock(page); await start(page, "en", "references");
+  await page.goto(`${path("en")}/take`); await controlledClock(page); await start(page, "en", "references");
   const input = page.locator("#ten-key-entry");
   await input.dispatchEvent("paste");
   await expect(input).toHaveValue(""); await expect(page.getByRole("status")).toContainText("Pasting is blocked");
@@ -79,7 +83,7 @@ test("@release 10-Key: leading zeros, IME confirmation, blocked paste, visibilit
 });
 
 test("@release 10-Key: no-entry denominators and blank Enter stay distinct (controlled clock)", async ({ page }) => {
-  await page.goto(path("en")); await controlledClock(page); await start(page, "en", "decimals");
+  await page.goto(`${path("en")}/take`); await controlledClock(page); await start(page, "en", "decimals");
   await page.clock.fastForward(60_000); await expect(page.locator("[data-ten-key-result]")).toContainText("No entries were confirmed");
   await expect(page.locator("[data-ten-key-result]")).toContainText("Unavailable");
   await page.getByRole("button", { name: "Clear and practise again", exact: true }).click();

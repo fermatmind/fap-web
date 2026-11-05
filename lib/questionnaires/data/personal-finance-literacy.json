@@ -27,8 +27,8 @@
     "zh": "逐题阅读虚构条件，选择一个答案。金额采用通用货币单位，不指定国家币种；利率、扣款、费用、福利上限均为题设，不是当前报价、税率或通用规则。无计时、速度奖励，约十分钟为编辑估计。23题有效选择后才给正确数：预算7题、储蓄风险8题、工资福利8题。可自行决定是否用计算器、资料，并按该练习条件理解正确数；结果不是认证或个人理财建议。"
   },
   "resultHeading": {
-    "en": "Your finance practice counts and complete explanations",
-    "zh": "本次理财练习正确数与全部解析"
+    "en": "Finance practice: check the budget, interest and pay questions",
+    "zh": "理财练习：核对预算、利息和工资题"
   },
   "directions": [
     {

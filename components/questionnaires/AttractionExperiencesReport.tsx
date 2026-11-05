@@ -1,4 +1,4 @@
-import { ResultReadingNav, ResultScoreRow } from "./QuestionnaireResultPresentation";
+import { ResultScoreRow } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -9,13 +9,15 @@ import type { Locale } from "@/lib/i18n/locales";
 export function AttractionExperiencesReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh", available = Object.values(result.facets).filter(f => f.rated === 3).length;
   return <div className="my-6 min-w-0 space-y-8 [overflow-wrap:anywhere]">
-    <section className="space-y-4 rounded-lg bg-slate-50 p-4" aria-labelledby="atr-summary-title">
-      <h3 id="atr-summary-title" className="text-xl font-semibold">{zh ? "五项体验分别阅读，不分配身份" : "Five separate experience readings, without an identity assignment"}</h3>
+    <section className="space-y-4 rounded-xl border border-rose-200 bg-rose-50/60 p-4 sm:p-6" aria-labelledby="atr-summary-title">
+      <h3 id="atr-summary-title" className="text-xl font-semibold">{zh ? "选一段能想起的吸引体验" : "Choose an attraction experience you recall"}</h3>
+      <p className="max-w-prose leading-7">{zh ? "围绕自己的经历读每一项。点开名称看可能出现的情境，保留不相关和无法确定的回答。" : "Read each topic in light of your own experiences. Open its examples, with uncertain and irrelevant responses kept unscored."}</p>
 
       <dl className="grid gap-x-8 gap-y-3 sm:grid-cols-2">{quiz.directions.map(direction => {
+        const profile = quiz.profiles.find(item => item.directionIds[0] === direction.id)!;
         const facet = result.facets[direction.id], mean = facet.rated === 3 ? facet.sum / 3 : null;
-        return <div key={direction.id} data-atr-facet={direction.id} className="min-w-0 border-b border-slate-200 pb-4"><dt className="font-semibold leading-7">{direction.title[locale]}</dt><dd>
-          <ResultScoreRow label={zh ? "原始均值 · 1–5" : "Raw mean · 1–5"} value={<span data-atr-mean>{mean === null ? (zh ? "资料不足" : "Insufficient information") : `${mean.toFixed(1)} / 5`}</span>} score={mean} min={1} max={5} description={quiz.profiles.find(profile => profile.directionIds[0] === direction.id)!.summary[locale]} />
+        return <div key={direction.id} data-atr-facet={direction.id} className="min-w-0 border-b border-slate-200 pb-4"><dt><a className="inline-flex min-h-11 items-center font-semibold text-rose-950 underline underline-offset-4" href={`#atr-title-${profile.id}`}>{direction.title[locale]}</a></dt><dd>
+          <ResultScoreRow label={zh ? "原始均值 · 1–5" : "Raw mean · 1–5"} value={<span data-atr-mean>{mean === null ? (zh ? "资料不足" : "Insufficient information") : `${mean.toFixed(1)} / 5`}</span>} score={mean} min={1} max={5} description={profile.summary[locale]} />
           {mean !== null && <span data-atr-sum className="mt-3 block text-sm leading-7 text-slate-600">{zh ? `原始和${facet.sum} / 3条数值` : `Raw sum ${facet.sum} / 3 rated items`}</span>}
           <span data-atr-rated className="block text-sm text-slate-600">{zh ? `${facet.rated} / 3条数值有效；${3 - facet.rated}条未评分` : `${facet.rated} / 3 numeric ratings; ${3 - facet.rated} unscored responses`}</span>
         </dd></div>;
@@ -27,7 +29,6 @@ export function AttractionExperiencesReport({ quiz, result, locale }: { quiz: Qu
       </details>
     </section>
     <p className="leading-8">{zh ? "五篇八节全文全部保留，包括资料不足的项；它们解释体验描述，不是五种身份。" : "All five eight-section guides remain open, including for insufficient parts. They explain experience descriptions rather than five identities."}</p>
-    <ResultReadingNav label={zh ? "完整主题解读" : "Full topic readings"} sections={quiz.profiles.map(profile => ({ id: `atr-title-${profile.id}`, title: profile.title[locale] }))} />
     {quiz.profiles.map(profile => <section key={profile.id} data-atr-profile={profile.id} aria-labelledby={`atr-title-${profile.id}`} className="border-t border-slate-200 pt-7">
       <h3 id={`atr-title-${profile.id}`} className="mb-5 scroll-mt-24 text-2xl font-semibold">{profile.title[locale]}</h3>
       <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} mode="result" previewSectionIds={["reading-2", "reading-6"]} />

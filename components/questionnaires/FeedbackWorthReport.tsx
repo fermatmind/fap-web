@@ -1,4 +1,4 @@
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
@@ -18,11 +18,25 @@ export function FeedbackWorthSupport({ locale, compact = false }: { locale: Loca
 export function FeedbackWorthReport({ quiz, records, locale, readingProfiles }: { quiz: Questionnaire; readingProfiles?: readonly QuestionnaireProfile[]; records: FeedbackWorthRecord[]; locale: Locale }) {
   const zh = locale === "zh";
   return <section data-feedback-worth-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="feedback-worth-result-heading">
-    <h2 id="feedback-worth-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "本次主题记录" : "Topics in this record"} sections={records.map((record, index) => ({
-      id: `feedback-worth-record-${record.id}`,
-      title: `${quiz.directions[index].title[locale]} · ${record.observations.length}${zh ? "条记录" : " records"}`,
-    }))} />
+    <header className="border-y border-rose-200 bg-rose-50/60 p-4 sm:p-6">
+      <h2 id="feedback-worth-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold text-rose-950 outline-none">{quiz.resultHeading![locale]}</h2>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "回看过去四周收到反馈后的感受、对自己的看法，以及注意力如何回到手头的事。每个主题都列出你选过的类别和题目数。" : "Look back at how feedback felt, what it brought up about your worth, and how your attention returned to the task in the past four weeks. Each topic shows your selected categories and their prompt counts."}</p>
+      <nav className="mt-4" aria-label={zh ? "从感受、自我看法或注意力开始读" : "Start with feelings, self-worth or attention"}>
+        <ol className="space-y-3">
+          {records.map((record, index) => <li key={record.id} className="grid grid-cols-[2rem_minmax(0,1fr)] gap-x-3">
+            <span className="pt-2.5 font-semibold tabular-nums text-rose-800" aria-hidden="true">0{index + 1}</span>
+            <div className="border-b border-rose-200 pb-3">
+              <a className="inline-flex min-h-11 items-center font-semibold text-rose-950 underline underline-offset-4" href={`#feedback-worth-record-${record.id}`}>{quiz.directions[index].title[locale]}</a>
+              <ObservationChoiceCounts categories={feedbackWorthCategories} counts={record.counts} locale={locale} shortLabels={{
+                "not-now": { zh: "不符合", en: "Does not describe" },
+                partly: { zh: "部分符合", en: "Partly describes" },
+                fits: { zh: "符合", en: "Describes" },
+              }} />
+            </div>
+          </li>)}
+        </ol>
+      </nav>
+    </header>
     <FeedbackWorthSupport locale={locale} compact />
     {records.map((r, i) => {
       const original = quiz.profiles[i];

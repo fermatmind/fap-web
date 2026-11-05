@@ -15,7 +15,20 @@ export function QuestionnaireFourAxesReport({ quiz, result, locale, readingProfi
   });
   if (!valid) return <p role="status">{zh ? "本次结果暂不可用，可以清除后重新开始。" : "This result is unavailable. Clear it and start again."}</p>;
   return <div data-four-axes-result className="my-6 space-y-8">
-    <p className="leading-8">{quiz.fourAxes.scoreExplanation[locale]}</p>
+    <section className="rounded-xl border border-violet-200 bg-violet-50/60 p-4 sm:p-6" aria-labelledby="four-axes-readout-title">
+      <h3 id="four-axes-readout-title" className="text-xl font-semibold text-violet-950">{zh ? "四条轴，四个本次位置" : "Your position on each of the four axes"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{quiz.fourAxes.scoreExplanation[locale]}</p>
+      <div className="mt-5 grid gap-x-6 md:grid-cols-2">
+        {quiz.fourAxes.axes.map(axis => {
+          const value = result.axes[axis.id];
+          return <a key={axis.id} href={`#four-axes-${axis.id}`} className="min-w-0 border-t border-violet-200 py-3">
+            <span className="block font-semibold text-violet-950 underline decoration-violet-400 underline-offset-4">{axis.title[locale]}</span>
+            <span className="mt-2 flex justify-between gap-2 text-sm leading-6"><span>{axis.low[locale]} {value.lowPercent.toFixed(1)}%</span><span className="text-right">{axis.high[locale]} {value.highPercent.toFixed(1)}%</span></span>
+            <span aria-hidden="true" className="mt-1.5 flex h-1.5 overflow-hidden rounded-full bg-violet-100"><span className="bg-violet-700" style={{ width: `${value.lowPercent}%` }} /><span className="bg-teal-600" style={{ width: `${value.highPercent}%` }} /></span>
+          </a>;
+        })}
+      </div>
+    </section>
     {quiz.fourAxes.axes.map(axis => {
       const value = result.axes[axis.id], profile = quiz.profiles.find(p => p.id === axis.id)!;
       const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === 1 && item.directionIds[0] === axis.id && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;

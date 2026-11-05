@@ -27,8 +27,8 @@
     "en": "Copy source codes, labels, dates and quantity text into corresponding fields. Two modes each provide thirty-two four-field records with identical values in Chinese and English interfaces. Each sixty-second round separately reports considered fields, exact fields, complete records, final-character KPH and exact-field character KPH to help review output and text equality."
   },
   "resultHeading": {
-    "en": "Your record counts, exact fields and separate rates",
-    "zh": "记录计数、精确字段与独立字符速率"
+    "en": "Your structured data-entry result",
+    "zh": "本轮结构化录入结果"
   },
   "directions": [
     {

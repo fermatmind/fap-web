@@ -1,5 +1,5 @@
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire, QuestionnaireProfile } from "@/lib/questionnaires/types";
@@ -19,8 +19,17 @@ export function SocialContextReport({ quiz, records, locale, readingProfiles }: 
   const zh = locale === "zh";
   return <section data-social-context-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="social-context-result-heading">
     <h2 id="social-context-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "选择一个主题阅读" : "Choose a topic to read"} sections={records.map((record, index) => ({ id: `record-${quiz.slug}-${record.id}`, title: quiz.directions[index].title[locale] }))} />
     <SocialContextSupport locale={locale} compact />
+    <section className="border-y border-indigo-200 bg-indigo-50/55 p-4 sm:p-6" aria-labelledby="social-context-reading-start">
+      <h3 id="social-context-reading-start" className="text-xl font-semibold text-indigo-950">{zh ? "在不同社交场合，你留意到什么" : "What did you notice in different social situations?"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "被注视、聊天、改变计划或当时的身体感受，可以各自阅读。每行显示实际选过的类别及对应题目数。" : "Read being observed, talking, changes in plans or bodily sensations as separate topics. Each row shows the categories you selected and their prompt counts."}</p>
+      <ul className="mt-4 divide-y divide-indigo-200">
+        {records.map((record, index) => <li key={record.id} className="min-w-0 py-2 md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] md:items-center md:gap-4">
+          <a className="inline-flex min-h-11 items-center font-semibold text-indigo-950 underline underline-offset-4" href={`#record-${quiz.slug}-${record.id}`}>{quiz.directions[index].title[locale]}</a>
+          <ObservationChoiceCounts categories={socialContextCategories} counts={record.counts} locale={locale} shortLabels={{ na: { zh: "未计分", en: "Unscored" } }} />
+        </li>)}
+      </ul>
+    </section>
     {records.map((r, i) => {
       const original = quiz.profiles[i];
       const profile = readingProfiles?.find(item => item.id === original.id && item.directionIds.length === original.directionIds.length && item.directionIds.every((id, index) => id === original.directionIds[index]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === original.id) ?? original;

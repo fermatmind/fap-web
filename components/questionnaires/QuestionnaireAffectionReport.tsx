@@ -13,14 +13,14 @@ export function QuestionnaireAffectionReport({ quiz, result, locale }: { quiz: Q
     <span className="block text-sm text-slate-600">{zh ? `${facet.rated} / 5条有效评分` : `${facet.rated} / 5 rated items`}</span>
   </>;
   return <div className="my-6 space-y-8">
-    <section className="space-y-4 rounded-lg bg-slate-50 p-4" aria-labelledby="affection-ratings-title">
-      <h3 id="affection-ratings-title" className="text-xl font-semibold">{zh ? "五种方式，表达与接收分别看" : "Five ways, giving and receiving separately"}</h3>
+    <section className="space-y-4 rounded-2xl border border-rose-200 bg-rose-50/70 p-4 sm:p-6" aria-labelledby="affection-ratings-title">
+      <h3 id="affection-ratings-title" className="text-xl font-semibold text-rose-950">{zh ? "五种方式，表达与接收分别看" : "Five ways, giving and receiving separately"}</h3>
       <p className="leading-8" data-affection-summary>{zh ? `十个部分中，${rated}个有足够资料显示均分。每侧至少3条有效评分才显示1—5均分；暂不作答不补零。` : `${rated} of ten parts have enough information for a mean. Each side needs at least three ratings to display a 1–5 mean; unscored responses are never zero.`}</p>
       {rated === 0 && <p className="leading-8" data-affection-insufficient>{zh ? "本次作答已结束，未生成个人均分。可以重新测试，下面五份完整公开说明仍可阅读。" : "This attempt is finished without personal means. You can retake it; all five full public guides remain available below."}</p>}
-      <div className="overflow-x-auto"><table className="w-full border-collapse text-left">
-        <caption className="pb-3 text-left text-sm">{zh ? "本次情境意义感自评；均分保留一位小数，不是行为次数或人群排名。" : "Meaningfulness ratings for this attempt; means use one decimal, not behaviour counts or population ranks."}</caption>
-        <thead><tr><th scope="col" className="p-2">{zh ? "关心方式" : "Way of caring"}</th><th scope="col" className="p-2">{zh ? "表达侧" : "Giving"}</th><th scope="col" className="p-2">{zh ? "接收侧" : "Receiving"}</th></tr></thead>
-        <tbody>{quiz.profiles.map(profile => <tr key={profile.id} className="border-t border-slate-200"><th scope="row" className="p-2 font-medium">{profile.title[locale]}</th>{profile.directionIds.map(id => <td key={id} data-affection-facet={id} className="p-2 align-top">{reading(result.affectionFacets[id])}</td>)}</tr>)}</tbody>
+      <div className="min-w-0"><table className="w-full table-fixed border-collapse text-left text-sm [overflow-wrap:anywhere] sm:text-base">
+        <caption className="pb-3 text-left text-sm">{zh ? "本次情境意义感自评。选择关心方式可继续看例子。" : "Meaningfulness ratings for this attempt. Select a way of caring for its everyday examples."}</caption>
+        <thead><tr><th scope="col" className="w-2/5 p-1.5 sm:p-3">{zh ? "关心方式" : "Way of caring"}</th><th scope="col" className="bg-rose-100 p-1.5 sm:p-3">{zh ? "表达侧" : "Giving"}</th><th scope="col" className="bg-amber-100 p-1.5 sm:p-3">{zh ? "接收侧" : "Receiving"}</th></tr></thead>
+        <tbody>{quiz.profiles.map(profile => <tr key={profile.id} className="border-t border-rose-200"><th scope="row" className="p-1.5 font-medium sm:p-3"><a className="inline-flex min-h-11 items-center text-rose-950 underline decoration-rose-400 underline-offset-4" href={`#affection-title-${profile.id}`}>{profile.title[locale]}</a></th>{profile.directionIds.map((id, side) => <td key={id} data-affection-facet={id} className={`p-1.5 align-middle sm:p-3 ${side === 0 ? "bg-rose-100/45" : "bg-amber-100/45"}`}>{reading(result.affectionFacets[id])}</td>)}</tr>)}</tbody>
       </table></div>
       <p className="text-sm leading-7">{zh ? "可以同时重视五种方式，不强派主副型、不合成总分或配对分。两侧题目描述不同角色下的意义感，不相减为付出差距；均分不观察实际行为，也不代替对方此刻的意愿。" : "All five ways can matter. No primary or secondary type, overall total or compatibility score is assigned. The two sides describe meaningfulness in different roles, not an effort gap to subtract. Means observe no actual behaviour and never replace someone’s willingness in the moment."}</p>
     </section>

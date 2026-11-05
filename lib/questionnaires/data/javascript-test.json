@@ -27,8 +27,8 @@
     "zh": "每段独立作为Node 24.19.0的.mjs ES模块，选择准确控制台输出或执行前语法错误结果。ES模块为严格模式；无题依赖DOM、外部输入、Node I/O或混合定时器顺序。两语保留相同英文代码及输出值，说明与解析双语。无计时或速度奖励，24题有效选择后显示全部所选、答案、解析及全文。若边答边查资料，请按该条件理解正确数。"
   },
   "resultHeading": {
-    "en": "Your JavaScript practice counts and every explanation",
-    "zh": "本次JavaScript练习正确数与全部解析"
+    "en": "JavaScript practice: trace values and bindings to the output",
+    "zh": "JavaScript 练习：从值、绑定到输出"
   },
   "directions": [
     {

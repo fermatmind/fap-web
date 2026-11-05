@@ -1,4 +1,4 @@
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
@@ -18,10 +18,21 @@ export function CareFeelingsReport({ quiz, records, locale, readingProfiles }: {
   const zh = locale === "zh";
   return <section data-care-feelings-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="care-feelings-result-heading">
     <h2 id="care-feelings-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "本次主题记录" : "Topics in this record"} sections={records.map((record, index) => ({
-      id: `care-feelings-record-${record.id}`,
-      title: `${quiz.directions[index].title[locale]} · ${record.observations.length}${zh ? "条记录" : " records"}`,
-    }))} />
+    <nav className="rounded-xl bg-stone-100/75 p-4 sm:p-6" aria-label={zh ? "分开回看过去和近期" : "Read past and recent experiences separately"}>
+      <p className="max-w-prose leading-7">{zh ? "先选择一段记得的经历，或只读近期感受。每个主题的数字是本次各类回答对应的题目数。" : "Start with a memory, or read only about recent feelings. Each topic lists how many prompts you placed in each category."}</p>
+      <div className="mt-4 grid gap-4 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
+        {[
+          { id: "remembered", label: zh ? "过去记得的经历" : "Remembered experiences", records: records.slice(0, 3) },
+          { id: "recent", label: zh ? "近期的感受与支持" : "Recent feelings and support", records: records.slice(3) },
+        ].map(group => <section key={group.id} className="min-w-0 border-t-2 border-stone-400 pt-3">
+          <h3 className="font-semibold text-stone-900">{group.label}</h3>
+          {group.records.map(record => <div className="border-b border-stone-300 py-2 last:border-b-0" key={record.id}>
+            <a className="inline-flex min-h-11 items-center font-semibold text-stone-950 underline underline-offset-4" href={`#care-feelings-record-${record.id}`}>{quiz.directions.find(direction => direction.id === record.id)!.title[locale]}</a>
+            <ObservationChoiceCounts categories={careFeelingsCategories} counts={record.counts} locale={locale} shortLabels={{ na: { zh: "未计分", en: "Unscored" } }} />
+          </div>)}
+        </section>)}
+      </div>
+    </nav>
     <CareFeelingsSupport locale={locale} compact />
     {records.map((r, i) => {
       const original = quiz.profiles[i];

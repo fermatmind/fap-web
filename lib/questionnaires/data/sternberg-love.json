@@ -27,6 +27,10 @@
     "en": "Reflect on one current or most recent significant romantic relationship across intimacy, passion and decision/commitment. This is not the original Triangular Love Scale or the published TLS-15: fifteen FermatMind statements provide three separate summaries and complete guides, without assigning love types or compatibility scores.",
     "zh": "围绕当前或最近一段重要恋爱关系，分别反思亲密、激情与决定／承诺。本版不是原始爱的三角量表，也不是已发表TLS-15；费马15条原创陈述提供三组独立摘要与完整指南，不分配爱的类型或配对分。"
   },
+  "resultHeading": {
+    "en": "Your intimacy, passion, and decision or commitment",
+    "zh": "亲密、激情与决定／承诺"
+  },
   "directions": [
     {
       "id": "intimacy",

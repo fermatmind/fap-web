@@ -1,4 +1,4 @@
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { PortraitFacetLead } from "./PortraitFacetLead";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -13,7 +13,7 @@ export function QuestionnaireChakraReport({ quiz, result, locale }: {
 }) {
   const zh = locale === "zh";
   return <div className="my-6 space-y-8">
-    {quiz.directions.length > 1 && <ResultReadingNav collapsible label={zh ? "按主题阅读结果" : "Read results by topic"} sections={quiz.directions.map(direction => ({ id: `chakra-title-${direction.id}`, title: direction.title[locale] }))} />}
+    <PortraitFacetLead quiz={quiz} result={result} locale={locale} anchorPrefix="chakra-title-" />
     <section className="rounded-lg bg-slate-50 p-4 leading-8" aria-label={zh ? "七组自述怎样读" : "How to read seven separate self-reports"}>
       <h3 className="text-xl font-semibold">{zh ? "象征反思，不是能量测量" : "Symbolic reflection, not an energy reading"}</h3>
       <p className="mt-3">{zh ? "七组描述不同的日常行动与机会，分别阅读，不相加、不排名。较高均分只表示这四条自述经反向计分后的回答较高；不代表更健康、更平衡、脉轮更开放，或比别人更好。七组同分也不证明达成理想状态。" : "The seven groups concern different everyday actions and opportunities. Read them separately, without a total or ranking. A higher mean only summarises higher keyed responses to these four statements; it does not mean healthier, more balanced, more open or better than someone else. Equal means do not establish an ideal state."}</p>

@@ -26,6 +26,10 @@
     "en": "Consider five areas of ordinary interaction: direct expression, pausing contact, shared expectations, changing plans and boundary expression. This original twenty-item reflection summarises your own descriptions; it does not ask other people or establish who dislikes you. Five complete guides explain the arithmetic, contrasting examples and optional practical uses.",
     "zh": "分别回看直接表达、暂停联系、共同期待、计划变化与边界表达五类日常互动。这套20题原创反思概括自身描述，不询问其他人，也不确定谁讨厌你；五份完整指南解释计分、情境反例与可选实际用途。"
   },
+  "resultHeading": {
+    "en": "Your interaction habits across expression, pauses, and boundaries",
+    "zh": "你的表达、暂停与边界等互动线索"
+  },
   "directions": [
     {
       "id": "DIRECTNESS_IMPACT",
@@ -2211,13 +2215,13 @@
     {
       "id": "privacy",
       "title": {
-        "en": "Web privacy and recovery differ from Mini caches",
-        "zh": "网页隐私与恢复不同于小程序缓存"
+        "en": "Privacy and draft recovery",
+        "zh": "网页隐私与作答恢复"
       },
       "paragraphs": [
         {
-          "en": "Answers are processed in this page. Unlike the Mini form’s saved final result cache, the web uses only an opt-in tab draft, expiring after twenty-four hours and clearing on completion, reset or exit-and-clear. There is no saved final-score cache in this web flow. Incomplete answers never produce a final result. Copying includes only a public title and URL, never answers, raw sums or means; no disclosure is required.",
-          "zh": "答案在本页处理。与小程序保存最终结果缓存不同，网页仅用主动选择的标签页草稿，二十四小时失效，完成、重测或退出清除即删；本网页流程不保存最终分数缓存，缺答不生成最终结果。复制只有公开标题和地址，没有答案、原始和或均值，不要求披露。"
+          "en": "Answers are processed in this page. The web uses an opt-in tab draft, expiring after twenty-four hours and clearing on completion, reset or exit-and-clear. There is no saved final-score cache in this web flow. Incomplete answers never produce a final result. Copying includes only a public title and URL, never answers, raw sums or means; no disclosure is required.",
+          "zh": "答案在本页处理。网页仅用主动选择的标签页草稿，二十四小时失效，完成、重测或退出清除即删；本网页流程不保存最终分数缓存，缺答不生成最终结果。复制只有公开标题和地址，没有答案、原始和或均值，不要求披露。"
         }
       ]
     },
@@ -2300,8 +2304,8 @@
         "zh": "完整结果免费吗，会保存答案吗？"
       },
       "answer": {
-        "en": "All twenty items and five full guides are free without signup. Optional tab drafts clear on completion and expire after twenty-four hours. Unlike the Mini source, this web flow has no final-result cache. Copying uses only the public title and link.",
-        "zh": "全部二十题、五篇全文免费，无需注册；可选草稿完成清除，二十四小时失效。本网页不同于源小程序，无最终结果缓存；复制只有公开标题和链接。"
+        "en": "All twenty items and five full guides are free without signup. Optional tab drafts clear on completion and expire after twenty-four hours. This web test does not save a final result. Copying uses only the public title and link.",
+        "zh": "全部二十题、五篇全文免费，无需注册；可选草稿完成清除，二十四小时失效。本网页不缓存最终结果；复制只有公开标题和链接。"
       }
     }
   ],

@@ -1403,8 +1403,8 @@
       },
       "paragraphs": [
         {
-          "en": "This form migrates FermatMind’s original twenty-four paired choices from the local Mini program. The Chinese prompts and two options are retained, including their balanced A/B positions. English is a working translation. These four comparisons are not the COPE, Brief COPE, CRI or an established psychological-age measure.",
-          "zh": "本页迁移费马小程序完整原创二十四次配对选择，保留中文题目、两项选项及平衡的A／B位置。英文是工作译文。四组比较不是COPE、Brief COPE、CRI或已确立的心理年龄测量。"
+          "en": "This test uses FermatMind’s original twenty-four paired choices. The Chinese prompts and two options are retained, including their balanced A/B positions. English is a working translation. These four comparisons are not the COPE, Brief COPE, CRI or an established psychological-age measure.",
+          "zh": "本测试使用费马原创的二十四道配对题，保留中文题目、两项选项及平衡的A／B位置。英文是工作译文。四组比较不是COPE、Brief COPE、CRI或已确立的心理年龄测量。"
         },
         {
           "en": "The constructs and scoring have not completed psychometric validation. There are no published reliability, validity, accuracy, norms or age-conversion figures for this form. Research about other coping questionnaires does not establish evidence for these items or their English wording.",

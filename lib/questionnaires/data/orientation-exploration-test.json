@@ -19,8 +19,8 @@
   },
   "minutes": 5,
   "resultHeading": {
-    "en": "Your self-observation record",
-    "zh": "本次自我观察记录"
+    "en": "Your orientation exploration notes",
+    "zh": "你的取向探索笔记"
   },
   "instructions": {
     "en": "Choose how each statement fits you now, using its current or looking-back wording. A 3 means temporarily uncertain or hard to say. You can prefer not to answer any or all statements. All twenty need a choice before a personal record, without requiring numeric answers.",
@@ -2055,8 +2055,8 @@
       },
       "paragraphs": [
         {
-          "en": "Uses the twenty original Chinese statements from FermatMind’s Mini Program ORIENTATION_EXPLORATION form, in their original order and groups, with new working English. Five expanded bilingual guides explain the source topics. The bank and web edition have not completed reliability, validity, norms, fairness or accuracy validation.",
-          "zh": "采用费马小程序ORIENTATION_EXPLORATION原20道中文陈述，保留原题序与分组，并新增工作英文；五篇扩展双语指南解释原主题。原题本与网页版本均未完成信度、效度、常模、公平性或准确率验证。"
+          "en": "Uses the twenty original Chinese statements from FermatMind’s earlier orientation-exploration form, in their original order and groups, with new working English. Five expanded bilingual guides explain the source topics. The bank and web edition have not completed reliability, validity, norms, fairness or accuracy validation.",
+          "zh": "采用费马早期取向探索题本的 20 道中文陈述，保留原题序与分组，并新增工作英文；五篇扩展双语指南解释原主题。原题本与网页版本均未完成信度、效度、常模、公平性或准确率验证。"
         },
         {
           "en": "This is a non-classifying reflection record, not an orientation measure or identity certificate. The APA background reference supports respecting a person’s own language and not forcing a label; it does not supply these items, validate this form or imply endorsement.",

@@ -1,5 +1,5 @@
 "use client";
-import { ResultReadingNav, ResultScoreRow } from "./QuestionnaireResultPresentation";
+import { ResultScoreRow } from "./QuestionnaireResultPresentation";
 import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
@@ -11,6 +11,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import { recordEntertainmentActivity, type ActivityAction } from "@/lib/entertainment/activity";
 import { useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
 import { Jung56GuideContent } from "./Jung56GuideContent";
+import styles from "./CognitiveFunctionsResult.module.css";
 const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
 const subscribeReady = () => () => {};
 export default function Jung56Client({ locale, readings, startOnEntry = false }: { locale: Locale; readings?: Jung56ResultReading[]; startOnEntry?: boolean }) {
@@ -40,7 +41,12 @@ function ValidJung56Client({ bank, content, locale, readings, startOnEntry }: { 
     window.addEventListener("pagehide", leave); window.addEventListener("pageshow", restore);
     return () => { revisionClock.current++; permissionState.current = false; window.removeEventListener("pagehide", leave); window.removeEventListener("pageshow", restore); };
   }, [clear]);
-  useEffect(() => { if (stage !== "welcome") { heading.current?.focus(); heading.current?.scrollIntoView({ block: "start" }); } }, [position, stage]);
+  useEffect(() => {
+    if (stage === "welcome") return;
+    heading.current?.focus({ preventScroll: true });
+    if (stage === "result" && startOnEntry) window.scrollTo(0, 0);
+    else heading.current?.scrollIntoView({ block: "start" });
+  }, [position, stage, startOnEntry]);
   function choose(value: string) {
     if (stage !== "answer" || submitted.current || !["A", "B"].includes(value)) return;
     revision.current++; answersRef.current = { ...answersRef.current, [question.id]: value }; setAnswers(answersRef.current); setMessage("");
@@ -58,9 +64,12 @@ function ValidJung56Client({ bank, content, locale, readings, startOnEntry }: { 
     try { await navigator.clipboard.writeText(text); if (revision.current !== copiedRevision) return; send("share"); setManual(""); setMessage(zh ? "已复制公开入口，不含回答、次数或方向。" : "Copied the public entry without responses, counts or directions."); }
     catch { if (revision.current !== copiedRevision) return; setManual(text); setMessage(zh ? "无法自动复制，请从下方手动复制公开入口。" : "Automatic copying is unavailable. Copy the public entry below manually."); }
   }
-  return <section id="take-test" data-stage={stage} data-jung56-client className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7" aria-busy={!ready}>
+  const privacyControls = <>
     <label className="mb-5 block rounded-lg border p-3 text-sm leading-7"><input type="checkbox" disabled={!ready} checked={permission} onChange={e => { permissionRef.current = e.target.checked; setPermission(e.target.checked); }} className="mr-2" />{zh ? "可选：允许本次56题版匿名动作统计（默认关闭）" : "Optional: allow anonymous actions for this 56-choice edition (off by default)"}<span className="block text-slate-600">{zh ? "同时遵循全站分析选择；仅统计开始、完成、结果查看和分享，不发送回答、次数、方向或身份，不回补开启前的动作；离开或切换方法即失效。常规网页分析仍遵循全站选择。" : "Also respects your site analytics choice. Counts only starts, completions, result views and shares, without responses, counts, directions or identity. Earlier actions are not backfilled; permission ends on leaving or switching methods. Ordinary page analytics still follows your site choice."}</span></label>
     <p className="mb-5 text-sm leading-7">{content.common.web_privacy[locale]}</p>
+  </>;
+  return <section id="take-test" data-stage={stage} data-jung56-client className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7" aria-busy={!ready}>
+    {stage !== "result" && privacyControls}
     <fieldset disabled={!ready} className="min-w-0 space-y-5 p-0"><legend className="sr-only">{zh ? "56题荣格方向二选一" : "56 Jungian direction choices"}</legend>
       {stage === "welcome" && <><h2 className="text-2xl font-semibold">{zh ? "56题二选一 · 公开试用版" : "56 choices · Public-preview edition"}</h2><p className="leading-8">{bank.questions[0].instruction[locale]}</p><p className="leading-8">{content.common.forced_choice_method[locale]}</p><p className="leading-8">{zh ? "约15分钟为估计，不限时。全部56题均需选择A或B；不想选择时可以退出，不生成未完成排序。" : "About 15 minutes is an estimate, without a time limit. All 56 questions require A or B. You can exit instead of choosing; incomplete attempts produce no ranking."}</p><p className="leading-8">{content.common.evidence_status[locale]}</p><button data-explore-start type="button" className={button} onClick={() => { setStage("answer"); send("start"); }}>{zh ? "开始56题二选一" : "Start the 56 choices"}</button></>}
       {stage === "answer" && <>
@@ -70,17 +79,33 @@ function ValidJung56Client({ bank, content, locale, readings, startOnEntry }: { 
         <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? "上一题" : "Back"}</button><button data-questionnaire-next type="button" className={button} onClick={next}>{position === 55 ? (zh ? "完成并查看八方向" : "Finish and view all eight directions") : (zh ? "下一题" : "Next")}</button></div>
       </>}
       {stage === "result" && result && <>
-        <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{zh ? "本次56题选择记录" : "Your 56-choice record"}</h2>
-        <p className="leading-8">{content.common.how_to_read[locale]}</p><p className="leading-8">{content.common.relative_score_explanation[locale]}</p>
-        <p data-jung56-tie className="rounded-lg bg-violet-50 p-4 leading-8">{result.topDirectionIds.length === 8 ? (zh ? "八个方向均为7次，全部并列；没有单独最高方向。" : "All eight directions have seven selections and are tied; there is no single highest direction.") : `${zh ? "本次最高选择次数：" : "Highest selection count in this attempt: "}${result.groups[0].wins} / 14 · ${result.topDirectionIds.map(id => content.cards.find(c => c.id === id)!.display_name[locale]).join(zh ? "、" : ", ")}`}</p>
-        <p className="leading-8">{content.common.tie_explanation[locale]}</p>
-        <details className="border-t border-slate-200 pt-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "查看八方向的全部选择次数" : "View all eight direction counts"}</summary>
-        <div data-jung56-counts className="grid gap-x-8 sm:grid-cols-2">{result.rows.map(row => <ResultScoreRow key={row.id} label={`${content.cards.find(card => card.id === row.id)!.display_name[locale]} · ${row.id[0].toUpperCase() + row.id[1]}`} value={<span data-jung56-count={row.id}>{row.wins} / 14</span>} score={row.wins} min={0} max={14} description={zh ? "本方向出现14次，非能力或强度" : "14 appearances for this direction; not ability or strength"} />)}</div>
-        </details>
-        <p className="leading-8">{zh ? "八方向共计56次选择；每方向出现14次。次数彼此相关，不是强度、能力、人群百分位、功能栈或MBTI类型；低次数不代表缺失。" : "The eight counts sum to 56 selections; each direction appeared 14 times. Counts depend on one another. They are not strength, ability, population percentiles, a function stack or an MBTI type. Lower counts do not mean absence."}</p>
-        <ResultReadingNav label={zh ? "八方向完整解释" : "Full explanations for all eight directions"} sections={content.cards.map(card => ({ id: `jung56-reading-${card.id}`, title: card.display_name[locale] }))} />
-        {content.cards.map(card => <section key={card.id} className="rounded-lg border p-4 sm:p-6"><h3 id={`jung56-reading-${card.id}`} className="scroll-mt-24 text-xl font-semibold">{card.display_name[locale]} · {card.id[0].toUpperCase() + card.id[1]}</h3><div className="my-4 space-y-3 leading-8"><h4 className="font-semibold">{zh ? "用一个情境理解这个方向" : "Understand this direction through a situation"}</h4><p>{card.observable_tendencies[0][locale]}</p><p className="border-l-2 border-slate-200 pl-4">{card.reflection_questions[0][locale]}</p></div><details className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开本方向完整解释" : "Expand this direction’s full explanation"}</summary><Jung56GuideContent card={card} reading={readings?.find(r => r.profileId === card.id)} locale={locale} idPrefix="jung56-result" /></details><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests/explore/cognitive-functions-test/results/${card.id}#paired56`}>{zh ? "阅读不含个人次数的公开指南" : "Read the public guide without personal counts"}</Link></section>)}
+        <div className={styles.paired} data-jung56-result-lead>
+          <header className={styles.pairedLead}>
+            <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{zh ? "本次56题选择记录" : "Your 56-choice record"}</h2>
+            <p data-jung56-tie className="mt-4 text-lg font-semibold leading-7">{result.topDirectionIds.length === 8 ? (zh ? "八个方向均为7次，全部并列；没有单独最高方向。" : "All eight directions have seven selections and are tied; there is no single highest direction.") : `${zh ? "本次最高选择次数：" : "Highest selection count in this attempt: "}${result.groups[0].wins} / 14 · ${result.topDirectionIds.map(id => content.cards.find(c => c.id === id)!.display_name[locale]).join(zh ? "、" : ", ")}`}</p>
+            <p className="mt-4 text-sm leading-7">{zh ? "八方向共计56次选择，每个方向出现14次。点击方向名称，查看对应的情境和解释。" : "The eight counts add up to 56 selections, with 14 appearances per direction. Select any direction to see its situation and explanation."}</p>
+            <details className={styles.calculation}>
+              <summary>{zh ? "次数和并列怎么读" : "How to read counts and ties"}</summary>
+              <p>{content.common.how_to_read[locale]}</p>
+              <p>{content.common.relative_score_explanation[locale]}</p>
+              <p>{content.common.tie_explanation[locale]}</p>
+            </details>
+          </header>
+          <div className={styles.pairedCounts} aria-label={zh ? "八方向的选择次数" : "Selection counts for all eight directions"} role="region">
+            <div data-jung56-counts className={styles.countGrid}>{result.rows.map(row => {
+              const direction = content.cards.find(card => card.id === row.id)!;
+              const name = `${direction.display_name[locale]} · ${row.id[0].toUpperCase() + row.id[1]}`;
+              return <ResultScoreRow key={row.id} label={<a href={`#jung56-reading-${row.id}`}>{name}</a>} value={<span data-jung56-count={row.id}>{row.wins} / 14</span>} score={row.wins} min={0} max={14} />;
+            })}</div>
+            <p className="mt-3 text-sm leading-7">{zh ? "次数彼此相关，不是强度、能力、人群百分位、功能栈或MBTI类型；低次数不代表缺失。" : "Counts depend on one another. They are not strength, ability, population percentiles, a function stack or an MBTI type. Lower counts do not mean absence."}</p>
+          </div>
+        </div>
+        <div className={styles.pairedReadings} data-jung56-readings>{content.cards.map(card => <section key={card.id} className={styles.topic}><h3 id={`jung56-reading-${card.id}`}>{card.display_name[locale]} · {card.id[0].toUpperCase() + card.id[1]}</h3><div className="my-4 space-y-3 leading-8"><h4 className="font-semibold">{zh ? "用一个情境理解这个方向" : "Understand this direction through a situation"}</h4><p>{card.observable_tendencies[0][locale]}</p><p className="border-l-2 border-slate-200 pl-4">{card.reflection_questions[0][locale]}</p></div><details className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开本方向完整解释" : "Expand this direction’s full explanation"}</summary><Jung56GuideContent card={card} reading={readings?.find(r => r.profileId === card.id)} locale={locale} idPrefix="jung56-result" /></details><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests/explore/cognitive-functions-test/results/${card.id}#paired56`}>{zh ? "阅读不含个人次数的公开指南" : "Read the public guide without personal counts"}</Link></section>)}</div>
         <p className="leading-8">{content.common.not_a_fixed_identity[locale]}</p><p className="leading-8">{content.common.retest_guidance[locale]}</p>
+        <details className={styles.calculation}>
+          <summary>{zh ? "本次隐私与统计选项" : "Privacy and analytics for this attempt"}</summary>
+          {privacyControls}
+        </details>
         <div className="flex flex-wrap gap-3"><button type="button" className={button} onClick={copyPublicEntry}>{zh ? "复制公开入口" : "Copy public entry"}</button><button type="button" className={button} onClick={clear}>{zh ? "清空并重新作答56题" : "Clear and retake the 56 choices"}</button></div>
         {manual && <label className="block leading-7">{zh ? "手动复制公开入口" : "Public entry for manual copying"}<textarea className="mt-2 min-h-32 w-full rounded-lg border p-3" readOnly value={manual} /></label>}
         <p className="leading-8">{zh ? "可以在这里结束，也可另做独立MBTI四偏好测评。它有自己的题目与版本，不能从以上次数换算；完整结果已经免费呈现。" : "You can finish here or choose a separate MBTI four-preference assessment. It has its own questions and editions; these counts cannot be converted into its result. Your full result here is already free."}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests/mbti-personality-test-16-personality-types`}>{zh ? "查看独立MBTI测评入口" : "View the separate MBTI assessment entry"}</Link>

@@ -1,5 +1,5 @@
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire, QuestionnaireProfile } from "@/lib/questionnaires/types";
@@ -19,7 +19,14 @@ export function SeasonContextReport({ quiz, records, locale, readingProfiles }: 
   const zh = locale === "zh";
   return <section data-season-context-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="season-context-result-heading">
     <h2 id="season-context-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "选择一个主题阅读" : "Choose a topic to read"} sections={records.map((record, index) => ({ id: `record-${quiz.slug}-${record.id}`, title: quiz.directions[index].title[locale] }))} />
+    <section className="rounded-xl border border-teal-200 bg-teal-50/65 p-4 sm:p-6" aria-labelledby="season-notes-title">
+      <h3 id="season-notes-title" className="text-xl font-semibold text-teal-950">{zh ? "把一年中的时间和体验一起回看" : "Look back at timing alongside your experiences"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "可先读回忆中的时间，再看心情、睡眠或食欲。每行数字是各类回答对应的题目数。" : "Start with the timing you remember, then look at mood, sleep or appetite. Each number counts prompts in a selected category."}</p>
+      <ul className="mt-4 divide-y divide-teal-200 border-t border-teal-200">{[...records.slice(-1), ...records.slice(0, -1)].map(record => <li key={record.id} className="py-2 md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] md:items-center md:gap-4">
+        <a className="inline-flex min-h-11 items-center font-semibold text-teal-950 underline underline-offset-4" href={`#record-${quiz.slug}-${record.id}`}>{quiz.directions.find(direction => direction.id === record.id)!.title[locale]}</a>
+        <ObservationChoiceCounts categories={seasonContextCategories} counts={record.counts} locale={locale} shortLabels={{ na: { zh: "未计分", en: "Unscored" } }} />
+      </li>)}</ul>
+    </section>
     <SeasonContextSupport locale={locale} compact />
     {records.map((r, i) => {
       const original = quiz.profiles[i];

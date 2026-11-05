@@ -9,11 +9,16 @@ export function QuestionnairePairedDimensionsReport({ quiz, result, locale }: { 
   const zh = locale === "zh";
   return <div className="my-6 space-y-8">
     <p className="leading-8">{zh ? "两个维度分别阅读，不跨维排名，也不合成固定恋爱类型。每维12次选择，两侧总和12；次数不是强度、百分位或能力，较少次数不表示缺失。" : "Read the two dimensions separately, without ranking across them or forming a fixed romantic type. Each has 12 choices and the two sides sum to 12. Counts are not intensity, percentiles or ability; a smaller count is not a missing capacity."}</p>
-    <section className="rounded-lg bg-slate-50 p-4" aria-labelledby="paired-overview-title">
-      <h3 id="paired-overview-title" className="text-xl font-semibold">{zh ? "先看两组原始次数" : "Your two separate comparisons"}</h3>
-      <div className="mt-4 space-y-5">{result.pairedDimensions.map(axis => {
+    <section className="rounded-xl border border-violet-200 bg-violet-50/60 p-4 sm:p-6" aria-labelledby="paired-overview-title">
+      <h3 id="paired-overview-title" className="text-xl font-semibold text-violet-950">{zh ? "你在两种相处安排中怎样取舍" : "How you chose between arrangements"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "每行合计十二次。选择一个维度，读两种安排在什么情境下可能合适。" : "Each row shows twelve choices. Open a dimension to see where either arrangement might fit."}</p>
+      <div className="mt-4 grid gap-4 lg:grid-cols-2">{result.pairedDimensions.map(axis => {
         const dimension = quiz.pairedDimensions!.find(d => d.id === axis.id)!;
-        return <div key={axis.id} data-paired-overview={axis.id}><h4 className="font-semibold">{dimension.title[locale]}</h4><dl className="mt-2 grid grid-cols-2 gap-4">{dimension.poleIds.map(id => <div key={id} data-paired-overview-pole={id}><dt>{quiz.directions.find(d => d.id === id)!.title[locale]}</dt><dd className="mt-1 font-semibold">{axis.counts[id]} / 12</dd></div>)}</dl></div>;
+        return <div key={axis.id} data-paired-overview={axis.id} className="min-w-0 rounded-lg bg-white p-3">
+          <h4><a className="inline-flex min-h-11 items-center font-semibold text-violet-950 underline underline-offset-4" href={`#paired-title-${axis.id}`}>{dimension.title[locale]}</a></h4>
+          <dl className="mt-2 grid grid-cols-2 gap-4">{dimension.poleIds.map(id => <div key={id} className="min-w-0 last:text-right" data-paired-overview-pole={id}><dt>{quiz.directions.find(d => d.id === id)!.title[locale]}</dt><dd className="mt-1 font-semibold tabular-nums">{axis.counts[id]} / 12</dd></div>)}</dl>
+          <div aria-hidden="true" className="mt-3 flex h-2 overflow-hidden rounded-full">{dimension.poleIds.map((id, index) => <span key={id} className={index === 0 ? "bg-violet-700" : "bg-rose-600"} style={{ width: `${axis.counts[id] / 12 * 100}%` }} />)}</div>
+        </div>;
       })}</div>
     </section>
     {result.pairedDimensions.map(axis => {

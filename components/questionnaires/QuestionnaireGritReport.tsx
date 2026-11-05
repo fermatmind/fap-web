@@ -1,4 +1,3 @@
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -10,7 +9,17 @@ export function QuestionnaireGritReport({ quiz, result, locale }: { quiz: Questi
   const zh = locale === "zh", valid = Object.values(result.facets).filter(f => f.rated >= 6).length;
   return <div className="my-6 space-y-8">
 
-    <ResultReadingNav collapsible label={zh ? "选择想读的部分" : "Choose a part to read"} sections={quiz.profiles.map(profile => ({ id: `grit-title-${profile.id}`, title: profile.title[locale] }))} />
+    <section className="rounded-xl bg-orange-50/65 p-4 sm:p-6" aria-labelledby="grit-goal-start">
+      <h3 id="grit-goal-start" className="text-xl font-semibold text-orange-950">{zh ? "围绕同一个长期目标回看两件事" : "Look at two parts of the same long-term goal"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "目标如何延续、遇到挫折后怎样重新投入，各有自己的读数。选一项，再看时间、资源和目标变化怎样影响你当时的选择。" : "Staying with a goal and returning to effort after setbacks have separate readings. Choose one for examples of how time, resources or a changing goal can affect what you do."}</p>
+      <div className="mt-4 grid gap-4 md:grid-cols-2">{quiz.profiles.map(profile => {
+        const facet = result.facets[profile.directionIds[0]];
+        return <a href={`#grit-title-${profile.id}`} key={profile.id} className="min-w-0 border-t border-orange-300 py-3">
+          <span className="block font-semibold text-orange-950 underline decoration-orange-500 underline-offset-4">{profile.title[locale]}</span>
+          <span className="mt-2 block text-sm font-semibold tabular-nums">{facet.rated >= 6 ? `${(facet.sum / facet.rated).toFixed(2)} / 5` : (zh ? "资料不足" : "Insufficient information")}</span>
+        </a>;
+      })}</div>
+    </section>
 
 
     {quiz.profiles.map(profile => <section key={profile.id} data-grit-profile={profile.id} aria-labelledby={`grit-title-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">

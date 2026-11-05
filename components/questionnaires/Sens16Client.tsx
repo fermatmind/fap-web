@@ -1,5 +1,5 @@
 "use client";
-import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
+import { ResultPage } from "./QuestionnaireResultPresentation";
 import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 
 import Link from "next/link";
@@ -76,11 +76,15 @@ function ValidSens16Client({ quiz, locale, readingProfiles }: { quiz: Sens16Ques
         <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading?.[locale]}</h2>
         <p className="leading-8">{zh ? "16项均已作明确选择，包括不计分项。四组分开显示，不合成总分、不计算阈值轴或赢家、不分配感官类型或诊断。均分只概括所选频率描述，不是校准感官测量或人口比较。" : "All 16 prompts have an explicit choice, including unscored responses. Four topics are shown separately, without a total, threshold axes, winner, sensory type or diagnosis. Means summarize selected frequency descriptions, not calibrated sensory measures or population comparisons."}</p>
         <ResultPage variant="dimensions" data-sens16-result className="space-y-6">
-          <ResultOverview locale={locale} title={zh ? "四组频率读数" : "Four frequency readings"}
-            description={zh ? "四组独立，保留未计分；均分范围0—4，不是百分比或人群位置。" : "Four separate groups, with unscored parts preserved. Means range from 0–4, without percentages or population comparisons."}
-            items={SENS16_TOPICS.map(id => ({ id, label: quiz.profiles.find(profile => profile.id === id)!.title[locale], href: `#sens16-${id}`,
-              value: result[id].sum === null || result[id].mean === null ? (zh ? "未计分" : "Unscored") : `${result[id].mean!.toFixed(2)} / 4`,
-              note: zh ? `${result[id].numericCount} / ${result[id].requiredCount}个数字回答` : `${result[id].numericCount} / ${result[id].requiredCount} numeric responses` }))} />{SENS16_TOPICS.map(id => {
+          <section className="border-y border-teal-200 bg-teal-50/55 p-4 sm:p-6" aria-labelledby="sensory-response-start">
+            <h3 id="sensory-response-start" className="text-xl font-semibold text-teal-950">{zh ? "从一件遇到感官线索的事读起" : "Start with an occasion involving sensory input"}</h3>
+            <p className="mt-3 max-w-prose leading-7">{zh ? "留意、增加、受打断和减少输入分别读。选择一个你想理解的主题，看看不同环境中有哪些例子。" : "Read noticing, adding, being interrupted by and reducing input separately. Open a topic for examples in different settings."}</p>
+            <ul className="mt-4 divide-y divide-teal-200 border-t border-teal-200">{SENS16_TOPICS.map(id => <li key={id} className="min-w-0 py-2 md:grid md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:gap-4">
+              <a href={`#sens16-${id}`} className="inline-flex min-h-11 items-center font-semibold text-teal-950 underline underline-offset-4">{quiz.profiles.find(profile => profile.id === id)!.title[locale]}</a>
+              <p className="text-sm leading-6 tabular-nums">{result[id].sum === null || result[id].mean === null ? (zh ? `${result[id].numericCount}/${result[id].requiredCount} 项有效，未算均分` : `${result[id].numericCount}/${result[id].requiredCount} rated, no mean`) : `${result[id].mean!.toFixed(2)} / 4`}</p>
+            </li>)}</ul>
+          </section>
+          {SENS16_TOPICS.map(id => {
           const score = result[id], profile = quiz.profiles.find(p => p.id === id)!;
           return <section key={id} data-sens16-part={id} aria-labelledby={`sens16-${id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
             <h3 id={`sens16-${id}`} className="scroll-mt-24 text-xl font-semibold">{profile.title[locale]}</h3>

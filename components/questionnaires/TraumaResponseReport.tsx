@@ -1,5 +1,5 @@
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire, QuestionnaireProfile } from "@/lib/questionnaires/types";
@@ -19,8 +19,17 @@ export function TraumaResponseReport({ quiz, records, locale, readingProfiles }:
   const zh = locale === "zh";
   return <section data-trauma-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="trauma-result-heading">
     <h2 id="trauma-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "选择一个主题阅读" : "Choose a topic to read"} sections={records.map((record, index) => ({ id: `record-${quiz.slug}-${record.id}`, title: quiz.directions[index].title[locale] }))} />
     <TraumaResponseSupport locale={locale} compact />
+    <section className="rounded-xl border border-stone-300 bg-stone-50 p-4 sm:p-6" aria-labelledby="trauma-context-start">
+      <h3 id="trauma-context-start" className="text-xl font-semibold text-stone-950">{zh ? "挑一项你现在愿意回看的经历" : "Choose one experience you want to revisit"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "从想起的片段、保持距离、心情与联系，或警觉感中选一项。数字是对应回答的题目数，你可以只读一部分。" : "Choose memories, distance, mood and connection or feeling on edge. The numbers count the prompts in each response category. You can read just one part."}</p>
+      <ul className="mt-4 grid gap-4 lg:grid-cols-2">
+        {records.map((record, index) => <li key={record.id} className="min-w-0 border-l-2 border-stone-300 pl-3">
+          <a className="inline-flex min-h-11 items-center font-semibold text-stone-950 underline underline-offset-4" href={`#record-${quiz.slug}-${record.id}`}>{quiz.directions[index].title[locale]}</a>
+          <ObservationChoiceCounts categories={traumaResponseCategories} counts={record.counts} locale={locale} shortLabels={{ na: { zh: "未计分", en: "Unscored" } }} />
+        </li>)}
+      </ul>
+    </section>
     {records.map((r, i) => {
       const original = quiz.profiles[i];
       const profile = readingProfiles?.find(item => item.id === original.id && item.directionIds.length === original.directionIds.length && item.directionIds.every((id, index) => id === original.directionIds[index]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === original.id) ?? original;

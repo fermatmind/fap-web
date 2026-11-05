@@ -27,8 +27,8 @@
     "zh": "食物厌恶测试采用32道发表英文FDS情境与中文工作译文，从1至6评价想象中的恶心程度。结果分别呈现八组数字覆盖、原始和与完整分组均值；八篇完整指南免费可读，包含情境例子、计算方法与明确的来源版本说明。"
   },
   "resultHeading": {
-    "en": "Your eight separate FDS readings",
-    "zh": "八组独立的FDS读法"
+    "en": "Your responses to eight food disgust cues",
+    "zh": "八种食物线索的厌恶感受"
   },
   "source": {
     "kind": "fds32_published_ccby_table2_en_working_zh",

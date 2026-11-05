@@ -83,25 +83,25 @@ function ValidDvmsq18Client({ quiz, locale, readingProfiles }: { quiz: Dvmsq18Qu
       </>}
       {stage === "result" && result && <>
         <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading?.[locale]}</h2>
-        {result.gate !== "yes" ? <div className="space-y-4 rounded-lg bg-slate-50 p-4 leading-8">
+        {result.gate !== "yes" ? <div className="space-y-4 rounded-xl border border-indigo-200 bg-indigo-50/65 p-4 leading-8 sm:p-6">
           {result.gate === "no" ? <><p data-dvmsq18-total className="text-xl font-semibold">{zh ? "源表前置结束：原始总分 0" : "Source form ended at the screening question: raw total 0"}</p><p>{zh ? "你在前置题选了否，按来源结束；其余18题与分项均未施测，不替它们填零。这不是诊断排除或没有困难的证明。" : "You chose no at the initial question, so the source ends here. The other 18 prompts and subscores were not administered and are not filled with zeros. This is not a diagnostic all-clear or proof of no difficulty."}</p></> : <p data-dvmsq18-unscored>{zh ? "你选择了不确定或不愿回答，本次结束但无数字结果；其余题未施测，不当作否或零。" : "You chose unsure or prefer not to answer. This ends without a numerical result; other items were not administered, and your choice is not treated as no or zero."}</p>}
         </div> : <>
           <p className="leading-8">{zh ? "全部18条源题已作明确选择，包括不计分项。第3题保留但不进入数字；原始合计没有诊断、严重程度分段、常模或概率含义。" : "All 18 source prompts have explicit choices, including unscored choices. Item 3 is retained but excluded from every sum. Raw sums do not provide a diagnosis, severity band, norm or probability."}</p>
-          <div data-dvmsq18-result className="space-y-5">
+          <div data-dvmsq18-result className="space-y-5 rounded-xl border border-indigo-200 bg-indigo-50/65 p-4 sm:p-6">
             {result.total === null ? <p data-dvmsq18-total-withheld className="rounded-lg bg-slate-50 p-4 leading-8">{zh ? "总分暂不显示：17条计入题存在不计分回答，不补值、不当零。" : "Total withheld: at least one of the 17 counted items is unscored. No value is imputed or treated as zero."}</p> : <p data-dvmsq18-total className="rounded-lg bg-slate-50 p-4 text-xl font-semibold leading-8">{zh ? `原始总分：${result.total}（范围0—68；17题，不含第3题）` : `Raw total: ${result.total} (range 0–68; 17 items, excluding item 3)`}</p>}
-            {result.parts && Object.entries(result.parts).map(([id, part]) => <section key={id} data-dvmsq18-part={id} className="rounded-lg border border-slate-200 p-4 leading-8">
-              <h3 className="scroll-mt-24 text-xl font-semibold">{quiz.directions.find(d => d.id === id)!.title[locale]}</h3>
+            {result.parts && <div className="grid gap-4 md:grid-cols-2">{Object.entries(result.parts).map(([id, part]) => <section key={id} data-dvmsq18-part={id} className="min-w-0 rounded-lg border border-indigo-200 bg-white p-4 leading-8">
+              <h3 className="scroll-mt-24 text-xl font-semibold"><a className="inline-flex min-h-11 items-center text-indigo-950 underline decoration-indigo-400 underline-offset-4" href={`#dvmsq18-reading-${id}`}>{quiz.directions.find(d => d.id === id)!.title[locale]}</a></h3>
               <p data-dvmsq18-count>{zh ? `数字答案 ${part.rated}/${part.required}；不计分 ${part.skipped} 条。` : `Numeric responses ${part.rated}/${part.required}; ${part.skipped} unscored.`}</p>
               {part.sum === null ? <p data-dvmsq18-unscored>{zh ? "本组暂不计分：需全部计入条目为数字，不取均值、不补缺。" : "This sum is withheld: all counted items must be numerical, without averaging or filling gaps."}</p> : <p data-dvmsq18-sum className="font-semibold">{zh ? `原始合计：${part.sum}（范围0—${part.maximum}）` : `Raw sum: ${part.sum} (range 0–${part.maximum})`}</p>}
-            </section>)}
+            </section>)}</div>}
             <p data-dvmsq18-fear className="leading-8">{zh ? "第3题（不计分）：" : "Item 3 (not scored): "}{quiz.questions[3].options.find(o => o.id === answers.DV_03)!.label[locale]}</p>
           </div>
         </>}
+        <ResultReadingNav label={result.gate === "yes" ? (zh ? "从数字继续读日常感受" : "Continue from the scores to everyday experiences") : (zh ? "直接阅读通用说明" : "Read the general guides directly")} sections={quiz.profiles.map(profile => ({ id: `dvmsq18-reading-${profile.id}`, title: profile.title[locale] }))} />
         <details data-dvmsq18-response-record className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "查看本次逐项回答" : "View these individual responses"}</summary><ol className="mt-4 space-y-4">{result.responses.map(response => {
           const item = quiz.questions.find(q => q.id === response.questionId)!;
           return <li key={item.id} className="rounded-lg bg-slate-50 p-4 leading-8"><p>{item.prompt[locale]}</p><p className="mt-2 font-semibold">{item.options.find(o => o.id === response.choice)!.label[locale]}</p></li>;
         })}</ol></details>
-        <ResultReadingNav label={zh ? "各部分完整读法" : "Full readings by topic"} sections={quiz.profiles.map(profile => ({ id: `dvmsq18-reading-${profile.id}`, title: profile.title[locale] }))} />
         <div className="space-y-6">{quiz.profiles.map(profile => {
           const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === profile.directionIds.length && item.directionIds.every((id, i) => id === profile.directionIds[i]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
           return <section key={profile.id} data-dvmsq18-guide={profile.id} className="rounded-lg border border-slate-200 p-4 sm:p-6">

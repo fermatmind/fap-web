@@ -1,5 +1,5 @@
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire, QuestionnaireProfile } from "@/lib/questionnaires/types";
@@ -19,8 +19,22 @@ export function SuddenFearReport({ quiz, records, locale, readingProfiles }: { q
   const zh = locale === "zh";
   return <section data-sudden-fear-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="sudden-fear-result-heading">
     <h2 id="sudden-fear-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{quiz.resultHeading![locale]}</h2>
-    <ResultReadingNav collapsible label={zh ? "选择一个主题阅读" : "Choose a topic to read"} sections={records.map((record, index) => ({ id: `record-${quiz.slug}-${record.id}`, title: quiz.directions[index].title[locale] }))} />
     <SuddenFearSupport locale={locale} compact />
+    <nav className="rounded-xl bg-sky-50/65 p-4 sm:p-6" aria-label={zh ? "分开读当时与之后的观察" : "Read observations during and after fear"}>
+      <p className="max-w-prose leading-7">{zh ? "你可以先读当时留意到的感受，也可以从之后的担心或日常安排开始。数字对应所选类别的题目数。" : "Start with what you noticed at the time, or with later worries and changes in plans. The numbers count prompts for each category you selected."}</p>
+      <div className="mt-4 grid gap-4 md:grid-cols-2">
+        {[
+          { id: "during", label: zh ? "当时" : "During the experience", records: records.slice(0, 2) },
+          { id: "after", label: zh ? "之后" : "Afterwards", records: records.slice(2) },
+        ].map(group => <section key={group.id} className="min-w-0 border-t border-sky-300 pt-3">
+          <h3 className="font-semibold text-sky-950">{group.label}</h3>
+          {group.records.map(record => <div className="py-2" key={record.id}>
+            <a className="inline-flex min-h-11 items-center font-semibold text-sky-950 underline underline-offset-4" href={`#record-${quiz.slug}-${record.id}`}>{quiz.directions.find(direction => direction.id === record.id)!.title[locale]}</a>
+            <ObservationChoiceCounts categories={suddenFearCategories} counts={record.counts} locale={locale} shortLabels={{ na: { zh: "未计分", en: "Unscored" } }} />
+          </div>)}
+        </section>)}
+      </div>
+    </nav>
     {records.map((r, i) => {
       const original = quiz.profiles[i];
       const profile = readingProfiles?.find(item => item.id === original.id && item.directionIds.length === original.directionIds.length && item.directionIds.every((id, index) => id === original.directionIds[index]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === original.id) ?? original;

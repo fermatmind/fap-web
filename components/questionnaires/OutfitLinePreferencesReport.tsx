@@ -8,12 +8,13 @@ import type { Locale } from "@/lib/i18n/locales";
 export function OutfitLinePreferencesReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh", available = Object.values(result.facets).filter(f => f.rated === 3).length;
   return <div className="my-6 space-y-8">
-    <section className="space-y-4 rounded-lg bg-slate-50 p-4" aria-labelledby="olp-summary-title">
-      <h3 id="olp-summary-title" className="text-xl font-semibold">{zh ? "五项服装线条偏好分别阅读" : "Five separate outfit-line preference readings"}</h3>
+    <section className="space-y-4 rounded-xl border border-rose-200 bg-rose-50/60 p-4 sm:p-6" aria-labelledby="olp-summary-title">
+      <h3 id="olp-summary-title" className="text-xl font-semibold">{zh ? "挑一类你想用在衣服上的线条" : "Choose a clothing line you want to try"}</h3>
+      <p className="max-w-prose leading-7">{zh ? "每项保留自己的认同读数。点开线条名称，读服装的轮廓、结构和搭配例子。" : "Each line keeps its own endorsement rating. Open a name for examples of garment outlines, construction and styling."}</p>
       <p className="leading-8">{zh ? `${available} / 5项三条数值完整。每项原始和除以3，显示一位小数；表示对服装线条描述的认同，不是合身、外貌、身体测量或人群排名。全部同向、0反向。3是中立；未评分不补0或3。` : `${available} / 5 parts have all three numeric ratings. Each raw sum is divided by three and displayed to one decimal. It describes agreement with garment-line preferences, not actual fit, beauty, body measurements or a population rank. All items are direct, with zero reversals. Three is Neutral; unscored ratings become neither zero nor three.`}</p>
-      <dl className="space-y-5">{quiz.directions.map(direction => {
+      <dl className="grid gap-x-6 md:grid-cols-2">{quiz.directions.map(direction => {
         const facet = result.facets[direction.id], mean = facet.rated === 3 ? facet.sum / 3 : null;
-        return <div key={direction.id} data-olp-facet={direction.id} className="space-y-2"><dt className="font-semibold leading-7">{quiz.profiles.some(profile => profile.directionIds.includes(direction.id)) ? <a className="inline-flex min-h-11 items-center py-2 underline decoration-slate-300 underline-offset-4" href={`#olp-title-${quiz.profiles.find(profile => profile.directionIds.includes(direction.id))!.id}`}>{direction.title[locale]}</a> : direction.title[locale]}</dt><dd>
+        return <div key={direction.id} data-olp-facet={direction.id} className="min-w-0 space-y-2 border-t border-rose-200 py-2"><dt className="font-semibold leading-7">{quiz.profiles.some(profile => profile.directionIds.includes(direction.id)) ? <a className="inline-flex min-h-11 items-center py-2 underline decoration-slate-300 underline-offset-4" href={`#olp-title-${quiz.profiles.find(profile => profile.directionIds.includes(direction.id))!.id}`}>{direction.title[locale]}</a> : direction.title[locale]}</dt><dd>
           <span data-olp-mean>{mean === null ? (zh ? "资料不足" : "Insufficient information") : `${mean.toFixed(1)} / 5`}</span>
           {mean !== null && <span data-olp-sum className="ml-3 text-sm">{zh ? `原始和${facet.sum} / 3条数值` : `Raw sum ${facet.sum} / 3 rated items`}</span>}
           <span data-olp-rated className="block text-sm text-slate-600">{zh ? `${facet.rated} / 3条数值有效；${3 - facet.rated}条未评分` : `${facet.rated} / 3 numeric ratings; ${3 - facet.rated} unscored responses`}</span>

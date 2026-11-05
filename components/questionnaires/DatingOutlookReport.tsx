@@ -1,4 +1,4 @@
-import { ResultSection, ResultReadingNav, ResultScoreRow } from "./QuestionnaireResultPresentation";
+import { ResultSection, ResultScoreRow } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
@@ -10,13 +10,18 @@ export function DatingOutlookReport({ quiz, result, locale }: { quiz: Questionna
   const zh = locale === "zh";
   return <div data-dating-outlook-report className="mt-6 space-y-8">
 
-    <ResultSection title={zh ? "四项恋爱信念概览" : "Your four dating-belief readings"}>
-      <div className="grid gap-x-8 sm:grid-cols-2">{quiz.directions.map(direction => {
+    <ResultSection title={zh ? "你在恋爱中会期待什么" : "What do you expect when dating?"} description={zh ? "每组四条，至少三条有效才显示认同均值。选一个主题，读对应情境。" : "Each mean needs three of its four statements rated. Choose a belief to read its everyday example."} tone="framed" className="rounded-xl border border-fuchsia-200 bg-fuchsia-50/65" data-dating-outlook-overview>
+      <div className="grid gap-x-8 md:grid-cols-2">{quiz.directions.map(direction => {
         const part = result.facets[direction.id];
-        return <ResultScoreRow key={direction.id} label={direction.title[locale]} value={part.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${part.mean.toFixed(1)} / 5`} score={part.mean} min={1} max={5} description={quiz.profiles.find(profile => profile.directionIds[0] === direction.id)!.summary[locale]} />;
+        const profile = quiz.profiles.find(item => item.directionIds[0] === direction.id)!;
+        const example = profile.sections.find(section => section.id === `${profile.id}-2`)!;
+        return <ResultScoreRow key={direction.id} data-dating-outlook-overview-part={direction.id}
+          label={<a className="inline-flex min-h-11 items-center font-semibold text-fuchsia-950 underline underline-offset-4" href={`#dating-outlook-${direction.id}`}>{direction.title[locale]}</a>}
+          value={part.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${part.mean.toFixed(1)} / 5`}
+          score={part.mean} min={1} max={5}
+          description={zh ? `${part.rated}/${part.total} 条有效 · ${example.title.zh}` : `${part.rated}/${part.total} rated · ${example.title.en}`} />;
       })}</div>
     </ResultSection>
-    <ResultReadingNav label={zh ? "逐项完整解读" : "Full readings by topic"} sections={quiz.directions.map(direction => ({ id: `dating-outlook-${direction.id}`, title: direction.title[locale] }))} />
     {quiz.directions.map(direction => {
       const part = result.facets[direction.id], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
       return <section key={direction.id} data-dating-outlook-part={direction.id} aria-labelledby={`dating-outlook-${direction.id}`} className="border-t border-slate-200 pt-7">

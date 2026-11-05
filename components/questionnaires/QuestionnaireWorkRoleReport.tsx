@@ -1,10 +1,13 @@
-import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
+import { ResultPage } from "./QuestionnaireResultPresentation";
+import { ObservationChoiceCounts } from "./ObservationChoiceCounts";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { workRoleLabels, workRoleStates, type WorkRoleResult } from "@/lib/questionnaires/workRole12";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { Locale } from "@/lib/i18n/locales";
+
+const workRoleOverviewCategories = workRoleStates.map(id => ({ id, label: workRoleLabels[id] }));
 
 export function QuestionnaireWorkRoleReport({ quiz, result, locale, readingProfiles }: {
   quiz: Questionnaire;
@@ -14,7 +17,20 @@ export function QuestionnaireWorkRoleReport({ quiz, result, locale, readingProfi
 }) {
   const zh = locale === "zh";
   return <ResultPage variant="reflection" className="my-6 space-y-8" data-work-role-result>
-
+    <section className="rounded-xl border border-sky-200 bg-sky-50/60 p-4 sm:p-6" aria-labelledby="work-role-overview">
+      <h3 id="work-role-overview" className="text-xl font-semibold text-sky-950">{zh ? "你怎样参与不同工作任务" : "How you took part in different tasks"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "每个主题有四项任务。数字记录你选了哪类参与方式，打开主题可回看逐项回答与工作情境。" : "Each topic contains four tasks. Counts show how you described taking part. Open a topic for individual responses and examples at work."}</p>
+      <div className="mt-4 grid gap-3 xl:grid-cols-3">
+        {result.workRole.map(part => <div key={part.id} className="min-w-0 border-t-2 border-sky-300 pt-2">
+          <a className="inline-flex min-h-11 items-center font-semibold text-sky-950 underline underline-offset-4" href={`#work-role-${part.id}`}>{quiz.directions.find(direction => direction.id === part.id)!.title[locale]}</a>
+          <ObservationChoiceCounts categories={workRoleOverviewCategories} counts={part.counts} locale={locale} shortLabels={{
+            guided: { zh: "有步骤指导", en: "Step-by-step guidance" },
+            owned: { zh: "承担任务", en: "Owned the task" },
+            supported: { zh: "支持他人", en: "Supported someone else" },
+          }} />
+        </div>)}
+      </div>
+    </section>
 
     {result.workRole.map(part => {
       const direction = quiz.directions.find(item => item.id === part.id)!, profile = quiz.profiles.find(item => item.id === part.profileId)!;
@@ -44,11 +60,7 @@ export function QuestionnaireWorkRoleReport({ quiz, result, locale, readingProfi
     })}
 
     <details className="border-t border-slate-200 pt-4" data-result-reading-method>
-      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
-      <ResultOverview locale={locale} title={zh ? "任务参与情境概览" : "Task participation contexts"}
-      description={zh ? "保留四种参与情境，不转换职业等级或能力分数。点击主题可核对逐项实例状态。" : "Four participation contexts, without career tiers or ability scores. Select a topic to review its item-level example states."}
-      items={result.workRole.map(part => ({ id: part.id, label: quiz.directions.find(direction => direction.id === part.id)!.title[locale], href: `#work-role-${part.id}`,
-        note: workRoleStates.map(state => `${workRoleLabels[state][locale]} ${part.counts[state]}`).join(" · ") }))} />
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看记录方式与使用说明" : "View recording and use notes"}</summary>
       <p className="leading-8">{zh
       ? "以下记录你为选定角色近12周的具体实例选择的参与方式，不核实表现质量。逐步指导、按检查点承担、支持他人是不同情境，不是初级、中级或专家等级；支持他人的人也可能在其他任务上需要指导。"
       : "These records show the participation context you selected for concrete instances in one role during the past twelve weeks, without verifying performance quality. Step-by-step guidance, task ownership and supporting another person are different contexts, not beginner, intermediate or expert levels. A person supporting others may need guidance on other tasks."}</p>

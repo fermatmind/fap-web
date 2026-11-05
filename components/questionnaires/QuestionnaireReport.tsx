@@ -35,7 +35,7 @@ export function QuestionnaireReport({ profile, locale, headingLevel = 3, idPrefi
   </ResultSection>;
   const score = scoreReadingVisible ? <p className={styles.scoreReading}>{scoreReading}</p> : null;
   const contents = navigation && profile.sections.length > 2 ? <ResultReadingNav label={locale === "zh" ? "结果解读目录" : "Result reading contents"} sections={(mode === "result" ? remaining : profile.sections).map(section => ({ id: `${idPrefix}-${section.id}`, title: section.title[locale] }))} /> : null;
-  return <article className={styles.reading} data-reading-mode={mode}>
+  return <article className={styles.reading} data-reading-mode={mode} data-preview-count={previews.length > 1 ? previews.length : undefined}>
     {(headlineVisible || summaryVisible) && <header className={styles.intro}>
       {headlineVisible && <p className={styles.headline}>{headline}</p>}
       {summaryVisible && <p className={styles.summary}>{summary}</p>}

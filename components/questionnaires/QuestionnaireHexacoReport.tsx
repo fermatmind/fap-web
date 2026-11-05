@@ -9,9 +9,14 @@ import type { Locale } from "@/lib/i18n/locales";
 export function QuestionnaireHexacoReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh", missing = zh ? "资料不足" : "Insufficient information";
   return <ResultPage variant="dimensions" className="my-6 space-y-8">
-
-
-
+    <ResultOverview locale={locale} title={zh ? "六个领域的本次自评" : "Your six domain readings"}
+      description={zh ? "每个领域独立阅读。选择一个名称可跳到原始和、均分与解释。资料不足的领域仍有公开指南。" : "Read each domain separately. Select its name to jump to the raw sum, mean and explanation. Guides are still available for domains with insufficient information."}
+      items={quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return { id: direction.id, label: direction.title[locale], href: `#hexaco-title-${direction.id}`,
+          value: score.rated === direction.itemCount ? `${(score.sum / score.total).toFixed(2)} / 5` : missing,
+          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
+      })} />
     {quiz.directions.map(direction => {
       const facet = result.facets[direction.id], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
       const scored = facet.rated === direction.itemCount;
@@ -30,14 +35,6 @@ export function QuestionnaireHexacoReport({ quiz, result, locale }: { quiz: Ques
 
     <details className="border-t border-slate-200 pt-4" data-result-reading-method>
       <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
-      <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
-      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
-      items={quiz.directions.map(direction => {
-        const score = result.facets[direction.id];
-        return { id: direction.id, label: direction.title[locale], href: `#hexaco-title-${direction.id}`,
-          value: score.rated === direction.itemCount ? `${(score.sum / score.total).toFixed(2)} / 5` : (zh ? "资料不足" : "Insufficient information"),
-          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
-      })} />
       <p className="leading-8">{zh ? "六个领域分别描述本次符合度自报，不相加、跨域排名或按最高值派型。每域40条都有效才显示个人原始和与均分；任一NA保留该域不足，其他完整领域仍可显示。下面六份全文都可阅读，未评分领域的指南是通用说明。" : "Six domains describe this accuracy self-report separately, without a combined total, cross-domain ranking or highest-factor type. Each domain needs all forty valid ratings for a personal raw sum and mean. Any NA keeps that domain insufficient while other fully rated domains remain available. All six full guides follow; an unscored domain’s guide is general information."}</p>
       <p className="text-sm leading-7 text-slate-600">{zh ? "本版保留preliminary IPIP240条英文与键向，中文为本站试译，不是当前官方HEXACO-PI-R60/100题版。正向1至5分，反向6减回答；均分直接用未舍入原始和除40，显示两位小数，不从计分器的一位小数显示值倒推。小数不代表等距测量精度，3也不是人口平均。本版中文等值、呈现与NA规则尚未经独立验证；不能验证诚实、诊断或用于招聘。" : "This edition retains the preliminary IPIP 240-item English bank and keys with our Chinese trial translation; it is not the current official HEXACO-PI-R 60/100 forms. Direct items score one to five and reverse items six minus the rating. Means divide the unrounded raw sum by forty and display two decimals, without reconstruction from the scorer’s one-decimal value. Decimals establish no interval precision and three is not a population average. Translation equivalence, presentation and the NA rule lack independent validation here; results do not verify honesty, diagnose or support hiring decisions."}</p>
     </details>

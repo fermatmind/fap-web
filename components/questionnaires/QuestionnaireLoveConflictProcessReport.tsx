@@ -1,4 +1,4 @@
-import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
+import { ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -13,7 +13,20 @@ export function QuestionnaireLoveConflictProcessReport({ quiz, result, locale }:
 }) {
   const zh = locale === "zh";
   return <ResultPage variant="reflection" className="my-6 space-y-8" data-love-conflict-process-result>
-
+    <section className="border-y border-rose-200 bg-rose-50/65 p-4 sm:p-6" aria-labelledby="conflict-process-overview">
+      <h3 id="conflict-process-overview" className="text-xl font-semibold text-rose-950">{zh ? "挑一个分歧里的动作回看" : "Revisit one action from a disagreement"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "回想你做过什么。四部分各自阅读，可以从任何一处开始，真实分歧也不必按这个顺序发生。" : "Think about what you remember doing. Read each part on its own and start anywhere. A real disagreement need not follow this order."}</p>
+      <ol className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+        {quiz.directions.map((direction, index) => {
+          const score = result.facets[direction.id];
+          return <li key={direction.id} className="min-w-0 border-l-2 border-rose-300 pl-3">
+            <span className="block text-xs font-semibold text-rose-800" aria-hidden="true">0{index + 1}</span>
+            <a className="inline-flex min-h-11 items-center font-semibold text-rose-950 underline underline-offset-4" href={`#love-conflict-process-${direction.id}`}>{direction.title[locale]}</a>
+            <span className="block text-sm font-medium tabular-nums">{score.mean === null ? (zh ? `${score.rated}/5 项有效，未算均分` : `${score.rated}/5 rated, no mean`) : `${score.mean.toFixed(1)} / 5`}</span>
+          </li>;
+        })}
+      </ol>
+    </section>
 
     {quiz.directions.map(direction => {
       const score = result.facets[direction.id], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
@@ -36,15 +49,7 @@ export function QuestionnaireLoveConflictProcessReport({ quiz, result, locale }:
       : "These twenty items and readings are original to FermatMind, without established reliability, local norms, language equivalence or breakup prediction. They have a different purpose from five-strategy conflict and apology-reception preferences and cannot be converted to them. No contact, disclosure, forgiveness, reconciliation or continuation of an unsafe discussion is required; what comes next is your choice."}</p>
 
     <details className="border-t border-slate-200 pt-4" data-result-reading-method>
-      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
-      <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
-      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
-      items={quiz.directions.map(direction => {
-        const score = result.facets[direction.id];
-        return { id: direction.id, label: direction.title[locale], href: `#love-conflict-process-${direction.id}`,
-          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
-          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
-      })} />
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看计分与使用说明" : "View scoring and use notes"}</summary>
       <p className="leading-8">{zh
       ? "四个编辑观察区分别回看自己报告的升温、暂停、再谈与修复动作，不合总分、不排名或派吵架型，也不是固定顺序或已验证独立因子。相同或相近均分保留；修复不抵销伤害。"
       : "Four editorial observation areas separately describe your reports of escalation, pauses, returning to an issue and repair actions. There is no total, ranking or assigned fight type, and these are not fixed stages or validated independent factors. Close and equal means remain visible; repair does not cancel harm."}</p>

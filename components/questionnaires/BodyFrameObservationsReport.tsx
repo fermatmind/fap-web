@@ -1,4 +1,4 @@
-import { ResultReadingNav, ResultScoreRow } from "./QuestionnaireResultPresentation";
+import { ResultScoreRow } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -9,13 +9,15 @@ import type { Locale } from "@/lib/i18n/locales";
 export function BodyFrameObservationsReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh", available = Object.values(result.facets).filter(f => f.rated >= 3).length;
   return <div className="my-6 min-w-0 space-y-8 [overflow-wrap:anywhere]">
-    <section className="space-y-4 rounded-lg bg-slate-50 p-4" aria-labelledby="bfo-summary-title">
-      <h3 id="bfo-summary-title" className="text-xl font-semibold">{zh ? "三组轮廓观察分别阅读" : "Three separate body-outline readings"}</h3>
+    <section className="space-y-4 rounded-xl border border-stone-200 bg-stone-50/60 p-4 sm:p-6" aria-labelledby="bfo-summary-title">
+      <h3 id="bfo-summary-title" className="text-xl font-semibold">{zh ? "从熟悉视角看你的轮廓观察" : "Start with a familiar view of your outline"}</h3>
+      <p className="max-w-prose leading-7">{zh ? "选择一个你熟悉的视角对应主题，再读如何把观察用在衣物选择上。" : "Choose a topic that matches a view you know and see how it can inform a clothing choice."}</p>
 
       <dl className="grid gap-x-8 gap-y-3 sm:grid-cols-2">{quiz.directions.map(direction => {
+        const profile = quiz.profiles.find(item => item.directionIds[0] === direction.id)!;
         const facet = result.facets[direction.id], mean = facet.rated >= 3 ? facet.sum / facet.rated : null;
-        return <div key={direction.id} data-bfo-facet={direction.id} className="min-w-0 border-b border-slate-200 pb-4"><dt className="font-semibold leading-7">{direction.title[locale]}</dt><dd>
-          <ResultScoreRow label={zh ? "原始均值 · 1–5" : "Raw mean · 1–5"} value={<span data-bfo-mean>{mean === null ? (zh ? "资料不足" : "Insufficient information") : `${mean.toFixed(1)} / 5`}</span>} score={mean} min={1} max={5} description={quiz.profiles.find(profile => profile.directionIds[0] === direction.id)!.summary[locale]} />
+        return <div key={direction.id} data-bfo-facet={direction.id} className="min-w-0 border-b border-slate-200 pb-4"><dt><a className="inline-flex min-h-11 items-center font-semibold text-stone-950 underline underline-offset-4" href={`#bfo-title-${profile.id}`}>{direction.title[locale]}</a></dt><dd>
+          <ResultScoreRow label={zh ? "原始均值 · 1–5" : "Raw mean · 1–5"} value={<span data-bfo-mean>{mean === null ? (zh ? "资料不足" : "Insufficient information") : `${mean.toFixed(1)} / 5`}</span>} score={mean} min={1} max={5} description={profile.summary[locale]} />
           {mean !== null && <span data-bfo-sum className="mt-3 block text-sm leading-7 text-slate-600">{zh ? `原始和${facet.sum} / ${facet.rated}条数值` : `Raw sum ${facet.sum} / ${facet.rated} rated items`}</span>}
           <span data-bfo-rated className="block text-sm text-slate-600">{zh ? `${facet.rated} / 4条数值有效；${4 - facet.rated}条未评分` : `${facet.rated} / 4 numeric ratings; ${4 - facet.rated} unscored responses`}</span>
         </dd></div>;
@@ -27,7 +29,6 @@ export function BodyFrameObservationsReport({ quiz, result, locale }: { quiz: Qu
       </details>
     </section>
     <p className="leading-8">{zh ? "三篇八节全文全部保留，包括资料不足的组。结合熟悉视角阅读，不把印象当固定身体身份。" : "All three eight-section guides remain open, including for insufficient groups. Read them alongside familiar views rather than as fixed body identities."}</p>
-    <ResultReadingNav label={zh ? "完整主题解读" : "Full topic readings"} sections={quiz.profiles.map(profile => ({ id: `bfo-title-${profile.id}`, title: profile.title[locale] }))} />
     {quiz.profiles.map(profile => <section key={profile.id} data-bfo-profile={profile.id} aria-labelledby={`bfo-title-${profile.id}`} className="border-t border-slate-200 pt-7">
       <h3 id={`bfo-title-${profile.id}`} className="mb-5 scroll-mt-24 text-2xl font-semibold">{profile.title[locale]}</h3>
       <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} mode="result" previewSectionIds={["reading-2", "reading-5"]} />

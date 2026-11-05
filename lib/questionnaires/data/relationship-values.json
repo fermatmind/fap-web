@@ -3219,8 +3219,8 @@
       },
       "paragraphs": [
         {
-          "en": "This is FermatMind’s original mini-program relationship values framework. It has not completed reliability, validity, norms, fairness or accuracy validation. It is not the Five Love Languages, attachment theory or Sternberg’s triangular theory. It does not measure empathy, maturity, responsibility or romance, match partners, judge relationship quality, predict success or separation, or decide whether to stay or leave. Different results later may reflect different circumstances; they do not automatically establish changed values.",
-          "zh": "本模型来自费马自有小程序的关系价值题本，尚未完成信度、效度、常模、公平性或准确率验证，不等同五种爱的语言、依恋理论或Sternberg爱情三角理论。不测共情、成熟、责任或浪漫能力，不做伴侣配对、关系质量判断、成功分合预测或关系去留决定。以后结果不同可能与情境有关，不能自动说明价值已经改变。"
+          "en": "This is FermatMind’s original 24-item relationship values framework. It has not completed reliability, validity, norms, fairness or accuracy validation. It is not the Five Love Languages, attachment theory or Sternberg’s triangular theory. It does not measure empathy, maturity, responsibility or romance, match partners, judge relationship quality, predict success or separation, or decide whether to stay or leave. Different results later may reflect different circumstances; they do not automatically establish changed values.",
+          "zh": "本模型来自费马原创的24题关系价值题本，尚未完成信度、效度、常模、公平性或准确率验证，不等同五种爱的语言、依恋理论或Sternberg爱情三角理论。不测共情、成熟、责任或浪漫能力，不做伴侣配对、关系质量判断、成功分合预测或关系去留决定。以后结果不同可能与情境有关，不能自动说明价值已经改变。"
         }
       ]
     },
@@ -3232,8 +3232,8 @@
       },
       "paragraphs": [
         {
-          "en": "The Love Personality Test compares interaction entries such as expression, response, space and repair. This test compares relationship values such as rituals, cooperation, companionship and autonomy. The original mini-program Love Type model concerns relationship arrangements, including shared participation, space, certainty and flexibility. They have different items, scoring and interpretations. None is an interchangeable score or a LoveType16 label.",
-          "zh": "恋爱人格比较表达、回应、空间和修复等互动入口；本测试比较仪式、协作、陪伴与自主等关系价值。原小程序恋爱类型模型观察共同参与、个人空间、确定和弹性等关系安排。三者题目、评分和解释不同，不换算分数，也不把本结果冒充LoveType16标签。"
+          "en": "The Love Personality Test compares interaction entries such as expression, response, space and repair. This test compares relationship values such as rituals, cooperation, companionship and autonomy. The separate Love Type model concerns relationship arrangements, including shared participation, space, certainty and flexibility. They have different items, scoring and interpretations. None is an interchangeable score or a LoveType16 label.",
+          "zh": "恋爱人格比较表达、回应、空间和修复等互动入口；本测试比较仪式、协作、陪伴与自主等关系价值。另一份恋爱类型题本观察共同参与、个人空间、确定和弹性等关系安排。三者题目、评分和解释不同，不换算分数，也不把本结果冒充LoveType16标签。"
         }
       ]
     },
@@ -3308,8 +3308,8 @@
         "zh": "与早期网页版有什么变化？"
       },
       "answer": {
-        "en": "The same 24 bilingual paired items and four existing result URLs remain. This edition adds full original mini-program explanations, all 11 tied guides and new fictional examples. It keeps all highest ties. A saved draft from the older edition cannot be resumed as a version 2 attempt.",
-        "zh": "24道双语二选一题和四个既有结果URL保留，新增原小程序完整解释、11种并列指南与原创虚构例子，所有共同最高方向保留。旧版本草稿不能被当作第二版作答恢复。"
+        "en": "The same 24 bilingual paired items and four existing result URLs remain. This edition adds the complete original explanations, all 11 tied guides and new fictional examples. It keeps all highest ties. A saved draft from the older edition cannot be resumed as a version 2 attempt.",
+        "zh": "24道双语二选一题和四个既有结果URL保留，新增原版完整解释、11种并列指南与原创虚构例子，所有共同最高方向保留。旧版本草稿不能被当作第二版作答恢复。"
       }
     },
     {

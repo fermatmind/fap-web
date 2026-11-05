@@ -1,4 +1,3 @@
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { QuestionnairePpsAttribution } from "./QuestionnairePpsAttribution";
@@ -11,7 +10,17 @@ export function QuestionnairePpsReport({ quiz, result, locale }: { quiz: Questio
   const zh = locale === "zh", valid = Object.values(result.facets).filter(f => f.mean !== null).length;
   return <div className="my-6 space-y-8">
 
-    <ResultReadingNav collapsible label={zh ? "选择想读的部分" : "Choose a part to read"} sections={quiz.profiles.map(profile => ({ id: `pps-title-${profile.id}`, title: profile.title[locale] }))} />
+    <section className="border-y border-amber-200 bg-amber-50/55 p-4 sm:p-6" aria-labelledby="pps-choice-title">
+      <h3 id="pps-choice-title" className="text-xl font-semibold text-amber-950">{zh ? "回想一个请求，你顾及了什么" : "Think of a request. What were you considering?"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "按你想理解的情境选择一组，阅读它的例子。每组均分只描述这部分陈述和你的符合程度。" : "Choose the part that fits the situation you want to understand. Each mean summarises how well the statements in that part describe you."}</p>
+      <ul className="mt-4 grid gap-3 lg:grid-cols-3">{quiz.profiles.map(profile => {
+        const facet = result.facets[profile.directionIds[0]];
+        return <li key={profile.id} className="min-w-0 border-l-2 border-amber-300 pl-3">
+          <a className="inline-flex min-h-11 items-center font-semibold text-amber-950 underline decoration-amber-400 underline-offset-4" href={`#pps-title-${profile.id}`}>{profile.title[locale]}</a>
+          <p className="text-sm font-medium tabular-nums">{facet.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${facet.mean.toFixed(1)} / 5`}</p>
+        </li>;
+      })}</ul>
+    </section>
 
 
     {quiz.profiles.map(profile => <section key={profile.id} data-pps-profile={profile.id} aria-labelledby={`pps-title-${profile.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">

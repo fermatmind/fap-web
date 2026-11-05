@@ -24,28 +24,30 @@ export function QuestionnaireTechConfidenceReport({ quiz, result, answers, local
 }) {
   const zh = locale === "zh", score = result.facets["tool-confidence"], profile = quiz.profiles[0];
   return <div className="mt-6 space-y-8" data-tech-confidence-report="">
-    <p className="leading-8 text-slate-700">{zh
-      ? "这些数值只概括本次六种任务情境的自报信心，不证明操作是否成功，也不派技能等级。请把数字项数、具体回答和完整读法一起看。"
-      : "These values summarise confidence in the six stated task situations. They do not demonstrate successful performance or assign a skill level. Read the numeric-response count, individual answers and full guide together."}</p>
-    <dl className="grid gap-4 rounded-lg bg-slate-50 p-4 sm:grid-cols-3" data-tech-confidence-summary="">
-      <div><dt className="font-semibold">{zh ? "数字回答原始和" : "Sum of numeric ratings"}</dt><dd data-tech-confidence-sum="" className="mt-2">{score.rated ? score.sum : "—"}</dd></div>
-      <div><dt className="font-semibold">{zh ? "数字项数／全部题目" : "Numeric responses / all prompts"}</dt><dd data-tech-confidence-count="" className="mt-2">{score.rated} / {score.total}</dd></div>
-      <div><dt className="font-semibold">{zh ? "信心自评均值" : "Mean confidence rating"}</dt><dd data-tech-confidence-mean="" className="mt-2">{score.mean === null ? (zh ? "不计算" : "Not calculated") : `${score.mean.toFixed(1)} / 5`}</dd></div>
-    </dl>
-    {score.mean === null
+    <div className="space-y-4 border-y border-emerald-200 bg-emerald-50/70 p-4 sm:p-6">
+      <p className="leading-8 text-slate-700">{zh
+        ? "这些数值只概括本次六种任务情境的自报信心，不证明操作是否成功，也不派技能等级。请把数字项数、具体回答和完整读法一起看。"
+        : "These values summarise confidence in the six stated task situations. They do not demonstrate successful performance or assign a skill level. Read the numeric-response count, individual answers and full guide together."}</p>
+      <dl className="grid gap-x-6 gap-y-3 sm:grid-cols-2 md:grid-cols-[minmax(0,1.2fr)_repeat(2,minmax(0,1fr))]" data-tech-confidence-summary="">
+        <div className="border-l-2 border-emerald-600 pl-3"><dt className="font-semibold">{zh ? "信心自评均值" : "Mean confidence rating"}</dt><dd data-tech-confidence-mean="" className="mt-1 text-2xl font-semibold tabular-nums text-emerald-950">{score.mean === null ? (zh ? "不计算" : "Not calculated") : `${score.mean.toFixed(1)} / 5`}</dd></div>
+        <div><dt className="font-semibold">{zh ? "数字项数／全部题目" : "Numeric responses / all prompts"}</dt><dd data-tech-confidence-count="" className="mt-1 tabular-nums">{score.rated} / {score.total}</dd></div>
+        <div><dt className="font-semibold">{zh ? "数字回答原始和" : "Sum of numeric ratings"}</dt><dd data-tech-confidence-sum="" className="mt-1 tabular-nums">{score.rated ? score.sum : "—"}</dd></div>
+      </dl>
+      {score.mean === null
       ? <p className="leading-8" data-tech-confidence-insufficient="">{zh
         ? `资料不足：六题已回应，但只有${score.rated}项数字；本版至少需要四项。不计分回答不当作零分。以下全文是通用读法，不能当作本次个人均值的解释。`
         : `Insufficient information: all six prompts have responses, but only ${score.rated} are numeric; this edition needs at least four. Unscored answers are not zero. The full guide below is general, without a personal mean to interpret.`}</p>
       : <p className="leading-8" data-tech-confidence-arithmetic="">{zh
         ? `算式：${score.sum} ÷ ${score.rated} = ${score.mean.toFixed(1)}（保留一位小数）。未评分回答不进入和与分母；没有高低分型、百分位或职场基准。`
         : `Arithmetic: ${score.sum} ÷ ${score.rated} = ${score.mean.toFixed(1)} (rounded to one decimal). Unscored responses are excluded from both sum and denominator. There are no proficiency bands, percentiles or workplace benchmarks.`}</p>}
-    <details className="rounded-lg border border-slate-200 p-4 leading-8">
-      <summary className="cursor-pointer font-semibold">{zh ? "回看本次六项回答" : "Revisit your six responses"}</summary>
+    </div>
+    <details className="border-b border-slate-200 pb-4 leading-8">
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "回看本次六项回答" : "Revisit your six responses"}</summary>
       <ol className="mt-4 list-decimal space-y-4 pl-5">{quiz.questions.map(question => <li key={question.id} data-tech-confidence-answer={question.id}>
         <p>{question.prompt[locale]}</p><p className="font-semibold">{question.options.find(option => option.id === answers[question.id])?.label[locale]}</p>
       </li>)}</ol>
     </details>
-    <section aria-labelledby="tech-confidence-full-guide" className="rounded-lg border border-slate-200 p-4 sm:p-6">
+    <section aria-labelledby="tech-confidence-full-guide" className="border-l-2 border-emerald-200 pl-4 sm:pl-6">
       <h3 id="tech-confidence-full-guide" className="text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
       <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} mode="result" previewSectionIds={["contexts", "try"]} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读不含个人数值的公开指南" : "Read the public guide without personal values"}</Link>

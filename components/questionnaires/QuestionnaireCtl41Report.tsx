@@ -11,6 +11,10 @@ export function QuestionnaireCtl41Report({ quiz, result, locale }: {
 }) {
   const zh = locale === "zh";
   return <ResultPage variant="reflection" className="my-6 space-y-8" data-ctl41-result>
+    <ResultOverview className="rounded-xl border border-rose-200 bg-rose-50/65" locale={locale} title={zh ? "在同一段关系中，分别回看六类体验" : "Read six experiences within one relationship"}
+      description={zh ? "选一个你想理解的领域，读回答如何计算、在日常里可能出现在哪些情境。" : "Choose a domain to see its scoring and the situations it can describe."}
+      items={result.ctl41.map(part => ({ id: part.id, label: quiz.directions.find(direction => direction.id === part.id)!.title[locale], href: `#ctl41-${part.id}`,
+        value: `${part.mean.toFixed(2)} / 4`, note: zh ? `原始和 ${part.rawSum}` : `Raw sum ${part.rawSum}` }))} />
 
 
     {result.ctl41.map(part => {
@@ -31,11 +35,7 @@ export function QuestionnaireCtl41Report({ quiz, result, locale }: {
       : "English follows the 2018 Table 1 and Chinese is a new FermatMind working translation; the source German and Polish research does not validate these displays or translation. The two PSP items are general statements, not personal sexual functioning or orientation. Trust requires no disclosure, and mourning has no deadline or requirement for a new relationship."}</p>
 
     <details className="border-t border-slate-200 pt-4" data-result-reading-method>
-      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
-      <ResultOverview locale={locale} title={zh ? "各组独立读数" : "Separate group readings"}
-      description={zh ? "按题本顺序阅读，不合成总分或排名。点击主题可查看完整解释。" : "Read in the form’s order, without a combined score or ranking. Select a topic for its full explanation."}
-      items={result.ctl41.map(part => ({ id: part.id, label: quiz.directions.find(direction => direction.id === part.id)!.title[locale], href: `#ctl41-${part.id}`,
-        value: `${part.mean.toFixed(2)} / 4`, note: zh ? `原始和 ${part.rawSum}` : `Raw sum ${part.rawSum}` }))} />
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看计分与使用说明" : "View scoring and use notes"}</summary>
       <p className="leading-8">{zh
       ? "四十一项有效选择已齐。六个源领域分别显示计分和与均值，不合总分、不排名领域、不划爱的能力等级或伴侣匹配。均值范围相同不证明心理单位相同，同分和近分均保留。"
       : "All forty-one valid choices are complete. Six source domains show separate keyed sums and means, without an overall score, domain ranking, love-capacity level or partner match. A shared numeric range does not establish common psychological units; close and equal means remain visible."}</p>

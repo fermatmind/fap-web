@@ -1,5 +1,4 @@
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
-import { ResultReadingNav } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { DistributedWorkResult } from "@/lib/questionnaires/distributedWork24";
@@ -19,7 +18,16 @@ export function DistributedWorkReport({ quiz, result, locale }: {
   const zh = locale === "zh";
   return <div data-distributed-work-result className="my-6 space-y-7">
 
-    <ResultReadingNav label={zh ? "四项协作记录" : "Four coordination records"} sections={result.distributedWork.map(part => ({ id: `distributed-result-${part.id}`, title: quiz.directions.find(direction => direction.id === part.id)!.title[locale] }))} />
+    <section className="rounded-xl border border-sky-200 bg-sky-50/60 p-4 sm:p-6" aria-labelledby="distributed-review-start">
+      <h3 id="distributed-review-start" className="text-xl font-semibold text-sky-950">{zh ? "从一次具体的远程协作开始回看" : "Start with a concrete remote-work situation"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "每个主题在本题本里出现十二次。下方记录选择这个行动、选择另一行动和未计分的次数。选一个主题，可读工作里的例子。" : "Each theme appears twelve times in the questionnaire. The counts show how often you picked that action, picked the other action or left the choice unscored. Open any theme for a work example."}</p>
+      <div className="mt-4 grid gap-x-6 md:grid-cols-2">
+        {result.distributedWork.map(part => <div key={part.id} className="min-w-0 border-t border-sky-200 py-2">
+          <a href={`#distributed-result-${part.id}`} className="inline-flex min-h-11 items-center font-semibold text-sky-950 underline underline-offset-4">{quiz.directions.find(direction => direction.id === part.id)!.title[locale]}</a>
+          <p className="text-sm leading-6 tabular-nums">{zh ? `选本项 ${part.selected} · 选另一项 ${part.otherSelected} · 未计分 ${part.unscored}` : `This action ${part.selected} · Other action ${part.otherSelected} · Unscored ${part.unscored}`}</p>
+        </div>)}
+      </div>
+    </section>
     {result.distributedWork.map(part => {
       const profile = quiz.profiles.find(profile => profile.directionIds[0] === part.id)!;
       return <section key={part.id} data-distributed-work-part={part.id} className="rounded-lg border border-slate-200 p-4 sm:p-6" aria-labelledby={`distributed-result-${part.id}`}>

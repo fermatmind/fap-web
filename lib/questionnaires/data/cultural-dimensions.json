@@ -28,8 +28,8 @@
     "zh": "私下选一个真实或假设的普通自愿小组，36条始终使用同一背景。评价你目前希望的安排，从1很不同意到5很同意；需要时可选不适用／无法判断，这不等于零分。每组六条，前三条直接计入，后三条为6减作答；至少四条数字回答才显示描述均值。不收集小组名称、国家或人口信息。"
   },
   "resultHeading": {
-    "en": "Your six separate cultural-theme readings",
-    "zh": "你的六组文化主题独立读法"
+    "en": "Your responses to six cultural trade-offs",
+    "zh": "你在六个文化取舍主题中的回答"
   },
   "source": {
     "kind": "fermatmind_original_cultural_theme_reflection",

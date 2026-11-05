@@ -24,8 +24,8 @@
     "zh": "结合近期能想起的日常安排作答，不限定必须回顾多少周。评价陈述与体验的符合程度，原中点表示不确定或视情况。无法给数值或不愿答时，可选网页明示新增的不计分。每主题四项数值完整才计算，一项不计分只使该主题暂缺；全部不计分也能完成并读全部指南。"
   },
   "introduction": {
-    "en": "This is FermatMind’s original 24-item reflection from its mini-program. Six separate themes cover autonomy, connection, mastery, security, recognition and exploration. The original Chinese items and five response labels are retained with a new English translation. Read your four-item sums and exact quarter-step means separately, alongside six complete guides. These editorial groups have not been validated as independent psychological factors. The test does not read the subconscious, identify one deepest desire or measure ability, diagnosis or future choices.",
-    "zh": "本版迁移费马小程序原创24题，分别回看自主选择、连接归属、掌握进步、稳定可预期、贡献认可及探索变化六主题。原中文题目和五级选项保留，新增英文译文。四题原始和与准确四分之一步长均分分别呈现，六篇全文对所有人开放。这些编辑分组未验证为独立心理因子；测试不读取潜意识、不指定最深欲望，也不测能力、诊断或未来决定。"
+    "en": "This is FermatMind’s original 24-item reflection. Six separate themes cover autonomy, connection, mastery, security, recognition and exploration. The original Chinese items and five response labels are retained with a new English translation. Read your four-item sums and exact quarter-step means separately, alongside six complete guides. These editorial groups have not been validated as independent psychological factors. The test does not read the subconscious, identify one deepest desire or measure ability, diagnosis or future choices.",
+    "zh": "费马原创24题，分别回看自主选择、连接归属、掌握进步、稳定可预期、贡献认可及探索变化六主题。原中文题目和五级选项保留，新增英文译文。四题原始和与准确四分之一步长均分分别呈现，六篇全文对所有人开放。这些编辑分组未验证为独立心理因子；测试不读取潜意识、不指定最深欲望，也不测能力、诊断或未来决定。"
   },
   "resultHeading": {
     "en": "Six current motivation themes and full readings",
@@ -2503,13 +2503,13 @@
     {
       "id": "source",
       "title": {
-        "en": "Original mini-program content and disclosed web changes",
-        "zh": "原小程序内容与网页改动说明"
+        "en": "Question bank, translation and scoring",
+        "zh": "题本、翻译与计分"
       },
       "paragraphs": [
         {
-          "en": "The Chinese statements and six themes come from FermatMind’s original mini-program. This edition adds an English translation, expanded original guides and an unscored response. Its partial-theme handling is a disclosed web adaptation; original complete numeric calculations remain reproducible. No reliability, validity, norm, fairness or predictive-accuracy study has validated this framework. It does not support diagnosis, moral judgments, hiring, admissions or decisions about ending relationships.",
-          "zh": "中文陈述与六主题来自费马原创小程序。本版新增英文译文、扩充的原创指南和不计分选项；部分主题暂缺的处理属于明示网页改编，原完整数值计算可复算。框架没有经过信度、效度、常模、公平性或预测准确率研究验证，不支持诊断、道德评价、录用、升学或关系去留决定。"
+          "en": "FermatMind authored the original Chinese statements and six themes. This edition adds an English translation, expanded original guides and an unscored response. Each theme with four numeric responses can still be calculated using the original rule. No reliability, validity, norm, fairness or predictive-accuracy study has validated this framework. It does not support diagnosis, moral judgments, hiring, admissions or decisions about ending relationships.",
+          "zh": "中文陈述与六个主题由费马原创。本版新增英文译文、扩充的原创指南和不计分选项；部分主题暂缺的处理属于明示网页改编，原完整数值计算可复算。框架没有经过信度、效度、常模、公平性或预测准确率研究验证，不支持诊断、道德评价、录用、升学或关系去留决定。"
         }
       ]
     },
@@ -2544,8 +2544,8 @@
         "zh": "这是经过验证的动机量表吗？"
       },
       "answer": {
-        "en": "No. This is an original FermatMind self-observation framework migrated from its mini-program, with a new English translation. The six groups are editorial themes rather than validated independent factors.",
-        "zh": "不是。这是迁移自小程序的费马原创自我观察框架，含新英文译文；六组是编辑主题，不是已验证独立因子。"
+        "en": "No. This is FermatMind’s original 24-item self-observation framework, with a new English translation. The six groups are editorial themes rather than validated independent factors.",
+        "zh": "不是。这是费马原创的24题自我观察框架，含新英文译文；六组是编辑主题，不是已验证独立因子。"
       }
     },
     {

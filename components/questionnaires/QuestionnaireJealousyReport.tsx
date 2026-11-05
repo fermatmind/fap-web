@@ -1,4 +1,4 @@
-import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
+import { ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -13,7 +13,20 @@ export function QuestionnaireJealousyReport({ quiz, result, locale }: {
 }) {
   const zh = locale === "zh";
   return <ResultPage variant="reflection" className="my-6 space-y-8" data-jealousy-reflection-result>
-
+    <section className="rounded-xl border border-amber-200 bg-amber-50/65 p-4 sm:p-6" aria-labelledby="jealousy-readings-title">
+      <h3 id="jealousy-readings-title" className="text-xl font-semibold text-amber-950">{zh ? "出现频率与感受强度分开读" : "Read frequency and intensity separately"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "担心和行动问出现频率，不适问感受强度。即使数值一样，含义也不同。点开一个部分可读相应的生活例子。" : "Thoughts and actions ask how often. Discomfort asks how strong the feeling was. The same number can therefore mean different things. Open a part for its examples."}</p>
+      <ul className="mt-4 grid gap-3 lg:grid-cols-3">
+        {quiz.directions.map(direction => {
+          const score = result.facets[direction.id];
+          return <li key={direction.id} className={`min-w-0 rounded-lg border px-3 py-2 ${direction.id === "discomfort" ? "border-amber-300 bg-amber-100/65" : "border-amber-200 bg-white"}`}>
+            <a className="block min-h-11 py-1 font-semibold text-amber-950 underline underline-offset-4" href={`#jealousy-reflection-${direction.id}`}>{direction.title[locale]}</a>
+            <span className="block text-sm leading-6">{direction.id === "discomfort" ? (zh ? "不适强度" : "Discomfort intensity") : (zh ? "出现频率" : "Frequency")}</span>
+            <span className="font-semibold tabular-nums">{score.mean === null ? (zh ? `${score.rated}/6 项有效，未算均分` : `${score.rated}/6 rated, no mean`) : `${score.mean.toFixed(1)} / 5`}</span>
+          </li>;
+        })}
+      </ul>
+    </section>
 
     {quiz.directions.map(direction => {
       const scoreLabel = direction.id === "discomfort" ? (zh ? "回想不适强度均分" : "Recalled discomfort-intensity mean") : (zh ? "回想频率均分" : "Recalled frequency mean");
@@ -37,15 +50,7 @@ export function QuestionnaireJealousyReport({ quiz, result, locale }: {
       : "This is a FermatMind original reflection, not the original MJS or a validated short form. It has no local norms, established language equivalence or relationship-prediction evidence. No contact, investigation, private-material check or reassurance seeking is required; what comes next is your choice."}</p>
 
     <details className="border-t border-slate-200 pt-4" data-result-reading-method>
-      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
-      <ResultOverview locale={locale} title={zh ? "各部分读数概览" : "Your separate readings"}
-      description={zh ? "按题本顺序呈现，各部分独立阅读。点击名称可查看完整解释；资料不足与低分分开保留。" : "Shown in the form’s order, with each part read separately. Select a name for its full explanation. Insufficient information stays distinct from a lower value."}
-      items={quiz.directions.map(direction => {
-        const score = result.facets[direction.id];
-        return { id: direction.id, label: direction.title[locale], href: `#jealousy-reflection-${direction.id}`,
-          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
-          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
-      })} />
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看计分与使用说明" : "View scoring and use notes"}</summary>
       <p className="leading-8">{zh
       ? "三组分别描述思维频率、不适强度与行动频率，端点不同，不跨组排名或合成嫉妒总分，不选主导型或临床档位。相近与相同数值保留，不推断伴侣想法或事件真相。"
       : "The three groups separately describe thought frequency, discomfort intensity and action frequency. Their different anchors are not ranked or combined into a jealousy total, dominant type or clinical band. Close and equal numbers remain visible without establishing a partner’s thoughts or the truth of an event."}</p>

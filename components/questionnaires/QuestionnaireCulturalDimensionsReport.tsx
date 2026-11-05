@@ -9,10 +9,21 @@ export function QuestionnaireCulturalDimensionsReport({ quiz, result, answers, l
   const zh = locale === "zh";
   return <div className="my-6 space-y-8" data-cultural-dimensions-report>
     <p className="leading-8">{zh ? "以下仅汇总本原创题本的六组作答，不是个人文化、国家指数或群体调查。各组分别读，不合总分、不跨组排名，也不选主导类型；相同均值仍保留各自情境。每组至少四条数字回答才显示均值。" : "These are six summaries of responses to this original bank, not an individual culture, national index or group survey. Read them separately, without a total, cross-topic ranking or dominant type. Equal means retain their separate contexts. A mean is displayed only with at least four numeric responses in that group."}</p>
+    <section className="rounded-xl border border-amber-200 bg-amber-50/65 p-4 sm:p-6" aria-labelledby="culture-contexts-start">
+      <h3 id="culture-contexts-start" className="text-xl font-semibold text-amber-950">{zh ? "从一道具体取舍看你的回答" : "Start with a trade-off from the questionnaire"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "六组都来自本次题本。选择一项，比较它在不同群体或具体环境中的例子。" : "The six readings come from this questionnaire. Open one to compare examples in different groups or settings."}</p>
+      <ul className="mt-4 grid gap-x-5 md:grid-cols-2">{quiz.directions.map(direction => {
+        const score = result.facets[direction.id];
+        return <li key={direction.id} className="min-w-0 border-t border-amber-200 py-2">
+          <a className="inline-flex min-h-11 items-center font-semibold text-amber-950 underline underline-offset-4" href={`#culture-context-${direction.id}`}>{direction.title[locale]}</a>
+          <p className="text-sm leading-6 tabular-nums">{score.mean === null ? (zh ? `${score.rated}/6 项有效，未算均值` : `${score.rated}/6 rated, no mean`) : `${score.mean.toFixed(1)} / 5`}</p>
+        </li>;
+      })}</ul>
+    </section>
     {quiz.directions.map(direction => {
       const score = result.facets[direction.id], profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;
       return <section key={direction.id} className="rounded-lg border border-slate-200 p-4 sm:p-6" data-cultural-full={direction.id}>
-        <h3 className="mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
+        <h3 id={`culture-context-${direction.id}`} className="mb-5 scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
         <dl className="mb-5 grid gap-5 rounded-lg bg-slate-50 p-4 sm:grid-cols-3">
           <div><dt>{zh ? "数字贡献之和" : "Sum of numeric contributions"}</dt><dd className="mt-1 font-semibold" data-cultural-sum={direction.id}>{score.rated ? score.sum : "—"}</dd></div>
           <div><dt>{zh ? "数字条数／全部条目" : "Numeric responses / all statements"}</dt><dd className="mt-1 font-semibold" data-cultural-coverage={direction.id}>{score.rated} / 6</dd></div>

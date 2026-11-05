@@ -27,8 +27,8 @@
     "zh": "请阅读以下各项陈述，选择最符合你在社交互动中体验的答案。"
   },
   "resultHeading": {
-    "en": "Your CAT-Q readout",
-    "zh": "你的CAT-Q分数读法"
+    "en": "Your CAT-Q camouflaging and adaptation scores",
+    "zh": "你的 CAT-Q 掩饰与适应策略读数"
   },
   "source": {
     "kind": "catq25_hull2019_ccby_working_zh",

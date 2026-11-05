@@ -10,13 +10,14 @@ export function QuestionnaireFriendshipFitReport({ quiz, result, locale }: { qui
   const missing = zh ? "资料不足" : "Insufficient information";
   return <div className="my-6 space-y-8">
     <p className="leading-8">{zh ? "五组分别回顾过去四周同一段友谊中自己经历的互动，不相加、不排名，也不按最高均分派型。以下五份完整读法全部提供；频率不是两人匹配的百分比，也不能揭示朋友的意图。" : "Five groups describe interactions you experienced in one friendship during the past four weeks. They are not combined, ranked or assigned as a highest-mean type. All five complete readings are available. Frequency is not a two-person compatibility percentage and cannot reveal your friend’s intentions."}</p>
-    <section data-friendfit-overview aria-label={zh ? "五组分别读数" : "Five separate friendship interaction readings"} className="rounded-xl bg-slate-50 p-4 sm:p-6">
-      <h3 className="text-xl font-semibold">{zh ? "先看五组读数，再读每组完整说明" : "Read five separate values, then every full guide"}</h3>
-      <dl className="mt-4 grid gap-5 sm:grid-cols-2">{quiz.directions.map(direction => {
+    <section data-friendfit-overview aria-label={zh ? "五组分别读数" : "Five separate friendship interaction readings"} className="rounded-xl border border-emerald-200 bg-emerald-50/60 p-4 sm:p-6">
+      <h3 className="text-xl font-semibold">{zh ? "回想你与这位朋友的一次相处" : "Recall an interaction with this friend"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? "先选一类你在这段友谊里遇到的情境，再读它的例子。各项是本组频率，不用作两人匹配分。" : "Choose a situation from this friendship and read its example. Each number reflects a group of frequency ratings rather than a compatibility score."}</p>
+      <dl className="mt-4 grid gap-x-6 gap-y-3 md:grid-cols-2">{quiz.directions.map(direction => {
         const score = result.facets[direction.id];
         const profile = quiz.profiles.find(item => item.directionIds[0] === direction.id)!;
-        return <div key={direction.id} data-friendfit-summary={direction.id} className="min-w-0 space-y-2">
-          <dt className="font-semibold"><a className="inline-block min-h-11 py-2 underline" href={`#friendfit-guide-${profile.id}`}>{direction.title[locale]}</a></dt>
+        return <div key={direction.id} data-friendfit-summary={direction.id} className="min-w-0 space-y-2 border-t-2 border-emerald-300 pt-2">
+          <dt className="font-semibold"><a className="inline-flex min-h-11 items-center py-2 text-emerald-950 underline underline-offset-4" href={`#friendfit-guide-${profile.id}`}>{direction.title[locale]}</a></dt>
           <dd data-friendfit-mean className="text-lg">{score.mean === null ? missing : `${(score.sum / score.total).toFixed(1)} / 5`}</dd>
           <dd data-friendfit-sum className="text-sm text-slate-600">{zh ? "频率评分和（4—20）" : "Frequency rating sum (4–20)"}: {score.mean === null ? missing : score.sum}</dd>
           <dd data-friendfit-rated className="text-sm text-slate-600">{zh ? "有效频率回答" : "Valid frequency ratings"}: {score.rated} / {score.total}</dd>

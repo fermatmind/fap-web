@@ -12,6 +12,7 @@ import { useEntertainmentMetrics, useEntertainmentResultView } from "@/component
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
+import resultStyles from "./QuestionnaireResultPresentation.module.css";
 const subscribeReady = () => () => {};
 const now = () => ({ wall: Date.now(), monotonic: performance.now() });
 const time = (seconds: number) => `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
@@ -121,12 +122,19 @@ function ValidAfqt32Client({ quiz, locale, readingProfiles }: { quiz: Afqt32Ques
       </>}
       {stage === "result" && result && <>
         <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading?.[locale]}</h2>
-        <p data-afqt32-result-mode className="leading-8">{result.mode === "timed" ? (zh ? "分段计时练习 · 本站选定上限" : "Timed section practice · Site-selected caps") : (zh ? "不计时学习" : "Untimed study")}</p>
-        <dl data-afqt32-overall className="grid grid-cols-3 gap-3 border-y border-teal-200 py-5" aria-label={zh ? "本次题本表现" : "This practice bank’s outcomes"}>
-          {(["correct", "wrong", "unanswered"] as const).map(key => <div key={key} className="min-w-0"><dt className="text-sm leading-6 text-slate-600">{key === "correct" ? (zh ? "正确" : "Correct") : key === "wrong" ? (zh ? "错误" : "Incorrect") : (zh ? "未答" : "Unanswered")}</dt><dd className={`mt-2 text-3xl font-semibold tabular-nums ${key === "correct" ? "text-teal-800" : "text-slate-800"}`}>{result.overall[key]}<span className="ml-1 text-sm font-normal text-slate-500">/ {result.overall.total}</span></dd></div>)}
-        </dl>
-        <p className="text-sm leading-7 text-slate-600">{zh ? "这里只记录这32题的表现，不是正式AFQT成绩。先逐题看解题依据，再选择要复习的内容。" : "This records performance on these 32 questions, not an official AFQT score. Review the reasoning for individual answers before choosing what to revisit."}</p>
-        <ResultReadingNav label={zh ? "分段表现与答案解析" : "Section outcomes and answer review"} sections={result.parts.map((part, index) => ({ id: `afqt32-reading-${part.id}`, title: quiz.afqt32.sections[index].title[locale] }))} />
+        <div className={resultStyles.sectionPracticeLead} data-section-practice="afqt32">
+          <div className={resultStyles.sectionPracticeScore}>
+            <p data-afqt32-result-mode className="leading-8">{result.mode === "timed" ? (zh ? "分段计时练习 · 本站选定上限" : "Timed section practice · Site-selected caps") : (zh ? "不计时学习" : "Untimed study")}</p>
+            <dl data-afqt32-overall className="grid grid-cols-3 gap-3 border-y border-teal-200 py-5" aria-label={zh ? "本次题本表现" : "This practice bank’s outcomes"}>
+              {(["correct", "wrong", "unanswered"] as const).map(key => <div key={key} className="min-w-0"><dt className="text-sm leading-6 text-slate-600">{key === "correct" ? (zh ? "正确" : "Correct") : key === "wrong" ? (zh ? "错误" : "Incorrect") : (zh ? "未答" : "Unanswered")}</dt><dd className={`mt-2 text-3xl font-semibold tabular-nums ${key === "correct" ? "text-teal-800" : "text-slate-800"}`}>{result.overall[key]}<span className="ml-1 text-sm font-normal text-slate-500">/ {result.overall.total}</span></dd></div>)}
+            </dl>
+            <p className="text-sm leading-7 text-slate-600">{zh ? "这里只记录这32题的表现，不是正式AFQT成绩。先逐题看解题依据，再选择要复习的内容。" : "This records performance on these 32 questions, not an official AFQT score. Review the reasoning for individual answers before choosing what to revisit."}</p>
+          </div>
+          <div className={resultStyles.sectionPracticeContext}>
+            <h3 className="text-xl font-semibold">{zh ? "四个题型，选一项回看" : "Review one of the four subject areas"}</h3>
+            <ResultReadingNav label={zh ? "分段表现与答案解析" : "Section outcomes and answer review"} sections={result.parts.map((part, index) => ({ id: `afqt32-reading-${part.id}`, title: `${quiz.afqt32.sections[index].title[locale]} · ${part.correct}/${part.total}` }))} />
+          </div>
+        </div>
         <div data-afqt32-result className="space-y-6">{result.parts.map((part, i) => {
           const profile = quiz.profiles[i];
           const partQuestions = quiz.questions.slice(i * 8, i * 8 + 8);
