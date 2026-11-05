@@ -5,6 +5,7 @@ export function resolveFunQuiz(quiz: FunQuiz, answers: Answers) {
   if (!answers || typeof answers !== "object" || Array.isArray(answers) || Object.entries(answers).some(([id, answer]) => !quiz.questions.some(q => q.id === id && q.options.some(o => o.id === answer)))) throw new Error("Invalid answers");
   const scores = Object.fromEntries(quiz.results.map(result => [result.id, 0]));
   const path: string[] = [];
+  const supportOrder = new Set<string>();
   let question = quiz.questions[0];
   let branchResult: string | undefined;
   while (question) {
@@ -17,6 +18,7 @@ export function resolveFunQuiz(quiz: FunQuiz, answers: Answers) {
     for (const [id, points] of Object.entries(option.points ?? {})) {
       if (!(id in scores) || !Number.isFinite(points)) throw new Error("Invalid scoring reference");
       scores[id] += points;
+      if (quiz.tieBreak === "first-choice" && points > 0) supportOrder.add(id);
     }
     if (quiz.mechanism === "branch") {
       if (option.result) {
@@ -31,7 +33,10 @@ export function resolveFunQuiz(quiz: FunQuiz, answers: Answers) {
     }
   }
   const maximum = Math.max(...Object.values(scores));
-  const resultIds = branchResult ? [branchResult] : quiz.tieOrder.filter(id => scores[id] === maximum);
+  const leaders = quiz.tieOrder.filter(id => scores[id] === maximum);
+  const resultIds = branchResult ? [branchResult] : quiz.tieBreak === "first-choice" && leaders.length > 1
+    ? [...supportOrder].filter(id => leaders.includes(id)).slice(0, 1)
+    : leaders;
   if (!resultIds.length || resultIds.some(id => !quiz.results.some(result => result.id === id))) throw new Error("Invalid result");
   return { path, scores, complete: true, resultIds };
 }

@@ -198,6 +198,31 @@
     ]
   },
   {
+    "slug": "changan-history-quiz",
+    "version": "1.0.0",
+    "updated": "2026-11-05",
+    "category": "fantasy",
+    "title": {
+      "en": "Which Historical Figure Are You Most Like?",
+      "zh": "你的性格最像哪位历史人物？"
+    },
+    "description": {
+      "en": "Step into Tang-era Chang’an and make six choices to meet Li Bai, Wu Zetian or one of four other historical figures. Take home an illustrated portrait card.",
+      "zh": "穿越唐代长安，做六次情境选择，看看你会遇到李白、武则天还是另一位历史人物。结果附原创动漫人物卡。"
+    },
+    "minutes": 2,
+    "questionCount": 6,
+    "minQuestionCount": 6,
+    "resultSlugs": [
+      "wu-zetian",
+      "di-renjie",
+      "du-fu",
+      "shangguan-waner",
+      "xuanzang",
+      "li-bai"
+    ]
+  },
+  {
     "slug": "choosing-together",
     "version": "1.0.2",
     "updated": "2026-11-05",

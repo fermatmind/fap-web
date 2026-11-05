@@ -10,6 +10,7 @@ const loaders: Record<string, () => Promise<{default: unknown}>> = {
   "campfire-storyteller": () => import("./data/campfire-storyteller.json"),
   "celebrating-a-friend": () => import("./data/celebrating-a-friend.json"),
   "celebration-planner": () => import("./data/celebration-planner.json"),
+  "changan-history-quiz": () => import("./data/changan-history-quiz.json"),
   "choosing-together": () => import("./data/choosing-together.json"),
   "city-wanderer": () => import("./data/city-wanderer.json"),
   "cloud-drift": () => import("./data/cloud-drift.json"),

@@ -75,7 +75,8 @@ describe("original entertainment catalog", () => {
           const record = value as Record<string, unknown>;
           if ("en" in record || "zh" in record) {
             expect(typeof record.en).toBe("string"); expect(typeof record.zh).toBe("string");
-            expect(String(record.en).trim().length).toBeGreaterThan(5);
+            const historicalName = quiz.results.some(result => result.history && result.title === value);
+            expect(String(record.en).trim().length).toBeGreaterThan(historicalName ? 1 : 5);
             expect(String(record.zh)).toMatch(/\p{Script=Han}/u);
             expect(String(record.en)).not.toMatch(/\p{Script=Han}|\b(?:TODO|TBD|placeholder|lorem ipsum)\b/u);
           } else Object.values(record).forEach(walkCopy);
@@ -125,6 +126,27 @@ describe("original entertainment catalog", () => {
     }
     expect(total).toBeGreaterThan(0);
     console.info(`Covered ${total} answer combinations across ${catalog.length} products (${catalog.length * 2} locale entries); small quizzes enumerate paths, long additive quizzes use the score-state coverage reported above.`);
+  });
+
+  it("resolves one Chang’an portrait for every path and breaks ties by the visitor’s own choices", async () => {
+    const quiz = (await loadFunQuiz("changan-history-quiz"))!;
+    const { questions } = quiz;
+    expect(questions.map(question => question.options.length)).toEqual([4, 4, 4, 4, 4, 4]);
+    const reached = new Set<string>();
+    for (let index = 0; index < 4 ** questions.length; index++) {
+      const options = questions.map((question, i) => question.options[(index >> (2 * i)) & 3]);
+      const answers = Object.fromEntries(questions.map((question, i) => [question.id, options[i].id]));
+      const result = resolveFunQuiz(quiz, answers);
+      expect(result.complete).toBe(true);
+      const maximum = Math.max(...Object.values(result.scores));
+      const selected = options.flatMap(option => Object.keys(option.points!)).find(id => result.scores[id] === maximum);
+      expect(result.resultIds).toEqual([selected]);
+      reached.add(result.resultIds[0]);
+    }
+    expect([...reached].sort()).toEqual(quiz.tieOrder.slice().sort());
+    // Reverse object insertion order to prove that the story order decides a tie.
+    const tied = Object.fromEntries([...questions].reverse().map(question => [question.id, question.options[0].id]));
+    expect(resolveFunQuiz(quiz, tied).resultIds).toEqual(["wu-zetian"]);
   });
 
   it.each([

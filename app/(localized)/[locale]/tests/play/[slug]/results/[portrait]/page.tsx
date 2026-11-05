@@ -1,10 +1,12 @@
 import styles from "./StoryResultGuide.module.css";
 import { ExploreTestShell } from "@/components/tests/ExploreTestShell";
+import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { CHANGAN_SLUG, changanPortraitPath, firstChoiceRule } from "@/lib/entertainment/changan";
 import { loadFunQuiz } from "@/lib/entertainment/loaders";
 import {
   contentImagePath,
@@ -78,6 +80,7 @@ async function FunResultGuideContent({ params }: Props) {
   const zh = locale === "zh",
     path = resultPath(locale, slug, result.id),
     entry = quizPath(locale, slug);
+  const changan = quiz.slug === CHANGAN_SLUG;
   const narrative = quiz.slug === "story-ending";
   const others = quiz.results.filter((other) => other.id !== result.id);
   const examples = portraitRuleExample(quiz, result.id);
@@ -127,6 +130,7 @@ async function FunResultGuideContent({ params }: Props) {
         <h1 className={styles.title}>
           {result.title[locale]}
         </h1>
+        {changan && <Image className="mx-auto mb-5 w-full max-w-64 rounded-lg" src={changanPortraitPath(result.id)} width={720} height={720} unoptimized alt={zh ? `${result.title.zh}的原创动漫画像` : `Original illustrated portrait of ${result.title.en}`} />}
         <p id="meaning" className={styles.meaning}>{result.summary[locale]}</p>
         <p className={styles.context}>
           {zh ? "公开结果解读，不含任何人的私人答卷。" : "A public result guide, without anyone’s private answers."}
@@ -157,6 +161,10 @@ async function FunResultGuideContent({ params }: Props) {
           ))}
         </nav>
         <article className={styles.reading}>
+          {changan && result.history && <section>
+            <h2 className="mb-3 text-2xl font-semibold">{zh ? "史料与作品" : "Historical source"}</h2>
+            <p>{result.history.note[locale]} <a className="underline" href={result.history.url}>{result.history.label[locale]} ↗</a></p>
+          </section>}
           {(
             [
               [
@@ -219,7 +227,7 @@ async function FunResultGuideContent({ params }: Props) {
               {zh ? "这项结果怎样产生？" : "How does this result arise?"}
             </h2>
             <p>
-              {quiz.mechanism === "tally"
+              {changan ? firstChoiceRule[locale] : quiz.mechanism === "tally"
                 ? zh
                   ? "选择为写好的画像累计计数；本次最高计数的画像会呈现，同分会全部保留。下方仅展示规则里的选项例子，单个例子不保证最终结果，也不是你的个人答案。"
                   : "Choices add declared points to authored portraits. Highest totals lead, with all ties retained. The examples below are public rule illustrations: a single choice does not guarantee the final result, and none is your personal answer."
@@ -257,7 +265,7 @@ async function FunResultGuideContent({ params }: Props) {
                 : "What if another portrait also sounds like me?"}
             </h3>
             <p>
-              {quiz.mechanism === "tally"
+              {changan ? (zh ? "可以在不同情境里认出自己选择的不同面。每次游戏按六题作答选出一位，阅读其他指南不会改变结果。" : "Different situations can bring out different sides of you. Each play picks one figure from your six choices. Reading other guides does not change the result.") : quiz.mechanism === "tally"
                 ? zh
                   ? "可以对照不同情境阅读，计数只是这份题本内的选择。相同最高计数会在完成时一起显示；阅读相邻指南不会为你的作答增加计分。"
                   : "Compare them in different contexts. Totals concern only choices in this questionnaire, and tied leaders appear together on completion. Reading another guide does not add points to your attempt."

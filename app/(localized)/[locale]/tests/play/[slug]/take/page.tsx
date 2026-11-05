@@ -5,6 +5,8 @@ import { loadFunQuiz } from "@/lib/entertainment/loaders";
 import { hasQuestionnaireTake } from "@/lib/questionnaires/take";
 import catalog from "@/lib/questionnaires/catalog.json";
 import QuestionnairePage from "@/components/questionnaires/QuestionnairePage";
+import { CHANGAN_SLUG } from "@/lib/entertainment/changan";
+import { ChanganQuiz } from "@/components/entertainment/ChanganQuiz";
 import { FunQuizClient } from "@/components/entertainment/FunQuizClient";
 import { QuestionnaireTakeDocument, questionnaireTakeMetadata } from "@/components/questionnaires/QuestionnaireTakeDocument";
 
@@ -27,6 +29,9 @@ export async function generateMetadata({ params }: Props) { const { locale, quiz
 export default async function Page({ params }: Props) {
   const selected = await entry(params);
   const { locale, quiz, landing } = selected;
-  const engine = selected.native ? await QuestionnairePage({ params, take: true }) : <FunQuizClient quiz={selected.quiz} locale={locale} />;
-  return <QuestionnaireTakeDocument quiz={quiz} locale={locale} landing={landing}>{engine}</QuestionnaireTakeDocument>;
+  const changan = !selected.native && selected.quiz.slug === CHANGAN_SLUG;
+  const engine = selected.native ? await QuestionnairePage({ params, take: true })
+    : changan ? <ChanganQuiz quiz={selected.quiz} locale={locale} />
+    : <FunQuizClient quiz={selected.quiz} locale={locale} />;
+  return <QuestionnaireTakeDocument quiz={quiz} locale={locale} landing={landing} autoStart={!changan}>{engine}</QuestionnaireTakeDocument>;
 }

@@ -93,6 +93,8 @@ import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { loadFunQuiz } from "@/lib/entertainment/loaders";
+import { CHANGAN_SLUG } from "@/lib/entertainment/changan";
+import { changanCardResponse } from "./changanCard";
 import { findPublicPortrait } from "@/lib/entertainment/guides";
 import { isTenKeyConfigurationValid } from "@/lib/questionnaires/tenKey";
 import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
@@ -119,6 +121,13 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   const { slug } = await params;
   const query = new URL(request.url).searchParams, locale = query.get("locale") ?? "en";
   if (locale !== "en" && locale !== "zh") return new Response("Image unavailable", { status: 404 });
+  const portrait = query.get("portrait");
+  if (slug === CHANGAN_SLUG && portrait) {
+    const quiz = await loadFunQuiz(slug);
+    const result = quiz && findPublicPortrait(quiz, portrait);
+    if (!result) return new Response("Image unavailable", { status: 404 });
+    return changanCardResponse(result, locale, await quizFont(slug), query.get("download") === "1");
+  }
   const questionnaire = await loadQuestionnaire(slug);
   if (questionnaire?.kind === "uncertainty-ease6" && !isUncertaintyEase6ConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
   if (questionnaire?.kind === "feedback-worth12" && !isFeedbackWorth12ConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
@@ -213,7 +222,6 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   if (questionnaire?.kind === "weton-story35" && !isWetonStory35ConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
   const quiz = questionnaire ? null : await loadFunQuiz(slug);
   if (!quiz && !questionnaire) return new Response("Image unavailable", { status: 404 });
-  const portrait = query.get("portrait");
   const result = portrait ? (quiz ? findPublicPortrait(quiz, portrait) : questionnaire?.profiles.find(profile => profile.id === portrait)) : undefined;
   if (portrait && !result) return new Response("Image unavailable", { status: 404 });
   const topic = quiz?.seo.topic[locale] ?? questionnaire!.title[locale];

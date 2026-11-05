@@ -1,0 +1,631 @@
+{
+  "slug": "changan-history-quiz",
+  "version": "1.0.0",
+  "updated": "2026-11-05",
+  "category": "fantasy",
+  "title": {
+    "en": "Which Historical Figure Are You Most Like?",
+    "zh": "你的性格最像哪位历史人物？"
+  },
+  "description": {
+    "en": "Step into Tang-era Chang’an and make six choices to meet Li Bai, Wu Zetian or one of four other historical figures. Take home an illustrated portrait card.",
+    "zh": "穿越唐代长安，做六次情境选择，看看你会遇到李白、武则天还是另一位历史人物。结果附原创动漫人物卡。"
+  },
+  "introduction": {
+    "en": "The city gates are about to close when an urgent letter lands in your hands. Make some hard calls, spend a little time in the West Market and leave with your own Chang’an portrait card.",
+    "zh": "城门将闭，一封急信送到你手上。你会处理城里的难题，也会去西市逛一逛，最后带走一张属于你的长安人物卡。"
+  },
+  "focus": {
+    "en": "The figures lived at different times in the Tang and Wu Zhou eras. Their lives or work inspired six ways of making choices. The scenes are fictional and the match is for fun.",
+    "zh": "六位人物来自唐及武周的不同时期。游戏借他们的经历或作品写了六种选择风格。情境是虚构的，结果仅供娱乐。"
+  },
+  "minutes": 2,
+  "mechanism": "tally",
+  "tieBreak": "first-choice",
+  "seo": {
+    "topic": {
+      "en": "Historical Figure Quiz: Chang’an Edition",
+      "zh": "历史人物性格测试 · 长安卷"
+    },
+    "title": {
+      "en": "Which Historical Figure Are You? A 6-Question Chang’an Quiz",
+      "zh": "你最像哪位历史人物？长安卷 · 6题免费测试"
+    },
+    "description": {
+      "en": "Make six choices in an imagined Chang’an to match Wu Zetian, Di Renjie, Du Fu, Shangguan Wan’er, Xuanzang or Li Bai. Download your illustrated card for free.",
+      "zh": "六道唐代长安情境题，匹配武则天、狄仁杰、杜甫、上官婉儿、玄奘或李白。免费作答，下载原创动漫人物卡。"
+    },
+    "faq": {
+      "question": {
+        "en": "Do I need to know Tang history?",
+        "zh": "要懂唐代历史才能作答吗？"
+      },
+      "answer": {
+        "en": "No. Each scene gives you what you need. Choose what you would do, then explore a historical source or a work on your result page.",
+        "zh": "不用。每题都给出足够的情境，你只需选自己更想做的事。结果页会附一条史料或作品入口。"
+      }
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "scene": {
+        "en": "City gate · An urgent letter",
+        "zh": "城门 · 一封急信"
+      },
+      "prompt": {
+        "en": "Autumn rain has washed out a supply road, and the price of rice has jumped overnight. The letter asks what you would do first.",
+        "zh": "秋雨冲坏粮道，城里的米价一夜涨了。急信问你，眼下最该先做哪件事？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Release some public grain at the old price and check prices again in three days.",
+            "zh": "先拨一批公粮平价出售，三天后再看米价。"
+          },
+          "points": {
+            "wu-zetian": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Compare the granary stock with shop ledgers to see how large the shortfall is.",
+            "zh": "核对仓里的余粮和各店的账目，弄清缺口有多大。"
+          },
+          "points": {
+            "di-renjie": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Visit the rice shops to find out who can no longer afford a meal.",
+            "zh": "去米铺门口看看，先找出哪些人已经买不起粮。"
+          },
+          "points": {
+            "du-fu": 1
+          }
+        },
+        {
+          "id": "o4",
+          "label": {
+            "en": "Bring the carriers, shops and granary together to see what each can contribute.",
+            "zh": "把运粮人、店家和官仓叫到一起，商量各自能出多少力。"
+          },
+          "points": {
+            "shangguan-waner": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "scene": {
+        "en": "Neighborhood gate · Two accounts",
+        "zh": "坊门 · 两种说法"
+      },
+      "prompt": {
+        "en": "One letter says a well has been taken over. Another says it is closed for repairs. Both sound urgent. What do you do first?",
+        "zh": "有人说一处水井被私占，另一边说井正在修。两封求助信都写得很急，你先做什么？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Find the repair record and check who closed the well and when.",
+            "zh": "找出修井的记录，核对报修日期和封井的人。"
+          },
+          "points": {
+            "di-renjie": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask the people who draw water there every day who is struggling most.",
+            "zh": "先去问每天来打水的人，看看谁眼下最难取水。"
+          },
+          "points": {
+            "du-fu": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Ask both sides to meet, compare what they know and agree on a temporary arrangement.",
+            "zh": "约两边当面说清楚各自知道什么，再定临时安排。"
+          },
+          "points": {
+            "shangguan-waner": 1
+          }
+        },
+        {
+          "id": "o4",
+          "label": {
+            "en": "Follow the channel into neighboring streets and see what both accounts might have missed.",
+            "zh": "沿着水渠和邻坊走一趟，找找两边没看到的情况。"
+          },
+          "points": {
+            "xuanzang": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "scene": {
+        "en": "Guesthouse · An unexpected closure",
+        "zh": "驿馆 · 临时闭门"
+      },
+      "prompt": {
+        "en": "At dusk, a leak makes the guesthouse rooms unusable. A group of travelers is almost here. What comes to mind first?",
+        "zh": "傍晚，驿馆屋顶漏雨，原定的住处用不了。还有一队旅人快到了，你先想到什么？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Clear a dry room first for families with children and people who have trouble getting around.",
+            "zh": "先清出一间干屋，留给带孩子和行动不便的旅人。"
+          },
+          "points": {
+            "du-fu": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Ask nearby inns what they can spare and have the staff coordinate room assignments.",
+            "zh": "问相邻客舍各能腾几间，再让驿卒统一登记和分派。"
+          },
+          "points": {
+            "shangguan-waner": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Go out to meet the travelers and see where they can shelter along the way.",
+            "zh": "沿来路去接人，看看途中还有哪处能临时避雨。"
+          },
+          "points": {
+            "xuanzang": 1
+          }
+        },
+        {
+          "id": "o4",
+          "label": {
+            "en": "Find dry cloth and boards and turn the covered walkway into a temporary shelter.",
+            "zh": "找来干布和木板，把有檐的走廊改成临时住处。"
+          },
+          "points": {
+            "li-bai": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "scene": {
+        "en": "Writing desk · Two maps",
+        "zh": "书案 · 两张地图"
+      },
+      "prompt": {
+        "en": "A letter must leave the city at dawn, but two old maps disagree about a fork in the road. How do you choose the route?",
+        "zh": "天亮后要送一封信出城，两张旧地图对岔路的画法不一样。你准备怎样定路线？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Bring both guides together and mark the landmarks they can confirm on one map.",
+            "zh": "把两位领路人找来，把他们确认的地标标在同一张图上。"
+          },
+          "points": {
+            "shangguan-waner": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Walk to the fork before the gates close and see where each mapmaker started.",
+            "zh": "趁城门还没关先走到岔口，看看两张图各是从哪里画起的。"
+          },
+          "points": {
+            "xuanzang": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Redraw the route using the distant tower and shop signs, skipping the confusing fork.",
+            "zh": "用远处塔楼和沿途店招重画一张，避开难认的岔路。"
+          },
+          "points": {
+            "li-bai": 1
+          }
+        },
+        {
+          "id": "o4",
+          "label": {
+            "en": "Send a scout along the safer-looking route, with a check-in time and a backup plan.",
+            "zh": "先派一人试走较稳妥的路线，定好回报时刻和备用走法。"
+          },
+          "points": {
+            "wu-zetian": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "scene": {
+        "en": "West Market · A free afternoon",
+        "zh": "西市 · 半日闲"
+      },
+      "prompt": {
+        "en": "You have a little time to yourself in the West Market. All four of these are happening now. Which calls to you?",
+        "zh": "难得在西市空出一会儿。几件事恰好都能赶上，你最想去做哪件？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Ask a caravan from far away to sketch the places they passed through.",
+            "zh": "请远来的商队画画他们经过的地方。"
+          },
+          "points": {
+            "xuanzang": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Listen to the tune on the corner and try writing a verse for it.",
+            "zh": "听完街角的曲子，试着给它填一段新词。"
+          },
+          "points": {
+            "li-bai": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Help your group split up to find the stalls they want, then set a time to meet for tea.",
+            "zh": "带几个同行分头找各自想看的摊位，约好在茶肆会合。"
+          },
+          "points": {
+            "wu-zetian": 1
+          }
+        },
+        {
+          "id": "o4",
+          "label": {
+            "en": "Try the riddle that the stallkeeper says almost nobody has solved.",
+            "zh": "去看一场灯谜，挑那个摊主说很少有人猜中的题。"
+          },
+          "points": {
+            "di-renjie": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "scene": {
+        "en": "Homeward · A keepsake",
+        "zh": "归途 · 一件纪念"
+      },
+      "prompt": {
+        "en": "Before leaving Chang’an, you have room for one last sheet of paper. What would you put on it?",
+        "zh": "离开长安前，你只能往行囊里再放一张纸。你想在上面留下什么？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Turn the image you cannot shake into a few lines of verse.",
+            "zh": "把今日最忘不了的画面写成几句诗。"
+          },
+          "points": {
+            "li-bai": 1
+          }
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Record one decision that worked so it can be used again next time.",
+            "zh": "记下试过的一条好办法，下次遇到同样的事能直接用。"
+          },
+          "points": {
+            "wu-zetian": 1
+          }
+        },
+        {
+          "id": "o3",
+          "label": {
+            "en": "Keep a sketch of the roads you checked yourself and mark which ones are open.",
+            "zh": "留一张我亲手核过的简图，标出哪些路眼下能走。"
+          },
+          "points": {
+            "di-renjie": 1
+          }
+        },
+        {
+          "id": "o4",
+          "label": {
+            "en": "Write down a story from a neighbor whose voice people rarely stop to hear.",
+            "zh": "记下一个平常少有人问起的街坊讲给我的故事。"
+          },
+          "points": {
+            "du-fu": 1
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "wu-zetian",
+      "title": {
+        "en": "Wu Zetian",
+        "zh": "武则天"
+      },
+      "epithet": {
+        "en": "The one who gets things moving",
+        "zh": "拿主意的人"
+      },
+      "summary": {
+        "en": "When a group is stuck, you tend to propose a concrete decision and set a time to check how it worked.",
+        "zh": "事情僵住时，你往往先给出一个可执行的决定，约好什么时候再看效果。"
+      },
+      "example": {
+        "en": "When rice prices jump, you get some grain onto the shelves and set a three-day review for the decision.",
+        "zh": "米价上涨时，你先让一批粮上柜，同时给这项安排定了三天复查期。"
+      },
+      "strength": {
+        "en": "A small, reversible decision lets the group make progress while there is still time to adjust.",
+        "zh": "一项小而可调整的决定，能让大家先迈出一步。"
+      },
+      "tradeoff": {
+        "en": "Moving quickly can leave quiet voices unheard. Before committing, give people a clear chance to raise concerns.",
+        "zh": "行动很快时，容易遗漏没有出声的人。决定前留一点时间听取反对意见。"
+      },
+      "experiment": {
+        "en": "Next time a group stalls, propose one step you could undo and agree when to revisit it.",
+        "zh": "下次大家迟迟定不了，试着提出一个能撤回的方案，再约一个复查时间。"
+      },
+      "history": {
+        "note": {
+          "en": "Wu Zetian changed the name of the dynasty to Zhou.",
+          "zh": "武则天在位期间改国号为周。"
+        },
+        "url": "https://zh.wikisource.org/wiki/舊唐書/卷6#天授元年",
+        "label": {
+          "en": "Old Book of Tang: Annals of Empress Zetian",
+          "zh": "《旧唐书·则天皇后本纪》"
+        }
+      }
+    },
+    {
+      "id": "di-renjie",
+      "title": {
+        "en": "Di Renjie",
+        "zh": "狄仁杰"
+      },
+      "epithet": {
+        "en": "The one who checks the evidence",
+        "zh": "追问证据的人"
+      },
+      "summary": {
+        "en": "Even when a story sounds convincing, you want to see the evidence and check which parts hold up.",
+        "zh": "面对一个听起来很顺的说法，你还是想看看证据，分清哪些已经确认。"
+      },
+      "example": {
+        "en": "When the well closes, you compare repair dates with the closure record before deciding what each letter got right.",
+        "zh": "井口关上后，你先对照报修时间和封井记录，再判断两封信各说对了什么。"
+      },
+      "strength": {
+        "en": "You can help a group separate what people have heard from what someone has actually checked.",
+        "zh": "你能帮大家把听来的消息与亲手确认的事实分开。"
+      },
+      "tradeoff": {
+        "en": "When the evidence stays incomplete, a temporary plan can help people who cannot wait for the full picture.",
+        "zh": "如果暂时查不到完整证据，眼下的麻烦仍需要一个可调整的处理办法。"
+      },
+      "experiment": {
+        "en": "For an unclear situation, make two columns: what you know and what you most need to check.",
+        "zh": "把一件还说不清的事写成两列，一列是已知事实，一列是最值得先核对的问题。"
+      },
+      "history": {
+        "note": {
+          "en": "The Old Book of Tang records Di Renjie serving as an official in the court of judicial review and remonstrating over a sentence.",
+          "zh": "《旧唐书》记载狄仁杰曾任大理丞，并曾就量刑进谏。"
+        },
+        "url": "https://zh.wikisource.org/wiki/舊唐書/卷89#狄仁傑",
+        "label": {
+          "en": "Old Book of Tang: Biography of Di Renjie",
+          "zh": "《旧唐书·狄仁杰传》"
+        }
+      }
+    },
+    {
+      "id": "du-fu",
+      "title": {
+        "en": "Du Fu",
+        "zh": "杜甫"
+      },
+      "epithet": {
+        "en": "The one who notices who is missing",
+        "zh": "看见被遗漏的人"
+      },
+      "summary": {
+        "en": "When everyone talks about the big picture, you ask who is bearing the cost and who has yet to be heard.",
+        "zh": "听见大家谈大局时，你也会问谁在为这件事付代价，谁还没被问过。"
+      },
+      "example": {
+        "en": "When the guesthouse leaks, you find out who will struggle to wait outside before assigning the dry room.",
+        "zh": "驿馆漏雨时，你先找出谁最难在外头等，再决定空房留给谁。"
+      },
+      "strength": {
+        "en": "A concrete detail about someone's day can bring a need the group overlooked into view.",
+        "zh": "具体的生活细节能让大家看见原先忽略的需要。"
+      },
+      "tradeoff": {
+        "en": "One person's experience deserves attention. A decision that affects many people also needs room for other accounts.",
+        "zh": "一个人的遭遇值得听。要做影响更多人的决定，也要看看其他人的处境。"
+      },
+      "experiment": {
+        "en": "Before a group decision, ask who might have the hardest time with it, then check with them.",
+        "zh": "下次做集体安排前，问一句「谁可能最难用这个方案？」然后找对方核对。"
+      },
+      "history": {
+        "note": {
+          "en": "Du Fu's poem commonly translated as The Officer at Shihao depicts a household facing conscription.",
+          "zh": "杜甫在《石壕吏》中写下一户人家遭遇征役的经过。"
+        },
+        "url": "https://zh.wikisource.org/wiki/石壕吏",
+        "label": {
+          "en": "Du Fu: The Officer at Shihao",
+          "zh": "杜甫《石壕吏》"
+        }
+      }
+    },
+    {
+      "id": "shangguan-waner",
+      "title": {
+        "en": "Shangguan Wan’er",
+        "zh": "上官婉儿"
+      },
+      "epithet": {
+        "en": "The one who brings voices together",
+        "zh": "让各方说得上话的人"
+      },
+      "summary": {
+        "en": "When opinions collide, you listen for what matters to each side and put the differences into terms they can discuss.",
+        "zh": "意见撞在一起时，你会先听清各方在意什么，再把分歧写成可以商量的几件事。"
+      },
+      "example": {
+        "en": "When the maps disagree, you ask each guide which landmarks they recognize and put them on one map.",
+        "zh": "两张地图画得不一样，你先请两位领路人说出各自认得的地标，再合在一张图上。"
+      },
+      "strength": {
+        "en": "Putting each side's clearest point on the table can give the whole group a place to start.",
+        "zh": "把各方说得最清楚的一点放在一起，能帮助大家找到下一步。"
+      },
+      "tradeoff": {
+        "en": "Some differences take time. Marking what is still open lets people act on what they already agree on.",
+        "zh": "有些分歧一时谈不拢。先标清未定的地方，也能让已经达成的共识派上用场。"
+      },
+      "experiment": {
+        "en": "When a discussion gets stuck, write down one sentence everyone could accept and ask them to check it together.",
+        "zh": "讨论卡住时，写下各方都能接受的一句话，再请大家一起确认它。"
+      },
+      "history": {
+        "note": {
+          "en": "The Old Book of Tang records Shangguan Wan’er drafting imperial orders and composing verse on behalf of the emperor and empress.",
+          "zh": "《旧唐书》记载上官婉儿参与起草诏令，也曾为帝后代作诗篇。"
+        },
+        "url": "https://zh.wikisource.org/wiki/舊唐書/卷51#上官昭容",
+        "label": {
+          "en": "Old Book of Tang: Biography of Shangguan Wan’er",
+          "zh": "《旧唐书·上官昭容传》"
+        }
+      }
+    },
+    {
+      "id": "xuanzang",
+      "title": {
+        "en": "Xuanzang",
+        "zh": "玄奘"
+      },
+      "epithet": {
+        "en": "The one who goes to see",
+        "zh": "愿意走远一点的人"
+      },
+      "summary": {
+        "en": "When something is unfamiliar, you will take the longer route to see it firsthand and bring back what you learn.",
+        "zh": "遇到没见过的东西，你愿意绕点路，亲自看看，再把学到的带回来。"
+      },
+      "example": {
+        "en": "When the maps disagree, you go to the fork and find out where each mapmaker was standing.",
+        "zh": "地图互相打架时，你走到岔口看看两张图各自从哪一侧开始。"
+      },
+      "strength": {
+        "en": "A firsthand look can bring back the piece of information that both reports and rumors missed.",
+        "zh": "亲自观察有时能带回报告和传闻里都缺的一块信息。"
+      },
+      "tradeoff": {
+        "en": "Taking the longer route costs time. Knowing the question you want answered makes the trip more useful.",
+        "zh": "多走一趟要花时间。先弄清最关键的问题，能让这段路走得更值。"
+      },
+      "experiment": {
+        "en": "Pick a place or practice you know only by reputation and spend ten minutes asking someone with firsthand experience.",
+        "zh": "选一个你只有印象的地方或做法，花十分钟问一位实际经历过的人。"
+      },
+      "history": {
+        "note": {
+          "en": "After returning from India, Xuanzang worked on translating Buddhist texts in Chang’an.",
+          "zh": "玄奘从印度返回后在长安参与佛经翻译。"
+        },
+        "url": "https://www.edb.gov.hk/attachment/tc/curriculum-development/kla/pshe/references-and-resources/chinese-history_ncs/xuanzang_202201.pdf",
+        "label": {
+          "en": "Hong Kong Education Bureau: Xuanzang",
+          "zh": "香港教育局《玄奘》资料"
+        }
+      }
+    },
+    {
+      "id": "li-bai",
+      "title": {
+        "en": "Li Bai",
+        "zh": "李白"
+      },
+      "epithet": {
+        "en": "The one who sees another way",
+        "zh": "看见另一种可能的人"
+      },
+      "summary": {
+        "en": "When everyone is following the usual route, you are quick to imagine a third option and try it out.",
+        "zh": "当大家沿着原来的路走，你很容易想到第三个办法，也愿意动手试试。"
+      },
+      "example": {
+        "en": "When the guest rooms leak, you see how cloth and boards could turn a covered walkway into a shelter.",
+        "zh": "原来的客房进了雨，你想到用干布和木板把有檐的走廊临时改作住处。"
+      },
+      "strength": {
+        "en": "Giving what is already on hand a new use can open up a situation after the original plan falls through.",
+        "zh": "把手边的东西换一种用法，有时能在计划失灵时打开局面。"
+      },
+      "tradeoff": {
+        "en": "A fresh idea can be exciting. Before committing, check a basic constraint such as whether there are enough materials.",
+        "zh": "新点子很容易让人兴奋。动手前看一眼最基本的限制，比如材料是否够用。"
+      },
+      "experiment": {
+        "en": "Next time you face two unappealing choices, write down a third option you could test in ten minutes.",
+        "zh": "下次碰到两难题，写出一个可在十分钟内小试的第三种方案。"
+      },
+      "history": {
+        "note": {
+          "en": "Li Bai uses a dream to stage a journey through mountains and waters in Dreaming of Mount Tianmu.",
+          "zh": "李白在《梦游天姥吟留别》中用梦境展开山水游历。"
+        },
+        "url": "https://zh.wikisource.org/wiki/夢遊天姥吟留別",
+        "label": {
+          "en": "Li Bai: Dreaming of Mount Tianmu",
+          "zh": "李白《梦游天姥吟留别》"
+        }
+      }
+    }
+  ],
+  "tieOrder": [
+    "wu-zetian",
+    "di-renjie",
+    "du-fu",
+    "shangguan-waner",
+    "xuanzang",
+    "li-bai"
+  ]
+}

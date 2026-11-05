@@ -1,3 +1,4 @@
+import { CHANGAN_SLUG } from "@/lib/entertainment/changan";
 import { DiscoveryCardArt } from "./DiscoveryCardArt";
 
 /** Decorative scene only; the four DISC panels do not depict a user's scores. */
@@ -12,7 +13,17 @@ export function ExploreHeroArtwork({ slug, category }: { slug: string; category:
         <circle cx="853" cy="263" r="5" fill="#d4b775" />
       </svg>
       <div className="explore-hero-symbol">
-        {slug === "weather-in-a-bottle" ? (
+        {slug === CHANGAN_SLUG ? (
+          <svg viewBox="0 0 360 290" fill="none" focusable="false">
+            <circle cx="205" cy="105" r="68" fill="#c8654b" />
+            <path d="m19 204 70-52 40 22 46-26 88 56H19Zm145 2 70-48 30 14 30-18 47 52H164Z" fill="#9b9f7c" />
+            <path d="M30 231v-22h56v-29h33v-30h123v30h32v29h56v22H30Z" fill="#4b5347" />
+            <path d="M135 151v-28h90v28M147 125v-24h66v24" fill="#73624b" />
+            <path d="M103 155q15-6 35-17h84q15 10 36 17H103Zm20-29q19-7 29-15h57q12 9 29 15H123Zm8-23q28-8 49-21 20 13 50 21H131Z" fill="#2d3c35" />
+            <path d="M161 232v-24a19 19 0 0 1 38 0v24h-38Z" fill="#e6c78d" />
+            <path d="M180 190v42M19 232h323m-304 12h280m-253 12h229" stroke="#8d754f" strokeWidth="2" />
+          </svg>
+        ) : slug === "weather-in-a-bottle" ? (
           <svg data-bottle-weather-scene="true" viewBox="0 0 360 290" fill="none" focusable="false">
             <path d="M55 74h45v29q22 15 22 43v87H33v -87q0-28 22-43Z" fill="#fffdf8" stroke="#78a7a2" strokeWidth="2"/><path d="M51 64h53v12H51Z" fill="#f4e7c9"/><path d="M43 163h67m -60 16h54m -59 17h63" stroke="#b9d5d1" strokeWidth="6" strokeLinecap="round"/>
             <path d="M158 74h45v29q22 15 22 43v87h -89v -87q0-28 22-43Z" fill="#fffdf8" stroke="#78a7a2" strokeWidth="2"/><path d="M154 64h53v12h -53Z" fill="#f4e7c9"/><path d="M145 159q23-17 54-2t19 23m -71 18q26-16 58-1" stroke="#78a7a2" strokeWidth="2"/><path d="m174 162 15-4 12 9-21 3Z" fill="#d88770"/>

@@ -1,0 +1,49 @@
+.stage {
+  --ink: #2d2720;
+  --seal: #873727;
+  --paper: #f6ebd6;
+  --rule: #ceb895;
+  padding: clamp(20px, 5vw, 48px);
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  overflow-wrap: anywhere;
+}
+
+.scene, .reading, .details { display: grid; justify-items: start; gap: 16px; }
+.scene h2, .reading h2 { font-family: Georgia, "Songti SC", serif; font-size: clamp(1.55rem, 3.5vw, 2.5rem); line-height: 1.3; font-weight: 700; }
+.reading h2 { font-size: clamp(2rem, 6vw, 3.8rem); }
+.eyebrow { color: var(--seal); font-weight: 700; font-size: .85rem; letter-spacing: .04em; }
+.progress { width: 100%; height: 6px; accent-color: var(--seal); }
+.choices { display: grid; gap: 10px; width: 100%; }
+.option { display: flex; align-items: baseline; gap: 13px; text-align: start; width: 100%; }
+.option span { font-weight: 700; color: var(--seal); }
+.primary, .secondary, .option {
+  min-height: 48px;
+  padding: 10px 16px;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: #fffaef;
+  color: var(--ink);
+  line-height: 1.55;
+}
+.primary { border-color: var(--seal); background: var(--seal); color: #fff9ed; font-weight: 700; }
+.primary:disabled { opacity: .65; cursor: wait; }
+.primary:hover:not(:disabled) { background: #69291d; }
+.secondary:hover, .option:hover { background: #eee0c4; }
+.stage :is(a, button, summary):focus-visible { outline: 2px solid var(--seal); outline-offset: 3px; }
+.result { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: clamp(16px, 4vw, 32px); }
+.portrait img { display: block; width: 100%; height: auto; border-radius: 8px; }
+.epithet { font-weight: 700; color: var(--seal); }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.details { grid-column: 1 / -1; border-top: 1px solid var(--rule); padding-top: 18px; }
+.details h3, .details summary { font-weight: 700; }
+.details summary { cursor: pointer; }
+.details p { margin-top: 6px; }
+.details p a { text-decoration: underline; }
+.hint { font-size: .875rem; color: #5b4a36; }
+@media (max-width: 650px) {
+  .result { grid-template-columns: minmax(0, 1fr); }
+  .portrait { max-width: 360px; }
+}

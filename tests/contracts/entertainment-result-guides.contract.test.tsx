@@ -108,9 +108,9 @@ describe("complete public entertainment result assets", () => {
   it("uses a local, bounded content image instead of personal result payloads or runtime remote fonts", () => {
     const source = readFileSync("app/og/fun/[slug]/route.tsx", "utf8");
     expect(source).toContain("findPublicPortrait"); expect(source).toContain("fun-700.ttf");
-    // Public editorial labels may say "score guide"; only locale and public portrait
-    // identity may be read from the request. Personal result input stays unused.
-    expect([...source.matchAll(/query\.get\(["']([^"']+)["']\)/g)].map(match => match[1])).toEqual(["locale", "portrait"]);
+    // Download mode changes only the response disposition. The artwork uses
+    // locale and a public portrait identity, with no personal result inputs.
+    expect([...source.matchAll(/query\.get\(["']([^"']+)["']\)/g)].map(match => match[1])).toEqual(["locale", "portrait", "download"]);
     expect(source).not.toMatch(/fetch\(|request\.(?:json|formData|text)\s*\(|\bscoreQuestionnaire\s*\(/);
     // Twenty new title glyphs retain the original font features and metrics.
     expect(readFileSync("public/fonts/noto-sans-sc/fun-700.ttf").byteLength).toBeLessThan(310000);

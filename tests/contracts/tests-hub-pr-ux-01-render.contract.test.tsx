@@ -158,6 +158,6 @@ describe("tests hub PR-UX-01 render contract", () => {
     ).not.toBeInTheDocument();
     expect(screen.queryByText("浏览测试")).not.toBeInTheDocument();
     expect(screen.queryByText("做测试之前")).not.toBeInTheDocument();
-    expect(container.querySelectorAll("#interactive-stories [data-story-slug]")).toHaveLength(99);
+    expect(container.querySelectorAll("#interactive-stories [data-story-slug]")).toHaveLength(100);
   });
 });
