@@ -15,7 +15,9 @@ const methods = {
   "everyday-control-style": "response-map",
   "interpersonal-preferences": "method",
   "social-attitudes-reflection": "method",
-  "work-activity-interests": "respond"
+  "work-activity-interests": "respond",
+  "dating-outlook": "method",
+  "face-self-image": "method"
 } as const;
 const libraries = ["overthinking-screener", "executive-function", "sensory-processing-test", "conservatism", "food-disgust", "tipi-10", "parenting-style", "love-type-16"] as const;
 const read = (slug: string) => JSON.parse(readFileSync(`lib/questionnaires/data/${slug}.json`, "utf8")) as Questionnaire;

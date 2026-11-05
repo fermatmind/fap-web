@@ -822,6 +822,8 @@ return <QuestionnaireClient quiz={Object.keys(resultReadingProps).length ? quiz 
     "interpersonal-preferences": quiz.kind === "likert" ? "method" : undefined,
     "social-attitudes-reflection": quiz.kind === "likert" ? "method" : undefined,
     "work-activity-interests": quiz.kind === "likert" ? "respond" : undefined,
+    "dating-outlook": quiz.kind === "likert" ? "method" : undefined,
+    "face-self-image": quiz.kind === "likert" ? "method" : undefined,
   } as Record<string, string | undefined>)[slug];
   const referenceNote = (() => {
 if (isFscrs22ConfigurationValid(quiz)) return quiz.fscrs22.attribution[locale];
