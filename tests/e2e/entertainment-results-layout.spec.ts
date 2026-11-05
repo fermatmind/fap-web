@@ -175,7 +175,26 @@ for (const locale of ["en", "zh"] as const) {
       await page.goto(`/${locale}/tests/explore/${quiz.slug}/take`);
       for (const question of quiz.questions) {
         const response = question.options[0].directionId === missingDirection ? "na" : "3";
-        await page.locator(`input[name="${question.id}"][value="${response}"]`).click();
+        const option = page.locator(`input[name="${question.id}"][value="${response}"]`);
+        if (locale === "en" && question.id === "DO_12") {
+          // A pointer near the lower edge must leave the next option clickable.
+          await page.mouse.move(1, 1);
+          const label = option.locator("..");
+          await label.scrollIntoViewIfNeeded();
+          const bounds = (await label.boundingBox())!;
+          await page.mouse.move(bounds.x + bounds.width / 2, bounds.y + bounds.height - 1);
+          const offsets = await label.evaluate(async element => {
+            const positions = new Set<number>();
+            for (let frame = 0; frame < 12; frame++) {
+              await new Promise(requestAnimationFrame);
+              positions.add(element.getBoundingClientRect().top);
+            }
+            return [...positions];
+          });
+          expect(offsets).toEqual([bounds.y]);
+          expect(await label.evaluate(element => element.matches(":hover"))).toBe(true);
+        }
+        await option.click({ timeout: 10000 });
       }
       const result = page.locator('#take-test[data-stage="result"]');
       const overview = result.locator(`[data-${quiz.slug}-overview]`);
