@@ -9,7 +9,7 @@ const situations = {
 };
 for (const locale of ["zh", "en"] as const) for (const width of [390, 1440]) {
   test(`@release virtues completed reading ${locale} ${width}: dual-track cards and radar before seven full readings`, async ({ page }) => {
-    const zh = locale === "zh", errors: string[] = [];
+    const zh = locale === "zh", desktop = width === 1440, errors: string[] = [];
     page.on("pageerror", error => errors.push(error.message));
     await page.setViewportSize({ width, height: width === 390 ? 844 : 1000 });
     await page.addInitScript(() => {
@@ -28,6 +28,7 @@ for (const locale of ["zh", "en"] as const) for (const width of [390, 1440]) {
     const result = page.locator('[data-result-kind="mini-virtues"]');
     const first = page.locator("[data-mini-virtues-part]").first();
     const chooser = result.getByRole("combobox");
+    const readingIndex = result.getByRole("navigation", { name: zh ? "七组解读目录" : "Seven readings index" });
     await expect(result).toBeVisible();
     const board = result.locator("[data-seven-sins-board]");
     await expect(board.getByRole("heading", { level: 2 })).toBeFocused();
@@ -42,17 +43,49 @@ for (const locale of ["zh", "en"] as const) for (const width of [390, 1440]) {
     await expect(virtue.locator("strong")).toHaveText("88");
     await expect(board.locator("[data-seven-sins-balance]")).toContainText(zh ? "美德均值 70" : "Virtue avg. 70");
     await expect(board.locator("[data-seven-sins-balance]")).toContainText(zh ? "罪均值 57" : "Sin avg. 57");
-    await expect(board.getByRole("img", { name: zh ? "十四维人格雷达" : "14-Axis Personality Radar" })).toBeVisible();
+    const radar = board.getByRole("img", { name: zh ? "十四维人格雷达" : "14-Axis Personality Radar" });
+    await expect(radar).toBeVisible();
     await expect(board.locator("[data-seven-sins-axis]")).toHaveText(["63","63","63","50","75","50","38","75","75","75","63","63","50","88"]);
     await expect(page.locator("[data-mini-virtues-details][open]")).toHaveCount(0);
+    const report = result.locator("[data-mini-virtues-result]");
+    const boardBox = (await board.boundingBox())!;
+    const reportBox = (await report.boundingBox())!;
+    expect(reportBox.x).toBe(boardBox.x);
+    expect(reportBox.width).toBe(boardBox.width);
+    expect(reportBox.y).toBeCloseTo(boardBox.y + boardBox.height, 0);
+    await expect(result).toHaveCSS("background-color", "rgb(33, 23, 21)");
+    await expect(report).toHaveCSS("background-color", "rgba(0, 0, 0, 0)");
+    const radarBox = (await radar.boundingBox())!;
+    const virtueBox = (await virtue.boundingBox())!;
+    if (desktop) {
+      expect(boardBox.width).toBeGreaterThan(1000);
+      expect(radarBox.x).toBeGreaterThan(virtueBox.x + virtueBox.width);
+      await expect(radar).toBeInViewport({ ratio: 1 });
+    } else {
+      expect(radarBox.y).toBeGreaterThan(virtueBox.y + virtueBox.height);
+    }
     await page.screenshot({ path: test.info().outputPath(`virtues-first-screen-${locale}-${width}.png`) });
     await board.screenshot({ path: test.info().outputPath(`seven-sins-board-${locale}-${width}.png`) });
-    await expect(chooser.locator("option")).toHaveCount(7);
+    if (desktop) {
+      await expect(chooser).toBeHidden();
+      await expect(readingIndex.getByRole("link")).toHaveCount(7);
+      await board.getByRole("link", { name: zh ? "查看七组解读" : "Explore the seven readings" }).click();
+      await expect(report.getByRole("heading", { level: 2 })).toBeFocused();
+      expect((await readingIndex.boundingBox())!.x).toBeLessThan((await first.boundingBox())!.x);
+    } else {
+      await expect(readingIndex).toBeHidden();
+      await expect(chooser).toBeVisible();
+      await expect(chooser.locator("option")).toHaveCount(7);
+      await report.getByRole("heading", { level: 2 }).scrollIntoViewIfNeeded();
+    }
+    await page.mouse.move(width - 1, 1);
+    await page.screenshot({ path: test.info().outputPath(`seven-sins-readings-${locale}-${width}.png`) });
     // Start with another group so every selection exercises a real change, including the first group.
     for (const direction of [...source.directions.slice(1), source.directions[0]]) {
       const index = source.directions.findIndex(candidate => candidate.id === direction.id);
       const part = page.locator(`[data-mini-virtues-part="${direction.id}"]`);
-      await chooser.selectOption(direction.id);
+      if (desktop) await readingIndex.getByRole("link", { name: direction.title[locale], exact: true }).click();
+      else await chooser.selectOption(direction.id);
       const title = part.getByRole("heading", { level: 3 });
       await expect(title).toBeFocused();
       await expect(title).toBeInViewport({ ratio: 1 });
@@ -76,7 +109,13 @@ for (const locale of ["zh", "en"] as const) for (const width of [390, 1440]) {
     await expect(common).toContainText(source.guide[0].paragraphs[0][locale]);
     await expect(common).not.toContainText(/24小时|24-hour|退出清除/);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    if (width === 390) {
+    if (desktop) {
+      await page.setViewportSize({ width: 900, height: 768 });
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+      await page.setViewportSize({ width: 899, height: 768 });
+      await expect(chooser).toBeVisible();
+      await page.setViewportSize({ width, height: 1000 });
+    } else {
       await page.setViewportSize({ width: 320, height: 844 });
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       await page.setViewportSize({ width, height: 844 });

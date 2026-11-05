@@ -38,7 +38,7 @@ for(const locale of ["en","zh"] as const)for(const quiz of [virtues,euphoria]){
    expect(document.querySelectorAll("[data-mini-virtues-everyday]")).toHaveLength(7);
    expect(document.querySelectorAll("[data-mini-virtues-action]")).toHaveLength(7);
   }else expect(document.querySelectorAll("#take-test h4")).toHaveLength(36);
-  expect(screen.getByRole("heading",{level:2})).toHaveFocus();
+  expect(screen.getByRole("heading",{level:2,name:quiz===virtues?(locale==="zh"?"你的 七宗罪 VS 七美德 结果":"Your Seven Sins vs Seven Virtues Results"):undefined})).toHaveFocus();
   await act(async()=>{fireEvent.click(screen.getByRole("button",{name:locale==="zh"?"复制公开入口":"Copy public entry"}));});
   expect(clipboard).toHaveBeenCalledWith(`${quiz.title[locale]}\nhttps://fermatmind.com/${locale}/tests/explore/${quiz.slug}`);
   expect(screen.getByRole("status").textContent).toContain(locale==="zh"?"不含个人答案或次数":"without personal answers or counts");

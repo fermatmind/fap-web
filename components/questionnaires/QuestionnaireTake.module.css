@@ -55,24 +55,43 @@
 @media (max-width: 480px) { .main:has(:global([data-result-kind="mini-virtues"])) { padding-top: 24px; } .engine :global([data-result-kind="mini-virtues"]) > h2 { margin-block: 20px 24px; } }
 
 .main:has(:global([data-seven-sins-board])) {
-  background: linear-gradient(#211211, #321614 40rem, #211211 70rem);
+  background: linear-gradient(#211211, #2e1715 38rem, #1c1110 75rem);
   padding-block-start: 12px;
 }
 .surface:has(:global([data-seven-sins-board])) > header { display: none; }
-.engine:has(:global([data-seven-sins-board])) :global(#take-test) { margin-top: 0; }
-.engine :global([data-seven-sins-board]) + :global([data-mini-virtues-result]) {
-  width: min(100%, 780px);
-  margin: 28px auto 0;
-  padding: 20px 16px 0;
-  border-radius: 14px 14px 0 0;
-  background: #f6f4fa;
-}
-.engine :global([data-seven-sins-board]) ~ :global([data-mini-virtues-next]) {
-  width: min(100%, 780px);
+.engine :global(#take-test):has(> :global([data-seven-sins-board])) {
+  --seven-sins-corner: 12px;
+  --seven-sins-padding: clamp(16px, 3vw, 32px);
+  --virtues-text: #f0e0cf;
+  --virtues-title: #f5e8ce;
+  --virtues-muted: #cfb7a5;
+  --virtues-link: #edc990;
+  --virtues-border: #614639;
+  --virtues-field-border: #967053;
+  --virtues-field: #291c18;
+  --virtues-red: #ee8991;
+  --virtues-gold: #f2cd8b;
+  --virtues-focus: #edc990;
+  width: min(100%, 570px);
   margin: 0 auto;
-  padding: 24px 16px 16px;
-  border-radius: 0 0 14px 14px;
-  background: #f6f4fa;
+  padding-bottom: var(--seven-sins-padding);
+  border: 1px solid #785345;
+  border-radius: var(--seven-sins-corner);
+  background: #211715;
+  color: var(--virtues-text);
+  box-shadow: 0 10px 30px #10080765;
+}
+.engine :global([data-seven-sins-board]) ~ :global([data-mini-virtues-result]),
+.engine :global([data-seven-sins-board]) ~ :global([data-mini-virtues-next]) {
+  padding-inline: var(--seven-sins-padding);
+}
+.engine :global([data-seven-sins-board]) ~ :global([data-mini-virtues-result]) {
+  padding-top: clamp(20px, 3vw, 32px);
+  border-top: 1px solid var(--virtues-border);
+}
+.engine :global([data-seven-sins-board]) ~ :global([data-mini-virtues-actions]) {
+  margin: 16px var(--seven-sins-padding) 0;
+  justify-content: flex-start;
 }
 .engine :global([data-seven-sins-board]) ~ :global([data-mini-virtues-actions]) button {
   border-color: #b98d5b;
@@ -81,4 +100,16 @@
 .engine :global([data-seven-sins-board]) ~ :global([data-mini-virtues-actions]) button:last-child {
   background: #874441;
   color: #fff0d3;
+}
+.engine :global(#take-test):has(> :global([data-seven-sins-board])) :is(a, button, summary):focus-visible { outline-color: var(--virtues-focus); }
+.engine :global([data-seven-sins-board]) ~ :is(textarea, p[role="status"]) {
+  width: calc(100% - var(--seven-sins-padding) * 2);
+  margin-inline: var(--seven-sins-padding);
+  border-color: var(--virtues-field-border);
+  background: var(--virtues-field);
+  color: var(--virtues-text);
+}
+@media (min-width: 900px) {
+  .main:has(:global([data-seven-sins-board])) { padding-block-start: 24px; }
+  .engine :global(#take-test):has(> :global([data-seven-sins-board])) { width: 100%; }
 }

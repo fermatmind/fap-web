@@ -1,18 +1,15 @@
 .frame {
   container-type: inline-size;
-  width: min(100%, 570px);
-  margin-inline: auto;
+  width: 100%;
   color: #f3e5ca;
 }
 .board {
   position: relative;
   padding: 6.8cqw 3.4cqw 3.8cqw;
-  border: 1px solid #785345;
-  border-radius: 2.2cqw;
+  border-radius: var(--seven-sins-corner, 12px) var(--seven-sins-corner, 12px) 0 0;
   background:
     repeating-linear-gradient(90deg, transparent 0 12%, #b9866510 12.15%, transparent 12.3%),
     radial-gradient(ellipse at 50% 15%, #501e1d 0, #361815 40%, #1e1110 100%);
-  box-shadow: inset 0 0 0 1px #cfa77a30, 0 0 24px #13080780;
 }
 .board::before {
   position: absolute;
@@ -86,6 +83,7 @@
 .card[data-seven-sins-leader="sin"] strong { color: #e27579; }
 .balance { display: flex; justify-content: center; flex-wrap: wrap; gap: 0 1.2cqw; margin: 3.5cqw 0 .6cqw; color: #e7a274; font-size: 3.45cqw; font-weight: 750; line-height: 1.4; }
 .balance span + span::before { margin-right: 1.2cqw; content: "·"; }
+.readingsLink { display: none; }
 .chart {
   padding: 3cqw 1cqw 0;
   border: 1px solid #65513e;
@@ -108,3 +106,41 @@
 .sinValue, .virtueValue { font-size: 10.6px; font-weight: 850; font-variant-numeric: tabular-nums; }
 .sinValue { fill: #eb818a; }
 .virtueValue { fill: #f2cd8b; }
+
+@container (min-width: 820px) {
+  .board {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 32px;
+    padding: 32px var(--seven-sins-padding, 32px);
+  }
+  .board::before { inset: 12px; border-radius: 8px; }
+  .summary { min-width: 0; }
+  .hero { padding-bottom: 20px; text-align: left; }
+  .eyebrow { margin-bottom: 12px; font-size: 11px; }
+  .frame .hero .title { font-size: clamp(26px, 3.25cqw, 36px); white-space: normal; text-wrap: balance; }
+  .frame:lang(en) .hero .title { font-size: clamp(22px, 2.6cqw, 29px); }
+  .title span { padding: 3px 9px; border-radius: 6px; vertical-align: .06em; }
+  .tagline { justify-content: flex-start; margin-top: 12px; font-size: 14px; }
+  .tagline::before, .tagline::after { display: none; }
+  .cards { gap: 12px; margin-top: 16px; }
+  .card { min-height: 164px; gap: 4px; padding: 14px 8px 12px; border-radius: 10px; }
+  .cardLabel { margin-bottom: 3px; font-size: 14px; }
+  .cardEnglish { font-size: 11px; }
+  .cardName { font-size: 34px; }
+  .frame:lang(en) .cardName { font-size: 26px; }
+  .cardTies { font-size: 15px; }
+  .tieLabel { margin-bottom: 4px; font-size: 11px; }
+  .cardScore { font-size: 13px; }
+  .cardScore strong { font-size: 29px; }
+  .balance { justify-content: flex-start; gap: 0 8px; margin: 14px 0 0; font-size: 14px; }
+  .balance span + span::before { margin-right: 8px; }
+  .readingsLink { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 8px; color: #f0cd96; font-size: 14px; text-underline-offset: 4px; }
+  .frame .readingsLink:is(:hover, :focus-visible) { color: #fff0d3; }
+  .chart { min-width: 0; padding: 14px 10px 4px; border-radius: 12px; box-shadow: inset 0 0 0 3px #1b1715, inset 0 0 0 4px #55433162; }
+  .chart h3 { gap: 10px; font-size: 22px; }
+  .chart h3::before, .chart h3::after { width: 28px; }
+  .chartSubtitle { margin: 6px 0 2px; font-size: 13px; }
+  .radar { max-width: 438px; }
+}

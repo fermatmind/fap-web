@@ -89,20 +89,23 @@ export function QuestionnaireSevenSinsOverview({ result, locale, headingRef }: {
       : (zh ? "暗影略占上风" : "Shadow has the edge");
   return <div className={styles.frame} data-seven-sins-board>
     <div className={styles.board}>
-      <header className={styles.hero}>
-        <p className={styles.eyebrow}>Seven Sins vs Seven Virtues</p>
-        <h2 ref={headingRef} tabIndex={-1} className={styles.title}>
-          {zh ? "你的" : "Your"} <span>{zh ? "七宗罪 VS 七美德" : "Seven Sins vs Seven Virtues"}</span> {zh ? "结果" : "Results"}
-        </h2>
-        <p className={`${styles.lined} ${styles.tagline}`}>{zh ? "左侧暗影牵引 · 右侧光辉托举" : "Shadow pulls · Light lifts"}</p>
-      </header>
-      <div className={styles.cards}>
-        <LeadingCard axes={sins} locale={locale} />
-        <LeadingCard axes={virtues} locale={locale} />
+      <div className={styles.summary}>
+        <header className={styles.hero}>
+          <p className={styles.eyebrow}>Seven Sins vs Seven Virtues</p>
+          <h2 ref={headingRef} tabIndex={-1} className={styles.title}>
+            {zh ? "你的" : "Your"} <span>{zh ? "七宗罪 VS 七美德" : "Seven Sins vs Seven Virtues"}</span> {zh ? "结果" : "Results"}
+          </h2>
+          <p className={`${styles.lined} ${styles.tagline}`}>{zh ? "左侧暗影牵引 · 右侧光辉托举" : "Shadow pulls · Light lifts"}</p>
+        </header>
+        <div className={styles.cards}>
+          <LeadingCard axes={sins} locale={locale} />
+          <LeadingCard axes={virtues} locale={locale} />
+        </div>
+        <p className={styles.balance} data-seven-sins-balance>
+          <span>{balance}</span><span>{zh ? "美德均值" : "Virtue avg."} {virtueAverage}</span><span>{zh ? "罪均值" : "Sin avg."} {sinAverage}</span>
+        </p>
+        <a className={styles.readingsLink} href="#seven-sins-readings">{zh ? "查看七组解读" : "Explore the seven readings"} <span aria-hidden="true">↓</span></a>
       </div>
-      <p className={styles.balance} data-seven-sins-balance>
-        <span>{balance}</span><span>{zh ? "美德均值" : "Virtue avg."} {virtueAverage}</span><span>{zh ? "罪均值" : "Sin avg."} {sinAverage}</span>
-      </p>
       <Radar axes={[...sins, ...virtues]} locale={locale} />
     </div>
   </div>;

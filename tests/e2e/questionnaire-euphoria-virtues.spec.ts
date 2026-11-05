@@ -29,7 +29,10 @@ async function answer(page: Page, quiz: Quiz, locale: Locale, answers: Record<st
    await page.keyboard.press("Space");
   } else await radio.click();
  }
- await expect(page.locator("#take-test h2")).toBeFocused();
+ const title = quiz === virtues
+   ? page.locator("[data-seven-sins-board] h2")
+   : page.locator("#take-test h2");
+ await expect(title).toBeFocused();
  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
  const ids = await page.locator("#take-test [id]").evaluateAll(nodes => nodes.map(node => node.id));
  expect(new Set(ids).size).toBe(ids.length);

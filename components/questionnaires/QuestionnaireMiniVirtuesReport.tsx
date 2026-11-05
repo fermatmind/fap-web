@@ -80,22 +80,33 @@ export function QuestionnaireMiniVirtuesReport({ quiz, result, locale }: {
   const parts = result.miniVirtues.map(part => ({ ...part, direction: quiz.directions.find(d => d.id === part.id)!, profile: quiz.profiles.find(p => p.id === part.profileId)! }));
   const editions = unique(parts.flatMap(part => part.profile.sections.filter(section => section.id === "edition").flatMap(section => section.paragraphs.map(p => p[locale]))));
   const scoreReadings = unique(parts.map(part => part.profile.scoreReading[locale]));
-  return <div className={styles.report} data-mini-virtues-result>
+  return <section className={styles.report} data-mini-virtues-result data-dual-readings={result.model === "dual" ? "true" : undefined} aria-labelledby={result.model === "dual" ? "seven-sins-readings" : undefined}>
     <header className={styles.intro}>
+      {result.model === "dual" && <h2 id="seven-sins-readings" tabIndex={-1} className={styles.chapterTitle}>{zh ? "七组维度解读" : "Your seven paired readings"}</h2>}
       <p>{zh ? "从被看见、分享、比较到休息，看看七组回答各自在谈什么。" : "Explore what your seven groups of answers cover, from recognition and sharing to comparison and rest."}</p>
       <p className={styles.boundary}>{result.model === "dual" ? quiz.guide[2].paragraphs[0][locale] : zh ? "1—5表示对本组四句话的符合程度。七组分开读。" : "The 1–5 mean describes agreement with four statements. Read each group separately."}</p>
     </header>
-    <label className={styles.chooser} id="mini-virtues-choose">
-      <span>{zh ? "想先了解哪个角度？" : "Which perspective would you like to explore?"}</span>
-      <select defaultValue={parts[0].id} onChange={event => {
-        const target = document.getElementById(`mini-virtues-${event.target.value}`);
-        if (!target) return;
-        target.focus({ preventScroll: true });
-        target.scrollIntoView({ block: "start", behavior: "instant" });
-      }}>
-        {parts.map(part => <option key={part.id} value={part.id}>{part.direction.title[locale]}{"mean" in part ? ` · ${part.mean.toFixed(2)} / 5` : ""}</option>)}
-      </select>
-    </label>
+    <div className={styles.readingIndex} id="mini-virtues-choose">
+      <label className={styles.chooser}>
+        <span>{zh ? "想先了解哪个角度？" : "Which perspective would you like to explore?"}</span>
+        <select defaultValue={parts[0].id} onChange={event => {
+          const target = document.getElementById(`mini-virtues-${event.target.value}`);
+          if (!target) return;
+          target.focus({ preventScroll: true });
+          target.scrollIntoView({ block: "start", behavior: "instant" });
+        }}>
+          {parts.map(part => <option key={part.id} value={part.id}>{part.direction.title[locale]}{"mean" in part ? ` · ${part.mean.toFixed(2)} / 5` : ""}</option>)}
+        </select>
+      </label>
+      {result.model === "dual" && <nav className={styles.index} aria-label={zh ? "七组解读目录" : "Seven readings index"}>
+        <p>{zh ? "阅读目录" : "In this report"}</p>
+        <ol>
+          {parts.map((part, index) => <li key={part.id}>
+            <a href={`#mini-virtues-${part.id}`}><span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>{part.direction.title[locale]}</a>
+          </li>)}
+        </ol>
+      </nav>}
+    </div>
     <div className={styles.parts}>
       {parts.map((part, index) => {
         const reading = everydayReading(part.profile, locale);
@@ -150,7 +161,7 @@ export function QuestionnaireMiniVirtuesReport({ quiz, result, locale }: {
         {editions.map(text => <p key={text}>{text}</p>)}
       </div>
     </details>
-  </div>;
+  </section>;
 }
 
 export function QuestionnaireMiniVirtuesNextSteps({ locale }: { locale: Locale }) {
