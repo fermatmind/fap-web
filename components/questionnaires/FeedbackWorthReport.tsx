@@ -24,7 +24,7 @@ export function FeedbackWorthReport({ quiz, records, locale, readingProfiles }: 
       <nav className="mt-4" aria-label={zh ? "从感受、自我看法或注意力开始读" : "Start with feelings, self-worth or attention"}>
         <ol className="space-y-3">
           {records.map((record, index) => <li key={record.id} className="grid grid-cols-[2rem_minmax(0,1fr)] gap-x-3">
-            <span className="pt-2.5 font-semibold tabular-nums text-rose-800" aria-hidden="true">0{index + 1}</span>
+            <span className="pt-2 font-semibold tabular-nums text-rose-800" aria-hidden="true">0{index + 1}</span>
             <div className="border-b border-rose-200 pb-3">
               <a className="inline-flex min-h-11 items-center font-semibold text-rose-950 underline underline-offset-4" href={`#feedback-worth-record-${record.id}`}>{quiz.directions[index].title[locale]}</a>
               <ObservationChoiceCounts categories={feedbackWorthCategories} counts={record.counts} locale={locale} shortLabels={{

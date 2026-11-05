@@ -24,7 +24,7 @@ export function QuestionnaireFourAxesReport({ quiz, result, locale, readingProfi
           return <a key={axis.id} href={`#four-axes-${axis.id}`} className="min-w-0 border-t border-violet-200 py-3">
             <span className="block font-semibold text-violet-950 underline decoration-violet-400 underline-offset-4">{axis.title[locale]}</span>
             <span className="mt-2 flex justify-between gap-2 text-sm leading-6"><span>{axis.low[locale]} {value.lowPercent.toFixed(1)}%</span><span className="text-right">{axis.high[locale]} {value.highPercent.toFixed(1)}%</span></span>
-            <span aria-hidden="true" className="mt-1.5 flex h-1.5 overflow-hidden rounded-full bg-violet-100"><span className="bg-violet-700" style={{ width: `${value.lowPercent}%` }} /><span className="bg-teal-600" style={{ width: `${value.highPercent}%` }} /></span>
+            <span aria-hidden="true" className="mt-2 flex h-1.5 overflow-hidden rounded-full bg-violet-100"><span className="bg-violet-700" style={{ width: `${value.lowPercent}%` }} /><span className="bg-teal-600" style={{ width: `${value.highPercent}%` }} /></span>
           </a>;
         })}
       </div>

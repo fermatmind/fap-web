@@ -19,7 +19,7 @@ export function QuestionnaireOrientationReport({ quiz, result, locale, readingPr
         <nav aria-label={zh ? "按探索主题打开记录" : "Open your notes by topic"} className="mt-4 border-t border-cyan-200">
           {quiz.directions.map(direction => {
             const record = result.domains[direction.id];
-            return <a key={direction.id} href={`#orientation-${direction.id}`} className="block min-h-12 border-b border-cyan-200 py-2.5 text-cyan-950 last:border-b-0 md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:gap-4">
+            return <a key={direction.id} href={`#orientation-${direction.id}`} className="block min-h-12 border-b border-cyan-200 py-2 text-cyan-950 last:border-b-0 md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:gap-4">
               <span className="font-semibold underline decoration-cyan-400 underline-offset-4">{direction.title[locale]}</span>
               <span className="block text-sm leading-6">{zh ? `${record.numeric} 项数字回答，其中 ${record.uncertain} 项暂不确定 · ${record.skipped} 项跳过` : `${record.numeric} numeric, including ${record.uncertain} uncertain · ${record.skipped} skipped`}</span>
             </a>;
