@@ -392,9 +392,15 @@ for (const locale of ["en", "zh"] as const) {
     await inspectLayout(page, view, `friendship-${locale}`);
     const score = view.locator(".fq-result-head");
     const conversation = view.locator("#fq-conversation");
-    expect((await conversation.boundingBox())!.x).toBeGreaterThan((await score.boundingBox())!.x);
-    await page.setViewportSize({ width: 390, height: 844 });
-    expect((await conversation.boundingBox())!.y).toBeGreaterThan((await score.boundingBox())!.y);
+    const categoriesPanel = view.locator("#fq-category-reading");
+    for (const width of [1440, 390]) {
+      await page.setViewportSize({ width, height: 844 });
+      const scoreBox = (await score.boundingBox())!;
+      const categoriesBox = (await categoriesPanel.boundingBox())!;
+      const conversationBox = (await conversation.boundingBox())!;
+      expect(categoriesBox.y).toBeGreaterThanOrEqual(scoreBox.y + scoreBox.height);
+      expect(conversationBox.y).toBeGreaterThanOrEqual(categoriesBox.y + categoriesBox.height);
+    }
     await view.getByText(locale === "zh" ? "查看逐题对照" : "See every answer", { exact: true }).click();
     const firstAnswer = view.locator("#fq-conversation .fq-answer-list > li").first();
     await firstAnswer.scrollIntoViewIfNeeded();

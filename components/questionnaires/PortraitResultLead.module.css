@@ -68,10 +68,77 @@ header.lead[data-portrait-lead] {
 .selection dd { margin: 0; font-weight: 700; }
 .selection > div:first-child dd { font-size: 22px; font-variant-numeric: tabular-nums; }
 .selection dd span { font-size: 15px; }
+.art { display: block; width: 100%; height: auto; aspect-ratio: 1; border-radius: 8px; }
 
 @media (min-width: 760px) {
   .lead:not([data-portrait-lead="botanical"]):has(.selection) { grid-template-columns: minmax(0, 1fr) auto; }
   .selection { flex-direction: column; gap: 4px; min-width: 132px; }
   .lead[data-portrait-layout="storybook"]:has(.selection) { grid-template-columns: minmax(0, 1fr); }
   .lead[data-portrait-layout="storybook"] .selection { flex-direction: row; gap: 6px 18px; justify-self: start; }
+  .lead[data-portrait-lead][data-portrait-art] {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 36%);
+    grid-template-areas: "intro art" "selection art";
+    align-content: center;
+  }
+  .lead[data-portrait-art] .intro { grid-area: intro; align-self: end; }
+  .lead[data-portrait-art] .art { grid-area: art; }
+  .lead[data-portrait-art] .selection { grid-area: selection; align-self: start; justify-self: start; }
+}
+
+.auraArtwork,
+.symbolArtwork {
+  display: grid;
+  grid-area: art;
+  justify-self: center;
+  width: min(100%, 250px);
+  min-width: 0;
+}
+
+.auraArtwork { gap: 12px; }
+.auraHalo {
+  aspect-ratio: 1.38;
+  border-radius: 18px;
+  background: radial-gradient(ellipse at center, #fff 0%, var(--aura-color) 29%, #201537 72%);
+}
+.auraSpectrum { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 5px; }
+.auraSpectrum span { height: 11px; border-radius: 4px; }
+.auraSpectrum span[data-active] { outline: 2px solid currentColor; outline-offset: 2px; }
+
+.symbolArtwork {
+  place-items: center;
+  min-height: 130px;
+  border: 1px solid var(--lead-edge);
+  border-radius: 16px;
+  background: #ffffff80;
+}
+.symbolArtwork[data-artwork-style="tarot"] {
+  width: min(100%, 132px);
+  aspect-ratio: 2 / 3;
+  padding: 12px;
+  border: 4px double #c1a66d;
+  border-radius: 12px;
+  color: #f5d894;
+  background: #35244c;
+}
+.symbolArtwork[data-artwork-style="folio"] { border-inline-start: 8px solid #ad8b55; border-radius: 4px 16px 16px 4px; }
+.symbolArtwork[data-artwork-style="field"] { border-radius: 48% 48% 18px 18px; color: #295d49; }
+.symbolArtwork[data-artwork-style="guild"] { background: #f1e0be; border: 3px double #9a7340; }
+.symbolArtwork[data-artwork-style="dossier"] { background: #263444; color: #e1e8ef; border-radius: 4px; }
+.cardStar { opacity: .8; }
+
+@media (max-width: 759px) {
+  .auraArtwork,
+  .symbolArtwork { grid-area: auto; order: 2; }
+  .lead:has([data-quiz-artwork]) .intro { display: contents; }
+  .lead:has([data-quiz-artwork]) :is(.eyebrow, .title) { order: 1; }
+  .lead:has([data-quiz-artwork]) :is(.headline, .summary, .selection) { order: 3; }
+}
+
+@media (min-width: 760px) {
+  .lead[data-portrait-lead]:has([data-quiz-artwork]) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 32%);
+    grid-template-areas: "intro art" "selection art";
+  }
+  .lead:has([data-quiz-artwork]) .intro { grid-area: intro; }
+  .lead:has([data-quiz-artwork]) .selection { grid-area: selection; justify-self: start; }
 }

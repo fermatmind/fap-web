@@ -7,20 +7,28 @@ import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 export function QuestionnaireEightValuesReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<EightValuesResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh";
+  const colors = {
+    econ: ["#b53e46", "#236962"], dipl: ["#a85e1d", "#2267a0"],
+    govt: ["#9a751a", "#494b9d"], scty: ["#52782a", "#843f93"],
+  } as const;
   const title = (id: string) => quiz.profiles.find(p => p.id === id)!.title[locale];
   return <div className="my-6 space-y-8">
     <section className="rounded-xl border border-violet-200 bg-violet-50/55 p-4 sm:p-6" aria-label={zh ? "本次四轴八极结果" : "Four axes and eight poles for this attempt"}>
       <h3 className="text-xl font-semibold">{zh ? "本次四轴，分别阅读" : "Read each of your four axes separately"}</h3>
       <p className="mt-3 max-w-prose leading-7">{zh ? "每条轴的两端一起读。选一端可读它涉及哪些议题和取舍，另一端的指南也始终可读。" : "Read both ends of each axis together. Open either end for its issues and trade-offs. The guide to the other end remains available."}</p>
-      <dl className="mt-4 grid gap-x-6 lg:grid-cols-2">{eightValuesPairs.map(({ axis, positive, negative }) => {
+      <dl className="mt-5 grid gap-3">{eightValuesPairs.map(({ axis, positive, negative }) => {
         const score = result.eightValuesAxes[axis];
-        return <div key={axis} data-eight-values-axis={axis} className="min-w-0 space-y-2 border-t border-violet-200 py-3">
+        const [left, right] = colors[axis];
+        const reversed = axis === "dipl" || axis === "scty";
+        const poles = [{ id: positive, value: score.percentage }, { id: negative, value: score.complement }];
+        const [leftPole, rightPole] = reversed ? [poles[1], poles[0]] : poles;
+        return <div key={axis} data-eight-values-axis={axis} className="min-w-0 space-y-2 rounded-lg border border-violet-200 bg-white p-3 sm:p-4">
           <dt className="font-semibold">{quiz.directions.find(d => d.id === axis)!.title[locale]}</dt>
           <dd className="grid grid-cols-2 gap-3 text-sm leading-6">
-            <a className="inline-flex min-h-11 flex-col justify-center font-medium text-violet-950 underline underline-offset-4" href={`#eight-values-title-${positive}`}>{title(positive)} <span className="tabular-nums">{score.percentage.toFixed(1)}%</span></a>
-            <a className="inline-flex min-h-11 flex-col items-end justify-center text-right font-medium text-teal-950 underline underline-offset-4" href={`#eight-values-title-${negative}`}>{title(negative)} <span className="tabular-nums">{score.complement.toFixed(1)}%</span></a>
+            <a className="inline-flex min-h-11 flex-col justify-center font-medium text-violet-950 underline underline-offset-4" href={`#eight-values-title-${leftPole.id}`}>{title(leftPole.id)} <span className="tabular-nums">{leftPole.value.toFixed(1)}%</span></a>
+            <a className="inline-flex min-h-11 flex-col items-end justify-center text-right font-medium text-teal-950 underline underline-offset-4" href={`#eight-values-title-${rightPole.id}`}>{title(rightPole.id)} <span className="tabular-nums">{rightPole.value.toFixed(1)}%</span></a>
           </dd>
-          <dd aria-hidden="true" className="flex h-2 overflow-hidden rounded-full"><span className="bg-violet-700" style={{ width: `${score.percentage}%` }} /><span className="bg-teal-700" style={{ width: `${score.complement}%` }} /></dd>
+          <dd aria-hidden="true" className="relative flex h-4 overflow-hidden rounded-full sm:h-6"><span className="absolute inset-y-0 left-1/2 w-0.5 -translate-x-1/2 bg-white" /><span style={{ backgroundColor: left, width: `${leftPole.value}%` }} /><span style={{ backgroundColor: right, width: `${rightPole.value}%` }} /></dd>
           <dd className="text-sm">{zh ? "原始加权和 / 绝对权重和：" : "Weighted sum / absolute weight sum: "}{score.sum} / {score.maximum}</dd>
         </div>;
       })}</dl>

@@ -131,8 +131,7 @@
 @media print { .fq-videos video { display:none; } }
 
 .fq-result .fq-result-lead { display:grid; min-width:0; border:1px solid #ded7ed; border-radius:22px; }
-.fq-result-lead > .fq-result-head { min-width:0; text-align:left; border-radius:21px 21px 0 0; }
-.fq-result-lead > .fq-conversation { min-width:0; margin:0; border:0; border-top:1px solid #ded7ed; border-radius:0 0 21px 21px; }
+.fq-result-lead > .fq-result-head { min-width:0; text-align:left; border-radius:21px; }
 .fq-result-score { display:grid; grid-template-columns:auto minmax(0,1fr); align-items:center; gap:clamp(12px,3vw,20px); }
 .fq-result-score .fq-ring { width:clamp(96px,13vw,130px); height:auto; aspect-ratio:1; margin:0; }
 .fq-result-score .fq-ring > div { width:calc(100% - 16px); height:calc(100% - 16px); }
@@ -145,9 +144,6 @@
 .fq-category-compare { min-width:0; }
 
 @media (min-width: 900px) {
-  .fq-result .fq-result-lead { grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); }
-  .fq-result-lead > .fq-result-head { border-radius:21px 0 0 21px; }
-  .fq-result-lead > .fq-conversation { border-top:0; border-inline-start:1px solid #ded7ed; border-radius:0 21px 21px 0; }
   .fq-category-compare { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); gap:24px; align-items:start; }
   .fq-category-compare .fq-radar { width:100%; }
 }
@@ -161,3 +157,10 @@
 @media (min-width: 880px) {
   .fq-solo-readings { grid-template-columns:repeat(2,minmax(0,1fr)); align-items:start; }
 }
+
+.fq-result-jumps { display:flex; flex-wrap:wrap; gap:0 16px; }
+.fq-result-jumps a { display:inline-flex; align-items:center; min-height:44px; text-underline-offset:4px; }
+.fq-solo-facts { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); max-width:28rem; margin:18px 0; gap:12px; }
+.fq-solo-facts > div { min-width:0; padding:12px; border:1px solid #d6e0ed; border-radius:10px; background:#f2f6fc; }
+.fq-solo-facts dt { font-size:.875rem; color:#435774; }
+.fq-solo-facts dd { margin:2px 0 0; font-size:1.6rem; font-weight:650; }

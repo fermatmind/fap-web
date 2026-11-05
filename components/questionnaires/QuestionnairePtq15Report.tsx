@@ -15,7 +15,12 @@ export function QuestionnairePtq15Report({ quiz, result, locale }: {
   const rows = [{ id: "total-reading", title: zh ? "十五项总分" : "Fifteen-item total", sum: data.overallSum, rated: data.rated, total: 15, maximum: 60 },
       ...quiz.directions.map(direction => ({ id: `${direction.id}-reading`, title: direction.title[locale], ...data.parts[direction.id as keyof typeof data.parts] }))];
   return <ResultPage variant="reflection" className="my-6 space-y-8" data-ptq15-result>
-
+    <ResultOverview data-ptq15-overview locale={locale} title={zh ? "本次总分与三个分量表" : "Your total and three subscales"}
+      items={rows.map(row => ({ id: row.id, label: row.title, href: `#ptq15-${row.id}`,
+        value: row.sum === null ? (zh ? "资料不足" : "Insufficient information") : `${row.sum} / ${row.maximum}`,
+        note: zh ? `${row.rated} / ${row.total}项有效回答` : `${row.rated} / ${row.total} rated items` }))}>
+      <p className="mt-4 text-sm leading-7">{zh ? "各项题量不同，不按原始和比较强弱。资料不足保持未评分；点击名称查看各自读法。" : "Item counts differ, so raw sums do not rank the parts. Insufficient information stays unscored. Select a name for its own guide."}</p>
+    </ResultOverview>
 
     {rows.map(row => {
       const profile = quiz.profiles.find(p => p.id === row.id)!;
@@ -38,12 +43,7 @@ export function QuestionnairePtq15Report({ quiz, result, locale }: {
       : "The subscales have different item counts; do not rank them by raw sums. Scores do not decide diagnosis, treatment, qualifications or career fit. If repetitive thinking is distressing or affecting daily life, qualified professional support can be considered regardless of the score, without submitting private thoughts."}</p>
 
     <details className="border-t border-slate-200 pt-4" data-result-reading-method>
-      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
-      <ResultOverview locale={locale} title={zh ? "总分与三项原始和" : "Total and three raw subscale sums"}
-      description={zh ? "各项题量不同，不按原始和比较强弱。资料不足保持未评分；点击名称查看各自读法。" : "Item counts differ, so raw sums do not rank the parts. Insufficient information stays unscored. Select a name for its own guide."}
-      items={rows.map(row => ({ id: row.id, label: row.title, href: `#ptq15-${row.id}`,
-        value: row.sum === null ? (zh ? "资料不足" : "Insufficient information") : `${row.sum} / ${row.maximum}`,
-        note: zh ? `${row.rated} / ${row.total}项有效回答` : `${row.rated} / ${row.total} rated items` }))} />
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "计分与使用说明" : "Scoring and use notes"}</summary>
       <p className="leading-8">{zh
       ? "以下保留原PTQ总分和三个分量表原始和。题目询问通常的思考方式，没有指定近期时间窗。不划严重程度档、不作人群或职业排名，也不诊断。简体中文是尚未验证的费马工作译文。"
       : "These are the original PTQ total and three raw subscale sums. Items concern typical thinking without a fixed recent time window. No severity bands, population or career rankings, or diagnosis are produced. Simplified Chinese is a new, unvalidated FermatMind working translation."}</p>

@@ -159,6 +159,10 @@ export default function FriendshipClient({ locale, inviteId, management = false 
         <p className="fq-eyebrow">{zh ? "单人选择手记" : "Your solo choice journal"}</p>
         <h2 ref={focus} tabIndex={-1}>{zh ? "这是你的选择" : "These are your choices"}</h2>
         <p>{zh ? "这些选择只留在当前浏览器，不上传答案，本轮不评分。" : "These choices stay in this browser. Solo answers are not uploaded or scored."}</p>
+        <dl className="fq-solo-facts">
+          <div><dt>{zh ? "本轮题目" : "Choices in this round"}</dt><dd>{questions.length}</dd></div>
+          <div><dt>{zh ? "生活侧面" : "Categories"}</dt><dd>{soloCategories.length}</dd></div>
+        </dl>
         <nav className="fq-solo-index" aria-label={zh ? "跳到一类选择" : "Jump to a choice category"}>
           <ul>{soloCategories.map(({ id, label, items }) => <li key={id}><a href={`#fq-solo-${id}`}>{label} <span>{items.length}</span></a></li>)}</ul>
         </nav>

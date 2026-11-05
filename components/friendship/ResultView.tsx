@@ -26,17 +26,14 @@ export function ResultView({ locale, challenge, result, url, onManage, headingRe
           </div>
         </div>
         <dl className="fq-result-facts"><div><dt>{zh ? "最佳连击" : "Best streak"}</dt><dd>{streak(result.guesses, result.answers).best} {zh ? "题" : "correct guesses"}</dd></div><div><dt>{zh ? "本次各类猜中情况" : "Your category matches"}</dt><dd>{max === 0 ? (zh ? "这次各类都还没猜中，可以从一个意外的答案聊起。" : "No category had a match this time. Start with one surprising answer.") : <>{zh ? "猜中率最高：" : "Highest match rate: "}{highlights.join(zh ? "、" : ", ")}{highlights.length > 1 ? (zh ? "（并列）" : " (tied)") : ""}</>}</dd></div></dl>
+        <nav className="fq-result-jumps" aria-label={zh ? "跳到结果详情" : "Jump to result details"}>
+          <a href="#fq-category-reading">{zh ? "六类猜中情况" : "Six category results"}</a>
+          <a href="#fq-conversation">{zh ? "逐题对照" : "Answer comparison"}</a>
+        </nav>
         {result.preview && <p role="status" className="fq-warning">{zh ? "创建者预演 · 未加入榜单或统计" : "Creator preview · not recorded in the ranking or statistics"}</p>}
         <p className="fq-muted">{zh ? "称号只是这轮小游戏的反馈，不给友情打分。" : "The title is playful feedback on this round, not a rating of your friendship."}</p>
       </header>
 
-      <section id="fq-conversation" className="fq-section fq-conversation" aria-labelledby="fq-conversation-title">
-        <p className="fq-eyebrow">{zh ? "从分数回到朋友" : "From scores to friends"}</p>
-        <h3 id="fq-conversation-title">{zh ? "把答案变成聊天" : "Turn your answers into a conversation"}</h3>
-        {conversationQuestion && <div className="fq-conversation-example"><p><b>{conversationQuestion[locale].options.join(" / ")}</b></p><p>{zh ? "你猜的是：" : "Your guess: "}{conversationQuestion[locale].options[result.guesses[conversationIndex]]}<br />{zh ? "朋友选的是：" : "Their choice: "}{conversationQuestion[locale].options[result.answers[conversationIndex]]}</p><p>{surprise >= 0 ? (zh ? "这是一道你们选择不同的题，可以从这里聊起。" : "This is one of the choices you did not guess. It could be a place to start talking.") : (zh ? "这次全部猜中了！可以问问，你是凭哪次共同经历想到这个答案的？" : "Every guess matched this time! What shared memory helped you guess this choice?")}</p></div>}
-        <p>{zh ? "问一句：你选这一边，是最近改变了想法，还是我一直没留意？尊重对方不想讨论的题。" : "Ask: Is this a recent change, or something I hadn't noticed? It's fine to leave a question out of the conversation."}</p>
-        <details><summary>{zh ? "查看逐题对照" : "See every answer"}</summary><ol className="fq-answer-list">{challenge.questions.map((q, i) => <li key={q.id}><b>{i + 1}. {q[locale].options.join(" / ")}</b><p>{zh ? "你的猜测" : "Your guess"}: {q[locale].options[result.guesses[i]]}<br />{zh ? "出题者的选择" : "Creator's choice"}: {q[locale].options[result.answers[i]]} <span>{result.guesses[i] === result.answers[i] ? (zh ? "✓ 猜中" : "✓ Match") : (zh ? "↔ 新发现" : "↔ A discovery")}</span></p></li>)}</ol></details>
-      </section>
     </div>
     <section id="fq-category-reading" className="fq-section" aria-labelledby="fq-category-reading-title">
       <p className="fq-eyebrow">{zh ? "六类选择，各自来看" : "Six categories, read separately"}</p>
@@ -50,6 +47,13 @@ export function ResultView({ locale, challenge, result, url, onManage, headingRe
         })}</div>
       </div>
     </section>
+      <section id="fq-conversation" className="fq-section fq-conversation" aria-labelledby="fq-conversation-title">
+        <p className="fq-eyebrow">{zh ? "从分数回到朋友" : "From scores to friends"}</p>
+        <h3 id="fq-conversation-title">{zh ? "把答案变成聊天" : "Turn your answers into a conversation"}</h3>
+        {conversationQuestion && <div className="fq-conversation-example"><p><b>{conversationQuestion[locale].options.join(" / ")}</b></p><p>{zh ? "你猜的是：" : "Your guess: "}{conversationQuestion[locale].options[result.guesses[conversationIndex]]}<br />{zh ? "朋友选的是：" : "Their choice: "}{conversationQuestion[locale].options[result.answers[conversationIndex]]}</p><p>{surprise >= 0 ? (zh ? "这是一道你们选择不同的题，可以从这里聊起。" : "This is one of the choices you did not guess. It could be a place to start talking.") : (zh ? "这次全部猜中了！可以问问，你是凭哪次共同经历想到这个答案的？" : "Every guess matched this time! What shared memory helped you guess this choice?")}</p></div>}
+        <p>{zh ? "问一句：你选这一边，是最近改变了想法，还是我一直没留意？尊重对方不想讨论的题。" : "Ask: Is this a recent change, or something I hadn't noticed? It's fine to leave a question out of the conversation."}</p>
+        <details><summary>{zh ? "查看逐题对照" : "See every answer"}</summary><ol className="fq-answer-list">{challenge.questions.map((q, i) => <li key={q.id}><b>{i + 1}. {q[locale].options.join(" / ")}</b><p>{zh ? "你的猜测" : "Your guess"}: {q[locale].options[result.guesses[i]]}<br />{zh ? "出题者的选择" : "Creator's choice"}: {q[locale].options[result.answers[i]]} <span>{result.guesses[i] === result.answers[i] ? (zh ? "✓ 猜中" : "✓ Match") : (zh ? "↔ 新发现" : "↔ A discovery")}</span></p></li>)}</ol></details>
+      </section>
     <details className="fq-section fq-secondary-result"><summary>{zh ? "查看好友榜单与逐题统计" : "See the friendboard and question statistics"}</summary><div id="fq-friendboard"><Ranking locale={locale} entries={result.entries} total={result.total} ownId={result.id} /></div>
     <QuestionAccuracy locale={locale} challenge={challenge} stats={result.question_stats} /></details>
     <details id="fq-result-limits" className="fq-section fq-result-limits" ><summary>{zh ? "计分和对照数据怎么看？" : "How do the score and comparisons work?"}</summary><p>{zh ? "平均参照只含同一题组的其他可见完成记录，不含你本人、隐藏记录或创建者预演。没有其他记录时，不显示虚构平均。" : "The comparison uses other visible completed entries on this exact quiz, excluding you, hidden entries and creator previews. With no other entries, no average is invented."}</p><p>{zh ? "分数是猜中数÷总题数，百分比四舍五入。称号只是游戏反馈，不代表友情质量、忠诚、人格配对或人口百分位。第一次作答之外的其他设备参与无法完全识别，榜单适合朋友间娱乐。" : "Your percentage is matches divided by questions, rounded to a whole number. Titles are playful feedback, not friendship quality, loyalty, personality compatibility or population percentiles. Play from another device cannot be reliably detected; keep rankings lighthearted."}</p></details>

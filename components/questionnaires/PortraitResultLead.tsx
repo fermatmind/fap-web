@@ -1,3 +1,5 @@
+import Image from "next/image";
+import { QuizResultArtwork } from "./QuizResultArtwork";
 import type { Locale } from "@/lib/i18n/locales";
 import type { ArchetypeResult } from "@/lib/questionnaires/scoring";
 import type { Questionnaire, QuestionnaireProfile } from "@/lib/questionnaires/types";
@@ -5,8 +7,20 @@ import styles from "./PortraitResultLead.module.css";
 
 type Treatment = "field-note" | "botanical" | "companion" | "house" | "character" | "symbol" | "framework";
 type Tone = "amber" | "rose" | "mint" | "violet" | "ink" | "blue";
-type Emblem = "crescent" | "card" | "spectrum" | "ink";
+type Emblem = "crescent" | "spectrum" | "ink";
 type Edition = { kind: Treatment; tone?: Tone; layout?: "dossier" | "storybook" | "serial"; emblem?: Emblem; label: Record<Locale, string> };
+
+export const illustratedTests = new Set([
+  "anime-character-archetype-test",
+  "blue-lock",
+  "chiikawa",
+  "cyberpunk-edgerunners",
+  "dexter",
+  "gilmore-girls",
+  "naruto-character",
+  "south-park",
+  "tsundere-dere-type",
+]);
 
 const editions: Record<string, Edition> = {
   "spirit-animal": { kind: "field-note", label: { zh: "动物比喻 · 本次选择", en: "Animal metaphor · Your choices" } },
@@ -54,7 +68,7 @@ const editions: Record<string, Edition> = {
   "aura-color": { kind: "symbol", tone: "violet", label: { zh: "色彩意象 · 此刻的主观体验", en: "Color metaphor · How it feels right now" } },
   "mythical-creature": { kind: "symbol", tone: "mint", label: { zh: "传说图鉴 · 行动与取舍", en: "A field guide to legends · Actions and trade-offs" } },
   "superpower-test": { kind: "symbol", tone: "blue", label: { zh: "超能力设定 · 先改变什么", en: "Superpower notes · What to change first" } },
-  "which-tarot-card-are-you": { kind: "symbol", tone: "violet", emblem: "card", label: { zh: "塔罗意象 · 用故事理解当前选择", en: "Tarot metaphor · A story for your current choices" } },
+  "which-tarot-card-are-you": { kind: "symbol", tone: "violet", label: { zh: "塔罗意象 · 用故事理解当前选择", en: "Tarot metaphor · A story for your current choices" } },
   "what-element-am-i": { kind: "symbol", tone: "mint", label: { zh: "元素意象 · 你的反应方式", en: "Elemental metaphor · Your ways of responding" } },
   "past-life": { kind: "symbol", tone: "amber", label: { zh: "虚构前世 · 这次选择串成的故事", en: "Imagined past life · A story from these choices" } },
   "moon-phase": { kind: "symbol", tone: "ink", emblem: "crescent", label: { zh: "月相意象 · 当下的行动节奏", en: "Moon phase metaphor · Your pace right now" } },
@@ -99,7 +113,6 @@ function PetalMark() {
 function SymbolMark({ emblem }: { emblem: Emblem }) {
   return <svg className={styles.petal} viewBox="0 0 80 80" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.5">
     {emblem === "crescent" && <path d="M55 18a24 24 0 1 0 6 37 21 21 0 0 1-6-37Z" />}
-    {emblem === "card" && <><rect x="20" y="11" width="40" height="58" rx="5" /><path d="m40 26 11 14-11 14-11-14Z" /></>}
     {emblem === "spectrum" && <><circle cx="29" cy="40" r="14" /><circle cx="51" cy="40" r="14" /><circle cx="40" cy="30" r="14" /></>}
     {emblem === "ink" && <path fill="currentColor" fillOpacity=".15" d="M40 34C27 22 28 14 21 19c-5 4-3 13-8 17-9 9 9 21 19 15 3 11 13 11 16 0 10 6 28-6 19-15-5-4-3-13-8-17-7-5-6 3-19 15Z" />}
   </svg>;
@@ -118,14 +131,17 @@ export function PortraitResultLead({ kind, quiz, profile, result, locale, titleI
   const zh = locale === "zh";
   const edition = editions[quiz.slug];
   const showsHeadline = kind !== "house" && profile.headline[locale] !== profile.title[locale] && profile.headline[locale] !== profile.summary[locale];
+  const artwork = illustratedTests.has(quiz.slug) ? `/images/quiz-portraits/${quiz.slug}/${profile.id}.webp` : undefined;
 
-  return <header className={styles.lead} data-portrait-lead={kind} data-portrait-key={profile.id} data-portrait-tone={edition.tone} data-portrait-layout={edition.layout} data-portrait-emblem={edition.emblem}>
+  return <header className={styles.lead} data-portrait-lead={kind} data-portrait-key={profile.id} data-portrait-tone={edition.tone} data-portrait-layout={edition.layout} data-portrait-emblem={edition.emblem} data-portrait-art={artwork ? profile.id : undefined}>
     <div className={styles.intro}>
       <p className={styles.eyebrow}>{edition.label[locale]}</p>
       <h3 id={titleId} className={styles.title}>{profile.title[locale]}</h3>
       {showsHeadline && <p className={styles.headline}>{profile.headline[locale]}</p>}
       <p className={styles.summary}>{profile.summary[locale]}</p>
     </div>
+    {artwork && <Image className={styles.art} src={artwork} width={640} height={640} unoptimized alt="" />}
+    <QuizResultArtwork slug={quiz.slug} id={profile.id} />
     {kind === "botanical" ? <PetalMark /> : edition.emblem ? <SymbolMark emblem={edition.emblem} /> : kind !== "symbol" && typeof count === "number" && direction?.comparisons ? <dl className={styles.selection}>
       <div><dt>{zh ? "本次选中" : "Chosen this time"}</dt><dd>{count}<span> / {direction.comparisons}</span></dd></div>
       <div><dt>{zh ? "分母" : "Denominator"}</dt><dd>{zh ? "该选项出现次数" : "Times this option appeared"}</dd></div>
