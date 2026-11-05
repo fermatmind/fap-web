@@ -438,6 +438,31 @@ export function getSimpleMarkdownHeadings(markdown: string, options: MarkdownRen
   });
 }
 
+export function getSimpleMarkdownIntroJumps(
+  markdown: string,
+  headings: ReadonlyArray<{ id: string; level: number; text: string }>,
+  expectedTargets: Readonly<Record<string, { heading: string; label: string }>>,
+) {
+  const intro = tokenizeMarkdown(markdown.trim()).find((block) => block.type === "paragraph");
+  if (!intro) return [];
+
+  const sectionHrefs = new Set(
+    headings
+      .filter(({ id, level, text }) => level === 2 && expectedTargets[id]?.heading === text)
+      .map(({ id }) => `#${id}`),
+  );
+  const jumps = new Map<string, string>();
+  for (const part of renderInlineMarkdown(intro.text, "intro-jump")) {
+    if (!isValidElement<{ href?: string }>(part) || part.type !== "a") continue;
+    const { href } = part.props;
+    const label = renderedText(part).trim();
+    if (href && sectionHrefs.has(href) && expectedTargets[href.slice(1)]?.label === label) {
+      jumps.set(href, label);
+    }
+  }
+  return Array.from(jumps, ([href, label]) => ({ href, label }));
+}
+
 export function renderSimpleMarkdown(markdown: string, options: MarkdownRenderOptions = {}): ReactNode {
   const normalized = normalizeLineBreaks(markdown).trim();
   if (!normalized) {

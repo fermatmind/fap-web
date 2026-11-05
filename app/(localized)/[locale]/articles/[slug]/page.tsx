@@ -27,7 +27,7 @@ import {
 import type { RelatedContentItem } from "@/lib/content";
 import { articleCategoryCompareBlocks, articleCategoryLabel } from "@/lib/content/articleCategoryLabel";
 import { loadBlogArchive } from "@/lib/content/blogArchive";
-import { excludeFaqCopiesInMarkdown, getSimpleMarkdownHeadings, renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
+import { excludeFaqCopiesInMarkdown, getSimpleMarkdownHeadings, getSimpleMarkdownIntroJumps, renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import { renderCjkPunctuationText } from "@/lib/content/textPunctuation";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, toApiLocale, type Locale } from "@/lib/i18n/locales";
@@ -42,6 +42,17 @@ import { buildI18nSeoPassport } from "@/lib/seo/i18nPassport";
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
 
 export const dynamic = "force-dynamic";
+
+const BIG_FIVE_FACET_JUMP_TARGETS = {
+  "article-body-markdown-block-3": {
+    heading: "Where the 30 Facets Come From: The NEO-PI-R’s 240 Items and 6×5 Structure",
+    label: "full list of 30 NEO-PI-R facets",
+  },
+  "article-body-markdown-block-17": {
+    heading: "Not Every Big Five Instrument Uses 30 Facets: BFI-2’s 15 and BFAS’s 10",
+    label: "compare the NEO-PI-R, BFI-2, and BFAS structures",
+  },
+};
 
 const IQ_PUBLIC_ARTICLE_SLUGS = new Set([
   "iq-test-score-and-limits-explained",
@@ -392,6 +403,10 @@ export default async function ArticleDetailPage({
     ? getSimpleMarkdownHeadings(article.contentMd, { locale, minimumHeadingLevel: 2, headingIdPrefix: "article-body" })
     : [];
 
+  const introJumps = article.id === 232 && locale === "en" && slug === "big-five-30-facets-explained-with-model-caveats"
+    ? getSimpleMarkdownIntroJumps(article.contentMd, headings, BIG_FIVE_FACET_JUMP_TARGETS)
+    : [];
+
   const relatedArticles: RelatedContentItem[] = [];
   const relatedCareerGuides: RelatedContentItem[] = [];
   const relatedTypes: RelatedContentItem[] = [];
@@ -411,6 +426,13 @@ export default async function ArticleDetailPage({
       />
 
       <header id="what-it-is" className="space-y-5 border-b border-[var(--fm-border)] pb-7">
+        {introJumps.length > 0 ? (
+          <nav aria-label="Quick jumps" className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
+            {introJumps.map(({ href, label }) => (
+              <a key={href} href={href} className="text-[var(--fm-accent)] underline underline-offset-4">{label}</a>
+            ))}
+          </nav>
+        ) : null}
         <ArticleResponsiveImage
           src={article.coverImageUrl}
           alt={article.coverImageAlt ?? article.title}
