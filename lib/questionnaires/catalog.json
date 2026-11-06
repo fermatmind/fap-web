@@ -5184,12 +5184,12 @@
     "updated": "2026-11-05",
     "category": "metaphor",
     "title": {
-      "en": "Seven Sins and Virtues Test: Everyday Reflections",
-      "zh": "七宗罪与七美德测试：日常张力观察"
+      "en": "Seven Deadly Sins and Seven Virtues Test",
+      "zh": "七宗罪与七美德测试"
     },
     "description": {
-      "en": "See 14 scores on a radar chart and use seven everyday guides to make sense of your answers. For self-reflection only.",
-      "zh": "查看十四项得分的雷达图和七篇情境解读。结果仅供自我探索。"
+      "en": "Answer 28 original questions in about 8 minutes. Get 14 separate scores, a radar chart, and seven reflection guides. Free, with no sign-up.",
+      "zh": "免费完成 28 道原创题，约 8 分钟。查看 14 项分别计分的结果、雷达图和七组解读，无需注册。"
     },
     "minutes": 8,
     "collection": "explore",

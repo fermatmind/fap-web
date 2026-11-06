@@ -6,16 +6,16 @@
   "updated": "2026-11-05",
   "category": "metaphor",
   "title": {
-    "en": "Seven Sins and Virtues Test: Everyday Reflections",
-    "zh": "七宗罪与七美德测试：日常张力观察"
+    "en": "Seven Deadly Sins and Seven Virtues Test",
+    "zh": "七宗罪与七美德测试"
   },
   "seoTitle": {
-    "en": "Seven Sins and Virtues Test: Seven Full Guides",
-    "zh": "七宗罪与七美德测试：七组完整读法免费"
+    "en": "Free Seven Deadly Sins and Seven Virtues Test",
+    "zh": "七宗罪与七美德测试｜免费查看 14 项得分"
   },
   "description": {
-    "en": "See 14 scores on a radar chart and use seven everyday guides to make sense of your answers. For self-reflection only.",
-    "zh": "查看十四项得分的雷达图和七篇情境解读。结果仅供自我探索。"
+    "en": "Answer 28 original questions in about 8 minutes. Get 14 separate scores, a radar chart, and seven reflection guides. Free, with no sign-up.",
+    "zh": "免费完成 28 道原创题，约 8 分钟。查看 14 项分别计分的结果、雷达图和七组解读，无需注册。"
   },
   "minutes": 8,
   "introduction": {
@@ -33,7 +33,7 @@
     "scoringVersion": "2.0.0",
     "resultContentVersion": "2.0.0",
     "itemBankSha256": "c44b67466fde14e23887937b06bd5d2d9790188546bfc6a397e3e1c8e9cb5ac9",
-    "resultContentSha256": "1b2bb372c1f185066a662dcd427302f9f33231970d08971fb555a109ba296a09",
+    "resultContentSha256": "8583ac83ef18b69cb29562de6dd5525aad254c53dbb85de5a9991a2c19b974e6",
     "psychometricValidationCompleted": false
   },
   "directions": [
@@ -1651,8 +1651,8 @@
         "zh": "回看外部反馈怎样进入自我定位"
       },
       "summary": {
-        "en": "Four statements consider outside feedback, self-evaluation and the wish to be seen.",
-        "zh": "这四道题关心外部反馈、自我评价和被看见的需要。"
+        "en": "This theme looks at confidence in your own judgment, credit for shared work, acknowledging mistakes and naming contributions.",
+        "zh": "这组主题关注对自己判断的信心、如何看待共同成果的功劳、是否承认错误，以及是否说出他人的贡献。"
       },
       "scoreReading": {
         "en": "Each score summarizes your agreement with two statements in this attempt. The form is for entertainment and reflection and has no established psychometric validity or population norms.",
@@ -1681,12 +1681,12 @@
               "zh": "传统七宗罪中的骄傲常被描述为过分看重自身地位；本测试只用这一隐喻作为入口，不测量骄傲或谦逊本身。"
             },
             {
-              "en": "Observe how being overlooked, being noticed and receiving feedback enter self-evaluation.",
-              "zh": "观察被忽略、被看见和外部反馈在自我定位中的作用。"
+              "en": "This theme looks at confidence in your own judgment, credit for shared work, acknowledging mistakes and naming contributions.",
+              "zh": "这组主题关注对自己判断的信心、如何看待共同成果的功劳、是否承认错误，以及是否说出他人的贡献。"
             },
             {
-              "en": "The items cover lingering attention when effort is unnoticed, expecting clear feedback, using others' responses to judge your work, and checking whether an overlooked contribution was seen.",
-              "zh": "题目覆盖：付出未被留意时注意持续、期待明确反馈、参考他人回应判断自己、被忽略后确认贡献是否被看见。"
+              "en": "Pride draws on items 1 and 3, which ask about assuming your view is more reliable and wanting more credit for shared work. Humility draws on items 2 and 4, which ask about acknowledging an error and naming other people’s contributions.",
+              "zh": "傲慢由第 1、3 题计分，分别询问是否先认定自己的看法更可靠，以及是否想多领共同成果的功劳。谦卑由第 2、4 题计分，分别询问是否愿意承认错误，以及是否具体说出他人的贡献。"
             }
           ]
         },
@@ -1732,12 +1732,12 @@
           },
           "paragraphs": [
             {
-              "en": "A reaction to being overlooked and a way of checking whether a contribution was noticed are different things. Their combined mean is not a single intensity.",
-              "zh": "这组题同时包含反应线索（被忽略时的注意）与核对方式（确认贡献是否被看见），因此不能解释成单一强度。"
+              "en": "Pride and Humility use different questions. Read the two scores separately. Both can be high or low in the same result.",
+              "zh": "傲慢与谦卑来自不同题目，请分别阅读两项得分。它们可以在同一次结果中同时较高或同时较低。"
             },
             {
-              "en": "Each track uses its own items. Both scores for a theme can be high or low together. Each track average is the mean of its seven axes.",
-              "zh": "两条轨道分别使用各自的题目。同一主题的两个分数可以同时高或同时低。两组均值各为七轴的平均值。"
+              "en": "Each of the two scores is based on two answers. The two labels connect the scores to a shared reading theme.",
+              "zh": "两项得分各取两题。同组的两个名称帮助你围绕一个阅读主题理解作答。"
             }
           ]
         },
@@ -1804,8 +1804,8 @@
               "zh": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。"
             },
             {
-              "en": "Web edition 2.0 uses 28 original items across two tracks. The earlier Mini edition combined four items into one theme mean, so its numbers have a different meaning. The seven public guides contain general examples and are freely available.",
-              "zh": "网页2.0采用原创双轨28题。早期小程序版把四题合为一个主题均值，两版读数的含义不同。七篇公开指南随时可读，其中只有通用示例。"
+              "en": "The current web edition has seven reading themes and 14 scores. Each score uses two of the 28 statements.",
+              "zh": "现行网页版共有七组阅读主题、14 项得分，每项使用 28 道陈述中的两题。"
             }
           ]
         }
@@ -1825,8 +1825,8 @@
         "zh": "回看资源不确定时怎样决定保留与分享"
       },
       "summary": {
-        "en": "Four statements consider keeping resources, maintaining a margin and deciding whether to share.",
-        "zh": "这四道题关心资源不确定时的保留、余量和分享判断。"
+        "en": "This theme looks at keeping extra resources and choosing to share belongings or time when you have enough.",
+        "zh": "这组主题关注够用时仍想多留资源，以及有余力时分享物品或时间。"
       },
       "scoreReading": {
         "en": "Each score summarizes your agreement with two statements in this attempt. The form is for entertainment and reflection and has no established psychometric validity or population norms.",
@@ -1855,12 +1855,12 @@
               "zh": "传统七宗罪中的贪婪指对占有物的过度执取；本测试只借用这一入口观察资源不确定时的保留与分享判断。"
             },
             {
-              "en": "Observe arrangements for keeping and sharing time, possessions or a practical margin when their future availability is uncertain.",
-              "zh": "观察时间、物品或现实余量不确定时的保留与分享安排。"
+              "en": "This theme looks at keeping extra resources and choosing to share belongings or time when you have enough.",
+              "zh": "这组主题关注够用时仍想多留资源，以及有余力时分享物品或时间。"
             },
             {
-              "en": "The items cover keeping a margin under uncertainty, checking personal sufficiency before sharing, noticing when a loaned resource returns, and considering future needs before extra spending.",
-              "zh": "题目覆盖：资源不确定时优先保留余量、分享前确认自己是否够用、借出后留意恢复、额外支出前先想未来需要。"
+              "en": "Greed draws on items 5 and 7, which ask about keeping extra resources when you already have enough and wanting a larger share of an extra benefit. Generosity draws on items 6 and 8, which ask about offering spare belongings and giving time when you have it to spare.",
+              "zh": "贪婪由第 5、7 题计分，分别询问够用时是否仍想多留一份资源，以及分配额外好处时是否想多拿。慷慨由第 6、8 题计分，分别询问是否主动分享闲置物品，以及有余力时是否愿意花时间帮忙。"
             }
           ]
         },
@@ -1889,7 +1889,7 @@
           },
           "paragraphs": [
             {
-              "en": "Ask which particular resource you are concerned about losing, how certain the risk is, and how the scope of sharing was set. Check the margin you actually had when recently agreeing or declining to share, including whether sharing affected basic needs. Was keeping more related to a practical risk or a familiar worry? The mean cannot decide that for you.",
+              "en": "Ask which particular resource you are concerned about losing, how certain the risk is, and how the scope of sharing was set. Check the margin you actually had when recently agreeing or declining to share, including whether sharing affected basic needs. Was keeping more related to a practical risk or a familiar worry? Use the situation to interpret the two scores.",
               "zh": "可以回看：你担心失去的具体资源是什么；风险有多确定；分享范围是怎样设定的。 最近一次拒绝或同意分享时的余量；那次分享是否影响你的基本需要。 保留更多是出于现实风险，还是习惯性担心？这个判断只能由你自己核对。"
             },
             {
@@ -1906,12 +1906,12 @@
           },
           "paragraphs": [
             {
-              "en": "Keeping a margin and making a sharing decision are not one generosity-or-stinginess dimension. The group contains both.",
-              "zh": "这组题同时包含保留倾向与分享判断，不能解释成慷慨或吝啬的单一强度。"
+              "en": "Greed and Generosity use different questions. Read the two scores separately. Both can be high or low in the same result.",
+              "zh": "贪婪与慷慨来自不同题目，请分别阅读两项得分。它们可以在同一次结果中同时较高或同时较低。"
             },
             {
-              "en": "Each track uses its own items. Both scores for a theme can be high or low together. Each track average is the mean of its seven axes.",
-              "zh": "两条轨道分别使用各自的题目。同一主题的两个分数可以同时高或同时低。两组均值各为七轴的平均值。"
+              "en": "Each of the two scores is based on two answers. The two labels connect the scores to a shared reading theme.",
+              "zh": "两项得分各取两题。同组的两个名称帮助你围绕一个阅读主题理解作答。"
             }
           ]
         },
@@ -1978,8 +1978,8 @@
               "zh": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。"
             },
             {
-              "en": "Web edition 2.0 uses 28 original items across two tracks. The earlier Mini edition combined four items into one theme mean, so its numbers have a different meaning. The seven public guides contain general examples and are freely available.",
-              "zh": "网页2.0采用原创双轨28题。早期小程序版把四题合为一个主题均值，两版读数的含义不同。七篇公开指南随时可读，其中只有通用示例。"
+              "en": "The current web edition has seven reading themes and 14 scores. Each score uses two of the 28 statements.",
+              "zh": "现行网页版共有七组阅读主题、14 项得分，每项使用 28 道陈述中的两题。"
             }
           ]
         }
@@ -1999,8 +1999,8 @@
         "zh": "回看吸引出现时怎样核对意愿与边界"
       },
       "summary": {
-        "en": "Four statements consider attention being drawn, checking willingness and clarifying boundaries.",
-        "zh": "这四道题关心吸引出现时的注意力、意愿确认和边界核对。"
+        "en": "This theme looks at impulses under strong attraction, mutual willingness and moving at a comfortable pace.",
+        "zh": "这组主题关注强烈吸引下的冲动、双方意愿，以及以舒服的节奏推进亲密互动。"
       },
       "scoreReading": {
         "en": "Each score summarizes your agreement with two statements in this attempt. The form is for entertainment and reflection and has no established psychometric validity or population norms.",
@@ -2029,12 +2029,12 @@
               "zh": "传统七宗罪中的淫欲指欲望失控的想象；本测试只借用这一入口观察吸引出现时的注意力、意愿与边界。"
             },
             {
-              "en": "Observe attention to an appealing person or opportunity alongside ways of checking willingness and boundaries.",
-              "zh": "观察吸引出现时的注意力投入、意愿确认与边界核对方式。"
+              "en": "This theme looks at impulses under strong attraction, mutual willingness and moving at a comfortable pace.",
+              "zh": "这组主题关注强烈吸引下的冲动、双方意愿，以及以舒服的节奏推进亲密互动。"
             },
             {
-              "en": "The items cover attention being pulled, noticing both sides' boundaries, taking time to separate an impulse from a longer-term choice, and checking present willingness and practical conditions.",
-              "zh": "题目覆盖：注意力被吸引、留意双方边界、区分冲动与长期选择、确认当下意愿和现实条件。"
+              "en": "Lust draws on items 9 and 11, which ask about wanting to move quickly toward intimacy and getting carried away by immediate impulse. Chastity draws on items 10 and 12, which ask about checking mutual willingness and moving at a comfortable pace.",
+              "zh": "色欲由第 9、11 题计分，分别询问强烈吸引下是否急于推进亲密互动，以及是否容易被当下冲动牵着走。贞洁由第 10、12 题计分，分别询问是否先确认对方愿意，以及是否按自己舒服的节奏推进。"
             }
           ]
         },
@@ -2080,12 +2080,12 @@
           },
           "paragraphs": [
             {
-              "en": "Attention being drawn and actively checking a boundary are different things. Combining them does not produce one measure of desire intensity.",
-              "zh": "注意被拉动与主动核对边界不是同一含义；这组题同时包含两者，不能解释成欲望强度的单一读数。"
+              "en": "Lust and Chastity use different questions. Read the two scores separately. Both can be high or low in the same result.",
+              "zh": "色欲与贞洁来自不同题目，请分别阅读两项得分。它们可以在同一次结果中同时较高或同时较低。"
             },
             {
-              "en": "Each track uses its own items. Both scores for a theme can be high or low together. Each track average is the mean of its seven axes.",
-              "zh": "两条轨道分别使用各自的题目。同一主题的两个分数可以同时高或同时低。两组均值各为七轴的平均值。"
+              "en": "Each of the two scores is based on two answers. The two labels connect the scores to a shared reading theme.",
+              "zh": "两项得分各取两题。同组的两个名称帮助你围绕一个阅读主题理解作答。"
             }
           ]
         },
@@ -2152,8 +2152,8 @@
               "zh": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。"
             },
             {
-              "en": "Web edition 2.0 uses 28 original items across two tracks. The earlier Mini edition combined four items into one theme mean, so its numbers have a different meaning. The seven public guides contain general examples and are freely available.",
-              "zh": "网页2.0采用原创双轨28题。早期小程序版把四题合为一个主题均值，两版读数的含义不同。七篇公开指南随时可读，其中只有通用示例。"
+              "en": "The current web edition has seven reading themes and 14 scores. Each score uses two of the 28 statements.",
+              "zh": "现行网页版共有七组阅读主题、14 项得分，每项使用 28 道陈述中的两题。"
             }
           ]
         }
@@ -2173,8 +2173,8 @@
         "zh": "回看比较与欣赏怎样同时出现"
       },
       "summary": {
-        "en": "Four statements consider comparison, differences in opportunity, disappointment and appreciation.",
-        "zh": "这四道题关心比较反应、机会差异、失落与欣赏的线索。"
+        "en": "This theme looks at how you react to a peer’s good fortune and how you respond to their successes or difficulties.",
+        "zh": "这组主题关注看到同伴顺利时的反应，以及如何回应他们的成功或困难。"
       },
       "scoreReading": {
         "en": "Each score summarizes your agreement with two statements in this attempt. The form is for entertainment and reflection and has no established psychometric validity or population norms.",
@@ -2203,12 +2203,12 @@
               "zh": "传统七宗罪中的嫉妒指因他人好处而生怨；本测试只借用这一入口观察比较、失落与欣赏如何共同出现。"
             },
             {
-              "en": "Observe comparison, attention to opportunities and appreciation of another person appearing in the same situation.",
-              "zh": "观察比较、机会留意与欣赏他人如何共同出现。"
+              "en": "This theme looks at how you react to a peer’s good fortune and how you respond to their successes or difficulties.",
+              "zh": "这组主题关注看到同伴顺利时的反应，以及如何回应他们的成功或困难。"
             },
             {
-              "en": "The items cover comparing your position, noticing access to similar opportunities, recognizing parts of yourself you want to develop while appreciating others, and noticing gaps within a group.",
-              "zh": "题目覆盖：自然比较自己的位置、留意相似机会、欣赏时想到自己仍想发展的部分、较快注意到群体差距。"
+              "en": "Envy draws on items 13 and 15, which ask about resenting a peer’s opportunity and dwelling on what you lack. Kindness draws on items 14 and 16, which ask about sincerely congratulating that peer and finding out what a struggling peer needs.",
+              "zh": "嫉妒由第 13、15 题计分，分别询问是否介意同伴获得自己想要的机会，以及看到同伴更顺利时是否反复想着自己缺少什么。仁爱由第 14、16 题计分，分别询问是否愿意真诚祝贺，以及是否先了解遇到困难的同伴需要什么。"
             }
           ]
         },
@@ -2241,7 +2241,7 @@
               "zh": "可以回看：比较发生时你更在意机会还是位置；欣赏他人时是否也想到自己的发展。 最近一次比较的具体情境；那次比较里失落与欣赏是否同时存在。 比较反应带给你的信息是什么？它指向你想要的机会，还是只是位置的落差感？"
             },
             {
-              "en": "Suppose a peer's project is selected for an opportunity you also wanted. You appreciate one part of their work and also notice disappointment about access to the opportunity. Both experiences can be true without canceling one another. There may be useful information about selection criteria, but there may also be uncertainty you cannot resolve. The mean cannot identify resentment, unfairness or whether congratulations were sincere.",
+              "en": "Suppose a peer's project is selected for an opportunity you also wanted. You appreciate one part of their work and also notice disappointment about access to the opportunity. Both experiences can be true without canceling one another. There may be useful information about selection criteria, but there may also be uncertainty you cannot resolve. The two scores describe answers about comparison and responding to peers. Questions about fairness and sincerity depend on the situation.",
               "zh": "假设一位同伴的项目获得了你也想争取的机会。你欣赏对方作品的某一部分，也注意到自己因机会落差而失落。这两种体验可以同时成立，不需要互相抵消。事情也许包含可了解的选择标准，也可能有暂时无法确认的因素。分数不能认定怨恨、不公，或一次祝贺是否真诚。"
             }
           ]
@@ -2254,12 +2254,12 @@
           },
           "paragraphs": [
             {
-              "en": "Comparison is not hostility. Appreciation does not require denying disappointment. A mean combining those cues is not a single measure of envy or appreciation.",
-              "zh": "这组题同时包含比较反应与欣赏线索，比较不等于敌意，欣赏也不要求否认失落；不能解释成嫉妒或欣赏的单一强度。"
+              "en": "Envy and Kindness use different questions. Read the two scores separately. Both can be high or low in the same result.",
+              "zh": "嫉妒与仁爱来自不同题目，请分别阅读两项得分。它们可以在同一次结果中同时较高或同时较低。"
             },
             {
-              "en": "Each track uses its own items. Both scores for a theme can be high or low together. Each track average is the mean of its seven axes.",
-              "zh": "两条轨道分别使用各自的题目。同一主题的两个分数可以同时高或同时低。两组均值各为七轴的平均值。"
+              "en": "Each of the two scores is based on two answers. The two labels connect the scores to a shared reading theme.",
+              "zh": "两项得分各取两题。同组的两个名称帮助你围绕一个阅读主题理解作答。"
             }
           ]
         },
@@ -2326,8 +2326,8 @@
               "zh": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。"
             },
             {
-              "en": "Web edition 2.0 uses 28 original items across two tracks. The earlier Mini edition combined four items into one theme mean, so its numbers have a different meaning. The seven public guides contain general examples and are freely available.",
-              "zh": "网页2.0采用原创双轨28题。早期小程序版把四题合为一个主题均值，两版读数的含义不同。七篇公开指南随时可读，其中只有通用示例。"
+              "en": "The current web edition has seven reading themes and 14 scores. Each score uses two of the 28 statements.",
+              "zh": "现行网页版共有七组阅读主题、14 项得分，每项使用 28 道陈述中的两题。"
             }
           ]
         }
@@ -2347,8 +2347,8 @@
         "zh": "回看即时回报怎样吸引注意"
       },
       "summary": {
-        "en": "Four statements consider attention to immediate rewards under pressure or while waiting, and decisions about pausing.",
-        "zh": "这四道题关心压力和等待中即时回报的注意力与暂停选择。"
+        "en": "This theme looks at going beyond what you planned, deciding when to stop and following through on that limit.",
+        "zh": "这组主题关注享受时超过原定计划、决定何时停下，以及按自己设定的界限停下。"
       },
       "scoreReading": {
         "en": "Each score summarizes your agreement with two statements in this attempt. The form is for entertainment and reflection and has no established psychometric validity or population norms.",
@@ -2377,12 +2377,12 @@
               "zh": "传统七宗罪中的贪食指对感官满足的过度依赖；本测试只借用这一入口观察即时回报的注意力与暂停选择。"
             },
             {
-              "en": "Observe the appeal of an immediate reward alongside ways of actively deciding when to pause.",
-              "zh": "观察即时回报的吸引力与主动暂停的选择方式。"
+              "en": "This theme looks at going beyond what you planned, deciding when to stop and following through on that limit.",
+              "zh": "这组主题关注享受时超过原定计划、决定何时停下，以及按自己设定的界限停下。"
             },
             {
-              "en": "The items cover finding easy rewards hard to ignore, seeking immediate comfort under pressure, noticing impatience while waiting, and deciding when to pause an enjoyable experience.",
-              "zh": "题目覆盖：轻松回报难以忽略、压力下选择立刻舒服的做法、等待时反复注意不耐烦、面对喜欢体验时主动决定暂停。"
+              "en": "Gluttony draws on items 17 and 19, which ask about going past your planned amount or time and taking more after feeling satisfied. Temperance draws on items 18 and 20, which ask about setting a stopping time and stopping at the limit you set.",
+              "zh": "暴食由第 17、19 题计分，分别询问是否常超过原定的享受分量或时长，以及满足后是否仍想再来一次。节制由第 18、20 题计分，分别询问是否预设停止时间，以及是否能按自己的界限停下。"
             }
           ]
         },
@@ -2428,12 +2428,12 @@
           },
           "paragraphs": [
             {
-              "en": "Finding a reward appealing and actively deciding to pause have different meanings. Their combined mean is not a measure of willpower.",
-              "zh": "即时回报有吸引力与主动决定何时暂停不是同一含义；这组题同时包含两者，不能解释成意志力强弱。"
+              "en": "Gluttony and Temperance use different questions. Read the two scores separately. Both can be high or low in the same result.",
+              "zh": "暴食与节制来自不同题目，请分别阅读两项得分。它们可以在同一次结果中同时较高或同时较低。"
             },
             {
-              "en": "Each track uses its own items. Both scores for a theme can be high or low together. Each track average is the mean of its seven axes.",
-              "zh": "两条轨道分别使用各自的题目。同一主题的两个分数可以同时高或同时低。两组均值各为七轴的平均值。"
+              "en": "Each of the two scores is based on two answers. The two labels connect the scores to a shared reading theme.",
+              "zh": "两项得分各取两题。同组的两个名称帮助你围绕一个阅读主题理解作答。"
             }
           ]
         },
@@ -2500,8 +2500,8 @@
               "zh": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。"
             },
             {
-              "en": "Web edition 2.0 uses 28 original items across two tracks. The earlier Mini edition combined four items into one theme mean, so its numbers have a different meaning. The seven public guides contain general examples and are freely available.",
-              "zh": "网页2.0采用原创双轨28题。早期小程序版把四题合为一个主题均值，两版读数的含义不同。七篇公开指南随时可读，其中只有通用示例。"
+              "en": "The current web edition has seven reading themes and 14 scores. Each score uses two of the 28 statements.",
+              "zh": "现行网页版共有七组阅读主题、14 项得分，每项使用 28 道陈述中的两题。"
             }
           ]
         }
@@ -2521,8 +2521,8 @@
         "zh": "回看愤怒信号与回应节奏"
       },
       "summary": {
-        "en": "Four statements consider bodily or emotional signals and response timing when something feels unfair, blocked or misunderstood.",
-        "zh": "这四道题关心不公平、受阻或误解时身体和情绪信号及回应节奏。"
+        "en": "This theme looks at harsh replies, thoughts of retaliation, pausing before replying and giving others time.",
+        "zh": "这组主题关注用重话回击、事后想着还击、回应前先暂停，以及给对方留出时间。"
       },
       "scoreReading": {
         "en": "Each score summarizes your agreement with two statements in this attempt. The form is for entertainment and reflection and has no established psychometric validity or population norms.",
@@ -2551,12 +2551,12 @@
               "zh": "传统七宗罪中的愤怒指被激怒后的过度反应；本测试只借用这一入口观察愤怒信号与回应节奏。"
             },
             {
-              "en": "Observe how anger signals appear alongside whether time is left before responding.",
-              "zh": "观察愤怒信号的出现方式与是否留出回应时间。"
+              "en": "This theme looks at harsh replies, thoughts of retaliation, pausing before replying and giving others time.",
+              "zh": "这组主题关注用重话回击、事后想着还击、回应前先暂停，以及给对方留出时间。"
             },
             {
-              "en": "The items cover noticing tension at unfairness, replaying words left unsaid after a disagreement, wanting to respond immediately to interruption, and leaving time before a more patient reply.",
-              "zh": "题目覆盖：不公平时注意身体或情绪变紧、分歧后继续回想没说完的话、被打断时出现立刻回应冲动、情绪升高时留时间再回应。"
+              "en": "Wrath draws on items 21 and 23, which ask about snapping back in a harsh tone and thinking about verbal retaliation after an argument. Patience draws on items 22 and 24, which ask about pausing before responding and giving the other person time to deal with a situation.",
+              "zh": "暴怒由第 21、23 题计分，分别询问受冒犯时是否立刻用重话回击，以及争执后是否仍想着用言语还击。耐心由第 22、24 题计分，分别询问生气时是否先停一停再回应，以及事情无法立即解决时是否给对方留出处理时间。"
             }
           ]
         },
@@ -2602,12 +2602,12 @@
           },
           "paragraphs": [
             {
-              "en": "Having an anger signal and leaving time before a response are different things. Their combined mean is not a reading of someone's temper.",
-              "zh": "愤怒信号出现与能否留时间回应不是同一含义；这组题同时包含两者，不能解释成脾气大小。"
+              "en": "Wrath and Patience use different questions. Read the two scores separately. Both can be high or low in the same result.",
+              "zh": "暴怒与耐心来自不同题目，请分别阅读两项得分。它们可以在同一次结果中同时较高或同时较低。"
             },
             {
-              "en": "Each track uses its own items. Both scores for a theme can be high or low together. Each track average is the mean of its seven axes.",
-              "zh": "两条轨道分别使用各自的题目。同一主题的两个分数可以同时高或同时低。两组均值各为七轴的平均值。"
+              "en": "Each of the two scores is based on two answers. The two labels connect the scores to a shared reading theme.",
+              "zh": "两项得分各取两题。同组的两个名称帮助你围绕一个阅读主题理解作答。"
             }
           ]
         },
@@ -2674,8 +2674,8 @@
               "zh": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。"
             },
             {
-              "en": "Web edition 2.0 uses 28 original items across two tracks. The earlier Mini edition combined four items into one theme mean, so its numbers have a different meaning. The seven public guides contain general examples and are freely available.",
-              "zh": "网页2.0采用原创双轨28题。早期小程序版把四题合为一个主题均值，两版读数的含义不同。七篇公开指南随时可读，其中只有通用示例。"
+              "en": "The current web edition has seven reading themes and 14 scores. Each score uses two of the 28 statements.",
+              "zh": "现行网页版共有七组阅读主题、14 项得分，每项使用 28 道陈述中的两题。"
             }
           ]
         }
@@ -2695,8 +2695,8 @@
         "zh": "回看启动、疲惫与休息的节奏"
       },
       "summary": {
-        "en": "Four statements consider starting a task, recovery from fatigue, ending a break and lowering the threshold for action.",
-        "zh": "这四道题关心任务启动、疲惫恢复、结束休息和降低行动门槛。"
+        "en": "This theme looks at putting off tasks, making a manageable start and making time for steady progress.",
+        "zh": "这组主题关注拖延任务、先做一个能完成的小步骤，以及安排时间持续推进。"
       },
       "scoreReading": {
         "en": "Each score summarizes your agreement with two statements in this attempt. The form is for entertainment and reflection and has no established psychometric validity or population norms.",
@@ -2725,12 +2725,12 @@
               "zh": "传统七宗罪中的懒惰指该做时不做；本测试只借用这一入口观察任务启动、疲惫与休息节奏，不测量懒惰罪。"
             },
             {
-              "en": "Observe difficulty getting started, time needed to recover, and how a period of rest ends.",
-              "zh": "观察任务启动困难、疲惫恢复时间与休息结束方式。"
+              "en": "This theme looks at putting off tasks, making a manageable start and making time for steady progress.",
+              "zh": "这组主题关注拖延任务、先做一个能完成的小步骤，以及安排时间持续推进。"
             },
             {
-              "en": "The items cover postponing an unclear first step, needing more recovery after fatigue, difficulty ending a sufficient break, and first making a demanding task easier to begin.",
-              "zh": "题目覆盖：第一步不清楚时推迟开始、疲惫后需要较长时间恢复、休息足够时不易结束、重要费力的事先降低启动难度。"
+              "en": "Sloth draws on items 25 and 27, which ask about delaying a known first step and putting off a task after enough rest. Diligence draws on items 26 and 28, which ask about starting with a manageable step and making time for steady progress over several days.",
+              "zh": "懒惰由第 25、27 题计分，分别询问知道第一步时是否仍拖延，以及休息够了是否仍推迟回到任务。勤勉由第 26、28 题计分，分别询问是否先做一个能完成的小步骤，以及是否为多日任务安排时间持续推进。"
             }
           ]
         },
@@ -2759,11 +2759,11 @@
           },
           "paragraphs": [
             {
-              "en": "Ask where the first step becomes stuck and how long recovery from fatigue actually takes. Recall one task you postponed and why its first step was unclear. Could fatigue, an unclear task, attention or the environment be involved? These remain open questions; a mean cannot determine the cause.",
+              "en": "Ask where the first step becomes stuck and how long recovery from fatigue actually takes. Recall one task you postponed and why its first step was unclear. Could fatigue, an unclear task, attention or the environment be involved? These remain open questions; the scores leave the cause open.",
               "zh": "可以回看：启动困难时第一步卡在哪里；疲惫恢复需要多久。 最近一次推迟开始的任务；那次的第一步为什么不清楚。 启动困难与疲劳、任务模糊、注意力或环境有关吗？这些原因只能作为开放核对，不能由分数确定。"
             },
             {
-              "en": "Imagine needing to organize a project folder after a tiring week. “Organize everything” leaves the first action unclear, while recovery may still be needed. Opening one document, asking what the folder is for, or postponing the task to rest are different possible choices. The mean cannot decide which condition caused a delay, whether rest was sufficient or whether a person has a health or attention problem.",
+              "en": "Imagine needing to organize a project folder after a tiring week. “Organize everything” leaves the first action unclear, while recovery may still be needed. Opening one document, asking what the folder is for, or postponing the task to rest are different possible choices. To understand a delay, consider how clear the first step was and whether you had enough rest. The scores summarize the two sets of answers.",
               "zh": "假设疲惫的一周之后，你需要整理一个项目文件夹。“把所有东西整理好”没有指出第一步，而身体也可能仍需恢复。打开一份文件、先确认文件夹的用途，或暂时推迟任务去休息，是不同的可选做法。分数不能决定延后由什么条件引起、休息是否足够，或一个人是否有健康与注意方面的问题。"
             }
           ]
@@ -2776,12 +2776,12 @@
           },
           "paragraphs": [
             {
-              "en": "Difficulty starting and actively making a first step easier have different meanings. Their combined mean is not one diligence-or-laziness dimension.",
-              "zh": "启动困难与主动降低启动门槛不是同一含义；这组题同时包含两者，不能解释成勤奋或懒惰的单一强度。"
+              "en": "Sloth and Diligence use different questions. Read the two scores separately. Both can be high or low in the same result.",
+              "zh": "懒惰与勤勉来自不同题目，请分别阅读两项得分。它们可以在同一次结果中同时较高或同时较低。"
             },
             {
-              "en": "Each track uses its own items. Both scores for a theme can be high or low together. Each track average is the mean of its seven axes.",
-              "zh": "两条轨道分别使用各自的题目。同一主题的两个分数可以同时高或同时低。两组均值各为七轴的平均值。"
+              "en": "Each of the two scores is based on two answers. The two labels connect the scores to a shared reading theme.",
+              "zh": "两项得分各取两题。同组的两个名称帮助你围绕一个阅读主题理解作答。"
             }
           ]
         },
@@ -2848,8 +2848,8 @@
               "zh": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。"
             },
             {
-              "en": "Web edition 2.0 uses 28 original items across two tracks. The earlier Mini edition combined four items into one theme mean, so its numbers have a different meaning. The seven public guides contain general examples and are freely available.",
-              "zh": "网页2.0采用原创双轨28题。早期小程序版把四题合为一个主题均值，两版读数的含义不同。七篇公开指南随时可读，其中只有通用示例。"
+              "en": "The current web edition has seven reading themes and 14 scores. Each score uses two of the 28 statements.",
+              "zh": "现行网页版共有七组阅读主题、14 项得分，每项使用 28 道陈述中的两题。"
             }
           ]
         }
@@ -2891,8 +2891,8 @@
       },
       "paragraphs": [
         {
-          "en": "Each score summarizes your agreement with two statements in this attempt. The form is for entertainment and reflection and has no established psychometric validity or population norms.",
-          "zh": "分数表示本次对两道题的符合程度。题本仅供娱乐与自我探索，尚未建立心理测量效度或人群常模。"
+          "en": "FermatMind wrote all 28 items for entertainment and reflection. The cultural labels organize seven reading themes. Scores describe answers to this form and have no established population norms or psychometric validation.",
+          "zh": "28 道题由费马原创，用于娱乐与自我探索。文化名称用来组织七组阅读主题。分数反映本次作答，尚未建立人群常模或心理测量效度。"
         }
       ]
     },
@@ -2905,11 +2905,11 @@
       "paragraphs": [
         {
           "en": "The early lineage of the seven capital sins is associated with Christian monastic and ascetic traditions. Frameworks called seven virtues also include theological and cardinal traditions, while other discussions contrast virtues with sins. Different traditions cannot be merged into one exclusive list. The product borrows cultural metaphors only: its seven observation groups do not claim a one-to-one historical correspondence or religious endorsement.",
-          "zh": "七宗罪的早期谱系与古代基督教修道和苦修传统相关；常被称作七美德的框架另有神学美德与枢德等传统，后世也出现与七罪逐项对应的版本。不同传统不能合并成唯一清单。本测试只借用这些文化隐喻作为内容入口，七个产品因素不声称与任何历史传统一一对应，也不声称得到宗教传统认可。"
+          "zh": "七宗罪的早期谱系与古代基督教修道和苦修传统相关；常被称作七美德的框架另有神学美德与枢德等传统，后世也出现与七罪逐项对应的版本。不同传统不能合并成唯一清单。本测试只借用这些文化隐喻作为内容入口，七组阅读主题不声称与任何历史传统一一对应，也不声称得到宗教传统认可。"
         },
         {
           "en": "These seven groups are a product-created everyday observation framework. Historical cultural concepts are not modern measured psychological constructs; religious language is not scientific evidence for this questionnaire.",
-          "zh": "七个产品因素是本测试自建的通俗化观察框架，历史文化概念不等于现代心理测量构念；古代传统未经本测试验证，也不得把宗教语言包装成科学证据。"
+          "zh": "七组阅读主题是本测试自建的通俗化观察框架，历史文化概念不等于现代心理测量构念；古代传统未经本测试验证，也不得把宗教语言包装成科学证据。"
         },
         {
           "en": "This is not a doctrine examination or a judgment of faith. It does not preach or condemn and respects believers and nonbelievers.",
@@ -2925,8 +2925,8 @@
       },
       "paragraphs": [
         {
-          "en": "Each track uses its own items. Both scores for a theme can be high or low together. Each track average is the mean of its seven axes.",
-          "zh": "两条轨道分别使用各自的题目。同一主题的两个分数可以同时高或同时低。两组均值各为七轴的平均值。"
+          "en": "The web edition groups 28 original items into seven reading themes. It reports 14 separate scores, each based on two items. Both scores in a theme can be high or low together.",
+          "zh": "现行网页版将 28 道原创题分为七组阅读主题，共 14 项分别计分，每项两题。同组的两项读数可以同时较高或同时较低。"
         },
         {
           "en": "For example, ratings of 2 and 4 average 3 and yield 50. Ratings of 1 and 5 also yield 50, with a different response pattern.",
@@ -2935,6 +2935,10 @@
         {
           "en": "A leading score identifies the highest readout on that track in this attempt. The averages summarize response differences across tracks and cannot establish moral standing, a diagnosis, or a decision in a consequential setting.",
           "zh": "榜首只表示本次同一轨道中的最高读数。均值的高低概括两组答题差异，不能评价善恶、诊断问题或决定重要事项。"
+        },
+        {
+          "en": "The two track averages in the result overview each summarize seven separate scores.",
+          "zh": "结果总览的两侧均值各自汇总本侧七项得分。"
         }
       ]
     },
@@ -2979,8 +2983,8 @@
       },
       "paragraphs": [
         {
-          "en": "This web edition keeps an active attempt in memory. Only choosing Save progress places individual responses in sessionStorage for this tab, for at most 24 hours. Refreshing or changing language offers recovery only for a saved, compatible draft. Completing, clearing or retaking removes it; closing the tab may end the session. No final-result cache is stored here. Raw answers and these personal sums are not sent by this local scoring flow, and copying uses only the public entry title and URL.",
-          "zh": "本网页当前作答保留在内存。只有主动“保存进度”才会把逐题选择写入本标签页sessionStorage，最多24小时；刷新或换语言只恢复已保存且版本兼容的草稿。完成、清除或重测会移除草稿，关闭标签页也可能结束会话；本页不保存最终结果缓存。本地计分流程不发送原始答案或个人分组和，复制只包含公开入口标题和URL。"
+          "en": "The web test keeps answers in memory while you take it. Use Back within the test to see a previous answer. Refreshing, leaving or changing language starts a new attempt. Scoring happens in the browser. Copying the entry shares its public title and URL.",
+          "zh": "网页版作答时只在内存保留答案。测试内点「上一题」可查看之前的选择。刷新、离开或切换语言会开启新一轮作答。计分在浏览器内完成，复制入口只包含公开标题和网址。"
         },
         {
           "en": "This is for entertainment and self-exploration, without established reliability, validity, norms, fairness, percentiles or accuracy evidence.",
@@ -3004,8 +3008,8 @@
       },
       "paragraphs": [
         {
-          "en": "Insufficient responses: missing or invalid answers mean no personal factor interpretation. You may continue or leave. Only a draft you actively saved in this web tab is recoverable; an incomplete attempt makes no final result cache. No result is not avoidance of flaws and does not require an explanation about your character.",
-          "zh": "作答不足：缺答或非法回答时，不提供个人因素解释。可以补全，也可以直接退出；只有本网页中主动保存过的标签页草稿才可恢复，不完整作答不生成最终结果缓存。没有结果不等于逃避缺点，也不需要为自己的品质作解释。"
+          "en": "Insufficient responses: answer all 28 questions to see your 14 scores. You can continue in the current session or leave and read the public guides.",
+          "zh": "作答不足：答完 28 题后才会显示 14 项得分。你可以在本次会话继续作答，也可以退出并阅读公开指南。"
         },
         {
           "en": "Unavailable edition: incompatible item, scoring or content versions stop interpretation. Old results and partial meanings are not substituted. This is a version problem, not a judgment of your responses; no repeated immediate attempt is required.",
@@ -3014,6 +3018,19 @@
         {
           "en": "Ties: when multiple axes share the top score on one track, the card retains every joint leader. Equal numbers describe arithmetic in this attempt.",
           "zh": "并列：同一轨道的最高分相等时，结果卡会保留全部并列项。数字相同只表示这次换算结果相同。"
+        }
+      ]
+    },
+    {
+      "id": "virtues-mini-history",
+      "title": {
+        "en": "Historical scoring: early Mini Program edition",
+        "zh": "历史计分说明：早期小程序版"
+      },
+      "paragraphs": [
+        {
+          "en": "Historical scoring · Early Mini Program edition only. Add all four 1–5 answers in a theme for a raw sum (4–20), then divide by 4 for the theme mean (1–5). The current web edition reports two separate scores per theme.",
+          "zh": "历史计分说明 · 仅适用于早期小程序。每组四题按 1–5 分相加得到原始和（4–20），再除以 4 得到组均值（1–5）。现行网页版每组分别报告两项得分。"
         }
       ]
     }
@@ -3025,8 +3042,8 @@
         "zh": "能同时得到较高的罪与美德读数吗？"
       },
       "answer": {
-        "en": "Each track uses its own items. Both scores for a theme can be high or low together. Each track average is the mean of its seven axes.",
-        "zh": "两条轨道分别使用各自的题目。同一主题的两个分数可以同时高或同时低。两组均值各为七轴的平均值。"
+        "en": "The web edition groups 28 original items into seven reading themes. It reports 14 separate scores, each based on two items. Both scores in a theme can be high or low together.",
+        "zh": "现行网页版将 28 道原创题分为七组阅读主题，共 14 项分别计分，每项两题。同组的两项读数可以同时较高或同时较低。"
       }
     },
     {
@@ -3085,8 +3102,8 @@
         "zh": "刷新或换语言后保存什么？"
       },
       "answer": {
-        "en": "Only an actively saved, compatible tab draft can be resumed, for at most 24 hours. Completion, clearing or retaking removes it. This web edition stores no final-result cache.",
-        "zh": "只有主动保存且版本兼容的标签页草稿可以恢复，最多24小时；完成、清除或重测会移除。本网页不保存最终结果缓存。"
+        "en": "The web test keeps answers in memory while you take it. Use Back within the test to see a previous answer. Refreshing, leaving or changing language starts a new attempt. Scoring happens in the browser. Copying the entry shares its public title and URL.",
+        "zh": "网页版作答时只在内存保留答案。测试内点「上一题」可查看之前的选择。刷新、离开或切换语言会开启新一轮作答。计分在浏览器内完成，复制入口只包含公开标题和网址。"
       }
     },
     {
@@ -3095,8 +3112,8 @@
         "zh": "新版和旧版有什么区别？"
       },
       "answer": {
-        "en": "Web edition 2.0 uses 28 original items across two tracks. The earlier Mini edition combined four items into one theme mean, so its numbers have a different meaning. The seven public guides contain general examples and are freely available.",
-        "zh": "网页2.0采用原创双轨28题。早期小程序版把四题合为一个主题均值，两版读数的含义不同。七篇公开指南随时可读，其中只有通用示例。"
+        "en": "The web edition groups 28 original items into seven reading themes. It reports 14 separate scores, each based on two items. Both scores in a theme can be high or low together.",
+        "zh": "现行网页版将 28 道原创题分为七组阅读主题，共 14 项分别计分，每项两题。同组的两项读数可以同时较高或同时较低。"
       }
     },
     {

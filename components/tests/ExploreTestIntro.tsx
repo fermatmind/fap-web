@@ -9,11 +9,13 @@ export function ExploreTestIntro({
   children,
   slug,
   entryLink = false,
+  sideContent,
   locale = "zh",
 }: {
   children: ReactNode;
   slug: string;
   entryLink?: boolean;
+  sideContent?: ReactNode;
   locale?: Locale;
 }) {
   const category =
@@ -35,9 +37,9 @@ export function ExploreTestIntro({
       {children}
       {entryLink && <ExploreTestEntry locale={locale} tool={tool} />}
       </div>
-      <div className="explore-intro-art" aria-hidden="true">
+      {sideContent ?? <div className="explore-intro-art" aria-hidden="true">
         <ExploreHeroArtwork slug={slug} category={category} />
-      </div>
+      </div>}
     </header>
   );
 }

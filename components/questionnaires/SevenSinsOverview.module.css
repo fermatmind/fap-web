@@ -144,3 +144,14 @@
   .chartSubtitle { margin: 6px 0 2px; font-size: 13px; }
   .radar { max-width: 438px; }
 }
+
+
+.sample {
+  max-width: 390px;
+  margin-inline: auto;
+  scroll-margin-top: 6rem;
+}
+.sample .chart { padding: 14px 4px 0; }
+.sample h2 { margin: 0; color: #f5e8ce; font-size: 18px; font-weight: 850; }
+.sample .chartSubtitle { font-size: 12px; }
+.sample > p { margin: 8px 0 0; color: #526780; font-size: 14px; line-height: 1.55; }

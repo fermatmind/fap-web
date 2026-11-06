@@ -49,6 +49,7 @@ import { sakeTypeLandingSections, sakeTypeLandingFaq, sakeTypeLandingReferences 
 import { monthlyStressLandingSections, monthlyStressLandingFaq, monthlyStressLandingReferences, monthlyStressLandingDescription, monthlyStressLandingIntroduction } from "./MonthlyStressLandingEditorial";
 import { conflictBoundaryLandingSections, conflictBoundaryLandingFaq, conflictBoundaryLandingReferences } from "./ConflictBoundaryLandingEditorial";
 import { fourAxesLandingSections, fourAxesLandingFaq, fourAxesLandingReferences, fourAxesLandingDescription, fourAxesLandingIntroduction } from "./FourAxesLandingEditorial";
+import { QuestionnaireSevenSinsSample } from "./QuestionnaireSevenSinsOverview";
 import { virtuesLandingSections, virtuesLandingFaq, virtuesLandingReferences } from "./VirtuesLandingEditorial";
 import { euphoriaLandingSections, euphoriaLandingFaq } from "./EuphoriaLandingEditorial";
 import { stressResponseLandingSections, stressResponseLandingFaq, stressResponseLandingReferences } from "./StressResponseLandingEditorial";
@@ -335,7 +336,7 @@ import { isMiniConflictConfigurationValid } from "@/lib/questionnaires/miniConfl
 import { QuestionnaireConflictClient } from "./QuestionnaireConflictClient";
 import { isFourAxesConfigurationValid } from "@/lib/questionnaires/fourAxes";
 import { QuestionnaireFourAxesClient } from "./QuestionnaireFourAxesClient";
-import { isMiniVirtuesConfigurationValid } from "@/lib/questionnaires/miniVirtues";
+import { isMiniVirtuesConfigurationValid, scoreMiniVirtuesQuestionnaire } from "@/lib/questionnaires/miniVirtues";
 import { isEuphoriaConfigurationValid } from "@/lib/questionnaires/euphoria";
 import { isMiniShadowConfigurationValid } from "@/lib/questionnaires/miniShadow";
 import { QuestionnaireShadowClient } from "./QuestionnaireShadowClient";
@@ -1019,14 +1020,20 @@ return (quiz.references ?? []);
     const host = new URL(reference.url).hostname.replace(/^www\./, "");
     return host !== "jobcannon.io" && host !== "idrlabs.com";
   });
+  const sample = quiz.kind === "mini-virtues" ? scoreMiniVirtuesQuestionnaire(quiz, Object.fromEntries(
+    quiz.questions.map((question, index) => [
+      question.id,
+      ["3", "4", "2", "5", "4", "2", "2", "3", "3", "4", "4", "3", "2", "5", "2", "4", "5", "2", "4", "2", "4", "4", "4", "4", "3", "5", "3", "3"][index],
+    ]),
+  )) : null;
   return (() => <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />
     <JsonLd id="questionnaire-page" data={buildWebPageJsonLd({ path, title: quiz.title[locale], description: (slug === "stress-check-in-test" ? monthlyStressLandingDescription[locale] : slug === "four-axes-test" ? fourAxesLandingDescription[locale] : quiz.description[locale]), locale })} />
-    <ExploreTestIntro slug={slug} locale={locale}>
+    <ExploreTestIntro slug={slug} locale={locale} sideContent={sample?.status === "complete" && sample.model === "dual" ? <QuestionnaireSevenSinsSample result={sample} locale={locale} /> : undefined}>
 
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{slug === "work-activity-interests" && zh ? <><span className="inline-block">{quiz.title.zh.split("：")[0]}：</span><span className="inline-block">{quiz.title.zh.split("：").slice(1).join("：")}</span></> : slug === "parenting-style" && zh ? <>{quiz.title.zh.split("：")[0]}：<br />{quiz.title.zh.split("：").slice(1).join("：")}</> : quiz.title[locale]}</h1>
     <p className="mt-5 text-lg leading-8 text-slate-700">{(slug === "stress-check-in-test" ? monthlyStressLandingDescription[locale] : slug === "four-axes-test" ? fourAxesLandingDescription[locale] : quiz.description[locale])}</p>
-    <p className="explore-intro-meta"><span>{quiz.kind === "fscrs22" ? (zh ? "22 条陈述 · 按自己的节奏 · 无需注册" : "22 statements · Self-paced · No signup") : zh ? `${quiz.questions.length}题 · 约${quiz.minutes}分钟 · 无需注册` : `${quiz.questions.length} questions · about ${quiz.minutes} ${quiz.minutes === 1 ? "minute" : "minutes"} · no signup`}</span><span>{entryLabel}</span></p>
+    {quiz.kind !== "mini-virtues" && <p className="explore-intro-meta"><span>{quiz.kind === "fscrs22" ? (zh ? "22 条陈述 · 按自己的节奏 · 无需注册" : "22 statements · Self-paced · No signup") : zh ? `${quiz.questions.length}题 · 约${quiz.minutes}分钟 · 无需注册` : `${quiz.questions.length} questions · about ${quiz.minutes} ${quiz.minutes === 1 ? "minute" : "minutes"} · no signup`}</span><span>{entryLabel}</span></p>}
 
     <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     </ExploreTestIntro>

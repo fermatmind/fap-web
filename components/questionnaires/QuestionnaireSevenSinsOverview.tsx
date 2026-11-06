@@ -31,12 +31,15 @@ function LeadingCard({ axes, locale }: { axes: Axis[]; locale: Locale }) {
   </div>;
 }
 
-function Radar({ axes, locale }: { axes: Axis[]; locale: Locale }) {
+function Radar({ axes, locale, sample = false }: { axes: Axis[]; locale: Locale; sample?: boolean }) {
   const zh = locale === "zh";
-  return <section className={styles.chart} data-seven-sins-radar aria-labelledby="seven-sins-radar-heading">
-    <h3 id="seven-sins-radar-heading" className={styles.lined}>{zh ? "十四维人格雷达" : "14-Axis Personality Radar"}</h3>
+  const headingId = sample ? "seven-sins-sample-heading" : "seven-sins-radar-heading";
+  const valuesId = sample ? "seven-sins-sample-values" : "seven-sins-radar-values";
+  const Heading = sample ? "h2" : "h3";
+  return <section className={styles.chart} data-seven-sins-radar aria-labelledby={headingId}>
+    <Heading id={headingId} className={styles.lined}>{sample ? (zh ? "结果示例" : "Sample result") : (zh ? "十四维人格雷达" : "14-Axis Personality Radar")}</Heading>
     <p className={styles.chartSubtitle}>{zh ? "红色七宗罪 · 金色七美德 · 双轨独立计分" : "Red: seven sins · Gold: seven virtues · Independent scores"}</p>
-    <svg className={styles.radar} viewBox="0 0 360 344" role="img" aria-labelledby="seven-sins-radar-heading" aria-describedby="seven-sins-radar-values">
+    <svg className={styles.radar} viewBox="0 0 360 344" role="img" aria-labelledby={headingId} aria-describedby={valuesId}>
       <path d="M180 8 A170 170 0 0 1 180 348 Z" fill="#cab381" fillOpacity=".08" />
       <path d="M180 8 A170 170 0 0 0 180 348 Z" fill="#9e333d" fillOpacity=".13" />
       {[25, 50, 75, 100].map(value => <polygon key={value} points={axes.map((_, index) => point(index, radius * value / 100).join(",")).join(" ")} className={styles.grid} />)}
@@ -62,10 +65,29 @@ function Radar({ axes, locale }: { axes: Axis[]; locale: Locale }) {
         </g>;
       })}
     </svg>
-    <p id="seven-sins-radar-values" className="sr-only">
+    <p id={valuesId} className="sr-only">
       {axes.map(axis => `${axis.label[locale]} ${Math.round(axis.score)}/100`).join(zh ? "，" : ", ")}
     </p>
   </section>;
+}
+
+function resultAxes(result: MiniVirtuesDualResult, track: Track): Axis[] {
+  return axisOrder[track].map(index => ({
+    label: miniVirtuesDefinitions[index][track],
+    score: result.miniVirtues[index][track],
+    track,
+  }));
+}
+
+export function QuestionnaireSevenSinsSample({ result, locale }: { result: MiniVirtuesDualResult; locale: Locale }) {
+  const axes = [...resultAxes(result, "sin"), ...resultAxes(result, "virtue")];
+  const anger = result.miniVirtues.find(part => part.id === "ANGER_PATIENCE")!;
+  return <div id="seven-sins-sample" className={`${styles.frame} ${styles.sample}`} tabIndex={-1}>
+    <Radar axes={axes} locale={locale} sample />
+    <p>{locale === "zh"
+      ? `这份虚构答卷中，暴怒和耐心各得 ${anger.sin} 分。两项来自不同题目，因此可以同时较高。`
+      : `In this fictional response, Wrath and Patience each score ${anger.sin}. They use different questions, so both can be high.`}</p>
+  </div>;
 }
 
 export function QuestionnaireSevenSinsOverview({ result, locale, headingRef }: {
@@ -74,13 +96,8 @@ export function QuestionnaireSevenSinsOverview({ result, locale, headingRef }: {
   headingRef: Ref<HTMLHeadingElement>;
 }) {
   const zh = locale === "zh";
-  const axes = (track: Track): Axis[] => axisOrder[track].map(index => ({
-    label: miniVirtuesDefinitions[index][track],
-    score: result.miniVirtues[index][track],
-    track,
-  }));
-  const sins = axes("sin");
-  const virtues = axes("virtue");
+  const sins = resultAxes(result, "sin");
+  const virtues = resultAxes(result, "virtue");
   const average = (items: Axis[]) => Math.round(items.reduce((sum, axis) => sum + axis.score, 0) / items.length);
   const sinAverage = average(sins);
   const virtueAverage = average(virtues);

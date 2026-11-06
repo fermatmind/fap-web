@@ -43,7 +43,11 @@ for(const locale of ["en","zh"] as const)for(const quiz of [virtues,euphoria]){
   expect(clipboard).toHaveBeenCalledWith(`${quiz.title[locale]}\nhttps://fermatmind.com/${locale}/tests/explore/${quiz.slug}`);
   expect(screen.getByRole("status").textContent).toContain(locale==="zh"?"不含个人答案或次数":"without personal answers or counts");
   expect(JSON.stringify(events.mock.calls)).not.toMatch(/VIRTUES_(?:LK|DUAL)_|EUPHORIA_ORIGINAL_|rawSum|winnerIds|answers|miniVirtues|counts/);
-  expect(events.mock.calls.filter(c=>c[0]==="complete_test")).toHaveLength(1);expect(events.mock.calls.filter(c=>c[0]==="view_result")).toHaveLength(1);
+  const lifecycle = events.mock.calls.filter(([event]) => ["start_test", "complete_test", "view_result"].includes(event));
+  expect(lifecycle.map(([event]) => event)).toEqual(["start_test", "complete_test", "view_result"]);
+  for (const [, payload] of lifecycle) {
+   expect(payload).toMatchObject({ slug: quiz.slug, form_code: quiz.source.formCode, locale });
+  }
   const mbti=screen.queryByRole("link",{name:locale==="zh"?"可选：另做MBTI偏好探索":"Optional: explore MBTI preferences separately"});
   if(quiz===virtues)expect(mbti).toBeNull();else expect(mbti).toHaveAttribute("href",expect.stringContaining("target_action=questionnaire_result_mbti"));
   fireEvent.click(screen.getByRole("button",{name:locale==="zh"?"重新测试":"Retake test"}));

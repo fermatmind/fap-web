@@ -11,7 +11,7 @@ test.beforeEach(async ({ page }) => {
 });
 const entry=(q:Quiz,l:Locale)=>`/${l}/tests/explore/${q.slug}`;
 async function start(page: Page, locale: Locale) {
- await page.getByRole("button", { name: locale === "zh" ? "开始测试" : "Start test", exact: true }).click();
+ await page.getByRole("button", { name: locale === "zh" ? /^开始(?:免费)?测试$/ : /^Start (?:the free )?test$/ }).click();
  await expect(page.locator('#take-test[data-stage="answer"]')).toBeVisible();
 }
 async function answer(page: Page, quiz: Quiz, locale: Locale, answers: Record<string, string>) {
@@ -36,7 +36,7 @@ async function answer(page: Page, quiz: Quiz, locale: Locale, answers: Record<st
  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
  const ids = await page.locator("#take-test [id]").evaluateAll(nodes => nodes.map(node => node.id));
  expect(new Set(ids).size).toBe(ids.length);
- await page.screenshot({ path: test.info().outputPath("result-mobile.png") });
+ await page.screenshot({ path: test.info().outputPath("result.png") });
 }
 async function copyPublicOnly(page:Page,q:Quiz,l:Locale){
  await page.evaluate(()=>Object.defineProperty(navigator,"clipboard",{configurable:true,value:{writeText:async(text:string)=>{(window as unknown as {copied:string}).copied=text;}}}));
@@ -47,13 +47,27 @@ async function copyPublicOnly(page:Page,q:Quiz,l:Locale){
 function watchPrivatePosts(page:Page){const posts:string[]=[];page.on("request",r=>{if(r.method()==="POST"&&/VIRTUES_(?:LK|DUAL)_|EUPHORIA_ORIGINAL_|rawSum|equalFactorGroups|winnerIds/.test(r.postData()??""))posts.push(r.url());});return posts;}
 for(const locale of ["en","zh"] as const){
  const zh=locale==="zh";
- test(`@release virtues ${locale}: mobile hub, keyboard,28midpoints,7complete guides and retake`,async({page})=>{
-  await page.setViewportSize({width:390,height:844});const posts=watchPrivatePosts(page);
+ for (const width of [390, 1440]) test(`@release virtues ${locale} ${width}: entry, sample, answers, guides and retake`,async({page})=>{
+  await page.setViewportSize({width,height:844});const posts=watchPrivatePosts(page);
   await page.goto(`/${locale}/tests`);await page.locator("#more-tests").getByRole("link",{name:virtues.title[locale],exact:true}).click();
   await expect(page.locator("h1")).toHaveText(virtues.title[locale]);await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href",`https://fermatmind.com${entry(virtues,locale)}`);
+  const startButton = page.getByRole("button", { name: zh ? "开始免费测试" : "Start the free test", exact: true });
+  await expect(startButton).toBeInViewport();
+  await page.getByRole("link", { name: zh ? "先看结果示例" : "See a sample result", exact: true }).click();
+  const sample = page.locator("#seven-sins-sample");
+  await expect(sample.getByRole("heading")).toHaveText(zh ? "结果示例" : "Sample result");
+  await expect(sample.locator("[data-seven-sins-axis]")).toHaveCount(14);
+  for (const axis of ["Wrath", "Patience"]) await expect(sample.locator(`[data-seven-sins-axis="${axis}"]`)).toHaveText("75");
+  await expect(page.locator("[data-seven-sins-board]")).toHaveCount(0);
   await start(page,locale);
+  await expect(page.locator("[data-seven-sins-board]")).toHaveCount(0);
   await page.getByRole("button",{name:zh?"下一题":"Next",exact:true}).click();
   await expect(page.getByRole("status")).toContainText(zh?"请选择":"Choose an option");
+  await page.locator(`input[name="${virtues.questions[0].id}"][value="4"]`).check();
+  await expect(page.locator("#take-test h2")).toHaveText(virtues.questions[1].prompt[locale]);
+  await page.reload();
+  await expect(page.locator("#take-test h2")).toHaveText(virtues.questions[0].prompt[locale]);
+  await expect(page.locator("#take-test input:checked")).toHaveCount(0);
   await answer(page,virtues,locale,Object.fromEntries(virtues.questions.map(q=>[q.id,"3"])));
   await expect(page.locator("[data-mini-virtues-part]")).toHaveCount(7);
   for (const profile of virtues.profiles) {
@@ -62,6 +76,8 @@ for(const locale of ["en","zh"] as const){
    await expect(reading.locator(`a[href="${entry(virtues, locale)}/results/${profile.id}"]`)).toBeVisible();
   }
   await expect(page.locator("[data-seven-sins-axis]")).toHaveText(Array(14).fill("50"));
+  await expect(page.locator("[data-seven-sins-leader]")).toHaveCount(2);
+  for (const card of await page.locator("[data-seven-sins-leader]").all()) await expect(card).toContainText(zh ? "并列" : "Joint leaders");
   for(const part of virtues.directions)await expect(page.locator(`[data-mini-virtues-score="${part.id}"]`).locator("strong")).toHaveText(["50","50"]);
   await expect(page.locator('#take-test a[href*="mbti-personality"]')).toHaveCount(0);await copyPublicOnly(page,virtues,locale);
   await page.getByRole("button",{name:zh?"重新测试":"Retake test",exact:true}).click();await expect(page.locator('input[type="radio"]:checked')).toHaveCount(0);await expect(page.locator("[data-mini-virtues-result]")).toHaveCount(0);expect(posts).toEqual([]);
