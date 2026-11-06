@@ -1036,6 +1036,9 @@ return (quiz.references ?? []);
     {quiz.kind !== "mini-virtues" && <p className="explore-intro-meta"><span>{quiz.kind === "fscrs22" ? (zh ? "22 条陈述 · 按自己的节奏 · 无需注册" : "22 statements · Self-paced · No signup") : zh ? `${quiz.questions.length}题 · 约${quiz.minutes}分钟 · 无需注册` : `${quiz.questions.length} questions · about ${quiz.minutes} ${quiz.minutes === 1 ? "minute" : "minutes"} · no signup`}</span><span>{entryLabel}</span></p>}
 
     <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
+    {slug === "cyberpunk-edgerunners" && <a href="#questionnaire-results" className="mt-2 inline-flex min-h-11 items-center text-sm font-medium underline underline-offset-4">
+      {zh ? "先看七种角色结果" : "See the seven possible character results"}
+    </a>}
     </ExploreTestIntro>
     {quiz.kind === "fscrs22" && <QuestionnaireFscrs22Attribution quiz={quiz} locale={locale} />}
     <section className="my-8 space-y-4 leading-8" aria-labelledby="questionnaire-purpose"><h2 id="questionnaire-purpose" className="text-2xl font-semibold">{(() => {

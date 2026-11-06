@@ -131,8 +131,8 @@ export const edgerunnersLandingSections: Questionnaire["guide"] = [
         "zh": "完整指南包含所选人物角度、日常情境、与另外六位的对照及计数读法。可以先看符合实际选择的实例，也留意不符合的实例；把结果作为讨论入口即可，无需把它当成对动机、技能或价值的判断。"
       },
       {
-        "en": "Answers are calculated in the browser. Progress is recoverable only if you actively save a tab draft, which expires after twenty-four hours; completion, retake and exit-and-clear remove it. Optional copying shares character names and public guide links, not answers or counts. Reading other guides is optional and does not alter your score.",
-        "zh": "答案在浏览器计算。只有主动保存本标签页草稿才提供恢复，草稿二十四小时后失效；完成、重测及退出并清除会删除。自选复制只分享人物名字与公开指南链接，不含答卷或次数。是否阅读其他指南由你决定，不改变计分。"
+        "en": "Answers are calculated in the browser. Reloading the quiz or switching languages starts a new attempt. Optional copying shares character names and public guide links, not answers or counts. Reading other guides is optional and does not alter your score.",
+        "zh": "答案在浏览器计算。刷新答题页或切换语言后需重新作答。自选复制只分享人物名字与公开指南链接，不含答卷或次数。是否阅读其他指南由你决定，不改变计分。"
       }
     ]
   }

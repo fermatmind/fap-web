@@ -47,6 +47,11 @@ describe("Seven bilingual cyberpunk-edgerunners revision readings", () => {
       const root = document.createElement("div");
       root.innerHTML = renderToStaticMarkup(<QuestionnaireArchetypeReport quiz={prepared} result={result} locale={locale} />);
       expect(root.querySelectorAll("[data-archetype-count]")).toHaveLength(7);
+      const chart = root.querySelector("#choice-counts")!;
+      const match = root.querySelector("[data-portrait-art]")!;
+      expect(chart.querySelector("[data-choice-radar-shape]")).not.toBeNull();
+      expect(match.compareDocumentPosition(chart) & (target ? Node.DOCUMENT_POSITION_FOLLOWING : Node.DOCUMENT_POSITION_PRECEDING)).toBeTruthy();
+      if (!target) expect(root.querySelectorAll('nav a[href^="#animal-title-"]')).toHaveLength(7);
       expect(root.querySelectorAll("[data-cyberpunk-edgerunners-result-reading]")).toHaveLength(result.profileIds.length);
       expect(root.querySelectorAll("h4")).toHaveLength(result.profileIds.length * 9);
       for (const id of result.profileIds) for (const section of content[id as keyof typeof content]) for (const text of section.paragraphs)

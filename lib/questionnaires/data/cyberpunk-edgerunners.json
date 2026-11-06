@@ -10,12 +10,12 @@
     "zh": "《赛博朋克：边缘行者》角色测试"
   },
   "description": {
-    "en": "Which Cyberpunk: Edgerunners character are you? Explore seven original-anime character angles through 21 everyday choices. See all counts, every highest tie and full free guides.",
-    "zh": "你更像哪位《赛博朋克：边缘行者》角色？用21道日常情境选择，对照初代动画七位人物，查看全部计数、最高并列与免费完整指南。"
+    "en": "Are you more like David, Lucy or Rebecca? Make 21 everyday choices to find your closest match among seven Edgerunners characters. Free, with no signup.",
+    "zh": "你更像大卫、露西还是丽贝卡？完成21道情境选择，看看你的做法更接近初代动画中的哪位角色。共七种角色结果，免费、无需注册。"
   },
   "seoTitle": {
-    "en": "Cyberpunk: Edgerunners Test: Free Character Quiz",
-    "zh": "《赛博朋克：边缘行者》角色测试：21题与7份全文"
+    "en": "Cyberpunk: Edgerunners Test – Which Character Are You?",
+    "zh": "《赛博朋克：边缘行者》角色测试｜你更像谁？"
   },
   "resultHeading": {
     "en": "Character comparisons for your choices",
@@ -27,8 +27,8 @@
     "zh": "从普通选择对照大卫、露西、丽贝卡、曼恩、琦薇、法尔科和法拉第的七个有限同人角度：首次尝试、自主目标、直接支持、小组协调、信息核对、可用交接与明确条件。本页是原创非官方问卷，不是剧情知识问答或心理评估；开测前即可阅读每篇人物指南。"
   },
   "instructions": {
-    "en": "Choose the response you currently feel drawn to in each of 21 ordinary imagined situations. No action has to be performed, and there are no right answers or best-looking options to find. Each choice adds one raw count to one character, with no reverse keys or weights. Every character appears 12 times, three in each position; every pair appears together six times. Complete all 21 choices for seven counts and every highest match with its full explanation. Counts are not similarity percentages, ability, moral worth or clinical scores. Optional tab drafts expire after 24 hours; completion, retake and exit-and-clear remove them. Copying is optional and shares only names and public links, not answers or counts.",
-    "zh": "按目前更想采用的回应，完成21道普通设想情境。无需实际做任何行动，没有对错，也不用找最漂亮的选项。每次为一位角色记1次，无反向、无加权；每位出现12次，四位置各3次，每对角色共同出现6次。全卷完成后显示七项次数，所有最高匹配逐份显示全文。次数不是相似度百分比、能力、道德价值或临床分。自选草稿仅在本标签页保留24小时，完成、重测、退出并清除会删除；分享可选，只含名字与公开链接，不含答卷或次数。"
+    "en": "Choose the response you currently feel drawn to in each of 21 ordinary imagined situations. No action has to be performed, and there are no right answers or best-looking options to find. Each choice adds one raw count to one character, with no reverse keys or weights. Every character appears 12 times, three in each position; every pair appears together six times. Complete all 21 choices for seven counts and every highest match with its full explanation. Counts are not similarity percentages, ability, moral worth or clinical scores. Progress resets if you reload the quiz or switch languages. Copying is optional and shares only names and public links, not answers or counts.",
+    "zh": "按目前更想采用的回应，完成21道普通设想情境。无需实际做任何行动，没有对错，也不用找最漂亮的选项。每次为一位角色记1次，无反向、无加权；每位出现12次，四位置各3次，每对角色共同出现6次。全卷完成后显示七项次数，所有最高匹配逐份显示全文。次数不是相似度百分比、能力、道德价值或临床分。刷新答题页或切换语言后需重新作答；分享可选，只含名字与公开链接，不含答卷或次数。"
   },
   "references": [
     {
@@ -2116,8 +2116,8 @@
       },
       "paragraphs": [
         {
-          "en": "Answers are scored in the browser and never placed in a public result URL or activity payload. Saving a tab draft requires your choice and expires after 24 hours. Completion, retake or exit-and-clear removes it. Optional copying contains a character name and public guide link, or the names of tied matches and the entry link, without answers or counts.",
-          "zh": "答案在浏览器内计数，不进入公开结果网址或活动统计载荷。标签页草稿需主动选择保存，24小时失效，完成、重测或退出并清除即删除。自选复制只含角色名与公开说明链接；并列时含角色名和入口，不带答卷或次数。"
+          "en": "Answers are scored in the browser and never placed in a public result URL or activity payload. Reloading the quiz or switching languages starts a new attempt. Optional copying contains a character name and public guide link, or the names of tied matches and the entry link, without answers or counts.",
+          "zh": "答案在浏览器内计数，不进入公开结果网址或活动统计载荷。刷新答题页或切换语言后需重新作答。自选复制只含角色名与公开说明链接；并列时含角色名和入口，不带答卷或次数。"
         },
         {
           "en": "Read the full comparison, choose a harmless private observation from a guide or finish here. The optional next step does not ask for real documents, contact details, public challenges or another person’s private history. Other assessments answer different questions and cannot convert these seven character counts into MBTI, ability or compatibility.",
@@ -2183,8 +2183,8 @@
         "zh": "全文免费吗？复制会分享什么？"
       },
       "answer": {
-        "en": "All seven full guides and the questionnaire are free without signup or email. Optional copying shares character names and a public guide or entry link, without answers or counts. Optional tab drafts expire after 24 hours and clear on completion, retake or exit-and-clear. You can stop without taking another test.",
-        "zh": "问卷和七份全文免费，不需注册或邮箱。自选复制分享角色名与公开说明或入口链接，没有答卷和次数。自选标签页草稿24小时失效，完成、重测或退出并清除即删除；不需要另做测试才能结束。"
+        "en": "All seven full guides and the questionnaire are free without signup or email. Optional copying shares character names and a public guide or entry link, without answers or counts. You can stop without taking another test.",
+        "zh": "问卷和七份全文免费，不需注册或邮箱。自选复制分享角色名与公开说明或入口链接，没有答卷和次数。可以直接结束，无需另做测试。"
       }
     }
   ]

@@ -41,10 +41,12 @@ function previewSections(profile: QuestionnaireProfile) {
 export function QuestionnaireArchetypeReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<ArchetypeResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh";
   const lead = portraitResultLeadKind(quiz.slug);
-  const placement = comparisonFirst.has(quiz.slug) ? "before" : chartAfterLead.has(quiz.slug) ? "between" : chartAfterReading.has(quiz.slug) ? "after" : undefined;
+  const edgerunners = quiz.slug === "cyberpunk-edgerunners";
+  const placement = edgerunners && result.profileIds.length === 1 ? "between" :
+    comparisonFirst.has(quiz.slug) ? "before" : chartAfterLead.has(quiz.slug) ? "between" : chartAfterReading.has(quiz.slug) ? "after" : undefined;
   const matched = result.profileIds.map(id => quiz.profiles.find(p => p.id === id)!);
   const leadingDirections = new Set(matched.flatMap(profile => profile.directionIds));
-  const showRadar = placement === "before" || quiz.slug === "anime-character-archetype-test";
+  const showRadar = edgerunners || placement === "before" || quiz.slug === "anime-character-archetype-test";
   const chart = <section className={styles.choiceChart} id="choice-counts" aria-labelledby="choice-counts-title">
     <h3 id="choice-counts-title">{zh ? "本次选择次数" : "Choice counts for this attempt"}</h3>
     <div className={showRadar ? styles.choiceRadarLayout : undefined}>
