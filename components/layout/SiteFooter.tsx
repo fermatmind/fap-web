@@ -63,6 +63,11 @@ export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
           { href: "/data-privacy", label: "Data notes" },
           { href: "/common-misconceptions", label: "Common misconceptions" },
         ];
+  const reviewLink: FooterLinkItem = {
+    href: "https://www.trustpilot.com/review/fermatmind.com",
+    label: locale === "zh" ? "在 Trustpilot 评价使用体验" : "Review your experience on Trustpilot",
+    external: true,
+  };
   const companyLinks: FooterLinkItem[] =
     locale === "zh"
       ? [
@@ -71,6 +76,7 @@ export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
           { href: "/charter", label: "宪章" },
           { href: "/foundation", label: "公共利益" },
           { href: "/careers", label: "工作机会" },
+          reviewLink,
         ]
       : [
           { href: "/about", label: "About" },
@@ -78,6 +84,7 @@ export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
           { href: "/charter", label: "Charter" },
           { href: "/foundation", label: "Public benefit" },
           { href: "/careers", label: "Careers" },
+          reviewLink,
         ];
   const policyLinks: FooterLinkItem[] =
     locale === "zh"
