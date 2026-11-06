@@ -9,7 +9,8 @@ import { StoryDirectory } from "@/components/entertainment/StoryDirectory";
 import { MoreTests, FUN_CATEGORIES, MORE_TEST_PRODUCT_COUNT } from "@/components/entertainment/MoreTests";
 import catalog from "@/lib/entertainment/catalog.json";
 import questionnaires from "@/lib/questionnaires/catalog.json";
-import { directoryQuizzes, globalHistoryStory, storyQuizzes } from "@/lib/entertainment/directory";
+import { directoryDescription, directoryQuizzes, globalHistoryStory, storyQuizzes } from "@/lib/entertainment/directory";
+import directoryCopy from "@/lib/entertainment/directory-copy.json";
 import { canonicalUrl } from "@/lib/site";
 import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
 import coverSlugs from "@/components/tests/directory-cover-slugs.json";
@@ -39,6 +40,19 @@ describe("386 distinct products with separate test and story directories", () =>
     });
     expect(new Set(hashes).size).toBe(files.length);
   });
+  it("provides one concise, distinct synopsis in both languages for every catalog entry", () => {
+    expect(Object.keys(directoryCopy).sort()).toEqual(coverSlugs);
+    const descriptions = Object.values(directoryCopy);
+    for (const locale of ["en", "zh"] as const) {
+      expect(new Set(descriptions.map(copy => copy[locale])).size).toBe(coverSlugs.length);
+    }
+    for (const [slug, { zh, en }] of Object.entries(directoryCopy)) {
+      expect(zh.trim().length, slug).toBeGreaterThan(8);
+      expect(zh.length, slug).toBeLessThanOrEqual(64);
+      expect(en.trim().split(/\s+/).length, slug).toBeGreaterThan(4);
+      expect(en.trim().split(/\s+/).length, slug).toBeLessThanOrEqual(36);
+    }
+  });
   it.each(["en", "zh"] as const)("renders all 101 actual %s destinations and aligned structured data and sitemap entries", locale => {
     const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<InteractiveStoryLibrary locale={locale} />);
     expect(dom.querySelectorAll("[data-story-slug]")).toHaveLength(101);
@@ -51,9 +65,10 @@ describe("386 distinct products with separate test and story directories", () =>
       const card = dom.querySelector(`[data-story-slug="${q.slug}"]`)!;
       expect(card.querySelector('h4 a')?.getAttribute('href')).toBe(path);
       expect(card.querySelector('.catalog-item-start')?.getAttribute('href')).toBe(path);
-      expect(card.textContent).toContain(q.title[locale]); expect(card.textContent).toContain(q.description[locale]);
+      expect(card.textContent).toContain(q.title[locale]);
+      expect(card.querySelector('.catalog-item-body > p')?.textContent).toBe(directoryDescription(q)[locale]);
       expect(card.querySelector('[data-directory-cover] > img')?.getAttribute('src')).toBe(`/images/test-covers/${q.slug}.webp`);
-      expect(schema.itemListElement.some((item: {url:string}) => item.url === canonicalUrl(path))).toBe(true);
+      expect(schema.itemListElement.find((item: {url:string}) => item.url === canonicalUrl(path))?.description).toBe(directoryDescription(q)[locale]);
       expect(sitemap.some(item => item.loc === `https://fermatmind.com${path}`)).toBe(true);
     }
     expect(dom.textContent).toContain(locale === 'zh' ? '合计 386个产品' : '386 products in total');
