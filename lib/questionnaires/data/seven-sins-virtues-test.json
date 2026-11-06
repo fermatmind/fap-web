@@ -14,17 +14,17 @@
     "zh": "七宗罪与七美德测试：七组完整读法免费"
   },
   "description": {
-    "en": "Answer 28 original statements for separate scores on seven sins and seven virtues, a 14-axis radar, and seven everyday reading guides.",
-    "zh": "28道原创陈述，查看七宗罪与七美德各自的得分、十四维雷达和七篇情境指南。"
+    "en": "See 14 scores on a radar chart and use seven everyday guides to make sense of your answers. For self-reflection only.",
+    "zh": "查看十四项得分的雷达图和七篇情境解读。结果仅供自我探索。"
   },
   "minutes": 8,
   "introduction": {
-    "en": "Think about your everyday experiences over the past four weeks and consider which reactions and responses fit you. This original entertainment quiz uses the seven sins and seven virtues as cultural labels.",
-    "zh": "回想近四周的日常经历，看看哪些反应和回应方式更符合你。七宗罪与七美德是这套娱乐题本借用的文化标签。"
+    "en": "This original quiz uses the seven sins and seven virtues as cultural symbols for reflecting on everyday reactions and ways of responding.",
+    "zh": "这套原创题本借用七宗罪与七美德的文化意象，帮助你回顾日常反应与应对方式。"
   },
   "instructions": {
-    "en": "Choose how well each statement describes your actual experience over the past four weeks. Finish all 28 items to see all fourteen scores.",
-    "zh": "按过去四周的实际情况，选择每条陈述的符合程度。全部28题完成后查看十四项得分。"
+    "en": "For each statement, choose how well it describes your experience over the past four weeks.",
+    "zh": "根据过去四周的实际经历，选择每条陈述与你相符的程度。"
   },
   "source": {
     "kind": "fermatmind_original",

@@ -862,7 +862,7 @@ if (quiz.kind === "mental-age") return (zh ? "原创12题娱乐年龄 · 完整�
 if (quiz.slug === "stupidity-test") return (zh ? "原创日常乌龙选择 · 六篇全文免费" : "Original everyday mix-up choices · Six full guides free");
 if (quiz.kind === "mini-orientation") return (zh ? "原创20题非分类观察 · 五篇全文免费" : "20 original non-classifying statements · Five full guides free");
 if (quiz.kind === "mini-conflict") return (zh ? "原创24题行为观察 · 四篇全文免费" : "24 original behavior statements · Four full guides free");
-if (quiz.kind === "mini-virtues") return (zh ? "十四项独立读数 · 全文免费" : "Fourteen independent scores · Full guides free");
+if (quiz.kind === "mini-virtues") return (zh ? "完整解读免费" : "Free full guides");
 if (quiz.slug === "euphoria-character-quiz") return (zh ? "非官方同人编辑 · 第一、二季" : "Unofficial fan edition · Seasons 1–2");
 if (quiz.kind === "pss4") return (zh ? "PSS-4英文四题 · 本站中文译文 · 完整指南免费" : "Published English PSS-4 · Site Chinese translation · Full guide free");
 if (quiz.kind === "stress-reflection4") return (zh ? "原创四题月度回看 · 完整解读免费" : "Four original monthly prompts · Full guide free");
