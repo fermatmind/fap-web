@@ -144,4 +144,4 @@ Operational takeaway:
 - [《西游记》角色测试](https://www.arealme.com/which-journey-to-the-west-character-are-you/zh/)
 - [七美德测验](https://www.arealme.com/seven-virtues-quiz/zh/)
 
-将 AREALME 纳入娱乐测试的产品对标。费马目录采用图在上、标题和入口在下的卡片结构，每个主题选用对应的插画或图形，中英文共用封面。单个测试是否纳入结果页对标，仍按同题、可见完整结果和测试页流量逐项核实。
+将 AREALME 纳入娱乐测试的产品对标。费马目录采用图在上、标题和入口在下的卡片结构。285 项测试与工具、101 项互动故事各使用一张与题意对应的原创封面，中英文共用。单个测试是否纳入结果页对标，仍按同题、可见完整结果和测试页流量逐项核实。

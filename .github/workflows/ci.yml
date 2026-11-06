@@ -307,7 +307,8 @@ jobs:
       - name: Execute all selected browser scenarios in this server mode
         run: |
           set -euo pipefail
-          pnpm exec playwright install --with-deps chromium
+          # ubuntu-24.04 already includes Chromium's shared libraries.
+          pnpm exec playwright install chromium
           node .github/trunk/run-changed-tests.mjs '${{ needs.classify.outputs.base_sha }}' '${{ github.sha }}' e2e
 
   contract-shards:

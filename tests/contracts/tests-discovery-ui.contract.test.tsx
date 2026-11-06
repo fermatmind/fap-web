@@ -32,7 +32,7 @@ describe("shared discovery directory", () => {
     const covers = Array.from(container.querySelectorAll("[data-directory-cover]"));
     const illustrated = container.querySelectorAll(".catalog-cover > img");
     expect(covers).toHaveLength(count);
-    expect(illustrated).toHaveLength(24);
+    expect(illustrated).toHaveLength(count);
     expect(new Set(covers.map(cover => cover.getAttribute("data-directory-cover"))).size).toBe(count);
     for (const image of illustrated) {
       expect(image.getAttribute("src")).toBe(`/images/test-covers/${image.parentElement!.getAttribute("data-directory-cover")}.webp`);
@@ -44,18 +44,6 @@ describe("shared discovery directory", () => {
       count,
     );
     expect(container.querySelectorAll(".catalog-item details")).toHaveLength(0);
-    const art = Array.from(
-      container.querySelectorAll(".catalog-discovery-art"),
-    );
-    expect(
-      new Set(art.map((node) => node.getAttribute("data-art-id"))).size,
-    ).toBe(count - illustrated.length);
-    expect(
-      new Set(art.map((node) => node.getAttribute("data-composition"))).size,
-    ).toBe(count - illustrated.length);
-    expect(
-      new Set(art.map((node) => node.querySelector("svg")!.innerHTML)).size,
-    ).toBe(count - illustrated.length);
     for (const card of container.querySelectorAll(".catalog-item")) {
       expect(card.querySelector("h4 a")?.getAttribute("href")).toBe(
         card.querySelector(".catalog-item-start")?.getAttribute("href"),

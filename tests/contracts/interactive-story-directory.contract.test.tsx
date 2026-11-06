@@ -1,3 +1,6 @@
+import { createHash } from "node:crypto";
+import { readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 import { renderToStaticMarkup } from "react-dom/server";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
@@ -9,6 +12,7 @@ import questionnaires from "@/lib/questionnaires/catalog.json";
 import { directoryQuizzes, globalHistoryStory, storyQuizzes } from "@/lib/entertainment/directory";
 import { canonicalUrl } from "@/lib/site";
 import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
+import coverSlugs from "@/components/tests/directory-cover-slugs.json";
 
 describe("386 distinct products with separate test and story directories", () => {
   it("keeps the 285/101 split without counting locales, six assessments or the two adapted identities twice", () => {
@@ -22,6 +26,18 @@ describe("386 distinct products with separate test and story directories", () =>
     expect(tests).not.toContain("mbti-personality-test-16-personality-types");
     expect(tests.filter(s => s === "relationship-values")).toHaveLength(1);
     expect(tests.filter(s => s === "response-color")).toHaveLength(1);
+    expect(coverSlugs).toEqual([...tests, ...storyQuizzes.map(q => q.slug)].sort());
+  });
+  it("packages one distinct WebP asset per catalog identity", () => {
+    const directory = join(process.cwd(), "public/images/test-covers");
+    const files = coverSlugs.map(slug => `${slug}.webp`).sort();
+    expect(readdirSync(directory).sort()).toEqual(files);
+    const hashes = files.map(file => {
+      const image = readFileSync(join(directory, file));
+      expect(image.toString("ascii", 8, 12), file).toBe("WEBP");
+      return createHash("sha256").update(image).digest("hex");
+    });
+    expect(new Set(hashes).size).toBe(files.length);
   });
   it.each(["en", "zh"] as const)("renders all 101 actual %s destinations and aligned structured data and sitemap entries", locale => {
     const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<InteractiveStoryLibrary locale={locale} />);
@@ -36,7 +52,7 @@ describe("386 distinct products with separate test and story directories", () =>
       expect(card.querySelector('h4 a')?.getAttribute('href')).toBe(path);
       expect(card.querySelector('.catalog-item-start')?.getAttribute('href')).toBe(path);
       expect(card.textContent).toContain(q.title[locale]); expect(card.textContent).toContain(q.description[locale]);
-      expect(card.querySelector('.explore-hero-symbol svg')).not.toBeNull();
+      expect(card.querySelector('[data-directory-cover] > img')?.getAttribute('src')).toBe(`/images/test-covers/${q.slug}.webp`);
       expect(schema.itemListElement.some((item: {url:string}) => item.url === canonicalUrl(path))).toBe(true);
       expect(sitemap.some(item => item.loc === `https://fermatmind.com${path}`)).toBe(true);
     }
