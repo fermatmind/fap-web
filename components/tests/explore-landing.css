@@ -103,6 +103,13 @@
   margin: 14px auto 0;
   color: #7b7588;
 }
+.explore-intro #take-test[data-questionnaire-take-entry] {
+  margin-inline: 0;
+  text-align: start;
+}
+.explore-intro #take-test[data-questionnaire-take-entry] > p {
+  margin-inline: 0;
+}
 .explore-intro #take-test button[class*="bg-violet"] {
   min-width: 210px;
   min-height: 48px;
