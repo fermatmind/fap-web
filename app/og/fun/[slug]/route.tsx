@@ -125,16 +125,17 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   const query = new URL(request.url).searchParams, locale = query.get("locale") ?? "en";
   if (locale !== "en" && locale !== "zh") return new Response("Image unavailable", { status: 404 });
   const portrait = query.get("portrait");
+  const download = query.get("download") === "1";
   if (slug === GLOBAL_HISTORY_SLUG) {
     const person = portrait && findHistoryPerson(portrait);
     if (!person) return new Response("Image unavailable", { status: 404 });
-    return globalHistoryCard(person, locale, await quizFont(slug), query.get("download") === "1");
+    return globalHistoryCard(person, locale, await quizFont(slug), download);
   }
   if (slug === CHANGAN_SLUG && portrait) {
     const quiz = await loadFunQuiz(slug);
     const result = quiz && findPublicPortrait(quiz, portrait);
     if (!result) return new Response("Image unavailable", { status: 404 });
-    return changanCardResponse(result, locale, await quizFont(slug), query.get("download") === "1");
+    return changanCardResponse(result, locale, await quizFont(slug), download);
   }
   const questionnaire = await loadQuestionnaire(slug);
   if (questionnaire?.kind === "uncertainty-ease6" && !isUncertaintyEase6ConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
