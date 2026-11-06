@@ -1,6 +1,6 @@
 import { average, CATEGORIES, type Locale, type Result } from "@/lib/friendship/core";
 
-export function CategoryRadar({ locale, result }: { locale: Locale; result: Result }) {
+export function CategoryRadar({ locale, result }: { locale: Locale; result: Pick<Result, "categories" | "entries" | "id"> }) {
   const keys = Object.keys(CATEGORIES);
   const labels = locale === "zh" ? ["美食", "相处", "玩乐", "真心话", "风格", "日常"] : ["Food", "Connection", "Fun", "Real talk", "Style", "Daily"];
   const point = (i: number, radius: number) => {

@@ -61,6 +61,15 @@ describe("friendship search intent and one canonical tool", () => {
     expect(container.querySelectorAll('a[href="#rikaido-alternative"]')).toHaveLength(1);
     if (locale === "en") expect(comparison.textContent).not.toMatch(/[\u4e00-\u9fff]/);
   });
+  it.each(["en", "zh"] as const)("shows the %s fictional score and skips a rank after a tie", locale => {
+    const { container } = render(<PublicResource locale={locale} kind="scores" />);
+    const example = container.querySelector("#sample-score")!;
+    expect(example.textContent).toContain("73%");
+    const rows = Array.from(example.querySelectorAll("tbody tr"), row =>
+      Array.from(row.querySelectorAll("td"), cell => cell.textContent));
+    expect(rows).toEqual([["1", "22/30"], ["1", "22/30"], ["3", "18/30"]]);
+    expect(example.querySelector("a, form")).toBeNull();
+  });
   it.each(["en", "zh"] as const)("keeps the %s public sharing instructions aligned with QR and Story behavior", locale => {
     const { container } = render(<PublicResource locale={locale} kind="how-to-play" />);
     const text = container.textContent!;

@@ -5,7 +5,7 @@ export function appendFriendshipSitemapEntries(entries: PublicSitemapEntry[]): P
   const result = new Map(entries.map(entry => [entry.loc, entry]));
   for (const locale of ["en", "zh"]) for (const suffix of RESOURCE_PATHS) {
     const loc = `${CANONICAL_SITE_URL}/${locale}${PUBLIC_PATH}${suffix}`;
-    result.set(loc, { loc, lastmod: "2026-10-26T00:00:00.000Z" });
+    result.set(loc, { loc, lastmod: suffix === "/how-to-play" ? "2026-10-26T00:00:00.000Z" : "2026-11-07T00:00:00.000Z" });
   }
   return [...result.values()].sort((a, b) => a.loc.localeCompare(b.loc));
 }

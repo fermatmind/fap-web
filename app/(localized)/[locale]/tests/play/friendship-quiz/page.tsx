@@ -7,6 +7,7 @@ import { StartTestButton } from "@/components/tests/StartTestButton";
 import RikaidoComparison from "@/components/friendship/RikaidoComparison";
 import {
   FriendshipNav,
+  pages,
   resourceMetadata,
 } from "@/components/friendship/PublicContent";
 import "@/components/friendship/friendship.css";
@@ -26,6 +27,7 @@ export default async function Page({
 }) {
   const locale = resolveLocale((await params).locale);
   const zh = locale === "zh";
+  const base = `/${locale}/tests/play/friendship-quiz`;
   const faqs = zh
     ? [
         [
@@ -80,19 +82,24 @@ export default async function Page({
               ? "费马测试 · 免费朋友默契测试"
               : "FERMATMIND · FREE FRIENDSHIP QUIZ"}
           </p>
-          <h1>{zh ? "你有多了解我？" : "How well do you know me?"}</h1>
+          <h1>{zh ? "朋友默契测试：你有多了解我？" : "How Well Do You Know Me? Friendship Quiz"}</h1>
           <p>
             {zh
-              ? "先选自己的日常偏好，发给朋友来猜。谁更了解你，用同一份挑战看看。"
-              : "Make a free friendship quiz about yourself. Send your link, let friends guess, and see who knows you best."}
+              ? "先选自己的答案，再把邀请发给朋友来猜。收到邀请？打开朋友发给你的链接就能答题。"
+              : "Pick your answers, then send one link for friends to guess them. Here to take a friend’s quiz? Open the invite they sent you."}
           </p>
           <a className="fq-primary" href={`/${locale}/tests/play/friendship-quiz/take`}>
             {zh ? "免费创建我的挑战" : "Make my friendship quiz"} ↗
           </a>
           <p className="fq-muted">
             {zh
-              ? "免注册 · 30–150题 · 六种生活侧面"
-              : "No signup · 30–150 questions · Full results free"}
+              ? "免费免注册 · 最短 30 题 · 每猜中一题得 1 分"
+              : "Free, no signup · 30 questions minimum · One point per match"}
+          </p>
+          <p>
+            <Link href={`${base}/scores#sample-score`}>
+              {zh ? "先看分数与并列榜单示例" : "See a sample score and tied ranks"} →
+            </Link>
           </p>
         </div>
         <div className="fq-art">
@@ -280,9 +287,7 @@ export default async function Page({
           operatingSystem: "Web browser",
           inLanguage: zh ? "zh-CN" : "en",
           offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-          description: zh
-            ? "免费创建二选一朋友默契挑战，邀请朋友猜自己的选择，比较分数和榜单。"
-            : "Make a free friendship quiz about yourself, share your link and see who knows your choices best.",
+          description: pages.home[locale][1],
         }}
       />
     </main>

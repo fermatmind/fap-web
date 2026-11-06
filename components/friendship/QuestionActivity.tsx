@@ -30,7 +30,7 @@ export function QuestionActivity({ locale }: { locale: Locale }) {
       <p>{zh ? "先决定猜谁的选择。每题A在前、B在后；题号与四页PDF一致。" : "Decide whose choices you are guessing. A comes first and B second. Numbers match the four-page PDF."}</p>
       {Object.entries(CATEGORIES).map(([category, label]) => <section key={category}>
         <h3>{label[locale]}</h3><ol start={preview.questions.findIndex(q => q.category === category) + 1}>{preview.questions.filter(q => q.category === category).map(q => <li key={q.id} data-question-id={q.id}><strong>A.</strong> {q[locale].options[0]}<br /><strong>B.</strong> {q[locale].options[1]}</li>)}</ol>
-        <p className="fq-hide-print"><Link href={`/${locale}${PUBLIC_PATH}?category=${category}#create`}>{zh ? `把${label[locale]}放在在线题组开头` : `Start the online mix with ${label[locale].toLowerCase()}`}</Link></p>
+        <p className="fq-hide-print"><Link prefetch={false} href={`/${locale}${PUBLIC_PATH}/take?category=${category}`}>{zh ? `把${label[locale]}放在在线题组开头` : `Start the online mix with ${label[locale].toLowerCase()}`}</Link></p>
       </section>)}
       <p className="fq-muted">{zh ? "上述分类链接只调整开头类别，在线版仍然包含六类题，不是单类专属版。" : "Category links change which category comes first. The online quiz still includes all six categories; these are not single-topic editions."}</p>
     </section>
