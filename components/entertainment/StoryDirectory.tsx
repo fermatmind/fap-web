@@ -3,6 +3,7 @@ import { useDeferredValue, useState } from "react";
 import { ArrowRight, Search, X } from "lucide-react";
 import type { Locale } from "@/lib/i18n/locales";
 import { ExploreHeroArtwork } from "@/components/tests/ExploreHeroArtwork";
+import { DirectoryCover } from "@/components/tests/DirectoryCover";
 import "@/components/tests/tests-catalog.css";
 
 type StoryItem = { slug: string; category: string; title: string; description: string; href: string; meta: string };
@@ -39,7 +40,10 @@ export function StoryDirectory({ items, categories, locale, testToolCount }: {
         return entries.length ? <section key={key} className="catalog-group" aria-labelledby={`story-group-${key}`}>
           <div className="catalog-group-heading"><h3 id={`story-group-${key}`}>{label[locale]}</h3><span>{entries.length}</span></div>
           <div className="catalog-item-grid">{entries.map((item) => <article key={item.slug} data-story-slug={item.slug} className={`catalog-item catalog-item-${key}`}>
-            <div className="catalog-item-body"><h4><a href={item.href}>{item.title}</a></h4><div className="catalog-story-art"><ExploreHeroArtwork slug={item.slug} category={key} /></div><p>{item.description}</p><span className="catalog-item-meta">{item.meta}</span><a className="catalog-item-start" href={item.href} aria-label={`${zh ? "进入故事" : "Open story"} · ${item.title}`}><span>{zh ? "进入故事" : "Open story"}</span><ArrowRight size={16} aria-hidden="true" /></a></div>
+            <DirectoryCover slug={item.slug}>
+              <ExploreHeroArtwork slug={item.slug} category={key} />
+            </DirectoryCover>
+            <div className="catalog-item-body"><h4><a href={item.href}>{item.title}</a></h4><p>{item.description}</p><span className="catalog-item-meta">{item.meta}</span><a className="catalog-item-start" href={item.href} aria-label={`${zh ? "进入故事" : "Open story"} · ${item.title}`}><span>{zh ? "进入故事" : "Open story"}</span><ArrowRight size={16} aria-hidden="true" /></a></div>
           </article>)}</div>
         </section> : null;
       })}

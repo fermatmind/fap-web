@@ -166,7 +166,8 @@ function DiscoveryGlyph({
           <circle cx="143" cy="83" r="52" fill="none" strokeOpacity=".22" />
           {Array.from({ length: 12 }, (_, index) => {
             const angle = index * Math.PI / 6 - Math.PI / 2;
-            const x = 143 + Math.cos(angle) * 52, y = 83 + Math.sin(angle) * 52;
+            const x = Math.round((143 + Math.cos(angle) * 52) * 100) / 100;
+            const y = Math.round((83 + Math.sin(angle) * 52) * 100) / 100;
             return <g key={index}><rect x={x - 9} y={y - 10} width="18" height="20" rx="4" fill="white" /><path d={`M${x - 3} ${y - 4}h6m-6 4h6m-6 4h4`} strokeOpacity=".65" /></g>;
           })}
           <path d="m127 79 5-14 9 10 10-7 7 11-6 17h-19zm7 2h1m12 0h1m-11 7h8" fill="white" />
@@ -552,13 +553,18 @@ function DiscoveryGlyph({
         <g data-intimacy-open-boundary="true"><path d="M66 118a34 34 0 1 1 50-44m73-30a39 39 0 1 1-35 56" strokeOpacity=".35" /><circle cx="88" cy="89" r="8" fill="white" /><circle cx="186" cy="87" r="8" fill="currentColor" fillOpacity=".16" /><path d="M119 87h36m-8-5 8 5-8 5M137 65v9m0 26v9" strokeOpacity=".6" /><rect x="223" y="64" width="48" height="43" rx="9" fill="white" strokeOpacity=".3" /><path d="m236 87 7 7 14-16" strokeOpacity=".5" /></g>
       )}
       {motif === "natal-position-wheel" && (
-        <g data-natal-position-wheel="true"><circle cx="147" cy="87" r="57" fill="white" strokeOpacity=".4" /><circle cx="147" cy="87" r="39" strokeOpacity=".3" />{Array.from({length:12},(_,i)=>{const a=i*Math.PI/6;return <path key={i} d={`M${147+Math.cos(a)*39} ${87+Math.sin(a)*39}L${147+Math.cos(a)*57} ${87+Math.sin(a)*57}`} strokeOpacity=".45" />;})}<path d="m98 62 87 58-15-69-72 11" strokeOpacity=".3" />{[[98,62],[185,120],[170,51]].map(([x,y],i)=><circle key={i} cx={x} cy={y} r="6" fill="currentColor" fillOpacity={.25+i*.2} stroke="white" />)}<circle cx="147" cy="87" r="7" fill="currentColor" fillOpacity=".12" /><path d="M213 87h30m-7-5 7 5-7 5" strokeOpacity=".5" /></g>
+        <g data-natal-position-wheel="true"><circle cx="147" cy="87" r="57" fill="white" strokeOpacity=".4" /><circle cx="147" cy="87" r="39" strokeOpacity=".3" />{Array.from({ length: 12 }, (_, i) => <path key={i} d="M186 87h18" transform={`rotate(${i * 30} 147 87)`} strokeOpacity=".45" />)}<path d="m98 62 87 58-15-69-72 11" strokeOpacity=".3" />{[[98,62],[185,120],[170,51]].map(([x,y],i)=><circle key={i} cx={x} cy={y} r="6" fill="currentColor" fillOpacity={.25+i*.2} stroke="white" />)}<circle cx="147" cy="87" r="7" fill="currentColor" fillOpacity=".12" /><path d="M213 87h30m-7-5 7 5-7 5" strokeOpacity=".5" /></g>
       )}
       {motif === "natal-time-location-card" && (
         <g data-natal-time-location-card="true"><rect x="52" y="46" width="102" height="84" rx="11" fill="white" strokeOpacity=".3" /><circle cx="102" cy="86" r="23" strokeOpacity=".5" /><path d="M102 71v15l12 8m-38-54v10m51-10v10M199 47v80m-32-40h64m-51-26 38 52m-38 0 38-52" strokeOpacity=".5" /><ellipse cx="199" cy="87" rx="31" ry="40" strokeOpacity=".25" /><circle cx="199" cy="87" r="6" fill="currentColor" fillOpacity=".3" /></g>
       )}
       {motif === "nine-star-calendar-cycle" && (
-        <g data-nine-star-calendar-cycle="true"><circle cx="139" cy="87" r="47" fill="white" strokeOpacity=".25" />{Array.from({length:9},(_,i)=>{const a=i*Math.PI*2/9-Math.PI/2;return <g key={i}><circle cx={139+Math.cos(a)*47} cy={87+Math.sin(a)*47} r="10" fill="white" strokeOpacity=".4" /><text x={139+Math.cos(a)*47} y={91+Math.sin(a)*47} textAnchor="middle" fill="currentColor" stroke="none" fontSize="11">{i+1}</text></g>;})}<path d="M127 84h24m-24 8h17" strokeOpacity=".35" /></g>
+        <g data-nine-star-calendar-cycle="true"><circle cx="139" cy="87" r="47" fill="white" strokeOpacity=".25" />{Array.from({ length: 9 }, (_, i) => {
+          const angle = i * Math.PI * 2 / 9 - Math.PI / 2;
+          const x = (139 + Math.cos(angle) * 47).toFixed(2);
+          const y = (87 + Math.sin(angle) * 47).toFixed(2);
+          return <g key={i}><circle cx={x} cy={y} r="10" fill="white" strokeOpacity=".4" /><text x={x} y={y} dy="4" textAnchor="middle" fill="currentColor" stroke="none" fontSize="11">{i + 1}</text></g>;
+        })}<path d="M127 84h24m-24 8h17" strokeOpacity=".35" /></g>
       )}
       {motif === "nine-star-boundary-notes" && (
         <g data-nine-star-boundary-notes="true"><rect x="49" y="47" width="111" height="84" rx="10" fill="white" strokeOpacity=".3" /><path d="M49 68h111m-86-27v13m60-13v13M104 81v37M65 96h26m-6-5 6 5-6 5m32-5h26m-6-5 6 5-6 5" strokeOpacity=".45" /><circle cx="104" cy="96" r="4" fill="currentColor" stroke="none" /></g>
@@ -618,7 +624,7 @@ function DiscoveryGlyph({
         <g data-comm-channel-record="true"><path d="M166 84h24m-5-5 5 5-5 5" strokeOpacity=".4" /><rect x="205" y="39" width="82" height="98" rx="10" fill="white" strokeOpacity=".35" /><path d="M219 56h45M219 70h51M219 84h30M221 110l7 7 17-19M253 111h19" strokeOpacity=".45" /></g>
       )}
       {motif === "scs-six-balanced-parts" && (
-        <g data-scs-six-balanced-parts="true"><circle cx="111" cy="85" r="48" fill="white" strokeOpacity=".3" /><path d="M111 37v96M69 61l84 48M69 109l84-48" strokeOpacity=".25" />{[0,1,2,3,4,5].map(i=><circle key={i} cx={111+Math.cos(i*Math.PI/3)*31} cy={85+Math.sin(i*Math.PI/3)*31} r="9" fill="currentColor" fillOpacity={i%2===0?'.2':'.07'} strokeOpacity=".3" />)}<circle cx="111" cy="85" r="11" fill="white" strokeOpacity=".4" /></g>
+        <g data-scs-six-balanced-parts="true"><circle cx="111" cy="85" r="48" fill="white" strokeOpacity=".3" /><path d="M111 37v96M69 61l84 48M69 109l84-48" strokeOpacity=".25" />{[0,1,2,3,4,5].map(i => <circle key={i} cx="142" cy="85" transform={`rotate(${i * 60} 111 85)`} r="9" fill="currentColor" fillOpacity={i % 2 === 0 ? ".2" : ".07"} strokeOpacity=".3" />)}<circle cx="111" cy="85" r="11" fill="white" strokeOpacity=".4" /></g>
       )}
       {motif === "scs-reflection-note" && (
         <g data-scs-reflection-note="true"><path d="M171 85h23m-5-5 5 5-5 5" strokeOpacity=".4" /><rect x="209" y="40" width="74" height="92" rx="9" fill="white" strokeOpacity=".35" /><path d="M223 58h45m-45 13h34m-34 15h45m-45 13h27" strokeOpacity=".3" /><path d="M232 116q14-11 28 0" fill="none" strokeOpacity=".5" /></g>

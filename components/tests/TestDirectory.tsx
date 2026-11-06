@@ -8,6 +8,7 @@ import type { HubTestCardItem } from "@/lib/marketing/testsHubContent";
 import { CmsMediaAuthorityShell } from "@/components/marketing/CmsMediaAuthorityShell";
 import { IQ_PUBLIC_SLUG } from "@/lib/iq/constants";
 import { DiscoveryCardArt, discoveryCardEditorial } from "./DiscoveryCardArt";
+import { DirectoryCover } from "./DirectoryCover";
 import { AssessmentStructureArt } from "./AssessmentStructureArt";
 import "./tests-catalog.css";
 
@@ -402,6 +403,9 @@ export function TestDirectory({
                           key={item.slug}
                           className={`catalog-item catalog-item-${key}`}
                         >
+                          <DirectoryCover slug={item.slug}>
+                            <DiscoveryCardArt slug={item.slug} category={key} />
+                          </DirectoryCover>
                           <div className="catalog-item-body">
                             <h4>
                               <a href={item.href}>{item.title}</a>
@@ -415,7 +419,6 @@ export function TestDirectory({
                                 }
                               </span>
                             )}
-                            <DiscoveryCardArt slug={item.slug} category={key} />
                             <p>{item.description}</p>
 
                             <span className="catalog-item-meta">

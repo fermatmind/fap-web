@@ -356,27 +356,30 @@
   gap: 22px;
 }
 .catalog-item {
+  --cover-paper: #aab9f0;
+  --cover-light: #e4ecff;
+  --cover-ink: #2b3e76;
   min-width: 0;
   display: flex;
-  padding: 24px;
+  flex-direction: column;
+  overflow: hidden;
   border: 1px solid #e5e5ec;
   border-radius: 14px;
   background: #fff;
   transition:
-    transform 0.2s ease,
     border-color 0.2s ease,
     box-shadow 0.2s ease;
 }
 .catalog-item:hover {
-  transform: translateY(-4px);
   border-color: #d8d3ed;
   box-shadow: 0 10px 25px #28203908;
 }
 .catalog-item-body {
   min-width: 0;
-  width: 100%;
   display: flex;
+  flex: 1;
   flex-direction: column;
+  padding: 18px 20px 20px;
 }
 .catalog-item-body h4 {
   font-size: 18px;
@@ -391,6 +394,76 @@
 }
 .catalog-item-body h4 a:hover {
   color: var(--cat-accent);
+}
+.catalog-item-fantasy {
+  --cover-paper: #c3a1eb;
+  --cover-light: #f1dfff;
+  --cover-ink: #513073;
+}
+.catalog-item-social {
+  --cover-paper: #ecb56c;
+  --cover-light: #ffebba;
+  --cover-ink: #633b19;
+}
+.catalog-item-everyday {
+  --cover-paper: #85bfe0;
+  --cover-light: #d2f0f8;
+  --cover-ink: #19496d;
+}
+.catalog-item-relationships {
+  --cover-paper: #e8a0ae;
+  --cover-light: #ffe1da;
+  --cover-ink: #733350;
+}
+.catalog-item-metaphor,
+.catalog-item-nature {
+  --cover-paper: #8bbda1;
+  --cover-light: #e4f4c9;
+  --cover-ink: #235843;
+}
+.catalog-item-play {
+  --cover-paper: #7cb9bd;
+  --cover-light: #d2f2e9;
+  --cover-ink: #164b57;
+}
+.catalog-cover {
+  position: relative;
+  isolation: isolate;
+  flex: none;
+  aspect-ratio: 40 / 21;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 46% 34%, var(--cover-light), transparent 76%),
+    var(--cover-paper);
+  color: var(--cover-ink);
+}
+.catalog-cover > img {
+  object-fit: cover;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .catalog-cover > img { transition: transform 0.24s ease; }
+  .catalog-item:hover .catalog-cover > img { transform: scale(1.035); }
+}
+.catalog-cover .catalog-discovery-art {
+  height: 100%;
+  margin: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+}
+.catalog-cover .catalog-discovery-art > svg {
+  transform: scale(1.14);
+}
+.catalog-cover .catalog-discovery-art[data-composition$=":workspace"] {
+  background: linear-gradient(157deg, transparent 61%, #1e263a16 61%);
+}
+.catalog-cover .catalog-discovery-art[data-composition$=":portrait"],
+.catalog-cover .catalog-discovery-art[data-composition$=":orbit"] {
+  background: radial-gradient(ellipse at 39% 50%, #fff5 0 32%, transparent 33%);
+}
+.catalog-cover .catalog-discovery-art[data-composition$=":fan"],
+.catalog-cover .catalog-discovery-art[data-composition$=":story"] {
+  background: linear-gradient(125deg, #fff4 0 27%, transparent 27% 68%, #fff3 68%);
 }
 .catalog-discovery-art {
   height: 140px;
@@ -430,7 +503,7 @@
   font-size: 13px;
   line-height: 1.9;
   color: #6d6a78;
-  min-height: 100px;
+  margin-top: 10px;
 }
 .catalog-item-subtitle {
   display: block;
@@ -727,25 +800,18 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px;
   }
-  .catalog-item {
-    padding: 22px;
-  }
 }
 @media (max-width: 700px) {
   .catalog-item-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 20px;
   }
-  .catalog-item {
-    padding: 23px;
+  .catalog-item-body {
+    padding: 16px 18px 18px;
   }
   .catalog-item-body h4 {
     min-height: 0;
     font-size: 20px;
-  }
-  .catalog-discovery-art {
-    height: 145px;
-    margin-top: 20px;
   }
   .catalog-item-start {
     min-height: 46px;
@@ -757,7 +823,6 @@
   .catalog-item-start svg {
     transition: none;
   }
-  .catalog-item:hover,
   .catalog-item-start:hover svg {
     transform: none;
   }
@@ -767,9 +832,7 @@
 .catalog-story-library { padding-top: 12px; scroll-margin-top: 80px; }
 .catalog-story-counts { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; }
 .catalog-story-counts a { color: var(--cat-accent); text-decoration: underline; }
-.catalog-story-art { height: 156px; margin: 18px 0 20px; border-radius: 10px; background: #eff5f5; overflow: hidden; }
-.catalog-story-art .explore-hero-scene { position: relative; width: 100%; height: 100%; pointer-events: none; }
-.catalog-story-art .explore-hero-landscape { display: none; }
-.catalog-story-art .explore-hero-symbol { position: static; width: 100%; height: 100%; transform: none; }
-.catalog-story-art .explore-hero-symbol > svg { display: block; width: 100%; height: 100%; }
-.catalog-story-art .catalog-discovery-art { height: 100%; margin: 0; }
+.catalog-cover .explore-hero-scene { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.catalog-cover .explore-hero-landscape { display: none; }
+.catalog-cover .explore-hero-symbol { position: static; width: 100%; height: 100%; transform: none; }
+.catalog-cover .explore-hero-symbol > svg { display: block; width: 100%; height: 100%; transform: scale(1.16); }

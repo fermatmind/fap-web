@@ -134,3 +134,14 @@ Operational takeaway:
 | Result guides | Reserve `/results` for public hub and keep lookup private noindex | Add per-test result guides and sample report modules |
 | Business conversion | Mark API/team/price/refund dependencies as business_confirmation | Add sales pages after product, pricing, SLA, and report scope are confirmed |
 | E-E-A-T claims | Do not show reviewed by, validated, ratings, or user counts unless verified | Add author/reviewer/editorial policy once real owners exist |
+
+## 7. AREALME 娱乐测试目录与封面
+
+2026-11-06 核对繁体中文性格分类页和三个测试入口。性格分类列表用统一的横幅尺寸，封面占满卡片宽度。心理年龄用不同年龄的头像，《西游记》用角色画面，七美德用植物图案。用户可以先凭图认出主题，再读卡片标题。
+
+- [性格分类](https://www.arealme.com/category/personality-and-self/zh)
+- [心理年龄测试](https://www.arealme.com/mental/zh/)
+- [《西游记》角色测试](https://www.arealme.com/which-journey-to-the-west-character-are-you/zh/)
+- [七美德测验](https://www.arealme.com/seven-virtues-quiz/zh/)
+
+将 AREALME 纳入娱乐测试的产品对标。费马目录采用图在上、标题和入口在下的卡片结构，每个主题选用对应的插画或图形，中英文共用封面。单个测试是否纳入结果页对标，仍按同题、可见完整结果和测试页流量逐项核实。
