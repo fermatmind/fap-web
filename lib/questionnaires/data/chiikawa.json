@@ -2,7 +2,7 @@
   "slug": "chiikawa",
   "code": "CHIIKAWA_FAN_ORDINARY_CHOICES",
   "version": "1.0.0",
-  "updated": "2026-10-26",
+  "updated": "2026-11-06",
   "category": "metaphor",
   "kind": "archetype",
   "title": {
@@ -1921,8 +1921,8 @@
           "en": "All 18 questions, raw counts, every highest tie and six full guides are free without signup or another assessment first. Start opens questions directly without an extra agreement. About six minutes is an estimate; reading speed does not affect counts. A personal result is generated after all items are answered."
         },
         {
-          "zh": "答案在浏览器内计分，不通过计分请求上传，也不写入网址或分析事件。默认不保存；主动保存进度后仅在本标签页保留24小时，完成、重测或退出清除后删除。公开角色指南不包含私人答案或次数；其他使用事件依隐私与Cookie设置处理。",
-          "en": "Scoring happens in the browser; answers are not uploaded through scoring requests or written into URLs or analytics events. Progress is unsaved by default; opt-in tab progress lasts 24 hours and clears on completion, retake or explicit exit-and-clear. Public character guides contain no private answers or counts; separate usage events follow privacy and Cookie settings."
+          "zh": "答案在浏览器内计分，不通过计分请求上传，也不写入网址或分析事件。题内返回时会保留已选答案；刷新、离开答题页或重测都会清空本次进度。公开角色指南不包含私人答案或次数；其他使用事件依隐私与Cookie设置处理。",
+          "en": "Scoring happens in the browser; answers are not uploaded through scoring requests or written into URLs or analytics events. You can go back to earlier questions during the quiz. Refreshing, leaving the quiz, or retaking it resets your progress. Public character guides contain no private answers or counts; separate usage events follow privacy and Cookie settings."
         }
       ]
     }
@@ -2064,8 +2064,8 @@
         "en": "Are answers saved or made public by sharing?"
       },
       "answer": {
-        "zh": "答案在浏览器内计分，不进入计分上传、网址或分析事件。临时保存需主动开启，本标签页24小时后失效，完成、重测或退出清除即删除。公开分享指南不含私人答卷或次数，其他使用事件依隐私设置。",
-        "en": "Answers are scored in the browser, not included in scoring uploads, URLs or analytics events. Optional tab progress expires after 24 hours and clears on completion, retake or exit-and-clear. Shared public guides contain no private answers or counts; other usage events follow privacy settings."
+        "zh": "答案在浏览器内计分，不进入计分上传、网址或分析事件。本次进度仅在当前答题过程中保留，刷新、离开或重测后会清空。公开分享指南不含私人答卷或次数，其他使用事件依隐私设置。",
+        "en": "Answers are scored in the browser, not included in scoring uploads, URLs or analytics events. Your choices stay in the current quiz session and reset when you refresh, leave, or retake it. Shared public guides contain no private answers or counts; other usage events follow privacy settings."
       }
     }
   ],
