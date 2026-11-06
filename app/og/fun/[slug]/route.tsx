@@ -1,3 +1,4 @@
+import { auraColors } from "@/lib/questionnaires/auraColors";
 import { isPss4ConfigurationValid } from "@/lib/questionnaires/pss4";
 import { isUncertaintyEase6ConfigurationValid } from "@/lib/questionnaires/uncertaintyEase6";
 import { isFeedbackWorth12ConfigurationValid } from "@/lib/questionnaires/feedbackWorth12";
@@ -236,6 +237,20 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   const topic = quiz?.seo.topic[locale] ?? questionnaire!.title[locale];
   const title = result?.title[locale] ?? topic, zh = locale === "zh";
   const color = colors[quiz?.category ?? questionnaire?.category ?? "framework"] ?? colors.metaphor;
+  const auraColor = slug === "aura-color" && result ? auraColors[result.id] : undefined;
+  if (auraColor) {
+    return new ImageResponse(
+      <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", padding: 60, gap: 44, background: "#161126", color: "#faf5ff", fontFamily: "FunNoto" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 26, flex: 1 }}>
+          <div style={{ display: "flex", color: "#ddd6fe", fontSize: 27 }}>FermatMind · {zh ? "光环颜色测试" : "Aura Color Test"}</div>
+          <div style={{ display: "flex", fontSize: 51, lineHeight: 1.25 }}>{title}</div>
+          <div style={{ display: "flex", color: "#ddd6fe", fontSize: 25 }}>{zh ? "公开颜色指南" : "Public color guide"}</div>
+        </div>
+        <div style={{ display: "flex", width: 430, height: 430, borderRadius: 215, backgroundImage: `radial-gradient(circle, #fff 0%, ${auraColor} 28%, #2b1b48 60%, #161126 72%)` }} />
+      </div>,
+      { width: 1200, height: 630, fonts: [{ name: "FunNoto", data: await quizFont(slug), weight: 700, style: "normal" }], headers: { "Cache-Control": "public, max-age=3600, s-maxage=86400" } },
+    );
+  }
   if ((slug === "cyberpunk-edgerunners" || slug === "chiikawa") && result) {
     const chiikawa = slug === "chiikawa";
     // result.id was resolved against the published roster above, never from a free-form path.

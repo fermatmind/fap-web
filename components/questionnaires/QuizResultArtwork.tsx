@@ -1,3 +1,4 @@
+import { auraColors as aura } from "@/lib/questionnaires/auraColors";
 import {
   Axe, BookOpen, BowArrow, CircleDot, Compass, Crown, Eye, Feather, Flame,
   Globe, Hammer, HandHeart, Heart, Hourglass, Key, LampDesk, Landmark, Link2,
@@ -7,11 +8,6 @@ import {
 } from "lucide-react";
 import type { CSSProperties } from "react";
 import styles from "./PortraitResultLead.module.css";
-
-const aura: Record<string, string> = {
-  red: "#b82142", orange: "#d76a25", yellow: "#e9ad28", green: "#218b64",
-  blue: "#2f6bcc", indigo: "#4d46a9", violet: "#a347ba",
-};
 
 const tarot: Record<string, LucideIcon> = {
   fool: Compass, magician: WandSparkles, "high-priestess": Eye, empress: Sprout,

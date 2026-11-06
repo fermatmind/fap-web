@@ -101,7 +101,7 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId }:
         {profile.title[locale]}
       </a>)}
     </nav>}
-    {placement === "before" && counts}
+    {(placement === "before" || quiz.slug === "aura-color") && counts}
     {matched.map((profile, index) => {
       const id = profile.id;
       const titleId = `animal-title-${id}`;
@@ -117,6 +117,6 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId }:
         </div>
       </section>;
     })}
-    {(!placement || placement === "after") && counts}
+    {(!placement || placement === "after") && quiz.slug !== "aura-color" && counts}
   </div>;
 }

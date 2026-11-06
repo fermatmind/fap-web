@@ -907,15 +907,15 @@
     "slug": "aura-color",
     "code": "AURA_COLOR_SYMBOLIC_EXPRESSION",
     "version": "1.0.0",
-    "updated": "2026-10-26",
+    "updated": "2026-11-07",
     "category": "metaphor",
     "title": {
       "zh": "光环颜色测试",
       "en": "Aura Color Test"
     },
     "description": {
-      "zh": "用21道原创日常选择，探索红、橙、黄、绿、蓝、靛、紫七种表达意象。约7分钟，免费查看七色原始次数、全部最高并列和完整指南；无需注册、照片或生日。",
-      "en": "Explore seven expression metaphors—Red, Orange, Yellow, Green, Blue, Indigo and Violet—through 21 original everyday choices. About 7 minutes; free counts, every highest tie and complete guides. No signup, photo or birthday needed."
+      "zh": "你的光环是什么颜色？用 21 道日常选择，看看哪种颜色最贴近你这次的表达偏好。七色指南与完整结果免费，最高同分一起保留。仅供娱乐，无需注册或照片。",
+      "en": "What color is my aura? Take this free 21-question quiz to see which of seven colors reflects your choices. See all top matches and read the color guides. For fun; no signup or photo."
     },
     "minutes": 7,
     "collection": "explore",

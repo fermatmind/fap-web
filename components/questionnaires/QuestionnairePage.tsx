@@ -38,6 +38,7 @@ import { socialAttitudesLandingSections, socialAttitudesLandingFaq, socialAttitu
 import { interpersonalLandingSections, interpersonalLandingFaq } from "./InterpersonalLandingEditorial";
 import { controlLandingSections, controlLandingFaq, controlLandingReferences } from "./EverydayControlLandingEditorial";
 import { edgerunnersLandingSections, edgerunnersLandingFaq } from "./EdgerunnersLandingEditorial";
+import { AuraColorResultExamples } from "./AuraColorResultExamples";
 import { EdgerunnersResultExamples } from "./EdgerunnersResultExamples";
 import { EdgerunnersPortrait } from "./EdgerunnersPortrait";
 import { loveCombinationsLandingSections, loveCombinationsLandingFaq, loveCombinationsLandingReferences } from "./LoveCombinationsLandingEditorial";
@@ -1040,6 +1041,10 @@ return (quiz.references ?? []);
     {quiz.kind !== "mini-virtues" && <p className="explore-intro-meta"><span>{quiz.kind === "fscrs22" ? (zh ? "22 条陈述 · 按自己的节奏 · 无需注册" : "22 statements · Self-paced · No signup") : zh ? `${quiz.questions.length}题 · 约${quiz.minutes}分钟 · 无需注册` : `${quiz.questions.length} questions · about ${quiz.minutes} ${quiz.minutes === 1 ? "minute" : "minutes"} · no signup`}</span><span>{entryLabel}</span></p>}
 
     <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
+    {slug === "aura-color" && <div className="mt-2 flex flex-wrap gap-x-5 text-sm font-medium">
+      <a href="#aura-examples" className="inline-flex min-h-11 items-center underline underline-offset-4">{zh ? "先看结果示例" : "See sample results"}</a>
+      <a href="#questionnaire-results" className="inline-flex min-h-11 items-center underline underline-offset-4">{zh ? "查看七色含义" : "Explore the seven color meanings"}</a>
+    </div>}
     {slug === "cyberpunk-edgerunners" && <div className="mt-2 flex flex-wrap gap-x-5 text-sm font-medium">
       <a href="#edgerunners-examples" className="inline-flex min-h-11 items-center underline underline-offset-4">{zh ? "先看结果示例" : "See sample results"}</a>
       <a href="#questionnaire-results" className="inline-flex min-h-11 items-center underline underline-offset-4">{zh ? "先看七种角色结果" : "See the seven possible character results"}</a>
@@ -1049,6 +1054,7 @@ return (quiz.references ?? []);
       <a href="#questionnaire-results" className="inline-flex min-h-11 items-center underline underline-offset-4">{zh ? "查看六位角色指南" : "Browse the six character guides"}</a>
     </div>}
     </ExploreTestIntro>
+    {slug === "aura-color" && <AuraColorResultExamples quiz={quiz} locale={locale} />}
     {slug === "chiikawa" && <ChiikawaResultExamples quiz={quiz} locale={locale} />}
     {slug === "cyberpunk-edgerunners" && <EdgerunnersResultExamples quiz={quiz} locale={locale} />}
     {quiz.kind === "fscrs22" && <QuestionnaireFscrs22Attribution quiz={quiz} locale={locale} />}

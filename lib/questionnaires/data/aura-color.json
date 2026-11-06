@@ -2,7 +2,7 @@
   "slug": "aura-color",
   "code": "AURA_COLOR_SYMBOLIC_EXPRESSION",
   "version": "1.0.0",
-  "updated": "2026-10-26",
+  "updated": "2026-11-07",
   "category": "metaphor",
   "kind": "archetype",
   "title": {
@@ -14,12 +14,12 @@
     "en": "Your seven-colour choices and every highest tie"
   },
   "description": {
-    "zh": "用21道原创日常选择，探索红、橙、黄、绿、蓝、靛、紫七种表达意象。约7分钟，免费查看七色原始次数、全部最高并列和完整指南；无需注册、照片或生日。",
-    "en": "Explore seven expression metaphors—Red, Orange, Yellow, Green, Blue, Indigo and Violet—through 21 original everyday choices. About 7 minutes; free counts, every highest tie and complete guides. No signup, photo or birthday needed."
+    "zh": "你的光环是什么颜色？用 21 道日常选择，看看哪种颜色最贴近你这次的表达偏好。七色指南与完整结果免费，最高同分一起保留。仅供娱乐，无需注册或照片。",
+    "en": "What color is my aura? Take this free 21-question quiz to see which of seven colors reflects your choices. See all top matches and read the color guides. For fun; no signup or photo."
   },
   "seoTitle": {
-    "zh": "光环颜色测试：21题探索七色意象，免费完整结果",
-    "en": "Aura Color Test: 21 Questions, Seven Colors & Free Full Results"
+    "zh": "光环颜色测试：你的光环是什么颜色？（免费 21 题）",
+    "en": "Aura Color Test: What Color Is My Aura? (Free Quiz)"
   },
   "minutes": 7,
   "introduction": {
@@ -2194,8 +2194,8 @@
     {
       "id": "privacy",
       "title": {
-        "zh": "完整免费、答案计算与可选保存",
-        "en": "Full free access, answer computation and optional saving"
+        "zh": "完整免费、浏览器计分与分享",
+        "en": "Free access, browser scoring and sharing"
       },
       "paragraphs": [
         {
@@ -2203,8 +2203,8 @@
           "en": "All 21 questions, seven counts and seven full guides are free, without email, an account, photos, a birthday or another test first. Start test opens the questions. Answers are scored in the browser, not uploaded through a scoring request or placed in URLs or analytics events. Non-answer usage events remain governed by privacy and cookie settings."
         },
         {
-          "zh": "默认不保存作答；只有主动保存后，本标签页才提供24小时内恢复，完成、重测或退出清除会删除进度。公开分享链接只打开通用颜色指南，不包含个人答案或次数。可以读完就结束，不需要额外同意、购买或分享才能查看完整内容。",
-          "en": "Answers are not saved by default. Optional saving enables recovery in this tab for up to 24 hours; completion, retaking or exiting with clearing removes progress. Public sharing links open general color guides without private answers or counts. You may read and stop, with no extra agreement, purchase or sharing required to view the full content."
+          "zh": "当前作答页不会保存进度；刷新或重新开测会从第一题开始。公开分享链接指向通用颜色指南或测试入口，不包含个人答案或次数。可以读完就结束，不需要额外同意、购买或分享才能查看完整内容。",
+          "en": "The quiz does not save progress. Refreshing the question page or starting again begins at question one. Public share links open a general color guide or the quiz entry, without private answers or counts. You may read and stop, with no extra agreement, purchase or sharing required to view the full content."
         }
       ]
     }
@@ -2346,8 +2346,8 @@
         "en": "Are answers saved or exposed in shared links, and what happens on retaking?"
       },
       "answer": {
-        "zh": "答案在浏览器计分，不通过计分请求上传，也不进网址或分析事件。只有主动保存才提供本标签页24小时恢复，完成、重测或退出清除后删除。分享只打开公开指南。重测颜色变化反映选择变化，不证明光环改变；不含答案的事件以隐私与Cookie设置为准。",
-        "en": "Answers are scored in the browser without scoring-request uploads or placement in URLs or analytics events. Optional saving enables 24-hour recovery in this tab and clears on completion, retake or exiting with clearing. Sharing opens public guides. A different result reflects changed choices, not proven aura change; non-answer events follow privacy and cookie settings."
+        "zh": "答案在浏览器计分，不通过计分请求上传，也不进网址或分析事件。作答页不保存进度；刷新后需要重新开始。单一最高时可复制颜色名称和公开指南链接；最高并列时可复制所有并列色名称和测试入口链接。分享不含作答或次数。重测颜色变化反映选择变化，不证明光环改变；不含答案的事件以隐私与Cookie设置为准。",
+        "en": "Answers are scored in the browser without scoring-request uploads or placement in URLs or analytics events. The quiz does not save progress. Refreshing starts a new attempt. Sharing one highest color copies its name and public guide link. Sharing a tie copies all tied names and the quiz link. Neither includes answers or counts. A different result reflects changed choices, not proven aura change; non-answer events follow privacy and cookie settings."
       }
     }
   ],
