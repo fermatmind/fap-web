@@ -1,7 +1,14 @@
 import catalog from "./catalog.json";
+import directoryCopy from "./directory-copy.json";
 import { GLOBAL_HISTORY_MINUTES, GLOBAL_HISTORY_QUESTION_COUNT, GLOBAL_HISTORY_SLUG, GLOBAL_HISTORY_UPDATED, GLOBAL_HISTORY_VERSION,
   globalHistoryDescription, globalHistoryTitle } from "./global-history/config";
-import type { FunCard } from "./types";
+import type { Copy, FunCard } from "./types";
+
+const directoryDescriptions: Partial<Record<string, Copy>> = directoryCopy;
+
+export function directoryDescription(item: { slug: string; description: Copy }): Copy {
+  return directoryDescriptions[item.slug] ?? item.description;
+}
 
 export const globalHistoryStory: FunCard = {
   slug: GLOBAL_HISTORY_SLUG, title: globalHistoryTitle, description: globalHistoryDescription,

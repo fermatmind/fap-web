@@ -410,15 +410,6 @@ export function TestDirectory({
                             <h4>
                               <a href={item.href}>{item.title}</a>
                             </h4>
-                            {discoveryCardEditorial(item.slug) && (
-                              <span className="catalog-item-subtitle">
-                                {
-                                  discoveryCardEditorial(item.slug)!.subtitle[
-                                    locale
-                                  ]
-                                }
-                              </span>
-                            )}
                             <p>{item.description}</p>
 
                             <span className="catalog-item-meta">

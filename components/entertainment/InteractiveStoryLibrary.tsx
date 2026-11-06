@@ -1,6 +1,6 @@
 import { JsonLd } from "@/components/seo/JsonLd";
 import type { Locale } from "@/lib/i18n/locales";
-import { storyQuizzes } from "@/lib/entertainment/directory";
+import { directoryDescription, storyQuizzes } from "@/lib/entertainment/directory";
 import { buildItemListJsonLd } from "@/lib/seo/generateSchema";
 import { MORE_TEST_PRODUCT_COUNT, FUN_CATEGORIES } from "./MoreTests";
 import { StoryDirectory } from "./StoryDirectory";
@@ -10,7 +10,7 @@ export function InteractiveStoryLibrary({ locale }: { locale: Locale }) {
     slug: quiz.slug,
     category: quiz.category,
     title: quiz.title[locale],
-    description: quiz.description[locale],
+    description: directoryDescription(quiz)[locale],
     href: `/${locale}/tests/play/${quiz.slug}`,
     meta: locale === "zh"
       ? `${quiz.minQuestionCount === quiz.questionCount ? quiz.questionCount : `${quiz.minQuestionCount}–${quiz.questionCount}`}次选择 · 约${quiz.minutes}分钟 · 完整故事免费`

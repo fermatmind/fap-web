@@ -1,7 +1,7 @@
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildItemListJsonLd } from "@/lib/seo/generateSchema";
 import { TestDirectory } from "@/components/tests/TestDirectory";
-import { directoryQuizzes } from "@/lib/entertainment/directory";
+import { directoryDescription, directoryQuizzes } from "@/lib/entertainment/directory";
 import questionnaires from "@/lib/questionnaires/catalog.json";
 import { getFreeTestPrimaryLabel } from "@/lib/marketing/testsHubContent";
 import type { HubTestCardItem } from "@/lib/marketing/testsHubContent";
@@ -70,7 +70,7 @@ export function MoreTests({
     kind: TOOL_SLUGS.has(q.slug) ? ("tool" as const) : ("test" as const),
     category: q.category,
     title: q.title[locale],
-    description: q.description[locale],
+    description: directoryDescription(q)[locale],
     href: `/${locale}${q.pathname}`,
     meta:
       q.slug === "cognitive-functions-test"

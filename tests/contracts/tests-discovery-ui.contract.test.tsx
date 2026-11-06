@@ -40,9 +40,10 @@ describe("shared discovery directory", () => {
     expect(container.querySelectorAll(".catalog-item-start")).toHaveLength(
       count,
     );
-    expect(container.querySelectorAll(".catalog-item-subtitle")).toHaveLength(
+    expect(container.querySelectorAll(".catalog-item-body > p")).toHaveLength(
       count,
     );
+    expect(container.querySelectorAll(".catalog-item-subtitle")).toHaveLength(0);
     expect(container.querySelectorAll(".catalog-item details")).toHaveLength(0);
     for (const card of container.querySelectorAll(".catalog-item")) {
       expect(card.querySelector("h4 a")?.getAttribute("href")).toBe(

@@ -505,29 +505,6 @@
   color: #6d6a78;
   margin-top: 10px;
 }
-.catalog-item-subtitle {
-  display: block;
-  color: #7c6ca5;
-  font-size: 12px;
-  line-height: 1.8;
-  min-height: 22px;
-  margin-top: 5px;
-}
-.catalog-item-fantasy .catalog-item-subtitle {
-  color: #8564ae;
-}
-.catalog-item-social .catalog-item-subtitle {
-  color: #96703e;
-}
-.catalog-item-everyday .catalog-item-subtitle {
-  color: #6180ad;
-}
-.catalog-item-relationships .catalog-item-subtitle {
-  color: #a85a7f;
-}
-.catalog-item-metaphor .catalog-item-subtitle {
-  color: #548b73;
-}
 .catalog-item-meta {
   display: block;
   margin-top: auto;

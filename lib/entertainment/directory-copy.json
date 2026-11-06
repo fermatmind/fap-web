@@ -1,0 +1,1546 @@
+{
+  "8-values-political": {
+    "zh": "用 MIT 开源版题本回看经济、外交、公民与社会观点。每条轴的两端各显示一个互补百分数。",
+    "en": "Use the MIT-licensed questionnaire to explore economic, diplomatic, civil and social views. Each axis shows complementary percentages for its two ends."
+  },
+  "abstract-reasoning": {
+    "zh": "练习符号序列、关系类比、示例分类和有序变换。不计时，可核对每题答案。",
+    "en": "Practice symbol sequences, relational analogies, classification and ordered transformations. Work untimed and review each answer."
+  },
+  "activity-engagement-patterns": {
+    "zh": "回顾近四周怎样发起活动、回应机会、切换兴趣、应邀贡献和观察环境。五项分别呈现。",
+    "en": "Reflect on initiating activities, responding to opportunities, switching interests, contributing when invited and observing. See five readings for the past four weeks."
+  },
+  "adult-age-preferences": {
+    "zh": "比较和不同年龄的成年人相处时，你在情境里更倾向怎样选择。结果保留最高并列。",
+    "en": "Compare scenario choices involving older, similar-age and younger adult partners. All top ties are shown."
+  },
+  "aesthetic-core-test": {
+    "zh": "用文字情境比较六种美学风格，查看配色和材质建议。无需上传照片。",
+    "en": "Compare six aesthetics through written choices and see palette and texture ideas. No photo is needed."
+  },
+  "after-bereavement-reflection": {
+    "zh": "回顾失去重要的人之后的想念、角色变化、提醒、计划与支持。保留私人记录，时间背景可不填。",
+    "en": "Reflect on missing someone, changing roles, reminders, plans and support after a death. Keep a private record and leave timing unspecified if you prefer."
+  },
+  "after-childbirth-context-reflection": {
+    "zh": "回顾产后近四周的心情、担心、休息与自我联系。结果保留逐条选择。",
+    "en": "Reflect on mood, worries, rest and your sense of self over the past four weeks after childbirth. See your individual choices."
+  },
+  "ai-literacy": {
+    "zh": "练习理解模型数据、使用提示、核查输出和判断隐私边界。答完可逐题复盘。",
+    "en": "Practice understanding model data, using prompts, checking outputs and making privacy decisions. Review each answer."
+  },
+  "amazing-digital-circus": {
+    "zh": "想象在纸板舞台上做创作，对照波姆尼、贾克斯等六位角色的参与方式。",
+    "en": "Compare Pomni, Jax and four other characters through creative choices on a cardboard stage."
+  },
+  "anger-issues-screener": {
+    "zh": "回顾近四周什么时候生气、怎样表达或保留感受、觉得自己有多少选择。四组分别呈现。",
+    "en": "Reflect on when anger came up, how you expressed or held it in and how much choice you felt over the past four weeks. Four records are shown separately."
+  },
+  "anime-character-archetype-test": {
+    "zh": "从动漫风格的故事选择里，探索主角、导师、即兴巧匠等六种原创角色。无需剧情知识。",
+    "en": "Explore six original anime-inspired roles, including a lead, a mentor and an improviser. No plot knowledge is needed."
+  },
+  "annoying-person-test": {
+    "zh": "回顾你如何表达、暂停、调整期待、更新计划和处理边界。五组分别计分。",
+    "en": "Reflect on expression, pauses, expectations, plan updates and boundaries. Five groups are scored separately."
+  },
+  "aphantasia-test": {
+    "zh": "试着想象物体、虚构面孔、地点和运动画面。四组自评读数分别呈现。",
+    "en": "Try visualizing objects, fictional faces, places and motion. Four self-report scores are shown separately."
+  },
+  "apocalypse-survival-type-test": {
+    "zh": "想象在末日营地里安排剧情、陪伴角色、追踪地图线索或记录消息。结果呈现六种故事偏好。",
+    "en": "Imagine planning a story, supporting characters, following clues or recording news in a fictional camp. See six storytelling preferences."
+  },
+  "apology-language": {
+    "zh": "想想接受道歉时你看重什么。五类期待分别计分，解读附日常情境。",
+    "en": "Consider what matters to you when receiving an apology. Five expectations are scored separately and illustrated with everyday examples."
+  },
+  "aptitude-test": {
+    "zh": "练习数值、阅读、演绎、符号和查错。不限时，可用纸笔和计算器，并逐题复盘。",
+    "en": "Practice numerical, reading, deductive, symbolic and error-checking skills. Work untimed with notes or a calculator, then review every answer."
+  },
+  "arabic-personality-compass": {
+    "zh": "以东南西北为比喻，比较推进、参与、讲究顺序和愿意尝试的选择。非官方 PCTI。",
+    "en": "Use four compass directions to compare choices about action, participation, order and experimentation. This is not an official PCTI test."
+  },
+  "asvab-practice-test": {
+    "zh": "练习英文算术推理、词汇、段落理解与数学知识。可选计时，结果附双语解析。",
+    "en": "Practice arithmetic reasoning, word knowledge, paragraph comprehension and math in English. Timing is optional, with explanations in both languages."
+  },
+  "asvab-science-mechanical-practice-test": {
+    "zh": "练习英文普通科学、机械、电路、汽车车间和文字组装题。可选计时，附双语解析。",
+    "en": "Practice general science, mechanics, circuits, auto and shop, and assembly problems in English. Timing is optional, with bilingual explanations."
+  },
+  "attachment-styles": {
+    "zh": "回顾近三个月同一段成年亲密关系里的担心与退缩。查看两项均分和四种依恋风格解读。",
+    "en": "Reflect on worry and withdrawal in one adult close relationship over the past three months. See two means and guides to four attachment styles."
+  },
+  "attention-to-detail": {
+    "zh": "练习核对记录、步骤、数量和格式。完成后可查看逐题解析，练习不限时。",
+    "en": "Practice checking records, procedures, quantities and formats. Work without a timer and review each answer afterward."
+  },
+  "attraction-experiences": {
+    "zh": "回顾过去十二个月的浪漫与性吸引体验。结果按五项呈现，不指定取向或身份。",
+    "en": "Reflect on romantic and sexual attraction over the past twelve months. Five readings are shown without assigning orientation or identity."
+  },
+  "aura-color": {
+    "zh": "用七种颜色比喻日常表达偏好，查看各色的选择次数。无需提供照片或生日。",
+    "en": "Explore everyday preferences through seven color metaphors and see the counts for each. No photo or birth date is needed."
+  },
+  "avengers-character": {
+    "zh": "想象你要布置一个爱好展台，对照 2012 年电影中六位复仇者的参与方式。",
+    "en": "Imagine putting together a hobby display and compare how the six Avengers from the 2012 film might pitch in."
+  },
+  "barbie-character": {
+    "zh": "通过创作选择对照芭比、肯、格洛丽亚等六位角色的参与方式。非官方同人测试。",
+    "en": "Compare Barbie, Ken, Gloria and three other characters through creative choices. This is an unofficial fan quiz."
+  },
+  "beachcomber": {
+    "zh": "沿着插画海岸拾趣。你会留意图案、追问物件来历，还是让它留在原地？",
+    "en": "Explore an illustrated shore. Will you notice patterns, trace an object’s story or leave it where it is?"
+  },
+  "big-fish-energy-test": {
+    "zh": "用六种海洋意象回看你偏好的互动、变化和留白方式。结果保留最高并列。",
+    "en": "Use six ocean metaphors to reflect on how you like to interact, change things up or leave space. All top ties are shown."
+  },
+  "birdwatching-companion": {
+    "zh": "和虚构的观鸟小组出门，看看你怎样等待、记录发现和分享见闻。",
+    "en": "Join a fictional birdwatching group and decide how to wait, record a sighting and share it."
+  },
+  "bleach": {
+    "zh": "在帮助、承诺和尝试的情境中，对照七位《死神》角色对应的做法。",
+    "en": "Compare seven BLEACH character perspectives through choices about helping, making commitments and trying things out."
+  },
+  "blue-lock": {
+    "zh": "在桌面足球情境中，对照洁、蜂乐、凪等七位《蓝色监狱》角色的参与方式。",
+    "en": "Compare Isagi, Bachira, Nagi and four other Blue Lock perspectives through tabletop soccer choices."
+  },
+  "board-game-table": {
+    "zh": "坐到桌游桌旁，决定怎样学规则、享受挑战，也让不同经验的人一起玩。",
+    "en": "Take a seat at game night and decide how to learn the rules, enjoy a challenge and include players of different experience levels."
+  },
+  "body-frame-observations": {
+    "zh": "回顾你已经熟悉的体表轮廓。查看三项均分，无需上传照片或测量身体。",
+    "en": "Reflect on body contours you already know. See three means without uploading photos or taking measurements."
+  },
+  "bojack-horseman-character-quiz": {
+    "zh": "在日常情境中比较五位《马男波杰克》角色对应的选择方式。无需了解剧情。",
+    "en": "Compare five BoJack Horseman character perspectives in everyday scenarios. No plot knowledge is needed."
+  },
+  "borrowed-book": {
+    "zh": "借一本书，看看你会怎样约好归还、聊阅读线索或照顾书本。",
+    "en": "Borrow a book and decide how to arrange its return, share something about it or take care of it."
+  },
+  "breakup-reflection-test": {
+    "zh": "选一段已经结束的关系，回顾沟通、期待、边界和现实压力。四组分别呈现。",
+    "en": "Choose one relationship that has ended and reflect on communication, expectations, boundaries and practical pressures. Four areas are shown separately."
+  },
+  "browser-tabs": {
+    "zh": "暂时用不上的标签页，你会留作问题、接一个小行动，还是存起来以后再看？",
+    "en": "Decide whether an idle tab holds a question, suggests a small next step or belongs on a shelf for later."
+  },
+  "burnout-risk": {
+    "zh": "用 CBI 的个人与工作模块回看疲劳和耗竭感。查看两组均分及有效答题数，中文为工作译本。",
+    "en": "Use the CBI personal and work modules to reflect on fatigue and exhaustion. See separate means and valid-item counts. Chinese is a working translation."
+  },
+  "caliper-style-assessment-test": {
+    "zh": "在每组陈述里选最符合和最不符合的一项。查看八个主题的选择次数与差值。",
+    "en": "Choose the most and least fitting statement in each set. See counts and differences across eight themes."
+  },
+  "camera-roll": {
+    "zh": "整理一组虚构照片。你会方便日后查找、精选几张，还是排出一个小故事？",
+    "en": "Curate a fictional camera roll for easy retrieval, a few favorites or a short visual story."
+  },
+  "campfire-storyteller": {
+    "zh": "围着篝火接故事。你会铺悬念、找个好笑点，还是留一句给别人？",
+    "en": "Join a campfire story. Build suspense, find the right moment for a joke or leave a line for someone else."
+  },
+  "capacity-to-love-test": {
+    "zh": "用已发表的 CTL-I 2018 条目回顾爱的六个领域。结果含原始和、均分与反向计分示例。",
+    "en": "Use published 2018 CTL-I items to reflect on six areas of love. See raw sums, means and reverse-scoring examples."
+  },
+  "care-feelings-reflection": {
+    "zh": "回顾记得的情绪关注、回应与安慰，再整理过去四周的感受与支持。结果保留私人记录。",
+    "en": "Reflect on memories of emotional attention, responses and comfort, alongside feelings and support over the past four weeks. The record is private."
+  },
+  "career-match": {
+    "zh": "把选定的 RIASEC 兴趣与两个或三个职业对照，查看共同主题、职业代码和完整档案。",
+    "en": "Compare your selected RIASEC interests with two or three occupations. See shared themes, published codes and career profiles."
+  },
+  "celebrating-a-friend": {
+    "zh": "朋友分享一件好事。你会听他们说完、发一条专门的消息，还是一起庆祝？",
+    "en": "A friend has good news. Hear them out, send a personal note or share the moment together."
+  },
+  "celebration-planner": {
+    "zh": "给别人办一场小庆祝。看看你怎样照顾对方的意愿、安排共同记忆与自愿参与。",
+    "en": "Plan a small celebration around someone’s wishes, a shared memory and ways people can pitch in."
+  },
+  "chakra": {
+    "zh": "借七个脉轮意象回看兴趣、行动、关心与表达等日常主题。结果是文化比喻，不判断健康。",
+    "en": "Use seven chakra symbols to reflect on themes such as interest, action, care and expression. The result uses cultural metaphors and makes no health assessment."
+  },
+  "changan-history-quiz": {
+    "zh": "走进唐代长安，看看会遇到李白、武则天还是另一位历史人物。结果附原创人物卡。",
+    "en": "Step into Tang-era Chang’an to meet Li Bai, Wu Zetian or another historical figure. Your result includes an illustrated portrait card."
+  },
+  "character-strengths": {
+    "zh": "用公开的 IPIP-VIA-R 条目回顾好奇、诚实、关爱等 24 项优势。中文为工作译文。",
+    "en": "Reflect on 24 strengths, including curiosity, honesty and care, with public IPIP-VIA-R items. The Chinese items are a working translation."
+  },
+  "chiikawa": {
+    "zh": "通过相聚、分享和表达愿望的情境，对照六位吉伊卡哇角色的参与方式。",
+    "en": "Compare six Chiikawa character perspectives in scenes about joining in, sharing and expressing wishes."
+  },
+  "child-focus-activity-observations": {
+    "zh": "整理近四周亲眼观察到的儿童行为，包括共同活动时的注意、移动、轮流及所获协助。",
+    "en": "Organize what you directly observed a child doing over the past four weeks, including attention, movement, turn-taking and support during shared activities."
+  },
+  "chinese-zodiac": {
+    "zh": "用故事选择探索十二生肖意象，查看各角色的计数和文化来源。无需生日。",
+    "en": "Explore twelve Chinese zodiac symbols through story choices. See counts and cultural background without providing a birth date."
+  },
+  "choosing-together": {
+    "zh": "一起做个小决定。你会先说清条件、轮流试，还是把决定分成几部分？",
+    "en": "Make a small decision together. Clarify what matters, take turns, try a sample or split the choice into parts."
+  },
+  "city-wanderer": {
+    "zh": "在城里随意走走，看看你会跟着街道布局、街区节奏，还是地方故事。",
+    "en": "Take a city walk and see whether you follow its layout, the rhythm of neighborhoods or layers of local stories."
+  },
+  "cloud-drift": {
+    "zh": "把飘过的云想成一幅画、一段移动的场景，或留出一块空白。",
+    "en": "Turn drifting clouds into a picture, a moving scene or an open space for your imagination."
+  },
+  "coffee-break": {
+    "zh": "安排一段小憩。你会换个场景、做件有仪式感的小事，还是找人聊两句？",
+    "en": "Plan a short break. Change the scene, enjoy a small sensory ritual or have an easy chat."
+  },
+  "cognitive-functions-test": {
+    "zh": "选择配对题或自评，分别查看八种认知功能的次数或均分。结果不推断功能堆栈或认知能力。",
+    "en": "Choose paired questions or ratings and see counts or means for eight cognitive functions. The results infer neither a function stack nor cognitive ability."
+  },
+  "color-season": {
+    "zh": "通过三色组合比较四季配色偏好，查看选择次数和示例色。无需照片。",
+    "en": "Compare four seasonal palettes through sets of three colors. See choice counts and sample colors without uploading a photo."
+  },
+  "comfort-offer": {
+    "zh": "朋友累了一天。你会做点实际的事、留出说话的空间，还是安静陪一会儿？",
+    "en": "A friend has had a tiring day. Offer a small practical help, make room to talk or sit together quietly."
+  },
+  "communication-adaptability": {
+    "zh": "练习按受众和情境选择沟通渠道、补足背景并确认理解。结果附逐题解析。",
+    "en": "Practice choosing channels for different audiences, giving context and checking shared understanding. Review every answer."
+  },
+  "communication-routines-context": {
+    "zh": "回顾日常沟通、熟悉的安排、感兴趣的细节和视觉辅助。按五组保留所选记录。",
+    "en": "Reflect on communication, familiar routines, detailed interests and visual aids in everyday situations. See your choices grouped in five areas."
+  },
+  "communication-style": {
+    "zh": "回顾近四周的表达方式，从坚定表达、被动回应到强硬或间接抵抗。四项分别计分。",
+    "en": "Reflect on assertive, passive, forceful and indirectly resistant responses over the past four weeks. Four styles are scored separately."
+  },
+  "community-fair": {
+    "zh": "在虚构市集里接一项小任务，想想怎样给下一位帮手留下有用信息。",
+    "en": "Take on a small task at a fictional fair and decide what would help the next volunteer."
+  },
+  "competency-test": {
+    "zh": "回顾近期工作中的沟通、责任、适应变化和协同等行为。结果按六类分别呈现。",
+    "en": "Reflect on recent work behaviors such as communication, accountability, adapting to change and collaborating. Results are reported in six areas."
+  },
+  "compliment-style": {
+    "zh": "想想一句欣赏从哪里开始。你会说一个细节、对方的过程，还是贡献带来的变化？",
+    "en": "Decide where a compliment begins: a detail you noticed, someone’s process or the difference they made."
+  },
+  "computer-literacy": {
+    "zh": "练习文件管理、浏览器、邮件和办公软件基础。不限时，答完可逐题查看解析。",
+    "en": "Practice file management, browsing, email and office software basics. Work untimed and review every answer."
+  },
+  "conflict-boundary-behaviors-test": {
+    "zh": "回顾过去三个月怎样处理分歧、边界、影响和修复。可逐题跳过，结果不判断危险或安全。",
+    "en": "Reflect on disagreements, boundaries, impact and repair over the past three months. You can skip items. The results make no risk or safety assessment."
+  },
+  "conflict-styles": {
+    "zh": "回顾日常分歧中常用的五种处理方式。查看分项均分、计分实例和情境解读。",
+    "en": "Reflect on five ways of handling everyday disagreements. See separate means, worked calculations and scenario guides."
+  },
+  "connection-belonging-check-in": {
+    "zh": "私下回顾过去四周的疏远感、被倾听的需要与归属体验。三类分别记录。",
+    "en": "Privately reflect on distance, wanting to be heard and belonging over the past four weeks. Three records are shown separately."
+  },
+  "connection-ideals": {
+    "zh": "用想象情境比较六种联结偏好。保留最高并列，无需填写伴侣资料。",
+    "en": "Compare six ways of connecting through imagined situations. All top ties are shown, with no partner details required."
+  },
+  "connection-meaning-reflection": {
+    "zh": "选一段成年关系，回顾熟悉感、相似处、放慢节奏、理解与意义。五组分别呈现。",
+    "en": "Choose one adult connection and reflect on familiarity, similarities, slowing down, understanding and meaning. Five readings are shown separately."
+  },
+  "conservatism": {
+    "zh": "用 SECS 2013 的美国议题回顾社会和经济态度。两组分别计分，允许选不适用。",
+    "en": "Use the U.S. topics in SECS 2013 to reflect on social and economic attitudes. The two sets are scored separately, with a not-applicable option."
+  },
+  "considering-support-reflection": {
+    "zh": "整理近期困扰、日常影响、可获得的支持和想问专业人士的问题。结果按主题记录。",
+    "en": "Organize recent concerns, daily effects, available support and questions for a professional. Responses are grouped by topic."
+  },
+  "coping-rhythm-test": {
+    "zh": "分别回看任务起步、整理感受、调整计划和取舍当下与未来的方式。结果保留并列。",
+    "en": "Compare how you start tasks, process feelings, revise plans and balance present and future needs. Ties are shown."
+  },
+  "cozy-object": {
+    "zh": "用杯子、毯子和笔记本搭出一个温暖小场景，看看每件东西会邀请你做什么。",
+    "en": "Build a cozy scene with a cup, blanket and notebook. See what each object invites you to do."
+  },
+  "creative-spark": {
+    "zh": "从意外提示、粗略试做或愿意听的人开始，看看小创意会怎样出现。",
+    "en": "Follow a surprise prompt, a rough prototype or a willing listener and see how a small idea begins."
+  },
+  "cultural-dimensions": {
+    "zh": "反思六组文化相关主题，查看个人均分和反向计分说明。结果不匹配国家。",
+    "en": "Reflect on six culture-related topics and see personal means and reverse-scoring notes. No country match is assigned."
+  },
+  "culture-fit": {
+    "zh": "比较你偏好的协调方式、方法选择、计划修订和反馈时机。结果显示四组位置均值。",
+    "en": "Compare how you prefer to coordinate, choose methods, revise plans and receive feedback. See average positions on four sets of preferences."
+  },
+  "customer-service-aptitude": {
+    "zh": "练习澄清客户诉求、判断政策、表达处理办法及记录跟进。结果附逐题解析。",
+    "en": "Practice clarifying customer needs, applying policies, explaining next steps and logging follow-ups. Review every answer."
+  },
+  "cyberpunk-edgerunners": {
+    "zh": "在日常情境中对照《赛博朋克：边缘行者》初代动画七位角色的做法。结果保留最高并列。",
+    "en": "Compare seven characters from the original Cyberpunk: Edgerunners anime through everyday choices. Top matches can tie."
+  },
+  "cybersecurity-awareness": {
+    "zh": "练习识别钓鱼、保护账户、维护设备和应对事件。完成后可逐题核对答案。",
+    "en": "Practice spotting phishing, protecting accounts, caring for devices and responding to incidents. Review the answer to each scenario."
+  },
+  "dark-tetrad-sd4": {
+    "zh": "用发表版 SD4 回顾四类特质。查看各自均分，中文为工作译文。",
+    "en": "Use the published SD4 to reflect on four traits. See separate means, with a working Chinese translation."
+  },
+  "dark-triad": {
+    "zh": "回顾近三个月处理形象、信息影响和他人感受的做法。三项分别计分，这是一套原创题本。",
+    "en": "Reflect on how you handle image, influence and other people’s feelings over the past three months. This original questionnaire reports three separate scores."
+  },
+  "data-entry": {
+    "zh": "选择物品标签或发运表单，抄录四字段的虚构记录。结果展示字段准确率、录入速度和差异。",
+    "en": "Choose item labels or shipping forms and copy fictional four-field records. Review field accuracy, speed and discrepancies."
+  },
+  "date-plan-detour": {
+    "zh": "共同外出计划临时变动。留下最想做的事，问问彼此现在的偏好，或另想个安排。",
+    "en": "A shared outing changes. Keep the best part, ask what each of you wants now or make a new plan."
+  },
+  "dating-outlook": {
+    "zh": "回顾你对联结机会、可学习的技巧、保留期待和固定条件的看法。四组分别计分。",
+    "en": "Reflect on opportunities for connection, learnable skills, guarded expectations and fixed conditions. Four areas are scored separately."
+  },
+  "death-note": {
+    "zh": "从提问、观察、整理信息和替代方案的选择中，对照八位《死亡笔记》角色的思路。",
+    "en": "Compare eight Death Note character perspectives through choices about questioning, observing, organizing information and finding alternatives."
+  },
+  "decade-aesthetic-test": {
+    "zh": "通过纸面设计任务比较六种年代风格，从几何装饰、舞池光影到 Y2K 数字感。",
+    "en": "Compare six era-inspired looks through paper design choices, from geometric ornament to dance-floor lighting and Y2K graphics."
+  },
+  "deep-desire": {
+    "zh": "用原创自评回顾当下的六类动机。分项得分附具体情境，不推断潜意识。",
+    "en": "Reflect on six current motives in an original questionnaire. Separate scores come with examples and do not infer unconscious motives."
+  },
+  "delulu-test": {
+    "zh": "用日常想象题探索愿望预演、日常片场等六种脑补方式。结果保留最高并列。",
+    "en": "Explore six ways of imagining, including wish rehearsals and everyday movie scenes. All tied leaders are shown."
+  },
+  "desert-oasis": {
+    "zh": "在想象的绿洲安排指路、欢迎和安静歇脚的地方，设计一座休息站。",
+    "en": "Design an oasis stop with clear directions, a memorable welcome and somewhere quiet to rest."
+  },
+  "desk-reset": {
+    "zh": "重新布置创作桌。你更想要准备好的小站、可移动工具包，还是清爽的工作面？",
+    "en": "Reset a creative desk. Choose between a ready station, a portable toolkit and a clear surface."
+  },
+  "dexter": {
+    "zh": "在虚构纸上谜题中，对照德克斯特、黛布拉等六位角色的参与方式。",
+    "en": "Compare Dexter, Debra and four other character perspectives through fictional paper puzzles."
+  },
+  "difficult-person-test": {
+    "zh": "回顾近四周的七类互动行为。分项结果附反向计分示例、行为实例和沟通建议。",
+    "en": "Reflect on seven interaction patterns over the past four weeks. Separate scores come with reverse-scoring examples, everyday cases and communication ideas."
+  },
+  "digital-ethics-citizenship": {
+    "zh": "练习判断隐私、账户安全、网络沟通、AI 信息和可访问性情境。结果附逐题解析。",
+    "en": "Practice decisions about privacy, account security, online communication, AI information and accessibility. Review every answer."
+  },
+  "dinner-host": {
+    "zh": "想象你邀请人来吃饭。安排用餐节奏和菜式，给自己也留一点享受晚餐的余地。",
+    "en": "Imagine hosting dinner. Set the pace and menu while leaving yourself room to enjoy it."
+  },
+  "disc": {
+    "zh": "在工作情境中比较推进任务、表达、支持和核对规范的选择。结果保留最高并列。",
+    "en": "Compare how you move work forward, communicate, support others and check standards. The results keep all ties for first."
+  },
+  "disconnection-experiences-reflection": {
+    "zh": "回顾近四周的自身体验、环境感受、活动投入与日常回忆。四组分别记录。",
+    "en": "Reflect on your sense of self, surroundings, engagement and everyday memories over the past four weeks. Four records are shown separately."
+  },
+  "disney-princess": {
+    "zh": "在表达意愿、欢迎他人和合作的情境里，比较十三种迪士尼公主角色视角。",
+    "en": "Compare thirteen Disney Princess perspectives through choices about expressing wishes, welcoming others and working together."
+  },
+  "distributed-work-choices": {
+    "zh": "比较怎样交接背景、公开任务进度、提出可回答的问题并安排回复时间。结果按主题统计选择。",
+    "en": "Compare ways to hand off context, share progress, ask answerable questions and set response windows. See counts by topic."
+  },
+  "dragon-housemate": {
+    "zh": "和一条友好的龙合住。你会划分空间、建立小仪式，还是一起做发明？",
+    "en": "Share a home with a friendly dragon. Mark out space, start a small ritual or invent something together."
+  },
+  "dream-train": {
+    "zh": "在一趟梦境列车上，一张车票会改掉一个字。你的选择决定它最后成为什么。",
+    "en": "On a dream train, one word on a ticket changes. Your choices decide what the ticket becomes."
+  },
+  "drinking-experiences-reflection": {
+    "zh": "供成年人回顾近四周饮酒的计划、场合、生活影响与身体感受。四组分别记录。",
+    "en": "An adult reflection on plans, occasions, everyday effects and bodily sensations around drinking over the past four weeks. Four records are shown separately."
+  },
+  "dungeons-dragons-class": {
+    "zh": "从奇幻队伍的合作选择中，比较十二种 D&D 职业的玩法偏好。结果保留最高并列。",
+    "en": "Compare play preferences for twelve D&D classes through choices about working with a fantasy party. All top ties are shown."
+  },
+  "eating-experiences-reflection": {
+    "zh": "回顾近四周进食与身体相关的经历。结果按五组记录，供个人回看。",
+    "en": "Reflect on experiences related to eating and your body over the past four weeks. Five records are shown for personal review."
+  },
+  "egen-teto": {
+    "zh": "比较遇事时先回应感受还是先明确行动。结果保留 9 比 9 并列，不按性别归类。",
+    "en": "Compare feelings-first and action-first responses. The results retain the 9–9 tie and do not classify by gender."
+  },
+  "egogram": {
+    "zh": "回顾近四周的规范表达、支持、核对事实、玩兴和配合。分别查看 CP、NP、A、FC、AC 的读数。",
+    "en": "Reflect on setting rules, offering support, checking the situation, playing and accommodating others. See separate readings for the past four weeks."
+  },
+  "emotions-connections-reflection": {
+    "zh": "回顾近四周的情绪、自我理解与联结经历。七个主题分别记录。",
+    "en": "Reflect on emotion, self-understanding and connection over the past four weeks. Seven topic records are shown separately."
+  },
+  "empathy": {
+    "zh": "用公有领域的 IPIP 条目回顾关怀倾向。结果附原始计分、沟通实例与可尝试的行动。",
+    "en": "Use public-domain IPIP items to reflect on caring responses. See raw scoring, communication examples and ideas to try."
+  },
+  "employer-reasoning-practice-test": {
+    "zh": "练习英文阅读、数量与逻辑推理。可分段计时，也可不限时学习，附逐题解析。",
+    "en": "Practice English verbal, numerical and logical reasoning. Choose timed sections or untimed study, with explanations for every item."
+  },
+  "enchanted-library": {
+    "zh": "图书馆里的目录互相矛盾。你会核对证据、问保管者，还是暂时接受不确定？",
+    "en": "The library catalogs disagree. Check the evidence, ask a keeper or leave the question open."
+  },
+  "energy-flow": {
+    "zh": "分别回顾偏好时段、分段投入、专注条件和暂停感受。结果显示四组均分与有效作答数。",
+    "en": "Reflect on preferred times, work in bursts, focus conditions and breaks. See four means and the number of scored responses."
+  },
+  "english-proficiency": {
+    "zh": "练习英语语法、语境词义、阅读和实际消息。不限时，答完可逐题复盘。",
+    "en": "Practice English grammar, vocabulary in context, reading and everyday messages. Work untimed and review each answer."
+  },
+  "eq-dashboard": {
+    "zh": "回顾八类近期情绪，分别查看频率均分或资料不足。结果不计算情商能力分。",
+    "en": "Reflect on eight recent emotions. See separate frequency means or an insufficient-response notice, without an EQ score."
+  },
+  "eras-of-you-test": {
+    "zh": "回看过去四周的尝试、搭建、调整和整理等活动。查看六组频率均分，不划分人生阶段。",
+    "en": "Reflect on activities such as trying, building, adjusting and organizing over the past four weeks. See six frequency means without a life-stage label."
+  },
+  "escape-room-role": {
+    "zh": "在虚构密室里连接线索、检验假设、留意剩余时间，看看你怎样参与解谜。",
+    "en": "Connect clues, test ideas and watch the clock in a fictional escape room. See how you help solve the puzzle."
+  },
+  "euphoria-character-quiz": {
+    "zh": "在日常情境中比较鲁、朱尔斯等八位《亢奋》角色的做法。非官方同人测试，涵盖前两季。",
+    "en": "Compare Rue, Jules and six other Euphoria character perspectives through everyday choices. This unofficial fan quiz covers the first two seasons."
+  },
+  "everyday-control-style": {
+    "zh": "回顾共同规则、邀请参与、职责内决定和交接等做法。六组分别计分。",
+    "en": "Reflect on shared rules, inviting input, making decisions within your role and handing off work. Six areas are scored separately."
+  },
+  "everyday-worry-reflection": {
+    "zh": "供成年人回顾近四周反复担心、紧绷和日常活动的经历。三类分别记录。",
+    "en": "An adult reflection on recurring worry, tension and everyday activities over the past four weeks. Three records are shown separately."
+  },
+  "excel-skills": {
+    "zh": "练习 Excel 引用、条件查找、数据处理和透视汇总。答完可核对每题答案。",
+    "en": "Practice Excel references, lookups, data handling and pivot summaries. Review every answer after finishing."
+  },
+  "executive-function": {
+    "zh": "用成人 ADEXI 分别回看工作记忆与抑制控制。结果标明各项原始和与均分。",
+    "en": "Use the adult ADEXI to reflect on working memory and inhibitory control. The result labels each raw sum and mean."
+  },
+  "face-self-image": {
+    "zh": "回顾过去一个月对面部、自主打理、拍照和被注意的感受。不需要照片或相机。",
+    "en": "Reflect on appearance, grooming choices, photos and being noticed over the past month. No photo or camera is needed."
+  },
+  "fantasy-party-role": {
+    "zh": "跟一支奇幻队伍远行。你的选择会带你成为探路斥候、结界守护者或咒语修补师。",
+    "en": "Travel with a fantasy party and discover whether you scout ahead, guard the wards or mend spells."
+  },
+  "feedback-self-worth-reflection": {
+    "zh": "回顾近四周收到反馈后的感受、自我评价和反复留意的经历。三个主题分别记录。",
+    "en": "Reflect on feelings, self-judgments and recurring thoughts after feedback over the past four weeks. Three records are shown separately."
+  },
+  "feelings-connection-reflection": {
+    "zh": "供成年人回顾近四周的感受、暂停、亲近与边界。结果保留逐条所选类别。",
+    "en": "An adult reflection on feelings, pauses, closeness and boundaries over the past four weeks. See the category you chose for each item."
+  },
+  "feminine-energy": {
+    "zh": "回顾近四周的亲昵俏皮、鲜明表达、诗意细节和从容主张。四组分别计分，可选无法判断。",
+    "en": "Reflect on four ways of expressing yourself over the past four weeks, from playfulness to calm assertion. Each is scored separately, and unsure responses are allowed."
+  },
+  "festival-companion": {
+    "zh": "一起逛节庆。你会先约一个共同重点、灵活分头看，还是试试没玩过的活动？",
+    "en": "Visit a festival together. Pick a shared highlight, split up flexibly or try something unfamiliar."
+  },
+  "festival-mask": {
+    "zh": "用铃声、窗形和可动纸带设计一张节庆面具，给它安排一种独特的亮相方式。",
+    "en": "Design a festival mask with bells, windows and moving paper strips, then give it its own entrance."
+  },
+  "fictional-cafe": {
+    "zh": "设计一间虚构咖啡馆，让来客交换表演、借用词语或创造新颜色。",
+    "en": "Design a fictional café where visitors trade performances, borrow words or invent colors."
+  },
+  "financial-accounting": {
+    "zh": "练习借贷分录、报表、权责时间、折旧与营运资本。结果按主题呈现，附逐题解析。",
+    "en": "Practice journal entries, financial statements, accruals, depreciation and working capital. Review scores by topic and every answer."
+  },
+  "firefly-evening": {
+    "zh": "一场纸灯展到了收尾时刻。你会留下最后的信号、一起展示，还是安静闭场？",
+    "en": "A paper-lantern show is ending. Leave a final signal, make a shared display or close quietly."
+  },
+  "floating-house": {
+    "zh": "决定让漂浮小屋漫游、系在岸边，还是短暂靠访，看看它怎样和一个地方保持联系。",
+    "en": "Let a floating house roam, moor or make brief visits. Decide how it stays connected to a place."
+  },
+  "flower": {
+    "zh": "用玫瑰、向日葵等六种花比喻表达偏好。每份解读都有实例，得分最高时可并列。",
+    "en": "Explore six floral metaphors for how you express yourself. Each guide gives examples, and top matches can tie."
+  },
+  "focus-energy-context-reflection": {
+    "zh": "回顾活动中的注意、坐立不安、感受和精力，以及交流后出现的不确定。按四组整理。",
+    "en": "Reflect on attention, restlessness, feelings and energy during activities, and uncertainty after social exchanges. See four records."
+  },
+  "food-choice": {
+    "zh": "比较菜单的不同呈现方式，查看选择次数及全部并列。结果不推断收入或阶层。",
+    "en": "Compare menu presentations and see choice counts and ties. No income or social class is inferred."
+  },
+  "food-disgust": {
+    "zh": "用发表版 FDS 回顾八类食物情境的感受。按组查看均分，中文为工作译文。",
+    "en": "Use the published FDS to reflect on responses to eight food situations. See separate means. Chinese is a working translation."
+  },
+  "forest-soundtrack": {
+    "zh": "森林乐曲的节奏突然断开。沿分支寻找回声、合奏，或留下一段安静。",
+    "en": "A forest melody breaks off. Follow a branch toward an echo, an ensemble or a deliberate silence."
+  },
+  "found-family-role-test": {
+    "zh": "在朋友相聚的情境里，探索欢迎、帮忙、倾听、联系等六种自愿贡献方式。",
+    "en": "Explore six ways of contributing to a gathering, from welcoming people and helping out to listening and keeping in touch."
+  },
+  "four-axes-test": {
+    "zh": "分别回看表达、思考、生活态度与公共政策偏好。结果显示四轴位置，不合成人格类型。",
+    "en": "Reflect on expression, thinking, lifestyle and public-policy preferences. See four positions without a combined personality type."
+  },
+  "freelance-ready": {
+    "zh": "选一个自由职业项目，盘点服务、约定、资源、交付和边界的准备进度。",
+    "en": "Choose one freelance project and review how prepared you are for the service, agreements, resources, delivery and boundaries."
+  },
+  "freudian-personality": {
+    "zh": "用原创题本回顾近四周的求助、自立、计划和私人空间等八个主题。结果分别呈现，不划分类型。",
+    "en": "Use this original questionnaire to reflect on eight themes over the past four weeks, including help, independence, planning and privacy. Results are shown separately without assigning a type."
+  },
+  "friendship-compatibility": {
+    "zh": "选一段成年友谊，回看约定、交流、投入、隐私和不同兴趣。五组分别计分。",
+    "en": "Choose one adult friendship and reflect on agreements, communication, effort, privacy and different interests. Five areas are scored separately."
+  },
+  "friendship-invitation": {
+    "zh": "发出一份好回应的邀请，看看你会说清计划、接住共同兴趣，还是把决定留给对方。",
+    "en": "Make an invitation that is easy to answer. Set out a plan, build on a shared interest or leave room for the other person to decide."
+  },
+  "friendship-quiz": {
+    "zh": "自己出题，邀请朋友来猜。按主题对照答题表现，查看并列排名或分享分数卡。",
+    "en": "Create a quiz about yourself and invite friends to guess. Compare scores by topic, see tied rankings and share a scorecard."
+  },
+  "game-night-reset": {
+    "zh": "桌游开始失去乐趣。问问大家的感受、只改一条规则，或体面地结束这一局。",
+    "en": "Game night stops being fun. Check in with the table, change one rule or end the round comfortably."
+  },
+  "game-of-thrones": {
+    "zh": "在设计纸上村落的情境中，对照六位《权力的游戏》角色的创作选择。",
+    "en": "Compare six Game of Thrones character perspectives as you design a paper village."
+  },
+  "garden-season": {
+    "zh": "在虚构花园里决定何时开始、照料、收集和休整，看看你的选择带来哪个季节。",
+    "en": "Decide when to plant, tend, gather and rest in an imagined garden. See which season your choices bring."
+  },
+  "gender-experiences-reflection": {
+    "zh": "回顾描述性别的词语、身体体验、称呼与日常背景。结果保留逐条选择。",
+    "en": "Reflect on words for gender, bodily experiences, forms of address and everyday context. See the options you selected for each item."
+  },
+  "german-proficiency": {
+    "zh": "用德语短文和语法题练习冠词格、动词和句式。中英文提供说明与解析。",
+    "en": "Practice article cases, verbs and sentence structure with German passages and grammar questions. Instructions and explanations are available in Chinese and English."
+  },
+  "gift-note": {
+    "zh": "给礼物配一张纸条，写一段共同回忆、一句具体感谢或一个轻轻的祝愿。",
+    "en": "Add a note to a gift with a shared memory, a specific thank-you or a quiet wish."
+  },
+  "gilmore-girls": {
+    "zh": "在咖啡角、读书会和相聚场景中，比较六位《吉尔莫女孩》角色的选择。",
+    "en": "Compare six Gilmore Girls character perspectives in coffee, reading group and social scenes."
+  },
+  "ginny-and-georgia-character-quiz": {
+    "zh": "用创作和共同活动情境，对照金妮、乔治娅等五位角色的做法。无需了解剧情。",
+    "en": "Compare Ginny, Georgia and three other characters through creative and shared activity choices. No plot knowledge is needed."
+  },
+  "global-history-quiz": {
+    "zh": "走进一座历史展馆，看看哪位历史人物的做事方式最贴近你的选择。结果附原创插画人物卡。",
+    "en": "Step into a history exhibition and discover whose approach best matches your choices. Your result comes with an illustrated portrait card."
+  },
+  "gossip-girl": {
+    "zh": "在策划创作刊的情境里，对照原版《绯闻女孩》六位角色的回应方式。",
+    "en": "Compare six original Gossip Girl character perspectives through choices about making a creative magazine."
+  },
+  "grammar-test": {
+    "zh": "复习英语动词形式、一致与指代、冠词及标点。结果对照你的选择和正确答案。",
+    "en": "Review English verb forms, agreement, reference, articles and punctuation. Compare your choices with the correct answers."
+  },
+  "greek-god": {
+    "zh": "用六位希腊神祇的象征主题回看情境选择。结果保留最高并列。",
+    "en": "Use themes associated with six Greek deities to reflect on your scenario choices. Top matches can tie."
+  },
+  "grit-test": {
+    "zh": "围绕同一个长期目标，回顾你如何坚持方向、又怎样在受阻后继续努力。两项分别计分。",
+    "en": "Think of one long-term goal. Reflect on staying with it and resuming effort after setbacks, with separate scores for each."
+  },
+  "group-chat-role": {
+    "zh": "走进日常群聊，看看你更愿整理信息、点燃话题，还是安静地把人联系起来。",
+    "en": "Step into an everyday group chat. See whether you organize information, start topics or quietly connect people."
+  },
+  "group-project-finale": {
+    "zh": "共同项目就快结束了。决定怎样让贡献被看见、交接有用，也给合作留个好收尾。",
+    "en": "Wrap up a shared project. Make contributions visible, leave a useful handoff and give the collaboration a fitting ending."
+  },
+  "group-trip-seatmate": {
+    "zh": "想象和别人坐一段路。你会聊聊天、留些空间，还是先把座位布置舒服？",
+    "en": "Imagine sitting next to someone on a journey. Choose conversation, personal space or a small comfort for the seat."
+  },
+  "growth-mindset-fixed-mindset": {
+    "zh": "选一项正在学习的技能，回顾你现在怎样看待能力变化。结果附均分及反向计分示例。",
+    "en": "Pick one skill you’re learning and reflect on how you think ability can change. See your mean and a reverse-scoring example."
+  },
+  "habit-patterns-test": {
+    "zh": "选一个日常习惯，回看过去 30 天如何触发、开始和变化。可跳过，也无需填写习惯名称。",
+    "en": "Choose one everyday habit and reflect on how it starts, what triggers it and how it changes over the past 30 days. You can skip items and keep the habit unnamed."
+  },
+  "harbor-light": {
+    "zh": "用闪灯节奏、图形和本地传说，为一个想象的港口设计灯语。",
+    "en": "Design a light signal for an imagined harbor using rhythm, shapes and a local legend."
+  },
+  "harry-potter-character": {
+    "zh": "从阅读、桌游和社团情境中的选择，对照七位《哈利·波特》角色的做法。",
+    "en": "Compare seven Harry Potter character perspectives through choices about reading, tabletop games and clubs."
+  },
+  "hazbin-hotel-character-quiz": {
+    "zh": "在日常活动中比较《地狱客栈》六位角色的参与方式。非官方同人测试。",
+    "en": "Compare six Hazbin Hotel character perspectives through everyday activities. This is an unofficial fan quiz."
+  },
+  "health-worries-reflection": {
+    "zh": "回顾近四周对身体感觉的留意、想追问的问题和对严重情况的担忧。结果按主题记录。",
+    "en": "Reflect on attention to bodily sensations, questions and concerns about serious possibilities over the past four weeks. Responses are grouped by topic."
+  },
+  "hello-kitty": {
+    "zh": "通过欢迎新朋友、一起玩和分享消息的情境，对照七位三丽鸥角色的相处方式。",
+    "en": "Compare seven Sanrio character perspectives in scenes about meeting friends, playing together and sharing news."
+  },
+  "hexaco": {
+    "zh": "用早期 IPIP HEXACO 条目回顾六个人格领域。查看原始总分、均分及反向计分示例。",
+    "en": "Use early IPIP HEXACO items to reflect on six personality domains. See raw totals, means and reverse-scoring examples."
+  },
+  "hogwarts-house-quiz": {
+    "zh": "把日常选择与四所霍格沃茨学院的主题对照。非官方同人测试，保留最高并列。",
+    "en": "Match everyday choices to themes from the four Hogwarts houses. This unofficial fan quiz shows all tied leaders."
+  },
+  "holding-yourself-back": {
+    "zh": "回顾近四周七类日常阻碍，从情绪、注意、标准、行动和兴趣等方面理解具体经历。",
+    "en": "Reflect on seven everyday barriers from the past four weeks, including emotion, attention, standards, action and interest."
+  },
+  "hosting-a-guest": {
+    "zh": "有客人来短住。你会留一张便条、带他们转一圈，还是等他们需要时再问？",
+    "en": "Someone is staying over. Leave a note, show them around or let them ask when they need something."
+  },
+  "house-of-doors": {
+    "zh": "穿过一幢未完小屋的门。分支会带你发现工作间、聆听室或窗边花园。",
+    "en": "Open doors in an unfinished house. Branching paths lead to a workshop, a listening room or a window garden."
+  },
+  "hsp-sensitivity-quiz": {
+    "zh": "回顾近期对信息密度、情绪、含义和细微变化的体验。四组频率分别呈现。",
+    "en": "Reflect on recent experiences of dense information, emotion, meaning and small changes. Four frequency scores are shown separately."
+  },
+  "humor-style-test": {
+    "zh": "回顾近四周怎样使用冷面幽默、文字巧思、自嘲等表达方式。六种幽默分别计分。",
+    "en": "Reflect on how you used deadpan humor, wordplay, self-deprecation and other styles over the past four weeks. Six styles are scored separately."
+  },
+  "hundred-acre-wood-friend-quiz": {
+    "zh": "在纸上野餐和做书签的情境里，对照维尼、小猪等六位故事伙伴。无需了解剧情。",
+    "en": "Compare Pooh, Piglet and four other storybook friends through paper picnic and bookmark choices. No plot knowledge is needed."
+  },
+  "ikigai": {
+    "zh": "用喜欢、练习、他人的需要与报酬四个角度，探索你怎么看待值得投入的事。",
+    "en": "Consider what makes an activity worth pursuing through four lenses: enjoyment, practice, others’ needs and reward."
+  },
+  "imposter-syndrome": {
+    "zh": "回顾对贡献、反馈、评价、比较和准备的自我怀疑。结果按五个主题显示频率。",
+    "en": "Reflect on self-doubt about contributions, feedback, evaluation, comparisons and preparation. Frequencies are shown by topic."
+  },
+  "inkblot-personality-quiz": {
+    "zh": "看对称墨迹图，选择你最先留意的轮廓、细节、动势或其他特征。这是趣味看图。",
+    "en": "Look at symmetrical inkblots and choose what stands out first, from outlines to details or movement. This is a visual exploration game."
+  },
+  "inner-child-personality-test": {
+    "zh": "从好奇、想象、独自尝试或一起玩等六种方式中，回看你现在喜欢怎么玩。无需回忆童年。",
+    "en": "Explore six ways you like to play today, from imagining to trying things alone or with others. No childhood recall is needed."
+  },
+  "inner-critic-voice-test": {
+    "zh": "用已发表的 FSCRS 回看挫折后的不足感、自我厌弃与自我安抚。三项分别呈现。",
+    "en": "Use the published FSCRS to reflect on inadequacy, self-hatred and self-reassurance after setbacks. The three parts are shown separately."
+  },
+  "inside-joke": {
+    "zh": "当大家接一个笑点时，你会补上前情、顺势发挥，还是让它轻轻过去？",
+    "en": "When an inside joke comes up, share its backstory, play with the moment or let it stay small."
+  },
+  "intelligence-type-test": {
+    "zh": "比较语言、规则、声音、动手、对话和环境六种思考入口。结果保留最高并列。",
+    "en": "Compare six routes into thinking, including language, sound, hands-on activity and conversation. All top ties are shown."
+  },
+  "interpersonal-preferences": {
+    "zh": "分别比较在邀请参与、实际协调与个人关心上，你怎样行动，又期待他人怎样回应。",
+    "en": "Compare what you do and what you expect of others when inviting participation, coordinating plans and showing personal care."
+  },
+  "intimacy-preference-test": {
+    "zh": "分别回看情感分享、身体边界、相处时间与对外隐私的偏好。四组独立计分。",
+    "en": "Reflect on emotional sharing, physical boundaries, time together and privacy. Four areas are scored separately."
+  },
+  "intimacy-values": {
+    "zh": "梳理隐私、轻松相处、稳定、信任与情感靠近的重要程度。五项分别呈现，可选不评分。",
+    "en": "Consider how much you value privacy, ease, stability, trust and emotional closeness. Five readings are shown, and you can leave items unrated."
+  },
+  "introvert-extrovert": {
+    "zh": "用 IPIP 外向性条目回顾交谈与群体参与。结果含 10–50 分总分、均分及反向计分说明。",
+    "en": "Use IPIP Extraversion items to reflect on conversation and group participation. See the 10–50 total, mean and reverse-scoring notes."
+  },
+  "island-day": {
+    "zh": "在一座虚构小岛上，失声的钟、未完成的壁画和渡船簿通向不同的纪念。",
+    "en": "On an imagined island, a silent bell, an unfinished mural and a ferry log lead to different keepsakes."
+  },
+  "java-test": {
+    "zh": "读 Java 25 代码，判断表达式、控制流、对象方法和集合异常。结果附逐题答案。",
+    "en": "Read Java 25 code and reason about expressions, control flow, object methods and collection exceptions. Review each answer."
+  },
+  "javascript-test": {
+    "zh": "阅读 JavaScript 代码，按 Node.js ES 模块规则预测输出或语法错误。结果附逐题解析。",
+    "en": "Read JavaScript code and predict its output or syntax errors under Node.js ES module rules. Review each answer."
+  },
+  "jealousy-scale": {
+    "zh": "回顾近四周关系中的担心、不适和行动。结果分别呈现，并区分频率与强度。",
+    "en": "Reflect on relationship worries, discomfort and actions over the past four weeks. Results are shown separately and distinguish frequency from intensity."
+  },
+  "jujutsu-kaisen-character": {
+    "zh": "在学习与创作情境中，对照《咒术回战》六位角色的选择。结果保留最高并列。",
+    "en": "Compare six Jujutsu Kaisen character perspectives through learning and creative choices. Top matches can tie."
+  },
+  "jungian-archetype": {
+    "zh": "比较十二种原型动机，查看各项选择次数、最高并列和原型来源。",
+    "en": "Compare twelve archetypal motives. See your counts, all tied leaders and where the archetypes come from."
+  },
+  "kitchen-improviser": {
+    "zh": "一顿虚构晚餐的食材、时间和口味对不上，看看你会怎样临场调整。",
+    "en": "Ingredients, timing and tastes don’t line up for an imaginary dinner. See how you would improvise."
+  },
+  "leadership-style": {
+    "zh": "比较你在团队中偏向集中决策、邀请参与、适度放手还是指明方向。四种做法按选择次数比较。",
+    "en": "Compare four team approaches: central decisions, shared participation, limited involvement and setting direction. See the choice count for each."
+  },
+  "learning-style": {
+    "zh": "比较你目前愿不愿用图示、口头解释、读写和实例来学习。四种方式分别计分。",
+    "en": "Compare your current willingness to learn through visuals, spoken explanations, reading and writing, or practical examples. Four approaches are scored separately."
+  },
+  "libertarian": {
+    "zh": "分别思考自主与同意、自愿合作、财产权和公共强制。结果按主题呈现，不划分政治身份。",
+    "en": "Reflect on autonomy and consent, voluntary cooperation, property and public compulsion. Scores are shown by topic without assigning a political identity."
+  },
+  "life-path-number": {
+    "zh": "用生日比较两种数字计算规则，查看步骤与符号解读。结果不用于测量人格或预测未来。",
+    "en": "Compare two birth-date number rules and see the calculations and symbolic meanings. The tool does not measure personality or predict the future."
+  },
+  "light-triad-test": {
+    "zh": "用发表版 LTS 条目回顾人性信念、人文关怀与康德主义。查看整体得分、分项读数和计分实例。",
+    "en": "Use published LTS items to reflect on faith in humanity, humanism and Kantianism. See overall and separate scores with a worked example."
+  },
+  "likable-person-test": {
+    "zh": "比较温暖、兑现承诺、轻松、好奇与边界在你选择中的分量。结果保留所有最高并列。",
+    "en": "Compare how much your choices favor warmth, follow-through, lightness, curiosity and boundaries. All tied leaders are shown."
+  },
+  "locus-of-control": {
+    "zh": "用公开的 IPIP 条目回看你怎样理解主动性、决定、运气与困难。结果附反向计分和题源。",
+    "en": "Use public IPIP items to reflect on initiative, decisions, luck and setbacks. The result explains its sources and reverse scoring."
+  },
+  "logical-reasoning": {
+    "zh": "练习量词、条件规则、多步演绎和排序约束。不限时，结果附逐题解析。",
+    "en": "Practice quantifiers, conditionals, multi-step deductions and ordering constraints. Work untimed and review each answer."
+  },
+  "long-distance-postcard": {
+    "zh": "隔着距离联络时，你会寄一个生活片段、留一个问题，还是约个不必立刻回复的共同记号？",
+    "en": "Keep in touch from afar with a scene from your day, an open question or a shared marker that needs no immediate reply."
+  },
+  "lost-key-search": {
+    "zh": "有样东西暂时找不到。你会回想经过、扫一遍空间，还是换个角度再看？",
+    "en": "Something has gone missing. Retrace what happened, scan the space or look from another angle."
+  },
+  "lost-letter-adventure": {
+    "zh": "在漂浮邮局追一封失落的信，沿你选的故事分支走向不同结局。",
+    "en": "Follow a lost letter through a floating post office. Your choices shape the ending."
+  },
+  "love-fight-style": {
+    "zh": "分别回看争执中言语升温、表达暂停、回到议题和确认修复的频率。",
+    "en": "Reflect separately on how often arguments escalate, how you call a pause, whether you return to the topic and how you check the repair."
+  },
+  "love-languages": {
+    "zh": "分别回看你怎样表达和接收关心。五种方式各有两项读数，并说明怎样处理缺答。",
+    "en": "Compare how you give and receive care. Each of five ways has separate scores, with notes on missing responses."
+  },
+  "love-personality": {
+    "zh": "比较表达、回应、个人空间与修复在关系选择中的侧重。结果保留最高并列。",
+    "en": "Compare how much your relationship choices favor expression, responsiveness, space and repair. All top ties are shown."
+  },
+  "love-type-16": {
+    "zh": "比较四组亲密关系偏好，查看对应组合和完整并列。结果附计数示例。",
+    "en": "Compare four relationship preferences and explore the resulting combinations and ties. A scoring example is included."
+  },
+  "magic-shopkeeper": {
+    "zh": "经营一间魔法小店。你会认真贴标签、借出魔法，还是给客人演示一个小奇迹？",
+    "en": "Run a magic shop. Label things carefully, lend out magic or demonstrate a small wonder."
+  },
+  "male-archetype-test": {
+    "zh": "用国王、战士、魔法师和情人四种角色隐喻看待情境选择。结果保留最高并列。",
+    "en": "Use the king, warrior, magician and lover as metaphors for scenario choices. All tied leaders are shown."
+  },
+  "masking-test": {
+    "zh": "用原版 CAT-Q 回顾成年人的社交伪装体验。查看总分和三个分项，无诊断分界。",
+    "en": "Use the original CAT-Q to reflect on adult social camouflaging. See the total and three subscales, without a diagnostic cutoff."
+  },
+  "mattering": {
+    "zh": "用 GMS 与 AMS 分别回顾被重视和感到无足轻重的体验。两项各为 5–20 分。",
+    "en": "Use the GMS and AMS to reflect separately on feeling valued and feeling insignificant. Each score ranges from 5 to 20."
+  },
+  "maturity-test": {
+    "zh": "回顾近四周的情绪回应、调整承诺、核对看法和自主选择。四项分别计分，不估算心理年龄。",
+    "en": "Reflect on emotional responses, revised commitments, perspective checks and independent choices over the past four weeks. Four scores are shown, without a mental-age estimate."
+  },
+  "mechanical-reasoning": {
+    "zh": "用文字数量题练习杠杆、齿轮、滑轮、弹簧和流体。不限时，附完整题解。",
+    "en": "Practice levers, gears, pulleys, springs and fluids through word problems. Work untimed and review the solutions."
+  },
+  "menstrual-cycle-context-reflection": {
+    "zh": "回顾同一次月经开始前后的情绪、烦躁、身体感受与日常变化。四组分别记录。",
+    "en": "Reflect on mood, irritability, bodily sensations and everyday changes around the start of one period. Four records are shown separately."
+  },
+  "mental-age": {
+    "zh": "通过日常选择比较你偏爱新鲜还是熟悉。结果是趣味年龄，不测实际心理年龄或智商。",
+    "en": "Compare preferences for novelty and familiarity. The playful age result does not measure mental age or IQ."
+  },
+  "message-tone": {
+    "zh": "一句消息看不准语气。直接问、找上下文，或先停一下，看看你会怎样澄清。",
+    "en": "A message is hard to read. Ask directly, look for context or take a pause before deciding what it means."
+  },
+  "misophonia-screener": {
+    "zh": "用 DVMSQ v1.5 回顾声音引发的反应及日常影响。根据前置回答，显示适用的后续题。",
+    "en": "Use the DVMSQ v1.5 to reflect on sound reactions and their impact. Follow-up questions depend on your initial response."
+  },
+  "mood-activity-changes-reflection": {
+    "zh": "供成年人回顾同一段时间里心情、睡眠、活动、想法与决定的变化。保留逐条选择。",
+    "en": "An adult reflection on changes in mood, sleep, activity, thoughts and decisions during the same period. See your individual choices."
+  },
+  "moon-market": {
+    "zh": "逛月光集市，沿你选的路线带回星图、一座可能性花园，或一张回到此刻的车票。",
+    "en": "Visit a moonlit market and return with a borrowed star map, a garden of possibilities or a ticket back to this moment."
+  },
+  "moon-phase": {
+    "zh": "用八种月相作比喻，比较尝试、调整、分享和休整等活动节奏。无需出生日期。",
+    "en": "Use eight moon phases as metaphors for rhythms such as trying, adjusting, sharing and resting. No birth date is needed."
+  },
+  "moral-alignment": {
+    "zh": "在虚构情境中比较守序与混乱、善良与邪恶的选择，查看九宫格位置和边界结果。",
+    "en": "Explore law versus chaos and good versus evil in fictional scenarios. See your grid position and any boundary matches."
+  },
+  "moral-dilemma-test": {
+    "zh": "从后果、原则、品格、关怀和公允五个角度看待日常两难。结果记录侧重，不评道德高低。",
+    "en": "Explore everyday dilemmas through consequences, principles, character, care and fairness. The result describes your choices without rating your morality."
+  },
+  "morality-6": {
+    "zh": "用 MFQ-2 回看关怀、平等、比例公平、忠诚、权威和纯洁。六项分别计分，中文为工作译文。",
+    "en": "Use MFQ-2 to reflect on care, equality, proportionality, loyalty, authority and purity. Six scores are shown separately, with a working Chinese translation."
+  },
+  "mote-type": {
+    "zh": "分别比较互动中的表达、清晰度、回应时点和分享边界。结果含四组计数与并列。",
+    "en": "Compare expression, clarity, response timing and sharing boundaries in everyday interactions. See four sets of counts and any ties."
+  },
+  "mountain-cabin": {
+    "zh": "在虚构山间小屋准备物品、布置共用房间、约定私人空间，看看你会怎样安顿一晚。",
+    "en": "Settle into an imagined mountain cabin by gathering supplies, setting up a shared room and agreeing on personal space."
+  },
+  "multiple-intelligences": {
+    "zh": "按八个主题回顾你做日常活动时的把握程度。可跳过，结果不选最强智能或推断智商。",
+    "en": "Reflect on your confidence in everyday activities across eight topics. Skip what doesn’t apply. There is no top intelligence or IQ estimate."
+  },
+  "museum-of-tomorrow": {
+    "zh": "给一件虚构未来物品写展签，决定要讲它的用途、使用者还是局限。",
+    "en": "Write a museum label for an imagined future object, choosing what to say about its purpose, users and limits."
+  },
+  "museum-visitor": {
+    "zh": "逛一场虚构展览。你会细看一件展品、寻找它们的关联，还是边看边聊？",
+    "en": "Visit an imagined exhibition. Study one object, trace connections or talk through the display with someone."
+  },
+  "music-taste-test": {
+    "zh": "按喜欢程度评价不同音乐描述。结果分别呈现八种音乐偏好的均分及有效作答数。",
+    "en": "Rate how much you like different descriptions of music. See separate means and answer counts for eight preferences."
+  },
+  "my-hero-academia-character-quiz": {
+    "zh": "在学习和共同活动中，对照《我的英雄学院》六位角色的选择。无需了解剧情。",
+    "en": "Compare six My Hero Academia character perspectives through learning and group activities. No plot knowledge is needed."
+  },
+  "my-little-pony-character-quiz": {
+    "zh": "通过共同活动比较《友谊就是魔法》六位角色的参与方式。非官方同人测试。",
+    "en": "Compare six Friendship Is Magic character perspectives in shared activities. This is an unofficial fan quiz."
+  },
+  "mythical-creature": {
+    "zh": "用龙、凤凰等六种神话生物比喻创作与交流偏好。结果保留最高并列。",
+    "en": "Explore creative and conversational preferences through six mythical creatures, including dragons and phoenixes. Top matches can tie."
+  },
+  "nakshatra-spica-reference": {
+    "zh": "根据出生日期、时间和历史时区计算角宿一参考出生宿与四分区。结果含月球黄经和边界对照。",
+    "en": "Calculate the Spica-referenced birth nakshatra and quarter from birth date, time and historical time zone. See lunar longitude and boundary comparisons."
+  },
+  "nana-character": {
+    "zh": "在创作与协作情境中，比较《NANA》七位角色的参与方式。结果保留最高并列。",
+    "en": "Compare seven NANA character perspectives through creative and collaborative choices. All top ties are shown."
+  },
+  "naruto-character": {
+    "zh": "从练习、分工和承担责任的选择中，对照七位《火影忍者》角色的做法。",
+    "en": "Compare seven Naruto character perspectives through choices about practice, teamwork and responsibility."
+  },
+  "natal-chart": {
+    "zh": "用出生时间、时区和坐标查看日月升、天体落点及整宫制宫位。附相关文化解读。",
+    "en": "Use birth time, time zone and coordinates to see the Sun, Moon, rising sign, placements and whole-sign houses, with cultural notes."
+  },
+  "new-club-member": {
+    "zh": "第一次走进兴趣小组。你会弄懂术语、跟一段流程，还是边学边贡献一点？",
+    "en": "Join a club for the first time. Learn the terms, follow a routine or contribute something small as you go."
+  },
+  "next-life": {
+    "zh": "想象重新开始，比较探索、照看、相聚、制作、表达和理解在你选择里的分量。",
+    "en": "Imagine starting over and compare how much your choices favor exploring, caring, gathering, making, expressing and understanding."
+  },
+  "night-garden": {
+    "zh": "在夜色花园里跟随细小声音、移动的影子或一闪而过的细节。",
+    "en": "Walk through an illustrated night garden and follow a soft sound, a moving shadow or a fleeting detail."
+  },
+  "nine-star-ki": {
+    "zh": "按公历年份与立春界点计算九星节年。若时间不清楚，显示两个可能结果。",
+    "en": "Calculate the Nine Star Ki year from the calendar year and the start-of-spring boundary. If timing is unclear, two possibilities are shown."
+  },
+  "note-taking-doodles": {
+    "zh": "一个想法刚冒出来。你会写一句话、画个图，还是把几个碎片连起来？",
+    "en": "An idea appears. Catch it in a sentence, sketch it quickly or connect a few fragments."
+  },
+  "number-context-reflection": {
+    "zh": "回顾近四周理解数量、计算、估计时间和读价格的经历。四类分别计数。",
+    "en": "Reflect on understanding quantities, calculating, estimating time and reading prices over the past four weeks. Counts are grouped in four areas."
+  },
+  "number-series": {
+    "zh": "根据五种规则推导数列。结果对照你的选择、正确答案和推导过程。",
+    "en": "Work out number sequences using five kinds of rules. Review your choices, correct answers and worked solutions."
+  },
+  "numerical-reasoning": {
+    "zh": "练习运算、百分比、比例、数据判读和速率。不计时，允许使用计算器。",
+    "en": "Practice arithmetic, percentages, ratios, data interpretation and rates. Work untimed with a calculator if you like."
+  },
+  "optimism-pessimism": {
+    "zh": "用 IPIP 条目回顾对未来的期待。结果附原始总分、均分和反向计分说明，中文为试译。",
+    "en": "Reflect on expectations about the future with IPIP items. See the raw total, mean and reverse-scoring notes. The Chinese items are a working translation."
+  },
+  "orientation-exploration-test": {
+    "zh": "私下回顾吸引、体验、标签与支持。可逐题跳过，结果保留所选记录，不判断取向或身份。",
+    "en": "Privately reflect on attraction, experiences, labels and support. You can skip items. The record does not determine orientation or identity."
+  },
+  "outfit-line-preferences": {
+    "zh": "比较你偏好的服装线条，如连贯、宽松、紧凑或柔和垂落。无需上传照片。",
+    "en": "Compare clothing lines such as elongated, relaxed, compact and softly draped shapes. No photo is needed."
+  },
+  "overthinking-screener": {
+    "zh": "用 PTQ 回顾反复的消极想法、难以转移注意等体验。结果显示总分和三个分量表的原始和。",
+    "en": "Use the PTQ to reflect on repetitive negative thinking and difficulty shifting attention. See the total and three raw subscale sums."
+  },
+  "paper-creature-language": {
+    "zh": "遇见一只不会说话的纸小兽，试着用手势、模仿和轮流回应找到交流方式。",
+    "en": "Meet a paper creature that doesn’t speak. Try gestures, imitation and taking turns to find a way to communicate."
+  },
+  "paper-world": {
+    "zh": "用一张纸折出路径、剪出角色、叠出景物，看看访客在你的纸世界里能做什么。",
+    "en": "Make a world from one sheet through folded paths, cutout characters and layered scenery. Decide what visitors can do there."
+  },
+  "parenting-style": {
+    "zh": "回顾近期与同一位 3 至 12 岁孩子相处时的温暖回应与日常边界。两项分别计分。",
+    "en": "Reflect on warm responses and everyday boundaries with one child aged 3–12. The two areas are scored separately."
+  },
+  "party-arrival": {
+    "zh": "刚到聚会时，你会先安顿自己、接进一段对话，还是从共同活动开始？",
+    "en": "Arrive at a party and choose how to settle in, join a conversation or take part in an activity."
+  },
+  "past-life": {
+    "zh": "从写作、器物设计、印刷、织造等历史活动里选出你感兴趣的方向。结果是虚构意象。",
+    "en": "Explore imaginary roles in historical activities such as writing, design, printing and weaving. Your result is fictional."
+  },
+  "people-pleaser": {
+    "zh": "用 PPS 自评回顾搁置自身需要、照顾他人的责任感与迎合期待。结果说明题源与中文改编。",
+    "en": "Use PPS items to reflect on setting aside your needs, feeling responsible for others and meeting expectations. The guides explain the source and Chinese adaptation."
+  },
+  "perceived-stress-scale-4": {
+    "zh": "用已发表的 PSS-4 回顾过去一个月的感知压力。查看 0–16 分总分及各题怎样计分。",
+    "en": "Use the published PSS-4 to reflect on perceived stress over the past month. See the 0–16 total and how each item contributes."
+  },
+  "perfectionism": {
+    "zh": "用 SAPS 分别了解个人标准与感受到的表现差距。结果附两项得分和计分示例。",
+    "en": "Use the SAPS to compare personal standards with perceived gaps in performance. See separate scores and a worked example."
+  },
+  "personal-finance-literacy": {
+    "zh": "练习预算、单利与复利、风险及工资福利。按主题查看正确数和解析。",
+    "en": "Practice budgeting, simple and compound interest, risk, pay and benefits. Review scores and explanations by topic."
+  },
+  "personal-museum": {
+    "zh": "从普通的一天选几件值得入展的东西，可能是小事件、细节或愿意分享的人际瞬间。",
+    "en": "Curate an ordinary day through small events, overlooked details and moments of connection you would share."
+  },
+  "philosopher-personality-test": {
+    "zh": "在日常思考选择中，找到苏格拉底、孔子、波伏瓦等哲学家的阅读入口。无需哲学背景。",
+    "en": "Find a starting point for reading thinkers such as Socrates, Confucius or Beauvoir through everyday choices. No philosophy background is needed."
+  },
+  "photo-group-role": {
+    "zh": "安排一张合影，考虑怎样让大家看清画面、自愿参加，并留住真正想记住的瞬间。",
+    "en": "Plan a group photo around a clear frame, a real choice to join and a moment people want to keep."
+  },
+  "playlist-maker": {
+    "zh": "策划一张歌单。你会讲出一段故事、照顾现场气氛，还是留下几处惊喜？",
+    "en": "Build a playlist that tells a story, suits the room or leaves space for a surprise."
+  },
+  "pocket-map": {
+    "zh": "用地标、个人停点和有意省略的细节，画出一张虚构地点的小地图。",
+    "en": "Map an imagined place with landmarks, personal stops and details you deliberately leave out."
+  },
+  "political-coordinates": {
+    "zh": "比较公共政策取舍，查看经济左—右与共同体—个人自由两条轴的原始计数和差值。",
+    "en": "Compare public policy choices. See counts and differences on economic left–right and community–individual freedom axes."
+  },
+  "portal-choice": {
+    "zh": "穿过口袋传送门，沿分支走向灯笼港、未完成的画廊，或一张寄回家的明信片。",
+    "en": "Step through a pocket portal and follow a branch toward Lantern Harbor, an unfinished gallery or a postcard home."
+  },
+  "potluck-contribution": {
+    "zh": "和别人聚餐，想想带什么菜既能配合菜单，又方便大家交接和分享。",
+    "en": "Bring a dish to a potluck and decide how it fits the menu and can be handed off and shared."
+  },
+  "prakriti-inventory21": {
+    "zh": "用发表版 BPI 回看传统体质概念。全部题目有效作答后，查看三类选择的计数和占比。",
+    "en": "Explore traditional constitution concepts through the published BPI. With all items scored, see counts and proportions for three groups."
+  },
+  "pressure-response-actions": {
+    "zh": "供成年人回顾近四周坚持立场、退开、卡住或先答应的经历。结果按类别记录，不指定反应类型。",
+    "en": "An adult reflection on holding your ground, stepping away, freezing or agreeing first over the past four weeks. Records are grouped without assigning a response type."
+  },
+  "problem-solving-critical-thinking": {
+    "zh": "练习界定问题、比较方案、核查证据和复盘。结果附分项得分及逐题解析。",
+    "en": "Practice defining problems, comparing options, checking evidence and reviewing decisions. See section scores and explanations."
+  },
+  "procrastinator-type-test": {
+    "zh": "回顾近四周的拖延习惯，区分担忧、临期启动、承诺过多等六种模式。结果分别呈现。",
+    "en": "Reflect on six delay patterns over the past four weeks, including worry, deadline-driven starts and overcommitment. Scores are shown separately."
+  },
+  "project-management": {
+    "zh": "练习处理项目范围变化、排程、风险、沟通决策和预算。结果附逐题解析。",
+    "en": "Practice handling scope changes, scheduling, risk, communication and budgets. Review every answer."
+  },
+  "python-test": {
+    "zh": "按 CPython 3.14.5 的规则预测程序输出或语法错误。不限时，答完可逐题复盘。",
+    "en": "Predict program output or syntax errors under CPython 3.14.5. Work untimed and review every answer."
+  },
+  "quest-reward": {
+    "zh": "一场小冒险结束了。你会带走明日地图、落日宴席，还是一个值得留着的信物？",
+    "en": "A small adventure ends. Take tomorrow’s map, a sunset feast or a keepsake worth holding on to."
+  },
+  "quiet-company": {
+    "zh": "安静地和人待一会儿。你会各看各的书、一起留意景象，还是少说话做件小事？",
+    "en": "Spend some quiet time together reading separately, noticing the same scene or sharing a small task."
+  },
+  "rainy-window": {
+    "zh": "隔着雨窗画速写。你的画会留下窗前物件、玻璃倒影，还是更远的景象？",
+    "en": "Sketch a rainy window. Choose the objects in front of it, a reflection in the glass or the view beyond."
+  },
+  "reading-ritual": {
+    "zh": "看看你怎样挑一本书、停下来，再回到阅读里。不同选择会留下不同的小习惯。",
+    "en": "Choose a book, pause and come back to it. Your choices reveal a reading ritual for this story."
+  },
+  "recent-mood-reflection": {
+    "zh": "供成年人回顾近四周的心情、兴趣、睡眠、食欲、精力和内心语言。结果按主题记录。",
+    "en": "An adult reflection on mood, interest, sleep, appetite, energy and inner talk over the past four weeks. Responses are grouped by topic."
+  },
+  "relationship-commitment": {
+    "zh": "分别回看继续关系的意愿、近期满意度、其他选择和已经投入的部分。结果解释反向计分。",
+    "en": "Reflect separately on your wish to continue, recent satisfaction, alternatives and investment. The results explain reverse scoring."
+  },
+  "relationship-habits": {
+    "zh": "回顾近三个月你怎样留出空间、记下不满、推迟谈话或付出超过余力。四组分别呈现。",
+    "en": "Reflect on taking space, keeping a mental tally, postponing conversations and giving beyond your capacity over the past three months. Four readings are shown separately."
+  },
+  "relationship-preferences": {
+    "zh": "分别比较联系与个人空间、确定性与弹性两组关系偏好。结果保留并列。",
+    "en": "Compare connection with personal space and certainty with flexibility. Tied results are shown."
+  },
+  "relationship-values": {
+    "zh": "比较仪式感、协作、陪伴和自主成长在亲密关系里的分量。结果保留所有最高并列。",
+    "en": "Compare how much you value rituals, cooperation, companionship and independent growth. All top ties are shown."
+  },
+  "relationship-worry-habits": {
+    "zh": "回顾近三个月自己怎样求安心、比较关注、额外付出或间接试探。四组频率分别呈现。",
+    "en": "Reflect on reassurance seeking, comparing attention, extra effort and indirect checking over the past three months. Four frequencies are shown separately."
+  },
+  "remote-work": {
+    "zh": "围绕一次远程工作安排，盘点接入、计划、交接、支持和工作边界是否准备妥当。",
+    "en": "Review a remote-work setup for access, planning, handoffs, support and work boundaries."
+  },
+  "response-color": {
+    "zh": "通过日常情境比较四种回应方式，用红、黄、蓝、绿四类计数呈现本次选择。",
+    "en": "Compare responses to everyday situations. Your choices are tallied across four styles represented by red, yellow, blue and green."
+  },
+  "reunion-style": {
+    "zh": "和一位久未见面的朋友重逢。你会接上共同回忆、聊近况，还是轻轻地重新开始？",
+    "en": "Reunite with someone after a while. Pick up a shared memory, talk about now or start gently afresh."
+  },
+  "river-crossing": {
+    "zh": "在纸上的河流地图试路线、协作过河并安排节奏。这是虚构小游戏。",
+    "en": "Try routes, coordinate a crossing and set the pace on a tabletop river map. This is an imaginary game."
+  },
+  "rizz-test": {
+    "zh": "回看表达兴趣、接住话头和发出邀约的频率。结果附对话实例，可选不适用。",
+    "en": "Reflect on how often you show interest, keep a conversation going or make an invitation. See dialogue examples and mark items that don’t apply."
+  },
+  "road-trip-dj": {
+    "zh": "和同车的人轮流点歌，看看你怎样连接不同口味，也给安静留点空间。",
+    "en": "Share the music queue on a road trip. Take turns, connect different tastes and leave room for quiet."
+  },
+  "room-atmosphere": {
+    "zh": "为想象的房间安排灯光、留白与物件层次，看看最后留下什么氛围。",
+    "en": "Arrange light, open space and layers of objects in an imaginary room. See the atmosphere you create."
+  },
+  "sake-type": {
+    "zh": "用起泡酒、啤酒、威士忌和清酒比喻想象中的选择。无需饮酒，结果保留最高并列。",
+    "en": "Explore sparkling wine, beer, whisky and sake as metaphors for imagined choices. No drinking is needed, and top matches can tie."
+  },
+  "sales-aptitude": {
+    "zh": "练习澄清需求、匹配方案、记录跟进和销售计算。答完可逐题核对。",
+    "en": "Practice clarifying needs, matching solutions, logging follow-ups and sales calculations. Review every answer."
+  },
+  "saying-goodbye": {
+    "zh": "愉快的见面快结束了。你会好好道别、记住一个细节，还是给下次留个入口？",
+    "en": "A good visit is winding down. End it clearly, remember a detail or leave a simple opening for next time."
+  },
+  "sbti-test": {
+    "zh": "通过情境选择获得一份 SBTI 趣味画像，并查看十五项模型读数。",
+    "en": "Answer scenario questions to get a playful SBTI profile and explore fifteen component readings."
+  },
+  "sdt-motivation": {
+    "zh": "在同一生活领域回顾近四周的自主、胜任和联结体验，分别查看满足与受阻的读数。",
+    "en": "Reflect on autonomy, competence and relatedness in one area of life over the past four weeks. See satisfaction and frustration separately."
+  },
+  "seasonal-table": {
+    "zh": "用虚构的桌面场景留下一点季节变化，可以换个位置，也可以给人留一份。",
+    "en": "Arrange an imaginary table to mark a season by moving something or leaving a share for someone else."
+  },
+  "secret-door": {
+    "zh": "一把意外得到的钥匙、一份邀请和别人的房间，把你带向三个故事结局之一。",
+    "en": "An unexpected key, an invitation and someone else’s room lead to one of three story endings."
+  },
+  "secret-garden-gate": {
+    "zh": "让想象中的花园门打开一条缝。你会给人看成品、写下过程，还是邀请一起做？",
+    "en": "Open an imagined garden gate. Offer a look at the finished work, a note about the process or a chance to join in."
+  },
+  "self-compassion": {
+    "zh": "用 SCS 查看自我慈悲的整体均分和六个分项读数。中文为未经验证的工作译文。",
+    "en": "Use the SCS to see an overall self-compassion mean and six separate readings. The Chinese items are an unvalidated working translation."
+  },
+  "self-esteem": {
+    "zh": "用罗森伯格自尊量表回顾整体自我评价。查看 0–30 分总分及反向计分说明，中文为工作译文。",
+    "en": "Reflect on overall self-esteem with the Rosenberg scale. See the 0–30 total and reverse-scoring notes. Chinese is a working translation."
+  },
+  "sensory-processing-test": {
+    "zh": "用完整 SPQ 回看自报的感觉知觉。全部有效作答后可查看 0–276 分原始总分及计分示例。",
+    "en": "Use the full SPQ to reflect on sensory perception. With all responses scored, see a raw total from 0 to 276 and a worked example."
+  },
+  "sensory-sensitivity": {
+    "zh": "回顾你何时晚些察觉、主动增加输入、被打断或想减少感官输入。四组分别呈现。",
+    "en": "Reflect on noticing sensations later, seeking input, getting interrupted and reducing input. Four patterns are shown separately."
+  },
+  "seven-sins-virtues-test": {
+    "zh": "回顾近四周的日常反应，查看十四项得分的雷达图和七篇情境解读。结果仅供自我探索。",
+    "en": "Reflect on your responses over the past four weeks. See 14 scores on a radar chart and seven everyday guides. For self-reflection only."
+  },
+  "shared-hobby": {
+    "zh": "和朋友分享爱好。你会去对方的爱好里做客、各做各的，还是轮流短玩几回？",
+    "en": "Share hobby time as a guest in someone else’s interest, side by side doing separate things or taking short turns."
+  },
+  "shared-ritual": {
+    "zh": "为两个人的小仪式商量一个提示、一段灵活时间和一件想保留的事。",
+    "en": "Plan a small shared ritual with a cue, flexible timing and something you both want to keep."
+  },
+  "shared-workspace": {
+    "zh": "共用一张创作桌时，决定怎样标清未完作品、分享工具，并问清彼此想要的反馈。",
+    "en": "At a shared craft table, mark unfinished work, share tools and ask what feedback each person wants."
+  },
+  "situational-judgement": {
+    "zh": "在职场情境中练习安排优先顺序、交接、沟通事实、分清职责和协作。结果附逐题解析。",
+    "en": "Practice priorities, handoffs, factual communication, responsibilities and collaboration in workplace scenarios. Review every answer."
+  },
+  "skills-audit": {
+    "zh": "盘点自己在方法、工具、沟通和任务知识上有哪些可举出的实例。结果按所选状态汇总。",
+    "en": "Inventory examples of methods, tools, communication and task knowledge. See the status of each example and a summary by topic."
+  },
+  "sleep-experiences-reflection": {
+    "zh": "回顾过去两周的入睡、夜间醒来、早醒、白天体验与睡眠担忧。五组分别整理。",
+    "en": "Reflect on falling asleep, waking at night or early, daytime experiences and sleep concerns over the past two weeks. Five records are shown separately."
+  },
+  "small-apology": {
+    "zh": "发生一个小误会后，你会先说明自己的部分、给出补救，还是让对方有时间回应？",
+    "en": "After a small misunderstanding, decide whether to explain your part, offer a practical repair or give the other person time to respond."
+  },
+  "snow-day": {
+    "zh": "用插画里的雪搭出稳固造型、想象角色，或让场景继续变化。无需等到下雪。",
+    "en": "Build a stable shape, invent a character or keep the scene changing in an illustrated snow day."
+  },
+  "social-attitudes-reflection": {
+    "zh": "分别回顾对四组社会议题的认同程度。查看各组均分，结果不贴政治或身份标签。",
+    "en": "Reflect on agreement with four sets of social topics. See separate means without a political or identity label."
+  },
+  "social-battery-test": {
+    "zh": "回顾过去两周哪些交流耗费精力、哪些相处或独处方式帮助你恢复。四项分别计分。",
+    "en": "Look back at what drained or restored your social energy over the past two weeks. Four aspects are scored separately."
+  },
+  "social-context-reflection": {
+    "zh": "回顾近四周被他人看到、与人交谈、安排社交活动及身体感受的经历。四类分别记录。",
+    "en": "Reflect on being noticed, having conversations, making social plans and bodily sensations over the past four weeks. See four records."
+  },
+  "social-intelligence-test": {
+    "zh": "用公开的 IPIP-VIA-R 条目回顾理解他人和调整措辞的自我感受。结果含 4–20 分总分。",
+    "en": "Use public IPIP-VIA-R items to reflect on how you understand others and adapt what you say. See a raw total from 4 to 20."
+  },
+  "socionics": {
+    "zh": "比较 Alpha、Beta、Gamma 和 Delta 四组信息偏好的选择次数，了解它们与十六型的区别。",
+    "en": "Compare choice counts for the Alpha, Beta, Gamma and Delta groups. The guide explains how these differ from the sixteen types."
+  },
+  "south-park": {
+    "zh": "在小组情境中比较斯坦、凯尔、卡特曼等七位角色的做法。结果保留最高并列。",
+    "en": "Compare Stan, Kyle, Cartman and four other South Park characters through group scenarios. Top matches can tie."
+  },
+  "souvenir-story": {
+    "zh": "一件纪念物为什么值得留？你会选仍然有用的物件、具体回忆，还是可分享的故事？",
+    "en": "What makes a keepsake worth saving? Choose a useful object, a specific memory or a story to share."
+  },
+  "space-marine-chapter": {
+    "zh": "通过纸模型展台的选择，探索六个战团对应的爱好视角。非官方同人测试。",
+    "en": "Explore six chapter-inspired hobby perspectives through a paper-model display. This is an unofficial fan quiz."
+  },
+  "spanish-proficiency": {
+    "zh": "用西语题练习语法、语境词义、阅读和实际消息。说明与解析提供中文和英文。",
+    "en": "Practice Spanish grammar, vocabulary in context, reading and practical messages. Instructions and explanations are available in Chinese and English."
+  },
+  "spatial-reasoning": {
+    "zh": "用文字坐标题练习旋转、镜像、折纸、立方体和视图。不计时，可逐题复盘。",
+    "en": "Practice rotations, reflections, folding, cubes and viewpoints through written coordinate problems. Work untimed and review each solution."
+  },
+  "spatial-thinking-reflection": {
+    "zh": "回顾在日常中想象物体转动和相对位置的经历。结果保留私人类别记录。",
+    "en": "Reflect on imagining rotations and relative positions in everyday life. See a private record of your choices by category."
+  },
+  "spell-school-elective": {
+    "zh": "在原创魔法学校选一门课，从杯中天气、口袋建筑、回声书信或漂浮形状里挑选。",
+    "en": "Pick a class at an original magic school: weather in cups, pocket architecture, echo letters or floating shapes."
+  },
+  "spelling-test": {
+    "zh": "在英文语境里练习双写辅音、元音、字母顺序和词尾。不限时，可逐题查看答案。",
+    "en": "Practice doubled consonants, vowels, letter order and endings in English context. Work untimed and review every answer."
+  },
+  "spirit-animal": {
+    "zh": "用狼、猫头鹰等九种动物作比喻，回看你在日常情境中的选择。保留最高并列。",
+    "en": "Use nine animal metaphors, from wolf to owl, to reflect on everyday choices. All tied leaders are shown."
+  },
+  "sql-test": {
+    "zh": "根据给出的表结构和数据判断 SQL 查询结果。用 SQLite 3.53.4 核验，附逐题解析。",
+    "en": "Predict SQL query results from the supplied tables and data. Answers are checked against SQLite 3.53.4 and explained."
+  },
+  "star-wars-character": {
+    "zh": "从学习、分享、安排和检验假设的选择里，对照七位《星球大战》角色的做法。",
+    "en": "Compare seven Star Wars character perspectives through choices about learning, sharing, planning and testing assumptions."
+  },
+  "stargazing-role": {
+    "zh": "参加一场想象的观星聚会，选择找图案、讲故事或帮助大家参与。无需天文学知识。",
+    "en": "Join an imagined stargazing gathering to find patterns, tell stories or help others take part. No astronomy knowledge is needed."
+  },
+  "sternberg-love": {
+    "zh": "分别回顾关系中的亲密、激情与承诺意愿。结果展示三组均分和计分方法。",
+    "en": "Reflect separately on intimacy, passion and willingness to commit. See three means and how they are calculated."
+  },
+  "story-ending": {
+    "zh": "纸游行到了未完工的广场。沿你的选择，为这场游行写下一个结尾。",
+    "en": "A paper parade reaches an unfinished square. Choose the route that gives the parade its ending."
+  },
+  "storybook-narrator": {
+    "zh": "为原创故事书选一个叙述视角，从近景、村庄合唱到略带俏皮的旁白。",
+    "en": "Choose a voice for an original storybook, from a close-up view to a village chorus or a playful narrator."
+  },
+  "stranger-things": {
+    "zh": "从桌面故事的创作选择里，对照小十一、迈克等六位《怪奇物语》角色。",
+    "en": "Compare Eleven, Mike and four other Stranger Things characters through creative tabletop choices."
+  },
+  "stress-check-in-test": {
+    "zh": "回顾过去一个月的急迫感与回应空间。原创题本给出 0–16 分总分和逐题计分，不用于诊断。",
+    "en": "Reflect on urgency and room to respond over the past month. This original questionnaire shows a 0–16 total and item scoring, without a diagnosis."
+  },
+  "stress-response-patterns-test": {
+    "zh": "回顾近三个月面对压力时的延后、检查、维持和气、解释与少说。五组分别计分。",
+    "en": "Reflect on delaying, checking, keeping the peace, explaining and holding back over the past three months. Five patterns are scored separately."
+  },
+  "stupidity-test": {
+    "zh": "看看六种日常乌龙里哪些更像你的选择。这是趣味测验，不估算智商。",
+    "en": "See which of six everyday mix-ups fit your choices. This is a lighthearted quiz with no IQ estimate."
+  },
+  "style-impression-preferences": {
+    "zh": "通过文字选择比较配色、轮廓、质感与细节。查看八种造型主题的计数和并列，无需照片。",
+    "en": "Compare color, silhouette, texture and detail through written choices. See counts and ties for eight style themes without uploading a photo."
+  },
+  "sudden-fear-reflection": {
+    "zh": "回顾突然恐惧时的感受和想法、对再次发生的担心，以及它是否改变了计划。四组分别记录。",
+    "en": "Reflect on sensations and thoughts during sudden fear, worries about it returning and any changes to plans. Four records are shown separately."
+  },
+  "superpower-test": {
+    "zh": "把询问、换视角、调整节奏等偏好化作五种虚构超能力。结果保留最高并列。",
+    "en": "Turn everyday preferences such as asking questions or changing perspective into five fictional powers. Top matches can tie."
+  },
+  "synesthesia-test": {
+    "zh": "回顾符号、色彩、声音等引发的联觉样体验。结果保留逐条选择，并提供主题解读。",
+    "en": "Reflect on synesthesia-like experiences involving symbols, color, sound and other sensations. See your individual choices and topic guides."
+  },
+  "team-name-maker": {
+    "zh": "给一支想象的小队起名。玩文字、回想共同经历，或找个大家都自在的选法。",
+    "en": "Name an imagined team through wordplay, shared experiences or a choice everyone feels comfortable making."
+  },
+  "tech-savvy": {
+    "zh": "自评学习六种日常工具任务时的信心。结果附有效项数、均分和计分实例。",
+    "en": "Rate your confidence in learning six everyday tool tasks. See the number of scored items, your mean and a worked example."
+  },
+  "temperament": {
+    "zh": "比较多血质、胆汁质、抑郁质和黏液质四种传统气质对应的选择。结果保留最高并列。",
+    "en": "Compare choices associated with four traditional temperaments. All tied leaders are shown."
+  },
+  "ten-key-test": {
+    "zh": "练习输入整数、小数和带前导零的编号。结果含每小时按键数、错误率和逐条核对。",
+    "en": "Practice entering whole numbers, decimals and IDs with leading zeros. Review keystrokes per hour, error rates and individual entries."
+  },
+  "thrift-shop-find": {
+    "zh": "在想象的二手货架上，找一件想再用、改作他用或保留原有故事的小物。",
+    "en": "Browse an imaginary secondhand shelf for something to reuse, reinvent or keep for its story."
+  },
+  "tide-pool-creature": {
+    "zh": "想象退潮后的潮池，决定怎样共用遮蔽、让出空间并和邻居相处。",
+    "en": "Explore an imagined tide pool and decide how to share shelter, make room and get along with neighbors."
+  },
+  "time-capsule": {
+    "zh": "为未来的读者准备一个时间胶囊，放进当下的细节、开放问题和小指引。",
+    "en": "Make a time capsule for a future reader with details from today, open questions and small practical notes."
+  },
+  "time-management": {
+    "zh": "回顾过去两周怎样安排优先事项、估时、恢复专注和回看计划。四项分别计分。",
+    "en": "Reflect on priorities, estimating time, returning to focus and reviewing plans over the past two weeks. Four scores are shown separately."
+  },
+  "time-of-year-context-reflection": {
+    "zh": "回顾过去两年不同时段的心情、精力、睡眠和食欲。结果保留逐条选择和时间背景。",
+    "en": "Reflect on mood, energy, sleep and appetite at different times over the past two years. See your choices and timing context."
+  },
+  "tiny-kingdom": {
+    "zh": "在鞋盒大小的王国里，设计一个交换集市、一间试验工坊或一座承诺档案馆。",
+    "en": "Build a shoebox kingdom as a trading market, an experimental workshop or an archive of promises."
+  },
+  "tiny-superpower": {
+    "zh": "给想象的小场景挑一种微能力：找到漏词、暂停一瞬，或显出有用的边缘。",
+    "en": "Choose a tiny fictional power for everyday scenes: find a missing word, add a pause or reveal a useful edge."
+  },
+  "tiny-treat": {
+    "zh": "小事做完了，用一段感官体验、一个趣味记号，或一会儿不安排的时间作纪念。",
+    "en": "Mark a small finish with a sensory moment, a playful token or a little unscheduled time."
+  },
+  "tipi-10": {
+    "zh": "用 TIPI 的原始英文条目回顾大五特质。五项均分分别呈现，中文为工作译文。",
+    "en": "Use the original English TIPI items to reflect on Big Five traits. Five means are shown separately, with a working Chinese translation."
+  },
+  "toxic-positivity-test": {
+    "zh": "回顾你何时要求自己、他人或不确定的结果保持积极。查看三组均分和反向计分实例。",
+    "en": "Reflect on pressure to stay positive about your feelings, in conversations or about uncertain outcomes. See three means and a reverse-scoring example."
+  },
+  "toxic-trait": {
+    "zh": "回看转述、比较、暗示异议等五类日常互动做法。查看分项均分和计分示例。",
+    "en": "Reflect on five everyday interaction habits, including relaying information, comparing and hinting at disagreement. See separate means and scoring examples."
+  },
+  "trauma-response-reflection": {
+    "zh": "供成年人回顾过去四周的提醒、距离感、情绪联系和警觉。无需讲述发生过的事。",
+    "en": "An adult reflection on reminders, distance, emotional connection and alertness over the past four weeks. You do not need to recount an event."
+  },
+  "travel-personality-test": {
+    "zh": "在旅行选择中比较计划、随兴、文化、户外、休息与美食。把结果用作讨论行程的参考。",
+    "en": "Compare six travel priorities, from planning and spontaneity to food and rest. Use your results to discuss trip plans."
+  },
+  "trust-issues-test": {
+    "zh": "回顾你怎样初次开放、逐步建立信任、核对约定或保持距离。四组分别计分。",
+    "en": "Reflect on opening up, building trust, checking agreements and keeping a protective distance. Four groups are scored separately."
+  },
+  "tsundere-dere-type": {
+    "zh": "用日常情境比较傲娇、冷娇、闷娇和热娇四种虚构表达方式。结果保留最高并列。",
+    "en": "Compare four fictional expression styles through everyday scenarios. All top ties are shown."
+  },
+  "twilight-character": {
+    "zh": "从雨天的爱好选择里，对照贝拉、爱德华等七位《暮光之城》角色。",
+    "en": "Compare Bella, Edward and five other Twilight character perspectives through rainy-day hobby choices."
+  },
+  "type-ab": {
+    "zh": "回顾近四周的时间压力、竞争比较、等待烦躁和难以停下的体验。四项分别计分。",
+    "en": "Reflect on time pressure, competition, impatience and difficulty stopping over the past four weeks. Four aspects are scored separately."
+  },
+  "typing-speed": {
+    "zh": "选中文或英文文本抄录。结果显示每分钟字数或词数和最终文本准确率，允许途中改错。",
+    "en": "Copy a passage in Chinese or English. Correct mistakes as you go and see characters or words per minute alongside final accuracy."
+  },
+  "uncertainty-ease-reflection": {
+    "zh": "回顾普通低后果情境里怎样感到自在、紧张或面对未知。结果保留逐条选择。",
+    "en": "Reflect on ease, tension and uncertainty in everyday situations with little at stake. See the category you chose for each item."
+  },
+  "unfamiliar-experiences-reflection": {
+    "zh": "回顾不熟悉的感官印象、思路、戒备、参与和日常事务。结果保留逐条选择。",
+    "en": "Reflect on unfamiliar sensations, thoughts, vigilance, participation and everyday tasks. See the options you chose for each item."
+  },
+  "unwanted-thoughts-actions-reflection": {
+    "zh": "回顾清洁担忧、反复检查、重复动作、不想要的想法与财物决定。五组分别记录。",
+    "en": "Reflect on cleaning concerns, checking, repeated actions, unwanted thoughts and decisions about belongings. Five records are shown separately."
+  },
+  "values": {
+    "zh": "比较施瓦茨框架中十类价值观对你的重要程度。查看各项均分与相对优先级。",
+    "en": "Compare the importance of ten values from Schwartz’s framework. See your mean scores and relative priorities."
+  },
+  "values-assessment": {
+    "zh": "比较十项工作优先事项，查看次数及并列名次。结果不用于判断是否适合某个职位。",
+    "en": "Compare ten work priorities and see their counts and ties. The result does not assess fit for a particular job."
+  },
+  "verbal-reasoning": {
+    "zh": "练习语境词义、词语类比、阅读依据和演绎推理。不限时，结果含逐题解析。",
+    "en": "Practice vocabulary in context, verbal analogies, reading evidence and deduction. Work untimed and review each answer."
+  },
+  "villain-era-archetype-test": {
+    "zh": "用六种戏剧化开场回看你如何安排边界、适度坦白或温和拒绝。结果保留最高并列。",
+    "en": "Use six theatrical openings to explore how you set limits, decide what to share or say no gently. All top ties are shown."
+  },
+  "watson-glaser-practice-test": {
+    "zh": "练习五类英文批判性思维题。可选 30 分钟整卷计时，答完可逐题查看解析。",
+    "en": "Practice five kinds of critical thinking in English. Choose an optional 30-minute full test, then review each answer."
+  },
+  "weather-in-a-bottle": {
+    "zh": "做一只虚构的天气瓶，在薄雾、微风和短日光之间选出你想留住的氛围。",
+    "en": "Make an imaginary weather bottle and choose the mood to keep: mist, a breeze or a brief patch of sunlight."
+  },
+  "wednesday-addams-character": {
+    "zh": "在手作与趣物展情境里，对照星期三、伊妮德等六位角色的参与方式。",
+    "en": "Compare Wednesday, Enid and four other character perspectives through craft and display choices."
+  },
+  "weekend-pace": {
+    "zh": "安排一个更像自己的周末。你会留几个固定节点、给惊喜留位置，还是守住一段空白？",
+    "en": "Plan a weekend that feels like yours, with a few anchors, room for surprises or some protected open time."
+  },
+  "weton-story-preferences": {
+    "zh": "在虚构情境中探索七个故事角色与五个市日视角。保留最高并列，爪哇历法参考可单独使用。",
+    "en": "Explore seven story roles and five pasaran perspectives through fictional choices. Top ties are kept, and the Javanese calendar reference can be used separately."
+  },
+  "what-dog-breed-am-i": {
+    "zh": "看看你偏好的相处方式和活动节奏更接近哪种犬系比喻。结果保留最高并列。",
+    "en": "See which dog-breed metaphors suit your social and activity preferences. All tied leaders are shown."
+  },
+  "what-element-am-i": {
+    "zh": "用火、水、土、风作比喻，比较日常偏好。无需提供生日。",
+    "en": "Explore everyday preferences through the metaphors of fire, water, earth and air. No birth date is needed."
+  },
+  "which-tarot-card-are-you": {
+    "zh": "把日常偏好与 22 张大阿尔卡那的象征主题对照。无需提供生日或了解塔罗。",
+    "en": "Match everyday preferences to themes from the 22 Major Arcana cards. No birth date or tarot knowledge is needed."
+  },
+  "wholesome-partner": {
+    "zh": "回看过去四周守约、回应、求助与修复等相处做法。八组分别计分，并说明缺答处理。",
+    "en": "Reflect on relationship habits over the past four weeks, such as following through, responding, seeking help and making repairs. See eight scores and how missing answers are handled."
+  },
+  "wojak": {
+    "zh": "用日常兴趣选择对照 Feels Guy、Bloomer 等六种网络迷因角色。结果保留最高并列。",
+    "en": "Compare six meme character perspectives, including Feels Guy and Bloomer, through everyday interests. All top ties are shown."
+  },
+  "woodland-animal": {
+    "zh": "走进林间情境，看看你更愿开路、搭窝，还是留意同行者的节奏。",
+    "en": "Enter a woodland story and see whether you would find the route, build a nest or watch the group’s pace."
+  },
+  "word-skills": {
+    "zh": "在 Windows 桌面版 Microsoft 365 Word 的情境中练习样式、分节、表格、邮件合并和审阅。",
+    "en": "Practice styles, sections, tables, mail merge and review tools in scenarios for Microsoft 365 Word on Windows."
+  },
+  "work-activity-interests": {
+    "zh": "用具体工作任务回看动手、调查、创作、支持、推动与整理的兴趣。结果附有效项数及均分。",
+    "en": "Explore interests in hands-on work, research, creation, support, persuasion and organizing through specific tasks. See valid-item counts and means."
+  },
+  "work-ethics": {
+    "zh": "回顾近四周的履约、交付核对、如实说明与修正习惯。四组分别呈现。",
+    "en": "Reflect on following through, checking work, communicating honestly and making corrections over the past four weeks. Four areas are shown separately."
+  },
+  "work-role-reflection": {
+    "zh": "选一个工作角色，回顾近十二周怎样澄清问题、核对交付和共同贡献。结果保留你选的状态。",
+    "en": "Choose a work role and reflect on clarifying tasks, checking deliverables and contributing together over the past twelve weeks. See the statuses you selected."
+  },
+  "work-traits-reflection": {
+    "zh": "回顾近四周的压力回应、主动行动、任务接续与履行约定等行为。七组频率分别呈现。",
+    "en": "Reflect on stress responses, initiative, following up and keeping agreements over the past four weeks. Seven frequencies are shown separately."
+  },
+  "workplace-technology": {
+    "zh": "练习工作交接、共享权限和技术变化判断。按四项查看正确数，并逐题复盘。",
+    "en": "Practice handoffs, shared access and reasoning about changes in technology. See four section scores and review every answer."
+  },
+  "written-coordination-practice": {
+    "zh": "用录入卡和英文题练习六类书面协调任务。分别查看作答计数、解析和双语指南。",
+    "en": "Practice six written coordination tasks through entry cards and English questions. Review counts, explanations and bilingual guides."
+  },
+  "written-language-context-reflection": {
+    "zh": "回顾近四周阅读、写作、遇到陌生词语和获取信息的经历。四组分别记录。",
+    "en": "Reflect on reading, writing, unfamiliar words and ways of accessing information over the past four weeks. Four records are shown separately."
+  },
+  "zodiac-sign-quiz": {
+    "zh": "用故事选择探索十二种星座叙事意象。结果附文化来源和计分实例，无需生日。",
+    "en": "Explore twelve zodiac-inspired storytelling perspectives. See cultural background and a scoring example without providing a birth date."
+  }
+}
