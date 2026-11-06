@@ -18,7 +18,6 @@ const DISCOVERABLE_KEYS = [
   "policies",
   "privacy",
   "terms",
-  "support",
   "method-boundaries",
   ...SCIENCE_TARGET_SLUGS,
   "help-faq",
@@ -202,7 +201,7 @@ afterEach(() => {
 });
 
 describe("GLOBAL-EN-ZH-CONTENT-PAGES-LLMS-EXPOSURE-REPAIR-01", () => {
-  it("loads the approved page set through public content-page detail authority", async () => {
+  it("loads the approved CMS page set without querying the separate support route", async () => {
     const get = vi.fn(async (url: string) => {
       expect(url).toContain("/v0.5/content-pages/");
       expect(url).not.toContain("/v0.5/internal/content-pages");
@@ -260,6 +259,7 @@ describe("GLOBAL-EN-ZH-CONTENT-PAGES-LLMS-EXPOSURE-REPAIR-01", () => {
 
     expect(result.value.map((page) => page.slug).sort()).toEqual([...DISCOVERABLE_KEYS].sort());
     expect(get).toHaveBeenCalledTimes(DISCOVERABLE_KEYS.length);
+    expect(get.mock.calls.some(([url]) => url.includes("/content-pages/support"))).toBe(false);
   });
 
   it("enumerates approved English content pages and Science pages in both llms surfaces", async () => {
