@@ -95,6 +95,9 @@ import path from "node:path";
 import { loadFunQuiz } from "@/lib/entertainment/loaders";
 import { CHANGAN_SLUG } from "@/lib/entertainment/changan";
 import { changanCardResponse } from "./changanCard";
+import { GLOBAL_HISTORY_SLUG } from "@/lib/entertainment/global-history/config";
+import { findHistoryPerson } from "@/lib/entertainment/global-history/people";
+import { globalHistoryCard } from "./globalHistoryCard";
 import { findPublicPortrait } from "@/lib/entertainment/guides";
 import { isTenKeyConfigurationValid } from "@/lib/questionnaires/tenKey";
 import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
@@ -122,6 +125,11 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   const query = new URL(request.url).searchParams, locale = query.get("locale") ?? "en";
   if (locale !== "en" && locale !== "zh") return new Response("Image unavailable", { status: 404 });
   const portrait = query.get("portrait");
+  if (slug === GLOBAL_HISTORY_SLUG) {
+    const person = portrait && findHistoryPerson(portrait);
+    if (!person) return new Response("Image unavailable", { status: 404 });
+    return globalHistoryCard(person, locale, await quizFont(slug), query.get("download") === "1");
+  }
   if (slug === CHANGAN_SLUG && portrait) {
     const quiz = await loadFunQuiz(slug);
     const result = quiz && findPublicPortrait(quiz, portrait);

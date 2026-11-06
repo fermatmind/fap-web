@@ -10,6 +10,7 @@ import { POST, toSeoAttributionIngestEnvelope } from "@/app/api/track/route";
 import { entertainmentActivityCatalog as activityCatalog } from "@/lib/entertainment/activityCatalog";
 import questionnaires from "@/lib/questionnaires/catalog.json";
 import legacy from "@/lib/entertainment/catalog.json";
+import { globalHistoryStory } from "@/lib/entertainment/directory";
 
 vi.mock("@/lib/tracking/internalTraffic", () => ({ getAnalyticsDeploymentEnvironment: () => "production", shouldAllowFirstPartyAnalyticsRuntime: () => ({ allowed: true }) }));
 vi.mock("@/lib/tracking/serverRuntime", () => ({ resolveTrackingRuntime: () => ({ token: "fixture_token_0123456789abcdefghijklmnop", origin: "https://api.fermatmind.com" }) }));
@@ -24,12 +25,16 @@ function PrivateActivity({ visible = false }: { visible?: boolean }) {
 }
 
 describe("anonymous entertainment activity", () => {
-  it("covers every reachable native, legacy and friendship identity without answer assets", () => {
-    const expected = new Set([...questionnaires, ...legacy, { slug: "friendship-quiz" }].map(x => x.slug));
+  it("covers every reachable native, legacy, world history and friendship identity without answer assets", () => {
+    const expected = new Set([...questionnaires, ...legacy, globalHistoryStory, { slug: "friendship-quiz" }].map(x => x.slug));
     expect(new Set(activityCatalog.map(x => x.slug))).toEqual(expected);
     for (const definition of activityCatalog) {
       expect(Object.keys(definition).sort()).toEqual(["path", "privacy", "roles", "slug", "title"]);
       if (definition.slug === "friendship-quiz") continue;
+      if (definition.slug === globalHistoryStory.slug) {
+        expect(definition).toMatchObject({ title: globalHistoryStory.title, path: `/tests/play/${globalHistoryStory.slug}`, roles: ["single"] });
+        continue;
+      }
       const native = questionnaires.find(item => item.slug === definition.slug);
       const source = native ?? legacy.find(item => item.slug === definition.slug)!;
       expect(definition.title).toEqual(source.title);

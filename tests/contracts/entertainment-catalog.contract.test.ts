@@ -7,6 +7,7 @@ import catalog from "@/lib/entertainment/catalog.json";
 import questionnaires from "@/lib/questionnaires/catalog.json";
 import { loadFunQuiz } from "@/lib/entertainment/loaders";
 import { readFunDraft, resolveFunQuiz } from "@/lib/entertainment/scoring";
+import { globalHistoryStory } from "@/lib/entertainment/directory";
 import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
 import { buildPublicSitemapFamilyMap } from "@/lib/seo/publicSitemap";
 import { filterTrackingPayload } from "@/lib/tracking/events";
@@ -201,12 +202,12 @@ describe("original entertainment catalog", () => {
   it("publishes bilingual entries and explicit public portrait guides, and retains backend families", () => {
     const base = [{ loc: "https://fermatmind.com/en/career", lastmod: "2026-10-01" }];
     const entries = appendFunSitemapEntries(base);
-    const publicCount = [...catalog.filter(card => !questionnaires.some(native => native.slug === card.slug)), ...questionnaires].reduce((total, card) => total + 2 * (1 + card.resultSlugs.length), 0);
+    const publicCount = [globalHistoryStory, ...catalog.filter(card => !questionnaires.some(native => native.slug === card.slug)), ...questionnaires].reduce((total, card) => total + 2 * (1 + card.resultSlugs.length), 0);
     expect(entries).toHaveLength(1 + publicCount);
     expect(entries).toContainEqual(base[0]);
     expect(appendFunSitemapEntries(entries)).toEqual(entries);
     const expectedEntries = [...base];
-    for (const card of catalog.filter(card => !questionnaires.some(native => native.slug === card.slug))) for (const locale of ["en", "zh"]) {
+    for (const card of [globalHistoryStory, ...catalog.filter(card => !questionnaires.some(native => native.slug === card.slug))]) for (const locale of ["en", "zh"]) {
       expectedEntries.push({ loc: `https://fermatmind.com/${locale}/tests/play/${card.slug}`, lastmod: `${card.updated}T00:00:00.000Z` });
       for (const slug of card.resultSlugs) expectedEntries.push({ loc: `https://fermatmind.com/${locale}/tests/play/${card.slug}/results/${slug}`, lastmod: `${card.updated}T00:00:00.000Z` });
     }

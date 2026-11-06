@@ -6,29 +6,29 @@ import { StoryDirectory } from "@/components/entertainment/StoryDirectory";
 import { MoreTests, FUN_CATEGORIES, MORE_TEST_PRODUCT_COUNT } from "@/components/entertainment/MoreTests";
 import catalog from "@/lib/entertainment/catalog.json";
 import questionnaires from "@/lib/questionnaires/catalog.json";
-import { directoryQuizzes, storyQuizzes } from "@/lib/entertainment/directory";
+import { directoryQuizzes, globalHistoryStory, storyQuizzes } from "@/lib/entertainment/directory";
 import { canonicalUrl } from "@/lib/site";
 import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
 
-describe("385 distinct products with separate test and story directories", () => {
-  it("keeps the 285/100 split without counting locales, six assessments or the two adapted identities twice", () => {
+describe("386 distinct products with separate test and story directories", () => {
+  it("keeps the 285/101 split without counting locales, six assessments or the two adapted identities twice", () => {
     const tests = ["friendship-quiz", ...questionnaires.map(q => q.slug), ...directoryQuizzes.filter(q => !questionnaires.some(n => n.slug === q.slug)).map(q => q.slug)];
     expect(MORE_TEST_PRODUCT_COUNT).toBe(285);
     expect(tests).toHaveLength(285);
-    expect(storyQuizzes).toHaveLength(100);
-    expect(storyQuizzes.map(q => q.slug).sort()).toEqual(catalog.filter(q => !["response-color", "relationship-values"].includes(q.slug)).map(q => q.slug).sort());
+    expect(storyQuizzes).toHaveLength(101);
+    expect(storyQuizzes.map(q => q.slug).sort()).toEqual([globalHistoryStory, ...catalog.filter(q => !["response-color", "relationship-values"].includes(q.slug))].map(q => q.slug).sort());
     expect(storyQuizzes.every(q => !tests.includes(q.slug))).toBe(true);
-    expect(new Set([...tests, ...storyQuizzes.map(q => q.slug)]).size).toBe(385);
+    expect(new Set([...tests, ...storyQuizzes.map(q => q.slug)]).size).toBe(386);
     expect(tests).not.toContain("mbti-personality-test-16-personality-types");
     expect(tests.filter(s => s === "relationship-values")).toHaveLength(1);
     expect(tests.filter(s => s === "response-color")).toHaveLength(1);
   });
-  it.each(["en", "zh"] as const)("renders all 100 actual %s destinations and aligned structured data and sitemap entries", locale => {
+  it.each(["en", "zh"] as const)("renders all 101 actual %s destinations and aligned structured data and sitemap entries", locale => {
     const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<InteractiveStoryLibrary locale={locale} />);
-    expect(dom.querySelectorAll("[data-story-slug]")).toHaveLength(100);
+    expect(dom.querySelectorAll("[data-story-slug]")).toHaveLength(101);
     const allIds = [...dom.querySelectorAll("[id]")].map(n => n.id); expect(new Set(allIds).size).toBe(allIds.length);
     const schema = JSON.parse(dom.querySelector('script[type="application/ld+json"]')!.textContent!);
-    expect(schema["@type"]).toBe("ItemList"); expect(schema.numberOfItems).toBe(100);
+    expect(schema["@type"]).toBe("ItemList"); expect(schema.numberOfItems).toBe(101);
     const sitemap = appendFunSitemapEntries([]);
     for (const q of storyQuizzes) {
       const path = `/${locale}/tests/play/${q.slug}`;
@@ -40,7 +40,7 @@ describe("385 distinct products with separate test and story directories", () =>
       expect(schema.itemListElement.some((item: {url:string}) => item.url === canonicalUrl(path))).toBe(true);
       expect(sitemap.some(item => item.loc === `https://fermatmind.com${path}`)).toBe(true);
     }
-    expect(dom.textContent).toContain(locale === 'zh' ? '合计 385个产品' : '385 products in total');
+    expect(dom.textContent).toContain(locale === 'zh' ? '合计 386个产品' : '386 products in total');
     expect(dom.querySelector('h1')).toBeNull();
   });
   it.each(["en", "zh"] as const)("aligns the 285 visible %s test/tool cards with their structured data", locale => {
@@ -62,7 +62,7 @@ describe("385 distinct products with separate test and story directories", () =>
     fireEvent.change(search,{target:{value:'weather-in-a-bottle'}}); expect(container.querySelectorAll('[data-story-slug]')).toHaveLength(1);
     expect(container.querySelector('[data-story-slug]')?.getAttribute('data-story-slug')).toBe('weather-in-a-bottle');
     fireEvent.change(search,{target:{value:'不会匹配123456'}}); expect(container.querySelectorAll('[data-story-slug]')).toHaveLength(0);
-    fireEvent.click(screen.getByRole('button',{name:'查看全部故事'})); expect(container.querySelectorAll('[data-story-slug]')).toHaveLength(100);
+    fireEvent.click(screen.getByRole('button',{name:'查看全部故事'})); expect(container.querySelectorAll('[data-story-slug]')).toHaveLength(101);
     fireEvent.click(screen.getByRole('button',{name:/动物与自然/})); expect(container.querySelectorAll('[data-story-slug]')).toHaveLength(storyQuizzes.filter(q=>q.category==='nature').length);
   });
 });

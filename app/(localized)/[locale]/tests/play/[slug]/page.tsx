@@ -47,6 +47,7 @@ import { Container } from "@/components/layout/Container";
 import { StoryTakeEntry } from "@/components/entertainment/StoryTakeEntry";
 import { JsonLd } from "@/components/seo/JsonLd";
 import catalog from "@/lib/entertainment/catalog.json";
+import { globalHistoryPath } from "@/lib/entertainment/global-history/config";
 import { CHANGAN_SLUG, firstChoiceRule } from "@/lib/entertainment/changan";
 import { loadFunQuiz } from "@/lib/entertainment/loaders";
 import { resolveLocale } from "@/lib/i18n/getDict";
@@ -203,6 +204,9 @@ async function FunQuizContent({ params }: Props) {
             : `${questionCount} questions · about ${quiz.minutes} minutes · no signup or prerequisite test`}
         </p>
         <StoryTakeEntry quiz={quiz} locale={locale} landingInstructions={changan ? quiz.introduction : undefined} />
+        {changan && <Link prefetch={false} href={globalHistoryPath(locale)} className="text-sm font-semibold underline">
+          {zh ? "想遇见更多人物？去玩全球卷" : "Want to meet more figures? Try the World Edition"}
+        </Link>}
         <section
           className="my-8 space-y-4 leading-8"
           aria-labelledby="about-quiz"

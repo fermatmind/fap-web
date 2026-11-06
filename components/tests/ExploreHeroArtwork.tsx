@@ -1,4 +1,5 @@
 import { CHANGAN_SLUG } from "@/lib/entertainment/changan";
+import { GLOBAL_HISTORY_SLUG } from "@/lib/entertainment/global-history/config";
 import { DiscoveryCardArt } from "./DiscoveryCardArt";
 
 /** Decorative scene only; the four DISC panels do not depict a user's scores. */
@@ -13,7 +14,14 @@ export function ExploreHeroArtwork({ slug, category }: { slug: string; category:
         <circle cx="853" cy="263" r="5" fill="#d4b775" />
       </svg>
       <div className="explore-hero-symbol">
-        {slug === CHANGAN_SLUG ? (
+        {slug === GLOBAL_HISTORY_SLUG ? (
+          <svg viewBox="0 0 360 290" fill="none" focusable="false">
+            <circle cx="180" cy="144" r="89" fill="#f4e7c9" stroke="#8a3828" strokeWidth="3" />
+            <ellipse cx="180" cy="144" rx="43" ry="89" stroke="#8a3828" strokeWidth="2" />
+            <path d="M91 144h178m-162-47q73 35 146 0m-146 94q73-35 146 0M180 55v178" stroke="#8a3828" strokeWidth="2" />
+            <circle cx="128" cy="102" r="9" fill="#8a3828" /><circle cx="225" cy="144" r="9" fill="#8a3828" /><circle cx="166" cy="200" r="9" fill="#8a3828" />
+          </svg>
+        ) : slug === CHANGAN_SLUG ? (
           <svg viewBox="0 0 360 290" fill="none" focusable="false">
             <circle cx="205" cy="105" r="68" fill="#c8654b" />
             <path d="m19 204 70-52 40 22 46-26 88 56H19Zm145 2 70-48 30 14 30-18 47 52H164Z" fill="#9b9f7c" />
