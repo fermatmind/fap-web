@@ -120,7 +120,9 @@ export async function loadTestLandingCmsEnrichment(
   } = {},
 ): Promise<TestLandingCmsEnrichment> {
   const surfaceKey = TEST_DETAIL_CMS_LANDING_SURFACE_KEYS[slug];
-  if (!surfaceKey) {
+  // The Big Five enrichment is published only in Chinese. English uses its
+  // regular test landing authority without this optional CMS surface.
+  if (!surfaceKey || (slug === SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN && locale === "en")) {
     return { value: null, source: "unavailable" };
   }
 

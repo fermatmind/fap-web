@@ -52,7 +52,6 @@ const DISCOVERABLE_CONTENT_PAGE_KEYS = [
   "policies",
   "privacy",
   "terms",
-  "support",
   "method-boundaries",
   "science",
   "item-design-notes",

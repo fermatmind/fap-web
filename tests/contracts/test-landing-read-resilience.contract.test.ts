@@ -255,6 +255,23 @@ describe("test landing lookup authority and LKG", () => {
 });
 
 describe("test landing CMS enrichment budget", () => {
+  it("only reads the optional Big Five CMS enrichment for Chinese", async () => {
+    const load = vi.fn(async () => ({
+      value: { ...cmsSurface("zh"), surfaceKey: "test_detail_big_five_personality_test_ocean_model" },
+      source: "fresh" as const,
+      stale: false,
+      updatedAt: "2026-11-06T00:00:00Z",
+      error: null,
+    }));
+
+    expect(await loadTestLandingCmsEnrichment(BIG5_SLUG, "en", { load })).toEqual({
+      value: null, source: "unavailable",
+    });
+    expect(load).not.toHaveBeenCalled();
+    expect((await loadTestLandingCmsEnrichment(BIG5_SLUG, "zh", { load })).source).toBe("fresh");
+    expect(load).toHaveBeenCalledWith("test_detail_big_five_personality_test_ocean_model", "zh");
+  });
+
   it("returns fresh CMS authority within the dedicated budget", async () => {
     const result = await loadTestLandingCmsEnrichment(MBTI_SLUG, "en", {
       load: async () => ({
