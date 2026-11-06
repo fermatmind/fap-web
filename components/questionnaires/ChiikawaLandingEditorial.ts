@@ -6,7 +6,7 @@ const summaries: Record<string, { zh: string; en: string }> = {
     "en": "Explore joining a small optional display at your own pace. Wording, fitting examples and counterexamples compare participation pace with five other approaches."
   },
   "hachiware": {
-    "zh": "把一个普通物件的意思一起说清，再确认理解是否相同。完整例子比较共同说明、个人愿望和经验分享。",
+    "zh": "小八也译作小八猫。这个角色的指南从一起说明一个物件的意思讲起，看看怎样确认彼此理解一致。",
     "en": "Put the meaning of an ordinary object into words together, then check understanding. Full examples compare shared explanation, personal wishes and experience sharing."
   },
   "usagi": {
@@ -14,7 +14,7 @@ const summaries: Record<string, { zh: string; en: string }> = {
     "en": "Try an unexpected shape with scrap paper and see how play unfolds. Concrete situations distinguish spontaneous trials, noticing comfort and sharing an existing method."
   },
   "momonga": {
-    "zh": "从共同选择小纪念物看怎样说清自己的愿望，也给不同回应留空间。通过例子比较表达愿望与替别人作决定。",
+    "zh": "小桃也译作小桃鼠。这个角色的指南从一起挑选纪念物讲起，看看怎样说清自己的愿望，也尊重不同选择。",
     "en": "Explore stating a wish while leaving room for differing responses in a keepsake choice. Examples distinguish expressing a preference from deciding for someone else."
   },
   "kurimanju": {

@@ -7,19 +7,19 @@
   "kind": "archetype",
   "title": {
     "zh": "吉伊卡哇角色测试",
-    "en": "Chiikawa Test"
+    "en": "Chiikawa Character Quiz"
   },
   "resultHeading": {
-    "zh": "六位角色的本次选择与全部最高并列",
-    "en": "Your six character choices and every highest tie"
+    "zh": "你的吉伊卡哇角色匹配",
+    "en": "Your Chiikawa character match"
   },
   "description": {
-    "zh": "用18道原创日常情境题，探索参与节奏、共同表达、即兴玩法、愿望表达、小舒适与经验分享。约6分钟，免费查看六位角色的原始次数、所有最高并列与完整指南，无需注册。",
-    "en": "Explore participation, shared wording, spontaneous play, personal wishes, small comforts and experience sharing through 18 original everyday scenarios. About 6 minutes, with free counts, every highest tie and six full character guides. No signup needed."
+    "zh": "你像吉伊卡哇、小八还是兔兔？免费回答18道日常情境题，看看你最像六位角色中的谁。最高并列会一起显示，完整解读无需注册。",
+    "en": "Which Chiikawa character are you? Answer 18 everyday questions to find your match among six characters, including any ties. Free results, no sign-up."
   },
   "seoTitle": {
-    "zh": "吉伊卡哇角色测试：18题、六位角色与完整解读",
-    "en": "Chiikawa Character Quiz: 18 Questions and Six Full Guides"
+    "zh": "吉伊卡哇测试：你是哪位角色？免费18题",
+    "en": "Chiikawa Test: Which Character Are You?"
   },
   "minutes": 6,
   "introduction": {
@@ -27,8 +27,8 @@
     "en": "What feels natural at an optional gathering, a scrap-paper activity or a moment sharing an ordinary object? This Chiikawa character quiz uses 18 original four-option scenarios to compare six editorial readings: Chiikawa, Hachiware, Usagi, Momonga, Kurimanju and Rakko. Completion shows six raw counts and every highest tie, with a full guide for each character.\n\nYou need not know the whole manga or anime, and there is no episode trivia. Character names organize everyday choices; official material supplies background, while option assignments and scoring are independently designed for this edition. Read the concrete approach first, then compare your experiences instead of treating a character’s entire story as your personality conclusion."
   },
   "instructions": {
-    "zh": "请按近期普通小事中的实际选择作答。每题从四种做法中选较接近自己的一项；几项都合适时选相对更自然的，没有完全合适时选较接近的。情境中的参与、分享与尝试均以自愿为前提，无需模仿角色或提供私人经历。完成18题后生成六项计数及所有最高并列的完整解读。",
-    "en": "Answer from recent ordinary situations. Choose the closest of four approaches each time; if several fit, pick the more natural one, and if none fits fully, pick the closest. Participation, sharing and trials in the scenarios are voluntary. You need not imitate a character or provide private experiences. Complete all 18 questions for six counts and full readings for every highest tie."
+    "zh": "请按近期普通小事中的实际选择作答。每题从四种做法中选较接近自己的一项；几项都合适时选相对更自然的，没有完全合适时选较接近的。情境中的参与、分享与尝试均以自愿为前提，无需模仿角色或提供私人经历。完成18题后，你会看到六位角色的选择次数和所有最高匹配。离开答题页或刷新会重新开始。",
+    "en": "Answer from recent ordinary situations. Choose the closest of four approaches each time; if several fit, pick the more natural one, and if none fits fully, pick the closest. Participation, sharing and trials in the scenarios are voluntary. You need not imitate a character or provide private experiences. Finish all 18 questions to see six choice counts and every top match. Leaving or refreshing the quiz resets your progress."
   },
   "source": {
     "kind": "FermatMindoriginal18ENZH4choice/unofficialtextonlyfaninterpretation/sixselectedcharacters/notclinicalassessment",

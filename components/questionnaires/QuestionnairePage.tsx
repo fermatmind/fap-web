@@ -187,6 +187,8 @@ import { bleachLandingSummary } from "./BleachLandingEditorial";
 import { deathNoteLandingSummary } from "./DeathNoteLandingEditorial";
 import { narutoLandingSummary } from "./NarutoLandingEditorial";
 import { disneyPrincessLandingSummary } from "./DisneyPrincessLandingEditorial";
+import { ChiikawaPortrait } from "./ChiikawaPortrait";
+import { ChiikawaResultExamples } from "./ChiikawaResultExamples";
 import { chiikawaLandingSummary } from "./ChiikawaLandingEditorial";
 import { bojackLandingSummary } from "./BoJackLandingEditorial";
 import { moonPhaseLandingSummary } from "./MoonPhaseLandingEditorial";
@@ -1042,7 +1044,12 @@ return (quiz.references ?? []);
       <a href="#edgerunners-examples" className="inline-flex min-h-11 items-center underline underline-offset-4">{zh ? "先看结果示例" : "See sample results"}</a>
       <a href="#questionnaire-results" className="inline-flex min-h-11 items-center underline underline-offset-4">{zh ? "先看七种角色结果" : "See the seven possible character results"}</a>
     </div>}
+    {slug === "chiikawa" && <div className="mt-2 flex flex-wrap gap-x-5 text-sm font-medium">
+      <a href="#chiikawa-examples" className="inline-flex min-h-11 items-center underline underline-offset-4">{zh ? "先看角色结果示例" : "See sample character results"}</a>
+      <a href="#questionnaire-results" className="inline-flex min-h-11 items-center underline underline-offset-4">{zh ? "查看六位角色指南" : "Browse the six character guides"}</a>
+    </div>}
     </ExploreTestIntro>
+    {slug === "chiikawa" && <ChiikawaResultExamples quiz={quiz} locale={locale} />}
     {slug === "cyberpunk-edgerunners" && <EdgerunnersResultExamples quiz={quiz} locale={locale} />}
     {quiz.kind === "fscrs22" && <QuestionnaireFscrs22Attribution quiz={quiz} locale={locale} />}
     <section className="my-8 space-y-4 leading-8" aria-labelledby="questionnaire-purpose"><h2 id="questionnaire-purpose" className="text-2xl font-semibold">{(() => {
@@ -1719,7 +1726,7 @@ if (quiz.kind === "likert") return (zh ? `下方完整解释${quiz.directions.le
 if (quiz.kind === "archetype") return (zh ? `下方列出全部${quiz.profiles.length}份结果的完整公开说明，不关联个人作答。最高计数并列时，每份匹配报告都会完整呈现；你也可以先比较其他结果。` : `Read all ${quiz.profiles.length} complete public result guides below. They contain no private attempts. Every highest-count tie gets its full report, and you can compare other results before answering.`);
 if (quiz.slug === "likable-person-test") return (zh ? "全部31份公开说明覆盖五个单项与每种最高并列组合，不含任何人的答案或计数。五项相同各4次时，不指定唯一顶部；结果不是他人评价或固定人格。" : "All 31 public guides cover five single directions and every highest-count tie, without personal answers or counts. Five equal counts of four produce no sole leader. Results are neither observer ratings nor fixed personalities.");
 return (zh ? `下面是公开说明，不是任何人的私人作答。全部${quiz.directions.length}个单项和并列组合均有完整报告；先阅读也不会影响你的计分。` : `These are public explanations, not anyone's private attempt. Full reports cover all ${quiz.directions.length} single directions and every tied combination. Reading one does not affect your score.`);
-})()}</p><ul className="space-y-4">{quiz.profiles.map(profile => <li key={profile.id} className="rounded-lg border border-slate-200 bg-white p-5"><Link prefetch={false} className="inline-flex min-h-11 items-center gap-3 py-2 text-lg font-semibold underline" href={questionnaireGuidePath(locale, slug, profile.id)}>{slug === "cyberpunk-edgerunners" && <EdgerunnersPortrait id={profile.id} className="size-14 shrink-0 rounded-lg" />}{profile.title[locale]}</Link><p className="mt-2 leading-8 text-slate-700">{(() => {
+})()}</p><ul className="space-y-4">{quiz.profiles.map(profile => <li key={profile.id} className="rounded-lg border border-slate-200 bg-white p-5"><Link prefetch={false} className="inline-flex min-h-11 items-center gap-3 py-2 text-lg font-semibold underline" href={questionnaireGuidePath(locale, slug, profile.id)}>{slug === "cyberpunk-edgerunners" && <EdgerunnersPortrait id={profile.id} className="size-14 shrink-0 rounded-lg" />}{slug === "chiikawa" && <ChiikawaPortrait id={profile.id} className="size-14 shrink-0 rounded-lg" />}{profile.title[locale]}</Link><p className="mt-2 leading-8 text-slate-700">{(() => {
 if (slug === "disc") return discLandingSummary(profile, locale);
 if (slug === "response-color") return responseColorLandingSummary(profile, locale);
 if (slug === "moral-alignment") return moralAlignmentLandingSummary(profile, locale);

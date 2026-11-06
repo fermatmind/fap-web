@@ -238,7 +238,7 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
       <Link prefetch={false} className="my-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这项结果的公开说明" : "Read the public explanation of this result"}</Link>
       </>}
       <QuestionnaireResultSections {...reportProps} />
-      {quiz.slug === "cyberpunk-edgerunners" && archetypes && <p className="mt-4 text-sm leading-6">
+      {(quiz.slug === "cyberpunk-edgerunners" || quiz.slug === "chiikawa") && archetypes && <p className="mt-4 text-sm leading-6">
         {archetypes.profileIds.length === 1
           ? (zh ? "分享会复制角色名和公开指南链接，不包含答卷或次数。" : "Sharing copies the character name and public guide link, without your answers or counts.")
           : (zh ? "分享会复制全部并列角色的名称和测试入口，不包含答卷或次数。" : "Sharing copies all tied character names and the quiz link, without your answers or counts.")}

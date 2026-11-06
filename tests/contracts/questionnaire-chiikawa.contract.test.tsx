@@ -35,7 +35,7 @@ describe("T040 original six-character unofficial fan quiz", () => {
     expect(isArchetypeConfigurationValid(quiz)).toBe(true); expect(quiz.profiles).toHaveLength(6);
     expect(quiz.source.psychometricValidationCompleted).toBe(false);
     expect(quiz.references?.map(r => r.url)).toContain("https://www.chiikawaofficial.com/characters");
-    expect(quiz.title).toEqual({ zh: "吉伊卡哇角色测试", en: "Chiikawa Test" });
+    expect(quiz.title).toEqual({ zh: "吉伊卡哇角色测试", en: "Chiikawa Character Quiz" });
     for (const direction of quiz.directions) {
       expect(direction.comparisons).toBe(12);
       for (const position of [0, 1, 2, 3]) expect(quiz.questions.filter(q => q.options[position].directionId === direction.id)).toHaveLength(3);

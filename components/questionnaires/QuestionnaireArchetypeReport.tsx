@@ -6,6 +6,7 @@ import type { ArchetypeResult } from "@/lib/questionnaires/scoring";
 import type { Locale } from "@/lib/i18n/locales";
 import styles from "./QuestionnaireResultPresentation.module.css";
 import { PortraitResultLead, portraitResultLeadKind } from "./PortraitResultLead";
+import { ChiikawaPortrait } from "./ChiikawaPortrait";
 import { EdgerunnersPortrait } from "./EdgerunnersPortrait";
 
 const comparisonFirst = new Set(["cyberpunk-edgerunners", "chiikawa", "south-park", "space-marine-chapter", "dexter", "dungeons-dragons-class", "blue-lock", "naruto-character", "gilmore-girls", "philosopher-personality-test"]);
@@ -43,11 +44,13 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId }:
   const zh = locale === "zh";
   const lead = portraitResultLeadKind(quiz.slug);
   const edgerunners = quiz.slug === "cyberpunk-edgerunners";
-  const placement = edgerunners && result.profileIds.length === 1 ? "between" :
+  const chiikawa = quiz.slug === "chiikawa";
+  const Portrait = chiikawa ? ChiikawaPortrait : EdgerunnersPortrait;
+  const placement = (edgerunners || chiikawa) && result.profileIds.length === 1 ? "between" :
     comparisonFirst.has(quiz.slug) ? "before" : chartAfterLead.has(quiz.slug) ? "between" : chartAfterReading.has(quiz.slug) ? "after" : undefined;
   const matched = result.profileIds.map(id => quiz.profiles.find(p => p.id === id)!);
   const leadingDirections = new Set(matched.flatMap(profile => profile.directionIds));
-  const showRadar = edgerunners || placement === "before" || quiz.slug === "anime-character-archetype-test";
+  const showRadar = edgerunners || chiikawa || placement === "before" || quiz.slug === "anime-character-archetype-test";
   const countsId = sampleId ? `${sampleId}-counts` : "choice-counts";
   const CountHeading = sampleId ? "h4" : "h3";
   const chart = <section className={styles.choiceChart} id={countsId} aria-labelledby={`${countsId}-title`}>
@@ -67,13 +70,13 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId }:
     <ul className="space-y-2">
       {matched.map(profile => <li key={profile.id}>
         <Link prefetch={false} href={questionnaireGuidePath(locale, quiz.slug, profile.id)} className="flex min-h-11 items-center gap-3 font-semibold underline underline-offset-4">
-          <EdgerunnersPortrait id={profile.id} className="size-12 shrink-0 rounded-lg" />
+          <Portrait id={profile.id} className="size-12 shrink-0 rounded-lg" />
           {profile.title[locale]}
         </Link>
       </li>)}
     </ul>
     <details>
-      <summary className="min-h-11 cursor-pointer py-2 text-sm font-semibold">{zh ? "查看七项选择次数" : "See all seven choice counts"}</summary>
+      <summary className="min-h-11 cursor-pointer py-2 text-sm font-semibold">{chiikawa ? (zh ? "查看全部选择次数" : "See all choice counts") : (zh ? "查看七项选择次数" : "See all seven choice counts")}</summary>
       {chart}
     </details>
   </div>;
@@ -94,7 +97,7 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId }:
     {result.profileIds.length > 1 && <p className="leading-7">{zh ? `本次保留${result.profileIds.length}项并列匹配，可以分别阅读；顺序不代表主次。` : `All ${result.profileIds.length} tied matches are kept. Read each in turn; their order does not imply priority.`}</p>}
     {placement && matched.length > 1 && <nav className={styles.matchNav} aria-label={zh ? "跳到匹配结果" : "Jump to a match"}>
       {matched.map(profile => <a key={profile.id} href={`#animal-title-${profile.id}`}>
-        {edgerunners && <EdgerunnersPortrait id={profile.id} className="mr-2 inline-block size-8 rounded-md align-middle" />}
+        {(edgerunners || chiikawa) && <Portrait id={profile.id} className="mr-2 inline-block size-8 rounded-md align-middle" />}
         {profile.title[locale]}
       </a>)}
     </nav>}

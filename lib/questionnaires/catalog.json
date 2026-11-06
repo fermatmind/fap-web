@@ -1023,11 +1023,11 @@
     "category": "metaphor",
     "title": {
       "zh": "吉伊卡哇角色测试",
-      "en": "Chiikawa Test"
+      "en": "Chiikawa Character Quiz"
     },
     "description": {
-      "zh": "用18道原创日常情境题，探索参与节奏、共同表达、即兴玩法、愿望表达、小舒适与经验分享。约6分钟，免费查看六位角色的原始次数、所有最高并列与完整指南，无需注册。",
-      "en": "Explore participation, shared wording, spontaneous play, personal wishes, small comforts and experience sharing through 18 original everyday scenarios. About 6 minutes, with free counts, every highest tie and six full character guides. No signup needed."
+      "zh": "你像吉伊卡哇、小八还是兔兔？免费回答18道日常情境题，看看你最像六位角色中的谁。最高并列会一起显示，完整解读无需注册。",
+      "en": "Which Chiikawa character are you? Answer 18 everyday questions to find your match among six characters, including any ties. Free results, no sign-up."
     },
     "minutes": 6,
     "collection": "explore",
