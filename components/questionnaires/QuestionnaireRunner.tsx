@@ -238,6 +238,11 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
       <Link prefetch={false} className="my-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这项结果的公开说明" : "Read the public explanation of this result"}</Link>
       </>}
       <QuestionnaireResultSections {...reportProps} />
+      {quiz.slug === "cyberpunk-edgerunners" && archetypes && <p className="mt-4 text-sm leading-6">
+        {archetypes.profileIds.length === 1
+          ? (zh ? "分享会复制角色名和公开指南链接，不包含答卷或次数。" : "Sharing copies the character name and public guide link, without your answers or counts.")
+          : (zh ? "分享会复制全部并列角色的名称和测试入口，不包含答卷或次数。" : "Sharing copies all tied character names and the quiz link, without your answers or counts.")}
+      </p>}
       <div data-mini-virtues-actions={miniVirtues ? "true" : undefined} className={miniVirtues ? "flex flex-wrap gap-3" : resultStyles.runnerActions}><button className={button} onClick={copy}>{quiz.slug === "hsp-sensitivity-quiz" || adexi14 || ptq15 || miniFriction || interactionPairs || extraversionUnscored || affection || attachment || distributedWork || workRole || skillsEvidence || quiz.slug === "work-traits-reflection" || quiz.slug === "work-activity-interests" || quiz.slug === "interpersonal-preferences" || quiz.slug === "everyday-control-style" || loveType16 || mentalAge || quiz.kind === "fds32" || quiz.slug === "energy-flow" || quiz.slug === "cognitive-functions-test" || quiz.slug === "cultural-dimensions" || quiz.slug === "food-choice" || quiz.slug === "values-assessment" || quiz.slug === "eq-dashboard" || miniVirtues || quiz.slug === "euphoria-character-quiz" ? (zh ? "复制公开入口" : "Copy public entry") : preparationActions20 ? (zh ? "复制五份公开指南链接" : "Copy five public guide links") : (zh ? "复制结果与链接" : "Copy result and link")}</button><button className={button} onClick={() => start()}>{zh ? "重新测试" : "Retake test"}</button></div>
       {manualCopy && <textarea readOnly aria-label={zh ? "手动复制结果" : "Result text for manual copying"} value={manualCopy} onFocus={e => e.target.select()} className="mt-4 min-h-40 w-full rounded border p-3" />}
     </>}

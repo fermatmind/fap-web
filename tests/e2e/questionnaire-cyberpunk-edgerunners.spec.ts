@@ -39,8 +39,8 @@ async function finish(page: Page, l: Locale, kind: "david" | "all-seven") {
   }
   await expect(page.locator("#take-test h2")).toHaveText(quiz.resultHeading[l]);
   await expect(page.locator("#take-test h2")).toBeFocused();
-  await expect(page.locator("[data-archetype-count]")).toHaveCount(7);
-  for (const d of quiz.directions) await expect(page.locator(`[data-archetype-count="${d.id}"] dd:not([aria-hidden])`)).toHaveText(`${sample.counts[d.id]} / 12`);
+  await expect(page.locator("#take-test [data-archetype-count]")).toHaveCount(7);
+  for (const d of quiz.directions) await expect(page.locator(`#take-test [data-archetype-count="${d.id}"] dd:not([aria-hidden])`)).toHaveText(`${sample.counts[d.id]} / 12`);
   await expect(page.locator("[data-archetype-match]")).toHaveCount(sample.profiles.length);
   const overview = page.locator("#take-test [data-choice-chart-placement]");
   await expect(overview).toHaveAttribute("data-choice-chart-placement", kind === "david" ? "between" : "before");
@@ -57,26 +57,48 @@ async function finish(page: Page, l: Locale, kind: "david" | "all-seven") {
   }
   expect(new URL(page.url()).search).toBe("");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  const ids = await page.locator("#take-test [id]").evaluateAll(ns => ns.map(n => n.id));
+  const ids = await page.locator("#take-test [id], #edgerunners-examples [id]").evaluateAll(ns => ns.map(n => n.id));
   expect(ids.length).toBe(new Set(ids).size);
 }
 
 for (const l of ["en", "zh"] as const) {
-  test(`@release edgerunners ${l}: native entry, keyboard, sole match, seven full tied guides and retake`, async ({ page }) => {
-    await page.setViewportSize({ width: 390, height: 844 });
+  for (const [device, viewport] of [["phone", { width: 390, height: 844 }], ["desktop", { width: 1440, height: 900 }]] as const) {
+  test(`@release edgerunners ${l} ${device}: samples, back, sole match, seven tied guides, share and retake`, async ({ page, context }) => {
+    await page.setViewportSize(viewport);
+    await context.grantPermissions(["clipboard-read", "clipboard-write"]);
     const leaked: string[] = [];
+    const tracked: string[] = [];
+    page.on("request", r => { if (r.method() === "POST" && new URL(r.url()).pathname === "/api/track") tracked.push(r.url()); });
     page.on("request", r => { if (r.method() === "POST" && /EDGE_\d\d|"answers"|"counts"/.test(r.postData() ?? "")) leaked.push(r.url()); });
     await page.goto(`/${l}/tests`);
     await page.locator("#more-tests").getByRole("link", { name: quiz.title[l], exact: true }).click();
     await expect(page.locator("h1")).toHaveText(quiz.title[l]);
     await expect(page).toHaveTitle(`${quiz.seoTitle[l]} | FermatMind`);
+    const exampleLink = page.getByRole("link", { name: label(l, "See sample results", "先看结果示例") });
+    await expect(exampleLink).toBeInViewport();
     await page.getByRole("link", { name: label(l, "See the seven possible character results", "先看七种角色结果") }).click();
     await expect(page).toHaveURL(/#questionnaire-results$/);
     await expect(page.locator("#questionnaire-results")).toBeInViewport();
+    await exampleLink.click();
+    const samples = page.locator("#edgerunners-examples");
+    await expect(samples.getByRole("heading", { level: 3 })).toHaveText(l === "zh" ? ["单一匹配", "最高并列"] : ["One match", "Tie for first"]);
+    await expect(samples.getByRole("link")).toHaveCount(3);
+    await expect(samples.getByRole("link").last()).toHaveAttribute("href", `${path(l)}/results/lucy`);
+    await samples.locator("summary").last().click();
+    await expect(samples.locator('#edgerunners-sample-tie-counts [data-matched="true"] dd:not([aria-hidden])')).toHaveText(["5 / 12", "5 / 12"]);
+    await samples.getByRole("link").last().click();
+    await expect(page.locator("h1")).toHaveText(quiz.profiles[1].title[l]);
+    await expect(page.locator('img[src$="/cyberpunk-edgerunners/lucy.webp"]')).toBeVisible();
+    await page.getByRole("navigation", { name: label(l, "Breadcrumb", "面包屑") }).getByRole("link", { name: quiz.title[l], exact: true }).click();
+    await expect(page).toHaveURL(new RegExp(`${path(l)}$`));
     await button(page, l, "Start test", "开始测试");
     await button(page, l, "Next", "下一题");
     await expect(page.getByRole("status")).toContainText(label(l, "Choose an option", "请选择"));
     await finish(page, l, "david");
+    await button(page, l, "Copy result and link", "复制结果与链接");
+    expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(`${quiz.title[l]}
+${quiz.profiles[0].title[l]}
+https://fermatmind.com${path(l)}/results/david`);
     await page.locator("#take-test h2").scrollIntoViewIfNeeded();
     await page.screenshot({ path: test.info().outputPath(`${l}-result.png`) });
     await page.locator('[data-archetype-match="david"]').scrollIntoViewIfNeeded();
@@ -84,11 +106,17 @@ for (const l of ["en", "zh"] as const) {
     await button(page, l, "Retake test", "重新测试");
     await expect(page.locator("[data-archetype-match]")).toHaveCount(0);
     await finish(page, l, "all-seven");
+    await button(page, l, "Copy result and link", "复制结果与链接");
+    expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(`${quiz.title[l]}
+${quiz.profiles.map(p => p.title[l]).join(l === "zh" ? "、" : ", ")}
+https://fermatmind.com${path(l)}`);
     expect(leaked).toEqual([]);
+    expect(tracked).toEqual([]);
     expect(await page.evaluate(slug => sessionStorage.getItem(`fm_questionnaire_draft:${slug}`), quiz.slug)).toBeNull();
     await button(page, l, "Retake test", "重新测试");
     await expect(page.locator('input[type="radio"]:checked')).toHaveCount(0);
   });
+  }
 
   test(`@release edgerunners ${l}: reload and language change start a new private attempt`, async ({ page }) => {
     await page.goto(path(l)); await button(page, l, "Start test", "开始测试");
@@ -114,6 +142,9 @@ for (const l of ["en", "zh"] as const) {
     for (const p of quiz.profiles) {
       await page.goto(`${path(l)}/results/${p.id}`);
       await expect(page.locator("h1")).toHaveText(p.title[l]);
+      const portrait = page.locator(`img[src="/images/quiz-portraits/${quiz.slug}/${p.id}.webp"]`);
+      await expect(portrait).toBeVisible();
+      await expect.poll(() => portrait.evaluate(node => (node as HTMLImageElement).naturalWidth)).toBe(640);
       await expect(page.locator("[data-archetype-count]")).toHaveCount(0);
       const text = await page.locator("main").last().innerText();
       for (const s of p.sections) for (const t of s.paragraphs) expect(text).toContain(t[l]);
@@ -141,6 +172,7 @@ test("@release edgerunners all16publicpages, complete body, metadata,16fontOGs a
     const image = `/og/fun/${quiz.slug}?locale=${l}${p ? `&portrait=${p.id}` : ""}`;
     const r = await request.get(image); expect(r.status()).toBe(200);
     const bytes = await r.body(); expect(bytes.readUInt32BE(16)).toBe(1200); expect(bytes.readUInt32BE(20)).toBe(630);
+    if (p) expect(bytes.length).toBeGreaterThan(70_000); // A text-only card can still be a valid 1200 × 630 PNG.
     const sentinel = await request.get(image + "&answers=PRIVATE_ANSWER&counts=12,3&result=PRIVATE_RESULT");
     expect(sentinel.status()).toBe(200); expect(await sentinel.body()).toEqual(bytes);
   }
