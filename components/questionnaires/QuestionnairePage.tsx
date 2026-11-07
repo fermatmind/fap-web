@@ -480,7 +480,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (quiz?.kind === "nine-star-year" && !isNineStarYearConfigurationValid(quiz)) return { title: "Year reference unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "birth-number" && !isBirthNumberConfigurationValid(quiz)) return { title: "Calculator unavailable", robots: { index: false, follow: false } };
   if (!quiz || (quiz.kind === "fds32" && !isFds32ConfigurationValid(quiz)) || (quiz.kind === "mental-age" && !isMentalAgeConfigurationValid(quiz)) || (quiz.kind === "pss4" && !isPss4ConfigurationValid(quiz)) || (quiz.kind === "stress-reflection4" && !isStressReflection4ConfigurationValid(quiz)) || (quiz.kind === "mini-orientation" && !isMiniOrientationConfigurationValid(quiz)) || (quiz.kind === "mini-conflict" && !isMiniConflictConfigurationValid(quiz)) || (quiz.kind === "four-axes" && !isFourAxesConfigurationValid(quiz)) || (quiz.kind === "mini-shadow" && !isMiniShadowConfigurationValid(quiz)) || (quiz.kind === "preparation-actions20" && !isPreparationActions20ConfigurationValid(quiz)) || (quiz.kind === "mini-coping" && !isMiniCopingConfigurationValid(quiz)) || (quiz.kind === "mini-habit" && !isMiniHabitConfigurationValid(quiz)) || (quiz.kind === "mini-intimacy" && !isMiniIntimacyConfigurationValid(quiz)) || (quiz.kind === "mini-breakup" && !isMiniBreakupConfigurationValid(quiz)) || (quiz.kind === "holding-back35" && !isHoldingBack35ConfigurationValid(quiz)) || (quiz.kind === "fscrs22" && !isFscrs22ConfigurationValid(quiz)) || (quiz.kind === "parenting-practices" && !isParentingPracticesConfigurationValid(quiz)) || (quiz.kind === "spq92" && !isSpq92ConfigurationValid(quiz)) || (quiz.kind === "adexi14" && !isAdexi14ConfigurationValid(quiz)) || (quiz.kind === "mini-friction" && !isMiniFrictionConfigurationValid(quiz)) || (quiz.kind === "ctl41" && !isCtl41ConfigurationValid(quiz)) || (quiz.kind === "ptq15" && !isPtq15ConfigurationValid(quiz)) || (quiz.kind === "interaction-pairs" && !isInteractionPairsConfigurationValid(quiz)) || (quiz.kind === "work-role12" && !isWorkRole12ConfigurationValid(quiz)) || (quiz.kind === "skills-evidence" && !isSkillsEvidenceConfigurationValid(quiz)) || (quiz.slug === "dark-tetrad-sd4" && !isSd4ConfigurationValid(quiz)) || (quiz.kind === "tipi10" && !isTipi10ConfigurationValid(quiz)) || (quiz.kind === "saps" && !isSapsConfigurationValid(quiz)) || (quiz.kind === "scs26" && !isScs26ConfigurationValid(quiz)) || (quiz.kind === "cbi" && !isCbiConfigurationValid(quiz)) || (quiz.kind === "rosenberg" && !isRosenbergConfigurationValid(quiz)) || (quiz.kind === "political-coordinates" && !isPoliticalCoordinatesConfigurationValid(quiz)) || (quiz.kind === "data-entry" && !isDataEntryConfigurationValid(quiz)) || (quiz.kind === "secs" && !isSecsConfigurationValid(quiz)) || (quiz.kind === "paired-dimensions" && !isPairedDimensionsConfigurationValid(quiz)) || (quiz.kind === "typing" && !isTypingConfigurationValid(quiz))) return { title: "Test unavailable", robots: { index: false, follow: false } };
-  return buildPageMetadata({ locale, pathname: questionnairePath(locale, slug), title: quiz.seoTitle[locale], description: (slug === "stress-check-in-test" ? monthlyStressLandingDescription[locale] : slug === "four-axes-test" ? fourAxesLandingDescription[locale] : quiz.description[locale]), imagePath: `/og/fun/${slug}?locale=${locale}&v=${quiz.version}${slug === "bleach" ? "-portraits" : slug === "adult-age-preferences" ? "-art" : slug === "philosopher-personality-test" ? "-portraits2" : ""}`, alternatesByLocale: { en: questionnairePath("en", slug), zh: questionnairePath("zh", slug), xDefault: questionnairePath("en", slug) } });
+  return buildPageMetadata({ locale, pathname: questionnairePath(locale, slug), title: quiz.seoTitle[locale], description: (slug === "stress-check-in-test" ? monthlyStressLandingDescription[locale] : slug === "four-axes-test" ? fourAxesLandingDescription[locale] : quiz.description[locale]), imagePath: `/og/fun/${slug}?locale=${locale}&v=${quiz.version}${slug === "moon-phase" ? "-phases" : slug === "bleach" ? "-portraits" : slug === "adult-age-preferences" ? "-art" : slug === "philosopher-personality-test" ? "-portraits2" : ""}`, alternatesByLocale: { en: questionnairePath("en", slug), zh: questionnairePath("zh", slug), xDefault: questionnairePath("en", slug) } });
 }
 
 export default async function QuestionnairePage({ params, take = false }: Props & { take?: boolean }) {
@@ -1026,6 +1026,7 @@ return (quiz.references ?? []);
     const host = new URL(reference.url).hostname.replace(/^www\./, "");
     return host !== "jobcannon.io" && host !== "idrlabs.com";
   });
+  const MoonPhaseExamples = slug === "moon-phase" ? (await import("./MoonPhaseExamples")).MoonPhaseExamples : undefined;
   const BleachExamples = slug === "bleach" ? (await import("./BleachExamples")).BleachExamples : undefined;
   const sample = quiz.kind === "mini-virtues" ? scoreMiniVirtuesQuestionnaire(quiz, Object.fromEntries(
     quiz.questions.map((question, index) => [
@@ -1043,6 +1044,10 @@ return (quiz.references ?? []);
     {quiz.kind !== "mini-virtues" && <p className="explore-intro-meta"><span>{quiz.kind === "fscrs22" ? (zh ? "22 条陈述 · 按自己的节奏 · 无需注册" : "22 statements · Self-paced · No signup") : zh ? `${quiz.questions.length}题 · 约${quiz.minutes}分钟 · 无需注册` : `${quiz.questions.length} questions · about ${quiz.minutes} ${quiz.minutes === 1 ? "minute" : "minutes"} · no signup`}</span>{slug !== "adult-age-preferences" && <span>{entryLabel}</span>}</p>}
 
     <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
+    {slug === "moon-phase" && <div className="mt-2 flex flex-wrap gap-x-5 text-sm font-medium">
+      <a href="#moon-phase-examples" className="inline-flex min-h-11 items-center underline">{zh ? "先看月相与并列结果示例" : "Preview moon phases and tied results"}</a>
+      <a href="#questionnaire-results" className="inline-flex min-h-11 items-center underline">{zh ? "浏览八种月相完整指南" : "Browse eight complete moon phase guides"}</a>
+    </div>}
     {slug === "bleach" && <div className="mt-2 flex flex-wrap gap-x-5 text-sm font-medium">
       <a href="#bleach-examples" className="inline-flex min-h-11 items-center underline">{zh ? "先看单项与并列结果示例" : "See single and tied result examples"}</a>
       <a href="#questionnaire-results" className="inline-flex min-h-11 items-center underline">{zh ? "浏览七位角色公开指南" : "Browse seven public character guides"}</a>
@@ -1064,6 +1069,7 @@ return (quiz.references ?? []);
       <a href="#questionnaire-results" className="inline-flex min-h-11 items-center underline underline-offset-4">{zh ? "查看六位角色指南" : "Browse the six character guides"}</a>
     </div>}
     </ExploreTestIntro>
+    {MoonPhaseExamples && <MoonPhaseExamples quiz={quiz} locale={locale} />}
     {BleachExamples && <BleachExamples quiz={quiz} locale={locale} />}
     {slug === "adult-age-preferences" && <AdultAgePreferencesExamples quiz={quiz} locale={locale} />}
     {slug === "dating-outlook" && <p className="my-5 text-sm leading-7">

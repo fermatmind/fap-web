@@ -1,3 +1,4 @@
+import { MoonPhaseReveal } from "./MoonPhaseReveal";
 import { BleachReveal } from "./BleachReveal";
 import { PhilosopherReport } from "./PhilosopherReport";
 import { auraShareCardPath } from "@/lib/questionnaires/auraColors";
@@ -13,7 +14,7 @@ import { ChiikawaPortrait } from "./ChiikawaPortrait";
 import { EdgerunnersPortrait } from "./EdgerunnersPortrait";
 import { SpaceMarineChapterReveal } from "./SpaceMarineChapterReveal";
 
-const comparisonFirst = new Set(["bleach", "cyberpunk-edgerunners", "chiikawa", "south-park", "space-marine-chapter", "dexter", "dungeons-dragons-class", "blue-lock", "naruto-character", "gilmore-girls", "philosopher-personality-test"]);
+const comparisonFirst = new Set(["moon-phase", "bleach", "cyberpunk-edgerunners", "chiikawa", "south-park", "space-marine-chapter", "dexter", "dungeons-dragons-class", "blue-lock", "naruto-character", "gilmore-girls", "philosopher-personality-test"]);
 const chartAfterLead = new Set(["anime-character-archetype-test", "spirit-animal", "tsundere-dere-type"]);
 const chartAfterReading = new Set(["aura-color", "which-tarot-card-are-you"]);
 
@@ -99,6 +100,7 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId, a
       </section>}
     </details>;
   return <div className={styles.profileReadings} data-profile-category={quiz.category} data-choice-chart-placement={placement}>
+    {quiz.slug === "moon-phase" && <MoonPhaseReveal quiz={quiz} result={result} locale={locale} answers={answers} />}
     {quiz.slug === "bleach" && <BleachReveal quiz={quiz} result={result} locale={locale} answers={answers} />}
     {quiz.slug === "space-marine-chapter" && <SpaceMarineChapterReveal quiz={quiz} result={result} locale={locale} />}
     {quiz.slug === "philosopher-personality-test" && <p className="leading-7">{zh ? "下面是本次选择对应的原典阅读入口。先读最高项，再比较其他指南；次数不表示你与历史人物有多像，也不代表赞同其全部学说。" : "These are primary-text reading paths associated with your choices. Start with the highest counts, then compare other guides; counts measure neither resemblance to a historical person nor agreement with an entire philosophy."}</p>}
@@ -114,7 +116,7 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId, a
       const id = profile.id;
       const titleId = `animal-title-${id}`;
       return <section key={id} aria-labelledby={titleId} data-archetype-match={id} className={styles.profileChapter}>
-        {lead ? <PortraitResultLead kind={lead} quiz={quiz} profile={profile} result={result} locale={locale} titleId={titleId} /> : <header>
+        {lead && quiz.slug !== "moon-phase" ? <PortraitResultLead kind={lead} quiz={quiz} profile={profile} result={result} locale={locale} titleId={titleId} /> : <header>
           <h3 id={titleId} className="scroll-mt-24 text-2xl font-semibold leading-snug">{profile.title[locale]}</h3>
           <p className={styles.summary}>{profile.summary[locale]}</p>
         </header>}

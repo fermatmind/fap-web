@@ -1,3 +1,4 @@
+import { moonPhaseOpenGraphCard } from "@/lib/entertainment/moonPhaseCard";
 import { bleachOpenGraphCard } from "@/lib/entertainment/bleachCard";
 import { philosopherOpenGraphCard } from "@/lib/entertainment/philosopherCard";
 import { adultAgePreferencesCard } from "./adultAgePreferencesCard";
@@ -249,6 +250,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
     const chapter = questionnaire.profiles.find(profile => profile.id === portrait);
     if (chapter) return spaceMarineChapterCard(chapter, locale, await quizFont(slug));
   }
+  if (slug === "moon-phase" && questionnaire) return moonPhaseOpenGraphCard(locale, result?.id, await quizFont(slug));
   if (slug === "bleach" && questionnaire) return bleachOpenGraphCard(locale, result?.id, await quizFont(slug));
   if (slug === "philosopher-personality-test" && questionnaire) {
     return philosopherOpenGraphCard(locale, result?.id, await quizFont(slug));
