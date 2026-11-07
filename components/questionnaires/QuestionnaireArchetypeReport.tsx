@@ -1,3 +1,4 @@
+import { PhilosopherReport } from "./PhilosopherReport";
 import { auraShareCardPath } from "@/lib/questionnaires/auraColors";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import Link from "next/link";
@@ -42,6 +43,7 @@ function previewSections(profile: QuestionnaireProfile) {
 }
 
 export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId }: { quiz: Questionnaire; result: Extract<ArchetypeResult, { status: "complete" }>; locale: Locale; sampleId?: string }) {
+  if (quiz.slug === "philosopher-personality-test" && !sampleId) return <PhilosopherReport quiz={quiz} result={result} locale={locale} />;
   const zh = locale === "zh";
   const lead = portraitResultLeadKind(quiz.slug);
   const edgerunners = quiz.slug === "cyberpunk-edgerunners";

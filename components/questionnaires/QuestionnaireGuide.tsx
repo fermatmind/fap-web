@@ -1,4 +1,6 @@
 import { MentalAgeClassicPage } from "./MentalAgeClassicPage";
+import { PhilosopherPortrait } from "./PhilosopherPortrait";
+import { PhilosopherShareCard } from "./PhilosopherShareCard";
 import { QuizResultArtwork } from "./QuizResultArtwork";
 import { prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
@@ -258,7 +260,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const profile = quiz && ((quiz.kind === "mini-friction" && !isMiniFrictionConfigurationValid(quiz)) || (quiz.kind === "ctl41" && !isCtl41ConfigurationValid(quiz)) || (quiz.kind === "interaction-pairs" && !isInteractionPairsConfigurationValid(quiz)) || (quiz.kind === "work-role12" && !isWorkRole12ConfigurationValid(quiz)) || (quiz.kind === "skills-evidence" && !isSkillsEvidenceConfigurationValid(quiz))) ? undefined : quiz?.profiles.find(p => p.id === id);
   if (!quiz || !profile || (quiz.slug === "dark-tetrad-sd4" && !isSd4ConfigurationValid(quiz)) || (quiz.kind === "tipi10" && !isTipi10ConfigurationValid(quiz)) || (quiz.kind === "saps" && !isSapsConfigurationValid(quiz)) || (quiz.kind === "scs26" && !isScs26ConfigurationValid(quiz)) || (quiz.kind === "cbi" && !isCbiConfigurationValid(quiz)) || (quiz.kind === "rosenberg" && !isRosenbergConfigurationValid(quiz)) || (quiz.kind === "political-coordinates" && !isPoliticalCoordinatesConfigurationValid(quiz)) || (quiz.kind === "data-entry" && !isDataEntryConfigurationValid(quiz)) || (quiz.kind === "secs" && !isSecsConfigurationValid(quiz)) || (quiz.kind === "paired-dimensions" && !isPairedDimensionsConfigurationValid(quiz)) || (quiz.kind === "typing" && !isTypingConfigurationValid(quiz)) || (quiz.kind === "ten-key" && !isTenKeyConfigurationValid(quiz))) return { title: "Result guide unavailable", robots: { index: false, follow: false } };
   const publicProfile = quiz.kind === "nakshatra27" ? prepareResultProfile(quiz.slug, profile) : profile;
-  return buildPageMetadata({ locale, pathname: questionnaireGuidePath(locale, slug, id), title: publicProfile.seo?.title[locale] ?? `${publicProfile.title[locale]} · ${quiz.title[locale]}`, description: publicProfile.seo?.description[locale] ?? publicProfile.summary[locale], imagePath: `/og/fun/${slug}?locale=${locale}&portrait=${id}&v=${quiz.version}${(slug === "chiikawa" || slug === "aura-color" || slug === "adult-age-preferences" || slug === "philosopher-personality-test") ? "-art" : ""}`, alternatesByLocale: { en: questionnaireGuidePath("en", slug, id), zh: questionnaireGuidePath("zh", slug, id), xDefault: questionnaireGuidePath("en", slug, id) } });
+  return buildPageMetadata({ locale, pathname: questionnaireGuidePath(locale, slug, id), title: publicProfile.seo?.title[locale] ?? `${publicProfile.title[locale]} · ${quiz.title[locale]}`, description: publicProfile.seo?.description[locale] ?? publicProfile.summary[locale], imagePath: `/og/fun/${slug}?locale=${locale}&portrait=${id}&v=${quiz.version}${slug === "philosopher-personality-test" ? "-portraits2" : (slug === "chiikawa" || slug === "aura-color" || slug === "adult-age-preferences") ? "-art" : ""}`, alternatesByLocale: { en: questionnaireGuidePath("en", slug, id), zh: questionnaireGuidePath("zh", slug, id), xDefault: questionnaireGuidePath("en", slug, id) } });
 }
 export default async function QuestionnaireResultGuide({ params }: Props) {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input), zh = locale === "zh";
@@ -616,9 +618,9 @@ export default async function QuestionnaireResultGuide({ params }: Props) {
     <h1 className="mt-3 text-4xl font-semibold leading-tight [overflow-wrap:anywhere]">{profile.title[locale]}</h1>
     <p className="my-5 leading-8 text-slate-700">{profile.summary[locale]}</p>
     {quiz.slug === "philosopher-personality-test" && <div className="mb-5 space-y-3">
-      <div className="max-w-40"><QuizResultArtwork slug={quiz.slug} id={profile.id} /></div>
-      <p className="text-sm leading-7">{zh ? "这是一份公开原典阅读指南，不是个人测试记录。图案是阅读主题的象征，不是哲学家肖像。" : "This is a public primary-text reading guide, not a personal test record. The illustration symbolizes a reading theme; it is not a philosopher’s portrait."}</p>
-      <a className="inline-block min-h-11 py-2 font-semibold underline" href={`/og/fun/${slug}?locale=${locale}&portrait=${id}&v=${quiz.version}-art`} target="_blank" rel="noopener">{zh ? "预览公开阅读指南分享图（新标签页）" : "Preview the public reading guide share card (new tab)"}</a>
+      <div className="max-w-44"><PhilosopherPortrait id={profile.id} locale={locale} eager /></div>
+      <p className="text-sm leading-7">{zh ? "这是一份公开原典阅读指南，不是个人测试记录。插画是原创人物意象，并非经核实的历史容貌。" : "This is a public primary-text reading guide, not a personal test record. The original illustration is imagined, not a verified historical likeness."}</p>
+      <PhilosopherShareCard ids={[profile.id]} locale={locale} publicGuide />
     </div>}
     {quiz.slug === "aura-color" && <div className="mb-5 grid w-full max-w-56">
       <QuizResultArtwork slug={quiz.slug} id={profile.id} />

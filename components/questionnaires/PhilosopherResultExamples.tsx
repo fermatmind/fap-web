@@ -3,7 +3,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import { scoreArchetypeQuestionnaire } from "@/lib/questionnaires/basicScoring";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { Questionnaire } from "@/lib/questionnaires/types";
-import { QuizResultArtwork } from "./QuizResultArtwork";
+import { PhilosopherPortrait } from "./PhilosopherPortrait";
 
 // Synthetic answers in published question order, evaluated by the current scorer.
 export const philosopherExampleSheets = ["AAAAABAADACAAADACB", "BCBBDBBADDCCABCCBA", "AAAAAAAAAAAAAAAAAA"] as const;
@@ -21,7 +21,7 @@ export function PhilosopherResultExamples({ quiz, locale }: { quiz: Questionnair
         const matches = quiz.profiles.filter(profile => result.profileIds.includes(profile.id));
         return <article key={sheet} data-philosopher-example={index} className="space-y-3 rounded-xl border border-slate-200 bg-white p-4">
           <h3 className="text-lg font-semibold">{index === 0 ? (zh ? "一个阅读起点" : "One reading starting point") : index === 1 ? (zh ? "两项最高并列" : "Two joint highest counts") : (zh ? "九项全部并列" : "All nine tied")}</h3>
-          {index === 0 && <div className="max-w-32"><QuizResultArtwork slug={quiz.slug} id="socrates" /></div>}
+          {index === 0 && <div className="max-w-32"><PhilosopherPortrait id="socrates" locale={locale} /></div>}
           <p className="leading-7">{zh ? `本例最高为 ${highest} / 8，保留${matches.length}个阅读入口。${index === 0 ? "先读苏格拉底指南，看看怎样检视我们声称知道的事。" : "每份并列指南都可以读，排列不分主次。"}` : `The highest count is ${highest} / 8, retaining ${matches.length} reading ${matches.length === 1 ? "path" : "paths"}. ${index === 0 ? "Start with Socrates and examine what we claim to know." : "Every tied guide is available; their order does not imply priority."}`}</p>
           <ul>{matches.map(profile => <li key={profile.id}>
             <Link prefetch={false} href={questionnaireGuidePath(locale, quiz.slug, profile.id)} className="inline-block min-h-11 py-2 font-semibold underline underline-offset-4">{profile.title[locale]}</Link>

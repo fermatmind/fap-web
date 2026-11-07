@@ -1,3 +1,4 @@
+import { philosopherOpenGraphCard } from "@/lib/entertainment/philosopherCard";
 import { adultAgePreferencesCard } from "./adultAgePreferencesCard";
 import { auraColors } from "@/lib/questionnaires/auraColors";
 import { isPss4ConfigurationValid } from "@/lib/questionnaires/pss4";
@@ -243,23 +244,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
     return adultAgePreferencesCard(locale, topic, publicProfile?.directionIds, await quizFont(slug));
   }
   if (slug === "philosopher-personality-test" && questionnaire) {
-    const direction = result ? questionnaire.directions.find(item => item.id === result.id) : undefined;
-    const cardTitle = direction?.title[locale] ?? topic;
-    // Original book motif: a reading symbol, with no borrowed portrait or attribution claim.
-    return new ImageResponse(<div style={{ display: "flex", width: "100%", height: "100%", padding: 56, gap: 40, background: "#f6efdf", color: "#302a20", fontFamily: "FunNoto" }}>
-      <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", width: 815 }}>
-        <div style={{ display: "flex", fontSize: 25, color: "#796039" }}>FermatMind · {zh ? "哲学阅读札记" : "Philosophy reading notes"}</div>
-        <div style={{ display: "flex", fontSize: 52, lineHeight: 1.2 }}>{cardTitle}</div>
-        <div style={{ display: "flex", fontSize: 28, lineHeight: 1.4 }}>{result ? (zh ? "公开原典指南 · 从一个问题开始读" : "Public primary-text guide · Start with a question") : (zh ? "18道日常选择 · 九个阅读入口 · 免费完整结果" : "18 everyday choices · Nine reading paths · Full results free")}</div>
-        <div style={{ display: "flex", fontSize: 23, color: "#796039" }}>{zh ? "阅读联想，不是历史人物性格鉴定" : "Reading associations, not historical personality matches"}</div>
-      </div>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 215 }}>
-        <svg width="200" height="240" viewBox="0 0 200 240" fill="none" stroke="#796039" strokeWidth="5">
-          <path d="M100 61C72 39 33 39 12 51v135c25-12 60-11 88 11 28-22 63-23 88-11V51c-21-12-60-12-88 10Z" />
-          <path d="M100 61v136M30 79c17-4 35-2 51 5M30 106c17-4 35-2 51 5M30 133c17-4 35-2 51 5M119 84c16-7 34-9 51-5M119 111c16-7 34-9 51-5M119 138c16-7 34-9 51-5" />
-        </svg>
-      </div>
-    </div>, { width: 1200, height: 630, fonts: [{ name: "FunNoto", data: await quizFont(slug), weight: 400, style: "normal" }] });
+    return philosopherOpenGraphCard(locale, result?.id, await quizFont(slug));
   }
   const auraColor = slug === "aura-color" && result ? auraColors[result.id] : undefined;
   if (auraColor) {
