@@ -2,7 +2,7 @@
   "slug": "chiikawa",
   "code": "CHIIKAWA_FAN_ORDINARY_CHOICES",
   "version": "1.0.0",
-  "updated": "2026-11-06",
+  "updated": "2026-11-07",
   "category": "metaphor",
   "kind": "archetype",
   "title": {
@@ -14,8 +14,8 @@
     "en": "Your Chiikawa character match"
   },
   "description": {
-    "zh": "你像吉伊卡哇、小八还是兔兔？免费回答18道日常情境题，看看你最像六位角色中的谁。最高并列会一起显示，完整解读无需注册。",
-    "en": "Which Chiikawa character are you? Answer 18 everyday questions to find your match among six characters, including any ties. Free results, no sign-up."
+    "zh": "你像吉伊卡哇、小八还是兔兔？免费回答18道日常情境题，比较六位角色的匹配结果，查看角色指南，无需注册。",
+    "en": "Which Chiikawa character are you? Take the free 18-question quiz and compare six possible matches, from Hachiware and Usagi to Momonga. No sign-up."
   },
   "seoTitle": {
     "zh": "吉伊卡哇测试：你是哪位角色？免费18题",
@@ -23,8 +23,8 @@
   },
   "minutes": 6,
   "introduction": {
-    "zh": "在自由参加的小聚会、废纸手作或分享普通物件时，你更自然的选择是什么？这份吉伊卡哇角色测试以18道原创四选一，比较吉伊卡哇、小八、兔兔、小桃、栗子馒头和海獭在本版中的六种阅读角度。完成后显示六项原始次数和全部最高并列，每位都有完整说明。\n\n无需看全漫画或动画，也没有剧情知识题。本站借角色名字组织日常选择，官方资料帮助说明人物背景；选项对应与计分是本版独立设计。阅读结果时，先看具体做法，再回到自己的经历，而不是把角色的全部故事当作自己的性格结论。",
-    "en": "What feels natural at an optional gathering, a scrap-paper activity or a moment sharing an ordinary object? This Chiikawa character quiz uses 18 original four-option scenarios to compare six editorial readings: Chiikawa, Hachiware, Usagi, Momonga, Kurimanju and Rakko. Completion shows six raw counts and every highest tie, with a full guide for each character.\n\nYou need not know the whole manga or anime, and there is no episode trivia. Character names organize everyday choices; official material supplies background, while option assignments and scoring are independently designed for this edition. Read the concrete approach first, then compare your experiences instead of treating a character’s entire story as your personality conclusion."
+    "zh": "回答18道日常情境题，看看你的选择更接近吉伊卡哇、小八、兔兔、小桃、栗子馒头还是海獭。开测前也可以先浏览六份角色指南。答完后会显示六位角色各自的选择次数，最高并列的角色会一起保留。\n\n题目取自日常生活，不考漫画或动画剧情。这是同人测试，借角色来理解你在这些场景中的选择。",
+    "en": "Choose what you would do in 18 everyday situations and see which Chiikawa character matches your choices. The six possible matches are Chiikawa, Hachiware, Usagi, Momonga, Kurimanju and Rakko. You can browse all six guides before taking the quiz. After you finish, you’ll see the choice counts and every character tied for the highest count.\n\nNo manga or anime trivia is required. This fan quiz uses the characters to explore how you approach everyday situations."
   },
   "instructions": {
     "zh": "请按近期普通小事中的实际选择作答。每题从四种做法中选较接近自己的一项；几项都合适时选相对更自然的，没有完全合适时选较接近的。情境中的参与、分享与尝试均以自愿为前提，无需模仿角色或提供私人经历。完成18题后，你会看到六位角色的选择次数和所有最高匹配。离开答题页或刷新会重新开始。",
@@ -846,7 +846,7 @@
       },
       "summary": {
         "zh": "从自由参加的小展示看按自己的速度参与，含具体表达、五角色比较与反例；不把外表、害羞、哭泣或心理状态当你的标签。",
-        "en": "Explore participation at your pace through a small display, wording and five character comparisons. Appearance, shyness, tears and mental states are not assigned to you."
+        "en": "In the Chiikawa character quiz, this match is about joining at your own pace. You might look around a small display quietly before deciding whether to join in. The guide compares that choice with five other ways to approach the same moment."
       },
       "scoreReading": {
         "zh": "18题全部各选一项，对应的本版角色方向加1，总数固定18。每题提供六位中的四位，全卷每位12次、每位置3次；未提供的两位不记拒绝。所有最高计数完整保留，全选第一项会六位各3次、六份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似度百分比、真实人格比例或成为角色的概率。差一次只是一项选择，不证明显著差异、某种品质消失或固定类型。可自行比较近分说明，但不补造并列、隐藏性格或混合身份。当前情境、时间和理解可能改变选择，没有人群常模、稀有度、科学分界或心理测量验证。",
@@ -855,11 +855,11 @@
       "seo": {
         "title": {
           "zh": "吉伊卡哇测试结果：参与速度与完整说明",
-          "en": "Chiikawa Quiz Result: A Gentler Pace & Full Guide"
+          "en": "Chiikawa Quiz Result: Joining at Your Own Pace"
         },
         "description": {
           "zh": "从一场可自由参加的小展示看参与速度，含表达、五角色比较与停止空间；不把害羞、哭泣、外表或心理状况当你的标签。",
-          "en": "Read Chiikawa through joining a small display at your pace. Full examples and comparisons without assigning shyness, tears, appearance or mental states."
+          "en": "See what matching Chiikawa means in the character quiz. Read an everyday example of taking time to settle in before joining an activity."
         }
       },
       "sections": [
@@ -997,7 +997,7 @@
       },
       "summary": {
         "zh": "通过一个普通物件的名称看共同说明与确认理解，含表达、五角色比较和反例；不认证口才、乐观、聪明或调解能力。",
-        "en": "Explore shared wording and understanding through an ordinary object’s name, examples and five character comparisons. No eloquence, optimism, intelligence or mediation skill is certified."
+        "en": "A Hachiware match points to choices where you make sense of something together. If a friend uses an unfamiliar name for an object, you might ask what they mean and check your understanding before answering."
       },
       "scoreReading": {
         "zh": "18题全部各选一项，对应的本版角色方向加1，总数固定18。每题提供六位中的四位，全卷每位12次、每位置3次；未提供的两位不记拒绝。所有最高计数完整保留，全选第一项会六位各3次、六份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似度百分比、真实人格比例或成为角色的概率。差一次只是一项选择，不证明显著差异、某种品质消失或固定类型。可自行比较近分说明，但不补造并列、隐藏性格或混合身份。当前情境、时间和理解可能改变选择，没有人群常模、稀有度、科学分界或心理测量验证。",
@@ -1006,11 +1006,11 @@
       "seo": {
         "title": {
           "zh": "小八测试结果：共同说明、例子与完整指南",
-          "en": "Hachiware Quiz Result: Shared Wording & Full Guide"
+          "en": "Hachiware Quiz Result | Chiikawa Character Quiz"
         },
         "description": {
           "zh": "用一个普通物件的名字理解共同说明与确认意思，含表达和五角色比较；不认证口才、乐观、聪明或调解能力。",
-          "en": "Explore Hachiware through wording and understanding an ordinary object’s name. Full comparisons without eloquence, intelligence or mediation certification."
+          "en": "See what matching Hachiware means in the Chiikawa quiz, with an example of finding the right words together and checking what each person means."
         }
       },
       "sections": [
@@ -1148,7 +1148,7 @@
       },
       "summary": {
         "zh": "从一张废纸的小形状看即兴玩法、许可与停止空间，含五角色比较；不推断物种、危险偏好、注意力或创造天赋。",
-        "en": "Explore spontaneous play, permission and room to stop through a scrap-paper shape and five character comparisons. No species, risk preference, attention or creative talent is inferred."
+        "en": "An Usagi match points to choices that make room for a playful experiment. With a scrap of paper, you might fold an unexpected shape and see what it becomes. The guide explores how to invite others into the experiment and let them decide whether to join."
       },
       "scoreReading": {
         "zh": "18题全部各选一项，对应的本版角色方向加1，总数固定18。每题提供六位中的四位，全卷每位12次、每位置3次；未提供的两位不记拒绝。所有最高计数完整保留，全选第一项会六位各3次、六份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似度百分比、真实人格比例或成为角色的概率。差一次只是一项选择，不证明显著差异、某种品质消失或固定类型。可自行比较近分说明，但不补造并列、隐藏性格或混合身份。当前情境、时间和理解可能改变选择，没有人群常模、稀有度、科学分界或心理测量验证。",
@@ -1157,11 +1157,11 @@
       "seo": {
         "title": {
           "zh": "兔兔测试结果：意外玩法、例子与完整说明",
-          "en": "Usagi Quiz Result: Unexpected Play & Full Guide"
+          "en": "Usagi Quiz Result | Chiikawa Character Quiz"
         },
         "description": {
           "zh": "用废纸小形状理解出其不意的玩法，保留许可、同意和停止空间；完整比较不推断物种、危险偏好、注意力或创造天赋。",
-          "en": "Read Usagi through a playful scrap-paper shape, permission and room to stop. Full comparisons without species, risk, attention or creative-talent claims."
+          "en": "See what matching Usagi means in the Chiikawa quiz, with a simple example of making up a new way to play and giving others room to join."
         }
       },
       "sections": [
@@ -1299,7 +1299,7 @@
       },
       "summary": {
         "zh": "通过共同选择小纪念物理解直接表达愿望与接受不同回应，含五角色比较；不把可爱、索取、操控或隐藏心理当你的身份。",
-        "en": "Explore stating wishes and accepting different responses through a keepsake choice and five character comparisons. Cuteness, demands, manipulation and hidden motives are not your identity."
+        "en": "A Momonga match points to choices where you say what you want. When choosing a small keepsake together, you might say which one you like and leave the other person room to pick something else."
       },
       "scoreReading": {
         "zh": "18题全部各选一项，对应的本版角色方向加1，总数固定18。每题提供六位中的四位，全卷每位12次、每位置3次；未提供的两位不记拒绝。所有最高计数完整保留，全选第一项会六位各3次、六份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似度百分比、真实人格比例或成为角色的概率。差一次只是一项选择，不证明显著差异、某种品质消失或固定类型。可自行比较近分说明，但不补造并列、隐藏性格或混合身份。当前情境、时间和理解可能改变选择，没有人群常模、稀有度、科学分界或心理测量验证。",
@@ -1308,11 +1308,11 @@
       "seo": {
         "title": {
           "zh": "小桃测试结果：愿望表达、例子与完整说明",
-          "en": "Momonga Quiz Result: Visible Wishes & Full Guide"
+          "en": "Momonga Quiz Result | Chiikawa Character Quiz"
         },
         "description": {
           "zh": "从共同选择小纪念物看愿望表达与接受不同回应，含五角色比较；不把可爱、索取、操控、孤独或隐藏心理当你的身份。",
-          "en": "Explore Momonga through stating a keepsake preference and accepting different responses. Full comparisons without identity or hidden-motive assignments."
+          "en": "See what matching Momonga means in the Chiikawa quiz. Learn how naming a preference can leave room for others to choose differently."
         }
       },
       "sections": [
@@ -1450,7 +1450,7 @@
       },
       "summary": {
         "zh": "从普通风景照与身边物件看细节、感受与安静共享，含五角色比较；不测饮食、饮酒、健康、成熟或情绪调节。",
-        "en": "Explore details, comfort and quiet sharing through an ordinary photo and nearby objects. Five comparisons measure no eating, drinking, health, maturity or emotional regulation."
+        "en": "A Kurimanju match points to choices that give small comforts more time. You might pause over the light and colours in a photo before moving on. The guide explores ways to share that moment quietly."
       },
       "scoreReading": {
         "zh": "18题全部各选一项，对应的本版角色方向加1，总数固定18。每题提供六位中的四位，全卷每位12次、每位置3次；未提供的两位不记拒绝。所有最高计数完整保留，全选第一项会六位各3次、六份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似度百分比、真实人格比例或成为角色的概率。差一次只是一项选择，不证明显著差异、某种品质消失或固定类型。可自行比较近分说明，但不补造并列、隐藏性格或混合身份。当前情境、时间和理解可能改变选择，没有人群常模、稀有度、科学分界或心理测量验证。",
@@ -1459,11 +1459,11 @@
       "seo": {
         "title": {
           "zh": "栗子馒头测试结果：小舒适、例子与完整说明",
-          "en": "Kurimanju Quiz Result: Small Comforts & Full Guide"
+          "en": "Kurimanju Quiz Result | Chiikawa Character Quiz"
         },
         "description": {
           "zh": "从风景照和普通物件看小舒适、细节与安静共享，含表达和五角色比较；不测饮食、饮酒、健康、成熟或情绪调节。",
-          "en": "Read Kurimanju through small comforts, an ordinary photo and quiet sharing. Full comparisons without drinking, health, maturity or emotional-regulation claims."
+          "en": "See what matching Kurimanju means in the Chiikawa quiz, with an example of slowing down to enjoy small comforts and share a quiet moment."
         }
       },
       "sections": [
@@ -1601,7 +1601,7 @@
       },
       "summary": {
         "zh": "用一种亲自试过的普通材料用法理解经验分享、许可和局限，含五角色比较；不认证战斗、指导、领导、勇气或专业能力。",
-        "en": "Explore experience, permission and limits through an ordinary material use you tried. Five comparisons certify no combat, teaching, leadership, courage or professional skill."
+        "en": "A Rakko match points to choices where you share something you’ve learned firsthand. You might offer one way you’ve used a material, explain when it worked and let the other person decide whether to try it."
       },
       "scoreReading": {
         "zh": "18题全部各选一项，对应的本版角色方向加1，总数固定18。每题提供六位中的四位，全卷每位12次、每位置3次；未提供的两位不记拒绝。所有最高计数完整保留，全选第一项会六位各3次、六份完整显示。名单顺序不设主次，不自动指定第二角色；次数不是相似度百分比、真实人格比例或成为角色的概率。差一次只是一项选择，不证明显著差异、某种品质消失或固定类型。可自行比较近分说明，但不补造并列、隐藏性格或混合身份。当前情境、时间和理解可能改变选择，没有人群常模、稀有度、科学分界或心理测量验证。",
@@ -1610,11 +1610,11 @@
       "seo": {
         "title": {
           "zh": "海獭测试结果：经验分享、例子与完整说明",
-          "en": "Rakko Quiz Result: Shared Experience & Full Guide"
+          "en": "Rakko Quiz Result | Chiikawa Character Quiz"
         },
         "description": {
           "zh": "从一种亲自试过的普通纸张用法看经验、许可与局限，含表达和五角色比较；不认证战斗、指导、领导、勇气或专业能力。",
-          "en": "Explore Rakko through a specific paper-use experience, permission and limits. Full comparisons without combat, leadership or professional-skill certification."
+          "en": "See what matching Rakko means in the Chiikawa quiz, with an example of sharing a method you’ve tried and explaining where it works."
         }
       },
       "sections": [

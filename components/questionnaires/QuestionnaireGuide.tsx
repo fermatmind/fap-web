@@ -621,6 +621,11 @@ export default async function QuestionnaireResultGuide({ params }: Props) {
     {quiz.slug === "cyberpunk-edgerunners" && <EdgerunnersPortrait id={profile.id} className="mb-5 size-32 rounded-xl sm:size-44" />}
     <p className="mb-5 text-sm leading-7 text-slate-600">{zh ? "公开完整参考，不含任何人的作答记录。" : "Public reference guide, without anyone’s personal answers or scores."}</p>
     <Link prefetch={false} className="mb-6 inline-block min-h-11 py-2 font-semibold underline" href={`${entry}#take-test`}>{(quiz.kind === "data-entry" || quiz.kind === "ten-key" || quiz.kind === "typing") ? (zh ? "免费开始60秒练习" : "Start free 60-second practice") : (zh ? "免费开始完整测试" : "Start the full test for free")}</Link>
+    {quiz.slug === "chiikawa" && (
+      <Link prefetch={false} className="mb-6 ml-0 inline-block min-h-11 py-2 font-semibold underline sm:ml-5" href={`${entry}#questionnaire-results`}>
+        {zh ? "比较全部六位角色" : "Compare all six character matches"}
+      </Link>
+    )}
     {quiz.slug === "work-traits-reflection" && <WorkTraitsContext locale={locale} />}
     {quiz.slug === "work-activity-interests" && <WorkActivityContext locale={locale} />}
     <div className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8"><QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={2} mode="guide" showSummary={readingProfile.summary[locale] !== profile.summary[locale]} /></div>

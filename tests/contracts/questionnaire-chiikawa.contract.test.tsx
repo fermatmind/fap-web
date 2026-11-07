@@ -143,6 +143,9 @@ describe("T040 original six-character unofficial fan quiz", () => {
           const publicPath = `${path}/results/${profile.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };
           const rendered = renderToStaticMarkup(await guide.default(props)), meta = await guide.generateMetadata(props), dom = document.createElement("div"); dom.innerHTML = rendered;
           expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]);
+          expect(dom.querySelector(`a[href="${path}#questionnaire-results"]`)?.textContent).toBe(
+            locale === "zh" ? "比较全部六位角色" : "Compare all six character matches",
+          );
           for (const section of profile.sections) {
             expect(dom.querySelector(`#report-${section.id} h2`)?.textContent).toBe(section.title[locale]);
             for (const paragraph of section.paragraphs) expect(dom.textContent).toContain(paragraph[locale]);

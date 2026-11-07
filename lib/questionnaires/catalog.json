@@ -1019,15 +1019,15 @@
     "slug": "chiikawa",
     "code": "CHIIKAWA_FAN_ORDINARY_CHOICES",
     "version": "1.0.0",
-    "updated": "2026-11-06",
+    "updated": "2026-11-07",
     "category": "metaphor",
     "title": {
       "zh": "吉伊卡哇角色测试",
       "en": "Chiikawa Character Quiz"
     },
     "description": {
-      "zh": "你像吉伊卡哇、小八还是兔兔？免费回答18道日常情境题，看看你最像六位角色中的谁。最高并列会一起显示，完整解读无需注册。",
-      "en": "Which Chiikawa character are you? Answer 18 everyday questions to find your match among six characters, including any ties. Free results, no sign-up."
+      "zh": "你像吉伊卡哇、小八还是兔兔？免费回答18道日常情境题，比较六位角色的匹配结果，查看角色指南，无需注册。",
+      "en": "Which Chiikawa character are you? Take the free 18-question quiz and compare six possible matches, from Hachiware and Usagi to Momonga. No sign-up."
     },
     "minutes": 6,
     "collection": "explore",
