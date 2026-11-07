@@ -48,6 +48,8 @@ for (const locale of ["en", "zh"] as const) {
     await page.goto(`/${locale}/tests`); await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
     await expect(page).toHaveTitle(`${quiz.seoTitle[locale]} | FermatMind`);
+    await page.getByRole("link", { name: zh ? "浏览七种光环颜色的含义" : "Browse all seven aura color meanings" }).click();
+    await expect(page.getByRole("link", { name: zh ? "蓝色光环在这份测试里代表什么？" : "What does a blue aura mean in this quiz?" })).toHaveAttribute("href", `${entry}/results/blue`);
     await page.getByRole("link", { name: zh ? "先看结果示例" : "See sample results" }).click();
     const samples = page.locator("#aura-examples article");
     await expect(samples).toHaveCount(2);
@@ -68,6 +70,9 @@ for (const locale of ["en", "zh"] as const) {
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, locale, "red");
+    const preview = page.getByRole("link", { name: zh ? "预览该颜色的公开分享图（新标签页）" : "Preview this color’s public share card (new tab)" });
+    await expect(preview).toHaveAttribute("href", `/og/fun/aura-color?locale=${locale}&portrait=red&v=1.0.0-art`);
+    await expect(preview).toHaveAttribute("target", "_blank");
     await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
     expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(
       `${quiz.title[locale]}\n${quiz.profiles[0].title[locale]}\nhttps://fermatmind.com${entry}/results/red`,

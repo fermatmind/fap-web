@@ -1,3 +1,4 @@
+import { auraShareCardPath } from "@/lib/questionnaires/auraColors";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import Link from "next/link";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -114,6 +115,9 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId }:
         <div className={styles.profileBody}>
           <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${id}`} mode="result" showHeadline={false} showSummary={false} previewSectionIds={previewSections(profile)} />
           <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "单独阅读这项结果的完整指南" : "Read this result’s full guide separately"}</Link>
+          {quiz.slug === "aura-color" && <a className="ml-5 inline-block min-h-11 py-2 underline" href={auraShareCardPath(locale, id, quiz.version)} target="_blank" rel="noopener">
+            {zh ? "预览该颜色的公开分享图（新标签页）" : "Preview this color’s public share card (new tab)"}
+          </a>}
         </div>
       </section>;
     })}

@@ -1044,7 +1044,7 @@ return (quiz.references ?? []);
     <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     {slug === "aura-color" && <div className="mt-2 flex flex-wrap gap-x-5 text-sm font-medium">
       <a href="#aura-examples" className="inline-flex min-h-11 items-center underline underline-offset-4">{zh ? "先看结果示例" : "See sample results"}</a>
-      <a href="#questionnaire-results" className="inline-flex min-h-11 items-center underline underline-offset-4">{zh ? "查看七色含义" : "Explore the seven color meanings"}</a>
+      <a href="#questionnaire-results" className="inline-flex min-h-11 items-center underline underline-offset-4">{zh ? "浏览七种光环颜色的含义" : "Browse all seven aura color meanings"}</a>
     </div>}
     {slug === "cyberpunk-edgerunners" && <div className="mt-2 flex flex-wrap gap-x-5 text-sm font-medium">
       <a href="#edgerunners-examples" className="inline-flex min-h-11 items-center underline underline-offset-4">{zh ? "先看结果示例" : "See sample results"}</a>
@@ -1645,7 +1645,7 @@ if (slug === "chiikawa") return (zh ? "六位角色结果：全部完整指南" 
 if (slug === "bojack-horseman-character-quiz") return (zh ? "五位角色结果：全部完整指南" : "Five character results: all complete guides");
 if (slug === "moon-phase") return (zh ? "月相测试结果：八种意象的完整指南" : "Moon Phase Test results: eight complete image guides");
 if (slug === "past-life") return (zh ? "前世测试结果：八种角色意象与完整指南" : "Past Life Quiz results: eight role images and full guides");
-if (slug === "aura-color") return (zh ? "红橙黄绿蓝靛紫：全部完整结果指南" : "Seven colors: all complete result guides");
+if (slug === "aura-color") return (zh ? "光环颜色含义：红、橙、黄、绿、蓝、靛、紫" : "Aura Color Meanings: All Seven Colors");
 if (slug === "what-element-am-i") return (zh ? "火、水、土、风（气）：全部完整结果指南" : "Fire, Water, Earth and Air: all complete result guides");
 if (slug === "which-tarot-card-are-you") return (zh ? "22张大阿尔卡那：全部完整结果指南" : "22 Major Arcana: all complete result guides");
 if (slug === "greek-god") return (zh ? "六种神话主题：全部完整结果指南" : "Six myth themes: all complete result guides");
@@ -1734,10 +1734,11 @@ if (quiz.kind === "extraversion") return (zh ? "四种完整公开读法帮助�
 if (quiz.kind === "alignment") return (zh ? "九种阵营均有完整公开说明，可在作答前比较。完成后分别显示两轴计数、九宫格和所有边界匹配；公开页面不含个人答案或计数。" : "Compare all nine full public alignment guides before answering. A complete attempt shows separate axis counts, the grid and every boundary match. Public pages contain no personal answers or tallies.");
 if (["overthinking-screener", "executive-function", "sensory-processing-test", "conservatism", "food-disgust", "tipi-10", "parenting-style", "love-type-16"].includes(slug)) return (zh ? `以下${quiz.profiles.length}份完整公开指南均可在作答前阅读，说明本题本的结果读法，不包含任何人的个人答案或分数；具体结果关系请参照上方方法。` : `Read ${quiz.profiles.length === 1 ? "the complete public guide" : `all ${quiz.profiles.length} complete public guides`} below. These are reference explanations, not anyone’s personal answers or scores. The method above explains how this edition organizes results.`);
 if (quiz.kind === "likert") return (zh ? `下方完整解释${quiz.directions.length}部分各自在观察什么。它们会在完成后同时呈现，不是互斥的人格类型；公开说明不关联任何人的答案或均分。` : `Read what each of the ${quiz.directions.length} parts explores. Your complete result presents them together; they are not mutually exclusive personality types. These public guides contain no one’s answers or personal means.`);
+if (slug === "aura-color") return (zh ? "七种颜色对应七种日常表达方式。每份指南都有具体例子，做题前就能免费阅读。完成测试后，所有同为最高次数的颜色都可以分别查看。" : "The seven aura colors in this quiz symbolize everyday ways of expressing yourself. Every guide is free to read before you take the quiz. After the quiz, you can read the guide for each color tied at the highest count.");
 if (quiz.kind === "archetype") return (zh ? `下方列出全部${quiz.profiles.length}份结果的完整公开说明，不关联个人作答。最高计数并列时，每份匹配报告都会完整呈现；你也可以先比较其他结果。` : `Read all ${quiz.profiles.length} complete public result guides below. They contain no private attempts. Every highest-count tie gets its full report, and you can compare other results before answering.`);
 if (quiz.slug === "likable-person-test") return (zh ? "全部31份公开说明覆盖五个单项与每种最高并列组合，不含任何人的答案或计数。五项相同各4次时，不指定唯一顶部；结果不是他人评价或固定人格。" : "All 31 public guides cover five single directions and every highest-count tie, without personal answers or counts. Five equal counts of four produce no sole leader. Results are neither observer ratings nor fixed personalities.");
 return (zh ? `下面是公开说明，不是任何人的私人作答。全部${quiz.directions.length}个单项和并列组合均有完整报告；先阅读也不会影响你的计分。` : `These are public explanations, not anyone's private attempt. Full reports cover all ${quiz.directions.length} single directions and every tied combination. Reading one does not affect your score.`);
-})()}</p><ul className="space-y-4">{quiz.profiles.map(profile => <li key={profile.id} className="rounded-lg border border-slate-200 bg-white p-5"><Link prefetch={false} className="inline-flex min-h-11 items-center gap-3 py-2 text-lg font-semibold underline" href={questionnaireGuidePath(locale, slug, profile.id)}>{slug === "cyberpunk-edgerunners" && <EdgerunnersPortrait id={profile.id} className="size-14 shrink-0 rounded-lg" />}{slug === "chiikawa" && <ChiikawaPortrait id={profile.id} className="size-14 shrink-0 rounded-lg" />}{profile.title[locale]}</Link><p className="mt-2 leading-8 text-slate-700">{(() => {
+})()}</p><ul className="space-y-4">{quiz.profiles.map(profile => <li key={profile.id} className="rounded-lg border border-slate-200 bg-white p-5"><Link prefetch={false} className="inline-flex min-h-11 items-center gap-3 py-2 text-lg font-semibold underline" href={questionnaireGuidePath(locale, slug, profile.id)}>{slug === "cyberpunk-edgerunners" && <EdgerunnersPortrait id={profile.id} className="size-14 shrink-0 rounded-lg" />}{slug === "chiikawa" && <ChiikawaPortrait id={profile.id} className="size-14 shrink-0 rounded-lg" />}{slug === "aura-color" ? (profile.sections[0]?.title[locale] ?? profile.title[locale]) : profile.title[locale]}</Link><p className="mt-2 leading-8 text-slate-700">{(() => {
 if (slug === "disc") return discLandingSummary(profile, locale);
 if (slug === "response-color") return responseColorLandingSummary(profile, locale);
 if (slug === "moral-alignment") return moralAlignmentLandingSummary(profile, locale);

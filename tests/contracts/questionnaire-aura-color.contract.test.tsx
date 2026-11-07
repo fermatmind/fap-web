@@ -42,7 +42,7 @@ describe("T036 original seven-color symbolic expression quiz", () => {
     }
     for (const profile of quiz.profiles) {
       expect(profile.sections).toHaveLength(9);
-      expect(profile.seo?.title.en).toContain("Aura Color Result");
+      expect(profile.seo?.title.en).toContain("Aura Meaning:");
       expect(profile.seo?.title.zh).toContain("光环");
       expect(new Set(profile.sections.map(s => s.id)).size).toBe(9);
       expect(profile.sections.at(-1)?.paragraphs[0].en).toContain("FermatMind seven-colour symbolic quiz");
@@ -113,6 +113,9 @@ describe("T036 original seven-color symbolic expression quiz", () => {
     expect(readQuestionnaireDraft(quiz, JSON.stringify(draft), 123457)).toEqual(draft.answers);
     expect(readQuestionnaireDraft(quiz, JSON.stringify(draft), 123456 + 86400000)).toBeNull();
     const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireArchetypeReport quiz={prepareQuestionnaireResultReadings(quiz)} result={tie} locale="en" />);
+    const cards = Array.from(dom.querySelectorAll('a[href^="/og/fun/aura-color?"]'));
+    expect(cards.map(card => new URL(card.getAttribute("href")!, "https://fermatmind.com").searchParams.get("portrait"))).toEqual(tie.profileIds);
+    expect(cards.every(card => !/score|answers|attempt/.test(card.getAttribute("href")!))).toBe(true);
     expect(dom.querySelectorAll("[data-archetype-match]")).toHaveLength(7); expect(dom.querySelectorAll("h4")).toHaveLength(77);
     const ids = Array.from(dom.querySelectorAll("[id]"), e => e.id); expect(new Set(ids).size).toBe(ids.length);
   });
@@ -128,6 +131,7 @@ describe("T036 original seven-color symbolic expression quiz", () => {
         const html = renderToStaticMarkup(await entry.default(props)), metadata = await entry.generateMetadata(props);
         expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(metadata.title).toBe(quiz.seoTitle[locale]);
         expect(html).toContain(quiz.instructions![locale]);
+        expect(html).toContain(locale === "zh" ? "每份指南都有具体例子，做题前就能免费阅读。" : "Every guide is free to read before you take the quiz.");
         expect(html).toContain(locale === "zh" ? "原创象征测验" : "Original symbolic quiz");
         expect(quiz.resultHeading?.[locale]).toBeTruthy();
         for (const section of quiz.guide.slice(0, 3)) expect(html).toContain(section.paragraphs[0][locale]);
@@ -136,6 +140,9 @@ describe("T036 original seven-color symbolic expression quiz", () => {
           const publicPath = `${path}/results/${profile.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };
           const rendered = renderToStaticMarkup(await guide.default(props)), meta = await guide.generateMetadata(props), dom = document.createElement("div"); dom.innerHTML = rendered;
           expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]);
+          expect(html).toContain(`href="${publicPath}"`);
+          expect(html).toContain(profile.sections[0].title[locale]);
+          expect(dom.querySelector(`a[href="${path}#questionnaire-results"]`)).not.toBeNull();
           for (const section of profile.sections) {
             expect(dom.querySelector(`#report-${section.id} h2`)?.textContent).toBe(section.title[locale]);
             for (const paragraph of section.paragraphs) expect(dom.textContent).toContain(paragraph[locale]);

@@ -626,6 +626,9 @@ export default async function QuestionnaireResultGuide({ params }: Props) {
         {zh ? "比较全部六位角色" : "Compare all six character matches"}
       </Link>
     )}
+    {quiz.slug === "aura-color" && <Link prefetch={false} className="mb-6 ml-5 inline-block min-h-11 py-2 font-semibold underline" href={`${entry}#questionnaire-results`}>
+      {zh ? "对照七种光环颜色" : "Compare all seven aura colors"}
+    </Link>}
     {quiz.slug === "work-traits-reflection" && <WorkTraitsContext locale={locale} />}
     {quiz.slug === "work-activity-interests" && <WorkActivityContext locale={locale} />}
     <div className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8"><QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={2} mode="guide" showSummary={readingProfile.summary[locale] !== profile.summary[locale]} /></div>

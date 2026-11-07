@@ -14,8 +14,8 @@
     "en": "Your seven-colour choices and every highest tie"
   },
   "description": {
-    "zh": "你的光环是什么颜色？用 21 道日常选择，看看哪种颜色最贴近你这次的表达偏好。七色指南与完整结果免费，最高同分一起保留。仅供娱乐，无需注册或照片。",
-    "en": "What color is my aura? Take this free 21-question quiz to see which of seven colors reflects your choices. See all top matches and read the color guides. For fun; no signup or photo."
+    "zh": "你的光环是什么颜色？用 21 道日常选择，看看哪些颜色贴近你这次的表达偏好。免费查看最高结果与七色含义，无需注册或照片。",
+    "en": "What color is my aura? Take the free 21-question aura color quiz, see every top match and compare seven symbolic color meanings. No signup or photo."
   },
   "seoTitle": {
     "zh": "光环颜色测试：你的光环是什么颜色？（免费 21 题）",
@@ -976,8 +976,8 @@
         "en": "One of seven editorial symbols for chosen expression, not a detected field or ability verdict."
       },
       "summary": {
-        "zh": "把愿意呈现的一点说清，而不要求吸引全场。完整例子、对话与比较说明红色计数，不认证领导力、勇气或身体能量。",
-        "en": "Explore a point you choose to make visible without attracting a whole room. Examples explain Red counts without certifying leadership, courage or bodily energy."
+        "zh": "红色代表主动让一个重点被看见，比如把最想表达的想法写在读书卡的第一行。免费阅读费马测试的象征解读、日常例子和计分说明。",
+        "en": "In this quiz, red represents choosing a point you want others to notice, like putting one clear idea at the top of a reading card."
       },
       "scoreReading": {
         "zh": "21题全部各选一项，对应主题加1，总数固定21。每题提供七主题中的四个，全卷每主题12次、每位置3次；未提供的另外三种不记为拒绝。原始次数是这些可选做法中的相对分布，不是实际光环比例、能量强弱、匹配百分比或人口排名。所有最高计数完整保留；全选第一项会七种各3次、七份完整显示。名单顺序不设主次，不自动指定第二颜色或强造混色；相差一次不证明显著差异、品质消失或固定人格。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有颜色或科学分界。",
@@ -985,20 +985,20 @@
       },
       "seo": {
         "title": {
-          "zh": "红色光环结果：自选表达、例子与完整说明",
-          "en": "Red Aura Color Result: Expression and Full Guide"
+          "zh": "红色光环的含义：让重点看得见",
+          "en": "Red Aura Meaning: Making a Point Visible"
         },
         "description": {
-          "zh": "把愿意呈现的一点说清，而不要求吸引全场。完整例子、对话与比较说明红色计数，不认证领导力、勇气或身体能量。",
-          "en": "Explore Red as chosen visible expression through a reading-card example and full comparisons. No leadership, courage or energy-field verdict."
+          "zh": "在这份测试里，红色代表主动让一个重点被看见，比如把最想表达的想法写在读书卡的第一行。",
+          "en": "Red represents choosing a point you want others to notice, like putting one clear idea at the top of a reading card. Read the free FermatMind quiz guide and see how this color is counted."
         }
       },
       "sections": [
         {
           "id": "meaning",
           "title": {
-            "zh": "本版颜色主题与象征范围",
-            "en": "This edition’s colour and symbolic scope"
+            "zh": "红色光环在这份测试里代表什么？",
+            "en": "What does a red aura mean in this quiz?"
           },
           "paragraphs": [
             {
@@ -1127,8 +1127,8 @@
         "en": "One of seven editorial symbols for chosen expression, not a detected field or ability verdict."
       },
       "summary": {
-        "zh": "用自愿接画的具体例子看共同玩心，包含对话、相邻比较和停止空间；橙色不认证受欢迎、创造力、社交或快乐程度。",
-        "en": "Explore shared play through a voluntary drawing example, wording and comparisons. Orange counts certify no popularity, creativity, sociability or happiness."
+        "zh": "橙色代表自愿一起创作的玩心，比如邀请别人给一张画添一笔。免费阅读费马测试的象征解读、日常例子和计分说明。",
+        "en": "In this quiz, orange represents making something together for fun, like inviting someone to add a line to a drawing."
       },
       "scoreReading": {
         "zh": "21题全部各选一项，对应主题加1，总数固定21。每题提供七主题中的四个，全卷每主题12次、每位置3次；未提供的另外三种不记为拒绝。原始次数是这些可选做法中的相对分布，不是实际光环比例、能量强弱、匹配百分比或人口排名。所有最高计数完整保留；全选第一项会七种各3次、七份完整显示。名单顺序不设主次，不自动指定第二颜色或强造混色；相差一次不证明显著差异、品质消失或固定人格。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有颜色或科学分界。",
@@ -1136,20 +1136,20 @@
       },
       "seo": {
         "title": {
-          "zh": "橙色光环结果：共同玩心、例子与完整说明",
-          "en": "Orange Aura Color Result: Shared Play and Full Guide"
+          "zh": "橙色光环的含义：一起创作的玩心",
+          "en": "Orange Aura Meaning: Making Something Together"
         },
         "description": {
-          "zh": "用自愿接画的具体例子看共同玩心，包含对话、相邻比较和停止空间；橙色不认证受欢迎、创造力、社交或快乐程度。",
-          "en": "Read Orange through voluntary shared making, a drawing example and comparisons. Full guidance without judging popularity, creativity or happiness."
+          "zh": "在这份测试里，橙色代表自愿一起创作的玩心，比如邀请别人给一张画添一笔。",
+          "en": "Orange represents making something together for fun, like inviting someone to add a line to a drawing. Read the free FermatMind quiz guide and see how this color is counted."
         }
       },
       "sections": [
         {
           "id": "meaning",
           "title": {
-            "zh": "本版颜色主题与象征范围",
-            "en": "This edition’s colour and symbolic scope"
+            "zh": "橙色光环在这份测试里代表什么？",
+            "en": "What does a orange aura mean in this quiz?"
           },
           "paragraphs": [
             {
@@ -1278,8 +1278,8 @@
         "en": "One of seven editorial symbols for chosen expression, not a detected field or ability verdict."
       },
       "summary": {
-        "zh": "从一个普通问题、已有解释与未知处读黄色主题。完整例子和比较不把好奇换成智力、乐观、教学能力或职业适配。",
-        "en": "Read Yellow through an ordinary question, available explanations and uncertainty. Full examples do not turn curiosity into intelligence, optimism or teaching ability."
+        "zh": "黄色代表提问和寻找解释，比如想弄清一个日常物件是怎样运作的。免费阅读费马测试的象征解读、日常例子和计分说明。",
+        "en": "In this quiz, yellow represents asking a question and checking explanations, like wondering how an everyday object works."
       },
       "scoreReading": {
         "zh": "21题全部各选一项，对应主题加1，总数固定21。每题提供七主题中的四个，全卷每主题12次、每位置3次；未提供的另外三种不记为拒绝。原始次数是这些可选做法中的相对分布，不是实际光环比例、能量强弱、匹配百分比或人口排名。所有最高计数完整保留；全选第一项会七种各3次、七份完整显示。名单顺序不设主次，不自动指定第二颜色或强造混色；相差一次不证明显著差异、品质消失或固定人格。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有颜色或科学分界。",
@@ -1287,20 +1287,20 @@
       },
       "seo": {
         "title": {
-          "zh": "黄色光环结果：提问解释、例子与完整说明",
-          "en": "Yellow Aura Color Result: Questions and Full Guide"
+          "zh": "黄色光环的含义：提问与解释",
+          "en": "Yellow Aura Meaning: Questions and Explanations"
         },
         "description": {
-          "zh": "从一个普通问题、已有解释与未知处读黄色主题。完整例子和比较不把好奇换成智力、乐观、教学能力或职业适配。",
-          "en": "Explore Yellow through questions, explanations and an ordinary paper-box example. Read comparisons without intelligence, optimism or teaching claims."
+          "zh": "在这份测试里，黄色代表提问和寻找解释，比如想弄清一个日常物件是怎样运作的。",
+          "en": "Yellow represents asking a question and checking explanations, like wondering how an everyday object works. Read the free FermatMind quiz guide and see how this color is counted."
         }
       },
       "sections": [
         {
           "id": "meaning",
           "title": {
-            "zh": "本版颜色主题与象征范围",
-            "en": "This edition’s colour and symbolic scope"
+            "zh": "黄色光环在这份测试里代表什么？",
+            "en": "What does a yellow aura mean in this quiz?"
           },
           "paragraphs": [
             {
@@ -1429,8 +1429,8 @@
         "en": "One of seven editorial symbols for chosen expression, not a detected field or ability verdict."
       },
       "summary": {
-        "zh": "通过材料摆放的小例子留意生活条件，含表达、比较和反例；绿色不证明疗愈、同理心、照顾能力或别人感到安全。",
-        "en": "Attend to everyday conditions through a material-placement example, wording and comparisons. Green establishes no healing, empathy, caregiving or others’ safety."
+        "zh": "绿色代表留意日常环境里什么更合用，比如调整材料的位置，让大家更方便取用。免费阅读费马测试的象征解读、日常例子和计分说明。",
+        "en": "In this quiz, green represents noticing what helps in an everyday setting, like moving materials so a shared activity is easier to use."
       },
       "scoreReading": {
         "zh": "21题全部各选一项，对应主题加1，总数固定21。每题提供七主题中的四个，全卷每主题12次、每位置3次；未提供的另外三种不记为拒绝。原始次数是这些可选做法中的相对分布，不是实际光环比例、能量强弱、匹配百分比或人口排名。所有最高计数完整保留；全选第一项会七种各3次、七份完整显示。名单顺序不设主次，不自动指定第二颜色或强造混色；相差一次不证明显著差异、品质消失或固定人格。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有颜色或科学分界。",
@@ -1438,20 +1438,20 @@
       },
       "seo": {
         "title": {
-          "zh": "绿色光环结果：生活条件、例子与完整说明",
-          "en": "Green Aura Color Result: Surroundings and Full Guide"
+          "zh": "绿色光环的含义：留意生活条件",
+          "en": "Green Aura Meaning: Noticing Everyday Conditions"
         },
         "description": {
-          "zh": "通过材料摆放的小例子留意生活条件，含表达、比较和反例；绿色不证明疗愈、同理心、照顾能力或别人感到安全。",
-          "en": "Read Green through everyday surroundings and a postcard-placement example. Full comparisons without healing, empathy or caregiving certification."
+          "zh": "在这份测试里，绿色代表留意日常环境里什么更合用，比如调整材料的位置，让大家更方便取用。",
+          "en": "Green represents noticing what helps in an everyday setting, like moving materials so a shared activity is easier to use. Read the free FermatMind quiz guide and see how this color is counted."
         }
       },
       "sections": [
         {
           "id": "meaning",
           "title": {
-            "zh": "本版颜色主题与象征范围",
-            "en": "This edition’s colour and symbolic scope"
+            "zh": "绿色光环在这份测试里代表什么？",
+            "en": "What does a green aura mean in this quiz?"
           },
           "paragraphs": [
             {
@@ -1580,8 +1580,8 @@
         "en": "One of seven editorial symbols for chosen expression, not a detected field or ability verdict."
       },
       "summary": {
-        "zh": "从一段普通说明看平实表达，包含可用措辞和其他六主题比较；蓝色不认证诚实、沟通效果、平静、共情或真实光环。",
-        "en": "Explore plain expression through an ordinary explanation, wording and six-theme comparisons. Blue certifies no honesty, communication outcome, calmness or real aura."
+        "zh": "蓝色代表用平实的话讲清自己的意思，比如借书时直接和朋友说明约定。免费阅读费马测试的象征解读、日常例子和计分说明。",
+        "en": "In this quiz, blue represents saying what you mean in plain words, like making the terms of a book loan clear to a friend."
       },
       "scoreReading": {
         "zh": "21题全部各选一项，对应主题加1，总数固定21。每题提供七主题中的四个，全卷每主题12次、每位置3次；未提供的另外三种不记为拒绝。原始次数是这些可选做法中的相对分布，不是实际光环比例、能量强弱、匹配百分比或人口排名。所有最高计数完整保留；全选第一项会七种各3次、七份完整显示。名单顺序不设主次，不自动指定第二颜色或强造混色；相差一次不证明显著差异、品质消失或固定人格。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有颜色或科学分界。",
@@ -1589,20 +1589,20 @@
       },
       "seo": {
         "title": {
-          "zh": "蓝色光环结果：平实表达、例子与完整说明",
-          "en": "Blue Aura Color Result: Plain Expression and Full Guide"
+          "zh": "蓝色光环的含义：把想说的话讲清",
+          "en": "Blue Aura Meaning: Saying What You Mean"
         },
         "description": {
-          "zh": "从一段普通说明看平实表达，包含可用措辞和其他六主题比较；蓝色不认证诚实、沟通效果、平静、共情或真实光环。",
-          "en": "Explore Blue through a plain book-loan message, scope and comparisons. Full guidance without certifying honesty, communication skill or an energy field."
+          "zh": "在这份测试里，蓝色代表用平实的话讲清自己的意思，比如借书时直接和朋友说明约定。",
+          "en": "Blue represents saying what you mean in plain words, like making the terms of a book loan clear to a friend. Read the free FermatMind quiz guide and see how this color is counted."
         }
       },
       "sections": [
         {
           "id": "meaning",
           "title": {
-            "zh": "本版颜色主题与象征范围",
-            "en": "This edition’s colour and symbolic scope"
+            "zh": "蓝色光环在这份测试里代表什么？",
+            "en": "What does a blue aura mean in this quiz?"
           },
           "paragraphs": [
             {
@@ -1731,8 +1731,8 @@
         "en": "One of seven editorial symbols for chosen expression, not a detected field or ability verdict."
       },
       "summary": {
-        "zh": "用独自留意细节的例子读靛色，允许没有结论或不向外解释；完整比较不认证洞察、读心、直觉或特殊天赋。",
-        "en": "Explore Indigo through private attention to a detail, with no duty to explain it. Full comparisons establish no insight, mind reading, intuition or special gift."
+        "zh": "靛色代表先留给自己慢慢细看，比如把照片中的一处小细节记在私人笔记里。免费阅读费马测试的象征解读、日常例子和计分说明。",
+        "en": "In this quiz, indigo represents looking closely before sharing, like keeping a small detail from a photo in a private note."
       },
       "scoreReading": {
         "zh": "21题全部各选一项，对应主题加1，总数固定21。每题提供七主题中的四个，全卷每主题12次、每位置3次；未提供的另外三种不记为拒绝。原始次数是这些可选做法中的相对分布，不是实际光环比例、能量强弱、匹配百分比或人口排名。所有最高计数完整保留；全选第一项会七种各3次、七份完整显示。名单顺序不设主次，不自动指定第二颜色或强造混色；相差一次不证明显著差异、品质消失或固定人格。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有颜色或科学分界。",
@@ -1740,20 +1740,20 @@
       },
       "seo": {
         "title": {
-          "zh": "靛色光环结果：私下细看、例子与完整说明",
-          "en": "Indigo Aura Color Result: Observation and Full Guide"
+          "zh": "靛色光环的含义：留给自己的细看",
+          "en": "Indigo Aura Meaning: Private Observation"
         },
         "description": {
-          "zh": "用独自留意细节的例子读靛色，允许没有结论或不向外解释；完整比较不认证洞察、读心、直觉或特殊天赋。",
-          "en": "Read Indigo through private attention to a photo detail, wording and comparisons. No claims of prediction, mind reading, intuition or special gifts."
+          "zh": "在这份测试里，靛色代表先留给自己慢慢细看，比如把照片中的一处小细节记在私人笔记里。",
+          "en": "Indigo represents looking closely before sharing, like keeping a small detail from a photo in a private note. Read the free FermatMind quiz guide and see how this color is counted."
         }
       },
       "sections": [
         {
           "id": "meaning",
           "title": {
-            "zh": "本版颜色主题与象征范围",
-            "en": "This edition’s colour and symbolic scope"
+            "zh": "靛色光环在这份测试里代表什么？",
+            "en": "What does a indigo aura mean in this quiz?"
           },
           "paragraphs": [
             {
@@ -1882,8 +1882,8 @@
         "en": "One of seven editorial symbols for chosen expression, not a detected field or ability verdict."
       },
       "summary": {
-        "zh": "从一个自选记号与个人经历的联系读紫色，包含具体表达和反例；不认证灵性、智慧、天命、预知或高于他人的意义。",
-        "en": "Read Violet through a chosen sign and personal experience, with wording and counterexamples. It establishes no spirituality, wisdom, destiny, prediction or superiority."
+        "zh": "紫色代表给符号赋予自己的意义，比如选一个能让自己想起某段经历的记号。免费阅读费马测试的象征解读、日常例子和计分说明。",
+        "en": "In this quiz, violet represents giving a symbol your own meaning, like choosing a mark that brings a memory to mind."
       },
       "scoreReading": {
         "zh": "21题全部各选一项，对应主题加1，总数固定21。每题提供七主题中的四个，全卷每主题12次、每位置3次；未提供的另外三种不记为拒绝。原始次数是这些可选做法中的相对分布，不是实际光环比例、能量强弱、匹配百分比或人口排名。所有最高计数完整保留；全选第一项会七种各3次、七份完整显示。名单顺序不设主次，不自动指定第二颜色或强造混色；相差一次不证明显著差异、品质消失或固定人格。近分可比较，但不补造未并列结论。情境和时间可能改变选择，没有常模、稀有颜色或科学分界。",
@@ -1891,20 +1891,20 @@
       },
       "seo": {
         "title": {
-          "zh": "紫色光环结果：个人符号、例子与完整说明",
-          "en": "Violet Aura Color Result: Symbols and Full Guide"
+          "zh": "紫色光环的含义：个人符号的意义",
+          "en": "Violet Aura Meaning: Personal Symbols"
         },
         "description": {
-          "zh": "从一个自选记号与个人经历的联系读紫色，包含具体表达和反例；不认证灵性、智慧、天命、预知或高于他人的意义。",
-          "en": "Explore Violet through a personal journal sign, chosen meaning and comparisons. A complete guide without spiritual ranks, destiny or superior wisdom."
+          "zh": "在这份测试里，紫色代表给符号赋予自己的意义，比如选一个能让自己想起某段经历的记号。",
+          "en": "Violet represents giving a symbol your own meaning, like choosing a mark that brings a memory to mind. Read the free FermatMind quiz guide and see how this color is counted."
         }
       },
       "sections": [
         {
           "id": "meaning",
           "title": {
-            "zh": "本版颜色主题与象征范围",
-            "en": "This edition’s colour and symbolic scope"
+            "zh": "紫色光环在这份测试里代表什么？",
+            "en": "What does a violet aura mean in this quiz?"
           },
           "paragraphs": [
             {
