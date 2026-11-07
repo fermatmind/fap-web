@@ -245,5 +245,6 @@ describe("C formal continuation: VIRTUES source and original T110", () => {
       }
       expect(pages).toBe(34);
     } finally {vi.unstubAllEnvs();vi.resetModules();}
-  });
+  // This batches 34 SSR pages plus cold route imports; it is not a 15s unit-performance assertion.
+  }, 30_000);
 });
