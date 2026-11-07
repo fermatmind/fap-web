@@ -5379,8 +5379,8 @@
   },
   {
     "slug": "mental-age",
-    "code": "FM_MENTAL_AGE12",
-    "version": "fm_mental_age12_v1",
+    "code": "FM_MENTAL_AGE_CLASSIC30",
+    "version": "fm_mental_age_classic30_v2",
     "updated": "2026-11-07",
     "category": "everyday",
     "title": {
@@ -5388,12 +5388,12 @@
       "zh": "心理年龄测试"
     },
     "description": {
-      "en": "Take a free 12-question mental age quiz. See your playful age, check the calculation and save a share card. No signup; for entertainment.",
-      "zh": "用12道轻松选择看看自己的娱乐心理年龄，免费查看结果、逐题点数与计算方法，保存双语分享卡。无需注册；仅供娱乐，不代表智力或成熟度。"
+      "en": "Take the free 30-question mental age test. Reveal your quiz age, style, optional age gap and equivalent year, then preview and save a share card.",
+      "zh": "免费心理年龄测试：30道偏好题，中文另有3个可跳过资料屏。揭晓娱乐年龄、风格、可选实际年龄差及等效年份，预览保存分享卡。"
     },
-    "minutes": 3,
-    "formCode": "fm_mental_age12_v1",
-    "questionCount": 12,
+    "minutes": 4,
+    "formCode": "fm_mental_age_classic30_v2",
+    "questionCount": 30,
     "resultSlugs": [
       "understanding-your-playful-age"
     ],

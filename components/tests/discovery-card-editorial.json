@@ -2212,8 +2212,8 @@
   },
   "mental-age": {
     "subtitle": {
-      "zh": "十二道日常偏好的趣味记录",
-      "en": "Twelve playful everyday preferences"
+      "en": "30 preferences, seven styles and an optional age comparison",
+      "zh": "30道偏好题、七种风格与可选实际年龄对照"
     },
     "art": {
       "primary": "clock",

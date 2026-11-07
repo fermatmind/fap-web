@@ -1,3 +1,4 @@
+import { MentalAgeClassicPage } from "./MentalAgeClassicPage";
 import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import { prepareQuestionnaireResultReadings, prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
 import { completionGapEditorial } from "./CompletionGapEditorial";
@@ -45,7 +46,6 @@ import { EdgerunnersPortrait } from "./EdgerunnersPortrait";
 import { loveCombinationsLandingSections, loveCombinationsLandingFaq, loveCombinationsLandingReferences } from "./LoveCombinationsLandingEditorial";
 import { foodDisgustLandingSections, foodDisgustLandingFaq } from "./FoodDisgustLandingEditorial";
 import { energyRhythmLandingSections, energyRhythmLandingFaq, energyRhythmLandingReferences } from "./EnergyRhythmLandingEditorial";
-import { playfulAgeLandingSections, playfulAgeLandingFaq, playfulAgeLandingReferences } from "./PlayfulAgeLandingEditorial";
 import { everydayMixupsLandingSections, everydayMixupsLandingFaq, everydayMixupsLandingReferences } from "./EverydayMixupsLandingEditorial";
 import { techConfidenceLandingSections, techConfidenceLandingFaq, techConfidenceLandingReferences } from "./TechConfidenceLandingEditorial";
 import { orientationLandingSections, orientationLandingFaq, orientationLandingReferences } from "./OrientationLandingEditorial";
@@ -484,6 +484,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function QuestionnairePage({ params, take = false }: Props & { take?: boolean }) {
   const { locale: input, slug } = await params, locale = resolveLocale(input), zh = locale === "zh";
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "mental-age") { if (!isMentalAgeConfigurationValid(quiz)) notFound(); return <MentalAgeClassicPage quiz={quiz} locale={locale} take={take} />; }
   if (quiz?.kind === "sudden-fear20") {
     if (!isSuddenFear20ConfigurationValid(quiz)) notFound();
     return <SuddenFearPage quiz={quiz} locale={locale} take={take} />;
@@ -773,7 +774,7 @@ export default async function QuestionnairePage({ params, take = false }: Props 
     if (!isBirthNumberConfigurationValid(quiz)) notFound();
     return <BirthNumberPage quiz={quiz} locale={locale} />;
   }
-  if (!quiz || (quiz.kind === "fds32" && !isFds32ConfigurationValid(quiz)) || (quiz.kind === "mental-age" && !isMentalAgeConfigurationValid(quiz)) || (quiz.kind === "pss4" && !isPss4ConfigurationValid(quiz)) || (quiz.kind === "stress-reflection4" && !isStressReflection4ConfigurationValid(quiz)) || (quiz.kind === "mini-orientation" && !isMiniOrientationConfigurationValid(quiz)) || (quiz.kind === "mini-conflict" && !isMiniConflictConfigurationValid(quiz)) || (quiz.kind === "four-axes" && !isFourAxesConfigurationValid(quiz)) || (quiz.kind === "mini-shadow" && !isMiniShadowConfigurationValid(quiz)) || (quiz.kind === "preparation-actions20" && !isPreparationActions20ConfigurationValid(quiz)) || (quiz.kind === "mini-coping" && !isMiniCopingConfigurationValid(quiz)) || (quiz.kind === "mini-habit" && !isMiniHabitConfigurationValid(quiz)) || (quiz.kind === "mini-intimacy" && !isMiniIntimacyConfigurationValid(quiz)) || (quiz.kind === "mini-breakup" && !isMiniBreakupConfigurationValid(quiz)) || (quiz.kind === "holding-back35" && !isHoldingBack35ConfigurationValid(quiz)) || (quiz.kind === "fscrs22" && !isFscrs22ConfigurationValid(quiz)) || (quiz.kind === "parenting-practices" && !isParentingPracticesConfigurationValid(quiz)) || (quiz.kind === "spq92" && !isSpq92ConfigurationValid(quiz)) || (quiz.kind === "adexi14" && !isAdexi14ConfigurationValid(quiz)) || (quiz.kind === "mini-friction" && !isMiniFrictionConfigurationValid(quiz)) || (quiz.kind === "ctl41" && !isCtl41ConfigurationValid(quiz)) || (quiz.kind === "ptq15" && !isPtq15ConfigurationValid(quiz)) || (quiz.kind === "interaction-pairs" && !isInteractionPairsConfigurationValid(quiz)) || (quiz.kind === "work-role12" && !isWorkRole12ConfigurationValid(quiz)) || (quiz.kind === "skills-evidence" && !isSkillsEvidenceConfigurationValid(quiz)) || (quiz.slug === "dark-tetrad-sd4" && !isSd4ConfigurationValid(quiz)) || (quiz.kind === "tipi10" && !isTipi10ConfigurationValid(quiz)) || (quiz.kind === "saps" && !isSapsConfigurationValid(quiz)) || (quiz.kind === "scs26" && !isScs26ConfigurationValid(quiz)) || (quiz.kind === "cbi" && !isCbiConfigurationValid(quiz)) || (quiz.kind === "rosenberg" && !isRosenbergConfigurationValid(quiz)) || (quiz.kind === "political-coordinates" && !isPoliticalCoordinatesConfigurationValid(quiz)) || (quiz.kind === "data-entry" && !isDataEntryConfigurationValid(quiz)) || (quiz.kind === "secs" && !isSecsConfigurationValid(quiz)) || (quiz.kind === "paired-dimensions" && !isPairedDimensionsConfigurationValid(quiz)) || (quiz.kind === "typing" && !isTypingConfigurationValid(quiz))) notFound();
+  if (!quiz || (quiz.kind === "fds32" && !isFds32ConfigurationValid(quiz)) || (quiz.kind === "pss4" && !isPss4ConfigurationValid(quiz)) || (quiz.kind === "stress-reflection4" && !isStressReflection4ConfigurationValid(quiz)) || (quiz.kind === "mini-orientation" && !isMiniOrientationConfigurationValid(quiz)) || (quiz.kind === "mini-conflict" && !isMiniConflictConfigurationValid(quiz)) || (quiz.kind === "four-axes" && !isFourAxesConfigurationValid(quiz)) || (quiz.kind === "mini-shadow" && !isMiniShadowConfigurationValid(quiz)) || (quiz.kind === "preparation-actions20" && !isPreparationActions20ConfigurationValid(quiz)) || (quiz.kind === "mini-coping" && !isMiniCopingConfigurationValid(quiz)) || (quiz.kind === "mini-habit" && !isMiniHabitConfigurationValid(quiz)) || (quiz.kind === "mini-intimacy" && !isMiniIntimacyConfigurationValid(quiz)) || (quiz.kind === "mini-breakup" && !isMiniBreakupConfigurationValid(quiz)) || (quiz.kind === "holding-back35" && !isHoldingBack35ConfigurationValid(quiz)) || (quiz.kind === "fscrs22" && !isFscrs22ConfigurationValid(quiz)) || (quiz.kind === "parenting-practices" && !isParentingPracticesConfigurationValid(quiz)) || (quiz.kind === "spq92" && !isSpq92ConfigurationValid(quiz)) || (quiz.kind === "adexi14" && !isAdexi14ConfigurationValid(quiz)) || (quiz.kind === "mini-friction" && !isMiniFrictionConfigurationValid(quiz)) || (quiz.kind === "ctl41" && !isCtl41ConfigurationValid(quiz)) || (quiz.kind === "ptq15" && !isPtq15ConfigurationValid(quiz)) || (quiz.kind === "interaction-pairs" && !isInteractionPairsConfigurationValid(quiz)) || (quiz.kind === "work-role12" && !isWorkRole12ConfigurationValid(quiz)) || (quiz.kind === "skills-evidence" && !isSkillsEvidenceConfigurationValid(quiz)) || (quiz.slug === "dark-tetrad-sd4" && !isSd4ConfigurationValid(quiz)) || (quiz.kind === "tipi10" && !isTipi10ConfigurationValid(quiz)) || (quiz.kind === "saps" && !isSapsConfigurationValid(quiz)) || (quiz.kind === "scs26" && !isScs26ConfigurationValid(quiz)) || (quiz.kind === "cbi" && !isCbiConfigurationValid(quiz)) || (quiz.kind === "rosenberg" && !isRosenbergConfigurationValid(quiz)) || (quiz.kind === "political-coordinates" && !isPoliticalCoordinatesConfigurationValid(quiz)) || (quiz.kind === "data-entry" && !isDataEntryConfigurationValid(quiz)) || (quiz.kind === "secs" && !isSecsConfigurationValid(quiz)) || (quiz.kind === "paired-dimensions" && !isPairedDimensionsConfigurationValid(quiz)) || (quiz.kind === "typing" && !isTypingConfigurationValid(quiz))) notFound();
   if (!isQuestionnaireConfigurationValid(quiz)) throw new Error("QUESTIONNAIRE_CONFIGURATION_UNAVAILABLE");
   if (quiz.slug === "connection-meaning-reflection") return <ConnectionMeaningPage quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} take={take} />;
   if (quiz.slug === "body-frame-observations") return <BodyFrameObservationsPage quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} take={take} />;
@@ -786,7 +787,6 @@ export default async function QuestionnairePage({ params, take = false }: Props 
   if (quiz.kind === "ten-key") return <TenKeyPage quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} take={take} />;
   const readingProfiles = quiz.profiles.map(profile => prepareResultProfile(quiz.slug, profile));
   const resultReadingProps = (() => {
-    if (quiz.kind === "mental-age") return { mentalAgeReadingProfile: readingProfiles[0] };
     if (quiz.kind === "love-type16") return { loveTypeReadingProfiles: readingProfiles };
     if (quiz.kind === "work-role12") return { workRoleReadingProfiles: readingProfiles };
     if (quiz.kind === "fds32") return { fds32ReadingProfiles: readingProfiles };
@@ -822,7 +822,6 @@ return <QuestionnaireClient quiz={Object.keys(resultReadingProps).length ? quiz 
   const entryMethodSection = quiz.kind === "practice" ? ({ "excel-skills": "practice-counts", "abstract-reasoning": "counts", "numerical-reasoning": "scoring", "digital-ethics-citizenship": "counts", "number-series": "scoring", "mechanical-reasoning": "counts", "spatial-reasoning": "counts", "situational-judgement": "practice-score", "german-proficiency": "practice-count", "customer-service-aptitude": "practice-count", "communication-adaptability": "practice-key" } as Record<string, string>)[slug] : slug === "chinese-zodiac" && quiz.kind === "archetype" ? "symbolic-method" : ({
     "love-personality": quiz.kind === "directional" ? "raw-count-method" : undefined,
     "toxic-positivity-test": quiz.kind === "likert" ? "method" : undefined,
-    "mental-age": quiz.kind === "mental-age" ? "calculation" : undefined,
     "energy-flow": quiz.kind === "likert" ? "calculation" : undefined,
     "food-disgust": quiz.kind === "fds32" ? "calculation" : undefined,
     "food-choice": quiz.kind === "directional" ? "counting" : undefined,
@@ -866,7 +865,6 @@ if (quiz.slug === "cultural-dimensions") return (zh ? "原创36条六主题反�
 if (quiz.kind === "love-type16") return (zh ? "原创32题四轴 · 16篇全文免费" : "32 original four-axis choices · 16 full guides free");
 if (quiz.slug === "cognitive-functions-test") return (zh ? "原创32题八功能反思 · 八篇全文免费" : "32 original function-theme prompts · Eight full guides free");
 if (quiz.kind === "fds32") return (zh ? "发表FDS完整32题 · 八份读法免费" : "32 published FDS items · Eight full guides free");
-if (quiz.kind === "mental-age") return (zh ? "原创12题娱乐年龄 · 完整读法免费" : "12 original playful-age choices · Full guide free");
 if (quiz.slug === "stupidity-test") return (zh ? "原创日常乌龙选择 · 六篇全文免费" : "Original everyday mix-up choices · Six full guides free");
 if (quiz.kind === "mini-orientation") return (zh ? "原创20题非分类观察 · 五篇全文免费" : "20 original non-classifying statements · Five full guides free");
 if (quiz.kind === "mini-conflict") return (zh ? "原创24题行为观察 · 四篇全文免费" : "24 original behavior statements · Four full guides free");
@@ -956,7 +954,6 @@ if (slug === "social-attitudes-reflection") return [...(quiz.references ?? []), 
 if (slug === "everyday-control-style") return [...(quiz.references ?? []), ...controlLandingReferences];
 if (slug === "love-type-16") return [...(quiz.references ?? []), ...loveCombinationsLandingReferences];
 if (slug === "energy-flow") return [...(quiz.references ?? []), ...energyRhythmLandingReferences];
-if (slug === "mental-age") return [...(quiz.references ?? []), ...playfulAgeLandingReferences];
 if (slug === "stupidity-test") return [...(quiz.references ?? []), ...everydayMixupsLandingReferences];
 if (slug === "tech-savvy") return [...(quiz.references ?? []), ...techConfidenceLandingReferences];
 if (slug === "orientation-exploration-test") return [...(quiz.references ?? []), ...orientationLandingReferences];
@@ -1088,7 +1085,6 @@ if (slug === "cyberpunk-edgerunners") return (zh ? "《边缘行者》角色测�
 if (slug === "love-type-16") return (zh ? "爱情类型测试：四组关系偏好与十六种组合" : "Love Type Test: four relationship preferences and sixteen combinations");
 if (slug === "food-disgust") return (zh ? "食物厌恶测试：32道情境与八个领域" : "Food Disgust Test: 32 situations across eight domains");
 if (slug === "energy-flow") return (zh ? "精力与专注节奏自评：时段、分段、条件与暂停" : "Energy & Flow Profile: timing, effort, conditions and pauses");
-if (slug === "mental-age") return (zh ? "心理年龄测试：新鲜与熟悉的娱乐选择" : "Mental Age Test: playful choices about novelty and familiarity");
 if (slug === "stupidity-test") return (zh ? "犯蠢测试：辨认六类日常乌龙" : "Stupidity Test: recognize six everyday mix-up themes");
 if (slug === "tech-savvy") return (zh ? "技术素养自评：六种工具学习情境" : "Tech Savvy Test: six tool-learning situations");
 if (slug === "orientation-exploration-test") return (zh ? "取向探索测试：五个主题的自我观察" : "Orientation Exploration Test: five topics for self-observation");
@@ -1291,7 +1287,6 @@ if (slug === "cyberpunk-edgerunners") return (zh ? "二十一题计数：出现�
 if (slug === "love-type-16") return (zh ? "四轴计分：每轴八题、精确并列与完整组合" : "Four-axis scoring: eight pairs, exact ties and complete combinations");
 if (slug === "food-disgust") return (zh ? "FDS计分：六点评分、不同题数与缺项处理" : "FDS scoring: six-point ratings, unequal parts and missing responses");
 if (slug === "energy-flow") return (zh ? "四组独立均值：选项、覆盖与完整算例" : "Four separate means: response options, coverage and worked examples");
-if (slug === "mental-age") return (zh ? "完整公式：逐题点数与37个可能数字" : "The full formula: item points and 37 possible outputs");
 if (slug === "stupidity-test") return (zh ? "怎样计次？选项出现、原始次数与最高并列" : "How counts work: option exposure, raw choices and highest ties");
 if (slug === "tech-savvy") return (zh ? "计分方法：等权均值、数字项数与未评分回答" : "Scoring: equal-weight mean, rated count and unscored responses");
 if (slug === "orientation-exploration-test") return (zh ? "回答怎样整理？选项分布、不确定与明确跳过" : "How responses are organized: distributions, uncertainty and explicit skips");
@@ -1496,7 +1491,6 @@ if (slug === "cyberpunk-edgerunners") return (zh ? "七篇角色完整指南：�
 if (slug === "love-type-16") return (zh ? "十六篇爱情类型完整指南与相邻代码比较" : "Sixteen complete Love Type guides, with neighboring-code comparisons");
 if (slug === "food-disgust") return (zh ? "八篇FDS完整指南：情境、实例与结果解释" : "Eight complete FDS guides: situations, examples and interpretation");
 if (slug === "energy-flow") return (zh ? "四篇完整指南：近期精力与专注体验" : "Four complete guides to recent energy and focus experiences");
-if (slug === "mental-age") return (zh ? "完整心理年龄读法：算例、情境与研究区别" : "The complete playful-age guide: examples, situations and research distinctions");
 if (slug === "stupidity-test") return (zh ? "六篇完整乌龙指南：情境、反例与主题比较" : "Six complete mix-up guides: scenes, counterexamples and comparisons");
 if (slug === "tech-savvy") return (zh ? "完整连续读法：算例、任务区别与可选观察" : "The complete continuous guide: arithmetic, task differences and optional observations");
 if (slug === "orientation-exploration-test") return (zh ? "五篇完整指南：体验、模式、标签与隐私" : "Five complete guides: experiences, patterns, labels and privacy");
@@ -1674,7 +1668,6 @@ if (slug === "disc") return (zh ? "DISC测试结果：四个方向与全部15种
 if (slug === "introvert-extrovert") return (zh ? "四个阅读区间的完整公开指南" : "Four full guides to the reading bands");
 if (slug === "jungian-archetype") return (zh ? "十二原型完整结果指南与相近主题比较" : "Twelve complete archetype guides and theme comparisons");
 if (slug === "moral-alignment") return (zh ? "九种道德阵营的完整结果指南" : "Complete guides to the nine moral alignments");
-if (quiz.kind === "mental-age") return (zh ? "全部娱乐年龄的完整公开指南" : "Complete public guide to every playful age");
 if (quiz.kind === "mini-orientation") return (zh ? "五个观察主题的完整公开指南" : "Five complete public reflection-topic guides");
 if (quiz.kind === "mini-conflict") return (zh ? "四组行为观察的完整公开指南" : "Four complete public behavior guides");
 if (quiz.kind === "mini-virtues") return (zh ? "七组完整公开读法" : "Seven complete public readings");
@@ -1702,7 +1695,6 @@ if (["self-esteem", "social-intelligence-test", "locus-of-control", "growth-mind
 return (zh ? "全部结果说明" : "Explore every result");
 })()}</h2><p className="my-4 leading-8 text-slate-600">{(() => {
 if (slug === "disc") return (zh ? "下面是公开的结果阅读指南，不是当前访客的私人作答。四项单方向与全部最高并列共15种组合均有完整说明，包括行为例子、情境取舍、计分读法与动物标签对照。先阅读指南不会改动之后的题目或计分规则。" : "These are public reading guides, not the current visitor’s private result. All 15 single-direction or highest-count tied combinations have complete explanations, including behavioral examples, contextual trade-offs, scoring and animal-label comparisons. Reading them does not change the questions or scoring rules.");
-if (quiz.kind === "mental-age") return (zh ? "18至90的37个偶数娱乐年龄，共用这一份完整连续读法。这里不含个人数字或答案，不设年龄类型、成熟度等级或并列派型。" : "All 37 even playful ages from 18 to 90 share one complete continuous reading. It contains no personal values or answers, without age types, maturity levels or tied classifications.");
 if (quiz.kind === "mini-orientation") return (zh ? "五篇完整通用指南可在作答前阅读，不含个人回答或分布。每主题四条陈述，只分别计五个数字选项及跳过次数；不相加为分数、不求均值、不排名或生成身份。暂不确定包含在数字回答中；二十题均明确跳过时不生成个人领域解释。" : "Read all five complete general guides before answering, without personal responses or distributions. Each topic has four statements, with separate counts for five numeric choices and skips. No score, mean, ranking or identity is produced. Uncertain choices are included among numeric responses; all twenty explicitly skipped suppresses personal domain explanations.");
 if (quiz.kind === "mini-conflict") return (zh ? "四篇全文分别解释冲突加压、面对拒绝与暂停、回应影响和修复跟进的原题范围、算例与可选事实观察。24题均选择数字或明确跳过后，各组至少四个数字才显示个人原始和与均值；3为不确定或视情况，不合总分、不排名、不判定危险。全部通用全文可先读，不含个人回答或数值。" : "Four full guides explain the statements, arithmetic and optional fact checks for conflict pressure, boundaries, impact and repair follow-through. After all 24 numbers or explicit skips, each group needs four numeric answers for a personal sum and mean. A 3 is uncertain or depends. There is no total, ranking or danger judgment. Read all general guides first, without personal responses or values.");
 if (quiz.kind === "mini-virtues") return (zh ? "七份全文均可先读。完成28题后，查看七宗罪和七美德各自的得分与十四维雷达。" : "Read all seven full guides before answering. Finish 28 items to see separate scores for the seven sins and virtues on a 14-axis radar.");
@@ -1784,7 +1776,6 @@ if (slug === "cyberpunk-edgerunners") return (zh ? "《边缘行者》角色测�
 if (slug === "love-type-16") return (zh ? "爱情类型测试与并列组合常见问题" : "Love Type Test and tied combinations: frequently asked questions");
 if (slug === "food-disgust") return (zh ? "食物厌恶测试与FDS计分常见问题" : "Food Disgust Test and FDS scoring: frequently asked questions");
 if (slug === "energy-flow") return (zh ? "精力与专注节奏自评常见问题" : "Energy and focus self-report: frequently asked questions");
-if (slug === "mental-age") return (zh ? "心理年龄测试与娱乐公式常见问题" : "Mental Age Test and playful scoring: frequently asked questions");
 if (slug === "stupidity-test") return (zh ? "日常乌龙与犯蠢测试常见问题" : "Everyday mix-ups and the Stupidity Test: frequently asked questions");
 if (slug === "tech-savvy") return (zh ? "技术素养与工具信心自评常见问题" : "Tech Savvy and tool-confidence self-ratings: frequently asked questions");
 if (slug === "orientation-exploration-test") return (zh ? "取向探索与私人回答记录常见问题" : "Orientation exploration and private response records: frequently asked questions");
@@ -2012,7 +2003,6 @@ return (zh ? "关于这项测试" : "Questions about this test");
     ...(slug === "food-disgust" ? foodDisgustLandingFaq : []),
     ...(slug === "energy-flow" ? energyRhythmLandingFaq : []),
     ...(slug === "cyberpunk-edgerunners" ? edgerunnersLandingFaq : []),
-    ...(slug === "mental-age" ? playfulAgeLandingFaq : []),
     ...(slug === "stupidity-test" ? everydayMixupsLandingFaq : []),
     ...(slug === "tech-savvy" ? techConfidenceLandingFaq : []),
     ...(slug === "orientation-exploration-test" ? orientationLandingFaq : []),
@@ -2090,7 +2080,6 @@ if (slug === "cyberpunk-edgerunners") return (zh ? "深入阅读：人物角度�
 if (slug === "love-type-16") return (zh ? "深入阅读：四轴含义、组合算例与研究范围" : "Reading in depth: four axes, worked combinations and research scope");
 if (slug === "food-disgust") return (zh ? "深入阅读：八个领域、均值算例与版本证据" : "Reading in depth: eight domains, worked means and edition evidence");
 if (slug === "energy-flow") return (zh ? "深入阅读：主题区别、研究与实际观察" : "Reading in depth: topic distinctions, research and practical observations");
-if (slug === "mental-age") return (zh ? "深入阅读：偏好细节、主观年龄与使用范围" : "Reading in depth: preference details, subjective age and scope");
 if (slug === "stupidity-test") return (zh ? "深入阅读：六类区别、计数实例与人因背景" : "Reading in depth: six outcomes, worked counts and human-factors background");
 if (slug === "tech-savvy") return (zh ? "深入阅读：六种任务、研究范围与实际应用" : "Reading in depth: six tasks, research scope and practical use");
 if (slug === "orientation-exploration-test") return (zh ? "完整读法：逐主题实例、记录算例与科学范围" : "Reading in depth: topic examples, response records and scientific scope");
@@ -2319,7 +2308,6 @@ return (zh ? "题本、结果读法与使用范围" : "Questionnaire, reading gu
     ...(slug === "food-disgust" ? foodDisgustLandingSections : []),
     ...(slug === "energy-flow" ? energyRhythmLandingSections : []),
     ...(slug === "cyberpunk-edgerunners" ? edgerunnersLandingSections : []),
-    ...(slug === "mental-age" ? playfulAgeLandingSections : []),
     ...(slug === "stupidity-test" ? everydayMixupsLandingSections : []),
     ...(slug === "tech-savvy" ? techConfidenceLandingSections : []),
     ...(slug === "orientation-exploration-test" ? orientationLandingSections : []),

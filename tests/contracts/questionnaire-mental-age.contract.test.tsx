@@ -1,81 +1,38 @@
 import { createHash } from "node:crypto";
-import { renderToStaticMarkup } from "react-dom/server";
-import { describe, expect, it } from "vitest";
-import quizSource from "@/lib/questionnaires/data/mental-age.json";
-import type { Questionnaire } from "@/lib/questionnaires/types";
-import { isMentalAgeConfigurationValid, scoreMentalAgeQuestionnaire } from "@/lib/questionnaires/mentalAge";
-import { isQuestionnaireConfigurationValid, scoreQuestionnaire, readQuestionnaireDraft } from "@/lib/questionnaires/scoring";
-import { QuestionnaireMentalAgeReport } from "@/components/questionnaires/QuestionnaireMentalAgeReport";
-const quiz = quizSource as Questionnaire;
-const hash = (v: unknown) => createHash("sha256").update(JSON.stringify(v)).digest("hex");
-const answerPoints = (points: number[]) => Object.fromEntries(quiz.questions.map((q, i) => [q.id, q.options.find(o => o.score === points[i])!.id]));
-const witness = (sum: number) => Array.from({ length: 12 }, (_, i) => Math.min(3, Math.max(0, sum - i * 3)));
-
-describe("T010 original playful age with transparent arithmetic and no age inference", () => {
-  it("binds the original twelve daily-preference items and all37 ages to one complete bilingual reading", () => {
-    expect(isMentalAgeConfigurationValid(quiz)).toBe(true); expect(isQuestionnaireConfigurationValid(quiz)).toBe(true);
-    expect(hash(quiz.questions)).toBe(quiz.source.itemBankSha256); expect(hash(quiz.profiles)).toBe(quiz.source.resultContentSha256);
-    expect(quiz.source.psychometricValidationCompleted).toBe(false); expect(quiz.questions).toHaveLength(12); expect(quiz.profiles).toHaveLength(1);
-    expect(quiz.profiles[0].sections).toHaveLength(8); expect(quiz.profiles[0].sections.every(s => s.paragraphs.length === 2)).toBe(true);
-    const leaves = (v: unknown): void => { if (!v || typeof v !== "object") return; const o = v as Record<string, unknown>; if ("en" in o || "zh" in o) { expect(o.en).not.toMatch(/\p{Script=Han}|TODO|placeholder/u); expect(o.zh).toMatch(/\p{Script=Han}/u); } else Object.values(o).forEach(leaves); }; leaves(quiz);
-    expect(quiz.description.en.length).toBeLessThanOrEqual(160); expect(quiz.profiles[0].seo!.description.en.length).toBeLessThanOrEqual(160);
-    const body = quiz.profiles[0].sections.flatMap(s => s.paragraphs.map(p => p.en)).join(" "); expect(body.split(/\s+/).length).toBeGreaterThan(850);
-  });
-  it("reaches every even age18..90 and checks independent sums for4096 mixed patterns", () => {
-    const ages = new Set<number>();
-    for (let sum = 0; sum <= 36; sum++) {
-      const points = witness(sum), answers = answerPoints(points), r = scoreQuestionnaire(quiz, answers);
-      expect(r).toEqual({ status: "complete", answered: 12, mentalAge: { sum, playfulAge: 18 + sum * 2, points: Object.fromEntries(quiz.questions.map((q, i) => [q.id, points[i]])) } });
-      if (r.status === "complete" && "mentalAge" in r) ages.add(r.mentalAge.playfulAge);
-    }
-    expect([...ages]).toEqual(Array.from({ length: 37 }, (_, i) => 18 + i * 2));
-    for (let code = 0; code < 4096; code++) {
-      let state = code + 1; const points = Array.from({ length: 12 }, () => { state = (Math.imul(state, 1664525) + 1013904223) >>> 0; return state >>> 30; });
-      const r = scoreMentalAgeQuestionnaire(quiz, answerPoints(points)); expect(r.status).toBe("complete");
-      if (r.status !== "complete") throw Error("Expected complete"); const sum = points.reduce((a, b) => a + b, 0); expect(r.mentalAge.sum).toBe(sum); expect(r.mentalAge.playfulAge).toBe(18 + 2 * sum);
-    }
-    expect(scoreMentalAgeQuestionnaire(quiz, answerPoints([0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3]))).toMatchObject({ mentalAge: { sum: 18, playfulAge: 54 } });
-    expect(scoreMentalAgeQuestionnaire(quiz, answerPoints([0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3]))).toMatchObject({ mentalAge: { sum: 18, playfulAge: 54 } });
-  });
-  it("keeps the v1 reading identity compatible with the same bank, drafts and scores", () => {
-    const prior = structuredClone(quiz);
-    prior.source.resultContentVersion = "fm_mental_age12_continuous_full8_v1";
-    expect(isMentalAgeConfigurationValid(prior)).toBe(true);
-    const answers = answerPoints(Array(12).fill(1));
-    expect(scoreMentalAgeQuestionnaire(prior, answers)).toEqual(scoreMentalAgeQuestionnaire(quiz, answers));
-    expect(quiz.source.resultContentVersion).toBe("fm_mental_age12_continuous_full8_v2");
-    for (const bad of [["fm_mental_age12_continuous_full8_v2"], { toString: () => "fm_mental_age12_continuous_full8_v2" }, null, "foreign"]) {
-      expect(isMentalAgeConfigurationValid({ ...quiz, source: { ...quiz.source, resultContentVersion: bad } })).toBe(false);
-    }
-  });
-  it("does not expose a partial age; rejects invalid, inherited, accessor or foreign answers", () => {
-    const a = answerPoints(Array(12).fill(1));
-    for (let n = 0; n < 12; n++) expect(scoreMentalAgeQuestionnaire(quiz, Object.fromEntries(Object.entries(a).slice(0, n)))).toEqual({ status: "incomplete", answered: n });
-    for (const bad of [null, undefined, [], new Date(), Object.create(a), { ...a, foreign: "a" }, { ...a, [Symbol("private")]: "a" }, Object.defineProperty({ ...a }, "MAGE_01", { get() { throw Error("must not run"); } }), Object.defineProperty({ ...a }, "MAGE_01", { value: "a", enumerable: false })]) expect(scoreMentalAgeQuestionnaire(quiz, bad).status).toBe("invalid");
-    for (const q of quiz.questions) for (const bad of [0, 1, null, undefined, true, "0", "A", " a ", "na", "skip", [], {}]) expect(scoreMentalAgeQuestionnaire(quiz, { ...a, [q.id]: bad }).status).toBe("invalid");
-    expect(scoreMentalAgeQuestionnaire(quiz, Object.assign(Object.create(null), a)).status).toBe("complete");
-    const now = 1800000000000, draft = (patch = {}) => JSON.stringify({ version: quiz.version, savedAt: now, answers: { MAGE_01: "a" }, ...patch });
-    expect(readQuestionnaireDraft(quiz, draft(), now)).toEqual({ MAGE_01: "a" });
-    for (const patch of [{ version: "old" }, { savedAt: now + 1 }, { savedAt: now - 86400000 }, { answers: { MAGE_01: "na" } }]) expect(readQuestionnaireDraft(quiz, draft(patch), now)).toBeNull();
-  });
-  it("fails closed for drifted scores, source identity, sparse bank or incomplete public content", () => {
-    const mutations = [
-      (q: Questionnaire) => { q.questions[0].options[0].score = 3; }, (q: Questionnaire) => { delete q.questions[1]; },
-      (q: Questionnaire) => { delete q.questions[0].options[1]; }, (q: Questionnaire) => { q.questions[0].correctOptionId = "a"; },
-      (q: Questionnaire) => { q.source.scoringVersion = "foreign"; }, (q: Questionnaire) => { q.directions[0].itemCount = 11; },
-      (q: Questionnaire) => { q.profiles[0].sections.pop(); }, (q: Questionnaire) => { q.questions[0].prompt.en = ""; },
-      (q: Questionnaire) => { q.profiles[0].id = "young"; }, (q: Questionnaire) => { q.guide.pop(); },
-    ];
-    for (const mutate of mutations) { const q = structuredClone(quiz); mutate(q); expect(isMentalAgeConfigurationValid(q)).toBe(false); expect(scoreQuestionnaire(q, {})).toEqual({ status: "unavailable", answered: 0 }); }
-  });
-  it("renders the exact arithmetic, all choices and every full paragraph for all37 outputs in both languages", () => {
-    for (const locale of ["en", "zh"] as const) for (let sum = 0; sum <= 36; sum++) {
-      const answers = answerPoints(witness(sum)), result = scoreMentalAgeQuestionnaire(quiz, answers); if (result.status !== "complete") throw Error("Expected result");
-      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireMentalAgeReport quiz={quiz} result={result} answers={answers} locale={locale} />);
-      expect(dom.querySelector("[data-mental-age-value]")?.textContent).toBe(`${18 + 2 * sum}${locale === "zh" ? "岁" : " years"}`); expect(dom.querySelectorAll("[data-mental-age-answer]")).toHaveLength(12); expect(dom.querySelectorAll("[data-mental-age-choice-count]")).toHaveLength(4); expect(dom.querySelector("[data-mental-age-sharing]")).not.toBeNull(); expect(dom.querySelectorAll("h4")).toHaveLength(8);
-      for (const s of quiz.profiles[0].sections) for (const p of s.paragraphs) expect(dom.textContent).toContain(p[locale]);
-      for (const q of quiz.questions) expect(dom.querySelector(`[data-mental-age-answer="${q.id}"]`)?.textContent).toContain(q.options.find(o => o.id === answers[q.id])!.label[locale]);
-      const ids = Array.from(dom.querySelectorAll("[id]"), n => n.id); expect(ids.length).toBe(new Set(ids).size); if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);
-    }
-  });
+import { describe,it,expect } from "vitest";
+import raw from "@/lib/questionnaires/data/mental-age.json";
+import old from "@/lib/questionnaires/legacy/mental-age12.json";
+import {scoreMentalAgeQuestionnaire as scoreLegacy} from "@/lib/questionnaires/legacy/mentalAge12";
+import type {Questionnaire} from "@/lib/questionnaires/types";
+import {isMentalAgeConfigurationValid,scoreMentalAgeQuestionnaire,mentalAgeStyle,mentalAgeComparison,parseActualAge,mentalAgeExtraScreens} from "@/lib/questionnaires/mentalAge";
+import {readQuestionnaireDraft,scoreQuestionnaire} from "@/lib/questionnaires/scoring";
+const q=raw as Questionnaire,hash=(v:unknown)=>createHash("sha256").update(JSON.stringify(v)).digest("hex");
+const answers=(sum:number)=>Object.fromEntries(q.questions.map((item,i)=>[item.id,item.options.find(o=>o.score===Math.min(2,Math.max(0,sum-i*2)))!.id]));
+describe("Mental age classic30 source, age arithmetic and migration",()=>{
+ it("binds the original 30 statements, 15/15 keys, complete reading and public identity",()=>{
+  expect(isMentalAgeConfigurationValid(q)).toBe(true);expect(hash(q.questions)).toBe(q.source.itemBankSha256);expect(hash(q.profiles)).toBe(q.source.resultContentSha256);
+  expect(q.questions).toHaveLength(30);expect(q.questions.filter(x=>x.options[0].score===2)).toHaveLength(15);expect(q.description.en.length).toBeLessThanOrEqual(160);
+  expect(mentalAgeExtraScreens.map(s=>s.id)).toEqual(["gender","experience","astrology"]);
+ });
+ it("reaches every integer 10..70; agreeing or disagreeing throughout gives40",()=>{
+  for(let sum=0;sum<=60;sum++){const r=scoreQuestionnaire(q,answers(sum));expect(r).toMatchObject({status:"complete",answered:30,mentalAge:{sum,playfulAge:sum+10}});expect(mentalAgeStyle(sum+10)).toBeDefined();}
+  for(const id of ["agree","neither","disagree"])expect(scoreMentalAgeQuestionnaire(q,Object.fromEntries(q.questions.map(x=>[x.id,id])))).toMatchObject({mentalAge:{sum:30,playfulAge:40}});
+ });
+ it("rejects incomplete, foreign, unscored, accessor and drifted data",()=>{
+  const a=answers(30);for(let n=0;n<30;n++)expect(scoreMentalAgeQuestionnaire(q,Object.fromEntries(Object.entries(a).slice(0,n)))).toEqual({status:"incomplete",answered:n});
+  for(const bad of [null,[],Object.create(a),{...a,gender:"0"},{...a,MAC_01:"skip"},{...a,MAC_01:1},{...a,[Symbol("x")]:"agree"},Object.defineProperty({...a},"MAC_01",{get(){throw Error("getter must not run");}})])expect(scoreMentalAgeQuestionnaire(q,bad).status).toBe("invalid");
+  for(const mutate of [(x:Questionnaire)=>{x.questions[0].options[0].score=2;},(x:Questionnaire)=>{delete x.questions[1];},(x:Questionnaire)=>{x.source.scoringVersion="old";},(x:Questionnaire)=>{x.profiles[0].sections.pop();}]){const x=structuredClone(q);mutate(x);expect(scoreMentalAgeQuestionnaire(x,{}).status).toBe("unavailable");}
+ });
+ it("handles every supported real age without changing scored age, including missing and out-of-range",()=>{
+  expect(parseActualAge("")).toBeNull();expect(parseActualAge(" 35 ")).toBe(35);for(let n=1;n<=125;n++){expect(parseActualAge(String(n))).toBe(n);expect(mentalAgeComparison(40,n,2026)).toEqual({gap:40-n,equivalentYear:1986});}
+  for(const n of ["0","126","-1","1.5","NaN","Infinity","1e2"])expect(parseActualAge(n)).toBeUndefined();expect(mentalAgeComparison(40,null,2026)).toEqual({gap:null,equivalentYear:1986});
+  expect(mentalAgeComparison(10,125,2026)).toEqual({gap:-115,equivalentYear:2016});expect(mentalAgeComparison(70,1,2026)).toEqual({gap:69,equivalentYear:1956});
+  expect(mentalAgeComparison(40,0,2026)).toBeNull();expect(mentalAgeStyle(9)).toBeUndefined();expect(mentalAgeStyle(71)).toBeUndefined();
+ });
+ it("isolates the twelve-item edition and rejects its drafts instead of padding answers",()=>{
+  expect(isMentalAgeConfigurationValid(old)).toBe(false);expect(scoreMentalAgeQuestionnaire(old,{}).status).toBe("unavailable");
+  const legacyAnswers=Object.fromEntries(old.questions.map(x=>[x.id,x.options[0].id]));expect(scoreLegacy(old,legacyAnswers).status).toBe("complete");
+  const now=1800000000000;expect(readQuestionnaireDraft(q,"invalid-json",now)).toBeNull();expect(readQuestionnaireDraft(q,JSON.stringify({version:old.version,savedAt:now,answers:legacyAnswers}),now)).toBeNull();
+  expect(readQuestionnaireDraft(q,JSON.stringify({version:q.version,savedAt:now,answers:{MAGE_01:"a"}}),now)).toBeNull();
+ });
 });
