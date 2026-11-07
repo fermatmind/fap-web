@@ -35,7 +35,8 @@ describe("shared discovery directory", () => {
     expect(illustrated).toHaveLength(count);
     expect(new Set(covers.map(cover => cover.getAttribute("data-directory-cover"))).size).toBe(count);
     for (const image of illustrated) {
-      expect(image.getAttribute("src")).toBe(`/images/test-covers/${image.parentElement!.getAttribute("data-directory-cover")}.webp`);
+      const slug = image.parentElement!.getAttribute("data-directory-cover");
+      expect(image.getAttribute("src")).toBe(slug === "space-marine-chapter" ? "/images/quiz-portraits/space-marine-chapter/ultramarines-studio.webp" : `/images/test-covers/${slug}.webp`);
     }
     expect(container.querySelectorAll(".catalog-item-start")).toHaveLength(
       count,

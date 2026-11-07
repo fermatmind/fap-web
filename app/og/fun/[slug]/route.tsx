@@ -246,9 +246,8 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
     const publicProfile = questionnaire.profiles.find(profile => profile.id === portrait);
     return adultAgePreferencesCard(locale, topic, publicProfile?.directionIds, await quizFont(slug));
   }
-  if (slug === "space-marine-chapter" && questionnaire && portrait) {
-    const chapter = questionnaire.profiles.find(profile => profile.id === portrait);
-    if (chapter) return spaceMarineChapterCard(chapter, locale, await quizFont(slug));
+  if (slug === "space-marine-chapter" && questionnaire) {
+    return spaceMarineChapterCard(questionnaire.profiles, locale, await quizFont(slug), portrait ?? undefined);
   }
   if (slug === "moon-phase" && questionnaire) return moonPhaseOpenGraphCard(locale, result?.id, await quizFont(slug));
   if (slug === "bleach" && questionnaire) return bleachOpenGraphCard(locale, result?.id, await quizFont(slug));

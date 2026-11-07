@@ -10,8 +10,8 @@
     "zh": "星际战士战团测试"
   },
   "description": {
-    "zh": "用18道原创纸模型展示选择，探索极限战士、帝国之拳、钢铁之手、火蜥蜴、暗鸦守卫与白疤六种爱好角度。原始计数、全部最高并列和完整指南免费；非官方同人版，无需注册或游戏知识。",
-    "en": "Explore Ultramarines, Imperial Fists, Iron Hands, Salamanders, Raven Guard and White Scars through eighteen original paper-model choices. Raw counts, every highest tie and complete guides are free in this unofficial fan quiz, without signup or game knowledge."
+    "zh": "用18道纸模型情境题，看看六个星际战士战团主题中，你选得最多的是哪一种爱好视角。免费查看原始计数、所有最高并列和完整指南；非官方同人测试，无需注册或背景知识。",
+    "en": "Take this unofficial Space Marine Chapter quiz through 18 paper-model choices. See six raw counts, every highest tie and free Chapter-inspired hobby guides. No signup or lore knowledge needed."
   },
   "seoTitle": {
     "zh": "星际战士战团测试：18题与六战团完整爱好解读",
@@ -23,8 +23,8 @@
   },
   "minutes": 5,
   "introduction": {
-    "zh": "一场原创纸模型展示中，你更想约计划、搭底座、试接合、作细节、看布局，还是探索另一条虚构路线？18道原创四选一，借六支星际战士战团比较这些爱好选择。约5分钟，免费查看原始计数与所有最高并列的完整指南。非官方同人娱乐版，不考剧情，也不提供配军推荐。",
-    "en": "In an original paper-model display, would you rather agree a plan, support a base, test a joint, craft a detail, observe the layout or explore another fictional route? Eighteen original four-choice items compare these hobby choices through six Space Marine Chapters. Allow about five minutes for raw counts and complete guides for every highest tie, all free. An unofficial entertainment edition, without trivia or army recommendations."
+    "zh": "在一次共同模型展示里，你更想做计划、稳底座、试接合、做细节、看布局，还是探索另一条路线？18道原创选择比较六个战团主题的爱好视角，不判断你在背景性格上最像哪团，也不推荐配军。所有最高并列都有免费完整指南。",
+    "en": "At a shared model display, would you rather plan, steady a base, test a joint, craft a detail, observe the layout or explore another route? These 18 original choices compare six Chapter-inspired hobby perspectives, not your closest lore personality or army choice. Every highest tie has a free complete guide."
   },
   "instructions": {
     "zh": "想象自己愿意参加的一次小型纸模型展示，选择当题更想先做的一项，不必模仿战团设定或猜标准答案。每题四选一；未出现的战团不算被拒绝。完成18题后显示六项计数，每个最高并列均可阅读完整指南，包含结果解读、复盘和交流建议。点击开始直接进入题目，无需额外同意、账号、邮箱或前置测试；不限时。",
@@ -1659,8 +1659,8 @@
       },
       "paragraphs": [
         {
-          "en": "Choices are scored in your browser without answer uploads or answers in URLs or analytics. The separate answering page keeps choices only for this attempt; refreshing or changing language starts again. Sharing contains only public names and a link, never answers or counts. All complete guides are free without signup, email or an MBTI result. Optional next assessments have separate purposes and require their own answers.",
-          "zh": "选择在浏览器计分，不上传，不把答案放网址或分析。独立答题页只在本次作答中保留选择，刷新或换语言会重新开始。分享只有公开名称、链接，不含答案、次数。全文免费，无需注册、邮箱或MBTI结果；可选后续测评目的独立，须另答。"
+          "en": "Choices are scored in your browser without answer uploads or answers in URLs or analytics. The separate answering page keeps choices only for this attempt; refreshing or changing language starts again. Copied text and public guide cards contain no private answers or counts. Personal result images are created locally in your browser with every highest Chapter and its count, without item answers; saving or sharing is your choice. All complete guides are free without signup, email or an MBTI result. Optional next assessments have separate purposes and require their own answers.",
+          "zh": "选择在浏览器计分，不上传，不把答案放网址或分析。独立答题页只在本次作答中保留选择，刷新或换语言会重新开始。复制文字和公开指南卡不含私人答案或计数。个人结果图在浏览器本地生成，包含全部最高战团及其计数、不含逐题答案，由你主动选择保存或分享。全文免费，无需注册、邮箱或MBTI结果；可选后续测评目的独立，须另答。"
         }
       ]
     }

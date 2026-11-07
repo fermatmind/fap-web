@@ -1,3 +1,4 @@
+import { chapterPortraitPath } from "@/lib/questionnaires/spaceMarineChapters";
 import Image from "next/image";
 import { QuizResultArtwork } from "./QuizResultArtwork";
 import type { Locale } from "@/lib/i18n/locales";
@@ -131,7 +132,7 @@ export function PortraitResultLead({ kind, quiz, profile, result, locale, titleI
   const zh = locale === "zh";
   const edition = editions[quiz.slug];
   const showsHeadline = kind !== "house" && profile.headline[locale] !== profile.title[locale] && profile.headline[locale] !== profile.summary[locale];
-  const artwork = illustratedTests.has(quiz.slug) ? `/images/quiz-portraits/${quiz.slug}/${profile.id}.webp` : undefined;
+  const artwork = quiz.slug === "space-marine-chapter" ? chapterPortraitPath(profile.id) : illustratedTests.has(quiz.slug) ? `/images/quiz-portraits/${quiz.slug}/${profile.id}.webp` : undefined;
 
   return <header className={styles.lead} data-portrait-lead={kind} data-portrait-key={profile.id} data-portrait-tone={edition.tone} data-portrait-layout={edition.layout} data-portrait-emblem={edition.emblem} data-portrait-art={artwork ? profile.id : undefined}>
     <div className={styles.intro}>
@@ -141,7 +142,7 @@ export function PortraitResultLead({ kind, quiz, profile, result, locale, titleI
       <p className={styles.summary}>{profile.summary[locale]}</p>
     </div>
     {artwork && <Image className={styles.art} src={artwork} width={640} height={640} unoptimized alt="" />}
-    <QuizResultArtwork slug={quiz.slug} id={profile.id} />
+    {quiz.slug !== "space-marine-chapter" && <QuizResultArtwork slug={quiz.slug} id={profile.id} />}
     {kind === "botanical" ? <PetalMark /> : edition.emblem ? <SymbolMark emblem={edition.emblem} /> : kind !== "symbol" && typeof count === "number" && direction?.comparisons ? <dl className={styles.selection}>
       <div><dt>{zh ? "本次选中" : "Chosen this time"}</dt><dd>{count}<span> / {direction.comparisons}</span></dd></div>
       <div><dt>{zh ? "分母" : "Denominator"}</dt><dd>{zh ? "该选项出现次数" : "Times this option appeared"}</dd></div>

@@ -136,8 +136,8 @@ export const spaceMarineChaptersLandingSections: Questionnaire["guide"] = [
         "en": "Both languages retain the same Chapter identities, item mappings and result links. Read in a familiar language; corresponding prose does not establish measurement equivalence. On retaking, inspect changed answers and the kind of project you wanted to make. Different projects, interpretations or ordinary variation may affect results, so a changed name alone cannot establish personality change."
       },
       {
-        "zh": "点击开始直接进入题目，无需额外同意、注册、邮箱或先做MBTI。答案在浏览器计算，独立答题页只在本次作答中保留选择；刷新或换语言会重新开始。分享只包含公开名称和链接，不包含私人答案或计数。你可以自己读，也可以只分享愿意讨论的爱好点，不需要公开作答来证明战团忠诚。",
-        "en": "Start opens questions directly without another agreement, signup, email or prior MBTI test. Answers are scored in the browser. The separate answering page keeps choices only for this attempt; refreshing or changing language starts again. Sharing includes public names and a link, not private answers or counts. Read privately or share hobby points you wish to discuss, without disclosing answers to prove Chapter loyalty."
+        "zh": "点击开始直接进入题目，无需额外同意、注册、邮箱或先做MBTI。答案在浏览器计算，独立答题页只在本次作答中保留选择；刷新或换语言会重新开始。复制文字和公开指南卡只包含公开信息，不含私人答案或计数；个人结果图在本浏览器生成，包含全部最高战团及其计数，不含逐题答案，由你主动保存或分享。你可以自己读，也可以只分享愿意讨论的爱好点，不需要公开作答来证明战团忠诚。",
+        "en": "Start opens questions directly without another agreement, signup, email or prior MBTI test. Answers are scored in the browser. The separate answering page keeps choices only for this attempt; refreshing or changing language starts again. Copied text and public guide cards contain no private answers or counts. Your browser can create a personal result image with every highest Chapter and its count, without item answers; saving or sharing it is your choice. Read privately or share hobby points you wish to discuss, without disclosing answers to prove Chapter loyalty."
       }
     ]
   }
