@@ -30,7 +30,7 @@ describe("individual seven-color expression editorial", () => {
       expect(new Set(summaries).size).toBe(7);
       for (const summary of summaries) expect(dom.textContent).toContain(summary);
       expect(dom.querySelectorAll('[aria-labelledby="questionnaire-results"] > ul > li')).toHaveLength(7);
-      expect(dom.querySelector("#questionnaire-results")?.textContent).toContain(locale === "zh" ? "红橙黄绿蓝靛紫" : "Seven colors");
+      expect(dom.querySelector("#questionnaire-results")?.textContent).toBe(locale === "zh" ? "光环颜色含义：红、橙、黄、绿、蓝、靛、紫" : "Aura Color Meanings: All Seven Colors");
       expect(dom.querySelectorAll('[aria-labelledby="questionnaire-faq"] > section')).toHaveLength(14);
       const normalize = (text: string) => text.replace(/\[\d+\]/g, "").replace(/\s+/g, " ").trim();
       const body = normalize(dom.textContent ?? "");
