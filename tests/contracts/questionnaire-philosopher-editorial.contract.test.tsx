@@ -1,3 +1,4 @@
+import { PhilosopherResultExamples, philosopherExampleSheets } from "@/components/questionnaires/PhilosopherResultExamples";
 import { philosopherLandingSections, philosopherLandingFaq } from "@/components/questionnaires/PhilosopherLandingEditorial";
 import { describe, expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -10,6 +11,24 @@ vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
 const quiz = raw as Questionnaire;
 
 describe("individual nine-path philosophy editorial", () => {
+  it("renders three actual current-scored synthetic examples without altering source-bound reports", () => {
+    for (const [index, sheet] of philosopherExampleSheets.entries()) {
+      const result = scoreArchetypeQuestionnaire(quiz, Object.fromEntries(quiz.questions.map((q, i) => [q.id, sheet[i]])));
+      expect(result.status).toBe("complete");
+      if (result.status !== "complete") throw new Error("Synthetic example rejected");
+      expect(result.profileIds).toHaveLength([1, 2, 9][index]);
+      expect(Object.values(result.counts).reduce((sum, count) => sum + count, 0)).toBe(18);
+      expect(Math.max(...Object.values(result.counts))).toBe([8, 4, 2][index]);
+    }
+    for (const locale of ["en", "zh"] as const) {
+      const dom = document.createElement("div");
+      dom.innerHTML = renderToStaticMarkup(<PhilosopherResultExamples quiz={quiz} locale={locale} />);
+      expect(dom.querySelectorAll("article")).toHaveLength(3);
+      for (const [index, count] of [1, 2, 9].entries()) expect(dom.querySelectorAll(`[data-philosopher-example="${index}"] a`)).toHaveLength(count);
+      expect(dom.querySelectorAll("dd")).toHaveLength(27);
+      for (const link of dom.querySelectorAll("a")) expect(link.getAttribute("href")).toContain(`/${locale}/tests/explore/${quiz.slug}/results/`);
+    }
+  });
   it("reproduces the exact public two-approach tie example from actual options", () => {
     const ids = ["B","C","B","B","D","B","B","A","D","D","C","C","A","B","C","C","B","A"];
     const answers = Object.fromEntries(quiz.questions.map((q,i) => [q.id,ids[i]]));

@@ -95,6 +95,7 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId }:
       </section>}
     </details>;
   return <div className={styles.profileReadings} data-profile-category={quiz.category} data-choice-chart-placement={placement}>
+    {quiz.slug === "philosopher-personality-test" && <p className="leading-7">{zh ? "下面是本次选择对应的原典阅读入口。先读最高项，再比较其他指南；次数不表示你与历史人物有多像，也不代表赞同其全部学说。" : "These are primary-text reading paths associated with your choices. Start with the highest counts, then compare other guides; counts measure neither resemblance to a historical person nor agreement with an entire philosophy."}</p>}
     {result.profileIds.length > 1 && <p className="leading-7">{zh ? `本次保留${result.profileIds.length}项并列匹配，可以分别阅读；顺序不代表主次。` : `All ${result.profileIds.length} tied matches are kept. Read each in turn; their order does not imply priority.`}</p>}
     {placement && matched.length > 1 && <nav className={styles.matchNav} aria-label={zh ? "跳到匹配结果" : "Jump to a match"}>
       {matched.map(profile => <a key={profile.id} href={`#animal-title-${profile.id}`}>
@@ -115,6 +116,9 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId }:
         <div className={styles.profileBody}>
           <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${id}`} mode="result" showHeadline={false} showSummary={false} previewSectionIds={previewSections(profile)} />
           <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "单独阅读这项结果的完整指南" : "Read this result’s full guide separately"}</Link>
+          {quiz.slug === "philosopher-personality-test" && <a className="ml-5 inline-block min-h-11 py-2 underline" href={`/og/fun/${quiz.slug}?locale=${locale}&portrait=${id}&v=${quiz.version}-reading`} target="_blank" rel="noopener">
+            {zh ? "预览这份公开阅读指南的分享图（新标签页）" : "Preview this public reading guide’s share card (new tab)"}
+          </a>}
           {quiz.slug === "aura-color" && <a className="ml-5 inline-block min-h-11 py-2 underline" href={auraShareCardPath(locale, id, quiz.version)} target="_blank" rel="noopener">
             {zh ? "预览该颜色的公开分享图（新标签页）" : "Preview this color’s public share card (new tab)"}
           </a>}
