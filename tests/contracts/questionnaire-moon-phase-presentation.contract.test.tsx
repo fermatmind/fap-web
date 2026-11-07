@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 import raw from "@/lib/questionnaires/data/moon-phase.json";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import { scoreArchetypeQuestionnaire } from "@/lib/questionnaires/scoring";
+import { MoreTests } from "@/components/entertainment/MoreTests";
 import { MoonPhaseReveal } from "@/components/questionnaires/MoonPhaseReveal";
 import { moonPhasePresentations, moonPhaseImage, moonPhasePresentation } from "@/lib/questionnaires/moonPhasePresentation";
 
@@ -15,6 +16,15 @@ describe("moon phase visual result boundary", () => {
     expect(new Set(images).size).toBe(8);
     expect(moonPhasePresentation("__proto__")).toBeUndefined();
     expect(moonPhasePresentation("unknown")).toBeUndefined();
+  });
+  it.each(["en", "zh"] as const)("uses the visible directory override for the %s moon phase card", locale => {
+    const root = document.createElement("div");
+    root.innerHTML = renderToStaticMarkup(<MoreTests locale={locale} />);
+    const link = root.querySelector(`h4 a[href="/${locale}/tests/explore/moon-phase"]`)!;
+    const copy = link.closest("article")!.querySelector(".catalog-item-body > p")!.textContent!;
+    expect(copy).toContain(locale === "zh" ? "24题" : "24 questions");
+    expect(copy).toContain(locale === "zh" ? "全部最高并列" : "every top match");
+    expect(copy).toContain(locale === "zh" ? "八份指南" : "eight full guides");
   });
   it.each(["en", "zh"] as const)("reveals every highest tie in %s with reasons derived only from selected options", locale => {
     for (const target of [...quiz.profiles.map(p => p.id), "tie"]) {
