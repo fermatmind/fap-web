@@ -1,9 +1,10 @@
+import { BleachReveal } from "./BleachReveal";
 import { PhilosopherReport } from "./PhilosopherReport";
 import { auraShareCardPath } from "@/lib/questionnaires/auraColors";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import Link from "next/link";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
-import type { Questionnaire, QuestionnaireProfile } from "@/lib/questionnaires/types";
+import type { Questionnaire, QuestionnaireProfile, QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import type { ArchetypeResult } from "@/lib/questionnaires/scoring";
 import type { Locale } from "@/lib/i18n/locales";
 import styles from "./QuestionnaireResultPresentation.module.css";
@@ -12,7 +13,7 @@ import { ChiikawaPortrait } from "./ChiikawaPortrait";
 import { EdgerunnersPortrait } from "./EdgerunnersPortrait";
 import { SpaceMarineChapterReveal } from "./SpaceMarineChapterReveal";
 
-const comparisonFirst = new Set(["cyberpunk-edgerunners", "chiikawa", "south-park", "space-marine-chapter", "dexter", "dungeons-dragons-class", "blue-lock", "naruto-character", "gilmore-girls", "philosopher-personality-test"]);
+const comparisonFirst = new Set(["bleach", "cyberpunk-edgerunners", "chiikawa", "south-park", "space-marine-chapter", "dexter", "dungeons-dragons-class", "blue-lock", "naruto-character", "gilmore-girls", "philosopher-personality-test"]);
 const chartAfterLead = new Set(["anime-character-archetype-test", "spirit-animal", "tsundere-dere-type"]);
 const chartAfterReading = new Set(["aura-color", "which-tarot-card-are-you"]);
 
@@ -43,7 +44,7 @@ function previewSections(profile: QuestionnaireProfile) {
   ].filter((id): id is string => Boolean(id));
 }
 
-export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId }: { quiz: Questionnaire; result: Extract<ArchetypeResult, { status: "complete" }>; locale: Locale; sampleId?: string }) {
+export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId, answers }: { quiz: Questionnaire; result: Extract<ArchetypeResult, { status: "complete" }>; locale: Locale; sampleId?: string; answers?: QuestionnaireAnswers }) {
   if (quiz.slug === "philosopher-personality-test" && !sampleId) return <PhilosopherReport quiz={quiz} result={result} locale={locale} />;
   const zh = locale === "zh";
   const lead = portraitResultLeadKind(quiz.slug);
@@ -98,6 +99,7 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId }:
       </section>}
     </details>;
   return <div className={styles.profileReadings} data-profile-category={quiz.category} data-choice-chart-placement={placement}>
+    {quiz.slug === "bleach" && <BleachReveal quiz={quiz} result={result} locale={locale} answers={answers} />}
     {quiz.slug === "space-marine-chapter" && <SpaceMarineChapterReveal quiz={quiz} result={result} locale={locale} />}
     {quiz.slug === "philosopher-personality-test" && <p className="leading-7">{zh ? "下面是本次选择对应的原典阅读入口。先读最高项，再比较其他指南；次数不表示你与历史人物有多像，也不代表赞同其全部学说。" : "These are primary-text reading paths associated with your choices. Start with the highest counts, then compare other guides; counts measure neither resemblance to a historical person nor agreement with an entire philosophy."}</p>}
     {result.profileIds.length > 1 && <p className="leading-7">{zh ? `本次保留${result.profileIds.length}项并列匹配，可以分别阅读；顺序不代表主次。` : `All ${result.profileIds.length} tied matches are kept. Read each in turn; their order does not imply priority.`}</p>}
