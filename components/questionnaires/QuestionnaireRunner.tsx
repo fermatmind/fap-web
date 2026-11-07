@@ -39,7 +39,7 @@ const directionPresentation = {
   "likable-person-test": { eyebrow: { zh: "五种互动贡献 · 本次选择", en: "Five ways to contribute in an interaction" }, previews: ["dialogue", "optional-observation"] },
   "food-choice": { eyebrow: { zh: "餐桌选择 · 本次搭配", en: "Table choices · This attempt" }, previews: ["scene", "next-step"] },
   "love-personality": { eyebrow: { zh: "四种相处方式 · 本次选择", en: "Four ways of relating · Your choices" }, previews: ["real-world-scenes", "real-world-checkpoints", "balancing-actions", "counterbalance-prompts"] },
-  "adult-age-preferences": { eyebrow: { zh: "成年阶段与相处条件 · 本次选择", en: "Adult life stages and relationship contexts" }, previews: ["fictional-example", "optional-step"] },
+  "adult-age-preferences": { eyebrow: { zh: "本次选择", en: "Your choices" }, previews: ["fictional-example", "optional-step"] },
 };
 
 const QuestionnaireResultSections = questionnaireModule<import("./QuestionnaireReports").QuestionnaireReportProps>(() => import("./QuestionnaireReports").then(module => ({ default: module.QuestionnaireResultSections })));
@@ -189,11 +189,14 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
   const responseColor = quiz.slug === "response-color";
   const adultAgePreferences = quiz.slug === "adult-age-preferences";
   const directionReading = Object.hasOwn(directionPresentation, quiz.slug) ? directionPresentation[quiz.slug as keyof typeof directionPresentation] : undefined;
-  const showDirectionCounts = Boolean(directionReading) && !adultAgePreferences;
+  const showDirectionCounts = Boolean(directionReading);
   const directionEyebrow = directionReading?.eyebrow[locale] ?? (zh ? "本题组内的选择结果" : "Choices in this question set");
-  const directionCounts = directional && <ResultSection className={showDirectionCounts ? resultStyles.choiceCounts : undefined} title={zh ? "各方向的本次选择次数" : "Your counts across the directions"} aria-label={zh ? "本次原始选择次数" : "Raw choice counts for this attempt"}>
+  const directionCounts = directional && <ResultSection className={showDirectionCounts ? resultStyles.choiceCounts : undefined} title={adultAgePreferences ? (zh ? "三项选择次数" : "Your three choice counts") : (zh ? "各方向的本次选择次数" : "Your counts across the directions")} aria-label={zh ? "本次原始选择次数" : "Raw choice counts for this attempt"}>
     {quiz.directions.map(direction => <ResultScoreRow key={direction.id} data-disc-direction={disc ? direction.id : undefined} data-colour-direction={responseColor ? direction.id : undefined} data-egen-teto-direction={quiz.slug === "egen-teto" ? direction.id : undefined} label={direction.title[locale]} value={`${directional.counts[direction.id]} / ${direction.comparisons}`} score={directional.counts[direction.id]} min={0} max={direction.comparisons} />)}
-    <p className="mt-3 text-sm leading-7">{zh ? "分母为该方向参加比较的次数。原始次数只比较本题组内的选择，不是人群排名或能力分数。" : "The denominator is the number of comparisons for that direction. Raw counts compare choices within this question set, not population ranks or ability scores."}</p>
+    <p className="mt-3 text-sm leading-7">{adultAgePreferences ? (zh
+      ? `每种情境出现 12 次，三项合计 18 次。${directional.leaders.length === 3 ? "三项各选 6 次，没有单独的最高项。" : directional.leaders.length === 2 ? "两项同为最高，结果保留两项。" : "最高项是你在这组题里选得最多的情境。"}次数不能换算成理想年龄差。`
+      : `Each context appeared 12 times. Your counts add up to 18. ${directional.leaders.length === 3 ? "All three were chosen 6 times, so there is no single leader." : directional.leaders.length === 2 ? "Two contexts share the highest count, so both are shown." : "The highest count is the context you chose most often in these questions."} These counts do not tell you an ideal age gap.`)
+      : zh ? "分母为该方向参加比较的次数。原始次数只比较本题组内的选择，不是人群排名或能力分数。" : "The denominator is the number of comparisons for that direction. Raw counts compare choices within this question set, not population ranks or ability scores."}</p>
   </ResultSection>;
   return <section id="take-test" data-stage={stage} data-result-variant={stage === "result" && !miniVirtues ? questionnaireResultVariant(quiz.kind) : undefined} data-result-kind={stage === "result" && miniVirtues ? "mini-virtues" : undefined} className={`my-8 rounded-xl border border-violet-200 bg-white p-5 sm:p-8 ${stage === "result" && !miniVirtues ? resultStyles.page : ""}`} aria-label={zh ? "作答与完整结果" : "Questionnaire and full results"}>
     {quiz.slug === "relationship-values" && <span id="play" className="block scroll-mt-24" aria-hidden="true" />}
@@ -221,17 +224,17 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
       <h2 ref={heading} tabIndex={-1} className="text-3xl font-semibold leading-tight outline-none [overflow-wrap:anywhere] scroll-mt-24">{miniVirtues ? (zh ? "七宗罪与七美德测试结果" : "Seven Sins and Virtues: Your Results") : profile?.title[locale] ?? quiz.resultHeading?.[locale] ?? (zh ? `${quiz.title.zh}：完整结果` : `${quiz.title.en}: your complete result`)}</h2>}
       {directional && profile && <>
       <div className={resultStyles.readingFlow} data-result-reading-flow={quiz.slug}>
-        <ResultOverview eyebrow={directionEyebrow} title={profile.headline[locale]} description={profile.summary[locale]} />
+        {!adultAgePreferences && <ResultOverview eyebrow={directionEyebrow} title={profile.headline[locale]} description={profile.summary[locale]} />}
         {showDirectionCounts && directionCounts}
-        {adultAgePreferences && <details className={`${resultStyles.fullReading} ${resultStyles.optionalDirectionCounts}`}>
-          <summary>{zh ? "查看本次三个成年情境的原始次数" : "View your raw counts for the three adult contexts"}</summary>
-          {directionCounts}
-        </details>}
+        {adultAgePreferences && <div className="space-y-1 border-t border-slate-200 px-5 py-3 sm:px-6">
+          <a className="inline-flex min-h-11 items-center font-semibold underline underline-offset-4" href={`/og/fun/adult-age-preferences?locale=${locale}&portrait=${profile.id}&v=${quiz.version}-art`} target="_blank" rel="noreferrer">{zh ? "打开结果分享图" : "Open result share card"}</a>
+          <p className="text-sm leading-6 text-slate-600">{zh ? "分享图和链接只展示公开结果类别，不含你的答案、次数或个人资料。" : "The card and link show only the public result category, with no answers, counts, or personal details."}</p>
+        </div>}
         <div className={resultStyles.profileBody}>
           <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} showHeadline={false} showSummary={false} mode="result" previewSectionIds={directionReading?.previews} />
         </div>
       </div>
-      {!showDirectionCounts && !adultAgePreferences && <details className={resultStyles.fullReading}>
+      {!showDirectionCounts && <details className={resultStyles.fullReading}>
         <summary>{zh ? "查看各方向的原始选择次数" : "View the raw counts for every direction"}</summary>
         {directionCounts}
       </details>}
@@ -244,6 +247,7 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
           : (zh ? "分享会复制全部并列角色的名称和测试入口，不包含答卷或次数。" : "Sharing copies all tied character names and the quiz link, without your answers or counts.")}
       </p>}
       <div data-mini-virtues-actions={miniVirtues ? "true" : undefined} className={miniVirtues ? "flex flex-wrap gap-3" : resultStyles.runnerActions}><button className={button} onClick={copy}>{quiz.slug === "hsp-sensitivity-quiz" || adexi14 || ptq15 || miniFriction || interactionPairs || extraversionUnscored || affection || attachment || distributedWork || workRole || skillsEvidence || quiz.slug === "work-traits-reflection" || quiz.slug === "work-activity-interests" || quiz.slug === "interpersonal-preferences" || quiz.slug === "everyday-control-style" || loveType16 || mentalAge || quiz.kind === "fds32" || quiz.slug === "energy-flow" || quiz.slug === "cognitive-functions-test" || quiz.slug === "cultural-dimensions" || quiz.slug === "food-choice" || quiz.slug === "values-assessment" || quiz.slug === "eq-dashboard" || miniVirtues || quiz.slug === "euphoria-character-quiz" ? (zh ? "复制公开入口" : "Copy public entry") : preparationActions20 ? (zh ? "复制五份公开指南链接" : "Copy five public guide links") : (zh ? "复制结果与链接" : "Copy result and link")}</button><button className={button} onClick={() => start()}>{zh ? "重新测试" : "Retake test"}</button></div>
+      {adultAgePreferences && <Link prefetch={false} className="mt-3 inline-flex min-h-11 items-center underline underline-offset-4" href={questionnairePath(locale, quiz.slug)}>{zh ? "返回测试介绍" : "Back to quiz introduction"}</Link>}
       {manualCopy && <textarea readOnly aria-label={zh ? "手动复制结果" : "Result text for manual copying"} value={manualCopy} onFocus={e => e.target.select()} className="mt-4 min-h-40 w-full rounded border p-3" />}
     </>}
     {message && <p role="status" className="mt-5 rounded-lg bg-amber-50 p-3 text-sm leading-7">{message}</p>}

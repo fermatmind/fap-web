@@ -38,6 +38,7 @@ import { socialAttitudesLandingSections, socialAttitudesLandingFaq, socialAttitu
 import { interpersonalLandingSections, interpersonalLandingFaq } from "./InterpersonalLandingEditorial";
 import { controlLandingSections, controlLandingFaq, controlLandingReferences } from "./EverydayControlLandingEditorial";
 import { edgerunnersLandingSections, edgerunnersLandingFaq } from "./EdgerunnersLandingEditorial";
+import { AdultAgePreferencesExamples } from "./AdultAgePreferencesExamples";
 import { AuraColorResultExamples } from "./AuraColorResultExamples";
 import { EdgerunnersResultExamples } from "./EdgerunnersResultExamples";
 import { EdgerunnersPortrait } from "./EdgerunnersPortrait";
@@ -476,7 +477,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (quiz?.kind === "nine-star-year" && !isNineStarYearConfigurationValid(quiz)) return { title: "Year reference unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "birth-number" && !isBirthNumberConfigurationValid(quiz)) return { title: "Calculator unavailable", robots: { index: false, follow: false } };
   if (!quiz || (quiz.kind === "fds32" && !isFds32ConfigurationValid(quiz)) || (quiz.kind === "mental-age" && !isMentalAgeConfigurationValid(quiz)) || (quiz.kind === "pss4" && !isPss4ConfigurationValid(quiz)) || (quiz.kind === "stress-reflection4" && !isStressReflection4ConfigurationValid(quiz)) || (quiz.kind === "mini-orientation" && !isMiniOrientationConfigurationValid(quiz)) || (quiz.kind === "mini-conflict" && !isMiniConflictConfigurationValid(quiz)) || (quiz.kind === "four-axes" && !isFourAxesConfigurationValid(quiz)) || (quiz.kind === "mini-shadow" && !isMiniShadowConfigurationValid(quiz)) || (quiz.kind === "preparation-actions20" && !isPreparationActions20ConfigurationValid(quiz)) || (quiz.kind === "mini-coping" && !isMiniCopingConfigurationValid(quiz)) || (quiz.kind === "mini-habit" && !isMiniHabitConfigurationValid(quiz)) || (quiz.kind === "mini-intimacy" && !isMiniIntimacyConfigurationValid(quiz)) || (quiz.kind === "mini-breakup" && !isMiniBreakupConfigurationValid(quiz)) || (quiz.kind === "holding-back35" && !isHoldingBack35ConfigurationValid(quiz)) || (quiz.kind === "fscrs22" && !isFscrs22ConfigurationValid(quiz)) || (quiz.kind === "parenting-practices" && !isParentingPracticesConfigurationValid(quiz)) || (quiz.kind === "spq92" && !isSpq92ConfigurationValid(quiz)) || (quiz.kind === "adexi14" && !isAdexi14ConfigurationValid(quiz)) || (quiz.kind === "mini-friction" && !isMiniFrictionConfigurationValid(quiz)) || (quiz.kind === "ctl41" && !isCtl41ConfigurationValid(quiz)) || (quiz.kind === "ptq15" && !isPtq15ConfigurationValid(quiz)) || (quiz.kind === "interaction-pairs" && !isInteractionPairsConfigurationValid(quiz)) || (quiz.kind === "work-role12" && !isWorkRole12ConfigurationValid(quiz)) || (quiz.kind === "skills-evidence" && !isSkillsEvidenceConfigurationValid(quiz)) || (quiz.slug === "dark-tetrad-sd4" && !isSd4ConfigurationValid(quiz)) || (quiz.kind === "tipi10" && !isTipi10ConfigurationValid(quiz)) || (quiz.kind === "saps" && !isSapsConfigurationValid(quiz)) || (quiz.kind === "scs26" && !isScs26ConfigurationValid(quiz)) || (quiz.kind === "cbi" && !isCbiConfigurationValid(quiz)) || (quiz.kind === "rosenberg" && !isRosenbergConfigurationValid(quiz)) || (quiz.kind === "political-coordinates" && !isPoliticalCoordinatesConfigurationValid(quiz)) || (quiz.kind === "data-entry" && !isDataEntryConfigurationValid(quiz)) || (quiz.kind === "secs" && !isSecsConfigurationValid(quiz)) || (quiz.kind === "paired-dimensions" && !isPairedDimensionsConfigurationValid(quiz)) || (quiz.kind === "typing" && !isTypingConfigurationValid(quiz))) return { title: "Test unavailable", robots: { index: false, follow: false } };
-  return buildPageMetadata({ locale, pathname: questionnairePath(locale, slug), title: quiz.seoTitle[locale], description: (slug === "stress-check-in-test" ? monthlyStressLandingDescription[locale] : slug === "four-axes-test" ? fourAxesLandingDescription[locale] : quiz.description[locale]), imagePath: `/og/fun/${slug}?locale=${locale}&v=${quiz.version}`, alternatesByLocale: { en: questionnairePath("en", slug), zh: questionnairePath("zh", slug), xDefault: questionnairePath("en", slug) } });
+  return buildPageMetadata({ locale, pathname: questionnairePath(locale, slug), title: quiz.seoTitle[locale], description: (slug === "stress-check-in-test" ? monthlyStressLandingDescription[locale] : slug === "four-axes-test" ? fourAxesLandingDescription[locale] : quiz.description[locale]), imagePath: `/og/fun/${slug}?locale=${locale}&v=${quiz.version}${slug === "adult-age-preferences" ? "-art" : ""}`, alternatesByLocale: { en: questionnairePath("en", slug), zh: questionnairePath("zh", slug), xDefault: questionnairePath("en", slug) } });
 }
 
 export default async function QuestionnairePage({ params, take = false }: Props & { take?: boolean }) {
@@ -1037,8 +1038,8 @@ return (quiz.references ?? []);
     <ExploreTestIntro slug={slug} locale={locale} sideContent={sample?.status === "complete" && sample.model === "dual" ? <QuestionnaireSevenSinsSample result={sample} locale={locale} /> : undefined}>
 
     <h1 className="mt-3 text-4xl font-semibold leading-tight">{slug === "work-activity-interests" && zh ? <><span className="inline-block">{quiz.title.zh.split("：")[0]}：</span><span className="inline-block">{quiz.title.zh.split("：").slice(1).join("：")}</span></> : slug === "parenting-style" && zh ? <>{quiz.title.zh.split("：")[0]}：<br />{quiz.title.zh.split("：").slice(1).join("：")}</> : quiz.title[locale]}</h1>
-    <p className="mt-5 text-lg leading-8 text-slate-700">{(slug === "stress-check-in-test" ? monthlyStressLandingDescription[locale] : slug === "four-axes-test" ? fourAxesLandingDescription[locale] : quiz.description[locale])}</p>
-    {quiz.kind !== "mini-virtues" && <p className="explore-intro-meta"><span>{quiz.kind === "fscrs22" ? (zh ? "22 条陈述 · 按自己的节奏 · 无需注册" : "22 statements · Self-paced · No signup") : zh ? `${quiz.questions.length}题 · 约${quiz.minutes}分钟 · 无需注册` : `${quiz.questions.length} questions · about ${quiz.minutes} ${quiz.minutes === 1 ? "minute" : "minutes"} · no signup`}</span><span>{entryLabel}</span></p>}
+    <p className="mt-5 text-lg leading-8 text-slate-700">{(slug === "adult-age-preferences" ? (zh ? "你在恋爱中更偏向年上、同龄还是年下？想象与不同年龄的成年人相处，看看哪些情境更符合你现在的期待。" : "Would you rather date someone older, around your age, or younger? Picture everyday situations between adults and see which ones you choose most often.") : slug === "stress-check-in-test" ? monthlyStressLandingDescription[locale] : slug === "four-axes-test" ? fourAxesLandingDescription[locale] : quiz.description[locale])}</p>
+    {quiz.kind !== "mini-virtues" && <p className="explore-intro-meta"><span>{quiz.kind === "fscrs22" ? (zh ? "22 条陈述 · 按自己的节奏 · 无需注册" : "22 statements · Self-paced · No signup") : zh ? `${quiz.questions.length}题 · 约${quiz.minutes}分钟 · 无需注册` : `${quiz.questions.length} questions · about ${quiz.minutes} ${quiz.minutes === 1 ? "minute" : "minutes"} · no signup`}</span>{slug !== "adult-age-preferences" && <span>{entryLabel}</span>}</p>}
 
     <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     {slug === "aura-color" && <div className="mt-2 flex flex-wrap gap-x-5 text-sm font-medium">
@@ -1054,6 +1055,10 @@ return (quiz.references ?? []);
       <a href="#questionnaire-results" className="inline-flex min-h-11 items-center underline underline-offset-4">{zh ? "查看六位角色指南" : "Browse the six character guides"}</a>
     </div>}
     </ExploreTestIntro>
+    {slug === "adult-age-preferences" && <AdultAgePreferencesExamples quiz={quiz} locale={locale} />}
+    {slug === "dating-outlook" && <p className="my-5 text-sm leading-7">
+      {zh ? "想单独了解伴侣年龄情境？" : "Curious about partner age specifically? "}<Link prefetch={false} className="font-semibold underline underline-offset-4" href={questionnairePath(locale, "adult-age-preferences")}>{zh ? "做年上年下恋爱倾向测试" : "Try the Dating Age Preference Quiz"}</Link>
+    </p>}
     {slug === "aura-color" && <AuraColorResultExamples quiz={quiz} locale={locale} />}
     {slug === "chiikawa" && <ChiikawaResultExamples quiz={quiz} locale={locale} />}
     {slug === "cyberpunk-edgerunners" && <EdgerunnersResultExamples quiz={quiz} locale={locale} />}
@@ -1810,7 +1815,7 @@ if (slug === "abstract-reasoning") return (zh ? "抽象推理测试常见问题"
 if (slug === "conservatism") return (zh ? "保守主义测试常见问题" : "Conservatism Test FAQ");
 if (slug === "numerical-reasoning") return (zh ? "数值推理测试常见问题" : "Numerical Reasoning Test FAQ");
 if (slug === "digital-ethics-citizenship") return (zh ? "数字伦理与公民意识测试常见问题" : "Digital Ethics and Citizenship Test FAQ");
-if (slug === "adult-age-preferences") return (zh ? "年上年下情境偏好测试常见问题" : "Adult Age-Preference Quiz FAQ");
+if (slug === "adult-age-preferences") return (zh ? "年上年下恋爱倾向测试常见问题" : "Dating Age Preference Quiz FAQ");
 if (slug === "toxic-positivity-test") return (zh ? "有毒积极心态测试常见问题" : "Toxic Positivity Test: frequently asked questions");
 if (slug === "friendship-compatibility") return (zh ? "友谊契合度测试常见问题" : "Friendship Compatibility Test: frequently asked questions");
 if (slug === "perfectionism") return (zh ? "SAPS完美主义测试常见问题" : "SAPS Perfectionism Test: frequently asked questions");

@@ -119,23 +119,6 @@ export const adultAgePreferencesLandingSections: Questionnaire["guide"] = [
         "en": "Optionally note two forms of support you would welcome and one arrangement you want to decide jointly, then ask whether the other person wants that arrangement or suggests another. Nothing needs to be entered here or copied from a real conversation. Wishes and boundaries can change; a result cannot replace the people’s own freely expressed choices and ongoing communication."
       }
     ]
-  },
-  {
-    "id": "age-complete-private",
-    "title": {
-      "zh": "怎样完成与保存？直接作答，完整读回",
-      "en": "Completion and saving: start directly and read the full record"
-    },
-    "paragraphs": [
-      {
-        "zh": "点击“开始测试”直接进入第一题，没有额外同意页或账户步骤。每题仅有两个选项；若两项都不理想，原说明建议选相对接近的一项，或停止作答。未完成的回答不当成零分，也不生成完整结果。约五分钟只是用时估计，不是限时。",
-        "en": "Start opens the first question directly, without another agreement or account step. Each item has two alternatives. If neither fits, the original instructions suggest choosing the relatively closer one or stopping. An incomplete attempt is not a zero and does not produce a complete result. About five minutes is an estimate rather than a time limit."
-      },
-      {
-        "zh": "默认不保存答题进度；只有主动临时保存，才在当前标签页保留最长24小时的恢复信息，完成或重测即清除。完整结果与七篇公开指南免费；分享入口只使用公开标题和链接，不加入个人次数或答案。浏览器中的计数方式透明可复算，但这不等于题本已完成心理测量验证。",
-        "en": "Progress is not saved by default. An optional temporary save retains recovery information in the current tab for up to twenty-four hours and is cleared on completion or retake. Results and all seven public guides are free. Sharing uses a public title and link without personal counts or answers. Reproducible browser counting is distinct from psychometric validation."
-      }
-    ]
   }
 ];
 

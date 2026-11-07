@@ -229,7 +229,7 @@
 }
 
 .readingFlow[data-result-reading-flow="adult-age-preferences"] { --result-accent: #4a5e7e; --result-tint: #f0f3f9; --result-rule: #dce4ef; }
-.optionalDirectionCounts { margin: 0; padding: 8px var(--reading-gutter); border: 0; border-bottom: 1px solid var(--result-rule); }
+
 
 .choiceChart { min-width: 0; padding: var(--reading-gutter, clamp(16px, 3vw, 26px)); border: 1px solid var(--result-rule, #e2e8f0); border-radius: 16px; background: #fff; }
 .profileChapter > .choiceChart { border: 0; border-bottom: 1px solid var(--result-rule, #e2e8f0); border-radius: 0; }

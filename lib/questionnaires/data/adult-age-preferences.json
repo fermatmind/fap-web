@@ -6,16 +6,16 @@
   "updated": "2026-10-27",
   "category": "relationships",
   "title": {
-    "en": "Adult Age Preference Test",
-    "zh": "年上年下情境偏好测试"
+    "en": "Dating Age Preference Quiz",
+    "zh": "年上年下恋爱倾向测试"
   },
   "seoTitle": {
-    "zh": "年上年下情境偏好测试：18题、三项计数与完整并列",
-    "en": "Adult Age-Preference Quiz: 18 Choices & Complete Tied Results"
+    "zh": "年上年下恋爱倾向测试｜年上、同龄还是年下？",
+    "en": "Dating Age Preference Quiz: Older, Similar Age, or Younger?"
   },
   "description": {
-    "zh": "完成18道原创二选一，探索年长、相近年龄与较年轻成年伴侣情境中的相对选择。免费查看三项原始次数、全部并列及七篇完整指南；无需注册。",
-    "en": "Explore older, similarly aged and younger adult-partner contexts in 18 original choices. Free raw counts, all ties and seven full guides, without sign-up."
+    "zh": "你在恋爱里更偏向年上、同龄还是年下？免费完成 18 道成年伴侣情境二选一，查看三项选择次数与并列结果，无需注册。",
+    "en": "Would you rather date someone older, around your age, or younger? Compare 18 situations between adults and see your choice counts and any ties. Free, no sign-up."
   },
   "resultHeading": {
     "en": "Adult age-context choice record",
@@ -1824,13 +1824,13 @@
     {
       "id": "private-by-choice",
       "title": {
-        "en": "Drafts and sharing are optional",
-        "zh": "草稿与分享由你选择"
+        "en": "Answer privacy and sharing",
+        "zh": "作答隐私与分享"
       },
       "paragraphs": [
         {
-          "en": "Answers stay in the page while you work. Only opting in saves a versioned draft in this browser tab for up to 24 hours. Completion, clearing or retaking removes it; there is no persisted final-result cache. Sharing uses only a public result title and link, without choices or counts. No account or partner’s data is required.",
-          "zh": "作答时答案保留在当前页面。只有主动选择保存，才在本浏览器标签页留下带版本草稿，最多24小时，完成、清除或重测即移除；不持久保存最终结果缓存。分享仅含公开结果名称与链接，不含答卷或次数，无需账号或伴侣资料。"
+          "en": "Answers stay on the page as you work. Refreshing or leaving the quiz clears the attempt. Your shared card and link identify the public result category and omit your choices and counts.",
+          "zh": "作答时答案只保留在当前页面。刷新或离开答题页后需重新作答。分享图和链接只展示公开结果类别，不含你的选择或次数。"
         }
       ]
     },
@@ -1855,8 +1855,8 @@
       },
       "paragraphs": [
         {
-          "en": "A direction ranking is not generated before all items are answered. Some answers are missing from the submission, so direction counts are not calculated. You can finish the remaining items or leave. Only opting in keeps a versioned draft in this browser tab for up to 24 hours. Exiting and clearing removes it. An incomplete attempt produces no interpretation or final-result cache. Missing answers are not guessed and unselected options are not inferred. Answers already entered are not used to give an early interpretation. Having no result makes no judgment about age. The test concerns adult relationships only. Having no result does not indicate a problem. Choosing not to continue for safety reasons is also a valid choice.",
-          "zh": "未完整作答时不生成方向排名。本次提交缺少部分题目的答案，因此不计算方向选择次数。可以继续补全，也可以直接退出。只有主动选择保存才保留本标签页带版本草稿，最多24小时；退出并清除会移除草稿，未完整作答不产生解释或最终结果缓存。不猜测未回答的题目，不推测未答选项，也不根据已有答案先给判断。没有结果不涉及任何年龄判断；本测试只讨论成年人之间的关系情境。没有结果不说明任何问题；如果你因为安全原因选择不继续，这也完全成立。"
+          "en": "All 18 answers are needed to show a result. Finish the remaining questions or leave the quiz if you prefer. Refreshing or leaving clears this attempt.",
+          "zh": "答完 18 题才会显示结果。你可以继续答完，也可以退出。刷新或离开答题页会清除本次进度。"
         }
       ]
     },
@@ -1941,8 +1941,8 @@
         "zh": "答案会保存或分享吗？"
       },
       "answer": {
-        "en": "Only opting in saves a tab-local versioned draft for up to 24 hours. Completion, clearing or retaking removes it. Final results are not persisted. Sharing uses only a public title and link, without answers or counts.",
-        "zh": "只有主动选择才保存本标签页带版本草稿，最多24小时，完成、清除或重测即移除；不持久保存最终结果，分享仅有公开名称与链接，不含答案或次数。"
+        "en": "The quiz does not save progress or personal results for later. The share card and link show only the public result category.",
+        "zh": "测试不会保存进度或个人结果供以后查看。分享图和链接只展示公开结果类别。"
       }
     }
   ]

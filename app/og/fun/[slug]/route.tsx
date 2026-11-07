@@ -1,3 +1,4 @@
+import { adultAgePreferencesCard } from "./adultAgePreferencesCard";
 import { auraColors } from "@/lib/questionnaires/auraColors";
 import { isPss4ConfigurationValid } from "@/lib/questionnaires/pss4";
 import { isUncertaintyEase6ConfigurationValid } from "@/lib/questionnaires/uncertaintyEase6";
@@ -237,6 +238,10 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   const topic = quiz?.seo.topic[locale] ?? questionnaire!.title[locale];
   const title = result?.title[locale] ?? topic, zh = locale === "zh";
   const color = colors[quiz?.category ?? questionnaire?.category ?? "framework"] ?? colors.metaphor;
+  if (questionnaire?.slug === "adult-age-preferences") {
+    const publicProfile = questionnaire.profiles.find(profile => profile.id === portrait);
+    return adultAgePreferencesCard(locale, topic, publicProfile?.directionIds, await quizFont(slug));
+  }
   const auraColor = slug === "aura-color" && result ? auraColors[result.id] : undefined;
   if (auraColor) {
     return new ImageResponse(

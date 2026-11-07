@@ -3839,12 +3839,12 @@
     "updated": "2026-10-27",
     "category": "relationships",
     "title": {
-      "en": "Adult Age Preference Test",
-      "zh": "年上年下情境偏好测试"
+      "en": "Dating Age Preference Quiz",
+      "zh": "年上年下恋爱倾向测试"
     },
     "description": {
-      "zh": "完成18道原创二选一，探索年长、相近年龄与较年轻成年伴侣情境中的相对选择。免费查看三项原始次数、全部并列及七篇完整指南；无需注册。",
-      "en": "Explore older, similarly aged and younger adult-partner contexts in 18 original choices. Free raw counts, all ties and seven full guides, without sign-up."
+      "zh": "你在恋爱里更偏向年上、同龄还是年下？免费完成 18 道成年伴侣情境二选一，查看三项选择次数与并列结果，无需注册。",
+      "en": "Would you rather date someone older, around your age, or younger? Compare 18 situations between adults and see your choice counts and any ties. Free, no sign-up."
     },
     "minutes": 5,
     "formCode": "age_preference_forced_choice_18",

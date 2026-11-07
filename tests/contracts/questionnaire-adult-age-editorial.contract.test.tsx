@@ -21,7 +21,7 @@ describe("adult age contexts explanatory editorial", () => {
       const body = norm(dom.textContent ?? ""); expect(dom.querySelectorAll("h1")).toHaveLength(1);
       expect(dom.querySelectorAll('[aria-labelledby="questionnaire-faq"]>section')).toHaveLength(15);
       expect(dom.querySelectorAll('[aria-labelledby="questionnaire-results"]>ul>li')).toHaveLength(7);
-      expect(dom.querySelectorAll(".explore-reading-section")).toHaveLength(17);
+      expect(dom.querySelectorAll(".explore-reading-section")).toHaveLength(16);
       for (const section of [...quiz.guide, ...adultAgePreferencesLandingSections]) for (const p of section.paragraphs) expect(body).toContain(norm(p[locale]));
       for (const faq of [...quiz.faq, ...adultAgePreferencesLandingFaq]) { expect(body).toContain(norm(faq.question[locale])); expect(body).toContain(norm(faq.answer[locale])); }
       expect(body).toContain(norm(quiz.instructions![locale]));
