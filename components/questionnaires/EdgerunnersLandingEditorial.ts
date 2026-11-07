@@ -9,7 +9,7 @@ export const edgerunnersLandingSections: Questionnaire["guide"] = [
     "paragraphs": [
       {
         "en": "This unofficial character quiz compares ordinary imagined choices with seven selected characters from the original Cyberpunk: Edgerunners anime: David, Lucy, Rebecca, Maine, Kiwi, Falco and Faraday. The situations concern small group projects, personal plans, information and handoffs. You can answer without remembering episodes, recognizing pictures or knowing the game.",
-        "zh": "这份非官方角色测验将普通设想选择与初代《赛博朋克：边缘行者》动画中的七位人物对照：大卫、露西、丽贝卡、曼恩、琦薇、法尔科和法拉第。情境围绕小组活动、个人计划、信息与交接展开，不要求记住集数、识别图片或了解游戏。"
+        "zh": "这份角色测试取材于初代动画《赛博朋克：边缘行者》，台湾官方片名为《電馭叛客：邊緣行者》。想知道自己更像哪位角色，可以把平常会做的选择和大卫、露西、丽贝卡、曼恩、琦薇、法尔科、法拉第这七位人物对照。情境围绕小组活动、个人计划、信息与交接展开，无需记住剧情或了解游戏。"
       },
       {
         "en": "Each character supplies a limited editorial association, not a complete personality model. A result explains the options you chose and offers examples and contrasts to read alongside them. It does not transfer a fictional character’s background, violent actions, relationships or ending to your life, and it does not evaluate how devoted a fan you are.",
@@ -140,12 +140,12 @@ export const edgerunnersLandingSections: Questionnaire["guide"] = [
 export const edgerunnersLandingFaq: Questionnaire["faq"] = [
   {
     "question": {
-      "en": "Do I need to watch the anime or play Cyberpunk 2077 first?",
-      "zh": "需要先看动画或玩《赛博朋克2077》吗？"
+      "en": "Is this an Edgerunners character quiz or a trivia quiz?",
+      "zh": "这是测我像哪位角色，还是考动画剧情？"
     },
     "answer": {
-      "en": "No. All twenty-one questions use ordinary imagined situations. There are no episode facts, images to recognize or game mechanics to remember.",
-      "zh": "不需要。二十一题都使用普通设想情境，不考集数事实、图片识别或游戏机制。"
+      "en": "It’s a character quiz for the original anime. Pick what you would do in 21 everyday situations to see which of seven characters your choices match. Each result links to a public character guide. You can take the quiz without watching the anime or playing Cyberpunk 2077.",
+      "zh": "这是初代动画的角色匹配测验。完成 21 道日常情境选择后，可以查看七位角色里谁与你的选择最接近。每个结果都可打开对应的公开角色指南。没看过动画、没玩过《赛博朋克2077》也能做。"
     }
   },
   {
