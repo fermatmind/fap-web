@@ -9,10 +9,10 @@ test.beforeEach(async ({page}) => {
 });
 const additions = JSON.parse(readFileSync("lib/questionnaires/result-content/bleach.json", "utf8")) as Record<string, unknown[]>;
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/bleach.json", "utf8")) as Questionnaire;
-async function finish(page: Page, locale: "en" | "zh", mode: "ichigo-kurosaki" | "tie" | "two") {
+async function finish(page: Page, locale: "en" | "zh", mode: string) {
   for (const [index, question] of quiz.questions.entries()) {
     const two = ["C","C","B","B","A","B","B","A","D","D","A","C","C","B","C","C","D","C","C","D","D"];
-    const option = mode === "two" ? question.options.find(o => o.id === two[index])! : mode === "tie" ? question.options[0] : question.options.find(o => o.directionId === "ichigo-kurosaki") ?? question.options[0];
+    const option = mode === "two" ? question.options.find(o => o.id === two[index])! : mode === "tie" ? question.options[0] : question.options.find(o => o.directionId === mode) ?? question.options[0];
     const radio = page.locator(`input[name="${question.id}"][value="${option.id}"]`);
     if (index === 0) { await radio.focus(); await page.keyboard.press("Space"); await expect(radio).toBeChecked(); }
     else await radio.check();
@@ -23,10 +23,11 @@ async function finish(page: Page, locale: "en" | "zh", mode: "ichigo-kurosaki" |
   await expect(page.locator("[data-archetype-count]")).toHaveCount(7);
   const ids = await page.locator("#take-test [id]").evaluateAll(nodes => nodes.map(node => node.id));
   expect(new Set(ids).size).toBe(ids.length);
-  if (mode === "ichigo-kurosaki") {
-    await expect(page.locator('[data-archetype-count="ichigo-kurosaki"]')).toContainText("12 / 12");
+  if (mode !== "tie" && mode !== "two") {
+    await expect(page.locator(`[data-archetype-count="${mode}"]`)).toContainText("12 / 12");
     await expect(page.locator("[data-archetype-match]")).toHaveCount(1);
-    await expect(page.locator('[data-archetype-match="ichigo-kurosaki"] h4')).toHaveCount(quiz.profiles[0].sections.length + additions[quiz.profiles[0].id].length);
+    const matched = quiz.profiles.find(p => p.id === mode)!;
+    await expect(page.locator(`[data-archetype-match="${mode}"] h4`)).toHaveCount(matched.sections.length + additions[matched.id].length);
   } else if (mode === "two") {
     await expect(page.locator("[data-archetype-match]")).toHaveCount(2);
     await expect(page.locator('[data-archetype-count="ichigo-kurosaki"]')).toContainText("4 / 12");
@@ -57,7 +58,10 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, locale, "ichigo-kurosaki");
     await expect(page.locator("[data-bleach-reveal]")).toBeVisible();
-    await expect(page.locator("[data-bleach-choice-reasons] li")).toHaveCount(2);
+    await expect(page.locator("[data-bleach-choice-reasons] li:visible")).toHaveCount(2);
+    await expect(page.locator("[data-bleach-choice-reasons] li")).toHaveCount(12);
+    await expect(page.locator("[data-bleach-question-number=\"1\"]")).toContainText(quiz.questions[0].prompt[locale]);
+    await expect(page.locator("[data-bleach-character-directory] li")).toHaveCount(7);
     const sharing = page.locator("[data-bleach-sharing]");
     const download = page.waitForEvent("download");
     await sharing.getByRole("button", {name: zh ? "保存BLEACH角色卡片" : "Save BLEACH card", exact: true}).click();
@@ -174,3 +178,68 @@ test("@release BLEACH ordinary fan choices all14public full guides, bilingual im
   }
   for (const path of ["/en/tests/explore/bleach/results/unknown", "/zh/tests/explore/bleach/results/BLEACH_01", "/en/tests/play/bleach"]) expect((await request.get(path)).status()).toBe(404);
 });
+
+for (const locale of ["en", "zh"] as const) {
+  const zh = locale === "zh", entry = `/${locale}/tests/explore/bleach`;
+  test(`@release BLEACH R2 ${locale}: all seven original portraits in personal cards, mobile results and guides`, async ({page}) => {
+    await page.setViewportSize({width:390,height:844});
+    if (process.env.BLEACH_QA_ARTIFACTS) mkdirSync(process.env.BLEACH_QA_ARTIFACTS,{recursive:true});
+    for (const profile of quiz.profiles) {
+      await page.goto(`${entry}/take`);await finish(page,locale,profile.id);
+      const reveal=page.locator("[data-bleach-reveal]");
+      const portrait=reveal.locator(":scope > ul > li img");
+      await expect.poll(()=>portrait.evaluate((img:HTMLImageElement)=>[img.naturalWidth,img.naturalHeight])).toEqual([260,300]);
+      await expect(portrait).toHaveAttribute("src",`/images/quiz-portraits/bleach/${profile.id}.svg`);
+      await expect(reveal.locator("[data-bleach-choice-reasons] li:visible")).toHaveCount(2);
+      const sharing=page.locator("[data-bleach-sharing]");
+      for (const format of ["landscape","portrait"]) {
+        await sharing.getByRole("combobox").selectOption(format);
+        const download=page.waitForEvent("download");
+        await sharing.getByRole("button",{name:zh?"保存BLEACH角色卡片":"Save BLEACH card",exact:true}).click();
+        const file=await download;
+        await expect.poll(()=>sharing.locator("img").evaluate((img:HTMLImageElement)=>[img.naturalWidth,img.naturalHeight])).toEqual(format==="landscape"?[1200,630]:[1080,1920]);
+        await expect(sharing.locator("img")).toHaveAttribute("alt",new RegExp(profile.title[locale].split(/[:：]/)[0]));
+        if (process.env.BLEACH_QA_ARTIFACTS) await file.saveAs(join(process.env.BLEACH_QA_ARTIFACTS,`${locale}-${profile.id}-${format}-personal.png`));
+      }
+      expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+      if (process.env.BLEACH_QA_ARTIFACTS) await reveal.locator(":scope > ul > li").screenshot({path:join(process.env.BLEACH_QA_ARTIFACTS,`${locale}-${profile.id}-mobile-result.png`)});
+      const directory=page.locator("[data-bleach-character-directory]");
+      await expect(directory.locator("li")).toHaveCount(7);
+      await directory.locator(`[data-bleach-directory-character="${profile.id}"] a`).click();
+      await expect(page).toHaveURL(new RegExp(`${entry}/results/${profile.id}$`));
+      await expect(page.getByRole("heading",{level:1})).toHaveText(profile.title[locale]);
+      const guide=page.locator("[data-bleach-public-portrait]");
+      await expect.poll(()=>guide.locator(":scope > img").evaluate((img:HTMLImageElement)=>[img.naturalWidth,img.naturalHeight])).toEqual([260,300]);
+      await expect(page.locator("[data-bleach-character-directory] li")).toHaveCount(7);
+      expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+      if (process.env.BLEACH_QA_ARTIFACTS) await guide.locator(":scope > img").screenshot({path:join(process.env.BLEACH_QA_ARTIFACTS,`${locale}-${profile.id}-mobile-guide.png`)});
+    }
+  });
+  test(`@release BLEACH R2 ${locale}: contextual ties and native share cancel/failure retain the result`, async ({page}) => {
+    await page.addInitScript(()=>{
+      Object.defineProperty(navigator,"canShare",{configurable:true,value:()=>true});
+      Object.defineProperty(navigator,"share",{configurable:true,value:async()=>{throw new DOMException("Synthetic cancellation","AbortError");}});
+    });
+    await page.goto(`${entry}/take`);await finish(page,locale,"two");
+    const reveal=page.locator("[data-bleach-reveal]");
+    const details=reveal.locator("[data-bleach-choice-context] > details");
+    await expect(details).toHaveCount(2);
+    await expect(reveal.locator("[data-bleach-choice-reasons] li:visible")).toHaveCount(0);
+    await details.first().locator("summary").click();
+    await expect(reveal.locator("[data-bleach-choice-reasons] li:visible")).toHaveCount(4);
+    const chosen=quiz.questions[0].options.find(o=>o.id==="C")!;
+    // First displayed direction is Ichigo, so it must not invent evidence from the Aizen answer in question1.
+    await expect(details.first().locator('[data-bleach-question-number="1"]')).toHaveCount(0);
+    expect(chosen.directionId).toBe("sosuke-aizen");
+    const sharing=page.locator("[data-bleach-sharing]");
+    await sharing.getByRole("button",{name:zh?"分享BLEACH角色图片":"Share BLEACH image",exact:true}).click();
+    await expect(sharing.getByRole("status")).toContainText(zh?"已取消分享":"Sharing canceled");
+    await expect(sharing.locator("img")).toBeVisible();
+    await page.evaluate(()=>Object.defineProperty(navigator,"share",{configurable:true,value:async()=>{throw new Error("Synthetic native share failure");}}));
+    await sharing.getByRole("button",{name:zh?"分享BLEACH角色图片":"Share BLEACH image",exact:true}).click();
+    await expect(sharing.getByRole("status")).toContainText(zh?"未能打开系统分享":"Could not open system sharing");
+    const download=page.waitForEvent("download");
+    await sharing.getByRole("button",{name:zh?"保存BLEACH角色卡片":"Save BLEACH card",exact:true}).click();await download;
+    await expect(page.locator("[data-archetype-match]")).toHaveCount(2);
+  });
+}

@@ -24,12 +24,15 @@ describe("BLEACH source-safe fan reveal", () => {
     const root = document.createElement("div");
     root.innerHTML = renderToStaticMarkup(<QuestionnaireArchetypeReport quiz={quiz} result={result} locale={locale} answers={answers} />);
     expect(root.querySelectorAll("[data-bleach-reveal] > ul > li")).toHaveLength(7);
-    expect(root.querySelectorAll("[data-bleach-choice-reasons] > li")).toHaveLength(14);
+    expect(root.querySelectorAll("[data-bleach-choice-reasons] > li")).toHaveLength(21);
     for (const profile of quiz.profiles) {
       const person = bleachPresentation(profile.id)!;
       expect(root.querySelector("[data-bleach-reveal]")?.textContent).toContain(person.conclusion[locale]);
       const expected = quiz.questions.flatMap(q => q.options.filter(o => o.id === "A" && profile.directionIds.includes(o.directionId))).slice(0, 2);
       for (const option of expected) expect(root.textContent).toContain(option.label[locale]);
+      const context = root.querySelector(`[data-archetype-match]`);
+      expect(root.querySelector(`[data-bleach-directory-character="${profile.id}"] a`)?.getAttribute("href")).toBe(`/${locale}/tests/explore/bleach/results/${profile.id}`);
+      expect(context).not.toBeNull();
       expect(root.querySelector(`img[src="${bleachPortraitPath(profile.id)}"]`)).not.toBeNull();
       expect(readFileSync(`public${bleachPortraitPath(profile.id)}`, "utf8")).not.toMatch(/<script|<image|(?:href|src)=["\']https?:/);
     }

@@ -6,6 +6,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import { bleachPresentations, type BleachId } from "@/lib/questionnaires/bleachPresentation";
 
 type Format = "landscape" | "portrait";
+const portraitRatio = 300 / 260;
 const sizes = { landscape: [1200, 630], portrait: [1080, 1920] } as const;
 
 function drawText(ctx: CanvasRenderingContext2D, text: string, x: number, y: number, width: number, lineHeight: number, maxLines: number, zh: boolean) {
@@ -52,7 +53,7 @@ export function BleachShareCard({ ids, locale, publicGuide = false }: { ids: str
       if (single) {
         const person = bleachPresentations[selected[0]];
         const px = tall ? 315 : 54, py = tall ? 220 : 132, pw = tall ? 450 : 280;
-        ctx.drawImage(pictures[0], px, py, pw, pw * 1.2);
+        ctx.drawImage(pictures[0], px, py, pw, pw * portraitRatio);
         const tx = tall ? pad : 390, ty = tall ? 900 : 205, tw = tall ? w - pad * 2 : 740;
         ctx.fillStyle = "#202d38"; ctx.font = `700 ${tall ? 66 : 58}px system-ui, sans-serif`;
         drawText(ctx, person.name[locale], tx, ty, tw, 72, 2, zh);
@@ -70,8 +71,8 @@ export function BleachShareCard({ ids, locale, publicGuide = false }: { ids: str
           const person = bleachPresentations[id], x = pad + (i % columns) * (cellW + gap), y = (tall ? 350 : 174) + Math.floor(i / columns) * cellH;
           const side = selected.length === 2 ? (tall ? 220 : 140) : (tall ? 152 : 78);
           const px = tall ? x + (cellW - side) / 2 : x;
-          ctx.drawImage(pictures[i], px, y, side, side * 1.2);
-          const tx = tall ? x : x + side + 14, ty = tall ? y + side * 1.2 + 48 : y + 30, tw = tall ? cellW : cellW - side - 14;
+          ctx.drawImage(pictures[i], px, y, side, side * portraitRatio);
+          const tx = tall ? x : x + side + 14, ty = tall ? y + side * portraitRatio + 48 : y + 30, tw = tall ? cellW : cellW - side - 14;
           ctx.fillStyle = "#202d38"; ctx.font = `700 ${selected.length === 2 ? 36 : tall ? 30 : 24}px system-ui, sans-serif`;
           drawText(ctx, person.name[locale], tx, ty, tw, selected.length === 2 ? 46 : 32, 2, zh);
           ctx.fillStyle = person.accent; ctx.font = `500 ${selected.length === 2 ? 28 : tall ? 26 : 20}px system-ui, sans-serif`;

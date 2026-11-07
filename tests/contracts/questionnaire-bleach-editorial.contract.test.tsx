@@ -4,7 +4,7 @@ import raw from "@/lib/questionnaires/data/bleach.json";
 import { scoreArchetypeQuestionnaire } from "@/lib/questionnaires/scoring";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import catalog from "@/lib/questionnaires/catalog.json";
-import { bleachLandingSummary } from "@/components/questionnaires/BleachLandingEditorial";
+import { bleachLandingSummary, bleachCurrentEntryCopy } from "@/components/questionnaires/BleachLandingEditorial";
 
 vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
 const quiz = raw as Questionnaire;
@@ -32,10 +32,10 @@ describe("individual seven-character editorial", () => {
       for (const summary of summaries) expect(dom.textContent).toContain(summary);
       expect(dom.querySelectorAll('[aria-labelledby="questionnaire-results"] > ul > li')).toHaveLength(7);
       expect(dom.querySelector("#questionnaire-results")?.textContent).toContain(locale === "zh" ? "七位BLEACH角色" : "Seven BLEACH character");
-      expect(dom.querySelectorAll('[aria-labelledby="questionnaire-faq"] > section')).toHaveLength(14);
+      expect(dom.querySelectorAll('[aria-labelledby="questionnaire-faq"] > section')).toHaveLength(15);
       const normalize = (text: string) => text.replace(/\[\d+\]/g, "").replace(/\s+/g, " ").trim();
       const body = normalize(dom.textContent ?? "");
-      for (const section of quiz.guide) for (const paragraph of section.paragraphs) expect(body).toContain(normalize(paragraph[locale]));
+      for (const section of quiz.guide) for (const paragraph of section.paragraphs) expect(body).toContain(normalize(bleachCurrentEntryCopy(paragraph[locale], locale)));
       for (const citation of dom.querySelectorAll<HTMLAnchorElement>(".disc-source-citation")) expect(dom.querySelector(citation.getAttribute("href")!)).not.toBeNull();
       expect(dom.querySelector('a[href="#bleach-reference-6"]')).not.toBeNull();
       expect(body).toContain(locale === "zh" ? "4、1、3、4、3、3、3" : "4, 1, 3, 4, 3, 3, 3");
