@@ -2,7 +2,7 @@
   "slug": "mental-age",
   "code": "FM_MENTAL_AGE12",
   "version": "fm_mental_age12_v1",
-  "updated": "2026-10-28",
+  "updated": "2026-11-07",
   "category": "everyday",
   "kind": "mental-age",
   "title": {
@@ -10,12 +10,12 @@
     "zh": "心理年龄测试"
   },
   "seoTitle": {
-    "en": "Mental Age Test: Free Playful Age & Full Results",
-    "zh": "心理年龄测试：免费娱乐年龄与完整结果"
+    "en": "Mental Age Test: Free 12-Question Quiz",
+    "zh": "心理年龄测试：12题免费趣味测试"
   },
   "description": {
-    "en": "Explore novelty and familiarity in 12 daily choices. Get a playful age, check every point and read the full guide free. No signup, real-age or IQ assessment.",
-    "zh": "用12道日常选择探索新鲜与熟悉偏好，得到娱乐年龄，核对逐题点数并免费阅读完整指南。无需注册，不测真实心智年龄或智商。"
+    "en": "Take a free 12-question mental age quiz. See your playful age, check the calculation and save a share card. No signup; for entertainment.",
+    "zh": "用12道轻松选择看看自己的娱乐心理年龄，免费查看结果、逐题点数与计算方法，保存双语分享卡。无需注册；仅供娱乐，不代表智力或成熟度。"
   },
   "minutes": 3,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "按当前偏好，在每个轻松情境中选最接近自己想法的一项。每题需一个回答，没有正确答案；没有合适项可以停止，直接读完整公开指南。点数只概括新鲜与熟悉偏好，娱乐年龄是任意数字，不是真实心智年龄。三分钟为编辑估计。"
   },
   "introduction": {
-    "en": "This original Mental Age Test turns twelve low-stakes preferences into a playful age. Choose what appeals in free time, music, reading, walks and other relaxed scenes. Options carry 0–3 points for novelty versus familiarity; their sum S becomes 18 + 2 × S, producing one of 37 even numbers from 18 to 90. The result includes all choices, points, arithmetic and the same complete eight-section guide. The age is an arbitrary entertainment convention, without a real-age comparison, developmental norm or maturity rating.",
-    "zh": "这份原创心理年龄测试把十二项轻松偏好转成娱乐年龄，询问空闲时间、音乐、阅读、散步等情境中什么更吸引你。选项按新鲜与熟悉计0至3点，相加为S，再用18＋2×S得到18至90的37个偶数之一。结果包含全部选择、点数、算式及同一篇完整八节指南。年龄是任意娱乐约定，不与实际年龄比较，也不提供发展常模或成熟度评分。"
+    "en": "What is my mental age? Explore twelve original everyday choices and reveal a playful age from 18 to 90. See how your choices lean toward new experiences or familiar forms, check every point, and save a landscape or portrait age card. Everything is free, with no account or real-age question. The number comes from the open rule 18 + 2 × S, where S is the sum of twelve 0–3 point choices. It is an entertainment convention, not an estimate of intelligence, maturity or psychological development.",
+    "zh": "我的心理年龄是多少？用十二道原创日常选择，揭晓18至90之间的娱乐年龄。看本次选择更偏尝新还是熟悉，核对每题点数，再保存横版或竖版年龄分享卡。全部免费，无需注册或填写实际年龄。数字来自公开公式18＋2×S，S是十二题各0至3点的总和。这是娱乐约定，不估计智力、成熟度或心理发展水平。"
   },
   "resultHeading": {
     "en": "Your playful mental age and complete reading",
@@ -35,10 +35,10 @@
     "formCode": "fm_mental_age12_v1",
     "itemBankVersion": "fm_mental_age12_v1",
     "scoringVersion": "fm_mental_age12_sum0to36_age18plus2s_v1",
-    "resultContentVersion": "fm_mental_age12_continuous_full8_v1",
+    "resultContentVersion": "fm_mental_age12_continuous_full8_v2",
     "psychometricValidationCompleted": false,
     "itemBankSha256": "15de88d9e6ec4d54d43ab5497ff7c3b0f5b4f169949cb9857b0182366e7e1dd8",
-    "resultContentSha256": "8b2a6fbf61c2d98f3b278a0e0c49e00edd8b629fffea6dbff8dd94078fdb4313"
+    "resultContentSha256": "301a4f50c49274a552fe897cd13fc7d65f48f86d7d547d14624ed84d82543cba"
   },
   "directions": [
     {
@@ -756,8 +756,8 @@
               "zh": "十二题全部各有一个有效选项，才显示结果。缺答不填补、不从均值分母中删除，也不当作0点。本版没有“不适用”选项，因为少一题就无法按所声明规则求总和；你随时可以退出，也可以不答题直接阅读本指南。无效选项或题本不可用时不给年龄。"
             },
             {
-              "en": "Answers and your computed value stay in this browser. Optional progress saving uses this tab for up to 24 hours and clears on completion, exit-and-clear or retake. Public sharing contains only the test title and entry link, without the number or responses. All questions, point assignments and explanations are original FermatMind editorial content. Psychometric validation, age calibration and cross-language equivalence have not been established.",
-              "zh": "回答与算出的个人数值留在本浏览器。进度可自愿在当前标签页临时保存，最多24小时；完成、退出并清除或重测即删除。公开分享只含测试标题与入口链接，不带数字和答案。题目、点数约定与解释均为费马原创编辑内容，尚未建立心理测量验证、年龄校准或跨语言等值。"
+              "en": "Answers and your computed value stay in this browser. Optional progress saving uses this tab for up to 24 hours and clears on completion, exit-and-clear or retake. Copying the public entry contains only the test title and link, without your age or responses. Saving or actively sharing a locally generated image includes your playful age. All questions, point assignments and explanations are original FermatMind editorial content. Psychometric validation, age calibration and cross-language equivalence have not been established.",
+              "zh": "回答与算出的个人数值留在本浏览器。进度可自愿在当前标签页临时保存，最多24小时；完成、退出并清除或重测即删除。复制公开入口只含测试标题与链接，不带年龄和答案。主动保存或分享本地生成的图片会包含娱乐年龄。题目、点数约定与解释均为费马原创编辑内容，尚未建立心理测量验证、年龄校准或跨语言等值。"
             }
           ]
         }
@@ -838,8 +838,8 @@
       },
       "paragraphs": [
         {
-          "en": "Optional progress saving lasts up to 24 hours in this tab and clears on completion, exit-and-clear or retake. Sharing copies only the public title and entry link. Your answers and age do not go into the link or analytics.",
-          "zh": "可选进度在当前标签页最多保存24小时，完成、退出并清除或重测即删除。分享只复制公开标题与入口链接，答案与年龄不放进链接或分析事件。"
+          "en": "Optional progress saving lasts up to 24 hours in this tab and clears on completion, exit-and-clear or retake. Copying the public entry shares only the title and link, without your age or answers. You can also create a PNG age card locally in your browser. That image includes your playful age only when you choose to save or share it; the public link never retrieves a private attempt.",
+          "zh": "可选进度在当前标签页最多保存24小时，完成、退出并清除或重测即删除。复制公开入口只含标题与链接，不带年龄和答案。还可在本浏览器生成PNG年龄卡；只有主动保存或分享图片才会带出娱乐年龄，公开链接不会调取私人答卷。"
         }
       ]
     }
@@ -921,8 +921,8 @@
         "zh": "可以保存进度或分享吗？"
       },
       "answer": {
-        "en": "Progress saving is optional in this tab for up to 24 hours. Completion, exit-and-clear or retake clears it. Sharing copies the public title and entry link without responses or your age.",
-        "zh": "可自愿在当前标签页保存进度，最多24小时；完成、退出并清除或重测即删除。分享只复制公开标题与入口链接，不含回答或个人年龄。"
+        "en": "Yes. Save a 1200 × 630 or 1080 × 1920 PNG age card generated in your browser, or share the image if your device supports it. The image includes your playful age; copying the public entry excludes it. Optional progress saving lasts up to 24 hours and clears on completion, exit-and-clear or retake.",
+        "zh": "可以。在本浏览器生成1200×630横版或1080×1920竖版PNG年龄卡，保存或在支持的设备上分享图片。图片包含娱乐年龄，复制公开入口则不带年龄。可选进度最多保存24小时，完成、退出并清除或重测即删除。"
       }
     }
   ]

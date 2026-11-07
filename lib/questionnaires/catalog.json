@@ -5381,15 +5381,15 @@
     "slug": "mental-age",
     "code": "FM_MENTAL_AGE12",
     "version": "fm_mental_age12_v1",
-    "updated": "2026-10-28",
+    "updated": "2026-11-07",
     "category": "everyday",
     "title": {
       "en": "Mental Age Test",
       "zh": "心理年龄测试"
     },
     "description": {
-      "en": "Explore novelty and familiarity in 12 daily choices. Get a playful age, check every point and read the full guide free. No signup, real-age or IQ assessment.",
-      "zh": "用12道日常选择探索新鲜与熟悉偏好，得到娱乐年龄，核对逐题点数并免费阅读完整指南。无需注册，不测真实心智年龄或智商。"
+      "en": "Take a free 12-question mental age quiz. See your playful age, check the calculation and save a share card. No signup; for entertainment.",
+      "zh": "用12道轻松选择看看自己的娱乐心理年龄，免费查看结果、逐题点数与计算方法，保存双语分享卡。无需注册；仅供娱乐，不代表智力或成熟度。"
     },
     "minutes": 3,
     "formCode": "fm_mental_age12_v1",

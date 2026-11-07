@@ -37,6 +37,17 @@ describe("T010 original playful age with transparent arithmetic and no age infer
     expect(scoreMentalAgeQuestionnaire(quiz, answerPoints([0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3]))).toMatchObject({ mentalAge: { sum: 18, playfulAge: 54 } });
     expect(scoreMentalAgeQuestionnaire(quiz, answerPoints([0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3]))).toMatchObject({ mentalAge: { sum: 18, playfulAge: 54 } });
   });
+  it("keeps the v1 reading identity compatible with the same bank, drafts and scores", () => {
+    const prior = structuredClone(quiz);
+    prior.source.resultContentVersion = "fm_mental_age12_continuous_full8_v1";
+    expect(isMentalAgeConfigurationValid(prior)).toBe(true);
+    const answers = answerPoints(Array(12).fill(1));
+    expect(scoreMentalAgeQuestionnaire(prior, answers)).toEqual(scoreMentalAgeQuestionnaire(quiz, answers));
+    expect(quiz.source.resultContentVersion).toBe("fm_mental_age12_continuous_full8_v2");
+    for (const bad of [["fm_mental_age12_continuous_full8_v2"], { toString: () => "fm_mental_age12_continuous_full8_v2" }, null, "foreign"]) {
+      expect(isMentalAgeConfigurationValid({ ...quiz, source: { ...quiz.source, resultContentVersion: bad } })).toBe(false);
+    }
+  });
   it("does not expose a partial age; rejects invalid, inherited, accessor or foreign answers", () => {
     const a = answerPoints(Array(12).fill(1));
     for (let n = 0; n < 12; n++) expect(scoreMentalAgeQuestionnaire(quiz, Object.fromEntries(Object.entries(a).slice(0, n)))).toEqual({ status: "incomplete", answered: n });
@@ -61,7 +72,7 @@ describe("T010 original playful age with transparent arithmetic and no age infer
     for (const locale of ["en", "zh"] as const) for (let sum = 0; sum <= 36; sum++) {
       const answers = answerPoints(witness(sum)), result = scoreMentalAgeQuestionnaire(quiz, answers); if (result.status !== "complete") throw Error("Expected result");
       const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireMentalAgeReport quiz={quiz} result={result} answers={answers} locale={locale} />);
-      expect(dom.querySelector("[data-mental-age-value]")?.textContent).toBe(`${18 + 2 * sum}${locale === "zh" ? "岁" : " years"}`); expect(dom.querySelectorAll("[data-mental-age-answer]")).toHaveLength(12); expect(dom.querySelectorAll("h4")).toHaveLength(8);
+      expect(dom.querySelector("[data-mental-age-value]")?.textContent).toBe(`${18 + 2 * sum}${locale === "zh" ? "岁" : " years"}`); expect(dom.querySelectorAll("[data-mental-age-answer]")).toHaveLength(12); expect(dom.querySelectorAll("[data-mental-age-choice-count]")).toHaveLength(4); expect(dom.querySelector("[data-mental-age-sharing]")).not.toBeNull(); expect(dom.querySelectorAll("h4")).toHaveLength(8);
       for (const s of quiz.profiles[0].sections) for (const p of s.paragraphs) expect(dom.textContent).toContain(p[locale]);
       for (const q of quiz.questions) expect(dom.querySelector(`[data-mental-age-answer="${q.id}"]`)?.textContent).toContain(q.options.find(o => o.id === answers[q.id])!.label[locale]);
       const ids = Array.from(dom.querySelectorAll("[id]"), n => n.id); expect(ids.length).toBe(new Set(ids).size); if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);

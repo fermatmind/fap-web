@@ -18,7 +18,7 @@ export function isMentalAgeConfigurationValid(quiz: unknown): quiz is Questionna
     || !text(quiz.introduction) || !text(quiz.instructions) || !text(quiz.resultHeading) || !plain(quiz.source)
     || quiz.source.kind !== "fermatmind_original_playful_mental_age" || quiz.source.formCode !== quiz.version
     || quiz.source.itemBankVersion !== quiz.version || quiz.source.scoringVersion !== "fm_mental_age12_sum0to36_age18plus2s_v1"
-    || quiz.source.resultContentVersion !== "fm_mental_age12_continuous_full8_v1"
+    || (quiz.source.resultContentVersion !== "fm_mental_age12_continuous_full8_v1" && quiz.source.resultContentVersion !== "fm_mental_age12_continuous_full8_v2")
     || quiz.source.psychometricValidationCompleted !== false) return false;
   return dense(quiz.directions, 1, d => plain(d) && d.id === "age-points" && d.itemCount === 12 && text(d.title))
     && dense(quiz.questions, 12, (q, i) => plain(q) && q.id === `MAGE_${String(i + 1).padStart(2, "0")}`
