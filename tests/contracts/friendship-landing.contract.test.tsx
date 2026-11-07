@@ -20,6 +20,12 @@ describe("friendship search intent and one canonical tool", () => {
     expect(container.querySelectorAll(`a[href="/${locale}/tests/play/friendship-quiz/take"]`)).toHaveLength(3);
     const links = Array.from(container.querySelectorAll('a[href]'), a => a.getAttribute("href"));
     for (const path of ["questions", "how-to-play", "scores"]) expect(links).toContain(`/${locale}/tests/play/friendship-quiz/${path}`);
+    for (const [kind, fragment] of [["questions", "quick-round"], ["how-to-play", "received-invite"], ["scores", "sample-score"]] as const) {
+      expect(links).toContain(`/${locale}/tests/play/friendship-quiz/${kind}#${fragment}`);
+      const resource = render(<PublicResource locale={locale} kind={kind} />);
+      expect(resource.container.querySelector(`#${fragment}`)).not.toBeNull();
+      resource.unmount();
+    }
     expect(links.some(path => /\/bff-test|\/who-knows-me-best|\/friendship-quiz-maker/.test(path ?? ""))).toBe(false);
     const metadata = await generateMetadata({ params: Promise.resolve({ locale }) });
     expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com/${locale}/tests/play/friendship-quiz`);

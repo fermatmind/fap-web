@@ -85,11 +85,11 @@ export default async function Page({
           <h1>{zh ? "朋友默契测试：你有多了解我？" : "How Well Do You Know Me? Friendship Quiz"}</h1>
           <p>
             {zh
-              ? "先选自己的答案，再把邀请发给朋友来猜。收到邀请？打开朋友发给你的链接就能答题。"
-              : "Pick your answers, then send one link for friends to guess them. Here to take a friend’s quiz? Open the invite they sent you."}
+              ? "选出关于你的答案，生成一条链接，让朋友来猜。"
+              : "Make a quiz about yourself. Pick your own answers, then share one link for friends to guess what you chose."}
           </p>
           <a className="fq-primary" href={`/${locale}/tests/play/friendship-quiz/take`}>
-            {zh ? "免费创建我的挑战" : "Make my friendship quiz"} ↗
+            {zh ? "免费创建我的挑战" : "Create my friendship quiz"} ↗
           </a>
           <p className="fq-muted">
             {zh
@@ -97,8 +97,18 @@ export default async function Page({
               : "Free, no signup · 30 questions minimum · One point per match"}
           </p>
           <p>
+            <strong>{zh ? "收到朋友的邀请？" : "Taking a friend’s quiz?"}</strong>{" "}
+            {zh ? "打开好友发来的链接，输入昵称，猜对方选了什么。" : "Open the link they sent, enter a nickname, and guess their answers."}{" "}
+            <Link href={`${base}/how-to-play#received-invite`}>
+              {zh ? "受邀玩法" : "How to join"}
+            </Link>
+          </p>
+          <p>
+            <Link href={`${base}/questions#quick-round`}>
+              {zh ? "先玩六题线下短局" : "Try a six-question offline round"}
+            </Link>{" · "}
             <Link href={`${base}/scores#sample-score`}>
-              {zh ? "先看分数与并列榜单示例" : "See a sample score and tied ranks"} →
+              {zh ? "看分数示例" : "See a sample score"}
             </Link>
           </p>
         </div>
@@ -117,7 +127,7 @@ export default async function Page({
       </p>
       <div className="fq-body">
         <section id="create" className="scroll-mt-24">
-          <StartTestButton href={`/${locale}/tests/play/friendship-quiz/take`} className="fq-primary">{zh ? "开始测试" : "Start test"} →</StartTestButton>
+          <StartTestButton href={`/${locale}/tests/play/friendship-quiz/take`} className="fq-primary">{zh ? "开始出题" : "Start creating my quiz"} →</StartTestButton>
         </section>
         <section className="fq-section">
           <h2 className="text-3xl font-semibold">

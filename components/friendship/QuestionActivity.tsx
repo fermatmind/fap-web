@@ -7,6 +7,9 @@ export function QuestionActivity({ locale }: { locale: Locale }) {
   const zh = locale === "zh";
   return <>
     <p>{zh ? "找一位出题者，其他人猜这位朋友会怎么选。下面24道原创二选一适合聚会、兄弟姐妹或约会时轮流玩；它们是 friendship-v1 的公开选题，不是友情质量或性格评分。" : "Pick one person to be the creator. Everyone else guesses what that person would choose. These 24 original this-or-that questions work for friends, siblings or a date-night round. They are a public selection from friendship-v1, made for conversation rather than rating a relationship."}</p>
+    <p className="fq-hide-print">
+      <a href="#quick-round">{zh ? "跳到六题线下短局" : "Jump to the six-question offline round"}</a>
+    </p>
     <section className="fq-downloads fq-hide-print" aria-labelledby="printable-heading">
       <h2 id="printable-heading">{zh ? "下载真正能用的打印活动包" : "Download your printable friendship quiz"}</h2>
       <p>{zh ? "免费PDF，共4页：主持说明与计分例子、24道题、独立的保密答案卡、好友猜测卡。黑白打印即可，无需注册。选实际纸张，以100%比例打印；每轮1份题单、1份答案卡，每位好友1份猜测卡。" : "A free four-page PDF: host guide and scoring example, all 24 questions, a separate private answer key and a friend's guess sheet. No signup; black-and-white printing is fine. Choose your paper size and print at 100%. Use one question list and creator key per round, plus one guess sheet per friend."}</p>
@@ -27,6 +30,12 @@ export function QuestionActivity({ locale }: { locale: Locale }) {
     <table className="fq-example"><caption>{zh ? "同一答案卡的核对过程" : "Checking the same answer key"}</caption><thead><tr>{[zh ? "题号" : "Question", zh ? "出题者" : "Creator", zh ? "好友" : "Guess", zh ? "得分" : "Point"].map(x => <th key={x} scope="col">{x}</th>)}</tr></thead><tbody>{[0,1,2,3].map(i => <tr key={i}><th scope="row">{i+1}</th><td>{["A","B","A","B"][i]}</td><td>{["A","A","B","B"][i]}</td><td>{i === 0 || i === 3 ? 1 : 0}</td></tr>)}</tbody></table>
     <p>{zh ? "若第3题在开局前被取消，所有人都不答它，分母统一变成3。不要用不同题组的百分比排名。线下可自由选题；在线版从30题开始、六类等量、可同类换题，好友每答一题立即揭晓，两种流程有所不同。" : "If question 3 is removed before the round, nobody answers it and everyone's denominator becomes three. Do not rank scores from different sets of questions. Offline you choose the set. The online game starts at 30 balanced questions, allows same-category swaps, and reveals each guess immediately."}</p>
     <section className="fq-sheet" aria-labelledby="question-list-heading"><h2 id="question-list-heading">{zh ? "24道朋友二选一：猜我会选什么" : "24 this-or-that questions: what would I choose?"}</h2>
+      <div id="quick-round" className="scroll-mt-24">
+        <h3>{zh ? "六题线下短局" : "Six-question offline round"}</h3>
+        <p>{zh
+          ? "用下面第 1–6 题。出题者先私下写好每题的 A 或 B，朋友各自猜。收齐猜测再揭晓，猜中一题得一分，然后换人出题。"
+          : "Use questions 1–6 below. One person privately notes their A or B choices. Everyone else guesses, then the host reveals the answers. Score one point per match and swap roles for another round."}</p>
+      </div>
       <p>{zh ? "先决定猜谁的选择。每题A在前、B在后；题号与四页PDF一致。" : "Decide whose choices you are guessing. A comes first and B second. Numbers match the four-page PDF."}</p>
       {Object.entries(CATEGORIES).map(([category, label]) => <section key={category}>
         <h3>{label[locale]}</h3><ol start={preview.questions.findIndex(q => q.category === category) + 1}>{preview.questions.filter(q => q.category === category).map(q => <li key={q.id} data-question-id={q.id}><strong>A.</strong> {q[locale].options[0]}<br /><strong>B.</strong> {q[locale].options[1]}</li>)}</ol>
