@@ -62,9 +62,6 @@ import {
   resultPath,
 } from "@/lib/entertainment/guides";
 
-import QuestionnairePage, {
-  generateMetadata as questionnaireMetadata,
-} from "@/components/questionnaires/QuestionnairePage";
 import nativeCatalog from "@/lib/questionnaires/catalog.json";
 
 const isNative = (slug: string) =>
@@ -76,10 +73,12 @@ type Props = { params: Promise<{ locale: string; slug: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug } = await params;
-  if (isNative(slug))
+  if (isNative(slug)) {
+    const { generateMetadata: questionnaireMetadata } = await import("@/components/questionnaires/QuestionnairePage");
     return questionnaireMetadata({
       params: Promise.resolve({ locale: input, slug }),
     });
+  }
   const locale = resolveLocale(input);
   const quiz = await loadFunQuiz(slug);
   if (!quiz)
@@ -103,10 +102,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 async function FunQuizContent({ params }: Props) {
   const { locale: input, slug } = await params;
-  if (isNative(slug))
+  if (isNative(slug)) {
+    const { default: QuestionnairePage } = await import("@/components/questionnaires/QuestionnairePage");
     return QuestionnairePage({
       params: Promise.resolve({ locale: input, slug }),
     });
+  }
   const locale = resolveLocale(input);
   const quiz = await loadFunQuiz(slug);
   if (!quiz) notFound();

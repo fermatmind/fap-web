@@ -1,3 +1,4 @@
+import { BleachExamples } from "./BleachExamples";
 import { MentalAgeClassicPage } from "./MentalAgeClassicPage";
 import { philosopherLandingDescription } from "@/lib/questionnaires/philosopherPresentation";
 import { PhilosopherRoster } from "./PhilosopherRoster";
@@ -1027,7 +1028,6 @@ return (quiz.references ?? []);
     return host !== "jobcannon.io" && host !== "idrlabs.com";
   });
   const MoonPhaseExamples = slug === "moon-phase" ? (await import("./MoonPhaseExamples")).MoonPhaseExamples : undefined;
-  const BleachExamples = slug === "bleach" ? (await import("./BleachExamples")).BleachExamples : undefined;
   const sample = quiz.kind === "mini-virtues" ? scoreMiniVirtuesQuestionnaire(quiz, Object.fromEntries(
     quiz.questions.map((question, index) => [
       question.id,
@@ -1070,7 +1070,7 @@ return (quiz.references ?? []);
     </div>}
     </ExploreTestIntro>
     {MoonPhaseExamples && <MoonPhaseExamples quiz={quiz} locale={locale} />}
-    {BleachExamples && <BleachExamples quiz={quiz} locale={locale} />}
+    {slug === "bleach" && <BleachExamples quiz={quiz} locale={locale} />}
     {slug === "adult-age-preferences" && <AdultAgePreferencesExamples quiz={quiz} locale={locale} />}
     {slug === "dating-outlook" && <p className="my-5 text-sm leading-7">
       {zh ? "想单独了解伴侣年龄情境？" : "Curious about partner age specifically? "}<Link prefetch={false} className="font-semibold underline underline-offset-4" href={questionnairePath(locale, "adult-age-preferences")}>{zh ? "做年上年下恋爱倾向测试" : "Try the Dating Age Preference Quiz"}</Link>
