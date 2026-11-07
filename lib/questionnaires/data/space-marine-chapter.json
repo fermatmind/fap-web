@@ -27,8 +27,8 @@
     "en": "In an original paper-model display, would you rather agree a plan, support a base, test a joint, craft a detail, observe the layout or explore another fictional route? Eighteen original four-choice items compare these hobby choices through six Space Marine Chapters. Allow about five minutes for raw counts and complete guides for every highest tie, all free. An unofficial entertainment edition, without trivia or army recommendations."
   },
   "instructions": {
-    "zh": "想象自己愿意参加的一次小型纸模型展示，选择当题更想先做的一项，不必模仿战团设定或猜标准答案。每题四选一；未出现的战团不算被拒绝。完成18题后显示六项计数，每个最高并列均有七节全文。点击开始直接进入题目，无需额外同意、账号、邮箱或前置测试；不限时。",
-    "en": "Imagine a small paper-model display you would willingly join and choose what you prefer to do first. You need not imitate Chapter lore or guess a correct answer. Select one of four options; an absent Chapter is not rejected. Finish eighteen items for six counts and a complete seven-section guide for every highest tie. Start opens questions directly without another agreement, account, email or prior test. There is no timer."
+    "zh": "想象自己愿意参加的一次小型纸模型展示，选择当题更想先做的一项，不必模仿战团设定或猜标准答案。每题四选一；未出现的战团不算被拒绝。完成18题后显示六项计数，每个最高并列均可阅读完整指南，包含结果解读、复盘和交流建议。点击开始直接进入题目，无需额外同意、账号、邮箱或前置测试；不限时。",
+    "en": "Imagine a small paper-model display you would willingly join and choose what you prefer to do first. You need not imitate Chapter lore or guess a correct answer. Select one of four options; an absent Chapter is not rejected. Finish eighteen items for six counts and a complete guide for every highest tie, including the reading, a review activity and conversation suggestions. Start opens questions directly without another agreement, account, email or prior test. There is no timer."
   },
   "references": [
     {
@@ -1634,7 +1634,7 @@
       "paragraphs": [
         {
           "en": "Ultramarines, Imperial Fists, Iron Hands, Salamanders, Raven Guard and White Scars each have a complete bilingual guide. Blood Angels, Dark Angels, Space Wolves and other Chapters are outside this selection. The six names appear together in an official public list, but the original hobby angles and scoring are ours. These original hobby readings do not provide current game rules.",
-          "zh": "极限战士、帝国之拳、钢铁之手、火蜥蜴、暗鸦守卫、白疤各有双语全文。圣血天使、暗黑天使、太空野狼等不在集合。六名称共见于官方公开名单，原创爱好角度、计分归本版。不是别站45题九战团测试，不对当前规则作主张。"
+          "zh": "极限战士、帝国之拳、钢铁之手、火蜥蜴、暗鸦守卫、白疤各有双语全文。圣血天使、暗黑天使、太空野狼等不在本版集合。六个名称共见于官方公开名单；本版的爱好角度和计分为费马原创，不提供当前游戏规则或配军建议。"
         }
       ]
     },
@@ -1659,8 +1659,8 @@
       },
       "paragraphs": [
         {
-          "en": "Choices are scored in your browser without answer uploads or answers in URLs or analytics. Optional tab drafts expire after 24 hours and clear on completion, retake or exit-and-clear. Sharing contains only public names and a link, never answers or counts. All complete guides are free without signup, email or an MBTI result. Optional next assessments have separate purposes and require their own answers.",
-          "zh": "选择在浏览器计分，不上传，不把答案放网址或分析。可选标签页草稿24小时失效，完成、重测或退出清除即删。分享只有公开名称、链接，不含答案、次数。全文免费，无需注册、邮箱或MBTI结果；可选后续测评目的独立，须另答。"
+          "en": "Choices are scored in your browser without answer uploads or answers in URLs or analytics. The separate answering page keeps choices only for this attempt; refreshing or changing language starts again. Sharing contains only public names and a link, never answers or counts. All complete guides are free without signup, email or an MBTI result. Optional next assessments have separate purposes and require their own answers.",
+          "zh": "选择在浏览器计分，不上传，不把答案放网址或分析。独立答题页只在本次作答中保留选择，刷新或换语言会重新开始。分享只有公开名称、链接，不含答案、次数。全文免费，无需注册、邮箱或MBTI结果；可选后续测评目的独立，须另答。"
         }
       ]
     }
@@ -1673,7 +1673,7 @@
       },
       "answer": {
         "en": "Ultramarines, Imperial Fists, Iron Hands, Salamanders, Raven Guard and White Scars, each with a complete bilingual guide. This selected six-Chapter edition does not include every Chapter.",
-        "zh": "极限战士、帝国之拳、钢铁之手、火蜥蜴、暗鸦守卫、白疤，各有双语全文。本选定六战团版不含所有战团、不复用别站九结果集合。"
+        "zh": "极限战士、帝国之拳、钢铁之手、火蜥蜴、暗鸦守卫、白疤，各有双语完整指南。本选定六战团版不含所有战团。"
       }
     },
     {

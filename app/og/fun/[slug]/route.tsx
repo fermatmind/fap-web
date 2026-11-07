@@ -1,5 +1,6 @@
 import { philosopherOpenGraphCard } from "@/lib/entertainment/philosopherCard";
 import { adultAgePreferencesCard } from "./adultAgePreferencesCard";
+import { spaceMarineChapterCard } from "./spaceMarineChapterCard";
 import { auraColors } from "@/lib/questionnaires/auraColors";
 import { isPss4ConfigurationValid } from "@/lib/questionnaires/pss4";
 import { isUncertaintyEase6ConfigurationValid } from "@/lib/questionnaires/uncertaintyEase6";
@@ -242,6 +243,10 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   if (questionnaire?.slug === "adult-age-preferences") {
     const publicProfile = questionnaire.profiles.find(profile => profile.id === portrait);
     return adultAgePreferencesCard(locale, topic, publicProfile?.directionIds, await quizFont(slug));
+  }
+  if (slug === "space-marine-chapter" && questionnaire && portrait) {
+    const chapter = questionnaire.profiles.find(profile => profile.id === portrait);
+    if (chapter) return spaceMarineChapterCard(chapter, locale, await quizFont(slug));
   }
   if (slug === "philosopher-personality-test" && questionnaire) {
     return philosopherOpenGraphCard(locale, result?.id, await quizFont(slug));

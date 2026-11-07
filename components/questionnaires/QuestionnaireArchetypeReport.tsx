@@ -10,6 +10,7 @@ import styles from "./QuestionnaireResultPresentation.module.css";
 import { PortraitResultLead, portraitResultLeadKind } from "./PortraitResultLead";
 import { ChiikawaPortrait } from "./ChiikawaPortrait";
 import { EdgerunnersPortrait } from "./EdgerunnersPortrait";
+import { SpaceMarineChapterReveal } from "./SpaceMarineChapterReveal";
 
 const comparisonFirst = new Set(["cyberpunk-edgerunners", "chiikawa", "south-park", "space-marine-chapter", "dexter", "dungeons-dragons-class", "blue-lock", "naruto-character", "gilmore-girls", "philosopher-personality-test"]);
 const chartAfterLead = new Set(["anime-character-archetype-test", "spirit-animal", "tsundere-dere-type"]);
@@ -97,6 +98,7 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId }:
       </section>}
     </details>;
   return <div className={styles.profileReadings} data-profile-category={quiz.category} data-choice-chart-placement={placement}>
+    {quiz.slug === "space-marine-chapter" && <SpaceMarineChapterReveal quiz={quiz} result={result} locale={locale} />}
     {quiz.slug === "philosopher-personality-test" && <p className="leading-7">{zh ? "下面是本次选择对应的原典阅读入口。先读最高项，再比较其他指南；次数不表示你与历史人物有多像，也不代表赞同其全部学说。" : "These are primary-text reading paths associated with your choices. Start with the highest counts, then compare other guides; counts measure neither resemblance to a historical person nor agreement with an entire philosophy."}</p>}
     {result.profileIds.length > 1 && <p className="leading-7">{zh ? `本次保留${result.profileIds.length}项并列匹配，可以分别阅读；顺序不代表主次。` : `All ${result.profileIds.length} tied matches are kept. Read each in turn; their order does not imply priority.`}</p>}
     {placement && matched.length > 1 && <nav className={styles.matchNav} aria-label={zh ? "跳到匹配结果" : "Jump to a match"}>

@@ -81,8 +81,12 @@ export const spaceMarineChaptersLandingSections: Questionnaire["guide"] = [
         "en": "Each four-choice item adds one count to the selected Chapter, for a fixed total of eighteen. Each Chapter appears twelve times, three times in each A–D position, and is absent from six items. Absence is not rejection. Zero to twelve records selections within this bank. A count of 3/12 is three selections in twelve appearances, not a 25% match, game win rate, population frequency or personality intensity."
       },
       {
-        "zh": "全选A会得到六项各3次，六份完整七节指南共42节。另有作答可得5、5、2、2、2、2，两项最高各有全文，共14节；12、2、2、2、0、0只有一项最高，共7节。系统保留所有最高并列，不以题序、字母、最后一题或随机方式强分。不同计数不会自动合并；小差距也没有经过验证的心理差异含义。",
-        "en": "All A choices give three counts each and six complete seven-section guides: forty-two sections. Another answer set can yield 5, 5, 2, 2, 2, 2, with fourteen sections for two highest Chapters; 12, 2, 2, 2, 0, 0 gives one highest and seven sections. Item order, letters, the final answer and randomness do not break ties. Unequal counts are not silently merged, and small gaps have no established psychological meaning."
+        "zh": "全选A会得到六项各3次，六份完整指南一起显示。另有作答可得5、5、2、2、2、2，两项最高各有全文；12、2、2、2、0、0只有一项最高。每份指南都包含结果解读、复盘和交流建议。系统保留所有最高并列，不以题序、字母、最后一题或随机方式强分。不同计数不会自动合并；小差距也没有经过验证的心理差异含义。",
+        "en": "All A choices give three counts each and show six complete guides. Another answer set can yield 5, 5, 2, 2, 2, 2, with complete guides for both highest Chapters; 12, 2, 2, 2, 0, 0 gives one highest. Each guide includes the reading, a review activity and conversation suggestions. Item order, letters, the final answer and randomness do not break ties. Unequal counts are not silently merged, and small gaps have no established psychological meaning."
+      },
+      {
+        "zh": "想自己复算？按题号1—18，全选A可重现六项各3次。合成示例 A A A A A A A A A A A B A A D D D C 得到5、5、2、2、2、2；A A A D C B A A A D C B A C B D C B 得到12、2、2、2、0、0。计数依次为极限战士、帝国之拳、钢铁之手、火蜥蜴、暗鸦守卫、白疤。这些只用于核对规则，不是推荐答案。",
+        "en": "Want to reproduce the counts? For items 1–18, all A gives three each. The synthetic sequence A A A A A A A A A A A B A A D D D C gives 5, 5, 2, 2, 2, 2; A A A D C B A A A D C B A C B D C B gives 12, 2, 2, 2, 0, 0. Counts are ordered Ultramarines, Imperial Fists, Iron Hands, Salamanders, Raven Guard, White Scars. These check the rules; they are not recommended answers."
       }
     ]
   },
@@ -132,8 +136,8 @@ export const spaceMarineChaptersLandingSections: Questionnaire["guide"] = [
         "en": "Both languages retain the same Chapter identities, item mappings and result links. Read in a familiar language; corresponding prose does not establish measurement equivalence. On retaking, inspect changed answers and the kind of project you wanted to make. Different projects, interpretations or ordinary variation may affect results, so a changed name alone cannot establish personality change."
       },
       {
-        "zh": "点击开始直接进入题目，无需额外同意、注册、邮箱或先做MBTI。答案在浏览器计算，可选标签页草稿24小时失效，完成、重测或退出清除会删除。分享只包含公开名称和链接，不包含私人答案或计数。你可以自己读，也可以只分享愿意讨论的爱好点，不需要公开作答来证明战团忠诚。",
-        "en": "Start opens questions directly without another agreement, signup, email or prior MBTI test. Answers are scored in the browser. Optional tab drafts expire after twenty-four hours and clear on completion, retake or exit-and-clear. Sharing includes public names and a link, not private answers or counts. Read privately or share hobby points you wish to discuss, without disclosing answers to prove Chapter loyalty."
+        "zh": "点击开始直接进入题目，无需额外同意、注册、邮箱或先做MBTI。答案在浏览器计算，独立答题页只在本次作答中保留选择；刷新或换语言会重新开始。分享只包含公开名称和链接，不包含私人答案或计数。你可以自己读，也可以只分享愿意讨论的爱好点，不需要公开作答来证明战团忠诚。",
+        "en": "Start opens questions directly without another agreement, signup, email or prior MBTI test. Answers are scored in the browser. The separate answering page keeps choices only for this attempt; refreshing or changing language starts again. Sharing includes public names and a link, not private answers or counts. Read privately or share hobby points you wish to discuss, without disclosing answers to prove Chapter loyalty."
       }
     ]
   }
@@ -142,12 +146,12 @@ export const spaceMarineChaptersLandingSections: Questionnaire["guide"] = [
 export const spaceMarineChaptersLandingFaq: Questionnaire["faq"] = [
   {
     "question": {
-      "zh": "战团测试需要先读背景或学会桌游吗？",
-      "en": "Do I need lore knowledge or tabletop experience?"
+      "zh": "这个测试怎样回答“我属于哪个星际战士战团”？",
+      "en": "What Space Marine Chapter am I in this quiz?"
     },
     "answer": {
-      "zh": "不需要。18题全部围绕自愿纸模型展示，比较六种参与选择，不设剧情标准答案。约5分钟是阅读估计，没有计时或速度要求。",
-      "en": "No. All eighteen items concern a voluntary paper-model display and six participation choices, without correct lore answers. About five minutes is a reading estimate; there is no timer or speed requirement."
+      "zh": "本非官方测试根据18道纸模型选择，展示你在六种战团爱好视角中选择最多的项目；最高并列都有完整指南。结果不是官方战团归属，也不测人格或战斗能力。",
+      "en": "This unofficial quiz uses your eighteen paper-model choices to show which of six Chapter-inspired hobby perspectives you selected most often. Every highest tie gets a complete guide. It does not assign an official Chapter or measure your personality or combat ability."
     }
   },
   {
@@ -196,8 +200,8 @@ export const spaceMarineChaptersLandingFaq: Questionnaire["faq"] = [
       "en": "Will a tie show only one Chapter?"
     },
     "answer": {
-      "zh": "不会。所有最高计数的七节指南同时显示。六项各3次显示42节；两个最高各5次显示14节；单项最高显示7节。系统不随机抽取，也不按最后一题破同分。",
-      "en": "No. Every highest Chapter receives all seven guide sections. Six counts of three display forty-two sections; two highest counts of five display fourteen; a single highest displays seven. There is no randomness or final-answer tie-break."
+      "zh": "不会。每个最高计数的战团都有完整指南，包含结果解读、复盘和交流建议。六项各3次会显示六份；两个最高各5次显示两份；单项最高显示一份。系统不随机抽取，也不按最后一题破同分。",
+      "en": "No. Every highest-count Chapter gets a complete guide, including the reading, a review activity and conversation suggestions. Six counts of three show six guides; two highest counts of five show two; a single highest shows one. There is no randomness or final-answer tie-break."
     }
   },
   {
