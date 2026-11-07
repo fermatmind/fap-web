@@ -4,6 +4,7 @@ import { fireEvent, render, screen, cleanup, waitFor } from "@testing-library/re
 import { ExploreTestEntry } from "@/components/tests/ExploreTestEntry";
 import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
 import { deluluResultSections } from "@/lib/questionnaires/result-content/delulu";
+import { bleachCurrentEntryCopy } from "@/components/questionnaires/BleachLandingEditorial";
 import catalog from "@/lib/questionnaires/catalog.json";
 import { renderToStaticMarkup } from "react-dom/server";
 vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
@@ -46,7 +47,7 @@ describe("entertainment preview entry", () => {
       cleanup();
     }
   });
-  it("renders both locales of all 284 native entries with their original complete guide paragraphs", async () => {
+  it("renders both locales of all 284 native entries with their complete guide paragraphs and current BLEACH progress copy", async () => {
     const entry = (await import("@/components/questionnaires/QuestionnairePage")).default;
     const omitted: string[] = [];
     for (const item of catalog) {
@@ -58,7 +59,12 @@ describe("entertainment preview entry", () => {
         expect(dom.querySelector("h1")?.textContent, item.slug).toBe(quiz.title[locale]);
         for (const section of item.slug === "delulu-test" ? deluluResultSections(quiz.guide) : quiz.guide) for (const paragraph of section.paragraphs) {
           const normalize = (s: string) => s.replace(/\[[1-3]\]/g, "").replace(/\s+/g, " ").trim();
-          if (!normalize(dom.textContent ?? "").includes(normalize(paragraph[locale]))) omitted.push(`${item.slug}:${locale}:${section.id}`);
+          const expected = item.slug === "bleach" ? bleachCurrentEntryCopy(paragraph[locale], locale) : paragraph[locale];
+          if (!normalize(dom.textContent ?? "").includes(normalize(expected))) omitted.push(`${item.slug}:${locale}:${section.id}`);
+        }
+        if (item.slug === "bleach") {
+          expect(dom.textContent).toContain(locale === "zh" ? "当前答题页不提供进度保存" : "This question page does not save progress");
+          expect(dom.textContent).not.toContain(locale === "zh" ? "主动保存后本标签页进度24小时失效" : "opt-in tab progress expires after 24 hours");
         }
       }
     }
