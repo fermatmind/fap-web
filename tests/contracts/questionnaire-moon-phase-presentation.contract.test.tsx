@@ -5,6 +5,8 @@ import raw from "@/lib/questionnaires/data/moon-phase.json";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import { scoreArchetypeQuestionnaire } from "@/lib/questionnaires/scoring";
 import { MoreTests } from "@/components/entertainment/MoreTests";
+import { MoonPhaseComparison } from "@/components/questionnaires/MoonPhaseComparison";
+import { QuestionnaireArchetypeReport } from "@/components/questionnaires/QuestionnaireArchetypeReport";
 import { MoonPhaseReveal } from "@/components/questionnaires/MoonPhaseReveal";
 import { moonPhasePresentations, moonPhaseImage, moonPhasePresentation } from "@/lib/questionnaires/moonPhasePresentation";
 
@@ -25,6 +27,20 @@ describe("moon phase visual result boundary", () => {
     expect(copy).toContain(locale === "zh" ? "24题" : "24 questions");
     expect(copy).toContain(locale === "zh" ? "全部最高并列" : "every top match");
     expect(copy).toContain(locale === "zh" ? "八份指南" : "eight full guides");
+  });
+  it.each(["en", "zh"] as const)("orders all eight public %s comparisons and keeps tied full readings optional", locale => {
+    const root = document.createElement("div");
+    root.innerHTML = renderToStaticMarkup(<MoonPhaseComparison locale={locale} />);
+    expect([...root.querySelectorAll("[data-moon-phase-comparison-id]")].map(el => el.getAttribute("data-moon-phase-comparison-id"))).toEqual(quiz.profiles.map(p => p.id));
+    for (const profile of quiz.profiles) expect(root.querySelector(`a[href="/${locale}/tests/explore/moon-phase/results/${profile.id}"]`)).not.toBeNull();
+    const result = scoreArchetypeQuestionnaire(quiz, Object.fromEntries(quiz.questions.map(q => [q.id, "A"])));
+    if (result.status !== "complete") throw new Error("Complete tie rejected");
+    root.innerHTML = renderToStaticMarkup(<QuestionnaireArchetypeReport quiz={quiz} result={result} locale={locale} />);
+    expect(root.querySelectorAll("[data-moon-phase-top-overview] > li")).toHaveLength(8);
+    expect(root.querySelectorAll("[data-moon-phase-full-reading]")).toHaveLength(8);
+    expect(root.querySelectorAll("[data-moon-phase-full-reading][open]")).toHaveLength(0);
+    expect(root.querySelectorAll("[data-archetype-match] h4")).toHaveLength(72);
+    expect(root.querySelectorAll("[data-moon-phase-comparison-id]")).toHaveLength(8);
   });
   it.each(["en", "zh"] as const)("reveals every highest tie in %s with reasons derived only from selected options", locale => {
     for (const target of [...quiz.profiles.map(p => p.id), "tie"]) {

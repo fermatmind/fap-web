@@ -13,7 +13,10 @@ function drawText(ctx: CanvasRenderingContext2D, text: string, x: number, y: num
   const lines: string[] = []; let line = "";
   for (const word of words) {
     const next = line + (!zh && line ? " " : "") + word;
-    if (ctx.measureText(next).width > width && line) { lines.push(line); line = word; } else line = next;
+    if (ctx.measureText(next).width > width && line) {
+      if (zh && /^[，。！？；：、]$/.test(word) && line.length > 1) { lines.push(line.slice(0, -1)); line = line.slice(-1) + word; }
+      else { lines.push(line); line = word; }
+    } else line = next;
   }
   if (line) lines.push(line);
   lines.slice(0, maxLines).forEach((value, i) => ctx.fillText(value + (i === maxLines - 1 && lines.length > maxLines ? "…" : ""), x, y + i * lineHeight));
@@ -48,7 +51,9 @@ export function MoonPhaseShareCard({ ids, locale, publicGuide = false }: { ids: 
       const tall = format === "portrait", single = selected.length === 1, pad = 54;
       ctx.fillStyle = "#f4eee5"; ctx.fillRect(0, 0, w, h);
       ctx.fillStyle = "#356d70"; ctx.font = '600 26px system-ui, sans-serif';
-      ctx.fillText(publicGuide ? (zh ? "费马测试 · 月相公开指南" : "FERMATMIND · PUBLIC MOON PHASE GUIDE") : (zh ? "费马测试 · 我的月相" : "FERMATMIND · MY MOON PHASE METAPHORS"), pad, tall ? 120 : 66);
+      ctx.fillText(zh ? "费马测试 · 月相测试" : "FermatMind · Moon Phase Personality Test", pad, tall ? 120 : 66);
+      ctx.fillStyle = "#586055"; ctx.font = '500 22px system-ui, sans-serif';
+      ctx.fillText(publicGuide ? (zh ? "公开指南 · 不是个人结果" : "Public guide · Not a personal result") : (zh ? "我的结果 · 娱乐问卷" : "My result · Entertainment quiz"), pad, tall ? 174 : 100);
       if (single) {
         const person = moonPhasePresentations[selected[0]];
         const px = tall ? 315 : 54, py = tall ? 220 : 132, pw = tall ? 450 : 280;
@@ -62,7 +67,7 @@ export function MoonPhaseShareCard({ ids, locale, publicGuide = false }: { ids: 
         drawText(ctx, publicGuide ? (zh ? "公开月相指南 · 无需答题即可阅读" : "Public moon phase guide · No answers required") : (zh ? "从本次日常选择出发，看看你匹配哪种月相。" : "A playful activity-pace metaphor based on everyday choices."), tx, tall ? 1360 : 445, tw, 42, 2, zh);
       } else {
         ctx.fillStyle = "#202d38"; ctx.font = `700 ${tall ? 50 : 40}px system-ui, sans-serif`;
-        ctx.fillText(zh ? `${selected.length}种并列月相` : `${selected.length} tied moon phase metaphors`, pad, tall ? 238 : 130);
+        ctx.fillText(zh ? `${selected.length}种并列月相` : `${selected.length} tied moon phase metaphors`, pad, tall ? 258 : 145);
         const columns = selected.length === 2 ? (tall ? 1 : 2) : 3;
         const gap = 18, cellW = (w - pad * 2 - gap * (columns - 1)) / columns;
         const cellH = tall ? (selected.length === 2 ? 620 : 440) : (selected.length === 2 ? 320 : 118);
@@ -79,7 +84,7 @@ export function MoonPhaseShareCard({ ids, locale, publicGuide = false }: { ids: 
         });
       }
       ctx.fillStyle = "#6d6658"; ctx.font = `500 ${tall ? 28 : 22}px system-ui, sans-serif`;
-      drawText(ctx, zh ? "活动节奏趣味意象 · 原创月相图 · 不计算出生月相" : "Activity-pace metaphors · For fun · Not a birth moon calculation", pad, h - (tall ? 180 : 64), w - pad * 2, 34, 2, zh);
+      drawText(ctx, publicGuide ? (zh ? "公开月相意象指南 · 不是出生月相计算" : "Public quiz metaphor guide · Not a birth moon calculation") : (zh ? "问卷娱乐结果，不是出生月相计算。" : "Entertainment questionnaire result · Not a birth moon calculation"), pad, h - (tall ? 180 : 64), w - pad * 2, 34, 2, zh);
       ctx.font = `500 ${tall ? 25 : 20}px system-ui, sans-serif`;
       drawText(ctx, `fermatmind.com/${locale}/tests/explore/moon-phase`, pad, h - (tall ? 82 : 24), w - pad * 2, 32, 1, false);
       const blob = await new Promise<Blob>((resolve, reject) => canvas.toBlob(value => value ? resolve(value) : reject(new Error("PNG unavailable")), "image/png"));

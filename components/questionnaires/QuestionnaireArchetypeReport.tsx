@@ -1,3 +1,4 @@
+import { MoonPhaseComparison } from "./MoonPhaseComparison";
 import { MoonPhaseReveal } from "./MoonPhaseReveal";
 import { BleachReveal } from "./BleachReveal";
 import { PhilosopherReport } from "./PhilosopherReport";
@@ -111,16 +112,12 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId, a
         {profile.title[locale]}
       </a>)}
     </nav>}
+    {quiz.slug === "moon-phase" && <MoonPhaseComparison locale={locale} selected={result.profileIds} result />}
     {(placement === "before" || quiz.slug === "aura-color") && counts}
     {matched.map((profile, index) => {
       const id = profile.id;
       const titleId = `animal-title-${id}`;
-      return <section key={id} aria-labelledby={titleId} data-archetype-match={id} className={styles.profileChapter}>
-        {lead && quiz.slug !== "moon-phase" ? <PortraitResultLead kind={lead} quiz={quiz} profile={profile} result={result} locale={locale} titleId={titleId} /> : <header>
-          <h3 id={titleId} className="scroll-mt-24 text-2xl font-semibold leading-snug">{profile.title[locale]}</h3>
-          <p className={styles.summary}>{profile.summary[locale]}</p>
-        </header>}
-        {placement === "between" && index === 0 && counts}
+      const body = (
         <div className={styles.profileBody}>
           <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${id}`} mode="result" showHeadline={false} showSummary={false} previewSectionIds={previewSections(profile)} />
           <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "单独阅读这项结果的完整指南" : "Read this result’s full guide separately"}</Link>
@@ -131,6 +128,22 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId, a
             {zh ? "预览该颜色的公开分享图（新标签页）" : "Preview this color’s public share card (new tab)"}
           </a>}
         </div>
+      );
+      return <section key={id} aria-labelledby={titleId} data-archetype-match={id} className={styles.profileChapter}>
+        {lead && quiz.slug !== "moon-phase" ? <PortraitResultLead kind={lead} quiz={quiz} profile={profile} result={result} locale={locale} titleId={titleId} /> : <header>
+          <h3 id={titleId} className="scroll-mt-24 text-2xl font-semibold leading-snug">{profile.title[locale]}</h3>
+          {quiz.slug !== "moon-phase" && <p className={styles.summary}>{profile.summary[locale]}</p>}
+        </header>}
+        {placement === "between" && index === 0 && counts}
+        {quiz.slug === "moon-phase" ? <details data-moon-phase-full-reading open={matched.length === 1}>
+          <summary aria-label={`${profile.title[locale]} · ${zh ? "展开这项完整解读" : "Read this match in full"}`} className="min-h-11 cursor-pointer py-3 font-semibold">{zh ? "展开这项完整解读" : "Read this match in full"}</summary>
+          <p className={styles.summary}>{profile.summary[locale]}</p>
+          <p className="text-sm leading-7">{profile.headline[locale]}</p>
+          {body}
+        </details> : <>
+          {body}
+        </>}
+
       </section>;
     })}
     {(!placement || placement === "after") && quiz.slug !== "aura-color" && counts}

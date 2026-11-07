@@ -2,17 +2,24 @@ import { test, expect, type Page } from "@playwright/test";
 import { mkdirSync } from "node:fs";
 import { join } from "node:path";
 import { readFileSync } from "node:fs";
+import { moonPhasePresentations } from "../../lib/questionnaires/moonPhasePresentation";
 import type { Questionnaire } from "../../lib/questionnaires/types";
 
 test.beforeEach(async ({page}) => {
-  await page.addInitScript(() => { localStorage.setItem("fm_consent_v1", JSON.stringify({analytics: "denied", updatedAt: new Date().toISOString()})); });
+  await page.addInitScript(() => { localStorage.setItem("fm_consent_v1", JSON.stringify({analytics: "denied", updatedAt: new Date().toISOString()}));
+    const draw = CanvasRenderingContext2D.prototype.fillText;
+    (window as unknown as {__moonCardText: string[]}).__moonCardText = [];
+    CanvasRenderingContext2D.prototype.fillText = function(text, x, y, maxWidth) {
+      (window as unknown as {__moonCardText: string[]}).__moonCardText.push(text);
+      if (maxWidth === undefined) draw.call(this, text, x, y); else draw.call(this, text, x, y, maxWidth);
+    }; });
 });
 const additions = JSON.parse(readFileSync("lib/questionnaires/result-content/moon-phase.json", "utf8")) as Record<string, unknown[]>;
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/moon-phase.json", "utf8")) as Questionnaire;
-async function finish(page: Page, locale: "en" | "zh", mode: "new-moon" | "tie" | "two") {
+async function finish(page: Page, locale: "en" | "zh", mode: "new-moon" | "waxing-crescent" | "tie" | "two") {
   for (const [index, question] of quiz.questions.entries()) {
     const two = ["D","A","C","B","B","B","B","C","C","C","D","D","A","B","A","A","A","C","A","B","D","B","B","A"];
-    const option = mode === "two" ? question.options.find(o => o.id === two[index])! : mode === "tie" ? question.options[0] : question.options.find(o => o.directionId === "new-moon") ?? question.options[0];
+    const option = mode === "two" ? question.options.find(o => o.id === two[index])! : mode === "tie" ? question.options[0] : question.options.find(o => o.directionId === mode) ?? question.options[0];
     const radio = page.locator(`input[name="${question.id}"][value="${option.id}"]`);
     if (index === 0) { await radio.focus(); await page.keyboard.press("Space"); await expect(radio).toBeChecked(); }
     else await radio.check();
@@ -21,12 +28,25 @@ async function finish(page: Page, locale: "en" | "zh", mode: "new-moon" | "tie" 
   }
   await expect(page.getByRole("heading", { level: 2, name: quiz.resultHeading![locale], exact: true })).toBeFocused();
   await expect(page.locator("[data-archetype-count]")).toHaveCount(8);
+  const comparison = page.locator("[data-moon-phase-comparison]");
+  await expect(comparison.locator("[data-moon-phase-comparison-id]")).toHaveCount(8);
+  expect(await comparison.locator("[data-moon-phase-comparison-id]").evaluateAll(nodes => nodes.map(node => node.getAttribute("data-moon-phase-comparison-id")))).toEqual(quiz.profiles.map(p => p.id));
+  const fullReadings = page.locator("[data-moon-phase-full-reading]");
+  await expect(page.locator("[data-moon-phase-full-reading][open]")).toHaveCount(mode === "tie" || mode === "two" ? 0 : 1);
+  if (mode === "tie" || mode === "two") {
+    for (const reading of await fullReadings.all()) {
+      await reading.locator(":scope > summary").click();
+      await expect(reading.locator("h4").first()).toBeVisible();
+      await reading.locator(":scope > summary").click();
+    }
+    await expect(page.locator("[data-moon-phase-reasons] details[open]")).toHaveCount(0);
+  }
   const ids = await page.locator("#take-test [id]").evaluateAll(nodes => nodes.map(node => node.id));
   expect(new Set(ids).size).toBe(ids.length);
-  if (mode === "new-moon") {
-    await expect(page.locator('[data-archetype-count="new-moon"]')).toContainText("12 / 12");
+  if (mode === "new-moon" || mode === "waxing-crescent") {
+    await expect(page.locator(`[data-archetype-count="${mode}"]`)).toContainText("12 / 12");
     await expect(page.locator("[data-archetype-match]")).toHaveCount(1);
-    await expect(page.locator('[data-archetype-match="new-moon"] h4')).toHaveCount(quiz.profiles[0].sections.length + additions[quiz.profiles[0].id].length);
+    await expect(page.locator(`[data-archetype-match="${mode}"] h4`)).toHaveCount(quiz.profiles[0].sections.length + additions[quiz.profiles[0].id].length);
   } else if (mode === "two") {
     await expect(page.locator("[data-archetype-match]")).toHaveCount(2);
     await expect(page.locator('[data-archetype-count="full-moon"]')).toContainText("5 / 12");
@@ -55,13 +75,18 @@ for (const locale of ["en", "zh"] as const) {
     await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
-    await finish(page, locale, "new-moon");
+    await finish(page, locale, width === 1440 ? "waxing-crescent" : "new-moon");
     await expect(page.locator("[data-moon-phase-reveal]")).toBeVisible();
     await expect(page.locator("[data-moon-phase-choice-reasons] li")).toHaveCount(2);
     const sharing = page.locator("[data-moon-phase-sharing]");
     const download = page.waitForEvent("download");
     await sharing.getByRole("button", {name: zh ? "保存月相卡片" : "Save Moon Phase card", exact: true}).click();
     const file = await download;
+    const drawn = await page.evaluate(() => (window as unknown as {__moonCardText: string[]}).__moonCardText.join(" "));
+    expect(drawn).toContain(zh ? "费马测试 · 月相测试" : "FermatMind · Moon Phase Personality Test");
+    expect(drawn).toContain(zh ? "我的结果 · 娱乐问卷" : "My result · Entertainment quiz");
+    expect(drawn).toContain(moonPhasePresentations[width === 1440 ? "waxing-crescent" : "new-moon"].name[locale]);
+    expect(drawn).toContain(zh ? "不是出生月相计算" : "Not a birth moon calculation");
     expect(file.suggestedFilename()).toBe(`fermatmind-moon-phase-${locale}-landscape.png`);
     const image = sharing.locator("img"); await expect(image).toBeVisible();
     await expect.poll(() => image.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBe(1200);
@@ -111,9 +136,15 @@ for (const locale of ["en", "zh"] as const) {
     const download = page.waitForEvent("download");
     await sharing.getByRole("button", {name: zh ? "保存月相卡片" : "Save Moon Phase card", exact: true}).click();
     const file = await download;
+    const drawn = await page.evaluate(() => (window as unknown as {__moonCardText: string[]}).__moonCardText.join(" "));
+    expect(drawn).toContain(zh ? "费马测试 · 月相测试" : "FermatMind · Moon Phase Personality Test");
+    expect(drawn).toContain(zh ? "我的结果 · 娱乐问卷" : "My result · Entertainment quiz");
+    expect(drawn).toContain(moonPhasePresentations[width === 1440 ? "waxing-crescent" : "new-moon"].name[locale]);
+    expect(drawn).toContain(zh ? "不是出生月相计算" : "Not a birth moon calculation");
     if (process.env.MOON_QA_ARTIFACTS) {
       await file.saveAs(join(process.env.MOON_QA_ARTIFACTS, `tie-${locale}-${width}-landscape.png`));
     }
+    for (const phase of Object.values(moonPhasePresentations)) expect(drawn).toContain(phase.name[locale]);
     for (const profile of quiz.profiles) await expect(sharing.locator("img")).toHaveAttribute("alt", new RegExp(profile.title[locale].split(/[:：]/)[0].replace(/ Image$/, "").replace(/意象$/, "")));
     await sharing.getByRole("combobox").selectOption("portrait");
     const tall = page.waitForEvent("download");
@@ -131,16 +162,26 @@ for (const locale of ["en", "zh"] as const) {
     expect(text).not.toMatch(/MOON_PHASE_[0-9]{2}|answers|form_code|submission|3\s*\/\s*12|[?&]score/);
     const url = new URL(text.split("\n").at(-1)!); expect(url.pathname).toBe(entry); expect(url.search).toBe(""); expect(url.hash).toBe("");
   });
-  test(`@release MOON_PHASE ${locale}: two-way reveal, guide return and failed PNG fallback`, async ({page}) => {
+  for (const width of [390, 1440]) test(`@release MOON_PHASE ${locale} ${width}: two-way reveal, guide return and failed PNG fallback`, async ({page}) => {
+    await page.setViewportSize({width, height:844});
     await page.goto(`${entry}/take`); await finish(page, locale, "two");
     const reveal = page.locator("[data-moon-phase-reveal]");
     await expect(reveal.locator(":scope > ul > li")).toHaveCount(2);
-    await reveal.getByRole("link", {name: zh ? "阅读这一月相的完整指南" : "Read this phase’s complete guide", exact: true}).first().click();
+    await reveal.getByRole("link", {name: zh ? "满月" : "Full Moon", exact: true}).first().click();
     await expect(page).toHaveURL(new RegExp(`${entry}/results/full-moon$`));
     await expect(page.locator("[data-moon-phase-public-diagram]")).toBeVisible();
     await page.getByRole("link", {name: zh ? "免费开始完整测试" : "Start the full test for free", exact: true}).click();
     await page.getByRole("button", {name: zh ? "开始测试" : "Start test", exact: true}).click();
     await finish(page, locale, "two");
+    const twoSharing = page.locator("[data-moon-phase-sharing]");
+    for (const format of ["landscape", "portrait"]) {
+      await twoSharing.getByRole("combobox").selectOption(format);
+      const pending = page.waitForEvent("download");
+      await twoSharing.getByRole("button", {name: zh ? "保存月相卡片" : "Save Moon Phase card", exact:true}).click();
+      const imageFile = await pending;
+      if (process.env.MOON_QA_ARTIFACTS) await imageFile.saveAs(join(process.env.MOON_QA_ARTIFACTS, `two-${locale}-${width}-${format}.png`));
+      await expect.poll(() => twoSharing.locator("img").evaluate((img:HTMLImageElement)=>[img.naturalWidth,img.naturalHeight])).toEqual(format === "portrait" ? [1080,1920] : [1200,630]);
+    }
     await page.evaluate(() => {
       Object.defineProperty(navigator, "canShare", { configurable: true, value: () => true });
       Object.defineProperty(navigator, "share", { configurable: true, value: async () => { throw new DOMException("Synthetic user cancellation", "AbortError"); } });

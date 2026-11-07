@@ -1,3 +1,4 @@
+import { MoonPhaseComparison } from "./MoonPhaseComparison";
 import { BleachExamples } from "./BleachExamples";
 import { MentalAgeClassicPage } from "./MentalAgeClassicPage";
 import { philosopherLandingDescription } from "@/lib/questionnaires/philosopherPresentation";
@@ -1045,6 +1046,7 @@ return (quiz.references ?? []);
 
     <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     {slug === "moon-phase" && <div className="mt-2 flex flex-wrap gap-x-5 text-sm font-medium">
+      <a href="#moon-phase-comparison" className="inline-flex min-h-11 items-center underline">{zh ? "对照八种月相意象" : "Compare all eight moon phase images"}</a>
       <a href="#moon-phase-examples" className="inline-flex min-h-11 items-center underline">{zh ? "先看月相与并列结果示例" : "Preview moon phases and tied results"}</a>
       <a href="#questionnaire-results" className="inline-flex min-h-11 items-center underline">{zh ? "浏览八种月相完整指南" : "Browse eight complete moon phase guides"}</a>
     </div>}
@@ -1069,6 +1071,7 @@ return (quiz.references ?? []);
       <a href="#questionnaire-results" className="inline-flex min-h-11 items-center underline underline-offset-4">{zh ? "查看六位角色指南" : "Browse the six character guides"}</a>
     </div>}
     </ExploreTestIntro>
+    {slug === "moon-phase" && <MoonPhaseComparison locale={locale} />}
     {MoonPhaseExamples && <MoonPhaseExamples quiz={quiz} locale={locale} />}
     {slug === "bleach" && <BleachExamples quiz={quiz} locale={locale} />}
     {slug === "adult-age-preferences" && <AdultAgePreferencesExamples quiz={quiz} locale={locale} />}
