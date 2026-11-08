@@ -1,3 +1,4 @@
+import { entertainmentGuideProfile, entertainmentGuideStartLabel } from "../../lib/questionnaires/entertainmentGuideSeo";
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import { philosopherPresentations } from "../../lib/questionnaires/philosopherPresentation";
@@ -92,12 +93,12 @@ test("@release Philosopher all18public guides, bilingual share images and closed
   for (const locale of ["en", "zh"] as const) for (const profile of quiz.profiles) {
     const path = `/${locale}/tests/explore/${quiz.slug}/results/${profile.id}`;
     expect((await page.goto(path))?.status()).toBe(200);
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText(profile.title[locale]);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(entertainmentGuideProfile(quiz.slug, locale, profile).title[locale]);
     await expect(page.locator("[data-archetype-count]")).toHaveCount(0);
     for (const section of profile.sections) await expect(page.locator(`#report-${section.id} h2`)).toHaveText(section.title[locale]);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${path}`);
     await expect(page.locator('link[hreflang="en"]')).toHaveAttribute("href", `https://fermatmind.com/en/tests/explore/${quiz.slug}/results/${profile.id}`);
-    await expect(page.getByRole("link", { name: locale === "zh" ? "免费开始完整测试" : "Start the full test for free", exact: true })).toHaveAttribute("href", `/${locale}/tests/explore/${quiz.slug}#take-test`);
+    await expect(page.getByRole("link", { name: entertainmentGuideStartLabel(quiz.slug, locale), exact: true })).toHaveAttribute("href", `/${locale}/tests/explore/${quiz.slug}#take-test`);
     await expect(page.locator("[data-philosopher-portrait]")).toHaveAttribute("data-philosopher-portrait", profile.id);
     const imageUrl = new URL((await page.locator('meta[property="og:image"]').getAttribute("content"))!);
     expect(imageUrl.searchParams.get("v")).toBe("1.1.0-portraits2");
@@ -146,7 +147,7 @@ for (const locale of ["en", "zh"] as const) test(`@release Philosopher ${locale}
   const [download] = await Promise.all([page.waitForEvent("download"), sharing.getByRole("button", { name: zh ? "保存哲学家卡片" : "Save philosopher card", exact: true }).click()]);
   const file = testInfo.outputPath("public-philosopher-guide.png"); await download.saveAs(file);
   const png = readFileSync(file); expect(png.readUInt32BE(16)).toBe(1200); expect(png.readUInt32BE(20)).toBe(630);
-  await page.getByRole("link", { name: zh ? "免费开始完整测试" : "Start the full test for free", exact: true }).click();
+  await page.getByRole("link", { name: entertainmentGuideStartLabel(quiz.slug, locale), exact: true }).click();
   await expect(page).toHaveURL(new RegExp(`${entry}#take-test$`));
   await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
   await expect(page.locator('#take-test[data-stage]').getByRole("radio").first()).not.toBeChecked();

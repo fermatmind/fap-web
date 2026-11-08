@@ -1,3 +1,4 @@
+import { entertainmentGuideProfile } from "../../lib/questionnaires/entertainmentGuideSeo";
 import { test, expect, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import type { Questionnaire } from "../../lib/questionnaires/types";
@@ -128,7 +129,7 @@ test("@release Space Marine: all twelve public guides, bilingual cards and close
   for (const locale of ["en", "zh"] as const) for (const profile of quiz.profiles) {
     const path = `/${locale}/tests/explore/space-marine-chapter/results/${profile.id}`;
     expect((await page.goto(path))?.status()).toBe(200);
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText(profile.title[locale]);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(entertainmentGuideProfile(quiz.slug, locale, profile).title[locale]);
     await expect(page.locator("[data-archetype-count]")).toHaveCount(0);
     await expect(page.locator('[data-space-marine-chapter-result-reading] h2')).toHaveCount(9);
     await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", `https://fermatmind.com/en/tests/explore/space-marine-chapter/results/${profile.id}`);

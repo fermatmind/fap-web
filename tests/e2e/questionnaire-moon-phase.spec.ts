@@ -1,3 +1,4 @@
+import { entertainmentGuideProfile, entertainmentGuideStartLabel } from "../../lib/questionnaires/entertainmentGuideSeo";
 import { test, expect, type Page } from "@playwright/test";
 import { mkdirSync } from "node:fs";
 import { join } from "node:path";
@@ -170,7 +171,7 @@ for (const locale of ["en", "zh"] as const) {
     await reveal.getByRole("link", {name: zh ? "满月" : "Full Moon", exact: true}).first().click();
     await expect(page).toHaveURL(new RegExp(`${entry}/results/full-moon$`));
     await expect(page.locator("[data-moon-phase-public-diagram]")).toBeVisible();
-    await page.getByRole("link", {name: zh ? "免费开始完整测试" : "Start the full test for free", exact: true}).click();
+    await page.getByRole("link", {name: entertainmentGuideStartLabel(quiz.slug, locale), exact: true}).click();
     await page.getByRole("button", {name: zh ? "开始测试" : "Start test", exact: true}).click();
     await finish(page, locale, "two");
     const twoSharing = page.locator("[data-moon-phase-sharing]");
@@ -203,11 +204,11 @@ for (const locale of ["en", "zh"] as const) {
 test("@release MOON_PHASE activity-pace images all16public full guides, bilingual images and closed identities", async ({ page, request }) => {
   for (const locale of ["en", "zh"] as const) for (const profile of quiz.profiles) {
     const path = `/${locale}/tests/explore/moon-phase/results/${profile.id}`;
-    expect((await page.goto(path))?.status()).toBe(200); await expect(page.getByRole("heading", { level: 1 })).toHaveText(profile.title[locale]);
+    expect((await page.goto(path))?.status()).toBe(200); await expect(page.getByRole("heading", { level: 1 })).toHaveText(entertainmentGuideProfile(quiz.slug, locale, profile).title[locale]);
     await expect(page.locator("[data-archetype-count]")).toHaveCount(0);
     for (const section of profile.sections) await expect(page.locator(`#report-${section.id} h2`)).toHaveText(section.title[locale]);
     await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", `https://fermatmind.com/en/tests/explore/moon-phase/results/${profile.id}`);
-    await expect(page.getByRole("link", { name: locale === "zh" ? "免费开始完整测试" : "Start the full test for free", exact: true })).toHaveAttribute("href", `/${locale}/tests/explore/moon-phase#take-test`);
+    await expect(page.getByRole("link", { name: entertainmentGuideStartLabel(quiz.slug, locale), exact: true })).toHaveAttribute("href", `/${locale}/tests/explore/moon-phase#take-test`);
     if (profile.id === "new-moon") {
       const sharing = page.locator("[data-moon-phase-sharing]");
       for (const format of ["landscape", "portrait"]) {

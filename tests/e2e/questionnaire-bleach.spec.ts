@@ -1,3 +1,4 @@
+import { entertainmentGuideProfile, entertainmentGuideStartLabel } from "../../lib/questionnaires/entertainmentGuideSeo";
 import { test, expect, type Page } from "@playwright/test";
 import { mkdirSync } from "node:fs";
 import { join } from "node:path";
@@ -142,7 +143,7 @@ for (const locale of ["en", "zh"] as const) {
     await reveal.getByRole("link", {name: zh ? "阅读公开人物指南" : "Read public character guide", exact: true}).first().click();
     await expect(page).toHaveURL(new RegExp(`${entry}/results/ichigo-kurosaki$`));
     await expect(page.locator("[data-bleach-public-portrait]")).toBeVisible();
-    await page.getByRole("link", {name: zh ? "免费开始完整测试" : "Start the full test for free", exact: true}).click();
+    await page.getByRole("link", {name: entertainmentGuideStartLabel(quiz.slug, locale), exact: true}).click();
     await page.getByRole("button", {name: zh ? "开始测试" : "Start test", exact: true}).click();
     await finish(page, locale, "two");
     await page.route("**/images/quiz-portraits/bleach/*.svg", route => route.fulfill({status: 503, body: "synthetic failure"}));
@@ -158,11 +159,11 @@ for (const locale of ["en", "zh"] as const) {
 test("@release BLEACH ordinary fan choices all14public full guides, bilingual images and closed identities", async ({ page, request }) => {
   for (const locale of ["en", "zh"] as const) for (const profile of quiz.profiles) {
     const path = `/${locale}/tests/explore/bleach/results/${profile.id}`;
-    expect((await page.goto(path))?.status()).toBe(200); await expect(page.getByRole("heading", { level: 1 })).toHaveText(profile.title[locale]);
+    expect((await page.goto(path))?.status()).toBe(200); await expect(page.getByRole("heading", { level: 1 })).toHaveText(entertainmentGuideProfile(quiz.slug, locale, profile).title[locale]);
     await expect(page.locator("[data-archetype-count]")).toHaveCount(0);
     for (const section of profile.sections) await expect(page.locator(`#report-${section.id} h2`)).toHaveText(section.title[locale]);
     await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", `https://fermatmind.com/en/tests/explore/bleach/results/${profile.id}`);
-    await expect(page.getByRole("link", { name: locale === "zh" ? "免费开始完整测试" : "Start the full test for free", exact: true })).toHaveAttribute("href", `/${locale}/tests/explore/bleach#take-test`);
+    await expect(page.getByRole("link", { name: entertainmentGuideStartLabel(quiz.slug, locale), exact: true })).toHaveAttribute("href", `/${locale}/tests/explore/bleach#take-test`);
     if (profile.id === "ichigo-kurosaki") {
       const sharing = page.locator("[data-bleach-sharing]");
       for (const format of ["landscape", "portrait"]) {
@@ -207,7 +208,7 @@ for (const locale of ["en", "zh"] as const) {
       await expect(directory.locator("li")).toHaveCount(7);
       await directory.locator(`[data-bleach-directory-character="${profile.id}"] a`).click();
       await expect(page).toHaveURL(new RegExp(`${entry}/results/${profile.id}$`));
-      await expect(page.getByRole("heading",{level:1})).toHaveText(profile.title[locale]);
+      await expect(page.getByRole("heading",{level:1})).toHaveText(entertainmentGuideProfile(quiz.slug, locale, profile).title[locale]);
       const guide=page.locator("[data-bleach-public-portrait]");
       await expect.poll(()=>guide.locator(":scope > img").evaluate((img:HTMLImageElement)=>[img.naturalWidth,img.naturalHeight])).toEqual([260,300]);
       await expect(page.locator("[data-bleach-character-directory] li")).toHaveCount(7);

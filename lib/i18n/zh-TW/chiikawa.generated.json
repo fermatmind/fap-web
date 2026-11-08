@@ -3,7 +3,7 @@
   "converter": "opencc-js@1.4.2:cn:twp",
   "glossary": "fermatmind-tw-1",
   "sourceHashes": {
-    "lib/questionnaires/data/chiikawa.json": "00fe3b123dca8159bed4b403d5c3ed963bf3efdee6d3040b3e43dcc21654dd3e",
+    "lib/questionnaires/data/chiikawa.json": "9493313d11678f93f8efb2b87fecd9c370fdbd08e2bb27a3d464c72aa5620858",
     "lib/questionnaires/result-content/chiikawa.json": "32308e38fdeab4de784d4c5dc30e2a5f756559b1d00fd05f36301fe2fd8b61a6",
     "lib/i18n/zh-TW/ui.source.json": "2a1db21ff9240dfe1a8307151fb4ea91a3c0d9be4d81be76b3b566f656c81562",
     "lib/i18n/zh-TW/about-team.source.json": "a65ffdb3ec03c7c73dacd33f9e33b3b2e6c5f3199f596501336ed6e67c09d9f9",
@@ -19,8 +19,8 @@
       "text": "你的吉伊卡哇角色匹配"
     },
     "lib/questionnaires/data/chiikawa.json/description": {
-      "sourceHash": "024719213754606851689a1630f1a953f26e31d93d6dc4b7a838929b2008b320",
-      "text": "你像吉伊卡哇（小可愛）、小八還是兔兔？免費回答18道日常情境題，比較六位角色的匹配結果，檢視完整角色指南，無需註冊。"
+      "sourceHash": "62101f93a77e01ac3703206f7128d7a4af4fb60a13e70a27b03446356ac055ac",
+      "text": "你像吉伊卡哇（小可愛）、小八還是兔兔？18道日常情境的趣味角色測驗，免費比較六位角色的匹配結果，閱讀完整指南，無需註冊。"
     },
     "lib/questionnaires/data/chiikawa.json/seoTitle": {
       "sourceHash": "7f5d03c867bd1b3f2f12ec7e0343b92b9209926e917f98bc5c9cbccb31db667c",

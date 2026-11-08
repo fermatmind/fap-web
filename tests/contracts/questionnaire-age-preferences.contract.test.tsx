@@ -1,3 +1,4 @@
+import { entertainmentGuideProfile } from "@/lib/questionnaires/entertainmentGuideSeo";
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
@@ -143,9 +144,9 @@ describe("original adult age-context choices and all seven complete readings", (
       for (const p of quiz.profiles) {
         const path = `/${locale}/tests/explore/${quiz.slug}/results/${p.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: p.id }) };
         const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(await guide.default(props));
-        expect(dom.querySelector("h1")?.textContent).toBe(p.title[locale]);
+        expect(dom.querySelector("h1")?.textContent).toBe(entertainmentGuideProfile(quiz.slug, locale, p).title[locale]);
         for (const section of p.sections) for (const text of section.paragraphs) expect(dom.textContent).toContain(text[locale]);
-        const meta = await guide.generateMetadata(props); expect(meta.title).toBe(p.seo!.title[locale]); expect(meta.description).toBe(p.seo!.description[locale]);
+        const meta = await guide.generateMetadata(props); expect(meta.title).toBe(entertainmentGuideProfile(quiz.slug, locale, p).seo!.title[locale]); expect(meta.description).toBe(entertainmentGuideProfile(quiz.slug, locale, p).seo!.description[locale]);
         expect(meta.alternates?.canonical).toBe("https://fermatmind.com" + path); expect(maps.filter(v => v.loc === "https://fermatmind.com" + path)).toHaveLength(1);
       }
     }

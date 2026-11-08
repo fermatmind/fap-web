@@ -1,3 +1,4 @@
+import { entertainmentGuideProfile, entertainmentGuideStartLabel } from "../../lib/questionnaires/entertainmentGuideSeo";
 import { expect, test, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import type { Questionnaire } from "../../lib/questionnaires/types";
@@ -93,7 +94,7 @@ for (const locale of ["en", "zh"] as const) {
     for (const profile of quiz.profiles) {
       const guide = `${entry}/results/${profile.id}`;
       expect((await page.goto(guide))?.status()).toBe(200);
-      await expect(page.getByRole("heading", { level: 1 })).toHaveText(profile.title[locale]);
+      await expect(page.getByRole("heading", { level: 1 })).toHaveText(entertainmentGuideProfile(quiz.slug, locale, profile).title[locale]);
       await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", root + guide);
       await expect(page.getByRole("region", { name: zh ? "本次原始选择次数" : "Raw choice counts for this attempt" })).toHaveCount(0);
       for (const section of profile.sections) {
@@ -107,7 +108,7 @@ for (const locale of ["en", "zh"] as const) {
       const bytes = await response.body();
       expect([bytes.readUInt32BE(16), bytes.readUInt32BE(20)]).toEqual([1200, 630]);
     }
-    await page.getByRole("link", { name: zh ? "免费开始完整测试" : "Start the full test for free", exact: true }).first().click();
+    await page.getByRole("link", { name: entertainmentGuideStartLabel(quiz.slug, locale), exact: true }).first().click();
     await expect(page).toHaveURL(url => url.pathname === entry, { timeout: 20_000 });
     expect((await request.get(`${entry}/results/SINGLE_OLDER`)).status()).toBe(404);
     expect((await request.get(`/og/fun/${quiz.slug}?portrait=SINGLE_OLDER`)).status()).toBe(404);

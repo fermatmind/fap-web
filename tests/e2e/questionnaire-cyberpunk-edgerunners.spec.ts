@@ -1,3 +1,4 @@
+import { entertainmentGuideProfile } from "../../lib/questionnaires/entertainmentGuideSeo";
 import { test, expect, type Page } from "@playwright/test";
 import quiz from "../../lib/questionnaires/data/cyberpunk-edgerunners.json";
 import readings from "../../lib/questionnaires/result-content/cyberpunk-edgerunners.json";
@@ -87,7 +88,7 @@ for (const l of ["en", "zh"] as const) {
     await samples.locator("summary").last().click();
     await expect(samples.locator('#edgerunners-sample-tie-counts [data-matched="true"] dd:not([aria-hidden])')).toHaveText(["5 / 12", "5 / 12"]);
     await samples.getByRole("link").last().click();
-    await expect(page.locator("h1")).toHaveText(quiz.profiles[1].title[l]);
+    await expect(page.locator("h1")).toHaveText(entertainmentGuideProfile(quiz.slug, l, quiz.profiles[1]).title[l]);
     await expect(page.locator('img[src$="/cyberpunk-edgerunners/lucy.webp"]')).toBeVisible();
     await page.getByRole("navigation", { name: label(l, "Breadcrumb", "面包屑") }).getByRole("link", { name: quiz.title[l], exact: true }).click();
     await expect(page).toHaveURL(new RegExp(`${path(l)}$`));
@@ -141,7 +142,7 @@ https://fermatmind.com${path(l)}`);
     expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(`${quiz.title[l]}\n${quiz.profiles[0].title[l]}\nhttps://fermatmind.com${path(l)}/results/david`);
     for (const p of quiz.profiles) {
       await page.goto(`${path(l)}/results/${p.id}`);
-      await expect(page.locator("h1")).toHaveText(p.title[l]);
+      await expect(page.locator("h1")).toHaveText(entertainmentGuideProfile(quiz.slug, l, p).title[l]);
       const portrait = page.locator(`img[src="/images/quiz-portraits/${quiz.slug}/${p.id}.webp"]`);
       await expect(portrait).toBeVisible();
       await expect.poll(() => portrait.evaluate(node => (node as HTMLImageElement).naturalWidth)).toBe(640);
@@ -156,7 +157,7 @@ test("@release edgerunners all16publicpages, complete body, metadata,16fontOGs a
   for (const l of ["en", "zh"] as const) for (const p of [null, ...quiz.profiles]) {
     const url = p ? `${path(l)}/results/${p.id}` : path(l);
     await page.goto(url);
-    await expect(page.locator("h1")).toHaveText(p ? p.title[l] : quiz.title[l]);
+    await expect(page.locator("h1")).toHaveText(p ? entertainmentGuideProfile(quiz.slug, l, p).title[l] : quiz.title[l]);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${url}`);
     for (const [lang, other] of [["en", "en"], ["zh-CN", "zh"], ["x-default", "en"]] as const) {
       await expect(page.locator(`link[rel="alternate"][hreflang="${lang}"]`)).toHaveAttribute("href", `https://fermatmind.com${p ? `${path(other)}/results/${p.id}` : path(other)}`);

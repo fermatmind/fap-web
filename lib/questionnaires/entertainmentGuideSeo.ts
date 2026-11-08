@@ -49,7 +49,10 @@ export function entertainmentGuideProfile(slug: string, locale: string, profile:
       en: `${enName} in the Warhammer 40K Space Marine Chapter quiz: ${enTopic}. Read hobby examples and six-Chapter comparisons, then try 18 choices. Unofficial, not army advice.`,
     };
   }
-  return { ...profile, title, seo: { title, description } };
+  const heading = slug === "philosopher-personality-test"
+    ? { ...title, en: `${enName}: Philosopher Quiz Result` }
+    : title;
+  return { ...profile, title: heading, seo: { title, description } };
 }
 
 export function entertainmentGuideStartLabel(slug: string, locale: "zh" | "en"): string | undefined {
