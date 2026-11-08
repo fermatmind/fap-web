@@ -39,7 +39,7 @@ describe("T127 original six-character unofficial fan quiz", () => {
     expect(isArchetypeConfigurationValid(quiz)).toBe(true); expect(quiz.profiles).toHaveLength(6);
     expect(quiz.source.psychometricValidationCompleted).toBe(false);
     expect(quiz.references?.map(r => r.url)).toContain("https://www.netflix.com/tudum/articles/the-amazing-digital-circus-netflix-date-cast-details");
-    expect(quiz.title).toEqual({ zh: "《神奇数字马戏团》角色测试", en: "The Amazing Digital Circus Test" });
+    expect(quiz.title).toEqual({ zh: "《神奇数字马戏团》角色测试", en: "The Amazing Digital Circus Test: Which Character Are You?" });
     for (const direction of quiz.directions) {
       expect(direction.comparisons).toBe(12);
       for (const position of [0, 1, 2, 3]) expect(quiz.questions.filter(q => q.options[position].directionId === direction.id)).toHaveLength(3);
@@ -142,10 +142,12 @@ describe("T127 original six-character unofficial fan quiz", () => {
         const html = renderToStaticMarkup(await entry.default(props)), metadata = await entry.generateMetadata(props);
         expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(metadata.title).toBe(quiz.seoTitle[locale]);
         expect(html).toContain(quiz.instructions![locale]);
+        const entryDom = document.createElement("div"); entryDom.innerHTML = html;
+        expect(entryDom.querySelector("h1")?.textContent).toBe(quiz.title[locale]);
         expect(html).toContain(locale === "zh" ? "原创象征测验" : "Original symbolic quiz");
         expect(quiz.resultHeading?.[locale]).toBeTruthy();
         for (const section of quiz.guide.slice(0, 3)) expect(html).toContain(section.paragraphs[0][locale]);
-        const hub = renderToStaticMarkup(<MoreTests locale={locale} />); expect(hub).toContain(`href="${path}"`); expect(hub).not.toContain("/tests/play/amazing-digital-circus");
+        const hub = renderToStaticMarkup(<MoreTests locale={locale} />); expect(hub).toContain(quiz.title[locale]); expect(hub).toContain(`href="${path}"`); expect(hub).not.toContain("/tests/play/amazing-digital-circus");
         for (const profile of quiz.profiles) {
           const publicPath = `${path}/results/${profile.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };
           const rendered = renderToStaticMarkup(await guide.default(props)), meta = await guide.generateMetadata(props), dom = document.createElement("div"); dom.innerHTML = rendered;

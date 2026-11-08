@@ -270,7 +270,7 @@
       "slug": "death-note",
       "title": {
         "zh": "《死亡笔记》角色测试",
-        "en": "Death Note Test"
+        "en": "Death Note Test: Which Character Are You?"
       }
     },
     {
@@ -542,14 +542,14 @@
     {
       "slug": "south-park",
       "title": {
-        "en": "South Park Test",
+        "en": "South Park Test: Which Character Are You?",
         "zh": "《南方公园》角色测试"
       }
     },
     {
       "slug": "gilmore-girls",
       "title": {
-        "en": "Gilmore Girls Test",
+        "en": "Gilmore Girls Test: Which Character Are You?",
         "zh": "《吉尔莫女孩》角色测试"
       }
     },
@@ -591,7 +591,7 @@
     {
       "slug": "dexter",
       "title": {
-        "en": "Dexter Test",
+        "en": "Dexter Test: Which Character Are You?",
         "zh": "《嗜血法医》角色测试"
       }
     },
@@ -605,7 +605,7 @@
     {
       "slug": "stranger-things",
       "title": {
-        "en": "Stranger Things Test",
+        "en": "Stranger Things Test: Which Character Are You?",
         "zh": "《怪奇物语》角色测试"
       }
     },
@@ -640,7 +640,7 @@
     {
       "slug": "amazing-digital-circus",
       "title": {
-        "en": "The Amazing Digital Circus Test",
+        "en": "The Amazing Digital Circus Test: Which Character Are You?",
         "zh": "《神奇数字马戏团》角色测试"
       }
     },
