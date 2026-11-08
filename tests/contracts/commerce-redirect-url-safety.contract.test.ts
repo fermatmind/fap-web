@@ -6,6 +6,15 @@ import {
 } from "@/lib/commerce/redirectUrls";
 
 describe("commerce redirect URL safety contract", () => {
+  it("allows only Waffo hosted checkout paths without credentials or alternate ports", () => {
+    const checkout = "https://pancake.waffo.ai/store/fermatmind-test/checkout/cs_fixture";
+    expect(normalizeCommercePaymentRedirectUrl(checkout, "waffo")).toBe(checkout);
+    expect(normalizeCommercePaymentRedirectUrl("https://checkout.waffo.ai/fermatmind-test/checkout/cs_fixture", "waffo")).not.toBeNull();
+    for (const url of ["https://pancake.waffo.ai.evil.test/store/x/checkout/cs_fixture", "https://pancake.waffo.ai/merchant/dashboard", "https://user:pass@pancake.waffo.ai/store/x/checkout/cs_fixture", "https://pancake.waffo.ai:8443/store/x/checkout/cs_fixture"]) {
+      expect(normalizeCommercePaymentRedirectUrl(url, "waffo")).toBeNull();
+    }
+    expect(normalizeCommercePaymentRedirectUrl(checkout, "alipay")).toBeNull();
+  });
   it("rejects unsafe schemes for browser payment redirects", () => {
     for (const value of [
       "javascript:alert(1)",

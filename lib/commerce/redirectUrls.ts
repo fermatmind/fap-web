@@ -12,6 +12,7 @@ const FIRST_PARTY_HOSTS = new Set([
 
 const PAYMENT_REDIRECT_HOSTS_BY_PROVIDER: Record<string, readonly string[]> = {
   alipay: ["openapi.alipay.com"],
+  waffo: ["pancake.waffo.ai", "checkout.waffo.ai"],
   lemonsqueezy: ["checkout.lemonsqueezy.com"],
   stripe: ["checkout.stripe.com"],
 };
@@ -121,6 +122,11 @@ function isAllowedProviderRedirectUrl(value: string, provider: string | null): b
   }
 
   const hostname = parsed.hostname.toLowerCase();
+  if (provider === "waffo") {
+    return PAYMENT_REDIRECT_HOSTS_BY_PROVIDER.waffo.includes(hostname)
+      && !parsed.username && !parsed.password && !parsed.port
+      && /^(?:\/store)?\/[A-Za-z0-9-]+\/checkout\/cs_[A-Za-z0-9_-]+$/.test(parsed.pathname);
+  }
   if (provider) {
     return Boolean(PAYMENT_REDIRECT_HOSTS_BY_PROVIDER[provider]?.includes(hostname));
   }
