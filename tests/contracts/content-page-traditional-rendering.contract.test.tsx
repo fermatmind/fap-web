@@ -62,8 +62,21 @@ describe("Traditional CMS About complete rendering", () => {
     expect(document.body.textContent).not.toContain("visible_faq_items");
   });
 
+  it("renders reviewed Terms links as actual anchors without changing explicit language, query or mail targets", () => {
+    const html = renderToStaticMarkup(<ContentPageTemplate page={{ ...page, slug: "terms", contentMd: "[價格與報告內容](/zh/pricing)、[支援中心](/zh/support)、[support@fermatmind.com](mailto:support@fermatmind.com)、[軟體說明](/关于?地区=中国#说明)。" }} locale="zh-TW" />);
+    const document = new DOMParser().parseFromString(html, "text/html");
+    for (const [href, text] of [["/zh/pricing", "價格與報告內容"], ["/zh/support", "支援中心"], ["mailto:support@fermatmind.com", "support@fermatmind.com"], ["/关于?地区=中国#说明", "軟體說明"]]) {
+      expect(document.querySelector(`a[href="${href}"]`)?.textContent).toBe(text);
+    }
+    expect(document.body.textContent).not.toContain("](");
+  });
+
+  it.each(["![圖片](/image.png)", "[說明](/broken", "[說明](//example.com)", "[說明](data:text/plain,hello)"])("rejects unsupported inline formats: %s", contentMd => {
+    expect(() => renderToStaticMarkup(<ContentPageTemplate page={{ ...page, contentMd }} locale="zh-TW" />)).toThrow("inline format unavailable");
+  });
+
   it("keeps unsupported rich formats closed rather than silently misrendering a future page", () => {
     expect(() => renderToStaticMarkup(<ContentPageTemplate page={{ ...page, contentHtml: "<p>正文</p>" }} locale="zh-TW" />)).toThrow("HTML adapter unavailable");
-    expect(() => renderToStaticMarkup(<ContentPageTemplate page={{ ...page, contentMd: "[說明](/zh/science)" }} locale="zh-TW" />)).toThrow("inline format unavailable");
+    expect(() => renderToStaticMarkup(<ContentPageTemplate page={{ ...page, contentMd: "[說明](javascript:alert)" }} locale="zh-TW" />)).toThrow("inline format unavailable");
   });
 });

@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto';
 import { convertText } from './convert-zh-tw.mjs';
 
 const sha = value => createHash('sha256').update(value).digest('hex');
-export const CONTENT_PAGE_CONVERTER = 'opencc-js@1.4.2:cn:twp:content-page-v2';
+export const CONTENT_PAGE_CONVERTER = 'opencc-js@1.4.2:cn:twp:content-page-v3';
 const glossary = 'fermatmind-tw-content-page-2';
 // Preserve domestic-storage and account-closure meaning; generic Taiwan word
 // conversion otherwise joins 内存 across words or turns 注销 into sign-out.
@@ -16,14 +16,23 @@ const textFields = ['title', 'kicker', 'summary', 'seo_title', 'meta_description
 
 /** The CMS reader's simple Markdown subset. Rich HTML/code need a separate adapter. */
 function markdown(source) {
-  // Never pass markup, link destinations or code to a plain-text converter.
-  // Fail closed until that format has a reviewed parser; the about source is
-  // headings, paragraphs and lists only.
-  if (/[<>`]|!?\[[^\n]*\]|^\s*~{3,}|^\s*\|/m.test(source)) {
+  // Support only reviewed inline links. Destinations never enter OpenCC.
+  const links = [];
+  const masked = source.replace(/\[([^\[\]\n]+)\]\(([^()\s]+)\)/g, (match, label, href) => {
+    if (!/^(?:\/(?!\/)|#|https?:\/\/|mailto:|tel:)/i.test(href) || /[<>`\\\u0000-\u001f\u007f]/.test(href)) {
+      throw new Error('CONTENT_PAGE_MARKDOWN_FORMAT_UNSUPPORTED');
+    }
+    links.push({ label, href });
+    return `\uE010${String.fromCharCode(0xE100 + links.length - 1)}\uE011`;
+  });
+  if (/[<>`\[\]]|!\uE010|^\s*~{3,}|^\s*\|/m.test(masked) || links.some(link => /[<>`]/.test(link.label))) {
     throw new Error('CONTENT_PAGE_MARKDOWN_FORMAT_UNSUPPORTED');
   }
   const structure = value => value.split('\n').map(line => line.match(/^(\s*(?:#{1,6}\s+|[-*+]\s+|\d+[.)]\s+)?)/)?.[0]);
-  const target = convertReaderText(source);
+  const target = convertReaderText(masked).replace(/\uE010([\uE100-\uF8FF])\uE011/g, (_, key) => {
+    const link = links[key.charCodeAt(0) - 0xE100];
+    return `[${convertReaderText(link.label)}](${link.href})`;
+  });
   if (JSON.stringify(structure(source)) !== JSON.stringify(structure(target))) throw new Error('CONTENT_PAGE_MARKDOWN_STRUCTURE_CHANGED');
   return target;
 }

@@ -217,8 +217,22 @@ function parseMarkdown(markdown: string): MarkdownBlock[] {
 
 function renderInline(text: string, keyPrefix: string, locale: DisplayLocale): ReactNode[] {
   if (locale === "zh-TW") {
-    // This first CMS adapter supports plain headings, lists and paragraphs.
-    if (/[<>`\[\]]/.test(text)) throw new Error("Traditional CMS inline format unavailable");
+    // Inline links use the existing sanitized renderer; plain segments retain
+    // the Traditional reader's published-variant and source-language handling.
+    if (/[<>`]/.test(text)) throw new Error("Traditional CMS inline format unavailable");
+    if (/[\[\]]/.test(text)) {
+      const chunks = text.split(/(\[[^\[\]\n]+\]\([^()\s]+\))/g);
+      return chunks.flatMap((chunk, index) => {
+        const link = /^\[([^\[\]\n]+)\]\(([^()\s]+)\)$/.exec(chunk);
+        if (!link) {
+          if (/[\[\]]/.test(chunk) || (chunk.endsWith("!") && index < chunks.length - 1)) throw new Error("Traditional CMS inline format unavailable");
+          return renderInline(chunk, `${keyPrefix}-plain-${index}`, locale);
+        }
+        const href = link[2];
+        if (!/^(?:\/(?!\/)|#|https?:\/\/|mailto:|tel:)/i.test(href) || /[\\\u0000-\u001f\u007f]/.test(href)) throw new Error("Traditional CMS inline format unavailable");
+        return renderCmsInlineMarkdown(chunk, `${keyPrefix}-link-${index}`);
+      });
+    }
     const linkLabels = {
       "/method-boundaries": label(locale, "方法边界", "Method boundaries"),
       "/item-design-notes": label(locale, "题目设计说明", "Item design notes"),

@@ -59,8 +59,15 @@ describe("offline CMS Traditional candidate", () => {
     expect(buildContentPageTraditional(input, stale)).toEqual(candidate);
   });
 
-  it.each(["[说明](/关于)", "```js\nconst 标识 = 1;\n```", "<p>正文</p>", "![图片](/图片.png)", "| 表格 |"])("rejects unsupported rich format without corrupting it: %s", body => {
+  it.each(["[说明](javascript:alert)", "[说明](/broken", "[说明](//example.com)", "```js\nconst 标识 = 1;\n```", "<p>正文</p>", "![图片](/图片.png)", "| 表格 |"])("rejects unsupported rich format without corrupting it: %s", body => {
     expect(() => buildContentPageTraditional({ ...source(), content_md: body })).toThrow("MARKDOWN_FORMAT_UNSUPPORTED");
+  });
+
+  it("translates reviewed link labels while preserving full Unicode paths, queries, fragments and mail targets", () => {
+    const content_md = "[价格与报告内容](/zh/pricing)；[支持中心](/zh/support)；[support@fermatmind.com](mailto:support@fermatmind.com)；[软件说明](/关于?地区=中国#说明)";
+    const result = buildContentPageTraditional({ ...source(), content_md });
+    expect(result.fields.content_md).toBe("[價格與報告內容](/zh/pricing)；[支援中心](/zh/support)；[support@fermatmind.com](mailto:support@fermatmind.com)；[軟體說明](/关于?地区=中国#说明)");
+    expect(buildContentPageTraditional({ ...source(), content_md }, result)).toEqual(result);
   });
 
   it("rejects non-public sources and HTML rather than translating their entire JSON", () => {
