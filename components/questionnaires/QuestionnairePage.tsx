@@ -1,4 +1,4 @@
-import { sevenSinsChineseGuideProfile } from "@/lib/questionnaires/sevenSinsChineseSeo";
+import { sevenSinsGuideProfile } from "@/lib/questionnaires/sevenSinsGuideSeo";
 import { MoonPhaseComparison } from "./MoonPhaseComparison";
 import { BleachExamples } from "./BleachExamples";
 import { MentalAgeClassicPage } from "./MentalAgeClassicPage";
@@ -1086,10 +1086,11 @@ return (quiz.references ?? []);
     {slug === "chiikawa" && <ChiikawaResultExamples quiz={quiz} locale={locale} />}
     {slug === "cyberpunk-edgerunners" && <EdgerunnersResultExamples quiz={quiz} locale={locale} />}
     {quiz.kind === "fscrs22" && <QuestionnaireFscrs22Attribution quiz={quiz} locale={locale} />}
-    {slug === "seven-sins-virtues-test" && zh && <nav aria-label="七宗罪测试阅读导航" className="my-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <a className="inline-block min-h-11 py-2 underline underline-offset-4" href="#questionnaire-results">七宗罪与七美德对照</a>
-      <a className="inline-block min-h-11 py-2 underline underline-offset-4" href="#questionnaire-method">雷达图与分数怎么看</a>
-      <a className="inline-block min-h-11 py-2 underline underline-offset-4" href="#questionnaire-reading-scope">文化背景与完整读法</a>
+    {slug === "seven-sins-virtues-test" && <nav aria-label={zh ? "七宗罪测试阅读导航" : "Seven sins and virtues reading navigation"} className="my-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+      <a className="inline-block min-h-11 py-2 underline underline-offset-4" href="#questionnaire-results">{zh ? "七宗罪与七美德对照" : "Explore the seven pairs"}</a>
+      <a className="inline-block min-h-11 py-2 underline underline-offset-4" href="#questionnaire-method">{zh ? "雷达图与分数怎么看" : "Read the radar chart and scores"}</a>
+      <a className="inline-block min-h-11 py-2 underline underline-offset-4" href="#questionnaire-reading-scope">{zh ? "文化背景与完整读法" : "Cultural names and background"}</a>
+      {!zh && <a className="inline-block min-h-11 py-2 underline underline-offset-4" href="#questionnaire-faq">High scores, ties and common questions</a>}
     </nav>}
     <section className="my-8 space-y-4 leading-8" aria-labelledby="questionnaire-purpose"><h2 id="questionnaire-purpose" className="text-2xl font-semibold">{(() => {
 if (slug === "attraction-experiences") return attractionLandingSections[0].title[locale];
@@ -1117,7 +1118,7 @@ if (slug === "sake-type") return (zh ? "酒水类型测试：四种创意与相�
 if (slug === "stress-check-in-test") return (zh ? "近一个月压力自评：四道原创题观察什么？" : "Monthly Stress Check-In: what the four original prompts explore");
 if (slug === "conflict-boundary-behaviors-test") return (zh ? "冲突与边界行为测试：四组近期行动观察" : "Conflict and Boundary Behaviors Test: four groups of recent actions");
 if (slug === "four-axes-test") return (zh ? "四轴测试探索什么？表达、思维、生活与公共政策偏好" : "Four Axes Test: expression, thinking, lifestyle and public-policy preferences");
-if (slug === "seven-sins-virtues-test") return (zh ? "七宗罪测试与七美德测试：两组分别怎么看？" : "Seven Sins and Virtues Test: seven everyday observation themes");
+if (slug === "seven-sins-virtues-test") return (zh ? "七宗罪测试与七美德测试：两组分别怎么看？" : "Seven Sins and Seven Virtues in One Test");
 if (slug === "euphoria-character-quiz") return (zh ? "《亢奋》角色测试：八个人物视角与原创日常选择" : "Euphoria character quiz: eight fictional perspectives and original everyday choices");
 if (slug === "stress-response-patterns-test") return (zh ? "压力反应观察测什么？五组近期行为描述" : "What does the Stress Response Patterns Test record? Five recent themes");
 if (slug === "remote-work") return (zh ? "远程工作准备测什么？任务、条件与共同约定" : "What does remote readiness record? Tasks, conditions and agreements");
@@ -1319,7 +1320,7 @@ if (slug === "sake-type") return (zh ? "16题如何计次？对应表、位置�
 if (slug === "stress-check-in-test") return (zh ? "0至16总分如何产生？逐题贡献与反向计分" : "How the 0\u201316 total is calculated: item contributions and reverse scoring");
 if (slug === "conflict-boundary-behaviors-test") return (zh ? "24条如何计分？数字、跳过与每组最低资料量" : "How 24 statements are scored: numeric answers, skips and group eligibility");
 if (slug === "four-axes-test") return (zh ? "四轴位置怎样计算？方向、原始和与中点" : "How the four positions are calculated: direction, sums and midpoint");
-if (slug === "seven-sins-virtues-test") return (zh ? "28题如何计算十四项得分？" : "How 28 responses produce fourteen separate scores");
+if (slug === "seven-sins-virtues-test") return (zh ? "28题如何计算十四项得分？" : "How to Read the Radar Chart and Your 14 Scores");
 if (slug === "euphoria-character-quiz") return (zh ? "《亢奋》测试怎样计分？20个答案、八条路线与全部最高并列" : "How the Euphoria quiz works: twenty answers, eight counts and every leading tie");
 if (slug === "stress-response-patterns-test") return (zh ? "20题怎样计算？符合程度、原始和与独立均值" : "How are 20 responses scored? Agreement, sums and separate means");
 if (slug === "remote-work") return (zh ? "20项怎样计分？行动阶段与每组四项规则" : "How are 20 actions scored? Stages and four-item coverage");
@@ -1523,7 +1524,7 @@ if (slug === "sake-type") return (zh ? "四篇完整意象指南：例子、比�
 if (slug === "stress-check-in-test") return (zh ? "一篇完整指南，理解全部分数与回答模式" : "One complete guide for every total and answer pattern");
 if (slug === "conflict-boundary-behaviors-test") return (zh ? "四篇完整指南：分歧、边界、影响与修复" : "Four complete guides: disagreement, boundaries, impact and repair");
 if (slug === "four-axes-test") return (zh ? "四篇完整指南，分别理解每条轴" : "Four complete guides, without a combined type");
-if (slug === "seven-sins-virtues-test") return (zh ? "七宗罪与七美德对照：七组结果解读" : "Seven complete guides: reactions, responses and everyday examples");
+if (slug === "seven-sins-virtues-test") return (zh ? "七宗罪与七美德对照：七组结果解读" : "Seven Sins and Virtues: Meanings and Score Guides");
 if (slug === "euphoria-character-quiz") return (zh ? "《亢奋》八篇完整角色指南" : "Eight complete Euphoria character guides");
 if (slug === "stress-response-patterns-test") return (zh ? "五篇完整指南：从行为细节回到具体情境" : "Five complete guides: from behavior details to actual context");
 if (slug === "remote-work") return (zh ? "五篇完整指南：接入条件、交接协同与边界" : "Five complete guides: access, coordination and boundaries");
@@ -1761,7 +1762,7 @@ if (slug === "aura-color") return (zh ? "七种颜色对应七种日常表达方
 if (quiz.kind === "archetype") return (zh ? `下方列出全部${quiz.profiles.length}份结果的完整公开说明，不关联个人作答。最高计数并列时，每份匹配报告都会完整呈现；你也可以先比较其他结果。` : `Read all ${quiz.profiles.length} complete public result guides below. They contain no private attempts. Every highest-count tie gets its full report, and you can compare other results before answering.`);
 if (quiz.slug === "likable-person-test") return (zh ? "全部31份公开说明覆盖五个单项与每种最高并列组合，不含任何人的答案或计数。五项相同各4次时，不指定唯一顶部；结果不是他人评价或固定人格。" : "All 31 public guides cover five single directions and every highest-count tie, without personal answers or counts. Five equal counts of four produce no sole leader. Results are neither observer ratings nor fixed personalities.");
 return (zh ? `下面是公开说明，不是任何人的私人作答。全部${quiz.directions.length}个单项和并列组合均有完整报告；先阅读也不会影响你的计分。` : `These are public explanations, not anyone's private attempt. Full reports cover all ${quiz.directions.length} single directions and every tied combination. Reading one does not affect your score.`);
-})()}</p><ul className="space-y-4">{quiz.profiles.map(profile => <li key={profile.id} className="rounded-lg border border-slate-200 bg-white p-5"><Link prefetch={false} className="inline-flex min-h-11 items-center gap-3 py-2 text-lg font-semibold underline" href={questionnaireGuidePath(locale, slug, profile.id)}>{slug === "cyberpunk-edgerunners" && <EdgerunnersPortrait id={profile.id} className="size-14 shrink-0 rounded-lg" />}{slug === "chiikawa" && <ChiikawaPortrait id={profile.id} className="size-14 shrink-0 rounded-lg" />}{slug === "aura-color" ? (profile.sections[0]?.title[locale] ?? profile.title[locale]) : sevenSinsChineseGuideProfile(slug, locale, profile).title[locale]}</Link>{slug === "seven-sins-virtues-test" && <p data-seven-sins-guide-pair className="mt-1 text-sm font-semibold text-slate-700">{miniVirtuesDefinitions.find(pair => pair.profileId === profile.id)?.sin[locale]} · {miniVirtuesDefinitions.find(pair => pair.profileId === profile.id)?.virtue[locale]}</p>}<p className="mt-2 leading-8 text-slate-700">{(() => {
+})()}</p><ul className="space-y-4">{quiz.profiles.map(profile => <li key={profile.id} className="rounded-lg border border-slate-200 bg-white p-5"><Link prefetch={false} className="inline-flex min-h-11 items-center gap-3 py-2 text-lg font-semibold underline" href={questionnaireGuidePath(locale, slug, profile.id)}>{slug === "cyberpunk-edgerunners" && <EdgerunnersPortrait id={profile.id} className="size-14 shrink-0 rounded-lg" />}{slug === "chiikawa" && <ChiikawaPortrait id={profile.id} className="size-14 shrink-0 rounded-lg" />}{slug === "aura-color" ? (profile.sections[0]?.title[locale] ?? profile.title[locale]) : sevenSinsGuideProfile(slug, locale, profile).title[locale]}</Link>{slug === "seven-sins-virtues-test" && <p data-seven-sins-guide-pair className="mt-1 text-sm font-semibold text-slate-700">{miniVirtuesDefinitions.find(pair => pair.profileId === profile.id)?.sin[locale]} · {miniVirtuesDefinitions.find(pair => pair.profileId === profile.id)?.virtue[locale]}</p>}<p className="mt-2 leading-8 text-slate-700">{(() => {
 if (slug === "disc") return discLandingSummary(profile, locale);
 if (slug === "response-color") return responseColorLandingSummary(profile, locale);
 if (slug === "moral-alignment") return moralAlignmentLandingSummary(profile, locale);
@@ -2113,7 +2114,7 @@ if (slug === "sake-type") return (zh ? "完整读法：四意象区别、算例�
 if (slug === "stress-check-in-test") return (zh ? "完整读法：月度回顾、计算实例与测量研究" : "Reading in depth: monthly recall, worked examples and measurement research");
 if (slug === "conflict-boundary-behaviors-test") return (zh ? "完整读法：具体行动、计算实例与证据范围" : "Reading in depth: specific actions, worked calculations and evidence");
 if (slug === "four-axes-test") return (zh ? "四轴完整读法：情境实例、计算与证据范围" : "Four axes in depth: examples, calculations and evidence");
-if (slug === "seven-sins-virtues-test") return (zh ? "七宗罪与七美德完整读法：文化背景、研究区别与七组解释" : "Sins and virtues in depth: cultural context, research and seven readings");
+if (slug === "seven-sins-virtues-test") return (zh ? "七宗罪与七美德完整读法：文化背景、研究区别与七组解释" : "What Are the Seven Deadly Sins and Seven Virtues? Cultural Background");
 if (slug === "euphoria-character-quiz") return (zh ? "《亢奋》结果完整读法：路线比较、情境实例与证据范围" : "Euphoria results in depth: route comparisons, examples and evidence");
 if (slug === "stress-response-patterns-test") return (zh ? "压力反应完整读法：研究区别、实例与自报边界" : "Stress responses in depth: research distinctions and practical examples");
 if (slug === "remote-work") return (zh ? "远程工作准备完整读法：研究证据与实践情境" : "Remote-work preparation in depth: research and practical situations");

@@ -3,7 +3,7 @@
   "converter": "opencc-js@1.4.2:cn:twp",
   "glossary": "fermatmind-tw-1",
   "sourceHashes": {
-    "lib/i18n/zh-TW/seven-sins-ui.source.json": "60c857ead582918d71e0976e486596ed0faac01fcaf488dac90a8456ad0363b5"
+    "lib/i18n/zh-TW/seven-sins-ui.source.json": "bd40b05e67993ef1a60c130e5c1e3b6b23022eaa39ec19634b4a02a7b6483f98"
   },
   "units": {
     "lib/i18n/zh-TW/seven-sins-ui.source.json/七宗罪之首": {

@@ -3,7 +3,7 @@
   "converter": "opencc-js@1.4.2:cn:twp",
   "glossary": "fermatmind-tw-1",
   "sourceHashes": {
-    "lib/questionnaires/data/seven-sins-virtues-test.json": "d5c266ed897b1387648d279be37b11516fbb035b5aab8f473019ad47a8ecb061",
+    "lib/questionnaires/data/seven-sins-virtues-test.json": "fdd0139199e515e0fe2607c85e2926813cea12c3206181cda2e73d3d13da23b3",
     "lib/questionnaires/result-content/seven-sins-virtues-test.json": "76cc453e2b99ad2d0d05ef80ae790aef10390f89c5fd7dee93df677b16932105",
     "lib/questionnaires/virtuesLandingEditorial.json": "701a1972f429aee5cace12c76478b541f04d069f193d3d9e7d57efdcaa2e31e6"
   },

@@ -19,7 +19,7 @@
   },
   "minutes": 8,
   "introduction": {
-    "en": "This original quiz uses the seven sins and seven virtues as cultural symbols for reflecting on everyday reactions and ways of responding.",
+    "en": "This free online seven deadly sins and seven virtues test uses cultural symbols to reflect on everyday reactions over the past four weeks. Read the two sets of scores separately; one set does not cancel the other.",
     "zh": "回顾过去四周的日常反应，分别了解七宗罪与七美德的14项作答得分。两组独立阅读，不互相抵消。"
   },
   "instructions": {
@@ -2899,12 +2899,12 @@
     {
       "id": "culture",
       "title": {
-        "en": "Cultural names and different traditions",
+        "en": "What are the seven deadly sins and seven virtues?",
         "zh": "七宗罪有哪些？七美德名称有什么不同？"
       },
       "paragraphs": [
         {
-          "en": "The early lineage of the seven capital sins is associated with Christian monastic and ascetic traditions. Frameworks called seven virtues also include theological and cardinal traditions, while other discussions contrast virtues with sins. Different traditions cannot be merged into one exclusive list. The product borrows cultural metaphors only: its seven observation groups do not claim a one-to-one historical correspondence or religious endorsement.",
+          "en": "This test uses Pride, Greed, Lust, Envy, Gluttony, Wrath and Sloth, paired with Humility, Generosity, Chastity, Kindness, Temperance, Patience and Diligence as themes for everyday reflection. The early lineage of the seven capital sins is associated with Christian monastic and ascetic traditions. Frameworks called seven virtues also include theological and cardinal traditions, while other discussions contrast virtues with sins. Different traditions cannot be merged into one exclusive list. The product borrows cultural metaphors only: its seven observation groups do not claim a one-to-one historical correspondence or religious endorsement.",
           "zh": "本测试采用傲慢、贪婪、色欲、嫉妒、暴食、暴怒、懒惰七个名称；七美德名称为谦卑（亦称谦逊）、慷慨、贞洁、仁爱、节制、耐心、勤勉。它们用来组织日常反思，不是对个人善恶的判断。七宗罪的早期谱系与古代基督教修道和苦修传统相关；常被称作七美德的框架另有神学美德与枢德等传统，后世也出现与七罪逐项对应的版本。不同传统不能合并成唯一清单。本测试只借用这些文化隐喻作为内容入口，七组阅读主题不声称与任何历史传统一一对应，也不声称得到宗教传统认可。"
         },
         {
@@ -2920,7 +2920,7 @@
     {
       "id": "reading",
       "title": {
-        "en": "How to read both tracks",
+        "en": "How to read your seven sins and seven virtues scores",
         "zh": "七宗罪测试结果解读：独立得分、最高项与并列"
       },
       "paragraphs": [
@@ -3038,21 +3038,21 @@
   "faq": [
     {
       "question": {
-        "en": "Can both tracks have high scores?",
+        "en": "Can a sin and its paired virtue both score high?",
         "zh": "七宗罪与七美德都高，结果怎么看？"
       },
       "answer": {
-        "en": "The web edition groups 28 original items into seven reading themes. It reports 14 separate scores, each based on two items. Both scores in a theme can be high or low together.",
+        "en": "Yes. Each of the 14 scores uses its own two questions, so both scores in a theme can be high or low together. One score does not cancel the other.",
         "zh": "现行网页版将 28 道原创题分为七组阅读主题，共 14 项分别计分，每项两题。同组的两项读数可以同时较高或同时较低。"
       }
     },
     {
       "question": {
-        "en": "How are the twenty-eight responses scored?",
+        "en": "What do the 14 scores and radar chart show?",
         "zh": "七宗罪测试雷达图和分数怎么看？"
       },
       "answer": {
-        "en": "Each axis uses two dedicated 1–5 items. Subtract 1 from their mean and multiply by 25 for a 0–100 score. Display values are rounded. Highest scores are selected before rounding, with all ties retained.",
+        "en": "Each score comes from two questions and ranges from 0 to 100. Farther from the center means your responses fitted the statements for that score more closely. These are not population ranks or frequencies, and the scores do not have to add up to 100. Subtract 1 from the mean of the two 1–5 responses and multiply by 25. The chart rounds display values; leaders and ties use scores before rounding.",
         "zh": "雷达图展示14项独立得分，离中心越远表示本次对该项陈述越符合，不是人群排名或发生概率，各项相加也不必等于100。每项使用两道题，按1—5计分，两题均值减1后乘25，换算为0—100；图上取整，最高分按未取整数值确定，同分并列。"
       }
     },
@@ -3068,31 +3068,31 @@
     },
     {
       "question": {
-        "en": "How do I read the leading scores and the averages?",
+        "en": "Which deadly sin am I?",
         "zh": "榜首和两组均值怎么读？"
       },
       "answer": {
-        "en": "A leading score identifies the highest readout on that track in this attempt. The averages summarize response differences across tracks and cannot establish moral standing, a diagnosis, or a decision in a consequential setting.",
+        "en": "Your leading sin is the highest sin score in this attempt. If several share the highest score, every tied leader is shown. The virtue side has its own leaders. The two averages summarize the seven scores on each side; they do not define a fixed personality type or your moral worth.",
         "zh": "榜首只表示本次同一轨道中的最高读数。均值的高低概括两组答题差异，不能评价善恶、诊断问题或决定重要事项。"
       }
     },
     {
       "question": {
-        "en": "How are equal scores displayed?",
+        "en": "What happens when scores tie?",
         "zh": "同分怎么显示？"
       },
       "answer": {
-        "en": "Ties: when multiple axes share the top score on one track, the card retains every joint leader. Equal numbers describe arithmetic in this attempt.",
+        "en": "All highest scores on each side are retained, using scores before display rounding. A tie does not produce a hidden winner. Equal averages also do not turn the two sets into a single personality type.",
         "zh": "并列：同一轨道的最高分相等时，结果卡会保留全部并列项。数字相同只表示这次换算结果相同。"
       }
     },
     {
       "question": {
-        "en": "Is this a religious or scientific assessment?",
+        "en": "Is this test accurate, and is it related to MBTI?",
         "zh": "七宗罪测试准吗？是MBTI或宗教测验吗？"
       },
       "answer": {
-        "en": "It is a culturally framed, original reflection, without psychometric validation. Religious references explain names, not a scoring key, endorsement or evidence of validity.",
+        "en": "This original quiz has not completed psychometric validation, so its accuracy has not been established. It does not assign or convert results into MBTI types. The names are cultural references, not an anime character match or a religious knowledge exam.",
         "zh": "本页是借用文化名称的原创娱乐测试，尚未完成心理测量验证，不能据此判断准确率。它不是MBTI，不划分16型，也不是宗教教义考试；宗教来源只解释名称，不提供计分依据或效度背书。"
       }
     },
@@ -3108,11 +3108,11 @@
     },
     {
       "question": {
-        "en": "How does this edition differ from the earlier form?",
+        "en": "Can I use this as a seven deadly sins test or a seven virtues test?",
         "zh": "想做七美德测试，可以单独看美德结果吗？"
       },
       "answer": {
-        "en": "The web edition groups 28 original items into seven reading themes. It reports 14 separate scores, each based on two items. Both scores in a theme can be high or low together.",
+        "en": "This quiz covers both in one attempt. Complete all 28 questions to see seven sin scores and seven virtue scores. You can read either set separately; there is no separate shortened form. The public guides can also be read without taking the test.",
         "zh": "可以。完成同一套28题后，可分别查看七美德与七宗罪各七项得分，也可直接阅读公开指南。本页提供双主题结果，没有另一套单独的七美德题本。"
       }
     },
