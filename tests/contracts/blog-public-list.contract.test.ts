@@ -96,7 +96,7 @@ describe("blog public list CMS contract", () => {
     await expect(getCmsArticles({ locale: "en", includeBlog: true })).rejects.toThrow();
   });
 
-  it("partitions local last-known-good entries by category and blog opt-in", async () => {
+  it("keeps category and blog opt-in independent without retaining unused LKG values", async () => {
     vi.stubGlobal("fetch", vi.fn(async (input: RequestInfo | URL) => {
       const url = new URL(String(input));
       return response({ items: [article(url.searchParams.get("category") ?? "latest")],
@@ -107,7 +107,7 @@ describe("blog public list CMS contract", () => {
     expect(one.value.items[0]?.slug).toBe("personality");
     expect(two.value.items[0]?.slug).toBe("career");
     expect(two.value.blog).toBeUndefined();
-    expect(readLastKnownGoodForTests('articles:list:en:1:20:blog:["personality",true]')?.value).toEqual(one.value);
-    expect(readLastKnownGoodForTests('articles:list:en:1:20:blog:["career",false]')?.value).toEqual(two.value);
+    expect(readLastKnownGoodForTests('articles:list:en:1:20:blog:["personality",true]')).toBeNull();
+    expect(readLastKnownGoodForTests('articles:list:en:1:20:blog:["career",false]')).toBeNull();
   });
 });
