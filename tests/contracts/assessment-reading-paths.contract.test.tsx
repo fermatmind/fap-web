@@ -4,6 +4,14 @@ import { AssessmentReadingPaths } from "@/components/tests/AssessmentReadingPath
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 
 describe("Chinese assessment result-reading navigation", () => {
+  it("lets an MBTI visitor browse type explanations without taking another test", () => {
+    render(<AssessmentReadingPaths slug={SCALE_CANONICAL_SLUG_MAP.MBTI} locale="zh" />);
+    const section = screen.getByRole("region", { name: "已经知道自己的四字母类型？" });
+    expect(within(section).getByRole("link", { name: "浏览16型人格解释" }).getAttribute("href"))
+      .toBe("/zh/personality");
+    expect(within(section).getAllByRole("link")).toHaveLength(1);
+  });
+
   it("lets a nine-type visitor reach explanations and types without starting an attempt", () => {
     render(<AssessmentReadingPaths slug={SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM} locale="zh" />);
     const section = screen.getByRole("region", { name: "九型人格测试结果怎么看？" });
@@ -27,7 +35,7 @@ describe("Chinese assessment result-reading navigation", () => {
   it.each([
     [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM, "en"],
     [SCALE_CANONICAL_SLUG_MAP.RIASEC, "en"],
-    [SCALE_CANONICAL_SLUG_MAP.MBTI, "zh"],
+    [SCALE_CANONICAL_SLUG_MAP.MBTI, "en"],
     ["unknown", "zh"],
   ] as const)("does not add a Chinese reading surface to %s %s", (slug, locale) => {
     const { container } = render(<AssessmentReadingPaths slug={slug} locale={locale} />);

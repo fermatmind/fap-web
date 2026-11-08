@@ -6,7 +6,13 @@ import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 export function AssessmentReadingPaths({ slug, locale }: { slug: string; locale: "zh" | "en" }) {
   if (locale !== "zh") return null;
 
-  const copy = slug === SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM ? {
+  const copy = slug === SCALE_CANONICAL_SLUG_MAP.MBTI ? {
+    title: "已经知道自己的四字母类型？",
+    body: "可以直接浏览16型人格解释，对照四组偏好与具体情境，再决定下一步探索。",
+    links: [
+      { href: "/zh/personality", label: "浏览16型人格解释" },
+    ],
+  } : slug === SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM ? {
     title: "九型人格测试结果怎么看？",
     body: "先看九型分布，再对照候选类型的动机解释。分数接近时保留多个候选，用具体经历核对，不把最高分当成固定身份。",
     links: [
