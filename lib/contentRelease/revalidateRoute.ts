@@ -99,7 +99,7 @@ function normalizePath(path: string, requestOrigin: string): string | null {
   return normalized.startsWith("/") ? normalized : `/${normalized}`;
 }
 
-const TRADITIONAL_CMS_CACHE_PATHS = new Set(["/zh-TW/about", "/zh-TW/brand", "/zh-TW/charter", "/zh-TW/careers", "/zh-TW/privacy", "/zh-TW/terms", "/zh-TW/method-boundaries", "/zh-TW/science", "/zh-TW/help/contact"]);
+const TRADITIONAL_CMS_CACHE_PATHS = new Set(["/zh-TW/about", "/zh-TW/brand", "/zh-TW/charter", "/zh-TW/careers", "/zh-TW/privacy", "/zh-TW/terms", "/zh-TW/method-boundaries", "/zh-TW/science", "/zh-TW/help/contact", "/zh-TW/foundation", "/zh-TW/policies", "/zh-TW/help/faq", "/zh-TW/help/about", "/zh-TW/help/team", "/zh-TW/help/used-and-mentioned", "/zh-TW/help/for-business-and-research"]);
 
 function localizedPath(path: string, locale: "en" | "zh"): string {
   if (TRADITIONAL_CMS_CACHE_PATHS.has(path)) return path;

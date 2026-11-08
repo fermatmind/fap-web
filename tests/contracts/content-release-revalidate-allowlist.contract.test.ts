@@ -27,10 +27,10 @@ import { collectPathDecisions, POST } from "@/lib/contentRelease/revalidateRoute
 
 it("allows only the prepared Traditional CMS detail cache without folding its locale", () => {
   const decisions = collectPathDecisions({ content: { type: "public_content_53", locale: "zh-TW" }, cache_signal: {
-    paths: ["/zh-TW/about", "/zh-TW/brand", "/zh-TW/charter", "/zh-TW/careers", "/zh-TW/privacy", "/zh-TW/terms", "/zh-TW/method-boundaries", "/zh-TW/science", "/zh-TW/help/contact", "/zh-TW/foundation", "/zh-TW/result/private", "/zh-TW/account"],
+    paths: ["/zh-TW/about", "/zh-TW/brand", "/zh-TW/charter", "/zh-TW/careers", "/zh-TW/privacy", "/zh-TW/terms", "/zh-TW/method-boundaries", "/zh-TW/science", "/zh-TW/help/contact", "/zh-TW/foundation", "/zh-TW/policies", "/zh-TW/help/faq", "/zh-TW/help/about", "/zh-TW/help/team", "/zh-TW/help/used-and-mentioned", "/zh-TW/help/for-business-and-research", "/zh-TW/help/faq/private", "/zh-TW/help/payment-refund", "/zh-TW/result/private", "/zh-TW/account"],
   } });
-  expect(decisions.accepted).toEqual(["/zh-TW/about", "/zh-TW/brand", "/zh-TW/charter", "/zh-TW/careers", "/zh-TW/privacy", "/zh-TW/terms", "/zh-TW/method-boundaries", "/zh-TW/science", "/zh-TW/help/contact"]);
-  expect(decisions.rejected).toHaveLength(3);
+  expect(decisions.accepted).toEqual(["/zh-TW/about", "/zh-TW/brand", "/zh-TW/charter", "/zh-TW/careers", "/zh-TW/privacy", "/zh-TW/terms", "/zh-TW/method-boundaries", "/zh-TW/science", "/zh-TW/help/contact", "/zh-TW/foundation", "/zh-TW/policies", "/zh-TW/help/faq", "/zh-TW/help/about", "/zh-TW/help/team", "/zh-TW/help/used-and-mentioned", "/zh-TW/help/for-business-and-research"]);
+  expect(decisions.rejected).toHaveLength(4);
 });
 
 describe("content release revalidate allowlist", () => {

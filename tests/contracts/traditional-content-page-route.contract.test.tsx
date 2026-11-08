@@ -45,6 +45,21 @@ describe("shared Traditional CMS page route", () => {
     expect(schema.find(node => node["@type"] === "WebPage")).toMatchObject({ inLanguage: "zh-TW", url: `${SITE_URL}/zh-TW/${slug}` });
     expect(read).toHaveBeenCalledWith(slug, "zh-TW");
   });
+  it.each([["foundation", "foundation"], ["policies", "policies"], ["help-faq", "help/faq"], ["help-about", "help/about"], ["help-team", "help/team"], ["help-used-and-mentioned", "help/used-and-mentioned"], ["help-for-business-and-research", "help/for-business-and-research"]])("renders the complete %s reader at its native path, and fails closed when missing", async (slug, path) => {
+    read.mockResolvedValue({ value: { ...page(slug), path: `/zh-TW/${path}`, kind: slug.startsWith("help-") ? "help" : "company" } });
+    const metadata = await generateTraditionalContentPageMetadata(slug);
+    expect(metadata.alternates).toEqual({ canonical: `${SITE_URL}/zh-TW/${path}` });
+    expect(metadata.robots).toEqual({ index: false, follow: true });
+    const document = new DOMParser().parseFromString(renderToStaticMarkup(await renderTraditionalContentPage(slug)), "text/html");
+    expect(document.querySelector("h1")?.textContent).toBe(`繁體${slug}`);
+    expect(document.body.textContent).toContain("15K-25K RMB / 月。");
+    expect(document.querySelector('a[lang="en"]')?.getAttribute("href")).toBe(`/en/${path}`);
+    expect(document.querySelector('a[lang="zh-CN"]')?.getAttribute("href")).toBe(`/zh/${path}`);
+    expect(read).toHaveBeenCalledWith(slug, "zh-TW");
+    read.mockResolvedValue({ value: null });
+    await expect(renderTraditionalContentPage(slug)).rejects.toThrow("NOT_FOUND");
+    await expect(generateTraditionalContentPageMetadata(slug)).rejects.toThrow("NOT_FOUND");
+  });
   it("renders the native contact, nested canonical and available recovery controls", async () => {
     const contact = { ...page("help-contact"), path: "/zh-TW/help/contact", kind: "help", template: "help", supportContact: "support@example.invalid" };
     read.mockResolvedValue({ value: contact });
