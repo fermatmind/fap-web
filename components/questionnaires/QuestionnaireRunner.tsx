@@ -195,7 +195,7 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
   const disc = quiz.slug === "disc";
   const responseColor = quiz.slug === "response-color";
   const adultAgePreferences = quiz.slug === "adult-age-preferences";
-  const preserveResultOnGuideOpen = adultAgePreferences || disc;
+  const preserveResultOnGuideOpen = adultAgePreferences || disc || responseColor;
   const directionReading = Object.hasOwn(directionPresentation, quiz.slug) ? directionPresentation[quiz.slug as keyof typeof directionPresentation] : undefined;
   const showDirectionCounts = Boolean(directionReading);
   const directionEyebrow = directionReading?.eyebrow[locale] ?? (zh ? "本题组内的选择结果" : "Choices in this question set");

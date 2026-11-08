@@ -20,6 +20,9 @@ describe("individual color landing editorial", () => {
       expect(dom.querySelectorAll('[aria-labelledby="questionnaire-results"] > ul > li')).toHaveLength(15);
       expect(dom.querySelectorAll('[aria-labelledby="questionnaire-faq"] > section')).toHaveLength(12);
       expect(dom.querySelectorAll(".disc-direction-definitions > p")).toHaveLength(4);
+      expect(dom.textContent).toContain(locale === "zh" ? "当前答题页不提供进度保存" : "This question page does not save progress");
+      const sourcePrivacy = quiz.guide.find(section => section.id === "retest-boundary")!;
+      for (const staleCopy of [quiz.faq[10].answer[locale], sourcePrivacy.title[locale], sourcePrivacy.paragraphs[0][locale]]) expect(dom.textContent).not.toContain(staleCopy);
       for (const citation of dom.querySelectorAll<HTMLAnchorElement>(".disc-source-citation")) expect(dom.querySelector(citation.getAttribute("href")!)).not.toBeNull();
       expect(dom.querySelectorAll(".disc-source-citation").length).toBeGreaterThanOrEqual(4);
       expect(dom.textContent).toContain(locale === "zh" ? "重测开始新的作答" : "Retaking starts a new attempt");

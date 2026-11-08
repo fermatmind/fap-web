@@ -226,7 +226,7 @@ import { temperamentLandingSummary } from "./TemperamentLandingEditorial";
 import { introvertExtrovertLandingSummary } from "./IntrovertExtrovertLandingEditorial";
 import { jungianArchetypeLandingSummary } from "./JungianArchetypeLandingEditorial";
 import { moralAlignmentLandingSummary } from "./MoralAlignmentLandingEditorial";
-import { responseColorLandingSummary } from "./ResponseColorLandingEditorial";
+import { responseColorLandingSummary, responseColorCurrentEntryCopy } from "./ResponseColorLandingEditorial";
 import { DiscCitations, discLandingSummary, discVisiblePrivacyAnswer } from "./DiscLandingEditorial";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import { isPss4ConfigurationValid } from "@/lib/questionnaires/pss4";
@@ -866,6 +866,7 @@ return null;
   const referencePrefix = slug;
   const renderCopy = (text: string) => {
     if (slug === "bleach") text = bleachCurrentEntryCopy(text, locale);
+    if (slug === "response-color") text = responseColorCurrentEntryCopy(text, locale);
     if (!hasInlineReferences) return text;
     // In code-reading prose, indexed expressions remain source text, not reference markers.
     if (["java-test", "python-test"].includes(slug)) return text.split(/((?<=[.!?。！？])\s*\[\d+\](?:\[\d+\])*)/g).map((part, index) =>
@@ -2418,7 +2419,7 @@ if (quiz.kind === "saps") return !["saps-source", "saps-scoring", "saps-administ
 if (quiz.kind === "scs26") return !["scs-method", "scs-missing", "scs-boundary"].includes(section.id);
 if (quiz.kind === "cbi") return !["source-scoring", "missing-and-context", "support-and-source"].includes(section.id);
 return !["rosenberg-scoring", "rosenberg-reading", "rosenberg-source", "practice-scoring", "practice-reading", "practice-limits", "compass-counts", "compass-ties", "raw-wins-explanation", "ties-explanation", "low-direction-explanation", "facet-scoring", "facet-reading", "facet-comparison", "archetype-counts", "archetype-ties", "archetype-metaphor", "two-axes", "display-bands", "worked-examples", "meaning-limits", "optimism-scoring", "optimism-source", "extraversion-scoring", "extraversion-bands", "extraversion-reading", "affection-scoring", "affection-roles", "affection-reading", "attachment-context", "attachment-scoring", "attachment-reading"].includes(section.id);
-})())).map(section => <section key={section.id} className="explore-reading-section"><h3>{section.title[locale]}</h3><div>{section.paragraphs.map((text, index) => <p key={index}>{renderCopy(text[locale])}</p>)}</div></section>)}</div></section>}
+})())).map(section => <section key={section.id} className="explore-reading-section"><h3>{slug === "response-color" ? responseColorCurrentEntryCopy(section.title[locale], locale) : section.title[locale]}</h3><div>{section.paragraphs.map((text, index) => <p key={index}>{renderCopy(text[locale])}</p>)}</div></section>)}</div></section>}
     {quiz.kind === "tipi10" && <Tipi10Attribution locale={locale} />}
     {visibleReferences.length ? <section className="my-8 leading-8" aria-labelledby="questionnaire-references"><h2 id="questionnaire-references" className="text-xl font-semibold">{hasInlineReferences ? (zh ? "参考文献与来源说明" : "References and source notes") : (zh ? "背景与来源范围" : "Background and source scope")}</h2><ul className="mt-3 list-disc pl-5">{visibleReferences.map(reference => <li key={reference.url} id={hasInlineReferences ? `${referencePrefix}-reference-${pageReferences.indexOf(reference) + 1}` : undefined}><a className="underline" href={reference.url}>{hasInlineReferences ? `[${pageReferences.indexOf(reference) + 1}] ` : ""}{reference.title[locale]}</a></li>)}</ul>{referenceNote && <p className="mt-3 text-sm text-slate-600">{referenceNote}</p>}</section> : null}
     {quiz.slug === "people-pleaser" && <QuestionnairePpsAttribution locale={locale} />}

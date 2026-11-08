@@ -25,11 +25,11 @@ afterAll(() => {
 const load = (slug: string) => JSON.parse(readFileSync(`lib/questionnaires/data/${slug}.json`, "utf8")) as Questionnaire;
 const answersFor = (quiz: Questionnaire) => Object.fromEntries(quiz.questions.map(question => [question.id, question.options[0].id]));
 const rootFor = (html: string) => { const root = document.createElement("div"); root.innerHTML = html; return root; };
-function verifyGuides(root: Element, locale: "en" | "zh", newTab: boolean) {
+function verifyGuides(root: Element, locale: "en" | "zh", newTab: boolean, collection: "explore" | "play" = "explore") {
   const links = root.querySelectorAll<HTMLAnchorElement>('a[href*="/results/"]');
   expect(links.length).toBeGreaterThan(0);
   for (const link of links) {
-    expect(link.getAttribute("href")).toMatch(new RegExp(`^/${locale}/tests/explore/[^/?]+/results/[^/?]+$`));
+    expect(link.getAttribute("href")).toMatch(new RegExp(`^/${locale}/tests/${collection}/[^/?]+/results/[^/?]+$`));
     expect(link.getAttribute("target")).toBe(newTab ? "_blank" : null);
     if (newTab) {
       expect(link.rel.split(/\s+/)).toContain("noopener");
@@ -61,7 +61,7 @@ describe("public guide navigation from an in-memory result", () => {
       if (result.status !== "complete") throw new Error("Expected a complete age result");
       verifyGuides(rootFor(renderToStaticMarkup(<MentalAgeClassicResult quiz={quiz} result={result} answers={answers} locale={locale} />)), locale, true);
     });
-    it.each(["adult-age-preferences", "disc"])(`${locale} opens the %s result guide after the real answering handler`, slug => {
+    it.each(["adult-age-preferences", "disc", "response-color"])(`${locale} opens the %s result guide after the real answering handler`, slug => {
       const quiz = load(slug);
       const { container } = render(<QuestionnaireRunner quiz={quiz} locale={locale} scoreQuestionnaire={scoreQuestionnaire} startOnEntry />);
       for (const question of quiz.questions) {
@@ -71,7 +71,7 @@ describe("public guide navigation from an in-memory result", () => {
         fireEvent.click(container.querySelector("[data-questionnaire-next]")!);
       }
       expect(container.querySelector("#take-test")?.getAttribute("data-stage")).toBe("result");
-      verifyGuides(container, locale, true);
+      verifyGuides(container, locale, true, slug === "response-color" ? "play" : "explore");
     });
   }
 });

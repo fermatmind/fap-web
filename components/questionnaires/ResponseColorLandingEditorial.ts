@@ -22,3 +22,21 @@ const summaries: Record<string, { zh: string; en: string }> = {
 export function responseColorLandingSummary(profile: QuestionnaireProfile, locale: Locale): string {
   return summaries[profile.id]?.[locale] ?? profile.summary[locale];
 }
+
+/** Current answering UI copy; the accepted source questionnaire keeps its original bytes. */
+const currentEntryCopies = {
+  zh: new Map<string, string>([
+    ["答案只在浏览器计算，不进入网址、答案上传或分析事件。默认不保存；主动保存的标签页草稿24小时后失效，并在完成、退出并清除或重测时删除。本站不通过该草稿保留历史个人报告；复制公开入口和指南无需披露答案或计数。", "答案只在浏览器计算，不进入网址、答案上传或分析事件。当前答题页不提供进度保存；刷新页面、切换语言或离开后会从头开始。重测开始新的作答，不保留历史个人报告；复制公开入口和指南不包含答案或计数。"],
+    ["答案在当前浏览器中计分，默认不保存。只有主动选择临时保存后，才在本标签页保留可恢复草稿；24小时后失效，完成、退出并清除或重测会删除。重测开始新的作答，不保留可供比较的历史个人报告。", "答案在当前浏览器中计分，当前答题页不提供进度保存；刷新、切换语言或离开后会从头开始。重测开始新的作答，不保留可供比较的历史个人报告。"],
+    ["重测、临时草稿与隐私", "重测与隐私"],
+  ]),
+  en: new Map<string, string>([
+    ["Answers are scored in the browser, without answer uploads or inclusion in URLs or analytics events. Saving is off by default. An optional tab draft expires after 24 hours and clears on completion, exit-and-clear or retake; it does not maintain a history of personal reports. Copying public entry and guide links does not disclose answers or counts.", "Answers are scored in your browser, without scoring uploads or inclusion in URLs or analytics events. This question page does not save progress: refreshing, changing language or leaving it starts over. Retaking starts a new attempt and keeps no history of personal reports. Public entry and guide links contain no answers or counts."],
+    ["Answers are scored in the current browser and are not saved by default. Only an explicit save choice creates a resumable draft in this tab. It expires after 24 hours and clears on completion, exit-and-clear or retake. Retaking starts a new attempt rather than maintaining a history of personal reports.", "Answers are scored in the current browser. This question page does not save progress; refreshing, changing language or leaving it starts over. Retaking starts a new attempt rather than maintaining a history of personal reports."],
+    ["Retesting, optional drafts and privacy", "Retesting and privacy"],
+  ]),
+};
+
+export function responseColorCurrentEntryCopy(text: string, locale: Locale): string {
+  return currentEntryCopies[locale].get(text) ?? text;
+}
