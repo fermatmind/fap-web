@@ -119,7 +119,7 @@ export function MoreTests({
   }));
   return (
     <>
-    <JsonLd id={`exploration-tests-${locale}`} data={buildItemListJsonLd({ path: `/${locale}/tests`, idSuffix: "exploration-test-itemlist", title: locale === "zh" ? "测试与实用工具" : "Tests and practical tools", description: locale === "zh" ? "当前目录中可见的285项测试与工具。" : "The 285 tests and tools visible in this directory.", locale, items: [...items].sort((a, b) => Object.keys(FUN_CATEGORIES).indexOf(a.category) - Object.keys(FUN_CATEGORIES).indexOf(b.category)).map(item => ({ name: item.title, path: item.href, description: item.description })) })} />
+    <JsonLd id={`exploration-tests-${locale}`} data={buildItemListJsonLd({ path: `/${locale}/tests`, idSuffix: "exploration-test-itemlist", title: locale === "zh" ? "测试与实用工具" : "Tests and practical tools", description: locale === "zh" ? `当前目录中可见的${MORE_TEST_PRODUCT_COUNT}项测试与工具。` : `The ${MORE_TEST_PRODUCT_COUNT} tests and tools visible in this directory.`, locale, items: [...items].sort((a, b) => Object.keys(FUN_CATEGORIES).indexOf(a.category) - Object.keys(FUN_CATEGORIES).indexOf(b.category)).map(item => ({ name: item.title, path: item.href, description: item.description })) })} />
     <TestDirectory
       items={items}
       categories={FUN_CATEGORIES}
