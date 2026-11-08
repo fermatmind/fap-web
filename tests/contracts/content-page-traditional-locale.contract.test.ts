@@ -23,6 +23,12 @@ describe("CMS Traditional locale reader", () => {
     expect(traditionalPath("/zh/about")).toBe("/zh-TW/about");
     expect(traditionalPath("/en/about")).toBe("/zh-TW/about");
     expect(traditionalPath("/en/privacy")).toBeNull();
+    for (const slug of ["brand", "charter", "careers"]) {
+      expect(traditionalPath(`/zh-TW/${slug}`)).toBe(`/zh-TW/${slug}`);
+      expect(traditionalPath(`/zh/${slug}`)).toBeNull();
+      expect(traditionalEquivalent(`/zh-TW/${slug}`)).toBeNull();
+      expect(TRADITIONAL_PUBLIC_PATHS).not.toContain(`/${slug}`);
+    }
     expect(traditionalEquivalent("/zh/about")).toBeNull();
     expect(TRADITIONAL_PUBLIC_PATHS).not.toContain("/about");
     expect(traditionalPath("/zh-TW/account")).toBeNull();

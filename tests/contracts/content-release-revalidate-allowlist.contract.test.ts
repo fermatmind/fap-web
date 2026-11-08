@@ -27,9 +27,9 @@ import { collectPathDecisions, POST } from "@/lib/contentRelease/revalidateRoute
 
 it("allows only the prepared Traditional CMS detail cache without folding its locale", () => {
   const decisions = collectPathDecisions({ content: { type: "public_content_53", locale: "zh-TW" }, cache_signal: {
-    paths: ["/zh-TW/about", "/zh-TW/privacy", "/zh-TW/result/private", "/zh-TW/account"],
+    paths: ["/zh-TW/about", "/zh-TW/brand", "/zh-TW/charter", "/zh-TW/careers", "/zh-TW/privacy", "/zh-TW/result/private", "/zh-TW/account"],
   } });
-  expect(decisions.accepted).toEqual(["/zh-TW/about"]);
+  expect(decisions.accepted).toEqual(["/zh-TW/about", "/zh-TW/brand", "/zh-TW/charter", "/zh-TW/careers"]);
   expect(decisions.rejected).toHaveLength(3);
 });
 

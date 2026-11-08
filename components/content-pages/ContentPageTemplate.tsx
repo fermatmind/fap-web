@@ -216,7 +216,7 @@ function renderInline(text: string, keyPrefix: string, locale: DisplayLocale): R
   if (locale === "zh-TW") {
     // This first CMS adapter supports plain headings, lists and paragraphs.
     if (/[<>`\[\]]/.test(text)) throw new Error("Traditional CMS inline format unavailable");
-    return [text];
+    return [stripMarkdownEmphasisMarkers(text)];
   }
   return renderCmsInlineMarkdown(text, keyPrefix, { locale });
 }
