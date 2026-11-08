@@ -12,11 +12,12 @@ export function FantasyPortrait({ slug, id, name, large = false }: { slug: strin
 
 export function FantasyRoster({ quiz, locale, preserveResult = false }: { quiz: Questionnaire; locale: Locale; preserveResult?: boolean }) {
   if (!hasFantasyArtwork(quiz.slug)) return null;
+  const Heading = preserveResult ? "h3" : "h2", ItemHeading = preserveResult ? "h4" : "h3";
   return <section className="my-8" aria-label={locale === "zh" ? "比较全部结果" : "Compare all results"}>
-    <h2 className="text-2xl font-semibold">{locale === "zh" ? "先认识不同结果" : "Meet the different results"}</h2>
+    <Heading className="text-2xl font-semibold">{locale === "zh" ? "先认识不同结果" : "Meet the different results"}</Heading>
     <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{quiz.profiles.map(profile => <article key={profile.id} className="rounded-xl border border-slate-200 p-4">
       <FantasyPortrait slug={quiz.slug} id={profile.id} name={profile.title[locale]} />
-      <h3 className="mt-3 text-xl font-semibold"><Link prefetch={false} href={questionnaireGuidePath(locale, quiz.slug, profile.id)} target={preserveResult ? "_blank" : undefined} rel={preserveResult ? "noopener" : undefined} className="inline-flex min-h-11 items-center underline">{profile.title[locale]}{preserveResult && <span className="sr-only">{locale === "zh" ? "（新标签页）" : " (new tab)"}</span>}</Link></h3>
+      <ItemHeading className="mt-3 text-xl font-semibold"><Link prefetch={false} href={questionnaireGuidePath(locale, quiz.slug, profile.id)} target={preserveResult ? "_blank" : undefined} rel={preserveResult ? "noopener" : undefined} className="inline-flex min-h-11 items-center underline">{profile.title[locale]}{preserveResult && <span className="sr-only">{locale === "zh" ? "（新标签页）" : " (new tab)"}</span>}</Link></ItemHeading>
       <p className="mt-2 leading-7">{profile.headline[locale]}</p>
     </article>)}</div>
   </section>;

@@ -94,6 +94,7 @@ describe("original Soldier Poet King 24-scenario edition", () => {
       expect(html).toContain(`/${locale}/tests/explore/${quiz.slug}/results/${p.id}`);
     }
     expect(html).toContain("33.3%"); expect(html).not.toContain("MBTI");
+    expect(html).not.toContain("<h2");
     const sitemap = appendFunSitemapEntries([]);
     expect(sitemap.some(row => row.loc.endsWith(`/tests/explore/${quiz.slug}`))).toBe(true);
     for (const p of quiz.profiles) expect(sitemap.some(row => row.loc.endsWith(`/tests/explore/${quiz.slug}/results/${p.id}`))).toBe(true);
