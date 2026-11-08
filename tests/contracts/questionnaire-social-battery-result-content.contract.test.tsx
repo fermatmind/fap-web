@@ -2,6 +2,7 @@ import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-
 import { describe, expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import source from "@/lib/questionnaires/data/social-battery-test.json";
+import communicationSource from "@/lib/questionnaires/data/communication-style.json";
 import content from "@/lib/questionnaires/result-content/social-battery.json";
 import { socialBatteryResultProfile } from "@/lib/questionnaires/result-content/social-battery";
 import { QuestionnaireFacetReport } from "@/components/questionnaires/QuestionnaireFacetReport";
@@ -55,6 +56,14 @@ describe("Social Battery independent facet reading additions", () => {
     root.innerHTML = renderToStaticMarkup(<QuestionnaireFacetReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale={locale} />);
     expect(root.querySelectorAll("[data-social-battery-result-reading]")).toHaveLength(4);
     expect(root.querySelectorAll("[data-facet-score]")).toHaveLength(4);
+    const guides = root.querySelectorAll<HTMLAnchorElement>('a[href*="/results/"]');
+    expect(guides).toHaveLength(4);
+    for (const link of guides) {
+      expect(link.target).toBe("_blank");
+      expect(link.rel.split(/\s+/)).toContain("noopener");
+      expect(link.textContent).toContain(locale === "zh" ? "新标签页" : "new tab");
+      expect(link.getAttribute("href")).toMatch(new RegExp(`^/${locale}/tests/explore/social-battery-test/results/[^/?]+$`));
+    }
     const ids = [...root.querySelectorAll("[id]")].map(el => el.id);
     expect(new Set(ids).size).toBe(ids.length);
     for (const link of root.querySelectorAll('nav a[href^="#report-"]')) expect(ids).toContain(link.getAttribute("href")!.slice(1));
@@ -64,5 +73,17 @@ describe("Social Battery independent facet reading additions", () => {
       const score = root.querySelector(`[data-facet-score="${profile.id}"]`)!;
       expect(score.textContent).toContain(profile.id === "interaction-load" ? (locale === "zh" ? "计分后均分" : "Scored mean") : (locale === "zh" ? "资料不足" : "Insufficient information"));
     }
+  });
+
+  it("preserves existing communication-style guide navigation", () => {
+    const other = communicationSource as Questionnaire;
+    const answers = Object.fromEntries(other.questions.map(q => [q.id, q.options[0].id]));
+    const result = scoreLikertQuestionnaire(other, answers);
+    if (result.status !== "complete") throw new Error("Complete compatibility witness required");
+    const root = document.createElement("div");
+    root.innerHTML = renderToStaticMarkup(<QuestionnaireFacetReport quiz={other} result={result} locale="en" />);
+    const guides = root.querySelectorAll('a[href*="/results/"]');
+    expect(guides.length).toBeGreaterThan(0);
+    for (const link of guides) expect(link.getAttribute("target")).toBeNull();
   });
 });

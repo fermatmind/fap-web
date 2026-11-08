@@ -30,7 +30,7 @@ export function QuestionnaireFacetReport({ quiz, result, locale }: { quiz: Quest
         : (zh ? `计分后均分：${score.mean.toFixed(1)} / 5（${score.rated}/${score.total}题有效）` : `Scored mean: ${score.mean.toFixed(1)} / 5 (${score.rated}/${score.total} items rated)`)}</p>
       {score.mean === null && <p className="mb-4 text-sm leading-7 text-slate-600">{zh ? "以下为这一部分的通用读法，不能当作对你本次状态的解释。" : "The following is a general reading guide, not an interpretation of your state in this attempt."}</p>}
       <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} mode="result" previewSectionIds={["reading", "example", "experiment"]} />
-      <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一部分的公开说明" : "Read this part’s public guide"}</Link>
+      <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)} target={battery ? "_blank" : undefined} rel={battery ? "noopener" : undefined}>{zh ? "阅读这一部分的公开说明" : "Read this part’s public guide"}{battery ? (zh ? "（新标签页）" : " (new tab)") : null}</Link>
     </section> };
   });
 

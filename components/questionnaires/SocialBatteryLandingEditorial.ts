@@ -1,3 +1,4 @@
+import type { Locale } from "@/lib/i18n/locales";
 import type { Text } from "@/lib/questionnaires/types";
 export const socialBatterySections: { id: string; title: Text; paragraphs: Text[] }[] = [
   {
@@ -131,8 +132,8 @@ export const socialBatterySections: { id: string; title: Text; paragraphs: Text[
         "zh": "可从已经发生的一次情境出发，辨认费力或有帮助的是时长、组织角色、回复要求，还是可以安静的空间。“我想见面，也希望这次到八点结束”，就能表达偏好，无需责怪别人或认定固定类型。指南中的建议是可选例子，不是恢复处方。"
       },
       {
-        "en": "Start opens the first question directly. The calculation runs in your browser. Saving is optional and applies only to a 24-hour tab draft, which is removed on completion, exit-and-clear or retake; it is separate from starting. The full public guides require no answers, and copying shares public links without answers or personal means.",
-        "zh": "点击开始直接进入第一题，计算在浏览器进行。保存为自愿选择，仅针对24小时标签页草稿，完成、退出清除或重做时删除，与开始作答分开。完整公开指南无需回答；复制分享公开链接，不含答案或个人均分。"
+        "en": "Start opens the first question directly. The calculation runs in your browser. This question page does not save progress: refreshing, changing language or leaving it starts over. Retaking starts a new attempt without keeping a history of personal reports. The full public guides require no answers, and copying shares public links without answers or personal means.",
+        "zh": "点击开始直接进入第一题，计算在浏览器进行。当前答题页不提供进度保存；刷新、切换语言或离开后会从头开始。重测开始新的作答，不保留历史个人报告。完整公开指南无需回答；复制分享公开链接，不含答案或个人均分。"
       }
     ]
   }
@@ -214,8 +215,8 @@ export const socialBatteryFaq: { question: Text; answer: Text }[] = [
       "zh": "作答前必须开启保存吗？"
     },
     "answer": {
-      "en": "No. Start opens the first question without an agreement or saving requirement. Optional tab saving can be chosen later; without it, a refresh loses the current answers.",
-      "zh": "不必。开始直接进入第一题，无需同意或开启保存。之后可自愿选择标签页保存；不开启时，刷新会丢失当前回答。"
+      "en": "No. Start opens the first question without an agreement or saving requirement. This question page does not save progress; refreshing, changing language or leaving it starts over.",
+      "zh": "不必。开始直接进入第一题，无需同意或开启保存。当前答题页不提供进度保存；刷新、切换语言或离开后会从头开始。"
     }
   }
 ];
@@ -237,3 +238,10 @@ export const socialBatterySummaries: Record<string, Text> = {
     "zh": "阅读低要求的熟悉陪伴是否带来轻松，不评价人缘或关系质量。"
   }
 };
+
+/** Current answering flow; the accepted source questionnaire remains unchanged. */
+export function socialBatteryVisiblePrivacyAnswer(locale: Locale): string {
+  return locale === "zh"
+    ? "当前答题页不提供进度保存；刷新、切换语言或离开后会从头开始。重测开始新的作答，不保留历史个人报告。"
+    : "This question page does not save progress; refreshing, changing language or leaving it starts over. Retaking starts a new attempt without keeping a history of personal reports.";
+}

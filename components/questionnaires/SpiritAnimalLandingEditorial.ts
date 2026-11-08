@@ -1,3 +1,4 @@
+import type { Locale } from "@/lib/i18n/locales";
 import type { Text, QuestionnaireSection } from "@/lib/questionnaires/types";
 
 export const spiritAnimalSections: QuestionnaireSection[] = [
@@ -140,8 +141,8 @@ export const spiritAnimalSections: QuestionnaireSection[] = [
   {
     "id": "privacy",
     "title": {
-      "en": "Free results, optional saving and private sharing",
-      "zh": "免费结果、自愿保存与分享范围"
+      "en": "Free results, retaking and private sharing",
+      "zh": "免费结果、重测与分享范围"
     },
     "paragraphs": [
       {
@@ -149,8 +150,8 @@ export const spiritAnimalSections: QuestionnaireSection[] = [
         "zh": "点击“开始测试”直接进入第一题，无需勾选同意、填写邮箱或生日，也无需先做其他测试。答案在当前浏览器计数；网站可能记录使用事件，但题目回答不进入这些事件或页面网址。"
       },
       {
-        "en": "Saving is optional after you start. A saved tab draft can be resumed after a refresh or language change for up to 24 hours and is cleared on completion, retake or clearing the attempt. Result copying includes animal names and a public link, not the answer sheet or raw counts. Opening that link does not recreate a private attempt.",
-        "zh": "开始后的进度保存由你主动选择。本标签页草稿最多保留24小时，可在刷新或换语言后恢复，完成、重测或清除本次进度时删除。复制结果包含动物名称与公开链接，不含答卷或原始计数；打开该链接不会还原私人作答。"
+        "en": "This question page does not save progress: refreshing, changing language or leaving it starts over. Retaking starts a new attempt without keeping a history of personal reports. Result copying includes animal names and a public link, not the answer sheet or raw counts. Opening that link does not recreate a private attempt.",
+        "zh": "当前答题页不提供进度保存；刷新、切换语言或离开后会从头开始。重测开始新的作答，不保留历史个人报告。复制结果包含动物名称与公开链接，不含答卷或原始计数；打开该链接不会还原私人作答。"
       }
     ]
   }
@@ -233,8 +234,8 @@ export const spiritAnimalFaq: { question: Text; answer: Text }[] = [
       "zh": "开始前必须再勾选同意吗？"
     },
     "answer": {
-      "en": "No. Start test opens question one directly. Saving a draft is a separate optional choice after starting; leaving it off does not restrict the questions or full results.",
-      "zh": "不需要。点击“开始测试”直接打开第一题。开始后保存草稿是独立的自愿选择，不开启保存也能完成全部题目并阅读完整结果。"
+      "en": "No. Start test opens question one directly. This question page does not save progress; refreshing, changing language or leaving it starts over.",
+      "zh": "不需要。点击“开始测试”直接打开第一题。当前答题页不提供进度保存；刷新、切换语言或离开后会从头开始。"
     }
   }
 ];
@@ -277,3 +278,10 @@ export const spiritAnimalSummaries: Record<string, Text> = {
     "zh": "自愿共同玩乐：享受过程，也允许拒绝、旁观或随时结束。"
   }
 };
+
+/** Current answering flow; the accepted source questionnaire remains unchanged. */
+export function spiritAnimalVisiblePrivacyAnswer(locale: Locale): string {
+  return locale === "zh"
+    ? "18题、九份完整解释、并列结果均免费，无需注册或先做其他测评。当前答题页不提供进度保存；刷新、切换语言或离开后会从头开始。重测开始新的作答，不保留历史个人报告。复制分享只包含动物名称与公开入口／说明链接，不含答卷、原始计数或个人均分。"
+    : "All 18 questions, nine complete explanations and tied results are free, with no signup or prerequisite test. This question page does not save progress; refreshing, changing language or leaving it starts over. Retaking starts a new attempt without keeping a history of personal reports. Copying shares only animal names and a public entry or guide link, never answers, raw counts or personal means.";
+}

@@ -3,7 +3,7 @@ import { describe, expect, it, vi } from "vitest";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import data from "@/lib/questionnaires/data/spirit-animal.json";
 import { SpiritAnimalPage } from "@/components/questionnaires/SpiritAnimalPage";
-import { spiritAnimalSections, spiritAnimalFaq, spiritAnimalSummaries } from "@/components/questionnaires/SpiritAnimalLandingEditorial";
+import { spiritAnimalSections, spiritAnimalFaq, spiritAnimalSummaries, spiritAnimalVisiblePrivacyAnswer } from "@/components/questionnaires/SpiritAnimalLandingEditorial";
 vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
 
 describe("Spirit animal original metaphors and public reading", () => {
@@ -12,7 +12,10 @@ describe("Spirit animal original metaphors and public reading", () => {
     dom.innerHTML = renderToStaticMarkup(<SpiritAnimalPage quiz={data as Questionnaire} locale={locale} />);
     const text = dom.textContent!;
     for (const s of [...data.guide, ...spiritAnimalSections]) for (const p of s.paragraphs) expect(text).toContain(p[locale]);
-    for (const f of [...data.faq, ...spiritAnimalFaq]) expect(text).toContain(f.answer[locale]);
+    for (const f of [...data.faq, ...spiritAnimalFaq]) expect(text).toContain(f.question.en === "Are results free, and does sharing reveal my answers?" ? spiritAnimalVisiblePrivacyAnswer(locale) : f.answer[locale]);
+    expect(text).toContain(locale === "en" ? "This question page does not save progress" : "当前答题页不提供进度保存");
+    expect(text).not.toContain(data.faq[5].answer[locale]);
+    expect(text).not.toContain(locale === "en" ? "Free results, optional saving and private sharing" : "免费结果、自愿保存与分享范围");
     expect(dom.querySelectorAll("[data-explore-start]")).toHaveLength(1);
     expect(dom.querySelectorAll('input[type="checkbox"]')).toHaveLength(0);
     expect(dom.querySelectorAll('[aria-labelledby="spirit-animal-library"] li')).toHaveLength(9);

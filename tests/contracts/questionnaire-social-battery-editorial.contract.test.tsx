@@ -3,7 +3,7 @@ import { describe, expect, it, vi } from "vitest";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import data from "@/lib/questionnaires/data/social-battery-test.json";
 import { SocialBatteryPage } from "@/components/questionnaires/SocialBatteryPage";
-import { socialBatterySections, socialBatteryFaq, socialBatterySummaries } from "@/components/questionnaires/SocialBatteryLandingEditorial";
+import { socialBatterySections, socialBatteryFaq, socialBatterySummaries, socialBatteryVisiblePrivacyAnswer } from "@/components/questionnaires/SocialBatteryLandingEditorial";
 vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
 
 describe("Social battery bilingual context and independent readings", () => {
@@ -11,7 +11,10 @@ describe("Social battery bilingual context and independent readings", () => {
     const html = renderToStaticMarkup(<SocialBatteryPage quiz={data as Questionnaire} locale={locale} />);
     const dom = document.createElement("div"); dom.innerHTML = html; const text = dom.textContent!;
     for (const s of [...data.guide, ...data.profiles.flatMap(p => p.sections), ...socialBatterySections]) for (const p of s.paragraphs) expect(text).toContain(p[locale]);
-    for (const f of [...data.faq, ...socialBatteryFaq]) expect(text).toContain(f.answer[locale]);
+    for (const f of [...data.faq, ...socialBatteryFaq]) expect(text).toContain(f.question.en === "What happens if I refresh, change language or retake?" ? socialBatteryVisiblePrivacyAnswer(locale) : f.answer[locale]);
+    expect(text).toContain(locale === "en" ? "This question page does not save progress" : "当前答题页不提供进度保存");
+    expect(text).not.toContain(data.faq[4].answer[locale]);
+    expect(text).not.toContain(locale === "en" ? "Optional tab saving can be chosen later" : "之后可自愿选择标签页保存");
     expect(dom.querySelectorAll("[data-explore-start]")).toHaveLength(1);
     expect(dom.querySelectorAll('input[type="checkbox"]')).toHaveLength(0);
     expect(dom.querySelectorAll('[aria-labelledby="social-battery-library"] li')).toHaveLength(4);
