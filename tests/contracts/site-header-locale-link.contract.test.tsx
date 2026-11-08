@@ -35,6 +35,12 @@ vi.mock("next/navigation", () => ({
 }));
 
 describe("SiteHeader locale link contract", () => {
+  it("opens the Taiwan entry on the first language-menu click", () => {
+    navigationState.pathname = "/zh/tests/explore/chiikawa";
+    render(<LocaleProvider locale="zh"><LocaleSwitcher /></LocaleProvider>);
+    fireEvent.click(screen.getByRole("button", { name: "语言菜单" }));
+    expect(screen.getByRole("menuitem", { name: "繁體中文（台灣）" })).toHaveAttribute("href", "/zh-TW/tests/explore/chiikawa");
+  });
   beforeEach(() => {
     navigationState.pathname = "/zh/tests/enneagram-personality-test-nine-types/take";
   });

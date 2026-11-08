@@ -1,13 +1,12 @@
 "use client";
 
 import { ChevronDown, Globe2 } from "lucide-react";
-import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { useLocale } from "@/components/i18n/LocaleContext";
 import { shouldDisableLocaleSwitchLinks } from "@/lib/seo/seoHoldlistRoutes";
 
-const LocaleSwitcherMenu = dynamic(() => import("@/components/i18n/LocaleSwitcherMenu"));
+import LocaleSwitcherMenu from "@/components/i18n/LocaleSwitcherMenu";
 
 export function LocaleSwitcher() {
   const pathname = usePathname() ?? "/";

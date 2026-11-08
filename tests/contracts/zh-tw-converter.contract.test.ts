@@ -1,6 +1,7 @@
-import { test } from 'node:test';
+import { test } from 'vitest';
+import { createRequire } from 'node:module';
 import assert from 'node:assert/strict';
-import { build, collect, convertText, sources } from './convert-zh-tw.mjs';
+const { build, collect, convertText, sources } = createRequire(import.meta.url)('../../scripts/i18n/convert-zh-tw.mjs');
 
 test('Taiwan conversion preserves protected tokens and semantic boundaries', () => {
   assert.equal(convertText('软件、硬盘、内存、鼠标、打印、视频'), '軟體、硬碟、記憶體、滑鼠、列印、影片');
