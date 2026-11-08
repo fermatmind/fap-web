@@ -72,6 +72,7 @@ export default async function RootRouteLayout({ children }: { children: ReactNod
   return (
     <html lang="zh">
       <head>
+        <meta name="google-adsense-account" content="ca-pub-4177231401395141" />
         <link rel="preconnect" href="https://static.lingcecdn.com" />
         <link rel="dns-prefetch" href="https://static.lingcecdn.com" />
         <link rel="preload" as="image" href="https://static.lingcecdn.com/www/myfunquizcom/assets/img/home/top.png" fetchPriority="high" />

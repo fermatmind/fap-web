@@ -104,6 +104,7 @@ export default async function LocalizedRootLayout({
   return (
     <html lang={resolvedLocale}>
       <head>
+        <meta name="google-adsense-account" content="ca-pub-4177231401395141" />
         <link rel="preconnect" href="https://static.lingcecdn.com" />
         <link rel="dns-prefetch" href="https://static.lingcecdn.com" />
       </head>
