@@ -55,7 +55,12 @@ describe("original adult age-context choices and all seven complete readings", (
       expect(q.id).toBe(original.question_id); expect(q.prompt.zh).toBe(original.prompt);
       for (const [j, option] of q.options.entries()) {
         expect(option.id).toBe(original.options[j].code); expect(option.directionId).toBe(original.options[j].direction_code);
-        expect(option.label.zh).toBe(original.options[j].text); expect(option.score).toBeUndefined();
+        const clarifiedQ09: Record<string, string> = {
+          A: "生活计划不同步时，我较愿意理解伴侣基于自己已经历过的人生阶段形成的安排。",
+          B: "生活计划不同步时，我较愿意理解伴侣仍在逐步形成的生活安排。",
+        };
+        expect(option.label.zh).toBe(q.id === "AGE_FC_009" ? clarifiedQ09[option.id] : original.options[j].text);
+        expect(option.score).toBeUndefined();
         exposure[option.directionId].total++; exposure[option.directionId][option.id as "A" | "B"]++;
       }
       const pair = q.options.map(o => o.directionId).sort().join("|"); pairs.set(pair, (pairs.get(pair) ?? 0) + 1);

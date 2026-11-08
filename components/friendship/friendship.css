@@ -164,3 +164,13 @@
 .fq-solo-facts > div { min-width:0; padding:12px; border:1px solid #d6e0ed; border-radius:10px; background:#f2f6fc; }
 .fq-solo-facts dt { font-size:.875rem; color:#435774; }
 .fq-solo-facts dd { margin:2px 0 0; font-size:1.6rem; font-weight:650; }
+
+/* Keep completed results printable without exposing unfinished creation forms. */
+@media print {
+  .fq-app:has(.fq-result) { display:block!important; width:100%; max-width:100%; padding:0; border:0; border-radius:0; box-shadow:none; overflow:visible; }
+  .fq-result header { display:block!important; }
+  .fq-result .fq-actions, .fq-result button, .fq-result .fq-result-next { display:none!important; }
+  .fq-result details::details-content { content-visibility:visible!important; height:auto!important; }
+  .fq-result .fq-radar, .fq-result .fq-result-score, .fq-result .fq-answer-list li { break-inside:avoid; }
+  .fq-result .fq-answer-list { max-width:100%; padding-left:20px; }
+}

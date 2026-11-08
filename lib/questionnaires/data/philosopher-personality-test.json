@@ -2,7 +2,7 @@
   "slug": "philosopher-personality-test",
   "code": "PHILOSOPHER_READING_REFLECTION",
   "version": "1.1.0",
-  "updated": "2026-10-30",
+  "updated": "2026-11-08",
   "category": "framework",
   "kind": "archetype",
   "title": {
@@ -35,9 +35,9 @@
     "formCode": "fm_philosopher_reading_choices_18",
     "itemBankVersion": "1.1.0",
     "scoringVersion": "1.1.0",
-    "resultContentVersion": "1.1.0",
+    "resultContentVersion": "1.1.0+copy.20261108",
     "itemBankSha256": "a2fb8f7a31aea91274157e431fc4f14ed1ae0f344daa30584af493a59c3a6151",
-    "resultContentSha256": "517d3c126303f0d0f6f9bcf1d65ea79f1823481f7347506e1c9ed85edd0118f0",
+    "resultContentSha256": "d12a8552b78c24c4763e3bd67a0037437be75030178ef58ef26341a616090f56",
     "psychometricValidationCompleted": false
   },
   "directions": [
@@ -1966,8 +1966,8 @@
           },
           "paragraphs": [
             {
-              "zh": "《模糊性的伦理学》第二部分末部及结论，把自己的自由与他人的自由联系起来，也承认人彼此分离、计划可能冲突。本站选取的问题是：一个由我选择的计划，是否也为别人留下继续选择和行动的可能？这不是把伦理学缩成讨好或一致同意，更不是由问卷替你裁定现实冲突中的正确答案。",
-              "en": "The closing discussion of Part II and the conclusion of The Ethics of Ambiguity connect one’s freedom with others’ freedom while acknowledging separate people and conflicting projects. This edition asks whether a chosen project leaves others possibilities to choose and act. That is not a formula for pleasing everyone or securing agreement, and the questionnaire cannot adjudicate a real ethical conflict."
+              "zh": "《模糊性的伦理学》第二部分末部，把自己的自由与他人的自由联系起来，也承认人彼此分离、计划可能冲突。本站选取的问题是：一个由我选择的计划，是否也为别人留下继续选择和行动的可能？这不是把伦理学缩成讨好或一致同意，更不是由问卷替你裁定现实冲突中的正确答案。",
+              "en": "The closing discussion of Part II of The Ethics of Ambiguity connects one’s freedom with others’ freedom while acknowledging separate people and conflicting projects. This edition asks whether a chosen project leaves others possibilities to choose and act. That is not a formula for pleasing everyone or securing agreement, and the questionnaire cannot adjudicate a real ethical conflict."
             }
           ]
         },
@@ -2299,13 +2299,13 @@
     {
       "id": "privacy",
       "title": {
-        "zh": "完整免费、草稿与分享",
-        "en": "Full free access, drafts and sharing"
+        "zh": "完整免费、作答与分享",
+        "en": "Full free access, attempts and sharing"
       },
       "paragraphs": [
         {
-          "zh": "全部18题和九份九模块全文免费，无需注册、邮箱或其他测试解锁。答案在浏览器内计数，不上传、不进入网址或分析，不询问政治宗教身份与私人经历。草稿需主动开启，仅本标签页保留24小时，完成、重测或退出清除即删。可选分享只含公开阅读联想和链接，不含答案或次数。其他测评需要另行完整作答，不由哲学家名称换算MBTI、大五、健康、道德或职业。你可以直接先读正文，也可以在此结束。",
-          "en": "All eighteen questions and nine full nine-section guides are free without signup, email or another test. Answers are counted in the browser without uploading or entering URLs or analytics; no political, religious identity or private history is requested. Opted-in drafts remain in this tab for 24 hours and clear on completion, retake or exit-and-clear. Optional sharing includes public reading associations and links without answers or counts. Other assessments require separate full answers rather than conversion from philosopher names into MBTI, Big Five, health, morality or career. You can read the guides first or stop here."
+          "zh": "全部18题和九份完整指南免费，无需注册、邮箱或其他测试解锁。答案在浏览器内计数，不上传、不进入网址或分析，不询问政治宗教身份与私人经历。当前答题页不保存进度；刷新或离开页面后需要重新作答。重测或退出会清除本次选择。可选分享只含公开阅读联想和链接，不含答案或次数。其他测评需要另行完整作答，不由哲学家名称换算MBTI、大五、健康、道德或职业。你可以直接先读正文，也可以在此结束。",
+          "en": "All eighteen questions and nine complete guides are free without signup, email or another test. Answers are counted in the browser without uploading or entering URLs or analytics; no political, religious identity or private history is requested. This question page does not save progress: refreshing or leaving it requires starting again. Retaking or exiting clears this attempt. Optional sharing includes public reading associations and links without answers or counts. Other assessments require separate full answers rather than conversion from philosopher names into MBTI, Big Five, health, morality or career. You can read the guides first or stop here."
         }
       ]
     }
@@ -2357,8 +2357,8 @@
         "en": "Are full results, retaking and sharing free?"
       },
       "answer": {
-        "zh": "全部18题和九份九模块全文免费，无需注册、邮箱或其他测试解锁。答案在浏览器内计数，不上传、不进入网址或分析，不询问政治宗教身份与私人经历。草稿需主动开启，仅本标签页保留24小时，完成、重测或退出清除即删。可选分享只含公开阅读联想和链接，不含答案或次数。其他测评需要另行完整作答，不由哲学家名称换算MBTI、大五、健康、道德或职业。你可以直接先读正文，也可以在此结束。",
-        "en": "All eighteen questions and nine full nine-section guides are free without signup, email or another test. Answers are counted in the browser without uploading or entering URLs or analytics; no political, religious identity or private history is requested. Opted-in drafts remain in this tab for 24 hours and clear on completion, retake or exit-and-clear. Optional sharing includes public reading associations and links without answers or counts. Other assessments require separate full answers rather than conversion from philosopher names into MBTI, Big Five, health, morality or career. You can read the guides first or stop here."
+        "zh": "全部18题和九份完整指南免费，无需注册、邮箱或其他测试解锁。答案在浏览器内计数，不上传、不进入网址或分析，不询问政治宗教身份与私人经历。当前答题页不保存进度；刷新或离开页面后需要重新作答。重测或退出会清除本次选择。可选分享只含公开阅读联想和链接，不含答案或次数。其他测评需要另行完整作答，不由哲学家名称换算MBTI、大五、健康、道德或职业。你可以直接先读正文，也可以在此结束。",
+        "en": "All eighteen questions and nine complete guides are free without signup, email or another test. Answers are counted in the browser without uploading or entering URLs or analytics; no political, religious identity or private history is requested. This question page does not save progress: refreshing or leaving it requires starting again. Retaking or exiting clears this attempt. Optional sharing includes public reading associations and links without answers or counts. Other assessments require separate full answers rather than conversion from philosopher names into MBTI, Big Five, health, morality or career. You can read the guides first or stop here."
       }
     }
   ],

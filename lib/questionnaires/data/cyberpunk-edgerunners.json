@@ -2,7 +2,7 @@
   "slug": "cyberpunk-edgerunners",
   "code": "FM_EDGERUNNERS_CHARACTER21",
   "version": "1.0.0",
-  "updated": "2026-10-29",
+  "updated": "2026-11-08",
   "category": "fantasy",
   "kind": "archetype",
   "title": {
@@ -72,9 +72,9 @@
     "formCode": "fm_edgerunners_original_21_v1",
     "itemBankVersion": "fm_edgerunners_original_21_v1",
     "scoringVersion": "fm_edgerunners_all_highest_counts_v1",
-    "resultContentVersion": "fm_edgerunners_seven_full_guides_v1",
+    "resultContentVersion": "fm_edgerunners_seven_full_guides_v1 + copy.20261108",
     "itemBankSha256": "471e017793d97166c4dbb2c8d87fc8c3c0dda6153fc347b367e9231e56f770b3",
-    "resultContentSha256": "e80a37a9ee7a5714a76ffccc9751c85d0891c2d7291cedef0a3fa29226c24878",
+    "resultContentSha256": "24f5af0302b13c4e06bdfdb045e394613146d149e1f0bf7d94a019a7f15f0935",
     "psychometricValidationCompleted": false
   },
   "directions": [
@@ -2038,7 +2038,7 @@
           "id": "reading-6",
           "title": {
             "en": "Restate one proposal in ordinary language",
-            "zh": "把一个提议改写成普通话"
+            "zh": "用通俗的话重述一个提议"
           },
           "paragraphs": [
             {

@@ -17,7 +17,7 @@ export function PhilosopherReport({ quiz, result, locale }: { quiz: Questionnair
     <section className="space-y-5" aria-label={zh ? "本次哲学家揭晓" : "Your philosopher reveal"}>
       <p className="text-sm font-semibold uppercase tracking-wide text-amber-900">{zh ? "18道日常选择 · 你的思考起点" : "18 everyday choices · Your starting points"}</p>
       <p className="text-lg leading-8">{tied ? (zh ? `这次有${matched.length}位哲学家的阅读入口并列最高。全部保留，顺序不代表主次。` : `${matched.length} philosopher reading paths share the highest count. All are kept; their order does not imply priority.`) : (zh ? "这次可以从这位哲学家的问题开始读。" : "Start with this philosopher’s questions this time.")}</p>
-      {tied && <nav aria-label={zh ? "本次全部最高人物" : "Every highest-count philosopher"} className="grid grid-cols-3 gap-2">
+      {tied && <nav aria-label={zh ? "本次全部最高人物" : "Every highest-count philosopher"} className="grid grid-cols-2 gap-2 min-[380px]:grid-cols-3">
         {matched.map(profile => <a key={profile.id} href={`#philosopher-reveal-${profile.id}`} className="flex min-h-11 items-center rounded-lg border border-amber-200 bg-white px-2 py-2 text-sm font-semibold underline underline-offset-4">{philosopherPresentations[profile.id].name[locale]}</a>)}
       </nav>}
       <div className={tied ? "grid items-start gap-4 sm:grid-cols-2" : ""}>

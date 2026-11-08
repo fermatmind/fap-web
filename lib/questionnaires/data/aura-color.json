@@ -2,7 +2,7 @@
   "slug": "aura-color",
   "code": "AURA_COLOR_SYMBOLIC_EXPRESSION",
   "version": "1.0.0",
-  "updated": "2026-11-07",
+  "updated": "2026-11-08",
   "category": "metaphor",
   "kind": "archetype",
   "title": {
@@ -35,9 +35,9 @@
     "formCode": "fm_aura_color_expression_21",
     "itemBankVersion": "1.0.0",
     "scoringVersion": "1.0.0",
-    "resultContentVersion": "1.0.0",
+    "resultContentVersion": "1.0.0+copy.20261108",
     "itemBankSha256": "7c4b13737b6954e4e05a5975c2922007f214d7d15b70ae88a2c744839f908f9e",
-    "resultContentSha256": "89d055c36d5ac3314b9c37cf3ce0f6bd784f82ab3cfce220ed22c673b8dff949",
+    "resultContentSha256": "43f312ea781040557141286fd1766c158cf8e7ab48c085315d7815503c8e4dc3",
     "psychometricValidationCompleted": false
   },
   "directions": [
@@ -1149,7 +1149,7 @@
           "id": "meaning",
           "title": {
             "zh": "橙色光环在这份测试里代表什么？",
-            "en": "What does a orange aura mean in this quiz?"
+            "en": "What does an orange aura mean in this quiz?"
           },
           "paragraphs": [
             {
@@ -1753,7 +1753,7 @@
           "id": "meaning",
           "title": {
             "zh": "靛色光环在这份测试里代表什么？",
-            "en": "What does a indigo aura mean in this quiz?"
+            "en": "What does an indigo aura mean in this quiz?"
           },
           "paragraphs": [
             {

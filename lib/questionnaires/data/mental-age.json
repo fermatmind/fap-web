@@ -2,7 +2,7 @@
   "slug": "mental-age",
   "code": "FM_MENTAL_AGE_CLASSIC30",
   "version": "fm_mental_age_classic30_v2",
-  "updated": "2026-11-07",
+  "updated": "2026-11-08",
   "category": "everyday",
   "kind": "mental-age",
   "title": {
@@ -1389,7 +1389,7 @@
         "zh": "娱乐年龄怎么算？"
       },
       "answer": {
-        "en": "Add the thirty 0–2 point choices, then add 10. The full point key is shown with your result.",
+        "en": "Add the thirty 0–2 point choices, then add 10. Your selected answer and points are shown for every statement.",
         "zh": "把三十题各0至2点相加，再加10；结果会显示完整逐题点数。"
       }
     },

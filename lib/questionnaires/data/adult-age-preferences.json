@@ -3,7 +3,7 @@
   "code": "AGE_PREFERENCE",
   "kind": "directional",
   "version": "1.0.0",
-  "updated": "2026-10-27",
+  "updated": "2026-11-08",
   "category": "relationships",
   "title": {
     "en": "Dating Age Preference Quiz",
@@ -33,11 +33,11 @@
   "source": {
     "kind": "original-mini-program-web-adaptation",
     "formCode": "age_preference_forced_choice_18",
-    "itemBankVersion": "0.1.0-preview+web-en.1",
+    "itemBankVersion": "0.1.0-preview+web-en.1+copy.20261108",
     "scoringVersion": "0.1.0-preview.web-raw-count.1",
     "resultContentVersion": "0.2.0-editorial-candidate+web-en.1",
     "psychometricValidationCompleted": false,
-    "itemBankSha256": "21c3d938313fcd6769e9c5a421a3d99949189f3299ce41fb09bed2e1bce96c77",
+    "itemBankSha256": "aed5beed6a3863a8a1e86c90a8e62e8194cd4accf749f3448fe206b825094cdd",
     "resultContentSha256": "9b14d47b9dcf78e7b98d20ae797381c50617cc62509eed33b91931ec88a1a7fa"
   },
   "directions": [
@@ -128,7 +128,7 @@
           "id": "A",
           "directionId": "OLDER_PARTNER_CONTEXT",
           "label": {
-            "en": "When planning a shared future, I feel comfortable with a partner who has already been through the relevant life stages.",
+            "en": "When planning a shared future, I feel comfortable with a partner who went through the relevant life stages earlier than I did.",
             "zh": "规划长期生活时，我对伴侣比我更早经历相关阶段感到自在。"
           }
         },
@@ -279,7 +279,7 @@
           "directionId": "OLDER_PARTNER_CONTEXT",
           "label": {
             "en": "When our life plans are at different stages, I am more willing to understand arrangements shaped by stages the other person has already experienced.",
-            "zh": "生活计划不同步时，我较愿意理解较早阶段已经历过的安排。"
+            "zh": "生活计划不同步时，我较愿意理解伴侣基于自己已经历过的人生阶段形成的安排。"
           }
         },
         {
@@ -287,7 +287,7 @@
           "directionId": "YOUNGER_PARTNER_CONTEXT",
           "label": {
             "en": "When our life plans are at different stages, I am more willing to understand arrangements the other person is still developing.",
-            "zh": "生活计划不同步时，我较愿意理解较晚阶段正在形成的安排。"
+            "zh": "生活计划不同步时，我较愿意理解伴侣仍在逐步形成的生活安排。"
           }
         }
       ]

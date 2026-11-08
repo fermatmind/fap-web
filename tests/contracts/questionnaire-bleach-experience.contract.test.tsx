@@ -12,10 +12,10 @@ import { bleachPresentation, bleachPortraitPath } from "@/lib/questionnaires/ble
 const quiz = raw as Questionnaire;
 describe("BLEACH source-safe fan reveal", () => {
   it("preserves the accepted question, score, source and complete reading payloads", () => {
-    // Accepted payload from production 301e956ef, captured before presentation changes.
+    // Accepted source payload, including the approved bilingual Q04/Q12/Q14 clarifications.
     const fields = ["version", "source", "questions", "directions", "profiles", "guide", "faq"] as const;
     const payload = Object.fromEntries(fields.map(field => [field, raw[field]]));
-    expect(createHash("sha256").update(JSON.stringify(payload)).digest("hex")).toBe("48174714000664cdfa9117b68ad1ac422753ffa42daf1eda306535ff697b8767");
+    expect(createHash("sha256").update(JSON.stringify(payload)).digest("hex")).toBe("53e091ca59e217a2a2ff1098c214dc94bc67100980ee98ed997603be46e483eb");
   });
   for (const locale of ["en", "zh"] as const) it(`keeps seven real ties, exact selected reasons and original portraits in ${locale}`, () => {
     const answers = Object.fromEntries(quiz.questions.map(q => [q.id, "A"]));

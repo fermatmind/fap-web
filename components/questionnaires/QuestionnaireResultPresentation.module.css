@@ -262,3 +262,21 @@
   .overview[data-ptq15-overview] .overviewItems > li:first-child { grid-template-columns: 1fr; gap: 0; }
   .overview[data-ptq15-overview] .overviewItems > li:first-child .itemNote { margin-top: 2px; }
 }
+
+/* The eight-phase result must shrink inside a narrow question-page layout. */
+.profileReadings:has([data-moon-phase-reveal]) { min-width:0; grid-template-columns:minmax(0,1fr); }
+.profileReadings:has([data-moon-phase-reveal]) > *,
+.profileReadings [data-moon-phase-top-overview] > li,
+.profileReadings [data-moon-phase-comparison-id] { min-width:0; }
+.profileReadings [data-moon-phase-top-overview] a > span { min-width:0; overflow-wrap:anywhere; }
+.profileReadings [data-moon-phase-top-overview] a:hover,
+.profileReadings [data-moon-phase-top-overview] a:focus-visible { color:#fef3c7; }
+@media (max-width:360px) {
+  .profileReadings [data-moon-phase-top-overview],
+  .profileReadings [data-moon-phase-comparison] > ol { grid-template-columns:minmax(0,1fr); }
+}
+/* Print the existing complete Chapter readings, including closed details. */
+@media print {
+  .profileReadings:has([data-space-marine-reveal]) details::details-content { content-visibility:visible!important; height:auto!important; }
+  .profileReadings:has([data-space-marine-reveal]) .choiceChart { break-inside:avoid; }
+}

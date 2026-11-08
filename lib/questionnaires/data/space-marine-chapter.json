@@ -2,7 +2,7 @@
   "slug": "space-marine-chapter",
   "code": "SPACE_MARINE_CHAPTERS_FAN",
   "version": "1.0.0",
-  "updated": "2026-10-27",
+  "updated": "2026-11-08",
   "category": "fantasy",
   "kind": "archetype",
   "title": {
@@ -49,11 +49,11 @@
   "source": {
     "kind": "original_unofficial_fan_quiz",
     "formCode": "fermatmind_space_marine_chapters_original_18_v1",
-    "itemBankVersion": "space_marine_chapters_original_18_v1",
+    "itemBankVersion": "space_marine_chapters_original_18_v1+copy.20261108",
     "scoringVersion": "space_marine_chapters_all_highest_counts_v1",
-    "resultContentVersion": "space_marine_chapters_full_guides_v1",
-    "itemBankSha256": "3bd00157bcad3e3780c323282ed010fdab842e6d8af08d79524cfb1082bab132",
-    "resultContentSha256": "d70fd4de146177073eb8a7870ac3ff43049a8b81f9e8d00b182702c1f0e8d1f8",
+    "resultContentVersion": "space_marine_chapters_full_guides_v1+copy.20261108",
+    "itemBankSha256": "0f3ef6ff8619163bc416fb023dc6c7a61276aaf695db47916d11ab4e9d922401",
+    "resultContentSha256": "cf75482263c073aa97beb4193c3d8ee3883599eefbe853e460857dc2552920ed",
     "psychometricValidationCompleted": false
   },
   "directions": [
@@ -111,7 +111,7 @@
       "id": "SMC_01",
       "prompt": {
         "en": "Friends are making a peaceful, wholly original science-fiction model display. What would you enjoy first?",
-        "zh": "朋友作和平、完全原创科幻模型展示，你喜欢先做什么？"
+        "zh": "朋友们要制作一场和平主题、完全原创的科幻模型展示，你喜欢先做什么？"
       },
       "options": [
         {
@@ -119,7 +119,7 @@
           "directionId": "ultramarines",
           "label": {
             "en": "Agree a clear shared plan for the display’s few main parts.",
-            "zh": "给展示几个主体约清共同计划。"
+            "zh": "为展示的几个主要部分商定一份共同计划。"
           }
         },
         {
@@ -152,7 +152,7 @@
       "id": "SMC_02",
       "prompt": {
         "en": "Your display needs a small support for a lightweight paper structure. What appeals most?",
-        "zh": "展示需支撑一轻纸结构，什么最吸引你？"
+        "zh": "展示需要为一个轻巧的纸结构加上支撑，什么最吸引你？"
       },
       "options": [
         {
@@ -160,7 +160,7 @@
           "directionId": "imperial-fists",
           "label": {
             "en": "Build a steady base that suits the agreed little display.",
-            "zh": "作合约好小展示的稳定底座。"
+            "zh": "制作一个适合这场小型展示的稳定底座。"
           }
         },
         {
@@ -176,7 +176,7 @@
           "directionId": "salamanders",
           "label": {
             "en": "Give the support a carefully made handmade finish.",
-            "zh": "给支撑精心手作表面。"
+            "zh": "仔细修整支撑的表面，保留手工制作的质感。"
           }
         },
         {
@@ -234,7 +234,7 @@
       "id": "SMC_04",
       "prompt": {
         "en": "The original display can include one distinctive handmade detail. What appeals most?",
-        "zh": "原创展示可含一项独特手作细节，什么最吸引你？"
+        "zh": "原创展示可以加入一项独特的手工细节，什么最吸引你？"
       },
       "options": [
         {
@@ -242,7 +242,7 @@
           "directionId": "salamanders",
           "label": {
             "en": "Shape a small texture carefully using materials already offered.",
-            "zh": "用已有自愿材料，仔细塑一小质地。"
+            "zh": "用已经提供的材料，仔细做出一小处纹理。"
           }
         },
         {
@@ -250,7 +250,7 @@
           "directionId": "raven-guard",
           "label": {
             "en": "Look at the display from a quiet position before deciding what detail belongs.",
-            "zh": "安静从一处看展示，再决定合哪细节。"
+            "zh": "先从一个安静的位置观察展示，再决定加入哪种细节。"
           }
         },
         {
@@ -480,7 +480,7 @@
       "id": "SMC_10",
       "prompt": {
         "en": "A corner of the original display has room for a handcrafted feature. What would you prefer?",
-        "zh": "原创展示角落可容一手作特征，你更愿意怎样做？"
+        "zh": "原创展示的角落可以加入一处手工细节，你更愿意怎样做？"
       },
       "options": [
         {
@@ -488,7 +488,7 @@
           "directionId": "salamanders",
           "label": {
             "en": "Give the feature a carefully shaped texture or finish.",
-            "zh": "给特征仔细塑的质地、表面。"
+            "zh": "仔细塑造这处细节的纹理或表面效果。"
           }
         },
         {
@@ -521,7 +521,7 @@
       "id": "SMC_11",
       "prompt": {
         "en": "You are invited to look at the display before its last edit. What appeals most?",
-        "zh": "展示最后改前邀你看，什么最吸引你？"
+        "zh": "展示进行最后修改前，大家邀请你来看看，什么最吸引你？"
       },
       "options": [
         {
@@ -529,7 +529,7 @@
           "directionId": "raven-guard",
           "label": {
             "en": "Share one quiet observation about a detail people can check themselves.",
-            "zh": "分享一个可由别人自核细节的安静观察。"
+            "zh": "平静地分享一处观察到的细节，让别人也能亲自核对。"
           }
         },
         {
@@ -562,7 +562,7 @@
       "id": "SMC_12",
       "prompt": {
         "en": "The group can rearrange its invented model landscape without buying anything. What would you enjoy?",
-        "zh": "不用购物也能重排虚构模型地景，你喜欢什么？"
+        "zh": "不用添购物品就能重新布置虚构的模型景观，你喜欢怎样做？"
       },
       "options": [
         {
@@ -570,7 +570,7 @@
           "directionId": "white-scars",
           "label": {
             "en": "Try a flexible alternative route and decide whether I like the new sequence.",
-            "zh": "试灵活替代路线，选喜欢新顺序否。"
+            "zh": "试一条灵活的替代路线，再判断自己是否喜欢新的顺序。"
           }
         },
         {
@@ -603,7 +603,7 @@
       "id": "SMC_13",
       "prompt": {
         "en": "Friends are preparing the next version of their original model display. What appeals most?",
-        "zh": "朋友备原创模型展示下一版，什么最吸引你？"
+        "zh": "朋友们在准备原创模型展示的下一版，什么最吸引你？"
       },
       "options": [
         {
@@ -767,7 +767,7 @@
       "id": "SMC_17",
       "prompt": {
         "en": "A friend asks what you noticed about the model display. What appeals most?",
-        "zh": "朋友问注意到模型展示什么，什么最吸引你？"
+        "zh": "朋友问你在模型展示中注意到了什么，你最愿意怎样回应？"
       },
       "options": [
         {
@@ -896,7 +896,7 @@
           "id": "reading-2",
           "title": {
             "en": "Three parts that people can agree to make",
-            "zh": "大家能同意作的三部分"
+            "zh": "大家同意制作的三个部分"
           },
           "paragraphs": [
             {
@@ -1151,7 +1151,7 @@
           "paragraphs": [
             {
               "en": "A harmless paper joint does not fit as expected. You compare the current fold with one small adjustment, see what actually changes and ask the maker whether to keep it. If neither version helps, you can return to the earlier arrangement. The scene values a specific observation about paper pieces, not endless improvement, an automatic preference for machines or a claim that you have technical aptitude.",
-              "zh": "无害纸接合不如预期，你比当前折法与一小改，见真改变，问作者留否。都无益可回旧安排。场景重具体纸部件观察，不重无尽改进、不自动偏机器、不说有技术天赋。"
+              "zh": "纸模型的接合处没有达到预期效果。你比较当前折法和一种小调整，观察实际变化，再问作者是否愿意保留。两种做法都没有帮助时，可以回到原先的安排。这个场景关注对纸模型部件的具体观察，不代表无休止地改进、自动偏爱机器，也不说明你有技术天赋。"
             }
           ]
         },
@@ -1185,7 +1185,7 @@
           "id": "reading-5",
           "title": {
             "en": "Try one reversible adjustment and a stopping point",
-            "zh": "试一项可改回调整与终点"
+            "zh": "试一次可还原的调整，并约定停止点"
           },
           "paragraphs": [
             {
@@ -1263,7 +1263,7 @@
           "paragraphs": [
             {
               "en": "Salamanders anchors a carefully made detail in this original hobby bank. The angle concerns shaping a small texture or finish with materials already offered, not fire, weapon use or a test of how much you care about people. A handmade detail can give a peaceful model display a particular feel. Its value comes from what participants enjoy making, not from costly equipment, perfect skill or a duty to produce something impressive.",
-              "zh": "火蜥蜴对应原创爱好题本的一项用心手作细节，关用已有自愿材料塑小质地、表面，不关火、武器、不测多在乎人。细节可给和平模型展示特定感觉，价值来自制作乐趣，不靠昂贵器材、完美技巧、不欠精彩产出。"
+              "zh": "在这份原创爱好题本中，火蜥蜴对应一项用心制作的手工细节：用已经提供的材料，塑造一小处纹理或表面效果。这与火焰、武器无关，也不衡量你有多关心他人。手工细节能为和平主题的模型展示带来独特感受；它的价值来自参与者享受制作的过程，而非昂贵器材、完美技巧或必须做出惊艳作品的义务。"
             }
           ]
         },
@@ -1310,7 +1310,7 @@
           "id": "reading-5",
           "title": {
             "en": "Try one small texture with materials you have",
-            "zh": "用现有材料试一个小质地"
+            "zh": "用现有材料试做一小块纹理"
           },
           "paragraphs": [
             {
@@ -1440,7 +1440,7 @@
           "paragraphs": [
             {
               "en": "In a voluntary model session, choose one visible feature and describe it without explaining anyone’s motives. Ask the maker whether the feature is intentional and whether they want another view. Use their answer rather than treating your first reading as certainty. This is an experiment in discussing a craft detail, not surveillance guidance, a test of social insight or a claim to understand private feelings from appearances.",
-              "zh": "自愿模型活动选一可见特征，描述而不解释谁的动机，问作者是否有意、想另一看法否。用回答，不把首读当确定。这试手作细节讨论，不作监控指导、不测社交洞察、不声称从外观懂私密感受。"
+              "zh": "在自愿参与的模型活动中，选一处可见细节，只描述它，不解释任何人的动机。问作者这是否是有意设计的，以及是否愿意听听另一种看法。根据对方的回答理解，不把第一印象当作定论。这是在尝试讨论手工细节，不是监控指导、社交洞察测试，也不意味着能从外表看懂他人的私人感受。"
             }
           ]
         },
@@ -1526,7 +1526,7 @@
           "paragraphs": [
             {
               "en": "The group can keep the same paper structures but imagine approaching them from another direction. You suggest a reversible route and ask whether contributors want to try the new sequence. They can prefer the original arrangement or combine elements of both. The scene concerns how a fictional setting is explored, not the best military manoeuvre, a current game strategy or a reason to acquire faster models.",
-              "zh": "同纸结构可从另一方向想象接近。你提可改回路线，问想试新顺序否。可爱原安排、合两者元素。场景关探索虚构设置，不找最佳军事机动、当前游戏策略、不构成买更快模型理由。"
+              "zh": "大家可以保留原来的纸结构，想象从另一个方向接近它们。你提出一条可以改回的路线，询问参与者是否想试试新的顺序。大家也可以选择原来的安排，或结合两种方案的元素。这个场景关注如何探索虚构场景，不讨论最佳军事机动、当前游戏策略，也不是购买更快模型的理由。"
             }
           ]
         },
@@ -1565,7 +1565,7 @@
           "paragraphs": [
             {
               "en": "Draw two possible routes through a small original model setting. Ask willing collaborators what each path lets them notice and whether either version is more enjoyable to follow. Keep the old route if preferred; no timing or physical challenge is needed. This explores a leisure choice, not travel advice, sports ability, real-world tactical skill or a prediction about how you should respond to major change.",
-              "zh": "给小原创模型场景画两可能路线，问自愿伙伴各让注意什么、哪好享受。可留旧路，不需计时、身体挑战。这探索闲暇选择，不作旅行建议、不评体育、现实战术、不预测该怎样应对大变化。"
+              "zh": "为一处小型原创模型场景画出两条可能的路线。问愿意参与的伙伴，每条路线能让人注意到什么，以及哪条路线更有游览乐趣。大家喜欢旧路线时就保留它，不需要计时或身体挑战。这是在探索休闲选择，不是旅行建议、体育能力或现实战术评估，也不预测你应该如何应对重大变化。"
             }
           ]
         },

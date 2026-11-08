@@ -66,7 +66,7 @@ const editions: Record<string, Edition> = {
   wojak: { kind: "character", tone: "ink", layout: "serial", label: { zh: "网络表情角色 · 当下反应", en: "Meme character · How you responded" } },
   "aesthetic-core-test": { kind: "symbol", tone: "rose", emblem: "spectrum", label: { zh: "风格笔记 · 当下的审美取向", en: "Style notes · Your aesthetic preferences today" } },
   "greek-god": { kind: "symbol", tone: "amber", label: { zh: "神话意象 · 借故事观察选择", en: "Mythic metaphor · Choices through stories" } },
-  "aura-color": { kind: "symbol", tone: "violet", label: { zh: "色彩意象 · 此刻的主观体验", en: "Color metaphor · How it feels right now" } },
+  "aura-color": { kind: "symbol", tone: "violet", label: { zh: "色彩意象 · 本次表达偏好", en: "Color metaphor · Expression preferences this time" } },
   "mythical-creature": { kind: "symbol", tone: "mint", label: { zh: "传说图鉴 · 行动与取舍", en: "A field guide to legends · Actions and trade-offs" } },
   "superpower-test": { kind: "symbol", tone: "blue", label: { zh: "超能力设定 · 先改变什么", en: "Superpower notes · What to change first" } },
   "which-tarot-card-are-you": { kind: "symbol", tone: "violet", label: { zh: "塔罗意象 · 用故事理解当前选择", en: "Tarot metaphor · A story for your current choices" } },

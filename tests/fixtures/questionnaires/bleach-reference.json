@@ -209,8 +209,8 @@
         {
           "id": "C",
           "label": {
-            "zh": "先用一页试记一个可改的小样，不动原本",
-            "en": "Try a revisable note sample on one page without changing the original"
+            "zh": "先在另一张纸上试记一小段笔记，不改动借来的小册子",
+            "en": "Try a short note on a separate sheet first, without changing the borrowed booklet"
           },
           "directionId": "kisuke-urahara"
         },
@@ -545,8 +545,8 @@
         {
           "id": "D",
           "label": {
-            "zh": "如果原本答应帮忙整理，就只做已同意的范围",
-            "en": "If you agreed to help organise, keep to that agreed scope"
+            "zh": "只分享自己原本想介绍的一小部分，然后结束这次介绍",
+            "en": "Share only the small part you meant to introduce, then end the explanation"
           },
           "directionId": "ichigo-kurosaki"
         }
@@ -611,8 +611,8 @@
         {
           "id": "B",
           "label": {
-            "zh": "想想是否有人需要自己愿意提供的一点帮助",
-            "en": "Consider whether anyone wants a small part of help you would offer"
+            "zh": "先确定自己愿意在这个练习中做哪一小部分，不把范围扩大",
+            "en": "Clarify the small part you are willing to take on in this exercise, without expanding its scope"
           },
           "directionId": "ichigo-kurosaki"
         },

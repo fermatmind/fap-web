@@ -8,7 +8,7 @@
       "id": "SMC_01",
       "prompt": {
         "en": "Friends are making a peaceful, wholly original science-fiction model display. What would you enjoy first?",
-        "zh": "朋友作和平、完全原创科幻模型展示，你喜欢先做什么？"
+        "zh": "朋友们要制作一场和平主题、完全原创的科幻模型展示，你喜欢先做什么？"
       },
       "options": [
         {
@@ -16,7 +16,7 @@
           "directionId": "ultramarines",
           "label": {
             "en": "Agree a clear shared plan for the display’s few main parts.",
-            "zh": "给展示几个主体约清共同计划。"
+            "zh": "为展示的几个主要部分商定一份共同计划。"
           }
         },
         {
@@ -49,7 +49,7 @@
       "id": "SMC_02",
       "prompt": {
         "en": "Your display needs a small support for a lightweight paper structure. What appeals most?",
-        "zh": "展示需支撑一轻纸结构，什么最吸引你？"
+        "zh": "展示需要为一个轻巧的纸结构加上支撑，什么最吸引你？"
       },
       "options": [
         {
@@ -57,7 +57,7 @@
           "directionId": "imperial-fists",
           "label": {
             "en": "Build a steady base that suits the agreed little display.",
-            "zh": "作合约好小展示的稳定底座。"
+            "zh": "制作一个适合这场小型展示的稳定底座。"
           }
         },
         {
@@ -73,7 +73,7 @@
           "directionId": "salamanders",
           "label": {
             "en": "Give the support a carefully made handmade finish.",
-            "zh": "给支撑精心手作表面。"
+            "zh": "仔细修整支撑的表面，保留手工制作的质感。"
           }
         },
         {
@@ -131,7 +131,7 @@
       "id": "SMC_04",
       "prompt": {
         "en": "The original display can include one distinctive handmade detail. What appeals most?",
-        "zh": "原创展示可含一项独特手作细节，什么最吸引你？"
+        "zh": "原创展示可以加入一项独特的手工细节，什么最吸引你？"
       },
       "options": [
         {
@@ -139,7 +139,7 @@
           "directionId": "salamanders",
           "label": {
             "en": "Shape a small texture carefully using materials already offered.",
-            "zh": "用已有自愿材料，仔细塑一小质地。"
+            "zh": "用已经提供的材料，仔细做出一小处纹理。"
           }
         },
         {
@@ -147,7 +147,7 @@
           "directionId": "raven-guard",
           "label": {
             "en": "Look at the display from a quiet position before deciding what detail belongs.",
-            "zh": "安静从一处看展示，再决定合哪细节。"
+            "zh": "先从一个安静的位置观察展示，再决定加入哪种细节。"
           }
         },
         {
@@ -377,7 +377,7 @@
       "id": "SMC_10",
       "prompt": {
         "en": "A corner of the original display has room for a handcrafted feature. What would you prefer?",
-        "zh": "原创展示角落可容一手作特征，你更愿意怎样做？"
+        "zh": "原创展示的角落可以加入一处手工细节，你更愿意怎样做？"
       },
       "options": [
         {
@@ -385,7 +385,7 @@
           "directionId": "salamanders",
           "label": {
             "en": "Give the feature a carefully shaped texture or finish.",
-            "zh": "给特征仔细塑的质地、表面。"
+            "zh": "仔细塑造这处细节的纹理或表面效果。"
           }
         },
         {
@@ -418,7 +418,7 @@
       "id": "SMC_11",
       "prompt": {
         "en": "You are invited to look at the display before its last edit. What appeals most?",
-        "zh": "展示最后改前邀你看，什么最吸引你？"
+        "zh": "展示进行最后修改前，大家邀请你来看看，什么最吸引你？"
       },
       "options": [
         {
@@ -426,7 +426,7 @@
           "directionId": "raven-guard",
           "label": {
             "en": "Share one quiet observation about a detail people can check themselves.",
-            "zh": "分享一个可由别人自核细节的安静观察。"
+            "zh": "平静地分享一处观察到的细节，让别人也能亲自核对。"
           }
         },
         {
@@ -459,7 +459,7 @@
       "id": "SMC_12",
       "prompt": {
         "en": "The group can rearrange its invented model landscape without buying anything. What would you enjoy?",
-        "zh": "不用购物也能重排虚构模型地景，你喜欢什么？"
+        "zh": "不用添购物品就能重新布置虚构的模型景观，你喜欢怎样做？"
       },
       "options": [
         {
@@ -467,7 +467,7 @@
           "directionId": "white-scars",
           "label": {
             "en": "Try a flexible alternative route and decide whether I like the new sequence.",
-            "zh": "试灵活替代路线，选喜欢新顺序否。"
+            "zh": "试一条灵活的替代路线，再判断自己是否喜欢新的顺序。"
           }
         },
         {
@@ -500,7 +500,7 @@
       "id": "SMC_13",
       "prompt": {
         "en": "Friends are preparing the next version of their original model display. What appeals most?",
-        "zh": "朋友备原创模型展示下一版，什么最吸引你？"
+        "zh": "朋友们在准备原创模型展示的下一版，什么最吸引你？"
       },
       "options": [
         {
@@ -664,7 +664,7 @@
       "id": "SMC_17",
       "prompt": {
         "en": "A friend asks what you noticed about the model display. What appeals most?",
-        "zh": "朋友问注意到模型展示什么，什么最吸引你？"
+        "zh": "朋友问你在模型展示中注意到了什么，你最愿意怎样回应？"
       },
       "options": [
         {

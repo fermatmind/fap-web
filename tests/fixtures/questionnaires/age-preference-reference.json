@@ -2417,7 +2417,8 @@
   "editorial_adaptations": [
     "common.privacy_boundary: automatic mini draft/final cache changed to actual web opt-in tab draft24h/no final cache",
     "states.INSUFFICIENT_DATA.what_user_can_do: same actual Web storage adaptation",
-    "Web title explicitly says adult age situations, without pure age/role/partner matching claims"
+    "Web title explicitly says adult age situations, without pure age/role/partner matching claims",
+    "2026-11-08 authorized copy revision: AGE_FC_003 A English restores earlier-than-self comparison; AGE_FC_009 A/B Chinese clarifies the partner and experienced/developing arrangements, preserving the frozen source bank and scoring directions."
   ],
   "questions": [
     {
@@ -2481,7 +2482,7 @@
           "id": "A",
           "directionId": "OLDER_PARTNER_CONTEXT",
           "label": {
-            "en": "When planning a shared future, I feel comfortable with a partner who has already been through the relevant life stages.",
+            "en": "When planning a shared future, I feel comfortable with a partner who went through the relevant life stages earlier than I did.",
             "zh": "规划长期生活时，我对伴侣比我更早经历相关阶段感到自在。"
           }
         },
@@ -2632,7 +2633,7 @@
           "directionId": "OLDER_PARTNER_CONTEXT",
           "label": {
             "en": "When our life plans are at different stages, I am more willing to understand arrangements shaped by stages the other person has already experienced.",
-            "zh": "生活计划不同步时，我较愿意理解较早阶段已经历过的安排。"
+            "zh": "生活计划不同步时，我较愿意理解伴侣基于自己已经历过的人生阶段形成的安排。"
           }
         },
         {
@@ -2640,7 +2641,7 @@
           "directionId": "YOUNGER_PARTNER_CONTEXT",
           "label": {
             "en": "When our life plans are at different stages, I am more willing to understand arrangements the other person is still developing.",
-            "zh": "生活计划不同步时，我较愿意理解较晚阶段正在形成的安排。"
+            "zh": "生活计划不同步时，我较愿意理解伴侣仍在逐步形成的生活安排。"
           }
         }
       ]

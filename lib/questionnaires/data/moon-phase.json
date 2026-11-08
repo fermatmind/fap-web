@@ -2,7 +2,7 @@
   "slug": "moon-phase",
   "code": "MOON_PHASE_ORDINARY_PACE_IMAGES",
   "version": "1.0.0",
-  "updated": "2026-10-26",
+  "updated": "2026-11-08",
   "category": "metaphor",
   "kind": "archetype",
   "title": {
@@ -33,10 +33,10 @@
   "source": {
     "kind": "FermatMindoriginalMoonPhaseOrdinaryPaceImages24/eighteditorialthemes/notastronomicalcalculationorpsychometricinstrument",
     "formCode": "fm_moon_phase_pace_choices_24",
-    "itemBankVersion": "1.0.0",
+    "itemBankVersion": "1.0.0+copy.20261108",
     "scoringVersion": "1.0.0",
-    "resultContentVersion": "1.0.0",
-    "itemBankSha256": "7cd1176744d8aff2bcf25a85d3fdd1719c62a914b65928e891d22daf0b6d3df6",
+    "resultContentVersion": "1.0.0+copy.20261108",
+    "itemBankSha256": "430febd6448692a571af45f8332576799b5b7547d15f467610a2bb2449864935",
     "resultContentSha256": "f1853fe3680b4504aea308d3ea21d9fff70f0c45f1a135c5a24bb9c2b3459636",
     "psychometricValidationCompleted": false
   },
@@ -330,8 +330,8 @@
         {
           "id": "B",
           "label": {
-            "zh": "一项以后不必继续的可选负担，让安排更轻一点。",
-            "en": "One optional burden that need not continue, leaving a lighter arrangement."
+            "zh": "一个以后不再承担这项可选负担的决定，让安排更轻一点。",
+            "en": "A decision to stop taking on one optional burden, leaving a lighter arrangement."
           },
           "directionId": "last-quarter"
         },
@@ -2485,8 +2485,8 @@
           "en": "All 24 questions, eight counts, every highest tie and eight full guides are free, without signup, email, birthday or a prior assessment. Start test opens the questions directly, without an additional agreement step. About seven minutes is an estimate for reading and choosing, not a speed score. Fixed public guides do not contain your answers."
         },
         {
-          "zh": "答案在当前浏览器计分，不通过计分请求上传服务器、不进入网址或分析事件。默认不保存；主动保存后，可在本标签页24小时内恢复，完成、退出清除或重测时删除进度。网站可能另记录不含答案的开始、完成等使用事件，以隐私与Cookie设置为准。分享公开指南时，无需解释自己的私人经历。",
-          "en": "Answers are scored in the current browser, not uploaded through scoring requests or placed in URLs or analytics events. They are unsaved by default. Opt-in progress can be restored in this tab for 24 hours and is removed on completion, explicit exit-and-clear or retesting. The website may separately record answer-free usage events such as starting or finishing, subject to privacy and Cookie settings. Sharing a public guide does not require explaining private experiences."
+          "zh": "答案在当前浏览器计分，不通过计分请求上传服务器、不进入网址或分析事件。当前答题页不保存进度；刷新或离开页面后需要重新作答。网站可能另记录不含答案的开始、完成等使用事件，以隐私与Cookie设置为准。分享公开指南时，无需解释自己的私人经历。",
+          "en": "Answers are scored in the current browser, not uploaded through scoring requests or placed in URLs or analytics events. This question page does not save progress; refreshing or leaving it requires starting again. The website may separately record answer-free usage events such as starting or finishing, subject to privacy and Cookie settings. Sharing a public guide does not require explaining private experiences."
         }
       ]
     }
@@ -2628,8 +2628,8 @@
         "en": "Are answers uploaded or saved, and what happens on retesting?"
       },
       "answer": {
-        "zh": "在浏览器计分，答案不通过计分请求上传、不进入网址或分析事件。默认不保存；主动保存后本标签页保留24小时，完成、退出清除或重测删除。重测反映新的选择，不证明人格变化；其他使用事件以隐私与Cookie设置为准。",
-        "en": "Scoring runs in the browser; answers are not uploaded through scoring requests or included in URLs or analytics events. They are unsaved by default; opt-in tab progress lasts 24 hours and clears on completion, explicit exit-and-clear or retesting. Retesting records new choices, not proof of personality change. Other usage events follow privacy and Cookie settings."
+        "zh": "在浏览器计分，答案不通过计分请求上传、不进入网址或分析事件。当前答题页不保存进度；刷新、离开或切换答题语言后需要重新作答。重测反映新的选择，不证明人格变化；其他使用事件以隐私与Cookie设置为准。",
+        "en": "Scoring runs in the browser; answers are not uploaded through scoring requests or included in URLs or analytics events. This question page does not save progress; refreshing, leaving or changing the question language requires starting again. Retesting records new choices, not proof of personality change. Other usage events follow privacy and Cookie settings."
       }
     }
   ],
