@@ -7,7 +7,7 @@
     "lib/questionnaires/result-content/chiikawa.json": "32308e38fdeab4de784d4c5dc30e2a5f756559b1d00fd05f36301fe2fd8b61a6",
     "lib/i18n/zh-TW/ui.source.json": "2a1db21ff9240dfe1a8307151fb4ea91a3c0d9be4d81be76b3b566f656c81562",
     "lib/i18n/zh-TW/about-team.source.json": "a65ffdb3ec03c7c73dacd33f9e33b3b2e6c5f3199f596501336ed6e67c09d9f9",
-    "lib/i18n/zh-TW/content-page-labels.source.json": "2bd46e62a8a5b44e638f38ccbda2e7d10285f36a1e59920ca6ec6c97d0b4ff0d"
+    "lib/i18n/zh-TW/content-page-labels.source.json": "92d69a8ac547039f0e77a8a3bd000e3f59c40d3fc549b4abf6686bfa3807e105"
   },
   "units": {
     "lib/questionnaires/data/chiikawa.json/title": {
@@ -1637,6 +1637,30 @@
     "lib/i18n/zh-TW/content-page-labels.source.json/23": {
       "sourceHash": "b1bc20f417d7769dc1a29e2af25d4423e928ed38c7dac2a4cba1b7386374daf9",
       "text": "相關頁面"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/24": {
+      "sourceHash": "e12fd9121b0948ea664742d49ee0fb123f5468e5ae249b4ebfcf1250d32658e4",
+      "text": "方法邊界"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/25": {
+      "sourceHash": "3a745633358555eb26e26bf061d80850b46cee7bd7d44dfd94102e0fa8ae54db",
+      "text": "題目設計說明"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/26": {
+      "sourceHash": "68115e617084f7c041cba03881e070bb99522c95815160e17f09c26a08eed151",
+      "text": "信度與效度"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/27": {
+      "sourceHash": "017e56d5333a175a4058d7539e38369ec964e095c0059e1bad8531201ef52f10",
+      "text": "MBTI免費測試"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/28": {
+      "sourceHash": "d63c361046a8bc91796062cd771f8726d6e5b078d3c9bef47c0e7e9d75238039",
+      "text": "大五人格免費測試"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/29": {
+      "sourceHash": "3811c9deb87b6a45835c5151cf6be5e2bcebe3cfb004b78892d996da9c17c1fb",
+      "text": "霍蘭德職業興趣免費測試"
     }
   }
 }

@@ -24,7 +24,7 @@ function page(slug: string): ContentPage {
 
 beforeEach(() => read.mockReset());
 describe("shared Traditional CMS page route", () => {
-  it.each(["about", "brand", "charter", "careers"])("renders the exact %s variant, metadata, language targets and schema", async slug => {
+  it.each(["about", "brand", "charter", "careers", "privacy", "terms", "method-boundaries", "science"])("renders the exact %s variant, metadata, language targets and schema", async slug => {
     read.mockResolvedValue({ value: page(slug) });
     const metadata = await generateTraditionalContentPageMetadata(slug);
     expect(metadata.alternates).toEqual({ canonical: `${SITE_URL}/zh-TW/${slug}` });

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { splitInternalLinkText } from "@/lib/content/internalLinkText";
 import type { ReactNode } from "react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { AboutTeamSection } from "@/components/content-pages/AboutTeamSection";
@@ -12,7 +13,7 @@ import type { DisplayLocale } from "@/lib/i18n/locales";
 import labels from "@/lib/i18n/zh-TW/content-page-labels.source.json";
 import generated from "@/lib/i18n/zh-TW/chiikawa.generated.json";
 import { localizedPath } from "@/lib/i18n/locales";
-import { TRADITIONAL_CMS_PUBLISHED_PATHS } from "@/lib/i18n/traditionalRoutes";
+import { traditionalPath, TRADITIONAL_CMS_PUBLISHED_PATHS } from "@/lib/i18n/traditionalRoutes";
 
 function label(locale: DisplayLocale, zh: string, en: string): string {
   if (locale !== "zh-TW") return locale === "zh" ? zh : en;
@@ -217,7 +218,24 @@ function renderInline(text: string, keyPrefix: string, locale: DisplayLocale): R
   if (locale === "zh-TW") {
     // This first CMS adapter supports plain headings, lists and paragraphs.
     if (/[<>`\[\]]/.test(text)) throw new Error("Traditional CMS inline format unavailable");
-    return [stripMarkdownEmphasisMarkers(text)];
+    const linkLabels = {
+      "/method-boundaries": label(locale, "方法边界", "Method boundaries"),
+      "/item-design-notes": label(locale, "题目设计说明", "Item design notes"),
+      "/reliability-validity": label(locale, "信度与效度", "Reliability and validity"),
+      "/tests/mbti-personality-test-16-personality-types": label(locale, "MBTI免费测试", "MBTI personality test"),
+      "/tests/big-five-personality-test": label(locale, "大五人格免费测试", "Big Five personality test"),
+      "/tests/holland-career-interest-test-riasec": label(locale, "霍兰德职业兴趣免费测试", "Holland career interest test"),
+    };
+    return splitInternalLinkText(stripMarkdownEmphasisMarkers(text), linkLabels, "zh").map((part, index) => {
+      if (part.type === "text") return <span key={`${keyPrefix}-${index}`}>{part.text}</span>;
+      // Match the original reader's three science-policy paths. Other targets
+      // retain their source href; only published variants gain a TW target.
+      const originalHref = /^\/(?:method-boundaries|item-design-notes|reliability-validity)(?:$|[/?#])/.test(part.href)
+        ? localizedPath(part.href, "zh") : part.href;
+      const href = /^\/(?:zh|en)(?=\/|$)/.test(part.href)
+        ? originalHref : traditionalPath(localizedPath(part.href, "zh")) ?? originalHref;
+      return <Link key={`${keyPrefix}-${index}`} href={href} className="text-[var(--fm-accent)] underline-offset-2 hover:underline">{part.label}</Link>;
+    });
   }
   return renderCmsInlineMarkdown(text, keyPrefix, { locale });
 }

@@ -8,7 +8,7 @@ export const TRADITIONAL_SEVEN_SINS_PATH = "/tests/explore/seven-sins-virtues-te
 export const TRADITIONAL_SEVEN_SINS_PROFILE_IDS = ["recognition-reading", "resources-reading", "desire-boundaries-reading", "comparison-reading", "rewards-reading", "anger-reading", "starting-rest-reading"] as const;
 // Direct readers are deployed before their native CMS publication. Missing
 // variants stay 404; only published pages enter cross-language navigation.
-export const TRADITIONAL_CMS_READER_PATHS = ["/about", "/brand", "/charter", "/careers"] as const;
+export const TRADITIONAL_CMS_READER_PATHS = ["/about", "/brand", "/charter", "/careers", "/privacy", "/terms", "/method-boundaries", "/science"] as const;
 // Expanded only after the corresponding native CMS variants are published.
 // Reader deployment and published navigation remain separate inventories.
 export const TRADITIONAL_CMS_PUBLISHED_PATHS = ["/about", "/brand", "/charter", "/careers"] as const;
