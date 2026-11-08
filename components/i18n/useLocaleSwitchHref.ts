@@ -2,11 +2,13 @@
 
 import { useSyncExternalStore } from "react";
 import { localizedPath, toggleLocalePath, type Locale } from "@/lib/i18n/locales";
+import { emailTokenSwitchHref } from "@/lib/i18n/emailDisplayRoutes";
+import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
 
-export function resolveLocaleSwitchHref(pathname: string, targetLocale: Locale, head?: ParentNode): string {
+export function resolveLocaleSwitchHref(pathname: string, targetLocale: Locale, head?: ParentNode, search = ""): string {
   const isCategory = /^\/(?:en|zh)\/articles\/category\/[^/]+\/?$/.test(pathname);
   if (!isCategory && !/^\/(?:en|zh)\/articles\/[^/]+\/?$/.test(pathname)) {
-    return toggleLocalePath(pathname, targetLocale);
+    return emailTokenSwitchHref(pathname, toggleLocalePath(pathname, targetLocale), search);
   }
 
   const fallback = localizedPath("/articles", targetLocale);
@@ -39,7 +41,12 @@ function subscribeMetadata(onChange: () => void): () => void {
 export function useLocaleSwitchHref(pathname: string, targetLocale: Locale): string {
   return useSyncExternalStore(
     subscribeMetadata,
-    () => resolveLocaleSwitchHref(pathname, targetLocale, document),
+    () => resolveLocaleSwitchHref(pathname, targetLocale, document, window.location.search),
     () => resolveLocaleSwitchHref(pathname, targetLocale),
   );
+}
+
+export function useTraditionalSwitchHref(pathname: string): string {
+  const target = traditionalPath(pathname) ?? "/zh-TW/tests";
+  return useSyncExternalStore(subscribeMetadata, () => emailTokenSwitchHref(pathname, target, window.location.search), () => target);
 }

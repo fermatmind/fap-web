@@ -36,8 +36,9 @@ export type BrowserAnalyticsScriptInput = {
   allowedHosts?: string | readonly string[] | null;
 };
 
-const LOCALE_SEGMENTS = new Set(["zh", "en"]);
+const LOCALE_SEGMENTS = new Set(["zh", "en", "zh-tw"]);
 const PRIVATE_ANALYTICS_ROUTE_SEGMENTS = new Set([
+  "email",
   "account",
   "cms-preview",
   "result",

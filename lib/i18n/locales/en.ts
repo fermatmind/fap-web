@@ -375,6 +375,8 @@ const en: SiteDictionary = {
       missingDescription: "Open this page from the link inside your email to review or update your preferences.",
       missingRecoveryHint: "If you need a new report email instead, continue through Order lookup.",
       loading: "Loading your email preferences...",
+      loadError: "Email preferences could not be loaded. Please try again.",
+      retry: "Retry",
       emailLabel: "Email on file",
       statusTitle: "Current subscriber foundation",
       statusDescription: "These switches control your current marketing, report recovery, and product update email states.",

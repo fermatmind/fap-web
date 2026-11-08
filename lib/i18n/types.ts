@@ -328,6 +328,8 @@ export type SiteDictionary = {
       missingDescription: string;
       missingRecoveryHint: string;
       loading: string;
+      loadError: string;
+      retry: string;
       emailLabel: string;
       statusTitle: string;
       statusDescription: string;

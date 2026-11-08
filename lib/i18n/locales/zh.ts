@@ -367,6 +367,8 @@ const zh: SiteDictionary = {
       missingDescription: "请从邮件中的专属链接进入此页面，查看或更新你的邮件偏好。",
       missingRecoveryHint: "如果你需要新的报告邮件，请前往订单找回。",
       loading: "正在加载邮件偏好...",
+      loadError: "暂时无法加载邮件偏好，请重试。",
+      retry: "重试",
       emailLabel: "当前邮箱",
       statusTitle: "当前订阅基础状态",
       statusDescription: "这里会明确显示营销更新、报告恢复和产品更新 3 个开关的当前状态。",

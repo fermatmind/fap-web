@@ -11,14 +11,16 @@ import {
   type EmailPreferences,
 } from "@/lib/api/v0_3";
 import { ApiError } from "@/lib/api-client";
-import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
+import { emailDisplayPath, emailRecoveryPath, emailRecoveryLabel } from "@/lib/i18n/emailDisplayRoutes";
 import type { SiteDictionary } from "@/lib/i18n/types";
 import { captureError } from "@/lib/observability/sentry";
 
-type ViewState = "missing" | "loading" | "ready" | "invalid";
+type ViewState = "missing" | "loading" | "ready" | "invalid" | "unavailable";
 
 function isInvalidTokenError(error: unknown): boolean {
   if (error instanceof ApiError) {
+    if (error.status === 429 || error.status >= 500) return false;
     if ([400, 401, 403, 404, 410, 422].includes(error.status)) {
       return true;
     }
@@ -39,7 +41,7 @@ export function EmailPreferencesClient({
   token,
   dict,
 }: {
-  locale: Locale;
+  locale: DisplayLocale;
   token?: string;
   dict: SiteDictionary;
 }) {
@@ -49,14 +51,15 @@ export function EmailPreferencesClient({
   const [emailMasked, setEmailMasked] = useState("");
   const [preferences, setPreferences] = useState<EmailPreferences | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [loadAttempt, setLoadAttempt] = useState(0);
   const [feedback, setFeedback] = useState<{
     tone: "success" | "error";
     message: string;
   } | null>(null);
-  const orderLookupHref = localizedPath("/orders/lookup", locale);
-  const helpHref = localizedPath("/help", locale);
+  const orderLookupHref = emailRecoveryPath("/orders/lookup", locale);
+  const helpHref = emailRecoveryPath("/help", locale);
   const unsubscribeHref = useMemo(() => {
-    const base = localizedPath("/email/unsubscribe", locale);
+    const base = emailDisplayPath("/email/unsubscribe", locale);
     return normalizedToken ? `${base}?token=${encodeURIComponent(normalizedToken)}` : base;
   }, [locale, normalizedToken]);
 
@@ -92,13 +95,13 @@ export function EmailPreferencesClient({
           route: "/email/preferences",
           stage: "load_email_preferences",
         });
-        setViewState("invalid");
+        setViewState(isInvalidTokenError(cause) ? "invalid" : "unavailable");
       });
 
     return () => {
       active = false;
     };
-  }, [normalizedToken]);
+  }, [normalizedToken, loadAttempt]);
 
   function updatePreference(key: keyof EmailPreferences, value: boolean) {
     setPreferences((current) => (current ? { ...current, [key]: value } : current));
@@ -156,11 +159,11 @@ export function EmailPreferencesClient({
         <CardContent className="space-y-4">
           <p className="m-0 text-sm text-[var(--fm-text-muted)]">{copy.missingRecoveryHint}</p>
           <div className="flex flex-col gap-2 sm:flex-row">
-            <Link href={orderLookupHref} className={buttonVariants({ variant: "default" })}>
-              {copy.ctas.orderLookup}
+            <Link href={orderLookupHref} hrefLang={locale === "zh-TW" ? "zh-CN" : undefined} className={buttonVariants({ variant: "default" })}>
+              {emailRecoveryLabel(copy.ctas.orderLookup, locale)}
             </Link>
-            <Link href={helpHref} className={buttonVariants({ variant: "outline" })}>
-              {copy.ctas.help}
+            <Link href={helpHref} hrefLang={locale === "zh-TW" ? "zh-CN" : undefined} className={buttonVariants({ variant: "outline" })}>
+              {emailRecoveryLabel(copy.ctas.help, locale)}
             </Link>
           </div>
         </CardContent>
@@ -181,6 +184,10 @@ export function EmailPreferencesClient({
     );
   }
 
+  if (viewState === "unavailable") {
+    return <Card data-testid="email-preferences-unavailable"><CardHeader><CardTitle>{copy.title}</CardTitle><CardDescription>{copy.loadError}</CardDescription></CardHeader><CardContent><Button onClick={() => setLoadAttempt(value => value+1)}>{copy.retry}</Button></CardContent></Card>;
+  }
+
   if (viewState === "invalid") {
     return (
       <Card data-testid="email-preferences-invalid">
@@ -189,11 +196,11 @@ export function EmailPreferencesClient({
           <CardDescription>{copy.invalidDescription}</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-2 sm:flex-row">
-          <Link href={orderLookupHref} className={buttonVariants({ variant: "default" })}>
-            {copy.ctas.orderLookup}
+          <Link href={orderLookupHref} hrefLang={locale === "zh-TW" ? "zh-CN" : undefined} className={buttonVariants({ variant: "default" })}>
+            {emailRecoveryLabel(copy.ctas.orderLookup, locale)}
           </Link>
-          <Link href={helpHref} className={buttonVariants({ variant: "outline" })}>
-            {copy.ctas.help}
+          <Link href={helpHref} hrefLang={locale === "zh-TW" ? "zh-CN" : undefined} className={buttonVariants({ variant: "outline" })}>
+            {emailRecoveryLabel(copy.ctas.help, locale)}
           </Link>
         </CardContent>
       </Card>

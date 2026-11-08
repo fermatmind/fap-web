@@ -1,4 +1,5 @@
 export const PRIVATE_FLOW_ROUTE_EXCLUDES = [
+  "/email/*",
   "/account",
   "/account/*",
   "/result/*",
@@ -13,6 +14,7 @@ export const PRIVATE_FLOW_ROUTE_EXCLUDES = [
 ] as const;
 
 export const SHARED_DISCOVERABILITY_DENY_PATH_PATTERNS: readonly RegExp[] = [
+  /^\/email(\/|$)/i,
   /^\/account(\/|$)/i,
   /^\/cms-preview(\/|$)/i,
   /^\/api(\/|$)/i,

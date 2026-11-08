@@ -2,6 +2,8 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import EmailPreferencesPage from "@/app/(localized)/[locale]/email/preferences/page";
 import EmailUnsubscribePage from "@/app/(localized)/[locale]/email/unsubscribe/page";
+import TraditionalPreferencesPage, {metadata as traditionalPreferencesMetadata} from "@/app/(traditional)/zh-TW/email/preferences/page";
+import TraditionalUnsubscribePage, {metadata as traditionalUnsubscribeMetadata} from "@/app/(traditional)/zh-TW/email/unsubscribe/page";
 import { EmailPreferencesClient } from "@/components/email/EmailPreferencesClient";
 import { EmailUnsubscribeClient } from "@/components/email/EmailUnsubscribeClient";
 import { ApiError } from "@/lib/api-client";
@@ -79,6 +81,51 @@ describe("Email preferences and unsubscribe contract", () => {
     expect(screen.getByTestId("email-preferences-missing")).toHaveTextContent("Manage email preferences");
     expect(screen.getByText(/Open this page from the link inside your email/i)).toBeInTheDocument();
     expect(hoisted.getEmailPreferences).not.toHaveBeenCalled();
+  });
+
+  it("renders private Taiwan pages with an explicit noindex canonical and no token in metadata", async () => {
+    for (const metadata of [traditionalPreferencesMetadata, traditionalUnsubscribeMetadata]) {
+      expect(metadata.robots).toEqual({index:false,follow:false});
+      expect(JSON.stringify(metadata)).not.toContain("private_token");
+      expect(metadata.referrer).toBe("no-referrer");
+    }
+    render(await TraditionalPreferencesPage({searchParams:Promise.resolve({})}));
+    expect(screen.getByTestId("email-preferences-missing")).toHaveTextContent("管理郵件偏好");
+    expect(screen.getByRole("link",{name:"去訂單找回頁（簡體中文）"})).toHaveAttribute("href","/zh/orders/lookup");
+    expect(screen.getByRole("link",{name:"檢視說明中心（簡體中文）"})).toHaveAttribute("hrefLang","zh-CN");
+    expect(hoisted.getEmailPreferences).not.toHaveBeenCalled();
+  });
+
+  it("saves the same three preference booleans in Taiwan without adding a language or market to the API", async () => {
+    render(await TraditionalPreferencesPage({searchParams:Promise.resolve({token:"private_token_123"})}));
+    await screen.findByTestId("email-preferences-form");
+    fireEvent.click(screen.getByTestId("email-preferences-marketing-updates"));
+    fireEvent.click(screen.getByTestId("email-preferences-save"));
+    await waitFor(()=>expect(hoisted.updateEmailPreferences).toHaveBeenCalledWith({token:"private_token_123",marketing_updates:false,report_recovery:true,product_updates:false}));
+    expect(await screen.findByTestId("email-preferences-feedback")).toHaveTextContent("訂閱偏好已儲存");
+    expect(screen.getByRole("link",{name:"English"})).toHaveAttribute("href","/en/email/preferences?token=private_token_123");
+    expect(screen.getByRole("link",{name:"繁體中文"})).toHaveAttribute("aria-current","page");
+  });
+
+  it("distinguishes temporary server failures from an invalid token and retries the same opaque token", async () => {
+    hoisted.getEmailPreferences.mockRejectedValueOnce(new ApiError({status:503,errorCode:"INVALID_RESPONSE",message:"Temporary failure"}));
+    const tw = getDictSync("zh-TW");
+    render(<EmailPreferencesClient locale="zh-TW" token="private_retry_token" dict={tw} />);
+    expect(await screen.findByTestId("email-preferences-unavailable")).toHaveTextContent(tw.email.preferences.loadError);
+    expect(screen.queryByTestId("email-preferences-invalid")).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button",{name:"重試"}));
+    await screen.findByTestId("email-preferences-form");
+    expect(hoisted.getEmailPreferences).toHaveBeenCalledTimes(2);
+    expect(hoisted.getEmailPreferences).toHaveBeenLastCalledWith("private_retry_token");
+  });
+
+  it("requires explicit Taiwan unsubscribe confirmation and preserves the API reason", async () => {
+    render(await TraditionalUnsubscribePage({searchParams:Promise.resolve({token:"private_unsubscribe_token"})}));
+    expect(screen.getByTestId("email-unsubscribe-confirm")).toHaveTextContent("確認退訂");
+    expect(hoisted.unsubscribeEmail).not.toHaveBeenCalled();
+    fireEvent.click(screen.getByTestId("email-unsubscribe-confirm-button"));
+    await waitFor(()=>expect(hoisted.unsubscribeEmail).toHaveBeenCalledWith({token:"private_unsubscribe_token",reason:"user_request"}));
+    expect(await screen.findByTestId("email-unsubscribe-success")).toHaveTextContent("已退訂");
   });
 
   it("requests email preferences when a token is present", async () => {

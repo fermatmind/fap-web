@@ -31,7 +31,7 @@ describe("Taiwan display dictionary", () => {
   it("covers every source leaf and preserves variables, numbers, code, URLs and email targets", () => {
     const source = leaves(zh), target = leaves(traditional);
     expect(Object.keys(target).sort()).toEqual(Object.keys(source).sort());
-    expect(Object.keys(target)).toHaveLength(324);
+    expect(Object.keys(target)).toHaveLength(326);
     const protectedTokens = /https?:\/\/[^\s<>）)]+|[\w.+-]+@[\w.-]+|`[^`]*`|\{\{[^}]*\}\}|\$?\{[^}]*\}|%\d*\$?[sdif]|\d+(?:[.,:/-]\d+)*/g;
     for (const [key, value] of Object.entries(source)) {
       expect(target[key].match(protectedTokens) ?? [], key).toEqual(value.match(protectedTokens) ?? []);

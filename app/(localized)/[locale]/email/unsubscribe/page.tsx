@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { EmailUnsubscribeClient } from "@/components/email/EmailUnsubscribeClient";
+import { EmailLanguageLinks } from "@/components/email/EmailLanguageLinks";
 import { Container } from "@/components/layout/Container";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
@@ -53,6 +54,7 @@ export default async function EmailUnsubscribePage({
   return (
     <Container as="main" className="max-w-3xl py-10">
       <EmailUnsubscribeClient locale={locale} token={token} dict={dict} />
+      <EmailLanguageLinks path="/email/unsubscribe" token={token} locale={locale} />
     </Container>
   );
 }

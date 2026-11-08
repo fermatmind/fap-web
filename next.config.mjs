@@ -211,6 +211,10 @@ const nextConfig = {
         headers: privateNoindexHeaders,
       },
       {
+        source: "/:locale(en|zh|zh-TW)/email/:path*",
+        headers: privateNoindexHeaders,
+      },
+      {
         source: "/en/result/:path*",
         headers: privateNoindexHeaders,
       },

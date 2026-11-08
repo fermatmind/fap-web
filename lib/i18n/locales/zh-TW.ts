@@ -92,6 +92,8 @@ const traditional: SiteDictionary = {
       "invalidDescription": "如需新的報告郵件，請前往訂單找回；也可以去說明中心檢視說明。",
       "invalidTitle": "此連結無效或已過期。",
       "loading": "正在載入郵件偏好...",
+      "loadError": "暫時無法載入郵件偏好，請重試。",
+      "retry": "重試",
       "metadataDescription": "透過郵件中的專屬連結檢視或更新你的 FermatMind 郵件偏好。",
       "metadataTitle": "管理郵件偏好",
       "missingDescription": "請從郵件中的專屬連結進入此頁面，檢視或更新你的郵件偏好。",
