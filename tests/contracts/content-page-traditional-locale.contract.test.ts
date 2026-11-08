@@ -35,14 +35,14 @@ describe("CMS Traditional locale reader", () => {
     expect(traditionalEquivalent("/zh-TW/account")).toBeNull();
     expect(TRADITIONAL_PUBLIC_PATHS).not.toContain("/account");
   });
-  it("deploys the contact reader before advertising its unpublished variant", async () => {
+  it("exposes the published contact variant without adding unavailable siblings or search alternates", async () => {
     const { traditionalPath, TRADITIONAL_CMS_PUBLISHED_PATHS, TRADITIONAL_PUBLIC_PATHS } = await import("@/lib/i18n/traditionalRoutes");
     expect(traditionalPath("/zh-TW/help/contact")).toBe("/zh-TW/help/contact");
-    expect(traditionalPath("/en/help/contact")).toBeNull();
-    expect(traditionalPath("/zh/help/contact")).toBeNull();
+    expect(traditionalPath("/en/help/contact")).toBe("/zh-TW/help/contact");
+    expect(traditionalPath("/zh/help/contact")).toBe("/zh-TW/help/contact");
     expect(traditionalPath("/zh-TW/help/contact/private")).toBeNull();
     expect(traditionalPath("/zh-TW/help/faq")).toBeNull();
-    expect(TRADITIONAL_CMS_PUBLISHED_PATHS).not.toContain("/help/contact");
+    expect(TRADITIONAL_CMS_PUBLISHED_PATHS).toContain("/help/contact");
     expect(TRADITIONAL_PUBLIC_PATHS).not.toContain("/help/contact");
   });
   it("requests the genuine variant with matching query and header", async () => {

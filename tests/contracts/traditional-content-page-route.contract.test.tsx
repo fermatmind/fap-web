@@ -63,12 +63,14 @@ describe("shared Traditional CMS page route", () => {
     }
     expect(read).toHaveBeenCalledWith("help-contact", "zh-TW");
   });
-  it("exposes all eight published CMS pages in the actual Traditional footer", () => {
+  it("exposes all nine published CMS pages in the actual Traditional footer", () => {
     const html = renderToStaticMarkup(<TraditionalLayout><p>內容</p></TraditionalLayout>);
     const document = new DOMParser().parseFromString(html, "text/html");
     for (const slug of ["about", "brand", "charter", "careers", "privacy", "terms", "method-boundaries", "science"]) {
       expect(document.querySelector(`footer nav[aria-label="費馬資訊"] a[href="/zh-TW/${slug}"]`)).not.toBeNull();
     }
+    expect(document.querySelector('footer nav[aria-label="費馬資訊"] a[href="/zh-TW/help/contact"]')?.textContent).toBe("聯絡支援");
+    expect(document.querySelectorAll('footer nav[aria-label="費馬資訊"] a')).toHaveLength(9);
     for (const slug of ["foundation", "support", "pricing", "policies"]) {
       expect(document.querySelector(`a[href="/zh-TW/${slug}"]`)).toBeNull();
     }

@@ -48,7 +48,7 @@ describe("Taiwan display dictionary", () => {
     expect(apiLocaleForDisplay("zh-TW")).toBeNull();
   });
 
-  it("uses the dictionary in the server-rendered Taiwan shell with the eight-page CMS navigation", () => {
+  it("uses the dictionary in the server-rendered Taiwan shell with the nine-page CMS navigation", () => {
     const html = renderToStaticMarkup(<TraditionalLayout><p>測試內容</p></TraditionalLayout>);
     const document = new DOMParser().parseFromString(html, "text/html");
     expect(document.documentElement.lang).toBe("zh-TW");
@@ -56,6 +56,7 @@ describe("Taiwan display dictionary", () => {
     for (const slug of ["privacy", "terms", "science", "method-boundaries"]) {
       expect(document.querySelector(`a[href="/zh-TW/${slug}"]`)).not.toBeNull();
     }
+    expect(document.querySelector('a[href="/zh-TW/help/contact"]')?.textContent).toBe("聯絡支援");
     expect(document.body.textContent).toContain("測試內容");
   });
 });
