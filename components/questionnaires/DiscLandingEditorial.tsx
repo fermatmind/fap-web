@@ -79,3 +79,10 @@ export function DiscCitations({ text, locale, referencePath = "", referencePrefi
     </Fragment>
   ));
 }
+
+/** Current answering-page behavior, separate from the frozen source questionnaire. */
+export function discVisiblePrivacyAnswer(locale: Locale): string {
+  return locale === "zh"
+    ? "答案在当前浏览器内计分，不随计分请求上传服务器，也不写入网址或分析事件。当前答题页不提供进度保存；刷新页面、切换语言或离开答题页后会从头开始。公开说明不含个人答案或次数，从结果打开时会另开标签页，保留当前结果。其他使用事件依隐私与Cookie设置。"
+    : "Answers are scored in your browser, not uploaded for scoring or placed in URLs or analytics events. This question page does not save progress: refreshing, changing language or leaving it starts over. Public explanations contain no personal answers or counts and open from your result in a new tab, keeping that result available. Other usage events follow your privacy and cookie settings.";
+}
