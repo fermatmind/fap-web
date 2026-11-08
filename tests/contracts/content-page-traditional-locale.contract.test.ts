@@ -31,7 +31,9 @@ describe("CMS Traditional locale reader", () => {
     }
     expect(traditionalEquivalent("/zh/about")).toBeNull();
     expect(TRADITIONAL_PUBLIC_PATHS).not.toContain("/about");
-    expect(traditionalPath("/zh-TW/account")).toBeNull();
+    expect(traditionalPath("/zh-TW/account")).toBe("/zh-TW/account");
+    expect(traditionalEquivalent("/zh-TW/account")).toBeNull();
+    expect(TRADITIONAL_PUBLIC_PATHS).not.toContain("/account");
   });
   it("requests the genuine variant with matching query and header", async () => {
     get.mockResolvedValue({ ok: true, page: record("zh-TW") });

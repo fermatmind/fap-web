@@ -401,7 +401,8 @@ function isResultPageSnapshotPrintRequest(pathname: string, surface: string | nu
 
 function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextResponse | Promise<NextResponse> {
   const pathname = request.nextUrl.pathname;
-  const strippedPath = stripLocalePrefix(pathname);
+  // Account display uses the same private Google/CSP policy as the existing account pages.
+  const strippedPath = pathname === "/zh-TW/account" ? "/account" : stripLocalePrefix(pathname);
   if (pathname === "/zh-TW" || pathname.startsWith("/zh-TW/")) {
     if (!traditionalPath(pathname)) return createPublicAbsenceResponse(404);
   }

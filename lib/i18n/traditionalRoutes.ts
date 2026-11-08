@@ -1,4 +1,5 @@
 import { normalizeDisplayLocale } from "./locales";
+import { ACCOUNT_DISPLAY_PATHS } from "./accountDisplayRoutes";
 import { EMAIL_DISPLAY_PATHS } from "./emailDisplayRoutes";
 // Partial display-language support is deliberately separate from legacy API/form locales.
 // No CMS, report-language, region, price or entitlement mapping is inferred here.
@@ -18,6 +19,7 @@ export function traditionalPath(pathname: string): string | null {
   const prefix = pathname.split("/")[1];
   if (!normalizeDisplayLocale(prefix)) return null;
   const path = pathname.replace(/^\/(?:en|zh|zh-TW)(?=\/|$)/, "").replace(/\/$/, "");
+  if (ACCOUNT_DISPLAY_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
   if (EMAIL_DISPLAY_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
   // Published CMS pilot: available for language navigation, but not indexable.
   // Keep it out of the sitemap list and reciprocal search alternates.

@@ -25,6 +25,7 @@ const mocks = vi.hoisted(() => ({
   confirm: vi.fn(),
   acceptSession: vi.fn(),
   recovery: vi.fn(),
+  profile: vi.fn(),
 }));
 vi.mock("next/navigation", () => ({
   useRouter: () => ({ replace: mocks.replace }),
@@ -41,7 +42,7 @@ vi.mock("@/lib/account/api", () => ({
   getAccount: mocks.account,
   getLoginChallenge: mocks.challenge,
   getAccountOrders: mocks.orders,
-  updateAccount: vi.fn(),
+  updateAccount: mocks.profile,
   acceptAccountSession: mocks.acceptSession,
   googleLogin: vi.fn(),
   logoutAccount: vi.fn(),
@@ -98,6 +99,54 @@ beforeEach(() => {
 });
 
 describe("account center", () => {
+  it("uses Taiwan display copy without converting personal data or changing history transport", async () => {
+    mocks.account.mockResolvedValue({ account: { id: "42", name: "测试账号123", email: "preview@example.test", google_connected: false, locale: "zh-TW" }, preview: false });
+    mocks.history.mockResolvedValue({ items: [row("MBTI")], meta: { last_page: 1 } });
+    render(<AccountCenter locale="zh-TW" />);
+    await screen.findByText("你好，测试账号123");
+    expect(mocks.history).toHaveBeenCalledWith(expect.objectContaining({ locale: "zh" }));
+    const report = document.querySelector('a[href="/zh/result/attempt-MBTI"]');
+    expect(report).not.toBeNull();
+    expect(report?.textContent).toContain("簡體中文");
+    expect(document.body.textContent).toContain(new Intl.DateTimeFormat("zh-TW", { dateStyle: "medium" }).format(new Date("2026-10-20T12:00:00Z")));
+    expect(screen.getByRole("button", { name: "下載 PDF（原報告語言）" })).toBeTruthy();
+    expect(screen.getByRole("navigation", { name: "帳戶語言" })).toBeTruthy();
+  });
+
+  it("saves a Taiwan preference and navigates to the real Taiwan account route", async () => {
+    mocks.search = "section=settings";
+    mocks.profile.mockResolvedValue({ account: { id: "42", name: "Preview User", email: "preview@example.test", google_connected: true, locale: "zh-TW" } });
+    render(<AccountCenter locale="en" />);
+    const language = await screen.findByLabelText("Language");
+    fireEvent.change(language, { target: { value: "zh-TW" } });
+    fireEvent.click(screen.getByRole("button", { name: "Save profile" }));
+    await waitFor(() => expect(mocks.profile).toHaveBeenCalledWith("Preview User", "zh-TW"));
+    expect(mocks.replace).toHaveBeenCalledWith("/zh-TW/account?section=settings");
+  });
+
+  it("preserves an unused verification proof in account language links and confirms only explicitly", async () => {
+    const proof = "q".repeat(64);
+    window.history.replaceState(null, "", `/zh-TW/account#verify=${proof}`);
+    mocks.account.mockResolvedValue({ account: null, preview: false });
+    mocks.confirm.mockClear();
+    render(<AccountCenter locale="zh-TW" />);
+    const confirm = await screen.findByRole("button", { name: "確認並繼續" });
+    expect(mocks.confirm).not.toHaveBeenCalled();
+    const languages = screen.getByRole("navigation", { name: "帳戶語言" });
+    expect(within(languages).getByRole("link", { name: "English" }).getAttribute("href")).toBe(`/en/account#verify=${proof}`);
+    fireEvent.click(confirm);
+    await waitFor(() => expect(mocks.confirm).toHaveBeenCalledWith(proof));
+  });
+
+  it("sends Taiwan account preferences and email language while keeping the explicit native login flow", async () => {
+    mocks.account.mockResolvedValue({ account: null, preview: false });
+    render(<AccountCenter locale="zh-TW" />);
+    fireEvent.change(await screen.findByLabelText("電子郵件地址"), { target: { value: "new@example.test" } });
+    fireEvent.click(screen.getByRole("button", { name: "用電子郵件地址登入 / 註冊" }));
+    await waitFor(() => expect(mocks.emailLogin).toHaveBeenCalledWith("new@example.test", "zh-TW"));
+    await screen.findByText(/登入郵件已傳送/);
+  });
+
   it("counts completion across six scales without mixing scores or counting draft attempts", () => {
     const done = completedTests([
       row("MBTI"),

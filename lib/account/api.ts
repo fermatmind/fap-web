@@ -1,3 +1,4 @@
+import type { DisplayLocale } from "@/lib/i18n/locales";
 import { apiClient } from "@/lib/api-client";
 import { buildApiUrl } from "@/lib/api-base";
 import { getFmToken } from "@/lib/auth/fmToken";
@@ -12,7 +13,7 @@ export type Account = {
   name: string;
   email: string;
   google_connected: boolean;
-  locale: "zh" | "en";
+  locale: DisplayLocale;
 };
 export type AccountSession = {
   status: "authenticated" | "verification_required";

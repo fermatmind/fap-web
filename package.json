@@ -68,8 +68,8 @@
     "postbuild": "bash scripts/sync_standalone_assets.sh",
     "ops:mbti-pdf-print-asset-hash": "node scripts/ops/check-mbti-pdf-print-asset-hash.mjs --check",
     "perf:audit:public": "node scripts/performance/audit-public-performance.mjs",
-    "i18n:zh-TW": "node scripts/i18n/convert-zh-tw.mjs",
-    "i18n:zh-TW:check": "node scripts/i18n/convert-zh-tw.mjs --check",
+    "i18n:zh-TW": "node scripts/i18n/convert-zh-tw.mjs && node scripts/i18n/account-zh-tw.mjs",
+    "i18n:zh-TW:check": "node scripts/i18n/convert-zh-tw.mjs --check && node scripts/i18n/account-zh-tw.mjs --check",
     "prebuild": "pnpm i18n:zh-TW:check"
   },
   "dependencies": {
