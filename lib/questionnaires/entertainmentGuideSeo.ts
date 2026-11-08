@@ -14,6 +14,7 @@ export function entertainmentGuideProfile(slug: string, locale: string, profile:
   const group = (topics as Record<string, GuideTopic>)[slug];
   const topic = group?.names[profile.id];
   if (!group || !topic) return profile;
+  if (slug === "love-languages" && locale === "en") return profile;
   if (topic.presentation) return { ...profile, ...topic.presentation };
   const { name: { zh: zhName, en: enName }, topic: { zh: zhTopic, en: enTopic } } = topic;
   let title: Text = { zh: `${zhName}：${group.quiz.zh}结果`, en: `${enName} | ${group.quiz.en} Result` };
@@ -57,6 +58,7 @@ export function entertainmentGuideProfile(slug: string, locale: string, profile:
 }
 
 export function entertainmentGuideStartLabel(slug: string, locale: "zh" | "en"): string | undefined {
+  if (slug === "love-languages") return undefined;
   const quiz = slug === "chiikawa" ? { zh: "吉伊卡哇角色测试", en: "Chiikawa Character Quiz" } : (topics as Record<string, GuideTopic>)[slug]?.quiz;
   return quiz ? (locale === "zh" ? `开始免费${quiz.zh}` : `Take the free ${quiz.en}`) : undefined;
 }

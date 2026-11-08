@@ -1,6 +1,7 @@
 import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
+import { entertainmentGuideProfile } from "@/lib/questionnaires/entertainmentGuideSeo";
 import { describe, expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
@@ -109,9 +110,10 @@ describe("T016 independent two-role meaningfulness reflection", () => {
         for (const profile of quiz.profiles) {
           const publicPath = `${path}/results/${profile.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };
           const rendered = renderToStaticMarkup(await guide.default(props)), meta = await guide.generateMetadata(props), dom = document.createElement("div"); dom.innerHTML = rendered;
-          expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]);
+          const publicProfile = entertainmentGuideProfile(quiz.slug, locale, profile);
+          expect(dom.querySelector("h1")?.textContent).toBe(publicProfile.title[locale]);
           for (const section of profile.sections) for (const paragraph of section.paragraphs) expect(dom.textContent).toContain(paragraph[locale]);
-          expect(meta.title).toBe(profile.seo!.title[locale]); expect(meta.description).toBe(profile.seo!.description[locale]);
+          expect(meta.title).toBe(publicProfile.seo!.title[locale]); expect(meta.description).toBe(publicProfile.seo!.description[locale]);
           expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${publicPath}`); expect(meta.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/love-languages/results/${profile.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/love-languages/results/${profile.id}` });
           expect(maps.some(e => e.loc === `https://fermatmind.com${publicPath}`)).toBe(true); expect(isMissingFunRoute(publicPath)).toBe(false);
           expect(rendered).not.toContain("data-affection-facet"); if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);

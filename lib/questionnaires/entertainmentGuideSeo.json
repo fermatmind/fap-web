@@ -700,5 +700,103 @@
         }
       }
     }
+  },
+  "love-languages": {
+    "quiz": {
+      "zh": "五种爱的语言测试",
+      "en": "Love Language Test"
+    },
+    "names": {
+      "acts": {
+        "name": {
+          "zh": "行动支持：给予与接收",
+          "en": "Acts of Service: Giving and Receiving"
+        },
+        "topic": {
+          "zh": "这一类讨论对方确实愿意得到的实际帮助。给予和接收各有自己的题目与均分，不测可靠、勤劳、牺牲或爱的多少，也不把家务和照顾变成某一方理所当然的义务。",
+          "en": "This area concerns practical help that someone actually wants. Giving and receiving have separate prompts and means. They measure neither reliability, hard work, sacrifice nor how much someone loves, and assign no automatic obligation for chores or caregiving."
+        },
+        "presentation": {
+          "title": {
+            "zh": "行动支持（服务的行动）：给予与接收",
+            "en": "Acts of Service: Giving and Receiving"
+          },
+          "summary": {
+            "zh": "“服务的行动”（Acts of Service）在本版称为行动支持。这一类讨论对方确实愿意得到的实际帮助。给予和接收各有自己的题目与均分，不测可靠、勤劳、牺牲或爱的多少，也不把家务和照顾变成某一方理所当然的义务。",
+            "en": "This area concerns practical help that someone actually wants. Giving and receiving have separate prompts and means. They measure neither reliability, hard work, sacrifice nor how much someone loves, and assign no automatic obligation for chores or caregiving."
+          },
+          "seo": {
+            "title": {
+              "zh": "服务的行动与行动支持｜爱的语言解读",
+              "en": "Acts of Service: Giving and Receiving Love"
+            },
+            "description": {
+              "zh": "“服务的行动”在本版称行动支持，讨论双方愿意的实际帮助。分别理解给予与接收、具体请求和取舍；评分不代表家务付出、性别义务或关系公平。",
+              "en": "Read the full acts of service love-language guide: offering and receiving help, practical examples, tradeoffs and clear requests. No score measures actual effort or fairness."
+            }
+          }
+        }
+      },
+      "gifts": {
+        "name": {
+          "zh": "心意礼物：给予与接收",
+          "en": "Gifts: Giving and Receiving"
+        },
+        "topic": {
+          "zh": "这一类讨论物件承载的心意，而不是价格、消费能力或排场。给予与接收分别自评；两边不必相同，礼物也不自动代表承诺、忠诚或对方应该回报什么。",
+          "en": "This area concerns the thought carried by a token, rather than price, spending capacity or display. Giving and receiving are rated separately and need not match. A gift establishes neither commitment nor loyalty, and creates no automatic obligation to return anything."
+        },
+        "presentation": {
+          "title": {
+            "zh": "心意礼物（接受礼物）：给予与接收",
+            "en": "Gifts: Giving and Receiving"
+          },
+          "summary": {
+            "zh": "五种爱的语言常将这一类称为“接受礼物”（Receiving Gifts）；本版以心意礼物分别讨论给予与接收。这一类讨论物件承载的心意，而不是价格、消费能力或排场。给予与接收分别自评；两边不必相同，礼物也不自动代表承诺、忠诚或对方应该回报什么。",
+            "en": "This area concerns the thought carried by a token, rather than price, spending capacity or display. Giving and receiving are rated separately and need not match. A gift establishes neither commitment nor loyalty, and creates no automatic obligation to return anything."
+          },
+          "seo": {
+            "title": {
+              "zh": "接受礼物与心意礼物｜爱的语言解读",
+              "en": "Gifts as a Love Language: Giving and Receiving"
+            },
+            "description": {
+              "zh": "五种爱的语言中的“接受礼物”，在本版以心意礼物分别讨论给予与接收。阅读物件表达关心的例子和边界，不把价格、回礼义务或关系价值计入评分。",
+              "en": "Explore giving and receiving gifts as a love language, with everyday examples and boundaries. Full free guide without equating care with price or requiring a gift in return."
+            }
+          }
+        }
+      },
+      "time": {
+        "name": {
+          "zh": "专注陪伴：给予与接收",
+          "en": "Quality Time: Giving and Receiving"
+        },
+        "topic": {
+          "zh": "这一类讨论专心交流、共同活动与舒服的陪伴，不按相处时长评判关系。给予和接收各有自己的题目与均分；重视陪伴不等于随时有空，也不要求对方交出全部注意力。",
+          "en": "This area concerns attentive exchange, shared activities and comfortable company, without judging a relationship by time spent together. Giving and receiving have separate prompts and means. Valuing company establishes neither constant availability nor a claim on another person’s full attention."
+        },
+        "presentation": {
+          "title": {
+            "zh": "专注陪伴（精心时刻）：给予与接收",
+            "en": "Quality Time: Giving and Receiving"
+          },
+          "summary": {
+            "zh": "“精心时刻”或“精心的时刻”（Quality Time）在本版称为专注陪伴。这一类讨论专心交流、共同活动与舒服的陪伴，不按相处时长评判关系。给予和接收各有自己的题目与均分；重视陪伴不等于随时有空，也不要求对方交出全部注意力。",
+            "en": "This area concerns attentive exchange, shared activities and comfortable company, without judging a relationship by time spent together. Giving and receiving have separate prompts and means. Valuing company establishes neither constant availability nor a claim on another person’s full attention."
+          },
+          "seo": {
+            "title": {
+              "zh": "精心时刻与专注陪伴｜爱的语言解读",
+              "en": "Quality Time: Giving and Receiving Love"
+            },
+            "description": {
+              "zh": "“精心时刻”也称“精心的时刻”，本版以专注陪伴讨论共同注意、交流和活动。分别看给予与接收、具体安排及取舍，不要求随时有空或交出全部注意力。",
+              "en": "Understand quality time as a love language: shared attention, giving and receiving, everyday arrangements and tradeoffs. Full guide without an obligation to be always available."
+            }
+          }
+        }
+      }
+    }
   }
 }

@@ -80,4 +80,25 @@ describe("twelve-test search intent: existing guides and distinct related themes
     expect(directoryDescription(quiz)[locale]).toContain(locale === "en" ? "Love Type 16" : "16");
     for (const profile of quiz.profiles) expect(page.querySelector(`a[href='${questionnaireGuidePath(locale, quiz.slug, profile.id)}']`)).not.toBeNull();
   });
+
+  it("connects three established Chinese love-language names to their existing full guides while keeping English and personal results", async () => {
+    const quiz = bank("love-languages"), snapshot = structuredClone(quiz);
+    const aliases: Record<string, string> = { acts: "服务的行动", gifts: "接受礼物", time: "精心时刻" };
+    const { default: Page, generateMetadata } = await import("@/components/questionnaires/QuestionnaireGuide");
+    for (const profile of quiz.profiles) {
+      expect(entertainmentGuideProfile(quiz.slug, "en", profile)).toBe(profile);
+      if (!aliases[profile.id]) {
+        expect(entertainmentGuideProfile(quiz.slug, "zh", profile)).toBe(profile);
+        continue;
+      }
+      const args = { params: Promise.resolve({ locale: "zh", slug: quiz.slug, profile: profile.id }) };
+      const page = dom(renderToStaticMarkup(await Page(args))), meta = await generateMetadata(args);
+      expect(page.querySelector("h1")?.textContent).toContain(aliases[profile.id]);
+      expect(page.querySelector("h1")?.nextElementSibling?.textContent).toContain(aliases[profile.id]);
+      expect(meta.title).toContain(aliases[profile.id]); expect(meta.description).toContain(aliases[profile.id]);
+      for (const section of profile.sections) for (const paragraph of section.paragraphs) expect(page.textContent).toContain(paragraph.zh);
+      expect(entertainmentGuideProfile(quiz.slug, "zh", profile).directionIds).toBe(profile.directionIds);
+    }
+    expect(quiz).toEqual(snapshot);
+  });
 });
