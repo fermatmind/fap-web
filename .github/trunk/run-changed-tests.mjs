@@ -49,10 +49,11 @@ export function changedTestPlan(changes, {vitest=false,root=process.cwd()}={}) {
  if(plan.unsupported.length)throw new Error(`Unsupported changed tests: ${plan.unsupported.join(',')}`);
  return plan;
 }
-// Keep small browser changes on one runner; bound large selections to eight
-// native Playwright case shards in each existing server-mode matrix.
+// Eight selected files can contain 95 media/guide scenarios and exceed one
+// 15-minute dev-server job. Bound each shard to four files, with the existing
+// cap of eight native Playwright shards in each server-mode matrix.
 export function browserShardNumbers(files) {
- return Array.from({length:Math.min(8,Math.max(1,Math.ceil(files.length/12)))},(_,i)=>i+1);
+ return Array.from({length:Math.min(8,Math.max(1,Math.ceil(files.length/4)))},(_,i)=>i+1);
 }
 export function runChangedTests(plan,{mode='legacy',root='.',browserShard=process.env.PLAYWRIGHT_SHARD,run=(cmd,args,options)=>spawnSync(cmd,args,options)}={}){
  const calls=[];const execute=(cmd,args,cwd)=>{

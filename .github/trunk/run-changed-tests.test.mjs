@@ -128,6 +128,19 @@ test('assessment CSS assets are product code while named and nested CSS tests re
  }
 });
 
+test('media-heavy browser selections retain all scenarios in both modes and bind the complete shard matrix',()=>{
+ const files=['age-preferences','aura-color','bleach','chiikawa','cyberpunk-edgerunners','moon-phase','philosopher-personality-test','space-marine-chapter'].map(slug=>`tests/e2e/questionnaire-${slug}.spec.ts`);
+ assert.deepEqual(browserShardNumbers(files.slice(0,4)),[1]);
+ assert.deepEqual(browserShardNumbers(files.slice(0,5)),[1,2]);
+ assert.deepEqual(browserShardNumbers(files),[1,2]);
+ const plan=changedTestPlan([],{vitest:true});plan.e2e=files;
+ for(const mode of ['e2e','e2e-release'])for(const shard of ['1/2','2/2']){
+  const calls=runChangedTests(plan,{mode,browserShard:shard,run:()=>({status:0})});
+  assert.deepEqual(calls[0].args,['exec','playwright','test',...files,`--shard=${shard}`,'--fully-parallel','--workers=2']);
+ }
+ assert.throws(()=>runChangedTests(plan,{mode:'e2e',browserShard:'1/1',run:()=>{throw Error('must not run');}}),/CHANGED_BROWSER_SHARD_BINDING_HOLD/);
+});
+
 test('large browser selections preserve all files in bounded native case shards and reject incomplete matrices',()=>{
  const files=Array.from({length:87},(_,i)=>`tests/e2e/product-${i}.spec.ts`);
  const plan=changedTestPlan([],{vitest:true});plan.e2e=files;
