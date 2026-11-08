@@ -42,6 +42,7 @@ const directionPresentation = {
   "adult-age-preferences": { eyebrow: { zh: "本次选择", en: "Your choices" }, previews: ["fictional-example", "optional-step"] },
 };
 
+const EightQuizPersonalCard = questionnaireModule<Parameters<typeof import("./EightQuizPersonalCard").EightQuizPersonalCard>[0]>(() => import("./EightQuizPersonalCard").then(module => ({ default: module.EightQuizPersonalCard })));
 const SevenSinsPersonalCard = questionnaireModule<Omit<import("./SevenSinsPersonalCard").SevenSinsPersonalCardProps, "locale"> & { locale: Locale }>(() => import("./SevenSinsPersonalCard").then(module => ({ default: module.SevenSinsPersonalCard })));
 
 const QuestionnaireResultSections = questionnaireModule<import("./QuestionnaireReports").QuestionnaireReportProps>(() => import("./QuestionnaireReports").then(module => ({ default: module.QuestionnaireResultSections })));
@@ -243,6 +244,7 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
       <Link prefetch={false} className="my-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)} target={adultAgePreferences ? "_blank" : undefined} rel={adultAgePreferences ? "noopener" : undefined}>{zh ? "阅读这项结果的公开说明" : "Read the public explanation of this result"}{adultAgePreferences && (zh ? "（新标签页）" : " (new tab)")}</Link>
       </>}
       <QuestionnaireResultSections {...reportProps} />
+      {["hogwarts-house-quiz", "love-languages", "hazbin-hotel-character-quiz", "hello-kitty", "love-type-16", "spirit-animal", "moral-alignment"].includes(quiz.slug) && <EightQuizPersonalCard quiz={quiz} result={result} locale={locale} />}
       {(quiz.slug === "cyberpunk-edgerunners" || quiz.slug === "chiikawa") && archetypes && <p className="mt-4 text-sm leading-6">
         {archetypes.profileIds.length === 1
           ? (zh ? "分享会复制角色名和公开指南链接，不包含答卷或次数。" : "Sharing copies the character name and public guide link, without your answers or counts.")

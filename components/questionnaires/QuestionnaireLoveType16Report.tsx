@@ -1,3 +1,4 @@
+import { LoveTypeNeighborComparison } from "./LoveTypeNeighborComparison";
 import Link from "next/link";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import { LOVE_TYPE16_AXES, type LoveType16Result } from "@/lib/questionnaires/loveType16";
@@ -33,8 +34,9 @@ export function QuestionnaireLoveType16Report({ quiz, result, locale, readingPro
       const readingProfile = readingProfiles?.find(p => p.id === id && p.resultReading?.quizSlug === quiz.slug && p.resultReading.profileId === id) ?? profile;
       return <section key={id} id={`love-type16-${id}`} data-love-profile={id} className="scroll-mt-24 rounded-lg border border-slate-200 p-4 sm:p-6">
         <h3 className="mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
+        <LoveTypeNeighborComparison quiz={quiz} id={id} locale={locale} />
         <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`love-type16-${id}`} mode="result" previewSectionIds={["meaning", "example", "reflection"]} />
-        <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "本组合的公开完整指南" : "This combination’s complete public guide"}</Link>
+        <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)} target="_blank" rel="noopener">{zh ? "本组合的公开完整指南" : "This combination’s complete public guide"}</Link>
       </section>;
     })}
     <details className="border-t border-slate-200 pt-3" data-result-reading-method>

@@ -1,3 +1,4 @@
+import { EightQuizOverview } from "./EightQuizOverview";
 import { sevenSinsGuideProfile } from "@/lib/questionnaires/sevenSinsGuideSeo";
 import { MoonPhaseComparison } from "./MoonPhaseComparison";
 import { BleachExamples } from "./BleachExamples";
@@ -1073,6 +1074,7 @@ return (quiz.references ?? []);
       <a href="#questionnaire-results" className="inline-flex min-h-11 items-center underline underline-offset-4">{zh ? "查看六位角色指南" : "Browse the six character guides"}</a>
     </div>}
     </ExploreTestIntro>
+    <EightQuizOverview quiz={quiz} locale={locale} />
     {slug === "moon-phase" && <MoonPhaseComparison locale={locale} />}
     {MoonPhaseExamples && <MoonPhaseExamples quiz={quiz} locale={locale} />}
     {slug === "bleach" && <BleachExamples quiz={quiz} locale={locale} />}

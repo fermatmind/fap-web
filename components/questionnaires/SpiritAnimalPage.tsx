@@ -1,3 +1,4 @@
+import { EightQuizOverview } from "./EightQuizOverview";
 import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import { Fragment } from "react";
 import Link from "next/link";
@@ -29,6 +30,7 @@ export function SpiritAnimalPage({ quiz, locale , take = false }: { quiz: Questi
       <div className="explore-intro-meta"><span>{zh ? "18题 · 约4分钟 · 无需注册" : "18 questions · About 4 minutes · No registration"}</span><span>{zh ? "九种动物比喻 · 完整结果免费" : "Nine animal metaphors · Full results free"}</span></div>
       <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     </ExploreTestIntro>
+    <EightQuizOverview quiz={quiz} locale={locale} />
     <section className="my-8 space-y-4 leading-8" aria-labelledby="spirit-animal-purpose"><h2 id="spirit-animal-purpose" className="text-2xl font-semibold">{spiritAnimalSections[0].title[locale]}</h2>{spiritAnimalSections[0].paragraphs.map((p, i) => <p key={i}><Copy text={p[locale]} /></p>)}<p>{quiz.introduction[locale]}</p></section>
     <section className="explore-reading-library" aria-labelledby="spirit-animal-methods"><h2 id="spirit-animal-methods">{zh ? "动物比喻的计分、解释与证据" : "Animal metaphor scoring, interpretation and evidence"}</h2><div className="explore-reading-sections">{[...spiritAnimalSections.slice(1), ...quiz.guide.map(s => ({ ...s, id: `source-${s.id}` }))].map(s => <section key={s.id} className="explore-reading-section" aria-labelledby={`spirit-animal-method-${s.id}`}><h3 id={`spirit-animal-method-${s.id}`}>{s.title[locale]}</h3><div>{s.paragraphs.map((p, i) => <p key={i}><Copy text={p[locale]} /></p>)}</div></section>)}</div></section>
     <section className="my-8" aria-labelledby="spirit-animal-library"><h2 id="spirit-animal-library" className="text-2xl font-semibold">{zh ? "九种动物：完整公开结果指南" : "Nine animals: complete public result guides"}</h2><p className="my-4 leading-8">{zh ? "每篇指南均可直接打开阅读全文，包括具体情境、可能帮助、取舍、相近结果比较和自愿的小尝试。公开指南不含私人答案或计数，动物之间没有优劣排名。" : "Open any guide for its full text: situations, possible contributions, tradeoffs, comparisons and an optional small experiment. Public guides contain no private answers or counts, and animals are not ranked by value."}</p><ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">{quiz.profiles.map(p => <li key={p.id} className="rounded-lg border bg-white p-4"><Link prefetch={false} className="inline-block min-h-11 py-2 font-semibold underline" href={questionnaireGuidePath(locale, quiz.slug, p.id)}>{p.title[locale]}</Link><p className="mt-2 leading-7">{spiritAnimalSummaries[p.id][locale]}</p></li>)}</ul></section>

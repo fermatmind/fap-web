@@ -652,24 +652,24 @@
     "en": "Compare seven Harry Potter character perspectives through choices about reading, tabletop games and clubs."
   },
   "hazbin-hotel-character-quiz": {
-    "zh": "在日常活动中比较《地狱客栈》六位角色的参与方式。非官方同人测试。",
-    "en": "Compare six Hazbin Hotel character perspectives through everyday activities. This is an unofficial fan quiz."
+    "zh": "你更接近哪位地狱客栈角色？18题比较六种参与角度，全部最高并列与指南免费。",
+    "en": "Which Hazbin Hotel character are you? Compare six perspectives through 18 choices, with all highest ties and full guides."
   },
   "health-worries-reflection": {
     "zh": "回顾近四周对身体感觉的留意、想追问的问题和对严重情况的担忧。结果按主题记录。",
     "en": "Reflect on attention to bodily sensations, questions and concerns about serious possibilities over the past four weeks. Responses are grouped by topic."
   },
   "hello-kitty": {
-    "zh": "通过欢迎新朋友、一起玩和分享消息的情境，对照七位三丽鸥角色的相处方式。",
-    "en": "Compare seven Sanrio character perspectives in scenes about meeting friends, playing together and sharing news."
+    "zh": "三丽鸥角色测试：21题比较Hello Kitty等七位朋友的相处方式，完整结果免费。",
+    "en": "Which Sanrio character are you? This Hello Kitty test compares seven friends through 21 choices, with free full results."
   },
   "hexaco": {
     "zh": "用早期 IPIP HEXACO 条目回顾六个人格领域。查看原始总分、均分及反向计分示例。",
     "en": "Use early IPIP HEXACO items to reflect on six personality domains. See raw totals, means and reverse-scoring examples."
   },
   "hogwarts-house-quiz": {
-    "zh": "把日常选择与四所霍格沃茨学院的主题对照。非官方同人测试，保留最高并列。",
-    "en": "Match everyday choices to themes from the four Hogwarts houses. This unofficial fan quiz shows all tied leaders."
+    "zh": "哈利波特分院测试：24题比较四所霍格沃茨学院，保留最高并列，完整指南免费。",
+    "en": "Harry Potter house quiz: 24 choices, four Hogwarts houses, every highest tie and free full guides."
   },
   "holding-yourself-back": {
     "zh": "回顾近四周七类日常阻碍，从情绪、注意、标准、行动和兴趣等方面理解具体经历。",
@@ -816,16 +816,16 @@
     "en": "Reflect separately on how often arguments escalate, how you call a pause, whether you return to the topic and how you check the repair."
   },
   "love-languages": {
-    "zh": "分别回看你怎样表达和接收关心。五种方式各有两项读数，并说明怎样处理缺答。",
-    "en": "Compare how you give and receive care. Each of five ways has separate scores, with notes on missing responses."
+    "zh": "五种爱的语言测试：50项分别观察表达与接收，比较互动例子和五份完整指南。",
+    "en": "Free love language quiz: 50 giving and receiving ratings, everyday examples and five complete guides."
   },
   "love-personality": {
     "zh": "比较表达、回应、个人空间与修复在关系选择中的侧重。结果保留最高并列。",
     "en": "Compare how much your relationship choices favor expression, responsiveness, space and repair. All top ties are shown."
   },
   "love-type-16": {
-    "zh": "比较四组亲密关系偏好，查看对应组合和完整并列。结果附计数示例。",
-    "en": "Compare four relationship preferences and explore the resulting combinations and ties. A scoring example is included."
+    "zh": "独立32题爱情类型测试：四轴、16种组合和全部精确并列，支持相邻代码比较。",
+    "en": "Independent Love Type 16 test: 32 choices, four pairs, all tied codes and neighboring-code comparisons."
   },
   "magic-shopkeeper": {
     "zh": "经营一间魔法小店。你会认真贴标签、借出魔法，还是给客人演示一个小奇迹？",
@@ -880,8 +880,8 @@
     "en": "Find your moon phase image in 24 questions. See every top match, your choice counts and eight full guides."
   },
   "moral-alignment": {
-    "zh": "在虚构情境中比较守序与混乱、善良与邪恶的选择，查看九宫格位置和边界结果。",
-    "en": "Explore law versus chaos and good versus evil in fictional scenarios. See your grid position and any boundary matches."
+    "zh": "DND道德阵营测试：24题、两轴与阵营九宫格，全部边界匹配和完整解读免费。",
+    "en": "DnD alignment quiz: 24 choices, two axes, a nine-alignment grid and every boundary match, with free full guides."
   },
   "moral-dilemma-test": {
     "zh": "从后果、原则、品格、关怀和公允五个角度看待日常两难。结果记录侧重，不评道德高低。",
@@ -1164,8 +1164,8 @@
     "en": "A good visit is winding down. End it clearly, remember a detail or leave a simple opening for next time."
   },
   "sbti-test": {
-    "zh": "通过情境选择获得一份 SBTI 趣味画像，并查看十五项模型读数。",
-    "en": "Answer scenario questions to get a playful SBTI profile and explore fifteen component readings."
+    "zh": "SBTI娱乐人格测试31题版：25幅画像、15项模型读数和完整免费解释。",
+    "en": "SBTI personality quiz: this 31-question edition offers 25 portraits, 15 readouts and free full guides."
   },
   "sdt-motivation": {
     "zh": "在同一生活领域回顾近四周的自主、胜任和联结体验，分别查看满足与受阻的读数。",
@@ -1288,8 +1288,8 @@
     "en": "Practice doubled consonants, vowels, letter order and endings in English context. Work untimed and review every answer."
   },
   "spirit-animal": {
-    "zh": "用狼、猫头鹰等九种动物作比喻，回看你在日常情境中的选择。保留最高并列。",
-    "en": "Use nine animal metaphors, from wolf to owl, to reflect on everyday choices. All tied leaders are shown."
+    "zh": "精神动物／灵兽测试：18题比较九种动物意象，保留最高并列和完整指南。",
+    "en": "What is my spirit animal? Compare nine animal metaphors in a free 18-question quiz with all highest ties."
   },
   "sql-test": {
     "zh": "根据给出的表结构和数据判断 SQL 查询结果。用 SQLite 3.53.4 核验，附逐题解析。",

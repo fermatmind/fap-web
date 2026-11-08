@@ -1,0 +1,277 @@
+{
+  "hogwarts-house-quiz": {
+    "heading": {
+      "zh": "四个学院，各自先看重什么？",
+      "en": "Four houses, four starting points"
+    },
+    "intro": {
+      "zh": "想做哈利波特分院测试或分院帽测试？这里是24题独立同人版，分院、人物匹配与守护神是不同玩法。",
+      "en": "Looking for a Harry Potter house quiz or a Sorting Hat quiz? This is an independent 24-question fan edition. House sorting, character matching and a Patronus quiz are separate experiences."
+    },
+    "labels": {
+      "gryffindor": {
+        "zh": "先迈出安全的一步",
+        "en": "Take a safe first step"
+      },
+      "hufflepuff": {
+        "zh": "公平分担，一起投入",
+        "en": "Share the effort fairly"
+      },
+      "ravenclaw": {
+        "zh": "追问原因，连接想法",
+        "en": "Ask why and connect ideas"
+      },
+      "slytherin": {
+        "zh": "明确目标，安排资源",
+        "en": "Set priorities and use resources"
+      }
+    },
+    "related": {
+      "slug": "harry-potter-character",
+      "text": {
+        "zh": "想看人物而非学院？另做哈利波特角色测试。",
+        "en": "Looking for a character rather than a house? Try the separate Harry Potter character quiz."
+      }
+    }
+  },
+  "hazbin-hotel-character-quiz": {
+    "heading": {
+      "zh": "六种参与角度，比较你的角色",
+      "en": "Six ways to take part: compare the characters"
+    },
+    "intro": {
+      "zh": "在这些日常情境里，你更接近哪位地狱客栈角色？18题角色测试比较六份非官方同人读法，角色知识问答另属一种玩法。",
+      "en": "Which Hazbin Hotel character are you in these everyday situations? This 18-question character quiz compares six unofficial fan readings; it is separate from a trivia quiz."
+    },
+    "labels": {
+      "charlie": {
+        "zh": "给人再尝试的空间",
+        "en": "Make room to try again"
+      },
+      "vaggie": {
+        "zh": "说清共同边界",
+        "en": "Clarify shared boundaries"
+      },
+      "alastor": {
+        "zh": "设计场合的呈现",
+        "en": "Shape the occasion’s presentation"
+      },
+      "angel-dust": {
+        "zh": "自愿加入一点俏皮",
+        "en": "Offer optional playfulness"
+      },
+      "husk": {
+        "zh": "直说实际条件",
+        "en": "State practical limits"
+      },
+      "niffty": {
+        "zh": "收好细小的尾项",
+        "en": "Finish the small loose ends"
+      }
+    }
+  },
+  "hello-kitty": {
+    "heading": {
+      "zh": "你是哪位三丽鸥朋友？",
+      "en": "Which Sanrio character are you?"
+    },
+    "intro": {
+      "zh": "Hello Kitty角色测试也是这七位三丽鸥朋友的相处方式小测验。比较21次日常选择与全部最高并列，再读每位角色的完整指南。",
+      "en": "This Hello Kitty test is a Sanrio character quiz featuring seven friends. Compare your 21 everyday choices and every highest tie, then explore each character’s full guide."
+    },
+    "labels": {
+      "hello-kitty": {
+        "zh": "为新朋友留位置",
+        "en": "Make room for new friends"
+      },
+      "my-melody": {
+        "zh": "一起做熟悉的小事",
+        "en": "Share a familiar activity"
+      },
+      "keroppi": {
+        "zh": "一起玩",
+        "en": "Turn time together into play"
+      },
+      "chococat": {
+        "zh": "留意新消息",
+        "en": "Notice updates"
+      },
+      "badtz-maru": {
+        "zh": "保留自己的趣味",
+        "en": "Keep your own sense of fun"
+      },
+      "cinnamoroll": {
+        "zh": "慢慢加入",
+        "en": "Join at your own pace"
+      },
+      "pompompurin": {
+        "zh": "从容相处",
+        "en": "Leave room to take it easy"
+      }
+    },
+    "related": {
+      "slug": "chiikawa",
+      "text": {
+        "zh": "也可探索吉伊卡哇角色测试，这是另一组角色与独立题本。",
+        "en": "You can also explore the Chiikawa character quiz, with a separate cast and question bank."
+      }
+    }
+  },
+  "spirit-animal": {
+    "heading": {
+      "zh": "九种动物，九个观察起点",
+      "en": "Nine animals, nine starting points"
+    },
+    "intro": {
+      "zh": "灵兽、精神图腾和精神动物在这里都指动物意象的自我观察。结果来自18题选择，不由生日或生肖决定，也不代表therian身份或任何族群的灵性传统。",
+      "en": "What is my spirit animal? Compare nine animal metaphors through this free 18-question quiz, then read the full meaning of each result. This is separate from a birthday calculator, therian identity or a Patronus quiz."
+    },
+    "labels": {
+      "wolf": {
+        "zh": "共同约定",
+        "en": "Shared commitments"
+      },
+      "owl": {
+        "zh": "核对依据",
+        "en": "Check evidence"
+      },
+      "fox": {
+        "zh": "寻找替代路线",
+        "en": "Find another route"
+      },
+      "lion": {
+        "zh": "明确下一步",
+        "en": "Name the next step"
+      },
+      "dolphin": {
+        "zh": "建立对话",
+        "en": "Start a connection"
+      },
+      "deer": {
+        "zh": "留意感受",
+        "en": "Notice feelings"
+      },
+      "bear": {
+        "zh": "安稳节奏",
+        "en": "A steady pace"
+      },
+      "eagle": {
+        "zh": "看整体目的",
+        "en": "See the wider purpose"
+      },
+      "otter": {
+        "zh": "自愿一起玩",
+        "en": "Share optional play"
+      }
+    },
+    "related": {
+      "slug": "mythical-creature",
+      "text": {
+        "zh": "想探索虚构生物意象？另做神话生物测试；它不是守护神测试。",
+        "en": "Explore imagined beings in the separate mythical creature quiz; it is not a Patronus quiz."
+      }
+    }
+  },
+  "love-languages": {
+    "heading": {
+      "zh": "表达和接收，可以不一样",
+      "en": "Giving and receiving can look different"
+    },
+    "intro": {
+      "zh": "这份免费的爱的语言测试分别呈现表达与接收，不强派主型。伴侣可以各自完成，再自愿讨论一个具体例子；这里没有双人配对分或关系预测。",
+      "en": "This free love language quiz shows giving and receiving separately. Couples can each complete the reflection and choose an example to discuss; it does not calculate a couple match or predict a relationship."
+    },
+    "labels": {},
+    "related": {
+      "slug": "love-type-16",
+      "text": {
+        "zh": "想比较恋爱互动偏好？独立Love Type 16版使用四轴代码，不换算爱的语言分数。",
+        "en": "Explore relationship interaction preferences in the separate Love Type 16 edition; its four-axis codes do not convert your love language ratings."
+      }
+    }
+  },
+  "love-type-16": {
+    "heading": {
+      "zh": "Love Type 16：本版四轴恋爱风格",
+      "en": "Love Type 16: this edition’s four preference pairs"
+    },
+    "intro": {
+      "zh": "这是费马独立32题爱情类型测试，提供16种代码组合与全部并列。它与日本原站的角色版、64型版不同；本版不会输出原站角色、MBTI类型或配对成功率。",
+      "en": "This is FermatMind’s independent 32-choice love type test, with 16 code combinations and all exact ties. It differs from the Japanese character edition and 64-type version; it does not assign their characters, MBTI types or couple success rates."
+    },
+    "labels": {},
+    "related": {
+      "slug": "love-languages",
+      "text": {
+        "zh": "想分别观察表达与接收关心？另做五种爱的语言双向自评，不转换本页代码。",
+        "en": "Explore giving and receiving care in the separate love language reflection; it does not convert the codes on this page."
+      }
+    }
+  },
+  "sbti-test": {
+    "heading": {
+      "zh": "31题、25画像：本版包含什么",
+      "en": "31 questions, 25 portraits: what this edition includes"
+    },
+    "intro": {
+      "zh": "本页SBTI娱乐人格测试使用固定31题、25幅画像与15项模型读数。不同站点的条件题、隐藏分支和27结果版本不能直接套用到本版；完整规则与全部画像均可阅读。",
+      "en": "This SBTI personality quiz uses a fixed 31-question edition with 25 portraits and 15 model readouts. Other sites’ conditional questions, hidden branches and 27-result editions are not interchangeable with this version. All portrait guides and this edition’s rules are available here."
+    },
+    "labels": {}
+  },
+  "moral-alignment": {
+    "heading": {
+      "zh": "九宫格阵营测试：先分清两条轴",
+      "en": "An alignment test with two separate axes"
+    },
+    "intro": {
+      "zh": "这份DND阵营测试用24次选择定位守序—混乱、善良—邪恶两轴。九宫格及全部边界结果都保留，九份完整指南可免费比较。它是虚构角色框架，与道德基础量表不同。",
+      "en": "This DnD alignment quiz uses 24 choices to locate law–chaos and good–evil separately. Compare all nine alignment meanings and every boundary match for free. This fictional character framework is separate from a moral foundations questionnaire."
+    },
+    "labels": {
+      "lawful-good": {
+        "zh": "用约定保护共同福祉",
+        "en": "Use agreements to protect shared welfare"
+      },
+      "neutral-good": {
+        "zh": "先看怎样帮助",
+        "en": "Start with what helps"
+      },
+      "chaotic-good": {
+        "zh": "为帮助保留行动弹性",
+        "en": "Keep flexibility for helping"
+      },
+      "lawful-neutral": {
+        "zh": "先遵循一致程序",
+        "en": "Start with consistent procedure"
+      },
+      "true-neutral": {
+        "zh": "在情境中保留取舍",
+        "en": "Keep the tradeoffs in view"
+      },
+      "chaotic-neutral": {
+        "zh": "保留自主调整空间",
+        "en": "Keep room to choose freely"
+      },
+      "lawful-evil": {
+        "zh": "让规则服务自身目标",
+        "en": "Use rules for personal aims"
+      },
+      "neutral-evil": {
+        "zh": "以自身收益为先",
+        "en": "Put personal gain first"
+      },
+      "chaotic-evil": {
+        "zh": "少受规则约束地追求自身目标",
+        "en": "Pursue personal aims with fewer constraints"
+      }
+    },
+    "related": {
+      "slug": "dungeons-dragons-class",
+      "text": {
+        "zh": "阵营与职业角色不同：也可探索独立的D&D职业角色测试。",
+        "en": "Alignment and party class are different: explore the separate D&D class quiz if you wish."
+      }
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import { EightQuizOverview } from "./EightQuizOverview";
 import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import { sbti31LandingSections, sbti31LandingFaq, sbti31LandingReferences } from "./Sbti31LandingEditorial";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
@@ -31,6 +32,7 @@ export function Sbti31Page({ quiz, locale , take = false }: { quiz: Sbti31Questi
     <div className="explore-intro-meta"><span>{zh ? "原31题 · 约6分钟 · 不计时 · 无需注册" : "31 original questions · About 6 minutes · Untimed · No signup"}</span><span>{zh ? "25种趣味画像 · 完整结果免费" : "25 playful portraits · Full results free"}</span></div>
     <QuestionnaireTakeEntry quiz={quiz} locale={locale} />
     </ExploreTestIntro>
+    <EightQuizOverview quiz={quiz} locale={locale} />
     <section className="my-8 space-y-4"><h2 className="text-2xl font-semibold">{sbti31LandingSections[0].title[locale]}</h2><p className="leading-8">{quiz.introduction[locale]}</p>{sbti31LandingSections[0].paragraphs.map((p,i)=><p className="leading-8" key={i}>{p[locale]}</p>)}</section>
     <Method quiz={quiz} locale={locale} /><GuideList quiz={quiz} locale={locale} />
     <section className="my-10 space-y-6"><h2 className="text-2xl font-semibold">{zh ? "常见问题" : "Frequently asked questions"}</h2>{[...quiz.faq, ...sbti31LandingFaq].map((f, i) => <section key={i}><h3 className="text-lg font-semibold">{f.question[locale]}</h3><p className="mt-2 leading-8">{f.answer[locale]}</p></section>)}</section>

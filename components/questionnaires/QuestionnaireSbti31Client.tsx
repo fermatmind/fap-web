@@ -1,4 +1,5 @@
 "use client";
+import { EightQuizPersonalCard } from "./EightQuizPersonalCard";
 import { QuestionnaireLegacyControl, useQuestionnaireTake } from "./QuestionnaireTakeContext";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
@@ -88,13 +89,14 @@ function ValidClient({ quiz, locale }: { quiz: Sbti31Questionnaire; locale: Loca
         </div>
         <Sbti31Portrait key={result.profileCode} code={result.profileCode} name={profile.headline[locale]} locale={locale} />
       </header>
+      <EightQuizPersonalCard quiz={quiz} result={result} locale={locale} />
       <div id="sbti31-readings" tabIndex={-1} className={styles.body}>
         <QuestionnaireResultReading quizSlug={quiz.slug} profile={{ ...profile, sections: profile.sections.filter(section => section.id !== "original-dimensions") }} locale={locale} headingLevel={3} idPrefix="sbti31-full" mode="result" showHeadline={false} showSummary={false} previewSectionIds={["original-portrait", "scene", "reflection"]} />
         <details ref={model} className={styles.model}>
           <summary id="sbti31-model" className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看15项模型读数与匹配说明" : "View all 15 model readouts and match details"}</summary>
           <Sbti31ModelReadouts quiz={quiz} profile={profile} result={result} locale={locale} />
         </details>
-        <div className="my-6 flex flex-wrap gap-4"><button type="button" className={button} onClick={copyGuide}>{zh ? "复制公开画像说明链接" : "Copy public portrait guide link"}</button><Link prefetch={false} className="min-h-12 py-3 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "打开公开指南" : "Open public guide"}</Link><button type="button" className={button} onClick={clear}>{zh ? "清除并重测31题" : "Clear and retake 31 questions"}</button></div>
+        <div className="my-6 flex flex-wrap gap-4"><button type="button" className={button} onClick={copyGuide}>{zh ? "复制公开画像说明链接" : "Copy public portrait guide link"}</button><Link prefetch={false} className="min-h-12 py-3 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)} target="_blank" rel="noopener">{zh ? "打开公开指南" : "Open public guide"}</Link><button type="button" className={button} onClick={clear}>{zh ? "清除并重测31题" : "Clear and retake 31 questions"}</button></div>
         <aside className="rounded-lg border p-4 leading-8"><p>{zh ? `可选下一步：独立MBTI偏好测评，默认${deep.questionCount}题约${deep.estimatedMinutes}分钟，短版${quick.questionCount}题约${quick.estimatedMinutes}分钟；不传送本页回答。完整SBTI结果已免费开放。` : `Optional next step: a separate MBTI preference assessment. The default ${deep.questionCount}-item form takes about ${deep.estimatedMinutes} minutes; the ${quick.questionCount}-item shorter form about ${quick.estimatedMinutes}. These answers are not transferred, and your full SBTI result is already free.`}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests/mbti-personality-test-16-personality-types`}>{zh ? "了解MBTI版本与边界" : "See MBTI versions and scope"}</Link></aside>
       </div>
     </div> : <p>{zh ? "结果暂不可用，请退出重做。" : "Result unavailable. Exit and start again."}</p>}

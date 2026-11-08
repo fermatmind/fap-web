@@ -1,3 +1,4 @@
+import { LoveLanguageExamples } from "./LoveLanguageExamples";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
@@ -24,11 +25,12 @@ export function QuestionnaireAffectionReport({ quiz, result, locale }: { quiz: Q
       </table></div>
       <p className="text-sm leading-7">{zh ? "可以同时重视五种方式，不强派主副型、不合成总分或配对分。两侧题目描述不同角色下的意义感，不相减为付出差距；均分不观察实际行为，也不代替对方此刻的意愿。" : "All five ways can matter. No primary or secondary type, overall total or compatibility score is assigned. The two sides describe meaningfulness in different roles, not an effort gap to subtract. Means observe no actual behaviour and never replace someone’s willingness in the moment."}</p>
     </section>
+    <LoveLanguageExamples locale={locale} />
     <p className="leading-8">{zh ? "以下五份完整说明分别包含表达、接收、例子、取舍、比较、反例、小尝试与使用范围。每份都可阅读，不因均分高低而隐藏。" : "All five complete guides follow, covering giving, receiving, examples, tradeoffs, comparisons, counterexamples, experiments and scope. Every guide is available regardless of its means."}</p>
     {quiz.profiles.map(profile => <section key={profile.id} data-affection-profile={profile.id} aria-labelledby={`affection-title-${profile.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
       <h3 id={`affection-title-${profile.id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
       <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} mode="result" previewSectionIds={["meaning", "everyday", "experiment"]} />
-      <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这种方式的公开说明" : "Read this way of caring’s public guide"}</Link>
+      <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)} target="_blank" rel="noopener">{zh ? "阅读这种方式的公开说明" : "Read this way of caring’s public guide"}</Link>
     </section>)}
   </div>;
 }
