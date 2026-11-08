@@ -11,9 +11,9 @@ export function traditionalPath(pathname: string): string | null {
   const prefix = pathname.split("/")[1];
   if (!normalizeDisplayLocale(prefix)) return null;
   const path = pathname.replace(/^\/(?:en|zh|zh-TW)(?=\/|$)/, "").replace(/\/$/, "");
-  // The CMS reader can return a genuine variant or a noindex 404. Keep this
-  // direct route separate from discovery/alternate links until publication.
-  if (prefix === "zh-TW" && path === "/about") return "/zh-TW/about";
+  // Published CMS pilot: available for language navigation, but not indexable.
+  // Keep it out of the sitemap list and reciprocal search alternates.
+  if (path === "/about") return "/zh-TW/about";
   return TRADITIONAL_PUBLIC_PATHS.includes(path) || path === `${TRADITIONAL_QUIZ_PATH}/take` || path === `${TRADITIONAL_SEVEN_SINS_PATH}/take` ? `/zh-TW${path}` : null;
 }
 export function traditionalEquivalent(pathname: string): string | null {

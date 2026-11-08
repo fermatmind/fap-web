@@ -465,7 +465,7 @@ export function SiteHeader({
                     {localeLabel}
                   </PublicNavigationLink>
                 )}
-                {disableLocaleSwitchLinks ? null : <PublicNavigationLink href={traditionalPath(pathname) ?? "/zh-TW/tests"} prefetch={false} onClick={handleMobileLinkClick} className="flex min-h-11 items-center rounded-lg border border-[var(--fm-border-soft)] px-3 py-2 text-sm font-semibold">{locale === "zh" ? "繁體中文（台灣） · 可用測評" : "Chinese (Traditional, Taiwan) · available quizzes"}</PublicNavigationLink>}
+                {disableLocaleSwitchLinks ? null : <PublicNavigationLink href={traditionalPath(pathname) ?? "/zh-TW/tests"} prefetch={false} onClick={handleMobileLinkClick} className="flex min-h-11 items-center rounded-lg border border-[var(--fm-border-soft)] px-3 py-2 text-sm font-semibold">{locale === "zh" ? "繁體中文（台灣）" : "Chinese (Traditional, Taiwan)"}{!traditionalPath(pathname) ? (locale === "zh" ? " · 可用測評" : " · available quizzes") : ""}</PublicNavigationLink>}
               </nav>
             </div>
 

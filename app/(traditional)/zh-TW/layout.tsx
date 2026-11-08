@@ -17,7 +17,8 @@ export default function TraditionalLayout({ children }: { children: React.ReactN
     </nav></header>
     <main className="mx-auto min-h-[70vh] max-w-4xl px-5 py-8 sm:py-12">{children}</main>
     <footer className="mx-auto max-w-4xl space-y-3 border-t border-slate-200 px-5 py-6 text-sm leading-7">
-      <p>目前繁體中文提供吉伊卡哇及七宗罪與七美德測試、結果與公開指南。其他內容請使用原語入口。</p>
+      <p>目前繁體中文提供關於費馬測試、吉伊卡哇及七宗罪與七美德測試、結果與公開指南。其他內容請使用原語入口。</p>
+      <Link href="/zh-TW/about" className="inline-flex min-h-11 items-center py-2 underline">關於費馬測試</Link>
       <nav aria-label="其他語言內容" className="flex flex-wrap gap-5"><Link href="/" lang="zh-CN" className="min-h-11 py-2 underline">简体中文全站</Link><Link href="/en" lang="en" className="min-h-11 py-2 underline">English website</Link></nav>
     </footer>
   </body></html>;

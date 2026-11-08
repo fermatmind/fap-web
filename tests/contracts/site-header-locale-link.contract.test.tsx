@@ -45,6 +45,16 @@ describe("SiteHeader locale link contract", () => {
     navigationState.pathname = "/zh/tests/enneagram-personality-test-nine-types/take";
   });
 
+  it.each(["zh", "en"] as const)("links the complete CMS About variant from %s desktop and mobile menus", async (locale) => {
+    navigationState.pathname = `/${locale}/about`;
+    render(<LocaleProvider locale={locale}><SiteHeader /></LocaleProvider>);
+    const label = locale === "zh" ? "繁體中文（台灣）" : "Chinese (Traditional, Taiwan)";
+    fireEvent.click(screen.getByRole("button", { name: locale === "zh" ? "语言菜单" : "Language menu" }));
+    expect(await screen.findByRole("menuitem", { name: label })).toHaveAttribute("href", "/zh-TW/about");
+    fireEvent.click(screen.getByRole("button", { name: locale === "zh" ? "菜单" : "Menu" }));
+    expect(screen.getByRole("link", { name: label })).toHaveAttribute("href", "/zh-TW/about");
+  });
+
   it("keeps expanded IQ mobile and desktop language menus fully English", async () => {
     navigationState.pathname = "/en/tests/iq-test-intelligence-quotient-assessment";
     const { container } = render(<LocaleProvider locale="en"><SiteHeader /></LocaleProvider>);
