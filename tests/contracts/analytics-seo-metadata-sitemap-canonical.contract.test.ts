@@ -66,8 +66,9 @@ describe("analytics SEO metadata sitemap canonical governance", () => {
     });
   });
 
-  it("keeps result, order, share, payment, and take routes noindex and out of sitemap", () => {
+  it("keeps email, result, order, share, payment, and take routes noindex and out of sitemap", () => {
     expect(PRIVATE_FLOW_ROUTE_EXCLUDES).toEqual([
+      "/email/*",
       "/account",
       "/account/*",
       "/result/*",
@@ -82,6 +83,12 @@ describe("analytics SEO metadata sitemap canonical governance", () => {
     ]);
 
     for (const sample of [
+      "/en/email/preferences",
+      "/zh/email/preferences",
+      "/zh-TW/email/preferences",
+      "/en/email/unsubscribe?token=fixture",
+      "/zh/email/unsubscribe?token=fixture",
+      "/zh-TW/email/unsubscribe?token=fixture",
       "/zh/account",
       "/en/account?section=reports",
       "/en/tests/explore/what-dog-breed-am-i/take",
