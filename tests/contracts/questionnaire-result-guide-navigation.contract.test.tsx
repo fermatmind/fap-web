@@ -61,8 +61,8 @@ describe("public guide navigation from an in-memory result", () => {
       if (result.status !== "complete") throw new Error("Expected a complete age result");
       verifyGuides(rootFor(renderToStaticMarkup(<MentalAgeClassicResult quiz={quiz} result={result} answers={answers} locale={locale} />)), locale, true);
     });
-    it(`${locale} opens the adult-age result guide after the real answering handler`, () => {
-      const quiz = load("adult-age-preferences");
+    it.each(["adult-age-preferences", "disc"])(`${locale} opens the %s result guide after the real answering handler`, slug => {
+      const quiz = load(slug);
       const { container } = render(<QuestionnaireRunner quiz={quiz} locale={locale} scoreQuestionnaire={scoreQuestionnaire} startOnEntry />);
       for (const question of quiz.questions) {
         const radio = container.querySelector<HTMLInputElement>(`input[name="${question.id}"][value="${question.options[0].id}"]`);

@@ -195,6 +195,7 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
   const disc = quiz.slug === "disc";
   const responseColor = quiz.slug === "response-color";
   const adultAgePreferences = quiz.slug === "adult-age-preferences";
+  const preserveResultOnGuideOpen = adultAgePreferences || disc;
   const directionReading = Object.hasOwn(directionPresentation, quiz.slug) ? directionPresentation[quiz.slug as keyof typeof directionPresentation] : undefined;
   const showDirectionCounts = Boolean(directionReading);
   const directionEyebrow = directionReading?.eyebrow[locale] ?? (zh ? "本题组内的选择结果" : "Choices in this question set");
@@ -245,7 +246,7 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
         <summary>{zh ? "查看各方向的原始选择次数" : "View the raw counts for every direction"}</summary>
         {directionCounts}
       </details>}
-      <Link prefetch={false} className="my-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)} target={adultAgePreferences ? "_blank" : undefined} rel={adultAgePreferences ? "noopener" : undefined}>{zh ? "阅读这项结果的公开说明" : "Read the public explanation of this result"}{adultAgePreferences && (zh ? "（新标签页）" : " (new tab)")}</Link>
+      <Link prefetch={false} className="my-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)} target={preserveResultOnGuideOpen ? "_blank" : undefined} rel={preserveResultOnGuideOpen ? "noopener" : undefined}>{zh ? "阅读这项结果的公开说明" : "Read the public explanation of this result"}{preserveResultOnGuideOpen && (zh ? "（新标签页）" : " (new tab)")}</Link>
       </>}
       <QuestionnaireResultSections {...reportProps} />
       {["hogwarts-house-quiz", "love-languages", "hazbin-hotel-character-quiz", "hello-kitty", "love-type-16", "spirit-animal", "moral-alignment"].includes(quiz.slug) && <EightQuizPersonalCard quiz={quiz} result={result} locale={locale} />}
