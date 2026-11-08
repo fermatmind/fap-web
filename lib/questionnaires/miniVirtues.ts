@@ -39,9 +39,9 @@ function scoringModel(source: Record<string, unknown>, version: unknown) {
     && source.formCode === "virtues_exploration_likert_28"
     && source.itemBankVersion === "0.1.0-preview" && source.scoringVersion === "0.1.0-preview"
     && source.resultContentVersion === "0.2.0-editorial-candidate") return "legacy";
-  if (version === "2.0.0" && source.kind === "fermatmind_original"
+  if ((version === "2.0.0" || version === "2.0.1") && source.kind === "fermatmind_original"
     && source.formCode === "virtues_dual_likert_28"
-    && source.itemBankVersion === "2.0.0" && source.scoringVersion === "2.0.0"
+    && source.itemBankVersion === version && source.scoringVersion === "2.0.0"
     && source.resultContentVersion === "2.0.0") return "dual";
 }
 

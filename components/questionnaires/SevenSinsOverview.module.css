@@ -152,6 +152,45 @@
   scroll-margin-top: 6rem;
 }
 .sample .chart { padding: 14px 4px 0; }
-.sample h2 { margin: 0; color: #f5e8ce; font-size: 18px; font-weight: 850; }
+.sample .chart h2 { margin: 0; color: #f5e8ce; font-size: 18px; font-weight: 850; }
 .sample .chartSubtitle { font-size: 12px; }
 .sample > p { margin: 8px 0 0; color: #526780; font-size: 14px; line-height: 1.55; }
+
+.phoneEnglishLabels { display: none; }
+@container (max-width: 819px) {
+  .standardEnglishLabels { display: none; }
+  .phoneEnglishLabels { display: inline; }
+  .phoneEnglishLabels .axisLabelEn { font-size: 16px; }
+  .phoneEnglishLabels .sinValue, .phoneEnglishLabels .virtueValue { font-size: 15px; }
+  .radar:lang(en) { margin-bottom: 18px; }
+}
+
+@media print {
+  /* Size containers can lose fragmented descendants in Chromium's paged layout. */
+  .frame { container-type: normal; }
+  .board { display: block; padding: 20px; break-inside: avoid; }
+  .board::before { inset: 10px; border-radius: 8px; }
+  .hero { padding-bottom: 12px; }
+  .eyebrow { margin-bottom: 10px; font-size: 11px; }
+  .frame .hero .title, .frame:lang(en) .hero .title { font-size: 26px; white-space: normal; }
+  .title span { padding: 3px 9px; border-radius: 6px; }
+  .lined { gap: 10px; }
+  .lined::before, .lined::after { width: 28px; }
+  .tagline { margin-top: 10px; font-size: 14px; }
+  .cards { gap: 12px; margin-top: 14px; }
+  .card { min-height: 140px; gap: 4px; padding: 12px 8px; border-radius: 10px; }
+  .cardLabel { margin-bottom: 4px; font-size: 14px; }
+  .cardEnglish { font-size: 11px; }
+  .cardName, .frame:lang(en) .cardName { font-size: 26px; }
+  .cardTies { font-size: 14px; }
+  .tieLabel { margin-bottom: 4px; font-size: 11px; }
+  .cardScore { font-size: 13px; }
+  .cardScore strong { font-size: 28px; }
+  .balance { gap: 0 8px; margin: 12px 0; font-size: 14px; }
+  .balance span + span::before { margin-right: 8px; }
+  .chart { padding: 12px 8px 4px; border-radius: 10px; box-shadow: none; }
+  .chart h3 { font-size: 20px; }
+  .chartSubtitle { margin: 6px 0; font-size: 12px; }
+  .radar { max-width: 350px; }
+  .readingsLink { display: none; }
+}

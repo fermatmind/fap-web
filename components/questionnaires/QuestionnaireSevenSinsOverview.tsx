@@ -9,6 +9,8 @@ const axisOrder = { sin: [2, 3, 5, 6, 1, 4, 0], virtue: [2, 4, 1, 6, 5, 3, 0] } 
 const tracks = ["sin", "virtue"] as const;
 const center = [180, 178] as const;
 const radius = 105;
+// Keep long English labels outside the plot at phone widths, with each score below its label.
+const phoneLabels = [[180, 25], [240, 55], [287, 93], [313, 139], [313, 211], [287, 257], [270, 303], [180, 330], [90, 303], [73, 257], [46, 211], [46, 139], [73, 93], [120, 55]] as const;
 
 function point(index: number, distance: number) {
   const angle = index * Math.PI / 7 - Math.PI / 2;
@@ -40,8 +42,8 @@ function Radar({ axes, locale, sample = false }: { axes: Axis[]; locale: Locale;
     <Heading id={headingId} className={styles.lined}>{sample ? (zh ? "结果示例" : "Sample result") : (zh ? "十四维人格雷达" : "14-Axis Personality Radar")}</Heading>
     <p className={styles.chartSubtitle}>{zh ? "红色七宗罪 · 金色七美德 · 双轨独立计分" : "Red: seven sins · Gold: seven virtues · Independent scores"}</p>
     <svg className={styles.radar} viewBox="0 0 360 344" role="img" aria-labelledby={headingId} aria-describedby={valuesId}>
-      <path d="M180 8 A170 170 0 0 1 180 348 Z" fill="#cab381" fillOpacity=".08" />
-      <path d="M180 8 A170 170 0 0 0 180 348 Z" fill="#9e333d" fillOpacity=".13" />
+      <path d="M180 8 A170 170 0 0 1 180 348 Z" fill="#9e333d" fillOpacity=".13" />
+      <path d="M180 8 A170 170 0 0 0 180 348 Z" fill="#cab381" fillOpacity=".08" />
       {[25, 50, 75, 100].map(value => <polygon key={value} points={axes.map((_, index) => point(index, radius * value / 100).join(",")).join(" ")} className={styles.grid} />)}
       {axes.map((axis, index) => {
         const [x, y] = point(index, radius);
@@ -59,11 +61,17 @@ function Radar({ axes, locale, sample = false }: { axes: Axis[]; locale: Locale;
         const [x, y] = point(index, 137);
         const [scoreX, scoreY] = point(index, 114);
         const anchor = index % 7 === 0 ? "middle" : index < 7 ? "start" : "end";
-        return <g key={axis.label.en}>
+        return <g key={axis.label.en} className={zh ? undefined : styles.standardEnglishLabels}>
           <text x={x} y={y} textAnchor={anchor} dominantBaseline="central" className={zh ? styles.axisLabel : styles.axisLabelEn}>{axis.label[locale]}</text>
           <text x={scoreX} y={scoreY} textAnchor={anchor} dominantBaseline="central" className={axis.track === "sin" ? styles.sinValue : styles.virtueValue} data-seven-sins-axis={axis.label.en}>{Math.round(axis.score)}</text>
         </g>;
       })}
+      {!zh && <g className={styles.phoneEnglishLabels} aria-hidden="true">
+        {axes.map((axis, index) => <g key={axis.label.en}>
+          <text x={phoneLabels[index][0]} y={phoneLabels[index][1]} textAnchor="middle" dominantBaseline="central" className={styles.axisLabelEn}>{axis.label.en}</text>
+          <text x={phoneLabels[index][0]} y={phoneLabels[index][1] + 22} textAnchor="middle" dominantBaseline="central" className={axis.track === "sin" ? styles.sinValue : styles.virtueValue} data-seven-sins-phone-axis={axis.label.en}>{Math.round(axis.score)}</text>
+        </g>)}
+      </g>}
     </svg>
     <p id={valuesId} className="sr-only">
       {axes.map(axis => `${axis.label[locale]} ${Math.round(axis.score)}/100`).join(zh ? "，" : ", ")}
@@ -101,9 +109,6 @@ export function QuestionnaireSevenSinsOverview({ result, locale, headingRef }: {
   const average = (items: Axis[]) => Math.round(items.reduce((sum, axis) => sum + axis.score, 0) / items.length);
   const sinAverage = average(sins);
   const virtueAverage = average(virtues);
-  const balance = virtueAverage === sinAverage ? (zh ? "双轨均值持平" : "The tracks are level")
-    : virtueAverage > sinAverage ? (zh ? "光辉略占上风" : "Light has the edge")
-      : (zh ? "暗影略占上风" : "Shadow has the edge");
   return <div className={styles.frame} data-seven-sins-board>
     <div className={styles.board}>
       <div className={styles.summary}>
@@ -119,7 +124,7 @@ export function QuestionnaireSevenSinsOverview({ result, locale, headingRef }: {
           <LeadingCard axes={virtues} locale={locale} />
         </div>
         <p className={styles.balance} data-seven-sins-balance>
-          <span>{balance}</span><span>{zh ? "美德均值" : "Virtue avg."} {virtueAverage}</span><span>{zh ? "罪均值" : "Sin avg."} {sinAverage}</span>
+          <span>{zh ? "美德题组均值" : "Virtue item average"} {virtueAverage}</span><span>{zh ? "七宗罪题组均值" : "Sin item average"} {sinAverage}</span>
         </p>
         <a className={styles.readingsLink} href="#seven-sins-readings">{zh ? "查看七组解读" : "Explore the seven readings"} <span aria-hidden="true">↓</span></a>
       </div>

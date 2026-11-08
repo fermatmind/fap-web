@@ -89,3 +89,11 @@
   .report[data-dual-readings] .readingIndex { position: sticky; top: 72px; }
 }
 @media (max-width: 480px) { .part { padding: 24px 0; } .partHeader { gap: 10px; } .partTitle { flex-basis: 100%; font-size: 23px; } .score { grid-template-columns: auto auto auto; column-gap: 8px; } .score strong { font-size: 22px; } .score small { grid-column: auto; } .summary { margin-top: 12px; } .chooser > span { font-size: 13px; } .action { padding-left: 14px; } }
+
+@media print {
+  .report[data-dual-readings] { display: block; }
+  .report[data-dual-readings] .readingIndex { display: none; }
+  .report[data-dual-readings] .details::details-content,
+  .report[data-dual-readings] .common::details-content { content-visibility: visible; }
+  .report[data-dual-readings] :is(h2, h3, h4) { break-after: avoid; }
+}

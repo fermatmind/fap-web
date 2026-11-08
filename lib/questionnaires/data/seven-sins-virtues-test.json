@@ -2,8 +2,8 @@
   "slug": "seven-sins-virtues-test",
   "code": "VIRTUES_EXPLORATION",
   "kind": "mini-virtues",
-  "version": "2.0.0",
-  "updated": "2026-11-05",
+  "version": "2.0.1",
+  "updated": "2026-11-08",
   "category": "metaphor",
   "title": {
     "en": "Seven Deadly Sins and Seven Virtues Test",
@@ -29,10 +29,10 @@
   "source": {
     "kind": "fermatmind_original",
     "formCode": "virtues_dual_likert_28",
-    "itemBankVersion": "2.0.0",
+    "itemBankVersion": "2.0.1",
     "scoringVersion": "2.0.0",
     "resultContentVersion": "2.0.0",
-    "itemBankSha256": "c44b67466fde14e23887937b06bd5d2d9790188546bfc6a397e3e1c8e9cb5ac9",
+    "itemBankSha256": "f4c3aa4d5b6b1a78d22cbaf003033a0770bedfc09af4ffd4f6152c8b1470f3b2",
     "resultContentSha256": "8583ac83ef18b69cb29562de6dd5525aad254c53dbb85de5a9991a2c19b974e6",
     "psychometricValidationCompleted": false
   },
@@ -374,7 +374,7 @@
       "id": "VIRTUES_DUAL_006",
       "prompt": {
         "en": "When I have something spare that another person needs, I offer to share it.",
-        "zh": "手头有闲置而别人正好需要的东西时，我愿意主动提出分享。"
+        "zh": "手头有闲置而别人正好需要的东西时，我会主动提出分享。"
       },
       "reverse": false,
       "options": [
@@ -429,7 +429,7 @@
       "id": "VIRTUES_DUAL_007",
       "prompt": {
         "en": "When an extra benefit is shared, I still want a larger share even if others have an equal claim.",
-        "zh": "分配额外好处时，即使别人也有份，我仍想让自己多拿一些。"
+        "zh": "分配额外好处时，即使别人也有同等的分配资格，我仍想让自己多拿一些。"
       },
       "reverse": false,
       "options": [
@@ -759,7 +759,7 @@
       "id": "VIRTUES_DUAL_013",
       "prompt": {
         "en": "When someone in a similar position gets an opportunity I wanted, I find it hard not to resent that they got it.",
-        "zh": "处境相近的人得到我想要的机会时，我很难不介意那个人得到了它。"
+        "zh": "处境相近的人得到我想要的机会时，我很难不因对方得到它而心生怨意。"
       },
       "reverse": false,
       "options": [

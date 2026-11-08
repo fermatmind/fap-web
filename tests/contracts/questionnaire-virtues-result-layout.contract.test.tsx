@@ -41,6 +41,28 @@ describe("seven sins and virtues dual-track result", () => {
     expect(scoreMiniVirtuesQuestionnaire(quiz, { ...neutral, VIRTUES_LK_001: "3" }).status).toBe("invalid");
   });
 
+  it("binds the three approved Chinese wording corrections without changing the scoring edition", () => {
+    expect(source.version).toBe("2.0.1");
+    expect(source.source.itemBankVersion).toBe("2.0.1");
+    expect(source.source.scoringVersion).toBe("2.0.0");
+    expect(source.questions[5].prompt).toEqual({ en: "When I have something spare that another person needs, I offer to share it.", zh: "手头有闲置而别人正好需要的东西时，我会主动提出分享。" });
+    expect(source.questions[6].prompt.zh).toBe("分配额外好处时，即使别人也有同等的分配资格，我仍想让自己多拿一些。");
+    expect(source.questions[12].prompt.zh).toBe("处境相近的人得到我想要的机会时，我很难不因对方得到它而心生怨意。");
+  });
+
+  it.each(["zh", "en"] as const)("reports only numeric %s averages at equal and extreme track scores", locale => {
+    for (const [sin, virtue] of [[1, 5], [3, 3], [5, 1]]) {
+      const result = scoreMiniVirtuesQuestionnaire(quiz, Object.fromEntries(quiz.questions.map((question, index) => [question.id, String(index % 2 ? virtue : sin)])));
+      if (result.status !== "complete" || result.model !== "dual") throw Error("Dual-track result required");
+      const dom = document.createElement("div");
+      dom.innerHTML = renderToStaticMarkup(<QuestionnaireSevenSinsOverview result={result} locale={locale} headingRef={null} />);
+      expect(dom.querySelector("[data-seven-sins-balance]")?.textContent).toBe(locale === "zh"
+        ? `美德题组均值 ${(virtue - 1) * 25}七宗罪题组均值 ${(sin - 1) * 25}`
+        : `Virtue item average ${(virtue - 1) * 25}Sin item average ${(sin - 1) * 25}`);
+      expect(dom.querySelector("[data-seven-sins-balance]")?.textContent).not.toMatch(/占上风|edge|level/);
+    }
+  });
+
   it("retains every joint leader when both tracks tie", () => {
     const result = scoreMiniVirtuesQuestionnaire(quiz, Object.fromEntries(quiz.questions.map(question => [question.id, "3"])));
     if (result.status !== "complete" || result.model !== "dual") throw Error("Dual-track result required");
@@ -48,7 +70,7 @@ describe("seven sins and virtues dual-track result", () => {
     dom.innerHTML = renderToStaticMarkup(<QuestionnaireSevenSinsOverview result={result} locale="zh" headingRef={null} />);
     expect(dom.querySelector('[data-seven-sins-leader="sin"]')?.textContent).toContain("并列色欲、嫉妒、暴怒、懒惰、贪婪、暴食、傲慢");
     expect(dom.querySelector('[data-seven-sins-leader="virtue"]')?.textContent).toContain("并列贞洁、节制、慷慨、勤勉、耐心、仁爱、谦卑");
-    expect(dom.querySelector("[data-seven-sins-balance]")?.textContent).toContain("双轨均值持平");
+    expect(dom.querySelector("[data-seven-sins-balance]")?.textContent).toBe("美德题组均值 50七宗罪题组均值 50");
   });
   it.each(["zh", "en"] as const)("shows the %s leaders, averages, fourteen real axis values and seven full readings", locale => {
     const result = scoreMiniVirtuesQuestionnaire(quiz, answers);
@@ -83,7 +105,7 @@ describe("seven sins and virtues dual-track result", () => {
     }
     expect(dom.querySelector('[data-seven-sins-leader="sin"]')?.textContent).toContain(locale === "zh" ? "贪婪" : "Greed");
     expect(dom.querySelector('[data-seven-sins-leader="virtue"]')?.textContent).toContain(locale === "zh" ? "谦卑" : "Humility");
-    expect(dom.querySelector("[data-seven-sins-balance]")?.textContent).toContain(locale === "zh" ? "美德均值 70罪均值 57" : "Virtue avg. 70Sin avg. 57");
+    expect(dom.querySelector("[data-seven-sins-balance]")?.textContent).toContain(locale === "zh" ? "美德题组均值 70七宗罪题组均值 57" : "Virtue item average 70Sin item average 57");
     const chart = dom.querySelector("[data-seven-sins-radar]")!;
     expect(chart.closest("details")).toBeNull();
     expect([...chart.querySelectorAll("[data-seven-sins-axis]")].map(node => node.textContent)).toEqual(["63", "63", "63", "50", "75", "50", "38", "75", "75", "75", "63", "63", "50", "88"]);
