@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { traditionalQuiz as quiz, traditionalUi as ui } from "@/lib/i18n/zh-TW/chiikawa";
-import { traditionalPath, traditionalEquivalent, TRADITIONAL_QUIZ_PATH } from "@/lib/i18n/traditionalRoutes";
+import { traditionalPath, traditionalEquivalent, TRADITIONAL_QUIZ_PATH, TRADITIONAL_SEVEN_SINS_PATH } from "@/lib/i18n/traditionalRoutes";
 import { SITE_URL } from "@/lib/site";
 import { ChiikawaReading } from "@/components/i18n/zh-TW/ChiikawaReading";
 import { ChiikawaTake } from "@/components/i18n/zh-TW/ChiikawaTake";
@@ -18,6 +17,11 @@ async function route(props: Props) {
 }
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const path = await route(props);
+  if (path.startsWith(`/zh-TW${TRADITIONAL_SEVEN_SINS_PATH}`)) {
+    const { sevenSinsTraditionalMetadata } = await import("@/components/i18n/zh-TW/SevenSinsPage");
+    return sevenSinsTraditionalMetadata(path);
+  }
+  const { traditionalQuiz: quiz, traditionalUi: ui } = await import("@/lib/i18n/zh-TW/chiikawa");
   const profile = quiz.profiles.find(profile => path === `${entry}/results/${profile.id}`);
   const equivalent = traditionalEquivalent(path);
   const title = profile?.seo?.title["zh-TW"] ?? (profile ? profile.title["zh-TW"] : path.startsWith(entry) ? quiz.seoTitle["zh-TW"] : ui.hub["zh-TW"]);
@@ -32,10 +36,16 @@ function Languages({ path }: { path: string }) {
 }
 export default async function TraditionalPage(props: Props) {
   const path = await route(props);
+  if (path.startsWith(`/zh-TW${TRADITIONAL_SEVEN_SINS_PATH}`)) {
+    const { SevenSinsTraditionalPage } = await import("@/components/i18n/zh-TW/SevenSinsPage");
+    return <SevenSinsTraditionalPage path={path} />;
+  }
+  const { traditionalQuiz: quiz, traditionalUi: ui } = await import("@/lib/i18n/zh-TW/chiikawa");
   if (path.endsWith("/take")) return <ChiikawaTake />;
   const profile = quiz.profiles.find(profile => path === `${entry}/results/${profile.id}`);
   if (profile) return <div className="space-y-6"><Languages path={path} /><p>{ui.public["zh-TW"]}</p><ChiikawaReading profile={profile} level={1} /><Link href={entry} className="inline-block min-h-11 py-2 underline">{ui.return["zh-TW"]}</Link><Link href={`${entry}/take`} className="ml-5 inline-block min-h-11 py-2 underline">{ui.start["zh-TW"]}</Link></div>;
-  if (path !== entry) return <div className="space-y-6"><h1 className="text-3xl font-bold">{ui.hub["zh-TW"]}</h1><p className="leading-8">{ui.available["zh-TW"]}</p><Link href={entry} className="block rounded-2xl border border-slate-200 bg-white p-6"><h2 className="text-2xl font-bold underline">{quiz.title["zh-TW"]}</h2><p className="mt-4 leading-8">{quiz.description["zh-TW"]}</p><p className="mt-3">18 題 · 約 {quiz.minutes} 分鐘 · 免費 · 無需註冊</p></Link></div>;
+  const seven = path === "/zh-TW" || path === "/zh-TW/tests" ? (await import("@/lib/i18n/zh-TW/sevenSins")).traditionalSevenSins : null;
+  if (path !== entry) return <div className="space-y-6"><h1 className="text-3xl font-bold">{ui.hub["zh-TW"]}</h1><p className="leading-8">{ui.available["zh-TW"]}</p><Link href={entry} className="block rounded-2xl border border-slate-200 bg-white p-6"><h2 className="text-2xl font-bold underline">{quiz.title["zh-TW"]}</h2><p className="mt-4 leading-8">{quiz.description["zh-TW"]}</p><p className="mt-3">18 題 · 約 {quiz.minutes} 分鐘 · 免費 · 無需註冊</p></Link>{seven && <Link href={`/zh-TW${TRADITIONAL_SEVEN_SINS_PATH}`} className="block rounded-2xl border border-slate-200 bg-white p-6"><h2 className="text-2xl font-bold underline">{seven.title["zh-TW"]}</h2><p className="mt-4 leading-8">{seven.description["zh-TW"]}</p></Link>}</div>;
   return <div className="space-y-8"><Languages path={path} /><h1 className="text-3xl font-bold sm:text-4xl">{quiz.title["zh-TW"]}</h1><p className="text-lg leading-8">{quiz.description["zh-TW"]}</p><p className="whitespace-pre-line leading-8">{quiz.introduction["zh-TW"]}</p><Link href={`${entry}/take`} className="inline-block min-h-11 rounded-full bg-slate-900 px-7 py-3 font-semibold text-white">{ui.start["zh-TW"]}</Link>
     <p className="whitespace-pre-line leading-8">{quiz.instructions!["zh-TW"]}</p>
     {quiz.guide.map(section => <section key={section.id} className="space-y-3"><h2 className="text-2xl font-semibold">{section.title["zh-TW"]}</h2>{section.paragraphs.map((text, index) => <p key={index} className="whitespace-pre-line leading-8">{text["zh-TW"]}</p>)}</section>)}

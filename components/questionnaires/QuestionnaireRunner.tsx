@@ -42,6 +42,8 @@ const directionPresentation = {
   "adult-age-preferences": { eyebrow: { zh: "本次选择", en: "Your choices" }, previews: ["fictional-example", "optional-step"] },
 };
 
+const SevenSinsPersonalCard = questionnaireModule<Omit<import("./SevenSinsPersonalCard").SevenSinsPersonalCardProps, "locale"> & { locale: Locale }>(() => import("./SevenSinsPersonalCard").then(module => ({ default: module.SevenSinsPersonalCard })));
+
 const QuestionnaireResultSections = questionnaireModule<import("./QuestionnaireReports").QuestionnaireReportProps>(() => import("./QuestionnaireReports").then(module => ({ default: module.QuestionnaireResultSections })));
 
 const draftEvent = "fm-questionnaire-draft";
@@ -246,6 +248,7 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
           ? (zh ? "分享会复制角色名和公开指南链接，不包含答卷或次数。" : "Sharing copies the character name and public guide link, without your answers or counts.")
           : (zh ? "分享会复制全部并列角色的名称和测试入口，不包含答卷或次数。" : "Sharing copies all tied character names and the quiz link, without your answers or counts.")}
       </p>}
+      {miniVirtues?.model === "dual" && <SevenSinsPersonalCard result={miniVirtues} locale={locale} formCode={quiz.source.formCode} />}
       <div data-mini-virtues-actions={miniVirtues ? "true" : undefined} className={miniVirtues ? "flex flex-wrap gap-3" : resultStyles.runnerActions}><button className={button} onClick={copy}>{quiz.slug === "hsp-sensitivity-quiz" || adexi14 || ptq15 || miniFriction || interactionPairs || extraversionUnscored || affection || attachment || distributedWork || workRole || skillsEvidence || quiz.slug === "work-traits-reflection" || quiz.slug === "work-activity-interests" || quiz.slug === "interpersonal-preferences" || quiz.slug === "everyday-control-style" || loveType16 || mentalAge || quiz.kind === "fds32" || quiz.slug === "energy-flow" || quiz.slug === "cognitive-functions-test" || quiz.slug === "cultural-dimensions" || quiz.slug === "food-choice" || quiz.slug === "values-assessment" || quiz.slug === "eq-dashboard" || miniVirtues || quiz.slug === "euphoria-character-quiz" ? (zh ? "复制公开入口" : "Copy public entry") : preparationActions20 ? (zh ? "复制五份公开指南链接" : "Copy five public guide links") : (zh ? "复制结果与链接" : "Copy result and link")}</button><button className={button} onClick={() => start()}>{zh ? "重新测试" : "Retake test"}</button></div>
       {adultAgePreferences && <Link prefetch={false} className="mt-3 inline-flex min-h-11 items-center underline underline-offset-4" href={questionnairePath(locale, quiz.slug)}>{zh ? "返回测试介绍" : "Back to quiz introduction"}</Link>}
       {manualCopy && <textarea readOnly aria-label={zh ? "手动复制结果" : "Result text for manual copying"} value={manualCopy} onFocus={e => e.target.select()} className="mt-4 min-h-40 w-full rounded border p-3" />}

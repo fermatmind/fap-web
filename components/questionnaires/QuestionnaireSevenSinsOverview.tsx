@@ -1,5 +1,6 @@
 import type { Ref } from "react";
-import type { Locale } from "@/lib/i18n/locales";
+import { sevenSinsDisplay } from "@/lib/i18n/zh-TW/sevenSinsUi";
+import type { DisplayLocale as Locale } from "@/lib/i18n/locales";
 import { miniVirtuesDefinitions, type MiniVirtuesDualResult } from "@/lib/questionnaires/miniVirtues";
 import styles from "./SevenSinsOverview.module.css";
 
@@ -18,29 +19,29 @@ function point(index: number, distance: number) {
 }
 
 function LeadingCard({ axes, locale }: { axes: Axis[]; locale: Locale }) {
-  const zh = locale === "zh";
+  const zh = locale !== "en";
   const sin = axes[0].track === "sin";
   const highest = Math.max(...axes.map(axis => axis.score));
   const leaders = axes.filter(axis => axis.score === highest);
   return <div className={styles.card} data-seven-sins-leader={axes[0].track}>
-    <p className={styles.cardLabel}>{sin ? (zh ? "七宗罪之首" : "Leading sin") : (zh ? "七美德之首" : "Leading virtue")}</p>
+    <p className={styles.cardLabel}>{sin ? (zh ? sevenSinsDisplay("七宗罪之首", locale) : "Leading sin") : (zh ? sevenSinsDisplay("七美德之首", locale) : "Leading virtue")}</p>
     {zh && leaders.length === 1 && <p className={styles.cardEnglish}>{leaders[0].label.en}</p>}
     <p className={leaders.length === 1 ? styles.cardName : styles.cardTies}>
-      {leaders.length > 1 && <span className={styles.tieLabel}>{zh ? "并列" : "Joint leaders"}</span>}
-      {leaders.map(axis => axis.label[locale]).join(zh ? "、" : ", ")}
+      {leaders.length > 1 && <span className={styles.tieLabel}>{zh ? sevenSinsDisplay("并列", locale) : "Joint leaders"}</span>}
+      {leaders.map(axis => sevenSinsDisplay(axis.label[locale === "en" ? "en" : "zh"], locale)).join(zh ? "、" : ", ")}
     </p>
     <p className={styles.cardScore}><strong>{Math.round(highest)}</strong><span> / 100</span></p>
   </div>;
 }
 
 function Radar({ axes, locale, sample = false }: { axes: Axis[]; locale: Locale; sample?: boolean }) {
-  const zh = locale === "zh";
+  const zh = locale !== "en";
   const headingId = sample ? "seven-sins-sample-heading" : "seven-sins-radar-heading";
   const valuesId = sample ? "seven-sins-sample-values" : "seven-sins-radar-values";
   const Heading = sample ? "h2" : "h3";
   return <section className={styles.chart} data-seven-sins-radar aria-labelledby={headingId}>
-    <Heading id={headingId} className={styles.lined}>{sample ? (zh ? "结果示例" : "Sample result") : (zh ? "十四维人格雷达" : "14-Axis Personality Radar")}</Heading>
-    <p className={styles.chartSubtitle}>{zh ? "红色七宗罪 · 金色七美德 · 双轨独立计分" : "Red: seven sins · Gold: seven virtues · Independent scores"}</p>
+    <Heading id={headingId} className={styles.lined}>{sample ? (zh ? sevenSinsDisplay("结果示例", locale) : "Sample result") : (locale === "zh-TW" ? "本次14項作答結果" : zh ? "十四维人格雷达" : "14-Axis Personality Radar")}</Heading>
+    <p className={styles.chartSubtitle}>{zh ? sevenSinsDisplay("红色七宗罪 · 金色七美德 · 双轨独立计分", locale) : "Red: seven sins · Gold: seven virtues · Independent scores"}</p>
     <svg className={styles.radar} viewBox="0 0 360 344" role="img" aria-labelledby={headingId} aria-describedby={valuesId}>
       <path d="M180 8 A170 170 0 0 1 180 348 Z" fill="#9e333d" fillOpacity=".13" />
       <path d="M180 8 A170 170 0 0 0 180 348 Z" fill="#cab381" fillOpacity=".08" />
@@ -62,7 +63,7 @@ function Radar({ axes, locale, sample = false }: { axes: Axis[]; locale: Locale;
         const [scoreX, scoreY] = point(index, 114);
         const anchor = index % 7 === 0 ? "middle" : index < 7 ? "start" : "end";
         return <g key={axis.label.en} className={zh ? undefined : styles.standardEnglishLabels}>
-          <text x={x} y={y} textAnchor={anchor} dominantBaseline="central" className={zh ? styles.axisLabel : styles.axisLabelEn}>{axis.label[locale]}</text>
+          <text x={x} y={y} textAnchor={anchor} dominantBaseline="central" className={zh ? styles.axisLabel : styles.axisLabelEn}>{sevenSinsDisplay(axis.label[locale === "en" ? "en" : "zh"], locale)}</text>
           <text x={scoreX} y={scoreY} textAnchor={anchor} dominantBaseline="central" className={axis.track === "sin" ? styles.sinValue : styles.virtueValue} data-seven-sins-axis={axis.label.en}>{Math.round(axis.score)}</text>
         </g>;
       })}
@@ -74,7 +75,7 @@ function Radar({ axes, locale, sample = false }: { axes: Axis[]; locale: Locale;
       </g>}
     </svg>
     <p id={valuesId} className="sr-only">
-      {axes.map(axis => `${axis.label[locale]} ${Math.round(axis.score)}/100`).join(zh ? "，" : ", ")}
+      {axes.map(axis => `${sevenSinsDisplay(axis.label[locale === "en" ? "en" : "zh"], locale)} ${Math.round(axis.score)}/100`).join(zh ? "，" : ", ")}
     </p>
   </section>;
 }
@@ -92,8 +93,8 @@ export function QuestionnaireSevenSinsSample({ result, locale }: { result: MiniV
   const anger = result.miniVirtues.find(part => part.id === "ANGER_PATIENCE")!;
   return <div id="seven-sins-sample" className={`${styles.frame} ${styles.sample}`} tabIndex={-1}>
     <Radar axes={axes} locale={locale} sample />
-    <p>{locale === "zh"
-      ? `这份虚构答卷中，暴怒和耐心各得 ${anger.sin} 分。两项来自不同题目，因此可以同时较高。`
+    <p>{locale !== "en"
+      ? sevenSinsDisplay("这份虚构答卷中，暴怒和耐心各得 {score} 分。两项来自不同题目，因此可以同时较高。", locale).replace("{score}", String(anger.sin))
       : `In this fictional response, Wrath and Patience each score ${anger.sin}. They use different questions, so both can be high.`}</p>
   </div>;
 }
@@ -103,7 +104,7 @@ export function QuestionnaireSevenSinsOverview({ result, locale, headingRef }: {
   locale: Locale;
   headingRef: Ref<HTMLHeadingElement>;
 }) {
-  const zh = locale === "zh";
+  const zh = locale !== "en";
   const sins = resultAxes(result, "sin");
   const virtues = resultAxes(result, "virtue");
   const average = (items: Axis[]) => Math.round(items.reduce((sum, axis) => sum + axis.score, 0) / items.length);
@@ -115,18 +116,18 @@ export function QuestionnaireSevenSinsOverview({ result, locale, headingRef }: {
         <header className={styles.hero}>
           <p className={styles.eyebrow}>Seven Sins vs Seven Virtues</p>
           <h2 ref={headingRef} tabIndex={-1} className={styles.title}>
-            {zh ? "你的" : "Your"} <span>{zh ? "七宗罪 VS 七美德" : "Seven Sins vs Seven Virtues"}</span> {zh ? "结果" : "Results"}
+            {zh ? sevenSinsDisplay("你的", locale) : "Your"} <span>{zh ? sevenSinsDisplay("七宗罪 VS 七美德", locale) : "Seven Sins vs Seven Virtues"}</span> {zh ? sevenSinsDisplay("结果", locale) : "Results"}
           </h2>
-          <p className={`${styles.lined} ${styles.tagline}`}>{zh ? "左侧暗影牵引 · 右侧光辉托举" : "Shadow pulls · Light lifts"}</p>
+          <p className={`${styles.lined} ${styles.tagline}`}>{locale === "zh-TW" ? "左側七美德 · 右側七宗罪" : zh ? "左侧暗影牵引 · 右侧光辉托举" : "Shadow pulls · Light lifts"}</p>
         </header>
         <div className={styles.cards}>
           <LeadingCard axes={sins} locale={locale} />
           <LeadingCard axes={virtues} locale={locale} />
         </div>
         <p className={styles.balance} data-seven-sins-balance>
-          <span>{zh ? "美德题组均值" : "Virtue item average"} {virtueAverage}</span><span>{zh ? "七宗罪题组均值" : "Sin item average"} {sinAverage}</span>
+          <span>{zh ? sevenSinsDisplay("美德题组均值", locale) : "Virtue item average"} {virtueAverage}</span><span>{zh ? sevenSinsDisplay("七宗罪题组均值", locale) : "Sin item average"} {sinAverage}</span>
         </p>
-        <a className={styles.readingsLink} href="#seven-sins-readings">{zh ? "查看七组解读" : "Explore the seven readings"} <span aria-hidden="true">↓</span></a>
+        <a className={styles.readingsLink} href="#seven-sins-readings">{zh ? sevenSinsDisplay("查看七组解读", locale) : "Explore the seven readings"} <span aria-hidden="true">↓</span></a>
       </div>
       <Radar axes={[...sins, ...virtues]} locale={locale} />
     </div>

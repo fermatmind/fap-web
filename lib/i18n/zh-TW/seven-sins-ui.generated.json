@@ -1,0 +1,206 @@
+{
+  "targetLocale": "zh-TW",
+  "converter": "opencc-js@1.4.2:cn:twp",
+  "glossary": "fermatmind-tw-1",
+  "sourceHashes": {
+    "lib/i18n/zh-TW/seven-sins-ui.source.json": "fcd9930cf2df63730b23ee48b9cb92df49f5617d6af615f0521330a2a0433422"
+  },
+  "units": {
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/七宗罪之首": {
+      "sourceHash": "67c0c18d31814e8a39cdfb024cd78fff6603d6bc46ab912358b59a22dd69fb76",
+      "text": "七宗罪之首"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/七美德之首": {
+      "sourceHash": "882e621209b3fa510194a498a9f50089a2d310c259d1825273ab9bcbfe124092",
+      "text": "七美德之首"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/并列": {
+      "sourceHash": "1fcf81eea0f08602fcbba92849e7dc6f907d52eaec407522baa4b7c9bf9bb1fb",
+      "text": "並列"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/结果示例": {
+      "sourceHash": "ca79926aa9f91d074a192a020fff7e6247f132285048459bb90a11481a5d6782",
+      "text": "結果示例"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/十四维人格雷达": {
+      "sourceHash": "7f668a5506c67e9489117665f34419bfa27d4df4af149b10ab1c19a2f18c93b7",
+      "text": "十四維人格雷達"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/红色七宗罪 · 金色七美德 · 双轨独立计分": {
+      "sourceHash": "c1d486aa9032604caeceb9794ede764fa42a16fa1fcdb23e433a0b260765b785",
+      "text": "紅色七宗罪 · 金色七美德 · 雙軌獨立計分"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/这份虚构答卷中，暴怒和耐心各得 {score} 分。两项来自不同题目，因此可以同时较高。": {
+      "sourceHash": "62de8ab9d92d79c4c0a505fe469bc69e8f8b435594726f924bb6f0d0d28bafb8",
+      "text": "這份虛構答卷中，暴怒和耐心各得 {score} 分。兩項來自不同題目，因此可以同時較高。"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/你的": {
+      "sourceHash": "74c9115db382324ccef1f39c1fb7100b37d94f3d478530bc70aba332166e270d",
+      "text": "你的"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/七宗罪 VS 七美德": {
+      "sourceHash": "ef2d6bdc2d81ce4134a2b76f3b06fe493600ccafb7776b9896cc3e3840f4e064",
+      "text": "七宗罪 VS 七美德"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/结果": {
+      "sourceHash": "8d8827c0f010d59504b635421f1b46577ad943091e8375b5194685ccec700d17",
+      "text": "結果"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/左侧暗影牵引 · 右侧光辉托举": {
+      "sourceHash": "41a396a5aa6d5dd18f55ee900f2a677aaa3cdfc7a5a3152233f3392e71e6666e",
+      "text": "左側暗影牽引 · 右側光輝托舉"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/美德题组均值": {
+      "sourceHash": "7d5d2709151d09c9023f1b5930ae8710d93dc91b66692bff73f50798fc50bc7a",
+      "text": "美德題組均值"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/七宗罪题组均值": {
+      "sourceHash": "1526709cb3d6a84fe34c5c40a240e6430b548617e234e3939572c2beeff6b3d5",
+      "text": "七宗罪題組均值"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/查看七组解读": {
+      "sourceHash": "c16b91d902659263fb44dae847c7715098b780f667aed1ef49a3a077cb83e484",
+      "text": "檢視七組解讀"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/费马测试 · 本次作答结果": {
+      "sourceHash": "ca497bec6dfeefb5a9d203c8fe69919174716c23be6714daa389ed75acb19242",
+      "text": "費馬測試 · 本次作答結果"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/我的七宗罪与七美德": {
+      "sourceHash": "b5e166a5ab9c6d13e238f4939c56d7f48dc9b6b62506fabf69b2005ec190d1a8",
+      "text": "我的七宗罪與七美德"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/14项分别计分": {
+      "sourceHash": "d9748da6aff3fb2bf0ce44f055add02e59528d7c5fae3cef8ca9e4abf7e2d7c4",
+      "text": "14項分別計分"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/七美德": {
+      "sourceHash": "dc33994428a2cc081f906242e5646a7f5f8ed3e8a777f67b5962d66ae3abf435",
+      "text": "七美德"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/七宗罪": {
+      "sourceHash": "b0283018bfc347f40320591460b53014bcd6f943cf0af04a49d516e9199af72f",
+      "text": "七宗罪"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/★ 标出各侧全部最高项，包含并列。": {
+      "sourceHash": "09c906fb1e9bb43b6ef3207a5831cc2af1f1ed86cfa98818e3b10361022caad2",
+      "text": "★ 標出各側全部最高項，包含並列。"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/每项来自两道题，罪与美德可以同时较高。": {
+      "sourceHash": "8dd69a7a166d8e4da372708cb9142f0a0f08328874175ed52796167030af4b91",
+      "text": "每項來自兩道題，罪與美德可以同時較高。"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/娱乐与自我反思；不是人群排名或心理诊断。": {
+      "sourceHash": "cd045b763ff0831542e159d9cf35b258601904e96aa6132bab0ef9bba6ac6f93",
+      "text": "娛樂與自我反思；不是人群排名或心理診斷。"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/我的七宗罪与七美德结果": {
+      "sourceHash": "8831c098c522391e337f9f029a96a6a1051f7168bbac834261e6e945963bc1b7",
+      "text": "我的七宗罪與七美德結果"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/已完成系统分享。": {
+      "sourceHash": "6f45131768eee35bfa33cd7aa01d1fd6a95435866864ce3d8ae9d21ccae1a7c1",
+      "text": "已完成系統分享。"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/当前浏览器不支持图片分享，请保存下方预览。": {
+      "sourceHash": "5fd20cbcbc68f4977048a8d4ddc4b6382bfef9596761d3a5c53c50218df7ba9b",
+      "text": "當前瀏覽器不支援圖片分享，請儲存下方預覽。"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/已取消分享，未自动下载。": {
+      "sourceHash": "db787636694a282d2f18e7af39205d3599761dc5ffaaac89d4c5d958d9f18af7",
+      "text": "已取消分享，未自動下載。"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/分享未完成，可以保存下方预览后重试。": {
+      "sourceHash": "91c2d18639db197853b66d34bb2c3df376e9cf09d635caa0abcb1201d8e4e024",
+      "text": "分享未完成，可以儲存下方預覽後重試。"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/已生成PNG并请求下载；手机也可长按下方预览保存。": {
+      "sourceHash": "b762bbb2b4c0aef7d467a01823df5d7abec951a0764f523cec1b2e4aeeeb5758",
+      "text": "已生成PNG並請求下載；手機也可長按下方預覽儲存。"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/图片暂未生成，请重试；仍可使用复制入口或浏览器打印。": {
+      "sourceHash": "06e5d2874ebaeda7107292356c724eacf8abe23a2565a99231702c7f433cc708",
+      "text": "圖片暫未生成，請重試；仍可使用複製入口或瀏覽器列印。"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/个人结果图片": {
+      "sourceHash": "14b0ea220468fa58783fd1753ae1cb2d1ccdcc3c783f24e5d03952d374b0939b",
+      "text": "個人結果圖片"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/保存或分享本次14项结果": {
+      "sourceHash": "f57b3d9b8851afb06175d960416c83637abd1219f6aa13722974c8febf165cc3",
+      "text": "儲存或分享本次14項結果"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/图片包含本次分数和全部最高并列项，不含原始答案。图片分享给他人后，对方可以看到这些分数；链接仍指向公开测试入口。": {
+      "sourceHash": "1e29771bd0cb3779246cfcd385d202294e203daf9891a3e204188c2dd3e63b89",
+      "text": "圖片包含本次分數和全部最高並列項，不含原始答案。圖片分享給他人後，對方可以看到這些分數；連結仍指向公開測試入口。"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/保存结果PNG": {
+      "sourceHash": "5a567d064a8f2f0f520d9faed37b0e90b07d2e27f9ea5de2c59f089ab343ea3f",
+      "text": "儲存結果PNG"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/分享结果图片": {
+      "sourceHash": "c88dfe740b276452f593862182ee80b7594a192d9fcc5dd192016196a9193a24",
+      "text": "分享結果圖片"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/下载PNG；手机可长按图片保存": {
+      "sourceHash": "7de5944cd25c35ce2fd9a66ae2cac161a846d4876a69ca14577f34509c2b7087",
+      "text": "下載PNG；手機可長按圖片儲存"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/傲慢": {
+      "sourceHash": "abd3493da60dfb24d44237b00be0372ab4d65fae26be9666749b651708c2960b",
+      "text": "傲慢"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/谦卑": {
+      "sourceHash": "2502f20541d32b41b7f747c109f5c5a0398c5cce4f169ecef6aa57c0e519ddef",
+      "text": "謙卑"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/贪婪": {
+      "sourceHash": "c517526f34150f358500277a3a647f08f54e24a66627449a02eca84111415223",
+      "text": "貪婪"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/慷慨": {
+      "sourceHash": "36922b0521adac540cb1b775ce28adb12688645c1e4916f8ff0715ce00595e57",
+      "text": "慷慨"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/色欲": {
+      "sourceHash": "80276b14c77eca7de77f933401e36a41f700e869d3ab1b6c1a76a6fdb57b90d6",
+      "text": "色慾"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/贞洁": {
+      "sourceHash": "4a014e126991b7a75845afd2d77cb34b5c5f80b6c46f61eb049fbea048056591",
+      "text": "貞潔"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/嫉妒": {
+      "sourceHash": "97fd74e7b5bd0ebc9ff393f6d7cc2940d8a0b46d5720ebf7cafb1dcece105e69",
+      "text": "嫉妒"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/仁爱": {
+      "sourceHash": "6e64b3b0387865979e58e4cf9549624d8b7e279f49786322be42209c25675609",
+      "text": "仁愛"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/暴食": {
+      "sourceHash": "be5ff10f9b6527b6a583aa2a95b3a8a24edde68c80712c897a39da821b1aa73f",
+      "text": "暴食"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/节制": {
+      "sourceHash": "aa4d883a9518c5eb0b3f06fff87124742c8992f1d7c16a9102dd95f0a76fcdc7",
+      "text": "節制"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/暴怒": {
+      "sourceHash": "f0aaf989f457802b12925ffa00243aa8c3603a28a58f7664f9ad1537275a6202",
+      "text": "暴怒"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/耐心": {
+      "sourceHash": "272f4c48a191016ca686ee61c24df2674c59b21b5a20781c1829179537a03119",
+      "text": "耐心"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/懒惰": {
+      "sourceHash": "47289eb236c26f6152390645f0a5bf31ad89082f81774df32af2241f340359ab",
+      "text": "懶惰"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/勤勉": {
+      "sourceHash": "761c11c577418b093421a1804303d016b99adb9996b98de3bb0d360736780069",
+      "text": "勤勉"
+    }
+  }
+}

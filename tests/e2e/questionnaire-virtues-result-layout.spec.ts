@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { readFile } from "node:fs/promises";
 import source from "../../lib/questionnaires/data/seven-sins-virtues-test.json";
 
 const tuples = [[2, 4, 3, 5], [4, 4, 4, 4], [3, 4, 4, 4], [3, 3, 4, 3], [3, 4, 3, 4], [3, 3, 4, 4], [3, 3, 3, 4]];
@@ -14,6 +15,8 @@ for (const locale of ["zh", "en"] as const) for (const width of [390, 1440]) {
     await page.setViewportSize({ width, height: width === 390 ? 844 : 1000 });
     await page.addInitScript(() => {
       localStorage.setItem("fm_consent_v1", JSON.stringify({ analytics: "denied", updatedAt: new Date().toISOString() }));
+      Object.defineProperty(navigator, "canShare", { configurable: true, value: () => true });
+      Object.defineProperty(navigator, "share", { configurable: true, value: async () => { throw new DOMException("Cancelled", "AbortError"); } });
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async (text: string) => { (window as Window & { copied?: string }).copied = text; } } });
     });
     const landing = `/${locale}/tests/explore/${source.slug}`;
@@ -41,8 +44,8 @@ for (const locale of ["zh", "en"] as const) for (const width of [390, 1440]) {
     await expect(virtue).toContainText(zh ? "谦卑" : "Humility");
     await expect(sin.locator("strong")).toHaveText("75");
     await expect(virtue.locator("strong")).toHaveText("88");
-    await expect(board.locator("[data-seven-sins-balance]")).toContainText(zh ? "美德均值 70" : "Virtue avg. 70");
-    await expect(board.locator("[data-seven-sins-balance]")).toContainText(zh ? "罪均值 57" : "Sin avg. 57");
+    await expect(board.locator("[data-seven-sins-balance]")).toContainText(zh ? "美德题组均值 70" : "Virtue item average 70");
+    await expect(board.locator("[data-seven-sins-balance]")).toContainText(zh ? "七宗罪题组均值 57" : "Sin item average 57");
     const radar = board.getByRole("img", { name: zh ? "十四维人格雷达" : "14-Axis Personality Radar" });
     await expect(radar).toBeVisible();
     await expect(board.locator("[data-seven-sins-axis]")).toHaveText(["63","63","63","50","75","50","38","75","75","75","63","63","50","88"]);
@@ -120,6 +123,23 @@ for (const locale of ["zh", "en"] as const) for (const width of [390, 1440]) {
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       await page.setViewportSize({ width, height: 844 });
     }
+    const personal = page.getByRole("region", { name: zh ? "个人结果图片" : "Personal result image", exact: true });
+    let downloads = 0; page.on("download", () => downloads++);
+    const downloadPromise = page.waitForEvent("download");
+    await personal.getByRole("button", { name: zh ? "保存结果PNG" : "Save result PNG", exact: true }).click();
+    const download = await downloadPromise;
+    await download.saveAs(test.info().outputPath(`seven-sins-card-${locale}-${width}.png`));
+    const bytes = await readFile((await download.path())!);
+    expect(bytes.subarray(0, 8).toString("hex")).toBe("89504e470d0a1a0a");
+    expect([bytes.readUInt32BE(16), bytes.readUInt32BE(20)]).toEqual([1080, 1440]);
+    expect((await personal.getByRole("img").getAttribute("alt"))?.match(/\/100/g)).toHaveLength(14);
+    await personal.getByRole("button", { name: zh ? "分享结果图片" : "Share result image", exact: true }).click();
+    await expect(personal.getByRole("status")).toContainText(zh ? "已取消分享" : "Sharing cancelled");
+    expect(downloads).toBe(1);
+    await page.evaluate(() => { HTMLCanvasElement.prototype.getContext = (() => null) as typeof HTMLCanvasElement.prototype.getContext; });
+    await personal.getByRole("button", { name: zh ? "保存结果PNG" : "Save result PNG", exact: true }).click();
+    await expect(personal.getByRole("status")).toContainText(zh ? "图片暂未生成" : "could not be generated");
+    expect(downloads).toBe(1);
     await page.getByRole("button", { name: zh ? "复制公开入口" : "Copy public entry", exact: true }).click();
     expect(await page.evaluate(() => (window as Window & { copied?: string }).copied)).toBe(`${source.title[locale]}\nhttps://fermatmind.com${landing}`);
     expect(new URL(page.url()).search).toBe("");
@@ -129,5 +149,57 @@ for (const locale of ["zh", "en"] as const) for (const width of [390, 1440]) {
     await expect(page.locator("#take-test h2")).toHaveText(source.questions[0].prompt[locale]);
     await expect(page.locator("#take-test input:checked")).toHaveCount(0);
     expect(errors).toEqual([]);
+  });
+}
+
+for (const width of [320, 1440]) {
+  test(`@release Taiwan virtues ${width}: back and refresh, all ties, public guides and local PNG`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    const analytics: string[] = [], errors: string[] = [];
+    page.on("request", request => { if (/\/api\/track(?:\?|$)/.test(request.url())) analytics.push(request.url()); });
+    page.on("pageerror", error => errors.push(error.message));
+    await page.addInitScript(() => {
+      Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("Denied for QA"); } } });
+    });
+    const entry = "/zh-TW/tests/explore/seven-sins-virtues-test";
+    await page.goto(entry);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("七宗罪與七美德測試");
+    await page.getByRole("link", { name: "開始免費測試", exact: true }).click();
+    await page.getByRole("button", { name: "下一題", exact: true }).click();
+    await expect(page.getByRole("status")).toContainText("請選擇一個選項");
+    await page.getByRole("radio").nth(2).check();
+    await page.getByRole("button", { name: "下一題", exact: true }).click();
+    await page.getByRole("button", { name: "上一題", exact: true }).click();
+    await expect(page.getByRole("radio").nth(2)).toBeChecked();
+    await page.getByRole("button", { name: "下一題", exact: true }).click();
+    await page.reload();
+    await expect(page.locator("input:checked")).toHaveCount(0);
+    for (let index = 0; index < 28; index++) {
+      await page.getByRole("radio").nth(2).check();
+      await page.getByRole("button", { name: index === 27 ? "查看結果" : "下一題", exact: true }).click();
+    }
+    await expect(page.locator('[data-stage="result"]')).toBeVisible();
+    await expect(page.locator("[data-seven-sins-axis]")).toHaveText(Array(14).fill("50"));
+    await expect(page.locator("[data-seven-sins-leader]")).toContainText(["並列", "並列"]);
+    await expect(page.locator("#seven-sins-readings article")).toHaveCount(7);
+    const guide = page.getByRole("link", { name: "開啟完整公開指南（新分頁）", exact: true }).first();
+    const popupPromise = page.waitForEvent("popup"); await guide.click(); const popup = await popupPromise;
+    await expect(popup.getByRole("heading", { level: 1 })).toBeVisible(); await popup.close();
+    await expect(page.locator('[data-stage="result"]')).toBeVisible();
+    const downloadPromise = page.waitForEvent("download");
+    await page.getByRole("button", { name: "儲存結果PNG", exact: true }).click();
+    const download = await downloadPromise;
+    await download.saveAs(test.info().outputPath(`seven-sins-card-zh-TW-${width}.png`));
+    const bytes = await readFile((await download.path())!);
+    expect(bytes.subarray(0, 8).toString("hex")).toBe("89504e470d0a1a0a");
+    const preview = page.getByRole("region", { name: "個人結果圖片" }).getByRole("img");
+    expect((await preview.getAttribute("alt"))?.match(/★/g)).toHaveLength(14);
+    await page.getByRole("button", { name: "複製公開入口", exact: true }).click();
+    const manual = page.getByRole("textbox", { name: "手動複製公開入口", exact: true });
+    await expect(manual).toHaveValue(`七宗罪與七美德測試\nhttps://fermatmind.com${entry}`);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await page.getByRole("button", { name: "重新測試", exact: true }).click();
+    await expect(page.locator("input:checked")).toHaveCount(0);
+    expect(errors).toEqual([]); expect(analytics).toEqual([]);
   });
 }

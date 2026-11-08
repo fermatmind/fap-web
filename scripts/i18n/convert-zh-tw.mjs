@@ -6,7 +6,11 @@ import { Converter } from 'opencc-js';
 // Explicit current, code-owned sources only. CMS requires its own native importer.
 export const sources = ['lib/questionnaires/data/chiikawa.json', 'lib/questionnaires/result-content/chiikawa.json', 'lib/i18n/zh-TW/ui.source.json'];
 const root = new URL('../../', import.meta.url);
-const output = new URL('lib/i18n/zh-TW/chiikawa.generated.json', root);
+export const packages = [
+  { output: 'lib/i18n/zh-TW/chiikawa.generated.json', sources },
+  { output: 'lib/i18n/zh-TW/seven-sins.generated.json', sources: ['lib/questionnaires/data/seven-sins-virtues-test.json', 'lib/questionnaires/result-content/seven-sins-virtues-test.json', 'lib/questionnaires/virtuesLandingEditorial.json'] },
+  { output: 'lib/i18n/zh-TW/seven-sins-ui.generated.json', sources: ['lib/i18n/zh-TW/seven-sins-ui.source.json'] },
+];
 const converter = 'opencc-js@1.4.2:cn:twp';
 const glossary = 'fermatmind-tw-1';
 const convert = Converter({ from: 'cn', to: 'twp' });
@@ -27,9 +31,9 @@ export function collect(value, path = '', result = {}) {
   }
   return result;
 }
-export function build(previous = {}) {
+export function build(previous = {}, selectedSources = sources) {
   const units = {}, sourceHashes = {}, snapshots = {};
-  for (const path of sources) {
+  for (const path of selectedSources) {
     const raw = readFileSync(new URL(path, root), 'utf8');
     snapshots[path] = raw;
     sourceHashes[path] = hash(raw);
@@ -44,9 +48,10 @@ export function build(previous = {}) {
   }
   return { artifact: { targetLocale: 'zh-TW', converter, glossary, sourceHashes, units }, snapshots };
 }
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
+if (process.argv[1] === fileURLToPath(import.meta.url)) for (const pkg of packages) {
+  const output = new URL(pkg.output, root);
   const previousRaw = existsSync(output) ? readFileSync(output, 'utf8') : '';
-  const { artifact, snapshots } = build(previousRaw ? JSON.parse(previousRaw) : {});
+  const { artifact, snapshots } = build(previousRaw ? JSON.parse(previousRaw) : {}, pkg.sources);
   const next = JSON.stringify(artifact, null, 2) + '\n';
   if (process.argv.includes('--check')) {
     if (previousRaw !== next) throw new Error('Traditional resources are missing or stale; run pnpm i18n:zh-TW');
@@ -58,5 +63,5 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     writeFileSync(temporary, next, { flag: 'wx' });
     renameSync(temporary, output);
   }
-  console.log(`zh-TW: ${Object.keys(artifact.units).length} reader fields; sources=${sources.length}; ${process.argv.includes('--check') ? 'verified' : 'generated'}`);
+  console.log(`zh-TW: ${Object.keys(artifact.units).length} reader fields; sources=${pkg.sources.length}; ${process.argv.includes('--check') ? 'verified' : 'generated'}`);
 }

@@ -1,7 +1,7 @@
 {
   "brand": {"zh":"费马测试","en":"FermatMind"},
   "hub": {"zh":"繁体中文测评","en":"Traditional Chinese assessments"},
-  "available": {"zh":"目前提供吉伊卡哇完整测评与六份角色指南。其他页面尚未提供繁体版本，可使用明确标注的简体中文或英文入口。","en":"The Chiikawa quiz and six complete character guides are available."},
+  "available": {"zh":"目前提供吉伊卡哇与七宗罪及七美德测试与完整指南。其他内容请使用原语言入口。","en":"The Chiikawa quiz and six complete character guides are available."},
   "start": {"zh":"开始测试","en":"Start test"},
   "next": {"zh":"下一题","en":"Next"},
   "back": {"zh":"上一题","en":"Back"},

@@ -5,7 +5,7 @@
   "sourceHashes": {
     "lib/questionnaires/data/chiikawa.json": "87365e77fe9c08277e8eb02ec30c5f1f4f444d84e58afe04cc9dfbb8e4da0a7a",
     "lib/questionnaires/result-content/chiikawa.json": "32308e38fdeab4de784d4c5dc30e2a5f756559b1d00fd05f36301fe2fd8b61a6",
-    "lib/i18n/zh-TW/ui.source.json": "42ed6bbf5f8430a5ed66dfa0fea0fb50fa15c7ca1023029f76c2695ec97bd476"
+    "lib/i18n/zh-TW/ui.source.json": "7db312a26f951ed244e4fab07fa1e587e59d2f6d2f07ae4453636cd75a62f610"
   },
   "units": {
     "lib/questionnaires/data/chiikawa.json/title": {
@@ -1373,8 +1373,8 @@
       "text": "繁體中文測評"
     },
     "lib/i18n/zh-TW/ui.source.json/available": {
-      "sourceHash": "c708f6cd574afd6d172763695b3077de1ed4285324e968b1f49d8edb3b6bfb1a",
-      "text": "目前提供吉伊卡哇完整測評與六份角色指南。其他頁面尚未提供繁體版本，可使用明確標註的簡體中文或英文入口。"
+      "sourceHash": "60c1f920486a194e60803d0e69743307eb97ace518113ef23959e4acd0d1140f",
+      "text": "目前提供吉伊卡哇與七宗罪及七美德測試與完整指南。其他內容請使用原語言入口。"
     },
     "lib/i18n/zh-TW/ui.source.json/start": {
       "sourceHash": "1360bc007fecec539172e21e8c429b3b884470ca8880e3a0f7e0566ae8638cb9",

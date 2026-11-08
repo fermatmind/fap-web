@@ -1,0 +1,198 @@
+{
+  "七宗罪之首": {
+    "zh": "七宗罪之首",
+    "en": "Leading sin"
+  },
+  "七美德之首": {
+    "zh": "七美德之首",
+    "en": "Leading virtue"
+  },
+  "并列": {
+    "zh": "并列",
+    "en": "Joint leaders"
+  },
+  "结果示例": {
+    "zh": "结果示例",
+    "en": "Sample result"
+  },
+  "十四维人格雷达": {
+    "zh": "十四维人格雷达",
+    "en": "14-Axis Personality Radar"
+  },
+  "红色七宗罪 · 金色七美德 · 双轨独立计分": {
+    "zh": "红色七宗罪 · 金色七美德 · 双轨独立计分",
+    "en": "Red: seven sins · Gold: seven virtues · Independent scores"
+  },
+  "这份虚构答卷中，暴怒和耐心各得 {score} 分。两项来自不同题目，因此可以同时较高。": {
+    "zh": "这份虚构答卷中，暴怒和耐心各得 {score} 分。两项来自不同题目，因此可以同时较高。",
+    "en": "这份虚构答卷中，暴怒和耐心各得 {score} 分。两项来自不同题目，因此可以同时较高。"
+  },
+  "你的": {
+    "zh": "你的",
+    "en": "Your"
+  },
+  "七宗罪 VS 七美德": {
+    "zh": "七宗罪 VS 七美德",
+    "en": "Seven Sins vs Seven Virtues"
+  },
+  "结果": {
+    "zh": "结果",
+    "en": "Results"
+  },
+  "左侧暗影牵引 · 右侧光辉托举": {
+    "zh": "左侧暗影牵引 · 右侧光辉托举",
+    "en": "Shadow pulls · Light lifts"
+  },
+  "美德题组均值": {
+    "zh": "美德题组均值",
+    "en": "Virtue item average"
+  },
+  "七宗罪题组均值": {
+    "zh": "七宗罪题组均值",
+    "en": "Sin item average"
+  },
+  "查看七组解读": {
+    "zh": "查看七组解读",
+    "en": "Explore the seven readings"
+  },
+  "费马测试 · 本次作答结果": {
+    "zh": "费马测试 · 本次作答结果",
+    "en": "FERMATMIND · MY RESPONSE RESULTS"
+  },
+  "我的七宗罪与七美德": {
+    "zh": "我的七宗罪与七美德",
+    "en": "My Seven Deadly Sins"
+  },
+  "14项分别计分": {
+    "zh": "14项分别计分",
+    "en": "and Seven Virtues"
+  },
+  "七美德": {
+    "zh": "七美德",
+    "en": "Seven virtues"
+  },
+  "七宗罪": {
+    "zh": "七宗罪",
+    "en": "Seven sins"
+  },
+  "★ 标出各侧全部最高项，包含并列。": {
+    "zh": "★ 标出各侧全部最高项，包含并列。",
+    "en": "★ marks every highest score on each side, including ties."
+  },
+  "每项来自两道题，罪与美德可以同时较高。": {
+    "zh": "每项来自两道题，罪与美德可以同时较高。",
+    "en": "Two questions per score; both sides can be high."
+  },
+  "娱乐与自我反思；不是人群排名或心理诊断。": {
+    "zh": "娱乐与自我反思；不是人群排名或心理诊断。",
+    "en": "For reflection, not a population rank or diagnosis."
+  },
+  "我的七宗罪与七美德结果": {
+    "zh": "我的七宗罪与七美德结果",
+    "en": "My sins and virtues results"
+  },
+  "已完成系统分享。": {
+    "zh": "已完成系统分享。",
+    "en": "System sharing completed."
+  },
+  "当前浏览器不支持图片分享，请保存下方预览。": {
+    "zh": "当前浏览器不支持图片分享，请保存下方预览。",
+    "en": "Image sharing is unavailable in this browser. Save the preview below."
+  },
+  "已取消分享，未自动下载。": {
+    "zh": "已取消分享，未自动下载。",
+    "en": "Sharing cancelled. No download was started."
+  },
+  "分享未完成，可以保存下方预览后重试。": {
+    "zh": "分享未完成，可以保存下方预览后重试。",
+    "en": "Sharing did not complete. Save the preview or try again."
+  },
+  "已生成PNG并请求下载；手机也可长按下方预览保存。": {
+    "zh": "已生成PNG并请求下载；手机也可长按下方预览保存。",
+    "en": "PNG generated and download requested. You can also save the preview below."
+  },
+  "图片暂未生成，请重试；仍可使用复制入口或浏览器打印。": {
+    "zh": "图片暂未生成，请重试；仍可使用复制入口或浏览器打印。",
+    "en": "The image could not be generated. Try again, copy the entry link, or use browser print."
+  },
+  "个人结果图片": {
+    "zh": "个人结果图片",
+    "en": "Personal result image"
+  },
+  "保存或分享本次14项结果": {
+    "zh": "保存或分享本次14项结果",
+    "en": "Save or share your 14 scores"
+  },
+  "图片包含本次分数和全部最高并列项，不含原始答案。图片分享给他人后，对方可以看到这些分数；链接仍指向公开测试入口。": {
+    "zh": "图片包含本次分数和全部最高并列项，不含原始答案。图片分享给他人后，对方可以看到这些分数；链接仍指向公开测试入口。",
+    "en": "The image includes your scores and every tied leader, without your answers. People you share it with can see these scores. The link opens the public test entry."
+  },
+  "保存结果PNG": {
+    "zh": "保存结果PNG",
+    "en": "Save result PNG"
+  },
+  "分享结果图片": {
+    "zh": "分享结果图片",
+    "en": "Share result image"
+  },
+  "下载PNG；手机可长按图片保存": {
+    "zh": "下载PNG；手机可长按图片保存",
+    "en": "Download PNG, or save the image on mobile"
+  },
+  "傲慢": {
+    "zh": "傲慢",
+    "en": "Pride"
+  },
+  "谦卑": {
+    "zh": "谦卑",
+    "en": "Humility"
+  },
+  "贪婪": {
+    "zh": "贪婪",
+    "en": "Greed"
+  },
+  "慷慨": {
+    "zh": "慷慨",
+    "en": "Generosity"
+  },
+  "色欲": {
+    "zh": "色欲",
+    "en": "Lust"
+  },
+  "贞洁": {
+    "zh": "贞洁",
+    "en": "Chastity"
+  },
+  "嫉妒": {
+    "zh": "嫉妒",
+    "en": "Envy"
+  },
+  "仁爱": {
+    "zh": "仁爱",
+    "en": "Kindness"
+  },
+  "暴食": {
+    "zh": "暴食",
+    "en": "Gluttony"
+  },
+  "节制": {
+    "zh": "节制",
+    "en": "Temperance"
+  },
+  "暴怒": {
+    "zh": "暴怒",
+    "en": "Wrath"
+  },
+  "耐心": {
+    "zh": "耐心",
+    "en": "Patience"
+  },
+  "懒惰": {
+    "zh": "懒惰",
+    "en": "Sloth"
+  },
+  "勤勉": {
+    "zh": "勤勉",
+    "en": "Diligence"
+  }
+}

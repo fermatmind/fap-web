@@ -1,0 +1,2180 @@
+{
+  "targetLocale": "zh-TW",
+  "converter": "opencc-js@1.4.2:cn:twp",
+  "glossary": "fermatmind-tw-1",
+  "sourceHashes": {
+    "lib/questionnaires/data/seven-sins-virtues-test.json": "913c28d675f6f5a94e781e5b3680de80de4b8a8512b5e39110fb616595c6f765",
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json": "76cc453e2b99ad2d0d05ef80ae790aef10390f89c5fd7dee93df677b16932105",
+    "lib/questionnaires/virtuesLandingEditorial.json": "701a1972f429aee5cace12c76478b541f04d069f193d3d9e7d57efdcaa2e31e6"
+  },
+  "units": {
+    "lib/questionnaires/data/seven-sins-virtues-test.json/title": {
+      "sourceHash": "b236140998a6783f7deed36d997daf8313bb61c2cd0ffe6c9d174a0f3b7c9eb5",
+      "text": "七宗罪與七美德測試"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/seoTitle": {
+      "sourceHash": "a556116f208cd7ddd2b6e7688aa00b3906b1357b01b4d5d84aab0e564888f22a",
+      "text": "七宗罪與七美德測試｜免費檢視 14 項得分"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/description": {
+      "sourceHash": "9e2fba75612002dd42b0288d165fb88d88585b24a285649565ba4fd157ef87db",
+      "text": "免費完成 28 道原創題，約 8 分鐘。檢視 14 項分別計分的結果、雷達圖和七組解讀，無需註冊。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/introduction": {
+      "sourceHash": "d1fcbb5dae1ffb438678912f143170c76cae39bb9574249e96ada57795f12db5",
+      "text": "這套原創題本借用七宗罪與七美德的文化意象，幫助你回顧日常反應與應對方式。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/instructions": {
+      "sourceHash": "8515d725acf830fb702f11b86b1e886bef79ec456fa0771e46dbc0d13aaeb8a8",
+      "text": "根據過去四周的實際經歷，選擇每條陳述與你相符的程度。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/directions/0/title": {
+      "sourceHash": "873a4aa8218ac10eca924eaefed58fd04244f065fe89c95b91f98579589dcdaf",
+      "text": "認可需要與自我定位"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/directions/1/title": {
+      "sourceHash": "89cfa62546a62c1f9cac15bda1dab9624d4df5e8d94a18c81c70dd83f9c81873",
+      "text": "資源安全感與分享"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/directions/2/title": {
+      "sourceHash": "d0a38c187a69e7e0e326b31af20f120b110ac6b89d3cdc75ff826d2fadec8c53",
+      "text": "慾望、吸引與邊界"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/directions/3/title": {
+      "sourceHash": "0d1678bd085c3c20f90fd9b0e1ce0fb3b67e10fe35058817e3d8228f301c24e6",
+      "text": "比較敏感與欣賞"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/directions/4/title": {
+      "sourceHash": "232d5e2229c97be0b0f2cf54631bbe63d423019a888298e00b95cb27753d3e12",
+      "text": "即時滿足與節制"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/directions/5/title": {
+      "sourceHash": "e0a459b72a470bae3415bab037ed095226bc0f3d648bb4f6a79da6778ec151d1",
+      "text": "憤怒訊號與耐心回應"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/directions/6/title": {
+      "sourceHash": "cb693424a2b940e499dc1a7ff42c3d0debe67a07ec2676ad367af311a2c30259",
+      "text": "行動啟動與休息迴避"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/0/prompt": {
+      "sourceHash": "804222437d134d6d6f7562978b38d365b66587146154a63e8d2a91fac9702763",
+      "text": "在熟悉的話題上，我容易先認定自己的看法比別人的更可靠。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/0/options/0/label": {
+      "sourceHash": "5acc7ffc5c9289939c5463f223aac3992a9a76ff143b30ada0d973006a508a3c",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/0/options/1/label": {
+      "sourceHash": "b93b2be0c0b590bf5b9d8a3b62bfb7109b809156f82313ba53639449d69aca2e",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/0/options/2/label": {
+      "sourceHash": "57992616a4421c5d05f370b0a4adb01c52671b9e0ec1aefb597b2685e6874e3c",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/0/options/3/label": {
+      "sourceHash": "b5e10a7f133f6c72687bdd5270f201250ea34e2872065f75e467864e14fb2ef5",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/0/options/4/label": {
+      "sourceHash": "143988e71a6a71bffdae821420a8b76693ad449b7df801a7ce8b2e822d783df2",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/1/prompt": {
+      "sourceHash": "361a0c6a885368a2982852553aa010168a7fe0483b334a2be8f5e13c6075dadb",
+      "text": "別人指出一個有道理的錯誤時，我願意承認自己弄錯了。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/1/options/0/label": {
+      "sourceHash": "48eae3b03812650db6b647be15567fbb6136b9b369218ddb9779cf346fb5f97e",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/1/options/1/label": {
+      "sourceHash": "e00174202f96ec07dc2ac7475d8af66fae83ea072d193f670845b801e4ea232b",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/1/options/2/label": {
+      "sourceHash": "15592856f4be75b02a11a1be24b3a86e2a83775e33bfb41424466c0b6268b0f9",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/1/options/3/label": {
+      "sourceHash": "30a144af91c5312b032960b771f6dc0d42fffb59659163cfb637c20b63887e2a",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/1/options/4/label": {
+      "sourceHash": "fbfcb1afff39fe64275cb5009298d2a3e985d73f87581f2f91b93c41f169bd1f",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/2/prompt": {
+      "sourceHash": "65f4c5efdcdc35f3fa8c79568974296150d0be0a751e58b9eefc4c6a51174203",
+      "text": "和別人一起完成事情時，我希望大家把更多功勞算在我身上。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/2/options/0/label": {
+      "sourceHash": "2c089beb70f80187ad728ee80f5c36fa6cee4d853adaf1102db4a93281ff4123",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/2/options/1/label": {
+      "sourceHash": "b28fb74b25b7aacacf165fa60d20be2ca6f720fd93cb37f24e53f935c723f9f2",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/2/options/2/label": {
+      "sourceHash": "4e1cc270ed09786fe5a586a3e3d2ecb7612f240d8c37994a92e5960eb27c24f7",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/2/options/3/label": {
+      "sourceHash": "59b1667de0a3b8dda76caac8589ede81ec424a26c771b877ffe87b1461cfdc7d",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/2/options/4/label": {
+      "sourceHash": "3894abe2f79baa971588b700361aede0be374a55564c1446e912cb42c356e168",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/3/prompt": {
+      "sourceHash": "fca7190e2da48931b9e38d9144c287a1fa692ca97b05ba26e619b134426d2613",
+      "text": "談到一項共同成果時，我會具體說出別人做了什麼。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/3/options/0/label": {
+      "sourceHash": "4a17b3bbfcbbeb5797caaa266f8116a316a268eb0449ecc8eb23f6691abe7939",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/3/options/1/label": {
+      "sourceHash": "f65c60b6ca8173adfdc09280c0fa4a84f7232d49d6e112cb3a1d93f66226f256",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/3/options/2/label": {
+      "sourceHash": "c8746fd5217e7fe69fc131e014f9d422a7440ffb69121bba201fdeb3429416ab",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/3/options/3/label": {
+      "sourceHash": "286ca8b29426248e554d5996c19c54737cb4bd8710f7775d9cbc1288edb03566",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/3/options/4/label": {
+      "sourceHash": "f56e951b4f2ae7777a49d9dc274e46a4977076f6ad719f20ddabbeb72e003157",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/4/prompt": {
+      "sourceHash": "3e9f9c9169b57647564dd4bbb382be1ef6c7a35d619d8c545bb6657e72c2d08b",
+      "text": "即使手頭已經夠用，有機會多佔一份資源時，我還是想留下。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/4/options/0/label": {
+      "sourceHash": "90d5238b2d372dfddd1a446e41ebfd40c14f62ddca36211169e1c151e4bb8467",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/4/options/1/label": {
+      "sourceHash": "6a662715888e6b382564f81ca9dab63cdd8854800ee315b94a10f4a970e70821",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/4/options/2/label": {
+      "sourceHash": "9b783151b3621d7d4d642645cbe9fae10a5d408fa86da8ac85cc11b0d4487fd2",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/4/options/3/label": {
+      "sourceHash": "83e59c42aee2e5fa825a4374424c9c2c3a46be21d3b5d3953ecb272fe7a24b3f",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/4/options/4/label": {
+      "sourceHash": "a2086683ac31db14e7f3bd10128694b9813472ea2e9ca8e811560e36c419d5f8",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/5/prompt": {
+      "sourceHash": "b42fee041489729b868668b8e7a54fafaa198f27825c9cbf8bcb4e5e3b190d0a",
+      "text": "手頭有閒置而別人正好需要的東西時，我會主動提出分享。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/5/options/0/label": {
+      "sourceHash": "f728eee0c66d5b6d9d418fa13f47c86d9e7c4af9a86833cf3660ed7805282d95",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/5/options/1/label": {
+      "sourceHash": "91a97d80b6f4dbf10eebedb15ee123e33b9506d76df553d65ec83bd47417b813",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/5/options/2/label": {
+      "sourceHash": "a5246ae4740f22ddf577d96b096a2a136b8e1889a928659f0f10a547452f5b38",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/5/options/3/label": {
+      "sourceHash": "2a0584ab23f2b4685d5336fe093b88a941a2c47fb3acdc247be2414063e86741",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/5/options/4/label": {
+      "sourceHash": "1a4c34695424964232ed1b90f426feb860ea94d2592e9e04f15a1e4d88c901f7",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/6/prompt": {
+      "sourceHash": "80f130e002f872c496209ff6ce973184d31ef79eb202376e20163462b3e21a76",
+      "text": "分配額外好處時，即使別人也有同等的分配資格，我仍想讓自己多拿一些。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/6/options/0/label": {
+      "sourceHash": "9d4328e86abfbc4a1137da0cf8cdcd1208703838083b559d172716d4f0d91d3d",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/6/options/1/label": {
+      "sourceHash": "50ba834181d5ccec2ecd665b5e7c95fb068155872946e1b585dc2263a9e53a41",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/6/options/2/label": {
+      "sourceHash": "152f1e9501404a54d7cf196c87ce4a109b073d02ae72b95e6f4fde4c1751af7b",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/6/options/3/label": {
+      "sourceHash": "0c517ec5f63c9d60ed337daee6d985940676a75f8f0d3d12686c48fe94926825",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/6/options/4/label": {
+      "sourceHash": "7d9ab79b78481d290b41a6a9eb1af3d9ac5a5c3156646c79f360f8cd554d8bd1",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/7/prompt": {
+      "sourceHash": "357fc1c75b5536db4fc383d1b9cb43a3c3cab2e695bd264cae8707721e71f7ec",
+      "text": "別人需要幫助、我也有餘力時，我願意拿出一點自己的時間。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/7/options/0/label": {
+      "sourceHash": "1db912d47e8ae513cc79d196024c68cd31bf0c3a1f6da3d64d70b7f8b6aab323",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/7/options/1/label": {
+      "sourceHash": "b1b99358daadc117b114a82ade754fdaf972a4ba4beee01a4e6097450b2d9cb0",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/7/options/2/label": {
+      "sourceHash": "cd71885044f34e9e211d1661b2dc573d02bddd1517a514f3f653935193dd053e",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/7/options/3/label": {
+      "sourceHash": "9e35b6e4355decb1d75091af2965b676f809b64a8f75a717912fa47f60534227",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/7/options/4/label": {
+      "sourceHash": "868f70adcd141ed5ac91381215a4c5cfced8031436d4687e3b547dfc42cb4a05",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/8/prompt": {
+      "sourceHash": "ca6d3d37281c8253398d6402f7ae83a462667752905ef98e152ffae1a03a2116",
+      "text": "對某個人產生強烈吸引時，我會急著把互動推進到更親密的程度。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/8/options/0/label": {
+      "sourceHash": "da7360aaf43f4434149871d7e2a2ac33e6d149ab993e6086bd4859e8e8ca6657",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/8/options/1/label": {
+      "sourceHash": "7453435eaa0802c7c60e8aec333735a71ecdacd536f12e494a138bb1ad20e033",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/8/options/2/label": {
+      "sourceHash": "02e8ff81e55859373eaf560ebc0e723058e5086a360f3c46f5e99afee8f9918f",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/8/options/3/label": {
+      "sourceHash": "6b309e4aeab33ce3065ddd7ba19ccd67c03e91130414cb1641ad3d7d6aa58fc6",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/8/options/4/label": {
+      "sourceHash": "4659731703a0b74be9c25bafc6be6995ca41936ca0cef8c6ece95dff4e7f9ef0",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/9/prompt": {
+      "sourceHash": "48ed67117a30b4ae34c28becb980159a5067d0fbf25b721e90b2b9484fe2425c",
+      "text": "想推進親密互動時，我會先確認對方也願意。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/9/options/0/label": {
+      "sourceHash": "d41118864d6570f212448e50c28d6e5e95dd76fe344a45744cd5e5d9c182da3d",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/9/options/1/label": {
+      "sourceHash": "2160bc8efd84c79f779b494ec70e95e15b9fba99b4ec5cc493fdf009035bc022",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/9/options/2/label": {
+      "sourceHash": "1faf80441e9fe9612387c3f5fc1333ed5add7e716b7d6065216573211cf1d07f",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/9/options/3/label": {
+      "sourceHash": "c9d83d794220d7cec37dd86e6c4f1a678ca36dcc46b25c1a3b271cf05ba29e85",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/9/options/4/label": {
+      "sourceHash": "2bb9f2e966ff4906d774c66163807ad65e7092654b3ecbedce6349f5617b8499",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/10/prompt": {
+      "sourceHash": "9802e0d46a844ba9a9d97578fa4b3d4ba74314ed53713dccdb1ea57b97e72dc3",
+      "text": "感到強烈吸引時，我容易被眼前的衝動牽著走。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/10/options/0/label": {
+      "sourceHash": "88ea1f66303ff7130c14f8d302963199b108f3ec9f5c3c0a4e9cc0a7d91f81cb",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/10/options/1/label": {
+      "sourceHash": "14a0ccba9a3994f4be7f31c87379951c72c4e26d8facc15af5c5957a0ce29893",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/10/options/2/label": {
+      "sourceHash": "54e904b0a1e0cb0b28a8101e781dffe5486432c9942e306efeb0006a3ebe82e8",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/10/options/3/label": {
+      "sourceHash": "a8921c83aeae5b10f2010fd044b19faa24d064badb936acc3c4c653f1b41b163",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/10/options/4/label": {
+      "sourceHash": "029bfa6de548a6031934dd0bfe7a7146c016b24784a2714d3161802bfab4a178",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/11/prompt": {
+      "sourceHash": "239e1614de7ee4aa107388a62c4624d36340f6aa954b98d536d1880e942d6ddb",
+      "text": "即使彼此有吸引力，我也會按自己舒服的節奏推進關係。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/11/options/0/label": {
+      "sourceHash": "d5b8ccb7e232e54a3b7a35dae3d4cdcdd9b79b75fe0001fcb6740dc25ceacc70",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/11/options/1/label": {
+      "sourceHash": "1833102f12012fa4bf423f128510c966ad3785768fe88b48813e67b1c315a5a5",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/11/options/2/label": {
+      "sourceHash": "e58ec51047479f7a2219a410087df5cd7fa067875f26addb531bf387b9f40d9d",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/11/options/3/label": {
+      "sourceHash": "b98c527d84e1753b47d14296f064f10094aba23b8a46169bc7b08f36003da163",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/11/options/4/label": {
+      "sourceHash": "23b253e4042838829f4f4a31a56b69a2f15f7b813dcc8e1e9c0556d71e2c70a2",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/12/prompt": {
+      "sourceHash": "059ccb8f3a5bc1d4dda4bb23c0f0e0c6d23179c393508c3834d87a6a4d1690a1",
+      "text": "處境相近的人得到我想要的機會時，我很難不因對方得到它而心生怨意。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/12/options/0/label": {
+      "sourceHash": "2b3b8100d143bd620bb718eb25c948edde1788249ec2a8982368d14c1b51d7a5",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/12/options/1/label": {
+      "sourceHash": "ed72185326fdaa73bcbe62183a3b88ab63065f0f7a25fe287e180806a1f3be3c",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/12/options/2/label": {
+      "sourceHash": "ed219302fd26bb37b0c9707545b316371763810ae60d563cd988937baa99b392",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/12/options/3/label": {
+      "sourceHash": "77db67a07f3474934db3925ec9b1c109b33aa2fe5f90144016b4f26eafccf14e",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/12/options/4/label": {
+      "sourceHash": "bb814f93e3d51a7bd4db869efc9109062b5c914f74f4ab17287134efb861e9a5",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/13/prompt": {
+      "sourceHash": "303ca3ed0a6ebf2b9d6c3d78957c42669d755f96202a9ab0218aaa64fe928490",
+      "text": "即使自己也想得到同一個機會，我仍願意真誠祝賀得到它的人。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/13/options/0/label": {
+      "sourceHash": "01ec90632904f350e6ff08e428a38512230fa786b4d18844009dd9f5447f33e1",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/13/options/1/label": {
+      "sourceHash": "c3379bd8be9b3daaf6b7c848ad8f3a256c8951d731c993490e33a15eda5037ce",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/13/options/2/label": {
+      "sourceHash": "96aa252fd5acdf456eeb8392d73310148c7cbc4efe2f78918b9d2a5fc225fb6e",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/13/options/3/label": {
+      "sourceHash": "63522f85d7c48f4bc5bcbf20b5542402f097191c793a74c52dd0610069886cd3",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/13/options/4/label": {
+      "sourceHash": "c2a1bc42232e8307dbc6f51b1014d73bbf79e5b73042fe67f4d151b5759c1ab4",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/14/prompt": {
+      "sourceHash": "20b6d07d851a1ca8d345042d99a021a933ab2c561ae7bb701d082e83f80a8425",
+      "text": "看到同伴過得比我順利時，我會反覆想著自己缺少什麼。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/14/options/0/label": {
+      "sourceHash": "86a463a5592e4e0c69ba3af09020b76cf86b39fc29aa9979b524c082bd3d8431",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/14/options/1/label": {
+      "sourceHash": "0b112fa58179aba7c632df5e333745143fd6ba9549a6445afb5852814f4e4557",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/14/options/2/label": {
+      "sourceHash": "f75c71646dc07a12bdc567518e0689a1d844a2a9d6a299b3411c27efe971cd0d",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/14/options/3/label": {
+      "sourceHash": "0da23c158fb6e76861ff5a723dcc41f6d67c02e3ecd04edcaf39858b0f654be2",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/14/options/4/label": {
+      "sourceHash": "13364ab4029dac6afd394ddaaec5420891cca76803f89a3297f97ee57a0edc77",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/15/prompt": {
+      "sourceHash": "58d05ed9d1019318c38da203bd0430fe72de8016ad2196cb4b20a368065233c7",
+      "text": "看到同伴遇到困難時，我願意先了解他們需要什麼。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/15/options/0/label": {
+      "sourceHash": "79aa22471145b8f0bc3d4bdf22c1e126aaa1d6cc16935504c014f1a62f209ce1",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/15/options/1/label": {
+      "sourceHash": "42e2212a59bd63888b8b791466bc713a76eb3714ac72c178e3c874e78a98c9a5",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/15/options/2/label": {
+      "sourceHash": "2158142a204104dadd19d1d05ea2da91ec2dbc7cb432085597ae5f586fc7245f",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/15/options/3/label": {
+      "sourceHash": "1be55f12727ee3d8a1dbca749af28f74b6bc2b127e437ca9a9e9e08ddce4cc3e",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/15/options/4/label": {
+      "sourceHash": "17ab2461f46897ed2a3f97d9b3bcf5292a602bef18a0caddbd0f8c0ecff4a9a1",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/16/prompt": {
+      "sourceHash": "e2c26fda8e1b02539412d8d39b26479c4df91829f705d1c59c63dd1736fef996",
+      "text": "享受零食、影片或遊戲時，我經常超過自己原先打算的量或時間。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/16/options/0/label": {
+      "sourceHash": "c5e5a927187dfeb81e22057eca229e05e372508b1cf4fff17d1d75f4f92b5054",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/16/options/1/label": {
+      "sourceHash": "caebb91adc5cfc48a150ecf9de3415321cef8a9a438fcfda9ed688888e4f0d0b",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/16/options/2/label": {
+      "sourceHash": "3746dced096ef0497e082b5c7d920ff7ecaf6df935fc2fbf3af87c8e7f63fee6",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/16/options/3/label": {
+      "sourceHash": "7b544bb6a73d18bd8c23c3160becf6cfa48c505aa61db9bb3e5aaf62ed4717ab",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/16/options/4/label": {
+      "sourceHash": "cf7fcba0250d5e285c1e46a987b27f53e4399d6bf43b84b28ce6860814408694",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/17/prompt": {
+      "sourceHash": "4fd52e21495b20ec713568fda6235cb193e3f0cb950243ade43c284bd0f1265f",
+      "text": "開始一項容易持續很久的享受前，我會先給自己定個停下來的時間。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/17/options/0/label": {
+      "sourceHash": "f22d518a8cb92b2c77c40a70a04a7f8d5cc01bec4d85ba49306529abaa0a18e6",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/17/options/1/label": {
+      "sourceHash": "de86be9ec166bd91cebb34bb2e9d32514393d83b63a1edc2da04ee6f12dda002",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/17/options/2/label": {
+      "sourceHash": "dac5ea57b3ac3401f8990c4d350a7234c0fc16c615b0940ded09847c99a10884",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/17/options/3/label": {
+      "sourceHash": "e6c82f5a7d78ce5bbaf6ab1421f1b93f5ca73bcdb16a616d6038e9cc93763a7c",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/17/options/4/label": {
+      "sourceHash": "c45dc04f8168c3f8861d0a699a6fe498830b60e6beeab55f8ac79d318fd501f4",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/18/prompt": {
+      "sourceHash": "3e9baaa459eeee5ba32f8d65f839c24bd913c8ec7adca0dffa348fe85fdc265b",
+      "text": "已經滿足以後，只要即時回報還在，我也容易再多來一次。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/18/options/0/label": {
+      "sourceHash": "40f10cf46c1558661dd3cf71a09f24a252d37202ab5a9b6e75c0134c0b8e75c5",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/18/options/1/label": {
+      "sourceHash": "66c0db4e3eedc67c58ab43c1370420f324d19cf56f1db2247fe5621222c20842",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/18/options/2/label": {
+      "sourceHash": "fef7cd8f1c782da1ff9133c4ef8aa4640147810ded0b4fbe28a19b5aa15be7a1",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/18/options/3/label": {
+      "sourceHash": "9f4290a0accabfc7a6f5a9d9b35d2c44b5ed31d9611dc92f0fb8b4d7bad581cc",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/18/options/4/label": {
+      "sourceHash": "2f26e18f8a6c49acbb87010ff674d21cfc02da15dd9f7d2b320a699adfa3fade",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/19/prompt": {
+      "sourceHash": "bc57ce6825a60b918ba3140f78b455e39b79edc7cb98cfb032a31a9a68aec264",
+      "text": "發現已經享受得差不多時，我能按自己定下的界限停下來。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/19/options/0/label": {
+      "sourceHash": "d756db022dbbe646d36aad36bc120f14ceffeea8993d53f4622ccfef274d5b75",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/19/options/1/label": {
+      "sourceHash": "8d6397c02dd7ed7205f9c4873301ed1a5a37cf9553f5c07b425218e4bf570c9d",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/19/options/2/label": {
+      "sourceHash": "ef63d16f30c20d88e17331dcb2bfd05208be5255df44b8012bfa54e7820d4472",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/19/options/3/label": {
+      "sourceHash": "16cb8a40b31ea0b9d655119af28706d69665261477778def6e45be28b82742ba",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/19/options/4/label": {
+      "sourceHash": "5c0fce03388f2078e14444ba92effc2ba1debcfa576fb5e4c9006c4cb97b2007",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/20/prompt": {
+      "sourceHash": "7f3189e9911eb6922f68a5f7f9f999f2723c310cf7acce7ec3bb929b6daa1ed2",
+      "text": "覺得被冒犯時，我容易立刻用很重的語氣回擊。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/20/options/0/label": {
+      "sourceHash": "789262b232a84a7f4a3bb299f27175ad9683e93d3652dbe9f1e5ef8754cceb67",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/20/options/1/label": {
+      "sourceHash": "8dba2e9d2f5f2f9ad68c98152ef367ec0f25d5afc231742fe1d903e6a54af7b3",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/20/options/2/label": {
+      "sourceHash": "b34b77233b91bfb38adf9cdef7e083ebaf5d6a856d29e35c5c3f19f549ce36dd",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/20/options/3/label": {
+      "sourceHash": "dc5bcac74bcd0f7686d8804cb5342fc5feea4f9d98b98649aa92fa983e24cd1b",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/20/options/4/label": {
+      "sourceHash": "3f8a1f14e53b4cef255efa40bebfb7886e666e8c3f829ce47957bc47550c58e5",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/21/prompt": {
+      "sourceHash": "40a814c2a2f2b4e5de72aad7725ff4ded352f400ebef60361d864d9f4351f1ac",
+      "text": "分歧中察覺自己開始生氣時，我會給自己一點時間再回應。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/21/options/0/label": {
+      "sourceHash": "bb050fc71dcb79c3abe49b125ffc89b475f5e9ad3fdc5d00d3727f7ccf4b32f9",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/21/options/1/label": {
+      "sourceHash": "95fe773f071e2e4ae9a63b8d82cdb982d99369b400bd83afe815134df9973eea",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/21/options/2/label": {
+      "sourceHash": "0f17224bdd00bb32b810219b21b9d8289874f24492ce947c761ee10840428eab",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/21/options/3/label": {
+      "sourceHash": "c7d9fd13fc378703f635fa575bc64ca3686258fbc373bf0ea31bb0a5909f6959",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/21/options/4/label": {
+      "sourceHash": "bc923b4b33e3eaf8501a820df6780268e45962bbcaecf6c7f0c9186318745ae9",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/22/prompt": {
+      "sourceHash": "6f888c2973247071518b3a46cd0404d2c3f9e6b7dde25b31e23492c0c799b79a",
+      "text": "爭執過後，我仍會想著怎樣用言語還擊。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/22/options/0/label": {
+      "sourceHash": "d43fc7a4b42a81da9b1511fe3092f6a551f9f77b85c6a0b13bd1f6a3c47c82c0",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/22/options/1/label": {
+      "sourceHash": "872c37542ecb9e858a2850d6c7a39e6f369b9e6ca30872424588733d383c32a4",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/22/options/2/label": {
+      "sourceHash": "63f02b56707c9514cb038205d630170d774a86a342a928ee83ec3b213d7ddb90",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/22/options/3/label": {
+      "sourceHash": "3fdd2a4be34d676745f893ad519327370fdc053a67b9edef60ea49979bcc43fa",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/22/options/4/label": {
+      "sourceHash": "08d9e5f8ce2d109f92d2fd1ce9fbe6faf7325631ac71ac5f48ea3b8c669a3fcf",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/23/prompt": {
+      "sourceHash": "a2f7a6489922ae9ff23d754b057072418ce1f4fb1b05a2f143da94300b41eb5d",
+      "text": "等候一件不能馬上解決的事時，我會留出對方處理所需的時間。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/23/options/0/label": {
+      "sourceHash": "965b10bf945c0e2dc2e74c02f20d0a5072adc050dfa6eb59759e372795e9c273",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/23/options/1/label": {
+      "sourceHash": "2b1bf92d39b4244236ea363e3f7f0bd75ad6bc8f4ae642de6dd7c06956d196ac",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/23/options/2/label": {
+      "sourceHash": "13f040ddc9836c5c55e1320e7d1e66521a63f8c6db0908b90c2ba466d299decd",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/23/options/3/label": {
+      "sourceHash": "d2861636ef1acad61425bfa01d9c2e1216cdf0158562394a16dd5f87806f3d15",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/23/options/4/label": {
+      "sourceHash": "0edf3f44bffb70cf752901b252562fd1b239a386bb66fcd5f785443d782d6c82",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/24/prompt": {
+      "sourceHash": "7cb835778db4212bad70506d5093830b3d2f28462dad2f06e6a115d79dc5eeca",
+      "text": "即使知道第一步怎麼做，我也常把該開始的事往後拖。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/24/options/0/label": {
+      "sourceHash": "7662d9584cb46a15c1c6e790cca030f8033d0008f819049e8c0ab8c360776073",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/24/options/1/label": {
+      "sourceHash": "8ca0560464eef2281c4b9896b9abf76c8e461eb98abf39fb9e7da4cd926149f0",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/24/options/2/label": {
+      "sourceHash": "46406bf39ed1e30af8692786a672f0670dbcf1532bb8e4e5e4ec701093113e7e",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/24/options/3/label": {
+      "sourceHash": "a094ba0e53cf1a741974e42cf0ad5659eba7326975537e9a28cb514f0f6a3f88",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/24/options/4/label": {
+      "sourceHash": "8dd819db2b196e9002df69e6a0ba34e7d37c407f1c84b6fb9aa7d1c36f13e62b",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/25/prompt": {
+      "sourceHash": "d761b98de1d9b152f99af5fa8465ea622302913b74063afb97c883ab3c17ac53",
+      "text": "遇到一件費力的事時，我會先做一個自己能完成的小步驟。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/25/options/0/label": {
+      "sourceHash": "9ebfeb6591342943ca543c09de78937e6fa6a97203559a45b4084c135ee024ff",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/25/options/1/label": {
+      "sourceHash": "616cc16739006284be8d023f2ea646ca27ceba98b2e326f97a745123e6c9ab79",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/25/options/2/label": {
+      "sourceHash": "9b2b5a4241a6facbed3b8988a5ca2319097e7ec8347cc2d4961ea1dd4206c606",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/25/options/3/label": {
+      "sourceHash": "064092a930cec1c63d27f28e2f4c0de5c303cd9890e2d52e7ea042fde4032b08",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/25/options/4/label": {
+      "sourceHash": "c6c15db801e4dcfda083cf7ebd8eb4f4d6a42a2ae1071d52d6da584de51a0938",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/26/prompt": {
+      "sourceHash": "1569d589cb2f4dd9a4f3da5b8114271126e8f304a9f9db9de6b06cf3ca53debd",
+      "text": "已經休息夠了，我也常繼續拖延回到原本計劃的任務。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/26/options/0/label": {
+      "sourceHash": "e38cf4540cb093ae614f2543f3fcdb6b65913796c29e61ffe108c4a1cb5ee2f7",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/26/options/1/label": {
+      "sourceHash": "6e0caddd5deee67dbe938ffd5040a0d07a55892ea1abbefdb9b62d0b1d9d4f45",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/26/options/2/label": {
+      "sourceHash": "4815e1ba2b8f9c2441e127c31d1cc47564aed762f33ad6fc5240eeab801f5949",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/26/options/3/label": {
+      "sourceHash": "a2e227571654190e26f86fb7bafbba4b0cf5510246a47c630fd04ac92ded02fc",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/26/options/4/label": {
+      "sourceHash": "49d1a2b1e788c25a534ea8b86897804126ef967d054634c0dc4b446d28857b73",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/27/prompt": {
+      "sourceHash": "f82e7cbda65214def865d83b551c1d882220e47d3f3a5274b948075c636ded6d",
+      "text": "一項重要任務需要幾天完成時，我會安排時間持續做一點。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/27/options/0/label": {
+      "sourceHash": "87cbe27a3fcf21ba4beebc9d69b98b5a84a211d654895eab996ebae06f3b99ac",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/27/options/1/label": {
+      "sourceHash": "aa2d69aa2ae49a130309d03242904e52e236fbec6c6dc512b240fe7b50f52691",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/27/options/2/label": {
+      "sourceHash": "d74b9fd91b92b5a84642a7bb40b23baab706338044998d3acac87777c98e4d81",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/27/options/3/label": {
+      "sourceHash": "2bca083e1f64d8b6bdc827c3faea170f3c52335880a4cd935217050c645bc1fe",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/questions/27/options/4/label": {
+      "sourceHash": "fa72a2a47b8f10b50ba83ef9f855a1ce3decd3461769f6bb9bdb825fe9b69ed7",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/title": {
+      "sourceHash": "460d856315876c73163b43f6368042cb680043ceaed552c6fa7ce7fb4437901b",
+      "text": "認可需要與自我定位：完整讀法"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/headline": {
+      "sourceHash": "f6eab22dcbaa02a0421d90a7dee44318460c5d3c2c8cf93a70f9c7e0d134d1f1",
+      "text": "回看外部反饋怎樣進入自我定位"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/summary": {
+      "sourceHash": "a00e8a7fbde1ab4ff53c73382c26026289f42f1eae007701dd2a18211f47b0bf",
+      "text": "這組主題關注對自己判斷的信心、如何看待共同成果的功勞、是否承認錯誤，以及是否說出他人的貢獻。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/scoreReading": {
+      "sourceHash": "bde0afac355927aa82060c477b8685077710c79bb2a0a36645a935cae97eccd0",
+      "text": "分數表示本次對兩道題的符合程度。題本僅供娛樂與自我探索，尚未建立心理測量效度或人群常模。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/seo/title": {
+      "sourceHash": "7de390ce397f76b9394e2609c867e335b0ecf7d310b74794b63e86ad7e7ec076",
+      "text": "七宗罪與七美德：認可需要與自我定位"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/seo/description": {
+      "sourceHash": "3ab141767bc39ca11fda6b7561b2e095d5291bd712829f3770c1065dde04dcd7",
+      "text": "從共同成果與反饋中，分開閱讀爭取功勞與承認他人貢獻的兩項得分。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/sections/0/title": {
+      "sourceHash": "027eeb4f282bb12f8f4974e721d3891adf96357bbb7df91c79e8a278292b066b",
+      "text": "這四道陳述觀察什麼"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/sections/0/paragraphs/0": {
+      "sourceHash": "5dfeb932313853e0361c064cb71d97759e987acc5dd41ead1843c779146af545",
+      "text": "傳統七宗罪中的驕傲常被描述為過分看重自身地位；本測試只用這一隱喻作為入口，不測量驕傲或謙遜本身。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/sections/0/paragraphs/1": {
+      "sourceHash": "082c9af7c9300618f5ed401f0d7fde79dc43048ecc34152a3908fb3f08069ac9",
+      "text": "這組主題關注對自己判斷的信心、如何看待共同成果的功勞、是否承認錯誤，以及是否說出他人的貢獻。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/sections/0/paragraphs/2": {
+      "sourceHash": "c743f6956e13ac5631272faac27933a84894b2585aafc5400a7d88400d329253",
+      "text": "傲慢由第 1、3 題計分，分別詢問是否先認定自己的看法更可靠，以及是否想多領共同成果的功勞。謙卑由第 2、4 題計分，分別詢問是否願意承認錯誤，以及是否具體說出他人的貢獻。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/sections/1/title": {
+      "sourceHash": "c59c1784c2a49d0c478fca2755fa669aa779f99a030da1934239422f22e02b25",
+      "text": "兩項分數怎麼讀"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/sections/1/paragraphs/0": {
+      "sourceHash": "40d671de41c2ea9ca424c8bb58c50e163b6f41c0194634ca9caf92536a3fb0b3",
+      "text": "例如，一軸兩題選2和4，均值3，對應50分。選1和5也得到50分，逐題回答仍可能不同。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/sections/1/paragraphs/1": {
+      "sourceHash": "3ddde8a48dde1fb36a0a8ca17f14b1f2a8ce6c83ffe655292506802e892998d3",
+      "text": "分數表示本次對兩道題的符合程度。題本僅供娛樂與自我探索，尚未建立心理測量效度或人群常模。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/sections/2/title": {
+      "sourceHash": "ac9333801a1d468c6505c7803c8ff153f666476f97730c9cda13af364c265d91",
+      "text": "回到一個具體情境"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/sections/2/paragraphs/0": {
+      "sourceHash": "f5e035df589fb7cc3829e2e1c432eb6536a48978cf690d9ad265f2336cce98aa",
+      "text": "可以回看：你更在意哪類反饋；沒有回應時你還用什麼事實評價自己。 最近一次期待反饋的場景；那次沒有回應時你怎樣判斷投入是否值得。 被忽略時佔據注意的是事件本身，還是對投入是否值得的懷疑？這隻能由你自己確認。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/sections/2/paragraphs/1": {
+      "sourceHash": "4d544a6fbc8f431824f425698283c0125fd0db5b41f6a7c7c2905a6a68690ee0",
+      "text": "假設你會前整理了資料，會上卻沒人提到，你之後一直想著那段沉默。後來同事說，自己使用了那些資料，只是沒有意識到你期待明確反饋。這裡至少有三件可核對的事：資料確實完成了、有人用過、認可沒有被清楚表達。感到被忽略，不等於貢獻沒有價值，也不能直接證明對方故意排除你。分數不能替這些解釋作選擇。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/sections/3/title": {
+      "sourceHash": "a0f62c9470996d5a51e7a76c18b19ede4d4d5d791e8d578dcb44079c548a7fe4",
+      "text": "把不同含義分開核對"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/sections/3/paragraphs/0": {
+      "sourceHash": "36286ebb937340bf453f2ea4434981fc4d702684f049f734be7fd187c5ab627d",
+      "text": "傲慢與謙卑來自不同題目，請分別閱讀兩項得分。它們可以在同一次結果中同時較高或同時較低。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/sections/3/paragraphs/1": {
+      "sourceHash": "bf63df7609f675e4d6fa7de30ee74ccf11bc151349de6271ff261acdf7532859",
+      "text": "兩項得分各取兩題。同組的兩個名稱幫助你圍繞一個閱讀主題理解作答。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/sections/4/title": {
+      "sourceHash": "59f302b78f1738434cbeb6165ed30ea6f8b8605915434f1319e9c7540badac47",
+      "text": "一項自選行動或對話"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/sections/4/paragraphs/0": {
+      "sourceHash": "56eef0aba6ed24c7cfc03e13c9c2c3067acb739f79fcbaeb4e015b7e228982df",
+      "text": "寫下一項不依賴讚美也能確認的完成證據；把外部反饋與自己的標準並排記錄。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/sections/4/paragraphs/1": {
+      "sourceHash": "012c12ad26fa3f75b052129c5273d4d755e5c9687561e1e78e27401440599078",
+      "text": "如果願意，可以說：“那份對照資料是我整理的，你能告訴我哪部分有用、哪部分還需修改嗎？”也可以先記下自己的完成標準，到這裡結束。你不需要靠爭取讚美、反覆確認或公開測試結果，來證明被看見的需要合理。是否需要反饋，是一次具體選擇，不是個人價值的裁決。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/sections/5/title": {
+      "sourceHash": "559cbbd8af3a18d4f3665499861f714a69db90eafc964d7a4a83f09dae747c25",
+      "text": "這個數值不能說明什麼"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/sections/5/paragraphs/0": {
+      "sourceHash": "90099fdeadec849feb3a6ea50ac754f8aef110722df7b06239f7fe53d6b56256",
+      "text": "它不能說明虛榮、傲慢、自戀、自尊水平、人格價值，也不能說你只在乎別人的評價。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/sections/5/paragraphs/1": {
+      "sourceHash": "0d3095cf4e4eefefefaef6d9f901d6a39e25f26062179ca966b4c4dca0e12602",
+      "text": "不判斷謙遜美德；較高數值不表示更有問題；較低數值不表示更值得欣賞。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/sections/6/title": {
+      "sourceHash": "d08fd87e56b57f6bf6e25e9a02b4c4fda0e7539a5d99955439ffca132d1ff162",
+      "text": "一個反例與邊界"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/sections/6/paragraphs/0": {
+      "sourceHash": "050482460933e492f2ca3b6d0d5be0f94bf0e45fb36acf40396613325044aa3c",
+      "text": "想獲得認可、能接受指正，可以同時發生。可以分別留意什麼時候想多爭取功勞，什麼時候願意承認其他人的貢獻。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/sections/6/paragraphs/1": {
+      "sourceHash": "cdcb9e739781d79c370580cfa739479be34891ce1c6ae1390ec002629970c638",
+      "text": "認可需要是常見的心理需要，不是道德缺陷；本測試不定罪、不羞辱。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/sections/7/title": {
+      "sourceHash": "61815e8c5e3ed9fca7398e32a5b670c937c59de2111fcf4f055388a984367dd3",
+      "text": "版本、來源與驗證範圍"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/sections/7/paragraphs/0": {
+      "sourceHash": "49fb15a1edcd0dc45e5b142ff768ee797efb3e8cb6ea7f7996bd0c3834e5bf9d",
+      "text": "這是用於自我觀察的產品化概念，未經信度、效度、常模或公平性驗證。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/0/sections/7/paragraphs/1": {
+      "sourceHash": "b0fa1ad8444547fe899a2fefd917b55257a6a7c41878da40eda2be25acba4e8b",
+      "text": "現行網頁版共有七組閱讀主題、14 項得分，每項使用 28 道陳述中的兩題。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/title": {
+      "sourceHash": "31c06d5d78565b5d35a1537454e7ee46ea4adde484ab675a8a8dc8c1cae15faf",
+      "text": "資源安全感與分享：完整讀法"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/headline": {
+      "sourceHash": "a9248e10e6e7a6eb9c91c141276c5e5b6d24df9805a5236590241c0ffb4cad3d",
+      "text": "回看資源不確定時怎樣決定保留與分享"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/summary": {
+      "sourceHash": "c450fdeb698e4b1b5d177fec0aee634253a26860c7a0df683df0a1acc5f88c13",
+      "text": "這組主題關注夠用時仍想多留資源，以及有餘力時分享物品或時間。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/scoreReading": {
+      "sourceHash": "c8525925f5139ab83f8706abc3e238970068240b8d96249372db402243968aad",
+      "text": "分數表示本次對兩道題的符合程度。題本僅供娛樂與自我探索，尚未建立心理測量效度或人群常模。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/seo/title": {
+      "sourceHash": "10e1d8b9d2830f2715e8450c81ddc15bdb971a5c941856f9eed26996967301ca",
+      "text": "七宗罪與七美德：資源安全感與分享"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/seo/description": {
+      "sourceHash": "0806869709c21553c54ad3d4224916843f7f99f4f6908fdfec37a4179f669860",
+      "text": "用借相機的例子核對實際餘量和自願分享，分開讀貪婪與慷慨。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/sections/0/title": {
+      "sourceHash": "7cc44f0ea1c4df5344579f5f8d0da7a43588e74a30c22a396979ff5a914baefa",
+      "text": "這四道陳述觀察什麼"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/sections/0/paragraphs/0": {
+      "sourceHash": "e77d85aef0e458ed057a137b5230da7f23ddb0ba50caaaddcd854d87c6782b33",
+      "text": "傳統七宗罪中的貪婪指對佔有物的過度執取；本測試只借用這一入口觀察資源不確定時的保留與分享判斷。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/sections/0/paragraphs/1": {
+      "sourceHash": "d36ef0ce8f4621aee0702373f147e2785fec08ac16fa045cc4cc2a0e3c5f932a",
+      "text": "這組主題關注夠用時仍想多留資源，以及有餘力時分享物品或時間。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/sections/0/paragraphs/2": {
+      "sourceHash": "c6e7e335af72e1ba6bd6c586b7cb694197615623e154c48605f93af98f90cad2",
+      "text": "貪婪由第 5、7 題計分，分別詢問夠用時是否仍想多留一份資源，以及分配額外好處時是否想多拿。慷慨由第 6、8 題計分，分別詢問是否主動分享閒置物品，以及有餘力時是否願意花時間幫忙。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/sections/1/title": {
+      "sourceHash": "df73814e899f573ce91fdeaace1dab9489c37acd307397316841d095c9f2cfbe",
+      "text": "兩項分數怎麼讀"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/sections/1/paragraphs/0": {
+      "sourceHash": "19c92aa0560d5a2b59c63c88785b7422b8f40891106374a9765a55cdcec9bb81",
+      "text": "例如，一軸兩題選2和4，均值3，對應50分。選1和5也得到50分，逐題回答仍可能不同。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/sections/1/paragraphs/1": {
+      "sourceHash": "1f13eb3857c49a1a9c21825283392de14199c90315d846e81bdba09810125e87",
+      "text": "分數表示本次對兩道題的符合程度。題本僅供娛樂與自我探索，尚未建立心理測量效度或人群常模。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/sections/2/title": {
+      "sourceHash": "57cd3196a54b4ef6466c7f1d2b6aa0e4f74ad17a550b053854a4fbfdda37c440",
+      "text": "回到一個具體情境"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/sections/2/paragraphs/0": {
+      "sourceHash": "4ec8b9d0ec4e77148e0d8007e73f21cbab9cffa700a2e3964848c05aa140bb54",
+      "text": "可以回看：你擔心失去的具體資源是什麼；風險有多確定；分享範圍是怎樣設定的。 最近一次拒絕或同意分享時的餘量；那次分享是否影響你的基本需要。 保留更多是出於現實風險，還是習慣性擔心？這個判斷只能由你自己核對。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/sections/2/paragraphs/1": {
+      "sourceHash": "752855d84cd02d1e9dd080332cebcd75d2574c09f2a173861adbaca49c7f3cef",
+      "text": "假設朋友想借你的相機，而你不久後也要用它完成自己的專案。你會考慮歸還日期、備用器材，以及計劃變動時怎麼辦。保留餘量可能來自真實截止日期，不是“不肯幫忙”；同意借出，也可能同時伴隨仔細核對。相同分數不能確認究竟缺少什麼資源、誰還有替代方案，或同意是否出於自願。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/sections/3/title": {
+      "sourceHash": "a2044dbea8a00a42d41dd9af5c38922ba1ef6b71d3d89ff9e1d6111a596418be",
+      "text": "把不同含義分開核對"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/sections/3/paragraphs/0": {
+      "sourceHash": "9809bd47ceae41123924bc96ac08700d71a54ec732f2a6dacc827e218429ab13",
+      "text": "貪婪與慷慨來自不同題目，請分別閱讀兩項得分。它們可以在同一次結果中同時較高或同時較低。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/sections/3/paragraphs/1": {
+      "sourceHash": "84bee7fe778aa02d75c78176854915dbd607dc4438d659d2809149fb9483aba7",
+      "text": "兩項得分各取兩題。同組的兩個名稱幫助你圍繞一個閱讀主題理解作答。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/sections/4/title": {
+      "sourceHash": "e043525539407382356acb9183191fd97c57a57da0d33f54f0da5eb21f23988f",
+      "text": "一項自選行動或對話"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/sections/4/paragraphs/0": {
+      "sourceHash": "0c2245e26986915643cdd252234d0072177a8804a3e21d2fca162d2df0640ea8",
+      "text": "為一次分享設定清楚範圍和可撤回條件；先保護基本需要，再決定可分享範圍。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/sections/4/paragraphs/1": {
+      "sourceHash": "fdea175affd8e6993d50f950bacd3fef78e08a6c2ae510ac8c57300d564dbadb",
+      "text": "如果願意，可以給出有範圍的回應：“我可以借到週四；如果我的專案提前，需要把它取回來。”清楚拒絕也始終是可選項。情況改變時，可以重新協商安排，不必給任何人打人格分。值得比較的是約定與實際餘量，而不是想像中“慷慨的人總該分享”的標準。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/sections/5/title": {
+      "sourceHash": "ff8800935323cf80b8e4c43bfdb586be51be2ff839c11d773886e07fd5fb135c",
+      "text": "這個數值不能說明什麼"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/sections/5/paragraphs/0": {
+      "sourceHash": "fd47b6a98472d489769ede29bc012160ee1336bbe94b2eb8b13e9a7b68e8fb4f",
+      "text": "它不能說明貪婪、自私、吝嗇、慷慨程度、經濟能力或道德品質，也不能說你不願意幫助別人。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/sections/5/paragraphs/1": {
+      "sourceHash": "0ece495af4863f41528e65280814069e36bb1313c6960f5fafeb3101e622e39b",
+      "text": "不定義貪婪或自私人格；資源保留不等於人品判斷；謹慎與願意分享不是道德高下；數值較高不表示更自私；數值較低不表示更慷慨。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/sections/6/title": {
+      "sourceHash": "aa18b9774005a73f8b88e26df41a4b5f5f5b5ccb5919de15a9040028675f1f3d",
+      "text": "一個反例與邊界"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/sections/6/paragraphs/0": {
+      "sourceHash": "176746ae43aa51ce77b990e9b27edfff7b5257b23ef4203656370e42225d5803",
+      "text": "保留夠用的資源和自願分享可以同時做到。可以先核對實際需要，再決定怎樣分享手頭確實有餘量的東西。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/sections/6/paragraphs/1": {
+      "sourceHash": "e82f68c2bbb5b44cf51a59c92446a748909c23b0f807c75a44fa6c828480215a",
+      "text": "資源顧慮是現實功能，不是品格缺陷；資源包括時間、物品或現實餘量，不擅自擴充套件成財富人格。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/sections/7/title": {
+      "sourceHash": "18d3d939c0b9850ac7410ed97bedb11923340494edb0f2fbe151c61744bcda31",
+      "text": "版本、來源與驗證範圍"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/sections/7/paragraphs/0": {
+      "sourceHash": "fb0dd7a4cc65970d8ee15470e2c49398ac44d339072dce5b74a74e1ad329f304",
+      "text": "這是用於自我觀察的產品化概念，未經信度、效度、常模或公平性驗證。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/1/sections/7/paragraphs/1": {
+      "sourceHash": "adc639f7ab7de53d1dc45e6626def5e8b33d051ee2322b3f8754265892647d71",
+      "text": "現行網頁版共有七組閱讀主題、14 項得分，每項使用 28 道陳述中的兩題。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/title": {
+      "sourceHash": "9fb291268e7fd87b2ae9885fe7ca1c914d856c4dd0eb1c73eebfa0f92700df1d",
+      "text": "慾望、吸引與邊界：完整讀法"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/headline": {
+      "sourceHash": "5a27d3c77cb277781b2dbd2e285bdca3e3702f40b74119f46188bb7b0b0ccdf7",
+      "text": "回看吸引出現時怎樣核對意願與邊界"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/summary": {
+      "sourceHash": "89a87c6dc010c49364fba8d20d12f487363bc8778609d08100912e247b3f6746",
+      "text": "這組主題關注強烈吸引下的衝動、雙方意願，以及以舒服的節奏推進親密互動。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/scoreReading": {
+      "sourceHash": "657ead88da6a752665e7511aa74421dc3e014ae790e05f96f15d80ce62535d2a",
+      "text": "分數表示本次對兩道題的符合程度。題本僅供娛樂與自我探索，尚未建立心理測量效度或人群常模。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/seo/title": {
+      "sourceHash": "ecc770a48a5aef0a638e1d35f05e1e3c70dc441bd4b3fa16bc46105a74f41768",
+      "text": "七宗罪與七美德：慾望、吸引與邊界"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/seo/description": {
+      "sourceHash": "69a57c8f18905b88421a606bb90e7c6ea18abd9e97dc4a9f56b59eaf7dc7f611",
+      "text": "用具體情境分開看吸引衝動、雙方意願和舒服的節奏。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/sections/0/title": {
+      "sourceHash": "7fe5d60b158886dbc65c982f8e5e532c260ef0e12e3809413f84d73a2b044459",
+      "text": "這四道陳述觀察什麼"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/sections/0/paragraphs/0": {
+      "sourceHash": "80fbb88ccbe8392c549e7bb554519cdbe532c860c15b9b24f3bf881508e542a4",
+      "text": "傳統七宗罪中的淫慾指慾望失控的想像；本測試只借用這一入口觀察吸引出現時的注意力、意願與邊界。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/sections/0/paragraphs/1": {
+      "sourceHash": "019425efd0b070ab144183de4fdbf5c89b107b3de41745524b8add1eab3767e9",
+      "text": "這組主題關注強烈吸引下的衝動、雙方意願，以及以舒服的節奏推進親密互動。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/sections/0/paragraphs/2": {
+      "sourceHash": "25e0d39fde2621b51e203608f84ac646467dbac217372ed4b1325d6efd087a7f",
+      "text": "色慾由第 9、11 題計分，分別詢問強烈吸引下是否急於推進親密互動，以及是否容易被當下衝動牽著走。貞潔由第 10、12 題計分，分別詢問是否先確認對方願意，以及是否按自己舒服的節奏推進。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/sections/1/title": {
+      "sourceHash": "2a69864fc86a648b2758962d014453b7500b95c72a9e3573f2f9e9065a7df8b8",
+      "text": "兩項分數怎麼讀"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/sections/1/paragraphs/0": {
+      "sourceHash": "106d42bc6ece838e57a4511a19564bd419c7f02b20cbed5da2b380eb8069ea01",
+      "text": "例如，一軸兩題選2和4，均值3，對應50分。選1和5也得到50分，逐題回答仍可能不同。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/sections/1/paragraphs/1": {
+      "sourceHash": "fcf4fd68d2fb07c7eb14b91e0e584657e31adeaa787a2360bcf3d3206f9b155d",
+      "text": "分數表示本次對兩道題的符合程度。題本僅供娛樂與自我探索，尚未建立心理測量效度或人群常模。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/sections/2/title": {
+      "sourceHash": "fd4e36b2eb0af332283dd9661331fa5c92e1a0981021079a143631456a025786",
+      "text": "回到一個具體情境"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/sections/2/paragraphs/0": {
+      "sourceHash": "197ea1ed39ea8ba919a50aa780ce9537b419ac5da943f9b0fddb5d9120a01ea2",
+      "text": "可以回看：吸引出現時你通常會確認什麼；邊界是否清楚；衝動與長期選擇怎樣區分。 最近一次吸引出現時你確認了哪些意願和條件。 注意力被拉動本身不等於要行動；你通常在哪一步停下來核對？這個節奏只能由你自己確認。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/sections/2/paragraphs/1": {
+      "sourceHash": "0fcd46b052f880a2c557648f51a40d4fa1566761a0eb2d62ecfd2394f2510209",
+      "text": "假設一個新的創作合作很吸引你，但時間安排、未完成作品能否公開、各方是否願意參與都還沒有說清。注意被吸引、想要加入、同意某一項具體安排，是三件不同的事。你可以感到吸引但不行動，也可以先問清楚而不承諾參與。分數不能確定任何同意、對某個人的慾望，或任何人接下來會做什麼。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/sections/3/title": {
+      "sourceHash": "baf416caf804604e2ee69fd4eb8945676f0781ff7682b982b202c648822e12ab",
+      "text": "把不同含義分開核對"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/sections/3/paragraphs/0": {
+      "sourceHash": "32a90a5badf2ec151a534251bd6d9d3180c1539e3570c00a6bd58cd64fffb7b1",
+      "text": "色慾與貞潔來自不同題目，請分別閱讀兩項得分。它們可以在同一次結果中同時較高或同時較低。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/sections/3/paragraphs/1": {
+      "sourceHash": "8480a228418bd88d7ce41ac4a279ac94efae373d74f7722ba198bafacc9e9744",
+      "text": "兩項得分各取兩題。同組的兩個名稱幫助你圍繞一個閱讀主題理解作答。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/sections/4/title": {
+      "sourceHash": "5f2fe4c6c636c57b06d4167f86e76948f596631558f27ad290b2bcba5bcdac65",
+      "text": "一項自選行動或對話"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/sections/4/paragraphs/0": {
+      "sourceHash": "ef27fd57f7625a94351a0046a1e778aa9b92e74bb423ee399f7bd01a8e892374",
+      "text": "在行動前寫下一個必須獲得明確同意的節點；允許吸引存在，同時確認同意、邊界與後果。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/sections/4/paragraphs/1": {
+      "sourceHash": "20ccf27c8131d6ff299c76090e44adfd62137cadd27566a55723de92fe274eb5",
+      "text": "如果願意，可以問：“繼續之前，我們各自同意的具體是什麼？之後哪些安排可以改變？”提議變化時，也可以改變自己的回答。暫停或拒絕不需要測試替你提供理由。涉及他人時，應直接確認對方明確且可撤回的意願，自己的結果不能代替它。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/sections/5/title": {
+      "sourceHash": "1d3deb6408244081a0a5db05563aa608d1fec3d980473ce0b146b6af39b1f810",
+      "text": "這個數值不能說明什麼"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/sections/5/paragraphs/0": {
+      "sourceHash": "7c940fd1d5620ca3a7511c232e9e9c7a66a6f0101c2cf86404f1cc448fdd5d79",
+      "text": "它不能說明淫慾、性慾水平、性行為偏好、性取向、忠誠程度、自制力，也不能說你會不會越界。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/sections/5/paragraphs/1": {
+      "sourceHash": "5cd58d7e0b85e250b2993ba39bbc3f83c0ef980cc1147f995162ed70b04c1114",
+      "text": "同意和邊界不是高分能力；有慾望不等於失控；設邊界也不等於壓抑；數值較高不表示更容易失控；數值較低不表示自制力更強。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/sections/6/title": {
+      "sourceHash": "854a37302e41f9b849a368dfa52085859c984157e9180d35df41077c6f3324a5",
+      "text": "一個反例與邊界"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/sections/6/paragraphs/0": {
+      "sourceHash": "9b0d13504d91b7cbc2722599362e9572d5e959fabc981d533464c7caddd939fa",
+      "text": "吸引和尊重邊界可以同時出現。貞潔軸在這裡指確認意願和按自己舒服的節奏行動，不涉及性經歷或性取向。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/sections/6/paragraphs/1": {
+      "sourceHash": "4b6a338ec0e16abfa2fb0d7ec044a75c78082b01cb071331fcd9054d7bc67d60",
+      "text": "吸引和慾望是常見體驗，不是道德汙點；任何人的意願都必須明確、自願且可撤回。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/sections/7/title": {
+      "sourceHash": "262ccec5a3492511f06122019545b039c5117b5cd026d7952e25fa5a0565cf26",
+      "text": "版本、來源與驗證範圍"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/sections/7/paragraphs/0": {
+      "sourceHash": "ee2d52250f5ef50e1416589b20d28bb216454938ac799b9af9e5920591fddb0d",
+      "text": "這是用於自我觀察的產品化概念，未經信度、效度、常模或公平性驗證。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/2/sections/7/paragraphs/1": {
+      "sourceHash": "9901ad4b5cc620b68960c14bc950418d878dd432967f7652478b5afc3706ea4d",
+      "text": "現行網頁版共有七組閱讀主題、14 項得分，每項使用 28 道陳述中的兩題。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/title": {
+      "sourceHash": "0f06e0740fcafab698c1a316f5a8fad85b85c5c762ee0eb0189ef0471f87edcd",
+      "text": "比較敏感與欣賞：完整讀法"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/headline": {
+      "sourceHash": "8a18696359ab71842df1cb5042598f8c86c2172f0f4c933e94b4ef16f3441e53",
+      "text": "回看比較與欣賞怎樣同時出現"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/summary": {
+      "sourceHash": "f39cd731a121238f29f22dabb871c14167c0a6f7d4ac70a841973dc29a043069",
+      "text": "這組主題關注看到同伴順利時的反應，以及如何回應他們的成功或困難。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/scoreReading": {
+      "sourceHash": "ead03eaa618b93aebf8ea99b01e8ee8e99bebcf6aa01efe911d01119d1942f4f",
+      "text": "分數表示本次對兩道題的符合程度。題本僅供娛樂與自我探索，尚未建立心理測量效度或人群常模。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/seo/title": {
+      "sourceHash": "64caa0f601e46516df1bc9db5a7750ab231059c13a3b901e7377168b5f7770e9",
+      "text": "七宗罪與七美德：比較敏感與欣賞"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/seo/description": {
+      "sourceHash": "f7758d178f42539f87222b122e1d2a28675cac4fbc64b59054d0e2505d381837",
+      "text": "從同伴獲得機會的示例理解比較、失落與真誠祝賀如何同時出現。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/sections/0/title": {
+      "sourceHash": "6ccc0591f41ae60a8dde3970a48c90aeb67d8bb4a0bf41cde3922d32103929c7",
+      "text": "這四道陳述觀察什麼"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/sections/0/paragraphs/0": {
+      "sourceHash": "122132955758da0ec9acda2fd309256806ed564d52bd9b1854db68f2f8233de4",
+      "text": "傳統七宗罪中的嫉妒指因他人好處而生怨；本測試只借用這一入口觀察比較、失落與欣賞如何共同出現。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/sections/0/paragraphs/1": {
+      "sourceHash": "6b886ba69a197cf11a8d3aa750bf880e607578bb5eef6cfdf44076fb6983eef9",
+      "text": "這組主題關注看到同伴順利時的反應，以及如何回應他們的成功或困難。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/sections/0/paragraphs/2": {
+      "sourceHash": "6e739349663410d0490701ce1b477430fb98967d27691a480741306f34380a62",
+      "text": "嫉妒由第 13、15 題計分，分別詢問是否介意同伴獲得自己想要的機會，以及看到同伴更順利時是否反覆想著自己缺少什麼。仁愛由第 14、16 題計分，分別詢問是否願意真誠祝賀，以及是否先了解遇到困難的同伴需要什麼。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/sections/1/title": {
+      "sourceHash": "43b96f7bef77b750fc3a34bffb56cf8a32e033b130ced65bdee412d5eb6ea88e",
+      "text": "兩項分數怎麼讀"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/sections/1/paragraphs/0": {
+      "sourceHash": "2f28b89a82d7c336ee15f046ce0d6869092951b85af5c371bbaec2242fc4ca4c",
+      "text": "例如，一軸兩題選2和4，均值3，對應50分。選1和5也得到50分，逐題回答仍可能不同。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/sections/1/paragraphs/1": {
+      "sourceHash": "f2130c56581184323b8702ec366e591af2347357cec9201d7fe28c671eb86ddc",
+      "text": "分數表示本次對兩道題的符合程度。題本僅供娛樂與自我探索，尚未建立心理測量效度或人群常模。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/sections/2/title": {
+      "sourceHash": "9b7424dbe2e43f24d083f210434c4a80162290d0f7ba474bd2e83862a567fead",
+      "text": "回到一個具體情境"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/sections/2/paragraphs/0": {
+      "sourceHash": "cf087e14077373a180b99c3b9ea4f219452ff49485e3145a65180bd6112ad654",
+      "text": "可以回看：比較發生時你更在意機會還是位置；欣賞他人時是否也想到自己的發展。 最近一次比較的具體情境；那次比較裡失落與欣賞是否同時存在。 比較反應帶給你的資訊是什麼？它指向你想要的機會，還是隻是位置的落差感？"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/sections/2/paragraphs/1": {
+      "sourceHash": "6423cc0cf1e4a7f315ebc346d5ea255745701f3278d9a69b45d288b16bedead5",
+      "text": "假設一位同伴的專案獲得了你也想爭取的機會。你欣賞對方作品的某一部分，也注意到自己因機會落差而失落。這兩種體驗可以同時成立，不需要互相抵消。事情也許包含可瞭解的選擇標準，也可能有暫時無法確認的因素。分數不能認定怨恨、不公，或一次祝賀是否真誠。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/sections/3/title": {
+      "sourceHash": "eb343c1a1c62055b654406ec64af673e6ef950cbc1dfd7520feecdb36ff90693",
+      "text": "把不同含義分開核對"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/sections/3/paragraphs/0": {
+      "sourceHash": "5923f991906617bd159e88055d18a09187207b4e183f8bc2f754e61e4a31f294",
+      "text": "嫉妒與仁愛來自不同題目，請分別閱讀兩項得分。它們可以在同一次結果中同時較高或同時較低。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/sections/3/paragraphs/1": {
+      "sourceHash": "739973bf35b5dced30c177f3058e0cc5049bd6a724f07aebfc9b62d5bd56b011",
+      "text": "兩項得分各取兩題。同組的兩個名稱幫助你圍繞一個閱讀主題理解作答。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/sections/4/title": {
+      "sourceHash": "542fb25e558e76e30542e5e9c24aab996d590ab0f375ff358a017652cb6d66e9",
+      "text": "一項自選行動或對話"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/sections/4/paragraphs/0": {
+      "sourceHash": "1c83404302bd8ad3dcbd00b3d186381c75e2a8223e39ec6b763ba148e0ec46b4",
+      "text": "從一次比較中提取一個可學習動作；同時記錄失落和欣賞，不要求二選一。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/sections/4/paragraphs/1": {
+      "sourceHash": "f28f7a85ef9c8e5b3e968f0add90a2fb4318bad77ffc8ce165ac493ef99ddbbd",
+      "text": "如果願意，可以分別記下：“我喜歡那個例子被解釋的方式”和“我仍想了解選擇流程”。接著可以選一項想練習的動作，向合適的人詢問標準，也可以保留未知。對方沒有義務披露私人細節。你不需要壓下失落來證明善良，也不必把每一次比較變成競爭。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/sections/5/title": {
+      "sourceHash": "7b58910862cc1122340502cd8feced2c1d54557c786dea91124778e0f8ac0c0e",
+      "text": "這個數值不能說明什麼"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/sections/5/paragraphs/0": {
+      "sourceHash": "927ed7d69f0737e1d9aa99eabd5a93276b3e6ae363d080fb058df0e6452c4aa0",
+      "text": "它不能說明嫉妒人格、惡意、是否真誠祝福他人、是否善良、是否缺乏感恩或人際競爭力。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/sections/5/paragraphs/1": {
+      "sourceHash": "5731209dcc4d9723bf4b93bb4dffee253438a60c64438330ee3b094ab3872414",
+      "text": "比較反應不等於傷害他人的意圖；不定義嫉妒人格；欣賞不是道德義務；數值較高不表示更嫉妒；數值較低不表示更真誠。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/sections/6/title": {
+      "sourceHash": "2fa61f48e7f896a53cdd203766f2ec64add9d56eb3b1e6f3fb6d325d6c80acb7",
+      "text": "一個反例與邊界"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/sections/6/paragraphs/0": {
+      "sourceHash": "9508ab056730e155eb6cb41960d5f862f92fd4255009418d0c98eedfa534f533",
+      "text": "對機會落差感到失落，也可以真誠地祝賀對方。對方遇到困難時，還可以單獨問問他們需要什麼。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/sections/6/paragraphs/1": {
+      "sourceHash": "f5e58ad8dd458a76ca2b63265dc220bdc4a61bb03b976cbc961fa6286311bac4",
+      "text": "比較是普遍的心理反應，不是惡；本測試不給人定罪。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/sections/7/title": {
+      "sourceHash": "d959916fe32af2559fafd56192d52ef812c60126b2923d3313e2b9903022e0fd",
+      "text": "版本、來源與驗證範圍"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/sections/7/paragraphs/0": {
+      "sourceHash": "3fc42c765d108a7d32544782fdd30b78c53f418bfee7ea444428fe3f386aa7d1",
+      "text": "這是用於自我觀察的產品化概念，未經信度、效度、常模或公平性驗證。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/3/sections/7/paragraphs/1": {
+      "sourceHash": "29ee7d1353594a3e60dae1ecafff48100d47d5fff4ce9285481b4a7fbe907fd0",
+      "text": "現行網頁版共有七組閱讀主題、14 項得分，每項使用 28 道陳述中的兩題。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/title": {
+      "sourceHash": "85877cb04e89e4c43b8bb6c7d3eff6a9fba4b2d527c2a1038f85ba3531a7e30b",
+      "text": "即時滿足與節制：完整讀法"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/headline": {
+      "sourceHash": "21883b1d77de0b23afe4c050d33b603a2362b130452be98f9da5355da1643884",
+      "text": "回看即時回報怎樣吸引注意"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/summary": {
+      "sourceHash": "d08d27656c887fb9c44dfa134e9c8729cca8225cdbf6424ff0529a9d21b15767",
+      "text": "這組主題關注享受時超過原定計劃、決定何時停下，以及按自己設定的界限停下。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/scoreReading": {
+      "sourceHash": "e435740c0243463a0d178f18fb060033f6616f319697180c3c5ea054cafce3b4",
+      "text": "分數表示本次對兩道題的符合程度。題本僅供娛樂與自我探索，尚未建立心理測量效度或人群常模。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/seo/title": {
+      "sourceHash": "c0b729f6366cd468d266eb6ca6ba6ed2fd274dae50cc3e52efd67a0822a0553b",
+      "text": "七宗罪與七美德：即時滿足與節制"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/seo/description": {
+      "sourceHash": "15eb1e4fcd79f0f3e49eb243ef41689e23c0a576719556c6a161eb94e7a92169",
+      "text": "用短影片休息的例子分開看享受超過計劃與主動暫停，理解暴食與節制兩項讀數。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/sections/0/title": {
+      "sourceHash": "0bcb3f21dd08733d08b88fb63fc5c27fa4765f4fde7d11d585da8de933a37cde",
+      "text": "這四道陳述觀察什麼"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/sections/0/paragraphs/0": {
+      "sourceHash": "1360dd552fb4bf12ceea8d0c5f08ae70229ffaa4a3032f60ee03e026ca7b5eb4",
+      "text": "傳統七宗罪中的貪食指對感官滿足的過度依賴；本測試只借用這一入口觀察即時回報的注意力與暫停選擇。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/sections/0/paragraphs/1": {
+      "sourceHash": "ef9491368fe66680b6879886080a1c3e908cba9af74219db222a1ffb78bf23ec",
+      "text": "這組主題關注享受時超過原定計劃、決定何時停下，以及按自己設定的界限停下。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/sections/0/paragraphs/2": {
+      "sourceHash": "eec0e9459ef69e5849310662c20ebbe2e76102d37b61e5049096122d20e4e3e1",
+      "text": "暴食由第 17、19 題計分，分別詢問是否常超過原定的享受分量或時長，以及滿足後是否仍想再來一次。節制由第 18、20 題計分，分別詢問是否預設停止時間，以及是否能按自己的界限停下。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/sections/1/title": {
+      "sourceHash": "4f836ec3074b6cc2bc9183f08882e4e9d432575e2595a7280d0e8412bea9763b",
+      "text": "兩項分數怎麼讀"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/sections/1/paragraphs/0": {
+      "sourceHash": "138d048dd767a3155cb0d32d306128b3c41599dcb2a97f8f523ee52f995566bb",
+      "text": "例如，一軸兩題選2和4，均值3，對應50分。選1和5也得到50分，逐題回答仍可能不同。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/sections/1/paragraphs/1": {
+      "sourceHash": "5d799c86c233b2b66a3bcb2fc6f22cccc50424d984fb3b59d11b529cf72826c1",
+      "text": "分數表示本次對兩道題的符合程度。題本僅供娛樂與自我探索，尚未建立心理測量效度或人群常模。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/sections/2/title": {
+      "sourceHash": "acf5b76d56d1bad27022a04dc0dae05017ac602954bb5454e3684ce31f6dd6f5",
+      "text": "回到一個具體情境"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/sections/2/paragraphs/0": {
+      "sourceHash": "769ae1f09d1d10181e9a0bde15ffad914a0cf40f77dc0113b25b92e9206003db",
+      "text": "可以回看：壓力下你選擇即時滿足是在回應什麼需要；暫停是怎樣被決定的。 最近一次等待回報時的感受；那次你怎樣決定暫停或繼續。 即時滿足解決的是疲憊、無聊還是其他需要？這個原因只能由你自己分辨。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/sections/2/paragraphs/1": {
+      "sourceHash": "e17e250895b48902bdf7715de6fd745606ee43158534e2eb6ef4c76194ee6499",
+      "text": "假設完成一項費力但普通的任務後，你開啟短影片休息。影片提供眼前的輕鬆，而什麼時候停下來，是另一個問題。疲憊程度、可用時間，以及原本希望休息起什麼作用，都可能需要核對。這個例子只討論普通、非危險的日常選擇，不用於物質使用、賭博、自傷、進食問題或戒斷；分數也不能認定成癮。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/sections/3/title": {
+      "sourceHash": "6a8cf92d8d6e8ddf0fe1b04c723c9d6a90890607597023f57b53734c866b9cd2",
+      "text": "把不同含義分開核對"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/sections/3/paragraphs/0": {
+      "sourceHash": "0fee0ccf759876eea706288ba1722a5210625a63b64294fa5dfca1b1c68a4bbf",
+      "text": "暴食與節制來自不同題目，請分別閱讀兩項得分。它們可以在同一次結果中同時較高或同時較低。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/sections/3/paragraphs/1": {
+      "sourceHash": "608e816fc1dda9c76394f0ec17c4f9a164245bb19fcffc4613132a2b72669443",
+      "text": "兩項得分各取兩題。同組的兩個名稱幫助你圍繞一個閱讀主題理解作答。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/sections/4/title": {
+      "sourceHash": "2e005a602d8a67ee7dc2b572fdb1da2ec67b4b7163ca93685e0d841bbb4db006",
+      "text": "一項自選行動或對話"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/sections/4/paragraphs/0": {
+      "sourceHash": "2bd317c765a7587917df8a84c27a8f9ce326bb2b5052ee7969c2239984df6203",
+      "text": "可暫停，寫下需求和行動，再決定是否行動；也可不練習。本建議不用於酒精、藥物、賭博、自傷、進食障礙、危險行為或戒斷管理。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/sections/4/paragraphs/1": {
+      "sourceHash": "f2cb2ae01d2726b7c47218889ca662a6e882f2fbb243b06c638802315e3120fa",
+      "text": "如果願意，可以問自己：“這段休息原本想回應什麼需要？現在想繼續、暫停，還是換一種做法？”沒有哪個答案能獲得美德分。你可以選擇休息，而不把它變成訓練；是否寫下觀察也由自己決定，並且可以保持私密。體驗不需要靠時間限制或另一份測試才變得合理。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/sections/5/title": {
+      "sourceHash": "15cc5f0de8d2bdfa89db20f07ffe763e5d9191cbf8c24989c453132ba414f81d",
+      "text": "這個數值不能說明什麼"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/sections/5/paragraphs/0": {
+      "sourceHash": "2d2cff04185694c3f6a5af752e73763a111f70877d78a645f7c7a748655c7f6f",
+      "text": "它不能說明貪食、放縱、意志力、自律水平、飲食問題、成癮或衝動控制障礙。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/sections/5/paragraphs/1": {
+      "sourceHash": "87e5e1fca39fddd577734603fce69f9663e426d97a332a6410e043e67fa4280f",
+      "text": "偏好即時回報不等於放縱；延遲滿足也不天然更正確；不提供飲食或醫療建議；數值較高不表示更放縱；數值較低不表示更有節制。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/sections/6/title": {
+      "sourceHash": "ab04450458362cd789a0faa0542cabdb4a598e9c7c9612f7f07ad6ea0fb6fae5",
+      "text": "一個反例與邊界"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/sections/6/paragraphs/0": {
+      "sourceHash": "b525aa5a4b336b01e257fdd719ba94d4846e238b6a3bfff46e38e3c637a4a6ac",
+      "text": "喜歡即時回報和主動設定暫停界限可以同時出現。這裡的暴食是對過量即時享受的文化標籤，涵蓋飲食和娛樂。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/sections/6/paragraphs/1": {
+      "sourceHash": "1da97bc9aa84705ada3acc012441e062a3789f39fa298587282ec85350007dcc",
+      "text": "即時滿足傾向是常見體驗，不是罪；本測試不提供飲食、醫療或成癮診斷建議。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/sections/7/title": {
+      "sourceHash": "dd105237e32f176fbb74c76af944f377e2dedc501f68abcecceed08efe96a4ca",
+      "text": "版本、來源與驗證範圍"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/sections/7/paragraphs/0": {
+      "sourceHash": "9fcaa5f08fda29a763f7388f52328eeaa452478a2337fbe75970d94f55820634",
+      "text": "這是用於自我觀察的產品化概念，未經信度、效度、常模或公平性驗證。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/4/sections/7/paragraphs/1": {
+      "sourceHash": "6074e7d992dff1d4beadbeb918d522fcb863bcf1ba8eaa640e7a95b58ed76eec",
+      "text": "現行網頁版共有七組閱讀主題、14 項得分，每項使用 28 道陳述中的兩題。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/title": {
+      "sourceHash": "ee70e2b094b19c0ae302628879e268f9fc17bec6e67b415dbe45bc6791568ad8",
+      "text": "憤怒訊號與耐心回應：完整讀法"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/headline": {
+      "sourceHash": "0b72ee2a34b936bb17b0499e26154cc2b464e1ebb6f4f7005eb01d02559c4303",
+      "text": "回看憤怒訊號與回應節奏"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/summary": {
+      "sourceHash": "b429b41ad9dc6c516c8ebf3094315aaa9b3d2f59212a645992c2395f775ebfda",
+      "text": "這組主題關注用重話回擊、事後想著還擊、回應前先暫停，以及給對方留出時間。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/scoreReading": {
+      "sourceHash": "51090322d32be2625325935c90d95be58dc46dbba2b9d08b197a5f2d4cf2088f",
+      "text": "分數表示本次對兩道題的符合程度。題本僅供娛樂與自我探索，尚未建立心理測量效度或人群常模。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/seo/title": {
+      "sourceHash": "d2b43f52b0465e5a08ce4b89aff59d349bd51505e436be537e8683cf8d7ffbc6",
+      "text": "七宗罪與七美德：憤怒訊號與耐心回應"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/seo/description": {
+      "sourceHash": "c1616f8405777dee7bca70cbe8c6e35bde80f78e29e13b5259fc7dac2efee50b",
+      "text": "從被打斷的情境分開看衝動回擊與留時間回應，保留保護自己和離開的選擇。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/sections/0/title": {
+      "sourceHash": "2af9f561c0598f02668cf5703eafb4a360fb2d13475464b03f0b1af441e7a10e",
+      "text": "這四道陳述觀察什麼"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/sections/0/paragraphs/0": {
+      "sourceHash": "9eea9a14d19ba6a49ac611c0dc6ab06ff8de6fda5582d2e411fa6ea79d73436d",
+      "text": "傳統七宗罪中的憤怒指被激怒後的過度反應；本測試只借用這一入口觀察憤怒訊號與回應節奏。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/sections/0/paragraphs/1": {
+      "sourceHash": "f218c038af9b4149549323696e29bea9e52f15ac3999fd05ec3604d568ce8fb1",
+      "text": "這組主題關注用重話回擊、事後想著還擊、回應前先暫停，以及給對方留出時間。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/sections/0/paragraphs/2": {
+      "sourceHash": "06fd59296cd92f6601f514dd8921471f84f8e6c4b94b5ca1b15514a42debd1ab",
+      "text": "暴怒由第 21、23 題計分，分別詢問受冒犯時是否立刻用重話回擊，以及爭執後是否仍想著用言語還擊。耐心由第 22、24 題計分，分別詢問生氣時是否先停一停再回應，以及事情無法立即解決時是否給對方留出處理時間。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/sections/1/title": {
+      "sourceHash": "4ce8d57deeab5320071e1c37562dd663b81189536af3b8fd0189899379bda35c",
+      "text": "兩項分數怎麼讀"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/sections/1/paragraphs/0": {
+      "sourceHash": "e8dbad9d84d14c6dea7fc7c5067322bf5df520473c341fdcd8e9ad23c7e69656",
+      "text": "例如，一軸兩題選2和4，均值3，對應50分。選1和5也得到50分，逐題回答仍可能不同。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/sections/1/paragraphs/1": {
+      "sourceHash": "10f5254e99b54ffd83a26430f1f1b3fe6503fb2773af5ea85af7d70e67dfb7d3",
+      "text": "分數表示本次對兩道題的符合程度。題本僅供娛樂與自我探索，尚未建立心理測量效度或人群常模。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/sections/2/title": {
+      "sourceHash": "ed5873897a5306db9ad74182459edeac8509db5b48da6a279ff113fabe060f5e",
+      "text": "回到一個具體情境"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/sections/2/paragraphs/0": {
+      "sourceHash": "af2ca93423146e87e8a9d3dd8b85de666e0e00c495c324e21b812c70f82bd380",
+      "text": "可以回看：憤怒訊號出現後你通常會做什麼；分歧後反覆回想的內容是什麼。 最近一次情緒升高的情境；那次你是否留出了時間再回應。 憤怒訊號指向的是邊界被觸碰，還是未被聽見？這個判斷只能由你結合具體情境核對。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/sections/2/paragraphs/1": {
+      "sourceHash": "66822d76c0603377da06bfc0151c152d86148a8fb48be5b63491f842e752b490",
+      "text": "假設你解釋計劃時被打斷，隨後注意到身體變緊，後來又反覆想著那句沒有說完的話。這些線索不能直接說明打斷是否故意、自己是否被聽見，或怎樣回應最安全。身體訊號與是否留時間再說，是不同的觀察。本組沒有要求忍受傷害，也不預測任何人會變得暴力。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/sections/3/title": {
+      "sourceHash": "6fbc33bb7fa69e6b0ce6f1f6ebb82ca13a2463678b27a264d932315fb42ea47d",
+      "text": "把不同含義分開核對"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/sections/3/paragraphs/0": {
+      "sourceHash": "f7a79638f84b3b0ba1c693268dd893e58376efe18b407d8a938f1bdcf85c365e",
+      "text": "暴怒與耐心來自不同題目，請分別閱讀兩項得分。它們可以在同一次結果中同時較高或同時較低。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/sections/3/paragraphs/1": {
+      "sourceHash": "06b899ff81ddee54dd835b7740c88bd7f4ee02eca53635299a18c475dbd1d00c",
+      "text": "兩項得分各取兩題。同組的兩個名稱幫助你圍繞一個閱讀主題理解作答。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/sections/4/title": {
+      "sourceHash": "018e7d1b2762604c542aee000f7661755fe82638a4769aa69ec118babe90a443",
+      "text": "一項自選行動或對話"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/sections/4/paragraphs/0": {
+      "sourceHash": "22dc0c82ebd71f6157b2390c22845cb39735ceed3a720bd17826d302eef3ab7f",
+      "text": "在行動前辨認訊號與目標；需要時先暫停，稍後再表達；憤怒不等於暴力，耐心也不要求忍受傷害。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/sections/4/paragraphs/1": {
+      "sourceHash": "18d9c05a76ba385c7d64a27f4ee7b4d2931e2cf004f8267970d26c40d3b6aa19",
+      "text": "在普通而安全的對話中，如果願意，可以說：“這個意思我還沒有表達完。我想先暫停一下，之後再有機會把它說清。”也可以結束對話或留出空間。現實情境涉及傷害時，安全優先於完成一段“耐心”的對話。測試結果既不授權對質，也不要求和解。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/sections/5/title": {
+      "sourceHash": "0c5cce84d443a99f983918bd77209669c35cea712fd30bea6d1b5153713a633a",
+      "text": "這個數值不能說明什麼"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/sections/5/paragraphs/0": {
+      "sourceHash": "9d0475dcffd2fa899aa789865692fe22c45dc5fd54d9e567ec534c46a7c187b3",
+      "text": "它不能說明暴怒人格、攻擊性、暴力風險、危險性、情緒障礙、道德修養，也不能說你可能會傷害別人。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/sections/5/paragraphs/1": {
+      "sourceHash": "aab77bdcc9f3df71022b03ea340f839e49a7b9cc9c01a7b7a1be705dd142726e",
+      "text": "憤怒不等於暴力；耐心不要求忍受傷害或邊界侵犯；不定義暴怒人格；數值較高不表示脾氣更大；數值較低不表示更有耐心。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/sections/6/title": {
+      "sourceHash": "239d66dbf671748ca545fb5f316bc7a592b446aeb7ce72447997c6445b1ee0d4",
+      "text": "一個反例與邊界"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/sections/6/paragraphs/0": {
+      "sourceHash": "cb7f192e0ffdb8b65f2e9cfde10711a31a67077789abd7a86c06ff995a2d4f61",
+      "text": "怒意、還擊衝動與實際如何回應可以分開看。有明顯憤怒的人也可能會暫停或等待。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/sections/6/paragraphs/1": {
+      "sourceHash": "712ebe81868b98d46aa857a61f58e9ed56bd8bc3662808a6af414e6e8c8a6127",
+      "text": "憤怒是訊號不是罪；如果現實中存在傷害風險，安全優先，本測試不提供對質建議。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/sections/7/title": {
+      "sourceHash": "2b7943f567a36ac21c3e556c3498fab8ce869c261a785a5bedd7e901ded7211c",
+      "text": "版本、來源與驗證範圍"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/sections/7/paragraphs/0": {
+      "sourceHash": "93ed9749793259b67b77c98c3a09c7f30bf160eabb794ebe8098dfc804bb266f",
+      "text": "這是用於自我觀察的產品化概念，未經信度、效度、常模或公平性驗證。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/5/sections/7/paragraphs/1": {
+      "sourceHash": "acfd2a6115f7ebb190c2295f4b7d62f45e4b3a191814b27516a34232fe976d4d",
+      "text": "現行網頁版共有七組閱讀主題、14 項得分，每項使用 28 道陳述中的兩題。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/title": {
+      "sourceHash": "99730bd63c1f0cac7637772b0dc362de57444c2c8e0c604fc28b6eaf7eccae60",
+      "text": "行動啟動與休息迴避：完整讀法"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/headline": {
+      "sourceHash": "9d3942e14e29c80166eaac64ce7034935d34f1c404d3f675f4ba6beb856172a6",
+      "text": "回看啟動、疲憊與休息的節奏"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/summary": {
+      "sourceHash": "19ffdd6da79e22611a597259a20048556f3d222a2fe8f71921e51335f29da2ed",
+      "text": "這組主題關注拖延任務、先做一個能完成的小步驟，以及安排時間持續推進。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/scoreReading": {
+      "sourceHash": "73fd74197fd61d4b2c7696b9fe57f881edd8971826331eea50f518eb13b27a46",
+      "text": "分數表示本次對兩道題的符合程度。題本僅供娛樂與自我探索，尚未建立心理測量效度或人群常模。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/seo/title": {
+      "sourceHash": "e72d9a1e1dcb974483e3ba4a6e3c5ae5754cb78d1790ae47adbe5f0e0baa9001",
+      "text": "七宗罪與七美德：行動啟動與休息迴避"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/seo/description": {
+      "sourceHash": "4b0a17dc7325d29cad631632643c1b17ca7877b8777babf6b96c1d7f4e9d89dd",
+      "text": "從整理檔案的例子區分拖延、疲憊恢復與邁出小步驟，讀懂懶惰和勤勉兩項分數。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/sections/0/title": {
+      "sourceHash": "fd37a006b2d7c95881ba1a56985ba48659c3b1e4ff0522a567ff42cf70b49306",
+      "text": "這四道陳述觀察什麼"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/sections/0/paragraphs/0": {
+      "sourceHash": "fae6cc839d05cf1950c72b5afc10f4d2581ea660ff4ce67dae8c5eabc3f075c4",
+      "text": "傳統七宗罪中的懶惰指該做時不做；本測試只借用這一入口觀察任務啟動、疲憊與休息節奏，不測量懶惰罪。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/sections/0/paragraphs/1": {
+      "sourceHash": "955384ae10dca808997ce2a6322e5d84bc141a5bbd5fc492416ca91ad9fb4364",
+      "text": "這組主題關注拖延任務、先做一個能完成的小步驟，以及安排時間持續推進。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/sections/0/paragraphs/2": {
+      "sourceHash": "d6b332e5b0576527b2f564271ed1f07658a46fdcb6eb741ff3aa5c7bcf304a85",
+      "text": "懶惰由第 25、27 題計分，分別詢問知道第一步時是否仍拖延，以及休息夠了是否仍推遲迴到任務。勤勉由第 26、28 題計分，分別詢問是否先做一個能完成的小步驟，以及是否為多日任務安排時間持續推進。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/sections/1/title": {
+      "sourceHash": "660697b812f3f6613332b44dbfe4b5e44614da79bf0660babe218fefd1e6467b",
+      "text": "兩項分數怎麼讀"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/sections/1/paragraphs/0": {
+      "sourceHash": "6af8b50d5169d49b9b4492eddc1ad5c790a1311daa3a3d9d680a88c856f12094",
+      "text": "例如，一軸兩題選2和4，均值3，對應50分。選1和5也得到50分，逐題回答仍可能不同。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/sections/1/paragraphs/1": {
+      "sourceHash": "1b1433d00a400d15b41ba7b289b6f633e39be3e7578b72e2d7a9cfa9a4d18b4b",
+      "text": "分數表示本次對兩道題的符合程度。題本僅供娛樂與自我探索，尚未建立心理測量效度或人群常模。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/sections/2/title": {
+      "sourceHash": "4fd1d1c3af877faf973734e7ec199d34ec6a77a4582e67da067ff7cbb616a4ac",
+      "text": "回到一個具體情境"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/sections/2/paragraphs/0": {
+      "sourceHash": "fd250466fa61ff44908fe1f2079dcd973bbdd3c0c059e30a12f7a21a142ee0b6",
+      "text": "可以回看：啟動困難時第一步卡在哪裡；疲憊恢復需要多久。 最近一次推遲開始的任務；那次的第一步為什麼不清楚。 啟動困難與疲勞、任務模糊、注意力或環境有關嗎？這些原因只能作為開放核對，不能由分數確定。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/sections/2/paragraphs/1": {
+      "sourceHash": "a529d779437013967510213262ba2c66434d0166e8c8d38fa2a838df3749f245",
+      "text": "假設疲憊的一週之後，你需要整理一個專案資料夾。“把所有東西整理好”沒有指出第一步，而身體也可能仍需恢復。開啟一份檔案、先確認資料夾的用途，或暫時推遲任務去休息，是不同的可選做法。分數不能決定延後由什麼條件引起、休息是否足夠，或一個人是否有健康與注意方面的問題。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/sections/3/title": {
+      "sourceHash": "5ea95c25234915a76e800dea3e2bf283664201991ec34cebc9280c7dabc8fbd2",
+      "text": "把不同含義分開核對"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/sections/3/paragraphs/0": {
+      "sourceHash": "30264a8cd926d09d99266c220c2a5b224c2986308aafe94e5a2506a0c2e4f5dc",
+      "text": "懶惰與勤勉來自不同題目，請分別閱讀兩項得分。它們可以在同一次結果中同時較高或同時較低。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/sections/3/paragraphs/1": {
+      "sourceHash": "408e174d743abbf3650fed458bcc154c8f110661a02b4db5a5fa3047230e3cea",
+      "text": "兩項得分各取兩題。同組的兩個名稱幫助你圍繞一個閱讀主題理解作答。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/sections/4/title": {
+      "sourceHash": "1f51d7d02e0e454b14227ba40ae4a3890e2c0b57252ae34dbf62f2a2333d8a91",
+      "text": "一項自選行動或對話"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/sections/4/paragraphs/0": {
+      "sourceHash": "ef96e50fa943ebb1fc47f60a1bda9e2911bce782b46be9f05f40dde03f3ef019",
+      "text": "把第一步拆到足夠小再開始；需要休息時允許休息，結束後用一個小動作重新啟動。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/sections/4/paragraphs/1": {
+      "sourceHash": "a067784e27479c71b78acef0fa08c3a34dfa062e2621fa4f2994acaf9c11de3f",
+      "text": "如果願意，可以把行動邀請改成：“現在先確認第一份要處理的檔案，剩下的之後再決定。”另一個始終可行的選項，是先休息，準備好再回來。目的在於把情境看清，而不是製造產出或證明勤勉。即使沒有采用建議的步驟，也可以直接結束反思，無需解釋。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/sections/5/title": {
+      "sourceHash": "a67c6abf3bc15596ea7c4f011efa836d0291eb90fdb2ccce7abb36944b9225b8",
+      "text": "這個數值不能說明什麼"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/sections/5/paragraphs/0": {
+      "sourceHash": "b3f8b82e8b6e7d9c457df035b6d849a50ac07cc6b664ade75e8c56c1a8f6a1ca",
+      "text": "它不能說明懶惰、怠惰罪、勤奮程度、工作能力、執行功能診斷、ADHD、抑鬱、健康狀態或職業表現。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/sections/5/paragraphs/1": {
+      "sourceHash": "f709dae17424351d8c326ee1d4b004c8973edb85e24a83603c40615520082835",
+      "text": "啟動困難不等於懶惰；休息需要不是迴避；不定義懶惰人格；數值較高不表示更懶；數值較低不表示更勤勉。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/sections/6/title": {
+      "sourceHash": "1c60b34e91cf7bcf355bf5dbafb4f294622ebe75819eb29a9e0db594767fb60c",
+      "text": "一個反例與邊界"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/sections/6/paragraphs/0": {
+      "sourceHash": "5764f9e1a445f1cc2aaac0fe2a45133bcc3b99b605ec4e62e6e7132d23316d17",
+      "text": "即使容易推遲開始，也可能會用小步驟推進重要的事。可以先看看任務是否清楚，以及當時是否需要恢復。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/sections/6/paragraphs/1": {
+      "sourceHash": "352778d3dd131eda68241226e197a2680785c534f019568146586ad6dcaa97a4",
+      "text": "啟動困難可能受多種因素影響，不是道德缺陷；本測試不以任何單一因素評判你的人格。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/sections/7/title": {
+      "sourceHash": "c070c37fde7ecd1ab1ddb42b8c6b03b36056112055d3680e2987d06ff2456ac6",
+      "text": "版本、來源與驗證範圍"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/sections/7/paragraphs/0": {
+      "sourceHash": "c83b07e05ccb09546cf8032c0a4feca86505990235bcbdff39ea7827fdf9f07f",
+      "text": "這是用於自我觀察的產品化概念，未經信度、效度、常模或公平性驗證。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/profiles/6/sections/7/paragraphs/1": {
+      "sourceHash": "865a85f6846eb77d6c4fb0119551f7edb64bcd5cedc6f11979ca83d57d534087",
+      "text": "現行網頁版共有七組閱讀主題、14 項得分，每項使用 28 道陳述中的兩題。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/0/title": {
+      "sourceHash": "473806e418a0f31d224e75688b87c7394609f2a69803e56d33e996c8bbaf16a8",
+      "text": "十四項如何計分"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/0/paragraphs/0": {
+      "sourceHash": "b1ad7fb9811f62dcbefacdf3bbc2033025347ba669a65166ef2f7d692380f6aa",
+      "text": "每軸使用兩道專屬題。選項按1–5計分，兩題均值減1，再乘25，換算為0–100。圖上取整，榜首按未取整得分確定，同分並列。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/1/title": {
+      "sourceHash": "e511635b99ebabed83558495f33ebad779db33030169795574a0253ca4d55e1c",
+      "text": "完整作答或直接閱讀"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/1/paragraphs/0": {
+      "sourceHash": "68829c2ae52888c944f7a62dc0e7149361cdddb7e9bd64685bb59168c1dec4ea",
+      "text": "全部28題有效後才顯示個人讀數。中點3是有效選項。七篇指南也可在作答前免費閱讀。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/2/title": {
+      "sourceHash": "4670a4abcfd20e5ae5f8e860b94cb54637a6223e5993487264228f8d3ebd8607",
+      "text": "原創題本和適用範圍"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/2/paragraphs/0": {
+      "sourceHash": "8620f0e698a8169da22a7236ea0c09e8125a97d5de060c465a5b413c0d0aa19f",
+      "text": "28 道題由費馬原創，用於娛樂與自我探索。文化名稱用來組織七組閱讀主題。分數反映本次作答，尚未建立人群常模或心理測量效度。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/3/title": {
+      "sourceHash": "f0b95bcb1c5939533049738588db74e96d40ec4a2f51d4cef1456127e581e40d",
+      "text": "文化名稱與不同傳統"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/3/paragraphs/0": {
+      "sourceHash": "7fdacf9e0981ce17cb25607d006509b97c97efc7cbf28b7a74e3bf93aa9a2477",
+      "text": "七宗罪的早期譜系與古代基督教修道和苦修傳統相關；常被稱作七美德的框架另有神學美德與樞德等傳統，後世也出現與七罪逐項對應的版本。不同傳統不能合併成唯一清單。本測試只借用這些文化隱喻作為內容入口，七組閱讀主題不聲稱與任何歷史傳統一一對應，也不聲稱得到宗教傳統認可。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/3/paragraphs/1": {
+      "sourceHash": "260eb9e30c0f7b47cbdc008e807598f862af8fef3302d11a6ca570925413d57f",
+      "text": "七組閱讀主題是本測試自建的通俗化觀察框架，歷史文化概念不等於現代心理測量構念；古代傳統未經本測試驗證，也不得把宗教語言包裝成科學證據。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/3/paragraphs/2": {
+      "sourceHash": "ce53c5236224e4cd7a51b94b960d8cd6b368db751fed4b80c8c25003aac41695",
+      "text": "這不是宗教教義測驗，不評價信仰者的信仰，也不傳教或定罪；內容尊重信仰者與非信仰者。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/4/title": {
+      "sourceHash": "9bd3bf1a833530d7d094ca3c98b76bf107eccdee8ab9d265a8afbb5d1ef4b126",
+      "text": "如何讀兩組分數"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/4/paragraphs/0": {
+      "sourceHash": "5ee2352c935b9db2861957673bab8b179a7eb743d352efece94d7159ee1dad42",
+      "text": "現行網頁版將 28 道原創題分為七組閱讀主題，共 14 項分別計分，每項兩題。同組的兩項讀數可以同時較高或同時較低。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/4/paragraphs/1": {
+      "sourceHash": "6dd004ee18436bcd81323254aa1b62cc00f3fc4e0c0795ff65ac6957c3c1f3c2",
+      "text": "例如，一軸兩題選2和4，均值3，對應50分。選1和5也得到50分，逐題回答仍可能不同。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/4/paragraphs/2": {
+      "sourceHash": "927fd6f5d160649ee050f82a68df400e13ef2d6e60fcae5abb2a74aae6aa56c9",
+      "text": "榜首隻表示本次同一軌道中的最高讀數。均值的高低概括兩組答題差異，不能評價善惡、診斷問題或決定重要事項。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/4/paragraphs/3": {
+      "sourceHash": "ad5768e821ec9dc038b929516695c5aa153fae1dded5ad12d3a5df3462a3ba81",
+      "text": "結果總覽的兩側均值各自彙總本側七項得分。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/5/title": {
+      "sourceHash": "ff52c78479d2d74ecbe89e75d9c1f2b68471e77b47b37901fca54f566680d37c",
+      "text": "使用邊界、同意與重要決定"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/5/paragraphs/0": {
+      "sourceHash": "d26dfe0ea050f9745b76d3d995191b04fd8e227829c795fa22475cd8f768bd10",
+      "text": "結果不判斷一個人的善惡、人品或靈魂，不劃分道德高低，不用於羞辱、獎懲或評判。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/5/paragraphs/1": {
+      "sourceHash": "6ba3a5131a62c5ddd8e3a3e2dc9b9298359c3ba5de4de0c5e03bee807ec78c0d",
+      "text": "結果不產生七宗罪人格、七美德人格、原罪型別或黑暗人格，也不是固定身份。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/5/paragraphs/2": {
+      "sourceHash": "35350f3c9e6246e0741d7babd0401fe6d4edc53fe811b44d4b907ecce880429b",
+      "text": "本測試不是醫療、心理或精神科診斷，也不測量心理健康或人格障礙。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/5/paragraphs/3": {
+      "sourceHash": "f4ff8999085cbb4eeb46377e507575948d9b8014296c326f277dbca0aa00d5b5",
+      "text": "結果不判斷意志力、自律、自控能力、工作能力或道德修養，也不預測成癮、暴力或危險。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/5/paragraphs/4": {
+      "sourceHash": "1b17d848b9b43cab2a6796c8321465d15e148d889b3f4af0f594cfbc65efb127",
+      "text": "不要用結果決定錄用、升學、關係去留、責任歸屬或其他高風險事項。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/5/paragraphs/5": {
+      "sourceHash": "278b9705b95ed09f2316e31f8f2e6ce80d6cf5481932bf7652a820c4b66443fb",
+      "text": "任何涉及他人意願的選擇都需要對方明確、自願且可撤回的同意；本測試不提供任何授權或免責。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/6/title": {
+      "sourceHash": "d6b168e1a3693628263b964f2b1097c04512f081718e89fa08899e858c9cc5d4",
+      "text": "本標籤頁、重測與未知情境"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/6/paragraphs/0": {
+      "sourceHash": "bf34ca7decc255cf2c331af453032912bfdef017bc4a37c0fe96773f8ed9b2d1",
+      "text": "網頁版作答時只在記憶體保留答案。測試內點「上一題」可檢視之前的選擇。重新整理、離開或切換語言會開啟新一輪作答。計分在瀏覽器內完成，複製入口只包含公開標題和網址。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/6/paragraphs/1": {
+      "sourceHash": "65a7894ee826dbe2b6d275f4ca74de0d694b3d2bba33e32ab3603f3293c4fe18",
+      "text": "本測試僅供娛樂與自我探索；尚未完成信度、效度、常模、公平性、百分位或準確率驗證。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/6/paragraphs/2": {
+      "sourceHash": "7d82328081f2f45887fd8f22a751a36f7ca6e1174d3ad76090cfa23419a74c20",
+      "text": "本測試未完成心理測量驗證，不能當作診斷、評估或道德判斷依據；現有題目本身不能作為效度證據。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/6/paragraphs/3": {
+      "sourceHash": "20b5bf9d73cc7806dba69cea3bb4355320b0db2caddea1ff32659b84473f8af0",
+      "text": "如果以後重新作答，應按當時能確認的狀態選擇；兩次結果不同可能與情境、壓力或理解變化有關，不能自動解釋為你的人格或道德已經改變。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/7/title": {
+      "sourceHash": "3bce5a5dab1f83989bcfa045f9dc8c181e2d367d6fd7c376fcafda63f85a7856",
+      "text": "缺答、版本不可用與數值相同"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/7/paragraphs/0": {
+      "sourceHash": "d7231c3b6361084e7da9ccea9a12989a9072c9f19e1f8445d96005f49ecded31",
+      "text": "作答不足：答完 28 題後才會顯示 14 項得分。你可以在本次會話繼續作答，也可以退出並閱讀公開指南。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/7/paragraphs/1": {
+      "sourceHash": "e2ed57a7f4db1e8153f6022744e6f11cfd2f1975e171dc8acd6efcd9bca1e2c9",
+      "text": "版本不可用：題本、計分或內容版本不相容時停止解釋，不替換舊結果或給部分含義。這是版本問題，不是對作答的評判，無需立即反覆重做。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/7/paragraphs/2": {
+      "sourceHash": "127011ac0e800986bb74d827fb0cb15585d940cba99f3f94e7239d14eb870892",
+      "text": "並列：同一軌道的最高分相等時，結果卡會保留全部並列項。數字相同只表示這次換算結果相同。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/8/title": {
+      "sourceHash": "54b34ffb55d0fd089b343e66612c713e31bccf315fcdcfaf1cd8805ffe76b3ae",
+      "text": "歷史計分說明：早期小程式版"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/guide/8/paragraphs/0": {
+      "sourceHash": "c168884b1220f5a4ff680301e402f8c116e2fe0236d2c3b67f7fa8c11dca9560",
+      "text": "歷史計分說明 · 僅適用於早期小程式。每組四題按 1–5 分相加得到原始和（4–20），再除以 4 得到組均值（1–5）。現行網頁版每組分別報告兩項得分。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/faq/0/question": {
+      "sourceHash": "69f63eaca02840bc4125661448b30af77931564a501508aabc50c9432f1cc17e",
+      "text": "能同時得到較高的罪與美德讀數嗎？"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/faq/0/answer": {
+      "sourceHash": "f394848113cea323d5c5e91e5eb2a3dee766b7b8062edbe2c5f52c8b793e394b",
+      "text": "現行網頁版將 28 道原創題分為七組閱讀主題，共 14 項分別計分，每項兩題。同組的兩項讀數可以同時較高或同時較低。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/faq/1/question": {
+      "sourceHash": "e44d8dbf95a9f00725f01718585464eb74c4acfbe297982d233d851deabb9de9",
+      "text": "28題如何計分？"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/faq/1/answer": {
+      "sourceHash": "5f06a5fafbd7ff9122c666f7e4810537c52d7eba6ed1b5ae75514d1895e9cedf",
+      "text": "每軸使用兩道專屬題。選項按1–5計分，兩題均值減1，再乘25，換算為0–100。圖上取整，榜首按未取整得分確定，同分並列。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/faq/2/question": {
+      "sourceHash": "845da21ad538dcf26fa247137f2e0ebc505063154de05a000e691676bd990252",
+      "text": "中點3“不確定或視情況”是否不計分？"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/faq/2/answer": {
+      "sourceHash": "06d055a728dc79d67e026e36563ab309f893346459cc75b2fa28aab9942e9d5f",
+      "text": "3是有效數值，表示不確定或視情況。你也可以退出並免費閱讀公開指南。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/faq/3/question": {
+      "sourceHash": "d24615bf5c14c01c46fd8cc8f2dad32f996128db239b9419c8dc7b4375a8ef74",
+      "text": "榜首和兩組均值怎麼讀？"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/faq/3/answer": {
+      "sourceHash": "0927451813ecae74bc24ea7c0ed93991da73c4985ea5407cb0ef05d54f13e3e3",
+      "text": "榜首隻表示本次同一軌道中的最高讀數。均值的高低概括兩組答題差異，不能評價善惡、診斷問題或決定重要事項。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/faq/4/question": {
+      "sourceHash": "e6358fbbbd3becbbbfde82820923a7f99163aadb45762fd182a2a5a4f9f24ef4",
+      "text": "同分怎麼顯示？"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/faq/4/answer": {
+      "sourceHash": "3b305c547a6a4a6b245da43ca1aaff94a3d122c39f0509f798ed9ef87b9b8df8",
+      "text": "並列：同一軌道的最高分相等時，結果卡會保留全部並列項。數字相同只表示這次換算結果相同。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/faq/5/question": {
+      "sourceHash": "908fc4e32124c5cfc2b024556e0a5cf32cd84ed789e53b3e7103b90837d707d8",
+      "text": "這是宗教測驗或科學人格測評嗎？"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/faq/5/answer": {
+      "sourceHash": "0b4ddd091927924fc3ac1ad480b85eef3ba7bdc41104e121fa1224656c4b6389",
+      "text": "這是借用文化名稱的原創反思，尚無心理測量驗證。宗教來源只解釋名稱，不是計分鑰匙、背書或效度證據。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/faq/6/question": {
+      "sourceHash": "866c86ff2e4a6d8f71010717fe09b8633405c315d1fd980c8d983ac7b27ebb6d",
+      "text": "重新整理或換語言後儲存什麼？"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/faq/6/answer": {
+      "sourceHash": "0527f96b9905b35d3de8828d0573a2eaf33391a8e2345358b4eb7712ac556005",
+      "text": "網頁版作答時只在記憶體保留答案。測試內點「上一題」可檢視之前的選擇。重新整理、離開或切換語言會開啟新一輪作答。計分在瀏覽器內完成，複製入口只包含公開標題和網址。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/faq/7/question": {
+      "sourceHash": "0f24713764cb06cf626e4e111b8d0541e1790974f36a7b173e0c214e627d4b09",
+      "text": "新版和舊版有什麼區別？"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/faq/7/answer": {
+      "sourceHash": "50d6687267e84baa9aabd8a8c4e1551cd343d5879fd16455d6c3f243039da017",
+      "text": "現行網頁版將 28 道原創題分為七組閱讀主題，共 14 項分別計分，每項兩題。同組的兩項讀數可以同時較高或同時較低。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/faq/8/question": {
+      "sourceHash": "307d36584bb6857efaee73f139de7f54a29347c8e0f6240e143514dfaf21a536",
+      "text": "為什麼可能暫時不提供個人結果？"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/faq/8/answer": {
+      "sourceHash": "655df20a35e85ae4b3b7b74636c07ddf15be2976877a34ec1640752e0d47ca4e",
+      "text": "全部28題有效後才顯示個人讀數。中點3是有效選項。七篇指南也可在作答前免費閱讀。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/faq/9/question": {
+      "sourceHash": "6a4873a19e66d47cba981beb545b331fc81d0a8ed25d61e0997d2fe33c7ac081",
+      "text": "可以用來評判別人嗎？"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/faq/9/answer": {
+      "sourceHash": "0e0edb44e90ae23ea507a7aa03487487e3fecd500fd66ac835c45941e5f7307f",
+      "text": "不可以。這是對一小組原創陳述的自報，不是關於他人的證據，不授權忽視同意，也不用於重要決定。"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/references/0/title": {
+      "sourceHash": "e9d9fcabc5e8b4e5449df1624cd937f271b7a1552d3e2f5a921c1a1d026792ce",
+      "text": "文化名稱參照：《天主教教理》1866，首罪"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/references/1/title": {
+      "sourceHash": "013d7b09ea03e9056a8d49a996ed3e3a2314fac68b3d0d94140c9ccd049cef70",
+      "text": "文化名稱參照：《天主教教理》1805，樞德"
+    },
+    "lib/questionnaires/data/seven-sins-virtues-test.json/references/2/title": {
+      "sourceHash": "c64d1877e7b960a25c7ef22b558f46da186ffcb4202470de7d91e4d2fe3696a0",
+      "text": "文化名稱參照：《天主教教理》1813，神學美德"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/recognition-reading/0/title": {
+      "sourceHash": "d3f6c8e337caebc7315dadec9cb58d294f38b32babf488be7b79faf0bd325bc4",
+      "text": "補充原創情境"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/recognition-reading/0/paragraphs/0": {
+      "sourceHash": "ce55517ac5b95e9e88e62914336849bfe3c1cb7f66edebbb2ed08afff37f0ea8",
+      "text": "補充情境：虛構讀者會前整理了資料，會上沒有被提及，後來得知同事確實使用過。完成、被使用與獲得明確認可可以分別核實，沉默本身不確定他人的意圖。想要反饋也不等於必須反覆爭取讚美，分數不能決定這次貢獻的價值。"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/recognition-reading/1/title": {
+      "sourceHash": "48461e432085e9b7400ef5ccb2858e70b7538beaaa6a2b1b567a55f7875d5f31",
+      "text": "可選討論提示"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/recognition-reading/1/paragraphs/0": {
+      "sourceHash": "df022211eb6e2574b1720511673ded7184cee7692182cb6f69c8c6151092c18b",
+      "text": "可選討論提示：“完成了什麼、哪些用途已知、哪些反饋仍未知？”可以只讀或討論虛構人物，先區分事實、解釋與未知。不要求交換答案、爭取美德評價、披露資源或證明邊界；任何人都可以不參與，討論也不必達成同一理解。"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/recognition-reading/2/title": {
+      "sourceHash": "3f955722130d28786afe5d0649731fe73a6bea3d6d3d32f435a4166b8b8e9429",
+      "text": "補充讀法與來源邊界"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/recognition-reading/2/paragraphs/0": {
+      "sourceHash": "2ba17c0da1f4f01f82827e1ce6468fd0546a5d8d21fdee8f876e545a5df70163",
+      "text": "補充情境由費馬測試編輯部原創。可把兩項讀數分別放回實際情境，選擇你想繼續觀察的一個行為。"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/resources-reading/0/title": {
+      "sourceHash": "7b2ff22af300f3bf3440080a0d8f79fa578881a93ed419d5f4fe51320e67d2d7",
+      "text": "補充原創情境"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/resources-reading/0/paragraphs/0": {
+      "sourceHash": "807f78edc747276739eef76a3c54fe55026a7bc7045d93264f8b88895e4bb2ba",
+      "text": "補充情境：虛構讀者願意借相機，但自己近期也要使用，正在確認歸還日期。實際餘量、對方需要與自願同意是不同資訊；核對期限不證明吝嗇，答應也不證明基本需要得到保護。拒絕或重新商定條件，不需要用一個分數辯護。"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/resources-reading/1/title": {
+      "sourceHash": "2288b38d91057e5f15d9cd64e8d01c355dfd7cf7b3a3efe934a411a3b307fe7d",
+      "text": "可選討論提示"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/resources-reading/1/paragraphs/0": {
+      "sourceHash": "f75bac79ab82f8da0b27b87b3802e6a21d50f8a177b29edd233bd51084ee0a28",
+      "text": "可選討論提示：“誰需要什麼、實際可借多久，哪些條件尚未達成一致？”可以只讀或討論虛構人物，先區分事實、解釋與未知。不要求交換答案、爭取美德評價、披露資源或證明邊界；任何人都可以不參與，討論也不必達成同一理解。"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/resources-reading/2/title": {
+      "sourceHash": "e1ebb3e62568bb9866f17a8bfceb30cf242c8cae0540e8e88185eb0cfb79ad4e",
+      "text": "補充讀法與來源邊界"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/resources-reading/2/paragraphs/0": {
+      "sourceHash": "d1a92048951f38887d616f1c20aa8b80d83c4efb0467382ebc10eb150994f347",
+      "text": "補充情境由費馬測試編輯部原創。可把兩項讀數分別放回實際情境，選擇你想繼續觀察的一個行為。"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/desire-boundaries-reading/0/title": {
+      "sourceHash": "750f034321621f0e3ebf9f35307f9667c70bf7f0b9daef55295bbdd4291bb8a0",
+      "text": "補充原創情境"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/desire-boundaries-reading/0/paragraphs/0": {
+      "sourceHash": "2d68ef6ee90725aa1e3de7ca7ce57d1f041f0bcab52459212f08b5c455a7c29c",
+      "text": "補充情境：虛構讀者被一項創作合作吸引，但尚未同意公開草稿。興趣、參與意願和具體釋出許可不能互相替代；後來改變安排，也需要重新確認。即使主題讀數較大，也不能從中讀出某個人的同意或邊界安全程度。"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/desire-boundaries-reading/1/title": {
+      "sourceHash": "860ab9fa77b22598efbbf574a0c50f4e2f20a6dc9041925cb716b805834f354a",
+      "text": "可選討論提示"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/desire-boundaries-reading/1/paragraphs/0": {
+      "sourceHash": "16224020fcab8626e3ab466dc8dc2375a9c7302c269f0217740d1d722604aa3d",
+      "text": "可選討論提示：“哪些只是興趣，哪些安排已有明確許可，哪些還未確認？”可以只讀或討論虛構人物，先區分事實、解釋與未知。不要求交換答案、爭取美德評價、披露資源或證明邊界；任何人都可以不參與，討論也不必達成同一理解。"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/desire-boundaries-reading/2/title": {
+      "sourceHash": "304b64848629c91194cf7dcaecdea09982554e58315045ef1d55e9cad921e33c",
+      "text": "補充讀法與來源邊界"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/desire-boundaries-reading/2/paragraphs/0": {
+      "sourceHash": "c7a9fc3d9d90f0c0e913db2bed9cedf963e88316ddf7d7687823d2b095543b40",
+      "text": "補充情境由費馬測試編輯部原創。可把兩項讀數分別放回實際情境，選擇你想繼續觀察的一個行為。"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/comparison-reading/0/title": {
+      "sourceHash": "aba0a922375af51821154724ac4e431003bc973ab3c7231a839a09a89975007b",
+      "text": "補充原創情境"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/comparison-reading/0/paragraphs/0": {
+      "sourceHash": "f884b8f498b8c77b0b18c1ad60518547867a5c62550bd2e5671b055cbb1c9572",
+      "text": "補充情境：虛構讀者欣賞同伴的作品，同時因自己未獲得同一機會而失落。欣賞、失落和機會標準可以分別討論，不要求一種感受取消另一種。分數不能證明祝賀真偽、機會不公或嫉妒人格；不瞭解的選擇過程可以保留未知。"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/comparison-reading/1/title": {
+      "sourceHash": "62f5f4f1ffa42bb21da92372bf170f699f7b0c397579104e352f2f36646114f6",
+      "text": "可選討論提示"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/comparison-reading/1/paragraphs/0": {
+      "sourceHash": "14236cbf53ff396c48d3eb31421389e93dcfa4aa5fdfe3daf4601ba195bbc317",
+      "text": "可選討論提示：“欣賞的具體部分是什麼，失落涉及哪個機會，標準有哪些已知和未知？”可以只讀或討論虛構人物，先區分事實、解釋與未知。不要求交換答案、爭取美德評價、披露資源或證明邊界；任何人都可以不參與，討論也不必達成同一理解。"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/comparison-reading/2/title": {
+      "sourceHash": "46288a7d44f8b11c9d9bbea0c04c454f85efe79e8d38885a6ac70e84cd58f2fe",
+      "text": "補充讀法與來源邊界"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/comparison-reading/2/paragraphs/0": {
+      "sourceHash": "15e56b83fe5eb492d65286defcaf6b5ee51763e8c677b8a2ca803e07539522f9",
+      "text": "補充情境由費馬測試編輯部原創。可把兩項讀數分別放回實際情境，選擇你想繼續觀察的一個行為。"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/rewards-reading/0/title": {
+      "sourceHash": "1b5b965a2baecbfae882d70672ee33da23c3eef3d327bbecd6e42236dcbc2bc9",
+      "text": "補充原創情境"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/rewards-reading/0/paragraphs/0": {
+      "sourceHash": "228be140b80fa2bbc698a4d9c403f399d23a238fe37a10c57f1a66bd0ca315f4",
+      "text": "補充情境：虛構讀者完成普通任務後看短影片休息，既覺得輕鬆，也在考慮是否暫停。回報吸引力與暫停選擇可以同時存在，不能由分數倒推意志力。也可以繼續休息，不必把普通體驗變成訓練；這個例子不用於危險行為或成癮處理。"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/rewards-reading/1/title": {
+      "sourceHash": "68c532fb61b4eaa353dbac77910c3f36f9f281195470824bbda7a0dfdad20150",
+      "text": "可選討論提示"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/rewards-reading/1/paragraphs/0": {
+      "sourceHash": "c6c978ad09aa0ad678498b9dafd50b3af706e44aa97a4b8aa168da81ebffb909",
+      "text": "可選討論提示：“這段休息想回應什麼需要，眼前有哪些可選安排？”可以只讀或討論虛構人物，先區分事實、解釋與未知。不要求交換答案、爭取美德評價、披露資源或證明邊界；任何人都可以不參與，討論也不必達成同一理解。"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/rewards-reading/2/title": {
+      "sourceHash": "7ac90090403d8548ac2817bdb1597d7b6ddcb5e28fcf4d4497d57024f21ab53e",
+      "text": "補充讀法與來源邊界"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/rewards-reading/2/paragraphs/0": {
+      "sourceHash": "89c5003e34e1959a7c935abcfd2104ef0f4f2f96afb1682fa537117bdb1b36ab",
+      "text": "補充情境由費馬測試編輯部原創。可把兩項讀數分別放回實際情境，選擇你想繼續觀察的一個行為。"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/anger-reading/0/title": {
+      "sourceHash": "47919df11c371b39ff62fe53003a23b68a156aff9c389e8cb8fa31b2612d275c",
+      "text": "補充原創情境"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/anger-reading/0/paragraphs/0": {
+      "sourceHash": "9106a200364c37f7a99b671e9a5f4ced3fc7c3e89fb8197e9b845e8cec39759f",
+      "text": "補充情境：虛構讀者解釋計劃時被打斷，注意到緊繃，也決定稍後再說。情緒訊號、打斷經過和回應選擇各有資訊，合在一起不成為脾氣或暴力讀數。暫停並不要求繼續談話，涉及真實傷害時也無需為表現耐心而留下。"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/anger-reading/1/title": {
+      "sourceHash": "b8d4910bd3caa25fd1f0613139b6d8dc45fb660267d0166de86b9fe7f17ab8f9",
+      "text": "可選討論提示"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/anger-reading/1/paragraphs/0": {
+      "sourceHash": "414683d9a1cb52c4b470ca297817fdf4ad9c596b35e8825a3cc43436b739dc4e",
+      "text": "可選討論提示：“發生了什麼、讀者留意到什麼訊號，暫停和繼續是否都是自願選擇？”可以只讀或討論虛構人物，先區分事實、解釋與未知。不要求交換答案、爭取美德評價、披露資源或證明邊界；任何人都可以不參與，討論也不必達成同一理解。"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/anger-reading/2/title": {
+      "sourceHash": "5f9322a3d67c7d4e426e7ec9c04fbeb07eeb922590f46e99695756ac035f2847",
+      "text": "補充讀法與來源邊界"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/anger-reading/2/paragraphs/0": {
+      "sourceHash": "d6680b2684bb738a4e57056de0be1ce112413f89ba63c39d708a3d0939454c95",
+      "text": "補充情境由費馬測試編輯部原創。可把兩項讀數分別放回實際情境，選擇你想繼續觀察的一個行為。"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/starting-rest-reading/0/title": {
+      "sourceHash": "0cdc61b57d202d1b697288b579c92ca2bc55e5653a1b739b66a96db782775ecd",
+      "text": "補充原創情境"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/starting-rest-reading/0/paragraphs/0": {
+      "sourceHash": "2ed5ec17c1ab3c03e423b18245d4c080dc2238e85b69b3d84ff601da09ace9c9",
+      "text": "補充情境：虛構讀者疲憊時面對“整理全部檔案”的任務，想先問清用途，再決定處理第一份檔案或休息。任務清楚程度、恢復需要和降低門檻是不同資訊，都可能進入分數。數字不能裁定誰懶惰，也不能確定休息夠不夠或延後的原因。"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/starting-rest-reading/1/title": {
+      "sourceHash": "a2cdbe527828cc5d9e223695c26758a383e997e9f699cfa0b203e393ef9148ed",
+      "text": "可選討論提示"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/starting-rest-reading/1/paragraphs/0": {
+      "sourceHash": "49150efc67fad45f5080032a724f17a3e5f6bb9e61cf1f520d3d76803ac267ed",
+      "text": "可選討論提示：“任務用途和第一步是否清楚，哪些條件可改變，是否仍需要休息？”可以只讀或討論虛構人物，先區分事實、解釋與未知。不要求交換答案、爭取美德評價、披露資源或證明邊界；任何人都可以不參與，討論也不必達成同一理解。"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/starting-rest-reading/2/title": {
+      "sourceHash": "2bcb1a19b07297370b59bea743c7adbb748996b7dabc3e64687260cb2366e251",
+      "text": "補充讀法與來源邊界"
+    },
+    "lib/questionnaires/result-content/seven-sins-virtues-test.json/starting-rest-reading/2/paragraphs/0": {
+      "sourceHash": "b0b008b6c108455b8300363fe53a1013ef98b84737d1a6255b91ed7acee9bcff",
+      "text": "補充情境由費馬測試編輯部原創。可把兩項讀數分別放回實際情境，選擇你想繼續觀察的一個行為。"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/0/title": {
+      "sourceHash": "08b1ba38f41e7e2c2d570f72ce23488a450f4c1a70917c78b40b94c76206fff9",
+      "text": "七宗罪、不同美德傳統與七組原創觀察"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/0/paragraphs/0": {
+      "sourceHash": "0acff902261853454e5b5a4441c42bce711ece8ce568191fea956089cc14bff6",
+      "text": "《天主教教理》1866段列出傲慢、貪婪、嫉妒、憤怒、色慾、暴食及懶惰或懈怠；1805段說明四樞德，1813段說明三項神學美德。這些宗教分類不能直接替換現代問卷的因素。來源解釋文化用語，不提供本題本的計分規則。[1][2][3]"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/0/paragraphs/1": {
+      "sourceHash": "da12e5fa132e75d0c8e2947d3500f13d59b2d8e6792c2fd46f1fedac956d616e",
+      "text": "費馬的七組涉及認可、資源、吸引與邊界、比較、即時回報、憤怒及行動啟動，均為原創編輯分組。它們不確立與歷史傳統的一一對應，不測宗教實踐，也不授權評價信仰者或非信仰者。理解一種文化隱喻，不要求接受相應宗教分類。"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/1/title": {
+      "sourceHash": "664f288f9459b1ee82c33b86763b6bd218f8aea3154e87a1ae2eaa6190d410e6",
+      "text": "VAVS研究能說明什麼，與本頁有何區別"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/1/paragraphs/0": {
+      "sourceHash": "ee58b42b1913959ce201bc7ad1699fddff96d52d0460b858d769b00123e1d25d",
+      "text": "Veselka、Giammarco與Vernon在2014年論文中報告VAVS的開發，最終保留70題，並分析七因素結構及與黑暗三特質測量的關係。作者指出自報偏差，以及仍需研究年齡與性別影響。這是關於其量表及樣本的證據。[4]"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/1/paragraphs/1": {
+      "sourceHash": "79acd0a7f0fa07903591e67ddf89790c4006752b274de7ff39a1ebea5684c976",
+      "text": "這裡的28條陳述不是VAVS、VAVS短版、道德基礎問卷或診斷量表；題文、分組與解釋均不同。本版本尚未建立驗證研究、常模或校準閾值。兩者標題都提到七宗罪，不能讓所引論文自動補足這些證據。"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/2/title": {
+      "sourceHash": "eb0e3a76f8572338695d000d993d17039620124e78ecaa3cd9877c0faf968a34",
+      "text": "認可：期待反饋與確認貢獻"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/2/paragraphs/0": {
+      "sourceHash": "55e15e5be3ae452dc73b6f8189c705aa134c141b941f6781473fd0efa24e7f24",
+      "text": "傲慢軸關注預設自己更可靠、希望多得功勞。謙卑軸關注接受指正、承認別人的貢獻。"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/2/paragraphs/1": {
+      "sourceHash": "09181415d811768fe1cfbb2a36340642f225515ca9a3b1480c953b5f10abb1a4",
+      "text": "以虛構專案為例，未得到回應可能讓人不確定檔案是否收到、貢獻是否記入，或任務是否達標。觀察時可以分清這些問題：期待什麼反饋，當時有哪些證據，而不是把每次要求確認都改稱傲慢。"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/3/title": {
+      "sourceHash": "9342d5acd4cf4a57541c873628054a32f4a55630de0cb20c40caeee7e00d98ba",
+      "text": "資源：保留餘量與決定分享"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/3/paragraphs/0": {
+      "sourceHash": "56ad5f616b1f62048f30c34715aeb03351476d186988362c1ad95206aa0ce241",
+      "text": "貪婪軸關注已經夠用時仍想多佔一份。慷慨軸關注有餘力時自願分享物品或時間。"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/3/paragraphs/1": {
+      "sourceHash": "e9d6f72f447936ef20f0bbe4ca13a0c5eaff07805cb33f925644c1d792ae8bd8",
+      "text": "例如，借出明天任務必需的工具，與提供一件閒置備用物，限制條件不同。可以記錄當時有什麼資源、已作出哪些承諾，以及提議是否自願。拒絕請求可能反映真實限制，答應也不自動證明一種美德。"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/4/title": {
+      "sourceHash": "4dcd31796296f89ae4b0c83bac2437058b34e5ace63a3539dbb17cd5c505783a",
+      "text": "吸引與邊界可以同時出現"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/4/paragraphs/0": {
+      "sourceHash": "fbc782503b7611bbb33ee9531ad55f2fb11e2f3e7002c062d2c05f2f6d4d0a59",
+      "text": "色慾軸關注強烈吸引下急於推進親密互動的衝動。貞潔軸關注確認雙方意願和選擇自己舒服的節奏。兩軸各自計分。"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/4/paragraphs/1": {
+      "sourceHash": "0ece05d7be28c330222379a61e65d86420064ab0d04cc0a83670089798083b48",
+      "text": "以一次虛構合作機會為例：你注意到興趣，詢問參與要求，再判斷條件是否適合。涉及他人意願時，仍需對方實際同意。分數不能確立同意、性取向、關係狀態或行為經歷。"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/5/title": {
+      "sourceHash": "89709c3d55a770e7b792282feea8b4046e4500e70f60c0da0cadeafc98755407",
+      "text": "比較與欣賞可以同時出現"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/5/paragraphs/0": {
+      "sourceHash": "8def24ff0b6abab77f39af95a8e5f14f1bb5c0e44b644df52b1cb5458b99a8f3",
+      "text": "嫉妒軸關注機會落差帶來的介意和反覆比較。仁愛軸關注真誠祝賀和理解對方的困難。"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/5/paragraphs/1": {
+      "sourceHash": "0210bf5b2bd558332af24f2da37eb2b12508ca8092b3b264436c4b1a2128a996",
+      "text": "同伴取得進展後，有人想了解怎樣學會這項工作，有人則關注機會分配是否公平。相同選項數值可能出於不同原因。可以先讀原陳述，再分清比較的是什麼、之後採取什麼行動，不從分數推斷隱藏動機。"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/6/title": {
+      "sourceHash": "cb8488aa231cc6813ec9f3d83952214076ee07e63dddb847e96ff1103a94b2ee",
+      "text": "即時回報：注意、等待與決定暫停"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/6/paragraphs/0": {
+      "sourceHash": "382cfd8658701648c6475b06379b99b7dd607871bd50371c47180a50060cbc04",
+      "text": "暴食軸關注零食、影片或遊戲等即時享受超過原定界限。節制軸關注提前設限和主動停下。"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/6/paragraphs/1": {
+      "sourceHash": "7e71793a68b968fd93866812e1c504bc86c549a2f31e36ffd308ce7e71de0b1a",
+      "text": "可以自願觀察一次小休息：希望從中得到什麼、實際選擇什麼，以及怎樣決定返回。享受本身與後續結果需要分開記錄。問卷不規定正確休閒量、消費限制或目標分，也不提供懲罰日常愉悅的理由。"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/7/title": {
+      "sourceHash": "dab5c5e986fce92988bbd09a65518fae3f902e4b77216be449a7f6b9692c3a16",
+      "text": "憤怒訊號與之後的回應"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/7/paragraphs/0": {
+      "sourceHash": "796af50ea8cabf26c225120e61df9b6d1111660884cc52b92043f3a65a2cde53",
+      "text": "暴怒軸關注衝動回擊和事後反覆想著如何還擊。耐心軸關注留時間回應或處理。"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/7/paragraphs/1": {
+      "sourceHash": "b97cc271bb71df7fce9216b70c298055241d0be8fe71847d7e5b2fda8ff1f65e",
+      "text": "回顧一次分歧，可以區分發生了什麼、察覺到什麼，以及實際說了什麼或做了什麼。暫停本身不能解決爭議，平靜語氣也不證明情境公平。指南提供觀察問題，不要求容忍傷害或繼續不願參與的互動。"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/8/title": {
+      "sourceHash": "0e57e9b0b6a567ef1e06844a4119a4fc86d69056fa4d7d6740b3c20aa24da480",
+      "text": "啟動困難、疲憊與尋找較容易的第一步"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/8/paragraphs/0": {
+      "sourceHash": "13737328668f73e18675f54388ffd70bcad507697c89ac07a803b20e673fef30",
+      "text": "懶惰軸關注知道第一步仍拖延，以及休息夠了仍難返回任務。勤勉軸關注做出小步驟和持續推進。"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/8/paragraphs/1": {
+      "sourceHash": "5b3600ca80c4dcd312f75bfee6b52e77eaeb6360876340c7d0048554b671c06b",
+      "text": "以一件虛構任務為例，可以分清指引缺失、工作量不現實，以及不確定從哪裡開始。寫出一個小的下一步也許能讓問題更明確，但問卷不能判定延後的原因，或休息是否足夠。不要把數字變成對產出、健康或個人價值的裁決。"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/9/title": {
+      "sourceHash": "398e27fa5d42107a336a88b8e99b6b0f73869ff7bc21449b2bd9b6d2ba2efe75",
+      "text": "把算術放回題文，而不是讓數字替代題文"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/9/paragraphs/0": {
+      "sourceHash": "c0209e293f64aabee2a0b3939bb891d33cc020a2566df9d47a37545fcbe59265",
+      "text": "每軸使用兩道專屬題。選項按1–5計分，兩題均值減1，再乘25，換算為0–100。圖上取整，榜首按未取整得分確定，同分並列。"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingSections/9/paragraphs/1": {
+      "sourceHash": "585bb696c59aebbb2d7202e2d840985810fff2c9385ce04d371433c6e0f3e869",
+      "text": "兩條軌道分別使用各自的題目。同一主題的兩個分數可以同時高或同時低。兩組均值各為七軸的平均值。"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingFaq/0/question": {
+      "sourceHash": "ce5618ffc9abc1a422e4ae1c4a79c27138b2de04187c609a584625a8202b76be",
+      "text": "本頁是否分別測量七種罪與七種美德？"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingFaq/0/answer": {
+      "sourceHash": "c9591759cc14c3a7adec3c6ae9ba427d34049b00c21be78ea81a39c562c86624",
+      "text": "兩條軌道分別使用各自的題目。同一主題的兩個分數可以同時高或同時低。兩組均值各為七軸的平均值。"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingFaq/1/question": {
+      "sourceHash": "955a695f4fcff1575bbb6af01deb3948ad6b2457014e2afcd463a4c83d355025",
+      "text": "邊界核對和行動準備計入哪一軌？"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingFaq/1/answer": {
+      "sourceHash": "18f086b1c8b294bb512641bb104e5e169ef6b744a5843e565ac93e9f6992b08b",
+      "text": "確認雙方意願的題計入貞潔軸，主動邁出小步的題計入勤勉軸。吸引衝動和任務拖延各用另外兩道題。"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingFaq/2/question": {
+      "sourceHash": "a9d393902aeb98561b62c3c46af2cdd7290e99efd6d7fb029962002926182b54",
+      "text": "這是VAVS惡德與美德量表的一個版本嗎？"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingFaq/2/answer": {
+      "sourceHash": "008cb3d9d82e861cde089ceb60e9336a323e4847b0ad579a2b2a61adc5d3b903",
+      "text": "費馬這版採用28條原創陳述，每軸兩題。2014年VAVS研究討論另一套條目及其驗證。[4]"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingFaq/3/question": {
+      "sourceHash": "9dfad9cd917702bf1479fa0e92b24e332ef4a753ad77efd06f0a2a18fa0939ff",
+      "text": "選3是否表示這種反應有一半時間出現？"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingFaq/3/answer": {
+      "sourceHash": "f146ffc13e4a304e288a9e4f78210a04bcdc44193f1dbda22470002cce5ed41e",
+      "text": "不是。這個選項表示不確定或視情況，計算均值時按數字計入，但不是頻率百分比，也不表示某種特質屬於中等。"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingFaq/4/question": {
+      "sourceHash": "275e5bd765ffde006d1ea23aa73ca12dc2b848eb830c92e7960b43c85f045b64",
+      "text": "兩個人同一軸得分相同，逐題答案也一定相同嗎？"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingFaq/4/answer": {
+      "sourceHash": "30ba9336f5f33236d595be4f6d065c4ef0162a3fd4b475c6bb11127e30f4dff1",
+      "text": "例如，一軸兩題選2和4，均值3，對應50分。選1和5也得到50分，逐題回答仍可能不同。"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingFaq/5/question": {
+      "sourceHash": "4b17f2bbd32241444c57305328a73d2f5985df3df027424a5e2675b484176ad1",
+      "text": "七宗罪與七美德測試需要多久？"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingFaq/5/answer": {
+      "sourceHash": "894cc141006ee4466ae539ee1c87f199a9bd7beb476c5ce9bd36b8a6da882e53",
+      "text": "共28條陳述，閱讀與作答預計約8分鐘，沒有計時或速度要求。完整結果及七篇公開指南免費，無需註冊，也可以不完成作答直接閱讀指南。"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingFaq/6/question": {
+      "sourceHash": "8d055c201f79f1bc28b68129d018e841d86ff7ea62a9fca5860c88e27b25f944",
+      "text": "應該重做到每組數字都變低嗎？"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingFaq/6/answer": {
+      "sourceHash": "56cd78f0c5feb6b5290a74c2507bc16facef3ef08d1bd1e587760ae61fffd19f",
+      "text": "本頁沒有設定目標檔案。對某條描述的符合程度降低，不一定能說明同組其他描述。重測不是道德進步檢驗；比起追求喜歡的數字，回看一次具體事件更有意義。"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingFaq/7/question": {
+      "sourceHash": "9cb5eea99f8a9aa6f0dd0e19289cdd062971f52d97752da76e6ed820a1a4ddc3",
+      "text": "這些結果能代替信仰討論或心理評估嗎？"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingFaq/7/answer": {
+      "sourceHash": "dc0d819f4e74751ab2d797ad99ea6375a06ceb210ab3399f164f7cb726e0e9a7",
+      "text": "不能。文化來源解釋術語，不構成宗教背書。這份原創問卷尚未完成心理測量驗證，不評估個人信仰、臨床狀況、意志力或責任歸屬。"
+    },
+    "lib/questionnaires/virtuesLandingEditorial.json/virtuesLandingReferences/0/title": {
+      "sourceHash": "e4ad11490a1e593b3fc9473d55bd24f7aa3f3e2e04a780f31907b4b525254e9f",
+      "text": "Veselka、Giammarco與Vernon（2014）：另一套VAVS量表的開發研究"
+    }
+  }
+}
