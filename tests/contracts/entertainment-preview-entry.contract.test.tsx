@@ -5,6 +5,7 @@ import { ExploreTestEntry } from "@/components/tests/ExploreTestEntry";
 import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
 import { deluluResultSections } from "@/lib/questionnaires/result-content/delulu";
 import { bleachCurrentEntryCopy } from "@/components/questionnaires/BleachLandingEditorial";
+import { responseColorCurrentEntryCopy } from "@/components/questionnaires/ResponseColorLandingEditorial";
 import catalog from "@/lib/questionnaires/catalog.json";
 import { renderToStaticMarkup } from "react-dom/server";
 vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
@@ -47,7 +48,7 @@ describe("entertainment preview entry", () => {
       cleanup();
     }
   });
-  it("renders both locales of all current native entries with their complete guide paragraphs and current BLEACH progress copy", async () => {
+  it("renders both locales of all current native entries with their complete guide paragraphs and current progress copy", async () => {
     const entry = (await import("@/components/questionnaires/QuestionnairePage")).default;
     const omitted: string[] = [];
     for (const item of catalog) {
@@ -59,7 +60,7 @@ describe("entertainment preview entry", () => {
         expect(dom.querySelector("h1")?.textContent, item.slug).toBe(quiz.title[locale]);
         for (const section of item.slug === "delulu-test" ? deluluResultSections(quiz.guide) : quiz.guide) for (const paragraph of section.paragraphs) {
           const normalize = (s: string) => s.replace(/\[[1-3]\]/g, "").replace(/\s+/g, " ").trim();
-          const expected = item.slug === "bleach" ? bleachCurrentEntryCopy(paragraph[locale], locale) : paragraph[locale];
+          const expected = item.slug === "bleach" ? bleachCurrentEntryCopy(paragraph[locale], locale) : item.slug === "response-color" ? responseColorCurrentEntryCopy(paragraph[locale], locale) : paragraph[locale];
           if (!normalize(dom.textContent ?? "").includes(normalize(expected))) omitted.push(`${item.slug}:${locale}:${section.id}`);
         }
         if (item.slug === "bleach") {

@@ -1,4 +1,5 @@
 import { additionalStoryEditorials } from "@/components/entertainment/AdditionalStoryEditorials";
+import { responseColorCurrentEntryCopy } from "@/components/questionnaires/ResponseColorLandingEditorial";
 import { describe, expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import FunQuizPage, { generateMetadata } from "@/app/(localized)/[locale]/tests/play/[slug]/page";
@@ -28,7 +29,11 @@ describe("complete bilingual entertainment entry rendering", () => {
           expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com/${locale}/tests/play/${quiz.slug}`);
           expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/play/${quiz.slug}`, "zh-CN": `https://fermatmind.com/zh/tests/play/${quiz.slug}` });
           expect(metadata.robots).toMatchObject({ index: true, follow: true });
-          for (const faq of authored.faq) { expect(dom.textContent).toContain(faq.question[locale]); expect(dom.textContent).toContain(faq.answer[locale]); }
+          for (const faq of authored.faq) {
+            expect(dom.textContent).toContain(faq.question[locale]);
+            const answer = quiz.slug === "response-color" ? responseColorCurrentEntryCopy(faq.answer[locale], locale) : faq.answer[locale];
+            expect(dom.textContent).toContain(answer);
+          }
           for (const profile of authored.profiles) {
             expect(dom.querySelector(`a[href="/${locale}/tests/play/${quiz.slug}/results/${profile.id}"]`)).not.toBeNull();
             // Bespoke entries may author a new guide-card synopsis. Full source
