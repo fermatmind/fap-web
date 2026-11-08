@@ -2,7 +2,7 @@ import { createRequire } from "node:module";
 import { describe, expect, it } from "vitest";
 
 const require = createRequire(import.meta.url);
-const { buildContentPageTraditional } = require("../../scripts/i18n/content-page-zh-tw.mjs");
+const { buildContentPageTraditional, convertTraditionalMarkdown } = require("../../scripts/i18n/content-page-zh-tw.mjs");
 const source = () => ({
   slug: "about", locale: "zh-CN", status: "published", is_public: true, is_indexable: true,
   title: "关于费马测试", summary: "软件与职业兴趣不是能力。", content_html: "",
@@ -11,6 +11,35 @@ const source = () => ({
 });
 
 describe("offline CMS Traditional candidate", () => {
+  it("preserves opted-in link spacing and full targets without broadening the CMS default", () => {
+    const input = "[软件说明]( /关于?地区=中国#说明 )，[软件](\thttps://example.com/软件\t)";
+    expect(convertTraditionalMarkdown(input, { allowLinkSpacing: true })).toBe("[軟體說明]( /关于?地区=中国#说明 )，[軟體](\thttps://example.com/软件\t)");
+    expect(() => convertTraditionalMarkdown(input)).toThrow("MARKDOWN_FORMAT_UNSUPPORTED");
+    expect(() => convertTraditionalMarkdown("[说明]( javascript:alert )", { allowLinkSpacing: true })).toThrow("MARKDOWN_FORMAT_UNSUPPORTED");
+  });
+
+  it("converts explicitly selected Markdown table text while preserving layout and full link targets", () => {
+    const input = "## 软件说明\n\n| 软件 | 说明 |\n| :--- | ---: |\n| [视频](/关于?地区=中国#说明) | 93题，{{name}}，${value} |\n\n- 兴趣不是能力。";
+    const target = convertTraditionalMarkdown(input, { allowTables: true });
+    expect(target).toBe("## 軟體說明\n\n| 軟體 | 說明 |\n| :--- | ---: |\n| [影片](/关于?地区=中国#说明) | 93題，{{name}}，${value} |\n\n- 興趣不是能力。");
+    expect(() => convertTraditionalMarkdown(input)).toThrow("MARKDOWN_FORMAT_UNSUPPORTED");
+    expect(() => buildContentPageTraditional({ ...source(), content_md: input })).toThrow("MARKDOWN_FORMAT_UNSUPPORTED");
+  });
+
+  it.each([
+    "| 软件 | 说明 |",
+    "| 软件 | 说明 |\n| --- |\n| 视频 | 1 |",
+    "| 软件 | 说明 |\n| --- | --- |\n| 视频 | 1 | 2 |",
+    "| 软件 | 说明 |\n| --- | --- |\n| 视频 | 1",
+    "| 软件 | 说明 |\n| --- | --- |\n| 视频\\|图像 | 1 |",
+  ])("rejects malformed or unsupported tables without authoring a replacement: %s", input => {
+    expect(() => convertTraditionalMarkdown(input, { allowTables: true })).toThrow("MARKDOWN_TABLE_UNSUPPORTED");
+  });
+
+  it.each(["<p>正文</p>", "```js\nconst value = 1;\n```", "![图片](/image.png)", "[说明](javascript:alert)", "[说明](/broken"])("keeps rich-format rejection when tables are enabled: %s", input => {
+    expect(() => convertTraditionalMarkdown(input, { allowTables: true })).toThrow("MARKDOWN_FORMAT_UNSUPPORTED");
+  });
+
   it("converts complete reader fields with structure and protected literals intact", () => {
     const input = source(), before = structuredClone(input);
     const candidate = buildContentPageTraditional(input);
