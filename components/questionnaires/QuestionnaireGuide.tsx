@@ -651,7 +651,7 @@ export default async function QuestionnaireResultGuide({ params }: Props) {
     <p className="mb-5 text-sm leading-7 text-slate-600">{zh ? "公开完整参考，不含任何人的作答记录。" : "Public reference guide, without anyone’s personal answers or scores."}</p>
     <Link prefetch={false} className="mb-6 inline-block min-h-11 py-2 font-semibold underline" href={`${entry}#take-test`}>{(quiz.kind === "data-entry" || quiz.kind === "ten-key" || quiz.kind === "typing") ? (zh ? "免费开始60秒练习" : "Start free 60-second practice") : (zh ? "免费开始完整测试" : "Start the full test for free")}</Link>
     {quiz.slug === "chiikawa" && (
-      <Link prefetch={false} className="mb-6 ml-0 inline-block min-h-11 py-2 font-semibold underline sm:ml-5" href={`${entry}#questionnaire-results`}>
+      <Link prefetch={false} className="mb-6 ml-0 block w-fit min-h-11 py-2 font-semibold underline sm:ml-5 sm:inline-block" href={`${entry}#questionnaire-results`}>
         {zh ? "比较全部六位角色" : "Compare all six character matches"}
       </Link>
     )}

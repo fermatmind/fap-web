@@ -51,7 +51,7 @@ export function PhilosopherReport({ quiz, result, locale }: { quiz: Questionnair
       <h3 id={`animal-title-${profile.id}`} className="scroll-mt-24 text-2xl font-semibold">{profile.title[locale]}</h3>
       <p className="leading-8 text-slate-700">{profile.summary[locale]}</p>
       <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} mode="result" showHeadline={false} showSummary={false} previewSectionIds={["source-context", "example", "optional-try"]} />
-      <Link prefetch={false} className="inline-flex min-h-11 items-center underline underline-offset-4" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "单独阅读这项结果的完整指南" : "Read this result’s full guide separately"}</Link>
+      <Link prefetch={false} className="inline-flex min-h-11 items-center underline underline-offset-4" href={questionnaireGuidePath(locale, quiz.slug, profile.id)} target="_blank" rel="noopener">{zh ? "单独阅读这项结果的完整指南（新标签页）" : "Read this result’s full guide separately (new tab)"}</Link>
     </section>)}
   </div>;
 }

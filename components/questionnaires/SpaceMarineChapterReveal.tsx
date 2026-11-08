@@ -56,7 +56,7 @@ export function SpaceMarineChapterReveal({ quiz, result, locale, answers }: {
             <p>{zh ? "你选择：" : "You chose: "}<q>{option.label[locale]}</q></p>
           </li>)}</ol>
         </details>}
-        <Link prefetch={false} className="inline-flex min-h-11 items-center text-sm underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读公开指南" : "Read public guide"}</Link>
+        <Link prefetch={false} className="inline-flex min-h-11 items-center text-sm underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)} target="_blank" rel="noopener">{zh ? "阅读公开指南（新标签页）" : "Read public guide (new tab)"}</Link>
         <button type="button" className="block min-h-11 text-left text-sm font-semibold underline" aria-expanded={preview === profile.id} onClick={() => { setPreview(preview === profile.id ? undefined : profile.id); setMessage(""); }}>{zh ? "预览公开指南卡" : "Preview public guide card"} · {profile.title[locale]}</button>
     {preview === profile.id && <div className="space-y-3" data-space-marine-share-card>
       <Image unoptimized width={1200} height={630} className="h-auto w-full rounded-lg" src={chapterShareCardPath(locale, preview, quiz.version)} alt={`${quiz.profiles.find(profile => profile.id === preview)?.title[locale]} · ${chapterHobbyLens(preview)?.[locale]}`} onError={() => setMessage(zh ? "分享图暂时无法显示，可使用结果文字与公开指南链接。" : "The card could not load. You can still copy the result text and public guide link.")} />

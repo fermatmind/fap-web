@@ -17,7 +17,7 @@ export function MoonPhaseComparison({ locale, selected = [], result = false }: {
         <h3 className="font-semibold leading-6">{phase.name[locale]}</h3>
         {selected.includes(key) && <p className="mt-1 text-xs font-semibold text-teal-800">{zh ? "本次最高项" : "Your top count"}</p>}
         <p className="my-2 flex-1 text-sm leading-6">{phase.conclusion[locale]}</p>
-        <Link prefetch={false} aria-label={zh ? `阅读${phase.name.zh}完整指南` : `Read the full ${phase.name.en} guide`} className="inline-flex min-h-11 items-center text-sm font-semibold underline" href={questionnaireGuidePath(locale, "moon-phase", key)}>{zh ? "阅读完整指南" : "Read the full guide"}</Link>
+        <Link prefetch={false} aria-label={(zh ? `阅读${phase.name.zh}完整指南` : `Read the full ${phase.name.en} guide`) + (result ? (zh ? "（新标签页）" : " (new tab)") : "")} className="inline-flex min-h-11 items-center text-sm font-semibold underline" href={questionnaireGuidePath(locale, "moon-phase", key)} target={result ? "_blank" : undefined} rel={result ? "noopener" : undefined}>{zh ? "阅读完整指南" : "Read the full guide"}{result && (zh ? "（新标签页）" : " (new tab)")}</Link>
       </li>;
     })}</ol>
     <div className="space-y-2 border-t border-slate-200 pt-4" data-moon-phase-reading-help>

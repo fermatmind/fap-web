@@ -27,10 +27,10 @@ export function BleachReveal({ quiz, result, locale, answers }: { quiz: Question
         </div>
         <BleachChoiceContext quiz={quiz} profile={profile} answers={answers} locale={locale} expanded={profiles.length === 1} />
         <p className="my-2 text-sm leading-6">{zh ? "本次选中" : "Chosen this time"} {result.counts[direction.id]} / {direction.comparisons} · {zh ? "选项出现次数" : "option appearances"}</p>
-        <Link prefetch={false} className="inline-flex min-h-11 items-center underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读公开人物指南" : "Read public character guide"}</Link>
+        <Link prefetch={false} className="inline-flex min-h-11 items-center underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)} target="_blank" rel="noopener">{zh ? "阅读公开人物指南（新标签页）" : "Read public character guide (new tab)"}</Link>
       </li>;
     })}</ul>
     <p className="text-sm leading-7 text-slate-600">{zh ? "这是把日常选择与七位角色联系起来的非官方趣味读法。次数不是相似度、战力或人格能力分；下方保留全部计数和完整说明。人物图为本站原创同人意象。" : "An unofficial fan reading connecting everyday choices with seven characters. Counts are not resemblance percentages, power levels or personality ability scores. All counts and full explanations follow. Portraits are original fan illustrations."}</p>
     <BleachShareCard ids={result.profileIds} locale={locale} />
-  </section><BleachCharacterDirectory quiz={quiz} locale={locale} /></>;
+  </section><BleachCharacterDirectory quiz={quiz} locale={locale} result /></>;
 }

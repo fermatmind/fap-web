@@ -2,7 +2,7 @@
   "slug": "chiikawa",
   "code": "CHIIKAWA_FAN_ORDINARY_CHOICES",
   "version": "1.0.0",
-  "updated": "2026-11-07",
+  "updated": "2026-11-08",
   "category": "metaphor",
   "kind": "archetype",
   "title": {
@@ -33,10 +33,10 @@
   "source": {
     "kind": "FermatMindoriginal18ENZH4choice/unofficialtextonlyfaninterpretation/sixselectedcharacters/notclinicalassessment",
     "formCode": "fm_chiikawa_fan_choices_18",
-    "itemBankVersion": "1.0.0",
+    "itemBankVersion": "1.0.1",
     "scoringVersion": "1.0.0",
     "resultContentVersion": "1.0.0",
-    "itemBankSha256": "0fbc86703a6fda14a37a56d77e6cc264c2c4a0c6fc41ed264d0ca3754eb9e19f",
+    "itemBankSha256": "5dc6abef7cc93c960fe684afd9b0809846fdec0ebcb8bfd93680c367e3148223",
     "resultContentSha256": "42deaf7cca48d9b9420eaa15afbcd173d3581ed53138448d64d2de79ebf8c26d",
     "psychometricValidationCompleted": false
   },
@@ -315,7 +315,7 @@
           "id": "B",
           "label": {
             "zh": "留在附近但不催，等对方想加入或提问",
-            "en": "Stay nearby without hurrying them and wait for an invitation"
+            "en": "Stay nearby without hurrying them, and wait until they want to join in or ask a question"
           },
           "directionId": "chiikawa"
         },

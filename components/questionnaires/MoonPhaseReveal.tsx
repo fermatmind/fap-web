@@ -17,9 +17,9 @@ export function MoonPhaseReveal({ quiz, result, locale, answers }: { quiz: Quest
     <ul className={profiles.length > 1 ? "grid grid-cols-2 gap-3" : "grid gap-3"} data-moon-phase-top-overview>{profiles.map(profile => {
       const phase = moonPhasePresentation(profile.id)!;
       return <li key={profile.id} className="rounded-xl border border-slate-600 p-3">
-        <Link prefetch={false} href={questionnaireGuidePath(locale, quiz.slug, profile.id)} className="flex min-h-11 items-center gap-2 text-sm font-semibold leading-5 underline">
+        <Link prefetch={false} href={questionnaireGuidePath(locale, quiz.slug, profile.id)} target="_blank" rel="noopener" className="flex min-h-11 items-center gap-2 text-sm font-semibold leading-5 underline">
           <Image unoptimized src={moonPhaseImage(profile.id)} width={96} height={96} alt="" className={profiles.length > 1 ? "size-8 shrink-0 rounded-lg" : "size-24 shrink-0 rounded-xl"} />
-          <span>{phase.name[locale]}</span>
+          <span>{phase.name[locale]} · {zh ? "指南（新标签页）" : "Guide (new tab)"}</span>
         </Link>
         <p className="mt-2 text-sm font-semibold leading-5 text-amber-200">{phase.conclusion[locale]}</p>
       </li>;

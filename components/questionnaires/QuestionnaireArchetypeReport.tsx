@@ -52,6 +52,7 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId, a
   const lead = portraitResultLeadKind(quiz.slug);
   const edgerunners = quiz.slug === "cyberpunk-edgerunners";
   const chiikawa = quiz.slug === "chiikawa";
+  const guideInNewTab = ["aura-color", "philosopher-personality-test", "space-marine-chapter", "bleach", "moon-phase", "cyberpunk-edgerunners", "chiikawa"].includes(quiz.slug);
   const Portrait = chiikawa ? ChiikawaPortrait : EdgerunnersPortrait;
   const placement = (edgerunners || chiikawa) && result.profileIds.length === 1 ? "between" :
     comparisonFirst.has(quiz.slug) ? "before" : chartAfterLead.has(quiz.slug) ? "between" : chartAfterReading.has(quiz.slug) ? "after" : undefined;
@@ -120,7 +121,7 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId, a
       const body = (
         <div className={styles.profileBody}>
           <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${id}`} mode="result" showHeadline={false} showSummary={false} previewSectionIds={previewSections(profile)} />
-          <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "单独阅读这项结果的完整指南" : "Read this result’s full guide separately"}</Link>
+          <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)} target={guideInNewTab ? "_blank" : undefined} rel={guideInNewTab ? "noopener" : undefined}>{zh ? "单独阅读这项结果的完整指南" : "Read this result’s full guide separately"}{guideInNewTab && (zh ? "（新标签页）" : " (new tab)")}</Link>
           {quiz.slug === "philosopher-personality-test" && <a className="ml-5 inline-block min-h-11 py-2 underline" href={`/og/fun/${quiz.slug}?locale=${locale}&portrait=${id}&v=${quiz.version}-reading`} target="_blank" rel="noopener">
             {zh ? "预览这份公开阅读指南的分享图（新标签页）" : "Preview this public reading guide’s share card (new tab)"}
           </a>}

@@ -34,6 +34,8 @@
 .actions { display: flex; justify-content: space-between; gap: 16px; margin-top: 28px; padding-top: 16px; border-top: 1px solid #ededf0; }
 .actions button { border: 0; border-radius: 24px; min-height: 48px; padding: 10px 24px; font-size: 13px; background: #f5f5f7; }
 .actions button:last-child { background: #f4a78d; color: #fff; }
+.engine :global([data-questionnaire-slug="adult-age-preferences"]) .actions button:last-child,
+.engine :global([data-questionnaire-slug="space-marine-chapter"]) .actions button:last-child { color: #572715; }
 .actions button:disabled { opacity: .45; }
 @media (hover: hover) { .engine fieldset:not(.options) > label:has(input[type="radio"]):hover { border-color: #b5cfea; background: #edf4fd; } .engine fieldset.options > label:has(input[type="radio"]):hover { border-color: var(--option-accent, #b5cfea); background: var(--option-hover, #edf4fd); } }
 @media (max-width: 640px) { .main { padding-inline: 12px; } .engine :global([data-stage="answer"]) fieldset:not(.options):has(input[type="radio"]), .engine fieldset.options, .engine fieldset.options[data-take-template="scale"] { grid-template-columns: 1fr; } .engine :global([data-stage="answer"]) fieldset:not(.options) > label:has(input[type="radio"]) { min-height: 64px; padding: 14px 44px 14px 14px; font-size: 14px; } .engine fieldset.options[data-take-template="scale"] > label { min-height: 64px; flex-direction: row; justify-content: flex-start; padding: 8px 44px 8px 14px; } .engine :global([data-stage="answer"]) > h2 { min-height: 88px; margin-block: 24px; } }

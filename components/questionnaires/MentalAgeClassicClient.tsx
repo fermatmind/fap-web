@@ -29,7 +29,7 @@ export function MentalAgeClassicResult({quiz,result,answers,locale,actualAge=nul
   </section>
   <MentalAgeShareCard age={playfulAge} sum={sum} locale={locale} actualAge={actualAge} year={year} styleTitle={style.title[locale]}/>
   <details className="rounded-xl border p-5"><summary className="cursor-pointer text-lg font-semibold">{zh?"查看完整计算和逐题点数":"See the full calculation and every answer"}</summary><p className="my-4 font-semibold" data-mental-age-sum>{sum} / 60</p><p>{zh?`10＋${sum}＝${playfulAge}；仅30道偏好题计分，资料屏和实际年龄不加减分。`:`10 + ${sum} = ${playfulAge}. Only the thirty preference statements contribute points. Actual age and extra screens add none.`}</p><ol className="mt-5 space-y-4">{quiz.questions.map((q,i)=><li key={q.id} data-mental-age-answer={q.id}><p>{i+1}. {q.prompt[locale]}</p><p className="font-semibold">{q.options.find(o=>o.id===answers[q.id])?.label[locale]} · {points[q.id]}{zh?"点":" points"}</p></li>)}</ol></details>
-  <Link href={`/${locale}/tests/explore/mental-age/results/understanding-your-playful-age`} className="inline-flex min-h-11 items-center underline">{zh?"阅读完整公开指南（不含个人数据）":"Read the complete public guide (no personal data)"}</Link>
+  <Link href={`/${locale}/tests/explore/mental-age/results/understanding-your-playful-age`} target="_blank" rel="noopener" className="inline-flex min-h-11 items-center underline">{zh?"阅读完整公开指南（不含个人数据，新标签页）":"Read the complete public guide (no personal data, new tab)"}</Link>
  </div>;
 }
 export function MentalAgeClassicClient({quiz,locale}:{quiz:Questionnaire;locale:Locale}) {

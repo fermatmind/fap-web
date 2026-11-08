@@ -198,7 +198,7 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
       : `Each context appeared 12 times. Your counts add up to 18. ${directional.leaders.length === 3 ? "All three were chosen 6 times, so there is no single leader." : directional.leaders.length === 2 ? "Two contexts share the highest count, so both are shown." : "The highest count is the context you chose most often in these questions."} These counts do not tell you an ideal age gap.`)
       : zh ? "分母为该方向参加比较的次数。原始次数只比较本题组内的选择，不是人群排名或能力分数。" : "The denominator is the number of comparisons for that direction. Raw counts compare choices within this question set, not population ranks or ability scores."}</p>
   </ResultSection>;
-  return <section id="take-test" data-stage={stage} data-result-variant={stage === "result" && !miniVirtues ? questionnaireResultVariant(quiz.kind) : undefined} data-result-kind={stage === "result" && miniVirtues ? "mini-virtues" : undefined} className={`my-8 rounded-xl border border-violet-200 bg-white p-5 sm:p-8 ${stage === "result" && !miniVirtues ? resultStyles.page : ""}`} aria-label={zh ? "作答与完整结果" : "Questionnaire and full results"}>
+  return <section id="take-test" data-questionnaire-slug={quiz.slug} data-stage={stage} data-result-variant={stage === "result" && !miniVirtues ? questionnaireResultVariant(quiz.kind) : undefined} data-result-kind={stage === "result" && miniVirtues ? "mini-virtues" : undefined} className={`my-8 rounded-xl border border-violet-200 bg-white p-5 sm:p-8 ${stage === "result" && !miniVirtues ? resultStyles.page : ""}`} aria-label={zh ? "作答与完整结果" : "Questionnaire and full results"}>
     {quiz.slug === "relationship-values" && <span id="play" className="block scroll-mt-24" aria-hidden="true" />}
     {stage === "welcome" && <QuestionnaireWelcome quiz={quiz} locale={locale} ready={ready} hasDraft={Boolean(draft)} onStart={start} />}
     {stage === "answer" && question && <>
@@ -238,7 +238,7 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
         <summary>{zh ? "查看各方向的原始选择次数" : "View the raw counts for every direction"}</summary>
         {directionCounts}
       </details>}
-      <Link prefetch={false} className="my-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这项结果的公开说明" : "Read the public explanation of this result"}</Link>
+      <Link prefetch={false} className="my-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)} target={adultAgePreferences ? "_blank" : undefined} rel={adultAgePreferences ? "noopener" : undefined}>{zh ? "阅读这项结果的公开说明" : "Read the public explanation of this result"}{adultAgePreferences && (zh ? "（新标签页）" : " (new tab)")}</Link>
       </>}
       <QuestionnaireResultSections {...reportProps} />
       {(quiz.slug === "cyberpunk-edgerunners" || quiz.slug === "chiikawa") && archetypes && <p className="mt-4 text-sm leading-6">
