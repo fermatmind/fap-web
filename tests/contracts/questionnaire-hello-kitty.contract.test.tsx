@@ -36,7 +36,7 @@ describe("T046 original seven-character unofficial Hello Kitty fan quiz", () => 
     expect(isArchetypeConfigurationValid(quiz)).toBe(true); expect(quiz.profiles).toHaveLength(7);
     expect(quiz.source.psychometricValidationCompleted).toBe(false);
     expect(quiz.references?.map(r => r.url)).toContain("https://www.sanrio.com/collections/hello-kitty");
-    expect(quiz.title).toEqual({ zh: "Hello Kitty 角色测试", en: "Hello Kitty Test" });
+    expect(quiz.title).toEqual({ zh: "Hello Kitty与三丽鸥角色测试", en: "Hello Kitty & Sanrio Character Test" });
     for (const direction of quiz.directions) {
       expect(direction.comparisons).toBe(12);
       for (const position of [0, 1, 2, 3]) expect(quiz.questions.filter(q => q.options[position].directionId === direction.id)).toHaveLength(3);
@@ -128,6 +128,8 @@ describe("T046 original seven-character unofficial Hello Kitty fan quiz", () => 
         const props = { params: Promise.resolve({ locale, slug: quiz.slug }) }, path = `/${locale}/tests/explore/hello-kitty`;
         const html = renderToStaticMarkup(await entry.default(props)), metadata = await entry.generateMetadata(props);
         expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(metadata.title).toBe(quiz.seoTitle[locale]);
+        const entryDom = document.createElement("div"); entryDom.innerHTML = html;
+        expect(entryDom.querySelector("h1")?.textContent).toBe(quiz.title[locale]);
         expect(html).toContain(quiz.instructions![locale]);
         expect(html).toContain(locale === "zh" ? "原创象征测验" : "Original symbolic quiz");
         expect(quiz.resultHeading?.[locale]).toBeTruthy();
