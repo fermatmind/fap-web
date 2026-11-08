@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { RelatedFantasyQuizzes } from "./RelatedFantasyQuizzes";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire } from "@/lib/questionnaires/types";
@@ -20,5 +21,6 @@ export function FantasyRoster({ quiz, locale, preserveResult = false }: { quiz: 
       <ItemHeading className="mt-3 text-xl font-semibold"><Link prefetch={false} href={questionnaireGuidePath(locale, quiz.slug, profile.id)} target={preserveResult ? "_blank" : undefined} rel={preserveResult ? "noopener" : undefined} className="inline-flex min-h-11 items-center underline">{profile.title[locale]}{preserveResult && <span className="sr-only">{locale === "zh" ? "（新标签页）" : " (new tab)"}</span>}</Link></ItemHeading>
       <p className="mt-2 leading-7">{profile.headline[locale]}</p>
     </article>)}</div>
+    {!preserveResult && <RelatedFantasyQuizzes slug={quiz.slug} locale={locale} />}
   </section>;
 }

@@ -2,7 +2,7 @@ import topics from "./entertainmentGuideSeo.json";
 import ui from "@/lib/i18n/zh-TW/ui.source.json";
 import type { QuestionnaireProfile, Text } from "./types";
 
-type GuideTopic = { quiz: Text; names: Record<string, { name: Text; topic: Text }> };
+type GuideTopic = { quiz: Text; names: Record<string, { name: Text; topic: Text; presentation?: Pick<QuestionnaireProfile, "title" | "summary" | "seo"> }> };
 
 /** Search presentation for existing public guides, never personal results or scoring. */
 export function entertainmentGuideProfile(slug: string, locale: string, profile: QuestionnaireProfile): QuestionnaireProfile {
@@ -14,6 +14,7 @@ export function entertainmentGuideProfile(slug: string, locale: string, profile:
   const group = (topics as Record<string, GuideTopic>)[slug];
   const topic = group?.names[profile.id];
   if (!group || !topic) return profile;
+  if (topic.presentation) return { ...profile, ...topic.presentation };
   const { name: { zh: zhName, en: enName }, topic: { zh: zhTopic, en: enTopic } } = topic;
   let title: Text = { zh: `${zhName}：${group.quiz.zh}结果`, en: `${enName} | ${group.quiz.en} Result` };
   let description: Text = {

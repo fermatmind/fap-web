@@ -1,4 +1,5 @@
 import { LoveLanguageExamples } from "./LoveLanguageExamples";
+import { RelatedFantasyQuizzes } from "./RelatedFantasyQuizzes";
 import Image from "next/image";
 import Link from "next/link";
 import copy from "@/lib/questionnaires/eightQuizEditorial.json";
@@ -29,6 +30,7 @@ export function EightQuizOverview({ quiz, locale, compact = false }: { quiz: Que
     </li>)}</ul>}
     {Object.keys(entry.labels).length > 0 && <p className="text-sm leading-7 text-slate-600">{zh ? "指南在新标签页打开，便于并排比较并保留本页进度。每份完整指南免费。" : "Guides open in a new tab so you can compare them while keeping your progress here. Every complete guide is free."}</p>}
     {entry.related && <Link prefetch={false} target="_blank" rel="noopener" className="block min-h-11 py-2 leading-7 underline" href={questionnairePath(locale, entry.related.slug)}>{entry.related.text[locale]} {zh ? "（新标签页）" : "(new tab)"}</Link>}
+    {!compact && <RelatedFantasyQuizzes slug={quiz.slug} locale={locale} />}
     {quiz.slug === "sbti-test" && <details className="leading-7"><summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "本版包含DRUNK和HHHH吗？有隐藏加题吗？" : "Does this edition include DRUNK and HHHH or hidden extra questions?"}</summary><p>{zh ? "包含。DRUNK与HHHH都在本版25个候选代码中，固定31题全部完成后按本版引擎解析。这里没有照搬其他站点的条件加题或指定答案直达隐藏类型的攻略；请按实际感受作答。" : "Yes. DRUNK and HHHH are both among this edition’s 25 candidate codes. This engine resolves the result after all 31 fixed questions are complete. It does not use other sites’ extra conditional screens or answer shortcuts to a hidden type. Answer according to your actual preferences."}</p></details>}
     {quiz.slug === "sbti-test" && <details className="leading-7"><summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "为什么其他SBTI站的隐藏结果不能照搬？" : "Why can’t I use another SBTI site’s hidden-result instructions?"}</summary><p>{zh ? "请以本页25幅画像和31题的实际版本为准。SBTI是网络娱乐人格梗，与MBTI偏好测评是不同产品；英文同名SBTi（科学碳目标倡议）也与本测试无关。" : "Use this page’s actual 25-portrait, 31-question edition. SBTI is an internet personality meme, separate from MBTI preference assessments and unrelated to the Science Based Targets initiative (SBTi)."}</p></details>}
   </section>;

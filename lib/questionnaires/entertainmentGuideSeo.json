@@ -564,5 +564,141 @@
         }
       }
     }
+  },
+  "soldier-poet-king-quiz": {
+    "quiz": {
+      "zh": "士兵诗人国王测试",
+      "en": "Soldier Poet King Quiz"
+    },
+    "names": {
+      "soldier": {
+        "name": {
+          "zh": "士兵",
+          "en": "Soldier"
+        },
+        "topic": {
+          "zh": "这一轮，你更常用具体行动回应困难：守住承诺、提供保护、把下一步走稳。",
+          "en": "In this round, you more often answered difficulty with concrete action: keeping promises, offering protection and securing the next step."
+        },
+        "presentation": {
+          "title": {
+            "zh": "士兵的含义与比较｜士兵诗人国王测试",
+            "en": "Soldier Meaning | Soldier Poet King Quiz Result"
+          },
+          "summary": {
+            "zh": "士兵诗人国王测试中的士兵原型侧重守住承诺、具体保护与下一步。本页提供日常例子、与另外两种原型的区别及39点计分读法；这是公开指南，不是你的个人测试记录。",
+            "en": "The Soldier archetype in this Soldier Poet King quiz focuses on keeping promises, practical protection and a secure next step. Read examples, compare the other two archetypes and understand the 39-point score. This is a public guide, not your personal result."
+          },
+          "seo": {
+            "title": {
+              "zh": "士兵的含义与比较｜士兵诗人国王测试",
+              "en": "Soldier Meaning | Soldier Poet King Quiz Result"
+            },
+            "description": {
+              "en": "Soldier meaning in the Soldier Poet King quiz: practical protection and keeping promises. Compare Poet and King, everyday examples and the 39-point score.",
+              "zh": "士兵诗人国王测试中的士兵含义：具体保护与守住承诺。阅读日常例子、与诗人和国王的比较及39点计分读法。"
+            }
+          }
+        }
+      },
+      "poet": {
+        "name": {
+          "zh": "诗人",
+          "en": "Poet"
+        },
+        "topic": {
+          "zh": "这一轮，你更常寻找意义、倾听感受，让原本模糊的东西得到表达。",
+          "en": "In this round, you more often sought meaning, listened to experience and gave shape to what had felt unclear."
+        },
+        "presentation": {
+          "title": {
+            "zh": "诗人的含义与比较｜士兵诗人国王测试",
+            "en": "Poet Meaning | Soldier Poet King Quiz Result"
+          },
+          "summary": {
+            "zh": "士兵诗人国王测试中的诗人原型侧重表达感受、寻找意义与重新理解。本页提供日常例子、与另外两种原型的区别及39点计分读法；这是公开指南，不是你的个人测试记录。",
+            "en": "The Poet archetype in this Soldier Poet King quiz focuses on expressing feelings, finding meaning and reframing. Read examples, compare the other two archetypes and understand the 39-point score. This is a public guide, not your personal result."
+          },
+          "seo": {
+            "title": {
+              "zh": "诗人的含义与比较｜士兵诗人国王测试",
+              "en": "Poet Meaning | Soldier Poet King Quiz Result"
+            },
+            "description": {
+              "en": "Poet meaning in the Soldier Poet King quiz: expressing feelings and finding meaning. Compare Soldier and King, everyday examples and the 39-point score.",
+              "zh": "士兵诗人国王测试中的诗人含义：表达感受与寻找意义。阅读日常例子、与士兵和国王的比较及39点计分读法。"
+            }
+          }
+        }
+      },
+      "king": {
+        "name": {
+          "zh": "国王",
+          "en": "King"
+        },
+        "topic": {
+          "zh": "这一轮，你更常整理分歧、协调资源，并愿意为共同决定承担后果。",
+          "en": "In this round, you more often organized differences, coordinated resources and took responsibility for shared decisions."
+        },
+        "presentation": {
+          "title": {
+            "zh": "国王的含义与比较｜士兵诗人国王测试",
+            "en": "King Meaning | Soldier Poet King Quiz Result"
+          },
+          "summary": {
+            "zh": "士兵诗人国王测试中的国王原型侧重协调责任、明确安排与共同方向。本页提供日常例子、与另外两种原型的区别及39点计分读法；这是公开指南，不是你的个人测试记录。",
+            "en": "The King archetype in this Soldier Poet King quiz focuses on coordinating responsibility, making plans and finding shared direction. Read examples, compare the other two archetypes and understand the 39-point score. This is a public guide, not your personal result."
+          },
+          "seo": {
+            "title": {
+              "zh": "国王的含义与比较｜士兵诗人国王测试",
+              "en": "King Meaning | Soldier Poet King Quiz Result"
+            },
+            "description": {
+              "en": "King meaning in the Soldier Poet King quiz: shared direction and responsibility. Compare Soldier and Poet, everyday examples and the 39-point score.",
+              "zh": "士兵诗人国王测试中的国王含义：共同方向与协调责任。阅读日常例子、与士兵和诗人的比较及39点计分读法。"
+            }
+          }
+        }
+      }
+    }
+  },
+  "rice-purity-test": {
+    "quiz": {
+      "zh": "纯洁度测试（Rice Purity）",
+      "en": "Rice Purity Test"
+    },
+    "names": {
+      "score-reading": {
+        "name": {
+          "zh": "Rice Purity分数读法",
+          "en": "Reading a Rice Purity score"
+        },
+        "topic": {
+          "zh": "理解0—100分、跳过项目、版本差异与分享边界。",
+          "en": "Understand the 0–100 score, skipped items, edition differences and sharing boundaries."
+        },
+        "presentation": {
+          "title": {
+            "zh": "Rice Purity分数含义：计算、跳过与版本",
+            "en": "Rice Purity Score Meaning: Calculation & Skipped Items"
+          },
+          "summary": {
+            "zh": "本版纯洁度分数等于100减去本轮勾选项数。勾选3项得97分；未勾选可能表示未经历或选择跳过。本指南说明0—100分、原创版本与分享边界，不以分数评价道德或完整经历。",
+            "en": "In this edition, your Rice Purity score is 100 minus the number of checked items. Three checked items give 97; unchecked items may mean not experienced or skipped. Read the 0–100 calculation, edition differences and sharing limits without ranking morality or life experience."
+          },
+          "seo": {
+            "title": {
+              "zh": "Rice Purity分数含义：计算、跳过与版本",
+              "en": "Rice Purity Score Meaning: Calculation & Skipped Items"
+            },
+            "description": {
+              "en": "Rice Purity score meaning: 100 minus checked items. Learn how skips, 0–100 scores and edition differences work in this independent 100-item checklist.",
+              "zh": "Rice Purity纯洁度分数含义：100减去勾选数。了解0—100分、未经历与跳过、原创版本差异和分享边界，不以分数评判道德。"
+            }
+          }
+        }
+      }
+    }
   }
 }
