@@ -1,0 +1,1635 @@
+{
+  "slug": "avatar-bender-quiz",
+  "code": "AVATAR_BENDING_FM24",
+  "version": "1.0.0",
+  "updated": "2026-11-08",
+  "category": "fantasy",
+  "kind": "archetype",
+  "minutes": 6,
+  "title": {
+    "zh": "降世神通御术类型测试",
+    "en": "Avatar Bending Quiz: Which Bender Are You?"
+  },
+  "seoTitle": {
+    "zh": "降世神通御术类型测试：你是哪种御术师？",
+    "en": "Which Bender Are You? Avatar Bending Quiz"
+  },
+  "description": {
+    "en": "Take 24 original Avatar-inspired scenarios to explore water, earth, fire and air bending styles. Compare all four, read tied results and save your free card.",
+    "zh": "通过24道原创御术情境，探索御水、御土、御火与御气四种故事风格。查看占比、并列解释和四类比较，免费保存个人结果卡。"
+  },
+  "introduction": {
+    "zh": "练习被打断、路线被封住、同伴需要支援时，你会怎样调动故事中的力量？通过24道原创四选一情境，探索御水、御土、御火、御气，查看真实计数、全部并列与完整解读，保存你的原创御术主题结果卡。",
+    "en": "When practice is interrupted, a route closes or a companion needs support, how would you use a story’s bending arts? Explore Water, Earth, Fire and Air through 24 original four-choice scenarios, see actual counts and every tie, read full interpretations and save your original bending-themed card."
+  },
+  "instructions": {
+    "zh": "这是以《降世神通》御术意象创作的独立粉丝娱乐测试，结果是本轮情境选择对应的叙事风格。它不测真实能力，不是人物匹配或知识考试，也不意味着你能在故事设定中同时掌握多种御术。",
+    "en": "An independent fan entertainment quiz inspired by the bending arts of Avatar: The Last Airbender. Results describe the narrative style of this round’s choices, not real ability, character matching or trivia knowledge. A tie does not grant multiple bending arts in the story’s canon."
+  },
+  "source": {
+    "kind": "FermatMind original Avatar-inspired fan entertainment quiz",
+    "formCode": "fm_avatar_bending_original24_v1",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "psychometricValidationCompleted": false,
+    "itemBankSha256": "2ed8bd4f1e7a0ed981703f07716760cab9838216945e3bf1eb13de41d99d8b0d",
+    "resultContentSha256": "9d393bedff55e78a493affcdfea10c2fd67b99fd2eb3c4833848a67788ceca73"
+  },
+  "directions": [
+    {
+      "id": "water",
+      "title": {
+        "zh": "御水师",
+        "en": "Waterbender"
+      },
+      "comparisons": 24
+    },
+    {
+      "id": "earth",
+      "title": {
+        "zh": "御土师",
+        "en": "Earthbender"
+      },
+      "comparisons": 24
+    },
+    {
+      "id": "fire",
+      "title": {
+        "zh": "御火师",
+        "en": "Firebender"
+      },
+      "comparisons": 24
+    },
+    {
+      "id": "air",
+      "title": {
+        "zh": "御气师",
+        "en": "Airbender"
+      },
+      "comparisons": 24
+    }
+  ],
+  "questions": [
+    {
+      "id": "q01",
+      "prompt": {
+        "zh": "练习场突然下雨，你怎么调整？",
+        "en": "Rain interrupts your training. How do you adapt?"
+      },
+      "options": [
+        {
+          "id": "q01-1",
+          "label": {
+            "zh": "顺着新条件改变动作。",
+            "en": "Adapt the movements to the new conditions."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q01-2",
+          "label": {
+            "zh": "找稳立足点再继续。",
+            "en": "Find secure footing before continuing."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q01-3",
+          "label": {
+            "zh": "缩短练习，集中突破一个目标。",
+            "en": "Shorten the session and focus on one breakthrough."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q01-4",
+          "label": {
+            "zh": "换一个路线或练习方式。",
+            "en": "Try a different route or way to practise."
+          },
+          "directionId": "air"
+        }
+      ]
+    },
+    {
+      "id": "q02",
+      "prompt": {
+        "zh": "伙伴被困在河对岸，你先考虑什么？",
+        "en": "A companion is stranded across a river. What comes first?"
+      },
+      "options": [
+        {
+          "id": "q02-1",
+          "label": {
+            "zh": "寻找稳固支点与可靠通道。",
+            "en": "Find solid supports and a dependable crossing."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q02-2",
+          "label": {
+            "zh": "确定最紧迫的一步并立即行动。",
+            "en": "Identify the urgent step and act."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q02-3",
+          "label": {
+            "zh": "寻找绕行、借力或轻巧通过的可能。",
+            "en": "Look for a detour or a lighter way across."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q02-4",
+          "label": {
+            "zh": "观察水流与能互相接应的位置。",
+            "en": "Read the current and where people can help each other."
+          },
+          "directionId": "water"
+        }
+      ]
+    },
+    {
+      "id": "q03",
+      "prompt": {
+        "zh": "导师让你改掉熟悉招式，你倾向怎么学？",
+        "en": "Your mentor asks you to change a familiar technique. How do you learn?"
+      },
+      "options": [
+        {
+          "id": "q03-1",
+          "label": {
+            "zh": "设一个明确挑战，全力练习。",
+            "en": "Set a clear challenge and train with commitment."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q03-2",
+          "label": {
+            "zh": "用几种不同方式探索原理。",
+            "en": "Explore the principle in several different ways."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q03-3",
+          "label": {
+            "zh": "跟随反馈，一点点改变节奏。",
+            "en": "Use feedback to gradually reshape the rhythm."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q03-4",
+          "label": {
+            "zh": "重复基础直到动作稳定。",
+            "en": "Repeat the foundations until they hold steady."
+          },
+          "directionId": "earth"
+        }
+      ]
+    },
+    {
+      "id": "q04",
+      "prompt": {
+        "zh": "村庄面临威胁，你愿意负责什么？",
+        "en": "A village faces a threat. Which responsibility would you take?"
+      },
+      "options": [
+        {
+          "id": "q04-1",
+          "label": {
+            "zh": "找出撤离路线并减少正面冲突。",
+            "en": "Find escape routes and reduce direct conflict."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q04-2",
+          "label": {
+            "zh": "照顾受影响的人并协调互助。",
+            "en": "Care for those affected and coordinate mutual support."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q04-3",
+          "label": {
+            "zh": "加固能保护大家的设施。",
+            "en": "Reinforce what keeps people safe."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q04-4",
+          "label": {
+            "zh": "组织快速且集中的应对。",
+            "en": "Organize a swift, focused response."
+          },
+          "directionId": "fire"
+        }
+      ]
+    },
+    {
+      "id": "q05",
+      "prompt": {
+        "zh": "对练中对手力量更大，你会怎样？",
+        "en": "Your sparring partner is stronger. What would you try?"
+      },
+      "options": [
+        {
+          "id": "q05-1",
+          "label": {
+            "zh": "改变方向，让来势成为转机。",
+            "en": "Redirect the momentum into an opening."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q05-2",
+          "label": {
+            "zh": "稳住重心，等待确实的机会。",
+            "en": "Keep a firm center and wait for a real opening."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q05-3",
+          "label": {
+            "zh": "集中力量把握短暂突破点。",
+            "en": "Focus your effort on a brief breakthrough."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q05-4",
+          "label": {
+            "zh": "保持移动，让对方难以锁定。",
+            "en": "Stay mobile and difficult to pin down."
+          },
+          "directionId": "air"
+        }
+      ]
+    },
+    {
+      "id": "q06",
+      "prompt": {
+        "zh": "一次失败后，你想怎样恢复训练？",
+        "en": "After a failed attempt, how would you return to training?"
+      },
+      "options": [
+        {
+          "id": "q06-1",
+          "label": {
+            "zh": "回到一个能稳定完成的基础。",
+            "en": "Return to a foundation I can perform reliably."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q06-2",
+          "label": {
+            "zh": "给下一次尝试一个清楚目标。",
+            "en": "Give the next attempt a clear target."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q06-3",
+          "label": {
+            "zh": "暂时换个角度，让身体松下来。",
+            "en": "Change perspective for a while and loosen up."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q06-4",
+          "label": {
+            "zh": "和伙伴交流，调整方法。",
+            "en": "Talk with a companion and adjust the approach."
+          },
+          "directionId": "water"
+        }
+      ]
+    },
+    {
+      "id": "q07",
+      "prompt": {
+        "zh": "你更喜欢哪种练习环境？",
+        "en": "Which training environment appeals most?"
+      },
+      "options": [
+        {
+          "id": "q07-1",
+          "label": {
+            "zh": "能投入精力、看见进展的场地。",
+            "en": "A place to commit energy and see progress."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q07-2",
+          "label": {
+            "zh": "能自由移动、尝试新路径的场地。",
+            "en": "A place to move freely and explore new paths."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q07-3",
+          "label": {
+            "zh": "能跟随变化、彼此配合的场地。",
+            "en": "A place for responding to change and working together."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q07-4",
+          "label": {
+            "zh": "能感受重量、支点和节奏的场地。",
+            "en": "A place to feel weight, support and rhythm."
+          },
+          "directionId": "earth"
+        }
+      ]
+    },
+    {
+      "id": "q08",
+      "prompt": {
+        "zh": "伙伴们对路线意见不一，你会怎样？",
+        "en": "Your companions disagree about the route. What would you do?"
+      },
+      "options": [
+        {
+          "id": "q08-1",
+          "label": {
+            "zh": "提出大家没考虑过的第三条路。",
+            "en": "Suggest a third route no one has considered."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q08-2",
+          "label": {
+            "zh": "听清各自担忧，调整大家能接受的路线。",
+            "en": "Listen to concerns and adapt a route people can accept."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q08-3",
+          "label": {
+            "zh": "核对地形事实，找最可靠的依据。",
+            "en": "Check the terrain and find dependable evidence."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q08-4",
+          "label": {
+            "zh": "明确此行目标，推动及时作决定。",
+            "en": "Clarify the goal and help the group decide in time."
+          },
+          "directionId": "fire"
+        }
+      ]
+    },
+    {
+      "id": "q09",
+      "prompt": {
+        "zh": "长途旅行中，你自然关注什么？",
+        "en": "On a long journey, what do you naturally attend to?"
+      },
+      "options": [
+        {
+          "id": "q09-1",
+          "label": {
+            "zh": "同伴的状态和资源是否可共享。",
+            "en": "How companions are doing and what can be shared."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q09-2",
+          "label": {
+            "zh": "补给、休息点和可依靠的安排。",
+            "en": "Supplies, rest stops and dependable arrangements."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q09-3",
+          "label": {
+            "zh": "目的地、时限与持续前进的动力。",
+            "en": "The destination, timing and drive to continue."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q09-4",
+          "label": {
+            "zh": "沿途可能发现的新路与新体验。",
+            "en": "New routes and experiences along the way."
+          },
+          "directionId": "air"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "prompt": {
+        "zh": "一项御术练习要求耐心，你靠什么坚持？",
+        "en": "A bending exercise takes patience. What sustains you?"
+      },
+      "options": [
+        {
+          "id": "q10-1",
+          "label": {
+            "zh": "信任重复基本功的积累。",
+            "en": "Trust the accumulation of repeated foundations."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q10-2",
+          "label": {
+            "zh": "把难点变成值得突破的挑战。",
+            "en": "Turn the difficulty into a meaningful challenge."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q10-3",
+          "label": {
+            "zh": "不断找到有趣的小变化。",
+            "en": "Keep finding interesting small variations."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q10-4",
+          "label": {
+            "zh": "感受细微变化，让动作逐渐顺畅。",
+            "en": "Notice small changes as the movement becomes fluid."
+          },
+          "directionId": "water"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "prompt": {
+        "zh": "朋友情绪激动时，你会如何回应？",
+        "en": "A friend is upset. How would you respond?"
+      },
+      "options": [
+        {
+          "id": "q11-1",
+          "label": {
+            "zh": "帮他找回能行动的力量。",
+            "en": "Help them recover a sense of agency."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q11-2",
+          "label": {
+            "zh": "留出呼吸空间，不急着困住答案。",
+            "en": "Leave room to breathe without forcing an answer."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q11-3",
+          "label": {
+            "zh": "陪他梳理感受，随需要调整回应。",
+            "en": "Help them work through feelings and respond to their needs."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q11-4",
+          "label": {
+            "zh": "安稳地陪着，提供实际支撑。",
+            "en": "Stay steady beside them and offer practical support."
+          },
+          "directionId": "earth"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "prompt": {
+        "zh": "在虚构世界学御术，你最想练哪项原则？",
+        "en": "In this fictional world, which principle would you most want to practise?"
+      },
+      "options": [
+        {
+          "id": "q12-1",
+          "label": {
+            "zh": "保持轻盈与选择。",
+            "en": "Keeping lightness and options."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q12-2",
+          "label": {
+            "zh": "借势而变。",
+            "en": "Responding and redirecting."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q12-3",
+          "label": {
+            "zh": "站稳再动。",
+            "en": "Rooting before moving."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q12-4",
+          "label": {
+            "zh": "让意志与行动一致。",
+            "en": "Aligning intention with action."
+          },
+          "directionId": "fire"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "prompt": {
+        "zh": "一条熟悉的路被堵住，你首先会怎样？",
+        "en": "A familiar path is blocked. What comes first?"
+      },
+      "options": [
+        {
+          "id": "q13-1",
+          "label": {
+            "zh": "随现场条件改变计划。",
+            "en": "Adapt the plan to what is happening."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q13-2",
+          "label": {
+            "zh": "确认障碍与可用支点。",
+            "en": "Assess the obstacle and available supports."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q13-3",
+          "label": {
+            "zh": "决定要解决的关键阻碍。",
+            "en": "Identify the key obstacle to overcome."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q13-4",
+          "label": {
+            "zh": "寻找不必硬闯的替代路径。",
+            "en": "Look for a way around rather than through."
+          },
+          "directionId": "air"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "prompt": {
+        "zh": "一次共同训练最好的部分是什么？",
+        "en": "What is the best part of shared training?"
+      },
+      "options": [
+        {
+          "id": "q14-1",
+          "label": {
+            "zh": "建立可以互相信任的基础。",
+            "en": "Building a foundation of mutual trust."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q14-2",
+          "label": {
+            "zh": "让大家被同一个目标点燃。",
+            "en": "Energizing everyone around a shared goal."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q14-3",
+          "label": {
+            "zh": "每个人都能发现自己的新可能。",
+            "en": "Everyone discovering new possibilities."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q14-4",
+          "label": {
+            "zh": "感受到彼此回应与配合。",
+            "en": "Feeling the exchange and coordination."
+          },
+          "directionId": "water"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "prompt": {
+        "zh": "你发现自己的长处也成了阻力，会怎样修正？",
+        "en": "A strength starts getting in your way. How would you adjust?"
+      },
+      "options": [
+        {
+          "id": "q15-1",
+          "label": {
+            "zh": "不把热情变成催促别人。",
+            "en": "Avoid turning enthusiasm into pressure on others."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q15-2",
+          "label": {
+            "zh": "不把自由变成一再回避承诺。",
+            "en": "Avoid turning freedom into repeated avoidance of commitment."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q15-3",
+          "label": {
+            "zh": "不再为了配合而忽略自己的边界。",
+            "en": "Stop adapting at the cost of my own boundaries."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q15-4",
+          "label": {
+            "zh": "不把坚持变成拒绝新信息。",
+            "en": "Avoid turning persistence into refusal of new information."
+          },
+          "directionId": "earth"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "prompt": {
+        "zh": "导师给你一句提醒，哪句最有用？",
+        "en": "Which reminder from a mentor would help most?"
+      },
+      "options": [
+        {
+          "id": "q16-1",
+          "label": {
+            "zh": "轻盈也可以带着责任。",
+            "en": "Lightness can coexist with responsibility."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q16-2",
+          "label": {
+            "zh": "变化也需要清楚的边界。",
+            "en": "Adaptation also needs clear boundaries."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q16-3",
+          "label": {
+            "zh": "稳固不等于永远不变。",
+            "en": "Being grounded does not mean never changing."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q16-4",
+          "label": {
+            "zh": "力量需要节制才更持久。",
+            "en": "Energy lasts longer with restraint."
+          },
+          "directionId": "fire"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "prompt": {
+        "zh": "你愿意怎样保护一份重要约定？",
+        "en": "How would you protect an important agreement?"
+      },
+      "options": [
+        {
+          "id": "q17-1",
+          "label": {
+            "zh": "保持沟通，让约定适应真实需要。",
+            "en": "Keep communicating so it fits real needs."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q17-2",
+          "label": {
+            "zh": "把该做的事持续做到。",
+            "en": "Keep doing what was agreed."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q17-3",
+          "label": {
+            "zh": "需要时清楚表态并采取行动。",
+            "en": "Take a clear stand and act when needed."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q17-4",
+          "label": {
+            "zh": "保留选择，确保每个人是自愿参与。",
+            "en": "Keep options open and participation voluntary."
+          },
+          "directionId": "air"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "prompt": {
+        "zh": "一场比试临近，你会怎样准备？",
+        "en": "A contest approaches. How would you prepare?"
+      },
+      "options": [
+        {
+          "id": "q18-1",
+          "label": {
+            "zh": "巩固基本动作和身体稳定。",
+            "en": "Strengthen the foundations and physical stability."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q18-2",
+          "label": {
+            "zh": "锁定目标，让精力更集中。",
+            "en": "Set a target and focus my energy."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q18-3",
+          "label": {
+            "zh": "练习移动与意外局面的处理。",
+            "en": "Practise mobility and unexpected situations."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q18-4",
+          "label": {
+            "zh": "研究对手变化，练习回应。",
+            "en": "Study variations and practise responding."
+          },
+          "directionId": "water"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "prompt": {
+        "zh": "面对陌生文化的伙伴，你会先做什么？",
+        "en": "You meet companions from an unfamiliar culture. What comes first?"
+      },
+      "options": [
+        {
+          "id": "q19-1",
+          "label": {
+            "zh": "寻找双方可以共同投入的目标。",
+            "en": "Find a goal both sides can commit to."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q19-2",
+          "label": {
+            "zh": "带着好奇体验不同的生活方式。",
+            "en": "Explore another way of life with curiosity."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q19-3",
+          "label": {
+            "zh": "听他们怎样理解彼此的需要。",
+            "en": "Listen to how they understand each other’s needs."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q19-4",
+          "label": {
+            "zh": "尊重可靠的约定和生活基础。",
+            "en": "Respect dependable agreements and daily foundations."
+          },
+          "directionId": "earth"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "prompt": {
+        "zh": "环境突然变得混乱，你怎么找到方向？",
+        "en": "Things suddenly become chaotic. How do you find direction?"
+      },
+      "options": [
+        {
+          "id": "q20-1",
+          "label": {
+            "zh": "退开一点，从更宽的视角看局面。",
+            "en": "Step back to see a wider range of possibilities."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q20-2",
+          "label": {
+            "zh": "从关系和变化中寻找可回应的线索。",
+            "en": "Find cues in relationships and changing conditions."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q20-3",
+          "label": {
+            "zh": "先辨明不会轻易改变的事实。",
+            "en": "Identify facts that will not easily change."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q20-4",
+          "label": {
+            "zh": "抓住最需要立即处理的目标。",
+            "en": "Focus on the goal that most needs action now."
+          },
+          "directionId": "fire"
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "prompt": {
+        "zh": "你希望自己的御术在故事里带来什么？",
+        "en": "What would you want your bending to bring to the story?"
+      },
+      "options": [
+        {
+          "id": "q21-1",
+          "label": {
+            "zh": "连接、修复与新的转机。",
+            "en": "Connection, repair and a new turn."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q21-2",
+          "label": {
+            "zh": "保护、耐力与可以依靠的基础。",
+            "en": "Protection, endurance and a dependable foundation."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q21-3",
+          "label": {
+            "zh": "勇气、改变与向前的力量。",
+            "en": "Courage, change and forward momentum."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q21-4",
+          "label": {
+            "zh": "自由、余地与不必对抗的出路。",
+            "en": "Freedom, room to move and a way beyond confrontation."
+          },
+          "directionId": "air"
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "prompt": {
+        "zh": "练习终于成功，你想先怎样庆祝？",
+        "en": "Your practice finally works. How would you celebrate?"
+      },
+      "options": [
+        {
+          "id": "q22-1",
+          "label": {
+            "zh": "记下过程，让成果可以再次做到。",
+            "en": "Record the process so I can do it again."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q22-2",
+          "label": {
+            "zh": "享受突破，并开始期待下个挑战。",
+            "en": "Enjoy the breakthrough and look toward the next challenge."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q22-3",
+          "label": {
+            "zh": "带着新本领去探索不同玩法。",
+            "en": "Explore new ways to use the skill."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q22-4",
+          "label": {
+            "zh": "和一路相助的人分享这份感受。",
+            "en": "Share the feeling with those who helped."
+          },
+          "directionId": "water"
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "prompt": {
+        "zh": "遇到比试规则的灰色地带，你倾向怎么做？",
+        "en": "A contest rule leaves a gray area. What would you do?"
+      },
+      "options": [
+        {
+          "id": "q23-1",
+          "label": {
+            "zh": "明确界限后主动推进比赛。",
+            "en": "Clarify the limits and move the contest forward."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q23-2",
+          "label": {
+            "zh": "提出能避免争执的另一种玩法。",
+            "en": "Suggest another way to play that avoids the dispute."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q23-3",
+          "label": {
+            "zh": "听取彼此理解，协商合适的做法。",
+            "en": "Hear different readings and agree on an approach."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q23-4",
+          "label": {
+            "zh": "确认规则依据并保持一致。",
+            "en": "Check the rule’s basis and apply it consistently."
+          },
+          "directionId": "earth"
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "prompt": {
+        "zh": "故事尾声，你最想继续哪段练习？",
+        "en": "At the story’s end, which practice would you continue?"
+      },
+      "options": [
+        {
+          "id": "q24-1",
+          "label": {
+            "zh": "在承担责任时仍保有自由。",
+            "en": "Keeping freedom while taking responsibility."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q24-2",
+          "label": {
+            "zh": "在变化中与别人保持连接。",
+            "en": "Staying connected through change."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q24-3",
+          "label": {
+            "zh": "让值得守住的事有稳固根基。",
+            "en": "Giving what matters a firm foundation."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q24-4",
+          "label": {
+            "zh": "让热情成为有方向的行动。",
+            "en": "Turning passion into purposeful action."
+          },
+          "directionId": "fire"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "water",
+      "directionIds": [
+        "water"
+      ],
+      "title": {
+        "zh": "御水师",
+        "en": "Waterbender"
+      },
+      "headline": {
+        "zh": "以回应牵引变化",
+        "en": "Guide change through response"
+      },
+      "summary": {
+        "zh": "这一轮，你更多选择顺势调整、保持连接，让回应成为力量。",
+        "en": "In this round, you more often chose adaptation, connection and responsive strength."
+      },
+      "scoreReading": {
+        "zh": "24道四选一情境题，每题给所选御术风格加1点；每种风格在每道题都可选，各在A、B、C、D位置出现6次。本轮占比为次数除以24。最高次数相同就保留全部，不按顺序或最后一题决胜。",
+        "en": "Each of 24 four-choice scenarios adds one point to the chosen bending style. Every style is available on every screen and appears six times in each option position. Shares are counts divided by 24. Every highest tie remains, without ordering or a final-question tiebreak."
+      },
+      "seo": {
+        "title": {
+          "zh": "御水师的含义、故事风格与御术比较",
+          "en": "Waterbender Meaning, Story Style and Bending Comparison"
+        },
+        "description": {
+          "zh": "你的故事御术围绕回应展开：观察变化、保持联系，在来势中找到转机。水流可以柔和，也能很有力量；御水师形象不等于被动或情绪化。你选择的是让方法跟着真实需要改变。",
+          "en": "Your fictional bending style centers on response: noticing change, staying connected and finding an opening in moving conditions. Water can be gentle and forceful. This portrait is not a label for passivity or emotionality; it reflects choices that adapt to actual needs."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这种御术在本版中的含义",
+            "en": "What this bending style means here"
+          },
+          "paragraphs": [
+            {
+              "zh": "你的故事御术围绕回应展开：观察变化、保持联系，在来势中找到转机。水流可以柔和，也能很有力量；御水师形象不等于被动或情绪化。你选择的是让方法跟着真实需要改变。",
+              "en": "Your fictional bending style centers on response: noticing change, staying connected and finding an opening in moving conditions. Water can be gentle and forceful. This portrait is not a label for passivity or emotionality; it reflects choices that adapt to actual needs."
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "zh": "一个原创故事场景",
+            "en": "An original story scene"
+          },
+          "paragraphs": [
+            {
+              "zh": "练习伙伴临时受伤，你把原本的双人训练改成对方可以参与的节奏，再确认哪些动作需要暂停。你没有放弃目标，而是让方法回应眼前的人与条件。",
+              "en": "When a training partner is hurt, you adjust the shared practice to a pace they can join and agree which movements should pause. The goal remains; the method responds to the people and conditions in front of you."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "长处与需要留意的张力",
+            "en": "Strengths and a possible tradeoff"
+          },
+          "paragraphs": [
+            {
+              "zh": "不断配合也可能模糊自己的界限。故事里的水需要容器，你的调整同样可以有明确底线。",
+              "en": "Constant accommodation can blur your limits. Like water held by a vessel, adaptation can have a clear boundary."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与其他三种御术比较",
+            "en": "Compare the other bending styles"
+          },
+          "paragraphs": [
+            {
+              "zh": "御水与御气都可能改变路线：本版御水更侧重回应关系与变化，御气更侧重转换视角。御土先找支点，御火先聚焦推进。它们是四种叙事选择，没有更高等级。",
+              "en": "Water and Air may both change routes. In this edition, Water emphasizes responding to people and conditions; Air shifts perspective. Earth finds support, while Fire focuses momentum. These are narrative choices, not levels."
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "zh": "可试的一小步",
+            "en": "One small thing to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "下一次调整计划时，先说清一件你希望保留的事。",
+              "en": "Next time a plan changes, name one thing you want to preserve."
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "zh": "这份画像的边界",
+            "en": "The limits of this portrait"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是以《降世神通》御术意象创作的独立粉丝娱乐测试，结果是本轮情境选择对应的叙事风格。它不测真实能力，不是人物匹配或知识考试，也不意味着你能在故事设定中同时掌握多种御术。",
+              "en": "An independent fan entertainment quiz inspired by the bending arts of Avatar: The Last Airbender. Results describe the narrative style of this round’s choices, not real ability, character matching or trivia knowledge. A tie does not grant multiple bending arts in the story’s canon."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "earth",
+      "directionIds": [
+        "earth"
+      ],
+      "title": {
+        "zh": "御土师",
+        "en": "Earthbender"
+      },
+      "headline": {
+        "zh": "先站稳，再选择前进",
+        "en": "Find your footing, then move"
+      },
+      "summary": {
+        "zh": "这一轮，你更多选择站稳基础、持续承担，让可靠成为力量。",
+        "en": "In this round, you more often chose a firm foundation, endurance and dependable support."
+      },
+      "scoreReading": {
+        "zh": "24道四选一情境题，每题给所选御术风格加1点；每种风格在每道题都可选，各在A、B、C、D位置出现6次。本轮占比为次数除以24。最高次数相同就保留全部，不按顺序或最后一题决胜。",
+        "en": "Each of 24 four-choice scenarios adds one point to the chosen bending style. Every style is available on every screen and appears six times in each option position. Shares are counts divided by 24. Every highest tie remains, without ordering or a final-question tiebreak."
+      },
+      "seo": {
+        "title": {
+          "zh": "御土师的含义、故事风格与御术比较",
+          "en": "Earthbender Meaning, Story Style and Bending Comparison"
+        },
+        "description": {
+          "zh": "你的故事御术先找到立足点，再决定何时行动。你关注现实条件、基本功和可依靠的承诺。御土师形象可以坚定而有弹性，不等于固执或拒绝想象。",
+          "en": "Your fictional bending style finds its footing before deciding when to move. Conditions, foundations and dependable commitments matter here. Earth can be firm without being rigid; this portrait is not a label for stubbornness or a lack of imagination."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这种御术在本版中的含义",
+            "en": "What this bending style means here"
+          },
+          "paragraphs": [
+            {
+              "zh": "你的故事御术先找到立足点，再决定何时行动。你关注现实条件、基本功和可依靠的承诺。御土师形象可以坚定而有弹性，不等于固执或拒绝想象。",
+              "en": "Your fictional bending style finds its footing before deciding when to move. Conditions, foundations and dependable commitments matter here. Earth can be firm without being rigid; this portrait is not a label for stubbornness or a lack of imagination."
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "zh": "一个原创故事场景",
+            "en": "An original story scene"
+          },
+          "paragraphs": [
+            {
+              "zh": "小队要穿过松动的石坡，你先试探能站稳的位置，再和大家商量每一步的间距。你不必永远走最慢，而是在需要承担重量时，让每个人知道哪里可以依靠。",
+              "en": "Before a group crosses loose stones, you test the footing and agree on the spacing between steps. You need not always move slowly; when the route must bear weight, you help everyone see what they can rely on."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "长处与需要留意的张力",
+            "en": "Strengths and a possible tradeoff"
+          },
+          "paragraphs": [
+            {
+              "zh": "原本可靠的方法也会遇到新环境。允许一次小调整，不会让已经建立的根基消失。",
+              "en": "Even a dependable method meets new conditions. A small adjustment does not erase the foundation you have built."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与其他三种御术比较",
+            "en": "Compare the other bending styles"
+          },
+          "paragraphs": [
+            {
+              "zh": "御土与御火都可能承担行动：本版御土先确认基础与承重，御火先集中意志启动。御水回应变化，御气寻找另一条路。稳定不必排除尝试，也不比灵活更成熟。",
+              "en": "Earth and Fire can both take action. Here, Earth first checks the foundation and what it can support; Fire gathers intention to begin. Water responds to change, while Air seeks another route. Stability can include experimentation and is not more mature than flexibility."
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "zh": "可试的一小步",
+            "en": "One small thing to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "在熟悉的方法里留一个可以尝试变化的小步骤。",
+              "en": "Leave one small step in a familiar method open to experimentation."
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "zh": "这份画像的边界",
+            "en": "The limits of this portrait"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是以《降世神通》御术意象创作的独立粉丝娱乐测试，结果是本轮情境选择对应的叙事风格。它不测真实能力，不是人物匹配或知识考试，也不意味着你能在故事设定中同时掌握多种御术。",
+              "en": "An independent fan entertainment quiz inspired by the bending arts of Avatar: The Last Airbender. Results describe the narrative style of this round’s choices, not real ability, character matching or trivia knowledge. A tie does not grant multiple bending arts in the story’s canon."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fire",
+      "directionIds": [
+        "fire"
+      ],
+      "title": {
+        "zh": "御火师",
+        "en": "Firebender"
+      },
+      "headline": {
+        "zh": "让热情拥有方向",
+        "en": "Give your energy a direction"
+      },
+      "summary": {
+        "zh": "这一轮，你更多选择集中意志、主动突破，让热情成为有方向的行动。",
+        "en": "In this round, you more often chose focused intention, initiative and purposeful momentum."
+      },
+      "scoreReading": {
+        "zh": "24道四选一情境题，每题给所选御术风格加1点；每种风格在每道题都可选，各在A、B、C、D位置出现6次。本轮占比为次数除以24。最高次数相同就保留全部，不按顺序或最后一题决胜。",
+        "en": "Each of 24 four-choice scenarios adds one point to the chosen bending style. Every style is available on every screen and appears six times in each option position. Shares are counts divided by 24. Every highest tie remains, without ordering or a final-question tiebreak."
+      },
+      "seo": {
+        "title": {
+          "zh": "御火师的含义、故事风格与御术比较",
+          "en": "Firebender Meaning, Story Style and Bending Comparison"
+        },
+        "description": {
+          "zh": "你的故事御术把内在动力化为可见行动。你愿意锁定目标，在需要决定时站出来。火焰也能提供温暖和光明；御火师不等于愤怒、侵略或反派身份。",
+          "en": "Your fictional bending style turns inner drive into visible action. You may focus on a goal and step forward when a decision is needed. Fire also offers warmth and light; this portrait does not mean anger, aggression or a villain’s role."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这种御术在本版中的含义",
+            "en": "What this bending style means here"
+          },
+          "paragraphs": [
+            {
+              "zh": "你的故事御术把内在动力化为可见行动。你愿意锁定目标，在需要决定时站出来。火焰也能提供温暖和光明；御火师不等于愤怒、侵略或反派身份。",
+              "en": "Your fictional bending style turns inner drive into visible action. You may focus on a goal and step forward when a decision is needed. Fire also offers warmth and light; this portrait does not mean anger, aggression or a villain’s role."
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "zh": "一个原创故事场景",
+            "en": "An original story scene"
+          },
+          "paragraphs": [
+            {
+              "zh": "训练总在同一个动作上停住，你选定一次短练习，只集中处理那个转折。你也约定结束时间与补给，让推进不必变成长时间透支。",
+              "en": "When practice stalls at the same movement, you choose a short session focused on that turning point. A clear stopping time and a break let momentum continue without becoming prolonged overexertion."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "长处与需要留意的张力",
+            "en": "Strengths and a possible tradeoff"
+          },
+          "paragraphs": [
+            {
+              "zh": "持续燃烧需要节制和补给。你看见突破口时，也可以确认同行者是否准备好一起行动。",
+              "en": "A lasting flame needs restraint and fuel. When you see an opening, check whether your companions are ready to move too."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与其他三种御术比较",
+            "en": "Compare the other bending styles"
+          },
+          "paragraphs": [
+            {
+              "zh": "御火与御土都可能坚持目标：本版御火强调有方向的启动，御土强调可承受的基础。御水让回应跟随条件，御气用变化找开口。热情不代表更有能力，也不要求永远领先。",
+              "en": "Fire and Earth may both persist toward a goal. Here, Fire emphasizes a directed start; Earth emphasizes a dependable foundation. Water responds to conditions; Air finds an opening through change. Enthusiasm is not evidence of greater ability or a demand to always lead."
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "zh": "可试的一小步",
+            "en": "One small thing to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "为一个想推进的目标设定行动时间，也设定休息时间。",
+              "en": "Give one goal both an action window and a rest window."
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "zh": "这份画像的边界",
+            "en": "The limits of this portrait"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是以《降世神通》御术意象创作的独立粉丝娱乐测试，结果是本轮情境选择对应的叙事风格。它不测真实能力，不是人物匹配或知识考试，也不意味着你能在故事设定中同时掌握多种御术。",
+              "en": "An independent fan entertainment quiz inspired by the bending arts of Avatar: The Last Airbender. Results describe the narrative style of this round’s choices, not real ability, character matching or trivia knowledge. A tie does not grant multiple bending arts in the story’s canon."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "air",
+      "directionIds": [
+        "air"
+      ],
+      "title": {
+        "zh": "御气师",
+        "en": "Airbender"
+      },
+      "headline": {
+        "zh": "转换视角，让出路出现",
+        "en": "Change perspective and find an opening"
+      },
+      "summary": {
+        "zh": "这一轮，你更多选择灵活移动、转换视角，为自由和新的出路留出空间。",
+        "en": "In this round, you more often chose flexible movement, fresh perspectives and room for another way."
+      },
+      "scoreReading": {
+        "zh": "24道四选一情境题，每题给所选御术风格加1点；每种风格在每道题都可选，各在A、B、C、D位置出现6次。本轮占比为次数除以24。最高次数相同就保留全部，不按顺序或最后一题决胜。",
+        "en": "Each of 24 four-choice scenarios adds one point to the chosen bending style. Every style is available on every screen and appears six times in each option position. Shares are counts divided by 24. Every highest tie remains, without ordering or a final-question tiebreak."
+      },
+      "seo": {
+        "title": {
+          "zh": "御气师的含义、故事风格与御术比较",
+          "en": "Airbender Meaning, Story Style and Bending Comparison"
+        },
+        "description": {
+          "zh": "你的故事御术不急着与阻力正面相撞。你愿意换条路、保持好奇，寻找不必硬碰硬的可能。御气师形象可以轻盈而负责，不等于逃避所有困难或永不承诺。",
+          "en": "Your fictional bending style need not meet every obstacle head-on. You may change routes, stay curious and find an opening beyond direct confrontation. Air can be light and responsible; this portrait does not mean avoiding every difficulty or commitment."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这种御术在本版中的含义",
+            "en": "What this bending style means here"
+          },
+          "paragraphs": [
+            {
+              "zh": "你的故事御术不急着与阻力正面相撞。你愿意换条路、保持好奇，寻找不必硬碰硬的可能。御气师形象可以轻盈而负责，不等于逃避所有困难或永不承诺。",
+              "en": "Your fictional bending style need not meet every obstacle head-on. You may change routes, stay curious and find an opening beyond direct confrontation. Air can be light and responsible; this portrait does not mean avoiding every difficulty or commitment."
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "zh": "一个原创故事场景",
+            "en": "An original story scene"
+          },
+          "paragraphs": [
+            {
+              "zh": "通道被临时封住，你先观察屋顶的回廊和另一扇出口，邀请同伴比较新的路线。找到另一种走法之后，你也确认大家仍会到同一个集合点。",
+              "en": "When a passage closes, you notice an upper walkway and another exit, then invite your companions to compare routes. Finding another way also includes agreeing where everyone will meet again."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "长处与需要留意的张力",
+            "en": "Strengths and a possible tradeoff"
+          },
+          "paragraphs": [
+            {
+              "zh": "选择很多时，也可能迟迟不落地。自由有时来自主动选择一件愿意承担的事。",
+              "en": "Many options can make it hard to land anywhere. Freedom sometimes comes from choosing one responsibility willingly."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与其他三种御术比较",
+            "en": "Compare the other bending styles"
+          },
+          "paragraphs": [
+            {
+              "zh": "御气与御水都可能保持弹性：本版御气从另一种视角找到路线，御水回应眼前的关系与条件。御土找支点，御火聚焦推进。轻盈不等于没有责任，也不必否认自己的界限。",
+              "en": "Air and Water can both stay flexible. Here, Air finds a route through another perspective; Water responds to the present people and conditions. Earth seeks support and Fire focuses momentum. Lightness need not mean a lack of responsibility or boundaries."
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "zh": "可试的一小步",
+            "en": "One small thing to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "保留探索空间，同时选一个小承诺在今天完成。",
+              "en": "Keep room to explore while finishing one small commitment today."
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "zh": "这份画像的边界",
+            "en": "The limits of this portrait"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是以《降世神通》御术意象创作的独立粉丝娱乐测试，结果是本轮情境选择对应的叙事风格。它不测真实能力，不是人物匹配或知识考试，也不意味着你能在故事设定中同时掌握多种御术。",
+              "en": "An independent fan entertainment quiz inspired by the bending arts of Avatar: The Last Airbender. Results describe the narrative style of this round’s choices, not real ability, character matching or trivia knowledge. A tie does not grant multiple bending arts in the story’s canon."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "bending-intent",
+      "title": {
+        "zh": "这是御术风格，不是人物或知识测试",
+        "en": "Bending styles, not characters or trivia"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是以《降世神通》御术意象创作的独立粉丝娱乐测试，结果是本轮情境选择对应的叙事风格。它不测真实能力，不是人物匹配或知识考试，也不意味着你能在故事设定中同时掌握多种御术。",
+          "en": "An independent fan entertainment quiz inspired by the bending arts of Avatar: The Last Airbender. Results describe the narrative style of this round’s choices, not real ability, character matching or trivia knowledge. A tie does not grant multiple bending arts in the story’s canon."
+        }
+      ]
+    },
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "次数、占比与并列怎么计算",
+        "en": "Counts, shares and ties"
+      },
+      "paragraphs": [
+        {
+          "zh": "24道四选一情境题，每题给所选御术风格加1点；每种风格在每道题都可选，各在A、B、C、D位置出现6次。本轮占比为次数除以24。最高次数相同就保留全部，不按顺序或最后一题决胜。",
+          "en": "Each of 24 four-choice scenarios adds one point to the chosen bending style. Every style is available on every screen and appears six times in each option position. Shares are counts divided by 24. Every highest tie remains, without ordering or a final-question tiebreak."
+        }
+      ]
+    },
+    {
+      "id": "tie-boundary",
+      "title": {
+        "zh": "四方并列仍是一份完整结果",
+        "en": "A four-way tie is a complete result"
+      },
+      "paragraphs": [
+        {
+          "zh": "例如御水、御土、御火、御气各选6次，结果保留四种风格。它表示本轮计数相同，不是“神通”身份，也不能证明你在故事里掌握多种御术。占比是本轮计分份额，不是相似度或人群百分位。",
+          "en": "For example, six choices for each style keeps Water, Earth, Fire and Air together. That means equal counts this round, not an Avatar identity or mastery of multiple bending arts in the story. Shares describe points, not resemblance or population percentiles."
+        }
+      ]
+    },
+    {
+      "id": "independent-creation",
+      "title": {
+        "zh": "独立原创版本与边界",
+        "en": "Independent original edition"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版24道情境、四份解读与图像为费马原创粉丝创作，不是官方分配、原版uQuiz或ARealMe题本，也不与它们的分数直接比较。图中的人物为原创示意角色，没有使用影视截图或官方角色肖像。",
+          "en": "These 24 scenarios, four interpretations and illustrations are FermatMind’s original fan creation. They are not an official assignment or the original uQuiz or ARealMe item set, and scores are not directly comparable. Illustrated figures are original symbolic characters, without film stills or official character portraits."
+        }
+      ]
+    },
+    {
+      "id": "separate-element",
+      "title": {
+        "zh": "与四元素测试有什么区别？",
+        "en": "How does this differ from a four-element quiz?"
+      },
+      "paragraphs": [
+        {
+          "zh": "这里围绕训练、同行和应变等御术故事情境作答；站内另一份四元素测试探索日常元素隐喻。两者题本、结果身份和入口各自独立，不互相换算或重定向。无需出生信息，也不测试真实能力。",
+          "en": "This quiz uses bending-story situations about practice, companions and adapting under pressure. The site’s separate four-element quiz explores everyday elemental metaphors. Their items, result identities and entries remain distinct, without conversion or redirection. No birth information or real ability test is involved."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "结果、完整指南与分享",
+        "en": "Results, complete guides and sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "完整结果、全部四份指南和PNG均免费。最高并列全部显示，公开指南在新标签页打开以保留本轮结果。图片在浏览器生成，不含逐题答案或分数；是否分享由你决定，重测会清空本轮选择。",
+          "en": "Full results, all four guides and PNGs are free. Every highest tie is shown; public guides open in new tabs to preserve this round. Images are created in the browser without item answers or scores. Sharing is optional and retaking clears this round."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "并列会得到“神通”结果吗？",
+        "en": "Does a tie make me the Avatar?"
+      },
+      "answer": {
+        "zh": "例如御水、御土、御火、御气各选6次，结果保留四种风格。它表示本轮计数相同，不是“神通”身份，也不能证明你在故事里掌握多种御术。占比是本轮计分份额，不是相似度或人群百分位。",
+        "en": "For example, six choices for each style keeps Water, Earth, Fire and Air together. That means equal counts this round, not an Avatar identity or mastery of multiple bending arts in the story. Shares describe points, not resemblance or population percentiles."
+      }
+    },
+    {
+      "question": {
+        "zh": "这和四元素测试是同一个游戏吗？",
+        "en": "Is this the same as the four-element quiz?"
+      },
+      "answer": {
+        "zh": "这里围绕训练、同行和应变等御术故事情境作答；站内另一份四元素测试探索日常元素隐喻。两者题本、结果身份和入口各自独立，不互相换算或重定向。无需出生信息，也不测试真实能力。",
+        "en": "This quiz uses bending-story situations about practice, companions and adapting under pressure. The site’s separate four-element quiz explores everyday elemental metaphors. Their items, result identities and entries remain distinct, without conversion or redirection. No birth information or real ability test is involved."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是官方测试或原版uQuiz吗？",
+        "en": "Is this official or the original uQuiz?"
+      },
+      "answer": {
+        "zh": "本版24道情境、四份解读与图像为费马原创粉丝创作，不是官方分配、原版uQuiz或ARealMe题本，也不与它们的分数直接比较。图中的人物为原创示意角色，没有使用影视截图或官方角色肖像。",
+        "en": "These 24 scenarios, four interpretations and illustrations are FermatMind’s original fan creation. They are not an official assignment or the original uQuiz or ARealMe item set, and scores are not directly comparable. Illustrated figures are original symbolic characters, without film stills or official character portraits."
+      }
+    },
+    {
+      "question": {
+        "zh": "结果图片或全部指南需要付费吗？",
+        "en": "Do the card or complete guides cost anything?"
+      },
+      "answer": {
+        "zh": "完整结果、全部四份指南和PNG均免费。最高并列全部显示，公开指南在新标签页打开以保留本轮结果。图片在浏览器生成，不含逐题答案或分数；是否分享由你决定，重测会清空本轮选择。",
+        "en": "Full results, all four guides and PNGs are free. Every highest tie is shown; public guides open in new tabs to preserve this round. Images are created in the browser without item answers or scores. Sharing is optional and retaking clears this round."
+      }
+    }
+  ],
+  "resultHeading": {
+    "zh": "你的本轮御术风格",
+    "en": "Your bending style this round"
+  }
+}

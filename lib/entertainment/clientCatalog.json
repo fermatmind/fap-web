@@ -3903,6 +3903,18 @@
       "resultSlugs": [
         "score-reading"
       ]
+    },
+    {
+      "slug": "avatar-bender-quiz",
+      "collection": "explore",
+      "code": "AVATAR_BENDING_FM24",
+      "formCode": "fm_avatar_bending_original24_v1",
+      "resultSlugs": [
+        "water",
+        "earth",
+        "fire",
+        "air"
+      ]
     }
   ],
   "legacy": [

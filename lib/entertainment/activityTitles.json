@@ -2001,6 +2001,13 @@
         "en": "Rice Purity Test: 100-Item Experience Checklist",
         "zh": "纯洁度测试（Rice Purity）：100项经历清单"
       }
+    },
+    {
+      "slug": "avatar-bender-quiz",
+      "title": {
+        "zh": "降世神通御术类型测试",
+        "en": "Avatar Bending Quiz: Which Bender Are You?"
+      }
     }
   ],
   "legacy": [

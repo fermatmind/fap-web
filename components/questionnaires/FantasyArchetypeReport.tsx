@@ -11,6 +11,7 @@ export function FantasyArchetypeReport({ quiz, result, locale, answers }: { quiz
   const ranked = quiz.questions.some(q => q.interaction === "rank");
   return <div className="space-y-8" data-fantasy-result={quiz.slug}>
     <p className="mt-4 text-lg leading-8">{matched.length === 1 ? (zh ? "本轮得分最高的原型" : "Your highest-scoring archetype this round") : (zh ? `保留全部${matched.length}项最高并列，顺序不分主次。` : `All ${matched.length} highest ties are kept, without a primary or secondary order.`)}</p>
+    {quiz.slug === "avatar-bender-quiz" && <p data-bending-boundary className="rounded-lg bg-sky-50 p-4 leading-8">{quiz.instructions?.[locale]}</p>}
     <nav className="flex flex-wrap gap-3" aria-label={zh ? "本次匹配结果" : "Your matches"}>{matched.map(p => <a key={p.id} href={`#fantasy-${p.id}`} className="inline-flex min-h-11 items-center rounded-lg border px-4 underline">{p.title[locale]}</a>)}</nav>
     {matched.map(profile => <section key={profile.id} id={`fantasy-${profile.id}`} className="scroll-mt-24 space-y-4 rounded-2xl border border-slate-200 p-5 sm:p-7" data-archetype-match={profile.id}>
       <FantasyPortrait slug={quiz.slug} id={profile.id} name={profile.title[locale]} large />

@@ -6,7 +6,7 @@ import type { Questionnaire } from "@/lib/questionnaires/types";
 
 /** Only trusted package/profile identities reach local artwork. No answer or personal score is accepted. */
 export async function fantasyOpenGraphCard(quiz: Questionnaire, locale: Locale, id: string | undefined, font: ArrayBuffer) {
-  const selected = id ? quiz.profiles.filter(p => p.id === id) : quiz.profiles.slice(0, 3);
+  const selected = id ? quiz.profiles.filter(p => p.id === id) : quiz.profiles.length <= 4 ? quiz.profiles : quiz.profiles.slice(0, 3);
   const images = await Promise.all(selected.map(async p => `data:image/svg+xml;base64,${(await readFile(path.join(process.cwd(), "public/images/quiz-portraits", quiz.slug, `${p.id}.svg`))).toString("base64")}`));
   return new ImageResponse(<div style={{ display: "flex", flexDirection: "column", padding: 48, width: "100%", height: "100%", background: "#111e30", color: "#f4eee2", fontFamily: "FantasyNoto" }}>
     <div style={{ display: "flex", color: "#dbbf83", fontSize: 26 }}>FermatMind · {locale === "zh" ? "原创娱乐测试" : "Original entertainment quiz"}</div>

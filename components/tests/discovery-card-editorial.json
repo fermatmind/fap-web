@@ -3155,5 +3155,16 @@
       "secondary": "cards",
       "layout": "story"
     }
+  },
+  "avatar-bender-quiz": {
+    "subtitle": {
+      "zh": "降世神通御术师与水土火气四种故事风格",
+      "en": "Avatar bender quiz: water, earth, fire and air"
+    },
+    "art": {
+      "primary": "compass",
+      "secondary": "castle",
+      "layout": "story"
+    }
   }
 }

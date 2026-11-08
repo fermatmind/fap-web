@@ -1,0 +1,1022 @@
+{
+  "questions": [
+    {
+      "id": "q01",
+      "prompt": {
+        "zh": "练习场突然下雨，你怎么调整？",
+        "en": "Rain interrupts your training. How do you adapt?"
+      },
+      "options": [
+        {
+          "id": "q01-1",
+          "label": {
+            "zh": "顺着新条件改变动作。",
+            "en": "Adapt the movements to the new conditions."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q01-2",
+          "label": {
+            "zh": "找稳立足点再继续。",
+            "en": "Find secure footing before continuing."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q01-3",
+          "label": {
+            "zh": "缩短练习，集中突破一个目标。",
+            "en": "Shorten the session and focus on one breakthrough."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q01-4",
+          "label": {
+            "zh": "换一个路线或练习方式。",
+            "en": "Try a different route or way to practise."
+          },
+          "directionId": "air"
+        }
+      ]
+    },
+    {
+      "id": "q02",
+      "prompt": {
+        "zh": "伙伴被困在河对岸，你先考虑什么？",
+        "en": "A companion is stranded across a river. What comes first?"
+      },
+      "options": [
+        {
+          "id": "q02-1",
+          "label": {
+            "zh": "寻找稳固支点与可靠通道。",
+            "en": "Find solid supports and a dependable crossing."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q02-2",
+          "label": {
+            "zh": "确定最紧迫的一步并立即行动。",
+            "en": "Identify the urgent step and act."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q02-3",
+          "label": {
+            "zh": "寻找绕行、借力或轻巧通过的可能。",
+            "en": "Look for a detour or a lighter way across."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q02-4",
+          "label": {
+            "zh": "观察水流与能互相接应的位置。",
+            "en": "Read the current and where people can help each other."
+          },
+          "directionId": "water"
+        }
+      ]
+    },
+    {
+      "id": "q03",
+      "prompt": {
+        "zh": "导师让你改掉熟悉招式，你倾向怎么学？",
+        "en": "Your mentor asks you to change a familiar technique. How do you learn?"
+      },
+      "options": [
+        {
+          "id": "q03-1",
+          "label": {
+            "zh": "设一个明确挑战，全力练习。",
+            "en": "Set a clear challenge and train with commitment."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q03-2",
+          "label": {
+            "zh": "用几种不同方式探索原理。",
+            "en": "Explore the principle in several different ways."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q03-3",
+          "label": {
+            "zh": "跟随反馈，一点点改变节奏。",
+            "en": "Use feedback to gradually reshape the rhythm."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q03-4",
+          "label": {
+            "zh": "重复基础直到动作稳定。",
+            "en": "Repeat the foundations until they hold steady."
+          },
+          "directionId": "earth"
+        }
+      ]
+    },
+    {
+      "id": "q04",
+      "prompt": {
+        "zh": "村庄面临威胁，你愿意负责什么？",
+        "en": "A village faces a threat. Which responsibility would you take?"
+      },
+      "options": [
+        {
+          "id": "q04-1",
+          "label": {
+            "zh": "找出撤离路线并减少正面冲突。",
+            "en": "Find escape routes and reduce direct conflict."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q04-2",
+          "label": {
+            "zh": "照顾受影响的人并协调互助。",
+            "en": "Care for those affected and coordinate mutual support."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q04-3",
+          "label": {
+            "zh": "加固能保护大家的设施。",
+            "en": "Reinforce what keeps people safe."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q04-4",
+          "label": {
+            "zh": "组织快速且集中的应对。",
+            "en": "Organize a swift, focused response."
+          },
+          "directionId": "fire"
+        }
+      ]
+    },
+    {
+      "id": "q05",
+      "prompt": {
+        "zh": "对练中对手力量更大，你会怎样？",
+        "en": "Your sparring partner is stronger. What would you try?"
+      },
+      "options": [
+        {
+          "id": "q05-1",
+          "label": {
+            "zh": "改变方向，让来势成为转机。",
+            "en": "Redirect the momentum into an opening."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q05-2",
+          "label": {
+            "zh": "稳住重心，等待确实的机会。",
+            "en": "Keep a firm center and wait for a real opening."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q05-3",
+          "label": {
+            "zh": "集中力量把握短暂突破点。",
+            "en": "Focus your effort on a brief breakthrough."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q05-4",
+          "label": {
+            "zh": "保持移动，让对方难以锁定。",
+            "en": "Stay mobile and difficult to pin down."
+          },
+          "directionId": "air"
+        }
+      ]
+    },
+    {
+      "id": "q06",
+      "prompt": {
+        "zh": "一次失败后，你想怎样恢复训练？",
+        "en": "After a failed attempt, how would you return to training?"
+      },
+      "options": [
+        {
+          "id": "q06-1",
+          "label": {
+            "zh": "回到一个能稳定完成的基础。",
+            "en": "Return to a foundation I can perform reliably."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q06-2",
+          "label": {
+            "zh": "给下一次尝试一个清楚目标。",
+            "en": "Give the next attempt a clear target."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q06-3",
+          "label": {
+            "zh": "暂时换个角度，让身体松下来。",
+            "en": "Change perspective for a while and loosen up."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q06-4",
+          "label": {
+            "zh": "和伙伴交流，调整方法。",
+            "en": "Talk with a companion and adjust the approach."
+          },
+          "directionId": "water"
+        }
+      ]
+    },
+    {
+      "id": "q07",
+      "prompt": {
+        "zh": "你更喜欢哪种练习环境？",
+        "en": "Which training environment appeals most?"
+      },
+      "options": [
+        {
+          "id": "q07-1",
+          "label": {
+            "zh": "能投入精力、看见进展的场地。",
+            "en": "A place to commit energy and see progress."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q07-2",
+          "label": {
+            "zh": "能自由移动、尝试新路径的场地。",
+            "en": "A place to move freely and explore new paths."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q07-3",
+          "label": {
+            "zh": "能跟随变化、彼此配合的场地。",
+            "en": "A place for responding to change and working together."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q07-4",
+          "label": {
+            "zh": "能感受重量、支点和节奏的场地。",
+            "en": "A place to feel weight, support and rhythm."
+          },
+          "directionId": "earth"
+        }
+      ]
+    },
+    {
+      "id": "q08",
+      "prompt": {
+        "zh": "伙伴们对路线意见不一，你会怎样？",
+        "en": "Your companions disagree about the route. What would you do?"
+      },
+      "options": [
+        {
+          "id": "q08-1",
+          "label": {
+            "zh": "提出大家没考虑过的第三条路。",
+            "en": "Suggest a third route no one has considered."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q08-2",
+          "label": {
+            "zh": "听清各自担忧，调整大家能接受的路线。",
+            "en": "Listen to concerns and adapt a route people can accept."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q08-3",
+          "label": {
+            "zh": "核对地形事实，找最可靠的依据。",
+            "en": "Check the terrain and find dependable evidence."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q08-4",
+          "label": {
+            "zh": "明确此行目标，推动及时作决定。",
+            "en": "Clarify the goal and help the group decide in time."
+          },
+          "directionId": "fire"
+        }
+      ]
+    },
+    {
+      "id": "q09",
+      "prompt": {
+        "zh": "长途旅行中，你自然关注什么？",
+        "en": "On a long journey, what do you naturally attend to?"
+      },
+      "options": [
+        {
+          "id": "q09-1",
+          "label": {
+            "zh": "同伴的状态和资源是否可共享。",
+            "en": "How companions are doing and what can be shared."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q09-2",
+          "label": {
+            "zh": "补给、休息点和可依靠的安排。",
+            "en": "Supplies, rest stops and dependable arrangements."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q09-3",
+          "label": {
+            "zh": "目的地、时限与持续前进的动力。",
+            "en": "The destination, timing and drive to continue."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q09-4",
+          "label": {
+            "zh": "沿途可能发现的新路与新体验。",
+            "en": "New routes and experiences along the way."
+          },
+          "directionId": "air"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "prompt": {
+        "zh": "一项御术练习要求耐心，你靠什么坚持？",
+        "en": "A bending exercise takes patience. What sustains you?"
+      },
+      "options": [
+        {
+          "id": "q10-1",
+          "label": {
+            "zh": "信任重复基本功的积累。",
+            "en": "Trust the accumulation of repeated foundations."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q10-2",
+          "label": {
+            "zh": "把难点变成值得突破的挑战。",
+            "en": "Turn the difficulty into a meaningful challenge."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q10-3",
+          "label": {
+            "zh": "不断找到有趣的小变化。",
+            "en": "Keep finding interesting small variations."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q10-4",
+          "label": {
+            "zh": "感受细微变化，让动作逐渐顺畅。",
+            "en": "Notice small changes as the movement becomes fluid."
+          },
+          "directionId": "water"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "prompt": {
+        "zh": "朋友情绪激动时，你会如何回应？",
+        "en": "A friend is upset. How would you respond?"
+      },
+      "options": [
+        {
+          "id": "q11-1",
+          "label": {
+            "zh": "帮他找回能行动的力量。",
+            "en": "Help them recover a sense of agency."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q11-2",
+          "label": {
+            "zh": "留出呼吸空间，不急着困住答案。",
+            "en": "Leave room to breathe without forcing an answer."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q11-3",
+          "label": {
+            "zh": "陪他梳理感受，随需要调整回应。",
+            "en": "Help them work through feelings and respond to their needs."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q11-4",
+          "label": {
+            "zh": "安稳地陪着，提供实际支撑。",
+            "en": "Stay steady beside them and offer practical support."
+          },
+          "directionId": "earth"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "prompt": {
+        "zh": "在虚构世界学御术，你最想练哪项原则？",
+        "en": "In this fictional world, which principle would you most want to practise?"
+      },
+      "options": [
+        {
+          "id": "q12-1",
+          "label": {
+            "zh": "保持轻盈与选择。",
+            "en": "Keeping lightness and options."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q12-2",
+          "label": {
+            "zh": "借势而变。",
+            "en": "Responding and redirecting."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q12-3",
+          "label": {
+            "zh": "站稳再动。",
+            "en": "Rooting before moving."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q12-4",
+          "label": {
+            "zh": "让意志与行动一致。",
+            "en": "Aligning intention with action."
+          },
+          "directionId": "fire"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "prompt": {
+        "zh": "一条熟悉的路被堵住，你首先会怎样？",
+        "en": "A familiar path is blocked. What comes first?"
+      },
+      "options": [
+        {
+          "id": "q13-1",
+          "label": {
+            "zh": "随现场条件改变计划。",
+            "en": "Adapt the plan to what is happening."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q13-2",
+          "label": {
+            "zh": "确认障碍与可用支点。",
+            "en": "Assess the obstacle and available supports."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q13-3",
+          "label": {
+            "zh": "决定要解决的关键阻碍。",
+            "en": "Identify the key obstacle to overcome."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q13-4",
+          "label": {
+            "zh": "寻找不必硬闯的替代路径。",
+            "en": "Look for a way around rather than through."
+          },
+          "directionId": "air"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "prompt": {
+        "zh": "一次共同训练最好的部分是什么？",
+        "en": "What is the best part of shared training?"
+      },
+      "options": [
+        {
+          "id": "q14-1",
+          "label": {
+            "zh": "建立可以互相信任的基础。",
+            "en": "Building a foundation of mutual trust."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q14-2",
+          "label": {
+            "zh": "让大家被同一个目标点燃。",
+            "en": "Energizing everyone around a shared goal."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q14-3",
+          "label": {
+            "zh": "每个人都能发现自己的新可能。",
+            "en": "Everyone discovering new possibilities."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q14-4",
+          "label": {
+            "zh": "感受到彼此回应与配合。",
+            "en": "Feeling the exchange and coordination."
+          },
+          "directionId": "water"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "prompt": {
+        "zh": "你发现自己的长处也成了阻力，会怎样修正？",
+        "en": "A strength starts getting in your way. How would you adjust?"
+      },
+      "options": [
+        {
+          "id": "q15-1",
+          "label": {
+            "zh": "不把热情变成催促别人。",
+            "en": "Avoid turning enthusiasm into pressure on others."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q15-2",
+          "label": {
+            "zh": "不把自由变成一再回避承诺。",
+            "en": "Avoid turning freedom into repeated avoidance of commitment."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q15-3",
+          "label": {
+            "zh": "不再为了配合而忽略自己的边界。",
+            "en": "Stop adapting at the cost of my own boundaries."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q15-4",
+          "label": {
+            "zh": "不把坚持变成拒绝新信息。",
+            "en": "Avoid turning persistence into refusal of new information."
+          },
+          "directionId": "earth"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "prompt": {
+        "zh": "导师给你一句提醒，哪句最有用？",
+        "en": "Which reminder from a mentor would help most?"
+      },
+      "options": [
+        {
+          "id": "q16-1",
+          "label": {
+            "zh": "轻盈也可以带着责任。",
+            "en": "Lightness can coexist with responsibility."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q16-2",
+          "label": {
+            "zh": "变化也需要清楚的边界。",
+            "en": "Adaptation also needs clear boundaries."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q16-3",
+          "label": {
+            "zh": "稳固不等于永远不变。",
+            "en": "Being grounded does not mean never changing."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q16-4",
+          "label": {
+            "zh": "力量需要节制才更持久。",
+            "en": "Energy lasts longer with restraint."
+          },
+          "directionId": "fire"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "prompt": {
+        "zh": "你愿意怎样保护一份重要约定？",
+        "en": "How would you protect an important agreement?"
+      },
+      "options": [
+        {
+          "id": "q17-1",
+          "label": {
+            "zh": "保持沟通，让约定适应真实需要。",
+            "en": "Keep communicating so it fits real needs."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q17-2",
+          "label": {
+            "zh": "把该做的事持续做到。",
+            "en": "Keep doing what was agreed."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q17-3",
+          "label": {
+            "zh": "需要时清楚表态并采取行动。",
+            "en": "Take a clear stand and act when needed."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q17-4",
+          "label": {
+            "zh": "保留选择，确保每个人是自愿参与。",
+            "en": "Keep options open and participation voluntary."
+          },
+          "directionId": "air"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "prompt": {
+        "zh": "一场比试临近，你会怎样准备？",
+        "en": "A contest approaches. How would you prepare?"
+      },
+      "options": [
+        {
+          "id": "q18-1",
+          "label": {
+            "zh": "巩固基本动作和身体稳定。",
+            "en": "Strengthen the foundations and physical stability."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q18-2",
+          "label": {
+            "zh": "锁定目标，让精力更集中。",
+            "en": "Set a target and focus my energy."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q18-3",
+          "label": {
+            "zh": "练习移动与意外局面的处理。",
+            "en": "Practise mobility and unexpected situations."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q18-4",
+          "label": {
+            "zh": "研究对手变化，练习回应。",
+            "en": "Study variations and practise responding."
+          },
+          "directionId": "water"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "prompt": {
+        "zh": "面对陌生文化的伙伴，你会先做什么？",
+        "en": "You meet companions from an unfamiliar culture. What comes first?"
+      },
+      "options": [
+        {
+          "id": "q19-1",
+          "label": {
+            "zh": "寻找双方可以共同投入的目标。",
+            "en": "Find a goal both sides can commit to."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q19-2",
+          "label": {
+            "zh": "带着好奇体验不同的生活方式。",
+            "en": "Explore another way of life with curiosity."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q19-3",
+          "label": {
+            "zh": "听他们怎样理解彼此的需要。",
+            "en": "Listen to how they understand each other’s needs."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q19-4",
+          "label": {
+            "zh": "尊重可靠的约定和生活基础。",
+            "en": "Respect dependable agreements and daily foundations."
+          },
+          "directionId": "earth"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "prompt": {
+        "zh": "环境突然变得混乱，你怎么找到方向？",
+        "en": "Things suddenly become chaotic. How do you find direction?"
+      },
+      "options": [
+        {
+          "id": "q20-1",
+          "label": {
+            "zh": "退开一点，从更宽的视角看局面。",
+            "en": "Step back to see a wider range of possibilities."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q20-2",
+          "label": {
+            "zh": "从关系和变化中寻找可回应的线索。",
+            "en": "Find cues in relationships and changing conditions."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q20-3",
+          "label": {
+            "zh": "先辨明不会轻易改变的事实。",
+            "en": "Identify facts that will not easily change."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q20-4",
+          "label": {
+            "zh": "抓住最需要立即处理的目标。",
+            "en": "Focus on the goal that most needs action now."
+          },
+          "directionId": "fire"
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "prompt": {
+        "zh": "你希望自己的御术在故事里带来什么？",
+        "en": "What would you want your bending to bring to the story?"
+      },
+      "options": [
+        {
+          "id": "q21-1",
+          "label": {
+            "zh": "连接、修复与新的转机。",
+            "en": "Connection, repair and a new turn."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q21-2",
+          "label": {
+            "zh": "保护、耐力与可以依靠的基础。",
+            "en": "Protection, endurance and a dependable foundation."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q21-3",
+          "label": {
+            "zh": "勇气、改变与向前的力量。",
+            "en": "Courage, change and forward momentum."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q21-4",
+          "label": {
+            "zh": "自由、余地与不必对抗的出路。",
+            "en": "Freedom, room to move and a way beyond confrontation."
+          },
+          "directionId": "air"
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "prompt": {
+        "zh": "练习终于成功，你想先怎样庆祝？",
+        "en": "Your practice finally works. How would you celebrate?"
+      },
+      "options": [
+        {
+          "id": "q22-1",
+          "label": {
+            "zh": "记下过程，让成果可以再次做到。",
+            "en": "Record the process so I can do it again."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q22-2",
+          "label": {
+            "zh": "享受突破，并开始期待下个挑战。",
+            "en": "Enjoy the breakthrough and look toward the next challenge."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q22-3",
+          "label": {
+            "zh": "带着新本领去探索不同玩法。",
+            "en": "Explore new ways to use the skill."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q22-4",
+          "label": {
+            "zh": "和一路相助的人分享这份感受。",
+            "en": "Share the feeling with those who helped."
+          },
+          "directionId": "water"
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "prompt": {
+        "zh": "遇到比试规则的灰色地带，你倾向怎么做？",
+        "en": "A contest rule leaves a gray area. What would you do?"
+      },
+      "options": [
+        {
+          "id": "q23-1",
+          "label": {
+            "zh": "明确界限后主动推进比赛。",
+            "en": "Clarify the limits and move the contest forward."
+          },
+          "directionId": "fire"
+        },
+        {
+          "id": "q23-2",
+          "label": {
+            "zh": "提出能避免争执的另一种玩法。",
+            "en": "Suggest another way to play that avoids the dispute."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q23-3",
+          "label": {
+            "zh": "听取彼此理解，协商合适的做法。",
+            "en": "Hear different readings and agree on an approach."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q23-4",
+          "label": {
+            "zh": "确认规则依据并保持一致。",
+            "en": "Check the rule’s basis and apply it consistently."
+          },
+          "directionId": "earth"
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "prompt": {
+        "zh": "故事尾声，你最想继续哪段练习？",
+        "en": "At the story’s end, which practice would you continue?"
+      },
+      "options": [
+        {
+          "id": "q24-1",
+          "label": {
+            "zh": "在承担责任时仍保有自由。",
+            "en": "Keeping freedom while taking responsibility."
+          },
+          "directionId": "air"
+        },
+        {
+          "id": "q24-2",
+          "label": {
+            "zh": "在变化中与别人保持连接。",
+            "en": "Staying connected through change."
+          },
+          "directionId": "water"
+        },
+        {
+          "id": "q24-3",
+          "label": {
+            "zh": "让值得守住的事有稳固根基。",
+            "en": "Giving what matters a firm foundation."
+          },
+          "directionId": "earth"
+        },
+        {
+          "id": "q24-4",
+          "label": {
+            "zh": "让热情成为有方向的行动。",
+            "en": "Turning passion into purposeful action."
+          },
+          "directionId": "fire"
+        }
+      ]
+    }
+  ],
+  "directions": [
+    {
+      "id": "water",
+      "title": {
+        "zh": "御水师",
+        "en": "Waterbender"
+      },
+      "comparisons": 24
+    },
+    {
+      "id": "earth",
+      "title": {
+        "zh": "御土师",
+        "en": "Earthbender"
+      },
+      "comparisons": 24
+    },
+    {
+      "id": "fire",
+      "title": {
+        "zh": "御火师",
+        "en": "Firebender"
+      },
+      "comparisons": 24
+    },
+    {
+      "id": "air",
+      "title": {
+        "zh": "御气师",
+        "en": "Airbender"
+      },
+      "comparisons": 24
+    }
+  ]
+}

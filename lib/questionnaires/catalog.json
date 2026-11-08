@@ -7619,5 +7619,30 @@
     "resultSlugs": [
       "score-reading"
     ]
+  },
+  {
+    "slug": "avatar-bender-quiz",
+    "code": "AVATAR_BENDING_FM24",
+    "version": "1.0.0",
+    "updated": "2026-11-08",
+    "category": "fantasy",
+    "title": {
+      "zh": "降世神通御术类型测试",
+      "en": "Avatar Bending Quiz: Which Bender Are You?"
+    },
+    "description": {
+      "en": "Take 24 original Avatar-inspired scenarios to explore water, earth, fire and air bending styles. Compare all four, read tied results and save your free card.",
+      "zh": "通过24道原创御术情境，探索御水、御土、御火与御气四种故事风格。查看占比、并列解释和四类比较，免费保存个人结果卡。"
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fm_avatar_bending_original24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "water",
+      "earth",
+      "fire",
+      "air"
+    ]
   }
 ]
