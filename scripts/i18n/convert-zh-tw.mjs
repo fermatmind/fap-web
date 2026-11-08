@@ -17,9 +17,13 @@ const convert = Converter({ from: 'cn', to: 'twp' });
 const hash = value => createHash('sha256').update(value).digest('hex');
 // Literal tokens in reader text remain byte-for-byte intact, including numbers.
 const protectedTokens = /https?:\/\/[^\s<>）)]+|`[^`]*`|\{\{[^}]*\}\}|\$?\{[^}]*\}|%\d*\$?[sdif]|\d+(?:[.,:/-]\d+)*/g;
-export function convertText(source) {
+export function convertText(source, protectedPhrases = []) {
   const tokens = [];
-  const masked = source.replace(protectedTokens, value => { tokens.push(value); return `\uE000${String.fromCharCode(0xE100 + tokens.length - 1)}\uE001`; });
+  const protect = value => { tokens.push(value); return `\uE000${String.fromCharCode(0xE100 + tokens.length - 1)}\uE001`; };
+  let masked = source.replace(protectedTokens, protect);
+  // Apply reviewed reader phrases only after URLs, code and variables have
+  // been shielded. Existing questionnaire callers keep the default conversion.
+  for (const [phrase, target] of protectedPhrases) masked = masked.replaceAll(phrase, () => protect(target));
   const target = convert(masked);
   return target.replace(/\uE000([\uE100-\uF8FF])\uE001/g, (_, key) => tokens[key.charCodeAt(0) - 0xE100]);
 }

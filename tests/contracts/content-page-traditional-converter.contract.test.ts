@@ -35,6 +35,30 @@ describe("offline CMS Traditional candidate", () => {
     expect(next.sourceProjectionHash).not.toBe(first.sourceProjectionHash);
   });
 
+  it("preserves domestic storage and account closure without rewriting protected literals", () => {
+    const input = {
+      ...source(), slug: "privacy",
+      title: "中国境内存储与跨境提供",
+      summary: "注销账号或账号注销，不是退出登录；软件内存仍指设备内存。",
+      seo_description: "保留 `注销账号` 与 {{账号注销}}。",
+      content_md: "## 中国境内存储\n\n- 注销账号后，按原规则处理。\n- 账号注销与退出登录不同。\n- https://example.com/注销账号/123 {{账号注销}} ${境内存储} 14 个月",
+      headings: ["中国境内存储"],
+      faq_items: [{ question: "如何注销账号？", answer: "账号注销不是退出登录。" }],
+    };
+    const before = structuredClone(input), candidate = buildContentPageTraditional(input);
+    expect(input).toEqual(before);
+    expect(candidate.fields.title).toBe("中國境內儲存與跨境提供");
+    expect(candidate.fields.summary).toBe("註銷帳號或帳號註銷，不是退出登入；軟體記憶體仍指裝置記憶體。");
+    expect(candidate.fields.headings).toEqual(["中國境內儲存"]);
+    expect(candidate.fields.seo_description).toBe("保留 `注销账号` 與 {{账号注销}}。");
+    expect(candidate.fields.faq_items[0]).toEqual({ question: "如何註銷帳號？", answer: "帳號註銷不是退出登入。" });
+    expect(candidate.fields.content_md).toContain("https://example.com/注销账号/123 {{账号注销}} ${境内存储} 14 個月");
+    expect(candidate.fields.content_md).not.toContain("境記憶體儲");
+    const stale = structuredClone(candidate);
+    stale.units.title = { sourceHash: "old-glossary", text: "中國境記憶體儲" };
+    expect(buildContentPageTraditional(input, stale)).toEqual(candidate);
+  });
+
   it.each(["[说明](/关于)", "```js\nconst 标识 = 1;\n```", "<p>正文</p>", "![图片](/图片.png)", "| 表格 |"])("rejects unsupported rich format without corrupting it: %s", body => {
     expect(() => buildContentPageTraditional({ ...source(), content_md: body })).toThrow("MARKDOWN_FORMAT_UNSUPPORTED");
   });
