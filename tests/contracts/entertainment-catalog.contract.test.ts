@@ -1,3 +1,4 @@
+import { TRADITIONAL_PUBLIC_PATHS } from "@/lib/i18n/traditionalRoutes";
 import { isMissingFunRoute } from "@/lib/entertainment/routing";
 import { createHash } from "node:crypto";
 import { deepStrictEqual } from "node:assert/strict";
@@ -203,7 +204,7 @@ describe("original entertainment catalog", () => {
     const base = [{ loc: "https://fermatmind.com/en/career", lastmod: "2026-10-01" }];
     const entries = appendFunSitemapEntries(base);
     const publicCount = [globalHistoryStory, ...catalog.filter(card => !questionnaires.some(native => native.slug === card.slug)), ...questionnaires].reduce((total, card) => total + 2 * (1 + card.resultSlugs.length), 0);
-    expect(entries).toHaveLength(1 + publicCount);
+    expect(entries).toHaveLength(1 + publicCount + TRADITIONAL_PUBLIC_PATHS.length);
     expect(entries).toContainEqual(base[0]);
     expect(appendFunSitemapEntries(entries)).toEqual(entries);
     const expectedEntries = [...base];
@@ -216,10 +217,11 @@ describe("original entertainment catalog", () => {
       expectedEntries.push({ loc: path, lastmod: `${card.updated}T00:00:00.000Z` });
       for (const profile of card.resultSlugs) expectedEntries.push({ loc: `${path}/results/${profile}`, lastmod: `${card.updated}T00:00:00.000Z` });
     }
+    expectedEntries.push(...TRADITIONAL_PUBLIC_PATHS.map(path => ({ loc: `https://fermatmind.com/zh-TW${path}` } as typeof expectedEntries[number])));
     deepStrictEqual(entries, expectedEntries.sort((a, b) => a.loc.localeCompare(b.loc)));
-    expect(buildPublicSitemapFamilyMap(entries).tests).toHaveLength(publicCount);
+    expect(buildPublicSitemapFamilyMap(entries).tests).toHaveLength(publicCount + TRADITIONAL_PUBLIC_PATHS.filter(path => path.startsWith("/tests")).length);
     expect(entries.every(entry => !/[?#]|\/result\//.test(entry.loc))).toBe(true);
-    expect(entries.filter(entry => entry.loc.includes("/results/")).every(entry => /^https:\/\/fermatmind\.com\/(?:en|zh)\/tests\/(?:play|explore)\/[^/]+\/results\/[^/]+$/.test(entry.loc))).toBe(true);
+    expect(entries.filter(entry => entry.loc.includes("/results/")).every(entry => /^https:\/\/fermatmind\.com\/(?:en|zh|zh-TW)\/tests\/(?:play|explore)\/[^/]+\/results\/[^/]+$/.test(entry.loc))).toBe(true);
   });
 
   it("keeps questions out of the hub and uses existing consent-filtered tracking with a stable public product key", () => {

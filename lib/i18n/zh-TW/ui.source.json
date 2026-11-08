@@ -1,0 +1,23 @@
+{
+  "brand": {"zh":"费马测试","en":"FermatMind"},
+  "hub": {"zh":"繁体中文测评","en":"Traditional Chinese assessments"},
+  "available": {"zh":"目前提供吉伊卡哇完整测评与六份角色指南。其他页面尚未提供繁体版本，可使用明确标注的简体中文或英文入口。","en":"The Chiikawa quiz and six complete character guides are available."},
+  "start": {"zh":"开始测试","en":"Start test"},
+  "next": {"zh":"下一题","en":"Next"},
+  "back": {"zh":"上一题","en":"Back"},
+  "submit": {"zh":"查看结果","en":"See results"},
+  "choose": {"zh":"请选择一项再继续。","en":"Choose an option to continue."},
+  "retake": {"zh":"重新测试","en":"Retake test"},
+  "copy": {"zh":"复制结果与链接","en":"Copy result and link"},
+  "manual": {"zh":"手动复制结果","en":"Copy result manually"},
+  "copied": {"zh":"已复制。","en":"Copied."},
+  "return": {"zh":"返回测评介绍","en":"Back to assessment"},
+  "counts": {"zh":"六位角色的选择次数","en":"Choice counts for six characters"},
+  "public": {"zh":"这是公开通用指南，不包含你的答案或计数。","en":"This public guide contains no private answers or counts."},
+  "privacy": {"zh":"答案仅在此页面内存中计分，不上传、不保存。刷新或离开答题页会重新开始。分享链接只包含公开指南，不包含私人答案或计数。","en":"Answers are scored in page memory only."},
+  "unavailable": {"zh":"题本暂时无法使用，请返回介绍页。","en":"The questionnaire is unavailable."},
+  "guides": {"zh":"六位角色的完整指南","en":"Six complete character guides"},
+  "guide": {"zh":"阅读完整指南","en":"Read the complete guide"},
+  "faq": {"zh":"常见问题","en":"Frequently asked questions"},
+  "resultNote": {"zh":"保留所有最高并列，不合成新角色，不推断能力或诊断。次数只描述这18题的选择，不是人群百分位。","en":"All highest ties are retained."}
+}

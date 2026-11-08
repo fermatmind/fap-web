@@ -1,0 +1,1452 @@
+{
+  "targetLocale": "zh-TW",
+  "converter": "opencc-js@1.4.2:cn:twp",
+  "glossary": "fermatmind-tw-1",
+  "sourceHashes": {
+    "lib/questionnaires/data/chiikawa.json": "87365e77fe9c08277e8eb02ec30c5f1f4f444d84e58afe04cc9dfbb8e4da0a7a",
+    "lib/questionnaires/result-content/chiikawa.json": "32308e38fdeab4de784d4c5dc30e2a5f756559b1d00fd05f36301fe2fd8b61a6",
+    "lib/i18n/zh-TW/ui.source.json": "42ed6bbf5f8430a5ed66dfa0fea0fb50fa15c7ca1023029f76c2695ec97bd476"
+  },
+  "units": {
+    "lib/questionnaires/data/chiikawa.json/title": {
+      "sourceHash": "7febe305b6145525babb5b65b3aa7f0fc693a2fb3b8583e4e92e9a110d5fcf9e",
+      "text": "吉伊卡哇角色測試"
+    },
+    "lib/questionnaires/data/chiikawa.json/resultHeading": {
+      "sourceHash": "f7bffcef7fd9aeaa2eff487949bedc59a725c02490747d72d71283949684c005",
+      "text": "你的吉伊卡哇角色匹配"
+    },
+    "lib/questionnaires/data/chiikawa.json/description": {
+      "sourceHash": "171061e0d1129f729ae840334b044727a3afbbadb03ab1fa1e6a2c42ab028ebc",
+      "text": "你像吉伊卡哇、小八還是兔兔？免費回答18道日常情境題，比較六位角色的匹配結果，檢視角色指南，無需註冊。"
+    },
+    "lib/questionnaires/data/chiikawa.json/seoTitle": {
+      "sourceHash": "7f5d03c867bd1b3f2f12ec7e0343b92b9209926e917f98bc5c9cbccb31db667c",
+      "text": "吉伊卡哇測試：你是哪位角色？免費18題"
+    },
+    "lib/questionnaires/data/chiikawa.json/introduction": {
+      "sourceHash": "2aa9eadf42674b04402aa64fcfacc5e4186c7a59e26b47c96bb25e204e402475",
+      "text": "回答18道日常情境題，看看你的選擇更接近吉伊卡哇、小八、兔兔、小桃、栗子饅頭還是海獺。開測前也可以先瀏覽六份角色指南。答完後會顯示六位角色各自的選擇次數，最高並列的角色會一起保留。\n\n題目取自日常生活，不考漫畫或動畫劇情。這是同人測試，借角色來理解你在這些場景中的選擇。"
+    },
+    "lib/questionnaires/data/chiikawa.json/instructions": {
+      "sourceHash": "636783e22b6609bed03468ee127e8d5d045b2d9d7310fcbf1256bffd3453dbce",
+      "text": "請按近期普通小事中的實際選擇作答。每題從四種做法中選較接近自己的一項；幾項都合適時選相對更自然的，沒有完全合適時選較接近的。情境中的參與、分享與嘗試均以自願為前提，無需模仿角色或提供私人經歷。完成18題後，你會看到六位角色的選擇次數和所有最高匹配。離開答題頁或重新整理會重新開始。"
+    },
+    "lib/questionnaires/data/chiikawa.json/directions/0/title": {
+      "sourceHash": "446a70ddba4039dbb5ad86309e783812fbc002cfc1450eb841a236f1a0d05d24",
+      "text": "吉伊卡哇：慢一點也參與"
+    },
+    "lib/questionnaires/data/chiikawa.json/directions/1/title": {
+      "sourceHash": "9d3188257b2209cf041c726ed2a048b2fd7ecedc041e3f96ca9c7938556f847a",
+      "text": "小八：把話一起說明白"
+    },
+    "lib/questionnaires/data/chiikawa.json/directions/2/title": {
+      "sourceHash": "d23942e18c393bcf834e79085ae3fc8b5e43ee0feb3b2d0959c0958a0a1039e5",
+      "text": "兔兔：出其不意的小玩法"
+    },
+    "lib/questionnaires/data/chiikawa.json/directions/3/title": {
+      "sourceHash": "70065b69eb1293ad41afaa8068dd2d32f9b77224315fa6a564112d8bead0d653",
+      "text": "小桃：讓自己的願望被看見"
+    },
+    "lib/questionnaires/data/chiikawa.json/directions/4/title": {
+      "sourceHash": "5b2f3f75a9a074399d4abc56e5372215a1f0c5b5e0a34beac44072e6c37dc159",
+      "text": "栗子饅頭：慢慢享受小舒適"
+    },
+    "lib/questionnaires/data/chiikawa.json/directions/5/title": {
+      "sourceHash": "60ac9cc2106ef3df5dc6e0feebb7844b202113c7f3b3fd5e64675ffd6e6d5056",
+      "text": "海獺：分享一項具體經驗"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/0/prompt": {
+      "sourceHash": "831d5235ef68b5f5f0733f78799658582027f27be112e45fd34a4f2d28607583",
+      "text": "來到一個可以自由參加的小聚會，你更容易怎樣安頓自己？"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/0/options/0/label": {
+      "sourceHash": "c94a20300ce72e4043ce084aa4dc311ee976cb42b44a1ce8d89201a432174419",
+      "text": "先找個舒服的位置，按自己的速度加入一小段"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/0/options/1/label": {
+      "sourceHash": "788e6489882cb2fba156073facf109418d246317ce06ee0dacd6a97dd7862ea5",
+      "text": "問問正在聊什麼，用一句話接上大家的意思"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/0/options/2/label": {
+      "sourceHash": "7b7f711ab5db882ed1a632c89c32518074c6de2adccc48dab5bc845f71b3ddc3",
+      "text": "拿身邊一個普通小物件，試出一個新玩法"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/0/options/3/label": {
+      "sourceHash": "e6466b6b05e82dd5c495c05384785ac6620698b332d25409e6e91de14e9cafde",
+      "text": "說出自己現在最想參與的一個小環節"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/1/prompt": {
+      "sourceHash": "100b0d43149273757f03d9e0ab774cb431e52c5fe1e2cc26d7bcc23b0a9593fd",
+      "text": "朋友發現一種新口味的普通點心，問你的想法，你會先？"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/1/options/0/label": {
+      "sourceHash": "c10e6db99dbe578c7642b9315225c2276c7e7f9f54133944941d57a0b9ff408b",
+      "text": "問對方怎樣描述這個味道，再說自己的感覺"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/1/options/1/label": {
+      "sourceHash": "d10eda1d3e148ab03d55fb071bf96e9ba83486c0d7dfb44357305c392fbf784a",
+      "text": "想一個好玩的形狀聯想，讓試吃多點趣味"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/1/options/2/label": {
+      "sourceHash": "1a8e3f7018bfe5779839a8d45ee1defba93b52d82cb96b61f2f1f59954a74de2",
+      "text": "明確說自己想不想嘗、想留哪一小份"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/1/options/3/label": {
+      "sourceHash": "f131ad5504849157ec84de52ae93f6d10968756a3d83427c35adae65dc4ea06c",
+      "text": "慢慢留意一口的味道，不急著給結論"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/2/prompt": {
+      "sourceHash": "e3e0a9c6e649dcee0924483858313f43914d85d145165ddd87bd609f47841d23",
+      "text": "一張可以隨意摺疊的廢紙在手邊，你更願意？"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/2/options/0/label": {
+      "sourceHash": "bca6884f2b6b6356248018c23bcd3c464d3e6b07fd72a7cd20e7ab4144ea299c",
+      "text": "折一個沒有預定用途的古怪小形狀"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/2/options/1/label": {
+      "sourceHash": "19aa14c49c51f0d915889da9590cb48d6b7658b15648b868566076069ddbd353",
+      "text": "把它做成能表達自己當下願望的小標記"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/2/options/2/label": {
+      "sourceHash": "5176d742ad8731db36609f36a7b3a17527c4a1e19b20e39b27fad3509cc92816",
+      "text": "慢慢摸摸紙面、看看顏色，享受一小會兒"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/2/options/3/label": {
+      "sourceHash": "5ccf120f06dc182a9638331cc7a81010de42852bc6c7975bc8ded09010f6792f",
+      "text": "分享自己試過的一種簡單折法，讓對方自選"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/3/prompt": {
+      "sourceHash": "efe78426ee33de1fadb4772d68ec153c75b8c5c55536869cda46f5fb73504a8e",
+      "text": "你和熟人商量怎樣度過一個短休息，你通常先表達？"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/3/options/0/label": {
+      "sourceHash": "3d0b33eeedc5672acd15bc0933f6f0a74c171f0469b4a89009cdd8e4400129ad",
+      "text": "自己今天最想要哪種休息，不讓對方猜"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/3/options/1/label": {
+      "sourceHash": "3bed6cf6cd4b18c6739146c6c291b2d4d1c144f9d33fc569828a5a5aab647dcb",
+      "text": "想找個舒服的小角落，慢慢待一會兒"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/3/options/2/label": {
+      "sourceHash": "fecf457b6bea30f340da65bc665e6811b87f627d03bf61a85ad6a9381e2e3339",
+      "text": "以前一個具體的休息安排，供這次參考"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/3/options/3/label": {
+      "sourceHash": "26d7f39e6f9c225cf6934bf8b6fe8cb738180dc2d97c5e4e411a48a8295b1d03",
+      "text": "願意先安靜待一下，再決定是否一起做點什麼"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/4/prompt": {
+      "sourceHash": "f0add90fc5fea72967fa73a81d7b61325223313a7264a92032146dedfe50df98",
+      "text": "朋友遞來一件普通小物品讓你看看，你比較自然地？"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/4/options/0/label": {
+      "sourceHash": "8d642888f301b1a3a9106cfbb3b37b16da861f7063302316abaa676fab6c7c15",
+      "text": "花一點時間感受質地與細節，不急著說用途"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/4/options/1/label": {
+      "sourceHash": "c269ad4d6046e333c7f4bcc12739a1793b14601a63af5796e42f7810751c8924",
+      "text": "說一個自己實際用過的類似辦法，不當成標準"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/4/options/2/label": {
+      "sourceHash": "4ce6daa58b535aef6891d444a39c5e3f8c5ac8a5e2eb1016ed3156e5f68e2376",
+      "text": "先仔細看一會兒，想說的時候再回應"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/4/options/3/label": {
+      "sourceHash": "3008fd778ea341f06ce6553b38070032a0ae72f611eb132292b81c159526293b",
+      "text": "問它對朋友有什麼意思，再組織自己的回應"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/5/prompt": {
+      "sourceHash": "9bb513ca0abc1a559c60948c43a2a24cae85e01406f0bdfd7b9fcd2c40183991",
+      "text": "有人第一次嘗試一件你做過的普通小事，你更傾向？"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/5/options/0/label": {
+      "sourceHash": "9ecb2d806ad06cc9eb4e195dc5c9a89da948698e7985b69496574582fb115e16",
+      "text": "先問需不需要，再分享一個親自試過的小細節"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/5/options/1/label": {
+      "sourceHash": "d3f8aeca4956e0244241c58ca0966c2d092d66b3984131c13146d66574126d8b",
+      "text": "留在附近但不催，等對方想加入或提問"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/5/options/2/label": {
+      "sourceHash": "7ac4b626751629f594b7d2e998c7aecd8ebf400c33b6a15ca15e1b814b2a3745",
+      "text": "幫忙把卡住的地方說成一個具體問題"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/5/options/3/label": {
+      "sourceHash": "59f88fc54b3b4310e9a7e381f8000ea514aa94748c8c52097f7cfb7556eedc64",
+      "text": "試一個輕鬆的不同玩法，讓過程不那麼單一"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/6/prompt": {
+      "sourceHash": "e4890be95252259717c747bc0c7f5f79ce7d615f892e7017d0c0426d804e6027",
+      "text": "你想看看一場可隨時離開的興趣展示，通常怎樣開始？"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/6/options/0/label": {
+      "sourceHash": "dbe7ce643ac5419bac4cf65e5dcd5a0ec43f8ad7b772782e1cff558104118460",
+      "text": "先從人少的一角慢慢看，再決定往哪裡走"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/6/options/1/label": {
+      "sourceHash": "feaaea18a9e84fe315019b7132aa41fec9b0f42e40367b16b88f22b92189d290",
+      "text": "找一段說明讀懂，再和願意的人聊兩句"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/6/options/2/label": {
+      "sourceHash": "de1092c09190044f5204048626a41173be85bb042dfdca1973650a8abd154c2e",
+      "text": "先看一個最奇怪的小細節，跟著興趣走"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/6/options/3/label": {
+      "sourceHash": "907525d5487f6cae3319b0990f004d826b791420b53e9598dc3ef8a3392956b6",
+      "text": "指出自己最想看的部分，商量先去那裡"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/7/prompt": {
+      "sourceHash": "89db30929e21d77da8d721edb694bad7fc3b37986eb442ebb8a850900fd26a76",
+      "text": "朋友用一個你沒聽過的詞形容普通小物件，你會？"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/7/options/0/label": {
+      "sourceHash": "2c0618f035902a1f4cf85755ea2793add52008de85c2322c4e9c1fc878def929",
+      "text": "請對方換個說法，再確認自己有沒有理解"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/7/options/1/label": {
+      "sourceHash": "3384a084b54e6d3c5e3d686c8bb162e07e771730622b44450a4f70e97040b265",
+      "text": "隨口想一個有趣的新名字，再聽真正的解釋"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/7/options/2/label": {
+      "sourceHash": "f135224c342b7e9ee91f433b269cfa5462a6470c2022f1750e8abd7c540b9c2c",
+      "text": "告訴對方自己最想知道的那一點"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/7/options/3/label": {
+      "sourceHash": "9092c792e13dc91a09f838bdd6165319849ffa19338b61fafd4e75dbb2b9f689",
+      "text": "先看看實物的樣子和觸感，不急著學名字"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/8/prompt": {
+      "sourceHash": "e409eb0890b2c3f21a701871a0fbddba39ae164ac4b7468ce7c98fe3c76fda60",
+      "text": "自己的一小塊可用空間空了出來，你更想怎麼用？"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/8/options/0/label": {
+      "sourceHash": "a775b8bc8b5bafe9bea511f8ce8aa1e29ba53249dead53340eb41dc45ceb1342",
+      "text": "擺一個和平常不同的小組合，看看效果"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/8/options/1/label": {
+      "sourceHash": "429c6e45a5ed05cf01f7ea4978cf593ce44826e06694916fbd69ee688435ad48",
+      "text": "放一件最能表達自己當前喜好的東西"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/8/options/2/label": {
+      "sourceHash": "a09532887afa89927baac584e8bf8642ea0b1ceb398836520f9de7278de6e1e7",
+      "text": "留成舒服順眼的一角，慢慢享受"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/8/options/3/label": {
+      "sourceHash": "55720e5cb91b1f191b12324baade95ae6dc93d8ad4705d54280a91f2095ce577",
+      "text": "用以前試過的一個小辦法整理，保留可改餘地"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/9/prompt": {
+      "sourceHash": "0059802abf31d931e3dffc1a3462cb1df35567ca49d970683b462fd73174a6a7",
+      "text": "一起選一個普通小紀念物時，你通常先做什麼？"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/9/options/0/label": {
+      "sourceHash": "a6461e0f7f26dd268dd605296fd8db48028b790275b998719802d42c9592347f",
+      "text": "明確說自己喜歡哪一個，接受別人選不同的"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/9/options/1/label": {
+      "sourceHash": "0bbf30b27a5b0682bc47a1d0957af1af8c2be22d6cfc1678a642d0447ea6d7e6",
+      "text": "慢慢比較看起來、摸起來的感受"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/9/options/2/label": {
+      "sourceHash": "484541e715e591c88790a8d4de12052339acc67a78c4e09c10c9173eb83850a0",
+      "text": "說說自己曾經用過類似東西的一個具體經驗"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/9/options/3/label": {
+      "sourceHash": "c2941424b302d00e11dd01b018a3be738faac8bcc0df6548229971c4b1cf2b0f",
+      "text": "先看一會兒，等自己有想法再加入選擇"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/10/prompt": {
+      "sourceHash": "6c3e719d93d69fe881f1d6d4c60ca95b3f76000ee7a8598d618076587d108906",
+      "text": "一段沒有任務要求的空閒裡，你更想？"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/10/options/0/label": {
+      "sourceHash": "8dea13a1b91b69af4cea21b2463b23c3d1c62a8caad6a6939739bb3eb37b6bab",
+      "text": "享受身邊一個小舒服，不把時間填滿"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/10/options/1/label": {
+      "sourceHash": "71757b64f14cc2ff9e747afcf32f8ef0e603692fd1364c0d1c116af264538613",
+      "text": "把一項自己熟悉的小方法記下來，方便以後自選"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/10/options/2/label": {
+      "sourceHash": "ac00e3d3e85c0cbe169f0d824fdea1f0201c92fa6a38d450d09b9731fe2ddead",
+      "text": "按自己的速度待著，偶爾參與一點周圍的小事"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/10/options/3/label": {
+      "sourceHash": "85e63cb040abb97267c3706f8bdc5cd9aca66cc4bfbf3dbec78a32b47efb2b54",
+      "text": "和願意的人聊聊剛才的一點發現，把意思說清"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/11/prompt": {
+      "sourceHash": "705e10f77ced1d3f03209174baa80e5803296ac85cd8b9132f417bf9ed5c7c8e",
+      "text": "熟人問某種普通材料怎樣使用，你比較會怎樣回應？"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/11/options/0/label": {
+      "sourceHash": "e971a5e4c71e24f3cf2e092aa111ab3cb1ba04edb1ed11d6f8fdcfeeec5cf3a0",
+      "text": "說明自己親自試過哪一種用法，也說清侷限"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/11/options/1/label": {
+      "sourceHash": "a00e77737275d56b070b6e6b82bccc406eb2006fdd0570e54c8d6d50d229249c",
+      "text": "陪對方慢慢看，不急著替他決定"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/11/options/2/label": {
+      "sourceHash": "aac6218dcba1379c3d283e89d5fe6017aaf58c96fb77fa427ebca8ed9cc0dc26",
+      "text": "先問具體想做到什麼，再把問題拆清楚"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/11/options/3/label": {
+      "sourceHash": "ea0642650a69bbf2057ae37ddc0ed402bc50222c5ba1b7d680f147e35151c3c4",
+      "text": "提議先在許可範圍內試個不尋常的小樣"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/12/prompt": {
+      "sourceHash": "747d41ac56d73597119cbc76148f5299fdc79697c951d4023fd1665c023d2979",
+      "text": "有人邀你加入一個輕鬆的合照，你通常更接近？"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/12/options/0/label": {
+      "sourceHash": "1fd3d11a171f7ed234a288bedb58155502b6c779d78f81b5a84c80a73db8a0a0",
+      "text": "先確認自己願不願意，再按舒服的方式加入或略過"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/12/options/1/label": {
+      "sourceHash": "a1e4abeec73b69613de2dc9e706864c41f35d7d9bbea39dd42de99cfadd21aa8",
+      "text": "問清怎麼拍、是否公開，再說明自己的想法"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/12/options/2/label": {
+      "sourceHash": "0452db776b946210d4f16bd90f3690d8edda698c67402ff55cff95f742d875e5",
+      "text": "想到一個大家願意才採用的小動作"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/12/options/3/label": {
+      "sourceHash": "3646ca86e188da424adfc6041c9555d15ad9fd959eb88ebef23d59f5c71ecc1f",
+      "text": "提出自己喜歡的站位或表達方式，允許別人不同"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/13/prompt": {
+      "sourceHash": "2232caaa8f0fd62c21bfdde5cb4422f5ee78a9c374f10a954f3c6acdc64d861d",
+      "text": "你想跟別人分享一件很小的開心事，會更容易？"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/13/options/0/label": {
+      "sourceHash": "7d10a7c3958eafc41998d9e074d90d89be5dcd90f542cc0f1080abf7bbcad9d7",
+      "text": "把來龍去脈用自己的話說明白"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/13/options/1/label": {
+      "sourceHash": "e11c9b4cf4bd5ba72ce2f661b579129cc6fb18d44c06d52f769d1dc12248a5c4",
+      "text": "用一個輕鬆的比喻或動作表達趣味"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/13/options/2/label": {
+      "sourceHash": "dd00a115358474e781ad5289d7be550fd8e3bf728be4a6960985f40c5694eca4",
+      "text": "直接說自己希望對方留意哪一小處"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/13/options/3/label": {
+      "sourceHash": "20095568502e02db0f70c4e391e8fbea6b6cc67573df6c60be8a1ccac66d5766",
+      "text": "慢慢回味當時舒服的感覺，不一定多說"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/14/prompt": {
+      "sourceHash": "9464ae5d7faea9eb52dc04cd0ff0480bf52ff4110fc0f7c0c302c6a71f9bb5d3",
+      "text": "一次普通活動留下幾個安全可自用的小材料，你會想？"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/14/options/0/label": {
+      "sourceHash": "c29b5c0aa2518c65a53939739fc388c8937d406a156414c38208734e27aa70a4",
+      "text": "組合出一個原本沒想到的小東西"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/14/options/1/label": {
+      "sourceHash": "78e081459262c0c14d4912b57a5b8fbf1cab3f903c04fbe59e0a9bbcdd5df874",
+      "text": "挑出自己最喜歡的一份，明確表達想保留"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/14/options/2/label": {
+      "sourceHash": "38a76da212ec0598228b0f193552c7bde5980d90939be8aecbee1ac87335411c",
+      "text": "按喜歡的觸感和顏色收在舒服的位置"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/14/options/3/label": {
+      "sourceHash": "c07995846334b06f7f372c79baf9bb9062bf5c11e1d19e1281181ac62f91069a",
+      "text": "記一條這次用材料的經驗，不要求別人照做"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/15/prompt": {
+      "sourceHash": "7a14087ee3a0509d00d2ab6435d395845b15481e96201fd2bf39c4ea2226d910",
+      "text": "你和朋友喜歡不同的小擺設，通常怎樣繼續？"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/15/options/0/label": {
+      "sourceHash": "e6c77cddda0b498b64c37348912bd30ed903b172a53ec21f62d4af48ac8f2ab7",
+      "text": "把自己的喜好說出來，也給對方保留不同選擇"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/15/options/1/label": {
+      "sourceHash": "8b3180dbb5c843013d3f25c771402956c0950ac681629aabb4f66b425b39d04c",
+      "text": "享受各自喜歡的小細節，不急著統一"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/15/options/2/label": {
+      "sourceHash": "b8aee9cfd71e6477a8fa31b3d2b6c3fcaf9f7e3d94f684375839a36f7232ca9e",
+      "text": "說一個自己實際擺過的例子，供比較而非裁決"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/15/options/3/label": {
+      "sourceHash": "9a1bf46e8cf42ed3bb3edfeb59e7472ee70c33ef57c143dcb1ba1ea000ccd44d",
+      "text": "不急著表態，等自己準備好再說"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/16/prompt": {
+      "sourceHash": "af46b845de689a2b59fdb296b4cb9ac6eda62e47cf5e423d327270b7ba38e9ba",
+      "text": "一張普通風景照讓你停下來，你最可能先做什麼？"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/16/options/0/label": {
+      "sourceHash": "6ebac34c433cf8bd4f496cdf06ae9a649501bfe7160b09812dc26df2201e70e5",
+      "text": "慢慢看看顏色與光線，享受眼前這一小會兒"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/16/options/1/label": {
+      "sourceHash": "87276718028e2b5e8118faaccd13dc0549bcd84641db7b5b614ed98d1f3e7503",
+      "text": "說一項自己親自試過的觀察或取景辦法"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/16/options/2/label": {
+      "sourceHash": "e78938e38b70bc8cfecf44aa46e06392e1975fc1f173f4bbe3240c14de6955d0",
+      "text": "安靜看一段，願意時再加入討論"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/16/options/3/label": {
+      "sourceHash": "e1aaf6e4453bd25a9169be695f4e522e6214c45c2c8b00e302f5a8942dd219ce",
+      "text": "把自己看到的具體細節用話描述出來"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/17/prompt": {
+      "sourceHash": "81b1229b13b5a888353900c636a05ffd95eb9de09bc78b66da783756a8207e0b",
+      "text": "結束一次自己願意參加的小活動，你通常會留意？"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/17/options/0/label": {
+      "sourceHash": "5b6b13f13aeaaf0ffb61f04716bef8f4074e34c7c69f1ddba894eb3b97d5d55d",
+      "text": "有沒有一項實際經驗可在別人需要時分享"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/17/options/1/label": {
+      "sourceHash": "0965334e94f2df6587b0027fe391c4cc679aaac2b898892839bec7dd3d216af1",
+      "text": "自己參與的速度是否舒服，不必跟別人一樣"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/17/options/2/label": {
+      "sourceHash": "142dc6cee11f5ee93a3086643aec2ad8c22be9745343d6eb0f9b562e1f460ffe",
+      "text": "還有哪一點意思沒說清，願意時可以補一句"
+    },
+    "lib/questionnaires/data/chiikawa.json/questions/17/options/3/label": {
+      "sourceHash": "37a3eae7359c9c119cd95550b301213230048d808f612fe22f55e8398e458fcd",
+      "text": "有沒有一個有趣的偶然玩法，自己還想再試"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/0/title": {
+      "sourceHash": "6abc1446656b8abbb5ba10c1509abdaec6b582ae73d014d8cab3d5c4b6665e27",
+      "text": "吉伊卡哇：慢一點也參與"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/0/headline": {
+      "sourceHash": "2155b6bf0a76b9cfeb9fdd3ec08507ad8d9eab2e30f4c312753ba79ce071a165",
+      "text": "吉伊卡哇：慢一點也參與"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/0/summary": {
+      "sourceHash": "c064a3aed8a34bbd65c1f5d7881b744dfa0fc6bf9726f46762495f8a1775a854",
+      "text": "從自由參加的小展示看按自己的速度參與，含具體表達、五角色比較與反例；不把外表、害羞、哭泣或心理狀態當你的標籤。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/0/scoreReading": {
+      "sourceHash": "4057444ef12381ff34ac69a0043389ac564ad4fdcc5c1e6bd8a6b86ad2e5cabf",
+      "text": "18題全部各選一項，對應的本版角色方向加1，總數固定18。每題提供六位中的四位，全卷每位12次、每位置3次；未提供的兩位不記拒絕。所有最高計數完整保留，全選第一項會六位各3次、六份完整顯示。名單順序不設主次，不自動指定第二角色；次數不是相似度百分比、真實人格比例或成為角色的機率。差一次只是一項選擇，不證明顯著差異、某種品質消失或固定型別。可自行比較近分說明，但不補造並列、隱藏性格或混合身份。當前情境、時間和理解可能改變選擇，沒有人群常模、稀有度、科學分界或心理測量驗證。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/0/seo/title": {
+      "sourceHash": "414e46dee4758f7a2a3badb94cac3042a3ed5802a9f0ab37f89ece978e086b5d",
+      "text": "吉伊卡哇測試結果：參與速度與完整說明"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/0/seo/description": {
+      "sourceHash": "d8054a08cc4738e0a1ca825e3414c3317d39622ffda1c99e23d2a0750cf58ca1",
+      "text": "從一場可自由參加的小展示看參與速度，含表達、五角色比較與停止空間；不把害羞、哭泣、外表或心理狀況當你的標籤。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/0/sections/0/title": {
+      "sourceHash": "e2c0310989371e264e388eb54898eeb1bbe91a7341fa0d0d5cc2ec0bf80afc41",
+      "text": "人物基礎與本版讀法"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/0/sections/0/paragraphs/0": {
+      "sourceHash": "d674361f97fc05388274f6557c20a8063012af75adda1fc484cca6e5d73cc010",
+      "text": "官方人物介紹中的吉伊卡哇有溫柔、謹慎的一面，作品也包含困難的日常。本站只借“慢一點也可以參與”作同人讀法，不把整個人物定成膽小，也不把溫柔當作必須忍讓。人物外形與表達方式屬於作品設定，不決定答題者的物種、性別、年齡或需要別人怎樣照顧。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/0/sections/1/title": {
+      "sourceHash": "c9dcda6983926d1d2e0422522b42be7740e57901be75d009633b562fcb7d2300",
+      "text": "計數對應哪些當前選擇"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/0/sections/1/paragraphs/0": {
+      "sourceHash": "3c020734c9efb144010353718ff68ac6b19a9f31e808243d7a2860217ee7d7f3",
+      "text": "若次數最高，本次較常選擇先看一會兒、從舒服的位置加入，或等自己準備好再表達。可以問：什麼部分想參加，怎樣的速度更符合意願，現在是否想說話？原始次數不判斷勇氣、脆弱、內向、抗壓或焦慮；少選也可能只是對眼前活動很熟悉，不說明粗心、冷漠或不懂照顧自己。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/0/sections/2/title": {
+      "sourceHash": "cb5a19ba8940423bf0c677316cf79fb6257541fa20c9a89d990952ef1248302e",
+      "text": "一個具體普通例子"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/0/sections/2/paragraphs/0": {
+      "sourceHash": "d211961ab211d55b9d763f4f575f810aa7b677b47e16396f69f1c3272d3a874c",
+      "text": "例如，你想看看一個可自由離開的小展示，可以先在邊緣看一件物品，再決定要不要和別人聊。看完一件就離開也算一次自己選擇的參與，而不是失敗或需要補考的社交。若有明確入場時間、擁擠或安全條件，需要另外核實；例子不要求強行突破，也不保證慢看會帶來某種改變。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/0/sections/3/title": {
+      "sourceHash": "70857c5ead6c3b435361694db159519288443b342cc557ea1e2123d4d6e53965",
+      "text": "一句可用的表達"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/0/sections/3/paragraphs/0": {
+      "sourceHash": "24d7fdc180d1b2ab8370badd395b912e87ef10dd2b0709cad61eb7d3e18915e0",
+      "text": "可以說：“我想先慢慢看一會兒，願意時再加入，你不用一直等我。”如果是共同安排，再確認別人能否按自己的方式繼續。給自己留速度，也給對方留不陪同的空間；這不是要求所有人遷就，更不意味著你必須始終柔軟、安靜或讓別人決定。願意直接參與或說不，也都可以。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/0/sections/4/title": {
+      "sourceHash": "65dbed351f2363cb9ef45e037544c25bb496d8028000367961ec0767f1b25182",
+      "text": "與其他五位角色比較"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/0/sections/4/paragraphs/0": {
+      "sourceHash": "c253c6e8164e52001351773d002613b39d2530abb72067415be373b14a1e27be",
+      "text": "吉伊卡哇讀法偏參與速度，小八偏把意思說清，兔兔偏出其不意的玩法；慢看也可以邊說邊玩。小桃偏讓願望可見，栗子饅頭偏享受具體舒適，海獺偏分享試過的一點經驗。這裡沒有主角優先、勇敢等級或誰更值得喜歡，最高並列也不規定你得按名單順序表現。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/0/sections/5/title": {
+      "sourceHash": "e678c05bbc1edc4461fd7d2da3163590989ffd1e93ea6ca158f3d31c6a469bf1",
+      "text": "反例與不能推斷的現實情況"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/0/sections/5/paragraphs/0": {
+      "sourceHash": "b56e57ae3962192fe00fd026b5f833e9fafad67e1153ff202a1f6316a73c47e0",
+      "text": "反例是，先觀察可能因為光線、語言、疲勞或不熟悉規則，而不是一種穩定偏好；快參與同樣可以很細心。本版不從選擇判斷焦慮、社交困難、依戀、神經型別、健康或成長經歷，也不把哭泣當成評分題。真實不適需要具體理解，不由一個可愛角色代替說明或決定你必須怎樣面對。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/0/sections/6/title": {
+      "sourceHash": "86e98402a9c4447adfed43ffd3f2d99f44d744a16e6ae66c9bed06214ed57f08",
+      "text": "可選的小觀察"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/0/sections/6/paragraphs/0": {
+      "sourceHash": "3dc5d5dd206caadd0d70f86c45704254407001f5a0b20aef446359bada4f3f36",
+      "text": "可選觀察：為一件本來就想看的低風險小事，想一個可以少量參與、也能離開的方式，不必真的去做。看看這種安排是否符合當前意願，不用按待了多久、講了幾句給勇氣打分。也可以直接略過；測試不要求你證明“雖然害怕仍然堅持”，更不把停止看成不夠像吉伊卡哇。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/0/sections/7/title": {
+      "sourceHash": "3deab2ff13fef14e1406f4ca955e04493ea8e40a728b0bd2b56346df3ccf887c",
+      "text": "18題計數與全部最高並列"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/0/sections/7/paragraphs/0": {
+      "sourceHash": "a41430b2e7e38b65af469b7387b06ded78967d9ee85e8b9a89bf7dcd433549d8",
+      "text": "18題全部各選一項，對應的本版角色方向加1，總數固定18。每題提供六位中的四位，全卷每位12次、每位置3次；未提供的兩位不記拒絕。所有最高計數完整保留，全選第一項會六位各3次、六份完整顯示。名單順序不設主次，不自動指定第二角色；次數不是相似度百分比、真實人格比例或成為角色的機率。差一次只是一項選擇，不證明顯著差異、某種品質消失或固定型別。可自行比較近分說明，但不補造並列、隱藏性格或混合身份。當前情境、時間和理解可能改變選擇，沒有人群常模、稀有度、科學分界或心理測量驗證。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/0/sections/8/title": {
+      "sourceHash": "02507b0267d262899200561ba30b231acfd49bfbb7a9f1cfd374a14e8019bafa",
+      "text": "非官方原創版本與來源邊界"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/0/sections/8/paragraphs/0": {
+      "sourceHash": "b0888ad645746737f5510205548b4b657a4232dae44ffd62f7139dcb188b2a22",
+      "text": "這是費馬獨立創作的非官方同人問卷，以六位吉伊卡哇角色作當前普通選擇的有限閱讀角度。官方人物頁與授權遊戲中文頁只核人物基礎和名字，不驗證本站題目、對映、計數或心理解釋；本站與原作者、製作方、授權方和遊戲運營方無合作或認可關係，作品和角色權利歸相應權利人。18題、選項、解釋、例子與規則原創，未採用IDR30題、競品正文或演算法、漫畫臺詞、動畫字幕、截圖、立繪、遊戲素材或其他受保護內容。它不是全作品、全形色或完整人格結論，不推斷動物分類、性別、年齡、疾病、焦慮、神經型別、天賦、道德、關係或職業，不模仿飲酒、戰鬥、索取或傷害，不把可愛作為繞過同意的理由，也不換算MBTI、心理自我狀態或其他角色測驗。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/1/title": {
+      "sourceHash": "a26309db17311ed54cdf00ca327b5d9f988433b8f082f551d468f0bb5405461f",
+      "text": "小八：把話一起說明白"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/1/headline": {
+      "sourceHash": "3c8ede46029c63f209ec6426dbbb2b6e55213f64ad1b3c20a07cc947c5cee1bb",
+      "text": "小八：把話一起說明白"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/1/summary": {
+      "sourceHash": "28cdfa781fafc5a6cd003da482370e258591aab01d32d71a382bf4f780ea18a3",
+      "text": "通過一個普通物件的名稱看共同說明與確認理解，含表達、五角色比較和反例；不認證口才、樂觀、聰明或調解能力。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/1/scoreReading": {
+      "sourceHash": "ef1d914e0c0cf3cbe52843743b95280e5659bbb9de9ca4d281ae9a2befccf0e2",
+      "text": "18題全部各選一項，對應的本版角色方向加1，總數固定18。每題提供六位中的四位，全卷每位12次、每位置3次；未提供的兩位不記拒絕。所有最高計數完整保留，全選第一項會六位各3次、六份完整顯示。名單順序不設主次，不自動指定第二角色；次數不是相似度百分比、真實人格比例或成為角色的機率。差一次只是一項選擇，不證明顯著差異、某種品質消失或固定型別。可自行比較近分說明，但不補造並列、隱藏性格或混合身份。當前情境、時間和理解可能改變選擇，沒有人群常模、稀有度、科學分界或心理測量驗證。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/1/seo/title": {
+      "sourceHash": "5d99a360705bd2009d2ca0bbd48409c9cbe71bd1f1a599d368e6e1cb1a80df47",
+      "text": "小八測試結果：共同說明、例子與完整指南"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/1/seo/description": {
+      "sourceHash": "1bdfb7664c0018fc8414539a3378f6349dbc3151be7d7d5ed1b1c955a99d885f",
+      "text": "用一個普通物件的名字理解共同說明與確認意思，含表達和五角色比較；不認證口才、樂觀、聰明或調解能力。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/1/sections/0/title": {
+      "sourceHash": "113c08bb9b92d2a9cfd5dc6c026a64a99e93dce9e0340d54fb0bc4fce454d2b8",
+      "text": "人物基礎與本版讀法"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/1/sections/0/paragraphs/0": {
+      "sourceHash": "46630bc1359f6707f3356611399f89e3b6a1f9c3cb4329dd3caee2948de7c48b",
+      "text": "小八（Hachiware）是吉伊卡哇的朋友。本站借“把眼前意思一起說出來”作同人讀法，不把角色化成永遠積極或代替大家發言的人。官方英文人物頁也提醒，類似貓的外表不等於確定的動物分類；中文常用名字在這裡用於認出角色，不據此給人貼物種、性別或外向標籤。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/1/sections/1/title": {
+      "sourceHash": "e96c7398bdd641e4eab3b69db534e1d7504ffa85627e59330acb7de06384728a",
+      "text": "計數對應哪些當前選擇"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/1/sections/1/paragraphs/0": {
+      "sourceHash": "67ff82691159c5b68e013a6a559c3e2544c74ee52fc0fb2f73dfdad7744d3199",
+      "text": "若次數最高，本次較常選擇問一句、換個說法、描述具體細節，或確認自己是否理解了對方。可以問：現在卡在哪個詞，誰願意一起解釋，能不能暫時不知道？次數只對應這些選項，不觀察表達質量、事實正確性或傾聽效果，也不證明你應當負責替整個群體說話。少說話同樣可以有清楚的想法。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/1/sections/2/title": {
+      "sourceHash": "14b8e4a5df6661276e29093406422970f78eb8a986aad229e4f3d400c2225702",
+      "text": "一個具體普通例子"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/1/sections/2/paragraphs/0": {
+      "sourceHash": "7455e1ab602ee44167c04840c1e2625cd5815411cf9f24ded194987a17dcd4df",
+      "text": "例如，朋友用一個陌生詞形容手邊的小東西，你可以請他用用途或樣子再說一次，然後回應“我理解的是這個，對嗎？”不需要立即找到標準名稱，也可以保留不同用法。這裡共同說明的重點是確認眼前意思，不是比誰知道更多；若對方不想繼續解釋，也可以先放下話題。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/1/sections/3/title": {
+      "sourceHash": "1920204fba29b8312e01f8832d712a693e5da44ac3350831866af980ba75882d",
+      "text": "一句可用的表達"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/1/sections/3/paragraphs/0": {
+      "sourceHash": "db8cf8e5e56df006b560595d8b6270edfe6ac77cf1972d11f2e4f871c9224e9d",
+      "text": "可以說：“我想確認有沒有理解你的意思，願意換個說法嗎？現在不解釋也可以。”自己也可以承認沒聽懂，不用替別人補出未說的話。熱心說明不是代言授權，尤其涉及別人隱私、決定或承諾時，需要由本人表達或明確同意，不能因為結果像小八就替他作答。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/1/sections/4/title": {
+      "sourceHash": "630bd196dea251517d270be12e82a43aaeea60cb7ee43138bf56b99d060be180",
+      "text": "與其他五位角色比較"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/1/sections/4/paragraphs/0": {
+      "sourceHash": "35b65c4a8eede6600dbc734a3ae613cd076311992b0b3260b523e0b2579e7e42",
+      "text": "小八這一讀法偏共同說明，海獺偏分享親自試過的一項經驗；會解釋不表示經驗更多。吉伊卡哇偏參與速度，兔兔偏新玩法，小桃偏表達願望，栗子饅頭偏享受細節。同一件事可以先安靜看，再把發現說出來；這些不是六個語言能力或社交等級，也不直接換算溝通風格、MBTI或領導型別。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/1/sections/5/title": {
+      "sourceHash": "3489be641a29986b548c7a5c406b3536fdcce099b02c430760b482e0633fec08",
+      "text": "反例與不能推斷的現實情況"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/1/sections/5/paragraphs/0": {
+      "sourceHash": "fd39361fc8324046ebd95b8d3091d9d45dbeb8f7c676519334dbd46826856124",
+      "text": "反例是，多說幾句可能因為只有你熟悉那個詞，少說可能因為已經理解、不方便開口或不想參與。計數不判斷口才、樂觀、聰明、焦慮或是否總在調解，也不把現實困難解釋成角色的隱藏心理。對方說“我不想談”時，需要按字面尊重，不把自己善於解釋當成繼續追問的理由。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/1/sections/6/title": {
+      "sourceHash": "4ed7c1349b8c011ad6dc375c4509ba9d06da3bcb799080886fc7b1605451184c",
+      "text": "可選的小觀察"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/1/sections/6/paragraphs/0": {
+      "sourceHash": "f2c3a4d47d71219c83489c28a34820dce3fd90f5535714c3acc5b4de339758fe",
+      "text": "可選觀察：為眼前一件自己願意描述的普通小東西，寫一句自己的說法和一句仍不確定的地方，可以不請別人核對。看看是否喜歡用語言確認意思，不考核說得是否漂亮、有說服力或總能幫上忙。不想寫也可以停；角色匹配不要求你隨時給出積極答案或把別人的疑問都接下來。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/1/sections/7/title": {
+      "sourceHash": "253c16c1dc7b2a0d1f9fab663d86f27aee1a2693d962d3e56b30dad3fd14e8a1",
+      "text": "18題計數與全部最高並列"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/1/sections/7/paragraphs/0": {
+      "sourceHash": "f02a182eb392af993b9d8ba4bc6eca15029e5dba0fc087411551a7c0f2a1c53d",
+      "text": "18題全部各選一項，對應的本版角色方向加1，總數固定18。每題提供六位中的四位，全卷每位12次、每位置3次；未提供的兩位不記拒絕。所有最高計數完整保留，全選第一項會六位各3次、六份完整顯示。名單順序不設主次，不自動指定第二角色；次數不是相似度百分比、真實人格比例或成為角色的機率。差一次只是一項選擇，不證明顯著差異、某種品質消失或固定型別。可自行比較近分說明，但不補造並列、隱藏性格或混合身份。當前情境、時間和理解可能改變選擇，沒有人群常模、稀有度、科學分界或心理測量驗證。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/1/sections/8/title": {
+      "sourceHash": "99c3f8a57a4a67f6fe37fb33712547c88c020b105b37f6998314ec6eb168fecb",
+      "text": "非官方原創版本與來源邊界"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/1/sections/8/paragraphs/0": {
+      "sourceHash": "753efcdb69f86d4f6b9c2f11b4c8cf715f4a75bbfa43d28b6499e46316a09f48",
+      "text": "這是費馬獨立創作的非官方同人問卷，以六位吉伊卡哇角色作當前普通選擇的有限閱讀角度。官方人物頁與授權遊戲中文頁只核人物基礎和名字，不驗證本站題目、對映、計數或心理解釋；本站與原作者、製作方、授權方和遊戲運營方無合作或認可關係，作品和角色權利歸相應權利人。18題、選項、解釋、例子與規則原創，未採用IDR30題、競品正文或演算法、漫畫臺詞、動畫字幕、截圖、立繪、遊戲素材或其他受保護內容。它不是全作品、全形色或完整人格結論，不推斷動物分類、性別、年齡、疾病、焦慮、神經型別、天賦、道德、關係或職業，不模仿飲酒、戰鬥、索取或傷害，不把可愛作為繞過同意的理由，也不換算MBTI、心理自我狀態或其他角色測驗。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/2/title": {
+      "sourceHash": "a654808820fe66f209b14ef4f8e58ad23df1437cd943141400742d3b60141acc",
+      "text": "兔兔：出其不意的小玩法"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/2/headline": {
+      "sourceHash": "412ac60db0a8e5d8aff6f67116add4b0805e3e80250a4e771627121fe78dd033",
+      "text": "兔兔：出其不意的小玩法"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/2/summary": {
+      "sourceHash": "461338067a606e004a7b0925897750dd280c17fcef2664d4c90f4cfcbed5d46a",
+      "text": "從一張廢紙的小形狀看即興玩法、許可與停止空間，含五角色比較；不推斷物種、危險偏好、注意力或創造天賦。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/2/scoreReading": {
+      "sourceHash": "9b1195fd8e88957d014ca37d63423953f352d24eb3db459c78901c9a94505add",
+      "text": "18題全部各選一項，對應的本版角色方向加1，總數固定18。每題提供六位中的四位，全卷每位12次、每位置3次；未提供的兩位不記拒絕。所有最高計數完整保留，全選第一項會六位各3次、六份完整顯示。名單順序不設主次，不自動指定第二角色；次數不是相似度百分比、真實人格比例或成為角色的機率。差一次只是一項選擇，不證明顯著差異、某種品質消失或固定型別。可自行比較近分說明，但不補造並列、隱藏性格或混合身份。當前情境、時間和理解可能改變選擇，沒有人群常模、稀有度、科學分界或心理測量驗證。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/2/seo/title": {
+      "sourceHash": "53e13b41690ff7f7511c361e44e88067a0d0a080814eac792f793b13e87ad80d",
+      "text": "兔兔測試結果：意外玩法、例子與完整說明"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/2/seo/description": {
+      "sourceHash": "9f20dbe08337a2491f2824705283342311b79262c5bb3d40925ac29d62a96032",
+      "text": "用廢紙小形狀理解出其不意的玩法，保留許可、同意和停止空間；完整比較不推斷物種、危險偏好、注意力或創造天賦。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/2/sections/0/title": {
+      "sourceHash": "f201b7402895d6567e993e7c8156d354c2a23611d3b1c6fa0665ecf47a99ca26",
+      "text": "人物基礎與本版讀法"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/2/sections/0/paragraphs/0": {
+      "sourceHash": "46ca8cf958c678ac90f782066ec09a558f47febaa834afbca3c90fa1383b042f",
+      "text": "兔兔（Usagi）在官方人物介紹中有活潑、尋找樂趣的一面。本站只借“在普通小事裡玩出意外變化”的同人角度，不把整個角色說成混亂、無所畏懼或沒有想法。名字和長耳外形不決定實際物種，也不為答題者推斷性別、年齡、體力或說話方式；本版不要求模仿叫聲、討伐或冒險。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/2/sections/1/title": {
+      "sourceHash": "f7fcde4b1b864d348de5d24cbbd314e699e82875d038593aba02be085ac61c96",
+      "text": "計數對應哪些當前選擇"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/2/sections/1/paragraphs/0": {
+      "sourceHash": "524d69240db7141f787d78efd9d01e23bc4a04c2f8f56c90de0c2cad5e5d7f5d",
+      "text": "若次數最高，本次較常選擇一個奇怪的小形狀、新組合或臨時玩法。可以問：現在對哪一點新奇有興趣，材料能否自由使用，別人願不願意跟著玩？次數不證明你總是衝動、很會創新或不守規則；少選也不說明乏味。好玩的東西可以很小、安靜且只屬於自己，不需要製造驚喜給所有人。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/2/sections/2/title": {
+      "sourceHash": "4b09adf3033c3b8ac067d02d2927f9529738b16804d1e460074f155a355d139c",
+      "text": "一個具體普通例子"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/2/sections/2/paragraphs/0": {
+      "sourceHash": "572e0b61299343f31042f098e1a325b3b551bf682676b1dff4578c740bb3ad54",
+      "text": "例如，一張可以自用的廢紙讓你想到折出一個沒有用途的小形狀，可以只試一次，再拆開或收走。若想拉朋友一起，先問他願不願意，不直接折他的便條或改他的東西。這個例子保留偶然發現的趣味，不以成品實用、別人發笑或是否完成來認證創造力，也不把原本普通活動推成比賽。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/2/sections/3/title": {
+      "sourceHash": "d572faf074bd3b8c30621682c2092e8701fb96e7dabe6e6f2f4482394d8a445d",
+      "text": "一句可用的表達"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/2/sections/3/paragraphs/0": {
+      "sourceHash": "8512f9b6cfa839c980da3cf8dd1b267837db4a950736bb7bb49119622deff0b9",
+      "text": "可以說：“我想到一個小玩法，先用自己的這點材料試；你想不想看都可以。”輕鬆不等於無視規則，別人不喜歡也不需要被說服接受。自己也可以按說明做、慢下來或結束，不必因為結果像兔兔就一直活躍；玩得盡興的具體邊界由實際參與者決定，角色不能替大家同意。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/2/sections/4/title": {
+      "sourceHash": "d07c47e7007b098ff732f8dd1e02a7caea00f0d8b7d97d68e2e232d2ac63f175",
+      "text": "與其他五位角色比較"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/2/sections/4/paragraphs/0": {
+      "sourceHash": "3a2459506f10eae9c994cb0688ce867e37f5ee4d8fb3ea9a2b7a15170b22f0b6",
+      "text": "兔兔這一讀法偏玩法的新奇，小桃偏讓個人願望可見：想玩不同的東西不一定在尋求關注。吉伊卡哇偏參與速度，小八偏把話說清，栗子饅頭偏小舒適，海獺偏具體經驗。新奇可以與細心、安靜或說明並存，沒有誰更自由、聰明或強壯，也不把一次選擇換算成神經型別或其他動漫角色。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/2/sections/5/title": {
+      "sourceHash": "08d6d0dc4e2070ef57f75cd251d05de84570786f99d3e2a5276a25d82a76c444",
+      "text": "反例與不能推斷的現實情況"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/2/sections/5/paragraphs/0": {
+      "sourceHash": "9833beb4a95697b5cdda5596ae402bd9d659eb36608e2a2c9bf28204b4da964f",
+      "text": "反例是，臨時換玩法可能因為材料不夠、沒聽懂或原計劃不可行，不表示穩定偏好；照常做也能有很多樂趣。本版不測注意力、衝動、風險承受、戰鬥能力或情緒，也不把劇中危險當作勇氣訓練。真有安全、許可或他人權利問題時，先按現實條件處理，不能拿角色的活躍為自己辯解。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/2/sections/6/title": {
+      "sourceHash": "53aa0a51621068cbf1d4cc6ce8eb23b1f3463c4e011c41b384d07c7222e39d7c",
+      "text": "可選的小觀察"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/2/sections/6/paragraphs/0": {
+      "sourceHash": "dc3b6318130380c3762ae8248db0d1ff458fc44b16f414582bd5bfca12569d6d",
+      "text": "可選觀察：給一張屬於自己的廢紙想一個可撤回的小變化，也可以只想、不動手或略過。注意自己喜不喜歡意外出現的形狀，不以速度、怪異程度或他人反應評分。無需追求更大膽、更厲害的玩法；不想繼續時結束，這個問卷不要求你證明自己一直有活力或保持角色式的無所畏懼。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/2/sections/7/title": {
+      "sourceHash": "e37b3758ea802006ef2fb16eb6345e208c5db39201366578a15d0887cc5d5885",
+      "text": "18題計數與全部最高並列"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/2/sections/7/paragraphs/0": {
+      "sourceHash": "058d88d17a7e7f4909f93837a048a25bedef0c348200bf42d28c5660d8449ed2",
+      "text": "18題全部各選一項，對應的本版角色方向加1，總數固定18。每題提供六位中的四位，全卷每位12次、每位置3次；未提供的兩位不記拒絕。所有最高計數完整保留，全選第一項會六位各3次、六份完整顯示。名單順序不設主次，不自動指定第二角色；次數不是相似度百分比、真實人格比例或成為角色的機率。差一次只是一項選擇，不證明顯著差異、某種品質消失或固定型別。可自行比較近分說明，但不補造並列、隱藏性格或混合身份。當前情境、時間和理解可能改變選擇，沒有人群常模、稀有度、科學分界或心理測量驗證。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/2/sections/8/title": {
+      "sourceHash": "802bf009324b70b9e89c5ed36e81172f78a6861ee6b4ec5cc09980f982f95f98",
+      "text": "非官方原創版本與來源邊界"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/2/sections/8/paragraphs/0": {
+      "sourceHash": "be0d6d4076d46fa67bfe3f4295af797a9409e07b86657c93bc2e4d3c4406448d",
+      "text": "這是費馬獨立創作的非官方同人問卷，以六位吉伊卡哇角色作當前普通選擇的有限閱讀角度。官方人物頁與授權遊戲中文頁只核人物基礎和名字，不驗證本站題目、對映、計數或心理解釋；本站與原作者、製作方、授權方和遊戲運營方無合作或認可關係，作品和角色權利歸相應權利人。18題、選項、解釋、例子與規則原創，未採用IDR30題、競品正文或演算法、漫畫臺詞、動畫字幕、截圖、立繪、遊戲素材或其他受保護內容。它不是全作品、全形色或完整人格結論，不推斷動物分類、性別、年齡、疾病、焦慮、神經型別、天賦、道德、關係或職業，不模仿飲酒、戰鬥、索取或傷害，不把可愛作為繞過同意的理由，也不換算MBTI、心理自我狀態或其他角色測驗。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/3/title": {
+      "sourceHash": "7cbbd60ba50c41ed56bcbf086df4d564221a0292ebefd901398c8b4b187de0c0",
+      "text": "小桃：讓自己的願望被看見"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/3/headline": {
+      "sourceHash": "9282d975460875fe8378e87061fc8cc06e13cd225890e55443aeeb519c5d520f",
+      "text": "小桃：讓自己的願望被看見"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/3/summary": {
+      "sourceHash": "b7571429eb830c45d16d6acb804a009946b7272a165ec0641f7c4f81d9faa39f",
+      "text": "通過共同選擇小紀念物理解直接表達願望與接受不同回應，含五角色比較；不把可愛、索取、操控或隱藏心理當你的身份。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/3/scoreReading": {
+      "sourceHash": "a791a15a80c75342cb0bcbe35b527c6bdb8e727955c6e74b51ec8fa6801b1beb",
+      "text": "18題全部各選一項，對應的本版角色方向加1，總數固定18。每題提供六位中的四位，全卷每位12次、每位置3次；未提供的兩位不記拒絕。所有最高計數完整保留，全選第一項會六位各3次、六份完整顯示。名單順序不設主次，不自動指定第二角色；次數不是相似度百分比、真實人格比例或成為角色的機率。差一次只是一項選擇，不證明顯著差異、某種品質消失或固定型別。可自行比較近分說明，但不補造並列、隱藏性格或混合身份。當前情境、時間和理解可能改變選擇，沒有人群常模、稀有度、科學分界或心理測量驗證。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/3/seo/title": {
+      "sourceHash": "26d43b06a391e907bdda7d34ef59344463e4bc3c00f47d51d327508e0c921d38",
+      "text": "小桃測試結果：願望表達、例子與完整說明"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/3/seo/description": {
+      "sourceHash": "b46231674f7437c3dacf81c2a9897a5a3f24623933a824ea57de4ef7cad0e4d3",
+      "text": "從共同選擇小紀念物看願望表達與接受不同回應，含五角色比較；不把可愛、索取、操控、孤獨或隱藏心理當你的身份。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/3/sections/0/title": {
+      "sourceHash": "5cc4642678f63f1b9995f48cd8f6ccd173c64ae835efe6e01cef79c603ed860a",
+      "text": "人物基礎與本版讀法"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/3/sections/0/paragraphs/0": {
+      "sourceHash": "d294624f098e606650767451de871d0938959f05fe6a91eeb58fd5e56739afce",
+      "text": "小桃（Momonga）在作品基礎介紹中很在意表現可愛，也會提出不合理要求。本站選取的是“讓自己的願望可見”這一有限閱讀角度，同時保留要求可能越界的區別，不把索取或操控說成優點。角色的外形、故事身份和行為不直接屬於你，也不因為匹配這個名字就判斷你自私或值得被討厭。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/3/sections/1/title": {
+      "sourceHash": "13409bbcba724be8ed514a072b223116fe5aa870461a259310e2689666ad02bd",
+      "text": "計數對應哪些當前選擇"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/3/sections/1/paragraphs/0": {
+      "sourceHash": "b1f724eb369277ba7f9a5762b25f8e149532774e8a5f3ef977d8ddb0e31bab46",
+      "text": "若次數最高，本次較常選擇直接說出想看、想留或希望別人注意的具體一處。可以問：自己到底想要什麼，是提出請求還是已經預設別人答應，能不能接受不同回應？計數不檢驗表達效果、受歡迎程度或動機，也不證明你需要關注。少選可能是當時沒有偏好、不方便說或不願分享，並不等於更無私。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/3/sections/2/title": {
+      "sourceHash": "00cc36626b01c8e484ed73c9b0e7b7cef20c35b32b21209c92abedac6d4f92d5",
+      "text": "一個具體普通例子"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/3/sections/2/paragraphs/0": {
+      "sourceHash": "151715a598f307ef1c78c72d3ea5ed7cdf9c6239f9ff1ba26855f9790251c2ea",
+      "text": "例如，一起選普通小紀念物時，你可以說“我喜歡這個藍色的，想留這一份；如果已經有人選了，我們再商量”。不需要先演成不在意，也不能擅自拿走別人已選的東西。願望被說出來，只意味著對方有機會聽見，並不保證會實現；是否有餘量、歸屬和如何分配，仍要按實際條件談清。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/3/sections/3/title": {
+      "sourceHash": "2903e6bdf9f830d0a9775502938734c86e4880f287fd8c3646023ad98d3b99ce",
+      "text": "一句可用的表達"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/3/sections/3/paragraphs/0": {
+      "sourceHash": "ffbe9477a8d3eed08c97f6fe3f2a6a15f81cb46da10514d1a18bef6b5b66af2f",
+      "text": "可以說：“這是我想要的，不過你可以說不；我不想讓你靠猜。”表達清楚不等於一定禮貌或無害，若對方拒絕、說不舒服或要求停，需要聽見並停止。不能借可愛、玩笑或角色名繞過同意，也不需要為了結果維持討喜形象；別人不承擔安慰、讚美或滿足每個願望的責任。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/3/sections/4/title": {
+      "sourceHash": "bb95b393e1ea0eb4e4b27af48089b7f6917bf9ed1935cbb725d2344a81ba0ab8",
+      "text": "與其他五位角色比較"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/3/sections/4/paragraphs/0": {
+      "sourceHash": "ba1d16d0eb7a9f75bdc0362a1ee140789289501aaef9e67d630abe9673a2ce78",
+      "text": "小桃這一讀法偏願望可見，兔兔偏玩法新奇；說出想法可以很普通，不一定尋求驚喜或表演。小八偏共同說明，吉伊卡哇偏參與速度，栗子饅頭偏享受細節，海獺偏經驗分享。六者都需要尊重實際意願，沒有“最自我”或“最善良”的排序，也不把這一名字換成自戀、依戀或其他人格分數。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/3/sections/5/title": {
+      "sourceHash": "8210ca30ee76d6267dc5ab502c43bc732c964a9772e84809ee92490c2a54ae18",
+      "text": "反例與不能推斷的現實情況"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/3/sections/5/paragraphs/0": {
+      "sourceHash": "b82009aea16c8c304154e6df5abb9cde964b8de413ad6528670235e2f7addfd3",
+      "text": "反例是，一次明確表達可能因為物品要提前預留，不是穩定偏好；沒有開口也可能只是沒有興趣。計數不識別操控、惡意、孤獨、缺愛、危險性或任何心理原因。不能拿角色當罵人標籤，也不能用“只是像小桃”免除真實越界的責任；現實行為需要按具體事實、同意和影響理解。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/3/sections/6/title": {
+      "sourceHash": "e1265d655550ddb00d4d81502953fadb4245c1c43f03808555d7a64af88b44df",
+      "text": "可選的小觀察"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/3/sections/6/paragraphs/0": {
+      "sourceHash": "7bcf88f8b8a7c940b429fa0202de62616c6f68295ddc8123381bd3fef049dec4",
+      "text": "可選觀察：給一件自己本來就想表達的小事，寫一句願望，再加一句允許對方拒絕的空間，可以不傳送。注意兩句話是否都符合自己的意思，不檢查是否得到誇獎或願望實現，也不用證明自己已經學會關係技巧。可以不做，或者決定保留隱私；測試不要求你變得更會索取或更像角色。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/3/sections/7/title": {
+      "sourceHash": "949585b9e0823285b0b1600248ad34b3b230c2271046c19194de35614f9de640",
+      "text": "18題計數與全部最高並列"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/3/sections/7/paragraphs/0": {
+      "sourceHash": "2ffe9d6ee96a5c1ddf0b97a5964ac996bbb852b5aa96c54e51ee6ecc5de8adcb",
+      "text": "18題全部各選一項，對應的本版角色方向加1，總數固定18。每題提供六位中的四位，全卷每位12次、每位置3次；未提供的兩位不記拒絕。所有最高計數完整保留，全選第一項會六位各3次、六份完整顯示。名單順序不設主次，不自動指定第二角色；次數不是相似度百分比、真實人格比例或成為角色的機率。差一次只是一項選擇，不證明顯著差異、某種品質消失或固定型別。可自行比較近分說明，但不補造並列、隱藏性格或混合身份。當前情境、時間和理解可能改變選擇，沒有人群常模、稀有度、科學分界或心理測量驗證。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/3/sections/8/title": {
+      "sourceHash": "1b52b11da8edb887b1d2d046fbf82629cbbe7ab7d1f4984b8da658eed2c7052c",
+      "text": "非官方原創版本與來源邊界"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/3/sections/8/paragraphs/0": {
+      "sourceHash": "a4cac90bdeacbe58d8bddd9558f8571ae4769f4d618ec2f4144c60df6d877af9",
+      "text": "這是費馬獨立創作的非官方同人問卷，以六位吉伊卡哇角色作當前普通選擇的有限閱讀角度。官方人物頁與授權遊戲中文頁只核人物基礎和名字，不驗證本站題目、對映、計數或心理解釋；本站與原作者、製作方、授權方和遊戲運營方無合作或認可關係，作品和角色權利歸相應權利人。18題、選項、解釋、例子與規則原創，未採用IDR30題、競品正文或演算法、漫畫臺詞、動畫字幕、截圖、立繪、遊戲素材或其他受保護內容。它不是全作品、全形色或完整人格結論，不推斷動物分類、性別、年齡、疾病、焦慮、神經型別、天賦、道德、關係或職業，不模仿飲酒、戰鬥、索取或傷害，不把可愛作為繞過同意的理由，也不換算MBTI、心理自我狀態或其他角色測驗。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/4/title": {
+      "sourceHash": "30e523f87b4e54d19a6047a4b3c56db733121585ce8c30c95a77ff2e4c4d5c0b",
+      "text": "栗子饅頭：慢慢享受小舒適"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/4/headline": {
+      "sourceHash": "62a940e40a44e2d98e2b35ad44e54bb05e680ac15a1b1746381ea5c87520727a",
+      "text": "栗子饅頭：慢慢享受小舒適"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/4/summary": {
+      "sourceHash": "070edb2c7aef9f41c5f4657d4e54d8871e86798b65cf7629256860737300933a",
+      "text": "從普通風景照與身邊物件看細節、感受與安靜共享，含五角色比較；不測飲食、飲酒、健康、成熟或情緒調節。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/4/scoreReading": {
+      "sourceHash": "c0d2aa702b9bac322a6c4031e48395864c05712d87c49feb33ed57e58279355b",
+      "text": "18題全部各選一項，對應的本版角色方向加1，總數固定18。每題提供六位中的四位，全卷每位12次、每位置3次；未提供的兩位不記拒絕。所有最高計數完整保留，全選第一項會六位各3次、六份完整顯示。名單順序不設主次，不自動指定第二角色；次數不是相似度百分比、真實人格比例或成為角色的機率。差一次只是一項選擇，不證明顯著差異、某種品質消失或固定型別。可自行比較近分說明，但不補造並列、隱藏性格或混合身份。當前情境、時間和理解可能改變選擇，沒有人群常模、稀有度、科學分界或心理測量驗證。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/4/seo/title": {
+      "sourceHash": "660c183ce0affe2f4adef5196d4a0ba22e1973e2063203cd641f1a8444c5a218",
+      "text": "栗子饅頭測試結果：小舒適、例子與完整說明"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/4/seo/description": {
+      "sourceHash": "7958a08b225edc7991362d6b258b50fc69b9661a4434175690ec54054b4a6617",
+      "text": "從風景照和普通物件看小舒適、細節與安靜共享，含表達和五角色比較；不測飲食、飲酒、健康、成熟或情緒調節。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/4/sections/0/title": {
+      "sourceHash": "a0dfd0c1bfb8a961ea844728fd1e7342bd703516ee98e1464897f1779e7c5b31",
+      "text": "人物基礎與本版讀法"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/4/sections/0/paragraphs/0": {
+      "sourceHash": "095b913b7dee1e97125c25c5a87c054f4fe98d3de5ea76fed7fdb88a5d0a7d1b",
+      "text": "栗子饅頭（Kurimanju）是作品中的角色，基礎介紹包含與朋友分享食物等日常。本站只借“慢慢享受眼前小舒適”的同人角度，不要求模仿人物飲酒，也不把作品裡的飲酒許可當現實規則。可以用光線、顏色、觸感或一個安靜角落理解這份讀法，食物與飲料都不是作答或觀察的必需品。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/4/sections/1/title": {
+      "sourceHash": "c28284d0d19973ecf09919d201ad64ca0b6db85c7f5cc3bc3fdfe6e9e7b13818",
+      "text": "計數對應哪些當前選擇"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/4/sections/1/paragraphs/0": {
+      "sourceHash": "51b28df6e32e7cdda163ef56cb9c1226104ff1644f37bde9a71cc5d0a65e20a5",
+      "text": "若次數最高，本次較常選擇慢看細節、留意感受，或不急著給眼前東西派一個用途。可以問：喜歡的是哪種具體感覺，現在想獨自待著還是一起分享？次數不觀察享受程度、放鬆效果或生活方式，也不認證成熟、穩定、幸福或會照顧別人。少選可能因為當時忙、沒興趣或條件不合，並不等於不會享受生活。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/4/sections/2/title": {
+      "sourceHash": "d5a07a37315759cdfd117a02a544735cb53f30c62eb04afe7c253c58cf321a27",
+      "text": "一個具體普通例子"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/4/sections/2/paragraphs/0": {
+      "sourceHash": "82b29ee5008432fee206bf3a14b8896279608537ea30a02f32445b738f57c34e",
+      "text": "例如，一張普通風景照讓你注意到窗邊一小片暖色，可以停下看一會兒，不一定分析拍攝方法或立刻分享。也可以移開視線、換一張或不再看；它沒有規定要感覺平靜。若同伴想一起看，可以各說喜歡的細節，也允許彼此不同，不把自己的舒適當作別人應該同樣舒服的標準。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/4/sections/3/title": {
+      "sourceHash": "b56fc8ee1599702ca808efe1e59451af6a6be2f22d68ad3518e09f6b7dbaa222",
+      "text": "一句可用的表達"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/4/sections/3/paragraphs/0": {
+      "sourceHash": "f8ee897da9432aa863264294e017cd1f0e43d3d6a868e0f06fb27e8ff8baf358",
+      "text": "可以說：“我想慢慢看這一小處，不急著做別的；你可以按自己想的方式繼續。”舒適不自動取消已答應的事，若時間或責任有變化，再談具體安排。也不需要一直安靜、懂吃或顯得老練來符合栗子饅頭的名字；表達不舒服或不想享受同一件東西，也都可以。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/4/sections/4/title": {
+      "sourceHash": "cf224bcd5fdcdaf9c83d33df2e3e4e1f47fdbb223af4a69259bff81c09c01703",
+      "text": "與其他五位角色比較"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/4/sections/4/paragraphs/0": {
+      "sourceHash": "f678190783460b784fd39653138ebd6324a383f246eb4d91e4e236d8bc2d6eab",
+      "text": "栗子饅頭這一讀法偏具體舒適，吉伊卡哇偏參與速度：慢看可以是享受，也可以是先弄清環境。小八偏共同說明，兔兔偏新玩法，小桃偏願望表達，海獺偏經驗。安靜享受不等於更成熟或更內向，熱鬧活動也可以很舒服；六種計數不形成恢復能力、情緒調節或生活質量等級。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/4/sections/5/title": {
+      "sourceHash": "d42d66843afa1549ae7aec968007cd028749a65e42bdb7a7e6c480342a46371b",
+      "text": "反例與不能推斷的現實情況"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/4/sections/5/paragraphs/0": {
+      "sourceHash": "8e35c51e94dc9be6fdf79a596ce1f96210e032a6112ac2c9ccd0cd548c18b803",
+      "text": "反例是，停下來可能因為等待、疲勞、身體條件或暫時沒有別的事，不一定是偏好。問卷不評估飲食、飲酒、依賴、健康、情緒或年齡，也不提供放鬆治療。若現實中有不適，角色名不能解釋原因或替代適當處理；本版的普通例子不要求吃喝、購買東西或模仿作品裡的習慣。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/4/sections/6/title": {
+      "sourceHash": "92a609f43751858333449593292d5ef3ca10a0097aa7fbd63664dffb7fa24bbb",
+      "text": "可選的小觀察"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/4/sections/6/paragraphs/0": {
+      "sourceHash": "762815475f257e267ebdd1fb101018fe7a7bb75d3d0a4a78c6310610aabebc6b",
+      "text": "可選觀察：在一件原本就願意看的小東西里，找一個自己喜歡的顏色或細節，不必停很久、拍照或分享。留意這種注意是否符合當前興趣，不檢查自己有沒有變平靜、被治癒或獲得更好的生活方式。可以直接略過；舒適不是必須完成的任務，也不需要在真實忙碌中強行擠出一種角色式儀式。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/4/sections/7/title": {
+      "sourceHash": "ab178989e49b9f30d715654da8cd2608b8ffcb3ef474cd69a924d1b4a46c48e6",
+      "text": "18題計數與全部最高並列"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/4/sections/7/paragraphs/0": {
+      "sourceHash": "c1308f5b2ff00e62a66568f9f96e181675e72073de71f4039d89f7d778bb80b9",
+      "text": "18題全部各選一項，對應的本版角色方向加1，總數固定18。每題提供六位中的四位，全卷每位12次、每位置3次；未提供的兩位不記拒絕。所有最高計數完整保留，全選第一項會六位各3次、六份完整顯示。名單順序不設主次，不自動指定第二角色；次數不是相似度百分比、真實人格比例或成為角色的機率。差一次只是一項選擇，不證明顯著差異、某種品質消失或固定型別。可自行比較近分說明，但不補造並列、隱藏性格或混合身份。當前情境、時間和理解可能改變選擇，沒有人群常模、稀有度、科學分界或心理測量驗證。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/4/sections/8/title": {
+      "sourceHash": "cdd10b6247a0ac166ef99c0540870ea711f069960c49c9cccfbc00545b5fea80",
+      "text": "非官方原創版本與來源邊界"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/4/sections/8/paragraphs/0": {
+      "sourceHash": "dbc9dd67e3eb9a9905116da61ee0e549f24464a917d0de1e963071754b665d6b",
+      "text": "這是費馬獨立創作的非官方同人問卷，以六位吉伊卡哇角色作當前普通選擇的有限閱讀角度。官方人物頁與授權遊戲中文頁只核人物基礎和名字，不驗證本站題目、對映、計數或心理解釋；本站與原作者、製作方、授權方和遊戲運營方無合作或認可關係，作品和角色權利歸相應權利人。18題、選項、解釋、例子與規則原創，未採用IDR30題、競品正文或演算法、漫畫臺詞、動畫字幕、截圖、立繪、遊戲素材或其他受保護內容。它不是全作品、全形色或完整人格結論，不推斷動物分類、性別、年齡、疾病、焦慮、神經型別、天賦、道德、關係或職業，不模仿飲酒、戰鬥、索取或傷害，不把可愛作為繞過同意的理由，也不換算MBTI、心理自我狀態或其他角色測驗。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/5/title": {
+      "sourceHash": "0240b42bd57152cd854117aebd188aa100273f9bc34247c49ebfcac5bdfe2eca",
+      "text": "海獺：分享一項具體經驗"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/5/headline": {
+      "sourceHash": "ed8a4796f70ad8e9c2d1a63561e07bdc31c07af496e07202bacde993d08b7bb6",
+      "text": "海獺：分享一項具體經驗"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/5/summary": {
+      "sourceHash": "c65e7675345738739829207c760eff94615b3b5f513ac18e0e9812d85bd8bf16",
+      "text": "用一種親自試過的普通材料用法理解經驗分享、許可和侷限，含五角色比較；不認證戰鬥、指導、領導、勇氣或專業能力。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/5/scoreReading": {
+      "sourceHash": "a3522eee96c595ac4baf0e1243164d8620731d3b470068f2f430cab034576559",
+      "text": "18題全部各選一項，對應的本版角色方向加1，總數固定18。每題提供六位中的四位，全卷每位12次、每位置3次；未提供的兩位不記拒絕。所有最高計數完整保留，全選第一項會六位各3次、六份完整顯示。名單順序不設主次，不自動指定第二角色；次數不是相似度百分比、真實人格比例或成為角色的機率。差一次只是一項選擇，不證明顯著差異、某種品質消失或固定型別。可自行比較近分說明，但不補造並列、隱藏性格或混合身份。當前情境、時間和理解可能改變選擇，沒有人群常模、稀有度、科學分界或心理測量驗證。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/5/seo/title": {
+      "sourceHash": "3cda3b1f26426bd7b92c3ecbb7235030f5e2ef094c8a1b9a792fd5790a7c5af6",
+      "text": "海獺測試結果：經驗分享、例子與完整說明"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/5/seo/description": {
+      "sourceHash": "1bf35fb83edcff5018e17d6221c876fe57c770d1f77f78ce6c920f656fd9b89f",
+      "text": "從一種親自試過的普通紙張用法看經驗、許可與侷限，含表達和五角色比較；不認證戰鬥、指導、領導、勇氣或專業能力。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/5/sections/0/title": {
+      "sourceHash": "437fd70c604cd25f92d0d2abae696183036f79c82bd381ee80ac059c081fef7e",
+      "text": "人物基礎與本版讀法"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/5/sections/0/paragraphs/0": {
+      "sourceHash": "b6b671be3fa001771e2c0ffdd0ff59974b4ff967c402e6563862edb77872f59f",
+      "text": "海獺（Rakko）在官方作品介紹中是有經驗的討伐角色，也有幫助朋友的一面。本站只借“在別人願意時分享一項具體經驗”的同人讀法，不測試或模仿戰鬥，不把劇情裡的排名變成答題者的勇氣、資歷或領導力。普通經驗可以很小，喜歡分享也不表示有資格指導所有事情。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/5/sections/1/title": {
+      "sourceHash": "01031bad290f42fe493e2ce6ad05709c353248456e163515356796188eabf6a3",
+      "text": "計數對應哪些當前選擇"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/5/sections/1/paragraphs/0": {
+      "sourceHash": "7c3957c4743b5a0609dd476d7bd4dbdbd1019812726f89b30bf1e92342a20a12",
+      "text": "若次數最高，本次較常選擇先問需不需要，再說一個自己實際試過的辦法和侷限。可以問：這是親自用過還是聽說過，適用條件是否不同，對方想不想參考？計數不觀察經驗是否正確、指導效果或專業水平，也不證明你更可靠。少選可能是這次沒有相關經驗，不表示自私、沒能力或不關心別人。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/5/sections/2/title": {
+      "sourceHash": "063bcfa78fcdd6a7233170401b0105edfb613dc6a8d06c1fd34dfc49598b5b31",
+      "text": "一個具體普通例子"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/5/sections/2/paragraphs/0": {
+      "sourceHash": "42eb9069a8209b8fb6032f2e117b27895d17f80ec13ffea7e15efba6190e0cf9",
+      "text": "例如，朋友問一張普通紙怎樣固定，你說自己曾用折邊暫時立起來，但只試過小張、沒有承重用途。對方可以採用、改動或不用；如果不是你熟悉的材料，就明確說不知道。經驗分享的價值在具體範圍，而不是把自己做過一次說成萬能方法，更不能將普通小例子擴成危險或專業操作指導。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/5/sections/3/title": {
+      "sourceHash": "74fbc32ae6bd3de18429c1d5cb6a208befe88296ecefcbe83b228e57fb6b2de8",
+      "text": "一句可用的表達"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/5/sections/3/paragraphs/0": {
+      "sourceHash": "c1715f779b33e15488d35469d1fbd51cfb1a5fd295d6ce7d282691514976dd06",
+      "text": "可以說：“我試過這一小種情況，你想聽聽嗎？條件不同可能不適用，決定還是由你來做。”對方拒絕就停止，不用憑經驗替他決定，也不把沒采用當不尊重。自己可以沒有答案、請別人說明或不承擔這次指導；結果像海獺，不意味著現實中必須成為大家的榜樣、保護者或全天候解答者。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/5/sections/4/title": {
+      "sourceHash": "ad60001e5fb7914f5b924beeeac91d2bc3938d7f2d28c4b5f64a4d26dba80f9a",
+      "text": "與其他五位角色比較"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/5/sections/4/paragraphs/0": {
+      "sourceHash": "6a97c3c5c8956e22cf4a75af097210932e6ad4a9235000f9722012d758e8e74e",
+      "text": "海獺這一讀法偏親自經驗，小八偏一起把意思說清；說明得清楚不等於實際試過，試過也不保證適用。吉伊卡哇偏參與速度，兔兔偏新玩法，小桃偏願望，栗子饅頭偏舒適。分享經驗可以很安靜或充滿趣味，沒有比別的角色更高階，也不換算領導力、職業興趣、專業水平或某種導師人格。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/5/sections/5/title": {
+      "sourceHash": "437e15351b50a407b961a2aa1fa2fb6b2db0c6e14a4167052c63a6e8fd0ff253",
+      "text": "反例與不能推斷的現實情況"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/5/sections/5/paragraphs/0": {
+      "sourceHash": "e6702dcf9fa867d965de4ec59a6c82a7c43774eef0cbe966a2488caf6058d773",
+      "text": "反例是，提出辦法可能因為被明確問到，而不是穩定偏好；沒有給建議也可能是尊重對方獨立處理。問卷不測專業資格、戰鬥、勇敢、善良或教導能力，不從人物武器與強弱對映現實身體。真涉及安全、健康、法律或重要決定，不能憑這個角色結果代替相應事實、資格和具體判斷。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/5/sections/6/title": {
+      "sourceHash": "874f5bd5620eed9173b2f4f13f55afe045b87397594ad0b385633089ef07d767",
+      "text": "可選的小觀察"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/5/sections/6/paragraphs/0": {
+      "sourceHash": "2840e878b3122be0036d7aa4ffcf558141799c1c5a939254f681d0264e4fc37c",
+      "text": "可選觀察：給一項自己真做過的低風險小事，寫“試過什麼”和“沒有試過什麼”各一句，可以不分享，也可以不做。留意這種說明是否符合自己的表達偏好，不按別人是否採用或成功來認證本領。經驗可以很有限，承認不知道也完整；測試不要求你不斷幫助、指導或證明自己配得上海獺的排名。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/5/sections/7/title": {
+      "sourceHash": "adb45ce0c30dcb092e5df1cc2b86a240517d416b5c20d9e871a49642e3cc9fa1",
+      "text": "18題計數與全部最高並列"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/5/sections/7/paragraphs/0": {
+      "sourceHash": "e934275958c22f65869317f8413a7e674f6ad1126c1537ee5f05191d928b2c67",
+      "text": "18題全部各選一項，對應的本版角色方向加1，總數固定18。每題提供六位中的四位，全卷每位12次、每位置3次；未提供的兩位不記拒絕。所有最高計數完整保留，全選第一項會六位各3次、六份完整顯示。名單順序不設主次，不自動指定第二角色；次數不是相似度百分比、真實人格比例或成為角色的機率。差一次只是一項選擇，不證明顯著差異、某種品質消失或固定型別。可自行比較近分說明，但不補造並列、隱藏性格或混合身份。當前情境、時間和理解可能改變選擇，沒有人群常模、稀有度、科學分界或心理測量驗證。"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/5/sections/8/title": {
+      "sourceHash": "5124430b1bf338adb67cdfbd91759704cfc4e3ea2a0a101cb35909f8fe739325",
+      "text": "非官方原創版本與來源邊界"
+    },
+    "lib/questionnaires/data/chiikawa.json/profiles/5/sections/8/paragraphs/0": {
+      "sourceHash": "d6522c41eeed1681c5889bdb5cbdec6a2df14414a991d5df424a49521ffba7a5",
+      "text": "這是費馬獨立創作的非官方同人問卷，以六位吉伊卡哇角色作當前普通選擇的有限閱讀角度。官方人物頁與授權遊戲中文頁只核人物基礎和名字，不驗證本站題目、對映、計數或心理解釋；本站與原作者、製作方、授權方和遊戲運營方無合作或認可關係，作品和角色權利歸相應權利人。18題、選項、解釋、例子與規則原創，未採用IDR30題、競品正文或演算法、漫畫臺詞、動畫字幕、截圖、立繪、遊戲素材或其他受保護內容。它不是全作品、全形色或完整人格結論，不推斷動物分類、性別、年齡、疾病、焦慮、神經型別、天賦、道德、關係或職業，不模仿飲酒、戰鬥、索取或傷害，不把可愛作為繞過同意的理由，也不換算MBTI、心理自我狀態或其他角色測驗。"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/0/title": {
+      "sourceHash": "56d45d2e3a47a9958e147fa7028986f054314e2853e2cc0eb884bdbaa1803e7f",
+      "text": "18題怎樣計分：六位角色的原始次數"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/0/paragraphs/0": {
+      "sourceHash": "b166d0a4d6150ef12606534cf9d4c6052c193040b3000802e8d04da05f7a2e81",
+      "text": "每題提供六個角色方向中的四個選項，選擇哪一項，對應方向就加1次。18題完成後六項次數之和為18。每個方向在全卷出現12次，四個選項位置各3次，因此單項範圍是0—12。某題沒有提供的兩個方向不算被拒絕，也不會扣分。"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/0/paragraphs/1": {
+      "sourceHash": "f5513dd7bd74552235fc2246b06165651fde7be63b60632121e4e410bfb603dc",
+      "text": "例如，按吉伊卡哇、小八、兔兔、小桃、栗子饅頭、海獺順序，次數為5、5、2、2、3、1，總和18，吉伊卡哇與小八共同最高，兩份完整解讀均顯示。這裡的5只表示本次選中5項，不表示五成相似、在人群中的位置或某種能力水平。"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/1/title": {
+      "sourceHash": "fcb6bc83b0ff7d39aa35f02f0bf8ab8c2b62f22a400f22682073bc6f176d39e4",
+      "text": "最高並列、近分與較低次數"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/1/paragraphs/0": {
+      "sourceHash": "5c1de2a121f7c58ff5af1cdbc8e52ecaf593a29122584023a2810b0868da7270",
+      "text": "最高次數相同的所有角色均保留，不按名單順序或選項位置挑一個。18題始終選擇第一項，會得到六位各3次的完整並列。並列是這組選擇的合法結果；列表先後不產生主角色或次角色。"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/1/paragraphs/1": {
+      "sourceHash": "bbc8eee4752e2b47b0771e28fb3faf18d207bb9f323e8fc91ba88e165c3371c7",
+      "text": "差1次意味著有一項選擇不同，本版沒有統計顯著性或近分合並閾值。可以同時閱讀相鄰指南，尋找適用場景；較低次數也不說明一種品質缺失。因為總次數固定，一個方向被選中時，其他方向在該題不會同時增加。"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/2/title": {
+      "sourceHash": "72f36ee0be77093009eeb9a60c1a05c0cbfb2e6858bba3252f889b34c842a863",
+      "text": "六份完整指南包含什麼"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/2/paragraphs/0": {
+      "sourceHash": "a6292e05e2bb23128900084cc0be5846f8ece509b825dfa21d79c18619ae9ff1",
+      "text": "每位角色都有基礎作品語境、本版讀法、日常例子、可嘗試的表達、其他五位的比較、反例、小觀察、計分與來源說明。公開指南可先閱讀，不展示任何訪客的私人答卷。完成後的並列結果逐份顯示完整內容，不需要再做其他測評解鎖。"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/2/paragraphs/1": {
+      "sourceHash": "570f09eb12c445a633c4fc678a940b77922fc91021579678d226a8b0966d80da",
+      "text": "角色名是記憶一種選擇側重的入口。例如“小八”在這裡幫助討論共同說明，“海獺”幫助討論具體經驗分享；兩者都可能出現在同一個人身上。喜歡誰、熟悉誰和本次更常選擇誰是三個不同的問題。"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/3/title": {
+      "sourceHash": "64a62f8693c0f65f5a2892f06a802650508873bcb0c83f0871a529455bb6aca3",
+      "text": "六位角色在本版中分別代表什麼"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/3/paragraphs/0": {
+      "sourceHash": "a0f00c4bad136e9a54b02cc198e5e7480904337d3d13b3a55148682ecd133a5e",
+      "text": "吉伊卡哇對應按自己的節奏參與：先安頓好，再加入一小段。小八對應共同表達：詢問怎樣描述，並核對理解。兔兔對應即興玩法：從普通物件試出沒有預定用途的新組合。這裡區分的是選擇先做什麼，而不是害羞程度、語言能力或創造天賦。"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/3/paragraphs/1": {
+      "sourceHash": "23662d191e2004d33f8a99558881c4a515be72262c640c80c80128b9cb3c967c",
+      "text": "小桃對應讓個人願望被看見：說清現在想參與什麼，同時接受不同回應。栗子饅頭對應細品小舒適：慢慢留意味道、質地或風景。海獺對應分享試過的具體經驗：說明自己的方法與適用條件，由對方決定採用與否。願望、享受與分享經驗可以相互配合，沒有優劣排序。"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/4/title": {
+      "sourceHash": "6e14c357c1778750f0269d7cb0b4e532a6736fd9cd3ffcf28d53915d9d62562a",
+      "text": "作品背景與同人解釋怎樣區分"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/4/paragraphs/0": {
+      "sourceHash": "afefdc7847ec5107e36892c9fa09472b17a7774927da11b340391f9d049f875f",
+      "text": "官方英文人物頁介紹不同角色及其關係，授權遊戲中文頁提供作品與角色名稱。[1][2] 這些資料可以核對人物語境，但沒有為本問卷給出分數、人格分類或角色與現實讀者的一一對應。本站選擇六位作有限閱讀角度，也不代表作品只包含六位。"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/4/paragraphs/1": {
+      "sourceHash": "ad2a11575a41d4b1ed9cdb9e2206325902881ed9b63fa7e16dd2bc42c9168984",
+      "text": "劇情會包含超現實衝突、不同生活條件和誇張行為，不能整套轉移到答題者身上。本站將題目放在普通自願活動裡，並以原創文字解釋；結果名不要求你模仿討伐、飲酒或索取，也不把某個角色的行為當作你的道德記錄。"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/5/title": {
+      "sourceHash": "f33bd2930377bb0260564016b05ce0945d88ee20c0531c467b3ca5125785e6a4",
+      "text": "同一張廢紙，六種不同入口"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/5/paragraphs/0": {
+      "sourceHash": "3857b297b8f700a40e2c57bdec8c426fe6e7da9b0d32dc67a2a4e76f5c37df9b",
+      "text": "在一個可以自由參加的摺紙下午，吉伊卡哇式入口是先看一會兒、再試一小步；小八式入口是一起確認“想折成什麼”；兔兔式入口是試一個意外形狀。三個入口都可能用於同一活動，區別在於此刻優先照顧節奏、共同含義還是玩法。"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/5/paragraphs/1": {
+      "sourceHash": "3dd1348b794a021b5bbc20af5a42770fc816750f7334cc54df43cffbb067640a",
+      "text": "小桃式入口是說“我想留這一小塊做標記”；栗子饅頭式入口是留意紙面與顏色；海獺式入口是說明自己試過的一種折法。說願望不等於要求別人照辦，分享經驗也不等於承擔指導職責。這個合成例子用於比較含義，不是另一道計分題。"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/6/title": {
+      "sourceHash": "446d3c5f5f927dfcecdb27f5229f72055f27af6eb7d122c946e342a4ae09aef7",
+      "text": "怎樣用例子和反例核對結果"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/6/paragraphs/0": {
+      "sourceHash": "e6d3fb1f4c0fa3c53e1961d1dd0902771cfc425797a0718b35f0aa19d609eb87",
+      "text": "選一條具體描述，分別找一次適用和一次不適用的經歷。例如你在陌生興趣小組先觀察，和熟悉朋友一起時卻直接開玩；這說明場景不同，不必把其中一種刪掉。也可區分“願意這樣做”和“最近有條件這樣做”。"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/6/paragraphs/1": {
+      "sourceHash": "3d31115d516d70898a065775722cfa992bd5d2d6d7895114f7c4c7bb0d3b1af0",
+      "text": "僅僅喜歡貓一樣的外形，不證明你更常共同說明；喜歡可愛物件，也不證明你習慣表達願望。問卷記錄的是選項選擇，不能把外貌偏好、角色喜愛或一段劇情感動補算為額外分數。"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/7/title": {
+      "sourceHash": "b0b442b81373cbbb20b8b6767a65cd232c40e184c95768db1e133bb0d1f88c8a",
+      "text": "把結果用在一次普通交流裡"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/7/paragraphs/0": {
+      "sourceHash": "be4c3af67e9404b17f7a630e7de8c7a53b45f0dbf6449261b7714423b846a87c",
+      "text": "可以選一個小行動：說清希望怎樣加入，問一句對方的意思，試一個紙上玩法，表達一個小願望，描述一處舒適細節，或詢問對方是否想聽經驗。只選與你當前活動有關的一項，不必集齊六種，也不需要購買物品或改變自己的角色。"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/7/paragraphs/1": {
+      "sourceHash": "832456dfc85542ea11aae4392f5c96d7c67c87257ffd70d6c660ed692a84cdb6",
+      "text": "例如：“我想先看一輪，再試一小段，可以嗎？”或“這個折法我試過一次，你想聽嗎？”之後看對方是否理解、是否願意參與，再調整表達。實際反饋比角色名更能判斷一次交流是否合適，拒絕或暫停也可以是有效回應。"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/8/title": {
+      "sourceHash": "8f3c3e6b7503bd24353c9575a18d7e6604f85b0cc4c4994a93b638a283fb31ec",
+      "text": "透明計分與心理測量證據"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/8/paragraphs/0": {
+      "sourceHash": "d4fdea6b88999a9beb0db844f109f84805a4a1c34d198f3bc63748fb994703b8",
+      "text": "可復算規則說明一次選擇怎樣變成計數；它不自動證明題目穩定測量某種人格。本站尚未建立本題本的信度、效度或人群常模，六個同人方向不是經過驗證的人格維度。官方人物介紹提供文化背景，也不能替代這些研究。"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/8/paragraphs/1": {
+      "sourceHash": "5a3aa527a6da4e4150d1b9a50e1b9578316426a1a1d88939b1ade1fd1a02af95",
+      "text": "因此本版不提供真實相似度、人格稀有度、心理診斷或能力評級，也不能把結果直接換成MBTI、大五或依戀風格。另一個測評的題目、構念與證據需要分別核對；本站角色結果適合輕鬆閱讀和具體交流觀察。"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/9/title": {
+      "sourceHash": "b5ec2f7f53a0b4ed50fd5ba8447a5616bfa38ed4701c9e60166226b6e9ee7bc6",
+      "text": "重測、情境與閱讀選擇"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/9/paragraphs/0": {
+      "sourceHash": "89885b018c2e6350d787bdc51c146560e8694bd21b85ce795daa56ec0f240c42",
+      "text": "重測前可以記下當時參照的是哪類普通活動，例如陌生聚會或熟悉朋友間的手作。比較時先看哪幾項次數變動，再核對題目理解和近期經歷。接近最高值的方向只需少量回答變化就可能換位，不能僅憑角色名變化推斷人格改變。"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/9/paragraphs/1": {
+      "sourceHash": "53fbadbe5be6d6a028d759311bd7126fb0e5942b3fc97cc895f133cbb4a22e98",
+      "text": "讀到不貼近的說明，可以保留這一點，再看相關反例或其他角色指南。沒有必要重複作答直到得到喜歡的角色，也不用把結果用於評價朋友、擇業或判斷關係好壞。你可以只帶走一條有用的表達，把其餘內容作為不同視角閱讀。"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/10/title": {
+      "sourceHash": "a56252db85ace06dfa267a1eccec0a0decdc7a5a58c15d18aa3ce3ea05dc3b52",
+      "text": "免費作答、臨時進度與公開分享"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/10/paragraphs/0": {
+      "sourceHash": "50c03c3aac0ee5a30c337fd67df04e7a115c666a626bf8408ccefa82b231a1f2",
+      "text": "全部18題、原始次數、所有最高並列與六份完整指南免費，無需註冊或先完成其他測評。點選開始直接進入題目，沒有額外同意步驟。約6分鐘是參考用時，閱讀快慢不影響計數；答完全部題目才生成本次結果。"
+    },
+    "lib/questionnaires/data/chiikawa.json/guide/10/paragraphs/1": {
+      "sourceHash": "e5840eb8a3b116afca72619951f1819137c8385a93620d27f817882cd49da36a",
+      "text": "答案在瀏覽器內計分，不通過計分請求上傳，也不寫入網址或分析事件。題內返回時會保留已選答案；重新整理、離開答題頁或重測都會清空本次進度。公開角色指南不包含私人答案或次數；其他使用事件依隱私與Cookie設定處理。"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/0/question": {
+      "sourceHash": "03c20f075e4290ea4c19f0337e37ebad845d5b7bd11903355c9345e2ea7a6378",
+      "text": "吉伊卡哇角色測試測什麼？"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/0/answer": {
+      "sourceHash": "a2c28d09646eb6d1f11ac9ea21e7bf0140d490c2e128977594a9d0ddcaca3e6c",
+      "text": "比較當前普通小事中的參與節奏、共同表達、即興玩法、個人願望、小舒適與經驗分享，用六位角色作有限閱讀角度。"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/1/question": {
+      "sourceHash": "94ec9fb27c079bc3f06619c2069f87c0857d901b72e182855ab30c442d4aa4c7",
+      "text": "可以得到哪六位角色？"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/1/answer": {
+      "sourceHash": "375ce8ff4c958e3ebd073ebb00a17eec656c3d88b7a183cef8c851ba9af8d03b",
+      "text": "吉伊卡哇、小八、兔兔、小桃、栗子饅頭與海獺。六位均有完整指南，所有達到最高次數的角色都會顯示；這不是全作品角色名冊。"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/2/question": {
+      "sourceHash": "ef0d6b4bb32ddca2ada2fcb4b82d92d530ed5bb3c90cdea7be30c09e34b50e1d",
+      "text": "沒有看過漫畫和動畫也能做嗎？"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/2/answer": {
+      "sourceHash": "0f8550b9298fa48c9941294f2da749901aed0c70f4435fd3e64e2cda393e58d4",
+      "text": "可以。18題都是原創日常情境，不考劇情、臺詞或角色名稱。按你在普通活動中較自然的選擇作答即可，人物背景可以之後再讀。"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/3/question": {
+      "sourceHash": "d8547e662566150da840ee987d771bac5c3ff2e26e38aac25316110c9de8e4ed",
+      "text": "小八、哈奇喵、小八貓和Hachiware是不同結果嗎？"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/3/answer": {
+      "sourceHash": "aac47cb912721b8fb6d42ed90016bb4d344daaff1bd33e72bd174bfe41fa8390",
+      "text": "本版用“小八 / Hachiware”標識同一個結果，不因中文譯名不同拆分計分。授權遊戲中文頁採用“小八貓”等名稱；本站頁面仍沿用本版固定結果標識。[2]"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/4/question": {
+      "sourceHash": "267d4ee2e06f67895c34bebe6182735f6c27e956f8e4da3fce01480d433e97bd",
+      "text": "每道題怎樣影響次數？"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/4/answer": {
+      "sourceHash": "8f2390cc26c7de84dfefb7df954b5c7a18999ae099e16aed82bcf8f05cd04bb3",
+      "text": "選中項對應方向加1，18題總數18。六個方向各出現12次，四個位置各3次，範圍0—12。未出現的兩個方向不被扣分；次數只在這份題組內部比較。"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/5/question": {
+      "sourceHash": "fb6a074c85de6b7ce788c309aaf4f9b03e7ba6f759daa653557c35a5404b96d7",
+      "text": "為什麼有多個並列角色？"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/5/answer": {
+      "sourceHash": "da4e55644a5319cc132ee24499ad29c8f1f09f0fd60ea811850b62deb3461021",
+      "text": "達到相同最高次數就完整保留。例如5、5、2、2、3、1時前兩位並列。全選第一項則六位各3次。系統不按順序、位置或隨機方式破同分。"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/6/question": {
+      "sourceHash": "d22fe506a079b62550c342ed02b3d87f7e178508a5d13e1e99ca3e550b7e8e5d",
+      "text": "差1次能證明我更像誰嗎？"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/6/answer": {
+      "sourceHash": "555f7b04d168378b681abf91149d631b80f3bb42dc220707889f87009f9edc98",
+      "text": "它只表示多選了一項，不是統計顯著性、真實相似度或能力差異。本版不自動合併近分；可以比較兩份指南在具體情境中的適用之處。"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/7/question": {
+      "sourceHash": "68a0b63c66cf8251bbecadd90c00953222808718372da1b4e4f16d4b87c0cb32",
+      "text": "結果會等於我最喜歡的角色嗎？"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/7/answer": {
+      "sourceHash": "4da45d8f9e71665be8437ceb578d295060c820d124aec10d13de0cbc300baa6e",
+      "text": "不一定。角色喜愛與18道選項中的相對選擇是不同問題。結果不會否定你的喜好，也不為你指定必須喜歡、模仿或認同的角色。"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/8/question": {
+      "sourceHash": "4e7b40d52e1f61a559d66355128685ef890eebd40d54d46925ad3c76fc486088",
+      "text": "測到小桃是否說明我自私，測到海獺是否說明我有領導力？"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/8/answer": {
+      "sourceHash": "0b3ae8a5b273f573098bca117631442d7d6ee0d434f7b27eda049a82a8768bbf",
+      "text": "都不能這樣推斷。本版小桃討論表達個人願望並接受回應，海獺討論分享具體經驗；角色劇情的行為與地位不會成為你的道德或能力評分。"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/9/question": {
+      "sourceHash": "7c8847690ab23968075c2e75c154ae7c741c4ee23446d61501b89bdb08c79cec",
+      "text": "這是官方或科學人格測驗嗎？"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/9/answer": {
+      "sourceHash": "6f1fc84256836759dbf1f8d9593c4f993768f2b41e1cbc03239ba7f3413458c8",
+      "text": "這是獨立創作的非官方同人測驗。官方資料用於人物背景，未驗證本站題目與對映；本題本尚無信度、效度與常模驗證，適合娛樂閱讀和日常自我觀察。[1][2]"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/10/question": {
+      "sourceHash": "1094f95f199054169f53860da9d366caf400cc23aeb4758a4616df1dd2f0ce89",
+      "text": "可以換算MBTI、大五或依戀風格嗎？"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/10/answer": {
+      "sourceHash": "8ce79aa173c361875c391302f8af0462a76542d3661d6af84b7bf4311da9965b",
+      "text": "不能。六個方向是本版角色讀法，不是這些測評的維度。若想進一步瞭解相關構念，應另行閱讀對應方法並回答其題目，不憑一個角色名換算。"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/11/question": {
+      "sourceHash": "6fe63e60c79888d9c5892cec7e88cd8542455fc1924f129dd5b9ac71ea812dcf",
+      "text": "怎樣把解讀用在日常？"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/11/answer": {
+      "sourceHash": "4a06773646b08a2fc874cd29bc068ff8a7a6173e81230b80dfb325bb145dfab3",
+      "text": "從一個自願小活動挑一條表達，例如說明希望怎樣加入，或先問對方是否想聽經驗。結合一次適用和一次不適用的經歷，再看實際反饋，不必扮演人物。"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/12/question": {
+      "sourceHash": "7712a8c5c95f8d090fcedb1158bab7e6c3a3ace9b7ace9cd1b0a03d33925b6c8",
+      "text": "免費嗎，點選開始後還要同意嗎？"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/12/answer": {
+      "sourceHash": "1374aaa7fd19697b9adbeace0584117f19c1ba64f85922d573ac8d7bb15d7e7a",
+      "text": "題目、計數、並列與六份完整指南均免費，無需註冊或郵箱。點選開始直接進入題目，沒有額外同意步驟。約6分鐘是預計用時，不是限時。"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/13/question": {
+      "sourceHash": "1d5f60f3620ff2bf23c20018d79aa4f5bdcdb1f67a081d9455b97dd8faad869f",
+      "text": "答案會儲存或隨分享公開嗎？"
+    },
+    "lib/questionnaires/data/chiikawa.json/faq/13/answer": {
+      "sourceHash": "a4cf963801e3b049efe56d9f69845deb2692d3bdff8f6cbb84218ab051c31b18",
+      "text": "答案在瀏覽器內計分，不進入計分上傳、網址或分析事件。本次進度僅在當前答題過程中保留，重新整理、離開或重測後會清空。公開分享指南不含私人答卷或次數，其他使用事件依隱私設定。"
+    },
+    "lib/questionnaires/data/chiikawa.json/references/0/title": {
+      "sourceHash": "367bbb09084e7cc922c45e730f43e6bd711e99780561e663bbf41c7537ad5495",
+      "text": "官方英文人物頁：基礎語境（非測驗驗證）"
+    },
+    "lib/questionnaires/data/chiikawa.json/references/1/title": {
+      "sourceHash": "dc8de17afa33342a644e6f9bd8357641eeb0aaa5a776906c5078d36e79a82368",
+      "text": "授權遊戲中文頁：作品與角色名稱"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/chiikawa/0/title": {
+      "sourceHash": "1d750e5c7b471cf15cfb0e39b122559d95f82a0ad5f44f5b0a1e17e0f237438a",
+      "text": "復盤參與節奏與退出空間"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/chiikawa/0/paragraphs/0": {
+      "sourceHash": "7d8568c497d171c0ddd4ce361926eec4f1c1613f4faa6f4b64db4bb799f80b84",
+      "text": "接著上面的想像參與方式，看看起點是否舒服、想看的部分是什麼，以及何時可以離開。只看一處也可以算這次完整選擇；若今天不想去，就保留不參加。這個記錄關注願意怎樣參與，不用說話多少或停留多久評價勇氣。"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/chiikawa/1/title": {
+      "sourceHash": "bfce48b175e45a5ad6dfab1d19d27a50fb07f33ab3388dc2c61375a85c3742d1",
+      "text": "分享一個由自己決定的參與方式"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/chiikawa/1/paragraphs/0": {
+      "sourceHash": "44f654f29485196ea663b6e9dd9d1e2ea461a4ccc0c0e53160832d8a6f289b53",
+      "text": "可以問：“假設看一個可隨時離開的小展示，你想從邊上看、直接聊，還是換個時間？”可以不同步，不要求朋友陪伴或替誰突破所謂膽小。"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/chiikawa/1/paragraphs/1": {
+      "sourceHash": "226f4393cbcbb12a9de2088bbbc38af36dd346102539d422b68eb614b1513550",
+      "text": "可以只分享公開通用說明，也可以不分享。連結不帶本次答案或計數，對方可以不回答；不用角色名替朋友下結論。"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/hachiware/0/title": {
+      "sourceHash": "4fb295573ea777309f192093eff0d95f2dbffafdefbee140f61d5580e2dab61b",
+      "text": "復盤說清的部分與仍未知的意思"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/hachiware/0/paragraphs/0": {
+      "sourceHash": "faac12a0256f9b9ce9c88c475315f3a7cf35ea8e295f8320b8b18bc88d8c61c9",
+      "text": "接著上面的物件描述，區分自己實際知道的細節、借用的名稱和仍不確定的意思。若向別人確認，只記錄對方說過的話，不補造結論。短句或保留未知都可以；這次練習不要求替大家解釋，也不以對方是否贊同評價表達能力。"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/hachiware/1/title": {
+      "sourceHash": "d43ed87f10e39b6674fe50ec3eff424d29e32f3a0e487078a6943b80edfda399",
+      "text": "分享一個可以換說法的問題"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/hachiware/1/paragraphs/0": {
+      "sourceHash": "953a6baaf19fff7f89d8fe894a5bcd556b90fb451e39b0d48bf500ee741953fa",
+      "text": "可以問：“假設一個小物件的名字不熟悉，你想先問用途、外形，還是等以後再瞭解？”可以暫不解釋，不把多說或少說當聰明、樂觀的證明。"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/hachiware/1/paragraphs/1": {
+      "sourceHash": "c492a8e16832c79001c7dcef9c270029d6de449af2f8fb84089afb1034b7c5c2",
+      "text": "可以只分享公開通用說明，也可以不分享。連結不帶本次答案或計數，對方可以不回答；不用角色名替朋友下結論。"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/usagi/0/title": {
+      "sourceHash": "e70eb2fdb32182bcdc399b966aaad6730abdc4cd663695c461eabb731c4874e0",
+      "text": "復盤意外變化與是否還想玩"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/usagi/0/paragraphs/0": {
+      "sourceHash": "2aeca724aa0baaaafe42159e730da9020c3d5670b94ee3480085c8232991d3fd",
+      "text": "接著上面的紙上變化，記下哪處意外讓自己有興趣，以及想保留、展開還是收起。無用或沒引起笑聲也不使它失敗；不想玩時可以停下。若涉及別人，先確認材料和參與意願，不把角色的活潑當成不斷逗樂或冒險的任務。"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/usagi/1/title": {
+      "sourceHash": "8f49450ad4b4b3046135738731f4fe946aa15929e0d74c5620672c3bac84e03a",
+      "text": "分享一個只用自己材料的玩法"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/usagi/1/paragraphs/0": {
+      "sourceHash": "a52208605ac510c9f1df9849c3d3b88b945f3c484918f7d441ae2fc9b4c944e5",
+      "text": "可以問：“假設自己的廢紙折出一個沒用途的形狀，你想再添一筆、展開看看，還是到這裡？”允許平常和安靜的答案，不比賽誰更怪、更大膽。"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/usagi/1/paragraphs/1": {
+      "sourceHash": "03a73f75614d43705fcc8f748e3cabe3f3292f95f5247cf08444c449a6fa97ed",
+      "text": "可以只分享公開通用說明，也可以不分享。連結不帶本次答案或計數，對方可以不回答；不用角色名替朋友下結論。"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/momonga/0/title": {
+      "sourceHash": "28bfeaf676e38912e16b7b94600a7e674e3b8a7a55564a96cf6362aa96a737be",
+      "text": "復盤願望與對方的真實答覆"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/momonga/0/paragraphs/0": {
+      "sourceHash": "c4dc86359055d71bcbdcdda92895e980260efd5259477b5ee3a5042845c85ebd",
+      "text": "接著上面的願望句，檢查它是否讓人知道具體想要什麼，也給拒絕留下位置。若已表達，記錄實際答覆，而不是把沉默當同意。沒有得到想要的東西，可以再商量或停止；角色名稱既不指控動機，也不讓任何請求自動獲得滿足。"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/momonga/1/title": {
+      "sourceHash": "c8ee6fb967b0b37f08a250cb19dca2c31ec1802e74b1580bf48c51e92418a3bd",
+      "text": "分享一個可以有不同偏好的選擇"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/momonga/1/paragraphs/0": {
+      "sourceHash": "2ecca0bc26e06f394cf55e92690a5dc1651f1a050af7807cd462317a541c0db0",
+      "text": "可以問：“假設幾張普通紀念卡里你喜歡藍色那張，你想怎樣說明，也給別人的偏好留位置？”只討論請求，不用可愛程度或誰得到卡片評價結果。"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/momonga/1/paragraphs/1": {
+      "sourceHash": "03d0628af8653a86ae11eb24c6dd3bb3a45dc7863a05ce0e7e400f69aea3907b",
+      "text": "可以只分享公開通用說明，也可以不分享。連結不帶本次答案或計數，對方可以不回答；不用角色名替朋友下結論。"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/kurimanju/0/title": {
+      "sourceHash": "3af103008441e3f1b82e78465fb23f7a2de49e1575e5c333dac07395a402eaef",
+      "text": "復盤這次喜歡的具體細節"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/kurimanju/0/paragraphs/0": {
+      "sourceHash": "3d7cf4a444aad23a9451114aa7031f90832fac70a8a7b514878022793c092ca2",
+      "text": "接著上面的顏色或光線，留下一項自己想多看一眼的細節即可，也可以不記錄。不必判斷它是否讓自己平靜，更不需要買東西或模仿人物習慣。今天沒有喜歡的細節也可以；小舒適是可選體驗，不是生活質量的成績。"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/kurimanju/1/title": {
+      "sourceHash": "5d579f5099c5650d2dc8778433297be875421778b203bbc9d4dc6749ac03cbec",
+      "text": "分享一個各自喜歡的細節"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/kurimanju/1/paragraphs/0": {
+      "sourceHash": "08649655b1e30232e6c7c40829e5a278baf6d65bdbdf8de2f043b4ecca54a2a5",
+      "text": "可以問：“假設看同一張普通風景照片，你願意多看哪一處，也可以不選？”可以各自不同，不用飲食、飲酒或放鬆效果證明像某個角色。"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/kurimanju/1/paragraphs/1": {
+      "sourceHash": "28312fbfae8e7543af8333d37db9624d45d8f5851a11b23346c8e8b6ced91820",
+      "text": "可以只分享公開通用說明，也可以不分享。連結不帶本次答案或計數，對方可以不回答；不用角色名替朋友下結論。"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/rakko/0/title": {
+      "sourceHash": "61dd6a15aa97282893b2a29d8a0cd28c1c8657535fec4a4a820da11d66b72462",
+      "text": "復盤經驗的範圍與適用條件"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/rakko/0/paragraphs/0": {
+      "sourceHash": "b5ea8428ce43148da0f7cf85f87494a818bf27f8d41d9b4044e645cc2455ba02",
+      "text": "接著上面的兩句經驗說明，核對實際試了什麼、沒試什麼，以及哪些條件可能不同。別人不採用不等於不尊重自己；沒有合適經驗也可以直接說不知道。若需要專業判斷，另找相應事實和資格，不把角色排名換算成現實指導權。"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/rakko/1/title": {
+      "sourceHash": "0621fb27ebc28381458832af1bfa111702bf9f53be7b724d4b499b77b2a79019",
+      "text": "分享一項有邊界的經驗"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/rakko/1/paragraphs/0": {
+      "sourceHash": "ece7f9087a9d398772b4329a080fcd0bf4fb34cd3c424b861f27a8734ee8966e",
+      "text": "可以問：“假設你只試過讓一小張紙暫時立住，怎樣說明它未承重、也未試其他材料？”讓對方決定是否想聽，不考驗誰更有資歷或值得追隨。"
+    },
+    "lib/questionnaires/result-content/chiikawa.json/rakko/1/paragraphs/1": {
+      "sourceHash": "7340bf592f8ba7fc4b52ffb4d2eae91306f0b2193969ed9f599e8a619293c172",
+      "text": "可以只分享公開通用說明，也可以不分享。連結不帶本次答案或計數，對方可以不回答；不用角色名替朋友下結論。"
+    },
+    "lib/i18n/zh-TW/ui.source.json/brand": {
+      "sourceHash": "face24b033b4e174ee819c87e5170bcc367e4f43b04cbed3b75268d5fdebd1ca",
+      "text": "費馬測試"
+    },
+    "lib/i18n/zh-TW/ui.source.json/hub": {
+      "sourceHash": "a2aceebb46f5c7ecf2915c260c26a76b911ab1e57144bf1a4adc57d1f6f2b508",
+      "text": "繁體中文測評"
+    },
+    "lib/i18n/zh-TW/ui.source.json/available": {
+      "sourceHash": "c708f6cd574afd6d172763695b3077de1ed4285324e968b1f49d8edb3b6bfb1a",
+      "text": "目前提供吉伊卡哇完整測評與六份角色指南。其他頁面尚未提供繁體版本，可使用明確標註的簡體中文或英文入口。"
+    },
+    "lib/i18n/zh-TW/ui.source.json/start": {
+      "sourceHash": "1360bc007fecec539172e21e8c429b3b884470ca8880e3a0f7e0566ae8638cb9",
+      "text": "開始測試"
+    },
+    "lib/i18n/zh-TW/ui.source.json/next": {
+      "sourceHash": "c1fd3f287d74c1b8e08e9aea910ffbd86053332e1223fa63b9f40938d4e5d4f2",
+      "text": "下一題"
+    },
+    "lib/i18n/zh-TW/ui.source.json/back": {
+      "sourceHash": "57c6ec61857f2bfd819c8359819ceea6b5465436ecc7b0e62435f070923c74bd",
+      "text": "上一題"
+    },
+    "lib/i18n/zh-TW/ui.source.json/submit": {
+      "sourceHash": "186a6d0482e97646b65e4fbdace1f11099fad7da12dbdd256ec74546a0c93146",
+      "text": "檢視結果"
+    },
+    "lib/i18n/zh-TW/ui.source.json/choose": {
+      "sourceHash": "afe5c2677ae0ae9ebc91e8392f43f6d261cece3e88786e7103b324c6333e31d3",
+      "text": "請選擇一項再繼續。"
+    },
+    "lib/i18n/zh-TW/ui.source.json/retake": {
+      "sourceHash": "ce6994cc956e5fdd30da70802580d976cdbf2ecf70a04a1f30c7e11bf23ae048",
+      "text": "重新測試"
+    },
+    "lib/i18n/zh-TW/ui.source.json/copy": {
+      "sourceHash": "288d541fa4b3c511d8a335622cf9fab6351e47ba4d55b151b703dc4729d0628b",
+      "text": "複製結果與連結"
+    },
+    "lib/i18n/zh-TW/ui.source.json/manual": {
+      "sourceHash": "dd672d6318aa07df7c6be3298109d161bc5de91924c5f734219952b615a3ccbe",
+      "text": "手動複製結果"
+    },
+    "lib/i18n/zh-TW/ui.source.json/copied": {
+      "sourceHash": "8fd09073c4a8b760d083b136edf1d5dca621e694b4024825098849a879c5fe20",
+      "text": "已複製。"
+    },
+    "lib/i18n/zh-TW/ui.source.json/return": {
+      "sourceHash": "c336cc81fdac609e184d3c9824eab6f4feb29070d14a67e84622f3c9f6cf83ec",
+      "text": "返回測評介紹"
+    },
+    "lib/i18n/zh-TW/ui.source.json/counts": {
+      "sourceHash": "d7ac1bd11c8b0f6162ee465ef17ea19fd6af729ddd3e9d4d71e2c562bfca0a2d",
+      "text": "六位角色的選擇次數"
+    },
+    "lib/i18n/zh-TW/ui.source.json/public": {
+      "sourceHash": "746d20e139a9fa8428b6aa54b6b995845413b44e5f35c6e8a8bef29e7f2f54c3",
+      "text": "這是公開通用指南，不包含你的答案或計數。"
+    },
+    "lib/i18n/zh-TW/ui.source.json/privacy": {
+      "sourceHash": "0fd057a3b5894d122ad58266d3548b6fe4c222cdd74a5e3c5d181998e935024e",
+      "text": "答案僅在此頁面記憶體中計分，不上傳、不儲存。重新整理或離開答題頁會重新開始。分享連結只包含公開指南，不包含私人答案或計數。"
+    },
+    "lib/i18n/zh-TW/ui.source.json/unavailable": {
+      "sourceHash": "8eea172ef032e3bd0a2d6c02acb6d8501349e470f463bf52e960fdd290fa6412",
+      "text": "題本暫時無法使用，請返回介紹頁。"
+    },
+    "lib/i18n/zh-TW/ui.source.json/guides": {
+      "sourceHash": "dbd69af912c8c650f6dda18408913bb190e54e623574e35d70467d1df187fc11",
+      "text": "六位角色的完整指南"
+    },
+    "lib/i18n/zh-TW/ui.source.json/guide": {
+      "sourceHash": "90df62a50e30713a261f2a0e4b0f3ce6592a057b49d88110db37af7253a959be",
+      "text": "閱讀完整指南"
+    },
+    "lib/i18n/zh-TW/ui.source.json/faq": {
+      "sourceHash": "9c7e9c7533917136d694f201db9aa1f0064c7d0e8b12f5dc193b123ceb8ace03",
+      "text": "常見問題"
+    },
+    "lib/i18n/zh-TW/ui.source.json/resultNote": {
+      "sourceHash": "cb9fb9bad386bcb2a7bfd60739879413947584705696340923ade2091c6b3fbe",
+      "text": "保留所有最高並列，不合成新角色，不推斷能力或診斷。次數只描述這18題的選擇，不是人群百分位。"
+    }
+  }
+}

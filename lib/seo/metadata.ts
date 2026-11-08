@@ -1,3 +1,4 @@
+import { traditionalEquivalent } from "@/lib/i18n/traditionalRoutes";
 import type { Metadata } from "next";
 import { getSiteUrlOrThrow, isConfiguredStagingSiteUrl } from "@/lib/site";
 import { shouldNoindex, type ExplicitIndexGate } from "@/lib/seo/indexingPolicy";
@@ -268,6 +269,7 @@ export function buildPageMetadata(input: BuildPageMetadataInput): Metadata {
         en: toAbsoluteUrl(alternates.en || input.alternatesByLocale.en),
         "zh-CN": toAbsoluteUrl(alternates["zh-CN"] || input.alternatesByLocale.zh),
         "x-default": toAbsoluteUrl(xDefaultPath),
+        ...(traditionalEquivalent(input.pathname) ? { "zh-TW": toAbsoluteUrl(traditionalEquivalent(input.pathname)!) } : {}),
       };
   const noindexFollow = input.noindexFollow === true;
 

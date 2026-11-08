@@ -40,3 +40,19 @@ export function toggleLocalePath(pathname: string, targetLocale: Locale): string
 export function toApiLocale(value: string | null | undefined): "en" | "zh-CN" {
   return normalizeLocale(value) === "zh" ? "zh-CN" : "en";
 }
+
+/** Display coverage is broader than the backend-owned assessment/CMS locale set. */
+export const DISPLAY_LOCALES = ["en", "zh", "zh-TW"] as const;
+export type DisplayLocale = (typeof DISPLAY_LOCALES)[number];
+export function normalizeDisplayLocale(value: string | null | undefined): DisplayLocale | null {
+  const normalized = value?.trim().toLowerCase();
+  if (normalized === "zh-tw") return "zh-TW";
+  if (normalized === "zh" || normalized === "zh-cn") return "zh";
+  if (normalized === "en") return "en";
+  return null;
+}
+
+/** A partial display locale must never silently acquire a backend form/report locale. */
+export function apiLocaleForDisplay(value: DisplayLocale): "en" | "zh-CN" | null {
+  return value === "zh-TW" ? null : value === "zh" ? "zh-CN" : "en";
+}

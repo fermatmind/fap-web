@@ -1,3 +1,4 @@
+import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
 import { isMissingFunRoute } from "@/lib/entertainment/routing";
 import { initialQuestionnaireScripts } from "@/lib/questionnaires/initialScripts";
 import type { NextRequest } from "next/server";
@@ -401,6 +402,9 @@ function isResultPageSnapshotPrintRequest(pathname: string, surface: string | nu
 function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextResponse | Promise<NextResponse> {
   const pathname = request.nextUrl.pathname;
   const strippedPath = stripLocalePrefix(pathname);
+  if (pathname === "/zh-TW" || pathname.startsWith("/zh-TW/")) {
+    if (!traditionalPath(pathname)) return createPublicAbsenceResponse(404);
+  }
   if (isPublicReadMethod(request.method) && isMissingFunRoute(pathname)) return createPublicAbsenceResponse(404);
   const isStagingHost = isStagingRequestHost(request.headers.get("host") ?? request.nextUrl.host);
 
@@ -544,7 +548,7 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
     search: request.nextUrl.search,
   });
   const suppressAnalyticsBootstrap = analyticsSuppression.suppressed;
-  const hardenPrivateResponse = Boolean(parseQuestionnaireTakePath(pathname)) || isPrivateAnalyticsSuppressedPath(pathname) || shouldNoindex(strippedPath, null);
+  const hardenPrivateResponse = (pathname.startsWith("/zh-TW/") && pathname.endsWith("/take")) || Boolean(parseQuestionnaireTakePath(pathname)) || isPrivateAnalyticsSuppressedPath(pathname) || shouldNoindex(strippedPath, null);
 
   if (suppressAnalyticsBootstrap) {
     requestHeaders.set(PRIVATE_ANALYTICS_SUPPRESSION_HEADER, "true");

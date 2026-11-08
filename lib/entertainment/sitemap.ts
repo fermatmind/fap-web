@@ -1,3 +1,4 @@
+import { TRADITIONAL_PUBLIC_PATHS } from "@/lib/i18n/traditionalRoutes";
 import catalog from "./catalog.json";
 import { globalHistoryStory } from "./directory";
 import questionnaires from "../questionnaires/catalog.json";
@@ -22,6 +23,10 @@ export function appendFunSitemapEntries(entries: PublicSitemapEntry[]): PublicSi
     const loc = `${CANONICAL_SITE_URL}/${locale}/tests/${quiz.collection}/${quiz.slug}`;
     result.set(loc, { loc, lastmod: `${quiz.updated}T00:00:00.000Z` });
     for (const profile of quiz.resultSlugs) result.set(`${loc}/results/${profile}`, { loc: `${loc}/results/${profile}`, lastmod: `${quiz.updated}T00:00:00.000Z` });
+  }
+  for (const path of TRADITIONAL_PUBLIC_PATHS) {
+    const loc = `${CANONICAL_SITE_URL}/zh-TW${path}`;
+    result.set(loc, { loc });
   }
   return [...result.values()].sort((a, b) => a.loc.localeCompare(b.loc));
 }

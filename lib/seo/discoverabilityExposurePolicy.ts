@@ -29,7 +29,7 @@ export const SHARED_DISCOVERABILITY_DENY_PATH_PATTERNS: readonly RegExp[] = [
   /^\/test\/[^/]+\/take(\/|$)/i,
 ];
 
-const LOCALE_PREFIX_RE = /^\/(en|zh)(?=\/|$)/i;
+const LOCALE_PREFIX_RE = /^\/(en|zh|zh-TW)(?=\/|$)/i;
 
 export function normalizeDiscoverabilityPath(pathname: string): string {
   const raw = String(pathname || "").trim();
