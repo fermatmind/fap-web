@@ -14,6 +14,8 @@ import { PortraitResultLead, portraitResultLeadKind } from "./PortraitResultLead
 import { ChiikawaPortrait } from "./ChiikawaPortrait";
 import { EdgerunnersPortrait } from "./EdgerunnersPortrait";
 import { SpaceMarineChapterReveal } from "./SpaceMarineChapterReveal";
+import { FantasyArchetypeReport } from "./FantasyArchetypeReport";
+import { hasFantasyArtwork } from "./FantasyRoster";
 
 const comparisonFirst = new Set(["moon-phase", "bleach", "cyberpunk-edgerunners", "chiikawa", "south-park", "space-marine-chapter", "dexter", "dungeons-dragons-class", "blue-lock", "naruto-character", "gilmore-girls", "philosopher-personality-test"]);
 const chartAfterLead = new Set(["anime-character-archetype-test", "spirit-animal", "tsundere-dere-type"]);
@@ -47,6 +49,7 @@ function previewSections(profile: QuestionnaireProfile) {
 }
 
 export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId, answers }: { quiz: Questionnaire; result: Extract<ArchetypeResult, { status: "complete" }>; locale: Locale; sampleId?: string; answers?: QuestionnaireAnswers }) {
+  if (hasFantasyArtwork(quiz.slug)) return <FantasyArchetypeReport quiz={quiz} result={result} locale={locale} answers={answers} />;
   if (quiz.slug === "philosopher-personality-test" && !sampleId) return <PhilosopherReport quiz={quiz} result={result} locale={locale} />;
   const zh = locale === "zh";
   const lead = portraitResultLeadKind(quiz.slug);

@@ -1,6 +1,7 @@
 import type { Questionnaire } from "./types";
 
 const loaders = {
+  "soldier-poet-king-quiz": async () => (await import("./data/soldier-poet-king-quiz.json")).default as Questionnaire,
   "unfamiliar-experiences-reflection": async () => (await import("./data/unfamiliar-experiences-reflection.json")).default as Questionnaire,
   "uncertainty-ease-reflection": async () => (await import("./data/uncertainty-ease-reflection.json")).default as Questionnaire,
   "disconnection-experiences-reflection": async () => (await import("./data/disconnection-experiences-reflection.json")).default as Questionnaire,

@@ -1987,6 +1987,13 @@
         "en": "Perceived Stress Scale — 4 Items (PSS-4)",
         "zh": "四项感知压力量表（PSS-4）"
       }
+    },
+    {
+      "slug": "soldier-poet-king-quiz",
+      "title": {
+        "zh": "士兵、诗人、国王测试",
+        "en": "Soldier Poet King Quiz"
+      }
     }
   ],
   "legacy": [

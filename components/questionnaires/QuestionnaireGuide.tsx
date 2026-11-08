@@ -10,6 +10,7 @@ import { bleachPresentation, bleachPortraitPath } from "@/lib/questionnaires/ble
 import { MentalAgeClassicPage } from "./MentalAgeClassicPage";
 import { PhilosopherPortrait } from "./PhilosopherPortrait";
 import { PhilosopherShareCard } from "./PhilosopherShareCard";
+import { FantasyPortrait, hasFantasyArtwork } from "./FantasyRoster";
 import { QuizResultArtwork } from "./QuizResultArtwork";
 import { prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
@@ -649,6 +650,7 @@ export default async function QuestionnaireResultGuide({ params }: Props) {
     {quiz.slug === "aura-color" && <div className="mb-5 grid w-full max-w-56">
       <QuizResultArtwork slug={quiz.slug} id={profile.id} />
     </div>}
+    {hasFantasyArtwork(quiz.slug) && <FantasyPortrait slug={quiz.slug} id={profile.id} name={profile.title[locale]} large />}
     {quiz.slug === "chiikawa" && <ChiikawaPortrait id={profile.id} className="mb-5 size-32 rounded-xl sm:size-44" />}
     {quiz.slug === "cyberpunk-edgerunners" && <EdgerunnersPortrait id={profile.id} className="mb-5 size-32 rounded-xl sm:size-44" />}
     <p className="mb-5 text-sm leading-7 text-slate-600">{zh ? "公开完整参考，不含任何人的作答记录。" : "Public reference guide, without anyone’s personal answers or scores."}</p>

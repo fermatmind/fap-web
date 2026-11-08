@@ -1,0 +1,1352 @@
+{
+  "slug": "soldier-poet-king-quiz",
+  "code": "SOLDIER_POET_KING_FM24",
+  "version": "1.0.0",
+  "updated": "2026-11-08",
+  "category": "fantasy",
+  "kind": "archetype",
+  "minutes": 6,
+  "title": {
+    "zh": "士兵、诗人、国王测试",
+    "en": "Soldier Poet King Quiz"
+  },
+  "seoTitle": {
+    "zh": "士兵诗人国王测试：24道情境题、排序与三原型",
+    "en": "Soldier Poet King Quiz: 24 Scenarios, Ranking and Three Archetypes"
+  },
+  "description": {
+    "zh": "完成24道原创情境题和1道点击排序，探索士兵、诗人、国王三原型。查看全部计分、并列解释与完整指南，免费保存结果图片。",
+    "en": "Are you a soldier, poet or king? Take 24 original scenarios and one tap-to-rank question. Compare all three archetypes, understand ties and save your free result image."
+  },
+  "introduction": {
+    "zh": "当故事需要有人行动、表达或组织共同决定时，你会站在哪里？完成24道原创三选一情境与1道六项排序，比较三原型在本轮39点中的份额，阅读全部解释并保存结果卡。独立娱乐创作，不是原版uQuiz，也不作心理诊断。",
+    "en": "When a story calls for action, a voice or a shared direction, which role do you choose? Answer 24 original three-choice scenarios and rank six reminders on a final screen. Compare how this round’s 39 points are distributed, read every explanation and save your card. This independent entertainment quiz is not the original uQuiz or a psychological assessment."
+  },
+  "instructions": {
+    "zh": "先完成24道三选一，再按最贴近到最不贴近的顺序点击全部6条提醒。可返回修改或清空排序。情境题每次加1点；排序从第一至第六分别加5、4、3、2、1、0点。全卷39点，最高并列全部保留。",
+    "en": "Answer 24 three-choice scenarios, then tap all six reminders from closest to least like you. Go back to edit or clear the ranking. Each scenario adds one point; ranking positions add 5, 4, 3, 2, 1 and 0 points. The total is 39, with every highest tie kept."
+  },
+  "resultHeading": {
+    "zh": "士兵、诗人、国王：你的本轮结果",
+    "en": "Soldier, Poet, King: your result this round"
+  },
+  "source": {
+    "kind": "FermatMind original narrative-archetype quiz",
+    "formCode": "fm_soldier_poet_king_original24_v1",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "a578d786e9647d2772e29fb5bf812ce5fcf56cc59edc86e9a3755561896915f9",
+    "resultContentSha256": "9d69568f48f148569f574326ac010f80daf44458357d21037da5379ffb27e66a",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "soldier",
+      "title": {
+        "zh": "士兵",
+        "en": "Soldier"
+      },
+      "comparisons": 26
+    },
+    {
+      "id": "poet",
+      "title": {
+        "zh": "诗人",
+        "en": "Poet"
+      },
+      "comparisons": 26
+    },
+    {
+      "id": "king",
+      "title": {
+        "zh": "国王",
+        "en": "King"
+      },
+      "comparisons": 26
+    }
+  ],
+  "questions": [
+    {
+      "id": "SPK_01",
+      "prompt": {
+        "zh": "远行前，伙伴们最需要你做什么？",
+        "en": "Before a journey, what would your companions most need from you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "检查装备与安全路线。",
+            "en": "Check equipment and a safe route."
+          },
+          "directionId": "soldier"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "说清这趟旅程对大家的意义。",
+            "en": "Give words to what the journey means to everyone."
+          },
+          "directionId": "poet"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "让每个人知道职责和集合时间。",
+            "en": "Make roles and meeting times clear."
+          },
+          "directionId": "king"
+        }
+      ]
+    },
+    {
+      "id": "SPK_02",
+      "prompt": {
+        "zh": "团队的计划突然失效，你先做什么？",
+        "en": "Your group’s plan suddenly fails. What comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问大家是否还想去同一个方向。",
+            "en": "Ask whether everyone still wants the same destination."
+          },
+          "directionId": "poet"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "重新分配资源并作出决定。",
+            "en": "Redistribute resources and make a decision."
+          },
+          "directionId": "king"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "稳住眼前能完成的一步。",
+            "en": "Secure the next practical step."
+          },
+          "directionId": "soldier"
+        }
+      ]
+    },
+    {
+      "id": "SPK_03",
+      "prompt": {
+        "zh": "朋友被误解，你怎样帮忙？",
+        "en": "A friend has been misunderstood. How do you help?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "约齐相关的人，促成公平的澄清。",
+            "en": "Bring the people involved together for a fair clarification."
+          },
+          "directionId": "king"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "陪在身边，处理现实的麻烦。",
+            "en": "Stay beside them and handle practical trouble."
+          },
+          "directionId": "soldier"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "找到能准确表达他们感受的话。",
+            "en": "Find words that express their experience accurately."
+          },
+          "directionId": "poet"
+        }
+      ]
+    },
+    {
+      "id": "SPK_04",
+      "prompt": {
+        "zh": "你最愿意守住哪一种承诺？",
+        "en": "Which promise would you most want to keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "需要我时，我会出现。",
+            "en": "I will show up when I am needed."
+          },
+          "directionId": "soldier"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我会诚实表达重要的事。",
+            "en": "I will speak honestly about what matters."
+          },
+          "directionId": "poet"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我会对共同的决定负责。",
+            "en": "I will take responsibility for our shared decisions."
+          },
+          "directionId": "king"
+        }
+      ]
+    },
+    {
+      "id": "SPK_05",
+      "prompt": {
+        "zh": "一个社区空间需要重建，你愿意承担哪部分？",
+        "en": "A community space needs rebuilding. Which part would you take?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "收集居民的故事与想象。",
+            "en": "Gather residents’ stories and possibilities."
+          },
+          "directionId": "poet"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "协调预算、分工与公共约定。",
+            "en": "Coordinate the budget, roles and shared agreements."
+          },
+          "directionId": "king"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "动手修复和每天的维护。",
+            "en": "Hands-on repairs and daily maintenance."
+          },
+          "directionId": "soldier"
+        }
+      ]
+    },
+    {
+      "id": "SPK_06",
+      "prompt": {
+        "zh": "冲突中，你最担心失去什么？",
+        "en": "During conflict, what most concerns you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "无人承担后果，局面不断失控。",
+            "en": "No one owning the consequences as things unravel."
+          },
+          "directionId": "king"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "有人得不到必要的保护。",
+            "en": "Someone being left without needed protection."
+          },
+          "directionId": "soldier"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "真正重要的话始终说不出口。",
+            "en": "What matters most never being said."
+          },
+          "directionId": "poet"
+        }
+      ]
+    },
+    {
+      "id": "SPK_07",
+      "prompt": {
+        "zh": "一项长期努力没有掌声，你靠什么继续？",
+        "en": "A long effort receives no applause. What keeps you going?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我答应完成的事仍然需要完成。",
+            "en": "What I promised to do still needs doing."
+          },
+          "directionId": "soldier"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我还相信其中值得表达的东西。",
+            "en": "I still believe there is something worth expressing in it."
+          },
+          "directionId": "poet"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "大家还需要一个可以共同前进的方向。",
+            "en": "People still need a direction they can move toward together."
+          },
+          "directionId": "king"
+        }
+      ]
+    },
+    {
+      "id": "SPK_08",
+      "prompt": {
+        "zh": "你希望给后来者留下什么？",
+        "en": "What would you like to leave for those who follow?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一句让人重新理解自己的话。",
+            "en": "Words that help someone see themselves afresh."
+          },
+          "directionId": "poet"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一套能让人继续合作的安排。",
+            "en": "An arrangement that lets people keep cooperating."
+          },
+          "directionId": "king"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一条更安全、走得通的路。",
+            "en": "A safer path that can actually be followed."
+          },
+          "directionId": "soldier"
+        }
+      ]
+    },
+    {
+      "id": "SPK_09",
+      "prompt": {
+        "zh": "陌生人加入团队，你自然会做什么？",
+        "en": "A newcomer joins your group. What do you naturally do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让他知道可以参与哪些决定。",
+            "en": "Explain which decisions they can help shape."
+          },
+          "directionId": "king"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "陪他完成第一次具体任务。",
+            "en": "Help them through a first concrete task."
+          },
+          "directionId": "soldier"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "听他讲自己的经历和期待。",
+            "en": "Listen to their experiences and hopes."
+          },
+          "directionId": "poet"
+        }
+      ]
+    },
+    {
+      "id": "SPK_10",
+      "prompt": {
+        "zh": "一个旧规则开始伤害大家，你会怎样？",
+        "en": "An old rule begins hurting people. What would you do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先阻止眼前的伤害。",
+            "en": "Stop the immediate harm first."
+          },
+          "directionId": "soldier"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把规则遮住的真实经历说出来。",
+            "en": "Bring the experiences hidden by the rule into words."
+          },
+          "directionId": "poet"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "推动一个更公平且可执行的新约定。",
+            "en": "Work toward a fairer agreement people can implement."
+          },
+          "directionId": "king"
+        }
+      ]
+    },
+    {
+      "id": "SPK_11",
+      "prompt": {
+        "zh": "你最欣赏哪一种勇气？",
+        "en": "Which form of courage most speaks to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "冒着不被理解的风险说出真心。",
+            "en": "Speaking sincerely despite the risk of being misunderstood."
+          },
+          "directionId": "poet"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "承认决定错了并承担修正责任。",
+            "en": "Owning a mistaken decision and taking charge of repairing it."
+          },
+          "directionId": "king"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "害怕时仍保护需要保护的人。",
+            "en": "Protecting someone even while afraid."
+          },
+          "directionId": "soldier"
+        }
+      ]
+    },
+    {
+      "id": "SPK_12",
+      "prompt": {
+        "zh": "艰难的一天结束后，什么让你觉得值得？",
+        "en": "After a difficult day, what makes it feel worthwhile?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "大家终于知道下一步如何一起走。",
+            "en": "Everyone can finally see how to move forward together."
+          },
+          "directionId": "king"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一个具体的问题被我解决了。",
+            "en": "I resolved something concrete."
+          },
+          "directionId": "soldier"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一段原本说不清的体验终于被理解。",
+            "en": "An experience that resisted words was finally understood."
+          },
+          "directionId": "poet"
+        }
+      ]
+    },
+    {
+      "id": "SPK_13",
+      "prompt": {
+        "zh": "面对模糊的求助，你先问什么？",
+        "en": "When a request for help is unclear, what would you ask first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "现在最急需解决的事是什么？",
+            "en": "What needs fixing most urgently right now?"
+          },
+          "directionId": "soldier"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "你希望我真正理解哪一部分？",
+            "en": "What would you most like me to understand?"
+          },
+          "directionId": "poet"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "谁需要参与，我们能调动什么？",
+            "en": "Who needs to be involved, and what can we draw on?"
+          },
+          "directionId": "king"
+        }
+      ]
+    },
+    {
+      "id": "SPK_14",
+      "prompt": {
+        "zh": "你会怎样纪念一次重要的共同经历？",
+        "en": "How would you mark an important shared experience?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "写下或创作出它独有的感受。",
+            "en": "Write or create something that captures its particular feeling."
+          },
+          "directionId": "poet"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "邀请大家决定下一章如何开始。",
+            "en": "Invite everyone to decide how the next chapter begins."
+          },
+          "directionId": "king"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "做一件实际的事，让成果延续。",
+            "en": "Do something practical to keep its benefits alive."
+          },
+          "directionId": "soldier"
+        }
+      ]
+    },
+    {
+      "id": "SPK_15",
+      "prompt": {
+        "zh": "别人依赖你时，你最容易承担哪种过量？",
+        "en": "When others depend on you, which excess are you most likely to take on?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把所有决定都抓在自己手里。",
+            "en": "Hold on to every decision myself."
+          },
+          "directionId": "king"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把所有困难都当成自己该扛的事。",
+            "en": "Treat every difficulty as mine to carry."
+          },
+          "directionId": "soldier"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "反复寻找最准确的话，迟迟不行动。",
+            "en": "Keep searching for the right words and delay acting."
+          },
+          "directionId": "poet"
+        }
+      ]
+    },
+    {
+      "id": "SPK_16",
+      "prompt": {
+        "zh": "哪一种提醒对你最有帮助？",
+        "en": "Which reminder would help you most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "你也可以请求支援。",
+            "en": "You can ask for support too."
+          },
+          "directionId": "soldier"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "不完美的表达也可以开始。",
+            "en": "An imperfect expression can still be a beginning."
+          },
+          "directionId": "poet"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "承担责任不等于替别人决定。",
+            "en": "Responsibility does not mean deciding for everyone."
+          },
+          "directionId": "king"
+        }
+      ]
+    },
+    {
+      "id": "SPK_17",
+      "prompt": {
+        "zh": "你想改善一个不公平的处境，首先投入哪里？",
+        "en": "You want to improve an unfair situation. Where would you invest first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让被忽略的经历得到听见。",
+            "en": "Make overlooked experiences heard."
+          },
+          "directionId": "poet"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找到能改变分配和规则的决定点。",
+            "en": "Find the decisions that can change rules and allocation."
+          },
+          "directionId": "king"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给正在受影响的人具体援助。",
+            "en": "Offer concrete help to the people affected."
+          },
+          "directionId": "soldier"
+        }
+      ]
+    },
+    {
+      "id": "SPK_18",
+      "prompt": {
+        "zh": "一场共同创作卡住了，你倾向怎样推动？",
+        "en": "A collaborative project stalls. How would you move it forward?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把分歧整理成可讨论的选择。",
+            "en": "Turn the disagreement into choices people can discuss."
+          },
+          "directionId": "king"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "做出一个可以试用的小版本。",
+            "en": "Build a small version people can try."
+          },
+          "directionId": "soldier"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "找到大家尚未表达出的核心意象。",
+            "en": "Find the central idea no one has quite expressed."
+          },
+          "directionId": "poet"
+        }
+      ]
+    },
+    {
+      "id": "SPK_19",
+      "prompt": {
+        "zh": "如果必须暂时退出，你会先留下什么？",
+        "en": "If you had to step away, what would you leave first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "可用工具与清晰的操作交接。",
+            "en": "Working tools and a clear practical handover."
+          },
+          "directionId": "soldier"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一段解释我们为何开始的记录。",
+            "en": "A record of why we began."
+          },
+          "directionId": "poet"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "谁能决定什么的明确约定。",
+            "en": "Clear agreements about who can decide what."
+          },
+          "directionId": "king"
+        }
+      ]
+    },
+    {
+      "id": "SPK_20",
+      "prompt": {
+        "zh": "在一个全新的地方，你会注意什么？",
+        "en": "In an unfamiliar place, what catches your attention?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "这里的声音、故事和独特氛围。",
+            "en": "Its sounds, stories and distinctive atmosphere."
+          },
+          "directionId": "poet"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "人们如何协商公共事务。",
+            "en": "How people negotiate shared affairs."
+          },
+          "directionId": "king"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "人们怎样维持日常生活。",
+            "en": "How people keep everyday life working."
+          },
+          "directionId": "soldier"
+        }
+      ]
+    },
+    {
+      "id": "SPK_21",
+      "prompt": {
+        "zh": "你最想在团队里被怎样记住？",
+        "en": "How would you most like your group to remember you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让分散的人能一起行动的人。",
+            "en": "Someone who helps separate efforts work together."
+          },
+          "directionId": "king"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "困难来临时可靠的人。",
+            "en": "Someone dependable when things get difficult."
+          },
+          "directionId": "soldier"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "让大家看见不同可能的人。",
+            "en": "Someone who helps people see other possibilities."
+          },
+          "directionId": "poet"
+        }
+      ]
+    },
+    {
+      "id": "SPK_22",
+      "prompt": {
+        "zh": "你会怎样面对自己造成的失误？",
+        "en": "How would you respond to a mistake you caused?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先补救实际造成的损失。",
+            "en": "Repair the practical damage first."
+          },
+          "directionId": "soldier"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "坦诚说清影响和自己的想法。",
+            "en": "Speak honestly about the impact and my thinking."
+          },
+          "directionId": "poet"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "承担责任并调整后续安排。",
+            "en": "Take responsibility and revise what happens next."
+          },
+          "directionId": "king"
+        }
+      ]
+    },
+    {
+      "id": "SPK_23",
+      "prompt": {
+        "zh": "一段故事里，哪种时刻最打动你？",
+        "en": "Which moment in a story moves you most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一句话让沉默的人终于开口。",
+            "en": "A few words help someone break their silence."
+          },
+          "directionId": "poet"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "有人放下自己的利益作出共同决定。",
+            "en": "Someone sets aside personal gain for a shared decision."
+          },
+          "directionId": "king"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "有人留下来守住撤退的路。",
+            "en": "Someone stays to keep an escape route safe."
+          },
+          "directionId": "soldier"
+        }
+      ]
+    },
+    {
+      "id": "SPK_24",
+      "prompt": {
+        "zh": "路口没有明显正确答案，你用什么作最后参考？",
+        "en": "At a crossroads with no obvious right answer, what guides you last?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我能否为这个决定和共同后果负责。",
+            "en": "Whether I can own the decision and its shared consequences."
+          },
+          "directionId": "king"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我能否实际守住所珍惜的人与事。",
+            "en": "Whether I can tangibly protect what I care about."
+          },
+          "directionId": "soldier"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "这个选择是否忠于我想表达的真实。",
+            "en": "Whether the choice is true to what I want to express."
+          },
+          "directionId": "poet"
+        }
+      ]
+    },
+    {
+      "id": "SPK_25",
+      "prompt": {
+        "zh": "如果给故事中的自己写六条提醒，你会怎样排序？",
+        "en": "How would you rank six reminders for your role in a story?"
+      },
+      "interaction": "rank",
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先确保需要帮助的人有可用的支持。",
+            "en": "Make sure someone in need has practical support."
+          },
+          "directionId": "soldier"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "给尚未被说出的体验留一点空间。",
+            "en": "Make room for an experience that has not been voiced."
+          },
+          "directionId": "poet"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "让受到影响的人参与共同决定。",
+            "en": "Include those affected in a shared decision."
+          },
+          "directionId": "king"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "对安排的后果负责，也接受修正。",
+            "en": "Own the consequences of an arrangement and revise it."
+          },
+          "directionId": "king"
+        },
+        {
+          "id": "E",
+          "label": {
+            "zh": "找到值得继续表达的新可能。",
+            "en": "Find a new possibility worth expressing."
+          },
+          "directionId": "poet"
+        },
+        {
+          "id": "F",
+          "label": {
+            "zh": "把答应的具体一步做完，再请求支援。",
+            "en": "Finish a concrete promised step, then ask for support."
+          },
+          "directionId": "soldier"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "soldier",
+      "directionIds": [
+        "soldier"
+      ],
+      "title": {
+        "zh": "士兵",
+        "en": "Soldier"
+      },
+      "headline": {
+        "zh": "士兵 · 把关心化为行动",
+        "en": "Soldier · Care made tangible"
+      },
+      "summary": {
+        "zh": "这一轮，你更常用具体行动回应困难：守住承诺、提供保护、把下一步走稳。",
+        "en": "In this round, you more often answered difficulty with concrete action: keeping promises, offering protection and securing the next step."
+      },
+      "scoreReading": {
+        "zh": "情境每题加1点，末屏排序按5至0点计入；全卷39点，最高并列全部保留。",
+        "en": "Scenarios add one point each; ranking adds 5 to 0 points. All 39 points are counted, retaining every highest tie."
+      },
+      "seo": {
+        "title": {
+          "zh": "士兵原型的含义、例子与比较",
+          "en": "Soldier Archetype Meaning, Examples and Comparison"
+        },
+        "description": {
+          "zh": "这一轮，你更常用具体行动回应困难：守住承诺、提供保护、把下一步走稳。",
+          "en": "In this round, you more often answered difficulty with concrete action: keeping promises, offering protection and securing the next step."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这个原型怎样出现",
+            "en": "How this archetype shows up"
+          },
+          "paragraphs": [
+            {
+              "zh": "你的故事角色擅长把抽象的关心变成可依赖的帮助。别人还在讨论时，你会注意物资是否够用、谁需要陪伴、哪一步可以先完成。这不是服从或好战的标签；它描绘的是愿意站到现实问题前面的选择。",
+              "en": "This story role turns concern into dependable help. While a conversation continues, you may notice missing supplies, someone who needs company or a step that can already be completed. It is not a label for obedience or aggression; it describes choices that meet a practical need."
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "zh": "一个具体场景",
+            "en": "An everyday scene"
+          },
+          "paragraphs": [
+            {
+              "zh": "同伴要在雨天搬家，你先确认搬运路线、准备防水袋，再和对方商量你能负责哪一段。实际帮助因此有了边界，也更容易被接住。",
+              "en": "A friend is moving in the rain. You check the route, bring waterproof bags and agree which part you can handle. Practical help becomes easier to accept when its limits are clear."
+            }
+          ]
+        },
+        {
+          "id": "tension",
+          "title": {
+            "zh": "值得留意的取舍",
+            "en": "The trade-off to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "当可靠变成必须独自扛住一切，你也会耗尽。保护他人之前，可以问他们需要什么；履行承诺时，也要保留重新协商的空间。有人愿意分担，并不会让你的付出失去意义。",
+              "en": "Reliability becomes costly when it means carrying everything alone. Ask what help is wanted before stepping in, and leave room to renegotiate a promise. Accepting support does not make your contribution matter less."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与另外两种原型比较",
+            "en": "Compare the other archetypes"
+          },
+          "paragraphs": [
+            {
+              "zh": "士兵先问“眼前怎样帮上忙”；诗人先问“什么还没被表达”；国王先问“怎样共同作出决定”。三种都可以出现在同一个人身上，也都能在另一种情境里有用。",
+              "en": "Soldier asks what help is needed now; Poet asks what has not yet been expressed; King asks how a shared decision can be made. One person can use all three, and a different situation may call for a different approach."
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "zh": "可试的一小步",
+            "en": "One small thing to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一件你正在承担的小事，把其中一个具体步骤交给愿意帮忙的人。",
+              "en": "Choose one small responsibility and share a concrete step with someone willing to help."
+            }
+          ]
+        },
+        {
+          "id": "ties",
+          "title": {
+            "zh": "如果你同时得到其他原型",
+            "en": "If another archetype ties"
+          },
+          "paragraphs": [
+            {
+              "zh": "最高项相同时，全部保留为本轮并列结果。它说明你的选项在这些叙事方式之间分布接近，不是第四种人格，也不意味着优劣。你可以比较所有原型，或返回修改选择；重测不会被暗中强行分出唯一类型。",
+              "en": "When the highest counts match, every highest archetype remains in your result. Your choices were shared between these narrative approaches; this is not a fourth personality or a ranking. Compare all three, edit an answer or retake without a hidden forced winner."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "poet",
+      "directionIds": [
+        "poet"
+      ],
+      "title": {
+        "zh": "诗人",
+        "en": "Poet"
+      },
+      "headline": {
+        "zh": "诗人 · 为体验找到语言",
+        "en": "Poet · Giving experience a voice"
+      },
+      "summary": {
+        "zh": "这一轮，你更常寻找意义、倾听感受，让原本模糊的东西得到表达。",
+        "en": "In this round, you more often sought meaning, listened to experience and gave shape to what had felt unclear."
+      },
+      "scoreReading": {
+        "zh": "情境每题加1点，末屏排序按5至0点计入；全卷39点，最高并列全部保留。",
+        "en": "Scenarios add one point each; ranking adds 5 to 0 points. All 39 points are counted, retaining every highest tie."
+      },
+      "seo": {
+        "title": {
+          "zh": "诗人原型的含义、例子与比较",
+          "en": "Poet Archetype Meaning, Examples and Comparison"
+        },
+        "description": {
+          "zh": "这一轮，你更常寻找意义、倾听感受，让原本模糊的东西得到表达。",
+          "en": "In this round, you more often sought meaning, listened to experience and gave shape to what had felt unclear."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这个原型怎样出现",
+            "en": "How this archetype shows up"
+          },
+          "paragraphs": [
+            {
+              "zh": "你的故事角色关注事情怎样被理解。你可能从一段对话、一幅画面或一个问题中看见别人错过的联系，再用自己的方式让它变得可见。诗人不要求会写诗；这里指的是愿意为真实感受与新的可能留出位置。",
+              "en": "This story role notices how an experience is understood. A conversation, an image or a question may reveal a connection others have missed, which you then help make visible. Being the Poet does not require writing poetry; it means making room for honest experience and new possibilities."
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "zh": "一个具体场景",
+            "en": "An everyday scene"
+          },
+          "paragraphs": [
+            {
+              "zh": "团队为一次失败争论时，你听见有人失望、有人担心不被信任。你试着把这些差异说清，再问大家是否理解准确，而不是替所有人定义感受。",
+              "en": "When a group argues over a failed plan, you hear disappointment in one voice and fear of losing trust in another. You name those differences tentatively and ask whether you understood, instead of defining everyone’s feelings for them."
+            }
+          ]
+        },
+        {
+          "id": "tension",
+          "title": {
+            "zh": "值得留意的取舍",
+            "en": "The trade-off to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "准确表达需要时间，但等待最完美的表达也可能让行动停住。你不必替每个人解释全部感受，也可以先说一小部分，再让现实中的回应帮助你修正。",
+              "en": "Careful expression takes time, but waiting for perfect words can suspend action. You do not have to explain everyone’s feelings. Start with one part and let a real response help you revise it."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与另外两种原型比较",
+            "en": "Compare the other archetypes"
+          },
+          "paragraphs": [
+            {
+              "zh": "诗人与士兵的区别不是想与做的高下，而是这一刻更先照顾意义还是现实需要；与国王的区别在于先听见与表达，还是先形成共同安排。",
+              "en": "The contrast with Soldier is whether meaning or a concrete need comes first here, without ranking thought above action. The contrast with King is whether you first listen and express or first shape a shared arrangement."
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "zh": "可试的一小步",
+            "en": "One small thing to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "把一个反复思考的想法写成三句话，再做一个能检验它的小行动。",
+              "en": "Put a recurring idea into three sentences, then take one small action that tests it."
+            }
+          ]
+        },
+        {
+          "id": "ties",
+          "title": {
+            "zh": "如果你同时得到其他原型",
+            "en": "If another archetype ties"
+          },
+          "paragraphs": [
+            {
+              "zh": "最高项相同时，全部保留为本轮并列结果。它说明你的选项在这些叙事方式之间分布接近，不是第四种人格，也不意味着优劣。你可以比较所有原型，或返回修改选择；重测不会被暗中强行分出唯一类型。",
+              "en": "When the highest counts match, every highest archetype remains in your result. Your choices were shared between these narrative approaches; this is not a fourth personality or a ranking. Compare all three, edit an answer or retake without a hidden forced winner."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "king",
+      "directionIds": [
+        "king"
+      ],
+      "title": {
+        "zh": "国王",
+        "en": "King"
+      },
+      "headline": {
+        "zh": "国王 · 为共同方向负责",
+        "en": "King · Stewarding a shared direction"
+      },
+      "summary": {
+        "zh": "这一轮，你更常整理分歧、协调资源，并愿意为共同决定承担后果。",
+        "en": "In this round, you more often organized differences, coordinated resources and took responsibility for shared decisions."
+      },
+      "scoreReading": {
+        "zh": "情境每题加1点，末屏排序按5至0点计入；全卷39点，最高并列全部保留。",
+        "en": "Scenarios add one point each; ranking adds 5 to 0 points. All 39 points are counted, retaining every highest tie."
+      },
+      "seo": {
+        "title": {
+          "zh": "国王原型的含义、例子与比较",
+          "en": "King Archetype Meaning, Examples and Comparison"
+        },
+        "description": {
+          "zh": "这一轮，你更常整理分歧、协调资源，并愿意为共同决定承担后果。",
+          "en": "In this round, you more often organized differences, coordinated resources and took responsibility for shared decisions."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这个原型怎样出现",
+            "en": "How this archetype shows up"
+          },
+          "paragraphs": [
+            {
+              "zh": "你的故事角色会问：哪些人需要参与，什么安排能让大家继续走下去？你关注方向、分工和决定的后果。这里的国王是一种承担公共责任的叙事原型，不取决于性别、身份、职位或支配他人的能力。",
+              "en": "This story role asks who needs a voice and what arrangement will let people keep moving together. Direction, roles and the consequences of decisions matter to you. King is a narrative image of shared responsibility, independent of gender, status, job title or control over others."
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "zh": "一个具体场景",
+            "en": "An everyday scene"
+          },
+          "paragraphs": [
+            {
+              "zh": "一次公共活动的时间冲突，你先收集每个人不能让步的条件，再说明预算、期限与可选方案。你邀请大家参与取舍，也承认任何安排都有代价。",
+              "en": "When a community event has conflicting schedules, you gather people’s constraints, explain the budget and offer workable options. You invite participation in the trade-offs and acknowledge that every arrangement has a cost."
+            }
+          ]
+        },
+        {
+          "id": "tension",
+          "title": {
+            "zh": "值得留意的取舍",
+            "en": "The trade-off to notice"
+          },
+          "paragraphs": [
+            {
+              "zh": "承担责任并不意味着你必须拥有最后一句话。如果协调变成控制，别人参与的空间就会缩小。把可共同决定的部分交还给大家，也允许方向随着新信息改变。",
+              "en": "Taking responsibility does not require having the final word. When coordination turns into control, other people have less room to participate. Return genuinely shared decisions to the group and allow new information to change the direction."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与另外两种原型比较",
+            "en": "Compare the other archetypes"
+          },
+          "paragraphs": [
+            {
+              "zh": "国王与士兵都可能采取行动，但这里前者优先协调共同决定，后者优先回应具体需要；诗人则更多把体验与意义带进讨论。没有一种原型天然更适合带领别人。",
+              "en": "King and Soldier may both act, but here King prioritizes shared decisions while Soldier prioritizes a concrete need. Poet brings experience and meaning into view. No archetype establishes who is naturally fit to lead."
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "zh": "可试的一小步",
+            "en": "One small thing to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "在下一次共同决定前，明确问每个人最想保留什么，再公开说明取舍。",
+              "en": "Before your next shared decision, ask what each person most wants to preserve, then make the trade-offs explicit."
+            }
+          ]
+        },
+        {
+          "id": "ties",
+          "title": {
+            "zh": "如果你同时得到其他原型",
+            "en": "If another archetype ties"
+          },
+          "paragraphs": [
+            {
+              "zh": "最高项相同时，全部保留为本轮并列结果。它说明你的选项在这些叙事方式之间分布接近，不是第四种人格，也不意味着优劣。你可以比较所有原型，或返回修改选择；重测不会被暗中强行分出唯一类型。",
+              "en": "When the highest counts match, every highest archetype remains in your result. Your choices were shared between these narrative approaches; this is not a fourth personality or a ranking. Compare all three, edit an answer or retake without a hidden forced winner."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "24道情境加1道排序怎样计分",
+        "en": "Scoring 24 scenarios and one ranking"
+      },
+      "paragraphs": [
+        {
+          "zh": "24道情境题每题给一个原型加1点；每原型各在A、B、C位置出现8次。最后6项排序每原型有两项，按从最贴近到最不贴近分配5至0点，合计15点。全卷25屏、39点；每原型理论最高33点，排序会影响结果，任何原型都有同等计分机会。",
+          "en": "Each of 24 scenarios adds one point to one archetype. Each archetype appears eight times in each option position. The final ranking has two reminders per archetype; closest to least receives 5 to 0 points, totaling 15. There are 25 screens and 39 points. Every archetype can receive at most 33 points and has the same scoring opportunities; the ranking affects the result."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "没有隐藏决胜的并列规则",
+        "en": "Ties without a hidden tiebreak"
+      },
+      "paragraphs": [
+        {
+          "zh": "情境部分12、12、0，排序为每项原型各加5点时，得到17、17、5的双并列；情境8、8、8加同样排序得到13、13、13的三并列。10、8、6加各5点得到15、13、11，只保留最高项。所有最高分保留，没有随机决胜。",
+          "en": "Scenario counts of 12–12–0 plus five ranking points per archetype give a 17–17–5 two-way tie. Counts of 8–8–8 plus the same ranking give a 13–13–13 three-way tie. Counts of 10–8–6 plus five each give 15–13–11, retaining only the highest. All highest scores remain, without random tiebreaks."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "三个原型是一种故事读法",
+        "en": "Three ways of reading a story"
+      },
+      "paragraphs": [
+        {
+          "zh": "24道原创情境覆盖帮助、冲突、共同创作、边界、责任与回顾；末屏加入完整排序，让你比较六种提醒的先后。题量来自情境覆盖与可达并列设计，不声称与别站题本相同。结果不是经过验证的心理类型或职业建议。",
+          "en": "Twenty-four original scenarios cover helping, conflict, joint creation, boundaries, responsibility and reflection. The final screen ranks six reminders. This question count supports scenario coverage and reachable ties; it is not a claim to use another site’s question bank. Results are not validated psychological types or career advice."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "这是原版uQuiz吗？",
+        "en": "Is this the original uQuiz?"
+      },
+      "answer": {
+        "zh": "不是。本页有24道原创三选一与1道原创六项排序，使用公开权重规则及独立解读。不同作者版本的题文与算法不同，本页不冒称原版或官方。",
+        "en": "No. This edition has 24 original three-choice scenarios and one original six-item ranking, with published weights and independent interpretations. Other authors use different items and algorithms; this page does not claim to be the original or official quiz."
+      }
+    },
+    {
+      "question": {
+        "zh": "士兵、诗人、国王分别是什么意思？",
+        "en": "What do Soldier, Poet and King mean?"
+      },
+      "answer": {
+        "zh": "本版本分别用它们描绘实际守护、表达意义与协调责任。它们是叙事原型，不取决于性别、职业或社会身份，也不评定能力。",
+        "en": "This edition uses the three images for practical protection, expressing meaning and coordinating responsibility. They are narrative archetypes, independent of gender, occupation or status, and do not assess ability."
+      }
+    },
+    {
+      "question": {
+        "zh": "并列结果怎么算？",
+        "en": "How are ties scored?"
+      },
+      "answer": {
+        "zh": "情境部分12、12、0，排序为每项原型各加5点时，得到17、17、5的双并列；情境8、8、8加同样排序得到13、13、13的三并列。10、8、6加各5点得到15、13、11，只保留最高项。所有最高分保留，没有随机决胜。",
+        "en": "Scenario counts of 12–12–0 plus five ranking points per archetype give a 17–17–5 two-way tie. Counts of 8–8–8 plus the same ranking give a 13–13–13 three-way tie. Counts of 10–8–6 plus five each give 15–13–11, retaining only the highest. All highest scores remain, without random tiebreaks."
+      }
+    },
+    {
+      "question": {
+        "zh": "百分比是性格准确率吗？",
+        "en": "Are the percentages personality accuracy?"
+      },
+      "answer": {
+        "zh": "不是。这里是本轮39个计分点的分配份额，包含情境单选和排序。例如13点占三分之一，不表示33.3%像该原型，也不表示人群百分位。",
+        "en": "No. These are shares of the 39 points allocated by your scenario choices and ranking. Thirteen points are one third, not 33.3% resemblance or a population percentile."
+      }
+    },
+    {
+      "question": {
+        "zh": "答案和分享图片会上传吗？",
+        "en": "Are my answers or result image uploaded?"
+      },
+      "answer": {
+        "zh": "逐题答案只在浏览器计分；不放进分享链接。默认不存进度，主动选择的标签页草稿沿页面说明清除。PNG在本浏览器生成，只有你主动保存或分享才带出结果名称。",
+        "en": "Answers are scored in your browser and kept out of share links. Progress is not saved by default; an opted-in tab draft clears as described on the page. Your browser creates the PNG; names leave it only when you choose to save or share."
+      }
+    }
+  ]
+}

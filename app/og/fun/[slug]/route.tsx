@@ -1,6 +1,7 @@
 import { moonPhaseOpenGraphCard } from "@/lib/entertainment/moonPhaseCard";
 import { bleachOpenGraphCard } from "@/lib/entertainment/bleachCard";
 import { philosopherOpenGraphCard } from "@/lib/entertainment/philosopherCard";
+import { fantasyOpenGraphCard } from "@/lib/entertainment/fantasyCard";
 import { adultAgePreferencesCard } from "./adultAgePreferencesCard";
 import { spaceMarineChapterCard } from "./spaceMarineChapterCard";
 import { auraColors } from "@/lib/questionnaires/auraColors";
@@ -253,6 +254,9 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   if (slug === "bleach" && questionnaire) return bleachOpenGraphCard(locale, result?.id, await quizFont(slug));
   if (slug === "philosopher-personality-test" && questionnaire) {
     return philosopherOpenGraphCard(locale, result?.id, await quizFont(slug));
+  }
+  if (["soldier-poet-king-quiz", "avatar-bender-quiz", "patronus-quiz"].includes(slug) && questionnaire) {
+    return fantasyOpenGraphCard(questionnaire, locale, result?.id, await quizFont(slug));
   }
   const auraColor = slug === "aura-color" && result ? auraColors[result.id] : undefined;
   if (auraColor) {

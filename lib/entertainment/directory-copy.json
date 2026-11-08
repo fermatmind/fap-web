@@ -1542,5 +1542,9 @@
   "zodiac-sign-quiz": {
     "zh": "用故事选择探索十二种星座叙事意象。结果附文化来源和计分实例，无需生日。",
     "en": "Explore twelve zodiac-inspired storytelling perspectives. See cultural background and a scoring example without providing a birth date."
+  },
+  "soldier-poet-king-quiz": {
+    "zh": "完成24道原创情境和1道六项排序，比较士兵、诗人、国王与全部并列，免费保存你的主题结果卡。",
+    "en": "Complete 24 original scenarios and one six-item ranking, compare all three archetypes and ties, and save your free themed result card."
   }
 }

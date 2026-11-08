@@ -1,4 +1,5 @@
 import type { Questionnaire } from "./types";
+import { selectedChoiceIds } from "./orderedChoices";
 
 export type DirectionalQuestionnaire = Pick<Questionnaire, "kind" | "questions" | "directions"> & {
   profiles: Pick<Questionnaire["profiles"][number], "id" | "directionIds">[];
@@ -119,9 +120,14 @@ export function isArchetypeConfigurationValid(quiz: Questionnaire): boolean {
   const ids = new Set(quiz.directions.map(d => d.id));
   if (ids.size !== quiz.directions.length || new Set(quiz.questions.map(q => q.id)).size !== quiz.questions.length) return false;
   const exposure = Object.fromEntries(quiz.directions.map(d => [d.id, 0]));
+  const optionCount = quiz.directions.length === 3 ? 3 : 4;
   for (const question of quiz.questions) {
-    if (question.options.length !== 4 || new Set(question.options.map(o => o.id)).size !== 4
-      || new Set(question.options.map(o => o.directionId)).size !== 4) return false;
+    if (question.interaction === "rank") {
+      if (question.options.length !== quiz.directions.length * 2 || question.options.length > 8
+        || new Set(question.options.map(o => o.id)).size !== question.options.length
+        || quiz.directions.some(d => question.options.filter(o => o.directionId === d.id).length !== 2)) return false;
+    } else if (question.interaction || question.options.length !== optionCount || new Set(question.options.map(o => o.id)).size !== optionCount
+      || new Set(question.options.map(o => o.directionId)).size !== optionCount) return false;
     for (const option of question.options) {
       if (!ids.has(option.directionId) || option.score !== undefined) return false;
       exposure[option.directionId]++;
@@ -142,9 +148,16 @@ export function scoreArchetypeQuestionnaire(quiz: Questionnaire, answers: unknow
   const counts = Object.fromEntries(quiz.directions.map(d => [d.id, 0]));
   let answered = 0;
   for (const [id, value] of Object.entries(answers)) {
-    const option = questions.get(id)?.options.find(o => o.id === value);
-    if (!option) return { status: "invalid", answered };
-    counts[option.directionId]++; answered++;
+    const question = questions.get(id);
+    if (!question || typeof value !== "string") return { status: "invalid", answered };
+    const selected = selectedChoiceIds(question, value);
+    if (!selected) return { status: "invalid", answered };
+    if (!selectedChoiceIds(question, value, true)) continue;
+    selected.forEach((optionId, index) => {
+      const option = question.options.find(o => o.id === optionId)!;
+      counts[option.directionId] += question.interaction === "rank" ? question.options.length - index - 1 : 1;
+    });
+    answered++;
   }
   if (answered !== quiz.questions.length) return { status: "incomplete", answered };
   const highest = Math.max(...Object.values(counts));

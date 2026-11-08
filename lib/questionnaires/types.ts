@@ -65,7 +65,7 @@ export type Questionnaire = {
     psychometricValidationCompleted: false;
   };
   directions: { id: string; title: Text; comparisons?: number; itemCount?: number }[];
-  questions: { id: string; prompt: Text; correctOptionId?: string; explanation?: Text; reverse?: boolean; options: { id: string; label: Text; directionId: string; paletteSwatches?: QuestionnaireColorSwatch[]; score?: number | null }[] }[];
+  questions: { id: string; prompt: Text; interaction?: "rank" | "multiple"; minimumSelections?: number; maximumSelections?: number; correctOptionId?: string; explanation?: Text; reverse?: boolean; options: { id: string; label: Text; directionId: string; paletteSwatches?: QuestionnaireColorSwatch[]; score?: number | null }[] }[];
   profiles: QuestionnaireProfile[];
   guide: QuestionnaireSection[];
   faq: { question: Text; answer: Text }[];

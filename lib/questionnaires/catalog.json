@@ -7573,5 +7573,29 @@
       "reading-pss4-total"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "soldier-poet-king-quiz",
+    "code": "SOLDIER_POET_KING_FM24",
+    "version": "1.0.0",
+    "updated": "2026-11-08",
+    "category": "fantasy",
+    "title": {
+      "zh": "士兵、诗人、国王测试",
+      "en": "Soldier Poet King Quiz"
+    },
+    "description": {
+      "zh": "完成24道原创情境题和1道点击排序，探索士兵、诗人、国王三原型。查看全部计分、并列解释与完整指南，免费保存结果图片。",
+      "en": "Are you a soldier, poet or king? Take 24 original scenarios and one tap-to-rank question. Compare all three archetypes, understand ties and save your free result image."
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fm_soldier_poet_king_original24_v1",
+    "questionCount": 25,
+    "resultSlugs": [
+      "soldier",
+      "poet",
+      "king"
+    ]
   }
 ]

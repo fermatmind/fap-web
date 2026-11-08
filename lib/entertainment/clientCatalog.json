@@ -3883,6 +3883,17 @@
       "resultSlugs": [
         "reading-pss4-total"
       ]
+    },
+    {
+      "slug": "soldier-poet-king-quiz",
+      "collection": "explore",
+      "code": "SOLDIER_POET_KING_FM24",
+      "formCode": "fm_soldier_poet_king_original24_v1",
+      "resultSlugs": [
+        "soldier",
+        "poet",
+        "king"
+      ]
     }
   ],
   "legacy": [

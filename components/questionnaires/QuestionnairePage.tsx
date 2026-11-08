@@ -5,6 +5,7 @@ import { BleachExamples } from "./BleachExamples";
 import { MentalAgeClassicPage } from "./MentalAgeClassicPage";
 import { philosopherLandingDescription } from "@/lib/questionnaires/philosopherPresentation";
 import { PhilosopherRoster } from "./PhilosopherRoster";
+import { FantasyRoster, hasFantasyArtwork } from "./FantasyRoster";
 import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import { prepareQuestionnaireResultReadings, prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
 import { completionGapEditorial } from "./CompletionGapEditorial";
@@ -1083,6 +1084,7 @@ return (quiz.references ?? []);
       {zh ? "想单独了解伴侣年龄情境？" : "Curious about partner age specifically? "}<Link prefetch={false} className="font-semibold underline underline-offset-4" href={questionnairePath(locale, "adult-age-preferences")}>{zh ? "做年上年下恋爱倾向测试" : "Try the Dating Age Preference Quiz"}</Link>
     </p>}
     {slug === "philosopher-personality-test" && <PhilosopherRoster locale={locale} />}
+    {hasFantasyArtwork(slug) && <FantasyRoster quiz={quiz} locale={locale} />}
     {slug === "philosopher-personality-test" && <PhilosopherResultExamples quiz={quiz} locale={locale} />}
     {slug === "aura-color" && <AuraColorResultExamples quiz={quiz} locale={locale} />}
     {slug === "chiikawa" && <ChiikawaResultExamples quiz={quiz} locale={locale} />}
