@@ -146,7 +146,8 @@ for (const locale of ["en", "zh"] as const) test(`@release Space Marine ${locale
   const card = page.locator("#more-tests").getByRole("link", {name: quiz.title[locale], exact: true});
   await expect(card).toHaveAttribute("href", `/${locale}/tests/explore/space-marine-chapter`);
   const tile = card.locator("xpath=ancestor::article[1]");
-  await expect(tile).toContainText(locale === "zh" ? "18道纸模型选择" : "18 paper-model choices");
+  await expect(tile).toContainText(locale === "zh" ? "战锤40K纸模型情境" : "Warhammer 40K Chapter themes in paper-model scenarios");
+  await expect(tile).toContainText(locale === "zh" ? "18 题" : "18 questions");
   await expect(tile.locator("img")).toHaveAttribute("src", "/images/quiz-portraits/space-marine-chapter/ultramarines-studio.webp");
   await card.click();
   await expect(page.getByRole("heading", {level: 1})).toHaveText(quiz.title[locale]);
