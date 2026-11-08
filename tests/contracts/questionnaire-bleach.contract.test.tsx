@@ -1,3 +1,4 @@
+import { entertainmentGuideProfile } from "@/lib/questionnaires/entertainmentGuideSeo";
 import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
@@ -136,13 +137,13 @@ describe("T044 original seven-character unofficial BLEACH fan quiz", () => {
         for (const profile of quiz.profiles) {
           const publicPath = `${path}/results/${profile.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };
           const rendered = renderToStaticMarkup(await guide.default(props)), meta = await guide.generateMetadata(props), dom = document.createElement("div"); dom.innerHTML = rendered;
-          expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]);
+          expect(dom.querySelector("h1")?.textContent).toBe(entertainmentGuideProfile(quiz.slug, locale, profile).title[locale]);
           for (const section of profile.sections) {
             expect(dom.querySelector(`#report-${section.id} h2`)?.textContent).toBe(section.title[locale]);
             for (const paragraph of section.paragraphs) expect(dom.textContent).toContain(paragraph[locale]);
           }
-          expect(meta.title).toBe(profile.seo!.title[locale]);
-          expect(meta.description).toBe(profile.seo!.description[locale]);
+          expect(meta.title).toBe(entertainmentGuideProfile(quiz.slug, locale, profile).seo!.title[locale]);
+          expect(meta.description).toBe(entertainmentGuideProfile(quiz.slug, locale, profile).seo!.description[locale]);
           expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${publicPath}`);
           expect(meta.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/bleach/results/${profile.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/bleach/results/${profile.id}` });
           expect(maps.some(e => e.loc === `https://fermatmind.com${publicPath}`)).toBe(true); expect(isMissingFunRoute(publicPath)).toBe(false);

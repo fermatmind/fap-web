@@ -2494,8 +2494,8 @@
   "faq": [
     {
       "question": {
-        "zh": "月相测试测什么？",
-        "en": "What does this moon phase test explore?"
+        "zh": "我是哪种月相？月相人格测试测什么？",
+        "en": "What moon phase am I? What does the personality test tell me?"
       },
       "answer": {
         "zh": "本版用八个月相名称组织普通活动的相对选择，关注留白、小试、取舍、调整、呈现、分享、减负与间隔。它是一份原创象征测验，不把结果当作真实月相、固定人格或人生阶段。",
@@ -2514,12 +2514,12 @@
     },
     {
       "question": {
-        "zh": "需要生日、出生时间或地点吗？",
-        "en": "Do I need a birthday, birth time or location?"
+        "zh": "这是生日月相查询或月相配对测试吗？",
+        "en": "Is this a birthday moon phase or compatibility test?"
       },
       "answer": {
-        "zh": "不需要。本版不采集这些资料，也不计算出生或当前月相、月龄、照明比例或月亮星座。想查某个日期的实际月相，需要相应天文历算；问卷次数不能替代日期计算。",
-        "en": "No. This edition does not collect these details or calculate a birth or current phase, lunar age, illumination or Moon sign. Finding an actual phase on a date requires astronomical calculation; questionnaire counts cannot substitute for it."
+        "zh": "不是。这是24题的活动节奏意象问卷，不需要生日、出生时间或地点，不查询出生月相，也不计算两人的月相契合度。想知道某天的实际月相，需要另用天文日期查询工具；本页的八相解读是娱乐比喻。",
+        "en": "No. This 24-question quiz explores symbolic activity paces. It needs no birthday, birth time or place, and calculates neither a birth moon nor a couple’s compatibility. For an actual phase on a date, use an astronomical date lookup instead. The eight readings here are entertainment metaphors."
       }
     },
     {

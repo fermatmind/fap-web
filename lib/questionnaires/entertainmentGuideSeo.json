@@ -1,0 +1,568 @@
+{
+  "cyberpunk-edgerunners": {
+    "quiz": {
+      "zh": "《赛博朋克：边缘行者》角色测试",
+      "en": "Cyberpunk: Edgerunners Character Quiz"
+    },
+    "names": {
+      "david": {
+        "name": {
+          "zh": "大卫·马丁内斯",
+          "en": "David Martinez"
+        },
+        "topic": {
+          "zh": "从一个小尝试开始",
+          "en": "making a small first attempt"
+        }
+      },
+      "lucy": {
+        "name": {
+          "zh": "露西",
+          "en": "Lucy"
+        },
+        "topic": {
+          "zh": "自主目标与清楚的边界",
+          "en": "personal goals and clear boundaries"
+        }
+      },
+      "rebecca": {
+        "name": {
+          "zh": "丽贝卡",
+          "en": "Rebecca"
+        },
+        "topic": {
+          "zh": "直接表达支持",
+          "en": "expressing support directly"
+        }
+      },
+      "maine": {
+        "name": {
+          "zh": "曼恩",
+          "en": "Maine"
+        },
+        "topic": {
+          "zh": "协调团队与提供支持",
+          "en": "coordinating a group and offering support"
+        }
+      },
+      "kiwi": {
+        "name": {
+          "zh": "琦薇",
+          "en": "Kiwi"
+        },
+        "topic": {
+          "zh": "核对消息与区分未知",
+          "en": "checking information and acknowledging uncertainty"
+        }
+      },
+      "falco": {
+        "name": {
+          "zh": "法尔科",
+          "en": "Falco"
+        },
+        "topic": {
+          "zh": "交接与收尾安排",
+          "en": "handoffs and following through"
+        }
+      },
+      "faraday": {
+        "name": {
+          "zh": "法拉第",
+          "en": "Faraday"
+        },
+        "topic": {
+          "zh": "明确条件与承诺",
+          "en": "making terms and commitments explicit"
+        }
+      }
+    }
+  },
+  "aura-color": {
+    "quiz": {
+      "zh": "光环颜色测试",
+      "en": "Aura Color Test"
+    },
+    "names": {
+      "red": {
+        "name": {
+          "zh": "红色光环",
+          "en": "Red Aura"
+        },
+        "topic": {
+          "zh": "鲜明的自选表达",
+          "en": "deliberate visible expression"
+        }
+      },
+      "orange": {
+        "name": {
+          "zh": "橙色光环",
+          "en": "Orange Aura"
+        },
+        "topic": {
+          "zh": "共同创作的玩心",
+          "en": "play in shared making"
+        }
+      },
+      "yellow": {
+        "name": {
+          "zh": "黄色光环",
+          "en": "Yellow Aura"
+        },
+        "topic": {
+          "zh": "提问与解释",
+          "en": "questions and explanations"
+        }
+      },
+      "green": {
+        "name": {
+          "zh": "绿色光环",
+          "en": "Green Aura"
+        },
+        "topic": {
+          "zh": "留意生活环境",
+          "en": "attention to everyday surroundings"
+        }
+      },
+      "blue": {
+        "name": {
+          "zh": "蓝色光环",
+          "en": "Blue Aura"
+        },
+        "topic": {
+          "zh": "把想说的话讲清",
+          "en": "saying what you mean plainly"
+        }
+      },
+      "indigo": {
+        "name": {
+          "zh": "靛色光环",
+          "en": "Indigo Aura"
+        },
+        "topic": {
+          "zh": "留给自己的细看",
+          "en": "looking closely in private"
+        }
+      },
+      "violet": {
+        "name": {
+          "zh": "紫色光环",
+          "en": "Violet Aura"
+        },
+        "topic": {
+          "zh": "个人符号的意义",
+          "en": "personal meaning in symbols"
+        }
+      }
+    }
+  },
+  "adult-age-preferences": {
+    "quiz": {
+      "zh": "年上年下测试",
+      "en": "Dating Age Preference Quiz"
+    },
+    "names": {
+      "older-adult-context": {
+        "name": {
+          "zh": "年上情境",
+          "en": "Older Partner Situations"
+        },
+        "topic": {
+          "zh": "年长成年伴侣情境选项较多",
+          "en": "more choices for older adult partner situations"
+        }
+      },
+      "similar-age-context": {
+        "name": {
+          "zh": "同龄情境",
+          "en": "Similar-Age Situations"
+        },
+        "topic": {
+          "zh": "相近年龄阶段情境选项较多",
+          "en": "more choices for similar-age situations"
+        }
+      },
+      "younger-adult-context": {
+        "name": {
+          "zh": "年下情境",
+          "en": "Younger Partner Situations"
+        },
+        "topic": {
+          "zh": "较年轻成年伴侣情境选项较多",
+          "en": "more choices for younger adult partner situations"
+        }
+      },
+      "older-similar-tie": {
+        "name": {
+          "zh": "年上与同龄并列",
+          "en": "Older and Similar-Age Tie"
+        },
+        "topic": {
+          "zh": "两类情境的最高次数相同",
+          "en": "equal highest counts for two situation types"
+        }
+      },
+      "older-younger-tie": {
+        "name": {
+          "zh": "年上与年下并列",
+          "en": "Older and Younger Tie"
+        },
+        "topic": {
+          "zh": "两类成年伴侣情境的最高次数相同",
+          "en": "equal highest counts for older and younger adult situations"
+        }
+      },
+      "similar-younger-tie": {
+        "name": {
+          "zh": "同龄与年下并列",
+          "en": "Similar-Age and Younger Tie"
+        },
+        "topic": {
+          "zh": "两类情境的最高次数相同",
+          "en": "equal highest counts for two situation types"
+        }
+      },
+      "all-three-tied": {
+        "name": {
+          "zh": "年上、同龄与年下并列",
+          "en": "Three-Way Tie"
+        },
+        "topic": {
+          "zh": "三类情境的选择次数相同",
+          "en": "equal counts across all three situation types"
+        }
+      }
+    }
+  },
+  "philosopher-personality-test": {
+    "quiz": {
+      "zh": "哲学家性格测试",
+      "en": "Philosopher Personality Quiz"
+    },
+    "names": {
+      "socrates": {
+        "name": {
+          "zh": "苏格拉底",
+          "en": "Socrates"
+        },
+        "topic": {
+          "zh": "追问理由与澄清概念",
+          "en": "asking for reasons and clarifying concepts"
+        }
+      },
+      "aristotle": {
+        "name": {
+          "zh": "亚里士多德",
+          "en": "Aristotle"
+        },
+        "topic": {
+          "zh": "处境中的实践与判断",
+          "en": "practice and judgment in context"
+        }
+      },
+      "confucius": {
+        "name": {
+          "zh": "孔子",
+          "en": "Confucius"
+        },
+        "topic": {
+          "zh": "学习、反省与日常相处",
+          "en": "learning, reflection and relationships"
+        }
+      },
+      "laozi": {
+        "name": {
+          "zh": "老子",
+          "en": "Laozi"
+        },
+        "topic": {
+          "zh": "审视多余的强求",
+          "en": "questioning unnecessary forcing"
+        }
+      },
+      "epicurus": {
+        "name": {
+          "zh": "伊壁鸠鲁",
+          "en": "Epicurus"
+        },
+        "topic": {
+          "zh": "欲望、满足与追求的代价",
+          "en": "desires, satisfaction and their costs"
+        }
+      },
+      "epictetus": {
+        "name": {
+          "zh": "爱比克泰德",
+          "en": "Epictetus"
+        },
+        "topic": {
+          "zh": "自身判断与外在结果",
+          "en": "personal judgment and external outcomes"
+        }
+      },
+      "nietzsche": {
+        "name": {
+          "zh": "尼采",
+          "en": "Friedrich Nietzsche"
+        },
+        "topic": {
+          "zh": "重估自己的尺度",
+          "en": "reconsidering your standards"
+        }
+      },
+      "simone-de-beauvoir": {
+        "name": {
+          "zh": "波伏瓦",
+          "en": "Simone de Beauvoir"
+        },
+        "topic": {
+          "zh": "彼此的自由与具体选择",
+          "en": "freedom and choices with others"
+        }
+      },
+      "marcus-aurelius": {
+        "name": {
+          "zh": "马可·奥勒留",
+          "en": "Marcus Aurelius"
+        },
+        "topic": {
+          "zh": "认真回应眼前的人与事",
+          "en": "attending to the present response"
+        }
+      }
+    }
+  },
+  "space-marine-chapter": {
+    "quiz": {
+      "zh": "星际战士战团测试",
+      "en": "Space Marine Chapter Quiz"
+    },
+    "names": {
+      "ultramarines": {
+        "name": {
+          "zh": "极限战士",
+          "en": "Ultramarines"
+        },
+        "topic": {
+          "zh": "模型展示中的整体安排",
+          "en": "planning a model display"
+        }
+      },
+      "imperial-fists": {
+        "name": {
+          "zh": "帝国之拳",
+          "en": "Imperial Fists"
+        },
+        "topic": {
+          "zh": "让小展示底座可靠",
+          "en": "making a small display base dependable"
+        }
+      },
+      "iron-hands": {
+        "name": {
+          "zh": "钢铁之手",
+          "en": "Iron Hands"
+        },
+        "topic": {
+          "zh": "模型细节的检查与调整",
+          "en": "checking and adjusting model details"
+        }
+      },
+      "salamanders": {
+        "name": {
+          "zh": "火蜥蜴",
+          "en": "Salamanders"
+        },
+        "topic": {
+          "zh": "仔细对待一项手作细节",
+          "en": "giving a handmade detail careful attention"
+        }
+      },
+      "raven-guard": {
+        "name": {
+          "zh": "暗鸦守卫",
+          "en": "Raven Guard"
+        },
+        "topic": {
+          "zh": "模型展示中的观察与留白",
+          "en": "observation and space in a model display"
+        }
+      },
+      "white-scars": {
+        "name": {
+          "zh": "白疤",
+          "en": "White Scars"
+        },
+        "topic": {
+          "zh": "模型场景中的路径与变化",
+          "en": "routes and changes in a model scene"
+        }
+      }
+    }
+  },
+  "bleach": {
+    "quiz": {
+      "zh": "死神角色测试",
+      "en": "BLEACH Character Quiz"
+    },
+    "names": {
+      "ichigo-kurosaki": {
+        "name": {
+          "zh": "黑崎一护",
+          "en": "Ichigo Kurosaki"
+        },
+        "topic": {
+          "zh": "帮助的范围",
+          "en": "the scope of helping"
+        }
+      },
+      "rukia-kuchiki": {
+        "name": {
+          "zh": "朽木露琪亚",
+          "en": "Rukia Kuchiki"
+        },
+        "topic": {
+          "zh": "把做法说明白",
+          "en": "explaining an approach"
+        }
+      },
+      "sosuke-aizen": {
+        "name": {
+          "zh": "蓝染惣右介",
+          "en": "Sosuke Aizen"
+        },
+        "topic": {
+          "zh": "重新检查最初的框架",
+          "en": "revisiting the initial frame"
+        }
+      },
+      "byakuya-kuchiki": {
+        "name": {
+          "zh": "朽木白哉",
+          "en": "Byakuya Kuchiki"
+        },
+        "topic": {
+          "zh": "自选约定与承诺",
+          "en": "chosen agreements and commitments"
+        }
+      },
+      "orihime-inoue": {
+        "name": {
+          "zh": "井上织姬",
+          "en": "Orihime Inoue"
+        },
+        "topic": {
+          "zh": "留意他人的意愿",
+          "en": "attending to others’ wishes"
+        }
+      },
+      "kisuke-urahara": {
+        "name": {
+          "zh": "浦原喜助",
+          "en": "Kisuke Urahara"
+        },
+        "topic": {
+          "zh": "先做一个可修改的小样",
+          "en": "trying a revisable prototype"
+        }
+      },
+      "kenpachi-zaraki": {
+        "name": {
+          "zh": "更木剑八",
+          "en": "Kenpachi Zaraki"
+        },
+        "topic": {
+          "zh": "自选一项有界挑战",
+          "en": "choosing a bounded challenge"
+        }
+      }
+    }
+  },
+  "moon-phase": {
+    "quiz": {
+      "zh": "月相测试",
+      "en": "Moon Phase Personality Test"
+    },
+    "names": {
+      "new-moon": {
+        "name": {
+          "zh": "新月",
+          "en": "New Moon"
+        },
+        "topic": {
+          "zh": "留白与自选意图",
+          "en": "space and chosen intention"
+        }
+      },
+      "waxing-crescent": {
+        "name": {
+          "zh": "渐盈月牙",
+          "en": "Waxing Crescent"
+        },
+        "topic": {
+          "zh": "微小可改的尝试",
+          "en": "a small revisable trial"
+        }
+      },
+      "first-quarter": {
+        "name": {
+          "zh": "上弦月",
+          "en": "First Quarter"
+        },
+        "topic": {
+          "zh": "明确当前取舍",
+          "en": "a present tradeoff"
+        }
+      },
+      "waxing-gibbous": {
+        "name": {
+          "zh": "盈凸月",
+          "en": "Waxing Gibbous"
+        },
+        "topic": {
+          "zh": "调整一个细节",
+          "en": "adjusting one detail"
+        }
+      },
+      "full-moon": {
+        "name": {
+          "zh": "满月",
+          "en": "Full Moon"
+        },
+        "topic": {
+          "zh": "自选呈现与收束",
+          "en": "chosen presentation and closure"
+        }
+      },
+      "waning-gibbous": {
+        "name": {
+          "zh": "亏凸月",
+          "en": "Waning Gibbous"
+        },
+        "topic": {
+          "zh": "分享可用经验",
+          "en": "sharing a useful experience"
+        }
+      },
+      "last-quarter": {
+        "name": {
+          "zh": "下弦月",
+          "en": "Last Quarter"
+        },
+        "topic": {
+          "zh": "减少可选负担",
+          "en": "reducing an optional burden"
+        }
+      },
+      "waning-crescent": {
+        "name": {
+          "zh": "渐亏月牙",
+          "en": "Waning Crescent"
+        },
+        "topic": {
+          "zh": "保留安静间隔",
+          "en": "leaving a quiet interval"
+        }
+      }
+    }
+  }
+}

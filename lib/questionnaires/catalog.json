@@ -1026,7 +1026,7 @@
       "en": "Chiikawa Character Quiz"
     },
     "description": {
-      "zh": "你像吉伊卡哇、小八还是兔兔？免费回答18道日常情境题，比较六位角色的匹配结果，查看角色指南，无需注册。",
+      "zh": "你像吉伊卡哇（小可爱）、小八还是兔兔？免费回答18道日常情境题，比较六位角色的匹配结果，查看完整角色指南，无需注册。",
       "en": "Which Chiikawa character are you? Take the free 18-question quiz and compare six possible matches, from Hachiware and Usagi to Momonga. No sign-up."
     },
     "minutes": 6,
@@ -1446,8 +1446,8 @@
       "en": "Which Philosopher Are You?"
     },
     "description": {
-      "zh": "从18道日常选择出发，探索苏格拉底、孔子、尼采、波伏瓦等九个哲学阅读入口。免费查看全部最高并列、计数与完整指南，无需哲学基础或注册。",
-      "en": "Take 18 everyday-choice questions and explore nine philosopher reading paths. See every tied result and full guides free. No philosophy knowledge or signup needed."
+      "zh": "你会从哪位哲学家开始思考？18道日常选择，探索苏格拉底、孔子、尼采、波伏瓦等九个阅读入口。免费查看计数、全部最高并列与完整指南。",
+      "en": "Which philosopher’s questions would you explore first? Answer 18 everyday choices for nine reading paths, from Socrates to Nietzsche. All tied results and guides are free."
     },
     "minutes": 6,
     "collection": "explore",
@@ -2736,8 +2736,8 @@
       "zh": "星际战士战团测试"
     },
     "description": {
-      "zh": "用18道纸模型情境题，看看六个星际战士战团主题中，你选得最多的是哪一种爱好视角。免费查看原始计数、所有最高并列和完整指南；非官方同人测试，无需注册或背景知识。",
-      "en": "Take this unofficial Space Marine Chapter quiz through 18 paper-model choices. See six raw counts, every highest tie and free Chapter-inspired hobby guides. No signup or lore knowledge needed."
+      "zh": "战锤40K星际战士战团趣味测试：18道纸模型情境题，比较极限战士、帝国之拳等六战团主题。免费查看全部计数、最高并列与同人指南，无需背景知识。",
+      "en": "Which Space Marine Chapter fits your hobby choices? Take 18 paper-model scenarios inspired by six Warhammer 40K Chapters. Free counts, tied results and unofficial fan guides."
     },
     "minutes": 5,
     "formCode": "fermatmind_space_marine_chapters_original_18_v1",

@@ -19,5 +19,67 @@
   "guides": {"zh":"六位角色的完整指南","en":"Six complete character guides"},
   "guide": {"zh":"阅读完整指南","en":"Read the complete guide"},
   "faq": {"zh":"常见问题","en":"Frequently asked questions"},
-  "resultNote": {"zh":"保留所有最高并列，不合成新角色，不推断能力或诊断。次数只描述这18题的选择，不是人群百分位。","en":"All highest ties are retained."}
+  "resultNote": {"zh":"保留所有最高并列，不合成新角色，不推断能力或诊断。次数只描述这18题的选择，不是人群百分位。","en":"All highest ties are retained."},
+  "chiikawaGuideSeo": {
+    "chiikawa": {
+      "title": {
+        "zh": "吉伊卡哇（小可爱）：吉伊卡哇测试结果",
+        "en": "Chiikawa: Chiikawa Quiz Result"
+      },
+      "description": {
+        "zh": "吉伊卡哇角色测试中的吉伊卡哇（小可爱）结果，围绕“按自己的速度参与”解释本次选择。阅读日常例子、与其他五位角色的比较，再返回18题测试。非官方趣味解读。",
+        "en": "Chiikawa in the Chiikawa character quiz: joining at your own pace. Read everyday examples, compare the other five characters and try the free 18-question fan quiz."
+      }
+    },
+    "hachiware": {
+      "title": {
+        "zh": "小八（Hachiware）：吉伊卡哇测试结果",
+        "en": "Hachiware: Chiikawa Quiz Result"
+      },
+      "description": {
+        "zh": "吉伊卡哇角色测试中的小八（Hachiware）结果，围绕“一起把意思说明白”解释本次选择。阅读日常例子、与其他五位角色的比较，再返回18题测试。非官方趣味解读。",
+        "en": "Hachiware in the Chiikawa character quiz: finding the right words together. Read everyday examples, compare the other five characters and try the free 18-question fan quiz."
+      }
+    },
+    "usagi": {
+      "title": {
+        "zh": "兔兔（Usagi）：吉伊卡哇测试结果",
+        "en": "Usagi: Chiikawa Quiz Result"
+      },
+      "description": {
+        "zh": "吉伊卡哇角色测试中的兔兔（Usagi）结果，围绕“出其不意的小玩法”解释本次选择。阅读日常例子、与其他五位角色的比较，再返回18题测试。非官方趣味解读。",
+        "en": "Usagi in the Chiikawa character quiz: unexpected little ways to play. Read everyday examples, compare the other five characters and try the free 18-question fan quiz."
+      }
+    },
+    "momonga": {
+      "title": {
+        "zh": "小桃（Momonga）：吉伊卡哇测试结果",
+        "en": "Momonga: Chiikawa Quiz Result"
+      },
+      "description": {
+        "zh": "吉伊卡哇角色测试中的小桃（Momonga）结果，围绕“把自己的愿望说出来”解释本次选择。阅读日常例子、与其他五位角色的比较，再返回18题测试。非官方趣味解读。",
+        "en": "Momonga in the Chiikawa character quiz: making your wishes visible. Read everyday examples, compare the other five characters and try the free 18-question fan quiz."
+      }
+    },
+    "kurimanju": {
+      "title": {
+        "zh": "栗子馒头（Kurimanju）：吉伊卡哇测试结果",
+        "en": "Kurimanju: Chiikawa Quiz Result"
+      },
+      "description": {
+        "zh": "吉伊卡哇角色测试中的栗子馒头（Kurimanju）结果，围绕“慢慢享受小舒适”解释本次选择。阅读日常例子、与其他五位角色的比较，再返回18题测试。非官方趣味解读。",
+        "en": "Kurimanju in the Chiikawa character quiz: savouring small comforts. Read everyday examples, compare the other five characters and try the free 18-question fan quiz."
+      }
+    },
+    "rakko": {
+      "title": {
+        "zh": "海獭（Rakko）：吉伊卡哇测试结果",
+        "en": "Rakko: Chiikawa Quiz Result"
+      },
+      "description": {
+        "zh": "吉伊卡哇角色测试中的海獭（Rakko）结果，围绕“分享亲自试过的经验”解释本次选择。阅读日常例子、与其他五位角色的比较，再返回18题测试。非官方趣味解读。",
+        "en": "Rakko in the Chiikawa character quiz: sharing something you have tried. Read everyday examples, compare the other five characters and try the free 18-question fan quiz."
+      }
+    }
+  }
 }

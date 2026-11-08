@@ -12,8 +12,8 @@
     "en": "Reflect on initiating activities, responding to opportunities, switching interests, contributing when invited and observing. See five readings for the past four weeks."
   },
   "adult-age-preferences": {
-    "zh": "用 18 道情境题比较你对年上、同龄和年下成年伴侣情境的选择。",
-    "en": "Compare choices about dating older, similarly aged and younger adults across 18 situations."
+    "zh": "年上、同龄还是年下？比较成年伴侣情境中的选择，保留全部并列；结果不规定择偶年龄。",
+    "en": "Older, similar age or younger? Compare adult dating situations, keep every tie and read what the counts mean."
   },
   "aesthetic-core-test": {
     "zh": "用文字情境比较六种美学风格，查看配色和材质建议。无需上传照片。",
@@ -88,8 +88,8 @@
     "en": "Reflect on romantic and sexual attraction over the past twelve months. Five readings are shown without assigning orientation or identity."
   },
   "aura-color": {
-    "zh": "用七种颜色比喻日常表达偏好，查看各色的选择次数。无需提供照片或生日。",
-    "en": "Explore everyday preferences through seven color metaphors and see the counts for each. No photo or birth date is needed."
+    "zh": "你的光环是什么颜色？用七色象征比较日常表达偏好，不用照片或生日。",
+    "en": "What color is your aura? Explore seven symbolic color meanings through everyday choices, without a photo or birth date."
   },
   "avengers-character": {
     "zh": "想象你要布置一个爱好展台，对照 2012 年电影中六位复仇者的参与方式。",
@@ -192,8 +192,8 @@
     "en": "Reflect on 24 strengths, including curiosity, honesty and care, with public IPIP-VIA-R items. The Chinese items are a working translation."
   },
   "chiikawa": {
-    "zh": "通过相聚、分享和表达愿望的情境，对照六位吉伊卡哇角色的参与方式。",
-    "en": "Compare six Chiikawa character perspectives in scenes about joining in, sharing and expressing wishes."
+    "zh": "吉伊卡哇（小可爱）、小八还是兔兔？从相聚、分享和表达愿望的选择中，比较六位角色。",
+    "en": "Which Chiikawa character are you? Compare Chiikawa, Hachiware, Usagi and three more through everyday choices."
   },
   "child-focus-activity-observations": {
     "zh": "整理近四周亲眼观察到的儿童行为，包括共同活动时的注意、移动、轮流及所获协助。",
@@ -312,8 +312,8 @@
     "en": "Practice clarifying customer needs, applying policies, explaining next steps and logging follow-ups. Review every answer."
   },
   "cyberpunk-edgerunners": {
-    "zh": "在日常情境中对照《赛博朋克：边缘行者》初代动画七位角色的做法。结果保留最高并列。",
-    "en": "Compare seven characters from the original Cyberpunk: Edgerunners anime through everyday choices. Top matches can tie."
+    "zh": "你更像大卫、露西还是丽贝卡？用日常选择比较初代动画七位角色，查看全部最高并列。",
+    "en": "Which Cyberpunk: Edgerunners character are you? Compare David, Lucy, Rebecca and four more through everyday choices."
   },
   "cybersecurity-awareness": {
     "zh": "练习识别钓鱼、保护账户、维护设备和应对事件。完成后可逐题核对答案。",
@@ -568,8 +568,8 @@
     "en": "Make an invitation that is easy to answer. Set out a plan, build on a shared interest or leave room for the other person to decide."
   },
   "friendship-quiz": {
-    "zh": "自己出题，邀请朋友来猜。按主题对照答题表现，查看并列排名或分享分数卡。",
-    "en": "Create a quiz about yourself and invite friends to guess. Compare scores by topic, see tied rankings and share a scorecard."
+    "zh": "创建朋友默契测试，让好友挑战“你有多了解我”。猜中得分、同分并列，还能分享分数卡。",
+    "en": "Make a best friend quiz about yourself. Challenge your BFFs to guess your answers, compare scores and share a scorecard."
   },
   "game-night-reset": {
     "zh": "桌游开始失去乐趣。问问大家的感受、只改一条规则，或体面地结束这一局。",
@@ -876,8 +876,8 @@
     "en": "Visit a moonlit market and return with a borrowed star map, a garden of possibilities or a ticket back to this moment."
   },
   "moon-phase": {
-    "zh": "24题看看你更常选择哪种月相意象，免费查看全部最高并列、选择次数与八份指南。",
-    "en": "Find your moon phase image in 24 questions. See every top match, your choice counts and eight full guides."
+    "zh": "你最近的活动节奏像哪种月相？比较八种趣味意象；这是问卷，不是生日月相查询。",
+    "en": "Which moon phase matches your pace? Explore eight quiz metaphors, with every top tie kept. Not a birthday moon calculator."
   },
   "moral-alignment": {
     "zh": "在虚构情境中比较守序与混乱、善良与邪恶的选择，查看九宫格位置和边界结果。",
@@ -1032,8 +1032,8 @@
     "en": "Curate an ordinary day through small events, overlooked details and moments of connection you would share."
   },
   "philosopher-personality-test": {
-    "zh": "18道日常选择，探索苏格拉底、孔子、尼采等九位哲学家的阅读入口。免费查看完整指南，保留全部最高并列。",
-    "en": "Which philosopher will you read first? Take 18 everyday choices for nine reading paths, every highest tie and full guides free."
+    "zh": "你会从哪位哲学家读起？从日常选择探索苏格拉底、孔子、尼采等九个阅读入口。",
+    "en": "Which philosopher’s questions would you explore first? Try nine reading paths, from Socrates and Confucius to Nietzsche."
   },
   "photo-group-role": {
     "zh": "安排一张合影，考虑怎样让大家看清画面、自愿参加，并留住真正想记住的瞬间。",
@@ -1264,8 +1264,8 @@
     "en": "What makes a keepsake worth saving? Choose a useful object, a specific memory or a story to share."
   },
   "space-marine-chapter": {
-    "zh": "18道纸模型选择，看看你选得最多的战团主题爱好视角。保留全部最高并列，完整指南免费。",
-    "en": "18 paper-model choices, six Chapter-inspired hobby lenses. Keep every highest tie and read the full guides free."
+    "zh": "你更偏向哪个星际战士战团？在战锤40K纸模型情境中比较六战团主题，阅读完整同人指南。",
+    "en": "Which Space Marine Chapter fits your hobby choices? Compare six Warhammer 40K Chapter themes in paper-model scenarios."
   },
   "spanish-proficiency": {
     "zh": "用西语题练习语法、语境词义、阅读和实际消息。说明与解析提供中文和英文。",

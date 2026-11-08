@@ -82,7 +82,7 @@ export default async function Page({
               ? "费马测试 · 免费朋友默契测试"
               : "FERMATMIND · FREE FRIENDSHIP QUIZ"}
           </p>
-          <h1>{zh ? "朋友默契测试：你有多了解我？" : "How Well Do You Know Me? Friendship Quiz"}</h1>
+          <h1>{zh ? "朋友默契测试：你有多了解我？" : "Best Friend Quiz: How Well Do You Know Me?"}</h1>
           <p>
             {zh
               ? "选出关于你的答案，生成一条链接，让朋友来猜。"

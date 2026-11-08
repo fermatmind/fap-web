@@ -1,3 +1,4 @@
+import { entertainmentGuideProfile } from "@/lib/questionnaires/entertainmentGuideSeo";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -103,9 +104,9 @@ describe("T048 original first-series Cyberpunk: Edgerunners character comparison
           const props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: p.id }) }, path = `${base}/results/${p.id}`;
           const html = renderToStaticMarkup(await guide.default(props)); const meta = await guide.generateMetadata(props);
           const dom = document.createElement("div"); dom.innerHTML = html;
-          expect(dom.querySelector("h1")?.textContent).toBe(p.title[locale]);
+          expect(dom.querySelector("h1")?.textContent).toBe(entertainmentGuideProfile(quiz.slug, locale, p).title[locale]);
           for (const section of p.sections) for (const t of section.paragraphs) expect(dom.textContent).toContain(t[locale]);
-          expect(meta.title).toBe(p.seo?.title[locale]); expect(meta.description).toBe(p.seo?.description[locale]);
+          expect(meta.title).toBe(entertainmentGuideProfile(quiz.slug, locale, p).seo?.title[locale]); expect(meta.description).toBe(entertainmentGuideProfile(quiz.slug, locale, p).seo?.description[locale]);
           expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
           expect(meta.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/${quiz.slug}/results/${p.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/${quiz.slug}/results/${p.id}` });
           expect(maps.filter(x => x.loc === `https://fermatmind.com${path}`)).toHaveLength(1);

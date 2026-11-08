@@ -1385,8 +1385,8 @@
     },
     {
       "question": {
-        "en": "How is my quiz age calculated?",
-        "zh": "娱乐年龄怎么算？"
+        "zh": "我的心理年龄是多少？娱乐年龄怎么算？",
+        "en": "What is my mental age? How is the quiz age calculated?"
       },
       "answer": {
         "en": "Add the thirty 0–2 point choices, then add 10. Your selected answer and points are shown for every statement.",

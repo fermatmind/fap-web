@@ -24,8 +24,9 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   const { traditionalQuiz: quiz, traditionalUi: ui } = await import("@/lib/i18n/zh-TW/chiikawa");
   const profile = quiz.profiles.find(profile => path === `${entry}/results/${profile.id}`);
   const equivalent = traditionalEquivalent(path);
-  const title = profile?.seo?.title["zh-TW"] ?? (profile ? profile.title["zh-TW"] : path.startsWith(entry) ? quiz.seoTitle["zh-TW"] : ui.hub["zh-TW"]);
-  const description = profile?.seo?.description["zh-TW"] ?? (profile ? profile.summary["zh-TW"] : path.startsWith(entry) ? quiz.description["zh-TW"] : ui.available["zh-TW"]);
+  const guideCopy = profile && ui.chiikawaGuideSeo[profile.id as keyof typeof ui.chiikawaGuideSeo];
+  const title = guideCopy?.title["zh-TW"] ?? profile?.seo?.title["zh-TW"] ?? (profile ? profile.title["zh-TW"] : path.startsWith(entry) ? quiz.seoTitle["zh-TW"] : ui.hub["zh-TW"]);
+  const description = guideCopy?.description["zh-TW"] ?? profile?.seo?.description["zh-TW"] ?? (profile ? profile.summary["zh-TW"] : path.startsWith(entry) ? quiz.description["zh-TW"] : ui.available["zh-TW"]);
   const languages = equivalent ? { "zh-TW": `${SITE_URL}${path}`, "zh-CN": `${SITE_URL}${path.replace("/zh-TW", "/zh")}`, en: `${SITE_URL}${path.replace("/zh-TW", "/en")}`, "x-default": `${SITE_URL}${path.replace("/zh-TW", "/en")}` } : undefined;
   return { title, description, alternates: { canonical: `${SITE_URL}${path.endsWith("/take") ? entry : path}`, languages }, robots: path.endsWith("/take") ? { index: false, follow: false, noarchive: true } : undefined,
     openGraph: { title, description, locale: "zh_TW", type: "website", url: `${SITE_URL}${path}`, images: [`${SITE_URL}/images/test-covers/chiikawa.webp`] } };

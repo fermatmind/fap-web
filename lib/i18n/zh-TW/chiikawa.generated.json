@@ -3,9 +3,9 @@
   "converter": "opencc-js@1.4.2:cn:twp",
   "glossary": "fermatmind-tw-1",
   "sourceHashes": {
-    "lib/questionnaires/data/chiikawa.json": "87365e77fe9c08277e8eb02ec30c5f1f4f444d84e58afe04cc9dfbb8e4da0a7a",
+    "lib/questionnaires/data/chiikawa.json": "00fe3b123dca8159bed4b403d5c3ed963bf3efdee6d3040b3e43dcc21654dd3e",
     "lib/questionnaires/result-content/chiikawa.json": "32308e38fdeab4de784d4c5dc30e2a5f756559b1d00fd05f36301fe2fd8b61a6",
-    "lib/i18n/zh-TW/ui.source.json": "7db312a26f951ed244e4fab07fa1e587e59d2f6d2f07ae4453636cd75a62f610",
+    "lib/i18n/zh-TW/ui.source.json": "2a1db21ff9240dfe1a8307151fb4ea91a3c0d9be4d81be76b3b566f656c81562",
     "lib/i18n/zh-TW/about-team.source.json": "a65ffdb3ec03c7c73dacd33f9e33b3b2e6c5f3199f596501336ed6e67c09d9f9",
     "lib/i18n/zh-TW/content-page-labels.source.json": "2bd46e62a8a5b44e638f38ccbda2e7d10285f36a1e59920ca6ec6c97d0b4ff0d"
   },
@@ -19,8 +19,8 @@
       "text": "你的吉伊卡哇角色匹配"
     },
     "lib/questionnaires/data/chiikawa.json/description": {
-      "sourceHash": "171061e0d1129f729ae840334b044727a3afbbadb03ab1fa1e6a2c42ab028ebc",
-      "text": "你像吉伊卡哇、小八還是兔兔？免費回答18道日常情境題，比較六位角色的匹配結果，檢視角色指南，無需註冊。"
+      "sourceHash": "024719213754606851689a1630f1a953f26e31d93d6dc4b7a838929b2008b320",
+      "text": "你像吉伊卡哇（小可愛）、小八還是兔兔？免費回答18道日常情境題，比較六位角色的匹配結果，檢視完整角色指南，無需註冊。"
     },
     "lib/questionnaires/data/chiikawa.json/seoTitle": {
       "sourceHash": "7f5d03c867bd1b3f2f12ec7e0343b92b9209926e917f98bc5c9cbccb31db667c",
@@ -1449,6 +1449,54 @@
     "lib/i18n/zh-TW/ui.source.json/resultNote": {
       "sourceHash": "cb9fb9bad386bcb2a7bfd60739879413947584705696340923ade2091c6b3fbe",
       "text": "保留所有最高並列，不合成新角色，不推斷能力或診斷。次數只描述這18題的選擇，不是人群百分位。"
+    },
+    "lib/i18n/zh-TW/ui.source.json/chiikawaGuideSeo/chiikawa/title": {
+      "sourceHash": "f9bfd37adfe300a6fc9bbf82972dd1ef8554e827f2accea1df7e7ed7d0ca2a87",
+      "text": "吉伊卡哇（小可愛）：吉伊卡哇測試結果"
+    },
+    "lib/i18n/zh-TW/ui.source.json/chiikawaGuideSeo/chiikawa/description": {
+      "sourceHash": "0f3b8a500148b9091e20b4b56747c7ad02e514f8dd739842f16828f047a0a33a",
+      "text": "吉伊卡哇角色測試中的吉伊卡哇（小可愛）結果，圍繞“按自己的速度參與”解釋本次選擇。閱讀日常例子、與其他五位角色的比較，再返回18題測試。非官方趣味解讀。"
+    },
+    "lib/i18n/zh-TW/ui.source.json/chiikawaGuideSeo/hachiware/title": {
+      "sourceHash": "ddf21140d3762b67e217f8c2c361d232b9ed49580c713a22616ffae6e39bd9a0",
+      "text": "小八（Hachiware）：吉伊卡哇測試結果"
+    },
+    "lib/i18n/zh-TW/ui.source.json/chiikawaGuideSeo/hachiware/description": {
+      "sourceHash": "6a1b6e52468302d983bb244eb46e65230f8bac0c82876db988be3257102c277f",
+      "text": "吉伊卡哇角色測試中的小八（Hachiware）結果，圍繞“一起把意思說明白”解釋本次選擇。閱讀日常例子、與其他五位角色的比較，再返回18題測試。非官方趣味解讀。"
+    },
+    "lib/i18n/zh-TW/ui.source.json/chiikawaGuideSeo/usagi/title": {
+      "sourceHash": "d79385ba928f9f617a6b134793bc0c0d4fe8f1f195200c937cb162e5c2457ab3",
+      "text": "兔兔（Usagi）：吉伊卡哇測試結果"
+    },
+    "lib/i18n/zh-TW/ui.source.json/chiikawaGuideSeo/usagi/description": {
+      "sourceHash": "6ecc209b8aa09dbbd24196f466dcf1c330466ae4aea22ffd52754ea7781b8354",
+      "text": "吉伊卡哇角色測試中的兔兔（Usagi）結果，圍繞“出其不意的小玩法”解釋本次選擇。閱讀日常例子、與其他五位角色的比較，再返回18題測試。非官方趣味解讀。"
+    },
+    "lib/i18n/zh-TW/ui.source.json/chiikawaGuideSeo/momonga/title": {
+      "sourceHash": "a3b76657d36832700559c4e4fe868bb2566274cd78bc2c645d7341645e10983f",
+      "text": "小桃（Momonga）：吉伊卡哇測試結果"
+    },
+    "lib/i18n/zh-TW/ui.source.json/chiikawaGuideSeo/momonga/description": {
+      "sourceHash": "4557724e3f1ce1f27e554e7cad8378a6e38c0332686d47bca308a41c69b0e0b6",
+      "text": "吉伊卡哇角色測試中的小桃（Momonga）結果，圍繞“把自己的願望說出來”解釋本次選擇。閱讀日常例子、與其他五位角色的比較，再返回18題測試。非官方趣味解讀。"
+    },
+    "lib/i18n/zh-TW/ui.source.json/chiikawaGuideSeo/kurimanju/title": {
+      "sourceHash": "0ab379c25a851f34c2d626edab2583a11dbf00f763cf4c75c766d2ae3ad9ce69",
+      "text": "栗子饅頭（Kurimanju）：吉伊卡哇測試結果"
+    },
+    "lib/i18n/zh-TW/ui.source.json/chiikawaGuideSeo/kurimanju/description": {
+      "sourceHash": "af83c340df6bd1d510af79ab064cc5c08bf57ef088e79f04f4f189f3fda92b36",
+      "text": "吉伊卡哇角色測試中的栗子饅頭（Kurimanju）結果，圍繞“慢慢享受小舒適”解釋本次選擇。閱讀日常例子、與其他五位角色的比較，再返回18題測試。非官方趣味解讀。"
+    },
+    "lib/i18n/zh-TW/ui.source.json/chiikawaGuideSeo/rakko/title": {
+      "sourceHash": "aacbc0dcffbab89d8c6c2bf1ffadfc788ad99c51075549a35be87781a60edca9",
+      "text": "海獺（Rakko）：吉伊卡哇測試結果"
+    },
+    "lib/i18n/zh-TW/ui.source.json/chiikawaGuideSeo/rakko/description": {
+      "sourceHash": "b722d6a1d507d4380014c782fb282830185921d30f6b1c41d5922482af938012",
+      "text": "吉伊卡哇角色測試中的海獺（Rakko）結果，圍繞“分享親自試過的經驗”解釋本次選擇。閱讀日常例子、與其他五位角色的比較，再返回18題測試。非官方趣味解讀。"
     },
     "lib/i18n/zh-TW/about-team.source.json/roles/0": {
       "sourceHash": "b0f35a5d0a652cd7ef7793bde718e888f1224ebb26be390a96fe2fed4b6b55ed",
