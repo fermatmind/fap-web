@@ -36,15 +36,15 @@ describe("legacy redirect hygiene contract", () => {
     }
   });
 
-  it("routes refund and help legacy paths directly to live support destinations", async () => {
+  it("routes refund aliases directly to the refund policy and other help aliases to support", async () => {
     const redirects = await loadRedirects();
 
     expect(redirects).toEqual(
       expect.arrayContaining([
         expect.objectContaining({ source: "/support", destination: "/zh/support", permanent: true }),
-        expect.objectContaining({ source: "/refund", destination: "/en/support", permanent: true }),
-        expect.objectContaining({ source: "/en/refund", destination: "/en/support", permanent: true }),
-        expect.objectContaining({ source: "/zh/refund", destination: "/zh/support", permanent: true }),
+        expect.objectContaining({ source: "/refund", destination: "/en/help/payment-refund", permanent: true }),
+        expect.objectContaining({ source: "/en/refund", destination: "/en/help/payment-refund", permanent: true }),
+        expect.objectContaining({ source: "/zh/refund", destination: "/zh/help/payment-refund", permanent: true }),
         expect.objectContaining({ source: "/help/about", destination: "/en/support", permanent: true }),
         expect.objectContaining({ source: "/help/team", destination: "/en/support", permanent: true }),
         expect.objectContaining({ source: "/help/used-and-mentioned", destination: "/en/support", permanent: true }),

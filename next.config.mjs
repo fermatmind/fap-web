@@ -415,17 +415,17 @@ const nextConfig = {
       },
       {
         source: "/refund",
-        destination: "/en/support",
+        destination: "/en/help/payment-refund",
         permanent: true,
       },
       {
         source: "/en/refund",
-        destination: "/en/support",
+        destination: "/en/help/payment-refund",
         permanent: true,
       },
       {
         source: "/zh/refund",
-        destination: "/zh/support",
+        destination: "/zh/help/payment-refund",
         permanent: true,
       },
       ...gscLegacyRedirects,
