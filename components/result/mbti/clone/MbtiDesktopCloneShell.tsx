@@ -1,5 +1,7 @@
 "use client";
 
+import { MbtiPricingNotice } from "@/components/commerce/MbtiPricing";
+
 import { type MouseEvent as ReactMouseEvent, type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { HighlightCard, MbtiSectionUnlock, ReportSection, ResolvedOffer, RichResultHeadline } from "@/components/result/RichResultReport";
 import { MbtiCloneEnergyBlock } from "@/components/result/mbti/clone/MbtiCloneEnergyBlock";
@@ -995,6 +997,7 @@ export function MbtiDesktopCloneShell({
   const finalOfferNode = (
     <section id={LEGACY_OFFER_SECTION_ID} data-testid="mbti-offer-full" className={styles.section}>
       <div id={getMbtiDesktopAnchorId("offerFull")}>
+      {!snapshotMode ? <MbtiPricingNotice locale={cloneLocale} /> : null}
       <MbtiCloneFinalOffer
         locale={cloneLocale}
         eyebrow={slots.finalOffer.eyebrow}

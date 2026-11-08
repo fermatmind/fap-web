@@ -8,6 +8,7 @@ import {
 } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import type { ProfileIdentity } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
+import { localizedPath } from "@/lib/i18n/locales";
 
 type RailTool = {
   label: string;
@@ -135,6 +136,9 @@ export function MbtiCloneRail({
 
       <div className={styles.railCard}>
         <p className={styles.microLabel}>{locale === "zh" ? "解锁入口" : "Unlock entry"}</p>
+        <Link href={localizedPath("/pricing", locale)} className={styles.toolLinkText} prefetch={false}>
+          {locale === "zh" ? "查看价格与报告内容（尚未开售）" : "Pricing & report contents (not on sale yet)"}
+        </Link>
         {isHashHref(primaryCtaHref) ? (
           <a href={primaryCtaHref} className={styles.toolLinkText}>
             {primaryCtaLabel}

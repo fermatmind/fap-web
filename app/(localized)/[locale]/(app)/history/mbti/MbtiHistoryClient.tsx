@@ -1,5 +1,7 @@
 "use client";
 
+import { MbtiPricingNotice } from "@/components/commerce/MbtiPricing";
+
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
@@ -584,6 +586,7 @@ export default function MbtiHistoryClient() {
 
   return (
     <div data-testid="mbti-history-client" className="space-y-4">
+      <MbtiPricingNotice locale={locale} />
       <section
         data-testid="mbti-history-hero"
         className="space-y-4 rounded-[var(--fm-radius-xl)] border border-[var(--fm-border)] bg-[var(--fm-surface)] px-6 py-6 shadow-[var(--fm-shadow-sm)]"

@@ -100,6 +100,10 @@ export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
           { href: "/terms", label: dict.footer.terms },
           { href: "/policies", label: "Policy overview" },
         ];
+  policyLinks.push(
+    { href: "/pricing", label: locale === "zh" ? "价格与报告内容" : "Pricing & report contents" },
+    { href: "/help/payment-refund", label: locale === "zh" ? "退款与取消政策" : "Refunds & cancellation" },
+  );
   const footerGroups: FooterGroup[] = [
     { key: "tests", title: footerGroupTitles.tests, links: testLinks },
     { key: "articles", title: footerGroupTitles.articles, links: articleLinks },

@@ -8,5 +8,5 @@ export default async function RefundPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale: localeParam } = await params;
-  permanentRedirect(localizedPath("/support", resolveLocale(localeParam)));
+  permanentRedirect(localizedPath("/help/payment-refund", resolveLocale(localeParam)));
 }

@@ -1,3 +1,4 @@
+import { MbtiPricingNotice } from "@/components/commerce/MbtiPricing";
 import { getAssessmentEditorialLayout, getAssessmentLandingUi, resolveAssessmentLandingSocialImage } from "@/lib/tests/assessmentLandingUi";
 import { parseLandingFaq as parseFaq, parseMbtiEditorial } from "@/lib/tests/mbtiLandingEditorial";
 import { MbtiWhyChoose, MbtiFaqAnswers } from "@/components/tests/MbtiEditorialSections";
@@ -1430,14 +1431,14 @@ export default async function TestLandingPage({
       {usesIllustratedLanding ? <nav className={previewStyles.breadcrumb} aria-label={locale === "zh" ? "面包屑" : "Breadcrumb"}><Link href={withLocale("/")}>{locale === "zh" ? "首页" : "Home"}</Link><span>/</span><Link href={withLocale("/tests")}>{locale === "zh" ? "测试" : "Tests"}</Link><span>/</span><span>{illustratedLandingLabel}</span></nav> : null}
       <div className={usesIllustratedLanding ? previewStyles.layout : "grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]"}>
         <div className={usesIllustratedLanding ? previewStyles.content : "space-y-6"}>
-          {showsMbtiActions ? <MbtiLandingIntro
+          {showsMbtiActions ? <><MbtiLandingIntro
             locale={locale}
             title={heroHeadingTitle}
             description={assessmentLandingUi?.heroDescription}
             heroArtwork={assessmentLandingUi?.heroArtwork}
             choices={withEntryLabels(mbtiEntryVariantChoices.length > 0 ? mbtiEntryVariantChoices : flagshipVariantChoices)}
             disabled={testDisabled || !canRenderStartCta}
-          /> : usesIllustratedLanding ? <AssessmentLandingIntro
+          /><MbtiPricingNotice locale={locale} /></> : usesIllustratedLanding ? <AssessmentLandingIntro
             locale={locale}
             title={heroHeadingTitle}
             heroArtwork={assessmentLandingUi?.heroArtwork}
