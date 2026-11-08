@@ -48,13 +48,13 @@ describe("Taiwan display dictionary", () => {
     expect(apiLocaleForDisplay("zh-TW")).toBeNull();
   });
 
-  it("uses the dictionary in the existing server-rendered Taiwan shell without opening unpublished pages", () => {
+  it("uses the dictionary in the server-rendered Taiwan shell with the eight-page CMS navigation", () => {
     const html = renderToStaticMarkup(<TraditionalLayout><p>測試內容</p></TraditionalLayout>);
     const document = new DOMParser().parseFromString(html, "text/html");
     expect(document.documentElement.lang).toBe("zh-TW");
     expect(document.querySelector('a[href="/zh-TW"]')?.textContent).toBe(traditional.header.brand);
     for (const slug of ["privacy", "terms", "science", "method-boundaries"]) {
-      expect(document.querySelector(`a[href="/zh-TW/${slug}"]`)).toBeNull();
+      expect(document.querySelector(`a[href="/zh-TW/${slug}"]`)).not.toBeNull();
     }
     expect(document.body.textContent).toContain("測試內容");
   });

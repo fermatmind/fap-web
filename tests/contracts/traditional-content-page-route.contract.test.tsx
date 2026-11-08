@@ -2,6 +2,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { ContentPage } from "@/lib/cms/content-pages";
 import { SITE_URL } from "@/lib/site";
+import TraditionalLayout from "@/app/(traditional)/zh-TW/layout";
 
 const read = vi.hoisted(() => vi.fn());
 vi.mock("@/lib/cms/content-pages", async () => ({
@@ -43,6 +44,18 @@ describe("shared Traditional CMS page route", () => {
     const schema = [...document.querySelectorAll('script[type="application/ld+json"]')].map(node => JSON.parse(node.textContent!));
     expect(schema.find(node => node["@type"] === "WebPage")).toMatchObject({ inLanguage: "zh-TW", url: `${SITE_URL}/zh-TW/${slug}` });
     expect(read).toHaveBeenCalledWith(slug, "zh-TW");
+  });
+  it("exposes all eight published CMS pages in the actual Traditional footer", () => {
+    const html = renderToStaticMarkup(<TraditionalLayout><p>內容</p></TraditionalLayout>);
+    const document = new DOMParser().parseFromString(html, "text/html");
+    for (const slug of ["about", "brand", "charter", "careers", "privacy", "terms", "method-boundaries", "science"]) {
+      expect(document.querySelector(`footer nav[aria-label="費馬資訊"] a[href="/zh-TW/${slug}"]`)).not.toBeNull();
+    }
+    for (const slug of ["foundation", "support", "pricing", "policies"]) {
+      expect(document.querySelector(`a[href="/zh-TW/${slug}"]`)).toBeNull();
+    }
+    expect(document.querySelectorAll("main")).toHaveLength(1);
+    expect(document.documentElement.lang).toBe("zh-TW");
   });
   it.each([null, { ...page("brand"), locale: "zh-CN" }, page("charter")])("rejects missing or wrong identity without rendering a fallback", async value => {
     read.mockResolvedValue({ value });

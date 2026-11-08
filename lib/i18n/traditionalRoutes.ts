@@ -12,7 +12,7 @@ export const TRADITIONAL_SEVEN_SINS_PROFILE_IDS = ["recognition-reading", "resou
 export const TRADITIONAL_CMS_READER_PATHS = ["/about", "/brand", "/charter", "/careers", "/privacy", "/terms", "/method-boundaries", "/science"] as const;
 // Expanded only after the corresponding native CMS variants are published.
 // Reader deployment and published navigation remain separate inventories.
-export const TRADITIONAL_CMS_PUBLISHED_PATHS = ["/about", "/brand", "/charter", "/careers"] as const;
+export const TRADITIONAL_CMS_PUBLISHED_PATHS = ["/about", "/brand", "/charter", "/careers", "/privacy", "/terms", "/method-boundaries", "/science"] as const;
 export const TRADITIONAL_PUBLIC_PATHS = ["", "/tests", TRADITIONAL_QUIZ_PATH, ...TRADITIONAL_PROFILE_IDS.map(id => `${TRADITIONAL_QUIZ_PATH}/results/${id}`), TRADITIONAL_SEVEN_SINS_PATH, ...TRADITIONAL_SEVEN_SINS_PROFILE_IDS.map(id => `${TRADITIONAL_SEVEN_SINS_PATH}/results/${id}`)];
 export function traditionalPath(pathname: string): string | null {
   const prefix = pathname.split("/")[1];
