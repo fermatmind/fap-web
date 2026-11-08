@@ -77,6 +77,9 @@ describe('Career AI source links from Current files', () => {
     'https://www.samr.gov.cn/wljys/gzzd/art/2023/art_3ef1e889c1e644d4b65b5f5c7f432386.html',
     'https://fermatmind.com/zh/career/jobs/terrazzo-workers-and-finishers',
     'https://www.cdc.gov/contact-lenses/causes/index.html',
+    'https://www.abem.org/for-residents/board-eligibility/',
+    'https://www.wchscu.cn/department_jzk/',
+    'https://wjw.beijing.gov.cn/zwgk_20040/qt/202607/t20260710_4756297.html',
   ])('renders the reviewed source without losing the AI body: %s', url => {
     const value = withSourceUrl(url);
     expect(supportsCareerDossierAiImpact(value)).toBe(true);
@@ -110,6 +113,15 @@ describe('Career AI source links from Current files', () => {
     'https://www.cdc.gov/contact-lenses/causes/another.html',
     'https://www.cdc.gov/another-source',
     'https://www.cdc.gov.evil.example/contact-lenses/causes/index.html',
+    'https://www.abem.org/for-residents/board-eligibility/another',
+    'https://www.abem.org/for-residents/board-eligibility/?redirect=https://example.com',
+    'https://user@www.abem.org/for-residents/board-eligibility/',
+    'https://www.wchscu.cn/another-department/',
+    'https://www.wchscu.cn/department_jzk/#unreviewed',
+    'http://www.wchscu.cn/department_jzk/',
+    'https://wjw.beijing.gov.cn/another-notice.html',
+    'https://wjw.beijing.gov.cn/zwgk_20040/qt/202607/t20260710_4756297.html?unreviewed=1',
+    'https://wjw.beijing.gov.cn.evil.example/zwgk_20040/qt/202607/t20260710_4756297.html',
     'https://www.samr.gov.cn.evil.example/source',
     'https://fermatmind.com.evil.example/source',
     'https://unreviewed.example/source',
