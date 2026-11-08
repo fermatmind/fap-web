@@ -111,7 +111,10 @@ describe("T084 original visible seasonal-palette preferences", () => {
         const props = { params: Promise.resolve({ locale, slug: quiz.slug }) }, path = `/${locale}/tests/explore/color-season`;
         const html = renderToStaticMarkup(await entry.default(props)), metadata = await entry.generateMetadata(props);
         expect(metadata.title).toBe(quiz.seoTitle[locale]); expect(metadata.description).toBe(quiz.description[locale]); expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
-        expect(html).toContain(quiz.instructions![locale]); for (const section of quiz.guide.slice(0, 3)) expect(html).toContain(section.paragraphs[0][locale]);
+        expect(html).toContain(quiz.instructions![locale]);
+        const entryDom = document.createElement("div"); entryDom.innerHTML = html;
+        expect(entryDom.querySelector("h1")?.textContent).toBe(quiz.title[locale]);
+        expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(quiz.title[locale]); for (const section of quiz.guide.slice(0, 3)) expect(html).toContain(section.paragraphs[0][locale]);
         expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);
         expect(maps.some(e => e.loc === `https://fermatmind.com${path}`)).toBe(true); expect(isMissingFunRoute(path)).toBe(false);
         for (const profile of quiz.profiles) {

@@ -35,7 +35,7 @@ describe("T051 original classical Socionics quadra value reflection", () => {
     expect(isArchetypeConfigurationValid(quiz)).toBe(true); expect(quiz.profiles).toHaveLength(4);
     expect(quiz.source.psychometricValidationCompleted).toBe(false);
     expect(quiz.references?.map(r => r.url)).toContain("https://socionic.info/en/et/buklet.html");
-    expect(quiz.title).toEqual({ zh: "Socionics 测试（社会人格学）", en: "Socionics Test" });
+    expect(quiz.title).toEqual({ zh: "Socionics 测试（社会人格学）：四象限偏好", en: "Socionics Test: Quadra Preferences" });
     for (const direction of quiz.directions) {
       expect(direction.comparisons).toBe(24);
       for (const position of [0, 1, 2, 3]) expect(quiz.questions.filter(q => q.options[position].directionId === direction.id)).toHaveLength(6);
@@ -129,6 +129,8 @@ describe("T051 original classical Socionics quadra value reflection", () => {
         expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(metadata.title).toBe(quiz.seoTitle[locale]);
         const entryDom = document.createElement("div"); entryDom.innerHTML = html;
         expect(entryDom.textContent).toContain(quiz.instructions![locale]);
+        expect(entryDom.querySelector("h1")?.textContent).toBe(quiz.title[locale]);
+        expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(quiz.title[locale]);
         expect(html).toContain(locale === "zh" ? "原创四组价值观察" : "Original quadra value reflection");
         expect(quiz.resultHeading?.[locale]).toBeTruthy();
         for (const section of quiz.guide.slice(0, 3)) expect(entryDom.textContent).toContain(section.paragraphs[0][locale]);

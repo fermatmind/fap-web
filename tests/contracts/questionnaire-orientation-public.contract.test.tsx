@@ -32,6 +32,7 @@ describe("Original ORIENTATION_EXPLORATION actual registered callers and public 
         const method = dom.querySelector('section[aria-labelledby="questionnaire-method"]'); expect(method?.querySelectorAll("p")).toHaveLength(12);
         for (const s of quiz.guide) for (const p of s.paragraphs) expect(method?.textContent).toContain(p[locale]);
         expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);
+        expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(quiz.title[locale]);
         expect(maps.filter(e => e.loc === `https://fermatmind.com${path}`)).toHaveLength(1); count++;
         for (const p of quiz.profiles) {
           const publicPath = `${path}/results/${p.id}`, gargs = { params: Promise.resolve({ locale, slug: quiz.slug, profile: p.id }) };

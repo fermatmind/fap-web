@@ -318,8 +318,8 @@
     {
       "slug": "socionics",
       "title": {
-        "zh": "Socionics 测试（社会人格学）",
-        "en": "Socionics Test"
+        "zh": "Socionics 测试（社会人格学）：四象限偏好",
+        "en": "Socionics Test: Quadra Preferences"
       }
     },
     {
@@ -395,8 +395,8 @@
     {
       "slug": "intelligence-type-test",
       "title": {
-        "zh": "智能类型测试",
-        "en": "Intelligence Type Test"
+        "zh": "智能类型测试：六种思考入口",
+        "en": "Intelligence Type Test: Six Thinking Approaches"
       }
     },
     {
@@ -647,7 +647,7 @@
     {
       "slug": "gossip-girl",
       "title": {
-        "en": "Gossip Girl Test",
+        "en": "Gossip Girl Test: Which Character Are You?",
         "zh": "《绯闻女孩》角色测试"
       }
     },
@@ -690,7 +690,7 @@
       "slug": "hundred-acre-wood-friend-quiz",
       "title": {
         "en": "Which Winnie the Pooh Character Are You?",
-        "zh": "故事书朋友测验"
+        "zh": "小熊维尼角色测试"
       }
     },
     {
@@ -766,7 +766,7 @@
     {
       "slug": "found-family-role-test",
       "title": {
-        "zh": "找到家庭角色测试",
+        "zh": "自选家人角色测试",
         "en": "Found Family Role Test"
       }
     },
@@ -822,8 +822,8 @@
     {
       "slug": "color-season",
       "title": {
-        "zh": "色彩季节测试",
-        "en": "Color Analysis Quiz"
+        "zh": "色彩季节测试：配色偏好",
+        "en": "Color Analysis Quiz: Palette Preferences"
       }
     },
     {
@@ -878,7 +878,7 @@
     {
       "slug": "chinese-zodiac",
       "title": {
-        "en": "Chinese Zodiac",
+        "en": "Chinese Zodiac Story Quiz",
         "zh": "中国十二生肖测试"
       }
     },
@@ -1382,14 +1382,14 @@
     {
       "slug": "sake-type",
       "title": {
-        "en": "Sake Type Test",
-        "zh": "酒水类型测试"
+        "en": "Sake Type Test: Four Drink Metaphors",
+        "zh": "酒水类型测试：四种饮品比喻"
       }
     },
     {
       "slug": "orientation-exploration-test",
       "title": {
-        "en": "Orientation Exploration Test",
+        "en": "Orientation Exploration Test: Attraction and Labels",
         "zh": "取向探索测试"
       }
     },
@@ -1459,7 +1459,7 @@
     {
       "slug": "values-assessment",
       "title": {
-        "en": "Values Assessment",
+        "en": "Work Values Assessment",
         "zh": "工作价值观测试"
       }
     },

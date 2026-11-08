@@ -4,12 +4,12 @@ export const foundFamilyRoleLandingSections: Questionnaire["guide"] = [
   {
     "id": "family-contribution-scope",
     "title": {
-      "zh": "找到家庭角色测试是什么？从相伴比喻到具体选择",
+      "zh": "自选家人角色测试是什么？从相伴比喻到具体选择",
       "en": "What is this Found Family Role Test? From a companionship metaphor to choices"
     },
     "paragraphs": [
       {
-        "zh": "本页用“找到家庭”作为朋友相伴的主题，不要求你证明某群人已经成为家人。题目设定普通、自愿的小聚与联系，问的是“在这四个选项里，这次更愿意先做什么”。它不是朋友之间互相投票，也不收集旁人对你的评价；从选择到结果的解释应始终保留这一区别。",
+        "zh": "本页用“自选家人”作为朋友相伴的主题，不要求你证明某群人已经成为家人。题目设定普通、自愿的小聚与联系，问的是“在这四个选项里，这次更愿意先做什么”。它不是朋友之间互相投票，也不收集旁人对你的评价；从选择到结果的解释应始终保留这一区别。",
         "en": "Found family is this page’s theme for companionship, without requiring proof that a group has become a family. The ordinary, voluntary scenes ask which of four actions you would prefer first this time. Friends do not vote on one another, and the bank collects no peer ratings. Retain that distinction when interpreting choices as results."
       },
       {
@@ -202,7 +202,7 @@ export const foundFamilyRoleLandingFaq: Questionnaire["faq"] = [
   },
   {
     "question": {
-      "zh": "能用这些结果判断我们是不是找到家庭吗？",
+      "zh": "能用这些结果判断我们是不是自选家人吗？",
       "en": "Can results decide whether we are a found family?"
     },
     "answer": {

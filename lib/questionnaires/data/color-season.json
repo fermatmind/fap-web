@@ -6,8 +6,8 @@
   "category": "framework",
   "kind": "archetype",
   "title": {
-    "zh": "色彩季节测试",
-    "en": "Color Analysis Quiz"
+    "zh": "色彩季节测试：配色偏好",
+    "en": "Color Analysis Quiz: Palette Preferences"
   },
   "resultHeading": {
     "zh": "本次可见配色偏好",

@@ -28,7 +28,9 @@ describe("individual voluntary friend-group contribution editorial",()=>{
     for(const locale of ["zh","en"] as const){
       const dom=document.createElement("div");dom.innerHTML=renderToStaticMarkup(await entry.default({params:Promise.resolve({slug:quiz.slug,locale})}));
       expect(dom.querySelectorAll('[aria-labelledby="questionnaire-results"] > ul > li')).toHaveLength(6);
-      expect(dom.querySelector("#questionnaire-purpose")?.textContent).toBe(locale==="zh"?"找到家庭角色测试探索什么？六种自愿贡献":"What does this Found Family Role Test explore? Six voluntary contributions");
+      expect(dom.querySelector("h1")?.textContent).toBe(quiz.title[locale]);
+      if(locale==="zh"){ expect(dom.querySelector("#questionnaire-method")?.textContent).toBe("自选家人角色测试怎样计分？原始次数与最高并列"); expect(dom.querySelector("#questionnaire-faq")?.textContent).toBe("自选家人角色测试常见问题"); }
+      expect(dom.querySelector("#questionnaire-purpose")?.textContent).toBe(locale==="zh"?"自选家人角色测试探索什么？六种自愿贡献":"What does this Found Family Role Test explore? Six voluntary contributions");
       expect(dom.querySelectorAll('[aria-labelledby="questionnaire-faq"] > section')).toHaveLength(14);
       const normalize=(s:string)=>s.replace(/\[\d+\]/g,"").replace(/\s+/g," ").trim();const body=normalize(dom.textContent??"");
       for(const faq of [...quiz.faq,...foundFamilyRoleLandingFaq])expect(body).toContain(normalize(faq.answer[locale]));

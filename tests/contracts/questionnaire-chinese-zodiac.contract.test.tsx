@@ -48,8 +48,10 @@ describe("T172 original Chinese-zodiac symbolic story choices",()=>{
   });
   it("publishes26nativeENZHpublicpages with completeportraits,canonicalpairs,sitemap andfreeentrylinks",async()=>{
     vi.stubEnv("NEXT_PUBLIC_SITE_URL","https://fermatmind.com");vi.resetModules();const entry=await import("@/app/(localized)/[locale]/tests/explore/[slug]/page"),guide=await import("@/app/(localized)/[locale]/tests/explore/[slug]/results/[profile]/page"),maps=appendFunSitemapEntries([]);
-    try{for(const locale of ["en","zh"] as const){const path=`/${locale}/tests/explore/chinese-zodiac`,props={params:Promise.resolve({locale,slug:quiz.slug})},html=renderToStaticMarkup(await entry.default(props)),meta=await entry.generateMetadata(props);expect(meta.title).toBe(quiz.seoTitle[locale]);expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${path}`);expect(html).toContain(quiz.instructions![locale]);expect(renderToStaticMarkup(<MoreTests locale={locale}/>)).toContain(`href="${path}"`);
-      const entryDom = document.createElement("div"); entryDom.innerHTML = html;
+    try{for(const locale of ["en","zh"] as const){const path=`/${locale}/tests/explore/chinese-zodiac`,props={params:Promise.resolve({locale,slug:quiz.slug})},html=renderToStaticMarkup(await entry.default(props)),meta=await entry.generateMetadata(props);expect(meta.title).toBe(quiz.seoTitle[locale]);expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${path}`);expect(html).toContain(quiz.instructions![locale]);
+        const entryDom = document.createElement("div"); entryDom.innerHTML = html;
+        expect(entryDom.querySelector("h1")?.textContent).toBe(quiz.title[locale]);
+        expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(quiz.title[locale]);expect(renderToStaticMarkup(<MoreTests locale={locale}/>)).toContain(`href="${path}"`);
       const method = entryDom.querySelector('section[aria-labelledby="questionnaire-method"]');
       const methodText = quiz.guide.find(section => section.id === "symbolic-method")!.paragraphs[0][locale];
       expect(method?.querySelector("p")?.textContent).toBe(methodText);

@@ -1201,7 +1201,7 @@ if (slug === "logical-reasoning") return (zh ? "逻辑与演绎推理测试练�
 if (slug === "eras-of-you-test") return (zh ? "时代的你测试探索什么？六类四周行为观察" : "What does the Eras of You Test explore? Six four-week observations");
 if (slug === "financial-accounting") return (zh ? "财务会计测试练什么？六类基础任务" : "What does this Financial Accounting Test practise? Six foundational tasks");
 if (slug === "java-test") return (zh ? "Java测试练什么？24段程序与四组代码阅读" : "What does this Java Test practise? Twenty-four programs in four groups");
-if (slug === "found-family-role-test") return (zh ? "找到家庭角色测试探索什么？六种自愿贡献" : "What does this Found Family Role Test explore? Six voluntary contributions");
+if (slug === "found-family-role-test") return (zh ? "自选家人角色测试探索什么？六种自愿贡献" : "What does this Found Family Role Test explore? Six voluntary contributions");
 if (slug === "excel-skills") return (zh ? "Excel技能测试练什么？四组公式与数据任务" : "What does this Excel Skills Test practise? Four formula and data task groups");
 if (slug === "feminine-energy") return (zh ? "女性气质能量测试观察什么？四组日常表达" : "What does this Feminine Energy Test observe? Four everyday expression themes");
 if (slug === "computer-literacy") return (zh ? "计算机素养测试练什么？四组日常电脑任务" : "What does this Computer Literacy Test cover? Four everyday task groups");
@@ -1403,7 +1403,7 @@ if (slug === "logical-reasoning") return (zh ? "逻辑推理测试怎样计分�
 if (slug === "eras-of-you-test") return (zh ? "时代的你测试怎样计分？六组分别计算有效均分" : "How is the Eras of You Test scored? Six separate rated means");
 if (slug === "financial-accounting") return (zh ? "财务会计测试怎样计分？24题与六项正确数" : "How is this Financial Accounting Test scored? Twenty-four items and six counts");
 if (slug === "java-test") return (zh ? "Java测试怎样计分？总正确数与四项复习线索" : "How is this Java Test scored? Total counts and four revision cues");
-if (slug === "found-family-role-test") return (zh ? "找到家庭角色测试怎样计分？原始次数与最高并列" : "How is this Found Family Role Test scored? Raw counts and highest ties");
+if (slug === "found-family-role-test") return (zh ? "自选家人角色测试怎样计分？原始次数与最高并列" : "How is this Found Family Role Test scored? Raw counts and highest ties");
 if (slug === "excel-skills") return (zh ? "Excel技能测试怎样计分？24题与四项正确数" : "How is this Excel Skills Test scored? Twenty-four items and four counts");
 if (slug === "feminine-energy") return (zh ? "女性气质能量测试怎样计分？四组独立均分" : "How is this Feminine Energy Test scored? Four separate means");
 if (slug === "computer-literacy") return (zh ? "计算机素养测试怎样计分？24题与四项正确数" : "How is this Computer Literacy Test scored? Twenty-four items and four counts");
@@ -1892,7 +1892,7 @@ if (slug === "logical-reasoning") return (zh ? "逻辑与演绎推理测试常�
 if (slug === "eras-of-you-test") return (zh ? "时代的你测试常见问题" : "Eras of You Test FAQ");
 if (slug === "financial-accounting") return (zh ? "财务会计测试常见问题" : "Financial Accounting Test FAQ");
 if (slug === "java-test") return (zh ? "Java测试常见问题" : "Java Test FAQ");
-if (slug === "found-family-role-test") return (zh ? "找到家庭角色测试常见问题" : "Found Family Role Test FAQ");
+if (slug === "found-family-role-test") return (zh ? "自选家人角色测试常见问题" : "Found Family Role Test FAQ");
 if (slug === "excel-skills") return (zh ? "Excel技能测试常见问题" : "Excel Skills Test FAQ");
 if (slug === "feminine-energy") return (zh ? "女性气质能量测试常见问题" : "Feminine Energy Test FAQ");
 if (slug === "computer-literacy") return (zh ? "计算机素养测试常见问题" : "Computer Literacy Test FAQ");

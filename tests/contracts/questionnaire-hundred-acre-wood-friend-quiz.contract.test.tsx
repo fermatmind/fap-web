@@ -39,7 +39,7 @@ describe("T131 original six-character unofficial fan quiz", () => {
     expect(isArchetypeConfigurationValid(quiz)).toBe(true); expect(quiz.profiles).toHaveLength(6);
     expect(quiz.source.psychometricValidationCompleted).toBe(false);
     expect(quiz.references?.map(r => r.url)).toContain("https://winniethepooh.disney.com/");
-    expect(quiz.title).toEqual({ zh: "故事书朋友测验", en: "Which Winnie the Pooh Character Are You?" });
+    expect(quiz.title).toEqual({ zh: "小熊维尼角色测试", en: "Which Winnie the Pooh Character Are You?" });
     for (const direction of quiz.directions) {
       expect(direction.comparisons).toBe(12);
       for (const position of [0, 1, 2, 3]) expect(quiz.questions.filter(q => q.options[position].directionId === direction.id)).toHaveLength(3);
@@ -142,6 +142,9 @@ describe("T131 original six-character unofficial fan quiz", () => {
         const html = renderToStaticMarkup(await entry.default(props)), metadata = await entry.generateMetadata(props);
         expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(metadata.title).toBe(quiz.seoTitle[locale]);
         expect(html).toContain(quiz.instructions![locale]);
+        const entryDom = document.createElement("div"); entryDom.innerHTML = html;
+        expect(entryDom.querySelector("h1")?.textContent).toBe(quiz.title[locale]);
+        expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(quiz.title[locale]);
         expect(html).toContain(locale === "zh" ? "原创象征测验" : "Original symbolic quiz");
         expect(quiz.resultHeading?.[locale]).toBeTruthy();
         for (const section of quiz.guide.slice(0, 3)) expect(html).toContain(section.paragraphs[0][locale]);

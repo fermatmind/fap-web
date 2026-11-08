@@ -6,8 +6,8 @@
   "category": "framework",
   "kind": "archetype",
   "title": {
-    "zh": "Socionics 测试（社会人格学）",
-    "en": "Socionics Test"
+    "zh": "Socionics 测试（社会人格学）：四象限偏好",
+    "en": "Socionics Test: Quadra Preferences"
   },
   "resultHeading": {
     "zh": "本次四组计数与完整quadra解释",

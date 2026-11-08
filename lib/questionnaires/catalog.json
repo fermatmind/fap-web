@@ -1309,8 +1309,8 @@
     "updated": "2026-10-26",
     "category": "framework",
     "title": {
-      "zh": "Socionics 测试（社会人格学）",
-      "en": "Socionics Test"
+      "zh": "Socionics 测试（社会人格学）：四象限偏好",
+      "en": "Socionics Test: Quadra Preferences"
     },
     "description": {
       "zh": "通过24道原创情境题，探索Alpha、Beta、Gamma、Delta四组信息偏好。约6分钟，免费查看四项计数、全部最高并列及四份完整指南，了解四象限与16类型的区别。",
@@ -1600,8 +1600,8 @@
     "updated": "2026-10-26",
     "category": "framework",
     "title": {
-      "zh": "智能类型测试",
-      "en": "Intelligence Type Test"
+      "zh": "智能类型测试：六种思考入口",
+      "en": "Intelligence Type Test: Six Thinking Approaches"
     },
     "description": {
       "zh": "通过18道原创情境四选一，探索语言、规则、声音、实作、对话与环境六种思考入口。免费查看六项原始计数、全部最高并列和完整指南；无需注册。",
@@ -2546,7 +2546,7 @@
     "updated": "2026-10-27",
     "category": "fantasy",
     "title": {
-      "en": "Gossip Girl Test",
+      "en": "Gossip Girl Test: Which Character Are You?",
       "zh": "《绯闻女孩》角色测试"
     },
     "description": {
@@ -2706,7 +2706,7 @@
     "category": "fantasy",
     "title": {
       "en": "Which Winnie the Pooh Character Are You?",
-      "zh": "故事书朋友测验"
+      "zh": "小熊维尼角色测试"
     },
     "description": {
       "zh": "用18道原创纸上野餐与书签情境，探索维尼、小猪、猫头鹰、跳跳虎、屹耳和袋鼠妈妈六种参与选择。免费查看原始计数、全部最高并列和六份完整指南；无需注册或剧情知识。",
@@ -2989,7 +2989,7 @@
     "updated": "2026-10-27",
     "category": "metaphor",
     "title": {
-      "zh": "找到家庭角色测试",
+      "zh": "自选家人角色测试",
       "en": "Found Family Role Test"
     },
     "description": {
@@ -3195,8 +3195,8 @@
     "updated": "2026-10-27",
     "category": "framework",
     "title": {
-      "zh": "色彩季节测试",
-      "en": "Color Analysis Quiz"
+      "zh": "色彩季节测试：配色偏好",
+      "en": "Color Analysis Quiz: Palette Preferences"
     },
     "description": {
       "zh": "比较16组可见三色菜单，探索春夏秋冬配色偏好。免费查看原始次数、全部最高并列与四份完整指南、24种示例色；无需照片或注册。",
@@ -3395,7 +3395,7 @@
     "updated": "2026-10-27",
     "category": "fantasy",
     "title": {
-      "en": "Chinese Zodiac",
+      "en": "Chinese Zodiac Story Quiz",
       "zh": "中国十二生肖测试"
     },
     "description": {
@@ -5283,8 +5283,8 @@
     "version": "fm_sake_fourchoice16_v1",
     "category": "metaphor",
     "title": {
-      "en": "Sake Type Test",
-      "zh": "酒水类型测试"
+      "en": "Sake Type Test: Four Drink Metaphors",
+      "zh": "酒水类型测试：四种饮品比喻"
     },
     "description": {
       "en": "Which drink image fits your imagined choices? Explore 16 original creative scenes, see all four counts and keep every highest tie with complete free readings. Sparkling Wine, Beer, Whisky and Sake are metaphors; no drinking or signup needed.",
@@ -5309,7 +5309,7 @@
     "updated": "2026-10-28",
     "category": "everyday",
     "title": {
-      "en": "Orientation Exploration Test",
+      "en": "Orientation Exploration Test: Attraction and Labels",
       "zh": "取向探索测试"
     },
     "description": {
@@ -5581,7 +5581,7 @@
     "updated": "2026-10-29",
     "category": "framework",
     "title": {
-      "en": "Values Assessment",
+      "en": "Work Values Assessment",
       "zh": "工作价值观测试"
     },
     "description": {
