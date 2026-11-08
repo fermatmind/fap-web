@@ -28,7 +28,7 @@ export function RicePurityPage({ quiz, locale, take = false }: { quiz: Questionn
       <p className="my-4 text-5xl font-semibold">100 − 3 = 97</p>
       <p className="leading-7">{zh ? "勾选3项 → 97分；不勾选可以表示未经历或跳过。没有完成率或人群排名。" : "Three checked items → 97. Unchecked may mean not experienced or skipped. There is no completion percentage or population ranking."}</p>
     </section>
-    {quiz.guide.map(section => <section key={section.id} className="my-9 space-y-4 leading-8"><h2 className="text-2xl font-semibold">{section.title[locale]}</h2>{section.paragraphs.map((p, i) => <p key={i}>{p[locale]}</p>)}</section>)}
+    {quiz.guide.map(section => <section key={section.id} className="my-8 space-y-4 leading-8"><h2 className="text-2xl font-semibold">{section.title[locale]}</h2>{section.paragraphs.map((p, i) => <p key={i}>{p[locale]}</p>)}</section>)}
     <Link href={questionnaireGuidePath(locale, quiz.slug, "score-reading")} className="font-semibold underline">{zh ? "打开完整分数读法指南" : "Open the complete score-reading guide"}</Link>
     <section className="my-10 space-y-5"><h2 className="text-2xl font-semibold">{zh ? "常见问题" : "Frequently asked questions"}</h2>{quiz.faq.map((f, i) => <div key={i}><h3 className="font-semibold">{f.question[locale]}</h3><p className="mt-2 leading-8">{f.answer[locale]}</p></div>)}</section>
   </Container></main>;
