@@ -7,7 +7,7 @@
     "lib/questionnaires/result-content/chiikawa.json": "32308e38fdeab4de784d4c5dc30e2a5f756559b1d00fd05f36301fe2fd8b61a6",
     "lib/i18n/zh-TW/ui.source.json": "2a1db21ff9240dfe1a8307151fb4ea91a3c0d9be4d81be76b3b566f656c81562",
     "lib/i18n/zh-TW/about-team.source.json": "a65ffdb3ec03c7c73dacd33f9e33b3b2e6c5f3199f596501336ed6e67c09d9f9",
-    "lib/i18n/zh-TW/content-page-labels.source.json": "92d69a8ac547039f0e77a8a3bd000e3f59c40d3fc549b4abf6686bfa3807e105"
+    "lib/i18n/zh-TW/content-page-labels.source.json": "40a1fe9af5ca1efa7189f3dfc9fd66b8817c22bfa74d90dc08cf590cfda25757"
   },
   "units": {
     "lib/questionnaires/data/chiikawa.json/title": {
@@ -1661,6 +1661,10 @@
     "lib/i18n/zh-TW/content-page-labels.source.json/29": {
       "sourceHash": "3811c9deb87b6a45835c5151cf6be5e2bcebe3cfb004b78892d996da9c17c1fb",
       "text": "霍蘭德職業興趣免費測試"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/30": {
+      "sourceHash": "9490b4bc3fe20f57b05727ec98954ab113f9471dad8752924629904f3b69c3c9",
+      "text": "簡體中文"
     }
   }
 }

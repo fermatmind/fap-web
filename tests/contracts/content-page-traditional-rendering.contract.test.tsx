@@ -47,9 +47,13 @@ describe("Traditional CMS About complete rendering", () => {
     const document = new DOMParser().parseFromString(html, "text/html");
     for (const [href, text] of [
       ["/zh/method-boundaries", "方法邊界"], ["/zh/item-design-notes", "題目設計說明"], ["/zh/reliability-validity", "信度與效度"],
-      ["/tests/mbti-personality-test-16-personality-types", "MBTI免費測試"],
-      ["/tests/big-five-personality-test", "大五人格免費測試"], ["/tests/holland-career-interest-test-riasec", "霍蘭德職業興趣免費測試"],
-    ]) expect(document.querySelector(`a[href="${href}"]`)?.textContent).toBe(text);
+      ["/zh/tests/mbti-personality-test-16-personality-types", "MBTI免費測試"],
+      ["/zh/tests/big-five-personality-test-ocean-model", "大五人格免費測試"], ["/zh/tests/holland-career-interest-test-riasec", "霍蘭德職業興趣免費測試"],
+    ]) {
+      expect(document.querySelector(`a[href="${href}"]`)?.textContent).toBe(`${text}（簡體中文）`);
+      expect(document.querySelector(`a[href="${href}"]`)?.getAttribute("hreflang")).toBe("zh-CN");
+    }
+    expect(document.querySelector('a[href="/tests/big-five-personality-test"]')).toBeNull();
     expect(document.querySelector('a[href="/en/tests/iq-test-intelligence-quotient-assessment"]')).not.toBeNull();
     expect(document.querySelector('a[href="/en/tests/explore/chiikawa"]')).not.toBeNull();
     expect(document.querySelector('a[href="/zh-TW/tests/explore/chiikawa"]')).toBeNull();

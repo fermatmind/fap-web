@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { isKnownTestSlug, resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import { splitInternalLinkText } from "@/lib/content/internalLinkText";
 import type { ReactNode } from "react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
@@ -228,13 +229,21 @@ function renderInline(text: string, keyPrefix: string, locale: DisplayLocale): R
     };
     return splitInternalLinkText(stripMarkdownEmphasisMarkers(text), linkLabels, "zh").map((part, index) => {
       if (part.type === "text") return <span key={`${keyPrefix}-${index}`}>{part.text}</span>;
-      // Match the original reader's three science-policy paths. Other targets
-      // retain their source href; only published variants gain a TW target.
-      const originalHref = /^\/(?:method-boundaries|item-design-notes|reliability-validity)(?:$|[/?#])/.test(part.href)
-        ? localizedPath(part.href, "zh") : part.href;
+      // Bare assessment links keep the source language and canonical identity;
+      // explicit language links stay explicit. Only published variants gain TW.
+      const test = /^\/tests\/([^/?#]+)([?#].*)?$/.exec(part.href);
+      const testSlug = test?.[1] ?? "";
+      const originalHref = isKnownTestSlug(testSlug)
+        ? localizedPath(`/tests/${resolveCanonicalSlug(testSlug)}${test?.[2] ?? ""}`, "zh")
+        : /^\/(?:method-boundaries|item-design-notes|reliability-validity)(?:$|[/?#])/.test(part.href)
+          ? localizedPath(part.href, "zh") : part.href;
+      const navigationPath = /^\/(?:zh|en)(?=\/|$)/.test(originalHref) ? originalHref : localizedPath(originalHref, "zh");
       const href = /^\/(?:zh|en)(?=\/|$)/.test(part.href)
-        ? originalHref : traditionalPath(localizedPath(part.href, "zh")) ?? originalHref;
-      return <Link key={`${keyPrefix}-${index}`} href={href} className="text-[var(--fm-accent)] underline-offset-2 hover:underline">{part.label}</Link>;
+        ? originalHref : traditionalPath(navigationPath) ?? originalHref;
+      const sourceLanguage = href.startsWith("/zh/") ? "zh-CN" : href.startsWith("/en/") ? "en" : undefined;
+      const readerLabel = sourceLanguage === "zh-CN" && !/^\/(?:zh|en)(?=\/|$)/.test(part.href)
+        ? `${part.label}（${label(locale, "简体中文", "Simplified Chinese")}）` : part.label;
+      return <Link key={`${keyPrefix}-${index}`} href={href} hrefLang={sourceLanguage} className="text-[var(--fm-accent)] underline-offset-2 hover:underline">{readerLabel}</Link>;
     });
   }
   return renderCmsInlineMarkdown(text, keyPrefix, { locale });
