@@ -139,17 +139,23 @@ for (const locale of ["en", "zh"] as const) test(`@release Philosopher ${locale}
   const zh = locale === "zh", entry = `/${locale}/tests/explore/${quiz.slug}`;
   await page.addInitScript(() => { localStorage.setItem("fm_consent_v1", JSON.stringify({ analytics: "denied" })); });
   await page.goto(`${entry}/take?start=1`); await finish(page, locale, "single");
-  await page.locator('[data-archetype-match="socrates"]').getByRole("link", { name: zh ? "单独阅读这项结果的完整指南" : "Read this result’s full guide separately" }).click();
-  await expect(page).toHaveURL(new RegExp(`${entry}/results/socrates$`));
-  await expect(page.locator("[data-archetype-count]")).toHaveCount(0);
-  const sharing = page.locator("[data-philosopher-sharing]");
+  const [guidePage] = await Promise.all([
+    page.waitForEvent("popup"),
+    page.locator('[data-archetype-match="socrates"]').getByRole("link", { name: zh ? "单独阅读这项结果的完整指南（新标签页）" : "Read this result’s full guide separately (new tab)", exact: true }).click(),
+  ]);
+  await expect(guidePage).toHaveURL(new RegExp(`${entry}/results/socrates$`));
+  await expect(guidePage.locator("[data-archetype-count]")).toHaveCount(0);
+  const sharing = guidePage.locator("[data-philosopher-sharing]");
   await expect(sharing).toContainText(zh ? "不表示你已获得这一结果" : "without assigning it to you as a result");
-  const [download] = await Promise.all([page.waitForEvent("download"), sharing.getByRole("button", { name: zh ? "保存哲学家卡片" : "Save philosopher card", exact: true }).click()]);
+  const [download] = await Promise.all([guidePage.waitForEvent("download"), sharing.getByRole("button", { name: zh ? "保存哲学家卡片" : "Save philosopher card", exact: true }).click()]);
   const file = testInfo.outputPath("public-philosopher-guide.png"); await download.saveAs(file);
   const png = readFileSync(file); expect(png.readUInt32BE(16)).toBe(1200); expect(png.readUInt32BE(20)).toBe(630);
-  await page.getByRole("link", { name: entertainmentGuideStartLabel(quiz.slug, locale), exact: true }).click();
-  await expect(page).toHaveURL(new RegExp(`${entry}#take-test$`));
-  await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-  await expect(page.locator('#take-test[data-stage]').getByRole("radio").first()).not.toBeChecked();
-  await expect(page.locator("[data-philosopher-reveal]")).toHaveCount(0);
+  await guidePage.getByRole("link", { name: entertainmentGuideStartLabel(quiz.slug, locale), exact: true }).click();
+  await expect(guidePage).toHaveURL(new RegExp(`${entry}#take-test$`));
+  await guidePage.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+  await expect(guidePage.locator('#take-test[data-stage]').getByRole("radio").first()).not.toBeChecked();
+  await expect(guidePage.locator("[data-philosopher-reveal]")).toHaveCount(0);
+  await expect(page).toHaveURL(new RegExp(`${entry}/take$`));
+  await expect(page.locator('[data-archetype-match="socrates"]')).toBeVisible();
+  await guidePage.close();
 });

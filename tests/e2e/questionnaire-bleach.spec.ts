@@ -140,12 +140,15 @@ for (const locale of ["en", "zh"] as const) {
     await page.goto(`${entry}/take`); await finish(page, locale, "two");
     const reveal = page.locator("[data-bleach-reveal]");
     await expect(reveal.locator(":scope > ul > li")).toHaveCount(2);
-    await reveal.getByRole("link", {name: zh ? "阅读公开人物指南" : "Read public character guide", exact: true}).first().click();
-    await expect(page).toHaveURL(new RegExp(`${entry}/results/ichigo-kurosaki$`));
-    await expect(page.locator("[data-bleach-public-portrait]")).toBeVisible();
-    await page.getByRole("link", {name: entertainmentGuideStartLabel(quiz.slug, locale), exact: true}).click();
-    await page.getByRole("button", {name: zh ? "开始测试" : "Start test", exact: true}).click();
-    await finish(page, locale, "two");
+    const [guidePage] = await Promise.all([
+      page.waitForEvent("popup"),
+      reveal.getByRole("link", {name: zh ? "阅读公开人物指南（新标签页）" : "Read public character guide (new tab)", exact: true}).first().click(),
+    ]);
+    await expect(guidePage).toHaveURL(new RegExp(`${entry}/results/ichigo-kurosaki$`));
+    await expect(guidePage.locator("[data-bleach-public-portrait]")).toBeVisible();
+    await expect(page).toHaveURL(new RegExp(`${entry}/take$`));
+    await expect(reveal.locator(":scope > ul > li")).toHaveCount(2);
+    await guidePage.close();
     await page.route("**/images/quiz-portraits/bleach/*.svg", route => route.fulfill({status: 503, body: "synthetic failure"}));
     const sharing = page.locator("[data-bleach-sharing]");
     await sharing.getByRole("button", {name: zh ? "保存BLEACH角色卡片" : "Save BLEACH card", exact: true}).click();
@@ -206,14 +209,20 @@ for (const locale of ["en", "zh"] as const) {
       if (process.env.BLEACH_QA_ARTIFACTS) await reveal.locator(":scope > ul > li").screenshot({path:join(process.env.BLEACH_QA_ARTIFACTS,`${locale}-${profile.id}-mobile-result.png`)});
       const directory=page.locator("[data-bleach-character-directory]");
       await expect(directory.locator("li")).toHaveCount(7);
-      await directory.locator(`[data-bleach-directory-character="${profile.id}"] a`).click();
-      await expect(page).toHaveURL(new RegExp(`${entry}/results/${profile.id}$`));
-      await expect(page.getByRole("heading",{level:1})).toHaveText(entertainmentGuideProfile(quiz.slug, locale, profile).title[locale]);
-      const guide=page.locator("[data-bleach-public-portrait]");
+      const [guidePage] = await Promise.all([
+        page.waitForEvent("popup"),
+        directory.locator(`[data-bleach-directory-character="${profile.id}"] a`).click(),
+      ]);
+      await expect(guidePage).toHaveURL(new RegExp(`${entry}/results/${profile.id}$`));
+      await expect(guidePage.getByRole("heading",{level:1})).toHaveText(entertainmentGuideProfile(quiz.slug, locale, profile).title[locale]);
+      const guide=guidePage.locator("[data-bleach-public-portrait]");
       await expect.poll(()=>guide.locator(":scope > img").evaluate((img:HTMLImageElement)=>[img.naturalWidth,img.naturalHeight])).toEqual([260,300]);
-      await expect(page.locator("[data-bleach-character-directory] li")).toHaveCount(7);
-      expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+      await expect(guidePage.locator("[data-bleach-character-directory] li")).toHaveCount(7);
+      expect(await guidePage.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
       if (process.env.BLEACH_QA_ARTIFACTS) await guide.locator(":scope > img").screenshot({path:join(process.env.BLEACH_QA_ARTIFACTS,`${locale}-${profile.id}-mobile-guide.png`)});
+      await expect(page).toHaveURL(new RegExp(`${entry}/take$`));
+      await expect(reveal.locator(":scope > ul > li")).toHaveCount(1);
+      await guidePage.close();
     }
   });
   test(`@release BLEACH R2 ${locale}: contextual ties and native share cancel/failure retain the result`, async ({page}) => {

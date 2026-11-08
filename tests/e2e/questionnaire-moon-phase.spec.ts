@@ -168,12 +168,15 @@ for (const locale of ["en", "zh"] as const) {
     await page.goto(`${entry}/take`); await finish(page, locale, "two");
     const reveal = page.locator("[data-moon-phase-reveal]");
     await expect(reveal.locator(":scope > ul > li")).toHaveCount(2);
-    await reveal.getByRole("link", {name: zh ? "满月" : "Full Moon", exact: true}).first().click();
-    await expect(page).toHaveURL(new RegExp(`${entry}/results/full-moon$`));
-    await expect(page.locator("[data-moon-phase-public-diagram]")).toBeVisible();
-    await page.getByRole("link", {name: entertainmentGuideStartLabel(quiz.slug, locale), exact: true}).click();
-    await page.getByRole("button", {name: zh ? "开始测试" : "Start test", exact: true}).click();
-    await finish(page, locale, "two");
+    const [guidePage] = await Promise.all([
+      page.waitForEvent("popup"),
+      reveal.getByRole("link", {name: zh ? "满月 · 指南（新标签页）" : "Full Moon · Guide (new tab)", exact: true}).first().click(),
+    ]);
+    await expect(guidePage).toHaveURL(new RegExp(`${entry}/results/full-moon$`));
+    await expect(guidePage.locator("[data-moon-phase-public-diagram]")).toBeVisible();
+    await expect(page).toHaveURL(new RegExp(`${entry}/take$`));
+    await expect(reveal.locator(":scope > ul > li")).toHaveCount(2);
+    await guidePage.close();
     const twoSharing = page.locator("[data-moon-phase-sharing]");
     for (const format of ["landscape", "portrait"]) {
       await twoSharing.getByRole("combobox").selectOption(format);
