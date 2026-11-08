@@ -11,14 +11,16 @@ import { QuizResultArtwork } from "./QuizResultArtwork";
 export function eightQuizLabel(slug: string, id: string, locale: Locale) {
   return (copy as Record<string, { labels: Record<string, Text> }>)[slug]?.labels[id]?.[locale];
 }
-export function EightQuizOverview({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
+export function EightQuizOverview({ quiz, locale, compact = false }: { quiz: Questionnaire; locale: Locale; compact?: boolean }) {
   const entry = (copy as Record<string, { heading: Text; intro: Text; labels: Record<string, Text>; related?: { slug: string; text: Text } }>)[quiz.slug];
   if (!entry) return null;
   const scene = eightQuizScene[quiz.slug], zh = locale === "zh";
-  return <section data-eight-quiz-overview={quiz.slug} className="my-8 space-y-5 rounded-xl border border-slate-200 bg-white p-4 sm:p-6" aria-labelledby={`${quiz.slug}-comparison-title`}>
-    <h2 id={`${quiz.slug}-comparison-title`} className="text-2xl font-semibold">{entry.heading[locale]}</h2>
+  const Heading = compact ? "p" : "h2";
+  const titleId = `${quiz.slug}-${compact ? "result-" : ""}comparison-title`;
+  return <section data-eight-quiz-overview={quiz.slug} className="my-8 space-y-5 rounded-xl border border-slate-200 bg-white p-4 sm:p-6" aria-labelledby={titleId}>
+    <Heading id={titleId} className="text-2xl font-semibold">{entry.heading[locale]}</Heading>
     <p className="leading-8">{entry.intro[locale]}</p>
-    {quiz.slug === "love-languages" && <LoveLanguageExamples locale={locale} />}
+    {!compact && quiz.slug === "love-languages" && <LoveLanguageExamples locale={locale} />}
     {scene && <Image src={scene} width={1200} height={800} alt={zh ? "本版原创主题场景插画" : "Original thematic illustration for this edition"} className="h-auto w-full rounded-lg" />}
     {Object.keys(entry.labels).length > 0 && <ul className={`grid gap-3 ${quiz.slug === "moral-alignment" ? "sm:grid-cols-3" : "sm:grid-cols-2 lg:grid-cols-3"}`}>{quiz.profiles.map(profile => <li key={profile.id} className="rounded-lg border border-slate-200 p-4">
       {quiz.slug === "spirit-animal" && <QuizResultArtwork slug={quiz.slug} id={profile.id} />}

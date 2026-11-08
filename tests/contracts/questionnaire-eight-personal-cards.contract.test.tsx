@@ -8,6 +8,7 @@ import { scoreLoveType16Questionnaire } from "@/lib/questionnaires/loveType16";
 import { scoreAffectionQuestionnaire } from "@/lib/questionnaires/affection";
 import { scoreAlignmentQuestionnaire } from "@/lib/questionnaires/alignment";
 import type { Questionnaire } from "@/lib/questionnaires/types";
+import { EightQuizPersonalCard } from "@/components/questionnaires/EightQuizPersonalCard";
 import { EightQuizOverview } from "@/components/questionnaires/EightQuizOverview";
 vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
 const quiz = (slug: string) => JSON.parse(readFileSync(`lib/questionnaires/data/${slug}.json`, "utf8")) as Questionnaire;
@@ -71,6 +72,17 @@ describe("eight existing quizzes: aggregate personal cards and public comparison
     const rows = eightQuizCardRows(q, result, "en")!;
     expect(rows).toHaveLength(1); expect(rows[0].id).toBe(result.profileId); expect(rows[0].title).toContain(result.profileCode);
     expect(JSON.stringify(rows)).not.toMatch(/matchPercent|presetRarity|dimensionCards/);
+  });
+  it("keeps comparison details from introducing a second result-level heading", () => {
+    const q = quiz("love-type-16"), answers = Object.fromEntries(q.questions.map(question => [question.id, question.options[0].id]));
+    const result = scoreLoveType16Questionnaire(q, answers);
+    const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<EightQuizPersonalCard quiz={q} result={result} locale="en" />);
+    expect(dom.querySelector('[data-eight-quiz-overview]')).not.toBeNull();
+    expect(dom.querySelectorAll("h2")).toHaveLength(0);
+    expect(dom.querySelector("details > summary")?.textContent).toContain("Compare");
+    dom.innerHTML += renderToStaticMarkup(<EightQuizOverview quiz={q} locale="en" />);
+    const ids = [...dom.querySelectorAll("[id]")].map(node => node.id);
+    expect(new Set(ids).size).toBe(ids.length);
   });
   it("exposes bilingual intent copy and same-language full-guide comparisons without changing URLs", () => {
     for (const slug of eightQuizSlugs) for (const locale of ["en", "zh"] as const) {
