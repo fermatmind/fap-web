@@ -56,13 +56,20 @@ test("Taiwan unsubscribe posts only after confirmation and permits retry after a
 
 test("Taiwan preferences distinguishes retryable network failures and invalid links",async({page})=>{
   let requests=0;
+  let expired=false;
   await page.route("**/api/v0.3/email/preferences*",async route=>{
+    expect(route.request().method()).toBe("GET");
+    expect(new URL(route.request().url()).searchParams.get("token")).toBe("tw_failure_fixture");
     requests++;
-    await route.fulfill(requests===1 ? {status:503,json:{ok:false,error_code:"TEMPORARY_UNAVAILABLE"}} : {status:410,json:{ok:false,error_code:"TOKEN_EXPIRED"}});
+    // Development Strict Mode may repeat the initial effect. The server state
+    // changes only before the explicit retry, not on an incidental GET count.
+    await route.fulfill(expired ? {status:410,json:{ok:false,error_code:"TOKEN_EXPIRED"}} : {status:503,json:{ok:false,error_code:"TEMPORARY_UNAVAILABLE"}});
   });
   await page.goto("/zh-TW/email/preferences?token=tw_failure_fixture");
   await expect(page.getByTestId("email-preferences-unavailable")).toBeVisible();
+  const beforeRetry=requests;
+  expired=true;
   await page.getByRole("button",{name:"重試",exact:true}).click();
   await expect(page.getByTestId("email-preferences-invalid")).toBeVisible();
-  expect(requests).toBe(2);
+  expect(requests).toBeGreaterThan(beforeRetry);
 });
