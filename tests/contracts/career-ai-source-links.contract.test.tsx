@@ -76,6 +76,7 @@ describe('Career AI source links from Current files', () => {
     'https://scjgj.gz.gov.cn/zcfg/xzfg/content/post_9745565.html',
     'https://www.samr.gov.cn/wljys/gzzd/art/2023/art_3ef1e889c1e644d4b65b5f5c7f432386.html',
     'https://fermatmind.com/zh/career/jobs/terrazzo-workers-and-finishers',
+    'https://www.cdc.gov/contact-lenses/causes/index.html',
   ])('renders the reviewed source without losing the AI body: %s', url => {
     const value = withSourceUrl(url);
     expect(supportsCareerDossierAiImpact(value)).toBe(true);
@@ -102,6 +103,13 @@ describe('Career AI source links from Current files', () => {
     'https://gdkfq.ezhou.gov.cn/another-law.html',
     'https://gdkfq.ezhou.gov.cn:8443/gk/xxgkml/zcfg_1828/gjzcfg/202011/t20201113_368318.html',
     'http://www.samr.gov.cn/source',
+    'http://www.cdc.gov/contact-lenses/causes/index.html',
+    'https://user:pass@www.cdc.gov/contact-lenses/causes/index.html',
+    'https://www.cdc.gov/contact-lenses/causes/index.html?redirect=https://example.com',
+    'https://www.cdc.gov/contact-lenses/causes/index.html#unreviewed',
+    'https://www.cdc.gov/contact-lenses/causes/another.html',
+    'https://www.cdc.gov/another-source',
+    'https://www.cdc.gov.evil.example/contact-lenses/causes/index.html',
     'https://www.samr.gov.cn.evil.example/source',
     'https://fermatmind.com.evil.example/source',
     'https://unreviewed.example/source',

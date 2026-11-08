@@ -87,6 +87,7 @@ const AI_SOURCE_URLS = new Set([
   "https://www.cac.gov.cn/2021-08/20/c_1631050028355286.htm",
   "https://www.cac.gov.cn/2021-12/20/c_1641594960049078.htm",
   "https://www.cdc.gov/comec/data-systems/modernizing-data-systems.html",
+  "https://www.cdc.gov/contact-lenses/causes/index.html",
   "https://www.cdc.gov/heads-up/response/index.html",
   "https://www.cdss.ca.gov/inforesources/cdss-programs/adult-protective-services/information-for-mandated-reporters",
   "https://www.consumerfinance.gov/rules-policy/regulations/1006/2/",
