@@ -113,6 +113,17 @@ describe("account center", () => {
     expect(screen.getByRole("navigation", { name: "帳戶語言" })).toBeTruthy();
   });
 
+  it.each([
+    { done: ["MBTI", "BIG5_OCEAN", "ENNEAGRAM"], next: "職業興趣" },
+    { done: ["MBTI", "BIG5_OCEAN", "ENNEAGRAM", "RIASEC"], next: "智商測試" },
+    { done: ["MBTI", "BIG5_OCEAN", "ENNEAGRAM", "RIASEC", "IQ"], next: "情緒智力測試" },
+  ])("renders the next Taiwan assessment name after $done ($next)", async ({ done, next }) => {
+    mocks.account.mockResolvedValue({ account: { id: "42", name: "Preview User", email: "preview@example.test", google_connected: true, locale: "zh-TW" }, preview: false });
+    mocks.history.mockResolvedValue({ items: done.map(code => row(code)), meta: { last_page: 1 } });
+    render(<AccountCenter locale="zh-TW" />);
+    await screen.findByRole("heading", { name: `下一項：${next}` });
+  });
+
   it("saves a Taiwan preference and navigates to the real Taiwan account route", async () => {
     mocks.search = "section=settings";
     mocks.profile.mockResolvedValue({ account: { id: "42", name: "Preview User", email: "preview@example.test", google_connected: true, locale: "zh-TW" } });

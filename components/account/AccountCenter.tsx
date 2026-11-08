@@ -938,7 +938,7 @@ export default function AccountCenter({ locale }: { locale: DisplayLocale }) {
                         <h3>
                           {nextTest
                             ? zh
-                              ? `${accountText(locale, "下一项：")}${nextTest.zh}`
+                              ? `${accountText(locale, "下一项：")}${accountText(locale, nextTest.zh)}`
                               : `Next: ${nextTest.en}`
                             : zh
                               ? accountText(locale, "查看最近保存的结果")

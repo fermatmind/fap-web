@@ -4,7 +4,7 @@
   "converterSourceHash": "e9bfab30d1516562ee82acef87a22b309484abcfd4eec63bb5214882c577007a",
   "glossary": "fermatmind-tw-account-1",
   "sourceHashes": {
-    "components/account/AccountCenter.tsx": "f43173e4cf2cf13dffabceb7e8c7402ec11dd95e2896d6336d4dde7641966d71",
+    "components/account/AccountCenter.tsx": "fe7b50295ca5da27f0d6b3be0b47e38aac70fe6efae07174e8eff63e571bad11",
     "app/(localized)/[locale]/account/page.tsx": "5beec14f02c0a6c58628dfb8bfa17d3c41ae787e97d7f5ca61c2b15ebc51050c"
   },
   "units": {
