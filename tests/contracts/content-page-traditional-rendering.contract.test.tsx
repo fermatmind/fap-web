@@ -2,6 +2,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { ContentPageTemplate, stripContentPageReaderMetadata } from "@/components/content-pages/ContentPageTemplate";
 import type { ContentPage } from "@/lib/cms/content-pages";
+import { buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 
 const page: ContentPage = {
   slug: "about", path: "/zh-TW/about", kind: "company", title: "關於費馬測試", kicker: "公司",
@@ -13,6 +14,9 @@ const page: ContentPage = {
 };
 
 describe("Traditional CMS About complete rendering", () => {
+  it.each([["zh-TW", "zh-TW"], ["zh", "zh-CN"], ["en", "en"]] as const)("preserves WebPage language identity for %s", (locale, expected) => {
+    expect(buildWebPageJsonLd({ path: "/zh-TW/about", title: page.title, description: page.summary, locale }).inLanguage).toBe(expected);
+  });
   it("renders CMS text plus all existing team profiles, localized labels and dates", () => {
     const html = renderToStaticMarkup(<ContentPageTemplate page={stripContentPageReaderMetadata(page)} locale="zh-TW" />);
     const document = new DOMParser().parseFromString(html, "text/html");

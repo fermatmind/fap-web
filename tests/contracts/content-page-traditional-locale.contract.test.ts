@@ -17,6 +17,14 @@ afterEach(async () => {
 });
 
 describe("CMS Traditional locale reader", () => {
+  it("prepares the direct CMS route without advertising an unpublished alternate", async () => {
+    const { traditionalPath, traditionalEquivalent, TRADITIONAL_PUBLIC_PATHS } = await import("@/lib/i18n/traditionalRoutes");
+    expect(traditionalPath("/zh-TW/about")).toBe("/zh-TW/about");
+    expect(traditionalPath("/zh/about")).toBeNull();
+    expect(traditionalEquivalent("/zh/about")).toBeNull();
+    expect(TRADITIONAL_PUBLIC_PATHS).not.toContain("/about");
+    expect(traditionalPath("/zh-TW/account")).toBeNull();
+  });
   it("requests the genuine variant with matching query and header", async () => {
     get.mockResolvedValue({ ok: true, page: record("zh-TW") });
     const cms = await import("@/lib/cms/content-pages");

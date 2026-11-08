@@ -100,6 +100,7 @@ function normalizePath(path: string, requestOrigin: string): string | null {
 }
 
 function localizedPath(path: string, locale: "en" | "zh"): string {
+  if (path === "/zh-TW/about") return path;
   if (path === "/") {
     return locale === "zh" ? "/" : "/en";
   }
@@ -134,6 +135,7 @@ function normalizeSlug(slug: string | null | undefined): string | null {
 }
 
 function isAllowedPublicPath(path: string): boolean {
+  if (path === "/zh-TW/about") return true;
   if (path === "/" || path === "/zh" || path === "/en") {
     return true;
   }

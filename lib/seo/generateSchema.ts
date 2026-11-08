@@ -17,7 +17,7 @@ type WebPageSchemaInput = {
   path: string;
   title: string;
   description: string;
-  locale: LocaleCode;
+  locale: LocaleCode | "zh-TW";
 };
 
 type TestSoftwareAppSchemaInput = {
@@ -119,7 +119,7 @@ export function buildWebPageJsonLd(input: WebPageSchemaInput) {
     url,
     name: input.title,
     description: input.description,
-    inLanguage: input.locale === "zh" ? "zh-CN" : "en",
+    inLanguage: input.locale === "zh-TW" ? "zh-TW" : input.locale === "zh" ? "zh-CN" : "en",
   };
 }
 
