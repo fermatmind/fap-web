@@ -1,0 +1,4868 @@
+{
+  "status": "Complete original research candidate:20 screens16single+1rank+3multi,40 bilingual five-module portraits; author must bind source version, maps, assets and verify renderer before production.",
+  "slug": "patronus-quiz",
+  "version": "fermat-original-patronus-20-40-v1",
+  "dimensions": [
+    {
+      "id": "courage",
+      "label": {
+        "zh": "勇气",
+        "en": "Courage"
+      }
+    },
+    {
+      "id": "care",
+      "label": {
+        "zh": "关怀",
+        "en": "Care"
+      }
+    },
+    {
+      "id": "insight",
+      "label": {
+        "zh": "观察",
+        "en": "Observation"
+      }
+    },
+    {
+      "id": "patience",
+      "label": {
+        "zh": "耐心",
+        "en": "Patience"
+      }
+    },
+    {
+      "id": "play",
+      "label": {
+        "zh": "玩心",
+        "en": "Playfulness"
+      }
+    },
+    {
+      "id": "independence",
+      "label": {
+        "zh": "自主",
+        "en": "Independence"
+      }
+    }
+  ],
+  "scoring": "20screens:1rank6items0..5+3multi6items0/1each+16single4choices0..3. Dimensions courage/care/insight/patience have3single, play/independence have2single. Raw dimension maxima=[17,17,17,17,14,14]. Compare squared Euclidean distance in normalized dimensions: sum((raw-target)/max)^2. All minimum-distance ties retained.40distinct targets6..9 reachable: fixedrank0..5, allmultiempty, single total=target-rank; supplied per-result witness exactly reproduces target, distance0. Fit may be monotonic display of distance only, never magical ability, scientific probability or population percentile.",
+  "profiles": [
+    {
+      "id": "stag",
+      "name": {
+        "zh": "牡鹿",
+        "en": "Stag"
+      },
+      "target": [
+        9,
+        8,
+        6,
+        8,
+        7,
+        9
+      ],
+      "meaning": {
+        "zh": "在开阔处为同伴留住安全的方向。",
+        "en": "Hold a safe direction for companions in open ground."
+      },
+      "reflection": {
+        "zh": "勇敢不需要每次都站在最前面。",
+        "en": "Courage need not mean always standing at the front."
+      },
+      "visual": "Original silver-blue luminous stag guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          9,
+          7,
+          4,
+          5,
+          3,
+          4
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            3
+          ],
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            1,
+            0
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "在开阔处为同伴留住安全的方向。",
+          "en": "Hold a safe direction for companions in open ground."
+        },
+        "scene": {
+          "zh": "雾中的岔路前，你先确认同伴都看得见路标，再站到最容易被看见的位置。",
+          "en": "At a misty fork, you check that everyone can see the markers, then stand where your companions can find you."
+        },
+        "strengthAndTradeoff": {
+          "zh": "在开阔处为同伴留住安全的方向。 勇敢不需要每次都站在最前面。",
+          "en": "Hold a safe direction for companions in open ground. Courage need not mean always standing at the front."
+        },
+        "compare": {
+          "zh": "与牝鹿比较：牡鹿侧重公开站出来指明方向，牝鹿侧重先觉察细微需要。",
+          "en": "Compared with Doe: Stag emphasizes a visible stand and direction; Doe notices subtle needs before approaching."
+        },
+        "try": {
+          "zh": "为下一次共同出发说清一个集合点。",
+          "en": "Name one meeting point before your next shared departure."
+        }
+      }
+    },
+    {
+      "id": "doe",
+      "name": {
+        "zh": "牝鹿",
+        "en": "Doe"
+      },
+      "target": [
+        6,
+        9,
+        7,
+        9,
+        8,
+        6
+      ],
+      "meaning": {
+        "zh": "先觉察需要，再安静地靠近。",
+        "en": "Notice a need before approaching quietly."
+      },
+      "reflection": {
+        "zh": "温柔可以同时说出清楚的界限。",
+        "en": "Gentleness can also state a clear limit."
+      },
+      "visual": "Original silver-blue luminous doe guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          6,
+          8,
+          5,
+          6,
+          4,
+          1
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            3,
+            2
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "先觉察需要，再安静地靠近。",
+          "en": "Notice a need before approaching quietly."
+        },
+        "scene": {
+          "zh": "营火逐渐熄灭时，你注意到有人缩起肩膀，先问是否需要一条毯子。",
+          "en": "As a campfire fades, you notice a companion drawing in their shoulders and ask whether a blanket would help."
+        },
+        "strengthAndTradeoff": {
+          "zh": "先觉察需要，再安静地靠近。 温柔可以同时说出清楚的界限。",
+          "en": "Notice a need before approaching quietly. Gentleness can also state a clear limit."
+        },
+        "compare": {
+          "zh": "与牡鹿比较：牝鹿从细小信号开始关怀，牡鹿更强调让保护方向公开可见。",
+          "en": "Compared with Stag: Doe begins with small signals of need; Stag makes a protective direction visible."
+        },
+        "try": {
+          "zh": "先询问，再提供一项对方愿意接受的帮助。",
+          "en": "Ask first, then offer one form of help the person wants."
+        }
+      }
+    },
+    {
+      "id": "fox",
+      "name": {
+        "zh": "狐狸",
+        "en": "Fox"
+      },
+      "target": [
+        7,
+        6,
+        8,
+        6,
+        9,
+        9
+      ],
+      "meaning": {
+        "zh": "用观察与机变找到被忽略的出口。",
+        "en": "Find an overlooked exit through observation and ingenuity."
+      },
+      "reflection": {
+        "zh": "机敏不必把每件事都变成独自解谜。",
+        "en": "Ingenuity need not turn everything into a puzzle to solve alone."
+      },
+      "visual": "Original silver-blue luminous fox guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          7,
+          5,
+          6,
+          3,
+          5,
+          4
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            0,
+            0
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "用观察与机变找到被忽略的出口。",
+          "en": "Find an overlooked exit through observation and ingenuity."
+        },
+        "scene": {
+          "zh": "一道门的正面打不开时，你留意门旁重复的痕迹，而非只增加力气。",
+          "en": "When a door will not open from the front, you notice repeated marks beside it instead of simply pushing harder."
+        },
+        "strengthAndTradeoff": {
+          "zh": "用观察与机变找到被忽略的出口。 机敏不必把每件事都变成独自解谜。",
+          "en": "Find an overlooked exit through observation and ingenuity. Ingenuity need not turn everything into a puzzle to solve alone."
+        },
+        "compare": {
+          "zh": "与渡鸦比较：狐狸把线索变成灵活行动，渡鸦更愿意把线索连成整体解释。",
+          "en": "Compared with Raven: Fox turns clues into flexible action; Raven builds a broader explanation from connections."
+        },
+        "try": {
+          "zh": "为卡住的小事列出两个不同办法，试最安全的一个。",
+          "en": "List two approaches to a small obstacle and try the safer one."
+        }
+      }
+    },
+    {
+      "id": "wolf",
+      "name": {
+        "zh": "狼",
+        "en": "Wolf"
+      },
+      "target": [
+        9,
+        8,
+        7,
+        7,
+        6,
+        8
+      ],
+      "meaning": {
+        "zh": "在各自独立时仍保持可信的联系。",
+        "en": "Keep dependable connections while allowing independence."
+      },
+      "reflection": {
+        "zh": "忠诚也允许不同的步伐。",
+        "en": "Loyalty can allow different paces."
+      },
+      "visual": "Original silver-blue luminous wolf guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          9,
+          7,
+          5,
+          4,
+          2,
+          3
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            3
+          ],
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "在各自独立时仍保持可信的联系。",
+          "en": "Keep dependable connections while allowing independence."
+        },
+        "scene": {
+          "zh": "队伍散开寻找道路时，你尊重各自判断，也约好彼此回应的信号。",
+          "en": "When companions spread out to seek a route, you respect their judgment and agree on a signal to reconnect."
+        },
+        "strengthAndTradeoff": {
+          "zh": "在各自独立时仍保持可信的联系。 忠诚也允许不同的步伐。",
+          "en": "Keep dependable connections while allowing independence. Loyalty can allow different paces."
+        },
+        "compare": {
+          "zh": "与犬比较：狼强调有边界的协同行动，犬更突出随时可感受到的陪伴。",
+          "en": "Compared with Dog: Wolf stresses coordinated independence; Dog emphasizes readily felt companionship."
+        },
+        "try": {
+          "zh": "与伙伴约定一次具体的报平安方式。",
+          "en": "Agree on one concrete way to check in with a companion."
+        }
+      }
+    },
+    {
+      "id": "otter",
+      "name": {
+        "zh": "水獭",
+        "en": "Otter"
+      },
+      "target": [
+        7,
+        8,
+        9,
+        6,
+        9,
+        7
+      ],
+      "meaning": {
+        "zh": "让玩心成为重新尝试的力量。",
+        "en": "Let playfulness make another attempt possible."
+      },
+      "reflection": {
+        "zh": "轻松之外也给困难留一点认真。",
+        "en": "Give difficulty some seriousness alongside lightness."
+      },
+      "visual": "Original silver-blue luminous otter guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          7,
+          7,
+          7,
+          3,
+          5,
+          2
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            0,
+            0
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            2,
+            0
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "让玩心成为重新尝试的力量。",
+          "en": "Let playfulness make another attempt possible."
+        },
+        "scene": {
+          "zh": "练习失败让气氛变重时，你把一个意外动作变成可一起尝试的游戏。",
+          "en": "When a failed practice weighs on the group, you turn an accidental movement into a game people can try together."
+        },
+        "strengthAndTradeoff": {
+          "zh": "让玩心成为重新尝试的力量。 轻松之外也给困难留一点认真。",
+          "en": "Let playfulness make another attempt possible. Give difficulty some seriousness alongside lightness."
+        },
+        "compare": {
+          "zh": "与海豚比较：水獭从玩耍打开局面，海豚更通过交流协调彼此。",
+          "en": "Compared with Dolphin: Otter opens possibilities through play; Dolphin relies more on communication and coordination."
+        },
+        "try": {
+          "zh": "用五分钟尝试一种不需要做好的新玩法。",
+          "en": "Spend five minutes trying something that need not turn out well."
+        }
+      }
+    },
+    {
+      "id": "cat",
+      "name": {
+        "zh": "猫",
+        "en": "Cat"
+      },
+      "target": [
+        6,
+        6,
+        9,
+        8,
+        7,
+        9
+      ],
+      "meaning": {
+        "zh": "在自己的节奏里保持敏锐与靠近。",
+        "en": "Stay observant and connected at a self-chosen pace."
+      },
+      "reflection": {
+        "zh": "独立不需要拒绝每一次帮助。",
+        "en": "Independence need not refuse every offer of help."
+      },
+      "visual": "Original silver-blue luminous cat guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          6,
+          5,
+          7,
+          5,
+          3,
+          4
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "在自己的节奏里保持敏锐与靠近。",
+          "en": "Stay observant and connected at a self-chosen pace."
+        },
+        "scene": {
+          "zh": "陌生屋檐下，你先找到能安心观察的位置，再决定何时靠近营火。",
+          "en": "Under an unfamiliar roof, you find a place to observe comfortably before choosing when to approach the fire."
+        },
+        "strengthAndTradeoff": {
+          "zh": "在自己的节奏里保持敏锐与靠近。 独立不需要拒绝每一次帮助。",
+          "en": "Stay observant and connected at a self-chosen pace. Independence need not refuse every offer of help."
+        },
+        "compare": {
+          "zh": "与猞猁比较：猫强调自己安排亲疏节奏，猞猁更突出观察后选择行动时机。",
+          "en": "Compared with Lynx: Cat sets its own rhythm of closeness; Lynx emphasizes timing informed by observation."
+        },
+        "try": {
+          "zh": "说清今天你愿意交流和需要独处的时间。",
+          "en": "State when you would welcome company and when you need time alone today."
+        }
+      }
+    },
+    {
+      "id": "dog",
+      "name": {
+        "zh": "犬",
+        "en": "Dog"
+      },
+      "target": [
+        8,
+        9,
+        7,
+        9,
+        8,
+        6
+      ],
+      "meaning": {
+        "zh": "把陪伴变成及时而具体的回应。",
+        "en": "Turn companionship into timely, concrete response."
+      },
+      "reflection": {
+        "zh": "回应别人之前也听一听自己。",
+        "en": "Listen to yourself before responding to everyone else."
+      },
+      "visual": "Original silver-blue luminous dog guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          8,
+          8,
+          5,
+          6,
+          4,
+          1
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            2
+          ],
+          [
+            3,
+            3,
+            2
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "把陪伴变成及时而具体的回应。",
+          "en": "Turn companionship into timely, concrete response."
+        },
+        "scene": {
+          "zh": "伙伴归队时，你用一句问候和一个能马上做到的帮助接住他的疲惫。",
+          "en": "When a companion returns, a greeting and a practical offer help make room for their tiredness."
+        },
+        "strengthAndTradeoff": {
+          "zh": "把陪伴变成及时而具体的回应。 回应别人之前也听一听自己。",
+          "en": "Turn companionship into timely, concrete response. Listen to yourself before responding to everyone else."
+        },
+        "compare": {
+          "zh": "与狼比较：犬的支持及时而贴近，狼更强调彼此独立仍能协同。",
+          "en": "Compared with Wolf: Dog’s support is immediate and close; Wolf stresses coordination across independence."
+        },
+        "try": {
+          "zh": "给一个熟悉的人发送一句无需立即回复的问候。",
+          "en": "Send someone a greeting that does not require an immediate reply."
+        }
+      }
+    },
+    {
+      "id": "hare",
+      "name": {
+        "zh": "野兔",
+        "en": "Hare"
+      },
+      "target": [
+        6,
+        7,
+        8,
+        6,
+        9,
+        8
+      ],
+      "meaning": {
+        "zh": "快速觉察变化，给行动留出余地。",
+        "en": "Notice change quickly and leave room to move."
+      },
+      "reflection": {
+        "zh": "警觉之后，也可以允许片刻放松。",
+        "en": "Alertness can be followed by a moment of rest."
+      },
+      "visual": "Original silver-blue luminous hare guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          6,
+          6,
+          6,
+          3,
+          5,
+          3
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            0,
+            0
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            0
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "快速觉察变化，给行动留出余地。",
+          "en": "Notice change quickly and leave room to move."
+        },
+        "scene": {
+          "zh": "草丛传来新声响，你先辨认方向，再选择一条留有退路的路径。",
+          "en": "A new sound in the grass prompts you to locate it before choosing a path with room to retreat."
+        },
+        "strengthAndTradeoff": {
+          "zh": "快速觉察变化，给行动留出余地。 警觉之后，也可以允许片刻放松。",
+          "en": "Notice change quickly and leave room to move. Alertness can be followed by a moment of rest."
+        },
+        "compare": {
+          "zh": "与田鼠比较：野兔关注快速改变位置，田鼠关注近处微小线索与持续寻找。",
+          "en": "Compared with Field Mouse: Hare responds through quick movement; Field Mouse follows nearby details and keeps searching."
+        },
+        "try": {
+          "zh": "为今天的一项安排准备一个简单备选。",
+          "en": "Prepare one simple alternative for a plan today."
+        }
+      }
+    },
+    {
+      "id": "badger",
+      "name": {
+        "zh": "獾",
+        "en": "Badger"
+      },
+      "target": [
+        8,
+        8,
+        6,
+        9,
+        7,
+        6
+      ],
+      "meaning": {
+        "zh": "在不显眼的地方持续守住重要的小事。",
+        "en": "Keep tending important small things out of sight."
+      },
+      "reflection": {
+        "zh": "坚持一种方式时也留意新需要。",
+        "en": "Notice new needs while persisting with a method."
+      },
+      "visual": "Original silver-blue luminous badger guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          8,
+          7,
+          4,
+          6,
+          3,
+          1
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            2
+          ],
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            1,
+            0
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "在不显眼的地方持续守住重要的小事。",
+          "en": "Keep tending important small things out of sight."
+        },
+        "scene": {
+          "zh": "大家离开后，你仍检查营地的小修补，让明天回来的人可以安心使用。",
+          "en": "After others leave, you check the campsite’s small repairs so tomorrow’s arrivals can use it safely."
+        },
+        "strengthAndTradeoff": {
+          "zh": "在不显眼的地方持续守住重要的小事。 坚持一种方式时也留意新需要。",
+          "en": "Keep tending important small things out of sight. Notice new needs while persisting with a method."
+        },
+        "compare": {
+          "zh": "与熊比较：獾以细小而持续的维护守护，熊更突出稳定、厚重的支撑。",
+          "en": "Compared with Bear: Badger protects through small continuing maintenance; Bear offers substantial, steady support."
+        },
+        "try": {
+          "zh": "完成一件不起眼但真正有用的小维护。",
+          "en": "Finish one unobtrusive but useful maintenance task."
+        }
+      }
+    },
+    {
+      "id": "hedgehog",
+      "name": {
+        "zh": "刺猬",
+        "en": "Hedgehog"
+      },
+      "target": [
+        6,
+        7,
+        7,
+        9,
+        6,
+        9
+      ],
+      "meaning": {
+        "zh": "用清楚的边界保存柔软的内心。",
+        "en": "Protect a soft center with clear boundaries."
+      },
+      "reflection": {
+        "zh": "边界可以有门，不必只有墙。",
+        "en": "A boundary can have a door as well as a wall."
+      },
+      "visual": "Original silver-blue luminous hedgehog guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          6,
+          6,
+          5,
+          6,
+          2,
+          4
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "用清楚的边界保存柔软的内心。",
+          "en": "Protect a soft center with clear boundaries."
+        },
+        "scene": {
+          "zh": "你愿意共享营火，也愿意说明哪些物品与时段需要由自己保管。",
+          "en": "You welcome a shared fire while explaining which belongings and hours you need to keep for yourself."
+        },
+        "strengthAndTradeoff": {
+          "zh": "用清楚的边界保存柔软的内心。 边界可以有门，不必只有墙。",
+          "en": "Protect a soft center with clear boundaries. A boundary can have a door as well as a wall."
+        },
+        "compare": {
+          "zh": "与猫比较：刺猬突出明确界限，猫更强调按自己节奏决定靠近。",
+          "en": "Compared with Cat: Hedgehog emphasizes explicit boundaries; Cat controls the rhythm of approach."
+        },
+        "try": {
+          "zh": "用一句平静的话说出一个可以协商的边界。",
+          "en": "State one negotiable boundary in a calm sentence."
+        }
+      }
+    },
+    {
+      "id": "squirrel",
+      "name": {
+        "zh": "松鼠",
+        "en": "Squirrel"
+      },
+      "target": [
+        6,
+        7,
+        8,
+        8,
+        9,
+        7
+      ],
+      "meaning": {
+        "zh": "用灵巧的小准备应对不确定。",
+        "en": "Meet uncertainty with nimble little preparations."
+      },
+      "reflection": {
+        "zh": "准备足够时，给当下留一点享受。",
+        "en": "When preparation is enough, leave room to enjoy the present."
+      },
+      "visual": "Original silver-blue luminous squirrel guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          6,
+          6,
+          6,
+          5,
+          5,
+          2
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            2,
+            0
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "用灵巧的小准备应对不确定。",
+          "en": "Meet uncertainty with nimble little preparations."
+        },
+        "scene": {
+          "zh": "天气尚未变化，你已把常用工具放在顺手的位置，却仍给背包留出空间。",
+          "en": "Before the weather changes, useful tools are within reach, while your pack still has room to spare."
+        },
+        "strengthAndTradeoff": {
+          "zh": "用灵巧的小准备应对不确定。 准备足够时，给当下留一点享受。",
+          "en": "Meet uncertainty with nimble little preparations. When preparation is enough, leave room to enjoy the present."
+        },
+        "compare": {
+          "zh": "与田鼠比较：松鼠更关注预先准备，田鼠更关注当下细微线索。",
+          "en": "Compared with Field Mouse: Squirrel emphasizes preparation; Field Mouse reads immediate details."
+        },
+        "try": {
+          "zh": "整理一件明天会用的小物，然后停止继续准备。",
+          "en": "Prepare one item for tomorrow, then stop preparing."
+        }
+      }
+    },
+    {
+      "id": "mouse",
+      "name": {
+        "zh": "田鼠",
+        "en": "Field Mouse"
+      },
+      "target": [
+        6,
+        6,
+        9,
+        9,
+        8,
+        7
+      ],
+      "meaning": {
+        "zh": "从微小线索中发现可以继续的路。",
+        "en": "Find a way forward in small clues."
+      },
+      "reflection": {
+        "zh": "体贴细节时也看一眼整体。",
+        "en": "Look at the whole while caring for details."
+      },
+      "visual": "Original silver-blue luminous field mouse guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          6,
+          5,
+          7,
+          6,
+          4,
+          2
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            2,
+            0
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "从微小线索中发现可以继续的路。",
+          "en": "Find a way forward in small clues."
+        },
+        "scene": {
+          "zh": "大厅里没人注意的小缝隙，让你发现一条能避开拥堵的通道。",
+          "en": "An unnoticed gap in a busy hall reveals a route around the congestion."
+        },
+        "strengthAndTradeoff": {
+          "zh": "从微小线索中发现可以继续的路。 体贴细节时也看一眼整体。",
+          "en": "Find a way forward in small clues. Look at the whole while caring for details."
+        },
+        "compare": {
+          "zh": "与野兔比较：田鼠靠近细节并持续探索，野兔更突出快速应变与移动。",
+          "en": "Compared with Hare: Field Mouse stays close to details; Hare emphasizes swift response and movement."
+        },
+        "try": {
+          "zh": "留意一项重复出现的小麻烦，做一个具体调整。",
+          "en": "Notice one recurring small difficulty and make a concrete adjustment."
+        }
+      }
+    },
+    {
+      "id": "horse",
+      "name": {
+        "zh": "马",
+        "en": "Horse"
+      },
+      "target": [
+        9,
+        8,
+        7,
+        8,
+        6,
+        7
+      ],
+      "meaning": {
+        "zh": "把持续前进与可靠支持放在一起。",
+        "en": "Bring steady movement together with reliable support."
+      },
+      "reflection": {
+        "zh": "长路也需要停下补充力量。",
+        "en": "A long journey also needs pauses to recover."
+      },
+      "visual": "Original silver-blue luminous horse guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          9,
+          7,
+          5,
+          5,
+          2,
+          2
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            3
+          ],
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            0
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "把持续前进与可靠支持放在一起。",
+          "en": "Bring steady movement together with reliable support."
+        },
+        "scene": {
+          "zh": "长路上你保持可持续的步幅，也愿意载上一段别人不想独自走的路。",
+          "en": "On a long road you keep a sustainable stride and share a stretch someone does not want to travel alone."
+        },
+        "strengthAndTradeoff": {
+          "zh": "把持续前进与可靠支持放在一起。 长路也需要停下补充力量。",
+          "en": "Bring steady movement together with reliable support. A long journey also needs pauses to recover."
+        },
+        "compare": {
+          "zh": "与象比较：马侧重可靠的前进与支持，象更强调记忆、耐心与共同经历。",
+          "en": "Compared with Elephant: Horse joins reliable movement and support; Elephant emphasizes memory and shared experience."
+        },
+        "try": {
+          "zh": "给一个长期目标安排合适的休息点。",
+          "en": "Add a suitable rest stop to a long-term goal."
+        }
+      }
+    },
+    {
+      "id": "mountain-goat",
+      "name": {
+        "zh": "山羊",
+        "en": "Mountain Goat"
+      },
+      "target": [
+        8,
+        7,
+        6,
+        9,
+        8,
+        9
+      ],
+      "meaning": {
+        "zh": "在陡峭处一步一步寻找可靠支点。",
+        "en": "Find dependable footing one step at a time on steep ground."
+      },
+      "reflection": {
+        "zh": "向上并非唯一值得走的方向。",
+        "en": "Upward is not the only worthwhile direction."
+      },
+      "visual": "Original silver-blue luminous mountain goat guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          8,
+          6,
+          4,
+          6,
+          4,
+          4
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            2
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            1,
+            0
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "在陡峭处一步一步寻找可靠支点。",
+          "en": "Find dependable footing one step at a time on steep ground."
+        },
+        "scene": {
+          "zh": "山路陡峭时，你不追求漂亮的大步，而是检验每一个可承重的落脚点。",
+          "en": "On steep ground, you test each foothold rather than seeking an impressive leap."
+        },
+        "strengthAndTradeoff": {
+          "zh": "在陡峭处一步一步寻找可靠支点。 向上并非唯一值得走的方向。",
+          "en": "Find dependable footing one step at a time on steep ground. Upward is not the only worthwhile direction."
+        },
+        "compare": {
+          "zh": "与海龟比较：山羊突出局部难点的攀越，海龟更强调长时段的稳定节奏。",
+          "en": "Compared with Sea Turtle: Mountain Goat tackles a local difficult ascent; Sea Turtle keeps a rhythm across long change."
+        },
+        "try": {
+          "zh": "把眼前难题缩成一个能稳稳完成的小步骤。",
+          "en": "Reduce a difficult task to one step you can complete securely."
+        }
+      }
+    },
+    {
+      "id": "red-panda",
+      "name": {
+        "zh": "小熊猫",
+        "en": "Red Panda"
+      },
+      "target": [
+        6,
+        8,
+        7,
+        8,
+        9,
+        7
+      ],
+      "meaning": {
+        "zh": "在安静与好奇之间保留自己的空间。",
+        "en": "Keep personal space between quietness and curiosity."
+      },
+      "reflection": {
+        "zh": "安全感不必依靠永远避开陌生。",
+        "en": "Safety need not depend on avoiding everything unfamiliar."
+      },
+      "visual": "Original silver-blue luminous red panda guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          6,
+          7,
+          5,
+          5,
+          5,
+          2
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            2,
+            0
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "在安静与好奇之间保留自己的空间。",
+          "en": "Keep personal space between quietness and curiosity."
+        },
+        "scene": {
+          "zh": "你在热闹与安静之间找到一小块能自在停留的树荫，再带着好奇重新参与。",
+          "en": "Between bustle and quiet, you find a shaded place to settle before rejoining with curiosity."
+        },
+        "strengthAndTradeoff": {
+          "zh": "在安静与好奇之间保留自己的空间。 安全感不必依靠永远避开陌生。",
+          "en": "Keep personal space between quietness and curiosity. Safety need not depend on avoiding everything unfamiliar."
+        },
+        "compare": {
+          "zh": "与猫比较：小熊猫强调安静中的好奇，猫更突出选择亲疏与个人节奏。",
+          "en": "Compared with Cat: Red Panda holds curiosity within quietness; Cat sets the terms and rhythm of closeness."
+        },
+        "try": {
+          "zh": "为今天保留十分钟不被打扰的轻松探索。",
+          "en": "Keep ten undisturbed minutes for relaxed exploration today."
+        }
+      }
+    },
+    {
+      "id": "bear",
+      "name": {
+        "zh": "熊",
+        "en": "Bear"
+      },
+      "target": [
+        9,
+        8,
+        6,
+        9,
+        7,
+        6
+      ],
+      "meaning": {
+        "zh": "让厚重的力量成为安稳的保护。",
+        "en": "Make substantial strength a steady form of protection."
+      },
+      "reflection": {
+        "zh": "保护不等于替别人决定全部。",
+        "en": "Protection does not mean deciding everything for someone else."
+      },
+      "visual": "Original silver-blue luminous bear guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          9,
+          7,
+          4,
+          6,
+          3,
+          1
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            3
+          ],
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            1,
+            0
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "让厚重的力量成为安稳的保护。",
+          "en": "Make substantial strength a steady form of protection."
+        },
+        "scene": {
+          "zh": "营地受到风雨侵扰时，你先稳住能提供遮蔽的东西，让别人有喘息空间。",
+          "en": "When wind and rain disturb the camp, you secure shelter so others have room to breathe."
+        },
+        "strengthAndTradeoff": {
+          "zh": "让厚重的力量成为安稳的保护。 保护不等于替别人决定全部。",
+          "en": "Make substantial strength a steady form of protection. Protection does not mean deciding everything for someone else."
+        },
+        "compare": {
+          "zh": "与獾比较：熊提供厚重的整体支撑，獾更专注具体小范围的持续维护。",
+          "en": "Compared with Badger: Bear provides broad, substantial support; Badger sustains close, specific maintenance."
+        },
+        "try": {
+          "zh": "询问一项帮助是否需要，再承担自己能做到的部分。",
+          "en": "Check whether help is wanted, then take the portion you can offer."
+        }
+      }
+    },
+    {
+      "id": "lynx",
+      "name": {
+        "zh": "猞猁",
+        "en": "Lynx"
+      },
+      "target": [
+        7,
+        6,
+        8,
+        9,
+        7,
+        9
+      ],
+      "meaning": {
+        "zh": "先看清微妙的变化，再选择时机。",
+        "en": "Read subtle changes before choosing a moment."
+      },
+      "reflection": {
+        "zh": "等待足够的信息，也可以允许小试。",
+        "en": "While seeking enough information, allow a small experiment."
+      },
+      "visual": "Original silver-blue luminous lynx guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          7,
+          5,
+          6,
+          6,
+          3,
+          4
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "先看清微妙的变化，再选择时机。",
+          "en": "Read subtle changes before choosing a moment."
+        },
+        "scene": {
+          "zh": "雪面上一个方向微变的足迹，让你重新判断何时靠近，而不是急着追赶。",
+          "en": "A footprint changing direction in the snow changes your judgment about when to approach, rather than prompting a rush."
+        },
+        "strengthAndTradeoff": {
+          "zh": "先看清微妙的变化，再选择时机。 等待足够的信息，也可以允许小试。",
+          "en": "Read subtle changes before choosing a moment. While seeking enough information, allow a small experiment."
+        },
+        "compare": {
+          "zh": "与猫头鹰比较：猞猁把观察用于行动时机，猫头鹰更强调安静判断与理解。",
+          "en": "Compared with Owl: Lynx uses observation to time action; Owl emphasizes quiet judgment and understanding."
+        },
+        "try": {
+          "zh": "行动前写下一条已见线索和一条仍未知的事。",
+          "en": "Before acting, note one observed clue and one remaining unknown."
+        }
+      }
+    },
+    {
+      "id": "tiger",
+      "name": {
+        "zh": "虎",
+        "en": "Tiger"
+      },
+      "target": [
+        9,
+        7,
+        6,
+        7,
+        7,
+        9
+      ],
+      "meaning": {
+        "zh": "在需要清楚行动时集中全部注意。",
+        "en": "Concentrate attention when decisive action is needed."
+      },
+      "reflection": {
+        "zh": "有力的行动也能为别人留余地。",
+        "en": "Powerful action can still leave room for others."
+      },
+      "visual": "Original silver-blue luminous tiger guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          9,
+          6,
+          4,
+          4,
+          3,
+          4
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            3
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            1,
+            0
+          ],
+          [
+            3,
+            1,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "在需要清楚行动时集中全部注意。",
+          "en": "Concentrate attention when decisive action is needed."
+        },
+        "scene": {
+          "zh": "需要处理的关键时刻到来时，你把注意集中在眼前一步，不让纷乱分散动作。",
+          "en": "At a crucial moment, attention settles on the next step rather than scattering into surrounding noise."
+        },
+        "strengthAndTradeoff": {
+          "zh": "在需要清楚行动时集中全部注意。 有力的行动也能为别人留余地。",
+          "en": "Concentrate attention when decisive action is needed. Powerful action can still leave room for others."
+        },
+        "compare": {
+          "zh": "与狮比较：虎突出独立而集中的行动，狮更强调公开带领与共同方向。",
+          "en": "Compared with Lion: Tiger emphasizes independent, focused action; Lion makes shared direction visible."
+        },
+        "try": {
+          "zh": "为一项重要行动排除一个分心因素。",
+          "en": "Remove one distraction before an important action."
+        }
+      }
+    },
+    {
+      "id": "lion",
+      "name": {
+        "zh": "狮",
+        "en": "Lion"
+      },
+      "target": [
+        9,
+        9,
+        8,
+        7,
+        6,
+        6
+      ],
+      "meaning": {
+        "zh": "愿意站出来，也让同伴看见方向。",
+        "en": "Step forward while making the direction visible to companions."
+      },
+      "reflection": {
+        "zh": "带领时记得问谁还没开口。",
+        "en": "When leading, ask whose voice has not been heard."
+      },
+      "visual": "Original silver-blue luminous lion guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          9,
+          8,
+          6,
+          4,
+          2,
+          1
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            3
+          ],
+          [
+            3,
+            3,
+            2
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "愿意站出来，也让同伴看见方向。",
+          "en": "Step forward while making the direction visible to companions."
+        },
+        "scene": {
+          "zh": "人群犹豫时，你愿意先说明可行方向，也留下让别人提出担忧的空隙。",
+          "en": "When a group hesitates, you offer a possible direction while leaving room for concerns."
+        },
+        "strengthAndTradeoff": {
+          "zh": "愿意站出来，也让同伴看见方向。 带领时记得问谁还没开口。",
+          "en": "Step forward while making the direction visible to companions. When leading, ask whose voice has not been heard."
+        },
+        "compare": {
+          "zh": "与牡鹿比较：狮强调让大家一起行动，牡鹿强调站到可见位置守住路线。",
+          "en": "Compared with Stag: Lion mobilizes shared action; Stag holds a visible protective route."
+        },
+        "try": {
+          "zh": "提出方案后，明确邀请一个不同意见。",
+          "en": "After proposing a plan, explicitly invite a different view."
+        }
+      }
+    },
+    {
+      "id": "cheetah",
+      "name": {
+        "zh": "猎豹",
+        "en": "Cheetah"
+      },
+      "target": [
+        9,
+        6,
+        7,
+        6,
+        8,
+        9
+      ],
+      "meaning": {
+        "zh": "找到时机后把精力投入一个方向。",
+        "en": "Commit energy to one direction once the moment is right."
+      },
+      "reflection": {
+        "zh": "速度之后，需要有意识地恢复。",
+        "en": "Speed needs deliberate recovery afterward."
+      },
+      "visual": "Original silver-blue luminous cheetah guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          9,
+          5,
+          5,
+          3,
+          4,
+          4
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            3
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            0,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "找到时机后把精力投入一个方向。",
+          "en": "Commit energy to one direction once the moment is right."
+        },
+        "scene": {
+          "zh": "你并不总在奔跑；等到目标和距离清楚，才把力量集中在短暂的一段。",
+          "en": "You are not always running; when target and distance are clear, effort concentrates into one brief stretch."
+        },
+        "strengthAndTradeoff": {
+          "zh": "找到时机后把精力投入一个方向。 速度之后，需要有意识地恢复。",
+          "en": "Commit energy to one direction once the moment is right. Speed needs deliberate recovery afterward."
+        },
+        "compare": {
+          "zh": "与翠鸟比较：猎豹强调集中的短程执行，翠鸟更强调长观察后的瞬间行动。",
+          "en": "Compared with Kingfisher: Cheetah emphasizes focused execution over a short stretch; Kingfisher acts after longer observation."
+        },
+        "try": {
+          "zh": "设一个短而明确的行动时段，结束后休息。",
+          "en": "Set a short, clear action window and rest afterward."
+        }
+      }
+    },
+    {
+      "id": "elephant",
+      "name": {
+        "zh": "象",
+        "en": "Elephant"
+      },
+      "target": [
+        8,
+        9,
+        8,
+        9,
+        6,
+        6
+      ],
+      "meaning": {
+        "zh": "记住共同经历，用耐心承托别人。",
+        "en": "Carry shared experience and offer patient support."
+      },
+      "reflection": {
+        "zh": "记得太多责任时，也可以分担。",
+        "en": "When carrying many responsibilities, share some of them."
+      },
+      "visual": "Original silver-blue luminous elephant guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          8,
+          8,
+          6,
+          6,
+          2,
+          1
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            2
+          ],
+          [
+            3,
+            3,
+            2
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "记住共同经历，用耐心承托别人。",
+          "en": "Carry shared experience and offer patient support."
+        },
+        "scene": {
+          "zh": "共同走过的路会影响你今天怎样照顾队伍：谁需要慢一点，谁可以分担，你都愿意记住。",
+          "en": "Shared journeys shape how you care for companions today: who needs a slower pace and who can help carry something."
+        },
+        "strengthAndTradeoff": {
+          "zh": "记住共同经历，用耐心承托别人。 记得太多责任时，也可以分担。",
+          "en": "Carry shared experience and offer patient support. When carrying many responsibilities, share some of them."
+        },
+        "compare": {
+          "zh": "与鲸比较：象的记忆和支持贴近共同生活，鲸更强调在距离与深处保持联系。",
+          "en": "Compared with Whale: Elephant carries memory within shared life; Whale sustains connection across distance and depth."
+        },
+        "try": {
+          "zh": "把一项长期责任交接给愿意共同承担的人。",
+          "en": "Share one long-standing responsibility with someone willing to help."
+        }
+      }
+    },
+    {
+      "id": "robin",
+      "name": {
+        "zh": "知更鸟",
+        "en": "Robin"
+      },
+      "target": [
+        7,
+        8,
+        7,
+        8,
+        9,
+        7
+      ],
+      "meaning": {
+        "zh": "用小而明亮的回应让新一天开始。",
+        "en": "Help a new day begin with a small, bright response."
+      },
+      "reflection": {
+        "zh": "带来希望不要求你永远愉快。",
+        "en": "Bringing hope does not require constant cheerfulness."
+      },
+      "visual": "Original silver-blue luminous robin guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          7,
+          7,
+          5,
+          5,
+          5,
+          2
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            2,
+            0
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "用小而明亮的回应让新一天开始。",
+          "en": "Help a new day begin with a small, bright response."
+        },
+        "scene": {
+          "zh": "灰暗早晨的一句具体鼓励，足以让伙伴看见今天仍有可以开始的小事。",
+          "en": "A concrete word of encouragement on a gray morning helps a companion see one small thing they can begin."
+        },
+        "strengthAndTradeoff": {
+          "zh": "用小而明亮的回应让新一天开始。 带来希望不要求你永远愉快。",
+          "en": "Help a new day begin with a small, bright response. Bringing hope does not require constant cheerfulness."
+        },
+        "compare": {
+          "zh": "与蜂鸟比较：知更鸟更像小而稳定的希望，蜂鸟更突出快速轻巧的活力。",
+          "en": "Compared with Hummingbird: Robin offers a small, steady sign of hope; Hummingbird emphasizes quick, light vitality."
+        },
+        "try": {
+          "zh": "指出一件今天已经做到的小事。",
+          "en": "Name one small thing already accomplished today."
+        }
+      }
+    },
+    {
+      "id": "owl",
+      "name": {
+        "zh": "猫头鹰",
+        "en": "Owl"
+      },
+      "target": [
+        6,
+        7,
+        9,
+        9,
+        6,
+        9
+      ],
+      "meaning": {
+        "zh": "在安静观察后说出有用的判断。",
+        "en": "Offer a useful judgment after quiet observation."
+      },
+      "reflection": {
+        "zh": "看得清楚也可以坦承尚不知道。",
+        "en": "Clear sight can include admitting what remains unknown."
+      },
+      "visual": "Original silver-blue luminous owl guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          6,
+          6,
+          7,
+          6,
+          2,
+          4
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "在安静观察后说出有用的判断。",
+          "en": "Offer a useful judgment after quiet observation."
+        },
+        "scene": {
+          "zh": "其他人急着确认答案时，你先安静区分看见了什么、听说了什么，以及还缺什么。",
+          "en": "While others seek a quick answer, you distinguish what was seen, what was reported and what is still missing."
+        },
+        "strengthAndTradeoff": {
+          "zh": "在安静观察后说出有用的判断。 看得清楚也可以坦承尚不知道。",
+          "en": "Offer a useful judgment after quiet observation. Clear sight can include admitting what remains unknown."
+        },
+        "compare": {
+          "zh": "与苍鹭比较：猫头鹰突出信息与判断，苍鹭突出等待中的从容和行动节奏。",
+          "en": "Compared with Heron: Owl emphasizes information and judgment; Heron keeps a calm rhythm while waiting."
+        },
+        "try": {
+          "zh": "把一个判断拆成事实、解释和待查三部分。",
+          "en": "Separate a judgment into fact, interpretation and what needs checking."
+        }
+      }
+    },
+    {
+      "id": "raven",
+      "name": {
+        "zh": "渡鸦",
+        "en": "Raven"
+      },
+      "target": [
+        7,
+        6,
+        9,
+        7,
+        9,
+        9
+      ],
+      "meaning": {
+        "zh": "把线索连起来，发现另一种理解。",
+        "en": "Connect clues into another way of understanding."
+      },
+      "reflection": {
+        "zh": "复杂的解释也可以从简单处检验。",
+        "en": "A complex explanation can still be tested in a simple way."
+      },
+      "visual": "Original silver-blue luminous raven guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          7,
+          5,
+          7,
+          4,
+          5,
+          4
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            1,
+            0
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "把线索连起来，发现另一种理解。",
+          "en": "Connect clues into another way of understanding."
+        },
+        "scene": {
+          "zh": "零散消息之间的一条联系让你停下来：它可能解释现状，也可能只是需要检验的假设。",
+          "en": "A connection among scattered messages gives you pause: it may explain the situation, or simply be a hypothesis to test."
+        },
+        "strengthAndTradeoff": {
+          "zh": "把线索连起来，发现另一种理解。 复杂的解释也可以从简单处检验。",
+          "en": "Connect clues into another way of understanding. A complex explanation can still be tested in a simple way."
+        },
+        "compare": {
+          "zh": "与狐狸比较：渡鸦重在把线索连成理解，狐狸重在灵活找到可行动的出路。",
+          "en": "Compared with Fox: Raven builds connected understanding; Fox finds a flexible way to act."
+        },
+        "try": {
+          "zh": "给一个有吸引力的解释寻找一条反面线索。",
+          "en": "Find one contrary clue for an appealing explanation."
+        }
+      }
+    },
+    {
+      "id": "eagle",
+      "name": {
+        "zh": "鹰",
+        "en": "Eagle"
+      },
+      "target": [
+        9,
+        7,
+        6,
+        8,
+        6,
+        9
+      ],
+      "meaning": {
+        "zh": "把更远的视野带回眼前的选择。",
+        "en": "Bring a distant view back to the choice at hand."
+      },
+      "reflection": {
+        "zh": "俯瞰全局时也别失去细节。",
+        "en": "Keep the details while seeing the larger picture."
+      },
+      "visual": "Original silver-blue luminous eagle guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          9,
+          6,
+          4,
+          5,
+          2,
+          4
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            3
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            1,
+            0
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "把更远的视野带回眼前的选择。",
+          "en": "Bring a distant view back to the choice at hand."
+        },
+        "scene": {
+          "zh": "高处看见的路线并不替代地面的石块；你把远景带回来，让下一步更清楚。",
+          "en": "A route seen from above does not remove stones on the ground; you bring the wider view back to clarify the next step."
+        },
+        "strengthAndTradeoff": {
+          "zh": "把更远的视野带回眼前的选择。 俯瞰全局时也别失去细节。",
+          "en": "Bring a distant view back to the choice at hand. Keep the details while seeing the larger picture."
+        },
+        "compare": {
+          "zh": "与信天翁比较：鹰强调全局视野中的判断，信天翁强调长途中的耐力与借势。",
+          "en": "Compared with Albatross: Eagle judges from a broad view; Albatross emphasizes endurance and using conditions across distance."
+        },
+        "try": {
+          "zh": "写下长期方向后，补一个今天能做的动作。",
+          "en": "After naming a long-term direction, add one action for today."
+        }
+      }
+    },
+    {
+      "id": "heron",
+      "name": {
+        "zh": "苍鹭",
+        "en": "Heron"
+      },
+      "target": [
+        6,
+        7,
+        9,
+        9,
+        8,
+        6
+      ],
+      "meaning": {
+        "zh": "在流动的环境中保持从容等待。",
+        "en": "Wait calmly in a changing environment."
+      },
+      "reflection": {
+        "zh": "耐心也包含知道何时迈出一步。",
+        "en": "Patience also includes knowing when to take a step."
+      },
+      "visual": "Original silver-blue luminous heron guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          6,
+          6,
+          7,
+          6,
+          4,
+          1
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "在流动的环境中保持从容等待。",
+          "en": "Wait calmly in a changing environment."
+        },
+        "scene": {
+          "zh": "水面不断变化，你允许时间帮助线索显现；等到真正可行的时刻，再迈出一步。",
+          "en": "As the water changes, time lets clues emerge; you move when an opening becomes genuinely workable."
+        },
+        "strengthAndTradeoff": {
+          "zh": "在流动的环境中保持从容等待。 耐心也包含知道何时迈出一步。",
+          "en": "Wait calmly in a changing environment. Patience also includes knowing when to take a step."
+        },
+        "compare": {
+          "zh": "与猫头鹰比较：苍鹭侧重耐心等待与从容行动，猫头鹰侧重信息分辨。",
+          "en": "Compared with Owl: Heron emphasizes patient timing; Owl distinguishes information and interpretations."
+        },
+        "try": {
+          "zh": "为等待中的事设一个温和的再次检查时间。",
+          "en": "Set a gentle time to revisit something you are waiting on."
+        }
+      }
+    },
+    {
+      "id": "swan",
+      "name": {
+        "zh": "天鹅",
+        "en": "Swan"
+      },
+      "target": [
+        7,
+        8,
+        8,
+        9,
+        6,
+        7
+      ],
+      "meaning": {
+        "zh": "把从容的外表与持续的努力连接。",
+        "en": "Join outward composure with continuing effort."
+      },
+      "reflection": {
+        "zh": "平静不必遮住真实的疲惫。",
+        "en": "Composure need not hide real tiredness."
+      },
+      "visual": "Original silver-blue luminous swan guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          7,
+          7,
+          6,
+          6,
+          2,
+          2
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            0
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "把从容的外表与持续的努力连接。",
+          "en": "Join outward composure with continuing effort."
+        },
+        "scene": {
+          "zh": "平静的水面下仍有持续划动，你知道从容可以来自准备，而不是假装毫不费力。",
+          "en": "Steady movement continues beneath a calm surface; composure can come from preparation, not pretending everything is effortless."
+        },
+        "strengthAndTradeoff": {
+          "zh": "把从容的外表与持续的努力连接。 平静不必遮住真实的疲惫。",
+          "en": "Join outward composure with continuing effort. Composure need not hide real tiredness."
+        },
+        "compare": {
+          "zh": "与马比较：天鹅强调从容与持续努力的结合，马更突出可靠地向前承托。",
+          "en": "Compared with Horse: Swan joins composure with hidden effort; Horse offers dependable forward support."
+        },
+        "try": {
+          "zh": "向可信的人说明一项你正在付出的努力。",
+          "en": "Tell someone you trust about one effort you are making."
+        }
+      }
+    },
+    {
+      "id": "kingfisher",
+      "name": {
+        "zh": "翠鸟",
+        "en": "Kingfisher"
+      },
+      "target": [
+        8,
+        6,
+        7,
+        7,
+        9,
+        8
+      ],
+      "meaning": {
+        "zh": "在耐心观察后迅速把握一瞬。",
+        "en": "Act swiftly after patient observation."
+      },
+      "reflection": {
+        "zh": "错过一次机会不等于失去整条河。",
+        "en": "Missing one moment does not mean losing the whole river."
+      },
+      "visual": "Original silver-blue luminous kingfisher guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          8,
+          5,
+          5,
+          4,
+          5,
+          3
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            2
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            1,
+            0
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            0
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "在耐心观察后迅速把握一瞬。",
+          "en": "Act swiftly after patient observation."
+        },
+        "scene": {
+          "zh": "你在岸边等候，观察并非停滞，而是为一个准确、短暂的行动积累条件。",
+          "en": "Waiting on the bank is not inactivity; observation prepares the conditions for one precise, brief action."
+        },
+        "strengthAndTradeoff": {
+          "zh": "在耐心观察后迅速把握一瞬。 错过一次机会不等于失去整条河。",
+          "en": "Act swiftly after patient observation. Missing one moment does not mean losing the whole river."
+        },
+        "compare": {
+          "zh": "与猎豹比较：翠鸟更侧重观察后的时机，猎豹更侧重锁定目标后的执行。",
+          "en": "Compared with Cheetah: Kingfisher emphasizes timing after observation; Cheetah emphasizes execution after choosing a target."
+        },
+        "try": {
+          "zh": "为一个决定写下“条件满足就行动”的清楚信号。",
+          "en": "Name a clear signal that will tell you when to act."
+        }
+      }
+    },
+    {
+      "id": "hummingbird",
+      "name": {
+        "zh": "蜂鸟",
+        "en": "Hummingbird"
+      },
+      "target": [
+        7,
+        8,
+        6,
+        6,
+        9,
+        9
+      ],
+      "meaning": {
+        "zh": "用轻巧和活力在变化之间穿行。",
+        "en": "Move lightly and energetically between changes."
+      },
+      "reflection": {
+        "zh": "活力也值得有安静的落脚点。",
+        "en": "Energy also deserves a quiet place to land."
+      },
+      "visual": "Original silver-blue luminous hummingbird guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          7,
+          7,
+          4,
+          3,
+          5,
+          4
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            1,
+            0
+          ],
+          [
+            3,
+            0,
+            0
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "用轻巧和活力在变化之间穿行。",
+          "en": "Move lightly and energetically between changes."
+        },
+        "scene": {
+          "zh": "你能在不同小事之间带来活力，也能迅速发现哪一点新鲜感让人愿意继续。",
+          "en": "You bring energy between small tasks and quickly notice which fresh detail makes continuing inviting."
+        },
+        "strengthAndTradeoff": {
+          "zh": "用轻巧和活力在变化之间穿行。 活力也值得有安静的落脚点。",
+          "en": "Move lightly and energetically between changes. Energy also deserves a quiet place to land."
+        },
+        "compare": {
+          "zh": "与知更鸟比较：蜂鸟突出轻快转换与活力，知更鸟更像稳定而细小的希望。",
+          "en": "Compared with Robin: Hummingbird emphasizes lively shifts; Robin offers a steadier, smaller sign of hope."
+        },
+        "try": {
+          "zh": "给一段重复任务加入一个不增加负担的小变化。",
+          "en": "Add one low-effort variation to a repetitive task."
+        }
+      }
+    },
+    {
+      "id": "albatross",
+      "name": {
+        "zh": "信天翁",
+        "en": "Albatross"
+      },
+      "target": [
+        9,
+        7,
+        6,
+        9,
+        8,
+        9
+      ],
+      "meaning": {
+        "zh": "让耐力与宽广视野陪伴长途。",
+        "en": "Carry endurance and a wide view across a long journey."
+      },
+      "reflection": {
+        "zh": "远行时也可以选择返回熟悉的支持。",
+        "en": "A long journey can include returning to familiar support."
+      },
+      "visual": "Original silver-blue luminous albatross guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          9,
+          6,
+          4,
+          6,
+          4,
+          4
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            3
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            1,
+            0
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "让耐力与宽广视野陪伴长途。",
+          "en": "Carry endurance and a wide view across a long journey."
+        },
+        "scene": {
+          "zh": "广阔的风场中，你不急着逆风证明力量，而是辨认哪股气流能让长路更可持续。",
+          "en": "Across a wide wind field, you need not prove strength by fighting every gust; you find the current that makes distance sustainable."
+        },
+        "strengthAndTradeoff": {
+          "zh": "让耐力与宽广视野陪伴长途。 远行时也可以选择返回熟悉的支持。",
+          "en": "Carry endurance and a wide view across a long journey. A long journey can include returning to familiar support."
+        },
+        "compare": {
+          "zh": "与鹰比较：信天翁侧重借势与长途耐力，鹰更侧重从高处判断方向。",
+          "en": "Compared with Eagle: Albatross sustains distance by working with conditions; Eagle judges direction from above."
+        },
+        "try": {
+          "zh": "找出长期计划里一项可以顺势利用的支持。",
+          "en": "Find one existing support that can sustain a long-term plan."
+        }
+      }
+    },
+    {
+      "id": "dolphin",
+      "name": {
+        "zh": "海豚",
+        "en": "Dolphin"
+      },
+      "target": [
+        7,
+        9,
+        9,
+        7,
+        8,
+        6
+      ],
+      "meaning": {
+        "zh": "通过交流与合作寻找新的转机。",
+        "en": "Find a new opening through communication and cooperation."
+      },
+      "reflection": {
+        "zh": "帮助别人也可以先确认他们需要。",
+        "en": "When helping, first check what is wanted."
+      },
+      "visual": "Original silver-blue luminous dolphin guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          7,
+          8,
+          7,
+          4,
+          4,
+          1
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            3,
+            2
+          ],
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            1,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "通过交流与合作寻找新的转机。",
+          "en": "Find a new opening through communication and cooperation."
+        },
+        "scene": {
+          "zh": "同伴的信号改变时，你愿意回应、询问和调整，让合作比单独加速更有效。",
+          "en": "When a companion’s signal changes, you respond, ask and adjust so cooperation helps more than simply speeding up alone."
+        },
+        "strengthAndTradeoff": {
+          "zh": "通过交流与合作寻找新的转机。 帮助别人也可以先确认他们需要。",
+          "en": "Find a new opening through communication and cooperation. When helping, first check what is wanted."
+        },
+        "compare": {
+          "zh": "与水獭比较：海豚更侧重交流协作，水獭更侧重玩心带来的重新尝试。",
+          "en": "Compared with Otter: Dolphin emphasizes communication and coordination; Otter opens another attempt through play."
+        },
+        "try": {
+          "zh": "在合作前确认双方正在回应的是同一个问题。",
+          "en": "Before cooperating, check that both people are responding to the same problem."
+        }
+      }
+    },
+    {
+      "id": "seal",
+      "name": {
+        "zh": "海豹",
+        "en": "Seal"
+      },
+      "target": [
+        7,
+        8,
+        8,
+        8,
+        9,
+        6
+      ],
+      "meaning": {
+        "zh": "在投入与休息之间灵活转换。",
+        "en": "Shift flexibly between engagement and rest."
+      },
+      "reflection": {
+        "zh": "舒服的节奏也可以容纳小挑战。",
+        "en": "A comfortable rhythm can include a small challenge."
+      },
+      "visual": "Original silver-blue luminous seal guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          7,
+          7,
+          6,
+          5,
+          5,
+          1
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "在投入与休息之间灵活转换。",
+          "en": "Shift flexibly between engagement and rest."
+        },
+        "scene": {
+          "zh": "在水与岸之间，你允许投入也允许暂停，不把每一次休息理解为落后。",
+          "en": "Between water and shore, you allow engagement and pauses without treating every rest as falling behind."
+        },
+        "strengthAndTradeoff": {
+          "zh": "在投入与休息之间灵活转换。 舒服的节奏也可以容纳小挑战。",
+          "en": "Shift flexibly between engagement and rest. A comfortable rhythm can include a small challenge."
+        },
+        "compare": {
+          "zh": "与海龟比较：海豹强调投入与休息的灵活转换，海龟强调长时段的稳定节奏。",
+          "en": "Compared with Sea Turtle: Seal shifts flexibly between engagement and rest; Sea Turtle keeps a long-term rhythm."
+        },
+        "try": {
+          "zh": "在今天的安排里放入一次真正停止的休息。",
+          "en": "Add one genuine stopping point to today’s schedule."
+        }
+      }
+    },
+    {
+      "id": "whale",
+      "name": {
+        "zh": "鲸",
+        "en": "Whale"
+      },
+      "target": [
+        8,
+        9,
+        8,
+        9,
+        7,
+        6
+      ],
+      "meaning": {
+        "zh": "在深处保持方向，让联系跨越距离。",
+        "en": "Keep a direction in depth and connection across distance."
+      },
+      "reflection": {
+        "zh": "沉稳不要求你独自装下所有声音。",
+        "en": "Steadiness need not carry every voice alone."
+      },
+      "visual": "Original silver-blue luminous whale guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          8,
+          8,
+          6,
+          6,
+          3,
+          1
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            2
+          ],
+          [
+            3,
+            3,
+            2
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "在深处保持方向，让联系跨越距离。",
+          "en": "Keep a direction in depth and connection across distance."
+        },
+        "scene": {
+          "zh": "相隔很远时，联系可以变得稀疏而有分量；你愿意保留深度，也让对方有回应的时间。",
+          "en": "Across distance, contact may be less frequent yet meaningful; you preserve depth while allowing time for a response."
+        },
+        "strengthAndTradeoff": {
+          "zh": "在深处保持方向，让联系跨越距离。 沉稳不要求你独自装下所有声音。",
+          "en": "Keep a direction in depth and connection across distance. Steadiness need not carry every voice alone."
+        },
+        "compare": {
+          "zh": "与象比较：鲸强调跨越距离的深度联系，象更强调共同生活中的记忆与支持。",
+          "en": "Compared with Elephant: Whale sustains deep connection across distance; Elephant carries memory and support in shared life."
+        },
+        "try": {
+          "zh": "给远方的人写一段不催促回应的近况。",
+          "en": "Write a considered update to someone far away without pressing for a reply."
+        }
+      }
+    },
+    {
+      "id": "sea-turtle",
+      "name": {
+        "zh": "海龟",
+        "en": "Sea Turtle"
+      },
+      "target": [
+        7,
+        7,
+        8,
+        9,
+        9,
+        6
+      ],
+      "meaning": {
+        "zh": "沿着自己的节奏穿过漫长变化。",
+        "en": "Move through long change at a self-chosen rhythm."
+      },
+      "reflection": {
+        "zh": "慢下来不妨碍适时调整路线。",
+        "en": "Moving slowly can still include changing course in time."
+      },
+      "visual": "Original silver-blue luminous sea turtle guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          7,
+          6,
+          6,
+          6,
+          5,
+          1
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "沿着自己的节奏穿过漫长变化。",
+          "en": "Move through long change at a self-chosen rhythm."
+        },
+        "scene": {
+          "zh": "海流改变时，你保留方向但调整速度，让长途不被一天的进度决定。",
+          "en": "As currents change, you keep a direction while adjusting speed so a long journey is not judged by one day’s progress."
+        },
+        "strengthAndTradeoff": {
+          "zh": "沿着自己的节奏穿过漫长变化。 慢下来不妨碍适时调整路线。",
+          "en": "Move through long change at a self-chosen rhythm. Moving slowly can still include changing course in time."
+        },
+        "compare": {
+          "zh": "与山羊比较：海龟强调长期稳定前行，山羊强调越过眼前陡峭难点。",
+          "en": "Compared with Mountain Goat: Sea Turtle sustains long movement; Mountain Goat crosses a steep immediate obstacle."
+        },
+        "try": {
+          "zh": "把一个长期目标改写为本周可持续的小节奏。",
+          "en": "Turn a long-term goal into a sustainable rhythm for this week."
+        }
+      }
+    },
+    {
+      "id": "seahorse",
+      "name": {
+        "zh": "海马",
+        "en": "Seahorse"
+      },
+      "target": [
+        6,
+        9,
+        7,
+        9,
+        9,
+        6
+      ],
+      "meaning": {
+        "zh": "在摇摆中用细致照顾稳住联系。",
+        "en": "Keep connection steady with attentive care amid movement."
+      },
+      "reflection": {
+        "zh": "照顾关系时也保留个人的余地。",
+        "en": "While caring for a relationship, preserve personal room."
+      },
+      "visual": "Original silver-blue luminous seahorse guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          6,
+          8,
+          5,
+          6,
+          5,
+          1
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            3,
+            2
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "在摇摆中用细致照顾稳住联系。",
+          "en": "Keep connection steady with attentive care amid movement."
+        },
+        "scene": {
+          "zh": "流动的环境里，你留意近处的连接如何被照顾：一点调整就能让彼此站得更稳。",
+          "en": "In moving conditions, you attend to nearby connections; a small adjustment can help both sides feel steadier."
+        },
+        "strengthAndTradeoff": {
+          "zh": "在摇摆中用细致照顾稳住联系。 照顾关系时也保留个人的余地。",
+          "en": "Keep connection steady with attentive care amid movement. While caring for a relationship, preserve personal room."
+        },
+        "compare": {
+          "zh": "与牝鹿比较：海马侧重关系中的细致维系，牝鹿更侧重觉察并回应具体需要。",
+          "en": "Compared with Doe: Seahorse tends the continuity of connection; Doe notices and responds to a specific need."
+        },
+        "try": {
+          "zh": "询问一段关系里是否有一个小安排需要重新商量。",
+          "en": "Ask whether one small arrangement in a relationship needs revisiting."
+        }
+      }
+    },
+    {
+      "id": "manta-ray",
+      "name": {
+        "zh": "蝠鲼",
+        "en": "Manta Ray"
+      },
+      "target": [
+        7,
+        7,
+        7,
+        8,
+        9,
+        9
+      ],
+      "meaning": {
+        "zh": "以从容而开阔的动作穿过阻力。",
+        "en": "Move through resistance with calm, expansive movement."
+      },
+      "reflection": {
+        "zh": "顺畅并不意味着没有需要说出的事。",
+        "en": "Flow does not mean nothing needs to be said."
+      },
+      "visual": "Original silver-blue luminous manta ray guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          7,
+          6,
+          5,
+          5,
+          5,
+          4
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "以从容而开阔的动作穿过阻力。",
+          "en": "Move through resistance with calm, expansive movement."
+        },
+        "scene": {
+          "zh": "你用宽阔而节制的动作穿过复杂水流，不急于把每一股阻力都变成对抗。",
+          "en": "Broad, measured movement carries you through complex currents without turning every resistance into confrontation."
+        },
+        "strengthAndTradeoff": {
+          "zh": "以从容而开阔的动作穿过阻力。 顺畅并不意味着没有需要说出的事。",
+          "en": "Move through resistance with calm, expansive movement. Flow does not mean nothing needs to be said."
+        },
+        "compare": {
+          "zh": "与海豹比较：蝠鲼强调开阔而从容的通过方式，海豹更强调投入与休息之间的转换。",
+          "en": "Compared with Seal: Manta Ray moves expansively and calmly; Seal emphasizes switching between engagement and rest."
+        },
+        "try": {
+          "zh": "为一个紧绷的讨论加入一次暂停和重新说明。",
+          "en": "Add a pause and a fresh explanation to a tense discussion."
+        }
+      }
+    },
+    {
+      "id": "phoenix",
+      "name": {
+        "zh": "凤凰",
+        "en": "Phoenix"
+      },
+      "target": [
+        9,
+        8,
+        8,
+        7,
+        7,
+        9
+      ],
+      "meaning": {
+        "zh": "把一次结束变成重新起步的勇气。",
+        "en": "Turn an ending into courage to begin again."
+      },
+      "reflection": {
+        "zh": "重来不要求抹去曾经的损失。",
+        "en": "Beginning again does not require erasing the loss."
+      },
+      "visual": "Original silver-blue luminous phoenix guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          9,
+          7,
+          6,
+          4,
+          3,
+          4
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            3
+          ],
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            1,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "把一次结束变成重新起步的勇气。",
+          "en": "Turn an ending into courage to begin again."
+        },
+        "scene": {
+          "zh": "一段计划结束后，你愿意承认损失，也在余温中辨认一个可以重新开始的部分。",
+          "en": "After a plan ends, you acknowledge the loss while finding one part that can begin again in the remaining warmth."
+        },
+        "strengthAndTradeoff": {
+          "zh": "把一次结束变成重新起步的勇气。 重来不要求抹去曾经的损失。",
+          "en": "Turn an ending into courage to begin again. Beginning again does not require erasing the loss."
+        },
+        "compare": {
+          "zh": "与龙比较：凤凰强调结束之后的重启，龙更强调持续守护珍视之物。",
+          "en": "Compared with Dragon: Phoenix begins again after an ending; Dragon keeps guarding what matters."
+        },
+        "try": {
+          "zh": "保留一件值得带入下一次尝试的经验。",
+          "en": "Keep one lesson worth carrying into a next attempt."
+        }
+      }
+    },
+    {
+      "id": "unicorn",
+      "name": {
+        "zh": "独角兽",
+        "en": "Unicorn"
+      },
+      "target": [
+        7,
+        9,
+        8,
+        9,
+        6,
+        9
+      ],
+      "meaning": {
+        "zh": "珍惜信任，在善意中保留自己的选择。",
+        "en": "Value trust while keeping personal choice within kindness."
+      },
+      "reflection": {
+        "zh": "善意不要求毫无保留地接受一切。",
+        "en": "Kindness does not require accepting everything without limits."
+      },
+      "visual": "Original silver-blue luminous unicorn guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          7,
+          8,
+          6,
+          6,
+          2,
+          4
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            3,
+            2
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "珍惜信任，在善意中保留自己的选择。",
+          "en": "Value trust while keeping personal choice within kindness."
+        },
+        "scene": {
+          "zh": "有人把善意当作理所当然时，你仍愿意温和，却不必交出选择自己的权利。",
+          "en": "When kindness is taken for granted, you can remain gentle without surrendering the right to choose for yourself."
+        },
+        "strengthAndTradeoff": {
+          "zh": "珍惜信任，在善意中保留自己的选择。 善意不要求毫无保留地接受一切。",
+          "en": "Value trust while keeping personal choice within kindness. Kindness does not require accepting everything without limits."
+        },
+        "compare": {
+          "zh": "与牝鹿比较：独角兽侧重善意中的自持，牝鹿更侧重感受和回应细微需要。",
+          "en": "Compared with Doe: Unicorn holds self-possession within kindness; Doe responds to subtle needs."
+        },
+        "try": {
+          "zh": "对一件不愿接受的事给出温和而明确的答复。",
+          "en": "Give a gentle, clear response to something you do not want to accept."
+        }
+      }
+    },
+    {
+      "id": "dragon",
+      "name": {
+        "zh": "龙",
+        "en": "Dragon"
+      },
+      "target": [
+        9,
+        8,
+        6,
+        7,
+        6,
+        9
+      ],
+      "meaning": {
+        "zh": "用有分寸的力量守住珍视之物。",
+        "en": "Guard what matters with strength and restraint."
+      },
+      "reflection": {
+        "zh": "力量的方向比力量本身更值得选择。",
+        "en": "The direction of strength matters more than strength alone."
+      },
+      "visual": "Original silver-blue luminous dragon guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          9,
+          7,
+          4,
+          4,
+          2,
+          4
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            3
+          ],
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            1,
+            0
+          ],
+          [
+            3,
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "用有分寸的力量守住珍视之物。",
+          "en": "Guard what matters with strength and restraint."
+        },
+        "scene": {
+          "zh": "你珍视的并非拥有一切，而是决定什么值得守护，并为力量选择合适的边界。",
+          "en": "What matters is not possessing everything but deciding what deserves protection and giving strength appropriate limits."
+        },
+        "strengthAndTradeoff": {
+          "zh": "用有分寸的力量守住珍视之物。 力量的方向比力量本身更值得选择。",
+          "en": "Guard what matters with strength and restraint. The direction of strength matters more than strength alone."
+        },
+        "compare": {
+          "zh": "与凤凰比较：龙强调有分寸地守护与持续责任，凤凰强调经历结束后重新起步。",
+          "en": "Compared with Phoenix: Dragon guards through restraint and continuing responsibility; Phoenix starts anew after an ending."
+        },
+        "try": {
+          "zh": "说明一件你愿意守护的事及自己能承担的范围。",
+          "en": "Name one thing you will protect and the limits of what you can take on."
+        }
+      }
+    },
+    {
+      "id": "hippogriff",
+      "name": {
+        "zh": "鹰头马身有翼兽",
+        "en": "Hippogriff"
+      },
+      "target": [
+        9,
+        7,
+        7,
+        8,
+        7,
+        9
+      ],
+      "meaning": {
+        "zh": "让尊重与勇气成为靠近彼此的起点。",
+        "en": "Make respect and courage a starting point for approaching others."
+      },
+      "reflection": {
+        "zh": "尊严可以与耐心解释并存。",
+        "en": "Dignity can coexist with patient explanation."
+      },
+      "visual": "Original silver-blue luminous hippogriff guardian silhouette, recognizable species anatomy, distinct natural motion, dark enchanted forest with mist, no film still, no official character art, no logo.",
+      "witness": {
+        "rankOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "multi": [],
+        "singleTotals": [
+          9,
+          6,
+          5,
+          5,
+          3,
+          4
+        ],
+        "singleOptionsByDimension": [
+          [
+            3,
+            3,
+            3
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      },
+      "guide": {
+        "theme": {
+          "zh": "让尊重与勇气成为靠近彼此的起点。",
+          "en": "Make respect and courage a starting point for approaching others."
+        },
+        "scene": {
+          "zh": "靠近彼此之前，你重视互相承认的姿态：尊重不是服从，而是让合作有清楚起点。",
+          "en": "Before approaching, mutual acknowledgment matters: respect is not submission but a clear beginning for cooperation."
+        },
+        "strengthAndTradeoff": {
+          "zh": "让尊重与勇气成为靠近彼此的起点。 尊严可以与耐心解释并存。",
+          "en": "Make respect and courage a starting point for approaching others. Dignity can coexist with patient explanation."
+        },
+        "compare": {
+          "zh": "与牡鹿比较：鹰头马身有翼兽重视尊重与靠近的边界，牡鹿更强调公开可见的守护方向。",
+          "en": "Compared with Stag: Hippogriff emphasizes respectful approach and boundaries; Stag makes a protective direction visible."
+        },
+        "try": {
+          "zh": "开始合作前说清一项双方都希望得到的尊重。",
+          "en": "Before cooperating, name one form of respect both people want."
+        }
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "rank-values",
+      "kind": "rank",
+      "prompt": {
+        "zh": "在这次魔法旅程中，你更想依靠哪些力量？从较少依靠到最依靠依次点击六项。每项都要排入，也可以撤回重排。",
+        "en": "Which strengths would you lean on during this magical journey? Click all six from least to most relied on. You can undo and reorder."
+      },
+      "items": [
+        {
+          "id": "courage",
+          "label": {
+            "zh": "勇气",
+            "en": "Courage"
+          },
+          "dimension": "courage"
+        },
+        {
+          "id": "care",
+          "label": {
+            "zh": "关怀",
+            "en": "Care"
+          },
+          "dimension": "care"
+        },
+        {
+          "id": "insight",
+          "label": {
+            "zh": "观察",
+            "en": "Observation"
+          },
+          "dimension": "insight"
+        },
+        {
+          "id": "patience",
+          "label": {
+            "zh": "耐心",
+            "en": "Patience"
+          },
+          "dimension": "patience"
+        },
+        {
+          "id": "play",
+          "label": {
+            "zh": "玩心",
+            "en": "Playfulness"
+          },
+          "dimension": "play"
+        },
+        {
+          "id": "independence",
+          "label": {
+            "zh": "自主",
+            "en": "Independence"
+          },
+          "dimension": "independence"
+        }
+      ],
+      "points": "rank position0..5"
+    },
+    {
+      "id": "scenario-01",
+      "kind": "single",
+      "dimension": "courage",
+      "prompt": {
+        "zh": "陌生走廊里传来求助声，你会先怎样？",
+        "en": "A call for help comes from an unfamiliar corridor. What would you do first?"
+      },
+      "options": [
+        {
+          "id": "scenario-01-0",
+          "label": {
+            "zh": "先留在安全处，等更多信息。",
+            "en": "Stay in a safe place and wait for more information."
+          },
+          "points": 0
+        },
+        {
+          "id": "scenario-01-1",
+          "label": {
+            "zh": "请可靠的同伴一起判断。",
+            "en": "Ask a dependable companion to assess it with me."
+          },
+          "points": 1
+        },
+        {
+          "id": "scenario-01-2",
+          "label": {
+            "zh": "安排好退路后靠近查看。",
+            "en": "Approach after arranging a way back."
+          },
+          "points": 2
+        },
+        {
+          "id": "scenario-01-3",
+          "label": {
+            "zh": "在能确保基本安全后率先回应求助。",
+            "en": "Respond first once basic safety is secured."
+          },
+          "points": 3
+        }
+      ]
+    },
+    {
+      "id": "scenario-02",
+      "kind": "single",
+      "dimension": "care",
+      "prompt": {
+        "zh": "旅途中有人明显落后，你会怎样？",
+        "en": "Someone is falling behind on a journey. What would you do?"
+      },
+      "options": [
+        {
+          "id": "scenario-02-0",
+          "label": {
+            "zh": "先按约定继续，在集合点等候。",
+            "en": "Keep the agreed pace and wait at the meeting point."
+          },
+          "points": 0
+        },
+        {
+          "id": "scenario-02-1",
+          "label": {
+            "zh": "提醒队伍留意他的情况。",
+            "en": "Ask the group to keep an eye on them."
+          },
+          "points": 1
+        },
+        {
+          "id": "scenario-02-2",
+          "label": {
+            "zh": "询问他需要什么具体帮助。",
+            "en": "Ask what concrete help they would like."
+          },
+          "points": 2
+        },
+        {
+          "id": "scenario-02-3",
+          "label": {
+            "zh": "与他商量调整节奏，并分担一件他愿意交出的事。",
+            "en": "Agree on a new pace and share a task they want help with."
+          },
+          "points": 3
+        }
+      ]
+    },
+    {
+      "id": "scenario-03",
+      "kind": "single",
+      "dimension": "insight",
+      "prompt": {
+        "zh": "旧地图上有一个陌生符号，你会怎样？",
+        "en": "An old map shows an unfamiliar symbol. What would you do?"
+      },
+      "options": [
+        {
+          "id": "scenario-03-0",
+          "label": {
+            "zh": "按已经知道的路线继续。",
+            "en": "Continue along the route I already know."
+          },
+          "points": 0
+        },
+        {
+          "id": "scenario-03-1",
+          "label": {
+            "zh": "记下符号，稍后再了解。",
+            "en": "Note the symbol and explore it later."
+          },
+          "points": 1
+        },
+        {
+          "id": "scenario-03-2",
+          "label": {
+            "zh": "把它与周围的地形线索对照。",
+            "en": "Compare it with the surrounding terrain clues."
+          },
+          "points": 2
+        },
+        {
+          "id": "scenario-03-3",
+          "label": {
+            "zh": "对照多个线索，再用安全的小步骤检验解释。",
+            "en": "Compare several clues and test an explanation with a safe small step."
+          },
+          "points": 3
+        }
+      ]
+    },
+    {
+      "id": "scenario-04",
+      "kind": "single",
+      "dimension": "patience",
+      "prompt": {
+        "zh": "一个魔法练习暂时没有进展，你会怎样？",
+        "en": "A magical exercise shows little progress. What would you do?"
+      },
+      "options": [
+        {
+          "id": "scenario-04-0",
+          "label": {
+            "zh": "先换一种练习，等有兴趣再回来。",
+            "en": "Switch exercises and return when interested again."
+          },
+          "points": 0
+        },
+        {
+          "id": "scenario-04-1",
+          "label": {
+            "zh": "再试一次，仍不顺就暂停。",
+            "en": "Try once more and pause if it still feels difficult."
+          },
+          "points": 1
+        },
+        {
+          "id": "scenario-04-2",
+          "label": {
+            "zh": "把动作拆成小步骤，练稳其中一段。",
+            "en": "Break it into smaller steps and stabilize one part."
+          },
+          "points": 2
+        },
+        {
+          "id": "scenario-04-3",
+          "label": {
+            "zh": "记录每次细微变化，按可持续节奏继续练习。",
+            "en": "Track small changes and continue at a sustainable pace."
+          },
+          "points": 3
+        }
+      ]
+    },
+    {
+      "id": "camp-support",
+      "kind": "multiple",
+      "prompt": {
+        "zh": "夜间营地里，你愿意提供哪些支持？可以多选，也可以不选。",
+        "en": "At a night camp, which support would you offer? Choose any, including none."
+      },
+      "items": [
+        {
+          "id": "courage",
+          "dimension": "courage",
+          "label": {
+            "zh": "率先确认营地周边的安全。",
+            "en": "Check the campsite’s surroundings first."
+          },
+          "points": 1
+        },
+        {
+          "id": "care",
+          "dimension": "care",
+          "label": {
+            "zh": "问问谁需要食物、温暖或陪伴。",
+            "en": "Ask who needs food, warmth or company."
+          },
+          "points": 1
+        },
+        {
+          "id": "insight",
+          "dimension": "insight",
+          "label": {
+            "zh": "核对地图与天气线索。",
+            "en": "Check map and weather clues."
+          },
+          "points": 1
+        },
+        {
+          "id": "patience",
+          "dimension": "patience",
+          "label": {
+            "zh": "照看需要持续等待的准备工作。",
+            "en": "Tend the preparations that need time."
+          },
+          "points": 1
+        },
+        {
+          "id": "play",
+          "dimension": "play",
+          "label": {
+            "zh": "给愿意参与的人讲个小故事。",
+            "en": "Tell a little story to anyone interested."
+          },
+          "points": 1
+        },
+        {
+          "id": "independence",
+          "dimension": "independence",
+          "label": {
+            "zh": "为自己安排合适的休息空间。",
+            "en": "Arrange suitable resting space for myself."
+          },
+          "points": 1
+        }
+      ],
+      "allowEmpty": true
+    },
+    {
+      "id": "scenario-05",
+      "kind": "single",
+      "dimension": "play",
+      "prompt": {
+        "zh": "大家被雨困在驿站，你会怎样度过等待？",
+        "en": "Rain keeps everyone at an inn. How would you spend the wait?"
+      },
+      "options": [
+        {
+          "id": "scenario-05-0",
+          "label": {
+            "zh": "安静休息，保存体力。",
+            "en": "Rest quietly and save energy."
+          },
+          "points": 0
+        },
+        {
+          "id": "scenario-05-1",
+          "label": {
+            "zh": "找一件熟悉的小事做。",
+            "en": "Do something small and familiar."
+          },
+          "points": 1
+        },
+        {
+          "id": "scenario-05-2",
+          "label": {
+            "zh": "邀请愿意的人玩一个轻松的游戏。",
+            "en": "Invite anyone interested to a relaxed game."
+          },
+          "points": 2
+        },
+        {
+          "id": "scenario-05-3",
+          "label": {
+            "zh": "把手边普通物品变成一场自愿参加的小冒险。",
+            "en": "Turn ordinary objects into a little adventure people can join freely."
+          },
+          "points": 3
+        }
+      ]
+    },
+    {
+      "id": "scenario-06",
+      "kind": "single",
+      "dimension": "independence",
+      "prompt": {
+        "zh": "大家想选的路与你的需要不同，你会怎样？",
+        "en": "The group’s preferred route differs from your needs. What would you do?"
+      },
+      "options": [
+        {
+          "id": "scenario-06-0",
+          "label": {
+            "zh": "这次先跟随大家。",
+            "en": "Follow the group this time."
+          },
+          "points": 0
+        },
+        {
+          "id": "scenario-06-1",
+          "label": {
+            "zh": "告诉同伴自己的偏好，但接受共同选择。",
+            "en": "State my preference but accept the shared choice."
+          },
+          "points": 1
+        },
+        {
+          "id": "scenario-06-2",
+          "label": {
+            "zh": "提出能同时照顾不同需要的安排。",
+            "en": "Suggest an arrangement that accommodates different needs."
+          },
+          "points": 2
+        },
+        {
+          "id": "scenario-06-3",
+          "label": {
+            "zh": "说明界限，愿意负责自己选的路线。",
+            "en": "State my boundary and take responsibility for my chosen route."
+          },
+          "points": 3
+        }
+      ]
+    },
+    {
+      "id": "scenario-07",
+      "kind": "single",
+      "dimension": "courage",
+      "prompt": {
+        "zh": "一项共同决定需要有人承担后果，你会怎样？",
+        "en": "A shared decision needs someone to own the consequences. What would you do?"
+      },
+      "options": [
+        {
+          "id": "scenario-07-0",
+          "label": {
+            "zh": "先等待更有经验的人回应。",
+            "en": "Wait for someone more experienced to respond."
+          },
+          "points": 0
+        },
+        {
+          "id": "scenario-07-1",
+          "label": {
+            "zh": "愿意承担一个很明确的小部分。",
+            "en": "Take one small, clearly defined part."
+          },
+          "points": 1
+        },
+        {
+          "id": "scenario-07-2",
+          "label": {
+            "zh": "确认条件后承担一段责任。",
+            "en": "Take responsibility for a portion after clarifying conditions."
+          },
+          "points": 2
+        },
+        {
+          "id": "scenario-07-3",
+          "label": {
+            "zh": "明确风险与支援后，主动承担关键的一段。",
+            "en": "Volunteer for a key portion after clarifying risks and support."
+          },
+          "points": 3
+        }
+      ]
+    },
+    {
+      "id": "scenario-08",
+      "kind": "single",
+      "dimension": "care",
+      "prompt": {
+        "zh": "朋友说今天不想讲发生了什么，你会怎样？",
+        "en": "A friend does not want to discuss what happened today. What would you do?"
+      },
+      "options": [
+        {
+          "id": "scenario-08-0",
+          "label": {
+            "zh": "尊重他的空间，今天不再打扰。",
+            "en": "Respect their space and leave them alone today."
+          },
+          "points": 0
+        },
+        {
+          "id": "scenario-08-1",
+          "label": {
+            "zh": "告诉他想聊时可以联系我。",
+            "en": "Let them know they can contact me if they want."
+          },
+          "points": 1
+        },
+        {
+          "id": "scenario-08-2",
+          "label": {
+            "zh": "问他是否想要安静陪伴或实际帮助。",
+            "en": "Ask whether quiet company or practical help would suit."
+          },
+          "points": 2
+        },
+        {
+          "id": "scenario-08-3",
+          "label": {
+            "zh": "按他同意的方式陪伴，并约好何时再询问需要。",
+            "en": "Offer the company they choose and agree when to check in again."
+          },
+          "points": 3
+        }
+      ]
+    },
+    {
+      "id": "scenario-09",
+      "kind": "single",
+      "dimension": "insight",
+      "prompt": {
+        "zh": "一个解释听起来很动人，你会怎样决定是否相信？",
+        "en": "An explanation sounds compelling. How would you decide whether to trust it?"
+      },
+      "options": [
+        {
+          "id": "scenario-09-0",
+          "label": {
+            "zh": "先采用它，让故事继续。",
+            "en": "Use it for now and let the story continue."
+          },
+          "points": 0
+        },
+        {
+          "id": "scenario-09-1",
+          "label": {
+            "zh": "看看是否符合自己熟悉的经验。",
+            "en": "Check whether it fits familiar experience."
+          },
+          "points": 1
+        },
+        {
+          "id": "scenario-09-2",
+          "label": {
+            "zh": "询问它依赖哪些可见线索。",
+            "en": "Ask which observable clues support it."
+          },
+          "points": 2
+        },
+        {
+          "id": "scenario-09-3",
+          "label": {
+            "zh": "主动找相反线索，比较是否还有别的解释。",
+            "en": "Seek contrary clues and compare alternative explanations."
+          },
+          "points": 3
+        }
+      ]
+    },
+    {
+      "id": "scenario-10",
+      "kind": "single",
+      "dimension": "patience",
+      "prompt": {
+        "zh": "伙伴需要更多时间作决定，你会怎样？",
+        "en": "A companion needs more time to decide. What would you do?"
+      },
+      "options": [
+        {
+          "id": "scenario-10-0",
+          "label": {
+            "zh": "请他尽快给一个答案。",
+            "en": "Ask them to give an answer soon."
+          },
+          "points": 0
+        },
+        {
+          "id": "scenario-10-1",
+          "label": {
+            "zh": "给一个短暂缓冲，再确认进展。",
+            "en": "Allow a short pause, then check progress."
+          },
+          "points": 1
+        },
+        {
+          "id": "scenario-10-2",
+          "label": {
+            "zh": "商量一个双方能接受的时间。",
+            "en": "Agree on a time that works for both of us."
+          },
+          "points": 2
+        },
+        {
+          "id": "scenario-10-3",
+          "label": {
+            "zh": "分清哪些必须现在决定，哪些可以安心等待。",
+            "en": "Separate what must be decided now from what can wait comfortably."
+          },
+          "points": 3
+        }
+      ]
+    },
+    {
+      "id": "recover-support",
+      "kind": "multiple",
+      "prompt": {
+        "zh": "一次不顺利的冒险后，哪些方式能帮助你恢复？可以多选，也可以不选。",
+        "en": "After an adventure goes badly, which approaches could help you recover? Choose any, including none."
+      },
+      "items": [
+        {
+          "id": "courage",
+          "dimension": "courage",
+          "label": {
+            "zh": "选一个可以重新开始的小行动。",
+            "en": "Choose a small action that starts again."
+          },
+          "points": 1
+        },
+        {
+          "id": "care",
+          "dimension": "care",
+          "label": {
+            "zh": "与信任的人互相照应。",
+            "en": "Exchange support with someone I trust."
+          },
+          "points": 1
+        },
+        {
+          "id": "insight",
+          "dimension": "insight",
+          "label": {
+            "zh": "整理发生了什么和仍不知道什么。",
+            "en": "Sort what happened from what remains unknown."
+          },
+          "points": 1
+        },
+        {
+          "id": "patience",
+          "dimension": "patience",
+          "label": {
+            "zh": "给自己足够的休息时间。",
+            "en": "Allow enough time to rest."
+          },
+          "points": 1
+        },
+        {
+          "id": "play",
+          "dimension": "play",
+          "label": {
+            "zh": "做一点没有成绩要求的趣事。",
+            "en": "Enjoy something without performance demands."
+          },
+          "points": 1
+        },
+        {
+          "id": "independence",
+          "dimension": "independence",
+          "label": {
+            "zh": "自己选择何时、怎样再尝试。",
+            "en": "Choose when and how to try again myself."
+          },
+          "points": 1
+        }
+      ],
+      "allowEmpty": true
+    },
+    {
+      "id": "scenario-11",
+      "kind": "single",
+      "dimension": "play",
+      "prompt": {
+        "zh": "第一次小实验没有成功，你会怎样再试？",
+        "en": "A first little experiment does not work. How would you try again?"
+      },
+      "options": [
+        {
+          "id": "scenario-11-0",
+          "label": {
+            "zh": "回到熟悉可靠的方法。",
+            "en": "Return to a familiar, dependable method."
+          },
+          "points": 0
+        },
+        {
+          "id": "scenario-11-1",
+          "label": {
+            "zh": "只改一个小地方再试。",
+            "en": "Change one small detail and try again."
+          },
+          "points": 1
+        },
+        {
+          "id": "scenario-11-2",
+          "label": {
+            "zh": "把意外当作线索，尝试一种新玩法。",
+            "en": "Treat the surprise as a clue and try a new variation."
+          },
+          "points": 2
+        },
+        {
+          "id": "scenario-11-3",
+          "label": {
+            "zh": "邀请伙伴一起设计几种有趣而安全的小版本。",
+            "en": "Invite companions to invent several playful, safe variations."
+          },
+          "points": 3
+        }
+      ]
+    },
+    {
+      "id": "scenario-12",
+      "kind": "single",
+      "dimension": "independence",
+      "prompt": {
+        "zh": "有人替你排好了全部练习步骤，你会怎样？",
+        "en": "Someone has planned every step of your practice. What would you do?"
+      },
+      "options": [
+        {
+          "id": "scenario-12-0",
+          "label": {
+            "zh": "先照着做，体验完整方法。",
+            "en": "Follow it first to experience the whole method."
+          },
+          "points": 0
+        },
+        {
+          "id": "scenario-12-1",
+          "label": {
+            "zh": "保留大部分安排，调整一个细节。",
+            "en": "Keep most of it and adjust one detail."
+          },
+          "points": 1
+        },
+        {
+          "id": "scenario-12-2",
+          "label": {
+            "zh": "讨论哪些步骤由我自己选择。",
+            "en": "Discuss which steps I can choose myself."
+          },
+          "points": 2
+        },
+        {
+          "id": "scenario-12-3",
+          "label": {
+            "zh": "说明自己的目标，重新安排并承担执行责任。",
+            "en": "Explain my goal, revise the plan and own its execution."
+          },
+          "points": 3
+        }
+      ]
+    },
+    {
+      "id": "scenario-13",
+      "kind": "single",
+      "dimension": "courage",
+      "prompt": {
+        "zh": "一个重要计划被公开质疑，你会怎样表达立场？",
+        "en": "An important plan is publicly challenged. How would you state your position?"
+      },
+      "options": [
+        {
+          "id": "scenario-13-0",
+          "label": {
+            "zh": "先听别人回应，暂时不发言。",
+            "en": "Listen to others and hold back for now."
+          },
+          "points": 0
+        },
+        {
+          "id": "scenario-13-1",
+          "label": {
+            "zh": "在较熟悉的人面前解释自己的看法。",
+            "en": "Explain my view to people I know better."
+          },
+          "points": 1
+        },
+        {
+          "id": "scenario-13-2",
+          "label": {
+            "zh": "公开说出支持理由，也承认疑问。",
+            "en": "State my reasons publicly while acknowledging questions."
+          },
+          "points": 2
+        },
+        {
+          "id": "scenario-13-3",
+          "label": {
+            "zh": "即使紧张，也清楚说明立场与愿意修正的条件。",
+            "en": "State my position clearly despite nerves, including what would change my mind."
+          },
+          "points": 3
+        }
+      ]
+    },
+    {
+      "id": "scenario-14",
+      "kind": "single",
+      "dimension": "care",
+      "prompt": {
+        "zh": "共同任务中有人遇到困难，你会怎样安排自己的帮助？",
+        "en": "Someone struggles with a shared task. How would you arrange your help?"
+      },
+      "options": [
+        {
+          "id": "scenario-14-0",
+          "label": {
+            "zh": "先完成自己的部分，避免整体拖延。",
+            "en": "Complete my own part first to keep things moving."
+          },
+          "points": 0
+        },
+        {
+          "id": "scenario-14-1",
+          "label": {
+            "zh": "把一个实用工具交给他。",
+            "en": "Offer a useful tool."
+          },
+          "points": 1
+        },
+        {
+          "id": "scenario-14-2",
+          "label": {
+            "zh": "询问卡住的步骤，陪他尝试一次。",
+            "en": "Ask where they are stuck and try that step together."
+          },
+          "points": 2
+        },
+        {
+          "id": "scenario-14-3",
+          "label": {
+            "zh": "一起找到可持续的分担方式，保留他的选择。",
+            "en": "Find sustainable ways to share the work while preserving their choice."
+          },
+          "points": 3
+        }
+      ]
+    },
+    {
+      "id": "scenario-15",
+      "kind": "single",
+      "dimension": "insight",
+      "prompt": {
+        "zh": "两位旅人对同一件事说法不同，你会怎样？",
+        "en": "Two travellers describe the same event differently. What would you do?"
+      },
+      "options": [
+        {
+          "id": "scenario-15-0",
+          "label": {
+            "zh": "采用较熟悉的那个人的说法。",
+            "en": "Use the account of the person I know better."
+          },
+          "points": 0
+        },
+        {
+          "id": "scenario-15-1",
+          "label": {
+            "zh": "保留两种说法，暂时不下结论。",
+            "en": "Keep both accounts without deciding yet."
+          },
+          "points": 1
+        },
+        {
+          "id": "scenario-15-2",
+          "label": {
+            "zh": "询问各自实际看见了哪一部分。",
+            "en": "Ask which part each person actually observed."
+          },
+          "points": 2
+        },
+        {
+          "id": "scenario-15-3",
+          "label": {
+            "zh": "区分观察与解释，对照时间和独立线索再判断。",
+            "en": "Separate observations from interpretations and compare timing and independent clues."
+          },
+          "points": 3
+        }
+      ]
+    },
+    {
+      "id": "scenario-16",
+      "kind": "single",
+      "dimension": "patience",
+      "prompt": {
+        "zh": "一个长途目标需要每天重复小步骤，你会怎样开始？",
+        "en": "A distant goal needs small repeated steps each day. How would you begin?"
+      },
+      "options": [
+        {
+          "id": "scenario-16-0",
+          "label": {
+            "zh": "先等一个能集中投入的机会。",
+            "en": "Wait for a chance to focus on it all at once."
+          },
+          "points": 0
+        },
+        {
+          "id": "scenario-16-1",
+          "label": {
+            "zh": "有时间时做一点，不固定节奏。",
+            "en": "Do a little when time allows, without a fixed rhythm."
+          },
+          "points": 1
+        },
+        {
+          "id": "scenario-16-2",
+          "label": {
+            "zh": "选一个能坚持的小步骤并安排时间。",
+            "en": "Choose a manageable step and set aside time."
+          },
+          "points": 2
+        },
+        {
+          "id": "scenario-16-3",
+          "label": {
+            "zh": "设定可持续节奏与休息，定期根据进展调整。",
+            "en": "Set a sustainable rhythm with rest and revise it as progress becomes clear."
+          },
+          "points": 3
+        }
+      ]
+    },
+    {
+      "id": "guardian-support",
+      "kind": "multiple",
+      "prompt": {
+        "zh": "想象守护神出现时，你希望它提醒你什么？可以多选，也可以不选。",
+        "en": "Imagine your guardian appearing. What would you want it to remind you of? Choose any, including none."
+      },
+      "items": [
+        {
+          "id": "courage",
+          "dimension": "courage",
+          "label": {
+            "zh": "即使紧张，也能选择一个勇敢的小步骤。",
+            "en": "Even with nerves, I can choose one brave small step."
+          },
+          "points": 1
+        },
+        {
+          "id": "care",
+          "dimension": "care",
+          "label": {
+            "zh": "关心可以是尊重意愿的具体帮助。",
+            "en": "Care can be concrete help that respects choice."
+          },
+          "points": 1
+        },
+        {
+          "id": "insight",
+          "dimension": "insight",
+          "label": {
+            "zh": "看清线索比急着确定答案更有用。",
+            "en": "Reading the clues helps more than rushing to certainty."
+          },
+          "points": 1
+        },
+        {
+          "id": "patience",
+          "dimension": "patience",
+          "label": {
+            "zh": "缓慢的进展也值得被看见。",
+            "en": "Slow progress deserves to be noticed."
+          },
+          "points": 1
+        },
+        {
+          "id": "play",
+          "dimension": "play",
+          "label": {
+            "zh": "好奇和玩心可以陪我继续。",
+            "en": "Curiosity and play can help me continue."
+          },
+          "points": 1
+        },
+        {
+          "id": "independence",
+          "dimension": "independence",
+          "label": {
+            "zh": "我可以为自己的选择留下空间。",
+            "en": "I can leave room for my own choices."
+          },
+          "points": 1
+        }
+      ],
+      "allowEmpty": true
+    }
+  ],
+  "contentBoundary": "Guardian metaphors only, no official assignment, scientific diagnostics, fictional soulmate/hostility prediction, or unverified wizard association.40 names can be fictional quiz roster without claiming canonical official Patronuses.",
+  "seo": {
+    "en": {
+      "title": "Patronus Quiz — What Is My Patronus? | FermatMind",
+      "h1": "Patronus Quiz: What Is My Patronus?",
+      "description": "Explore 40 original guardian portraits through 20 questions with ranking and multiple choice. Compare your closest matches and save a free personal result image."
+    },
+    "zh": {
+      "title": "哈利波特守护神测试：你的守护神是什么？｜费马测试",
+      "h1": "哈利波特守护神测试",
+      "description": "通过20道排序、多选与情境选择，探索40种原创守护神画像。比较本轮最接近的结果，阅读完整解释，免费保存个人图片。"
+    }
+  },
+  "questionCount": 20,
+  "screenCount": 20,
+  "resultCount": 40,
+  "intro": {
+    "zh": "让一段勇气与支持，化成能陪伴你的动物意象。通过16道情境单选、1道排序和3道可多选题，探索40种原创守护神画像。结果会解释本轮选择呈现的守护方式，你也能比较其他画像。独立粉丝娱乐创作，非官方测试；不判断魔法能力、健康或人格。",
+    "en": "Give courage and support an animal image you can carry with you. Explore 40 original guardian portraits through 16 scenario choices, one ranking and three multiple-selection questions. Your result explains the protective approach in this round; you can compare the others too. An independent fan entertainment creation, not an official test or a measure of magic, health or personality."
+  },
+  "faq": [
+    {
+      "q": {
+        "zh": "这是官方守护神测试吗？",
+        "en": "Is this the official Patronus test?"
+      },
+      "a": {
+        "zh": "不是。这是费马独立创作的粉丝娱乐题本与动物画像，不使用官方测试算法，也不声称结果是故事设定中的正式分配。",
+        "en": "No. FermatMind independently authored this fan entertainment question set and animal portraits. It does not use the official algorithm or claim an official assignment within the story."
+      }
+    },
+    {
+      "q": {
+        "zh": "结果怎样计算？",
+        "en": "How is my result calculated?"
+      },
+      "a": {
+        "zh": "排序位置、多选和情境选择分别给六种故事风格累计分数；按各维最高可能分数统一尺度后，比较答卷与40个固定画像的距离。距离最小的画像为本轮结果，完全相同的最小距离全部保留。完整规则与每个结果的可达样例公开。",
+        "en": "Ranking positions,selected multiple-choice items and scenario answers add to six narrative-style scores. After scaling by each dimension’s maximum, the answer pattern is compared with 40 fixed portraits. All equally closest portraits remain in the result. Full rules and a reachable example for every result are public."
+      }
+    },
+    {
+      "q": {
+        "zh": "多选题可以不选吗？",
+        "en": "May I leave a multiple-selection question empty?"
+      },
+      "a": {
+        "zh": "可以。多选题明确提供“不选并继续”；空选不给任何维度加分。排序必须排完六项，单选必须明确选择一个答案。",
+        "en": "Yes. Each multiple-selection question offers an explicit continue-with-none action. Empty selection adds no points. Ranking requires all six items; each single-choice question requires one answer."
+      }
+    },
+    {
+      "q": {
+        "zh": "比较其他动物会改变我的结果吗？",
+        "en": "Does comparing another animal change my result?"
+      },
+      "a": {
+        "zh": "不会。比较只切换查看的画像，个人结果、个人图片和分享仍使用本轮原始最高匹配。修改答卷或重测后才重新计算。",
+        "en": "No. Comparison changes only the portrait being viewed. Your personal result, image and share continue to use the original closest matches until you edit answers or retake."
+      }
+    },
+    {
+      "q": {
+        "zh": "守护神、学院和精神动物是一回事吗？",
+        "en": "Are Patronus,house and spirit-animal quizzes the same?"
+      },
+      "a": {
+        "zh": "不是。本测试使用守护与勇气的魔法叙事意象，不分配霍格沃茨学院，也不把动物比喻当成真实身份。三个玩法分别保留独立题本与结果。",
+        "en": "No. This quiz uses magical imagery of protection and courage. It does not assign a Hogwarts house or treat an animal metaphor as a real identity. The three games have separate questions and results."
+      }
+    }
+  ]
+}

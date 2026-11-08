@@ -1,6 +1,7 @@
 import type { Questionnaire } from "./types";
 
 const loaders = {
+  "patronus-quiz": async () => (await import("./data/patronus-quiz.json")).default as Questionnaire,
   "avatar-bender-quiz": async () => (await import("./data/avatar-bender-quiz.json")).default as Questionnaire,
   "rice-purity-test": async () => (await import("./data/rice-purity-test.json")).default as Questionnaire,
   "soldier-poet-king-quiz": async () => (await import("./data/soldier-poet-king-quiz.json")).default as Questionnaire,

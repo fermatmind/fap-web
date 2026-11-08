@@ -3166,5 +3166,16 @@
       "secondary": "castle",
       "layout": "story"
     }
+  },
+  "patronus-quiz": {
+    "subtitle": {
+      "zh": "哈利波特守护神与40种原创动物意象",
+      "en": "Patronus quiz and 40 original guardian animals"
+    },
+    "art": {
+      "primary": "owl",
+      "secondary": "stars",
+      "layout": "story"
+    }
   }
 }

@@ -1,3 +1,5 @@
+import { PatronusPage } from "./PatronusPage";
+import { isPatronusConfigurationValid } from "@/lib/questionnaires/patronus";
 import { RicePurityPage } from "./RicePurityPage";
 import { EightQuizOverview } from "./EightQuizOverview";
 import { sevenSinsGuideProfile } from "@/lib/questionnaires/sevenSinsGuideSeo";
@@ -427,6 +429,7 @@ type Props = { params: Promise<{ locale: string; slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug } = await params, locale = resolveLocale(input);
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "patronus20" && !isPatronusConfigurationValid(quiz)) return { title: "Guardian quiz unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "sudden-fear20" && !isSuddenFear20ConfigurationValid(quiz)) return { title: "Sudden-fear reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "nakshatra27" && !isNakshatra27ConfigurationValid(quiz)) return { title: "Birth-star reference unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "unwanted-actions20" && !isUnwantedActions20ConfigurationValid(quiz)) return { title: "Thoughts-and-actions reflection unavailable", robots: { index: false, follow: false } };
@@ -492,6 +495,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function QuestionnairePage({ params, take = false }: Props & { take?: boolean }) {
   const { locale: input, slug } = await params, locale = resolveLocale(input), zh = locale === "zh";
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "patronus20" && !isPatronusConfigurationValid(quiz)) notFound();
   if (quiz?.kind === "mental-age") { if (!isMentalAgeConfigurationValid(quiz)) notFound(); return <MentalAgeClassicPage quiz={quiz} locale={locale} take={take} />; }
   if (quiz?.kind === "sudden-fear20") {
     if (!isSuddenFear20ConfigurationValid(quiz)) notFound();
@@ -784,6 +788,7 @@ export default async function QuestionnairePage({ params, take = false }: Props 
   }
   if (!quiz || (quiz.kind === "fds32" && !isFds32ConfigurationValid(quiz)) || (quiz.kind === "pss4" && !isPss4ConfigurationValid(quiz)) || (quiz.kind === "stress-reflection4" && !isStressReflection4ConfigurationValid(quiz)) || (quiz.kind === "mini-orientation" && !isMiniOrientationConfigurationValid(quiz)) || (quiz.kind === "mini-conflict" && !isMiniConflictConfigurationValid(quiz)) || (quiz.kind === "four-axes" && !isFourAxesConfigurationValid(quiz)) || (quiz.kind === "mini-shadow" && !isMiniShadowConfigurationValid(quiz)) || (quiz.kind === "preparation-actions20" && !isPreparationActions20ConfigurationValid(quiz)) || (quiz.kind === "mini-coping" && !isMiniCopingConfigurationValid(quiz)) || (quiz.kind === "mini-habit" && !isMiniHabitConfigurationValid(quiz)) || (quiz.kind === "mini-intimacy" && !isMiniIntimacyConfigurationValid(quiz)) || (quiz.kind === "mini-breakup" && !isMiniBreakupConfigurationValid(quiz)) || (quiz.kind === "holding-back35" && !isHoldingBack35ConfigurationValid(quiz)) || (quiz.kind === "fscrs22" && !isFscrs22ConfigurationValid(quiz)) || (quiz.kind === "parenting-practices" && !isParentingPracticesConfigurationValid(quiz)) || (quiz.kind === "spq92" && !isSpq92ConfigurationValid(quiz)) || (quiz.kind === "adexi14" && !isAdexi14ConfigurationValid(quiz)) || (quiz.kind === "mini-friction" && !isMiniFrictionConfigurationValid(quiz)) || (quiz.kind === "ctl41" && !isCtl41ConfigurationValid(quiz)) || (quiz.kind === "ptq15" && !isPtq15ConfigurationValid(quiz)) || (quiz.kind === "interaction-pairs" && !isInteractionPairsConfigurationValid(quiz)) || (quiz.kind === "work-role12" && !isWorkRole12ConfigurationValid(quiz)) || (quiz.kind === "skills-evidence" && !isSkillsEvidenceConfigurationValid(quiz)) || (quiz.slug === "dark-tetrad-sd4" && !isSd4ConfigurationValid(quiz)) || (quiz.kind === "tipi10" && !isTipi10ConfigurationValid(quiz)) || (quiz.kind === "saps" && !isSapsConfigurationValid(quiz)) || (quiz.kind === "scs26" && !isScs26ConfigurationValid(quiz)) || (quiz.kind === "cbi" && !isCbiConfigurationValid(quiz)) || (quiz.kind === "rosenberg" && !isRosenbergConfigurationValid(quiz)) || (quiz.kind === "political-coordinates" && !isPoliticalCoordinatesConfigurationValid(quiz)) || (quiz.kind === "data-entry" && !isDataEntryConfigurationValid(quiz)) || (quiz.kind === "secs" && !isSecsConfigurationValid(quiz)) || (quiz.kind === "paired-dimensions" && !isPairedDimensionsConfigurationValid(quiz)) || (quiz.kind === "typing" && !isTypingConfigurationValid(quiz))) notFound();
   if (!isQuestionnaireConfigurationValid(quiz)) throw new Error("QUESTIONNAIRE_CONFIGURATION_UNAVAILABLE");
+  if (quiz.kind === "patronus20") return <PatronusPage quiz={quiz} locale={locale} take={take} />;
   if (quiz.kind === "rice100") return <RicePurityPage quiz={quiz} locale={locale} take={take} />;
   if (quiz.slug === "connection-meaning-reflection") return <ConnectionMeaningPage quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} take={take} />;
   if (quiz.slug === "body-frame-observations") return <BodyFrameObservationsPage quiz={prepareQuestionnaireResultReadings(quiz)} locale={locale} take={take} />;

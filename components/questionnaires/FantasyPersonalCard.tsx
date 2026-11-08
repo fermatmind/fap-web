@@ -67,7 +67,7 @@ export function FantasyPersonalCard({ quiz, ids, locale }: { quiz: Questionnaire
         lines(ctx, profile.headline[locale], x, y + 104, width, tall ? 40 : 34, zh);
       });
       ctx.fillStyle = "#bec9d8"; ctx.font = "400 22px system-ui, sans-serif";
-      ctx.fillText(profiles.length > 1 ? (zh ? "全部最高并列 · 不分主次 · 娱乐联想" : "All highest ties · No priority · For fun") : (zh ? "原创娱乐联想 · 不代表固定性格" : "Original entertainment quiz · Not a fixed identity"), pad, h - 68);
+      ctx.fillText(profiles.length > 1 ? (quiz.slug === "patronus-quiz" ? (zh ? "全部最近并列 · 不分主次 · 娱乐意象" : "All equally nearest images · No priority · For fun") : (zh ? "全部最高并列 · 不分主次 · 娱乐联想" : "All highest ties · No priority · For fun")) : (zh ? "原创娱乐联想 · 不代表固定性格" : "Original entertainment quiz · Not a fixed identity"), pad, h - 68);
       ctx.font = "400 20px system-ui, sans-serif";
       ctx.fillText(`fermatmind.com${questionnairePath(locale, quiz.slug)}`, pad, h - 28);
       const blob = await new Promise<Blob>((resolve, reject) => canvas.toBlob(b => b ? resolve(b) : reject(new Error("PNG unavailable")), "image/png"));
@@ -90,7 +90,7 @@ export function FantasyPersonalCard({ quiz, ids, locale }: { quiz: Questionnaire
   }
   return <section className="my-6 space-y-4 rounded-xl border border-slate-300 p-5" aria-label={zh ? "保存与分享本次结果图片" : "Save and share your result image"}>
     <h3 className="text-xl font-semibold">{zh ? "保存你的结果卡" : "Save your result card"}</h3>
-    <p className="text-sm leading-7">{zh ? "图片在本浏览器生成，保留全部最高并列，不含逐题选择或分数。链接只打开公开测试。" : "Created in your browser with every highest tie, without answers or scores. The link opens the public quiz."}</p>
+    <p className="text-sm leading-7">{quiz.slug === "patronus-quiz" ? (zh ? "图片在本浏览器生成，保留本轮全部最近并列的守护意象，不含逐题选择、六维计数或距离。链接只打开公开测试。" : "Created in your browser with every equally nearest guardian, without answers, dimension counts or distances. The link opens the public quiz.") : (zh ? "图片在本浏览器生成，保留全部最高并列，不含逐题选择或分数。链接只打开公开测试。" : "Created in your browser with every highest tie, without answers or scores. The link opens the public quiz.")}</p>
     <label className="flex min-h-11 items-center gap-3"><input type="checkbox" checked={tall} disabled={busy} onChange={e => { setTall(e.target.checked); setPreview(""); }} />{zh ? "使用竖版图片" : "Use a portrait image"}</label>
     <div className="flex flex-wrap gap-3">
       <button disabled={busy} className="min-h-11 rounded-lg bg-slate-900 px-5 py-3 font-semibold text-white disabled:opacity-50" onClick={() => void generate(false)}>{busy ? (zh ? "正在生成…" : "Creating…") : (zh ? "保存结果图片" : "Save result image")}</button>

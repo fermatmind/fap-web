@@ -7644,5 +7644,66 @@
       "fire",
       "air"
     ]
+  },
+  {
+    "slug": "patronus-quiz",
+    "code": "PATRONUS_FM20_40",
+    "version": "1.0.0",
+    "updated": "2026-11-08",
+    "category": "fantasy",
+    "title": {
+      "zh": "哈利波特守护神测试",
+      "en": "Patronus Quiz: What Is My Patronus?"
+    },
+    "description": {
+      "zh": "通过16道单选、1道排序和3道可空选多选题，探索40种原创守护神画像。比较全部动物、查看完整规则与可达示例，免费保存个人结果卡。非官方粉丝娱乐创作。",
+      "en": "Explore 40 original Patronus-inspired guardian portraits through 16 scenarios, one ranking and three multiple-selection screens. Compare all animals, see the rules and save your free personal card. An independent fan quiz."
+    },
+    "minutes": 7,
+    "collection": "explore",
+    "formCode": "fm_patronus_original20_40_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "stag",
+      "doe",
+      "fox",
+      "wolf",
+      "otter",
+      "cat",
+      "dog",
+      "hare",
+      "badger",
+      "hedgehog",
+      "squirrel",
+      "mouse",
+      "horse",
+      "mountain-goat",
+      "red-panda",
+      "bear",
+      "lynx",
+      "tiger",
+      "lion",
+      "cheetah",
+      "elephant",
+      "robin",
+      "owl",
+      "raven",
+      "eagle",
+      "heron",
+      "swan",
+      "kingfisher",
+      "hummingbird",
+      "albatross",
+      "dolphin",
+      "seal",
+      "whale",
+      "sea-turtle",
+      "seahorse",
+      "manta-ray",
+      "phoenix",
+      "unicorn",
+      "dragon",
+      "hippogriff"
+    ]
   }
 ]
