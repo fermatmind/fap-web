@@ -3,7 +3,7 @@
   "converter": "opencc-js@1.4.2:cn:twp",
   "glossary": "fermatmind-tw-1",
   "sourceHashes": {
-    "lib/questionnaires/data/seven-sins-virtues-test.json": "913c28d675f6f5a94e781e5b3680de80de4b8a8512b5e39110fb616595c6f765",
+    "lib/questionnaires/data/seven-sins-virtues-test.json": "d5c266ed897b1387648d279be37b11516fbb035b5aab8f473019ad47a8ecb061",
     "lib/questionnaires/result-content/seven-sins-virtues-test.json": "76cc453e2b99ad2d0d05ef80ae790aef10390f89c5fd7dee93df677b16932105",
     "lib/questionnaires/virtuesLandingEditorial.json": "701a1972f429aee5cace12c76478b541f04d069f193d3d9e7d57efdcaa2e31e6"
   },
@@ -13,16 +13,16 @@
       "text": "七宗罪與七美德測試"
     },
     "lib/questionnaires/data/seven-sins-virtues-test.json/seoTitle": {
-      "sourceHash": "a556116f208cd7ddd2b6e7688aa00b3906b1357b01b4d5d84aab0e564888f22a",
-      "text": "七宗罪與七美德測試｜免費檢視 14 項得分"
+      "sourceHash": "38a6ed54339c63c0b35bb0df1580ddd20b41495bf0b22471aa28872080373cce",
+      "text": "七宗罪測試與七美德測試｜28題免費線上測驗"
     },
     "lib/questionnaires/data/seven-sins-virtues-test.json/description": {
-      "sourceHash": "9e2fba75612002dd42b0288d165fb88d88585b24a285649565ba4fd157ef87db",
-      "text": "免費完成 28 道原創題，約 8 分鐘。檢視 14 項分別計分的結果、雷達圖和七組解讀，無需註冊。"
+      "sourceHash": "ccae6068fb9effe85b3a00772a657423d0178b8c4f90f024b74e85116bb83316",
+      "text": "免費線上完成28道原創題，約8分鐘，同時檢視七宗罪與七美德14項獨立得分、雷達圖及七組結果解讀。無需註冊，僅供娛樂與自我探索。"
     },
     "lib/questionnaires/data/seven-sins-virtues-test.json/introduction": {
-      "sourceHash": "d1fcbb5dae1ffb438678912f143170c76cae39bb9574249e96ada57795f12db5",
-      "text": "這套原創題本借用七宗罪與七美德的文化意象，幫助你回顧日常反應與應對方式。"
+      "sourceHash": "092a4b0e744d41bdd8823ccc42198a7e106091963a239b72f5fe039975265979",
+      "text": "回顧過去四周的日常反應，分別瞭解七宗罪與七美德的14項作答得分。兩組獨立閱讀，不互相抵消。"
     },
     "lib/questionnaires/data/seven-sins-virtues-test.json/instructions": {
       "sourceHash": "8515d725acf830fb702f11b86b1e886bef79ec456fa0771e46dbc0d13aaeb8a8",
@@ -1621,12 +1621,12 @@
       "text": "28 道題由費馬原創，用於娛樂與自我探索。文化名稱用來組織七組閱讀主題。分數反映本次作答，尚未建立人群常模或心理測量效度。"
     },
     "lib/questionnaires/data/seven-sins-virtues-test.json/guide/3/title": {
-      "sourceHash": "f0b95bcb1c5939533049738588db74e96d40ec4a2f51d4cef1456127e581e40d",
-      "text": "文化名稱與不同傳統"
+      "sourceHash": "3fb3af31447a08d18f64ea6cce63fe297f4ff160f2a1303d0d9f9a798fcf1436",
+      "text": "七宗罪有哪些？七美德名稱有什麼不同？"
     },
     "lib/questionnaires/data/seven-sins-virtues-test.json/guide/3/paragraphs/0": {
-      "sourceHash": "7fdacf9e0981ce17cb25607d006509b97c97efc7cbf28b7a74e3bf93aa9a2477",
-      "text": "七宗罪的早期譜系與古代基督教修道和苦修傳統相關；常被稱作七美德的框架另有神學美德與樞德等傳統，後世也出現與七罪逐項對應的版本。不同傳統不能合併成唯一清單。本測試只借用這些文化隱喻作為內容入口，七組閱讀主題不聲稱與任何歷史傳統一一對應，也不聲稱得到宗教傳統認可。"
+      "sourceHash": "a4502963e01831a2ae568028ee223e97cb1f70850cb098eadfb145a7d1c6531d",
+      "text": "本測試採用傲慢、貪婪、色慾、嫉妒、暴食、暴怒、懶惰七個名稱；七美德名稱為謙卑（亦稱謙遜）、慷慨、貞潔、仁愛、節制、耐心、勤勉。它們用來組織日常反思，不是對個人善惡的判斷。七宗罪的早期譜系與古代基督教修道和苦修傳統相關；常被稱作七美德的框架另有神學美德與樞德等傳統，後世也出現與七罪逐項對應的版本。不同傳統不能合併成唯一清單。本測試只借用這些文化隱喻作為內容入口，七組閱讀主題不聲稱與任何歷史傳統一一對應，也不聲稱得到宗教傳統認可。"
     },
     "lib/questionnaires/data/seven-sins-virtues-test.json/guide/3/paragraphs/1": {
       "sourceHash": "260eb9e30c0f7b47cbdc008e807598f862af8fef3302d11a6ca570925413d57f",
@@ -1637,8 +1637,8 @@
       "text": "這不是宗教教義測驗，不評價信仰者的信仰，也不傳教或定罪；內容尊重信仰者與非信仰者。"
     },
     "lib/questionnaires/data/seven-sins-virtues-test.json/guide/4/title": {
-      "sourceHash": "9bd3bf1a833530d7d094ca3c98b76bf107eccdee8ab9d265a8afbb5d1ef4b126",
-      "text": "如何讀兩組分數"
+      "sourceHash": "409fbbcb6dd516117984b2644142ff104155f457a960ab591c9c56dd65c56c8f",
+      "text": "七宗罪測試結果解讀：獨立得分、最高項與並列"
     },
     "lib/questionnaires/data/seven-sins-virtues-test.json/guide/4/paragraphs/0": {
       "sourceHash": "5ee2352c935b9db2861957673bab8b179a7eb743d352efece94d7159ee1dad42",
@@ -1729,20 +1729,20 @@
       "text": "歷史計分說明 · 僅適用於早期小程式。每組四題按 1–5 分相加得到原始和（4–20），再除以 4 得到組均值（1–5）。現行網頁版每組分別報告兩項得分。"
     },
     "lib/questionnaires/data/seven-sins-virtues-test.json/faq/0/question": {
-      "sourceHash": "69f63eaca02840bc4125661448b30af77931564a501508aabc50c9432f1cc17e",
-      "text": "能同時得到較高的罪與美德讀數嗎？"
+      "sourceHash": "277dbe20818af19d44507d2bb655fe15d542ec3369e14b0646642b26622a4da8",
+      "text": "七宗罪與七美德都高，結果怎麼看？"
     },
     "lib/questionnaires/data/seven-sins-virtues-test.json/faq/0/answer": {
       "sourceHash": "f394848113cea323d5c5e91e5eb2a3dee766b7b8062edbe2c5f52c8b793e394b",
       "text": "現行網頁版將 28 道原創題分為七組閱讀主題，共 14 項分別計分，每項兩題。同組的兩項讀數可以同時較高或同時較低。"
     },
     "lib/questionnaires/data/seven-sins-virtues-test.json/faq/1/question": {
-      "sourceHash": "e44d8dbf95a9f00725f01718585464eb74c4acfbe297982d233d851deabb9de9",
-      "text": "28題如何計分？"
+      "sourceHash": "e0bf47f6200efd9e3772cded4566e101084f326eb846efd0573c8df64a63c419",
+      "text": "七宗罪測試雷達圖和分數怎麼看？"
     },
     "lib/questionnaires/data/seven-sins-virtues-test.json/faq/1/answer": {
-      "sourceHash": "5f06a5fafbd7ff9122c666f7e4810537c52d7eba6ed1b5ae75514d1895e9cedf",
-      "text": "每軸使用兩道專屬題。選項按1–5計分，兩題均值減1，再乘25，換算為0–100。圖上取整，榜首按未取整得分確定，同分並列。"
+      "sourceHash": "56fb607bdaa47784dffe68aaba5787f80064303570dddb4f6d1fd1c4fa2b4a07",
+      "text": "雷達圖展示14項獨立得分，離中心越遠表示本次對該項陳述越符合，不是人群排名或發生機率，各項相加也不必等於100。每項使用兩道題，按1—5計分，兩題均值減1後乘25，換算為0—100；圖上取整，最高分按未取整數值確定，同分並列。"
     },
     "lib/questionnaires/data/seven-sins-virtues-test.json/faq/2/question": {
       "sourceHash": "845da21ad538dcf26fa247137f2e0ebc505063154de05a000e691676bd990252",
@@ -1769,12 +1769,12 @@
       "text": "並列：同一軌道的最高分相等時，結果卡會保留全部並列項。數字相同只表示這次換算結果相同。"
     },
     "lib/questionnaires/data/seven-sins-virtues-test.json/faq/5/question": {
-      "sourceHash": "908fc4e32124c5cfc2b024556e0a5cf32cd84ed789e53b3e7103b90837d707d8",
-      "text": "這是宗教測驗或科學人格測評嗎？"
+      "sourceHash": "23dc8073a5b7ff8c526a23e70607410c1694529f3f43b5004684a0543fd7f1b7",
+      "text": "七宗罪測試準嗎？是MBTI或宗教測驗嗎？"
     },
     "lib/questionnaires/data/seven-sins-virtues-test.json/faq/5/answer": {
-      "sourceHash": "0b4ddd091927924fc3ac1ad480b85eef3ba7bdc41104e121fa1224656c4b6389",
-      "text": "這是借用文化名稱的原創反思，尚無心理測量驗證。宗教來源只解釋名稱，不是計分鑰匙、背書或效度證據。"
+      "sourceHash": "54a2489c934c52a660bb2681bb0891014dd331f4745da5b42241318cac49294f",
+      "text": "本頁是借用文化名稱的原創娛樂測試，尚未完成心理測量驗證，不能據此判斷準確率。它不是MBTI，不劃分16型，也不是宗教教義考試；宗教來源只解釋名稱，不提供計分依據或效度背書。"
     },
     "lib/questionnaires/data/seven-sins-virtues-test.json/faq/6/question": {
       "sourceHash": "866c86ff2e4a6d8f71010717fe09b8633405c315d1fd980c8d983ac7b27ebb6d",
@@ -1785,12 +1785,12 @@
       "text": "網頁版作答時只在記憶體保留答案。測試內點「上一題」可檢視之前的選擇。重新整理、離開或切換語言會開啟新一輪作答。計分在瀏覽器內完成，複製入口只包含公開標題和網址。"
     },
     "lib/questionnaires/data/seven-sins-virtues-test.json/faq/7/question": {
-      "sourceHash": "0f24713764cb06cf626e4e111b8d0541e1790974f36a7b173e0c214e627d4b09",
-      "text": "新版和舊版有什麼區別？"
+      "sourceHash": "9b0db3399c84710704fe5e68705d8e9983a9dd1e005d09197a79bfeeaa1f223a",
+      "text": "想做七美德測試，可以單獨看美德結果嗎？"
     },
     "lib/questionnaires/data/seven-sins-virtues-test.json/faq/7/answer": {
-      "sourceHash": "50d6687267e84baa9aabd8a8c4e1551cd343d5879fd16455d6c3f243039da017",
-      "text": "現行網頁版將 28 道原創題分為七組閱讀主題，共 14 項分別計分，每項兩題。同組的兩項讀數可以同時較高或同時較低。"
+      "sourceHash": "0855175ef922b358cd19c3a580e41efeaf967665cbbce6ecdd520de528e2c858",
+      "text": "可以。完成同一套28題後，可分別檢視七美德與七宗罪各七項得分，也可直接閱讀公開指南。本頁提供雙主題結果，沒有另一套單獨的七美德題本。"
     },
     "lib/questionnaires/data/seven-sins-virtues-test.json/faq/8/question": {
       "sourceHash": "307d36584bb6857efaee73f139de7f54a29347c8e0f6240e143514dfaf21a536",

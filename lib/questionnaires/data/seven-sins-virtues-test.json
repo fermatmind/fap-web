@@ -11,16 +11,16 @@
   },
   "seoTitle": {
     "en": "Free Seven Deadly Sins and Seven Virtues Test",
-    "zh": "七宗罪与七美德测试｜免费查看 14 项得分"
+    "zh": "七宗罪测试与七美德测试｜28题免费在线测验"
   },
   "description": {
     "en": "Answer 28 original questions in about 8 minutes. Get 14 separate scores, a radar chart, and seven reflection guides. Free, with no sign-up.",
-    "zh": "免费完成 28 道原创题，约 8 分钟。查看 14 项分别计分的结果、雷达图和七组解读，无需注册。"
+    "zh": "免费在线完成28道原创题，约8分钟，同时查看七宗罪与七美德14项独立得分、雷达图及七组结果解读。无需注册，仅供娱乐与自我探索。"
   },
   "minutes": 8,
   "introduction": {
     "en": "This original quiz uses the seven sins and seven virtues as cultural symbols for reflecting on everyday reactions and ways of responding.",
-    "zh": "这套原创题本借用七宗罪与七美德的文化意象，帮助你回顾日常反应与应对方式。"
+    "zh": "回顾过去四周的日常反应，分别了解七宗罪与七美德的14项作答得分。两组独立阅读，不互相抵消。"
   },
   "instructions": {
     "en": "For each statement, choose how well it describes your experience over the past four weeks.",
@@ -2900,12 +2900,12 @@
       "id": "culture",
       "title": {
         "en": "Cultural names and different traditions",
-        "zh": "文化名称与不同传统"
+        "zh": "七宗罪有哪些？七美德名称有什么不同？"
       },
       "paragraphs": [
         {
           "en": "The early lineage of the seven capital sins is associated with Christian monastic and ascetic traditions. Frameworks called seven virtues also include theological and cardinal traditions, while other discussions contrast virtues with sins. Different traditions cannot be merged into one exclusive list. The product borrows cultural metaphors only: its seven observation groups do not claim a one-to-one historical correspondence or religious endorsement.",
-          "zh": "七宗罪的早期谱系与古代基督教修道和苦修传统相关；常被称作七美德的框架另有神学美德与枢德等传统，后世也出现与七罪逐项对应的版本。不同传统不能合并成唯一清单。本测试只借用这些文化隐喻作为内容入口，七组阅读主题不声称与任何历史传统一一对应，也不声称得到宗教传统认可。"
+          "zh": "本测试采用傲慢、贪婪、色欲、嫉妒、暴食、暴怒、懒惰七个名称；七美德名称为谦卑（亦称谦逊）、慷慨、贞洁、仁爱、节制、耐心、勤勉。它们用来组织日常反思，不是对个人善恶的判断。七宗罪的早期谱系与古代基督教修道和苦修传统相关；常被称作七美德的框架另有神学美德与枢德等传统，后世也出现与七罪逐项对应的版本。不同传统不能合并成唯一清单。本测试只借用这些文化隐喻作为内容入口，七组阅读主题不声称与任何历史传统一一对应，也不声称得到宗教传统认可。"
         },
         {
           "en": "These seven groups are a product-created everyday observation framework. Historical cultural concepts are not modern measured psychological constructs; religious language is not scientific evidence for this questionnaire.",
@@ -2921,7 +2921,7 @@
       "id": "reading",
       "title": {
         "en": "How to read both tracks",
-        "zh": "如何读两组分数"
+        "zh": "七宗罪测试结果解读：独立得分、最高项与并列"
       },
       "paragraphs": [
         {
@@ -3039,7 +3039,7 @@
     {
       "question": {
         "en": "Can both tracks have high scores?",
-        "zh": "能同时得到较高的罪与美德读数吗？"
+        "zh": "七宗罪与七美德都高，结果怎么看？"
       },
       "answer": {
         "en": "The web edition groups 28 original items into seven reading themes. It reports 14 separate scores, each based on two items. Both scores in a theme can be high or low together.",
@@ -3049,11 +3049,11 @@
     {
       "question": {
         "en": "How are the twenty-eight responses scored?",
-        "zh": "28题如何计分？"
+        "zh": "七宗罪测试雷达图和分数怎么看？"
       },
       "answer": {
         "en": "Each axis uses two dedicated 1–5 items. Subtract 1 from their mean and multiply by 25 for a 0–100 score. Display values are rounded. Highest scores are selected before rounding, with all ties retained.",
-        "zh": "每轴使用两道专属题。选项按1–5计分，两题均值减1，再乘25，换算为0–100。图上取整，榜首按未取整得分确定，同分并列。"
+        "zh": "雷达图展示14项独立得分，离中心越远表示本次对该项陈述越符合，不是人群排名或发生概率，各项相加也不必等于100。每项使用两道题，按1—5计分，两题均值减1后乘25，换算为0—100；图上取整，最高分按未取整数值确定，同分并列。"
       }
     },
     {
@@ -3089,11 +3089,11 @@
     {
       "question": {
         "en": "Is this a religious or scientific assessment?",
-        "zh": "这是宗教测验或科学人格测评吗？"
+        "zh": "七宗罪测试准吗？是MBTI或宗教测验吗？"
       },
       "answer": {
         "en": "It is a culturally framed, original reflection, without psychometric validation. Religious references explain names, not a scoring key, endorsement or evidence of validity.",
-        "zh": "这是借用文化名称的原创反思，尚无心理测量验证。宗教来源只解释名称，不是计分钥匙、背书或效度证据。"
+        "zh": "本页是借用文化名称的原创娱乐测试，尚未完成心理测量验证，不能据此判断准确率。它不是MBTI，不划分16型，也不是宗教教义考试；宗教来源只解释名称，不提供计分依据或效度背书。"
       }
     },
     {
@@ -3109,11 +3109,11 @@
     {
       "question": {
         "en": "How does this edition differ from the earlier form?",
-        "zh": "新版和旧版有什么区别？"
+        "zh": "想做七美德测试，可以单独看美德结果吗？"
       },
       "answer": {
         "en": "The web edition groups 28 original items into seven reading themes. It reports 14 separate scores, each based on two items. Both scores in a theme can be high or low together.",
-        "zh": "现行网页版将 28 道原创题分为七组阅读主题，共 14 项分别计分，每项两题。同组的两项读数可以同时较高或同时较低。"
+        "zh": "可以。完成同一套28题后，可分别查看七美德与七宗罪各七项得分，也可直接阅读公开指南。本页提供双主题结果，没有另一套单独的七美德题本。"
       }
     },
     {

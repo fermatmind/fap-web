@@ -3,7 +3,7 @@
   "converter": "opencc-js@1.4.2:cn:twp",
   "glossary": "fermatmind-tw-1",
   "sourceHashes": {
-    "lib/i18n/zh-TW/seven-sins-ui.source.json": "fcd9930cf2df63730b23ee48b9cb92df49f5617d6af615f0521330a2a0433422"
+    "lib/i18n/zh-TW/seven-sins-ui.source.json": "60c857ead582918d71e0976e486596ed0faac01fcaf488dac90a8456ad0363b5"
   },
   "units": {
     "lib/i18n/zh-TW/seven-sins-ui.source.json/七宗罪之首": {
@@ -201,6 +201,90 @@
     "lib/i18n/zh-TW/seven-sins-ui.source.json/勤勉": {
       "sourceHash": "761c11c577418b093421a1804303d016b99adb9996b98de3bb0d360736780069",
       "text": "勤勉"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/seo-recognition-reading-title": {
+      "sourceHash": "55dbb05dd3b249fddc6f34e893514147104e61a321484b30e2bb06679c51d7a0",
+      "text": "傲慢與謙卑：認可與貢獻的結果解讀"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/seo-recognition-reading-description": {
+      "sourceHash": "0f48917aeab875550b932237e45e67291f4a5e28f9b2862b482852a12c3a1f50",
+      "text": "瞭解七宗罪測試中傲慢與謙卑兩項獨立得分的含義。這組主題關注對自己判斷的信心、如何看待共同成果的功勞、是否承認錯誤，以及是否說出他人的貢獻。"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/seo-recognition-reading-metadata": {
+      "sourceHash": "7f4c336b78ae5ff921fb02c80c31d1914139ddc99ac1303ed578f5ca028558b5",
+      "text": "傲慢與謙卑結果解讀｜七宗罪與七美德測試"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/seo-resources-reading-title": {
+      "sourceHash": "611bd68d8b186875d3792116875142b2d422a0c034741c50661033d4bf40e399",
+      "text": "貪婪與慷慨：資源與分享的結果解讀"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/seo-resources-reading-description": {
+      "sourceHash": "84ab03ccf3bbc8f0fa4239dcf33ee935a0a96b597a6c321dd1f36ef8c9e84194",
+      "text": "瞭解七宗罪測試中貪婪與慷慨兩項獨立得分的含義。這組主題關注夠用時仍想多留資源，以及有餘力時分享物品或時間。"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/seo-resources-reading-metadata": {
+      "sourceHash": "f3082887cd405d722e560c69a05496e6f34b2f93ece5bedfc1f7891f5a194bea",
+      "text": "貪婪與慷慨結果解讀｜七宗罪與七美德測試"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/seo-desire-boundaries-reading-title": {
+      "sourceHash": "f186bc963a33d5968acd9d2c286acb2808ae3ee9c40b8708a266d84adede4549",
+      "text": "色慾與貞潔：吸引與邊界的結果解讀"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/seo-desire-boundaries-reading-description": {
+      "sourceHash": "2807546eb4dcf274a7f33bfb40ada37038c32a4569894bd442ea958793a4ab48",
+      "text": "瞭解七宗罪測試中色慾與貞潔兩項獨立得分的含義。這組主題關注強烈吸引下的衝動、雙方意願，以及以舒服的節奏推進親密互動。"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/seo-desire-boundaries-reading-metadata": {
+      "sourceHash": "1db19bfe479e08ab53cc838ce72271101ebe2f589e3c9139c1a4f5afdd81549c",
+      "text": "色慾與貞潔結果解讀｜七宗罪與七美德測試"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/seo-comparison-reading-title": {
+      "sourceHash": "73b6ed51bc1327d0be334b19a2ce5a7a7ecfe7bc6d50e2b7edb119faf81203fd",
+      "text": "嫉妒與仁愛：比較與欣賞的結果解讀"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/seo-comparison-reading-description": {
+      "sourceHash": "30cd1bf855168c06af8f260fd38ad0c6abcbf64157ea3e893079ff793500653b",
+      "text": "瞭解七宗罪測試中嫉妒與仁愛兩項獨立得分的含義。這組主題關注看到同伴順利時的反應，以及如何回應他們的成功或困難。"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/seo-comparison-reading-metadata": {
+      "sourceHash": "fca738a36b0ff6300b209ae3e06ec9bfda39a3b400fb3f7480203200d6af7e17",
+      "text": "嫉妒與仁愛結果解讀｜七宗罪與七美德測試"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/seo-rewards-reading-title": {
+      "sourceHash": "6f6b11d2b4e7f18f4652aa7e5c790437cab91838b99273a0019ecfe00c8a3170",
+      "text": "暴食與節制：享受與暫停的結果解讀"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/seo-rewards-reading-description": {
+      "sourceHash": "0c482bd558714b5b3aafe23a4842643292068a313e6943cce2660e11e7dda108",
+      "text": "瞭解七宗罪測試中暴食與節制兩項獨立得分的含義。這組主題關注享受時超過原定計劃、決定何時停下，以及按自己設定的界限停下。"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/seo-rewards-reading-metadata": {
+      "sourceHash": "8c59dcfd894dbb29ef6e8cf3d5d284d9027d34a432142412a56bf884600b59ae",
+      "text": "暴食與節制結果解讀｜七宗罪與七美德測試"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/seo-anger-reading-title": {
+      "sourceHash": "f0c635a39e14b6c1bdec8d174484194ab6ca1f323a859254ec27bd5ea941c275",
+      "text": "暴怒與耐心：憤怒與回應的結果解讀"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/seo-anger-reading-description": {
+      "sourceHash": "b02eae681d9de2e2acbdf843f9707c4462fb883d9d17857d07f9aaccfadca63e",
+      "text": "瞭解七宗罪測試中暴怒與耐心兩項獨立得分的含義。這組主題關注用重話回擊、事後想著還擊、回應前先暫停，以及給對方留出時間。"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/seo-anger-reading-metadata": {
+      "sourceHash": "da71f3e5f1cb20ae597430b1ce59d348307ccedcb2859c782c3ef00d3cbb6e24",
+      "text": "暴怒與耐心結果解讀｜七宗罪與七美德測試"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/seo-starting-rest-reading-title": {
+      "sourceHash": "074633a6efd09841c14a48ad5d1e0bde33f520aede2fefa863b024417d0695be",
+      "text": "懶惰與勤勉：拖延與行動的結果解讀"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/seo-starting-rest-reading-description": {
+      "sourceHash": "f31149cfe6e8a3a2903938cc9bc9a647bcd87634a6f476744ed532bc0c001db4",
+      "text": "瞭解七宗罪測試中懶惰與勤勉兩項獨立得分的含義。這組主題關注拖延任務、先做一個能完成的小步驟，以及安排時間持續推進。"
+    },
+    "lib/i18n/zh-TW/seven-sins-ui.source.json/seo-starting-rest-reading-metadata": {
+      "sourceHash": "0b86b9e79adfdb28d6c1f361cd376a507c91953c863b0430621600a4e00fbec8",
+      "text": "懶惰與勤勉結果解讀｜七宗罪與七美德測試"
     }
   }
 }

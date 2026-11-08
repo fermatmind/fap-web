@@ -1,3 +1,4 @@
+import { sevenSinsChineseGuideProfile } from "@/lib/questionnaires/sevenSinsChineseSeo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -13,8 +14,9 @@ const entry = "/zh-TW/tests/explore/seven-sins-virtues-test";
 export function sevenSinsTraditionalMetadata(path: string): Metadata {
   const profile = quiz.profiles.find(profile => path === `${entry}/results/${profile.id}`);
   const take = path === `${entry}/take`, canonical = take ? entry : path;
-  const title = profile?.seo.title["zh-TW"] ?? quiz.seoTitle["zh-TW"];
-  const description = profile?.seo.description["zh-TW"] ?? quiz.description["zh-TW"];
+  const display = profile && sevenSinsChineseGuideProfile(quiz.slug, "zh", profile);
+  const title = display ? sevenSinsDisplay(display.seo!.title.zh, "zh-TW") : quiz.seoTitle["zh-TW"];
+  const description = display ? sevenSinsDisplay(display.seo!.description.zh, "zh-TW") : quiz.description["zh-TW"];
   return { title, description, alternates: { canonical: `${SITE_URL}${canonical}`, languages: take ? undefined : {
     "zh-TW": `${SITE_URL}${path}`, "zh-CN": `${SITE_URL}${path.replace("/zh-TW", "/zh")}`, en: `${SITE_URL}${path.replace("/zh-TW", "/en")}`, "x-default": `${SITE_URL}${path.replace("/zh-TW", "/en")}`,
   } }, robots: take ? { index: false, follow: false, noarchive: true } : undefined,
@@ -37,7 +39,7 @@ export function SevenSinsTraditionalPage({ path }: { path: string }) {
     {quiz.guide.map(section => <section key={section.id} className="space-y-3"><h2 className="text-2xl font-semibold">{section.title["zh-TW"]}</h2>{section.paragraphs.map((text, index) => <p key={index} className="whitespace-pre-line leading-8">{text["zh-TW"]}</p>)}</section>)}
     <section id="questionnaire-results" className="space-y-5"><h2 className="text-2xl font-bold">七組主題與完整指南</h2><div className="grid gap-5 sm:grid-cols-2">{quiz.profiles.map(profile => {
       const pair = miniVirtuesDefinitions.find(pair => pair.profileId === profile.id)!;
-      return <Link key={profile.id} href={`${entry}/results/${profile.id}`} className="space-y-3 rounded-xl border border-slate-200 bg-white p-5"><h3 className="text-xl font-semibold underline">{profile.title["zh-TW"]}</h3><p className="font-semibold">{sevenSinsDisplay(pair.sin.zh, "zh-TW")} · {sevenSinsDisplay(pair.virtue.zh, "zh-TW")}</p><p className="leading-7">{profile.headline["zh-TW"]}</p></Link>;
+      return <Link key={profile.id} href={`${entry}/results/${profile.id}`} className="space-y-3 rounded-xl border border-slate-200 bg-white p-5"><h3 className="text-xl font-semibold underline">{sevenSinsDisplay(sevenSinsChineseGuideProfile(quiz.slug, "zh", profile).title.zh, "zh-TW")}</h3><p className="font-semibold">{sevenSinsDisplay(pair.sin.zh, "zh-TW")} · {sevenSinsDisplay(pair.virtue.zh, "zh-TW")}</p><p className="leading-7">{profile.headline["zh-TW"]}</p></Link>;
     })}</div></section>
     <section className="space-y-5"><h2 className="text-2xl font-bold">常見問題</h2>{[...quiz.faq, ...editorial.virtuesLandingFaq].map((faq, index) => <section key={index} className="space-y-3"><h3 className="text-xl font-semibold">{faq.question["zh-TW"]}</h3><p className="whitespace-pre-line leading-8">{faq.answer["zh-TW"]}</p></section>)}</section>
     {editorial.virtuesLandingSections.map(section => <section key={section.id} className="space-y-3"><h2 className="text-2xl font-semibold">{section.title["zh-TW"]}</h2>{section.paragraphs.map((text, index) => <p key={index} className="whitespace-pre-line leading-8">{text["zh-TW"]}</p>)}</section>)}

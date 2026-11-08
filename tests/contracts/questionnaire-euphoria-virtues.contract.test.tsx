@@ -1,3 +1,4 @@
+import { sevenSinsChineseGuideProfile } from "@/lib/questionnaires/sevenSinsChineseSeo";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -234,7 +235,8 @@ describe("C formal continuation: VIRTUES source and original T110", () => {
         for (const profile of quiz.profiles) {
           const ppath=`${path}/results/${profile.id}`, props={params:Promise.resolve({locale,slug:quiz.slug,profile:profile.id})};
           const html=dom(renderToStaticMarkup(await guide.default(props))), metadata=await guide.generateMetadata(props);
-          expect(html.querySelector("h1")?.textContent).toBe(profile.title[locale]);expect(metadata.title).toBe(profile.seo!.title[locale]);expect(metadata.description).toBe(profile.seo!.description[locale]);
+          const presented = sevenSinsChineseGuideProfile(quiz.slug, locale, profile);
+          expect(html.querySelector("h1")?.textContent).toBe(presented.title[locale]);expect(metadata.title).toBe(presented.seo!.title[locale]);expect(metadata.description).toBe(presented.seo!.description[locale]);
           expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${ppath}`);
           expect(metadata.alternates?.languages).toMatchObject({en:`https://fermatmind.com/en/tests/explore/${quiz.slug}/results/${profile.id}`,"zh-CN":`https://fermatmind.com/zh/tests/explore/${quiz.slug}/results/${profile.id}`});
           for (const section of profile.sections) for (const paragraph of section.paragraphs) expect(html.textContent).toContain(paragraph[locale]);
