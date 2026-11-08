@@ -23,13 +23,23 @@ export const LAST_KNOWN_GOOD_CACHE_LIMITS = {
   maxAgeMs: 7 * 24 * 60 * 60 * 1000,
 } as const;
 
-const store = new Map<string, LastKnownGoodEntry<unknown>>();
-let storedBytes = 0;
+type CacheState = {
+  store: Map<string, LastKnownGoodEntry<unknown>>;
+  storedBytes: number;
+};
+
+// Next.js can bundle separate copies for RSC, SSR and route handlers. Share one
+// budget within the worker instead of multiplying it by the number of bundles.
+const cacheGlobal = globalThis as typeof globalThis & {
+  __fermatmindPublicCmsLkgCacheV1?: CacheState;
+};
+const cache = cacheGlobal.__fermatmindPublicCmsLkgCacheV1 ??= { store: new Map(), storedBytes: 0 };
+const store = cache.store;
 
 function deleteEntry(key: string): void {
   const entry = store.get(key);
   if (entry) {
-    storedBytes -= entry.sizeBytes;
+    cache.storedBytes -= entry.sizeBytes;
     store.delete(key);
   }
 }
@@ -66,7 +76,7 @@ function writeEntry<T>(key: string, value: T, updatedAt: string): void {
   if (sizeBytes > LAST_KNOWN_GOOD_CACHE_LIMITS.maxBytes) return;
 
   while (store.size >= LAST_KNOWN_GOOD_CACHE_LIMITS.maxEntries ||
-    storedBytes + sizeBytes > LAST_KNOWN_GOOD_CACHE_LIMITS.maxBytes) {
+    cache.storedBytes + sizeBytes > LAST_KNOWN_GOOD_CACHE_LIMITS.maxBytes) {
     const oldestKey = store.keys().next().value;
     if (oldestKey === undefined) break;
     deleteEntry(oldestKey);
@@ -75,7 +85,7 @@ function writeEntry<T>(key: string, value: T, updatedAt: string): void {
     value, updatedAt, sizeBytes,
     expiresAtMs: Date.now() + LAST_KNOWN_GOOD_CACHE_LIMITS.maxAgeMs,
   });
-  storedBytes += sizeBytes;
+  cache.storedBytes += sizeBytes;
 }
 
 function nowIso(): string {
@@ -84,7 +94,7 @@ function nowIso(): string {
 
 export function clearLastKnownGoodForTests(): void {
   store.clear();
-  storedBytes = 0;
+  cache.storedBytes = 0;
 }
 
 export function readLastKnownGoodForTests<T>(key: string): LastKnownGoodResult<T> | null {

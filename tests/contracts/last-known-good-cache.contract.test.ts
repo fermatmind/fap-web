@@ -12,6 +12,19 @@ afterEach(() => {
 });
 
 describe("last-known-good cache helper", () => {
+  it("shares the worker budget across separately loaded module copies", async () => {
+    await withLastKnownGood({ key: "page:original", load: async () => "original" });
+    vi.resetModules();
+    const otherCopy = await import("@/lib/cms/last-known-good");
+    expect(otherCopy.withLastKnownGood).not.toBe(withLastKnownGood);
+    expect(otherCopy.readLastKnownGoodForTests("page:original")?.value).toBe("original");
+    for (let i = 0; i < LAST_KNOWN_GOOD_CACHE_LIMITS.maxEntries; i++) {
+      await otherCopy.withLastKnownGood({ key: `page:other:${i}`, load: async () => i });
+    }
+    expect(readLastKnownGoodForTests("page:original")).toBeNull();
+    expect(readLastKnownGoodForTests("page:other:0")?.value).toBe(0);
+  });
+
   it("does not retain high-cardinality reads when both stale fallback paths are disabled", async () => {
     for (let i = 0; i < 1000; i++) {
       const result = await withLastKnownGood({
