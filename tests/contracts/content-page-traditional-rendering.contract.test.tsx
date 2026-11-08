@@ -21,6 +21,7 @@ describe("Traditional CMS About complete rendering", () => {
     const html = renderToStaticMarkup(<ContentPageTemplate page={stripContentPageReaderMetadata(page)} locale="zh-TW" />);
     const document = new DOMParser().parseFromString(html, "text/html");
     expect(document.querySelector("h1")?.textContent).toBe("關於費馬測試");
+    expect(document.querySelector('nav[aria-label="導覽路徑"]')).not.toBeNull();
     expect(document.body.textContent).toContain("興趣不是能力。");
     expect(document.body.textContent).toContain("創始人與博士顧問團隊");
     for (const name of ["劉福威", "賈睿璇", "李琛"]) expect(document.body.textContent).toContain(name);
@@ -30,7 +31,11 @@ describe("Traditional CMS About complete rendering", () => {
     expect(document.body.textContent).toContain("最近更新");
     expect(document.body.textContent).toContain("2026年11月8日");
     expect(document.querySelector('a[href="/zh-TW"]')).not.toBeNull();
-    expect(document.querySelector('a[href="/zh-TW/charter"]')).toBeNull();
+    for (const slug of ["brand", "charter", "careers"]) {
+      expect(document.querySelector(`a[href="/zh-TW/${slug}"]`)).not.toBeNull();
+    }
+    expect(document.querySelector('a[href="/zh-TW/foundation"]')).toBeNull();
+    expect(document.querySelector('a[href="/zh-TW/privacy"]')).toBeNull();
     expect(document.querySelector("main")).toBeNull(); // The Traditional root layout owns the main landmark.
     expect(html).not.toContain("private-source-do-not-render");
   });

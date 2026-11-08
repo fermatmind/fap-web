@@ -7,15 +7,16 @@ type BreadcrumbItem = {
 
 type BreadcrumbProps = {
   items: BreadcrumbItem[];
+  ariaLabel?: string;
 };
 
-export function Breadcrumb({ items }: BreadcrumbProps) {
+export function Breadcrumb({ items, ariaLabel = "Breadcrumb" }: BreadcrumbProps) {
   if (items.length === 0) {
     return null;
   }
 
   return (
-    <nav aria-label="Breadcrumb" className="text-sm text-[var(--fm-text-muted)]">
+    <nav aria-label={ariaLabel} className="text-sm text-[var(--fm-text-muted)]">
       <ol className="m-0 flex flex-wrap items-center gap-2 p-0">
         {items.map((item, index) => (
           <li key={`${item.label}-${index}`} className="flex items-center gap-2">

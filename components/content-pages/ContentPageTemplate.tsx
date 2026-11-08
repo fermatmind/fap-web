@@ -12,6 +12,7 @@ import type { DisplayLocale } from "@/lib/i18n/locales";
 import labels from "@/lib/i18n/zh-TW/content-page-labels.source.json";
 import generated from "@/lib/i18n/zh-TW/chiikawa.generated.json";
 import { localizedPath } from "@/lib/i18n/locales";
+import { TRADITIONAL_CMS_PUBLISHED_PATHS } from "@/lib/i18n/traditionalRoutes";
 
 function label(locale: DisplayLocale, zh: string, en: string): string {
   if (locale !== "zh-TW") return locale === "zh" ? zh : en;
@@ -304,10 +305,21 @@ function buildCareersJobLinks(page: ContentPageReaderView, blocks: MarkdownBlock
 }
 
 function buildRelatedLinks(page: ContentPageReaderView, locale: DisplayLocale, blocks: MarkdownBlock[]): RelatedLink[] {
-  if (locale === "zh-TW") return []; // Related variants open after their complete content ships.
+  const companyLinks = [
+    { slug: "about", label: label(locale, "关于我们", "About") },
+    { slug: "charter", label: label(locale, "我们的宪章", "Charter") },
+    { slug: "foundation", label: label(locale, "基金会", "Foundation") },
+    { slug: "careers", label: label(locale, "工作机会", "Careers") },
+    { slug: "brand", label: label(locale, "品牌", "Brand") },
+  ];
   const careersJobLinks = buildCareersJobLinks(page, blocks);
   if (careersJobLinks.length) {
     return careersJobLinks;
+  }
+  if (locale === "zh-TW") {
+    return companyLinks
+      .filter(item => item.slug !== page.slug && TRADITIONAL_CMS_PUBLISHED_PATHS.some(path => path === `/${item.slug}`))
+      .map(item => ({ key: item.slug, label: item.label, href: buildContentPagePath(item.slug, locale) }));
   }
 
   if (page.kind === "help") {
@@ -331,13 +343,6 @@ function buildRelatedLinks(page: ContentPageReaderView, locale: DisplayLocale, b
     }))];
   }
 
-  const companyLinks = [
-    { slug: "about", label: label(locale, "关于我们", "About") },
-    { slug: "charter", label: label(locale, "我们的宪章", "Charter") },
-    { slug: "foundation", label: label(locale, "基金会", "Foundation") },
-    { slug: "careers", label: label(locale, "工作机会", "Careers") },
-    { slug: "brand", label: label(locale, "品牌", "Brand") },
-  ];
   const policyLinks = [
     { slug: "terms", label: label(locale, "使用条款", "Terms of use") },
     { slug: "privacy", label: label(locale, "隐私政策", "Privacy policy") },
@@ -397,6 +402,7 @@ export function ContentPageTemplate({ page, locale }: { page: ContentPageReaderV
     <PageRoot className="fm-page-background text-[var(--fm-text)]" data-testid={`content-page-${page.slug}`}>
       <Container className="py-10 md:py-14">
         <Breadcrumb
+          ariaLabel={locale === "zh-TW" ? "導覽路徑" : undefined}
           items={[
             { label: label(locale, "首页", "Home"), href: locale === "zh-TW" ? "/zh-TW" : localizedPath("/", locale) },
             {

@@ -25,7 +25,8 @@ describe("CMS Traditional locale reader", () => {
     expect(traditionalPath("/en/privacy")).toBeNull();
     for (const slug of ["brand", "charter", "careers"]) {
       expect(traditionalPath(`/zh-TW/${slug}`)).toBe(`/zh-TW/${slug}`);
-      expect(traditionalPath(`/zh/${slug}`)).toBeNull();
+      expect(traditionalPath(`/zh/${slug}`)).toBe(`/zh-TW/${slug}`);
+      expect(traditionalPath(`/en/${slug}`)).toBe(`/zh-TW/${slug}`);
       expect(traditionalEquivalent(`/zh-TW/${slug}`)).toBeNull();
       expect(TRADITIONAL_PUBLIC_PATHS).not.toContain(`/${slug}`);
     }
