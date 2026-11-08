@@ -8,8 +8,18 @@ import { renderCmsInlineMarkdown, stripMarkdownEmphasisMarkers } from "@/lib/con
 import { cn } from "@/lib/utils";
 import type { ContentPage } from "@/lib/cms/content-pages";
 import { buildContentPagePath } from "@/lib/cms/content-pages";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
+import labels from "@/lib/i18n/zh-TW/content-page-labels.source.json";
+import generated from "@/lib/i18n/zh-TW/chiikawa.generated.json";
 import { localizedPath } from "@/lib/i18n/locales";
+
+function label(locale: DisplayLocale, zh: string, en: string): string {
+  if (locale !== "zh-TW") return locale === "zh" ? zh : en;
+  const index = labels.findIndex(value => value.zh === zh && value.en === en);
+  const unit = (generated.units as Record<string, { text: string }>)[`lib/i18n/zh-TW/content-page-labels.source.json/${index}`];
+  if (!unit) throw new Error(`Missing Traditional ContentPage label: ${zh}`);
+  return unit.text;
+}
 
 type MarkdownBlock =
   | { type: "heading"; level: 2 | 3; text: string; id: string; teamSection?: boolean }
@@ -52,7 +62,7 @@ export function stripContentPageReaderMetadata(page: ContentPage): ContentPageRe
   };
 }
 
-function formatDate(value: string | null, locale: Locale): string | null {
+function formatDate(value: string | null, locale: DisplayLocale): string | null {
   if (!value) {
     return null;
   }
@@ -62,7 +72,7 @@ function formatDate(value: string | null, locale: Locale): string | null {
     return value;
   }
 
-  return new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-US", {
+  return new Intl.DateTimeFormat(locale === "zh-TW" ? "zh-TW" : locale === "zh" ? "zh-CN" : "en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -202,7 +212,12 @@ function parseMarkdown(markdown: string): MarkdownBlock[] {
   return blocks;
 }
 
-function renderInline(text: string, keyPrefix: string, locale: Locale): ReactNode[] {
+function renderInline(text: string, keyPrefix: string, locale: DisplayLocale): ReactNode[] {
+  if (locale === "zh-TW") {
+    // This first CMS adapter supports plain headings, lists and paragraphs.
+    if (/[<>`\[\]]/.test(text)) throw new Error("Traditional CMS inline format unavailable");
+    return [text];
+  }
   return renderCmsInlineMarkdown(text, keyPrefix, { locale });
 }
 
@@ -210,8 +225,9 @@ function plainInlineText(text: string): string {
   return stripMarkdownEmphasisMarkers(text.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1"));
 }
 
-function ContentPageBody({ page, blocks, locale }: { page: ContentPageReaderView; blocks: MarkdownBlock[]; locale: Locale }) {
+function ContentPageBody({ page, blocks, locale }: { page: ContentPageReaderView; blocks: MarkdownBlock[]; locale: DisplayLocale }) {
   if (page.contentHtml.trim()) {
+    if (locale === "zh-TW") throw new Error("Traditional CMS HTML adapter unavailable");
     return <SanitizedCmsHtml className="fm-content-page-prose" html={page.contentHtml} locale={locale} />;
   }
 
@@ -287,7 +303,8 @@ function buildCareersJobLinks(page: ContentPageReaderView, blocks: MarkdownBlock
     }));
 }
 
-function buildRelatedLinks(page: ContentPageReaderView, locale: Locale, blocks: MarkdownBlock[]): RelatedLink[] {
+function buildRelatedLinks(page: ContentPageReaderView, locale: DisplayLocale, blocks: MarkdownBlock[]): RelatedLink[] {
+  if (locale === "zh-TW") return []; // Related variants open after their complete content ships.
   const careersJobLinks = buildCareersJobLinks(page, blocks);
   if (careersJobLinks.length) {
     return careersJobLinks;
@@ -295,15 +312,15 @@ function buildRelatedLinks(page: ContentPageReaderView, locale: Locale, blocks: 
 
   if (page.kind === "help") {
     const helpLinks = [
-      { slug: "help-faq", label: locale === "zh" ? "常见问题" : "FAQ" },
-      { slug: "help-contact", label: locale === "zh" ? "联系方式" : "Contact" },
+      { slug: "help-faq", label: label(locale, "常见问题", "FAQ") },
+      { slug: "help-contact", label: label(locale, "联系方式", "Contact") },
     ];
 
     const lifecycleLinks: RelatedLink[] = ["help-faq", "help-contact"].includes(page.slug)
       ? [
-          { key: "order-lookup", label: locale === "zh" ? "订单查询与报告找回" : "Order lookup and report recovery", href: localizedPath("/orders/lookup", locale) },
-          { key: "email-preferences", label: locale === "zh" ? "邮件偏好" : "Email preferences", href: localizedPath("/email/preferences", locale) },
-          { key: "email-unsubscribe", label: locale === "zh" ? "退订邮件" : "Unsubscribe", href: localizedPath("/email/unsubscribe", locale) },
+          { key: "order-lookup", label: label(locale, "订单查询与报告找回", "Order lookup and report recovery"), href: localizedPath("/orders/lookup", locale) },
+          { key: "email-preferences", label: label(locale, "邮件偏好", "Email preferences"), href: localizedPath("/email/preferences", locale) },
+          { key: "email-unsubscribe", label: label(locale, "退订邮件", "Unsubscribe"), href: localizedPath("/email/unsubscribe", locale) },
         ]
       : [];
 
@@ -315,16 +332,16 @@ function buildRelatedLinks(page: ContentPageReaderView, locale: Locale, blocks: 
   }
 
   const companyLinks = [
-    { slug: "about", label: locale === "zh" ? "关于我们" : "About" },
-    { slug: "charter", label: locale === "zh" ? "我们的宪章" : "Charter" },
-    { slug: "foundation", label: locale === "zh" ? "基金会" : "Foundation" },
-    { slug: "careers", label: locale === "zh" ? "工作机会" : "Careers" },
-    { slug: "brand", label: locale === "zh" ? "品牌" : "Brand" },
+    { slug: "about", label: label(locale, "关于我们", "About") },
+    { slug: "charter", label: label(locale, "我们的宪章", "Charter") },
+    { slug: "foundation", label: label(locale, "基金会", "Foundation") },
+    { slug: "careers", label: label(locale, "工作机会", "Careers") },
+    { slug: "brand", label: label(locale, "品牌", "Brand") },
   ];
   const policyLinks = [
-    { slug: "terms", label: locale === "zh" ? "使用条款" : "Terms of use" },
-    { slug: "privacy", label: locale === "zh" ? "隐私政策" : "Privacy policy" },
-    { slug: "policies", label: locale === "zh" ? "其他政策" : "Other policies" },
+    { slug: "terms", label: label(locale, "使用条款", "Terms of use") },
+    { slug: "privacy", label: label(locale, "隐私政策", "Privacy policy") },
+    { slug: "policies", label: label(locale, "其他政策", "Other policies") },
   ];
   const source = page.kind === "policy" ? policyLinks : companyLinks;
   return source.filter((item) => item.slug !== page.slug).map((item) => ({
@@ -334,7 +351,7 @@ function buildRelatedLinks(page: ContentPageReaderView, locale: Locale, blocks: 
   }));
 }
 
-function SupportContactCard({ page, locale }: { page: ContentPageReaderView; locale: Locale }) {
+function SupportContactCard({ page, locale }: { page: ContentPageReaderView; locale: DisplayLocale }) {
   if (page.kind !== "help" || !page.supportContact) {
     return null;
   }
@@ -342,7 +359,7 @@ function SupportContactCard({ page, locale }: { page: ContentPageReaderView; loc
   return (
     <div className="space-y-3 border-t border-[var(--fm-border)] pt-5" data-testid="help-support-contact">
       <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-text-muted)]">
-        {locale === "zh" ? "联系支持" : "Contact support"}
+        {label(locale, "联系支持", "Contact support")}
       </p>
       <a
         href={`mailto:${page.supportContact}`}
@@ -354,14 +371,14 @@ function SupportContactCard({ page, locale }: { page: ContentPageReaderView; loc
   );
 }
 
-export function ContentPageTemplate({ page, locale }: { page: ContentPageReaderView; locale: Locale }) {
+export function ContentPageTemplate({ page, locale }: { page: ContentPageReaderView; locale: DisplayLocale }) {
   const markdownBlocks = parseMarkdown(page.contentMd);
   if (page.slug === "about" && !page.contentHtml.trim()) {
     const nextSectionIndex = markdownBlocks.findIndex((block, index) => index > 0 && block.type === "heading" && block.level === 2);
     markdownBlocks.splice(nextSectionIndex < 0 ? markdownBlocks.length : nextSectionIndex, 0, {
       type: "heading",
       level: 2,
-      text: locale === "zh" ? "创始人与博士顾问团队" : "Founder and doctoral advisors",
+      text: label(locale, "创始人与博士顾问团队", "Founder and doctoral advisors"),
       id: "team",
       teamSection: true,
     });
@@ -375,25 +392,20 @@ export function ContentPageTemplate({ page, locale }: { page: ContentPageReaderV
   const showHeroSummary = page.slug !== "help-contact";
   const showMetadataCard = Boolean(updatedAt || effectiveAt);
 
+  const PageRoot = locale === "zh-TW" ? "article" : "main";
   return (
-    <main className="fm-page-background text-[var(--fm-text)]" data-testid={`content-page-${page.slug}`}>
+    <PageRoot className="fm-page-background text-[var(--fm-text)]" data-testid={`content-page-${page.slug}`}>
       <Container className="py-10 md:py-14">
         <Breadcrumb
           items={[
-            { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
+            { label: label(locale, "首页", "Home"), href: locale === "zh-TW" ? "/zh-TW" : localizedPath("/", locale) },
             {
               label: isHelp
-                ? locale === "zh"
-                  ? "帮助中心"
-                  : "Help Center"
+                ? label(locale, "帮助中心", "Help Center")
                 : isPolicy
-                  ? locale === "zh"
-                    ? "条款与政策"
-                    : "Terms & policies"
-                  : locale === "zh"
-                    ? "公司"
-                    : "Company",
-              href: isHelp ? localizedPath("/support", locale) : undefined,
+                  ? label(locale, "条款与政策", "Terms & policies")
+                  : label(locale, "公司", "Company"),
+              href: isHelp && locale !== "zh-TW" ? localizedPath("/support", locale) : undefined,
             },
             { label: page.title },
           ]}
@@ -415,13 +427,13 @@ export function ContentPageTemplate({ page, locale }: { page: ContentPageReaderV
             <dl className="m-0 grid h-fit gap-4 rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-4 text-sm">
               {updatedAt ? (
                 <div>
-                  <dt className="text-[var(--fm-text-muted)]">{locale === "zh" ? "最近更新" : "Updated"}</dt>
+                  <dt className="text-[var(--fm-text-muted)]">{label(locale, "最近更新", "Updated")}</dt>
                   <dd className="m-0 font-medium text-[var(--fm-text)]">{updatedAt}</dd>
                 </div>
               ) : null}
               {effectiveAt ? (
                 <div>
-                  <dt className="text-[var(--fm-text-muted)]">{locale === "zh" ? "生效日期" : "Effective"}</dt>
+                  <dt className="text-[var(--fm-text-muted)]">{label(locale, "生效日期", "Effective")}</dt>
                   <dd className="m-0 font-medium text-[var(--fm-text)]">{effectiveAt}</dd>
                 </div>
               ) : null}
@@ -436,9 +448,9 @@ export function ContentPageTemplate({ page, locale }: { page: ContentPageReaderV
 
           <aside className="h-fit space-y-6 md:sticky md:top-24">
             {toc.length ? (
-              <nav aria-label={locale === "zh" ? "页面目录" : "Page contents"} className="space-y-3">
+              <nav aria-label={label(locale, "页面目录", "Page contents")} className="space-y-3">
                 <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-text-muted)]">
-                  {locale === "zh" ? "目录" : "Contents"}
+                  {label(locale, "目录", "Contents")}
                 </p>
                 <div className="grid gap-2 border-l border-[var(--fm-border)] pl-4">
                   {toc.map((item) => (
@@ -456,9 +468,9 @@ export function ContentPageTemplate({ page, locale }: { page: ContentPageReaderV
 
             <SupportContactCard page={page} locale={locale} />
 
-            <div className="space-y-3 border-t border-[var(--fm-border)] pt-5">
+            {relatedLinks.length ? <div className="space-y-3 border-t border-[var(--fm-border)] pt-5">
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-text-muted)]">
-                {locale === "zh" ? "相关页面" : "Related"}
+                {label(locale, "相关页面", "Related")}
               </p>
               <div className="grid gap-2">
                 {relatedLinks.map((item) => (
@@ -471,10 +483,10 @@ export function ContentPageTemplate({ page, locale }: { page: ContentPageReaderV
                   </Link>
                 ))}
               </div>
-            </div>
+            </div> : null}
           </aside>
         </div>
       </Container>
-    </main>
+    </PageRoot>
   );
 }

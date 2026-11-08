@@ -1,6 +1,6 @@
 import { ApiError, apiClient } from "@/lib/api-client";
 import { withLastKnownGood, type LastKnownGoodResult } from "@/lib/cms/last-known-good";
-import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
+import { localizedPath, normalizeLocale, normalizeDisplayLocale, toApiLocale, type DisplayLocale, type Locale } from "@/lib/i18n/locales";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 
 const DEFAULT_ORG_ID = "0";
@@ -23,7 +23,7 @@ export type ContentPage = {
   summary: string;
   template: ContentPageTemplate;
   animationProfile: ContentPageAnimationProfile;
-  locale: Locale;
+  locale: DisplayLocale;
   publishedAt: string | null;
   updatedAt: string | null;
   effectiveAt: string | null;
@@ -312,7 +312,7 @@ function normalizeContentPage(record: ContentPageApiRecord): ContentPage | null 
     summary: normalizeText(record.summary ?? record.excerpt),
     template: normalizeTemplate(record.template, kind),
     animationProfile: normalizeAnimationProfile(record.animation_profile ?? record.animationProfile, kind),
-    locale: normalizeLocale(record.locale),
+    locale: normalizeDisplayLocale(record.locale) ?? normalizeLocale(record.locale),
     publishedAt: normalizeNullableDate(record.published_at ?? record.publishedAt),
     updatedAt: normalizeNullableDate(record.updated_at ?? record.updatedAt),
     effectiveAt: normalizeNullableDate(record.effective_at ?? record.effectiveAt),
@@ -394,15 +394,16 @@ export function listContentPageSlugs(): ContentPageSlug[] {
   return [...CONTENT_PAGE_SLUGS];
 }
 
-export function buildContentPagePath(slug: string, locale: Locale): string {
+export function buildContentPagePath(slug: string, locale: DisplayLocale): string {
+  const pathFor = (path: string) => locale === "zh-TW" ? `/zh-TW${path}` : localizedPath(path, locale);
   if (slug === "methodology" || slug === "source-review-policy") {
-    return localizedPath(`/personality/big-five/${slug}`, locale);
+    return pathFor(`/personality/big-five/${slug}`);
   }
   if (slug.startsWith("help-")) {
-    return localizedPath(`/help/${slug.slice(5)}`, locale);
+    return pathFor(`/help/${slug.slice(5)}`);
   }
 
-  return localizedPath(`/${slug}`, locale);
+  return pathFor(`/${slug}`);
 }
 
 export function normalizeBigFivePolicyContentPage(
@@ -442,8 +443,10 @@ export async function getContentPage(slug: string, locale: Locale | string): Pro
     return null;
   }
 
+  const displayLocale = normalizeDisplayLocale(locale) ?? normalizeLocale(locale);
+  const apiLocale = displayLocale === "zh-TW" ? "zh-TW" : toApiLocale(displayLocale);
   const query = buildQuery({
-    locale: toApiLocale(locale),
+    locale: apiLocale,
     org_id: DEFAULT_ORG_ID,
   });
 
@@ -452,13 +455,19 @@ export async function getContentPage(slug: string, locale: Locale | string): Pro
       `/v0.5/content-pages/${encodeURIComponent(normalizedSlug)}${query}`,
       {
         locale,
+        ...(displayLocale === "zh-TW" ? { headers: { "X-FAP-Locale": apiLocale } } : {}),
         skipAuth: true,
         ...PUBLIC_API_CACHE_OPTIONS,
       }
     );
+    // TW is a real CMS variant, never a simplified/English compatibility fallback.
+    if (displayLocale === "zh-TW" && (
+      response.ok !== true || response.page?.slug !== normalizedSlug || response.page.locale !== apiLocale ||
+      response.page.status !== "published" || response.page.is_public !== true
+    )) return null;
     const page = response.page
       ? normalizedSlug === "methodology" || normalizedSlug === "source-review-policy"
-        ? normalizeBigFivePolicyContentPage(response.page, normalizedSlug, normalizeLocale(locale))
+        ? displayLocale === "zh-TW" ? null : normalizeBigFivePolicyContentPage(response.page, normalizedSlug, normalizeLocale(locale))
         : normalizeContentPage(response.page)
       : null;
     return page?.isPublic ? page : null;
@@ -476,7 +485,7 @@ export async function getContentPageWithLastKnownGood(
   locale: Locale | string
 ): Promise<LastKnownGoodResult<ContentPage | null>> {
   const normalizedSlug = normalizeText(slug);
-  const normalizedLocale = normalizeLocale(locale);
+  const normalizedLocale = normalizeDisplayLocale(locale) ?? normalizeLocale(locale);
 
   return withLastKnownGood({
     key: `content-page:${normalizedLocale}:${normalizedSlug}`,

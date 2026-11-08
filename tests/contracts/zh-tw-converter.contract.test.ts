@@ -11,7 +11,7 @@ test('Taiwan conversion preserves protected tokens and semantic boundaries', () 
 });
 test('only bilingual reader fields are extracted; IDs, business configuration and URLs stay intact', () => {
   assert.deepEqual(collect({ id: '简体ID', slug: 'chiikawa', score: 18, url: '/zh/path', source: { hash: 'abc' }, label: { zh: '请选择', en: 'Choose' } }), { '/label': '请选择' });
-  assert.deepEqual(sources, ['lib/questionnaires/data/chiikawa.json', 'lib/questionnaires/result-content/chiikawa.json', 'lib/i18n/zh-TW/ui.source.json']);
+  assert.deepEqual(sources, ['lib/questionnaires/data/chiikawa.json', 'lib/questionnaires/result-content/chiikawa.json', 'lib/i18n/zh-TW/ui.source.json', 'lib/i18n/zh-TW/about-team.source.json', 'lib/i18n/zh-TW/content-page-labels.source.json']);
 });
 test('incremental reuse binds target, field context, source text and converter/glossary version', () => {
   const first = build().artifact;

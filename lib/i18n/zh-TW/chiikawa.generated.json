@@ -5,7 +5,9 @@
   "sourceHashes": {
     "lib/questionnaires/data/chiikawa.json": "87365e77fe9c08277e8eb02ec30c5f1f4f444d84e58afe04cc9dfbb8e4da0a7a",
     "lib/questionnaires/result-content/chiikawa.json": "32308e38fdeab4de784d4c5dc30e2a5f756559b1d00fd05f36301fe2fd8b61a6",
-    "lib/i18n/zh-TW/ui.source.json": "7db312a26f951ed244e4fab07fa1e587e59d2f6d2f07ae4453636cd75a62f610"
+    "lib/i18n/zh-TW/ui.source.json": "7db312a26f951ed244e4fab07fa1e587e59d2f6d2f07ae4453636cd75a62f610",
+    "lib/i18n/zh-TW/about-team.source.json": "a65ffdb3ec03c7c73dacd33f9e33b3b2e6c5f3199f596501336ed6e67c09d9f9",
+    "lib/i18n/zh-TW/content-page-labels.source.json": "2bd46e62a8a5b44e638f38ccbda2e7d10285f36a1e59920ca6ec6c97d0b4ff0d"
   },
   "units": {
     "lib/questionnaires/data/chiikawa.json/title": {
@@ -1447,6 +1449,146 @@
     "lib/i18n/zh-TW/ui.source.json/resultNote": {
       "sourceHash": "cb9fb9bad386bcb2a7bfd60739879413947584705696340923ade2091c6b3fbe",
       "text": "保留所有最高並列，不合成新角色，不推斷能力或診斷。次數只描述這18題的選擇，不是人群百分位。"
+    },
+    "lib/i18n/zh-TW/about-team.source.json/roles/0": {
+      "sourceHash": "b0f35a5d0a652cd7ef7793bde718e888f1224ebb26be390a96fe2fed4b6b55ed",
+      "text": "創始人"
+    },
+    "lib/i18n/zh-TW/about-team.source.json/roles/1": {
+      "sourceHash": "a1002e91f02b4efafae82d1ae70ebaffb93fb001b1d0c1bf93551339362725bc",
+      "text": "博士顧問"
+    },
+    "lib/i18n/zh-TW/about-team.source.json/roles/2": {
+      "sourceHash": "7bba1c23ed89a84c84b8dfb8d134952e362c78c0baa98ed4cf25c75f0315bf05",
+      "text": "博士顧問"
+    },
+    "lib/i18n/zh-TW/about-team.source.json/names/0": {
+      "sourceHash": "860fe5f5559ea28a429a821521ff737997de4881da9891864c3ea6dd48b1ca5d",
+      "text": "劉福威"
+    },
+    "lib/i18n/zh-TW/about-team.source.json/names/1": {
+      "sourceHash": "6124ba394d5497adee7ce9cc9aefc375bf6d5f7ede85cbbc5307b161f4fd47b2",
+      "text": "賈睿璇"
+    },
+    "lib/i18n/zh-TW/about-team.source.json/names/2": {
+      "sourceHash": "e8b3d19848b441e0ad5d4123f4eff45196a4191a394f564661f6bd3f6c7bf214",
+      "text": "李琛"
+    },
+    "lib/i18n/zh-TW/about-team.source.json/backgrounds/0": {
+      "sourceHash": "1e5a8f36171acbcda66b9ce7ef2aba7c06faf6317facbc11b15a291bd15f1aa5",
+      "text": "本科畢業於廣東海洋大學，北京大學光華管理學院 MBA。2018—2021 年融資 6000 萬人民幣。"
+    },
+    "lib/i18n/zh-TW/about-team.source.json/backgrounds/1": {
+      "sourceHash": "1e166a814fb329ecc405c4483ab49c62bcb7993802ff2dd74e7a1e36d2e093c1",
+      "text": "北京大學醫學博士。在 Prog Eye Retin Res、Hum Mol Genet、Nat Commun 等高水平期刊發表多篇 SCI 論文，其中以第一作者（含共同第一作者）發表 SCI 論著 2 篇（影響因子超過 20）。"
+    },
+    "lib/i18n/zh-TW/about-team.source.json/backgrounds/2": {
+      "sourceHash": "09e58c449b8cc1419376ae0822c578cbe2e0bac5784a9962f2d1590d85de32d5",
+      "text": "清華大學協和醫學院博士。"
+    },
+    "lib/i18n/zh-TW/about-team.source.json/heading": {
+      "sourceHash": "eb3db325f5420611d7e5b4ad0f6acb0f01456de5cb33c54bebfa2e02a56aec56",
+      "text": "創始人與博士顧問團隊"
+    },
+    "lib/i18n/zh-TW/about-team.source.json/portraitAlt": {
+      "sourceHash": "eccd91b660d29b07e1c9b7d72d6a5eafe9f7d03418321023dbd7f510f4cdf56e",
+      "text": "劉福威，費馬測試創始人"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/0": {
+      "sourceHash": "655e0bd8dfd72a96bbca5b7950f0aab0c67c4180d5c65980b92032f0876efc96",
+      "text": "常見問題"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/1": {
+      "sourceHash": "cbe5ebca723cdf88c6955a0356c3d30964e8a14ba08b41b6b45d42e25c5426bd",
+      "text": "聯絡方式"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/2": {
+      "sourceHash": "5c645bcecd6d8290c326676fe63dcf9ed635f96a7f67920fceac0fbc25e49675",
+      "text": "訂單查詢與報告找回"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/3": {
+      "sourceHash": "4e7b52a44a0905c9f3220a4329886c77d694ff14baa19087a8e223bea63275c6",
+      "text": "郵件偏好"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/4": {
+      "sourceHash": "74d4d026b5cc0b3bced7698ed53bd134bac9f1be49869fd974f6f9942f7d2260",
+      "text": "退訂郵件"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/5": {
+      "sourceHash": "27cf9aa5bb9e2aebd410692ea3c7b57e9e658ad7ab225ea5fe18a789021b47a9",
+      "text": "關於我們"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/6": {
+      "sourceHash": "69414163df61eb58b5158874660b0fc4fefc6a229cb1f83aa3bd7dd64266b6cb",
+      "text": "我們的憲章"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/7": {
+      "sourceHash": "5950d4792d2219112eeffea63aacd01493a560a55418a4f98ff30870deb5b016",
+      "text": "基金會"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/8": {
+      "sourceHash": "39be188a1553110146b039aa4880d4ae82d333406a84941036bf7fdf11aadaff",
+      "text": "工作機會"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/9": {
+      "sourceHash": "a89c883a667cd6e136d41c984b2d7411feb4094d80836168a36bb4e4bec9f98f",
+      "text": "品牌"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/10": {
+      "sourceHash": "111c0aab47409e57347b4ad13ef17ae33958e44da1143f23a1494aadadfddba5",
+      "text": "使用條款"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/11": {
+      "sourceHash": "c0089f0fbd84006a30000644c60635599c9224ce69397ca3f249cb44a9415cb5",
+      "text": "隱私政策"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/12": {
+      "sourceHash": "ce7b4d77ca28ae6d0e565283247f5d75d0607dbf4fa0cf40fbf583f00ce23bd4",
+      "text": "其他政策"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/13": {
+      "sourceHash": "a326317676e3c9f226bf7b464399012bdf396cb8a3acdbb3bbebf8164924a11e",
+      "text": "聯絡支援"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/14": {
+      "sourceHash": "072153f00e79a26bec9d674815ffd224862f666af4629efee731694614271bd8",
+      "text": "創始人與博士顧問團隊"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/15": {
+      "sourceHash": "f37611032b0afe89fca5c3e1bdd6fa6df5ce5d96981b0dce42ef6f31af167bd1",
+      "text": "首頁"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/16": {
+      "sourceHash": "720cab4b89fb87a74fad9a5faac7d22713ea5ab971fbd41478c309d3651b242d",
+      "text": "幫助中心"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/17": {
+      "sourceHash": "e8e7dd16ebbd7e8b3142d2a9eff63be16cb26eccd8136dccc8f6242162308511",
+      "text": "條款與政策"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/18": {
+      "sourceHash": "e789d77c6d2db8f175a5169c31007d3bef7de904a8648326744953af0eb04c18",
+      "text": "公司"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/19": {
+      "sourceHash": "75360c95a6e0fe34cbcf9623b82f283ba8b37c681357cef8244d8aaf34780fa9",
+      "text": "最近更新"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/20": {
+      "sourceHash": "5a1f9e1b96a32a9a287947c798b6e301a4ee3a6c5a4a1b8278a7c79566d9f4e0",
+      "text": "生效日期"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/21": {
+      "sourceHash": "9b4aee778e40d8a0b674d92b6b347d6111738c329d16ff248c45dcce062a6db8",
+      "text": "頁面目錄"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/22": {
+      "sourceHash": "85eb9c363143c09c00cc99bfea0d4508db027a9f3e495a01411c36b2da82843e",
+      "text": "目錄"
+    },
+    "lib/i18n/zh-TW/content-page-labels.source.json/23": {
+      "sourceHash": "b1bc20f417d7769dc1a29e2af25d4423e928ed38c7dac2a4cba1b7386374daf9",
+      "text": "相關頁面"
     }
   }
 }

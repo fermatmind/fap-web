@@ -1,0 +1,52 @@
+{
+  "roles": [
+    {
+      "zh": "创始人",
+      "en": "Founder"
+    },
+    {
+      "zh": "博士顾问",
+      "en": "Doctoral advisor"
+    },
+    {
+      "zh": "博士顾问",
+      "en": "Doctoral advisor"
+    }
+  ],
+  "names": [
+    {
+      "zh": "刘福威",
+      "en": "Liu Fuwei"
+    },
+    {
+      "zh": "贾睿璇",
+      "en": "Jia Ruixuan"
+    },
+    {
+      "zh": "李琛",
+      "en": "Li Chen"
+    }
+  ],
+  "backgrounds": [
+    {
+      "zh": "本科毕业于广东海洋大学，北京大学光华管理学院 MBA。2018—2021 年融资 6000 万人民币。",
+      "en": "Bachelor’s degree from Guangdong Ocean University and an MBA from Guanghua School of Management, Peking University. Raised RMB 60 million between 2018 and 2021."
+    },
+    {
+      "zh": "北京大学医学博士。在 Prog Eye Retin Res、Hum Mol Genet、Nat Commun 等高水平期刊发表多篇 SCI 论文，其中以第一作者（含共同第一作者）发表 SCI 论著 2 篇（影响因子超过 20）。",
+      "en": "PhD in medicine from Peking University. Published multiple SCI papers in leading journals including Prog Eye Retin Res, Hum Mol Genet, and Nat Commun, including two SCI research articles as first author (including co-first author; impact factor above 20)."
+    },
+    {
+      "zh": "清华大学协和医学院博士。",
+      "en": "PhD from Peking Union Medical College, Tsinghua University."
+    }
+  ],
+  "heading": {
+    "zh": "创始人与博士顾问团队",
+    "en": "Founder and doctoral advisors"
+  },
+  "portraitAlt": {
+    "zh": "刘福威，费马测试创始人",
+    "en": "Liu Fuwei, founder of FermatMind"
+  }
+}

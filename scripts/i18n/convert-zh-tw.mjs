@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { Converter } from 'opencc-js';
 
 // Explicit current, code-owned sources only. CMS requires its own native importer.
-export const sources = ['lib/questionnaires/data/chiikawa.json', 'lib/questionnaires/result-content/chiikawa.json', 'lib/i18n/zh-TW/ui.source.json'];
+export const sources = ['lib/questionnaires/data/chiikawa.json', 'lib/questionnaires/result-content/chiikawa.json', 'lib/i18n/zh-TW/ui.source.json', 'lib/i18n/zh-TW/about-team.source.json', 'lib/i18n/zh-TW/content-page-labels.source.json'];
 const root = new URL('../../', import.meta.url);
 export const packages = [
   { output: 'lib/i18n/zh-TW/chiikawa.generated.json', sources },
