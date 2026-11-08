@@ -7,6 +7,8 @@ import { isArchetypeConfigurationValid, scoreArchetypeQuestionnaire } from "@/li
 import { FantasyArchetypeReport } from "@/components/questionnaires/FantasyArchetypeReport";
 import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
 import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
+import { MoreTests } from "@/components/entertainment/MoreTests";
+import { directoryDescription } from "@/lib/entertainment/directory";
 
 vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/soldier-poet-king-quiz.json", "utf8")) as Questionnaire;
@@ -95,6 +97,15 @@ describe("original Soldier Poet King 24-scenario edition", () => {
     }
     expect(html).toContain("33.3%"); expect(html).not.toContain("MBTI");
     expect(html).not.toContain("<h2");
+    const directory = document.createElement("div");
+    directory.innerHTML = renderToStaticMarkup(<MoreTests locale={locale} />);
+    const path = `/${locale}/tests/explore/${quiz.slug}`;
+    const card = directory.querySelector(`h4 a[href="${path}"]`)?.closest("article");
+    expect(card).not.toBeNull();
+    expect(card?.querySelector(".catalog-item-body > p")?.textContent).toBe(directoryDescription(quiz)[locale]);
+    expect(card?.querySelector("a.catalog-item-start")?.getAttribute("href")).toBe(path);
+    expect(card?.querySelector(".catalog-cover > img")?.getAttribute("src")).toBe(`/images/test-covers/${quiz.slug}.webp`);
+    expect(readFileSync(`public/images/test-covers/${quiz.slug}.webp`).toString("ascii", 8, 12)).toBe("WEBP");
     const sitemap = appendFunSitemapEntries([]);
     expect(sitemap.some(row => row.loc.endsWith(`/tests/explore/${quiz.slug}`))).toBe(true);
     for (const p of quiz.profiles) expect(sitemap.some(row => row.loc.endsWith(`/tests/explore/${quiz.slug}/results/${p.id}`))).toBe(true);

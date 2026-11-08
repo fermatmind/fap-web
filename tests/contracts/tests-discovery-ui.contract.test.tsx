@@ -79,6 +79,10 @@ describe("shared discovery directory", () => {
     fireEvent.change(search, { target: { value: "四学院的同人选择" } });
     expect(container.querySelectorAll("article")).toHaveLength(1);
     expect(container.querySelector("h4")?.textContent).toContain("霍格沃茨");
+    fireEvent.change(search, { target: { value: "士兵诗人国王" } });
+    expect(container.querySelectorAll("article")).toHaveLength(1);
+    expect(container.querySelector("h4 a")?.getAttribute("href")).toBe("/zh/tests/explore/soldier-poet-king-quiz");
+    expect(container.querySelector(".catalog-cover > img")?.getAttribute("src")).toBe("/images/test-covers/soldier-poet-king-quiz.webp");
     fireEvent.change(search, { target: { value: "unmatched-topic-123456" } });
     expect(container.querySelectorAll("article")).toHaveLength(0);
     fireEvent.click(screen.getByRole("button", { name: "查看全部" }));

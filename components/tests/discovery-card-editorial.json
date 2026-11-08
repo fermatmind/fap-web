@@ -3133,5 +3133,16 @@
       "secondary": "cards",
       "layout": "story"
     }
+  },
+  "soldier-poet-king-quiz": {
+    "subtitle": {
+      "zh": "士兵诗人国王三原型的故事选择",
+      "en": "Soldier Poet King story archetypes"
+    },
+    "art": {
+      "primary": "book",
+      "secondary": "castle",
+      "layout": "story"
+    }
   }
 }

@@ -47,7 +47,7 @@ describe("entertainment preview entry", () => {
       cleanup();
     }
   });
-  it("renders both locales of all 284 native entries with their complete guide paragraphs and current BLEACH progress copy", async () => {
+  it("renders both locales of all current native entries with their complete guide paragraphs and current BLEACH progress copy", async () => {
     const entry = (await import("@/components/questionnaires/QuestionnairePage")).default;
     const omitted: string[] = [];
     for (const item of catalog) {
