@@ -81,7 +81,10 @@ describe("T157 original consumer-security knowledge practice", () => {
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com"); vi.resetModules(); const entry = await import("@/app/(localized)/[locale]/tests/explore/[slug]/page"), guide = await import("@/app/(localized)/[locale]/tests/explore/[slug]/results/[profile]/page"), maps = appendFunSitemapEntries([]);
     try { for (const locale of ["en", "zh"] as const) {
       const path = `/${locale}/tests/explore/cybersecurity-awareness`, props = { params: Promise.resolve({ locale, slug: quiz.slug }) }, html = renderToStaticMarkup(await entry.default(props)), meta = await entry.generateMetadata(props);
-      expect(meta.title).toBe(quiz.seoTitle[locale]); expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(html).toContain(quiz.instructions![locale]); for (const r of quiz.references!) expect(html).toContain(`href="${r.url}"`); expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);
+      expect(meta.title).toBe(quiz.seoTitle[locale]); expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(html).toContain(quiz.instructions![locale]);
+      const entryDom = document.createElement("div"); entryDom.innerHTML = html;
+      expect(entryDom.querySelector("h1")?.textContent).toBe(quiz.title[locale]);
+      expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(quiz.title[locale]); for (const r of quiz.references!) expect(html).toContain(`href="${r.url}"`); expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);
       expect(html).toContain(locale === "zh" ? "原创练习题" : "Original practice bank");
       for (const profile of quiz.profiles) {
         const publicPath = `${path}/results/${profile.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) }, rendered = renderToStaticMarkup(await guide.default(props)), metadata = await guide.generateMetadata(props), dom = document.createElement("div"); dom.innerHTML = rendered;
