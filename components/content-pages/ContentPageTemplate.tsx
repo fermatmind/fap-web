@@ -358,9 +358,16 @@ function buildRelatedLinks(page: ContentPageReaderView, locale: DisplayLocale, b
     return careersJobLinks;
   }
   if (locale === "zh-TW") {
-    return companyLinks
+    const lifecycleLinks: RelatedLink[] = page.kind === "help" && page.slug === "help-contact"
+      ? [
+          { key: "order-lookup", label: `${label(locale, "订单查询与报告找回", "Order lookup and report recovery")}（${label(locale, "简体中文", "Simplified Chinese")}）`, href: "/zh/orders/lookup" },
+          { key: "email-preferences", label: label(locale, "邮件偏好", "Email preferences"), href: "/zh-TW/email/preferences" },
+          { key: "email-unsubscribe", label: label(locale, "退订邮件", "Unsubscribe"), href: "/zh-TW/email/unsubscribe" },
+        ]
+      : [];
+    return [...lifecycleLinks, ...companyLinks
       .filter(item => item.slug !== page.slug && TRADITIONAL_CMS_PUBLISHED_PATHS.some(path => path === `/${item.slug}`))
-      .map(item => ({ key: item.slug, label: item.label, href: buildContentPagePath(item.slug, locale) }));
+      .map(item => ({ key: item.slug, label: item.label, href: buildContentPagePath(item.slug, locale) }))];
   }
 
   if (page.kind === "help") {

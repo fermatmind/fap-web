@@ -45,6 +45,24 @@ describe("shared Traditional CMS page route", () => {
     expect(schema.find(node => node["@type"] === "WebPage")).toMatchObject({ inLanguage: "zh-TW", url: `${SITE_URL}/zh-TW/${slug}` });
     expect(read).toHaveBeenCalledWith(slug, "zh-TW");
   });
+  it("renders the native contact, nested canonical and available recovery controls", async () => {
+    const contact = { ...page("help-contact"), path: "/zh-TW/help/contact", kind: "help", template: "help", supportContact: "support@example.invalid" };
+    read.mockResolvedValue({ value: contact });
+    const metadata = await generateTraditionalContentPageMetadata("help-contact");
+    expect(metadata.alternates).toEqual({ canonical: `${SITE_URL}/zh-TW/help/contact` });
+    expect(metadata.robots).toEqual({ index: false, follow: true });
+    const html = renderToStaticMarkup(await renderTraditionalContentPage("help-contact"));
+    const document = new DOMParser().parseFromString(html, "text/html");
+    expect(document.querySelector('[data-testid="help-support-contact"] a')?.getAttribute("href")).toBe("mailto:support@example.invalid");
+    for (const href of ["/zh-TW/email/preferences", "/zh-TW/email/unsubscribe", "/zh/orders/lookup", "/en/help/contact", "/zh/help/contact"]) {
+      expect(document.querySelector(`a[href="${href}"]`)).not.toBeNull();
+    }
+    expect(document.querySelector('a[href="/zh/orders/lookup"]')?.textContent).toContain("簡體中文");
+    for (const href of ["/zh-TW/orders/lookup", "/zh-TW/help/faq", "/zh-TW/support"]) {
+      expect(document.querySelector(`a[href="${href}"]`)).toBeNull();
+    }
+    expect(read).toHaveBeenCalledWith("help-contact", "zh-TW");
+  });
   it("exposes all eight published CMS pages in the actual Traditional footer", () => {
     const html = renderToStaticMarkup(<TraditionalLayout><p>內容</p></TraditionalLayout>);
     const document = new DOMParser().parseFromString(html, "text/html");
