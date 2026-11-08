@@ -1546,5 +1546,9 @@
   "soldier-poet-king-quiz": {
     "zh": "完成24道原创情境和1道六项排序，比较士兵、诗人、国王与全部并列，免费保存你的主题结果卡。",
     "en": "Complete 24 original scenarios and one six-item ranking, compare all three archetypes and ties, and save your free themed result card."
+  },
+  "rice-purity-test": {
+    "zh": "独立原创100项成人经历清单，可跳过、修改与清空。透明计算0—100分，保存不含逐题答案的结果图。非经典原版，不评价道德或健康。",
+    "en": "An independent 100-item adult experience checklist. Skip, edit or clear selections, see the transparent 0–100 score and save a score-only image. Not the classic original or a judgment of character."
   }
 }

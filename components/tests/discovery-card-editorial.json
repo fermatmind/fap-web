@@ -3144,5 +3144,16 @@
       "secondary": "castle",
       "layout": "story"
     }
+  },
+  "rice-purity-test": {
+    "subtitle": {
+      "zh": "纯洁度测试与100项成人经历清单",
+      "en": "Rice Purity 100-item experience checklist"
+    },
+    "art": {
+      "primary": "book",
+      "secondary": "cards",
+      "layout": "story"
+    }
   }
 }

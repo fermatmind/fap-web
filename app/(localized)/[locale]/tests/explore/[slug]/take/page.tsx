@@ -18,5 +18,5 @@ async function entry(params: Props["params"]) {
 export async function generateMetadata({ params }: Props) { const { locale, quiz, landing } = await entry(params); return questionnaireTakeMetadata(quiz.title[locale], landing); }
 export default async function Page({ params }: Props) {
   const { locale, quiz, landing } = await entry(params);
-  return <QuestionnaireTakeDocument quiz={quiz} locale={locale} landing={landing} autoStart={!["typing", "ten-key", "data-entry", "written-coordination"].includes(quiz.kind)}>{await QuestionnairePage({ params, take: true })}</QuestionnaireTakeDocument>;
+  return <QuestionnaireTakeDocument quiz={quiz} locale={locale} landing={landing} autoStart={!["typing", "ten-key", "data-entry", "written-coordination", "rice100"].includes(quiz.kind)}>{await QuestionnairePage({ params, take: true })}</QuestionnaireTakeDocument>;
 }

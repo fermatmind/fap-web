@@ -7597,5 +7597,27 @@
       "poet",
       "king"
     ]
+  },
+  {
+    "slug": "rice-purity-test",
+    "code": "RICE_EXPERIENCE_100",
+    "version": "1.0.0",
+    "updated": "2026-11-08",
+    "category": "everyday",
+    "title": {
+      "en": "Rice Purity Test: 100-Item Experience Checklist",
+      "zh": "纯洁度测试（Rice Purity）：100项经历清单"
+    },
+    "description": {
+      "en": "Explore an independent 100-item adult experience checklist. Get a transparent 0–100 score, review or clear your selections, and save a score-only image.",
+      "zh": "一份独立创作的100项成人经历清单。勾选后查看可复算的0—100分，随时修改或清空选择，保存不包含逐题答案的结果图片。"
+    },
+    "minutes": 10,
+    "collection": "explore",
+    "formCode": "fm_original_experience100_v1",
+    "questionCount": 100,
+    "resultSlugs": [
+      "score-reading"
+    ]
   }
 ]

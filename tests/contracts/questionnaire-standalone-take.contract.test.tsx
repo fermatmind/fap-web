@@ -20,13 +20,13 @@ import { ANALYTICS_DISABLED_QUESTIONNAIRE_PATHS, isAnalyticsDisabledQuestionnair
 describe("Independent entertainment answering routes", () => {
   it("covers every native questionnaire while keeping the five calculator and comparison tools intact", () => {
     const answerable = catalog.filter(item => hasQuestionnaireTake(item.slug));
-    expect(answerable).toHaveLength(280);
+    expect(answerable).toHaveLength(281);
     expect(catalog.filter(item => !hasQuestionnaireTake(item.slug)).map(item => item.slug).sort()).toEqual([...INLINE_QUESTIONNAIRE_TOOLS].sort());
     expect(hasQuestionnaireTake("unknown-product")).toBe(false);
   });
-  it("admits all 381 answering experiences in both languages and still refuses absent products", () => {
+  it("admits all 382 answering experiences in both languages and still refuses absent products", () => {
     const entries = [...catalog.filter(item => hasQuestionnaireTake(item.slug)).map(item => `${item.collection}/${item.slug}`), ...stories.filter(item => !catalog.some(native => native.slug === item.slug)).map(item => `play/${item.slug}`), "play/friendship-quiz"];
-    expect(entries).toHaveLength(381);
+    expect(entries).toHaveLength(382);
     for (const locale of ["en", "zh"]) for (const entry of entries) expect(isMissingFunRoute(`/${locale}/tests/${entry}/take`)).toBe(false);
     for (const path of ["/zh/tests/explore/missing-product/take", "/en/tests/play/missing-story/take", "/en/tests/explore/career-match/take", "/en/tests/play/friendship-quiz/take/manage"]) expect(isMissingFunRoute(path)).toBe(true);
   });

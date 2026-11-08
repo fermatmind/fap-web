@@ -1,0 +1,1136 @@
+{
+  "slug": "rice-purity-test",
+  "version": "fermat-original-experiences-100-v1",
+  "status": "original candidate, not classic original reproduction",
+  "questions": [
+    {
+      "id": "experience-001",
+      "category": {
+        "zh": "约会与关系",
+        "en": "Dating and relationships"
+      },
+      "label": {
+        "zh": "与有好感的人牵手散步过。",
+        "en": "Walked hand in hand with someone I was romantically interested in."
+      }
+    },
+    {
+      "id": "experience-002",
+      "category": {
+        "zh": "约会与关系",
+        "en": "Dating and relationships"
+      },
+      "label": {
+        "zh": "主动邀请过别人单独约会。",
+        "en": "Invited someone on a one-to-one date."
+      }
+    },
+    {
+      "id": "experience-003",
+      "category": {
+        "zh": "约会与关系",
+        "en": "Dating and relationships"
+      },
+      "label": {
+        "zh": "答应过别人的约会邀请。",
+        "en": "Accepted an invitation to a date."
+      }
+    },
+    {
+      "id": "experience-004",
+      "category": {
+        "zh": "约会与关系",
+        "en": "Dating and relationships"
+      },
+      "label": {
+        "zh": "通过交友应用认识过约会对象。",
+        "en": "Met a date through a dating app."
+      }
+    },
+    {
+      "id": "experience-005",
+      "category": {
+        "zh": "约会与关系",
+        "en": "Dating and relationships"
+      },
+      "label": {
+        "zh": "和朋友介绍的人约会过。",
+        "en": "Gone on a date with someone introduced by a friend."
+      }
+    },
+    {
+      "id": "experience-006",
+      "category": {
+        "zh": "约会与关系",
+        "en": "Dating and relationships"
+      },
+      "label": {
+        "zh": "在约会中主动表达过喜欢。",
+        "en": "Expressed romantic interest during a date."
+      }
+    },
+    {
+      "id": "experience-007",
+      "category": {
+        "zh": "约会与关系",
+        "en": "Dating and relationships"
+      },
+      "label": {
+        "zh": "和别人讨论并确认过恋爱关系。",
+        "en": "Discussed and agreed to a romantic relationship."
+      }
+    },
+    {
+      "id": "experience-008",
+      "category": {
+        "zh": "约会与关系",
+        "en": "Dating and relationships"
+      },
+      "label": {
+        "zh": "谈过异地恋。",
+        "en": "Been in a long-distance romantic relationship."
+      }
+    },
+    {
+      "id": "experience-009",
+      "category": {
+        "zh": "约会与关系",
+        "en": "Dating and relationships"
+      },
+      "label": {
+        "zh": "和伴侣一起旅行过。",
+        "en": "Travelled together with a romantic partner."
+      }
+    },
+    {
+      "id": "experience-010",
+      "category": {
+        "zh": "约会与关系",
+        "en": "Dating and relationships"
+      },
+      "label": {
+        "zh": "向朋友介绍过自己的伴侣。",
+        "en": "Introduced a romantic partner to friends."
+      }
+    },
+    {
+      "id": "experience-011",
+      "category": {
+        "zh": "约会与关系",
+        "en": "Dating and relationships"
+      },
+      "label": {
+        "zh": "向家人介绍过自己的伴侣。",
+        "en": "Introduced a romantic partner to family."
+      }
+    },
+    {
+      "id": "experience-012",
+      "category": {
+        "zh": "约会与关系",
+        "en": "Dating and relationships"
+      },
+      "label": {
+        "zh": "和伴侣同居过。",
+        "en": "Shared a home with a romantic partner."
+      }
+    },
+    {
+      "id": "experience-013",
+      "category": {
+        "zh": "约会与关系",
+        "en": "Dating and relationships"
+      },
+      "label": {
+        "zh": "结束过一段恋爱关系。",
+        "en": "Ended a romantic relationship."
+      }
+    },
+    {
+      "id": "experience-014",
+      "category": {
+        "zh": "约会与关系",
+        "en": "Dating and relationships"
+      },
+      "label": {
+        "zh": "经历过对方提出分手。",
+        "en": "Had a partner end a romantic relationship."
+      }
+    },
+    {
+      "id": "experience-015",
+      "category": {
+        "zh": "约会与关系",
+        "en": "Dating and relationships"
+      },
+      "label": {
+        "zh": "和前任重新约会过。",
+        "en": "Dated a former partner again."
+      }
+    },
+    {
+      "id": "experience-016",
+      "category": {
+        "zh": "约会与关系",
+        "en": "Dating and relationships"
+      },
+      "label": {
+        "zh": "在约会前向对方说明过自己的界限。",
+        "en": "Discussed personal boundaries before a date."
+      }
+    },
+    {
+      "id": "experience-017",
+      "category": {
+        "zh": "约会与关系",
+        "en": "Dating and relationships"
+      },
+      "label": {
+        "zh": "经历过一段不公开的恋爱关系。",
+        "en": "Been in a romantic relationship kept private from others."
+      }
+    },
+    {
+      "id": "experience-018",
+      "category": {
+        "zh": "约会与关系",
+        "en": "Dating and relationships"
+      },
+      "label": {
+        "zh": "和伴侣谈过未来是否结婚。",
+        "en": "Discussed whether to marry with a partner."
+      }
+    },
+    {
+      "id": "experience-019",
+      "category": {
+        "zh": "约会与关系",
+        "en": "Dating and relationships"
+      },
+      "label": {
+        "zh": "订婚过。",
+        "en": "Been engaged to marry."
+      }
+    },
+    {
+      "id": "experience-020",
+      "category": {
+        "zh": "约会与关系",
+        "en": "Dating and relationships"
+      },
+      "label": {
+        "zh": "结婚过。",
+        "en": "Been married."
+      }
+    },
+    {
+      "id": "experience-021",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "在双方愿意的情况下亲吻过约会对象。",
+        "en": "Shared a consensual kiss with a date."
+      }
+    },
+    {
+      "id": "experience-022",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "和伴侣长时间拥抱过。",
+        "en": "Shared a prolonged embrace with a partner."
+      }
+    },
+    {
+      "id": "experience-023",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "和伴侣依偎着入睡过。",
+        "en": "Fallen asleep cuddling with a partner."
+      }
+    },
+    {
+      "id": "experience-024",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "与成年人自愿深吻过。",
+        "en": "Shared a consensual deep kiss with another adult."
+      }
+    },
+    {
+      "id": "experience-025",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "与伴侣谈过各自喜欢的亲密接触。",
+        "en": "Discussed preferred forms of intimate touch with a partner."
+      }
+    },
+    {
+      "id": "experience-026",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "与伴侣谈过不愿接受的亲密接触。",
+        "en": "Discussed unwanted forms of intimate touch with a partner."
+      }
+    },
+    {
+      "id": "experience-027",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "在亲密接触中主动停下来确认对方意愿。",
+        "en": "Paused intimate contact to check the other person's consent."
+      }
+    },
+    {
+      "id": "experience-028",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "主动结束过自己不想继续的亲密接触。",
+        "en": "Stopped intimate contact I no longer wanted to continue."
+      }
+    },
+    {
+      "id": "experience-029",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "在双方同意下和伴侣共浴过。",
+        "en": "Shared a bath with a partner by mutual consent."
+      }
+    },
+    {
+      "id": "experience-030",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "在双方同意下和伴侣一起淋浴过。",
+        "en": "Showered with a partner by mutual consent."
+      }
+    },
+    {
+      "id": "experience-031",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "在双方同意下与成年人互相按摩过。",
+        "en": "Exchanged massages with another adult by mutual consent."
+      }
+    },
+    {
+      "id": "experience-032",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "在双方同意下亲吻过成年伴侣的颈部。",
+        "en": "Kissed an adult partner's neck by mutual consent."
+      }
+    },
+    {
+      "id": "experience-033",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "在双方同意下抚摸过成年伴侣的私密部位。",
+        "en": "Touched an adult partner's intimate areas by mutual consent."
+      }
+    },
+    {
+      "id": "experience-034",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "在双方同意下接受过成年伴侣的私密抚摸。",
+        "en": "Received intimate touch from an adult partner by mutual consent."
+      }
+    },
+    {
+      "id": "experience-035",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "与成年伴侣自愿发生过性行为。",
+        "en": "Had consensual sexual activity with an adult partner."
+      }
+    },
+    {
+      "id": "experience-036",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "与成年伴侣自愿发生过口交。",
+        "en": "Had consensual oral sex with an adult partner."
+      }
+    },
+    {
+      "id": "experience-037",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "与成年伴侣自愿发生过阴道性交。",
+        "en": "Had consensual vaginal sex with an adult partner."
+      }
+    },
+    {
+      "id": "experience-038",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "与成年伴侣自愿发生过肛交。",
+        "en": "Had consensual anal sex with an adult partner."
+      }
+    },
+    {
+      "id": "experience-039",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "和成年伴侣在发生性行为前讨论过防护措施。",
+        "en": "Discussed protection before sexual activity with an adult partner."
+      }
+    },
+    {
+      "id": "experience-040",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "为自己的性行为购买过安全套。",
+        "en": "Bought condoms for my own sexual activity."
+      }
+    },
+    {
+      "id": "experience-041",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "在性行为中使用过安全套。",
+        "en": "Used a condom during sexual activity."
+      }
+    },
+    {
+      "id": "experience-042",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "与伴侣讨论过避孕安排。",
+        "en": "Discussed contraception with a partner."
+      }
+    },
+    {
+      "id": "experience-043",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "与伴侣谈论过性健康检测。",
+        "en": "Talked with a partner about sexual-health testing."
+      }
+    },
+    {
+      "id": "experience-044",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "与成年伴侣在一段稳定恋爱关系之外自愿发生过性行为。",
+        "en": "Had consensual sexual activity with an adult outside a steady romantic relationship."
+      }
+    },
+    {
+      "id": "experience-045",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "与通过网络认识的成年人自愿发生过性行为。",
+        "en": "Had consensual sexual activity with an adult I met online."
+      }
+    },
+    {
+      "id": "experience-046",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "与成年伴侣在旅行期间自愿发生过性行为。",
+        "en": "Had consensual sexual activity with an adult partner while travelling."
+      }
+    },
+    {
+      "id": "experience-047",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "与成年伴侣在自己家以外的私人住所自愿发生过性行为。",
+        "en": "Had consensual sexual activity with an adult partner in a private home other than my own."
+      }
+    },
+    {
+      "id": "experience-048",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "与成年伴侣在酒店私人房间内自愿发生过性行为。",
+        "en": "Had consensual sexual activity with an adult partner in a private hotel room."
+      }
+    },
+    {
+      "id": "experience-049",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "在亲密接触后与伴侣讨论过彼此感受。",
+        "en": "Discussed feelings with a partner after intimate contact."
+      }
+    },
+    {
+      "id": "experience-050",
+      "category": {
+        "zh": "亲密经历",
+        "en": "Intimacy"
+      },
+      "label": {
+        "zh": "与成年伴侣在充分同意下使用过情趣用品。",
+        "en": "Used a sex toy with an adult partner by mutual consent."
+      }
+    },
+    {
+      "id": "experience-051",
+      "category": {
+        "zh": "成人媒体与隐私",
+        "en": "Adult media and privacy"
+      },
+      "label": {
+        "zh": "主动看过只面向成年人的性内容。",
+        "en": "Intentionally viewed sexual material intended only for adults."
+      }
+    },
+    {
+      "id": "experience-052",
+      "category": {
+        "zh": "成人媒体与隐私",
+        "en": "Adult media and privacy"
+      },
+      "label": {
+        "zh": "主动读过成人情色文学。",
+        "en": "Intentionally read erotic literature for adults."
+      }
+    },
+    {
+      "id": "experience-053",
+      "category": {
+        "zh": "成人媒体与隐私",
+        "en": "Adult media and privacy"
+      },
+      "label": {
+        "zh": "和成年伴侣谈过性幻想。",
+        "en": "Discussed sexual fantasies with an adult partner."
+      }
+    },
+    {
+      "id": "experience-054",
+      "category": {
+        "zh": "成人媒体与隐私",
+        "en": "Adult media and privacy"
+      },
+      "label": {
+        "zh": "与成年人在双方同意下进行过情色文字交流。",
+        "en": "Exchanged sexual text messages with another adult by mutual consent."
+      }
+    },
+    {
+      "id": "experience-055",
+      "category": {
+        "zh": "成人媒体与隐私",
+        "en": "Adult media and privacy"
+      },
+      "label": {
+        "zh": "与成年人在双方同意下进行过亲密语音交流。",
+        "en": "Had an intimate voice conversation with another adult by mutual consent."
+      }
+    },
+    {
+      "id": "experience-056",
+      "category": {
+        "zh": "成人媒体与隐私",
+        "en": "Adult media and privacy"
+      },
+      "label": {
+        "zh": "在确认对方愿意接收后，发送过自己的成人私密照片。",
+        "en": "Sent my own intimate adult photo after confirming the recipient wanted it."
+      }
+    },
+    {
+      "id": "experience-057",
+      "category": {
+        "zh": "成人媒体与隐私",
+        "en": "Adult media and privacy"
+      },
+      "label": {
+        "zh": "在自己明确愿意的情况下接收过成年人的私密照片。",
+        "en": "Received an adult's intimate photo after explicitly agreeing to receive it."
+      }
+    },
+    {
+      "id": "experience-058",
+      "category": {
+        "zh": "成人媒体与隐私",
+        "en": "Adult media and privacy"
+      },
+      "label": {
+        "zh": "与伴侣约定过私密照片的保存或删除方式。",
+        "en": "Agreed with a partner how intimate photos would be kept or deleted."
+      }
+    },
+    {
+      "id": "experience-059",
+      "category": {
+        "zh": "成人媒体与隐私",
+        "en": "Adult media and privacy"
+      },
+      "label": {
+        "zh": "参加过只对成年人开放的亲密关系主题活动。",
+        "en": "Attended a relationship or intimacy event open only to adults."
+      }
+    },
+    {
+      "id": "experience-060",
+      "category": {
+        "zh": "成人媒体与隐私",
+        "en": "Adult media and privacy"
+      },
+      "label": {
+        "zh": "与成年人共同讨论并实践过自愿的角色扮演。",
+        "en": "Discussed and tried consensual role-play with another adult."
+      }
+    },
+    {
+      "id": "experience-061",
+      "category": {
+        "zh": "酒精与物质经历",
+        "en": "Alcohol and substance experiences"
+      },
+      "label": {
+        "zh": "喝过含酒精的饮品。",
+        "en": "Consumed an alcoholic drink."
+      }
+    },
+    {
+      "id": "experience-062",
+      "category": {
+        "zh": "酒精与物质经历",
+        "en": "Alcohol and substance experiences"
+      },
+      "label": {
+        "zh": "在餐厅点过含酒精饮品。",
+        "en": "Ordered an alcoholic drink in a restaurant."
+      }
+    },
+    {
+      "id": "experience-063",
+      "category": {
+        "zh": "酒精与物质经历",
+        "en": "Alcohol and substance experiences"
+      },
+      "label": {
+        "zh": "参加过以饮酒为内容的聚会游戏。",
+        "en": "Taken part in a party game involving alcohol."
+      }
+    },
+    {
+      "id": "experience-064",
+      "category": {
+        "zh": "酒精与物质经历",
+        "en": "Alcohol and substance experiences"
+      },
+      "label": {
+        "zh": "在一次聚会中喝过不止一种酒。",
+        "en": "Consumed more than one kind of alcohol at a gathering."
+      }
+    },
+    {
+      "id": "experience-065",
+      "category": {
+        "zh": "酒精与物质经历",
+        "en": "Alcohol and substance experiences"
+      },
+      "label": {
+        "zh": "曾因饮酒而明显失去平时的协调能力。",
+        "en": "Experienced noticeably impaired coordination after drinking."
+      }
+    },
+    {
+      "id": "experience-066",
+      "category": {
+        "zh": "酒精与物质经历",
+        "en": "Alcohol and substance experiences"
+      },
+      "label": {
+        "zh": "曾在饮酒后第二天感到宿醉不适。",
+        "en": "Experienced a hangover the day after drinking."
+      }
+    },
+    {
+      "id": "experience-067",
+      "category": {
+        "zh": "酒精与物质经历",
+        "en": "Alcohol and substance experiences"
+      },
+      "label": {
+        "zh": "曾因饮酒而呕吐。",
+        "en": "Vomited after drinking alcohol."
+      }
+    },
+    {
+      "id": "experience-068",
+      "category": {
+        "zh": "酒精与物质经历",
+        "en": "Alcohol and substance experiences"
+      },
+      "label": {
+        "zh": "曾记不起一段饮酒后的经历。",
+        "en": "Been unable to remember part of a drinking occasion."
+      }
+    },
+    {
+      "id": "experience-069",
+      "category": {
+        "zh": "酒精与物质经历",
+        "en": "Alcohol and substance experiences"
+      },
+      "label": {
+        "zh": "曾在原本不打算喝酒的日子里喝酒。",
+        "en": "Drunk alcohol on a day I had not planned to drink."
+      }
+    },
+    {
+      "id": "experience-070",
+      "category": {
+        "zh": "酒精与物质经历",
+        "en": "Alcohol and substance experiences"
+      },
+      "label": {
+        "zh": "曾为了不让别人知道而隐瞒自己喝过酒。",
+        "en": "Hidden from someone that I had been drinking."
+      }
+    },
+    {
+      "id": "experience-071",
+      "category": {
+        "zh": "酒精与物质经历",
+        "en": "Alcohol and substance experiences"
+      },
+      "label": {
+        "zh": "主动吸过卷烟。",
+        "en": "Intentionally smoked a cigarette."
+      }
+    },
+    {
+      "id": "experience-072",
+      "category": {
+        "zh": "酒精与物质经历",
+        "en": "Alcohol and substance experiences"
+      },
+      "label": {
+        "zh": "主动使用过电子烟。",
+        "en": "Intentionally used an e-cigarette."
+      }
+    },
+    {
+      "id": "experience-073",
+      "category": {
+        "zh": "酒精与物质经历",
+        "en": "Alcohol and substance experiences"
+      },
+      "label": {
+        "zh": "主动吸过雪茄或烟斗。",
+        "en": "Intentionally smoked a cigar or pipe."
+      }
+    },
+    {
+      "id": "experience-074",
+      "category": {
+        "zh": "酒精与物质经历",
+        "en": "Alcohol and substance experiences"
+      },
+      "label": {
+        "zh": "主动使用过含尼古丁的口含产品。",
+        "en": "Intentionally used an oral nicotine product."
+      }
+    },
+    {
+      "id": "experience-075",
+      "category": {
+        "zh": "酒精与物质经历",
+        "en": "Alcohol and substance experiences"
+      },
+      "label": {
+        "zh": "在娱乐目的下使用过大麻。",
+        "en": "Used cannabis for recreational purposes."
+      }
+    },
+    {
+      "id": "experience-076",
+      "category": {
+        "zh": "酒精与物质经历",
+        "en": "Alcohol and substance experiences"
+      },
+      "label": {
+        "zh": "在娱乐目的下食用过含大麻的食品。",
+        "en": "Consumed a cannabis edible for recreational purposes."
+      }
+    },
+    {
+      "id": "experience-077",
+      "category": {
+        "zh": "酒精与物质经历",
+        "en": "Alcohol and substance experiences"
+      },
+      "label": {
+        "zh": "在非医疗目的下服用过处方药。",
+        "en": "Taken a prescription medicine for a nonmedical purpose."
+      }
+    },
+    {
+      "id": "experience-078",
+      "category": {
+        "zh": "酒精与物质经历",
+        "en": "Alcohol and substance experiences"
+      },
+      "label": {
+        "zh": "在非医疗目的下使用过兴奋类药物。",
+        "en": "Used a stimulant drug for a nonmedical purpose."
+      }
+    },
+    {
+      "id": "experience-079",
+      "category": {
+        "zh": "酒精与物质经历",
+        "en": "Alcohol and substance experiences"
+      },
+      "label": {
+        "zh": "在非医疗目的下使用过致幻物质。",
+        "en": "Used a hallucinogenic substance for a nonmedical purpose."
+      }
+    },
+    {
+      "id": "experience-080",
+      "category": {
+        "zh": "酒精与物质经历",
+        "en": "Alcohol and substance experiences"
+      },
+      "label": {
+        "zh": "曾在使用酒精或其他物质后为自己的行为后悔。",
+        "en": "Regretted an action after using alcohol or another substance."
+      }
+    },
+    {
+      "id": "experience-081",
+      "category": {
+        "zh": "规则与公共经历",
+        "en": "Rules and public experiences"
+      },
+      "label": {
+        "zh": "曾未经允许进入限制进入的地点。",
+        "en": "Entered a restricted place without permission."
+      }
+    },
+    {
+      "id": "experience-082",
+      "category": {
+        "zh": "规则与公共经历",
+        "en": "Rules and public experiences"
+      },
+      "label": {
+        "zh": "曾未经付款拿走商店商品。",
+        "en": "Taken merchandise from a shop without paying."
+      }
+    },
+    {
+      "id": "experience-083",
+      "category": {
+        "zh": "规则与公共经历",
+        "en": "Rules and public experiences"
+      },
+      "label": {
+        "zh": "曾故意损坏不属于自己的物品。",
+        "en": "Deliberately damaged property that was not mine."
+      }
+    },
+    {
+      "id": "experience-084",
+      "category": {
+        "zh": "规则与公共经历",
+        "en": "Rules and public experiences"
+      },
+      "label": {
+        "zh": "曾因自己的行为被警察询问。",
+        "en": "Been questioned by police about my own conduct."
+      }
+    },
+    {
+      "id": "experience-085",
+      "category": {
+        "zh": "规则与公共经历",
+        "en": "Rules and public experiences"
+      },
+      "label": {
+        "zh": "曾因自己的行为收到罚单。",
+        "en": "Received a citation for my own conduct."
+      }
+    },
+    {
+      "id": "experience-086",
+      "category": {
+        "zh": "规则与公共经历",
+        "en": "Rules and public experiences"
+      },
+      "label": {
+        "zh": "曾被逮捕或拘留。",
+        "en": "Been arrested or detained."
+      }
+    },
+    {
+      "id": "experience-087",
+      "category": {
+        "zh": "规则与公共经历",
+        "en": "Rules and public experiences"
+      },
+      "label": {
+        "zh": "曾被法院判定犯有刑事罪行。",
+        "en": "Been convicted of a criminal offence by a court."
+      }
+    },
+    {
+      "id": "experience-088",
+      "category": {
+        "zh": "规则与公共经历",
+        "en": "Rules and public experiences"
+      },
+      "label": {
+        "zh": "曾在监禁场所服刑。",
+        "en": "Served a custodial sentence."
+      }
+    },
+    {
+      "id": "experience-089",
+      "category": {
+        "zh": "规则与公共经历",
+        "en": "Rules and public experiences"
+      },
+      "label": {
+        "zh": "曾明知不符合入场条件仍使用不实身份资料入场。",
+        "en": "Used false identity details to enter a venue whose requirements I did not meet."
+      }
+    },
+    {
+      "id": "experience-090",
+      "category": {
+        "zh": "规则与公共经历",
+        "en": "Rules and public experiences"
+      },
+      "label": {
+        "zh": "曾在被明确要求离开后继续留在私人场所。",
+        "en": "Stayed on private premises after being explicitly asked to leave."
+      }
+    },
+    {
+      "id": "experience-091",
+      "category": {
+        "zh": "学业与诚实",
+        "en": "Study and honesty"
+      },
+      "label": {
+        "zh": "曾在考试中使用未经允许的资料。",
+        "en": "Used unauthorized material during an examination."
+      }
+    },
+    {
+      "id": "experience-092",
+      "category": {
+        "zh": "学业与诚实",
+        "en": "Study and honesty"
+      },
+      "label": {
+        "zh": "曾把别人的作业当成自己的提交。",
+        "en": "Submitted someone else's assignment as my own."
+      }
+    },
+    {
+      "id": "experience-093",
+      "category": {
+        "zh": "学业与诚实",
+        "en": "Study and honesty"
+      },
+      "label": {
+        "zh": "曾在写作中故意隐瞒借用他人文字的来源。",
+        "en": "Intentionally omitted the source of borrowed writing."
+      }
+    },
+    {
+      "id": "experience-094",
+      "category": {
+        "zh": "学业与诚实",
+        "en": "Study and honesty"
+      },
+      "label": {
+        "zh": "曾伪造过出勤记录。",
+        "en": "Falsified an attendance record."
+      }
+    },
+    {
+      "id": "experience-095",
+      "category": {
+        "zh": "学业与诚实",
+        "en": "Study and honesty"
+      },
+      "label": {
+        "zh": "曾向老师虚构缺席理由。",
+        "en": "Invented a reason for an absence to a teacher."
+      }
+    },
+    {
+      "id": "experience-096",
+      "category": {
+        "zh": "学业与诚实",
+        "en": "Study and honesty"
+      },
+      "label": {
+        "zh": "曾收到学校的正式纪律处分。",
+        "en": "Received formal disciplinary action from a school."
+      }
+    },
+    {
+      "id": "experience-097",
+      "category": {
+        "zh": "学业与诚实",
+        "en": "Study and honesty"
+      },
+      "label": {
+        "zh": "曾在未经允许的情况下更改正式记录。",
+        "en": "Altered an official record without permission."
+      }
+    },
+    {
+      "id": "experience-098",
+      "category": {
+        "zh": "学业与诚实",
+        "en": "Study and honesty"
+      },
+      "label": {
+        "zh": "曾为逃避后果而把自己的错误归咎于别人。",
+        "en": "Blamed someone else for my own mistake to avoid consequences."
+      }
+    },
+    {
+      "id": "experience-099",
+      "category": {
+        "zh": "学业与诚实",
+        "en": "Study and honesty"
+      },
+      "label": {
+        "zh": "曾在承诺保密后仍泄露别人的秘密。",
+        "en": "Disclosed another person's secret after promising confidentiality."
+      }
+    },
+    {
+      "id": "experience-100",
+      "category": {
+        "zh": "学业与诚实",
+        "en": "Study and honesty"
+      },
+      "label": {
+        "zh": "曾为了个人利益隐瞒本应说明的重要事实。",
+        "en": "Withheld an important fact I should have disclosed for personal gain."
+      }
+    }
+  ],
+  "score": "100 - checkedCount; each checkbox 1; unchecked means no OR prefer not to answer; do not label unchecked as answered. No completeness percentage inferred from checkedCount.",
+  "questionSource": "Independently authored 100-item adult experience checklist inspired by the general self-graded Rice Purity format. No competitor wording, sequence or explanation collection reproduced. Explicitly not the classic/original/official question set.",
+  "implementation": [
+    "Grouped single page, 100 items; mobile sticky checked count and score",
+    "Checkbox toggle reversible; clear all with bounded confirmation; all unchecked valid score100",
+    "Before reveal explicitly acknowledge skip and no score equivalence",
+    "No raw IDs, selected categories or selected answers in analytics/URL/OG",
+    "Optional local progress only if real delete, version migration and no server transmission verified",
+    "Result image contains score, checked count, independent version identity, public entrance only",
+    "No percentile, average, purity morality, sexual health diagnosis or partner compatibility conclusion"
+  ],
+  "seo": {
+    "en": {
+      "title": "Rice Purity Test — 100-Item Experience Checklist | FermatMind",
+      "h1": "Rice Purity Test: 100-Item Experience Checklist",
+      "description": "Explore an independent 100-item adult experience checklist. Get a transparent 0–100 score, review or clear your selections, and save a score-only image.",
+      "versionNote": "An independently written checklist inspired by the Rice Purity format. It is not the classic original question set and scores are not directly comparable across versions."
+    },
+    "zh": {
+      "title": "纯洁度测试（Rice Purity）：100项经历清单｜费马测试",
+      "h1": "纯洁度测试（Rice Purity）：100项经历清单",
+      "description": "一份独立创作的100项成人经历清单。勾选后查看可复算的0—100分，随时修改或清空选择，保存不包含逐题答案的结果图片。",
+      "versionNote": "本清单沿用Rice Purity的自评形式，题目为独立创作，并非经典原版；不同版本的分数不能直接比较。"
+    }
+  },
+  "warning": {
+    "zh": "仅限成年人。包含性、酒精及物质、法律经历；不想回答的项目可以不勾选。不勾选与未经历在计算上相同，不能因此推断你的完整经历。分数不评价道德、健康或个人价值，也不是需要完成的挑战。",
+    "en": "For adults only. Includes sexual, alcohol/substance and legal experiences. Leave any item unchecked if you prefer not to answer. Skipping and not having an experience count the same, so the score cannot describe your full history. It is not a judgment of character, health or worth, or a challenge to complete."
+  }
+}

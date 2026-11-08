@@ -3894,6 +3894,15 @@
         "poet",
         "king"
       ]
+    },
+    {
+      "slug": "rice-purity-test",
+      "collection": "explore",
+      "code": "RICE_EXPERIENCE_100",
+      "formCode": "fm_original_experience100_v1",
+      "resultSlugs": [
+        "score-reading"
+      ]
     }
   ],
   "legacy": [
