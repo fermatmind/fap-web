@@ -9,6 +9,10 @@
   min-height: 80vh;
   padding: 30px 0 90px;
 }
+html[lang="zh-TW"] .catalog-workspace,
+html[lang="zh-TW"] .catalog-workspace .assessment-art svg {
+  font-family: inherit;
+}
 .catalog-container {
   max-width: 1280px;
   padding: 0 40px;
