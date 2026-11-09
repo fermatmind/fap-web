@@ -222,8 +222,8 @@ import { leadershipLandingSummary } from "./LeadershipLandingEditorial";
 import { communicationLandingSummary } from "./CommunicationLandingEditorial";
 import { attachmentLandingSummary } from "./AttachmentLandingEditorial";
 import { loveLanguagesLandingSummary } from "./LoveLanguagesLandingEditorial";
-import { temperamentLandingSummary } from "./TemperamentLandingEditorial";
-import { introvertExtrovertLandingSummary } from "./IntrovertExtrovertLandingEditorial";
+import { temperamentCurrentEntryCopy, temperamentLandingSummary } from "./TemperamentLandingEditorial";
+import { introvertExtrovertCurrentEntryCopy, introvertExtrovertLandingSummary } from "./IntrovertExtrovertLandingEditorial";
 import { jungianArchetypeCurrentEntryCopy, jungianArchetypeLandingSummary } from "./JungianArchetypeLandingEditorial";
 import { moralAlignmentCurrentEntryCopy, moralAlignmentLandingSummary } from "./MoralAlignmentLandingEditorial";
 import { responseColorLandingSummary, responseColorCurrentEntryCopy } from "./ResponseColorLandingEditorial";
@@ -867,7 +867,13 @@ return null;
   const flowerPrivacyAnswer = zh
     ? "答案在浏览器计算。当前答题页不提供进度保存；刷新、切换语言或离开后会从头开始。重测开启新的作答，不保留历史个人报告。复制分享只含花名与公开测试或说明链接，不包含答案或计数。"
     : "Answers are evaluated in your browser. This question page does not save progress; refreshing, changing language or leaving it starts over. Retaking starts a new attempt without keeping a history of personal reports. Copying shares only flower names and a public test or guide link, without answers or counts.";
+  const currentEntryCopy = (text: string) => {
+    if (slug === "introvert-extrovert") return introvertExtrovertCurrentEntryCopy(text, locale);
+    if (slug === "temperament") return temperamentCurrentEntryCopy(text, locale);
+    return text;
+  };
   const renderCopy = (text: string) => {
+    text = currentEntryCopy(text);
     if (slug === "bleach") text = bleachCurrentEntryCopy(text, locale);
     if (slug === "response-color") text = responseColorCurrentEntryCopy(text, locale);
     if (slug === "moral-alignment") text = moralAlignmentCurrentEntryCopy(text, locale);
@@ -2424,7 +2430,7 @@ if (quiz.kind === "saps") return !["saps-source", "saps-scoring", "saps-administ
 if (quiz.kind === "scs26") return !["scs-method", "scs-missing", "scs-boundary"].includes(section.id);
 if (quiz.kind === "cbi") return !["source-scoring", "missing-and-context", "support-and-source"].includes(section.id);
 return !["rosenberg-scoring", "rosenberg-reading", "rosenberg-source", "practice-scoring", "practice-reading", "practice-limits", "compass-counts", "compass-ties", "raw-wins-explanation", "ties-explanation", "low-direction-explanation", "facet-scoring", "facet-reading", "facet-comparison", "archetype-counts", "archetype-ties", "archetype-metaphor", "two-axes", "display-bands", "worked-examples", "meaning-limits", "optimism-scoring", "optimism-source", "extraversion-scoring", "extraversion-bands", "extraversion-reading", "affection-scoring", "affection-roles", "affection-reading", "attachment-context", "attachment-scoring", "attachment-reading"].includes(section.id);
-})())).map(section => <section key={section.id} className="explore-reading-section"><h3>{slug === "response-color" ? responseColorCurrentEntryCopy(section.title[locale], locale) : section.title[locale]}</h3><div>{section.paragraphs.map((text, index) => <p key={index}>{renderCopy(text[locale])}</p>)}</div></section>)}</div></section>}
+})())).map(section => <section key={section.id} className="explore-reading-section"><h3>{slug === "response-color" ? responseColorCurrentEntryCopy(section.title[locale], locale) : currentEntryCopy(section.title[locale])}</h3><div>{section.paragraphs.map((text, index) => <p key={index}>{renderCopy(text[locale])}</p>)}</div></section>)}</div></section>}
     {quiz.kind === "tipi10" && <Tipi10Attribution locale={locale} />}
     {visibleReferences.length ? <section className="my-8 leading-8" aria-labelledby="questionnaire-references"><h2 id="questionnaire-references" className="text-xl font-semibold">{hasInlineReferences ? (zh ? "参考文献与来源说明" : "References and source notes") : (zh ? "背景与来源范围" : "Background and source scope")}</h2><ul className="mt-3 list-disc pl-5">{visibleReferences.map(reference => <li key={reference.url} id={hasInlineReferences ? `${referencePrefix}-reference-${pageReferences.indexOf(reference) + 1}` : undefined}><a className="underline" href={reference.url}>{hasInlineReferences ? `[${pageReferences.indexOf(reference) + 1}] ` : ""}{reference.title[locale]}</a></li>)}</ul>{referenceNote && <p className="mt-3 text-sm text-slate-600">{referenceNote}</p>}</section> : null}
     {quiz.slug === "people-pleaser" && <QuestionnairePpsAttribution locale={locale} />}

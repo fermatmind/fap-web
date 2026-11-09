@@ -106,11 +106,22 @@ describe("T013 public-domain IPIP BFM ten-item Extraversion reflection", () => {
       const result = scoreExtraversionQuestionnaire(quiz, all("3")); if (result.status !== "complete") throw new Error("Invalid witness");
       const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireExtraversionReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale={locale} />);
       expect(dom.querySelectorAll("[data-extraversion-match]")).toHaveLength(2); expect(dom.querySelectorAll("h4")).toHaveLength(24);
+      const guideLinks = (root: HTMLElement) => Array.from(root.querySelectorAll<HTMLAnchorElement>('a[href*="/results/"]'));
+      const checkGuides = (links: HTMLAnchorElement[]) => {
+        for (const guide of links) {
+          expect(guide.target).toBe("_blank");
+          expect(guide.rel).toContain("noopener");
+          expect(guide.textContent).toContain(locale === "zh" ? "（新标签页）" : " (new tab)");
+        }
+      };
+      const matchedLinks = guideLinks(dom);
+      expect(matchedLinks).toHaveLength(2);
+      checkGuides(matchedLinks);
       const htmlIds = Array.from(dom.querySelectorAll("[id]"), e => e.id); expect(new Set(htmlIds).size).toBe(htmlIds.length);
       const missing = scoreExtraversionQuestionnaire(quiz, all("na")); if (missing.status !== "complete") throw new Error("Invalid missing witness");
       dom.innerHTML = renderToStaticMarkup(<QuestionnaireExtraversionReport quiz={prepareQuestionnaireResultReadings(quiz)} result={missing} locale={locale} />);
       expect(dom.querySelectorAll("[data-extraversion-score], [data-extraversion-match]")).toHaveLength(0);
-      expect(dom.querySelectorAll("a")).toHaveLength(4); expect(dom.querySelector("[data-extraversion-insufficient]")).toBeTruthy();
+      expect(dom.querySelectorAll("a")).toHaveLength(4); checkGuides(guideLinks(dom)); expect(dom.querySelector("[data-extraversion-insufficient]")).toBeTruthy();
     }
   });
 

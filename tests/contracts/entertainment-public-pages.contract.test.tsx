@@ -1,4 +1,6 @@
 import { additionalStoryEditorials } from "@/components/entertainment/AdditionalStoryEditorials";
+import { introvertExtrovertCurrentEntryCopy } from "@/components/questionnaires/IntrovertExtrovertLandingEditorial";
+import { temperamentCurrentEntryCopy } from "@/components/questionnaires/TemperamentLandingEditorial";
 import { jungianArchetypeCurrentEntryCopy } from "@/components/questionnaires/JungianArchetypeLandingEditorial";
 import { moralAlignmentCurrentEntryCopy } from "@/components/questionnaires/MoralAlignmentLandingEditorial";
 import { responseColorCurrentEntryCopy } from "@/components/questionnaires/ResponseColorLandingEditorial";
@@ -35,7 +37,9 @@ describe("complete bilingual entertainment entry rendering", () => {
             expect(dom.textContent).toContain(faq.question[locale]);
             const answer = quiz.slug === "response-color" ? responseColorCurrentEntryCopy(faq.answer[locale], locale)
               : quiz.slug === "moral-alignment" ? moralAlignmentCurrentEntryCopy(faq.answer[locale], locale)
-              : quiz.slug === "jungian-archetype" ? jungianArchetypeCurrentEntryCopy(faq.answer[locale], locale) : faq.answer[locale];
+              : quiz.slug === "jungian-archetype" ? jungianArchetypeCurrentEntryCopy(faq.answer[locale], locale)
+              : quiz.slug === "introvert-extrovert" ? introvertExtrovertCurrentEntryCopy(faq.answer[locale], locale)
+              : quiz.slug === "temperament" ? temperamentCurrentEntryCopy(faq.answer[locale], locale) : faq.answer[locale];
             expect(dom.textContent).toContain(answer);
           }
           for (const profile of authored.profiles) {

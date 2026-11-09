@@ -10,3 +10,15 @@ const summaries: Record<string, { zh: string; en: string }> = {
 export function introvertExtrovertLandingSummary(profile: QuestionnaireProfile, locale: "zh" | "en") {
   return summaries[profile.id]?.[locale] ?? profile.summary[locale];
 }
+
+export function introvertExtrovertCurrentEntryCopy(text: string, locale: "zh" | "en") {
+  return locale === "zh"
+    ? text
+      .replace("重测、草稿与个人答案", "重测与分享")
+      .replace("默认不保存；主动开启时只保留本标签页24小时草稿，完成、清除或重测即删除。", "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+      .replace("草稿默认关闭，仅主动开启保留本标签页24小时，完成、清除或重测即删。", "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+    : text
+      .replace("Retests, drafts and personal answers", "Retaking and sharing")
+      .replace("Saving is off by default; an optional 24-hour tab draft is deleted on completion, clearing or retaking.", "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.")
+      .replace("Draft saving is off by default; if enabled it lasts 24 hours in this tab and is deleted on completion, clearing or retaking.", "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.");
+}

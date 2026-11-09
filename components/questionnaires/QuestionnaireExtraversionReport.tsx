@@ -7,10 +7,11 @@ import type { Locale } from "@/lib/i18n/locales";
 
 export function QuestionnaireExtraversionReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<ExtraversionResult, { status: "complete" }>; locale: Locale }) {
   const zh = locale === "zh";
+  const newTabLabel = zh ? "（新标签页）" : " (new tab)";
   if (result.total === null || result.mean === null) return <section className="my-6 space-y-4 rounded-lg bg-slate-50 p-4" data-extraversion-insufficient>
     <h3 className="text-xl font-semibold">{zh ? "资料不足，未生成分数或个人分区" : "Insufficient information: no score or personal band"}</h3>
     <p className="leading-8">{zh ? `本次有${result.rated}项有效评分，需要十项全部有效才能计分。暂不作答或无法判断不补成零分或中间值。可以重新测试，也可以直接阅读下面四份公开说明。` : `${result.rated} of ten items have ratings. All ten are required for scoring. An unscored response is never replaced by zero or a midpoint. You can retake the test or read any of the four public guides below.`}</p>
-    <ul>{quiz.profiles.map(profile => <li key={profile.id}><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{profile.title[locale]}</Link></li>)}</ul>
+    <ul>{quiz.profiles.map(profile => <li key={profile.id}><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)} target="_blank" rel="noopener">{profile.title[locale]}{newTabLabel}</Link></li>)}</ul>
   </section>;
   return <div className="my-6 space-y-8">
     <section className="space-y-4 rounded-xl border border-indigo-200 bg-indigo-50/60 p-4 sm:p-6" aria-label={zh ? "本次外向性原始分数" : "Raw extraversion scores for this attempt"} data-extraversion-score>
@@ -33,7 +34,7 @@ export function QuestionnaireExtraversionReport({ quiz, result, locale }: { quiz
       return <section key={id} aria-labelledby={`extraversion-title-${id}`} data-extraversion-match={id} className="rounded-lg border border-slate-200 p-4 sm:p-6">
         <h3 id={`extraversion-title-${id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
         <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${id}`} mode="result" previewSectionIds={["meaning", "everyday", "experiment"]} />
-        <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "阅读这项结果的公开说明" : "Read this result’s public guide"}</Link>
+        <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)} target="_blank" rel="noopener">{zh ? "阅读这项结果的公开说明" : "Read this result’s public guide"}{newTabLabel}</Link>
       </section>;
     })}
   </div>;

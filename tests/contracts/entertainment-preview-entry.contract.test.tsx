@@ -5,6 +5,8 @@ import { ExploreTestEntry } from "@/components/tests/ExploreTestEntry";
 import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
 import { deluluResultSections } from "@/lib/questionnaires/result-content/delulu";
 import { bleachCurrentEntryCopy } from "@/components/questionnaires/BleachLandingEditorial";
+import { introvertExtrovertCurrentEntryCopy } from "@/components/questionnaires/IntrovertExtrovertLandingEditorial";
+import { temperamentCurrentEntryCopy } from "@/components/questionnaires/TemperamentLandingEditorial";
 import { jungianArchetypeCurrentEntryCopy } from "@/components/questionnaires/JungianArchetypeLandingEditorial";
 import { moralAlignmentCurrentEntryCopy } from "@/components/questionnaires/MoralAlignmentLandingEditorial";
 import { responseColorCurrentEntryCopy } from "@/components/questionnaires/ResponseColorLandingEditorial";
@@ -64,7 +66,9 @@ describe("entertainment preview entry", () => {
           const normalize = (s: string) => s.replace(/\[[1-3]\]/g, "").replace(/\s+/g, " ").trim();
           const expected = item.slug === "bleach" ? bleachCurrentEntryCopy(paragraph[locale], locale) : item.slug === "response-color" ? responseColorCurrentEntryCopy(paragraph[locale], locale)
             : item.slug === "moral-alignment" ? moralAlignmentCurrentEntryCopy(paragraph[locale], locale)
-            : item.slug === "jungian-archetype" ? jungianArchetypeCurrentEntryCopy(paragraph[locale], locale) : paragraph[locale];
+            : item.slug === "jungian-archetype" ? jungianArchetypeCurrentEntryCopy(paragraph[locale], locale)
+            : item.slug === "introvert-extrovert" ? introvertExtrovertCurrentEntryCopy(paragraph[locale], locale)
+            : item.slug === "temperament" ? temperamentCurrentEntryCopy(paragraph[locale], locale) : paragraph[locale];
           if (!normalize(dom.textContent ?? "").includes(normalize(expected))) omitted.push(`${item.slug}:${locale}:${section.id}`);
         }
         if (item.slug === "moral-alignment" || item.slug === "jungian-archetype") {

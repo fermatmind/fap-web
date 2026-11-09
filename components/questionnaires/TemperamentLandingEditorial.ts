@@ -10,3 +10,15 @@ const summaries: Record<string, { zh: string; en: string }> = {
 export function temperamentLandingSummary(profile: QuestionnaireProfile, locale: "zh" | "en") {
   return summaries[profile.id]?.[locale] ?? profile.summary[locale];
 }
+
+export function temperamentCurrentEntryCopy(text: string, locale: "zh" | "en") {
+  return locale === "zh"
+    ? text
+      .replace("作答时间、完整免费、保存与重测", "作答时间、免费内容与重测")
+      .replace("默认不保存；主动选择临时保存后，可在本标签页24小时内恢复。完成、退出清除或重测会删除草稿。", "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+      .replace("默认不保存，答案仅在浏览器内计分。主动临时保存可在本标签页24小时内恢复，完成、退出清除或重测会删除。", "答案在浏览器内计分。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+    : text
+      .replace("Timing, full free access, saving and retaking", "Timing, free access and retaking")
+      .replace("Saving is off by default. Optional temporary saving permits restoration in this tab for 24 hours; completion, clearing on exit or retaking deletes the draft.", "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.")
+      .replace("Saving is off by default and answers are scored in the browser. Optional temporary saving permits restoration in this tab for 24 hours; completion, clearing on exit or retaking deletes the draft.", "Answers are scored in your browser. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.");
+}
