@@ -1676,8 +1676,8 @@
     {
       "id": "privacy",
       "title": {
-        "zh": "作答、保存与分享：完整免费范围",
-        "en": "Answers, saving and sharing: what is free"
+        "zh": "作答与分享：完整免费范围",
+        "en": "Answers and sharing: what is free"
       },
       "paragraphs": [
         {
@@ -1685,8 +1685,8 @@
           "en": "All 20 questions, four counts and four full guides are free, without email, birthday, an account or prior MBTI completion. Start test opens the questions directly. Answers are scored in the browser, without upload through a scoring request or placement in URLs or analytics events. Non-answer usage events remain governed by privacy and cookie settings."
         },
         {
-          "zh": "默认不保存答案。主动保存后才在本标签页提供24小时内的恢复；完成、重测或退出清除会移除进度。公开分享链接只打开通用主题说明，不带你的私人答案或次数。可以直接阅读并结束本次探索，后续测试需要另行作答。",
-          "en": "Answers are not saved by default. Opt-in saving enables recovery in this tab for up to 24 hours; completion, retaking or exiting with clearing removes progress. Public sharing links open general theme guides without private answers or counts. You may read and stop here; another test requires separate answers."
+          "zh": "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。公开分享链接只打开通用主题说明，不带你的私人答案或次数。可以直接阅读并结束本次探索，后续测试需要另行作答。",
+          "en": "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. Public sharing links open general theme guides without private answers or counts. You may read and stop here; another test requires separate answers."
         }
       ]
     }
@@ -1828,8 +1828,8 @@
         "en": "Are answers uploaded, saved or shared with others?"
       },
       "answer": {
-        "zh": "答案在浏览器计分，不通过计分请求上传，也不进入网址或分析事件。只有主动保存才在本标签页提供24小时恢复，完成、重测或退出清除后删除。分享链接只指向公开指南；不含答案的使用事件以隐私与Cookie设置为准。",
-        "en": "Answers are scored in the browser, without scoring-request uploads or placement in URLs or analytics events. Optional saving allows recovery in this tab for 24 hours, cleared on completion, retake or exiting with clearing. Shared links open public guides; non-answer events follow privacy and cookie settings."
+        "zh": "答案在浏览器计分，不通过计分请求上传，也不进入网址或分析事件。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。分享链接只指向公开指南；不含答案的使用事件以隐私与Cookie设置为准。",
+        "en": "Answers are scored in the browser, without scoring-request uploads or placement in URLs or analytics events. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. Shared links open public guides; non-answer events follow privacy and cookie settings."
       }
     }
   ],

@@ -22,3 +22,15 @@ const summaries: Record<string, { zh: string; en: string }> = {
 export function hogwartsLandingSummary(profile: QuestionnaireProfile, locale: "zh" | "en") {
   return summaries[profile.id]?.[locale] ?? profile.summary[locale];
 }
+
+export function hogwartsCurrentEntryCopy(text: string, locale: "zh" | "en") {
+  return locale === "zh"
+    ? text
+      .replace("直接开始、隐私、草稿与可选分享", "直接开始、隐私与可选分享")
+      .replace("默认不保存答案；主动保存的草稿仅在当前标签页保留最多24小时，完成、退出清除或重测即删除。", "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+      .replace("浏览器内计分，答案不写进网址或分析事件，默认不保存。主动保存的草稿仅本标签页可恢复、最多24小时，完成、退出清除或重测即删除。", "答案在浏览器内计分，不写进网址或分析事件。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+    : text
+      .replace("Direct start, privacy, drafts and optional sharing", "Direct start, privacy and optional sharing")
+      .replace("Answers are not saved by default. An explicitly saved draft stays in the current tab for up to 24 hours and clears on completion, exit-and-clear or retake.", "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.")
+      .replace("Answers are scored in your browser, enter neither URLs nor analytics and are not saved by default. Opt-in drafts can be resumed only in this tab for up to 24 hours and clear on completion, exit-and-clear or retake.", "Answers are scored in your browser and enter neither URLs nor analytics. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.");
+}

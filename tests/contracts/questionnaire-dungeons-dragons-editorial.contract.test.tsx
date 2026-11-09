@@ -37,6 +37,8 @@ describe("individual twelve-class editorial", () => {
       expect(body).toContain("This work includes material from the System Reference Document 5.2.1");
       expect(body).toContain("https://creativecommons.org/licenses/by/4.0/legalcode");
       for (const section of quiz.guide) for (const paragraph of section.paragraphs) expect(body).toContain(normalize(paragraph[locale]));
+      expect(body).toContain(locale === "zh" ? "这份测试不保存答题进度" : "This quiz does not save your progress");
+      expect(body).not.toMatch(/24小时|24 hours|opt-in tab progress|optional tab progress/i);
       for (const citation of dom.querySelectorAll<HTMLAnchorElement>(".disc-source-citation")) expect(dom.querySelector(citation.getAttribute("href")!)).not.toBeNull();
       expect(dom.querySelector('a[href="#dungeons-dragons-class-reference-4"]')).not.toBeNull();
       expect(body).toContain(locale === "zh" ? "1、0、2、2、2、2、2、2、1、4、2、4" : "1, 0, 2, 2, 2, 2, 2, 2, 1, 4, 2, 4");

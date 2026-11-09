@@ -2476,8 +2476,8 @@
     {
       "id": "past-life-access-privacy",
       "title": {
-        "zh": "免费范围、保存与分享",
-        "en": "Free access, saving and sharing"
+        "zh": "免费范围与分享",
+        "en": "Free access and sharing"
       },
       "paragraphs": [
         {
@@ -2485,8 +2485,8 @@
           "en": "The 24 questions, eight counts, every highest tie and all eight full guides are free. No account, birthday or prior assessment is needed. Start test opens the questions directly. Fixed public guides do not contain your private answers, and reading them first does not change addition or tie rules. About seven minutes is a reading-and-choice estimate, not a time limit."
         },
         {
-          "zh": "答案在当前浏览器计算，不通过计分请求上传服务器，也不写入网址或分析事件。默认不保存；主动保存后，本标签页可在24小时内恢复，完成、退出清除或重测会删除进度。网站可能另记录不含答案的开始、完成等使用事件，以隐私与Cookie设置为准。分享时可以只谈一个感兴趣的活动，并让对方自行选择是否参与，不拿角色替朋友解释经历。",
-          "en": "Answers are scored in the current browser, not uploaded through a scoring request or included in URLs or analytics events. Nothing is saved by default. If you choose to save, this tab can restore progress for 24 hours; completion, explicit exit-and-clear or retesting removes it. The website may separately record answer-free usage events such as starting or completing, subject to privacy and Cookie settings. Share an interesting activity if you wish, let others decide whether to participate, and do not use a role to explain a friend’s experiences."
+          "zh": "答案在当前浏览器计算，不通过计分请求上传服务器，也不写入网址或分析事件。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。网站可能另记录不含答案的开始、完成等使用事件，以隐私与Cookie设置为准。分享时可以只谈一个感兴趣的活动，并让对方自行选择是否参与，不拿角色替朋友解释经历。",
+          "en": "Answers are scored in the current browser, not uploaded through a scoring request or included in URLs or analytics events. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. The website may separately record answer-free usage events such as starting or completing, subject to privacy and Cookie settings. Share an interesting activity if you wish, let others decide whether to participate, and do not use a role to explain a friend’s experiences."
         }
       ]
     }
@@ -2628,8 +2628,8 @@
         "en": "Are my answers saved or sent to someone else?"
       },
       "answer": {
-        "zh": "计分在浏览器完成，答案不通过计分请求上传、不写入网址或分析事件。默认不保存；主动保存后仅在本标签页保留24小时，完成、退出清除或重测删除。固定公开指南不包含个人作答，网站使用事件另以隐私与Cookie设置为准。",
-        "en": "Scoring runs in the browser. Answers are not uploaded through a scoring request or included in URLs or analytics events. They are unsaved by default; opt-in progress lasts 24 hours in this tab and is removed on completion, explicit clearing or retesting. Fixed public guides contain no individual answers. Separate usage events follow privacy and Cookie settings."
+        "zh": "计分在浏览器完成，答案不通过计分请求上传、不写入网址或分析事件。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。固定公开指南不包含个人作答，网站使用事件另以隐私与Cookie设置为准。",
+        "en": "Scoring runs in the browser. Answers are not uploaded through a scoring request or included in URLs or analytics events. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. Fixed public guides contain no individual answers. Separate usage events follow privacy and Cookie settings."
       }
     }
   ],

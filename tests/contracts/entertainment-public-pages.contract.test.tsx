@@ -8,6 +8,8 @@ import { aestheticCurrentEntryCopy } from "@/components/questionnaires/Aesthetic
 import { peoplePleaserCurrentEntryCopy } from "@/components/questionnaires/PeoplePleaserLandingEditorial";
 import { likableCurrentEntryCopy } from "@/components/questionnaires/LikableLandingEditorial";
 import { learningCurrentEntryCopy } from "@/components/questionnaires/LearningLandingEditorial";
+import { dereCurrentEntryCopy } from "@/components/questionnaires/DereLandingEditorial";
+import { hogwartsCurrentEntryCopy } from "@/components/questionnaires/HogwartsLandingEditorial";
 import { strengthsCurrentEntryCopy } from "@/components/questionnaires/StrengthsLandingEditorial";
 import { procrastinationCurrentEntryCopy } from "@/components/questionnaires/ProcrastinationLandingEditorial";
 import { frictionCurrentEntryCopy } from "@/components/questionnaires/FrictionLandingEditorial";
@@ -67,7 +69,9 @@ describe("complete bilingual entertainment entry rendering", () => {
               : quiz.slug === "likable-person-test" ? likableCurrentEntryCopy(faq.answer[locale], locale)
               : quiz.slug === "procrastinator-type-test" ? procrastinationCurrentEntryCopy(faq.answer[locale], locale)
               : quiz.slug === "learning-style" ? learningCurrentEntryCopy(faq.answer[locale], locale)
-              : quiz.slug === "character-strengths" ? strengthsCurrentEntryCopy(faq.answer[locale], locale) : faq.answer[locale];
+              : quiz.slug === "character-strengths" ? strengthsCurrentEntryCopy(faq.answer[locale], locale)
+              : quiz.slug === "tsundere-dere-type" ? dereCurrentEntryCopy(faq.answer[locale], locale)
+              : quiz.slug === "hogwarts-house-quiz" ? hogwartsCurrentEntryCopy(faq.answer[locale], locale) : faq.answer[locale];
             expect(dom.textContent).toContain(answer);
           }
           for (const profile of authored.profiles) {

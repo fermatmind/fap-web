@@ -3,7 +3,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import raw from "@/lib/questionnaires/data/tsundere-dere-type.json";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import catalog from "@/lib/questionnaires/catalog.json";
-import { dereLandingSummary } from "@/components/questionnaires/DereLandingEditorial";
+import { dereCurrentEntryCopy, dereLandingSummary } from "@/components/questionnaires/DereLandingEditorial";
 vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
 const quiz = raw as Questionnaire;
 
@@ -22,7 +22,9 @@ describe("individual dere cultural expression editorial", () => {
       expect(dom.querySelectorAll('[aria-labelledby="questionnaire-faq"] > section')).toHaveLength(14);
       const normalize = (text: string) => text.replace(/\[\d+\]/g, "").replace(/\s+/g, " ").trim();
       const body = normalize(dom.textContent ?? "");
-      for (const section of quiz.guide) for (const paragraph of section.paragraphs) expect(body).toContain(normalize(paragraph[locale]));
+      for (const section of quiz.guide) for (const paragraph of section.paragraphs) expect(body).toContain(normalize(dereCurrentEntryCopy(paragraph[locale], locale)));
+      expect(body).toContain(locale === "zh" ? "这份测试不保存答题进度" : "This quiz does not save your progress");
+      expect(body).not.toMatch(/24小时|24 hours|24-hour|自愿保存|optional saving|privacy, drafts/i);
       for (const citation of dom.querySelectorAll<HTMLAnchorElement>(".disc-source-citation")) expect(dom.querySelector(citation.getAttribute("href")!)).not.toBeNull();
       expect(dom.querySelector('a[href="#tsundere-dere-type-reference-3"]')).not.toBeNull();
       expect(body).toContain(locale === "zh" ? "5、5、5、1" : "5, 5, 5, 1");

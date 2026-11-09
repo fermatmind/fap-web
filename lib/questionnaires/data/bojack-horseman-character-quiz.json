@@ -1835,8 +1835,8 @@
     {
       "id": "bojack-free-privacy",
       "title": {
-        "zh": "免费结果、直接开始与答案保存",
-        "en": "Free results, direct start and saving answers"
+        "zh": "免费结果、直接开始与分享",
+        "en": "Free results, direct start and sharing"
       },
       "paragraphs": [
         {
@@ -1844,8 +1844,8 @@
           "en": "All 20 questions, five counts, every highest tie and five full guides are free, without signup, email or a prior assessment. Start test opens questions directly with no second agreement step. About six minutes is a reading-and-choice estimate. Reading public guides first does not change counting rules or reveal anyone’s private answers."
         },
         {
-          "zh": "答案在当前浏览器计分，不通过计分请求上传服务器、不进入网址或分析事件。默认不保存；主动保存后本标签页可在24小时内恢复，完成、退出清除或重测会删除进度。网站可能另记录不含答案的开始、完成等使用事件，以隐私与Cookie设置为准。分享公开指南时，可以只谈具体主题，不必公开私人经历。",
-          "en": "Answers are scored in the current browser, not uploaded through scoring requests or included in URLs or analytics events. They are unsaved by default. Opt-in progress can be restored in this tab for 24 hours and clears on completion, explicit exit-and-clear or retesting. Separate answer-free start or completion events may be recorded under privacy and Cookie settings. Sharing a public guide can stay with a specific theme without revealing private experiences."
+          "zh": "答案在当前浏览器计分，不通过计分请求上传服务器、不进入网址或分析事件。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。网站可能另记录不含答案的开始、完成等使用事件，以隐私与Cookie设置为准。分享公开指南时，可以只谈具体主题，不必公开私人经历。",
+          "en": "Answers are scored in the current browser, not uploaded through scoring requests or included in URLs or analytics events. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. Separate answer-free start or completion events may be recorded under privacy and Cookie settings. Sharing a public guide can stay with a specific theme without revealing private experiences."
         }
       ]
     }
@@ -1987,8 +1987,8 @@
         "en": "Where are answers saved, and what happens on retesting or sharing?"
       },
       "answer": {
-        "zh": "浏览器内计分，答案不通过计分请求上传、不进入网址或分析事件。默认不保存；主动保存后本标签页保留24小时，完成、退出清除或重测删除。固定公开指南不含私人答案，其他使用事件以隐私与Cookie设置为准。",
-        "en": "Scoring runs in the browser; answers are not uploaded through scoring requests or included in URLs or analytics events. They are unsaved by default; opt-in tab progress lasts 24 hours and clears on completion, explicit exit-and-clear or retesting. Fixed public guides contain no private answers; separate usage events follow privacy and Cookie settings."
+        "zh": "浏览器内计分，答案不通过计分请求上传、不进入网址或分析事件。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。固定公开指南不含私人答案，其他使用事件以隐私与Cookie设置为准。",
+        "en": "Scoring runs in the browser; answers are not uploaded through scoring requests or included in URLs or analytics events. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. Fixed public guides contain no private answers; separate usage events follow privacy and Cookie settings."
       }
     }
   ],

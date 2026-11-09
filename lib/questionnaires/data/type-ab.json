@@ -2146,8 +2146,8 @@
           "en": "All 20 selections, four means or insufficient-information states and four full guides are free without signup or another test. Start opens questions directly without an extra agreement. About five minutes is an estimate, not a limit. NA is available on each item; all 20 still need a selection before results appear."
         },
         {
-          "zh": "答案在浏览器内计分，不通过计分请求上传，也不写入网址或分析事件。默认不保存；主动保存后本标签页进度24小时失效，完成、重测或退出清除后删除。固定公开指南不含私人答卷或均分；其他使用事件依隐私与Cookie设置。",
-          "en": "Answers are scored in the browser, not uploaded through scoring requests or included in URLs or analytics events. Progress is unsaved by default; opt-in tab progress expires after 24 hours and clears on completion, retake or explicit exit-and-clear. Fixed public guides contain no private answers or means; other usage events follow privacy and Cookie settings."
+          "zh": "答案在浏览器内计分，不通过计分请求上传，也不写入网址或分析事件。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。固定公开指南不含私人答卷或均分；其他使用事件依隐私与Cookie设置。",
+          "en": "Answers are scored in the browser, not uploaded through scoring requests or included in URLs or analytics events. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. Fixed public guides contain no private answers or means; other usage events follow privacy and Cookie settings."
         }
       ]
     }
@@ -2289,8 +2289,8 @@
         "en": "Are answers uploaded, saved or shared?"
       },
       "answer": {
-        "zh": "浏览器内计分，答案不进入计分上传、网址或分析事件。可选本标签页进度24小时失效，完成、重测或退出清除后删除。公开指南不含私人答卷或均分，其他使用事件依隐私设置。",
-        "en": "Scoring runs in the browser; answers are not included in scoring uploads, URLs or analytics events. Optional tab progress expires after 24 hours and clears on completion, retake or exit-and-clear. Public guides contain no private answers or means; other usage events follow privacy settings."
+        "zh": "浏览器内计分，答案不进入计分上传、网址或分析事件。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。公开指南不含私人答卷或均分，其他使用事件依隐私设置。",
+        "en": "Scoring runs in the browser; answers are not included in scoring uploads, URLs or analytics events. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. Public guides contain no private answers or means; other usage events follow privacy settings."
       }
     }
   ],

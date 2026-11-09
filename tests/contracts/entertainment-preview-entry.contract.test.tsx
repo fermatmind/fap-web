@@ -14,6 +14,8 @@ import { aestheticCurrentEntryCopy } from "@/components/questionnaires/Aesthetic
 import { peoplePleaserCurrentEntryCopy } from "@/components/questionnaires/PeoplePleaserLandingEditorial";
 import { likableCurrentEntryCopy } from "@/components/questionnaires/LikableLandingEditorial";
 import { learningCurrentEntryCopy } from "@/components/questionnaires/LearningLandingEditorial";
+import { dereCurrentEntryCopy } from "@/components/questionnaires/DereLandingEditorial";
+import { hogwartsCurrentEntryCopy } from "@/components/questionnaires/HogwartsLandingEditorial";
 import { strengthsCurrentEntryCopy } from "@/components/questionnaires/StrengthsLandingEditorial";
 import { procrastinationCurrentEntryCopy } from "@/components/questionnaires/ProcrastinationLandingEditorial";
 import { frictionCurrentEntryCopy } from "@/components/questionnaires/FrictionLandingEditorial";
@@ -96,7 +98,9 @@ describe("entertainment preview entry", () => {
             : item.slug === "likable-person-test" ? likableCurrentEntryCopy(paragraph[locale], locale)
             : item.slug === "procrastinator-type-test" ? procrastinationCurrentEntryCopy(paragraph[locale], locale)
             : item.slug === "learning-style" ? learningCurrentEntryCopy(paragraph[locale], locale)
-            : item.slug === "character-strengths" ? strengthsCurrentEntryCopy(paragraph[locale], locale) : paragraph[locale];
+            : item.slug === "character-strengths" ? strengthsCurrentEntryCopy(paragraph[locale], locale)
+            : item.slug === "tsundere-dere-type" ? dereCurrentEntryCopy(paragraph[locale], locale)
+            : item.slug === "hogwarts-house-quiz" ? hogwartsCurrentEntryCopy(paragraph[locale], locale) : paragraph[locale];
           if (!normalize(dom.textContent ?? "").includes(normalize(expected))) omitted.push(`${item.slug}:${locale}:${section.id}`);
         }
         if (item.slug === "moral-alignment" || item.slug === "jungian-archetype") {

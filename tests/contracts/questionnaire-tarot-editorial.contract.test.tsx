@@ -25,6 +25,8 @@ describe("individual 22-card tarot symbolic preference editorial", () => {
       const normalize = (text: string) => text.replace(/\[\d+\]/g, "").replace(/\s+/g, " ").trim();
       const body = normalize(dom.textContent ?? "");
       for (const section of quiz.guide) for (const paragraph of section.paragraphs) expect(body).toContain(normalize(paragraph[locale]));
+      expect(body).toContain(locale === "zh" ? "这份测试不保存答题进度" : "This quiz does not save your progress");
+      expect(body).not.toMatch(/24小时|24 hours|optional drafts|optional saving/i);
       for (const citation of dom.querySelectorAll<HTMLAnchorElement>(".disc-source-citation")) expect(dom.querySelector(citation.getAttribute("href")!)).not.toBeNull();
       expect(dom.querySelector('a[href="#which-tarot-card-are-you-reference-2"]')).not.toBeNull();
       expect(body).toContain(locale === "zh" ? "全部22张牌并列最高" : "all 22 tied highest");

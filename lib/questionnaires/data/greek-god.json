@@ -1912,8 +1912,8 @@
     {
       "id": "privacy",
       "title": {
-        "zh": "直接开始、浏览器计分与可选草稿",
-        "en": "Direct start, browser scoring and optional drafts"
+        "zh": "直接开始、浏览器计分与分享",
+        "en": "Direct start, browser scoring and sharing"
       },
       "paragraphs": [
         {
@@ -1921,8 +1921,8 @@
           "en": "Start test opens questions directly, without registration or another agreement checkbox. Answers are scored in your browser and enter neither URLs nor analytics events. The site may record answer-free usage events such as starts and completions, subject to privacy and Cookie settings."
         },
         {
-          "zh": "默认不保存答案；主动保存的草稿只在当前标签页恢复，最多24小时，完成、重测或退出清除即删除。分享自愿，公开链接没有个人答案或次数；其他测评需要另行作答，神祇结果不换算MBTI、大五人格、健康或职业结论。",
-          "en": "Answers are not saved by default. An explicitly saved draft can resume only in this tab for up to 24 hours and clears on completion, retake or exit-and-clear. Sharing is optional, and public links contain no personal answers or counts. Other assessments need new responses; gods do not convert to MBTI, Big Five, health or career conclusions."
+          "zh": "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。分享自愿，公开链接没有个人答案或次数；其他测评需要另行作答，神祇结果不换算MBTI、大五人格、健康或职业结论。",
+          "en": "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. Sharing is optional, and public links contain no personal answers or counts. Other assessments need new responses; gods do not convert to MBTI, Big Five, health or career conclusions."
         }
       ]
     }
@@ -2064,8 +2064,8 @@
         "en": "Where are answers scored, saved or shared?"
       },
       "answer": {
-        "zh": "浏览器内计分，答案不写进网址或分析事件，默认不保存。主动保存的草稿仅本标签页可恢复、最多24小时，完成、重测或退出清除即删除。分享自愿，公开指南没有个人答案或次数。",
-        "en": "Scoring happens in your browser; answers enter neither URLs nor analytics and are not saved by default. Opt-in drafts resume only in this tab for up to 24 hours and clear on completion, retake or exit-and-clear. Sharing is optional; public guides contain no personal answers or counts."
+        "zh": "浏览器内计分，答案不写进网址或分析事件。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。分享自愿，公开指南没有个人答案或次数。",
+        "en": "Scoring happens in your browser. Answers enter neither URLs nor analytics. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. Sharing is optional; public guides contain no personal answers or counts."
       }
     }
   ],

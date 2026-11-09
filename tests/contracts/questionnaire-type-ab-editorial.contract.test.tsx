@@ -35,6 +35,8 @@ describe("individual A/B behaviour editorial", () => {
       expect(dom.querySelectorAll('[aria-labelledby="questionnaire-faq"] > section')).toHaveLength(14);
       for (const section of quiz.guide) for (const paragraph of section.paragraphs) expect(body).toContain(normalize(paragraph[locale]));
       for (const profile of quiz.profiles) expect(body).toContain(profile.summary[locale]);
+      expect(body).toContain(locale === "zh" ? "这份测试不保存答题进度" : "This quiz does not save your progress");
+      expect(body).not.toMatch(/24小时|24 hours|opt-in tab progress|optional tab progress/i);
       for (const citation of dom.querySelectorAll<HTMLAnchorElement>(".disc-source-citation")) expect(dom.querySelector(citation.getAttribute("href")!)).not.toBeNull();
       expect(dom.querySelector('a[href="#type-ab-reference-3"]')).not.toBeNull();
       expect(body).toContain("3.3");

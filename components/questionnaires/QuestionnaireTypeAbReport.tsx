@@ -16,7 +16,7 @@ export function QuestionnaireTypeAbReport({ quiz, result, locale }: { quiz: Ques
       {(() => { const facet = result.facets[profile.directionIds[0]], mean = facet.mean; return <p className="mb-5 text-lg font-semibold tabular-nums">{zh ? "本次均分：" : "Your mean: "}{mean === null ? (zh ? "资料不足" : "Insufficient information") : `${mean.toFixed(1)} / 5`}</p>; })()}
 
       <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} mode="result" previewSectionIds={["meaning", "worked-example", "observation"]} />
-      <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一部分的公开说明" : "Read this part’s public guide"}</Link>
+      <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)} target="_blank" rel="noopener">{zh ? "阅读这一部分的公开说明（新标签页）" : "Read this part’s public guide (new tab)"}</Link>
     </section>)}
 
     <details className="border-t border-slate-200 pt-4" data-result-reading-method>
